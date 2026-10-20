@@ -1,0 +1,258 @@
+<style>
+#m-living .btn{min-height:40px}
+#m-living .lvtabs{display:flex;flex-wrap:wrap;gap:8px}
+#m-living .lvpanel{display:flex;flex-direction:column;gap:16px}
+#m-living .lvpanel[hidden]{display:none}
+#m-living .lvpanel h4.lvh{font-family:var(--display);font-weight:800;font-size:21px;line-height:1.2;margin:4px 0 0}
+#m-living .mbars{display:flex;flex-direction:column;gap:10px;max-width:640px}
+#m-living .mbar{display:grid;grid-template-columns:minmax(0,13em) minmax(0,1fr) 4.2em;gap:10px;align-items:center;font-size:14.5px}
+#m-living .mbar .bar{height:12px}
+#m-living .mbar b{font:600 13px var(--mono);text-align:right}
+@media (max-width:560px){ #m-living .mbar{grid-template-columns:minmax(0,1fr) 4.2em} #m-living .mbar .bar{grid-column:1 / -1;grid-row:2} }
+#m-living .tbl table{min-width:680px}
+#m-living .cards .card .tag{align-self:flex-start;white-space:normal}
+#m-living .lvlink{text-decoration:none;display:inline-flex;align-items:center}
+</style>
+<!-- ================= 4.1 LIVING WITH ALS ================= -->
+<section class="mod" id="m-living" data-mod="living" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Living &amp; the future</p><h2>Living with ALS</h2>
+    <p class="lede">How people with ALS keep communicating as speech and hand use change, from natural speech to brain-computer interfaces, and what studies and guidelines report on thinking, mood, everyday life, planning, the end of life and the people who give care. Press Play, or pick a step. This is a summary of published work, not advice for any one person.</p></div>
+
+  <h3 class="sub">Communication over the course</h3>
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lvSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Seven ways of communicating over the course of ALS, from natural speech through voice banking, letter boards, typing to speech, eye-gaze and locked-in states to research brain-computer interfaces, with bars for speech, hand use and eye movement that change as the course moves on"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">Play</button><label class="stage-cap tl" for="lvT">Course <input type="range" id="lvT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Schematic. The bars show the general direction described in studies, not measured values, and the order and timing differ from person to person.</p></div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Life with ALS, topic by topic</h3>
+  <p class="lede">Choose a topic. Each one reports what published studies, guidelines and official registries say.</p>
+  <div class="lvtabs" id="lvTabs" role="group" aria-label="Topics">
+    <button class="btn" data-lt="cog" aria-pressed="true">Thinking and behaviour</button>
+    <button class="btn" data-lt="mood" aria-pressed="false">Mood and quality of life</button>
+    <button class="btn" data-lt="sym" aria-pressed="false">Symptoms in brief</button>
+    <button class="btn" data-lt="prac" aria-pressed="false">Driving, work, home, pregnancy</button>
+    <button class="btn" data-lt="plan" aria-pressed="false">Planning ahead and palliative care</button>
+    <button class="btn" data-lt="eol" aria-pressed="false">End of life</button>
+    <button class="btn" data-lt="ad" aria-pressed="false">Assisted dying: law and data</button>
+    <button class="btn" data-lt="care" aria-pressed="false">Caregivers</button>
+    <button class="btn" data-lt="cost" aria-pressed="false">Costs</button>
+  </div>
+
+  <!-- ---------- cognition and behaviour ---------- -->
+  <div class="lvpanel" data-lp="cog" role="region" aria-label="Thinking and behaviour">
+    <div class="cards">
+      <div class="card"><h4>How common it is</h4>
+        <p>In a population-based Irish cohort of 160 people with newly diagnosed ALS, 13.8% met criteria for frontotemporal dementia (FTD). Another 34.1% of those without dementia met consensus criteria for cognitive impairment, and 46.9% had no detectable cognitive abnormality. [[Phukan2012]]</p>
+        <p>In the Piemonte (Italy) population-based series of 183 people, 49.7% were cognitively normal and 12.6% had ALS-FTD. The authors read this as about half having some cognitive impairment. [[Montuschi2015]]</p>
+        <p>The 2017 revised criteria describe a spectrum, ALS-frontotemporal spectrum disorder (ALS-FTSD), and state that deficits affect "over 50%" of people with ALS. [[Strong2017]]</p>
+        <span class="tag warn">Measurement debate</span>
+        <p>The figures depend on the criteria and tests used, so they are not directly comparable between studies. [[Phukan2012,Montuschi2015,Strong2017]]</p></div>
+      <div class="card"><h4>Why it matters for survival</h4>
+        <p>In the Irish cohort, FTD was associated with shorter survival (HR 2.67, 95% CI 1.04-6.85). In people without dementia, executive dysfunction independently predicted shorter survival (HR 3.44, 95% CI 1.45-8.18). [[Elamin2011]]</p>
+        <p>In a Torino cohort of 128 people, 32.0% had neurobehavioural dysfunction on the family-rated FrSBe. Median survival was 3.3 years with dysfunction and 4.3 years without. [[Chio2012]]</p>
+        <span class="tag warn">Studies disagree</span>
+        <p>An Irish population-based study of 317 people found no association between behavioural category and survival (P = 0.198). [[Burke2017]]</p></div>
+      <div class="card"><h4>Which behaviours change</h4>
+        <p>On the Beaumont Behavioural Inventory (317 people), 57% had no behavioural change, 30% mild-moderate change and 13% clinically severe change. The most frequent items were reduced concern for hygiene (36.8%), irritability (36.2%), new unusual habits (33.4%) and increased apathy (31.1%). [[Burke2017]]</p>
+        <p>On the FrSBe (225 people with sporadic ALS), 39.6% had impairment in at least one domain, and apathy was the most common (31.1%). [[Witgert2010]]</p>
+        <p>So apathy is the commonest change on one scale (FrSBe) but ranks fourth by item frequency on another (BBI). The answer depends on the instrument. [[Witgert2010,Burke2017]]</p>
+        <p>In a longitudinal study of 49 people, initiation apathy was the most common subtype at baseline (38.8%), and it increased over time. [[Radakovic2025]]</p></div>
+      <div class="card"><h4>Screening, as published</h4>
+        <p>The Edinburgh Cognitive and Behavioural ALS Screen (ECAS) takes 15-20 minutes and was designed for people with physical disability. Its ALS-Specific score covers executive function, social cognition, fluency and language; its ALS Non-specific score covers memory and visuospatial function; a carer interview covers five behavioural domains. [[Abrahams2014]]</p>
+        <p>NICE recommends exploring cognitive or behavioural change at diagnosis and when concern arises, and advises awareness that people with MND and FTD may lack mental capacity for some decisions. The AAN 2009 practice parameter says screening should be considered (Level B). [[NICE2016,Miller2009AANb]]</p></div>
+    </div>
+    <div class="hook"><b>Exam hook</b>About 14% met criteria for FTD at diagnosis in the Irish population cohort, and up to about half of people with ALS show some cognitive or behavioural change. [[Phukan2012,Montuschi2015,Strong2017]]</div>
+    <div class="pt"><b>In plain words</b>ALS can change thinking and behaviour as well as muscles. Often the change is mild, and for many people there is none. Knowing about it helps families and teams plan and share decisions.</div>
+
+    <h4 class="lvh">How the original ECAS cut-offs classify scores</h4>
+    <div class="lab even">
+      <div class="stage">
+        <div class="ctrls"><label class="stage-cap tl" for="lvSpec">ALS-Specific score (0-100) <input type="range" id="lvSpec" min="0" max="100" step="1" value="84"></label></div>
+        <div class="ctrls"><label class="stage-cap tl" for="lvNon">ALS Non-specific score (0-36) <input type="range" id="lvNon" min="0" max="36" step="1" value="28"></label></div>
+        <div class="scroll"><svg id="lvEcSvg" viewBox="0 0 720 170" role="img" aria-label="Three bars for the ECAS ALS-Specific, ALS Non-specific and Total scores, each with a dashed line at its original published cut-off"></svg></div>
+        <p class="stage-cap">This shows how the cut-offs from the original ECAS study, derived from healthy controls, classify the numbers you set. It is not a diagnosis and says nothing about any one person; a screen is only one part of an assessment.</p>
+      </div>
+      <aside class="note" id="lvEcNote" aria-live="polite"></aside>
+    </div>
+  </div>
+
+  <!-- ---------- mood and quality of life ---------- -->
+  <div class="lvpanel" data-lp="mood" role="region" aria-label="Mood and quality of life" hidden>
+    <h4 class="lvh">Depression: the figure depends on the instrument</h4>
+    <div class="mbars">
+      <div class="mbar"><span>Beck Depression Inventory (BDI)</span><div class="bar"><i style="width:50%"></i></div><b>50%</b></div>
+      <div class="mbar"><span>Pooled, all instruments</span><div class="bar"><i style="width:34%"></i></div><b>34%</b></div>
+      <div class="mbar"><span>Patient Health Questionnaire (PHQ)</span><div class="bar"><i style="width:20%"></i></div><b>20%</b></div>
+      <div class="mbar"><span>Hospital Anxiety and Depression Scale (HADS)</span><div class="bar"><i style="width:15%"></i></div><b>15%</b></div>
+      <div class="mbar"><span>Structured interviews (DSM-IV)</span><div class="bar"><i style="width:10%"></i></div><b>9-11%</b></div>
+    </div>
+    <p class="stage-cap">Pooled prevalence 34% (95% CI 27-41%) from a 2021 meta-analysis of 46 studies, with the figures by instrument from the same analysis [[Heidari2021]]; structured-interview figure from a 2007 review [[Kurt2007]].</p>
+    <div class="cards">
+      <div class="card"><h4>Mood</h4>
+        <span class="tag warn">Measurement debate</span>
+        <p>Self-report scales with bodily (somatic) items, such as the BDI, give much higher depression figures than structured interviews or the HADS. The spread from about 10% to 50% reflects method as much as mood. [[Heidari2021,Kurt2007]]</p>
+        <p>In 80 hospice-eligible people with late-stage ALS interviewed monthly, 81% had no depressive disorder at baseline, 57% never had a depression diagnosis at any visit, and depression did not increase as death approached. [[Rabkin2005]]</p>
+        <p>In 433 people without dementia, clinically significant state anxiety was found in 18.2% and trait anxiety in 13.9%, driven mainly by depressive features and independent of motor status. [[Aiello2026]]</p></div>
+      <div class="card"><h4>Quality of life</h4>
+        <p>In 96 people with ALS, self-rated overall quality of life did not correlate with strength or physical function; it appeared to depend on psychological, existential and spiritual factors. [[Simmons2000]]</p>
+        <p>Followed over 6 months, quality of life was maintained as physical function declined. [[Robbins2001]]</p>
+        <p>In 80 consecutive people, perceived quality of social support was the most important explanatory variable, and physical status was not. [[Chio2004]]</p>
+        <p>In 19 people in a locked-in state who answered by eye-tracking, most reported a positive quality of life and no clinically relevant depression, and caregivers underestimated their well-being. [[KuzmaKozakiewicz2019]]</p>
+        <p>The "disability paradox" describes many people with serious disabilities reporting good quality of life; the original study was not specific to ALS. [[Albrecht1999]]</p></div>
+      <div class="card"><h4>Suicide risk</h4>
+        <p>In a Swedish population-based cohort of 6,642 people with ALS (1965-2004), suicide risk was almost six times that of the general population (SMR 5.8, 95% CI 3.6-8.8), with 21 suicides observed against 3.6 expected. Risk was highest in the first year after first hospitalisation (SMR 11.2). The study was published in Brain. [[Fang2008]]</p>
+        <p>In a Korean nationwide cohort of 2,955 people, 47 attempted suicide; 42.6% of attempts came within 3 months of diagnosis, and prior psychiatric hospitalisation was linked to about three times the risk (HR 3.17). [[Keun2023]]</p>
+        <p>Absolute numbers are small. Support is available through the person's care team.</p></div>
+    </div>
+    <div class="hook"><b>Exam hook</b>Quality of life in ALS is largely independent of physical function; it tracks psychological, existential and social factors. [[Simmons2000,Robbins2001,Chio2004]]</div>
+    <div class="pt"><b>In plain words</b>Many people with ALS say their life is still good, even as their body gets weaker. Support from others matters more to that than strength does.</div>
+  </div>
+
+  <!-- ---------- symptoms in brief ---------- -->
+  <div class="lvpanel" data-lp="sym" role="region" aria-label="Symptoms in brief" hidden>
+    <div class="prose">
+      <p>ALS brings symptoms beyond weakness, among them drooling or thick saliva, cramps, stiffness, crying or laughing that does not match mood (pseudobulbar affect), pain, poor sleep and constipation. Guidelines describe treatments for many of them.</p>
+      <p>The full symptom table, with the published treatments for each, is in the swallowing and feeding module, so it is kept in one place.</p>
+      <p><a class="btn lvlink" href="#nutrition" data-go="nutrition">Open the symptom table in Swallowing and feeding tubes</a></p>
+      <p>Breathlessness near the end of life, and its medicines, is covered under End of life on this page. Breathing tests and ventilation are in the Breathing and NIV module.</p>
+    </div>
+    <div class="pt"><b>In plain words</b>ALS causes many symptoms besides weakness. Most of them can be eased, and the care team looks for them at each visit.</div>
+  </div>
+
+  <!-- ---------- practical domains ---------- -->
+  <div class="lvpanel" data-lp="prac" role="region" aria-label="Driving, work, home and pregnancy" hidden>
+    <div class="cards">
+      <div class="card"><h4>Driving (UK rules as an example)</h4>
+        <p>In the UK a person with MND (also known as ALS) must notify the DVLA, and failing to report a condition that affects driving can bring a fine of up to GBP 1,000. Car and motorcycle (Group 1) drivers may continue as long as safe vehicle control is kept at all times, with a licence of 1, 2, 3 or 5 years that may require adapted controls. Bus and lorry (Group 2) licences are refused or revoked if the condition is progressive or disabling. [[DVLA2026]]</p>
+        <p>Driving rules differ widely between countries, and a 2026 review argues that cognitive, behavioural and breathing changes, not only weakness, affect driving safety. [[Kleinerova2026]]</p>
+        <p>In a small Norwegian study of 31 people, 61% were driving within 4 months of diagnosis, and baseline cognition did not predict who had stopped 4 months later. [[Taule2025]]</p></div>
+      <div class="card"><h4>Work, money and support</h4>
+        <p>NICE lists information to give at diagnosis, including social care support, employment rights, benefits and duties such as notifying the DVLA. Psychological and social support should include financial advice, support to keep engaging in work and hobbies, and respite care. [[NICE2016]]</p></div>
+      <div class="card"><h4>Home and equipment</h4>
+        <p>NICE recommends prompt assessment for funding of home adaptations, and joining up equipment such as communication aids and environmental controls with wheelchairs. [[NICE2016]]</p></div>
+      <div class="card"><h4>Pregnancy</h4>
+        <p>A systematic review found 38 published cases of ALS overlapping with pregnancy. Progression during pregnancy was rapid or severe in 55%, 95% completed the pregnancy with a live birth (preterm delivery was common) and 86% of newborns were healthy. These are case reports, open to publication bias. [[Hamad2023]]</p></div>
+      <div class="card"><h4>Multidisciplinary clinics</h4>
+        <p>In the Irish ALS register (1996-2000), people who attended the multidisciplinary clinic had median survival 7.5 months longer than those seen in general neurology clinics. [[Traynor2003]] Across Ireland and Northern Ireland (2005-2010), clinic attendance was associated with longer survival (HR 0.59, 95% CI 0.49-0.71). [[Rooney2015]]</p>
+        <span class="tag warn">Selection bias</span>
+        <p>The clinic group was about five years younger and more often took riluzole (99% vs 61%), so part of the gain may reflect who attends. [[Traynor2003]]</p>
+        <p>NICE recommends coordinated team assessments, usually every 2 to 3 months, and a face-to-face follow-up within 4 weeks of diagnosis. The AAN says referral to a multidisciplinary clinic should be considered (Level B). [[NICE2016,Miller2009AANb]]</p></div>
+    </div>
+    <div class="pt"><b>In plain words</b>Rules on driving, work support and home changes depend on the country. Care in a specialist team clinic is linked with living longer, though part of that may be who goes to such clinics.</div>
+  </div>
+
+  <!-- ---------- advance care planning and palliative care ---------- -->
+  <div class="lvpanel" data-lp="plan" role="region" aria-label="Planning ahead and palliative care" hidden>
+    <div class="cards">
+      <div class="card"><h4>A palliative approach from diagnosis</h4>
+        <p>A review of international guidelines states that optimal ALS care needs a palliative approach from diagnosis, and notes that late referral to palliative services is common. [[Bede2011]]</p>
+        <p>NICE: offer the chance to discuss end-of-life preferences at diagnosis, at a significant change in breathing, and when gastrostomy or NIV is needed, and be ready to discuss these whenever the person wishes. [[NICE2016]]</p></div>
+      <div class="card"><h4>What planning covers</h4>
+        <p>NICE lists how death may occur, anticipatory medicines at home, Advance Decisions to Refuse Treatment, DNACPR orders and Lasting Power of Attorney. It advises discussing these earlier if communication, cognition or capacity is expected to worsen. [[NICE2016]]</p>
+        <p>The EFNS 2012 guideline says advance directives should be discussed early, respecting social and cultural background. [[Andersen2012EFNS]] The EAN 2024 guideline adds invasive ventilation as part of planning (aiming to avoid emergency invasive ventilation), palliative sedation and withdrawal of treatment, and a recommendation to be prepared to discuss euthanasia and assisted suicide. [[VanDamme2024]]</p></div>
+      <div class="card"><h4>How often it happens</h4>
+        <p>A 2024 meta-analysis of 26 studies found signed advance directives in 60.4% of records, lower in 2012-2024 studies (42%) than in 1999-2011 studies (78%). [[Mangal2024]]</p>
+        <p>At one US academic ALS centre (513 people), 30% had any advance care planning document and 5.1% saw a palliative care physician. [[Takacs2022]]</p>
+        <p>In a Scottish national cohort, advance care planning (OR 3.94) and specialist palliative care input for 28 days or more (OR 2.66) were associated with dying outside hospital. [[Quail2025]]</p></div>
+      <div class="card"><h4>Decisions about tubes and ventilation</h4>
+        <p>NICE notes that some people will not want a gastrostomy, and advises explaining the benefits of early placement and the risks of late placement. It recommends regular chances to talk about continuing or withdrawing NIV. [[NICE2016]]</p>
+        <p>In an Australian service, 73% of 33 people recommended a gastrostomy accepted it, after decisions that took days to months. [[Labra2020]]</p></div>
+      <div class="card"><h4>Living longer</h4>
+        <p>In a population-based Lombardy cohort of 483 people, 76.2% were alive 1 year after diagnosis, 23.4% at 5 years and 11.8% at 10 years. Younger age, spinal onset, male sex and a less certain diagnostic category at diagnosis predicted longer survival. [[Pupillo2014]]</p></div>
+    </div>
+    <div class="hook"><b>Exam hook</b>NICE trigger points for end-of-life discussion: <b>diagnosis, a significant change in breathing, and when gastrostomy or NIV is needed</b>. [[NICE2016]]</div>
+    <div class="pt"><b>In plain words</b>Planning early, while speech and energy allow, keeps choices in the person's own hands.</div>
+  </div>
+
+  <!-- ---------- end of life ---------- -->
+  <div class="lvpanel" data-lp="eol" role="region" aria-label="End of life" hidden>
+    <div class="cards">
+      <div class="card"><h4>How people with ALS die</h4>
+        <p>In a study from Munich (relatives of 121 people) and a UK hospice (records of 50 people), most died peacefully (Germany 88%, UK 98%), and no patient choked to death. The commonest symptoms in the last 24 hours were breathlessness, coughing, anxiety and restlessness. About half died at home (55% and 52%). [[Neudert2001]]</p>
+        <p>In a French prospective study of 302 deaths, respiratory failure was the most frequent reported cause (77%), and 63% died in a medical facility. [[Gil2008]]</p>
+        <span class="tag warn">Records and autopsy differ</span>
+        <p>In 100 autopsies in Paris, clinical and pathological causes of death agreed in only 20%; pneumonia was the main cause at autopsy. [[Corcia2008]]</p></div>
+      <div class="card"><h4>Easing symptoms</h4>
+        <p>NICE advises considering opioids to relieve breathlessness, and benzodiazepines when anxiety makes breathlessness worse (both off-label in February 2016), with prompt access to anticipatory medicines, specialist palliative care and bereavement support for families. [[NICE2016]] The EAN 2024 guideline repeats these options. [[VanDamme2024]]</p>
+        <p>In a 6-person pilot in terminal ALS, morphine lowered breathing rate and breathlessness scores without a significant rise in CO<sub>2</sub>. [[Clemens2008]]</p>
+        <p>Morphine was used in the final phase in 27% (Germany) and 82% (UK) in the Neudert study. [[Neudert2001]]</p></div>
+      <div class="card"><h4>Stopping ventilation</h4>
+        <p>In a UK evaluation of 46 ventilation withdrawals (42 NIV, 4 tracheostomy), 43% took place at home and 48% in a hospice, and 89% received opioid or sedative medicine at the start. People on tracheostomy ventilation died within 30 minutes; after NIV withdrawal the most common time to death was 15 minutes (range under 15 minutes to 54 hours). [[Faull2022]]</p>
+        <p>In Denmark, 12 people on invasive home ventilation chose to withdraw it, under deep sedation. [[Dreyer2012]] In Italy, Law 219/2017 set out the right to request withdrawal of life-sustaining treatment including ventilation, and withdrawals increased afterwards. [[Moglia2023]]</p></div>
+      <div class="card"><h4>Tracheostomy ventilation</h4>
+        <p>In the Piemonte and Valle d'Aosta register (1995-2004), 10.6% of 1,260 people had a tracheostomy, with median survival of 253 days afterwards. [[Chio2010]]</p>
+        <p>In a Japanese multicentre registry (2006-2018), propensity-matched median survival was 11.33 years with tracheostomy ventilation and 4.61 years without. [[Hayashi2020]]</p>
+        <span class="tag warn">Countries differ</span>
+        <p>Rates and survival after tracheostomy differ between countries, partly for sociocultural reasons, and the studies are not directly comparable. [[Chio2010,Hayashi2020]]</p></div>
+      <div class="card"><h4>Place of death</h4>
+        <p>US death certificates for 30,066 MND deaths showed home deaths rising from 45.5% before COVID-19 to 54.4% during the pandemic. [[Raymond2026]]</p>
+        <p>Among 77 ventilated people in five European hospitals, 57% died at home; the authors argue the conditions of dying may matter more than the place. [[Escarrabill2014]]</p></div>
+    </div>
+    <div class="hook"><b>Exam hook</b>Neudert 2001: most people with ALS died peacefully and <b>none choked to death</b>. [[Neudert2001]]</div>
+    <div class="pt"><b>In plain words</b>The fear of choking at the end is common, but in the studies it did not happen. With good care, most people died peacefully, often at home.</div>
+  </div>
+
+  <!-- ---------- assisted dying ---------- -->
+  <div class="lvpanel" data-lp="ad" role="region" aria-label="Assisted dying: law and data" hidden>
+    <div class="callout"><p>This topic reports what laws and official registries record, with dates and places. It takes no position. Laws differ between jurisdictions and change over time, and the studies use different denominators. Anyone affected by these questions can find support through their care team.</p></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Jurisdiction</th><th>Practice as named in the source</th><th>Period</th><th>What was recorded for ALS</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><th>Netherlands</th><td>Euthanasia and physician-assisted suicide (PAS)</td><td>1994-1999</td><td>Of 203 people whose physicians responded, 17% died by euthanasia and 3% by PAS. Importance of religion was associated with less use.</td><td>[[Veldink2002]]</td></tr>
+        <tr><th>Netherlands</th><td>Euthanasia or PAS; continuous deep sedation</td><td>2000-2005</td><td>16.8% chose euthanasia or PAS (20.2% in 1994-1998), and 14.8% died during continuous deep sedation. Not associated with depressive symptoms.</td><td>[[Maessen2009]]</td></tr>
+        <tr><th>Netherlands</th><td>Euthanasia or PAS, reported to the review committees</td><td>2012-2020</td><td>1,014 of 4,130 ALS deaths (mean 25% a year).</td><td>[[vanEenennaam2023]]</td></tr>
+        <tr><th>Netherlands</th><td>Euthanasia, clinician survey</td><td>2014-2016</td><td>40% of 356 ALS deaths. Median survival from diagnosis was the same with and without euthanasia (15.9 vs 16.1 months).</td><td>[[vanEenennaam2023]]</td></tr>
+        <tr><th>Oregon, USA</th><td>Death with Dignity Act (physician-assisted death only)</td><td>2025; 1998-2025</td><td>ALS was the underlying illness in 30 of 400 deaths in 2025 (7.5%) and 260 of 3,691 across 1998-2025 (7.0%).</td><td>[[OHA2026]]</td></tr>
+        <tr><th>Canada, one Edmonton clinic</th><td>Medical assistance in dying (MAID)</td><td>2019-2024</td><td>55 of 255 people with ALS who died (21.6%). MAID deaths more often occurred at home (62% vs 35%).</td><td>[[Zhu2026]]</td></tr>
+        <tr><th>20 jurisdictions combined</th><td>Medical assistance in dying, as legal in each</td><td>1999-2023</td><td>2,967 of 17,631 ALS deaths (16.8%), the highest share of any condition (cancer 3.7%).</td><td>[[Heidinger2025]]</td></tr>
+      </tbody>
+    </table></div>
+    <div class="cards">
+      <div class="card"><h4>Reading these figures</h4>
+        <span class="tag warn">Different denominators</span>
+        <p>The Dutch figures run from 25% (all ALS deaths reported to the review committees) to 40% (a survey with a 49% clinician response rate). They measure different things. [[vanEenennaam2023]]</p>
+        <p>Oregon year totals are revised as late reports arrive: 2024 deaths were 376 in the 2024 report and 421 in the 2025 report. [[OHA2026]]</p>
+        <p>Canadian national figures are not shown here because they could not be checked against the original report.</p></div>
+      <div class="card"><h4>What guidelines say</h4>
+        <p>The EAN 2024 guideline adds a recommendation to be prepared to discuss euthanasia and assisted suicide. [[VanDamme2024]]</p>
+        <p>Across all conditions in Oregon, losing autonomy was the end-of-life concern reported most often (89.9%). [[OHA2026]]</p></div>
+    </div>
+  </div>
+
+  <!-- ---------- caregivers ---------- -->
+  <div class="lvpanel" data-lp="care" role="region" aria-label="Caregivers" hidden>
+    <div class="cards">
+      <div class="card"><h4>Who gives care, and how much</h4>
+        <p>In an Irish cohort of 81 family caregivers, 70% were women, 72% were spouses or partners and 83% lived with the person with ALS. They gave an average of 47 hours of care a week (median 26.5). [[Galvin2016]]</p>
+        <p>In a 1997 US survey, primary caregivers spent a median of 11 hours a day caring even with home care in place. [[Krivickas1997]]</p></div>
+      <div class="card"><h4>Burden</h4>
+        <p>The mean Zarit Burden Interview score in the Irish cohort was 27.1 (SD 14.7), and 52% were in the high-burden range (24 or more). Burden was linked with hours of care, lower quality of life and psychological distress. [[Galvin2016]]</p>
+        <p>In 140 Australian caregivers, 48% had high burden, and the person's behaviour change predicted it more strongly than physical disability. [[Lillo2012]] A 2018 systematic review found high-quality evidence linking burden to behavioural impairment. [[deWit2018]]</p>
+        <span class="tag warn">Studies disagree</span>
+        <p>In 60 Italian caregiver-patient pairs, burden rose with worsening disability. The studies used different instruments and populations. [[Chio2005]]</p></div>
+      <div class="card"><h4>After a death, and children</h4>
+        <p>Of 16 spousal carers interviewed 1-4 years after the death, 6 met criteria for prolonged grief disorder; those 6 had accessed palliative care at a later stage. [[Aoun2012]]</p>
+        <p>Children aged 7-18 with a close relative with ALS showed more negative affect and hyperactivity than controls, and research on this group is scarce. [[Testoni2023]]</p></div>
+    </div>
+    <div class="hook"><b>Exam hook</b>Galvin 2016: caregivers gave a mean <b>47 hours a week</b>, and 52% scored in the high-burden range on the Zarit interview. [[Galvin2016]]</div>
+    <div class="pt"><b>In plain words</b>Caring for someone with ALS takes many hours, and changes in behaviour weigh on carers even more than physical needs do.</div>
+  </div>
+
+  <!-- ---------- costs ---------- -->
+  <div class="lvpanel" data-lp="cost" role="region" aria-label="Costs" hidden>
+    <div class="tbl"><table>
+      <thead><tr><th>Country</th><th>Study</th><th>Annual figure</th><th>What it includes</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><th>Canada</th><td>50 people with ALS and families</td><td>CAD 32,337 direct cost per patient, of which CAD 19,574 (61%) out of pocket; indirect costs CAD 56,821</td><td>Home renovations were the largest direct cost; indirect costs are lost wages of patients and family carers</td><td>[[Gladman2014]]</td></tr>
+        <tr><th>USA</th><td>Cost-of-illness estimate</td><td>USD 63,693 per patient; about USD 1,023 million nationally</td><td>Medical, non-medical and lost income; housing changes and paid caregiving drove non-medical costs</td><td>[[Larkindale2014]]</td></tr>
+        <tr><th>8 countries</th><td>Systematic review of 12 studies (2001-2015)</td><td>USD 13,667 (Denmark) to USD 69,475 (USA) per patient, in 2015 USD</td><td>Total cost per patient</td><td>[[GladmanZinman2015]]</td></tr>
+        <tr><th>France</th><td>2024 survey of 50 people</td><td>EUR 7,764 out of pocket plus EUR 7,633 family income loss: EUR 15,397</td><td>Despite full coverage of ALS-related health spending; half paid for home changes, 40% for vehicle adaptations</td><td>[[Desnuelle2026]]</td></tr>
+      </tbody>
+    </table></div>
+    <p class="stage-cap">Currencies, years and methods differ, so the figures are not directly comparable.</p>
+    <div class="pt"><b>In plain words</b>ALS is expensive for families even where health care is covered, mostly because of home changes, equipment, paid care and lost work.</div>
+  </div>
+</section>

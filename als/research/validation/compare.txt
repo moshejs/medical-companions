@@ -1,0 +1,9 @@
+flagged 8 of 555 ; with record 464
+== Andersen1996: volume: record 119 ( Pt 4)
+== Andersen2012EFNS: authors not in record: ['Management of Amyotrophic Lateral Sclerosis; Andersen PM']
+== Brooks1994: title: record 'El Escorial World Federation of Neurology criteria for the diagnosis of amyotrophic lateral sclerosis. Subcommittee on M' (0.64)
+== Chau2025: authors not in record: ['Allied Health Professionals Consortium']
+== Goetz2000: DOI mismatch: entry 10.1002/(sici)1097-4598(200003)23:3<336::aid-mus4>3.0.co vs PubMed 10.1002/(sici)1097-4598(200003)23:3<336::aid-mus4>3.0.co;2-l | DOI 10.1002/(sici)1097-4598(200003)23:3<336::aid-mus4>3.0.co not in Crossref
+== Holdom2025: authors not in record: ['van Eijk RPA']
+== Krivickas1997: volume: record 152 Suppl 1
+== Roggenbuck2023: authors not in record: ['Counseling Guidelines Expert Panel']

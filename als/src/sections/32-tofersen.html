@@ -1,0 +1,98 @@
+<!-- ================= 3.2 TOFERSEN, GENE-TARGETED ================= -->
+<section class="mod" id="m-tofersen" data-mod="tofersen" hidden>
+<style>
+#m-tofersen .btn{min-height:44px}
+#m-tofersen .tfrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-tofersen .tfrow .kicker{min-width:5.5em}
+#m-tofersen .num{font:800 28px/1.05 var(--display);letter-spacing:-.01em}
+#m-tofersen .num small{font:600 12px var(--mono);color:var(--muted);letter-spacing:.04em;margin-left:4px}
+#m-tofersen .card .tags{display:flex;flex-wrap:wrap;gap:6px}
+#m-tofersen td small{color:var(--muted)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment &amp; care</p><h2>Tofersen, gene-targeted</h2>
+    <p class="lede">Tofersen is an antisense drug for ALS caused by a SOD1 variant. The left panel follows one molecule from the spinal fluid to the SOD1 message; the right panel follows the VALOR trial week by week. Choose a patient group and which arm to highlight, then press Play.</p></div>
+
+  <div class="tfrow" role="group" aria-label="Group in VALOR"><span class="kicker">Group</span><span class="tfrow" id="tfGrp"></span></div>
+  <div class="tfrow" role="group" aria-label="Arm to highlight"><span class="kicker">Highlight</span><span class="tfrow" id="tfStart"></span></div>
+  <div class="stepper" id="tfSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="tfSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="Two-panel animation: on the left, tofersen is injected into the spinal fluid, pairs with SOD1 messenger RNA and RNase H cuts the message so less SOD1 protein is made; on the right, CSF SOD1, plasma neurofilament light and ALSFRS-R change are plotted over 52 weeks of the VALOR trial and its extension, with the dosing schedule"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="tfPlay">Play</button><label class="stage-cap tl" for="tfT">Timeline <input type="range" id="tfT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap" id="tfCap">Schematic, not to scale.</p></div>
+    <aside class="note" id="tfNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who it is labelled for, and when</h3>
+  <div class="cards">
+    <div class="card"><div class="tags"><span class="tag treat">US label</span></div>
+      <h4>Adults with ALS and a SOD1 mutation</h4>
+      <p>Approved under accelerated approval "based on reduction in plasma neurofilament light chain". Continued approval may depend on confirmatory trial(s). [[FDA2023Qalsody]]</p>
+      <p>FDA accelerated approval: 25 April 2023. The sponsor named the presymptomatic phase 3 ATLAS trial as the confirmatory study. [[DrugsFDA,Biogen2023]]</p></div>
+    <div class="card"><div class="tags"><span class="tag treat">EU</span><span class="tag warn">Exceptional circumstances</span></div>
+      <h4>Authorised 29 May 2024</h4>
+      <p>Positive CHMP opinion 22 February 2024; authorised under exceptional circumstances, with obligations for long-term data, a study in presymptomatic carriers and a registry with yearly reports. [[EMA2024Qalsody]]</p>
+      <p>Health Canada authorised it with conditions, on 28 February 2025 according to Health Canada summaries that were not read in full. Its drug database lists it on the market from 14 May 2025. [[HC2025Qalsody,HCDPD_Qalsody]]</p></div>
+    <div class="card"><div class="tags"><span class="tag treat">Published dose</span></div>
+      <h4>100 mg intrathecal, by lumbar puncture</h4>
+      <p>100 mg (15 mL) over 1 to 3 minutes, after about 10 mL of CSF is removed. Three loading doses 14 days apart, then one every 28 days. If the second loading dose is missed, it is given as soon as possible and the third 14 days later. [[FDA2023Qalsody,EMA2024Qalsody]]</p></div>
+    <div class="card"><div class="tags"><span class="tag">Guideline</span></div>
+      <h4>EAN 2024</h4>
+      <p>"Offer tofersen as first-line treatment" for progressive SOD1-ALS (strong), discuss the serious adverse events, and weigh benefit against treatment burden carefully in people whose disease progresses slowly. [[VanDamme2024EAN]]</p></div>
+  </div>
+  <p class="prose">Pregnancy: there are no adequate human data; animal studies at about 4 to 20 times human exposure showed no embryofetal effects, and tofersen was found in mouse milk. [[FDA2023Qalsody]] Quoted from the label as published guidance, not advice for any person. Testing for SOD1 is covered in <a href="#genes" data-go="genes">Genes: C9orf72, SOD1 and more</a>.</p>
+
+  <h3 class="sub">Adverse events</h3>
+  <p class="prose">Most common in VALOR (tofersen n = 72 vs placebo n = 36): pain 42% vs 22%, fatigue 17% vs 6%, arthralgia 14% vs 6%, raised CSF white cells 14% vs 0%, myalgia 14% vs 6%, raised CSF protein 8% vs 3%. [[FDA2023Qalsody]] Lumbar-puncture effects were about equal in both arms (80.6% each; procedural pain 56.9% vs 58.3%). [[EMA2024Qalsody]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Serious neurological event</th><th>US label<br><small>147 people, median 119.4 weeks</small></th><th>EMA count, any severity<br><small>of 147</small></th><th>Lovett 2025, serious events<br><small>across the trials</small></th></tr></thead>
+    <tbody>
+      <tr><th>Myelitis</th><td rowspan="2">6 people with myelitis and/or radiculitis: 2 stopped tofersen and recovered fully, 4 recovered without stopping</td><td>4 (2.7%)</td><td>4</td></tr>
+      <tr><th>Radiculitis</th><td>4 (2.7%)</td><td>2</td></tr>
+      <tr><th>Aseptic or chemical meningitis</th><td>2 serious (1 stopped tofersen)</td><td>6 (4.1%)</td><td>2</td></tr>
+      <tr><th>Papilloedema and/or raised intracranial pressure</th><td>4 people, all resolved with standard care; none stopped</td><td>papilloedema 7 (4.8%)</td><td>4</td></tr>
+      <tr><th>In total</th><td></td><td></td><td>10 people (about 7%) had 12 events; none life-threatening or fatal; 3 led to stopping; all but 1 resolved</td></tr>
+    </tbody>
+  </table></div>
+  <p class="prose">Sources: label [[FDA2023Qalsody]], EMA assessment [[EMA2024Qalsody]], trial pooled report [[Lovett2025]]; the VALOR paper gives neurological serious adverse events in 7% of tofersen recipients. [[Miller2022]] Lovett 2025 notes that myelitis, radiculitis, raised intracranial pressure and papilloedema had not been reported with any antisense oligonucleotide before. [[Lovett2025]] In a German cohort, 73% (11 of 15) had raised CSF cells and 9 of 10 had antibody production inside the CNS, which the authors read as a possible autoimmune reaction. [[Wiesenfarth2024]]</p>
+
+  <h3 class="sub">Outside the trial: real-world cohorts</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Cohort</th><th>People</th><th>What it reported</th></tr></thead>
+    <tbody>
+      <tr><th>German early access, case series</th><td>6</td><td>Neurofilament fell clearly, including in slower-progressing p.(Asp91Ala) carriers. [[Meyer2023]]</td></tr>
+      <tr><th>German early access, 12 months, 10 centres</th><td>24</td><td>Median serum NfL 78 → 36 pg/mL; CSF pNfH 2226 → 1151 pg/mL; median ALSFRS-R 38 → 35 (0.11 points/month). Two drug-related serious adverse events with myeloradiculitis symptoms. [[Wiesenfarth2024]]</td></tr>
+      <tr><th>Single US centre</th><td>7</td><td>Mean serum NfL −57.9%, CSF pNfH −67.6%; mean ALSFRS-R change +1.1. [[Smith2025]]</td></tr>
+      <tr><th>France (FORSLA), retrospective</th><td>46</td><td>Progression slowed from 0.53 to 0.22 points/month by 12 months. Against a matched historical cohort, mortality was lower (adjusted HR 0.34, 95% CI 0.12 to 0.91) but progression rate did not differ (P = 0.30). [[Erazo2026]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="prose">None of these has a concurrent control group, so they describe experience in practice rather than test whether tofersen works.</p>
+
+  <h3 class="sub">Long-term follow-up</h3>
+  <div class="cards">
+    <div class="card"><div class="tags"><span class="tag treat">Open-label</span><span class="ev early">Early evidence</span></div>
+      <h4>148 weeks: early vs delayed start</h4>
+      <p class="num">−9.9 vs −13.5<small>ALSFRS-R points</small></p>
+      <p>Slow vital capacity −13.8% vs −18.1%; ALSAQ-5 17.0 vs 22.5. 46 people completed, with follow-up up to 192 to 276 weeks. The authors report survival longer than the expected natural history of SOD1-ALS and that every serious neurological adverse event was reversible. Survival was compared with natural history, not with a concurrent placebo group. [[Miller2026]]</p></div>
+    <div class="card"><div class="tags"><span class="tag">ATLAS</span><span class="ev early">Ongoing</span></div>
+      <h4>Before symptoms: the confirmatory trial</h4>
+      <p>158 presymptomatic carriers of SOD1 variants enrolled. Carriers are randomised to tofersen or placebo when plasma NfL rises (at least 44 pg/mL and up by at least 10 pg/mL), and the primary endpoint is the share who develop clinically manifest ALS within 12 months. [[Benatar2022a,CTgov_ATLAS]] Estimated primary completion: August 2027; no results yet. [[CTgov_ATLAS]] More in <a href="#cure" data-go="cure">Toward a cure</a>.</p></div>
+  </div>
+
+  <h3 class="sub">The controversy: a surrogate endpoint</h3>
+  <div class="split2">
+    <div class="card"><h4>The case made for approval</h4>
+      <ul><li>Tofersen lowered its target, CSF SOD1, and plasma NfL fell by about half or more. [[FDA2023Qalsody]]</li>
+        <li>NfL is released when axons are damaged, so a fall is read as less ongoing injury. [[Gaiottino2013]]</li>
+        <li>People who started earlier lost fewer ALSFRS-R points at 52 and at 148 weeks. [[Miller2022,Miller2026]]</li></ul></div>
+    <div class="card"><h4>The reasons for caution</h4>
+      <ul><li>The randomised clinical primary endpoint was missed (P = 0.97). [[Miller2022]]</li>
+        <li>NfL rises with nerve damage of any cause; it is not specific to ALS. [[Khalil2018]]</li>
+        <li>The early-vs-delayed comparisons are open-label and nominal; the label says they "should be interpreted with caution". [[FDA2023Qalsody]]</li>
+        <li>FDA approval is accelerated and the EU authorisation is under exceptional circumstances; ATLAS is meant to confirm. [[FDA2023Qalsody,EMA2024Qalsody,CTgov_ATLAS]]</li></ul></div>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Tofersen: intrathecal 2'-MOE gapmer antisense oligonucleotide → RNase H degrades SOD1 mRNA. VALOR missed its 28-week ALSFRS-R endpoint (difference 1.2, 95% CI −3.2 to 5.5); FDA accelerated approval (25 April 2023) rested on lowered plasma NfL. Serious neurological adverse events in the label: myelitis, radiculitis, aseptic meningitis, papilloedema and raised intracranial pressure. [[Miller2022,FDA2023Qalsody]]</div>
+    <div class="pt"><b>In plain words</b>Tofersen is a short strand of genetic code that sticks to the faulty gene's message so the cell throws it away. It is only for people whose ALS is caused by a change in the SOD1 gene, and it is given as an injection into the spinal fluid.</div>
+  </div>
+</section>

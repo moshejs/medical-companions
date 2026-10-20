@@ -1,0 +1,99 @@
+<!-- ================= 1.2 UPPER AND LOWER MOTOR NEURONS ================= -->
+<section class="mod" id="m-neurons" data-mod="neurons" hidden>
+<style>
+#m-neurons .btn{min-height:44px}
+#m-neurons .ne-bar{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
+#m-neurons .ne-bar .ctrls{gap:6px}
+#m-neurons .ne-bar .kicker{margin-right:4px}
+#m-neurons .ne-now{font-size:14.5px;line-height:1.45;color:var(--ink)}
+#m-neurons .ne-now b{font-weight:700}
+#m-neurons .ne-now.sm{color:var(--muted);font-size:14px}
+#m-neurons .card .tagrow{display:flex;flex-wrap:wrap;gap:6px}
+#m-neurons .ne-vs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media (max-width:700px){ #m-neurons .ne-vs{grid-template-columns:minmax(0,1fr)} }
+#m-neurons .ne-vs .card{border-top:4px solid var(--umn)}
+#m-neurons .ne-vs .card.back{border-top-color:var(--lmn)}
+#m-neurons td .tag,#m-neurons th .tag{margin-bottom:4px}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Upper and lower motor neurons</h2>
+    <p class="lede">Every voluntary movement needs two nerve cells in a row: an upper motor neuron in the brain and a lower motor neuron in the spinal cord or brainstem. ALS damages both, and each kind of damage gives its own set of signs. Choose which neurons fail, then press Play and watch the signs panel fill in.</p></div>
+
+  <div class="ne-bar">
+    <div class="ctrls" role="group" aria-label="Which neurons fail"><span class="kicker">Which neurons fail</span><span class="ctrls" id="neMode"></span></div>
+    <div class="ctrls" role="group" aria-label="Reflex arc"><span class="kicker">Reflex arc</span><span class="ctrls" id="neArc"></span></div>
+  </div>
+  <div class="stepper" id="neSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="neSvg" viewBox="0 0 720 470" style="min-width:560px" role="img" aria-label="Animated motor pathway: an upper motor neuron in the motor cortex sends its axon through the internal capsule and brainstem, crossing at the pyramids, to three lower motor neurons in the spinal cord whose axons supply lettered muscle fibres. As the timeline runs, the chosen neurons degenerate, orphaned fibres twitch and are adopted by surviving neurons, the EMG trace changes, and a signs panel ticks each sign that appears."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nePlay">Play</button><label class="stage-cap tl" for="neT">Timeline <input type="range" id="neT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Schematic, not to scale. Three motor units stand for the hundreds in a real muscle. Fibres carry the letter of the lower motor neuron that supplies them.</p></div>
+    <aside class="note" id="neNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">UMN and LMN signs side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Upper motor neuron (UMN)</th><th>Lower motor neuron (LMN)</th></tr></thead>
+    <tbody>
+      <tr><th>Where the cell body is</th><td><span class="tag umn">UMN</span><br>Betz cells in layer 5 of the primary motor cortex. Axons run in the corticospinal tract (to the cord) or to the brainstem motor nuclei. [[Feldman2022,Brettschneider2013]]</td><td><span class="tag lmn">LMN</span><br>Anterior horn cells of the spinal cord and the cranial motor nerve nuclei of the brainstem. Each one, with its muscle fibres, is a motor unit. [[Feldman2022,Moloney2014]]</td></tr>
+      <tr><th>Limb examination</th><td>Spasticity (tone that rises with the speed of stretch). Slowed, poorly coordinated voluntary movement that weakness does not explain. [[Shefner2020,Feldman2022]]</td><td>Weakness, wasting (atrophy) and fasciculations. [[Feldman2022]]</td></tr>
+      <tr><th>Reflexes</th><td>Brisk reflexes, spread to nearby muscles, and a reflex kept in a weak, wasted limb. Pathological reflexes: Hoffmann, Babinski (extensor plantar), crossed adductor, snout. [[Feldman2022,Shefner2020]]</td><td>The Gold Coast criteria define LMN involvement by weakness with wasting, or by EMG, not by reflexes. UMN signs can be hard to elicit in a limb that is wasting. [[Shefner2020,Swash2012]]</td></tr>
+      <tr><th>Bulbar region</th><td>Clonic jaw, gag reflex, exaggerated snout reflex, pseudobulbar features, forced yawning. [[CENTAURprotocol2019]] Pseudobulbar affect: uncontrollable laughing or crying. [[Feldman2022]]</td><td>Weakness, wasting and fasciculations of jaw, face, palate, tongue and larynx. [[CENTAURprotocol2019]]</td></tr>
+      <tr><th>Needle EMG</th><td>No EMG sign. UMN assessment is still clinical, which adds to diagnostic delay. [[Huynh2016]]</td><td>Ongoing denervation: fibrillations, positive sharp waves, fasciculation potentials. Chronic neurogenic change: large, long-duration, polyphasic motor unit potentials with reduced recruitment. [[Joyce2013,Shefner2020]]</td></tr>
+      <tr><th>Nerve conduction</th><td>Not used to show UMN loss.</td><td>Motor and sensory conduction usually normal; motor amplitudes may fall. Sensory studies are generally normal in ALS. [[Garnier2024,Joyce2013]]</td></tr>
+      <tr><th>Research measure</th><td>Brain stimulation (TMS) shows cortical hyperexcitability, with less short-interval intracortical inhibition (SICI). SICI change was the primary endpoint of a phase 2 trial. [[Vucic2006,Feldman2022]]</td><td>Motor unit number estimation (MUNE) counts surviving units. [[Joyce2013,Aggarwal2002]]</td></tr>
+      <tr><th>When only this neuron fails</th><td>Primary lateral sclerosis (PLS). Consensus criteria: age 25 or over, progressive UMN symptoms for at least 2 years, UMN signs in at least 2 of 3 regions, no active LMN degeneration. It does not meet the Gold Coast criteria for ALS. [[Turner2020PLS,deCarvalhoSwash2024]]</td><td>Progressive muscular atrophy (PMA). Under the Gold Coast criteria, a pure LMN syndrome in 2 or more regions counts as ALS. In a New York series of 91 people with PMA, UMN signs appeared in 22% within 61 months of diagnosis. [[deCarvalhoSwash2024,Pugdahl2021,Kim2009]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="hook"><b>Exam hook</b>UMN: spasticity, brisk and spreading reflexes, Hoffmann, Babinski, pseudobulbar affect. LMN: weakness, wasting, fasciculations; on EMG, denervation plus large, long motor units. ALS has both, in the same or neighbouring regions.</div>
+  <div class="pt"><b>In plain words</b>One nerve cell runs from the brain to the spine, and a second runs from the spine to the muscle. When the first one fails, muscles get stiff and reflexes jump. When the second one fails, muscles get weak, thin and twitchy. ALS damages both.</div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="tagrow"><span class="ev est">Established</span><span class="tag lmn">LMN</span></div>
+      <h4>Why eye movements and sphincters are spared</h4>
+      <p>The motor neurons that move the eyes (cranial nerves III, IV and VI) persist throughout the disease. This is why eye-tracking devices can support communication late in ALS. [[Nijssen2017]] Onuf's nucleus in the sacral cord, which controls the bladder and bowel sphincters, was well preserved in 5 autopsy cases, which fits with sphincter function often lasting until the latest stage. [[Mannen1977]]</p>
+      <p>On examination, an eye-movement palsy or a sphincter disturbance argues against ALS and points to another diagnosis. [[Garnier2024]]</p>
+      <p><span class="ev early">Early evidence</span> Spared groups contain far more of the calcium-binding proteins calbindin-D28k and parvalbumin than the groups lost early. [[Alexianu1994]] Extraocular muscles have their own myosin types and several nerve contacts per fibre. In mice, 18 genes differed more than tenfold between resistant and vulnerable motor neurons; IGF-2 was protective and extended the life of SOD1 mice by 10%. [[Nijssen2017]]</p>
+      <p><a href="#living" data-go="living">Communication with eye-gaze is covered in Living with ALS.</a></p>
+    </div>
+    <div class="card">
+      <div class="tagrow"><span class="ev est">Established</span><span class="ev hyp">Mechanism: hypothesis</span></div>
+      <h4>The split hand</h4>
+      <p>In ALS the thumb side of the hand wastes first: abductor pollicis brevis (APB) and first dorsal interosseous (FDI). Abductor digiti minimi (ADM), on the little-finger side, is relatively spared. All three are supplied from C8-T1, and FDI and ADM share the ulnar nerve, so no single nerve or root explains the pattern. [[Eisen2012]]</p>
+      <p>Proposed reasons are cortical (smaller magnetic motor evoked potentials from thenar muscles) and peripheral (larger persistent sodium currents, so more excitable APB and FDI axons). Heavy precision-grip use may add metabolic stress. [[Eisen2012]] Eisen and colleagues link it to the direct cortico-motoneuronal system, which is markedly enhanced in humans. [[Eisen2017]]</p>
+      <p>The sign is reported to have high specificity in early ALS, and clinicians list it among signs with high positive predictive value, though not formally validated. [[Eisen2012,TurnerTalbot2013]] Step 6 of the animation shows it.</p>
+    </div>
+    <div class="card">
+      <div class="tagrow"><span class="ev est">Established</span></div>
+      <h4>Reinnervation hides the loss</h4>
+      <p>Surviving motor neurons sprout and adopt orphaned fibres, so each surviving unit grows. Motor unit counting studies show this can keep strength and CMAP amplitude near normal even when up to half the motor units are lost (a secondary report in a review). [[Joyce2013]]</p>
+      <p>That is why weakness can be a late sign, and why needle EMG, which sees the enlarged units, can show LMN loss in a muscle that still feels strong. Under the Gold Coast criteria, EMG can stand in for clinical LMN signs. [[Shefner2020,Turner2022]]</p>
+      <p>Fast-fatigable units are the most vulnerable and are lost first; slow units compensate for a while, then degenerate too. [[Moloney2014,Nijssen2017]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Controversy: does it start at the top or at the bottom?</h3>
+  <p class="callout">Two hypotheses compete. They rest mostly on different evidence, human brain stimulation for one and the SOD1 mouse and the neuromuscular junction for the other, and the sources do not settle which comes first. [[Vucic2008,Fischer2004,Moloney2014]]</p>
+  <div class="ne-vs">
+    <div class="card">
+      <div class="tagrow"><span class="ev hyp">Hypothesis</span><span class="tag umn">Starts in the UMN</span></div>
+      <h4>Dying forward</h4>
+      <p>Over-active cortico-motoneurons drive the death of anterior horn cells through glutamate (excitotoxicity). [[Vucic2006,Vucic2008]]</p>
+      <ul>
+        <li>In 23 people with MND, short-interval intracortical inhibition was 3.6 ± 0.8%, against 8.5 ± 1.0% in controls (P &lt; 0.001), and the cortex was over-excitable even in advanced disease. [[Vucic2006]]</li>
+        <li>In 3 SOD1 carriers, SICI was absent or reduced before symptoms began, and all 3 later developed ALS. [[Vucic2008]]</li>
+        <li>Eisen and colleagues argue that TDP-43 pathology is limited to the cortex and to nuclei under direct cortical control, placing its origin in the cortex. [[Eisen2017]]</li>
+      </ul>
+    </div>
+    <div class="card back">
+      <div class="tagrow"><span class="ev hyp">Hypothesis</span><span class="tag lmn">Starts at the muscle end</span></div>
+      <h4>Dying back</h4>
+      <p>The lower motor neuron fails first at its far end: the nerve terminal lets go of the muscle, then the axon is lost, then the cell body. [[Fischer2004]]</p>
+      <ul>
+        <li>In SOD1(G93A) mice, 40% of end-plates were denervated at 47 days with no loss of cell bodies, and 60% of ventral-root axons were gone at 80 days while motor neurons were still present. [[Fischer2004]]</li>
+        <li>One person with sporadic ALS who died unexpectedly had denervation and reinnervation in muscle but normal-looking motor neurons. [[Fischer2004]]</li>
+        <li>Many molecular changes occur at the neuromuscular junction before symptoms begin. [[Moloney2014]]</li>
+      </ul>
+    </div>
+  </div>
+</section>
