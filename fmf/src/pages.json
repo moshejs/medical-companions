@@ -1,0 +1,78 @@
+{
+  "what": {
+    "title": "What is familial Mediterranean fever (FMF)?",
+    "description": "Familial Mediterranean fever is the most common inherited autoinflammatory disease: short attacks of fever with inflammation in the belly, chest or joints."
+  },
+  "gene": {
+    "title": "The MEFV gene and FMF inheritance: variants and carriers",
+    "description": "FMF comes from variants in MEFV, the gene for pyrin. Zoom from chromosome 16 to single amino acids, watch alleles pass to children, and read a gene report."
+  },
+  "mech": {
+    "title": "Pyrin and the inflammasome in FMF, animated",
+    "description": "Pyrin guards white cells by watching a switch called RhoA, and fires when it goes quiet. FMF variants such as M694V make the guard jumpy. See it step by step."
+  },
+  "attack": {
+    "title": "An FMF attack hour by hour: fever, CRP and SAA",
+    "description": "A typical FMF attack lasts 12 to 72 hours and then stops by itself. Follow the fever, CRP and SAA through an attack, site by site."
+  },
+  "colin": {
+    "title": "How colchicine works in FMF, inside the cell",
+    "description": "Colchicine has been the backbone of FMF treatment since the 1970s. Follow one dose from the mouth into a neutrophil, where it takes apart the microtubules."
+  },
+  "colmonths": {
+    "title": "Colchicine for FMF over months and years",
+    "description": "Colchicine does not stop an attack that has started. Its benefit builds over weeks without the inflammation it prevents. Two years of treatment, then decades."
+  },
+  "coldose": {
+    "title": "Colchicine dosing, safety and drug interactions in FMF",
+    "description": "Colchicine has a narrow safety margin, and drugs such as clarithromycin can push its level up several-fold. Published doses, toxicity, monitoring, guidelines."
+  },
+  "amyloid": {
+    "title": "AA amyloidosis in FMF: SAA, the kidneys and prevention",
+    "description": "The most serious complication of uncontrolled FMF: serum amyloid A misfolds into fibrils that clog the kidneys over years, and what keeping SAA low changes."
+  },
+  "dx": {
+    "title": "FMF diagnosis: Tel Hashomer, Livneh and Eurofever criteria",
+    "description": "No single test proves FMF. Diagnosis rests on the attack pattern, blood markers, the gene test and the response to colchicine. Try the criteria calculators."
+  },
+  "ddx": {
+    "title": "Periodic fever differential: FMF vs TRAPS, MKD, CAPS, PFAPA",
+    "description": "Recurrent fever with pain has many causes. How FMF is told apart from TRAPS, MKD, CAPS, PFAPA, Behçet disease and the surgical abdomen, by rhythm and signs."
+  },
+  "ladder": {
+    "title": "FMF treatment ladder: colchicine, then IL-1 blockade",
+    "description": "The published steps for treating FMF: colchicine from diagnosis, then the maximum tolerated dose, then IL-1 blockade such as canakinumab if attacks persist."
+  },
+  "living": {
+    "title": "Living with FMF: pregnancy, surgery, school and monitoring",
+    "description": "FMF is managed across years, not visits: routine checks, pregnancy, surgery, school, triggers and monitoring, and what the published literature says on each."
+  },
+  "nursing": {
+    "title": "Nursing care in FMF: attacks, colchicine and teaching",
+    "description": "What published guidance describes for nursing someone in an FMF attack: assessment, giving the medicines safely, patient teaching and documentation."
+  },
+  "cure": {
+    "title": "Could FMF be cured? Routes and evidence",
+    "description": "No approved therapy cures FMF; colchicine and IL-1 blockade control it for life. Where the pathway could be interrupted, and the evidence for each route."
+  },
+  "history": {
+    "title": "History of familial Mediterranean fever, 1908 to today",
+    "description": "FMF was first sketched in 1908, named in 1958, made treatable in 1972 and explained at the molecular level after 2014. The milestones and the people."
+  },
+  "review": {
+    "title": "FMF flashcards and mnemonics",
+    "description": "Flashcards and mnemonics on familial Mediterranean fever by topic: the disease, colchicine, complications and diagnosis, and treatment. Flip, filter or shuffle."
+  },
+  "quiz": {
+    "title": "Familial Mediterranean fever quiz, with explanations",
+    "description": "Test yourself on FMF: genetics, attacks, colchicine, amyloidosis, diagnosis and treatment. Every answer comes with an explanation. Take a mixed quiz or a part."
+  },
+  "glossary": {
+    "title": "FMF glossary: familial Mediterranean fever terms explained",
+    "description": "Plain definitions of the terms in FMF care and research, from MEFV and pyrin to SAA and IL-1 blockade. Searchable, each linked to the module it belongs to."
+  },
+  "sources": {
+    "title": "Sources and references | FMF Companion",
+    "description": "Every reference behind FMF Companion: journal articles, guidelines, drug labels and trial registrations, searchable and filtered by topic."
+  }
+}

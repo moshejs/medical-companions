@@ -3,13 +3,16 @@
 
     python3 tools/build_site.py
 
-1. builds every companion in every language it lists (tools/build.py)
+1. builds every companion in every language it lists (tools/build.py): a first page,
+   a page per module and the shared app.js
 2. writes the hub, index.html, from hub/index.html (%SITE% and %CITED:slug% filled in),
    its share-card.png from hub/share-card.html when either that or site.json changed,
    and 404.html from hub/404.html
-3. writes sitemap.xml (with hreflang pairs) and robots.txt
+3. writes sitemap.xml and robots.txt. The sitemap lists every built page that may be
+   indexed (not noindex), each with the hreflang pairs from its own head
 4. writes redirects/<old repository>/: pages for each companion's old address that
-   send visitors, and search engines, to the new one. Copy each folder's contents over
+   send visitors, and search engines, to the new one (an old #module link goes straight
+   to that module's page). Copy each folder's contents over
    the old repository's site so its links keep working.
 
 Change "site" in site.json to move the site to another address, then run this again.
@@ -57,14 +60,28 @@ if not card.exists() or card.stat().st_mtime < max(card_src.stat().st_mtime, (RO
     subprocess.run([sys.executable, str(ROOT / "tools" / "share_card.py"), str(card_src), str(card)], check=True)
 (ROOT / "404.html").write_text((ROOT / "hub" / "404.html").read_text(encoding="utf-8").replace("%SITE%", SITE), encoding="utf-8")
 
-# 3. sitemap and robots
+# 3. sitemap and robots: every built page of every companion that may be indexed
+def pages(c, lang):
+    """The built pages of companion C in LANG: (url, path), first page first."""
+    base = ROOT / c["slug"] / ("" if lang == "en" else lang)
+    found = [(url(c["slug"], lang), base / "index.html")]
+    for d in sorted(p for p in base.iterdir() if p.is_dir() and p.name not in c["langs"]):
+        f = d / "index.html"
+        if f.exists() and 'data-root="' in f.read_text(encoding="utf-8"):
+            found.append((url(c["slug"], lang) + d.name + "/", f))
+    return found
+
 rows = [f"  <url>\n    <loc>{SITE}/</loc>\n    <lastmod>{last_modified('hub')}</lastmod>\n    <priority>1.0</priority>\n  </url>"]
 for c in CFG["companions"]:
-    alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{url(c["slug"], l)}"/>' for l in c["langs"]) if len(c["langs"]) > 1 else ""
-    if alts: alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{url(c["slug"])}"/>'
+    mod = last_modified(c["slug"] + "/src")
     for lang in c["langs"]:
-        rows.append(f"  <url>\n    <loc>{url(c['slug'], lang)}</loc>\n    <lastmod>{last_modified(c['slug'] + '/src')}</lastmod>\n"
-                    f"    <priority>{'0.9' if lang == 'en' else '0.8'}</priority>{alts}\n  </url>")
+        for i, (loc, f) in enumerate(pages(c, lang)):
+            page = f.read_text(encoding="utf-8")
+            if re.search(r'<meta name="robots" content="[^"]*noindex', page): continue
+            alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{h}"/>'
+                           for l, h in re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">', page))
+            pri = (0.9 if i == 0 else 0.7) - (0 if lang == "en" else 0.1)
+            rows.append(f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{mod}</lastmod>\n    <priority>{pri:.1f}</priority>{alts}\n  </url>")
 (ROOT / "sitemap.xml").write_text(
     '<?xml version="1.0" encoding="UTF-8"?>\n'
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
@@ -74,7 +91,7 @@ print(f"wrote sitemap.xml ({len(rows)} pages) and robots.txt")
 
 # 4. redirects from the old addresses. GitHub Pages cannot send a real 301, so each
 # page carries a canonical link and an immediate meta refresh (which search engines
-# treat as a permanent move), plus a script that keeps the #module the visitor asked for.
+# treat as a permanent move), plus a script that sends a #module link to that module's page.
 REDIR = """<!doctype html>
 <html lang="{lang}">
 <head>
@@ -82,7 +99,7 @@ REDIR = """<!doctype html>
 <title>{moved_title}</title>
 <link rel="canonical" href="{to}">
 <meta http-equiv="refresh" content="0; url={to}">
-<script>location.replace({to_js} + location.hash)</script>
+<script>var h=location.hash.slice(1);location.replace({to_js}+({mods_js}.indexOf(h)>-1?h+"/":location.hash))</script>
 </head>
 <body>
 <p>{moved_text} <a href="{to}">{to}</a></p>
@@ -102,7 +119,8 @@ for c in CFG["companions"]:
         name = html.escape(c["name"][lang])
         moved = MOVED.get(lang, MOVED["en"])
         page.write_text(REDIR.format(lang=lang, moved_title=moved[0].format(name=name), moved_text=moved[1].format(name=name),
-                                     to=to, to_js=json.dumps(to)), encoding="utf-8")
+                                     to=to, to_js=json.dumps(to),
+                                     mods_js=json.dumps([u[len(to):-1] for u, _ in pages(c, lang)[1:]])), encoding="utf-8")
     (d / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
     (d / ".nojekyll").write_text("", encoding="utf-8")
     print(f"wrote redirects/{stem}/ -> {url(c['slug'])}")
