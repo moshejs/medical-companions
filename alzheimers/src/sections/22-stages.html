@@ -1,0 +1,58 @@
+<!-- ================= 2.2 STAGES ================= -->
+<style>
+#m-stages .card>.ev{align-self:flex-start}
+#m-stages .vcard svg{width:100%;max-width:150px;height:auto;display:block}
+#m-stages .vcard .vhead{display:flex;gap:12px;align-items:center}
+#m-stages .vcard .vhead svg{flex:none;width:96px}
+</style>
+<section class="mod" id="m-stages" data-mod="stages" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Course and diagnosis</p><h2>Stages and symptoms</h2>
+    <p class="lede">Alzheimer's takes away abilities in a fairly fixed order, from the most demanding tasks to the most basic ones. Press Play, or pick a stage, and watch which everyday abilities are kept and which are lost.</p></div>
+  <div class="stepper" id="stSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="stSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A person's everyday abilities, from demanding work to swallowing, fade in the fixed order of the FAST scale as a playhead moves from no symptoms to severe dementia, with the matching CDR, CDR Sum of Boxes and MMSE ranges shown above."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stPlay">Play</button><label class="stage-cap tl" for="stT">Course <input type="range" id="stT" min="0" max="1" step="0.002" value="0.07"></label></div>
+      <p class="stage-cap">Schematic. Stages are drawn equal width, not to time. The year spans above come from one model (Vermunt 2019, someone with preclinical Alzheimer's at age 70). Reisberg's own average durations for each FAST stage are widely repeated but could not be checked against the 1988 paper (unverified), so they are not shown. CDR and MMSE are aligned to FAST approximately: the scales were built separately.</p></div>
+    <aside class="note" id="stNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">After a diagnosis of MCI: who progresses?</h3>
+  <p class="prose">Mild cognitive impairment (MCI) means thinking has declined more than expected for age while daily life is still independent. It is a risk state, not a sentence. Two groups of 100 people with MCI are followed for five years below.</p>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="stCoh" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Two groups of 100 people with mild cognitive impairment, one from specialist clinics and one from the community, are followed for five years; figures turn solid as people progress to dementia, faster in the clinic group, and most in both groups have not progressed by year five."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stCohPlay">Play</button><label class="stage-cap tl" for="stCohT">Years <input type="range" id="stCohT" min="0" max="1" step="0.002" value="0.4"></label></div>
+      <p class="stage-cap">Illustration. Hollow figure: no dementia yet. Solid figure: progressed to dementia. It applies each published annual rate to those not yet converted, every year, which is a simplification: real risk differs from person to person.</p></div>
+    <aside class="note" id="stCohNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Not always memory first</h3>
+  <p class="prose">Typical Alzheimer's starts with memory, because the first tangles form in the medial temporal lobe. Some people start with vision, language or planning instead. These atypical forms are much more common when the illness starts before 65. <span>[[GraffRadford2021]]</span></p>
+  <div class="cards" id="stVar"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="stShare" viewBox="0 0 720 240" style="min-width:560px" role="img" aria-label="Two grids of 100 people with Alzheimer's: about one in three with young onset have an atypical presentation, against about six in 100 with late onset; bars then show that atypical cases were misdiagnosed far more often."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stSharePlay">Play</button><label class="stage-cap tl" for="stShareT">Reveal <input type="range" id="stShareT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Each square is one person in 100. "About one third" is drawn as 33.</p></div>
+    <aside class="note" id="stShareNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Beyond memory: mood and behaviour</h3>
+  <div class="ctrls" role="group" aria-label="Which study to show">
+    <span class="kicker">Study</span>
+    <button class="btn" id="stNpsZ" aria-pressed="true">Alzheimer's, 48 studies</button>
+    <button class="btn" id="stNpsL" aria-pressed="false">Population study, all dementia</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="stNps" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="Horizontal bars grow to show how often each neuropsychiatric symptom occurs, led by apathy, depression and aggression."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stNpsPlay">Play</button><label class="stage-cap tl" for="stNpsT">Build <input type="range" id="stNpsT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="stNpsCap">Pooled prevalence in Alzheimer's, Neuropsychiatric Inventory. Studies varied a lot.</p></div>
+    <aside class="note" id="stNpsNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How long, and how the illness ends</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Survival is measured in years</h4><p>People aged 65 and older live on average 4 to 8 years after a diagnosis of Alzheimer's dementia, and some live as long as 20 years. Across studies, median survival from onset was 3.3 to 11.7 years, most often 7 to 10. [[AA2025Facts,Todd2013]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Age at diagnosis matters most</h4><p>Median survival was 8.3 years when diagnosed at 65 and 3.4 years at 90, with no significant difference between men and women. Across studies, age was a consistent predictor of death; male sex was a less consistent one. [[Brookmeyer2002,Todd2013]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Pneumonia is the most common final event</h4><p>Pneumonia is the most commonly identified immediate cause of death, and swallowing problems can lead to aspiration. In one autopsy series, respiratory causes accounted for 55.5% of deaths in Alzheimer's. [[AA2025Facts,Brunnstrom2009]]</p></div>
+    <div class="card"><h4>Advanced dementia in nursing homes</h4><p>In the CASCADE study of 323 residents with advanced dementia, 54.8% died over 18 months. Eating problems affected 85.8% and pneumonia 41.1%. See <a href="#living" data-go="living">Living with dementia</a> for planning and end-of-life care. [[Mitchell2009NEJM]]</p></div>
+  </div>
+</section>

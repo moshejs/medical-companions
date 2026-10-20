@@ -1,0 +1,88 @@
+<!-- ================= 1.6 GENES ================= -->
+<style>
+#m-genes .gn-life{display:flex;flex-direction:column;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+#m-genes .gn-row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:4px 16px;align-items:center;padding:6px 8px;border-radius:10px;transition:background .3s}
+#m-genes .gn-row.on{background:var(--rose-soft)}
+#m-genes .gn-row .gl{font-size:14.5px}
+#m-genes .gn-row .gl b{display:block}
+#m-genes .gn-track{position:relative;height:16px;background:var(--panel-2);border-radius:8px}
+#m-genes .gn-track i{position:absolute;top:0;bottom:0;border-radius:8px;background:var(--rose);transition:left .8s ease,width .8s ease}
+#m-genes .gn-track i.x{background:var(--rose);opacity:.4}
+#m-genes .gn-track span{position:absolute;top:-1px;font:600 11px var(--mono);color:var(--ink);transition:left .8s ease}
+#m-genes .gn-axis{display:flex;justify-content:space-between;font:500 11px var(--mono);color:var(--muted)}
+#m-genes .gn-row .gv{grid-column:2;font:500 12px var(--mono);color:var(--muted)}
+@media (max-width:700px){#m-genes .gn-row{grid-template-columns:minmax(0,1fr)} #m-genes .gn-row .gv{grid-column:1}}
+</style>
+<section class="mod" id="m-genes" data-mod="genes" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 1 · המחלה</p><h2>גנים ותורשה</h2>
+    <p class="lede">רוב מקרי האלצהיימר אינם עוברים בתורשה בדרך פשוטה. גן נפוץ אחד, APOE, משנה את הסיכויים. כמה גנים נדירים כמעט מבטיחים את המחלה, וכך גם עותק נוסף של כרומוזום 21. בחרו גנוטיפ, ואחר כך הפעילו את המשפחה שלמטה.</p></div>
+
+  <h3 class="sub">APOE: גן אחד, שלוש גרסאות נפוצות</h3>
+  <div class="prose"><p>לכל אדם יש שני עותקים של APOE, אחד מכל הורה. שלוש הגרסאות הנפוצות, ε2, ε3 ו־ε4, נבדלות זו מזו בשני מקומות בלבד בחלבון (112 ו־158). [[Yamazaki2019]] בחרו זוג כדי לראות באיזו תדירות הוא מופיע אצל אנשים עם אלצהיימר, בהשוואה ל־ε3/ε3.</p></div>
+  <div class="ctrls" role="group" aria-label="גנוטיפ APOE" id="gnGeno"><span class="kicker">גנוטיפ</span></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="gnApoe" viewBox="0 0 720 480" style="min-width:560px" role="img" aria-label="שלושה כרטיסים של אללי APOE עם שכיחותם אצל אנשים בריאים ואצל אנשים עם אלצהיימר, אחריהם עמודות של יחס סיכויים בסולם לוגריתמי לגנוטיפ שנבחר משני מחקרים, ואחריהן יחס הסיכויים של אותו גנוטיפ לפי מוצא, היכן שפורסם."></svg></div>
+      <p class="stage-cap">יחסי הסיכויים משווים את הסיכויים לאלצהיימר לעומת ε3/ε3, בסולם לוגריתמי. אלה ממוצעים של קבוצות, לא הסיכוי האישי של אדם מסוים.</p></div>
+    <aside class="note" id="gnApoeNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">יחס סיכויים אינו סיכון לאורך החיים, וההערכות אינן מסכימות</h3>
+  <div class="prose"><p>יחס סיכויים של 15 אינו אומר סיכוי גבוה פי 15, וגם לא סיכוי כמעט ודאי. חוקרים המירו את הסיכויים לסיכון לאורך החיים בשתי דרכים, וקיבלו תשובות שונות. השורות של הגנוטיפ שבחרתם מודגשות.</p></div>
+  <div class="gn-life" id="gnLife"></div>
+  <div class="split2">
+    <div class="callout"><p><b>למה הן אינן מסכימות.</b> במדגמים של מחקרי מקרה־ביקורת ושל מרפאות זיכרון יש הטיית הפניה; מחקרי העוקבה באוכלוסייה מדדו MCI או דמנציה, ולא אלצהיימר בלבד; ורוב העוקבות הן ממוצא אירופי, שבו ההשפעה של ε4 גדולה יותר מאשר במוצא אפריקאי. [[AlzforumNews2024,Qian2017,Belloy2023]]</p></div>
+    <div class="callout"><p><b>במה שתיהן מסכימות.</b> ε4 מעלה את הסיכון אך אינו קובע אותו: אנשים רבים עם ε4/ε4 אינם מפתחים דמנציה לעולם, ומחלת אלצהיימר מופיעה לעתים קרובות בלי ε4. רק 38% מאללי APOE אצל אנשים עם אלצהיימר הם ε4. [[Qian2017,Genin2011,Yamazaki2019]]</p></div>
+  </div>
+
+  <h3 class="sub">תורשה דומיננטית: APP, &rlm;PSEN1 ו־PSEN2</h3>
+  <div class="prose"><p>מוטציה ב־APP, ב־PSEN1 או ב־PSEN2, או עותק נוסף של APP, היא הסיבה הידועה היחידה שכמעט מבטיחה מחלת אלצהיימר. [[Bateman2011]] בחרו גן, הפעילו את המשפחה ולחצו על "משפחה אחרת" כדי לראות ש־50% הם סיכוי לכל ילד, ולא מכסה.</p></div>
+  <div class="ctrls" role="group" aria-label="גן ומשפחה">
+    <span class="kicker">גן</span>
+    <button class="btn" id="gnAPP" aria-pressed="false">APP</button>
+    <button class="btn" id="gnPS1" aria-pressed="true">PSEN1</button>
+    <button class="btn" id="gnPS2" aria-pressed="false">PSEN2</button>
+    <button class="btn" id="gnRoll">משפחה אחרת</button>
+  </div>
+  <div class="stepper" id="gnSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="gnPed" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="משפחה בת שני דורות שבה הורה אחד נושא מוטציה דומיננטית לאלצהיימר, ריבוע פאנט המראה סיכוי של 50% לכל ילד, הילדים שיורשים או לא יורשים את המוטציה, ואחר כך ציר הזמן של DIAN עם השינויים מ־25 שנה לפני מועד הופעת התסמינים הצפוי ועד דמנציה 3 שנים אחריו, ורשת של 100 משבצות המראה איזה חלק מכל מקרי האלצהיימר עובר בתורשה דומיננטית."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gnPlay">הפעלה</button><label class="stage-cap tl" for="gnT">ציר זמן <input type="range" id="gnT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="readout" id="gnRead"></p>
+      <p class="stage-cap">משפחה סכמטית. השנים של DIAN הן הערכות חתך, ביחס לגיל הופעת התסמינים אצל ההורה.</p></div>
+    <aside class="note" id="gnNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">תסמונת דאון: עותק שלישי של APP</h3>
+  <div class="prose"><p>APP, הגן של החלבון שממנו נחתך עמילואיד בטא, נמצא על כרומוזום 21. לאנשים עם תסמונת דאון יש בדרך כלל שלושה עותקים של כרומוזום 21, ולכן שלושה עותקים של APP. גררו את הגיל, ואחר כך עברו למקרה הנדיר שבו יש רק שני עותקים של APP.</p></div>
+  <div class="ctrls" role="group" aria-label="דפוס כרומוזום 21">
+    <span class="kicker">כרומוזום 21</span>
+    <button class="btn" id="gnDsFull" aria-pressed="true">טריזומיה מלאה: 3 עותקי APP</button>
+    <button class="btn" id="gnDsPart" aria-pressed="false">טריזומיה חלקית: 2 עותקי APP</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="gnDs" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="שלושה עותקים של כרומוזום 21 שעליהם מסומן הגן APP, לצד סולם גילים מ־20 עד 80 המראה מתי מופיעים שינויי אלצהיימר ואבחנות אצל מבוגרים עם תסמונת דאון, או, בטריזומיה חלקית עם שני עותקי APP, מקרה יחיד ללא אלצהיימר בגיל 78."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gnDsPlay">הפעלה</button><label class="stage-cap tl" for="gnDsT">גיל <input type="range" id="gnDsT" min="0" max="1" step="0.002" value="0.5"></label></div>
+      <p class="stage-cap">הגילים לקוחים מעוקבות נפרדות; המיקומים על הסולם הם בקנה מידה.</p></div>
+    <aside class="note" id="gnDsNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">חוסן, ציוני סיכון ובדיקות</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">תיאורי מקרה + עוקבה</span><h4>APOE3 Christchurch</h4><p>אישה שנשאה את המוטציה הקולומביאנית PSEN1 E280A לא פיתחה MCI עד שנות השבעים לחייה, כשלושה עשורים מאוחר מהצפוי. היו לה שני עותקים של APOE3 Christchurch, רמה גבוהה מאוד של עמילואיד ומעט טאו. בקרב 1,077 נשאים, ה־27 שהיה להם עותק אחד של Christchurch החלו להידרדר בגיל חציוני של 52 לעומת 47, כ־5 שנים מאוחר יותר. [[ArboledaVelasquez2019,Quiroz2024]]</p></div>
+    <div class="card"><span class="ev early">מקרה יחיד</span><h4>RELN-COLBOS, 2023</h4><p>גבר עם אותה מוטציה ב־PSEN1 נשאר שלם מבחינה קוגניטיבית עד גיל 67, בלי Christchurch. הוא נשא וריאנט מגביר תפקוד בגן Reelin, שחלבונו נקשר לאותם קולטנים כמו APOE; בעכברים הווריאנט הפחית את הזרחון של טאו. לשני האנשים העמידים היה עמילואיד ברמה גבוהה מאוד אך מעט טאו בקליפת המוח האנטורינלית, מה שמרמז שההגנה פעלה בשלב הטאו. [[Lopera2023,ArboledaVelasquez2019]]</p></div>
+    <div class="card"><span class="ev est">מבוסס</span><h4>A673T: הגנה בתוך APP עצמו</h4><p>וריאנט איסלנדי של APP, הסמוך לאתר החיתוך של בטא־סקרטאז, הפחית את ייצור העמילואיד בכ־40% במעבדה, והגן מפני אלצהיימר ומפני ירידה קוגניטיבית אצל מבוגרים ללא המחלה. [[Jonsson2012]] ראו <a href="#amyloid" data-go="amyloid">עמילואיד, בהנפשה</a>.</p></div>
+    <div class="card"><span class="ev est">מבוסס</span><h4>המשפחה המורחבת בקולומביה</h4><p>סקר משנת 1997 של חמש משפחות מורחבות באנטיוקיה (כמעט 3,000 איש) מצא 128 אנשים שחלו, עם הופעה בגיל ממוצע של 46.8 שנים. מקורה של PSEN1 E280A במייסד אחד, לפני כ־15 דורות. אצל 449 נשאים, הגילים החציוניים היו 44 ל־MCI, &rlm;49 לדמנציה ו־59 למוות. [[Lopera1997,Lalli2014,AcostaBaena2011]]</p></div>
+    <div class="card"><span class="ev est">מבוסס</span><h4>GWAS: &rlm;75 מקומות בגנום</h4><p>המחקר הגדול ביותר, Bellenguez 2022 ב־<i>Nature Genetics</i>&rlm; (111,326 חולים, 677,663 בקרות), מצא 75 אתרי סיכון (לוקוסים), 42 מהם חדשים, המצביעים על עיבוד עמילואיד וטאו, על מיקרוגליה ועל איתות TNF-α. הווריאנט הנדיר TREM2 R47H העלה את הסיכון בערך פי 2.9. [[Bellenguez2022,Jonsson2013]]</p></div>
+    <div class="card"><span class="ev early">שימוש מוגבל</span><h4>ציונים פוליגניים</h4><p>ציון שנבנה עם APOE, גיל ומין הגיע ל־AUC של 78.2%. מעבר לגיל ול־APOE ε4, ציון Bellenguez הפריד בין העשירון העליון לעשירון התחתון רק פי 1.6 עד 1.9. הציונים מבחינים בצורה חלשה באוכלוסייה הכללית, פועלים פחות טוב מחוץ למוצא אירופי, ואין להם שימוש קליני מבוסס. [[EscottPrice2015,Bellenguez2022,LewisVassos2020]]</p></div>
+    <div class="card"><span class="ev est">מבוסס</span><h4>תאומים: תורשתיות של 58% עד 79%</h4><p>ב־11,884 זוגות תאומים בשוודיה, התורשתיות של אלצהיימר הייתה 58% במודל המלא ו־79% במודל המתאים ביותר; השאר נבע מסביבה שאינה משותפת. גם ההבדל בגיל ההופעה היה קטן יותר אצל תאומים זהים. החוקרים מדגישים שגורמים שאינם גנטיים עדיין חשובים. [[Gatz2006]]</p></div>
+    <div class="card"><span class="ev early">שנוי במחלוקת</span><h4>האם ε4/ε4 היא צורה גנטית בפני עצמה?</h4><p>ב־2024 דיווחו Fortea ועמיתיו על ביולוגיה של אלצהיימר כמעט אצל כל האנשים עם ε4/ε4, עם תסמינים בגיל ממוצע של 65, והציעו לראות בכך צורה גנטית נפרדת. המבקרים משיבים שחדירות כמעט מלאה של הביולוגיה אינה חדירות כמעט מלאה של דמנציה, ומצביעים על סיכון לאורך החיים של כ־30% עד 55%. [[Fortea2024,AlzforumNews2024]]</p></div>
+  </div>
+
+  <h3 class="sub">בדיקות: מה אומרות ההנחיות</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">הנחיה שפורסמה</span><h4>בדיקת APOE לניבוי</h4><p>הצהרה של ACMG/ASHG משנת 1995 קבעה שאין להשתמש ב־APOE לבדיקה ניבויית. הנחיית ACMG/NSGC משנת 2011 מגדירה בדיקת APOE לרגישות למחלה כ"לא מומלצת קלינית" וממליצה שלא לבצע בדיקות ישירות לצרכן; אם אדם עדיין מתעקש אחרי ייעוץ, לפי ההנחיה הבדיקה צריכה להתבצע לפי הפרוטוקול של מחלת הנטינגטון. [[ACMG1995,Goldman2011,Goldman2019]]</p></div>
+    <div class="card"><span class="tag warn">הנחיה שפורסמה</span><h4>משפחות עם גן דומיננטי</h4><p>לפי ההנחיה, יש להציע בדיקה של APP, &rlm;PSEN1 ו־PSEN2 לאנשים עם אלצהיימר בהופעה מוקדמת והיסטוריה משפחתית, למשפחות עם דפוס דומיננטי ולקרובים של נשא ידוע, בפרוטוקול בסגנון הנטינגטון. לפי ההנחיה אין לבדוק ילדים. בסדרה אחת, רק 8.4% מהאנשים שבסיכון ביקשו בדיקה ניבויית. [[Goldman2011,Bateman2011]]</p></div>
+    <div class="card"><span class="tag sky">הקשר טיפולי</span><h4>בדיקת גנוטיפ לפני תרופות נגד עמילואיד</h4><p>עלוני התרופה בארה"ב של לקנמאב (Leqembi) ושל דונאנמאב (Kisunla) קובעים שבדיקת ApoE ε4 "צריכה להתבצע לפני תחילת הטיפול", משום ש־ARIA (בצקת או דימום במוח הנראים ב־MRI) שכיחה יותר אצל אנשים עם ε4/ε4. זו מטרה שונה מניבוי של אלצהיימר. [[FDA2025Leqembi,FDA2025Kisunla,Cummings2023,Rabinovici2025]] ראו <a href="#antibody" data-go="antibody">נוגדנים נגד עמילואיד לאורך זמן</a>.</p></div>
+    <div class="card"><span class="ev est">ראיות מניסוי</span><h4>מה עשה הגילוי: REVEAL</h4><p>162 ילדים בוגרים של אנשים עם אלצהיימר חולקו באקראי לקבלת תוצאת ה־APOE שלהם או לאי־קבלתה. במעקב של 1 שנה לא היה הבדל בחרדה, בדיכאון ובמצוקה. אנשים חיוביים ל־ε4 שינו לעתים קרובות יותר הרגלי בריאות (יחס סיכויים מתוקנן 2.73), והסיכוי שישנו ביטוח סיעודי היה גבוה אצלם פי 5.76. [[Green2009,Chao2008,Zick2005]]</p></div>
+  </div>
+</section>

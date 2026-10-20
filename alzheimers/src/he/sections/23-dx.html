@@ -1,0 +1,82 @@
+<!-- ================= 2.3 DIAGNOSIS ================= -->
+<style>
+#m-dx .card>.ev{align-self:flex-start}
+#m-dx .calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+#m-dx .calc label{display:flex;flex-direction:column;gap:4px;font:600 12px var(--mono);color:var(--muted);letter-spacing:.04em}
+#m-dx .calc output{font:700 20px var(--body);color:var(--ink)}
+#m-dx .calc .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+#m-dx .presets{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-dx .presets .btn{font-size:13px;padding:6px 11px}
+#m-dx .verdict{border-radius:10px;padding:9px 11px;background:var(--panel-2);font-size:14.5px}
+#m-dx .verdict b:first-child{display:block;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+#m-dx .teach{display:inline-block;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warn);background:var(--warn-soft);border-radius:6px;padding:4px 8px}
+</style>
+<section class="mod" id="m-dx" data-mod="dx" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 2 · מהלך ואבחון</p><h2>אבחון וסמנים ביולוגיים</h2>
+    <p class="lede">אבחנה נבנית בשכבות: קודם האם החשיבה ירדה, אחר כך מה עוד יכול להסביר זאת, ולבסוף האם יש פתולוגיה של אלצהיימר. עקבו אחרי אדם אחד לאורך המסלול, או לחצו על כל שלב.</p></div>
+  <div class="stepper" id="dxSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxSvg" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="סמן נע לאורך מסלול האבחון: מדאגה ראשונה, דרך מבחן סינון קוגניטיבי, אנמנזה ובדיקה, בדיקות דם לסיבות הפיכות והדמיית מוח, ועד אישור בסמנים ביולוגיים ב־PET עמילואיד, בנוזל השדרה או בבדיקת p-tau217 בדם, ולבסוף אבחנה מוגדרת ושלב."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxPlay">הפעלה</button><label class="stage-cap tl" for="dxT">מסלול <input type="range" id="dxT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">סכמטי. מסלולים אמיתיים משתנים: לא כל אחד צריך כל שלב, והסדר יכול להשתנות. אפשר ללחוץ על כל תיבה או להגיע אליה במקש Tab.</p></div>
+    <aside class="note" id="dxNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">מה באמת אומרת בדיקת דם חיובית</h3>
+  <p class="prose"><span><span class="teach">כלי הוראה</span> המחשבון הזה מראה חשבון, לא את הביצועים של בדיקה אמיתית כלשהי באדם אמיתי כלשהו. בחרו עד כמה הבדיקה טובה (רגישות וסגוליות) ועד כמה הפתולוגיה סבירה לפני הבדיקה. הרשת ממיינת אז 1,000 אנשים לפי מצבם האמיתי ולפי תוצאת הבדיקה.</span></p>
+  <div class="stage">
+    <div class="presets" role="group" aria-label="הגדרות מוכנות לבדיקה"><span class="kicker">בדיקה</span>
+      <button class="btn" data-sens="90" data-spec="75" aria-pressed="false">מינימום למיון ראשוני, 90/75</button>
+      <button class="btn" data-sens="90" data-spec="90" aria-pressed="true">מינימום לאישור, 90/90</button>
+      <button class="btn" data-sens="92" data-spec="100" aria-pressed="false">קריאת PET עמילואיד, 92/100</button>
+    </div>
+    <div class="presets" role="group" aria-label="הגדרות מוכנות להסתברות לפני הבדיקה"><span class="kicker">מסגרת</span>
+      <button class="btn" data-pre="10" aria-pressed="false">ללא תסמינים, גיל 50: 10%</button>
+      <button class="btn" data-pre="25" aria-pressed="false">רפואה ראשונית, דוגמה: 25%</button>
+      <button class="btn" data-pre="50" aria-pressed="false">מרפאות בשוודיה: 50%</button>
+      <button class="btn" data-pre="55" aria-pressed="true">MCI, סיבה לא ברורה: 55%</button>
+      <button class="btn" data-pre="70" aria-pressed="false">דמנציה, סיבה לא ברורה: 70%</button>
+    </div>
+    <div class="calc">
+      <label for="dxSens"><span class="row"><span>רגישות</span><output id="dxSensV">90%</output></span><input type="range" id="dxSens" min="50" max="100" step="1" value="90"></label>
+      <label for="dxSpec"><span class="row"><span>סגוליות</span><output id="dxSpecV">90%</output></span><input type="range" id="dxSpec" min="50" max="100" step="1" value="90"></label>
+      <label for="dxPre"><span class="row"><span>הסתברות לפני הבדיקה</span><output id="dxPreV">55%</output></span><input type="range" id="dxPre" min="1" max="95" step="1" value="55"></label>
+    </div>
+    <p class="stage-cap">הגדרות הבדיקה: הסף המינימלי בהנחיה של איגוד האלצהיימר (Alzheimer's Association) מ־2025 לבדיקת דם המשמשת למיון ראשוני (רגישות 90%, סגוליות 75%) או כתחליף ל־PET או ל־CSF (רגישות 90% וסגוליות 90%) [[Palmqvist2025CPG]], וקריאה חזותית של PET עמילואיד בהשוואה לנתיחה [[Clark2012]]. המסגרות: שיעור החיוביות לעמילואיד אצל אנשים תקינים קוגניטיבית בגיל 50 [[Jansen2015]]; ערך לדוגמה ברפואה הראשונית (אף מקור כאן אינו נותן נתון מדוד אחד); 50% עם פתולוגיה של אלצהיימר בקרב 1,213 מטופלים בשוודיה [[Palmqvist2024]]; שיעור החיוביות ב־PET עמילואיד במחקר IDEAS, בקרב מטופלי Medicare עם MCI או דמנציה שסיבתן לא ברורה [[Rabinovici2019]].</p>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxGrid" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="רשת של 1,000 אנשים מתמלאת בשלושה שלבים: כולם נבדקים, אחר כך מי באמת יש לו פתולוגיה של עמילואיד, ואז מי מקבל תוצאה חיובית; כך מופרדים חיוביים אמיתיים, שליליים כוזבים, חיוביים כוזבים ושליליים אמיתיים, ומוצגים ערכי הניבוי שמתקבלים."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxGridPlay">הפעלה</button><label class="stage-cap tl" for="dxGridT">חשיפה <input type="range" id="dxGridT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">עיגול מלא: חיובי אמיתי. טבעת: שלילי כוזב. ריבוע: חיובי כוזב. נקודה קטנה: שלילי אמיתי. כלי הוראה, לא מחשבון אבחוני.</p></div>
+    <aside class="note" id="dxGridNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">ארגז הכלים של הסמנים הביולוגיים</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">מבוסס</span><h4>PET עמילואיד</h4><p>קריאות חזותיות של פלורבטאפיר (Florbetapir) זיהו רבדים נוריטיים בצפיפות בינונית עד גבוהה ברגישות של 92% ובסגוליות של 100% בהשוואה לנתיחה שנעשתה בתוך 2 שנים. סולם הסנטילואיד נע מ־0 (צעירים בריאים בקבוצת ביקורת) עד 100 (אלצהיימר טיפוסי קל עד בינוני); כ־12 עד 24 סנטילואיד סימנו את סף הרבדים בנתיחה. [[Clark2012,Klunk2015,LaJoie2019]]</p></div>
+    <div class="card"><span class="ev est">מבוסס</span><h4>נוזל מוחי־שדרתי (CSF)</h4><p>באלצהיימר, רמת הטאו הכולל ב־CSF גבוהה פי 2.5 בערך מבקבוצת הביקורת, ורמת ה־p-tau גבוהה פי 1.9 בערך, ורמת Aβ42 היא כמחצית. היחס Aβ42/40 מסווג טוב יותר מ־Aβ42 לבדו. ה־FDA התיר את בדיקת היחס ב־CSF של Lumipulse במאי 2022. [[Olsson2016,Hansson2019,FDA2022CSF]]</p></div>
+    <div class="card"><span class="ev est">מבוסס</span><h4>p-tau217 בדם</h4><p>p-tau217 בפלזמה הבחין בין אלצהיימר קליני לבין מחלות נוירודגנרטיביות אחרות עם AUC של 0.96. בקרב 1,213 מטופלים בשוודיה, בדיקת p-tau217 הייתה מדויקת בכ־90%, לעומת 61% אצל רופאי רפואה ראשונית ו־73% אצל מומחים שהשתמשו בבירור הרגיל. במאי 2025 אישר ה־FDA את בדיקת הדם הראשונה, לטיפול מומחה, ו"לא כבדיקת סינון או כבדיקה אבחונית העומדת בפני עצמה". [[Palmqvist2020,Palmqvist2024,FDA2025]]</p></div>
+    <div class="card"><span class="ev early">ראיות ראשוניות</span><h4>בדיקה לשלילה ברפואה הראשונית</h4><p>באוקטובר 2025 אישר ה־FDA את בדיקת הפלזמה Elecsys pTau181 של Roche לרפואה הראשונית, כדי לסייע בשלילת פתולוגיית עמילואיד של אלצהיימר. ערך הניבוי השלילי שדווח לה היה 97.9%, נתון שתלוי בשכיחות הנמוכה בקרב האנשים שנבדקו. [[Roche2025]]</p></div>
+    <div class="card"><span class="ev est">מבוסס</span><h4>PET טאו ו־FDG-PET</h4><p>PET טאו עם פלורטאוסיפיר (Flortaucipir) הבחין בין אלצהיימר לבין הפרעות נוירודגנרטיביות אחרות ברגישות ובסגוליות של כ־90%, טוב יותר ממדידות נפח ב־MRI. דפוסי FDG-PET סיווגו נכון 95% ממקרי האלצהיימר, 92% ממקרי דמנציה עם גופיפי לואי ו־94% ממקרי דמנציה פרונטו־טמפורלית במחקר של 7 מרכזים. [[Ossenkoppele2018,Mosconi2008]]</p></div>
+    <div class="card"><span class="ev early">לא ספציפי</span><h4>NfL ו־GFAP</h4><p>שרשרת קלה של נוירופילמנט (NfL) עולה בניוון עצבי מכל סיבה, כולל ALS, טרשת נפוצה (MS) ופגיעת מוח. GFAP, סמן של אסטרוציטים, עולה עם העמילואיד עוד לפני התסמינים. הקריטריונים של 2024 אינם משתמשים באף אחד מהם לאבחון. [[Mattsson2019,Pereira2021,Jack2024]]</p></div>
+  </div>
+
+  <h3 class="sub">מבחני סינון: מה הם יכולים ומה לא</h3>
+  <div class="cards">
+    <div class="card"><h4>MMSE</h4><ul><li>11 פריטים, 30 נקודות; כ־7 דקות. [[Creavin2016,Borson2000]]</li><li>בנקודת חתך של 24 במסגרות קהילתיות: רגישות 0.85 וסגוליות 0.90 לדמנציה. [[Creavin2016]]</li><li>מושפע מאוד מהשכלה: חציון 29 עם 9 שנות לימוד או יותר, ו־22 עם 0 עד 4 שנות לימוד. [[Crum1993]]</li><li>מילולי מאוד ואינו רגיש לפגיעה קלה. [[Tombaugh1992]]</li><li>מוגן בזכויות יוצרים; מחבריו החלו לאכוף את זכויותיהם ב־2000, ובשנת 2011 עלה טופס מורשה כ־1.23 דולר (USD) ליחידה. [[Newman2011]]</li></ul></div>
+    <div class="card"><h4>MoCA</h4><ul><li>כ־10 דקות, 30 נקודות; מוסיף משימות ניהוליות וחזותיות־מרחביות. במחקר המקורי, נקודת חתך של 26 איתרה 90% ממקרי ה־MCI, לעומת 18% ב־MMSE; הסגוליות הייתה 87%, לעומת 100% ב־MMSE. [[Nasreddine2005]]</li><li><b>המחלוקת על נקודת החתך:</b> בעלי הזכויות שומרים על 26 ומעלה כתקין, עם נקודה 1 נוספת למי שלמד 12 שנים או פחות. מטא־אנליזה מצאה ש־26 נותן יותר מדי תוצאות חיוביות כוזבות, במיוחד אצל אנשים מבוגרים יותר או בעלי השכלה נמוכה יותר, ושהדיוק הטוב ביותר מתקבל ב־23. [[MoCA2025FAQ,Carson2018]]</li><li><b>שינוי ב־2025:</b> מאז דצמבר 2025, הסמכה היא אופציונלית לסינון לפי הציון הכולל, אבל עדיין נדרשת כדי לפרש תת־ציונים. [[MoCA2025FAQ]]</li></ul></div>
+    <div class="card"><h4>Mini-Cog</h4><ul><li>היזכרות בשלוש מילים (0 עד 3) ועוד ציור שעון (0 או 2), סך הכול 0 עד 5. ציון של 0 עד 2 מעיד על סבירות גבוהה יותר לפגיעה משמעותית; ציון תקין אינו שולל אותה. [[MiniCog2026]]</li><li>כ־3 דקות, והדיוק שלו לא הושפע מהשכלה או משפה במחקר הרב־לשוני המקורי. [[Borson2000]]</li><li>במטא־אנליזה: רגישות 0.91 וסגוליות 0.86 לדמנציה. [[Tsoi2015]]</li></ul></div>
+    <div class="card"><span class="ev est">מבוסס</span><h4>המגבלה המשותפת להם</h4><p>כלי סינון מדרגים חומרה ומובילים להערכה נוספת. הם אינם קובעים את הסיבה. אדם בעל השכלה גבוהה בשלב מוקדם של המחלה יכול לקבל ציון תקין; השכלה נמוכה, ליקוי שמיעה או ראייה, או מחסום שפה יכולים להוריד את הציון בלי שיש דמנציה. [[Crum1993,Tombaugh1992,Creavin2016,MiniCog2026]]</p><div class="hook"><b>לבחינה</b>ל־MCI: MoCA. לדירוג דמנציה: MMSE. למהירות: Mini-Cog. אף אחד מהם אינו מזהה את הסיבה.</div></div>
+  </div>
+
+  <h3 class="sub">ארבע הגדרות של אלצהיימר</h3>
+  <p class="prose">הקריטריונים עברו מתסמונת קלינית לכיוון הביולוגיה, ויש מחלוקת בתחום עד כמה רחוק ללכת. בחרו אדם וראו איך כל מסגרת הייתה מגדירה אותו.</p>
+  <div class="ctrls" role="group" aria-label="בחירת אדם">
+    <span class="kicker">אדם</span>
+    <button class="btn" data-prof="0" aria-pressed="true">עמילואיד חיובי, ללא תסמינים</button>
+    <button class="btn" data-prof="1" aria-pressed="false">עמילואיד וטאו חיוביים, ללא תסמינים</button>
+    <button class="btn" data-prof="2" aria-pressed="false">עמילואיד חיובי, עם MCI</button>
+    <button class="btn" data-prof="3" aria-pressed="false">דמנציה קלה, ללא בדיקות סמנים</button>
+  </div>
+  <div class="cards" id="dxCrit" aria-live="polite"></div>
+</section>

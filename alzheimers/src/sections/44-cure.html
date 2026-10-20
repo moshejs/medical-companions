@@ -1,0 +1,57 @@
+<!-- ================= 4.4 TOWARD A CURE ================= -->
+<section class="mod" id="m-cure" data-mod="cure" hidden>
+<style>
+#m-cure .cu-routes{display:flex;flex-wrap:wrap;gap:6px}
+#m-cure .cu-routes .btn{font-size:13.5px;padding:7px 12px}
+#m-cure .cu-nums{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+#m-cure .cu-num{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+#m-cure .cu-num b{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.05;color:var(--sky)}
+#m-cure .cu-num span{font-size:14px}
+#m-cure .cu-close{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--sky);border-radius:var(--r);padding:16px 18px;font-size:17px}
+#m-cure .cu-close b{font-family:var(--display);font-weight:800;font-size:21px;display:block;margin-bottom:4px}
+#m-cure td .ev{display:inline-block}
+#m-cure .card .ev{align-self:flex-start}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 4 · Living, caring, preventing</p><h2>Toward a cure</h2>
+    <p class="lede">Researchers are trying to interrupt the disease at every step, from the first protein cut to the loss of synapses. Pick a route to drop a barrier at its target and see what the best evidence found. Every route carries an evidence label, and failures are shown as plainly as successes.</p></div>
+
+  <h3 class="sub">Where could we intervene?</h3>
+  <div class="cu-routes" role="group" aria-label="Choose a treatment route" id="cuRoutes"></div>
+  <div class="stepper" id="cuSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Particles flow along the disease pathway from APP processing to amyloid aggregation, tau spread, microglia and inflammation, and synapse loss. The chosen treatment route drops a barrier at its target, and the flow beyond it shows whether the best trial evidence slowed the disease, failed or made things worse."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuPlay">Play</button><label class="stage-cap tl" for="cuT">Timeline <input type="range" id="cuT" min="0" max="1" step="0.002" value="0.7"></label></div>
+      <p class="stage-cap" id="cuCap">Schematic, not to scale. The flow beyond the barrier is a picture of the trial result, not a measurement.</p></div>
+    <aside class="note" id="cuNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Route</th><th>Target</th><th>Evidence</th><th>Best result so far</th></tr></thead>
+    <tbody id="cuTbl"></tbody></table></div>
+
+  <h3 class="sub">Prevention trials: treating before symptoms</h3>
+  <p class="prose">These trials give a drug to people who have amyloid or a disease-causing gene but no symptoms yet. The timeline runs from the first readout to the last expected one; solid dots are published results, hollow dots are estimated completion dates from the trial registry.</p>
+  <div class="stepper" id="cuPvSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuPv" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A timeline from 2022 to 2033. A cursor passes six prevention trials in turn: A4 and API Colombia reported no benefit, the DIAN-TU extension reported a possible delay that is not yet confirmed, and TRAILBLAZER-ALZ 3, AHEAD 3-45 and PrevenTRON are still running with estimated completion dates in 2027, 2028 and 2032."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuPvPlay">Play</button><label class="stage-cap tl" for="cuPvT">Years <input type="range" id="cuPvT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Dates are publication years for results and registry estimates for trials still running.</p></div>
+    <aside class="note" id="cuPvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The 2025 pipeline in numbers</h3>
+  <div class="cu-nums" id="cuNums"></div>
+  <div class="ctrls" role="group" aria-label="Pipeline year"><span class="kicker">Share of the pipeline by drug type</span>
+    <button class="btn" id="cuY25" aria-pressed="true">2025</button><button class="btn" id="cuY26" aria-pressed="false">2026</button></div>
+  <div class="stage"><div class="scroll"><svg id="cuPipe" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Bar charts of the Alzheimer's drug pipeline: the share of drugs by type in 2025 or 2026, the number of trials and drugs by phase in 2025, and the number of drugs by mechanism in 2025."></svg></div>
+    <p class="stage-cap" id="cuPipeCap">Counts from the annual pipeline reviews of clinicaltrials.gov.</p></div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards" id="cuOpen"></div>
+
+  <h3 class="sub">What the next trials test</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Trials</th><th>Expected</th></tr></thead>
+    <tbody id="cuNext"></tbody></table></div>
+
+  <div class="cu-close"><b>No therapy cures Alzheimer's disease today.</b>The approved antibodies that clear amyloid slow decline modestly in early disease; they do not stop it or restore what is lost, and no drug has yet been shown to prevent symptoms in people who do not have them. A cure would need to halt neurodegeneration and possibly restore lost function. [[vanDyck2023,Sims2023,Bateman2025,Tariot2026]]</div>
+</section>

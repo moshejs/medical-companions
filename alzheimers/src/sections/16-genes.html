@@ -1,0 +1,88 @@
+<!-- ================= 1.6 GENES ================= -->
+<style>
+#m-genes .gn-life{display:flex;flex-direction:column;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+#m-genes .gn-row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:4px 16px;align-items:center;padding:6px 8px;border-radius:10px;transition:background .3s}
+#m-genes .gn-row.on{background:var(--rose-soft)}
+#m-genes .gn-row .gl{font-size:14.5px}
+#m-genes .gn-row .gl b{display:block}
+#m-genes .gn-track{position:relative;height:16px;background:var(--panel-2);border-radius:8px}
+#m-genes .gn-track i{position:absolute;top:0;bottom:0;border-radius:8px;background:var(--rose);transition:left .8s ease,width .8s ease}
+#m-genes .gn-track i.x{background:var(--rose);opacity:.4}
+#m-genes .gn-track span{position:absolute;top:-1px;font:600 11px var(--mono);color:var(--ink);transition:left .8s ease}
+#m-genes .gn-axis{display:flex;justify-content:space-between;font:500 11px var(--mono);color:var(--muted)}
+#m-genes .gn-row .gv{grid-column:2;font:500 12px var(--mono);color:var(--muted)}
+@media (max-width:700px){#m-genes .gn-row{grid-template-columns:minmax(0,1fr)} #m-genes .gn-row .gv{grid-column:1}}
+</style>
+<section class="mod" id="m-genes" data-mod="genes" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Genes and inheritance</h2>
+    <p class="lede">Most Alzheimer's is not inherited in a simple way. One common gene, APOE, shifts the odds. A few rare genes all but guarantee it, and an extra chromosome 21 does too. Pick a genotype, then play the family below.</p></div>
+
+  <h3 class="sub">APOE: one gene, three common versions</h3>
+  <div class="prose"><p>Everyone carries two copies of APOE, one from each parent. The three common versions, ε2, ε3 and ε4, differ at only two positions in the protein (112 and 158). [[Yamazaki2019]] Choose a pair to see how often it turns up in people with Alzheimer's compared with ε3/ε3.</p></div>
+  <div class="ctrls" role="group" aria-label="APOE genotype" id="gnGeno"><span class="kicker">Genotype</span></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="gnApoe" viewBox="0 0 720 480" style="min-width:560px" role="img" aria-label="Three APOE allele cards with their frequencies in healthy people and in people with Alzheimer's, then odds-ratio bars on a log scale for the chosen genotype from two studies, then the same genotype's odds ratio by ancestry where published."></svg></div>
+      <p class="stage-cap">Odds ratios compare the odds of Alzheimer's with ε3/ε3, on a log scale. They are group averages, not anyone's personal chance.</p></div>
+    <aside class="note" id="gnApoeNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Odds ratio is not lifetime risk, and the estimates disagree</h3>
+  <div class="prose"><p>An odds ratio of 15 does not mean a 15-times or a near-certain chance. Researchers have turned the odds into lifetime risk two ways, and get different answers. Rows for your chosen genotype are highlighted.</p></div>
+  <div class="gn-life" id="gnLife"></div>
+  <div class="split2">
+    <div class="callout"><p><b>Why they disagree.</b> Case-control and memory-clinic samples carry referral bias; the population cohorts measured MCI or dementia rather than Alzheimer's alone; and most cohorts are of European ancestry, where the ε4 effect is larger than in African ancestry. [[AlzforumNews2024,Qian2017,Belloy2023]]</p></div>
+    <div class="callout"><p><b>What both agree on.</b> ε4 raises risk but does not decide it: many ε4/ε4 people never develop dementia, and Alzheimer's often occurs without ε4. Only 38% of APOE alleles in people with Alzheimer's are ε4. [[Qian2017,Genin2011,Yamazaki2019]]</p></div>
+  </div>
+
+  <h3 class="sub">Dominant inheritance: APP, PSEN1 and PSEN2</h3>
+  <div class="prose"><p>A mutation in APP, PSEN1 or PSEN2, or an extra copy of APP, is the only known cause that all but guarantees Alzheimer's. [[Bateman2011]] Pick the gene, play the family, and press "Another family" to see that 50% is a chance for each child, not a quota.</p></div>
+  <div class="ctrls" role="group" aria-label="Gene and family">
+    <span class="kicker">Gene</span>
+    <button class="btn" id="gnAPP" aria-pressed="false">APP</button>
+    <button class="btn" id="gnPS1" aria-pressed="true">PSEN1</button>
+    <button class="btn" id="gnPS2" aria-pressed="false">PSEN2</button>
+    <button class="btn" id="gnRoll">Another family</button>
+  </div>
+  <div class="stepper" id="gnSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="gnPed" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="A two-generation family where one parent carries a dominant Alzheimer's mutation, a Punnett square showing a 50% chance for each child, the children inheriting or not, then the DIAN timeline of changes from 25 years before expected symptom onset to dementia 3 years after, and a 100-square grid showing the share of all Alzheimer's that is dominantly inherited."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gnPlay">Play</button><label class="stage-cap tl" for="gnT">Timeline <input type="range" id="gnT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="readout" id="gnRead"></p>
+      <p class="stage-cap">Schematic family. DIAN years are cross-sectional estimates relative to the parent's age at onset.</p></div>
+    <aside class="note" id="gnNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Down syndrome: a third copy of APP</h3>
+  <div class="prose"><p>APP, the gene for the protein amyloid beta is cut from, sits on chromosome 21. People with Down syndrome usually have three copies of chromosome 21, so three copies of APP. Drag the age, then switch to the rare case with only two APP copies.</p></div>
+  <div class="ctrls" role="group" aria-label="Chromosome 21 pattern">
+    <span class="kicker">Chromosome 21</span>
+    <button class="btn" id="gnDsFull" aria-pressed="true">Full trisomy: 3 APP copies</button>
+    <button class="btn" id="gnDsPart" aria-pressed="false">Partial trisomy: 2 APP copies</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="gnDs" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="Three copies of chromosome 21 with the APP gene marked, beside an age ladder from 20 to 80 showing when Alzheimer's changes and diagnoses appear in adults with Down syndrome, or, with partial trisomy and two APP copies, a single case with no Alzheimer's at 78."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gnDsPlay">Play</button><label class="stage-cap tl" for="gnDsT">Age <input type="range" id="gnDsT" min="0" max="1" step="0.002" value="0.5"></label></div>
+      <p class="stage-cap">Ages are from separate cohorts; positions on the ladder are to scale.</p></div>
+    <aside class="note" id="gnDsNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Resilience, risk scores and testing</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Case reports + cohort</span><h4>APOE3 Christchurch</h4><p>A woman with the Colombian PSEN1 E280A mutation did not develop MCI until her seventies, about three decades late. She had two copies of APOE3 Christchurch, very high amyloid, and little tau. Among 1,077 carriers, the 27 with one Christchurch copy began to decline at a median 52 years against 47, about 5 years later. [[ArboledaVelasquez2019,Quiroz2024]]</p></div>
+    <div class="card"><span class="ev early">Single case</span><h4>RELN-COLBOS, 2023</h4><p>A man with the same PSEN1 mutation stayed cognitively intact until 67 without Christchurch. He carried a gain-of-function variant in Reelin, which binds the same receptors as APOE; in mice it reduced tau phosphorylation. Both resilient people had very high amyloid but little entorhinal tau, suggesting protection acted at the tau stage. [[Lopera2023,ArboledaVelasquez2019]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>A673T: protection in APP itself</h4><p>An Icelandic APP variant next to the beta-secretase site cut amyloid production by about 40% in the lab, and protected against Alzheimer's and against decline in older people without it. [[Jonsson2012]] See <a href="#amyloid" data-go="amyloid">Amyloid, animated</a>.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>The Colombian kindred</h4><p>A 1997 survey of five extended families in Antioquia (nearly 3,000 people) found 128 affected, with onset at a mean 46.8 years. PSEN1 E280A traces to one founder about 15 generations ago. In 449 carriers, median ages were 44 for MCI, 49 for dementia and 59 for death. [[Lopera1997,Lalli2014,AcostaBaena2011]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>GWAS: 75 places in the genome</h4><p>The largest study, Bellenguez 2022 in <i>Nature Genetics</i> (111,326 cases, 677,663 controls), found 75 risk loci, 42 new, pointing to amyloid and tau processing, microglia and TNF-α signalling. Rare TREM2 R47H raised risk about 2.9-fold. [[Bellenguez2022,Jonsson2013]]</p></div>
+    <div class="card"><span class="ev early">Limited use</span><h4>Polygenic scores</h4><p>A score built with APOE, age and sex reached an AUC of 78.2%. Beyond age and APOE ε4, the Bellenguez score separated the top and bottom tenths by only 1.6- to 1.9-fold. Scores discriminate poorly in the general population, work less well outside European ancestry, and have no established clinical use. [[EscottPrice2015,Bellenguez2022,LewisVassos2020]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Twins: heritability 58–79%</h4><p>In 11,884 Swedish twin pairs, heritability of Alzheimer's was 58% in the full model and 79% in the best-fitting one; the rest came from non-shared environment. Identical twins also differed less in age at onset. The authors stress non-genetic factors still matter. [[Gatz2006]]</p></div>
+    <div class="card"><span class="ev early">Debated</span><h4>Is ε4/ε4 its own genetic form?</h4><p>In 2024, Fortea and colleagues reported Alzheimer's biology in almost all ε4/ε4 people, with symptoms at a mean of 65, and proposed it as a distinct genetic form. Critics answer that near-full penetrance of biology is not near-full penetrance of dementia, citing lifetime risks of about 30–55%. [[Fortea2024,AlzforumNews2024]]</p></div>
+  </div>
+
+  <h3 class="sub">Testing: what the guidelines say</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Published guidance</span><h4>Predictive APOE testing</h4><p>A 1995 ACMG/ASHG statement said APOE should not be used for predictive testing. The 2011 ACMG/NSGC guideline calls APOE susceptibility testing "not clinically recommended" and advises against direct-to-consumer testing; if a person still insists after counselling, it says testing should follow the Huntington disease protocol. [[ACMG1995,Goldman2011,Goldman2019]]</p></div>
+    <div class="card"><span class="tag warn">Published guidance</span><h4>Families with a dominant gene</h4><p>The guideline says testing for APP, PSEN1 and PSEN2 should be offered to people with early-onset Alzheimer's and a family history, to families with a dominant pattern, and to relatives of a known carrier, using a Huntington-style protocol. Children should not be tested. Only 8.4% of at-risk people in one series asked for predictive testing. [[Goldman2011,Bateman2011]]</p></div>
+    <div class="card"><span class="tag sky">Treatment context</span><h4>Genotyping before anti-amyloid drugs</h4><p>US labels for lecanemab and donanemab say ApoE ε4 testing "should be performed prior to initiation of treatment", because ARIA (brain swelling or bleeding on MRI) is more common in ε4/ε4. This is a different purpose from predicting Alzheimer's. [[FDA2025Leqembi,FDA2025Kisunla,Cummings2023,Rabinovici2025]] See <a href="#antibody" data-go="antibody">Anti-amyloid antibodies</a>.</p></div>
+    <div class="card"><span class="ev est">Trial evidence</span><h4>What disclosure did: REVEAL</h4><p>162 adult children of people with Alzheimer's were randomised to learn their APOE result or not. At 1 year anxiety, depression and distress did not differ. ε4-positive people more often changed health behaviours (adjusted OR 2.73) and were 5.76 times more likely to change long-term care insurance. [[Green2009,Chao2008,Zick2005]]</p></div>
+  </div>
+</section>

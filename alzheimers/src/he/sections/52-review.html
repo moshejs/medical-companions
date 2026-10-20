@@ -1,0 +1,43 @@
+<!-- ================= 5.2 FLASHCARDS ================= -->
+<section class="mod" id="m-review" data-mod="review" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 5 · הקשר וחזרה</p><h2>כרטיסיות וטכניקות זכירה</h2>
+    <p class="lede">הקישו על הכרטיס (או לחצו על מקש הרווח) כדי להפוך אותו. מקשי החצים עוברים בין הכרטיסים. אפשר לסנן לפי חלק או לערבב.</p></div>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="כרטיסייה, לחצו כדי להפוך">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">→ הקודם</button><button class="btn primary" id="fcFlip">הפיכה</button><button class="btn" id="fcNext">הבא ←</button><button class="btn ghost" id="fcShuf">ערבוב</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <h3 class="sub">טכניקות זכירה</h3>
+  <div class="mn" id="mnList"></div>
+</section>
+
+<!-- ================= 5.3 QUIZ ================= -->
+<section class="mod" id="m-quiz" data-mod="quiz" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 5 · הקשר וחזרה</p><h2>בוחן</h2>
+    <p class="lede">בחרו תשובה כדי לראות את ההסבר. הבוחן המעורב שולף 20 שאלות באקראי; אפשר גם לבחור חלק מסוים.</p></div>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
+</section>
+
+<!-- ================= 5.4 GLOSSARY ================= -->
+<section class="mod" id="m-glossary" data-mod="glossary" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 5 · הקשר וחזרה</p><h2>מילון מונחים</h2>
+    <p class="lede">כל מונח מקצועי שמופיע באפליקציה. הקלידו כדי לסנן; החץ שבכל ערך מוביל למודול שבו המונח חשוב ביותר.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="חיפוש, למשל APOE,‏ ARIA או Braak" aria-label="חיפוש במילון המונחים">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
+</section>
+
+<!-- ================= 5.5 SOURCES ================= -->
+<section class="mod" id="m-sources" data-mod="sources" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 5 · הקשר וחזרה</p><h2>מקורות</h2>
+    <p class="lede">כל המקורות שהעלו תשעת סבבי המחקר שעליהם נשענת האפליקציה: מאמרים בכתבי עת, הנחיות, עלוני תרופות, רישומי ניסויים ומעט רשומות ממאגרי מידע וממנועי חיפוש. המספרים הקטנים לאורך האפליקציה מפנים לכאן.</p></div>
+  <div class="callout prose"><p>המחקר לכל תחום נעשה בנפרד, ולכן כמה עבודות מופיעות תחת ערך מאוחד. ערכים המסומנים <span class="tag warn">לבדיקה</span> לא ניתן היה לאמת במלואם מול המקור, ולכן כדאי להתייחס אליהם בזהירות יתרה.</p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="חיפוש לפי מחבר, כותרת, כתב עת או שנה" aria-label="חיפוש במקורות">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
+</section>

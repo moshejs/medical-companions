@@ -1,0 +1,59 @@
+<!-- ================= 4.2 LIVING WITH DEMENTIA AND CAREGIVING ================= -->
+<section class="mod" id="m-living" data-mod="living" hidden>
+<style>
+#m-living .lv-nums{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+#m-living .lv-num{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+#m-living .lv-num b{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.05;color:var(--sage)}
+#m-living .lv-num span{font-size:14.5px}
+#m-living .lv-num small{font-size:12.5px;color:var(--muted)}
+#m-living .lv-say{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--panel)}
+#m-living .lv-say div{padding:9px 14px;border-bottom:1px solid var(--line);font-size:15px}
+#m-living .lv-say div:nth-last-child(-n+2){border-bottom:0}
+#m-living .lv-say .h{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--panel-2)}
+#m-living .lv-say .no{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--bad)}
+#m-living .lv-say .yes{font-weight:700}
+@media (max-width:520px){#m-living .lv-say div{padding:8px 10px;font-size:14px}}
+</style>
+  <div class="mhead"><p class="eyebrow">חלק 4 · חיים, טיפול ומניעה</p><h2>לחיות עם דמנציה ולטפל</h2>
+    <p class="lede">לאדם החי עם דמנציה ולאנשים שלצידו. כאן אפשר ללכת לאורך השנים שאחרי האבחנה, לראות אילו תוכניות ושאלות של בטיחות עולות בדרך כלל בכל שלב, ומה המחקר אומר על מה שעוזר לבני המשפחה המטפלים.</p></div>
+
+  <h3 class="sub">שנות הטיפול</h3>
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lvSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="ציר זמן מהאבחנה ועד סוף החיים. סמן נע בין שבע נקודות: אבחנה, תכנון, נהיגה, בטיחות בבית, הליכה לאיבוד, מעבר מסגרת וסוף החיים. עקומה מראה את העצמאות בחיי היומיום יורדת לאט, ולוח מציג את הנתונים שפורסמו לכל נקודה."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">הפעלה</button><label class="stage-cap tl" for="lvT">השנים <input type="range" id="lvT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="stage-cap">סכמטי. הסדר והקצב שונים מאדם לאדם, ואנשים רבים לא יגיעו לחלק מהנקודות האלה כלל.</p></div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">בני המשפחה המטפלים</h3>
+  <div class="lv-nums" id="lvNums"></div>
+  <p id="lvDep" style="max-width:70ch"></p>
+  <div class="stepper" id="lvIvSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lvIv" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="חמש תוכניות למטפלים, בזו אחר זו: REACH II הורידה את שיעור הדיכאון בקרב המטפלים מ־22.7 ל־12.6 אחוז, תוכנית NYU דחתה את המעבר למוסד סיעודי בכ־557 ימים, START שיפרה את מצב הרוח של המטפלים למשך שש שנים, להפוגה אין השפעה מוכחת בסקירת Cochrane, ול־GUIDE עדיין אין תוצאות שפורסמו."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvIvPlay">הפעלה</button><label class="stage-cap tl" for="lvIvT">ראיות <input type="range" id="lvIvT" min="0" max="1" step="0.002" value="0.12"></label></div>
+      <p class="stage-cap">העמודות בקנה מידה רק בתוך כל שורה. כל שורה היא ניסוי אחר עם מדד תוצאה אחר.</p></div>
+    <aside class="note" id="lvIvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">למילים יש משקל</h3>
+  <div class="split2">
+    <div class="prose">
+      <p>הנחיות השפה של Dementia Australia מבקשות מכותבים לשים את האדם במקום הראשון. הטבלה מציגה כמה מההחלפות שהן מציעות, בתרגום לעברית. [[DementiaAustralia2021]]</p>
+      <p>הסטיגמה נפוצה. בסקר עולמי של כמעט 70,000 איש, 62% מאנשי מקצועות הבריאות חשבו שדמנציה היא חלק רגיל מההזדקנות, 35% מהמטפלים הסתירו את האבחנה של קרוב משפחה מאדם אחד לפחות, ויותר מ־85% מהאנשים החיים עם דמנציה אמרו שדעתם לא נלקחה ברצינות. [[ADI2019]]</p>
+      <div class="callout"><p><b>היכן המקורות חלוקים.</b> ההנחיות ממליצות להימנע מ״נטל הטיפול״ ומעדיפות ניסוח ניטרלי כמו ״ההשפעה של התמיכה באדם קרוב״. המחקר עדיין מודד ״נטל הטיפול״ (caregiver burden), למשל בשאלון Zarit Burden Interview שמשמש בניסויים. העמוד הזה כותב ״השפעה״ במילים שלו, ו״נטל״ רק כשהוא מציין מדד מחקרי. [[DementiaAustralia2021,Lamb2018,Gathercole2021]]</p></div>
+      <div class="ctrls"><button class="btn" id="lvLangBtn" aria-pressed="false">הצגת הניסוח המחקרי</button></div>
+      <p id="lvLangOut" aria-live="polite"></p>
+    </div>
+    <div class="lv-say" aria-label="מילים שכדאי להימנע מהן וחלופות מוצעות">
+      <div class="h">להימנע</div><div class="h">במקום זה</div>
+      <div class="no">״סובל מ…״, ״קורבן״, ״לוקה ב…״</div><div class="yes">אדם החי עם דמנציה</div>
+      <div class="no">״דמנטי״, ״סניל״, ״מחלה מדמנטת״</div><div class="yes">אדם עם דמנציה, אדם שאובחנה אצלו דמנציה</div>
+      <div class="no">״דמנציה מוקדמת״</div><div class="yes">דמנציה שהחלה בגיל צעיר</div>
+      <div class="no">״התנהגויות מאתגרות״</div><div class="yes">שינויים בהתנהגות, ביטוי לצורך שלא נענה</div>
+      <div class="no">״נטל הטיפול״, ״נטל המטפל״</div><div class="yes">ההשפעה של התמיכה באדם קרוב</div>
+      <div class="no">״קליפה ריקה״, ״משוטט״, ״חולה״ מחוץ להקשר רפואי</div><div class="yes">תוויות שעדיף לוותר עליהן לגמרי</div>
+    </div>
+  </div>
+</section>

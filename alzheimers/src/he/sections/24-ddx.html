@@ -1,0 +1,74 @@
+<!-- ================= 2.4 DIFFERENTIAL ================= -->
+<style>
+#m-ddx .card>.ev{align-self:flex-start}
+#m-ddx .ddb{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--ink);text-align:left;cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}
+#m-ddx .ddb:hover{color:var(--rose)}
+#m-ddx .ddb[aria-expanded="true"]{color:var(--rose)}
+#m-ddx tr.ddmore td{background:var(--panel-2);font-size:14px}
+#m-ddx #ddPick h4{font-family:var(--display);font-weight:800;font-size:23px;line-height:1.12;margin:0}
+#m-ddx .kv dd{font-size:15px}
+#m-ddx .pickrow .btn{font-size:13px;padding:6px 11px}
+</style>
+<section class="mod" id="m-ddx" data-mod="ddx" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 2 · מהלך ואבחון</p><h2>האבחנה המבדלת</h2>
+    <p class="lede">לא כל בעיית זיכרון היא אלצהיימר. מהירות ההופעה ומה הופיע ראשון הם מהרמזים החזקים ביותר. צפו בשמונה מהלכים אופייניים מתפתחים על אותו שעון, ואז לחצו על כל שורה לפרטים.</p></div>
+  <div class="ctrls" role="group" aria-label="ציר הזמן">
+    <span class="kicker">ציר הזמן</span>
+    <button class="btn" id="ddLog" aria-pressed="true">משעות ועד 10 שנים (לוגריתמי)</button>
+    <button class="btn" id="ddLin" aria-pressed="false">מ־0 ועד 10 שנים (אחיד)</button>
+  </div>
+  <div class="stepper" id="ddSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddSvg" viewBox="0 0 720 452" style="min-width:560px" role="img" aria-label="שמונה שורות משרטטות מהלכים אופייניים בזמן שסמן הזמן נע משעות ועד עשר שנים: דליריום יורד בתוך שעות ומשתנה, מחלת פריון יורדת במשך שבועות עד חודשים, ודפוסי האלצהיימר, הדמנציה הווסקולרית, דמנציה עם גופיפי לוי, הדמנציה הפרונטו־טמפורלית, ההידרוצפלוס והדיכאון נפרדים זה מזה במשך חודשים עד שנים."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ddPlay">הפעלה</button><label class="stage-cap tl" for="ddT">זמן <input type="range" id="ddT" min="0" max="1" step="0.002" value="0.12"></label></div>
+      <p class="stage-cap" id="ddCap">דפוסים אופייניים, באופן סכמטי: קו גבוה יותר פירושו תפקוד טוב יותר. קו מלא: חשיבה. קו מקווקו: התחום שמוביל (התנהגות, הליכה או מצב רוח). אנשים אמיתיים כמעט אף פעם אינם הולכים לפי מהלך של ספר לימוד, וסיבות מעורבות שכיחות.</p></div>
+    <aside class="note" id="ddNote" aria-live="polite"></aside>
+  </div>
+  <div class="ctrls pickrow" role="group" aria-label="הצגת פרטים על מצב" id="ddPickBtns"></div>
+  <div class="note" id="ddPick" aria-live="polite"></div>
+
+  <h3 class="sub">האבחנה המבדלת, מצב אחר מצב</h3>
+  <p class="prose">לחצו על מצב כדי לפתוח מה עוד המקורות אומרים עליו.</p>
+  <div class="tbl"><table id="ddTable"><thead><tr><th scope="col">מצב</th><th scope="col">מה מכוון אליו ולא לאלצהיימר</th><th scope="col">בדיקות וממצאים עיקריים</th></tr></thead><tbody></tbody></table></div>
+
+  <h3 class="sub">דליריום או דמנציה?</h3>
+  <p class="prose">דליריום הוא מצב חירום רפואי שיכול להיראות כמו דמנציה, ולעתים קרובות הוא מופיע על רקע דמנציה. שיטת הערכת הבלבול (CAM) שואלת ארבע שאלות. הפעילו וכבו את המאפיינים כדי לראות איך האלגוריתם משלב אותם.</p>
+  <div class="ctrls" role="group" aria-label="מאפייני CAM שנמצאו">
+    <span class="kicker">מאפיינים שנמצאו</span>
+    <button class="btn" data-cam="0" aria-pressed="true">1 הופעה חדה, משתנה</button>
+    <button class="btn" data-cam="1" aria-pressed="true">2 חוסר קשב</button>
+    <button class="btn" data-cam="2" aria-pressed="false">3 חשיבה לא מאורגנת</button>
+    <button class="btn" data-cam="3" aria-pressed="false">4 שינוי במצב ההכרה</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddCam" viewBox="0 0 720 150" style="min-width:560px" role="img" aria-label="אלגוריתם CAM: מאפיין 1 וגם מאפיין 2 וגם מאפיין 3 או מאפיין 4. התיבות נדלקות כשמפעילים מאפיינים, והתוצאה מראה אם הקריטריונים מתקיימים."></svg></div>
+      <p class="stage-cap">המחשה לימודית של האלגוריתם שפורסם, לא כלי לשימוש ליד מיטת המטופל. [[Inouye1990]]</p></div>
+    <aside class="note" id="ddCamNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th scope="col">מאפיין</th><th scope="col">דליריום</th><th scope="col">דמנציה של אלצהיימר אופיינית</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">הופעה</th><td>חדה: שעות עד ימים (מאפיין 1 ב־CAM).‏ [[Inouye1990]]</td><td>הדרגתית וחמקמקה, במשך חודשים עד שנים. [[McKhann2011]]</td></tr>
+      <tr><th scope="row">מהלך</th><td>משתנה, לעתים קרובות בתוך יום אחד. [[Inouye1990]]</td><td>היסטוריה ברורה של החמרה הדרגתית. [[McKhann2011]]</td></tr>
+      <tr><th scope="row">התחום הראשון</th><td>חוסר קשב, מאפיין חובה ב־CAM.‏ [[Inouye1990]]</td><td>בדרך כלל זיכרון לטווח קצר. [[GraffRadford2021,AA2025Facts]]</td></tr>
+      <tr><th scope="row">ערנות</th><td>רמת ההכרה עשויה להשתנות (מאפיין 4 ב־CAM).‏ [[Inouye1990]]</td><td>קריטריוני הדמנציה דורשים שדליריום לא יסביר את התסמינים. [[McKhann2011]]</td></tr>
+      <tr><th scope="row">כלים</th><td>CAM: פחות מ־5 דקות, רגישות של 94 עד 100% וסגוליות של 90 עד 95% במחקרי התיקוף. אצל אנשים עם דמנציה, מחקר אחד מצא רגישות של 77% בלבד. [[Inouye1990,Morandi2012]]</td><td>היסטוריה מפי מקור מידע קרוב, בדיקה קוגניטיבית, ואחר כך הבירור שבפרק <a href="#dx" data-go="dx">אבחון וסמנים ביולוגיים</a>. [[Arvanitakis2019]]</td></tr>
+      <tr><th scope="row">חפיפה</th><td colspan="2">דליריום על רקע דמנציה דווח אצל 22 עד 89% מהמבוגרים עם דמנציה, וקושר לירידה מהירה יותר, למעבר למסגרת מוסדית ולמוות. קשב וערנות משתנים הם גם מאפייני ליבה של דמנציה עם גופיפי לוי. [[Fick2002,McKeith2017]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">בירור הסיבות ההפיכות</h3>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddRev" viewBox="0 0 720 250" style="min-width:560px" role="img" aria-label="מתוך 1,000 נקודות המייצגות אנשים עם דמנציה, 90 הופכות לריבועים בשל סיבה שעשויה להיות הפיכה, ורק 6 הופכות לטבעות של דמנציה שאכן חלפה."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ddRevPlay">הפעלה</button><label class="stage-cap tl" for="ddRevT">חשיפה <input type="range" id="ddRevT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">שיעורים ממטא־אנליזה מ־2003 של 39 מחקרים (5,620 אנשים), מותאמים ל־1,000 אנשים. המיקומים אקראיים.</p></div>
+    <aside class="note" id="ddRevNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="ev est">הנחיה שפורסמה</span><h4>שגרתי לפי הנחיית ה־AAN</h4><p>סקר לדיכאון, לחסר B12 ולתת־פעילות של בלוטת התריס, ו־CT ללא חומר ניגוד או MRI, בהערכה הראשונית. זו הנחיה מ־2001. [[Knopman2001]]</p></div>
+    <div class="card"><h4>רק כשיש חשד</h4><p>סרולוגיה לעגבת כשיש חשד לנוירוסיפיליס. בדיקת CSF או בדיקה גנטית נשקלות במקרים לא אופייניים: הופעה לפני גיל 65, הופעה מהירה, או הסתמנות שאינה בזיכרון. [[Knopman2001,Arvanitakis2019]]</p></div>
+    <div class="card"><h4>תרופות</h4><p>סקירת תרופות. השימוש המצטבר הכבד ביותר בתרופות אנטי־כולינרגיות חזקות, לרוב נוגדי דיכאון טריציקליים, אנטי־היסטמינים מהדור הראשון ותרופות אנטי־מוסקריניות לשלפוחית השתן, נמצא קשור לדמנציה (יחס סיכונים 1.54). [[Gray2015]]</p></div>
+    <div class="card"><h4>שינה</h4><p>הפרעות נשימה בשינה נמצאו קשורות להופעה חדשה של MCI או דמנציה אצל 298 נשים מבוגרות (יחס סיכויים 1.85), בהתאם לרמת החמצן הנמוכה ולא לשינה המקוטעת. [[Yaffe2011]]</p></div>
+    <div class="card"><h4>הליכה קודם</h4><p>כשההליכה משתנה ראשונה, בהדמיה מחפשים את החדרים המורחבים ואת דפוס ה־DESH של הידרוצפלוס בלחץ תקין; ייתכן שתבוא אחר כך בדיקת ניקוז CSF (tap test).‏ [[Nakajima2021]]</p></div>
+    <div class="card"><h4>שינוי פתאומי</h4><p>החמרה פתאומית מכוונת לדליריום ולחיפוש סיבות רפואיות ותרופתיות, גם אצל מי שכבר חי עם דמנציה. [[Inouye1990,Fick2002]]</p></div>
+  </div>
+</section>

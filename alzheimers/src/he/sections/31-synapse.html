@@ -1,0 +1,73 @@
+<!-- ================= 3.1 CHOLINESTERASE INHIBITORS AND MEMANTINE ================= -->
+<section class="mod" id="m-synapse" data-mod="synapse" hidden>
+<style>
+#m-synapse .card .ev{align-self:flex-start}
+#m-synapse .lab+.lab{margin-top:4px}
+#m-synapse .tbl td small{color:var(--muted)}
+#m-synapse .ctrls .kicker{margin-right:2px}
+</style>
+  <div class="mhead"><p class="eyebrow">חלק 3 · טיפול</p><h2>מעכבי כולינאסטראז וממנטין</h2>
+    <p class="lede">התרופות הוותיקות לאלצהיימר פועלות בסינפסה, המרווח שבו נוירון אחד מעביר אות לנוירון הבא. צפו באות כולינרגי אחד מתחילתו ועד סופו, ואז עברו לאלצהיימר או לאחת התרופות והפעילו שוב.</p></div>
+
+  <div class="ctrls" role="group" aria-label="המצב המוצג בסינפסה">
+    <span class="kicker">הצגה</span>
+    <button class="btn" data-sy="healthy" aria-pressed="true">בריא</button>
+    <button class="btn" data-sy="ad" aria-pressed="false">אלצהיימר, ללא טיפול</button>
+    <button class="btn" data-sy="don" aria-pressed="false">דונפזיל</button>
+    <button class="btn" data-sy="riv" aria-pressed="false">ריבסטיגמין</button>
+    <button class="btn" data-sy="gal" aria-pressed="false">גלנטמין</button>
+  </div>
+  <div class="stepper" id="sySteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="sySvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="סינפסה כולינרגית: אצטילכולין נוצר בקצה העצב, משתחרר למרווח הסינפטי, נקשר לקולטנים, מפורק על ידי אצטילכולינאסטראז ובוטיריל־כולינאסטראז, והכולין שלו ממוחזר. גרף לצדה עוקב אחר כמות האצטילכולין במרווח במצב שנבחר, בהשוואה לסינפסה בריאה."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="syPlay">הפעלה</button><label class="stage-cap tl" for="syT">ציר זמן <input type="range" id="syT" min="0" max="1" step="0.002" value="0.07"></label></div>
+      <p class="stage-cap" id="syCap">סכמטי, לא בקנה מידה. הגרף סופר את המולקולות שבציור; אלה אינם נתונים שנמדדו.</p></div>
+    <aside class="note" id="syNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">ממנטין בקולטן NMDA</h3>
+  <p class="prose">ממנטין (Namenda) פועל על מערכת אחרת: קולטן NMDA, תעלת סידן שנפתחת על ידי המוליך העצבי גלוטמט. הרעיון שמאחוריו הוא להשקיט דליפה מתמדת ונמוכה דרך התעלה, ועדיין לאפשר לאות אמיתי לעבור.</p>
+  <div class="ctrls" role="group" aria-label="איזה חוסם להציג">
+    <span class="kicker">חוסם</span>
+    <button class="btn" id="syNmMem" aria-pressed="true">ממנטין: זיקה נמוכה, יציאה מהירה</button>
+    <button class="btn" id="syNmTight" aria-pressed="false">ניסוי מחשבתי: חוסם הדוק</button>
+  </div>
+  <div class="stepper" id="syNmSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="syNm" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="תעלת קולטן NMDA בקרום התא. במנוחה מגנזיום פוקק אותה; אות רגיל מוציא את המגנזיום ומכניס פרץ של סידן; באלצהיימר דליפה קבועה של גלוטמט מאפשרת לסידן לטפטף פנימה; ממנטין פוקק את התעלה הפתוחה מול הדליפה ויוצא כשמגיע אות חזק. שני עקומים מראים את מתח הקרום ואת כניסת הסידן לאורך זמן."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="syNmPlay">הפעלה</button><label class="stage-cap tl" for="syNmT">ציר זמן <input type="range" id="syNmT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">סכמטי. במציאות לתעלה יש ארבע תת־יחידות; בציור מוצגות שתיים. העקומים להמחשה בלבד, אינם רישומים.</p></div>
+    <aside class="note" id="syNmNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">כמה גדולה התועלת?</h3>
+  <p class="prose">השפעות ממוצעות מסקירות Cochrane ומניסויים, משורטטות על פני כל אורכו של כל סולם הערכה, כדי שאפשר יהיה לראות איזה חלק מהסולם הן מכסות. אחר כך תופעות הלוואי שמפורטות בעלוני התרופות, ומה קרה כשאנשים הפסיקו את הטיפול.</p>
+  <div class="ctrls" role="group" aria-label="איזו השוואה להציג">
+    <button class="btn" data-syb="0" aria-pressed="true">ההשפעה על הסולם המלא</button>
+    <button class="btn" data-syb="1" aria-pressed="false">תופעות לוואי (עלונים)</button>
+    <button class="btn" data-syb="2" aria-pressed="false">הפסקה: DOMINO</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="syBen" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="השוואה מונפשת של גודלי השפעה שפורסמו, של שיעורי תופעות לוואי ושל ניסוי ההפסקה DOMINO, עבור מעכבי כולינאסטראז וממנטין."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="syBenPlay">הפעלה</button><label class="stage-cap tl" for="syBenT">חשיפה <input type="range" id="syBenT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="syBenCap">הבדלים ממוצעים בין התרופה לפלצבו. העמודות מתחילות באפס בכל סולם.</p></div>
+    <aside class="note" id="syBenNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">מידע שפורסם בעלוני התרופות</h3>
+  <p class="prose">מה מציין המידע לרושם בארצות הברית (עלוני ה־FDA) על התחלת המינון ועל העלאתו. המידע מובא כפי שפורסם, לצורכי לימוד. זו אינה הנחיית מינון לאף אדם; המינון נקבע עם הרופא המטפל.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>תרופה</th><th>שלב המחלה לפי העלון</th><th>הטיטרציה לפי העלון (כפי שפורסמה)</th><th>הערות העלון</th></tr></thead>
+    <tbody>
+      <tr><th>דונפזיל (Aricept)</th><td>קלה, בינונית וחמורה</td><td>העלון מציין 5 mg פעם ביום בערב; 10 mg רק אחרי 4 עד 6 שבועות במינון 5 mg. מינון 23 mg (בשלב בינוני עד חמור בלבד) רק אחרי 3 חודשים לפחות במינון 10 mg. [[FDAAricept2021]]</td><td>זמן מחצית חיים של כ־70 שעות; ריכוז יציב בתוך 15 יום. ההתוויה לשלב החמור נוספה ב־13 באוקטובר 2006. [[FDAAricept2021,DrugsFDA2026]]</td></tr>
+      <tr><th>ריבסטיגמין (Exelon), כמוסות</th><td>קלה עד בינונית</td><td>העלון מציין 1.5 mg פעמיים ביום עם הארוחות, ועלייה דרך 3, 4.5 ו־6 mg פעמיים ביום, לפחות 2 שבועות בכל שלב; מקסימום 12 mg ליום. [[FDARivastigmineCaps2022]]</td><td>לפי העלון, אם הוחמצו מנות במשך יותר מ־3 ימים, יש להתחיל מחדש מהמינון הנמוך ביותר. [[FDARivastigmineCaps2022,FDAExelonPatch2024]]</td></tr>
+      <tr><th>ריבסטיגמין, מדבקה</th><td>קלה, בינונית וחמורה</td><td>העלון מציין 4.6 mg/24 h, אחר כך 9.5 mg/24 h אחרי 4 שבועות לפחות (המינון היעיל המזערי), ואחר כך עד 13.3 mg/24 h אחרי 4 שבועות נוספים לפחות. [[FDAExelonPatch2024]]</td><td>לפי העלון: מדבקה אחת בכל פעם, מוחלפת כל 24 שעות, ואין לחזור לאותו מקום על העור בתוך 14 יום. טעויות במתן התרופה, בעיקר מדבקות נוספות שנשארו על העור, גרמו לאשפוזים ולעתים נדירות למוות. [[FDAExelonPatch2024]]</td></tr>
+      <tr><th>גלנטמין ER (Razadyne)</th><td>קלה עד בינונית</td><td>העלון מציין 8 mg ליום עם אוכל, 16 mg ליום אחרי 4 שבועות לפחות, ואפשרות ל־24 mg ליום אחרי 4 שבועות נוספים. [[FDAGalantamineER2025]]</td><td>מקסימום 16 mg ליום בפגיעה כבדית או כלייתית בינונית. אינו מומלץ ב־MCI: 13 מקרי מוות לעומת 1 בשני ניסויי MCI שנמשכו 2 שנים (העלון מציין ששיעור התמותה בקבוצת הפלצבו היה נמוך באופן חריג). [[FDAGalantamineER2025,Loy2006]]</td></tr>
+      <tr><th>ממנטין (Namenda) IR</th><td>בינונית עד חמורה</td><td>העלון מציין 5 mg פעם ביום, ועלייה שבועית בצעדים של 5 mg עד 20 mg ליום (10 mg פעמיים ביום). [[FDAMemantineIR2023]]</td><td>באי־ספיקת כליות חמורה, היעד לפי העלון הוא 5 mg פעמיים ביום. [[FDAMemantineIR2023]]</td></tr>
+      <tr><th>ממנטין ER</th><td>בינונית עד חמורה</td><td>העלון מציין 7 mg פעם ביום, ועלייה שבועית בצעדים של 7 mg עד 28 mg פעם ביום. [[FDAMemantineER2026]]</td><td>14 mg באי־ספיקת כליות חמורה; זמן מחצית חיים של כ־60 עד 80 שעות. [[FDAMemantineER2026]]</td></tr>
+      <tr><th>ממנטין ER + דונפזיל</th><td>בינונית עד חמורה</td><td>לאנשים שכבר יציבים על דונפזיל 10 mg. [[FDANamzaric2026]]</td><td>אושר על סמך שקילות ביולוגית לשתי התרופות הנלקחות בנפרד. [[FDANamzaric2026]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">איך לקרוא את הראיות</h3>
+  <div class="cards" id="syCards"></div>
+</section>
