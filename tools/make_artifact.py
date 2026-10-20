@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Derive the Claude artifact file from the built page.
+"""Derive the Claude artifact file from the one-page build.
+
+The site gives each module its own page; the artifact is a single file, so by default
+this builds the companion with tools/build.py --single (every module in one page,
+switched by #hash) into a temporary file and works from that.
 
 The artifact is wrapped in its own document skeleton at publish time, so this
 strips the doctype, html, head and body tags and the charset/viewport metas.
@@ -18,7 +22,7 @@ Usage: make_artifact.py COMPANION [--lang he] [--other URL] [BUILT_HTML] [OUT_HT
 The short name comes from site.json; the file lands beside the repo, named after the
 companion's old repository (alzheimers-companion-artifact.html).
 """
-import json, pathlib, re, sys
+import json, pathlib, re, subprocess, sys, tempfile
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 args, LANG, OTHER = [], "en", None
@@ -33,9 +37,13 @@ comp = next((c for c in json.loads((ROOT / "site.json").read_text(encoding="utf-
 if comp is None: sys.exit(f"no companion {slug!r} in site.json")
 TITLE = comp["name"][LANG]
 stem = comp["old"].rstrip("/").rsplit("/", 1)[1]
-built = ROOT / slug / "index.html" if LANG == "en" else ROOT / slug / LANG / "index.html"
 default_out = ROOT.parent / (f"{stem}-artifact.html" if LANG == "en" else f"{stem}-{LANG}-artifact.html")
-src_path = pathlib.Path(args[0]) if args else built
+if args:
+    src_path = pathlib.Path(args[0])
+else:
+    src_path = pathlib.Path(tempfile.mkdtemp()) / "single.html"
+    subprocess.run([sys.executable, str(ROOT / "tools" / "build.py"), slug, "--lang", LANG, "--single", "--out", str(src_path)],
+                   check=True, stdout=subprocess.DEVNULL)
 out_path = pathlib.Path(args[1]) if len(args) > 1 else default_out
 
 src = src_path.read_text(encoding="utf-8")

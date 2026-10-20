@@ -44,11 +44,20 @@ const MODS=[
 ];
 const GROUPS={1:['The disease','g-dz','c-dz'],2:['Colchicine','g-colch','c-colch'],3:['Complications & diagnosis','g-dz','c-dz'],4:['Treatment & the future','g-sea','c-sea'],5:['Context & review','g-sea','c-sea']};
 const inits={},onShow={},onHide={};let cur=null;
+/* Each module is its own page, so search engines can index it: the body names the
+   module (data-page) and the way back up to the companion's first page (data-root).
+   A page that carries every module, like the artifact, has no data-page and switches
+   modules by #hash. */
+const PAGE=document.body.dataset.page||'',UP=document.body.dataset.root||'';
+const href=id=>PAGE?(id==='home'?UP||'./':UP+id+'/'):'#'+id;
+function go(id,hash,replace){const u=href(id)+(location.protocol==='file:'?'index.html':'')+(hash||'');replace?location.replace(u):location.assign(u)}
+/* the first page opened in a tab (not one reached by a click inside the guide) may reopen the module last read */
+let fresh=false;try{fresh=!sessionStorage.getItem('fmfc:tab');sessionStorage.setItem('fmfc:tab','1')}catch(e){}
 (function buildNav(){
   let h='';
   for(const g of Object.keys(GROUPS).map(Number)){
     h+=`<div class="navgroup ${GROUPS[g][1]}"><h3>${GROUPS[g][0]}</h3><ol>`;
-    MODS.filter(m=>m.g===g).forEach(m=>{h+=`<li><button class="navbtn" data-go="${m.id}"><span class="n">${m.n}</span><span>${m.t.replace('&','&amp;')}</span></button></li>`});
+    MODS.filter(m=>m.g===g).forEach(m=>{h+=`<li><a class="navbtn" href="${href(m.id)}" data-go="${m.id}"><span class="n">${m.n}</span><span>${m.t.replace('&','&amp;')}</span></a></li>`});
     h+='</ol></div>';
   }
   $('#navgroups').innerHTML=h;
@@ -58,7 +67,7 @@ const inits={},onShow={},onHide={};let cur=null;
     MODS.filter(m=>m.g===g).forEach(m=>{u+=`<li><button data-go="${m.id}"><span class="n">${m.n}</span><b>${m.t.replace('&','&amp;')}</b><small>${m.d}</small></button></li>`});
     u+='</ol></div>';
   });
-  $('#homeUnits').innerHTML=u;
+  if($('#homeUnits'))$('#homeUnits').innerHTML=u;
   MODS.forEach((m,i)=>{
     const sec=$('#m-'+m.id);if(!sec)return;
     if(m.g)sec.classList.add(GROUPS[m.g][2]);
@@ -71,6 +80,13 @@ const inits={},onShow={},onHide={};let cur=null;
 })();
 function show(id,keepScroll){
   if(!MODS.some(m=>m.id===id))id='home';
+  if(PAGE&&id!==PAGE){
+    /* boot asks first: for the #module of an old link, or for the module last read */
+    if(cur){go(id);return}
+    if(location.hash.slice(1)===id||(PAGE==='home'&&fresh)){go(id,'',true);return}
+    id=PAGE;
+  }
+  const first=!cur;
   if(cur&&onHide[cur])onHide[cur]();
   $$('[data-mod]').forEach(s=>s.hidden=s.dataset.mod!==id);
   $$('.navbtn').forEach(b=>b.setAttribute('aria-current',b.dataset.go===id?'page':'false'));
@@ -79,15 +95,17 @@ function show(id,keepScroll){
   guardLive($('#m-'+id)||document);
   if(onShow[id])onShow[id]();
   store.set('last',id);
-  try{history.replaceState(null,'','#'+id)}catch(e){}
+  if(!PAGE)try{history.replaceState(null,'','#'+id)}catch(e){}
   if(!keepScroll)window.scrollTo(0,0);
   const nb=$(`.navbtn[data-go="${id}"]`);
   if(nb&&matchMedia('(max-width:900px)').matches){const side=$('#side');side.scrollTo({left:nb.offsetLeft-side.clientWidth/2+nb.offsetWidth/2,behavior:RM?'auto':'smooth'})}
+  if(first&&location.hash.startsWith('#src-'))flashSrc(location.hash.slice(5));
 }
+function flashSrc(k){const li=document.getElementById('src-'+k);if(li){li.scrollIntoView({block:'center',behavior:RM?'auto':'smooth'});li.classList.add('flash');setTimeout(()=>li.classList.remove('flash'),2200)}}
 document.addEventListener('click',e=>{
   const c=e.target.closest('sup.c');
-  if(c){e.preventDefault();const k=c.dataset.ref.split(',')[0];show('sources');const li=document.getElementById('src-'+k);if(li){li.scrollIntoView({block:'center',behavior:RM?'auto':'smooth'});li.classList.add('flash');setTimeout(()=>li.classList.remove('flash'),2200)}return}
-  const b=e.target.closest('[data-go]');if(b){e.preventDefault();show(b.dataset.go)}
+  if(c){e.preventDefault();const k=c.dataset.ref.split(',')[0];if(PAGE&&PAGE!=='sources'){go('sources','#src-'+k);return}show('sources');flashSrc(k);return}
+  const b=e.target.closest('[data-go]');if(b){if(b.href&&(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey))return;e.preventDefault();show(b.dataset.go)}
 });
 /* theme: auto → light → dark */
 /* language switch keeps the current module */
