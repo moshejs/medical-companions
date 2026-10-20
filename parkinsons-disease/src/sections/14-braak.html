@@ -1,0 +1,47 @@
+<!-- ================= 1.4 HOW IT SPREADS: BRAAK STAGES ================= -->
+<section class="mod" id="m-braak" data-mod="braak" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>How it spreads: Braak stages</h2>
+    <p class="lede">In 2003 Heiko Braak's group proposed that Lewy pathology climbs through the brain in six stages: from the lower brainstem and the smell pathway, through the substantia nigra, to the cortex. [[Braak2003]] A newer model splits Parkinson's into a body-first type that starts in the gut and a brain-first type that starts inside the brain. [[Borghammer2019]] Step through each order and watch which symptoms tend to go with it.</p></div>
+  <div class="ctrls" role="group" aria-label="Which model to show">
+    <span class="kicker">Model</span>
+    <button class="btn" id="bkBody" aria-pressed="true">Body-first: Braak's six stages</button>
+    <button class="btn" id="bkBrain" aria-pressed="false">Brain-first</button>
+    <span class="kicker" style="margin-left:6px">Layer</span>
+    <button class="btn" id="bkSym" aria-pressed="true">Show symptoms</button>
+  </div>
+  <div class="stepper" id="bkSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="bkSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="A midline view of the brain and brainstem with a gut, vagus nerve and heart inset. In the body-first order, Lewy pathology starts in the gut, the dorsal motor nucleus of the vagus and the smell pathway, then climbs to the locus coeruleus and raphe, the substantia nigra, the temporal mesocortex and finally the neocortex. In the brain-first order it starts in the amygdala or smell bulb on one side, reaches the substantia nigra early, and involves the lower brainstem, heart and gut later."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="bkPlay">Play</button><label class="stage-cap tl" for="bkT">Spread <input type="range" id="bkT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap" id="bkCap">Schematic midline view. Deep and lateral structures are projected onto it and dashed.</p></div>
+    <aside class="note" id="bkNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Where Braak does not fit</h3>
+  <div class="prose"><p>Braak's scheme came from a selected sample: incidental cases and people with a clinical diagnosis, cut in unusually thick sections. [[Braak2017]] Other brain banks tested it on their own cases. Pick a study to see how many brains followed the expected bottom-to-top order.</p></div>
+  <div class="ctrls" role="group" aria-label="Which study to show">
+    <span class="kicker">Study</span>
+    <button class="btn" data-bkf="0" aria-pressed="true">Kalaitzakis 2008</button>
+    <button class="btn" data-bkf="1" aria-pressed="false">Parkkinen 2008</button>
+    <button class="btn" data-bkf="2" aria-pressed="false">Zaccai, in Burke 2008</button>
+    <button class="btn" data-bkf="3" aria-pressed="false">Beach 2009</button>
+    <button class="btn" data-bkf="4" aria-pressed="false">Jellinger 2009 review</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="bkFit" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A grid of 100 squares shows, for the chosen study, the share of brains that did not follow Braak's bottom-to-top order."></svg></div>
+      <p class="stage-cap" id="bkFitCap">Each square is 1% of the brains in that study. Rounded to whole squares.</p></div>
+    <aside class="note" id="bkFitNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Beyond dopamine: the other systems hit</h3>
+  <div class="prose"><p>Lewy pathology and cell loss reach far beyond the substantia nigra: noradrenaline, serotonin and acetylcholine cells in the brain, and nerves in the heart, the gut and the skin. These help explain the symptoms that levodopa does not touch, covered in <a href="#nonmotor" data-go="nonmotor">Beyond movement</a>. Pick a system.</p></div>
+  <div class="ctrls" role="group" aria-label="Which system to show" id="bkSysBtns"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="bkBodyMap" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A body map marking the locus coeruleus, raphe nuclei, nucleus basalis, pedunculopontine nucleus and substantia nigra in the brainstem and forebrain, and the heart, gut and skin, with a bar chart comparing neuron loss in three brain nuclei."></svg></div>
+      <p class="stage-cap" id="bkBodyCap"></p></div>
+    <aside class="note" id="bkSysNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The debate in brief</h3>
+  <div class="cards" id="bkCards"></div>
+</section>
