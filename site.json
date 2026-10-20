@@ -1,0 +1,18 @@
+{
+  "site": "https://moshejs.github.io/medical-companions",
+  "name": "Medical Companions",
+  "companions": [
+    {
+      "slug": "alzheimers",
+      "langs": ["en", "he"],
+      "name": {"en": "Alzheimer's Companion", "he": "מלווה אלצהיימר"},
+      "old": "https://moshejs.github.io/alzheimers-companion"
+    },
+    {
+      "slug": "fmf",
+      "langs": ["en"],
+      "name": {"en": "FMF Companion"},
+      "old": "https://moshejs.github.io/fmf-companion"
+    }
+  ]
+}

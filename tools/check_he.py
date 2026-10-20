@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Check that each Hebrew part in src/he/ is a faithful translation of its English part.
 
-    python3 check_he.py                 # every translated file
-    python3 check_he.py js/14-tau.js    # one or more files, by English path
+    python3 tools/check_he.py alzheimers                 # every translated file
+    python3 tools/check_he.py alzheimers js/14-tau.js    # one or more files, by English path
 
 For each pair it compares:
   code     JS with every string's text removed (template ${...} code is kept), so the
@@ -17,7 +17,11 @@ Exit status is 1 if any code, cite or number check fails.
 import re, sys, pathlib
 from collections import Counter
 
-SRC = pathlib.Path(__file__).resolve().parent
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+_pos = [a for a in sys.argv[1:] if not a.startswith("-")]
+if not _pos or not (ROOT / _pos[0] / "src" / "he").is_dir():
+    sys.exit("usage: check_he.py COMPANION [file ...]   (a companion with a src/he folder)")
+SRC = ROOT / _pos[0] / "src"
 HE = SRC / "he"
 SKIP = {"meta.html", "rtl.css"}
 
@@ -157,7 +161,7 @@ def check(rel):
     return errs, warns
 
 def main():
-    args = [a for a in sys.argv[1:] if not a.startswith("-")]
+    args = [a for a in sys.argv[1:] if not a.startswith("-")][1:]
     rels = args or sorted(str(p.relative_to(HE)) for p in HE.rglob("*") if p.is_file() and p.name not in SKIP)
     bad = 0
     for rel in rels:

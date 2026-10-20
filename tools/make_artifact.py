@@ -13,20 +13,28 @@ The Hebrew page is its own artifact (--lang he). Its right-to-left direction liv
 before the body renders. --other URL points the language link (and the crawler
 outline's link back) at the other language's artifact.
 
-Usage: make_artifact.py [--lang he] [--other URL] [BUILT_HTML] [OUT_HTML]
-"""
-import pathlib, re, sys
+Usage: make_artifact.py COMPANION [--lang he] [--other URL] [BUILT_HTML] [OUT_HTML]
 
-HERE = pathlib.Path(__file__).resolve().parent
+The short name comes from site.json; the file lands beside the repo, named after the
+companion's old repository (alzheimers-companion-artifact.html).
+"""
+import json, pathlib, re, sys
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
 args, LANG, OTHER = [], "en", None
 it = iter(sys.argv[1:])
 for a in it:
     if a == "--lang": LANG = next(it)
     elif a == "--other": OTHER = next(it)
     else: args.append(a)
-TITLE = {"en": "Alzheimer's Companion", "he": "מלווה אלצהיימר"}[LANG]
-built = HERE.parent / "index.html" if LANG == "en" else HERE.parent / LANG / "index.html"
-default_out = HERE.parent.parent / ("alzheimers-companion-artifact.html" if LANG == "en" else f"alzheimers-companion-{LANG}-artifact.html")
+if not args: sys.exit(__doc__.split("Usage: ")[1].split("\n")[0])
+slug = args.pop(0)
+comp = next((c for c in json.loads((ROOT / "site.json").read_text(encoding="utf-8"))["companions"] if c["slug"] == slug), None)
+if comp is None: sys.exit(f"no companion {slug!r} in site.json")
+TITLE = comp["name"][LANG]
+stem = comp["old"].rstrip("/").rsplit("/", 1)[1]
+built = ROOT / slug / "index.html" if LANG == "en" else ROOT / slug / LANG / "index.html"
+default_out = ROOT.parent / (f"{stem}-artifact.html" if LANG == "en" else f"{stem}-{LANG}-artifact.html")
 src_path = pathlib.Path(args[0]) if args else built
 out_path = pathlib.Path(args[1]) if len(args) > 1 else default_out
 

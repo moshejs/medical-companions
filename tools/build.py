@@ -1,28 +1,41 @@
 #!/usr/bin/env python3
-"""Assemble the companion into a single index.html.
+"""Assemble one companion into a single index.html.
 
-Parts: src/00-head.html, src/10-shell.html, src/sections/*.html (sorted),
-src/90-foot.html, src/js/*.js (sorted). Sources come from src/sources.json.
+Usage: build.py COMPANION [--lang he] [--out PATH] [--draft]
+
+COMPANION is a folder at the repo root (alzheimers, fmf). Parts come from
+COMPANION/src: 00-head.html, 10-shell.html, sections/*.html (sorted), 90-foot.html,
+js/*.js (sorted). Sources come from COMPANION/src/sources.json. The page is written
+to COMPANION/index.html, or COMPANION/<lang>/index.html for another language.
 
 With --lang he, each part is taken from src/he/<same path> when that file exists
 (otherwise the English part is used and listed as untranslated), the metadata block
 between <!--META--> markers in 00-head.html is replaced by src/he/meta.html, the page
-is set to lang="he" dir="rtl", src/he/rtl.css is appended to the styles, and the
-output goes to ../he/index.html.
+is set to lang="he" dir="rtl", src/he/rtl.css is appended to the styles.
 
 Citation markers [[Key]] or [[KeyA,KeyB]] anywhere in HTML or JS become
 <sup class="c" data-ref="...">n</sup>, numbered by order in sources.json.
 The build fails on an unknown key, and warns about sources never cited.
+
+%SITE% anywhere in the page becomes the site address from site.json, so moving the
+site to another domain is a one-line change there and a rebuild.
 """
 import json, re, sys, pathlib
 
-SRC = pathlib.Path(__file__).resolve().parent
-LANG = "en"
-for i,a in enumerate(sys.argv):
-    if a == "--lang": LANG = sys.argv[i+1]
-OUT = SRC.parent / "index.html" if LANG == "en" else SRC.parent / LANG / "index.html"
-for i,a in enumerate(sys.argv):
-    if a == "--out": OUT = pathlib.Path(sys.argv[i+1]).resolve()
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+SITE = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))["site"].rstrip("/")
+
+args = [a for a in sys.argv[1:]]
+LANG, OUT = "en", None
+for i, a in enumerate(args):
+    if a == "--lang": LANG = args[i+1]
+    if a == "--out": OUT = pathlib.Path(args[i+1]).resolve()
+names = [a for i, a in enumerate(args) if not a.startswith("--") and (i == 0 or args[i-1] not in ("--lang", "--out"))]
+if not names or not (ROOT / names[0] / "src").is_dir():
+    sys.exit(__doc__.split("\n\n")[1])
+COMP = ROOT / names[0]
+SRC = COMP / "src"
+if OUT is None: OUT = COMP / "index.html" if LANG == "en" else COMP / LANG / "index.html"
 
 untranslated = []
 def read(p):
@@ -53,6 +66,7 @@ js = [read(p) for p in sorted((SRC / "js").glob("*.js"))]
 src_js = "const SOURCES=" + json.dumps(sources, ensure_ascii=False) + ";\n"
 # the sources array goes right after the core helpers (first js part)
 html = "".join(parts) + js[0] + src_js + "".join(js[1:])
+html = html.replace("%SITE%", SITE)
 
 used, missing = set(), set()
 def cite(m):
@@ -77,6 +91,6 @@ if missing:
 unused = [s["key"] for s in sources if s["key"] not in used]
 OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT.write_text(html, encoding="utf-8")
-print(f"wrote {OUT} ({len(html)//1024} KB), {len(used)} sources cited, {len(unused)} listed but uncited")
+print(f"wrote {OUT.relative_to(ROOT) if OUT.is_relative_to(ROOT) else OUT} ({len(html)//1024} KB), {len(used)} sources cited, {len(unused)} listed but uncited")
 if unused: print("uncited:", ", ".join(unused))
 if untranslated: print(f"untranslated ({LANG}):", ", ".join(untranslated))

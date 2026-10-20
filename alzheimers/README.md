@@ -2,7 +2,7 @@
 
 An animated, cited study and patient-education guide to **Alzheimer's disease**, the most common cause of dementia.
 
-**Live site:** https://moshejs.github.io/alzheimers-companion/ · **בעברית:** https://moshejs.github.io/alzheimers-companion/he/
+**Live site:** https://moshejs.github.io/medical-companions/alzheimers/ · **בעברית:** https://moshejs.github.io/medical-companions/alzheimers/he/
 
 > **Not medical advice.** Alzheimer's Companion is an educational synthesis of the published literature, made for health-science students (including nursing), people living with the disease and family caregivers. It cannot diagnose anyone and nothing in it should change a treatment without your own clinician. Doses and guideline statements are quoted as published, not as instructions.
 
@@ -29,20 +29,22 @@ Nine research passes (epidemiology, stages and history; pathology; genetics; dia
 The page is assembled from parts in `src/`:
 
 ```bash
-cd src
-python3 build.py                     # writes ../index.html; fails on an unknown citation key
-python3 smoke.py ../index.html all   # headless-Chrome check: no JS errors, no empty animations
-python3 make_artifact.py             # derives the Claude artifact copy
+python3 tools/build_site.py                  # from the repo root: every companion, the hub and the sitemap
+python3 tools/build.py alzheimers                # just this one; writes alzheimers/index.html, fails on an unknown citation key
+python3 tools/smoke.py alzheimers/index.html all # headless-Chrome check: no JS errors, no empty animations
+python3 tools/make_artifact.py alzheimers        # derives the Claude artifact copy
 ```
+
+The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 ### Hebrew version
 
-`src/he/` holds Hebrew copies of the parts, at the same paths. `python3 build.py --lang he` builds
-`he/index.html`: right to left, Hebrew fonts and metadata (`src/he/meta.html`, `src/he/rtl.css`),
+`src/he/` holds Hebrew copies of the parts, at the same paths. `python3 tools/build.py alzheimers --lang he` builds
+`alzheimers/he/index.html`: right to left, Hebrew fonts and metadata (`src/he/meta.html`, `src/he/rtl.css`),
 with the English part used for anything not yet translated (the build lists those). Drawings keep a
 left-to-right frame so time axes read the same in both languages.
 
-When an English part changes, change its Hebrew copy too, then run `python3 check_he.py`: it fails
+When an English part changes, change its Hebrew copy too, then run `python3 tools/check_he.py alzheimers`: it fails
 if a translation's code, element structure, citations or numbers differ from the English.
 
 `compile_sources.py` rebuilds `sources.json` from the research files; `source-corrections.json`, when present, is applied afterwards so validated fixes survive a regeneration.

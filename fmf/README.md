@@ -2,7 +2,7 @@
 
 An animated, cited study and patient-education guide to **Familial Mediterranean Fever (FMF)**, the most common inherited autoinflammatory disease.
 
-**Live site:** https://moshejs.github.io/fmf-companion/
+**Live site:** https://moshejs.github.io/medical-companions/fmf/
 
 > **Not medical advice.** FMF Companion is an educational synthesis of the published literature, made for a health-science course and for patient understanding. It cannot diagnose anyone and nothing in it should change a treatment without your own clinician. Doses and guideline statements are quoted as published, not as instructions.
 
@@ -29,11 +29,13 @@ Seven research passes (epidemiology and history; genetics and diagnosis; mechani
 The page is assembled from parts in `src/`:
 
 ```bash
-cd src
-python3 build.py                     # writes ../index.html; fails on an unknown citation key
-python3 smoke.py ../index.html all   # headless-Chrome check: no JS errors, no empty animations
-python3 make_artifact.py             # derives the Claude artifact copy
+python3 tools/build_site.py                  # from the repo root: every companion, the hub and the sitemap
+python3 tools/build.py fmf                # just this one; writes fmf/index.html, fails on an unknown citation key
+python3 tools/smoke.py fmf/index.html all # headless-Chrome check: no JS errors, no empty animations
+python3 tools/make_artifact.py fmf        # derives the Claude artifact copy
 ```
+
+The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 `compile_sources.py` rebuilds `sources.json` from the research files; `source-corrections.json`
 is applied afterwards, so validated fixes survive a regeneration.
