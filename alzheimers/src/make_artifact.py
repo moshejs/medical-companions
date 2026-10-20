@@ -8,13 +8,27 @@ It also swaps the title. The published site wants a title that names the disease
 because that is the strongest on-page search signal; the artifact gallery wants a
 short product name. Same page, two names.
 
-Usage: make_artifact.py [BUILT_HTML] [OUT_HTML]
+The Hebrew page is its own artifact (--lang he). Its right-to-left direction lives on
+<html>, which the skeleton replaces, so a one-line script sets dir and lang again
+before the body renders. --other URL points the language link (and the crawler
+outline's link back) at the other language's artifact.
+
+Usage: make_artifact.py [--lang he] [--other URL] [BUILT_HTML] [OUT_HTML]
 """
 import pathlib, re, sys
 
 HERE = pathlib.Path(__file__).resolve().parent
-src_path = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else HERE.parent / "index.html"
-out_path = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else HERE.parent.parent / "alzheimers-companion-artifact.html"
+args, LANG, OTHER = [], "en", None
+it = iter(sys.argv[1:])
+for a in it:
+    if a == "--lang": LANG = next(it)
+    elif a == "--other": OTHER = next(it)
+    else: args.append(a)
+TITLE = {"en": "Alzheimer's Companion", "he": "מלווה אלצהיימר"}[LANG]
+built = HERE.parent / "index.html" if LANG == "en" else HERE.parent / LANG / "index.html"
+default_out = HERE.parent.parent / ("alzheimers-companion-artifact.html" if LANG == "en" else f"alzheimers-companion-{LANG}-artifact.html")
+src_path = pathlib.Path(args[0]) if args else built
+out_path = pathlib.Path(args[1]) if len(args) > 1 else default_out
 
 src = src_path.read_text(encoding="utf-8")
 head = src.split("<head>", 1)[1].split("</head>", 1)[0]
@@ -28,9 +42,15 @@ if title_tag is None:
     sys.exit("no <title> in the built page")
 head = head.replace(title_tag.group(0), "", 1)
 
-out = ("<title>Alzheimer's Companion</title>\n"
+if OTHER:
+    body, n = re.subn(r'(id="langBtn" href=")[^"]*"', lambda m: m.group(1) + OTHER + '"', body)
+    if n != 1: sys.exit("language link not found")
+    body = body.replace('<a href="../" hreflang="en"', f'<a href="{OTHER}" hreflang="en"')
+dir_js = (f"<script>document.documentElement.setAttribute('dir','rtl');document.documentElement.lang='{LANG}'</script>\n"
+          if LANG != "en" else "")
+out = (f"<title>{TITLE}</title>\n"
        '<meta name="claude:viewport-fit-sides" content="cover">\n'
-       + head.strip() + "\n" + body.strip() + "\n")
+       + dir_js + head.strip() + "\n" + body.strip() + "\n")
 
 low = out.lower()
 for forbidden in ("<!doctype", "<html", "<head>", "<body>"):
