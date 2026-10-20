@@ -1,0 +1,78 @@
+<!-- ================= 3.1 AA AMYLOIDOSIS ================= -->
+<section class="mod" id="m-amyloid" data-mod="amyloid" hidden>
+  <style>
+    /* microscope colours are fixed in both themes, like a real slide */
+    #m-amyloid{--am-black:#05080a;--am-light:#f8f2ee;--am-tissue:#f2c3cc;--am-septa:#d79aa8;--am-salmon:#e57f78;--am-hema:#5a4a96;--am-green:#8fe04a}
+    #m-amyloid .am-chips{display:flex;flex-wrap:wrap;gap:6px}
+    #m-amyloid .lab.am-wide{grid-template-columns:minmax(0,1fr)}
+    #m-amyloid .am-num{font:800 26px/1.1 var(--display);color:var(--terra);display:block}
+  </style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Complications &amp; diagnosis</p><h2>AA amyloidosis</h2>
+    <p class="lede">The most serious complication of uncontrolled FMF builds silently over years. The liver keeps making serum amyloid A (SAA), a fragment of it misfolds into fibrils, and the fibrils clog the kidney's filters. Press play to watch two decades, then switch to "SAA brought below 10 mg/L" to see what controlling inflammation changes.</p></div>
+  <div class="ctrls" role="group" aria-label="SAA between attacks">
+    <span class="kicker">SAA between attacks</span>
+    <button class="btn" data-am="high" aria-pressed="true">Persistently high</button>
+    <button class="btn" data-am="low" aria-pressed="false">Brought below 10 mg/L (from year 10)</button>
+  </div>
+  <div class="stepper" id="amSteps"></div>
+  <div class="lab am-wide">
+    <div class="stage"><div class="scroll"><svg id="amSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="From SAA made in the liver to amyloid deposits in a glomerulus and kidney failure, over twenty years"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="amPlay">Play</button><label class="stage-cap tl" for="amT">Years <input type="range" id="amT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="amRead"></div>
+      <p class="stage-cap">Schematic. The time axis follows the reported median of about 17 years from onset of inflammation to diagnosis, which varies greatly between people. Deposits are drawn in Congo-red colour. The controlled mode reflects Lachmann 2007 (deposits regressed in 60% of patients with median SAA below 10 mg/L), not a prediction for anyone.</p></div>
+    <aside class="note" id="amNote" aria-live="polite"></aside>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="amOrg" viewBox="0 0 720 286" style="min-width:560px" role="img" aria-label="Organs where AA amyloid deposits, filling in with the timeline above"></svg></div>
+    <p class="stage-cap">Organs fill in with the timeline above (schematic shading). Frequencies from EULAR 2016 and a 2024 review. [[Ozen2016,Mirioglu2024]]</p>
+  </div>
+
+  <h3 class="sub">Under the microscope: Congo red</h3>
+  <div class="ctrls" role="group" aria-label="Biopsy sample">
+    <span class="kicker">Sample</span>
+    <button class="btn" data-amx="kidney" aria-pressed="true">Kidney biopsy</button>
+    <button class="btn" data-amx="fat" aria-pressed="false">Abdominal fat aspirate</button>
+  </div>
+  <div class="lab am-wide">
+    <div class="stage"><div class="scroll"><svg id="amMic" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="Congo red stained section viewed with parallel and then crossed polarizers"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="amMPlay">Play</button><label class="stage-cap tl" for="amMT">Polarizer angle <input type="range" id="amMT" min="0" max="1" step="0.002" value="0"></label></div>
+      <p class="stage-cap">Schematic colours. Real slides vary with section thickness, stain quality and fibril orientation.</p></div>
+    <aside class="note" id="amMicNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who is at risk</h3>
+  <div class="stage">
+    <div class="ctrls"><button class="btn primary" id="amRPlay">Replay</button><button class="btn" id="amCI" aria-pressed="true">Show 95% CI</button></div>
+    <div class="scroll"><svg id="amRisk" viewBox="0 0 720 346" style="min-width:560px" role="img" aria-label="Risk factors for amyloidosis on a log scale of odds ratios"></svg></div>
+    <p class="stage-cap">Log scale. Each bar is an odds ratio (or risk ratio, for M694V in Kasifoglu 2014) from a different study, population and statistical model. They are not comparable with each other and cannot be multiplied into a personal risk. The SAA1 and male-sex figures come from one mainly Armenian cohort; a separate study of 124 M694V homozygotes put male sex lower, at OR 2.37, alongside arthritic attacks at OR 3.27. [[Touitou2007,Kasifoglu2014,Vitale2025,Cazeneuve2000,GershoniBaruch2003]]</p>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>Factors without a single number</h4><div class="am-chips"><span class="tag terra">Family history of amyloidosis</span><span class="tag terra">Delayed diagnosis</span><span class="tag terra">Poor adherence</span><span class="tag terra">Inadequate dose</span><span class="tag terra">Arthritis</span><span class="tag terra">Infections</span><span class="tag terra">MICA alleles</span><span class="tag terra">Being the first diagnosed in the family</span><span class="tag terra">Longer disease duration</span></div>
+      <p>These are listed as risk factors in reviews and cohorts without an effect size attached. [[GulBenChetrit2025,Kasifoglu2014,Touitou2007,Vitale2025]]</p>
+      <p>Delayed diagnosis raised amyloidosis frequency from 2.6% to 10% in one cohort, and M694V homozygotes develop amyloidosis earlier (about age 27) than heterozygotes (about age 41). [[GulBenChetrit2025]]</p></div>
+    <div class="card"><h4>Why country matters most</h4><p>In 2,482 genetically confirmed patients from 35 centres in 14 countries, country of recruitment was the strongest risk factor, ahead of M694V homozygosity. Country risk tracked infant mortality, which points to an environmental factor. Amyloidosis was reported in about 24% of Armenians in Armenia but was essentially absent among Armenian Americans in California. [[Touitou2007,Sari2014]]</p></div>
+  </div>
+
+  <h3 class="sub">How common, then and now</h3>
+  <div class="stage">
+    <div class="scroll"><svg id="amPrev" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="Reported prevalence of amyloidosis in FMF cohorts from 1967 to 2025"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="amPPlay">Play</button><label class="stage-cap tl" for="amPT">Year <input type="range" id="amPT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="stage-cap" id="amPCap"></p>
+  </div>
+
+  <h3 class="sub">What else to know</h3>
+  <div class="cards">
+    <div class="card"><h4>Why colchicine prevents it even if attacks persist</h4><p>Amyloid is built from SAA, so risk follows how much SAA is made over years, not just how many attacks occur. SAA can stay raised between attacks. In 26 children with no attacks in the previous year but high SAA, raising the colchicine dose lowered median SAA from 244 to 35.5 mg/L by the 2-month recheck. In Zemer's 1,070-patient cohort, cumulative proteinuria was 1.7% at 11 years in adherent patients versus 48.9% at 9 years in those who said they were not taking it regularly. [[Lachmann2006,Duzova2003,Zemer1986]]</p></div>
+    <div class="card"><h4>Treating established amyloidosis</h4><p>EULAR 2016 advises intensifying to the maximum tolerated colchicine dose plus biologics as needed; the 2024 update frames add-on therapy the same way, with IL-1 blockers the best supported. In 68 patients with FMF amyloidosis followed at least 5 years, proteinuria regressed in 15, and worsening was linked to starting creatinine ≥1.5 mg/dL and to doses ≤1.5 mg/day. A 2025 systematic review found the evidence for treating established disease observational but judged it reassuring; retrospective data suggest tocilizumab may help selected patients. [[Ozen2016,Ozen2025,Livneh1994,Sag2025,Mertz2025]]</p></div>
+    <div class="card"><h4>Amyloid storm</h4><p>A rapid deterioration, often set off by infection: creatinine and proteinuria at least double and CRP rises more than tenfold within 2 weeks. In a 20-patient series, 16 reached end-stage kidney disease or death within a year (3 of 20 controls); infection triggered 17 of the 20 storms. [[Kukuy2021,GulBenChetrit2025]]</p></div>
+    <div class="card"><h4>Eprodisate <span class="ev early">Mixed evidence</span></h4><p>A drug that interferes with fibril formation. In the 183-patient EFAST trial, worsening kidney function or death occurred in 27% vs 40% on placebo (P = 0.06; HR 0.58), with slower clearance decline but no significant effect on dialysis or death. The 261-patient confirmatory phase 3 trial missed its primary endpoint in 2016. [[Dember2007,KiactaPh3]]</p></div>
+    <div class="card"><h4>Kidney transplantation</h4><ul><li>Egypt, living donors (23 amyloid recipients, 16 FMF): graft survival like controls; 10-year patient survival 68% vs 87%; recurrence in 1. [[Sherif2003]]</li><li>Turkey, 17 FMF recipients: about 89–90% graft and patient survival at 5 years; recurrence in 2. [[Keven2004]]</li><li>Israel: survival 73% vs 84% at 5 years and 39% vs 63% at 15 years. [[Green2017]]</li></ul><p>Cardiovascular disease drives post-transplant deaths; recurrence in the graft has become rare. [[Mirioglu2024]]</p></div>
+    <div class="card"><h4>Phenotype II</h4><p>Amyloidosis before, or instead of, typical attacks. It is uncommon: among 461 relatives of FMF-amyloidosis patients, only 2 had significant proteinuria without symptoms, and their rectal biopsies showed no amyloid. Estimates differ: at most 0.3% of the 2,838-patient Turkish registry, and about 0.6% in a later review, whose authors also doubt it is a separate entity. [[Melikoglu2000,Tunca2005,GulBenChetrit2025]]</p></div>
+    <div class="card"><h4>Monitoring</h4><ul><li>EULAR 2016: urinalysis at every visit to exclude proteinuria. [[Ozen2016]]</li><li>In amyloidosis, frequent SAA with a target below 10 mg/L, plus proteinuria and GFR; CRP is an imperfect substitute. [[Ozen2016]]</li><li>The 2024 update asks for complete, sustained control of biochemical inflammation. [[Ozen2025,RheumNow2025]]</li><li>Amyloid kidneys are sensitive to low blood flow, high blood pressure, nephrotoxic drugs and surgery. [[Ozen2016]]</li></ul></div>
+    <div class="card"><h4>Why it matters</h4><p><span class="am-num">Leading cause of death</span>In a Turkish cohort of 587 patients, amyloidosis was the leading cause of death and the only significant predictor of mortality. In an Israeli cohort of 1.25 million adolescents (1,225 with FMF), mortality was higher with FMF, and kidney amyloidosis caused 35% of deaths in men and 60% in women with FMF. [[Akar2012,Twig2014]]</p></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>AA amyloid = <b>SAA</b> (122 aa) → <b>AA</b> (76 aa) → <b>cross-β fibrils</b>. Kidney first shows as <b>proteinuria</b>. Diagnosis: <b>Congo red + apple-green birefringence</b>, anti-SAA immunohistochemistry. Target: <b>SAA &lt; 10 mg/L</b>.</div>
+    <div class="pt"><b>In plain words</b>Years of hidden inflammation let a blood protein pile up in the kidneys as sticky threads. Keeping inflammation fully switched off, even between attacks, stops the pile-up and can let some of it clear slowly. That is why urine and blood tests matter even when someone feels well.</div>
+  </div>
+</section>

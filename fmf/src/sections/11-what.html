@@ -1,0 +1,62 @@
+<!-- ================= 1.1 WHAT FMF IS ================= -->
+<section class="mod" id="m-what" data-mod="what" hidden>
+<style>
+#m-what .wh-sites{display:flex;flex-direction:column;gap:6px}
+#m-what .wh-site{display:grid;grid-template-columns:minmax(0,9.5em) minmax(0,1fr) 3.6em;gap:10px;align-items:center;width:100%;text-align:left;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-size:14.5px;font-weight:700;line-height:1.2}
+#m-what .wh-site:hover{border-color:var(--muted)}
+#m-what .wh-site[aria-pressed="true"]{border-color:var(--terra);background:var(--terra-soft)}
+#m-what .wh-site .tr{height:10px;border-radius:99px;background:var(--panel-2);overflow:hidden}
+#m-what .wh-site .tr i{display:block;height:100%;border-radius:99px;background:var(--terra);width:0;transition:width .7s cubic-bezier(.3,.7,.2,1)}
+#m-what .wh-site .v{font:600 12.5px var(--mono);text-align:right;color:var(--ink)}
+#m-what .wh-body{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#m-what .wh-body svg{width:100%;max-width:260px;height:auto;display:block;margin:0 auto}
+#m-what .wh-hl{transition:opacity .45s}
+#m-what .wh-pops{display:flex;flex-wrap:wrap;gap:6px}
+#m-what .wh-pops .btn{font-size:13px;padding:7px 11px}
+#m-what .big{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;color:var(--terra)}
+#m-what .wh-sitenote{display:flex;flex-direction:column;gap:8px}
+#m-what .wh-sitenote h4{font-family:var(--display);font-weight:800;font-size:20px;margin:0}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>What FMF is</h2>
+    <p class="lede">Familial Mediterranean fever is the most common inherited autoinflammatory disease [[Tufan2020]]: short, self-limited attacks of fever with inflammation of the lining of the belly, chest or joints. Pick a population and press play to see how common the gene variants are, and why far fewer people get sick than the variants alone would predict.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Population"><span class="kicker">Population</span><div class="wh-pops" id="whPops"></div></div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="100 people, carriers lighting up, then the predicted and observed frequency of FMF"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Timeline <input type="range" id="whT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="readout" id="whRead"></div>
+      <p class="stage-cap">Each figure is 1 person in 100. Carrier rates come from different studies that tested different variant panels by different methods, so they are not one comparable series. The predicted figure is a simple estimate: it assumes random partnering, counts only the variants that study tested, and ignores reduced penetrance, so it is not a disease rate.</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why are carriers so common?</h3>
+  <div class="prose"><p>Disease variants usually stay rare because they are a burden. FMF variants reached carrier rates of about 1 in 5 in several populations. One explanation is that carrying one copy once helped people survive an infection. Drag through two thousand years.</p></div>
+  <div class="stepper" id="whSelSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSel" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Allele frequency rising under positive selection from about 200 BCE to 2000 CE, with plague pandemics marked"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whSelPlay">Play</button><label class="stage-cap tl" for="whSelT">Years <input type="range" id="whSelT" min="0" max="1" step="0.001" value="0.02"></label></div>
+      <div class="readout" id="whSelRead"></div>
+      <p class="stage-cap">Schematic model, not a reconstruction: constant selection at the coefficients estimated by Park et al. 2020 (s ≈ 0.077 per generation for M694V and 0.068 for V726A, 25-year generations), each variant starting as one rare copy at its HMM age estimate. The same paper's Gamma method puts the most recent common ancestor further back, about 3,541 years for M694V and 3,372 for V726A, so the start of each curve is the younger of two published estimates. The starting frequency is illustrative. Real selection was probably uneven.</p>
+    </div>
+    <aside class="note" id="whSelNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards" id="whSelCards"></div>
+
+  <h3 class="sub">An attack at a glance</h3>
+  <div class="prose"><p>How often each site is involved, in the Turkish national registry of 2,838 patients. [[Tunca2005]] Tap a bar to see where it is and what it feels like.</p></div>
+  <div class="split2">
+    <div class="wh-sites" id="whSites" role="group" aria-label="Attack sites"></div>
+    <div class="wh-body">
+      <svg id="whBody" viewBox="0 0 260 400" role="img" aria-label="Body diagram highlighting the selected attack site"></svg>
+      <div class="wh-sitenote" id="whSiteNote" aria-live="polite"></div>
+    </div>
+  </div>
+  <p class="callout">Fever and peritonitis together are the classic attack. For what happens hour by hour, with CRP and SAA curves, see <a href="#attack" data-go="attack">An attack, hour by hour</a>.</p>
+
+  <h3 class="sub">Key numbers</h3>
+  <div class="cards" id="whCards"></div>
+</section>

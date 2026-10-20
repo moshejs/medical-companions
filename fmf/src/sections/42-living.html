@@ -1,0 +1,63 @@
+<!-- ================= 4.2 LIVING WITH FMF ================= -->
+<section class="mod" id="m-living" data-mod="living" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment &amp; the future</p><h2>Living with FMF</h2>
+    <p class="lede">FMF is managed across years, not visits. Press play to walk a single year around the ring: routine checks arrive on schedule, and the toggles drop real-life situations into the same year, each with what the published literature says about it. Everything here is what studies and guidelines report, not advice.</p></div>
+  <div class="ctrls" role="group" aria-label="Add a life situation to the year">
+    <span class="kicker">Add to this year</span>
+    <button class="btn" id="lvPreg" aria-pressed="false">Pregnancy</button>
+    <button class="btn" id="lvSurg" aria-pressed="false">Planned surgery</button>
+    <button class="btn" id="lvVacc" aria-pressed="false">Vaccination on a biologic</button>
+    <button class="btn" id="lvExam" aria-pressed="false">Exam season</button>
+    <button class="btn" id="lvTrav" aria-pressed="false">Long travel, long standing</button>
+  </div>
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lvSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A year with FMF: a ring of twelve months with monitoring events and life situations"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">Play</button><label class="stage-cap tl" for="lvT">Through the year <input type="range" id="lvT" min="0" max="1" step="0.002" value="0.02"></label></div>
+      <p class="stage-cap" id="lvCap">Schematic year. Intervals follow published guidance, not any one clinic.</p></div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the trigger evidence actually shows</h3>
+  <div class="stage">
+    <div class="scroll"><svg id="lvTrig" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Animated bars of reported attack triggers and the case-crossover findings"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="lvTPlay">Play</button><label class="stage-cap tl" for="lvTR">Grow bars <input type="range" id="lvTR" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="stage-cap">Questionnaire percentages are what patients report, which is not the same as what causes attacks. The case-crossover design compares each patient with themselves, so it is the stronger evidence. [[Karadag2013,Parlar2024,Yenokyan2012]]</p>
+    <p class="stage-cap">Diet is the weakest link in this literature: a review found only 7 eligible studies, with conflicting results on fatty and salty food and a possible role for wheat, and no robust trial showing that any diet prevents attacks. [[Mansueto2022]]</p>
+  </div>
+
+  <h3 class="sub">School, work and mood</h3>
+  <div class="stage">
+    <div class="scroll"><svg id="lvQol" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="Rows of twenty figures, shaded by the published percentage, comparing work and mood measures in FMF and controls"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="lvQPlay">Play</button><label class="stage-cap tl" for="lvQ">Shade the rows <input type="range" id="lvQ" min="0" max="1" step="0.002" value="1"></label></div>
+    <div class="legend"><span><i style="background:var(--terra)"></i>FMF</span><span><i style="background:var(--muted)"></i>controls</span></div>
+    <p class="stage-cap">Group findings from separate studies, each with its own population. [[Suticen2021,Lidor2021,Sezer2024]]</p>
+  </div>
+
+  <h3 class="sub">Prognosis, monitoring and people</h3>
+  <div class="cards" id="lvCards"></div>
+  <div class="split2">
+    <div class="card"><h4>The monitoring checklist in the 2016 guideline</h4>
+      <ul>
+        <li>Response, toxicity and adherence reviewed <b>every 6 months</b>, more often in the first year or when acute-phase markers are raised, and yearly once stable.</li>
+        <li>Tests listed: <b>SAA and/or CRP</b>, blood count, liver enzymes, kidney function, CPK, and urinalysis for proteinuria.</li>
+        <li><b>Urinalysis at every clinic visit</b>, to catch proteinuria early.</li>
+        <li>Colchicine is reduced if liver enzymes go above twice the upper limit of normal.</li>
+        <li>High SAA values are shared with the patient, deliberately, to support adherence.</li>
+        <li>The 2024 update sets no fixed interval, and asks for monitoring more often at diagnosis and when disease is uncontrolled, against a minimum outcome set. [[Ozen2016,Ozen2025,RheumNow2025]]</li>
+      </ul></div>
+    <div class="card"><h4>Questions people bring to a clinic visit</h4>
+      <p>Plain-words versions of what the guidelines themselves say should be discussed. They are prompts for a conversation with a clinician, not a script and not advice.</p>
+      <ul>
+        <li>What is my SAA or CRP between attacks, and is it in the normal range?</li>
+        <li>Was there any protein in my urine today?</li>
+        <li>Am I on the dose the guidance would call maximum tolerated for me, and is there room to go up?</li>
+        <li>How many attacks have I had in the last 3 months, counted rather than remembered?</li>
+        <li>If attacks continue at this dose, what would the next step be?</li>
+        <li>What should happen to my treatment if I plan a pregnancy, or need an operation, or need vaccinations?</li>
+        <li>How often should I be seen, and which tests each time?</li>
+      </ul>
+      <div class="pt"><b>In plain words</b>Two numbers do most of the work at a visit: how many attacks since last time, and what the inflammation markers say between them.</div></div>
+  </div>
+  <div class="callout" id="lvOrg"></div>
+</section>

@@ -1,0 +1,44 @@
+<!-- ================= 5.2 FLASHCARDS ================= -->
+<section class="mod" id="m-review" data-mod="review" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Context &amp; review</p><h2>Flashcards &amp; mnemonics</h2>
+    <p class="lede">Tap the card (or press Space) to flip it. Arrow keys move through the deck. Filter by part, or shuffle.</p></div>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="Flashcard, press to flip">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">← Previous</button><button class="btn primary" id="fcFlip">Flip</button><button class="btn" id="fcNext">Next →</button><button class="btn ghost" id="fcShuf">Shuffle</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <h3 class="sub">Mnemonics</h3>
+  <div class="mn" id="mnList"></div>
+</section>
+
+<!-- ================= 5.3 QUIZ ================= -->
+<section class="mod" id="m-quiz" data-mod="quiz" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Context &amp; review</p><h2>Quiz</h2>
+    <p class="lede">Pick an answer to see the explanation. The mixed quiz draws 20 questions at random; or choose a part.</p></div>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
+</section>
+
+<!-- ================= 5.4 GLOSSARY ================= -->
+<section class="mod" id="m-glossary" data-mod="glossary" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Context &amp; review</p><h2>Glossary</h2>
+    <p class="lede">Every specialist term used in the app. Type to filter; the arrow on each entry jumps to the module where it matters most.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="Search terms, e.g. 14-3-3, SAA, pyroptosis" aria-label="Search the glossary">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
+</section>
+
+<!-- ================= 5.5 SOURCES ================= -->
+<section class="mod" id="m-sources" data-mod="sources" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Context &amp; review</p><h2>Sources</h2>
+    <p class="lede">Every reference returned by the six research passes behind this app: journal articles, guidelines, drug labels, trial registrations and a few database or search records. The small numbers throughout the app point here.</p></div>
+  <div class="callout prose"><p>Research for each area was done separately, so a few works appear under a merged entry. Entries marked <span class="tag warn">check</span> could not be fully verified against the original, so treat them with extra care.</p>
+    <p>In October 2026 every flagged entry was re-checked against Europe PMC, Crossref, DOAJ and the ClinicalTrials.gov registry. Six turned out to name the wrong authors, the wrong journal or the wrong paper, and two gave a paraphrased title. Those entries now carry a short note saying what was corrected, and several paywalled links were replaced with free copies.</p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="Search author, title, journal, year" aria-label="Search sources">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
+</section>

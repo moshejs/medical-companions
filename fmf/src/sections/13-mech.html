@@ -1,0 +1,26 @@
+<!-- ================= 1.3 MECHANISM ================= -->
+<section class="mod" id="m-mech" data-mod="mech" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Pyrin, animated</h2>
+    <p class="lede">Pyrin is a guard protein inside neutrophils and monocytes. It does not look for microbes directly. It watches a cellular switch called RhoA, and fires when that switch goes quiet. FMF variants make the guard jumpy. Pick a genotype and a stimulus, then press play.</p></div>
+  <div class="ctrls" role="group" aria-label="Genotype">
+    <span class="kicker">Genotype</span>
+    <button class="btn" id="mxNorm" aria-pressed="true">Normal pyrin</button>
+    <button class="btn" id="mxMut" aria-pressed="false">M694V/M694V</button>
+    <span class="kicker" style="margin-left:8px">Stimulus</span>
+    <button class="btn" id="mxMinor" aria-pressed="true">Small everyday dip</button>
+    <button class="btn" id="mxPath" aria-pressed="false">Pathogen switches RhoA off</button>
+  </div>
+  <div class="stepper" id="mxSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="mxSvg" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="Pyrin inflammasome animation"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mxPlay">Play</button><label class="stage-cap tl" for="mxT">Timeline <input type="range" id="mxT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap" id="mxCap">Schematic, not to scale.</p></div>
+    <aside class="note" id="mxNote" aria-live="polite"></aside>
+  </div>
+  <h3 class="sub">Outcome grid</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Small everyday dip in RhoA</th><th>Pathogen switches RhoA off</th></tr></thead>
+    <tbody id="mxGrid"></tbody>
+  </table></div>
+  <div class="cards" id="mxCards"></div>
+</section>
