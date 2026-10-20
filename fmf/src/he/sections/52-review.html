@@ -3,13 +3,13 @@
   <div class="mhead"><p class="eyebrow">חלק 5 · הקשר וחזרה</p><h2>כרטיסיות וטכניקות זכירה</h2>
     <p class="lede">הקישו על הכרטיס (או לחצו על מקש הרווח) כדי להפוך אותו. מקשי החצים עוברים בין הכרטיסים. אפשר לסנן לפי חלק או לערבב.</p></div>
   <div class="ctrls" id="fcFilter"></div>
-  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="כרטיסייה, לחצו כדי להפוך">
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="%t:cards.label%">
     <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
     <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
   </div></div>
-  <div class="ctrls"><button class="btn" id="fcPrev">→ הקודם</button><button class="btn primary" id="fcFlip">הפיכה</button><button class="btn" id="fcNext">הבא ←</button><button class="btn ghost" id="fcShuf">ערבוב</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">%t:nav.prev%</button><button class="btn primary" id="fcFlip">%t:cards.flip%</button><button class="btn" id="fcNext">%t:nav.next%</button><button class="btn ghost" id="fcShuf">%t:cards.shuffle%</button><span class="stage-cap" id="fcCount"></span></div>
   <div class="bar"><i id="fcBar"></i></div>
-  <h3 class="sub">טכניקות זכירה</h3>
+  <h3 class="sub">%t:cards.mnemonics%</h3>
   <div class="mn" id="mnList"></div>
 </section>
 
@@ -26,7 +26,7 @@
 <section class="mod" id="m-glossary" data-mod="glossary" hidden>
   <div class="mhead"><p class="eyebrow">חלק 5 · הקשר וחזרה</p><h2>מילון מונחים</h2>
     <p class="lede">כל מונח מקצועי שמופיע באפליקציה. הקלידו כדי לסנן; החץ שבכל ערך מוביל למודול שבו המונח חשוב ביותר.</p></div>
-  <input class="search" id="glSearch" type="search" placeholder="חיפוש מונחים, למשל 14-3-3,‏ SAA או פירופטוזיס" aria-label="חיפוש במילון המונחים">
+  <input class="search" id="glSearch" type="search" placeholder="חיפוש מונחים, למשל 14-3-3,‏ SAA או פירופטוזיס" aria-label="%t:glossary.search%">
   <p class="stage-cap" id="glCount"></p>
   <div class="gloss" id="glList"></div>
 </section>
@@ -37,7 +37,7 @@
     <p class="lede">כל המקורות שהעלו ששת סבבי המחקר שעליהם נשענת האפליקציה: מאמרים בכתבי עת, הנחיות, עלוני תרופות, רישומי ניסויים ומעט רשומות ממאגרי מידע וממנועי חיפוש. המספרים הקטנים לאורך האפליקציה מפנים לכאן.</p></div>
   <div class="callout prose"><p>המחקר לכל תחום נעשה בנפרד, ולכן כמה עבודות מופיעות תחת ערך מאוחד. ערכים המסומנים <span class="tag warn">לבדיקה</span> לא ניתן היה לאמת במלואם מול המקור, ולכן כדאי להתייחס אליהם בזהירות יתרה.</p>
     <p>באוקטובר 2026 נבדק מחדש כל ערך מסומן מול Europe PMC,‏ Crossref,‏ DOAJ ומרשם הניסויים ClinicalTrials.gov. התברר ששישה מהם ציינו מחברים שגויים, כתב עת שגוי או מאמר שגוי, ושניים הביאו את הכותרת בניסוח חופשי. בערכים האלה מופיעה עכשיו הערה קצרה שמפרטת מה תוקן, וכמה קישורים לתוכן בתשלום הוחלפו בעותקים חינמיים.</p></div>
-  <input class="search" id="srcSearch" type="search" placeholder="חיפוש לפי מחבר, כותרת, כתב עת או שנה" aria-label="חיפוש במקורות">
+  <input class="search" id="srcSearch" type="search" placeholder="%t:sources.placeholder%" aria-label="%t:sources.search%">
   <div class="ctrls" id="srcFilter"></div>
   <p class="stage-cap" id="srcCount"></p>
   <ol class="srcs" id="srcList"></ol>

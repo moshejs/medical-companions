@@ -91,7 +91,7 @@ let fresh=false;try{fresh=!sessionStorage.getItem('adc:tab');sessionStorage.setI
   $('#navgroups').innerHTML=h;
   let u='';
   Object.keys(GROUPS).map(Number).forEach(g=>{
-    u+=`<div class="unit"><p class="eyebrow">חלק ${g}</p><h2>${GROUPS[g][0].replace('&','&amp;')}</h2><ol>`;
+    u+=`<div class="unit"><p class="eyebrow">%t:part%${g}</p><h2>${GROUPS[g][0].replace('&','&amp;')}</h2><ol>`;
     MODS.filter(m=>m.g===g).forEach(m=>{u+=`<li><button data-go="${m.id}"><span class="n">${m.n}</span><b>${m.t.replace('&','&amp;')}</b><small>${m.d}</small></button></li>`});
     u+='</ol></div>';
   });
@@ -102,7 +102,7 @@ let fresh=false;try{fresh=!sessionStorage.getItem('adc:tab');sessionStorage.setI
     if(m.id==='home')return;
     const p=MODS[i-1],n=MODS[i+1];
     const pg=document.createElement('div');pg.className='pager';
-    pg.innerHTML=(p?`<button data-go="${p.id}"><small>→ הקודם</small><span>${p.t.replace('&','&amp;')}</span></button>`:'')+(n?`<button class="next" data-go="${n.id}"><small>הבא ←</small><span>${n.t.replace('&','&amp;')}</span></button>`:'');
+    pg.innerHTML=(p?`<button data-go="${p.id}"><small>%t:nav.prev%</small><span>${p.t.replace('&','&amp;')}</span></button>`:'')+(n?`<button class="next" data-go="${n.id}"><small>%t:nav.next%</small><span>${n.t.replace('&','&amp;')}</span></button>`:'');
     sec.appendChild(pg);
   });
 })();
@@ -138,7 +138,7 @@ document.addEventListener('click',e=>{
 /* theme: auto → light → dark */
 (function theme(){
   const btn=$('#themeBtn');const modes=['auto','light','dark'];let m=store.get('theme','auto');
-  function apply(){if(m==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',m);btn.textContent='ערכת צבע: '+{auto:'אוטומטית',light:'בהירה',dark:'כהה'}[m]}
+  function apply(){if(m==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',m);btn.textContent='%t:theme.label%'+{auto:'%t:theme.auto%',light:'%t:theme.light%',dark:'%t:theme.dark%'}[m]}
   btn.addEventListener('click',()=>{m=modes[(modes.indexOf(m)+1)%3];store.set('theme',m);apply()});apply();
 })();
 /* language switch keeps the current module */
@@ -160,10 +160,10 @@ addEventListener('resize',()=>{clearTimeout(_rt);_rt=setTimeout(()=>{
 function vb(svg,wide,narrow){const v=NARROW()?narrow:wide;svg.setAttribute('viewBox','0 0 '+v);svg.dataset.mode=NARROW()?'n':'w';return NARROW()}
 
 /* the shared player: a range input + a play button drive draw(t) */
-function playWire(rg,pb,draw,dur,doneLabel='הפעלה חוזרת',hideKey){
-  let stopA=null;function stop(){if(stopA)stopA();stopA=null;pb.textContent='הפעלה'}
+function playWire(rg,pb,draw,dur,doneLabel='%t:player.replay%',hideKey){
+  let stopA=null;function stop(){if(stopA)stopA();stopA=null;pb.textContent='%t:player.play%'}
   rg.addEventListener('input',()=>{stop();draw(+rg.value)});
-  pb.addEventListener('click',()=>{if(stopA){stop();return}let t0=+rg.value;const mx=+rg.max||1,mn=+rg.min||0;if(t0>=mx-(mx-mn)*.01)t0=mn;pb.textContent='השהיה';
+  pb.addEventListener('click',()=>{if(stopA){stop();return}let t0=+rg.value;const mx=+rg.max||1,mn=+rg.min||0;if(t0>=mx-(mx-mn)*.01)t0=mn;pb.textContent='%t:player.pause%';
     stopA=animate((mx-t0)/(mx-mn)*dur,p=>{const t=t0+(mx-t0)*p;rg.value=t;draw(t)},()=>{stopA=null;pb.textContent=doneLabel})});
   if(hideKey){const prev=onHide[hideKey];onHide[hideKey]=()=>{prev&&prev();stop()}}
   if(hideKey){const prevR=redraws[hideKey];redraws[hideKey]=()=>{prevR&&prevR();stop();draw(+rg.value)}}
@@ -173,10 +173,10 @@ function playWire(rg,pb,draw,dur,doneLabel='הפעלה חוזרת',hideKey){
 function stepWire(el,steps,rg,draw,stop){
   el.innerHTML=steps.map((s,i)=>`<button data-st="${i}" aria-pressed="false"><b>${String(i+1).padStart(2,'0')}</b><span>${s.t}</span></button>`).join('');
   el.addEventListener('click',e=>{const b=e.target.closest('[data-st]');if(!b)return;stop&&stop();const s=steps[+b.dataset.st];rg.value=s.at;draw(s.at)});
-  el.setAttribute('role','group');el.setAttribute('aria-label','שלבים');
+  el.setAttribute('role','group');el.setAttribute('aria-label','%t:player.steps%');
   return i=>{$$('[data-st]',el).forEach((b,k)=>b.setAttribute('aria-pressed',k===i));
     /* screen readers hear the step name, not a bare number, when the slider moves */
-    if(rg&&steps[i])rg.setAttribute('aria-valuetext',`שלב ${i+1} מתוך ${steps.length}: ${steps[i].t}`)};
+    if(rg&&steps[i])rg.setAttribute('aria-valuetext',`%t:player.step{n:i+1,total:steps.length,name:steps[i].t}%`)};
 }
 function phaseOf(steps,t){let p=0;steps.forEach((s,i)=>{if(t>=s.from)p=i});return p}
-function noteHTML(P){return `<div class="kicker">${P.k||''}</div><h4>${P.t}</h4>${P.txt?`<p>${P.txt}</p>`:''}${P.pt?`<div class="pt"><b>במילים פשוטות</b>${P.pt}</div>`:''}${P.hook?`<div class="hook"><b>לבחינה</b>${P.hook}</div>`:''}`}
+function noteHTML(P){return `<div class="kicker">${P.k||''}</div><h4>${P.t}</h4>${P.txt?`<p>${P.txt}</p>`:''}${P.pt?`<div class="pt"><b>%t:note.plain%</b>${P.pt}</div>`:''}${P.hook?`<div class="hook"><b>%t:note.hook%</b>${P.hook}</div>`:''}`}

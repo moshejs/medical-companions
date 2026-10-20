@@ -325,6 +325,7 @@ main:focus{outline:none}
 .btn.ghost{background:none}
 .verdict{border-radius:12px;padding:12px 14px;font-weight:700}
 .verdict.yes{background:var(--good-soft);color:var(--good)} .verdict.no{background:var(--bad-soft);color:var(--bad)} .verdict.maybe{background:var(--warn-soft);color:var(--warn)}
+.langmenu summary{list-style:none;cursor:pointer}.langmenu summary::-webkit-details-marker{display:none}.langmenu ul{margin:6px 0 0;padding:4px;list-style:none;border:1px solid var(--line);border-radius:10px;background:var(--panel)}.langmenu li a,.langmenu li span{display:block;padding:5px 9px;border-radius:7px;color:var(--ink);text-decoration:none;white-space:nowrap}.langmenu li a:hover,.langmenu li a:focus-visible{background:var(--line)}.langmenu li span{font-weight:700}@media (max-width:900px){.langmenu[open]{display:flex;align-items:center;gap:4px}.langmenu[open] ul{display:flex;margin:0;padding:0;border:0;background:none}}
 </style>
 <style>body[data-page] [data-mod][hidden]{display:block!important;visibility:hidden;min-height:100vh}</style><noscript><style>body[data-page] [data-mod][hidden]{visibility:visible}</style></noscript>
 </head>
@@ -338,7 +339,7 @@ main:focus{outline:none}
   </button>
   <div id="navgroups" style="display:contents"></div>
   <div class="side-foot">
-    <div class="btnrow"><button class="themebtn" id="themeBtn">Theme: auto</button></div>
+    <div class="btnrow"><button class="themebtn" id="themeBtn">Theme: auto</button><details class="langmenu"><summary class="langbtn" aria-label="Language">English</summary><ul><li><span lang="en" aria-current="true">English</span></li></ul></details></div>
     <p>An animated, cited guide for students, people with MS and their families. Educational only, not medical advice. Your place is saved on this device.</p>
   </div>
 </nav>
@@ -640,6 +641,6 @@ main:focus{outline:none}
 </footer>
 </main>
 </div>
-<script src="../app.js?v=5bb3241799"></script>
+<script src="../app.js?v=a4f56352a3"></script>
 </body>
 </html>

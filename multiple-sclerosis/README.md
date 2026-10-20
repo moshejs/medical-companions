@@ -40,8 +40,9 @@ The build tools are shared by every companion and live in `tools/` at the repo r
 - `js/00-core.js` has the shared helpers and this companion's drawing kit (`fiber`, `tcell`, `bcell`, `plasma`, `mac`, `oligo`, `ab`, `lesion`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
+- Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys, and its two extra keys, are in `strings.json`.
 
-English only for now; Hebrew follows once the site's i18n layer lands.
+English only for now. A Hebrew version would follow the steps under Translations in the root README; the dossier in the private research repo has a draft Hebrew vocabulary and drug-name table.
 
 ## Licence and reuse
 

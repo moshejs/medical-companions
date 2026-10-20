@@ -103,12 +103,12 @@ const MS_RV_STEPS=[
 const MS_RV_SITES=[['Optic nerve','added in 2024'],['Cortical / juxtacortical','2017 area'],['Periventricular','2017 area'],['Infratentorial','2017 area'],['Spinal cord','2017 area']];
 inits.review=()=>{
   let filt='all',deck=[],i=0;
-  const F=[['all','All cards'],...Object.keys(MS_PARTN).map(k=>[k,'Part '+k])];
+  const F=[['all','%t:cards.all%'],...Object.keys(MS_PARTN).map(k=>[k,'%t:part%'+k])];
   $('#fcFilter').innerHTML=F.map(([k,l])=>`<button class="btn" data-ff="${k}" aria-pressed="${k==='all'}">${l}</button>`).join('');
   const fc=$('#fc');
   function build(shuf){deck=MS_FC.filter(c=>filt==='all'||String(c[0])===filt);if(shuf){const r=rng(Date.now()%1e6);for(let k=deck.length-1;k>0;k--){const j=Math.floor(r()*(k+1));[deck[k],deck[j]]=[deck[j],deck[k]]}}i=0;render()}
   function render(){const c=deck[i];fc.classList.remove('flip');
-    $('#fcTagF').textContent=MS_PARTN[c[0]]+' · question';$('#fcTagB').textContent=MS_PARTN[c[0]]+' · answer';
+    $('#fcTagF').textContent=MS_PARTN[c[0]]+'%t:cards.question%';$('#fcTagB').textContent=MS_PARTN[c[0]]+'%t:cards.answer%';
     $('#fcFront').textContent=c[1];$('#fcBack').innerHTML=c[2];$('#fcCount').textContent=`${i+1} / ${deck.length}`;$('#fcBar').style.width=((i+1)/deck.length*100)+'%'}
   const flip=()=>fc.classList.toggle('flip');
   fc.addEventListener('click',e=>{if(e.target.closest('sup.c'))return;flip()});$('#fcFlip').onclick=flip;
@@ -266,22 +266,23 @@ const MS_QZ=[
  [6,"What did the McDonald 2001 criteria introduce?",["The optic nerve as a fifth location","CSF bands replacing DIT","MRI evidence into the diagnosis","The κ-FLC index"],2,`2001 brought MRI in [[McDonald2001]]; CSF bands for DIT came in 2017 [[Thompson2018]] and the optic nerve and κ-FLC in 2024 [[Montalban2025]].`]
 ];
 inits.quiz=()=>{
-  const F=[['mix','Mixed (20)'],...Object.keys(MS_PARTN).map(k=>[k,'Part '+k])];
+  const F=[['mix','%t:quiz.mixed%'],...Object.keys(MS_PARTN).map(k=>[k,'%t:part%'+k])];
   $('#qFilter').innerHTML=F.map(([k,l])=>`<button class="btn" data-qf="${k}" aria-pressed="${k==='mix'}">${l}</button>`).join('');
   let list=[],i=0,score=0,missed=[],answered=false;
   function start(k){const r=rng(Date.now()%1e6);let L=MS_QZ.filter(q=>k==='mix'||String(q[0])===k).slice();for(let a=L.length-1;a>0;a--){const j=Math.floor(r()*(a+1));[L[a],L[j]]=[L[j],L[a]]}
     list=k==='mix'?L.slice(0,20):L;i=0;score=0;missed=[];q()}
   function q(){answered=false;$('#qBar').style.width=(i/list.length*100)+'%';
     if(i>=list.length){const pct=Math.round(score/list.length*100);
-      $('#qCard').innerHTML=`<div class="kicker">Finished</div><div class="q">You scored ${score} / ${list.length} (${pct}%)</div><p>${pct>=85?'Excellent work.':pct>=65?'Solid. Review the ones you missed below.':'Worth another pass through the modules, then try again.'}</p>`+
-       (missed.length?`<dl class="kv">${missed.map(m=>`<div><dt>${m[1]}</dt><dd><b>${m[2][m[3]]}.</b> ${m[4]}</dd></div>`).join('')}</dl>`:'')+`<div class="ctrls"><button class="btn primary" id="qAgain">Try again</button><button class="btn" data-go="review">Go to flashcards</button></div>`;
+      $('#qCard').innerHTML=`<div class="kicker">%t:quiz.finished%</div><div class="q">%t:quiz.scored{score:score,total:list.length,pct:pct}%</div><p>${pct>=85?'%t:quiz.excellent%':pct>=65?'%t:quiz.solid%':'%t:quiz.retry%'}</p>`+
+       (missed.length?`<dl class="kv">${missed.map(m=>`<div><dt>${m[1]}</dt><dd><b>${m[2][m[3]]}.</b> ${m[4]}</dd></div>`).join('')}</dl>`:'')+`<div class="ctrls"><button class="btn primary" id="qAgain">%t:quiz.again%</button><button class="btn" data-go="review">%t:quiz.to_cards%</button></div>`;
       $('#qAgain').onclick=()=>start($('[data-qf][aria-pressed="true"]').dataset.qf);return}
     const Q=list[i];
-    $('#qCard').innerHTML=`<div class="readout"><span>question <b>${i+1} / ${list.length}</b></span><span>score <b>${score}</b></span><span>${MS_PARTN[Q[0]]}</span></div><div class="q">${Q[1]}</div><div class="opts">${Q[2].map((o,j)=>`<button class="opt" data-o="${j}"><span class="l">${'ABCD'[j]}</span><span>${o}</span></button>`).join('')}</div><div id="qFb"></div>`;
+    $('#qCard').innerHTML=`<div class="readout"><span>%t:quiz.question{n:i+1,total:list.length}%</span><span>%t:quiz.score% <b>${score}</b></span><span>${MS_PARTN[Q[0]]}</span></div><div class="q">${Q[1]}</div><div class="opts">${Q[2].map((o,j)=>`<button class="opt" data-o="${j}"><span class="l">${'%t:quiz.letters%'[j]}</span><span>${o}</span></button>`).join('')}</div><div id="qFb"></div>`;
   }
   $('#qCard').addEventListener('click',e=>{const b=e.target.closest('.opt');if(b&&!answered){answered=true;const Q=list[i],j=+b.dataset.o,ok=j===Q[3];if(ok)score++;else missed.push(Q);
       $$('.opt',$('#qCard')).forEach((o,k)=>{o.disabled=true;if(k===Q[3])o.classList.add('right');else if(k===j)o.classList.add('wrong')});
-      $('#qFb').innerHTML=`<div class="expl"><b style="color:var(${ok?'--good':'--bad'})">${ok?'Correct.':'Not quite.'}</b> The answer is ${'ABCD'[Q[3]]}. ${Q[4]}</div><div class="ctrls" style="margin-top:12px"><button class="btn primary" id="qNext">${i+1<list.length?'Next question →':'See results'}</button></div>`;
+      const ansL='%t:quiz.letters%'[Q[3]];
+      $('#qFb').innerHTML=`<div class="expl"><b style="color:var(${ok?'--good':'--bad'})">${ok?'%t:quiz.correct%':'%t:quiz.wrong%'}</b> %t:quiz.answer_is{l:ansL}% ${Q[4]}</div><div class="ctrls" style="margin-top:12px"><button class="btn primary" id="qNext">${i+1<list.length?'%t:quiz.next%':'%t:quiz.results%'}</button></div>`;
       $('#qNext').onclick=()=>{i++;q()};$('#qNext').focus({preventScroll:true})}});
   $('#qFilter').addEventListener('click',e=>{const b=e.target.closest('[data-qf]');if(!b)return;$$('[data-qf]').forEach(x=>x.setAttribute('aria-pressed',x===b));start(b.dataset.qf)});
   start('mix');
@@ -425,8 +426,8 @@ inits.glossary=()=>{
   /* drop citation markup, and fold κ to k and hyphens away, so 'kFLC' finds 'κ-FLC' */
   const norm=s=>s.replace(/<sup[^>]*>.*?<\/sup>/g,'').toLowerCase().replace(/κ/g,'k').replace(/-/g,'');
   function render(){const q=norm(inp.value.trim());const L=MS_GL.filter(g=>!q||norm(g[0]).includes(q)||norm(g[1]).includes(q));
-    $('#glList').innerHTML=L.map(g=>`<div><b>${g[0]}</b>${g[1]} <button class="btn ghost" style="padding:3px 9px;font-size:12px;margin-top:6px" data-go="${g[2]}">→ ${tname(g[2])}</button></div>`).join('')||'<p>No matching terms.</p>';
-    $('#glCount').textContent=`${L.length} of ${MS_GL.length} terms`}
+    $('#glList').innerHTML=L.map(g=>`<div><b>${g[0]}</b>${g[1]} <button class="btn ghost" style="padding:3px 9px;font-size:12px;margin-top:6px" data-go="${g[2]}">→ ${tname(g[2])}</button></div>`).join('')||'<p>%t:glossary.none%</p>';
+    $('#glCount').textContent=`%t:glossary.count{n:L.length,total:MS_GL.length}%`}
   inp.addEventListener('input',render);render();
 };
 
@@ -438,18 +439,18 @@ const msSvc=s=>s.unverified?[]:MS_SVC.filter(x=>(s.validated||'').includes(x));
 const msLink=s=>{let l=s.link||'';if(l.split('(').length!==l.split(')').length){const m=s.text.match(/doi:\s*(\S+?)\.?(?=\s|$)/);l=m?'https://doi.org/'+m[1]:''}return l};
 inits.sources=()=>{
   let area='all';const inp=$('#srcSearch');
-  $('#srcFilter').innerHTML=[['all','All']].concat(Object.entries(MS_AREAN)).map(([k,l])=>`<button class="btn" data-sa="${k}" aria-pressed="${k==='all'}">${l}</button>`).join('');
+  $('#srcFilter').innerHTML=[['all','%t:sources.all%']].concat(Object.entries(MS_AREAN)).map(([k,l])=>`<button class="btn" data-sa="${k}" aria-pressed="${k==='all'}">${l}</button>`).join('');
   const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   /* counts come from the list itself, so they stay right when sources change */
   const nAll=SOURCES.length,nChk=SOURCES.filter(s=>s.unverified).length,by={};
   SOURCES.forEach(s=>msSvc(s).forEach(v=>{by[v]=(by[v]||0)+1}));
   const svcTxt=MS_SVC.filter(v=>by[v]).map(v=>`${v} ${by[v]}`).join(' · ');
-  $('#srcStats').innerHTML=`${nAll} sources in all. ${nAll-nChk} were confirmed against a database before inclusion (some by more than one: ${svcTxt}). ${nChk} are marked <span class="tag warn">check</span>.`;
+  $('#srcStats').innerHTML=`%t:sources.stats{all:nAll,ok:nAll-nChk,svc:svcTxt,chk:nChk}%`;
   function render(){const q=inp.value.trim().toLowerCase();let n=0;
     $('#srcList').innerHTML=SOURCES.map((s,i)=>{const show=(area==='all'||s.areas.includes(area))&&(!q||s.text.toLowerCase().includes(q)||s.key.toLowerCase().includes(q)||(s.aliases||[]).some(a=>a.toLowerCase().includes(q)));if(!show)return'';n++;
       const sv=msSvc(s).map(v=>`<span class="tag good" title="${esc('Validated: '+s.validated)}"><span class="sr">validated by </span>${esc(v)}</span>`).join('');
-      return `<li id="src-${s.key}" value="${i+1}"><span class="key">[${i+1}] ${esc(s.key)}${s.aliases?' · also '+s.aliases.map(esc).join(', '):''}</span><span>${esc(s.text)}</span>${msLink(s)?`<a href="${esc(msLink(s))}" target="_blank" rel="noopener">${esc(msLink(s))}</a>`:''}${s.note?`<span class="srcnote">${esc(s.note)}</span>`:''}<span class="mods">${s.areas.map(a=>`<span class="tag">${MS_AREAN[a]||a}</span>`).join('')}${sv}${s.unverified?'<span class="tag warn">check</span>':''}</span></li>`}).join('');
-    $('#srcCount').textContent=`${n} of ${nAll} sources`}
+      return `<li id="src-${s.key}" value="${i+1}"><span class="key">[${i+1}] ${esc(s.key)}${s.aliases?'%t:sources.also%'+s.aliases.map(esc).join(', '):''}</span><span>${esc(s.text)}</span>${msLink(s)?`<a href="${esc(msLink(s))}" target="_blank" rel="noopener">${esc(msLink(s))}</a>`:''}${s.note?`<span class="srcnote">${esc(s.note)}</span>`:''}<span class="mods">${s.areas.map(a=>`<span class="tag">${MS_AREAN[a]||a}</span>`).join('')}${sv}${s.unverified?'<span class="tag warn">%t:sources.check%</span>':''}</span></li>`}).join('');
+    $('#srcCount').textContent=`%t:sources.count{n:n,total:nAll}%`}
   inp.addEventListener('input',render);
   $('#srcFilter').addEventListener('click',e=>{const b=e.target.closest('[data-sa]');if(!b)return;area=b.dataset.sa;$$('[data-sa]').forEach(x=>x.setAttribute('aria-pressed',x===b));render()});
   render();

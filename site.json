@@ -5,6 +5,174 @@
     "name": "Quentin.Code",
     "url": "https://quentin.software"
   },
+  "languages": {
+    "en": {
+      "name": "English",
+      "english": "English",
+      "dir": "ltr",
+      "locale": "en",
+      "fonts": {
+        "display": [],
+        "body": [],
+        "google": "",
+        "subset": "latin"
+      }
+    },
+    "he": {
+      "name": "עברית",
+      "english": "Hebrew",
+      "dir": "rtl",
+      "locale": "he_IL",
+      "fonts": {
+        "display": [
+          "Frank Ruhl Libre"
+        ],
+        "body": [
+          "Assistant"
+        ],
+        "google": "family=Assistant:wght@400;600;700;800&family=Frank+Ruhl+Libre:wght@500;700;900",
+        "subset": "hebrew"
+      }
+    },
+    "de": {
+      "name": "Deutsch",
+      "english": "German",
+      "dir": "ltr",
+      "locale": "de_DE",
+      "fonts": {
+        "display": [],
+        "body": [],
+        "google": "",
+        "subset": "latin"
+      }
+    },
+    "ja": {
+      "name": "日本語",
+      "english": "Japanese",
+      "dir": "ltr",
+      "locale": "ja_JP",
+      "fonts": {
+        "display": [
+          "Noto Serif JP"
+        ],
+        "body": [
+          "Noto Sans JP"
+        ],
+        "google": "family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@600;800",
+        "subset": "japanese"
+      },
+      "css": "body{word-break:auto-phrase;line-break:strict}"
+    },
+    "es": {
+      "name": "Español",
+      "english": "Spanish",
+      "dir": "ltr",
+      "locale": "es_ES",
+      "fonts": {
+        "display": [],
+        "body": [],
+        "google": "",
+        "subset": "latin"
+      }
+    },
+    "fr": {
+      "name": "Français",
+      "english": "French",
+      "dir": "ltr",
+      "locale": "fr_FR",
+      "fonts": {
+        "display": [],
+        "body": [],
+        "google": "",
+        "subset": "latin"
+      }
+    },
+    "ar": {
+      "name": "العربية",
+      "english": "Arabic",
+      "dir": "rtl",
+      "locale": "ar",
+      "fonts": {
+        "display": [
+          "Noto Naskh Arabic"
+        ],
+        "body": [
+          "Noto Sans Arabic"
+        ],
+        "google": "family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+Arabic:wght@400;600;700",
+        "subset": "arabic"
+      }
+    },
+    "it": {
+      "name": "Italiano",
+      "english": "Italian",
+      "dir": "ltr",
+      "locale": "it_IT",
+      "fonts": {
+        "display": [],
+        "body": [],
+        "google": "",
+        "subset": "latin"
+      }
+    },
+    "nl": {
+      "name": "Nederlands",
+      "english": "Dutch",
+      "dir": "ltr",
+      "locale": "nl_NL",
+      "fonts": {
+        "display": [],
+        "body": [],
+        "google": "",
+        "subset": "latin"
+      }
+    },
+    "pt-BR": {
+      "name": "Português (Brasil)",
+      "english": "Portuguese (Brazil)",
+      "dir": "ltr",
+      "locale": "pt_BR",
+      "fonts": {
+        "display": [],
+        "body": [],
+        "google": "",
+        "subset": "latin"
+      }
+    },
+    "ko": {
+      "name": "한국어",
+      "english": "Korean",
+      "dir": "ltr",
+      "locale": "ko_KR",
+      "fonts": {
+        "display": [
+          "Noto Serif KR"
+        ],
+        "body": [
+          "Noto Sans KR"
+        ],
+        "google": "family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@600;800",
+        "subset": "korean"
+      },
+      "css": "body{word-break:keep-all}"
+    },
+    "zh-Hans": {
+      "name": "简体中文",
+      "english": "Chinese (Simplified)",
+      "dir": "ltr",
+      "locale": "zh_CN",
+      "fonts": {
+        "display": [
+          "Noto Serif SC"
+        ],
+        "body": [
+          "Noto Sans SC"
+        ],
+        "google": "family=Noto+Sans+SC:wght@400;700&family=Noto+Serif+SC:wght@600;800",
+        "subset": "chinese-simplified"
+      }
+    }
+  },
   "companions": [
     {
       "slug": "alzheimers",
@@ -17,7 +185,22 @@
         "he": "מלווה אלצהיימר"
       },
       "old": "https://moshejs.github.io/alzheimers-companion",
-      "published": "2026-10-18"
+      "published": "2026-10-18",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        },
+        "he": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      },
+      "indexed_without_review": [
+        "he"
+      ]
     },
     {
       "slug": "fmf",
@@ -30,7 +213,22 @@
         "he": "מלווה FMF"
       },
       "old": "https://moshejs.github.io/fmf-companion",
-      "published": "2026-10-16"
+      "published": "2026-10-16",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        },
+        "he": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      },
+      "indexed_without_review": [
+        "he"
+      ]
     },
     {
       "slug": "multiple-sclerosis",
@@ -41,7 +239,14 @@
         "en": "MS Companion",
         "he": "מלווה טרשת נפוצה"
       },
-      "published": "2026-10-20"
+      "published": "2026-10-20",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
     }
   ],
   "indexnow_key": "202581197bc1993e3ed16425b36cb189"

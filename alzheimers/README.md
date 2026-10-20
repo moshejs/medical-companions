@@ -41,10 +41,12 @@ The build tools are shared by every companion and live in `tools/` at the repo r
 
 `src/he/` holds Hebrew copies of the parts, at the same paths. `python3 tools/build.py alzheimers --lang he` builds
 `alzheimers/he/index.html`: right to left, Hebrew fonts and metadata (`src/he/meta.html`, `src/he/rtl.css`),
-with the English part used for anything not yet translated (the build lists those). Drawings keep a
-left-to-right frame so time axes read the same in both languages.
+with the English part used for anything not yet translated (the build lists those). Interface text shared
+with other companions is in `tools/i18n/he.json`, and this companion's own (its name, tagline, disclaimer) in
+`src/he/strings.json`. Drawings keep a left-to-right frame so time axes read the same in both languages.
+Other languages work the same way; see Translations in the root README.
 
-When an English part changes, change its Hebrew copy too, then run `python3 tools/check_he.py alzheimers`: it fails
-if a translation's code, element structure, citations or numbers differ from the English.
+When an English part changes, change its Hebrew copy too, then run `python3 tools/check_lang.py alzheimers he`:
+it fails if a translation's code, element structure, citations or numbers differ from the English.
 
 `compile_sources.py` rebuilds `sources.json` from the research files; `source-corrections.json`, when present, is applied afterwards so validated fixes survive a regeneration.

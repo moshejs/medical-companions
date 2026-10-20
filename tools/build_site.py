@@ -5,11 +5,15 @@
 
 1. builds every companion in every language it lists (tools/build.py): a first page,
    a page per module and the shared app.js
-2. writes the hub, index.html, from hub/index.html (%SITE% and %CITED:slug% filled in),
+2. writes the hub, index.html, from hub/index.html (%SITE% and %CITED:slug% filled in,
+   and %LANGS:slug% / %LANGNAMES:slug%: a card's language links and names, for each
+   language in the companion's "langs" whose first page may be indexed),
    its share-card.png from hub/share-card.html when either that or site.json changed,
    and 404.html from hub/404.html
 3. writes sitemap.xml and robots.txt. The sitemap lists every built page that may be
-   indexed (not noindex), each with the hreflang pairs from its own head
+   indexed (not noindex), each with the hreflang pairs from its own head. A translation
+   is noindex until it is complete and its reviewer is named in site.json (tools/build.py),
+   so unreviewed pages never reach the sitemap
 4. writes redirects/<old repository>/: pages for each companion's old address that
    send visitors, and search engines, to the new one (an old #module link goes straight
    to that module's page). Copy each folder's contents over
@@ -18,10 +22,9 @@
 Change "site" in site.json to move the site to another address, then run this again.
 """
 import datetime, html, json, pathlib, re, subprocess, sys
+import i18n
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent
-CFG = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
-SITE = CFG["site"].rstrip("/")
+ROOT, CFG, SITE = i18n.ROOT, i18n.CFG, i18n.SITE
 TODAY = datetime.date.today().isoformat()
 
 def last_modified(path):
@@ -30,8 +33,7 @@ def last_modified(path):
     if git("status", "--porcelain", "--", path): return TODAY
     return git("log", "-1", "--format=%cs", "--", path) or TODAY
 
-def url(slug, lang="en"):
-    return f"{SITE}/{slug}/" + ("" if lang == "en" else f"{lang}/")
+url = lambda slug, lang="en": i18n.lang_url(slug, lang)
 
 # 1. companions
 cited = {}
@@ -40,15 +42,37 @@ for c in CFG["companions"]:
         r = subprocess.run([sys.executable, str(ROOT / "tools" / "build.py"), c["slug"], "--lang", lang],
                            capture_output=True, text=True)
         sys.stdout.write(r.stdout.splitlines()[0] + "\n" if r.stdout else "")
+        for line in r.stdout.splitlines()[1:]:
+            if line.startswith(("untranslated", "missing strings", "review")): print("  " + line)
         if r.returncode:
             sys.exit(f"build failed for {c['slug']} ({lang}):\n{r.stderr}")
         m = re.search(r"(\d+) sources cited", r.stdout)
         cited[c["slug"]] = int(m.group(1))
 
+noindex = lambda f: bool(re.search(r'<meta name="robots" content="[^"]*noindex', f.read_text(encoding="utf-8")))
+
 # 2. hub
+def hub_langs(slug):
+    """The languages of SLUG the hub links to: those whose built first page may be indexed,
+    so an unreviewed translation is not promoted from the hub."""
+    langs = i18n.companion(slug).get("langs") or sys.exit(f"hub names a companion that is not in site.json: {slug}")
+    return [l for l in langs if not noindex(ROOT / slug / i18n.lang_dir(l) / "index.html")]
+
+def hub_links(slug):
+    """A card's links, one per language: hub.read from tools/i18n/<lang>.json ("Read in English"),
+    or the language's own name until it has one. The hub is English, so only other languages
+    carry lang and hreflang."""
+    def link(l):
+        label = i18n._load(ROOT / "tools" / "i18n" / f"{l}.json").get("hub.read") or i18n.lang(l)["name"]
+        attrs = "" if l == i18n.SOURCE else f' hreflang="{l}" lang="{l}"'
+        return f'<a href="{i18n.lang_url(slug, l)[len(SITE) + 1:]}"{attrs}>{label}</a>'
+    return "".join(link(l) for l in hub_langs(slug))
+
 hub = (ROOT / "hub" / "index.html").read_text(encoding="utf-8").replace("%SITE%", SITE)
 hub = re.sub(r"%CITED:([a-z0-9-]+)%", lambda m: str(cited[m.group(1)]), hub)
-leftover = re.findall(r"%(?:SITE|CITED:[^%]*)%", hub)
+hub = re.sub(r"%LANGS:([a-z0-9-]+)%", lambda m: hub_links(m.group(1)), hub)
+hub = re.sub(r"%LANGNAMES:([a-z0-9-]+)%", lambda m: " · ".join(i18n.lang(l)["name"] for l in hub_langs(m.group(1))), hub)
+leftover = re.findall(r"%(?:SITE|CITED:[^%]*|LANGS:[^%]*|LANGNAMES:[^%]*)%", hub)
 if leftover: sys.exit(f"hub has unfilled placeholders: {leftover}")
 hub = re.sub(r'<link rel="stylesheet" href="(https://fonts\.googleapis\.com/[^"]+)">',
              lambda m: f'<link rel="preload" as="style" href="{m.group(1)}" onload="this.onload=null;this.rel=\'stylesheet\'">'
@@ -63,9 +87,9 @@ if not card.exists() or card.stat().st_mtime < max(card_src.stat().st_mtime, (RO
 # 3. sitemap and robots: every built page of every companion that may be indexed
 def pages(c, lang):
     """The built pages of companion C in LANG: (url, path), first page first."""
-    base = ROOT / c["slug"] / ("" if lang == "en" else lang)
+    base = ROOT / c["slug"] / i18n.lang_dir(lang)
     found = [(url(c["slug"], lang), base / "index.html")]
-    for d in sorted(p for p in base.iterdir() if p.is_dir() and p.name not in c["langs"]):
+    for d in sorted(p for p in base.iterdir() if p.is_dir() and p.name not in {i18n.lang_dir(l) for l in c["langs"]}):
         f = d / "index.html"
         if f.exists() and 'data-root="' in f.read_text(encoding="utf-8"):
             found.append((url(c["slug"], lang) + d.name + "/", f))
@@ -76,8 +100,8 @@ for c in CFG["companions"]:
     mod = last_modified(c["slug"] + "/src")
     for lang in c["langs"]:
         for i, (loc, f) in enumerate(pages(c, lang)):
+            if noindex(f): continue
             page = f.read_text(encoding="utf-8")
-            if re.search(r'<meta name="robots" content="[^"]*noindex', page): continue
             alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{h}"/>'
                            for l, h in re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">', page))
             pri = (0.9 if i == 0 else 0.7) - (0 if lang == "en" else 0.1)
@@ -106,19 +130,18 @@ REDIR = """<!doctype html>
 </body>
 </html>
 """
-MOVED = {"en": ("{name} has moved", "{name} has moved to"),
-         "he": ("{name} עבר לכתובת חדשה", "{name} עבר לכתובת:")}
 out_root = ROOT / "redirects"
 for c in CFG["companions"]:
     stem = c["old"].rstrip("/").rsplit("/", 1)[1]
     d = out_root / stem
     for lang in c["langs"]:
         to = url(c["slug"], lang)
-        page = d / ("index.html" if lang == "en" else f"{lang}/index.html")
+        page = d / i18n.lang_dir(lang) / "index.html"
         page.parent.mkdir(parents=True, exist_ok=True)
-        name = html.escape(c["name"][lang])
-        moved = MOVED.get(lang, MOVED["en"])
-        page.write_text(REDIR.format(lang=lang, moved_title=moved[0].format(name=name), moved_text=moved[1].format(name=name),
+        name = html.escape(c["name"].get(lang, c["name"]["en"]))
+        s = i18n.Strings(c["slug"], lang)
+        page.write_text(REDIR.format(lang=lang, moved_title=s.get("redirect.title").format(name=name),
+                                     moved_text=s.get("redirect.text").format(name=name),
                                      to=to, to_js=json.dumps(to),
                                      mods_js=json.dumps([u[len(to):-1] for u, _ in pages(c, lang)[1:]])), encoding="utf-8")
     (d / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
