@@ -1,0 +1,67 @@
+<style>
+#m-cure .qa{display:flex;flex-direction:column;gap:6px}
+#m-cure .qa details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-width:0}
+#m-cure .qa summary{cursor:pointer;font-weight:700;font-size:15px;line-height:1.3;overflow-wrap:anywhere}
+#m-cure .qa details[open] summary{color:var(--sea)}
+#m-cure .qa p{margin-top:7px;font-size:14.5px}
+#m-cure .evrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-cure .tbl table{min-width:760px}
+</style>
+<!-- ================= 4.3 TOWARD A CURE ================= -->
+<section class="mod" id="m-cure" data-mod="cure" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 4 · טיפול והעתיד</p><h2>לקראת ריפוי</h2>
+    <p class="lede">אין היום טיפול מאושר שמרפא FMF. קולכיצין וחסימת IL-1 שולטים במחלה, לכל החיים. הפרק הזה בכל זאת לוקח את השאלה ברצינות: איפה במסלול אפשר להתערב, אילו ראיות יש לכל דרך, ומה עומד בדרך. לכל טענה יש תווית ראיות. לחצו על הפעלה כדי לשלוח את האות לאורך המסלול, ואז בחרו דרך כדי להציב לפניו מחסום.</p></div>
+  <div class="ctrls" role="group" aria-label="בחירת דרך התערבות">
+    <span class="kicker">דרך</span>
+    <button class="btn" data-cu="none" aria-pressed="true">בלי התערבות</button>
+    <button class="btn" data-cu="hsct" aria-pressed="false">השתלת מח עצם מתורם (HSCT)</button>
+    <button class="btn" data-cu="edit" aria-pressed="false">תאי גזע מתוקנים גנטית</button>
+    <button class="btn" data-cu="rna" aria-pressed="false">השתקת RNA</button>
+    <button class="btn" data-cu="brake" aria-pressed="false">משפעל PKN / "דבק" 14-3-3</button>
+    <button class="btn" data-cu="casp" aria-pressed="false">מעכב Caspase-1</button>
+    <button class="btn" data-cu="gsdmd" aria-pressed="false">מעכב Gasdermin D</button>
+    <button class="btn" data-cu="il1" aria-pressed="false">חסימת IL-1 ו-IL-18</button>
+    <button class="btn" data-cu="jak" aria-pressed="false">מעכב JAK</button>
+    <button class="btn" data-cu="micro" aria-pressed="false">מיקרוביום</button>
+    <button class="btn" data-cu="colch" aria-pressed="false">קולכיצין</button>
+  </div>
+  <div class="stepper" id="cuSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuSvg" viewBox="0 0 960 340" style="min-width:640px" role="img" aria-label="מסלול ה-FMF מהגן ועד העמילואיד, עם מחסום בנקודת ההתערבות שנבחרה"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuPlay">הפעלה</button><label class="stage-cap tl" for="cuT">זרימת האות <input type="range" id="cuT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="stage-cap" id="cuCap">מסלול סכמטי, לא בקנה מידה.</p></div>
+    <aside class="note" id="cuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">החלפת מח העצם: מה זה היה דורש</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="cuMarrow" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="טיפול הכנה, קליטה של תאי גזע מתוקנים, והחלפה הדרגתית של הנויטרופילים במחזור הדם"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuMPlay">הפעלה</button><label class="stage-cap tl" for="cuM">חודשים אחרי ההשתלה <input type="range" id="cuM" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="ctrls"><label class="stage-cap tl" for="cuPct">שיעור התאים המיאלואידיים המתוקנים ברמה היציבה <input type="range" id="cuPct" min="10" max="100" step="1" value="80"></label></div>
+      <div class="readout" id="cuMRead"></div>
+      <p class="stage-cap">רצף היפותטי, המבוסס על הביולוגיה של השתלות ועריכה גנטית במחלות אחרות. אין מאחורי העקומות האלה נתונים מבני אדם עם FMF.</p>
+    </div>
+    <aside class="note" id="cuMNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">הדרכים, זו לצד זו</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>דרך</th><th>מה היא הייתה מתקנת</th><th>הראיה הטובה ביותר</th><th>רמה</th><th>המכשול העיקרי</th><th>מצב</th></tr></thead>
+    <tbody id="cuTbl"></tbody>
+  </table></div>
+
+  <div class="callout"><p><b>מה ריפוי היה צריך להשיג.</b> שני דברים בבת אחת, לא אחד. הוא היה צריך לעצור את ההתקפים, וגם לכבות את הדלקת השקטה שביניהם, כי עמילואידוזיס מסוג AA נגרמת מ-SAA גבוה באופן כרוני ולא מההתקפים עצמם. העדכון של EULAR/PReS משנת 2024 קובע שליטה בדלקת התת-קלינית כיעד טיפולי מפורש. ריפוי היה צריך גם להגיע לתאים הנכונים: ה-RNA השליח של <i>MEFV</i> בדם מוגבל לתאים מיאלואידיים, והגן נדלק כשתאי אב CD34+ מתמיינים לגרנולוציטים, ולכן המטרה נמצאת בתוך מאגר תאי הגזע ותאי האב של מח העצם. החלבון פירין דווח גם בתאים דנדריטיים ובפיברובלסטים של הקרום הסינוביאלי, כך שתיקון של תאי הדם בלבד עלול להשאיר מאגר מאחור. [[Ozen2025,Centola2000,Diaz2004]]</p></div>
+
+  <h3 class="sub">שלוש-עשרה שאלות פתוחות</h3>
+  <p class="lede">אלה הפערים שהספרות עצמה משאירה פתוחים, לא שאלות רטוריות. כל אחד מהם הוא מקום שבו מחקר יכול לשנות את התמונה.</p>
+  <div class="qa" id="cuQA"></div>
+
+  <h3 class="sub">איך ניסוי הבא יכול להיראות</h3>
+  <div class="callout"><p><b>קראו את החלק הזה בתשומת לב.</b> שלושת המבנים שלהלן הם המחשות שנכתבו לדף הזה. הם אינם ניסויים רשומים, אינם הצעות של חוקר כלשהו, ואינם ייעוץ. נכון לסריקה של ClinicalTrials.gov באוקטובר 2026, לא רשום אף ניסוי ב-FMF של עריכה גנטית, טיפולי RNA, השתלת מח עצם (HSCT) או מולקולה קטנה המכוונת לפירין. [[CTgovSweep2026]]</p></div>
+  <div class="cards" id="cuTrials"></div>
+
+  <div class="callout"><p><b>האזהרה לגבי סטטינים, וגבולותיה.</b> סטטינים מדלדלים גרניל-גרניל פירופוספט, וכך מונעים מ-RhoA להיקשר לקרום התא, ובניסויים בתאים זה <i>משפעל</i> את אינפלמזום הפירין; שחרור IL-1β שנגרם מסטטינים התהפך כשהוסיפו בחזרה גרניל-גרניל פירופוספט או כששפעלו את PKN. זהו מנגנון במבחנה. המשמעות הקלינית שלו אינה ידועה: אף מחקר קליני לא בדק אם סטטינים משפיעים על FMF, ומטופלים עם התוויה קרדיווסקולרית מקבלים אותם באופן שגרתי. אין לשנות או להפסיק שום תרופה על סמך זה, וכל שאלה על סטטין שייכת לרופא שרשם אותו. היא מופיעה כאן כאחת השאלות הפתוחות, לא כהמלצה. [[Park2016]]</p></div>
+
+  <div class="prose" id="cuClose"></div>
+</section>

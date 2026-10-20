@@ -1,0 +1,126 @@
+<!-- ================= 3.2 DIAGNOSIS & CRITERIA ================= -->
+<section class="mod" id="m-dx" data-mod="dx" hidden>
+<style>
+#m-dx .dx-form{display:flex;flex-direction:column;gap:12px}
+#m-dx fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px 12px;margin:0;display:flex;flex-direction:column;gap:7px;min-width:0}
+#m-dx legend{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 4px}
+#m-dx .dx-ck{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.35;cursor:pointer;overflow-wrap:anywhere}
+#m-dx .dx-ck input{margin:2px 0 0;accent-color:var(--terra);flex:none;width:17px;height:17px}
+#m-dx .dx-ck small{color:var(--muted);font-size:12.5px}
+#m-dx .dx-def{font-size:13.5px;color:var(--muted);line-height:1.45}
+#m-dx .dx-def b{color:var(--ink)}
+#m-dx .dx-verdict{border-radius:10px;padding:12px 14px;font-size:15px;border:1px solid var(--line);background:var(--panel-2);display:flex;flex-direction:column;gap:6px;transition:background .3s,border-color .3s}
+#m-dx .dx-verdict.yes{background:var(--good-soft);border-color:var(--good)}
+#m-dx .dx-verdict.na{background:var(--warn-soft);border-color:var(--warn)}
+#m-dx .dx-verdict strong{font-family:var(--display);font-size:20px;line-height:1.15}
+#m-dx .dx-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+#m-dx .dx-perf{display:flex;flex-direction:column;gap:8px}
+#m-dx .dx-pr{display:grid;grid-template-columns:minmax(0,1fr);gap:3px;font-size:13.5px}
+#m-dx .dx-pr .lbl{color:var(--muted);font-size:13px}
+#m-dx .dx-bars{display:grid;grid-template-columns:38px minmax(0,1fr) 52px;gap:3px 8px;align-items:center;font:500 11.5px var(--mono);color:var(--muted)}
+#m-dx .dx-bars i{display:block;height:9px;border-radius:5px;background:var(--panel-2);overflow:hidden}
+#m-dx .dx-bars i b{display:block;height:100%;border-radius:5px;transition:width .6s cubic-bezier(.3,.7,.2,1)}
+#m-dx .dx-dots{display:flex;gap:5px;flex-wrap:wrap;align-items:center;font:500 12px var(--mono);color:var(--muted)}
+#m-dx .dx-dots span{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);display:inline-block;transition:background .3s,border-color .3s}
+#m-dx .dx-dots span.on{background:var(--terra);border-color:var(--terra)}
+#m-dx .dx-dots span.on.mn{background:var(--gold);border-color:var(--gold)}
+#m-dx .dx-dots span.on.sp{background:var(--sea);border-color:var(--sea)}
+#m-dx .dx-dots em{font-style:normal;margin:0 4px 0 2px}
+#m-dx .dx-panel{display:flex;flex-direction:column;gap:12px}
+</style>
+  <div class="mhead"><p class="eyebrow">חלק 3 · סיבוכים ואבחון</p><h2>אבחון וקריטריונים</h2>
+    <p class="lede">אין בדיקה אחת שמוכיחה FMF. האבחנה נשענת על דפוס ההתקפים, על סמני הדם בזמן התקף ובין התקפים, על הבדיקה הגנטית ועל התגובה לקולכיצין. סמנו מאפיינים במחשבונים שלמטה, ואז לחצו על הפעלה בציר הזמן של בדיקות הדם ובמסלול האבחוני.</p></div>
+
+  <h3 class="sub">מחשבון Eurofever/PRINTO 2019</h3>
+  <p class="callout">אלה <b>קריטריוני סיווג</b>, שנבנו כדי שמחקרים יכללו מטופלים דומים זה לזה. הם אינם בדיקה אבחונית לאדם יחיד, ורופא יכול לאבחן FMF גם אצל מי שאינו עומד בהם. [[Gattorno2019]]</p>
+  <div class="ctrls" role="group" aria-label="דוגמאות">
+    <span class="kicker">טעינת דוגמה</span>
+    <button class="btn" data-dxex="typ">טיפוסי, שני וריאנטים</button>
+    <button class="btn" data-dxex="het">וריאנט אחד, התקפי בטן</button>
+    <button class="btn" data-dxex="pfapa">ילד עם תמונה דמוית PFAPA</button>
+    <button class="btn" data-dxex="clr">ניקוי הכול</button>
+  </div>
+  <div class="lab even">
+    <div class="stage dx-form">
+      <fieldset><legend>שלב 1 · תנאי סף (שניהם נדרשים)</legend>
+        <label class="dx-ck"><input type="checkbox" id="dxPre1"><span>סמני שלב חריף (ESR,‏ CRP או SAA) עולים בהתאמה להתלקחויות</span></label>
+        <label class="dx-ck"><input type="checkbox" id="dxPre2"><span>נשקלו גורמים מבלבלים (סרטן, זיהום, מחלה אוטואימונית, ליקויים מולדים אחרים של מערכת החיסון) <b>וגם</b> לפחות 6 חודשים של פעילות חוזרת</span></label>
+      </fieldset>
+      <fieldset><legend>שלב 2 · גנוטיפ MEFV</legend>
+        <div class="ctrls" role="group" aria-label="גנוטיפ">
+          <button class="btn" data-gt="conf" aria-pressed="false">מאשר</button>
+          <button class="btn" data-gt="non" aria-pressed="false">לא מאשר</button>
+          <button class="btn" data-gt="none" aria-pressed="true">אין / לא נבדק</button>
+        </div>
+        <p class="dx-def" id="dxGtDef"></p>
+      </fieldset>
+      <fieldset><legend>שלב 3 · פריטים קליניים</legend>
+        <p class="dx-def">משמשים בשתי הזרועות של הקריטריונים:</p>
+        <label class="dx-ck"><input type="checkbox" data-ci="ep"><span>התקפים שנמשכים 1 עד 3 ימים</span></label>
+        <label class="dx-ck"><input type="checkbox" data-ci="arth"><span>דלקת פרקים</span></label>
+        <label class="dx-ck"><input type="checkbox" data-ci="chest"><span>כאב בחזה</span></label>
+        <label class="dx-ck"><input type="checkbox" data-ci="abd"><span>כאב בטן</span></label>
+        <p class="dx-def">רק בזרוע הקלינית בלבד (בלי גנוטיפ):</p>
+        <label class="dx-ck"><input type="checkbox" data-ci="eth"><span>מוצא ממזרח הים התיכון</span></label>
+        <p class="dx-def">אלה נספרים לטובת FMF כשהם <b>חסרים</b>. סמנו אותם רק אם הם קיימים אצל האדם:</p>
+        <label class="dx-ck"><input type="checkbox" data-ab="aph"><span>סטומטיטיס אפטית (כיבים בפה)</span></label>
+        <label class="dx-ck"><input type="checkbox" data-ab="urt"><span>פריחה אורטיקריאלית (דמוית סרפדת)</span></label>
+        <label class="dx-ck"><input type="checkbox" data-ab="mp"><span>פריחה מקולופפולרית (כתמים ובליטות אדומים)</span></label>
+        <label class="dx-ck"><input type="checkbox" data-ab="ln"><span>בלוטות לימפה כואבות</span></label>
+      </fieldset>
+    </div>
+    <div class="stage">
+      <svg id="dxGauge" viewBox="0 0 400 262" role="img" aria-label="מדי ציון לשתי הזרועות של קריטריוני Eurofever/PRINTO"></svg>
+      <div class="dx-verdict" id="dxVerdict" aria-live="polite"></div>
+      <div class="dx-two">
+        <div class="dx-perf"><span class="kicker">זרוע גנוטיפ + קליניקה</span><div id="dxPerfG"></div></div>
+        <div class="dx-perf"><span class="kicker">זרוע קלינית בלבד</span><div id="dxPerfC"></div></div>
+      </div>
+      <p class="stage-cap">רגישות וסגוליות לפי Gattorno ועמיתיו, 2019 (קבוצת הפיתוח, ואחריה קבוצת התיקוף). בילדים בטורקיה הראו הקריטריונים רגישות של 96% וסגוליות של 73.1%; בקבוצת מטופלים שהופנו למרכז בטורקיה הם סיווגו כ־FMF ‏98.2% מההומוזיגוטים ו־80.2% מההטרוזיגוטים, ואף אחד מקבוצת הביקורת. [[Gattorno2019,Sag2020,Tanatar2020]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">מערכות הקריטריונים הוותיקות</h3>
+  <div class="ctrls" role="group" aria-label="מערכת קריטריונים">
+    <button class="btn" data-crit="th" aria-pressed="true">תל השומר</button>
+    <button class="btn" data-crit="liv" aria-pressed="false">ליבנה 1997</button>
+    <button class="btn" data-crit="yo" aria-pressed="false">Yalçınkaya–Özen (ילדים)</button>
+  </div>
+  <div class="lab even">
+    <div class="stage dx-form" id="dxCritForm"></div>
+    <div class="stage dx-panel">
+      <div class="dx-verdict" id="dxCritOut" aria-live="polite"></div>
+      <div id="dxCritPerf" class="dx-perf"></div>
+    </div>
+  </div>
+
+  <h3 class="sub">סמני דם לאורך התקף</h3>
+  <div class="ctrls" role="group" aria-label="הדפוס בין התקפים">
+    <span class="kicker">בין התקפים</span>
+    <button class="btn" id="dxLabNorm" aria-pressed="true">הסמנים נרגעים</button>
+    <button class="btn" id="dxLabPers" aria-pressed="false">הדלקת נמשכת</button>
+  </div>
+  <div class="stepper" id="dxLabSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxLabSvg" viewBox="0 0 720 410" style="min-width:500px" role="img" aria-label="סמני מעבדה לפני התקף FMF, במהלכו ואחריו"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxLabPlay">הפעלה</button><label class="stage-cap tl" for="dxLabT">ימים <input type="range" id="dxLabT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <div class="readout" id="dxLabRead"></div>
+      <p class="stage-cap">צורות העקומות סכמטיות. ערכי ה־SAA וה־CRP בהתקף ובין התקפים הם החציונים מ־Lachmann ועמיתיו, 2006; שאר השורות מראות רק את כיוון השינוי.</p></div>
+    <aside class="note" id="dxLabNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">המסלול האבחוני</h3>
+  <div class="stepper" id="dxPathSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxPathSvg" viewBox="0 0 720 440" style="min-width:500px" role="img" aria-label="מסלול אבחוני מונפש לחשד ל־FMF"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxPathPlay">הפעלה</button><label class="stage-cap tl" for="dxPathT">מסלול <input type="range" id="dxPathT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">רצף לימודי מפושט, שנבנה מסקירות ומהנחיות שפורסמו. בירורים אמיתיים חופפים זה לזה וחוזרים לאחור.</p></div>
+    <aside class="note" id="dxPathNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>לבחינה</b>תל השומר: <b>2 עיקריים, או 1 עיקרי + 2 משניים</b>. ליבנה: <b>לפחות 1 עיקרי או לפחות 2 משניים</b>. Yalçınkaya–Özen (ילדים): <b>לפחות 2 מתוך 5</b>. Eurofever/PRINTO: גנוטיפ מאשר + <b>לפחות 1</b> מתוך 4, גנוטיפ לא מאשר + <b>לפחות 2</b> מתוך 4, או זרוע קלינית בלבד עם <b>לפחות 6 מתוך 9</b>. התגובה לקולכיצין היא קריטריון <b>עיקרי</b> בתל השומר וקריטריון <b>משני</b> בליבנה. [[Pras1998,Livneh1997,Yalcinkaya2009,Gattorno2019]]</div>
+    <div class="pt"><b>במילים פשוטות</b>רופאים מזהים FMF מתוך הסיפור: התקפים קצרים של חום עם כאב בבטן, בחזה או בפרקים שחולפים מעצמם, ובדיקות דם שגבוהות בזמן התקף ורגועות יותר ביניהם. בדיקה גנטית עוזרת, אבל היא יכולה לצאת שלילית גם אצל מי שבאמת יש לו FMF. לפעמים התשובה הברורה ביותר היא האם קולכיצין יומי עוצר את ההתקפים.</div>
+  </div>
+  <div class="cards" id="dxCards"></div>
+</section>

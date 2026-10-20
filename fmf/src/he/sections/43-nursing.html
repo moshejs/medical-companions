@@ -19,49 +19,49 @@
 </style>
 <!-- ================= 4.3 NURSING CARE ================= -->
 <section class="mod" id="m-nursing" data-mod="nursing" hidden>
-  <div class="mhead"><p class="eyebrow">Part 4 · Treatment &amp; the future</p><h2>Nursing care</h2>
-    <p class="lede">What the published guidance describes for the four things a nurse does with someone in an attack: look, give the medicines safely, teach, and write it down. Every figure here is quoted from the literature, not from local practice.</p></div>
+  <div class="mhead"><p class="eyebrow">חלק 4 · טיפול והעתיד</p><h2>טיפול סיעודי</h2>
+    <p class="lede">מה מתארות ההנחיות שפורסמו לגבי ארבעת הדברים שאחות או אח עושים עם אדם בהתקף: להעריך, לתת את התרופות בבטחה, להדריך ולתעד. כל נתון כאן מצוטט מהספרות, לא מנוהלי עבודה מקומיים.</p></div>
 
-  <div class="nu-scope"><b>Scope</b><span>This describes what guidelines, drug labels and published studies say. It is not a care plan, and it does not replace your own service's protocols, your scope of practice, or the prescriber. Where the literature gives no answer, this module says so rather than filling the gap.</span></div>
+  <div class="nu-scope"><b>היקף</b><span>המודול מתאר את מה שאומרים הנחיות, עלוני תרופות ומחקרים שפורסמו. הוא אינו תוכנית טיפול, והוא אינו מחליף את הנהלים של השירות שלכם, את תחום הסמכות המקצועית שלכם או את הגורם הרושם. במקומות שבהם הספרות אינה נותנת תשובה, המודול אומר זאת ואינו ממלא את החסר.</span></div>
 
-  <h3 class="sub">1 · Assessment during an attack</h3>
+  <h3 class="sub">1 · הערכה סיעודית בזמן התקף</h3>
   <p class="prose" id="nuAssessLede"></p>
-  <div class="ctrls" id="nuSites" role="group" aria-label="What to assess"></div>
+  <div class="ctrls" id="nuSites" role="group" aria-label="מה להעריך"></div>
   <div class="lab">
     <div class="stage">
-      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="Assessment findings and observations across an attack"></svg></div>
-      <div class="ctrls"><button class="btn primary" id="nuPlay">Play</button><label class="stage-cap tl" for="nuT">Hours <input type="range" id="nuT" min="0" max="1" step="0.002" value="0.12"></label>
-        <button class="btn" id="nuFlag" aria-pressed="false">Show what is not a typical attack</button></div>
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="ממצאי הערכה ומדדים לאורך התקף"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">הפעלה</button><label class="stage-cap tl" for="nuT">שעות <input type="range" id="nuT" min="0" max="1" step="0.002" value="0.12"></label>
+        <button class="btn" id="nuFlag" aria-pressed="false">הצגת מה שאינו התקף טיפוסי</button></div>
       <div class="readout" id="nuRead"></div>
-      <p class="stage-cap"><b>Illustrative.</b> The observation curves follow published descriptions of the attack time course; no study publishes an hour-by-hour chart. The findings and thresholds are cited.</p>
+      <p class="stage-cap"><b>להמחשה.</b> עקומות המדדים עוקבות אחר תיאורים שפורסמו של מהלך ההתקף בזמן; אף מחקר לא פרסם תרשים שעה אחר שעה. הממצאים והספים מגובים במקורות.</p>
     </div>
     <aside class="note" id="nuNote" aria-live="polite"></aside>
   </div>
-  <h3 class="sub">Measuring how active the disease is</h3>
+  <h3 class="sub">מדידת פעילות המחלה</h3>
   <div class="nu-grid" id="nuTools"></div>
 
-  <h3 class="sub">2 · Giving the medicines</h3>
+  <h3 class="sub">2 · מתן התרופות</h3>
   <p class="prose" id="nuMedLede"></p>
-  <div class="ctrls" id="nuScen" role="group" aria-label="Situation"></div>
+  <div class="ctrls" id="nuScen" role="group" aria-label="מצב"></div>
   <div class="lab even">
     <div class="stage">
-      <div class="scroll"><svg id="nuMedSvg" viewBox="0 0 560 400" style="min-width:420px" role="img" aria-label="Checks before a dose of colchicine"></svg></div>
+      <div class="scroll"><svg id="nuMedSvg" viewBox="0 0 560 400" style="min-width:420px" role="img" aria-label="בדיקות לפני מתן מנת קולכיצין"></svg></div>
       <p class="stage-cap" id="nuMedCap"></p>
     </div>
     <aside class="note" id="nuMedNote" aria-live="polite"></aside>
   </div>
-  <h3 class="sub">Injectable IL-1 blockers</h3>
+  <h3 class="sub">חוסמי IL-1 בהזרקה</h3>
   <div class="lab even">
     <div class="stage">
-      <svg id="nuInjSvg" viewBox="0 0 420 320" role="img" aria-label="Subcutaneous injection sites and rotation"></svg>
-      <div class="ctrls"><button class="btn primary" id="nuInjPlay">Rotate through the sites</button></div>
-      <p class="stage-cap">Sites shown are the ones the labels name for subcutaneous injection. Rotation is standard practice for repeated subcutaneous injections.</p>
+      <svg id="nuInjSvg" viewBox="0 0 420 320" role="img" aria-label="אתרי הזרקה תת־עורית והחלפה ביניהם"></svg>
+      <div class="ctrls"><button class="btn primary" id="nuInjPlay">מעבר בין האתרים</button></div>
+      <p class="stage-cap">האתרים המוצגים הם אלה שהעלונים מציינים להזרקה תת־עורית. החלפת אתר ההזרקה היא נוהג מקובל בהזרקות תת־עוריות חוזרות.</p>
     </div>
     <aside class="note" id="nuInjNote" aria-live="polite"></aside>
   </div>
   <div class="nu-grid" id="nuBio"></div>
 
-  <h3 class="sub">3 · What to teach, and what gets misunderstood</h3>
+  <h3 class="sub">3 · הדרכת מטופל, ומה שמובן לא נכון</h3>
   <p class="prose" id="nuTeachLede"></p>
   <div class="split2">
     <div class="nu-check" id="nuMyths"></div>
@@ -69,23 +69,23 @@
   </div>
   <div class="nu-grid" id="nuTeachCards"></div>
 
-  <h3 class="sub">4 · What goes in the notes</h3>
+  <h3 class="sub">4 · מה נכנס לתיעוד</h3>
   <p class="prose" id="nuDocLede"></p>
   <div class="split2">
     <div>
       <div class="nu-check" id="nuDocFields"></div>
-      <div class="ctrls" style="margin-top:10px"><button class="btn" id="nuDocAll">Tick everything</button><button class="btn ghost" id="nuDocNone">Clear</button></div>
+      <div class="ctrls" style="margin-top:10px"><button class="btn" id="nuDocAll">סימון הכול</button><button class="btn ghost" id="nuDocNone">ניקוי</button></div>
     </div>
     <div class="stage">
-      <p class="kicker">Entry built from what you ticked</p>
+      <p class="kicker">רישום שנבנה ממה שסימנתם</p>
       <div class="nu-note" id="nuDocOut"></div>
-      <p class="stage-cap">A worked example of the items the guidelines list. Your service decides the format.</p>
+      <p class="stage-cap">דוגמה מעובדת של הפריטים שההנחיות מונות. השירות שלכם קובע את המבנה.</p>
     </div>
   </div>
-  <h3 class="sub">The monitoring year</h3>
+  <h3 class="sub">שנת המעקב</h3>
   <div class="stage">
-    <div class="scroll"><svg id="nuMonSvg" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="What is checked and how often"></svg></div>
-    <div class="ctrls"><button class="btn primary" id="nuMonPlay">Play</button><label class="stage-cap tl" for="nuMonT">Months <input type="range" id="nuMonT" min="0" max="1" step="0.004" value="1"></label></div>
+    <div class="scroll"><svg id="nuMonSvg" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="מה נבדק ובאיזו תדירות"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="nuMonPlay">הפעלה</button><label class="stage-cap tl" for="nuMonT">חודשים <input type="range" id="nuMonT" min="0" max="1" step="0.004" value="1"></label></div>
     <p class="stage-cap" id="nuMonCap"></p>
   </div>
   <div class="nu-grid" id="nuDocCards"></div>

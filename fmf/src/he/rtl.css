@@ -20,7 +20,9 @@
 [dir=rtl] .disclaimer b,[dir=rtl] .kv dt,[dir=rtl] .pager small{font-size:12.5px}
 [dir=rtl] h1,[dir=rtl] h2,[dir=rtl] h3.sub{letter-spacing:0;line-height:1.12}
 /* mirrored edges */
-[dir=rtl] .skip{left:auto;right:12px}
+/* FMF hides the skip link off-screen to the left; mirror that to the right */
+[dir=rtl] .skip{left:auto;right:-9999px}
+[dir=rtl] .skip:focus{left:auto;right:0}
 [dir=rtl] sup.c{margin-left:0;margin-right:1px;unicode-bidi:isolate}
 [dir=rtl] .side{border-right:0;border-left:1px solid var(--line);padding:22px max(18px,env(safe-area-inset-right,0px)) 28px 16px}
 [dir=rtl] .navgroup h3{margin:0 10px 2px 0}
@@ -53,3 +55,4 @@
 [dir=rtl] #m-nursing .nu-ans{border-left:0;border-right:3px solid var(--sea);padding:8px 13px 8px 0}
 [dir=rtl] #m-mech [style*="margin-left:8px"]{margin-left:0!important;margin-right:8px}
 [dir=rtl] #m-gene ul[style*="padding-left:18px"]{padding-left:0!important;padding-right:18px}
+[dir=rtl] #m-what .wh-site .v{text-align:left}
