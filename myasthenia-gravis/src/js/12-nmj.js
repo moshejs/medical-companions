@@ -19,7 +19,7 @@ const NMJ_STEPS=[
   mg:'MG deltoid had 0.7 × 10⁷ receptors per junction against 2.1 × 10⁷ in controls, about a third. [[Pestronk1985]] MG mEPPs were 53% of control. [[Ruff2008]]',
   hook:'Two ACh per receptor, at the α–δ and α–ε interfaces (α–γ in the fetal receptor). [[Sine2012]]'},
  {from:.52,at:.585,k:'Step 5 · Endplate potential',t:'Depolarisation crosses threshold',
-  txt:'Many receptors opening together depolarise the endplate: the endplate potential (EPP). When it crosses threshold, NaV1.4 channels packed in the fold troughs fire a muscle action potential that spreads along the fibre. [[Slater2017,Flucher1989]] In control human muscle the endplate needed 13.5 mV of depolarisation to fire, 11.8 mV less than membrane away from the junction, because of those trough Na⁺ channels. [[Ruff2008]]',
+  txt:'Many receptors opening together depolarise the endplate: the endplate potential (EPP). When it crosses threshold, NaV1.4 channels packed in the fold troughs fire a muscle action potential that spreads along the fibre. [[Slater2017,Flucher1989]] In control human muscle the endplate needed 13.5 mV of depolarisation to fire. At the endplate border the threshold was 11.8 mV lower than in membrane away from the junction, which the authors attribute to the dense endplate Na⁺ channels. [[Ruff2008]]',
   pt:'When enough catchers open, the muscle membrane tips past its trigger point and the fibre fires.',
   mg:'MG endplates needed 21.6 mV to fire, because endplate Na⁺ current had fallen to about 60% of control along with the folds that carry the channels. [[Ruff2008,Ruff1998]] MG EPPs were 58% of control, so the EPP only just reaches the higher threshold. [[Ruff2008]]'},
  {from:.66,at:.71,k:'Step 6 · Clean-up',t:'AChE clears ACh in under a millisecond',

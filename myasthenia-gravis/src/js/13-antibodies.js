@@ -1,12 +1,12 @@
 /* =============== 1.3 Antibodies at the junction =============== */
 const AN_ACHR=[
  {from:0,at:.05,k:'AChR · 1',t:'Dense receptor clusters on the crests',cap:'healthy: receptors packed on the fold crests',
-  txt:'On a healthy endplate, rapsyn holds AChRs in a near-crystalline array of about 10,000 per µm² on the fold crests. [[Slater2017,Gautam1995]] The standard assay finds antibodies to this receptor in about 88% of people with MG, and they are mostly IgG1 and IgG3. [[Vincent1985,Rodgaard1987]]',
+  txt:'On a healthy endplate, rapsyn holds AChRs in a near-crystalline array of about 10,000 per µm² on the fold crests. [[Slater2017,Gautam1995]] Radioimmunoassay finds antibodies to this receptor in 83% to 88% of validated MG sera, depending on the antigen used. [[Vincent1985]] They are mostly IgG1 and IgG3. [[Rodgaard1987]]',
   pt:'Before the attack: catchers packed tightly on the ridges of the muscle membrane.'},
  {from:.15,at:.25,k:'AChR · 2',t:'Cross-linking: pairs taken inside',cap:'IgG bridges two receptors; the pair is taken in',
   txt:'An IgG has two arms, so it can bridge two receptors. Cross-linked receptors gather into clusters and are taken in through large endocytic pits. [[Pumplin1983]] Myasthenic immunoglobulin raised the receptor degradation rate from 3.97% per hour to 8.51% per hour. [[Kao1977]] Monovalent Fab, which cannot bridge, had no effect unless a second antibody linked it. [[Drachman1978]] One study disagrees that bridging is required: see the cards below. [[Sterz1986]]',
   pt:'Each antibody grabs two catchers at once. The muscle takes the pair inside and breaks it down, faster than it can make new ones.',
-  hook:'Antigenic modulation: divalent IgG cross-links AChR, so it is taken in and degraded about threefold faster. [[Drachman1978,Kao1977]]'},
+  hook:'Antigenic modulation: divalent IgG cross-links AChR, so it is taken in and degraded faster, about threefold in one study [[Drachman1978]] and about twofold (3.97% to 8.51% per hour) in another. [[Kao1977]]'},
  {from:.32,at:.45,k:'AChR · 3',t:'Complement: C1q to C5b-9',cap:'C1q binds the antibodies; C5b-9 rings form',
   txt:'IgG1 and IgG3 bound to AChR bind C1q, which starts the classical pathway: C1r and C1s, then C4, then the C5 convertase, then C5b with C6, C7, C8 and C9 as the terminal complex C5b-9. [[Albazli2020]] IgG and C3 sit on the postsynaptic membrane and on shed fold fragments, and the length of membrane carrying them tracks mEPP amplitude. [[Engel1977]] Membrane attack complex was found at every endplate of all 30 patients in one study, while inflammatory cells were at fewer than 10% of endplates. [[Nakano1993]]',
   pt:'The antibodies call in a cascade of blood proteins that ends by making rings in the muscle membrane.',
@@ -36,14 +36,14 @@ const AN_MUSK=[
   pt:'The antibody sits where two proteins should meet, so the clustering signal never starts.',
   hook:'Monovalent blocks, bivalent partly activates: the opposite directions are why monovalency matters. [[Vergoossen2021]]'},
  {from:.48,at:.56,k:'MuSK · 4',t:'Clusters disperse',cap:'receptors drift apart; no complement rings',
-  txt:'Purified IgG4, but not IgG1–3, from MuSK patients bound mouse junctions and, injected into mice, caused paralysis, lower AChR density, fragmented AChR areas and severely reduced sensitivity to ACh. [[Klooster2012]] Monovalent anti-MuSK IgG4 caused rapid severe weakness in mice while the parental bivalent form was weaker or caused nothing. [[Vergoossen2021]] No complement is involved. [[Huijbers2018]]',
+  txt:'Purified IgG4, but not IgG1–3, from MuSK patients bound mouse junctions and, injected into mice, caused paralysis, lower AChR density, fragmented AChR areas and severely reduced sensitivity to ACh. [[Klooster2012]] Monovalent anti-MuSK IgG4 caused rapid severe weakness in mice while the parental bivalent form was weaker or caused nothing. [[Vergoossen2021]] IgG4 itself does not activate complement. [[Huijbers2018]]',
   pt:'Without the signal, the catchers drift apart instead of being destroyed.',
   mg:'Disagreement: IgG1–3 MuSK antibodies also inhibited agrin-induced clustering and dispersed preformed clusters, so IgG4 may not be the only pathogenic factor. [[Koneczny2013,Vincent2018]]'},
  {from:.66,at:.74,k:'MuSK · 5',t:'No compensation from the nerve',cap:'the nerve does not turn release up, as it does in AChR MG',
   txt:'In AChR MG the nerve raises quantal content at the weakest endplates. [[Plomp1995]] In mice given patient MuSK IgG4 that compensation did not happen, and depression during fast activity was exaggerated. [[Klooster2012]]',
   pt:'In AChR MG the nerve partly makes up for the loss by releasing more. In MuSK MG it does not.'},
  {from:.82,at:.9,k:'MuSK · 6',t:'A different response to treatment',cap:'cholinesterase inhibition helps less; B-cell depletion helps more',
-  txt:'Edrophonium or neostigmine was equivocal or negative in 11 of 37 MuSK-positive patients (29.7%), and oral pyridostigmine ranged from mild benefit to poor tolerance. [[Evoli2003]] In mice given MuSK antibodies, pyridostigmine made receptor loss and weakness worse. [[Morsch2013]] Rituximab did well: 58% (14/24) of treated MuSK patients reached a favourable outcome against 16% (5/31) of controls (Class IV evidence). [[Hehir2017]] Complement inhibitors are not expected to work here, because IgG4 does not fix complement. [[Huijbers2018]] Treatment choices are set by the treating clinician; see <a href="#ladder" data-go="ladder">the treatment ladder</a>.',
+  txt:'Edrophonium or neostigmine was equivocal or negative in 11 of 37 MuSK-positive patients (29.7%), and oral pyridostigmine ranged from mild benefit to poor tolerance. [[Evoli2003]] In mice given MuSK antibodies, pyridostigmine made receptor loss and weakness worse. [[Morsch2013]] In a blinded multicentre review, 58% (14/24) of rituximab-treated MuSK patients reached a favourable outcome against 16% (5/31) of controls (Class IV evidence). [[Hehir2017]] IgG4 does not activate complement, so the reasoning behind C5 inhibition in AChR MG does not carry over. [[Huijbers2018]] Treatment choices are set by the treating clinician; see <a href="#ladder" data-go="ladder">the treatment ladder</a>.',
   pt:'Because the mechanism is different, the treatments that help are different too.',
   hook:'MuSK MG: IgG4, no complement, clustering blocked. Hence the interest in B-cell depletion rather than C5 inhibition. [[Huijbers2018,Hehir2017]]'}];
 const AN_LRP4=[
@@ -61,7 +61,7 @@ const AN_LRP4=[
   txt:'LRP4 antibodies have been reported in up to 23% of people with ALS, so a positive result is read together with the clinical picture. [[Rousseff2021]] <a href="#ddx" data-go="ddx">The differential</a> covers that overlap.',
   pt:'A positive antibody test is one piece of evidence, not the whole diagnosis.'},
  {from:.86,at:.93,k:'LRP4 · 5',t:'Fewer receptors again',cap:'the end result is the same: fewer working receptors',
-  txt:'Whatever the route in, the endpoint is the same: fewer working receptors on the crests, a smaller endplate potential and a thinner safety factor. [[Ruff2008]]',
+  txt:'The expected endpoint is the one measured in AChR MG: fewer working receptors on the crests, a smaller endplate potential and a thinner safety factor (1.09 against 2.98 in controls). [[Ruff2008]] Those measurements were made in AChR MG; no comparable count exists for LRP4 MG.',
   pt:'Different routes, same destination: not enough catchers.'}];
 const AN_SERO=[
  {from:0,at:.05,k:'Seronegative · 1',t:'No antibody found by the standard test',cap:'the standard assay is negative, the clinical picture is MG',
@@ -75,10 +75,10 @@ const AN_SERO=[
   txt:'Clustered-AChR-only patients in one series had prepubertal onset in 62.5% (median age 6 years, against 11.5% and median 38 years in the remaining seronegative group), ocular MG in 62.5% against 42.3%, less bulbar involvement, no respiratory symptoms, less thymectomy and more remission (50.0% against 8.3%). [[RodriguezCruz2015]]',
   pt:'This group tends to be younger, with more eye involvement and a gentler course.'},
  {from:.66,at:.76,k:'Seronegative · 4',t:'The rest of the map',cap:'LRP4, agrin and intracellular markers',
-  txt:'About 10–20% of patients lack AChR antibodies; MuSK is the commonest alternative, and cell-based assays extend testing to clustered AChR, LRP4 and agrin. Antibodies to intracellular targets (cortactin, titin, ryanodine receptor) serve as biomarkers in some patients rather than as the cause. [[Vincent2018]] Titin and ryanodine receptor antibodies occur in about 95% and about 70% of thymoma MG, and their in vivo pathogenicity is still unproven. [[Romi2011,Skeie2006]]',
+  txt:'About 10–20% of patients lack AChR antibodies; MuSK is the commonest alternative, and cell-based assays extend testing to clustered AChR, LRP4 and agrin. Antibodies to intracellular targets (cortactin, titin, ryanodine receptor) serve as biomarkers in some patients. [[Vincent2018]] Titin and ryanodine receptor antibodies occur in about 95% and about 70% of thymoma MG, and their in vivo pathogenicity is still unproven. [[Romi2011,Skeie2006]]',
   pt:'More tests exist now, and some antibodies are useful signposts rather than the cause of the weakness.'},
  {from:.86,at:.93,k:'Seronegative · 5',t:'Treated as MG',cap:'diagnosis rests on the clinical and electrical picture',
-  txt:'When no antibody is found, the diagnosis rests on the clinical picture with nerve testing and single-fibre EMG, which <a href="#dx" data-go="dx">Diagnosis</a> covers. Guidance treats seronegative generalised MG along the same lines as seropositive disease. [[Sanders2016]]',
+  txt:'When no antibody is found, the diagnosis rests on the clinical picture with nerve testing and single-fibre EMG, which <a href="#dx" data-go="dx">Diagnosis</a> covers. Guidance says thymectomy "may be considered" in seronegative generalised MG if immunosuppression fails or is not tolerated. [[Sanders2016,Narayanaswami2021]] Since 8 May 2026 the US efgartigimod label covers adults with generalised MG without an antibody restriction, with ADAPT SERON data in the label. [[FDAVyvgart2026]] Treatment choices are set by the treating clinician.',
   pt:'A negative antibody test does not rule MG out.'}];
 const AN_MODES={
  achr:{steps:AN_ACHR,label:'AChR · IgG1/IgG3',col:'var(--ab)',btn:'anAChR',
@@ -99,18 +99,18 @@ const AN_MODES={
    cap:'Seronegative MG: the antibody is often there but harder to see'}};
 const AN_THY=[
  {k:'Normal',t:'The thymus teaches tolerance',
-  txt:'Thymic muscle-like (myoid) cells carry AChR, and medullary epithelial cells show self-antigens to developing T cells. [[Kao1977b]] AIRE drives that display, and it also controls expression of CHRNA1, the AChR α subunit gene, in human medullary thymic epithelial cells. [[Giraud2007]]',
+  txt:'Thymic muscle-like (myoid) cells carry AChR. [[Kao1977b]] In medullary thymic epithelial cells, AIRE controls the display of self-antigens, including CHRNA1, the AChR α subunit gene. [[Strobel2007,Giraud2007]]',
   pt:'The thymus trains immune cells not to attack the body. It shows them pieces of the body, including the muscle receptor.'},
  {k:'Early-onset MG',t:'Germinal centres inside the thymus',
   txt:'The hyperplastic early-onset MG thymus has the features of a tertiary lymphoid organ: new blood vessels with high endothelial venules, chemokines that recruit cells from the blood and ectopic germinal centres, with epithelial or myoid cells supplying AChR for local presentation to recruited B cells and T follicular helper cells. [[Cron2018]] Thymic regulatory T cells are present in normal numbers but work poorly, with reduced Foxp3. [[Balandina2005]]',
   pt:'In early-onset MG the thymus grows immune structures that normally belong in lymph nodes, right next to cells carrying the muscle receptor.'},
  {k:'Antibody factory',t:'Plasma cells and antibody into the blood',
-  txt:'B cells that recognise AChR mature in those centres and become antibody-producing cells. More ectopic germinal centres in the removed thymus predicted a better outcome after thymectomy in early-onset MG. [[Sarkkinen2022]] After B-cell depletion, autoantibody-expressing CD27+ B cells reappear during relapse but not in remission, and plasmablasts make MuSK antibody. [[Stathopoulos2017]] <a href="#thymectomy" data-go="thymectomy">Thymectomy over the years</a> follows the trial evidence.',
+  txt:'B cells that recognise AChR mature in those centres and become antibody-producing cells. More ectopic germinal centres in the removed thymus predicted a better outcome after thymectomy in early-onset MG. [[Sarkkinen2022]] In MuSK MG, after B-cell depletion, autoantibody-expressing CD27+ B cells reappear during relapse but not in remission, and plasmablasts make MuSK antibody. [[Stathopoulos2017]] <a href="#thymectomy" data-go="thymectomy">Thymectomy over the years</a> follows the trial evidence.',
   pt:'Inside those structures, cells that make the antibody are produced and released into the blood.'},
  {k:'Thymoma',t:'A tumour that has lost AIRE',
-  txt:'About 95% of thymoma patients are "chimeric": AIRE and the major AIRE-dependent self-antigens are undetectable in the tumour but kept in the remaining thymus and lymph nodes. [[Strobel2007]] Thymomas also lack myoid cells and fail to generate FOXP3+ regulatory T cells. [[Marx2010,Strobel2008]] MG occurs in at least 30% of thymoma patients. [[Marx2010]] Thymoma MG brings antibodies to titin (about 95%) and the ryanodine receptor (about 70%). [[Romi2011]]',
+  txt:'About 95% of thymoma patients are "chimeric": AIRE and the major AIRE-dependent self-antigens are undetectable in the tumour but kept in the remaining thymus and lymph nodes. [[Strobel2007]] Thymomas also lack myoid cells and fail to generate FOXP3+ regulatory T cells. [[Marx2010,Strobel2008]] MG occurs in 30-44% of thymoma patients. [[Okuno2025]] Thymoma MG brings antibodies to titin (about 95%) and the ryanodine receptor (about 70%). [[Romi2011]]',
   pt:'A thymus tumour loses the machinery that teaches tolerance, and autoimmunity follows.',
-  hook:'AIRE loss in thymoma is the clearest link between the thymus and MG. Titin and ryanodine receptor antibodies under 60 years old point to thymoma. [[Strobel2007,Romi2011]]'},
+  hook:'AIRE is undetectable in the tumour in about 95% of thymoma patients. [[Strobel2007]] In a person with MG under 60, titin and ryanodine receptor antibodies strongly suggest thymoma. [[Romi2011]]'},
  {k:'Late-onset & MuSK',t:'Where the thymus is not the story',
   txt:'Thymic roles differ by subtype: inflammatory changes matter in early-onset MG, neoplastic changes in thymoma MG, and probably age-related changes in late-onset MG, while the thymus is presumably unrelated to MuSK MG. [[Marx2013]] MuSK thymi are largely unremarkable: only 4 of 14 had rare small germinal centres. [[Leite2005]]',
   pt:'Not every kind of MG starts in the thymus.'}];
@@ -274,7 +274,7 @@ inits.antibodies=()=>{
    ['TOLERANCE','AIRE drives the display of self-antigens,','including the AChR α subunit gene.','Self-reactive T cells are removed.'],
    ['GERMINAL CENTRES','New vessels, chemokines and ectopic germinal','centres: a tertiary lymphoid organ.','Regulatory T cells are there but work poorly.'],
    ['ANTIBODY OUT','Plasma cells release AChR antibody into the','blood, and it reaches every junction.','More germinal centres predicted a better','outcome after thymectomy.'],
-   ['TOLERANCE LOST','About 95% of thymomas are "chimeric": AIRE','is kept in the remnant thymus, not the tumour.','MG occurs in at least 30% of thymoma patients.'],
+   ['TOLERANCE LOST','About 95% of thymomas are "chimeric": AIRE','is kept in the remnant thymus, not the tumour.','MG occurs in 30-44% of thymoma patients.'],
    ['NOT ALWAYS THE THYMUS','Late-onset MG: age-related change, probably.','MuSK MG: 4 of 14 thymi had rare small germinal','centres; otherwise they looked like controls.']];
   const ts=$('#anThySvg');let ti=0,stopT=null,tp=1;
   function thyPic(i,cx,cy,sc,a){
