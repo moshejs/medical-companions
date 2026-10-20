@@ -4,7 +4,9 @@
     python3 tools/build_site.py
 
 1. builds every companion in every language it lists (tools/build.py)
-2. writes the hub, index.html, from hub/index.html (%SITE% and %CITED:slug% filled in)
+2. writes the hub, index.html, from hub/index.html (%SITE% and %CITED:slug% filled in),
+   its share-card.png from hub/share-card.html when either that or site.json changed,
+   and 404.html from hub/404.html
 3. writes sitemap.xml (with hreflang pairs) and robots.txt
 4. writes redirects/<old repository>/: pages for each companion's old address that
    send visitors, and search engines, to the new one. Copy each folder's contents over
@@ -18,6 +20,12 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 CFG = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
 SITE = CFG["site"].rstrip("/")
 TODAY = datetime.date.today().isoformat()
+
+def last_modified(path):
+    """Date of the last commit to PATH, or today if it has uncommitted changes (same rule as build.py)."""
+    git = lambda *a: subprocess.run(["git", "-C", str(ROOT), *a], capture_output=True, text=True).stdout.strip()
+    if git("status", "--porcelain", "--", path): return TODAY
+    return git("log", "-1", "--format=%cs", "--", path) or TODAY
 
 def url(slug, lang="en"):
     return f"{SITE}/{slug}/" + ("" if lang == "en" else f"{lang}/")
@@ -39,16 +47,23 @@ hub = (ROOT / "hub" / "index.html").read_text(encoding="utf-8").replace("%SITE%"
 hub = re.sub(r"%CITED:([a-z0-9-]+)%", lambda m: str(cited[m.group(1)]), hub)
 leftover = re.findall(r"%(?:SITE|CITED:[^%]*)%", hub)
 if leftover: sys.exit(f"hub has unfilled placeholders: {leftover}")
+hub = re.sub(r'<link rel="stylesheet" href="(https://fonts\.googleapis\.com/[^"]+)">',
+             lambda m: f'<link rel="preload" as="style" href="{m.group(1)}" onload="this.onload=null;this.rel=\'stylesheet\'">'
+                       f'<noscript><link rel="stylesheet" href="{m.group(1)}"></noscript>', hub)  # same as tools/build.py
 (ROOT / "index.html").write_text(hub, encoding="utf-8")
 print("wrote index.html (hub)")
+card, card_src = ROOT / "share-card.png", ROOT / "hub" / "share-card.html"
+if not card.exists() or card.stat().st_mtime < max(card_src.stat().st_mtime, (ROOT / "site.json").stat().st_mtime):
+    subprocess.run([sys.executable, str(ROOT / "tools" / "share_card.py"), str(card_src), str(card)], check=True)
+(ROOT / "404.html").write_text((ROOT / "hub" / "404.html").read_text(encoding="utf-8").replace("%SITE%", SITE), encoding="utf-8")
 
 # 3. sitemap and robots
-rows = [f"  <url>\n    <loc>{SITE}/</loc>\n    <lastmod>{TODAY}</lastmod>\n    <priority>1.0</priority>\n  </url>"]
+rows = [f"  <url>\n    <loc>{SITE}/</loc>\n    <lastmod>{last_modified('hub')}</lastmod>\n    <priority>1.0</priority>\n  </url>"]
 for c in CFG["companions"]:
     alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{url(c["slug"], l)}"/>' for l in c["langs"]) if len(c["langs"]) > 1 else ""
     if alts: alts += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{url(c["slug"])}"/>'
     for lang in c["langs"]:
-        rows.append(f"  <url>\n    <loc>{url(c['slug'], lang)}</loc>\n    <lastmod>{TODAY}</lastmod>\n"
+        rows.append(f"  <url>\n    <loc>{url(c['slug'], lang)}</loc>\n    <lastmod>{last_modified(c['slug'] + '/src')}</lastmod>\n"
                     f"    <priority>{'0.9' if lang == 'en' else '0.8'}</priority>{alts}\n  </url>")
 (ROOT / "sitemap.xml").write_text(
     '<?xml version="1.0" encoding="UTF-8"?>\n'

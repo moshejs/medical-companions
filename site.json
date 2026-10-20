@@ -1,18 +1,34 @@
 {
   "site": "https://moshejs.github.io/medical-companions",
   "name": "Medical Companions",
+  "publisher": {
+    "name": "Quentin.Code",
+    "url": "https://quentin.software"
+  },
   "companions": [
     {
       "slug": "alzheimers",
-      "langs": ["en", "he"],
-      "name": {"en": "Alzheimer's Companion", "he": "מלווה אלצהיימר"},
-      "old": "https://moshejs.github.io/alzheimers-companion"
+      "langs": [
+        "en",
+        "he"
+      ],
+      "name": {
+        "en": "Alzheimer's Companion",
+        "he": "מלווה אלצהיימר"
+      },
+      "old": "https://moshejs.github.io/alzheimers-companion",
+      "published": "2026-10-18"
     },
     {
       "slug": "fmf",
-      "langs": ["en"],
-      "name": {"en": "FMF Companion"},
-      "old": "https://moshejs.github.io/fmf-companion"
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "FMF Companion"
+      },
+      "old": "https://moshejs.github.io/fmf-companion",
+      "published": "2026-10-16"
     }
   ]
 }

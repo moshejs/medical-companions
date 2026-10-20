@@ -15,11 +15,11 @@ The hub at `/` links to each one and carries the shared method and disclaimer. E
 
 ```
 site.json            the site address and the list of companions (names, languages, old addresses)
-hub/index.html       the hub page source
+hub/index.html       the hub page source (hub/share-card.html renders its share image, hub/404.html the not-found page)
 tools/               build tools shared by every companion
 <companion>/src/     a companion's parts: head and styles, shell, sections, js, sources.json (he/ for Hebrew)
 <companion>/index.html, <companion>/<lang>/index.html   built pages (committed, so the repo is the site)
-index.html, sitemap.xml, robots.txt                     built from hub/ and site.json
+index.html, 404.html, share-card.png, sitemap.xml, robots.txt   built from hub/ and site.json
 ```
 
 Each companion keeps its own look (palette, fonts, icon) and its own `compile_sources.py`, since those are content. Everything that turns parts into a page is shared.
@@ -37,6 +37,18 @@ python3 tools/make_artifact.py alzheimers --lang he # the Claude artifact copy o
 ```
 
 `%SITE%` in any part is replaced with `site` from `site.json`, so moving the site to its own domain is a one-line change there and a rebuild.
+
+## Search
+
+What the build takes care of, so a change doesn't undo it:
+
+- Each page has its own canonical URL, title, description (kept under about 160 characters so Google shows it whole; the longer Open Graph description is for link previews), share image and `MedicalWebPage` structured data. The build adds `datePublished` (`site.json`), `dateModified` (the last commit to the companion's `src/`) and the publisher.
+- The English and Hebrew Alzheimer's pages point at each other with `hreflang`, in the page and in `sitemap.xml`. A new translation needs the same: add its language in `site.json` and the `hreflang` links in the head.
+- The `h1` names the disease, which is what people search for; the companion's name sits above it.
+- Google Fonts load without blocking the first paint.
+- `sitemap.xml` dates each page by its last commit, and `404.html` lists every guide.
+
+The modules are switched by `#hash`, which search engines don't treat as separate pages, so each companion is one page in search. The crawler outline in each `<noscript>` names every module.
 
 ### Adding a companion
 

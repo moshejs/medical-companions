@@ -82,7 +82,7 @@ const inits={},onShow={},onHide={};let cur=null;
   $('#navgroups').innerHTML=h;
   let u='';
   Object.keys(GROUPS).map(Number).forEach(g=>{
-    u+=`<div class="unit"><p class="eyebrow">חלק ${g}</p><h3>${GROUPS[g][0].replace('&','&amp;')}</h3><ol>`;
+    u+=`<div class="unit"><p class="eyebrow">חלק ${g}</p><h2>${GROUPS[g][0].replace('&','&amp;')}</h2><ol>`;
     MODS.filter(m=>m.g===g).forEach(m=>{u+=`<li><button data-go="${m.id}"><span class="n">${m.n}</span><b>${m.t.replace('&','&amp;')}</b><small>${m.d}</small></button></li>`});
     u+='</ol></div>';
   });

@@ -19,11 +19,24 @@ The build fails on an unknown key, and warns about sources never cited.
 
 %SITE% anywhere in the page becomes the site address from site.json, so moving the
 site to another domain is a one-line change there and a rebuild.
+
+The MedicalWebPage structured data gets datePublished (site.json), dateModified (the
+last commit to the companion's src/, or today when src/ has uncommitted changes) and
+the publisher (site.json). Google Fonts stylesheets are loaded without blocking the
+first paint; the fallback fonts in each --display/--body stack show until they arrive.
 """
-import json, re, sys, pathlib
+import datetime, json, re, subprocess, sys, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SITE = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))["site"].rstrip("/")
+CFG = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
+SITE = CFG["site"].rstrip("/")
+
+def last_modified(slug):
+    """Date of the last commit to SLUG/src, or today if it has uncommitted changes."""
+    git = lambda *a: subprocess.run(["git", "-C", str(ROOT), *a], capture_output=True, text=True).stdout.strip()
+    if git("status", "--porcelain", "--", f"{slug}/src"):
+        return datetime.date.today().isoformat()
+    return git("log", "-1", "--format=%cs", "--", f"{slug}/src") or datetime.date.today().isoformat()
 
 args = [a for a in sys.argv[1:]]
 LANG, OUT = "en", None
@@ -67,6 +80,22 @@ src_js = "const SOURCES=" + json.dumps(sources, ensure_ascii=False) + ";\n"
 # the sources array goes right after the core helpers (first js part)
 html = "".join(parts) + js[0] + src_js + "".join(js[1:])
 html = html.replace("%SITE%", SITE)
+
+comp = next((c for c in CFG["companions"] if c["slug"] == COMP.name), {})
+def stamp(m):
+    data = json.loads(m.group(1))
+    if data.get("@type") != "MedicalWebPage": return m.group(0)
+    if comp.get("published"): data["datePublished"] = comp["published"]
+    data["dateModified"] = last_modified(COMP.name)
+    if CFG.get("publisher"): data["publisher"] = {"@type": "Organization", **CFG["publisher"]}
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "</script>"
+html = re.sub(r'<script type="application/ld\+json">(.*?)</script>', stamp, html, flags=re.S)
+
+def async_fonts(m):
+    href = m.group(1)
+    return (f'<link rel="preload" as="style" href="{href}" onload="this.onload=null;this.rel=\'stylesheet\'">'
+            f'<noscript><link rel="stylesheet" href="{href}"></noscript>')
+html = re.sub(r'<link rel="stylesheet" href="(https://fonts\.googleapis\.com/[^"]+)">', async_fonts, html)
 
 used, missing = set(), set()
 def cite(m):
