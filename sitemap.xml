@@ -14,12 +14,364 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/"/>
   </url>
   <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/amyloid/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/amyloid/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/amyloid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/amyloid/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/antibody/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/antibody/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/antibody/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/antibody/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/bpsd/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/bpsd/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/bpsd/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/bpsd/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/brain/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/brain/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/brain/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/brain/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/cascade/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/cascade/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/cascade/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/cascade/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/cure/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/cure/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/cure/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/cure/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/ddx/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/ddx/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/ddx/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/ddx/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/dx/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/dx/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/dx/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/dx/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/genes/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/genes/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/genes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/genes/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/glia/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/glia/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/glia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/glia/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/glossary/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/glossary/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/glossary/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/glossary/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/history/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/history/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/history/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/history/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/living/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/living/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/living/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/living/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/nursing/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/nursing/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/nursing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/nursing/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/prevent/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/prevent/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/prevent/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/prevent/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/quiz/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/quiz/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/quiz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/quiz/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/review/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/review/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/review/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/review/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/sources/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/sources/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/sources/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/sources/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/stages/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/stages/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/stages/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/stages/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/synapse/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/synapse/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/synapse/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/synapse/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/tau/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/tau/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/tau/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/tau/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/what/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/what/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/what/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/what/"/>
+  </url>
+  <url>
     <loc>https://moshejs.github.io/medical-companions/alzheimers/he/</loc>
     <lastmod>2026-10-20</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/amyloid/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/amyloid/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/amyloid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/amyloid/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/antibody/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/antibody/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/antibody/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/antibody/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/bpsd/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/bpsd/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/bpsd/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/bpsd/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/brain/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/brain/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/brain/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/brain/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/cascade/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/cascade/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/cascade/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/cascade/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/cure/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/cure/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/cure/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/cure/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/ddx/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/ddx/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/ddx/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/ddx/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/dx/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/dx/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/dx/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/dx/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/genes/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/genes/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/genes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/genes/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/glia/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/glia/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/glia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/glia/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/glossary/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/glossary/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/glossary/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/glossary/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/history/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/history/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/history/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/history/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/living/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/living/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/living/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/living/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/nursing/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/nursing/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/nursing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/nursing/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/prevent/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/prevent/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/prevent/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/prevent/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/quiz/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/quiz/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/quiz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/quiz/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/review/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/review/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/review/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/review/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/sources/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/sources/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/sources/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/sources/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/stages/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/stages/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/stages/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/stages/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/synapse/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/synapse/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/synapse/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/synapse/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/tau/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/tau/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/tau/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/tau/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/alzheimers/he/what/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/alzheimers/what/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/alzheimers/he/what/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/alzheimers/what/"/>
   </url>
   <url>
     <loc>https://moshejs.github.io/medical-companions/fmf/</loc>
@@ -30,11 +382,304 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/"/>
   </url>
   <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/amyloid/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/amyloid/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/amyloid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/amyloid/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/attack/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/attack/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/attack/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/attack/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/coldose/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/coldose/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/coldose/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/coldose/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/colin/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/colin/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/colin/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/colin/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/colmonths/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/colmonths/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/colmonths/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/colmonths/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/cure/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/ddx/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/ddx/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/ddx/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/ddx/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/dx/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/dx/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/dx/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/dx/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/gene/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/gene/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/gene/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/gene/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/glossary/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/glossary/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/glossary/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/glossary/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/history/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/history/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/history/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/history/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/ladder/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/ladder/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/ladder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/ladder/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/living/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/living/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/living/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/living/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/mech/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/mech/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/mech/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/mech/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/nursing/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/nursing/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/nursing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/nursing/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/quiz/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/quiz/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/quiz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/quiz/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/review/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/review/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/review/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/review/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/sources/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/sources/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/sources/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/sources/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/what/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/what/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/what/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/what/"/>
+  </url>
+  <url>
     <loc>https://moshejs.github.io/medical-companions/fmf/he/</loc>
     <lastmod>2026-10-20</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/amyloid/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/amyloid/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/amyloid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/amyloid/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/attack/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/attack/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/attack/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/attack/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/coldose/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/coldose/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/coldose/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/coldose/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/colin/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/colin/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/colin/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/colin/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/colmonths/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/colmonths/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/colmonths/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/colmonths/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/ddx/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/ddx/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/ddx/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/ddx/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/dx/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/dx/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/dx/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/dx/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/gene/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/gene/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/gene/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/gene/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/glossary/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/glossary/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/glossary/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/glossary/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/history/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/history/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/history/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/history/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/ladder/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/ladder/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/ladder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/ladder/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/living/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/living/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/living/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/living/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/mech/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/mech/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/mech/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/mech/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/nursing/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/nursing/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/nursing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/nursing/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/quiz/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/quiz/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/quiz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/quiz/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/review/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/review/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/review/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/review/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/sources/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/sources/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/sources/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/sources/"/>
+  </url>
+  <url>
+    <loc>https://moshejs.github.io/medical-companions/fmf/he/what/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moshejs.github.io/medical-companions/fmf/what/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://moshejs.github.io/medical-companions/fmf/he/what/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moshejs.github.io/medical-companions/fmf/what/"/>
   </url>
 </urlset>
