@@ -5,7 +5,9 @@
 
 1. builds every companion in every language it lists (tools/build.py): a first page,
    a page per module and the shared app.js
-2. writes the hub, index.html, from hub/index.html (%SITE% and %CITED:slug% filled in),
+2. writes the hub, index.html, from hub/index.html (%SITE% and %CITED:slug% filled in,
+   and %LANGS:slug% / %LANGNAMES:slug%: a card's language links and names, for each
+   language in the companion's "langs" whose first page may be indexed),
    its share-card.png from hub/share-card.html when either that or site.json changed,
    and 404.html from hub/404.html
 3. writes sitemap.xml and robots.txt. The sitemap lists every built page that may be
@@ -47,10 +49,30 @@ for c in CFG["companions"]:
         m = re.search(r"(\d+) sources cited", r.stdout)
         cited[c["slug"]] = int(m.group(1))
 
+noindex = lambda f: bool(re.search(r'<meta name="robots" content="[^"]*noindex', f.read_text(encoding="utf-8")))
+
 # 2. hub
+def hub_langs(slug):
+    """The languages of SLUG the hub links to: those whose built first page may be indexed,
+    so an unreviewed translation is not promoted from the hub."""
+    langs = i18n.companion(slug).get("langs") or sys.exit(f"hub names a companion that is not in site.json: {slug}")
+    return [l for l in langs if not noindex(ROOT / slug / i18n.lang_dir(l) / "index.html")]
+
+def hub_links(slug):
+    """A card's links, one per language: hub.read from tools/i18n/<lang>.json ("Read in English"),
+    or the language's own name until it has one. The hub is English, so only other languages
+    carry lang and hreflang."""
+    def link(l):
+        label = i18n._load(ROOT / "tools" / "i18n" / f"{l}.json").get("hub.read") or i18n.lang(l)["name"]
+        attrs = "" if l == i18n.SOURCE else f' hreflang="{l}" lang="{l}"'
+        return f'<a href="{i18n.lang_url(slug, l)[len(SITE) + 1:]}"{attrs}>{label}</a>'
+    return "".join(link(l) for l in hub_langs(slug))
+
 hub = (ROOT / "hub" / "index.html").read_text(encoding="utf-8").replace("%SITE%", SITE)
 hub = re.sub(r"%CITED:([a-z0-9-]+)%", lambda m: str(cited[m.group(1)]), hub)
-leftover = re.findall(r"%(?:SITE|CITED:[^%]*)%", hub)
+hub = re.sub(r"%LANGS:([a-z0-9-]+)%", lambda m: hub_links(m.group(1)), hub)
+hub = re.sub(r"%LANGNAMES:([a-z0-9-]+)%", lambda m: " · ".join(i18n.lang(l)["name"] for l in hub_langs(m.group(1))), hub)
+leftover = re.findall(r"%(?:SITE|CITED:[^%]*|LANGS:[^%]*|LANGNAMES:[^%]*)%", hub)
 if leftover: sys.exit(f"hub has unfilled placeholders: {leftover}")
 hub = re.sub(r'<link rel="stylesheet" href="(https://fonts\.googleapis\.com/[^"]+)">',
              lambda m: f'<link rel="preload" as="style" href="{m.group(1)}" onload="this.onload=null;this.rel=\'stylesheet\'">'
@@ -78,8 +100,8 @@ for c in CFG["companions"]:
     mod = last_modified(c["slug"] + "/src")
     for lang in c["langs"]:
         for i, (loc, f) in enumerate(pages(c, lang)):
+            if noindex(f): continue
             page = f.read_text(encoding="utf-8")
-            if re.search(r'<meta name="robots" content="[^"]*noindex', page): continue
             alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{h}"/>'
                            for l, h in re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">', page))
             pri = (0.9 if i == 0 else 0.7) - (0 if lang == "en" else 0.1)
