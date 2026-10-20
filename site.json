@@ -22,10 +22,12 @@
     {
       "slug": "fmf",
       "langs": [
-        "en"
+        "en",
+        "he"
       ],
       "name": {
-        "en": "FMF Companion"
+        "en": "FMF Companion",
+        "he": "מלווה FMF"
       },
       "old": "https://moshejs.github.io/fmf-companion",
       "published": "2026-10-16"

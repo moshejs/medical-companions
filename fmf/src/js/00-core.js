@@ -90,6 +90,9 @@ document.addEventListener('click',e=>{
   const b=e.target.closest('[data-go]');if(b){e.preventDefault();show(b.dataset.go)}
 });
 /* theme: auto → light → dark */
+/* language switch keeps the current module */
+(function lang(){const a=$('#langBtn');if(!a)return;const base=a.getAttribute('href');
+  const upd=()=>a.setAttribute('href',base+location.hash);['pointerdown','focus','click','mouseenter'].forEach(e=>a.addEventListener(e,upd));upd()})();
 (function theme(){
   const btn=$('#themeBtn');const modes=['auto','light','dark'];let m=store.get('theme','auto');
   function apply(){if(m==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',m);btn.textContent='Theme: '+m}

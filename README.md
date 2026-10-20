@@ -5,7 +5,7 @@ Animated, cited study and patient-education guides, one disease each, on one sit
 | Companion | Path | Languages |
 |---|---|---|
 | [Alzheimer's Companion](alzheimers/README.md) | `/alzheimers/` | English, Hebrew (`/alzheimers/he/`) |
-| [FMF Companion](fmf/README.md) (Familial Mediterranean Fever) | `/fmf/` | English |
+| [FMF Companion](fmf/README.md) (Familial Mediterranean Fever) | `/fmf/` | English, Hebrew (`/fmf/he/`) |
 
 The hub at `/` links to each one and carries the shared method and disclaimer. Every companion links back to it, and its structured data names the site (`isPartOf`).
 
@@ -43,7 +43,7 @@ python3 tools/make_artifact.py alzheimers --lang he # the Claude artifact copy o
 What the build takes care of, so a change doesn't undo it:
 
 - Each page has its own canonical URL, title, description (kept under about 160 characters so Google shows it whole; the longer Open Graph description is for link previews), share image and `MedicalWebPage` structured data. The build adds `datePublished` (`site.json`), `dateModified` (the last commit to the companion's `src/`) and the publisher.
-- The English and Hebrew Alzheimer's pages point at each other with `hreflang`, in the page and in `sitemap.xml`. A new translation needs the same: add its language in `site.json` and the `hreflang` links in the head.
+- Each companion's English and Hebrew pages point at each other with `hreflang`, in the page and in `sitemap.xml`. A new translation needs the same: add its language in `site.json` and the `hreflang` links in the head.
 - The `h1` names the disease, which is what people search for; the companion's name sits above it.
 - Google Fonts load without blocking the first paint.
 - `sitemap.xml` dates each page by its last commit, and `404.html` lists every guide.

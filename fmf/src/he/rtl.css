@@ -1,0 +1,55 @@
+
+/* ===== Hebrew, right to left (appended by build.py --lang he) =====
+   Same rules as the Alzheimer's Hebrew (alzheimers/src/he/rtl.css), with FMF's faces and colours.
+   Latin text keeps its faces; Hebrew falls through to Frank Ruhl Libre (display)
+   and Assistant (body and labels), which carry Hebrew glyphs. Hebrew has no case,
+   so the spaced capitals of the English labels become plain, unspaced text. */
+:root{
+  --display:"Fraunces","Frank Ruhl Libre",Georgia,serif;
+  --body:"Atkinson Hyperlegible","Assistant",system-ui,-apple-system,"Segoe UI",sans-serif;
+  /* labels: Assistant first, so spaces between Hebrew words are not monospace-wide */
+  --mono:"Assistant","IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+[dir=rtl] body{font-size:17.5px}
+[dir=rtl] .readout,[dir=rtl] .t-sm,[dir=rtl] .t-xs,[dir=rtl] .stage-cap,[dir=rtl] sup.c{font-variant-numeric:tabular-nums}
+[dir=rtl] .eyebrow,[dir=rtl] .kicker,[dir=rtl] .note .kicker,[dir=rtl] .navgroup h3,[dir=rtl] .brand .sm,
+[dir=rtl] .tag,[dir=rtl] .ev,[dir=rtl] .themebtn,[dir=rtl] .langbtn,[dir=rtl] .disclaimer b,[dir=rtl] .hook b:first-child,
+[dir=rtl] .pt b:first-child,[dir=rtl] .kv dt,[dir=rtl] thead th,[dir=rtl] .pager small,[dir=rtl] .fc .face small,
+[dir=rtl] .stepper button b,[dir=rtl] .stage-cap,[dir=rtl] .legend,[dir=rtl] .readout{letter-spacing:0}
+[dir=rtl] .eyebrow,[dir=rtl] .kicker,[dir=rtl] .navgroup h3,[dir=rtl] .hook b:first-child,[dir=rtl] .pt b:first-child,
+[dir=rtl] .disclaimer b,[dir=rtl] .kv dt,[dir=rtl] .pager small{font-size:12.5px}
+[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] h3.sub{letter-spacing:0;line-height:1.12}
+/* mirrored edges */
+[dir=rtl] .skip{left:auto;right:12px}
+[dir=rtl] sup.c{margin-left:0;margin-right:1px;unicode-bidi:isolate}
+[dir=rtl] .side{border-right:0;border-left:1px solid var(--line);padding:22px max(18px,env(safe-area-inset-right,0px)) 28px 16px}
+[dir=rtl] .navgroup h3{margin:0 10px 2px 0}
+[dir=rtl] .side-foot{padding-left:0;padding-right:10px}
+[dir=rtl] main{padding:0 max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
+@media (min-width:901px){ [dir=rtl] main{padding-right:40px;padding-left:max(40px,env(safe-area-inset-left,0px))} }
+@media (max-width:900px){
+  [dir=rtl] .side{border-left:0;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px))}
+  [dir=rtl] .side-foot{padding:0}
+}
+[dir=rtl] .brand,[dir=rtl] .navbtn,[dir=rtl] th,[dir=rtl] td,[dir=rtl] .pager button,[dir=rtl] .stepper button,
+[dir=rtl] .opt,[dir=rtl] .unit li button{text-align:right}
+[dir=rtl] .pager button.next{text-align:left;margin-left:0;margin-right:auto}
+[dir=rtl] .card ul{padding-left:0;padding-right:18px}
+[dir=rtl] .callout{border-left:0;border-right:3px solid var(--sea);padding:4px 14px 4px 0}
+[dir=rtl] .c-dz .callout{border-right-color:var(--terra)} [dir=rtl] .c-colch .callout{border-right-color:var(--crocus)}
+[dir=rtl] .legend i{margin-right:0;margin-left:5px}
+[dir=rtl] .srcs .srcnote{border-left:0;border-right:2px solid var(--warn);padding-left:0;padding-right:9px}
+/* Drawings keep a left-to-right frame: time runs left to right on every axis, and
+   text-anchor start/end keep their English meaning. Hebrew strings inside still
+   read right to left. */
+[dir=rtl] svg{direction:ltr}
+/* reference titles, links and keys in the Sources list stay in English */
+[dir=rtl] .srcs li > span:not(.mods),[dir=rtl] .srcs a{direction:ltr;text-align:left;unicode-bidi:isolate}
+[dir=rtl] input[type=range]{direction:ltr}
+/* module styles with a physical edge */
+[dir=rtl] #m-what .wh-site,[dir=rtl] #m-history .hi-chips button.tag,[dir=rtl] #m-nursing .nu-q,[dir=rtl] #hiYears .tag{text-align:right}
+[dir=rtl] #m-history .hi-chips button.tag small{margin-left:0;margin-right:4px}
+[dir=rtl] #m-nursing .nu-card ul{padding-left:0;padding-right:17px}
+[dir=rtl] #m-nursing .nu-ans{border-left:0;border-right:3px solid var(--sea);padding:8px 13px 8px 0}
+[dir=rtl] #m-mech [style*="margin-left:8px"]{margin-left:0!important;margin-right:8px}
+[dir=rtl] #m-gene ul[style*="padding-left:18px"]{padding-left:0!important;padding-right:18px}

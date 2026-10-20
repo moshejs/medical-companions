@@ -113,6 +113,8 @@ def html_split(src):
             kept = KEEP_ATTR.findall(attrs)
             if ("id", '"langBtn"') in kept:  # the language link points the other way by design
                 kept = [(a, v) for a, v in kept if a != "href"]
+            # a link to another page of the site may go to that page's Hebrew version
+            kept = [(a, re.sub(r'^"(%SITE%/[\w/-]*?)he/"$', r'"\1"', v) if a == "href" else v) for a, v in kept]
             struct.append("<" + m.group(3) + "".join(sorted(f" {a}={v}" for a, v in kept)) + ">")
             strs += [v for _, v in re.findall(r'\s(aria-label|title|placeholder|alt|content)="([^"]*)"', attrs)]
         elif m.group(5) and m.group(5).strip():
