@@ -31,6 +31,17 @@
       },
       "old": "https://moshejs.github.io/fmf-companion",
       "published": "2026-10-16"
+    },
+    {
+      "slug": "multiple-sclerosis",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "MS Companion",
+        "he": "מלווה טרשת נפוצה"
+      },
+      "published": "2026-10-20"
     }
   ],
   "indexnow_key": "202581197bc1993e3ed16425b36cb189"

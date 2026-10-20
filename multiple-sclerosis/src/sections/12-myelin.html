@@ -1,0 +1,48 @@
+<!-- ================= 1.2 MYELIN & DEMYELINATION, ANIMATED ================= -->
+<section class="mod" id="m-myelin" data-mod="myelin" hidden>
+<style>
+#m-myelin .my-temp{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+#m-myelin .my-temp .tl{min-width:150px;max-width:320px}
+#m-myelin .my-temp output{font:600 13px var(--mono);color:var(--ink);min-width:5.5em}
+#m-myelin .readout span{white-space:normal}
+#m-myelin .my-modes{display:flex;flex-wrap:wrap;gap:6px}
+#m-myelin .my-modes .btn{font-size:13px;padding:7px 11px}
+#m-myelin .my-glia svg{width:100%;height:auto;display:block}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Myelin &amp; demyelination, animated</h2>
+    <p class="lede">Follow one nerve signal through a healthy fibre, an immune attack on its myelin, conduction block, repair, axon loss and heat. Press play, or step through the seven stages, and watch the far-end recording change.</p></div>
+
+  <div class="stepper" id="mySteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="mySvg" viewBox="0 0 720 452" style="min-width:560px" role="img" aria-label="Two myelinated axons carry signals that jump from node to node; immune cells strip the myelin in a lesion, signals slow or stop, sodium channels spread along the bare axon, thin new myelin returns on part of one axon, the other axon is cut, and warmth blocks the damaged stretch, with a zoom on one node and a recording from the far end"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="myPlay">Play</button><label class="stage-cap tl" for="myT">Timeline <input type="range" id="myT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="my-temp" role="group" aria-label="Body temperature"><label class="stage-cap tl" for="myTemp">Body temperature <input type="range" id="myTemp" min="0" max="2" step="1" value="1"></label><output id="myTempV" for="myTemp">normal</output><span class="stage-cap">The story warms the body in stage 7 unless you set it yourself.</span></div>
+      <div class="readout" id="myRead" aria-live="polite"></div>
+      <p class="stage-cap">Schematic, not to scale. Reference speeds: myelinated fibres 50–100 m/s, unmyelinated under 1 m/s. [[Kister2022]] Travel times, the safety margin and the effect of temperature are drawn to show direction, not measured values.</p>
+    </div>
+    <aside class="note" id="myNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Seeing the delay: the visual evoked potential</h3>
+  <div class="prose"><p>Show a flashing pattern to one eye at a time and record over the back of the head. A positive wave arrives about 100 ms after the flash, named P100. When one optic nerve is demyelinated its wave comes late. Pick a state for the right optic nerve and press play.</p></div>
+  <div class="my-modes" id="myModes" role="group" aria-label="State of the right optic nerve"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="myVep" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A flash reaches both eyes; signals race along a healthy and an affected optic nerve to the visual cortex, and two evoked-potential traces are drawn, the affected one later and smaller"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="myVepPlay">Play</button><label class="stage-cap tl" for="myVepT">Time after the flash <input type="range" id="myVepT" min="0" max="1" step="0.002" value="1"></label></div>
+      <div class="readout" id="myVepRead"></div>
+      <p class="stage-cap">Schematic traces. P100 is named for its timing; the size of the delay and the drop in amplitude shown for each state are illustrative.</p>
+    </div>
+    <aside class="note" id="myVepNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who makes the myelin: brain and spinal cord versus peripheral nerves</h3>
+  <div class="stage my-glia"><svg id="myGlia" viewBox="0 0 720 230" role="img" aria-label="Left: one oligodendrocyte sends processes to make one myelin segment on each of several axons. Right: Schwann cells along one peripheral axon, each making one segment"></svg>
+    <p class="stage-cap">In the CNS one oligodendrocyte myelinates 40–60 different axons, one internode on each, so every axon depends on many oligodendrocytes. In the PNS each Schwann cell myelinates one internode of one axon. [[Kister2022]] Oligodendrocytes also feed the axon through myelinic channels, so losing them can harm axons. [[Kister2022]]</p></div>
+  <div class="hook"><b>Exam hook</b>Saltatory conduction needs myelin. Demyelination causes <b>slowing</b> (a delayed VEP), <b>conduction block</b> and <b>temperature sensitivity</b> (Uhthoff). [[Smith1999,Halliday1972,Frohman2013]] CNS myelin = oligodendrocyte; PNS myelin = Schwann cell, and MS spares the PNS. [[Kister2022]]</div>
+  <div class="pt"><b>In plain words</b>Myelin lets nerve signals jump quickly along the wire. Where it is stripped, signals crawl or stop, which is why symptoms can come and go and can get worse in the heat. Some repair happens, but fibres that are cut through are lost.</div>
+
+  <h3 class="sub">More on conduction and repair</h3>
+  <div class="cards" id="myCards"></div>
+</section>

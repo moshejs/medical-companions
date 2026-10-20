@@ -1,0 +1,32 @@
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<section class="mod" id="m-history" data-mod="history" hidden>
+<style>
+#m-history .hi-chips button.tag{border:1px solid transparent;cursor:pointer;font:500 12.5px var(--body);text-transform:none;letter-spacing:0;padding:7px 10px;white-space:normal;text-align:left;line-height:1.25}
+#m-history .hi-chips button.tag:hover,#m-history .hi-chips button.tag:focus-visible{border-color:var(--brand)}
+#m-history .hi-chips button.tag small{font:inherit;opacity:.7;margin-left:4px}
+#m-history .card .ev,#m-history .card .tag{align-self:flex-start}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
+    <p class="lede">Two centuries of multiple sclerosis, from a patient's diary in 1822 to Charcot, the first MRI, the first approved treatments and the 2024 McDonald criteria. Press play to run the timeline, or jump between eras.</p></div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="hiSvg" viewBox="0 0 720 672" style="min-width:500px" role="img" aria-label="Timeline of MS history from 1820 to 2025 in five lanes, people, clinic and pathology, laboratory and imaging, criteria and scales, and treatment, with a drawing of each era above it."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="hiRead"></div>
+      <p class="stage-cap">The scene is a drawing of what changed in each era; each caption in it repeats a milestone below, with that milestone's sources in the note panel. The axis is stretched for the crowded decades (1960–1990 and after 1990). The bottom band is qualitative.</p></div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Every milestone</h3>
+  <p class="prose">The dots on the timeline are also listed here, so they can be reached with the keyboard and read in order.</p>
+  <div class="chips" id="hiYears" role="group" aria-label="Jump to a milestone"></div>
+  <h3 class="sub">What it was called</h3>
+  <div class="prose"><p>Charcot's French name was <i>sclérose en plaques</i>, "sclerosis in patches". Dawson's 1916 paper used the name <i>disseminated sclerosis</i>. Click a dated name to jump the timeline. [[Zalc2018,Dawson1916]]</p></div>
+  <div class="chips hi-chips" id="hiChips"></div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Five dates: <b>1868</b> Charcot, "sclérose en plaques" and the triad of nystagmus, dysarthria and ataxia with intention tremor · <b>1981</b> first MRI of MS · <b>23 July 1993</b> Betaseron (interferon beta-1b) approved by the FDA · <b>20 December 1996</b> Copaxone (glatiramer acetate) · <b>2001</b> McDonald criteria bring MRI into diagnosis. [[Zalc2018,Young1981,FDA-Betaseron,FDA-Copaxone,McDonald2001]]</div>
+    <div class="pt"><b>In plain words</b>People have recognised MS for about 200 years, first from a patient's diary and drawings of damaged brains. Scanners made the damage visible in life in the 1980s. Treatments that change the course of the disease only arrived in the 1990s.</div>
+  </div>
+  <div class="cards" id="hiCards"></div>
+</section>

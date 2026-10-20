@@ -1,0 +1,126 @@
+<!-- ================= 4.3 SAFETY & MONITORING ================= -->
+<section class="mod" id="m-safety" data-mod="safety" hidden>
+<style>
+#m-safety .sf-ctl{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+#m-safety .sf-ctl>div{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-safety .sf-clin{background:var(--rx-soft);border-radius:12px;padding:12px 14px;font-size:15px;max-width:none;border-left:0}
+#m-safety .sf-clin b{color:var(--rx)}
+#m-safety .btn[disabled]{opacity:.4;cursor:not-allowed}
+#m-safety .tbl table{min-width:640px}
+#m-safety .tbl td:first-child{font-weight:700}
+#m-safety .card>.ev,#m-safety .card>.tag{align-self:flex-start}
+#m-safety .sf-bars{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+#m-safety .sf-bars li{display:flex;flex-direction:column;gap:3px;font-size:14px}
+#m-safety .sf-bars .tr{height:10px;background:var(--panel-2);border-radius:99px;overflow:hidden}
+#m-safety .sf-bars .tr i{display:block;height:100%;border-radius:99px}
+#m-safety .note .readout{border-top:1px solid var(--line);padding-top:10px}
+#m-safety svg text.sf-hl{paint-order:stroke;stroke:var(--field);stroke-width:3px;stroke-linejoin:round}
+#m-safety .sf-src{font-size:14px;margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Safety &amp; monitoring</h2>
+    <p class="lede">Natalizumab PML risk by JCV antibody index, prior immunosuppressants and months on treatment, read from the published tables. Then the checks each MS drug's label lists, rebound after stopping, pregnancy wording and vaccines.</p></div>
+  <p class="callout sf-clin"><b>Label and trial statements, not advice.</b> Every figure below is what a label, trial or guideline published, and it is quoted that way: “the label states…”. Risk for one person, and any decision about testing, switching or stopping, belongs with that person's MS team.</p>
+
+  <h3 class="sub">Natalizumab and PML: how the risk is estimated</h3>
+  <p class="prose">PML (progressive multifocal leukoencephalopathy) is a brain infection caused by the JC virus. The natalizumab boxed warning names three risk factors: anti-JCV antibodies, treatment duration, and prior immunosuppressant use. Set the three inputs, choose whose published table to read, and move the months slider. [[TyrukoLabel2025]]</p>
+  <div class="sf-ctl" role="group" aria-label="PML risk inputs">
+    <div><span class="kicker">Anti-JCV antibodies</span>
+      <button class="btn" data-jcv="neg" aria-pressed="false">Negative</button>
+      <button class="btn" data-jcv="pos" aria-pressed="true">Positive</button></div>
+    <div><span class="kicker">Antibody index</span>
+      <button class="btn" data-idx="na" aria-pressed="true">Not given</button>
+      <button class="btn" data-idx="lo" aria-pressed="false">≤0.9</button>
+      <button class="btn" data-idx="mid" aria-pressed="false">&gt;0.9 to 1.5</button>
+      <button class="btn" data-idx="hi" aria-pressed="false">&gt;1.5</button></div>
+    <div><span class="kicker">Prior immunosuppressant</span>
+      <button class="btn" data-is="0" aria-pressed="true">No</button>
+      <button class="btn" data-is="1" aria-pressed="false">Yes</button></div>
+  </div>
+  <div class="sf-ctl" role="group" aria-label="Source and display">
+    <div><span class="kicker">Read from</span>
+      <button class="btn" data-src="label" aria-pressed="true">Label table</button>
+      <button class="btn" data-src="bl" aria-pressed="false">Bloomgren 2012</button>
+      <button class="btn" data-src="ho" aria-pressed="false">Ho 2017</button>
+      <button class="btn" data-src="aan" aria-pressed="false">AAN 2018</button></div>
+    <div><span class="kicker">Scale</span>
+      <button class="btn" data-scl="log" aria-pressed="true">Log</button>
+      <button class="btn" data-scl="lin" aria-pressed="false">Linear</button></div>
+    <div><span class="kicker">Dosing</span>
+      <button class="btn" data-eid="0" aria-pressed="true">Every 4 weeks</button>
+      <button class="btn" data-eid="1" aria-pressed="false">Every 6 weeks (NOVA)</button></div>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="sfSvg" viewBox="0 0 720 470" style="min-width:560px" role="img" aria-label="PML risk per 1,000 natalizumab-treated people plotted against months on treatment from the published tables, with a moving marker at the chosen month, infusion ticks every 4 or 6 weeks, and an icon array showing the same risk as filled people out of 1,000."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sfPlay">Play</button><label class="stage-cap tl" for="sfT">Months on natalizumab <input type="range" id="sfT" min="0" max="96" step="0.25" value="30"></label></div>
+      <p class="stage-cap">Solid steps: the label table (US postmarketing data, about 100,000 patients). Bloomgren 2012, Ho 2017 and the AAN 2018 summary appear only where they publish a figure for the chosen inputs; the dotted line between Ho 2017's year 1 and year 6 values is schematic. An empty icon grid means the chosen source, as quoted in our research, gives no figure for these inputs. [[TyrukoLabel2025,Bloomgren2012,Ho2017,RaeGrant2018]]</p></div>
+    <aside class="note" id="sfNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Controversy</span><h4>How often to retest a negative antibody result</h4><p>The US label reports seroconversion of 3–8% a year and asks for antibody-negative patients to be <q>retested periodically</q>, without an interval. A UK expert group reports that the EMA's CHMP recommends testing every 6 months, and suggests MRI at least every 6 months (index ≤1.5) or every 3–4 months (index &gt;1.5) after 18 months of treatment in antibody-positive patients. Practice follows regional regulation. [[TyrukoLabel2025,McGuigan2016]]</p></div>
+    <div class="card"><h4>“A negative JCV test means no risk”</h4><p>The label states antibody-negative patients remain at risk, from new infection or a false-negative result; the assay's false-negative rate is 3%. In Bloomgren 2012, all 54 PML cases with an earlier blood sample had been antibody-positive. [[TyrukoLabel2025,Bloomgren2012]]</p></div>
+    <div class="card"><h4>What the label says to watch for</h4><p>The natalizumab label describes PML symptoms progressing over days to weeks: one-sided weakness or clumsiness of a limb, disturbed vision, and changes in thinking, memory and orientation leading to confusion and personality change. Dosing is withheld at the first suggestive sign. ECTRIMS/EAN 2018 R13 recommends MRI every 3–6 months for people at high PML risk (JCV positive, natalizumab beyond 18 months). [[TyrukoLabel2025,Montalban2018]]</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Extended-interval dosing</h4><p>Six-weekly dosing is used to lower PML risk, and Ho 2017 shows how strongly risk depends on index and duration. NOVA, which tested lesions rather than PML, found more new lesions on 6-weekly dosing (significant under one estimand), driven by two outliers, with one asymptomatic PML case in the 6-weekly arm. The US label still states every 4 weeks. [[Ho2017,Foley2022,TyrukoLabel2025]]</p></div>
+  </div>
+
+  <h3 class="sub">What each label asks to be checked</h3>
+  <p class="prose">Pick a drug, then press Play to walk through the label's schedule. Checks light up as the timeline passes them. The time scale differs by drug: hours for the first fingolimod dose, years for alemtuzumab.</p>
+  <div class="sf-ctl" role="group" aria-label="Choose a drug"><div id="sfDrugs"></div></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="sfMon" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A monitoring timeline for the chosen drug in which each labelled check, dose and risk window lights up as a playhead moves across it."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sfMonPlay">Play</button><label class="stage-cap tl" for="sfMonT">Timeline <input type="range" id="sfMonT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="sfMonCap"></p></div>
+    <aside class="note" id="sfMonNote" aria-live="polite"></aside>
+  </div>
+  <h3 class="sub">Safety cards, drug by drug</h3>
+  <div class="cards" id="sfCards"></div>
+
+  <h3 class="sub">Rebound after stopping</h3>
+  <p class="prose">Two drugs stand out for what can happen in the weeks after the last dose. Move through the 28 weeks after stopping to see when the published windows open. [[Montalban2018,RaeGrant2018]]</p>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="sfReb" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Timelines of the 28 weeks after the last dose of natalizumab or fingolimod, showing the published windows for returning relapses and rebound, and two icon arrays: 46 of 100 people with returning MRI activity in RESTORE, and 5 of 46 people with severe rebound after fingolimod in a case series."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sfRebPlay">Play</button><label class="stage-cap tl" for="sfRebT">Weeks after the last dose <input type="range" id="sfRebT" min="0" max="28" step="0.05" value="28"></label></div>
+      <p class="stage-cap">Window bars are the published time spans. The icons fill in step with those windows for illustration; only the final counts are published. [[Fox2014,Hatcher2016,GilenyaLabel2026,RaeGrant2018]]</p></div>
+    <aside class="note" id="sfRebNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Pregnancy and breastfeeding: the label wording</h3>
+  <p class="prose">How pregnancy itself affects MS (relapse rates by trimester and after birth) is covered in <a href="#living" data-go="living">Living with MS</a>. Here are the drug labels' own statements, and the contraception windows they set after the last dose.</p>
+  <div class="stage">
+    <div class="scroll"><svg id="sfCw" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="Bars growing to the length of each label's contraception window after the last dose, from 1 week for ponesimod to 6 months for anti-CD20 antibodies and cladribine, with teriflunomide shown as lasting until a plasma level is confirmed."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="sfCwPlay">Play</button><label class="stage-cap tl" for="sfCwT">Grow bars <input type="range" id="sfCwT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="stage-cap">Bar lengths convert the label wording (weeks, months) to days only for drawing. [[PonvoryLabel2025,MayzentLabel2026,GilenyaLabel2026,ZeposiaLabel2026,MavencladLabel2026,LemtradaLabel2025,OcrevusLabel2026,KesimptaLabel2026,BriumviLabel2026,AubagioLabel2026]]</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Drug</th><th>Pregnancy: the label states</th><th>Breastfeeding: the label states</th></tr></thead>
+    <tbody>
+      <tr><td>Interferon beta</td><td>A large population-based cohort and decades of data <q>have not identified a drug-associated risk of major birth defects</q> with early-pregnancy exposure; findings on low birth weight or miscarriage are <q>inconsistent</q> [[RebifLabel2025,AvonexLabel2025,PlegridyLabel2025]]</td><td>Low levels of interferon beta-1a have been described in human milk</td></tr>
+      <tr><td>Glatiramer acetate</td><td>Decades of data <q>have not identified a drug-associated risk of major birth defects, miscarriage, or other adverse maternal or fetal outcomes</q> [[CopaxoneLabel2026]]</td><td>Breastfeeding <q>is not expected to result in clinically relevant exposure of the infant</q></td></tr>
+      <tr><td>Dimethyl fumarate</td><td>The pregnancy registry and other data <q>have not indicated an increased risk of major birth defects, miscarriage</q>; most exposures were in the first trimester [[TecfideraLabel2025]]</td><td>Not quoted in our sources</td></tr>
+      <tr><td>Fingolimod</td><td>Registry data <q>suggest that use of GILENYA is associated with an increased prevalence of major birth defects</q>; contraception during treatment and for 2 months after stopping [[GilenyaLabel2026]]</td><td>Not quoted in our sources</td></tr>
+      <tr><td>Siponimod, ozanimod, ponesimod</td><td>Contraception for 10 days after stopping siponimod, 3 months after ozanimod, 1 week after ponesimod [[MayzentLabel2026,ZeposiaLabel2026,PonvoryLabel2025]]</td><td>Not quoted in our sources</td></tr>
+      <tr><td>Teriflunomide</td><td>Contraindicated in pregnancy and in women of reproductive potential not using effective contraception. Women who wish to become pregnant must stop it and confirm a plasma level below 0.02 mg/L (men wishing to father a child are told the same) [[AubagioLabel2026]]</td><td><q>Women should not breastfeed during treatment</q></td></tr>
+      <tr><td>Cladribine</td><td>Contraindicated in pregnancy; contraception during dosing and for 6 months after the last dose of each course (women) or 14 weeks (men) [[MavencladLabel2026]]</td><td>Contraindicated on a treatment day and for 10 days after the last dose</td></tr>
+      <tr><td>Anti-CD20 antibodies</td><td>Contraception during treatment and for 6 months after the last dose; transient B-cell depletion reported in infants exposed in utero to other anti-CD20 antibodies [[OcrevusLabel2026,KesimptaLabel2026,BriumviLabel2026]]</td><td>Human IgG is excreted in milk; the risk of infant B-cell depletion is <q>unknown</q></td></tr>
+      <tr><td>Natalizumab</td><td>Neonatal thrombocytopenia and anaemia reported; the label recommends a CBC in exposed newborns [[TyrukoLabel2025]]</td><td>The drug <q>has been detected in human milk</q></td></tr>
+      <tr><td>Alemtuzumab</td><td>Contraception during and for 4 months after each course; neonatal Graves' disease from placental transfer of anti-thyroid antibodies has been reported [[LemtradaLabel2025]]</td><td>Not quoted in our sources</td></tr>
+    </tbody></table></div>
+  <div class="split2">
+    <div class="card"><h4>What the guidelines add</h4><p>ECTRIMS/EAN 2018 R19 (consensus): DMDs <q>are not licensed during pregnancy, except glatiramer acetate 20 mg/ml</q>. R21 (weak): for persistent high activity, <q>natalizumab throughout pregnancy may be considered after full discussion</q>, and alemtuzumab is an option for planned pregnancy if <q>a 4-month interval is strictly observed</q> before conception. AAN 2018 Switching 10 (Level B): counsel stopping DMT before a planned conception <q>unless the risk of MS activity during pregnancy outweighs the risk associated with the specific DMT</q>. [[Montalban2018,RaeGrant2018]]</p></div>
+    <div class="card"><h4>The 2026 UK consensus update</h4><p>The updated UK consensus on pregnancy in MS stresses family planning when choosing a treatment. It describes the transfer of monoclonal antibodies into breast milk as generally low, so treatment during breastfeeding can be considered, and vaccines in pregnancy as generally safe. [[Mullan2026]]</p>
+      <div class="pt"><b>In plain words</b>Some MS medicines are fine to stop just before trying for a baby, some need months to clear, and one needs a blood test to prove it has gone. Labels spell this out, and planning ahead with the MS team is what the guidance stresses.</div></div>
+  </div>
+
+  <h3 class="sub">Vaccines on DMTs</h3>
+  <div class="split2">
+    <div class="card"><h4>Timing and live vaccines</h4>
+      <ul><li>ECTRIMS/EAN 2023 (53 recommendations): before an immunosuppressive DMT, inactivated vaccines <q>ideally at least 2 weeks before treatment onset</q>; live attenuated vaccines <q>at least 4 weeks before treatment onset, 6 weeks for ocrelizumab and alemtuzumab</q>. [[OteroRomero2023]]</li>
+        <li>Live attenuated vaccines can be used untreated or on interferon or glatiramer acetate, and <q>should be avoided</q> on dimethyl fumarate, teriflunomide, S1P modulators, natalizumab, cladribine, alemtuzumab and anti-CD20 antibodies. [[OteroRomero2023]]</li>
+        <li>On 6-monthly anti-CD20 therapy, inactivated vaccines <q>at least 3 months after the last anti-CD20 treatment and 4–6 weeks before the next infusion</q> (the window is drawn in the anti-CD20 calendar above). [[OteroRomero2023]]</li>
+        <li>The fingolimod label says the drug <q>reduces the immune response to vaccination</q>, which <q>may be less effective during and for up to 2 months after</q> stopping. [[GilenyaLabel2026]]</li>
+        <li>AAN 2019: follow local schedules with yearly influenza vaccine, vaccinate at least 4–6 weeks before starting immunosuppressive therapy, and delay vaccination during a relapse. [[Farez2019]]</li></ul></div>
+    <div class="card"><span class="ev est">Blunted responses · VELOCE</span><h4>Vaccine responses on ocrelizumab</h4>
+      <ul class="sf-bars" id="sfVel"></ul>
+      <p>People on ocrelizumab responded less than controls: a response to tetanus in 23.9% versus 54.5%, and to 12 or more pneumococcal serotypes in 37.3% versus 97.1%. In an Italian COVID-19 cohort of 844 people with MS, anti-CD20 therapy was associated with severe COVID-19 (OR 2.37, 95% CI 1.18–4.74). [[OteroRomero2023,Sormani2021]]</p>
+      <div class="hook"><b>Exam hook</b>ECTRIMS/EAN 2023 on live vaccines: <b>usable untreated or on interferon or glatiramer</b>, to be avoided on the other DMTs listed, and given at least 4 weeks before starting (6 weeks for ocrelizumab and alemtuzumab).</div></div>
+  </div>
+</section>

@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Medical Companions: animated, cited guides to Alzheimer's disease and FMF</title>
-<meta name="description" content="Free animated guides, in English and Hebrew, to Alzheimer's disease and Familial Mediterranean Fever, with every claim cited. Educational, not medical advice.">
+<title>Medical Companions: animated, cited guides to Alzheimer's, FMF and MS</title>
+<meta name="description" content="Free animated guides to Alzheimer's disease, Familial Mediterranean Fever and multiple sclerosis, with every claim cited. Educational, not medical advice.">
 <link rel="canonical" href="%SITE%/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Medical Companions">
 <meta property="og:title" content="Medical Companions: animated, cited guides, one disease each">
-<meta property="og:description" content="Alzheimer's disease and Familial Mediterranean Fever, explained with animations you can scrub. Every claim cited. Educational only, not medical advice.">
+<meta property="og:description" content="Alzheimer's disease, Familial Mediterranean Fever and multiple sclerosis, explained with animations you can scrub. Every claim cited. Educational only, not medical advice.">
 <meta property="og:url" content="%SITE%/">
 <meta property="og:image" content="%SITE%/share-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Medical Companions: animated, cited guides to Alzheimer's disease and Familial Mediterranean Fever">
+<meta property="og:image:alt" content="Medical Companions: animated, cited guides to Alzheimer's disease, Familial Mediterranean Fever and multiple sclerosis">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="%SITE%/share-card.png">
 <meta name="theme-color" content="#f4f2ec" media="(prefers-color-scheme: light)">
@@ -28,12 +28,14 @@
 {"@type":"WebSite","@id":"%SITE%/#site","name":"Medical Companions","url":"%SITE%/","inLanguage":["en","he"],"publisher":{"@type":"Organization","name":"Quentin.Code","url":"https://quentin.software"}},
 {"@type":"CollectionPage","name":"Medical Companions","url":"%SITE%/","isPartOf":{"@id":"%SITE%/#site"},"description":"Animated, cited study and patient-education guides, one disease each. Educational only, not medical advice.","hasPart":[
 {"@type":"MedicalWebPage","name":"Alzheimer's Companion","url":"%SITE%/alzheimers/","about":{"@type":"MedicalCondition","name":"Alzheimer's disease"}},
-{"@type":"MedicalWebPage","name":"FMF Companion","url":"%SITE%/fmf/","about":{"@type":"MedicalCondition","name":"Familial Mediterranean Fever"}}]}]}</script>
+{"@type":"MedicalWebPage","name":"FMF Companion","url":"%SITE%/fmf/","about":{"@type":"MedicalCondition","name":"Familial Mediterranean Fever"}},
+{"@type":"MedicalWebPage","name":"MS Companion","url":"%SITE%/multiple-sclerosis/","about":{"@type":"MedicalCondition","name":"Multiple sclerosis"}}]}]}</script>
 <style>
 :root{
   --bg:#f4f2ec; --panel:#fffefb; --ink:#1d2a26; --muted:#5b6661; --line:#ddd9ce;
   --alz:#2f6b4f; --alz-soft:#dcebe2; --amber:#905a0c; --rose:#ad3861;
   --fmf:#0d6e78; --fmf-soft:#d5edef; --terra:#c4562f;
+  --ms:#3a47a8; --ms-soft:#e1e4f7; --myelin:#f2c46d; --msorange:#e07a1f;
   --display:"Newsreader",Georgia,"Times New Roman",serif;
   --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"Spline Sans Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -43,6 +45,7 @@
     --bg:#121412; --panel:#1a1e1b; --ink:#e6ebe7; --muted:#9fa9a3; --line:#2b322d;
     --alz:#6cc59a; --alz-soft:#163428; --amber:#e7b04a; --rose:#f07fa6;
     --fmf:#5cc4cf; --fmf-soft:#0f2e33; --terra:#ffb08a;
+    --ms:#9aa6ff; --ms-soft:#1f2550; --myelin:#e6b858; --msorange:#ffa45c;
     color-scheme:dark;
   }
 }
@@ -63,6 +66,7 @@ h1{font:800 clamp(38px,6.4vw,68px)/1.02 var(--display);letter-spacing:-.02em;mar
 .card:hover{border-color:var(--c);transform:translateY(-2px)}
 .card.alz{--c:var(--alz);--soft:var(--alz-soft)}
 .card.fmf{--c:var(--fmf);--soft:var(--fmf-soft)}
+.card.ms{--c:var(--ms);--soft:var(--ms-soft)}
 .card .icon{width:52px;height:52px}
 .card h2{font:800 30px/1.1 var(--display);margin:0;letter-spacing:-.01em}
 .card h2 a{text-decoration:none}
@@ -120,6 +124,20 @@ footer{border-top:1px solid var(--line);margin-top:28px;padding-block:22px max(3
       </ul>
       <div class="facts"><span>%CITED:fmf% cited sources</span><span>English · עברית</span></div>
       <div class="langs"><a href="fmf/">Read in English</a><a href="fmf/he/" hreflang="he" lang="he">לקריאה בעברית</a></div>
+    </article>
+    <article class="card ms">
+      <svg class="icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--ms)"/><path d="M5 20h30" stroke="var(--panel)" stroke-width="2.4" stroke-linecap="round"/><rect x="8" y="15" width="8" height="10" rx="5" fill="var(--myelin)"/><rect x="24" y="15" width="8" height="10" rx="5" fill="var(--myelin)"/><circle cx="20" cy="20" r="3.4" fill="var(--msorange)"/></svg>
+      <p class="what">Neurology · immune-mediated</p>
+      <h2><a href="multiple-sclerosis/">MS Companion</a></h2>
+      <p>Multiple sclerosis, from a single stripped nerve fibre to decades of relapses and progression, and what each medicine does.</p>
+      <ul>
+        <li>Myelin, saltatory conduction and demyelination, animated</li>
+        <li>Relapses, remission and silent progression on one timeline</li>
+        <li>A McDonald criteria calculator, 2017 and 2024</li>
+        <li>How the disease-modifying drugs work, the treatment ladder and nursing care</li>
+      </ul>
+      <div class="facts"><span>%CITED:multiple-sclerosis% cited sources</span><span>English</span></div>
+      <div class="langs"><a href="multiple-sclerosis/">Read in English</a></div>
     </article>
   </div>
 
