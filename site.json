@@ -229,6 +229,24 @@
       "indexed_without_review": [
         "he"
       ]
+    },
+    {
+      "slug": "myasthenia-gravis",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Myasthenia Gravis Companion",
+        "he": "מלווה מיאסטניה גרביס"
+      },
+      "published": "2026-10-20",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
     }
   ],
   "indexnow_key": "202581197bc1993e3ed16425b36cb189"

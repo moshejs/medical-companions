@@ -1,0 +1,59 @@
+<!-- ================= 1.4 WEAKNESS OVER A DAY ================= -->
+<section class="mod" id="m-fatigue" data-mod="fatigue" hidden>
+<style>
+#m-fatigue .ftg-big{font-family:var(--display);font-weight:800;font-size:28px;line-height:1;color:var(--ab)}
+#m-fatigue .ftg-acc{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+#m-fatigue .ftg-acc div{background:var(--panel-2);border-radius:10px;padding:8px 10px;font-size:13.5px;line-height:1.35}
+#m-fatigue .ftg-acc b{display:block;font-family:var(--display);font-weight:800;font-size:22px;line-height:1.1;color:var(--ink)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Weakness over a day</h2>
+    <p class="lede">In MG, weakness grows with use and through the day, and eases with rest and cold. Press play to run a waking day beside the junction's electrical rundown, then switch between a healthy and an MG junction and try rest breaks, an ice pack and heat.</p></div>
+
+  <div class="prose"><p>Fatigability is the hallmark of MG. Weakness fluctuates from day to day and hour to hour, is generally worse later in the day, and can be increased by sustained exercise and a higher body temperature. [[Juel2007]] It eases with rest and recurs with use, and it lessens in the cold. [[MSDManual2026]] The cause sits at the junction: each nerve impulse releases a little less acetylcholine than the one before, and in MG the margin for that loss has almost gone. [[Kouyoumdjian2023,Ruff2008]]</p></div>
+
+  <div class="ctrls" role="group" aria-label="Junction">
+    <span class="kicker">Junction</span>
+    <button class="btn" id="ftgHealthy" aria-pressed="false">Healthy</button>
+    <button class="btn" id="ftgMG" aria-pressed="true">MG</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Conditions">
+    <span class="kicker">Conditions</span>
+    <button class="btn" id="ftgRest" aria-pressed="true">Rest breaks</button>
+    <button class="btn" id="ftgIce" aria-pressed="false">Ice pack on the lid</button>
+    <button class="btn" id="ftgHeat" aria-pressed="false">Hot day</button>
+  </div>
+  <div class="stepper" id="ftgSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ftgSvg" viewBox="0 0 720 540" style="min-width:560px" role="img" aria-label="Two linked panels. Top: a waking day from 07:00 to 23:00 with a schematic strength curve that falls with use, recovers during rest breaks and is lowest in the evening, plus an eyelid that droops as strength falls. Bottom: one train of ten nerve impulses at that moment, with each endplate potential drawn against the firing threshold; in a healthy junction all stay above threshold, in MG the first four or five run down below it and fewer muscle fibres fire, which is the decrement seen on repetitive nerve stimulation."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ftgPlay">Play</button><label class="stage-cap tl" for="ftgT">Time of day <input type="range" id="ftgT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="ftgRead"></div>
+      <p class="stage-cap">Panel A is a schematic: no study in our sources publishes an hour-by-hour strength curve, so its shape is modelled from published descriptions (worse with use and later in the day, better with rest; heat worsens and cold improves). [[Juel2007,MSDManual2026]] In panel B the first-impulse heights use the published mean safety factors, 2.98 healthy and 1.09 MG (filled dots) [[Ruff2008]]; the rundown shape (largest fall from the 1st to the 2nd impulse, lowest at the 4th-5th, slight recovery) follows published descriptions [[Kouyoumdjian2023,Rousseff2021]], and its size, the spread between fibres, and the effects of the day, ice and heat are modelled (open dots).</p></div>
+    <aside class="note" id="ftgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The safety factor, in numbers</h3>
+  <div class="cards" id="ftgSF"></div>
+
+  <h3 class="sub">Bedside tests</h3>
+  <div class="prose"><p>Three quick tests use fatigability itself. Sustained upgaze provokes ptosis, an ice pack relieves it, and a rest lets it recover. Pick a test and press play; the accuracy figures are the published ones.</p></div>
+  <div class="ctrls" role="group" aria-label="Bedside test">
+    <button class="btn" data-ftgb="ice" aria-pressed="true">Ice pack test</button>
+    <button class="btn" data-ftgb="up" aria-pressed="false">Sustained upgaze</button>
+    <button class="btn" data-ftgb="rest" aria-pressed="false">Rest (sleep) test</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ftgBt" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="An eyelid during a bedside test with a graph of lid position over the test: the ice pack lifts a drooping lid, sustained upgaze makes it droop further, and a 30-minute sleep makes the ptosis resolve before it returns."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ftgBtPlay">Play</button><label class="stage-cap tl" for="ftgBtT">Test time <input type="range" id="ftgBtT" min="0" max="1" step="0.002" value="0.02"></label></div>
+      <p class="stage-cap" id="ftgBtCap">Illustrative patient. Lid positions are schematic; the 2 mm criterion and the 2.3 mm mean lift are published. [[Rousseff2021,Yoganathan2022]]</p></div>
+    <aside class="note" id="ftgBtNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards" id="ftgLid"></div>
+
+  <h3 class="sub">What makes it worse</h3>
+  <div class="cards" id="ftgWorse"></div>
+  <p class="callout">Sudden difficulty breathing or swallowing is an emergency, not ordinary fatigue. See <a href="#crisis" data-go="crisis">Myasthenic crisis</a>, and for medicines, <a href="#drugs" data-go="drugs">Drugs that can worsen MG</a>.</p>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Fatigability is the hallmark. The decrement on repetitive nerve stimulation is the electrical picture of the same rundown: a reproducible fall of 10% or more from the 1st to the 4th or 5th response at 2-5 Hz. [[AAEM2001,Kouyoumdjian2023]]</div>
+    <div class="pt"><b>In plain words</b>Each time a nerve fires in quick succession, it releases a little less messenger. With fewer catchers on the muscle, a few fibres stop responding, and the muscle tires. Rest lets the nerve ending restock.</div>
+  </div>
+</section>

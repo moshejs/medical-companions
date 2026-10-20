@@ -1,0 +1,46 @@
+<!-- ================= 5.1 HISTORY & PEOPLE ================= -->
+<section class="mod" id="m-history" data-mod="history" hidden>
+<style>
+#m-history .hi-years .tag small{font:600 10.5px var(--mono);opacity:.75;margin-left:2px}
+#m-history .hi-years .tag b{font-weight:700;margin-right:4px}
+#m-history .hi-names{display:flex;flex-direction:column;gap:10px}
+#m-history .hi-tool{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+#m-history .hi-tool li{display:flex;gap:10px;align-items:baseline;font-size:14.5px}
+#m-history .hi-tool li b{font:600 12px var(--mono);min-width:58px;flex:none;color:var(--drug)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 5 · Context &amp; review</p><h2>History &amp; people</h2>
+    <p class="lede">The history of myasthenia gravis from Willis in 1672 to the 2026 biologics and the first CAR-T cases. Press play to run the playhead across 350 years, jump between eras, or click any dot or year below; the scene, the mortality band and the treatment toolkit change as each milestone arrives.</p></div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="hiSvg" viewBox="0 0 720 668" style="min-width:560px" role="img" aria-label="Timeline of myasthenia gravis history from 1672 to 2026 in five lanes (clinical descriptions and names, mechanism and tests, thymus surgery, treatment and approvals, cell therapy), with a drawing of each era above it, a band of published death rates that falls from 42% per crisis in the early 1960s to about 4% by the 1990s, and a treatment toolkit that grows from rest alone to complement and FcRn inhibitors."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.02"></label></div>
+      <div class="readout" id="hiRead"></div>
+      <p class="stage-cap">The axis is stretched so the crowded recent decades stay readable. Every caption in the scene repeats a milestone below, with its sources in the note panel. Death-rate dots are published figures from different kinds of study (per crisis, overall, within two years of diagnosis), so they are shown as separate points, not one curve. [[Bubuioc2021,Cohen1981,Thomas1997,Alshekhlee2009,Neumann2020]] A toolkit item's year is the earliest paper on it in this guide's sources, not necessarily its first use.</p></div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Every milestone</h3>
+  <p class="prose">The dots on the timeline, in order. Click a year to move the playhead there.</p>
+  <div class="chips hi-years" id="hiYears" role="group" aria-label="Jump to a milestone"></div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b><b>1934</b> Mary Walker: physostigmine reverses MG weakness · <b>1960</b> Simpson: MG is autoimmune · <b>1973</b> Patrick &amp; Lindstrom: immunising rabbits with AChR causes MG (EAMG) · <b>1975</b> Toyka: patient IgG transfers it to mice · <b>1976</b> AChR antibodies in 87% · <b>2001</b> MuSK · <b>2016</b> MGTX: the first randomised trial to show a benefit of thymectomy. [[Walker1934,Simpson1960,Patrick1973,Toyka1975,Lindstrom1976,Hoch2001,Wolfe2016]]</div>
+    <div class="pt"><b>In plain words</b>Doctors described MG for more than two centuries before anyone knew it was the immune system attacking the muscle's receptors. The first useful drug came in 1934, surgery on the thymus soon after, and breathing machines in intensive care made it far less deadly. Since 2017 new targeted drugs have been approved in most years.</div>
+  </div>
+
+  <div class="cards">
+    <div class="card hi-names"><h4>Names it has carried</h4>
+      <p>For a time after Goldflam's 1893 review the disease was called the Erb-Goldflam syndrome. Jolly's 1895 name, "myasthenia gravis pseudoparalytica", was later shortened to the one used today. [[Deymeer2021,Hughes2005]]</p>
+      <div class="chips hi-years" id="hiNames" role="group" aria-label="Former names"></div></div>
+    <div class="card"><h4>1936 or 1939? The Blalock date</h4><p>Blalock removed a thymic tumour from a patient with MG in 1936 and published it in 1939, so timelines disagree by three years about the same operation. His planned-thymectomy series in patients without thymoma followed in 1941. German reviews credit Sauerbruch's 1911 thymectomy, done for thyrotoxicosis in a young woman with MG, as coming first. [[Singh2018,Blalock1939,Blalock1941,Deymeer2021,Overhaus2007]]</p></div>
+    <div class="card"><h4>Three experiments that proved it</h4><ul>
+      <li><b>1973</b> Rabbits immunised with eel AChR became weak: the receptor is the target. [[Patrick1973]]</li>
+      <li><b>1973</b> MG junctions carry fewer receptors. [[Fambrough1973]]</li>
+      <li><b>1975</b> Patient IgG injected into mice reproduces the defect: the antibody is enough. [[Toyka1975]]</li>
+      <li><b>1976</b> The antibody test: positive in 87% of 71 patients, 0 of 175 controls. [[Lindstrom1976]]</li></ul>
+      <p><a href="#antibodies" data-go="antibodies">See the antibodies at work</a></p></div>
+    <div class="card"><h4>From often fatal to near-normal life expectancy</h4><p>In 1934, 70% of the few people diagnosed died of respiratory failure or pneumonia within two years. [[Bubuioc2021]] Deaths per crisis fell from 42% in the early 1960s to 6% in the late 1970s, with ventilation and intensive care. [[Cohen1981,Deymeer2021]] Disease-specific mortality is now under 5% with nearly normal life expectancy. [[Juel2007]] Older cohorts still fare worse: 12% of ventilated crises in Germany, 2006–2015 (median age 72). [[Neumann2020]]</p></div>
+    <div class="card"><h4>The toolkit, by its first paper here</h4><ul class="hi-tool" id="hiTool"></ul></div>
+    <div class="card"><h4>Cell therapy <span class="ev early">Early evidence</span></h4><p>The first person with MG treated with CAR-T cells was reported in 2023. By 2026 small series reported remission off immunotherapy for at least 19 months, and a 26-person randomised trial of an mRNA CAR-T met its primary endpoint. Larger trials are still running. [[Haghikia2023,Hegelmaier2026,Vu2026]] <a href="#cure" data-go="cure">Toward a cure</a></p></div>
+  </div>
+</section>
