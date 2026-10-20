@@ -64,16 +64,18 @@ REDIR = """<!doctype html>
 <html lang="{lang}">
 <head>
 <meta charset="utf-8">
-<title>{name} has moved</title>
+<title>{moved_title}</title>
 <link rel="canonical" href="{to}">
 <meta http-equiv="refresh" content="0; url={to}">
 <script>location.replace({to_js} + location.hash)</script>
 </head>
 <body>
-<p>{name} has moved to <a href="{to}">{to}</a>.</p>
+<p>{moved_text} <a href="{to}">{to}</a></p>
 </body>
 </html>
 """
+MOVED = {"en": ("{name} has moved", "{name} has moved to"),
+         "he": ("{name} עבר לכתובת חדשה", "{name} עבר לכתובת:")}
 out_root = ROOT / "redirects"
 for c in CFG["companions"]:
     stem = c["old"].rstrip("/").rsplit("/", 1)[1]
@@ -82,7 +84,10 @@ for c in CFG["companions"]:
         to = url(c["slug"], lang)
         page = d / ("index.html" if lang == "en" else f"{lang}/index.html")
         page.parent.mkdir(parents=True, exist_ok=True)
-        page.write_text(REDIR.format(lang=lang, name=html.escape(c["name"][lang]), to=to, to_js=json.dumps(to)), encoding="utf-8")
+        name = html.escape(c["name"][lang])
+        moved = MOVED.get(lang, MOVED["en"])
+        page.write_text(REDIR.format(lang=lang, moved_title=moved[0].format(name=name), moved_text=moved[1].format(name=name),
+                                     to=to, to_js=json.dumps(to)), encoding="utf-8")
     (d / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
     (d / ".nojekyll").write_text("", encoding="utf-8")
     print(f"wrote redirects/{stem}/ -> {url(c['slug'])}")
