@@ -1,1 +1,70 @@
-{}
+{
+ "what": {
+  "title": "What is myasthenia gravis? Symptoms, who gets it, outlook",
+  "description": "Myasthenia gravis is an autoimmune disease of the nerve-muscle junction. Who gets it, the first symptoms, ocular vs generalized MG and the outlook, animated."
+ },
+ "nmj": {
+  "title": "The neuromuscular junction, animated: how nerve talks to muscle",
+  "description": "One nerve impulse in slow motion: calcium, acetylcholine release, receptors, the endplate potential and the safety factor, healthy and in myasthenia gravis."
+ },
+ "antibodies": {
+  "title": "AChR, MuSK and LRP4 antibodies in myasthenia gravis, animated",
+  "description": "How antibodies damage the nerve-muscle junction in myasthenia gravis: receptor cross-linking, complement attack, MuSK and LRP4, step by step."
+ },
+ "fatigue": {
+  "title": "Fatigable weakness in myasthenia gravis: why it worsens with use",
+  "description": "Why myasthenia gravis weakness grows with use and through the day, and lifts with rest or cold: the safety factor and acetylcholine rundown, animated."
+ },
+ "dx": {
+  "title": "Myasthenia gravis diagnosis: antibodies, RNS, single-fibre EMG",
+  "description": "How myasthenia gravis is diagnosed: antibody tests, repetitive nerve stimulation, single-fibre EMG, the ice pack test and chest imaging, with a calculator."
+ },
+ "classes": {
+  "title": "MGFA classification and MG-ADL score calculator",
+  "description": "The MGFA clinical classes I to V and the MG-ADL, QMG and MG Composite scores for myasthenia gravis, with a live MG-ADL calculator."
+ },
+ "ddx": {
+  "title": "Myasthenia gravis differential: Lambert-Eaton, botulism, ALS",
+  "description": "How myasthenia gravis is told apart from Lambert-Eaton syndrome, botulism, ALS, mitochondrial and eye disease, Miller Fisher and congenital syndromes."
+ },
+ "pyrido": {
+  "title": "How pyridostigmine (Mestinon) works in myasthenia gravis",
+  "description": "Pyridostigmine slows the enzyme that clears acetylcholine. See it at the junction and over the hours after a dose: onset, peak, wear-off and side effects."
+ },
+ "ladder": {
+  "title": "Myasthenia gravis treatment ladder: steroids to biologics",
+  "description": "Myasthenia gravis treatment step by step: pyridostigmine, steroids, steroid-sparing drugs, thymectomy, IVIG and plasma exchange, and the new biologics."
+ },
+ "thymectomy": {
+  "title": "Thymectomy for myasthenia gravis: the MGTX trial over 5 years",
+  "description": "Removing the thymus helps many people with AChR-positive myasthenia gravis. The MGTX trial month by month, who surgery is for, and thymoma."
+ },
+ "biologics": {
+  "title": "Eculizumab, efgartigimod and other MG biologics, trial by trial",
+  "description": "Complement inhibitors (eculizumab, ravulizumab, zilucoplan) and FcRn blockers (efgartigimod, rozanolixizumab, nipocalimab) in MG, week by week."
+ },
+ "crisis": {
+  "title": "Myasthenic crisis: triggers, breathing tests and ICU care",
+  "description": "Myasthenic crisis is breathing-muscle weakness needing ventilation. Triggers, vital capacity and NIF, BiPAP, plasma exchange, IVIG, cholinergic crisis."
+ },
+ "drugs": {
+  "title": "Drugs to avoid in myasthenia gravis: a cited checker",
+  "description": "Which medicines can worsen myasthenia gravis: antibiotics, magnesium, beta-blockers, checkpoint inhibitors and more, with what each label says."
+ },
+ "nursing": {
+  "title": "Nursing care in myasthenia gravis: assessment and medications",
+  "description": "Nursing care for myasthenia gravis: breathing and swallow checks, single breath count, timing pyridostigmine, IVIG and plasma exchange, teaching."
+ },
+ "living": {
+  "title": "Living with myasthenia gravis: pregnancy, surgery, exercise",
+  "description": "Myasthenia gravis in daily life: pregnancy and transient neonatal MG, surgery and anaesthesia, exercise, heat, vaccines, work and driving."
+ },
+ "cure": {
+  "title": "Toward a cure for myasthenia gravis: CAR-T and other routes",
+  "description": "Can myasthenia gravis be cured? CAR-T cells, B-cell and plasma-cell drugs, stem cell transplant and tolerance approaches, each with its evidence label."
+ },
+ "history": {
+  "title": "History of myasthenia gravis: from Willis to the biologics",
+  "description": "The history of myasthenia gravis, from Thomas Willis in 1672 and Mary Walker's 1934 discovery to the receptor, thymectomy and today's biologics."
+ }
+}

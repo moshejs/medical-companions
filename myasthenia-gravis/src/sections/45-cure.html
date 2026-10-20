@@ -1,6 +1,95 @@
-<!-- ================= 4.5 TOWARD A CURE (stub) ================= -->
+<!-- ================= 4.5 TOWARD A CURE ================= -->
 <section class="mod" id="m-cure" data-mod="cure" hidden>
+<style>
+#m-cure .cu-ctl{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-cure .note .kv{border-top:1px solid var(--line);padding-top:12px}
+#m-cure .evrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-cure .tbl table{min-width:720px}
+#m-cure .tbl tbody th{min-width:140px}
+#m-cure .card>.ev,#m-cure .card>.tag{align-self:flex-start}
+#m-cure .qa{display:flex;flex-direction:column;gap:6px}
+#m-cure .qa details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-width:0}
+#m-cure .qa summary{cursor:pointer;font-weight:700;font-size:15px;line-height:1.3;overflow-wrap:anywhere}
+#m-cure .qa details[open] summary{color:var(--ab)}
+#m-cure .qa p{margin-top:7px;font-size:14.5px}
+#m-cure .ck{display:flex;flex-direction:column;gap:10px}
+#m-cure .ck .ctrls{gap:6px}
+#m-cure .ck-out{border-radius:10px;padding:12px 14px;background:var(--panel-2);font-size:15px;display:flex;flex-direction:column;gap:6px}
+#m-cure .ck-out b.big{font-family:var(--display);font-weight:800;font-size:19px;line-height:1.2}
+#m-cure .corr li{margin-bottom:6px}
+</style>
   <div class="mhead"><p class="eyebrow">Part 4 · Crisis, care &amp; the future</p><h2>Toward a cure</h2>
-    <p class="lede">CAR-T, B-cell targets and the evidence for each route.</p></div>
-  <div class="lab"><div class="stage"><svg id="cuStubSvg" viewBox="0 0 720 200" role="img" aria-label="placeholder"></svg></div></div>
+    <p class="lede">No therapy has yet been shown to cure myasthenia gravis reliably. This module follows the immune chain that makes the harmful antibodies and shows where each research route cuts it, with an evidence label. Press play to move the cut along the chain, or pick a route.</p></div>
+  <p class="callout"><b>Research reported, not recommended.</b> Many of these results come from small, early or unpublished studies. Whether any person could join a trial or receive one of these treatments is a question for their specialist team.</p>
+
+  <div class="cu-ctl" role="group" aria-label="Choose a route">
+    <span class="kicker">Route</span>
+    <button class="btn" data-cur="0" aria-pressed="true">No cut</button>
+    <button class="btn" data-cur="1" aria-pressed="false">Complement</button>
+    <button class="btn" data-cur="2" aria-pressed="false">FcRn</button>
+    <button class="btn" data-cur="3" aria-pressed="false">Plasma cells: BAFF/APRIL</button>
+    <button class="btn" data-cur="4" aria-pressed="false">B-cell antibodies</button>
+    <button class="btn" data-cur="5" aria-pressed="false">mRNA anti-BCMA CAR-T</button>
+    <button class="btn" data-cur="6" aria-pressed="false">Anti-CD19 CAR-T</button>
+    <button class="btn" data-cur="7" aria-pressed="false">BCMA + CD19 CAR-T</button>
+    <button class="btn" data-cur="8" aria-pressed="false">Autologous HSCT</button>
+    <button class="btn" data-cur="9" aria-pressed="false">Thymectomy</button>
+    <button class="btn" data-cur="10" aria-pressed="false">MuSK-CAART</button>
+    <button class="btn" data-cur="11" aria-pressed="false">Tolerance</button>
+  </div>
+  <div class="cu-ctl" role="group" aria-label="Overlay">
+    <span class="kicker">Overlay</span>
+    <button class="btn" id="cuNeg" aria-pressed="false">Show negative and halted results</button>
+  </div>
+  <div class="stepper" id="cuSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="The immune chain that makes MG antibodies: thymus, T helper cell, B cell, plasma cell, IgG antibody, complement and the neuromuscular junction. Activation signals and antibodies flow along it to the junction, where receptors are lost. Scissors mark where the chosen treatment route cuts the chain, with its evidence label; control routes cut again with each dose, reset routes are followed by new naive cells."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuPlay">Play</button><label class="stage-cap tl" for="cuT">Route along the chain <input type="range" id="cuT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <p class="stage-cap" id="cuCap">Schematic: shows where each route acts, not how well it works.</p></div>
+    <aside class="note" id="cuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The routes side by side</h3>
+  <div class="tbl" id="cuTbl"></div>
+
+  <h3 class="sub">Negative and halted results</h3>
+  <p class="prose">Results that did not work, or worked too little to continue, belong on the map too. They show which cuts did not hold.</p>
+  <div class="cards" id="cuNegCards"></div>
+
+  <div class="callout corr"><p><b>Corrections and unverified reports.</b></p><ul>
+    <li><b>No riliprubart MG trial.</b> The C1s inhibitor riliprubart has data in cold agglutinin disease and phase 3 programmes in CIDP, but no myasthenia gravis trial was found in PubMed or ClinicalTrials.gov on 20 October 2026. The C1s route in MG is an extrapolation, not an MG programme. [[DSa2024]]</li>
+    <li><b>MuSK-CAART has no posted results.</b> Its phase 1 (7 enrolled) is listed as completed, with no results on the registry and no peer-reviewed report. [[CTMuSKCAART]]</li>
+    <li><b>Conflicting trade reports, marked unverified.</b> Two reports of the KYSA-6 anti-CD19 CAR-T phase 2 give different 24-week effects, and two conference reports of the telitacicept China phase 3 give different means. The press releases on the first CAR-T-treated MG patient give different ages (33 and 34). [[NeurologyLiveKYV2026,MGNewsTelitacicept2025,EMJTelitacicept2025,KyvernaPR2023,UMMagdeburg2023]]</li>
+  </ul></div>
+
+  <h3 class="sub">What would count as a cure</h3>
+  <div class="split2">
+    <div class="card"><span class="ev est">Definitions</span><h4>Remission has a precise meaning</h4>
+      <p>The MGFA research standards define post-intervention categories including complete stable remission, pharmacologic remission and minimal manifestations. [[Jaretzki2000]] The 2020 consensus sets the treatment goal as minimal manifestation status or better, with no more than mild medication side effects. Minimal manifestation status means no symptoms or functional limits but some weakness on examination; remission means no symptoms or signs, and excludes people taking daily cholinesterase inhibitors that help. [[Narayanaswami2021]]</p>
+      <p>A 2026 review proposes that a cure would be complete remission without ongoing treatment, with a high chance of success, low relapse risk, repeatability after relapse, proportionate toxicity and cost-effectiveness. [[ElWahsh2026]]</p>
+      <p>Under conventional care, lasting drug-free remission is rare: in 421 people followed about 10 years, 12.2% after thymectomy and 4.3% without reached complete stable remission with all treatment stopped for at least a year. [[Zhang2026]]</p>
+      <div class="hook"><b>Exam hook</b>Clinical remission is not the same as serological cure: after anti-CD19 CAR-T and after autologous transplant, people were symptom-free while AChR antibodies stayed detectable. [[Hegelmaier2026,Schlatter2023]]</div></div>
+    <div class="card ck"><span class="tag">Try it</span><h4>Which category is this?</h4>
+      <p>Describe an imagined person's state. The panel names the published category it matches.</p>
+      <div class="ctrls" role="group" aria-label="Symptoms and signs"><span class="kicker">Symptoms and signs</span>
+        <button class="btn" data-ck="sym:0" aria-pressed="false">None at all</button>
+        <button class="btn" data-ck="sym:1" aria-pressed="true">Weakness on exam only</button>
+        <button class="btn" data-ck="sym:2" aria-pressed="false">Symptoms or limits</button></div>
+      <div class="ctrls" role="group" aria-label="Treatment now"><span class="kicker">Treatment now</span>
+        <button class="btn" data-ck="tx:0" aria-pressed="false">No MG treatment</button>
+        <button class="btn" data-ck="tx:1" aria-pressed="false">Daily pyridostigmine that helps</button>
+        <button class="btn" data-ck="tx:2" aria-pressed="true">Immunotherapy or a biologic</button></div>
+      <div class="ctrls" role="group" aria-label="How long"><span class="kicker">For how long</span>
+        <button class="btn" data-ck="dur:0" aria-pressed="true">Under 1 year</button>
+        <button class="btn" data-ck="dur:1" aria-pressed="false">1 year or more</button></div>
+      <div class="ctrls" role="group" aria-label="Antibodies"><span class="kicker">AChR antibodies</span>
+        <button class="btn" data-ck="ab:0" aria-pressed="true">Still detectable</button>
+        <button class="btn" data-ck="ab:1" aria-pressed="false">No longer detectable</button></div>
+      <div class="ck-out" id="cuChk" aria-live="polite"></div></div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <p class="prose">These are gaps the research literature itself names. Most of the evidence on this page is expected to change within about three years, as seven registered CAR-T trials with more than 260 patients report between 2026 and 2029. [[Hegelmaier2026b,Hoffmann2026I]]</p>
+  <div class="qa" id="cuQA"></div>
+  <div class="prose"><p>The approved treatments these routes build on are covered in <a href="#ladder" data-go="ladder">The treatment ladder</a>, <a href="#biologics" data-go="biologics">Complement &amp; FcRn inhibitors</a> and <a href="#thymectomy" data-go="thymectomy">Thymectomy over the years</a>.</p></div>
 </section>

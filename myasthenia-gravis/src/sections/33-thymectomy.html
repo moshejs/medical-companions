@@ -1,6 +1,61 @@
-<!-- ================= 3.3 THYMECTOMY OVER THE YEARS (stub) ================= -->
+<!-- ================= 3.3 THYMECTOMY OVER THE YEARS ================= -->
 <section class="mod" id="m-thymectomy" data-mod="thymectomy" hidden>
+<style>
+#m-thymectomy .thy-ctl{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+#m-thymectomy .thy-ctl>div{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-thymectomy .note .readout{border-top:1px solid var(--line);padding-top:10px}
+#m-thymectomy .card>.ev{align-self:flex-start}
+#m-thymectomy .cardnote{font-size:13px;color:var(--muted)}
+#m-thymectomy .tbl table{min-width:640px}
+#m-thymectomy .tbl tbody th{white-space:normal;min-width:150px}
+#m-thymectomy .thy-ages{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+#m-thymectomy .thy-ages li{display:flex;gap:8px;align-items:flex-start;font-size:14.5px}
+#m-thymectomy .thy-ages li .tag{flex:none;margin-top:1px}
+#m-thymectomy .thy-view{background:var(--panel-2);border-radius:10px;padding:10px 12px;font-size:15px}
+#m-thymectomy .thy-view b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+</style>
   <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Thymectomy over the years</h2>
-    <p class="lede">The thymus, thymoma and the MGTX trial.</p></div>
-  <div class="lab"><div class="stage"><svg id="thStubSvg" viewBox="0 0 720 200" role="img" aria-label="placeholder"></svg></div></div>
+    <p class="lede">Thymectomy removes the thymus, a gland behind the breastbone. Follow the MGTX trial month by month: muscle scores, prednisone doses and remission over 3 and 5 years. Press play, switch the gland view or the surgical approach, and extend the timeline to 5 years.</p></div>
+  <p class="callout"><b>Published trial and guidance information only.</b> Everything here reports what the MGTX trial, its extension and the consensus guidance published. Whether surgery suits a particular person, and when, is decided by the person with their neurologist and thoracic surgeon.</p>
+
+  <div class="thy-ctl" role="group" aria-label="Animation settings">
+    <div><span class="kicker">The gland</span>
+      <button class="btn" id="thyEO" aria-pressed="true">Early-onset: hyperplasia</button>
+      <button class="btn" id="thyLO" aria-pressed="false">Late-onset: involuted</button>
+      <button class="btn" id="thyTM" aria-pressed="false">Thymoma</button></div>
+    <div><span class="kicker">Surgery</span>
+      <button class="btn" id="thyOpen" aria-pressed="true">Extended transsternal (MGTX)</button>
+      <button class="btn" id="thyMI" aria-pressed="false">VATS or robotic</button></div>
+    <div><span class="kicker">Show</span>
+      <button class="btn" id="thyPred" aria-pressed="true">Prednisone dose</button>
+      <button class="btn" id="thyExt" aria-pressed="false">Extend to 5 years</button></div>
+    <div id="thyStageRow" hidden><span class="kicker">Masaoka stage</span>
+      <button class="btn" data-thst="0" aria-pressed="true">I</button>
+      <button class="btn" data-thst="1" aria-pressed="false">II</button>
+      <button class="btn" data-thst="2" aria-pressed="false">III</button>
+      <button class="btn" data-thst="3" aria-pressed="false">IVa</button>
+      <button class="btn" data-thst="4" aria-pressed="false">IVb</button></div>
+  </div>
+  <div class="stepper" id="thySteps" role="group" aria-label="Steps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="thySvg" viewBox="0 0 720 600" style="min-width:560px" role="img" aria-label="Linked panels over the MGTX trial months. Left: a front view of the chest with the thymus behind the breastbone, removed in month 1 through a split breastbone or through small side ports, and a close-up of the gland showing germinal centres, fat or a thymoma. Right: mean QMG score and mean alternate-day prednisone dose for thymectomy plus prednisone against prednisone alone, and the share in minimal manifestation status, azathioprine use and hospital admissions at 3 and 5 years."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="thyPlay">Play</button><label class="stage-cap tl" for="thyT">Month <input type="range" id="thyT" min="0" max="36" step="0.05" value="0"></label><span class="stage-cap" id="thyMo" aria-hidden="true">month 0</span></div>
+      <p class="stage-cap" id="thyCap">Anatomy is schematic, not to scale. Filled dots are printed trial values; open dots were read from the published figure and are approximate; lines between them are interpolated.</p></div>
+    <aside class="note" id="thyNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who the guidance says it is for</h3>
+  <p class="prose">The strongest evidence comes from one randomised trial in a narrow group: adults aged 18 to 65 with generalized, AChR-antibody-positive MG without a thymoma, within 5 years of onset. Outside that group, guidance rests on cohort studies and expert consensus. [[Wolfe2016,Narayanaswami2021]]</p>
+  <div class="tbl" id="thyWho"></div>
+
+  <h3 class="sub">The age-ceiling disagreement</h3>
+  <div class="lab even">
+    <div class="stage"><div class="scroll"><svg id="thyAge" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Age bands from the published sources: MGTX enrolled ages 18 to 65, the 2020 consensus frames early thymectomy for 18 to 50, a pathology review describes benefit up to 60, a UK economic paper describes an adjunct under 45, and a post hoc analysis found no significant difference at 50 or over. A movable line marks the chosen age."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="thyAgeR">Age at surgery <input type="range" id="thyAgeR" min="10" max="80" step="1" value="40"></label><span class="stage-cap" id="thyAgeV" aria-hidden="true">40</span></div>
+      <p class="stage-cap">Bands show how each source frames age. This is not a recommendation for any person.</p></div>
+    <aside class="note" id="thyAgeNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Around the operation, thymoma, and the evidence on approach</h3>
+  <div class="cards" id="thyCards"></div>
 </section>

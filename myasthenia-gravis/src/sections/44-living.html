@@ -1,6 +1,69 @@
-<!-- ================= 4.4 LIVING WITH MG (stub) ================= -->
+<style>
+#m-living .li-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+#m-living .card .stage-cap{margin-top:auto}
+#m-living .li-gap{background:var(--panel-2);border-radius:10px;padding:10px 12px;font-size:14.5px}
+#m-living .li-gap b:first-child{font:600 10.5px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+#m-living .li-emerg{background:var(--bad-soft);border-radius:10px;padding:11px 14px;font-size:15px;border-left:4px solid var(--bad)}
+#m-living .li-emerg b:first-child{font:600 10.5px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--bad);display:block;margin-bottom:2px}
+#m-living td .ok{color:var(--good);font-weight:700}
+#m-living td .no{color:var(--bad);font-weight:700}
+#m-living td .mid{color:var(--warn);font-weight:700}
+</style>
+<!-- ================= 4.4 LIVING WITH MG ================= -->
 <section class="mod" id="m-living" data-mod="living" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Crisis, care &amp; the future</p><h2>Living with MG</h2>
-    <p class="lede">Pregnancy, surgery, exercise, vaccines, work.</p></div>
-  <div class="lab"><div class="stage"><svg id="liStubSvg" viewBox="0 0 720 200" role="img" aria-label="placeholder"></svg></div></div>
+    <p class="lede">Myasthenia gravis through pregnancy, birth and the newborn weeks, then surgery, exercise, vaccines, mood, work and driving. Press play, then pick a topic.</p></div>
+
+  <div class="li-emerg"><b>Emergency</b>At any stage of life, new or worsening difficulty breathing or swallowing in a person with MG is an emergency: nursing teaching material tells patients to contact the prescriber urgently for these signs. In a newborn of a mother with MG, the signs described are floppiness, poor sucking, swallowing trouble and a weak cry, nearly always within 24 hours of birth, and the guidance asks that every such baby be examined. [[OpenStaxPharmNurses,MGFACard,Sanders2016,Gilhus2020]]</div>
+
+  <h3 class="sub">Pregnancy, birth and the newborn</h3>
+  <div class="ctrls" id="liSet" role="group" aria-label="Which study's numbers"></div>
+  <div class="ctrls" role="group" aria-label="Rare complication"><button class="btn" id="liFarad" aria-pressed="false">Show fetal AChR antibody syndrome (rare)</button></div>
+  <div class="stepper" id="liSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="liSvg" viewBox="0 0 720 580" style="min-width:560px" role="img" aria-label="A timeline from planning a pregnancy through the three trimesters, birth, the newborn weeks and six months after birth. Bars show the published share of pregnancies in which MG worsened, medicine bars show which drugs stop and which continue, a curve shows maternal IgG reaching the baby from week 13, and the baby lane shows the transient neonatal MG window in the first weeks."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="liPlay">Play</button><label class="stage-cap tl" for="liT">Planning to six months <input type="range" id="liT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="readout" id="liRead"></div>
+      <p class="stage-cap">Segments are not drawn to the same time scale. Filled dots are published values; the IgG curve between its published anchors, and its fall after birth, are schematic.</p></div>
+    <aside class="note" id="liNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Medicines around pregnancy and breastfeeding</h3>
+  <p class="prose">What the 2016 international consensus, two reviews by Gilhus and the US labels say. Every choice is made with the treating clinicians; this table only reports what the sources state. [[Sanders2016,Gilhus2018,Gilhus2020]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Medicine</th><th>Before and during pregnancy</th><th>Breastfeeding</th></tr></thead>
+    <tbody id="liDrugTbl"></tbody></table></div>
+  <div class="li-grid" id="liPregCards"></div>
+
+  <h3 class="sub">Other parts of life</h3>
+  <p class="prose">Pick a topic. The chart grows the published numbers for it, and the panel beside it says what the studies and guidance show, where they disagree, and where no study was found.</p>
+  <div class="ctrls" id="liDom" role="group" aria-label="Topic"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="liDomSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bars and ratio plots of the published numbers for the chosen topic."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="liDomPlay">Play</button><label class="stage-cap tl" for="liDomT">Grow the numbers <input type="range" id="liDomT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="liDomCap"></p></div>
+    <aside class="note" id="liDomNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>Questions people bring to a clinic visit</h4>
+      <p>Plain-words prompts built from what the guidance says should be discussed. They are starting points for a conversation, not advice.</p>
+      <ul>
+        <li>If I plan a pregnancy, which of my medicines would need to change, and how far ahead?</li>
+        <li>Where should I give birth, and will the baby be checked for weakness after birth?</li>
+        <li>Before an operation, does the anaesthetist know I have MG, and should my pyridostigmine continue?</li>
+        <li>Which vaccines are right for me on my current treatment, and are any live vaccines a problem?</li>
+        <li>Who do I tell about double vision and driving where I live?</li>
+        <li>Is my tiredness the MG, or could it be sleep or mood?</li>
+      </ul>
+      <div class="pt"><b>In plain words</b>Most people with MG work, exercise and have children. The planning is mostly about medicines, operations and infections.</div></div>
+    <div class="card"><h4>Where the evidence stops</h4>
+      <ul>
+        <li>The commonly quoted Leventhal point weights could not be traced to a primary source, so only the four risk factors are given. [[Leventhal1980,Grant1982]]</li>
+        <li>No controlled study measuring heat-induced worsening of MG was found. [[Ricker1977]]</li>
+        <li>No MG-specific trial of diet or weight management was found; steroid weight gain is managed with healthy eating and exercise in juvenile MG. [[OConnell2020]]</li>
+        <li>No US national driving rule specific to MG was found; only the UK DVLA rules are given. [[DVLAMG]]</li>
+        <li>The onset window for neonatal MG often quoted as "up to 3 days" was not found; the source read says weakness nearly always appears within 24 hours. [[Gilhus2020]]</li>
+        <li>The succinylcholine 2.6-fold figure is cited through a review, because the original 1988 paper could not be accessed. [[Bhat2024]]</li>
+      </ul></div>
+  </div>
 </section>

@@ -1,6 +1,92 @@
-<!-- ================= 3.1 PYRIDOSTIGMINE, ANIMATED (stub) ================= -->
+<!-- ================= 3.1 PYRIDOSTIGMINE, ANIMATED ================= -->
 <section class="mod" id="m-pyrido" data-mod="pyrido" hidden>
+<style>
+#m-pyrido .pytog{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center}
+#m-pyrido .pytog>div{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-pyrido .pytog .kicker{margin-right:2px}
+#m-pyrido .pyfine{font-size:13.5px;color:var(--muted)}
+</style>
   <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Pyridostigmine, animated</h2>
-    <p class="lede">Buying time at the receptor, dose by dose.</p></div>
-  <div class="lab"><div class="stage"><svg id="pyStubSvg" viewBox="0 0 720 200" role="img" aria-label="placeholder"></svg></div></div>
+    <p class="lede">Pyridostigmine blocks the enzyme that clears acetylcholine, so each nerve signal reaches more of the receptors that are left. Press play to follow one dose over 8 hours, then switch food, tablet type, a second dose or too much.</p></div>
+  <div class="pytog" id="pyTog">
+    <div role="group" aria-label="Taken with or without food"><span class="kicker">Taken</span><button class="btn" data-pyfood="0" aria-pressed="true">Fasting</button><button class="btn" data-pyfood="1" aria-pressed="false">With food</button></div>
+    <div role="group" aria-label="Tablet"><span class="kicker">Tablet</span><button class="btn" data-pyform="ir" aria-pressed="true">60 mg tablet</button><button class="btn" data-pyform="er" aria-pressed="false">Timespan 180 mg</button></div>
+    <div role="group" aria-label="Add to the scene"><span class="kicker">Add</span><button class="btn" data-pyx="dose2" aria-pressed="false">A second dose</button><button class="btn" data-pyx="much" aria-pressed="false">Too much</button></div>
+    <div role="group" aria-label="Half-life used by the model"><span class="kicker">Half-life in the model</span><button class="btn" data-pyhl="a" aria-pressed="true">1.78 h</button><button class="btn" data-pyhl="b" aria-pressed="false">200 min</button></div>
+  </div>
+  <div class="stepper" id="pySteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="pySvg" viewBox="0 0 720 476" style="min-width:560px" role="img" aria-label="Two linked panels. Left: the synaptic cleft, where acetylcholine is released from the nerve, binds receptors on the muscle and is broken down by acetylcholinesterase; as the pyridostigmine level rises more enzyme molecules are capped, acetylcholine lingers and more receptors open. Right: the plasma level over 8 hours after a dose with the published anchors, and muscle strength following it."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="pyPlay">Play</button><label class="stage-cap tl" for="pyT">Hours after the dose <input type="range" id="pyT" min="0" max="1" step="0.002" value="0.21"></label></div>
+      <div class="readout" id="pyRead"></div>
+      <p class="stage-cap">Schematic, not to scale. Curve shapes come from a simple model fitted to the published anchors (filled dots and bars). They are not a prediction for any person.</p></div>
+    <aside class="note" id="pyNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Too little, the useful window, too much</h3>
+  <div class="stage">
+    <div class="scroll"><svg id="pyBell" viewBox="0 0 720 306" style="min-width:560px" role="img" aria-label="Schematic bell-shaped curve of neuromuscular function against plasma pyridostigmine level, with the published best range of 30 to 60 ng/mL and the level above 100 ng/mL that may impair function"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="pyCPlay">Play</button><label class="stage-cap tl" for="pyC">Plasma level <input type="range" id="pyC" min="0" max="1" step="0.002" value="0.28"></label></div>
+    <p class="stage-cap" id="pyCCap"></p>
+  </div>
+
+  <h3 class="sub">The published numbers behind the curve</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Measure</th><th>Published value</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Oral bioavailability</th><td>7.6 ± 2.4% after 120 mg; 11.5–18.9% (mean 14.3%) after 60 mg; "approximately 10%" in a review; may fall to 3.3% in people with MG</td><td>Healthy volunteers, two studies; review; UK SmPC [[Aquilonius1980,BreyerPfaff1985,Aquilonius1986,UKSmPCMestinon2025]]</td></tr>
+      <tr><th>Time to peak</th><td>1.7 h fasting, 3.2 h with food; food did not change the amount absorbed</td><td>Healthy volunteers [[Aquilonius1980]]</td></tr>
+      <tr><th>Peak after 60 mg</th><td>40–60 µg/L (the same as ng/mL), reached 1–2 h after the dose</td><td>Review [[Aquilonius1986]]</td></tr>
+      <tr class="hl"><th>Half-life</th><td>1.52 h after IV and 1.78 ± 0.24 h after oral dosing; or a plasma decline of 200 min after oral dosing, twice the 97 min after IV; or 3–4 h after oral use</td><td>The sources disagree [[Aquilonius1980,BreyerPfaff1985,UKSmPCMestinon2025]]</td></tr>
+      <tr><th>Clinical duration</th><td>3–4 h per daytime dose; a bedtime dose often lasts about 6 h</td><td>UK SmPC [[UKSmPCMestinon2025]]</td></tr>
+      <tr><th>Best plasma range</th><td>30–60 ng/mL for the deltoid decrement (6 patients); neostigmine 5–15 ng/mL</td><td>[[Aquilonius1983]]</td></tr>
+      <tr><th>Too high</th><td>Above 100 ng/mL may impair neuromuscular function (18 patients)</td><td>[[BreyerPfaff1990]]</td></tr>
+      <tr><th>Timespan 180 mg</th><td>Immediate effect about equal to a 60 mg tablet; duration averages 2.5 times a 60 mg dose, varying between patients; at least 6 h between Timespan doses</td><td>US label [[FDAMestinon2020]]</td></tr>
+      <tr><th>Between patients</th><td>Pre-dose levels differed up to seven-fold on the same daily dose</td><td>[[Aquilonius1983,Aquilonius1980]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Doses as published</h3>
+  <div class="callout"><p>These are the figures printed in labels and guidance, quoted for study. They are not a dose for anyone: the dose, the form and the timing for any person are set by the treating clinician, who adjusts them to symptoms. The international consensus says pyridostigmine should be part of initial treatment in most patients, with the dose adjusted to symptoms. [[Sanders2016]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>What it prints</th></tr></thead>
+    <tbody>
+      <tr><th>US label (Mestinon)</th><td>Forms: syrup 60 mg per 5 mL (5% alcohol), 60 mg tablets, 180 mg Timespan. Average 600 mg a day (ten 60 mg tablets) spaced for when strength is most needed; up to 1,500 mg a day in severe cases; 60–360 mg a day in mild cases. Timespan: one to three 180 mg tablets once or twice a day, at least 6 h apart. The syrup allows fractional doses for children and "brittle" patients and is easier to swallow with bulbar weakness. [[FDAMestinon2020]]</td></tr>
+      <tr><th>UK SmPC</th><td>Adults 30–120 mg per dose, usually 300–1,200 mg a day. Children under 6 start at 30 mg; children usually take 30–360 mg a day in total. [[UKSmPCMestinon2025]]</td></tr>
+      <tr><th>Nordic guidance 2024</th><td>Usual adult dose 30–60 mg every 4–6 h; 450–600 mg a day or more may cause more weakness and cholinergic crisis. Children start at 1 mg/kg/day, typically 7 mg/kg/day. [[Gilhus2024]]</td></tr>
+      <tr><th>German guideline</th><td>Up to 720 mg a day; higher oral doses are tolerated only in exceptional cases. Ambenonium, neostigmine or distigmine when pyridostigmine is not tolerated or does not work. [[Wiendl2023]]</td></tr>
+      <tr class="hl"><th>The disagreement</th><td>Upper limits differ by a factor of two to three: 1,500 mg a day in severe cases (US label), 720 mg a day (German guideline), more weakness from 450–600 mg a day (Nordic guidance). [[FDAMestinon2020,Wiendl2023,Gilhus2024]]</td></tr>
+    </tbody></table></div>
+
+  <div class="cards" id="pyCards">
+    <div class="card"><span class="tag warn">Side effects</span><h4>Common, and often from the gut</h4>
+      <p>The US label sorts them into <b>muscarinic</b> effects (nausea, vomiting, diarrhoea, abdominal cramps, more gut movement, saliva and bronchial secretions, small pupils, sweating) and <b>nicotinic</b> effects (muscle cramps, fasciculations, weakness). Bromide can cause a rash. [[FDAMestinon2020]]</p>
+      <ul><li>Dutch-Belgian survey: 91% of current users reported side effects, against 55% of a control group. The most frequent were flatulence, urinary urgency, muscle cramps, blurred vision and sweating. 26% of those who stopped did so because of side effects. [[RemijnNelissen2022]]</li>
+        <li>Korean clinic, 71 patients: 13% could not tolerate it and 24% had side effects. [[Lee2016]]</li></ul></div>
+    <div class="card"><span class="tag bad">Safety</span><h4>Cholinergic crisis, and why atropine can hide it</h4>
+      <p>An overdose can cause cholinergic crisis: weakness that grows until it reaches the breathing muscles, and that may be hard to tell from myasthenic crisis by symptoms alone. The label says it calls for prompt withdrawal of all such drugs and immediate atropine. Atropine can usually counteract the muscarinic effects, but the label warns that this can mask signs of overdose. The consensus adds that excess drug cannot be completely excluded as a cause of worsening in a crisis, and that these drugs increase airway secretions. [[FDAMestinon2020,Sanders2016]]</p>
+      <p><b>Difficulty breathing or swallowing is an emergency.</b></p>
+      <div class="hook"><b>Exam hook</b>Too much pyridostigmine causes <b>weakness</b>, not strength: receptors desensitise. The label's muscarinic signs (secretions, cramps, sweating, small pupils) can come with excess. [[Mehndiratta2014,FDAMestinon2020]]</div></div>
+    <div class="card"><span class="ev est">Evidence check</span><h4>IMPACT-MG 2026 against the Cochrane view</h4>
+      <p>A 2014 Cochrane review found no randomised trial of oral cholinesterase inhibitors in generalized MG and judged that the observed response was so clear that a placebo-controlled trial "would be difficult to justify". [[Mehndiratta2014]]</p>
+      <p>IMPACT-MG part 1 (2026) ran one anyway: a double-blind crossover in 19 people with AChR MG already on pyridostigmine, two 5-day periods with a 2-day washout. Pyridostigmine beat placebo on every measure: MG Impairment Index by 5.3 points (95% CI 1.9–8.7), QMG by 1.4, MG-ADL by 1.2 and MG-QOL15r by 2.0. [[RemijnNelissen2026]]</p>
+      <p class="pyfine">The two views differ in emphasis: the benefit is real but modest, about 1.2 MG-ADL points over 5 days. [[Mehndiratta2014,RemijnNelissen2026]]</p></div>
+    <div class="card"><span class="tag" style="background:var(--musk-soft);color:var(--musk)">MuSK MG</span><h4>A weaker response, and more side effects</h4>
+      <p>The international consensus and the German guideline both say people with MuSK MG respond poorly to cholinesterase inhibitors and often get side effects at conventional doses. In 37 Italian MuSK-positive patients the edrophonium or neostigmine test was equivocal or negative in 11 (29.7%), and the oral response ranged from mild benefit to overt intolerance. [[Sanders2016,Wiendl2023,Evoli2003]]</p>
+      <p>One MuSK patient showed extra repetitive discharges after the muscle response, possibly triggered by the drug, which the authors read as abnormal sensitivity to acetylcholine (a single case). In MuSK passive-transfer mice, pyridostigmine at therapeutically relevant levels made receptor loss worse. <span class="ev early">Early evidence</span> [[Punga2006,Morsch2013]]</p></div>
+    <div class="card"><h4>Neostigmine and edrophonium</h4>
+      <p>All three are reversible quaternary cholinesterase inhibitors with low oral bioavailability. Oral neostigmine is absorbed even less: 30 mg gives plasma levels of only 1–5 µg/L. Current US injectable neostigmine and injectable pyridostigmine (Regonol) labels are only for reversing muscle-relaxant drugs after surgery, not for MG. [[Aquilonius1986,FDANeostigmine2024,FDARegonol2021]]</p>
+      <p>Edrophonium is short-acting and was used for the diagnostic "Tensilon test". In a Vienna series of 182 MG patients and 324 controls it had 83.5% sensitivity and 87.7% specificity; MuSK MG patients were less likely to respond (OR 0.08), and 11.5% had adverse events, 91.4% of them mild. [[Mehndiratta2014,Keritam2026]]</p></div>
+    <div class="card"><span class="tag">Not for MG</span><h4>Amifampridine is a Lambert-Eaton drug</h4>
+      <p>Amifampridine (Firdapse) blocks potassium channels on the nerve terminal. In the US it is labelled only for Lambert-Eaton myasthenic syndrome (LEMS), in adults and children aged 6 and over. [[FDAFirdapse2026]]</p>
+      <p>IMPACT-MG part 2 tested it in 20 people with AChR MG not well controlled on pyridostigmine. Adding 30 or 60 mg was no better than placebo, and adverse events were more common (60% and 75% against 30%). [[RemijnNelissen2026b]]</p></div>
+    <div class="card"><h4>Cautions printed on the label</h4><ul>
+      <li>Contraindicated in mechanical intestinal or urinary obstruction; caution in asthma (US label) and in obstructive airway disease such as asthma and COPD (UK SmPC). [[FDAMestinon2020,UKSmPCMestinon2025]]</li>
+      <li>The US label says it is excreted mainly unchanged by the kidney, so lower doses may be needed in kidney disease; severe renal impairment prolongs elimination. The UK SmPC says 5–15% of an oral dose appears unchanged in urine. [[FDAMestinon2020,Aquilonius1986,UKSmPCMestinon2025]]</li>
+      <li>Methylcellulose has been reported to block absorption completely. [[Aquilonius1986]]</li></ul></div>
+    <div class="card"><h4>Meals and timing</h4>
+      <p>Food delays the peak from 1.7 to 3.2 hours without changing the amount absorbed. [[Aquilonius1980]] The US label says only that doses are spaced to give the most strength when it is most needed. [[FDAMestinon2020]] An NHS Scotland Q&A says the drug usually starts working in 30 to 60 minutes, so doses are taken about 30 to 60 minutes before meals; a Myaware nurse page gives about 20 minutes for people on an altered diet. No neurology guideline read for this guide sets meal timing. [[RightDecisionsPyrido2025,MyawareNurses]]</p>
+      <div class="pt"><b>In plain words</b>A meal slows the tablet down. It does not make it weaker overall, but the best moment comes later.</div></div>
+    <div class="card"><h4>How long people stay on it</h4>
+      <p>In the Dutch-Belgian registry, 93% of patients (78 of 84) started with pyridostigmine and 65% (54 of 83) were still taking it at 10 years. In a survey of 410 registry patients, median self-rated effectiveness was 60 (IQR 28–78) and net benefit 65 (IQR 45–84), on what appears to be a 0–100 scale. [[RemijnNelissen2026c,RemijnNelissen2022]]</p></div>
+  </div>
 </section>

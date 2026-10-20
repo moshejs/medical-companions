@@ -12,7 +12,7 @@ Scope: the placebo-controlled pivotal trials, open-label extensions (OLEs), phar
 
 ### How to read the animation numbers (endpoint conventions)
 - MG-ADL runs 0 to 24 and QMG runs 0 to 39; higher means worse. All changes below are least-squares (LS) mean change from baseline, and a negative number means improvement. [FDASoliris2026; FDAZilbrysq2026]
-- Two different designs are being compared. Continuous-dosing trials report change at a fixed week: C5 inhibitors at week 12 or 26, nipocalimab averaged over weeks 22-24, inebilizumab at week 26. Cyclic FcRn trials report one 4- or 6-week cycle and peak near week 4 to 6. A single-axis animation should mark these timepoints, because the endpoints are not interchangeable. [Saccà2023; Roy2026]
+- Two different designs are being compared. Continuous-dosing trials report change at a fixed week: C5 inhibitors at week 12 or 26, nipocalimab averaged over weeks 22-24, inebilizumab at week 26. Cyclic FcRn trials report one 4- or 6-week cycle and peak near week 4 to 6. A single-axis animation should mark these timepoints, because the endpoints are not interchangeable. [Sacca2023; Roy2026]
 - A 2-point MG-ADL improvement best predicted clinical improvement in the validation study. This is the basis of the "≥2-point" MCID used by ADAPT and later trials. [Muppidi2011]
 - For QMG, MCID cut-offs from an IVIg-vs-placebo dataset were below a 3.0-point change; trials such as REGAIN and RAISE use stricter responder thresholds (≥3 MG-ADL, ≥5 QMG). [Katzberg2014; Muppidi2019]
 
@@ -243,7 +243,7 @@ Scope: the placebo-controlled pivotal trials, open-label extensions (OLEs), phar
   - Dosing: SC 120 or 180 mg at weeks 0, 2 and 4, then every 4 weeks.
   - Week 24: MG-ADL −3.59 vs −2.57; difference −1.02 (−1.88 to −0.16), p=0.012. The authors called this "small".
   - The sponsor stopped development and terminated the OLE.
-- **Rituximab:** detail is in pass D. In BeatMG (mild-to-moderate AChR+ gMG on prednisone ≥15 mg/day), the steroid-sparing primary outcome was met by 60% on rituximab vs 56% on placebo, a futility result. In a network meta-analysis, rituximab did not significantly improve MG-ADL (−0.92, 95% CI −2.24 to 0.39). [Nowak2022; Saccà2023]
+- **Rituximab:** detail is in pass D. In BeatMG (mild-to-moderate AChR+ gMG on prednisone ≥15 mg/day), the steroid-sparing primary outcome was met by 60% on rituximab vs 56% on placebo, a futility result. In a network meta-analysis, rituximab did not significantly improve MG-ADL (−0.92, 95% CI −2.24 to 0.39). [Nowak2022; Sacca2023]
 - **Tocilizumab:** evidence is limited to case reports, for example 2 rituximab-refractory AChR+ patients who improved within months. There is no randomised MG trial. [Jonsson2017]
 
 ### Regulatory timeline (gMG indications)
@@ -275,7 +275,7 @@ Scope: the placebo-controlled pivotal trials, open-label extensions (OLEs), phar
 - **Inebilizumab:** FDA December 2025 (see above). **Gefurulimab:** CHMP positive opinion September 2026. **Cemdisiran:** under FDA review with a November 2026 target. **Israel MoH:** no citable registration found for any agent. [AmgenUplizna2025; EMAKlygefa2026; NeurologyLiveCemdisiran2026]
 
 ### Comparative evidence (network and indirect comparisons) – disagreements
-- **Saccà 2023 (pairwise and network meta-analysis):** [Saccà2023]
+- **Saccà 2023 (pairwise and network meta-analysis):** [Sacca2023]
   - Pooled MG-ADL effect vs placebo −2.17 (95% CI −2.67 to −1.67).
   - No complement-vs-FcRn difference on MG-ADL (p=0.16).
   - QMG effect larger with FcRn agents (−4.78 vs −2.60).
@@ -346,7 +346,7 @@ Scope: the placebo-controlled pivotal trials, open-label extensions (OLEs), phar
 - [Habib2025F] Habib AA, Zhao C, Aban I, França MC Jr, José JG, Zu Hörste GM, et al. Safety and efficacy of satralizumab in patients with generalised myasthenia gravis (LUMINESCE): a randomised, double-blind, multicentre, placebo-controlled phase 3 trial. Lancet Neurol. 2025;24(2):117-127. PMID 39862880. doi:10.1016/S1474-4422(24)00514-3. (validated: PubMed)
 - [Nowak2022] Nowak RJ, Coffey CS, Goldstein JM, Dimachkie MM, Benatar M, Kissel JT, et al. Phase 2 Trial of Rituximab in Acetylcholine Receptor Antibody-Positive Generalized Myasthenia Gravis: The BeatMG Study. Neurology. 2022;98(4):e376-e389. PMID 34857535. doi:10.1212/WNL.0000000000013121. PMC8793103. (validated: PubMed)
 - [Jonsson2017] Jonsson DI, Pirskanen R, Piehl F. Beneficial effect of tocilizumab in myasthenia gravis refractory to rituximab. Neuromuscul Disord. 2017;27(6):565-568. PMID 28433474. doi:10.1016/j.nmd.2017.03.007. (validated: PubMed)
-- [Saccà2023] Saccà F, Pane C, Espinosa PE, Sormani MP, Signori A. Efficacy of innovative therapies in myasthenia gravis: A systematic review, meta-analysis and network meta-analysis. Eur J Neurol. 2023;30(12):3854-3867. PMID 37204031. doi:10.1111/ene.15872. (validated: PubMed)
+- [Sacca2023] Saccà F, Pane C, Espinosa PE, Sormani MP, Signori A. Efficacy of innovative therapies in myasthenia gravis: A systematic review, meta-analysis and network meta-analysis. Eur J Neurol. 2023;30(12):3854-3867. PMID 37204031. doi:10.1111/ene.15872. (validated: PubMed)
 - [Ma2024] Ma Y, Nie X, Zhu G, Qi W, Hao L, Guo X. The Efficacy and Safety of Different Targeted Drugs for the Treatment of Generalized Myasthenia Gravis: A Systematic Review and Bayesian Network Meta-analysis. CNS Drugs. 2024;38(2):93-104. PMID 38300476. doi:10.1007/s40263-024-01062-7. (validated: PubMed)
 - [Zhong2024] Zhong H, Li Z, Li X, Wu Z, Yan C, Luo S, et al. Initiation response, maximized therapeutic efficacy, and post-treatment effects of biological targeted therapies in myasthenia gravis: a systematic review and network meta-analysis. Front Neurol. 2024;15:1479685. PMID 39529623. doi:10.3389/fneur.2024.1479685. (validated: PubMed)
 - [Filippakopoulou2026] Filippakopoulou E, Gavriilaki M, Arnaoutoglou M, Kimiskidis V, Di Giovanni S. Efficacy and safety of complement inhibitors and FcRn blockers in generalized AChR antibody-positive myasthenia gravis: a meta-analysis. J Neurol. 2026;273(4). PMID 41925914. doi:10.1007/s00415-026-13778-1. (validated: PubMed)

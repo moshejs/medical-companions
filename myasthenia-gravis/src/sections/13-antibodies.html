@@ -1,6 +1,93 @@
-<!-- ================= 1.3 ANTIBODIES AT THE JUNCTION (stub) ================= -->
+<!-- ================= 1.3 ANTIBODIES AT THE JUNCTION ================= -->
 <section class="mod" id="m-antibodies" data-mod="antibodies" hidden>
+<style>
+#m-antibodies .an-dis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+@media (max-width:560px){#m-antibodies .an-dis{grid-template-columns:minmax(0,1fr)}}
+#m-antibodies .an-dis>div{background:var(--panel-2);border-radius:10px;padding:10px 12px;font-size:14px;display:flex;flex-direction:column;gap:4px}
+#m-antibodies .an-dis b{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-antibodies .an-acts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-antibodies .an-acts .btn{font-size:13px;padding:6px 12px}
+#m-antibodies .an-thy{display:flex;flex-direction:column;gap:12px}
+</style>
   <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Antibodies at the junction</h2>
-    <p class="lede">AChR, complement, MuSK and LRP4, animated.</p></div>
-  <div class="lab"><div class="stage"><svg id="anStubSvg" viewBox="0 0 720 200" role="img" aria-label="placeholder"></svg></div></div>
+    <p class="lede">How MG antibodies take receptors away from the junction: AChR antibodies cross-link receptors and call in complement; MuSK antibodies break the signal that keeps receptors clustered. Pick an antibody type and press play.</p></div>
+  <div class="ctrls" role="group" aria-label="Antibody type">
+    <span class="kicker">Antibody</span>
+    <button class="btn" id="anAChR" aria-pressed="true">AChR (IgG1/IgG3)</button>
+    <button class="btn" id="anMuSK" aria-pressed="false">MuSK (IgG4)</button>
+    <button class="btn" id="anLRP4" aria-pressed="false">LRP4</button>
+    <button class="btn" id="anSero" aria-pressed="false">Seronegative</button>
+  </div>
+  <div class="stepper" id="anSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="anSvg" viewBox="0 0 720 450" style="min-width:560px" role="img" aria-label="Animated postsynaptic membrane under attack. In AChR mode, IgG1 and IgG3 antibodies bridge pairs of receptors, which are pulled inside and degraded; C1q binds the antibodies and the complement cascade ends in membrane attack complex rings that destroy the fold tips, so the folds simplify and receptors are shed; a few antibodies block the acetylcholine site. In MuSK mode, IgG4 antibodies swap half-molecules, become monovalent, block the LRP4 to MuSK link that agrin uses, and receptor clusters disperse without complement. LRP4 and seronegative modes show their own steps. A side panel tracks receptors remaining, fold depth, the active mechanisms and where treatments act."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="anPlay">Play</button><label class="stage-cap tl" for="anT">Timeline <input type="range" id="anT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap" id="anCap">Schematic, not to scale; the cleft is drawn wide to make room for the antibodies.</p></div>
+    <aside class="note" id="anNote" aria-live="polite"></aside>
+  </div>
+  <div class="an-acts" aria-label="Where treatments act">
+    <span class="kicker">Where treatments act</span>
+    <button class="btn" data-go="biologics">FcRn blockers: less IgG in circulation</button>
+    <button class="btn" data-go="biologics">C5 inhibitors: no membrane attack complex</button>
+    <button class="btn" data-go="pyrido">Pyridostigmine: ACh lasts longer</button>
+  </div>
+
+  <h3 class="sub">Four antibody types side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>AChR</th><th>MuSK</th><th>LRP4</th><th>Clustered-AChR only</th></tr></thead>
+    <tbody>
+      <tr><th>Main IgG subclass</th><td>IgG1 and IgG3: IgG1 in 100%, IgG3 in 64% of patients tested [[Rodgaard1987]]</td><td>IgG4, which cannot activate complement [[Huijbers2018]]</td><td>Mainly IgG1 [[Higuchi2011]]</td><td>Mainly IgG1 [[Leite2008]]</td></tr>
+      <tr><th>Complement</th><td>Yes: MAC at every endplate in 30 patients [[Nakano1993]]</td><td>No (IgG4)</td><td>C5b-9 in all 7 biopsies studied [[Hoffmann2026]]</td><td>Activate complement in vitro [[Leite2008]]</td></tr>
+      <tr><th>Main action</th><td>Cross-linking and internalization; complement lysis of folds; blockade in a minority [[Drachman1978,Sahashi1980,Howard1987]]</td><td>Blocks the MuSK–LRP4 link, so agrin cannot drive clustering [[Huijbers2013]]</td><td>Blocks LRP4 binding to its ligand [[Higuchi2011]]</td><td>Bind receptors held in rapsyn clusters [[Leite2008]]</td></tr>
+      <tr><th>Thymus</th><td>Germinal centres in early-onset MG; thymoma [[Cron2018,Marx2013]]</td><td>Largely unremarkable [[Leite2005]]</td><td>Not covered here</td><td>Not covered here</td></tr>
+      <tr class="hl"><th>How common</th><td>Standard assay positive in about 88% [[Vincent1985]]</td><td>70% of AChR-negative patients in the first report [[Hoch2001]]</td><td>2% to about 50% of double-seronegative patients, by cohort [[Zhang2012]]</td><td>38% of RIA-negative patients in routine testing [[RodriguezCruz2015]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Where the antibodies come from</h3>
+  <div class="lab even">
+    <div class="stage an-thy">
+      <div class="stepper" id="anThySteps"></div>
+      <div class="scroll"><svg id="anThySvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Five schematic scenes of the thymus. A normal thymus where AIRE-expressing epithelial cells show self-antigens such as the AChR alpha subunit to developing T cells. An early-onset MG thymus with germinal centres, myoid cells carrying AChR and recruited B cells. A germinal centre producing plasma cells that release AChR antibodies into the blood. A thymoma that has lost AIRE. Late-onset and MuSK MG, where the thymus plays a smaller or no role."></svg></div>
+      <p class="stage-cap">Schematic. Click a step.</p>
+    </div>
+    <aside class="note" id="anThyNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The evidence, and where it disagrees</h3>
+  <div class="cards">
+    <div class="card"><h4>Antibody alone can cause MG</h4>
+      <p>In 1973, rabbits immunized with AChR purified from electric eel made anti-AChR antibodies and developed flaccid paralysis with neuromuscular blockade, relieved by edrophonium or neostigmine. [[Patrick1973]]</p>
+      <p>In 1975, an immunoglobulin fraction of MG patients' serum, injected into mice daily, lowered mEPP amplitude and junctional AChR numbers; some mice showed the decrement on repetitive stimulation, reversed by neostigmine. [[Toyka1975]]</p>
+      <p>In passive transfer, IgG and C3 coat fold tips by 6 hours, coated fold segments are shed by 24 hours, and endplates are still smaller at day 54. [[Engel1979]]</p>
+      <p><span class="ev est">Established</span></p></div>
+    <div class="card"><h4>Titre does not equal severity</h4>
+      <p>Across patients, AChR antibody titre correlates poorly with how weak a person is: some with severe weakness have low titres and some in remission have high ones. Specificity, affinity and subclass differ between people. [[Lindstrom1976,Howard1987]]</p>
+      <p>Within a person over time: titres fell in 92% of those who improved but also in 63% of those who did not. A fall predicted improvement with 83% positive and 59% negative predictive value. [[Sanders2014]]</p>
+      <p>Receptor counts track severity better: junctional AChR loss correlated with clinical severity. [[Pestronk1985]]</p></div>
+    <div class="card"><h4>Disagreement: must the antibody cross-link?</h4>
+      <div class="an-dis">
+        <div><b>Yes</b>Intact IgG or divalent F(ab')₂ sped receptor loss about threefold; monovalent Fab did nothing unless a second antibody cross-linked it. [[Drachman1978,Pumplin1983]]</div>
+        <div><b>Not always</b>In passive transfer, F(ab')₂ hybrids with only one AChR-binding arm, and even Fab, reduced endplate channel number. [[Sterz1986]]</div>
+      </div>
+      <p>Most reviews present cross-linking as the main route; the 1986 data say it is not the only one.</p></div>
+    <div class="card"><h4>Disagreement: is IgG4 the whole story in MuSK MG?</h4>
+      <div class="an-dis">
+        <div><b>IgG4 is enough</b>Purified IgG4, not IgG1–3, from MuSK patients paralysed mice; monovalent IgG4 was the most potent form. [[Klooster2012,Vergoossen2021]]</div>
+        <div><b>Not the only factor</b>IgG1–3 MuSK antibodies still inhibited agrin-induced clustering and dispersed preformed clusters; coexisting IgG1–3 question IgG4 as the sole cause. [[Koneczny2013,Vincent2018]]</div>
+      </div></div>
+    <div class="card"><h4>The main immunogenic region</h4>
+      <p>Half or more of MG antibodies target one conformational patch at the top of the α1 subunit, the MIR. It was found with monoclonal antibodies, one of which transferred experimental MG to rats. [[Luo2009,Tzartos1980]] Grafted onto a different protein, MIR sequences alone induced experimental MG. [[Lindstrom2012]]</p></div>
+    <div class="card"><h4>Why the eyes?</h4>
+      <p>One candidate reason: extraocular muscle makes less of the complement brakes DAF (CD55) and CD59. Their staining was intense at diaphragm junctions but weak or absent at extraocular ones. [[Kaminski2004]] Mice lacking DAF and CD59 go into crisis in experimental MG. [[Albazli2020]]</p>
+      <p><span class="ev hyp">Hypothesis</span></p></div>
+    <div class="card"><h4>Complement: why target C5</h4>
+      <p>C5 is the last common step before the lytic complex. Blocking its cleavage prevents MAC formation and leaves upstream C3 coating intact. [[Howard2018]] Rats lacking C6 develop neither weakness nor terminal complex after AChR antibodies; adding C6 back restores both. [[Albazli2020]] The eculizumab trial REGAIN enrolled AChR-antibody-positive patients. [[Howard2017]]</p>
+      <p><a href="#biologics" data-go="biologics">Complement and FcRn inhibitors</a> follows the trials.</p></div>
+    <div class="card"><h4>Susceptibility genes</h4>
+      <p>The classic link is the HLA A1-B8-DR3 haplotype in early-onset MG with thymic hyperplasia. [[Giraud2008]] Genome-wide studies add CTLA4, HLA-DQA1 and TNFRSF11A, and a signal inside CHRNA1, the AChR α gene itself. [[Renton2015,Chia2022]]</p></div>
+  </div>
+
+  <div class="hook"><b>Exam hook</b>AChR antibodies are mostly IgG1 and IgG3, fix complement and damage the folds; MuSK antibodies are mostly IgG4, do not fix complement, and act by blocking the agrin–LRP4–MuSK clustering signal. [[Rodgaard1987,Nakano1993,Huijbers2018,Huijbers2013]] That split is why complement inhibitors were tested in AChR-positive MG. [[Howard2017]] Titre does not predict severity. [[Howard1987]]</div>
+  <div class="pt"><b>In plain words</b>The immune system makes antibodies that stick to the muscle's catchers. Some pull the catchers inside to be broken down, some call in a protein cascade that punches holes in the membrane, and a few simply plug them. In MuSK MG the antibodies cut a signal that keeps the catchers bunched together, so they drift apart.</div>
 </section>

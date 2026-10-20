@@ -325,45 +325,144 @@ tr.hl td,tr.hl th{background:var(--ab-soft)}
     <p><b>Not medical advice.</b> Myasthenia Gravis Companion is an educational synthesis of published literature. It does not replace a clinician.</p>
     <h3>What is in it</h3>
     <ul>
-<!--OUTLINE--><!--/OUTLINE-->
+<!--OUTLINE-->
+    <li><a href="../what/"><b>What myasthenia gravis is</b></a> Who gets it, the numbers, the muscles it reaches.</li>
+    <li><a href="../nmj/"><b>The neuromuscular junction</b></a> One nerve impulse in slow motion, and the safety factor.</li>
+    <li><a href="../antibodies/"><b>Antibodies at the junction</b></a> AChR, complement, MuSK and LRP4, animated.</li>
+    <li><a href="../fatigue/"><b>Weakness over a day</b></a> Why muscles tire with use and recover with rest.</li>
+    <li><a href="../dx/"><b>Diagnosis</b></a> Antibodies, nerve tests, single-fibre EMG, a calculator.</li>
+    <li><a href="../classes/"><b>MGFA class &amp; scores</b></a> MGFA classes I to V, MG-ADL and QMG, scored live.</li>
+    <li><a href="../ddx/"><b>The differential</b></a> Lambert-Eaton, botulism, ALS, eye and muscle disease.</li>
+    <li><a href="../pyrido/"><b>Pyridostigmine, animated</b></a> Buying time at the receptor, dose by dose.</li>
+    <li><a href="../ladder/"><b>The treatment ladder</b></a> From symptom relief to immunotherapy and biologics.</li>
+    <li><a href="../thymectomy/"><b>Thymectomy over the years</b></a> The thymus, thymoma and the MGTX trial.</li>
+    <li><a href="../biologics/"><b>Complement &amp; FcRn inhibitors</b></a> The newer biologics, trial week by trial week.</li>
+    <li><a href="../crisis/"><b>Myasthenic crisis</b></a> Triggers, the breathing numbers, ICU care.</li>
+    <li><a href="../drugs/"><b>Drugs that can worsen MG</b></a> A cited checker: antibiotics, magnesium and more.</li>
+    <li><a href="../nursing/"><b>Nursing care</b></a> Assessment, timing the doses, teaching, documentation.</li>
+    <li><a href="../living/"><b>Living with MG</b></a> Pregnancy, surgery, exercise, vaccines, work.</li>
+    <li><a href="../cure/"><b>Toward a cure</b></a> CAR-T, B-cell targets and the evidence for each route.</li>
+    <li><a href="../history/"><b>History &amp; people</b></a> From Willis in 1672 to the biologics.</li>
+    <li><a href="../review/"><b>Flashcards, quiz and glossary</b></a> Revision for students.</li>
+    <li><a href="../sources/"><b>Sources</b></a> Every reference behind the guide.</li>
+    <!--/OUTLINE-->
     </ul>
   </section>
 </noscript>
 <!-- ================= HOME ================= -->
 
-<!-- ================= 1.1 WHAT MYASTHENIA GRAVIS IS (stub) ================= -->
+<!-- ================= 1.1 WHAT MYASTHENIA GRAVIS IS ================= -->
 
-<!-- ================= 1.2 THE NEUROMUSCULAR JUNCTION (stub) ================= -->
+<!-- ================= 1.2 THE NEUROMUSCULAR JUNCTION ================= -->
 
-<!-- ================= 1.3 ANTIBODIES AT THE JUNCTION (stub) ================= -->
+<!-- ================= 1.3 ANTIBODIES AT THE JUNCTION ================= -->
 
-<!-- ================= 1.4 WEAKNESS OVER A DAY (stub) ================= -->
+<!-- ================= 1.4 WEAKNESS OVER A DAY ================= -->
 
-<!-- ================= 2.1 DIAGNOSIS (stub) ================= -->
+<!-- ================= 2.1 DIAGNOSIS ================= -->
+<style>
+#m-dx .dx-calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+#m-dx .dx-calc label{display:flex;flex-direction:column;gap:4px;font:600 12px var(--mono);color:var(--muted);letter-spacing:.04em}
+#m-dx .dx-calc output{font:700 20px var(--body);color:var(--ink)}
+#m-dx .dx-calc .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+#m-dx .dx-pre{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-dx .dx-pre .btn{font-size:13px;padding:6px 11px;text-align:left;white-space:normal;max-width:100%}
+#m-dx .dx-pre .btn[disabled]{opacity:.45;cursor:not-allowed}
+#m-dx .dx-res{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+#m-dx .dx-res div{border-radius:10px;padding:10px 12px;background:var(--panel-2);font-size:14px;display:flex;flex-direction:column;gap:2px}
+#m-dx .dx-res b.big{font:800 26px var(--display);color:var(--ink);line-height:1.1}
+#m-dx .dx-res .pos{background:var(--ab-soft)} #m-dx .dx-res .neg{background:var(--achr-soft)}
+#m-dx .dx-res small{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-dx .dx-src{font-size:13.5px;color:var(--muted);line-height:1.45}
+#m-dx .dx-teach{display:inline-block;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warn);background:var(--warn-soft);border-radius:6px;padding:4px 8px;margin-right:6px}
+#m-dx .card>.ev{align-self:flex-start}
+#m-dx .dx-big{font:800 30px var(--display);line-height:1;color:var(--ink)}
+</style>
 
-<!-- ================= 2.2 MGFA CLASS & SCORES (stub) ================= -->
+<!-- ================= 2.2 MGFA CLASS & SCORES ================= -->
+<style>
+#m-classes .cl-rung{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--panel-2);font-size:14.5px;display:flex;flex-direction:column;gap:4px}
+#m-classes .cl-rung b:first-child{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-classes .cl-adl{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+#m-classes fieldset{border:1px solid var(--line);border-radius:12px;padding:8px 10px 10px;margin:0;display:flex;flex-direction:column;gap:5px;min-width:0;background:var(--panel)}
+#m-classes legend{font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0 4px;max-width:100%;white-space:normal}
+#m-classes .cl-opt{display:flex;gap:9px;align-items:flex-start;text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:6px 9px;cursor:pointer;font-size:14px;line-height:1.3;width:100%}
+#m-classes .cl-opt b{font:700 12px var(--mono);color:var(--muted);min-width:12px;padding-top:1px}
+#m-classes .cl-opt[aria-pressed="true"]{border-color:var(--nerve);background:var(--nerve-soft)}
+#m-classes .cl-opt[aria-pressed="true"] b{color:var(--nerve)}
+#m-classes .cl-dom{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;vertical-align:baseline}
+#m-classes .cl-base{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+#m-classes .cl-base label{display:flex;gap:8px;align-items:center;font:600 12px var(--mono);color:var(--muted);flex:1;min-width:200px}
+#m-classes .cl-base output{font:700 18px var(--body);color:var(--ink);min-width:24px}
+#m-classes .cl-out{border-radius:10px;padding:10px 12px;background:var(--panel-2);font-size:14.5px}
+#m-classes .cl-out.good{background:var(--good-soft)} #m-classes .cl-out.warn{background:var(--warn-soft)}
+#m-classes .cl-out strong{display:block;font-family:var(--display);font-size:20px;line-height:1.15;margin-bottom:3px}
+#m-classes .cl-q{display:flex;flex-direction:column;gap:6px}
+#m-classes .cl-q .ctrls .btn{white-space:normal;text-align:left;font-size:13.5px}
+#m-classes .cl-w{display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr) 28px;gap:4px 8px;align-items:center;font-size:13.5px}
+#m-classes .cl-w i{display:block;height:10px;border-radius:5px;background:var(--nerve)}
+#m-classes .cl-w i.hi{background:var(--ab)}
+#m-classes .cl-w span:nth-child(3n){font:600 12px var(--mono);text-align:right}
+#m-classes .cl-vs{display:flex;flex-direction:column;gap:8px}
+#m-classes .cl-vs blockquote{margin:0;border-left:3px solid var(--line);padding:2px 0 2px 12px;font-size:15px}
+</style>
 
-<!-- ================= 2.3 THE DIFFERENTIAL (stub) ================= -->
+<!-- ================= 2.3 THE DIFFERENTIAL ================= -->
 
-<!-- ================= 3.1 PYRIDOSTIGMINE, ANIMATED (stub) ================= -->
+<!-- ================= 3.1 PYRIDOSTIGMINE, ANIMATED ================= -->
 
-<!-- ================= 3.2 THE TREATMENT LADDER (stub) ================= -->
+<!-- ================= 3.2 THE TREATMENT LADDER ================= -->
 
-<!-- ================= 3.3 THYMECTOMY OVER THE YEARS (stub) ================= -->
+<!-- ================= 3.3 THYMECTOMY OVER THE YEARS ================= -->
 
-<!-- ================= 3.4 COMPLEMENT & FCRN INHIBITORS (stub) ================= -->
+<!-- ================= 3.4 COMPLEMENT & FCRN INHIBITORS ================= -->
 
-<!-- ================= 4.1 MYASTHENIC CRISIS (stub) ================= -->
+<!-- ================= 4.1 MYASTHENIC CRISIS ================= -->
 
-<!-- ================= 4.2 DRUGS THAT CAN WORSEN MG (stub) ================= -->
+<!-- ================= 4.2 DRUGS THAT CAN WORSEN MG ================= -->
 
-<!-- ================= 4.3 NURSING CARE (stub) ================= -->
+<style>
+#m-nursing .nu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+#m-nursing .nu-q{width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;display:flex;flex-direction:column;gap:5px;min-width:0}
+#m-nursing .nu-q[aria-expanded="true"]{border-color:var(--ab);background:var(--ab-soft)}
+#m-nursing .nu-q b{font-size:15px;line-height:1.3}
+#m-nursing .nu-q .myth{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ab)}
+#m-nursing .nu-qs{display:flex;flex-direction:column;gap:7px}
+#m-nursing .nu-ans{border-left:3px solid var(--ab);padding:8px 0 8px 13px;display:flex;flex-direction:column;gap:9px;font-size:15px}
+#m-nursing .nu-check{display:flex;flex-direction:column;gap:7px}
+#m-nursing .nu-check label{display:flex;gap:10px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 13px;cursor:pointer;font-size:14.5px;min-width:0}
+#m-nursing .nu-check input{margin-top:3px;flex:none;accent-color:var(--ab)}
+#m-nursing .nu-out{background:var(--panel-2);border-radius:10px;padding:12px 14px;font-size:14px;white-space:pre-wrap;font-family:var(--mono);line-height:1.55;overflow-wrap:anywhere}
+#m-nursing .nu-scope{background:var(--ach-soft);border-radius:10px;padding:11px 14px;font-size:14.5px;display:flex;gap:9px;align-items:flex-start}
+#m-nursing .nu-scope b{font:600 10.5px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--warn);white-space:nowrap;padding-top:2px}
+#m-nursing .nu-emerg{background:var(--bad-soft);border-radius:10px;padding:11px 14px;font-size:15px;border-left:4px solid var(--bad)}
+#m-nursing .nu-emerg b:first-child{font:600 10.5px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--bad);display:block;margin-bottom:2px}
+#m-nursing .nu-gap{background:var(--panel-2);border-radius:10px;padding:10px 12px;font-size:14.5px}
+#m-nursing .nu-gap b:first-child{font:600 10.5px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+#m-nursing .nu-sl{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1 1 200px}
+#m-nursing .nu-sl span{font:500 12px var(--mono);color:var(--muted)}
+#m-nursing .nu-sl b{color:var(--ink)}
+#m-nursing .card .stage-cap{margin-top:auto}
+@media (max-width:600px){#m-nursing .nu-scope{flex-direction:column;gap:3px}}
+</style>
+<!-- ================= 4.3 NURSING CARE ================= -->
 
-<!-- ================= 4.4 LIVING WITH MG (stub) ================= -->
+<style>
+#m-living .li-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+#m-living .card .stage-cap{margin-top:auto}
+#m-living .li-gap{background:var(--panel-2);border-radius:10px;padding:10px 12px;font-size:14.5px}
+#m-living .li-gap b:first-child{font:600 10.5px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+#m-living .li-emerg{background:var(--bad-soft);border-radius:10px;padding:11px 14px;font-size:15px;border-left:4px solid var(--bad)}
+#m-living .li-emerg b:first-child{font:600 10.5px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--bad);display:block;margin-bottom:2px}
+#m-living td .ok{color:var(--good);font-weight:700}
+#m-living td .no{color:var(--bad);font-weight:700}
+#m-living td .mid{color:var(--warn);font-weight:700}
+</style>
+<!-- ================= 4.4 LIVING WITH MG ================= -->
 
-<!-- ================= 4.5 TOWARD A CURE (stub) ================= -->
+<!-- ================= 4.5 TOWARD A CURE ================= -->
 
-<!-- ================= 5.1 HISTORY & PEOPLE (stub) ================= -->
+<!-- ================= 5.1 HISTORY & PEOPLE ================= -->
 
 <!-- ================= 5.2 FLASHCARDS ================= -->
 <section class="mod" id="m-review" data-mod="review" hidden>
@@ -395,6 +494,6 @@ tr.hl td,tr.hl th{background:var(--ab-soft)}
 </footer>
 </main>
 </div>
-<script src="../app.js?v=12d2aa309a"></script>
+<script src="../app.js?v=f76f507730"></script>
 </body>
 </html>
