@@ -47,6 +47,7 @@ What the build takes care of, so a change doesn't undo it:
 - The `h1` names the disease, which is what people search for; the companion's name sits above it.
 - Google Fonts load without blocking the first paint.
 - `sitemap.xml` dates each page by its last commit, and `404.html` lists every guide.
+- After a deploy goes live, `python3 tools/indexnow.py` tells Bing and the other IndexNow engines about every page in the sitemap. Google reads `sitemap.xml` through Search Console.
 
 The modules are switched by `#hash`, which search engines don't treat as separate pages, so each companion is one page in search. The crawler outline in each `<noscript>` names every module.
 
