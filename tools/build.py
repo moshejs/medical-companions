@@ -250,9 +250,10 @@ def page_head(mid, nav, title, desc, url):
         h = re.sub(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex,follow">', h)
     # Until the script shows the module (removing its hidden attribute) it keeps its place
     # but is invisible: shown earlier, its steppers and phone-width drawings would grow
-    # under the reader, and left out of the layout, the footer would start on screen and
-    # then drop away. Both count as layout shift. Without JavaScript it is simply shown.
-    h = h.replace("</head>", "<style>body[data-page] [data-mod][hidden]{display:block!important;visibility:hidden}</style>"
+    # under the reader, and with a short static part (most of a module is drawn by the
+    # script), the footer would start on screen and then drop away; so it also takes at
+    # least a screen. Both count as layout shift. Without JavaScript it is simply shown.
+    h = h.replace("</head>", "<style>body[data-page] [data-mod][hidden]{display:block!important;visibility:hidden;min-height:100vh}</style>"
                   "<noscript><style>body[data-page] [data-mod][hidden]{visibility:visible}</style></noscript>\n</head>", 1)
     if mid == "home": return h
     e = lambda s: H.escape(s, quote=True)
