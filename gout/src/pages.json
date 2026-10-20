@@ -1,0 +1,86 @@
+{
+ "what": {
+  "title": "What is gout? Prevalence, the four stages and where flares strike",
+  "description": "Gout is a disease of urate crystals: how common it is by survey, records and model, the A–D stages, and which joints it hits first."
+ },
+ "urate": {
+  "title": "Where uric acid comes from: purines, xanthine oxidase, kidney and gut",
+  "description": "How purines become urate, why humans lack uricase, how URAT1, GLUT9 and ABCG2 handle urate, and why most gout is under-excretion."
+ },
+ "crystals": {
+  "title": "Gout crystals vs serum urate: saturation, deposition, dissolving",
+  "description": "How urate crystals form above 6.8 mg/dL, grow silently for years and dissolve when urate-lowering therapy keeps serum urate below 6 mg/dL."
+ },
+ "flare": {
+  "title": "Gout flare hour by hour: crystals, NLRP3, IL-1β and neutrophils",
+  "description": "Animated gout flare: urate crystals trigger NLRP3 and IL-1β, neutrophils flood the joint, NETs end it within 14 days. Where colchicine and other drugs act."
+ },
+ "colin": {
+  "title": "How colchicine works in gout: from pill to NLRP3",
+  "description": "Animated: colchicine absorbed, trapped in white cells, binding tubulin, and why NLRP3 needs microtubules to fire after a urate crystal. Cited."
+ },
+ "flarerx": {
+  "title": "Gout flare treatment: colchicine, NSAIDs, steroids, IL-1",
+  "description": "Why early treatment helps, AGREE low-dose colchicine, CONTACT, prednisolone vs NSAIDs, IL-1 blockers, ice, and choosing by comorbidity."
+ },
+ "coldose": {
+  "title": "Colchicine dosing, interactions and toxicity in gout",
+  "description": "Published gout colchicine doses, CYP3A4/P-gp interactions (clarithromycin, ritonavir), kidney and dialysis rules, and toxicity. Cited, not advice."
+ },
+ "ult": {
+  "title": "How urate-lowering drugs work: allopurinol, febuxostat, uricase",
+  "description": "Allopurinol and febuxostat make less urate, probenecid and URAT1 drugs excrete more, pegloticase breaks it down. Animated pathway, half-lives, approvals."
+ },
+ "t2t": {
+  "title": "Treat to target in gout: allopurinol titration and flare prophylaxis",
+  "description": "Start low, raise allopurinol every few weeks until urate is below 6 mg/dL, and cover early flares. A two-year simulator with Doherty 2018 trial data."
+ },
+ "ultsafety": {
+  "title": "Allopurinol and febuxostat safety: HLA-B*58:01, CARES vs FAST",
+  "description": "Allopurinol hypersensitivity and HLA-B*58:01 testing, the starting-dose rule, febuxostat heart trials CARES and FAST, interactions and pegloticase rules."
+ },
+ "dx": {
+  "title": "Gout diagnosis: crystals, ACR/EULAR 2015 calculator, imaging",
+  "description": "Score the 2015 ACR/EULAR gout criteria live, see urate vs CPP crystals under polarised light, and compare ultrasound, DECT and X-ray. Cited."
+ },
+ "ddx": {
+  "title": "Gout differential: septic arthritis, CPPD, cellulitis compared",
+  "description": "Gout vs septic arthritis, CPP crystal arthritis, cellulitis, RA, PsA and OA side by side, with red flags and joint-fluid white-count likelihood ratios."
+ },
+ "links": {
+  "title": "Gout, kidney disease and heart disease: the links and the trials",
+  "description": "How gout links to CKD, kidney stones, blood pressure and heart disease, which links are causal, and what CKD-FIX, ALL-HEART and the colchicine trials show."
+ },
+ "living": {
+  "title": "Living with gout: diet, alcohol, weight, medicines, flare plans",
+  "description": "How much diet, alcohol and weight really move urate, flare triggers, medicines that raise urate, ACR 2020 advice, surgery, pregnancy and monitoring."
+ },
+ "nursing": {
+  "title": "Gout nursing care: assessment, medicines and treat to target",
+  "description": "How nurses assess a gout flare, give colchicine, allopurinol and pegloticase safely, teach, and run nurse-led treat-to-target care. Cited."
+ },
+ "cure": {
+  "title": "Can gout be cured? Crystal clearance and the new gout drugs",
+  "description": "Gout is curable by dissolving urate crystals. Remission data and the pipeline (dotinurad, tigulixostat, uricase, NLRP3, IL-1) with evidence labels."
+ },
+ "history": {
+  "title": "History of gout: podagra to allopurinol and the inflammasome",
+  "description": "Gout from Hippocrates' podagra to van Leeuwenhoek's crystals, Garrod's thread test, polarised light, allopurinol and NLRP3: an animated, cited timeline."
+ },
+ "review": {
+  "title": "Gout flashcards and mnemonics: urate, flares, ULT, diagnosis",
+  "description": "68 gout flashcards with short, exact answers across six parts, plus eight sourced memory aids such as Six for gout and Negative Needle, Positive rhomboid."
+ },
+ "quiz": {
+  "title": "Gout quiz: 58 questions with cited explanations",
+  "description": "Test yourself on urate, crystals, flare treatment, colchicine, urate-lowering drugs, diagnosis and history. Mixed 20-question rounds or one part at a time."
+ },
+ "glossary": {
+  "title": "Gout glossary: 88 terms from ABCG2 to xanthine oxidase",
+  "description": "Searchable definitions of gout terms, from urate transporters and the NLRP3 inflammasome to HLA-B*58:01, DECT and remission, each linked to its module."
+ },
+ "sources": {
+  "title": "Sources and references | Gout Companion",
+  "description": "Every reference behind the gout guide, validated against PubMed, Europe PMC, Crossref, ClinicalTrials.gov and drug labels in October 2026. Searchable by area."
+ }
+}

@@ -1,0 +1,86 @@
+<!-- ================= 4.2 THE DIFFERENTIAL ================= -->
+<section class="mod" id="m-ddx" data-mod="ddx" hidden>
+<style>
+#m-ddx .dd-flags{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;margin:0;padding:0;list-style:none}
+#m-ddx .dd-flags li{background:var(--bad-soft);border:1px solid var(--bad);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;font-size:14px;line-height:1.4}
+#m-ddx .dd-flags li b{font-size:15px;color:var(--bad)}
+#m-ddx .dd-flagh{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+#m-ddx .dd-flagh strong{font-family:var(--display);font-size:21px;line-height:1.15}
+#m-ddx .dd-pick{display:flex;flex-wrap:wrap;gap:6px}
+#m-ddx .dd-pick .btn{font-size:13px;padding:6px 11px}
+#m-ddx .dd-out{min-height:64px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+#m-ddx .dd-out b.big{font-family:var(--display);font-size:19px;line-height:1.2}
+#m-ddx table{min-width:980px;font-size:13.5px}
+#m-ddx td,#m-ddx th{overflow-wrap:break-word;hyphens:auto;transition:background .25s,opacity .25s}
+#m-ddx tbody th{min-width:130px}
+#m-ddx thead th.fx{color:var(--ink);background:var(--sea-soft)}
+#m-ddx tbody td.fx{background:var(--sea-soft)}
+#m-ddx tbody tr.on th,#m-ddx tbody tr.on td{background:var(--terra-soft)}
+#m-ddx tbody tr.on td.fx{background:var(--terra-soft);box-shadow:inset 0 0 0 2px var(--terra)}
+#m-ddx tbody tr.dim th,#m-ddx tbody tr.dim td{opacity:.38}
+#m-ddx .dd-none{color:var(--muted)}
+#m-ddx .dd-cards{display:none;grid-template-columns:minmax(0,1fr);gap:10px}
+#m-ddx .dd-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:8px;transition:opacity .25s,border-color .25s,background .25s}
+#m-ddx .dd-card h4{margin:0;font-family:var(--display);font-weight:800;font-size:19px}
+#m-ddx .dd-card dl{margin:0;display:flex;flex-direction:column;gap:7px}
+#m-ddx .dd-card dt{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-ddx .dd-card dd{margin:0;font-size:14px}
+#m-ddx .dd-card div.fx{background:var(--sea-soft);border-radius:8px;padding:4px 6px;margin:0 -6px}
+#m-ddx .dd-card.on{border-color:var(--terra);background:var(--terra-soft)}
+#m-ddx .dd-card.dim{opacity:.4}
+#m-ddx .dd-card.gout{border-left:4px solid var(--xtal)}
+@media (max-width:820px){ #m-ddx .dd-tbl{display:none} #m-ddx .dd-cards{display:grid} }
+</style>
+  <div class="mhead"><p class="eyebrow">Part 4 · Diagnosis &amp; complications</p><h2>The differential</h2>
+    <p class="lede">A hot, swollen joint is not always gout: septic arthritis, CPP crystal arthritis and cellulitis can look the same, and infection can sit alongside crystals. Pick a clue to light up the conditions it points to, then sweep the joint-fluid white count to see how the odds of infection change.</p></div>
+
+  <div class="dd-flagh"><span class="kicker">Red flags</span><strong>Think infection, and aspirate the joint</strong></div>
+  <ul class="dd-flags">
+    <li><b>Fever, sweats or rigors</b><span>But their absence does not exclude infection: fever had a sensitivity of only 57%. [[Margaretten2007]]</span></li>
+    <li><b>Prosthetic joint, diabetes, RA, skin infection or HIV</b><span>Each is a risk factor for septic arthritis. [[Margaretten2007]]</span></li>
+    <li><b>A shoulder</b><span>Septic shoulders in crystal arthritis were bacteraemic in 90%. [[Papanicolas2012]]</span></li>
+    <li><b>A ruptured or discharging tophus</b><span>Ruptured, infected tophi were the commonest route in 30 people with septic gout. [[Yu2003]]</span></li>
+    <li><b>An atypical picture</b><span>EULAR 2018 says atypical presentations should be investigated further. [[Richette2020]]</span></li>
+  </ul>
+  <p class="callout"><b>Crystals do not exclude infection.</b> Infection was found in 1.5% of 265 crystal-positive aspirates, and in 5% of crystal-positive joints in another series. [[Shah2007,Papanicolas2012]] Coexistence is very unlikely only when the Gram stain is negative, CRP is under 100 mg/L and the joint white count is under 10,000/µL. [[Papanicolas2012]]</p>
+
+  <h3 class="sub">Side by side</h3>
+  <div class="ctrls" role="group" aria-label="Clues">
+    <span class="kicker">Pick a clue</span>
+    <div class="dd-pick" id="ddClues"></div>
+  </div>
+  <div class="dd-out" id="ddClueOut" aria-live="polite"></div>
+  <div class="ctrls" role="group" aria-label="Feature to compare">
+    <span class="kicker">Compare one feature</span>
+    <div class="dd-pick" id="ddCols"></div>
+  </div>
+  <div class="tbl dd-tbl"><table>
+    <thead id="ddHead"></thead>
+    <tbody id="ddTbl"></tbody>
+  </table></div>
+  <div class="dd-cards" id="ddCards"></div>
+  <p class="stage-cap">A dash means the sources used here give no distinguishing feature for that cell. A trauma or fracture row is left out because no source was checked for it.</p>
+
+  <h3 class="sub">Joint fluid: how likely is infection?</h3>
+  <div class="stepper" id="ddSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddSvg" viewBox="0 0 720 420" style="min-width:540px" role="img" aria-label="Synovial white cell count, the likelihood ratio for septic arthritis at each cut-off, and how often crystals and infection coexist"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ddPlay">Play</button><label class="stage-cap tl" for="ddT">White count <input type="range" id="ddT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <div class="readout" id="ddRead"></div>
+      <p class="stage-cap">Likelihood ratios are pooled from 14 studies (6,242 patients, 653 with septic arthritis). Each LR belongs to its own cut-off (above or below it), not to the band between two cut-offs. [[Margaretten2007]]</p></div>
+    <aside class="note" id="ddNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Gout and septic arthritis can coexist: <b>crystals in the fluid do not exclude infection</b> (1.5–5%). Synovial white count: under 25,000/µL <b>LR 0.32</b>; over 50,000 <b>LR 7.7</b>; over 100,000 <b>LR 28</b>. Fever is absent in many: sensitivity 57%. [[Shah2007,Papanicolas2012,Margaretten2007]]</div>
+    <div class="pt"><b>In plain words</b>A hot, swollen joint with fever or chills needs a doctor the same day. A joint infection can look just like gout, and both can happen at once. The surest way to tell them apart is to take fluid from the joint and test it for crystals and for germs.</div>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>CPP crystal arthritis: its own criteria</h4><p>The 2023 ACR/EULAR CPPD criteria have an entry step (joint pain, swelling or tenderness), exclude cases fully explained by another disease, and classify at a score above 56. Sensitivity and specificity were 92.2%/87.9% in derivation and 99.2%/92.5% in validation. Crowned dens syndrome is a sufficient criterion. [[Abhishek2023,Abhishek2023ARD]]</p></div>
+    <div class="card"><h4>When gout turns septic</h4><p>In 30 people with septic gout, 30% had a normal blood count and 10% a joint count under 6,000/mm³. <i>S. aureus</i> caused 16 cases, and a third had no fever. [[Yu2003]] A 50,000/µL cut-off missed 39% of 49 culture-proven septic joints, and 55% had a negative Gram stain. [[McGillicuddy2007]]</p></div>
+    <div class="card"><h4>A gout score is not an infection test</h4><p>Comparing 82 gout and 54 septic joints, the Janssens score averaged 8.6 vs 3.6 (AUC 0.933), but 3 of the 54 septic joints still scored "high". [[Lee2015]]</p></div>
+    <div class="card"><h4>Cellulitis and its mimics</h4><p>Cellulitis has no effective diagnostic test, and an organism is identified in about 15%. [[Raff2016]] Of 259 people admitted with "lower-limb cellulitis", 30.5% had another diagnosis. [[Weng2017]]</p></div>
+    <div class="card"><h4>Rheumatoid and psoriatic arthritis</h4><p>RA 2010: synovitis in at least 1 joint and a score of 6 or more of 10 from joint count, serology, acute-phase reactants and duration. [[Aletaha2010]] CASPAR: inflammatory joint disease plus 3 or more points (specificity 0.987, sensitivity 0.914). [[Taylor2006CASPAR]]</p></div>
+    <div class="card"><h4>Reactive arthritis</h4><p>Acute oligoarthritis of larger joints, 2–4 weeks after a gut or urogenital infection, with an incidence of 0.6–27 per 100,000 a year. HLA-B27 is not a diagnostic test. [[Hannu2011]]</p></div>
+  </div>
+</section>

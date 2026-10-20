@@ -1,0 +1,123 @@
+<!-- ================= 3.3 SAFETY OF URATE-LOWERING DRUGS ================= -->
+<section class="mod" id="m-ultsafety" data-mod="ultsafety" hidden>
+  <style>
+    #m-ultsafety .us-who{border:1px solid var(--warn);background:var(--warn-soft);border-radius:var(--r);padding:12px 16px;font-size:15px;max-width:78ch}
+    #m-ultsafety .us-who b{color:var(--warn)}
+    #m-ultsafety .us-stop{border:1px solid var(--bad);background:var(--bad-soft);border-radius:var(--r);padding:12px 16px;font-size:15px;max-width:78ch}
+    #m-ultsafety .us-stop b{color:var(--bad)}
+    #m-ultsafety .us-num{font:800 26px/1.1 var(--display);color:var(--bad);display:block}
+    #m-ultsafety .us-num.sea{color:var(--sea)}
+    #m-ultsafety .evrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+    #m-ultsafety .tbl table{min-width:780px}
+    #m-ultsafety .tl output{font:600 13px var(--mono);color:var(--ink);min-width:58px}
+    #m-ultsafety .us-tog{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  </style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Lowering urate</p><h2>Safety of urate-lowering drugs</h2>
+    <p class="lede">Allopurinol is safe for most people, but a rare skin reaction can kill, and a gene test lowers that risk in some ancestries. Explore the numbers behind the reaction, the two big febuxostat heart trials, the interactions that matter and pegloticase's infusion rules.</p></div>
+  <p class="us-who" role="note"><b>This is a study aid, not a safety check for any person.</b> Interactions and contraindications are reported as the US labels, UK and EU SmPCs, CPIC and ACR 2020 publish them. Decisions about a particular medicine belong with the prescriber. [[FDA-Zyloprim,FDA-Uloric,SmPC-Allopurinol-UK,EMA-Adenuric,CPIC-HLAB-Allopurinol,FitzGerald2020]]</p>
+  <p class="us-stop" role="note"><b>Warning signs, as the labels state them.</b> Labels say to stop allopurinol at the first sign of rash, and a person who has had a severe reaction must not take it again. [[FDA-Zyloprim,SmPC-Allopurinol-UK]] About 90% of hypersensitivity reactions begin within 60 days of starting. [[Ramasamy2013]]</p>
+
+  <h3 class="sub">1 · Allopurinol hypersensitivity and HLA-B*58:01</h3>
+  <div class="us-tog" role="group" aria-label="Ancestry group">
+    <span class="kicker">Group</span>
+    <button class="btn" data-usa="all" aria-pressed="true">All starters</button>
+    <button class="btn" data-usa="ea" aria-pressed="false">Han Chinese, Korean, Thai</button>
+    <button class="btn" data-usa="aa" aria-pressed="false">African American</button>
+    <button class="btn" data-usa="wh" aria-pressed="false">White and Hispanic</button>
+    <button class="btn" data-usa="tw" aria-pressed="false">Taiwan candidates</button>
+  </div>
+  <div class="ctrls"><button class="btn" id="usScr" aria-pressed="false">Test for HLA-B*58:01 first</button></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="usGrid" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="Grid of 1972 people starting allopurinol: one hospitalised severe skin reaction, carriers of HLA-B*58:01 by ancestry, and the effect of testing first"></svg></div>
+      <p class="stage-cap"><b>Schematic grid.</b> 1972 dots, because 1 in 1972 people starting allopurinol in US Medicaid was hospitalised with a severe cutaneous reaction. [[Keller2018]] Carrier shares are the prevalences ACR 2020 quotes (Taiwan: Ko 2015). The one case is placed among carriers because 99% of tested cases in a 901-case literature series carried HLA-B*58:01. [[FitzGerald2020,Ko2015,Ramasamy2013]]</p></div>
+    <aside class="note" id="usGridNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Population</th><th>HLA-B*58:01 allele frequency (CPIC weighted average)</th><th>Other published figures</th></tr></thead>
+    <tbody>
+      <tr><th>East Asian</th><td>6.0% (range 0.4–17%)</td><td>ACR: 7.4% prevalence in Han Chinese, Korean and Thai people; UK SmPC: up to 20% in Han Chinese, 8–15% Thai, about 12% Korean; 19.6% of Taiwanese allopurinol candidates carried it [[FitzGerald2020,SmPC-Allopurinol-UK,Ko2015]]</td></tr>
+      <tr><th>Sub-Saharan African</th><td>4.4%</td><td>Not quoted separately by ACR</td></tr>
+      <tr><th>Central/South Asian</th><td>4.2%</td><td>Not quoted separately by ACR</td></tr>
+      <tr><th>African American / Afro-Caribbean</th><td>3.8%</td><td>ACR: 3.8% in African Americans [[FitzGerald2020]]</td></tr>
+      <tr><th>Near Eastern</th><td>1.9%</td><td>Not quoted separately by ACR</td></tr>
+      <tr><th>Latino</th><td>1.4%</td><td>ACR: 0.7% in white and Hispanic people [[FitzGerald2020]]</td></tr>
+      <tr><th>European</th><td>0.77%</td><td>UK SmPC: 1–2% in Japanese or European people [[SmPC-Allopurinol-UK]]</td></tr>
+    </tbody></table></div>
+  <p class="stage-cap">CPIC frequencies are allele frequencies from its database. [[CPIC-HLAB-Allopurinol]] ACR and the SmPC quote prevalence, which is not the same measure, so the columns do not match exactly.</p>
+
+  <div class="cards">
+    <div class="card"><h4>How strong the gene link is</h4><p><span class="us-num">OR 580.3</span>In Han Chinese, HLA-B*58:01 was present in all 51 people with allopurinol severe cutaneous reactions, against 15% of tolerant users. [[Hung2005PNAS]]</p><p>In Thailand: 100% (27/27) of Stevens–Johnson/TEN cases vs 12.96% of tolerant controls (OR 348.3). Sensitivity 100%, specificity 87%; at 0.2% prevalence the positive predictive value is only 1.52% and the negative predictive value 100%. [[Tassaneeyakul2009]]</p></div>
+    <div class="card"><h4>What CPIC and ACR say</h4><ul><li>CPIC: allopurinol is contraindicated in HLA-B*58:01 carriers (strong); non-carriers follow standard dosing (strong). The 2015 update left this unchanged. [[Hershfield2013,Saito2016,CPIC-HLAB-Allopurinol]]</li><li>ACR 2020: test before allopurinol in people of Southeast Asian descent (for example Han Chinese, Korean, Thai) and African American people (conditional), and not universally in others; testing was cost-effective (ICER &lt;$109,000/QALY). [[FitzGerald2020]]</li><li>After a prior allergic reaction, desensitisation is conditionally recommended only when no other oral drug is possible (very low certainty). [[FitzGerald2020]]</li></ul></div>
+    <div class="card"><h4>Other risk factors</h4><p>In US Medicaid, relative risk against white or Hispanic people was 3.00 in Black, 3.03 in Asian and 6.68 in Native Hawaiian/Pacific Islander people. Female sex (2.5-fold), age ≥60 (1.7-fold), CKD (2.3-fold) and a starting dose &gt;100 mg/day (1.9-fold) added risk; older women of high-risk ancestry had RR 12.25. [[Keller2018]]</p><p>In Europe, allopurinol was the commonest cause of SJS/TEN (adjusted OR 18), with risk confined to the first 8 weeks and far higher at ≥200 mg/day (OR 36 vs 3.0). [[Halevy2008]]</p></div>
+    <div class="card"><h4>Who gets it, and how bad</h4><p><span class="us-num">21%</span>of those hospitalised in US Medicaid died; the mean stay was 9.6 days. [[Keller2018]]</p><p>In 901 published cases (1950–2012), all-cause mortality was 14%, 48% had renal impairment and 45% took diuretics. [[Ramasamy2013]]</p></div>
+  </div>
+
+  <h3 class="sub">2 · The starting-dose rule</h3>
+  <div class="lab even">
+    <div class="stage">
+      <div class="ctrls"><label class="stage-cap tl" for="usE">eGFR <input type="range" id="usE" min="10" max="120" step="1" value="45"><output id="usEOut" for="usE">45</output></label></div>
+      <div class="scroll"><svg id="usDose" viewBox="0 0 720 200" style="min-width:420px" role="img" aria-label="Starting dose limit of 1.5 mg per mL/min of eGFR compared with published starting doses"></svg></div>
+      <p class="stage-cap">eGFR in mL/min. The rule is the one Stamp 2012 proposed; the mg figure is its arithmetic, not a dose for anyone. [[Stamp2012]]</p>
+    </div>
+    <aside class="note" id="usDoseNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">3 · Febuxostat and the heart: CARES vs FAST</h3>
+  <div class="ctrls" role="group" aria-label="View"><span class="kicker">View</span>
+    <button class="btn" data-ust="rates" aria-pressed="true">Rates per 100 patient-years</button>
+    <button class="btn" data-ust="hr" aria-pressed="false">Hazard ratios</button>
+    <button class="btn" data-ust="fu" aria-pressed="false">Who dropped out</button></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="usTrials" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="CARES and FAST compared: event rates, hazard ratios and loss to follow-up for febuxostat versus allopurinol"></svg></div>
+      <p class="stage-cap"><b>Real trial results.</b> CARES rates come from the US febuxostat label's account of the trial; FAST rates are on-treatment. The two trials measured different endpoints in different people, so the bars sit side by side, not on one scale of risk. [[White2018,FDA-Uloric,Mackenzie2020]]</p></div>
+    <aside class="note" id="usTrNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>CARES (US-led)</h4><div class="evrow"><span class="tag warn">Signal of harm</span></div><p>6190 people with gout and major cardiovascular disease, median 32 months, non-inferiority margin HR 1.3. Major cardiovascular events: 10.8% vs 10.4% (HR 1.03), non-inferior. Cardiovascular death HR 1.34 (95% CI 1.03–1.73); all-cause death HR 1.22 (1.01–1.47). 56.6% stopped the trial drug and 45.0% stopped follow-up. [[White2018]]</p></div>
+    <div class="card"><h4>FAST (UK, Denmark, Sweden)</h4><div class="evrow"><span class="tag good">No excess found</span></div><p>6128 people aged ≥60 with ≥1 cardiovascular risk factor, allopurinol first optimised to target, open label, median follow-up 1467 days. On-treatment primary endpoint 1.72 vs 2.05 per 100 patient-years (adjusted HR 0.85, 95% CI 0.70–1.03), non-inferior. Deaths 7.2% vs 8.6%. Only 6.2% vs 5.5% were lost from all follow-up. [[Mackenzie2020]]</p></div>
+    <div class="card"><h4>What changed after CARES</h4><ul><li>February 2019: the FDA added a boxed warning, "Cardiovascular death", and limited febuxostat to people with an inadequate response to maximally titrated allopurinol, intolerance, or when allopurinol is not advisable. [[FDA-Uloric,FDA-DSC-Febuxostat2019]]</li><li>ACR 2020 conditionally recommends switching people on febuxostat with a history of cardiovascular disease or a new event to another drug when possible. [[FitzGerald2020]]</li><li>The EU SmPC cites both trials: more fatal cardiovascular events in CARES in people with major cardiovascular disease, none in FAST. [[EMA-Adenuric]]</li></ul></div>
+    <div class="card"><h4>Why the trials disagree <span class="ev early">Early evidence</span></h4><p>CARES lost 45% of follow-up; FAST lost about 6% but was open label and enrolled people already tolerating allopurinol. [[White2018,Mackenzie2020]] In Japan, febuxostat mortality did not differ from placebo or allopurinol in FEATHER and FREED. [[Hisatome2021,Kojima2019]]</p></div>
+  </div>
+
+  <h3 class="sub">4 · Interactions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Combination</th><th>What happens</th><th>What the labels say</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>Azathioprine or mercaptopurine + xanthine oxidase inhibitor</th><td>Both thiopurines are inactivated by xanthine oxidase, so blocking it raises their levels</td><td>US allopurinol label: with 300–600 mg/day, cut them to about one-third to one-quarter of the usual dose. UK SmPC: avoid; fatal cases reported. US febuxostat label: contraindicated. EU febuxostat: not recommended; if unavoidable, ≤20% of the previous dose [[FDA-Zyloprim,SmPC-Allopurinol-UK,FDA-Uloric,EMA-Adenuric]]</td></tr>
+      <tr><th>Didanosine + allopurinol</th><td>Allopurinol 300 mg roughly doubles didanosine Cmax and AUC</td><td>US didanosine label: contraindicated. Neither febuxostat label lists didanosine [[SmPC-Allopurinol-UK,FDA-Didanosine,FDA-Uloric,EMA-Adenuric]]</td></tr>
+      <tr><th>Ampicillin or amoxicillin + allopurinol</th><td>More frequent rash; cause not established</td><td>US allopurinol label [[FDA-Zyloprim]]</td></tr>
+      <tr><th>Theophylline + febuxostat</th><td>Mechanism not detailed in our sources</td><td>Use with caution [[FDA-Uloric]]</td></tr>
+      <tr><th>Probenecid + methotrexate, penicillins or salicylates</th><td>Methotrexate and penicillin levels rise (penicillin 2- to 4-fold); salicylates block its uricosuric effect</td><td>US probenecid label; salicylates contraindicated [[FDA-Probenecid]]</td></tr>
+      <tr><th>Benzbromarone + warfarin</th><td>Benzbromarone inhibits CYP2C9</td><td>Review [[Lee2008]]</td></tr>
+      <tr><th>Pegloticase + other PEGylated products</th><td>Anti-PEG antibodies may cross-react</td><td>US label [[FDA-Krystexxa]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">5 · Pegloticase: the infusion rules</h3>
+  <div class="cards">
+    <div class="card"><h4>G6PD first</h4><p>Pegloticase is contraindicated in G6PD deficiency, because of haemolysis and methaemoglobinaemia; people at risk are screened before treatment. [[FDA-Krystexxa]]</p></div>
+    <div class="card"><h4>Boxed warning and the stopping rule</h4><p>Anaphylaxis and infusion reactions can happen with any infusion, usually within 2 hours. Serum urate is checked before every infusion, and treatment stops if it rises above 6 mg/dL, particularly after two consecutive values above 6. [[FDA-Krystexxa]]</p><p>Loss of the urate response came before 79% (44/56) of infusion reactions, so the pre-infusion urate works as a stand-in for the antibodies that cause them. [[Lipsky2014]]</p></div>
+    <div class="card"><h4>Methotrexate changed the numbers</h4><p><span class="us-num sea">71.0% vs 38.5%</span>responded at month 6 with methotrexate vs placebo in MIRROR, and infusion reactions fell to 4.2% (4/96) from 30.6% (15/49). [[Botson2023]]</p><p>Without methotrexate and without the stopping rule, anaphylaxis occurred in 6.5% on every-2-week dosing and infusion reactions in 26% vs 5% on placebo. [[FDA-Krystexxa]]</p></div>
+    <div class="card"><h4>Flares at the start</h4><p>74% (every 2 weeks) and 81% (every 4 weeks) flared in the first 3 months, against 51% on placebo, so prophylaxis is given for at least the first 6 months. [[FDA-Krystexxa]]</p></div>
+  </div>
+
+  <h3 class="sub">6 · The other drugs</h3>
+  <div class="cards">
+    <div class="card"><h4>Probenecid</h4><p>"May not be effective" at GFR ≤30 mL/min; contraindicated with uric acid kidney stones. [[FDA-Probenecid]] ACR 2020 conditionally recommends against checking urinary uric acid or alkalinising the urine on a uricosuric. [[FitzGerald2020]]</p></div>
+    <div class="card"><h4>Benzbromarone</h4><p>Withdrawn by Sanofi-Synthélabo in 2003 after reports of liver toxicity; the estimated risk in Europe is about 1 in 17,000 patients, possibly higher in Japan. [[Lee2008]]</p></div>
+    <div class="card"><h4>Lesinurad</h4><p>Boxed warning: "risk of acute renal failure, more common when used without a xanthine oxidase inhibitor". [[FDA-Zurampic]] In CLEAR 2, creatinine rose ≥1.5× baseline in 5.9% (200 mg) and 15.0% (400 mg) vs 3.4% on allopurinol alone. [[Bardin2017]]</p></div>
+    <div class="card"><h4>Allopurinol and the kidney</h4><p>Oxypurinol is cleared almost entirely by the kidney, so its levels rise in CKD. [[Day2007,Hande1984]] Yet ACR 2020 still names allopurinol first line in CKD stage ≥3, started low and titrated. [[FitzGerald2020]]</p></div>
+  </div>
+
+  <h3 class="sub">7 · Pregnancy and breastfeeding, as labels state them</h3>
+  <div class="cards">
+    <div class="card"><h4>Allopurinol</h4><p>UK SmPC: the safety evidence in pregnancy is "inadequate"; use only when there is no safer alternative. Breast milk contained 1.4 mg/L allopurinol and 53.7 mg/L oxipurinol at 300 mg/day, and use while breastfeeding "is not recommended". [[SmPC-Allopurinol-UK]] The US label reports animal data and a case report of malformations, and advises caution in nursing. [[FDA-Zyloprim]]</p><p>In 31 prospectively followed first-trimester exposures the major malformation rate was 3.7%; the authors advise caution in the first trimester. [[Hoeltzenbein2013]]</p></div>
+    <div class="card"><h4>Febuxostat</h4><p>US label: data are insufficient to inform risk, and nothing is known about human milk. [[FDA-Uloric]] EU SmPC: it "should not be used during pregnancy". [[EMA-Adenuric]]</p></div>
+    <div class="card"><h4>Probenecid and pegloticase</h4><p>Probenecid crosses the placenta and appears in cord blood. [[FDA-Probenecid]] Pegloticase has no adequate studies in pregnancy and should not be used while breastfeeding unless the benefit is clear. [[FDA-Krystexxa]]</p></div>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Allopurinol hypersensitivity: <b>first 8 weeks</b>; risk factors <b>HLA-B*58:01, CKD, high starting dose</b>. CARES: CV death <b>HR 1.34</b>, all-cause death <b>HR 1.22</b>; FAST <b>HR 0.85</b>. Never combine <b>azathioprine</b> with febuxostat (US: contraindicated). [[Halevy2008,Keller2018,Stamp2012,White2018,Mackenzie2020,FDA-Uloric]]</div>
+    <div class="pt"><b>In plain words</b>Allopurinol is safe for most people. If you get a rash, fever, or sore mouth or eyes after starting it, stop it and get medical help the same day: this is rare but serious, and almost always happens in the first two months. If your family comes from China, Korea or Thailand, or you are of African descent, a gene test before allopurinol is advised. [[FDA-Zyloprim,Ramasamy2013,FitzGerald2020]]</div>
+  </div>
+</section>

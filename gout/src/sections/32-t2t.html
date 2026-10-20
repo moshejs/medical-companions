@@ -1,0 +1,85 @@
+<!-- ================= 3.2 TREAT TO TARGET ================= -->
+<section class="mod" id="m-t2t" data-mod="t2t" hidden>
+  <style>
+    #m-t2t .tt-who{border:1px solid var(--sea);background:var(--sea-soft);border-radius:var(--r);padding:12px 16px;font-size:15px;max-width:78ch}
+    #m-t2t .tt-who b{color:var(--sea)}
+    #m-t2t .tt-tog{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+    #m-t2t .tt-tog>div{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+    #m-t2t .tt-num{font:800 26px/1.1 var(--display);color:var(--sea);display:block}
+    #m-t2t .tbl table{min-width:760px}
+    #m-t2t .tt-x{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--panel-2);font-size:14.5px}
+  </style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Lowering urate</p><h2>Treat to target</h2>
+    <p class="lede">Urate-lowering therapy starts low and rises in small steps until a blood test shows serum urate below 6 mg/dL [360 µmol/L]. Scrub through two years of one imagined person: the dose staircase, the urate checks, the extra flares of the first months and the prophylaxis that covers them.</p></div>
+  <p class="tt-who" role="note"><b>Doses here are quoted as published, not as instructions.</b> The simulator follows the ACR 2020 guideline, the US labels and the trials named under each step; a dose for any person is set by their own clinician. [[FitzGerald2020,FDA-Zyloprim,FDA-Uloric]]</p>
+  <div class="tt-tog" role="group" aria-label="Scenario">
+    <div><span class="kicker">Drug</span><button class="btn" data-ttd="allo" aria-pressed="true">Allopurinol</button><button class="btn" data-ttd="febu" aria-pressed="false">Febuxostat</button></div>
+    <div><span class="kicker">Tablets taken</span><button class="btn" data-tta="1" aria-pressed="true">100%</button><button class="btn" data-tta="0.7" aria-pressed="false">70%</button><button class="btn" data-tta="0.4" aria-pressed="false">40%</button></div>
+    <div><button class="btn" id="ttCkd" aria-pressed="false">CKD stage 3</button><button class="btn" id="ttPro" aria-pressed="true">Flare prophylaxis, first 6 months</button></div>
+  </div>
+  <div class="stepper" id="ttSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ttSvg" viewBox="0 0 720 480" style="min-width:560px" role="img" aria-label="Two-year treat-to-target timeline: serum urate with target band, dose staircase, urate checks, prophylaxis and flare rate"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ttPlay">Play</button><label class="stage-cap tl" for="ttT">Months <input type="range" id="ttT" min="0" max="1" step="0.001" value="0.015"></label></div>
+      <div class="readout" id="ttRead"></div>
+      <div class="legend"><span><i style="background:var(--gold)"></i>serum urate (simulated)</span><span><i style="background:var(--sea)"></i>dose and urate checks</span><span><i style="background:var(--crocus)"></i>colchicine prophylaxis</span><span><i style="background:var(--terra)"></i>flare rate and flares</span></div>
+      <p class="stage-cap"><b>Schematic: one simulated person, not a prediction.</b> The person starts at 9.0 mg/dL. Each 100 mg of allopurinol lowers urate by about 1 mg/dL up to 300 mg, a <b>derived</b> figure (arithmetic on Perez-Ruiz 1998's 2.75–3.34 mg/dL fall on 300 mg, not stated by any source), and by less above that. Steps every 4 weeks sit inside ACR's 2–5 weeks. The flare-rate curve is shaped to pass through Borstad 2004's average flare counts with and without colchicine; those averages are drawn as marked segments. Missed tablets are drawn at random. [[PerezRuiz1998,FitzGerald2020,Borstad2004]]</p>
+    </div>
+    <aside class="note" id="ttNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What a nurse-led programme changed</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Outcome"><span class="kicker">Show</span>
+        <button class="btn" data-dh="target" aria-pressed="true">At target (&lt;6 mg/dL)</button>
+        <button class="btn" data-dh="flares" aria-pressed="false">≥2 flares a year</button>
+        <button class="btn" data-dh="tophi" aria-pressed="false">Tophi</button></div>
+      <div class="scroll"><svg id="ttDoh" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Doherty 2018 trial: nurse-led treat-to-target versus usual care at baseline, 1 year and 2 years"></svg></div>
+      <p class="stage-cap"><b>Real trial data</b> from Doherty 2018 (517 people in UK primary care), at baseline, 1 year and 2 years. The lines only join the three time points; nothing between them was measured. [[Doherty2018]]</p>
+    </div>
+    <aside class="note" id="ttDohNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Published titration schedules</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Start</th><th>Steps</th><th>Ceiling</th></tr></thead>
+    <tbody>
+      <tr><th>ACR 2020 (allopurinol)</th><td>≤100 mg/day; lower in CKD stage ≥3, and "even lower initial allopurinol doses (e.g., ≤50 mg/day) should be considered in patients with CKD"</td><td>"Weeks to months, not years"; cites the 2012 advice of every 2–5 weeks, with serum urate after each step</td><td>Dose to target, not to a fixed cap [[FitzGerald2020]]</td></tr>
+      <tr><th>US allopurinol label</th><td>100 mg/day</td><td>+100 mg each week until serum urate ≤6 mg/dL</td><td>800 mg/day [[FDA-Zyloprim]]</td></tr>
+      <tr><th>UK allopurinol SmPC</th><td>100 mg/day</td><td>300–600 mg/day moderately severe, 700–900 mg/day severe</td><td>900 mg/day [[SmPC-Allopurinol-UK]]</td></tr>
+      <tr><th>EULAR 2016</th><td>100 mg/day</td><td>+100 mg every 2–4 weeks <span class="tag warn">detail not confirmed in the full text</span></td><td>Adjusted to kidney function [[Richette2017]]</td></tr>
+      <tr><th>Doherty 2018 (nurse-led)</th><td>100 mg/day</td><td>+100 mg every 3–4 weeks; then febuxostat 80→120 mg or benzbromarone 50→200 mg</td><td>900 mg/day [[Doherty2018]]</td></tr>
+      <tr><th>US febuxostat label</th><td>40 mg/day</td><td>80 mg if serum urate is still ≥6 mg/dL after 2 weeks</td><td>80 mg; 40 mg in severe renal impairment [[FDA-Uloric]]</td></tr>
+      <tr><th>EU febuxostat SmPC</th><td>80 mg/day</td><td>120 mg considered if serum urate is &gt;6 mg/dL (357 µmol/L) after 2–4 weeks</td><td>120 mg [[EMA-Adenuric]]</td></tr>
+      <tr><th>STOP Gout trial</th><td>Allopurinol 100 mg; febuxostat 40 mg</td><td>Titrated over 24 weeks</td><td>800 mg; 120 mg [[ODell2022]]</td></tr>
+    </tbody></table></div>
+
+  <div class="cards">
+    <div class="card"><h4>Most people need more than 300 mg</h4><p><span class="tt-num">21–53%</span>reached serum urate &lt;6 mg/dL on allopurinol 300 mg/day across FACT, APEX, CONFIRMS and a Spanish study. [[Becker2005,Schumacher2008,Becker2010,PerezRuiz1998]]</p><p>Escalating above the creatinine-clearance dose brought 69% to target at 12 months against 32% on a fixed dose, in a trial where 52% had CrCl &lt;60. [[Stamp2017RCT]] When the control group then escalated too, urate fell a further 1.1 mg/dL. [[Stamp2017OLE]]</p></div>
+    <div class="card"><h4>Febuxostat by dose</h4><p>Serum urate &lt;6 mg/dL in 45% on 40 mg and 67% on 80 mg in CONFIRMS; 53% on 80 mg and 62% on 120 mg in FACT. [[Becker2010,Becker2005]]</p><p>In STOP Gout (940 veterans, at least a third with CKD stage 3), 80% reached target on either drug, and allopurinol was non-inferior for flares (36.5% vs 43.5% in the final phase). [[ODell2022]]</p></div>
+    <div class="card"><h4>Starting during a flare</h4><p>ACR 2020 conditionally recommends starting during a flare once treatment is indicated, rather than waiting. [[FitzGerald2020]] In a 57-man trial, allopurinol 300 mg started during a flare (with indomethacin and colchicine for all) did not worsen pain, and urate fell from 7.8 to 5.9 mg/dL by day 3. [[Taylor2012]] In a second trial the flare was not prolonged (15.4 vs 13.4 days, P = 0.5). [[Hill2015]]</p><p>The older probenecid label says to wait "until an acute gouty attack has subsided". [[FDA-Probenecid]]</p></div>
+    <div class="card"><h4>Missed tablets <span class="ev est">Established</span></h4><p><span class="tt-num">46%</span>took at least 80% of their urate-lowering therapy, pooled across 13 studies; non-persistence ran from 54% to 87%. [[Scheepers2018SAR]]</p><p>A pharmacist-led, mostly automated telephone programme lifted adherence from 37% to 50% and target attainment from 15% to 30% at 1 year. [[Mikuls2019]] Only 12% of people on urate-lowering therapy knew about flares at the start. [[Harrold2012]]</p></div>
+    <div class="card"><h4>Not too low? <span class="tag warn">Unverified detail</span></h4><p>EULAR 2016 sets &lt;6 mg/dL [360 µmol/L], or &lt;5 mg/dL [300 µmol/L] in severe gout. [[Richette2017]] Secondary sources also report EULAR advising against serum urate &lt;3 mg/dL [180 µmol/L] over the long term; this guide could not confirm that line in the full text. [[Richette2017]] ACR 2020 sets &lt;6 mg/dL for everyone on therapy (strong, high certainty). [[FitzGerald2020]]</p></div>
+    <div class="card"><h4>How long to continue</h4><p>ACR 2020 conditionally recommends continuing indefinitely (very low certainty). In the withdrawal series it cites, only 13% (27/211) stayed flare-free over 5 years off therapy. [[FitzGerald2020]]</p><p><span class="ev early">Early evidence</span> Perez-Ruiz 2006 suggested 5-year intermittent therapy for people with good control. [[PerezRuiz2006]] <span class="ev hyp">Hypothesis</span> GO TEST Finale is randomising people in remission to continue or to taper and stop; only its protocol is published. [[Peeters2023]]</p></div>
+  </div>
+
+  <h3 class="sub">Covering the first months</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Prophylaxis advice</th></tr></thead>
+    <tbody>
+      <tr><th>ACR 2020</th><td>Strong: colchicine, an NSAID or prednisone/prednisolone for 3–6 months rather than &lt;3 months, continuing if flares persist [[FitzGerald2020]]</td></tr>
+      <tr><th>EULAR 2016</th><td>First 6 months, colchicine 0.5–1 mg/day or a low-dose NSAID <span class="tag warn">detail not confirmed in the full text</span> [[Richette2017]]</td></tr>
+      <tr><th>US colchicine label</th><td>Prophylaxis 0.6 mg once or twice daily, maximum 1.2 mg/day [[FDA-Colcrys]]</td></tr>
+      <tr><th>Febuxostat labels</th><td>EU: at least 6 months; US: "may be beneficial for up to six months" [[EMA-Adenuric,FDA-Uloric]]</td></tr>
+      <tr><th>Pegloticase label</th><td>At least the first 6 months [[FDA-Krystexxa]]</td></tr>
+      <tr class="hl"><th>Pooled febuxostat trials</th><td>Flares rose to as much as 40% when 8 weeks of prophylaxis stopped, but stayed at 3–5% at the end of 6 months of it [[Wortmann2010]]</td></tr>
+      <tr><th>FORTUNE-1</th><td>Flares in 12 weeks: 36.0% on fixed febuxostat 40 mg, 20.8% when stepped up from 10 mg, 18.9% on fixed 40 mg plus colchicine 0.5 mg/day (not significant after correction for multiple comparisons) [[Yamanaka2018]]</td></tr>
+    </tbody></table></div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>ACR 2020, all strong: <b>allopurinol first line</b>, also in CKD ≥3; <b>start ≤100 mg/day</b> (lower in CKD); <b>treat to &lt;6 mg/dL</b> with serial urate checks; <b>prophylaxis 3–6 months</b>. Do not stop urate-lowering therapy during a flare. [[FitzGerald2020]]</div>
+    <div class="pt"><b>In plain words</b>The dose starts small and goes up a little every few weeks, with a blood test each time, until the number is below 6. Extra flares in the first months mean the crystals are breaking up, not that the medicine has failed. [[FitzGerald2020,FDA-Zyloprim]]</div>
+  </div>
+</section>
