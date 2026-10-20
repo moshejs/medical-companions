@@ -1,29 +1,38 @@
 #!/usr/bin/env python3
-"""Check that each Hebrew part in src/he/ is a faithful translation of its English part.
+"""Check that each translated part in src/<lang>/ is a faithful translation of its English part.
 
-    python3 tools/check_he.py alzheimers                 # every translated file
-    python3 tools/check_he.py alzheimers js/14-tau.js    # one or more files, by English path
+    python3 tools/check_lang.py alzheimers he                 # every translated file
+    python3 tools/check_lang.py alzheimers he js/14-tau.js    # one or more files, by English path
 
 For each pair it compares:
   code     JS with every string's text removed (template ${...} code is kept), so the
            logic must be identical; HTML tags with their ids, classes, data-*, roles,
            input attributes and hrefs, so the structure must be identical
   cites    the multiset of [[citation keys]]
+  strings  the multiset of %t:key% UI strings (inside string text, so code does not see them)
   numbers  the multiset of numbers in the text (digits must stay digits)
 and lists strings that still look like untranslated English (warnings only: trial
 names, drug brands and abbreviations may rightly stay in Latin letters).
-Exit status is 1 if any code, cite or number check fails.
-"""
-import re, sys, pathlib
-from collections import Counter
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent
+It checks the language's UI strings the same way (<companion>/src/<lang>/strings.json and
+tools/i18n/<lang>.json against the English files): every key must exist in English, use
+no {parameter} the English lacks (the build stops if a script needs one the value
+leaves out), and keep the same tags and numbers; keys the language lacks are listed, since the
+build falls back to English for them.
+Exit status is 1 if any code, cite, number or string check fails.
+"""
+import json, re, sys, pathlib
+from collections import Counter
+import i18n
+
+ROOT = i18n.ROOT
 _pos = [a for a in sys.argv[1:] if not a.startswith("-")]
-if not _pos or not (ROOT / _pos[0] / "src" / "he").is_dir():
-    sys.exit("usage: check_he.py COMPANION [file ...]   (a companion with a src/he folder)")
-SRC = ROOT / _pos[0] / "src"
-HE = SRC / "he"
-SKIP = {"meta.html", "rtl.css"}
+if len(_pos) < 2 or _pos[1] not in i18n.LANGS or _pos[1] == i18n.SOURCE or not (ROOT / _pos[0] / "src").is_dir():
+    sys.exit("usage: check_lang.py COMPANION LANG [file ...]   (LANG: a language in site.json other than en)")
+SLUG, LANG = _pos[0], _pos[1]
+SRC = ROOT / SLUG / "src"
+TR = SRC / LANG
+SKIP = {"meta.html", "rtl.css", "strings.json", "pages.json"}
 
 # ---------------------------------------------------------------- JS lexing
 REGEX_PREV = set("(,=:[!&|?{};+-*%<>~^") | {"return", "typeof", "case", "in", "of", "=>"}
@@ -111,10 +120,8 @@ def html_split(src):
         elif m.group(3):
             attrs = m.group(4)
             kept = KEEP_ATTR.findall(attrs)
-            if ("id", '"langBtn"') in kept:  # the language link points the other way by design
-                kept = [(a, v) for a, v in kept if a != "href"]
-            # a link to another page of the site may go to that page's Hebrew version
-            kept = [(a, re.sub(r'^"(%SITE%/[\w/-]*?)he/"$', r'"\1"', v) if a == "href" else v) for a, v in kept]
+            # a link to another page of the site may go to that page in this language
+            kept = [(a, re.sub(r'^"(%SITE%/[\w/-]*?)' + re.escape(i18n.lang_dir(LANG)) + r'/"$', r'"\1"', v) if a == "href" else v) for a, v in kept]
             struct.append("<" + m.group(3) + "".join(sorted(f" {a}={v}" for a, v in kept)) + ">")
             strs += [v for _, v in re.findall(r'\s(aria-label|title|placeholder|alt|content)="([^"]*)"', attrs)]
         elif m.group(5) and m.group(5).strip():
@@ -125,7 +132,12 @@ def html_split(src):
 # same key pattern as build.py, so code like [['all','All']] is not a citation
 CITE = re.compile(r"\[\[(\s*(?=[A-Za-z0-9_\-]*[A-Za-z])[A-Za-z0-9][A-Za-z0-9_\-]*(?:\s*,\s*(?=[A-Za-z0-9_\-]*[A-Za-z])[A-Za-z0-9][A-Za-z0-9_\-]*)*\s*)\]\]")
 NUM = re.compile(r"(?<![\w#.])\d+(?:[.,]\d+)*")
-HEB = re.compile(r"[֐-׿]")
+# letters of the language's own script; a Latin-script language is told from English by
+# common English words instead
+SCRIPTS = {"he": "\u0590-\u05ff", "ar": "\u0600-\u06ff\u0750-\u077f", "ja": "\u3040-\u30ff\u4e00-\u9fff",
+           "ko": "\uac00-\ud7af\u1100-\u11ff", "zh-Hans": "\u4e00-\u9fff"}
+OWN = re.compile(f"[{SCRIPTS[LANG]}]") if LANG in SCRIPTS else None
+EN_WORDS = re.compile(r"\b(the|and|with|which|that|from|are|is|of|to|for|in|it|this|not|be|or)\b")
 ENGW = re.compile(r"\b[a-z]{3,}\b")
 
 def cites(txt):
@@ -134,8 +146,12 @@ def cites(txt):
 def nums(strs):
     return Counter(n.replace(",", "") for s in strs for n in NUM.findall(CITE.sub("", s)))
 
+def english_like(t):
+    if re.search(r"[{};]|var\(--|class=|https?:", t) or len(ENGW.findall(t)) < 3: return False
+    return not OWN.search(t) if OWN else len(EN_WORDS.findall(t)) >= 3
+
 def check(rel):
-    en_p, he_p = SRC / rel, HE / rel
+    en_p, he_p = SRC / rel, TR / rel
     en, he = en_p.read_text(encoding="utf-8"), he_p.read_text(encoding="utf-8")
     # the crawler outline is generated per language, not translated line by line
     ns = re.compile(r'<noscript id="nsOutline">.*?</noscript>', re.S)
@@ -150,6 +166,9 @@ def check(rel):
         a, b = es.split(), hs.split()
         k = next((i for i, (x, y) in enumerate(zip(a, b)) if x != y), min(len(a), len(b)))
         errs.append(f"  code differs at token {k}:\n    en: {' '.join(a[max(0,k-12):k+12])}\n    he: {' '.join(b[max(0,k-12):k+12])}")
+    pe, ph = Counter(i18n.PH.findall(en)), Counter(i18n.PH.findall(he))
+    if pe != ph:
+        errs.append(f"  UI strings differ: missing {[k for k, _ in pe - ph]} extra {[k for k, _ in ph - pe]}")
     ce, ch = cites(en), cites(he)
     if ce != ch:
         errs.append(f"  citations differ: missing {dict(ce-ch)} extra {dict(ch-ce)}")
@@ -157,17 +176,45 @@ def check(rel):
     if ne != nh:
         errs.append(f"  numbers differ: missing {dict(ne-nh)} extra {dict(nh-ne)}")
     for s in hstr:
-        t = CITE.sub("", s)
-        if not HEB.search(t) and len(ENGW.findall(t)) >= 3 and not re.search(r"[{};]|var\(--|class=|https?:", t):
+        t = re.sub(r"<[^>]*>", " ", i18n.PH.sub("", CITE.sub("", s)))  # tag names are not English text
+        if english_like(t):
             warns.append("  english? " + t.strip()[:110])
     return errs, warns
 
-def main():
-    args = [a for a in sys.argv[1:] if not a.startswith("-")][1:]
-    rels = args or sorted(str(p.relative_to(HE)) for p in HE.rglob("*") if p.is_file() and p.name not in SKIP)
+PARAM = re.compile(r"\{([a-z_]+)\}")
+TAG = re.compile(r"</?[a-zA-Z][^>]*>")
+
+def check_strings():
+    """The language's UI strings against the English ones. Returns the number of failures."""
     bad = 0
+    for en_p, tr_p in zip(i18n.string_files(SLUG, i18n.SOURCE), i18n.string_files(SLUG, LANG)):
+        if not tr_p.exists():
+            print(f"-- {tr_p.relative_to(ROOT)}: not translated yet"); continue
+        en, tr = (json.loads(p.read_text(encoding="utf-8")) if p.exists() else {} for p in (en_p, tr_p))
+        errs = []
+        for k, v in tr.items():
+            if k not in en: errs.append(f"  {k}: not an English key"); continue
+            extra = set(PARAM.findall(v)) - set(PARAM.findall(en[k]))
+            if extra: errs.append(f"  {k}: parameters the English does not have: {sorted(extra)}")
+            if [re.sub(r"\s(aria-label|title)=\"[^\"]*\"", "", x) for x in TAG.findall(v)] != \
+               [re.sub(r"\s(aria-label|title)=\"[^\"]*\"", "", x) for x in TAG.findall(en[k])]:
+                errs.append(f"  {k}: tags differ")
+            if nums([v]) != nums([en[k]]): errs.append(f"  {k}: numbers differ: en {en[k]!r} {LANG} {v!r}")
+        missing = sorted(set(en) - set(tr))
+        print(("FAIL " if errs else "ok   ") + str(tr_p.relative_to(ROOT))
+              + (f"  ({len(missing)} keys fall back to English: {', '.join(missing)})" if missing else ""))
+        for e in errs: print(e)
+        bad += bool(errs)
+    return bad
+
+def main():
+    args = [a for a in sys.argv[1:] if not a.startswith("-")][2:]
+    if not TR.is_dir() and not args:
+        print(f"-- {SLUG}/src/{LANG}/: nothing translated yet")
+    rels = args or sorted(str(p.relative_to(TR)) for p in TR.rglob("*") if p.is_file() and p.name not in SKIP)
+    bad = 0 if args else check_strings()
     for rel in rels:
-        if not (HE / rel).exists():
+        if not (TR / rel).exists():
             print(f"-- {rel}: not translated yet"); continue
         errs, warns = check(rel)
         print(("FAIL " if errs else "ok   ") + rel + (f"  ({len(warns)} english-looking strings)" if warns else ""))

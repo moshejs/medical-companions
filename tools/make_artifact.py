@@ -12,9 +12,9 @@ It also swaps the title. The published site wants a title that names the disease
 because that is the strongest on-page search signal; the artifact gallery wants a
 short product name. Same page, two names.
 
-The Hebrew page is its own artifact (--lang he). Its right-to-left direction lives on
-<html>, which the skeleton replaces, so a one-line script sets dir and lang again
-before the body renders. --other URL points the language link (and the crawler
+A translation is its own artifact (--lang he). Its language, and for a right-to-left
+language its direction (site.json), live on <html>, which the skeleton replaces, so a
+one-line script sets them again before the body renders. --other URL points the language link (and the crawler
 outline's link back) at the other language's artifact.
 
 Usage: make_artifact.py COMPANION [--lang he] [--other URL] [BUILT_HTML] [OUT_HTML]
@@ -23,6 +23,7 @@ The short name comes from site.json; the file lands beside the repo, named after
 companion's old repository (alzheimers-companion-artifact.html).
 """
 import json, pathlib, re, subprocess, sys, tempfile
+import i18n
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 args, LANG, OTHER = [], "en", None
@@ -62,8 +63,9 @@ if OTHER:
     body, n = re.subn(r'(id="langBtn" href=")[^"]*"', lambda m: m.group(1) + OTHER + '"', body)
     if n != 1: sys.exit("language link not found")
     body = body.replace('<a href="../" hreflang="en"', f'<a href="{OTHER}" hreflang="en"')
-dir_js = (f"<script>document.documentElement.setAttribute('dir','rtl');document.documentElement.lang='{LANG}'</script>\n"
-          if LANG != "en" else "")
+DIR = i18n.lang(LANG)["dir"]
+dir_js = ("<script>" + ("document.documentElement.setAttribute('dir','rtl');" if DIR == "rtl" else "")
+          + f"document.documentElement.lang='{LANG}'</script>\n" if LANG != "en" else "")
 out = (f"<title>{TITLE}</title>\n"
        '<meta name="claude:viewport-fit-sides" content="cover">\n'
        + dir_js + head.strip() + "\n" + body.strip() + "\n")
