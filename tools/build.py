@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Assemble one companion into its pages: one per module, and a shared script.
 
-Usage: build.py COMPANION [--lang he] [--single] [--out PATH] [--draft]
+Usage: build.py COMPANION [--lang CODE] [--single] [--out PATH] [--draft]
 
 COMPANION is a folder at the repo root (alzheimers, fmf). Parts come from
 COMPANION/src: 00-head.html, 10-shell.html, sections/*.html (sorted), 90-foot.html,
 js/*.js (sorted). Sources come from COMPANION/src/sources.json. The companion's first
-page is COMPANION/index.html, or COMPANION/<lang>/index.html for another language.
+page is COMPANION/index.html, or COMPANION/<lang>/index.html for another language (its code in
+lower case: de, ja, pt-br).
 
 Each module is its own page, so search engines can index each topic. The first page
 carries the home module; every other module is written to <first page's folder>/<module>/
@@ -22,19 +23,35 @@ language; the English one is never used for it), keyed by module id, each with "
 and "description". A module missing there gets "<its nav title> | <companion name>" and
 the first sentences of its lede that fit in 160 characters.
 
-A translated page that still uses an English part (shell, footer, core script, its
-section or its module script) is marked noindex and left out of the hreflang pairs, so
-half-translated pages are not indexed as Hebrew copies of the English ones.
+A translated page is indexed only when it is complete and reviewed. Complete: none of its
+parts falls back to English (shell, footer, core script, its section, its module script,
+meta.html) and no UI string it uses does. Reviewed: the companion names a reviewer for the
+language in site.json (or lists the language in "indexed_without_review"). Any other page
+is marked noindex and left out of the hreflang pairs, so unfinished or unreviewed
+translations are never indexed. The hreflang links (every language whose page for this
+module may be indexed, plus x-default for English) replace <!--HREFLANG--> in 00-head.html.
 
 With --single, the one-page build: every module in one page with the script inline,
 switched by #hash (tools/make_artifact.py uses it). --out PATH puts the page (or, without
 --single, the first page) there. A translation whose core script predates page routing
 is built that way too, with a warning.
 
-With --lang he, each part is taken from src/he/<same path> when that file exists
-(otherwise the English part is used and listed as untranslated), the metadata block
-between <!--META--> markers in 00-head.html is replaced by src/he/meta.html, the page
-is set to lang="he" dir="rtl", src/he/rtl.css is appended to the styles.
+Languages come from the "languages" table in site.json (see tools/i18n.py). With --lang
+CODE, each part is taken from src/CODE/<same path> when that file exists (otherwise the
+English part is used and listed as untranslated), and the metadata block between
+<!--META--> markers in 00-head.html is replaced by src/CODE/meta.html. The page gets
+lang="CODE", and dir="rtl" when the table says the language is right to left; only then
+is src/CODE/rtl.css appended to the styles (or, until the language has its own, another
+right-to-left language's rtl.css from the same companion). The language's script faces
+are added after the companion's own in --display and --body, with their Google Fonts
+stylesheet, unless the language's own CSS or meta.html already does that (Hebrew does),
+and its extra CSS from the table follows (word-break:auto-phrase for Japanese).
+
+%t:key% in any part is a UI string, filled from the strings files (tools/i18n.py says
+where they are and how the fallback to English works); the build lists keys a language
+is missing. <!--LANGS--> in the shell becomes the language switcher: links to this module
+in every language the companion has, labelled with their own names. Nothing redirects
+by language.
 
 Citation markers [[Key]] or [[KeyA,KeyB]] anywhere in HTML or JS become
 <sup class="c" data-ref="...">n</sup>, numbered by order in sources.json.
@@ -44,15 +61,16 @@ The build fails on an unknown key, and warns about sources never cited.
 site to another domain is a one-line change there and a rebuild.
 
 The MedicalWebPage structured data gets datePublished (site.json), dateModified (the
-last commit to the companion's src/, or today when src/ has uncommitted changes) and
-the publisher (site.json). Google Fonts stylesheets are loaded without blocking the
+last commit to the companion's src/, or today when src/ has uncommitted changes), the
+publisher (site.json), inLanguage, and, once site.json names one, the reviewer
+(reviewedBy, lastReviewed), who is then also named in the footer (the string
+review.line). Google Fonts stylesheets are loaded without blocking the
 first paint; the fallback fonts in each --display/--body stack show until they arrive.
 """
 import datetime, hashlib, html as H, json, re, subprocess, sys, pathlib
+import i18n
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent
-CFG = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
-SITE = CFG["site"].rstrip("/")
+ROOT, CFG, SITE = i18n.ROOT, i18n.CFG, i18n.SITE
 
 def last_modified(slug):
     """Date of the last commit to SLUG/src, or today if it has uncommitted changes."""
@@ -72,16 +90,23 @@ if not names or not (ROOT / names[0] / "src").is_dir():
     sys.exit(__doc__.split("\n\n")[1])
 COMP = ROOT / names[0]
 SRC = COMP / "src"
-if OUT is None: OUT = COMP / "index.html" if LANG == "en" else COMP / LANG / "index.html"
-comp = next((c for c in CFG["companions"] if c["slug"] == COMP.name), {})
+LINFO = i18n.lang(LANG)
+if OUT is None: OUT = COMP / i18n.lang_dir(LANG) / "index.html"
+comp = i18n.companion(COMP.name)
+LANGS = comp.get("langs", ["en"])
+if LANG not in LANGS: print(f"warning: {LANG} is not in {COMP.name}'s langs in site.json", file=sys.stderr)
+STR = i18n.Strings(COMP.name, LANG)
 
 untranslated = []
 def read(p):
+    text = None
     if LANG != "en" and p.is_relative_to(SRC) and p.name != "sources.json":
         alt = SRC / LANG / p.relative_to(SRC)
-        if alt.exists(): return alt.read_text(encoding="utf-8")
-        if p.name != "00-head.html": untranslated.append(str(p.relative_to(SRC)))
-    return p.read_text(encoding="utf-8")
+        if alt.exists(): text = alt.read_text(encoding="utf-8")
+        elif p.name != "00-head.html": untranslated.append(str(p.relative_to(SRC)))
+    if text is None: text = p.read_text(encoding="utf-8")
+    if p.suffix in (".html", ".js"): text = i18n.fill(text, p.suffix[1:], STR, str(p.relative_to(ROOT)))
+    return text
 
 sources = json.loads(read(SRC / "sources.json"))
 order = {s["key"]: i + 1 for i, s in enumerate(sources)}
@@ -90,17 +115,60 @@ for s in sources:
     for a in s.get("aliases", []): canon[a] = s["key"]; order[a] = order[s["key"]]
 
 head = (SRC / "00-head.html").read_text(encoding="utf-8")
+HOME_LANG_URL = i18n.lang_url(COMP.name, LANG)
 if LANG != "en":
     L = SRC / LANG
-    head = head.replace('<html lang="en">', f'<html lang="{LANG}" dir="rtl">', 1)
+    head = head.replace('<html lang="en">', f'<html lang="{LANG}"' + (' dir="rtl"' if LINFO["dir"] == "rtl" else "") + ">", 1)
     a, b = head.index("<!--META-->"), head.index("<!--/META-->") + len("<!--/META-->")
-    head = head[:a] + (L / "meta.html").read_text(encoding="utf-8").strip() + head[b:]
+    if (L / "meta.html").exists():
+        head = head[:a] + (L / "meta.html").read_text(encoding="utf-8").strip() + head[b:]
+    else:
+        # the English metadata, pointed at this language's address, until meta.html is translated
+        untranslated.append("meta.html")
+        meta = head[a:b]
+        for pat in (r'(<link rel="canonical" href=")[^"]*(")', r'(<meta property="og:url" content=")[^"]*(")',
+                    r'("@type": ?"MedicalWebPage".*?"url": ?")[^"]*(")'):
+            meta = re.sub(pat, lambda m: m.group(1) + HOME_LANG_URL.replace(SITE, "%SITE%") + m.group(2), meta, count=1, flags=re.S)
+        head = head[:a] + meta + head[b:]
+    head = re.sub(r'(<meta property="og:locale" content=")[^"]*(")', lambda m: m.group(1) + LINFO["locale"] + m.group(2), head, count=1)
+    own_css = ""
+    if LINFO["dir"] == "rtl":
+        rtl = L / "rtl.css"
+        if not rtl.exists():
+            rtl = next((SRC / l / "rtl.css" for l in LANGS if l != LANG and i18n.lang(l)["dir"] == "rtl" and (SRC / l / "rtl.css").exists()), None)
+            if not rtl: sys.exit(f"{LANG} is right to left, but {COMP.name}/src has no rtl.css to mirror the layout")
+            print(f"note: {LANG} uses {rtl.relative_to(ROOT)} until it has its own rtl.css", file=sys.stderr)
+        else:
+            own_css = rtl.read_text(encoding="utf-8")
+        i = head.rindex("</style>")
+        head = head[:i] + rtl.read_text(encoding="utf-8") + head[i:]
+    # the language's script faces, unless its own CSS already sets them
+    extra = i18n.font_css(LANG, head) if "--body:" not in own_css else (LINFO.get("css", "") + "\n" if LINFO.get("css") else "")
+    if extra:
+        i = head.rindex("</style>")
+        head = head[:i] + extra + head[i:]
+    g = LINFO["fonts"].get("google")
+    first = re.match(r"family=([^:&]+)", g or "")
+    if g and first and f"family={first.group(1)}" not in head:
+        link = f'<link rel="stylesheet" href="https://fonts.googleapis.com/css2?{g}&display=swap">\n'
+        i = head.index("<!--/META-->") if "<!--/META-->" in head else head.index("</head>")
+        head = head[:i] + link + head[i:]
+SWITCH = i18n.switcher(COMP.name, LANG, LANGS, STR)
+if SWITCH.startswith("<details"):
     i = head.rindex("</style>")
-    head = head[:i] + (L / "rtl.css").read_text(encoding="utf-8") + head[i:]
+    head = head[:i] + i18n.SWITCHER_CSS + head[i:]
 section_files = sorted((SRC / "sections").glob("*.html"))
-parts = [head, read(SRC / "10-shell.html")]
+shell = read(SRC / "10-shell.html")
+if "<!--LANGS-->" not in shell: sys.exit("10-shell.html has no <!--LANGS--> marker for the language switcher")
+parts = [head, shell.replace("<!--LANGS-->", SWITCH)]
 parts += [read(p) for p in section_files]
-parts.append(read(SRC / "90-foot.html"))
+foot = read(SRC / "90-foot.html")
+REVIEWER = i18n.reviewer(comp, LANG)
+if REVIEWER:
+    e = lambda s: H.escape(s, quote=False)
+    line = STR.get("review.line").format(name=e(REVIEWER["name"]), credentials=e(REVIEWER.get("credentials", "")), date=e(REVIEWER.get("date", "")))
+    foot = foot.replace("</footer>", f'  <p class="reviewed">{line}</p>\n</footer>', 1)
+parts.append(foot)
 js_files = sorted((SRC / "js").glob("*.js"))
 js = [read(p) for p in js_files]
 src_js = "const SOURCES=" + json.dumps(sources, ensure_ascii=False) + ";\n"
@@ -115,6 +183,11 @@ def stamp(m):
     if comp.get("published"): data["datePublished"] = comp["published"]
     data["dateModified"] = last_modified(COMP.name)
     if CFG.get("publisher"): data["publisher"] = {"@type": "Organization", **CFG["publisher"]}
+    data["inLanguage"] = LANG
+    if REVIEWER:
+        data["reviewedBy"] = {"@type": "Person", "name": REVIEWER["name"],
+                              **({"description": REVIEWER["credentials"]} if REVIEWER.get("credentials") else {})}
+        if REVIEWER.get("date"): data["lastReviewed"] = REVIEWER["date"]
     return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "</script>"
 html = re.sub(r'<script type="application/ld\+json">(.*?)</script>', stamp, html, flags=re.S)
 
@@ -147,17 +220,34 @@ if missing:
 unused = [s["key"] for s in sources if s["key"] not in used]
 rel = lambda p: p.relative_to(ROOT) if p.is_relative_to(ROOT) else p
 
+def hreflang_links(mid):
+    """<link rel=alternate> for MID in every language whose page for it may be indexed, plus
+    x-default (English). MID None: the companion's first page in every language (--single)."""
+    langs = LANGS if mid is None else [l for l in LANGS if indexable(l, mid)]
+    if len(langs) < 2: return ""
+    pairs = [(l, i18n.lang_url(COMP.name, l)) for l in langs]
+    if "en" in langs: pairs.append(("x-default", i18n.lang_url(COMP.name, "en")))
+    sub = "" if mid in (None, "home") else mid + "/"
+    return "".join(f'<link rel="alternate" hreflang="{l}" href="{u}{sub}">\n' for l, u in pairs)
+
 def report(first):
     print(first + f", {len(used)} sources cited, {len(unused)} listed but uncited")
     if unused: print("uncited:", ", ".join(unused))
     if untranslated: print(f"untranslated ({LANG}):", ", ".join(untranslated))
+    if STR.missing: print(f"missing strings ({LANG}):", ", ".join(sorted(STR.missing)))
+    if LANG != "en":
+        r = i18n.reviewer(comp, LANG)
+        if r: print(f"reviewed ({LANG}): {r['name']}, {r.get('credentials', '')}, {r.get('date', '')}")
+        elif LANG in comp.get("indexed_without_review", []): print(f"review ({LANG}): no reviewer named; indexed anyway (indexed_without_review)")
+        else: print(f"review ({LANG}): no reviewer named in site.json, so every page is noindex")
 
 page_html, js_html = html.split("<!--JS-->")
 if not SINGLE and "dataset.page" not in js_html:
     print(f"warning: {LANG} js/00-core.js has no page routing; built as one page", file=sys.stderr)
     SINGLE = True
 if SINGLE:
-    html = page_html + js_html
+    indexable = lambda l, mid: True
+    html = page_html.replace("<!--HREFLANG-->\n", hreflang_links(None), 1) + js_html
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(html, encoding="utf-8")
     report(f"wrote {rel(OUT)} ({len(html)//1024} KB)")
@@ -204,8 +294,17 @@ def part_of(mid):
         if re.search(rf"\binits\.{mid}\s*=", p.read_text(encoding="utf-8")): files.add(f"js/{p.name}")
     return files
 PARTS = {i: part_of(i) for i in mod_ids}
-def translated(lang, mid):
-    return lang == "en" or all((SRC / lang / f).exists() for f in PARTS[mid])
+_strings = {LANG: STR}
+def complete(lang, mid):
+    """Does LANG's page for MID use no English part and no English UI string?"""
+    if lang == "en": return True
+    if not all((SRC / lang / f).exists() for f in PARTS[mid] | {"meta.html"}): return False
+    s = _strings.setdefault(lang, i18n.Strings(COMP.name, lang))
+    # the same strings as this page, except that only a page with a reviewer names one
+    keys = (STR.used - {"review.line"}) | ({"review.line"} if i18n.reviewer(comp, lang) else set())
+    return not any(k not in s.own for k in keys)
+def indexable(lang, mid):
+    return complete(lang, mid) and i18n.review_ok(comp, lang)
 
 pages_json = (SRC / "pages.json") if LANG == "en" else (SRC / LANG / "pages.json")
 SEO = json.loads(pages_json.read_text(encoding="utf-8")) if pages_json.exists() else {}
@@ -229,23 +328,13 @@ def describe(text, limit=160):
 canon_m = re.search(r'<link rel="canonical" href="([^"]+)">', head_html)
 if not canon_m: sys.exit("no canonical link in the head")
 HOME_URL = canon_m.group(1)
-ALT_RE = r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">\n?'
-alts = re.findall(ALT_RE, head_html)
-other_langs = [l for l in comp.get("langs", ["en"]) if l != "en"]
+if HOME_URL != HOME_LANG_URL: sys.exit(f"the canonical link is {HOME_URL}, but this language's address is {HOME_LANG_URL}")
 
 def page_head(mid, nav, title, desc, url):
     h = head_html
-    ok = translated(LANG, mid)
-    # hreflang: this module in every language whose page for it is fully translated
-    langs = ["en"] + [l for l in other_langs if translated(l, mid)]
-    links = ""
-    if ok and len(langs) > 1:
-        for lang, href in alts:
-            if lang in langs or lang == "x-default":
-                links += f'<link rel="alternate" hreflang="{lang}" href="{href}{"" if mid == "home" else mid + "/"}">\n'
-    i = re.search(ALT_RE, h)
-    h = re.sub(ALT_RE, "", h)
-    if i: h = h[:i.start()] + links + h[i.start():]
+    ok = indexable(LANG, mid)
+    # hreflang: this module in every language whose page for it may be indexed
+    h = h.replace("<!--HREFLANG-->\n", hreflang_links(mid) if ok else "", 1)
     if not ok:
         h = re.sub(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex,follow">', h)
     # Until the script shows the module (removing its hidden attribute) it keeps its place
@@ -331,7 +420,7 @@ for mid, t in MODS:
 # a module that was removed or renamed leaves its old page behind: remove it
 for d in BASE.iterdir():
     old = d / "index.html"
-    if (d.is_dir() and d.name not in mod_ids and d.name not in comp.get("langs", []) and old.exists()
+    if (d.is_dir() and d.name not in mod_ids and d.name not in {i18n.lang_dir(l) for l in LANGS} and old.exists()
             and 'data-root="' in old.read_text(encoding="utf-8")):
         old.unlink()
         if not any(d.iterdir()): d.rmdir()
