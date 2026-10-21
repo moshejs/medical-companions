@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Medical Companions: animated, cited guides to Alzheimer's disease and FMF</title>
-<meta name="description" content="Free animated guides, in English and Hebrew, to Alzheimer's disease and Familial Mediterranean Fever, with every claim cited. Educational, not medical advice.">
+<title>Medical Companions: animated, cited guides to Alzheimer's, FMF and MS</title>
+<meta name="description" content="Free animated guides to Alzheimer's disease, Familial Mediterranean Fever and multiple sclerosis, with every claim cited. Educational, not medical advice.">
 <link rel="canonical" href="%SITE%/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Medical Companions">
 <meta property="og:title" content="Medical Companions: animated, cited guides, one disease each">
-<meta property="og:description" content="Alzheimer's disease and Familial Mediterranean Fever, explained with animations you can scrub. Every claim cited. Educational only, not medical advice.">
+<meta property="og:description" content="Alzheimer's disease, Familial Mediterranean Fever and multiple sclerosis, explained with animations you can scrub. Every claim cited. Educational only, not medical advice.">
 <meta property="og:url" content="%SITE%/">
 <meta property="og:image" content="%SITE%/share-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Medical Companions: animated, cited guides to Alzheimer's disease and Familial Mediterranean Fever">
+<meta property="og:image:alt" content="Medical Companions: animated, cited guides to Alzheimer's disease, Familial Mediterranean Fever and multiple sclerosis">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="%SITE%/share-card.png">
 <meta name="theme-color" content="#f4f2ec" media="(prefers-color-scheme: light)">
@@ -29,13 +29,21 @@
 {"@type":"CollectionPage","name":"Medical Companions","url":"%SITE%/","isPartOf":{"@id":"%SITE%/#site"},"description":"Animated, cited study and patient-education guides, one disease each. Educational only, not medical advice.","hasPart":[
 {"@type":"MedicalWebPage","name":"Alzheimer's Companion","url":"%SITE%/alzheimers/","about":{"@type":"MedicalCondition","name":"Alzheimer's disease"}},
 {"@type":"MedicalWebPage","name":"FMF Companion","url":"%SITE%/fmf/","about":{"@type":"MedicalCondition","name":"Familial Mediterranean Fever"}},
-{"@type":"MedicalWebPage","name":"Myasthenia Gravis Companion","url":"%SITE%/myasthenia-gravis/","about":{"@type":"MedicalCondition","name":"Myasthenia gravis"}}]}]}</script>
+{"@type":"MedicalWebPage","name":"Myasthenia Gravis Companion","url":"%SITE%/myasthenia-gravis/","about":{"@type":"MedicalCondition","name":"Myasthenia gravis"}},
+{"@type":"MedicalWebPage","name":"Gout Companion","url":"%SITE%/gout/","about":{"@type":"MedicalCondition","name":"Gout"}},
+{"@type":"MedicalWebPage","name":"ALS Companion","url":"%SITE%/als/","about":{"@type":"MedicalCondition","name":"Amyotrophic lateral sclerosis"}},
+{"@type":"MedicalWebPage","name":"Parkinson's Companion","url":"%SITE%/parkinsons-disease/","about":{"@type":"MedicalCondition","name":"Parkinson's disease"}},
+{"@type":"MedicalWebPage","name":"MS Companion","url":"%SITE%/multiple-sclerosis/","about":{"@type":"MedicalCondition","name":"Multiple sclerosis"}}]}]}</script>
 <style>
 :root{
   --bg:#f4f2ec; --panel:#fffefb; --ink:#1d2a26; --muted:#5b6661; --line:#ddd9ce;
   --alz:#2f6b4f; --alz-soft:#dcebe2; --amber:#905a0c; --rose:#ad3861;
   --fmf:#0d6e78; --fmf-soft:#d5edef; --terra:#c4562f;
   --mg:#1d5f8a; --mg-soft:#dbe8f2; --mg-ab:#b02a55;
+  --gout:#2d4a8a; --gout-soft:#dfe6f5; --garnet:#c23a4e;
+  --als:#1f5f8b; --als-soft:#dbe8f2; --ochre:#b07400;
+  --pd:#2f4f8a; --pd-soft:#dfe6f4; --tulip:#c0392b;
+  --ms:#3a47a8; --ms-soft:#e1e4f7; --myelin:#f2c46d; --msorange:#e07a1f;
   --display:"Newsreader",Georgia,"Times New Roman",serif;
   --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"Spline Sans Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -46,6 +54,10 @@
     --alz:#6cc59a; --alz-soft:#163428; --amber:#e7b04a; --rose:#f07fa6;
     --fmf:#5cc4cf; --fmf-soft:#0f2e33; --terra:#ffb08a;
     --mg:#6db3e3; --mg-soft:#132a3c; --mg-ab:#ff7aa0;
+    --gout:#8fb0f0; --gout-soft:#1b2747; --garnet:#ff8d9b;
+    --als:#72b6e8; --als-soft:#12304a; --ochre:#f0bd55;
+    --pd:#8fb0f0; --pd-soft:#1b2742; --tulip:#ff8a7a;
+    --ms:#9aa6ff; --ms-soft:#1f2550; --myelin:#e6b858; --msorange:#ffa45c;
     color-scheme:dark;
   }
 }
@@ -67,6 +79,10 @@ h1{font:800 clamp(38px,6.4vw,68px)/1.02 var(--display);letter-spacing:-.02em;mar
 .card.alz{--c:var(--alz);--soft:var(--alz-soft)}
 .card.fmf{--c:var(--fmf);--soft:var(--fmf-soft)}
 .card.mg{--c:var(--mg);--soft:var(--mg-soft)}
+.card.gout{--c:var(--gout);--soft:var(--gout-soft)}
+.card.als{--c:var(--als);--soft:var(--als-soft)}
+.card.pd{--c:var(--pd);--soft:var(--pd-soft)}
+.card.ms{--c:var(--ms);--soft:var(--ms-soft)}
 .card .icon{width:52px;height:52px}
 .card h2{font:800 30px/1.1 var(--display);margin:0;letter-spacing:-.01em}
 .card h2 a{text-decoration:none}
@@ -138,6 +154,60 @@ footer{border-top:1px solid var(--line);margin-top:28px;padding-block:22px max(3
       </ul>
       <div class="facts"><span>%CITED:myasthenia-gravis% cited sources</span><span>%LANGNAMES:myasthenia-gravis%</span></div>
       <div class="langs">%LANGS:myasthenia-gravis%</div>
+    </article>
+    <article class="card gout">
+      <svg class="icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--gout)"/><path d="M11 28L29 12M12 13l16 15M20 8v24" fill="none" stroke="var(--panel)" stroke-width="2.6" stroke-linecap="round"/><circle cx="20" cy="20" r="4" fill="var(--garnet)"/></svg>
+      <p class="what">Rheumatology · crystal arthritis</p>
+      <h2><a href="gout/">Gout Companion</a></h2>
+      <p>Gout, the commonest inflammatory arthritis and the one whose cause can be removed, from urate crystals to treat-to-target.</p>
+      <ul>
+        <li>Urate crystals forming and dissolving as serum urate changes</li>
+        <li>A flare hour by hour: crystal, NLRP3, interleukin-1β</li>
+        <li>Allopurinol and febuxostat titrated to target, with flare prophylaxis</li>
+        <li>The ACR/EULAR 2015 calculator, and the kidney and heart links</li>
+      </ul>
+      <div class="facts"><span>%CITED:gout% cited sources</span><span>%LANGNAMES:gout%</span></div>
+      <div class="langs">%LANGS:gout%</div>
+    </article>
+    <article class="card als">
+      <svg class="icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--als)"/><path d="M12 10l5 5v9l-5 6M28 10l-5 5v9l5 6" fill="none" stroke="var(--panel)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="3.2" fill="var(--ochre)"/></svg>
+      <p class="what">Neurology · motor neuron disease</p>
+      <h2><a href="als/">ALS Companion</a></h2>
+      <p>Amyotrophic lateral sclerosis, from the two motor neurons it damages to breathing, nutrition and the newest gene-targeted drug.</p>
+      <ul>
+        <li>Upper and lower motor neurons, and TDP-43, animated</li>
+        <li>C9orf72, SOD1 and genetic testing</li>
+        <li>The Gold Coast and El Escorial criteria, and an ALSFRS-R calculator</li>
+        <li>Riluzole, edaravone and tofersen; NIV, feeding tubes and nursing care</li>
+      </ul>
+      <div class="facts"><span>%CITED:als% cited sources</span><span>%LANGNAMES:als%</span></div>
+      <div class="langs">%LANGS:als%</div>
+    <article class="card pd">
+      <svg class="icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--pd)"/><path d="M20 31V19" fill="none" stroke="var(--panel)" stroke-width="2.4" stroke-linecap="round"/><path d="M20 25c-3-1-6-3-6-6M20 23c3-1 5-2 6-5" fill="none" stroke="var(--panel)" stroke-width="2" stroke-linecap="round"/><path d="M14 10c0 6 2 9 6 9s6-3 6-9l-3 3-3-5-3 5z" fill="var(--tulip)" stroke="var(--panel)" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      <p class="what">Neurology · movement disorders</p>
+      <h2><a href="parkinsons-disease/">Parkinson's Companion</a></h2>
+      <p>How Parkinson's disease takes away dopamine years before the tremor, how it's diagnosed, and how levodopa and deep-brain stimulation work.</p>
+      <ul>
+        <li>The dopamine pathway and alpha-synuclein, animated, with the Braak stages</li>
+        <li>The MDS diagnostic criteria, as a calculator</li>
+        <li>Levodopa over a day and over the years: wearing-off and dyskinesia</li>
+        <li>Deep-brain stimulation, living with Parkinson's and nursing care</li>
+      </ul>
+      <div class="facts"><span>%CITED:parkinsons-disease% cited sources</span><span>%LANGNAMES:parkinsons-disease%</span></div>
+      <div class="langs">%LANGS:parkinsons-disease%</div>
+    <article class="card ms">
+      <svg class="icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--ms)"/><path d="M5 20h30" stroke="var(--panel)" stroke-width="2.4" stroke-linecap="round"/><rect x="8" y="15" width="8" height="10" rx="5" fill="var(--myelin)"/><rect x="24" y="15" width="8" height="10" rx="5" fill="var(--myelin)"/><circle cx="20" cy="20" r="3.4" fill="var(--msorange)"/></svg>
+      <p class="what">Neurology · immune-mediated</p>
+      <h2><a href="multiple-sclerosis/">MS Companion</a></h2>
+      <p>Multiple sclerosis, from a single stripped nerve fibre to decades of relapses and progression, and what each medicine does.</p>
+      <ul>
+        <li>Myelin, saltatory conduction and demyelination, animated</li>
+        <li>Relapses, remission and silent progression on one timeline</li>
+        <li>A McDonald criteria calculator, 2017 and 2024</li>
+        <li>How the disease-modifying drugs work, the treatment ladder and nursing care</li>
+      </ul>
+      <div class="facts"><span>%CITED:multiple-sclerosis% cited sources</span><span>%LANGNAMES:multiple-sclerosis%</span></div>
+      <div class="langs">%LANGS:multiple-sclerosis%</div>
     </article>
   </div>
 

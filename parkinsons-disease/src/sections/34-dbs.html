@@ -1,0 +1,129 @@
+<!-- ================= 3.4 DEEP-BRAIN STIMULATION ================= -->
+<style>
+#m-dbs .ctrls .kicker{margin-right:2px}
+#m-dbs .db-amp{display:flex;gap:10px;align-items:center;flex:1;min-width:230px;white-space:nowrap}
+#m-dbs .card .ev,#m-dbs .card .tag{align-self:flex-start}
+#m-dbs .note .callout{font-size:15px}
+#m-dbs .db-form{display:flex;flex-direction:column;gap:14px}
+#m-dbs .db-form fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+#m-dbs .db-form legend{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;padding:0}
+#m-dbs .db-form label.ck{display:flex;gap:9px;align-items:flex-start;font-size:15px;line-height:1.35;cursor:pointer}
+#m-dbs .db-form label.ck input{margin-top:3px;accent-color:var(--sky);flex:none}
+#m-dbs .db-form label.rg{display:flex;flex-direction:column;gap:2px;font-size:15px}
+#m-dbs .db-form label.rg b{font-family:var(--mono);font-size:14px}
+#m-dbs .db-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+#m-dbs .db-list li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;align-items:start;font-size:14.5px}
+#m-dbs .db-bars{display:flex;flex-direction:column;gap:5px;margin-top:2px}
+#m-dbs .db-bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;font-size:12.5px;color:var(--muted)}
+#m-dbs .db-bar .tr{height:7px;border-radius:4px;background:var(--panel-2);grid-column:1/-1;overflow:hidden}
+#m-dbs .db-bar .tr i{display:block;height:100%;border-radius:4px}
+#m-dbs .db-bar b{font-family:var(--mono);font-size:12.5px;color:var(--ink);text-align:right;white-space:nowrap}
+</style>
+<section class="mod" id="m-dbs" data-mod="dbs" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Deep-brain stimulation</h2>
+    <p class="lede">A thin lead in the subthalamic nucleus or the globus pallidus delivers small, rapid electrical pulses from an implanted pulse generator. Step through the surgery and the first switch-on, raise the amplitude to see how far the field spreads, and watch the abnormal beta rhythm settle.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Target and stimulation mode">
+    <span class="kicker">Target</span>
+    <button class="btn" id="dbStn" aria-pressed="true">STN</button>
+    <button class="btn" id="dbGpi" aria-pressed="false">GPi</button>
+    <span class="kicker" style="margin-left:6px">Mode</span>
+    <button class="btn" id="dbConv" aria-pressed="true">Conventional</button>
+    <button class="btn" id="dbAdapt" aria-pressed="false">Adaptive</button>
+    <span class="kicker" style="margin-left:6px">Compare</span>
+    <button class="btn" id="dbFus" aria-pressed="false">Focused ultrasound lesion</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Lead type and steering">
+    <span class="kicker">Lead</span>
+    <button class="btn" data-dblead="0" aria-pressed="true">Ring, 0.5 mm spacing</button>
+    <button class="btn" data-dblead="1" aria-pressed="false">Ring, 1.5 mm spacing</button>
+    <button class="btn" data-dblead="2" aria-pressed="false">Directional 1-3-3-1</button>
+    <span class="kicker" style="margin-left:6px">Steer</span>
+    <button class="btn" data-dbsteer="0" aria-pressed="true">All segments</button>
+    <button class="btn" data-dbsteer="-1" aria-pressed="false">Away from capsule</button>
+    <button class="btn" data-dbsteer="1" aria-pressed="false">Toward capsule</button>
+  </div>
+  <div class="stepper" id="dbSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dbSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A coronal brain slice with leads in both subthalamic nuclei or both internal pallidal segments, extension wires running down the neck to a pulse generator in the chest, and a magnified view of one target showing the lead's contacts and a stimulation field that grows with amplitude and, past a threshold, spreads into the internal capsule. Below, a simulated subthalamic beta rhythm flattens when stimulation is on, and a small basal ganglia diagram shows overactive output normalising."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dbPlay">Play</button><label class="stage-cap tl" for="dbT">Timeline <input type="range" id="dbT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <div class="ctrls"><label class="stage-cap db-amp" for="dbAmp">Amplitude <input type="range" id="dbAmp" min="0" max="5" step="0.05" value="2"></label><span class="readout" id="dbRead"></span></div>
+      <p class="stage-cap" id="dbCap"></p></div>
+    <aside class="note" id="dbNote" aria-live="polite"></aside>
+  </div>
+  <p class="legend" aria-hidden="true"><span><i style="background:var(--sky)"></i>stimulation field</span><span><i style="background:var(--bad)"></i>spread to the internal capsule</span><span><i style="background:var(--violet)"></i>beta rhythm (13–30 Hz)</span><span><i style="background:var(--good)"></i>excitatory</span></p>
+
+  <h3 class="sub">Who is a candidate?</h3>
+  <div class="prose"><p>Selection is a specialist decision, but the published criteria are public. Set a profile and see how it lines up with them. This is a study aid built from consensus statements and trial entry rules, not an assessment of any person. [[Bronstein2011,Lang2006]]</p></div>
+  <div class="lab even">
+    <div class="stage db-form">
+      <label class="rg" for="dbLd">Improvement in motor score on a levodopa challenge: <b id="dbLdV">45%</b><input type="range" id="dbLd" min="0" max="80" step="1" value="45"></label>
+      <svg id="dbLdSvg" viewBox="0 0 360 84" style="max-width:460px" role="img" aria-label="A scale of levodopa-challenge improvement from 0 to 80 percent, with the 30 percent marker from the 2011 consensus and the often-quoted 33 percent CAPSIT-PD threshold, which is unverified, and the chosen value."></svg>
+      <label class="rg" for="dbDur">Years since diagnosis: <b id="dbDurV">9</b><input type="range" id="dbDur" min="0" max="20" step="1" value="9"></label>
+      <label class="rg" for="dbAge">Age: <b id="dbAgeV">61</b><input type="range" id="dbAge" min="35" max="85" step="1" value="61"></label>
+      <fieldset><legend>Main problems</legend>
+        <label class="ck"><input type="checkbox" data-dbc="fl" checked> Motor fluctuations not controlled by medicines</label>
+        <label class="ck"><input type="checkbox" data-dbc="dy" checked> Troublesome dyskinesia</label>
+        <label class="ck"><input type="checkbox" data-dbc="tr"> Tremor not controlled by medicines</label>
+        <label class="ck"><input type="checkbox" data-dbc="si"> Cannot tolerate medicine side effects</label>
+        <label class="ck"><input type="checkbox" data-dbc="fz"> Mainly freezing or falls that do not respond to levodopa</label>
+        <label class="ck"><input type="checkbox" data-dbc="sp"> Mainly speech problems</label>
+      </fieldset>
+      <fieldset><legend>Other findings</legend>
+        <label class="ck"><input type="checkbox" data-dbc="de"> Significant dementia or active cognitive problems</label>
+        <label class="ck"><input type="checkbox" data-dbc="ps"> Uncontrolled depression or other psychiatric illness</label>
+        <label class="ck"><input type="checkbox" data-dbc="at"> Features suggesting atypical parkinsonism</label>
+      </fieldset>
+    </div>
+    <aside class="note" id="dbCand" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="card"><span class="tag good">What it helps</span><h4>Mostly what levodopa helps, more evenly</h4>
+      <ul>
+        <li>Off-time and swings: on-time without troubling dyskinesia rose 4.6 hours a day against none on medical therapy. [[Weaver2009]]</li>
+        <li>Dyskinesia: in people followed for about 17 years, time with dyskinesia was 75% lower than before surgery and dopaminergic medication about half. [[Bove2021]]</li>
+        <li>Tremor, even when levodopa does not control it. [[Bronstein2011]]</li>
+        <li>Quality of life over medical therapy in randomised trials. [[Deuschl2006,Williams2010,Schuepbach2013]]</li>
+      </ul></div>
+    <div class="card"><span class="tag bad">What it does not fix</span><h4>Axial signs, speech, thinking</h4>
+      <ul>
+        <li>Freezing of gait, postural instability and cognitive decline often develop over time. [[Bronstein2011]]</li>
+        <li>Speech was the only motor item not improved at 5 years, and STN stimulation can worsen speech and gait in some people. [[Krack2003,Bronstein2011]]</li>
+        <li>Verbal fluency falls moderately after STN-DBS. [[Parsons2006]]</li>
+        <li>No treatment, DBS included, is rated clinically useful for slowing progression. [[Fox2018]]</li>
+      </ul></div>
+  </div>
+
+  <h3 class="sub">What the trials found</h3>
+  <div class="prose"><p>Six randomised trials and two long-term cohorts carry most of the evidence. The bars show each trial's own outcome, so they cannot be compared across cards. The MDS evidence review rates bilateral STN and GPi stimulation "clinically useful" for both motor fluctuations and dyskinesia. [[Fox2018]]</p></div>
+  <div class="cards" id="dbTrials"></div>
+
+  <h3 class="sub">Risks</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Risk</th><th>How often</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><th>Bleeding in the brain</th><td>2.9% per patient, 1.6% per lead; about half symptomatic. [[Cheyuo2024]]</td><td>From 63 studies and 13,056 patients. All-cause mortality was 0.4%, with haemorrhage behind 22% of deaths. Microelectrode recording, systolic pressure over 140 mm Hg and paths through sulci were risk factors. [[Cheyuo2024]]</td></tr>
+      <tr><th>Infection</th><td>4.9% of procedures (95% CI 4.1–6.1%). [[Spindler2023]]</td><td>61.2% at the generator pocket; most centres remove the generator, give antibiotics and reimplant. Consensus range 0–15%, the most commonly reported complication. [[Spindler2023,Bronstein2011]]</td></tr>
+      <tr><th>Hardware</th><td>Lead erosion 1–2.5%, fracture 0–15%, migration 0–19%. [[Bronstein2011]]</td><td>Ranges from the 2011 consensus.</td></tr>
+      <tr><th>Suicide</th><td>Completed 0.45%, attempted 0.90% after STN-DBS. [[Voon2008]]</td><td>In 5,311 patients, the first-year suicide rate was 12.6 to 15.6 times the expected rate. Postoperative depression, being single and earlier impulse-control disorders were associated factors. [[Voon2008]]</td></tr>
+      <tr><th>Thinking and mood</th><td>Verbal fluency: semantic d = 0.73, phonemic d = 0.51. [[Parsons2006]]</td><td>The only moderate declines in a 28-study meta-analysis; executive function and verbal memory declined slightly. A subset may have more depression, apathy or impulsivity. [[Parsons2006,Bronstein2011]]</td></tr>
+      <tr><th>Weight gain</th><td>Men +3.4 kg, women +2.6 kg at 3 months. [[Montaurier2007]]</td><td>Daily energy expenditure fell 7–13%. [[Montaurier2007]]</td></tr>
+      <tr><th>Stimulation effects</th><td>Set by where the current spreads. [[Koeglsperger2019]]</td><td>Muscle pulling from the internal capsule, slurred speech, double vision, tingling and dyskinesia, depending on the neighbouring structure reached. [[Koeglsperger2019]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Focused ultrasound: a lesion instead of a lead</h3>
+  <div class="cards" id="dbFusCards"></div>
+
+  <h3 class="sub">The US approval timeline</h3>
+  <div class="prose"><p>Every date below is a decision date in the FDA premarket approval database. Play it to see the devices and indications arrive. [[FDAPMA2026]]</p></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dbTl" viewBox="0 0 720 250" style="min-width:560px" role="img" aria-label="A timeline from 1997 to 2025 of US approvals: thalamic stimulation for tremor in 1997, bilateral STN or GPi stimulation for Parkinson's in 2002, rechargeable and directional systems from 2015, the 4-year indication in 2015, a sensing generator in 2020, focused ultrasound for tremor and Parkinson's from 2016 to 2025, and adaptive DBS in February 2025."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dbTlPlay">Play</button><label class="stage-cap tl" for="dbTlT">Year <input type="range" id="dbTlT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Dates from FDA PMA records (decision dates). Blue: DBS systems; hollow blue: changes to the Parkinson's indication; red: focused ultrasound (FUS) lesioning. The wide axis is broken between 2003 and 2014.</p></div>
+    <aside class="note" id="dbTlNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The other device-aided route: infusions</h3>
+  <div class="prose"><p>For advanced fluctuations, a pump can replace pills with a continuous supply. NICE advises against DBS when best medical therapy controls symptoms, and best medical therapy can include apomorphine infusion. [[NICE2017]] The details of how levodopa levels swing, and how infusions flatten them, are in <a href="#wearing" data-go="wearing">Levodopa over time</a>.</p></div>
+  <div class="cards" id="dbInf"></div>
+</section>

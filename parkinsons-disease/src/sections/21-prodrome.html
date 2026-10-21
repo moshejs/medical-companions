@@ -1,0 +1,92 @@
+<!-- ================= 2.1 BEFORE THE TREMOR ================= -->
+<section class="mod" id="m-prodrome" data-mod="prodrome" hidden>
+<style>
+#m-prodrome .card>.ev{align-self:flex-start}
+#m-prodrome .teach{display:inline-block;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warn);background:var(--warn-soft);border-radius:6px;padding:4px 8px;margin-right:6px}
+#m-prodrome .prd-form{display:flex;flex-direction:column;gap:12px}
+#m-prodrome fieldset{border:1px solid var(--line);border-radius:12px;padding:8px 12px 10px;margin:0;min-width:0}
+#m-prodrome legend{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 4px}
+#m-prodrome .prd-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}
+#m-prodrome .prd-row:last-child{border-bottom:0}
+#m-prodrome .prd-row.off{opacity:.45}
+#m-prodrome .prd-row .nm{font-size:14.5px;line-height:1.3;min-width:0;overflow-wrap:anywhere}
+#m-prodrome .prd-row .nm small{display:block;color:var(--muted);font:500 11.5px/1.35 var(--mono)}
+#m-prodrome .seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;flex:none}
+#m-prodrome .seg button{border:0;background:var(--panel);padding:6px 9px;font:600 11.5px var(--mono);cursor:pointer;color:var(--muted);white-space:nowrap}
+#m-prodrome .seg button+button{border-left:1px solid var(--line)}
+#m-prodrome .seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+#m-prodrome .seg button.y[aria-pressed="true"]{background:var(--rose);color:var(--bg)}
+#m-prodrome .seg button.n[aria-pressed="true"]{background:var(--good);color:var(--bg)}
+#m-prodrome .seg button:disabled{cursor:not-allowed}
+#m-prodrome .prd-mini{position:sticky;top:8px;z-index:3;background:var(--panel-2);border-radius:10px;padding:8px 12px;font:600 13px var(--mono);display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+#m-prodrome .prd-mini b{font-size:16px}
+#m-prodrome .prd-mini i{font-style:normal;color:var(--muted);font-weight:500}
+@media (max-width:900px){#m-prodrome .prd-mini{top:62px}}
+@media (max-width:520px){#m-prodrome .prd-row{grid-template-columns:minmax(0,1fr)}#m-prodrome .seg{justify-self:start}}
+#m-prodrome .prd-out{border-radius:10px;padding:12px 14px;border:1px solid var(--line);background:var(--panel-2);display:flex;flex-direction:column;gap:6px;font-size:15px}
+#m-prodrome .prd-out.yes{background:var(--rose-soft);border-color:var(--rose)}
+#m-prodrome .prd-out strong{font-family:var(--display);font-size:21px;line-height:1.15}
+#m-prodrome .prd-pre{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-prodrome .prd-pre .btn{font-size:13px;padding:6px 11px}
+@media (min-width:1361px){#m-prodrome .prd-res{position:sticky;top:16px}}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 2 · Course and diagnosis</p><h2>Before the tremor</h2>
+    <p class="lede">Parkinson's usually starts years before anyone could diagnose it. Smell can fade, the bowels slow and some people start to act out their dreams long before a tremor or slowness appears. Scrub the clock from twenty years before diagnosis to five years after, and switch between a prodromal cohort and family-doctor records.</p></div>
+  <div class="ctrls" role="group" aria-label="Which evidence">
+    <span class="kicker">Evidence</span>
+    <button class="btn" id="prdCoh" aria-pressed="true">Lead times (cohort estimates)</button>
+    <button class="btn" id="prdRec" aria-pressed="false">Primary-care records (relative risk)</button>
+  </div>
+  <div class="stepper" id="prdSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="prdSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Lanes for the prodromal features of Parkinson's on a clock from 20 years before diagnosis to 5 years after: smell loss from more than 20 years before, constipation and autonomic changes 10 to 16 years before, acting out dreams about 8 years before, bladder and subtle thinking changes 7 to 9 years before, low mood, loss of dopamine terminals and subtle motor signs in the last 5 to 7 years, then diagnosis. A playhead lights each feature as it begins. The records view shows relative risks at 10 and 5 years before diagnosis instead."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="prdPlay">Play</button><label class="stage-cap tl" for="prdT">Clock <input type="range" id="prdT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="readout" id="prdRead"></p>
+      <p class="stage-cap" id="prdCap"></p></div>
+    <aside class="note" id="prdNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Acting out dreams: how many go on to a diagnosis?</h3>
+  <div class="prose"><p>People with isolated REM sleep behaviour disorder (RBD) act out their dreams but have no other diagnosis yet. The International RBD Study Group followed 1,280 of them, every one confirmed by a sleep study, at 24 centres. Their mean age was 66.3 and 82.5% were men. Scrub the years since the sleep study and watch 100 people convert. [[Postuma2019RBD]]</p></div>
+  <div class="ctrls" role="group" aria-label="Colour the people who converted">
+    <span class="kicker">Show</span>
+    <button class="btn" id="prdRbdAll" aria-pressed="true">How many converted</button>
+    <button class="btn" id="prdRbdKind" aria-pressed="false">What they developed first</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="prdRbd" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A curve of the share of people with REM sleep behaviour disorder who have developed a neurodegenerative disease, rising from 10.6% at 2 years to 31.3% at 5, 60.2% at 10 and 73.5% at 12 years, beside 100 figures that fill in as people convert, optionally coloured by whether parkinsonism, multiple system atrophy or dementia came first."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="prdRbdPlay">Play</button><label class="stage-cap tl" for="prdRbdT">Years <input type="range" id="prdRbdT" min="0" max="1" step="0.002" value="0.42"></label></div>
+      <p class="stage-cap">Dots: the published Kaplan-Meier estimates at 2, 3, 5, 8, 10 and 12 years. The straight lines between them are drawn, not measured. The 100 figures are scaled from those percentages. [[Postuma2019RBD]]</p></div>
+    <aside class="note" id="prdRbdNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The MDS prodromal calculator</h3>
+  <p class="callout"><span class="teach">Research criteria, not a diagnostic test</span>The MDS research criteria estimate how likely it is that a person is in the prodromal stage of Parkinson's. They were written for research studies only. They start from a prior probability set by age, multiply the odds by a likelihood ratio (LR) for each marker that is known, and call the result "probable prodromal Parkinson's" at 80% or more. [[Berg2015,Heinzel2019]] This page reproduces the arithmetic with the 2019 values; it cannot tell anyone whether they will develop Parkinson's.</p>
+  <div class="prd-pre" role="group" aria-label="Examples" id="prdPre"><span class="kicker">Examples</span></div>
+  <div class="lab even">
+    <div class="stage prd-form">
+      <div class="prd-mini" id="prdMini" aria-hidden="true"></div>
+      <fieldset><legend>Age · sets the prior</legend><div class="ctrls" role="group" aria-label="Age band" id="prdAge"></div></fieldset>
+      <fieldset><legend>Sex · a risk marker</legend><div class="ctrls" role="group" aria-label="Sex" id="prdSex"></div></fieldset>
+      <fieldset><legend>Prodromal markers</legend><div id="prdMk"></div></fieldset>
+      <fieldset><legend>Risk markers</legend><div id="prdRk"></div></fieldset>
+      <p class="stage-cap">Each button shows the LR it applies. "Not known" leaves the odds unchanged. Only one value per family counts here: a sleep study overrides the questionnaire, and neurogenic overrides symptomatic orthostatic hypotension. All LRs, priors and definitions from the 2019 update. [[Heinzel2019]]</p>
+    </div>
+    <div class="stage prd-res">
+      <div class="scroll"><svg id="prdOdds" viewBox="0 0 560 200" style="min-width:440px" role="img" aria-label="A ladder on a probability scale: the age prior is a dot, each known marker is an arrow that moves the probability right if it raises the odds or left if it lowers them, and the posterior probability is compared with the 80% research threshold."></svg></div>
+      <div class="prd-out" id="prdOut" aria-live="polite"></div>
+      <p class="stage-cap">The probability axis is stretched at both ends (log-odds), so equal LRs make equal-length arrows. The combined LR needed for 80% is 4 × (1 − prior) ÷ prior, worked out here from the published priors. [[Heinzel2019,Berg2015]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">What the early signs can and cannot tell you</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Definition</span><h4>"Prodromal" is a research stage</h4><p>Prodromal Parkinson's means early symptoms or signs of the disease are present but classic motor Parkinson's cannot yet be diagnosed. The MDS criteria use a naive Bayesian classifier and are for research only. [[Berg2015]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>RBD is the strongest single marker</h4><p>A sleep-study diagnosis of RBD carries an LR of 130, against 6.4 for smell loss and 2.5 for constipation. Even people with RBD who were negative on the prodromal criteria converted: 13% by 5 years and 27% by 8 years. [[Heinzel2019,Postuma2019RBD]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Common problems, weak signals</h4><p>Constipation, anxiety and depression are linked to later Parkinson's, but they may be early features of the disease rather than causes. [[Noyce2012]] Constipation alone raised the odds about 2-fold, even more than 10 years ahead. [[AdamsCarr2016]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Synuclein seeds before diagnosis</h4><p>In PPMI, the alpha-synuclein seed amplification assay (SAA) was positive in 44 of 51 people (86%) with RBD or smell loss, but in only 8% of gene carriers without signs. [[Siderowf2023]] See <a href="#dx" data-go="dx">Diagnosis and the MDS criteria</a>.</p></div>
+    <div class="card"><span class="ev early">Candidate marker</span><h4>Skin biopsy is waiting in line</h4><p>The 2019 update named phosphorylated alpha-synuclein in skin as a promising marker, sensitive (55–100%) and highly specific (above 90%), but did not add it for lack of prospective data. [[Heinzel2019]]</p></div>
+    <div class="card"><span class="ev est">Limits</span><h4>Genes and independence</h4><p>For GBA carriers the LR depends on age: 20.0 at 50–54 and 9 at 65–69. For LRRK2 G2019S it rises from 2.5 at 50–54 to 11.6 at 70–74. The criteria are not used for high-penetrance mutations, the markers may not be independent, and LRs probably vary by age, sex and ethnicity. See <a href="#genes" data-go="genes">Genes and inheritance</a>. [[Heinzel2019]]</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>Isolated RBD is the strongest single prodromal marker: about 6.25% convert each year, 60.2% by 10 years, and 56.5% of converters show parkinsonism first, 43.5% dementia first. Prodromal criteria: age prior × LRs, "probable" at 80% or more, research use only. [[Postuma2019RBD,Berg2015]]</div>
+</section>

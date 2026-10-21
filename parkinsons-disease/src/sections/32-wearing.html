@@ -1,0 +1,92 @@
+<!-- ================= 3.2 LEVODOPA OVER TIME ================= -->
+<section class="mod" id="m-wearing" data-mod="wearing" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Levodopa over time</h2>
+    <p class="lede">Early on, levodopa seems to work all day. Over the years each dose wears off sooner, and the peaks can bring involuntary movements. Drag the years, play a day, then try the ways of smoothing the curve.</p></div>
+
+  <div class="ctrls" role="group" aria-label="How levodopa is given">
+    <span class="kicker">Form</span>
+    <button class="btn" data-wrf="ir" aria-pressed="true">Tablets</button>
+    <button class="btn" data-wrf="ryt" aria-pressed="false">Rytary</button>
+    <button class="btn" data-wrf="crx" aria-pressed="false">Crexont</button>
+    <button class="btn" data-wrf="sc" aria-pressed="false">Infusion under the skin</button>
+    <button class="btn" data-wrf="lcig" aria-pressed="false">Intestinal gel</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Tablet schedule and add-ons">
+    <span class="kicker">Tablets</span>
+    <button class="btn" data-wrs="3" aria-pressed="true">3 doses</button>
+    <button class="btn" data-wrs="5" aria-pressed="false">5 smaller doses</button>
+    <span class="kicker">Add</span>
+    <button class="btn" data-wra="comt" aria-pressed="false">COMT inhibitor</button>
+    <button class="btn" data-wra="maob" aria-pressed="false">MAO-B inhibitor</button>
+    <button class="btn" data-wra="meal" aria-pressed="false">Protein-rich lunch</button>
+  </div>
+  <div class="stepper" id="wrSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="wrSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A schematic 24-hour plot of plasma levodopa after each dose and of the buffered effect in the brain, drawn against a therapeutic window: below the lower line a person is off, above the upper line they have dyskinesia. A coloured ribbon under the plot shows the motor state through the day: off in red, on in green, on with dyskinesia in amber. A years slider shrinks the brain's storage buffer and lowers the dyskinesia threshold; an hour slider plays the day, and a figure shows the state at that hour."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="wrPlay">Play the years</button><label class="stage-cap tl" for="wrT">Years with Parkinson's <input type="range" id="wrT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="ctrls"><button class="btn" id="wrDay">Play the day</button><label class="stage-cap tl" for="wrH">Hour of day <input type="range" id="wrH" min="0" max="1" step="0.002" value="0.4167"></label></div>
+      <div class="readout" id="wrRead"></div>
+      <p class="stage-cap" id="wrCap">Schematic.</p></div>
+    <aside class="note" id="wrNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How often, and in whom</h3>
+  <p class="prose">The model above is a sketch. These are the measured figures: how many people develop motor complications, by when, and who is most at risk.</p>
+  <div class="ctrls" role="group" aria-label="Which figures to show">
+    <button class="btn" data-wri="0" aria-pressed="true">Over the years</button>
+    <button class="btn" data-wri="1" aria-pressed="false">In trials</button>
+    <button class="btn" data-wri="2" aria-pressed="false">Who is at risk</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="wrInc" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Published frequencies of motor fluctuations and dyskinesia by years of treatment, trial comparisons of starting with levodopa or an alternative, and the ranked risk factors from the STRIDE-PD analysis."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="wrIncPlay">Play</button><label class="stage-cap tl" for="wrIncT">Reveal <input type="range" id="wrIncT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="wrIncCap">Published figures only; no curve is fitted.</p></div>
+    <aside class="note" id="wrIncNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What smooths the curve: trial results</h3>
+  <p class="prose">How much each approach changed daily off-time, or on-time without troublesome dyskinesia, against its own trial's comparator. The trials differ in people, length and comparison, so the bars are not a ranking.</p>
+  <div class="ctrls" role="group" aria-label="Which outcome to show">
+    <button class="btn" data-wrx="0" aria-pressed="true">Off-time</button>
+    <button class="btn" data-wrx="1" aria-pressed="false">Good on-time</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="wrTx" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Bars of the published difference in hours per day between each treatment and its trial comparator, for off-time and for on-time without troublesome dyskinesia: extended-release levodopa, COMT and MAO-B inhibitors, levodopa and apomorphine infusions, and deep-brain stimulation."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="wrTxPlay">Play</button><label class="stage-cap tl" for="wrTxT">Reveal <input type="range" id="wrTxT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="wrTxCap">Hours a day, treatment minus comparator.</p></div>
+    <aside class="note" id="wrTxNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The words used</h3>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Off</span><h4>Wearing-off</h4><p>Symptoms return in a regular way towards the end of each dose. Predictable wearing-off is the most frequent type of fluctuation. [[Freitas2017]]</p></div>
+    <div class="card"><span class="tag bad">Off</span><h4>On-off ("yo-yoing")</h4><p>Rapid, abrupt switching between on and off. Unpredictable "sudden offs" come regardless of dose timing, are commoner in advanced disease and can develop within a few seconds. On-off fluctuation is described as now rare, because doses are lower. [[Freitas2017]]</p></div>
+    <div class="card"><span class="tag warn">Delay</span><h4>Delayed-on and partial on</h4><p>A dose takes much longer than usual to work, or works only partly. Both are put down mainly to erratic absorption, [[Freitas2017]] including slow stomach emptying. [[Jenner2026]]</p></div>
+    <div class="card"><span class="tag bad">Off</span><h4>No-on (dose failure)</h4><p>A dose does not work at all. Like delayed-on, it is attributed mainly to erratic levodopa absorption. [[Freitas2017]]</p></div>
+    <div class="card"><span class="tag warn">Dyskinesia</span><h4>Peak-dose dyskinesia</h4><p>Involuntary movements at the time of peak levodopa action. Chorea is the most common form. [[Freitas2017]]</p></div>
+    <div class="card"><span class="tag warn">Dyskinesia</span><h4>Diphasic dyskinesia</h4><p>Movements as levels rise and again as they fall, at the start and end of a dose: the "dystonia-improvement-dystonia" pattern. It mainly affects the legs and occurs in about 15 to 20% of people. [[Freitas2017]] Low levels can cause dyskinesia, as well as high ones. [[Contin2010]]</p></div>
+    <div class="card"><span class="tag bad">Off</span><h4>Off-period dystonia</h4><p>Dystonia during off periods or at the switch from on to off, often painful and especially in the legs. Some people also have worse symptoms at the start of a dose, or a rebound at the end that is worse than before treatment. [[Freitas2017]]</p></div>
+    <div class="card"><span class="tag sage">Diary</span><h4>How on and off are counted</h4><p>The Hauser home diary records each half-hour as asleep, off, on without dyskinesia, on with non-troublesome dyskinesia, or on with troublesome dyskinesia. Off-time and on-time with troublesome dyskinesia count as "bad time". Completion fell off after 3 days. [[Hauser2004]]</p></div>
+  </div>
+
+  <h3 class="sub">Infusions and devices</h3>
+  <p class="prose">When tablets can no longer give a smooth day, the options deliver medicine continuously or change the circuit itself. NICE asks for best medical therapy first, which may include apomorphine, and DBS only when that does not control symptoms. [[NICE2017]] See <a href="#dbs" data-go="dbs">Deep-brain stimulation</a>.</p>
+  <div class="cards">
+    <div class="card"><span class="ev est">Approved</span><h4>Levodopa-carbidopa intestinal gel</h4><p>Duopa: pumped into the jejunum through a PEG-J tube over 16 hours, up to 2000 mg of levodopa a day; US approval 9 January 2015. [[DrugsFDA2026F]] Against oral levodopa: off-time −1.91 hours a day, good on-time +1.86. Adverse events were mostly tube-related. [[Olanow2014]] The label lists bezoar, intussusception, obstruction, perforation, pancreatitis, peritonitis and sepsis, and polyneuropathy in 5% of trial patients. [[DrugsFDA2026F]]</p></div>
+    <div class="card"><span class="ev est">Approved</span><h4>Foslevodopa-foscarbidopa</h4><p>Vyalev (Produodopa in the EU): a 24-hour infusion under the skin by a small pump; US approval 16 October 2024. [[DrugsFDA2026F,AbbVie2024]] Against oral levodopa: good on-time +1.75 hours, off-time −1.79. Site redness 27%, pain 26%, cellulitis 19%; 22% stopped for adverse events against 1%. [[Soileau2022]] NICE (TA934) reserves it for when apomorphine or DBS cannot be used or no longer work. [[NICE2017]]</p></div>
+    <div class="card"><span class="ev early">Not approved in the US</span><h4>ND0612</h4><p>Continuous subcutaneous levodopa-carbidopa. In BouNDless: +1.72 hours good on-time (95% CI 1.08 to 2.36) and 1.40 hours less off-time; site reactions in 83% during the open-label run-in. [[Espay2024]] Both arms started on ND0612, so the "gain" reflects losing benefit after switching to tablets. [[Espay2024]] The FDA issued complete response letters in June 2024 and on 23 October 2025. [[PharmaLetter2025,DrugsFDA2026F]]</p></div>
+    <div class="card"><span class="ev est">Approved</span><h4>Apomorphine infusion</h4><p>A dopamine agonist given under the skin through the waking day. TOLEDO (107 people): off-time −2.47 versus −0.58 hours with placebo. [[Katzenschlager2018]] Onapgo, US approval 3 February 2025: off-time −2.55 versus −0.90 hours; common reactions included infusion-site nodules, nausea and sleepiness. [[AgonistLabels2026,DrugsFDA2026F]]</p></div>
+    <div class="card"><span class="ev early">Sweden</span><h4>Levodopa-entacapone-carbidopa gel</h4><p>Lecigon adds entacapone to the intestinal gel: in an 11-person crossover, a 20% lower levodopa dose gave the same exposure. [[Senek2017]] In the Swedish registry (150 people) complications were mainly tube-related (30%); 13.3% stopped. [[Othman2025]]</p></div>
+    <div class="card"><span class="ev est">Surgery</span><h4>Deep-brain stimulation</h4><p>In the VA trial, bilateral STN or GPi stimulation gave 4.6 more hours a day of on-time without troubling dyskinesia, against 0 with best medical therapy. [[Weaver2009]] The MDS review rates both targets clinically useful for fluctuations and dyskinesia. [[Fox2018]] See <a href="#dbs" data-go="dbs">Deep-brain stimulation</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Reading the evidence</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Disputed</span><h4>Does the window really narrow?</h4><p>The picture of a window closing from above, with the dyskinesia threshold falling towards the on threshold, is widely taught. In 20 people followed from their first levodopa for 4 years, dyskinesia and benefit always began and ended together, which the authors judged not consistent with a falling threshold. [[Nutt2010]] No source gives the window's width in numbers, so the model above is a drawing, not a measurement.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>The buffer runs down</h4><p>In 18 people tested over 4 years, the long-duration response decayed faster after 3 days off levodopa and the short-duration response grew, while its duration did not change. Dyskinesia became more severe. [[Nutt2002]] How the body handles levodopa does not change; what changes is in the brain. [[Fabbrini1987]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Dose and the young</h4><p>In STRIDE-PD (745 analysed), dyskinesia and wearing-off became more likely as the levodopa dose rose (p<0.001 for both). Young onset was the strongest predictor of dyskinesia. [[WarrenOlanow2013]] Starting with entacapone did not prevent dyskinesia: 42% versus 32% at week 134. [[Stocchi2010]]</p></div>
+    <div class="card"><span class="ev early">A common myth</span><h4>"Save levodopa for later"</h4><p>The Parkinson's Foundation answers the belief that levodopa stops working after five years: it works for decades, and works best taken on time, just before the previous dose wears off. [[PFMyths]] LEAP found no harm from starting early. [[Verschuur2019]]</p></div>
+    <div class="card"><span class="ev est">Guidance</span><h4>On time, every time</h4><p>NICE's standard is levodopa within 30 minutes of the person's own prescribed time in hospital or a care home. [[NICE2018QS]] Parkinson's UK says a delay of as little as 30 minutes can decide whether someone can move, walk, talk or swallow. [[PUK2023]] See <a href="#nursing" data-go="nursing">Nursing care</a>.</p></div>
+    <div class="card"><h4>The short version</h4><div class="pt"><b>In plain words</b>Early on, levodopa works all day. Later, each dose wears off sooner, and the gap between too little and too much gets narrower. Smaller, more frequent doses, longer-acting forms, add-on medicines, pumps and surgery all aim to keep the level steady. Any change is decided with the treating team, and Parkinson's medicines are never stopped suddenly.</div></div>
+  </div>
+</section>

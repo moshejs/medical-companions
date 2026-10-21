@@ -1,0 +1,115 @@
+<!-- ================= 4.2 THE DMT LADDER ================= -->
+<section class="mod" id="m-ladder" data-mod="ladder" hidden>
+<style>
+#m-ladder .la-ctl{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+#m-ladder .la-ctl>div{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-ladder .la-clin{background:var(--rx-soft);border-radius:12px;padding:12px 14px;font-size:15px;max-width:none;border-left:0}
+#m-ladder .la-clin b{color:var(--rx)}
+#m-ladder .readout{border-top:1px solid var(--line);padding-top:10px}
+#m-ladder .tbl table{min-width:680px}
+#m-ladder .tbl td:first-child{font-weight:700;white-space:nowrap}
+#m-ladder .tbl td q{quotes:"\201C" "\201D"}
+#m-ladder .card>.ev{align-self:flex-start}
+#m-ladder .la-neda{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin:0;padding:0;list-style:none}
+#m-ladder .la-neda li{background:var(--panel-2);border-radius:10px;padding:9px 11px;font-size:14px}
+#m-ladder .la-neda b{display:block;font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--rx)}
+#m-ladder .la-ev{display:inline-block;width:12px;text-align:center;font-weight:700}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>The DMT ladder</h2>
+    <p class="lede">How MS drugs are sequenced: start on a lower rung and step up after breakthrough disease, or start high from the beginning. See what the 2018 guidelines say, what the observational studies report, and why stopping later in life is still debated.</p></div>
+  <p class="callout la-clin"><b>Published guidance and studies only.</b> This module reports what the ECTRIMS/EAN and AAN guidelines, trials and labels say. The person on the ladder is an illustration, not a case. Which medicine suits a particular person, and when to change it, is a decision for that person and their MS team.</p>
+
+  <div class="la-ctl" role="group" aria-label="Ladder settings">
+    <div><span class="kicker">Rungs as described by</span>
+      <button class="btn" data-sch="aan" aria-pressed="true">AAN 2018</button>
+      <button class="btn" data-sch="ect" aria-pressed="false">ECTRIMS/EAN 2018</button>
+      <button class="btn" data-sch="coc" aria-pressed="false">Cochrane 2024</button>
+      <button class="btn" data-sch="lab" aria-pressed="false">US labels</button></div>
+    <div><span class="kicker">Token follows</span>
+      <button class="btn" data-fol="esc" aria-pressed="true">Escalation</button>
+      <button class="btn" data-fol="hi" aria-pressed="false">Early high-efficacy</button></div>
+  </div>
+  <div class="stepper" id="laSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="laSvg" viewBox="0 0 720 590" style="min-width:560px" role="img" aria-label="A two-rung treatment ladder with a person token that climbs after a breakthrough, beside two 15-year timelines comparing escalation with early high-efficacy therapy, with the published observational results pinned at the years they were measured."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="laPlay">Play</button><label class="stage-cap tl" for="laT">Years 0 to 15 <input type="range" id="laT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="ctrls" role="group" aria-label="Add a breakthrough event at the current year">
+        <span class="kicker">Add at this year</span>
+        <button class="btn ghost" id="laRel"><span class="la-ev" style="color:var(--attack)" aria-hidden="true">▲</span> Relapse</button>
+        <button class="btn ghost" id="laMri"><span class="la-ev" style="color:var(--ink)" aria-hidden="true">●</span> New MRI lesion</button>
+        <button class="btn ghost" id="laWor"><span class="la-ev" style="color:var(--warn)" aria-hidden="true">▼</span> Worsening on exam</button>
+        <button class="btn ghost" id="laClr">Clear my events</button></div>
+      <p class="readout" id="laRead" aria-live="polite"></p>
+      <p class="stage-cap" id="laSch" aria-live="polite"></p>
+      <p class="stage-cap">Breakthrough here follows AAN 2018: one or more relapses, two or more new MRI lesions, or more disability on examination, within one year. The two lanes share the same events, so the only difference between them is the rung. Event years are examples, not data. Outcome bars and lines below the lanes are published observational results; lines between published points are schematic, and the studies quoted give no points after year 10. [[RaeGrant2018,Harding2019,He2020,Brown2019]]</p></div>
+    <aside class="note" id="laNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Breakthrough and NEDA-3</h3>
+  <div class="split2">
+    <div class="card"><span class="tag rx">AAN 2018 · Switching recommendation 1 · Level B</span><h4>What counts as breakthrough disease</h4>
+      <p>Clinicians should discuss switching with people who take their DMT as prescribed, have been on it long enough for it to take full effect, and have <q>one or more relapses, two or more unequivocally new MRI-detected lesions, or increased disability on examination, over a one-year period</q>. Any one of the three is enough. [[RaeGrant2018]]</p>
+      <p>ECTRIMS/EAN 2018 recommendation 14 (strong) says: <q>Offer a more efficacious drug to patients treated with interferon or glatiramer acetate who show evidence of disease activity.</q> Recommendation 11 (consensus) sets the yardstick: a reference brain MRI <q>usually within six months of treatment onset</q>, compared with one <q>typically 12 months after starting treatment</q>. The 2021 MAGNIMS-CMSC-NAIMS consensus names 3D FLAIR as the core sequence for spotting new lesions. [[Montalban2018,Wattjes2021]]</p>
+      <div class="hook"><b>Exam hook</b>AAN breakthrough, in one year: <b>≥1 relapse, or ≥2 new MRI lesions, or worse on exam</b>. A single new lesion does not meet it on its own.</div></div>
+    <div class="card"><span class="ev est">Established definition</span><h4>NEDA-3: no evident disease activity</h4>
+      <ul class="la-neda">
+        <li><b>1 · Relapses</b>none</li>
+        <li><b>2 · MRI</b>no new or enlarging T2 lesions and no gadolinium-enhancing lesions</li>
+        <li><b>3 · Disability</b>no sustained disability progression</li></ul>
+      <p>The trial version first appeared in a post hoc analysis of AFFIRM: over 2 years, 37% on natalizumab and 7% on placebo had no clinical or radiological activity. In 2015 NEDA was proposed as a treat-to-target goal, with a new baseline MRI once the drug has taken effect and at least yearly MRI after that. In OPTIMUM, 25.0% on ponesimod and 16.4% on teriflunomide met NEDA-3 over 108 weeks. [[Havrdova2009,Giovannoni2015,Kappos2021]]</p>
+      <div class="pt"><b>In plain words</b>NEDA-3 is a three-part checklist: no attacks, no new spots on the scan, no lasting worsening. It is a target used in trials and clinics, not a promise that the disease has stopped.</div></div>
+  </div>
+
+  <h3 class="sub">Escalate, or start high? A live controversy</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence · observational</span><h4>For starting high</h4>
+      <ul><li><b>Harding 2019</b> (Wales, 592 people): 5-year EDSS change 0.3 with early intensive therapy versus 1.2 with escalation (adjusted β −0.85, 95% CI −1.38 to −0.32). 60% of those who escalated developed sustained disability before escalating. [[Harding2019]]</li>
+        <li><b>He 2020</b> (MSBase and Sweden, 213 versus 253 matched people): starting high-efficacy therapy within 2 years of onset versus at 4–6 years gave mean EDSS 2.3 versus 3.5 at year 10 (difference −0.98, −1.51 to −0.45, over years 6–10). [[He2020]]</li>
+        <li><b>Brown 2019</b> (1,555 matched people): initial fingolimod, alemtuzumab or natalizumab carried a lower hazard of conversion to SPMS than initial interferon or glatiramer acetate (HR 0.66, 0.44–0.99; 5-year risk 7% versus 12%). Escalating within 5 years versus later: HR 0.76 (0.66–0.88). [[Brown2019]]</li>
+        <li><b>Spelman 2021</b>: 34.5% of Swedish and 7.6% of Danish patients started a highly effective DMT; the Swedish strategy was associated with less 24-week confirmed worsening (HR 0.71, 0.57–0.90). [[Spelman2021]]</li>
+        <li>An Italian Delphi of 65 neurologists (2025) reached strong consensus <q>to support early HE-DMT initiation to prevent irreversible disability</q>. [[Filippi2025]]</li></ul></div>
+    <div class="card"><span class="ev hyp">Why it is not settled</span><h4>Against firm conclusions</h4>
+      <ul><li>All four studies are observational. People who start high may differ from those who escalate in ways the matching cannot remove (confounding by indication).</li>
+        <li>AAN 2018 called for research comparing early higher-potency treatment with stepped care. [[RaeGrant2018]]</li>
+        <li>Baseline DELIVER-MS data show milder disease among people willing to be randomised, and 67% of the observational arm chose early high-efficacy therapy. [[Tallantyre2026]]</li>
+        <li>Over half of the trials in the 2024 Cochrane network meta-analysis were industry-sponsored, and its authors found the evidence beyond 2 years insufficient. [[GonzalezLorenzo2024]]</li></ul>
+      <div class="hook"><b>Exam hook</b>Early high-efficacy therapy is favoured by <b>observational</b> cohorts (Harding, He, Brown, Spelman). The randomised answers, DELIVER-MS and TREAT-MS, had <b>no published results</b> as of 20 October 2026.</div></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Randomised trial</th><th>Design</th><th>Primary outcome</th><th>Status on 20 October 2026</th></tr></thead>
+    <tbody>
+      <tr><td>DELIVER-MS (NCT03535298)</td><td>Pragmatic randomised trial with a parallel observational cohort, 816 enrolled; early high-efficacy monoclonal antibodies versus escalation [[Ontaneda2020,Tallantyre2026]]</td><td>Brain volume loss from baseline to month 36</td><td>Active, not recruiting; primary completion estimated July 2027; no results [[NCT03535298]]</td></tr>
+      <tr><td>TREAT-MS (NCT03500328)</td><td>900 treatment-naive people, mean age 36, mean EDSS 2.5; higher-efficacy versus traditional DMT strategies [[Mowry2025]]</td><td>Sustained EDSS-plus worsening</td><td>Completed July 2026; no results posted and no outcome paper found [[NCT03500328]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">The guidelines in their own words</h3>
+  <p class="prose">Both main guidelines date from 2018. No 2024–2026 update of either was found; the newest consensus is the 2025 Italian Delphi above. ECTRIMS/EAN grades are strong, weak or consensus; AAN levels are A (must), B (should) and C (may). [[Montalban2018,RaeGrant2018,Filippi2025]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Situation</th><th>ECTRIMS/EAN 2018 (21 recommendations) [[Montalban2018]]</th><th>AAN 2018 (30 recommendations) [[RaeGrant2018]]</th></tr></thead>
+    <tbody>
+      <tr><td>CIS</td><td>R2 (strong): <q>Offer interferon or glatiramer acetate to patients with CIS and an abnormal MRI with lesions suggestive of MS who do not fulfil criteria for MS</q></td><td>Starting 7 (B): prescribe DMT after a single demyelinating event with two or more characteristic brain lesions to people <q>who decide they want this therapy</q>. Starting 8 (C): clinicians may instead follow untreated, inactive CIS or relapsing MS with imaging at least yearly for five years</td></tr>
+      <tr><td>Active relapsing MS</td><td>R3 (strong): <q>Offer early treatment with DMDs to patients with active relapsing-remitting MS as defined by clinical relapses and/or MRI activity</q></td><td>Starting 9 (B): <q>Clinicians should offer DMTs to people with relapsing forms of MS with recent clinical relapses or MRI activity</q></td></tr>
+      <tr><td>Highly active MS</td><td>No separate list in the wording quoted here</td><td>Starting 14 (B): <q>Clinicians should prescribe alemtuzumab, fingolimod, or natalizumab for people with MS with highly active MS</q></td></tr>
+      <tr><td>Breakthrough</td><td>R14 (strong): <q>Offer a more efficacious drug to patients treated with interferon or glatiramer acetate who show evidence of disease activity</q></td><td>Switching 1 (B): discuss switching for <q>one or more relapses, two or more unequivocally new MRI-detected lesions, or increased disability on examination, over a one-year period</q></td></tr>
+      <tr><td>Progressive MS</td><td>All weak: R5 interferon for active SPMS, noting <q>the dubious efficacy</q>; R6 mitoxantrone; R7 ocrelizumab or cladribine for active SPMS; R8 consider ocrelizumab for PPMS</td><td>Starting 17 (B): <q>Clinicians should offer ocrelizumab to people with PPMS who are likely to benefit from this therapy unless there are risks of treatment that outweigh the benefits</q></td></tr>
+      <tr><td>Stopping a strong drug</td><td>R16 (consensus): <q>consider starting another highly efficacious drug</q>, weighing half-life and <q>the potential for resumed disease activity or even rebound (particularly with natalizumab)</q></td><td>Switching 9 (A): counsel that relapse or MRI activity risk rises <q>within six months</q> of stopping natalizumab</td></tr>
+      <tr><td>Stable for years</td><td>R18 (weak): <q>Consider continuing a DMD if a patient is stable (clinically and on MRI) and shows no safety or tolerability issues</q></td><td>Stopping (B): advocate that stable patients <q>continue their current DMT unless the patient and physician decide a trial off therapy is warranted</q>. (C): may advise stopping in SPMS without relapses or enhancing lesions in people not ambulatory (EDSS 7 or more) for at least 2 years</td></tr>
+      <tr><td>Mitoxantrone</td><td>R6 (weak), as above</td><td>(B): <q>clinicians should not prescribe mitoxantrone to people with MS unless the potential therapeutic benefits greatly outweigh the risks</q></td></tr>
+    </tbody></table></div>
+  <p class="callout">The two guidelines differ on ocrelizumab in PPMS: AAN gives a Level B <q>should offer</q>, ECTRIMS/EAN a weak <q>consider</q>, for a trial effect of HR 0.76 with an upper confidence limit of 0.98 (ORATORIO). [[RaeGrant2018,Montalban2018,Montalban2017]]</p>
+
+  <h3 class="sub">Later life: de-escalation and stopping</h3>
+  <p class="prose">DISCOMS asked whether stable older people could stop their DMT safely. It randomised 259 people aged 55 or older, with no relapse for 5 years and no new MRI lesion for 3 years, to stop or continue. Press Play to watch new disease activity accumulate in each arm over 2 years. [[Corboy2023]]</p>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="laDc" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Two grids of 100 people fill over 24 months to the published DISCOMS results, 4.7 in 100 with new disease activity among those who continued and 12.2 in 100 among those who stopped, then the difference and its confidence interval are drawn against the 8-point non-inferiority margin."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="laDcPlay">Play</button><label class="stage-cap tl" for="laDcT">Months 0 to 24 <input type="range" id="laDcT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Only the 2-year values are published; the month-by-month filling is schematic. Each grid is 100 people. [[Corboy2023]]</p></div>
+    <aside class="note" id="laDcNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>What the guidelines say about stopping</h4><p>AAN 2018 (Level B) advocates that stable patients <q>continue their current DMT unless the patient and physician decide a trial off therapy is warranted</q>, and (Level C) allows advising stopping in SPMS without relapses or enhancing lesions in people who have not been ambulatory (EDSS 7 or more) for at least 2 years. ECTRIMS/EAN 2018 R18 (weak) favours continuing a stable, well-tolerated DMD, and R17 (weak) warns of <q>resumed disease activity or even rebound when stopping treatment, particularly with natalizumab</q>. [[RaeGrant2018,Montalban2018]]</p></div>
+    <div class="card"><h4>Rebound: why some drugs are not simply stopped</h4><p>After stopping natalizumab, relapses in RESTORE appeared from 4–8 weeks after the last dose. After stopping fingolimod, the label reports severe increases in disability, usually within 12 weeks. The timing and the numbers are animated in <a href="#safety" data-go="safety">Safety &amp; monitoring</a>. [[Fox2014,GilenyaLabel2026]]</p></div>
+    <div class="card"><h4>Beyond the ladder: aHSCT</h4><p>Autologous haematopoietic stem cell transplantation is not a rung of either 2018 guideline in this module. It is a specialist treatment whose place is still debated, and its evidence is covered in <a href="#cure" data-go="cure">Toward a cure</a>.</p>
+      <div class="pt"><b>In plain words</b>Some people start on a gentler medicine and move up if MS stays active; others start with a stronger one. Later in life, some stable people and their doctors discuss stopping. Each path has benefits and risks that are weighed together.</div></div>
+  </div>
+</section>

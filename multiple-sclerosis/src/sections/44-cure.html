@@ -1,0 +1,85 @@
+<style>
+#m-cure .ev.rej{background:var(--bad-soft);color:var(--bad)}
+#m-cure .ev{display:inline-block}
+#m-cure .cu-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:14px;align-items:start}
+#m-cure .cu-card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+#m-cure .cu-card li{display:flex;flex-direction:column;gap:4px;font-size:14.5px;border-top:1px solid var(--line);padding-top:8px}
+#m-cure .cu-card li .ev{align-self:flex-start}
+#m-cure .cu-card .job{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+#m-cure .cu-card .sum{font-size:14.5px;color:var(--muted)}
+#m-cure .cu-reg{display:flex;flex-direction:column;gap:8px}
+#m-cure .cu-reg .tag{align-self:flex-start;white-space:normal}
+#m-cure .cu-card summary{cursor:pointer;font:600 12px var(--mono);letter-spacing:.04em;color:var(--rx);padding:2px 0}
+#m-cure .cu-card details ul{margin-top:8px}
+#m-cure .cu-reg h4{margin:0;font-family:var(--display);font-weight:800;font-size:19px}
+#m-cure .qa{display:flex;flex-direction:column;gap:6px}
+#m-cure .qa details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-width:0}
+#m-cure .qa summary{cursor:pointer;font-weight:700;font-size:15px;line-height:1.3;overflow-wrap:anywhere}
+#m-cure .qa details[open] summary{color:var(--rx)}
+#m-cure .qa p{margin-top:7px;font-size:14.5px}
+#m-cure .tbl table{min-width:820px}
+#m-cure td .tag{white-space:normal}
+</style>
+<!-- ================= 4.4 TOWARD A CURE ================= -->
+<section class="mod" id="m-cure" data-mod="cure" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Toward a cure</h2>
+    <p class="lede">No treatment cures MS today. A cure would have to stop relapses, quiet smouldering inflammation, repair myelin and protect axons. Press Play to add the four jobs to one lesion, then see where the trials stand, with every finding labelled by its strength of evidence.</p></div>
+
+  <h3 class="sub">What a cure would have to do</h3>
+  <div class="stepper" id="cuSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A schematic MS lesion: immune cells cross a leaky blood-brain barrier, activated microglia smoulder at the lesion rim, one axon has lost its myelin so its signal is blocked, another bare axon is under stress and a third is already cut. As the timeline advances, four layers are added in turn: a barrier shield for disease-modifying drugs (established), a calmer rim for BTK inhibitors (early evidence), thin new myelin that lets the signal pass (early evidence) and a tentative shield around the stressed axon (trials mostly negative)."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuPlay">Play</button><label class="stage-cap tl" for="cuT">Timeline <input type="range" id="cuT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">Schematic, not to scale. The four layers show what each approach aims at, not how well it works; the labels beside or below the drawing give the evidence.</p></div>
+    <aside class="note" id="cuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The routes, and how strong the evidence is</h3>
+  <div class="prose"><p>Each finding below carries a label. <span class="ev est">Established</span> marks a firm finding: a peer-reviewed trial result, a large cohort, a guideline, or a settled fact such as a trial missing its endpoint or a regulator's decision. <span class="ev early">Early evidence</span> marks small, early-phase, uncontrolled or not yet peer-reviewed efficacy results. <span class="ev hyp">Hypothesis</span> marks laboratory, animal or single-case work. <span class="ev rej">Rejected</span> marks an idea that later trials did not support. Findings that rest on a company press release say so. Failed trials are shown as plainly as successful ones.</p></div>
+  <div class="ctrls" role="group" aria-label="Filter findings by evidence label" id="cuFilter">
+    <span class="kicker">Show</span>
+    <button class="btn" data-cuev="all" aria-pressed="true">All findings</button>
+    <button class="btn" data-cuev="est" aria-pressed="false">Established</button>
+    <button class="btn" data-cuev="early" aria-pressed="false">Early evidence</button>
+    <button class="btn" data-cuev="hyp" aria-pressed="false">Hypothesis</button>
+    <button class="btn" data-cuev="rej" aria-pressed="false">Rejected</button>
+  </div>
+  <p class="stage-cap" id="cuCount" aria-live="polite"></p>
+  <div class="cu-cards" id="cuCards"></div>
+
+  <h3 class="sub">One drug, two regulators</h3>
+  <div class="prose"><p>Regulators in the United States and the European Union reached different decisions on tolebrutinib for non-relapsing secondary progressive MS. Both statements below are given as the sources word them.</p></div>
+  <div class="split2">
+    <div class="card cu-reg"><span class="tag bad">United States · FDA</span><h4>Complete response letter</h4>
+      <p>The FDA issued a complete response letter for tolebrutinib in non-relapsing SPMS (Sanofi release, 24 December 2025), calling it a change from earlier agency feedback. The drug is not approved in the US. [[Sanofi2025CRL]]</p>
+      <p class="stage-cap">Source: company press release. The FDA letter itself was not accessed.</p></div>
+    <div class="card cu-reg"><span class="tag good">European Union · EMA</span><h4>Positive opinion, then authorisation</h4>
+      <p>The EMA's CHMP gave a positive opinion on 23 April 2026 for tolebrutinib (Cenrifki) "for the treatment of adult patients with SPMS without relapses in the last 2 years". It cites a 31% reduction in 6-month confirmed disability progression and 38% fewer new or enlarging T2 lesions, and calls drug-induced liver injury the "most worrisome side effect". The EMA page lists the medicine as authorised on 19 June 2026, under additional monitoring, with mandatory liver testing. [[EMA2026Cenrifki]]</p>
+      <p class="stage-cap">Source: EMA summary of opinion and EPAR page.</p></div>
+  </div>
+  <div class="callout"><p><b>Why they may differ.</b> HERCULES met its primary endpoint (HR 0.69) [[Fox2025]], but tolebrutinib showed no meaningful benefit in primary progressive MS (PERSEUS) [[Maxwell2026,Sanofi2025PERSEUS]], and liver injury (six Hy's Law cases, one death after a liver transplant) shapes the benefit-risk debate [[Maxwell2026]]. As of October 2026 the US and EU positions differ. This page reports those decisions; it is not advice about any person's treatment.</p></div>
+
+  <h3 class="sub">The trial results, line by line</h3>
+  <div class="prose"><p>A forest plot puts each trial on one line: the square is the main estimate and the bar its 95% confidence interval. When the bar crosses the no-effect line, the trial did not show a difference. Press Play to bring the trials in one at a time; the table below gives the same results with their sources.</p></div>
+  <div class="ctrls" role="group" aria-label="Choose a set of trial results">
+    <span class="kicker">Results</span>
+    <button class="btn" data-cufp="a" aria-pressed="true">Disability progression</button>
+    <button class="btn" data-cufp="b" aria-pressed="false">Repair &amp; neuroprotection</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuFp" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A forest plot that fills in row by row. The disability set shows hazard ratios for ORATORIO, EXPAND, HERCULES, PERSEUS, FENtrepid, GAVOTTE, MS-STAT2 and MIST; the repair set shows remyelination and neuroprotection trials, most of whose intervals cross the no-effect line. Each row is labelled with the trial, comparison, result and verdict, and press-release results are marked."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuFpPlay">Play</button><label class="stage-cap tl" for="cuFpT">Trials shown <input type="range" id="cuFpT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="cuFpCap">Estimates as published in the trial abstracts or the sponsor's release. Rows marked "press release" have no peer-reviewed paper yet.</p></div>
+    <aside class="note" id="cuFpNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial · registry</th><th>Comparison</th><th>Population</th><th>Main result</th><th>Verdict</th><th>Source type</th></tr></thead>
+    <tbody id="cuFpTbl"></tbody>
+  </table></div>
+
+  <h3 class="sub">Where the experts disagree</h3>
+  <div class="qa" id="cuQA"></div>
+
+  <div class="callout"><p><b>Where this leaves us.</b> Drugs that keep immune cells out of the brain are established. The other three jobs are not done: the International Progressive MS Alliance describes neurodegeneration and compartmentalised inflammation as "virtually untargeted" and funds experimental-medicine trials to speed things up [[Dangond2021]], and the National MS Society's refined Pathways to Cures roadmap calls for global data sharing and sustained, coordinated funding [[Bebo2024]]. Biomarkers such as serum neurofilament light, GFAP and paramagnetic rim lesions may make trials shorter, but none is yet validated as a trial endpoint [[Kapoor2020,Bagnato2024]].</p></div>
+  <div class="pt"><b>In plain words</b>No treatment repairs MS damage yet. Today's drugs are good at stopping new waves of immune attack. Researchers are now testing ways to stop the slow, hidden inflammation inside the brain and to rebuild myelin, and some of the biggest trials have failed. Nothing on this page is advice about anyone's treatment.</div>
+</section>

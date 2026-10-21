@@ -1,0 +1,79 @@
+<!-- ================= 4.4 TOWARD A CURE ================= -->
+<section class="mod" id="m-cure" data-mod="cure" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Living, caring, preventing</p><h2>Toward a cure</h2>
+    <p class="lede">Many trials are testing ways to slow Parkinson's, and none has yet been proven to. A ten-year review of the drug pipeline concludes that "there are still no treatments to modify the course of the disease". [[Buff2026]] This page reports the research routes as research, with an evidence label on each, and states negative results as plainly as positive ones.</p></div>
+
+  <div class="callout"><p><b>How the labels are used here.</b> <span class="ev est">Established</span> means shown, positive or negative, in at least one adequately powered randomised controlled trial. <span class="ev early">Early evidence</span> means some randomised or controlled signal, or consistent open-label and biomarker data, not confirmed in phase 3. <span class="ev hyp">Hypothesis</span> means a mechanistic, laboratory or observational rationale, or only safety and target-engagement data in people. By this scheme no route has established disease-modifying benefit. [[Buff2026,CTgov2026I]]</p></div>
+
+  <h3 class="sub">Where could treatment intervene?</h3>
+  <div class="ctrls" role="group" aria-label="Choose a research route" id="cuRoutes"></div>
+  <div class="stepper" id="cuSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Particles flow along a simplified disease pathway: misfolded alpha-synuclein spreading between cells, overloaded lysosomes, stressed energy and iron handling, loss of dopamine neurons, and a striatum short of dopamine. The chosen research route drops a marker at its target, and the flow beyond it shows the best trial result so far: a partial signal, target engagement without benefit, no slowing, worse than placebo, grafted cells making dopamine, or a result still awaited."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuPlay">Play</button><label class="stage-cap tl" for="cuT">Timeline <input type="range" id="cuT" min="0" max="1" step="0.002" value="0.7"></label></div>
+      <p class="stage-cap" id="cuCap">Schematic, not to scale. The flow beyond the marker is a picture of the trial result, not a measurement.</p></div>
+    <aside class="note" id="cuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The routes, trial by trial</h3>
+  <div class="prose"><p>Each card gives the mechanism step, then the key trials with their registry number, phase, size and primary result. Registry statuses are as listed on ClinicalTrials.gov on 20 October 2026. [[CTgov2026I]]</p></div>
+  <div class="cards" id="cuCards" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr))"></div>
+
+  <h3 class="sub">Trial timeline</h3>
+  <div class="prose"><p>Each dot is a trial result by year of publication or report; hollow dots are trials still running, placed at their estimated primary completion. Filter by route or by result, drag the years, or tap a dot.</p></div>
+  <div class="ctrls" role="group" aria-label="Filter by route" id="cuTlRoutes"><span class="kicker">Route</span></div>
+  <div class="ctrls" role="group" aria-label="Filter by result" id="cuTlRes"><span class="kicker">Result</span></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuTl" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A timeline from 2000 to 2032 with one row per research route. Dots mark trial results, coloured by outcome: met its primary endpoint, missed it, worse than placebo, open-label or biomarker only, regulatory or editorial event, or still running. A dashed line marks October 2026."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuTlPlay">Play</button><label class="stage-cap tl" for="cuTlT">Years <input type="range" id="cuTlT" min="0" max="1" step="0.002" value="0.84"></label></div>
+      <p class="readout" id="cuTlRead"></p>
+      <p class="stage-cap">Years are publication or report years; running trials sit at the registry's estimated primary completion. Not every trial in the field is shown.</p></div>
+    <aside class="note" id="cuTlNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The pipeline in numbers</h3>
+  <div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(180px,1fr))">
+    <div class="card"><b style="font-family:var(--display);font-size:30px;line-height:1.05;color:var(--sky)">139</b><span>active trials on 31 January 2023; 45% tested disease-modifying therapies [[McFarthing2023]]</span></div>
+    <div class="card"><b style="font-family:var(--display);font-size:30px;line-height:1.05;color:var(--sky)">136</b><span>active phase 1–3 drug trials on 31 January 2024; 44% disease-modifying [[McFarthing2024]]</span></div>
+    <div class="card"><b style="font-family:var(--display);font-size:30px;line-height:1.05;color:var(--sky)">3</b><span>phase 3 trials in 2024 testing treatments to slow progression [[McFarthing2024]]</span></div>
+    <div class="card"><b style="font-family:var(--display);font-size:30px;line-height:1.05;color:var(--sky)">444</b><span>trials testing 281 drug interventions, 2015–2024 [[Buff2026]]</span></div>
+    <div class="card"><b style="font-family:var(--display);font-size:30px;line-height:1.05;color:var(--sky)">133</b><span>trials still ongoing at the end of 2024 [[Buff2026]]</span></div>
+  </div>
+  <div class="ctrls" role="group" aria-label="Pipeline snapshot">
+    <span class="kicker">Snapshot</span>
+    <button class="btn" id="cuP23" aria-pressed="false">2023</button>
+    <button class="btn" id="cuP24" aria-pressed="true">2024</button>
+    <button class="btn" id="cuP10" aria-pressed="false">2015–2024</button>
+  </div>
+  <div class="stage"><div class="scroll"><svg id="cuPipe" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="Bar charts of the Parkinson's drug-trial pipeline for the chosen snapshot: the share of trials testing symptomatic versus disease-modifying therapies, and the share in phase 1, 2 and 3."></svg></div>
+    <p class="stage-cap" id="cuPipeCap">Shares of trials from the annual pipeline reviews of ClinicalTrials.gov.</p></div>
+  <p class="prose">No 2025 update of this pipeline series was found; the ten-year analysis published in 2026 is the most recent review in the series. [[Buff2026]]</p>
+
+  <h3 class="sub">How trials try to tell slowing from masking</h3>
+  <div class="prose"><p>Parkinson's medicines improve symptoms, so a drug that simply adds a little symptomatic benefit can look like one that slows the disease. A delayed-start design is one answer. Switch between the two possibilities and play the trial.</p></div>
+  <div class="ctrls" role="group" aria-label="What the drug does">
+    <span class="kicker">If the drug</span>
+    <button class="btn" id="cuDsSym" aria-pressed="true">only eases symptoms</button>
+    <button class="btn" id="cuDsDm" aria-pressed="false">slows the disease</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuDs" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Schematic delayed-start trial. Two groups decline over time. The early-start group takes the drug from the beginning; the delayed-start group takes placebo first, then the drug. If the drug only eases symptoms the two lines meet after the switch; if it slows the disease a gap remains."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuDsPlay">Play</button><label class="stage-cap tl" for="cuDsT">Weeks <input type="range" id="cuDsT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Schematic. No real trial data are drawn; the lines show the logic of the design only.</p></div>
+    <aside class="note" id="cuDsNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag sky">Design</span><h4>Washout and off-medication scores</h4><p>Medicines taken during a trial can mask progression. The exenatide trial added a 12-week washout and LIXIPARK a 2-month one; PADOVA used time to confirmed worsening on OFF-medication scores. [[Athauda2017,Meissner2024,Nikolcheva2026]]</p></div>
+    <div class="card"><span class="tag warn">Caution</span><h4>Subgroups and external comparisons</h4><p>A post hoc PASADENA analysis found larger effects in faster-progressing subgroups, which its authors say needs new randomised trials. [[Pagano2024]] The open-label extension compared participants with an outside cohort (PPMI), which is exploratory and not randomised. [[Pagano2024OLE]]</p></div>
+    <div class="card"><span class="tag sky">Enrolment</span><h4>Seed amplification assays</h4><p>The US FDA issued a Letter of Support for the CSF alpha-synuclein seed amplification assay as a susceptibility and risk biomarker, so trials can enrol people who have underlying synuclein pathology. [[Stephenson2026]] See <a href="#dx" data-go="dx">Diagnosis and the MDS criteria</a>.</p></div>
+    <div class="card"><span class="tag sky">Platforms</span><h4>Many drugs, one trial</h4><p>Path to Prevention is a phase 2A, multi-regimen platform trial nested in the PPMI cohort, for early-stage neuronal alpha-synuclein disease; no registry number or named drugs were found. [[Simuni2026]] EJS ACT-PD is a multi-arm phase 3 platform testing terazosin and telmisartan against placebo in an estimated 1,200 people. [[CTgov2026I]]</p></div>
+  </div>
+
+  <h3 class="sub">Unproven stem-cell clinics</h3>
+  <div class="split2">
+    <div class="callout"><p><b>What the guidelines say.</b> The International Society for Stem Cell Research says stem-cell-based interventions must be "proven safe and effective" before they are marketed to patients, and cautions that registration on a trials website does not mean a study has been vetted. [[ISSCR2021]]</p></div>
+    <div class="callout"><p><b>What Japan's approval is, and is not.</b> In early March 2026 Japan granted conditional, time-limited approval to an iPS-cell-derived product on the basis of a 7-patient trial, with 7 years to collect confirmatory data and validity only within Japan. Patient organisations note open questions on long-term safety, rejection and how long grafts last. [[ParkinsonCanada2026,Sawamoto2025]]</p></div>
+  </div>
+
+  <div class="card" style="border-left:4px solid var(--sky);font-size:17px"><b style="font-family:var(--display);font-size:21px">No treatment has yet been shown to slow Parkinson's disease.</b><p>Two synuclein antibodies, an LRRK2 kinase inhibitor and two GBA1-pathway drugs missed their primary endpoints in randomised trials. [[Pagano2022,Lang2022,Nikolcheva2026,NeurologyLive2026,Giladi2023,MJFF2026]] Two small GLP-1 trials were positive on motor scores, but a phase 3 trial, now under an Expression of Concern, and another phase 2 trial were negative. [[Athauda2017,Meissner2024,Vijiaratnam2025,McGarry2024]] A phase 3 antibody trial, a phase 3 cell trial and a phase 3 exercise trial are running. [[CTgov2026I,SPARX3]] See <a href="#genes" data-go="genes">Genes and inheritance</a> and <a href="#living" data-go="living">Living with Parkinson's</a>.</p></div>
+</section>

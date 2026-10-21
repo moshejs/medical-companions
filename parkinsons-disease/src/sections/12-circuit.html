@@ -1,0 +1,47 @@
+<!-- ================= 1.2 THE DOPAMINE PATHWAY ================= -->
+<style>
+#m-circuit .ctrls .kicker{margin-right:2px}
+#m-circuit .ci-n{display:flex;gap:10px;align-items:center;flex:1;min-width:220px;white-space:nowrap}
+#m-circuit .card .ev{align-self:flex-start}
+#m-circuit .note .callout{font-size:15px}
+</style>
+<section class="mod" id="m-circuit" data-mod="circuit" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>The dopamine pathway</h2>
+    <p class="lede">Movement depends on a loop that runs from the cortex through the basal ganglia and thalamus and back. Dopamine from a small strip of the midbrain keeps that loop tilted toward "go". Step through the loop, then take the dopamine away and watch the brake win.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Circuit state and overlays">
+    <span class="kicker">Show</span>
+    <button class="btn" id="ciHealthy" aria-pressed="true">Healthy</button>
+    <button class="btn" id="ciPD" aria-pressed="false">Parkinson's</button>
+    <span class="kicker" style="margin-left:6px">Overlay</span>
+    <button class="btn" id="ciDbs" aria-pressed="false">Where DBS acts</button>
+    <button class="btn" id="ciDrugs" aria-pressed="false">Where drugs act</button>
+  </div>
+  <div class="stepper" id="ciSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ciSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Left: a half section of the midbrain with pigmented dopamine neurons of the substantia nigra pars compacta, whose axons run up to the caudate and putamen, and a magnified striatal synapse releasing dopamine onto D1 and D2 receptors. Right: the basal ganglia motor loop as boxes and arrows, cortex to striatum D1 and D2, GPe, STN, GPi/SNr and thalamus back to cortex, with arrow width showing activity, green excitatory and red inhibitory, and a movement go meter in the cortex. With fewer nigral neurons the indirect pathway thickens, STN and GPi become overactive and the go meter falls."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ciPlay">Play</button><label class="stage-cap tl" for="ciT">Timeline <input type="range" id="ciT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <div class="ctrls"><label class="stage-cap ci-n" for="ciN">Neurons left <input type="range" id="ciN" min="10" max="100" step="1" value="20"></label><span class="readout" id="ciRead"></span></div>
+      <p class="stage-cap" id="ciCap">Schematic, not to scale.</p></div>
+    <aside class="note" id="ciNote" aria-live="polite"></aside>
+  </div>
+  <p class="legend" aria-hidden="true"><span><i style="background:var(--good)"></i>excitatory (glutamate)</span><span><i style="background:var(--bad)"></i>inhibitory (GABA)</span><span><i style="background:var(--amber)"></i>dopamine</span><span><i style="background:var(--sky)"></i>treatment overlay</span></p>
+
+  <h3 class="sub">The dopamine reserve: how much is gone before symptoms</h3>
+  <div class="prose"><p>Symptoms do not start when the first nigral neuron dies. Loss builds silently for years, and the nerve endings in the striatum go faster than the cell bodies in the midbrain. Scrub through the years around diagnosis. The figures come from post-mortem counts and imaging, and they do not all agree. [[Fearnley1991,Cheng2010,Kordower2013]]</p></div>
+  <div class="ctrls" role="group" aria-label="Extra estimates on the chart">
+    <span class="kicker">Add</span>
+    <button class="btn" id="ciResEst" aria-pressed="false">Other estimates at onset</button>
+    <button class="btn" id="ciRes80" aria-pressed="false">The old "80%" figure</button>
+  </div>
+  <div class="stepper" id="ciResSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ciRes" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Chart of the percentage of nigral dopamine neurons and of putaminal dopamine terminals lost against years before and after diagnosis. Terminal loss rises faster: about 50 to 60 percent at diagnosis and virtually complete by year 4, while neuron loss is about 30 percent at diagnosis and rises more slowly. A shaded band marks a presymptomatic phase of about five years. Beside the chart, a row of neurons and a field of terminals fade to match the chosen year."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ciResPlay">Play</button><label class="stage-cap tl" for="ciResT">Years <input type="range" id="ciResT" min="0" max="1" step="0.002" value="0.4"></label></div>
+      <p class="stage-cap" id="ciResCap"></p></div>
+    <aside class="note" id="ciResNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the box diagram gets right, and where it breaks</h3>
+  <div class="cards" id="ciCards"></div>
+</section>

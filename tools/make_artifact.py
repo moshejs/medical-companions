@@ -37,7 +37,7 @@ slug = args.pop(0)
 comp = next((c for c in json.loads((ROOT / "site.json").read_text(encoding="utf-8"))["companions"] if c["slug"] == slug), None)
 if comp is None: sys.exit(f"no companion {slug!r} in site.json")
 TITLE = comp["name"][LANG]
-stem = comp["old"].rstrip("/").rsplit("/", 1)[1]
+stem = comp["old"].rstrip("/").rsplit("/", 1)[1] if comp.get("old") else f"{slug}-companion"
 default_out = ROOT.parent / (f"{stem}-artifact.html" if LANG == "en" else f"{stem}-{LANG}-artifact.html")
 if args:
     src_path = pathlib.Path(args[0])

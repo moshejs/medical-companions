@@ -247,6 +247,64 @@
           "date": ""
         }
       }
+    },
+    {
+      "slug": "gout",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Gout Companion",
+        "he": "מלווה שיגדון"
+      },
+      "published": "2026-10-20"
+    },
+    {
+      "slug": "als",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "ALS Companion",
+        "he": "מלווה ALS"
+      },
+      "published": "2026-10-20"
+    },
+    {
+      "slug": "parkinsons-disease",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Parkinson's Companion",
+        "he": "מלווה פרקינסון"
+      },
+      "published": "2026-10-20",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "multiple-sclerosis",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "MS Companion",
+        "he": "מלווה טרשת נפוצה"
+      },
+      "published": "2026-10-20",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
     }
   ],
   "indexnow_key": "202581197bc1993e3ed16425b36cb189"

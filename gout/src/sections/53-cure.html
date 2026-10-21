@@ -1,0 +1,92 @@
+<style>
+#m-cure .qa{display:flex;flex-direction:column;gap:6px}
+#m-cure .qa details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px;min-width:0}
+#m-cure .qa summary{cursor:pointer;font-weight:700;font-size:15px;line-height:1.3;overflow-wrap:anywhere}
+#m-cure .qa details[open] summary{color:var(--sea)}
+#m-cure .qa p{margin-top:7px;font-size:14.5px}
+#m-cure .evrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-cure .tbl table{min-width:820px}
+#m-cure .cu-reg{font:500 11.5px var(--mono);color:var(--muted);overflow-wrap:anywhere}
+#m-cure .cu-card .ev{align-self:flex-start}
+</style>
+<!-- ================= 5.3 TOWARD A CURE ================= -->
+<section class="mod" id="m-cure" data-mod="cure" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Living, care &amp; the future</p><h2>Toward a cure</h2>
+    <p class="lede">Gout is curable in one precise sense: keep serum urate low for long enough and the urate crystals dissolve. This module shows what that takes, where the new drugs intercept the urate pathway and how strong the evidence is for each, and why the cure so rarely reaches people. Every route carries an evidence label.</p></div>
+
+  <h3 class="sub">1 · What "cure" means in gout</h3>
+  <p class="prose" id="cuXLede"></p>
+  <div class="ctrls" role="group" aria-label="How long the person has had gout">
+    <span class="kicker">Gout duration</span>
+    <button class="btn" data-cud="short" aria-pressed="true">Short: fastest joint</button>
+    <button class="btn" data-cud="long" aria-pressed="false">Long: slowest joint</button>
+  </div>
+  <div class="stepper" id="cuXSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuXSvg" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="Serum urate held below target while urate crystals in joint fluid thin out and disappear over months"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuXPlay">Play</button><label class="stage-cap tl" for="cuXT">Months <input type="range" id="cuXT" min="0" max="1" step="0.002" value="0.02"></label></div>
+      <div class="readout" id="cuXRead"></div>
+      <p class="stage-cap"><b>Schematic curves.</b> The anchors are real: in 18 joints, crystals cleared in 3 to 33 months, longer with longer disease, and the median count fell from 7.5 to 3 per field within 3 months (Pascual 2007). The shape between them is drawn.</p></div>
+    <aside class="note" id="cuXNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Remission: how often, and how soon</h3>
+  <div class="ctrls" role="group" aria-label="Cohorts to show">
+    <span class="kicker">Show</span>
+    <button class="btn" data-cur="cares" aria-pressed="true">CARES population</button>
+    <button class="btn" data-cur="nor" aria-pressed="true">NOR-Gout</button>
+    <button class="btn" data-cur="nurse" aria-pressed="true">Nurse-led trial</button>
+  </div>
+  <div class="lab even">
+    <div class="stage"><div class="scroll"><svg id="cuRemSvg" viewBox="0 0 560 320" style="min-width:420px" role="img" aria-label="Share of people in remission by year of treatment in three cohorts"></svg></div>
+      <p class="stage-cap">Published points only; lines join them. The cohorts used the simplified definition (12 months with no flares, no tophi and urate below 6 mg/dL) but differ in who was enrolled, so compare shapes, not heights.</p></div>
+    <aside class="note" id="cuRemNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">2 · Where new drugs intercept the pathway</h3>
+  <p class="prose" id="cuRouteLede"></p>
+  <div class="ctrls" role="group" aria-label="Choose an intervention route">
+    <span class="kicker">Route</span>
+    <button class="btn" data-cu="none" aria-pressed="true">No intervention</button>
+    <button class="btn" data-cu="prod" aria-pressed="false">Production: xanthine oxidase</button>
+    <button class="btn" data-cu="excr" aria-pressed="false">Excretion: URAT1</button>
+    <button class="btn" data-cu="brk" aria-pressed="false">Breakdown: uricase</button>
+    <button class="btn" data-cu="nlrp3" aria-pressed="false">Inflammation: NLRP3</button>
+    <button class="btn" data-cu="il1" aria-pressed="false">Inflammation: IL-1β</button>
+    <button class="btn" data-cu="prev" aria-pressed="false">Prevention before gout</button>
+  </div>
+  <div class="stepper" id="cuSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuSvg" viewBox="0 0 960 380" style="min-width:640px" role="img" aria-label="The urate pathway from purines to a flare, with the kidney and uricase outflows, and the chosen interception point"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuPlay">Play</button><label class="stage-cap tl" for="cuT">Flow <input type="range" id="cuT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="stage-cap" id="cuCap">Schematic pathway, not to scale.</p></div>
+    <aside class="note" id="cuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The pipeline, drug by drug</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Route</th><th>Drug</th><th>Best evidence</th><th>Level</th><th>Registry</th><th>Status</th></tr></thead>
+    <tbody id="cuTbl"></tbody>
+  </table></div>
+
+  <div class="callout"><p><b>Only three routes remove urate.</b> Production, excretion and breakdown lower the urate pool, so they can dissolve crystals. NLRP3 and IL-1 blockers treat or prevent flares; they do not remove crystals. [[Dalbeth2019NRDP,Dalbeth2021,Martinon2006]]</p></div>
+
+  <h3 class="sub">3 · The implementation gap</h3>
+  <p class="prose" id="cuGapLede"></p>
+  <div class="ctrls" role="group" aria-label="Which population">
+    <span class="kicker">Population</span>
+    <button class="btn" data-cug="cat" aria-pressed="true">Primary care, Catalonia</button>
+    <button class="btn" data-cug="nurse" aria-pressed="false">Nurse-led trial</button>
+  </div>
+  <div class="lab even">
+    <div class="stage"><div class="scroll"><svg id="cuGapSvg" viewBox="0 0 560 330" style="min-width:420px" role="img" aria-label="One hundred squares showing how many people with gout never get urate-lowering therapy, get it without control, or reach good control"></svg></div>
+      <p class="stage-cap">Each square is 1% of the cohort. The two panels come from different studies and measures, labelled on each.</p></div>
+    <aside class="note" id="cuGapNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <p class="prose">These are gaps the literature itself leaves open. Each one is a place where a study could change the picture.</p>
+  <div class="qa" id="cuQA"></div>
+
+  <div class="prose" id="cuClose"></div>
+</section>

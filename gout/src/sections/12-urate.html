@@ -1,0 +1,59 @@
+<!-- ================= 1.2 WHERE URATE COMES FROM ================= -->
+<section class="mod" id="m-urate" data-mod="urate" hidden>
+<style>
+#m-urate .ur-chips{display:flex;flex-wrap:wrap;gap:6px}
+#m-urate .ur-chips .btn{font:600 12.5px var(--mono);padding:6px 10px}
+#m-urate .ur-tx{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#m-urate .ur-tx h4{font-family:var(--display);font-weight:800;font-size:22px;margin:0;display:flex;flex-wrap:wrap;gap:8px;align-items:baseline}
+#m-urate .ur-tx h4 small{font:600 12px var(--mono);color:var(--muted)}
+#m-urate .ur-tx dl{margin:0;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+#m-urate .ur-tx dt{font:600 10.5px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+#m-urate .ur-tx dd{margin:0;font-size:15px}
+#m-urate .ur-grp{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-urate .big{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;color:var(--sea)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Where urate comes from</h2>
+    <p class="lede">Urate is the end product of purine breakdown in humans: xanthine oxidase makes it, and the kidneys and gut clear it, about two thirds and one third. [[Chen2016,Ohashi2023]] In most people with gout the problem is the way out, not the way in. Press play to follow a purine from a cell to the urine.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Variant and balance">
+    <span class="kicker">ABCG2</span>
+    <button class="btn" id="urWT" aria-pressed="true">Usual ABCG2</button>
+    <button class="btn" id="urQK" aria-pressed="false">Q141K variant</button>
+    <span class="kicker" style="margin-left:8px">Balance (scene 5)</span>
+    <span class="ur-grp" id="urBal"></span>
+  </div>
+  <div class="stepper" id="urSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="urSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Purine breakdown to urate by xanthine oxidase, the lost uricase step, a serum urate gauge, and a panel that changes by scene: urate production, uricase in apes, the kidney tubule and gut transporters, and the production-excretion balance"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="urPlay">Play</button><label class="stage-cap tl" for="urT">Scene <input type="range" id="urT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap" id="urCap">Schematic, not to scale.</p>
+    </div>
+    <aside class="note" id="urNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The transporters and enzymes, one by one</h3>
+  <div class="prose"><p>Tap a name to light it up in the animation and read what it does, what goes wrong, and which drugs act on it. [[HalperinKuhns2021]]</p></div>
+  <div class="split2">
+    <div class="stage">
+      <span class="kicker">Pick one</span>
+      <div class="ur-chips" id="urChips" role="group" aria-label="Transporters and enzymes"></div>
+      <div class="pt"><b>In plain words</b>Kidney cells have doors on both sides. Some doors pull urate back into the blood; others push it out into the urine. Genes decide how many doors work and how well. [[HalperinKuhns2021,Tin2019]]</div>
+    </div>
+    <div class="ur-tx" id="urTx" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Genes or diet?</h3>
+  <div class="cards" id="urGenes"></div>
+
+  <h3 class="sub">Why did apes lose uricase?</h3>
+  <div class="prose"><p>Losing the same gene more than once suggests the loss helped. Every explanation on offer is still a hypothesis. [[Wu1992,Oda2002]]</p></div>
+  <div class="cards" id="urWhy"></div>
+
+  <h3 class="sub">Types of high urate</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Type</th><th>What happens</th><th>How common</th><th>Examples</th></tr></thead>
+    <tbody id="urTypes"></tbody>
+  </table></div>
+  <p class="callout">Urate above about 6.8 mg/dL (405 µmol/L) is more than plasma can hold at body temperature. [[Martillo2014]] What happens next is in <a href="#crystals" data-go="crystals">Crystals vs serum urate</a>; the drugs that act on this map are in <a href="#ult" data-go="ult">How urate-lowering drugs work</a>.</p>
+</section>
