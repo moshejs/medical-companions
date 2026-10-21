@@ -8,6 +8,7 @@ Animated, cited study and patient-education guides, one disease each, on one sit
 | [FMF Companion](fmf/README.md) (Familial Mediterranean Fever) | `/fmf/` | English, Hebrew (`/fmf/he/`) |
 | [Myasthenia Gravis Companion](myasthenia-gravis/README.md) | `/myasthenia-gravis/` | English |
 | [Parkinson's Companion](parkinsons-disease/README.md) | `/parkinsons-disease/` | English |
+| [MS Companion](multiple-sclerosis/README.md) (multiple sclerosis) | `/multiple-sclerosis/` | English |
 
 The hub at `/` links to each one and carries the shared method and disclaimer. Every companion links back to it, and its structured data names the site (`isPartOf`).
 

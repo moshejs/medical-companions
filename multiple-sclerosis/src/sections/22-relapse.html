@@ -1,0 +1,77 @@
+<!-- ================= 2.2 A RELAPSE, WEEK BY WEEK ================= -->
+<style>
+#m-relapse .rlq{display:flex;flex-direction:column;gap:10px}
+#m-relapse .rlq .row{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px}
+#m-relapse .rlq .row:first-child{border-top:0;padding-top:0}
+#m-relapse .rlq .row>span{flex:1 1 220px;font-size:15px}
+#m-relapse .rlq .row>div{display:flex;gap:6px}
+#m-relapse .card>.ev,#m-relapse .card>.tag{align-self:flex-start}
+</style>
+<section class="mod" id="m-relapse" data-mod="relapse" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · The course</p><h2>A relapse, week by week</h2>
+    <p class="lede">A relapse builds over days, peaks, and settles over weeks to months, sometimes leaving a deficit. Scrub through 26 weeks with or without steroids, or compare a pseudo-relapse brought on by fever.</p></div>
+  <div class="ctrls" role="group" aria-label="Event"><span class="kicker">Event</span>
+    <button class="btn" data-rl-ev="rel" aria-pressed="true">Relapse</button>
+    <button class="btn" data-rl-ev="pseudo" aria-pressed="false">Pseudo-relapse (fever from a urinary infection)</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Treatment" id="rlTx"><span class="kicker">Treatment</span>
+    <button class="btn" data-rl-st="on" aria-pressed="true">With steroids</button>
+    <button class="btn" data-rl-st="off" aria-pressed="false">Without steroids</button>
+    <button class="btn" id="rlSevere" aria-pressed="false">Severe, no response to steroids → plasma exchange</button>
+  </div>
+  <div class="stepper" id="rlSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rlSvg" viewBox="0 0 720 352" style="min-width:560px" role="img" aria-label="A relapse over 26 weeks: inside a lesion, immune cells strip myelin and the nerve signal is blocked, then repair lets it through; an MRI lesion lights up with gadolinium for a few weeks; curves show symptom severity with and without steroids, the enhancement window and the treatment course, with a pseudo-relapse option where fever brings back old symptoms for a few days without a new lesion."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rlPlay">Play</button><label class="stage-cap tl" for="rlT">Weeks <input type="range" id="rlT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="rlRead"></div>
+      <p class="stage-cap"><b>Illustrative.</b> No study publishes a single symptom curve for a relapse. The shapes follow published figures: enhancement lasting a mean 3.07 weeks (median 2), recovery taking a median 111 days, steroids speeding recovery without a better long-term result, and a residual deficit in about 4 in 10 patients after a relapse. The time axis is stretched for the first 4 weeks. [[Cotton2003,Koch2023,Beck1992,Lublin2003]]</p>
+    </div>
+    <aside class="note" id="rlNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What counts as a relapse</h3>
+  <div class="split2">
+    <div class="card"><span class="tag orange">McDonald 2010 panel</span><h4>The attack definition</h4><p>Patient-reported symptoms or objectively observed signs typical of an acute inflammatory demyelinating event in the central nervous system, lasting at least 24 hours, in the absence of fever or infection. Paroxysmal symptoms count only as multiple episodes over not less than 24 hours. [[Polman2011]]</p></div>
+    <div class="card"><span class="tag orange">NICE NG220 (2022)</span><h4>How the guideline describes it</h4><p>New or worsening symptoms lasting more than 24 hours, with no infection or other cause, after a stable period of at least 1 month. Clinicians are asked to rule out infection (particularly urinary and respiratory) and to tell a relapse apart from fluctuation or progression. A relapse should not routinely be diagnosed when symptoms have been present for more than 3 months. [[NICE2022]]</p></div>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <p class="kicker">Teaching check, not a diagnosis</p>
+      <div class="rlq" id="rlQ"></div>
+    </div>
+    <aside class="note" id="rlQNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Relapse or pseudo-relapse?</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Relapse</th><th>Pseudo-relapse</th></tr></thead>
+    <tbody>
+      <tr><th>What happens</th><td>New inflammation and demyelination block conduction. [[Smith1999]]</td><td>Heat or fever slows or blocks conduction in fibres that were already demyelinated. [[Davis2010,Frohman2013]]</td></tr>
+      <tr><th>Symptoms</th><td>New, or old ones worse, for more than 24 hours. [[NICE2022]]</td><td>Brief, stereotyped, reversible: usually old symptoms returning while the trigger lasts. [[Frohman2013,NICE2022]]</td></tr>
+      <tr><th>Triggers</th><td>Often none; infection raises the risk of a true relapse in the following weeks. [[Buljevac2002]]</td><td>Fever, infection, exercise, hot surroundings, the perimenstrual period, stress. [[Frohman2013]]</td></tr>
+      <tr><th>MRI</th><td>A new lesion may enhance with gadolinium, for a mean 3.07 weeks. [[Cotton2003]]</td><td>No new enhancing lesion is expected; in one study enhancing lesions did not increase after infection. [[Buljevac2002]]</td></tr>
+      <tr><th>How common</th><td>Placebo-arm rates were 0.84–1.27 a year in the first trials. [[IFNB1993,Johnson1995]]</td><td>An estimated 60–80% of people with MS worsen temporarily with heat; studies of exercise-induced heat sensitivity report 29–80%. [[Davis2010,Silarova2024]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Treating a relapse: what the trials and guidelines say</h3>
+  <p class="prose">These are published regimens and results, reported for study. They are not instructions: treatment decisions belong to the person and their neurology team.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>What was compared or recommended</th><th>Result or wording</th></tr></thead>
+    <tbody>
+      <tr><th>NICE NG220</th><td>Oral methylprednisolone 0.5 g daily for 5 days, for relapses that affect usual tasks, as early as possible and within 14 days of onset. IV methylprednisolone 1 g daily for 3–5 days as an alternative, for example for severe relapses needing admission.</td><td>Lower doses should not be used; steroids should not be given to keep at home for future relapses. [[NICE2022]]</td></tr>
+      <tr><th>Cochrane 2000</th><td>Methylprednisolone or ACTH vs placebo (6 trials, 377 people).</td><td>Less worsening or non-improvement within 5 weeks (OR 0.37); 5- and 15-day courses did not differ; too few data on long-term disability. [[Filippini2000]]</td></tr>
+      <tr><th>COPOUSEP</th><td>Oral vs IV methylprednisolone 1000 mg/day for 3 days (199 people).</td><td>Improved at day 28: 81% oral vs 80% IV, non-inferior. Insomnia 77% vs 64%. [[LePage2015]]</td></tr>
+      <tr><th>Cochrane 2012</th><td>Oral vs IV steroids (5 trials, 215 people).</td><td>No significant difference in EDSS recovery at 4 weeks or in gadolinium enhancement. [[Burton2012]]</td></tr>
+      <tr><th>ONTT</th><td>Optic neuritis: oral prednisone 1 mg/kg for 14 days, IV methylprednisolone 1 g/day for 3 days then oral prednisone, or placebo (457 people).</td><td>IV group recovered faster; at 6 months slightly better fields, contrast and colour vision but not acuity. Oral prednisone alone did no better than placebo and raised the risk of new optic neuritis (RR 1.79). At 15 years, 72% of affected eyes saw 20/20 or better. [[Beck1992,ONSG2008Vision]]</td></tr>
+      <tr><th>Plasma exchange</th><td>Sham-controlled crossover in severe attacks that had not recovered with IV steroids.</td><td>Moderate or greater improvement in 8 of 19 active courses (42.1%) vs 1 of 17 sham courses (5.9%). [[Weinshenker1999]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><span class="tag orange">Controversy</span><h4>Oral or IV? Dose, not route</h4><p>High-dose oral methylprednisolone was no worse than IV in COPOUSEP and in the Cochrane review. The ONTT's worse result with oral prednisone used a low dose (1 mg/kg). NICE uses oral 0.5 g a day for 5 days and says lower doses should not be used. [[LePage2015,Burton2012,Beck1992,NICE2022]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Infections and relapses</h4><p>In 73 people followed weekly (6,466 patient-weeks), the risk of a relapse was 2.1 times higher from 2 weeks before to 5 weeks after a systemic infection, and those relapses more often left a sustained deficit (rate ratio 3.8). So a fever can bring a pseudo-relapse, and can also come before a true one. [[Buljevac2002]]</p></div>
+    <div class="card"><h4>Looking for a urinary infection</h4><p>At a suspected relapse, a possible urinary tract infection was found in 30.4% of inpatients and 20.0% of clinic patients at Johns Hopkins: about 1 in 3 and 1 in 5 screened. Female sex went with infection (OR 3.90). [[Fitzgerald2019]]</p></div>
+    <div class="card"><h4>Why recovery takes weeks</h4><p>Remission comes from resolution of inflammation, remyelination, or conduction restored along fibres that stay demyelinated. In CombiRx, relapse severity was the only factor linked to the speed of recovery: of those who recovered, 80% had done so by 180 days and 94% by 365 days. [[Smith1999,Koch2023]]</p></div>
+  </div>
+</section>

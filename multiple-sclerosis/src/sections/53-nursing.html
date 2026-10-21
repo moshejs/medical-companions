@@ -1,0 +1,216 @@
+<!-- ================= 5.3 NURSING CARE ================= -->
+<style>
+#m-nursing .ns-scope{background:var(--gold-soft);border-radius:var(--r);padding:12px 16px;font-size:15px;display:flex;gap:10px;align-items:flex-start}
+#m-nursing .ns-scope b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warn);white-space:nowrap;padding-top:3px}
+@media (max-width:600px){#m-nursing .ns-scope{flex-direction:column;gap:2px}}
+#m-nursing .ns-jump{display:flex;flex-wrap:wrap;gap:8px}
+#m-nursing .ns-part{display:flex;flex-direction:column;gap:18px;border-top:1px solid var(--line);padding-top:24px;scroll-margin-top:90px}
+#m-nursing .ns-part>h3.sub{margin-top:0}
+#m-nursing h4.ns-h{font-family:var(--display);font-weight:800;font-size:21px;line-height:1.15;margin:6px 0 0}
+#m-nursing .ns-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+#m-nursing .ns-tool{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#m-nursing .ns-tool h4{margin:0;font-family:var(--display);font-weight:800;font-size:19px;line-height:1.18}
+#m-nursing .ns-tool p{font-size:14.5px}
+#m-nursing .ns-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+#m-nursing .ns-in label{display:flex;flex-direction:column;justify-content:space-between;gap:3px;font:600 11px var(--mono);letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+#m-nursing .ns-in input[type=number]{font:600 16px var(--mono);padding:7px 9px;border-radius:9px;border:1px solid var(--line);background:var(--field);color:var(--ink);width:100%}
+#m-nursing .ns-out{border-radius:10px;background:var(--panel-2);padding:10px 12px;font-size:14.5px;display:flex;flex-direction:column;gap:6px}
+#m-nursing .ns-out .big{font:800 26px/1 var(--display)}
+#m-nursing .ns-meter{position:relative;height:14px;border-radius:99px;background:var(--field);border:1px solid var(--line);overflow:hidden}
+#m-nursing .ns-meter i{position:absolute;top:0;bottom:0;left:0;border-radius:99px;background:var(--brand);transition:width .35s}
+#m-nursing .ns-meter s{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--bad);text-decoration:none}
+#m-nursing .ns-mcap{display:flex;justify-content:space-between;font:500 11px var(--mono);color:var(--muted)}
+#m-nursing .ns-unv{font:600 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:5px;background:var(--warn-soft);color:var(--warn);align-self:flex-start}
+#m-nursing .ns-ruler{display:grid;grid-template-columns:repeat(21,minmax(0,1fr));gap:2px}
+#m-nursing .ns-ruler span{height:22px;border-radius:3px;background:var(--brand-soft);font:600 9px/22px var(--mono);text-align:center;color:var(--brand);overflow:hidden}
+#m-nursing .ns-ruler span.h{background:var(--panel-2);color:var(--muted)}
+#m-nursing .ns-q{display:flex;flex-direction:column;gap:10px}
+#m-nursing .ns-qi{display:flex;flex-direction:column;gap:5px}
+#m-nursing .ns-qi>span{font-weight:700;font-size:14.5px}
+#m-nursing .ns-myths{display:flex;flex-direction:column;gap:8px}
+#m-nursing .ns-myth{width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;display:flex;flex-direction:column;gap:4px;min-width:0}
+#m-nursing .ns-myth[aria-expanded="true"]{border-color:var(--brand);background:var(--brand-soft)}
+#m-nursing .ns-myth small{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--attack)}
+#m-nursing .ns-myth b{font-size:15.5px;line-height:1.3}
+#m-nursing .ns-ans{border-left:3px solid var(--brand);padding:6px 0 6px 13px;font-size:15px;margin:-2px 0 4px}
+#m-nursing .ns-check{display:flex;flex-direction:column;gap:6px}
+#m-nursing .ns-check h5{margin:8px 0 2px;font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#m-nursing .ns-check label{display:flex;gap:10px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 12px;cursor:pointer;font-size:14.5px;min-width:0}
+#m-nursing .ns-check input{margin-top:4px;flex:none;accent-color:var(--brand)}
+#m-nursing .ns-entry{background:var(--panel-2);border-radius:10px;padding:12px 14px;font:13.5px/1.55 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere;min-height:120px}
+#m-nursing .ns-bars{display:flex;flex-direction:column;gap:10px;font-size:14px}
+#m-nursing .ns-bars div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;align-items:center}
+#m-nursing .ns-bars div>span{grid-column:1/-1}
+#m-nursing .ns-bars s{display:block;height:14px;border-radius:99px;background:var(--panel-2);text-decoration:none;overflow:hidden}
+#m-nursing .ns-bars s i{display:block;height:100%;width:0;border-radius:99px;background:var(--brand);transition:width .9s cubic-bezier(.2,.7,.2,1)}
+#m-nursing .ns-bars s i.w{background:var(--attack)}
+#m-nursing .ns-bars b{font:600 13px var(--mono);white-space:nowrap}
+#m-nursing .card ul{margin:0;padding-left:18px}
+#m-nursing .ns-gaps{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+#m-nursing .readout{min-height:1.5em}
+#m-nursing .card>.ev,#m-nursing .card>.ns-unv{align-self:flex-start}
+#m-nursing .ns-nw{white-space:nowrap}
+@media (min-width:701px){#m-nursing #nsP6 .split2>.stage{position:sticky;top:20px;align-self:start}}
+</style>
+<section class="mod" id="m-nursing" data-mod="nursing" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Living with MS</p><h2>Nursing care</h2>
+    <p class="lede">What drug labels, guidelines and nursing studies report on MS nursing care: assessment scales, infusion and first-dose monitoring, lab calendars, teaching and notes. Each part has an animation or a tool to try.</p></div>
+  <p class="ns-scope" role="note"><b>Scope</b><span>This module reports what labels, guidelines and published studies say. It is not a care plan and does not replace local protocols, your scope of practice or the prescriber. Drug details come from current US labels unless stated. Where the sources name a gap, the module says so instead of filling it.</span></p>
+  <div class="ns-jump" role="group" aria-label="Jump to a part">
+    <button class="btn" data-ns-jump="nsP1">1 · Assessment</button>
+    <button class="btn" data-ns-jump="nsP2">2 · Infusions and first doses</button>
+    <button class="btn" data-ns-jump="nsP3">3 · Monitoring calendar</button>
+    <button class="btn" data-ns-jump="nsP4">4 · Steroids for relapse</button>
+    <button class="btn" data-ns-jump="nsP5">5 · Teaching</button>
+    <button class="btn" data-ns-jump="nsP6">6 · Documentation</button>
+    <button class="btn" data-ns-jump="nsP7">7 · The MS nurse</button>
+  </div>
+
+  <!-- ---------- 1 ASSESSMENT ---------- -->
+  <div class="ns-part" id="nsP1">
+    <h3 class="sub">1 · Assessment</h3>
+    <h4 class="ns-h">A head-to-toe screen, domain by domain</h4>
+    <p class="prose">MS can touch almost every body system. Press play to walk through the domains the guidelines and nursing literature name, with how common each problem is and the tool used to look for it.</p>
+    <div class="stepper" id="nsAsSteps"></div>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="nsAsSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A body outline with nine numbered assessment domains lighting up in turn, from walking and falls to cognition, each with its published prevalence drawn as bars or dots and the screening tool named."></svg></div>
+        <div class="ctrls"><button class="btn primary" id="nsAsPlay">Play</button><label class="stage-cap tl" for="nsAsT">Domain <input type="range" id="nsAsT" min="0" max="1" step="0.002" value="0.05"></label></div>
+        <p class="stage-cap">Body outline schematic. Bars and dots are drawn to the published figures; the falls grid scales 537 people to 100.</p></div>
+      <aside class="note" id="nsAsNote" aria-live="polite"></aside>
+    </div>
+
+    <h4 class="ns-h">Scored measures: try the numbers</h4>
+    <p class="prose">Enter a baseline and a follow-up value to see how the change compares with the threshold the literature uses. These are teaching tools with made-up starting values, not a clinical record.</p>
+    <div class="ns-tools" id="nsCalcs"></div>
+
+    <h4 class="ns-h">The other scales, and what could not be confirmed</h4>
+    <div class="cards" id="nsScaleCards"></div>
+  </div>
+
+  <!-- ---------- 2 INFUSIONS ---------- -->
+  <div class="ns-part" id="nsP2">
+    <h3 class="sub">2 · Infusions and first doses</h3>
+    <h4 class="ns-h">An ocrelizumab infusion day</h4>
+    <p class="prose">Premedication, a stepped infusion rate, and observation afterwards. Switch to the comparison to see how the observation rule differs from drug to drug. You can also add an infusion reaction to see what the label says happens to the rate.</p>
+    <div class="ctrls" role="group" aria-label="View">
+      <span class="kicker">View</span>
+      <button class="btn" id="nsInfVOcr" aria-pressed="true">Ocrelizumab infusion day</button>
+      <button class="btn" id="nsInfVCmp" aria-pressed="false">Compare observation rules</button>
+    </div>
+    <div class="ctrls" role="group" aria-label="Infusion reaction" id="nsInfRx">
+      <span class="kicker">Reaction</span>
+      <button class="btn" data-ns-rx="none" aria-pressed="true">None</button>
+      <button class="btn" data-ns-rx="mild" aria-pressed="false">Mild to moderate</button>
+      <button class="btn" data-ns-rx="severe" aria-pressed="false">Severe</button>
+      <button class="btn" data-ns-rx="life" aria-pressed="false">Life-threatening</button>
+    </div>
+    <div class="stepper" id="nsInfSteps"></div>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="nsInfSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="An infusion-day timeline: premedication in the hour before, the ocrelizumab rate stepping up every 30 minutes, observation during and for at least an hour afterwards, and a dashed tail to 24 hours when reactions can still occur; the comparison view shows observation rules for four infused drugs by infusion number."></svg></div>
+        <div class="ctrls"><button class="btn primary" id="nsInfPlay">Play</button><label class="stage-cap tl" for="nsInfT">Timeline <input type="range" id="nsInfT" min="0" max="1" step="0.002" value="0.05"></label></div>
+        <p class="stage-cap" id="nsInfCap">Rates and timings from the current US label; the time axis is compressed before the start and after the infusion.</p></div>
+      <aside class="note" id="nsInfNote" aria-live="polite"></aside>
+    </div>
+
+    <h4 class="ns-h">Fingolimod: the first-dose observation</h4>
+    <p class="prose">The first dose of fingolimod slows the heart. The label describes six hours of observation and when it is extended. Choose a course to see the decision at hour 6.</p>
+    <div class="ctrls" role="group" aria-label="Heart-rate course">
+      <span class="kicker">Course</span>
+      <button class="btn" data-ns-fg="typ" aria-pressed="true">Typical</button>
+      <button class="btn" data-ns-fg="low" aria-pressed="false">Below 45 bpm at 6 h</button>
+      <button class="btn" data-ns-fg="late" aria-pressed="false">Lowest rate at 6 h</button>
+    </div>
+    <div class="stepper" id="nsFgSteps"></div>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="nsFgSvg" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="A schematic heart-rate line falling in the first hour after a first fingolimod dose and reaching its lowest point within six hours, with an ECG before dosing, hourly pulse and blood pressure checks, an ECG at six hours, extended monitoring in the chosen scenarios, and a second dip within 24 hours."></svg></div>
+        <div class="ctrls"><button class="btn primary" id="nsFgPlay">Play</button><label class="stage-cap tl" for="nsFgT">Hours <input type="range" id="nsFgT" min="0" max="1" step="0.002" value="0.05"></label></div>
+        <p class="stage-cap">The heart-rate line is a schematic shape with no scale; the 45 bpm line marks the label's adult threshold, not a measured value.</p></div>
+      <aside class="note" id="nsFgNote" aria-live="polite"></aside>
+    </div>
+
+    <h4 class="ns-h">Self-injected medicines</h4>
+    <div class="cards" id="nsInjCards"></div>
+  </div>
+
+  <!-- ---------- 3 MONITORING ---------- -->
+  <div class="ns-part" id="nsP3">
+    <h3 class="sub">3 · The monitoring calendar</h3>
+    <p class="prose">Each disease-modifying therapy brings its own schedule of blood tests, examinations and repeat checks. Press play to run four years and see which checks recur for which drug. The anti-JCV toggle shows a real difference between US and European guidance.</p>
+    <div class="ctrls" role="group" aria-label="Anti-JCV retesting rule">
+      <span class="kicker">Anti-JCV retesting</span>
+      <button class="btn" data-ns-jcv="us" aria-pressed="true">US label: periodically</button>
+      <button class="btn" data-ns-jcv="eu" aria-pressed="false">EMA (CHMP): every 6 months</button>
+    </div>
+    <div class="stepper" id="nsCalSteps"></div>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="nsCalSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A 48-month calendar with one row per drug: alemtuzumab, cladribine, dimethyl fumarate, natalizumab, ocrelizumab, teriflunomide and fingolimod. A playhead moves month by month and each dose, laboratory check and examination lights up as it is reached."></svg></div>
+        <div class="ctrls"><button class="btn primary" id="nsCalPlay">Play</button><label class="stage-cap tl" for="nsCalT">Months <input type="range" id="nsCalT" min="0" max="1" step="0.001" value="0.01"></label></div>
+        <p class="readout" id="nsCalRead"></p>
+        <p class="stage-cap">Schedules as the current US labels describe them, placed on a calendar for teaching. Real dates depend on start dates, delays and local protocols.</p></div>
+      <aside class="note" id="nsCalNote" aria-live="polite"></aside>
+    </div>
+  </div>
+
+  <!-- ---------- 4 STEROIDS ---------- -->
+  <div class="ns-part" id="nsP4">
+    <h3 class="sub">4 · High-dose methylprednisolone for relapse</h3>
+    <p class="prose">NICE makes oral methylprednisolone the default for a relapse, with IV as an alternative. The label and the trials describe what to watch for. The tool below checks an IV regimen against the one rate the label singles out.</p>
+    <div class="lab even">
+      <div class="ns-tool" id="nsMp" role="group" aria-label="IV methylprednisolone rate check">
+        <div class="ns-qi"><span id="nsMpDl">Dose in the bag</span>
+          <div class="ctrls" role="group" aria-labelledby="nsMpDl"><button class="btn" data-ns-mpd="0.5" aria-pressed="false">0.5 g</button><button class="btn" data-ns-mpd="1" aria-pressed="true">1 g</button></div></div>
+        <label class="stage-cap tl" for="nsMpMin"><span class="ns-nw">Given over <b id="nsMpMinV">30 min</b></span> <input type="range" id="nsMpMin" min="2" max="90" step="1" value="30"></label>
+        <div class="ns-out" id="nsMpOut" aria-live="polite"></div>
+      </div>
+      <div class="cards" id="nsMpCards" style="grid-template-columns:minmax(0,1fr)"></div>
+    </div>
+  </div>
+
+  <!-- ---------- 5 TEACHING ---------- -->
+  <div class="ns-part" id="nsP5">
+    <h3 class="sub">5 · Teaching, and what gets misunderstood</h3>
+    <h4 class="ns-h">Relapse or not? The NICE definition as a sorter</h4>
+    <p class="prose">A worse day is not always a relapse. Answer the questions to see how NICE's definition sorts a change in symptoms.</p>
+    <div class="lab even">
+      <div class="ns-tool ns-q" id="nsRel" role="group" aria-label="Relapse definition questions"></div>
+      <div class="ns-out" id="nsRelOut" aria-live="polite"></div>
+    </div>
+    <h4 class="ns-h">Common misunderstandings</h4>
+    <p class="prose">Each belief is set against what a source says. Open one to read it.</p>
+    <div class="ns-myths" id="nsMyths"></div>
+    <h4 class="ns-h">Teaching topics the guidelines and labels name</h4>
+    <div class="cards" id="nsTeachCards"></div>
+  </div>
+
+  <!-- ---------- 6 DOCUMENTATION ---------- -->
+  <div class="ns-part" id="nsP6">
+    <h3 class="sub">6 · Documentation</h3>
+    <p class="callout">No MS-specific nursing documentation standard, from IOMSN or any nursing body, could be found and validated for this module. The checklist below is built from the NICE comprehensive-review content and from label monitoring requirements instead. [[NICE2022]]</p>
+    <div class="split2">
+      <div>
+        <div class="ns-check" id="nsDoc"></div>
+        <div class="ctrls" style="margin-top:10px"><button class="btn" id="nsDocAll">Tick everything</button><button class="btn ghost" id="nsDocNone">Clear</button></div>
+      </div>
+      <div class="stage">
+        <p class="kicker">Entry outline built from what you ticked</p>
+        <div class="ns-entry" id="nsDocOut" aria-live="polite"></div>
+        <p class="stage-cap">A worked outline of the items the sources list. Your service decides the format.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- 7 THE MS NURSE ---------- -->
+  <div class="ns-part" id="nsP7">
+    <h3 class="sub">7 · The MS nurse and the team</h3>
+    <div class="lab even">
+      <div class="stage">
+        <p class="kicker">People with MS per whole-time MS specialist nurse, UK</p>
+        <div class="ns-bars" id="nsCase"></div>
+        <p class="stage-cap">Bars to scale. Figures from the MS Trust 2021 mapping survey and Punshon et al. 2021. [[MSTrust2021,Punshon2021]]</p>
+      </div>
+      <div class="cards" id="nsRoleCards" style="grid-template-columns:minmax(0,1fr)"></div>
+    </div>
+    <h4 class="ns-h">Gaps the sources name</h4>
+    <div class="callout"><ul class="ns-gaps" id="nsGaps"></ul></div>
+  </div>
+</section>
