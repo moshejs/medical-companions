@@ -132,8 +132,6 @@ REDIR = """<!doctype html>
 """
 out_root = ROOT / "redirects"
 for c in CFG["companions"]:
-    if not c.get("old"):
-        continue
     stem = c["old"].rstrip("/").rsplit("/", 1)[1]
     d = out_root / stem
     for lang in c["langs"]:
