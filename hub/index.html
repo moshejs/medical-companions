@@ -31,7 +31,8 @@
 {"@type":"MedicalWebPage","name":"FMF Companion","url":"%SITE%/fmf/","about":{"@type":"MedicalCondition","name":"Familial Mediterranean Fever"}},
 {"@type":"MedicalWebPage","name":"Myasthenia Gravis Companion","url":"%SITE%/myasthenia-gravis/","about":{"@type":"MedicalCondition","name":"Myasthenia gravis"}},
 {"@type":"MedicalWebPage","name":"Gout Companion","url":"%SITE%/gout/","about":{"@type":"MedicalCondition","name":"Gout"}},
-{"@type":"MedicalWebPage","name":"ALS Companion","url":"%SITE%/als/","about":{"@type":"MedicalCondition","name":"Amyotrophic lateral sclerosis"}}]}]}</script>
+{"@type":"MedicalWebPage","name":"ALS Companion","url":"%SITE%/als/","about":{"@type":"MedicalCondition","name":"Amyotrophic lateral sclerosis"}},
+{"@type":"MedicalWebPage","name":"Parkinson's Companion","url":"%SITE%/parkinsons-disease/","about":{"@type":"MedicalCondition","name":"Parkinson's disease"}}]}]}</script>
 <style>
 :root{
   --bg:#f4f2ec; --panel:#fffefb; --ink:#1d2a26; --muted:#5b6661; --line:#ddd9ce;
@@ -40,6 +41,7 @@
   --mg:#1d5f8a; --mg-soft:#dbe8f2; --mg-ab:#b02a55;
   --gout:#2d4a8a; --gout-soft:#dfe6f5; --garnet:#c23a4e;
   --als:#1f5f8b; --als-soft:#dbe8f2; --ochre:#b07400;
+  --pd:#2f4f8a; --pd-soft:#dfe6f4; --tulip:#c0392b;
   --display:"Newsreader",Georgia,"Times New Roman",serif;
   --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"Spline Sans Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -52,6 +54,7 @@
     --mg:#6db3e3; --mg-soft:#132a3c; --mg-ab:#ff7aa0;
     --gout:#8fb0f0; --gout-soft:#1b2747; --garnet:#ff8d9b;
     --als:#72b6e8; --als-soft:#12304a; --ochre:#f0bd55;
+    --pd:#8fb0f0; --pd-soft:#1b2742; --tulip:#ff8a7a;
     color-scheme:dark;
   }
 }
@@ -75,6 +78,7 @@ h1{font:800 clamp(38px,6.4vw,68px)/1.02 var(--display);letter-spacing:-.02em;mar
 .card.mg{--c:var(--mg);--soft:var(--mg-soft)}
 .card.gout{--c:var(--gout);--soft:var(--gout-soft)}
 .card.als{--c:var(--als);--soft:var(--als-soft)}
+.card.pd{--c:var(--pd);--soft:var(--pd-soft)}
 .card .icon{width:52px;height:52px}
 .card h2{font:800 30px/1.1 var(--display);margin:0;letter-spacing:-.01em}
 .card h2 a{text-decoration:none}
@@ -174,6 +178,19 @@ footer{border-top:1px solid var(--line);margin-top:28px;padding-block:22px max(3
       </ul>
       <div class="facts"><span>%CITED:als% cited sources</span><span>%LANGNAMES:als%</span></div>
       <div class="langs">%LANGS:als%</div>
+    <article class="card pd">
+      <svg class="icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--pd)"/><path d="M20 31V19" fill="none" stroke="var(--panel)" stroke-width="2.4" stroke-linecap="round"/><path d="M20 25c-3-1-6-3-6-6M20 23c3-1 5-2 6-5" fill="none" stroke="var(--panel)" stroke-width="2" stroke-linecap="round"/><path d="M14 10c0 6 2 9 6 9s6-3 6-9l-3 3-3-5-3 5z" fill="var(--tulip)" stroke="var(--panel)" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      <p class="what">Neurology · movement disorders</p>
+      <h2><a href="parkinsons-disease/">Parkinson's Companion</a></h2>
+      <p>How Parkinson's disease takes away dopamine years before the tremor, how it's diagnosed, and how levodopa and deep-brain stimulation work.</p>
+      <ul>
+        <li>The dopamine pathway and alpha-synuclein, animated, with the Braak stages</li>
+        <li>The MDS diagnostic criteria, as a calculator</li>
+        <li>Levodopa over a day and over the years: wearing-off and dyskinesia</li>
+        <li>Deep-brain stimulation, living with Parkinson's and nursing care</li>
+      </ul>
+      <div class="facts"><span>%CITED:parkinsons-disease% cited sources</span><span>%LANGNAMES:parkinsons-disease%</span></div>
+      <div class="langs">%LANGS:parkinsons-disease%</div>
     </article>
   </div>
 

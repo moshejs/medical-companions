@@ -1,0 +1,61 @@
+<!-- ================= 2.2 STAGES AND SYMPTOMS ================= -->
+<style>
+#m-stages .card .ev,#m-stages .card .tag{align-self:flex-start}
+#m-stages .st-big{font-family:var(--display);font-weight:800;font-size:28px;line-height:1.05}
+</style>
+<section class="mod" id="m-stages" data-mod="stages" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Course and diagnosis</p><h2>Stages and symptoms</h2>
+    <p class="lede">Parkinson's changes slowly over many years and at a different pace for each person. The Hoehn and Yahr scale sorts that course into five stages, driven mostly by which sides are affected and by balance. Scrub through them, then switch to the symptoms the scale does not count.</p></div>
+  <div class="ctrls" role="group" aria-label="View and motor subtype">
+    <span class="kicker">View</span>
+    <button class="btn" id="stViewM" aria-pressed="true">Motor</button>
+    <button class="btn" id="stViewN" aria-pressed="false">Non-motor</button>
+    <span class="kicker" style="margin-left:10px">Subtype</span>
+    <button class="btn" id="stSubT" aria-pressed="true">Tremor-dominant</button>
+    <button class="btn" id="stSubP" aria-pressed="false">Postural instability and gait</button>
+  </div>
+  <div class="stepper" id="stSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="stSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A walking figure changes as a marker moves through Hoehn and Yahr stages 1 to 5: signs on one side, then both sides, then unsteadiness when pulled, then a stooped figure still walking unaided, then a wheelchair pushed by a carer. Beside it, cards show the sides affected, balance and mobility for the stage, and a bar shows the median months between stages."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stPlay">Play</button><label class="stage-cap tl" for="stT">Stage <input type="range" id="stT" min="0" max="1" step="0.002" value="0.5"></label></div>
+      <p class="stage-cap" id="stCap">Schematic figure. Stage wording is the 1967 scale as commonly reproduced; the original paper could not be checked (unverified). The bar places one cohort's median months between stages end to end (Zhao 2010, Singapore, modified scale with stage 2.5); a sum of medians is not a median time to stage 5.</p></div>
+    <aside class="note" id="stNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the stage does not tell you</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Limitations</span><h4>A scale weighted to balance</h4><p>An MDS task force noted that Hoehn and Yahr is weighted heavily toward postural instability, mixes impairment with disability, is not linear and says nothing about non-motor problems. Its reliability and validity are best supported for the middle stages, 2 to 4. [[Goetz2004HY]]</p></div>
+    <div class="card"><span class="tag">Which version?</span><h4>Stages 1.5 and 2.5</h4><p>The modified scale with half stages is widely used but had no clinimetric data. The task force recommended keeping the original five stages until the modified one is tested, reporting groups as medians and ranges, and "rate what you see", including other illnesses. [[Goetz2004HY]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Stage explains little of quality of life</h4><p>In a six-country survey, Hoehn and Yahr stage and medication explained only 17.3% of the variation in quality of life. Adding other factors raised this to 59.7%, and depression was the strongest predictor. [[GPDS2002]] Non-motor symptoms as a whole affected quality of life more than motor symptoms did. [[Martinez-Martin2011]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>The pace differs</h4><p>Older age at diagnosis, longer disease duration and worse motor scores predicted faster moves between stages; sex and ethnicity did not. [[Zhao2010]] In DATATOP, people with onset at 40 or younger took longer to reach the same disability than those with onset at 70 or older (2.9 against 1.7 years), and fast progressors more often had slowness and gait problems at onset. [[Jankovic1990]]</p></div>
+  </div>
+
+  <h3 class="sub">The long course: two cohorts followed from diagnosis</h3>
+  <div class="ctrls" role="group" aria-label="Which cohort to show">
+    <span class="kicker">Cohort</span>
+    <button class="btn" id="stCam" aria-pressed="true">CamPaIGN, 10 years</button>
+    <button class="btn" id="stSyd" aria-pressed="false">Sydney, 20 years</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="stLong" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="One hundred figures followed from diagnosis in the CamPaIGN cohort: by 10 years 55 have died, 23 are alive without dementia or postural instability, and bars show postural instability in 68% and dementia in 46%."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stLongPlay">Play</button><label class="stage-cap tl" for="stLongT">Years <input type="range" id="stLongT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="stLongCap">Per 100 people. Figures change at an even pace for illustration; only the end-point figures are data.</p></div>
+    <aside class="note" id="stLongNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Survival: why there is no single number</h3>
+  <p class="prose">A standardised mortality ratio (SMR) compares deaths with those expected in the general population of the same age and sex: 1 means no difference. Published ratios differ widely, from 0.9 to 3.8 across 88 studies, and they rise the longer people are followed. [[Macleod2014]] The studies behind this guide gave no single citable figure for median survival from diagnosis or for years of life lost, so none is shown here.</p>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="stSmr" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="Standardised mortality ratios on a scale from 0.5 to 4: 1.29 in CamPaIGN at 10 years with an interval crossing 1, about 1.5 pooled from inception cohorts, a range of 0.9 to 3.8 across 88 studies, 3.1 in the Sydney cohort for years 15 to 20, and about 2.9 in the 1967 Hoehn and Yahr cohort, marked unverified."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stSmrPlay">Play</button><label class="stage-cap tl" for="stSmrT">Build <input type="range" id="stSmrT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Dots are estimates; the line is a 95% confidence interval where one was reported; the shaded band is the range across studies.</p></div>
+    <aside class="note" id="stSmrNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="kicker">Closest figures</span><p class="st-big">55% · 74%</p><p>had died 10 years after diagnosis in CamPaIGN and 20 years after in the Sydney study. [[WilliamsGray2013,Hely2008]] In post-mortem studies, mean disease duration until death ranged from 6.9 to 14.3 years, and survival fell by about 5% for each year of follow-up on average. [[Macleod2014]]</p></div>
+    <div class="card"><span class="kicker">What predicts it</span><p class="st-big">Age and dementia</p><p>Older age and dementia were the factors most often linked to higher mortality. There was no robust evidence that mortality fell after levodopa was introduced. [[Macleod2014]] In Sydney, the death rate fell in the first 3 years of treatment and then rose relative to the general population. [[Hely2008]]</p></div>
+    <div class="card"><span class="kicker">Causes of death</span><p class="st-big">Pneumonia</p><p>was the commonest cause of death in CamPaIGN. Death certificates named Parkinson's as a substantial contributor in only 20% of deaths, so it is under-recorded. [[WilliamsGray2013]] Planning ahead and palliative care are covered in <a href="#living" data-go="living">Living with Parkinson's</a>.</p></div>
+    <div class="card"><span class="tag warn">Unverified</span><h4>The 1967 cohort</h4><p>Hoehn and Yahr's paper followed 672 people with "primary parkinsonism". Secondary summaries report that 61% were severely disabled or dead after 5 to 9 years, more than 80% of those followed beyond 10 years, and mortality about 2.9 times that of the general population. The original was not accessed, so these figures are unverified. [[Hoehn1967]]</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>Hoehn and Yahr stage 3 = first postural instability (pull test) with physical independence; stage 4 = severe disability but still walks and stands unassisted; stage 5 = wheelchair or bed unless aided. [[Goetz2004HY]] Pneumonia is the commonest cause of death. [[WilliamsGray2013]]</div>
+</section>

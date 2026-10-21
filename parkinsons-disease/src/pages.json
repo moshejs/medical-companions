@@ -1,0 +1,94 @@
+{
+  "what": {
+    "title": "What is Parkinson's disease? Parkinsonism vs Parkinson's",
+    "description": "Parkinsonism is slowness with a rest tremor or stiffness; Parkinson's disease is its commonest cause. Who it affects, how it rises with age, and the numbers."
+  },
+  "circuit": {
+    "title": "The dopamine pathway in Parkinson's: substantia nigra to striatum",
+    "description": "How dopamine from the substantia nigra keeps the brain's go and brake loops in balance, and what happens as the neurons are lost. Animated, step by step."
+  },
+  "synuclein": {
+    "title": "Alpha-synuclein and Lewy bodies in Parkinson's, animated",
+    "description": "A small synaptic protein misfolds, clumps into Lewy bodies and may spread from cell to cell. The steps, the GBA1 and SNCA links, and what is still debated."
+  },
+  "braak": {
+    "title": "Braak stages of Parkinson's disease: how it spreads",
+    "description": "Braak's six stages, from the brainstem and smell pathway to the cortex, the body-first and brain-first idea, and the cases that do not fit."
+  },
+  "genes": {
+    "title": "Parkinson's genes: LRRK2, GBA1, SNCA and parkin explained",
+    "description": "Which genes raise the chance of Parkinson's, how often carriers develop it by age, why it is commoner in Ashkenazi and Berber families, and what a test means."
+  },
+  "prodrome": {
+    "title": "Early signs before Parkinson's: dream enactment, smell, constipation",
+    "description": "The prodromal years: loss of smell, constipation and REM sleep behaviour disorder can come years before the tremor. The research criteria, as a calculator."
+  },
+  "stages": {
+    "title": "Stages of Parkinson's disease: Hoehn and Yahr, symptoms, course",
+    "description": "The Hoehn and Yahr stages from one side to wheelchair, how long each lasts, motor subtypes, and what long-term studies show about the course."
+  },
+  "dx": {
+    "title": "How Parkinson's is diagnosed: the MDS criteria calculator",
+    "description": "Run the 2015 MDS clinical diagnostic criteria yourself: parkinsonism, exclusions, red flags and supportive features. Plus DaT scans and synuclein tests."
+  },
+  "ddx": {
+    "title": "Parkinson's or something else? Tremor, MSA, PSP and more",
+    "description": "Essential tremor, drug-induced and vascular parkinsonism, MSA, PSP, CBD and Lewy body dementia, told apart by tremor, speed, falls and levodopa response."
+  },
+  "levodopa": {
+    "title": "How levodopa and carbidopa work, from pill to brain",
+    "description": "Follow a levodopa dose from the stomach to the striatum: why carbidopa matters, how protein meals interfere, and what MAO-B and COMT inhibitors add."
+  },
+  "wearing": {
+    "title": "Levodopa wearing-off and dyskinesia over the years, animated",
+    "description": "A day of levodopa doses in early and advanced Parkinson's: why doses wear off, when dyskinesia appears, and how infusions and add-ons smooth the curve."
+  },
+  "drugs": {
+    "title": "Parkinson's medications: agonists, MAO-B and COMT inhibitors",
+    "description": "Dopamine agonists, MAO-B and COMT inhibitors, amantadine and newer drugs: how each works, what trials show, and side effects such as impulse control."
+  },
+  "dbs": {
+    "title": "Deep brain stimulation for Parkinson's: how it works, who it helps",
+    "description": "Electrodes in the subthalamic nucleus or globus pallidus, the stimulation field, adaptive DBS, who is a candidate and what the trials found. Animated."
+  },
+  "nonmotor": {
+    "title": "Non-motor symptoms of Parkinson's: mood, hallucinations, sleep",
+    "description": "Depression, hallucinations, dementia, sleep, low blood pressure on standing and more: how common they are and what guidelines say helps."
+  },
+  "risk": {
+    "title": "Parkinson's risk factors: pesticides, head injury, coffee, exercise",
+    "description": "What raises and what is linked to lower Parkinson's risk, with the size of each effect, the caveats about cause, and what prevention trials found."
+  },
+  "living": {
+    "title": "Living with Parkinson's: exercise, falls, speech and caregiving",
+    "description": "Exercise and therapy, freezing and falls, speech and swallowing, work, driving, hospital stays, caregiving and palliative care, as guidelines describe."
+  },
+  "nursing": {
+    "title": "Parkinson's nursing care: medicines on time and drugs to avoid",
+    "description": "For nurses: time-critical medicines, nil by mouth, drugs to avoid, assessment scales such as the MDS-UPDRS, falls and swallowing, and documentation."
+  },
+  "cure": {
+    "title": "Parkinson's research: synuclein antibodies, GLP-1, cell therapy",
+    "description": "The routes being tried to slow or repair Parkinson's, from synuclein antibodies and GLP-1 drugs to LRRK2, GBA1, cell and gene therapy, with evidence labels."
+  },
+  "history": {
+    "title": "History of Parkinson's disease: from James Parkinson to DBS",
+    "description": "From James Parkinson's 1817 essay through Charcot, Lewy, the discovery of dopamine and levodopa, to deep brain stimulation and the synuclein test."
+  },
+  "review": {
+    "title": "Parkinson's disease flashcards and mnemonics",
+    "description": "Flashcards and mnemonics on Parkinson's disease by topic: the disease, diagnosis, treatment, living and caring, and history. Flip, filter or shuffle."
+  },
+  "quiz": {
+    "title": "Parkinson's disease quiz, with explanations",
+    "description": "Test yourself on Parkinson's: the dopamine pathway, diagnosis, levodopa, DBS and care. Every answer has an explanation. Take a mixed quiz or one part."
+  },
+  "glossary": {
+    "title": "Parkinson's disease glossary: every term explained",
+    "description": "Plain definitions of the terms in Parkinson's care and research, from alpha-synuclein to wearing-off. Searchable, each linked to its module."
+  },
+  "sources": {
+    "title": "Sources and references | Parkinson's Companion",
+    "description": "Every reference behind Parkinson's Companion: journal articles, guidelines, drug labels and trial registrations, searchable and filtered by topic."
+  }
+}

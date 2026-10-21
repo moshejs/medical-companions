@@ -1,0 +1,36 @@
+<!-- ================= 5.1 HISTORY AND PEOPLE ================= -->
+<style>
+#m-history .card .tag,#m-history .card .ev{align-self:flex-start}
+#m-history .hi-who{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+#m-history .card svg{width:100%;max-width:220px;height:auto;display:block}
+</style>
+<section class="mod" id="m-history" data-mod="history" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Context &amp; review</p><h2>History and people</h2>
+    <p class="lede">From a London surgeon's 1817 essay to a laboratory test that amplifies misfolded alpha-synuclein. Scrub the timeline or press play: each era is drawn as a scene, with the milestone and its source in the panel beside it.</p></div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="hiSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="An animated timeline of Parkinson's disease in fourteen scenes: James Parkinson's 1817 essay and the non-motor signs he noted, Charcot naming the disease, Lewy bodies and the substantia nigra, Carlsson's dopamine experiments, the dopamine loss found in 1960, levodopa from 1967, MPTP in 1983, deep brain stimulation from 1987, the genes from 1997, the red tulip in 2005, rasagiline in 2006, the 2015 criteria and directional leads, and the 2023 seed amplification assay."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">1817 → 2023 <input type="range" id="hiT" min="0" max="1" step="0.002" value="0.03"></label></div>
+      <p class="stage-cap">Scenes are illustrations, not historical images, and quantities in them are schematic unless a number is printed. Eras are spaced evenly, not to scale in years. A "Check the date" label marks a date that sources give differently.</p></div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">People</h3>
+  <div class="cards" id="hiPeople"></div>
+
+  <h3 class="sub">World Parkinson's Day and the red tulip</h3>
+  <div class="split2">
+    <div class="card"><svg id="hiTulip" viewBox="0 0 220 200" role="img" aria-label="A red tulip with white-edged petals on a green stem, with the date 11 April beneath it."></svg></div>
+    <div class="card"><span class="kicker">11 April</span><h4>A birthday and a flower</h4>
+      <p>World Parkinson's Day is held on 11 April, James Parkinson's birthday. The red and white "Dr James Parkinson" tulip was bred in 1980 by J.W.S. Van der Wereld, a Dutch horticulturist who had Parkinson's. The red tulip was adopted as the symbol of Parkinson's at the 9th World Parkinson's Disease Day Conference in Luxembourg on 11 April 2005. [[ParkinsonsNSW2026]]</p>
+      <p><span class="tag warn">Sources differ</span> Some secondary pages give 1981 for the tulip. [[ParkinsonsNSW2026]]</p></div>
+  </div>
+
+  <h3 class="sub">What the history leaves open</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Contradicted</span><h4>"The senses and intellects being uninjured"</h4><p>Parkinson's own definition said the intellect is spared. Long cohorts disagree: in the Sydney study, 83% of people alive 20 years after diagnosis had dementia. [[Parkinson1817,Hely2008]] He also placed the cause in the upper cervical spinal cord, extending to the medulla. [[Parkinson1817,Goetz2011]]</p></div>
+    <div class="card"><span class="tag">Sources disagree</span><h4>1919 or 1921?</h4><p>A centenary history dates Tretiakoff's Paris thesis on the substantia nigra to 1919; an earlier history review gives 1921. [[Holdorff2019,Goetz2011]]</p></div>
+    <div class="card"><span class="tag">Hedged</span><h4>An Israeli medicine</h4><p>According to the Technion, professors Moussa Youdim and John Finberg developed rasagiline there in the 1970s, and Teva then developed it as Azilect. [[Technion2016]] The FDA approved Azilect on 16 May 2006. [[FDA-DrugsFDA]] A European approval in 2005 is reported only in secondary sources and could not be checked (unverified).</p></div>
+    <div class="card"><span class="tag warn">Not read</span><h4>Cotzias's doses</h4><p>The 1967 report that launched high-dose oral levodopa has no abstract, and its text could not be accessed, so the doses it used are not given here. [[Cotzias1967,Goetz2011]]</p></div>
+  </div>
+</section>
