@@ -27,6 +27,15 @@ def _doi(text):
     while d.endswith(")") and d.count("(") < d.count(")"): d = d[:-1]
     return d.lower().rstrip(".")
 
+def _url(text):
+    """Same rule as _doi for a URL: a search link such as ?term=a+AND+(b+OR+c) keeps its
+    brackets; only trailing punctuation and a ')' with no '(' to close are trimmed."""
+    m = re.search(r"https?://[^\s]+", text)
+    if not m: return None
+    u = m.group(0).rstrip(".,;")
+    while u.endswith(")") and u.count("(") < u.count(")"): u = u[:-1].rstrip(".,;")
+    return u
+
 def ids(text):
     out = set()
     m = re.search(r"PMID[:\s]*(\d+)", text)
@@ -66,10 +75,10 @@ for f in sorted(rd.glob("[A-G]-*.md")):
         m = line_re.match(ln)
         if not m: continue
         key, text = m.group(1), clean(m.group(2))
-        url = re.search(r"https?://[^\s)]+", text)
-        doi = re.search(r"(10\.\d{4,}/[^\s;,)]+)", text)
+        url = _url(text)
+        doi = _doi(text)  # keeps brackets that belong to the DOI, e.g. 10.1016/S1474-4422(22)00038-3
         pmid = re.search(r"PMID[:\s]*(\d+)", text)
-        link = url.group(0).rstrip(".") if url else (f"https://doi.org/{doi.group(1).rstrip('.')}" if doi else (f"https://pubmed.ncbi.nlm.nih.gov/{pmid.group(1)}/" if pmid else ""))
+        link = url if url else (f"https://doi.org/{doi}" if doi else (f"https://pubmed.ncbi.nlm.nih.gov/{pmid.group(1)}/" if pmid else ""))
         rec = {"key": key, "text": text, "link": link, "areas": [area], "unverified": "unverified" in text.lower()}
         if key in srcs:
             if same(srcs[key]["text"], text):
