@@ -96,4 +96,4 @@ The repo root is the site: GitHub Pages serves it as is (`.nojekyll` is set), an
 
 ### Old addresses
 
-`tools/build_site.py` writes `redirects/<old repository>/` (not committed). Copying a folder's contents over the old repository's site sends visitors, including any `#module` link, and search engines to the new address. GitHub Pages cannot send a real 301, so each page uses a canonical link and an immediate meta refresh, which Google treats as a permanent move.
+`tools/build_site.py` writes `redirects/<old repository>/` (not committed). `old` in a companion's site.json entry is optional: a companion that never had another address has none, and gets no redirects. Copying a folder's contents over the old repository's site sends visitors, including any `#module` link, and search engines to the new address. GitHub Pages cannot send a real 301, so each page uses a canonical link and an immediate meta refresh, which Google treats as a permanent move.
