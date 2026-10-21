@@ -258,6 +258,17 @@
         "he": "מלווה שיגדון"
       },
       "published": "2026-10-20"
+    },
+    {
+      "slug": "als",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "ALS Companion",
+        "he": "מלווה ALS"
+      },
+      "published": "2026-10-20"
     }
   ],
   "indexnow_key": "202581197bc1993e3ed16425b36cb189"

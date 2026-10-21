@@ -30,7 +30,8 @@
 {"@type":"MedicalWebPage","name":"Alzheimer's Companion","url":"%SITE%/alzheimers/","about":{"@type":"MedicalCondition","name":"Alzheimer's disease"}},
 {"@type":"MedicalWebPage","name":"FMF Companion","url":"%SITE%/fmf/","about":{"@type":"MedicalCondition","name":"Familial Mediterranean Fever"}},
 {"@type":"MedicalWebPage","name":"Myasthenia Gravis Companion","url":"%SITE%/myasthenia-gravis/","about":{"@type":"MedicalCondition","name":"Myasthenia gravis"}},
-{"@type":"MedicalWebPage","name":"Gout Companion","url":"%SITE%/gout/","about":{"@type":"MedicalCondition","name":"Gout"}}]}]}</script>
+{"@type":"MedicalWebPage","name":"Gout Companion","url":"%SITE%/gout/","about":{"@type":"MedicalCondition","name":"Gout"}},
+{"@type":"MedicalWebPage","name":"ALS Companion","url":"%SITE%/als/","about":{"@type":"MedicalCondition","name":"Amyotrophic lateral sclerosis"}}]}]}</script>
 <style>
 :root{
   --bg:#f4f2ec; --panel:#fffefb; --ink:#1d2a26; --muted:#5b6661; --line:#ddd9ce;
@@ -38,6 +39,7 @@
   --fmf:#0d6e78; --fmf-soft:#d5edef; --terra:#c4562f;
   --mg:#1d5f8a; --mg-soft:#dbe8f2; --mg-ab:#b02a55;
   --gout:#2d4a8a; --gout-soft:#dfe6f5; --garnet:#c23a4e;
+  --als:#1f5f8b; --als-soft:#dbe8f2; --ochre:#b07400;
   --display:"Newsreader",Georgia,"Times New Roman",serif;
   --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"Spline Sans Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -49,6 +51,7 @@
     --fmf:#5cc4cf; --fmf-soft:#0f2e33; --terra:#ffb08a;
     --mg:#6db3e3; --mg-soft:#132a3c; --mg-ab:#ff7aa0;
     --gout:#8fb0f0; --gout-soft:#1b2747; --garnet:#ff8d9b;
+    --als:#72b6e8; --als-soft:#12304a; --ochre:#f0bd55;
     color-scheme:dark;
   }
 }
@@ -71,6 +74,7 @@ h1{font:800 clamp(38px,6.4vw,68px)/1.02 var(--display);letter-spacing:-.02em;mar
 .card.fmf{--c:var(--fmf);--soft:var(--fmf-soft)}
 .card.mg{--c:var(--mg);--soft:var(--mg-soft)}
 .card.gout{--c:var(--gout);--soft:var(--gout-soft)}
+.card.als{--c:var(--als);--soft:var(--als-soft)}
 .card .icon{width:52px;height:52px}
 .card h2{font:800 30px/1.1 var(--display);margin:0;letter-spacing:-.01em}
 .card h2 a{text-decoration:none}
@@ -156,6 +160,20 @@ footer{border-top:1px solid var(--line);margin-top:28px;padding-block:22px max(3
       </ul>
       <div class="facts"><span>%CITED:gout% cited sources</span><span>%LANGNAMES:gout%</span></div>
       <div class="langs">%LANGS:gout%</div>
+    </article>
+    <article class="card als">
+      <svg class="icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--als)"/><path d="M12 10l5 5v9l-5 6M28 10l-5 5v9l5 6" fill="none" stroke="var(--panel)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="3.2" fill="var(--ochre)"/></svg>
+      <p class="what">Neurology · motor neuron disease</p>
+      <h2><a href="als/">ALS Companion</a></h2>
+      <p>Amyotrophic lateral sclerosis, from the two motor neurons it damages to breathing, nutrition and the newest gene-targeted drug.</p>
+      <ul>
+        <li>Upper and lower motor neurons, and TDP-43, animated</li>
+        <li>C9orf72, SOD1 and genetic testing</li>
+        <li>The Gold Coast and El Escorial criteria, and an ALSFRS-R calculator</li>
+        <li>Riluzole, edaravone and tofersen; NIV, feeding tubes and nursing care</li>
+      </ul>
+      <div class="facts"><span>%CITED:als% cited sources</span><span>%LANGNAMES:als%</span></div>
+      <div class="langs">%LANGS:als%</div>
     </article>
   </div>
 

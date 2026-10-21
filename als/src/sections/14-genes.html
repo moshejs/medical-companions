@@ -1,0 +1,163 @@
+<!-- ================= 1.4 GENES: C9orf72, SOD1 AND MORE ================= -->
+<section class="mod" id="m-genes" data-mod="genes" hidden>
+<style>
+#m-genes .btn{min-height:44px}
+#m-genes .ge-tog{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+#m-genes .ge-tog>div{display:flex;flex-wrap:wrap;gap:8px}
+#m-genes #geGene .btn{font-style:italic}
+#m-genes .ge-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media (max-width:700px){#m-genes .ge-two{grid-template-columns:minmax(0,1fr)}}
+#m-genes .ge-num{font-family:var(--display);font-weight:800;font-size:44px;line-height:1;color:var(--tdp)}
+#m-genes .ge-bars{display:flex;flex-direction:column;gap:14px}
+#m-genes .ge-bar{display:grid;grid-template-columns:84px minmax(0,1fr);gap:4px 12px;align-items:start}
+#m-genes .ge-bar>b{font-style:italic;padding-top:2px}
+#m-genes .ge-trk{display:flex;flex-direction:column;gap:6px;min-width:0}
+#m-genes .ge-trk span{font:500 12.5px var(--mono);color:var(--muted);display:block;margin-bottom:2px}
+#m-genes .ge-trk span b{color:var(--ink)}
+#m-genes .ge-trk i{display:block;height:12px;border-radius:6px;min-width:3px;transition:width .45s}
+#m-genes .ge-trk .fam i{background:var(--tdp)} #m-genes .ge-trk .spo i{background:var(--steel)}
+#m-genes #geRes{display:flex;flex-direction:column;gap:8px}
+#m-genes #geRes .btn{text-align:left;border-radius:12px}
+#m-genes .ge-out{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+#m-genes .ge-out h4{font-family:var(--display);font-weight:800;font-size:23px;line-height:1.15;margin:0}
+#m-genes .ge-out dl{margin:0;display:flex;flex-direction:column;gap:12px}
+#m-genes .ge-out dt{font:600 10.5px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:3px}
+#m-genes .ge-out dd{margin:0;font-size:15px}
+#m-genes .ge-mini{display:flex;flex-direction:column;gap:8px;margin:2px 0}
+#m-genes .ge-mini div{display:grid;grid-template-columns:minmax(0,1fr);gap:3px;font:500 12.5px var(--mono);color:var(--muted)}
+#m-genes .ge-mini i{display:block;height:10px;border-radius:5px;background:var(--tdp)}
+#m-genes .ge-mini i.c{background:var(--steel)}
+#m-genes .stage .legend svg{width:14px!important;height:14px!important;min-width:0!important;display:inline-block;vertical-align:middle;margin-right:5px}
+#m-genes .tbl i{font-style:italic}
+#m-genes .tbl td{font-size:14px}
+#m-genes .tbl table{min-width:860px}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Genes: C9orf72, SOD1 and more</h2>
+    <p class="lede">A change in a single gene explains some ALS, in families and in people with no family history at all. Pick a gene and press Play to see what goes wrong inside the cell. Then follow a family through the years, compare the genes, and read how the 2023 US consensus describes each kind of genetic result.</p></div>
+
+  <div class="ge-tog"><span class="kicker" id="geGeneLbl">Gene</span><div id="geGene" role="group" aria-labelledby="geGeneLbl"></div></div>
+  <div class="stepper" id="geSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="geSvg" viewBox="0 0 720 410" style="min-width:560px" role="img" aria-label="Animation of what goes wrong in the cell for the chosen ALS gene"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gePlay">Play</button><label class="stage-cap tl" for="geT">Timeline <input type="range" id="geT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Schematic, not to scale. The repeat count on the dial is one example allele; the coloured ranges come from the studies cited in the notes. Gene, exon and protein sizes are drawn for clarity.</p>
+    </div>
+    <aside class="note" id="geNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How much ALS runs in families?</h3>
+  <div class="ge-two">
+    <div class="card"><span class="kicker">Population registries</span><span class="ge-num">about 5%</span>
+      <p>A meta-analysis of 33 studies put familial ALS at 4.6% (95% CI 3.9–5.5%) of all ALS, and 5.1% (4.1–6.1%) in prospective population-based registries. The authors concluded it is "not 10% as is often stated". Rates were lower in southern Europe. [[Byrne2011]]</p></div>
+    <div class="card"><span class="kicker">Reviews</span><span class="ge-num">10–15%</span>
+      <p>The 2022 Lancet Seminar counts ALS or related syndromes such as FTD among relatives, and says familial ALS may be underreported because of low-penetrance variants, small families and incomplete histories, perhaps "closer to 20% of cases". [[Feldman2022]]</p></div>
+  </div>
+  <div class="callout"><p><span class="tag warn">Controversy</span> Much of the gap is definition: whether relatives with FTD count, and how many generations are asked about. [[Feldman2022,Byrne2011]] The Seminar proposes replacing "familial versus sporadic" with genetically confirmed versus not genetically confirmed ALS: about 70% of familial cases, and about 15% of people with sporadic ALS, carry a pathogenic variant in a known gene. [[Feldman2022]] In a UK clinic, 93% of people with a pathogenic or likely pathogenic variant had no family history of ALS. [[Shepheard2021]] Twin data put the heritability of sporadic ALS at 0.61 (95% CI 0.38–0.78), and an Irish parent-offspring study at 52.3%. [[AlChalabi2010,Ryan2019]]</p></div>
+
+  <h3 class="sub">One copy is enough, but it is not a certainty</h3>
+  <div class="prose"><p>Most ALS variants are dominant: one changed copy, from one parent, can cause disease. Recessive and X-linked forms exist but are rare, and a person with a genetic form may have no recognised family history. [[Roggenbuck2023]] The <i>C9orf72</i> expansion shows why: a carrier parent may never become ill, because penetrance depends on age and is incomplete. [[GossyeGeneReviews]] Move the age slider, or press Play to let the family age, and switch between the two kinds of estimate.</p></div>
+  <div class="ge-tog"><span class="kicker" id="gpEstLbl">Penetrance estimate</span><div id="gpEst" role="group" aria-labelledby="gpEstLbl"></div></div>
+  <div class="stepper" id="gpSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="gpSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A three-generation family with a C9orf72 expansion, 100 possible children of a carrier parent, and a chart of the share of carriers affected by age, from family-based studies and from UK Biobank"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gpPlay">Play</button><label class="stage-cap tl" for="gpT">Age <input type="range" id="gpT" min="0" max="1" step="0.002" value="0"></label></div>
+      <div class="legend">
+        <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="1" y="1" width="12" height="12" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.4"/></svg>male</span>
+        <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.4"/></svg>female</span>
+        <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" style="fill:var(--tdp);stroke:var(--ink);stroke-width:1.4"/></svg>has ALS or FTD</span>
+        <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.4"/><circle cx="7" cy="7" r="2.2" style="fill:var(--ink)"/></svg>carries the expansion, no symptoms</span>
+        <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" style="fill:var(--panel);stroke:var(--muted);stroke-width:1.4;stroke-dasharray:2 1.5"/></svg>not tested: 50% chance of carrying it</span>
+      </div>
+      <p class="stage-cap">An example family, not a real one. The chart shows how published studies estimate penetrance in groups of carriers; it is not anyone's personal risk, which is a matter for genetic counselling.</p>
+    </div>
+    <aside class="note" id="gpNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The genes side by side</h3>
+  <div class="prose"><p>By 2022 more than 40 genes had been reported in ALS. They differ in how common they are, how they are inherited (mostly dominant, rarely recessive) and how often carriers become ill; some, such as <i>ATXN2</i>, raise risk rather than cause disease. [[Feldman2022]] In a meta-analysis of 111 studies, variants in the four main genes were found in 47.7% of familial and 5.2% of sporadic ALS, with a different pattern in Asia. [[Zou2017]]</p></div>
+  <div class="split2">
+    <div class="stage">
+      <div class="ge-tog"><span class="kicker" id="geAncLbl">Ancestry</span><div id="geAnc" role="group" aria-labelledby="geAncLbl"></div></div>
+      <div class="ge-bars" id="geBars"></div>
+      <p class="stage-cap">Share of familial and of sporadic ALS carrying a pathogenic variant in each gene, by region, in the 2017 meta-analysis. Bars share one scale. [[Zou2017]]</p>
+    </div>
+    <div class="note" id="geAncNote" aria-live="polite"></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th scope="col">Gene</th><th scope="col">Inheritance</th><th scope="col">Share of ALS</th><th scope="col">Typical features</th><th scope="col">FTD link</th><th scope="col">ClinGen ALS panel</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th scope="row"><i>C9orf72</i> (GGGGCC repeat)</th><td>Dominant, age-dependent and incomplete penetrance</td><td>Europe: 33.7% familial, 5.1% sporadic; Asia: 2.3% and 0.3% [[Zou2017]]</td><td>Earlier onset, cognitive and behavioural change, shorter survival [[Byrne2012]]</td><td>Strong: the commonest genetic cause of familial FTD [[Majounie2012]]</td><td>Definitive [[ClinGen2026]]</td></tr>
+      <tr class="hl"><th scope="row"><i>SOD1</i></th><td>Dominant; D90A (p.D91A) also recessive (homozygous) in Scandinavia [[Andersen1996]]</td><td>Europe: 14.8% familial, 1.2% sporadic; Asia: 30.0% and 1.5% [[Zou2017]]</td><td>Limb onset, younger onset, survival varies by variant [[OpieMartin2022]]</td><td>Cognitive impairment "not a prominent feature" [[Renton2014]]</td><td>Definitive (dominant) [[ClinGen2026]]</td></tr>
+      <tr class="hl"><th scope="row"><i>TARDBP</i></th><td>Dominant</td><td>Europe: 4.2% familial, 0.8% sporadic [[Zou2017]]</td><td>Variants in the C-terminal region [[Renton2014]]</td><td>Yes, ALS and FTD families [[Renton2014]]</td><td>Definitive [[ClinGen2026]]</td></tr>
+      <tr class="hl"><th scope="row"><i>FUS</i></th><td>Dominant; often de novo in young onset [[Hubers2015]]</td><td>Europe: 2.8% familial, 0.3% sporadic; Asia: 6.4% and 0.9% [[Zou2017]]</td><td>Juvenile or young onset; rapid with P525L [[Naumann2019]]</td><td>Not reported in the sources read</td><td>Definitive [[ClinGen2026]]</td></tr>
+      <tr><th scope="row"><i>TBK1</i></th><td>Dominant (loss of function, haploinsufficiency) [[Freischmidt2015]]</td><td>About 1% of familial and 1% of sporadic [[Chia2018]]</td><td>Heterogeneous; extrapyramidal, ataxic and psychiatric features reported [[Chia2018]]</td><td>Yes [[Freischmidt2015]]</td><td>Definitive [[ClinGen2026]]</td></tr>
+      <tr><th scope="row"><i>NEK1</i></th><td>Dominant susceptibility (risk variants)</td><td>Nearly 3% of ALS [[Kenna2016]]; up to 2% [[Chia2018]]</td><td>Typical ALS without dementia [[Chia2018]]</td><td>No, as reported [[Chia2018]]</td><td>Definitive, as "susceptibility to" [[ClinGen2026]]</td></tr>
+      <tr><th scope="row"><i>OPTN</i></th><td>Recessive and heterozygous forms [[Maruyama2010]]</td><td>Rare in Europeans [[Renton2014]]</td><td>Also a glaucoma gene [[Maruyama2010]]</td><td>Not reported in the sources read</td><td>Definitive, semidominant [[ClinGen2026]]</td></tr>
+      <tr><th scope="row"><i>VCP</i></th><td>Dominant</td><td>1–2% of familial [[Johnson2010]]</td><td>Part of IBMPFD: myopathy, Paget disease of bone, FTD [[Johnson2010]]</td><td>Yes (IBMPFD) [[Johnson2010]]</td><td>Definitive, curated for IBMPFD [[ClinGen2026]]</td></tr>
+      <tr><th scope="row"><i>UBQLN2</i></th><td>X-linked dominant [[Deng2011]]</td><td>Not a common cause [[Renton2014]]</td><td>Juvenile and adult onset [[Deng2011]]</td><td>Yes, ALS with dementia [[Deng2011]]</td><td>Definitive, X-linked [[ClinGen2026]]</td></tr>
+      <tr><th scope="row"><i>KIF5A</i></th><td>Dominant</td><td>Rare (frequency not given in the abstract read)</td><td>Longer survival with loss-of-function variants [[Nicolas2018]]</td><td>Not reported in the sources read</td><td>Definitive, as "susceptibility to" [[ClinGen2026]]</td></tr>
+      <tr><th scope="row"><i>ANXA11</i></th><td>Dominant</td><td>13 of 751 familial exomes [[Smith2017]]</td><td>Founder variant p.D40G [[Smith2017]]</td><td>Not reported in the abstract read</td><td>Definitive [[ClinGen2026]]</td></tr>
+      <tr><th scope="row"><i>PFN1</i></th><td>Dominant</td><td>7 of 274 familial cases [[Wu2012]]</td><td>Aggregates containing TDP-43 in cells [[Wu2012]]</td><td>Not reported in the abstract read</td><td>Definitive [[ClinGen2026]]</td></tr>
+      <tr><th scope="row"><i>CHCHD10</i></th><td>Dominant</td><td>Rare [[Chia2018]]</td><td>Mitochondrial myopathy, cerebellar ataxia [[Bannwarth2014]]</td><td>Yes, FTD-ALS [[Bannwarth2014]]</td><td>Moderate [[ClinGen2026]]</td></tr>
+      <tr><th scope="row"><i>ATXN2</i> (intermediate CAG repeat)</th><td>Risk factor, not a cause [[Feldman2022]]</td><td>4.7% of ALS had 27–33 glutamines (odds ratio 2.8) [[Elden2010]]</td><td>Long expansions cause spinocerebellar ataxia type 2 instead [[Elden2010]]</td><td>Not reported in the abstract read</td><td>Curated only for SCA2 (Definitive) [[ClinGen2026]]</td></tr>
+    </tbody></table></div>
+  <p class="stage-cap">Shaded rows: the four genes every minimum test panel should include under the 2023 US consensus. [[Roggenbuck2023]] ClinGen ratings from the gene-validity file dated 2026-10-20; ratings are revised as evidence accumulates. [[ClinGen2026]]</p>
+  <div class="hook"><b>Exam hook</b><i>C9orf72</i> is the commonest genetic cause of ALS in people of European ancestry; in Asia <i>SOD1</i> leads (30.0% of familial ALS). <i>SOD1</i> was the first ALS gene, found in 1993. [[Zou2017,Rosen1993]]</div>
+
+  <h3 class="sub">Reading a genetic result</h3>
+  <div class="prose"><p>The 2023 evidence-based consensus guidelines on ALS genetic testing and counselling came from a US expert panel, not an international one. It drew on a rapid review of 263 articles, GRADE and EGAPP evidence grading and a three-round modified Delphi process, and made 35 recommendations: 7 on clinical testing, 19 on counselling and 9 on laboratory methods. [[Roggenbuck2023]] Pick a result category to see how the panel describes it.</p></div>
+  <div class="lab even">
+    <div class="stage">
+      <span class="kicker" id="geResLbl">Result category</span>
+      <div id="geRes" role="group" aria-labelledby="geResLbl"></div>
+      <p class="stage-cap">This explains published wording for each category. It does not interpret anyone's report; a genetic counsellor or clinician does that.</p>
+    </div>
+    <div class="ge-out" id="geOut" aria-live="polite"></div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag steel">Recommendation 1</span><h4>Offer testing to everyone with ALS</h4>
+      <p>"All persons with ALS should be offered genetic testing" (GRADE A, strong). Before this, only 10–50% of clinicians offered testing in apparently sporadic ALS, US care guidelines did not address it, and European guidelines limited it to familial ALS or the SOD1 D90A phenotype. [[Roggenbuck2023]]</p></div>
+    <div class="card"><span class="tag steel">Recommendations 2–7, 33, 34</span><h4>Which genes</h4>
+      <ul><li>At minimum <i>C9orf72</i>, <i>SOD1</i>, <i>FUS</i> and <i>TARDBP</i>. A first-round statement making <i>C9orf72</i> the first test only for people of European descent failed; the revised one, covering everyone with ALS, reached 100% agreement.</li>
+      <li>Further genes: those ClinGen rates as definitively associated with ALS, with "Limited", "Refuted" or uncurated genes clearly marked on the report.</li>
+      <li>Simultaneous testing (panel, exome or genome) rather than one gene at a time.</li>
+      <li>When the FDA approves a therapy aimed at a gene, everyone with ALS should be offered testing for that gene. [[Roggenbuck2023]]</li></ul></div>
+    <div class="card"><span class="tag steel">Recommendations 8–26</span><h4>Counselling comes first</h4>
+      <p>Counselling should be offered to everyone with ALS, whatever the family history, before the test. It includes at least a three-generation family tree recording ALS, PLS, PMA, FTD, other dementias, movement disorders and psychiatric illness, and covers inheritance, penetrance, risk to relatives, and psychological, economic and privacy effects, including discrimination. Ideally a board-certified genetic counsellor gives it; neurologists and nurse practitioners may when none is available. [[Roggenbuck2023]]</p></div>
+    <div class="card"><span class="tag umn">Relatives</span><h4>Presymptomatic testing</h4>
+      <p>The consensus refers to separately published recommendations from the Pre-fALS study (8 years; 317 counselling sessions for 161 first-degree relatives). They set a minimum age of 18 while no preventive therapy exists, require at least 2 counselling sessions, and rest on voluntary informed consent, psychosocial readiness, and counselling before the decision, before the test and after it. [[Benatar2016,Roggenbuck2023]] Of 11 people who sought counselling before deciding, "over half" chose the study arm in which results are not disclosed; that was a research setting, not routine care. [[Benatar2016]]</p></div>
+    <div class="card"><span class="tag umn">Family planning</span><h4>Reproductive options</h4>
+      <p>At-risk people may "pursue preimplantation genetic testing" (PGT) to avoid passing the variant on, and prenatal testing and PGT are possible once a family's <i>C9orf72</i> expansion is known. [[Benatar2016,GossyeGeneReviews]] No published series on how often families with ALS use PGT was found for this guide.</p></div>
+    <div class="card"><span class="tag umn">United States law</span><h4>GINA and its gaps</h4>
+      <p>As summarised in 2016, the Genetic Information Nondiscrimination Act (GINA) bars health insurers and many employers from using genetic information, but no federal law covers life, disability or long-term-care insurance. [[Benatar2016]] Laws differ between countries.</p></div>
+  </div>
+
+  <h3 class="sub">Israeli populations</h3>
+  <div class="cards">
+    <div class="card"><span class="tag tdp">Founder haplotype</span><h4><i>C9orf72</i> in Ashkenazi and North African Jews</h4>
+      <div class="ge-mini" aria-hidden="true">
+        <div>Ashkenazi, ALS: 12.9%<i style="width:64.5%"></i></div>
+        <div>Ashkenazi, controls: 0.3%<i class="c" style="width:1.5%"></i></div>
+        <div>North African, ALS: 9.1%<i style="width:45.5%"></i></div>
+        <div>North African, controls: 1%<i class="c" style="width:5%"></i></div>
+      </div>
+      <p>In Ashkenazi Jews the expansion was found in 80% of familial and 11% of sporadic ALS: 12.9% of all Ashkenazi ALS against 0.3% of controls (odds ratio 44.3). In North African Jews it was 10% of familial and 9% of sporadic ALS: 9.1% against 1% (odds ratio 9.9). All patients shared one risk haplotype. [[Goldstein2018]]</p></div>
+    <div class="card"><span class="tag steel">One clinic, 2018–2023</span><h4>Which test first?</h4>
+      <p>In an Israeli neurogenetics clinic (140 people with ALS), the <i>C9orf72</i> expansion was found in 21% of Ashkenazi Jewish patients and 5.7% of others. Gene panels found disease-causing variants in 14% of non-Ashkenazi and 5.7% of Ashkenazi patients, and in 12% of people with onset before 50, against 2.9% for <i>C9orf72</i>. [[Barel2024]]</p>
+      <p>The authors propose <i>C9orf72</i> first for Ashkenazi patients and a panel first for others and for early onset. This is a single-centre proposal, not a national guideline; the US consensus asks for the four-gene minimum in everyone. [[Barel2024,Roggenbuck2023]]</p></div>
+    <div class="card"><span class="tag warn">Open question</span><h4>Onset and duration by origin</h4>
+      <p>Among 374 Israelis with sporadic ALS, people of North African Jewish origin were younger at onset and had a shorter illness than other groups. The authors suggest a genetic modifier but did not identify one. [[Drory2007]] No <i>SOD1</i>, <i>FUS</i> or <i>TARDBP</i> founder variant specific to Israeli or Jewish populations was found in the sources read for this guide.</p></div>
+  </div>
+
+  <h3 class="sub">Beyond one gene, one family</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Controversy</span><h4>More than one variant</h4>
+      <p>In a Dutch series, five familial ALS families carried several variants, more often than chance would predict. [[vanBlitterswijk2012]] In a UK clinic, 13% of people carried more than one variant, and those with two had earlier onset (median 56 vs 60 years). [[Shepheard2021]] A 2014 review argues that two "mutations" in someone from an outbred population more often mean one is not pathogenic. [[Renton2014]]</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>New variants in the child</h4>
+      <p>In 173 parent-child trios, the rate of de novo variants in ALS was no higher than in the general population. [[vanDoormaal2017]] Yet de novo <i>FUS</i> variants are the commonest finding in early-onset sporadic ALS: 6 of 14 people with onset before 35 carried one, and in all 5 families tested it was new. [[Hubers2015]]</p></div>
+    <div class="card"><span class="tag umn">Modifiers</span><h4>Genes that change the odds</h4>
+      <p>In UK Biobank, <i>C9orf72</i> carriers homozygous for the <i>UNC13A</i> rs12608932 C allele had a higher risk (hazard ratio 1.81). [[Gao2025]] A cross-ancestry study found 15 risk loci and quoted a lifetime ALS risk of 1 in 350. [[vanRheenen2021]]</p></div>
+  </div>
+</section>

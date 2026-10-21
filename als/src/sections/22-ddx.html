@@ -1,0 +1,71 @@
+<!-- ================= 2.2 THE DIFFERENTIAL ================= -->
+<section class="mod" id="m-ddx" data-mod="ddx" hidden>
+<style>
+#m-ddx .dd-pick{display:flex;flex-wrap:wrap;gap:6px}
+#m-ddx .dd-pick .btn{min-height:42px;font-size:13.5px;padding:7px 12px}
+#m-ddx .dd-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px;display:flex;flex-direction:column;gap:8px;font-size:15px;min-height:70px}
+#m-ddx .dd-card h4{margin:0;font-family:var(--display);font-weight:800;font-size:21px;line-height:1.2}
+#m-ddx .dd-card .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 18px}
+#m-ddx table{min-width:1000px;font-size:13.5px}
+#m-ddx td,#m-ddx th{overflow-wrap:break-word;hyphens:auto}
+#m-ddx tbody th{min-width:150px}
+#m-ddx tbody tr[data-dd]{cursor:pointer}
+#m-ddx tbody tr[data-dd]:hover td,#m-ddx tbody tr[data-dd]:hover th{background:var(--panel-2)}
+#m-ddx tr.ref td,#m-ddx tr.ref th{background:var(--steel-soft)}
+#m-ddx tr.hl td,#m-ddx tr.hl th{background:var(--warn-soft)}
+#m-ddx .dd-flags{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+#m-ddx .dd-flags li{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--tdp);border-radius:10px;padding:10px 12px;font-size:14.5px;display:flex;flex-direction:column;gap:3px}
+#m-ddx .dd-flags li b{font-size:15px}
+#m-ddx .dd-flags li span{color:var(--muted);font-size:13px}
+#m-ddx .dd-big{font-family:var(--display);font-weight:800;font-size:40px;line-height:1;color:var(--tdp)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis &amp; course</p><h2>The differential: ALS mimics</h2>
+    <p class="lede">Several conditions can look like ALS early on, and some of them are treatable. Press Play to walk the decision points doctors describe, then pick a condition to see where it branches off and which test separates it.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Choose a condition">
+    <span class="kicker">Pick a condition</span>
+    <div class="dd-pick" id="ddPick"></div>
+  </div>
+  <div class="stepper" id="ddSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A decision tree that starts from progressive weakness, asks about sensory signs, then conduction block, then the pattern of signs, and shows which ALS mimics branch off at each point"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ddPlay">Play</button><label class="stage-cap tl" for="ddT">Decision points <input type="range" id="ddT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">A teaching simplification of published reviews. Real work-ups run several of these checks at once and repeat them over time.</p></div>
+    <aside class="note" id="ddNote" aria-live="polite"></aside>
+  </div>
+  <div class="dd-card" id="ddCard" aria-live="polite"></div>
+
+  <h3 class="sub">Conditions and features</h3>
+  <p class="prose">Each row is a condition from the reviews read for this guide; the first row is ALS itself for reference. A dash means the feature is not described for that condition in those sources. Click a row, or use the buttons above, to show where the condition branches off in the tree.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Condition</th><th>UMN signs</th><th>LMN signs</th><th>Sensory</th><th>Sphincters</th><th>Eye movements</th><th>Pace</th><th>Key test</th></tr></thead>
+    <tbody id="ddTbl"></tbody>
+  </table></div>
+  <p class="stage-cap">Also named in the same reviews: neuralgic amyotrophy (severe pain at onset, then arrest), Hirayama disease (young men, one-sided C7–T1 weakness, flexion MRI), adrenomyeloneuropathy (very-long-chain fatty acids), primary progressive MS (MRI, CSF bands), paraneoplastic syndromes and adult polyglucosan body disease. [[TurnerTalbot2013,Ghasemi2016,Garnier2024]]</p>
+
+  <h3 class="sub">Red flags for another diagnosis</h3>
+  <ul class="dd-flags">
+    <li><b>Prominent sensory features</b><span>Copper deficiency, CIDP, Kennedy disease</span></li>
+    <li><b>Sphincter, visual or autonomic disturbance</b><span>Myelopathy, HSP</span></li>
+    <li><b>Basal ganglia signs</b><span>Parkinsonian syndromes, hexosaminidase A deficiency</span></li>
+    <li><b>Abnormal eye movements</b><span>Myasthenia gravis</span></li>
+    <li><b>Fluctuating or fatigable weakness</b><span>Myasthenia gravis</span></li>
+    <li><b>Severe pain at onset</b><span>Neuralgic amyotrophy; brachial radiation plexopathy</span></li>
+    <li><b>Conduction block or demyelination</b><span>MMN, CIDP</span></li>
+    <li><b>Weakness out of proportion to wasting</b><span>MMN</span></li>
+    <li><b>No progression over time</b><span>Benign fasciculations, other slow mimics</span></li>
+  </ul>
+  <p class="stage-cap">Red flags as listed across the sources; the conditions under each are examples drawn from the table above. [[Ghasemi2016,Garnier2024,TurnerTalbot2013,Davenport1996,Otani2024]]</p>
+
+  <h3 class="sub">How often the first diagnosis changes</h3>
+  <div class="cards">
+    <div class="card"><span class="dd-big">7.3%</span><h4>Irish ALS Register</h4><p>Of 437 referrals in 1993–1997, 32 were later rediagnosed. Multifocal motor neuropathy (7, 22%) and Kennedy disease (4, 13%) were the commonest. 84% of the mimics had met only the "suspected" or "possible" El Escorial levels, 13% "probable" and 3% "definite". [[Traynor2000mimic]]</p></div>
+    <div class="card"><span class="dd-big">8%</span><h4>Scottish MND Register</h4><p>Of 552 people registered, 46 had another diagnosis, and a potentially beneficial treatment existed for half of them. Failure to progress, atypical features or test results prompted the revision. [[Davenport1996]]</p></div>
+    <div class="card"><span class="dd-big">≈10%</span><h4>Across population studies</h4><p>Nearly 10% of people diagnosed with ALS turn out to have another condition, and a few conditions account for most of these. No register figure more recent than these two was found for this guide. [[TurnerTalbot2013,Ghasemi2016]]</p></div>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Treatable mimics to exclude: <b>MMN</b> (conduction block, anti-GM1, IVIG), <b>cervical spondylotic myelopathy</b> (neck pain, sphincters, nothing above the neck; MRI), <b>bulbar myasthenia</b> (fatigable, ptosis; RNS and antibodies) and <b>Kennedy disease</b> (low SNAPs, gynaecomastia, CAG expansion in <i>AR</i>). [[TurnerTalbot2013,Lawson2014,Garnier2024,LaSpada_GeneReviews]]</div>
+    <div class="pt"><b>In plain words</b>Several other conditions can look like ALS early on, some of them treatable, so doctors check for them first. Numbness, double vision, bladder trouble or weakness that comes and goes are clues that something else may be going on.</div>
+  </div>
+</section>

@@ -1,0 +1,144 @@
+<!-- ================= 3.3 BREATHING AND NIV ================= -->
+<section class="mod" id="m-breathing" data-mod="breathing" hidden>
+<style>
+#m-breathing .btn{min-height:40px}
+#m-breathing .br-form{display:flex;flex-direction:column;gap:12px}
+#m-breathing fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px 12px;margin:0;display:flex;flex-direction:column;gap:9px;min-width:0}
+#m-breathing legend{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 4px}
+#m-breathing .br-num{display:grid;grid-template-columns:minmax(0,1fr) 110px;gap:10px;align-items:center;font-size:14.5px;line-height:1.3}
+#m-breathing .br-num small{display:block;color:var(--muted);font-size:12.5px}
+#m-breathing .br-num input,#m-breathing .br-num select{font:inherit;min-height:40px;padding:6px 10px;border-radius:10px;border:1px solid var(--line);background:var(--field);color:var(--ink);width:100%;min-width:0}
+#m-breathing .br-ck{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.35;cursor:pointer;min-height:40px;padding:4px 0}
+#m-breathing .br-ck input{margin:2px 0 0;flex:none;width:20px;height:20px;accent-color:var(--air)}
+#m-breathing .br-ck small{display:block;color:var(--muted);font-size:12.5px}
+#m-breathing .br-res{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+#m-breathing .br-g{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px;background:var(--panel);min-width:0}
+#m-breathing .br-g.hit{border-color:var(--air);background:var(--air-soft)}
+#m-breathing .br-g h4{margin:0;font-family:var(--display);font-weight:800;font-size:18px;line-height:1.15}
+#m-breathing .br-g .sum{font-weight:700;font-size:14px}
+#m-breathing .br-g ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+#m-breathing .br-g li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:start;font-size:13.5px;line-height:1.35}
+#m-breathing .br-g .flag{font-size:12.5px;color:var(--muted);border-left:2px solid var(--warn);padding-left:8px}
+#m-breathing .st{font:600 10px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 6px;border-radius:5px;white-space:nowrap;background:var(--panel-2);color:var(--muted)}
+#m-breathing .st.met{background:var(--air);color:var(--bg)}
+#m-breathing .st.no{background:var(--panel-2);color:var(--ink)}
+#m-breathing .st.na{background:none;border:1px dashed var(--line)}
+#m-breathing .st.dep{background:var(--warn-soft);color:var(--warn)}
+#m-breathing .card .ev{align-self:flex-start}
+#m-breathing .br-tags{display:flex;gap:6px;flex-wrap:wrap}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment &amp; care</p><h2>Breathing and NIV</h2>
+    <p class="lede">The breathing muscles weaken in ALS, slowly and often first at night. Scrub the timeline to watch the diaphragm, the FVC curve and one night's oxygen and CO2 change, and switch non-invasive ventilation (NIV) on or off. Then try the trigger checker to see how six guidelines read the same test results.</p></div>
+
+  <div class="ctrls" id="brNiv" role="group" aria-label="Non-invasive ventilation"></div>
+  <div class="ctrls" id="brBulb" role="group" aria-label="Bulbar function (Bourke 2006 subgroups)"></div>
+  <div class="stepper" id="brSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="brSvg" viewBox="0 0 720 500" style="min-width:560px" role="img" aria-label="Animation of breathing in ALS: the diaphragm and its phrenic nerve from C3 to C5 weaken, the FVC curve falls across guideline threshold lines, a night of sleep shows CO2 rising and oxygen dips that settle when NIV is switched on, and a bar chart gives the Bourke 2006 survival results by bulbar function."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brPlay">Play</button><label class="stage-cap tl" for="brT">Timeline <input type="range" id="brT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <div class="readout" id="brRead"></div>
+      <p class="stage-cap">Schematic, not to scale, and not one person's course. The FVC slope follows the Bourke cohort as summarised by AAN 2009 (about 2.2% a month before NIV, 1.1% after); SNIP, peak cough flow and the night traces are illustrative shapes. Threshold lines: FVC 80% (EFNS; NICE, Canada and the US panel with symptoms), 65% upright (Canada), 50% (AAN, NICE, US panel); SpO2 90% (US panel); CO2 45 mmHg (EFNS morning, Canada daytime). [[Miller2009AAN,Bourke2006,Dorst2019,NICE2016,Shoesmith2020,Wolfe2021ONMAP]]</p>
+    </div>
+    <aside class="note" id="brNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">NIV trigger checker: six guidelines side by side</h3>
+  <p class="callout">Enter test results and symptoms. The checker shows which published triggers each document lists are met by those values. It is an educational reading of the guidelines, not a recommendation: the documents frame these as triggers for <b>discussion and referral</b>, not automatic treatment, and it cannot say whether NIV is right for any one person. [[Miller2009AAN,Dorst2019,NICE2016,Shoesmith2020,Wolfe2021ONMAP,VanDamme2024EAN]]</p>
+  <div class="ctrls" role="group" aria-label="Examples">
+    <span class="kicker">Load an example</span>
+    <button class="btn" data-brex="a">FVC 72% with orthopnoea</button>
+    <button class="btn" data-brex="b">FVC 58%, no symptoms</button>
+    <button class="btn" data-brex="c">SNIP 50, morning headaches, pCO2 46</button>
+    <button class="btn" data-brex="clr">Clear all</button>
+  </div>
+  <div class="lab even">
+    <div class="stage br-form">
+      <fieldset><legend>Breathing tests</legend>
+        <label class="br-num"><span>FVC or VC, % predicted<small>Leave blank if not measured</small></span><input type="number" id="brFvc" min="0" max="160" step="1" inputmode="numeric"></label>
+        <div class="ctrls" id="brPos" role="group" aria-label="Position the FVC was measured in"></div>
+        <label class="br-num"><span>SNIP (sniff nasal inspiratory pressure), cmH2O</span><input type="number" id="brSnip" min="0" max="200" step="1" inputmode="numeric"></label>
+        <label class="br-num"><span>MIP (maximal inspiratory pressure), cmH2O<small>Enter the size: 55 for a reading of −55</small></span><input type="number" id="brMip" min="0" max="200" step="1" inputmode="numeric"></label>
+        <label class="br-ck"><input type="checkbox" id="brFall"><span>SNIP or MIP fell by more than 10 cmH2O over 3 months</span></label>
+        <div class="ctrls" id="brSex" role="group" aria-label="Sex: NICE uses different SNIP and MIP cut-offs for men and women"></div>
+      </fieldset>
+      <fieldset><legend>Symptoms and signs</legend>
+        <label class="br-ck"><input type="checkbox" id="brOrth"><span>Orthopnoea<small>Breathless lying flat</small></span></label>
+        <label class="br-ck"><input type="checkbox" id="brNoct"><span>Other respiratory or night-time symptoms<small>Breathlessness, disturbed or unrefreshing sleep, morning headaches, daytime sleepiness, poor concentration</small></span></label>
+        <label class="br-ck"><input type="checkbox" id="brSigns"><span>Signs<small>Fast or shallow breathing, weak cough or sniff, abdominal paradox, use of accessory muscles</small></span></label>
+      </fieldset>
+      <fieldset><legend>Overnight oximetry and CO2</legend>
+        <label class="br-num"><span>Overnight oximetry</span><select id="brOx">
+          <option value="nd">Not done</option>
+          <option value="norm">Normal</option>
+          <option value="abn">Abnormal desaturation</option>
+          <option value="us">Abnormal: SpO2 90% or less for 5% of the night, or 88% or less for 5 minutes</option>
+        </select></label>
+        <label class="br-num"><span>CO2 value<small>Leave blank if not measured</small></span><input type="number" id="brCo2" min="0" max="150" step="0.1" inputmode="decimal"></label>
+        <div class="ctrls" id="brUnit" role="group" aria-label="CO2 unit"></div>
+        <div class="ctrls" id="brCt" role="group" aria-label="How the CO2 was measured"></div>
+      </fieldset>
+    </div>
+    <div class="stage">
+      <div class="br-res" id="brRes" aria-live="polite"></div>
+      <p class="stage-cap">How each document words its triggers: AAN 2009 Figure 2; EFNS 2012 as tabulated by Dorst and Ludolph 2019 (the EFNS full text was not accessible, so these values are second-hand); NICE NG42 Table 2 and its blood-gas advice; the Canadian 2020 recommendations; the 2021 US technical expert panel (ONMAP), whose proposals are reimbursement criteria for neuromuscular disease in general; and EAN 2024, which gives no numbers. 6 kPa is about 45 mmHg. [[Miller2009AAN,Andersen2012EFNS,Dorst2019,NICE2016,Shoesmith2020,Wolfe2021ONMAP,VanDamme2024EAN]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Living with NIV, cough, and the later choices</h3>
+  <div class="cards">
+    <div class="card"><span class="tag air">Adherence</span><h4>NIV works when it is used for hours</h4>
+      <ul>
+        <li>Offered BiPAP below FVC 50%, people using it more than 4 h a day had a median survival of 14.2 months from the start, against 7.0 months with less use and 4.6 months when it was declined. [[Kleopa1999]]</li>
+        <li>In one Italian centre, 44 of 71 people (61.9%) tolerated NIV for 4 h a day or more; mild or moderate bulbar symptoms predicted tolerance (OR 6.09). [[LoCoco2006]]</li>
+        <li>Non-compliance was 75% in people with ALS and frontotemporal dysfunction against 38% in classic ALS; 94% of NIV users said they would choose it again. [[Miller2009AAN]]</li>
+        <li>Nasal masks are better tolerated and easier to talk through but can leak through the mouth with bulbar weakness; any mask can cause facial pressure sores. [[Dorst2019]]</li>
+      </ul>
+      <span class="ev early">Early evidence: observational cohorts</span></div>
+    <div class="card"><span class="tag air">Cough</span><h4>Peak cough flow: 270 and 160 L/min</h4>
+      <ul>
+        <li>AAN 2009: peak cough flow above 160 L/min is needed to clear secretions, and clinicians recommend assistive devices below 270 L/min (Class III). The same 270 L/min mark triggered mechanically assisted coughing in Bach's single-centre series of 101 people. [[Miller2009AAN,Bach2002]]</li>
+        <li>Mechanical insufflation-exsufflation raised peak cough flow by 26% in bulbar and 28% in non-bulbar patients, against 11-13% for manually assisted cough (Level C for clearing secretions). [[Miller2009AAN]]</li>
+        <li>NICE: breath stacking and/or manually assisted cough first, assisted breath stacking next, then a mechanical cough assist device; Canada suggests MI-E twice daily below 270 L/min (expert consensus). [[NICE2016,Shoesmith2020]]</li>
+        <li>In a 40-person pilot RCT, breath stacking and MI-E did not differ significantly in chest infections, admissions or survival. Secretion problems are reported by 40-60% of people with ALS. [[Rafiq2015,Berlowitz2023]]</li>
+      </ul>
+      <span class="ev early">Early evidence: small trials, consensus</span></div>
+    <div class="card"><span class="tag bad">Harm in trials</span><h4>Diaphragm pacing shortened survival</h4>
+      <ul>
+        <li>The NeuRx pacing system received a US Humanitarian Device Exemption before any randomised data existed. [[DiPALS2015,Dorst2019]]</li>
+        <li>DiPALS (UK, 74 people): median survival 11.0 months with NIV plus pacing against 22.5 months with NIV alone (adjusted HR 2.27); recruitment was stopped. [[DiPALS2015]]</li>
+        <li>RespiStimALS (France, 74 people, FVC 60-80%): NIV-free survival 6.0 months with active stimulation against 8.8 months with sham (HR 1.96); stopped for excess mortality. [[GonzalezBermejo2016]]</li>
+        <li>EAN 2024 makes a strong recommendation against diaphragm pacing in ALS. [[VanDamme2024EAN]]</li>
+      </ul>
+      <span class="ev est">Established: two RCTs found harm</span></div>
+    <div class="card"><span class="tag air">Tracheostomy</span><h4>Use differs widely by country</h4>
+      <ul>
+        <li>84% of US neurologists said fewer than 10% of their ALS patients had tracheostomy ventilation, against 32% of Japanese neurologists; over 70% in both groups would decline it for themselves. [[Rabkin2013]]</li>
+        <li>9.5% in a German register (mostly without NIV first); 31.3% (87 of 279) in one Italian centre in 2001-2010; a US review states up to 95% in the US choose not to have it. [[Spittel2021,Spataro2012,Niedermeyer2019]]</li>
+        <li>In a propensity-matched Japanese registry, median overall survival was 11.33 years with it against 4.61 without. [[Hayashi2020]]</li>
+        <li>In a German home-ventilation study, 81% of tracheostomy users had been tracheotomised without informed consent. EAN 2024 asks for it to be discussed in advance care planning so that emergency invasive ventilation can be avoided. [[KaubWittemer2003,VanDamme2024EAN]]</li>
+      </ul></div>
+    <div class="card"><span class="tag steel">End of life</span><h4>Stopping ventilation at the person's request</h4>
+      <ul>
+        <li>The APM guidance (2015) states that in UK law a person with capacity may refuse or ask to withdraw assisted ventilation, invasive or not, and that withdrawal at their request is not assisted suicide. [[APM2015]]</li>
+        <li>It states that the cause of death remains the disease, giving the wording "1a ventilatory failure (due to) 1b advanced motor neurone disease". [[APM2015]]</li>
+        <li>In 95 UK accounts (2015-2024), 94% involved NIV and 92% of people were ventilator-dependent for more than 22 h a day; median time from removal to death was 30 minutes (10 minutes to over 54 hours), and 94% had medication beforehand, usually an opioid plus midazolam, titrated. [[Bleazard2025]]</li>
+        <li>NICE asks for support from professionals experienced in stopping NIV, the medicines and the legal frameworks. [[NICE2016]]</li>
+      </ul></div>
+    <div class="card"><span class="tag steel">Tests</span><h4>What the numbers predict</h4>
+      <ul>
+        <li>SNIP tracked diaphragm pressure (r = 0.9) and was the test most often still possible at the last visit (96%, against 86% for FVC and 81% for MIP). [[Morgan2005]]</li>
+        <li>For death within 6 months, FVC below 50% had 58% sensitivity and 96% specificity; SNIP below 40 cmH2O had 97% and 79%. [[Morgan2005]]</li>
+        <li>A mean night-time saturation below 93% went with a mean survival of 7 months against 18 months above it (Class IV). [[Miller2009AAN]]</li>
+        <li>With marked bulbar weakness no test predicted high CO2 (AAN 2009). NICE still measures SpO2 but not FVC, SNIP or MIP when severe bulbar or cognitive problems make the interfaces unsuitable, and since 2022 notes that oximeters may overestimate saturation in people with dark skin. [[Miller2009AAN,NICE2016]]</li>
+      </ul></div>
+  </div>
+
+  <h3 class="sub">Where the sources disagree</h3>
+  <div class="prose">
+    <p class="callout"><b>When to start.</b> AAN 2009 uses FVC below 50%, while EFNS, NICE and Canada also count FVC below 80% with symptoms. Dorst and Ludolph argue that the EFNS criteria rest on opinion and that earlier NIV may be better; a sham-controlled pilot of early NIV (54 people) found a small FVC benefit and no survival difference, and how well people without symptoms keep using it is uncertain. [[Miller2009AAN,Dorst2019,NICE2016,Jacobs2016]]</p>
+    <p class="callout"><b>Severe bulbar weakness.</b> Bourke 2006 found no survival benefit in this subgroup, and NICE limits NIV there to possible benefit for sleep-related symptoms. EAN 2024 asks that every effort be made to allow NIV regardless of bulbar function, citing later retrospective data. [[Bourke2006,NICE2016,VanDamme2024EAN,Dorst2019]]</p>
+    <p class="callout"><b>Tracheostomy.</b> Rates differ several-fold between countries and centres, and Rabkin's surveys suggest neurologists' attitudes, not only patients' preferences, account for part of the gap. [[Rabkin2013,Spittel2021,Spataro2012,Hayashi2020]]</p>
+    <p>For swallowing, weight and the feeding tube, which is timed against the same FVC curve, see <a href="#nutrition" data-go="nutrition">Swallowing and feeding tubes</a>.</p>
+  </div>
+</section>
