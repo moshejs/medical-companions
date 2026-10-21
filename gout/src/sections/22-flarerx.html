@@ -1,0 +1,67 @@
+<!-- ================= 2.2 TREATING A FLARE ================= -->
+<section class="mod" id="m-flarerx" data-mod="flarerx" hidden>
+  <style>
+    #m-flarerx .tl output{font:600 13px var(--mono);color:var(--ink);min-width:44px}
+    #m-flarerx .fx-opt{position:relative}
+    #m-flarerx .fx-opt .fx-flags{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+    #m-flarerx .fx-opt .fx-flags li{font-size:13.5px;border-radius:8px;padding:6px 9px}
+    #m-flarerx .fx-opt .fx-flags li.caution{background:var(--warn-soft)}
+    #m-flarerx .fx-opt .fx-flags li.avoid{background:var(--bad-soft)}
+    #m-flarerx .fx-opt .fx-flags li b{font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;display:block}
+    #m-flarerx .fx-opt .fx-flags li.caution b{color:var(--warn)}
+    #m-flarerx .fx-opt .fx-flags li.avoid b{color:var(--bad)}
+    #m-flarerx .fx-opt[data-state="caution"]{border-color:var(--warn);box-shadow:inset 4px 0 0 var(--warn)}
+    #m-flarerx .fx-opt[data-state="avoid"]{border-color:var(--bad);box-shadow:inset 4px 0 0 var(--bad)}
+    #m-flarerx .fx-opt[data-state="clear"] h4::after{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--good);margin-left:8px;vertical-align:middle}
+    #m-flarerx .fx-sum{border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:12px 16px;font-size:15px;max-width:86ch}
+    #m-flarerx .fx-sum b.big{font:800 22px/1.1 var(--display);color:var(--crocus);margin-right:6px}
+    #m-flarerx .fx-keep{border:2px solid var(--sea);background:var(--sea-soft);border-radius:var(--r);padding:14px 18px;display:flex;flex-direction:column;gap:6px;max-width:86ch}
+    #m-flarerx .fx-keep h4{margin:0;font-family:var(--display);font-weight:800;font-size:20px;color:var(--sea)}
+  </style>
+  <div class="mhead"><p class="eyebrow">Part 2 · Treating a flare</p><h2>Treating a flare</h2>
+    <p class="lede">Colchicine, an NSAID or a steroid all treat a gout flare about equally well, so the choice turns on the person's other conditions. Slide the start time to see why guidelines say start early, then switch on conditions and watch which options get flagged.</p></div>
+
+  <div class="ctrls"><label class="stage-cap tl" for="fxS">Treatment starts at <input type="range" id="fxS" min="0" max="4" step="1" value="1" aria-describedby="fxSOut"><output id="fxSOut" for="fxS">12 h</output></label></div>
+  <div class="stepper" id="fxSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="fxSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Schematic pain over seven days for an untreated flare and a treated one, with the treatment start time set by the slider"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="fxPlay">Play</button><label class="stage-cap tl" for="fxT">Days <input type="range" id="fxT" min="0" max="1" step="0.002" value="0.02"></label></div>
+      <div class="readout" id="fxRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> No trial has randomised people to different start times, so these curves only illustrate the published reasoning: a flare peaks within a day and settles within two weeks even untreated, and guidelines advise treating early (within 12 h in EULAR 2016, within 24 h in ACR 2012, colchicine only within 36 h). The single real data point is labelled with its source. [[Neogi2015,Bellamy1987,Richette2017,Khanna2012P2,Terkeltaub2010]]</p></div>
+    <aside class="note" id="fxNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the trials measured</h3>
+  <div class="ctrls" id="fxTrials" role="group" aria-label="Trial">
+    <span class="kicker">Trial</span>
+    <button class="btn" data-trial="agree" aria-pressed="true">AGREE: low vs high colchicine</button>
+    <button class="btn" data-trial="contact" aria-pressed="false">CONTACT: colchicine vs naproxen</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="fxBars" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Animated bar chart of trial results"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="fxBPlay">Play</button><label class="stage-cap tl" for="fxB">Grow bars <input type="range" id="fxB" min="0" max="1" step="0.002" value="1"></label></div>
+    <div class="legend" id="fxLegend"></div>
+    <p class="stage-cap" id="fxBCap"></p>
+  </div>
+
+  <h3 class="sub">Choosing by the person's other conditions</h3>
+  <div class="prose"><p>ACR 2020 strongly recommends colchicine, an NSAID or a glucocorticoid (oral, intra-articular or intramuscular) as first line, chosen by patient factors; no first-line agent is ranked above another. NICE 2022 says the same. [[FitzGerald2020,NICE-NG219]]</p><p>Switch on a condition to see which options the published guidance flags. This mirrors guideline lists; it is not a prescribing tool.</p></div>
+  <div class="ctrls" id="fxConds" role="group" aria-label="Conditions"></div>
+  <p class="fx-sum" id="fxSum" aria-live="polite"></p>
+  <div class="cards" id="fxOpts"></div>
+  <p class="stage-cap">Flags follow ACR 2012's comorbidity examples, EULAR 2016, the COLCRYS label and the canakinumab label. In 575 people with gout, more than 90% had at least one contraindication to NSAIDs, and colchicine was prescribed despite a strong contraindication in 30–39.6%. [[Khanna2012P2,Richette2017,FDA-Colcrys,IlarisPIG,Keenan2011]]</p>
+
+  <div class="fx-keep" role="note"><h4>Keep urate-lowering therapy going</h4><p>ACR 2012: do not interrupt established urate-lowering therapy during a flare (Evidence C). Starting it is a separate question: ACR 2020 conditionally allows starting during a flare when it is indicated, while NICE prefers 2–4 weeks after the flare settles unless flares are frequent. [[Khanna2012P2,FitzGerald2020,NICE-NG219]]</p></div>
+
+  <div class="cards">
+    <div class="card"><h4>When one drug is not enough</h4><p>ACR 2012 judged combination therapy appropriate for severe or polyarticular flares (Evidence C), and defined an inadequate response as under 20% pain improvement within 24 hours or under 50% at 24 hours or later. The Hong Kong 2023 consensus does not recommend combining an NSAID with a systemic glucocorticoid because of additive toxicity. [[Khanna2012P2,Yip2023]]</p></div>
+    <div class="card"><h4>NSAID vs steroid, pooled</h4><p>Across 6 trials (817 people), pain at under 7 days did not differ, but corticosteroids caused less indigestion (RR 0.50), nausea (RR 0.25) and vomiting (RR 0.11). A Cochrane review of 5 trials (712 people) found total adverse events higher with NSAIDs (RR 1.6). [[Billy2018,vanDurme2021]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>IL-1 is the flare's key signal</h4><p>In an open pilot, all 10 people unable to take standard therapy responded to anakinra 100 mg daily for 3 days. In anaGO (88 people), anakinra was non-inferior to usual care; in a phase II trial (165 people) it was not superior to triamcinolone 40 mg on the primary end point (−41.2 vs −39.4). [[So2007,Janssen2019,Saag2021]]</p></div>
+    <div class="card"><span class="ev early">Debated</span><h4>Was the canakinumab comparator fair?</h4><p>ACR 2020 makes IL-1 inhibition a conditional recommendation (moderate certainty) and notes that the comparator, triamcinolone 40 mg, was weak and that cost favours other agents. Canakinumab carries EU (2013) and US (2023) approval for selected people with gout. [[FitzGerald2020,EMA-IlarisGout2013,FDA-IlarisGout2023]]</p></div>
+    <div class="card"><h4>Ice, and what does not help</h4><p>ACR 2020 conditionally recommends topical ice as an add-on, and NICE advises ice packs alongside medicine. ACR 2012 voted cherry juice, willow bark, ginger and other oral complementary agents inappropriate for treating a flare. [[FitzGerald2020,NICE-NG219,Khanna2012P2]]</p></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>First line = <b>colchicine, NSAID or glucocorticoid</b>, chosen by comorbidity, none ranked higher. Low-dose colchicine (1.8 mg over 1 h) = high dose for benefit, far less diarrhoea. <b>Do not stop urate-lowering therapy</b> during a flare. [[FitzGerald2020,Terkeltaub2010,Khanna2012P2]]</div>
+    <div class="pt"><b>In plain words</b>Several medicines work about equally well. The best one for you depends on your kidneys, heart, stomach and other medicines. Take it at the first sign of a flare, and keep taking any urate-lowering medicine you already use.</div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<section class="mod" id="m-history" data-mod="history" hidden>
+<style>
+#m-history .hi-chips button.tag{border:0;cursor:pointer;font-size:11.5px;padding:7px 10px;white-space:normal;text-align:left;line-height:1.25}
+#m-history .hi-chips button.tag:hover{background:var(--sea-soft);color:var(--sea)}
+#m-history .hi-chips .tag small{font:inherit;opacity:.7;margin-left:4px}
+#m-history .hi-chips span.tag{white-space:normal;line-height:1.25}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
+    <p class="lede">Gout is one of the oldest named diseases: podagra to Hippocrates, crystals to van Leeuwenhoek, urate to Garrod, allopurinol to Elion and Hitchings. Press play to run the playhead from antiquity to today, or jump between eras. The scene above the timeline redraws itself as each era arrives.</p></div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="hiSvg" viewBox="0 0 720 672" style="min-width:500px" role="img" aria-label="Timeline of gout history from antiquity to 2025 in five lanes, with a scene of each era above it"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.01"></label></div>
+      <div class="readout" id="hiRead"></div>
+      <p class="stage-cap">The scene is a drawing of what changed in each era; every caption in it repeats a milestone below, with that milestone's sources in the note panel. The axis is compressed before 1650 and stretched after 1900 and again after 1990, so crowded recent decades stay readable. The outlook band is qualitative.</p></div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Every milestone</h3>
+  <p class="prose">The dots on the timeline are also listed here, so they can be reached with the keyboard and read in order.</p>
+  <div class="chips" id="hiYears" role="group" aria-label="Jump to a milestone"></div>
+
+  <h3 class="sub">What it was called</h3>
+  <div class="prose" id="hiNamesLede"></div>
+  <div class="chips hi-chips" id="hiChips"></div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Five dates: <b>1679</b> van Leeuwenhoek sees needle crystals in a tophus · <b>1848</b> Garrod's thread test shows raised urate in gouty blood · <b>1961</b> McCarty and Hollander identify urate crystals by polarised light · <b>1966</b> allopurinol approved in the US (Nobel to Elion and Hitchings, 1988) · <b>2006</b> urate crystals shown to activate the NALP3 inflammasome. [[McCarty1970,Garrod1848,McCarty1961,DrugsFDA-Zyloprim,Elion1989,Martinon2006]]</div>
+    <div class="pt"><b>In plain words</b>People have described gout for more than 2,500 years. The crystals were seen in the 1600s, the chemistry was worked out in the 1700s and 1800s, and a daily pill that lowers urate arrived in the 1960s. Only in 2006 did scientists show how the crystals switch on the body's alarm.</div>
+  </div>
+  <div class="cards" id="hiCards"></div>
+</section>

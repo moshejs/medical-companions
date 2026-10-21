@@ -247,6 +247,17 @@
           "date": ""
         }
       }
+    },
+    {
+      "slug": "gout",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Gout Companion",
+        "he": "מלווה שיגדון"
+      },
+      "published": "2026-10-20"
     }
   ],
   "indexnow_key": "202581197bc1993e3ed16425b36cb189"
