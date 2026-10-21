@@ -303,6 +303,7 @@ tr.hl td,tr.hl th{background:var(--tdp-soft)}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
 /* groups 3 and 4 tint with treatment green; the breathing and nutrition modules use air and food inside their drawings */
+.langmenu summary{list-style:none;cursor:pointer}.langmenu summary::-webkit-details-marker{display:none}.langmenu ul{margin:6px 0 0;padding:4px;list-style:none;border:1px solid var(--line);border-radius:10px;background:var(--panel)}.langmenu li a,.langmenu li span{display:block;padding:5px 9px;border-radius:7px;color:var(--ink);text-decoration:none;white-space:nowrap}.langmenu li a:hover,.langmenu li a:focus-visible{background:var(--line)}.langmenu li span{font-weight:700}@media (max-width:900px){.langmenu[open]{display:flex;align-items:center;gap:4px}.langmenu[open] ul{display:flex;margin:0;padding:0;border:0;background:none}}
 </style>
 <style>body[data-page] [data-mod][hidden]{display:block!important;visibility:hidden;min-height:100vh}</style><noscript><style>body[data-page] [data-mod][hidden]{visibility:visible}</style></noscript>
 </head>
@@ -315,7 +316,7 @@ tr.hl td,tr.hl th{background:var(--tdp-soft)}
   </button>
   <div id="navgroups" style="display:contents"></div>
   <div class="side-foot">
-    <div class="btnrow"><button class="themebtn" id="themeBtn">Theme: auto</button></div>
+    <div class="btnrow"><button class="themebtn" id="themeBtn">Theme: auto</button><details class="langmenu"><summary class="langbtn" aria-label="Language">English</summary><ul><li><span lang="en" aria-current="true">English</span></li></ul></details></div>
     <p>An animated, cited guide for students, people living with ALS and their families. Educational only, not medical advice. Your place is saved on this device.</p>
   </div>
 </nav>
