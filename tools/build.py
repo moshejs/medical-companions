@@ -168,6 +168,9 @@ if REVIEWER:
     e = lambda s: H.escape(s, quote=False)
     line = STR.get("review.line").format(name=e(REVIEWER["name"]), credentials=e(REVIEWER.get("credentials", "")), date=e(REVIEWER.get("date", "")))
     foot = foot.replace("</footer>", f'  <p class="reviewed">{line}</p>\n</footer>', 1)
+mail = i18n.CONTACT_EMAIL
+contact = STR.get("foot.contact").format(email=f'<a href="mailto:{mail}">{mail}</a>')
+foot = foot.replace("</footer>", f'  <p class="contact">{contact}</p>\n</footer>', 1)
 parts.append(foot)
 js_files = sorted((SRC / "js").glob("*.js"))
 js = [read(p) for p in js_files]
@@ -176,6 +179,7 @@ src_js = "const SOURCES=" + json.dumps(sources, ensure_ascii=False) + ";\n"
 # where the script starts, so the page build can move it out to app.js
 html = "".join(parts) + "<!--JS-->" + js[0] + src_js + "".join(js[1:])
 html = html.replace("%SITE%", SITE)
+html = html.replace("</head>", i18n.ANALYTICS + "</head>", 1)
 
 def stamp(m):
     data = json.loads(m.group(1))

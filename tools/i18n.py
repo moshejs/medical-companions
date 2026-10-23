@@ -33,6 +33,15 @@ import json, pathlib, re
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CFG = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
 SITE = CFG["site"].rstrip("/")
+
+
+# where readers can write; the domain has a catch-all mailbox
+CONTACT_EMAIL = "hello@medcompanions.org"
+
+# Vercel Web Analytics for static pages: the queue stub, then Vercel's script, which the
+# deployment serves at /_vercel/insights/script.js once Web Analytics is on for the project.
+ANALYTICS = ('<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>\n'
+             '<script defer src="/_vercel/insights/script.js"></script>\n')
 LANGS = CFG["languages"]
 SOURCE = "en"
 

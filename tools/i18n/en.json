@@ -42,6 +42,7 @@
   "redirect.text": "{name} has moved to",
   "redirect.title": "{name} has moved",
   "review.line": "Reviewed by {name}, {credentials}, on {date}.",
+  "foot.contact": "Questions, corrections or ideas: {email}",
   "shell.nav": "Modules",
   "shell.not_advice": "Not medical advice",
   "shell.skip": "Skip to content",
