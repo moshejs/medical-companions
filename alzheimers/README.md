@@ -2,7 +2,7 @@
 
 An animated, cited study and patient-education guide to **Alzheimer's disease**, the most common cause of dementia.
 
-**Live site:** https://moshejs.github.io/medical-companions/alzheimers/ · **בעברית:** https://moshejs.github.io/medical-companions/alzheimers/he/
+**Live site:** https://www.medcompanions.org/alzheimers/ · **בעברית:** https://www.medcompanions.org/alzheimers/he/
 
 > **Not medical advice.** Alzheimer's Companion is an educational synthesis of the published literature, made for health-science students (including nursing), people living with the disease and family caregivers. It cannot diagnose anyone and nothing in it should change a treatment without your own clinician. Doses and guideline statements are quoted as published, not as instructions.
 

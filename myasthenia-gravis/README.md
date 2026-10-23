@@ -2,7 +2,7 @@
 
 An animated, cited study and patient-education guide to **myasthenia gravis (MG)**, the autoimmune disease of the junction between nerve and muscle.
 
-**Live site:** https://moshejs.github.io/medical-companions/myasthenia-gravis/
+**Live site:** https://www.medcompanions.org/myasthenia-gravis/
 
 > **Not medical advice.** Myasthenia Gravis Companion is an educational synthesis of the published literature, made for health-science (including nursing) students, people living with MG and their families. It cannot diagnose anyone and nothing in it should change a treatment without your own clinician. Doses, drug lists and guideline statements are quoted as published, not as instructions. Sudden trouble breathing or swallowing is an emergency.
 

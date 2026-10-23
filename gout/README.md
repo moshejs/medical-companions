@@ -2,7 +2,7 @@
 
 An animated, cited study and patient-education guide to **gout**, the commonest inflammatory arthritis and the one whose cause, urate crystals, can be removed.
 
-**Live site:** https://moshejs.github.io/medical-companions/gout/
+**Live site:** https://www.medcompanions.org/gout/
 
 > **Not medical advice.** Gout Companion is an educational synthesis of the published literature, made for health-science study and for patient understanding. It cannot diagnose anyone and nothing in it should change a treatment without your own clinician. Doses and guideline statements are quoted as published, not as instructions.
 

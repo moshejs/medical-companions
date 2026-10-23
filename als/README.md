@@ -2,7 +2,7 @@
 
 An animated, cited study and patient-education guide to **amyotrophic lateral sclerosis (ALS)**, the disease of upper and lower motor neurons, also called motor neuron disease (MND) and Lou Gehrig's disease.
 
-**Live site:** https://moshejs.github.io/medical-companions/als/
+**Live site:** https://www.medcompanions.org/als/
 
 > **Not medical advice.** ALS Companion is an educational synthesis of the published literature, made for health-science students and for people living with ALS and their families. It cannot diagnose anyone, and nothing in it should change a treatment or a care decision without your own ALS team. Criteria, doses and guideline thresholds are quoted as published, not as instructions.
 

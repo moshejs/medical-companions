@@ -96,7 +96,7 @@ Any other page is still built, so it can be read and reviewed at its address, bu
 
 ## Hosting
 
-The repo root is the site: GitHub Pages serves it as is (`.nojekyll` is set), and `vercel.json` is ready for Vercel with no build step.
+The repo root is the site. Vercel serves it at https://www.medcompanions.org (`site` in `site.json`) with no build step (`vercel.json`); `.nojekyll` is kept so any static host, GitHub Pages included, can serve it as is.
 
 ### Old addresses
 
