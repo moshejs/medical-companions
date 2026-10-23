@@ -77,12 +77,14 @@ if leftover: sys.exit(f"hub has unfilled placeholders: {leftover}")
 hub = re.sub(r'<link rel="stylesheet" href="(https://fonts\.googleapis\.com/[^"]+)">',
              lambda m: f'<link rel="preload" as="style" href="{m.group(1)}" onload="this.onload=null;this.rel=\'stylesheet\'">'
                        f'<noscript><link rel="stylesheet" href="{m.group(1)}"></noscript>', hub)  # same as tools/build.py
+hub = hub.replace("</head>", i18n.ANALYTICS + "</head>", 1)
 (ROOT / "index.html").write_text(hub, encoding="utf-8")
 print("wrote index.html (hub)")
 card, card_src = ROOT / "share-card.png", ROOT / "hub" / "share-card.html"
 if not card.exists() or card.stat().st_mtime < max(card_src.stat().st_mtime, (ROOT / "site.json").stat().st_mtime):
     subprocess.run([sys.executable, str(ROOT / "tools" / "share_card.py"), str(card_src), str(card)], check=True)
-(ROOT / "404.html").write_text((ROOT / "hub" / "404.html").read_text(encoding="utf-8").replace("%SITE%", SITE), encoding="utf-8")
+(ROOT / "404.html").write_text((ROOT / "hub" / "404.html").read_text(encoding="utf-8").replace("%SITE%", SITE)
+                              .replace("</head>", i18n.ANALYTICS + "</head>", 1), encoding="utf-8")
 
 # 3. sitemap and robots: every built page of every companion that may be indexed
 def pages(c, lang):
