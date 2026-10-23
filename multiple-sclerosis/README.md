@@ -2,7 +2,7 @@
 
 An animated, cited study and patient-education guide to **multiple sclerosis (MS)**, the immune-mediated disease of the brain, spinal cord and optic nerves.
 
-**Live site:** https://moshejs.github.io/medical-companions/multiple-sclerosis/
+**Live site:** https://www.medcompanions.org/multiple-sclerosis/
 
 > **Not medical advice.** MS Companion is an educational synthesis of the published literature, made for health-science and nursing courses and for patient understanding. It cannot diagnose anyone, and nothing in it should change a treatment without your own neurologist or MS nurse. Criteria, doses and guideline statements are quoted as published, not as instructions.
 

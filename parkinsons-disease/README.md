@@ -2,7 +2,7 @@
 
 An animated, cited study and patient-education guide to **Parkinson's disease**, the most common cause of parkinsonism.
 
-**Live site:** https://moshejs.github.io/medical-companions/parkinsons-disease/
+**Live site:** https://www.medcompanions.org/parkinsons-disease/
 
 > **Not medical advice.** Parkinson's Companion is an educational synthesis of the published literature, made for health-science students (including nursing), people living with Parkinson's and family caregivers. It cannot diagnose anyone and nothing in it should change a treatment without your own clinician; Parkinson's medicines should never be stopped suddenly. Doses and guideline statements are quoted as published, not as instructions.
 

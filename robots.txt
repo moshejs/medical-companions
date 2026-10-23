@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://moshejs.github.io/medical-companions/sitemap.xml
+Sitemap: https://www.medcompanions.org/sitemap.xml
