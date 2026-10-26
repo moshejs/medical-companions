@@ -1,1 +1,94 @@
-{}
+{
+  "what": {
+    "title": "What is colorectal cancer? Global numbers, early-onset rise, survival",
+    "description": "Colorectal cancer explained with cited numbers: 2 million cases a year, where in the bowel it starts, the rise under 50 by birth cohort and survival by stage."
+  },
+  "colon": {
+    "title": "The colon and its lining: crypts, stem cells and the APC switch",
+    "description": "Animated tour of the large bowel and its wall, then one crypt: Lgr5 stem cells renewing the lining every 4–5 days, and what happens when APC is lost."
+  },
+  "sequence": {
+    "title": "Polyp to cancer: adenoma–carcinoma sequence, serrated path, CIN, MSI",
+    "description": "Scrub 20 years of a polyp becoming cancer: APC, KRAS, SMAD4 and TP53 by stage, the serrated BRAF route, MSI vs CIN, progression risk and CMS subtypes."
+  },
+  "risk": {
+    "title": "Colorectal cancer risk factors, prevention and family history risk",
+    "description": "Family history, colitis, meat, alcohol, smoking, weight, activity and aspirin, each with its published relative risk, plus a family-history risk calculator."
+  },
+  "genes": {
+    "title": "Lynch syndrome and FAP: pedigree, mismatch repair and risk by gene",
+    "description": "Inherited colorectal cancer animated: a three-generation pedigree, how mismatch repair fails, PLSD cancer risk by gene, testing criteria and surveillance."
+  },
+  "screening": {
+    "title": "Colorectal cancer screening tests compared: FIT, stool DNA and blood",
+    "description": "See how FIT, stool DNA, the Shield blood test, CT colonography and colonoscopy compare in 1,000 people, with FIT thresholds and the trials behind them."
+  },
+  "colonoscopy": {
+    "title": "Colonoscopy animated: bowel prep, polyp removal and quality measures",
+    "description": "Follow a colonoscopy from split-dose prep to snare polypectomy, and see why adenoma detection rate, withdrawal time and prompt follow-up after FIT matter."
+  },
+  "schedule": {
+    "title": "Colorectal cancer screening ages and intervals: a guideline calculator",
+    "description": "When to start screening, how often to repeat each test, and when the next colonoscopy is due after polyps, quoted from USPSTF, ACS, USMSTF and ESGE."
+  },
+  "symptoms": {
+    "title": "Colorectal cancer symptoms: red flags, FIT test and path to diagnosis",
+    "description": "Bowel cancer warning signs with their published predictive values, how a FIT stool test triages symptoms, colonoscopy, staging scans and delays under 50."
+  },
+  "staging": {
+    "title": "Colorectal cancer staging: TNM calculator and survival by stage",
+    "description": "Watch a bowel tumour grow through each T, N and M category, then work out its AJCC 8th edition stage, with SEER survival by stage and the IIB/IIIA paradox."
+  },
+  "biomarkers": {
+    "title": "Colorectal cancer biomarkers: MMR/MSI, RAS, BRAF, HER2 and sidedness",
+    "description": "An interactive decision tree shows which drugs each colorectal tumour test result opens or closes, plus an animation of universal MMR and Lynch testing."
+  },
+  "surgery": {
+    "title": "Colorectal cancer surgery: colectomy, TME, lymph nodes and stomas",
+    "description": "Animated colectomy by tumour site, total mesorectal excision and the circumferential margin, keyhole vs robotic trials, leaks and stomas."
+  },
+  "chemo": {
+    "title": "Adjuvant chemotherapy for colon cancer: FOLFOX vs CAPOX, 3 or 6 months",
+    "description": "FOLFOX and CAPOX cycles animated with the neuropathy they cause, IDEA trial results for 3 vs 6 months, and who benefits: stage II, dMMR, age."
+  },
+  "rectal": {
+    "title": "Rectal cancer treatment: total neoadjuvant therapy and watch-and-wait",
+    "description": "Rectal cancer month by month: MRI, short-course RT or chemoradiation, TNT, surgery or watch-and-wait, regrowth risk, and dostarlimab for dMMR."
+  },
+  "metastatic": {
+    "title": "Metastatic colorectal cancer: spread, liver surgery, biomarker drugs",
+    "description": "How colorectal cancer spreads to liver and lungs, when metastases can be removed, and which drugs match MSI-H, RAS, BRAF, HER2 and KRAS G12C tumours."
+  },
+  "cure": {
+    "title": "Colorectal cancer research: ctDNA, immunotherapy and evidence labels",
+    "description": "DYNAMIC and DYNAMIC-III animated: a ctDNA blood test that halves chemotherapy, plus NICHE-2, KRAS vaccines, exercise and aspirin, each with an evidence label."
+  },
+  "living": {
+    "title": "Life after colorectal cancer: follow-up, LARS score, stoma, neuropathy",
+    "description": "Five-year follow-up schedules and recurrence timing, a LARS bowel-function calculator, stoma care, oxaliplatin neuropathy and exercise evidence."
+  },
+  "nursing": {
+    "title": "Colorectal cancer nursing: bowel prep, stoma, DPYD and chemo safety",
+    "description": "Nursing pathway from bowel-prep teaching and stoma marking to ERAS, DPYD testing, chemotherapy toxicity checks and survivorship teaching."
+  },
+  "history": {
+    "title": "History of colorectal cancer: timeline from Miles to immunotherapy",
+    "description": "An animated timeline of bowel cancer from 1908 to 2026: Dukes staging, Lynch families, polypectomy, TME, the APC gene, screening trials and immunotherapy."
+  },
+  "review": {
+    "title": "Colorectal cancer flashcards & mnemonics: 90 cards, 10 memory aids",
+    "description": "90 colorectal cancer flashcards and 10 mnemonics, from APC and MSI to FIT, TNM, IDEA and LARS, with an animated Amsterdam II 3-2-1-0 pedigree."
+  },
+  "quiz": {
+    "title": "Colorectal cancer quiz: 98 questions with cited explanations",
+    "description": "Test yourself on colorectal cancer: Lynch and FAP, FIT and colonoscopy quality, TNM staging, RAS and MSI, adjuvant chemo, rectal TNT and stoma care."
+  },
+  "glossary": {
+    "title": "Colorectal cancer glossary: 172 terms explained with citations",
+    "description": "Searchable colorectal cancer glossary from ADR, β-catenin and CIMP to TME, N1c, dMMR, watch-and-wait and LARS, linked to the module where each term matters."
+  },
+  "sources": {
+    "title": "Colorectal Cancer Companion sources: every checked reference",
+    "description": "Every reference behind the Colorectal Cancer Companion, checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA. Filter by area or search."
+  }
+}

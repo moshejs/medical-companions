@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.medcompanions.org/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -1230,6 +1230,126 @@
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/what/</loc>
     <lastmod>2026-10-20</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/biomarkers/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/chemo/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/colon/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/colonoscopy/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/cure/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/genes/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/glossary/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/history/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/living/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/metastatic/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/nursing/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/quiz/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/rectal/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/review/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/risk/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/schedule/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/screening/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/sequence/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/sources/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/staging/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/surgery/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/symptoms/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/colorectal-cancer/what/</loc>
+    <lastmod>2026-10-25</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>
