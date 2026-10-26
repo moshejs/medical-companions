@@ -140,7 +140,7 @@ Access notes:
   - 5-year overall survival 82.4% at 3 months vs 82.8% at 6 months (HR 1.02); non-inferiority was not formally met.
   - CAPOX: 82.1% vs 81.2% (HR 0.96).
   - FOLFOX: 82.6% vs 83.8% (HR 1.07).
-  - The authors concluded the results support 3 months of CAPOX for most patients [[Andre2020]].
+  - The authors concluded the results support 3 months of CAPOX for most patients [[Andre2020IDEA]].
 - SCOT (6,065 analysed, high-risk stage II and stage III, 67% CAPOX): 3-year disease-free survival was 76.7% at 3 months vs 77.1% at 6 months (HR 1.006), which met non-inferiority. Grade ≥2 neuropathy was 25% vs 58% in the safety subset [[Iveson2018]].
 
 ### chemo · Neoadjuvant chemotherapy and immunotherapy for colon cancer
@@ -265,7 +265,7 @@ Access notes:
 - Keyhole (laparoscopic) surgery for colon cancer works as well as open surgery against the cancer, and people usually go home sooner [[COST2004,Veldkamp2005]].
 - After a very low join in the rectum, a temporary bag (stoma) makes a dangerous leak less likely [[Matthiessen2007]].
 - Chemotherapy after surgery lowers the chance the cancer comes back, especially when lymph nodes were involved [[Moertel1990,Andre2009]].
-- For many people with lower-risk stage III colon cancer, 3 months of CAPOX works about as well as 6 months and causes much less nerve damage [[Grothey2018,Andre2020]].
+- For many people with lower-risk stage III colon cancer, 3 months of CAPOX works about as well as 6 months and causes much less nerve damage [[Grothey2018,Andre2020IDEA]].
 - Numbness and tingling in the hands and feet from oxaliplatin is common. It gets worse the longer treatment goes on and can last after treatment ends [[Grothey2018,Andre2009]].
 - Before capecitabine or 5-FU, US labels now ask doctors to test for gene changes (DPYD) that can make these drugs dangerous [[FDA-Xeloda,FDA-Fluorouracil]].
 - For rectal cancer, radiation and chemotherapy are often given before surgery to shrink the tumour and lower the chance it comes back in the pelvis [[Sauer2004,Bahadoer2021]].
@@ -286,10 +286,10 @@ Access notes:
 - idea_dfs_HR_3v6_overall | pooled | 1.07 | HR (95% CI 1.00–1.15; margin 1.12) | [[Grothey2018]]
 - idea_dfs_HR_3v6_CAPOX | pooled | 0.95 | HR (0.85–1.06) | [[Grothey2018]]
 - idea_dfs_HR_3v6_FOLFOX | pooled | 1.16 | HR (1.06–1.26) | [[Grothey2018]]
-- idea_os5y_CAPOX | 3 months | 82.1 | % | [[Andre2020]]
-- idea_os5y_CAPOX | 6 months | 81.2 | % | [[Andre2020]]
-- idea_os5y_FOLFOX | 3 months | 82.6 | % | [[Andre2020]]
-- idea_os5y_FOLFOX | 6 months | 83.8 | % | [[Andre2020]]
+- idea_os5y_CAPOX | 3 months | 82.1 | % | [[Andre2020IDEA]]
+- idea_os5y_CAPOX | 6 months | 81.2 | % | [[Andre2020IDEA]]
+- idea_os5y_FOLFOX | 3 months | 82.6 | % | [[Andre2020IDEA]]
+- idea_os5y_FOLFOX | 6 months | 83.8 | % | [[Andre2020IDEA]]
 - scot_neuropathy_g2plus | 3 months | 25 | % | [[Iveson2018]]
 - scot_neuropathy_g2plus | 6 months | 58 | % | [[Iveson2018]]
 - tnt_rapido_timeline | week 1 | 5x5 | Gy short-course RT (≤8 days) | [[Bahadoer2021]]
@@ -352,8 +352,8 @@ Access notes:
   - Status: open. REAL is from high-volume Chinese centres, and generalisability is unproven.
 - CME for colon cancer: supported by single-centre before–after data [[Hohenberger2009]]. Randomised evidence was not reviewed in this pass (Early evidence).
 - 3 vs 6 months of adjuvant therapy:
-  - Formal overall non-inferiority failed for both DFS (HR 1.07) and OS (HR 1.02) [[Grothey2018,Andre2020]].
-  - SCOT met non-inferiority, and the absolute OS gap was 0.4% [[Iveson2018,Andre2020]].
+  - Formal overall non-inferiority failed for both DFS (HR 1.07) and OS (HR 1.02) [[Grothey2018,Andre2020IDEA]].
+  - SCOT met non-inferiority, and the absolute OS gap was 0.4% [[Iveson2018,Andre2020IDEA]].
   - Status: CAPOX 3 months is widely accepted for low-risk disease; for high-risk disease and FOLFOX, 6 months keeps a small edge.
 - Oxaliplatin in people aged 70 or over: the ACCENT point estimates suggest little benefit (OS HR 1.04), but there was no significant interaction by age [[McCleary2013]]. Status: an individual decision.
 - TNT and local control: RAPIDO lowered disease-related failure but raised 5-year locoregional recurrence (10% vs 6%) [[Bahadoer2021,Dijkstra2023]]. PRODIGE 23 improved DFS with FOLFIRINOX before CRT [[Conroy2021]]. Status: which TNT sequence is best is unresolved.
@@ -400,7 +400,7 @@ Access notes:
 - [Schmoll2015] Schmoll HJ, Tabernero J, Maroun J, de Braud F, Price T, Van Cutsem E, et al. Capecitabine Plus Oxaliplatin Compared With Fluorouracil/Folinic Acid As Adjuvant Therapy for Stage III Colon Cancer: Final Results of the NO16968 Randomized Controlled Phase III Trial. J Clin Oncol. 2015;33(32):3733-3740. PMID 26324362; doi:10.1200/jco.2015.60.9107. (validated: Europe PMC)
 - [Twelves2005] Twelves C, Wong A, Nowacki MP, Abt M, Burris H 3rd, Carrato A, et al. Capecitabine as adjuvant treatment for stage III colon cancer. N Engl J Med. 2005;352(26):2696-2704. PMID 15987918; doi:10.1056/nejmoa043116. (validated: Europe PMC)
 - [Grothey2018] Grothey A, Sobrero AF, Shields AF, Yoshino T, Paul J, Taieb J, et al. Duration of Adjuvant Chemotherapy for Stage III Colon Cancer. N Engl J Med. 2018;378(13):1177-1188. PMID 29590544; PMCID PMC6426127; doi:10.1056/nejmoa1713709. (validated: Europe PMC)
-- [Andre2020] André T, Meyerhardt J, Iveson T, Sobrero A, Yoshino T, Souglakos I, et al. Effect of duration of adjuvant chemotherapy for patients with stage III colon cancer (IDEA collaboration): final results from a prospective, pooled analysis of six randomised, phase 3 trials. Lancet Oncol. 2020;21(12):1620-1629. PMID 33271092; PMCID PMC7786835; doi:10.1016/s1470-2045(20)30527-1. (validated: Europe PMC)
+- [Andre2020IDEA] André T, Meyerhardt J, Iveson T, Sobrero A, Yoshino T, Souglakos I, et al. Effect of duration of adjuvant chemotherapy for patients with stage III colon cancer (IDEA collaboration): final results from a prospective, pooled analysis of six randomised, phase 3 trials. Lancet Oncol. 2020;21(12):1620-1629. PMID 33271092; PMCID PMC7786835; doi:10.1016/s1470-2045(20)30527-1. (validated: Europe PMC)
 - [Iveson2018] Iveson TJ, Kerr RS, Saunders MP, Cassidy J, Hollander NH, Tabernero J, et al. 3 versus 6 months of adjuvant oxaliplatin-fluoropyrimidine combination therapy for colorectal cancer (SCOT): an international, randomised, phase 3, non-inferiority trial. Lancet Oncol. 2018;19(4):562-578. PMID 29611518; PMCID PMC5883334; doi:10.1016/s1470-2045(18)30093-7. (validated: Europe PMC)
 - [QUASAR2007] Quasar Collaborative Group, Gray R, Barnwell J, McConkey C, Hills RK, Williams NS, et al. Adjuvant chemotherapy versus observation in patients with colorectal cancer: a randomised study. Lancet. 2007;370(9604):2020-2029. PMID 18083404; doi:10.1016/s0140-6736(07)61866-2. (validated: Europe PMC)
 - [Sargent2010] Sargent DJ, Marsoni S, Monges G, Thibodeau SN, Labianca R, Hamilton SR, et al. Defective mismatch repair as a predictive marker for lack of efficacy of fluorouracil-based adjuvant therapy in colon cancer. J Clin Oncol. 2010;28(20):3219-3226. PMID 20498393; PMCID PMC2903323; doi:10.1200/jco.2009.27.1825. (validated: Europe PMC)
