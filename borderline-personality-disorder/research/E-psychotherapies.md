@@ -199,11 +199,11 @@ Access notes:
 - APA 2024 also recommends (1C) "a collaborative discussion about their diagnosis and treatment, which includes psychoeducation related to the disorder" [[APA2024Guideline]].
 - APA 2024 suggests (2C) that "any psychotropic medication treatment of borderline personality disorder be time-limited, aimed at addressing a specific measurable target symptom, and adjunctive to psychotherapy" [[APA2024Guideline]].
 - The APA's news release states the guideline has eight statements in all; its chair said several structured psychotherapies were effective and "No therapy emerged as a 'gold standard'" [[APA2024Guideline]].
-- NICE CG78 1.3.4.4: "Do not use brief psychological interventions (of less than 3 months' duration) specifically for borderline personality disorder or for the individual symptoms of the disorder, outside a service that has the characteristics outlined in recommendation 1.3.4.3." [[NICE2009]]
-- NICE CG78 1.3.4.3 service characteristics: "an explicit and integrated theoretical approach used by both the treatment team and the therapist, which is shared with the service user", structured care and therapist supervision; "twice-weekly sessions may be considered" [[NICE2009]].
-- NICE CG78 1.3.4.5: "For women with borderline personality disorder for whom reducing recurrent self-harm is a priority, consider a comprehensive dialectical behaviour therapy programme." [[NICE2009]]
-- NICE CG78 1.3.5.1: "Drug treatment should not be used specifically for borderline personality disorder or for the individual symptoms or behaviour associated with the disorder" [[NICE2009]].
-- NICE CG78 1.3.4.7 asks services to monitor the effect of treatment on a broad range of outcomes, including personal functioning, drug and alcohol use, self-harm, depression and BPD symptoms [[NICE2009]].
+- NICE CG78 1.3.4.4: "Do not use brief psychological interventions (of less than 3 months' duration) specifically for borderline personality disorder or for the individual symptoms of the disorder, outside a service that has the characteristics outlined in recommendation 1.3.4.3." [[NICE2009E]]
+- NICE CG78 1.3.4.3 service characteristics: "an explicit and integrated theoretical approach used by both the treatment team and the therapist, which is shared with the service user", structured care and therapist supervision; "twice-weekly sessions may be considered" [[NICE2009E]].
+- NICE CG78 1.3.4.5: "For women with borderline personality disorder for whom reducing recurrent self-harm is a priority, consider a comprehensive dialectical behaviour therapy programme." [[NICE2009E]]
+- NICE CG78 1.3.5.1: "Drug treatment should not be used specifically for borderline personality disorder or for the individual symptoms or behaviour associated with the disorder" [[NICE2009E]].
+- NICE CG78 1.3.4.7 asks services to monitor the effect of treatment on a broad range of outcomes, including personal functioning, drug and alcohol use, self-harm, depression and BPD symptoms [[NICE2009E]].
 
 ### Exam hooks
 - DBT's four skills modules: mindfulness, distress tolerance, emotion regulation, interpersonal effectiveness [[Chapman2006DBT]].
@@ -222,7 +222,7 @@ Access notes:
 - Doering 2010: TFP beat experienced community therapists on BPD symptoms (d 1.6) and dropout (38.5% vs 67.3%) [[Doering2010]].
 - Cochrane 2020: only BPD severity reached the clinically meaningful threshold (SMD −0.52; moderate certainty) [[Storebo2020]].
 - No psychotherapy has been shown superior to another; APA 2024 recommends (1B) a structured, evidence-supported psychotherapy [[APA2024Guideline,Leichsenring2024]].
-- NICE CG78: do not use brief (<3 months) BPD-specific psychological interventions outside a structured service [[NICE2009]].
+- NICE CG78: do not use brief (<3 months) BPD-specific psychological interventions outside a structured service [[NICE2009E]].
 - STEPPS is a 20-week add-on group programme with a "systems" component that involves the person's support network [[Blum2008STEPPS]].
 - Dropout from BPD psychotherapy is about 1 in 4 (22.3–28.2%) and peaks early in treatment [[Iliakis2021,Arntz2023Dropout]].
 
@@ -236,7 +236,7 @@ Access notes:
 - Shorter therapy can work as well as longer therapy for some people: 6 months of DBT did as well as 12 months on self-harm [[McMain2022]].
 - Learning about BPD itself, soon after diagnosis, can help [[Zanarini2008Psychoed]].
 - Many people stop therapy early, often in the first months. If therapy feels hard, saying so to your therapist is part of the work [[Iliakis2021,Arntz2023Dropout]].
-- Medicines are not the main treatment for BPD. Guidelines put structured psychotherapy first [[APA2024Guideline,NICE2009]].
+- Medicines are not the main treatment for BPD. Guidelines put structured psychotherapy first [[APA2024Guideline,NICE2009E]].
 - These figures are averages from groups of people in studies. They cannot predict how any one person will do.
 - If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).
 
@@ -317,7 +317,7 @@ Access notes:
 ## Open questions and controversies
 - Is any one therapy better? Specialised therapies beat usual care on BPD severity [[Oud2018,Storebo2020]], but head-to-head trials mostly find no difference: DBT vs GPM [[McMain2009]], DBT vs schema therapy [[Wibbelink2026BOOTS]]. Schema therapy did beat TFP [[GiesenBloo2006]]. Status: most guidelines and reviews say no therapy is superior [[APA2024Guideline,Leichsenring2024]].
 - How big are the effects really? Cochrane rates the BPD-severity effect moderate-certainty and clinically relevant, but other outcomes low-certainty [[Storebo2020]]; Cristea finds effects small and inflated by bias [[Cristea2017]]; about half of patients do not respond enough [[Leichsenring2024]]. Status: unresolved; larger, lower-bias trials needed.
-- How long should therapy be? 6 months of DBT matched 12 [[McMain2022]], 5 months of MBT matched 14 [[Juul2023,Juul2025]], and brief stepped care looks reasonable for many [[Laporte2018Stepped]]. Critics question the MBT trial design [[Philips2024]], and NICE still warns against BPD-specific interventions under 3 months outside a structured service [[NICE2009]]. Status: open; matching dose to need is the working hypothesis.
+- How long should therapy be? 6 months of DBT matched 12 [[McMain2022]], 5 months of MBT matched 14 [[Juul2023,Juul2025]], and brief stepped care looks reasonable for many [[Laporte2018Stepped]]. Critics question the MBT trial design [[Philips2024]], and NICE still warns against BPD-specific interventions under 3 months outside a structured service [[NICE2009E]]. Status: open; matching dose to need is the working hypothesis.
 - Generalist vs specialist care: GPM matched DBT [[McMain2009]] and its authors propose it as first-line [[Gunderson2018GPM]]; brief 4-month GPM did not beat usual care at 4 months [[Kramer2024GPM]] but did at 1-year follow-up [[BlancoMachinea2026]]. Status: Early evidence for brief GPM.
 - Adolescents: DBT-A reduces self-harm in two trials [[Mehlum2014,McCauley2018]], but MBT in groups did not beat usual care [[Beck2020MBTG]], and adding psychotherapy to a youth-focused service added nothing in MOBY [[Chanen2022MOBY]]. Status: service structure may matter as much as the specific therapy.
 - Functional recovery lags symptom remission: even after successful therapy many people remain out of work or study [[McMain2012,Bateman2008]]. Status: rehabilitation add-ons are untested.
@@ -400,10 +400,10 @@ Access notes:
 - [ChoiKain2017] Choi-Kain LW, Finch EF, Masland SR, Jenkins JA, Unruh BT. What Works in the Treatment of Borderline Personality Disorder. Curr Behav Neurosci Rep. 2017;4(1):21-30. PMID 28331780; PMCID PMC5340835; doi:10.1007/s40473-017-0103-z. (validated: Europe PMC)
 - [Wetzelaer2017] Wetzelaer P, Lokkerbo J, Arntz A, van Aselt T, Smit F, Evers S. Cost-effectiveness and Budget Impact of Specialized Psychotherapy for Borderline Personality Disorder: A Synthesis of the Evidence. J Ment Health Policy Econ. 2017;20(4):177-190. PMID 29300704. No DOI listed. (validated: Europe PMC)
 - [APA2024Guideline] Keepers GA, Fochtmann LJ, Anzia JM, Benjamin S, Lyness JM, Mojtabai R, et al. The American Psychiatric Association Practice Guideline for the Treatment of Patients With Borderline Personality Disorder. Am J Psychiatry. 2024;181(11):1024-1028. PMID 39482953; doi:10.1176/appi.ajp.24181010. Statement wording read from the APA news release "Updated Borderline Personality Disorder Guideline" (psychiatry.org, 10 December 2024); record also confirmed on Crossref. (validated: Europe PMC)
-- [NICE2009] National Institute for Health and Care Excellence. Borderline personality disorder: recognition and management. Clinical guideline CG78. London: NICE; 2009 (published 28 January 2009). https://www.nice.org.uk/guidance/cg78. (unverified: not indexed in PubMed, Europe PMC or Crossref; wording and publication date read on nice.org.uk on 2026-10-25, with no update to the recommendations listed)
+- [NICE2009E] National Institute for Health and Care Excellence. Borderline personality disorder: recognition and management. Clinical guideline CG78. London: NICE; 2009 (published 28 January 2009). https://www.nice.org.uk/guidance/cg78. (unverified: not indexed in PubMed, Europe PMC or Crossref; wording and publication date read on nice.org.uk on 2026-10-25, with no update to the recommendations listed)
 
 ## Provenance
-- Validation: every source except NICE2009 was matched against its Europe PMC core record (authors, title, journal, year, volume, issue, pages, PMID, PMCID, DOI), and the Sources lines were generated directly from those records. Twenty-two records were also seen in PubMed esummary or efetch output and are labelled (validated: PubMed). The other 53 are labelled (validated: Europe PMC). APA2024Guideline was also checked on Crossref.
+- Validation: every source except NICE2009E was matched against its Europe PMC core record (authors, title, journal, year, volume, issue, pages, PMID, PMCID, DOI), and the Sources lines were generated directly from those records. Twenty-two records were also seen in PubMed esummary or efetch output and are labelled (validated: PubMed). The other 53 are labelled (validated: Europe PMC). APA2024Guideline was also checked on Crossref.
 - PubMed E-utilities returned "API rate limit exceeded" for many calls because of parallel use, so Europe PMC was the main route. Abstracts truncated at "<" by Europe PMC were re-read from PubMed efetch: Arntz 2022, Linehan 2015, Linehan 2006, Giesen-Bloo 2006.
 - Full texts read: Chapman 2006 (open access, PMC page) for DBT structure, and Chung 2026 (PMC efetch XML) for the mentalizing modes. pmc.ncbi.nlm.nih.gov later showed a browser check; this was not bypassed. Bateman & Fonagy 2010 is PDF-only and was used for its abstract only.
 - Guidelines:
@@ -416,4 +416,4 @@ Access notes:
   - Bateman 2009 numeric results, which are not in the abstract.
   - Grenyer 2013 MJA and Kendall 2009 BMJ, which have no abstracts.
 - Philips 2024 is a letter with no abstract; it is cited only for its stated position, taken from its title.
-- No fact is marked (unverified) in Findings. The only unverified source line is NICE2009, kept because it is the essential UK guideline and its text was read on the official site.
+- No fact is marked (unverified) in Findings. The only unverified source line is NICE2009E, kept because it is the essential UK guideline and its text was read on the official site.
