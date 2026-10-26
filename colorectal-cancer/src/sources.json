@@ -1,5 +1,15 @@
 [
  {
+  "key": "Adam2024",
+  "text": "Adam R, Piedvache C, Chiche L, Adam JP, Salamé E, Bucur P, et al. Liver transplantation plus chemotherapy versus chemotherapy alone in patients with permanently unresectable colorectal liver metastases (TransMet): results from a multicentre, open-label, prospective, randomised controlled trial. Lancet. 2024;404(10458):1107-1118. PMID 39306468; doi:10.1016/S0140-6736(24)01595-2.",
+  "link": "https://doi.org/10.1016/s0140-6736(24)01595-2",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Andre2004",
   "text": "André T, Boni C, Mounedji-Boudiaf L, Navarro M, Tabernero J, Hickish T, et al. Oxaliplatin, fluorouracil, and leucovorin as adjuvant treatment for colon cancer. N Engl J Med. 2004;350(23):2343-2351. PMID 15175436; doi:10.1056/nejmoa032709.",
   "link": "https://doi.org/10.1056/nejmoa032709",
@@ -31,10 +41,60 @@
  },
  {
   "key": "Andre2020",
+  "text": "André T, Shiu KK, Kim TW, Jensen BV, Jensen LH, Punt C, et al. Pembrolizumab in Microsatellite-Instability-High Advanced Colorectal Cancer. N Engl J Med. 2020;383(23):2207-2218. PMID 33264544; doi:10.1056/NEJMoa2017699.",
+  "link": "https://doi.org/10.1056/nejmoa2017699",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Andre2020IDEA",
   "text": "André T, Meyerhardt J, Iveson T, Sobrero A, Yoshino T, Souglakos I, et al. Effect of duration of adjuvant chemotherapy for patients with stage III colon cancer (IDEA collaboration): final results from a prospective, pooled analysis of six randomised, phase 3 trials. Lancet Oncol. 2020;21(12):1620-1629. PMID 33271092; PMCID PMC7786835; doi:10.1016/s1470-2045(20)30527-1.",
   "link": "https://doi.org/10.1016/s1470-2045(20)30527-1",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Andre2024",
+  "text": "André T, Elez E, Van Cutsem E, Jensen LH, Bennouna J, Mendez G, et al. Nivolumab plus Ipilimumab in Microsatellite-Instability-High Metastatic Colorectal Cancer. N Engl J Med. 2024;391(21):2014-2026. PMID 39602630; doi:10.1056/NEJMoa2402141.",
+  "link": "https://doi.org/10.1056/nejmoa2402141",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Andre2025",
+  "text": "André T, Elez E, Lenz HJ, Jensen LH, Touchefeu Y, Van Cutsem E, et al. Nivolumab plus ipilimumab versus nivolumab in microsatellite instability-high metastatic colorectal cancer (CheckMate 8HW): a randomised, open-label, phase 3 trial. Lancet. 2025;405(10476):383-395. PMID 39874977; doi:10.1016/S0140-6736(24)02848-4.",
+  "link": "https://doi.org/10.1016/s0140-6736(24)02848-4",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Arnold2017",
+  "text": "Arnold D, Lueza B, Douillard JY, Peeters M, Lenz HJ, Venook A, et al. Prognostic and predictive value of primary tumour side in patients with RAS wild-type metastatic colorectal cancer treated with chemotherapy and EGFR directed antibodies in six randomized trials. Ann Oncol. 2017;28(8):1713-1729. PMID 28407110; PMCID PMC6246616; doi:10.1093/annonc/mdx175.",
+  "link": "https://doi.org/10.1093/annonc/mdx175",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Arthur2012",
+  "text": "Arthur JC, Perez-Chanona E, Mühlbauer M, Tomkovich S, Uronis JM, Fan TJ, et al. Intestinal inflammation targets cancer-inducing activity of the microbiota. Science. 2012;338(6103):120-3. PMID 22903521; PMCID PMC3645302; doi:10.1126/science.1224820.",
+  "link": "https://doi.org/10.1126/science.1224820",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "Europe PMC"
@@ -60,6 +120,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Azzouz2023",
+  "text": "Azzouz LL, Sharma S. Physiology, Large Intestine. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2023 (updated 2023 Jul 31). PMID 29939634.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/29939634/",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Bahadoer2021",
   "text": "Bahadoer RR, Dijkstra EA, van Etten B, Marijnen CAM, Putter H, Kranenbarg EM, et al. Short-course radiotherapy followed by chemotherapy before total mesorectal excision (TME) versus preoperative chemoradiotherapy, TME, and optional adjuvant chemotherapy in locally advanced rectal cancer (RAPIDO): a randomised, open-label, phase 3 trial. Lancet Oncol. 2021;22(1):29-42. PMID 33301740; doi:10.1016/s1470-2045(20)30555-6.",
   "link": "https://doi.org/10.1016/s1470-2045(20)30555-6",
@@ -70,11 +140,61 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Baidoo2024",
+  "text": "Baidoo N, Sanger GJ. Age-related decline in goblet cell numbers and mucin content of the human colon: Implications for lower bowel functions in the elderly. Exp Mol Pathol. 2024;139:104923. PMID 39154390; doi:10.1016/j.yexmp.2024.104923.",
+  "link": "https://doi.org/10.1016/j.yexmp.2024.104923",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Baker2014",
+  "text": "Baker AM, Cereser B, Melton S, Fletcher AG, Rodriguez-Justo M, Tadrous PJ, et al. Quantification of crypt and stem cell evolution in the normal and neoplastic human colon. Cell Rep. 2014;8(4):940-7. PMID 25127143; PMCID PMC4471679; doi:10.1016/j.celrep.2014.07.019.",
+  "link": "https://doi.org/10.1016/j.celrep.2014.07.019",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Baker2019",
+  "text": "Baker AM, Gabbutt C, Williams MJ, Cereser B, Jawad N, Rodriguez-Justo M, et al. Crypt fusion as a homeostatic mechanism in the human colon. Gut. 2019;68(11):1986-1993. PMID 30872394; PMCID PMC6839731; doi:10.1136/gutjnl-2018-317540.",
+  "link": "https://doi.org/10.1136/gutjnl-2018-317540",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Bando2026",
+  "text": "Bando H, Watanabe J, Takahashi Y, Kotaka M, Matsuhashi N, Oki E, et al. Post-adjuvant chemotherapy in ctDNA-positive patients with resected colorectal cancer: a randomized phase 3 trial. Nat Med. 2026;32(7):2473-2480. PMID 42260101; PMCID PMC13375530; doi:10.1038/s41591-026-04428-0.",
+  "link": "https://doi.org/10.1038/s41591-026-04428-0",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Barclay2006",
   "text": "Barclay RL, Vicari JJ, Doughty AS, Johanson JF, Greenlaw RL. Colonoscopic withdrawal times and adenoma detection during screening colonoscopy. N Engl J Med. 2006;355(24):2533-41. PMID 17167136; doi:10.1056/NEJMoa055498.",
   "link": "https://doi.org/10.1056/nejmoa055498",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Barker2007",
+  "text": "Barker N, van Es JH, Kuipers J, Kujala P, van den Born M, Cozijnsen M, et al. Identification of stem cells in small intestine and colon by marker gene Lgr5. Nature. 2007;449(7165):1003-7. PMID 17934449; doi:10.1038/nature06196.",
+  "link": "https://doi.org/10.1038/nature06196",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -110,6 +230,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Bettington2017",
+  "text": "Bettington M, Walker N, Rosty C, Brown I, Clouston A, McKeone D, et al. Clinicopathological and molecular features of sessile serrated adenomas with dysplasia or carcinoma. Gut. 2017;66(1):97-106. PMID 26475632; doi:10.1136/gutjnl-2015-310456.",
+  "link": "https://doi.org/10.1136/gutjnl-2015-310456",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Biagi2011",
   "text": "Biagi JJ, Raphael MJ, Mackillop WJ, Kong W, King WD, Booth CM. Association between time to initiation of adjuvant chemotherapy and survival in colorectal cancer: a systematic review and meta-analysis. JAMA. 2011;305(22):2335-2342. PMID 21642686; doi:10.1001/jama.2011.749.",
   "link": "https://doi.org/10.1001/jama.2011.749",
@@ -118,6 +248,26 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Boland2010",
+  "text": "Boland CR, Goel A. Microsatellite instability in colorectal cancer. Gastroenterology. 2010;138(6):2073-2087.e3. PMID 20420947; PMCID PMC3037515; doi:10.1053/j.gastro.2009.12.064.",
+  "link": "https://doi.org/10.1053/j.gastro.2009.12.064",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Bond2023",
+  "text": "Bond MJG, Bolhuis K, Loosveld OJL, de Groot JWB, Droogendijk H, Helgason HH, et al. First-line systemic treatment strategies in patients with initially unresectable colorectal cancer liver metastases (CAIRO5): an open-label, multicentre, randomised, controlled, phase 3 study from the Dutch Colorectal Cancer Group. Lancet Oncol. 2023;24(7):757-771. PMID 37329889; doi:10.1016/S1470-2045(23)00219-X.",
+  "link": "https://doi.org/10.1016/s1470-2045(23)00219-x",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Bonjer2015",
@@ -138,6 +288,26 @@
   ],
   "unverified": false,
   "validated": "PubMed"
+ },
+ {
+  "key": "Brenner2007",
+  "text": "Brenner H, Hoffmeister M, Stegmaier C, Brenner G, Altenhofen L, Haug U. Risk of progression of advanced adenomas to colorectal cancer by age and sex: estimates based on 840,149 screening colonoscopies. Gut. 2007;56(11):1585-9. PMID 17591622; PMCID PMC2095643; doi:10.1136/gut.2007.122739.",
+  "link": "https://doi.org/10.1136/gut.2007.122739",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Brenner2011",
+  "text": "Brenner H, Altenhofen L, Katalinic A, Lansdorp-Vogelaar I, Hoffmeister M. Sojourn time of preclinical colorectal cancer by sex and age: estimates from the German national screening colonoscopy database. Am J Epidemiol. 2011;174(10):1140-6. PMID 21984657; doi:10.1093/aje/kwr188.",
+  "link": "https://doi.org/10.1093/aje/kwr188",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
  },
  {
   "key": "Brenner2014",
@@ -180,6 +350,36 @@
   "validated": "PubMed"
  },
  {
+  "key": "Buisman2022",
+  "text": "Buisman FE, Filipe WF, Galjart B, Grünhagen DJ, Homs MYV, Moelker A, et al. Adjuvant intra-arterial chemotherapy for patients with resected colorectal liver metastases: a systematic review and meta-analysis. HPB (Oxford). 2022;24(3):299-308. PMID 34895829; doi:10.1016/j.hpb.2021.10.014.",
+  "link": "https://doi.org/10.1016/j.hpb.2021.10.014",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Bullman2017",
+  "text": "Bullman S, Pedamallu CS, Sicinska E, Clancy TE, Zhang X, Cai D, et al. Analysis of Fusobacterium persistence and antibiotic response in colorectal cancer. Science. 2017;358(6369):1443-1448. PMID 29170280; PMCID PMC5823247; doi:10.1126/science.aal5240.",
+  "link": "https://doi.org/10.1126/science.aal5240",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Castellarin2012",
+  "text": "Castellarin M, Warren RL, Freeman JD, Dreolini L, Krzywinski M, Strauss J, et al. Fusobacterium nucleatum infection is prevalent in human colorectal carcinoma. Genome Res. 2012;22(2):299-306. PMID 22009989; PMCID PMC3266037; doi:10.1101/gr.126516.111.",
+  "link": "https://doi.org/10.1101/gr.126516.111",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Castells2025",
   "text": "Castells A, Quintero E, Bujanda L, Castán-Cameo S, Cubiella J, Díaz-Tasende J, et al. Effect of invitation to colonoscopy versus faecal immunochemical test screening on colorectal cancer mortality (COLONPREV): a pragmatic, randomised, controlled, non-inferiority trial. Lancet. 2025;405(10486):1231-1239. PMID 40158525; doi:10.1016/S0140-6736(25)00145-X.",
   "link": "https://doi.org/10.1016/s0140-6736(25)00145-x",
@@ -204,7 +404,8 @@
   "text": "Cercek A, Lumish M, Sinopoli J, Weiss J, Shia J, Lamendola-Essel M, et al. PD-1 Blockade in Mismatch Repair-Deficient, Locally Advanced Rectal Cancer. N Engl J Med. 2022;386(25):2363-2376. PMID 35660797; PMCID PMC9492301; doi:10.1056/nejmoa2201445.",
   "link": "https://doi.org/10.1056/nejmoa2201445",
   "areas": [
-   "F"
+   "F",
+   "G"
   ],
   "unverified": false,
   "validated": "Europe PMC"
@@ -214,7 +415,8 @@
   "text": "Cercek A, Foote MB, Rousseau B, Smith JJ, Shia J, Sinopoli J, et al. Nonoperative Management of Mismatch Repair-Deficient Tumors. N Engl J Med. 2025;392(23):2297-2308. PMID 40293177; PMCID PMC12661660; doi:10.1056/nejmoa2404512.",
   "link": "https://doi.org/10.1056/nejmoa2404512",
   "areas": [
-   "F"
+   "F",
+   "G"
   ],
   "unverified": false,
   "validated": "Europe PMC"
@@ -224,10 +426,21 @@
   "text": "Chalabi M, Verschoor YL, Tan PB, Balduzzi S, Van Lent AU, Grootscholten C, et al. Neoadjuvant Immunotherapy in Locally Advanced Mismatch Repair-Deficient Colon Cancer. N Engl J Med. 2024;390(21):1949-1958. PMID 38838311; doi:10.1056/nejmoa2400634.",
   "link": "https://doi.org/10.1056/nejmoa2400634",
   "areas": [
-   "F"
+   "F",
+   "G"
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Chia2025",
+  "text": "Chia JWK, Segelov E, Deng Y, Ho GF, Wang W, Han S, et al. Aspirin after completion of standard adjuvant therapy for colorectal cancer (ASCOLT): an international, multicentre, phase 3, randomised, double-blind, placebo-controlled trial. Lancet Gastroenterol Hepatol. 2025;10(3):198-209. PMID 39824200; doi:10.1016/S2468-1253(24)00387-X.",
+  "link": "https://doi.org/10.1016/s2468-1253(24)00387-x",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Chiu2015",
@@ -254,7 +467,8 @@
   "text": "Chung DC, Gray DM, Singh H, Issaka RB, Raymond VM, Eagle C, et al. A Cell-free DNA Blood-Based Test for Colorectal Cancer Screening. N Engl J Med. 2024;390(11):973-983. PMID 38477985; doi:10.1056/NEJMoa2304714.",
   "link": "https://doi.org/10.1056/nejmoa2304714",
   "areas": [
-   "D"
+   "D",
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -265,6 +479,16 @@
   "link": "https://doi.org/10.1136/gutjnl-2012-304149",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Clevers2012",
+  "text": "Clevers H, Nusse R. Wnt/β-catenin signaling and disease. Cell. 2012;149(6):1192-205. PMID 22682243; doi:10.1016/j.cell.2012.05.012.",
+  "link": "https://doi.org/10.1016/j.cell.2012.05.012",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -330,6 +554,36 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Courneya2025",
+  "text": "Courneya KS, Vardy JL, O'Callaghan CJ, Gill S, Friedenreich CM, Wong RKS, et al. Structured Exercise after Adjuvant Chemotherapy for Colon Cancer. N Engl J Med. 2025;393(1):13-25. PMID 40450658; doi:10.1056/NEJMoa2502760.",
+  "link": "https://doi.org/10.1056/nejmoa2502760",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Cremolini2015",
+  "text": "Cremolini C, Loupakis F, Antoniotti C, Lupi C, Sensi E, Lonardi S, et al. FOLFOXIRI plus bevacizumab versus FOLFIRI plus bevacizumab as first-line treatment of patients with metastatic colorectal cancer: updated overall survival and molecular subgroup analyses of the open-label, phase 3 TRIBE study. Lancet Oncol. 2015;16(13):1306-15. PMID 26338525; doi:10.1016/S1470-2045(15)00122-9.",
+  "link": "https://doi.org/10.1016/s1470-2045(15)00122-9",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Cremolini2020",
+  "text": "Cremolini C, Antoniotti C, Rossini D, Lonardi S, Loupakis F, Pietrantonio F, et al. Upfront FOLFOXIRI plus bevacizumab and reintroduction after progression versus mFOLFOX6 plus bevacizumab followed by FOLFIRI plus bevacizumab in the treatment of patients with metastatic colorectal cancer (TRIBE2): a multicentre, open-label, phase 3, randomised, controlled trial. Lancet Oncol. 2020;21(4):497-507. PMID 32164906; doi:10.1016/S1470-2045(19)30862-9.",
+  "link": "https://doi.org/10.1016/s1470-2045(19)30862-9",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "CReST2022",
   "text": "CReST Collaborative Group. Colorectal Endoscopic Stenting Trial (CReST) for obstructing left-sided colorectal cancer: randomized clinical trial. Br J Surg. 2022;109(11):1073-1080. PMID 35986684; doi:10.1093/bjs/znac141.",
   "link": "https://doi.org/10.1093/bjs/znac141",
@@ -338,6 +592,26 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Crockett2019",
+  "text": "Crockett SD, Nagtegaal ID. Terminology, Molecular Features, Epidemiology, and Management of Serrated Colorectal Neoplasia. Gastroenterology. 2019;157(4):949-966.e4. PMID 31323292; doi:10.1053/j.gastro.2019.06.041.",
+  "link": "https://doi.org/10.1053/j.gastro.2019.06.041",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Dasari2023",
+  "text": "Dasari A, Lonardi S, Garcia-Carbonero R, Elez E, Yoshino T, Sobrero A, et al. Fruquintinib versus placebo in patients with refractory metastatic colorectal cancer (FRESCO-2): an international, multicentre, randomised, double-blind, phase 3 study. Lancet. 2023;402(10395):41-53. PMID 37331369; doi:10.1016/S0140-6736(23)00772-9.",
+  "link": "https://doi.org/10.1016/s0140-6736(23)00772-9",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Day2011",
@@ -350,12 +624,24 @@
   "validated": "PubMed"
  },
  {
+  "key": "Dejea2018",
+  "text": "Dejea CM, Fathi P, Craig JM, Boleij A, Taddese R, Geis AL, et al. Patients with familial adenomatous polyposis harbor colonic biofilms containing tumorigenic bacteria. Science. 2018;359(6375):592-597. PMID 29420293; PMCID PMC5881113; doi:10.1126/science.aah3648.",
+  "link": "https://doi.org/10.1126/science.aah3648",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Dekker2019",
   "text": "Dekker E, Tanis PJ, Vleugels JLA, Kasi PM, Wallace MB. Colorectal cancer. Lancet. 2019;394(10207):1467-1480. PMID 31631858; doi:10.1016/S0140-6736(19)32319-0.",
   "link": "https://doi.org/10.1016/s0140-6736(19)32319-0",
   "areas": [
+   "C",
    "D",
-   "F"
+   "F",
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -371,6 +657,37 @@
   "validated": "PubMed"
  },
  {
+  "key": "Diaz2022",
+  "text": "Diaz LA Jr, Shiu KK, Kim TW, Jensen BV, Jensen LH, Punt C, et al. Pembrolizumab versus chemotherapy for microsatellite instability-high or mismatch repair-deficient metastatic colorectal cancer (KEYNOTE-177): final analysis of a randomised, open-label, phase 3 study. Lancet Oncol. 2022;23(5):659-670. PMID 35427471; PMCID PMC9533375; doi:10.1016/S1470-2045(22)00197-8.",
+  "link": "https://doi.org/10.1016/s1470-2045(22)00197-8",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "DiazGay2025",
+  "text": "Díaz-Gay M, Dos Santos W, Moody S, Kazachkova M, Abbasi A, Steele CD, et al. Geographic and age variations in mutational processes in colorectal cancer. Nature. 2025;643(8070):230-240. PMID 40267983; PMCID PMC12221974; doi:10.1038/s41586-025-09025-8.",
+  "link": "https://doi.org/10.1038/s41586-025-09025-8",
+  "areas": [
+   "C",
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Dienstmann2017",
+  "text": "Dienstmann R, Vermeulen L, Guinney J, Kopetz S, Tejpar S, Tabernero J. Consensus molecular subtypes and the evolution of precision medicine in colorectal cancer. Nat Rev Cancer. 2017;17(2):79-92. PMID 28050011; doi:10.1038/nrc.2016.126.",
+  "link": "https://doi.org/10.1038/nrc.2016.126",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Dijkstra2023",
   "text": "Dijkstra EA, Nilsson PJ, Nilsson PJ, Hospers GAP, Bahadoer RR, Meershoek-Klein Kranenbarg E, et al. Locoregional Failure During and After Short-course Radiotherapy Followed by Chemotherapy and Surgery Compared With Long-course Chemoradiotherapy and Surgery: A 5-Year Follow-up of the RAPIDO Trial. Ann Surg. 2023;278(4):e766-e772. PMID 36661037; PMCID PMC10481913; doi:10.1097/sla.0000000000005799.",
   "link": "https://doi.org/10.1097/sla.0000000000005799",
@@ -381,11 +698,51 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Doebele2020",
+  "text": "Doebele RC, Drilon A, Paz-Ares L, Siena S, Shaw AT, Farago AF, et al. Entrectinib in patients with advanced or metastatic NTRK fusion-positive solid tumours: integrated analysis of three phase 1-2 trials. Lancet Oncol. 2020;21(2):271-282. PMID 31838007; PMCID PMC7461630; doi:10.1016/S1470-2045(19)30691-6.",
+  "link": "https://doi.org/10.1016/s1470-2045(19)30691-6",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Doubeni2024",
   "text": "Doubeni CA, Corley DA, Jensen CD, Levin TR, Ghai NR, Cannavale K, et al. Fecal Immunochemical Test Screening and Risk of Colorectal Cancer Death. JAMA Netw Open. 2024;7(7):e2423671. PMID 39028667; PMCID PMC11259903; doi:10.1001/jamanetworkopen.2024.23671.",
   "link": "https://doi.org/10.1001/jamanetworkopen.2024.23671",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Drilon2018",
+  "text": "Drilon A, Laetsch TW, Kummar S, DuBois SG, Lassen UN, Demetri GD, et al. Efficacy of Larotrectinib in TRK Fusion-Positive Cancers in Adults and Children. N Engl J Med. 2018;378(8):731-739. PMID 29466156; PMCID PMC5857389; doi:10.1056/NEJMoa1714448.",
+  "link": "https://doi.org/10.1056/nejmoa1714448",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "DziubanskaKusibab2020",
+  "text": "Dziubańska-Kusibab PJ, Berger H, Battistini F, Bouwman BAM, Iftekhar A, Katainen R, et al. Colibactin DNA-damage signature indicates mutational impact in colorectal cancer. Nat Med. 2020;26(7):1063-1069. PMID 32483361; doi:10.1038/s41591-020-0908-2.",
+  "link": "https://doi.org/10.1038/s41591-020-0908-2",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Elez2025",
+  "text": "Elez E, Yoshino T, Shen L, Lonardi S, Van Cutsem E, Eng C, et al. Encorafenib, Cetuximab, and mFOLFOX6 in BRAF-Mutated Colorectal Cancer. N Engl J Med. 2025;392(24):2425-2437. PMID 40444708; PMCID PMC12197837; doi:10.1056/NEJMoa2501912.",
+  "link": "https://doi.org/10.1056/nejmoa2501912",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -401,6 +758,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Engstrand2018",
+  "text": "Engstrand J, Nilsson H, Strömberg C, Jonas E, Freedman J. Colorectal cancer liver metastases - a population-based study on incidence, management and survival. BMC Cancer. 2018;18(1):78. PMID 29334918; PMCID PMC5769309; doi:10.1186/s12885-017-3925-x.",
+  "link": "https://doi.org/10.1186/s12885-017-3925-x",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Erlandsson2017",
   "text": "Erlandsson J, Holm T, Pettersson D, Berglund Å, Cedermark B, Radu C, et al. Optimal fractionation of preoperative radiotherapy and timing to surgery for rectal cancer (Stockholm III): a multicentre, randomised, non-blinded, phase 3, non-inferiority trial. Lancet Oncol. 2017;18(3):336-346. PMID 28190762; doi:10.1016/s1470-2045(17)30086-4.",
   "link": "https://doi.org/10.1016/s1470-2045(17)30086-4",
@@ -409,6 +776,36 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Fakih2023",
+  "text": "Fakih MG, Salvatore L, Esaki T, Modest DP, Lopez-Bravo DP, Taieb J, et al. Sotorasib plus Panitumumab in Refractory Colorectal Cancer with Mutated KRAS G12C. N Engl J Med. 2023;389(23):2125-2139. PMID 37870968; doi:10.1056/NEJMoa2308795.",
+  "link": "https://doi.org/10.1056/nejmoa2308795",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "FDA-Avastin",
+  "text": "Genentech. AVASTIN (bevacizumab) prescribing information, BLA125085, effective 2025-01-06, set id 939b5d1f-9fb2-4499-80ef-0607aa6b114e.",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Braftovi",
+  "text": "Array BioPharma. BRAFTOVI (encorafenib) prescribing information, NDA210496, effective 2026-02-26, set id 235dfc38-0f0b-4037-b501-7a9f4294740c.",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
  },
  {
   "key": "FDA-Cologuard",
@@ -441,6 +838,36 @@
   "validated": "openFDA"
  },
  {
+  "key": "FDA-DrugsAtFDA",
+  "text": "US Food and Drug Administration. Drugs@FDA submission records via openFDA drugsfda endpoint: Braftovi NDA210496 SUPPL-17 efficacy (priority) 2024-12-20; Fruzaqla NDA217564 ORIG 2023-11-08; Krazati NDA216340 SUPPL-5 efficacy 2024-06-21; Tukysa NDA213411 SUPPL-4 efficacy 2023-01-19; Lumakras NDA214665 SUPPL-9 efficacy 2025-01-16; Opdivo BLA125554 SUPPL-132 and Yervoy BLA125377 SUPPL-135 efficacy (priority) 2025-04-08; Keytruda BLA125514 efficacy supplements June 2020 incl. 2020-06-29 (accessed 2026-10-25).",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Enhertu",
+  "text": "Daiichi Sankyo. ENHERTU (fam-trastuzumab deruxtecan-nxki) prescribing information, BLA761139, effective 2026-05-15, set id 7e67e73e-ddf4-4e4d-8b50-09d7514910b6.",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Erbitux",
+  "text": "ImClone LLC. ERBITUX (cetuximab) prescribing information, BLA125084, effective 2026-04-16, set id 8bc6397e-4bd8-4d37-a007-a327e4da34d9.",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
   "key": "FDA-Fluorouracil",
   "text": "Fluorouracil injection, US prescribing information (Eugia US LLC). openFDA drug label, set_id 199ef964-8a9b-403e-a2ae-759280b3d1d1, effective 2026-01-19.",
   "link": "",
@@ -451,11 +878,71 @@
   "validated": "openFDA"
  },
  {
+  "key": "FDA-Fruzaqla",
+  "text": "Takeda. FRUZAQLA (fruquintinib) prescribing information, NDA217564, effective 2026-07-31, set id 186d786e-dc8a-45f2-b5e1-01ac0201879f.",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
   "key": "FDA-Jemperli",
   "text": "JEMPERLI (dostarlimab-gxly) injection, US prescribing information (GlaxoSmithKline LLC). openFDA drug label, set_id 095eab9f-545a-4f12-bfb7-19477fb901a5, effective 2025-09-02.",
   "link": "",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Keytruda",
+  "text": "Merck Sharp & Dohme. KEYTRUDA (pembrolizumab) prescribing information, BLA125514, effective 2026-07-10, set id 9333c79b-d487-4538-a9f0-71b91a02b287.",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Krazati",
+  "text": "Bristol-Myers Squibb (Mirati). KRAZATI (adagrasib) prescribing information, NDA216340, effective 2026-03-25, set id 0b8bf078-34c2-4f45-9012-38a8ac082b01 (label record lacks openfda metadata; sponsor from Drugs@FDA).",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Lonsurf",
+  "text": "Taiho Pharmaceutical. LONSURF (trifluridine and tipiracil) prescribing information, NDA207981, effective 2025-11-05, set id f5beed22-d71d-4c0d-8dca-2c7317d65d85.",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Lumakras",
+  "text": "Amgen. LUMAKRAS (sotorasib) prescribing information, NDA214665, effective 2025-01-22, set id c80a362c-7ac3-4894-a076-0691e68ef8c1.",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Opdivo",
+  "text": "E.R. Squibb & Sons. OPDIVO (nivolumab) prescribing information, BLA125554, effective 2026-08-12, set id f570b9c4-6846-4de2-abfa-4d0a4ae4e394.",
+  "link": "",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "openFDA"
@@ -481,6 +968,46 @@
   "validated": "openFDA"
  },
  {
+  "key": "FDA-Stivarga",
+  "text": "Bayer HealthCare. STIVARGA (regorafenib) prescribing information, NDA203085, effective 2026-02-09, set id 824f19c9-0546-4a8a-8d8f-c4055c04f7c7.",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Tukysa",
+  "text": "Seagen. TUKYSA (tucatinib) prescribing information, NDA213411, effective 2024-11-04, set id f27eb1b9-b7fc-424e-988f-84dd7bb195a3 (label record lacks openfda metadata; sponsor from Drugs@FDA).",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Vectibix",
+  "text": "Amgen. VECTIBIX (panitumumab) prescribing information, BLA125147, effective 2026-06-23, set id e0fa4bca-f245-4d92-ae29-b0c630a315c2.",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Vitrakvi",
+  "text": "Bayer HealthCare. VITRAKVI (larotrectinib) prescribing information, NDA210861/NDA211710, effective 2026-05-22, set id 0c8ca614-58b2-4aa4-83d3-0387a8f782fd.",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
   "key": "FDA-Xeloda",
   "text": "XELODA (capecitabine) tablets, US prescribing information (H2-Pharma, LLC). openFDA drug label, set_id e702d84d-7162-4751-bf37-d724cc7e45a5, effective 2026-02-05.",
   "link": "",
@@ -489,6 +1016,26 @@
   ],
   "unverified": false,
   "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Yervoy",
+  "text": "E.R. Squibb & Sons. YERVOY (ipilimumab) prescribing information, BLA125377, effective 2026-08-20, set id 2265ef30-253e-11df-8a39-0800200c9a66.",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "Fearon1990",
+  "text": "Fearon ER, Vogelstein B. A genetic model for colorectal tumorigenesis. Cell. 1990;61(5):759-67. PMID 2188735; doi:10.1016/0092-8674(90)90186-i.",
+  "link": "https://doi.org/10.1016/0092-8674(90)90186-i",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Feng2022",
@@ -545,7 +1092,8 @@
   "text": "Garcia-Aguilar J, Patil S, Gollub MJ, Kim JK, Yuval JB, Thompson HM, et al. Organ Preservation in Patients With Rectal Adenocarcinoma Treated With Total Neoadjuvant Therapy. J Clin Oncol. 2022;40(23):2546-2556. PMID 35483010; PMCID PMC9362876; doi:10.1200/jco.22.00032.",
   "link": "https://doi.org/10.1200/jco.22.00032",
   "areas": [
-   "F"
+   "F",
+   "G"
   ],
   "unverified": false,
   "validated": "Europe PMC"
@@ -571,6 +1119,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Grothey2013",
+  "text": "Grothey A, Van Cutsem E, Sobrero A, Siena S, Falcone A, Ychou M, et al. Regorafenib monotherapy for previously treated metastatic colorectal cancer (CORRECT): an international, multicentre, randomised, placebo-controlled, phase 3 trial. Lancet. 2013;381(9863):303-12. PMID 23177514; doi:10.1016/S0140-6736(12)61900-X.",
+  "link": "https://doi.org/10.1016/s0140-6736(12)61900-x",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Grothey2018",
   "text": "Grothey A, Sobrero AF, Shields AF, Yoshino T, Paul J, Taieb J, et al. Duration of Adjuvant Chemotherapy for Stage III Colon Cancer. N Engl J Med. 2018;378(13):1177-1188. PMID 29590544; PMCID PMC6426127; doi:10.1056/nejmoa1713709.",
   "link": "https://doi.org/10.1056/nejmoa1713709",
@@ -589,6 +1147,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Guinney2015",
+  "text": "Guinney J, Dienstmann R, Wang X, de Reyniès A, Schlicker A, Soneson C, et al. The consensus molecular subtypes of colorectal cancer. Nat Med. 2015;21(11):1350-6. PMID 26457759; PMCID PMC4636487; doi:10.1038/nm.3967.",
+  "link": "https://doi.org/10.1038/nm.3967",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Gupta2013",
@@ -631,6 +1199,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Hackl2014",
+  "text": "Hackl C, Neumann P, Gerken M, Loss M, Klinkhammer-Schalke M, Schlitt HJ. Treatment of colorectal liver metastases in Germany: a ten-year population-based analysis of 5772 cases of primary colorectal adenocarcinoma. BMC Cancer. 2014;14:810. PMID 25369977; PMCID PMC4230526; doi:10.1186/1471-2407-14-810.",
+  "link": "https://doi.org/10.1186/1471-2407-14-810",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Haggitt1985",
   "text": "Haggitt RC, Glotzbach RE, Soffer EE, Wruble LD. Prognostic factors in colorectal carcinomas arising in adenomas: implications for lesions removed by endoscopic polypectomy. Gastroenterology. 1985;89(2):328-336. PMID 4007423; doi:10.1016/0016-5085(85)90333-6.",
   "link": "https://doi.org/10.1016/0016-5085(85)90333-6",
@@ -651,6 +1229,56 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Hallin2022",
+  "text": "Hallin J, Bowcut V, Calinisan A, Briere DM, Hargis L, Engstrom LD, et al. Anti-tumor efficacy of a potent and selective non-covalent KRASG12D inhibitor. Nat Med. 2022;28(10):2171-2182. PMID 36216931; doi:10.1038/s41591-022-02007-7.",
+  "link": "https://doi.org/10.1038/s41591-022-02007-7",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hampel2005",
+  "text": "Hampel H, Frankel WL, Martin E, Arnold M, Khanduja K, Kuebler P, et al. Screening for the Lynch syndrome (hereditary nonpolyposis colorectal cancer). N Engl J Med. 2005;352(18):1851-60. PMID 15872200; doi:10.1056/NEJMoa043146.",
+  "link": "https://doi.org/10.1056/nejmoa043146",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Hampel2008",
+  "text": "Hampel H, Frankel WL, Martin E, Arnold M, Khanduja K, Kuebler P, et al. Feasibility of screening for Lynch syndrome among patients with colorectal cancer. J Clin Oncol. 2008;26(35):5783-8. PMID 18809606; PMCID PMC2645108; doi:10.1200/JCO.2008.17.5950.",
+  "link": "https://doi.org/10.1200/jco.2008.17.5950",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Hanahan2011",
+  "text": "Hanahan D, Weinberg RA. Hallmarks of cancer: the next generation. Cell. 2011;144(5):646-74. PMID 21376230; doi:10.1016/j.cell.2011.02.013.",
+  "link": "https://doi.org/10.1016/j.cell.2011.02.013",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Hanahan2022",
+  "text": "Hanahan D. Hallmarks of Cancer: New Dimensions. Cancer Discov. 2022;12(1):31-46. PMID 35022204; doi:10.1158/2159-8290.CD-21-1059.",
+  "link": "https://doi.org/10.1158/2159-8290.cd-21-1059",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Hardcastle1996",
   "text": "Hardcastle JD, Chamberlain JO, Robinson MH, Moss SM, Amar SS, Balfour TW, et al. Randomised controlled trial of faecal-occult-blood screening for colorectal cancer. Lancet. 1996;348(9040):1472-7. PMID 8942775; doi:10.1016/S0140-6736(96)03386-7.",
   "link": "https://doi.org/10.1016/s0140-6736(96)03386-7",
@@ -661,11 +1289,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Harkins2023",
+  "text": "Harkins JM, Sajjad H. Anatomy, Abdomen and Pelvis, Sigmoid Colon. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2023 (updated 2023 Jul 24). PMID 31751014.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/31751014/",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Hassan2020",
   "text": "Hassan C, Antonelli G, Dumonceau JM, Regula J, Bretthauer M, Chaussade S, et al. Post-polypectomy colonoscopy surveillance: European Society of Gastrointestinal Endoscopy (ESGE) Guideline - Update 2020. Endoscopy. 2020;52(8):687-700. PMID 32572858; doi:10.1055/a-1185-3109.",
   "link": "https://doi.org/10.1055/a-1185-3109",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hassan2021",
+  "text": "Hassan C, Spadaccini M, Iannone A, Maselli R, Jovani M, Chandrasekar VT, et al. Performance of artificial intelligence in colonoscopy for adenoma and polyp detection: a systematic review and meta-analysis. Gastrointest Endosc. 2021;93(1):77-85.e6. PMID 32598963; doi:10.1016/j.gie.2020.06.059.",
+  "link": "https://doi.org/10.1016/j.gie.2020.06.059",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -691,6 +1339,36 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Heinemann2014",
+  "text": "Heinemann V, von Weikersthal LF, Decker T, Kiani A, Vehling-Kaiser U, Al-Batran SE, et al. FOLFIRI plus cetuximab versus FOLFIRI plus bevacizumab as first-line treatment for patients with metastatic colorectal cancer (FIRE-3): a randomised, open-label, phase 3 trial. Lancet Oncol. 2014;15(10):1065-75. PMID 25088940; doi:10.1016/S1470-2045(14)70330-4.",
+  "link": "https://doi.org/10.1016/s1470-2045(14)70330-4",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Heitman2009",
+  "text": "Heitman SJ, Ronksley PE, Hilsden RJ, Manns BJ, Rostom A, Hemmelgarn BR. Prevalence of adenomas and colorectal cancer in average risk individuals: a systematic review and meta-analysis. Clin Gastroenterol Hepatol. 2009;7(12):1272-8. PMID 19523536; doi:10.1016/j.cgh.2009.05.032.",
+  "link": "https://doi.org/10.1016/j.cgh.2009.05.032",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Herman1998",
+  "text": "Herman JG, Umar A, Polyak K, Graff JR, Ahuja N, Issa JP, et al. Incidence and functional consequences of hMLH1 promoter hypermethylation in colorectal carcinoma. Proc Natl Acad Sci U S A. 1998;95(12):6870-5. PMID 9618505; PMCID PMC22665; doi:10.1073/pnas.95.12.6870.",
+  "link": "https://doi.org/10.1073/pnas.95.12.6870",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Hewitson2007",
   "text": "Hewitson P, Glasziou P, Irwig L, Towler B, Watson E. Screening for colorectal cancer using the faecal occult blood test, Hemoccult. Cochrane Database Syst Rev. 2007;2007(1):CD001216. PMID 17253456; PMCID PMC6769059; doi:10.1002/14651858.CD001216.pub2.",
   "link": "https://doi.org/10.1002/14651858.cd001216.pub2",
@@ -702,13 +1380,24 @@
  },
  {
   "key": "Hohenberger2009",
-  "text": "Hohenberger W, Weber K, Matzel K, Papadopoulos T, Merkel S. Standardized surgery for colonic cancer: complete mesocolic excision and central ligation--technical notes and outcome. Colorectal Dis. 2009;11(4):354-64; discussion 364-5. PMID 19016817; doi:10.1111/j.1463-1318.2008.01735.x.",
+  "text": "Hohenberger W, Weber K, Matzel K, Papadopoulos T, Merkel S. Standardized surgery for colonic cancer: complete mesocolic excision and central ligation--technical notes and outcome. Colorectal Dis. 2009;11(4):354-64. PMID 19016817; doi:10.1111/j.1463-1318.2008.01735.x.",
   "link": "https://doi.org/10.1111/j.1463-1318.2008.01735.x",
   "areas": [
+   "C",
    "F"
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Holderfield2024",
+  "text": "Holderfield M, Lee BJ, Jiang J, Tomlinson A, Seamon KJ, Mira A, et al. Concurrent inhibition of oncogenic and wild-type RAS-GTP for cancer therapy. Nature. 2024;629(8013):919-926. PMID 38589574; PMCID PMC11111408; doi:10.1038/s41586-024-07205-6.",
+  "link": "https://doi.org/10.1038/s41586-024-07205-6",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Holme2014",
@@ -729,6 +1418,56 @@
   ],
   "unverified": false,
   "validated": "PubMed"
+ },
+ {
+  "key": "Hu2019",
+  "text": "Hu Z, Ding J, Ma Z, Sun R, Seoane JA, Scott Shaffer J, et al. Quantitative evidence for early metastatic seeding in colorectal cancer. Nat Genet. 2019;51(7):1113-1122. PMID 31209394; PMCID PMC6982526; doi:10.1038/s41588-019-0423-x.",
+  "link": "https://doi.org/10.1038/s41588-019-0423-x",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Humphries2008",
+  "text": "Humphries A, Wright NA. Colonic crypt organization and tumorigenesis. Nat Rev Cancer. 2008;8(6):415-24. PMID 18480839; doi:10.1038/nrc2392.",
+  "link": "https://doi.org/10.1038/nrc2392",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Hurwitz2004",
+  "text": "Hurwitz H, Fehrenbacher L, Novotny W, Cartwright T, Hainsworth J, Heim W, et al. Bevacizumab plus irinotecan, fluorouracil, and leucovorin for metastatic colorectal cancer. N Engl J Med. 2004;350(23):2335-42. PMID 15175435; doi:10.1056/NEJMoa032691.",
+  "link": "https://doi.org/10.1056/nejmoa032691",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Iacopetta2002",
+  "text": "Iacopetta B. Are there two sides to colorectal cancer? Int J Cancer. 2002;101(5):403-8. PMID 12216066; doi:10.1002/ijc.10635.",
+  "link": "https://doi.org/10.1002/ijc.10635",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "IJspeert2015",
+  "text": "IJspeert JE, Vermeulen L, Meijer GA, Dekker E. Serrated neoplasia-role in colorectal carcinogenesis and clinical implications. Nat Rev Gastroenterol Hepatol. 2015;12(7):401-9. PMID 25963511; doi:10.1038/nrgastro.2015.73.",
+  "link": "https://doi.org/10.1038/nrgastro.2015.73",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
  },
  {
   "key": "Imperiale2000",
@@ -771,6 +1510,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Ionov1993",
+  "text": "Ionov Y, Peinado MA, Malkhosyan S, Shibata D, Perucho M. Ubiquitous somatic mutations in simple repeated sequences reveal a new mechanism for colonic carcinogenesis. Nature. 1993;363(6429):558-61. PMID 8505985; doi:10.1038/363558a0.",
+  "link": "https://doi.org/10.1038/363558a0",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Iveson2018",
   "text": "Iveson TJ, Kerr RS, Saunders MP, Cassidy J, Hollander NH, Tabernero J, et al. 3 versus 6 months of adjuvant oxaliplatin-fluoropyrimidine combination therapy for colorectal cancer (SCOT): an international, randomised, phase 3, non-inferiority trial. Lancet Oncol. 2018;19(4):562-578. PMID 29611518; PMCID PMC5883334; doi:10.1016/s1470-2045(18)30093-7.",
   "link": "https://doi.org/10.1016/s1470-2045(18)30093-7",
@@ -801,11 +1550,31 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Jiricny2006",
+  "text": "Jiricny J. The multifaceted mismatch-repair system. Nat Rev Mol Cell Biol. 2006;7(5):335-46. PMID 16612326; doi:10.1038/nrm1907.",
+  "link": "https://doi.org/10.1038/nrm1907",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Johnson2008",
   "text": "Johnson CD, Chen MH, Toledano AY, Heiken JP, Dachman A, Kuo MD, et al. Accuracy of CT colonography for detection of large adenomas and cancers. N Engl J Med. 2008;359(12):1207-17. PMID 18799557; PMCID PMC2654614; doi:10.1056/NEJMoa0800996.",
   "link": "https://doi.org/10.1056/nejmoa0800996",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Jones2008",
+  "text": "Jones S, Chen WD, Parmigiani G, Diehl F, Beerenwinkel N, Antal T, et al. Comparative lesion sequencing provides insights into tumor evolution. Proc Natl Acad Sci U S A. 2008;105(11):4283-8. PMID 18337506; PMCID PMC2393770; doi:10.1073/pnas.0712345105.",
+  "link": "https://doi.org/10.1073/pnas.0712345105",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -861,6 +1630,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Kanas2012",
+  "text": "Kanas GP, Taylor A, Primrose JN, Langeberg WJ, Kelsh MA, Mowat FS, et al. Survival after liver resection in metastatic colorectal cancer: review and meta-analysis of prognostic factors. Clin Epidemiol. 2012;4:283-301. PMID 23152705; PMCID PMC3496330; doi:10.2147/CLEP.S34285.",
+  "link": "https://doi.org/10.2147/clep.s34285",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kapidzic2014",
   "text": "Kapidzic A, Grobbee EJ, Hol L, van Roon AH, van Vuuren AJ, Spijker W, et al. Attendance and yield over three rounds of population-based fecal immunochemical test screening. Am J Gastroenterol. 2014;109(8):1257-64. PMID 24980879; doi:10.1038/ajg.2014.168.",
   "link": "https://doi.org/10.1038/ajg.2014.168",
@@ -879,6 +1658,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Kemeny1999",
+  "text": "Kemeny N, Huang Y, Cohen AM, Shi W, Conti JA, Brennan MF, et al. Hepatic arterial infusion of chemotherapy after resection of hepatic metastases from colorectal cancer. N Engl J Med. 1999;341(27):2039-48. PMID 10615075; doi:10.1056/NEJM199912303412702.",
+  "link": "https://doi.org/10.1056/nejm199912303412702",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Knudsen2021",
@@ -911,6 +1700,66 @@
   "validated": "PubMed"
  },
  {
+  "key": "Kopetz2019",
+  "text": "Kopetz S, Grothey A, Yaeger R, Van Cutsem E, Desai J, Yoshino T, et al. Encorafenib, Binimetinib, and Cetuximab in BRAF V600E-Mutated Colorectal Cancer. N Engl J Med. 2019;381(17):1632-1643. PMID 31566309; doi:10.1056/NEJMoa1908075.",
+  "link": "https://doi.org/10.1056/nejmoa1908075",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kopetz2025",
+  "text": "Kopetz S, Yoshino T, Van Cutsem E, Eng C, Kim TW, Wasan HS, et al. Encorafenib, cetuximab and chemotherapy in BRAF-mutant colorectal cancer: a randomized phase 3 trial. Nat Med. 2025;31(3):901-908. PMID 39863775; PMCID PMC11922750; doi:10.1038/s41591-024-03443-3.",
+  "link": "https://doi.org/10.1038/s41591-024-03443-3",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kopetz2026",
+  "text": "Kopetz S, Tabernero J, Lonardi S, Shen L, Wasan HS, Yoshino T, et al. A randomised study of encorafenib, cetuximab, and FOLFIRI versus FOLFIRI with or without bevacizumab in BRAF V600E-mutant colorectal cancer: BREAKWATER Cohort 3. Ann Oncol. 2026;37(8):1133-1143. PMID 42219860; doi:10.1016/j.annonc.2026.04.017.",
+  "link": "https://doi.org/10.1016/j.annonc.2026.04.017",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Korinek1997",
+  "text": "Korinek V, Barker N, Morin PJ, van Wichen D, de Weger R, Kinzler KW, et al. Constitutive transcriptional activation by a beta-catenin-Tcf complex in APC-/- colon carcinoma. Science. 1997;275(5307):1784-7. PMID 9065401; doi:10.1126/science.275.5307.1784.",
+  "link": "https://doi.org/10.1126/science.275.5307.1784",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Kostic2012",
+  "text": "Kostic AD, Gevers D, Pedamallu CS, Michaud M, Duke F, Earl AM, et al. Genomic analysis identifies association of Fusobacterium with colorectal carcinoma. Genome Res. 2012;22(2):292-8. PMID 22009990; PMCID PMC3266036; doi:10.1101/gr.126573.111.",
+  "link": "https://doi.org/10.1101/gr.126573.111",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Kotani2023",
+  "text": "Kotani D, Oki E, Nakamura Y, Yukami H, Mishima S, Bando H, et al. Molecular residual disease and efficacy of adjuvant chemotherapy in patients with colorectal cancer. Nat Med. 2023;29(1):127-134. PMID 36646802; PMCID PMC9873552; doi:10.1038/s41591-022-02115-4.",
+  "link": "https://doi.org/10.1038/s41591-022-02115-4",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kronborg1996",
   "text": "Kronborg O, Fenger C, Olsen J, Jørgensen OD, Søndergaard O. Randomised study of screening for colorectal cancer with faecal-occult-blood test. Lancet. 1996;348(9040):1467-71. PMID 8942774; doi:10.1016/S0140-6736(96)03430-7.",
   "link": "https://doi.org/10.1016/s0140-6736(96)03430-7",
@@ -926,6 +1775,16 @@
   "link": "https://doi.org/10.1200/jco.2006.08.2974",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Kunkel2005",
+  "text": "Kunkel TA, Erie DA. DNA mismatch repair. Annu Rev Biochem. 2005;74:681-710. PMID 15952900; doi:10.1146/annurev.biochem.74.082803.133243.",
+  "link": "https://doi.org/10.1146/annurev.biochem.74.082803.133243",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "Europe PMC"
@@ -961,6 +1820,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Le2015",
+  "text": "Le DT, Uram JN, Wang H, Bartlett BR, Kemberling H, Eyring AD, et al. PD-1 Blockade in Tumors with Mismatch-Repair Deficiency. N Engl J Med. 2015;372(26):2509-20. PMID 26028255; PMCID PMC4481136; doi:10.1056/NEJMoa1500596.",
+  "link": "https://doi.org/10.1056/nejmoa1500596",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Le2017",
+  "text": "Le DT, Durham JN, Smith KN, Wang H, Bartlett BR, Aulakh LK, et al. Mismatch repair deficiency predicts response of solid tumors to PD-1 blockade. Science. 2017;357(6349):409-413. PMID 28596308; PMCID PMC5576142; doi:10.1126/science.aan6733.",
+  "link": "https://doi.org/10.1126/science.aan6733",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Lee2014",
   "text": "Lee JK, Liles EG, Bent S, Levin TR, Corley DA. Accuracy of fecal immunochemical tests for colorectal cancer: systematic review and meta-analysis. Ann Intern Med. 2014;160(3):171. PMID 24658694; PMCID PMC4189821; doi:10.7326/M13-1484.",
   "link": "https://doi.org/10.7326/m13-1484",
@@ -969,6 +1848,46 @@
   ],
   "unverified": false,
   "validated": "PubMed"
+ },
+ {
+  "key": "LeeSix2019",
+  "text": "Lee-Six H, Olafsson S, Ellis P, Osborne RJ, Sanders MA, Moore L, et al. The landscape of somatic mutation in normal colorectal epithelial cells. Nature. 2019;574(7779):532-537. PMID 31645730; doi:10.1038/s41586-019-1672-7.",
+  "link": "https://doi.org/10.1038/s41586-019-1672-7",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Lengauer1997",
+  "text": "Lengauer C, Kinzler KW, Vogelstein B. Genetic instability in colorectal cancers. Nature. 1997;386(6625):623-7. PMID 9121588; doi:10.1038/386623a0.",
+  "link": "https://doi.org/10.1038/386623a0",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Lenz2022",
+  "text": "Lenz HJ, Van Cutsem E, Luisa Limon M, Wong KYM, Hendlisz A, Aglietta M, et al. First-Line Nivolumab Plus Low-Dose Ipilimumab for Microsatellite Instability-High/Mismatch Repair-Deficient Metastatic Colorectal Cancer: The Phase II CheckMate 142 Study. J Clin Oncol. 2022;40(2):161-170. PMID 34637336; doi:10.1200/JCO.21.01015.",
+  "link": "https://doi.org/10.1200/jco.21.01015",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Leslie2002",
+  "text": "Leslie A, Carey FA, Pratt NR, Steele RJ. The colorectal adenoma-carcinoma sequence. Br J Surg. 2002;89(7):845-60. PMID 12081733; doi:10.1046/j.1365-2168.2002.02120.x.",
+  "link": "https://doi.org/10.1046/j.1365-2168.2002.02120.x",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
  },
  {
   "key": "Levin2018",
@@ -986,6 +1905,16 @@
   "link": "https://doi.org/10.1200/jco.2003.05.062",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Li2008",
+  "text": "Li GM. Mechanisms and functions of DNA mismatch repair. Cell Res. 2008;18(1):85-98. PMID 18157157; doi:10.1038/cr.2007.115.",
+  "link": "https://doi.org/10.1038/cr.2007.115",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "Europe PMC"
@@ -1031,6 +1960,46 @@
   "validated": "PubMed"
  },
  {
+  "key": "Lochhead2015",
+  "text": "Lochhead P, Chan AT, Nishihara R, Fuchs CS, Beck AH, Giovannucci E, et al. Etiologic field effect: reappraisal of the field effect concept in cancer predisposition and progression. Mod Pathol. 2015;28(1):14-29. PMID 24925058; PMCID PMC4265316; doi:10.1038/modpathol.2014.81.",
+  "link": "https://doi.org/10.1038/modpathol.2014.81",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Lonardi2026",
+  "text": "Lonardi S, Lenz HJ, Elez E, Jensen LH, Van Cutsem E, Touchefeu Y, et al. Final results of nivolumab plus ipilimumab versus nivolumab or chemotherapy in microsatellite instability-high/mismatch repair-deficient metastatic colorectal cancer from CheckMate 8HW. Ann Oncol. 2026 (online ahead of print). PMID 42926106; doi:10.1016/j.annonc.2026.09.009.",
+  "link": "https://doi.org/10.1016/j.annonc.2026.09.009",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Loupakis2014",
+  "text": "Loupakis F, Cremolini C, Masi G, Lonardi S, Zagonel V, Salvatore L, et al. Initial therapy with FOLFOXIRI and bevacizumab for metastatic colorectal cancer. N Engl J Med. 2014;371(17):1609-18. PMID 25337750; doi:10.1056/NEJMoa1403108.",
+  "link": "https://doi.org/10.1056/nejmoa1403108",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Loupakis2015",
+  "text": "Loupakis F, Yang D, Yau L, Feng S, Cremolini C, Zhang W, et al. Primary tumor location as a prognostic factor in metastatic colorectal cancer. J Natl Cancer Inst. 2015;107(3):dju427. PMID 25713148; PMCID PMC4565528; doi:10.1093/jnci/dju427.",
+  "link": "https://doi.org/10.1093/jnci/dju427",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Mandel1993",
   "text": "Mandel JS, Bond JH, Church TR, Snover DC, Bradley GM, Schuman LM, et al. Reducing mortality from colorectal cancer by screening for fecal occult blood. Minnesota Colon Cancer Control Study. N Engl J Med. 1993;328(19):1365-71. PMID 8474513; doi:10.1056/NEJM199305133281901.",
   "link": "https://doi.org/10.1056/nejm199305133281901",
@@ -1051,6 +2020,27 @@
   "validated": "PubMed"
  },
  {
+  "key": "Manfredi2006",
+  "text": "Manfredi S, Lepage C, Hatem C, Coatmeur O, Faivre J, Bouvier AM. Epidemiology and management of liver metastases from colorectal cancer. Ann Surg. 2006;244(2):254-9. PMID 16858188; doi:10.1097/01.sla.0000217629.94941.cf.",
+  "link": "https://doi.org/10.1097/01.sla.0000217629.94941.cf",
+  "areas": [
+   "C",
+   "G"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Martling2025",
+  "text": "Martling A, Hed Myrberg I, Nilbert M, Grönberg H, Granath F, Eklund M, et al. Low-Dose Aspirin for PI3K-Altered Localized Colorectal Cancer. N Engl J Med. 2025;393(11):1051-1064. PMID 40961426; doi:10.1056/NEJMoa2504650.",
+  "link": "https://doi.org/10.1056/nejmoa2504650",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Matthiessen2007",
   "text": "Matthiessen P, Hallböök O, Rutegård J, Simert G, Sjödahl R. Defunctioning stoma reduces symptomatic anastomotic leakage after low anterior resection of the rectum for cancer: a randomized multicenter trial. Ann Surg. 2007;246(2):207-214. PMID 17667498; doi:10.1097/sla.0b013e3180603024.",
   "link": "https://doi.org/10.1097/sla.0b013e3180603024",
@@ -1059,6 +2049,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Mayer2015",
+  "text": "Mayer RJ, Van Cutsem E, Falcone A, Yoshino T, Garcia-Carbonero R, Mizunuma N, et al. Randomized trial of TAS-102 for refractory metastatic colorectal cancer. N Engl J Med. 2015;372(20):1909-19. PMID 25970050; doi:10.1056/NEJMoa1414325.",
+  "link": "https://doi.org/10.1056/nejmoa1414325",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "McCleary2013",
@@ -1091,11 +2091,51 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Mima2016",
+  "text": "Mima K, Nishihara R, Qian ZR, Cao Y, Sukawa Y, Nowak JA, et al. Fusobacterium nucleatum in colorectal carcinoma tissue and patient prognosis. Gut. 2016;65(12):1973-1980. PMID 26311717; PMCID PMC4769120; doi:10.1136/gutjnl-2015-310101.",
+  "link": "https://doi.org/10.1136/gutjnl-2015-310101",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Missiaglia2014",
+  "text": "Missiaglia E, Jacobs B, D'Ario G, Di Narzo AF, Soneson C, Budinska E, et al. Distal and proximal colon cancers differ in terms of molecular, pathological, and clinical features. Ann Oncol. 2014;25(10):1995-2001. PMID 25057166; doi:10.1093/annonc/mdu275.",
+  "link": "https://doi.org/10.1093/annonc/mdu275",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Mitry2010",
+  "text": "Mitry E, Guiu B, Cosconea S, Jooste V, Faivre J, Bouvier AM. Epidemiology, management and prognosis of colorectal cancer with lung metastases: a 30-year population-based study. Gut. 2010;59(10):1383-8. PMID 20732912; doi:10.1136/gut.2010.211557.",
+  "link": "https://doi.org/10.1136/gut.2010.211557",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Moertel1990",
   "text": "Moertel CG, Fleming TR, Macdonald JS, Haller DG, Laurie JA, Goodman PJ, et al. Levamisole and fluorouracil for adjuvant therapy of resected colon carcinoma. N Engl J Med. 1990;322(6):352-358. PMID 2300087; doi:10.1056/nejm199002083220602.",
   "link": "https://doi.org/10.1056/nejm199002083220602",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Morin1997",
+  "text": "Morin PJ, Sparks AB, Korinek V, Barker N, Clevers H, Vogelstein B, et al. Activation of beta-catenin-Tcf signaling in colon cancer by mutations in beta-catenin or APC. Science. 1997;275(5307):1787-90. PMID 9065402; doi:10.1126/science.275.5307.1787.",
+  "link": "https://doi.org/10.1126/science.275.5307.1787",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "Europe PMC"
@@ -1109,6 +2149,16 @@
   ],
   "unverified": false,
   "validated": "PubMed"
+ },
+ {
+  "key": "Morris2023",
+  "text": "Morris VK, Kennedy EB, Baxter NN, Benson AB, Cercek A, Cho M, et al. Treatment of Metastatic Colorectal Cancer: ASCO Guideline. J Clin Oncol. 2023;41(3):678-700. PMID 36252154; PMCID PMC10506310; doi:10.1200/JCO.22.01690.",
+  "link": "https://doi.org/10.1200/jco.22.01690",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
  },
  {
   "key": "Morton2023",
@@ -1151,6 +2201,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Nakamura2024",
+  "text": "Nakamura Y, Watanabe J, Akazawa N, Hirata K, Kataoka K, Yokota M, et al. ctDNA-based molecular residual disease and survival in resectable colorectal cancer. Nat Med. 2024;30(11):3272-3283. PMID 39284954; PMCID PMC11564113; doi:10.1038/s41591-024-03254-6.",
+  "link": "https://doi.org/10.1038/s41591-024-03254-6",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "NCT00883792",
   "text": "The Northern-European Initiative on Colorectal Cancer (NordICC). Oslo University Hospital. Start 2009-05; enrollment 95,000 (actual); status active, not recruiting; primary completion 2026-06.",
   "link": "",
@@ -1166,6 +2226,16 @@
   "link": "",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT02804815",
+  "text": "Add-Aspirin: aspirin after primary therapy in common non-metastatic solid tumours. Phase 3, active not recruiting, estimated enrollment 11,000. ClinicalTrials.gov NCT02804815 (accessed 2026-10-25).",
+  "link": "",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "ClinicalTrials.gov"
@@ -1201,11 +2271,131 @@
   "validated": "ClinicalTrials.gov"
  },
  {
+  "key": "NCT05174169",
+  "text": "CIRCULATE-US: Colon adjuvant chemotherapy based on evaluation of residual disease. Phase 2/3, recruiting, estimated enrollment 1912. ClinicalTrials.gov NCT05174169 (accessed 2026-10-25).",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT05253651",
+  "text": "MOUNTAINEER-03: Tucatinib with trastuzumab and mFOLFOX6 versus standard of care in first-line HER2+ metastatic colorectal cancer. Phase 3, recruiting, estimated enrollment 400. ClinicalTrials.gov NCT05253651 (accessed 2026-10-25).",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT05379985",
+  "text": "Study of RMC-6236 in patients with advanced solid tumors harboring specific mutations in RAS. Phase 1/2, recruiting, estimated enrollment 754. ClinicalTrials.gov NCT05379985 (accessed 2026-10-25).",
+  "link": "",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "Nicholson2018",
+  "text": "Nicholson AM, Olpe C, Hoyle A, Thorsen AS, Rus T, Colombé M, et al. Fixation and Spread of Somatic Mutations in Adult Human Colonic Epithelium. Cell Stem Cell. 2018;22(6):909-918.e8. PMID 29779891; PMCID PMC5989058; doi:10.1016/j.stem.2018.04.020.",
+  "link": "https://doi.org/10.1016/j.stem.2018.04.020",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Nishihara2013",
   "text": "Nishihara R, Wu K, Lochhead P, Morikawa T, Liao X, Qian ZR, et al. Long-term colorectal-cancer incidence and mortality after lower endoscopy. N Engl J Med. 2013;369(12):1095-105. PMID 24047059; PMCID PMC3840160; doi:10.1056/NEJMoa1301969.",
   "link": "https://doi.org/10.1056/nejmoa1301969",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Nordlinger2008",
+  "text": "Nordlinger B, Sorbye H, Glimelius B, Poston GJ, Schlag PM, Rougier P, et al. Perioperative chemotherapy with FOLFOX4 and surgery versus surgery alone for resectable liver metastases from colorectal cancer (EORTC Intergroup trial 40983): a randomised controlled trial. Lancet. 2008;371(9617):1007-16. PMID 18358928; PMCID PMC2277487; doi:10.1016/S0140-6736(08)60455-9.",
+  "link": "https://doi.org/10.1016/s0140-6736(08)60455-9",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Nordlinger2013",
+  "text": "Nordlinger B, Sorbye H, Glimelius B, Poston GJ, Schlag PM, Rougier P, et al. Perioperative FOLFOX4 chemotherapy and surgery versus surgery alone for resectable liver metastases from colorectal cancer (EORTC 40983): long-term results of a randomised, controlled, phase 3 trial. Lancet Oncol. 2013;14(12):1208-15. PMID 24120480; doi:10.1016/S1470-2045(13)70447-9.",
+  "link": "https://doi.org/10.1016/s1470-2045(13)70447-9",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Nougayrede2006",
+  "text": "Nougayrède JP, Homburg S, Taieb F, Boury M, Brzuszkiewicz E, Gottschalk G, et al. Escherichia coli induces DNA double-strand breaks in eukaryotic cells. Science. 2006;313(5788):848-51. PMID 16902142; doi:10.1126/science.1127059.",
+  "link": "https://doi.org/10.1126/science.1127059",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Nusse2017",
+  "text": "Nusse R, Clevers H. Wnt/β-Catenin Signaling, Disease, and Emerging Therapeutic Modalities. Cell. 2017;169(6):985-999. PMID 28575679; doi:10.1016/j.cell.2017.05.016.",
+  "link": "https://doi.org/10.1016/j.cell.2017.05.016",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Omole2025",
+  "text": "Omole AE, Mandiga P, Kahai P, Lobo S. Anatomy, Abdomen and Pelvis: Large Intestine. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2025 (updated 2025 Apr 6). PMID 29261962; NCBI Bookshelf NBK470577.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/29261962/",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Omole2026a",
+  "text": "Omole AE, Van Fossen K. Anatomy, Abdomen and Pelvis: Inferior Mesenteric Artery. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2026 (updated 2026 Sep 14). PMID 29489246.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/29489246/",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Omole2026b",
+  "text": "Omole AE, Khorasani-Zadeh A. Anatomy, Abdomen and Pelvis: Superior Mesenteric Artery. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2026 (updated 2026 Sep 14). PMID 30137844.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/30137844/",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Pant2024",
+  "text": "Pant S, Wainberg ZA, Weekes CD, Furqan M, Kasi PM, Devoe CE, et al. Lymph-node-targeted, mKRAS-specific amphiphile vaccine in pancreatic and colorectal cancer: the phase 1 AMPLIFY-201 trial. Nat Med. 2024;30(2):531-542. PMID 38195752; PMCID PMC10878978; doi:10.1038/s41591-023-02760-3.",
+  "link": "https://doi.org/10.1038/s41591-023-02760-3",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1221,11 +2411,82 @@
   "validated": "PubMed"
  },
  {
+  "key": "Petrelli2017",
+  "text": "Petrelli F, Tomasello G, Borgonovo K, Ghidini M, Turati L, Dallera P, et al. Prognostic Survival Associated With Left-Sided vs Right-Sided Colon Cancer: A Systematic Review and Meta-analysis. JAMA Oncol. 2017;3(2):211-219. PMID 27787550; doi:10.1001/jamaoncol.2016.4227.",
+  "link": "https://doi.org/10.1001/jamaoncol.2016.4227",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Pickhardt2003",
   "text": "Pickhardt PJ, Choi JR, Hwang I, Butler JA, Puckett ML, Hildebrandt HA, et al. Computed tomographic virtual colonoscopy to screen for colorectal neoplasia in asymptomatic adults. N Engl J Med. 2003;349(23):2191-200. PMID 14657426; doi:10.1056/NEJMoa031618.",
   "link": "https://doi.org/10.1056/nejmoa031618",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Pietrantonio2025",
+  "text": "Pietrantonio F, Salvatore L, Esaki T, Modest DP, Lopez-Bravo DP, Taieb J, et al. Overall Survival Analysis of the Phase III CodeBreaK 300 Study of Sotorasib Plus Panitumumab Versus Investigator's Choice in Chemorefractory KRAS G12C Colorectal Cancer. J Clin Oncol. 2025;43(19):2147-2154. PMID 40215429; PMCID PMC12199804; doi:10.1200/JCO-24-02026.",
+  "link": "https://doi.org/10.1200/jco-24-02026",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Pino2010",
+  "text": "Pino MS, Chung DC. The chromosomal instability pathway in colon cancer. Gastroenterology. 2010;138(6):2059-72. PMID 20420946; PMCID PMC4243705; doi:10.1053/j.gastro.2009.12.065.",
+  "link": "https://doi.org/10.1053/j.gastro.2009.12.065",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "PleguezuelosManzano2020",
+  "text": "Pleguezuelos-Manzano C, Puschhof J, Rosendahl Huber A, van Hoeck A, Wood HM, Nomburg J, et al. Mutational signature in colorectal cancer caused by genotoxic pks+ E. coli. Nature. 2020;580(7802):269-273. PMID 32106218; PMCID PMC8142898; doi:10.1038/s41586-020-2080-8.",
+  "link": "https://doi.org/10.1038/s41586-020-2080-8",
+  "areas": [
+   "C",
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Pooler2023",
+  "text": "Pooler BD, Kim DH, Matkowskyj KA, Newton MA, Halberg RB, Grady WM, et al. Growth rates and histopathological outcomes of small (6-9 mm) colorectal polyps based on CT colonography surveillance and endoscopic removal. Gut. 2023;72(12):2321-2328. PMID 37507217; PMCID PMC10822024; doi:10.1136/gutjnl-2022-326970.",
+  "link": "https://doi.org/10.1136/gutjnl-2022-326970",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Powell1992",
+  "text": "Powell SM, Zilz N, Beazer-Barclay Y, Bryan TM, Hamilton SR, Thibodeau SN, et al. APC mutations occur early during colorectal tumorigenesis. Nature. 1992;359(6392):235-7. PMID 1528264; doi:10.1038/359235a0.",
+  "link": "https://doi.org/10.1038/359235a0",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Prager2023",
+  "text": "Prager GW, Taieb J, Fakih M, Ciardiello F, Van Cutsem E, Elez E, et al. Trifluridine-Tipiracil and Bevacizumab in Refractory Metastatic Colorectal Cancer. N Engl J Med. 2023;388(18):1657-1667. PMID 37133585; doi:10.1056/NEJMoa2214963.",
+  "link": "https://doi.org/10.1056/nejmoa2214963",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1249,6 +2510,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Quenet2021",
+  "text": "Quénet F, Elias D, Roca L, Goéré D, Ghouti L, Pocard M, et al. Cytoreductive surgery plus hyperthermic intraperitoneal chemotherapy versus cytoreductive surgery alone for colorectal peritoneal metastases (PRODIGE 7): a multicentre, randomised, open-label, phase 3 trial. Lancet Oncol. 2021;22(2):256-266. PMID 33476595; doi:10.1016/S1470-2045(20)30599-4.",
+  "link": "https://doi.org/10.1016/s1470-2045(20)30599-4",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Quintero2012",
@@ -1276,6 +2547,16 @@
   "link": "https://doi.org/10.1136/gutjnl-2015-310685",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Raghav2024",
+  "text": "Raghav K, Siena S, Takashima A, Kato T, Van den Eynde M, Pietrantonio F, et al. Trastuzumab deruxtecan in patients with HER2-positive advanced colorectal cancer (DESTINY-CRC02): primary results from a multicentre, randomised, phase 2 trial. Lancet Oncol. 2024;25(9):1147-1162. PMID 39116902; doi:10.1016/S1470-2045(24)00380-2.",
+  "link": "https://doi.org/10.1016/s1470-2045(24)00380-2",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1311,11 +2592,32 @@
   "validated": "PubMed"
  },
  {
+  "key": "Riihimaki2016",
+  "text": "Riihimäki M, Hemminki A, Sundquist J, Hemminki K. Patterns of metastasis in colon and rectal cancer. Sci Rep. 2016;6:29765. PMID 27416752; PMCID PMC4945942; doi:10.1038/srep29765.",
+  "link": "https://doi.org/10.1038/srep29765",
+  "areas": [
+   "C",
+   "G"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Robertson2023",
   "text": "Robertson DJ, Dominitz JA, Beed A, Boardman KD, Del Curto BJ, Guarino PD, et al. Baseline Features and Reasons for Nonparticipation in the Colonoscopy Versus Fecal Immunochemical Test in Reducing Mortality From Colorectal Cancer (CONFIRM) Study, a Colorectal Cancer Screening Trial. JAMA Netw Open. 2023;6(7):e2321730. PMID 37432690; PMCID PMC10336619; doi:10.1001/jamanetworkopen.2023.21730.",
   "link": "https://doi.org/10.1001/jamanetworkopen.2023.21730",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Ruers2017",
+  "text": "Ruers T, Van Coevorden F, Punt CJ, Pierie JE, Borel-Rinkes I, Ledermann JA, et al. Local Treatment of Unresectable Colorectal Liver Metastases: Results of a Randomized Phase II Trial. J Natl Cancer Inst. 2017;109(9):djx015. PMID 28376151; PMCID PMC5408999; doi:10.1093/jnci/djx015.",
+  "link": "https://doi.org/10.1093/jnci/djx015",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1331,11 +2633,51 @@
   "validated": "PubMed"
  },
  {
+  "key": "Sakakida2026",
+  "text": "Sakakida T, Taniguchi H, Asayama M, Suwa Y, Shimura T, Mitani S, et al. 14-day versus 28-day trifluridine-tipiracil plus bevacizumab for refractory metastatic colorectal cancer (PRABITAS): a pragmatic, multicentre, open-label, randomised, phase 3, non-inferiority trial in Japan. Lancet. 2026 (online ahead of print). PMID 42925880; doi:10.1016/S0140-6736(26)01782-4.",
+  "link": "https://doi.org/10.1016/s0140-6736(26)01782-4",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Sargent2010",
   "text": "Sargent DJ, Marsoni S, Monges G, Thibodeau SN, Labianca R, Hamilton SR, et al. Defective mismatch repair as a predictive marker for lack of efficacy of fluorouracil-based adjuvant therapy in colon cancer. J Clin Oncol. 2010;28(20):3219-3226. PMID 20498393; PMCID PMC2903323; doi:10.1200/jco.2009.27.1825.",
   "link": "https://doi.org/10.1200/jco.2009.27.1825",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "SartoreBianchi2016",
+  "text": "Sartore-Bianchi A, Trusolino L, Martino C, Bencardino K, Lonardi S, Bergamo F, et al. Dual-targeted therapy with trastuzumab and lapatinib in treatment-refractory, KRAS codon 12/13 wild-type, HER2-positive metastatic colorectal cancer (HERACLES): a proof-of-concept, multicentre, open-label, phase 2 trial. Lancet Oncol. 2016;17(6):738-746. PMID 27108243; doi:10.1016/S1470-2045(16)00150-9.",
+  "link": "https://doi.org/10.1016/s1470-2045(16)00150-9",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sasaki2016",
+  "text": "Sasaki N, Sachs N, Wiebrands K, Ellenbroek SI, Fumagalli A, Lyubimova A, et al. Reg4+ deep crypt secretory cells function as epithelial niche for Lgr5+ stem cells in colon. Proc Natl Acad Sci U S A. 2016;113(37):E5399-407. PMID 27573849; PMCID PMC5027439; doi:10.1073/pnas.1607327113.",
+  "link": "https://doi.org/10.1073/pnas.1607327113",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Sato2011",
+  "text": "Sato T, van Es JH, Snippert HJ, Stange DE, Vries RG, van den Born M, et al. Paneth cells constitute the niche for Lgr5 stem cells in intestinal crypts. Nature. 2011;469(7330):415-8. PMID 21113151; PMCID PMC3547360; doi:10.1038/nature09637.",
+  "link": "https://doi.org/10.1038/nature09637",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "Europe PMC"
@@ -1401,6 +2743,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Segelman2012",
+  "text": "Segelman J, Granath F, Holm T, Machado M, Mahteme H, Martling A. Incidence, prevalence and risk factors for peritoneal carcinomatosis from colorectal cancer. Br J Surg. 2012;99(5):699-705. PMID 22287157; doi:10.1002/bjs.8679.",
+  "link": "https://doi.org/10.1002/bjs.8679",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Selby2019",
   "text": "Selby K, Levine EH, Doan C, Gies A, Brenner H, Quesenberry C, et al. Effect of Sex, Age, and Positivity Threshold on Fecal Immunochemical Test Accuracy: A Systematic Review and Meta-analysis. Gastroenterology. 2019;157(6):1494-1505. PMID 31472152; PMCID PMC6878177; doi:10.1053/j.gastro.2019.08.023.",
   "link": "https://doi.org/10.1053/j.gastro.2019.08.023",
@@ -1435,7 +2787,19 @@
   "text": "Siegel RL, Wagle NS, Cercek A, Smith RA, Jemal A. Colorectal cancer statistics, 2023. CA Cancer J Clin. 2023;73(3):233-254. PMID 36856579; doi:10.3322/caac.21772.",
   "link": "https://doi.org/10.3322/caac.21772",
   "areas": [
-   "D"
+   "C",
+   "D",
+   "G"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Siena2021",
+  "text": "Siena S, Di Bartolomeo M, Raghav K, Masuishi T, Loupakis F, Kawakami H, et al. Trastuzumab deruxtecan (DS-8201) in patients with HER2-expressing metastatic colorectal cancer (DESTINY-CRC01): a multicentre, open-label, phase 2 trial. Lancet Oncol. 2021;22(6):779-789. PMID 33961795; doi:10.1016/S1470-2045(21)00086-3.",
+  "link": "https://doi.org/10.1016/s1470-2045(21)00086-3",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1461,6 +2825,36 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Snover2011",
+  "text": "Snover DC. Update on the serrated pathway to colorectal carcinoma. Hum Pathol. 2011;42(1):1-10. PMID 20869746; doi:10.1016/j.humpath.2010.06.002.",
+  "link": "https://doi.org/10.1016/j.humpath.2010.06.002",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Soleymanjahi2024",
+  "text": "Soleymanjahi S, Huebner J, Elmansy L, Rajashekar N, Lüdtke N, Paracha R, et al. Artificial Intelligence-Assisted Colonoscopy for Polyp Detection: A Systematic Review and Meta-analysis. Ann Intern Med. 2024;177(12):1652-1663. PMID 39531400; doi:10.7326/ANNALS-24-00981.",
+  "link": "https://doi.org/10.7326/annals-24-00981",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Sottoriva2015",
+  "text": "Sottoriva A, Kang H, Ma Z, Graham TA, Salomon MP, Zhao J, et al. A Big Bang model of human colorectal tumor growth. Nat Genet. 2015;47(3):209-16. PMID 25665006; PMCID PMC4575589; doi:10.1038/ng.3214.",
+  "link": "https://doi.org/10.1038/ng.3214",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Spada2020",
   "text": "Spada C, Hassan C, Bellini D, Burling D, Cappello G, Carretero C, et al. Imaging alternatives to colonoscopy: CT colonography and colon capsule. European Society of Gastrointestinal Endoscopy (ESGE) and European Society of Gastrointestinal and Abdominal Radiology (ESGAR) Guideline - Update 2020. Endoscopy. 2020;52(12):1127-1141. PMID 33105507; doi:10.1055/a-1258-4819.",
   "link": "https://doi.org/10.1055/a-1258-4819",
@@ -1481,6 +2875,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Stamos2013",
+  "text": "Stamos JL, Weis WI. The β-catenin destruction complex. Cold Spring Harb Perspect Biol. 2013;5(1):a007898. PMID 23169527; PMCID PMC3579403; doi:10.1101/cshperspect.a007898.",
+  "link": "https://doi.org/10.1101/cshperspect.a007898",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Stevenson2015",
   "text": "Stevenson AR, Solomon MJ, Lumley JW, Hewett P, Clouston AD, Gebski VJ, et al. Effect of Laparoscopic-Assisted Resection vs Open Resection on Pathological Outcomes in Rectal Cancer: The ALaCaRT Randomized Clinical Trial. JAMA. 2015;314(13):1356-1363. PMID 26441180; doi:10.1001/jama.2015.12009.",
   "link": "https://doi.org/10.1001/jama.2015.12009",
@@ -1491,14 +2895,75 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Strickler2023",
+  "text": "Strickler JH, Cercek A, Siena S, André T, Ng K, Van Cutsem E, et al. Tucatinib plus trastuzumab for chemotherapy-refractory, HER2-positive, RAS wild-type unresectable or metastatic colorectal cancer (MOUNTAINEER): a multicentre, open-label, phase 2 study. Lancet Oncol. 2023;24(5):496-508. PMID 37142372; doi:10.1016/S1470-2045(23)00150-X.",
+  "link": "https://doi.org/10.1016/s1470-2045(23)00150-x",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Strickler2026",
+  "text": "Strickler JH, Cercek A, Siena S, André T, Ng K, Van Cutsem E, et al. Tucatinib plus trastuzumab for chemotherapy-refractory, HER2+, RAS wild-type metastatic colorectal cancer (MOUNTAINEER): final analysis. Nat Commun. 2026;17(1):1068. PMID 41526345; PMCID PMC12852713; doi:10.1038/s41467-025-67824-z.",
+  "link": "https://doi.org/10.1038/s41467-025-67824-z",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Stryker1987",
+  "text": "Stryker SJ, Wolff BG, Culp CE, Libbe SD, Ilstrup DM, MacCarty RL. Natural history of untreated colonic polyps. Gastroenterology. 1987;93(5):1009-13. PMID 3653628; doi:10.1016/0016-5085(87)90563-4.",
+  "link": "https://doi.org/10.1016/0016-5085(87)90563-4",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "TCGA2012",
+  "text": "Cancer Genome Atlas Network. Comprehensive molecular characterization of human colon and rectal cancer. Nature. 2012;487(7407):330-7. PMID 22810696; PMCID PMC3401966; doi:10.1038/nature11252.",
+  "link": "https://doi.org/10.1038/nature11252",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Thibodeau1993",
+  "text": "Thibodeau SN, Bren G, Schaid D. Microsatellite instability in cancer of the proximal colon. Science. 1993;260(5109):816-9. PMID 8484122; doi:10.1126/science.8484122.",
+  "link": "https://doi.org/10.1126/science.8484122",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Tie2022",
   "text": "Tie J, Cohen JD, Lahouel K, Lo SN, Wang Y, Kosmider S, et al. Circulating Tumor DNA Analysis Guiding Adjuvant Therapy in Stage II Colon Cancer. N Engl J Med. 2022;386(24):2261-2272. PMID 35657320; PMCID PMC9701133; doi:10.1056/nejmoa2200075.",
   "link": "https://doi.org/10.1056/nejmoa2200075",
   "areas": [
-   "F"
+   "F",
+   "G"
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Tie2025",
+  "text": "Tie J, Wang Y, Loree JM, Cohen JD, Wong R, Price T, et al. Circulating tumor DNA-guided adjuvant therapy in locally advanced colon cancer: the randomized phase 2/3 DYNAMIC-III trial. Nat Med. 2025;31(12):4291-4300. PMID 41115959; doi:10.1038/s41591-025-04030-w.",
+  "link": "https://doi.org/10.1038/s41591-025-04030-w",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "ToesZoutendijk2020",
@@ -1506,6 +2971,66 @@
   "link": "https://doi.org/10.1016/j.cgh.2019.08.021",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Tomasetti2015",
+  "text": "Tomasetti C, Vogelstein B. Cancer etiology. Variation in cancer risk among tissues can be explained by the number of stem cell divisions. Science. 2015;347(6217):78-81. PMID 25554788; PMCID PMC4446723; doi:10.1126/science.1260825.",
+  "link": "https://doi.org/10.1126/science.1260825",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Tomasetti2017",
+  "text": "Tomasetti C, Li L, Vogelstein B. Stem cell divisions, somatic mutations, cancer etiology, and cancer prevention. Science. 2017;355(6331):1330-1334. PMID 28336671; PMCID PMC5852673; doi:10.1126/science.aaf9011.",
+  "link": "https://doi.org/10.1126/science.aaf9011",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Tomlinson2007",
+  "text": "Tomlinson JS, Jarnagin WR, DeMatteo RP, Fong Y, Kornprat P, Gonen M, et al. Actual 10-year survival after resection of colorectal liver metastases defines cure. J Clin Oncol. 2007;25(29):4575-80. PMID 17925551; doi:10.1200/JCO.2007.11.0833.",
+  "link": "https://doi.org/10.1200/jco.2007.11.0833",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Toyota1999",
+  "text": "Toyota M, Ahuja N, Ohe-Toyota M, Herman JG, Baylin SB, Issa JP. CpG island methylator phenotype in colorectal cancer. Proc Natl Acad Sci U S A. 1999;96(15):8681-6. PMID 10411935; PMCID PMC17576; doi:10.1073/pnas.96.15.8681.",
+  "link": "https://doi.org/10.1073/pnas.96.15.8681",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Tran2011",
+  "text": "Tran B, Kopetz S, Tie J, Gibbs P, Jiang ZQ, Lieu CH, et al. Impact of BRAF mutation and microsatellite instability on the pattern of metastatic spread and prognosis in metastatic colorectal cancer. Cancer. 2011;117(20):4623-32. PMID 21456008; PMCID PMC4257471; doi:10.1002/cncr.26086.",
+  "link": "https://doi.org/10.1002/cncr.26086",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Treasure2019",
+  "text": "Treasure T, Farewell V, Macbeth F, Monson K, Williams NR, Brew-Graves C, et al. Pulmonary Metastasectomy versus Continued Active Monitoring in Colorectal Cancer (PulMiCC): a multicentre randomised clinical trial. Trials. 2019;20(1):718. PMID 31831062; PMCID PMC6909580; doi:10.1186/s13063-019-3837-y.",
+  "link": "https://doi.org/10.1186/s13063-019-3837-y",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1521,11 +3046,81 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Ugai2024",
+  "text": "Ugai S, Yao Q, Takashima Y, Zhong Y, Matsuda K, Kawamura H, et al. Clinicopathological, molecular, and prognostic features of colorectal carcinomas with KRAS c.34G>T (p.G12C) mutation. Cancer Sci. 2024;115(10):3455-3465. PMID 39039804; PMCID PMC11448363; doi:10.1111/cas.16262.",
+  "link": "https://doi.org/10.1111/cas.16262",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "USPSTF2021",
   "text": "US Preventive Services Task Force, Davidson KW, Barry MJ, Mangione CM, Cabana M, Caughey AB, et al. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. 2021;325(19):1965-1977. PMID 34003218; doi:10.1001/jama.2021.6238.",
   "link": "https://doi.org/10.1001/jama.2021.6238",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Utano2022",
+  "text": "Utano K, Nagata K, Honda T, Kato T, Lefor AK, Togashi K. Bowel habits and gender correlate with colon length measured by CT colonography. Jpn J Radiol. 2022;40(3):298-307. PMID 34633598; PMCID PMC8891197; doi:10.1007/s11604-021-01204-7.",
+  "link": "https://doi.org/10.1007/s11604-021-01204-7",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "VanCutsem2011",
+  "text": "Van Cutsem E, Köhne CH, Láng I, Folprecht G, Nowacki MP, Cascinu S, et al. Cetuximab plus irinotecan, fluorouracil, and leucovorin as first-line treatment for metastatic colorectal cancer: updated analysis of overall survival according to tumor KRAS and BRAF mutation status. J Clin Oncol. 2011;29(15):2011-9. PMID 21502544; doi:10.1200/JCO.2010.33.5091.",
+  "link": "https://doi.org/10.1200/jco.2010.33.5091",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "VanCutsem2015",
+  "text": "Van Cutsem E, Lenz HJ, Köhne CH, Heinemann V, Tejpar S, Melezínek I, et al. Fluorouracil, leucovorin, and irinotecan plus cetuximab treatment and RAS mutations in colorectal cancer. J Clin Oncol. 2015;33(7):692-700. PMID 25605843; doi:10.1200/JCO.2014.59.4812.",
+  "link": "https://doi.org/10.1200/jco.2014.59.4812",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "VanDerFlier2009",
+  "text": "van der Flier LG, Clevers H. Stem cells, self-renewal, and differentiation in the intestinal epithelium. Annu Rev Physiol. 2009;71:241-60. PMID 18808327; doi:10.1146/annurev.physiol.010908.163145.",
+  "link": "https://doi.org/10.1146/annurev.physiol.010908.163145",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "vanderGeest2015",
+  "text": "van der Geest LG, Lam-Boer J, Koopman M, Verhoef C, Elferink MA, de Wilt JH. Nationwide trends in incidence, treatment and survival of colorectal cancer patients with synchronous metastases. Clin Exp Metastasis. 2015;32(5):457-65. PMID 25899064; doi:10.1007/s10585-015-9719-0.",
+  "link": "https://doi.org/10.1007/s10585-015-9719-0",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "vanderLei2025",
+  "text": "van der Lei S, Puijk RS, Dijkstra M, Schulz HH, Vos DJW, De Vries JJJ, et al. Thermal ablation versus surgical resection of small-size colorectal liver metastases (COLLISION): an international, randomised, controlled, phase 3 non-inferiority trial. Lancet Oncol. 2025;26(2):187-199. PMID 39848272; doi:10.1016/S1470-2045(24)00660-0.",
+  "link": "https://doi.org/10.1016/s1470-2045(24)00660-0",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1581,6 +3176,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Venook2017",
+  "text": "Venook AP, Niedzwiecki D, Lenz HJ, Innocenti F, Fruth B, Meyerhardt JA, et al. Effect of First-Line Chemotherapy Combined With Cetuximab or Bevacizumab on Overall Survival in Patients With KRAS Wild-Type Advanced or Metastatic Colorectal Cancer: A Randomized Clinical Trial. JAMA. 2017;317(23):2392-2401. PMID 28632865; PMCID PMC5545896; doi:10.1001/jama.2017.7105.",
+  "link": "https://doi.org/10.1001/jama.2017.7105",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Verheij2024",
   "text": "Verheij FS, Omer DM, Williams H, Lin ST, Qin LX, Buckley JT, et al. Long-Term Results of Organ Preservation in Patients With Rectal Adenocarcinoma Treated With Total Neoadjuvant Therapy: The Randomized Phase II OPRA Trial. J Clin Oncol. 2024;42(5):500-506. PMID 37883738; PMCID PMC11578087; doi:10.1200/jco.23.01208.",
   "link": "https://doi.org/10.1200/jco.23.01208",
@@ -1589,6 +3194,76 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Vilar2010",
+  "text": "Vilar E, Gruber SB. Microsatellite instability in colorectal cancer-the stable evidence. Nat Rev Clin Oncol. 2010;7(3):153-62. PMID 20142816; PMCID PMC3427139; doi:10.1038/nrclinonc.2009.237.",
+  "link": "https://doi.org/10.1038/nrclinonc.2009.237",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Vogelstein1988",
+  "text": "Vogelstein B, Fearon ER, Hamilton SR, Kern SE, Preisinger AC, Leppert M, et al. Genetic alterations during colorectal-tumor development. N Engl J Med. 1988;319(9):525-32. PMID 2841597; doi:10.1056/NEJM198809013190901.",
+  "link": "https://doi.org/10.1056/nejm198809013190901",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Vogelstein2013",
+  "text": "Vogelstein B, Papadopoulos N, Velculescu VE, Zhou S, Diaz LA Jr, Kinzler KW. Cancer genome landscapes. Science. 2013;339(6127):1546-58. PMID 23539594; PMCID PMC3749880; doi:10.1126/science.1235122.",
+  "link": "https://doi.org/10.1126/science.1235122",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Wainberg2025",
+  "text": "Wainberg ZA, Weekes CD, Furqan M, Kasi PM, Devoe CE, Leal AD, et al. Lymph node-targeted, mKRAS-specific amphiphile vaccine in pancreatic and colorectal cancer: phase 1 AMPLIFY-201 trial final results. Nat Med. 2025;31(11):3648-3653. PMID 40790272; PMCID PMC12618236; doi:10.1038/s41591-025-03876-4.",
+  "link": "https://doi.org/10.1038/s41591-025-03876-4",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Wang2023",
+  "text": "Wang YHW, Wiseman J. Anatomy, Abdomen and Pelvis, Rectum. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2023 (updated 2023 Jul 25). PMID 30725930.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/30725930/",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Watanabe2023",
+  "text": "Watanabe J, Muro K, Shitara K, Yamazaki K, Shiozawa M, Ohori H, et al. Panitumumab vs Bevacizumab Added to Standard First-line Chemotherapy and Overall Survival Among Patients With RAS Wild-type, Left-Sided Metastatic Colorectal Cancer: A Randomized Clinical Trial. JAMA. 2023;329(15):1271-1282. PMID 37071094; PMCID PMC10114040; doi:10.1001/jama.2023.4428.",
+  "link": "https://doi.org/10.1001/jama.2023.4428",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Weisenberger2006",
+  "text": "Weisenberger DJ, Siegmund KD, Campan M, Young J, Long TI, Faasse MA, et al. CpG island methylator phenotype underlies sporadic microsatellite instability and is tightly associated with BRAF mutation in colorectal cancer. Nat Genet. 2006;38(7):787-93. PMID 16804544; doi:10.1038/ng1834.",
+  "link": "https://doi.org/10.1038/ng1834",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Westerberg2026",
@@ -1615,10 +3290,11 @@
   "text": "Winawer SJ, Zauber AG, Ho MN, O'Brien MJ, Gottlieb LS, Sternberg SS, et al. Prevention of colorectal cancer by colonoscopic polypectomy. The National Polyp Study Workgroup. N Engl J Med. 1993;329(27):1977-81. PMID 8247072; doi:10.1056/NEJM199312303292701.",
   "link": "https://doi.org/10.1056/nejm199312303292701",
   "areas": [
+   "C",
    "D"
   ],
   "unverified": false,
-  "validated": "PubMed"
+  "validated": "Europe PMC"
  },
  {
   "key": "Wolf2018",
@@ -1641,6 +3317,36 @@
   "validated": "PubMed"
  },
  {
+  "key": "Wong2019",
+  "text": "Wong SH, Yu J. Gut microbiota in colorectal cancer: mechanisms of action and clinical applications. Nat Rev Gastroenterol Hepatol. 2019;16(11):690-704. PMID 31554963; doi:10.1038/s41575-019-0209-8.",
+  "link": "https://doi.org/10.1038/s41575-019-0209-8",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Yaeger2023",
+  "text": "Yaeger R, Weiss J, Pelster MS, Spira AI, Barve M, Ou SI, et al. Adagrasib with or without Cetuximab in Colorectal Cancer with Mutated KRAS G12C. N Engl J Med. 2023;388(1):44-54. PMID 36546659; PMCID PMC9908297; doi:10.1056/NEJMoa2212419.",
+  "link": "https://doi.org/10.1056/nejmoa2212419",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Yaeger2024",
+  "text": "Yaeger R, Uboha NV, Pelster MS, Bekaii-Saab TS, Barve M, Saltzman J, et al. Efficacy and Safety of Adagrasib plus Cetuximab in Patients with KRASG12C-Mutated Metastatic Colorectal Cancer. Cancer Discov. 2024;14(6):982-993. PMID 38587856; PMCID PMC11152245; doi:10.1158/2159-8290.CD-24-0217.",
+  "link": "https://doi.org/10.1158/2159-8290.cd-24-0217",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Young2025",
   "text": "Young GP, Benton SC, Bresalier RS, Chiu HM, Dekker E, Fraser CG, et al. Fecal Immunochemical Test Positivity Thresholds: An International Survey of Population-Based Screening Programs. Dig Dis Sci. 2025;70(5):1637-1645. PMID 39528850; PMCID PMC12125024; doi:10.1007/s10620-024-08664-7.",
   "link": "https://doi.org/10.1007/s10620-024-08664-7",
@@ -1655,7 +3361,18 @@
   "text": "Zauber AG, Winawer SJ, O'Brien MJ, Lansdorp-Vogelaar I, van Ballegooijen M, Hankey BF, et al. Colonoscopic polypectomy and long-term prevention of colorectal-cancer deaths. N Engl J Med. 2012;366(8):687-96. PMID 22356322; PMCID PMC3322371; doi:10.1056/NEJMoa1100370.",
   "link": "https://doi.org/10.1056/nejmoa1100370",
   "areas": [
+   "C",
    "D"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Zeineddine2023",
+  "text": "Zeineddine FA, Zeineddine MA, Yousef A, Gu Y, Chowdhury S, Dasari A, et al. Survival improvement for patients with metastatic colorectal cancer over twenty years. NPJ Precis Oncol. 2023;7(1):16. PMID 36781990; PMCID PMC9925745; doi:10.1038/s41698-023-00353-4.",
+  "link": "https://doi.org/10.1038/s41698-023-00353-4",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
