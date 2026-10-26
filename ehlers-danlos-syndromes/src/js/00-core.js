@@ -231,7 +231,7 @@ const MODS=[
  {id:'physio',t:'Exercise & physiotherapy',g:4,n:'4.1',d:'Strength, control and pacing: what the evidence supports'},
  {id:'meds',t:'Medicines',g:4,n:'4.2',d:'Pain, POTS and vascular EDS: what is used and how strong the evidence is'},
  {id:'surgery',t:'Surgery & anaesthesia',g:4,n:'4.3',d:'Fragile tissue, local anaesthetics and safer procedures'},
- {id:'research',t:'Toward better treatment',g:4,n:'4.4',d:'The hEDS gene search, criteria revision and vEDS trials'},
+ {id:'frontier',t:'Toward better treatment',g:4,n:'4.4',d:'The hEDS gene search, criteria revision and vEDS trials'},
  {id:'living',t:'Living with EDS',g:5,n:'5.1',d:'School, work, sport, mental health and support'},
  {id:'pregnancy',t:'Pregnancy & parenthood',g:5,n:'5.2',d:'Planning, pregnancy and birth by type, and passing EDS on'},
  {id:'nursing',t:'Nursing care',g:5,n:'5.3',d:'Handling, skin, BP cuffs, dislocations and vEDS emergencies'},
