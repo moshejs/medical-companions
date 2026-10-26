@@ -4,7 +4,7 @@ const RE_M=30;/* months on the timeline */
 function rePhases(mode,ccr){
   if(mode==='tnt'){const P=[{id:'mri',n:'MRI',a:0,b:.5,c:'var(--accent)'},{id:'scrt',n:'5×5 Gy',a:.5,b:.8,c:'var(--gold)'},{id:'chemo',n:'CAPOX × 6',a:1,b:5.2,c:'var(--rx)'},{id:'restage',n:'Restage',a:5.4,b:6,c:'var(--accent)'}];
     return P.concat(ccr?[{id:'ww',n:'Watch & wait',a:6,b:RE_M,c:'var(--good)'}]:[{id:'tme',n:'TME',a:6.4,b:7,c:'var(--tumour)'},{id:'fu',n:'Follow-up',a:7,b:RE_M,c:'var(--panel-2)'}])}
-  const P=[{id:'mri',n:'MRI',a:0,b:.5,c:'var(--accent)'},{id:'crt',n:'Chemoradiation',a:.5,b:1.75,c:'var(--gold)'},{id:'wait',n:'Interval',a:1.75,b:3,c:'var(--line)'},{id:'restage',n:'Restage',a:3,b:3.4,c:'var(--accent)'}];
+  const P=[{id:'mri',n:'MRI',a:0,b:.5,c:'var(--accent)'},{id:'crt',n:'CRT',a:.5,b:1.75,c:'var(--gold)'},{id:'wait',n:'Wait',a:1.75,b:3,c:'var(--line)'},{id:'restage',n:'Restage',a:3,b:3.4,c:'var(--accent)'}];
   return P.concat(ccr?[{id:'ww',n:'Watch & wait',a:3.4,b:RE_M,c:'var(--good)'}]:[{id:'tme',n:'TME',a:3.6,b:4.1,c:'var(--tumour)'},{id:'adj',n:'Chemo (optional)',a:4.8,b:8.8,c:'var(--rx)'},{id:'fu',n:'Follow-up',a:8.8,b:RE_M,c:'var(--panel-2)'}])}
 /* tumour size 0..1 at month m (drawn, not measured) */
 function reSize(mode,ccr,m){const end=ccr?0:(mode==='tnt'?.38:.45),a=.5,b=mode==='tnt'?5.2:3;return m<a?1:lerp(1,end,ease(clamp((m-a)/(b-a))))}
@@ -81,9 +81,9 @@ inits.rectal=()=>{
       else{const f=g('fu');S.push(Object.assign({from:T(f.a+.5),at:T(f.a+8)},RE_TXT.fu))}}
     steps=S}
   function draw(t){
-    const N=vb(svg,'720 410','400 680'),m=t*RE_M,P=rePhases(mode,ccr);
+    const N=vb(svg,'720 410','400 610'),m=t*RE_M,P=rePhases(mode,ccr);
     const cur=P.reduce((a,p)=>m>=p.a?p:a,P[0]),ph=phaseOf(steps,t);
-    const L=N?{x0:24,x1:384,ty:44,cx:200,cy:236,FX:104,FY:80,px:20,py:390,pw:360}:{x0:60,x1:700,ty:46,cx:190,cy:262,FX:116,FY:88,px:390,py:132,pw:316};
+    const L=N?{x0:24,x1:384,ty:54,cx:200,cy:236,FX:104,FY:80,px:20,py:390,pw:360}:{x0:60,x1:700,ty:54,cx:190,cy:262,FX:116,FY:88,px:390,py:132,pw:316};
     const X=v=>lerp(L.x0,L.x1,v/RE_M);let s='';
     /* ---- timeline ---- */
     s+=`<text x="${L.x0}" y="16" class="t-sm" style="fill:var(--rx)">${mode==='tnt'?'TOTAL NEOADJUVANT THERAPY':'STANDARD CHEMORADIATION'} · ${ccr?'COMPLETE RESPONSE':'TUMOUR REMAINS'}</text>`;
@@ -94,7 +94,7 @@ inits.rectal=()=>{
       s+=`<rect x="${f1(xa)}" y="${L.ty}" width="${f1(Math.max(2,w))}" height="18" rx="3" style="fill:${p.c};opacity:${on?.9:.25};${p.id==='adj'?'stroke:var(--ink);stroke-dasharray:3 2;':''}"/>`;
       const tw=p.n.length*6.2+8;
       if(w>tw)s+=`<text x="${f1(xa+w/2)}" y="${L.ty+13}" class="t-xs t-mid" style="fill:${p.id==='fu'||p.id==='wait'?'var(--ink)':'var(--panel)'};font-weight:700">${p.n}</text>`;
-      else{stag++;s+=`<text x="${f1(xa+w/2)}" y="${L.ty-4-(stag%2?0:10)}" class="t-xs t-mid" style="fill:var(--ink)">${p.n}</text>`}});
+      else{s+=`<text x="${f1(xa+w/2)}" y="${L.ty-4-(stag++%3)*10}" class="t-xs t-mid" style="fill:var(--ink)">${p.n}</text>`}});
     s+=`<line x1="${f1(X(m))}" x2="${f1(X(m))}" y1="${L.ty-6}" y2="${L.ty+24}" style="stroke:var(--ink);stroke-width:2"/><circle cx="${f1(X(m))}" cy="${L.ty+22}" r="4" style="fill:var(--ink)"/>`;
     /* ---- cross-section ---- */
     const {cx,cy,FX,FY}=L,RW=40,RM=29,RL=17,fR=a=>1/Math.sqrt(Math.pow(Math.cos(a)/FX,2)+Math.pow(Math.sin(a)/FY,2));
@@ -113,8 +113,10 @@ inits.rectal=()=>{
     else rect+=`<path d="M${f1(cx+Math.cos(ta-.25)*(RM+3))} ${f1(cy+Math.sin(ta-.25)*(RM+3))}A${RM+3} ${RM+3} 0 0 1 ${f1(cx+Math.cos(ta+.25)*(RM+3))} ${f1(cy+Math.sin(ta+.25)*(RM+3))}" style="fill:none;stroke:var(--cell);stroke-width:4;stroke-linecap:round"/>`;
     if(tmeP&&kT>0){rect+=`<ellipse cx="${cx}" cy="${cy}" rx="${FX+4}" ry="${FY+4}" style="fill:none;stroke:var(--rx);stroke-width:2;stroke-dasharray:${f1(kT*600)} 700"/>`}
     if(gone){s+=`<ellipse cx="${cx}" cy="${cy}" rx="${FX}" ry="${FY}" style="fill:none;stroke:var(--line);stroke-width:1.4;stroke-dasharray:4 4"/>`;
-      s+=`<g transform="translate(${f1(kOut*(N?0:60))} ${f1(-kOut*(N?12:20))}) scale(${f1(1-.45*kOut)})" style="transform-origin:${cx}px ${cy}px;opacity:${f1(1-.5*kOut)}">${rect}</g>`;
-      if(kOut>.6)s+=`<text x="${cx}" y="${cy+4}" class="t-xs t-mid" style="fill:var(--ink)">specimen → pathology</text>`}
+      const fade=1-.5*kOut-.5*ramp(m,tmeP.b,tmeP.b+1);
+      if(fade>.02)s+=`<g transform="translate(${f1(kOut*(N?0:60))} ${f1(-kOut*(N?12:20))}) scale(${f1(1-.45*kOut)})" style="transform-origin:${cx}px ${cy}px;opacity:${f1(fade)}">${rect}</g>`;
+      else s+=`<text x="${cx}" y="${cy+4}" class="t-xs t-mid">rectum and mesorectum removed</text>`;
+      if(kOut>.6&&fade>.3)s+=`<text x="${cx}" y="${cy+4}" class="t-xs t-mid" style="fill:var(--ink)">specimen → pathology</text>`}
     else s+=rect;
     if(!gone){s+=`<text x="${cx}" y="${cy+3}" class="t-xs t-mid">lumen</text>`;
       if(sz>.02)s+=`<text x="${f1(cx+Math.cos(ta)*(fR(ta)+6)-4)}" y="${f1(cy+Math.sin(ta)*(fR(ta)+6))}" class="t-xs t-end" style="fill:var(--tumour)">tumour ${Math.round(sz*100)}%</text>`;
@@ -123,10 +125,10 @@ inits.rectal=()=>{
     if(cur.id==='mri'||cur.id==='restage'){s+=`<rect x="${cx-FX-14}" y="${cy-FY-14}" width="${2*FX+28}" height="${2*FY+28}" rx="14" style="fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:6 4"/><text x="${cx+FX+10}" y="${cy-FY-2}" class="t-sm t-end" style="fill:var(--accent)">MRI</text>`;
       if(cur.id==='restage')s+=scope(cx-RL+6,cy,0,{light:true})}
     if(cur.id==='scrt'||cur.id==='crt'){const pulse=.25+.25*Math.sin(m*40);[[-1,0],[1,0],[0,1],[-.7,-.7],[.7,-.7]].forEach(([a,b])=>{const ox=cx+a*(FX+50),oy=cy+b*(FY+40);s+=`<path d="M${f1(ox-b*14)} ${f1(oy+a*14)}L${cx} ${cy}L${f1(ox+b*14)} ${f1(oy-a*14)}Z" style="fill:var(--gold);opacity:${f1(pulse)}"/>`});
-      s+=`<text x="${cx-FX-10}" y="${cy-FY-6}" class="t-sm" style="fill:var(--gold)">${cur.id==='scrt'?'5 × 5 Gy':'50.4 Gy + capecitabine'}</text>`}
+      s+=`<text x="${cx-FX-10}" y="${cy-FY-24}" class="t-sm" style="fill:var(--gold)">${cur.id==='scrt'?'5 × 5 Gy':'50.4 Gy + capecitabine'}</text>`}
     if(cur.id==='chemo'||cur.id==='adj'){for(let i=0;i<8;i++){const a=i/8*Math.PI*2+m,r=(FX+30)*(1-((m*1.7+i*.37)%1)*.7);s+=`<circle cx="${f1(cx+Math.cos(a)*r)}" cy="${f1(cy+Math.sin(a)*r*FY/FX)}" r="3.4" style="fill:var(--rx)"/>`}
-      s+=`<text x="${cx-FX-10}" y="${cy-FY-6}" class="t-sm" style="fill:var(--rx)">${cur.id==='chemo'?'CAPOX cycle '+Math.min(6,1+Math.floor((m-1)/(4.2/6))):'adjuvant chemotherapy'}</text>`}
-    if(cur.id==='ww'){const since=m-cur.a,chk=since%3<.35;s+=`<text x="${cx-FX-10}" y="${cy-FY-6}" class="t-sm" style="fill:var(--good)">${chk?'check: MRI + endoscopy':'surveillance'}</text>`;if(chk)s+=scope(cx-RL+6,cy,0,{light:true})}
+      s+=`<text x="${cx-FX-10}" y="${cy-FY-24}" class="t-sm" style="fill:var(--rx)">${cur.id==='chemo'?'CAPOX cycle '+Math.min(6,1+Math.floor((m-1)/(4.2/6))):'adjuvant chemotherapy'}</text>`}
+    if(cur.id==='ww'){const since=m-cur.a,chk=since%3<.35;s+=`<text x="${cx-FX-10}" y="${cy-FY-24}" class="t-sm" style="fill:var(--good)">${chk?'check: MRI + endoscopy':'surveillance'}</text>`;if(chk)s+=scope(cx-RL+6,cy,0,{light:true})}
     /* ---- panel ---- */
     const PN=RE_PANEL[cur.id]||{l:[]};let y=L.py;
     s+=`<text x="${L.px}" y="${y}" class="t-big">${cur.n}</text>`;y+=20;

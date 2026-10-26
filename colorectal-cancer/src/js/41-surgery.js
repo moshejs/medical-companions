@@ -245,7 +245,7 @@ inits.surgery=()=>{
    stent:{v:47.5,c:'var(--brand)',w:'had a stoma formed',t:'Obstructing cancer: stent, then planned surgery',
      txt:`A stent relieved obstruction in 82.4% of attempts. Stent-then-elective surgery led to a stoma in 47.5% (P=.003 vs emergency surgery), with 30-day mortality 3.6% (not significantly different) and no difference in 3-year recurrence. [[CReST2022]]`,pt:`A stent first meant fewer people needed a stoma: about 48 in 100.`}};
   const lv=$('#suLeak');let lk='noStoma',stopL=null;
-  function drawL(k){const N=vb(lv,'520 250','400 300'),D=LK[lk],n=Math.round(D.v);let s='';const cols=N?10:20,sz=N?22:18,gx=N?36:24,gy=N?26:30,x0=N?14:22,y0=N?40:40;
+  function drawL(k){const N=vb(lv,'520 200','400 300'),D=LK[lk],n=Math.round(D.v);let s='';const cols=N?10:20,sz=N?22:18,gx=N?36:24,gy=N?26:30,x0=N?14:22,y0=N?40:40;
     s+=`<text x="${x0}" y="22" class="t-sm" style="fill:${D.c}">${f1(D.v)} IN 100 ${D.w.toUpperCase()}</text>`;
     for(let i=0;i<100;i++){const r=Math.floor(i/cols),c=i%cols,on=i<n*k;s+=person(x0+gx*c+gx/2,y0+r*gy,sz,on?D.c:'var(--line)')}
     lv.innerHTML=s}

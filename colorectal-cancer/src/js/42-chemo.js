@@ -57,7 +57,7 @@ const CH_WHO={
 inits.chemo=()=>{
   const svg=$('#chSvg'),rg=$('#chT');let reg='capox',dur=3;
   function draw(t){
-    const N=vb(svg,'720 390','400 600');const R=CH_REG[reg],w=t*CH_WK,day=w*7,ph=phaseOf(CH_STEPS,t);
+    const N=vb(svg,'720 390','400 525');const R=CH_REG[reg],w=t*CH_WK,day=w*7,ph=phaseOf(CH_STEPS,t);
     const nCyc=R.cyc[dur],endDay=nCyc*R.len;let s='';
     const kind=d=>{if(d>=endDay)return'off';const c=d%R.len;if(reg==='folfox')return c===0?'ox':c===1?'fu':'rest';return c===0?'ox':c<14?'cap':'rest'};
     const fill={ox:'var(--rx)',fu:'var(--accent)',cap:'var(--gold)',rest:'var(--panel-2)',off:'none'};
