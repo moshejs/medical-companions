@@ -1,0 +1,10 @@
+{
+  "foot.not_advice": "<b>It is not medical advice.</b> It cannot diagnose, and nothing here should change a treatment without your own clinician. Criteria, assessment tools and guideline statements are quoted as published and are for learning, not self-diagnosis. No medication is approved for BPD itself; drug evidence is reported as published. Please check the original sources, which are listed in full in the <a href=\"#sources\" data-go=\"sources\">Sources</a> module.",
+  "quiz.answer_is": "The answer is {l}.",
+  "shell.disclaimer": "The BPD Companion is an educational synthesis of published literature for study and understanding. It does not replace a psychiatrist, psychologist, nurse or other clinician, and the criteria and questionnaires in it are teaching aids, not self-tests. No medication is approved for BPD itself; drug findings are reported as published. <span class=\"crisisline\">If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span>",
+  "shell.home": "BPD Companion home",
+  "shell.note": "An animated, cited guide for students, people living with borderline personality disorder, and their families and carers. Educational only, not medical advice. Your place is saved on this device.",
+  "shell.skip": "Skip to the module",
+  "shell.tagline": "Borderline personality",
+  "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). {chk} are marked <span class=\"tag warn\">check</span>."
+}
