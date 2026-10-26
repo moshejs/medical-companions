@@ -46,7 +46,7 @@ function bmDrugs(S){const ras=S.ras==='mut',d=S.mmr==='d',v=S.braf==='v600e',lef
       :v?'Used as the partner of encorafenib for BRAF V600E. [[FDA-Erbitux,Kopetz2019]]'
       :left?'Open first-line with chemotherapy for left-sided RAS wild-type pMMR disease (ASCO 2023). Benefit is concentrated on the left: OS HR 0.75. [[Morris2023,Arnold2017]]'
       :'Little benefit on the right (OS HR 1.12, retrospective subgroups); ASCO 2023 recommends chemotherapy plus anti-VEGF first-line here. [[Arnold2017,Morris2023]]'});
-  D.push({n:'Anti-VEGF (bevacizumab)',st:d?'na':(ras&&S.g12c!=='yes')||(!ras&&!v&&!left)?'open':'na',
+  D.push({n:'Anti-VEGF (bevacizumab)',st:(!d&&((ras&&S.g12c!=='yes')||(!ras&&!v&&!left)))?'open':'avail',
     tx:'No biomarker needed: labelled with fluorouracil-based chemotherapy for mCRC. The usual first-line partner for tumours outside the other groups. [[FDA-Avastin,Morris2023]]'});
   D.push({n:'BRAF-targeted (encorafenib + cetuximab)',st:v&&!ras&&!d?'open':v?'partner':'na',
     tx:v?`Open: BEACON (previously treated) median OS 9.0 vs 5.4 months; BREAKWATER first-line with mFOLFOX6, 30.3 vs 15.1 months at interim. ${ras?'RAS and BRAF mutations are largely mutually exclusive, so this combination is unusual. ':''}${d?'With dMMR, first-line still goes to immunotherapy in the published order. ':''}[[Kopetz2019,Elez2025,Sepulveda2017]]`:'Only for BRAF V600E. [[FDA-Braftovi]]'});
@@ -55,7 +55,7 @@ function bmDrugs(S){const ras=S.ras==='mut',d=S.mmr==='d',v=S.braf==='v600e',lef
   D.push({n:'HER2-targeted (tucatinib + trastuzumab; trastuzumab deruxtecan)',st:S.her2==='pos'?(ras?'partner':'open'):'na',
     tx:S.her2==='pos'?(ras?'The tucatinib label covers RAS wild-type, HER2-positive mCRC only. Trastuzumab deruxtecan has a tumour-agnostic label for HER2 IHC 3+ after prior treatment. [[FDA-Tukysa,FDA-Enhertu]]':'Later line: tucatinib plus trastuzumab gave a 38.1% response rate in MOUNTAINEER; trastuzumab deruxtecan 45.3% in HER2-positive tumours. [[Strickler2023,Yoshino2023,FDA-Tukysa]]'):'Only for HER2-positive tumours. [[SartoreBianchi2016]]'});
   return D}
-const BM_ST={open:['good','Opens'],partner:['warn','Conditional'],closed:['bad','Closed'],na:['','Not relevant']};
+const BM_ST={open:['good','Opens'],partner:['warn','Conditional'],closed:['bad','Closed'],na:['','Not relevant'],avail:['','Available']};
 /* universal testing cases: lost proteins, BRAF, methylation, outcome */
 const BM_CASES={a:{lost:['MLH1','PMS2'],braf:true,meth:true,out:'O1',lab:'MLH1 + PMS2 lost'},b:{lost:['MLH1','PMS2'],braf:false,meth:false,out:'O2',lab:'MLH1 + PMS2 lost'},c:{lost:['MSH2','MSH6'],out:'O2',lab:'MSH2 + MSH6 lost'},d:{lost:[],out:'O3',lab:'All 4 retained'}};
 const BM_PROT=['MLH1','PMS2','MSH2','MSH6'];
@@ -90,7 +90,7 @@ function bmSlide(x,y,w,h,stain,lost,hl,seed){const rr=rng(seed);let s=`<rect x="
   for(let i=0;i<11;i++){const px=x+8+rr()*(w-16),py=y+8+rr()*(h-16);s+=nuc(px,py,2.4,2.4,stain)}
   return s}
 function bmBox(b,lines,on,col,soft){let s=`<rect x="${f1(b.x)}" y="${f1(b.y)}" width="${b.w}" height="${b.h}" rx="9" style="fill:${on?soft:'var(--panel)'};stroke:${on?col:'var(--line)'};stroke-width:${on?2:1}"/>`;
-  const n=lines.length;lines.forEach((l,i)=>s+=`<text x="${f1(b.x+b.w/2)}" y="${f1(b.y+b.h/2+4+(i-(n-1)/2)*13)}" class="t-xs t-mid" style="${on?'fill:var(--ink);font-weight:700':''}">${l}</text>`);return s}
+  const n=lines.length;lines.forEach((l,i)=>s+=`<text x="${f1(b.x+b.w/2)}" y="${f1(b.y+b.h/2+4+(i-(n-1)/2)*14)}" class="t-sm t-mid" style="${on?'fill:var(--ink);font-weight:700':'fill:var(--ink)'}">${l}</text>`);return s}
 inits.biomarkers=()=>{
   /* ---- decision tree ---- */
   const svg=$('#bmSvg'),S={...BM_DEF};let tp=1,tStop=null;
