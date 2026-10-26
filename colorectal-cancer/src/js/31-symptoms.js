@@ -185,7 +185,7 @@ inits.symptoms=()=>{
     return s}
   function p4(N,p){let s='';const rows=[['Emergency',26,50],['Two-week wait',27,82],['GP referral',20,null],['Screen-detected',2,98]];
     const y0=N?120:122;s+=head(20,y0-4,'ROUTES TO DIAGNOSIS · ENGLAND 2006–2008');
-    const sx=N?20:190,sw=N?170:230,vx=N?220:480,vw=N?160:210,dy=N?92:52,rt=N?y0+30:y0+26;
+    const sx=N?20:190,sw=N?170:230,vx=N?220:480,vw=N?160:210,dy=N?92:48,rt=N?y0+30:y0+26;
     s+=T(sx,rt,'share of cancers','t-xs')+T(vx,rt,'1-year relative survival','t-xs');
     rows.forEach(([l,sh,sv],i)=>{const y=(N?y0+56:y0+46)+i*dy,k=clamp(p*2.2-i*.25);
       if(N)s+=T(20,y-6,l,'t-lbl',i===0?'fill:var(--tumour)':'');else s+=T(sx-12,y+12,l,'t-lbl t-end',i===0?'fill:var(--tumour)':'');
@@ -193,7 +193,7 @@ inits.symptoms=()=>{
       s+=Ln(vx,y+9,vx+vw,y+9,'stroke:var(--line)');
       if(sv!=null){const cx=vx+vw*sv/100*k;s+=`<circle cx="${f1(cx)}" cy="${y+9}" r="7" style="fill:${i===0?'var(--tumour)':i===3?'var(--good)':'var(--accent)'}"/>`;if(k>.97)s+=T(cx,y-3,sv+'%','t-sm t-mid','fill:var(--ink);font-weight:600')}
       else if(k>.97)s+=T(vx+vw/2,y+13,'not reported here','t-xs t-mid')});
-    const fy=(N?y0+56:y0+46)+4*dy+(N?-10:14);s+=T(20,fy,'All routes: 1-year relative survival 74%','t-sm','fill:var(--ink)');
+    const fy=(N?y0+56:y0+46)+4*dy+(N?-10:6);s+=T(20,fy,'All routes: 1-year relative survival 74%','t-sm','fill:var(--ink)');
     return s}
   const PS=[p0,p1,p2,p3,p4];
   function note(ph){const S=SY_STEPS[ph];if(ph!==1)return S;const F=SY_FIT[thr];
