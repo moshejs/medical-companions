@@ -164,7 +164,7 @@ const MODS=[
  {id:'compare',t:'Therapies compared',g:3,n:'3.5',d:'What the meta-analyses show, side by side'},
  {id:'meds',t:'Medication: the evidence',g:4,n:'4.1',d:'No approved drug for BPD itself; what trials show'},
  {id:'crisis',t:'Suicide & self-harm safety',g:4,n:'4.2',d:'Risk, safety planning, crisis care and help-seeking'},
- {id:'research',t:'Research toward better care',g:4,n:'4.3',d:'New targets and trials, with evidence labels'},
+ {id:'frontier',t:'Research toward better care',g:4,n:'4.3',d:'New targets and trials, with evidence labels'},
  {id:'course',t:'Course & recovery',g:5,n:'5.1',d:'Remission is common; recovery takes longer'},
  {id:'families',t:'Families & carers',g:5,n:'5.2',d:'Validation, family programmes and carer wellbeing'},
  {id:'living',t:'Living with BPD',g:5,n:'5.3',d:'Relationships, work, study, parenting and stigma'},
