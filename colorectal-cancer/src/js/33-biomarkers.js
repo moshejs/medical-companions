@@ -138,15 +138,15 @@ inits.biomarkers=()=>{
       if(read)s+=`<text x="${f1(P.x+P.w)}" y="${f1(P.y-8)}" class="t-xs t-end" style="fill:${lost?'var(--bad)':'var(--good)'};font-weight:700">${lost?'LOST in tumour':'retained'}</text>`});
     /* flow chart */
     const F=N?{A:{x:14,y:390,w:180,h:46},B:{x:206,y:390,w:180,h:46},C:{x:206,y:466,w:180,h:62},O3:{x:14,y:466,w:180,h:46},O1:{x:14,y:560,w:180,h:58},O2:{x:206,y:560,w:180,h:72}}
-             :{A:{x:16,y:230,w:150,h:50},B:{x:196,y:230,w:150,h:50},C:{x:378,y:214,w:170,h:66},O1:{x:574,y:208,w:138,h:58},O2:{x:574,y:296,w:138,h:72},O3:{x:196,y:316,w:150,h:46}};
+             :{A:{x:16,y:230,w:150,h:50},B:{x:196,y:230,w:150,h:50},C:{x:378,y:214,w:170,h:66},O1:{x:574,y:208,w:138,h:58},O2:{x:574,y:296,w:138,h:72},O3:{x:16,y:316,w:150,h:46}};
     const route={a:['A','B','C','O1'],b:['A','B','C','O2'],c:['A','B','O2'],d:['A','O3']}[cs];
     const stage=ans?4:test?3:read?2:t>=.18?1:0;
     const on=k=>{const i=route.indexOf(k);return i>=0&&i<stage};
     const ed=N?{AB:[bmR(F.A),bmL(F.B)],BC:[bmB(F.B),bmTp(F.C)],BO2:[bmR(F.B),[394,bmR(F.B)[1]],[394,bmR(F.O2)[1]],bmR(F.O2)],CO1:[[260,F.C.y+F.C.h],[260,544],[104,544],bmTp(F.O1)],CO2:[[330,F.C.y+F.C.h],bmTp(F.O2)],AO3:[bmB(F.A),bmTp(F.O3)]}
-               :{AB:[bmR(F.A),bmL(F.B)],BC:bmEl(bmR(F.B),bmL(F.C)),BO2:[bmB(F.B),[bmB(F.B)[0],332],bmL(F.O2)],CO1:bmEl(bmR(F.C),bmL(F.O1)),CO2:[[530,F.C.y+F.C.h],[530,320],[bmL(F.O2)[0],320]],AO3:[bmB(F.A),[bmB(F.A)[0],339],bmL(F.O3)]};
+               :{AB:[bmR(F.A),bmL(F.B)],BC:bmEl(bmR(F.B),bmL(F.C)),BO2:[[346,270],[364,270],[364,350],[574,350]],CO1:bmEl(bmR(F.C),bmL(F.O1)),CO2:[[530,F.C.y+F.C.h],[530,318],[574,318]],AO3:[bmB(F.A),bmTp(F.O3)]};
     const eOn={AB:on('B'),BC:on('C'),BO2:cs==='c'&&on('O2'),CO1:on('O1')&&route.includes('C'),CO2:cs==='b'&&on('O2'),AO3:on('O3')};
     const eLab=N?{BC:[302,458,'start','MLH1 lost'],BO2:[390,500,'end','MSH2/6'],CO1:[180,540,'end','yes'],CO2:[336,550,'start','no'],AO3:[110,458,'start','none lost']}
-                :{BC:[362,220,'mid','MLH1 lost'],BO2:[276,326,'start','MSH2 / MSH6 lost'],CO1:[561,232,'mid','yes'],CO2:[534,312,'start','no'],AO3:[96,334,'start','none lost']};
+                :{BC:[362,206,'mid','MLH1 lost'],BO2:[372,344,'start','MSH2 / MSH6 lost'],CO1:[561,232,'mid','yes'],CO2:[536,312,'start','no'],AO3:[96,302,'start','none lost']};
     Object.keys(ed).forEach(k=>{s+=`<path d="${'M'+ed[k].map(p=>f1(p[0])+' '+f1(p[1])).join('L')}" style="fill:none;stroke:${eOn[k]?'var(--brand)':'var(--line)'};stroke-width:${eOn[k]?3:1.4}"/>`;
       if(eLab[k]){const l=eLab[k];s+=`<text x="${l[0]}" y="${l[1]}" class="t-xs ${l[2]==='mid'?'t-mid':l[2]==='end'?'t-end':''}" style="${eOn[k]?'fill:var(--ink);font-weight:700':''}">${l[3]}</text>`}});
     s+=bmBox(F.A,['IHC result',read?C.lab:'…'],on('A'),'var(--brand)','var(--brand-soft)');
