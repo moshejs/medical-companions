@@ -1,5 +1,93 @@
-<!-- ================= 4.4 METASTATIC DISEASE (stub, replaced by its builder) ================= -->
+<!-- ================= 4.4 METASTATIC DISEASE ================= -->
+<style>
+#m-metastatic .mt-lad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:820px){#m-metastatic .mt-lad{grid-template-columns:minmax(0,1fr)}}
+#m-metastatic .mt-col{display:flex;flex-direction:column;gap:8px;min-width:0;padding:10px;border-radius:12px;background:var(--panel-2);transition:opacity .2s}
+#m-metastatic .mt-col.off{opacity:.45}
+#m-metastatic .mt-col h4{margin:0 0 2px;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#m-metastatic .mt-rx{border:1px solid var(--line);border-radius:10px;padding:9px 10px;background:var(--panel);display:flex;flex-direction:column;gap:4px;transition:opacity .2s,border-color .2s}
+#m-metastatic .mt-rx b{font-size:14px;line-height:1.25}
+#m-metastatic .mt-rx small{font:500 11.5px/1.35 var(--mono);color:var(--muted)}
+#m-metastatic .mt-rx .mt-k{font-size:13px;line-height:1.35}
+#m-metastatic .mt-rx.dim{opacity:.32}
+#m-metastatic .mt-rx.lit{border-color:var(--rx);box-shadow:inset 3px 0 0 var(--rx)}
+#m-metastatic .mt-det{display:flex;flex-direction:column;gap:10px}
+#m-metastatic .mt-det p{margin:0;font-size:14.5px}
+#m-metastatic .mt-det .lbl{font-size:13.5px;color:var(--muted);border-left:2px solid var(--line);padding-left:8px}
+#m-metastatic .card>.ev,#m-metastatic .card>.tag{align-self:flex-start}
+#m-metastatic .tbl table{min-width:620px}
+</style>
 <section class="mod" id="m-metastatic" data-mod="metastatic" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Metastatic disease</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">How colorectal cancer spreads to the liver, lungs and abdominal lining, when liver metastases can still be removed, and how tumour biomarkers now choose the drugs, line by line.</p></div>
+  <div class="stepper" id="mtSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="mtSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A schematic torso with lungs, liver and the large bowel. Cells leave a tumour in the sigmoid colon, travel up the portal vein and seed spots in the liver, then reach the lungs through the systemic veins and settle on the abdominal lining. Two treatment paths follow: removing the part of the liver with metastases, or systemic therapy that reaches every site and shrinks the spots. A side panel builds the published numbers for each step."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mtPlay">Play</button><label class="stage-cap tl" for="mtT">Course <input type="range" id="mtT" min="0" max="1" step="0.001" value="0.17"></label></div>
+      <div class="readout" id="mtRead"></div>
+      <p class="stage-cap">Schematic, not to scale. Venous routes shown as textbook anatomy. Percentages are registry and trial figures for groups, not predictions for one person. [[Manfredi2006,Riihimaki2016,Nordlinger2013,Zeineddine2023]]</p>
+    </div>
+    <aside class="note" id="mtNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The biomarker-matched treatment ladder</h3>
+  <p class="prose">Before first-line treatment, the tumour is tested for mismatch repair (MMR/MSI), RAS (KRAS and NRAS, exons 2–4), BRAF V600E and HER2, and its side matters. ASCO 2023 recommends multidisciplinary care and shared decision-making. Pick a tumour profile and a line of treatment: matching regimens light up with their pivotal trial result. Label wording from openFDA is quoted as published, not as instructions. [[Morris2023,VanCutsem2015]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Tumour profile"><span class="kicker">Profile</span>
+        <button class="btn" data-mtp="msi" aria-pressed="false">MSI-H / dMMR</button>
+        <button class="btn" data-mtp="ras" aria-pressed="true">RAS wild-type, left-sided</button>
+        <button class="btn" data-mtp="braf" aria-pressed="false">BRAF V600E</button>
+        <button class="btn" data-mtp="her2" aria-pressed="false">HER2-amplified</button>
+        <button class="btn" data-mtp="g12c" aria-pressed="false">KRAS G12C</button>
+        <button class="btn" data-mtp="oth" aria-pressed="false">None of these (MSS, RAS-mutant or right-sided)</button>
+      </div>
+      <div class="ctrls" role="group" aria-label="Line of treatment"><span class="kicker">Line</span>
+        <button class="btn" data-mtl="0" aria-pressed="true">All lines</button>
+        <button class="btn" data-mtl="1" aria-pressed="false">1st</button>
+        <button class="btn" data-mtl="2" aria-pressed="false">2nd</button>
+        <button class="btn" data-mtl="3" aria-pressed="false">Later</button>
+      </div>
+      <div class="mt-lad" id="mtLad"></div>
+      <p class="stage-cap">A teaching map of published trials and US labels, not a treatment plan: the real order depends on fitness, prior drugs and the team's judgement. [[Morris2023]]</p>
+    </div>
+    <aside class="note" id="mtLadNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Survival curves: eras and trials</h3>
+  <p class="prose">Pick an era comparison or a trial, then drag the month cursor. The curves are schematic: smooth exponential-like curves drawn through each arm's published median (or the published landmark rate), so they show the gap between arms, not the trial's real curve shape.</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Comparison" id="mtKmBtns"></div>
+      <div class="scroll"><svg id="mtKm" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="Schematic survival curves for the selected comparison, drawn through the published medians, with a month cursor that reads off each curve."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mtKmPlay">Play</button><label class="stage-cap tl" for="mtKmT">Months <input type="range" id="mtKmT" min="0" max="1" step="0.001" value="0.55"></label></div>
+      <p class="stage-cap">Schematic curves drawn through published medians. Trial medians come from selected, fitter patients and run above population medians. [[vanderGeest2015,Venook2017]]</p>
+    </div>
+    <aside class="note" id="mtKmNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Treating the spots themselves</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Approach</th><th>Trial</th><th>Who</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Liver resection</td><td>Meta-analysis, 60 studies</td><td>Resected colorectal liver metastases</td><td>5-year survival 16–74% (median 38%); 10-year median 26%. Worse with positive margin (RR 2.0) or disease outside the liver (1.9). [[Kanas2012]]</td></tr>
+      <tr><td>Thermal ablation vs resection</td><td>COLLISION</td><td>300 people, metastases up to 3 cm</td><td>Ablation non-inferior for OS (HR 1.05); adverse events 19% vs 46%. [[vanderLei2025]]</td></tr>
+      <tr><td>Ablation ± resection + systemic</td><td>CLOCC (phase 2)</td><td>119 people, unresectable liver metastases</td><td>8-year OS 35.9% vs 8.9% with systemic therapy alone (HR 0.58). [[Ruers2017]]</td></tr>
+      <tr><td>Liver transplant + chemotherapy</td><td>TransMet</td><td>94 people, permanently unresectable, liver-only</td><td>5-year OS 56.6% vs 12.6% (HR 0.37); serious adverse events in 80% of transplanted patients. [[Adam2024]]</td></tr>
+      <tr><td>Hepatic arterial infusion after resection</td><td>Kemeny 1999; meta-analysis</td><td>After liver resection</td><td>2-year OS 86% vs 72%; pooled RCT HR 0.91 (not significant). [[Kemeny1999,Buisman2022]]</td></tr>
+      <tr><td>Lung metastasectomy</td><td>PulMiCC</td><td>65 people, lung metastases</td><td>5-year survival 38% vs 29% with active monitoring (HR 0.82, 0.43–1.56); stopped early, inconclusive. [[Treasure2019]]</td></tr>
+      <tr><td>Cytoreductive surgery ± HIPEC</td><td>PRODIGE 7</td><td>265 people, peritoneal metastases</td><td>Median OS 41.7 vs 41.2 months (HR 1.00); more grade ≥3 events with HIPEC (26% vs 15%). [[Quenet2021]]</td></tr>
+      <tr><td>Radiation to the liver</td><td>ASCO 2023</td><td>Liver oligometastases not suitable for resection</td><td>SBRT "may be recommended" after systemic therapy; SIRT "is not routinely recommended"; HIPEC added to cytoreduction "is not recommended". [[Morris2023]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Safety signals from the labels</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Boxed warning</span><h4>Regorafenib</h4><p>The Stivarga label states: "Severe and sometimes fatal hepatotoxicity has occurred in clinical trials", with liver tests before and during treatment. [[FDA-Stivarga]]</p></div>
+    <div class="card"><span class="tag warn">Boxed warning</span><h4>Panitumumab</h4><p>Dermatologic toxicities occurred in 90% of patients and were severe (grade ≥3) in 15% on monotherapy, per the Vectibix label. [[FDA-Vectibix]]</p></div>
+    <div class="card"><span class="tag warn">Boxed warning</span><h4>Cetuximab</h4><p>The Erbitux boxed warning covers serious and fatal infusion reactions and cardiopulmonary arrest. [[FDA-Erbitux]]</p></div>
+    <div class="card"><span class="tag warn">Boxed warning</span><h4>Trastuzumab deruxtecan</h4><p>The Enhertu label carries a boxed warning for interstitial lung disease and embryo-fetal toxicity. [[FDA-Enhertu]]</p></div>
+  </div>
+  <p class="callout"><b>About the numbers.</b> Median survival is the time by which half of a group has died; half live longer, some much longer. Trial and cohort figures describe groups of people treated in a particular place and era. They cannot say how one person will do. [[Zeineddine2023,vanderGeest2015]]</p>
 </section>
