@@ -43,7 +43,7 @@ const SH_STEPS=[
   pt:`The best test is the one you actually do, repeated on time. [[Wolf2026]]`,
   hook:`Strategies: FIT yearly; stool DNA-FIT 1–3 y; CTC 5 y; sigmoidoscopy 5 y (or 10 y + yearly FIT); colonoscopy 10 y. [[USPSTF2021]]`},
  {from:.3,at:.36,k:'What if',t:'If a test is positive',
-  txt:`Any positive non-colonoscopy test needs a follow-up colonoscopy, preferably within 6 months (ACS 2026). After a colonoscopy, the schedule switches to surveillance based on what was found (the calculator above), and the stool tests stop for as long as surveillance continues. In Kaiser Permanente, 79.4% of people with a positive FIT had a colonoscopy within 1 year. [[Wolf2026,Gupta2020,Doubeni2024]]`,
+  txt:`Any positive non-colonoscopy test needs a follow-up colonoscopy, preferably within 6 months (ACS 2026). After a colonoscopy, the schedule switches to surveillance based on what was found (the calculator above). In Kaiser Permanente, 79.4% of people with a positive FIT had a colonoscopy within 1 year. [[Wolf2026,Gupta2020,Doubeni2024]]`,
   pt:`A positive stool test means a colonoscopy within a few months. After that, the colonoscopy findings set the timetable. [[Corley2017,Wolf2026]]`,
   hook:`Colonoscopy >10 months after a positive FIT: more CRC (OR 1.48 at 10–12 months) and more advanced stage. [[Corley2017]]`},
  {from:.775,at:.82,k:'Age 76–85',t:'Grade C: an individual choice',
@@ -107,7 +107,7 @@ inits.schedule=()=>{
       if(scopeAt<start&&risk!=='fdr60')P.sub+=' (A colonoscopy before the usual start age is drawn as given.)';
     }else{
       const nx=P.ev.length?P.ev[0].a:start;
-      P.head=useCol?`Colonoscopy every 5 years from age ${start}`:iv==null?`${T.n}: from age ${start}, only if the preferred tests are declined`:`${T.n} ${iv===1?'every year':'every '+iv+' years'} from age ${start}`;
+      P.head=useCol?`Colonoscopy every 5 years from age ${start}`:T.fit?`Sigmoidoscopy every 10 years plus FIT every year from age ${start}`:iv==null?`${T.n}: from age ${start}, only if the preferred tests are declined`:`${T.n} ${iv===1?'every year':'every '+iv+' years'} from age ${start}`;
       P.sub=risk==='avg'?'Through 75, then an individual decision at 76–85.':risk==='fdr60p'?'Average-risk options, starting at 40.':'Family history: colonoscopy, whatever test was selected.';
       if(risk==='avg'&&tk!=='blood')P.quotes.push(`ACS 2026 reaffirms starting at 45 and continuing through 75 when life expectancy is over 10 years. ACP 2023 starts at 50. [[Wolf2026,Qaseem2023]]`);
       P.ev.forEach(e=>{if(e===P.ev[0])e.lab='start '+e.a});
@@ -116,7 +116,7 @@ inits.schedule=()=>{
     if(tk!=='col'&&!useCol)P.quotes.push(`A positive non-colonoscopy test needs a follow-up colonoscopy, preferably within 6 months (ACS 2026). [[Wolf2026]]`);
     return P}
   function drawT(){
-    const N=vb(ts,'720 270','400 300'),P=plan();
+    const P=plan(),hasE=P.esge.length>0||P.link,N=vb(ts,hasE?'720 270':'720 222',hasE?'400 300':'400 236');
     const A0=P.minA,A1=85,ax0=N?62:92,ax1=N?388:704,X=a=>ax0+(clamp(a,A0,A1)-A0)/(A1-A0)*(ax1-ax0);
     let s='';const lx=N?6:10;
     /* guideline bands */
@@ -142,7 +142,7 @@ inits.schedule=()=>{
     if(P.esge.length){const ey=ty+(N?60:58);s+=`<text x="${lx}" y="${ey+4}" class="t-xs" style="fill:var(--ink);font-weight:700">ESGE 2020</text><line x1="${ax0}" x2="${ax1}" y1="${ey}" y2="${ey}" style="stroke:var(--line);stroke-width:2;stroke-dasharray:4 3"/>`;
       P.esge.forEach((e,i)=>{const x=X(e.a);s+=glyph(x,ey,'o',{col:'var(--rx)',r:5.5})+`<text x="${f1(clamp(x,ax0+30,ax1-60))}" y="${ey+(i%2?22:-12)}" class="t-xs t-mid" style="fill:var(--rx);font-weight:700">${e.lab}</text>`})}
     /* axis */
-    const yy=N?262:236;
+    const yy=hasE?(N?262:236):(N?198:188);
     s+=`<line x1="${ax0}" x2="${ax1}" y1="${yy}" y2="${yy}" style="stroke:var(--muted)"/>`;
     for(let a=Math.ceil(A0/5)*5;a<=85;a+=5)s+=`<line x1="${f1(X(a))}" x2="${f1(X(a))}" y1="${yy}" y2="${yy+5}" style="stroke:var(--muted)"/><text x="${f1(X(a))}" y="${yy+17}" class="t-xs t-mid">${a}</text>`;
     s+=`<text x="${ax1}" y="${yy-6}" class="t-xs t-end">age</text>`;
@@ -156,7 +156,7 @@ inits.schedule=()=>{
   /* ---- lifetime animation: average risk, from 45, chosen test ---- */
   const ls=$('#shLife'),rg=$('#shT'),note=$('#shNote');
   function drawL(t){
-    const N=vb(ls,'720 340','400 520'),tk=sel('shTest'),T=SH_TESTS[tk];
+    const N=vb(ls,'720 340','400 440'),tk=sel('shTest'),T=SH_TESTS[tk];
     const age=45+t*40,ax0=N?30:60,ax1=N?380:700,X=a=>ax0+(a-45)/40*(ax1-ax0);
     let s='';
     const by=N?40:40;
@@ -187,7 +187,7 @@ inits.schedule=()=>{
     /* modelled totals */
     const k=ramp(t,.93,1);
     if(k>0){const M=tk==='col'?[['4,212–4,300','colonoscopies'],['301–369','life-years gained'],['3–8','CRC deaths remaining']]:tk==='fit'?[['1,602–1,824','colonoscopies'],['291–348','life-years gained'],['6–10','CRC deaths remaining']]:null;
-      const mx=N?30:400,my=N?340:226,w=N?340:300;
+      const mx=N?30:400,my=N?332:226,w=N?340:300;
       s+=`<g style="opacity:${f1(k)}"><rect x="${mx-10}" y="${my-22}" width="${w}" height="${M?102:66}" rx="10" style="fill:var(--panel-2);stroke:var(--line)"/>`;
       s+=`<text x="${mx}" y="${my-4}" class="t-xs" style="fill:var(--ink);font-weight:700">Modelled per 1,000, screening 45–75 (CISNET)</text>`;
       if(M)M.forEach((m,i)=>{s+=`<text x="${mx}" y="${my+20+i*22}" class="t-lbl" style="fill:var(--accent)">${m[0]}</text><text x="${mx+(N?100:100)}" y="${my+20+i*22}" class="t-xs">${m[1]}</text>`});

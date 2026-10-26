@@ -188,7 +188,7 @@ inits.staging=()=>{
   /* ---- SEER summary stage ---- */
   const SEER={crc:[91,74,15],colon:[91,74,14],rectum:[90,74,18]},TREND=[[82,89],[52,66],[5,8]];
   const seer=$('#stSeer');let which='crc',sp=1,sStop=null;
-  function drawS(){const NS=vb(seer,'720 300','400 330'),v=SEER[which];
+  function drawS(){const NS=vb(seer,'400 330','400 330'),v=SEER[which];
     const G=NS?{x0:30,dx:124,w:84,b:250,h:190,ly:270,dy:286,dy2:300}:{x0:80,dx:210,w:130,b:236,h:190,ly:258,dy:276,dy2:290};let s='';
     [0,25,50,75,100].forEach(p=>{const y=G.b-G.h*p/100;s+=`<line x1="${G.x0-14}" x2="${G.x0+2*G.dx+G.w+10}" y1="${f1(y)}" y2="${f1(y)}" class="grid"/><text x="${G.x0-18}" y="${f1(y+4)}" class="t-xs t-end">${p}</text>`});
     const nm=['Localized','Regional','Distant'],ds=NS?[['only in','the bowel'],['nearby tissue','or nodes'],['spread','far']]:[['found only in','the bowel'],['reached nearby','tissue or nodes'],['spread to','distant sites']],cc=['var(--good)','var(--lymph)','var(--tumour)'];
@@ -204,7 +204,7 @@ inits.staging=()=>{
 
   /* ---- the paradox ---- */
   const PAR={css:[73.1,70.3,91.0],os:[64.9,63.0,83.1]},par=$('#stPar');let pm='css',pp=1,pStop=null;
-  function drawP(){const NP=vb(par,'720 300','400 330'),v=PAR[pm];
+  function drawP(){const NP=vb(par,'400 330','400 330'),v=PAR[pm];
     const G=NP?{x0:40,dx:118,w:84,b:262,h:200,ly:284}:{x0:90,dx:200,w:120,b:250,h:190,ly:274};let s='';
     [0,25,50,75,100].forEach(p=>{const y=G.b-G.h*p/100;s+=`<line x1="${G.x0-14}" x2="${G.x0+2*G.dx+G.w+10}" y1="${f1(y)}" y2="${f1(y)}" class="grid"/><text x="${G.x0-18}" y="${f1(y+4)}" class="t-xs t-end">${p}</text>`});
     ['IIB','IIC','IIIA'].forEach((n,i)=>{const x=G.x0+i*G.dx,h=G.h*v[i]/100*pp;
@@ -221,7 +221,7 @@ inits.staging=()=>{
   $('#stChk').innerHTML=HR.map(([k,n])=>`<label for="stHr_${k}"><input type="checkbox" id="stHr_${k}" data-sthr="${k}"><span>${n}</span></label>`).join('');
   function chk(){const on=HR.filter(([k])=>$('#stHr_'+k).checked).map(([k])=>k),risk=on.filter(k=>k!=='dmmr'),dm=on.includes('dmmr');
     let h;
-    if(!risk.length)h=`<p><b>No listed high-risk feature ticked.</b> ASCO 2022: adjuvant chemotherapy is not routine for stage II colon cancer outside a high-risk subgroup.${dm?' ASCO 2022 also says people with dMMR/MSI tumours should not routinely be offered adjuvant chemotherapy; in pooled trial data, stage II dMMR tumours did not benefit from fluorouracil alone.':''} [[Baxter2022${dm?',Sargent2010':''}]]</p>`;
+    if(!risk.length)h=`<p><b>No listed high-risk feature ticked.</b> ASCO 2022: adjuvant chemotherapy is not routine for stage II colon cancer outside a high-risk subgroup.${dm?' ASCO 2022 also says people with dMMR/MSI tumours should not routinely be offered adjuvant chemotherapy; in pooled trial data, stage II dMMR tumours did not benefit from fluorouracil alone.':''} ${dm?'[[Baxter2022,Sargent2010]]':'[[Baxter2022]]'}</p>`;
     else h=`<p><b>${risk.length} high-risk feature${risk.length>1?'s':''} ticked.</b> ${risk.includes('t4')?'ASCO 2022: patients with T4 tumours are at higher risk of recurrence and should be offered adjuvant chemotherapy. ':''}${risk.some(k=>k!=='t4')?'ASCO 2022 lists the other ticked features as high-risk factors that may lead to an offer of adjuvant chemotherapy. ':''}${dm?'With dMMR plus high-risk features, if chemotherapy is offered, ASCO 2022 recommends an oxaliplatin-containing regimen.':''} [[Baxter2022]]</p>`;
     $('#stChkOut').innerHTML=h+`<p class="stage-cap">Guideline statements as published, not advice for any one person. Treatment detail: <button class="stlink" data-go="chemo">chemotherapy after surgery</button>.</p>`}
   $('#stChk').addEventListener('change',chk);chk();

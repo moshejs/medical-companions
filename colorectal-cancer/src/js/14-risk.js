@@ -153,7 +153,7 @@ inits.risk=()=>{
       const ro=i===0?null:i===1?(young?11:4.8):8.2;
       if(ro!=null){const ry=by+C.bh+(N?16:12);const lft=X(ro)>(N?250:520);s+=`<circle cx="${f1(X(ro))}" cy="${f1(ry-3)}" r="3.5" style="fill:none;stroke:var(--brand);stroke-width:1.6"/><text x="${f1(X(ro)+(lft?-7:7))}" y="${f1(ry)}" class="t-xs${lft?' t-end':''}" style="fill:var(--brand)">${ro}% to age 85${i===1&&young?' (FDR <50)':''}</text>`}
     });
-    s+=`<text x="${C.lx}" y="${N?322:224}" class="t-xs">bar = for a 50-year-old (Butterworth 2006) · circle = to 85, W. Europe (Roos 2019)</text>`;
+    s+=N?`<text x="${C.lx}" y="312" class="t-xs">bar = a 50-year-old (Butterworth 2006)</text><text x="${C.lx}" y="325" class="t-xs">circle = to age 85, W. Europe (Roos 2019)</text>`:`<text x="${C.lx}" y="224" class="t-xs">bar = for a 50-year-old (Butterworth 2006) · circle = to 85, W. Europe (Roos 2019)</text>`;
     fs.innerHTML=s;
     /* result text */
     let rr,abs,more='',us,uk,cls;
