@@ -1,0 +1,69 @@
+<!-- ================= 1.1 WHAT COLORECTAL CANCER IS ================= -->
+<style>
+#m-what .card>.ev,#m-what .card>.tag{align-self:flex-start}
+#m-what .tbl table{min-width:560px}
+#m-what td.num{font-family:var(--mono);font-size:13.5px;white-space:nowrap}
+#m-what .mode{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+</style>
+<section class="mod" id="m-what" data-mod="what" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>What colorectal cancer is</h2>
+    <p class="lede">Colorectal cancer, also called bowel cancer, starts in the lining of the colon or rectum. It is one of the most common cancers in the world. Scrub through who gets it, where in the bowel it starts, and why doctors now worry about younger adults. Switch between new cases and deaths to see how the picture changes.</p></div>
+
+  <div class="mode" role="group" aria-label="Measure">
+    <span class="kicker">Show</span>
+    <button class="btn" data-wh-m="inc" aria-pressed="true">New cases (incidence)</button>
+    <button class="btn" data-wh-m="mort" aria-pressed="false">Deaths (mortality)</button>
+  </div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Three scenes in sequence. Worldwide: bars show colorectal cancer's share of all cancers, then case and death counts growing from 2020 to 2024 to the 2040 projection, then the range of rates between regions. Where in the bowel: a drawing of the large bowel lights up the proximal colon, distal colon and rectum by their share of cases. By age and birth cohort: bars split cases and deaths by age group, then bars for people born around 1990 grow away from the 1950 reference to 2.4 times for colon and 4.3 times for rectal cancer."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Scene <input type="range" id="whT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="whRead"></div>
+      <p class="stage-cap"><b>Population statistics.</b> Worldwide numbers are GLOBOCAN estimates; 2020 and 2040 come from one analysis and 2024 from a newer round, so they are not a single series. US numbers are American Cancer Society projections and registry rates. None of them predicts what happens to any one person. [[Morgan2023,Sung2026,Siegel2026CRC]]</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Survival has improved, and stage matters most</h3>
+  <p class="prose">Five-year relative survival compares people with colorectal cancer with people of the same age and sex in the general population. These are averages over many thousands of people diagnosed years ago. They describe groups, not any one person, and they lag behind newer treatments. [[Siegel2026CRC,Siegel2026]]</p>
+  <div class="stepper" id="whSurvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSurv" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A line chart of US five-year relative survival for colorectal cancer draws itself from the 1970s to today: overall survival climbs from 50% to 65%, regional-stage from 52% to 74% and distant-stage from 5% to 15%. Then bars rise for survival by stage at diagnosis: 91% localized, 74% regional and 15% distant."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whSurvPlay">Play</button><label class="stage-cap tl" for="whSurvT">Year of diagnosis <input type="range" id="whSurvT" min="0" max="1" step="0.001" value="0.55"></label></div>
+      <p class="stage-cap"><b>Population statistics, US (SEER).</b> Points are the published era averages; lines between them are straight joins, not yearly data. [[Siegel2025,Siegel2026,Siegel2026CRC]]</p>
+    </div>
+    <aside class="note" id="whSurvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The United States at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Measure</th><th>Number</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>New cases projected for 2026</th><td class="num">158,850 (108,860 colon, 49,990 rectum)</td><td>[[Siegel2026CRC]]</td></tr>
+      <tr><th>Deaths projected for 2026</th><td class="num">55,230</td><td>[[Siegel2026CRC]]</td></tr>
+      <tr><th>Lifetime risk, birth to death (2018–2021)</th><td class="num">4.1% men (1 in 24) · 3.8% women (1 in 26)</td><td>[[Siegel2025]]</td></tr>
+      <tr><th>Incidence, men vs women (2018–2022)</th><td class="num">40.5 vs 30.7 per 100,000 (32% higher in men)</td><td>[[Siegel2026CRC]]</td></tr>
+      <tr><th>Death rate, men vs women (2019–2023)</th><td class="num">15.3 vs 10.8 per 100,000 (42% higher)</td><td>[[Siegel2026CRC]]</td></tr>
+      <tr><th>Incidence since the 1985 peak</th><td class="num">−45% to 2022</td><td>[[Siegel2026CRC]]</td></tr>
+      <tr><th>Death rate, 1970 → 2023</th><td class="num">29.1 → 12.7 per 100,000 (−56%)</td><td>[[Siegel2026CRC]]</td></tr>
+      <tr><th>Highest and lowest incidence by group</th><td class="num">80.9 Alaska Native · 28.5 AANHPI per 100,000</td><td>[[Siegel2026CRC]]</td></tr>
+      <tr><th>People living after a diagnosis (1 Jan 2025)</th><td class="num">more than 1.4 million</td><td>[[Siegel2026CRC]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Screening has been estimated to account for 79% of the colorectal cancer deaths averted in the United States, with the rest attributed to better treatment. [[Sung2026]]</p>
+
+  <h3 class="sub">Early-onset colorectal cancer: what is known</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>It is rising, mostly on the left</h4><p>In the US, incidence at ages 20–49 has risen 1–2% a year since the mid-1990s, and 3% a year from 2013 to 2022. From 1998 to 2022 sigmoid colon cancer in this age group nearly doubled (2.1 to 3.7 per 100,000) and rectal cancer nearly doubled (3.6 to 6.6), while proximal tumours rose 26%. [[Siegel2026CRC]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>It is not only American</h4><p>Early-onset incidence rose in 27 of 50 countries up to 2017, and in 20 of those the rise was confined to, or faster than, that in older adults. The highest rates (2013–17) were in Australia (16.5 per 100,000), Puerto Rico, New Zealand, the USA and South Korea. In 20 European countries, incidence at ages 20–29 rose 7.9% a year from 2004 to 2016. [[Sung2025,Vuik2019]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Often found late, but survival is not worse</h4><p>Three in four patients under 50 are diagnosed with advanced disease, 27% with distant metastases against 21–23% of older patients. Five-year relative survival is similar or higher in younger people; for distant-stage disease it is 23% under 50, 17% at 50–64 and 10% at 65 or older. [[Siegel2026CRC]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Mostly not inherited</h4><p>An inherited (germline) gene change such as Lynch syndrome explains 16–20% of colorectal cancer before 50; most early-onset cases are sporadic. See <a href="#genes" data-go="genes">Lynch syndrome &amp; FAP</a>. [[Siegel2026CRC]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Why? Nobody knows yet</h4><p>Proposed drivers include a Western-style diet, obesity, inactivity and antibiotics, especially early in life, acting through the gut microbiome and immunity. Known risk factors do not fully fit: obesity and inactivity relate more to colon than rectal cancer, yet the rise is led by the rectum. Ultra-processed foods and microplastics are being studied. [[Akimoto2021,Patel2022EOCRC,Siegel2026CRC]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Not an artefact</h4><p>A 2013 coding change made some appendix tumours reportable, which inflates counts in young people. Studies that leave out the appendix still show a real rise that started earlier, with rising deaths. Imaging done for other reasons is unlikely to explain it, because it mostly finds early-stage disease, the opposite of what is seen <span class="ev early">Early evidence</span>. [[Sung2026,Siegel2026CRC]]</p></div>
+  </div>
+
+  <h3 class="sub">Right and left: two diseases?</h3>
+  <p class="prose">Tumours of the proximal (right) colon and the distal (left) colon and rectum differ in how often they occur, how they develop, their molecular pathways and their outcome. Right-sided tumours more often show mismatch-repair defects and flat growth; left-sided tumours more often follow the chromosomal-instability route (APC, KRAS, PIK3CA, TP53) and grow as polyps. More in <a href="#sequence" data-go="sequence">From polyp to cancer</a> and <a href="#biomarkers" data-go="biomarkers">Tumour biomarkers</a>. <span class="ev est">Established</span> [[Lee2015,Baran2018]]</p>
+</section>

@@ -305,6 +305,24 @@
           "date": ""
         }
       }
+    },
+    {
+      "slug": "colorectal-cancer",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Colorectal Cancer Companion",
+        "he": "מלווה סרטן המעי הגס"
+      },
+      "published": "2026-10-25",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
     }
   ],
   "indexnow_key": "202581197bc1993e3ed16425b36cb189"

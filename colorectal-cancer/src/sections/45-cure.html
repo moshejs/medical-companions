@@ -1,0 +1,75 @@
+<!-- ================= 4.5 TOWARD A CURE ================= -->
+<style>
+#m-cure .card>.ev{align-self:flex-start}
+#m-cure .card[hidden]{display:none}
+#m-cure .card .cu-src{font:500 11.5px/1.4 var(--mono);color:var(--muted)}
+#m-cure .cu-count{font:500 12px var(--mono);color:var(--muted)}
+#m-cure .tbl table{min-width:620px}
+</style>
+<section class="mod" id="m-cure" data-mod="cure" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Toward a cure</h2>
+    <p class="lede">Where research is pushing next: a blood test for tumour DNA that decides who needs chemotherapy, immunotherapy before surgery, vaccines, new RAS drugs, exercise, aspirin and smarter screening. Each route carries an evidence label.</p></div>
+  <div class="stepper" id="cuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="cuSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="The DYNAMIC trial as two groups of 100 person icons after surgery for stage II colon cancer. In the ctDNA-guided group a blood test sorts people into ctDNA-negative and ctDNA-positive; only positive people get chemotherapy. Counters build to chemotherapy use of 15% versus 28% with standard care, then two-year recurrence-free survival of 93.5% versus 92.4%."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuPlay">Play</button><label class="stage-cap tl" for="cuT">Trial timeline <input type="range" id="cuT" min="0" max="1" step="0.001" value="0.58"></label></div>
+      <div class="readout" id="cuRead"></div>
+      <p class="stage-cap">Schematic: each icon stands for 1% of an arm, not a trial participant, and which icons recur is illustrative. Percentages are published trial figures for groups. [[Tie2022]]</p>
+    </div>
+    <aside class="note" id="cuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">DYNAMIC-III: stage III, three years on</h3>
+  <p class="prose">In stage III colon cancer, 72.5% of 968 evaluable patients were ctDNA-negative after surgery. Being ctDNA-positive predicted recurrence strongly, but changing the chemotherapy did not change that. Choose a split and drag through 36 months. [[Tie2025]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Split"><span class="kicker">Split</span>
+        <button class="btn" data-cud3="pn" aria-pressed="true">ctDNA-negative vs positive</button>
+        <button class="btn" data-cud3="q" aria-pressed="false">By ctDNA burden (lowest vs highest quartile)</button>
+      </div>
+      <div class="scroll"><svg id="cuD3" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A bar showing 72.5% of patients ctDNA-negative after surgery, above schematic recurrence-free survival curves over 36 months that end at the published three-year rates: 87% for ctDNA-negative and 49% for ctDNA-positive, or 77% and 23% for the lowest and highest ctDNA-burden quartiles."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuD3Play">Play</button><label class="stage-cap tl" for="cuD3T">Months <input type="range" id="cuD3T" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap">Schematic curves drawn through the published 3-year rates; real curves differ in shape. [[Tie2025]]</p>
+    </div>
+    <aside class="note" id="cuD3Note" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Routes toward a cure, with evidence labels</h3>
+  <div class="ctrls" role="group" aria-label="Filter by evidence"><span class="kicker">Show</span>
+    <button class="btn" data-cuf="all" aria-pressed="true">All</button>
+    <button class="btn" data-cuf="est" aria-pressed="false">Established</button>
+    <button class="btn" data-cuf="early" aria-pressed="false">Early evidence</button>
+    <button class="btn" data-cuf="hyp" aria-pressed="false">Hypothesis</button>
+    <span class="cu-count" id="cuCount" aria-live="polite"></span>
+  </div>
+  <div class="cards" id="cuCards">
+    <div class="card" data-ev="est"><span class="ev est">Established</span><h4>ctDNA-guided adjuvant therapy, stage II</h4><p>DYNAMIC: chemotherapy only for ctDNA-positive patients cut chemotherapy use to 15% vs 28%, with non-inferior 2-year recurrence-free survival (93.5% vs 92.4%). [[Tie2022]]</p><p class="cu-src">One RCT, in stage II colon cancer</p></div>
+    <div class="card" data-ev="est"><span class="ev est">Established</span><h4>ctDNA as a recurrence warning</h4><p>In GALAXY, ctDNA positivity 4 weeks after surgery carried an HR of 10.0 for recurrence; in the 2240-patient update, HR 11.99 for DFS and 9.68 for OS. Sustained clearance on chemotherapy gave 24-month DFS of 89.0%, transient clearance 3.3%. True spontaneous clearance was rare (1.9%). [[Kotani2023,Nakamura2024]]</p><p class="cu-src">Prognostic, stage II–IV resectable CRC</p></div>
+    <div class="card" data-ev="early"><span class="ev early">Early evidence</span><h4>ctDNA de-escalation, stage III</h4><p>In DYNAMIC-III ctDNA-negative patients, de-escalation cut oxaliplatin use (34.8% vs 88.6%) and hospitalisation (8.5% vs 13.2%), but RFS was slightly lower (85.3% vs 88.1%) and missed the non-inferiority margin. Not standard. [[Tie2025]]</p><p class="cu-src">Phase 2/3 randomised</p></div>
+    <div class="card" data-ev="early"><span class="ev early">Early evidence</span><h4>Treating ctDNA-positive disease harder</h4><p>Escalated chemotherapy in DYNAMIC-III did not improve 2-year RFS (51% vs 61%). In ALTAIR, 6 months of trifluridine/tipiracil for ctDNA-positive patients without visible disease did not significantly improve DFS (HR 0.79, 0.60–1.05), with grade ≥3 haematological events of 73.0% vs 3.3%. CIRCULATE-US is recruiting (estimated n=1912). [[Tie2025,Bando2026,NCT05174169]]</p><p class="cu-src">New strategies needed</p></div>
+    <div class="card" data-ev="early"><span class="ev early">Early evidence</span><h4>Immunotherapy before surgery, dMMR colon cancer</h4><p>NICHE-2: neoadjuvant nivolumab plus ipilimumab gave a major pathological response in 95% and a complete response in 68% of 111 patients. 98% had timely surgery, 4% grade 3–4 immune-related events, and no recurrence at 26 months' median follow-up. [[Chalabi2024]]</p><p class="cu-src">Single-arm</p></div>
+    <div class="card" data-ev="early"><span class="ev early">Early evidence</span><h4>Organ preservation in dMMR rectal cancer</h4><p>Dostarlimab gave a clinical complete response in all of the first 12 patients, and in all 49 who completed treatment in the expanded rectal cohort, without chemoradiotherapy or surgery; 2-year RFS across 117 early-stage dMMR tumours was 92%. For mostly pMMR rectal cancer, OPRA's 3-year organ preservation was 53% vs 41%. [[Cercek2022,Cercek2025,GarciaAguilar2022]]</p><p class="cu-src">Single-arm; OPRA randomised phase 2</p></div>
+    <div class="card" data-ev="early"><span class="ev early">Early evidence</span><h4>A KRAS vaccine (ELI-002)</h4><p>AMPLIFY-201 (25 patients, 5 with colorectal cancer, all with residual mutant-KRAS disease): the lymph-node-targeted vaccine induced mKRAS-specific T cells in 84%. Strong T-cell responders had median RFS not reached vs 3.02 months (HR 0.12) in exploratory, non-randomised comparisons. [[Pant2024,Wainberg2025]]</p><p class="cu-src">Phase 1</p></div>
+    <div class="card" data-ev="hyp"><span class="ev hyp">Hypothesis</span><h4>KRAS inhibitors beyond G12C</h4><p>MRTX1133, a non-covalent KRAS G12D inhibitor, caused regression in preclinical models, enhanced by co-targeting EGFR or PI3Kα. RMC-7977, a RAS(ON) multi-selective inhibitor, worked across RAS genotypes in preclinical models; the related daraxonrasib (RMC-6236) is in a recruiting phase 1/2 trial (<span class="ev early">Early evidence</span>). [[Hallin2022,Holderfield2024,NCT05379985]]</p><p class="cu-src">Preclinical; first-in-human trial</p></div>
+    <div class="card" data-ev="est"><span class="ev est">Established</span><h4>Exercise after chemotherapy</h4><p>CHALLENGE (889 patients after adjuvant chemotherapy for colon cancer): a 3-year structured exercise programme improved DFS (HR 0.72); 5-year DFS 80.3% vs 73.9% and 8-year OS 90.3% vs 83.2%. Musculoskeletal adverse events 18.5% vs 11.5%. [[Courneya2025]]</p><p class="cu-src">Phase 3 RCT</p></div>
+    <div class="card" data-ev="est"><span class="ev est">Established</span><h4>Aspirin for everyone after CRC: no</h4><p>ASCOLT (1550 patients): aspirin 200 mg daily for 3 years after standard adjuvant therapy did not improve 5-year DFS (77.0% vs 74.8%; HR 0.91). An established null result. [[Chia2025]]</p><p class="cu-src">Phase 3 RCT</p></div>
+    <div class="card" data-ev="early"><span class="ev early">Early evidence</span><h4>Aspirin for PI3K-altered tumours</h4><p>ALASCCA: low-dose aspirin cut 3-year recurrence to 7.7% vs 14.1% in PIK3CA exon 9/20 hotspot tumours (HR 0.49), and 7.7% vs 16.8% with other PI3K-pathway alterations. Severe adverse events 16.8% vs 11.6%. Add-Aspirin has no colorectal efficacy results yet. [[Martling2025,NCT02804815]]</p><p class="cu-src">Single positive RCT</p></div>
+    <div class="card" data-ev="est"><span class="ev est">Established</span><h4>Blood-based screening tests</h4><p>ECLIPSE (7861 evaluable average-risk adults): a cfDNA blood test detected 83.1% of colorectal cancers and 87.5% of stage I–III cancers, but only 13.2% of advanced precancerous lesions. Specificity for advanced neoplasia was 89.6%. [[Chung2024]]</p><p class="cu-src">Established performance; see the screening module</p></div>
+    <div class="card" data-ev="early"><span class="ev early">Early evidence</span><h4>AI-assisted colonoscopy (CADe)</h4><p>Across 44 RCTs, computer-aided detection raised the adenoma detection rate from 36.7% to 44.7%, but advanced neoplasia per colonoscopy was unchanged and it removed almost 2 extra non-neoplastic polyps per 10 colonoscopies. Whether it lowers cancer deaths is not yet shown. [[Soleymanjahi2024,Hassan2021]]</p><p class="cu-src">Detection established; effect on deaths unknown</p></div>
+    <div class="card" data-ev="hyp"><span class="ev hyp">Hypothesis</span><h4>Why cancer is rising under 50</h4><p>Incidence under 55 has risen 1–2% a year since the mid-1990s. Colibactin mutational signatures from pks+ E. coli were 3.3 times more common in people diagnosed before 40 than after 70, acquired early; the authors suggest early-life exposure "may contribute". [[Siegel2023CRC,PleguezuelosManzano2020,DiazGay2025]]</p><p class="cu-src">Mechanism shown in organoids; cause unproven</p></div>
+  </div>
+
+  <h3 class="sub">The ctDNA trials at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Question</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>DYNAMIC</td><td>455, stage II colon</td><td>Chemotherapy only if ctDNA-positive?</td><td>Chemotherapy 15% vs 28%; 2-year RFS 93.5% vs 92.4% (non-inferior). [[Tie2022]]</td></tr>
+      <tr><td>DYNAMIC-III</td><td>968 evaluable, stage III colon</td><td>De-escalate if negative, escalate if positive?</td><td>3-year RFS 87% negative vs 49% positive. De-escalation missed non-inferiority; escalation did not help. [[Tie2025]]</td></tr>
+      <tr><td>GALAXY (CIRCULATE-Japan)</td><td>1039, then 2240, stage II–IV resectable</td><td>How well does ctDNA predict recurrence?</td><td>HR 10.0 for recurrence; DFS HR 11.99 in the update. [[Kotani2023,Nakamura2024]]</td></tr>
+      <tr><td>ALTAIR</td><td>243 ctDNA-positive, no visible disease</td><td>Does early trifluridine/tipiracil help?</td><td>No significant DFS gain (median 9.30 vs 5.55 months; HR 0.79; P=0.107). [[Bando2026]]</td></tr>
+      <tr><td>CIRCULATE-US</td><td>Estimated 1912, colon</td><td>ctDNA-guided adjuvant chemotherapy</td><td>Phase 2/3, recruiting. [[NCT05174169]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout"><b>Reading these results.</b> A strong prognostic test is not yet a treatment: knowing who is likely to relapse helps only when a treatment changes that course. Recurrence-free survival figures are group statistics from trials, not predictions for one person. [[Tie2025,Bando2026]]</p>
+</section>
