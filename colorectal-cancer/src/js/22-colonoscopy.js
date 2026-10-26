@@ -75,7 +75,7 @@ inits.colonoscopy=()=>{
       s+=`<line x1="${f1(x-2)}" x2="${f1(x+R*.16+2)}" y1="${f1(base-h*2/3)}" y2="${f1(base-h*2/3)}" style="stroke:var(--ink);stroke-dasharray:2 2;opacity:.5"/>`;
       s+=`<text x="${f1(x+R*.08)}" y="${f1(base+12)}" class="t-xs t-mid">${nm[i]}</text><text x="${f1(x+R*.08)}" y="${f1(base-h*now/3-4)}" class="t-xs t-mid" style="fill:var(--ink)">${now}</text>`});
     const ok=sc.every(v=>v>=2)&&p>.85;
-    s+=`<text x="${cx}" y="${f1(cy+R*.48)}" class="t-lbl t-mid">BBPS ${tot}/9</text><text x="${f1(cx+R*.33)}" y="${f1(cy+R*.31)}" class="t-xs t-mid">right · transverse · left</text>`;
+    s+=`<text x="${cx}" y="${f1(cy+R*.48)}" class="t-lbl t-mid">BBPS ${tot}/9</text><text x="${f1(cx+R*.33)}" y="${f1(cy+R*.35)}" class="t-xs t-mid">right · transverse · left</text>`;
     s+=`<text x="${cx}" y="${f1(cy+R*.64)}" class="t-xs t-mid" style="fill:${p>.85?(ok?'var(--good)':'var(--bad)'):'var(--muted)'}">${p>.85?(ok?'adequate: ≥2 in every segment':'inadequate: a segment below 2'):'dashed line = score 2'}</text>`;
     return s}
   function draw(t){
@@ -142,7 +142,7 @@ inits.colonoscopy=()=>{
   const qs=$('#coQual'),adr=$('#coAdr'),wdr=$('#coWd'),qn=$('#coQualNote');
   const TG=[[20,'<20%','var(--bad)'],[25,'25%','var(--warn)'],[30,'♀30','var(--good)'],[35,'35%','var(--good)'],[40,'♂40','var(--good)'],[50,'post-FIT 50','var(--accent)']];
   function drawQ(){
-    const N=vb(qs,'720 320','400 640'),a=+adr.value,w=+wdr.value;
+    const N=vb(qs,'720 320','400 670'),a=+adr.value,w=+wdr.value;
     $('#coAdrV').textContent=a+'%';$('#coWdV').textContent=w+' min';
     adr.setAttribute('aria-valuetext',a+' percent');wdr.setAttribute('aria-valuetext',w+' minutes');
     const gx=N?200:190,gy=N?190:200,gr=N?140:150,ang=v=>Math.PI*(1-clamp(v,0,60)/60);
@@ -165,7 +165,7 @@ inits.colonoscopy=()=>{
     const wt=w<6?['Under 6 minutes: linked to 2.3 times the','interval-cancer rate (IRR 2.3).']:w<8?['≥6 minutes: neoplasia found in 28.3% vs 11.8%','for faster endoscopists; target average is ≥8.']:['Meets the ≥8-minute average target','for normal colonoscopies.'];
     s+=`<text x="${wx}" y="${wy+58}" class="t-xs" style="fill:var(--ink)">${wt[0]}</text><text x="${wx}" y="${wy+71}" class="t-xs" style="fill:var(--ink)">${wt[1]}</text>`;
     /* Corley quintiles */
-    const qx=N?40:430,qy=N?600:290,qw=N?340:270,qh=N?160:130,Q=[9.8,8.6,8.0,7.0,4.8];
+    const qx=N?40:430,qy=N?630:290,qw=N?340:270,qh=N?160:130,Q=[9.8,8.6,8.0,7.0,4.8];
     s+=`<text x="${N?20:410}" y="${qy-qh-26}" class="t-lbl">Interval cancers per 10,000 person-years</text><text x="${N?20:410}" y="${qy-qh-12}" class="t-xs">by physician ADR quintile (Kaiser Permanente)</text>`;
     Q.forEach((v,i)=>{const bw=qw/5-14,x=qx+i*qw/5,h=v/10*qh;
       s+=`<rect x="${f1(x)}" y="${f1(qy-h)}" width="${f1(bw)}" height="${f1(h)}" rx="3" style="fill:var(--accent);opacity:${f1(.45+i*.12)}"/><text x="${f1(x+bw/2)}" y="${f1(qy-h-4)}" class="t-xs t-mid" style="fill:var(--ink)">${v.toFixed(1)}</text><text x="${f1(x+bw/2)}" y="${qy+12}" class="t-xs t-mid">Q${i+1}</text>`});

@@ -5,8 +5,8 @@ const BM_GW={root:{x:8,y:176,w:100,h:46,t:['mCRC:','tumour tested']},mmr:{x:136,
  braf:{x:386,y:140,w:90,h:46,t:['BRAF','V600E?']},side:{x:494,y:186,w:62,h:46,t:['Side']},g12c:{x:386,y:290,w:90,h:46,t:['KRAS','G12C?']},her2:{x:262,y:340,w:96,h:46,t:['HER2','IHC + ISH']},
  L1:{x:596,y:20,w:118,h:40,t:['Immunotherapy','PD-1 ± CTLA-4']},L2:{x:596,y:74,w:118,h:40,t:['BRAF inhibitor','+ anti-EGFR']},L3:{x:596,y:128,w:118,h:40,t:['Chemo +','anti-EGFR']},
  L4:{x:596,y:182,w:118,h:40,t:['Chemo +','anti-VEGF']},L5:{x:596,y:236,w:118,h:40,t:['Chemo ± anti-VEGF','no anti-EGFR']},L6:{x:596,y:290,w:118,h:40,t:['G12C inhibitor','+ anti-EGFR']},L7:{x:596,y:344,w:118,h:40,t:['HER2-targeted','later line']}};
-const BM_GN={root:{x:30,y:8,w:120,h:40,t:['mCRC:','tumour tested']},mmr:{x:30,y:76,w:120,h:40,t:['MMR / MSI']},ras:{x:30,y:150,w:120,h:40,t:['RAS','KRAS + NRAS']},
- braf:{x:30,y:224,w:120,h:40,t:['BRAF V600E?']},side:{x:30,y:298,w:120,h:40,t:['Side']},g12c:{x:30,y:420,w:120,h:40,t:['KRAS G12C?']},her2:{x:30,y:560,w:120,h:40,t:['HER2','IHC + ISH']},
+const BM_GN={root:{x:30,y:8,w:112,h:40,t:['mCRC:','tumour tested']},mmr:{x:30,y:76,w:112,h:40,t:['MMR / MSI']},ras:{x:30,y:150,w:112,h:40,t:['RAS','KRAS + NRAS']},
+ braf:{x:30,y:224,w:112,h:40,t:['BRAF V600E?']},side:{x:30,y:298,w:112,h:40,t:['Side']},g12c:{x:30,y:420,w:112,h:40,t:['KRAS G12C?']},her2:{x:30,y:560,w:112,h:40,t:['HER2','IHC + ISH']},
  L1:{x:196,y:76,w:196,h:40,t:['Immunotherapy','PD-1 ± CTLA-4']},L2:{x:196,y:224,w:196,h:40,t:['BRAF inhibitor','+ anti-EGFR']},L3:{x:196,y:280,w:196,h:40,t:['Chemo + anti-EGFR']},
  L4:{x:196,y:330,w:196,h:40,t:['Chemo + anti-VEGF']},L5:{x:196,y:404,w:196,h:40,t:['Chemo ± anti-VEGF','no anti-EGFR']},L6:{x:196,y:454,w:196,h:40,t:['G12C inhibitor','+ anti-EGFR']},L7:{x:196,y:560,w:196,h:40,t:['HER2-targeted','later line']}};
 const bmR=b=>[b.x+b.w,b.y+b.h/2],bmL=b=>[b.x,b.y+b.h/2],bmB=b=>[b.x+b.w/2,b.y+b.h],bmTp=b=>[b.x+b.w/2,b.y];
@@ -20,11 +20,11 @@ function bmEdges(G,N){const E={};
     E.eGn=[bmEl(bmR(G.g12c),bmL(G.L5),536),[540,276,'start','other']];E.eGy=[bmEl(bmR(G.g12c),bmL(G.L6),536),[540,328,'start','G12C']];
     E.eH0=[[bmB(G.root),[bmB(G.root)[0],bmL(G.her2)[1]],bmL(G.her2)],[64,300,'start','also tested']];E.eH1=[[bmR(G.her2),bmL(G.L7)],[470,358,'mid','HER2-positive']]}
   else{const c=90;E.e0=[[bmB(G.root),bmTp(G.mmr)],null];E.eD=[[bmR(G.mmr),bmL(G.L1)],[173,90,'mid','dMMR']];
-    E.eP=[[bmB(G.mmr),bmTp(G.ras)],[96,137,'start','pMMR']];E.eRw=[[bmB(G.ras),bmTp(G.braf)],[96,211,'start','wild-type']];
+    E.eP=[[bmB(G.mmr),bmTp(G.ras)],[92,137,'start','pMMR']];E.eRw=[[bmB(G.ras),bmTp(G.braf)],[92,211,'start','wild-type']];
     E.eRm=[[bmL(G.ras),[16,bmL(G.ras)[1]],[16,bmL(G.g12c)[1]],bmL(G.g12c)],[20,412,'start','mutant']];
-    E.eBv=[[bmR(G.braf),bmL(G.L2)],[173,238,'mid','V600E']];E.eBw=[[bmB(G.braf),bmTp(G.side)],[96,285,'start','WT']];
-    E.eSl=[bmEl(bmR(G.side),bmL(G.L3)),[168,304,'end','left']];E.eSr=[bmEl(bmR(G.side),bmL(G.L4)),[168,346,'end','right']];
-    E.eGn=[bmEl(bmR(G.g12c),bmL(G.L5)),[168,428,'end','other']];E.eGy=[bmEl(bmR(G.g12c),bmL(G.L6)),[168,468,'end','G12C']];
+    E.eBv=[[bmR(G.braf),bmL(G.L2)],[173,238,'mid','V600E']];E.eBw=[[bmB(G.braf),bmTp(G.side)],[92,285,'start','WT']];
+    E.eSl=[bmEl(bmR(G.side),bmL(G.L3)),[171,312,'end','left']];E.eSr=[bmEl(bmR(G.side),bmL(G.L4)),[171,346,'end','right']];
+    E.eGn=[bmEl(bmR(G.g12c),bmL(G.L5)),[171,434,'end','other']];E.eGy=[bmEl(bmR(G.g12c),bmL(G.L6)),[171,468,'end','G12C']];
     E.eH0=[[bmL(G.root),[6,bmL(G.root)[1]],[6,bmL(G.her2)[1]],bmL(G.her2)],[12,546,'start','also tested']];E.eH1=[[bmR(G.her2),bmL(G.L7)],[173,574,'mid','HER2+']];void c}
   return E}
 /* the lit path for a set of results: edges in order, leaves reached */
