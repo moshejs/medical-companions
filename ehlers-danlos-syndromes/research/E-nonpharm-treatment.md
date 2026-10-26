@@ -26,7 +26,7 @@ Access notes:
 - hEDS is described largely in people with musculoskeletal complaints: joint hypermobility, subluxations and dislocations, and skin and soft-tissue features. Many report activity-related pain, and some go on to daily pain. This is the clinical picture physiotherapy targets [[Tinkle2017]].
 - The UK NIHR HTA feasibility study (pilot RCT, 29 participants) compared a one-off advice session with advice plus six 30-minute physiotherapy sessions over 4 months. Recruitment was hard because patients did not see equipoise. Physiotherapy showed promise, the advice-only arm had more adverse events, and the authors judged a definitive RCT feasible [[Palmer2016]].
 - A 2022 masterclass recommends early recognition and a biopsychosocial, patient-empowerment approach to functional restoration [[Simmonds2022]].
-- In a 2011 Belgian survey of 79 people with EDS-HT, 51.9% were in a physical therapy programme. Only 63.4% of those reported a positive outcome, compared with 33.9% of those who had surgery [[Rombaut2011]].
+- In a 2011 Belgian survey of 79 people with EDS-HT, 51.9% were in a physical therapy programme. Only 63.4% of those reported a positive outcome, compared with 33.9% of those who had surgery [[Rombaut2011E]].
 - The 2019 Perspective in Physical Therapy notes that many people with HSD/hEDS report pain and iatrogenic injuries "due to inappropriate interventions", and calls for a holistic, multisystem approach [[Russek2019]].
 - The first Chinese EDS guidelines (GRADE method, 29 recommendations, experts from 24 fields) describe rehabilitation as "long-term participation". Personalised clinic- or home-based plans target joint instability, hypotonia, joint pain, low bone density, breathlessness, writing difficulty and POTS-related symptoms [[Xu2024EDS]].
 
@@ -137,7 +137,7 @@ Access notes:
 - Higher fear of movement at baseline was linked to more shoulder pain and lower quality of life after 16 weeks of exercise [[Dolso2023]].
 
 ### pain · Fatigue and sleep
-- More than three-quarters of 273 people with EDS reported severe fatigue. It was linked to sleep disturbance, concentration problems, social functioning, low self-efficacy about fatigue and pain. The authors proposed these as targets for cognitive behavioural therapy for fatigue [[Voermans2010]].
+- More than three-quarters of 273 people with EDS reported severe fatigue. It was linked to sleep disturbance, concentration problems, social functioning, low self-efficacy about fatigue and pain. The authors proposed these as targets for cognitive behavioural therapy for fatigue [[Voermans2010E]].
 - The 2017 fatigue consensus says fatigue care in hEDS should first exclude anaemia, hypothyroidism and infection. It should then address sleep disorders, pain, deconditioning, autonomic dysfunction and nutrition, and usually needs "skilled physical therapy" to prevent deconditioning. No medicine treats fatigue itself [[Hakim2017Fatigue]].
 - A meta-analysis of 7 EDS studies found a pooled obstructive sleep apnoea prevalence of 39.4% (95% CI 28.8–51.1). EDS/Marfan patients combined had about six times the odds of OSA (OR 6.28) [[Sedky2019]].
 - In 68 adults with hEDS/HSD and OSA matched to 68 controls with OSA, CPAP use was similar (about 75%). Epworth sleepiness fell by 4.46 in controls (p<0.05) but by only 1.56 in hEDS/HSD (not significant). Insomnia was more common in hEDS/HSD (44.7% vs 34.3%) [[Zhang2026OSA]].
@@ -165,7 +165,7 @@ Access notes:
 - Children's knee pain fell by 14.5 mm on a VAS after 8 weeks of exercise, whether exercising into hyperextension or only to neutral [[Pacey2013]].
 - A multidisciplinary programme added nothing over standard advice at 12 months in 119 hypermobile children [[Bale2019]].
 - In one cohort, 93% of people with JHS/EDS-HT had high kinesiophobia scores [[Celletti2013]].
-- More than three-quarters of people with EDS have severe fatigue [[Voermans2010]].
+- More than three-quarters of people with EDS have severe fatigue [[Voermans2010E]].
 - Inspiratory muscle training for 6 weeks raised 6-minute walk distance by 60 m in women with hEDS [[Reychler2019]].
 - The UK JHS cognitive behavioural pain-management programme ran 8 days over 6 weeks, and most gains remained at 5 months (except pain intensity) [[Rahman2014]].
 - BIoH smallest detectable change = 42 points [[Palmer2017SDC]].
@@ -181,7 +181,7 @@ Access notes:
 - Start gently and build up step by step over weeks. In one trial, people spent 3 weeks learning the moves before using heavier weights [[Liaghat2022BJSM]].
 - Feeling a little sore after exercise is common and usually passes. In one study, heavier training caused only a small rise in pain during exercise [[Liaghat2022BJSM,Liaghat2025]].
 - Many people with hypermobility fear that moving will hurt them. Good programmes help people move with more confidence [[Celletti2013,Hakimi2023]].
-- Tiredness is very common. Sleep problems, pain and low fitness all add to it, and doctors should check for other causes [[Voermans2010,Hakim2017Fatigue]].
+- Tiredness is very common. Sleep problems, pain and low fitness all add to it, and doctors should check for other causes [[Voermans2010E,Hakim2017Fatigue]].
 - Pain programmes that mix exercise with learning new ways to think about and handle pain can help. Benefits may fade, so keep practising [[Rahman2014,Clark2024Psych]].
 - Braces, compression clothing and shoe inserts help some people. The proof is still early [[Benistan2023,Boulu2025,Maarj2023]].
 - For children, simple advice and encouragement to stay active may work as well as complex programmes [[Bale2019]].
@@ -231,10 +231,10 @@ Access notes:
 - trial_attrition_range | per trial | 0-44 | % | [[Palmer2021]]
 - psych_review_enrolled_vs_analysed | review total | 628 / 343 | participants | [[Clark2024Psych]]
 - kinesiophobia_high_tsk | cross-sectional | 93 | % of patients | [[Celletti2013]]
-- severe_fatigue_eds | cross-sectional | >75 | % of patients | [[Voermans2010]]
+- severe_fatigue_eds | cross-sectional | >75 | % of patients | [[Voermans2010E]]
 - severe_pain_hEDS | cross-sectional | 43 | % | [[Kalisch2020]]
-- physio_positive_outcome | cross-sectional | 63.4 | % of those in physiotherapy | [[Rombaut2011]]
-- surgery_positive_outcome | cross-sectional | 33.9 | % of those operated | [[Rombaut2011]]
+- physio_positive_outcome | cross-sectional | 63.4 | % of those in physiotherapy | [[Rombaut2011E]]
+- surgery_positive_outcome | cross-sectional | 33.9 | % of those operated | [[Rombaut2011E]]
 - knee_injury_contact_sport_OR | meta-analysis | 4.69 | odds ratio | [[Pacey2010]]
 - shoulder_injury_athletes_OR | meta-analysis | 3.25 | odds ratio | [[Liaghat2021]]
 - osa_prevalence_eds | meta-analysis | 39.4 | % | [[Sedky2019]]
@@ -329,14 +329,14 @@ Access notes:
 - [Simmonds2022] Simmonds JV. Masterclass: Hypermobility and hypermobility related disorders. Musculoskelet Sci Pract. 2022;57:102465. PMID 34808594; doi:10.1016/j.msksp.2021.102465. (validated: PubMed)
 - [Germain2007] Germain DP. Ehlers-Danlos syndrome type IV. Orphanet J Rare Dis. 2007;2:32. PMID 17640391; PMCID PMC1971255; doi:10.1186/1750-1172-2-32. (validated: PubMed)
 - [Xu2024EDS] Xu K, Li G, Wu Z, Zhang TJ, Wu N. Diagnosis and treatment of the Ehlers-Danlos syndromes in China: synopsis of the first guidelines. Orphanet J Rare Dis. 2024;19(1):194. PMID 38741208; PMCID PMC11092078; doi:10.1186/s13023-024-03121-0. (validated: PubMed)
-- [Rombaut2011] Rombaut L, Malfait F, De Wandele I, Cools A, Thijs Y, De Paepe A, et al. Medication, surgery, and physiotherapy among patients with the hypermobility type of Ehlers-Danlos syndrome. Arch Phys Med Rehabil. 2011;92(7):1106-12. PMID 21636074; doi:10.1016/j.apmr.2011.01.016. (validated: PubMed)
+- [Rombaut2011E] Rombaut L, Malfait F, De Wandele I, Cools A, Thijs Y, De Paepe A, et al. Medication, surgery, and physiotherapy among patients with the hypermobility type of Ehlers-Danlos syndrome. Arch Phys Med Rehabil. 2011;92(7):1106-12. PMID 21636074; doi:10.1016/j.apmr.2011.01.016. (validated: PubMed)
 - [Zhang2026OSA] Zhang KL, Wallon R, Laukaitis CM, Davies C. Obstructive sleep apnea and CPAP efficacy in patients with Hypermobile Ehlers-Danlos syndrome and hypermobility spectrum disorder: a case-control study. Sleep Breath. 2026;30(4). PMID 42417930; PMCID PMC13346149; doi:10.1007/s11325-026-03763-3. (validated: PubMed)
 - [Sedky2019] Sedky K, Gaisl T, Bennett DS. Prevalence of Obstructive Sleep Apnea in Joint Hypermobility Syndrome: A Systematic Review and Meta-Analysis. J Clin Sleep Med. 2019;15(2):293-299. PMID 30736885; PMCID PMC6374081; doi:10.5664/jcsm.7636. (validated: PubMed)
 - [DeBaets2022] De Baets S, Cruyt E, Calders P, Dewandele I, Malfait F, Vanderstraeten G, et al. Societal participation in ehlers-danlos syndromes and hypermobility spectrum disorder, compared to fibromyalgia and healthy controls. PLoS One. 2022;17(6):e0269608. PMID 35709306; PMCID PMC9202833; doi:10.1371/journal.pone.0269608. (validated: PubMed)
 - [Izumi2025] Izumi R, Hayashi K, Sato M, Yamaguchi T, Suzuki A, Nakaya Y, et al. Intramuscular hemorrhage during rehabilitation in a post-stroke patient with vascular Ehlers-Danlos syndrome: a case report and review of spasticity-related muscle injury. Front Rehabil Sci. 2025;6:1638656. PMID 41020269; PMCID PMC12464579; doi:10.3389/fresc.2025.1638656. (validated: PubMed)
 - [Pacey2010] Pacey V, Nicholson LL, Adams RD, Munn J, Munns CF. Generalized joint hypermobility and risk of lower limb joint injury during sport: a systematic review with meta-analysis. Am J Sports Med. 2010;38(7):1487-97. PMID 20601606; doi:10.1177/0363546510364838. (validated: PubMed)
 - [Liaghat2021] Liaghat B, Pedersen JR, Young JJ, Thorlund JB, Juul-Kristensen B, Juhl CB. Joint hypermobility in athletes is associated with shoulder injuries: a systematic review and meta-analysis. BMC Musculoskelet Disord. 2021;22(1):389. PMID 33902511; PMCID PMC8077913; doi:10.1186/s12891-021-04249-x. (validated: PubMed)
-- [Voermans2010] Voermans NC, Knoop H, van de Kamp N, Hamel BC, Bleijenberg G, van Engelen BG. Fatigue is a frequent and clinically relevant problem in Ehlers-Danlos Syndrome. Semin Arthritis Rheum. 2010;40(3):267-74. PMID 19878973; doi:10.1016/j.semarthrit.2009.08.003. (validated: PubMed)
+- [Voermans2010E] Voermans NC, Knoop H, van de Kamp N, Hamel BC, Bleijenberg G, van Engelen BG. Fatigue is a frequent and clinically relevant problem in Ehlers-Danlos Syndrome. Semin Arthritis Rheum. 2010;40(3):267-74. PMID 19878973; doi:10.1016/j.semarthrit.2009.08.003. (validated: PubMed)
 - [Voermans2011] Voermans NC, Knoop H, Bleijenberg G, van Engelen BG. Fatigue is associated with muscle weakness in Ehlers-Danlos syndrome: an explorative study. Physiotherapy. 2011;97(2):170-4. PMID 21497252; doi:10.1016/j.physio.2010.06.001. (validated: PubMed)
 - [Mittal2021] Mittal N, Santa Mina D, Buryk-Iggers S, Lopez-Hernandez L, Hussey L, Franzese A, et al. The GoodHope Exercise and Rehabilitation (GEAR) Program for People With Ehlers-Danlos Syndromes and Generalized Hypermobility Spectrum Disorders. Front Rehabil Sci. 2021;2:769792. PMID 36188836; PMCID PMC9397788; doi:10.3389/fresc.2021.769792. (validated: PubMed)
 - [Knight2023Tele] Knight DRT, Bruno KA, Gehin JM, Lothman KA, Leschitz J, Lazo AL, et al. The Impact of a Group Telemedicine Program for Chronic Disease: A Retrospective Cohort Survey Study on Hypermobile Ehlers-Danlos Syndrome and Hypermobility Spectrum Disorder. Telemed J E Health. 2023;29(2):261-269. PMID 35687402; doi:10.1089/tmj.2022.0092. (validated: PubMed)

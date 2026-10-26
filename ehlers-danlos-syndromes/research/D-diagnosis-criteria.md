@@ -9,30 +9,30 @@ Access notes:
 - The NCBI Bookshelf (GeneReviews hEDS NBK1279 and vEDS NBK1494) returned a reCAPTCHA page. I did not try to get past it, so I cite no GeneReviews chapter.
 - Ritelli2024 (the 327-patient Italian cohort) is paywalled, and its abstract gives no per-criterion percentages. I quote only what the abstract states.
 - The 2026 revision status comes from two Ehlers-Danlos Society web pages (not in PubMed or Crossref). They are marked unverified.
-- Beighton1973 and Grahame2000 have no abstract in PubMed. Facts about them come from reviews that describe them (Malek2021, Remvig2007), and those reviews are cited alongside.
+- Beighton1973 and Grahame2000 have no abstract in PubMed. Facts about them come from reviews that describe them (Malek2021D, Remvig2007), and those reviews are cited alongside.
 
 ## Findings
 
 ### beighton · The nine Beighton manoeuvres
 - The Beighton score (BS) is a 9-point score made of 5 manoeuvres, 4 of them done on both sides, scoring 1 point per side. The fifth, trunk flexion, scores 1 point [[Thwaites2022,Carroll2023]].
-- Item 1 (2 points): passive dorsiflexion of the fifth finger (little finger metacarpophalangeal joint) to 90° or more. Malek describes it as "beyond 90°", and the figure redrawn from Malfait 2017 gives "≥ 90°" [[Thwaites2022,Malek2021,Malfait2017]].
+- Item 1 (2 points): passive dorsiflexion of the fifth finger (little finger metacarpophalangeal joint) to 90° or more. Malek describes it as "beyond 90°", and the figure redrawn from Malfait 2017 gives "≥ 90°" [[Thwaites2022,Malek2021D,Malfait2017]].
 - Item 2 (2 points): passive apposition of the thumb to the volar (flexor) surface of the same-side forearm [[Thwaites2022,Carroll2023]].
 - Item 3 (2 points): hyperextension of the elbow by 10° or more [[Thwaites2022,Carroll2023]].
 - Item 4 (2 points): hyperextension of the knee by 10° or more [[Thwaites2022,Carroll2023]].
 - Item 5 (1 point): forward flexion of the trunk so that both palms rest flat on the floor, with knees locked straight and feet together [[Thwaites2022,Carroll2023]].
-- Beighton and colleagues adapted the BS in 1973 from the 1964 Carter and Wilkinson score, in a study of joint mobility in an African population. They replaced hyperextension of all the finger joints with the little finger beyond 90°, and ankle dorsiflexion with trunk flexion [[Malek2021,Beighton1973]].
-- The BS was built as an epidemiological screening tool, not a diagnostic test. The original paper gives no evidence-based reason for its choice of joints or for its usual adult cut-off of 4 or more out of 9 (Established) [[Malek2021]].
-- Two-thirds of the scored joints are in the upper limbs. Major joints such as the shoulders, hips and ankles are not scored, only one plane of motion is tested, and the score shows whether hypermobility is present but not how severe it is [[Malek2021]].
-- The BS does not correlate with shoulder laxity. In 160 people aged 16–35, a positive BS (4 or more) had low sensitivity and low positive predictive value for shoulder laxity, and raising the cut-off to 6 or more did not help [[Malek2021]].
-- In a study of over 100 people strongly suspected of having EDS, 45 had a negative BS (below 4), yet their average shoulder (glenohumeral) abduction was still 20° above normal [[Malek2021]].
-- Trunk flexion can be trained (as in ballet dancers) and is limited by short hamstrings. In one study of over 200 hypermobile people (BS 5 or more), 84.2% could not do the trunk-flexion manoeuvre [[Malek2021]].
-- Malek and colleagues conclude that the BS should not be the main tool for telling localised from generalised hypermobility, and should not be used alone to rule out generalised joint hypermobility (GJH). They give more weight to the clinician's overall judgement (Established, expert review) [[Malek2021]].
+- Beighton and colleagues adapted the BS in 1973 from the 1964 Carter and Wilkinson score, in a study of joint mobility in an African population. They replaced hyperextension of all the finger joints with the little finger beyond 90°, and ankle dorsiflexion with trunk flexion [[Malek2021D,Beighton1973]].
+- The BS was built as an epidemiological screening tool, not a diagnostic test. The original paper gives no evidence-based reason for its choice of joints or for its usual adult cut-off of 4 or more out of 9 (Established) [[Malek2021D]].
+- Two-thirds of the scored joints are in the upper limbs. Major joints such as the shoulders, hips and ankles are not scored, only one plane of motion is tested, and the score shows whether hypermobility is present but not how severe it is [[Malek2021D]].
+- The BS does not correlate with shoulder laxity. In 160 people aged 16–35, a positive BS (4 or more) had low sensitivity and low positive predictive value for shoulder laxity, and raising the cut-off to 6 or more did not help [[Malek2021D]].
+- In a study of over 100 people strongly suspected of having EDS, 45 had a negative BS (below 4), yet their average shoulder (glenohumeral) abduction was still 20° above normal [[Malek2021D]].
+- Trunk flexion can be trained (as in ballet dancers) and is limited by short hamstrings. In one study of over 200 hypermobile people (BS 5 or more), 84.2% could not do the trunk-flexion manoeuvre [[Malek2021D]].
+- Malek and colleagues conclude that the BS should not be the main tool for telling localised from generalised hypermobility, and should not be used alone to rule out generalised joint hypermobility (GJH). They give more weight to the clinician's overall judgement (Established, expert review) [[Malek2021D]].
 
 ### beighton · Age, sex and ancestry
-- Hypermobility is commonest in young children and declines with age, quickly through childhood and more slowly in adulthood. A review lists GJH (BS 4 or more) in 64.6% of children aged 4–7, 35.6% at age 10, 9.4% at ages 12–13 and 11.7% at ages 13–19 [[Malek2021]].
-- In one population dataset, the probability of meeting GJH (BS 4 or more) fell by 5.5% for each extra year of age. Among 200 people over 70, nobody scored above 2 [[Malek2021]].
-- In one hypermobile cohort, most diagnosed people older than 33 no longer reached a BS of 4 [[Malek2021]].
-- GJH is more common in females at all ages, and the sex gap widens around age 14. Several studies report lower GJH prevalence in white populations than in Asian, African and Arab populations (Established) [[Malek2021,Remvig2007]].
+- Hypermobility is commonest in young children and declines with age, quickly through childhood and more slowly in adulthood. A review lists GJH (BS 4 or more) in 64.6% of children aged 4–7, 35.6% at age 10, 9.4% at ages 12–13 and 11.7% at ages 13–19 [[Malek2021D]].
+- In one population dataset, the probability of meeting GJH (BS 4 or more) fell by 5.5% for each extra year of age. Among 200 people over 70, nobody scored above 2 [[Malek2021D]].
+- In one hypermobile cohort, most diagnosed people older than 33 no longer reached a BS of 4 [[Malek2021D]].
+- GJH is more common in females at all ages, and the sex gap widens around age 14. Several studies report lower GJH prevalence in white populations than in Asian, African and Arab populations (Established) [[Malek2021D,Remvig2007]].
 - In 551 Dutch schoolchildren aged 6–12, measured with goniometry, more than 35% scored above 5/9. A high BS went with greater range of motion in 16 other joint movements, so the BS was a valid measure of generalised mobility at this age [[Smits-Engelsman2011]].
 - In the same 551 children, 12.3% had joint pain, independent of their BS [[Smits-Engelsman2011]].
 - In 207 Swedish 11-year-olds examined at school, the median BS was 1 (IQR 0–2) with no sex difference. A score of 6 or more was close to the 95th percentile in both sexes, which supports the paediatric cut-off of 6 or more [[Glans2025]].
@@ -43,7 +43,7 @@ Access notes:
 - That review's recommendation for clinical use: in adults, BS with a cut-point of 5 of 9 "including historical information"; in children, BS of at least 6 of 9 [[Juul-Kristensen2017]].
 - In a three-phase study (40 patients in the test phase), inter-examiner kappa was 0.74 for diagnosing GJH and 0.84 for benign joint hypermobility syndrome (BJHS). Item kappas were generally above 0.80, except the fifth fingers and elbows (0.60 or more) [[Juul-Kristensen2007]].
 - A 2021 systematic review (24 studies, 1,333 people aged 4–71) found that 12 of 19 inter-rater kappa values (63.2%) and 5 of 8 intraclass correlation coefficients (62.5%) were substantial to almost perfect [[Bockhorn2021]].
-- A narrative review reports that most BS reliability studies give kappa values of 0.4–0.8 (moderate). Kappa below 0.6 has been called inadequate for clinical or research use [[Malek2021]].
+- A narrative review reports that most BS reliability studies give kappa values of 0.4–0.8 (moderate). Kappa below 0.6 has been called inadequate for clinical or research use [[Malek2021D]].
 - In 49 healthy adults measured in degrees with a structured protocol, inter-rater ICC for total scores was 0.72–0.82. Raters' readings agreed within 5° for all but one joint, and the standard error of measurement was 1.0–6.9° [[Schlager2018]].
 - In 149 patients assessed for ME/CFS, the BS agreed only poorly with clinicians' judgement of systemic joint laxity (kappa 0.39 at the 3-point cut-off; 0.39 and 0.45 at the 4- and 5-point cut-offs) [[Bernhoff2022]].
 - In 97 adults at a specialised EDS clinic, joint angles estimated from smartphone video correlated moderately with goniometer readings: elbow rho 0.722, knee 0.608, shoulder 0.632 and fifth finger 0.786. Ankle estimates did not correlate significantly [[Sabo2024]].
@@ -161,7 +161,7 @@ Access notes:
 ### hsd · The hypermobility spectrum framework
 - The 2017 framework introduced "hypermobility spectrum disorders" as diagnostic labels for people with symptomatic joint hypermobility who do not fit any other syndrome with joint hypermobility, including hEDS [[Castori2017]].
 - The 2017 terminology replaces the terms EDS type III, EDS hypermobility type, hypermobility syndrome, joint hypermobility syndrome and BJHS [[Carroll2023]].
-- Joint hypermobility (JH) on its own is a descriptor, not a diagnosis. Asymptomatic JH, the HSDs and hEDS are placed on one spectrum, and a person may move between categories as symptoms change [[Carroll2023,Malek2021]].
+- Joint hypermobility (JH) on its own is a descriptor, not a diagnosis. Asymptomatic JH, the HSDs and hEDS are placed on one spectrum, and a person may move between categories as symptoms change [[Carroll2023,Malek2021D]].
 - Localised JH affects a single joint or a few joints. GJH involves 5 or more joints, across all four limbs and the axial skeleton [[Carroll2023]].
 - Peripheral JH is limited to the hands and/or feet [[Carroll2023]].
 - Historical JH is GJH reported by the person (via the 5PQ) with a negative BS on examination [[Carroll2023]].
@@ -307,11 +307,11 @@ Access notes:
 - The Loeys-Dietz triad is arterial tortuosity and aneurysms, hypertelorism, and bifid uvula or cleft palate [[Loeys2006]].
 - Thumb sign = Steinberg sign; wrist sign = Walker-Murdoch sign [[Pollock2021]].
 - vEDS median survival was 48 years in Pepin 2000 and 51 years in Pepin 2014 (population statistics) [[Pepin2000,Pepin2014]].
-- Reported BS inter-rater kappa ranges from about 0.4 to 0.8, while a three-phase study found kappa 0.74 for GJH [[Malek2021,Juul-Kristensen2007]].
+- Reported BS inter-rater kappa ranges from about 0.4 to 0.8, while a three-phase study found kappa 0.74 for GJH [[Malek2021D,Juul-Kristensen2007]].
 
 ### In plain words
-- The Beighton score is a quick 9-point check of how far some of your joints bend. A high score means you are bendy. It does not mean you have EDS [[Malek2021]].
-- Many healthy children are very flexible, and most people get stiffer with age, so the pass mark depends on your age [[Tofts2023,Malek2021]].
+- The Beighton score is a quick 9-point check of how far some of your joints bend. A high score means you are bendy. It does not mean you have EDS [[Malek2021D]].
+- Many healthy children are very flexible, and most people get stiffer with age, so the pass mark depends on your age [[Tofts2023,Malek2021D]].
 - If you used to be very flexible but are not now, five simple questions about your past can help a doctor take that into account [[Hakim2003]].
 - No blood or gene test can confirm hypermobile EDS yet. Doctors decide by using a checklist and examining you [[Malfait2017,Yew2021]].
 - The hEDS checklist looks at joint flexibility, skin and body features, family members with hEDS and joint problems. It also checks that nothing else explains the symptoms [[Fairweather2025]].
@@ -319,18 +319,18 @@ Access notes:
 - The other types of EDS, including vascular EDS, are confirmed with a genetic test [[Malfait2017,Byers2017]].
 - Vascular EDS is rare but serious. A sudden tear in a blood vessel or the bowel at a young age, or a family history of this, is a reason to ask about genetic testing [[Pepin2000,Shalhub2020]].
 - Many people wait years for a diagnosis. Surveys report average delays of 10 to 22 years [[Daylor2025,Wang2024AJMG,Berg2026]].
-- A score you work out at home is not a diagnosis. Please bring your questions to a clinician [[Malek2021,Cooper2018]].
+- A score you work out at home is not a diagnosis. Please bring your questions to a clinician [[Malek2021D,Cooper2018]].
 - The international rules for diagnosing EDS and HSD are being rewritten, and the new version is expected at the end of 2026 [[EDSSociety2026]].
 
 ## Numbers for the animations
 - beighton_cutoff_hEDS | prepubertal | 6 | points of 9 (≥) | [[Tofts2023]]
 - beighton_cutoff_hEDS | puberty_to_50 | 5 | points of 9 (≥) | [[Fairweather2025]]
 - beighton_cutoff_hEDS | over_50 | 4 | points of 9 (≥) | [[Fairweather2025]]
-- gjh_prevalence_bs4 | age_4_7 | 64.6 | % | [[Malek2021]]
-- gjh_prevalence_bs4 | age_10 | 35.6 | % | [[Malek2021]]
-- gjh_prevalence_bs4 | age_12_13 | 9.4 | % | [[Malek2021]]
-- gjh_prevalence_bs4 | age_13_19 | 11.7 | % | [[Malek2021]]
-- gjh_probability_change | per_year_of_age | -5.5 | % per year | [[Malek2021]]
+- gjh_prevalence_bs4 | age_4_7 | 64.6 | % | [[Malek2021D]]
+- gjh_prevalence_bs4 | age_10 | 35.6 | % | [[Malek2021D]]
+- gjh_prevalence_bs4 | age_12_13 | 9.4 | % | [[Malek2021D]]
+- gjh_prevalence_bs4 | age_13_19 | 11.7 | % | [[Malek2021D]]
+- gjh_probability_change | per_year_of_age | -5.5 | % per year | [[Malek2021D]]
 - bs_median_school | age_11 | 1 | points (IQR 0–2) | [[Glans2025]]
 - bs_95th_percentile | age_11 | 6 | points | [[Glans2025]]
 - fivepq_sensitivity | cohort1 | 84 | % | [[Hakim2003]]
@@ -397,10 +397,10 @@ Access notes:
 ## Open questions and controversies
 - Are hEDS and HSD one condition or two? Position A: they are a single entity with the same treatment needs. Aubry-Rozier found few differences; Ritelli found a shared plasma signature (Early evidence); the Society reports a "shared biological spectrum" (unverified) [[Aubry-Rozier2021,Ritelli2025,EDSSociety2025]]. Position B: structural features differ, with prolapses more frequent in hEDS and functional disorders more frequent in HSD [[Fairweather2025]]. Status: the revised criteria are due December 2026 [[EDSSociety2026]].
 - Are the 2017 hEDS criteria too strict? An Italian centre proposes loosening them [[Ritelli2024]]. Severity clusters do not follow the old or new criteria [[Copetti2019]]. Status: unresolved until the revision appears.
-- Should the BS be the gatekeeper for GJH? It is the standard in all criteria [[Malfait2017,Juul-Kristensen2017]]. But it misses the shoulders, hips and ankles, its cut-offs lack an evidence base, and it can be negative in suspected EDS [[Malek2021]]. Its agreement with clinicians' judgement of systemic laxity is poor [[Bernhoff2022]].
-- How reliable is the BS? Bockhorn calls it "highly reliable" (most kappas substantial to almost perfect) [[Bockhorn2021]]. Malek reports kappas of 0.4–0.8, with some below the 0.6 adequacy threshold [[Malek2021]]. Juul-Kristensen rates the evidence limited to conflicting [[Juul-Kristensen2017]].
+- Should the BS be the gatekeeper for GJH? It is the standard in all criteria [[Malfait2017,Juul-Kristensen2017]]. But it misses the shoulders, hips and ankles, its cut-offs lack an evidence base, and it can be negative in suspected EDS [[Malek2021D]]. Its agreement with clinicians' judgement of systemic laxity is poor [[Bernhoff2022]].
+- How reliable is the BS? Bockhorn calls it "highly reliable" (most kappas substantial to almost perfect) [[Bockhorn2021]]. Malek reports kappas of 0.4–0.8, with some below the 0.6 adequacy threshold [[Malek2021D]]. Juul-Kristensen rates the evidence limited to conflicting [[Juul-Kristensen2017]].
 - Cut-off notation: open reproductions of the 2017 table print ">6, >5, >4" [[Thwaites2022,Aubry-Rozier2021]], while others state "≥ 6/9" and "≥ 5/9 ... ≥ 4/9" [[Tofts2023,Fairweather2025]]. This pass uses ≥, matching the consortium's paediatric paper and the measurement review [[Juul-Kristensen2017]]. The original table (Malfait2017, paywalled) was not read directly.
-- Angle thresholds: sources describe the fifth finger as "beyond 90°" [[Malek2021]] or "≥ 90°" [[Thwaites2022,Carroll2023]], and the elbow and knee as "≥ 10°" [[Thwaites2022]]. The brief's ">90°" and ">10°" could not be checked against the paywalled original.
+- Angle thresholds: sources describe the fifth finger as "beyond 90°" [[Malek2021D]] or "≥ 90°" [[Thwaites2022,Carroll2023]], and the elbow and knee as "≥ 10°" [[Thwaites2022]]. The brief's ">90°" and ">10°" could not be checked against the paywalled original.
 - Paediatric GJH thresholds differ widely. More than 35% of Dutch 6–12-year-olds scored above 5 [[Smits-Engelsman2011]], against a median of 1 in Swedish 11-year-olds, where 6 or more was near the 95th percentile [[Glans2025]]. The paediatric framework keeps 6 or more [[Tofts2023]].
 - Do piezogenic papules belong in Feature A? They are common in healthy children (16–72%), with no significant difference from HSD/hEDS in one adolescent dataset [[Schubert-Hjalmarsson2026]].
 - Wrist and thumb sign names are swapped between sources: Fairweather's hEDS table and Pollock's Marfan review pair the names oppositely [[Fairweather2025,Pollock2021]].
@@ -424,7 +424,7 @@ Access notes:
 - [Hakim2003] Hakim AJ, Grahame R. A simple questionnaire to detect hypermobility: an adjunct to the assessment of patients with diffuse musculoskeletal pain. Int J Clin Pract. 2003;57(3):163-6. PMID 12723715. (validated: PubMed)
 - [Bockhorn2021] Bockhorn LN, Vera AM, Dong D, Delgado DA, Varner KE, Harris JD. Interrater and Intrarater Reliability of the Beighton Score: A Systematic Review. Orthop J Sports Med. 2021;9(1):2325967120968099. PMID 33786328; PMCID PMC7960900; doi:10.1177/2325967120968099. (validated: PubMed)
 - [Smits-Engelsman2011] Smits-Engelsman B, Klerks M, Kirby A. Beighton score: a valid measure for generalized hypermobility in children. J Pediatr. 2011;158(1):119-23, 123.e1-4. PMID 20850761; doi:10.1016/j.jpeds.2010.07.021. (validated: PubMed)
-- [Malek2021] Malek S, Reinhold EJ, Pearce GS. The Beighton Score as a measure of generalised joint hypermobility. Rheumatol Int. 2021;41(10):1707-1716. PMID 33738549; PMCID PMC8390395; doi:10.1007/s00296-021-04832-4. (validated: PubMed)
+- [Malek2021D] Malek S, Reinhold EJ, Pearce GS. The Beighton Score as a measure of generalised joint hypermobility. Rheumatol Int. 2021;41(10):1707-1716. PMID 33738549; PMCID PMC8390395; doi:10.1007/s00296-021-04832-4. (validated: PubMed)
 - [Juul-Kristensen2007] Juul-Kristensen B, Røgind H, Jensen DV, Remvig L. Inter-examiner reproducibility of tests and criteria for generalized joint hypermobility and benign joint hypermobility syndrome. Rheumatology (Oxford). 2007;46(12):1835-41. PMID 18006569; doi:10.1093/rheumatology/kem290. (validated: PubMed)
 - [Grahame2000] Grahame R, Bird HA, Child A. The revised (Brighton 1998) criteria for the diagnosis of benign joint hypermobility syndrome (BJHS). J Rheumatol. 2000;27(7):1777-9. PMID 10914867. (validated: PubMed)
 - [Remvig2007] Remvig L, Jensen DV, Ward RC. Epidemiology of general joint hypermobility and basis for the proposed criteria for benign joint hypermobility syndrome: review of the literature. J Rheumatol. 2007;34(4):804-9. PMID 17407233. (validated: PubMed)
@@ -483,15 +483,15 @@ Access notes:
 ## Provenance
 - Validation: 67 journal sources were each checked against a PubMed esummary record (authors, title, journal, year, volume, pages, PMID, PMCID, DOI). Abstracts were read through Europe PMC (resultType=core) or PubMed efetch. One trial registry entry was checked on ClinicalTrials.gov (API v2). Two Ehlers-Danlos Society web pages are kept as unverified because they are the only published source for the 2026 revision status.
 - Full texts read (open access, via Europe PMC fullTextXML or PMC efetch):
-  - Aubry-Rozier2021, Tofts2023, Malek2021, Carroll2023, Thwaites2022, Fairweather2025
+  - Aubry-Rozier2021, Tofts2023, Malek2021D, Carroll2023, Thwaites2022, Fairweather2025
   - Shalhub2020, Pollock2021, MacCarrick2014, Ritelli2020OJRD, FozFelipe2025, Wang2026OJRD
 - Paywalled and read at abstract level only: Malfait2017, Tinkle2017, Castori2017, Juul-Kristensen2017, Loeys2010, Ritelli2024 and Ritelli2020ClinGenet. The 2017 criteria wording therefore comes from open-access reproductions (Thwaites2022, which redraws the Beighton figure "from Malfait et al. (2017) with permission", and Fairweather2025), always cited next to the original.
-- Beighton1973 and Grahame2000 have no PubMed abstract. Statements about them rely on Malek2021 and Remvig2007, which are cited alongside. Gensemer2021 is cited from its abstract only (its full text returned server errors).
+- Beighton1973 and Grahame2000 have no PubMed abstract. Statements about them rely on Malek2021D and Remvig2007, which are cited alongside. Gensemer2021 is cited from its abstract only (its full text returned server errors).
 - The NCBI Bookshelf (GeneReviews) served a reCAPTCHA challenge. It was not bypassed, and no GeneReviews chapter is cited.
 - Shared canonical keys checked and correct: Malfait2017 (28306229), Tinkle2017 (28145611), Castori2017 (28145606), Malfait2020 (32732924), Byers2017 (28306228), Pepin2000 (10706896), Frank2015 (25758994), Pepin2014 (24922459), Beighton1973 (4751776), Beighton1998 (9557891), Demmler2019 (31685485), Juul-Kristensen2017 (28306223). Not cited because they fall outside this area: Ong2010, Hakim2017, Engelbert2017, Chopra2017.
 - Aletaha2010 keeps the key and bibliographic text used in the gout companion's sources.json.
 - Dropped:
-  - Per-item Beighton kappas tabulated in Malek2021: the underlying study could not be identified with certainty.
+  - Per-item Beighton kappas tabulated in Malek2021D: the underlying study could not be identified with certainty.
   - Ritelli2024 per-criterion percentages: paywalled.
   - Fibromyalgia 2016 numeric thresholds (WPI/SSS): the PubMed abstract truncates the criteria list.
   - Unconfirmed social-media reports that HSD and hEDS will be merged in the 2026 criteria.

@@ -26,8 +26,8 @@ Corrections and refinements to the brief:
 - Chopra 2017 groups management into physical therapy, medications and durable medical equipment such as cushions, compressive garments and braces. It frames pain treatment around both treating the cause (for example a dislocation) and reducing the sensation of pain (Established as expert consensus; low-level evidence) [[Chopra2017]].
 - A 2026 expert review of drug treatment for hypermobility-related pain searched PubMed, Web of Science, EMBASE, ClinicalTrials.gov and WHO ICTRP. It concluded that current evidence "is low-level and does not support the efficacy of any disease-specific, repurposed, or novel drug" [[Castori2026EOP]].
 - The same review advises one drug at a time, usually at a low dose, with benefit and adverse effects reassessed after a predefined trial. It says drug-only strategies are limited when pain is chronic and mixes nociceptive, neuropathic and nociplastic mechanisms (Early evidence; expert opinion) [[Castori2026EOP]].
-- In a cross-sectional study of 79 people with hEDS (then "EDS hypermobility type"), 92.4% used medications, and analgesics were the most common [[Rombaut2011]].
-- In the same cohort, heavier analgesic use was associated with greater dysfunction in daily life. The study design cannot say which came first [[Rombaut2011]].
+- In a cross-sectional study of 79 people with hEDS (then "EDS hypermobility type"), 92.4% used medications, and analgesics were the most common [[Rombaut2011F]].
+- In the same cohort, heavier analgesic use was associated with greater dysfunction in daily life. The study design cannot say which came first [[Rombaut2011F]].
 - In a retrospective chart review of 98 people with EDS at one US rehabilitation clinic, occupational therapy and bracing were the most effective options, with 70% reporting improvement [[Song2020PainPhysician]].
 - In the same review, neuropathic modulators were the least well tolerated, with 47% of patients reporting adverse effects [[Song2020PainPhysician]].
 - The GeneReviews hEDS chapter says chronic pain in hEDS is "often neuropathic in nature". It recommends "pain management tailored to cause and symptoms" [[Hakim2024GR]].
@@ -210,7 +210,7 @@ Corrections and refinements to the brief:
 ### surgery · Wound closure, joints and the cervical spine
 - Classic EDS wound care (GeneReviews): close dermal wounds without tension, preferably in two layers. Apply deep stitches generously, leave skin stitches in place twice as long as usual, and tape the adjacent skin edges to prevent the scar stretching [[Malfait2024GR]].
 - Classic EDS (GeneReviews): young children with fragile skin can wear pads or bandages over the forehead, knees and shins. Older children can wear soccer pads or ski stockings with shin padding during activities [[Malfait2024GR]].
-- In the hEDS cohort of 79, 70.9% had undergone surgery, mainly on the limbs and abdomen. Only 33.9% of those operated on reported a positive outcome [[Rombaut2011]].
+- In the hEDS cohort of 79, 70.9% had undergone surgery, mainly on the limbs and abdomen. Only 33.9% of those operated on reported a positive outcome [[Rombaut2011F]].
 - Surgical and anaesthetic risk differs by EDS type: the 2026 Delphi panel gives type-specific advice (bleeding work-up for classical, classical-like, kyphoscoliotic and vascular EDS; multimodal and regional strategies for hEDS; caution with neuraxial blocks in vEDS), so vEDS fragility precautions are not applied to every type by default [[Amaral2026]].
 - The EDS consortium's neurology paper describes craniocervical instability, basilar invagination and Chiari I malformation as reported in EDS. It states that consensus criteria and practice guidelines "based upon stronger epidemiological and pathophysiological evidence, are needed" (Early evidence) [[Henderson2017]].
 - Occipito-cervical fixation in hEDS with craniocervical instability is described in case series with opioid-minimising peri-operative protocols. No controlled outcome data were found in this pass (Early evidence) [[RamirezPaesano2023]].
@@ -329,7 +329,7 @@ Corrections and refinements to the brief:
 - surgical_bleeding_complications | no DDAVP | 30 | % | [[Wiesmann2014]]
 - veds_pregnancy_related_death | per delivery | 5.3 | % (30/565) | [[Murray2014GenetMed]]
 - pots_meeting_heds_criteria | prevalence | 31 | % (28/91) | [[Miller2020AutonNeurosci]]
-- heds_surgery_positive_outcome | operated | 33.9 | % | [[Rombaut2011]]
+- heds_surgery_positive_outcome | operated | 33.9 | % | [[Rombaut2011F]]
 - peds_edentulous_age_35_44 | pEDS | 28–47 | % | [[Lepperdinger2022]]
 - peds_edentulous_age_35_44 | general population | <0.25 | % | [[Lepperdinger2022]]
 - discover_trial_milestone | 2022-11-07 | 1 | trial start (actual) | [[NCT05432466]]
@@ -393,7 +393,7 @@ Corrections and refinements to the brief:
 - [ArendtNielsen1990] Arendt-Nielsen L, Kaalund S, Bjerring P, Høgsaa B. Insufficient effect of local analgesics in Ehlers Danlos type III patients (connective tissue disorder). Acta Anaesthesiol Scand. 1990;34(5):358-361. PMID 2389651; doi:10.1111/j.1399-6576.1990.tb03103.x. (validated: Europe PMC)
 - [Amaral2026] Amaral D, Patrick K, Redeker G, Horvath C, Morgan B, Dalley CB. Anesthesia Clinical Practice Guidelines for Ehlers-Danlos Syndrome: A Modified Delphi Survey. AANA J. 2026;94(5):351-358. PMID 42878823; doi:10.70278/aanaj/.0000001099. (validated: Europe PMC)
 - [Bourne2026RAPM] Bourne KM, Thai S, Lei LY, Siddiqui T, Black B, Peltier A, et al. Patients with Ehlers-Danlos syndrome experience reduced effectiveness of lidocaine local anesthetic: a randomized cross-over clinical trial. Reg Anesth Pain Med. 2026 (online ahead of print):rapm-2025-107416. PMID 41775498; PMCID PMC13049915; doi:10.1136/rapm-2025-107416. (validated: Europe PMC)
-- [Rombaut2011] Rombaut L, Malfait F, De Wandele I, Cools A, Thijs Y, De Paepe A, et al. Medication, surgery, and physiotherapy among patients with the hypermobility type of Ehlers-Danlos syndrome. Arch Phys Med Rehabil. 2011;92(7):1106-1112. PMID 21636074; doi:10.1016/j.apmr.2011.01.016. (validated: Europe PMC)
+- [Rombaut2011F] Rombaut L, Malfait F, De Wandele I, Cools A, Thijs Y, De Paepe A, et al. Medication, surgery, and physiotherapy among patients with the hypermobility type of Ehlers-Danlos syndrome. Arch Phys Med Rehabil. 2011;92(7):1106-1112. PMID 21636074; doi:10.1016/j.apmr.2011.01.016. (validated: Europe PMC)
 - [Henderson2017] Henderson FC, Austin C, Benzel E, Bolognese P, Ellenbogen R, Francomano CA, et al. Neurological and spinal manifestations of the Ehlers-Danlos syndromes. Am J Med Genet C Semin Med Genet. 2017;175(1):195-211. PMID 28220607; doi:10.1002/ajmg.c.31549. (validated: Europe PMC)
 - [RamirezPaesano2023] Ramírez-Paesano C, Rodiera Clarens C, Sharp Segovia A, Coila Bustinza A, Rodiera Olive J, Juanola Galceran A. Perioperative opioid-minimization approach as a useful protocol in the management of patients with Ehlers-Danlos syndrome-hypermobility type, craniocervical instability and severe chronic pain who are to undergo occipito-cervical fixation. Orphanet J Rare Dis. 2023;18(1):214. PMID 37491286; doi:10.1186/s13023-023-02829-9. (validated: Europe PMC)
 - [Kelly2024THA] Kelly M, Kagan RP, Yoo J. Increased Opioid Use in Patients With Ehlers-Danlos Syndrome Before and After Total Hip Arthroplasty. Arthroplast Today. 2024;27:101390. PMID 38690094; PMCID PMC11058070; doi:10.1016/j.artd.2024.101390. (validated: Europe PMC)

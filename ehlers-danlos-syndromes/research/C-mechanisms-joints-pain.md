@@ -6,8 +6,8 @@ This pass covers why lax, fragile connective tissue produces the clinical pictur
 
 Access notes:
 - Every source was found and checked through the Europe PMC REST API (core records: authors, title, journal, year, volume, pages, PMID, PMCID, DOI). Numbers come from the abstracts in those records.
-- Four open-access full texts were read through Europe PMC (`/fullTextXML`) for numbers that are not in the abstracts: Ritelli2020 (PMC7393722), Stembridge2023 (PMC9892481), Malek2021 (PMC8390395) and AubryRozier2021 (PMC8390400).
-- The full texts of the 2017 consortium papers (Malfait2017, Tinkle2017, Castori2017, Chopra2017, Hakim2017) and of Malfait2020 were not reachable (publisher site blocked automated access; NCBI Bookshelf returned a CAPTCHA). Statements credited to them come from their abstracts. The skin-measurement thresholds and the hEDS skin items are quoted from two open-access papers that restate the 2017 criteria (Ritelli2020, Stembridge2023).
+- Four open-access full texts were read through Europe PMC (`/fullTextXML`) for numbers that are not in the abstracts: Ritelli2020C (PMC7393722), Stembridge2023 (PMC9892481), Malek2021C (PMC8390395) and AubryRozier2021 (PMC8390400).
+- The full texts of the 2017 consortium papers (Malfait2017, Tinkle2017, Castori2017, Chopra2017, Hakim2017) and of Malfait2020 were not reachable (publisher site blocked automated access; NCBI Bookshelf returned a CAPTCHA). Statements credited to them come from their abstracts. The skin-measurement thresholds and the hEDS skin items are quoted from two open-access papers that restate the 2017 criteria (Ritelli2020C, Stembridge2023).
 - PubMed E-utilities were rate-limited during this pass, so Europe PMC is the validating service for every source.
 - Shared keys used and checked: Malfait2017 (PMID 28306229), Tinkle2017 (28145611), Castori2017 (28145606), Malfait2020 (32732924), Chopra2017 (28186390), Hakim2017 (28160388), Byers2017 (28306228). The other shared keys were not cited because I took no numbers from them in this area.
 - No work cited here is in another companion's `src/sources.json` (checked by PMID).
@@ -61,17 +61,17 @@ Access notes:
 ### joints · Dislocations, subluxations and instability by joint and age
 - hEDS is described as likely the most common hereditary connective tissue disorder. Its picture is mainly joint hypermobility, subluxations and dislocations, and skin and soft-tissue features. Many patients report activity-related pain, and some go on to have daily pain (Established as clinical description) [[Tinkle2017]].
 - In 189 Italian patients with hEDS/joint hypermobility syndrome (aged 2–73), the Beighton score and hypermobility at other joints fell with age at diagnosis. The rate and sites of joint instability complications did not vary with age, except soft-tissue injuries (Early evidence) [[Morlino2017]].
-- In the hEDS natural-history model, the first decade is a "hypermobility" phase, with sprains and strains in about 40%. The second decade is a "pain" phase, with widespread chronic pain, more instability and less hypermobility. A later "stiffness" phase brings a marked loss of hypermobility and lower quality of life (Early evidence; descriptive clinical model) [[Malek2021,Castori2013]].
-- One cited cut-off: after about age 33, most people diagnosed with hypermobility no longer reach a Beighton score of 4 [[Malek2021]].
-- In the general population, the probability of meeting GJH (Beighton ≥4) falls about 5.5% for each additional year of age. In one study of 200 people over 70, nobody scored above 2 [[Malek2021]].
-- In 75 molecularly confirmed people with classical EDS, gJHM complications were [[Ritelli2020]]:
+- In the hEDS natural-history model, the first decade is a "hypermobility" phase, with sprains and strains in about 40%. The second decade is a "pain" phase, with widespread chronic pain, more instability and less hypermobility. A later "stiffness" phase brings a marked loss of hypermobility and lower quality of life (Early evidence; descriptive clinical model) [[Malek2021C,Castori2013]].
+- One cited cut-off: after about age 33, most people diagnosed with hypermobility no longer reach a Beighton score of 4 [[Malek2021C]].
+- In the general population, the probability of meeting GJH (Beighton ≥4) falls about 5.5% for each additional year of age. In one study of 200 people over 70, nobody scored above 2 [[Malek2021C]].
+- In 75 molecularly confirmed people with classical EDS, gJHM complications were [[Ritelli2020C]]:
   - dislocations: 21.3% overall; 34.1% in adults vs 3.2% in children (p = .001)
   - subluxations: 29.3%
   - sprains: 59.1% in adults vs 25.8% in children
   - two or more complications: 73.8% in adults vs 35.7% in children
   - fixed dislocations: 6.7%
   - bilateral pes planus: 82.7%
-- In the same cEDS cohort, dislocations were mainly of the shoulder, digits, hip, radius and clavicle, and usually reduced spontaneously [[Ritelli2020]].
+- In the same cEDS cohort, dislocations were mainly of the shoulder, digits, hip, radius and clavicle, and usually reduced spontaneously [[Ritelli2020C]].
 - In 205 children with EDS (6–19 years; 55.6% hypermobile type) seen in orthopaedic or sports clinics [[Stern2017]]:
   - commonest presenting sites: knee 43.4%, back 32.2%, shoulder 31.2%
   - generic "pain" diagnosis, with no specific cause found: 46.8%
@@ -119,7 +119,7 @@ Access notes:
 - In 84 women with HSD or hEDS, 98.8% reported chronic pain. The mean COMPASS-31 autonomic score was 54.45 (self-selected sample) [[CollinsHutchinson2025]].
 - Pain burden matches fibromyalgia and exceeds rheumatoid arthritis. In 206 women (72 hEDS, 69 fibromyalgia, 65 rheumatoid arthritis), physical and overall function in hEDS was similar to fibromyalgia and worse than rheumatoid arthritis. Pain severity was higher than in rheumatoid arthritis but lower than in fibromyalgia (Established) [[Rombaut2011Pain]].
 - At diagnosis in an Italian registry (n = 96 EDS/HSD), 49% reported moderate-to-severe pain. Independent predictors were older age (OR 1.06 per year), an hEDS rather than HSD diagnosis (OR 6.25, 95% CI 1.31–29.74) and headache (OR 3.97) (Early evidence) [[Morri2026]].
-- Classical EDS also hurts, though usually less. In 19 people with cEDS, 32% rated average pain ≥5/10 over the past month [[Colman2023]]. In 75 people with cEDS, chronic disabling pain was infrequent and opioid use very uncommon [[Ritelli2020]].
+- Classical EDS also hurts, though usually less. In 19 people with cEDS, 32% rated average pain ≥5/10 over the past month [[Colman2023]]. In 75 people with cEDS, chronic disabling pain was infrequent and opioid use very uncommon [[Ritelli2020C]].
 - Pain is multifactorial. Listed contributors include subluxations and dislocations, previous surgery, muscle weakness, proprioceptive disorders and vertebral instability. Pain also arises from the gut, the temporomandibular joint, dysmenorrhoea and vulvodynia (Established as a description; the weight of each cause is unknown) [[Chopra2017]].
 - A practical topographic classification divides pain in joint hypermobility syndrome/hEDS into [[Castori2012]]:
   - articular limb pain (acute or subacute, and chronic)
@@ -214,19 +214,19 @@ Access notes:
 - Of 34 people with EDS referred for fatigue and poor sleep, all had sleep-disordered breathing on polysomnography, including flow limitation. Nasal resistance was raised in those tested, and nasal CPAP improved symptoms (Early evidence; referred series) [[Guilleminault2013]].
 
 ### skin · Measuring skin hyperextensibility
-- Skin hyperextensibility is "formally defined" as stretch beyond a cut-off at 3 of these areas: 1.5 cm at the distal forearms and back of the hands, and 3 cm at the neck, elbows and knees (Established; restating the 2017 criteria) [[Ritelli2020,Malfait2017]].
+- Skin hyperextensibility is "formally defined" as stretch beyond a cut-off at 3 of these areas: 1.5 cm at the distal forearms and back of the hands, and 3 cm at the neck, elbows and knees (Established; restating the 2017 criteria) [[Ritelli2020C,Malfait2017]].
 - A dermatology review describes the cEDS test as lifting the skin more than 1.5 cm from the dorsal surface of the non-dominant distal forearm or the back of the hand. It notes that 3 cm or more at the elbows, lateral neck or knees suggests cEDS, and that other EDS types show lesser extensibility [[Stembridge2023]].
 - Skin hyperextensibility rises with joint hypermobility, and the relation may vary with ethnicity (Early evidence) [[Stembridge2023]].
 - Skin in EDS is also thinner on ultrasound. 20-MHz ultrasound showed reduced skin thickness in 21 people with cEDS and 9 with hEDS, most at the chest and distal lower leg; the authors proposed it as a minor criterion (Early evidence) [[Eisenbeiss2003]].
 - In hEDS, dermal thickness was significantly lower than in controls at the feet and thorax (p = 0.04). Nailfold microhaemorrhages were more common, and both correlated with the Beighton score (r = 0.4 and r ≥ 0.5) (Early evidence; pilot) [[Sulli2024]].
 
 ### skin · How the skin differs by type
-- cEDS skin: in 75 molecularly confirmed people, 92% (69/75) had extensive, widened atrophic scars [[Ritelli2020]]:
+- cEDS skin: in 75 molecularly confirmed people, 92% (69/75) had extensive, widened atrophic scars [[Ritelli2020C]]:
   - papyraceous scars: 65.3%
   - haemosiderotic scars: 54.7%
   - "cigarette paper" scars: 40%
   - 16 of 75 (21.3%) did not meet the combined major skin criterion; 6 had no skin hyperextensibility at all
-- Other cEDS skin features in the same cohort [[Ritelli2020]]:
+- Other cEDS skin features in the same cohort [[Ritelli2020C]]:
   - piezogenic papules of the heels: 86.7%
   - acquired cutis laxa or premature skin ageing: 41.3%
   - striae: 40%
@@ -254,12 +254,12 @@ Access notes:
 - Skin electron microscopy in 85 people with suspected EDS types I–IV [[Hausser1994]]:
   - "composite collagen fibrils" with flower-like cross-sections in the classical-to-hypermobile spectrum
   - in clinically type IV (vascular), a dermis thinned to a third of normal, with small-diameter fibrils
-- Electron microscopy is no longer specific. Of 177 biopsies at the London EDS service, no finding was specific to a subtype, although collagen "flowers" were present in most genetically confirmed cEDS. 71% of people with a confirmed monogenic EDS had an abnormal biopsy (Established) [[Angwin2020]].
+- Electron microscopy is no longer specific. Of 177 biopsies at the London EDS service, no finding was specific to a subtype, although collagen "flowers" were present in most genetically confirmed cEDS. 71% of people with a confirmed monogenic EDS had an abnormal biopsy (Established) [[Angwin2020C]].
 
 ### skin · Piezogenic papules and striae
 - Piezogenic papules are herniations of fat into the dermis that appear on the heels when standing. In 322 healthy Dutch children (4–13 years), 72% had at least one, none were painful, and hypermobile children had the same number as others (Established that the sign is common and non-specific) [[vanStraaten1991]].
 - Painful piezogenic pedal papules were seen in 10 of 29 people with EDS (34.5%). Biopsies showed thin subcutaneous fibrous septa with poor fat compartmentalisation (Early evidence) [[Kahana1987]].
-- In cEDS, piezogenic papules were found in 86.7% and striae in 40%, with striae more frequent in adults and in females [[Ritelli2020]].
+- In cEDS, piezogenic papules were found in 86.7% and striae in 40%, with striae more frequent in adults and in females [[Ritelli2020C]].
 
 ### skin · Bruising and bleeding: the mechanism
 - Easy bruising occurs to a variable degree in all EDS types. It is attributed to fragility of capillaries and perivascular connective tissue. Clotting factors, platelet aggregation and bleeding time are usually normal; only the Hess (Rumpel-Leede) capillary fragility test may be abnormal (Established) [[DePaepe2004]].
@@ -271,15 +271,15 @@ Access notes:
 
 ### skin · Wound healing and dehiscence
 - cEDS skin heals poorly. Its hallmarks are delayed wound healing with atrophic scars and easy bruising (Established) [[Malfait2020,Bowen2017]].
-- In cEDS, the commonest scar types are papyraceous (65.3%), haemosiderotic (54.7%) and cigarette paper (40%). Haemosiderotic scars are more common in the young [[Ritelli2020]].
+- In cEDS, the commonest scar types are papyraceous (65.3%), haemosiderotic (54.7%) and cigarette paper (40%). Haemosiderotic scars are more common in the young [[Ritelli2020C]].
 - In dEDS, skin closure technique and manual handling need special care because of iatrogenic tears (Early evidence) [[Angwin2025]].
 - No cohort-level wound-dehiscence rate for EDS was found in a validated abstract in this pass (see Open questions).
 
 ### Exam hooks
 - 13 EDS types (2017). All except hEDS need a genetic variant for a definite diagnosis [[Malfait2017]].
 - The gene for hEDS is unknown [[Malfait2020]].
-- Skin hyperextensibility cut-off: >1.5 cm at the distal forearm and back of the hand; 3 cm at the neck, elbows and knees [[Ritelli2020,Stembridge2023]].
-- cEDS signature: hyperextensible skin plus widened atrophic (papyraceous, haemosiderotic) scars, present in 92% of confirmed cases [[Ritelli2020]].
+- Skin hyperextensibility cut-off: >1.5 cm at the distal forearm and back of the hand; 3 cm at the neck, elbows and knees [[Ritelli2020C,Stembridge2023]].
+- cEDS signature: hyperextensible skin plus widened atrophic (papyraceous, haemosiderotic) scars, present in 92% of confirmed cases [[Ritelli2020C]].
 - vEDS skin is thin and translucent with visible veins, not markedly hyperextensible [[Stembridge2023]].
 - dEDS: ADAMTS-2 deficiency, extreme skin fragility and redundant skin [[VanDamme2016,Stembridge2023]].
 - Easy bruising in EDS comes from capillary and perivascular fragility. Standard clotting tests are usually normal; the Hess test may be abnormal [[DePaepe2004]].
@@ -288,7 +288,7 @@ Access notes:
 - Women with hEDS have 30% to 49% lower knee strength with normal muscle mass [[Rombaut2012Strength]].
 - 95% of 22 women with hEDS fell in the past year [[Rombaut2011Balance]].
 - Pressure-pain thresholds in hEDS were 2.9 vs 5.2 kg/cm² in controls, even at pain-free sites: generalised hyperalgesia [[Rombaut2015]].
-- hEDS phases: hypermobility, then pain, then stiffness [[Malek2021,Castori2013]].
+- hEDS phases: hypermobility, then pain, then stiffness [[Malek2021C,Castori2013]].
 - Fatigue: more than three-quarters of people with EDS have severe fatigue [[Voermans2010Fatigue]].
 - Orthostatic intolerance: 74.4% in hEDS vs 34.3% in controls [[DeWandele2016]].
 - OSA: 32% in EDS vs 6% in matched controls (OR 5.3) [[Gaisl2017]].
@@ -301,11 +301,11 @@ Access notes:
 - In EDS, the body's "glue" (connective tissue) is looser or weaker than usual, so joints can move too far and skin can stretch or tear [[Malfait2020]].
 - Loose joints do not tell the brain clearly where they are. That makes it easier to land a joint in a bad position and hurt it [[Hall1995,Smith2013BJHS]].
 - Many people with hEDS have weaker muscles even when the muscles look normal in size. Strong, well-controlled muscles help hold joints steady [[Rombaut2012Strength,Scheper2017Strength]].
-- Kids tend to be very bendy. Teens and young adults often have more pain. Later, joints may stiffen up [[Malek2021]].
+- Kids tend to be very bendy. Teens and young adults often have more pain. Later, joints may stiffen up [[Malek2021C]].
 - Long-lasting pain is very common in hEDS. Over time, the nervous system can become "turned up" and feel pain more easily, even in places that are not injured [[Chopra2017,Rombaut2015]].
 - Tiredness in EDS has many causes: pain, poor sleep, dizziness on standing, low activity and weak muscles. Many of these can be worked on [[Krahe2018,DeWandele2016]].
 - Bruising happens because tiny blood vessels and the tissue around them are fragile. Blood clotting tests are usually normal [[DePaepe2004]].
-- In classical EDS, cuts can heal into wide, thin, shiny scars, so wounds need extra care [[Ritelli2020,Bowen2017]].
+- In classical EDS, cuts can heal into wide, thin, shiny scars, so wounds need extra care [[Ritelli2020C,Bowen2017]].
 - In vascular EDS, the skin is often thin enough to show the veins underneath. This type needs a doctor who knows it well [[Stembridge2023,Byers2017]].
 - Small soft bumps on the heels when you stand (piezogenic papules) are common in healthy people too. On their own they do not mean EDS [[vanStraaten1991]].
 - The Beighton score and the hEDS checklist help doctors, but they are not a do-it-yourself test. Only a trained clinician can diagnose EDS or HSD [[Malfait2017,Castori2017]].
@@ -318,16 +318,16 @@ Access notes:
 - knee_strength_deficit_pct | low end | -30 | % vs controls | [[Rombaut2012Strength]]
 - knee_strength_deficit_pct | high end | -49 | % vs controls | [[Rombaut2012Strength]]
 - falls_past_year_pct | hEDS women | 95 | % | [[Rombaut2011Balance]]
-- cEDS_dislocation_pct | children | 3.2 | % | [[Ritelli2020]]
-- cEDS_dislocation_pct | adults | 34.1 | % | [[Ritelli2020]]
-- cEDS_sprain_pct | children | 25.8 | % | [[Ritelli2020]]
-- cEDS_sprain_pct | adults | 59.1 | % | [[Ritelli2020]]
-- cEDS_two_plus_complications_pct | children | 35.7 | % | [[Ritelli2020]]
-- cEDS_two_plus_complications_pct | adults | 73.8 | % | [[Ritelli2020]]
-- hEDS_phase | decade 1 | hypermobility | phase | [[Malek2021]]
-- hEDS_phase | decade 2 | pain | phase | [[Malek2021]]
-- hEDS_phase | later adulthood | stiffness | phase | [[Malek2021]]
-- GJH_probability_change | per year of age | -5.5 | % | [[Malek2021]]
+- cEDS_dislocation_pct | children | 3.2 | % | [[Ritelli2020C]]
+- cEDS_dislocation_pct | adults | 34.1 | % | [[Ritelli2020C]]
+- cEDS_sprain_pct | children | 25.8 | % | [[Ritelli2020C]]
+- cEDS_sprain_pct | adults | 59.1 | % | [[Ritelli2020C]]
+- cEDS_two_plus_complications_pct | children | 35.7 | % | [[Ritelli2020C]]
+- cEDS_two_plus_complications_pct | adults | 73.8 | % | [[Ritelli2020C]]
+- hEDS_phase | decade 1 | hypermobility | phase | [[Malek2021C]]
+- hEDS_phase | decade 2 | pain | phase | [[Malek2021C]]
+- hEDS_phase | later adulthood | stiffness | phase | [[Malek2021C]]
+- GJH_probability_change | per year of age | -5.5 | % | [[Malek2021C]]
 - ped_EDS_presenting_site_pct | knee | 43.4 | % | [[Stern2017]]
 - ped_EDS_presenting_site_pct | back | 32.2 | % | [[Stern2017]]
 - ped_EDS_presenting_site_pct | shoulder | 31.2 | % | [[Stern2017]]
@@ -364,16 +364,16 @@ Access notes:
 - migraine_days_per_month | JHS/hEDS | 15 | days | [[Puledda2015]]
 - migraine_days_per_month | migraine controls | 9.3 | days | [[Puledda2015]]
 - SFN_on_biopsy_pct | hEDS | 61 | % | [[Igharo2023]]
-- skin_stretch_cutoff | forearm/back of hand | 1.5 | cm | [[Ritelli2020]]
-- skin_stretch_cutoff | neck/elbow/knee | 3 | cm | [[Ritelli2020]]
+- skin_stretch_cutoff | forearm/back of hand | 1.5 | cm | [[Ritelli2020C]]
+- skin_stretch_cutoff | neck/elbow/knee | 3 | cm | [[Ritelli2020C]]
 - forearm_skin_extensibility | BJHS | 3.6 | cm | [[Magnusson2001]]
 - forearm_skin_extensibility | controls | 1.3 | cm | [[Magnusson2001]]
-- cEDS_scar_type_pct | any widened atrophic | 92 | % | [[Ritelli2020]]
-- cEDS_scar_type_pct | papyraceous | 65.3 | % | [[Ritelli2020]]
-- cEDS_scar_type_pct | haemosiderotic | 54.7 | % | [[Ritelli2020]]
-- cEDS_scar_type_pct | cigarette paper | 40 | % | [[Ritelli2020]]
+- cEDS_scar_type_pct | any widened atrophic | 92 | % | [[Ritelli2020C]]
+- cEDS_scar_type_pct | papyraceous | 65.3 | % | [[Ritelli2020C]]
+- cEDS_scar_type_pct | haemosiderotic | 54.7 | % | [[Ritelli2020C]]
+- cEDS_scar_type_pct | cigarette paper | 40 | % | [[Ritelli2020C]]
 - piezogenic_papules_pct | healthy children | 72 | % | [[vanStraaten1991]]
-- piezogenic_papules_pct | cEDS | 86.7 | % | [[Ritelli2020]]
+- piezogenic_papules_pct | cEDS | 86.7 | % | [[Ritelli2020C]]
 - bleeding_score_abnormal_pct | EDS | 62 | % | [[Kumskova2023]]
 - bleeding_score_abnormal_pct | controls | 0 | % | [[Kumskova2023]]
 - severe_fatigue_pct | EDS (Dutch survey) | 75 | % (more than three-quarters) | [[Voermans2010Fatigue]]
@@ -388,7 +388,7 @@ Access notes:
 - **Craniocervical instability and fusion:** proponents report improvement after occipitocervical fusion [[Henderson2024]]. Systematic and narrative reviews find level III–V evidence, no agreed radiographic definition, and no high-quality outcome data [[Lohkamp2022,Mao2022]]. Status: unresolved; a prospective multicentre trial has been called for.
 - **Chiari and EDS:** 12.7% of a single surgical centre's Chiari cohort met connective tissue disorder criteria [[Milhorat2007]]. The consensus review calls many neurological associations anecdotal [[Henderson2017]]. Status: association reported; prevalence outside referral centres unknown.
 - **Fascia-centred model:** proposed in a 2025 narrative review [[Wang2025Fascia]]. Status: hypothesis, not tested.
-- **Skin-measurement site:** Ritelli2020 restates the 2017 criteria as the "distal part of the forearms and the dorsum of the hands". Stembridge2023 says "dorsal surface of the non-dominant distal forearm". The brief's "volar forearm" wording could not be checked against the Malfait2017 full text in this pass [[Ritelli2020,Stembridge2023,Malfait2017]].
+- **Skin-measurement site:** Ritelli2020C restates the 2017 criteria as the "distal part of the forearms and the dorsum of the hands". Stembridge2023 says "dorsal surface of the non-dominant distal forearm". The brief's "volar forearm" wording could not be checked against the Malfait2017 full text in this pass [[Ritelli2020C,Stembridge2023,Malfait2017]].
 - **Wound dehiscence rates:** no cohort-level surgical wound dehiscence rate for any EDS type was found in a validated abstract. Statements stay qualitative [[Malfait2020,Bowen2017]].
 - **Fatigue and orthostatic intolerance:** orthostatic intolerance explains part of the fatigue in hEDS [[DeWandele2016,Krahe2018]]. Whether lax venous connective tissue causes it remains a hypothesis [[Rowe1999,Hakim2017]].
 
@@ -446,7 +446,7 @@ Access notes:
 - [Devitt2017] Devitt BM, Smith BN, Stapf R, Tacey M, O'Donnell JM. Generalized Joint Hypermobility Is Predictive of Hip Capsular Thickness. Orthop J Sports Med. 2017;5(4):2325967117701882. PMID 28451620; PMCID PMC5400218; doi:10.1177/2325967117701882. (validated: Europe PMC)
 - [DeCoster2005] De Coster PJ, Van den Berghe LI, Martens LC. Generalized joint hypermobility and temporomandibular disorders: inherited connective tissue disease as a model with maximum expression. J Orofac Pain. 2005;19(1):47-57. PMID 15779539. (validated: Europe PMC)
 - [Morlino2017] Morlino S, Dordoni C, Sperduti I, Venturini M, Celletti C, Camerota F, et al. Refining patterns of joint hypermobility, habitus, and orthopedic traits in joint hypermobility syndrome and Ehlers-Danlos syndrome, hypermobility type. Am J Med Genet A. 2017;173(4):914-929. PMID 28266107; doi:10.1002/ajmg.a.38106. (validated: Europe PMC)
-- [Malek2021] Malek S, Reinhold EJ, Pearce GS. The Beighton Score as a measure of generalised joint hypermobility. Rheumatol Int. 2021;41(10):1707-1716. PMID 33738549; PMCID PMC8390395; doi:10.1007/s00296-021-04832-4. (validated: Europe PMC)
+- [Malek2021C] Malek S, Reinhold EJ, Pearce GS. The Beighton Score as a measure of generalised joint hypermobility. Rheumatol Int. 2021;41(10):1707-1716. PMID 33738549; PMCID PMC8390395; doi:10.1007/s00296-021-04832-4. (validated: Europe PMC)
 - [Castori2013] Castori M, Morlino S, Celletti C, Ghibellini G, Bruschini M, Grammatico P, et al. Re-writing the natural history of pain and related symptoms in the joint hypermobility syndrome/Ehlers-Danlos syndrome, hypermobility type. Am J Med Genet A. 2013;161A(12):2989-3004. PMID 24254847; doi:10.1002/ajmg.a.36315. (validated: Europe PMC)
 - [Castori2012] Castori M, Morlino S, Celletti C, Celli M, Morrone A, Colombi M, et al. Management of pain and fatigue in the joint hypermobility syndrome (a.k.a. Ehlers-Danlos syndrome, hypermobility type): principles and proposal for a multidisciplinary approach. Am J Med Genet A. 2012;158A(8):2055-2070. PMID 22786715; doi:10.1002/ajmg.a.35483. (validated: Europe PMC)
 - [Voermans2010Pain] Voermans NC, Knoop H, Bleijenberg G, van Engelen BG. Pain in ehlers-danlos syndrome is common, severe, and associated with functional impairment. J Pain Symptom Manage. 2010;40(3):370-378. PMID 20579833; doi:10.1016/j.jpainsymman.2009.12.026. (validated: Europe PMC)
@@ -493,13 +493,13 @@ Access notes:
 - [Kumskova2023] Kumskova M, Flora GD, Staber J, Lentz SR, Chauhan AK. Characterization of bleeding symptoms in Ehlers-Danlos syndrome. J Thromb Haemost. 2023;21(7):1824-1830. PMID 37179130; doi:10.1016/j.jtha.2023.04.004. (validated: Europe PMC)
 - [Kahana1987] Kahana M, Feinstein A, Tabachnic E, Schewach-Millet M, Engelberg S. Painful piezogenic pedal papules in patients with Ehlers-Danlos syndrome. J Am Acad Dermatol. 1987;17(2 Pt 1):205-209. PMID 3624559; doi:10.1016/s0190-9622(87)70192-3. (validated: Europe PMC)
 - [vanStraaten1991] van Straaten EA, van Langen IM, Oorthuys JW, Oosting J. Piezogenic papules of the feet in healthy children and their possible relation with connective tissue disorders. Pediatr Dermatol. 1991;8(4):277-279. PMID 1792197; doi:10.1111/j.1525-1470.1991.tb00932.x. (validated: Europe PMC)
-- [Ritelli2020] Ritelli M, Venturini M, Cinquina V, Chiarelli N, Colombi M. Multisystemic manifestations in a cohort of 75 classical Ehlers-Danlos syndrome patients: natural history and nosological perspectives. Orphanet J Rare Dis. 2020;15(1):197. PMID 32736638; PMCID PMC7393722; doi:10.1186/s13023-020-01470-0. (validated: Europe PMC)
+- [Ritelli2020C] Ritelli M, Venturini M, Cinquina V, Chiarelli N, Colombi M. Multisystemic manifestations in a cohort of 75 classical Ehlers-Danlos syndrome patients: natural history and nosological perspectives. Orphanet J Rare Dis. 2020;15(1):197. PMID 32736638; PMCID PMC7393722; doi:10.1186/s13023-020-01470-0. (validated: Europe PMC)
 - [Colman2021] Colman M, Syx D, De Wandele I, Dhooge T, Symoens S, Malfait F. Clinical and molecular characteristics of 168 probands and 65 relatives with a clinical presentation of classical Ehlers-Danlos syndrome. Hum Mutat. 2021;42(10):1294-1306. PMID 34265140; doi:10.1002/humu.24258. (validated: Europe PMC)
 - [VanDamme2016] Van Damme T, Colige A, Syx D, Giunta C, Lindert U, Rohrbach M, et al. Expanding the clinical and mutational spectrum of the Ehlers-Danlos syndrome, dermatosparaxis type. Genet Med. 2016;18(9):882-891. PMID 26765342; doi:10.1038/gim.2015.188. (validated: Europe PMC)
 - [Angwin2025] Angwin C, Byers P, Dulfer E, Ghali N, Harris J, Hausser I, et al. The Natural History of Dermatosparaxis Ehlers Danlos Syndrome: An Adult Case Series. Am J Med Genet A. 2025;197(4):e63957. PMID 39641471; doi:10.1002/ajmg.a.63957. (validated: Europe PMC)
 - [Hausser1994] Hausser I, Anton-Lamprecht I. Differential ultrastructural aberrations of collagen fibrils in Ehlers-Danlos syndrome types I-IV as a means of diagnostics and classification. Hum Genet. 1994;93(4):394-407. PMID 8168810; doi:10.1007/bf00201664. (validated: Europe PMC)
 - [Nielsen2014] Nielsen RH, Couppé C, Jensen JK, Olsen MR, Heinemeier KM, Malfait F, et al. Low tendon stiffness and abnormal ultrastructure distinguish classic Ehlers-Danlos syndrome from benign joint hypermobility syndrome in patients. FASEB J. 2014;28(11):4668-4676. PMID 25122555; doi:10.1096/fj.14-249656. (validated: Europe PMC)
-- [Angwin2020] Angwin C, Ghali N, Baker D, Brady AF, Pope FM, Vandersteen A, et al. Electron microscopy in the diagnosis of Ehlers-Danlos syndromes: correlation with clinical and genetic investigations. Br J Dermatol. 2020;182(3):698-707. PMID 31141158; doi:10.1111/bjd.18165. (validated: Europe PMC)
+- [Angwin2020C] Angwin C, Ghali N, Baker D, Brady AF, Pope FM, Vandersteen A, et al. Electron microscopy in the diagnosis of Ehlers-Danlos syndromes: correlation with clinical and genetic investigations. Br J Dermatol. 2020;182(3):698-707. PMID 31141158; doi:10.1111/bjd.18165. (validated: Europe PMC)
 - [Eisenbeiss2003] Eisenbeiss C, Martinez A, Hagedorn-Greiwe M, Reinhardt DP, Bätge B, Brinckmann J. Reduced skin thickness: a new minor diagnostic criterion for the classical and hypermobility types of Ehlers-Danlos syndrome. Br J Dermatol. 2003;149(4):850-852. PMID 14616379; doi:10.1046/j.1365-2133.2003.05439.x. (validated: Europe PMC)
 - [Sulli2024] Sulli A, Hysa E, Cere A, Lalli F, Pinelli A, Sammorì S, et al. Microvascular status and skin thickness in adults with hypermobile Ehlers-Danlos syndrome: a pilot investigation. Clin Exp Rheumatol. 2024;42(3):682-688. PMID 37976114; doi:10.55563/clinexprheumatol/nrs4mp. (validated: Europe PMC)
 - [Magnusson2001] Magnusson SP, Julsgaard C, Aagaard P, Zacharie C, Ullman S, Kobayasi T, et al. Viscoelastic properties and flexibility of the human muscle-tendon unit in benign joint hypermobility syndrome. J Rheumatol. 2001;28(12):2720-2725. PMID 11764223. (validated: Europe PMC)
@@ -513,14 +513,14 @@ Access notes:
 ## Provenance
 - Validation: all 116 sources were checked against Europe PMC core records (EXT_ID:<PMID> AND SRC:MED). Authors (first six, then et al.), title, journal, year, volume, issue, pages, PMID, PMCID and DOI were taken from those records. The record is the validating service for each line. PubMed E-utilities were rate-limited by parallel passes, so Europe PMC was used throughout.
 - Facts were read from the abstracts in those records. Four open-access full texts were read for numbers not in the abstracts:
-  - Ritelli2020: cEDS feature rates and the skin-stretch cut-offs
+  - Ritelli2020C: cEDS feature rates and the skin-stretch cut-offs
   - Stembridge2023: skin features by type, and the hEDS skin items restated from the 2017 criteria
-  - Malek2021: the hEDS three-phase description, the age 33 cut-off and the 5.5% per year decline
+  - Malek2021C: the hEDS three-phase description, the age 33 cut-off and the 5.5% per year decline
   - AubryRozier2021: hEDS vs HSD
 - Not accessed: full texts of Malfait2017, Tinkle2017, Castori2017, Chopra2017, Hakim2017, Hakim2017Fatigue and Malfait2020. The Wiley site and the PDF route were blocked for automated access, and NCBI Bookshelf (GeneReviews) returned a CAPTCHA. Statements credited to these papers are limited to their abstracts, or to criteria as restated in the open-access papers above.
 - Dropped:
   - Voermans2010Pain percentages (the abstract gives none)
-  - the Castori2013 phase names as a sole source (the abstract does not name them; Malek2021 is co-cited)
+  - the Castori2013 phase names as a sole source (the abstract does not name them; Malek2021C is co-cited)
   - Fernandez 2022 small-fibre neuropathy letter (PMID 35781355; no abstract)
   - Camerota 2011 and Voermans 2011 neuropathic-pain letters (no abstracts)
   - Malfait 2010 cEDS genetics (pass B territory)
