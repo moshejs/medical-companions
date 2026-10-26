@@ -1,5 +1,74 @@
-<!-- ================= 2.2 COLONOSCOPY, ANIMATED (stub, replaced by its builder) ================= -->
+<!-- ================= 2.2 COLONOSCOPY, ANIMATED ================= -->
+<style>
+#m-colonoscopy .tbl table{min-width:560px}
+#m-colonoscopy .card>.ev,#m-colonoscopy .card>.tag{align-self:flex-start}
+#m-colonoscopy .co-rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 18px}
+#m-colonoscopy .co-rg label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700}
+#m-colonoscopy .co-rg input{width:100%}
+</style>
 <section class="mod" id="m-colonoscopy" data-mod="colonoscopy" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Screening</p><h2>Colonoscopy, animated</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Follow one colonoscopy from bowel prep to the pathology pot: the scope travels to the caecum, the real inspection happens on the slow way out, and a polyp is snared and retrieved. Switch to a poor prep to see what stool can hide, then explore the quality measures that separate a good colonoscopy from a quick one.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Bowel preparation"><span class="kicker">Bowel prep</span>
+    <button class="btn" data-coprep="good" aria-pressed="true">Good prep (split dose)</button>
+    <button class="btn" data-coprep="poor" aria-pressed="false">Poor prep</button>
+  </div>
+  <div class="stepper" id="coSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A map of the large bowel beside a round endoscope view. During prep, stool clears from the bowel and bowel preparation scores rise. The scope then travels from the rectum to the caecum while the view flies forward through the folds, and withdraws slowly while a timer counts minutes. A polyp appears in the view, a snare loop closes around it, and it is suctioned out for pathology. With a poor prep the stool stays and hides the polyp."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="coPlay">Play</button><label class="stage-cap tl" for="coT">Procedure <input type="range" id="coT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Schematic, not to scale. Timings are illustrative; the targets drawn are the published quality indicators. [[Rex2024,Lai2009]]</p>
+    </div>
+    <aside class="note" id="coNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Quality: adenoma detection rate and withdrawal time</h3>
+  <p class="prose">The adenoma detection rate (ADR) is the share of an endoscopist's screening colonoscopies that find at least one adenoma. It is the best-studied marker of a careful examination. In Kaiser Permanente (314,872 colonoscopies), physician ADRs ranged from 7.4% to 52.5%, and each 1% rise in ADR was linked to a 3% lower risk of interval cancer (HR 0.97). [[Corley2014]] Move the sliders to compare an endoscopist with the published targets.</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="co-rg">
+        <label for="coAdr">Endoscopist's ADR <span class="kicker" id="coAdrV"></span><input type="range" id="coAdr" min="5" max="55" step="1" value="30"></label>
+        <label for="coWd">Average withdrawal time <span class="kicker" id="coWdV"></span><input type="range" id="coWd" min="3" max="14" step="0.5" value="7"></label>
+      </div>
+      <div class="scroll"><svg id="coQual" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="A semicircular gauge from 0 to 60% adenoma detection rate with a needle at the chosen value and ticks at the published targets; a withdrawal-time bar with marks at 6 and 8 minutes; and bars of interval cancer rates by ADR quintile, falling from 9.8 to 4.8 per 10,000 person-years."></svg></div>
+      <p class="stage-cap">Targets: ACG/ASGE 2024 and ESGE 2017. Quintile bars: Kaiser Permanente cohort; the slider is not mapped onto those quintiles, whose cut-points our sources do not give. [[Rex2024,Kaminski2017ESGE,Kaminski2010,Corley2014,Barclay2006,Shaukat2015]]</p>
+    </div>
+    <aside class="note" id="coQualNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="cards">
+    <div class="card"><span class="tag accent">2024 targets</span><h4>ACG/ASGE quality indicators</h4><p>Screening ADR ≥35% overall (≥40% in men, ≥30% in women), raised from 25% in 2015; ADR ≥50% after a positive stool test; sessile serrated lesion detection ≥6%; adenomas per colonoscopy ≥0.6; caecal intubation ≥95% with photo documentation; adequate prep ≥90%; average withdrawal ≥8 minutes in normal colonoscopies; cold snare for 4–9 mm lesions ≥90%. [[Rex2024]]</p></div>
+    <div class="card"><span class="tag accent">Europe</span><h4>ESGE 2017 minimum standards</h4><p>Adequate bowel prep 90%, caecal intubation 90%, ADR 25%, appropriate polypectomy technique 80%. In Poland's programme, endoscopists with an ADR below 20% had interval-cancer hazard ratios of 10.75–12.50. [[Kaminski2017ESGE,Kaminski2010]]</p></div>
+    <div class="card"><span class="tag good">Improvement works</span><h4>Raising ADR lowers risk</h4><p>Endoscopists who raised their ADR had fewer interval cancers (HR 0.63) and interval-cancer deaths (HR 0.50). Reaching or staying in the top quintile gave HRs of 0.27 and 0.18. [[Kaminski2017Gastro]]</p></div>
+    <div class="card"><span class="tag warn">Misses</span><h4>No colonoscopy sees everything</h4><p>In tandem studies, miss rates were 26% for adenomas, 9% for advanced adenomas and 27% for serrated polyps. Cancers within 5 years of a colonoscopy were more often CIMP-high and MSI-high, suggesting fast-growing pathways. <span class="ev early">Early evidence</span> [[Zhao2019,Nishihara2013]]</p></div>
+  </div>
+
+  <h3 class="sub">After a positive FIT: does waiting matter?</h3>
+  <p class="prose">In 70,124 people with a positive FIT at Kaiser Permanente, colonoscopy within 2–9 months carried no excess risk compared with 8–30 days. Beyond that, the bars climb. Press Play to grow them. [[Corley2017]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coFit" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="A bar chart that grows one time band at a time: colorectal cancers and stage III–IV cancers per 1,000 people with a positive FIT, by time to colonoscopy from 8–30 days to more than 12 months. Cancers stay near 30 per 1,000 up to 6 months, then rise to 43, 49 and 76; advanced-stage cancers rise from 8 to 31."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="coFitPlay">Play</button><label class="stage-cap tl" for="coFitT">Time to colonoscopy <input type="range" id="coFitT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap">Rates per 1,000 people with a positive FIT, by time from the result to colonoscopy. Observational: people seen later may differ in other ways. [[Corley2017]]</p>
+    </div>
+    <aside class="note" id="coFitNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Complications</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Perforation</th><th>Bleeding</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>USPSTF evidence review (screening colonoscopy)</td><td>3.1 per 10,000</td><td>14.6 per 10,000 (major)</td><td>Serious harms of screening colonoscopy [[Lin2021]]</td></tr>
+      <tr><td>Population-based meta-analysis</td><td>0.5 per 1,000; 0.8 with polypectomy</td><td>2.6 per 1,000; 9.8 per 1,000 after polypectomy</td><td>Death 2.9 per 100,000. Bleeding fell from 6.4 to 1.0 per 1,000 from 2001 to 2015 [[Reumkens2016]]</td></tr>
+      <tr><td>CORI cohort (21,375 colonoscopies)</td><td>0.19 per 1,000</td><td>1.59 per 1,000 needing hospital care</td><td>All direct complications 2.01 per 1,000 [[Ko2010]]</td></tr>
+      <tr><td>People aged ≥65</td><td>1.0 per 1,000</td><td>6.3 per 1,000 (GI bleeding)</td><td>Cardiopulmonary events 19.1 per 1,000; perforation IRR 1.6 at ≥80 [[Day2011]]</td></tr>
+      <tr><td>2024 quality indicators</td><td>About 0.04% (1 in 2,500) in screening exams; 0.02–8% in therapeutic exams</td><td>–</td><td>Ranges by type of exam [[Rex2024]]</td></tr>
+    </tbody></table></div>
+  <div class="cards">
+    <div class="card"><span class="tag good">Why it works</span><h4>The National Polyp Study</h4><p>After polypectomy, CRC incidence was 76–90% lower than in three reference groups. With a median 15.8 years of follow-up, there were 12 CRC deaths against 25.4 expected: a 53% reduction. [[Winawer1993,Zauber2012]]</p></div>
+    <div class="card"><span class="tag accent">Comfort</span><h4>CO2 instead of air</h4><p>Using carbon dioxide rather than air to inflate the bowel cut moderate or severe pain after the procedure from 16.7% to 4.2%. [[Bretthauer2016]]</p></div>
+    <div class="card"><span class="tag accent">Definitions</span><h4>Post-colonoscopy cancer</h4><p>The World Endoscopy Organization standardised "post-colonoscopy colorectal cancer" (PCCRC). In England the 3-year PCCRC rate fell from 10.6% for colonoscopies done in 2001 to 7.3% in 2007, depending heavily on the method used. [[Rutter2018,Morris2015]]</p></div>
+  </div>
 </section>

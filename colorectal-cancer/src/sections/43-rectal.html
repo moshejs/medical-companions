@@ -1,5 +1,82 @@
-<!-- ================= 4.3 RECTAL CANCER PATHWAY (stub, replaced by its builder) ================= -->
+<!-- ================= 4.3 RECTAL CANCER PATHWAY ================= -->
+<style>
+#m-rectal .card>.ev,#m-rectal .card>.tag{align-self:flex-start}
+#m-rectal .tbl table{min-width:640px}
+#m-rectal td.num{font-family:var(--mono);font-size:13.5px}
+</style>
 <section class="mod" id="m-rectal" data-mod="rectal" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Rectal cancer pathway</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Rectal cancer is treated differently from colon cancer: it sits low in the pelvis, close to the sphincters, and an MRI scan plans everything. Follow one schematic course month by month, from staging through radiotherapy and chemotherapy to surgery, or to watch-and-wait when the tumour disappears.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Treatment approach">
+    <span class="kicker">Approach</span>
+    <button class="btn" data-re-mode="tnt" aria-pressed="true">Total neoadjuvant therapy (RAPIDO-style)</button>
+    <button class="btn" data-re-mode="std" aria-pressed="false">Standard chemoradiation</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Response at restaging">
+    <span class="kicker">Response at restaging</span>
+    <button class="btn" data-re-resp="part" aria-pressed="true">Tumour still visible</button>
+    <button class="btn" data-re-resp="ccr" aria-pressed="false">Clinical complete response</button>
+  </div>
+  <div class="stepper" id="reSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="reSvg" viewBox="0 0 720 410" style="min-width:560px" role="img" aria-label="A timeline in months with treatment phases, above a cross-section of the rectum in which the tumour shrinks during radiotherapy and chemotherapy. At restaging the path splits: total mesorectal excision, or watch-and-wait with a growing curve of the chance of local regrowth."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rePlay">Play</button><label class="stage-cap tl" for="reT">Months <input type="range" id="reT" min="0" max="1" step="0.001" value="0.01"></label></div>
+      <div class="readout" id="reRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative course; the timings follow the trial schedules only roughly and tumour size is drawn, not measured. Who is offered which approach depends on MRI findings and on a specialist team. [[Bahadoer2021,Benson2022]]</p>
+    </div>
+    <aside class="note" id="reNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Watch-and-wait: what happens next</h3>
+  <div class="ctrls" role="group" aria-label="Data set">
+    <button class="btn" data-re-ww="iwwd" aria-pressed="true">Regrowth (International Watch &amp; Wait Database)</button>
+    <button class="btn" data-re-ww="opra" aria-pressed="false">Organ preservation (OPRA)</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="reWw" viewBox="0 0 720 290" style="min-width:560px" role="img" aria-label="Either the cumulative share of people on watch-and-wait whose tumour regrows, rising to 25.2% at 2 years and then flattening, or the share of people in the OPRA trial who still have their rectum, falling to 41% and 53% at 3 years and 39% and 54% at 5 years."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="reWwPlay">Play</button><label class="stage-cap tl" for="reWwT">Years <input type="range" id="reWwT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="reWwCap"></p>
+    </div>
+    <aside class="note" id="reWwNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">dMMR rectal cancer: immunotherapy instead of everything else?</h3>
+  <p class="prose">A small group of rectal cancers are mismatch-repair deficient (dMMR; see <a href="#biomarkers" data-go="biomarkers">Tumour biomarkers</a>). In a Memorial Sloan Kettering trial, people with stage II–III dMMR rectal cancer were given the PD-1 antibody dostarlimab, every 3 weeks, as their only first treatment. <span class="ev early">Early evidence</span> [[Cercek2022,Cercek2025]]</p>
+  <div class="ctrls" role="group" aria-label="Report">
+    <button class="btn" data-re-dm="2022" aria-pressed="false">Cercek 2022</button>
+    <button class="btn" data-re-dm="2025" aria-pressed="true">Cercek 2025</button>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="reDm" viewBox="0 0 520 250" style="min-width:0" role="img" aria-label="One dot per patient in the dMMR rectal cohort: every patient who completed dostarlimab had a clinical complete response."></svg></div>
+    </div>
+    <aside class="note" id="reDmNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How we got here: the radiotherapy trials</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Comparison</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>Swedish Rectal Cancer Trial (1997)</th><td>1,168 under 80</td><td>5 × 5 Gy then surgery within a week vs surgery alone (before standard TME)</td><td class="num">5-y local recurrence 11% vs 27%; OS 58% vs 48% [[SRCT1997]]</td></tr>
+      <tr><th>Dutch TME trial (2001, 2011)</th><td>1,861</td><td>5 × 5 Gy + TME vs TME alone</td><td class="num">2-y local recurrence 2.4% vs 8.2%; 10-y 5% vs 11%; no overall survival difference [[Kapiteijn2001,vanGijn2011]]</td></tr>
+      <tr><th>German CAO/ARO/AIO-94 (2004, 2012)</th><td>823</td><td>50.4 Gy + 5-FU before vs after surgery</td><td class="num">5-y local relapse 6% vs 13%; grade 3–4 acute toxicity 27% vs 40%; 10-y OS 59.6% vs 59.9% [[Sauer2004,Sauer2012]]</td></tr>
+      <tr><th>Stockholm III (2017)</th><td>840</td><td>5 × 5 Gy immediate vs delayed surgery vs 25 × 2 Gy delayed</td><td>Similar local recurrence; delay lowered complications after short-course RT (OR 0.61) [[Erlandsson2017]]</td></tr>
+      <tr><th>RAPIDO (2021, 2023)</th><td>920, high-risk</td><td>5 × 5 Gy + 6 CAPOX/9 FOLFOX4 + TME vs CRT + TME ± chemo</td><td class="num">3-y disease-related treatment failure 23.7% vs 30.4%; 5-y locoregional recurrence 10% vs 6% [[Bahadoer2021,Dijkstra2023]]</td></tr>
+      <tr><th>PRODIGE 23 (2021)</th><td>461, cT3–4</td><td>FOLFIRINOX before CRT + TME + 3 months chemo vs CRT + TME + 6 months</td><td class="num">3-y DFS 76% vs 69%; HR 0.69 [[Conroy2021]]</td></tr>
+      <tr><th>PROSPECT (2023)</th><td>1,194, T2N+ or T3, sphincter-sparing</td><td>FOLFOX with selective CRT vs CRT</td><td class="num">5-y DFS 80.8% vs 78.6%: non-inferior; about 9 in 10 avoided pelvic radiation [[Schrag2023]]</td></tr>
+      <tr><th>OPRA (2022, 2024)</th><td>324, stage II–III</td><td>Induction vs consolidation chemo around CRT, then watch-and-wait if complete or near-complete response</td><td class="num">5-y TME-free survival 39% vs 54% [[GarciaAguilar2022,Verheij2024]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Where the evidence disagrees</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Controversy</span><h4>Which TNT sequence?</h4><p>RAPIDO lowered disease-related treatment failure but raised 5-year locoregional recurrence after resection (10% vs 6%), more often with a breached mesorectum. PRODIGE 23 improved DFS with FOLFIRINOX before chemoradiation. Which sequence is best remains unresolved. [[Bahadoer2021,Dijkstra2023,Conroy2021]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Skipping radiotherapy</h4><p>PROSPECT supports FOLFOX with selective chemoradiation for T2N+ and T3 tumours suitable for sphincter-sparing surgery: only 9.1% needed chemoradiation before surgery, and 6.5% missed the 20% shrinkage threshold. It does not apply to high-risk tumours such as those threatening the margin, the population of RAPIDO. [[Schrag2023,Bahadoer2021]]</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Is watch-and-wait safe?</h4><p>About a quarter regrow by 2 years, yet survival in registries is high. A pooled analysis of CAO/ARO/AIO-12 (mandatory TME) and OPRA (selective watch-and-wait) found no difference in survival, but it is not randomised. Watch-and-wait is offered in expert centres with intensive surveillance. <span class="ev early">Early evidence</span> [[vanderValk2018,Williams2025]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Dostarlimab and durability</h4><p>Every patient who completed treatment had a clinical complete response, and 2-year recurrence-free survival was 96%. The study is a single-centre-led phase 2; how durable responses are over many years is not yet known, and the US label has no localised rectal indication. [[Cercek2025,FDA-Jemperli]]</p></div>
+  </div>
+  <p class="callout">Recurrence and survival numbers on this page are population statistics from trials and registries. They cannot predict what will happen to one person.</p>
 </section>

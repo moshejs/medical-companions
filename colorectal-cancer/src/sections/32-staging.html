@@ -1,5 +1,121 @@
-<!-- ================= 3.2 STAGING: TNM CALCULATOR (stub, replaced by its builder) ================= -->
+<!-- ================= 3.2 STAGING: TNM CALCULATOR ================= -->
+<style>
+#m-staging .stgrp{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-staging .stgrp .kicker{min-width:118px}
+#m-staging .stgrp .btn{padding:7px 11px;font-family:var(--mono);font-size:13px}
+#m-staging .stcalc{display:flex;flex-direction:column;gap:12px}
+#m-staging .stbig{font:800 44px/1 var(--display);color:var(--tumour)}
+#m-staging .stbig small{font:600 13px var(--mono);color:var(--muted);letter-spacing:.06em;margin-left:8px;vertical-align:middle}
+#m-staging .stchk{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 18px}
+@media (max-width:700px){#m-staging .stchk{grid-template-columns:minmax(0,1fr)}}
+#m-staging .stchk label{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.35}
+#m-staging .stchk input{width:18px;height:18px;margin:1px 0 0;flex:none;accent-color:var(--tumour)}
+#m-staging .stwork{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;counter-reset:stw}
+#m-staging .stwork li{counter-increment:stw;position:relative;padding-top:30px}
+#m-staging .stwork li::before{content:counter(stw,decimal-leading-zero);position:absolute;top:14px;left:16px;font:600 11px var(--mono);color:var(--muted);letter-spacing:.08em}
+#m-staging .card>.tag,#m-staging .card>.ev{align-self:flex-start}
+#m-staging .stlink{background:none;border:0;padding:0;color:var(--brand);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer}
+</style>
 <section class="mod" id="m-staging" data-mod="staging" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Diagnosis &amp; staging</p><h2>Staging: TNM calculator</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Stage is three questions: how deep the tumour has grown through the bowel wall (T), whether it has reached the lymph nodes (N), and whether it has spread to distant organs (M). Grow a tumour letter by letter, then combine the letters into an AJCC stage.</p></div>
+
+  <div class="stepper" id="stSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="stSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="The bowel wall in cross-section, from the mucosa at the top through the submucosa, muscularis propria, subserosa and serosa. A crimson tumour grows down through each layer in turn (Tis, T1, T2, T3, T4a) until it reaches another organ below (T4b). Then tumour cells travel along a lymph vessel and fill 1, 3, then 4 to 9 of 12 lymph nodes, with a tumour deposit shown for N1c, and finally reach the liver, the lung and the peritoneum (M1a, M1b, M1c). A strip below shows the stage each T category would give with the current N and M."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stPlay">Play</button><label class="stage-cap tl" for="stT">Stage <input type="range" id="stT" min="0" max="1" step="0.001" value="0.35"></label></div>
+      <div class="readout" id="stRead"></div>
+      <p class="stage-cap">Schematic, not to scale. Categories and stage groups: AJCC 8th edition, cross-checked against Tong 2018. [[Amin2017AJCC,Tong2018]]</p>
+    </div>
+    <aside class="note" id="stNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">TNM calculator: from three letters to a stage</h3>
+  <p class="callout"><b>A teaching tool.</b> It looks up the AJCC 8th edition stage-group table row by row. Real staging uses the full pathology report, the scans and the multidisciplinary team, and adds a prefix: <b>c</b> for clinical, <b>p</b> for pathological, <b>yp</b> for pathological after treatment before surgery. [[Amin2017AJCC,Tong2018,Compton2000]]</p>
+  <div class="lab">
+    <div class="stage stcalc">
+      <div class="stgrp" role="group" aria-label="T category"><span class="kicker">T · depth</span><span id="stCT"></span></div>
+      <div class="stgrp" role="group" aria-label="N category"><span class="kicker">N · nodes</span><span id="stCN"></span></div>
+      <div class="stgrp" role="group" aria-label="M category"><span class="kicker">M · distant</span><span id="stCM"></span></div>
+      <div class="scroll"><svg id="stLad" viewBox="0 0 720 210" style="min-width:560px" role="img" aria-label="A stage ladder of eleven rungs, from stage 0 at the bottom left through I, IIA, IIB, IIC, IIIA, IIIB, IIIC to IVA, IVB and IVC at the top right. A marker shows the stage group for the chosen T, N and M."></svg></div>
+      <div class="ctrls"><button class="btn" id="stCalcShow">Jump to this step in the animation</button><button class="btn ghost" id="stCalcReset">Reset</button></div>
+    </div>
+    <aside class="note" id="stCalcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Survival by stage: population statistics</h3>
+  <div class="prose"><p>The US figures below use SEER <i>summary</i> stage, a simpler system than AJCC: <b>localized</b> means the cancer is found only in the bowel, <b>regional</b> that it has reached nearby tissue or lymph nodes, <b>distant</b> that it has spread far. The two systems do not map one-to-one, so the calculator does not convert between them. Relative survival compares people with the cancer to people of the same age without it. These are averages for large groups diagnosed in 2015–2021; they cannot tell any one person what will happen. [[Siegel2026]]</p></div>
+  <div class="ctrls" role="group" aria-label="Which cancers"><span class="kicker">Show</span>
+    <button class="btn" data-sts="crc" aria-pressed="true">Colorectal</button>
+    <button class="btn" data-sts="colon" aria-pressed="false">Colon</button>
+    <button class="btn" data-sts="rectum" aria-pressed="false">Rectum</button>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="stSeer" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bar chart of US 5-year relative survival by SEER summary stage for diagnoses in 2015 to 2021: localized 91%, regional 74%, distant 15% for colorectal cancer, with markers for the 1975–1977 and 1995–1997 figures."></svg></div>
+      <p class="stage-cap">US 5-year relative survival, diagnosed 2015–2021. Ticks: earlier periods (colorectal only). [[Siegel2026]]</p>
+    </div>
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Measure"><span class="kicker">Paradox</span>
+        <button class="btn" data-stp="css" aria-pressed="true">3-yr cancer-specific</button>
+        <button class="btn" data-stp="os" aria-pressed="false">3-yr overall</button>
+      </div>
+      <div class="scroll"><svg id="stPar" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bar chart of the stage II/III survival paradox in SEER 2018 to 2021: 3-year cancer-specific survival 73.1% for stage IIB and 70.3% for IIC, but 91.0% for stage IIIA."></svg></div>
+      <p class="stage-cap">SEER 2018–2021, 4,692 colon cancers, AJCC 8th edition. [[Yu2024]]</p>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag tumour">The survival paradox</span><h4>Why can stage III do better than stage II?</h4><p>Stage numbers are not a strict ranking. In SEER under the 6th edition, stage IIIA colon cancer had 83.4% 5-year survival against 72.2% for IIB (P&lt;0.001). Under the 8th edition the gap persists: after adjustment, IIIA carried a lower risk of cancer-specific death than IIB (HR 0.374). Two explanations are proposed: a deep T4 tumour may matter more than one to three positive nodes, and stage III patients receive chemotherapy while stage II patients generally did not. [[OConnell2004,Yu2024,Li2020]]</p></div>
+    <div class="card"><span class="tag">Trends</span><h4>Distant-stage survival has tripled</h4><p>US 5-year relative survival for distant-stage colorectal cancer rose from 5% (1975–1977) to 8% (1995–1997) to 15% (2015–2021); regional stage rose from 52% to 74%. Distant-stage rectal cancer went from 8% in the mid-1990s to 18%, one of the largest gains of any cancer. [[Siegel2026,Siegel2026CRC]]</p></div>
+    <div class="card"><span class="tag">Age</span><h4>Distant stage by age</h4><p>Distant-stage 5-year relative survival is 23% under 50, 17% at 50–64 and 10% at 65 or older. Distant metastases are present at diagnosis in 27% of people under 50 against 21–23% of older patients. [[Siegel2026CRC]]</p></div>
+  </div>
+
+  <h3 class="sub">Twelve nodes and high-risk stage II</h3>
+  <div class="split2">
+    <div class="prose">
+      <p><b>Why at least 12 nodes?</b> N can only be as accurate as the nodes the pathologist examines. In a systematic review of 17 studies (61,371 patients), 16 found that survival in stage II colon cancer rose with the number of nodes evaluated. In the INT-0089 trial (3,411 patients) survival improved with more nodes analysed even in node-negative patients, once positive nodes were accounted for. ASCO 2022 lists fewer than 12 sampled nodes as a high-risk factor in stage II. [[Chang2007,LeVoyer2003,Baxter2022]]</p>
+      <p>The animation draws 12 nodes for this reason: a cancer called N0 from 5 nodes is less certain than one called N0 from 12.</p>
+    </div>
+    <div class="stage">
+      <p class="kicker">Stage II colon cancer: features listed by ASCO 2022 (tick any)</p>
+      <div class="stchk" id="stChk"></div>
+      <div id="stChkOut" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <h3 class="sub">CEA: where to set the alarm</h3>
+  <div class="prose"><p>Carcinoembryonic antigen (CEA) is a blood marker. It is "of little use in detecting early colorectal cancer", but a high level before surgery goes with a worse prognosis, and ASCO 2006 recommends ordering it before surgery if it would help staging and planning, then every 3 months for at least 3 years in stage II–III disease when the person could have treatment for a recurrence. Choose a threshold to see the trade-off from the Cochrane review. [[Duffy2001,Locker2006,Nicholson2015]]</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="stCeaSvg" viewBox="0 0 720 250" style="min-width:560px" role="img" aria-label="Two grids of 100 dots. Left: 100 people whose cancer has come back, with the number flagged by CEA at the chosen threshold. Right: 100 people without recurrence, with the number of false alarms. At 2.5 µg/L: 82 flagged, 20 false alarms; at 5: 71 and 12; at 10: 68 and 3."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="stCea">CEA threshold <input type="range" id="stCea" min="0" max="2" step="1" value="1"></label></div>
+      <div class="readout" id="stCeaRead"></div>
+    </div>
+    <aside class="note" id="stCeaNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The diagnostic workup, step by step</h3>
+  <ol class="stwork">
+    <li class="card"><h4>Colonoscopy and biopsy</h4><p>The whole bowel is examined and a small piece of the tumour is taken to confirm cancer. About 1 in 25 people with colorectal cancer (3.9%) has a second, synchronous cancer, and in 34% of these it lies in a different surgical segment, so the whole colon should be examined, preferably before surgery. [[Mulder2011]]</p></li>
+    <li class="card"><h4>CT for spread and depth</h4><p>A CT scan of the chest, abdomen and pelvis looks for spread. For local staging of colon cancer, CT had pooled sensitivity 90% and specificity 69% for growth beyond the wall (T3–T4), but only 71% and 67% for nodes. [[Nerad2016,MERCURY2006]]</p></li>
+    <li class="card"><h4>Pelvic MRI for rectal cancer</h4><p>MERCURY (408 patients) showed high-resolution MRI predicts a clear circumferential resection margin (CRM) with 92% specificity. An MRI-involved CRM (tumour ≤1 mm from the mesorectal fascia) went with 5-year overall survival of 42.2% vs 62.2% (HR 1.97) and a 3.5-fold local-recurrence hazard. MRI is accurate for CRM and T but poor for nodes (specificity 71%). [[MERCURY2006,Taylor2014,AlSukhni2012]]</p></li>
+    <li class="card"><h4>CEA before surgery</h4><p>A baseline CEA helps planning and prognosis and gives a reference for later surveillance. The College of American Pathologists placed a raised preoperative CEA among proven prognostic factors. [[Locker2006,Compton2000]]</p></li>
+    <li class="card"><h4>Pathology after surgery</h4><p>The resected bowel gives the final pT and pN: depth, at least 12 nodes, tumour deposits, margins, grade, vessel and perineural invasion and budding. [[Baxter2022,Compton2000]]</p></li>
+    <li class="card"><h4>Tumour biomarkers</h4><p>Every new colorectal cancer is tested for mismatch repair; metastatic disease adds RAS, BRAF and HER2. <button class="stlink" data-go="biomarkers">See tumour biomarkers</button>. [[Sepulveda2017]]</p></li>
+  </ol>
+
+  <h3 class="sub">Pathology features that change the picture</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Feature</th><th>What it is</th><th>What the evidence shows</th></tr></thead>
+    <tbody>
+      <tr><th>Tumour deposits</th><td>Tumour nodules in the fat or mesentery with no lymph-node structure. Without positive nodes they make the case N1c; with positive nodes they are not added to the count.</td><td>Present in 22% of 10,106 patients and invariably linked with poor outcome; the review authors propose adding deposits to the positive-node count <span class="ev early">Early evidence</span>. [[Tong2018,Nagtegaal2017]]</td></tr>
+      <tr><th>Tumour budding</th><td>A single tumour cell or a cluster of 4 or fewer at the invasive front, counted in one hotspot (0.785 mm²) and graded BD1–BD3.</td><td>Independently predicts node metastasis in pT1 cancer and survival in stage II; BD3 is a stage II high-risk factor. [[Lugli2017,Baxter2022]]</td></tr>
+      <tr><th>Perineural invasion</th><td>Tumour growing along nerves.</td><td>Named in under 0.5% of original reports but found in 22% on blinded review. 5-year disease-free survival 65% without vs 16% with it. [[Liebig2009]]</td></tr>
+      <tr><th>Histological type</th><td>88% classical adenocarcinoma, 11% mucinous, 0.9% signet-ring cell.</td><td>5-year cancer-specific survival 67%, 61% and 21%. After adjusting for stage, mucinous type is not independently prognostic; signet-ring stays worse (HR 2.5). [[Nitsche2013]]</td></tr>
+      <tr><th>Circumferential margin (rectum)</th><td>The distance from tumour to the surgical plane around the mesorectum.</td><td>Across more than 17,500 patients an involved CRM predicted local recurrence, distant metastasis (HR 2.8) and survival (HR 1.7). [[Nagtegaal2008]]</td></tr>
+      <tr><th>9th edition</th><td>AJCC Version 9 revises colon cancer substaging.</td><td>In one single-centre study of 1,222 stage I–III colon cancers, 79.9% changed stage on restaging, with slightly better discrimination <span class="ev early">Early evidence</span>. [[Song2026]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Older systems such as Dukes' classification are still heard in clinic. TNM replaced them because it records depth, the number of positive nodes and metastatic sites separately, which the newer prognostic subgroups depend on. [[Gunderson2010,Tong2018]]</p>
 </section>

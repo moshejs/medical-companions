@@ -1,5 +1,108 @@
-<!-- ================= 5.2 NURSING CARE (stub, replaced by its builder) ================= -->
+<!-- ================= 5.2 NURSING CARE ================= -->
+<style>
+#m-nursing .nu-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-nursing .nu-flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+#m-nursing .nu-flip{text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:16px;cursor:pointer;display:flex;flex-direction:column;gap:8px;min-height:150px;font:inherit;color:inherit;transition:background .2s,border-color .2s}
+#m-nursing .nu-flip:hover{border-color:var(--brand)}
+#m-nursing .nu-flip .nu-k{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#m-nursing .nu-flip .nu-f{font-family:var(--display);font-weight:800;font-size:19px;line-height:1.22}
+#m-nursing .nu-flip .nu-b{display:none;font-size:14.5px}
+#m-nursing .nu-flip[aria-pressed="true"]{background:var(--brand-soft);border-color:var(--brand)}
+#m-nursing .nu-flip[aria-pressed="true"] .nu-f{font-size:15px;text-decoration:line-through;text-decoration-thickness:1px;opacity:.7}
+#m-nursing .nu-flip[aria-pressed="true"] .nu-b{display:block}
+#m-nursing .nu-box{border:2px solid var(--ink);border-radius:10px;padding:12px 14px;max-width:72ch;font-size:15px}
+#m-nursing .nu-box b:first-child{display:block;font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+</style>
 <section class="mod" id="m-nursing" data-mod="nursing" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living with CRC</p><h2>Nursing care</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Nurses teach the bowel prep, mark the stoma site, run the recovery pathway, check the gene test before fluoropyrimidines, watch for toxicity and coach life with a stoma. Follow one person along that pathway, then test what the dosing guideline and the labels actually say.</p></div>
+  <p class="callout"><b>Quoted as published, not instructions.</b> Doses, thresholds and grade definitions here are what the sources and US labels state. Local protocols and the treating team decide care. Toxicity grades appear only as they are printed in the labels.</p>
+  <div class="stepper" id="nuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A care pathway from before surgery through chemotherapy to life afterwards, with a person walking along it; at each station a scene animates: split-dose bowel prep on a timeline, a stoma site being marked on the abdomen, an ERAS checklist ticking off, a DPYD gene test and the drug being broken down, four toxicity checks for hands, stools, temperature and nerves, and an ileostomy output tally passing the 1500 millilitre line."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">Play</button><label class="stage-cap tl" for="nuT">Care pathway <input type="range" id="nuT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Schematic. Timings, thresholds and label wording as published. [[Jacobson2025,Hassan2019,Salvadalena2015,Ljungqvist2017,FDA-Xeloda,Amstutz2018,Messaris2012]]</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">DPYD and fluoropyrimidines: what the guideline states</h3>
+  <div class="prose"><p>Dihydropyrimidine dehydrogenase (DPD) breaks down about 80% of a 5-fluorouracil dose; only 1–3% becomes the active, cell-killing metabolites. Variants in its gene, <i>DPYD</i>, slow that breakdown, so the drug builds up. CPIC turns the genotype into an <b>activity score</b> from 0 to 2. Choose a score to see what the 2017 CPIC guideline states for it. [[Amstutz2018]]</p></div>
+  <div class="nu-row" role="group" aria-label="DPYD activity score"><span class="kicker">Activity score</span>
+    <button class="btn" data-nud="2" aria-pressed="false">2</button>
+    <button class="btn" data-nud="1.5" aria-pressed="false">1.5</button>
+    <button class="btn" data-nud="1" aria-pressed="true">1</button>
+    <button class="btn" data-nud="0.5" aria-pressed="false">0.5</button>
+    <button class="btn" data-nud="0" aria-pressed="false">0</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuDpyd" viewBox="0 0 720 250" style="min-width:560px" role="img" aria-label="An activity-score ruler from 0 to 2 split into poor, intermediate and normal metabolizer bands with a marker at the chosen score, beside a bar showing the starting dose as the CPIC guideline states it for that score, and a row of drug particles being broken down more slowly as the score falls."></svg></div>
+      <p class="stage-cap">CPIC 2017 statements as published; teaching only. The breakdown animation is schematic. [[Amstutz2018]]</p>
+    </div>
+    <aside class="note" id="nuDNote" aria-live="polite"></aside>
+  </div>
+  <div class="nu-box"><b>Boxed warning (US labels)</b>The capecitabine and fluorouracil labels state: "Test patients for genetic variants of DPYD prior to initiating" treatment "unless immediate treatment is necessary". They say to avoid the drug with certain homozygous or compound heterozygous variants that cause complete DPD deficiency, that no dose has been proven safe in complete deficiency, and that data are insufficient to recommend a dose in partial deficiency. The Xeloda label adds that no FDA-authorized DPYD test is currently available, and that serious reactions can still occur when no variant is found. [[FDA-Xeloda,FDA-FluorouracilFK]]</div>
+  <div class="nu-row" role="group" aria-label="Carrier frequency population"><span class="kicker">Carriers per 100 people</span>
+    <button class="btn" data-nup="eu" aria-pressed="true">European ancestry · any of 4 variants</button>
+    <button class="btn" data-nup="af" aria-pressed="false">African ancestry · c.557A&gt;G</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="nuIcons" viewBox="0 0 720 150" style="min-width:560px" role="img" aria-label="One hundred person icons with the carriers of decreased-function DPYD variants highlighted: about 7 per 100 people of European ancestry carry one of the four main variants, and about 5 per 100 people of African ancestry carry c.557A>G."></svg></div>
+    <p class="stage-cap" id="nuIconCap"></p>
+  </div>
+
+  <h3 class="sub">Common misunderstandings</h3>
+  <p class="prose">Tap a card to see what the evidence says.</p>
+  <div class="nu-flips" id="nuFlips"></div>
+
+  <h3 class="sub">Toxicities in the trial tables</h3>
+  <div class="split2">
+    <div class="tbl"><table style="min-width:420px">
+      <thead><tr><th>X-ACT (label table)</th><th>Capecitabine</th><th>FU/LV</th></tr></thead>
+      <tbody>
+        <tr><th>Hand-foot syndrome</th><td>60% (17% grade 3–4)</td><td>9% (&lt;1%)</td></tr>
+        <tr><th>Diarrhoea</th><td>47% (12%)</td><td>65% (14%)</td></tr>
+        <tr><th>Stomatitis</th><td>22% (2%)</td><td>60% (14%)</td></tr>
+      </tbody></table>
+      <p class="stage-cap" style="padding:8px 13px">All grades (grade 3–4 in brackets), adjuvant stage III colon cancer. [[FDA-Xeloda,Twelves2005]]</p></div>
+    <div class="tbl"><table style="min-width:420px">
+      <thead><tr><th>IDEA, grade 3–4</th><th>FOLFOX 3 / 6 mo</th><th>CAPOX 3 / 6 mo</th></tr></thead>
+      <tbody>
+        <tr><th>Neutropenia</th><td>20.3% / 26.6%</td><td>7.7% / 11.9%</td></tr>
+        <tr><th>Diarrhoea</th><td>4.7% / 7.2%</td><td>7.4% / 8.8%</td></tr>
+        <tr><th>Mucositis</th><td>0.7% / 1.6%</td><td>0.3% / 0.9%</td></tr>
+        <tr><th>Hand-foot syndrome</th><td>0% / 0.3%</td><td>0.7% / 2.6%</td></tr>
+      </tbody></table>
+      <p class="stage-cap" style="padding:8px 13px">Pooled IDEA analysis, 12,834 patients. [[Grothey2018]]</p></div>
+  </div>
+
+  <h3 class="sub">Teaching points</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Topic</th><th>What the source states</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><th>Bowel prep</th><td>Split-dose preparation; a 2 L regimen may be enough; same-day prep acceptable for afternoon but inferior for morning colonoscopy; diet restriction limited to the day before (clear liquids or low-fibre meals for breakfast and lunch); simethicone suggested. ESGE: start the last dose within 5 hours of colonoscopy and finish at least 2 hours before. [[Jacobson2025,Hassan2019]]</td><td>Split vs day-before: OR 2.51 for adequate cleansing. Enhanced instructions: OR 2.35. One day of low-residue diet as good as three. [[Martel2015,Guo2017,Wang2024LRD]]</td></tr>
+      <tr><th>Inadequate-prep risk factors</th><td>Factors linked to inadequate prep: cirrhosis (OR 3.41), stroke or dementia (2.09), constipation (1.97), diabetes (1.79), opioid use (1.70), low education (1.49). [[Gandhi2018]]</td><td>67 studies, 75,818 patients. Poor prep lowers early-adenoma detection (OR 0.53). [[Gandhi2018,Sulz2016]]</td></tr>
+      <tr><th>Stoma site and class</th><td>Mark the best site before surgery; colorectal surgeons and certified ostomy nurses are best placed to mark. [[Salvadalena2015]]</td><td>Preoperative education: peristomal skin complications 9.5% vs 19.4% (very low certainty). [[Shi2025]]</td></tr>
+      <tr><th>Ileostomy output</th><td>Call the team if output is much higher than usual (around 1.5 L a day or more), or with thirst, dizziness or little urine. [[Messaris2012,Vogel2022]]</td><td>Dehydration was the commonest cause of readmission after diverting ileostomy (43.1% of readmissions). [[Messaris2012]]</td></tr>
+      <tr><th>Oxaliplatin and cold</th><td>The label advises avoiding cold drinks, ice and cold on the skin, and avoiding topical ice for mucositis prophylaxis. [[FDA-OxaliplatinGland]]</td><td>N08CB: 71% sensitive to touching cold items with cycle 1. [[Pachman2015]]</td></tr>
+      <tr><th>Capecitabine at home</th><td>Label patient instructions: stop and call for grade 2 hand-foot syndrome or worse, for grade 2 diarrhoea or worse, immediately for grade 2 or higher dehydration; call promptly for fever of 100.5°F or more. [[FDA-Xeloda]]</td><td>Persistent or severe hand-foot syndrome can lead to loss of fingerprints. [[FDA-Xeloda]]</td></tr>
+      <tr><th>Survivorship</th><td>Follow-up schedule, exercise, fear of recurrence, fertility and money worries are all things people can ask for help with. [[Meyerhardt2013,Courneya2025,Kotronoulas2017,Peng2025,Shao2026]]</td><td>Fear of recurrence was the most prominent need at every stage. [[Kotronoulas2017]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">What to document</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Record</th><th>The published measure or definition</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Stoma output</th><td>mL per 24 h. One study defined dehydration as output ≥ 1500 mL over 24 h plus a BUN/creatinine ratio ≥ 20, or physical signs of dehydration. High output is usually taken as more than about 1.5–2.0 L/24 h.</td><td>[[Messaris2012,Nightingale2022]]</td></tr>
+      <tr><th>Stools per day</th><td>Change from the person's baseline. The Xeloda label prints grade 2 diarrhoea as "an increase of 4 to 6 stools/day or nocturnal stools".</td><td>[[FDA-Xeloda]]</td></tr>
+      <tr><th>Temperature</th><td>Fever of 100.5°F or more is a reason to call promptly (Xeloda patient instructions).</td><td>[[FDA-Xeloda]]</td></tr>
+      <tr><th>Neuropathy</th><td>Acute (starts within hours to 2 days, resolves within 14 days, cold-triggered) or delayed (persists more than 14 days; can impair proprioception and daily activities), and the effect on function.</td><td>[[FDA-OxaliplatinGland]]</td></tr>
+      <tr><th>Hands and feet</th><td>Hand-foot syndrome grade as the label defines it for stopping treatment (grade 2 or worse).</td><td>[[FDA-Xeloda]]</td></tr>
+      <tr><th>DPYD result</th><td>Genotype, activity score (0, 0.5, 1, 1.5 or 2) and phenotype (poor, intermediate or normal metabolizer).</td><td>[[Amstutz2018]]</td></tr>
+      <tr><th>Bowel function after rectal surgery</th><td>LARS score 0–42 (no LARS 0–20, minor 21–29, major 30–42).</td><td>[[Emmertsen2012]]</td></tr>
+      <tr><th>Fear of recurrence</th><td>FCRI-Short Form; a cut-off of 22 was optimal for clinical fear of recurrence in long-term colorectal survivors.</td><td>[[Ingeman2026]]</td></tr>
+      <tr><th>Prep quality</th><td>Adequate-prep rate per endoscopist and per unit; target above 90%.</td><td>[[Jacobson2025]]</td></tr>
+    </tbody></table></div>
 </section>

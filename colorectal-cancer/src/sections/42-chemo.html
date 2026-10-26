@@ -1,5 +1,100 @@
-<!-- ================= 4.2 CHEMOTHERAPY AFTER SURGERY (stub, replaced by its builder) ================= -->
+<!-- ================= 4.2 CHEMOTHERAPY AFTER SURGERY ================= -->
+<style>
+#m-chemo .card>.ev,#m-chemo .card>.tag{align-self:flex-start}
+#m-chemo .tbl table{min-width:640px}
+#m-chemo td.num{font-family:var(--mono);font-size:13.5px}
+#m-chemo .who{display:flex;flex-direction:column;gap:12px}
+#m-chemo .who ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;max-width:72ch}
+#m-chemo .calc{max-width:520px}
+#m-chemo blockquote{margin:0;padding:6px 0 6px 12px;border-left:3px solid var(--line);font-size:14.5px;color:var(--ink)}
+</style>
 <section class="mod" id="m-chemo" data-mod="chemo" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Chemotherapy after surgery</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">After an operation for stage III colon cancer, chemotherapy lowers the chance that the cancer comes back. The big questions are which regimen, for how long, and who benefits at all. Watch FOLFOX and CAPOX cycles fill a calendar while the nerve damage they cause adds up.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Regimen">
+    <span class="kicker">Regimen</span>
+    <button class="btn" data-ch-reg="capox" aria-pressed="true">CAPOX (every 3 weeks)</button>
+    <button class="btn" data-ch-reg="folfox" aria-pressed="false">FOLFOX (every 2 weeks)</button>
+    <span class="kicker" style="margin-left:8px">Duration</span>
+    <button class="btn" data-ch-dur="3" aria-pressed="true">3 months</button>
+    <button class="btn" data-ch-dur="6" aria-pressed="false">6 months</button>
+  </div>
+  <div class="stepper" id="chSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="chSvg" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="A treatment calendar, one column per week, fills day by day with oxaliplatin infusion days and either two-day fluorouracil infusions (FOLFOX) or two weeks of capecitabine tablets (CAPOX). Below it, the share of people with grade 2 or worse nerve damage rises with each cycle, reaching the IDEA trial figures at 3 and at 6 months."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="chPlay">Play</button><label class="stage-cap tl" for="chT">Weeks <input type="range" id="chT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="chRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The calendar follows the label schedules (FOLFOX4 every 14 days, up to 12 cycles; capecitabine with oxaliplatin every 21 days, up to 8 cycles). The neuropathy curves are drawn through the two published IDEA points per regimen (grade ≥2, during therapy and the month after); the shape between them is not measured. [[FDA-Oxaliplatin,FDA-Xeloda,Grothey2018]]</p>
+    </div>
+    <aside class="note" id="chNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">IDEA: does 3 months do as well as 6?</h3>
+  <p class="prose">IDEA pooled six phase 3 trials: 12,834 people with stage III colon cancer, randomised to 3 or 6 months of FOLFOX or CAPOX. Three months would count as "non-inferior" if the hazard ratio for disease-free survival stayed below 1.12. [[Grothey2018]]</p>
+  <div class="ctrls" role="group" aria-label="IDEA view">
+    <button class="btn" data-ch-idea="risk" aria-pressed="true">3-year DFS by risk group</button>
+    <button class="btn" data-ch-idea="hr" aria-pressed="false">Hazard ratios vs the margin</button>
+    <button class="btn" data-ch-idea="os" aria-pressed="false">5-year overall survival</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="chIdea" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="IDEA results: bars for 3 versus 6 months of chemotherapy in each group, or a forest plot of hazard ratios against the non-inferiority margin of 1.12."></svg></div>
+      <p class="stage-cap">Population results from pooled trials, not a prediction for any one person. [[Grothey2018,Andre2020IDEA]]</p>
+    </div>
+    <aside class="note" id="chIdeaNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who benefits? What the trials found</h3>
+  <div class="who">
+    <div class="calc"><label for="chWho">Pick a situation
+      <select id="chWho">
+        <option value="III-low">Stage III, lower risk (T1–3 N1)</option>
+        <option value="III-high">Stage III, higher risk (T4 and/or N2)</option>
+        <option value="II-p">Stage II, mismatch-repair proficient (pMMR)</option>
+        <option value="II-d">Stage II, mismatch-repair deficient (dMMR)</option>
+        <option value="III-d">Stage III, dMMR</option>
+        <option value="old">Age 70 or older</option>
+        <option value="neo">T3–T4 on scans, before surgery</option>
+        <option value="time">Recovery delays the start</option>
+      </select></label></div>
+    <div id="chWhoOut" aria-live="polite"></div>
+    <p class="stage-cap">A summary of trial findings for study, not a treatment recommendation. Decisions about chemotherapy are made with an oncology team.</p>
+  </div>
+
+  <h3 class="sub">The trial ladder</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Comparison</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>Moertel (1990)</th><td>1,296, resected colon cancer</td><td>Levamisole + fluorouracil for 1 year vs observation</td><td>Stage C: recurrence risk −41%, death rate −33%; levamisole alone no effect. 5-FU became standard. [[Moertel1990]]</td></tr>
+      <tr><th>MOSAIC (2004–2015)</th><td>2,246, stage II–III</td><td>FOLFOX4 vs LV5FU2, 6 months</td><td class="num">3-y DFS 78.2% vs 72.9%; 10-y OS stage III 67.1% vs 59.0%, stage II 78.4% vs 79.5% [[Andre2004,Andre2009,Andre2015]]</td></tr>
+      <tr><th>NSABP C-07 (2007)</th><td>2,407, stage II–III</td><td>Weekly bolus FU/LV ± oxaliplatin (FLOX)</td><td class="num">3-y DFS 76.1% vs 71.8%; grade 3 neurosensory 8.2% vs 0.7% [[Kuebler2007]]</td></tr>
+      <tr><th>X-ACT (2005)</th><td>1,987, stage III</td><td>Oral capecitabine vs bolus FU/LV, 24 weeks</td><td>At least equivalent DFS; relapse-free survival HR 0.86; fewer adverse events [[Twelves2005]]</td></tr>
+      <tr><th>XELOXA / NO16968 (2011, 2015)</th><td>1,886, stage III</td><td>CAPOX vs bolus FU/FA, 24 weeks</td><td class="num">3-y DFS 70.9% vs 66.5%; 7-y OS 73% vs 67% (HR 0.83) [[Haller2011,Schmoll2015]]</td></tr>
+      <tr><th>QUASAR (2007)</th><td>3,239, 91% stage II</td><td>FU/folinic acid vs observation</td><td>Death RR 0.82: an absolute survival gain of about 3.6% if 5-y mortality is 20% [[QUASAR2007]]</td></tr>
+      <tr><th>Sargent (2010)</th><td>Pooled stage II–III trials</td><td>FU vs surgery alone, by MMR status</td><td>pMMR benefited (DFS HR 0.67); dMMR did not (HR 1.10); stage II dMMR OS HR 2.95 [[Sargent2010]]</td></tr>
+      <tr><th>IDEA (2018, 2020)</th><td>12,834, stage III</td><td>3 vs 6 months FOLFOX or CAPOX</td><td class="num">DFS HR 1.07 overall; CAPOX 0.95, FOLFOX 1.16; 5-y OS 82.4% vs 82.8% [[Grothey2018,Andre2020IDEA]]</td></tr>
+      <tr><th>SCOT (2018)</th><td>6,065, high-risk II and III, 67% CAPOX</td><td>3 vs 6 months</td><td class="num">3-y DFS 76.7% vs 77.1%: non-inferior; grade ≥2 neuropathy 25% vs 58% [[Iveson2018]]</td></tr>
+      <tr><th>FOxTROT (2023)</th><td>1,053, T3–4 colon on CT</td><td>6 weeks chemo before surgery + 18 after vs 24 after</td><td class="num">Residual or recurrent disease at 2 y 16.9% vs 21.5%; R0 94% vs 89% [[Morton2023]]</td></tr>
+      <tr class="hl"><th>ATOMIC (2026)</th><td>712, resected stage III dMMR</td><td>Atezolizumab + mFOLFOX6 vs mFOLFOX6</td><td class="num">3-y DFS 86.3% vs 76.2%; HR 0.50; grade 3–4 AEs 84.1% vs 71.9% [[Sinicrope2026]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">What the labels say (quoted, not instructions)</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Oxaliplatin label</span><h4>FOLFOX4 schedule</h4><p>Every 14 days. Day 1: oxaliplatin 85 mg/m² over 120 minutes with leucovorin 200 mg/m² over 120 minutes, then fluorouracil 400 mg/m² bolus and 600 mg/m² over 22 hours. Day 2: leucovorin and fluorouracil repeated. Adjuvant treatment: up to 12 cycles. The indication is "adjuvant treatment of stage III colon cancer in patients who have undergone complete resection of the primary tumor". [[FDA-Oxaliplatin]]</p></div>
+    <div class="card"><span class="tag bad">Boxed warning</span><h4>Oxaliplatin hypersensitivity</h4><p>The label warns of serious and fatal hypersensitivity reactions, including anaphylaxis, "within minutes of administration and during any cycle". Other warnings include acute and delayed peripheral sensory neuropathy ("avoid topical application of ice"), myelosuppression, PRES, pulmonary toxicity, hepatotoxicity, QT prolongation and rhabdomyolysis. [[FDA-Oxaliplatin]]</p></div>
+    <div class="card"><span class="tag rx">Capecitabine label</span><h4>Adjuvant colon doses</h4><p>Single agent: 1,250 mg/m² twice daily on days 1–14 of each 21-day cycle, maximum 8 cycles. With oxaliplatin: 1,000 mg/m² twice daily on days 1–14 plus oxaliplatin 130 mg/m² on day 1, maximum 8 cycles. [[FDA-Xeloda]]</p></div>
+    <div class="card"><span class="tag bad">Boxed warning</span><h4>DPD deficiency and DPYD testing</h4><p>Capecitabine and fluorouracil labels warn of serious adverse reactions or death with complete DPD deficiency: <q>Test patients for genetic variants of DPYD prior to initiating</q>, unless immediate treatment is necessary. The capecitabine label notes no FDA-authorized DPYD test is available, that "No XELODA dose has been proven safe" with complete deficiency, and warns of bleeding with warfarin-type anticoagulants. [[FDA-Xeloda,FDA-Fluorouracil]]</p></div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Controversy</span><h4>3 or 6 months?</h4><p>IDEA formally missed non-inferiority for both DFS (HR 1.07) and OS (HR 1.02); SCOT met it, and the absolute 5-year OS gap in IDEA was 0.4%. Three months of CAPOX is widely accepted for lower-risk disease; for higher-risk disease and FOLFOX, 6 months keeps a small edge. [[Grothey2018,Andre2020IDEA,Iveson2018]]</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Oxaliplatin at 70 and over</h4><p>In the ACCENT pool (11,953 people), adding oxaliplatin to IV fluorouracil gave little benefit at 70 or older (DFS HR 0.94; OS HR 1.04), but the age interaction was not significant, and oral fluoropyrimidines kept their effect at all ages. [[McCleary2013]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Chemotherapy guided by ctDNA</h4><p>In DYNAMIC (455 stage II patients), using circulating tumour DNA to decide cut chemotherapy use from 28% to 15%, with non-inferior 2-year recurrence-free survival (93.5% vs 92.4%). Stage III trials are pending. See <a href="#cure" data-go="cure">Toward a cure</a>. [[Tie2022]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Immunotherapy before surgery for dMMR colon</h4><p>In NICHE-2 (115 people, locally advanced dMMR colon cancer), nivolumab plus ipilimumab before surgery gave a pathological response in 98% and a complete response in 68%, with no recurrences at a median 26 months. It is non-randomised. [[Chalabi2024]]</p></div>
+  </div>
+  <p class="callout">Survival and recurrence figures on this page are population statistics from trials. They describe groups, and cannot say what will happen to one person.</p>
 </section>

@@ -1,5 +1,67 @@
-<!-- ================= 1.2 THE COLON &amp; ITS LINING (stub, replaced by its builder) ================= -->
+<!-- ================= 1.2 THE COLON & ITS LINING ================= -->
+<style>
+#m-colon .card>.ev,#m-colon .card>.tag{align-self:flex-start}
+#m-colon .clcalc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:18px;align-items:start}
+@media (max-width:900px){#m-colon .clcalc{grid-template-columns:minmax(0,1fr)}}
+#m-colon .clnums{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+#m-colon .clnum{background:var(--panel-2);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+#m-colon .clnum b{font:800 26px/1.1 var(--display);color:var(--tumour);overflow-wrap:anywhere}
+#m-colon .clnum span{font-size:13.5px;color:var(--muted)}
+#m-colon .clage{font:800 44px/1 var(--display);color:var(--ink)}
+#m-colon .clfoot{font-size:14px;color:var(--muted)}
+</style>
 <section class="mod" id="m-colon" data-mod="colon" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>The colon &amp; its lining</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">A tour of the large bowel from the caecum to the rectum, down through the layers of its wall, and into one crypt: the tiny pit where stem cells rebuild the lining every few days, and where colorectal cancer usually begins.</p></div>
+
+  <h3 class="sub">The large bowel, segment by segment</h3>
+  <div class="stepper" id="clSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="clSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="The large bowel drawn as a frame, in anatomical view. A marker travels from the caecum through the ascending, transverse, descending and sigmoid colon to the rectum, each segment lighting up in turn with its embryological origin and its artery, the superior or inferior mesenteric. At the end the view zooms into the bowel wall, whose layers appear one by one from the mucosa to the fat beyond the wall."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="clPlay">Play</button><label class="stage-cap tl" for="clT">Caecum → rectum → wall <input type="range" id="clT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <div class="readout" id="clRead"></div>
+      <p class="stage-cap">Schematic, not to scale. Patient's right is on the left of the picture. Arteries are drawn as two simple branches of the aorta. [[Omole2025,Omole2026a,Omole2026b]]</p>
+    </div>
+    <aside class="note" id="clNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Inside one crypt: renewal, and what happens when APC is lost</h3>
+  <p class="prose">The lining is folded into millions of tiny test-tube-shaped pits called crypts. Press Play to follow one cell, outlined, from its birth at the crypt base to the day it is shed into the bowel. Then press <b>APC lost</b> to see what happens when the brake on the Wnt signal fails. [[Nicholson2018,Barker2007]]</p>
+  <div class="ctrls" role="group" aria-label="APC state">
+    <span class="kicker">APC gene</span>
+    <button class="btn" id="clApc" aria-pressed="false">APC lost</button>
+  </div>
+  <div class="stepper" id="clCrSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="clCrypt" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A colonic crypt in section. Green stem cells sit at the base; their daughters climb the walls and are shed into the lumen at the top over about four to five days. A shaded band shows the Wnt signal, strongest at the base. An inset shows the destruction complex of APC, Axin and the kinases tagging beta-catenin for the proteasome. With APC lost, beta-catenin escapes, piles up, enters the nucleus and switches on growth genes, and amber mutant cells take over the crypt and pile up at its mouth."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="clCrPlay">Play</button><label class="stage-cap tl" for="clCrT"><span id="clCrLbl">Days</span> <input type="range" id="clCrT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="clCrRead"></div>
+      <p class="stage-cap" id="clCrCap">Schematic, not to scale. A real crypt holds far more cells; about 7 of them are active stem cells. [[Nicholson2018,Baker2014]]</p>
+    </div>
+    <aside class="note" id="clCrNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">A lifetime of renewal</h3>
+  <div class="clcalc">
+    <div class="stage">
+      <label class="kicker" for="clAge">Age</label>
+      <div class="clage" id="clAgeOut">50</div>
+      <input type="range" id="clAge" min="20" max="90" step="1" value="50">
+      <p class="clfoot">Move the slider. Each number is simple arithmetic on a published rate, applied to one average crypt or to the whole lining. It is a picture of scale, not a measurement of any one person.</p>
+    </div>
+    <div class="clnums" id="clNums" aria-live="polite"></div>
+  </div>
+  <p class="stage-cap" id="clAgeCap"></p>
+
+  <h3 class="sub">Why this matters for cancer</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>The colon has no Paneth cells</h4><p>In the small intestine, Paneth cells sit between the stem cells and feed them Wnt3, EGF and the Notch ligand Dll4; removing Paneth cells removes the stem cells. The colon has none. Instead, Reg4+ deep crypt secretory cells act as "Paneth cell equivalents", and ablating them in mice causes loss of colonic stem cells. [[Sato2011,Sasaki2016]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Normal crypts already carry drivers</h4><p>Driver mutations are present in about 1% of normal-looking crypts in middle-aged people. Adenomas and carcinomas are rare outcomes of widespread change in normal lining. Some mutational processes act in everyone; others only in some people, some crypts or some periods of life. [[LeeSix2019]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>A mutation must win the crypt</h4><p>A new mutation becomes fixed in two steps: one of about 7 stem cells is hit, then its progeny take over the whole crypt, which takes several years. This crypt organisation underlies most theories of how adenomas begin. [[Nicholson2018,Humphries2008]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>"Bad luck": stem-cell divisions</h4><p>Lifetime cancer risk across tissues correlated with the total number of normal stem-cell divisions (r = 0.81), and replication errors were proposed to cause about two-thirds of mutations in cancers. The idea is contested: geographic differences in mutational signatures point to environmental mutagens too. [[Tomasetti2015,Tomasetti2017,DiazGay2025]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Field effects</h4><p>A "field effect" is a territory of cellular and molecular change that predisposes to neoplasia. The broader "etiologic field effect" adds diet, lifestyle, microbes, hormones and genes acting on the whole tissue. Age-related CpG island methylation in normal colon overlaps with most loci methylated in colon cancer. [[Lochhead2015,Toyota1999]]</p></div>
+    <div class="card"><span class="tag tumour">Right vs left</span><h4>Two embryos, two kinds of tumour</h4><p>The right (midgut) and left (hindgut) colon differ in developmental origin, patterning genes, mutagen exposure and gut flora. MSI and CIMP tumours lean right, CIN tumours left; Lynch syndrome tumours occur mainly in the right colon and FAP tumours mainly in the left. More in <a href="#sequence" data-go="sequence">From polyp to cancer</a> and <a href="#biomarkers" data-go="biomarkers">Tumour biomarkers</a>. [[Missiaglia2014,Iacopetta2002]]</p></div>
+  </div>
 </section>

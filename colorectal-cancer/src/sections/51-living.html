@@ -1,5 +1,123 @@
-<!-- ================= 5.1 LIVING WITH COLORECTAL CANCER (stub, replaced by its builder) ================= -->
+<!-- ================= 5.1 LIVING WITH COLORECTAL CANCER ================= -->
+<style>
+#m-living .lv-sched{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-living .lv-res{display:flex;flex-direction:column;gap:10px}
+#m-living .lv-band{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline}
+#m-living .card>.ev,#m-living .card>.tag{align-self:flex-start}
+#m-living .lv-caveat{font-size:13.5px;color:var(--muted);border-left:2px solid var(--warn);padding-left:9px}
+</style>
 <section class="mod" id="m-living" data-mod="living" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living with CRC</p><h2>Living with colorectal cancer</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">After treatment comes a new routine: check-ups, a body that may work differently, and questions about work, family and the future. Scrub through five years of follow-up, score bowel function after rectal surgery, and see what the evidence says about stomas, numb fingers and exercise.</p></div>
+
+  <h3 class="sub">Five years of follow-up, and when recurrences happen</h3>
+  <div class="lv-sched" role="group" aria-label="Follow-up schedule"><span class="kicker">Schedule</span>
+    <button class="btn" data-lvs="asco" aria-pressed="true">ASCO 2013</button>
+    <button class="btn" data-lvs="facs" aria-pressed="false">FACS (CEA + CT arm)</button>
+    <button class="btn" data-lvs="colhi" aria-pressed="false">COLOFOL, high-frequency</button>
+    <button class="btn" data-lvs="collo" aria-pressed="false">COLOFOL, low-frequency</button>
+  </div>
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A five-year timeline after surgery with rows for CEA blood tests, CT scans and colonoscopies placed as the chosen schedule sets them; as a cursor moves month by month the tests already done light up, and below it bars for the recurrence rate in each year after surgery (12, 14, 8, 5 and 3 percent) fill in, with a bracket marking that 80 percent of recurrences come in the first three years."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">Play</button><label class="stage-cap tl" for="lvT">Months after surgery <input type="range" id="lvT" min="0" max="1" step="0.001" value="0.2"></label></div>
+      <div class="readout" id="lvRead"></div>
+      <p class="stage-cap">Test times as each source describes them; schematic. Recurrence bars are annual rates pooled from 18 adjuvant colon trials: population statistics, not one person's risk. [[Meyerhardt2013,Primrose2014,WilleJorgensen2018,Sargent2005]]</p>
+    </div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Compared</th><th>What it found</th></tr></thead>
+    <tbody>
+      <tr><th>FACS (UK)</th><td>1202 after curative treatment</td><td>CEA, CT, both, or minimum follow-up</td><td>Recurrence found in 16.6%; 5.9% treated with curative intent. Curative surgery for recurrence: 2.3% (minimum), 6.7% (CEA), 8% (CT), 6.6% (CEA + CT). Deaths 18.2% intensive vs 15.9% minimum, not significantly different. [[Primrose2014]]</td></tr>
+      <tr><th>COLOFOL</th><td>2509, stage II–III</td><td>CT + CEA at 6, 12, 18, 24, 36 months vs at 12 and 36</td><td>5-year overall mortality 13.0% vs 14.1% (risk difference 1.1%, P = 0.43); cancer-specific mortality 10.6% vs 11.4%; recurrence 21.6% vs 19.4%. [[WilleJorgensen2018]]</td></tr>
+      <tr><th>GILDA (Italy)</th><td>1228, Dukes B2–C</td><td>Intensive vs minimal surveillance</td><td>Recurrence found earlier (mean disease-free survival difference 5.9 months) but no better overall survival or quality of life. [[Rosati2016]]</td></tr>
+    </tbody></table></div>
+  <p class="callout"><span class="ev est">Established</span> More intensive follow-up finds recurrence earlier but has not been shown to lengthen life in three randomised trials. Guidelines still recommend regular CEA and CT, so the exact schedule is partly a matter of resources and preference. [[Primrose2014,WilleJorgensen2018,Rosati2016,Meyerhardt2013]]</p>
+
+  <h3 class="sub">Bowel function after rectal surgery: the LARS score</h3>
+  <div class="prose"><p>Low anterior resection syndrome (LARS) is the cluster of urgency, frequency, clustering and leakage that many people notice after part of the rectum is removed. The LARS score was built from questionnaires returned by 961 Danish patients and has five items, scored 0–42. It was validated in 801 patients in four countries. A meta-analysis put <b>major LARS at 41%</b> (95% CI 34–48%) of patients at least a year after surgery or stoma closure, with radiotherapy and a low join as the most consistent risk factors. [[Emmertsen2012,Juul2014,Croese2018]]</p></div>
+  <div class="lab">
+    <div class="stage">
+      <p class="kicker">Answer for the past 4 weeks (points as published)</p>
+      <div class="calc">
+        <label for="lvL1">Do you ever have occasions when you cannot control your flatus (wind)?
+          <select id="lvL1"><option value="0">No, never (0)</option><option value="4">Yes, less than once per week (4)</option><option value="7">Yes, at least once per week (7)</option></select></label>
+        <label for="lvL2">Do you ever have any accidental leakage of liquid stool?
+          <select id="lvL2"><option value="0">No, never (0)</option><option value="3">Yes, less than once per week (3)</option><option value="3">Yes, at least once per week (3)</option></select></label>
+        <label for="lvL3">How often do you open your bowels?
+          <select id="lvL3"><option value="4">More than 7 times per day (4)</option><option value="2">4–7 times per day (2)</option><option value="0" selected>1–3 times per day (0)</option><option value="5">Less than once per day (5)</option></select></label>
+        <label for="lvL4">Do you ever have to open your bowels again within one hour of the last bowel opening?
+          <select id="lvL4"><option value="0">No, never (0)</option><option value="9">Yes, less than once per week (9)</option><option value="11">Yes, at least once per week (11)</option></select></label>
+        <label for="lvL5">Do you ever have such a strong urge to open your bowels that you have to rush to the toilet?
+          <select id="lvL5"><option value="0">No, never (0)</option><option value="11">Yes, less than once per week (11)</option><option value="16">Yes, at least once per week (16)</option></select></label>
+      </div>
+      <div class="scroll"><svg id="lvLars" viewBox="0 0 720 150" style="min-width:560px" role="img" aria-label="A 0 to 42 ruler split into no LARS (0 to 20), minor LARS (21 to 29) and major LARS (30 to 42), with a marker at the current total and the five item scores stacked as coloured segments."></svg></div>
+      <div class="ctrls"><button class="btn ghost" id="lvLReset">Reset</button></div>
+      <p class="stage-cap">Item wording paraphrased; points from the MANUEL reproduction of the score. A teaching tool, not a diagnosis. [[Christensen2021,Emmertsen2012]]</p>
+    </div>
+    <aside class="note" id="lvLNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Living with a stoma</h3>
+  <div class="prose"><p>A stoma brings bowel out through the skin of the abdomen, where a pouch collects its output. An <b>ileostomy</b> uses the end of the small bowel (ileum); a <b>colostomy</b> uses the colon. After a low rectal join, surgeons often make a temporary defunctioning stoma to limit the harm if the join leaks: in the Dutch TME trial, 57% of patients who had low anterior resection got one. [[denDulk2007]]</p></div>
+  <div class="lv-sched" role="group" aria-label="Stoma type"><span class="kicker">Type</span>
+    <button class="btn" data-lvt="ileo" aria-pressed="true">Ileostomy</button>
+    <button class="btn" data-lvt="colo" aria-pressed="false">Colostomy</button>
+  </div>
+  <div class="lv-sched" role="group" aria-label="Meant to be"><span class="kicker">Meant to be</span>
+    <button class="btn" data-lvi="temp" aria-pressed="true">Temporary</button>
+    <button class="btn" data-lvi="perm" aria-pressed="false">Permanent</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvStoma" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A schematic abdomen with the large bowel; the chosen stoma, ileostomy on the right side of the body or colostomy on the left, opens through the abdominal wall into a pouch, with the bowel downstream resting for a temporary stoma; for an ileostomy the pouch shows the 1.5 to 2 litre per day high-output line."></svg></div>
+      <p class="stage-cap">Schematic, not to scale. The figure is drawn as if facing the person, so their right side is on your left.</p>
+    </div>
+    <aside class="note" id="lvStNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Parastomal hernia</span><h4>A bulge beside the stoma</h4><p>In the older literature, rates were 1.8–28.3% after end ileostomy and 4.0–48.1% after end colostomy, depending on stoma type and follow-up. The European Hernia Society states end colostomy carries the higher risk and <b>strongly recommends</b> a prophylactic synthetic non-absorbable mesh when an end colostomy is made, with no such recommendation for other stomas. In a small trial, 17 of 21 people without mesh had a hernia at 5 years vs 2 of 15 with mesh. [[Carne2003,Antoniou2018,Janes2009]]</p></div>
+    <div class="card"><span class="tag bad">High output</span><h4>Ileostomy and dehydration</h4><p>High-output stoma is usually taken as more than about 1.5–2.0 L in 24 hours, draining water, sodium and often magnesium; it occurs in up to 31% of small-bowel stomas. About 1 in 5 people are readmitted within 30 days of ileostomy creation, 6% for dehydration. Reported consequences include delayed or abandoned chemotherapy and kidney injury. [[Nightingale2022,Vogel2022,Borucki2021]]</p></div>
+    <div class="card"><span class="tag brand">Reversal</span><h4>Will it be closed?</h4><p>In the TME trial, 19% of stomas were never reversed; complications after surgery predicted a permanent stoma. In a Swedish series, 24% had a permanent stoma at the end of follow-up, and 9% of reversals had a major complication. In Swedish registry data, 13.6–15.2% still had a stoma 2 years after anterior resection. [[denDulk2007,Holmgren2017,Back2021]]</p></div>
+  </div>
+
+  <h3 class="sub">Numb fingers: oxaliplatin neuropathy over time</h3>
+  <div class="prose"><p>Oxaliplatin causes two kinds of nerve symptoms. The <b>acute</b> form starts within hours to 2 days of a dose, is triggered or worsened by cold, and resolves within 14 days, often returning with the next dose. The <b>delayed</b> form persists for more than 14 days and can impair position sense and daily activities. Drag along the months after the last adjuvant cycle. [[FDA-OxaliplatinGland]]</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvNeuro" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A chart of the share of people with any-grade peripheral sensory neuropathy in the oxaliplatin adjuvant trial: 92 percent during treatment, 60 percent 28 days after the last cycle, 39 percent at 6 months and 21 percent at 18 months, with the grade 2 and grade 3 shares stacked at each point; a cursor follows the months and a hand shows fewer tingling points as the share falls."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvNPlay">Play</button><label class="stage-cap tl" for="lvNT">Months after the last cycle <input type="range" id="lvNT" min="0" max="1" step="0.001" value="0"></label></div>
+      <p class="stage-cap">Published time points from the US oxaliplatin label (adjuvant trial). The line between points only joins them; nothing was measured in between. [[FDA-OxaliplatinGland]]</p>
+    </div>
+    <aside class="note" id="lvNNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Exercise after chemotherapy: the CHALLENGE trial</h3>
+  <div class="lv-sched" role="group" aria-label="Outcome"><span class="kicker">Outcome</span>
+    <button class="btn" data-lvx="dfs" aria-pressed="true">Disease-free at 5 years</button>
+    <button class="btn" data-lvx="os" aria-pressed="false">Alive at 8 years</button>
+    <button class="btn" data-lvx="ae" aria-pressed="false">Musculoskeletal side effects</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvEx" viewBox="0 0 720 210" style="min-width:560px" role="img" aria-label="Two bars compare the structured exercise group with the health-education group in the CHALLENGE trial for the chosen outcome, with the hazard ratio beside them."></svg></div>
+      <p class="stage-cap">889 people with resected colon cancer after adjuvant chemotherapy; a 3-year structured exercise programme vs health-education materials. Population results. [[Courneya2025]]</p>
+    </div>
+    <aside class="note" id="lvExNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The rest of life</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Fear of recurrence</span><h4>The most common need</h4><p>Across 54 studies of supportive care needs, emotional support for fear of recurrence was the most prominent need at every stage, with diet information, help with fatigue and a trusted professional contact close behind. In 5515 long-term survivors, the Fear of Cancer Recurrence Inventory–Short Form worked as a screen, with a cut-off of 22. [[Kotronoulas2017,Ingeman2026]]</p></div>
+    <div class="card"><span class="tag brand">Mood</span><h4>Anxiety and low mood</h4><p>In PROFILES (2625 survivors), depression symptoms were reported by 19.0% vs 12.8% of a normative sample, and anxiety by 20.9% vs 11.8%. Being single, low education and other illnesses raised the risk. [[Mols2018]]</p></div>
+    <div class="card"><span class="tag accent">Work and money</span><h4>Return to work</h4><p>In 32,174 German working-age patients after rehabilitation, 31% were back at work within a month and 65% had returned for 6 months or more by 2 years. The highest income third had three times the odds of a lasting return (aOR 3.06). Financial toxicity is common across 65 studies, and was more likely in women, people under 60 and those with stage IV disease. [[Soff2026,Shao2026]]</p></div>
+    <div class="card"><span class="tag accent">Fertility</span><h4>Ask before treatment starts</h4><p>In one US centre, only 15.5% of 194 people with early-onset colorectal cancer got fertility counselling, less often in lower-income areas. In an Italian survey, 45% had fertility-preservation counselling and 11.9% had discussed sexual issues. Pelvic surgery can cause adhesions and nerve damage that affect fertility. [[Peng2025,Spring2025,Savitch2024]]</p></div>
+    <div class="card"><span class="tag warn">Sex and bladder</span><h4>After rectal treatment</h4><p>More than half of people have worse sexual function after rectal cancer treatment, and about a third have urinary problems, mainly from nerve damage at surgery; radiotherapy adds to sexual but not urinary dysfunction. In the TME trial cohort, 79.8% of men reported more erectile dysfunction and 59.1% of women dyspareunia. [[Lange2011,Lange2009]]</p></div>
+    <div class="card"><span class="tag rx">Caregivers</span><h4>Families carry weight too</h4><p>In 185 family caregivers in China, burden rose and then fell, peaking mid-chemotherapy; almost 88% had moderate or high burden, and the main strain shifted from daily schedules to money. [[Wang2024CG]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Diet after diagnosis</h4><p>In a stage III cohort, a Western dietary pattern (meat, fat, refined grains, dessert) was linked to worse disease-free survival (HR 3.25, highest vs lowest fifth). Following American Cancer Society guidance was linked to lower mortality (HR 0.58). These are observational, unlike the randomised exercise evidence. [[Meyerhardt2007,VanBlarigan2018,Rock2022]]</p></div>
+    <div class="card"><span class="tag good">Palliative care</span><h4>Extra support, alongside treatment</h4><p>Palliative care helps with symptoms and planning, and can start early. In early integrated palliative care for incurable lung and GI cancers, quality of life was better at week 24, more people discussed end-of-life wishes (30.2% vs 14.5%), and caregivers had less distress. In ALLAN, early home-based palliative care for advanced GI cancer improved quality of life by 13 points at week 24. [[Temel2017,ElJawahri2017,Bojesson2024]]</p>
+      <p class="lv-caveat">Caveats: the landmark trial was in lung cancer; the 2017 trial enrolled non-colorectal GI cancers; ALLAN was small and GI-wide (Early evidence). No colorectal-only early palliative care trial was found, so the evidence is extrapolated. [[Temel2010,Temel2017,Bojesson2024]]</p></div>
+  </div>
 </section>
