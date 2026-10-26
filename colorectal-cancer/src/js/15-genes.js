@@ -4,10 +4,10 @@
    per mode: a (0 unaffected, 1 affected), l (label lines), g ('+' carrier, '−' tested negative, 'c' recessive carrier,
    '' not tested), o (order of cascade testing), dead, odds (label shown during transmission) */
 const GN_NODES=[
- {id:'I1',sex:'m',x:150,y:70},{id:'I2',sex:'f',x:230,y:70},
- {id:'II1',sex:'f',x:90,y:190,p:'I'},{id:'IIs',sex:'m',x:170,y:190},{id:'II2',sex:'m',x:310,y:190,p:'I'},{id:'IIt',sex:'f',x:390,y:190},
- {id:'III1',sex:'f',x:50,y:310,p:'II1',pro:1},{id:'III2',sex:'m',x:110,y:310,p:'II1'},{id:'III3',sex:'f',x:170,y:310,p:'II1'},
- {id:'III4',sex:'m',x:290,y:310,p:'II2'},{id:'III5',sex:'f',x:370,y:310,p:'II2'}];
+ {id:'I1',sex:'m',x:165,y:70},{id:'I2',sex:'f',x:245,y:70},
+ {id:'II1',sex:'f',x:80,y:190,p:'I'},{id:'IIs',sex:'m',x:170,y:190},{id:'II2',sex:'m',x:330,y:190,p:'I'},{id:'IIt',sex:'f',x:415,y:190},
+ {id:'III1',sex:'f',x:42,y:310,p:'II1',pro:1},{id:'III2',sex:'m',x:125,y:310,p:'II1'},{id:'III3',sex:'f',x:208,y:310,p:'II1'},
+ {id:'III4',sex:'m',x:330,y:310,p:'II2'},{id:'III5',sex:'f',x:415,y:310,p:'II2'}];
 const GN_COUPLES={I:['I1','I2'],II1:['II1','IIs'],II2:['II2','IIt']};
 const GN_FAM={
  lynch:{name:'Lynch syndrome',
@@ -15,19 +15,19 @@ const GN_FAM={
   II1:{a:1,l:['endometrial','cancer 49'],g:'+',o:1},IIs:{a:0,l:['age 58'],g:''},II2:{a:0,l:['age 50'],g:'+',o:2},IIt:{a:0,l:['age 49'],g:''},
   III1:{a:1,l:['CRC 44'],g:'+',o:0},III2:{a:0,l:['age 41'],g:'+',o:3},III3:{a:0,l:['age 37'],g:'−',o:4},III4:{a:0,l:['age 24'],g:'+',o:5},III5:{a:0,l:['age 20'],g:'−',o:6},
   odds:{II1:'1 in 2',II2:'1 in 2',III1:'1 in 2',III2:'1 in 2',III3:'1 in 2',III4:'1 in 2',III5:'1 in 2'},
-  plan:{'+':'colonoscopy','−':'average risk'}},
+  plan:{'+':'colonoscopy','−':'usual risk'}},
  fap:{name:'FAP',
   I1:{a:1,l:['CRC 39','died 41'],g:'+',dead:1,inf:1},I2:{a:0,l:['age 70'],g:''},
   II1:{a:1,l:['colectomy','at 21'],g:'+',o:1},IIs:{a:0,l:['age 50'],g:''},II2:{a:0,l:['age 47'],g:'−',o:2},IIt:{a:0,l:['age 45'],g:''},
   III1:{a:1,l:['polyposis','at 19'],g:'+',o:0},III2:{a:0,l:['age 15'],g:'+',o:3},III3:{a:0,l:['age 12'],g:'−',o:4},III4:{a:0,l:['age 18'],g:'',na:1},III5:{a:0,l:['age 16'],g:'',na:1},
   odds:{II1:'1 in 2',II2:'1 in 2',III1:'1 in 2',III2:'1 in 2',III3:'1 in 2'},
-  plan:{'+':'scope from 12','−':'average risk'}},
+  plan:{'+':'scope from 12','−':'usual risk'}},
  map:{name:'MUTYH-associated polyposis',
   I1:{a:0,l:['age 80'],g:''},I2:{a:0,l:['age 77'],g:''},
   II1:{a:0,l:['age 70'],g:'c',o:1},IIs:{a:0,l:['age 72'],g:'c',o:2},II2:{a:0,l:['age 66'],g:'c',o:3},IIt:{a:0,l:['age 64'],g:''},
   III1:{a:1,l:['polyps, CRC','at 47'],g:'aa',o:0},III2:{a:0,l:['age 44'],g:'c',o:4},III3:{a:0,l:['age 40'],g:'−',o:5},III4:{a:0,l:['age 38'],g:'c',o:6},III5:{a:0,l:['age 35'],g:'−',o:7},
   odds:{III1:'1 in 4',III2:'1 in 4',III3:'1 in 4',III4:'carrier 1 in 2',III5:'carrier 1 in 2'},
-  plan:{aa:'yearly scope',c:'no extra scope','−':'average risk'}}
+  plan:{aa:'yearly scope',c:'no extra','−':'usual risk'}}
 };
 /* step timing, shared by the three modes */
 const GN_T=[0,.2,.42,.62,.82];
@@ -46,7 +46,7 @@ const GN_STEPS={
    pt:`Each child of a parent with Lynch syndrome has a 1 in 2 chance of inheriting it. It is a coin toss for every child, not a quota per family. [[Syngal2015]]`,
    hook:`Autosomal dominant: 50% per child, both sexes, vertical transmission.`},
   {k:'Step 4 · cascade testing',t:'Testing relatives for the family variant',
-   txt:`Once the proband's variant is known, relatives can have a targeted test. In a population study each Lynch proband had on average three relatives who also carried the variant. [[Hampel2008]] Here three carriers are found: the uncle, a brother and a cousin. Relatives who test negative return to population risk. EGAPP found sufficient evidence to offer Lynch testing to everyone with newly diagnosed colorectal cancer, to benefit their relatives. [[EGAPP2009]]`,
+   txt:`Once the proband's variant is known, relatives can have a targeted test. In a population study each Lynch proband had on average three relatives who also carried the variant. [[Hampel2008]] Here four relatives carry it: the mother, who already had cancer, and three who have not: the uncle, a brother and a cousin. Relatives who test negative return to population risk. EGAPP found sufficient evidence to offer Lynch testing to everyone with newly diagnosed colorectal cancer, to benefit their relatives. [[EGAPP2009]]`,
    pt:`About 1 in 300 people carry a Lynch syndrome gene change, and most do not know it. [[Win2017,DominguezValentin2020]]`,
    hook:`About 3% of colorectal cancer patients have Lynch syndrome. [[Hampel2008,Moreira2012]]`},
   {k:'Step 5 · surveillance',t:'What carriers are offered',
@@ -141,8 +141,8 @@ inits.genes=()=>{
   /* ================= pedigree ================= */
   const svg=$('#gnSvg'),rg=$('#gnT');let fam='lynch',setSt=()=>{};
   const byId={};GN_NODES.forEach(n=>byId[n.id]=n);
-  function draw(t){const N=vb(svg,'720 420','400 640');const F=GN_FAM[fam];
-    const P=n=>N?[n.x*.8+22,n.y]:[n.x+10,n.y];
+  function draw(t){const N=vb(svg,'720 420','400 600');const F=GN_FAM[fam];
+    const P=n=>N?[n.x*.84+16,n.y]:[n.x+10,n.y];
     const ph=phaseOf(GN_STEPS[fam],t);
     const pHist=ramp(t,GN_T[1],GN_T[1]+.12),pTr=ramp(t,GN_T[2],GN_T[2]+.14),pCas=ramp(t,GN_T[3],GN_T[3]+.16),pPlan=ramp(t,GN_T[4],GN_T[4]+.08);
     const r=N?10:11;
@@ -173,18 +173,18 @@ inits.genes=()=>{
       if(fam!=='map'&&d.inf&&pCas>.5)aff=d.a?1:aff;
       s+=`<g style="opacity:${n.pro||shown?1:.45}">${ped(x,y,n.sex,aff,{r,dead:d.dead&&shown,proband:n.pro})}</g>`;
       if(fam!=='map'&&known&&d.g==='+'&&!d.a)s+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="3.6" style="fill:var(--ink)"/>`;
-      if(n.pro||shown)d.l.forEach((l,i)=>s+=`<text x="${f1(x)}" y="${f1(y+r+12+i*11)}" class="t-xs t-mid" style="fill:${d.a?'var(--tumour)':'var(--muted)'}">${l}</text>`);
+      if(n.pro||shown)d.l.forEach((l,i)=>s+=`<text x="${f1(x+(n.pro?9:0))}" y="${f1(y+r+12+i*11)}" class="t-xs t-mid" style="fill:${d.a?'var(--tumour)':'var(--muted)'}">${l}</text>`);
       /* genotype badge */
       let badge='',bc='var(--muted)';
       if(known){badge=d.g==='+'?'+':d.g==='−'?'−':d.g==='c'?'carrier':d.g==='aa'?'2 copies':'';bc=d.g==='−'?'var(--good)':d.g==='c'?'var(--polyp-line)':'var(--tumour)';tested++;if(d.g==='+'||d.g==='c')carriers++}
       else if(d.inf&&pCas>.5){badge='obligate +';bc='var(--tumour)'}
       else if(d.na&&pCas>.5){badge='not at risk';bc='var(--good)'}
-      if(badge){const w=badge.length*5.8+10;s+=`<rect x="${f1(x+r-2)}" y="${f1(y-r-12)}" width="${f1(w)}" height="14" rx="7" style="fill:var(--panel);stroke:${bc}"/><text x="${f1(x+r-2+w/2)}" y="${f1(y-r-2)}" class="t-xs t-mid" style="fill:${bc};font-weight:700">${badge}</text>`}
+      if(badge){const w=badge.length*5.8+10;s+=`<rect x="${f1(x-w/2)}" y="${f1(y-r-18)}" width="${f1(w)}" height="14" rx="7" style="fill:var(--panel);stroke:${bc}"/><text x="${f1(x)}" y="${f1(y-r-8)}" class="t-xs t-mid" style="fill:${bc};font-weight:700">${badge}</text>`}
       if(pPlan>0&&known&&F.plan[d.g]){const pl=F.plan[d.g],good=d.g==='−';
-        s+=`<text x="${f1(x)}" y="${f1(y+r+12+d.l.length*11+2)}" class="t-xs t-mid" style="fill:${good?'var(--good)':'var(--accent)'};font-weight:700;opacity:${pPlan}">${pl}</text>`}
+        s+=`<text x="${f1(x+(n.pro?9:0))}" y="${f1(y+r+12+d.l.length*11+2)}" class="t-xs t-mid" style="fill:${good?'var(--good)':'var(--accent)'};font-weight:700;opacity:${pPlan}">${pl}</text>`}
     });
     /* side panel */
-    const Q=N?{x:8,y:440,w:384,h:192}:{x:486,y:36,w:226,h:370};
+    const Q=N?{x:8,y:398,w:384,h:194}:{x:486,y:36,w:226,h:370};
     s+=`<rect x="${Q.x}" y="${Q.y}" width="${Q.w}" height="${Q.h}" rx="10" style="fill:var(--panel-2);stroke:var(--line)"/>`;
     const qx=Q.x+12;let qy=Q.y+22;const T=(txt,cls='t-sm',st='')=>{s+=`<text x="${qx}" y="${f1(qy)}" class="${cls}" style="${st}">${txt}</text>`;qy+=cls==='t-lbl'?20:15};
     if(ph===0){T('THE PROBAND','t-xs');T(fam==='lynch'?'Tumour: MSH2/MSH6 lost':fam==='fap'?'Hundreds of adenomas':'Polyps + cancer at 47','t-lbl');
@@ -201,7 +201,7 @@ inits.genes=()=>{
       else{T('One generation only','t-lbl');T('Parents: no polyps');T('Grandparents: no polyps');T('1 in 45 people carry');T('a MUTYH variant');T('(mostly one copy)')}}
     else if(ph===2){T('INHERITANCE','t-xs');T(fam==='map'?'Carrier × carrier':'Carrier × non-carrier','t-lbl');
       /* Punnett square */
-      const cs=N?34:40,px=qx+30,py=qy+16,A=fam==='map'?['M','m']:['V','n'],B=fam==='map'?['M','m']:['n','n'];
+      const cs=N?42:46,px=qx+30,py=qy+16,A=fam==='map'?['M','m']:['V','n'],B=fam==='map'?['M','m']:['n','n'];
       s+=`<text x="${px+cs}" y="${py-4}" class="t-xs t-mid">${A[0]}</text><text x="${px+cs*2}" y="${py-4}" class="t-xs t-mid">${A[1]}</text>`;
       for(let i=0;i<2;i++){s+=`<text x="${px+cs*.5-6}" y="${f1(py+cs*(i+.5)+4)}" class="t-xs t-mid">${B[i]}</text>`;
         for(let j=0;j<2;j++){const k=i*2+j,shown=pTr*4>k;let fill='var(--panel)',lab='';
@@ -254,7 +254,7 @@ inits.genes=()=>{
     const loopOp=dm?pSlip:pSlip*(1-ramp(pX,.35,.6));
     if(pSlip>0&&loopOp>0){const lx=(bx(loopI)+bx(loopI+1))/2,ly=yN-20-14*pSlip;
       s+=`<path d="M${f1(lx-bw/2)} ${yN-11}Q${f1(lx)} ${f1(ly-6)} ${f1(lx+bw/2)} ${yN-11}" style="fill:none;stroke:var(--tumour);stroke-width:2;opacity:${f1(loopOp)}"/>`;
-      s+=`<g style="opacity:${f1(loopOp)}">${base(lx,ly-6,'A','var(--tumour-soft)')}</g><text x="${f1(lx+bw/2+4)}" y="${f1(ly-14)}" class="t-xs" style="fill:var(--tumour);opacity:${f1(loopOp)}">extra A looped out</text>`}
+      s+=`<g style="opacity:${f1(loopOp)}">${base(lx,ly-6,'A','var(--tumour-soft)')}</g>${pS<.15?`<text x="${f1(lx+bw/2+4)}" y="${f1(ly-14)}" class="t-xs" style="fill:var(--tumour);opacity:${f1(loopOp)}">extra A looped out</text>`:''}`}
     /* polymerase */
     if(pSyn<1||(!dm&&pR>0&&pR<1)){const px=pSyn<1?bx(Math.min(nB-1,k)):bx(lerp(exL,exR,pR));
       s+=`<ellipse cx="${f1(px+6)}" cy="${f1((yN+yT)/2)}" rx="${N?22:26}" ry="34" style="fill:var(--accent);opacity:.22;stroke:var(--accent)"/><text x="${f1(px+6)}" y="${f1(yT+52)}" class="t-xs t-mid" style="fill:var(--accent)">${pSyn<1?'DNA polymerase':'polymerase δ'}</text>`}
@@ -269,8 +269,12 @@ inits.genes=()=>{
       if(pX>0&&pR<.2){const x=bx(lerp(exL,exR,pX)),op=1-ramp(pR,0,.2);
         s+=`<g style="opacity:${f1(op)}"><path d="M${f1(x+16)} ${yN-14}A16 16 0 1 0 ${f1(x+16)} ${yN+14}L${f1(x)} ${yN}Z" style="fill:var(--warn)"/><text x="${f1(x)}" y="${yN-24}" class="t-xs t-mid" style="fill:var(--warn);font-weight:700">EXO1</text></g>`}
       if(pR>=1){s+=`<text x="${f1(lx)}" y="${yN-30}" class="t-sm t-mid" style="fill:var(--good);font-weight:700">✓ ten repeats, sealed by ligase</text>`}
+      const pD=ramp(t,.9,.98),yD=yT+(N?100:72);
+      if(pD>0){s+=`<text x="${x0}" y="${yD-24}" class="t-xs" style="opacity:${f1(pD)}">NEXT DIVISION: THE DAUGHTER CELL'S TEMPLATE</text>`;
+        [...tmpl].forEach((c,i)=>{const op=clamp(pD*nB-i);s+=`<g style="opacity:${f1(op)}">${base(bx(i),yD,c,i>=r0&&i<=r1?'var(--good-soft)':'var(--panel-2)')}</g>`});
+        if(pD>=1)s+=`<text x="${f1(x0+(r0+r1+1)/2*bw)}" y="${yD+30}" class="t-sm t-mid" style="fill:var(--good);font-weight:700">(T)10: unchanged, microsatellite stable</text>`}
     }else{
-      if(pS>0){s+=`<text x="${f1(lx)}" y="${yN-50}" class="t-sm t-mid" style="fill:var(--bad);font-weight:700;opacity:${f1(pS)}">✕ no MutSα / MutLα</text><path d="M${f1(x0-20)} ${yN-30}Q${f1(x0)} ${yN-60} ${f1(lx-60)} ${yN-56}" class="arrow" style="opacity:${f1(pS*.6)};stroke-dasharray:4 4"/>`}
+      if(pS>0){s+=`<text x="${f1(lx)}" y="${yN-50}" class="t-sm t-mid" style="fill:var(--bad);font-weight:700;opacity:${f1(pS)}">✕ no MutSα / MutLα</text>`}
       /* daughter duplex with 11 repeats */
       const pD=ramp(t,.45,.6),yD=yT+(N?100:72);
       if(pD>0){const seq=(N?'GC':'GCATCG')+'TTTTTTTTTTT'+(N?'AG':'GACTCG');
@@ -298,7 +302,7 @@ inits.genes=()=>{
   const cv=$('#gnCurve'),cr=$('#gnCurveT');let sex='F';const on={MLH1:1,MSH2:1,MSH6:1,PMS2:1};
   const interp=(pts,a)=>{if(a<pts[0][0])return null;for(let i=1;i<pts.length;i++)if(a<=pts[i][0]){const p=pts[i-1],q=pts[i];return p[1]+(q[1]-p[1])*(a-p[0])/(q[0]-p[0])}return pts[pts.length-1][1]};
   function drawC(t){const N=vb(cv,'720 360','400 420');const age=lerp(30,75,t);
-    const C=N?{x0:44,x1:300,y0:30,y1:360}:{x0:56,x1:560,y0:30,y1:300};
+    const C=N?{x0:44,x1:300,y0:34,y1:370}:{x0:56,x1:510,y0:34,y1:320};
     const X=a=>lerp(C.x0,C.x1,(a-30)/45),Y=v=>lerp(C.y1,C.y0,v/60);
     let s='';
     [0,10,20,30,40,50,60].forEach(v=>s+=`<line x1="${C.x0}" x2="${C.x1}" y1="${f1(Y(v))}" y2="${f1(Y(v))}" class="${v?'grid':'axis'}"/><text x="${C.x0-6}" y="${f1(Y(v)+3)}" class="t-xs t-end">${v}%</text>`);
@@ -317,7 +321,7 @@ inits.genes=()=>{
     labs.sort((a,b)=>a.y-b.y);for(let i=1;i<labs.length;i++)if(labs[i].y-labs[i-1].y<14)labs[i].y=labs[i-1].y+14;
     labs.forEach(l=>s+=`<text x="${f1(X(age)+8)}" y="${f1(l.y+4)}" class="t-sm" style="fill:${l.c};font-weight:700">${l.g} ${f1(l.v)}%</text>`);
     s+=`<line x1="${f1(X(age))}" x2="${f1(X(age))}" y1="${C.y0}" y2="${C.y1}" style="stroke:var(--ink);opacity:.3"/>`;
-    if(!N){const bx=600;s+=`<text x="${bx}" y="50" class="t-xs">CARRIERS IN THE</text><text x="${bx}" y="62" class="t-xs">POPULATION</text>`;
+    if(!N){const bx=636;s+=`<text x="${bx}" y="50" class="t-xs">CARRIERS IN THE</text><text x="${bx}" y="62" class="t-xs">POPULATION</text>`;
       [ ['MLH1','1 in 1,946'],['MSH2','1 in 2,841'],['MSH6','1 in 758'],['PMS2','1 in 714'],['any','1 in 279'] ].forEach(([g,v],i)=>s+=`<text x="${bx}" y="${88+i*30}" class="t-sm" style="fill:${GN_PLSD[g]?GN_PLSD[g].c:'var(--ink)'};font-weight:700">${g}</text><text x="${bx}" y="${101+i*30}" class="t-xs">${v}</text>`)}
     cv.innerHTML=s;
     $('#gnCurveRead').innerHTML=`<span>age <b>${Math.round(age)}</b></span>`+Object.entries(GN_PLSD).filter(([g])=>on[g]).map(([g,D])=>{const v=interp(D[sex],age);return `<span>${g} <b>${v==null?'no data':f1(v)+'%'}</b></span>`}).join('')+`<span>carrier frequency: any MMR gene <b>1 in 279</b> [[Win2017]]</span>`;

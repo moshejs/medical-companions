@@ -138,7 +138,7 @@ inits.risk=()=>{
     const sel=Math.min(n,2),young=a<50,vy=a<45;
     /* chart */
     const N=vb(fs,'720 230','400 330');
-    const C=N?{lx:6,x0:6,x1:380,y0:40,dy:84,bh:14}:{lx:8,x0:200,x1:690,y0:44,dy:58,bh:18};
+    const C=N?{lx:6,x0:6,x1:380,y0:40,dy:84,bh:14}:{lx:8,x0:200,x1:680,y0:40,dy:54,bh:18};
     const X=v=>lerp(C.x0,C.x1,v/12);
     let s='';
     [0,3,6,9,12].forEach(v=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${C.y0-20}" y2="${C.y0+C.dy*3-14}" class="grid"/><text x="${f1(X(v))}" y="${C.y0+C.dy*3}" class="t-xs t-mid">${v}%</text>`});
@@ -151,7 +151,7 @@ inits.risk=()=>{
       s+=`<text x="${f1(X(b.hi||b.v)+6)}" y="${f1(by+C.bh/2+4)}" class="t-sm" style="fill:var(--ink);font-weight:${on?700:500}">${b.v}%${on?' ←':''}</text>`;
       /* Roos 2019 to 85 */
       const ro=i===0?null:i===1?(young?11:4.8):8.2;
-      if(ro!=null){const ry=by+C.bh+(N?16:12);s+=`<circle cx="${f1(X(ro))}" cy="${f1(ry-3)}" r="3.5" style="fill:none;stroke:var(--brand);stroke-width:1.6"/><text x="${f1(X(ro)+7)}" y="${f1(ry)}" class="t-xs" style="fill:var(--brand)">${ro}% to age 85${i===1&&young?' (FDR <50)':''}</text>`}
+      if(ro!=null){const ry=by+C.bh+(N?16:12);const lft=X(ro)>(N?250:520);s+=`<circle cx="${f1(X(ro))}" cy="${f1(ry-3)}" r="3.5" style="fill:none;stroke:var(--brand);stroke-width:1.6"/><text x="${f1(X(ro)+(lft?-7:7))}" y="${f1(ry)}" class="t-xs${lft?' t-end':''}" style="fill:var(--brand)">${ro}% to age 85${i===1&&young?' (FDR <50)':''}</text>`}
     });
     s+=`<text x="${C.lx}" y="${N?322:224}" class="t-xs">bar = for a 50-year-old (Butterworth 2006) · circle = to 85, W. Europe (Roos 2019)</text>`;
     fs.innerHTML=s;

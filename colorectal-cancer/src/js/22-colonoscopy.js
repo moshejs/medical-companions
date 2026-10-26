@@ -168,7 +168,7 @@ inits.colonoscopy=()=>{
     const qx=N?40:430,qy=N?600:290,qw=N?340:270,qh=N?160:130,Q=[9.8,8.6,8.0,7.0,4.8];
     s+=`<text x="${N?20:410}" y="${qy-qh-26}" class="t-lbl">Interval cancers per 10,000 person-years</text><text x="${N?20:410}" y="${qy-qh-12}" class="t-xs">by physician ADR quintile (Kaiser Permanente)</text>`;
     Q.forEach((v,i)=>{const bw=qw/5-14,x=qx+i*qw/5,h=v/10*qh;
-      s+=`<rect x="${f1(x)}" y="${f1(qy-h)}" width="${f1(bw)}" height="${f1(h)}" rx="3" style="fill:var(--accent);opacity:${f1(.45+i*.12)}"/><text x="${f1(x+bw/2)}" y="${f1(qy-h-4)}" class="t-xs t-mid" style="fill:var(--ink)">${v}</text><text x="${f1(x+bw/2)}" y="${qy+12}" class="t-xs t-mid">Q${i+1}</text>`});
+      s+=`<rect x="${f1(x)}" y="${f1(qy-h)}" width="${f1(bw)}" height="${f1(h)}" rx="3" style="fill:var(--accent);opacity:${f1(.45+i*.12)}"/><text x="${f1(x+bw/2)}" y="${f1(qy-h-4)}" class="t-xs t-mid" style="fill:var(--ink)">${v.toFixed(1)}</text><text x="${f1(x+bw/2)}" y="${qy+12}" class="t-xs t-mid">Q${i+1}</text>`});
     s+=`<text x="${qx}" y="${qy+25}" class="t-xs">lowest ADR</text><text x="${qx+qw-14}" y="${qy+25}" class="t-xs t-end">highest ADR</text>`;
     qs.innerHTML=s;
     qn.innerHTML=noteHTML({k:'Quality check',t:a>=35&&w>=8?'Meets the 2024 targets shown':a<20?'An ADR below 20%':'Room to improve',

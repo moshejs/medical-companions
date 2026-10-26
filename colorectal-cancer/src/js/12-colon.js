@@ -125,7 +125,7 @@ inits.colon=()=>{
       const p=col.at(.62),Wx=N?{x:30,y:338,w:170,h:220}:{x:430,y:70,w:140,h:250};
       s+=`<g style="opacity:${f1(zoom)}">`;
       s+=`<circle cx="${f1(p[0])}" cy="${f1(p[1])}" r="16" style="fill:none;stroke:var(--ink);stroke-width:2"/>`;
-      s+=`<path d="M${f1(p[0]+(N?-6:12))} ${f1(p[1]+(N?15:-10))}L${Wx.x} ${Wx.y}M${f1(p[0]+(N?6:12))} ${f1(p[1]+(N?15:10))}L${Wx.x} ${Wx.y+Wx.h}" style="stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3"/>`;
+      s+=`<path d="M${f1(p[0]+(N?-6:12))} ${f1(p[1]+(N?15:-10))}L${Wx.x} ${Wx.y}M${f1(p[0]+(N?6:12))} ${f1(p[1]+(N?15:10))}L${N?Wx.x+Wx.w:Wx.x} ${N?Wx.y:Wx.y+Wx.h}" style="stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3"/>`;
       const wl=wall(Wx.x,Wx.y,Wx.w,{h:Wx.h});s+=wl.svg;
       const rev=lerp(Wx.y,wl.y.bottom+2,ramp(t,.76,.92));
       s+=`<rect x="${Wx.x-2}" y="${f1(rev)}" width="${N?372:290}" height="${f1(Math.max(0,wl.y.bottom+4-rev))}" style="fill:var(--panel)"/>`;
@@ -240,13 +240,14 @@ inits.colon=()=>{
   const ag=$('#clAge');
   function calc(){const a=+ag.value;$('#clAgeOut').textContent=a;
     const gob=a<=60?'72 / 75':a>=67?'51 / 54':'between the groups';
+    const g1=v=>v<10?f1(v):String(Math.round(v));
     const cards=[
       [`${clFmt(a*365/5)}–${clFmt(a*365/4)}`,`times the lining has been rebuilt, at one renewal every 4–5 days`],
-      [`${f1(a*.65)}–${f1(a*2.7)}`,`stem-cell replacements inside one crypt (mean ${f1(a*1.3)}), at 0.65–2.7 a year`],
+      [`${g1(a*.65)}–${g1(a*2.7)}`,`stem-cell replacements inside one crypt (mean ${g1(a*1.3)}), at 0.65–2.7 a year`],
       [`${f1(a/40)}–${f1(a/30)}`,`crypt fissions per crypt at one per 30–40 years (Baker 2014)`],
       [`${f1(a*.007)} or ${f1(a*.011)}`,`fissions per crypt at 0.7% a year (Nicholson 2018) or 0.011 a year (Baker 2019): estimates differ several-fold`],
       [gob,`goblet cells per crypt section, ascending / descending colon (published groups: up to 60, and 67 or older)`],
-      [a>=67?'nearly 2×':a>=45?'more':'fewer',`passenger mutations than in a tumour at 45: a tumour at 90 carries nearly twice as many`]];
+      ['≈2×',`passenger mutations in a tumour at 90 compared with an identical tumour at 45, because stem cells divide all life`]];
     $('#clNums').innerHTML=cards.map(([b,s])=>`<div class="clnum"><b>${b}</b><span>${s}</span></div>`).join('')}
   ag.addEventListener('input',calc);calc();
   $('#clAgeCap').innerHTML='Rates: renewal every 4–5 days; stem-cell replacement 1.3 per crypt per year (0.65–2.7); crypt fission once every 30–40 years, 0.7% of crypts a year, or 0.011 a year (Early evidence); goblet-cell counts by age group; passenger mutations by age. [[VanDerFlier2009,Nicholson2018,Baker2014,Baker2019,Baidoo2024,Vogelstein2013]]';

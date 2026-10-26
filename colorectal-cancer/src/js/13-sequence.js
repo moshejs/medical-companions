@@ -73,9 +73,9 @@ inits.sequence=()=>{
       if(y<17)return{s:lerp(62,78,ramp(y,12,17)),k:lerp(.55,.82,ramp(y,12,17)),name:'Advanced adenoma, high-grade dysplasia',col:'var(--dysplasia)'};
       return{s:lerp(78,92,ramp(y,17,21)),k:lerp(.87,1,ramp(y,17,19.5)),name:y<20?'Invasive carcinoma':'Carcinoma with a metastatic clone',col:'var(--tumour)'}}
     if(y<1.5)return{s:0,k:0,name:'BRAF-mutant crypt',col:'var(--polyp-line)'};
-    if(y<14)return{s:lerp(22,64,ramp(y,1.5,14)),k:0,name:'Sessile serrated lesion',col:'var(--polyp-line)'};
-    if(y<16)return{s:lerp(64,72,ramp(y,14,16)),k:lerp(.6,.82,ramp(y,14,16)),name:'SSL with dysplasia',col:'var(--dysplasia)'};
-    return{s:lerp(72,90,ramp(y,16,21)),k:lerp(.87,1,ramp(y,16,18.5)),name:y<19.5?'Invasive carcinoma':'Carcinoma, spreading',col:'var(--tumour)'}}
+    if(y<14)return{s:lerp(32,80,ramp(y,1.5,14)),k:0,name:'Sessile serrated lesion',col:'var(--polyp-line)'};
+    if(y<16)return{s:lerp(80,84,ramp(y,14,16)),k:lerp(.6,.82,ramp(y,14,16)),name:'SSL with dysplasia',col:'var(--dysplasia)'};
+    return{s:lerp(84,96,ramp(y,16,21)),k:lerp(.87,1,ramp(y,16,18.5)),name:y<19.5?'Invasive carcinoma':'Carcinoma, spreading',col:'var(--tumour)'}}
   const GENES={conv:[{n:'APC',y:.5},{n:'KRAS',y:3},{n:'18q/SMAD4',y:12},{n:'17p/TP53',y:17}],
     serr:[{n:'BRAF V600E',y:.4},{n:'Proximal',y:1.5},{n:'CIMP',y:6},{n:'MLH1 meth.',y:14}]};
   /* Vogelstein 1988 (ras, 18q, 17p) and Powell 1992 (APC): % of tumours, by stage */
@@ -119,31 +119,31 @@ inits.sequence=()=>{
     g+=lab(0,cy0+H+26,lost.length?lost.join(' + ')+' lost':cin?'no arm losses yet':'chromosomes intact','t-xs',lost.length?'fill:var(--tumour)':'');
     if(GAIN)g+=lab(0,cy0+H+38,'+1 whole chromosome','t-xs','fill:var(--gold)');
     /* mutation dots: each dot about 20 mutations; mean 73 (pMMR) vs 1,782 (dMMR) */
-    const tgt=cin?73:1782,k=ramp(y,0,pw==='conv'?18:16),m=Math.round(tgt*k),nd=Math.round(m/20);
+    const tgt=cin?73:1782,k=ramp(y,0,pw==='conv'?18:16),m=Math.round(!cin&&pw==='serr'?(y<14?73*ramp(y,0,14):lerp(73,1782,ramp(y,14,17))):tgt*k),nd=Math.round(m/20);
     const dx=146,cols=Math.floor((PW-dx)/7.5);
     for(let i=0;i<nd;i++)g+=`<circle cx="${f1(dx+3+(i%cols)*7.5)}" cy="${f1(cy0+2+Math.floor(i/cols)*7.5)}" r="2.6" style="fill:${cin?'var(--muted)':'var(--accent)'}"/>`;
-    g+=lab(dx,cy0+H+26,`${m.toLocaleString('en-GB')} mutations (1 dot ≈ 20)`,'t-xs','fill:var(--ink)');
-    g+=lab(dx,cy0+H+38,'means: pMMR 73, dMMR 1,782','t-xs');
+    g+=lab(dx,cy0+H+26,`${m.toLocaleString('en-GB')} mutations`,'t-xs','fill:var(--ink)');
+    g+=lab(dx,cy0+H+38,'mean pMMR 73 · dMMR 1,782','t-xs');g+=lab(dx,cy0+H+50,'1 dot ≈ 20 mutations','t-xs');
     return g}
-  function timeline(y,x0,x1,ty){let g='';const X=v=>lerp(x0,x1,v/SQ_Y);
+  function timeline(y,x0,x1,ty,N){let g='';const X=v=>lerp(x0,x1,v/SQ_Y);
     g+=`<line x1="${x0}" x2="${x1}" y1="${ty}" y2="${ty}" class="axis"/>`;
     for(let v=0;v<=SQ_Y;v+=2)g+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${ty-3}" y2="${ty+3}" class="axis"/>`+lab(X(v),ty+15,v,'t-xs t-mid');
     const br=(a,b,yy,t,c,up=1,an)=>`<path d="M${f1(X(a))} ${yy+4*up}V${yy}H${f1(X(b))}V${yy+4*up}" style="fill:none;stroke:${c};stroke-width:1.6"/>`+lab(an?X(b):(X(a)+X(b))/2,yy-4*up+(up<0?10:0),t,an?'t-xs t-end':'t-xs t-mid',`fill:${c}`);
     if(pw==='conv'){
       g+=`<rect x="${f1(X(0))}" y="${ty-6}" width="${f1(X(3)-X(0))}" height="12" style="fill:var(--line);opacity:.5"/>`;
-      g+=br(0,3,ty-14,'not measured','var(--muted)');
-      g+=br(3,20,ty-14,'~17 years: large adenoma → advanced cancer','var(--polyp-line)');
+      g+=br(0,3,ty-14,N?'?':'not measured','var(--muted)');
+      g+=br(3,20,ty-14,N?'~17 years to advanced cancer':'~17 years: large adenoma → advanced cancer','var(--polyp-line)');
       g+=br(20,22,ty-14,'<2 y','var(--tumour)');
       g+=br(17,22,ty+24,'screen-detectable before symptoms: mean 4.5–5.8 y','var(--accent)',-1,1);
     }else{
-      g+=br(1.5,14,ty-14,'long dwell as an SSL (not measured)','var(--polyp-line)');
+      g+=br(1.5,14,ty-14,N?'long dwell (not measured)':'long dwell as an SSL (not measured)','var(--polyp-line)');
       g+=br(14,17,ty-14,'rapid','var(--tumour)');
       g+=br(17,22,ty+24,'screen-detectable before symptoms: mean 4.5–5.8 y','var(--accent)',-1,1);
     }
     g+=`<circle cx="${f1(X(y))}" cy="${ty}" r="6" style="fill:var(--tumour);stroke:var(--panel);stroke-width:2"/>`;
     return g}
   function draw(t){
-    const N=vb(svg,'720 460','400 820'),y=t*SQ_Y,L=lesion(y);
+    const N=vb(svg,'720 460','400 840'),y=t*SQ_Y,L=lesion(y);
     const x0=N?10:14,W1=N?380:390,wy=150,cx=x0+W1*.48;
     let s=`<defs>${marker('sqArr','var(--tumour)')}</defs>`;
     s+=lab(x0,24,L.name,'t-big',`fill:${L.col}`);
@@ -169,7 +169,7 @@ inits.sequence=()=>{
         for(let i=0;i<=M;i++){const u=i/M,xx=cx-hw*1.15+hw*2.3*u,bulge=Math.sin(Math.PI*u),yy=lerp(Y.mucosa+8,dep,bulge)+(i%2?-8:6)*bulge*rr();d+=`L${f1(xx)} ${f1(yy)}`}
         d+=`L${f1(cx+hw)} ${f1(Y.mucosa)}Z`;s+=`<path d="${d}" style="fill:var(--tumour);opacity:.85;stroke:var(--tumour);stroke-width:1.5;stroke-linejoin:round"/>`;
         for(let i=0;i<5;i++){const xx=cx+(rr()-.5)*hw*2.4,yy=lerp(Y.mucosa+14,dep+6,rr());s+=`<circle cx="${f1(xx)}" cy="${f1(yy)}" r="${f1(2+rr()*2)}" style="fill:var(--tumour)"/>`}}
-      s+=polyp(cx,Y.mucosa,L.s,L.k,{serrated:pw==='serr',seed:pw==='conv'?5:8})}
+      {const sq=pw==='serr'&&L.k<.85?.6:.72;s+=`<g transform="translate(0 ${f1(Y.mucosa*(1-sq))}) scale(1 ${sq})">${polyp(cx,Y.mucosa,L.s,L.k,{serrated:pw==='serr',seed:pw==='conv'?5:8})}</g>`}}
     /* a vessel in the submucosa, and spread to the liver */
     const vx=x0+W1*.82,vy=(Y.submucosa+Y.muscularis)/2;
     s+=`<ellipse cx="${f1(vx)}" cy="${f1(vy)}" rx="16" ry="9" style="fill:var(--vessel-soft);stroke:var(--vessel);stroke-width:1.4"/>`+lab(vx,vy+22,'vein','t-xs t-mid');
@@ -181,7 +181,7 @@ inits.sequence=()=>{
     /* right panel */
     const RP=N?{x:10,y:378,w:380}:{x:428,y:24,w:280};
     s+=`<g transform="translate(${RP.x} ${RP.y})">${right(y,RP.w,N)}</g>`;
-    s+=timeline(y,N?24:30,N?376:700,N?740:404);
+    s+=timeline(y,N?24:30,N?376:700,N?790:404,N);
     svg.innerHTML=s;
     const ST=SQ_STEPS[pw],ph=phaseOf(ST,t);setSt(ph);$('#sqNote').innerHTML=noteHTML(ST[ph]);
     const lit=GENES[pw].filter(b=>y>=b.y).map(b=>b.n.split(' ')[0]).join(' → ')||'none yet';
@@ -201,9 +201,9 @@ inits.sequence=()=>{
   const BREN={w:{'55':[2.6,25.4],'80':[5.6,42.9]},m:{'55':[2.6,25.2],'80':[5.1,39.7]}};
   const interp=(P,x)=>{for(let i=1;i<P.length;i++)if(x<=P[i][0]){const a=P[i-1],b=P[i];return a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0])}return P[P.length-1][1]};
   function drawR(t){const N=vb(rs,'720 330','400 420'),Yr=t*20;
-    const px0=N?44:60,px1=N?380:690,py0=N?30:24,py1=N?340:270,X=v=>lerp(px0,px1,v/20),Yv=v=>lerp(py1,py0,v/50);
+    const px0=N?44:60,px1=N?380:690,py0=N?30:24,py1=N?340:270,X=v=>lerp(px0,px1,v/20),Yv=v=>lerp(py1,py0,v/60);
     let s='';
-    for(let v=0;v<=50;v+=10)s+=`<line x1="${px0}" x2="${px1}" y1="${f1(Yv(v))}" y2="${f1(Yv(v))}" class="grid"/>`+lab(px0-8,Yv(v)+4,v+'%','t-xs t-end');
+    for(let v=0;v<=60;v+=10)s+=`<line x1="${px0}" x2="${px1}" y1="${f1(Yv(v))}" y2="${f1(Yv(v))}" class="grid"/>`+lab(px0-8,Yv(v)+4,v+'%','t-xs t-end');
     for(let v=0;v<=20;v+=5)s+=lab(X(v),py1+16,v+' y','t-xs t-mid');
     s+=`<line x1="${px0}" x2="${px1}" y1="${py1}" y2="${py1}" class="axis"/>`;
     s+=lab(px0,py1+(N?36:40),'Years after the polyp was found','t-sm');
@@ -236,11 +236,11 @@ inits.sequence=()=>{
   const ORDER=(()=>{const a=[...Array(1000).keys()],r=rng(77);for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a})();
   const RANK=new Array(1000);ORDER.forEach((v,i)=>RANK[v]=i);
   const PREV={any:[302,'var(--polyp)','any adenoma, 30.2%'],adv:[57,'var(--dysplasia)','an advanced adenoma, 5.7%'],ca:[3,'var(--tumour)','colorectal cancer, 0.3%']};
-  function drawP(){const N=vb(ps,'720 300','400 640'),cols=N?25:50,sp=N?14.8:13.8,r=N?5:4.8,ox=N?(400-cols*sp)/2+sp/2:(720-cols*sp)/2+sp/2,oy=N?20:18;
+  function drawP(){const N=vb(ps,'720 300','400 642'),cols=N?25:50,sp=N?14.6:13.8,r=N?5:4.8,ox=N?(400-cols*sp)/2+sp/2:(720-cols*sp)/2+sp/2,oy=N?20:18;
     const [n,c,l]=PREV[grp];let s='';
     for(let i=0;i<1000;i++){const x=ox+(i%cols)*sp,y=oy+Math.floor(i/cols)*sp,on=RANK[i]<n;
       s+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="${on&&grp==='ca'?r+1.5:r}" style="fill:${on?c:'var(--panel-2)'};${on?'':'stroke:var(--line);stroke-width:.8'}"/>`}
-    s+=lab(N?200:360,N?630:294,`${n} of 1,000 average-risk adults screened had ${l}`,'t-sm t-mid','fill:var(--ink)');
+    if(N){s+=lab(200,616,`${n} of 1,000 average-risk adults screened`,'t-sm t-mid','fill:var(--ink)')+lab(200,632,`had ${l}`,'t-sm t-mid','fill:var(--ink)')}else s+=lab(360,294,`${n} of 1,000 average-risk adults screened had ${l}`,'t-sm t-mid','fill:var(--ink)');
     ps.innerHTML=s;
     $('#sqPrevCap').innerHTML=`Pooled prevalence: any adenoma 30.2%, non-advanced adenoma 17.7%, advanced adenoma 5.7%, cancer 0.3%; higher in cohorts with a mean age of 65 or more. [[Heitman2009]]`}
   $$('[data-sqprev]').forEach(b=>b.addEventListener('click',()=>{grp=b.dataset.sqprev;$$('[data-sqprev]').forEach(x=>x.setAttribute('aria-pressed',x===b));drawP()}));

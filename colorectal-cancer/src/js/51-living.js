@@ -106,7 +106,7 @@ inits.living=()=>{
     for(let k=0;k<=42;k+=(NL?6:3))s+=`<text x="${f1(X(k))}" y="${y+52}" class="t-xs t-mid">${k}</text>`;
     /* stacked item segments above the ruler */
     let acc=0;v.forEach((p,i)=>{if(!p)return;const a=X(acc),b=X(acc+p);s+=`<rect x="${f1(a)}" y="${y-22}" width="${f1(b-a-1)}" height="14" rx="3" style="fill:${ICOL[i]};opacity:.85"/>`;
-      if(b-a>(NL?34:48))s+=`<text x="${f1((a+b)/2)}" y="${y-12}" class="t-xs t-mid" style="fill:var(--panel);font-weight:700">${NL?IT[i].split(' ')[0]:IT[i]} ${p}</text>`;acc+=p});
+      const lb=`${NL?IT[i].split(' ')[0]:IT[i]} ${p}`;if(b-a>lb.length*5.9+6)s+=`<text x="${f1((a+b)/2)}" y="${y-12}" class="t-xs t-mid" style="fill:var(--panel);font-weight:700">${NL?IT[i].split(' ')[0]:IT[i]} ${p}</text>`;acc+=p});
     s+=`<path d="M${f1(X(tot)-7)} ${y-4}h14l-7 9z" style="fill:var(--ink)"/>`;
     s+=`<text x="${f1(clamp(X(tot),x0+40,x1-40))}" y="${y-30}" class="t-lbl t-mid">score ${tot}</text>`;
     s+=`<text x="${x0}" y="${NL?20:18}" class="t-sm">${NL?'LARS SCORE (0–42)':'LARS SCORE · 0–42 · bands from the 961-patient development study'}</text>`;
@@ -126,7 +126,7 @@ inits.living=()=>{
 
   /* ===== stoma explorer ===== */
   const st=$('#lvStoma');let ty='ileo',it='temp',stT=1,stStop=null;
-  function drawSt(){const NS=vb(st,'720 330','400 470');let s='';
+  function drawSt(){const NS=vb(st,'720 330','400 400');let s='';
     const T=NS?{cx:200,top:24,w:300,h:300}:{cx:220,top:16,w:300,h:298};
     const tl=T.cx-T.w/2,tr=T.cx+T.w/2,tb=T.top+T.h;
     /* torso outline */

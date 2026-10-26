@@ -1,5 +1,138 @@
-<!-- ================= 2.3 WHEN TO START, HOW OFTEN (stub, replaced by its builder) ================= -->
+<!-- ================= 2.3 WHEN TO START, HOW OFTEN ================= -->
+<style>
+#m-schedule .tbl table{min-width:560px}
+#m-schedule .card>.ev,#m-schedule .card>.tag{align-self:flex-start}
+#m-schedule .sh-out{display:flex;flex-direction:column;gap:10px}
+#m-schedule .sh-out ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14.5px;line-height:1.5}
+#m-schedule .readout{display:block;font-family:var(--body);font-size:13.5px;line-height:1.5}
+</style>
 <section class="mod" id="m-schedule" data-mod="schedule" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Screening</p><h2>When to start, how often</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Pick a risk group, a test and what the last colonoscopy found, and see the timeline the guidelines describe, from age 40 to 85, with each guideline quoted as published. Then watch a lifetime of screening play out for a person at average risk.</p></div>
+
+  <p class="callout"><b>What guidelines say, not a personal schedule.</b> This tool lines up published guideline statements. It does not know anyone's health, history or wishes, and real decisions about when to be screened or re-scoped are made with a clinician. Anyone with symptoms should see a clinician, whatever their screening history.</p>
+
+  <h3 class="sub">Guideline timeline calculator</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label for="shRisk">Risk group
+          <select id="shRisk">
+            <option value="avg">Average risk</option>
+            <option value="fdr60">One first-degree relative with CRC or advanced adenoma before 60, or two at any age</option>
+            <option value="fdr60p">One first-degree relative diagnosed at 60 or older</option>
+            <option value="lynch12">Lynch syndrome: MLH1 or MSH2</option>
+            <option value="lynch6p">Lynch syndrome: MSH6 or PMS2</option>
+            <option value="fap">Familial adenomatous polyposis (FAP)</option>
+          </select></label>
+        <label for="shRel">Youngest relative's age at diagnosis
+          <select id="shRel">
+            <option value="58">55–59</option><option value="50" selected>50</option><option value="45">45</option><option value="40">40</option><option value="35">35</option>
+          </select></label>
+        <label for="shTest">Screening test
+          <select id="shTest">
+            <option value="fit">FIT</option>
+            <option value="col">Colonoscopy</option>
+            <option value="gfobt">High-sensitivity gFOBT</option>
+            <option value="sdna">mt-sDNA (stool DNA)</option>
+            <option value="ng">Next-generation mt-sDNA</option>
+            <option value="rna">mt-sRNA (stool RNA)</option>
+            <option value="ctc">CT colonography</option>
+            <option value="fs">Flexible sigmoidoscopy</option>
+            <option value="fsfit">Sigmoidoscopy every 10 years + annual FIT</option>
+            <option value="blood">Blood test (cfDNA)</option>
+          </select></label>
+        <label for="shLast">Last colonoscopy found
+          <select id="shLast">
+            <option value="none">No colonoscopy yet</option>
+            <option value="normal">Normal (no polyps)</option>
+            <option value="ta12">1–2 tubular adenomas &lt;10 mm</option>
+            <option value="ta34">3–4 tubular adenomas &lt;10 mm</option>
+            <option value="ta510">5–10 tubular adenomas &lt;10 mm</option>
+            <option value="ad10">Adenoma ≥10 mm</option>
+            <option value="tv">Tubulovillous or villous adenoma</option>
+            <option value="hgd">Adenoma with high-grade dysplasia</option>
+            <option value="gt10">More than 10 adenomas</option>
+            <option value="pm20">Adenoma ≥20 mm removed piecemeal</option>
+            <option value="hp">≤20 hyperplastic polyps &lt;10 mm in rectum or sigmoid</option>
+            <option value="ssl12">1–2 sessile serrated lesions &lt;10 mm</option>
+            <option value="ssl34">3–4 sessile serrated lesions &lt;10 mm</option>
+            <option value="ssl510">5–10 sessile serrated lesions &lt;10 mm</option>
+            <option value="ssl10">Sessile serrated lesion ≥10 mm</option>
+            <option value="ssld">Sessile serrated lesion with dysplasia</option>
+            <option value="tsa">Traditional serrated adenoma</option>
+            <option value="hp10">Hyperplastic polyp ≥10 mm</option>
+            <option value="pmssl">Sessile serrated lesion ≥20 mm removed piecemeal</option>
+          </select></label>
+        <label for="shAge">Age at that colonoscopy
+          <select id="shAge">
+            <option value="45">45</option><option value="50">50</option><option value="55" selected>55</option><option value="60">60</option><option value="65">65</option><option value="70">70</option>
+          </select></label>
+      </div>
+      <div class="scroll"><svg id="shTime" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="A timeline of ages with the USPSTF grade bands (B at 45–49, A at 50–75, C at 76–85) and the ACP band (50–75) along the top, and below them markers for each test or colonoscopy that the selected guideline describes, with the next surveillance interval drawn as a bracket and, where relevant, the ESGE 2020 alternative on its own row."></svg></div>
+      <div class="readout" id="shRead"></div>
+    </div>
+    <aside class="note sh-out" id="shOut" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">A lifetime of screening, animated</h3>
+  <p class="prose">One person at average risk, screened from 45 with the test chosen above, as the guidelines describe it. The figures at the end are CISNET model results per 1,000 people, not predictions for anyone.</p>
+  <div class="stepper" id="shSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="shLife" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="A person walks along an age line from 45 to 85 under the USPSTF grade bands. Each screening test appears as it is reached and a counter adds them up; a dashed branch shows what happens if a test is positive; from 76 the tests become optional, and after 85 they stop. At the end, modelled lifetime totals per 1,000 people appear."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="shPlay">Play</button><label class="stage-cap tl" for="shT">Age <input type="range" id="shT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <p class="stage-cap">Schematic. Test ages follow the published intervals; the positive-test branch is illustrative. Modelled totals: Knudsen 2021 (three CISNET models, screening ages 45–75). [[USPSTF2021,Knudsen2021,Wolf2026]]</p>
+    </div>
+    <aside class="note" id="shNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Surveillance after polyps: USMSTF 2020 as published</h3>
+  <p class="prose">These intervals assume a complete, high-quality exam: the caecum reached, an adequate prep that would show polyps larger than 5 mm, and an endoscopist with an adequate ADR (≥30% in men and ≥20% in women in that document). [[Gupta2020]]</p>
+  <div class="split2">
+    <div class="tbl"><table>
+      <thead><tr><th>Adenomas at baseline</th><th>Interval</th><th>Strength / evidence</th></tr></thead>
+      <tbody>
+        <tr><td>Normal colonoscopy</td><td>10 y</td><td>strong / high</td></tr>
+        <tr><td>1–2 tubular adenomas &lt;10 mm</td><td>7–10 y</td><td>strong / moderate</td></tr>
+        <tr><td>3–4 tubular adenomas &lt;10 mm</td><td>3–5 y</td><td>weak / very low</td></tr>
+        <tr><td>5–10 tubular adenomas &lt;10 mm</td><td>3 y</td><td>strong / moderate</td></tr>
+        <tr><td>Adenoma ≥10 mm</td><td>3 y</td><td>strong / high</td></tr>
+        <tr><td>Tubulovillous or villous adenoma</td><td>3 y</td><td>strong / moderate</td></tr>
+        <tr><td>Adenoma with high-grade dysplasia</td><td>3 y</td><td>strong / moderate</td></tr>
+        <tr><td>More than 10 adenomas</td><td>1 y</td><td>weak / very low</td></tr>
+        <tr><td>Piecemeal resection of adenoma ≥20 mm</td><td>6 months</td><td>strong / moderate</td></tr>
+      </tbody></table></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Serrated polyps at baseline</th><th>Interval</th></tr></thead>
+      <tbody>
+        <tr><td>≤20 hyperplastic polyps &lt;10 mm in rectum or sigmoid</td><td>10 y</td></tr>
+        <tr><td>1–2 sessile serrated lesions &lt;10 mm</td><td>5–10 y</td></tr>
+        <tr><td>3–4 SSL &lt;10 mm</td><td>3–5 y</td></tr>
+        <tr><td>5–10 SSL &lt;10 mm</td><td>3 y</td></tr>
+        <tr><td>SSL ≥10 mm, or SSL with dysplasia</td><td>3 y</td></tr>
+        <tr><td>Traditional serrated adenoma</td><td>3 y</td></tr>
+        <tr><td>Hyperplastic polyp ≥10 mm</td><td>3–5 y</td></tr>
+        <tr><td>Piecemeal resection of SSL ≥20 mm</td><td>6 months</td></tr>
+      </tbody></table></div>
+  </div>
+  <p class="stage-cap">USMSTF 2020 consensus update, tables as published. [[Gupta2020]]</p>
+
+  <div class="cards">
+    <div class="card"><span class="tag accent">2020 changes</span><h4>What moved in 2020</h4><p>1–2 small tubular adenomas moved from 5–10 to 7–10 years; more than 10 adenomas became 1 year instead of under 3 years; 3–4 small adenomas may be 3–5 years. After a normal first surveillance exam, the next is 10 years if the baseline was 1–4 small adenomas, and 5 years if it was an advanced adenoma or 5–10 adenomas. [[Gupta2020]]</p></div>
+    <div class="card"><span class="tag bad">Transatlantic divergence</span><h4>ESGE: back to screening</h4><p>ESGE 2020 says people who had 1–4 adenomas &lt;10 mm with low-grade dysplasia, or any serrated polyp &lt;10 mm without dysplasia, completely removed, need no surveillance and return to screening (10 years if there is no programme). It recommends 3-year surveillance after an adenoma ≥10 mm, high-grade dysplasia, ≥5 adenomas, or a serrated polyp ≥10 mm or with dysplasia. In PLCO, non-advanced adenomas carried no significant excess long-term risk (RR 1.2). [[Hassan2020,Click2018]]</p></div>
+    <div class="card"><span class="tag warn">Genetics</span><h4>When to think of a syndrome</h4><p>People with more than 10 adenomas, or more than 10 cumulative over a lifetime, may need genetic testing. Serrated polyposis: more than 20 hyperplastic polyps throughout the colon (≥5 proximal to the rectum), or ≥5 serrated polyps larger than 5 mm proximal to the rectum with ≥2 of at least 10 mm. [[Gupta2020]] <button class="btn ghost" data-go="genes">Lynch syndrome &amp; FAP →</button></p></div>
+  </div>
+
+  <h3 class="sub">Start and stop ages, side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Guideline</th><th>Start (average risk)</th><th>Stop</th><th>Tests and intervals as published</th></tr></thead>
+    <tbody>
+      <tr><td>USPSTF 2021</td><td>45 (B); 50–75 (A)</td><td>76–85 selectively (C)</td><td>FIT or high-sensitivity gFOBT yearly; stool DNA-FIT every 1–3 y; CT colonography or sigmoidoscopy every 5 y; sigmoidoscopy every 10 y + yearly FIT; colonoscopy every 10 y [[USPSTF2021]]</td></tr>
+      <tr><td>ACS 2018 / 2026</td><td>45 (qualified); 50 (strong)</td><td>Through 75 if life expectancy &gt;10 y; individualise 76–85; discourage over 85</td><td>2018: FIT or gFOBT yearly, mt-sDNA every 3 y, colonoscopy 10 y, CTC or sigmoidoscopy 5 y. 2026 adds next-generation mt-sDNA and mt-sRNA every 3 y; blood tests only for people who decline the preferred tests [[Wolf2018,Wolf2026]]</td></tr>
+      <tr><td>USMSTF 2017 / 2022</td><td>45</td><td>Individualise 76–85; not after 85</td><td>Tier 1: colonoscopy every 10 y, yearly FIT. Tier 2: CTC every 5 y, FIT-fecal DNA every 3 y, sigmoidoscopy every 5–10 y. Tier 3: capsule every 5 y. Septin9 not to be used [[Rex2017,Patel2022]]</td></tr>
+      <tr><td>ACP 2023</td><td>50; consider not screening at 45–49</td><td>After 75, or life expectancy ≤10 y</td><td>FIT or high-sensitivity gFOBT every 2 y; colonoscopy every 10 y; sigmoidoscopy every 10 y + FIT every 2 y. Not stool DNA, CTC, capsule, urine or serum tests [[Qaseem2023]]</td></tr>
+      <tr><td>England (NHS)</td><td colspan="2">Programme ages not covered by our sources</td><td>FIT every 2 years at 120 µg Hb/g [[Li2022,Li2021]]</td></tr>
+    </tbody></table></div>
+  <p class="callout"><b>Start at 45 or 50?</b> USPSTF, ACS and USMSTF start at 45, citing rising early-onset incidence and modelling: CRC incidence at 40–49 rose almost 15% from 2000–2002 to 2014–2016. The ACP starts at 50, and USMSTF itself notes that no study yet shows screening under 50 improves CRC incidence or mortality. The question is unresolved; US practice largely follows 45. [[USPSTF2021,Wolf2026,Patel2022,Qaseem2023]]</p>
 </section>

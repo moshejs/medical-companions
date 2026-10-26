@@ -118,10 +118,10 @@ const CR_RV_STEPS=[
  {from:.84,at:.97,k:'Next step',t:'Test the tumour, then the family',txt:`Each child of a carrier has a 50% chance of inheriting the variant [[Syngal2015]]. Family criteria miss many carriers: 28% of Lynch cases in one cohort did not meet the revised Bethesda guidelines [[Hampel2008]], so all new colorectal cancers are tested for mismatch-repair deficiency [[Syngal2015]].`,pt:'A test on the tumour, then a blood test, shows who in the family carries the gene change and needs early colonoscopy.',hook:'Universal tumour MMR testing: sensitivity 100% vs 87.8% for the Bethesda guidelines [[Moreira2012]].'}
 ];
 const CR_RV_PED=[
- /* key, x, y, sex, generation, label, cancer, age, affected order */
- ['gf',110,62,'m',1,'Grandfather','Colorectal','61',0],['gm',190,62,'f',1,'Grandmother','','',-1],
- ['un',70,164,'m',2,'Uncle','Colorectal','53',1],['au',150,164,'f',2,'Aunt','','',-1],['mo',230,164,'f',2,'Mother','Endometrial','46',2],['fa',310,164,'m',2,'Father','','',-1],
- ['pb',230,266,'m',3,'Proband','','',-1],['si',310,266,'f',3,'Sister','','',-1]
+ /* key, x, y, sex, label, cancer, age, affected order */
+ ['gf',118,64,'m','Grandfather','Colorectal','61',0],['gm',220,64,'f','Grandmother','','',-1],
+ ['un',60,176,'m','Uncle','Colorectal','53',1],['au',158,176,'f','Aunt','','',-1],['mo',258,176,'f','Mother','Endometrial','46',2],['fa',356,176,'m','Father','','',-1],
+ ['pb',258,290,'m','Proband','','',-1],['si',356,290,'f','Sister','','',-1]
 ];
 inits.review=()=>{
   let filt='all',deck=[],i=0;
@@ -145,41 +145,41 @@ inits.review=()=>{
   /* ---- mnemonic in motion: Amsterdam II, 3-2-1-0 ---- */
   const svg=$('#rvSvg'),rg=$('#rvT');
   /* a pedigree symbol with a fill that can fade in; half=true shades the left half (carrier chance) */
-  const sym=(x,y,sex,fill,op,half)=>{const r=12;
-    if(half){const w=r;return sex==='m'?`<rect x="${x-r}" y="${y-r}" width="${w}" height="${2*r}" style="fill:${fill};opacity:${f1(op)}"/>`:`<path d="M${x} ${y-r}A${r} ${r} 0 0 0 ${x} ${y+r}Z" style="fill:${fill};opacity:${f1(op)}"/>`}
+  const sym=(x,y,sex,fill,op,half)=>{const r=14;
+    if(half)return sex==='m'?`<rect x="${x-r}" y="${y-r}" width="${r}" height="${2*r}" style="fill:${fill};opacity:${f1(op)}"/>`:`<path d="M${x} ${y-r}A${r} ${r} 0 0 0 ${x} ${y+r}Z" style="fill:${fill};opacity:${f1(op)}"/>`;
     return sex==='m'?`<rect x="${x-r}" y="${y-r}" width="${2*r}" height="${2*r}" rx="1.5" style="fill:${fill};opacity:${f1(op)}"/>`:`<circle cx="${x}" cy="${y}" r="${r}" style="fill:${fill};opacity:${f1(op)}"/>`};
-  const outl=(x,y,sex)=>{const r=12;return sex==='m'?`<rect x="${x-r}" y="${y-r}" width="${2*r}" height="${2*r}" rx="1.5" style="fill:none;stroke:var(--ink);stroke-width:1.6"/>`:`<circle cx="${x}" cy="${y}" r="${r}" style="fill:none;stroke:var(--ink);stroke-width:1.6"/>`};
-  const ln=(x1,y1,x2,y2,st='')=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" style="stroke:var(--ink);stroke-width:1.4;${st}"/>`;
+  const outl=(x,y,sex)=>{const r=14;return sex==='m'?`<rect x="${x-r}" y="${y-r}" width="${2*r}" height="${2*r}" rx="1.5" style="fill:none;stroke:var(--ink);stroke-width:1.7"/>`:`<circle cx="${x}" cy="${y}" r="${r}" style="fill:none;stroke:var(--ink);stroke-width:1.7"/>`};
+  const ln=(x1,y1,x2,y2)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" style="stroke:var(--ink);stroke-width:1.5"/>`;
   function draw(t){
-    const N=vb(svg,'720 380','400 700');
-    const P=N?{x:24,y:6}:{x:14,y:18},C=N?{x:24,y:352}:{x:404,y:22};
+    const N=vb(svg,'720 380','400 716');
+    const P=N?{x:6,y:6}:{x:8,y:14},C=N?{x:24,y:372}:{x:408,y:22};
     const aff=[ramp(t,.03,.08),ramp(t,.08,.13),ramp(t,.13,.18)];
     const fdr=ramp(t,.15,.19)*(1-ramp(t,.27,.31));
     const g2=ramp(t,.27,.38),u50=ramp(t,.5,.6),fap=ramp(t,.69,.78),nx=ramp(t,.85,.95);
     let s=`<g transform="translate(${P.x} ${P.y})">`;
     /* generation bands */
-    [[1,62],[2,164],[3,266]].forEach(([g,y],k)=>{const on=g<3?g2:0;
-      s+=`<rect x="0" y="${y-30}" width="352" height="${g<3?60:60}" rx="8" style="fill:var(--brand-soft);opacity:${f1(on*.85)}"/>`;
-      s+=`<text class="t-lbl" x="8" y="${y+5}" style="fill:var(${on>.5?'--brand':'--muted'})">${['I','II','III'][k]}</text>`});
+    [64,176,290].forEach((y,k)=>{const on=k<2?g2:0;
+      s+=`<rect x="0" y="${y-30}" width="386" height="62" rx="8" style="fill:var(--brand-soft);opacity:${f1(on*.85)}"/>`;
+      s+=`<text class="t-lbl" x="6" y="${y+5}" style="fill:var(${on>.5?'--brand':'--muted'})">${['I','II','III'][k]}</text>`});
     /* lines: marriages, descent, sibships */
-    s+=ln(122,62,178,62)+ln(150,62,150,116)+ln(70,116,230,116)+ln(70,116,70,152)+ln(150,116,150,152)+ln(230,116,230,152);
-    s+=ln(242,164,298,164)+ln(270,164,270,218)+ln(230,218,310,218)+ln(230,218,230,254)+ln(310,218,310,254);
+    s+=ln(132,64,206,64)+ln(169,64,169,124)+ln(60,124,258,124)+ln(60,124,60,162)+ln(158,124,158,162)+ln(258,124,258,162);
+    s+=ln(272,176,342,176)+ln(307,176,307,238)+ln(258,238,356,238)+ln(258,238,258,276)+ln(356,238,356,276);
     /* first-degree links from the grandfather to his two affected children */
-    if(fdr>0)s+=`<g style="opacity:${f1(fdr)}"><path d="M98 70 Q60 100 64 150" style="fill:none;stroke:var(--gold);stroke-width:2.2;stroke-dasharray:4 3"/><path d="M122 70 Q210 92 226 150" style="fill:none;stroke:var(--gold);stroke-width:2.2;stroke-dasharray:4 3"/><text class="t-xs" x="200" y="96">first-degree relative of both</text></g>`;
-    CR_RV_PED.forEach(([key,x,y,sex,g,nm,ca,age,ord])=>{
-      s+=`<g>${sym(x,y,sex,'var(--panel)',1)}`;
+    if(fdr>0)s+=`<g style="opacity:${f1(fdr)}"><path d="M104 72 Q66 98 60 160" style="fill:none;stroke:var(--gold);stroke-width:2.4;stroke-dasharray:5 3"/><path d="M132 74 Q236 118 254 160" style="fill:none;stroke:var(--gold);stroke-width:2.4;stroke-dasharray:5 3"/><text class="t-sm" x="40" y="24" style="fill:var(--ink)">Grandfather: first-degree relative of both</text></g>`;
+    CR_RV_PED.forEach(([key,x,y,sex,nm,ca,age,ord])=>{
+      s+=sym(x,y,sex,'var(--panel)',1);
       if(ord>=0&&aff[ord]>0)s+=sym(x,y,sex,'var(--tumour)',aff[ord]);
       if((key==='pb'||key==='si')&&nx>0)s+=sym(x,y,sex,'var(--polyp)',nx,true);
-      s+=outl(x,y,sex)+'</g>';
-      s+=`<text class="t-xs t-mid" x="${x}" y="${y+24}">${nm}</text>`;
+      s+=outl(x,y,sex);
+      s+=`<text class="t-sm t-mid" x="${x}" y="${y+30}" style="fill:var(--ink)">${nm}</text>`;
       if(ord>=0&&aff[ord]>0){const hot=key==='mo'&&u50>0;
-        s+=`<text class="t-xs t-mid" x="${x}" y="${y+35}" style="opacity:${f1(aff[ord])};fill:var(${hot?'--ink':'--muted'});${hot?'font-weight:700':''}">${ca} · ${age}</text>`}
+        s+=`<text class="t-xs t-mid" x="${x}" y="${y+43}" style="opacity:${f1(aff[ord])};${hot?'fill:var(--ink);font-weight:700':''}">${ca}, ${age}</text>`}
+      if((key==='pb'||key==='si')&&nx>0)s+=`<text class="t-xs t-mid" x="${x}" y="${y+43}" style="opacity:${f1(nx)};fill:var(--ink)">50% chance</text>`;
     });
     /* the under-50 ring */
-    if(u50>0)s+=`<circle cx="230" cy="164" r="${f1(16+4*(1-u50))}" style="fill:none;stroke:var(--gold);stroke-width:3;opacity:${f1(u50)}"/><text class="t-sm" x="252" y="146" style="fill:var(--ink);opacity:${f1(u50)}">46 &lt; 50</text>`;
-    /* proband arrow and the 50% labels */
-    if(nx>0){s+=`<g style="opacity:${f1(nx)}"><path d="M196 300 L214 282" style="stroke:var(--ink);stroke-width:1.8"/><path d="M219 277 L208 281 L215 288 Z" style="fill:var(--ink)"/>`;
-      s+=`<text class="t-sm t-mid" x="230" y="242" style="fill:var(--ink)">50%</text><text class="t-sm t-mid" x="310" y="242" style="fill:var(--ink)">50%</text></g>`}
+    if(u50>0)s+=`<circle cx="258" cy="176" r="${f1(19+5*(1-u50))}" style="fill:none;stroke:var(--gold);stroke-width:3;opacity:${f1(u50)}"/><text class="t-lbl" x="282" y="156" style="opacity:${f1(u50)}">46 &lt; 50</text>`;
+    /* proband arrow */
+    if(nx>0)s+=`<g style="opacity:${f1(nx)}"><path d="M214 302 L236 296" style="stroke:var(--ink);stroke-width:1.8"/><path d="M243 294 L233 291 L235 300 Z" style="fill:var(--ink)"/></g>`;
     s+='</g>';
     /* the checklist */
     const n3=aff.filter(v=>v>.5).length;
@@ -188,13 +188,13 @@ inits.review=()=>{
     s+=`<g transform="translate(${C.x} ${C.y})"><text class="t-lbl" x="0" y="12">Amsterdam II checklist</text>`;
     rows.forEach(([d,a,b],k)=>{const y=48+k*50,h=met[k];
       s+=`<circle cx="17" cy="${y}" r="16" style="fill:var(${h?'--good-soft':'--field'});stroke:var(${h?'--good':'--line'});stroke-width:1.8"/><text class="t-big t-mid" x="17" y="${y+6}" style="fill:var(${h?'--good':'--muted'})">${d}</text>`;
-      s+=`<text class="t-lbl" x="44" y="${y-2}" style="${h?'':'fill:var(--muted)'}">${a}</text><text class="t-xs" x="44" y="${y+13}">${b}</text>`;
-      if(h)s+=`<path d="M290 ${y-4} L296 ${y+3} L308 ${y-10}" style="fill:none;stroke:var(--good);stroke-width:2.6;stroke-linecap:round"/>`});
+      s+=`<text class="t-lbl" x="44" y="${y-2}" style="${h?'':'fill:var(--muted)'}">${a}</text><text class="t-sm" x="44" y="${y+14}">${b}</text>`;
+      if(h)s+=`<path d="M282 ${y-4} L288 ${y+3} L300 ${y-10}" style="fill:none;stroke:var(--good);stroke-width:2.6;stroke-linecap:round"/>`});
     /* FAP comparison: a few polyps here vs hundreds in FAP */
-    if(fap>0){const rr=rng(11);let fp='';for(let k=0;k<70;k++)fp+=`<circle cx="${f1(176+rr()*128)}" cy="${f1(252+rr()*16)}" r="1.9" style="fill:var(--polyp)"/>`;
-      s+=`<g style="opacity:${f1(fap)}"><rect x="0" y="246" width="136" height="28" rx="14" style="fill:var(--mucosa);stroke:var(--mucosa-line)"/><circle cx="48" cy="260" r="3" style="fill:var(--polyp)"/><circle cx="96" cy="258" r="2.5" style="fill:var(--polyp)"/>`;
-      s+=`<rect x="172" y="246" width="136" height="28" rx="14" style="fill:var(--mucosa);stroke:var(--mucosa-line)"/>${fp}<text class="t-xs" x="0" y="288">this family: few polyps</text><text class="t-xs" x="172" y="288">FAP: hundreds of adenomas</text></g>`}
-    const v=nx>.5?'Next: test the tumour, then the family':cnt<4?`Criteria met: ${cnt} of 4`:'Amsterdam II met: 3-2-1-0';
+    if(fap>0){const rr=rng(11);let fp='';for(let k=0;k<70;k++)fp+=`<circle cx="${f1(170+rr()*122)}" cy="${f1(252+rr()*16)}" r="1.9" style="fill:var(--polyp)"/>`;
+      s+=`<g style="opacity:${f1(fap)}"><rect x="0" y="246" width="130" height="28" rx="14" style="fill:var(--mucosa);stroke:var(--mucosa-line)"/><circle cx="48" cy="260" r="3" style="fill:var(--polyp)"/><circle cx="96" cy="258" r="2.5" style="fill:var(--polyp)"/>`;
+      s+=`<rect x="166" y="246" width="130" height="28" rx="14" style="fill:var(--mucosa);stroke:var(--mucosa-line)"/>${fp}<text class="t-xs" x="0" y="288">this family: few polyps</text><text class="t-xs" x="166" y="288">FAP: hundreds of adenomas</text></g>`}
+    const v=nx>.5?'Next: test tumour, then family':cnt<4?`Criteria met: ${cnt} of 4`:'Amsterdam II met: 3-2-1-0';
     s+=`<text class="t-big" x="0" y="${fap>0?318:300}" style="fill:var(${cnt===4?'--good':'--ink'})">${v}</text>`;
     if(nx>0)s+=`<text class="t-sm" x="0" y="338" style="opacity:${f1(nx)}">Each child of a carrier: a 50% chance</text>`;
     s+='</g>';

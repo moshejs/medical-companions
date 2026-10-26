@@ -56,17 +56,17 @@ inits.nursing=()=>{
     s+=`<rect x="${f1(x0)}" y="${y-4}" width="${f1(X(.56)-x0)}" height="8" style="fill:var(--panel-2)"/>`;
     s+=T(X(.02),y+20,'DAY BEFORE','t-xs','font-weight:700')+T(X(.6),y+20,'PROCEDURE DAY','t-xs','font-weight:700');
     /* meals */
-    s+=`<circle cx="${f1(X(.14))}" cy="${y-40}" r="12" style="fill:var(--panel);stroke:var(--gold);stroke-width:1.6"/><circle cx="${f1(X(.14))}" cy="${y-40}" r="6" style="fill:var(--gold-soft);stroke:var(--gold)"/>`;
-    s+=T(X(.02),y-74,'breakfast &amp; lunch:')+T(X(.02),y-62,'clear liquids or low-fibre');
+    s+=`<circle cx="${f1(X(.12))}" cy="${y-40}" r="12" style="fill:var(--panel);stroke:var(--gold);stroke-width:1.6"/><circle cx="${f1(X(.12))}" cy="${y-40}" r="6" style="fill:var(--gold-soft);stroke:var(--gold)"/>`;
+    s+=T(X(.02),y-86,'breakfast &amp; lunch:')+T(X(.02),y-74,'clear liquids or')+T(X(.02),y-62,'low-fibre meals');
     /* dose 1 and 2 */
-    const d1=X(.4),d2=X(.74),col=X(1);
+    const d1=X(.45),d2=X(.74),col=X(1);
     s+=glass(d1,y-14,cur<.4?1:clamp(1-(cur-.4)/.1))+T(d1,y-58,'evening:','t-xs t-mid')+T(d1,y-46,'dose 1','t-xs t-mid','font-weight:700');
     s+=glass(d2,y-14,cur<.74?1:clamp(1-(cur-.74)/.1))+T(d2,y-58,'morning:','t-xs t-mid')+T(d2,y-46,'dose 2','t-xs t-mid','font-weight:700');
     /* ESGE windows */
     const w5=X(.68),w2=X(.88);
     s+=`<path d="M${f1(w5)} ${y+34}V${y+40}H${f1(col)}V${y+34}" style="fill:none;stroke:var(--accent);stroke-width:1.3"/>`+T(col,y+54,'start last dose ≤ 5 h before','t-xs t-end','fill:var(--accent)');
     s+=`<path d="M${f1(w2)} ${y+64}V${y+70}H${f1(col)}V${y+64}" style="fill:none;stroke:var(--bad);stroke-width:1.3"/>`+T(col,y+84,'finish ≥ 2 h before','t-xs t-end','fill:var(--bad)');
-    s+=scope(col-10,y-14,0,{light:cur>.97})+T(col,y-46,'colonoscopy','t-xs t-end','font-weight:700');
+    s+=scope(col-14,y-14,0,{})+T(col,y-46,'colonoscopy','t-xs t-end','font-weight:700');
     s+=`<line x1="${f1(X(cur))}" x2="${f1(X(cur))}" y1="${y-88}" y2="${y+6}" style="stroke:var(--ink);opacity:.3"/>`;
     /* B: quality */
     s+=T(B.x,B.y+12,'WHY THE DETAILS MATTER','t-sm','fill:var(--rx)');
@@ -181,7 +181,7 @@ inits.nursing=()=>{
 
   /* ===== DPYD teaching widget ===== */
   const ds=$('#nuDpyd');let as='1',dT=1,dStop=null;
-  function drawD(){const ND=vb(ds,'720 250','400 340');const D=NU_DP[as],v=+as;let s='';
+  function drawD(){const ND=vb(ds,'720 250','400 330');const D=NU_DP[as],v=+as;let s='';
     const R=ND?{x0:24,x1:376,y:56}:{x0:30,x1:330,y:64},X=a=>lerp(R.x0,R.x1,a/2);
     s+=T(R.x0,R.y-38,'DPYD ACTIVITY SCORE → PHENOTYPE','t-sm','fill:var(--accent)');
     [[-.15,.65,'poor','var(--bad)','var(--bad-soft)'],[.85,1.65,'intermediate','var(--warn)','var(--warn-soft)'],[1.85,2.15,'normal','var(--good)','var(--good-soft)']].forEach(([a,b,l,c,cs])=>{const xa=X(Math.max(a,-.12)),xb=X(Math.min(b,2.12));
@@ -206,7 +206,7 @@ inits.nursing=()=>{
     for(let i=0;i<24;i++){const ph=clamp(dT*1.4-i*.016),brk=rr()<v/2*.9;let x,y;
       if(ph<.5){x=lerp(px0,gx-24,ph/.5);y=Py-6+(i%4)*9}else if(brk){x=gx-6+(i%4)*4;y=Py+40+(i%3)*5}else{x=lerp(gx+24,px1-10,(ph-.5)/.5)-(i%6)*6;y=Py-6+(i%4)*9;left++}
       s+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="3.6" style="fill:${ph>=.5&&brk?'var(--muted)':'var(--gold)'};opacity:${ph>=.5&&brk?.5:.95}"/>`}
-    s+=T(px1,Py+48,ND?'gold: active drug still circulating':'gold: drug still circulating · grey: broken down','t-xs t-end');
+    s+=T(ND?px0:px1,Py+(ND?70:48),'gold: drug still circulating · grey: broken down','t-xs'+(ND?'':' t-end'));
     ds.innerHTML=s;
     $('#nuDNote').innerHTML=`<div class="kicker">Activity score ${as} · ${D.ph}</div><h4>${D.lab[0].toUpperCase()+D.lab.slice(1)}</h4><p>${D.txt}</p>
       <div class="kv"><div><dt>Phenotypes (CPIC)</dt><dd>Normal metabolizer: activity score 2. Intermediate: 1 or 1.5. Poor: 0 or 0.5. [[Amstutz2018]]</dd></div>
@@ -219,9 +219,10 @@ inits.nursing=()=>{
 
   /* ===== carriers per 100 ===== */
   const ic=$('#nuIcons');let pop='eu';
-  function drawI(){const NI=vb(ic,'720 150','400 250');const n=pop==='eu'?7:5,cols=NI?20:25,rows=100/cols,sz=NI?16:20,gx=NI?19:27,gy=NI?24:32,x0=NI?14:24,y0=NI?16:6;let s='';
+  function drawI(){const NI=vb(ic,'720 150','400 180');const n=pop==='eu'?7:5,cols=NI?20:25,rows=100/cols,sz=NI?16:20,gx=NI?19:27,gy=NI?24:32,x0=NI?14:24,y0=NI?16:6;let s='';
     for(let i=0;i<100;i++){const c=i%cols,r=Math.floor(i/cols),hit=i<n;s+=person(x0+c*gx+sz/2,y0+r*gy,sz,hit?'var(--brand)':'var(--line)')}
-    s+=T(NI?14:x0,NI?y0+rows*gy+12:y0+rows*gy+14,pop==='eu'?'≈ 7 in 100 Europeans carry one of the four main decreased-function variants':'≈ 5 in 100 people of African ancestry carry c.557A>G'.replace('>','&gt;'),'t-xs','fill:var(--ink)');
+    const cap=pop==='eu'?['≈ 7 in 100 Europeans carry one of the','four main decreased-function variants']:['≈ 5 in 100 people of African ancestry','carry c.557A&gt;G'];
+    if(NI)cap.forEach((l,k)=>s+=T(14,y0+rows*gy+12+k*13,l,'t-xs','fill:var(--ink)'));else s+=T(x0,y0+rows*gy+14,cap.join(' '),'t-xs','fill:var(--ink)');
     ic.innerHTML=s;
     $('#nuIconCap').innerHTML=pop==='eu'?`Carrier frequencies in Europeans: HapB3 (c.1129–5923C&gt;G) 4.1–4.8%, c.1905+1G&gt;A (DPYD*2A) 1–1.2%, c.2846A&gt;T 0.8–1.4%; about 7% carry at least one of the four. [[Amstutz2018]]`:`In people of African ancestry, c.557A&gt;G has a carrier frequency of about 5%. [[Amstutz2018]]`}
   $$('[data-nup]').forEach(b=>b.addEventListener('click',()=>{pop=b.dataset.nup;$$('[data-nup]').forEach(x=>x.setAttribute('aria-pressed',x===b));drawI()}));
