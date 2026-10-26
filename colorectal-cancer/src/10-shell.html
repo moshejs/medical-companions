@@ -1,0 +1,78 @@
+<a class="skip" href="#main">%t:shell.skip%</a>
+<div class="app">
+<nav class="side" id="side" aria-label="%t:shell.nav%">
+  <button class="brand" data-go="home" aria-label="%t:shell.home%">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" style="fill:var(--brand)"/><path d="M13 29V15q0-4 4-4h6q4 0 4 4v10q0 4-4 4h-2" style="fill:none;stroke:var(--mucosa);stroke-width:4;stroke-linecap:round"/><circle cx="27" cy="20" r="3.2" style="fill:var(--polyp)"/></svg>
+    <span>CRC Companion<span class="sm">%t:shell.tagline%</span></span>
+  </button>
+  <div id="navgroups" style="display:contents"></div>
+  <div class="side-foot">
+    <div class="btnrow"><button class="themebtn" id="themeBtn">%t:theme.label%%t:theme.auto%</button><!--LANGS--></div>
+    <p>%t:shell.note%</p>
+  </div>
+</nav>
+
+<main id="main" tabindex="-1">
+<aside class="disclaimer" role="note"><b>%t:shell.not_advice%</b><span>%t:shell.disclaimer%</span></aside>
+
+<noscript id="nsOutline">
+  <section class="mod" style="padding-block:24px">
+    <h2>Colorectal cancer: an animated, cited guide</h2>
+    <p class="lede">This page needs JavaScript for its animations. The outline and key answers are below, and every claim in the full version carries a numbered citation.</p>
+    <p><b>Not medical advice.</b> The Colorectal Cancer Companion is an educational synthesis of published literature. It does not replace a clinician or a screening programme.</p>
+    <h3>What is in it</h3>
+    <ul>
+    <li><a href="#what"><b>What colorectal cancer is</b></a> Who gets it, the numbers, the rise in adults under 50, and where in the bowel it starts.</li>
+    <li><a href="#colon"><b>The colon and its lining</b></a> Crypts, stem cells and a lining that renews itself every few days.</li>
+    <li><a href="#sequence"><b>From polyp to cancer</b></a> The adenoma–carcinoma sequence (APC, KRAS, TP53), the serrated pathway, and MSI.</li>
+    <li><a href="#risk"><b>Risk factors and prevention</b></a> Age, family history, inflammatory bowel disease, processed meat, alcohol, weight, activity and aspirin.</li>
+    <li><a href="#genes"><b>Lynch syndrome and FAP</b></a> Inherited colorectal cancer, mismatch repair and a family tree.</li>
+    <li><a href="#screening"><b>Screening tests compared</b></a> FIT, stool DNA, colonoscopy, sigmoidoscopy, CT colonography and blood tests, side by side.</li>
+    <li><a href="#colonoscopy"><b>Colonoscopy, animated</b></a> Bowel prep, the scope's path, removing a polyp, and what makes a good colonoscopy.</li>
+    <li><a href="#schedule"><b>When to start, how often</b></a> Starting age, test intervals and surveillance after polyps.</li>
+    <li><a href="#symptoms"><b>Symptoms and red flags</b></a> Bleeding, anaemia, a change in bowel habit, and the path to a diagnosis.</li>
+    <li><a href="#staging"><b>Staging: TNM calculator</b></a> How deep, how many lymph nodes, how far, and what each stage means.</li>
+    <li><a href="#biomarkers"><b>Tumour biomarkers</b></a> MMR/MSI, KRAS, NRAS, BRAF and HER2, and the treatment each opens or closes.</li>
+    <li><a href="#surgery"><b>Surgery</b></a> Colectomy, total mesorectal excision and stomas.</li>
+    <li><a href="#chemo"><b>Chemotherapy after surgery</b></a> FOLFOX and CAPOX, three or six months.</li>
+    <li><a href="#rectal"><b>Rectal cancer pathway</b></a> Total neoadjuvant therapy, watch-and-wait and immunotherapy for dMMR rectal cancer.</li>
+    <li><a href="#metastatic"><b>Metastatic disease</b></a> Liver and lung spread, targeted drugs and immunotherapy.</li>
+    <li><a href="#cure"><b>Toward a cure</b></a> Circulating tumour DNA, blood tests, vaccines and new drugs, with evidence labels.</li>
+    <li><a href="#living"><b>Living with colorectal cancer</b></a> Stoma, bowel function after surgery, neuropathy, exercise and follow-up.</li>
+    <li><a href="#nursing"><b>Nursing care</b></a> Prep teaching, stoma care, chemotherapy safety and monitoring.</li>
+    <li><a href="#history"><b>History and people</b></a> From Dukes' staging to the genetic model and immunotherapy.</li>
+    <li><a href="#review"><b>Flashcards, quiz and glossary</b></a> Revision for students.</li>
+    <li><a href="#sources"><b>Sources</b></a> Every reference behind the app.</li>
+    </ul>
+    <h3>Common questions</h3>
+    <!--FAQ-->
+    <!--/FAQ-->
+  </section>
+</noscript>
+<!-- ================= HOME ================= -->
+<section class="mod" id="m-home" data-mod="home">
+  <div class="hero">
+    <div class="mhead">
+      <p class="eyebrow">Colorectal Cancer Companion · animated and cited</p>
+      <h1>Colorectal cancer, explained</h1>
+      <p class="lede">Colorectal cancer is among the most common cancers worldwide, and most begin as a small polyp that grows over years. Here it is in moving pictures: watch a polyp become a cancer, compare screening tests, try the TNM staging calculator, and see how each treatment works.</p>
+      <p class="stage-cap" style="margin-top:2px">Every animation can be driven from the keyboard: Tab to its timeline, then arrow keys to scrub and Enter to play or pause.</p>
+      <div class="ctrls" style="margin-top:6px">
+        <button class="btn primary" data-go="what">Start at the beginning</button>
+        <button class="btn" data-go="sequence">Polyp to cancer, animated</button>
+        <button class="btn" data-go="screening">Compare screening tests</button>
+      </div>
+    </div>
+    <div class="stage">
+      <svg id="heroSvg" viewBox="0 0 520 300" role="img" aria-label="Over fifteen schematic years, a patch of bowel lining grows a small polyp that enlarges and turns into a cancer; with screening switched on, a colonoscope removes the polyp before it becomes a cancer"></svg>
+      <div class="ctrls"><button class="btn primary" id="heroPlay">Play</button><label class="stage-cap tl" for="heroT">Years <input type="range" id="heroT" min="0" max="1" step="0.002" value="0.55"></label><button class="btn" id="heroScr" aria-pressed="false">Screened</button></div>
+      <p class="stage-cap" id="heroCap">Schematic, not to scale; the years are illustrative.</p>
+    </div>
+  </div>
+  <div class="units" id="homeUnits"></div>
+  <div class="cards">
+    <div class="card"><h4>For students</h4><p>Every module has an <b>Exam hook</b> box and a citation trail. Finish with flashcards, mnemonics and a quiz.</p></div>
+    <div class="card"><h4>For people facing screening or a diagnosis</h4><p>Look for the <b>In plain words</b> boxes. Bring questions to your own doctor or nurse: the app reports what guidelines and trials say, not what you should do. Survival figures describe large groups, not any one person.</p></div>
+    <div class="card"><h4>How sure is each claim?</h4><p>Research claims carry a label: <span class="ev est">Established</span> <span class="ev early">Early evidence</span> <span class="ev hyp">Hypothesis</span>. Small numbers link to the Sources list.</p></div>
+  </div>
+</section>
