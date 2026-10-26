@@ -1,1 +1,1683 @@
-[]
+[
+ {
+  "key": "Andre2004",
+  "text": "André T, Boni C, Mounedji-Boudiaf L, Navarro M, Tabernero J, Hickish T, et al. Oxaliplatin, fluorouracil, and leucovorin as adjuvant treatment for colon cancer. N Engl J Med. 2004;350(23):2343-2351. PMID 15175436; doi:10.1056/nejmoa032709.",
+  "link": "https://doi.org/10.1056/nejmoa032709",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Andre2009",
+  "text": "André T, Boni C, Navarro M, Tabernero J, Hickish T, Topham C, et al. Improved overall survival with oxaliplatin, fluorouracil, and leucovorin as adjuvant treatment in stage II or III colon cancer in the MOSAIC trial. J Clin Oncol. 2009;27(19):3109-3116. PMID 19451431; doi:10.1200/jco.2008.20.6771.",
+  "link": "https://doi.org/10.1200/jco.2008.20.6771",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Andre2015",
+  "text": "André T, de Gramont A, Vernerey D, Chibaudel B, Bonnetain F, Tijeras-Raballand A, et al. Adjuvant Fluorouracil, Leucovorin, and Oxaliplatin in Stage II to III Colon Cancer: Updated 10-Year Survival and Outcomes According to BRAF Mutation and Mismatch Repair Status of the MOSAIC Study. J Clin Oncol. 2015;33(35):4176-4187. PMID 26527776; doi:10.1200/jco.2015.63.4238.",
+  "link": "https://doi.org/10.1200/jco.2015.63.4238",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Andre2020",
+  "text": "André T, Meyerhardt J, Iveson T, Sobrero A, Yoshino T, Souglakos I, et al. Effect of duration of adjuvant chemotherapy for patients with stage III colon cancer (IDEA collaboration): final results from a prospective, pooled analysis of six randomised, phase 3 trials. Lancet Oncol. 2020;21(12):1620-1629. PMID 33271092; PMCID PMC7786835; doi:10.1016/s1470-2045(20)30527-1.",
+  "link": "https://doi.org/10.1016/s1470-2045(20)30527-1",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Atkin2010",
+  "text": "Atkin WS, Edwards R, Kralj-Hans I, Wooldrage K, Hart AR, Northover JM, et al. Once-only flexible sigmoidoscopy screening in prevention of colorectal cancer: a multicentre randomised controlled trial. Lancet. 2010;375(9726):1624-33. PMID 20430429; doi:10.1016/S0140-6736(10)60551-X.",
+  "link": "https://doi.org/10.1016/s0140-6736(10)60551-x",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Atkin2017",
+  "text": "Atkin W, Wooldrage K, Parkin DM, Kralj-Hans I, MacRae E, Shah U, et al. Long term effects of once-only flexible sigmoidoscopy screening after 17 years of follow-up: the UK Flexible Sigmoidoscopy Screening randomised controlled trial. Lancet. 2017;389(10076):1299-1311. PMID 28236467; PMCID PMC6168937; doi:10.1016/S0140-6736(17)30396-3.",
+  "link": "https://doi.org/10.1016/s0140-6736(17)30396-3",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Bahadoer2021",
+  "text": "Bahadoer RR, Dijkstra EA, van Etten B, Marijnen CAM, Putter H, Kranenbarg EM, et al. Short-course radiotherapy followed by chemotherapy before total mesorectal excision (TME) versus preoperative chemoradiotherapy, TME, and optional adjuvant chemotherapy in locally advanced rectal cancer (RAPIDO): a randomised, open-label, phase 3 trial. Lancet Oncol. 2021;22(1):29-42. PMID 33301740; doi:10.1016/s1470-2045(20)30555-6.",
+  "link": "https://doi.org/10.1016/s1470-2045(20)30555-6",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Barclay2006",
+  "text": "Barclay RL, Vicari JJ, Doughty AS, Johanson JF, Greenlaw RL. Colonoscopic withdrawal times and adenoma detection during screening colonoscopy. N Engl J Med. 2006;355(24):2533-41. PMID 17167136; doi:10.1056/NEJMoa055498.",
+  "link": "https://doi.org/10.1056/nejmoa055498",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Barnell2023",
+  "text": "Barnell EK, Wurtzler EM, La Rocca J, Fitzgerald T, Petrone J, Hao Y, et al. Multitarget Stool RNA Test for Colorectal Cancer Screening. JAMA. 2023;330(18):1760-1768. PMID 37870871; PMCID PMC10594178; doi:10.1001/jama.2023.22231.",
+  "link": "https://doi.org/10.1001/jama.2023.22231",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Benson2022",
+  "text": "Benson AB, Venook AP, Al-Hawary MM, Azad N, Chen YJ, Ciombor KK, et al. Rectal Cancer, Version 2.2022, NCCN Clinical Practice Guidelines in Oncology. J Natl Compr Canc Netw. 2022;20(10):1139-1167. PMID 36240850; doi:10.6004/jnccn.2022.0051.",
+  "link": "https://doi.org/10.6004/jnccn.2022.0051",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "BerringtondeGonzalez2011",
+  "text": "Berrington de González A, Kim KP, Knudsen AB, Lansdorp-Vogelaar I, Rutter CM, Smith-Bindman R, et al. Radiation-related cancer risks from CT colonography screening: a risk-benefit analysis. AJR Am J Roentgenol. 2011;196(4):816-23. PMID 21427330; PMCID PMC3470483; doi:10.2214/AJR.10.4907.",
+  "link": "https://doi.org/10.2214/ajr.10.4907",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Biagi2011",
+  "text": "Biagi JJ, Raphael MJ, Mackillop WJ, Kong W, King WD, Booth CM. Association between time to initiation of adjuvant chemotherapy and survival in colorectal cancer: a systematic review and meta-analysis. JAMA. 2011;305(22):2335-2342. PMID 21642686; doi:10.1001/jama.2011.749.",
+  "link": "https://doi.org/10.1001/jama.2011.749",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Bonjer2015",
+  "text": "Bonjer HJ, Deijen CL, Abis GA, Cuesta MA, van der Pas MH, de Lange-de Klerk ES, et al. A randomized trial of laparoscopic versus open surgery for rectal cancer. N Engl J Med. 2015;372(14):1324-1332. PMID 25830422; doi:10.1056/nejmoa1414882.",
+  "link": "https://doi.org/10.1056/nejmoa1414882",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Bray2024",
+  "text": "Bray F, Laversanne M, Sung H, Ferlay J, Siegel RL, Soerjomataram I, et al. Global cancer statistics 2022: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries. CA Cancer J Clin. 2024;74(3):229-263. PMID 38572751; doi:10.3322/caac.21834.",
+  "link": "https://doi.org/10.3322/caac.21834",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Brenner2014",
+  "text": "Brenner H, Stock C, Hoffmeister M. Effect of screening sigmoidoscopy and screening colonoscopy on colorectal cancer incidence and mortality: systematic review and meta-analysis of randomised controlled trials and observational studies. BMJ. 2014;348:g2467. PMID 24922745; PMCID PMC3980789; doi:10.1136/bmj.g2467.",
+  "link": "https://doi.org/10.1136/bmj.g2467",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Brenner2017",
+  "text": "Brenner H, Werner S. Selecting a Cut-off for Colorectal Cancer Screening With a Fecal Immunochemical Test. Clin Transl Gastroenterol. 2017;8(8):e111. PMID 28771240; PMCID PMC5587839; doi:10.1038/ctg.2017.37.",
+  "link": "https://doi.org/10.1038/ctg.2017.37",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Bretthauer2016",
+  "text": "Bretthauer M, Kaminski MF, Løberg M, Zauber AG, Regula J, Kuipers EJ, et al. Population-Based Colonoscopy Screening for Colorectal Cancer: A Randomized Clinical Trial. JAMA Intern Med. 2016;176(7):894-902. PMID 27214731; PMCID PMC5333856; doi:10.1001/jamainternmed.2016.0960.",
+  "link": "https://doi.org/10.1001/jamainternmed.2016.0960",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Bretthauer2022",
+  "text": "Bretthauer M, Løberg M, Wieszczy P, Kalager M, Emilsson L, Garborg K, et al. Effect of Colonoscopy Screening on Risks of Colorectal Cancer and Related Death. N Engl J Med. 2022;387(17):1547-1556. PMID 36214590; doi:10.1056/NEJMoa2208375.",
+  "link": "https://doi.org/10.1056/nejmoa2208375",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Castells2025",
+  "text": "Castells A, Quintero E, Bujanda L, Castán-Cameo S, Cubiella J, Díaz-Tasende J, et al. Effect of invitation to colonoscopy versus faecal immunochemical test screening on colorectal cancer mortality (COLONPREV): a pragmatic, randomised, controlled, non-inferiority trial. Lancet. 2025;405(10486):1231-1239. PMID 40158525; doi:10.1016/S0140-6736(25)00145-X.",
+  "link": "https://doi.org/10.1016/s0140-6736(25)00145-x",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Castells2026",
+  "text": "Castells A, Quintero E, Chen H, Bujanda L, Castán-Cameo S, Cubiella J, et al. Colonoscopy versus biennial FIT screening: a post hoc sustained-strategy analysis of the COLONPREV Trial. Gut. 2026 (online ahead of print; volume and pages not yet assigned). PMID 42270316; doi:10.1136/gutjnl-2026-338896.",
+  "link": "https://doi.org/10.1136/gutjnl-2026-338896",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Cercek2022",
+  "text": "Cercek A, Lumish M, Sinopoli J, Weiss J, Shia J, Lamendola-Essel M, et al. PD-1 Blockade in Mismatch Repair-Deficient, Locally Advanced Rectal Cancer. N Engl J Med. 2022;386(25):2363-2376. PMID 35660797; PMCID PMC9492301; doi:10.1056/nejmoa2201445.",
+  "link": "https://doi.org/10.1056/nejmoa2201445",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Cercek2025",
+  "text": "Cercek A, Foote MB, Rousseau B, Smith JJ, Shia J, Sinopoli J, et al. Nonoperative Management of Mismatch Repair-Deficient Tumors. N Engl J Med. 2025;392(23):2297-2308. PMID 40293177; PMCID PMC12661660; doi:10.1056/nejmoa2404512.",
+  "link": "https://doi.org/10.1056/nejmoa2404512",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Chalabi2024",
+  "text": "Chalabi M, Verschoor YL, Tan PB, Balduzzi S, Van Lent AU, Grootscholten C, et al. Neoadjuvant Immunotherapy in Locally Advanced Mismatch Repair-Deficient Colon Cancer. N Engl J Med. 2024;390(21):1949-1958. PMID 38838311; doi:10.1056/nejmoa2400634.",
+  "link": "https://doi.org/10.1056/nejmoa2400634",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Chiu2015",
+  "text": "Chiu HM, Chen SL, Yen AM, Chiu SY, Fann JC, Lee YC, et al. Effectiveness of fecal immunochemical testing in reducing colorectal cancer mortality from the One Million Taiwanese Screening Program. Cancer. 2015;121(18):3221-9. PMID 25995082; PMCID PMC4676309; doi:10.1002/cncr.29462.",
+  "link": "https://doi.org/10.1002/cncr.29462",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Chiu2021",
+  "text": "Chiu HM, Jen GH, Wang YW, Fann JC, Hsu CY, Jeng YC, et al. Long-term effectiveness of faecal immunochemical test screening for proximal and distal colorectal cancers. Gut. 2021;70(12):2321-2329. PMID 33495268; PMCID PMC8588305; doi:10.1136/gutjnl-2020-322545.",
+  "link": "https://doi.org/10.1136/gutjnl-2020-322545",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Chung2024",
+  "text": "Chung DC, Gray DM, Singh H, Issaka RB, Raymond VM, Eagle C, et al. A Cell-free DNA Blood-Based Test for Colorectal Cancer Screening. N Engl J Med. 2024;390(11):973-983. PMID 38477985; doi:10.1056/NEJMoa2304714.",
+  "link": "https://doi.org/10.1056/nejmoa2304714",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Church2014",
+  "text": "Church TR, Wandell M, Lofton-Day C, Mongin SJ, Burger M, Payne SR, et al. Prospective evaluation of methylated SEPT9 in plasma for detection of asymptomatic colorectal cancer. Gut. 2014;63(2):317-25. PMID 23408352; PMCID PMC3913123; doi:10.1136/gutjnl-2012-304149.",
+  "link": "https://doi.org/10.1136/gutjnl-2012-304149",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Click2018",
+  "text": "Click B, Pinsky PF, Hickey T, Doroudi M, Schoen RE. Association of Colonoscopy Adenoma Findings With Long-term Colorectal Cancer Incidence. JAMA. 2018;319(19):2021-2031. PMID 29800214; PMCID PMC6583246; doi:10.1001/jama.2018.5809.",
+  "link": "https://doi.org/10.1001/jama.2018.5809",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "COLOR2009",
+  "text": "Colon Cancer Laparoscopic or Open Resection Study Group, Buunen M, Veldkamp R, Hop WC, Kuhry E, Jeekel J, et al. Survival after laparoscopic surgery versus open surgery for colon cancer: long-term outcome of a randomised clinical trial. Lancet Oncol. 2009;10(1):44-52. PMID 19071061; doi:10.1016/s1470-2045(08)70310-3.",
+  "link": "https://doi.org/10.1016/s1470-2045(08)70310-3",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Conroy2021",
+  "text": "Conroy T, Bosset JF, Etienne PL, Rio E, François É, Mesgouez-Nebout N, et al. Neoadjuvant chemotherapy with FOLFIRINOX and preoperative chemoradiotherapy for patients with locally advanced rectal cancer (UNICANCER-PRODIGE 23): a multicentre, randomised, open-label, phase 3 trial. Lancet Oncol. 2021;22(5):702-715. PMID 33862000; doi:10.1016/s1470-2045(21)00079-6.",
+  "link": "https://doi.org/10.1016/s1470-2045(21)00079-6",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Corley2014",
+  "text": "Corley DA, Jensen CD, Marks AR, Zhao WK, Lee JK, Doubeni CA, et al. Adenoma detection rate and risk of colorectal cancer and death. N Engl J Med. 2014;370(14):1298-306. PMID 24693890; PMCID PMC4036494; doi:10.1056/NEJMoa1309086.",
+  "link": "https://doi.org/10.1056/nejmoa1309086",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Corley2017",
+  "text": "Corley DA, Jensen CD, Quinn VP, Doubeni CA, Zauber AG, Lee JK, et al. Association Between Time to Colonoscopy After a Positive Fecal Test Result and Risk of Colorectal Cancer and Cancer Stage at Diagnosis. JAMA. 2017;317(16):1631-1641. PMID 28444278; PMCID PMC6343838; doi:10.1001/jama.2017.3634.",
+  "link": "https://doi.org/10.1001/jama.2017.3634",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "COST2004",
+  "text": "Clinical Outcomes of Surgical Therapy Study Group, Nelson H, Sargent DJ, Wieand HS, Fleshman J, Anvari M, et al. A comparison of laparoscopically assisted and open colectomy for colon cancer. N Engl J Med. 2004;350(20):2050-2059. PMID 15141043; doi:10.1056/nejmoa032651.",
+  "link": "https://doi.org/10.1056/nejmoa032651",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "CReST2022",
+  "text": "CReST Collaborative Group. Colorectal Endoscopic Stenting Trial (CReST) for obstructing left-sided colorectal cancer: randomized clinical trial. Br J Surg. 2022;109(11):1073-1080. PMID 35986684; doi:10.1093/bjs/znac141.",
+  "link": "https://doi.org/10.1093/bjs/znac141",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Day2011",
+  "text": "Day LW, Kwon A, Inadomi JM, Walter LC, Somsouk M. Adverse events in older patients undergoing colonoscopy: a systematic review and meta-analysis. Gastrointest Endosc. 2011;74(4):885-96. PMID 21951478; PMCID PMC3371336; doi:10.1016/j.gie.2011.06.023.",
+  "link": "https://doi.org/10.1016/j.gie.2011.06.023",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Dekker2019",
+  "text": "Dekker E, Tanis PJ, Vleugels JLA, Kasi PM, Wallace MB. Colorectal cancer. Lancet. 2019;394(10207):1467-1480. PMID 31631858; doi:10.1016/S0140-6736(19)32319-0.",
+  "link": "https://doi.org/10.1016/s0140-6736(19)32319-0",
+  "areas": [
+   "D",
+   "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "deKlerk2019",
+  "text": "de Klerk CM, Wieten E, Lansdorp-Vogelaar I, Bossuyt PM, Spaander MC, Dekker E. Performance of two faecal immunochemical tests for the detection of advanced neoplasia at different positivity thresholds: a cross-sectional study of the Dutch national colorectal cancer screening programme. Lancet Gastroenterol Hepatol. 2019;4(2):111-118. PMID 30497962; doi:10.1016/S2468-1253(18)30319-4.",
+  "link": "https://doi.org/10.1016/s2468-1253(18)30319-4",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Dijkstra2023",
+  "text": "Dijkstra EA, Nilsson PJ, Nilsson PJ, Hospers GAP, Bahadoer RR, Meershoek-Klein Kranenbarg E, et al. Locoregional Failure During and After Short-course Radiotherapy Followed by Chemotherapy and Surgery Compared With Long-course Chemoradiotherapy and Surgery: A 5-Year Follow-up of the RAPIDO Trial. Ann Surg. 2023;278(4):e766-e772. PMID 36661037; PMCID PMC10481913; doi:10.1097/sla.0000000000005799.",
+  "link": "https://doi.org/10.1097/sla.0000000000005799",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Doubeni2024",
+  "text": "Doubeni CA, Corley DA, Jensen CD, Levin TR, Ghai NR, Cannavale K, et al. Fecal Immunochemical Test Screening and Risk of Colorectal Cancer Death. JAMA Netw Open. 2024;7(7):e2423671. PMID 39028667; PMCID PMC11259903; doi:10.1001/jamanetworkopen.2024.23671.",
+  "link": "https://doi.org/10.1001/jamanetworkopen.2024.23671",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Emmertsen2012",
+  "text": "Emmertsen KJ, Laurberg S. Low anterior resection syndrome score: development and validation of a symptom-based scoring system for bowel dysfunction after low anterior resection for rectal cancer. Ann Surg. 2012;255(5):922-928. PMID 22504191; doi:10.1097/sla.0b013e31824f1c21.",
+  "link": "https://doi.org/10.1097/sla.0b013e31824f1c21",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Erlandsson2017",
+  "text": "Erlandsson J, Holm T, Pettersson D, Berglund Å, Cedermark B, Radu C, et al. Optimal fractionation of preoperative radiotherapy and timing to surgery for rectal cancer (Stockholm III): a multicentre, randomised, non-blinded, phase 3, non-inferiority trial. Lancet Oncol. 2017;18(3):336-346. PMID 28190762; doi:10.1016/s1470-2045(17)30086-4.",
+  "link": "https://doi.org/10.1016/s1470-2045(17)30086-4",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "FDA-Cologuard",
+  "text": "Exact Sciences Corporation. COLOGUARD, PMA P130017, original approval 2014-08-11 (indication: adults 50 years or older at typical average risk); supplement S029 approved 2019-09-20 expanding the indicated age to 45 years or older. openFDA device PMA records.",
+  "link": "",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-CologuardPlus",
+  "text": "Exact Sciences Corporation. Multi-Target Stool DNA (mtsDNA) Test, Cologuard Plus, PMA P230043, original approval 2024-10-03 (indication: adults 45 years or older at average risk). openFDA device PMA record.",
+  "link": "",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-ColoSense",
+  "text": "Geneoscopy, Inc. ColoSense (multitarget stool RNA), PMA P230001, original approval 2024-05-03 (indication: adults 45 years or older at average risk). openFDA device PMA record.",
+  "link": "",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Fluorouracil",
+  "text": "Fluorouracil injection, US prescribing information (Eugia US LLC). openFDA drug label, set_id 199ef964-8a9b-403e-a2ae-759280b3d1d1, effective 2026-01-19.",
+  "link": "",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Jemperli",
+  "text": "JEMPERLI (dostarlimab-gxly) injection, US prescribing information (GlaxoSmithKline LLC). openFDA drug label, set_id 095eab9f-545a-4f12-bfb7-19477fb901a5, effective 2025-09-02.",
+  "link": "",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Oxaliplatin",
+  "text": "Oxaliplatin injection USP, US prescribing information (Shandong New Time Pharmaceutical Co., Ltd.). openFDA drug label, set_id 1ac38523-480b-4c0f-97a1-7dfa1432923c, effective 2026-04-14.",
+  "link": "",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Shield",
+  "text": "Guardant Health, Inc. Shield (cell-free DNA blood test), PMA P230009, original approval 2024-07-26 (indication: average-risk individuals aged 45 years or older; positive results to be followed by colonoscopy). openFDA device PMA record.",
+  "link": "",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Xeloda",
+  "text": "XELODA (capecitabine) tablets, US prescribing information (H2-Pharma, LLC). openFDA drug label, set_id e702d84d-7162-4751-bf37-d724cc7e45a5, effective 2026-02-05.",
+  "link": "",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "Feng2022",
+  "text": "Feng Q, Yuan W, Li T, Tang B, Jia B, Zhou Y, et al. Robotic versus laparoscopic surgery for middle and low rectal cancer (REAL): short-term outcomes of a multicentre randomised controlled trial. Lancet Gastroenterol Hepatol. 2022;7(11):991-1004. PMID 36087608; doi:10.1016/s2468-1253(22)00248-5.",
+  "link": "https://doi.org/10.1016/s2468-1253(22)00248-5",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Feng2025",
+  "text": "Feng Q, Yuan W, Li T, Tang B, Jia B, Zhou Y, et al. Robotic vs Laparoscopic Surgery for Middle and Low Rectal Cancer: The REAL Randomized Clinical Trial. JAMA. 2025;334(2):136-148. PMID 40455621; PMCID PMC12131176; doi:10.1001/jama.2025.8123.",
+  "link": "https://doi.org/10.1001/jama.2025.8123",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Fleshman2015",
+  "text": "Fleshman J, Branda M, Sargent DJ, Boller AM, George V, Abbas M, et al. Effect of Laparoscopic-Assisted Resection vs Open Resection of Stage II or III Rectal Cancer on Pathologic Outcomes: The ACOSOG Z6051 Randomized Clinical Trial. JAMA. 2015;314(13):1346-1355. PMID 26441179; PMCID PMC5140087; doi:10.1001/jama.2015.10529.",
+  "link": "https://doi.org/10.1001/jama.2015.10529",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Fleshman2019",
+  "text": "Fleshman J, Branda ME, Sargent DJ, Boller AM, George VV, Abbas MA, et al. Disease-free Survival and Local Recurrence for Laparoscopic Resection Compared With Open Resection of Stage II to III Rectal Cancer: Follow-up Results of the ACOSOG Z6051 Randomized Controlled Trial. Ann Surg. 2019;269(4):589-595. PMID 30080730; PMCID PMC6360134; doi:10.1097/sla.0000000000003002.",
+  "link": "https://doi.org/10.1097/sla.0000000000003002",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Forsberg2022",
+  "text": "Forsberg A, Westerberg M, Metcalfe C, Steele R, Blom J, Engstrand L, et al. Once-only colonoscopy or two rounds of faecal immunochemical testing 2 years apart for colorectal cancer screening (SCREESCO): preliminary report of a randomised controlled trial. Lancet Gastroenterol Hepatol. 2022;7(6):513-521. PMID 35298893; doi:10.1016/S2468-1253(21)00473-8.",
+  "link": "https://doi.org/10.1016/s2468-1253(21)00473-8",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "GarciaAguilar2022",
+  "text": "Garcia-Aguilar J, Patil S, Gollub MJ, Kim JK, Yuval JB, Thompson HM, et al. Organ Preservation in Patients With Rectal Adenocarcinoma Treated With Total Neoadjuvant Therapy. J Clin Oncol. 2022;40(23):2546-2556. PMID 35483010; PMCID PMC9362876; doi:10.1200/jco.22.00032.",
+  "link": "https://doi.org/10.1200/jco.22.00032",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Greco2014",
+  "text": "Greco M, Capretti G, Beretta L, Gemma M, Pecorelli N, Braga M. Enhanced recovery program in colorectal surgery: a meta-analysis of randomized controlled trials. World J Surg. 2014;38(6):1531-1541. PMID 24368573; doi:10.1007/s00268-013-2416-8.",
+  "link": "https://doi.org/10.1007/s00268-013-2416-8",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Grobbee2017",
+  "text": "Grobbee EJ, Schreuders EH, Hansen BE, Bruno MJ, Lansdorp-Vogelaar I, Spaander MCW, et al. Association Between Concentrations of Hemoglobin Determined by Fecal Immunochemical Tests and Long-term Development of Advanced Colorectal Neoplasia. Gastroenterology. 2017;153(5):1251-1259.e2. PMID 28760383; doi:10.1053/j.gastro.2017.07.034.",
+  "link": "https://doi.org/10.1053/j.gastro.2017.07.034",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Grothey2018",
+  "text": "Grothey A, Sobrero AF, Shields AF, Yoshino T, Paul J, Taieb J, et al. Duration of Adjuvant Chemotherapy for Stage III Colon Cancer. N Engl J Med. 2018;378(13):1177-1188. PMID 29590544; PMCID PMC6426127; doi:10.1056/nejmoa1713709.",
+  "link": "https://doi.org/10.1056/nejmoa1713709",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Guillou2005",
+  "text": "Guillou PJ, Quirke P, Thorpe H, Walker J, Jayne DG, Smith AM, et al. Short-term endpoints of conventional versus laparoscopic-assisted surgery in patients with colorectal cancer (MRC CLASICC trial): multicentre, randomised controlled trial. Lancet. 2005;365(9472):1718-1726. PMID 15894098; doi:10.1016/s0140-6736(05)66545-2.",
+  "link": "https://doi.org/10.1016/s0140-6736(05)66545-2",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Gupta2013",
+  "text": "Gupta S, Halm EA, Rockey DC, Hammons M, Koch M, Carter E, et al. Comparative effectiveness of fecal immunochemical test outreach, colonoscopy outreach, and usual care for boosting colorectal cancer screening among the underserved: a randomized clinical trial. JAMA Intern Med. 2013;173(18):1725-32. PMID 23921906; PMCID PMC5228201; doi:10.1001/jamainternmed.2013.9294.",
+  "link": "https://doi.org/10.1001/jamainternmed.2013.9294",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Gupta2020",
+  "text": "Gupta S, Lieberman D, Anderson JC, Burke CA, Dominitz JA, Kaltenbach T, et al. Recommendations for Follow-Up After Colonoscopy and Polypectomy: A Consensus Update by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology. 2020;158(4):1131-1153.e5. PMID 32044092; PMCID PMC7672705; doi:10.1053/j.gastro.2019.10.026. Tables read from PMC full text.",
+  "link": "https://doi.org/10.1053/j.gastro.2019.10.026",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Gustafsson2019",
+  "text": "Gustafsson UO, Scott MJ, Hubner M, Nygren J, Demartines N, Francis N, et al. Guidelines for Perioperative Care in Elective Colorectal Surgery: Enhanced Recovery After Surgery (ERAS®) Society Recommendations: 2018. World J Surg. 2019;43(3):659-695. PMID 30426190; doi:10.1007/s00268-018-4844-y.",
+  "link": "https://doi.org/10.1007/s00268-018-4844-y",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "HabrGama2004",
+  "text": "Habr-Gama A, Perez RO, Nadalin W, Sabbaga J, Ribeiro U Jr, Silva e Sousa AH Jr, et al. Operative versus nonoperative treatment for stage 0 distal rectal cancer following chemoradiation therapy: long-term results. Ann Surg. 2004;240(4):711-7; discussion 717-8. PMID 15383798; doi:10.1097/01.sla.0000141194.27992.32.",
+  "link": "https://doi.org/10.1097/01.sla.0000141194.27992.32",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Haggitt1985",
+  "text": "Haggitt RC, Glotzbach RE, Soffer EE, Wruble LD. Prognostic factors in colorectal carcinomas arising in adenomas: implications for lesions removed by endoscopic polypectomy. Gastroenterology. 1985;89(2):328-336. PMID 4007423; doi:10.1016/0016-5085(85)90333-6.",
+  "link": "https://doi.org/10.1016/0016-5085(85)90333-6",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Haller2011",
+  "text": "Haller DG, Tabernero J, Maroun J, de Braud F, Price T, Van Cutsem E, et al. Capecitabine plus oxaliplatin compared with fluorouracil and folinic acid as adjuvant therapy for stage III colon cancer. J Clin Oncol. 2011;29(11):1465-1471. PMID 21383294; doi:10.1200/jco.2010.33.6297.",
+  "link": "https://doi.org/10.1200/jco.2010.33.6297",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Hardcastle1996",
+  "text": "Hardcastle JD, Chamberlain JO, Robinson MH, Moss SM, Amar SS, Balfour TW, et al. Randomised controlled trial of faecal-occult-blood screening for colorectal cancer. Lancet. 1996;348(9040):1472-7. PMID 8942775; doi:10.1016/S0140-6736(96)03386-7.",
+  "link": "https://doi.org/10.1016/s0140-6736(96)03386-7",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hassan2020",
+  "text": "Hassan C, Antonelli G, Dumonceau JM, Regula J, Bretthauer M, Chaussade S, et al. Post-polypectomy colonoscopy surveillance: European Society of Gastrointestinal Endoscopy (ESGE) Guideline - Update 2020. Endoscopy. 2020;52(8):687-700. PMID 32572858; doi:10.1055/a-1185-3109.",
+  "link": "https://doi.org/10.1055/a-1185-3109",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Heald1982",
+  "text": "Heald RJ, Husband EM, Ryall RD. The mesorectum in rectal cancer surgery--the clue to pelvic recurrence? Br J Surg. 1982;69(10):613-616. PMID 6751457; doi:10.1002/bjs.1800691019.",
+  "link": "https://doi.org/10.1002/bjs.1800691019",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Heald1986",
+  "text": "Heald RJ, Ryall RD. Recurrence and survival after total mesorectal excision for rectal cancer. Lancet. 1986;1(8496):1479-1482. PMID 2425199; doi:10.1016/s0140-6736(86)91510-2.",
+  "link": "https://doi.org/10.1016/s0140-6736(86)91510-2",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Hewitson2007",
+  "text": "Hewitson P, Glasziou P, Irwig L, Towler B, Watson E. Screening for colorectal cancer using the faecal occult blood test, Hemoccult. Cochrane Database Syst Rev. 2007;2007(1):CD001216. PMID 17253456; PMCID PMC6769059; doi:10.1002/14651858.CD001216.pub2.",
+  "link": "https://doi.org/10.1002/14651858.cd001216.pub2",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hohenberger2009",
+  "text": "Hohenberger W, Weber K, Matzel K, Papadopoulos T, Merkel S. Standardized surgery for colonic cancer: complete mesocolic excision and central ligation--technical notes and outcome. Colorectal Dis. 2009;11(4):354-64; discussion 364-5. PMID 19016817; doi:10.1111/j.1463-1318.2008.01735.x.",
+  "link": "https://doi.org/10.1111/j.1463-1318.2008.01735.x",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Holme2014",
+  "text": "Holme Ø, Løberg M, Kalager M, Bretthauer M, Hernán MA, Aas E, et al. Effect of flexible sigmoidoscopy screening on colorectal cancer incidence and mortality: a randomized clinical trial. JAMA. 2014;312(6):606-15. PMID 25117129; PMCID PMC4495882; doi:10.1001/jama.2014.8266.",
+  "link": "https://doi.org/10.1001/jama.2014.8266",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Holme2018",
+  "text": "Holme Ø, Løberg M, Kalager M, Bretthauer M, Hernán MA, Aas E, et al. Long-Term Effectiveness of Sigmoidoscopy Screening on Colorectal Cancer Incidence and Mortality in Women and Men: A Randomized Trial. Ann Intern Med. 2018;168(11):775-782. PMID 29710125; PMCID PMC6853067; doi:10.7326/M17-1441.",
+  "link": "https://doi.org/10.7326/m17-1441",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Imperiale2000",
+  "text": "Imperiale TF, Wagner DR, Lin CY, Larkin GN, Rogge JD, Ransohoff DF. Risk of advanced proximal neoplasms in asymptomatic adults according to the distal colorectal findings. N Engl J Med. 2000;343(3):169-74. PMID 10900275; doi:10.1056/NEJM200007203430302.",
+  "link": "https://doi.org/10.1056/nejm200007203430302",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Imperiale2014",
+  "text": "Imperiale TF, Ransohoff DF, Itzkowitz SH, Levin TR, Lavin P, Lidgard GP, et al. Multitarget stool DNA testing for colorectal-cancer screening. N Engl J Med. 2014;370(14):1287-97. PMID 24645800; doi:10.1056/NEJMoa1311194.",
+  "link": "https://doi.org/10.1056/nejmoa1311194",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Imperiale2019",
+  "text": "Imperiale TF, Gruber RN, Stump TE, Emmett TW, Monahan PO. Performance Characteristics of Fecal Immunochemical Tests for Colorectal Cancer and Advanced Adenomatous Polyps: A Systematic Review and Meta-analysis. Ann Intern Med. 2019;170(5):319-329. PMID 30802902; doi:10.7326/M18-2390.",
+  "link": "https://doi.org/10.7326/m18-2390",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Imperiale2024",
+  "text": "Imperiale TF, Porter K, Zella J, Gagrat ZD, Olson MC, Statz S, et al. Next-Generation Multitarget Stool DNA Test for Colorectal Cancer Screening. N Engl J Med. 2024;390(11):984-993. PMID 38477986; doi:10.1056/NEJMoa2310336.",
+  "link": "https://doi.org/10.1056/nejmoa2310336",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Iveson2018",
+  "text": "Iveson TJ, Kerr RS, Saunders MP, Cassidy J, Hollander NH, Tabernero J, et al. 3 versus 6 months of adjuvant oxaliplatin-fluoropyrimidine combination therapy for colorectal cancer (SCOT): an international, randomised, phase 3, non-inferiority trial. Lancet Oncol. 2018;19(4):562-578. PMID 29611518; PMCID PMC5883334; doi:10.1016/s1470-2045(18)30093-7.",
+  "link": "https://doi.org/10.1016/s1470-2045(18)30093-7",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Jayne2010",
+  "text": "Jayne DG, Thorpe HC, Copeland J, Quirke P, Brown JM, Guillou PJ. Five-year follow-up of the Medical Research Council CLASICC trial of laparoscopically assisted versus open surgery for colorectal cancer. Br J Surg. 2010;97(11):1638-1645. PMID 20629110; doi:10.1002/bjs.7160.",
+  "link": "https://doi.org/10.1002/bjs.7160",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Jayne2017",
+  "text": "Jayne D, Pigazzi A, Marshall H, Croft J, Corrigan N, Copeland J, et al. Effect of Robotic-Assisted vs Conventional Laparoscopic Surgery on Risk of Conversion to Open Laparotomy Among Patients Undergoing Resection for Rectal Cancer: The ROLARR Randomized Clinical Trial. JAMA. 2017;318(16):1569-1580. PMID 29067426; PMCID PMC5818805; doi:10.1001/jama.2017.7219.",
+  "link": "https://doi.org/10.1001/jama.2017.7219",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Johnson2008",
+  "text": "Johnson CD, Chen MH, Toledano AY, Heiken JP, Dachman A, Kuo MD, et al. Accuracy of CT colonography for detection of large adenomas and cancers. N Engl J Med. 2008;359(12):1207-17. PMID 18799557; PMCID PMC2654614; doi:10.1056/NEJMoa0800996.",
+  "link": "https://doi.org/10.1056/nejmoa0800996",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Juul2022",
+  "text": "Juul FE, Cross AJ, Schoen RE, Senore C, Pinsky P, Miller E, et al. 15-Year Benefits of Sigmoidoscopy Screening on Colorectal Cancer Incidence and Mortality: A Pooled Analysis of Randomized Trials. Ann Intern Med. 2022;175(11):1525-1533. PMID 36215714; doi:10.7326/M22-0835.",
+  "link": "https://doi.org/10.7326/m22-0835",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kaalby2019",
+  "text": "Kaalby L, Rasmussen M, Zimmermann-Nielsen E, Buijs MM, Baatrup G. Time to colonoscopy, cancer probability, and precursor lesions in the Danish colorectal cancer screening program. Clin Epidemiol. 2019;11:659-667. PMID 31440102; PMCID PMC6679696; doi:10.2147/CLEP.S206873.",
+  "link": "https://doi.org/10.2147/clep.s206873",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kaminski2010",
+  "text": "Kaminski MF, Regula J, Kraszewska E, Polkowski M, Wojciechowska U, Didkowska J, et al. Quality indicators for colonoscopy and the risk of interval cancer. N Engl J Med. 2010;362(19):1795-803. PMID 20463339; doi:10.1056/NEJMoa0907667.",
+  "link": "https://doi.org/10.1056/nejmoa0907667",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kaminski2017ESGE",
+  "text": "Kaminski MF, Thomas-Gibson S, Bugajski M, Bretthauer M, Rees CJ, Dekker E, et al. Performance measures for lower gastrointestinal endoscopy: a European Society of Gastrointestinal Endoscopy (ESGE) Quality Improvement Initiative. Endoscopy. 2017;49(4):378-397. PMID 28268235; doi:10.1055/s-0043-103411.",
+  "link": "https://doi.org/10.1055/s-0043-103411",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kaminski2017Gastro",
+  "text": "Kaminski MF, Wieszczy P, Rupinski M, Wojciechowska U, Didkowska J, Kraszewska E, et al. Increased Rate of Adenoma Detection Associates With Reduced Risk of Colorectal Cancer and Death. Gastroenterology. 2017;153(1):98-105. PMID 28428142; doi:10.1053/j.gastro.2017.04.006.",
+  "link": "https://doi.org/10.1053/j.gastro.2017.04.006",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kapidzic2014",
+  "text": "Kapidzic A, Grobbee EJ, Hol L, van Roon AH, van Vuuren AJ, Spijker W, et al. Attendance and yield over three rounds of population-based fecal immunochemical test screening. Am J Gastroenterol. 2014;109(8):1257-64. PMID 24980879; doi:10.1038/ajg.2014.168.",
+  "link": "https://doi.org/10.1038/ajg.2014.168",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kapiteijn2001",
+  "text": "Kapiteijn E, Marijnen CA, Nagtegaal ID, Putter H, Steup WH, Wiggers T, et al. Preoperative radiotherapy combined with total mesorectal excision for resectable rectal cancer. N Engl J Med. 2001;345(9):638-646. PMID 11547717; doi:10.1056/nejmoa010580.",
+  "link": "https://doi.org/10.1056/nejmoa010580",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Knudsen2021",
+  "text": "Knudsen AB, Rutter CM, Peterse EFP, Lietz AP, Seguin CL, Meester RGS, et al. Colorectal Cancer Screening: An Updated Modeling Study for the US Preventive Services Task Force. JAMA. 2021;325(19):1998-2011. PMID 34003219; PMCID PMC8409520; doi:10.1001/jama.2021.5746.",
+  "link": "https://doi.org/10.1001/jama.2021.5746",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Ko2010",
+  "text": "Ko CW, Riffle S, Michaels L, Morris C, Holub J, Shapiro JA, et al. Serious complications within 30 days of screening and surveillance colonoscopy are uncommon. Clin Gastroenterol Hepatol. 2010;8(2):166-73. PMID 19850154; PMCID PMC2821994; doi:10.1016/j.cgh.2009.10.007.",
+  "link": "https://doi.org/10.1016/j.cgh.2009.10.007",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kooyker2020",
+  "text": "Kooyker AI, Toes-Zoutendijk E, Opstal-van Winden AWJ, Spaander MCW, Buskermolen M, van Vuuren HJ, et al. The second round of the Dutch colorectal cancer screening program: Impact of an increased fecal immunochemical test cut-off level on yield of screening. Int J Cancer. 2020;147(4):1098-1106. PMID 31853977; PMCID PMC7383838; doi:10.1002/ijc.32839.",
+  "link": "https://doi.org/10.1002/ijc.32839",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kronborg1996",
+  "text": "Kronborg O, Fenger C, Olsen J, Jørgensen OD, Søndergaard O. Randomised study of screening for colorectal cancer with faecal-occult-blood test. Lancet. 1996;348(9040):1467-71. PMID 8942774; doi:10.1016/S0140-6736(96)03430-7.",
+  "link": "https://doi.org/10.1016/s0140-6736(96)03430-7",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kuebler2007",
+  "text": "Kuebler JP, Wieand HS, O'Connell MJ, Smith RE, Colangelo LH, Yothers G, et al. Oxaliplatin combined with weekly bolus fluorouracil and leucovorin as surgical adjuvant chemotherapy for stage II and III colon cancer: results from NSABP C-07. J Clin Oncol. 2007;25(16):2198-2204. PMID 17470851; doi:10.1200/jco.2006.08.2974.",
+  "link": "https://doi.org/10.1200/jco.2006.08.2974",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Ladabaum2024AIM",
+  "text": "Ladabaum U, Mannalithara A, Schoen RE, Dominitz JA, Lieberman D. Projected Impact and Cost-Effectiveness of Novel Molecular Blood-Based or Stool-Based Screening Tests for Colorectal Cancer. Ann Intern Med. 2024;177(12):1610-1620. PMID 39467291; PMCID PMC12302969; doi:10.7326/ANNALS-24-00910.",
+  "link": "https://doi.org/10.7326/annals-24-00910",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Ladabaum2024Gastro",
+  "text": "Ladabaum U, Mannalithara A, Weng Y, Schoen RE, Dominitz JA, Desai M, et al. Comparative Effectiveness and Cost-Effectiveness of Colorectal Cancer Screening With Blood-Based Biomarkers (Liquid Biopsy) vs Fecal Tests or Colonoscopy. Gastroenterology. 2024;167(2):378-391. PMID 38552670; PMCID PMC12279009; doi:10.1053/j.gastro.2024.03.011.",
+  "link": "https://doi.org/10.1053/j.gastro.2024.03.011",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Lai2009",
+  "text": "Lai EJ, Calderwood AH, Doros G, Fix OK, Jacobson BC. The Boston bowel preparation scale: a valid and reliable instrument for colonoscopy-oriented research. Gastrointest Endosc. 2009;69(3 Pt 2):620-5. PMID 19136102; PMCID PMC2763922; doi:10.1016/j.gie.2008.05.057.",
+  "link": "https://doi.org/10.1016/j.gie.2008.05.057",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Lee2014",
+  "text": "Lee JK, Liles EG, Bent S, Levin TR, Corley DA. Accuracy of fecal immunochemical tests for colorectal cancer: systematic review and meta-analysis. Ann Intern Med. 2014;160(3):171. PMID 24658694; PMCID PMC4189821; doi:10.7326/M13-1484.",
+  "link": "https://doi.org/10.7326/m13-1484",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Levin2018",
+  "text": "Levin TR, Corley DA, Jensen CD, Schottinger JE, Quinn VP, Zauber AG, et al. Effects of Organized Colorectal Cancer Screening on Cancer Incidence and Mortality in a Large Community-Based Population. Gastroenterology. 2018;155(5):1383-1391.e5. PMID 30031768; PMCID PMC6240353; doi:10.1053/j.gastro.2018.07.017.",
+  "link": "https://doi.org/10.1053/j.gastro.2018.07.017",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "LeVoyer2003",
+  "text": "Le Voyer TE, Sigurdson ER, Hanlon AL, Mayer RJ, Macdonald JS, Catalano PJ, et al. Colon cancer survival is associated with increasing number of lymph nodes analyzed: a secondary survey of intergroup trial INT-0089. J Clin Oncol. 2003;21(15):2912-2919. PMID 12885809; doi:10.1200/jco.2003.05.062.",
+  "link": "https://doi.org/10.1200/jco.2003.05.062",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Li2021",
+  "text": "Li SJ, Sharples LD, Benton SC, Blyuss O, Mathews C, Sasieni P, et al. Faecal immunochemical testing in bowel cancer screening: Estimating outcomes for different diagnostic policies. J Med Screen. 2021;28(3):277-285. PMID 33342370; PMCID PMC8366184; doi:10.1177/0969141320980501. Threshold table read from PMC full text.",
+  "link": "https://doi.org/10.1177/0969141320980501",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Li2022",
+  "text": "Li SJ, Seedher T, Sharples LD, Benton SC, Mathews C, Gabe R, et al. Impact of changes to the interscreening interval and faecal immunochemical test threshold in the national bowel cancer screening programme in England: results from the FIT pilot study. Br J Cancer. 2022;127(8):1525-1533. PMID 35974099; PMCID PMC9553931; doi:10.1038/s41416-022-01919-y.",
+  "link": "https://doi.org/10.1038/s41416-022-01919-y",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Lieberman2000",
+  "text": "Lieberman DA, Weiss DG, Bond JH, Ahnen DJ, Garewal H, Chejfec G. Use of colonoscopy to screen asymptomatic adults for colorectal cancer. Veterans Affairs Cooperative Study Group 380. N Engl J Med. 2000;343(3):162-8. PMID 10900274; doi:10.1056/NEJM200007203430301.",
+  "link": "https://doi.org/10.1056/nejm200007203430301",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Lin2021",
+  "text": "Lin JS, Perdue LA, Henrikson NB, Bean SI, Blasi PR. Screening for Colorectal Cancer: Updated Evidence Report and Systematic Review for the US Preventive Services Task Force. JAMA. 2021;325(19):1978-1998. PMID 34003220; PMCID PMC13509038; doi:10.1001/jama.2021.4417.",
+  "link": "https://doi.org/10.1001/jama.2021.4417",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Mandel1993",
+  "text": "Mandel JS, Bond JH, Church TR, Snover DC, Bradley GM, Schuman LM, et al. Reducing mortality from colorectal cancer by screening for fecal occult blood. Minnesota Colon Cancer Control Study. N Engl J Med. 1993;328(19):1365-71. PMID 8474513; doi:10.1056/NEJM199305133281901.",
+  "link": "https://doi.org/10.1056/nejm199305133281901",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Mandel1999",
+  "text": "Mandel JS, Church TR, Ederer F, Bond JH. Colorectal cancer mortality: effectiveness of biennial screening for fecal occult blood. J Natl Cancer Inst. 1999;91(5):434-7. PMID 10070942; doi:10.1093/jnci/91.5.434.",
+  "link": "https://doi.org/10.1093/jnci/91.5.434",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Matthiessen2007",
+  "text": "Matthiessen P, Hallböök O, Rutegård J, Simert G, Sjödahl R. Defunctioning stoma reduces symptomatic anastomotic leakage after low anterior resection of the rectum for cancer: a randomized multicenter trial. Ann Surg. 2007;246(2):207-214. PMID 17667498; doi:10.1097/sla.0b013e3180603024.",
+  "link": "https://doi.org/10.1097/sla.0b013e3180603024",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "McCleary2013",
+  "text": "McCleary NJ, Meyerhardt JA, Green E, Yothers G, de Gramont A, Van Cutsem E, et al. Impact of age on the efficacy of newer adjuvant therapies in patients with stage II/III colon cancer: findings from the ACCENT database. J Clin Oncol. 2013;31(20):2600-2606. PMID 23733765; PMCID PMC3699725; doi:10.1200/jco.2013.49.6638.",
+  "link": "https://doi.org/10.1200/jco.2013.49.6638",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Meester2015",
+  "text": "Meester RG, Doubeni CA, Zauber AG, Goede SL, Levin TR, Corley DA, et al. Public health impact of achieving 80% colorectal cancer screening rates in the United States by 2018. Cancer. 2015;121(13):2281-5. PMID 25763558; PMCID PMC4567966; doi:10.1002/cncr.29336.",
+  "link": "https://doi.org/10.1002/cncr.29336",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "MERCURY2006",
+  "text": "MERCURY Study Group. Diagnostic accuracy of preoperative magnetic resonance imaging in predicting curative resection of rectal cancer: prospective observational study. BMJ. 2006;333(7572):779. PMID 16984925; PMCID PMC1602032; doi:10.1136/bmj.38937.646400.55.",
+  "link": "https://doi.org/10.1136/bmj.38937.646400.55",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Moertel1990",
+  "text": "Moertel CG, Fleming TR, Macdonald JS, Haller DG, Laurie JA, Goodman PJ, et al. Levamisole and fluorouracil for adjuvant therapy of resected colon carcinoma. N Engl J Med. 1990;322(6):352-358. PMID 2300087; doi:10.1056/nejm199002083220602.",
+  "link": "https://doi.org/10.1056/nejm199002083220602",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Morris2015",
+  "text": "Morris EJ, Rutter MD, Finan PJ, Thomas JD, Valori R. Post-colonoscopy colorectal cancer (PCCRC) rates vary considerably depending on the method used to calculate them: a retrospective observational population-based study of PCCRC in the English National Health Service. Gut. 2015;64(8):1248-56. PMID 25416064; PMCID PMC4515989; doi:10.1136/gutjnl-2014-308362.",
+  "link": "https://doi.org/10.1136/gutjnl-2014-308362",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Morton2023",
+  "text": "Morton D, Seymour M, Magill L, Handley K, Glasbey J, Glimelius B, et al. Preoperative Chemotherapy for Operable Colon Cancer: Mature Results of an International Randomized Controlled Trial. J Clin Oncol. 2023;41(8):1541-1552. PMID 36657089; PMCID PMC10022855; doi:10.1200/jco.22.00046.",
+  "link": "https://doi.org/10.1200/jco.22.00046",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Moss2017",
+  "text": "Moss S, Mathews C, Day TJ, Smith S, Seaman HE, Snowball J, et al. Increased uptake and improved outcomes of bowel cancer screening with a faecal immunochemical test: results from a pilot study within the national screening programme in England. Gut. 2017;66(9):1631-1644. PMID 27267903; doi:10.1136/gutjnl-2015-310691.",
+  "link": "https://doi.org/10.1136/gutjnl-2015-310691",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Nagtegaal2002",
+  "text": "Nagtegaal ID, van de Velde CJ, van der Worp E, Kapiteijn E, Quirke P, van Krieken JH, et al. Macroscopic evaluation of rectal cancer resection specimen: clinical significance of the pathologist in quality control. J Clin Oncol. 2002;20(7):1729-1734. PMID 11919228; doi:10.1200/jco.2002.07.010.",
+  "link": "https://doi.org/10.1200/jco.2002.07.010",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Nagtegaal2008",
+  "text": "Nagtegaal ID, Quirke P. What is the role for the circumferential margin in the modern treatment of rectal cancer? J Clin Oncol. 2008;26(2):303-312. PMID 18182672; doi:10.1200/jco.2007.12.7027.",
+  "link": "https://doi.org/10.1200/jco.2007.12.7027",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "NCT00883792",
+  "text": "The Northern-European Initiative on Colorectal Cancer (NordICC). Oslo University Hospital. Start 2009-05; enrollment 95,000 (actual); status active, not recruiting; primary completion 2026-06.",
+  "link": "",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT01239082",
+  "text": "Colonoscopy Versus Fecal Immunochemical Test in Reducing Mortality From Colorectal Cancer (CONFIRM). VA Office of Research and Development. Start 2012-04-30; enrollment 50,126 (actual); active, not recruiting; primary completion 2028-12-01.",
+  "link": "",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT04136002",
+  "text": "Evaluation of the ctDNA LUNAR Test in an Average Patient Screening Episode (ECLIPSE). Guardant Health, Inc. Start 2019-10-08; enrollment 44,467 (actual); primary completion 2024-03-20.",
+  "link": "",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT04144738",
+  "text": "Clinical Validation of An Optimized Multi-Target Stool DNA (Mt-sDNA 2.0) Test, for Colorectal Cancer Screening \"BLUE-C\". Exact Sciences Corporation. Start 2019-11-15; enrollment 26,758 (actual); completed; primary completion 2023-03-30.",
+  "link": "",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT04165772",
+  "text": "Memorial Sloan Kettering Cancer Center. A Phase II Study of Induction PD-1 Blockade in Subjects With Locally Advanced Mismatch Repair Deficient Solid Tumors. ClinicalTrials.gov NCT04165772; start 2019-12-11; status recruiting; estimated enrollment 212.",
+  "link": "",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "Nishihara2013",
+  "text": "Nishihara R, Wu K, Lochhead P, Morikawa T, Liao X, Qian ZR, et al. Long-term colorectal-cancer incidence and mortality after lower endoscopy. N Engl J Med. 2013;369(12):1095-105. PMID 24047059; PMCID PMC3840160; doi:10.1056/NEJMoa1301969.",
+  "link": "https://doi.org/10.1056/nejmoa1301969",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Patel2022",
+  "text": "Patel SG, May FP, Anderson JC, Burke CA, Dominitz JA, Gross SA, et al. Updates on Age to Start and Stop Colorectal Cancer Screening: Recommendations From the U.S. Multi-Society Task Force on Colorectal Cancer. Gastroenterology. 2022;162(1):285-299. PMID 34794816; doi:10.1053/j.gastro.2021.10.007.",
+  "link": "https://doi.org/10.1053/j.gastro.2021.10.007",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Pickhardt2003",
+  "text": "Pickhardt PJ, Choi JR, Hwang I, Butler JA, Puckett ML, Hildebrandt HA, et al. Computed tomographic virtual colonoscopy to screen for colorectal neoplasia in asymptomatic adults. N Engl J Med. 2003;349(23):2191-200. PMID 14657426; doi:10.1056/NEJMoa031618.",
+  "link": "https://doi.org/10.1056/nejmoa031618",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Qaseem2023",
+  "text": "Qaseem A, Harrod CS, Crandall CJ, Wilt TJ, Clinical Guidelines Committee of the American College of Physicians, et al. Screening for Colorectal Cancer in Asymptomatic Average-Risk Adults: A Guidance Statement From the American College of Physicians (Version 2). Ann Intern Med. 2023;176(8):1092-1100. PMID 37523709; doi:10.7326/M23-0779.",
+  "link": "https://doi.org/10.7326/m23-0779",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "QUASAR2007",
+  "text": "Quasar Collaborative Group, Gray R, Barnwell J, McConkey C, Hills RK, Williams NS, et al. Adjuvant chemotherapy versus observation in patients with colorectal cancer: a randomised study. Lancet. 2007;370(9604):2020-2029. PMID 18083404; doi:10.1016/s0140-6736(07)61866-2.",
+  "link": "https://doi.org/10.1016/s0140-6736(07)61866-2",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Quintero2012",
+  "text": "Quintero E, Castells A, Bujanda L, Cubiella J, Salas D, Lanas Á, et al. Colonoscopy versus fecal immunochemical testing in colorectal-cancer screening. N Engl J Med. 2012;366(8):697-706. PMID 22356323; doi:10.1056/NEJMoa1108895.",
+  "link": "https://doi.org/10.1056/nejmoa1108895",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Quirke1986",
+  "text": "Quirke P, Durdey P, Dixon MF, Williams NS. Local recurrence of rectal adenocarcinoma due to inadequate surgical resection. Histopathological study of lateral tumour spread and surgical excision. Lancet. 1986;2(8514):996-999. PMID 2430152; doi:10.1016/s0140-6736(86)92612-7.",
+  "link": "https://doi.org/10.1016/s0140-6736(86)92612-7",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Radaelli2017",
+  "text": "Radaelli F, Paggi S, Hassan C, Senore C, Fasoli R, Anderloni A, et al. Split-dose preparation for colonoscopy increases adenoma detection rate: a randomised controlled trial in an organised screening programme. Gut. 2017;66(2):270-277. PMID 26657900; doi:10.1136/gutjnl-2015-310685.",
+  "link": "https://doi.org/10.1136/gutjnl-2015-310685",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Reumkens2016",
+  "text": "Reumkens A, Rondagh EJ, Bakker CM, Winkens B, Masclee AA, Sanduleanu S. Post-Colonoscopy Complications: A Systematic Review, Time Trends, and Meta-Analysis of Population-Based Studies. Am J Gastroenterol. 2016;111(8):1092-101. PMID 27296945; doi:10.1038/ajg.2016.234.",
+  "link": "https://doi.org/10.1038/ajg.2016.234",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Rex2017",
+  "text": "Rex DK, Boland CR, Dominitz JA, Giardiello FM, Johnson DA, Kaltenbach T, et al. Colorectal Cancer Screening: Recommendations for Physicians and Patients From the U.S. Multi-Society Task Force on Colorectal Cancer. Gastroenterology. 2017;153(1):307-323. PMID 28600072; doi:10.1053/j.gastro.2017.05.013.",
+  "link": "https://doi.org/10.1053/j.gastro.2017.05.013",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Rex2024",
+  "text": "Rex DK, Anderson JC, Butterly LF, Day LW, Dominitz JA, Kaltenbach T, et al. Quality Indicators for Colonoscopy. Am J Gastroenterol. 2024;119(9):1754-1780. PMID 39167112; PMCID PMC13489032; doi:10.14309/ajg.0000000000002972. Targets read from PMC full text.",
+  "link": "https://doi.org/10.14309/ajg.0000000000002972",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Robertson2023",
+  "text": "Robertson DJ, Dominitz JA, Beed A, Boardman KD, Del Curto BJ, Guarino PD, et al. Baseline Features and Reasons for Nonparticipation in the Colonoscopy Versus Fecal Immunochemical Test in Reducing Mortality From Colorectal Cancer (CONFIRM) Study, a Colorectal Cancer Screening Trial. JAMA Netw Open. 2023;6(7):e2321730. PMID 37432690; PMCID PMC10336619; doi:10.1001/jamanetworkopen.2023.21730.",
+  "link": "https://doi.org/10.1001/jamanetworkopen.2023.21730",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Rutter2018",
+  "text": "Rutter MD, Beintaris I, Valori R, Chiu HM, Corley DA, Cuatrecasas M, et al. World Endoscopy Organization Consensus Statements on Post-Colonoscopy and Post-Imaging Colorectal Cancer. Gastroenterology. 2018;155(3):909-925.e3. PMID 29958856; doi:10.1053/j.gastro.2018.05.038.",
+  "link": "https://doi.org/10.1053/j.gastro.2018.05.038",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sargent2010",
+  "text": "Sargent DJ, Marsoni S, Monges G, Thibodeau SN, Labianca R, Hamilton SR, et al. Defective mismatch repair as a predictive marker for lack of efficacy of fluorouracil-based adjuvant therapy in colon cancer. J Clin Oncol. 2010;28(20):3219-3226. PMID 20498393; PMCID PMC2903323; doi:10.1200/jco.2009.27.1825.",
+  "link": "https://doi.org/10.1200/jco.2009.27.1825",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Sauer2004",
+  "text": "Sauer R, Becker H, Hohenberger W, Rödel C, Wittekind C, Fietkau R, et al. Preoperative versus postoperative chemoradiotherapy for rectal cancer. N Engl J Med. 2004;351(17):1731-1740. PMID 15496622; doi:10.1056/nejmoa040694.",
+  "link": "https://doi.org/10.1056/nejmoa040694",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Sauer2012",
+  "text": "Sauer R, Liersch T, Merkel S, Fietkau R, Hohenberger W, Hess C, et al. Preoperative versus postoperative chemoradiotherapy for locally advanced rectal cancer: results of the German CAO/ARO/AIO-94 randomized phase III trial after a median follow-up of 11 years. J Clin Oncol. 2012;30(16):1926-1933. PMID 22529255; doi:10.1200/jco.2011.40.1836.",
+  "link": "https://doi.org/10.1200/jco.2011.40.1836",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Schmoll2015",
+  "text": "Schmoll HJ, Tabernero J, Maroun J, de Braud F, Price T, Van Cutsem E, et al. Capecitabine Plus Oxaliplatin Compared With Fluorouracil/Folinic Acid As Adjuvant Therapy for Stage III Colon Cancer: Final Results of the NO16968 Randomized Controlled Phase III Trial. J Clin Oncol. 2015;33(32):3733-3740. PMID 26324362; doi:10.1200/jco.2015.60.9107.",
+  "link": "https://doi.org/10.1200/jco.2015.60.9107",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Schoen2012",
+  "text": "Schoen RE, Pinsky PF, Weissfeld JL, Yokochi LA, Church T, Laiyemo AO, et al. Colorectal-cancer incidence and mortality with screening flexible sigmoidoscopy. N Engl J Med. 2012;366(25):2345-57. PMID 22612596; PMCID PMC3641846; doi:10.1056/NEJMoa1114635.",
+  "link": "https://doi.org/10.1056/nejmoa1114635",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Schrag2023",
+  "text": "Schrag D, Shi Q, Weiser MR, Gollub MJ, Saltz LB, Musher BL, et al. Preoperative Treatment of Locally Advanced Rectal Cancer. N Engl J Med. 2023;389(4):322-334. PMID 37272534; PMCID PMC10775881; doi:10.1056/nejmoa2303269.",
+  "link": "https://doi.org/10.1056/nejmoa2303269",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Schreuders2019",
+  "text": "Schreuders EH, Grobbee EJ, Nieuwenburg SAV, Kapidzic A, van Roon AHC, van Vuuren AJ, et al. Multiple rounds of one sample versus two sample faecal immunochemical test-based colorectal cancer screening: a population-based study. Lancet Gastroenterol Hepatol. 2019;4(8):622-631. PMID 31196734; doi:10.1016/S2468-1253(19)30176-1.",
+  "link": "https://doi.org/10.1016/s2468-1253(19)30176-1",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Selby2019",
+  "text": "Selby K, Levine EH, Doan C, Gies A, Brenner H, Quesenberry C, et al. Effect of Sex, Age, and Positivity Threshold on Fecal Immunochemical Test Accuracy: A Systematic Review and Meta-analysis. Gastroenterology. 2019;157(6):1494-1505. PMID 31472152; PMCID PMC6878177; doi:10.1053/j.gastro.2019.08.023.",
+  "link": "https://doi.org/10.1053/j.gastro.2019.08.023",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Shaukat2013",
+  "text": "Shaukat A, Mongin SJ, Geisser MS, Lederle FA, Bond JH, Mandel JS, et al. Long-term mortality after screening for colorectal cancer. N Engl J Med. 2013;369(12):1106-14. PMID 24047060; doi:10.1056/NEJMoa1300720.",
+  "link": "https://doi.org/10.1056/nejmoa1300720",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Shaukat2015",
+  "text": "Shaukat A, Rector TS, Church TR, Lederle FA, Kim AS, Rank JM, et al. Longer Withdrawal Time Is Associated With a Reduced Incidence of Interval Cancer After Screening Colonoscopy. Gastroenterology. 2015;149(4):952-7. PMID 26164494; doi:10.1053/j.gastro.2015.06.044.",
+  "link": "https://doi.org/10.1053/j.gastro.2015.06.044",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Siegel2023CRC",
+  "text": "Siegel RL, Wagle NS, Cercek A, Smith RA, Jemal A. Colorectal cancer statistics, 2023. CA Cancer J Clin. 2023;73(3):233-254. PMID 36856579; doi:10.3322/caac.21772.",
+  "link": "https://doi.org/10.3322/caac.21772",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Singal2017",
+  "text": "Singal AG, Gupta S, Skinner CS, Ahn C, Santini NO, Agrawal D, et al. Effect of Colonoscopy Outreach vs Fecal Immunochemical Test Outreach on Colorectal Cancer Screening Completion: A Randomized Clinical Trial. JAMA. 2017;318(9):806-815. PMID 28873161; PMCID PMC5648645; doi:10.1001/jama.2017.11389.",
+  "link": "https://doi.org/10.1001/jama.2017.11389",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sinicrope2026",
+  "text": "Sinicrope FA, Ou FS, Arnold D, Peters WR, Behrens RJ, Lieu CH, et al. Atezolizumab plus FOLFOX for Stage III Mismatch Repair-Deficient Colon Cancer. N Engl J Med. 2026;394(12):1155-1166. PMID 41880612; PMCID PMC13020640; doi:10.1056/nejmoa2507874.",
+  "link": "https://doi.org/10.1056/nejmoa2507874",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Spada2020",
+  "text": "Spada C, Hassan C, Bellini D, Burling D, Cappello G, Carretero C, et al. Imaging alternatives to colonoscopy: CT colonography and colon capsule. European Society of Gastrointestinal Endoscopy (ESGE) and European Society of Gastrointestinal and Abdominal Radiology (ESGAR) Guideline - Update 2020. Endoscopy. 2020;52(12):1127-1141. PMID 33105507; doi:10.1055/a-1258-4819.",
+  "link": "https://doi.org/10.1055/a-1258-4819",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "SRCT1997",
+  "text": "Swedish Rectal Cancer Trial, Cedermark B, Dahlberg M, Glimelius B, Påhlman L, Rutqvist LE, et al. Improved survival with preoperative radiotherapy in resectable rectal cancer. N Engl J Med. 1997;336(14):980-987. PMID 9091798; doi:10.1056/nejm199704033361402.",
+  "link": "https://doi.org/10.1056/nejm199704033361402",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Stevenson2015",
+  "text": "Stevenson AR, Solomon MJ, Lumley JW, Hewett P, Clouston AD, Gebski VJ, et al. Effect of Laparoscopic-Assisted Resection vs Open Resection on Pathological Outcomes in Rectal Cancer: The ALaCaRT Randomized Clinical Trial. JAMA. 2015;314(13):1356-1363. PMID 26441180; doi:10.1001/jama.2015.12009.",
+  "link": "https://doi.org/10.1001/jama.2015.12009",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Tie2022",
+  "text": "Tie J, Cohen JD, Lahouel K, Lo SN, Wang Y, Kosmider S, et al. Circulating Tumor DNA Analysis Guiding Adjuvant Therapy in Stage II Colon Cancer. N Engl J Med. 2022;386(24):2261-2272. PMID 35657320; PMCID PMC9701133; doi:10.1056/nejmoa2200075.",
+  "link": "https://doi.org/10.1056/nejmoa2200075",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "ToesZoutendijk2020",
+  "text": "Toes-Zoutendijk E, Kooyker AI, Dekker E, Spaander MCW, Opstal-van Winden AWJ, Ramakers C, et al. Incidence of Interval Colorectal Cancer After Negative Results From First-Round Fecal Immunochemical Screening Tests, by Cutoff Value and Participant Sex and Age. Clin Gastroenterol Hepatol. 2020;18(7):1493-1500. PMID 31442598; doi:10.1016/j.cgh.2019.08.021.",
+  "link": "https://doi.org/10.1016/j.cgh.2019.08.021",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Twelves2005",
+  "text": "Twelves C, Wong A, Nowacki MP, Abt M, Burris H 3rd, Carrato A, et al. Capecitabine as adjuvant treatment for stage III colon cancer. N Engl J Med. 2005;352(26):2696-2704. PMID 15987918; doi:10.1056/nejmoa043116.",
+  "link": "https://doi.org/10.1056/nejmoa043116",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "USPSTF2021",
+  "text": "US Preventive Services Task Force, Davidson KW, Barry MJ, Mangione CM, Cabana M, Caughey AB, et al. Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement. JAMA. 2021;325(19):1965-1977. PMID 34003218; doi:10.1001/jama.2021.6238.",
+  "link": "https://doi.org/10.1001/jama.2021.6238",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "vanderPas2013",
+  "text": "van der Pas MH, Haglind E, Cuesta MA, Fürst A, Lacy AM, Hop WC, et al. Laparoscopic versus open surgery for rectal cancer (COLOR II): short-term outcomes of a randomised, phase 3 trial. Lancet Oncol. 2013;14(3):210-218. PMID 23395398; doi:10.1016/s1470-2045(13)70016-0.",
+  "link": "https://doi.org/10.1016/s1470-2045(13)70016-0",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "vanderValk2018",
+  "text": "van der Valk MJM, Hilling DE, Bastiaannet E, Meershoek-Klein Kranenbarg E, Beets GL, Figueiredo NL, et al. Long-term outcomes of clinical complete responders after neoadjuvant treatment for rectal cancer in the International Watch & Wait Database (IWWD): an international multicentre registry study. Lancet. 2018;391(10139):2537-2545. PMID 29976470; doi:10.1016/s0140-6736(18)31078-x.",
+  "link": "https://doi.org/10.1016/s0140-6736(18)31078-x",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "vanGijn2011",
+  "text": "van Gijn W, Marijnen CA, Nagtegaal ID, Kranenbarg EM, Putter H, Wiggers T, et al. Preoperative radiotherapy combined with total mesorectal excision for resectable rectal cancer: 12-year follow-up of the multicentre, randomised controlled TME trial. Lancet Oncol. 2011;12(6):575-582. PMID 21596621; doi:10.1016/s1470-2045(11)70097-3.",
+  "link": "https://doi.org/10.1016/s1470-2045(11)70097-3",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "vanLeerdam2019",
+  "text": "van Leerdam ME, Roos VH, van Hooft JE, Balaguer F, Dekker E, Kaminski MF, et al. Endoscopic management of Lynch syndrome and of familial risk of colorectal cancer: European Society of Gastrointestinal Endoscopy (ESGE) Guideline. Endoscopy. 2019;51(11):1082-1093. PMID 31597170; doi:10.1055/a-1016-4977.",
+  "link": "https://doi.org/10.1055/a-1016-4977",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Veldkamp2005",
+  "text": "Veldkamp R, Kuhry E, Hop WC, Jeekel J, Kazemier G, Bonjer HJ, et al. Laparoscopic surgery versus open surgery for colon cancer: short-term outcomes of a randomised trial. Lancet Oncol. 2005;6(7):477-484. PMID 15992696; doi:10.1016/s1470-2045(05)70221-7.",
+  "link": "https://doi.org/10.1016/s1470-2045(05)70221-7",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Verheij2024",
+  "text": "Verheij FS, Omer DM, Williams H, Lin ST, Qin LX, Buckley JT, et al. Long-Term Results of Organ Preservation in Patients With Rectal Adenocarcinoma Treated With Total Neoadjuvant Therapy: The Randomized Phase II OPRA Trial. J Clin Oncol. 2024;42(5):500-506. PMID 37883738; PMCID PMC11578087; doi:10.1200/jco.23.01208.",
+  "link": "https://doi.org/10.1200/jco.23.01208",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Westerberg2026",
+  "text": "Westerberg M, Ludvigsson JF, Metcalfe C, Strömberg U, Blom J, Engstrand L, et al. Colonoscopy and fecal immunochemical testing versus usual care in diagnostic colorectal cancer screening: the SCREESCO randomized controlled trial. Nat Med. 2026;32(4):1278-1285. PMID 41721101; PMCID PMC13099434; doi:10.1038/s41591-026-04225-9.",
+  "link": "https://doi.org/10.1038/s41591-026-04225-9",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Williams2025",
+  "text": "Williams H, Fokas E, Diefenhardt M, Lee C, Verheij FS, Omer DM, et al. Survival among patients treated with total mesorectal excision or selective watch-and-wait after total neoadjuvant therapy: a pooled analysis of the CAO/ARO/AIO-12 and OPRA randomized phase II trials. Ann Oncol. 2025;36(5):543-547. PMID 39848335; PMCID PMC12034476; doi:10.1016/j.annonc.2025.01.006.",
+  "link": "https://doi.org/10.1016/j.annonc.2025.01.006",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Winawer1993",
+  "text": "Winawer SJ, Zauber AG, Ho MN, O'Brien MJ, Gottlieb LS, Sternberg SS, et al. Prevention of colorectal cancer by colonoscopic polypectomy. The National Polyp Study Workgroup. N Engl J Med. 1993;329(27):1977-81. PMID 8247072; doi:10.1056/NEJM199312303292701.",
+  "link": "https://doi.org/10.1056/nejm199312303292701",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Wolf2018",
+  "text": "Wolf AMD, Fontham ETH, Church TR, Flowers CR, Guerra CE, LaMonte SJ, et al. Colorectal cancer screening for average-risk adults: 2018 guideline update from the American Cancer Society. CA Cancer J Clin. 2018;68(4):250-281. PMID 29846947; doi:10.3322/caac.21457.",
+  "link": "https://doi.org/10.3322/caac.21457",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Wolf2026",
+  "text": "Wolf AMD, Hoffman RM, Walter LC, Zeigler-Johnson C, Church TR, Guerra CE, et al. Colorectal cancer screening: An update to the American Cancer Society guideline, 2026. CA Cancer J Clin. 2026;76(3):e70083. PMID 42200680; doi:10.3322/caac.70083.",
+  "link": "https://doi.org/10.3322/caac.70083",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Young2025",
+  "text": "Young GP, Benton SC, Bresalier RS, Chiu HM, Dekker E, Fraser CG, et al. Fecal Immunochemical Test Positivity Thresholds: An International Survey of Population-Based Screening Programs. Dig Dis Sci. 2025;70(5):1637-1645. PMID 39528850; PMCID PMC12125024; doi:10.1007/s10620-024-08664-7.",
+  "link": "https://doi.org/10.1007/s10620-024-08664-7",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Zauber2012",
+  "text": "Zauber AG, Winawer SJ, O'Brien MJ, Lansdorp-Vogelaar I, van Ballegooijen M, Hankey BF, et al. Colonoscopic polypectomy and long-term prevention of colorectal-cancer deaths. N Engl J Med. 2012;366(8):687-96. PMID 22356322; PMCID PMC3322371; doi:10.1056/NEJMoa1100370.",
+  "link": "https://doi.org/10.1056/nejmoa1100370",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Zhao2019",
+  "text": "Zhao S, Wang S, Pan P, Xia T, Chang X, Yang X, et al. Magnitude, Risk Factors, and Factors Associated With Adenoma Miss Rate of Tandem Colonoscopy: A Systematic Review and Meta-analysis. Gastroenterology. 2019;156(6):1661-1674.e11. PMID 30738046; doi:10.1053/j.gastro.2019.01.260.",
+  "link": "https://doi.org/10.1053/j.gastro.2019.01.260",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Zorzi2015",
+  "text": "Zorzi M, Fedeli U, Schievano E, Bovo E, Guzzinati S, Baracco S, et al. Impact on colorectal cancer mortality of screening programmes based on the faecal immunochemical test. Gut. 2015;64(5):784-90. PMID 25179811; doi:10.1136/gutjnl-2014-307508.",
+  "link": "https://doi.org/10.1136/gutjnl-2014-307508",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ }
+]
