@@ -1515,10 +1515,11 @@
   "text": "Hampel H, Frankel WL, Martin E, Arnold M, Khanduja K, Kuebler P, et al. Screening for the Lynch syndrome (hereditary nonpolyposis colorectal cancer). N Engl J Med. 2005;352(18):1851-60. PMID 15872200; doi:10.1056/NEJMoa043146.",
   "link": "https://doi.org/10.1056/nejmoa043146",
   "areas": [
+   "B",
    "C"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed"
  },
  {
   "key": "Hampel2008",
@@ -2505,20 +2506,20 @@
  },
  {
   "key": "Meester2015",
-  "text": "Meester RG, Doubeni CA, Lansdorp-Vogelaar I, Jensen CD, van der Meulen MP, Levin TR, et al. Variation in Adenoma Detection Rate and the Lifetime Benefits and Cost of Colorectal Cancer Screening: A Microsimulation Model. JAMA. 2015;313(23):2349-58. PMID 26080339; PMCID PMC4631392; doi:10.1001/jama.2015.6251.",
-  "link": "https://doi.org/10.1001/jama.2015.6251",
+  "text": "Meester RG, Doubeni CA, Zauber AG, Goede SL, Levin TR, Corley DA, et al. Public health impact of achieving 80% colorectal cancer screening rates in the United States by 2018. Cancer. 2015;121(13):2281-5. PMID 25763558; PMCID PMC4567966; doi:10.1002/cncr.29336.",
+  "link": "https://doi.org/10.1002/cncr.29336",
   "areas": [
-   "B"
+   "D"
   ],
   "unverified": false,
   "validated": "PubMed"
  },
  {
-  "key": "Meester2015D",
-  "text": "Meester RG, Doubeni CA, Zauber AG, Goede SL, Levin TR, Corley DA, et al. Public health impact of achieving 80% colorectal cancer screening rates in the United States by 2018. Cancer. 2015;121(13):2281-5. PMID 25763558; PMCID PMC4567966; doi:10.1002/cncr.29336.",
-  "link": "https://doi.org/10.1002/cncr.29336",
+  "key": "Meester2015JAMA",
+  "text": "Meester RG, Doubeni CA, Lansdorp-Vogelaar I, Jensen CD, van der Meulen MP, Levin TR, et al. Variation in Adenoma Detection Rate and the Lifetime Benefits and Cost of Colorectal Cancer Screening: A Microsimulation Model. JAMA. 2015;313(23):2349-58. PMID 26080339; PMCID PMC4631392; doi:10.1001/jama.2015.6251.",
+  "link": "https://doi.org/10.1001/jama.2015.6251",
   "areas": [
-   "D"
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
