@@ -30,11 +30,22 @@
   "validated": "PubMed"
  },
  {
+  "key": "Amstutz2018",
+  "text": "Amstutz U, Henricks LM, Offer SM, Barbarino J, Schellens JHM, Swen JJ, et al. Clinical Pharmacogenetics Implementation Consortium (CPIC) Guideline for Dihydropyrimidine Dehydrogenase Genotype and Fluoropyrimidine Dosing: 2017 Update. Clin Pharmacol Ther. 2018;103(2):210-216. PMID 29152729; PMCID PMC5760397; doi:10.1002/cpt.911. Frequencies and dosing table read from PMC full text.",
+  "link": "https://doi.org/10.1002/cpt.911",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Andre2004",
   "text": "André T, Boni C, Mounedji-Boudiaf L, Navarro M, Tabernero J, Hickish T, et al. Oxaliplatin, fluorouracil, and leucovorin as adjuvant treatment for colon cancer. N Engl J Med. 2004;350(23):2343-2351. PMID 15175436; doi:10.1056/nejmoa032709.",
   "link": "https://doi.org/10.1056/nejmoa032709",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "Europe PMC"
@@ -58,6 +69,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Andre2018",
+  "text": "André T, Vernerey D, Mineur L, Bennouna J, Desrame J, Faroux R, et al. Three Versus 6 Months of Oxaliplatin-Based Adjuvant Chemotherapy for Patients With Stage III Colon Cancer: Disease-Free Survival Results From a Randomized, Open-Label, International Duration Evaluation of Adjuvant (IDEA) France, Phase III Trial. J Clin Oncol. 2018;36(15):1469-1477. PMID 29620995; doi:10.1200/JCO.2017.76.0355.",
+  "link": "https://doi.org/10.1200/jco.2017.76.0355",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Andre2020",
@@ -95,6 +116,16 @@
   "link": "https://doi.org/10.1016/s0140-6736(24)02848-4",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Antoniou2018",
+  "text": "Antoniou SA, Agresta F, Garcia Alamino JM, Berger D, Berrevoet F, Brandsma HT, et al. European Hernia Society guidelines on prevention and treatment of parastomal hernias. Hernia. 2018;22(1):183-198. PMID 29134456; doi:10.1007/s10029-017-1697-5.",
+  "link": "https://doi.org/10.1007/s10029-017-1697-5",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -170,6 +201,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Back2021",
+  "text": "Back E, Häggström J, Holmgren K, Haapamäki MM, Matthiessen P, Rutegård J, et al. Permanent stoma rates after anterior resection for rectal cancer: risk prediction scoring using preoperative variables. Br J Surg. 2021;108(11):1388-1395. PMID 34508549; PMCID PMC10364873; doi:10.1093/bjs/znab260.",
+  "link": "https://doi.org/10.1093/bjs/znab260",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Bahadoer2021",
   "text": "Bahadoer RR, Dijkstra EA, van Etten B, Marijnen CAM, Putter H, Kranenbarg EM, et al. Short-course radiotherapy followed by chemotherapy before total mesorectal excision (TME) versus preoperative chemoradiotherapy, TME, and optional adjuvant chemotherapy in locally advanced rectal cancer (RAPIDO): a randomised, open-label, phase 3 trial. Lancet Oncol. 2021;22(1):29-42. PMID 33301740; doi:10.1016/s1470-2045(20)30555-6.",
   "link": "https://doi.org/10.1016/s1470-2045(20)30555-6",
@@ -188,6 +229,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Baker2011",
+  "text": "Baker ML, Williams RN, Nightingale JM. Causes and management of a high-output stoma. Colorectal Dis. 2011;13(2):191-7. PMID 19888956; doi:10.1111/j.1463-1318.2009.02107.x.",
+  "link": "https://doi.org/10.1111/j.1463-1318.2009.02107.x",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Baker2014",
@@ -280,11 +331,41 @@
   "validated": "PubMed"
  },
  {
+  "key": "Baskarane2026",
+  "text": "Baskarane H, Sahni S, Nagpal C, Divakar MK, Pathak N, Kumar S, et al. Preventing Hand-Foot Syndrome in Patients With Cancer: A Systematic Review and Network Meta-Analysis. JAMA Dermatol. 2026;162(4):386-394. PMID 41779386; PMCID PMC12961603; doi:10.1001/jamadermatol.2026.0042.",
+  "link": "https://doi.org/10.1001/jamadermatol.2026.0042",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Beggs2010",
   "text": "Beggs AD, Latchford AR, Vasen HF, Moslein G, Alonso A, Aretz S, et al. Peutz-Jeghers syndrome: a systematic review and recommendations for management. Gut. 2010;59(7):975-86. PMID 20581245; doi:10.1136/gut.2009.198499.",
   "link": "https://doi.org/10.1136/gut.2009.198499",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Beijers2015",
+  "text": "Beijers AJ, Mols F, Tjan-Heijnen VC, Faber CG, van de Poll-Franse LV, Vreugdenhil G. Peripheral neuropathy in colorectal cancer survivors: the influence of oxaliplatin administration. Results from the population-based PROFILES registry. Acta Oncol. 2015;54(4):463-9. PMID 25417732; doi:10.3109/0284186X.2014.980912.",
+  "link": "https://doi.org/10.3109/0284186x.2014.980912",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Beijers2020",
+  "text": "Beijers AJM, Bonhof CS, Mols F, Ophorst J, de Vos-Geelen J, Jacobs EMG, et al. Multicenter randomized controlled trial to evaluate the efficacy and tolerability of frozen gloves for the prevention of chemotherapy-induced peripheral neuropathy. Ann Oncol. 2020;31(1):131-136. PMID 31912787; doi:10.1016/j.annonc.2019.09.006.",
+  "link": "https://doi.org/10.1016/j.annonc.2019.09.006",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -340,6 +421,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Bojesson2024",
+  "text": "Bojesson A, Brun E, Eberhard J, Segerlantz M. Quality of life for patients with advanced gastrointestinal cancer randomised to early specialised home-based palliative care: the ALLAN trial. Br J Cancer. 2024;131(4):729-736. PMID 38951699; PMCID PMC11333621; doi:10.1038/s41416-024-02764-x.",
+  "link": "https://doi.org/10.1038/s41416-024-02764-x",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Boland2010",
   "text": "Boland CR, Goel A. Microsatellite instability in colorectal cancer. Gastroenterology. 2010;138(6):2073-2087.e3. PMID 20420947; PMCID PMC3037515; doi:10.1053/j.gastro.2009.12.064.",
   "link": "https://doi.org/10.1053/j.gastro.2009.12.064",
@@ -370,6 +461,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Bonhof2021",
+  "text": "Bonhof CS, van de Poll-Franse LV, Wasowicz DK, Beerepoot LV, Vreugdenhil G, Mols F. The course of peripheral neuropathy and its association with health-related quality of life among colorectal cancer patients. J Cancer Surviv. 2021;15(2):190-200. PMID 33185839; PMCID PMC7966630; doi:10.1007/s11764-020-00923-6.",
+  "link": "https://doi.org/10.1007/s11764-020-00923-6",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Bonjer2015",
   "text": "Bonjer HJ, Deijen CL, Abis GA, Cuesta MA, van der Pas MH, de Lange-de Klerk ES, et al. A randomized trial of laparoscopic versus open surgery for rectal cancer. N Engl J Med. 2015;372(14):1324-1332. PMID 25830422; doi:10.1056/nejmoa1414882.",
   "link": "https://doi.org/10.1056/nejmoa1414882",
@@ -378,6 +479,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Borucki2021",
+  "text": "Borucki JP, Schlaeger S, Crane J, Hernon JM, Stearns AT. Risk and consequences of dehydration following colorectal cancer resection with diverting ileostomy. A systematic review and meta-analysis. Colorectal Dis. 2021;23(7):1721-1732. PMID 33783976; doi:10.1111/codi.15654.",
+  "link": "https://doi.org/10.1111/codi.15654",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Botteri2008",
@@ -541,6 +652,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Carne2003",
+  "text": "Carne PW, Robertson GM, Frizelle FA. Parastomal hernia. Br J Surg. 2003;90(7):784-93. PMID 12854101; doi:10.1002/bjs.4220.",
+  "link": "https://doi.org/10.1002/bjs.4220",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Castellarin2012",
   "text": "Castellarin M, Warren RL, Freeman JD, Dreolini L, Krzywinski M, Strauss J, et al. Fusobacterium nucleatum infection is prevalent in human colorectal carcinoma. Genome Res. 2012;22(2):299-306. PMID 22009989; PMCID PMC3266037; doi:10.1101/gr.126516.111.",
   "link": "https://doi.org/10.1101/gr.126516.111",
@@ -654,6 +775,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Christensen2021",
+  "text": "Christensen P, Im Baeten C, Espín-Basany E, Martellucci J, Nugent KP, Zerbib F, et al. Management guidelines for low anterior resection syndrome - the MANUEL project. Colorectal Dis. 2021;23(2):461-475. PMID 33411977; PMCID PMC7986060; doi:10.1111/codi.15517. LARS item points read from the full text (Europe PMC).",
+  "link": "https://doi.org/10.1111/codi.15517",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Chung2024",
   "text": "Chung DC, Gray DM, Singh H, Issaka RB, Raymond VM, Eagle C, et al. A Cell-free DNA Blood-Based Test for Colorectal Cancer Screening. N Engl J Med. 2024;390(11):973-983. PMID 38477985; doi:10.1056/NEJMoa2304714.",
   "link": "https://doi.org/10.1056/nejmoa2304714",
@@ -749,7 +880,8 @@
   "text": "Courneya KS, Vardy JL, O'Callaghan CJ, Gill S, Friedenreich CM, Wong RKS, et al. Structured Exercise after Adjuvant Chemotherapy for Colon Cancer. N Engl J Med. 2025;393(1):13-25. PMID 40450658; doi:10.1056/NEJMoa2502760.",
   "link": "https://doi.org/10.1056/nejmoa2502760",
   "areas": [
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -790,6 +922,16 @@
   "link": "https://doi.org/10.1053/j.gastro.2019.06.041",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Croese2018",
+  "text": "Croese AD, Lonie JM, Trollope AF, Vangaveti VN, Ho YH. A meta-analysis of the prevalence of Low Anterior Resection Syndrome and systematic review of risk factors. Int J Surg. 2018;56:234-241. PMID 29936195; doi:10.1016/j.ijsu.2018.06.031.",
+  "link": "https://doi.org/10.1016/j.ijsu.2018.06.031",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -854,6 +996,26 @@
   "link": "https://doi.org/10.1016/s2468-1253(18)30319-4",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "denDulk2007",
+  "text": "den Dulk M, Smit M, Peeters KC, Kranenbarg EM, Rutten HJ, Wiggers T, et al. A multivariate analysis of limiting factors for stoma reversal in patients with rectal cancer entered into the total mesorectal excision (TME) trial: a retrospective study. Lancet Oncol. 2007;8(4):297-303. PMID 17395102; doi:10.1016/S1470-2045(07)70047-5.",
+  "link": "https://doi.org/10.1016/s1470-2045(07)70047-5",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "deWith2023",
+  "text": "de With M, Sadlon A, Cecchin E, Haufroid V, Thomas F, Joerger M, et al. Implementation of dihydropyrimidine dehydrogenase deficiency testing in Europe. ESMO Open. 2023;8(2):101197. PMID 36989883; PMCID PMC10163157; doi:10.1016/j.esmoop.2023.101197.",
+  "link": "https://doi.org/10.1016/j.esmoop.2023.101197",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -990,11 +1152,22 @@
   "validated": "PubMed"
  },
  {
+  "key": "ElJawahri2017",
+  "text": "El-Jawahri A, Greer JA, Pirl WF, Park ER, Jackson VA, Back AL, et al. Effects of Early Integrated Palliative Care on Caregivers of Patients with Lung and Gastrointestinal Cancer: A Randomized Clinical Trial. Oncologist. 2017;22(12):1528-1534. PMID 28894017; PMCID PMC5728034; doi:10.1634/theoncologist.2017-0227.",
+  "link": "https://doi.org/10.1634/theoncologist.2017-0227",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Emmertsen2012",
   "text": "Emmertsen KJ, Laurberg S. Low anterior resection syndrome score: development and validation of a symptom-based scoring system for bowel dysfunction after low anterior resection for rectal cancer. Ann Surg. 2012;255(5):922-928. PMID 22504191; doi:10.1097/sla.0b013e31824f1c21.",
   "link": "https://doi.org/10.1097/sla.0b013e31824f1c21",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "Europe PMC"
@@ -1120,6 +1293,16 @@
   "validated": "openFDA"
  },
  {
+  "key": "FDA-FluorouracilFK",
+  "text": "Fluorouracil injection. US prescribing information (Fresenius Kabi USA, LLC), effective 2026-06-08. openFDA drug label set_id 21af1777-87f7-4e40-9917-f1677e7ff1a5. Boxed warning (complete DPD deficiency; test for DPYD variants), section 5.1.",
+  "link": "",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
   "key": "FDA-Fruzaqla",
   "text": "Takeda. FRUZAQLA (fruquintinib) prescribing information, NDA217564, effective 2026-07-31, set id 186d786e-dc8a-45f2-b5e1-01ac0201879f.",
   "link": "",
@@ -1200,6 +1383,16 @@
   "validated": "openFDA"
  },
  {
+  "key": "FDA-OxaliplatinGland",
+  "text": "Oxaliplatin injection. US prescribing information (Gland Pharma Limited), effective 2026-08-24. openFDA drug label set_id a6f89dc3-a594-4b5b-8728-272e20c1ecb5. Section 5.2 (acute and delayed neuropathy; adjuvant trial neuropathy over time) and patient counselling on cold avoidance.",
+  "link": "",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
   "key": "FDA-Shield",
   "text": "Guardant Health, Inc. Shield (cell-free DNA blood test), PMA P230009, original approval 2024-07-26 (indication: average-risk individuals aged 45 years or older; positive results to be followed by colonoscopy). openFDA device PMA record.",
   "link": "",
@@ -1254,7 +1447,8 @@
   "text": "XELODA (capecitabine) tablets, US prescribing information (H2-Pharma, LLC). openFDA drug label, set_id e702d84d-7162-4751-bf37-d724cc7e45a5, effective 2026-02-05.",
   "link": "",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "openFDA"
@@ -1340,11 +1534,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Forsmo2016",
+  "text": "Forsmo HM, Pfeffer F, Rasdal A, Sintonen H, Körner H, Erichsen C. Pre- and postoperative stoma education and guidance within an enhanced recovery after surgery (ERAS) programme reduces length of hospital stay in colorectal surgery. Int J Surg. 2016;36(Pt A):121-126. PMID 27780772; doi:10.1016/j.ijsu.2016.10.031.",
+  "link": "https://doi.org/10.1016/j.ijsu.2016.10.031",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Galiatsatos2006",
   "text": "Galiatsatos P, Foulkes WD. Familial adenomatous polyposis. Am J Gastroenterol. 2006;101(2):385-98. PMID 16454848; doi:10.1111/j.1572-0241.2006.00375.x.",
   "link": "https://doi.org/10.1111/j.1572-0241.2006.00375.x",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Gandhi2018",
+  "text": "Gandhi K, Tofani C, Sokach C, Patel D, Kastenberg D, Daskalakis C. Patient Characteristics Associated With Quality of Colonoscopy Preparation: A Systematic Review and Meta-analysis. Clin Gastroenterol Hepatol. 2018;16(3):357-369.e10. PMID 28826680; doi:10.1016/j.cgh.2017.08.016.",
+  "link": "https://doi.org/10.1016/j.cgh.2017.08.016",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1365,7 +1579,8 @@
   "text": "Greco M, Capretti G, Beretta L, Gemma M, Pecorelli N, Braga M. Enhanced recovery program in colorectal surgery: a meta-analysis of randomized controlled trials. World J Surg. 2014;38(6):1531-1541. PMID 24368573; doi:10.1007/s00268-013-2416-8.",
   "link": "https://doi.org/10.1007/s00268-013-2416-8",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "Europe PMC"
@@ -1395,7 +1610,8 @@
   "text": "Grothey A, Sobrero AF, Shields AF, Yoshino T, Paul J, Taieb J, et al. Duration of Adjuvant Chemotherapy for Stage III Colon Cancer. N Engl J Med. 2018;378(13):1177-1188. PMID 29590544; PMCID PMC6426127; doi:10.1056/nejmoa1713709.",
   "link": "https://doi.org/10.1056/nejmoa1713709",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "Europe PMC"
@@ -1416,6 +1632,16 @@
   "link": "https://doi.org/10.1038/nm.3967",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Guo2017",
+  "text": "Guo X, Yang Z, Zhao L, Leung F, Luo H, Kang X, et al. Enhanced instructions improve the quality of bowel preparation for colonoscopy: a meta-analysis of randomized controlled trials. Gastrointest Endosc. 2017;85(1):90-97.e6. PMID 27189659; doi:10.1016/j.gie.2016.05.012.",
+  "link": "https://doi.org/10.1016/j.gie.2016.05.012",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1445,7 +1671,8 @@
   "text": "Gustafsson UO, Scott MJ, Hubner M, Nygren J, Demartines N, Francis N, et al. Guidelines for Perioperative Care in Elective Colorectal Surgery: Enhanced Recovery After Surgery (ERAS®) Society Recommendations: 2018. World J Surg. 2019;43(3):659-695. PMID 30426190; doi:10.1007/s00268-018-4844-y.",
   "link": "https://doi.org/10.1007/s00268-018-4844-y",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "Europe PMC"
@@ -1573,6 +1800,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Hassan2019",
+  "text": "Hassan C, East J, Radaelli F, Spada C, Benamouzig R, Bisschops R, et al. Bowel preparation for colonoscopy: European Society of Gastrointestinal Endoscopy (ESGE) Guideline - Update 2019. Endoscopy. 2019;51(8):775-794. PMID 31295746; doi:10.1055/a-0959-0505.",
+  "link": "https://doi.org/10.1055/a-0959-0505",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Hassan2020",
   "text": "Hassan C, Antonelli G, Dumonceau JM, Regula J, Bretthauer M, Chaussade S, et al. Post-polypectomy colonoscopy surveillance: European Society of Gastrointestinal Endoscopy (ESGE) Guideline - Update 2020. Endoscopy. 2020;52(8):687-700. PMID 32572858; doi:10.1055/a-1185-3109.",
   "link": "https://doi.org/10.1055/a-1185-3109",
@@ -1628,6 +1865,16 @@
   "link": "https://doi.org/10.1016/j.cgh.2009.05.032",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Henricks2018",
+  "text": "Henricks LM, Lunenburg CATC, de Man FM, Meulendijks D, Frederix GWJ, Kienhuis E, et al. DPYD genotype-guided dose individualisation of fluoropyrimidine therapy in patients with cancer: a prospective safety analysis. Lancet Oncol. 2018;19(11):1459-1467. PMID 30348537; doi:10.1016/S1470-2045(18)30686-7.",
+  "link": "https://doi.org/10.1016/s1470-2045(18)30686-7",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1689,6 +1936,16 @@
   "link": "https://doi.org/10.7326/m17-1441",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Holmgren2017",
+  "text": "Holmgren K, Kverneng Hultberg D, Haapamäki MM, Matthiessen P, Rutegård J, Rutegård M. High stoma prevalence and stoma reversal complications following anterior resection for rectal cancer: a population-based multicentre study. Colorectal Dis. 2017;19(12):1067-1075. PMID 28612478; doi:10.1111/codi.13771.",
+  "link": "https://doi.org/10.1111/codi.13771",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1784,6 +2041,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Ingeman2026",
+  "text": "Ingeman K, Carstensen TBW, Smith AB, Simard S, Frostholm L, Ørnbøl E, et al. Validation of the fear of cancer recurrence inventory-short form in long-term colorectal cancer survivors. J Patient Rep Outcomes. 2026;10(1). PMID 41999527; PMCID PMC13341998; doi:10.1186/s41687-026-01051-y.",
+  "link": "https://doi.org/10.1186/s41687-026-01051-y",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Ionov1993",
   "text": "Ionov Y, Peinado MA, Malkhosyan S, Shibata D, Perucho M. Ubiquitous somatic mutations in simple repeated sequences reveal a new mechanism for colonic carcinogenesis. Nature. 1993;363(6429):558-61. PMID 8505985; doi:10.1038/363558a0.",
   "link": "https://doi.org/10.1038/363558a0",
@@ -1822,6 +2089,26 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Jacobson2025",
+  "text": "Jacobson BC, Anderson JC, Burke CA, Dominitz JA, Gross SA, May FP, et al. Optimizing Bowel Preparation Quality for Colonoscopy: Consensus Recommendations by the US Multi-Society Task Force on Colorectal Cancer. Gastroenterology. 2025;168(4):798-829. PMID 40047732; doi:10.1053/j.gastro.2025.02.002. Co-published in Gastrointest Endosc (PMID 40047767) and Am J Gastroenterol (PMID 40035345).",
+  "link": "https://doi.org/10.1053/j.gastro.2025.02.002",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Janes2009",
+  "text": "Jänes A, Cengiz Y, Israelsson LA. Preventing parastomal hernia with a prosthetic mesh: a 5-year follow-up of a randomized study. World J Surg. 2009;33(1):118-21; discussion 122-3. PMID 19011935; doi:10.1007/s00268-008-9785-4.",
+  "link": "https://doi.org/10.1007/s00268-008-9785-4",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Jarvinen2000",
@@ -1904,11 +2191,41 @@
   "validated": "PubMed"
  },
  {
+  "key": "Johnson2014",
+  "text": "Johnson DA, Barkun AN, Cohen LB, Dominitz JA, Kaltenbach T, Martel M, et al. Optimizing adequacy of bowel cleansing for colonoscopy: recommendations from the US multi-society task force on colorectal cancer. Gastroenterology. 2014;147(4):903-24. PMID 25239068; doi:10.1053/j.gastro.2014.07.002. Cited only as the predecessor of Jacobson2025 (no abstract; paywalled).",
+  "link": "https://doi.org/10.1053/j.gastro.2014.07.002",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Jones2008",
   "text": "Jones S, Chen WD, Parmigiani G, Diehl F, Beerenwinkel N, Antal T, et al. Comparative lesion sequencing provides insights into tumor evolution. Proc Natl Acad Sci U S A. 2008;105(11):4283-8. PMID 18337506; PMCID PMC2393770; doi:10.1073/pnas.0712345105.",
   "link": "https://doi.org/10.1073/pnas.0712345105",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Juul2014",
+  "text": "Juul T, Ahlberg M, Biondo S, Emmertsen KJ, Espin E, Jimenez LM, et al. International validation of the low anterior resection syndrome score. Ann Surg. 2014;259(4):728-34. PMID 23598379; doi:10.1097/SLA.0b013e31828fac0b.",
+  "link": "https://doi.org/10.1097/sla.0b013e31828fac0b",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Juul2019",
+  "text": "Juul T, Elfeki H, Christensen P, Laurberg S, Emmertsen KJ, Bager P. Normative Data for the Low Anterior Resection Syndrome Score (LARS Score). Ann Surg. 2019;269(6):1124-1128. PMID 31082911; doi:10.1097/SLA.0000000000002750.",
+  "link": "https://doi.org/10.1097/sla.0000000000002750",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2104,6 +2421,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Kotronoulas2017",
+  "text": "Kotronoulas G, Papadopoulou C, Burns-Cunningham K, Simpson M, Maguire R. A systematic review of the supportive care needs of people living with and beyond cancer of the colon and/or rectum. Eur J Oncol Nurs. 2017;29:60-70. PMID 28720267; doi:10.1016/j.ejon.2017.05.004.",
+  "link": "https://doi.org/10.1016/j.ejon.2017.05.004",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kronborg1996",
   "text": "Kronborg O, Fenger C, Olsen J, Jørgensen OD, Søndergaard O. Randomised study of screening for colorectal cancer with faecal-occult-blood test. Lancet. 1996;348(9040):1467-71. PMID 8942774; doi:10.1016/S0140-6736(96)03430-7.",
   "link": "https://doi.org/10.1016/s0140-6736(96)03430-7",
@@ -2164,11 +2491,41 @@
   "validated": "PubMed"
  },
  {
+  "key": "Lange2009",
+  "text": "Lange MM, Marijnen CA, Maas CP, Putter H, Rutten HJ, Stiggelbout AM, et al. Risk factors for sexual dysfunction after rectal cancer treatment. Eur J Cancer. 2009;45(9):1578-88. PMID 19147343; doi:10.1016/j.ejca.2008.12.014.",
+  "link": "https://doi.org/10.1016/j.ejca.2008.12.014",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Lange2011",
+  "text": "Lange MM, van de Velde CJ. Urinary and sexual dysfunction after rectal cancer treatment. Nat Rev Urol. 2011;8(1):51-7. PMID 21135876; doi:10.1038/nrurol.2010.206.",
+  "link": "https://doi.org/10.1038/nrurol.2010.206",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Larsson2005",
   "text": "Larsson SC, Orsini N, Wolk A. Diabetes mellitus and risk of colorectal cancer: a meta-analysis. J Natl Cancer Inst. 2005;97(22):1679-87. PMID 16288121; doi:10.1093/jnci/dji375.",
   "link": "https://doi.org/10.1093/jnci/dji375",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Laurberg2021",
+  "text": "Laurberg JR, Laurberg VR, Elfeki H, Jensen JB, Emmertsen KJ. Male erectile function after treatment for colorectal cancer: a population-based cross-sectional study. Colorectal Dis. 2021;23(2):367-375. PMID 33306262; doi:10.1111/codi.15482.",
+  "link": "https://doi.org/10.1111/codi.15482",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2189,6 +2546,16 @@
   "link": "https://doi.org/10.1126/science.aan6733",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Lederhuber2023",
+  "text": "Lederhuber H, Massey LH, Kantola VE, Siddiqui MRS, Sayers AE, McDermott FD, et al. Clinical management of high-output stoma: a systematic literature review and meta-analysis. Tech Coloproctol. 2023;27(12):1139-1154. PMID 37330988; doi:10.1007/s10151-023-02830-1.",
+  "link": "https://doi.org/10.1007/s10151-023-02830-1",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2344,6 +2711,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Ljungqvist2017",
+  "text": "Ljungqvist O, Scott M, Fearon KC. Enhanced Recovery After Surgery: A Review. JAMA Surg. 2017;152(3):292-298. PMID 28097305; doi:10.1001/jamasurg.2016.4952.",
+  "link": "https://doi.org/10.1001/jamasurg.2016.4952",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Lochhead2015",
   "text": "Lochhead P, Chan AT, Nishihara R, Fuchs CS, Beck AH, Giovannucci E, et al. Etiologic field effect: reappraisal of the field effect concept in cancer predisposition and progression. Mod Pathol. 2015;28(1):14-29. PMID 24925058; PMCID PMC4265316; doi:10.1038/modpathol.2014.81.",
   "link": "https://doi.org/10.1038/modpathol.2014.81",
@@ -2359,6 +2736,26 @@
   "link": "https://doi.org/10.1016/j.annonc.2026.09.009",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Loprinzi2014",
+  "text": "Loprinzi CL, Qin R, Dakhil SR, Fehrenbacher L, Flynn KA, Atherton P, et al. Phase III randomized, placebo-controlled, double-blind study of intravenous calcium and magnesium to prevent oxaliplatin-induced sensory neurotoxicity (N08CB/Alliance). J Clin Oncol. 2014;32(10):997-1005. PMID 24297951; PMCID PMC3965262; doi:10.1200/JCO.2013.52.0536.",
+  "link": "https://doi.org/10.1200/jco.2013.52.0536",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Loprinzi2020",
+  "text": "Loprinzi CL, Lacchetti C, Bleeker J, Cavaletti G, Chauhan C, Hertz DL, et al. Prevention and Management of Chemotherapy-Induced Peripheral Neuropathy in Survivors of Adult Cancers: ASCO Guideline Update. J Clin Oncol. 2020;38(28):3325-3348. PMID 32663120; doi:10.1200/JCO.20.01399.",
+  "link": "https://doi.org/10.1200/jco.20.01399",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2440,6 +2837,16 @@
   "link": "https://doi.org/10.1056/nejmoa1809944",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Martel2015",
+  "text": "Martel M, Barkun AN, Menard C, Restellini S, Kherad O, Vanasse A. Split-Dose Preparations Are Superior to Day-Before Bowel Cleansing Regimens: A Meta-analysis. Gastroenterology. 2015;149(1):79-88. PMID 25863216; doi:10.1053/j.gastro.2015.04.004.",
+  "link": "https://doi.org/10.1053/j.gastro.2015.04.004",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2535,6 +2942,56 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Messaris2012",
+  "text": "Messaris E, Sehgal R, Deiling S, Koltun WA, Stewart D, McKenna K, et al. Dehydration is the most common indication for readmission after diverting ileostomy creation. Dis Colon Rectum. 2012;55(2):175-80. PMID 22228161; doi:10.1097/DCR.0b013e31823d0ec5.",
+  "link": "https://doi.org/10.1097/dcr.0b013e31823d0ec5",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Meulendijks2015",
+  "text": "Meulendijks D, Henricks LM, Sonke GS, Deenen MJ, Froehlich TK, Amstutz U, et al. Clinical relevance of DPYD variants c.1679T>G, c.1236G>A/HapB3, and c.1601G>A as predictors of severe fluoropyrimidine-associated toxicity: a systematic review and meta-analysis of individual patient data. Lancet Oncol. 2015;16(16):1639-50. PMID 26603945; doi:10.1016/S1470-2045(15)00286-7.",
+  "link": "https://doi.org/10.1016/s1470-2045(15)00286-7",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Meyerhardt2006",
+  "text": "Meyerhardt JA, Heseltine D, Niedzwiecki D, Hollis D, Saltz LB, Mayer RJ, et al. Impact of physical activity on cancer recurrence and survival in patients with stage III colon cancer: findings from CALGB 89803. J Clin Oncol. 2006;24(22):3535-41. PMID 16822843; doi:10.1200/JCO.2006.06.0863.",
+  "link": "https://doi.org/10.1200/jco.2006.06.0863",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Meyerhardt2007",
+  "text": "Meyerhardt JA, Niedzwiecki D, Hollis D, Saltz LB, Hu FB, Mayer RJ, et al. Association of dietary patterns with cancer recurrence and survival in patients with stage III colon cancer. JAMA. 2007;298(7):754-64. PMID 17699009; doi:10.1001/jama.298.7.754.",
+  "link": "https://doi.org/10.1001/jama.298.7.754",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Meyerhardt2013",
+  "text": "Meyerhardt JA, Mangu PB, Flynn PJ, Korde L, Loprinzi CL, Minsky BD, et al. Follow-up care, surveillance protocol, and secondary prevention measures for survivors of colorectal cancer: American Society of Clinical Oncology clinical practice guideline endorsement. J Clin Oncol. 2013;31(35):4465-70. PMID 24220554; doi:10.1200/JCO.2013.50.7442.",
+  "link": "https://doi.org/10.1200/jco.2013.50.7442",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Mima2016",
   "text": "Mima K, Nishihara R, Qian ZR, Cao Y, Sukawa Y, Nowak JA, et al. Fusobacterium nucleatum in colorectal carcinoma tissue and patient prognosis. Gut. 2016;65(12):1973-1980. PMID 26311717; PMCID PMC4769120; doi:10.1136/gutjnl-2015-310101.",
   "link": "https://doi.org/10.1136/gutjnl-2015-310101",
@@ -2580,6 +3037,16 @@
   "link": "https://doi.org/10.1136/gutjnl-2017-314057",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Mols2018",
+  "text": "Mols F, Schoormans D, de Hingh I, Oerlemans S, Husson O. Symptoms of anxiety and depression among colorectal cancer survivors from the population-based, longitudinal PROFILES Registry: Prevalence, predictors, and impact on quality of life. Cancer. 2018;124(12):2621-2628. PMID 29624635; PMCID PMC6033166; doi:10.1002/cncr.31369.",
+  "link": "https://doi.org/10.1002/cncr.31369",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2795,6 +3262,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Nightingale2022",
+  "text": "Nightingale JMD. How to manage a high-output stoma. Frontline Gastroenterol. 2022;13(2):140-151. PMID 35300464; PMCID PMC8862462; doi:10.1136/flgastro-2018-101108.",
+  "link": "https://doi.org/10.1136/flgastro-2018-101108",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Nishihara2013",
   "text": "Nishihara R, Wu K, Lochhead P, Morikawa T, Liao X, Qian ZR, et al. Long-term colorectal-cancer incidence and mortality after lower endoscopy. N Engl J Med. 2013;369(12):1095-105. PMID 24047059; PMCID PMC3840160; doi:10.1056/NEJMoa1301969.",
   "link": "https://doi.org/10.1056/nejmoa1301969",
@@ -2833,6 +3310,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Nozawa2024",
+  "text": "Nozawa H, Sasaki S, Hayashi C, Kawasaki A, Sasaki K, Murono K, et al. Preoperative stoma site marking reduces postoperative stoma-related complications in emergency surgery: A single center retrospective cohort study. Scand J Surg. 2024;113(1):40-49. PMID 37462098; doi:10.1177/14574969231186282.",
+  "link": "https://doi.org/10.1177/14574969231186282",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Nusse2017",
@@ -2895,6 +3382,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Pachman2015",
+  "text": "Pachman DR, Qin R, Seisler DK, Smith EM, Beutler AS, Ta LE, et al. Clinical Course of Oxaliplatin-Induced Neuropathy: Results From the Randomized Phase III Trial N08CB (Alliance). J Clin Oncol. 2015;33(30):3416-22. PMID 26282635; PMCID PMC4606060; doi:10.1200/JCO.2014.58.8533.",
+  "link": "https://doi.org/10.1200/jco.2014.58.8533",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Pant2024",
   "text": "Pant S, Wainberg ZA, Weekes CD, Furqan M, Kasi PM, Devoe CE, et al. Lymph-node-targeted, mKRAS-specific amphiphile vaccine in pancreatic and colorectal cancer: the phase 1 AMPLIFY-201 trial. Nat Med. 2024;30(2):531-542. PMID 38195752; PMCID PMC10878978; doi:10.1038/s41591-023-02760-3.",
   "link": "https://doi.org/10.1038/s41591-023-02760-3",
@@ -2920,6 +3417,26 @@
   "link": "https://doi.org/10.1001/jamaoncol.2016.5194",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Peng2019",
+  "text": "Peng YN, Huang ML, Kao CH. Prevalence of Depression and Anxiety in Colorectal Cancer Patients: A Literature Review. Int J Environ Res Public Health. 2019;16(3). PMID 30709020; PMCID PMC6388369; doi:10.3390/ijerph16030411.",
+  "link": "https://doi.org/10.3390/ijerph16030411",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Peng2025",
+  "text": "Peng C, Littman D, Masri L, Sherman S, Makarov DV, Becker DJ. Fertility counseling in early-onset colorectal cancer and the impact of patient characteristics. Support Care Cancer. 2025;33(6):466. PMID 40347312; doi:10.1007/s00520-025-09517-3.",
+  "link": "https://doi.org/10.1007/s00520-025-09517-3",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3006,6 +3523,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Primrose2014",
+  "text": "Primrose JN, Perera R, Gray A, Rose P, Fuller A, Corkhill A, et al. Effect of 3 to 5 years of scheduled CEA and CT follow-up to detect recurrence of colorectal cancer: the FACS randomized clinical trial. JAMA. 2014;311(3):263-70. PMID 24430319; doi:10.1001/jama.2013.285718.",
+  "link": "https://doi.org/10.1001/jama.2013.285718",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Qaseem2023",
   "text": "Qaseem A, Harrod CS, Crandall CJ, Wilt TJ, Clinical Guidelines Committee of the American College of Physicians, et al. Screening for Colorectal Cancer in Asymptomatic Average-Risk Adults: A Guidance Statement From the American College of Physicians (Version 2). Ann Intern Med. 2023;176(8):1092-1100. PMID 37523709; doi:10.7326/M23-0779.",
   "link": "https://doi.org/10.7326/m23-0779",
@@ -3080,7 +3607,8 @@
   "text": "Reumkens A, Rondagh EJ, Bakker CM, Winkens B, Masclee AA, Sanduleanu S. Post-Colonoscopy Complications: A Systematic Review, Time Trends, and Meta-Analysis of Population-Based Studies. Am J Gastroenterol. 2016;111(8):1092-101. PMID 27296945; doi:10.1038/ajg.2016.234.",
   "link": "https://doi.org/10.1038/ajg.2016.234",
   "areas": [
-   "D"
+   "D",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3138,11 +3666,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Rock2022",
+  "text": "Rock CL, Thomson CA, Sullivan KR, Howe CL, Kushi LH, Caan BJ, et al. American Cancer Society nutrition and physical activity guideline for cancer survivors. CA Cancer J Clin. 2022;72(3):230-262. PMID 35294043; doi:10.3322/caac.21719.",
+  "link": "https://doi.org/10.3322/caac.21719",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Roos2019",
   "text": "Roos VH, Mangas-Sanjuan C, Rodriguez-Girondo M, Medina-Prado L, Steyerberg EW, Bossuyt PMM, et al. Effects of Family History on Relative and Absolute Risks for Colorectal Cancer: A Systematic Review and Meta-Analysis. Clin Gastroenterol Hepatol. 2019;17(13):2657-2667.e9. PMID 31525516; doi:10.1016/j.cgh.2019.09.007.",
   "link": "https://doi.org/10.1016/j.cgh.2019.09.007",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Rosati2016",
+  "text": "Rosati G, Ambrosini G, Barni S, Andreoni B, Corradini G, Luchena G, et al. A randomized trial of intensive versus minimal surveillance of patients with resected Dukes B2-C colorectal carcinoma. Ann Oncol. 2016;27(2):274-80. PMID 26578734; doi:10.1093/annonc/mdv541.",
+  "link": "https://doi.org/10.1093/annonc/mdv541",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3208,6 +3756,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Salvadalena2015",
+  "text": "Salvadalena G, Hendren S, McKenna L, Muldoon R, Netsch D, Paquette I, et al. WOCN Society and ASCRS Position Statement on Preoperative Stoma Site Marking for Patients Undergoing Colostomy or Ileostomy Surgery. J Wound Ostomy Continence Nurs. 2015;42(3):249-52. PMID 25695929; doi:10.1097/WON.0000000000000119.",
+  "link": "https://doi.org/10.1097/won.0000000000000119",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sargent2005",
+  "text": "Sargent DJ, Wieand HS, Haller DG, Gray R, Benedetti JK, Buyse M, et al. Disease-free survival versus overall survival as a primary end point for adjuvant colon cancer studies: individual patient data from 20,898 patients on 18 randomized trials. J Clin Oncol. 2005;23(34):8664-70. PMID 16260700; doi:10.1200/JCO.2005.01.6071.",
+  "link": "https://doi.org/10.1200/jco.2005.01.6071",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Sargent2010",
   "text": "Sargent DJ, Marsoni S, Monges G, Thibodeau SN, Labianca R, Hamilton SR, et al. Defective mismatch repair as a predictive marker for lack of efficacy of fluorouracil-based adjuvant therapy in colon cancer. J Clin Oncol. 2010;28(20):3219-3226. PMID 20498393; PMCID PMC2903323; doi:10.1200/jco.2009.27.1825.",
   "link": "https://doi.org/10.1200/jco.2009.27.1825",
@@ -3266,6 +3834,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Savitch2024",
+  "text": "Savitch SL, Marzoughi M, Suwanabol PA. Fertility Concerns Related to Surgery for Colorectal Cancer: An Under-Discussed Topic. Cancers (Basel). 2024;16(19). PMID 39409996; PMCID PMC11475783; doi:10.3390/cancers16193376.",
+  "link": "https://doi.org/10.3390/cancers16193376",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Schmoll2015",
@@ -3348,6 +3926,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Shao2026",
+  "text": "Shao X, Ma Y, Wang Y, Lin X, Wang X, Zheng A. Prevalence and determinants of financial toxicity in patients with colorectal cancer: a systematic review and meta-analysis. Int J Equity Health. 2026;25(1). PMID 41721326; PMCID PMC13032382; doi:10.1186/s12939-026-02794-2.",
+  "link": "https://doi.org/10.1186/s12939-026-02794-2",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Shaukat2013",
   "text": "Shaukat A, Mongin SJ, Geisser MS, Lederle FA, Bond JH, Mandel JS, et al. Long-term mortality after screening for colorectal cancer. N Engl J Med. 2013;369(12):1106-14. PMID 24047060; doi:10.1056/NEJMoa1300720.",
   "link": "https://doi.org/10.1056/nejmoa1300720",
@@ -3363,6 +3951,16 @@
   "link": "https://doi.org/10.1053/j.gastro.2015.06.044",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Shi2025",
+  "text": "Shi V, McKechnie T, Anant S, Pedroso CM, Ahmed M, Patel J, et al. The impact of preoperative stoma education on postoperative outcomes for patients with new stomas after colorectal surgery: a systematic review and meta-analysis. Tech Coloproctol. 2025;29(1):183. PMID 41105284; PMCID PMC12534360; doi:10.1007/s10151-025-03213-4.",
+  "link": "https://doi.org/10.1007/s10151-025-03213-4",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3411,6 +4009,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Smith2013",
+  "text": "Smith EM, Pang H, Cirrincione C, Fleishman S, Paskett ED, Ahles T, et al. Effect of duloxetine on pain, function, and quality of life among patients with chemotherapy-induced painful peripheral neuropathy: a randomized clinical trial. JAMA. 2013;309(13):1359-67. PMID 23549581; PMCID PMC3912515; doi:10.1001/jama.2013.2813.",
+  "link": "https://doi.org/10.1001/jama.2013.2813",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Snover2011",
   "text": "Snover DC. Update on the serrated pathway to colorectal carcinoma. Hum Pathol. 2011;42(1):1-10. PMID 20869746; doi:10.1016/j.humpath.2010.06.002.",
   "link": "https://doi.org/10.1016/j.humpath.2010.06.002",
@@ -3419,6 +4027,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Soff2026",
+  "text": "Soff J, Demirer I, Sibert NT, Breidenbach C, Ernstmann N, Heidkamp P, et al. Social inequalities in return-to-work among colorectal cancer survivors in Germany. Support Care Cancer. 2026;34(7). PMID 42283908; PMCID PMC13263287; doi:10.1007/s00520-026-10827-3.",
+  "link": "https://doi.org/10.1007/s00520-026-10827-3",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Soleymanjahi2024",
@@ -3446,6 +4064,16 @@
   "link": "https://doi.org/10.1055/a-1258-4819",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Spring2025",
+  "text": "Spring A, Calegari MA, Valente G, Caira G, Barone D, Schietroma F, et al. Fertility and sexuality in early-onset colorectal cancer patients: a monocentric survey. ESMO Gastrointest Oncol. 2025;9:100213. PMID 41647995; PMCID PMC12836514; doi:10.1016/j.esmogo.2025.100213.",
+  "link": "https://doi.org/10.1016/j.esmogo.2025.100213",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3481,6 +4109,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Stokes2017",
+  "text": "Stokes AL, Tice S, Follett S, Paskey D, Abraham L, Bealer C, et al. Institution of a Preoperative Stoma Education Group Class Decreases Rate of Peristomal Complications in New Stoma Patients. J Wound Ostomy Continence Nurs. 2017;44(4):363-367. PMID 28549049; doi:10.1097/WON.0000000000000338.",
+  "link": "https://doi.org/10.1097/won.0000000000000338",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Strickler2023",
   "text": "Strickler JH, Cercek A, Siena S, André T, Ng K, Van Cutsem E, et al. Tucatinib plus trastuzumab for chemotherapy-refractory, HER2-positive, RAS wild-type unresectable or metastatic colorectal cancer (MOUNTAINEER): a multicentre, open-label, phase 2 study. Lancet Oncol. 2023;24(5):496-508. PMID 37142372; doi:10.1016/S1470-2045(23)00150-X.",
   "link": "https://doi.org/10.1016/s1470-2045(23)00150-x",
@@ -3511,11 +4149,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Sulz2016",
+  "text": "Sulz MC, Kröger A, Prakash M, Manser CN, Heinrich H, Misselwitz B. Meta-Analysis of the Effect of Bowel Preparation on Adenoma Detection: Early Adenomas Affected Stronger than Advanced Adenomas. PLoS One. 2016;11(6):e0154149. PMID 27257916; PMCID PMC4892520; doi:10.1371/journal.pone.0154149.",
+  "link": "https://doi.org/10.1371/journal.pone.0154149",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Syngal2015",
   "text": "Syngal S, Brand RE, Church JM, Giardiello FM, Hampel HL, Burt RW. ACG clinical guideline: Genetic testing and management of hereditary gastrointestinal cancer syndromes. Am J Gastroenterol. 2015;110(2):223-62; quiz 263. PMID 25645574; PMCID PMC4695986; doi:10.1038/ajg.2014.435.",
   "link": "https://doi.org/10.1038/ajg.2014.435",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Tashiro2026",
+  "text": "Tashiro K, Osumi H, Kataoka K, Shimada Y, Inomata M, Hamaguchi T, et al. Time-dependent recurrence patterns after curative resection for stage II/III colorectal cancer: An integrated analysis of four phase III randomized controlled trials (JCOG2310A-S4). Eur J Cancer. 2026;245:116957. PMID 42520593; doi:10.1016/j.ejca.2026.116957.",
+  "link": "https://doi.org/10.1016/j.ejca.2026.116957",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3536,6 +4194,26 @@
   "link": "https://doi.org/10.1038/nature11252",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Temel2010",
+  "text": "Temel JS, Greer JA, Muzikansky A, Gallagher ER, Admane S, Jackson VA, et al. Early palliative care for patients with metastatic non-small-cell lung cancer. N Engl J Med. 2010;363(8):733-42. PMID 20818875; doi:10.1056/NEJMoa1000678.",
+  "link": "https://doi.org/10.1056/nejmoa1000678",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Temel2017",
+  "text": "Temel JS, Greer JA, El-Jawahri A, Pirl WF, Park ER, Jackson VA, et al. Effects of Early Integrated Palliative Care in Patients With Lung and GI Cancer: A Randomized Clinical Trial. J Clin Oncol. 2017;35(8):834-841. PMID 28029308; PMCID PMC5455686; doi:10.1200/JCO.2016.70.5046.",
+  "link": "https://doi.org/10.1200/jco.2016.70.5046",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3656,7 +4334,8 @@
   "text": "Twelves C, Wong A, Nowacki MP, Abt M, Burris H 3rd, Carrato A, et al. Capecitabine as adjuvant treatment for stage III colon cancer. N Engl J Med. 2005;352(26):2696-2704. PMID 15987918; doi:10.1056/nejmoa043116.",
   "link": "https://doi.org/10.1056/nejmoa043116",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "Europe PMC"
@@ -3711,6 +4390,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "VanBlarigan2018",
+  "text": "Van Blarigan EL, Fuchs CS, Niedzwiecki D, Zhang S, Saltz LB, Mayer RJ, et al. Association of Survival With Adherence to the American Cancer Society Nutrition and Physical Activity Guidelines for Cancer Survivors After Colon Cancer Diagnosis: The CALGB 89803/Alliance Trial. JAMA Oncol. 2018;4(6):783-790. PMID 29710284; doi:10.1001/jamaoncol.2018.0126.",
+  "link": "https://doi.org/10.1001/jamaoncol.2018.0126",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "VanCutsem2011",
@@ -3863,6 +4552,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Vogel2022",
+  "text": "Vogel I, Shinkwin M, van der Storm SL, Torkington J, A Cornish J, Tanis PJ, et al. Overall readmissions and readmissions related to dehydration after creation of an ileostomy: a systematic review and meta-analysis. Tech Coloproctol. 2022;26(5):333-349. PMID 35192122; PMCID PMC9018644; doi:10.1007/s10151-022-02580-6.",
+  "link": "https://doi.org/10.1007/s10151-022-02580-6",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Vogelstein1988",
   "text": "Vogelstein B, Fearon ER, Hamilton SR, Kern SE, Preisinger AC, Leppert M, et al. Genetic alterations during colorectal-tumor development. N Engl J Med. 1988;319(9):525-32. PMID 2841597; doi:10.1056/NEJM198809013190901.",
   "link": "https://doi.org/10.1056/nejm198809013190901",
@@ -3903,6 +4602,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Wang2024CG",
+  "text": "Wang J, Duan Y, Geng L, Li X, Yue S, Liu H. Trajectory of Caregiver Burden and Associated Factors in Family Caregivers of Individuals with Colorectal Cancer: A Longitudinal, Observational Multicenter Study. Patient Prefer Adherence. 2024;18:879-892. PMID 38645699; PMCID PMC11033041; doi:10.2147/PPA.S451487.",
+  "link": "https://doi.org/10.2147/ppa.s451487",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Wang2024LRD",
+  "text": "Wang F, Huang X, Wang Z, Yan Z, Wang S, Pan P, et al. One-day versus three-day low-residue diet bowel preparation regimens before colonoscopy: a meta-analysis of randomized controlled trials. J Gastroenterol Hepatol. 2024;39(5):787-795. PMID 38251810; doi:10.1111/jgh.16466.",
+  "link": "https://doi.org/10.1111/jgh.16466",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Watanabe2023",
   "text": "Watanabe J, Muro K, Shitara K, Yamazaki K, Shiozawa M, Ohori H, et al. Panitumumab vs Bevacizumab Added to Standard First-line Chemotherapy and Overall Survival Among Patients With RAS Wild-type, Left-Sided Metastatic Colorectal Cancer: A Randomized Clinical Trial. JAMA. 2023;329(15):1271-1282. PMID 37071094; PMCID PMC10114040; doi:10.1001/jama.2023.4428.",
   "link": "https://doi.org/10.1001/jama.2023.4428",
@@ -3928,6 +4647,16 @@
   "link": "https://doi.org/10.1038/s41591-026-04225-9",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "WilleJorgensen2018",
+  "text": "Wille-Jørgensen P, Syk I, Smedh K, Laurberg S, Nielsen DT, Petersen SH, et al. Effect of More vs Less Frequent Follow-up Testing on Overall and Colorectal Cancer-Specific Mortality in Patients With Stage II or III Colorectal Cancer: The COLOFOL Randomized Clinical Trial. JAMA. 2018;319(20):2095-2103. PMID 29800179; doi:10.1001/jama.2018.5623.",
+  "link": "https://doi.org/10.1001/jama.2018.5623",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4102,6 +4831,16 @@
   "link": "https://doi.org/10.1053/j.gastro.2019.01.260",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Zhu2024",
+  "text": "Zhu L, Li X, Zhang H, Li H, Shen X. Urinary and sexual function after robotic and laparoscopic rectal cancer surgery: a systematic review and meta-analysis. J Robot Surg. 2024;18(1):262. PMID 38907844; doi:10.1007/s11701-024-02019-0.",
+  "link": "https://doi.org/10.1007/s11701-024-02019-0",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
