@@ -194,7 +194,7 @@ const MODS=[
  {id:'outcomes',t:'Course & outcomes',g:5,n:'5.1',d:'Persistence, injuries, mortality and what treatment changes'},
  {id:'living',t:'Living with ADHD',g:5,n:'5.2',d:'School, university, work, driving, money, relationships and family'},
  {id:'nursing',t:'Nursing care',g:5,n:'5.3',d:'Assessment, medication safety, monitoring and teaching'},
- {id:'research',t:'Research frontiers',g:5,n:'5.4',d:'New medicines, devices and digital tools, with evidence labels'},
+ {id:'frontiers',t:'Research frontiers',g:5,n:'5.4',d:'New medicines, devices and digital tools, with evidence labels'},
  {id:'history',t:'History & people',g:6,n:'6.1',d:'From Crichton and Still to DSM-5-TR'},
  {id:'review',t:'Flashcards & mnemonics',g:6,n:'6.2',d:'Flip cards by part'},
  {id:'quiz',t:'Quiz',g:6,n:'6.3',d:'Questions with explanations'},
