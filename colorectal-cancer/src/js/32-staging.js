@@ -90,8 +90,8 @@ inits.staging=()=>{
   const svg=$('#stSvg'),rg=$('#stT');let setSt=()=>{};
   function draw(t){
     const Nn=vb(svg,'720 380','400 560'),S=stState(t);
-    const L=Nn?{wx:14,wy:44,ww:196,wh:180,lx:218,dh:[14,282],liv:[60,322,.5],lun:[180,322,.62],per:[310,322,.62],dl:362,nh:[14,384],tr:[30,386,430],nx:[92,50],ny:[408,452],nr:9,dep:[50,430],vx:6,sy:486,sc:[14,62,494,54]}
-                :{wx:20,wy:44,ww:230,wh:220,lx:258,dh:[440,40],liv:[486,92,.62],lun:[592,92,.7],per:[672,92,.72],dl:146,nh:[440,176],tr:[432,708,222],nx:[470,44],ny:[198,246],nr:10,dep:[446,222],vx:420,sy:318,sc:[20,115,326,46]};
+    const L=Nn?{wx:14,wy:60,ww:196,wh:172,lx:218,dh:[14,282],liv:[60,322,.5],lun:[180,322,.62],per:[310,322,.62],dl:362,nh:[14,384],tr:[30,386,430],nx:[92,50],ny:[408,452],nr:9,dep:[50,430],vx:6,sy:486,sc:[14,62,494,54]}
+                :{wx:20,wy:62,ww:230,wh:210,lx:258,dh:[440,40],liv:[486,92,.62],lun:[592,92,.7],per:[672,92,.72],dl:146,nh:[440,176],tr:[432,708,222],nx:[488,40],ny:[198,246],nr:10,dep:[446,222],vx:420,sy:318,sc:[20,115,326,46]};
     const W=wall(L.wx,L.wy,L.ww,{h:L.wh,labels:false}),Y=W.y;let s=W.svg;
     /* layer labels with the T letter each layer defines */
     const lab=[['Mucosa · Tis',(Y.mucosa+Y.submucosa)/2,0],['Submucosa · T1',(Y.submucosa+Y.muscularis)/2,1],['Muscularis propria · T2',(Y.muscularis+Y.subserosa)/2,2],['Subserosa · T3',(Y.subserosa+Y.serosa)/2,3],['Serosa · T4a',(Y.serosa+Y.fat)/2+5,4],['Beyond the serosa',Y.fat+(Y.bottom-Y.fat)*.42,-1]];
@@ -104,13 +104,13 @@ inits.staging=()=>{
     const mid=(a,b,f)=>a+(b-a)*f;
     const DEP=[mid(Y.mucosa,Y.submucosa,.72),mid(Y.submucosa,Y.muscularis,.62),mid(Y.muscularis,Y.subserosa,.66),mid(Y.subserosa,Y.serosa,.8),mid(Y.fat,Y.bottom,.4),oy+oh*.55];
     const D=S.ti===0?lerp(Y.mucosa+3,DEP[0],S.tg):lerp(DEP[S.ti-1],DEP[S.ti],S.tg);
-    const cx=L.wx+L.ww*.4,hw=L.ww*(.09+.022*(S.ti+S.tg)),bh=6+2.6*(S.ti+S.tg);
+    const cx=L.wx+L.ww*.4,hw=L.ww*(.08+.017*(S.ti+S.tg)),bh=6+2.6*(S.ti+S.tg);
     s+=stTumour(cx,Y.mucosa,D,hw,bh);
     if(S.ti>=1)[[-.28,6],[.3,4],[.05,9]].forEach(([a,b])=>s+=`<circle cx="${f1(cx+a*hw)}" cy="${f1(D+b)}" r="2.4" style="fill:var(--tumour);opacity:${f1(.8*(D<Y.fat?1:.4))}"/>`);
     if(S.ti>=4){const by=Y.serosa+2;s+=`<path d="M${f1(cx-hw*.7)} ${f1(by)}L${f1(cx-hw*.95)} ${f1(by-6)}M${f1(cx+hw*.7)} ${f1(by)}L${f1(cx+hw*.95)} ${f1(by-6)}" style="stroke:var(--gold);stroke-width:2;stroke-linecap:round"/>`}
     /* header readout */
     const st=stStage(S.T,S.N,S.M);
-    s+=`<text x="${L.wx}" y="28" class="t-big"><tspan style="fill:${S.ti<6&&t<.6?'var(--tumour)':'var(--ink)'}">${S.T}</tspan> <tspan style="fill:${S.N!=='N0'?'var(--lymph)':'var(--ink)'}">${S.N}</tspan> <tspan style="fill:${S.M!=='M0'?'var(--tumour)':'var(--ink)'}">${S.M}</tspan><tspan style="fill:var(--muted)"> → </tspan><tspan style="fill:${stCol(st)}">Stage ${st}</tspan></text>`;
+    s+=`<text x="${L.wx}" y="28" class="t-big" style="font-variant-numeric:lining-nums"><tspan style="fill:${S.ti<6&&t<.6?'var(--tumour)':'var(--ink)'}">${S.T}</tspan> <tspan style="fill:${S.N!=='N0'?'var(--lymph)':'var(--ink)'}">${S.N}</tspan> <tspan style="fill:${S.M!=='M0'?'var(--tumour)':'var(--ink)'}">${S.M}</tspan><tspan style="fill:var(--muted)"> → </tspan><tspan style="fill:${stCol(st)}">Stage ${st}</tspan></text>`;
     /* distant sites */
     s+=`<text x="${L.dh[0]}" y="${L.dh[1]}" class="t-sm" style="${S.M!=='M0'?'fill:var(--tumour);font-weight:700':''}">DISTANT SITES · ${S.M}</text>`;
     s+=liver(L.liv[0],L.liv[1],L.liv[2],Math.round(S.liv*4),4);
@@ -130,13 +130,13 @@ inits.staging=()=>{
     /* travelling cell along the trunk to the node being filled */
     if(S.kf>0&&S.kf<9){const ord=Math.floor(S.kf),fr=S.kf-ord;if(fr>.02&&fr<.98){const col=Math.floor(ord/2),x=lerp(t0,L.nx[0]+col*L.nx[1],fr);s+=`<circle cx="${f1(x)}" cy="${ty}" r="3.6" style="fill:var(--tumour)"/>`}}
     if(S.dep>0){const [dx,dy]=L.dep;s+=`<path d="M${dx-7} ${dy-2}Q${dx-6} ${dy-9} ${dx} ${dy-8}Q${dx+8} ${dy-7} ${dx+7} ${dy}Q${dx+6} ${dy+8} ${dx-1} ${dy+7}Q${dx-8} ${dy+6} ${dx-7} ${dy-2}Z" style="fill:var(--tumour);opacity:${f1(S.dep*(S.N==='N1c'?.95:.4))}"/>`;
-      s+=`<text x="${dx}" y="${dy+(Nn?24:-14)}" class="t-xs t-mid" style="fill:var(--tumour);opacity:${f1(S.N==='N1c'?1:.7)}">${S.N==='N1c'?'deposit':'not counted'}</text>`}
+      s+=`<text x="${Nn?dx:dx-12}" y="${Nn?dy+24:dy-12}" class="t-xs ${Nn?'t-mid':''}" style="fill:var(--tumour);opacity:${f1(S.N==='N1c'?1:.7)}">${S.N==='N1c'?'deposit':'not added'}</text>`}
     /* strip: the stage each T would give with the current N and M */
     const [sx0,cw,sy0,ch]=L.sc;
     s+=`<text x="${sx0}" y="${L.sy}" class="t-sm">STAGE FOR EACH T WITH ${S.N} ${S.M}</text>`;
     ST_T.forEach((T,i)=>{const g=stStage(T,S.N,S.M),x=sx0+i*cw,on=i===S.ti;
       s+=`<rect x="${x+1}" y="${sy0}" width="${cw-4}" height="${ch}" rx="7" style="fill:${stSoft(g)};stroke:${on?'var(--ink)':stCol(g)};stroke-width:${on?2.2:1}"/>`;
-      s+=`<text x="${f1(x+cw/2-1)}" y="${sy0+15}" class="t-xs t-mid" style="${on?'fill:var(--ink);font-weight:700':''}">${T}</text><text x="${f1(x+cw/2-1)}" y="${sy0+ch-9}" class="t-big t-mid" style="fill:${stCol(g)}">${g||'n/a'}</text>`});
+      s+=`<text x="${f1(x+cw/2-1)}" y="${sy0+15}" class="t-xs t-mid" style="${on?'fill:var(--ink);font-weight:700':''}">${T}</text><text x="${f1(x+cw/2-1)}" y="${sy0+ch-9}" class="t-big t-mid" style="fill:${stCol(g)};font-variant-numeric:lining-nums">${g||'n/a'}</text>`});
     svg.innerHTML=s;
     const p=phaseOf(ST_STEPS,t);setSt(p);
     rg.setAttribute('aria-valuetext',`${S.T} ${S.N} ${S.M}, stage ${st}`);
@@ -193,7 +193,7 @@ inits.staging=()=>{
     [0,25,50,75,100].forEach(p=>{const y=G.b-G.h*p/100;s+=`<line x1="${G.x0-14}" x2="${G.x0+2*G.dx+G.w+10}" y1="${f1(y)}" y2="${f1(y)}" class="grid"/><text x="${G.x0-18}" y="${f1(y+4)}" class="t-xs t-end">${p}</text>`});
     const nm=['Localized','Regional','Distant'],ds=NS?[['only in','the bowel'],['nearby tissue','or nodes'],['spread','far']]:[['found only in','the bowel'],['reached nearby','tissue or nodes'],['spread to','distant sites']],cc=['var(--good)','var(--lymph)','var(--tumour)'];
     v.forEach((val,i)=>{const x=G.x0+i*G.dx,h=G.h*val/100*sp;
-      s+=`<rect x="${x}" y="${f1(G.b-h)}" width="${G.w}" height="${f1(h)}" rx="5" style="fill:${cc[i]};opacity:.85"/><text x="${f1(x+G.w/2)}" y="${f1(G.b-h-8)}" class="t-big t-mid">${Math.round(val*sp)}%</text>`;
+      s+=`<rect x="${x}" y="${f1(G.b-h)}" width="${G.w}" height="${f1(h)}" rx="5" style="fill:${cc[i]};opacity:.85"/><text x="${f1(x+G.w/2)}" y="${f1(G.b-h-8)}" class="t-big t-mid" style="font-variant-numeric:lining-nums">${Math.round(val*sp)}%</text>`;
       s+=`<text x="${f1(x+G.w/2)}" y="${G.ly}" class="t-lbl t-mid">${nm[i]}</text><text x="${f1(x+G.w/2)}" y="${G.dy}" class="t-xs t-mid">${ds[i][0]}</text><text x="${f1(x+G.w/2)}" y="${G.dy2}" class="t-xs t-mid">${ds[i][1]}</text>`;
       if(which==='crc')TREND[i].forEach((tv,k)=>{const y=G.b-G.h*tv/100;s+=`<line x1="${x-6}" x2="${x+G.w+6}" y1="${f1(y)}" y2="${f1(y)}" style="stroke:var(--ink);stroke-width:1.6;stroke-dasharray:4 3;opacity:${f1(.35+.25*k)}"/>`;
         if(!NS)s+=`<text x="${x+G.w+10}" y="${f1(y+(i===2&&k===0?10:4))}" class="t-xs">${k?'1995–97':'1975–77'}: ${tv}%</text>`})});
@@ -208,7 +208,7 @@ inits.staging=()=>{
     const G=NP?{x0:40,dx:118,w:84,b:262,h:200,ly:284}:{x0:90,dx:200,w:120,b:250,h:190,ly:274};let s='';
     [0,25,50,75,100].forEach(p=>{const y=G.b-G.h*p/100;s+=`<line x1="${G.x0-14}" x2="${G.x0+2*G.dx+G.w+10}" y1="${f1(y)}" y2="${f1(y)}" class="grid"/><text x="${G.x0-18}" y="${f1(y+4)}" class="t-xs t-end">${p}</text>`});
     ['IIB','IIC','IIIA'].forEach((n,i)=>{const x=G.x0+i*G.dx,h=G.h*v[i]/100*pp;
-      s+=`<rect x="${x}" y="${f1(G.b-h)}" width="${G.w}" height="${f1(h)}" rx="5" style="fill:${stCol(n)};opacity:.85"/><text x="${f1(x+G.w/2)}" y="${f1(G.b-h-8)}" class="t-big t-mid">${(v[i]*pp).toFixed(1)}%</text><text x="${f1(x+G.w/2)}" y="${G.ly}" class="t-lbl t-mid">Stage ${n}</text>`});
+      s+=`<rect x="${x}" y="${f1(G.b-h)}" width="${G.w}" height="${f1(h)}" rx="5" style="fill:${stCol(n)};opacity:.85"/><text x="${f1(x+G.w/2)}" y="${f1(G.b-h-8)}" class="t-big t-mid" style="font-variant-numeric:lining-nums">${(v[i]*pp).toFixed(1)}%</text><text x="${f1(x+G.w/2)}" y="${G.ly}" class="t-lbl t-mid">Stage ${n}</text>`});
     const ax=G.x0+G.w+8,bx=G.x0+2*G.dx-8,ay=G.b-G.h*v[0]/100-34,by=G.b-G.h*v[2]/100-30;
     s+=`<defs>${marker('stArr','var(--ink)')}</defs><path d="M${ax} ${f1(ay)}Q${f1((ax+bx)/2)} ${f1(Math.min(ay,by)-26)} ${bx} ${f1(by)}" style="fill:none;stroke:var(--ink);stroke-width:1.5;opacity:${f1(pp)}" marker-end="url(#stArr)"/>`;
     s+=`<text x="${f1((ax+bx)/2)}" y="${f1(Math.min(ay,by)-30)}" class="t-xs t-mid" style="fill:var(--ink);opacity:${f1(pp)}">stage III, yet higher</text>`;
@@ -236,10 +236,10 @@ inits.staging=()=>{
       for(let i=0;i<100;i++){const r=Math.floor(i/10),q=i%10,on=i<n;s+=`<circle cx="${f1(g.x+6+q*dd)}" cy="${f1(g.y+6+r*dd)}" r="5.6" style="fill:${on?col:'var(--panel-2)'};stroke:${on?col:'var(--line)'};stroke-width:1"/>`}};
     grid(G[0],se,'var(--tumour)','100 PEOPLE WHOSE CANCER CAME BACK','filled: CEA above the threshold');
     grid(G[1],fa,'var(--warn)','100 PEOPLE WITHOUT RECURRENCE','filled: false alarm');
-    const big=(g,n,a,b,col)=>{s+=`<text x="${g.tx}" y="${g.y+40}" style="font:800 34px var(--display);fill:${col}">${n}</text><text x="${g.tx}" y="${g.y+62}" class="t-lbl">${a}</text><text x="${g.tx}" y="${g.y+80}" class="t-xs">${b}</text>`};
+    const big=(g,n,a,b,col)=>{s+=`<text x="${g.tx}" y="${g.y+40}" style="font:800 34px var(--display);fill:${col};font-variant-numeric:lining-nums">${n}</text><text x="${g.tx}" y="${g.y+62}" class="t-lbl">${a}</text><text x="${g.tx}" y="${g.y+80}" class="t-xs">${b}</text>`};
     big(G[0],se,'flagged','sensitivity '+c.se+'% ('+c.sc+')','var(--tumour)');big(G[1],fa,'false alarms','specificity '+c.sp+'% ('+c.pc+')','var(--warn)');
     s+=`<text x="${G[0].tx}" y="${G[0].y+108}" class="t-xs">missed: ${100-se}</text><text x="${G[1].tx}" y="${G[1].y+108}" class="t-xs">correctly reassured: ${100-fa}</text>`;
-    s+=`<text x="${NC?20:30}" y="${NC?20:22}" class="t-big">Threshold ${c.th} µg/L</text>`;
+    s+=`<text x="${NC?20:30}" y="${NC?20:22}" class="t-big" style="font-variant-numeric:lining-nums">Threshold ${c.th} µg/L</text>`;
     cs.innerHTML=s;
     cr.setAttribute('aria-valuetext',`${c.th} micrograms per litre: sensitivity ${c.se}%, specificity ${c.sp}%`);
     $('#stCeaRead').innerHTML=CEA.map(x=>`<span${x===c?' style="color:var(--ink)"':''}>≥${x.th} µg/L <b>${x.se}% / ${x.sp}%</b> (${x.n} studies)</span>`).join('');

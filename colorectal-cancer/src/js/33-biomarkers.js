@@ -154,7 +154,7 @@ inits.biomarkers=()=>{
     const tested=on('C');
     s+=bmBox({...F.C,h:F.C.h-18},['BRAF V600E or','MLH1 methylation'],tested,'var(--brand)','var(--brand-soft)');
     s+=`<rect x="${F.C.x}" y="${F.C.y+F.C.h-18}" width="${F.C.w}" height="18" rx="4" style="fill:${tested?'var(--brand-soft)':'var(--panel)'};stroke:${tested?'var(--brand)':'var(--line)'}"/>`;
-    for(let i=0;i<7;i++){const lx=F.C.x+12+i*13,ly=F.C.y+F.C.h-9,m=tested&&C.meth&&ramp(t,.64,.72)>i/7;s+=`<line x1="${lx}" x2="${lx}" y1="${ly}" y2="${ly-5}" style="stroke:var(--muted)"/><circle cx="${lx}" cy="${ly-6}" r="3.2" style="fill:${m?'var(--ink)':'var(--panel)'};stroke:var(--ink);stroke-width:1"/>`}
+    for(let i=0;i<6;i++){const lx=F.C.x+10+i*11,ly=F.C.y+F.C.h-9,m=tested&&C.meth&&ramp(t,.64,.72)>i/6;s+=`<line x1="${lx}" x2="${lx}" y1="${ly}" y2="${ly-5}" style="stroke:var(--muted)"/><circle cx="${lx}" cy="${ly-6}" r="3.2" style="fill:${m?'var(--ink)':'var(--panel)'};stroke:var(--ink);stroke-width:1"/>`}
     s+=`<text x="${F.C.x+F.C.w-6}" y="${F.C.y+F.C.h-5}" class="t-xs t-end" style="${tested?'fill:var(--ink);font-weight:700':''}">${tested&&t>=.7?(C.braf?'V600E · methyl.':'WT · unmethyl.'):'promoter'}</text>`;
     s+=bmBox(F.O1,N?['Sporadic dMMR','(BRAF / methylation)']:['Sporadic dMMR','BRAF-mutant or','methylated'],on('O1'),'var(--good)','var(--good-soft)');
     s+=bmBox(F.O2,['Lynch not excluded:','genetic counselling','+ germline MMR test'],on('O2'),'var(--warn)','var(--warn-soft)');

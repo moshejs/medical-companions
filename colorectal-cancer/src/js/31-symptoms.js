@@ -77,13 +77,13 @@ inits.symptoms=()=>{
   function body(x,y,sc){const P=(a,b)=>f1(x+a*sc)+' '+f1(y+b*sc);
     return `<circle cx="${f1(x+130*sc)}" cy="${f1(y+30*sc)}" r="${f1(24*sc)}" style="fill:var(--panel-2);stroke:var(--muted);stroke-width:1.4"/>`+
       `<path d="M${P(88,62)}Q${P(58,66)} ${P(50,100)}L${P(30,210)}Q${P(26,224)} ${P(38,224)}L${P(56,140)}L${P(54,206)}Q${P(52,266)} ${P(76,306)}L${P(184,306)}Q${P(208,266)} ${P(206,206)}L${P(204,140)}L${P(222,224)}Q${P(234,224)} ${P(230,210)}L${P(210,100)}Q${P(202,66)} ${P(172,62)}Z" style="fill:var(--panel-2);stroke:var(--muted);stroke-width:1.4;stroke-linejoin:round"/>`}
-  function drawB(){const N=vb(bs,'720 380','400 620'),S=SY_SYM[sym],p=bp;let s='';
+  function drawB(){const N=vb(bs,'720 380','400 690'),S=SY_SYM[sym],p=bp;let s='';
     const bx=N?70:20,by=N?16:22,sc=N?1:1.05;
     s+=body(bx,by,sc);
     if(sym==='weight')s+=`<path d="M${f1(bx+100*sc)} ${f1(by+150*sc)}L${f1(bx+96*sc)} ${f1(by+290*sc)}M${f1(bx+160*sc)} ${f1(by+150*sc)}L${f1(bx+164*sc)} ${f1(by+290*sc)}" style="stroke:var(--warn);stroke-width:1.6;stroke-dasharray:5 4;opacity:${f1(p)}"/>`+T(bx+130*sc,by+322*sc,'weight loss','t-xs t-mid','fill:var(--warn)');
     if(sym==='anaemia')s+=`<rect x="${f1(bx)}" y="${f1(by)}" width="${f1(260*sc)}" height="${f1(310*sc)}" style="fill:var(--panel);opacity:${f1(.45*p)}"/>`;
     const C=colon(bx+76*sc,by+150*sc,.36*sc,{w:9*sc});s+=C.svg;
-    if(side){const D=SY_SIDE[side];s+=segPath(C,D.u[0],D.u[1],'var(--brand)',9*sc,.75)}
+    if(side){const D=SY_SIDE[side];s+=segPath(C,D.u[0],D.u[1],'var(--accent)',13*sc,.85)}
     const an=C.at(1);
     if(sym==='bleed')for(let i=0;i<3;i++){const fy=(p*1.6+i*.33)%1;s+=drop(an[0]+(i-1)*7,an[1]+12+fy*28,3.2,'var(--blood)')}
     if(sym==='habit')s+=segPath(C,.6,.95,'var(--polyp)',6*sc,.4+.5*Math.abs(Math.sin(p*Math.PI*3)));
@@ -91,16 +91,16 @@ inits.symptoms=()=>{
     if(sym==='anaemia'){const cx=bx+165*sc,cy=by+100*sc;s+=drop(cx,cy,10*sc,'var(--blood)')+T(cx+16*sc,cy+5,'Hb ↓','t-lbl','fill:var(--blood)')}
     if(sym==='exam'){const q=C.at(.96);s+=`<circle cx="${f1(q[0])}" cy="${f1(q[1])}" r="${f1(5*sc*p+.1)}" style="fill:var(--tumour)"/>`+`<path d="M${f1(q[0]+48*sc)} ${f1(q[1]+30*sc)}L${f1(q[0]+10)} ${f1(q[1]+4)}" style="stroke:var(--ink);stroke-width:1.6" marker-end="url(#syArr)"/>`+T(q[0]+50*sc,q[1]+44*sc,'lump felt','t-xs t-mid','fill:var(--ink)')}
     if(sym==='fob')s+=tube(bx+236*sc,by+250*sc,.9*sc,{fill:p})+drop(bx+236*sc,by+214*sc,5,'var(--blood)');
-    if(side)s+=T(bx+130*sc,by+(N?346:350),SY_SIDE[side].n,'t-sm t-mid','fill:var(--brand);font-weight:600');
+    if(side)s+=T(bx+130*sc,by+(N?328:350),'Tumour: '+SY_SIDE[side].n,'t-sm t-mid','fill:var(--accent);font-weight:600');
     /* PPV bars */
-    const rx=N?20:322,ry=N?370:40,rw=N?250:300,rh=N?28:30;
+    const rx=N?20:322,ry=N?370:40,rw=N?250:300,rh=N?26:30;
     s+=head(rx,ry,'PPV IN PRIMARY CARE · '+S.n.toUpperCase());
     S.ppv.forEach(([l,v],i)=>{const y=ry+14+i*rh,k=clamp(p*1.6-i*.15);
-      s+=T(rx,y+8,l,'t-xs',i===S.head?'fill:var(--ink)':'');
+      s+=T(rx,y+8,l,'t-xs',i===S.head?'fill:var(--ink);font-weight:700':'');
       s+=R(rx,y+12,rw*v/14*k,10,`fill:var(--tumour);opacity:${i===S.head?1:.5}`);
       if(k>.97)s+=T(rx+rw*v/14+6,y+21,v+'%','t-sm',i===S.head?'fill:var(--tumour);font-weight:600':'')});
-    const hv=S.ppv[S.head][1],gy=N?ry+14+5*rh+8:206,gp=N?7.2:7;
-    s+=T(rx,gy,`≈ ${Math.round(hv*10)} in 1,000 people with “${S.ppv[S.head][0]}” have colorectal cancer`,'t-xs','fill:var(--ink)');
+    const hv=S.ppv[S.head][1],gy=N?ry+14+5*rh+8:206,gp=N?6.6:7;
+    s+=T(rx,gy,`≈ ${Math.round(hv*10)} in 1,000 have colorectal cancer (${hv}%, bold bar)`,'t-xs','fill:var(--ink)');
     s+=dots(rx+3,gy+12,gp,hv*10,ramp(p,.2,1),'var(--tumour)');
     s+=T(rx,gy+12+20*gp+8,`the other ≈ ${1000-Math.round(hv*10)} do not`,'t-xs');
     bs.innerHTML=`<defs>${marker('syArr','var(--ink)')}</defs>`+s;
@@ -212,8 +212,8 @@ inits.symptoms=()=>{
 
   /* ---------- early onset ---------- */
   const es=$('#syEo');let rf=1,ep=1,eStop=null;const OR={1:1.94,2:3.59,3:6.52};
-  function drawE(){const N=vb(es,'720 270','400 540');let s='';const p=ep;
-    const A={x:N?20:20,y:N?24:30,w:N?250:150},B={x:N?20:262,y:N?200:30,w:N?340:200},Cc={x:N?20:510,y:N?380:30,w:N?280:150};
+  function drawE(){const N=vb(es,'720 270','400 580');let s='';const p=ep;
+    const A={x:N?20:20,y:N?24:30,w:N?250:150},B={x:N?20:262,y:N?200:30,w:N?340:200},Cc={x:N?20:510,y:N?412:30,w:N?280:150};
     s+=head(A.x,A.y,N?'PRESENTING FEATURES UNDER 50 (POOLED)':'FEATURES UNDER 50');
     [['Visible blood (haematochezia)',45],['Abdominal pain',40],['Altered bowel habit',27]].forEach(([l,v],i)=>{const y=A.y+20+i*(N?42:58),k=clamp(p*2-i*.2);
       s+=T(A.x,y+8,l,'t-xs','fill:var(--ink)')+R(A.x,y+14,A.w*v/50*k,14,'fill:var(--tumour);opacity:.85');if(k>.97)s+=T(A.x+A.w*v/50+6,y+26,v+'%','t-sm','fill:var(--ink)')});
@@ -231,7 +231,7 @@ inits.symptoms=()=>{
     [1,2,3].forEach((n,i)=>{const cx=Cc.x+(N?40:24)+i*(N?90:52),on=n===rf,k=on?ease(p):1,v=1+(OR[n]-1)*k;
       s+=R(cx-bw/2,V(v),bw,bb-V(v),`fill:var(--tumour);opacity:${on?1:.3}`)+T(cx,bb+14,n===3?'3+':n,'t-sm t-mid',on?'fill:var(--ink);font-weight:600':'');
       s+=T(cx,V(v)-6,OR[n].toFixed(2),'t-sm t-mid',on?'fill:var(--tumour);font-weight:600':'')});
-    s+=T(Cc.x,bb+30,'red flags 3 months–2 years before diagnosis','t-xs');
+    s+=N?T(Cc.x,bb+30,'red flags 3 months–2 years before diagnosis','t-xs'):lines(Cc.x,bb+30,['red flags, 3 months to','2 years before diagnosis'],'t-xs',12);
     es.innerHTML=s;
     $('#syEoCap').innerHTML=`With ${rf===3?'3 or more red flags':rf+' red flag'+(rf>1?'s':'')}, the odds of early-onset colorectal cancer were ${OR[rf]} times those with none (US case-control study, 5,075 cases). About 19.3% had their first sign 3 months to 2 years before diagnosis; the median diagnostic interval was 8.7 months. In a meta-analysis of 81 studies, visible blood carried at least a 5-fold risk (estimates 5.2–54.0) and time from symptom to diagnosis averaged 6.4 months. [[Fritz2023,Demb2024]]`}
   $$('[data-sy-rf]').forEach(b=>b.addEventListener('click',()=>{rf=+b.dataset.syRf;$$('[data-sy-rf]').forEach(x=>x.setAttribute('aria-pressed',x===b));if(eStop)eStop();ep=0;eStop=animate(900,q=>{ep=q;drawE()},()=>{eStop=null})}));
