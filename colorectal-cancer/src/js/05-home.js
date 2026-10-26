@@ -1,6 +1,6 @@
 
 /* =============== home: a polyp's fifteen years, with and without screening =============== */
-const HERO_CAP=['Schematic, not to scale; the years are illustrative.','Schematic: screening finds and removes the polyp before it can become a cancer.'];
+const HERO_CAP=['Schematic, not to scale; the years are illustrative. In one sequencing study, a large adenoma took about 17 years to become an advanced cancer.[[Jones2008]]','Schematic: a colonoscopy finds the polyp and removes it before it can become a cancer, which is how screening prevents some cancers as well as finding them early.[[Winawer1993,Zauber2012]]'];
 inits.home=()=>{
   const svg=$('#heroSvg'),rg=$('#heroT'),sb=$('#heroScr'),cap=$('#heroCap');let scr=false;
   /* schematic stage of the lesion at year y (0..15): an adenoma appears at year 1, becomes advanced by
