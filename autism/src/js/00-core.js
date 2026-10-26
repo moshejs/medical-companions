@@ -195,7 +195,7 @@ const MODS=[
  {id:'therapies',t:'Communication, AAC & therapies',g:4,n:'4.3',d:'Speech therapy, AAC, OT, social skills and adapted CBT'},
  {id:'meds',t:'Medication',g:4,n:'4.4',d:'What medicines can and cannot do: irritability, ADHD, sleep'},
  {id:'unproven',t:'Unproven & harmful treatments',g:4,n:'4.5',d:'Secretin, chelation, bleach, diets and how to judge a claim'},
- {id:'research',t:'Research toward better support',g:4,n:'4.6',d:'Trials, new diagnostics and what autistic people want studied'},
+ {id:'frontier',t:'Research toward better support',g:4,n:'4.6',d:'Trials, new diagnostics and what autistic people want studied'},
  {id:'school',t:'Family, school & play',g:5,n:'5.1',d:'A week with supports, education rights and caregiver wellbeing'},
  {id:'adult',t:'Autistic adults',g:5,n:'5.2',d:'Late diagnosis, work, relationships, burnout and ageing'},
  {id:'health',t:'Physical health, sleep & safety',g:5,n:'5.3',d:'Epilepsy, sleep, gut, feeding, mortality and safety'},
