@@ -4221,20 +4221,20 @@
  },
  {
   "key": "Patel2022",
-  "text": "Patel SG, Karlitz JJ, Yen T, Lieu CH, Boland CR. The rising tide of early-onset colorectal cancer: a comprehensive review of epidemiology, clinical features, biology, risk factors, prevention, and early detection. Lancet Gastroenterol Hepatol. 2022;7(3):262-274. PMID 35090605; doi:10.1016/S2468-1253(21)00426-X.",
-  "link": "https://doi.org/10.1016/s2468-1253(21)00426-x",
+  "text": "Patel SG, May FP, Anderson JC, Burke CA, Dominitz JA, Gross SA, et al. Updates on Age to Start and Stop Colorectal Cancer Screening: Recommendations From the U.S. Multi-Society Task Force on Colorectal Cancer. Gastroenterology. 2022;162(1):285-299. PMID 34794816; doi:10.1053/j.gastro.2021.10.007.",
+  "link": "https://doi.org/10.1053/j.gastro.2021.10.007",
   "areas": [
-   "A"
+   "D"
   ],
   "unverified": false,
   "validated": "PubMed"
  },
  {
-  "key": "Patel2022D",
-  "text": "Patel SG, May FP, Anderson JC, Burke CA, Dominitz JA, Gross SA, et al. Updates on Age to Start and Stop Colorectal Cancer Screening: Recommendations From the U.S. Multi-Society Task Force on Colorectal Cancer. Gastroenterology. 2022;162(1):285-299. PMID 34794816; doi:10.1053/j.gastro.2021.10.007.",
-  "link": "https://doi.org/10.1053/j.gastro.2021.10.007",
+  "key": "Patel2022EOCRC",
+  "text": "Patel SG, Karlitz JJ, Yen T, Lieu CH, Boland CR. The rising tide of early-onset colorectal cancer: a comprehensive review of epidemiology, clinical features, biology, risk factors, prevention, and early detection. Lancet Gastroenterol Hepatol. 2022;7(3):262-274. PMID 35090605; doi:10.1016/S2468-1253(21)00426-X.",
+  "link": "https://doi.org/10.1016/s2468-1253(21)00426-x",
   "areas": [
-   "D"
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
