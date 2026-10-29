@@ -1,5 +1,77 @@
-<!-- ================= 4.2 MEDICINES (stub, replaced by its builder) ================= -->
+<!-- ================= 4.2 MEDICINES ================= -->
+<style>
+#m-meds .metracks{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-meds .mestep[hidden]{display:none}
+#m-meds .card>.ev,#m-meds .card>.tag{align-self:flex-start}
+#m-meds td .ev,#m-meds td .tag{display:inline-block;margin-top:2px}
+#m-meds .tbl table{min-width:760px}
+#m-meds .tbl td:first-child{font-weight:700;white-space:nowrap}
+#m-meds .bbfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+#m-meds .bbfacts div{background:var(--panel-2);border-radius:10px;padding:10px 12px;font-size:14px}
+#m-meds .bbfacts b{display:block;font:400 26px/1.1 var(--display);color:var(--rx)}
+</style>
 <section class="mod" id="m-meds" data-mod="meds" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Medicines</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">No medicine treats EDS itself. Medicines are used for pain, for POTS and, in vascular EDS, to protect the arteries. Climb each treatment ladder rung by rung to see how each medicine works and how strong its evidence is.</p></div>
+  <p class="banner"><b>Doses quoted as published, not instructions</b>Every dose on this page is reported as a trial, label or guideline states it. Many uses shown here are off-label. Medicines are chosen and adjusted by a person's own clinicians. [[Malfait2020,Vernino2021]]</p>
+  <div class="metracks" role="group" aria-label="Treatment ladder"><span class="kicker">Ladder</span>
+    <button class="btn" data-metr="pain" aria-pressed="true">Pain</button>
+    <button class="btn" data-metr="pots" aria-pressed="false">POTS</button>
+    <button class="btn" data-metr="veds" aria-pressed="false">Vascular EDS</button></div>
+  <div class="stepper mestep" id="meStepsPain"></div>
+  <div class="stepper mestep" id="meStepsPots" hidden></div>
+  <div class="stepper mestep" id="meStepsVeds" hidden></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="meSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A treatment ladder whose rungs run from non-drug foundations at the bottom to specialist medicines at the top, each with an evidence chip. A marker climbs as the slider moves, and a panel animates how the current rung works: heart-rate strips slowing for beta-blockers, ivabradine and pyridostigmine, blood volume expanding for salt and fludrocortisone, a tilt table rising for reconditioning, a celiprolol dose staircase and bar comparisons of trial results."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mePlay">Play</button><label class="stage-cap tl" for="meT">Rung <input type="range" id="meT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="readout" id="meRead"></div>
+      <p class="stage-cap">The order of the rungs follows the published guidance (non-drug care first); it is not a fixed sequence for any one person. Mechanism drawings are schematic; numbers are from the cited studies.</p>
+    </div>
+    <aside class="note" id="meNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The celiprolol trial, person by person</h3>
+  <div class="prose"><p>BBEST randomised 53 people with clinical vascular EDS to celiprolol or no treatment, with events judged by assessors blind to the arm. It was stopped early for benefit after a mean of 47 months. ARCADE later tested irbesartan against placebo in 57 people already taking celiprolol. Each figure below is one participant; event timing within each trial is drawn evenly for teaching, but the totals are as published. [[Ong2010,Jeunemaitre2025]]</p></div>
+  <div class="ctrls" role="group" aria-label="Trial"><span class="kicker">Trial</span>
+    <button class="btn" data-mebb="bbest" aria-pressed="true">BBEST: celiprolol vs none</button>
+    <button class="btn" data-mebb="arcade" aria-pressed="false">ARCADE: irbesartan vs placebo</button></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="meBb" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="An icon array of trial participants in two arms. As the months advance, figures turn red when they have an arterial event: in BBEST 5 of 25 on celiprolol and 14 of 28 untreated by 47 months; in ARCADE 8 of 29 on irbesartan and 15 of 28 on placebo by 24 months. A small chart below shows the cumulative percentage in each arm."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="meBbPlay">Play</button><label class="stage-cap tl" for="meBbT">Months <input type="range" id="meBbT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap">Totals, hazard ratios and confidence intervals as published; the month at which each event happens is illustrative. [[Ong2010,Jeunemaitre2025]]</p>
+    </div>
+    <aside class="note" id="meBbNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Medicines at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Medicine</th><th>Use in EDS (as published)</th><th>Evidence</th><th>Key cautions (as published)</th></tr></thead>
+    <tbody>
+      <tr><td>Celiprolol</td><td>Vascular EDS: to prevent arterial rupture or dissection; BBEST titrated by 100 mg every 6 months to 400 mg/day</td><td><span class="ev est">Established</span> one open RCT plus cohorts</td><td>Fatigue in 3 of 25 in BBEST; dizziness and hypotension sometimes limit it. No FDA approval for any indication; not available in several countries. [[Ong2010,Saputra2025,openFDA-Celiprolol,Buso2024]]</td></tr>
+      <tr><td>Irbesartan</td><td>Vascular EDS, added to celiprolol (ARCADE: 150 mg/day titrated to 300 mg/day)</td><td><span class="ev early">Early evidence</span> one small RCT</td><td>11 hypotension episodes led to down-titration in 4 patients. Not yet replicated. [[Jeunemaitre2025]]</td></tr>
+      <tr><td>Propranolol (low dose)</td><td>POTS: HRS 2015 Class IIb "may be considered"; 10–20 mg lowers standing heart rate</td><td><span class="ev early">Early evidence</span> small crossover RCTs</td><td>Higher doses less well tolerated; long-acting propranolol did not improve quality of life. Not labelled for POTS. [[Sheldon2015,Raj2009Circ,FDA-InderalLA]]</td></tr>
+      <tr><td>Ivabradine</td><td>POTS (off-label): lowered heart rate in two crossover RCTs</td><td><span class="ev early">Early evidence</span></td><td>Label: heart failure only; fetal toxicity, effective contraception advised. [[Taub2021JACC,Uppal2026,FDA-Corlanor]]</td></tr>
+      <tr><td>Pyridostigmine</td><td>POTS: HRS 2015 Class IIb "seems reasonable"</td><td><span class="ev early">Early evidence</span></td><td>Gastrointestinal side effects in 19% of one series. Labelled for myasthenia gravis. [[Sheldon2015,Kanjwal2011,FDA-Mestinon]]</td></tr>
+      <tr><td>Fludrocortisone</td><td>POTS: HRS 2015 Class IIb "seems reasonable"</td><td><span class="ev hyp">Hypothesis</span> no RCT in POTS</td><td>Works only with a high-sodium diet; monitor potassium. Labelled for Addison's disease (usual dose 0.1 mg daily). [[Sheldon2015,Vernino2021,FDA-Fludrocortisone]]</td></tr>
+      <tr><td>Midodrine</td><td>POTS: HRS 2015 Class IIb "may be considered"</td><td><span class="ev early">Early evidence</span></td><td>Boxed warning: "marked elevation of supine blood pressure". Label: 10 mg three times daily in daytime, not after the evening meal or within 4 hours of bedtime. [[Sheldon2015,FDA-Midodrine]]</td></tr>
+      <tr><td>Droxidopa</td><td>No POTS or EDS indication</td><td><span class="tag">Not studied in EDS</span></td><td>Labelled only for neurogenic orthostatic hypotension; boxed warning for supine hypertension. [[FDA-Northera]]</td></tr>
+      <tr><td>Anti-inflammatories</td><td>Classical EDS: "may relieve joint pain"</td><td><span class="tag">Expert opinion</span></td><td>Gut and autonomic problems may limit analgesic choices. [[Malfait2024GR,Hakim2024GR]]</td></tr>
+      <tr><td>Neuropathic modulators</td><td>Pain that is "often neuropathic in nature" in hEDS</td><td><span class="tag">Expert opinion</span></td><td>Least well tolerated option in a 98-person chart review: 47% reported adverse effects. [[Hakim2024GR,Song2020PainPhysician]]</td></tr>
+      <tr><td>Opioids</td><td>Prescribed far more often in EDS than in matched controls</td><td><span class="tag">Observational</span></td><td>Opioid-induced hyperalgesia described in hEDS; opioid-minimising protocols proposed. [[Schubart2019Opioid,RamirezPaesano2023]]</td></tr>
+      <tr><td>Desmopressin</td><td>Bleeding symptoms, and before surgery with a positive bleeding history</td><td><span class="ev early">Early evidence</span> retrospective series</td><td>Bleeding time fell from 11.26 to 5.95 minutes in children; no bleeding complications with pre-operative DDAVP vs 30% without. [[Mast2009,Wiesmann2014]]</td></tr>
+      <tr><td>Tranexamic acid</td><td>Consider before surgery; platelet disorders in hEDS may respond</td><td><span class="tag">Expert opinion</span></td><td>Suggested "as in other bleeding disorders". [[Wiesmann2014,Hakim2024GR]]</td></tr>
+      <tr><td>Vitamin C</td><td>Classical EDS: "may reduce bruising"</td><td><span class="tag">Expert opinion</span></td><td>Low-level evidence. [[Malfait2024GR]]</td></tr>
+      <tr><td>Cromolyn and mast-cell drugs</td><td>Mast-cell symptoms (labelled for mastocytosis)</td><td><span class="ev hyp">Hypothesis</span> no EDS trials</td><td>The hEDS–POTS–MCAS link is unproven. [[FDA-Gastrocrom,Kucharik2020,Hakim2024GR]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Good to know</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>Numbing that wears off early</h4><p>In a randomised crossover trial (91 people with EDS, 44 controls), lidocaine numbed both groups equally at 5 minutes, but at 30 minutes only 53% with EDS were still numb vs 80% of controls. Tell the dentist or surgeon if numbing has failed before. More in <a href="#surgery" data-go="surgery">Surgery &amp; anaesthesia</a>. [[Bourne2026RAPM,Wiesmann2014]]</p></div>
+    <div class="card"><span class="tag">Low-level evidence</span><h4>One medicine at a time</h4><p>A 2026 expert review found the evidence "low-level" and not supportive of "any disease-specific, repurposed, or novel drug" for hypermobility-related pain. It advises one drug at a time, usually at a low dose, reassessed after a set trial period. [[Castori2026EOP]]</p></div>
+    <div class="card"><span class="tag">Consensus</span><h4>Non-drug care comes first in POTS</h4><p>The EDS consortium reserves drugs for moderate-to-severe impairment that has not responded to, or cannot tolerate, conservative care. The NIH consensus adds that no medicine is FDA-approved for POTS. See <a href="#autonomic" data-go="autonomic">POTS &amp; the autonomic link</a>. [[Hakim2017,Vernino2021]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Mast cells</h4><p>A systematic search found only 4–9 original articles across hEDS, POTS and MCAS, none studying all three, and no proven shared mechanism. Treatments for mast-cell symptoms have no EDS-specific trial evidence. See <a href="#gut" data-go="gut">Gut, bladder &amp; MCAS</a>. [[Kucharik2020,Hakim2024GR]]</p></div>
+  </div>
 </section>
