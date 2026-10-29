@@ -18,7 +18,7 @@ inits.what=()=>{
     {a:'mEDS',inh:'b',sz:1,f:'<1/1M'},
     {a:'pEDS',inh:'d',sz:1,f:'<1/1M'},
     {a:'cvEDS',inh:'r',sz:0,f:'7 people'},
-    {a:'BCS',inh:'r',sz:0,f:'no estimate'}];
+    {a:'BCS',inh:'r',sz:0,f:'85 reported'}];
   const SEX={
     all:[{l:'Wales · EDS or JHS',v:70},{l:'Denmark · EDS',v:73.9},{l:'Sweden · EDS',v:74},{l:'US claims · new EDS',v:78},{l:'Netherlands · vEDS',v:50,hl:1}],
     h:[{l:'Sweden · hypermobility synd.',v:67},{l:'Mayo · hEDS (preprint)',v:90.6},{l:'HEDGE study · hEDS',v:92},{l:'Mayo · HSD (preprint)',v:95.2}]};
