@@ -1,5 +1,93 @@
-<!-- ================= 3.2 PAIN & FATIGUE (stub, replaced by its builder) ================= -->
+<!-- ================= 3.2 PAIN & FATIGUE ================= -->
+<style>
+#m-pain .pa-seg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-pain .pa-seg .kicker{margin-right:4px}
+#m-pain .pa-mech{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px}
+#m-pain .pa-mech .btn{border-radius:12px;text-align:left;padding:10px 12px;font-size:14px}
+#m-pain .pa-loop svg{max-width:460px;margin:0 auto;min-width:0}
+#m-pain .pa-txt{display:flex;flex-direction:column;gap:10px}
+#m-pain .pa-txt .ev{align-self:flex-start}
+#m-pain .legend .ev{margin-left:4px}
+#m-pain .tbl table{min-width:640px}
+#m-pain .tbl td.n{font-family:var(--mono);font-size:13.5px;white-space:nowrap}
+#m-pain .card>.ev,#m-pain .card>.tag{align-self:flex-start}
+</style>
 <section class="mod" id="m-pain" data-mod="pain" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Body systems</p><h2>Pain &amp; fatigue</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Chronic pain and fatigue are among the most common and most disabling parts of hypermobile EDS and HSD. Follow one schematic life from childhood to sixty, then open the mechanisms one by one, with the strength of the evidence for each. [[Chopra2017,Voermans2010Fatigue]]</p></div>
+  <div class="ctrls pa-seg" role="group" aria-label="Overlay">
+    <span class="kicker">Overlay</span>
+    <button class="btn" id="paMech" aria-pressed="false">Pain mechanisms</button>
+  </div>
+  <div class="stepper" id="paSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="paSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A chart of age from 0 to 60 years with three schematic curves from published descriptions of hypermobile EDS: joint hypermobility starts high and falls with age, pain rises from the second decade, and stiffness with fatigue rises later. Background bands mark the hypermobility, pain and stiffness phases. A person walks along the bottom and grows older as the slider moves. An optional overlay splits the pain curve into nociceptive, neuropathic and nociplastic layers."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="paPlay">Play</button><label class="stage-cap tl" for="paT">Age <input type="range" id="paT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="legend" id="paLegend"></div>
+      <p class="stage-cap">Schematic curves drawn from a descriptive clinical model, not measured data; phase boundaries are approximate and many people do not follow this path. [[Castori2013,Malek2021C,Copetti2019]]</p>
+    </div>
+    <aside class="note" id="paNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Four ways pain can keep going</h3>
+  <div class="prose"><p>Most models start with input from unstable joints. Researchers disagree about how much each of the other routes adds, and it probably differs from person to person. Choose a loop. [[DiStefano2016,Igharo2023,Chopra2017]]</p></div>
+  <div class="pa-mech" role="group" aria-label="Pain mechanism">
+    <button class="btn" data-pamech="tissue" aria-pressed="true">Tissue injury</button>
+    <button class="btn" data-pamech="central" aria-pressed="false">Central sensitisation</button>
+    <button class="btn" data-pamech="sfn" aria-pressed="false">Small-fibre neuropathy</button>
+    <button class="btn" data-pamech="sleep" aria-pressed="false">Sleep and fatigue loop</button>
+  </div>
+  <div class="lab even">
+    <div class="stage pa-loop"><svg id="paLoop" viewBox="0 0 400 270" role="img" aria-label="A loop diagram for the chosen pain mechanism: four or five boxes joined by arrows in a circle, with a dot travelling around the loop."></svg></div>
+    <div class="note pa-txt" id="paMechTxt" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Boom-bust or paced?</h3>
+  <div class="prose"><p>Two weeks of activity, drawn as an illustration. On a good day it is tempting to do everything, then pay for it for days afterwards. Pacing keeps activity inside a steadier envelope and builds it up slowly. Pacing is recommended by patients and clinicians, but no trial has yet tested it on its own in hEDS or HSD. <span class="ev hyp">Hypothesis</span> [[Bennett2022]]</p></div>
+  <div class="ctrls pa-seg" role="group" aria-label="Which pattern to highlight">
+    <span class="kicker">Show</span>
+    <button class="btn" data-papace="both" aria-pressed="true">Both</button>
+    <button class="btn" data-papace="boom" aria-pressed="false">Boom-bust</button>
+    <button class="btn" data-papace="paced" aria-pressed="false">Paced</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="paPace" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Activity over 14 days. The boom-bust line spikes above a dashed comfort envelope on good days, each spike followed by two or three low crash days marked as flares. The paced line stays just under the envelope and rises slowly, with the envelope itself rising a little over time. Running totals of activity and flare days are shown."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="paPlay2">Play</button><label class="stage-cap tl" for="paD">Day <input type="range" id="paD" min="0" max="1" step="0.001" value="1"></label></div>
+    <div class="readout" id="paPaceRead"></div>
+    <p class="stage-cap">Illustrative, schematic data: not from a trial. Occupational therapy guidance for EDS with POTS includes energy conservation and pacing, and exercise trials in hEDS/HSD start below symptom thresholds and progress by competency or load. [[Levine2022OT,Liaghat2022BJSM,Pacey2013]]</p>
+  </div>
+
+  <h3 class="sub">How common are pain, fatigue and sleep problems?</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Finding</th><th>Group (n)</th><th>Figure</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Chronic pain</th><td>EDS, one study cited by the 2017 consensus</td><td class="n">"nearly 90%"</td><td>[[Chopra2017]]</td></tr>
+      <tr><th>Any pain</th><td>Online survey, 80% hEDS (396)</td><td class="n">98%; 6.4 pain days/week in hEDS</td><td>[[TeranWodzinski2023]]</td></tr>
+      <tr><th>Chronic pain</th><td>Women with HSD or hEDS (84)</td><td class="n">98.8%</td><td>[[CollinsHutchinson2025]]</td></tr>
+      <tr><th>Moderate-to-severe pain at diagnosis</th><td>Italian registry, EDS/HSD (96)</td><td class="n">49%</td><td>[[Morri2026]]</td></tr>
+      <tr><th>Severe pain</th><td>Adults with hEDS (75)</td><td class="n">43%</td><td>[[Kalisch2020]]</td></tr>
+      <tr><th>Average pain ≥ 5/10</th><td>Classical EDS (19)</td><td class="n">32%</td><td>[[Colman2023]]</td></tr>
+      <tr><th>Severe fatigue</th><td>Dutch patient organisation, EDS (273)</td><td class="n">more than 3 in 4</td><td>[[Voermans2010Fatigue]]</td></tr>
+      <tr><th>Significant fatigue</th><td>Online sample, JHS/hEDS (117)</td><td class="n">79.5%</td><td>[[Krahe2018]]</td></tr>
+      <tr><th>Clinically relevant fatigue</th><td>hEDS (155) vs Marfan (127)</td><td class="n">80% vs 31.5%</td><td>[[Udugampolage2025]]</td></tr>
+      <tr><th>Orthostatic intolerance</th><td>hEDS (80) vs controls (52)</td><td class="n">74.4% vs 34.3%</td><td>[[DeWandele2016]]</td></tr>
+      <tr><th>Obstructive sleep apnoea</th><td>EDS (100) vs matched controls (100)</td><td class="n">32% vs 6%</td><td>[[Gaisl2017]]</td></tr>
+      <tr><th>Obstructive sleep apnoea</th><td>Meta-analysis, 7 EDS studies</td><td class="n">39.4% pooled</td><td>[[Sedky2019]]</td></tr>
+      <tr><th>Insomnia</th><td>hEDS/HSD with OSA (68) vs OSA controls (68)</td><td class="n">44.7% vs 34.3%</td><td>[[Zhang2026OSA]]</td></tr>
+      <tr><th>Migraine</th><td>Women with JHS (28) vs controls (232)</td><td class="n">75% vs 43%</td><td>[[Bendik2011]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Population statistics. Many figures come from self-selected surveys or specialist clinics, which tend to over-represent people with more symptoms.</p>
+
+  <h3 class="sub">What else to know</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>As heavy as fibromyalgia</h4><p>In 206 women, physical and overall function in hEDS was similar to fibromyalgia and worse than rheumatoid arthritis. Pain severity sat between the two. [[Rombaut2011]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Fear of movement</h4><p>In 42 people with JHS/hEDS, 93% scored above the Tampa cut-off for fear of movement, and it tracked fatigue rather than pain intensity. Programmes that combine physical and cognitive-behavioural approaches have reduced it. [[Celletti2013,Bathen2013,Hakimi2023]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Pain and mood travel together</h4><p>In 106 people with classical or hypermobile EDS, 42.5% had a psychiatric disorder and any pain symptom raised the odds (OR 9.68). In 59 people with HSD/hEDS, depressive symptoms correlated with pain catastrophising and fatigue. [[Hershenfeld2016,Fletcher2025]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Fatigue has causes to look for</h4><p>An expert review lists sleep disorders, chronic pain, deconditioning, autonomic dysfunction, bowel and bladder problems, psychological issues and nutritional deficiencies, and advises ruling out anaemia, hypothyroidism and chronic infection. No specific drug treats fatigue in EDS. [[Hakim2017Fatigue]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Pain programmes</h4><p>A UK cognitive behavioural pain-management programme (8 days over 6 weeks, 87 people) improved self-efficacy, mood and pain at 1 month; most gains held at 5 months, except average pain intensity. An online programme improved worst pain in a pilot trial. [[Rahman2014,Chew2025]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Headache and the neck</h4><p>Migraine is more common and starts earlier in JHS/hEDS. Craniocervical instability has no agreed imaging criteria; a systematic review found level III–V evidence, and fusion surgery remains unproven for chronic pain. [[Bendik2011,Puledda2015,Lohkamp2022,Mao2022]]</p></div>
+  </div>
+  <div class="prose"><p>Exercise, pain programmes and pacing in practice: <a href="#physio" data-go="physio">Exercise &amp; physiotherapy</a>. Medicines for pain: <a href="#meds" data-go="meds">Medicines</a>. Dizziness on standing: <a href="#autonomic" data-go="autonomic">POTS &amp; the autonomic link</a>.</p></div>
 </section>

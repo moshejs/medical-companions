@@ -1,5 +1,79 @@
-<!-- ================= 3.1 JOINTS & DISLOCATIONS (stub, replaced by its builder) ================= -->
+<!-- ================= 3.1 JOINTS & DISLOCATIONS ================= -->
+<style>
+#m-joints .jo-seg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-joints .jo-seg .kicker{margin-right:4px}
+#m-joints .jo-mus{display:flex;flex:1 1 220px;gap:10px;align-items:center;min-width:200px}
+#m-joints .jo-map{max-width:440px;margin:0 auto;width:100%}
+#m-joints .jo-map svg{min-width:0}
+#m-joints .jo-map .clk:focus-visible circle.ring{stroke:var(--ink);stroke-width:2.4}
+#m-joints .jo-scale{display:flex;align-items:center;gap:8px;font:500 12px var(--mono);color:var(--muted);flex-wrap:wrap}
+#m-joints .jo-scale i{display:inline-block;width:120px;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--vas-soft),var(--vas))}
+#m-joints .card>.ev,#m-joints .card>.tag{align-self:flex-start}
+#m-joints .tbl table{min-width:520px}
+#m-joints .tbl td.n{font-family:var(--mono);font-size:13.5px;white-space:nowrap}
+</style>
 <section class="mod" id="m-joints" data-mod="joints" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Body systems</p><h2>Joints &amp; dislocations</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Load the same joint twice: once with typical connective tissue and once with lax tissue. Watch the capsule tighten in one and the joint surfaces slide apart in the other, then turn up muscle control to see why strength and control training are the backbone of care. [[Malfait2020,Tinkle2017]]</p></div>
+  <div class="ctrls jo-seg" role="group" aria-label="Which joint to load">
+    <span class="kicker">Joint</span>
+    <button class="btn" data-jojoint="shoulder" aria-pressed="true">Shoulder</button>
+    <button class="btn" data-jojoint="knee" aria-pressed="false">Knee</button>
+    <button class="btn" data-jojoint="patella" aria-pressed="false">Kneecap</button>
+    <button class="btn" data-jojoint="finger" aria-pressed="false">Finger</button>
+  </div>
+  <div class="stepper" id="joSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="joSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Two copies of the chosen joint side by side, typical tissue on the left and lax tissue on the right, with a load arrow pulling on each. As the load rises the typical joint's capsule and ligaments tighten and the joint stays centred. In the lax joint the capsule bulges, the joint surfaces slide partly apart (subluxation), then fully apart (dislocation), then slide back into place (reduction). Gauges on the side show load, how much of the joint surface is still in contact, and muscle co-contraction."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="joPlay">Play</button><label class="stage-cap tl" for="joT">Load <input type="range" id="joT" min="0" max="1" step="0.001" value="0.32"></label></div>
+      <div class="ctrls"><label class="stage-cap jo-mus" for="joM">Muscle control <input type="range" id="joM" min="0" max="1" step="0.01" value="0.15"></label><span class="stage-cap" id="joMv"></span></div>
+      <div class="readout" id="joRead"></div>
+      <p class="stage-cap">Schematic joints, not to scale. The muscle slider is a teaching device: it shows the rationale for strength and control training, not a measured effect size. [[Rombaut2012Strength,Jensen2013GJH,Palmer2021]]</p>
+    </div>
+    <aside class="note" id="joNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Where joints give way</h3>
+  <div class="prose"><p>Choose a layer, then tap a joint for its numbers. Each layer comes from a different study and a different kind of count, so compare shading within a layer, not between layers.</p></div>
+  <div class="ctrls jo-seg" role="group" aria-label="Which data layer to show">
+    <span class="kicker">Layer</span>
+    <button class="btn" data-jolayer="disl" aria-pressed="true">Instability &amp; dislocation</button>
+    <button class="btn" data-jolayer="pain" aria-pressed="false">Pain sites, adults</button>
+    <button class="btn" data-jolayer="kids" aria-pressed="false">Presenting sites, children</button>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="jo-map"><svg id="joMap" viewBox="0 0 360 440" role="group" aria-label="Body map of joints. Each joint is a button; its shade shows the selected layer."></svg></div>
+      <div class="jo-scale" id="joScale"></div>
+    </div>
+    <aside class="note" id="joMapNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Complications by age in classical EDS</h3>
+  <div class="prose"><p>In 75 people with molecularly confirmed classical EDS, joint complications were far more common in adults than in children. In hEDS, by contrast, an Italian cohort of 189 found that the rate and sites of instability did not change with age at diagnosis, even though the Beighton score fell. [[Ritelli2020C,Morlino2017]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Complication (cEDS, n = 75)</th><th>Children</th><th>Adults</th><th>Whole cohort</th></tr></thead>
+    <tbody>
+      <tr><th>Dislocation</th><td class="n">3.2%</td><td class="n">34.1%</td><td class="n">21.3%</td></tr>
+      <tr><th>Sprain</th><td class="n">25.8%</td><td class="n">59.1%</td><td class="n">not given</td></tr>
+      <tr><th>Two or more complications</th><td class="n">35.7%</td><td class="n">73.8%</td><td class="n">not given</td></tr>
+      <tr><th>Subluxation</th><td class="n" colspan="2">not split by age</td><td class="n">29.3%</td></tr>
+      <tr><th>Fixed (non-reducing) dislocation</th><td class="n" colspan="2">not split by age</td><td class="n">6.7%</td></tr>
+      <tr><th>Bilateral flat feet (pes planus)</th><td class="n" colspan="2">not split by age</td><td class="n">82.7%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Population statistics from one cohort, not a prediction for any person. [[Ritelli2020C]]</p>
+
+  <h3 class="sub">What the studies show</h3>
+  <div class="cards">
+    <div class="card"><span class="tag vas">Words</span><h4>Subluxation or dislocation?</h4><p>In a subluxation the joint surfaces slide partly apart and keep some contact; in a dislocation they lose contact. In classical EDS, 29.3% had had subluxations and 21.3% dislocations; the dislocations were mostly of the shoulder, digits, hip, radius and clavicle, and usually went back by themselves. In 100 adults with HSD and shoulder complaints, 67 described mechanical symptoms; 25% of them had a previous dislocation and 64% said the shoulder felt loose. [[Ritelli2020C,Liaghat2022APMR]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Position sense is blurred</h4><p>Ten women with hypermobility syndrome needed bigger knee movements than controls before they noticed them, at 30° and 5° of flexion, and lost the usual gain in acuity near full extension. A meta-analysis of 5 studies (254 people) confirmed poorer lower-limb position sense; upper-limb results were mixed. Children are affected too. [[Hall1995,Smith2013BJHS,Fatoye2009]]</p><p>An uncontrolled 8-week home programme of closed-chain exercise improved knee acuity in 16 of 18 people. [[Ferrell2004]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Weaker, but not smaller</h4><p>Women with hEDS had 30% to 49% lower knee strength and endurance than matched controls, with similar muscle mass on DXA. Weakness persisted over 8 years of follow-up, and strength tracked chair-rise, walking and function scores. In 22 women with hEDS, 95% had fallen in the past year. [[Rombaut2012Strength,Coussens2021,Scheper2017Strength,Rombaut2011Balance]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Muscles work differently</h4><p>With generalised hypermobility, knee muscles co-contract more (a higher coactivation ratio) and adults hold force less steadily. In hEDS/HSD with multidirectional shoulder instability, the humeral head moved more during simple loaded exercises, and the shoulder blade rotated upward less. [[Jensen2013GJH,Spanhove2020,Spanhove2022]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Early osteoarthritis?</h4><p>Poor position sense may let joints sit in unsound positions and speed wear (a hypothesis). Thumb-base osteoarthritis is the clearest link. Large population cohorts point the other way for the knee and hand, but they studied mild hypermobility in older adults: no hEDS cohort with X-ray osteoarthritis outcomes was found. [[Hall1995,Jonsson1996,Dolan2003,Kraus2004,Flowers2018]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Bone: size more than density?</h4><p>Results are mixed. One study of 50 adults with classical or hypermobile EDS found vertebral fractures in 32% vs 8% of controls; another found normal density but smaller cortical bone and more fractures. A review concludes that in hEDS and cEDS bone density is at most mildly lower. [[EllerVainicher2016,Banica2020,Basalom2020]]</p></div>
+  </div>
+  <div class="callout prose"><p><b>Exam hook · capsule laxity.</b> Hypermobility is partly a property of the restraints themselves: in 100 hip-arthroscopy patients a Beighton score of 4 or more went with a capsule thinner than 10 mm, and in hEDS the Achilles tendon is less stiff than in controls. But not all range is laxity: in benign joint hypermobility, hamstrings absorbed the same energy at a given stretch, and the extra range came with a higher tolerance to stretch. [[Devitt2017,Rombaut2012Tendon,Magnusson2001]]</p></div>
+  <div class="prose"><p>How strengthening and control training are tested, and what the trials found, is in <a href="#physio" data-go="physio">Exercise &amp; physiotherapy</a>. How hypermobility is scored is in <a href="#beighton" data-go="beighton">Beighton score</a>.</p></div>
 </section>
