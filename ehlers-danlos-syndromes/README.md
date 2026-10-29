@@ -12,9 +12,9 @@ A left rail of modules, one module per page, and SVG animations you scrub with a
 
 | Part | Modules |
 |---|---|
-| 1 · Understanding EDS | What EDS is · Collagen, gene to fibril · The 13 types (2017) · Inheritance & genetic testing |
+| 1 · The syndromes | What EDS is · Collagen, gene to fibril · The 13 types (2017) · Inheritance & genetic testing |
 | 2 · Diagnosis | Beighton score · The 2017 hEDS criteria · hEDS or HSD? · Look-alikes & red flags |
-| 3 · The body | Joints & dislocations · Pain & fatigue · Skin, scars & bruising · POTS & the autonomic link · Gut, bladder & MCAS · Vascular EDS |
+| 3 · Body systems | Joints & dislocations · Pain & fatigue · Skin, scars & bruising · POTS & the autonomic link · Gut, bladder & MCAS · Vascular EDS |
 | 4 · Treatment | Exercise & physiotherapy · Medicines · Surgery & anaesthesia · Toward better treatment (evidence-labelled) |
 | 5 · Living with EDS | Living with EDS · Pregnancy & parenthood · Nursing care |
 | 6 · Context & review | History & people · Flashcards & mnemonics · Quiz · Glossary · Sources |
