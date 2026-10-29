@@ -1,5 +1,68 @@
-<!-- ================= 3.5 GUT, BLADDER & MCAS (stub, replaced by its builder) ================= -->
+<!-- ================= 3.5 GUT, BLADDER & MCAS ================= -->
+<style>
+#m-gut .card>.ev,#m-gut .card>.tag{align-self:flex-start}
+#m-gut .gutry{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end}
+#m-gut .gutry label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700}
+#m-gut .gutry input{font:inherit;font-weight:400;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);width:130px}
+#m-gut #guTryOut{font-size:15px;flex:1;min-width:220px}
+#m-gut #guWts .btn{font-size:13px;padding:6px 11px}
+#m-gut td .ev{display:inline-block}
+</style>
 <section class="mod" id="m-gut" data-mod="gut" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Body systems</p><h2>Gut, bladder &amp; MCAS</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Follow a journey from the oesophagus to the bladder. At each stop: what clinics report in people with hypermobile EDS, how often, and how sure the evidence is. Then weigh the studies on mast cell activation syndrome for yourself.</p></div>
+  <p class="banner"><b>In plain words</b>These are associations seen in clinics, not features everyone with EDS has. Many people with hypermobile EDS have no gut or bladder problems at all, and most numbers below come from specialist clinics, where people with the most symptoms are seen. [[Nelson2015Mayo,Fikree2015]]</p>
+  <div class="stepper" id="guSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls"><button class="btn" id="guCert" aria-pressed="false">Show certainty</button><span class="legend"><span><span class="ev est">Established</span></span><span><span class="ev early">Early evidence</span></span></span></div>
+      <div class="scroll"><svg id="guSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A front view of the torso with the oesophagus, stomach, small bowel, colon, rectum, pelvic floor and bladder. A marker travels down the gut and stops at each organ; a panel beside it shows the reported association, a prevalence figure that counts up, a comparison bar where a control group exists, and an evidence label. A certainty switch recolours each organ by its evidence level."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="guPlay">Play</button><label class="stage-cap tl" for="guT">Journey <input type="range" id="guT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Schematic anatomy, not to scale. Figures come from clinic and referral cohorts and one meta-analysis; older studies used the labels "joint hypermobility syndrome" or "EDS hypermobility type". Why the gut is affected is still uncertain. [[Nelson2015Mayo,Fikree2015,Mohammed2010,VeitRubin2016,Mastoroudes2013,Beckers2017]]</p>
+    </div>
+    <aside class="note" id="guNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Stop by stop: the evidence table</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Association</th><th>Reported figures</th><th>Study type</th><th>Label</th></tr></thead>
+    <tbody>
+      <tr><th>Reflux, heartburn, dysphagia</th><td>Heartburn 37.6% (EDS, Mayo); dysphagia 32%, eosinophilic oesophagitis 21% (children and young adults); heartburn OR 1.66 with undiagnosed JHS in a GI clinic [[Nelson2015Mayo,Sood2024,Fikree2014]]</td><td>Retrospective clinic cohorts; one consecutive clinic series</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Abnormal gastric emptying</th><td>22.3% of those tested (11.8% delayed, 10.5% accelerated); delayed in 12 of 17 with upper GI symptoms [[Nelson2015Mayo,Zarate2010]]</td><td>Tertiary clinic testing, selected patients</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Functional GI disorders (IBS, dyspepsia)</th><td>JHS 39.0% in functional vs 27.5% in organic GI disease (aOR 1.51); IBS-like symptoms 27.5% (Mayo) [[Fikree2015,Nelson2015Mayo]]</td><td>Controlled clinic comparison; large hEDS/HSD cohort clusters [[Choudhary2025]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><th>Constipation, slow transit</th><td>Constipation 38.6% (adults, Mayo) to 61% (children and young adults); colonic transit abnormal 28.3% of those tested [[Nelson2015Mayo,Sood2024]]</td><td>Retrospective clinic cohorts</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Rectal evacuatory dysfunction</th><td>Hypermobility 32% of patients vs 14% of controls; confirmed in 18 of 30 on manometry [[Mohammed2010,Nelson2015Mayo]]</td><td>Case-control; clinic cohort; AGA 2025 guidance [[Aziz2025]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><th>Pelvic organ prolapse</th><td>Pooled OR 2.37 (95% CI 1.54–3.64), I² 77% [[VeitRubin2016]]</td><td>Meta-analysis of 14 studies, six at high risk of bias</td><td><span class="ev est">Established</span></td></tr>
+      <tr><th>Urinary incontinence</th><td>73.3% vs 48.3% of matched controls (60 women) [[Mastoroudes2013]]</td><td>Single case-control study</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Mast cell activation syndrome</th><td>No reliable frequency; no controlled study using consensus criteria [[Vernino2021,Kucharik2020]]</td><td>Coded records, reviews, one negative genetic study</td><td><span class="ev hyp">Hypothesis</span> to <span class="ev early">Early evidence</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="cards">
+    <div class="card"><span class="tag accent">What the gut specialists advise</span><h4>AGA 2025, in brief</h4><ul><li>Test for functional defecation disorders in hEDS/HSD with lower GI symptoms.</li><li>Timely gastric-function testing when POTS and chronic upper GI symptoms occur together.</li><li>Consider coeliac testing earlier; routine disaccharidase testing is not supported.</li></ul><p>[[Aziz2025]]</p></div>
+    <div class="card"><span class="tag warn">Eating and nutrition</span><h4>When food becomes hard</h4><p>In 680 people with hEDS/HSD, 62.1% had changed their diet in the past year, and 31.7% of those needed nutrition support. A positive screen for ARFID-type fear of eating predicted it (OR 4.97). [[Topan2024]]</p></div>
+    <div class="card"><span class="tag">Links</span><h4>The POTS overlap</h4><p>The cluster with functional foregut disorders plus IBS had more anxiety, depression, POTS and autonomic symptoms than the others. The heart-rate side of that overlap is in 3.4. [[Choudhary2025]]</p><div class="ctrls"><button class="btn" data-go="autonomic">3.4 POTS &amp; the autonomic link</button></div></div>
+  </div>
+
+  <h3 class="sub">MCAS: weigh the evidence</h3>
+  <p class="prose">Mast cell activation syndrome (MCAS) is often mentioned with hEDS and POTS as a "triad". The published picture is unsettled: supportive reviews propose a mechanism, critics find the evidence inadequate, and gut specialists advise targeted, not universal, testing. Each square below is an original study, sized by its number of participants. Reviews and guidance interpret data but add no participants, so they hang as tags. [[Kucharik2020,Monaco2022,Aziz2025]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls"><button class="btn" id="guRv" aria-pressed="false">Show reviews &amp; guidance</button></div>
+      <div class="scroll"><svg id="guScaleSvg" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="A balance scale. On the left pan, studies reporting a link: Wang 2021 with 195 people and Lyons 2016 with 35 families. On the right pan, studies finding no link: Vazquez 2022 with 266 people and Valdez 2026, whose numbers could not be checked. The beam is nearly level. Optional tags show reviews and guidance on each side."></svg></div>
+      <div class="chips" id="guWts" role="group" aria-label="Choose a study or review"></div>
+      <p class="stage-cap">Square size reflects participants only, not study quality or design. Lyons 2016 counted families, not individuals. [[Wang2021AAP,Lyons2016,Vazquez2022]]</p>
+    </div>
+    <aside class="note" id="guScaleNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="ev hyp">Hypothesis</span><span class="ev early" style="align-self:flex-start">Early evidence</span><h4>The plain verdict</h4><p>No controlled study using consensus MCAS criteria has shown that MCAS is more common in hEDS. The NIH POTS consensus says accurate data on how often MCAS occurs in POTS are not available. [[Kucharik2020,Aziz2025,Vazquez2022,Vernino2021]]</p></div>
+    <div class="card"><span class="tag">Tryptase genetics</span><h4>Hereditary alpha-tryptasemia</h4><p>Extra copies of the TPSAB1 gene raise baseline tryptase and were first linked to dysautonomia, IBS-like symptoms and hypermobility. When people with HSD, hEDS and axial hypermobility were genotyped, it was no more common than in the general population. [[Lyons2016,Vazquez2022]]</p></div>
+    <div class="card"><span class="tag accent">How it is tested</span><h4>Targeted, with a strict lab rule</h4><p>The AGA reserves mast-cell testing for episodic symptoms in 2 or more organ systems. The AAAAI framed MCAS criteria to avoid "overdiagnosing the disorder in patients who likely have other conditions". Medicines used for mast-cell symptoms are covered, with their evidence labels, in 4.2. [[Aziz2025,Weiler2019JACI]]</p><div class="ctrls"><button class="btn" data-go="meds">4.2 Medicines</button></div></div>
+  </div>
+  <div class="stage">
+    <p class="kicker">Try the consensus "20% + 2" rule</p>
+    <p>The consensus criterion for confirming mast cell activation is an event-related rise in serum tryptase of at least 20% plus 2 ng/mL over the person's own baseline. A teaching example only. [[Valent2019IAAI,Aziz2025]]</p>
+    <div class="gutry"><label for="guTry">Baseline tryptase (ng/mL)<input type="number" id="guTry" min="0" max="200" step="0.1" value="5"></label><div id="guTryOut" aria-live="polite"></div></div>
+  </div>
 </section>
