@@ -1,5 +1,118 @@
-<!-- ================= 2.2 THE 2017 HEDS CRITERIA (stub, replaced by its builder) ================= -->
+<!-- ================= 2.2 THE 2017 HEDS CRITERIA ================= -->
+<style>
+#m-criteria .cr-list{display:flex;flex-direction:column;gap:14px}
+#m-criteria fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 14px 12px;margin:0;min-width:0}
+#m-criteria legend{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dx);padding:0 6px}
+#m-criteria .cr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:4px 14px}
+#m-criteria .cr-ck{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.35;padding:4px 0;cursor:pointer}
+#m-criteria .cr-ck input{margin-top:3px;width:17px;height:17px;flex:none;accent-color:var(--dx)}
+#m-criteria .cr-ck small{display:block;color:var(--muted);font-size:12.5px}
+#m-criteria .cr-count{font:600 12px var(--mono);color:var(--muted);margin-top:6px}
+#m-criteria .cr-count b{color:var(--ink)}
+#m-criteria select{font:inherit;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%;width:100%}
+#m-criteria .cr-miss{display:none;margin-top:3px;font-size:12.5px;color:var(--warn);background:var(--warn-soft);border-radius:7px;padding:4px 8px}
+#m-criteria.cr-show .cr-miss{display:block}
+#m-criteria .cr-vig{background:var(--panel-2);border-radius:10px;padding:10px 12px;font-size:14.5px}
+#m-criteria .cr-vig b:first-child{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+#m-criteria .cr-gates{display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+#m-criteria .cr-gates div{display:flex;gap:8px;align-items:baseline}
+#m-criteria .card>.ev,#m-criteria .card>.tag{align-self:flex-start}
+#m-criteria td small{color:var(--muted)}
+</style>
 <section class="mod" id="m-criteria" data-mod="criteria" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>The 2017 hEDS criteria</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Hypermobile EDS is the only one of the 13 types without a known gene, so it is diagnosed with a clinical checklist: three criteria, all of which must be met. Follow one illustrative person through the three gates, then try the checklist on worked examples.</p></div>
+  <p class="banner" role="note"><b>A teaching tool, not self-diagnosis</b>The checklist below shows how the published rules fit together. Only a clinician who examines a person and excludes other conditions can apply them. The 2017 criteria are also being revised: the Ehlers-Danlos Society has announced new criteria for late 2026, but until a revision is published, the 2017 criteria remain the published standard. [[Malfait2017,Fairweather2025]]</p>
+  <div class="stepper" id="crSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="crSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A zebra token travels along a path through three gates. Gate 1, generalised joint hypermobility, opens when a Beighton bar fills past the age cut-off. Gate 2 opens when two of features A, B and C are met; feature A is a grid of 12 items that fills to the 5 needed. Gate 3 opens when three exclusions are confirmed. Side exits show where a person would be described as having hypermobility spectrum disorder, or referred for genetic testing for another type."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="crPlay">Play</button><label class="stage-cap tl" for="crT">Gate <input type="range" id="crT" min="0" max="1" step="0.001" value="0.12"></label></div>
+      <div class="readout" id="crRead"></div>
+      <p class="stage-cap">One illustrative adult. Item wording summarised from open reproductions of the 2017 criteria. [[Thwaites2022,Fairweather2025,Malfait2017]]</p>
+    </div>
+    <aside class="note" id="crNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: the checklist on worked examples</h3>
+  <p class="callout">Pick a fictional case to load its findings, or choose free mode and tick items yourself. The panel reports which gates pass under the 2017 wording. It never says "you have": the findings here are made up, and in real life each item needs a clinician to examine, measure and exclude. [[Fairweather2025,Thwaites2022]]</p>
+  <div class="ctrls" role="group" aria-label="Worked example" id="crCases"><span class="kicker">Example</span>
+    <button class="btn" data-crcase="heds" aria-pressed="true">Ana, 26</button>
+    <button class="btn" data-crcase="hsd" aria-pressed="false">Sam, 31</button>
+    <button class="btn" data-crcase="gen" aria-pressed="false">Leo, 22</button>
+    <button class="btn" data-crcase="free" aria-pressed="false">Free mode</button>
+    <button class="btn ghost" id="crMiss" aria-pressed="false">Show where students go wrong</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="cr-vig" id="crVig"></div>
+      <div class="cr-list">
+        <fieldset><legend>Criterion 1 · generalised joint hypermobility</legend>
+          <label for="crC1" class="sr">Criterion 1 finding</label>
+          <select id="crC1">
+            <option value="met">Beighton score at or above the age cut-off (≥6 / ≥5 / ≥4)</option>
+            <option value="pq">One point below the cut-off, and 5PQ has 2 or more "yes"</option>
+            <option value="no">Below the cut-off (and the 5PQ rule does not apply)</option>
+          </select>
+          <p class="cr-miss">The cut-off depends on age: 6 or more before puberty, 5 or more from puberty to 50, 4 or more over 50. Children should not be diagnosed with hEDS before biological maturity. [[Tofts2023,Fairweather2025]]</p>
+        </fieldset>
+        <fieldset><legend>Feature A · systemic signs (need 5 of 12)</legend>
+          <div class="cr-grid" id="crA"></div>
+          <p class="cr-count" id="crACount"></p>
+          <p class="cr-miss">Several items have conditions: striae only at set sites and without significant weight change; prolapse only in children, men or women who have never given birth; scars at 2 or more sites and not paper-thin or haemosiderotic. [[Fairweather2025,Thwaites2022]]</p>
+        </fieldset>
+        <fieldset><legend>Feature B · family history</legend>
+          <label class="cr-ck"><input type="checkbox" id="crB"><span>At least one first-degree relative who independently meets the current hEDS criteria</span></label>
+          <p class="cr-miss">"Mum is bendy too" is not Feature B: the relative must independently meet the current criteria. [[Fairweather2025,Thwaites2022]]</p>
+        </fieldset>
+        <fieldset><legend>Feature C · musculoskeletal complications (need 1)</legend>
+          <div class="cr-grid" id="crC"></div>
+          <p class="cr-miss">"Recurrent" has a definition: 3 or more atraumatic dislocations of one joint, 2 or more in two different joints at different times, or medically confirmed instability at 2 or more sites. [[Fairweather2025]]</p>
+        </fieldset>
+        <fieldset><legend>Criterion 3 · exclusions (need all 3)</legend>
+          <div class="cr-grid" id="cr3"></div>
+          <label class="cr-ck" style="margin-top:6px"><input type="checkbox" id="crAI"><span>An acquired autoimmune connective tissue disease is present<small>for example lupus or rheumatoid arthritis</small></span></label>
+          <p class="cr-miss">With an autoimmune rheumatological condition, hEDS needs Features A and B; Feature C cannot be counted. [[Fairweather2025,Thwaites2022]]</p>
+        </fieldset>
+      </div>
+      <div class="scroll"><svg id="crCalcSvg" viewBox="0 0 720 110" style="min-width:560px" role="img" aria-label="Three gates in a row, each shown open or closed for the findings ticked in the checklist."></svg></div>
+    </div>
+    <aside class="note" id="crCalcNote" aria-live="polite"></aside>
+  </div>
+
+  <div id="crMissList" hidden>
+    <h3 class="sub">Where students go wrong</h3>
+    <div class="cards" style="margin-top:14px">
+      <div class="card"><span class="tag warn">Misreading 1</span><h4>"A high Beighton score means hEDS"</h4><p>Generalised joint hypermobility is only Criterion 1. All three criteria must be met, and hypermobility on its own is common and is not a disease. [[Fairweather2025,Castori2017]]</p></div>
+      <div class="card"><span class="tag warn">Misreading 2</span><h4>"Soft skin and stretch marks are enough for Feature A"</h4><p>Feature A needs at least 5 of its 12 items, and Criterion 2 needs two of Features A, B and C. [[Fairweather2025,Thwaites2022]]</p></div>
+      <div class="card"><span class="tag warn">Misreading 3</span><h4>"Widespread pain points to hEDS"</h4><p>Chronic widespread pain is one Feature C item, so pain alone cannot separate hEDS from fibromyalgia; the skin, systemic and family-history features carry the distinction. Since 2016, fibromyalgia can be diagnosed alongside another condition. [[Thwaites2022,Fairweather2025,Wolfe2016]]</p></div>
+      <div class="card"><span class="tag warn">Misreading 4</span><h4>"Fragile skin makes hEDS more likely"</h4><p>The reverse: unusual skin fragility is an exclusion in Criterion 3 and should prompt consideration of other EDS types, which are confirmed by genetic testing. [[Fairweather2025,Malfait2017]]</p></div>
+      <div class="card"><span class="tag warn">Misreading 5</span><h4>"A normal gene panel rules hEDS out"</h4><p>No gene is known for hEDS, so no genetic test can confirm it. Testing is used to exclude other conditions "as indicated". [[Yew2021,Gensemer2021,Fairweather2025]]</p></div>
+      <div class="card"><span class="tag warn">Misreading 6</span><h4>"Not hEDS means nothing is wrong"</h4><p>Symptomatic joint hypermobility that does not meet the hEDS criteria is described as a hypermobility spectrum disorder. See <a href="#hsd" data-go="hsd">hEDS or HSD?</a> [[Castori2017]]</p></div>
+    </div>
+  </div>
+
+  <h3 class="sub">The three criteria, item by item</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Part</th><th>What the 2017 criteria require (summarised)</th><th>Details and qualifiers</th></tr></thead>
+    <tbody>
+      <tr><th>Overall</th><td>Criterion 1, Criterion 2 and Criterion 3 must all be met. [[Fairweather2025,Malfait2017]]</td><td>For every other type, a definite diagnosis "relies on molecular confirmation"; hEDS has no known gene. [[Malfait2017,Malfait2020]]</td></tr>
+      <tr><th>Criterion 1</th><td>Generalised joint hypermobility on the Beighton score: ≥6 prepubertal children and adolescents, ≥5 pubertal men and women up to 50, ≥4 over 50. [[Tofts2023,Fairweather2025,Thwaites2022]]</td><td>Also met when the score is one point below the cut-off and the five-part questionnaire has 2 or more "yes" answers. [[Thwaites2022]] See <a href="#beighton" data-go="beighton">Beighton score</a>.</td></tr>
+      <tr><th>Criterion 2</th><td>Two or more of Features A, B and C. [[Thwaites2022,Fairweather2025]]</td><td>—</td></tr>
+      <tr><th>Feature A</th><td>At least 5 of 12: soft or velvety skin; mild skin hyperextensibility; unexplained striae; bilateral piezogenic papules of the heel; recurrent or multiple abdominal hernias; atrophic scarring at 2 or more sites; pelvic floor, rectal or uterine prolapse; dental crowding with a high or narrow palate; arachnodactyly; arm span-to-height ratio ≥1.05; mitral valve prolapse; aortic root dilatation with Z-score above +2. [[Fairweather2025,Thwaites2022]]</td><td>Mild skin hyperextensibility: over 1.5 cm at the distal forearm or back of the hand, over 3 cm at the neck, elbow or knee, over 1 cm on the palm. Arachnodactyly: positive wrist or thumb sign on both sides. Mitral valve prolapse "mild or greater based on strict echocardiographic criteria". [[Thwaites2022,Fairweather2025]]</td></tr>
+      <tr><th>Feature B</th><td>A positive family history: one or more first-degree relatives who independently meet the current hEDS criteria. [[Fairweather2025,Thwaites2022]]</td><td>—</td></tr>
+      <tr><th>Feature C</th><td>At least one: musculoskeletal pain in two or more limbs, recurring daily for 3 months or more; chronic widespread pain for 3 months or more; recurrent joint dislocations or frank joint instability without trauma. [[Fairweather2025,Thwaites2022]]</td><td>Recurrent: 3 or more atraumatic dislocations in the same joint, or 2 or more in two different joints at different times, or medically confirmed instability at 2 or more sites. [[Fairweather2025]]</td></tr>
+      <tr><th>Criterion 3</th><td>All of: no unusual skin fragility; other heritable and acquired connective tissue disorders excluded, including autoimmune rheumatological conditions; alternative diagnoses causing hypermobility through hypotonia or tissue laxity excluded. [[Fairweather2025,Thwaites2022]]</td><td>Named examples: neuromuscular disorders (myopathic EDS, Bethlem myopathy), other heritable connective tissue disorders (other EDS types, Loeys-Dietz, Marfan) and skeletal dysplasias (osteogenesis imperfecta). With an acquired autoimmune disease, Features A and B are needed and C cannot count. [[Fairweather2025,Thwaites2022]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">How the criteria perform, and the criticisms</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Swiss cohort</span><h4>Which part separates the groups?</h4><p>In 97 adults with symptomatic hypermobility (61 hEDS, 36 HSD), Criterion 1 was met by 90% vs 71%, Feature B by 93% vs 33%, Feature C by 98% vs 75%, and Feature A by 18% vs 0%. The median Beighton score was 7 in both groups. [[AubryRozier2021]]</p></div>
+    <div class="card"><span class="tag dx">US clinic</span><h4>Most people assessed get another label</h4><p>Of 2,695 adults at the Mayo Clinic Florida EDS clinic, the 2017 criteria gave HSD in 60.6%, hEDS in 18.3%, localised or historical HSD in 10.7%, and none of these in 10.4%. [[Fairweather2025]]</p></div>
+    <div class="card"><span class="tag warn">A gap</span><h4>Inter-rater agreement is unknown</h4><p>No study of inter-rater agreement for the full 2017 checklist was found by this guide's research pass. Published reliability data cover only the Beighton score and the five-part questionnaire, and a COSMIN review rated those studies "fair" or "poor". [[Juul-Kristensen2017,Bockhorn2021]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>"Too stringent"</h4><p>The 2017 criteria have been criticised as too stringent and as missing the multisystem picture. An Italian centre that re-examined 327 patients proposes loosening them, and a 2026 review calls them inadequate for the clinical variety of hEDS/HSD. [[Ritelli2024,Motlak2026]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Are the boundaries real?</h4><p>Severity clusters in 105 Italian adults "do not mirror either the old or new criteria". Heel piezogenic papules were seen in 76% of adolescents with HSD/hEDS and 60% of controls, so their diagnostic value is not established. [[Copetti2019,Schubert-Hjalmarsson2026]]</p></div>
+    <div class="card"><span class="tag dx">The wait</span><h4>Years to a diagnosis</h4><p>In a global survey, people with hEDS reported an average delay of 22.1 years and people with HSD 17.5 years (self-report). Of one registry's respondents, 95.2% rated getting a diagnosis as important or highly important. [[Daylor2025,Wang2024AJMG]]</p></div>
+  </div>
 </section>

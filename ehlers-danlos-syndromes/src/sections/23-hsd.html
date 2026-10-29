@@ -1,5 +1,76 @@
-<!-- ================= 2.3 HEDS OR HSD? (stub, replaced by its builder) ================= -->
+<!-- ================= 2.3 HEDS OR HSD? ================= -->
+<style>
+#m-hsd .hs-sort{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+#m-hsd .hs-sort .card p.v{font-size:15px}
+#m-hsd .hs-sort .ctrls .btn{font-size:13px;padding:7px 11px}
+#m-hsd .hs-sort .hs-sub{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-hsd .hs-fb{font-size:14px;border-radius:10px;padding:9px 11px}
+#m-hsd .hs-fb.ok{background:var(--good-soft)} #m-hsd .hs-fb.ok b:first-child{color:var(--good)}
+#m-hsd .hs-fb.bad{background:var(--bad-soft)} #m-hsd .hs-fb.bad b:first-child{color:var(--bad)}
+#m-hsd .hs-fb.mid{background:var(--warn-soft)} #m-hsd .hs-fb.mid b:first-child{color:var(--warn)}
+#m-hsd .hs-score{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+#m-hsd .card>.ev,#m-hsd .card>.tag{align-self:flex-start}
+#m-hsd .hs-plain{border-left:4px solid var(--dx)}
+</style>
 <section class="mod" id="m-hsd" data-mod="hsd" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>hEDS or HSD?</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Joint hypermobility, hypermobility spectrum disorders and hypermobile EDS sit on one spectrum, and a person can move between them. Walk one illustrative person through the map, flip the overlay to see what changes in care, then sort eight cases yourself.</p></div>
+  <div class="stepper" id="hsSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hsSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A map of nested regions. Inside joint hypermobility, a descriptor, sit asymptomatic joint hypermobility, hypermobility spectrum disorder with four subtypes (generalised, peripheral, localised, historical) and hypermobile EDS. A separate region holds joint hypermobility as part of other syndromes, such as the other EDS types, which are confirmed by genetic testing. One illustrative person moves from asymptomatic hypermobility to generalised HSD and then to hEDS. A management overlay shows that HSD and hEDS share the same core approach."></svg></div>
+      <div class="ctrls" role="group" aria-label="Overlay"><span class="kicker">Overlay</span>
+        <button class="btn" data-hsview="label" aria-pressed="true">Label</button>
+        <button class="btn" data-hsview="care" aria-pressed="false">Management</button></div>
+      <div class="ctrls"><button class="btn primary" id="hsPlay">Play</button><label class="stage-cap tl" for="hsT">Life <input type="range" id="hsT" min="0" max="1" step="0.001" value="0.12"></label></div>
+      <div class="readout" id="hsRead"></div>
+      <p class="stage-cap">Maya is fictional. Region names follow the 2017 framework for joint hypermobility. [[Castori2017,Carroll2023]]</p>
+    </div>
+    <aside class="note" id="hsNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="card hs-plain"><span class="tag dx">In plain words</span><h4>HSD is not a lesser diagnosis</h4><p>If you have troublesome flexible joints but do not meet every hEDS rule, the diagnosis is usually hypermobility spectrum disorder, and HSD can be just as hard to live with. In a Swiss centre, hEDS and HSD differed on only 3 of 16 severity items, and at a US clinic people with HSD reported more symptoms above controls than people with hEDS did. [[Castori2017,AubryRozier2021,Fairweather2025]]</p></div>
+
+  <h3 class="sub">Sort the cases</h3>
+  <p class="callout">Eight fictional people. Choose where each one fits under the 2017 framework; for HSD, pick the subtype too. Each answer explains the published rule behind it. This is practice in reading criteria, not a way to label yourself. [[Castori2017,Carroll2023,Fairweather2025]]</p>
+  <div class="hs-score"><span class="kicker">Sorted correctly</span><span class="big-num" id="hsScore" style="font-size:30px">0 / 8</span><button class="btn ghost" id="hsReset">Start again</button></div>
+  <div class="hs-sort" id="hsCards"></div>
+
+  <h3 class="sub">Who ends up with which label?</h3>
+  <div class="ctrls" role="group" aria-label="Clinic" id="hsCoBtns"><span class="kicker">Clinic</span>
+    <button class="btn" data-hsco="mayo" aria-pressed="true">US adult EDS clinic</button>
+    <button class="btn" data-hsco="swiss" aria-pressed="false">Swiss reference centre</button>
+    <button class="btn" data-hsco="spain" aria-pressed="false">Spanish paediatric genetics clinic</button></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hsCoSvg" viewBox="0 0 720 150" style="min-width:560px" role="img" aria-label="A stacked bar showing the share of people assessed at the chosen clinic who received each diagnosis."></svg></div>
+      <p class="stage-cap">Shares of people assessed at referral centres: they describe who is referred, not the general population.</p>
+    </div>
+    <aside class="note" id="hsCoNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">HSD and hEDS side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Hypermobility spectrum disorder (HSD)</th><th>Hypermobile EDS (hEDS)</th></tr></thead>
+    <tbody>
+      <tr><th>Definition</th><td>Joint hypermobility plus at least one secondary musculoskeletal manifestation (trauma, chronic pain, disturbed proprioception, or traits such as flat feet or mild scoliosis), not fitting another syndrome. [[Carroll2023,Castori2017]]</td><td>All three 2017 criteria: generalised hypermobility, two of Features A, B and C, and exclusion of other causes. [[Fairweather2025,Malfait2017]]</td></tr>
+      <tr><th>Hypermobility needed</th><td>Any pattern: generalised, peripheral (hands and feet), localised (single joints or groups) or historical (5PQ positive, Beighton negative). [[Carroll2023]]</td><td>Generalised, on the age-adjusted Beighton cut-off, or one point short with a positive 5PQ. [[Thwaites2022,Tofts2023]]</td></tr>
+      <tr><th>Family history</th><td>Not required. [[Carroll2023]]</td><td>Feature B: a first-degree relative who independently meets the criteria (one of the three features). [[Fairweather2025]]</td></tr>
+      <tr><th>Systemic features</th><td>Not required; arachnodactyly, a span ratio of 1.05 or more, soft skin, skin stretch, papules, atrophic scars, mitral valve prolapse or aortic root dilatation point toward a heritable connective tissue disorder. [[Carroll2023]]</td><td>Feature A: at least 5 of 12 systemic signs (one of the three features). [[Fairweather2025,Thwaites2022]]</td></tr>
+      <tr><th>Gene test</th><td>None exists. In a Spanish paediatric cohort no clear candidate variant was found in children compatible with hEDS/HSD. [[FozFelipe2025]]</td><td>None exists: hEDS is the only type without a known gene. [[Malfait2017,Yew2021]]</td></tr>
+      <tr><th>Share at clinics</th><td>60.6% of 2,695 adults at a US EDS clinic (plus 10.7% localised or historical HSD). [[Fairweather2025]]</td><td>18.3% at the same clinic; 61 of 97 at a Swiss centre. [[Fairweather2025,AubryRozier2021]]</td></tr>
+      <tr><th>Symptom burden</th><td>Reported more symptoms and conditions above controls (58 of 100 items); more "functional" conditions such as irritable bowel syndrome. [[Fairweather2025]]</td><td>20 of 100 items above controls; more "structural" conditions such as prolapses. Pain, movement problems and bleeding scored higher in the Swiss cohort. [[Fairweather2025,AubryRozier2021]]</td></tr>
+      <tr><th>Outcome evidence</th><td>Improved after coordinated physiotherapy: 50%. [[AubryRozier2021]]</td><td>Improved after coordinated physiotherapy: 56% (no significant difference; only family history predicted a good outcome). [[AubryRozier2021]]</td></tr>
+      <tr><th>Reported diagnostic delay</th><td>17.5 years on average (self-report, global survey). [[Daylor2025]]</td><td>22.1 years on average (self-report, same survey). [[Daylor2025]]</td></tr>
+      <tr><th>Coding</th><td>No specific ICD-10 code; one clinic uses M35.7 (hypermobility syndrome). [[Fairweather2025]]</td><td>The same clinic uses Q79.62. [[Fairweather2025]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">One condition or two?</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>The case for one spectrum</h4><p>Bone parameters, neuropathic pain scores and suspected mast cell symptoms were alike in hEDS and HSD. Skin fibroblasts showed the same extracellular-matrix pattern, and a shared plasma pattern of matrix fragments has been reported; the authors argue for a single entity. [[AubryRozier2021,Coussens2023,Ritelli2022,Ritelli2025]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>The case for a difference</h4><p>In a US clinic analysis of 2,088 patients, conditions more frequent in hEDS were "structural" (such as prolapses) and those more frequent in HSD "functional" (such as irritable bowel syndrome). [[Fairweather2025]]</p></div>
+    <div class="card"><span class="tag dx">Children</span><h4>Labels that are meant to change</h4><p>The paediatric working group proposes not diagnosing hEDS before biological maturity. Its framework has 8 subgroups, and a child can move back to typical, to asymptomatic hypermobility, or on to paediatric generalised HSD as signs change. [[Tofts2023]]</p></div>
+    <div class="card"><span class="tag warn">Under review</span><h4>The boundary may move</h4><p>Some centres propose loosening the 2017 hEDS criteria so that more people now classed as HSD would qualify, and a new international revision has been announced. Until it is published, the 2017 framework applies. [[Ritelli2024,Castori2017]]</p></div>
+  </div>
 </section>
