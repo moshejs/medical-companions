@@ -1,5 +1,64 @@
-<!-- ================= 1.3 THE 13 TYPES (2017) (stub, replaced by its builder) ================= -->
+<!-- ================= 1.3 THE 13 TYPES (2017) ================= -->
+<style>
+#m-types .seg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-types .cmp label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700}
+#m-types .cmp select{font:inherit;font-weight:400;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%}
+#m-types .cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 16px;max-width:620px}
+#m-types .tycard .kv dd{font-size:14.5px}
+#m-types .tycard h4{font-size:22px}
+#m-types .tycard .tags{display:flex;flex-wrap:wrap;gap:6px}
+#m-types .tbl.all table{min-width:820px}
+#m-types .tbl.all td:nth-child(2){font-family:var(--mono);font-size:12.5px}
+#m-types .tbl.all th button{background:none;border:0;padding:0;font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer;display:inline-flex;gap:4px;align-items:center}
+#m-types .tbl.all th button::after{content:"↕";opacity:.5}
+#m-types .tbl.all th[aria-sort="ascending"] button::after{content:"↑";opacity:1}
+#m-types .tbl.all th[aria-sort="descending"] button::after{content:"↓";opacity:1}
+#m-types .tbl.all tr.post td,#m-types .tbl.all tr.post th{background:var(--panel-2)}
+#m-types .fcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+#m-types .fc{display:block;width:100%;padding:0;border:0;background:none;text-align:left;font:inherit;color:inherit;min-height:200px}
+#m-types .fc .face{padding:18px}
+#m-types .fc .front p{font-size:clamp(19px,2.4vw,23px)}
+#m-types .fc .back p{font-size:15px;line-height:1.5}
+#m-types #tyLeg i{width:12px;height:12px;border-radius:3px}
+</style>
 <section class="mod" id="m-types" data-mod="types" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · The syndromes</p><h2>The 13 types (2017)</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">The 2017 International Classification names 13 types of Ehlers-Danlos syndrome and groups them by the pathway their proteins work in. Twelve need a genetic test to confirm them; hypermobile EDS has no known gene and is a clinical diagnosis. Build the map group by group. [[Malfait2017]]</p></div>
+  <div class="seg" role="group" aria-label="Colour the types by">
+    <span class="kicker">Colour by</span>
+    <button class="btn" data-tycol="inh" aria-pressed="true">Inheritance</button>
+    <button class="btn" data-tycol="tis" aria-pressed="false">Main tissue affected</button>
+  </div>
+  <div class="stepper" id="tySteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="tySvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A classification map: one root, Ehlers-Danlos syndromes 2017, branches into seven pathway groups, filled in one group at a time. Each leaf shows a type's abbreviation, its gene or genes and whether it is dominant or recessive. All leaves except hypermobile EDS carry a mark meaning molecular confirmation is required; hypermobile EDS has a dashed outline because no gene is known."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="tyPlay">Play</button><label class="stage-cap tl" for="tyT">Group <input type="range" id="tyT" min="0" max="1" step="0.001" value="1"></label></div>
+      <div class="legend" id="tyLeg"></div>
+      <p class="stage-cap">✓ = a definite diagnosis needs the causative variant(s). Dashed outline = no gene known (hEDS) or added after 2017 (classical-like type 2). Spondylodysplastic EDS appears twice because its three genes sit in two pathways. "Main tissue" is a simplification: most types affect several. [[Malfait2017,Malfait2020]]</p>
+    </div>
+    <aside class="note" id="tyNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Compare two types</h3>
+  <div class="cmp">
+    <label for="tyA">First type <select id="tyA"></select></label>
+    <label for="tyB">Second type <select id="tyB"></select></label>
+  </div>
+  <div class="split2" id="tyCmp"></div>
+  <p class="stage-cap">Major criteria are quoted as restated by van Dijk and colleagues from the 2017 classification. The full minor criteria and the "minimal criteria suggestive" of each type are in the 2017 paper and are not reproduced here. The criteria are for specialists; they are not a self-test. [[VanDijk2024,Malfait2017]]</p>
+
+  <h3 class="sub">All the types in one table</h3>
+  <div class="tbl all" id="tyTbl"></div>
+  <p class="stage-cap">Frequencies differ in kind: some are population estimates, some are counts of people reported in the literature, and rare-type figures are probably too low. Shaded row: described after 2017. Sort by any column. [[VanDijk2024,Malfait2020]]</p>
+
+  <h3 class="sub">Old names, new names</h3>
+  <p class="prose">EDS has been classified three times. The Berlin nosology (agreed 1986, published 1988) numbered 11 types with Roman numerals. The Villefranche nosology (1997, published 1998) named 6 types, mainly by cause. The 2017 classification has 13, and a 2020 primer counts 14 with classical-like type 2. Tap a card to see the new name. [[Beighton1988,Forghani2019,Beighton1998,Malfait2017,Malfait2020]]</p>
+  <div class="fcs" id="tyFlip"></div>
+
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>hEDS is not the same as HSD</h4><p>People with symptomatic joint hypermobility who do not meet the criteria for hEDS or another syndrome are diagnosed with hypermobility spectrum disorder. The 2017 hEDS criteria are aimed at adults. [[Castori2017,VanDijk2024]] See <a href="#hsd" data-go="hsd">hEDS or HSD?</a></p></div>
+    <div class="card"><span class="tag warn">Debated</span><h4>Are the 2017 hEDS criteria too strict?</h4><p>An Italian reference centre that re-assessed 327 people from 213 families argued the criteria should be relaxed. A shared plasma pattern of matrix fragments in hEDS and HSD has been proposed as evidence they are one disorder (early evidence). [[Ritelli2024,Ritelli2025]]</p></div>
+    <div class="card"><span class="tag warn">Proposed</span><h4>A missing type?</h4><p>COL1-related overlap disorder (21 people from 13 families with COL1A1 or COL1A2 variants) fits neither osteogenesis imperfecta nor the three COL1-related EDS types. It was proposed in 2020 but is not in the 2017 classification. [[Morlino2020,Venable2023]]</p></div>
+  </div>
 </section>

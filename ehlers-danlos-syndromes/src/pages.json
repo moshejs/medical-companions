@@ -1,1 +1,106 @@
-{}
+{
+ "what": {
+  "title": "What is Ehlers-Danlos syndrome? 13 types, how common, the zebra",
+  "description": "The Ehlers-Danlos syndromes animated: the 13 types of 2017, prevalence by type, who is diagnosed and how late, why the zebra, and what EDS is not."
+ },
+ "collagen": {
+  "title": "Collagen in EDS: gene to fibril, and the step each type breaks",
+  "description": "How collagen is built: Gly-X-Y chains, triple helix, propeptide cutting, 67 nm fibrils and cross-links, animated, with the step each EDS type disrupts."
+ },
+ "types": {
+  "title": "The 13 types of Ehlers-Danlos syndrome (2017): genes and inheritance",
+  "description": "The 2017 EDS classification as an animated map: 13 types by pathway, genes, dominant or recessive, major criteria, a type comparator and old-to-new names."
+ },
+ "genes": {
+  "title": "EDS inheritance and genetic testing: pedigrees, odds and results",
+  "description": "How EDS runs in families: animated dominant, recessive and hEDS pedigrees with Punnett odds, de novo variants, cascade testing and what test results mean."
+ },
+ "beighton": {
+  "title": "Beighton score calculator: 9-point hypermobility test explained",
+  "description": "Animated Beighton score: the five manoeuvres, 2017 age-adjusted cut-offs (6, 5, 4), five-part questionnaire, reliability and how common high scores are."
+ },
+ "criteria": {
+  "title": "2017 hEDS criteria: interactive checklist for hypermobile EDS",
+  "description": "The 2017 hypermobile EDS criteria animated: Beighton cut-offs, Feature A's 12 signs, family history, pain and exclusions, with worked cases and pitfalls."
+ },
+ "hsd": {
+  "title": "hEDS vs HSD: hypermobility spectrum disorder subtypes explained",
+  "description": "How hypermobility spectrum disorder differs from hypermobile EDS: the four HSD subtypes, a case-sorting game, clinic data and why care is largely shared."
+ },
+ "differential": {
+  "title": "EDS differential diagnosis: Marfan, Loeys-Dietz and vEDS red flags",
+  "description": "How EDS differs from Marfan, Loeys-Dietz, OI, cutis laxa, Stickler and fibromyalgia: a feature matrix, vascular red flags and a teaching test pathway."
+ },
+ "joints": {
+  "title": "EDS joints: subluxation, dislocation and hypermobile joint instability",
+  "description": "Animated shoulder, knee, kneecap and finger under load: why lax tissue subluxes and dislocates in EDS and HSD, plus a cited body map of where joints give way."
+ },
+ "pain": {
+  "title": "EDS pain and fatigue: phases, mechanisms and pacing in hEDS and HSD",
+  "description": "How pain and fatigue change from childhood to later life in hypermobile EDS, the four pain mechanisms with evidence labels, pacing, and cited prevalence data."
+ },
+ "skin": {
+  "title": "EDS skin: stretchy skin, atrophic scars and bruising by type",
+  "description": "Animated skin test for classical, vascular and hypermobile EDS: the 1.5 cm cut-off, atrophic scars, easy bruising, published wound care and a matching quiz."
+ },
+ "autonomic": {
+  "title": "POTS and EDS: tilt-table test, thresholds and the hEDS link",
+  "description": "How POTS is defined (a heart-rate rise of 30 bpm, 40 in teens), an animated tilt-table test, a stand-test teaching tool and the evidence linking it to hEDS."
+ },
+ "gut": {
+  "title": "EDS gut, bladder and MCAS: what the evidence shows",
+  "description": "Reflux, gastric emptying, IBS, constipation, prolapse and bladder symptoms in hypermobile EDS, evidence-labelled, and a balanced look at the MCAS debate."
+ },
+ "vascular": {
+  "title": "Vascular EDS (vEDS): COL3A1, artery rupture, survival and celiprolol",
+  "description": "Vascular EDS explained: how COL3A1 weakens artery walls, risk of rupture by age and variant, emergency card, surveillance, pregnancy and the celiprolol trial."
+ },
+ "physio": {
+  "title": "EDS physiotherapy and exercise: what the trials show",
+  "description": "Exercise for hEDS and HSD: a published 16-week strength programme animated, pacing vs boom-bust, every trial compared, and safe-activity advice by EDS type."
+ },
+ "meds": {
+  "title": "EDS medicines: pain, POTS and celiprolol for vascular EDS",
+  "description": "Treatment ladders for EDS pain, POTS and vascular EDS with evidence levels, the celiprolol BBEST and ARCADE trials person by person, and doses as published."
+ },
+ "surgery": {
+  "title": "EDS surgery and anaesthesia: airway, positioning, local anaesthetics",
+  "description": "Surgery in Ehlers-Danlos syndromes by type: airway, positioning, lines, bleeding, wound closure, vEDS precautions, local anaesthetic response and dental care."
+ },
+ "frontier": {
+  "title": "EDS research: hEDS genes, criteria revision and vEDS trials",
+  "description": "Timeline of EDS research since 2017: the HEDGE gene study, KLK15, vascular EDS trials such as DiSCOVER, mouse studies, and how to read research claims."
+ },
+ "living": {
+  "title": "Living with EDS: school, work, sport by type and mental health",
+  "description": "Life with Ehlers-Danlos syndromes from school to parenthood: published supports, sport advice for hEDS, cEDS and vEDS, diagnostic delay and peer support."
+ },
+ "pregnancy": {
+  "title": "EDS and pregnancy: risks by type, vascular EDS and inheritance odds",
+  "description": "Pregnancy with hEDS, classical or vascular EDS week by week: published risks, planning steps, conflicting data and the 50% or 25% odds of passing EDS on."
+ },
+ "nursing": {
+  "title": "Nursing care in Ehlers-Danlos syndromes: ward guide and care plan",
+  "description": "EDS nursing from admission to discharge: skin and tape, BP cuffs, positioning, local anaesthetic, active stand observations and vascular EDS emergencies."
+ },
+ "history": {
+  "title": "History of Ehlers-Danlos syndrome: Ehlers, Danlos, Beighton to 2017",
+  "description": "A timeline you can scrub from 1892 to today: Ehlers and Danlos, the Beighton score, the Berlin, Villefranche and 2017 classifications, and who did what."
+ },
+ "review": {
+  "title": "EDS flashcards and mnemonics: Beighton, hEDS criteria and vEDS",
+  "description": "89 cited flashcards on the Ehlers-Danlos syndromes, 10 mnemonics and an animated Beighton score: collagen, the 13 types, hEDS criteria, POTS and vEDS."
+ },
+ "quiz": {
+  "title": "Ehlers-Danlos syndromes quiz: 97 questions with cited answers",
+  "description": "Multiple-choice EDS quiz with cited explanations: collagen, 13 types, Beighton and 2017 hEDS criteria, HSD, POTS, vascular EDS, treatment and case vignettes."
+ },
+ "glossary": {
+  "title": "EDS glossary: collagen, the 13 types, hEDS criteria and POTS terms",
+  "description": "Searchable glossary of 156 Ehlers-Danlos syndromes terms, from ADAMTS-2 and COL3A1 to Feature A, G-HSD, the tryptase 20% + 2 rule and celiprolol."
+ },
+ "sources": {
+  "title": "EDS Companion sources: validated references by research area",
+  "description": "Every reference behind the EDS Companion, filterable by eight research areas and searchable, each tagged with the database that validated it."
+ }
+}

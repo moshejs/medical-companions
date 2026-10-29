@@ -1,5 +1,77 @@
-<!-- ================= 1.4 INHERITANCE & GENETIC TESTING (stub, replaced by its builder) ================= -->
+<!-- ================= 1.4 INHERITANCE & GENETIC TESTING ================= -->
+<style>
+#m-genes .seg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-genes .seg .kicker.gap{margin-left:10px}
+#m-genes .card .ev{align-self:flex-start}
+#m-genes .tbl table{min-width:560px}
+</style>
 <section class="mod" id="m-genes" data-mod="genes" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · The syndromes</p><h2>Inheritance &amp; genetic testing</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">How EDS passes through a family, and what a genetic test can and cannot tell you. Pick a pattern, then follow one illustrative family across three generations. [[Byers2025GeneReviews,Malfait2024GeneReviews,Hakim2024GeneReviews]]</p></div>
+  <div class="seg" role="group" aria-label="Inheritance pattern">
+    <span class="kicker">Pattern</span>
+    <button class="btn" data-gemode="ad" aria-pressed="true">Dominant (vEDS, cEDS)</button>
+    <button class="btn" data-gemode="ar" aria-pressed="false">Recessive (kEDS, dEDS, spEDS)</button>
+    <button class="btn" data-gemode="h" aria-pressed="false">hEDS (no gene known)</button>
+    <button class="btn ghost" id="geReroll">Draw the children again</button>
+  </div>
+  <div class="stepper" id="geSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="geSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A three-generation family tree, squares for males and circles for females, filled when affected and half-shaded for carriers. Beside it, the two parents each pass on one of their two gene copies, a two-by-two Punnett square fills in with the chance for each child, the grandchildren appear, and relatives are offered testing."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gePlay">Play</button><label class="stage-cap tl" for="geT">Step <input type="range" id="geT" min="0" max="1" step="0.001" value="0.5"></label></div>
+      <div class="readout" id="geRead"></div>
+      <p class="stage-cap">One illustrative family. The odds apply to each child separately: a family can have more or fewer affected children than the odds suggest. Squares = male, circles = female, filled = affected, half-shaded = carrier, arrow = the first person diagnosed. [[Byers2025GeneReviews,RohrbachGR-kEDS]]</p>
+    </div>
+    <aside class="note" id="geNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What a genetic test can tell you</h3>
+  <p class="prose">A teaching map, not a decision aid: the choice to test belongs to a genetics team. Gene-panel testing by massively parallel sequencing is the current standard for confirming the monogenic types, and careful clinical assessment decides what to test and how to read the result. [[VanDijk2024]]</p>
+  <div class="seg" role="group" aria-label="Starting point">
+    <span class="kicker">Starting point</span>
+    <button class="btn" data-gep="a" aria-pressed="true">Signs of vEDS, cEDS or a rare type</button>
+    <button class="btn" data-gep="b" aria-pressed="false">A typical hEDS picture</button>
+    <button class="btn" data-gep="c" aria-pressed="false">A relative has a known variant</button>
+  </div>
+  <div class="seg" role="group" aria-label="Test result">
+    <span class="kicker">Result</span>
+    <button class="btn" data-ger="p" aria-pressed="true">Pathogenic</button>
+    <button class="btn" data-ger="v" aria-pressed="false">Uncertain (VUS)</button>
+    <button class="btn" data-ger="n" aria-pressed="false">Negative</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="geTree" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A decision tree. From the question of who is being assessed, three branches lead to a gene panel, to the 2017 clinical criteria for hypermobile EDS, or to a targeted test for a family's known variant. Test branches end in three possible results: pathogenic, a variant of uncertain significance, or negative. The chosen path is highlighted."></svg></div>
+      <p class="stage-cap">Teaching tool only. Yields come from single studies and reflect who was referred to them. [[Weerakkody2016,Forghani2025]]</p>
+    </div>
+    <aside class="note" id="geTreeNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Vascular EDS: the kind of variant matters</h3>
+  <p class="prose">In vascular EDS, the type of COL3A1 variant is linked to how early complications tend to start. The squares are the 126 variants found in 215 people in a French cohort; the bars are median ages at first major event by class in a Dutch cohort of 142 people. Both are group statistics, not predictions for one person. [[Frank2015,Demirdas2024]]</p>
+  <div class="seg" role="group" aria-label="Variant class">
+    <span class="kicker">Highlight</span>
+    <button class="btn" data-gecl="all" aria-pressed="true">All</button>
+    <button class="btn" data-gecl="gly" aria-pressed="false">Glycine substitution</button>
+    <button class="btn" data-gecl="spl" aria-pressed="false">Splice / in-frame</button>
+    <button class="btn" data-gecl="hap" aria-pressed="false">Null (haploinsufficient)</button>
+    <button class="btn" data-gecl="oth" aria-pressed="false">Other missense / terminal</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="geIcons" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="An icon array of 126 COL3A1 variants coloured by class: 71 glycine substitutions, 36 splice-site or in-frame changes, 7 null variants, 4 other missense changes in the helix and 8 changes at the ends. Beside it, bars show median age at first major event with interquartile ranges: 30 years for splice and in-frame variants, 40.5 for glycine substitutions and 53 for null variants."></svg></div>
+      <p class="stage-cap">Variant groups differ slightly between the two studies; the bars use the Dutch study's three classes. [[Frank2015,Demirdas2024]]</p>
+    </div>
+    <aside class="note" id="geIconNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">For families</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Genetic counselling</span><h4>A negative family history does not rule out vEDS</h4><p>About half of people with vEDS have an affected parent; in the other half the variant is new, in the person or in an apparently unaffected parent with mosaicism. About 60% of people diagnosed before 18 are found through family history. [[Byers2025GeneReviews]] In a London cohort of 63 diagnosed in childhood, 55% were found through family testing, and the authors recommend offering childhood testing when there is a family history. [[Wilkinson2025]]</p></div>
+    <div class="card"><span class="tag accent">Testing relatives</span><h4>Cascade testing</h4><p>For vEDS, evaluating first-degree relatives is appropriate: it starts clinically and, even without clinical signs, goes on to testing for the family's known COL3A1 variant. [[Byers2025GeneReviews]] A vEDS review lists cascade testing as part of lifelong management, with pregnancy and psychosocial care. [[Corrao2026]]</p></div>
+    <div class="card"><span class="tag accent">Having children</span><h4>Prenatal and preimplantation options</h4><p>Once a family's variant is known, prenatal and preimplantation genetic testing are possible for vEDS and cEDS. They are not possible for hEDS, because no gene is known. [[Byers2025GeneReviews,Malfait2024GeneReviews,Hakim2024GeneReviews]] The UK Human Fertilisation and Embryology Authority has approved vEDS for preimplantation genetic diagnosis. [[Angwin2023H]] More in <a href="#pregnancy" data-go="pregnancy">Pregnancy &amp; parenthood</a>.</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>The hEDS gene search</h4><p>The cause of hEDS is unknown. One group found KLK15 variants enriched in 200 people with hEDS; this has not been replicated and is not a clinical test. The common MTHFR variants were not enriched, so online claims of an "hEDS gene" test are not supported. [[Malfait2020,Gensemer2025KLK15]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Results can change</h4><p>Variant interpretation is revised as evidence grows. COL3A1 glutamic acid-to-lysine variants were reclassified from uncertain to pathogenic in seven families, and a COL1A1 arginine-to-cysteine variant had been wrongly called uncertain. [[Ghali2019GenetMed,Venable2023]]</p></div>
+  </div>
 </section>
