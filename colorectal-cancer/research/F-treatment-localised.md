@@ -12,7 +12,7 @@ Access notes:
   - The ATOMIC trial (atezolizumab + FOLFOX, stage III dMMR colon) is now published: NEJM 2026 (Sinicrope2026).
 - Hohenberger's complete mesocolic excision paper is Colorectal Dis 2009 (PMID 19016817). The record is dated 2009 although it was e-published in 2008.
 - The ESMO localised-colon (2020) and rectal (2017) guidelines have no PubMed abstract and I could not read the full text, so I did not cite them. The NCCN rectal 2022 JNCCN summary is cited only for what its abstract says.
-- The current JEMPERLI label (effective 2025-09-02) has no indication for localised dMMR rectal cancer. I found no FDA approval for that use in openFDA. Nonoperative dostarlimab therefore remains investigational, in NCT04165772 (still recruiting).
+- Update U-2026-10-29: the JEMPERLI label (version 15, effective 2026-10-19) now includes dostarlimab alone for stage II/III MSI-H/dMMR locally advanced rectal cancer under accelerated approval, based on AZUR-1 [[FDA-Jemperli,Cercek2026]]. The earlier label (effective 2025-09-02) had no such indication.
 - Shared keys used and checked: Grothey2018 (PMID 29590544), Cercek2022 (35660797), Tie2022 (35657320), Dekker2019 (31631858).
 
 ## Findings
@@ -154,6 +154,7 @@ Access notes:
   - Pathological response 98%, major response 95%, complete response 68%.
   - No recurrences at median 26 months (Early evidence) [[Chalabi2024]].
 - ATOMIC (712 patients with resected stage III dMMR colon cancer): 3-year disease-free survival was 86.3% with atezolizumab + mFOLFOX6 vs 76.2% with mFOLFOX6 alone (HR 0.50; 95% CI 0.35–0.73). Grade 3–4 adverse events were 84.1% vs 71.9% [[Sinicrope2026]].
+- IROCAS (Bennouna 2026; 795 patients with resected pT4 and/or pN2 stage III colon cancer; mFOLFIRINOX vs mFOLFOX6 for 12 cycles; median follow-up 55 months): 3-year disease-free survival 65.6% vs 66.3% (HR 1.07, 95% CI 0.84–1.36; P=0.61). 3-year OS 91.2% vs 86.7% (HR 0.85, 0.61–1.21; immature). Grade ≥3 adverse events 62.2% vs 62.1%; grade ≥3 diarrhoea 15.6% vs 3.8%; G-CSF use 37.8% vs 19.1%. Triplet intensification did not improve DFS (Established) [[Bennouna2026]].
 
 ### chemo · Label doses and boxed warnings (quoted, not instructions)
 - Oxaliplatin (FOLFOX4 schedule, every 14 days):
@@ -236,7 +237,8 @@ Access notes:
   - 37 had a sustained cCR of at least 12 months, meeting the efficacy criterion [[Cercek2025]].
 - Cercek 2025 rectal cohort (n=50): 2-year recurrence-free survival was 96% (95% CI 90–100) at median follow-up of 30.2 months (full text). Across all 117 patients it was 92% [[Cercek2025]].
 - Across both Cercek 2025 cohorts, 84 of 103 who completed treatment had a cCR and 82 avoided surgery. Ninety-five percent had only grade 1–2 adverse events or none [[Cercek2025]].
-- Regulatory status: the JEMPERLI US label (effective 2025-09-02) is indicated for endometrial cancer and for "dMMR recurrent or advanced solid tumors" after prior treatment (accelerated approval). It has no localised rectal cancer indication. The MSKCC trial is still recruiting (estimated 212 patients) [[FDA-Jemperli,NCT04165772]].
+- AZUR-1 (Cercek 2026; global single-arm registrational trial, NCT05723562; dostarlimab 500 mg every 3 weeks for 9 cycles, untreated stage II/III dMMR/MSI-H locally advanced rectal cancer; 154 enrolled, median follow-up 26.3 months): of 144 with ≥12 months' follow-up, 68% had a clinical complete response sustained for 12 months (investigator-assessed). pCR in 12/15 (80%) who had surgery after dostarlimab alone; cCR12 + pCR 76%. No recurrences reported in patients with cCR or pCR. Grade ≥3 immune-mediated adverse events in 4 (3%) (Early evidence: interim analysis) [[Cercek2026]].
+- Regulatory status (updated U-2026-10-29): the JEMPERLI US label (version 15, effective 2026-10-19) adds indication 1.2, dostarlimab as a single agent for adults with stage II/III MSI-H or dMMR locally advanced rectal cancer, 500 mg every 3 weeks for 9 cycles. "This indication is approved under accelerated approval based on sustained clinical complete response for 12 months." "The long-term risk of relapse is unknown" [[FDA-Jemperli]].
 
 ### Exam hooks
 - TME = sharp dissection removing the rectum with its intact mesorectal envelope. Heald's 1986 series reported 5-year corrected survival of 87%, with no staple-line recurrences after curative surgery [[Heald1986]].
@@ -271,7 +273,7 @@ Access notes:
 - For rectal cancer, radiation and chemotherapy are often given before surgery to shrink the tumour and lower the chance it comes back in the pelvis [[Sauer2004,Bahadoer2021]].
 - Some people's rectal tumours disappear completely after treatment. In specialist centres they may be able to skip surgery and be checked very closely instead ("watch and wait") [[GarciaAguilar2022,vanderValk2018]].
 - With watch-and-wait, about 1 in 4 people see the tumour grow back, mostly in the first 2 years. It can usually still be removed then [[vanderValk2018,Verheij2024]].
-- A small group of rectal cancers (called dMMR) have responded completely to an immunotherapy drug in a trial. This is not yet an approved standard treatment [[Cercek2025,FDA-Jemperli]].
+- A small group of rectal cancers (called dMMR) have responded completely to an immunotherapy drug in trials. Since October 2026 it is approved in the US on an accelerated basis; how long the responses last over many years is not yet known [[Cercek2025,Cercek2026,FDA-Jemperli]].
 - Survival numbers in this section come from groups of people in studies. They cannot predict what will happen to one person.
 
 ## Numbers for the animations
@@ -363,7 +365,7 @@ Access notes:
   - Pooled phase 2 data show equal survival vs mandatory TME [[Williams2025]].
   - No randomised comparison exists. Status: offered in expert centres with intensive surveillance.
 - Neoadjuvant chemotherapy for colon cancer: FOxTROT improved 2-year disease control (rate ratio 0.72) but showed little benefit in dMMR [[Morton2023]]. Immunotherapy produced 68% pCR in dMMR colon cancer [[Chalabi2024]]. Status: neoadjuvant immunotherapy for dMMR colon is promising but non-randomised.
-- dMMR rectal cancer and PD-1 blockade: 49/49 cCR among those completing treatment, with 2-year RFS of 96% [[Cercek2025]]. Single-centre-led phase 2; not in the FDA label [[FDA-Jemperli]]. Status: Early evidence, with long-term durability unknown.
+- dMMR rectal cancer and PD-1 blockade: 49/49 cCR among those completing treatment, with 2-year RFS of 96% [[Cercek2025]]. The global AZUR-1 trial gave 68% sustained 12-month cCR, and the FDA granted accelerated approval in October 2026 [[Cercek2026,FDA-Jemperli]]. Status: Early evidence, with long-term durability unknown.
 - ctDNA-guided adjuvant therapy: DYNAMIC halved chemotherapy use without worse 2-year RFS in stage II [[Tie2022]]. Status: Early evidence; stage III trials are pending.
 
 ## Sources
@@ -435,7 +437,9 @@ Access notes:
 - [FDA-Xeloda] XELODA (capecitabine) tablets, US prescribing information (H2-Pharma, LLC). openFDA drug label, set_id e702d84d-7162-4751-bf37-d724cc7e45a5, effective 2026-02-05. (validated: openFDA)
 - [FDA-Oxaliplatin] Oxaliplatin injection USP, US prescribing information (Shandong New Time Pharmaceutical Co., Ltd.). openFDA drug label, set_id 1ac38523-480b-4c0f-97a1-7dfa1432923c, effective 2026-04-14. (validated: openFDA)
 - [FDA-Fluorouracil] Fluorouracil injection, US prescribing information (Eugia US LLC). openFDA drug label, set_id 199ef964-8a9b-403e-a2ae-759280b3d1d1, effective 2026-01-19. (validated: openFDA)
-- [FDA-Jemperli] JEMPERLI (dostarlimab-gxly) injection, US prescribing information (GlaxoSmithKline LLC). openFDA drug label, set_id 095eab9f-545a-4f12-bfb7-19477fb901a5, effective 2025-09-02. (validated: openFDA)
+- [FDA-Jemperli] JEMPERLI (dostarlimab-gxly) injection, US prescribing information (GlaxoSmithKline LLC). DailyMed SPL set id 095eab9f-545a-4f12-bfb7-19477fb901a5, version 15, effective 2026-10-19 (published 2026-10-23). (validated: DailyMed, 2026-10-29; replaces the 2025-09-02 openFDA label)
+- [Cercek2026] Cercek A, Bachet JB, Folprecht G, Bando H, Seligmann J, Starling N, et al. Clinical Complete Response with Dostarlimab Monotherapy in dMMR/MSI-H Locally Advanced Rectal Cancer: First Results from the Global AZUR-1 Trial. Ann Oncol. 2026 (online ahead of print 25 Oct 2026). PMID 42927858; doi:10.1016/j.annonc.2026.10.1280. (validated: PubMed, 2026-10-29)
+- [Bennouna2026] Bennouna J, André T, Martin E, Cremolini C, Gill S, Asmis T, et al. A randomised phase III trial of adjuvant treatment intensification with mFOLFIRINOX versus mFOLFOX6 in high-risk stage III colon cancer: Results of the international IROCAS study. Ann Oncol. 2026 (online ahead of print 25 Oct 2026). PMID 42927853; doi:10.1016/j.annonc.2026.10.104. (validated: PubMed, 2026-10-29)
 - [NCT04165772] Memorial Sloan Kettering Cancer Center. A Phase II Study of Induction PD-1 Blockade in Subjects With Locally Advanced Mismatch Repair Deficient Solid Tumors. ClinicalTrials.gov NCT04165772; start 2019-12-11; status recruiting; estimated enrollment 212. (validated: ClinicalTrials.gov)
 
 ## Provenance

@@ -67,7 +67,7 @@ const MT_RX=[
   lab:`Lumakras label: 960 mg once daily with panitumumab after fluoropyrimidine, oxaliplatin and irinotecan (label wording). [[FDA-Lumakras]]`},
  {l:3,p:['g12c'],n:'Adagrasib + cetuximab',tr:'KRYSTAL-1',k:'Response 34.0%',
   r:`Response 46% in the first 28 patients and 34.0% in 94; PFS 6.9 and OS 15.9 months (single arm). Adagrasib alone: 19%. [[Yaeger2023,Yaeger2024]]`,
-  lab:`Krazati label: with cetuximab after fluoropyrimidine, oxaliplatin and irinotecan; accelerated approval based on response rate and duration of response. [[FDA-Krazati]]`},
+  lab:`Krazati label: the colorectal accelerated-approval indication was removed in August 2026; the US label now covers lung cancer only. [[FDA-Krazati]]`},
  {l:3,p:['msi'],n:'Nivolumab alone (if no checkpoint inhibitor yet)',tr:'Opdivo label',k:'labelled after 3 chemotherapy drugs',
   r:`The label covers nivolumab alone after progression on a fluoropyrimidine, oxaliplatin and irinotecan; in CheckMate 8HW the combination beat nivolumab alone. [[FDA-Opdivo,Andre2025]]`,lab:''},
  {l:3,p:MT_ALL,n:'Regorafenib',tr:'CORRECT',k:'OS 6.4 vs 5.0 months',
