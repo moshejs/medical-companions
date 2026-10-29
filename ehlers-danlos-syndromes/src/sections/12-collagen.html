@@ -1,5 +1,110 @@
-<!-- ================= 1.2 COLLAGEN, GENE TO FIBRIL (stub, replaced by its builder) ================= -->
+<!-- ================= 1.2 COLLAGEN, GENE TO FIBRIL ================= -->
+<style>
+#m-collagen .seg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-collagen .seg .kicker{margin-right:2px}
+#m-collagen .seg .kicker.gap{margin-left:10px}
+#m-collagen .covar{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+#m-collagen .covar b.vl{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--variant);display:block;margin-bottom:2px}
+#m-collagen .mx table{min-width:760px;font-size:14px}
+#m-collagen .mx th,#m-collagen .mx td{padding:6px 8px;vertical-align:middle}
+#m-collagen .mx thead th{font-size:10px;line-height:1.25;text-align:center;letter-spacing:.06em}
+#m-collagen .mx thead th:first-child{text-align:left}
+#m-collagen .mx td{text-align:center}
+#m-collagen .mx tbody th button{background:none;border:1px solid transparent;border-radius:8px;padding:4px 6px;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:1px;width:100%}
+#m-collagen .mx tbody th button b{font-size:14px}
+#m-collagen .mx tbody th button small{font:500 11px var(--mono);color:var(--muted);font-weight:500}
+#m-collagen .mx tbody th button:hover,#m-collagen .mx td button:hover{border-color:var(--muted)}
+#m-collagen .mx td button{width:34px;height:30px;border-radius:8px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-size:15px;line-height:1;color:var(--ink)}
+#m-collagen .mx td button.p{background:var(--brand-soft);font-weight:700}
+#m-collagen .mx td button[aria-pressed="true"],#m-collagen .mx tbody th button[aria-pressed="true"]{border-color:var(--variant);box-shadow:0 0 0 2px var(--variant) inset}
+#m-collagen .mx tr.hl th,#m-collagen .mx tr.hl td{background:var(--accent-soft)}
+#m-collagen .mx td.none{font-size:13px;color:var(--muted);text-align:left;font-style:italic}
+#m-collagen .mx .inh{font:600 10px var(--mono);letter-spacing:.06em;padding:2px 5px;border-radius:4px;background:var(--panel-2);color:var(--muted);margin-left:4px}
+#m-collagen .mxwrap{display:flex;flex-direction:column;gap:14px}
+#m-collagen #coMxOut{min-height:120px}
+#m-collagen #coMxOut .tags{display:flex;flex-wrap:wrap;gap:6px}
+#m-collagen .card .ev{align-self:flex-start}
+#m-collagen .tbl.enz table{min-width:620px}
+#m-collagen .tbl.enz td:nth-child(2){font-family:var(--mono);font-size:13px}
+</style>
 <section class="mod" id="m-collagen" data-mod="collagen" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · The syndromes</p><h2>Collagen, gene to fibril</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Collagen is the body's main "rope" protein: about a third of all protein, and about three-quarters of the dry weight of skin. Follow one collagen molecule from its gene to a cross-linked fibril, then switch on an EDS type to see which step it breaks. [[Shoulders2009,Malfait2020]]</p></div>
+
+  <div class="seg" role="group" aria-label="Which variant the animation shows">
+    <span class="kicker">Show</span>
+    <button class="btn" data-cov="n" aria-pressed="true">Typical</button>
+    <button class="btn" data-cov="c" aria-pressed="false">Classical (cEDS)</button>
+    <button class="btn" data-cov="v" aria-pressed="false">Vascular (vEDS)</button>
+    <button class="btn" data-cov="a" aria-pressed="false">Arthrochalasia (aEDS)</button>
+    <button class="btn" data-cov="d" aria-pressed="false">Dermatosparaxis (dEDS)</button>
+    <button class="btn" data-cov="k" aria-pressed="false">Kyphoscoliotic (kEDS, PLOD1)</button>
+  </div>
+  <div class="seg" role="group" aria-label="Which collagen gene step 1 shows">
+    <span class="kicker">Gene</span>
+    <button class="btn" data-cog="1" aria-pressed="true">COL1A1 · type I</button>
+    <button class="btn" data-cog="3" aria-pressed="false">COL3A1 · type III</button>
+    <button class="btn" data-cog="5" aria-pressed="false">COL5A1 · type V</button>
+  </div>
+  <div class="stepper" id="coSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A strip from the nucleus to the matrix outside the cell shows where each of six steps happens. Below it, the current step is animated: a collagen gene's two copies are read into messenger RNA; three pro-alpha chains are made with glycine at every third bead; prolines and lysines are hydroxylated and the chains wind into a triple helix from the C-end; the molecule leaves the cell and enzymes cut off both end propeptides; molecules pack in a quarter-staggered fibril with 67 nanometre banding; and cross-links and fibril width are set. Choosing an EDS type marks the faulty step in orange."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="coPlay">Play</button><label class="stage-cap tl" for="coT">Step <input type="range" id="coT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="readout" id="coRead"></div>
+      <p class="stage-cap">Schematic, not to scale: bead counts, molecule lengths, fibril sizes and cross-sections are drawn to show the idea, not measured. Orange marks a fault. [[Shoulders2009,Hulmes2002]]</p>
+    </div>
+    <aside class="note" id="coNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Which step breaks in each type</h3>
+  <p class="prose">The 2017 classification groups the types by the pathway their proteins work in. Most known EDS genes encode collagen I, III or V, an enzyme that modifies or processes them, or an enzyme that builds the sugar chains of proteoglycans. Pick a type (row) or a dot: the animation jumps to that step, and the strip at its top rings the place in orange. [[Malfait2017,Malfait2020]]</p>
+  <div class="mxwrap">
+    <div class="tbl mx" id="coMx"></div>
+    <aside class="note" id="coMxOut" aria-live="polite"></aside>
+  </div>
+  <p class="stage-cap">● main step · ○ also involved. Inheritance: AD autosomal dominant, AR autosomal recessive. Classical-like EDS type 2 (AEBP1) was described in 2018, after the 2017 classification. [[Blackburn2018,Malfait2020]] Each type in full: <a href="#types" data-go="types">The 13 types</a>; how they pass in families: <a href="#genes" data-go="genes">Inheritance &amp; genetic testing</a>.</p>
+
+  <h3 class="sub">Two ways one changed gene copy can harm</h3>
+  <div class="split2">
+    <div class="card">
+      <span class="tag accent">Haploinsufficiency</span>
+      <h4>Too little of a normal protein</h4>
+      <p>One copy makes nothing usable (a "null allele"), so the cell has about half the normal amount. About one-third of people with classical EDS have COL5A1 haploinsufficiency, and most COL5A1 variants in a 126-person series created a null allele. [[Wenstrup2000,Symoens2012]]</p>
+      <p>In vascular EDS, COL3A1 null alleles act through reduced protein, not through faulty molecules built into fibrils. In 54 people from 19 families, the first complication came almost 15 years later than with missense or exon-skipping variants, and only 28% of relatives had a complication. [[Schwarze2001,Leistritz2011]]</p>
+    </div>
+    <div class="card">
+      <span class="tag bad">Dominant negative</span>
+      <h4>A faulty chain spoils the molecule it joins</h4>
+      <p>A changed chain is still made and is built into molecules alongside normal chains, so the fault spreads beyond its own share. In a Dutch cohort of 142 people with vEDS, 43 of 56 variants (76.8%) were predicted to act this way. [[Demirdas2024]]</p>
+      <p>Glycine substitutions were the commonest COL3A1 class in a French cohort (71 of 126 variants), and the replacing amino acids were biased toward those that most destabilise the helix. Glycine-substitution and splice-site variants were more severe than null variants. [[Frank2015]]</p>
+    </div>
+  </div>
+  <p class="stage-cap">Ages at first complication by variant class are cohort statistics, not predictions for one person. More in <a href="#vascular" data-go="vascular">Vascular EDS</a>. [[Demirdas2024,Pepin2014]]</p>
+
+  <h3 class="sub">The enzymes and helpers along the way</h3>
+  <div class="tbl enz"><table>
+    <thead><tr><th>Step</th><th>Protein (gene)</th><th>What it does</th><th>When it is missing</th></tr></thead>
+    <tbody>
+      <tr><th>3 · Modify</th><td>Prolyl 4-hydroxylase</td><td>Turns proline in the Y position into 4-hydroxyproline; sits in the ER as an α2β2 tetramer with protein disulfide isomerase as β. [[Shoulders2009,Myllyharju2003]]</td><td>Activity is needed for viability in model organisms. [[Shoulders2009]]</td></tr>
+      <tr><th>3 · Modify</th><td>Lysyl hydroxylase 1 (PLOD1)</td><td>Makes hydroxylysine, which carries sugars and is the precursor of strong cross-links. [[Yeowell2000,Yamauchi2012]]</td><td>Kyphoscoliotic EDS (AR); urinary LP/HP cross-link ratio about 6 against about 0.2 in controls. [[Yeowell2000,Giunta2008]]</td></tr>
+      <tr><th>3 · Fold</th><td>FKBP14</td><td>ER folding catalyst for type III collagen; also interacts with types VI and X. [[Giunta2018]]</td><td>Kyphoscoliotic EDS with normal urinary pyridinolines and often hearing loss; enlarged ER cisterns. [[Baumann2012]]</td></tr>
+      <tr><th>3 · Modify</th><td>ER zinc transporter (SLC39A13)</td><td>ER zinc supply; lysines and prolines are under-hydroxylated without it. [[Giunta2008]]</td><td>Spondylodysplastic EDS (AR); LP/HP ratio about 1. [[Giunta2008]]</td></tr>
+      <tr><th>4 · Cut N-end</th><td>Procollagen N-proteinase (ADAMTS2)</td><td>Removes the N-propeptide of type I and II procollagen, and of type III. [[Colige1999,VanDamme2016]]</td><td>Dermatosparaxis EDS (AR). [[Colige1999]]</td></tr>
+      <tr><th>4 · Cut C-end</th><td>Procollagen C-proteinase = BMP-1</td><td>Removes the C-propeptides of procollagens I, II and III. [[Kessler1996]]</td><td>Not one of the 13 EDS types.</td></tr>
+      <tr><th>5 · Assemble</th><td>Type V collagen (COL5A1, COL5A2)</td><td>Co-assembles with type I and controls when fibrils start. [[Wenstrup2004]]</td><td>Classical EDS (AD); mice with no α1(V) chain make virtually no fibrils. [[Symoens2012,Wenstrup2004]]</td></tr>
+      <tr><th>5 · Deposit</th><td>Tenascin-X (TNXB)</td><td>Regulates collagen deposition in the matrix. [[Mao2002]]</td><td>Classical-like EDS type 1 (AR). [[Schalkwijk2001]]</td></tr>
+      <tr><th>5 · Assemble</th><td>ACLP (AEBP1)</td><td>Binds fibrillar collagens and enhances their polymerisation. [[Blackburn2018]]</td><td>Classical-like EDS type 2 (AR). [[Blackburn2018]]</td></tr>
+      <tr><th>6 · Cross-link</th><td>Lysyl oxidase (LOX)</td><td>Oxidises specific lysines to an aldehyde so covalent cross-links can form; leaves the cell as proLOX. [[Lucero2006]]</td><td>Not one of the 13 EDS types.</td></tr>
+      <tr><th>6 · Bundle</th><td>Decorin's dermatan sulfate (CHST14, DSE)</td><td>Helps organise fibrils into bundles. [[Miyake2010]]</td><td>Musculocontractural EDS (AR): fibrils normal, bundles poorly formed. [[Miyake2010,Dundar2009,Muller2013]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">What this picture cannot show</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Hypermobile EDS has no known gene</h4><p>No genetic, epigenetic or metabolomic cause has been found, so hEDS cannot be placed on this pathway, and its diagnosis rests on the 2017 clinical criteria. [[Hakim2024GeneReviews,Malfait2020]] See <a href="#criteria" data-go="criteria">The 2017 hEDS criteria</a>.</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>KLK15, one group's lead</h4><p>Exome sequencing of 200 people with hEDS found rare KLK15 variants enriched against controls, and one variant segregated with hEDS in two families. It has not been independently replicated and is not a clinical test. The same study found no enrichment of the common MTHFR variants. [[Gensemer2025KLK15]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>A skin biopsy rarely names the type</h4><p>Electron microscopy shows "collagen flowers" in most genetically confirmed classical EDS, but in 177 biopsies no finding was specific to one type. Gene panels are now the standard way to confirm the monogenic types. [[Angwin2020C,VanDijk2024]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>No therapy repairs the pathway yet</h4><p>No specific medical or genetic therapy exists for any type of EDS. Care targets the tissues and the risks, as later modules explain. [[Malfait2020]] See <a href="#frontier" data-go="frontier">Toward better treatment</a>.</p></div>
+  </div>
 </section>
