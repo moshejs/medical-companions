@@ -1,5 +1,78 @@
-<!-- ================= 6.1 HISTORY & PEOPLE (stub, replaced by its builder) ================= -->
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<style>
+#m-history .seg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-history #hiYears{gap:5px}
+#m-history #hiYears .tag[aria-pressed="true"]{background:var(--brand);color:var(--on-brand)}
+#m-history .hiEvent{background:var(--panel-2);border-radius:10px;padding:10px 12px;font-size:15px;line-height:1.5}
+#m-history .hiEvent b{font-family:var(--display);font-weight:400;font-size:18px;margin-right:4px}
+#m-history .fcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+#m-history .fc{display:block;width:100%;padding:0;border:0;background:none;text-align:left;font:inherit;color:inherit;min-height:270px}
+#m-history .fc .face{padding:20px}
+#m-history .fc .front p{font-size:clamp(20px,2.4vw,24px)}
+#m-history .fc .front .yr{font:600 12px var(--mono);letter-spacing:.08em;color:var(--muted)}
+#m-history .fc .back p{font-size:15px;line-height:1.5}
+#m-history .fc .face small.flip{margin-top:auto}
+#m-history .tbl table{min-width:680px}
+#m-history .tbl td.gone{color:var(--muted);font-style:italic}
+#m-history .card .ev{align-self:flex-start}
+#m-history .zcard{display:flex;gap:14px;align-items:flex-start}
+#m-history .zcard svg{width:64px;height:64px;flex:none}
+</style>
 <section class="mod" id="m-history" data-mod="history" hidden>
   <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">From a Russian dermatologist's description in 1892 to the 13 types of 2017: the people who described, named, scored and classified the Ehlers-Danlos syndromes, and why the list of types shrank before it grew. [[Forghani2019,Malfait2017]]</p></div>
+  <div class="ctrls" role="group" aria-label="Type names">
+    <span class="kicker">Type names</span>
+    <button class="btn" data-hinames="now" aria-pressed="true">Now (2017 names)</button>
+    <button class="btn" data-hinames="then" aria-pressed="false">Then (names at the time)</button>
+  </div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A timeline from about 400 BC to today. A cursor moves along the years; each event lights up with its people, year and a small picture of what they described: scars, bruising and stretchy skin, a hyperextending joint for the Beighton score, collagen genes, and the lists of types. Below it a step line shows how many EDS types were recognised: 11 in the Berlin nosology of 1988, 6 at Villefranche in 1998, 13 in the 2017 International Classification and 14 in a 2020 primer."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Years <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <div class="chips" id="hiYears" role="group" aria-label="Jump to an event"></div>
+      <p class="hiEvent" id="hiEvent" aria-live="polite"></p>
+      <p class="stage-cap">Timeline schematic: the years before 1960 are compressed, and close events are spread a little so each can be picked. Type counts are the number of types each classification listed. [[Beighton1988,Beighton1998,Malfait2017,Malfait2020]]</p>
+    </div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Names then and now</h3>
+  <p class="prose">Each classification renamed the types. Berlin numbered them with Roman numerals, mainly by inheritance and clinical picture; Villefranche gave six of them descriptive names, mainly by cause; 2017 kept those names, added types defined by their genes and removed several conditions from EDS altogether. People who were diagnosed under an older system keep that diagnosis. [[Forghani2019,Beighton1998,Malfait2017,Malek2021,VanDijk2024]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Berlin 1986/1988 (examples)</th><th>Villefranche 1997/1998</th><th>2017 International Classification</th><th>Gene(s)</th></tr></thead>
+    <tbody>
+      <tr><th>I (gravis), II (mitis)</th><td>classical</td><td>classical EDS (cEDS)</td><td>COL5A1, COL5A2 [[Malek2021,Michalickova1998,Wenstrup2000,Symoens2012]]</td></tr>
+      <tr class="hl"><th>III (hypermobile)</th><td>hypermobility</td><td>hypermobile EDS (hEDS)</td><td>none known; a clinical diagnosis [[Malek2021,Tinkle2017,Malfait2020]]</td></tr>
+      <tr><th>IV (arterial-ecchymotic)</th><td>vascular</td><td>vascular EDS (vEDS)</td><td>COL3A1 [[Malek2021,Pepin2000,Byers2017]]</td></tr>
+      <tr><th>VI</th><td>kyphoscoliosis</td><td>kyphoscoliotic EDS (kEDS)</td><td>PLOD1; FKBP14 [[Yeowell2000,VanDijk2024]]</td></tr>
+      <tr><th>VII A and B (arthrochalasis)</th><td>arthrochalasia</td><td>arthrochalasia EDS (aEDS)</td><td>COL1A1, COL1A2, exon 6 [[Byers1997]]</td></tr>
+      <tr><th>VII C (dermatosparaxis)</th><td>dermatosparaxis</td><td>dermatosparaxis EDS (dEDS)</td><td>ADAMTS2 [[Colige1999]]</td></tr>
+      <tr><th>V (X-linked), IX (occipital horn syndrome), X (fibronectin-deficient), XI (familial hypermobility)</th><td class="gone">not listed</td><td class="gone">no longer classed as EDS</td><td>[[Malek2021]]</td></tr>
+      <tr><th class="gone">not among the examples</th><td class="gone">not listed</td><td>classical-like, cardiac-valvular, spondylodysplastic, musculocontractural, myopathic, periodontal, brittle cornea syndrome</td><td>each confirmed by its gene(s) [[Malfait2017,VanDijk2024]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">EDS type III (Berlin) = hypermobility type (Villefranche) = hEDS (2017). [[Malek2021]] The genes of every type are set out in <a href="#types" data-go="types">The 13 types</a>.</p>
+
+  <h3 class="sub">Who was who</h3>
+  <p class="prose">Six names that recur through the story. Tap a card to see one contribution each, as recorded in the published literature.</p>
+  <div class="fcs" id="hiWho"></div>
+
+  <h3 class="sub">Why the lists changed</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">1960s</span><h4>One syndrome became many</h4><p>In the 1960s it became clear that EDS was several disorders with different patterns of Mendelian inheritance, and classification began in the late 1960s. [[VanDijk2024,Beighton1998]]</p></div>
+    <div class="card"><span class="tag accent">1997</span><h4>Classifying by cause</h4><p>Villefranche cut eleven numbered types to six named ones, chosen mainly by cause, and gave major and minor criteria for each. Four Berlin types left EDS: the X-linked type, occipital horn syndrome, the fibronectin-deficient type and familial hypermobility. [[Beighton1998,Forghani2019,Malek2021]]</p></div>
+    <div class="card"><span class="tag accent">2017</span><h4>Two pressures for a new list</h4><p>After 1998, many new molecularly defined EDS variants were described, and there was concern that the hypermobile type had an expanded picture, might have several genetic causes and had inadequate criteria. The International Consortium met for about two years to write new criteria and management guidelines. [[Bloom2017]]</p></div>
+    <div class="card"><span class="tag accent">2017</span><h4>JHS and hEDS folded together</h4><p>Joint hypermobility syndrome (Brighton) and the hypermobility type (Villefranche) overlapped so much that the 2017 nosology folded them into hEDS, with hypermobility spectrum disorder (HSD) for people who do not meet the stricter criteria. See <a href="#hsd" data-go="hsd">hEDS or HSD?</a> [[Tinkle2017,Castori2017]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Are the 2017 criteria too strict?</h4><p>An Italian reference centre reassessed 327 people (213 families) diagnosed under Villefranche or Brighton and concluded that the 2017 criteria should be made less stringent. One genetics team finds adults rarely meet them when strictly applied, and the criteria are seen as unsuitable for children. The current state of the criteria is in <a href="#frontier" data-go="frontier">Toward better treatment</a>. [[Ritelli2024,VanDijk2024]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Will HEDGE find a gene?</h4><p>The HEDGE study, begun by the Ehlers-Danlos Society in 2018, aims to sequence the whole genomes of 1,000 adults who meet the 2017 hEDS criteria. Experts expect most people with hEDS will not have a single-gene cause, and no causal gene has been confirmed. [[Douglas2026,VanDijk2024,Forghani2025]]</p></div>
+  </div>
+
+  <h3 class="sub">The zebra</h3>
+  <div class="card zcard">
+    <svg viewBox="0 0 64 64" aria-hidden="true" id="hiZebra"></svg>
+    <div class="prose"><p>Medical students are taught "when you hear hoofbeats, think of horses, not zebras": the common explanation is usually right. People with rare diseases adopted the zebra to say that sometimes the rare diagnosis is the right one, and it became the EDS community's symbol. Meeting other people with EDS, often called zebras, helps many people feel less alone. [[Park2025,Bashe2025,Callen2025,Bennett2021]]</p>
+    <p>In 500 short rare-disease videos on social media, EDS was the condition named most often (7.8% of videos). More on the zebra is in <a href="#what" data-go="what">What EDS is</a>. [[Park2025]]</p></div>
+  </div>
 </section>

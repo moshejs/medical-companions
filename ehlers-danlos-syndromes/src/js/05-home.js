@@ -1,5 +1,5 @@
 /* =============== home: from one collagen chain to a working joint, with and without a variant =============== */
-const HERO_CAP=['Schematic, not to scale.','Schematic, not to scale: one faulty link shown in orange, followed through each step.'];
+const HERO_CAP=['Schematic, not to scale.','Schematic, not to scale: one faulty link shown in orange, followed through each step. In vascular EDS the most common kind of COL3A1 variant is a glycine substitution. [[Frank2015,Demirdas2024]]'];
 inits.home=()=>{
   const svg=$('#heroSvg'),rg=$('#heroT'),vb2=$('#heroVar'),cap=$('#heroCap');let vr=false;
   /* three stacked strip panels (chain, helix, fibril) read top to bottom, then a tall tissue panel on
