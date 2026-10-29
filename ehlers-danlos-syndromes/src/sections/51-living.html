@@ -1,5 +1,77 @@
-<!-- ================= 5.1 LIVING WITH EDS (stub, replaced by its builder) ================= -->
+<!-- ================= 5.1 LIVING WITH EDS ================= -->
+<style>
+#m-living .typebar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-living .cp-cards .card small{font:500 11.5px var(--mono);color:var(--muted)}
+#m-living .cp-cards .card .tag{align-self:flex-start}
+#m-living .cards .card>.ev,#m-living .cards .card>.tag{align-self:flex-start}
+#m-living .bignums{display:flex;flex-wrap:wrap;gap:10px 28px}
+#m-living .bignums div{display:flex;flex-direction:column;gap:2px;min-width:0}
+#m-living .bignums small{font-size:13px;color:var(--muted);max-width:26ch}
+</style>
 <section class="mod" id="m-living" data-mod="living" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living with EDS</p><h2>Living with EDS</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">One illustrative person, from school to parenthood: the supports the published sources describe at each stage, how sport and activity advice changes by type, and what surveys say about the long road to a diagnosis.</p></div>
+
+  <div class="typebar" role="group" aria-label="Type shown in the life-stage animation">
+    <span class="kicker">Type shown</span>
+    <button class="btn" data-lity="h" aria-pressed="true">hEDS / HSD</button>
+    <button class="btn" data-lity="c" aria-pressed="false">Classical EDS</button>
+    <button class="btn" data-lity="v" aria-pressed="false">Vascular EDS</button>
+  </div>
+  <div class="stepper" id="liSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="liSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="An illustrative person grows from a child at a school desk, to a teenager in PE, an adult at a workstation, a parent with a child, and a member of a peer-support network around the zebra emblem. At each stage, support icons appear one by one with short labels taken from the cited sources; sport and activity labels change with the type selected."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="liPlay">Play</button><label class="stage-cap tl" for="liT">Life stage <input type="range" id="liT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap"><b>Illustrative.</b> One imagined person, not a typical course, and not advice for anyone. The icons show supports and statistics from the cited sources; survey figures describe groups of respondents. [[Wesley2021,Hakim2024GeneReviews,Berg2026]]</p>
+    </div>
+    <aside class="note" id="liNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The diagnostic odyssey in numbers</h3>
+  <div class="prose"><p>Most of what is known about life with EDS comes from surveys and interviews of people who chose to take part. The figures below are what those groups reported, so they show the size of the problem rather than any one person's odds. [[Halverson2023,Wang2024AJMG,Berg2026,Daylor2025]]</p></div>
+  <div class="bignums">
+    <div><span class="big-num">10.39 y</span><small>mean time to an hEDS diagnosis, 505 people, Global Registry [[Halverson2023]]</small></div>
+    <div><span class="big-num">10.45</span><small>other diagnoses received on average before hEDS [[Halverson2023]]</small></div>
+    <div><span class="big-num">73%</span><small>of 43 surveyed questioned the extent or reality of their own pain [[Halverson2025]]</small></div>
+  </div>
+  <div class="ctrls" role="group" aria-label="Survey view">
+    <button class="btn" data-lid="delay" aria-pressed="true">Years to diagnosis</button>
+    <button class="btn" data-lid="life" aria-pressed="false">Lived experience</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="liDelay" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Horizontal bar chart. Years to diagnosis view: about 10 years in two US registry surveys of hEDS, 19.0 to 21.7 years in a UK survey of hEDS and HSD, 22.1 years for hEDS and 17.5 for HSD in an international survey, and a 2 to 3 year delay in children at a London clinic. Lived experience view: percentages who questioned their own pain, valued the diagnosis, had disrupted education or were unemployed."></svg></div>
+    <p class="stage-cap" id="liDelayCap"></p>
+  </div>
+
+  <h3 class="sub">Conversation planner</h3>
+  <div class="prose"><p>A teaching aid, not a script. Pick a setting to see topics that the sources show matter to people with EDS, and what those sources found. Which topics to raise, and how, is for each person and their own team to decide.</p></div>
+  <div class="ctrls" role="group" aria-label="Setting">
+    <button class="btn" data-licp="school" aria-pressed="true">School</button>
+    <button class="btn" data-licp="work" aria-pressed="false">Work</button>
+    <button class="btn" data-licp="clinic" aria-pressed="false">Clinic or hospital</button>
+  </div>
+  <div class="cards cp-cards" id="liCp"></div>
+
+  <h3 class="sub">Mind, belief and community</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Anxiety and low mood</h4>
+      <p>In a Swedish nationwide cohort (1,771 people with EDS against 17,710 matched comparators), EDS was associated with depression (RR 3.4), ADHD (RR 5.6), autism (RR 7.4), bipolar disorder (RR 2.7) and attempted suicide (RR 2.1), but not with suicide or schizophrenia. The cause is unknown; siblings without EDS also had raised risks of ADHD and depression. [[Cederlof2016]]</p>
+      <p>A meta-analysis of 14 studies found higher odds of anxiety (OR 4.39), depression (OR 4.10) and panic disorder (OR 6.72) with benign joint hypermobility syndrome. [[Smith2014Rheum]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Pain, not hypermobility, tracks distress</h4>
+      <p>In a chart review of 106 people with classical or hypermobile EDS, 42.5% had a psychiatric disorder. Having any pain symptom was strongly associated with one (OR 9.68); joint hypermobility itself was not. A Consortium review recommends integrated psychiatric and psychological care alongside physiotherapy. [[Hershenfeld2016,Bulbena2017]]</p></div>
+    <div class="card"><span class="tag accent">Validation</span><h4>Being believed</h4>
+      <p>In a study across Europe and North America, 73% of survey respondents questioned the extent or reality of their own pain and linked it to repeated dismissal, often from childhood. The authors found clinicians can reinforce self-doubt without meaning to when they talk about diagnostic uncertainty, and recommend "epistemic humility". Perinatal guidance calls for "compassionate communication validating hEDS/HSD experiences". [[Halverson2025,Pezaro2024]]</p></div>
+    <div class="card"><span class="tag brand">Community</span><h4>Peer support and the zebra</h4>
+      <p>The zebra is the EDS community's symbol. In a survey of 102 members of EDS support groups recruited through Facebook, 448 social connections were mapped; in-person contact was the main mode, and EDS was discussed daily. In interviews, people named building social networks and learning about the condition as ways of coping that worked. [[Callen2025,Bennett2021]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Online programmes</h4>
+      <p>A two-week online mindfulness pilot (76 completers) improved the SF-36 mental component score, without a control group. The HOPE online pain programme for hEDS/HSD was judged feasible and acceptable; benefits seemed stronger for people newer to their diagnosis. [[Lattimore2023,Chew2025H]]</p></div>
+    <div class="card"><span class="tag vas">Vascular EDS</span><h4>Travel</h4>
+      <p>The international vEDS consensus recommends an individual emergency plan, a "vascular EDS passport" carrying the diagnosis and management plan, for use when travelling. GeneReviews adds a MedicAlert bracelet or necklace or an emergency contact letter. In the UK national service every patient receives an emergency information card. [[Byers2017,Byers2025GeneReviews,Bowen2023vEDS]]</p></div>
+    <div class="card"><span class="tag">Not sourced</span><h4>Driving</h4>
+      <p>The research pass behind this module found no validated, EDS-specific source on driving, so this guide gives no driving advice. Rules differ by country and are set by licensing authorities, not by these papers.</p></div>
+    <div class="card"><span class="tag">Gap</span><h4>Growing older</h4>
+      <p>A scoping review found no study aimed at ageing in hEDS or HSD, and notes that older adults with several conditions may have undiagnosed hEDS/HSD. [[Anderson2023]]</p></div>
+  </div>
+  <p class="callout">Not covered here, because no validated EDS-specific source was found: driving rules, disability-benefit rules by country, and school-plan specifics such as 504 plans or EHCPs. Exercise in depth is in <a href="#physio" data-go="physio">Exercise &amp; physiotherapy</a>; pregnancy is in <a href="#pregnancy" data-go="pregnancy">Pregnancy &amp; parenthood</a>.</p>
 </section>
