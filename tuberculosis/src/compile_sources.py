@@ -47,6 +47,7 @@ def same(a, b):
     """Let the strongest identifier both entries carry decide. A PMID is unique to a
     paper, so when both have one it settles the question either way; only fall back to
     the DOI, and then to the title, when that is all there is."""
+    if a == b: return True
     ia, ib = ids(a), ids(b)
     pa = {x for x in ia if x.startswith("pmid")}; pb = {x for x in ib if x.startswith("pmid")}
     if pa and pb: return bool(pa & pb)
