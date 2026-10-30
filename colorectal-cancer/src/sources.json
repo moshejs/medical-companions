@@ -1746,6 +1746,16 @@
   "validated": "openFDA"
  },
  {
+  "key": "FDA-SimpleScreen",
+  "text": "Freenome, LLC. SimpleScreen CRC (cell-free DNA blood test), PMA P250029, original approval 2026-07-24 (indication: colorectal cancer screening in adults aged 45 years and older at average risk; positive results to be followed by colonoscopy; not a replacement for diagnostic or surveillance colonoscopy in high-risk individuals). openFDA device PMA record.",
+  "link": "",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "openFDA, 2026-10-30"
+ },
+ {
   "key": "FDA-Stivarga",
   "text": "Bayer HealthCare. STIVARGA (regorafenib) prescribing information, NDA203085, effective 2026-02-09, set id 824f19c9-0546-4a8a-8d8f-c4055c04f7c7.",
   "link": "",

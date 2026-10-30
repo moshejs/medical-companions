@@ -153,6 +153,7 @@ Access notes:
   - Shield: 26 Jul 2024, average risk, age ≥45
   - Cologuard Plus: 3 Oct 2024, age ≥45 [[FDA-Cologuard,FDA-ColoSense,FDA-Shield,FDA-CologuardPlus]]
 - The Shield intended-use statement says patients with a positive result "should be followed by colonoscopy". It also says the test is not a replacement for diagnostic or surveillance colonoscopy in high-risk people [[FDA-Shield]].
+- A second blood test, SimpleScreen CRC (Freenome), received FDA premarket approval on 24 July 2026 for average-risk adults aged 45 or older, with the same colonoscopy follow-up wording in its indication [[FDA-SimpleScreen]].
 - Modelling: compared with no screening, CRC death relative rates were:
   - colonoscopy every 10 years: 0.19
   - annual FIT: 0.25
@@ -577,6 +578,7 @@ Access notes:
 - [FDA-Cologuard] Exact Sciences Corporation. COLOGUARD, PMA P130017, original approval 2014-08-11 (indication: adults 50 years or older at typical average risk); supplement S029 approved 2019-09-20 expanding the indicated age to 45 years or older. openFDA device PMA records. (validated: openFDA)
 - [FDA-CologuardPlus] Exact Sciences Corporation. Multi-Target Stool DNA (mtsDNA) Test, Cologuard Plus, PMA P230043, original approval 2024-10-03 (indication: adults 45 years or older at average risk). openFDA device PMA record. (validated: openFDA)
 - [FDA-ColoSense] Geneoscopy, Inc. ColoSense (multitarget stool RNA), PMA P230001, original approval 2024-05-03 (indication: adults 45 years or older at average risk). openFDA device PMA record. (validated: openFDA)
+- [FDA-SimpleScreen] Freenome, LLC. SimpleScreen CRC (cell-free DNA blood test), PMA P250029, original approval 2026-07-24 (indication: colorectal cancer screening in adults aged 45 years and older at average risk; positive results to be followed by colonoscopy; not a replacement for diagnostic or surveillance colonoscopy in high-risk individuals). openFDA device PMA record. (validated: openFDA, 2026-10-30)
 - [FDA-Shield] Guardant Health, Inc. Shield (cell-free DNA blood test), PMA P230009, original approval 2024-07-26 (indication: average-risk individuals aged 45 years or older; positive results to be followed by colonoscopy). openFDA device PMA record. (validated: openFDA)
 - [NCT00883792] The Northern-European Initiative on Colorectal Cancer (NordICC). Oslo University Hospital. Start 2009-05; enrollment 95,000 (actual); status active, not recruiting; primary completion 2026-06. (validated: ClinicalTrials.gov)
 - [NCT04136002] Evaluation of the ctDNA LUNAR Test in an Average Patient Screening Episode (ECLIPSE). Guardant Health, Inc. Start 2019-10-08; enrollment 44,467 (actual); primary completion 2024-03-20. (validated: ClinicalTrials.gov)
