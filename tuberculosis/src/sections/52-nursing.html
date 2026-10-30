@@ -1,5 +1,90 @@
-<!-- ================= 5.2 NURSING CARE (stub, replaced by its builder) ================= -->
+<!-- ================= 5.2 NURSING CARE ================= -->
+<style>
+#m-nursing .card>.tag{align-self:flex-start}
+#m-nursing .tbl table{min-width:680px}
+#m-nursing .nu-now{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px 16px;margin:0;padding:0;list-style:none;font-size:14px}
+#m-nursing .nu-now li{border-left:3px solid var(--line);padding:2px 0 2px 10px}
+#m-nursing .nu-now li b{display:block;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-nursing .nu-plan{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+#m-nursing .nu-plan ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+#m-nursing .nu-plan label{display:flex;gap:8px;align-items:flex-start;font-size:14px;line-height:1.45;cursor:pointer}
+#m-nursing .nu-plan input{margin-top:3px;accent-color:var(--brand);flex:none}
+#m-nursing .nu-plan input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+#m-nursing .calc{max-width:560px}
+</style>
 <section class="mod" id="m-nursing" data-mod="nursing" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living with TB</p><h2>Nursing care</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">From the first cough in a waiting room to the public-health handover: what the nurse assesses, sets up, collects, gives, watches and teaches, lane by lane. Pick a setting and scrub the care pathway.</p></div>
+  <div class="ctrls" role="group" aria-label="Care setting">
+    <span class="kicker">Setting</span>
+    <button class="btn" data-ns="clinic" aria-pressed="true">Outpatient clinic</button>
+    <button class="btn" data-ns="ward" aria-pressed="false">Hospital ward</button>
+    <button class="btn" data-ns="community" aria-pressed="false">Community and home</button>
+  </div>
+  <div class="stepper" id="nuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 500" style="min-width:560px" role="img" aria-label="A care pathway for a person with pulmonary TB. A scene at the top changes with each step: triage with a surgical mask, an airborne isolation room under negative pressure with a nurse in a respirator, three sputum cups collected 8 to 24 hours apart, daily observed doses, a monitoring calendar and the handover to public health. Below, seven lanes (assess, isolate, sample, medicines, monitor, teach, hand over) fill in task by task as the playhead moves from day 0 to month 6."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">Play</button><label class="stage-cap tl" for="nuT">Care pathway <input type="range" id="nuT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> A typical pathway for drug-susceptible pulmonary TB on the 6-month regimen. Local protocols and the person's needs decide the details. Task labels are summaries; the full wording and its source are listed under the stage. [[Jensen2005,WHO-IPC2019,WHO-Mod4-2025]]</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+  <div class="card"><span class="kicker" id="nuNowK">This step</span><ul class="nu-now" id="nuNow"></ul></div>
+
+  <h3 class="sub">Care-plan builder</h3>
+  <p class="prose">Pick a situation to see a care plan built from the published guidance: what to assess, what to do, what to teach and what to write down. Tick items as you go; the plan is a study aid, not an order set.</p>
+  <div class="calc"><label for="nuScen">Situation
+    <select id="nuScen">
+      <option value="new">New pulmonary TB, starting treatment in a clinic</option>
+      <option value="child">A child under 5 in the household of a person with TB</option>
+      <option value="bpalm">A person starting BPaLM for rifampicin-resistant TB</option>
+    </select></label></div>
+  <div class="stage">
+    <div class="scroll"><svg id="nuPlanSvg" viewBox="0 0 720 150" style="min-width:560px" role="img" aria-label="Key timings for the selected situation on a time line."></svg></div>
+    <p class="stage-cap" id="nuPlanCap"></p>
+  </div>
+  <div class="nu-plan" id="nuPlan"></div>
+  <p class="readout" id="nuPlanRead"></p>
+
+  <h3 class="sub">Monitoring by drug, as the labels state it</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Drug</th><th>Before starting</th><th>During treatment</th><th>Ask about, teach</th></tr></thead>
+    <tbody>
+      <tr><th>Isoniazid</th><td>For people 35 and older, AST and ALT. [[FDA-Isoniazid]]</td><td>Monitor and interview monthly; AST/ALT periodically from age 35. Hepatitis usually occurs in the first 3 months; rates rise with age (3, 12 and 23 per 1000 at 20–34, 35–49 and 50–64). Strongly consider stopping if enzymes exceed 3 to 5 times normal. [[FDA-Isoniazid]]</td><td>Daily alcohol raises the hepatitis risk. Pyridoxine 25–50 mg/day is listed with isoniazid by ATS/CDC/ERS/IDSA. [[FDA-Isoniazid,Saukkonen2025]]</td></tr>
+      <tr><th>Rifampicin (rifampin)</th><td>Adults: liver enzymes, bilirubin, creatinine, blood count and platelets. [[FDA-Rifampin]]</td><td>Review at least monthly with specific questions about adverse reactions. Routine lab monitoring is "generally not necessary" if baseline results are normal. [[FDA-Rifampin]]</td><td>Orange-red urine, sweat, tears; stained soft lenses. Take 1 hour before or 2 hours after a meal. Hormonal contraception may be less reliable. Many drug interactions: no new medicines without advice. [[FDA-Rifampin]]</td></tr>
+      <tr><th>Pyrazinamide</th><td>Contraindicated in acute gout. [[FDA-Pyrazinamide]]</td><td>Often raises uric acid, usually without symptoms; stop if hyperuricaemia comes with acute gouty arthritis. Pyrazinamide had the highest rate of major adverse events in a Montreal cohort (1.48 per 100 person-months). [[FDA-Pyrazinamide,Yee2003]]</td><td>Joint pain (gout), rash, symptoms of hepatitis. [[FDA-Pyrazinamide,Yee2003]]</td></tr>
+      <tr><th>Ethambutol</th><td>Visual acuity, each eye separately and both together (Snellen chart), and colour discrimination. [[FDA-Ethambutol]]</td><td>Periodically; monthly at doses above 15 mg/kg/day. Usually reversible if stopped promptly, but irreversible blindness has been reported. [[FDA-Ethambutol]]</td><td>Report blurred vision or colour change at once. Contraindicated when a person cannot report vision changes. [[FDA-Ethambutol]]</td></tr>
+      <tr><th>Bedaquiline</th><td>ECG. [[FDA-Sirturo,WHO-Mod4-2025]]</td><td>ECGs during treatment; stop if significant ventricular arrhythmia or QTc above 500 ms. ATS/CDC/ERS/IDSA: ECG at baseline and at 2, 12 and 24 weeks on BPaL, monthly when moxifloxacin is added. [[FDA-Sirturo,Saukkonen2025]]</td><td>Taken with food and given by DOT. Explain why the ECGs: QTc prolongation is the boxed warning. [[FDA-Sirturo]]</td></tr>
+      <tr><th>Linezolid</th><td>Blood count. [[WHO-Mod4-2025]]</td><td>Blood counts weekly for myelosuppression; peripheral and optic neuropathy reported mainly after more than 28 days. Dose reduced or interrupted for toxicity. [[FDA-Zyvox,FDA-Pretomanid]]</td><td>Tingling or numbness in hands and feet; any change in vision. [[FDA-Zyvox]]</td></tr>
+      <tr><th>Pretomanid</th><td>The label calls for monitoring of liver tests, blood counts, visual function and ECGs. [[FDA-Pretomanid]]</td><td>Label warnings: hepatotoxicity, myelosuppression, peripheral and optic neuropathy, QT prolongation, lactic acidosis. [[FDA-Pretomanid]]</td><td>Only in combination with bedaquiline and linezolid. [[FDA-Pretomanid]]</td></tr>
+      <tr><th>Moxifloxacin</th><td>Note any myasthenia gravis: the boxed warning includes worsening of it. [[FDA-Moxifloxacin]]</td><td>Boxed warning: tendinitis and tendon rupture, peripheral neuropathy, CNS effects, worsening myasthenia gravis; QT prolongation. [[FDA-Moxifloxacin]]</td><td>Tendon pain, tingling, mood or sleep changes. [[FDA-Moxifloxacin]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Label statements quoted as published, for teaching; not instructions for any one person. More on toxicity in <a href="#safety" data-go="safety">Side effects &amp; monitoring</a> and on the regimens in <a href="#regimen" data-go="regimen">Treating TB disease</a> and <a href="#drtb" data-go="drtb">Treating drug-resistant TB</a>.</p>
+
+  <h3 class="sub">Teaching points and common misunderstandings</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">"My urine is orange"</span><h4>Expected, and harmless</h4><p>Rifampicin can colour urine, sweat, sputum and tears yellow, orange, red or brown and permanently stain soft contact lenses. Tell people before the first dose so it does not frighten them into stopping. [[FDA-Rifampin]]</p></div>
+    <div class="card"><span class="tag bad">"I feel fine, so I can stop"</span><h4>Feeling better is not cure</h4><p>The rifampin label asks staff to stress the full course and not missing doses. [[FDA-Rifampin]] In cohort studies, self-administered treatment without support went with more acquired drug resistance than DOT (RR 4.19). [[Alipanah2018]] If a dose is missed, the person should tell the team: how a programme responds to missed doses may matter more than any device. [[Mohamed2025]]</p></div>
+    <div class="card"><span class="tag accent">"I'm on the pill"</span><h4>Contraception</h4><p>Rifamycins can reduce the effect of oral hormonal contraception; the rifampin label says alternative measures should be considered. Offer pregnancy testing and family-planning referral free of charge and without judgement. [[FDA-Rifampin,Maugans2023]]</p></div>
+    <div class="card"><span class="tag warn">"Just a drink or two"</span><h4>Alcohol and the liver</h4><p>The rifampin label asks people to avoid alcohol and liver-toxic drugs or herbs; daily alcohol raises the risk of isoniazid hepatitis. Alcohol use roughly doubled the odds of a poor outcome. [[FDA-Rifampin,FDA-Isoniazid,Ragan2020]]</p></div>
+    <div class="card"><span class="tag rx">"Why do you watch me swallow?"</span><h4>Observation is support</h4><p>Explain DOT or video-observed treatment as help to finish, not suspicion. In New York, electronic DOT completed 89.8% of doses against 87.2% in person, and was non-inferior. [[Burzynski2022]] A nurse-led community health worker programme reached 91.8% completion of weekly 3HP among adults experiencing homelessness. <span class="ev early">Early evidence</span> [[Nyamathi2021]]</p></div>
+    <div class="card"><span class="tag accent">Sputum</span><h4>Coach the cough</h4><p>Simple instructions on producing sputum raised smear positivity in women 1.63-fold (8% to 13% detected) and cut saliva samples. [[Khan2007Lancet]] Across 23 studies, instructions raised microscopy yield (OR 1.6); early-morning collection alone did not improve yield significantly. [[Datta2017LGH]]</p></div>
+  </div>
+
+  <h3 class="sub">Stigma-free communication</h3>
+  <div class="split2">
+    <div class="card"><h4>Say this, not that</h4><div class="tbl"><table style="min-width:0">
+      <thead><tr><th>Instead of</th><th>Say</th></tr></thead>
+      <tbody><tr><td>TB suspect</td><td>person with presumptive TB</td></tr><tr><td>defaulter</td><td>person lost to follow-up</td></tr><tr><td>TB control</td><td>TB prevention and care</td></tr><tr><td>latent TB</td><td>TB infection</td></tr><tr><td>TB patient (as an identity)</td><td>person with TB</td></tr></tbody></table></div>
+      <p class="stage-cap">The first three are from authors in TB programmes on five continents, who called the old terms coercive and blaming. [[Zachariah2012]]</p></div>
+    <div class="card"><h4>Why it matters</h4><ul>
+      <li>Fear of infection is the most common cause of TB stigma; it is perceived to delay diagnosis and disrupt treatment, though measured effects are mixed. [[Courtwright2010]]</li>
+      <li>Stigma was linked to lower uptake of testing and poorer adherence to treatment for TB infection. [[Kilic2025]]</li>
+      <li>WHO notes that staff education may reduce the stigma health workers themselves hold. [[WHO-Mod4-2025]]</li>
+      <li>Triage should fast-track people with presumed TB in dialogue with staff and patients, so it does not add to stigma or alienation. [[WHO-IPC2019]]</li>
+      <li>Interview people in their own language, with an interpreter if needed, and explain how confidentiality is protected and where its limits are. [[NTCA2005]]</li>
+      <li>Infection control should not usually separate a parent from their newborn; fear-based practices deepen stigma and harm adherence. [[Maugans2023]]</li></ul></div>
+  </div>
 </section>
