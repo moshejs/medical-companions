@@ -1,5 +1,99 @@
-<!-- ================= 4.2 INFECTION CONTROL & CONTACTS (stub, replaced by its builder) ================= -->
+<!-- ================= 4.2 INFECTION CONTROL & CONTACTS ================= -->
+<style>
+#m-control .tgl{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+#m-control .ci-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px 14px}
+#m-control .ci-grid label{display:flex;flex-direction:column;gap:4px;font-size:13.5px;font-weight:700;min-width:0}
+#m-control .ci-grid label small{font-weight:400;color:var(--muted);font-size:12.5px;line-height:1.3}
+#m-control .ci-grid select{font:inherit;font-size:14px;font-weight:400;padding:6px 8px;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%}
+#m-control .ci-grid label.ok select{border-color:var(--good);box-shadow:0 0 0 2px var(--good-soft)}
+#m-control .ci-grid label.off select{border-color:var(--warn);box-shadow:0 0 0 2px var(--warn-soft)}
+#m-control .lang{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--panel)}
+#m-control .lang div{padding:9px 13px;border-top:1px solid var(--line);font-size:14.5px}
+#m-control .lang div:nth-child(-n+2){border-top:0;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--panel-2)}
+#m-control .lang .no{color:var(--bad);text-decoration:line-through;text-decoration-thickness:1px}
+#m-control .lang .yes{color:var(--good);font-weight:700}
+#m-control .card .tag,#m-control .card .ev{align-self:flex-start}
+#m-control .tbl table{min-width:600px}
+</style>
 <section class="mod" id="m-control" data-mod="control" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Prevention &amp; control</p><h2>Infection control &amp; contacts</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Most TB spread in health care comes from people whose TB has not yet been recognised. Follow one person through a clinic as each layer of protection switches on, then run a contact investigation yourself.</p></div>
+  <div class="stepper" id="icSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="icSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="A clinic floor plan with a waiting room, triage desk, corridor, an airborne infection isolation room and a consulting room. A person with presumptive TB coughs in the waiting room and a pink haze of airborne particles spreads. As control layers switch on, the person is found at triage and given a mask, moves to the negative-pressure isolation room where air flows in from the corridor and is exhausted outside, starts effective treatment, and staff wear respirators while upper-room UV runs; the haze falls in each room."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="icPlay">Play</button><label class="stage-cap tl" for="icT">Visit <input type="range" id="icT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="tgl" role="group" aria-label="Control layers"><span class="kicker">Layers</span>
+        <button class="btn" data-icl="tri" aria-pressed="false">Triage + mask</button>
+        <button class="btn" data-icl="iso" aria-pressed="false">Isolation room</button>
+        <button class="btn" data-icl="tx" aria-pressed="false">Effective treatment</button>
+        <button class="btn" data-icl="uv" aria-pressed="false">Upper-room UV</button>
+        <button class="btn" data-icl="n95" aria-pressed="false">Staff N95</button></div>
+      <div class="readout" id="icRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> Haze shows relative airborne concentration in each room from a simple mixed-air model: waiting room with closed windows at 1.6 air changes per hour (derived), isolation room at the 12 ACH standard, corridor protected by negative pressure. The mask (−56%) and UV (−70% of infections) are applied as measured in guinea-pig studies; the fall on treatment is drawn, not measured. N95 respirators protect the wearer and do not change room air, so they are shown, not counted. [[Escombe2007,Jensen2005,Dharmadhikari2012,Escombe2009,Dharmadhikari2014]]</p>
+    </div>
+    <aside class="note" id="icNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">WHO's seven recommendations, as published</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Level</th><th>Recommendation (WHO 2019)</th><th>Strength · certainty</th></tr></thead>
+    <tbody>
+      <tr><th>Administrative</th><td>1. Triage of people with TB signs and symptoms, or with TB disease</td><td>Conditional · very low</td></tr>
+      <tr><th>Administrative</th><td>2. Respiratory separation or isolation of people with presumed or demonstrated infectious TB</td><td>Conditional · very low</td></tr>
+      <tr><th>Administrative</th><td>3. Prompt initiation of effective TB treatment for people with TB disease</td><td>Strong · very low</td></tr>
+      <tr><th>Administrative</th><td>4. Respiratory hygiene, including cough etiquette, in people with presumed or confirmed TB</td><td>Strong · low</td></tr>
+      <tr><th>Environmental</th><td>5. Upper-room germicidal ultraviolet (GUV) systems</td><td>Conditional · moderate</td></tr>
+      <tr><th>Environmental</th><td>6. Ventilation systems: natural, mixed-mode, mechanical, and recirculated air through HEPA filters</td><td>Conditional · very low</td></tr>
+      <tr><th>Respiratory protection</th><td>7. Particulate respirators within a respiratory protection programme</td><td>Conditional · very low</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">WHO and CDC both call administrative controls "the first and most important level" of the hierarchy. WHO adds that triage should be planned with staff and patients so that it does not add to stigma or alienation, and that isolation alone is insufficient: the measures work as a package. [[WHO-IPC2019,Jensen2005]]</p>
+
+  <h3 class="sub">Run a contact investigation</h3>
+  <p class="prose">A person has just been diagnosed with infectious pulmonary TB. Public health lists the people who shared air with them during the infectious period, which by expert opinion starts 3 months before diagnosis. Give each contact a priority, then move the timeline to see who is assessed, tested and offered preventive treatment. [[NTCA2005]]</p>
+  <div class="ci-grid" id="ciSel"></div>
+  <div class="tgl"><button class="btn" id="ciCheck" aria-pressed="false">Compare with the published criteria</button>
+    <label class="kicker" for="ciSet">Setting
+      <select id="ciSet" style="font:inherit;font-size:13px;padding:5px 8px;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--ink);text-transform:none;letter-spacing:0">
+        <option value="lmic">Low- and middle-income (95 studies)</option>
+        <option value="hic">High-income (108 studies)</option>
+      </select></label></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ciSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Concentric circles around the person with TB: household contacts in the inner ring, close contacts in the middle, casual contacts outside. Each contact is coloured by the priority you assign. As the timeline moves, contacts are assessed, tested, and either cleared, offered preventive treatment, or found to have TB disease. A grid of 100 people shows the published average yield of contact investigation."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="ciT">Days since diagnosis <input type="range" id="ciT" min="0" max="84" step="1" value="0"></label></div>
+      <p class="stage-cap"><b>Illustrative household.</b> Who has TB infection or disease here is invented for teaching; the timings follow NTCA/CDC 2005 and the 100-person grid uses published averages. Working days are drawn as calendar days. [[NTCA2005,Fox2013]]</p>
+    </div>
+    <aside class="note" id="ciNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What happens next</h3>
+  <div class="cards">
+    <div class="card"><span class="tag vax">Reporting</span><h4>A notifiable disease</h4><p>CDC asks that suspected or confirmed TB be reported immediately to local public health, so treatment can be followed to completion through case management, DOT arranged and contacts evaluated. The person is interviewed in their own language, with an interpreter if needed, and told how visits work and how confidentiality is protected, and where its limits are. In 2023 the US provisionally reported 9615 cases (2.9 per 100,000), a third yearly rise. [[Jensen2005,NTCA2005,Williams2024MMWR]]</p></div>
+    <div class="card"><span class="tag vax">Least restrictive first</span><h4>Persuasion before law</h4><p>Contact investigation ranks second only to treating people with TB disease in the US elimination strategy. For contacts who decline evaluation, NTCA/CDC says communicable-disease laws may be considered, "with the least restrictive measures applied first". In randomised trials, contact investigation raised case notification (RR 2.5) and lowered mortality (RR 0.6). [[NTCA2005,Velen2021]]</p></div>
+    <div class="card"><span class="tag vax">Ending isolation</span><h4>When precautions stop (CDC 2005)</h4><ul>
+      <li><b>TB not confirmed:</b> stop when TB is unlikely and another diagnosis explains the illness, or after three consecutive negative AFB smears collected 8–24 hours apart, at least one early-morning; usually about 2 days.</li>
+      <li><b>Confirmed TB in hospital:</b> all of three negative smears, at least 2 weeks of standard multidrug treatment, and clinical improvement.</li>
+      <li><b>Home before smear conversion:</b> possible with a TB-programme plan, DOT arranged, no children under 4 or immunocompromised people at home, household members already exposed, and agreement not to travel except for health care.</li></ul><p>Guideline text quoted for teaching, not instructions. [[Jensen2005]]</p></div>
+    <div class="card"><span class="tag vax">Back to work</span><h4>Health workers with TB</h4><p>CDC 2005 excludes health workers with infectious TB from work until three consecutive negative sputum samples (8–24 hours apart, one early-morning), a response to probably effective treatment, and a knowledgeable physician's judgement that they are not infectious. Our sources give no separate criteria for school. [[Jensen2005]]</p></div>
+    <div class="card"><span class="tag vax">Health-worker screening</span><h4>Risk depends on setting</h4><p>In low- and middle-income countries an average 54% of health workers had TB infection; a meta-analysis found 2.94 times the general population's TB disease rate. WHO counted 9299 TB cases in health workers from 60 countries in 2017, twice the adult rate. In the US, NTCA/CDC 2019 dropped routine annual testing: baseline testing, an annual symptom screen for untreated infection, and annual TB education, after serial testing in 63,975 personnel found no TB disease. [[Joshi2006,Uden2017,WHO-IPC2019,Sosa2019]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>How long is someone infectious?</h4><p>A WHO-commissioned meta-analysis found smear conversion in 9% at 2 weeks and 82% at 2 months, and liquid-culture conversion in 3% and 59%, so most people are still culture-positive at 2 weeks. Yet guinea-pig studies show effective treatment ends transmission fast. The measure of infectiousness is unsettled; prompt effective treatment matters more than a fixed number of days. [[Calderwood2021,Dharmadhikari2014,Escombe2008]]</p></div>
+  </div>
+
+  <h3 class="sub">Words that help people come forward</h3>
+  <div class="split2">
+    <div class="lang" role="table" aria-label="Terms to avoid and terms to use">
+      <div role="columnheader">Instead of</div><div role="columnheader">Say</div>
+      <div class="no" role="cell">TB suspect</div><div class="yes" role="cell">person with presumptive TB</div>
+      <div class="no" role="cell">defaulter</div><div class="yes" role="cell">person lost to follow-up</div>
+      <div class="no" role="cell">TB control</div><div class="yes" role="cell">TB prevention and care</div>
+      <div class="no" role="cell">latent TB</div><div class="yes" role="cell">TB infection (this guide's term)</div>
+    </div>
+    <div class="prose">
+      <p>Authors from TB programmes on five continents proposed retiring "defaulter", "TB suspect" and "control", calling them coercive and blaming. [[Zachariah2012]]</p>
+      <p>Fear of infection is the commonest cause of TB stigma, and stigma is perceived to delay diagnosis and disrupt treatment, though attempts to measure that effect are mixed. In an Ethiopian survey, fear of job loss (32.5%) and of isolation (15.3%) affected disclosure; more knowledge about TB went with lower stigma. [[Courtwright2010,Datiko2020]]</p>
+      <p>A mask on a person with TB is respiratory hygiene, the same courtesy WHO asks of anyone coughing, and a respirator on staff is routine protection, not a judgement. Isolation is a short, practical step that ends once treatment works. [[WHO-IPC2019,Jensen2005]]</p>
+    </div>
+  </div>
 </section>
