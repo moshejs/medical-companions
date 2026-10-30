@@ -1,5 +1,90 @@
-<!-- ================= 3.1 HOW TB DRUGS WORK (stub, replaced by its builder) ================= -->
+<!-- ================= 3.1 HOW TB DRUGS WORK ================= -->
+<style>
+#m-drugs .drchips .btn{display:inline-flex;align-items:center;gap:7px}
+#m-drugs .drchips .btn i{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none}
+#m-drugs .drchips .btn[aria-pressed="false"] i{opacity:.35}
+#m-drugs .drchips .btn[aria-pressed="false"]{text-decoration:line-through;text-decoration-thickness:1px;color:var(--muted)}
+#m-drugs #drVerdict{font-weight:700}
+#m-drugs .drflip{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+#m-drugs .drflip button{font:inherit;text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:10px 12px;cursor:pointer;display:flex;flex-direction:column;gap:4px;min-height:96px;color:var(--ink);min-width:0}
+#m-drugs .drflip button:hover{border-color:var(--muted)}
+#m-drugs .drflip button b{font-family:var(--display);font-size:17px;line-height:1.15}
+#m-drugs .drflip button small{font:500 11px/1.35 var(--mono);color:var(--muted)}
+#m-drugs .drflip button .lt{font:700 11px var(--mono);letter-spacing:.06em;padding:3px 6px;border-radius:5px;align-self:flex-start;color:#fff}
+#m-drugs .drflip button[aria-pressed="true"]{background:var(--rx-soft);border-color:var(--rx)}
+#m-drugs .drflip button .bk{display:none}
+#m-drugs .drflip button[aria-pressed="true"] .bk{display:block;font-size:13.5px;line-height:1.35}
+#m-drugs .drflip button[aria-pressed="true"] .fr{display:none}
+#m-drugs .tbl table{min-width:820px}
+#m-drugs .tbl td small{color:var(--muted)}
+</style>
 <section class="mod" id="m-drugs" data-mod="drugs" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>How TB drugs work</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">TB bacteria live in three very different places inside a lung, and no single medicine reaches and kills all of them. Switch the four first-line drugs on and off and watch which bacteria die, which linger and when a lone drug lets resistant mutants take over.</p></div>
+
+  <div class="ctrls drchips" role="group" aria-label="First-line drugs in the model">
+    <span class="kicker">Drugs on</span>
+    <button class="btn" data-drd="H" aria-pressed="true"><i style="background:var(--dH)"></i>H · isoniazid</button>
+    <button class="btn" data-drd="R" aria-pressed="true"><i style="background:var(--dR)"></i>R · rifampicin</button>
+    <button class="btn" data-drd="Z" aria-pressed="true"><i style="background:var(--dZ)"></i>Z · pyrazinamide</button>
+    <button class="btn" data-drd="E" aria-pressed="true"><i style="background:var(--dE)"></i>E · ethambutol</button>
+    <button class="btn" id="drStop" aria-pressed="true">Stop Z and E after 2 months</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Quick combinations">
+    <span class="kicker">Try</span>
+    <button class="btn ghost" data-drp="HRZE">Standard 2HRZE/4HR</button>
+    <button class="btn ghost" data-drp="H">Isoniazid alone</button>
+    <button class="btn ghost" data-drp="HZE">No rifampicin</button>
+    <button class="btn ghost" data-drp="HRE">No pyrazinamide</button>
+    <button class="btn ghost" data-drp="">No drugs</button>
+  </div>
+  <div class="stepper" id="drSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="drSvg" viewBox="0 0 720 410" style="min-width:560px" role="img" aria-label="Three panels show the places TB bacteria live: the wall of a lung cavity with fast-growing bacteria, macrophages in acidic inflamed tissue, and solid caseum with near-dormant bacteria. Below, a log-scale chart shows the bacteria in each place falling over 26 weeks of treatment, fast in the cavity wall and slowest in the caseum. Switching drugs off makes some lines flatten or climb back."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="drPlay">Play</button><label class="stage-cap tl" for="drT">Time on treatment <input type="range" id="drT" min="0" max="1" step="0.001" value="0.016"></label></div>
+      <div class="readout" id="drRead"></div>
+      <p class="verdict maybe" id="drVerdict" aria-live="polite"></p>
+      <p class="stage-cap"><b>Schematic.</b> The three places follow Mitchison's subpopulation model; the bacterial counts and kill rates are drawn to show the idea, not measured. The anchors are real: isoniazid kills about 95% of bacilli in the first two days, and with daily treatment 85% of people had a negative sputum culture at two months. The first two weeks are stretched so the early kill is visible. [[Mitchison2000,Jindani2004]]</p>
+    </div>
+    <aside class="note" id="drNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Where each drug hits the bacillus</h3>
+  <div class="prose"><p>Tap a card to flip it. The bacillus on the right lights up the structure that drug attacks. Most targets sit in the thick, waxy envelope or in the machinery that copies genes and makes energy, which is also where resistance mutations arise (see <a href="#resistance" data-go="resistance">Drug resistance</a>).</p></div>
+  <div class="lab even">
+    <div class="drflip" id="drFlip" role="group" aria-label="Drug mechanism cards"></div>
+    <div class="stage">
+      <div class="scroll"><svg id="drMech" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A cut-away TB bacillus: the outer waxy mycolic acid layer, the arabinogalactan layer, peptidoglycan, the cell membrane with ATP synthase, and the cytoplasm with DNA, RNA polymerase and ribosomes. The structure targeted by the selected drug is highlighted."></svg></div>
+      <div id="drMechNote" class="prose" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <h3 class="sub">The drugs at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Drug</th><th>Class and target</th><th>Kills best</th><th>Key adverse effect</th><th>Food and interactions</th><th>Dose as published (source)</th></tr></thead>
+    <tbody>
+      <tr><th>Isoniazid (H)</th><td>Prodrug activated by KatG; inhibits InhA and mycolic acid synthesis [[Zhang1992,Banerjee1994,FDA-Isoniazid]]</td><td>Actively growing bacilli; the main early killer [[FDA-Isoniazid,Jindani2003]]</td><td>Hepatitis, rising with age; peripheral neuropathy (pyridoxine is listed with it) [[FDA-Isoniazid,Saukkonen2025]]</td><td>Cleared by acetylation; about 50% of Black and white people are slow inactivators [[FDA-Isoniazid]]</td><td>US label, adults: 5 mg/kg up to 300 mg daily. WHO, children: 10 mg/kg (7–15), maximum 300 mg/day [[FDA-Isoniazid,WHO-Mod4-2025]]</td></tr>
+      <tr><th>Rifampicin (R)</th><td>Rifamycin; binds the β subunit of RNA polymerase [[Campbell2001Rif]]</td><td>Growing bacilli and persisters; the key sterilising drug [[Jindani2003,Mitchison2000]]</td><td>Orange-red body fluids; hepatotoxicity [[FDA-Rifampin,Tostmann2008]]</td><td>Label: 1 hour before or 2 hours after a meal. Strong CYP3A4 inducer: many interactions [[FDA-Rifampin,Niemi2003]]</td><td>US label, adults: 10 mg/kg once daily, not to exceed 600 mg/day. WHO, children: 15 mg/kg (10–20), maximum 600 mg/day [[FDA-Rifampin,WHO-Mod4-2025]]</td></tr>
+      <tr><th>Pyrazinamide (Z)</th><td>Prodrug turned into pyrazinoic acid by pyrazinamidase (pncA) [[Zhang2003PZA]]</td><td>Old, slow-metabolising bacilli under acid conditions [[Zhang2003PZA]]</td><td>Most hepatotoxicity and rash of the four; hyperuricaemia [[Yee2003,FDA-Pyrazinamide]]</td><td>Contraindicated in acute gout [[FDA-Pyrazinamide]]</td><td>US label: 15–30 mg/kg once daily, not exceeding 3 g/day (CDC: not above 2 g/day). WHO, children: 35 mg/kg (30–40) [[FDA-Pyrazinamide,WHO-Mod4-2025]]</td></tr>
+      <tr><th>Ethambutol (E)</th><td>Blocks arabinan polymerisation via the embCAB arabinosyl transferases [[Telenti1997]]</td><td>Not a main driver of early killing or of sterilising in the 14-day study [[Jindani2003]]</td><td>Optic neuritis: check visual acuity and colour vision [[FDA-Ethambutol,Ezer2013]]</td><td>US label does not recommend it under 13 years [[FDA-Ethambutol]]</td><td>US label: 15 mg/kg every 24 h (25 mg/kg for retreatment). WHO, children: 20 mg/kg (15–25) [[FDA-Ethambutol,WHO-Mod4-2025]]</td></tr>
+      <tr><th>Rifapentine (P)</th><td>Cyclopentyl rifamycin with a longer half-life (13.19 h vs 3.35 h for rifampin) [[Dorman2021,FDA-Priftin,FDA-Rifampin]]</td><td>As rifampicin, with longer exposure [[Dorman2021]]</td><td>Hypersensitivity, including a flu-like syndrome [[FDA-Priftin]]</td><td>Take with meals: a high-fat meal raised levels by 40–50% [[FDA-Priftin]]</td><td>ATS/CDC/ERS/IDSA, 4-month regimen: 1,200 mg daily for 17 weeks [[Saukkonen2025]]</td></tr>
+      <tr><th>Moxifloxacin (M)</th><td>Fluoroquinolone; DNA gyrase (gyrA) [[Takiff1994]]</td><td>Speeds early culture conversion; reaches caseum poorly [[Gillespie2014,Prideaux2015]]</td><td>Boxed warning: tendinitis and tendon rupture, neuropathy, CNS effects; QT prolongation [[FDA-Moxifloxacin]]</td><td>4-month regimen: avoid milk, antacids and other cations near doses [[Saukkonen2025]]</td><td>ATS/CDC/ERS/IDSA, 4-month regimen: 400 mg daily for 17 weeks [[Saukkonen2025]]</td></tr>
+      <tr><th>Bedaquiline (B)</th><td>Diarylquinoline; ATP synthase [[Andries2005,Diacon2014]]</td><td>Drug-resistant TB; shortened median culture conversion from 125 to 83 days [[Diacon2014]]</td><td>Boxed warning: QTc prolongation [[FDA-Sirturo]]</td><td>Label: take with food, by DOT [[FDA-Sirturo]]</td><td>US label, adults: 400 mg daily for 2 weeks, then 200 mg three times a week for 22 weeks [[FDA-Sirturo]]</td></tr>
+      <tr><th>Pretomanid (Pa)</th><td>Nitroimidazooxazine prodrug, activated by Ddn; blocks mycolic acid synthesis and releases nitric oxide [[FDA-Pretomanid,Singh2008]]</td><td>Replicating and non-replicating bacilli [[Stover2000]]</td><td>Label warnings: hepatotoxicity, myelosuppression, neuropathy, QT [[FDA-Pretomanid]]</td><td>Used only with bedaquiline and linezolid (US label) [[FDA-Pretomanid]]</td><td>See <a href="#drtb" data-go="drtb">Treating drug-resistant TB</a></td></tr>
+      <tr><th>Linezolid (Lzd)</th><td>Oxazolidinone; resistant mutants can be selected in the laboratory [[Hillemann2008]]</td><td>A core drug for drug-resistant TB [[WHO-Mod4-2025]]</td><td>Myelosuppression; peripheral and optic neuropathy, mainly after 28 days [[FDA-Zyvox]]</td><td>Label: weekly blood counts [[FDA-Zyvox]]</td><td>WHO, BPaLM and BPaL: 600 mg once daily, 300 mg allowed for toxicity [[WHO-Mod4-2025]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Doses are quoted as the labels and guidelines publish them, for teaching only. They are not instructions: treatment is chosen and dosed by a clinician and the national TB programme, where it is usually free.</p>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>A drug has to reach the bacteria</h4><p>Drugs must cross three barriers in series: from blood into the lesion, through the waxy cell wall, then to the target inside. Imaging of human and animal lesions showed rifampicin and pyrazinamide reaching the lesions well, with rifampicin building up in caseum, while moxifloxacin diffused poorly into caseum. That matches its failure to shorten treatment in trials. [[Dartois2014,Prideaux2015,Gillespie2014]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Caseum bacilli are the hardest to kill</h4><p>In rabbit cavity caseum, bacilli were largely non-replicating and extremely tolerant of many drugs. Only the rifamycins fully sterilised caseum, and pyrazinamide killed there even though it shows no activity in the classic laboratory models of dormancy. [[Sarathy2018]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Is the rifampicin dose too low?</h4><p>Over 14 days, sputum bacterial load fell by 0.176 log10 CFU/mL a day at 10 mg/kg and by 0.265 at 30 mg/kg. Exposure rose more than in proportion to dose, and 35 mg/kg was well tolerated for 2 weeks. [[Boeree2015]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Does ethambutol get in the way?</h4><p>In 100 people given 22 different regimens, ethambutol's effect on days 2 to 14 ran opposite to rifampin's, which suggests it may blunt the sterilising activity of the other drugs. [[Jindani2003]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Dosing isoniazid by genotype</h4><p>In a Japanese trial of 172 people, 78% of slow acetylators on standard dosing had isoniazid liver injury, against none on 2.5 mg/kg. Early treatment failure in rapid acetylators fell from 38% to 15.0% at about 7.5 mg/kg. This is not in WHO or US guidance. [[Azuma2013]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Food works in opposite directions</h4><p>A high-fat meal cut rifampin's peak level by 36% and delayed it (Tmax 2.42 to 4.43 h), while the total dose absorbed fell by only 6%. Rifapentine works the other way: food raised its levels by 40 to 50%. That is why Study 31 gave rifapentine after food and rifampin on an empty stomach. [[Peloquin1999,FDA-Priftin,Dorman2021]]</p></div>
+  </div>
+  <p class="callout">Next: how these drugs are combined into a 6- or 4-month course in <a href="#regimen" data-go="regimen">Treating TB disease</a>, and what to watch for in <a href="#safety" data-go="safety">Side effects &amp; monitoring</a>.</p>
 </section>

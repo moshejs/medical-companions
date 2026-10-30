@@ -1,5 +1,75 @@
-<!-- ================= 3.2 TREATING TB DISEASE (stub, replaced by its builder) ================= -->
+<!-- ================= 3.2 TREATING TB DISEASE ================= -->
+<style>
+#m-regimen .rgsup{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+#m-regimen .tbl table{min-width:720px}
+#m-regimen .card .big-num{color:var(--rx)}
+#m-regimen #rgTrialNote p+p{margin-top:8px}
+</style>
 <section class="mod" id="m-regimen" data-mod="regimen" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Treating TB disease</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">TB disease is cured with several medicines taken every day for months. Watch a dose calendar fill week by week through the intensive and continuation phases, and compare the 6-month standard with the two 4-month options, drawn to the same scale.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Regimen">
+    <span class="kicker">Regimen</span>
+    <button class="btn" data-rgr="std" aria-pressed="true">6 months · 2HRZE/4HR</button>
+    <button class="btn" data-rgr="hpzm" aria-pressed="false">4 months · 2HPMZ/2HPM (age ≥12)</button>
+    <button class="btn" data-rgr="shine" aria-pressed="false">4 months · children, non-severe TB</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Treatment support">
+    <span class="kicker">Support</span>
+    <button class="btn" data-rgs="sat" aria-pressed="false">Self-administered</button>
+    <button class="btn" data-rgs="dot" aria-pressed="true">In-person DOT</button>
+    <button class="btn" data-rgs="vot" aria-pressed="false">Video (VOT)</button>
+  </div>
+  <div class="stepper" id="rgSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rgSvg" viewBox="0 0 720 410" style="min-width:560px" role="img" aria-label="A dose calendar, one column per week and one pocket per day, fills as treatment goes on. Coloured bands mark the intensive and continuation phases and the drugs in each. Below, a falling line shows symptoms easing and a rising line shows the share of people whose sputum culture has turned negative, with the published value at 8 weeks circled. At the end the calendar reads treatment completed."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rgPlay">Play</button><label class="stage-cap tl" for="rgT">Weeks of treatment <input type="range" id="rgT" min="0" max="1" step="0.001" value="0.02"></label></div>
+      <div class="readout" id="rgRead"></div>
+      <p class="stage-cap"><b>Schematic calendar.</b> All three regimens use the same week width, so length can be compared directly. The symptom line is drawn, not measured. The culture curves pass through the circled 8-week values from Study 31, liquid culture: 63.4% on the 6-month control and 78.5% on rifapentine-moxifloxacin. Non-severe childhood TB usually has few bacilli, so no culture curve is drawn for it. [[Dorman2021,WHO-Mod4-2025]]</p>
+    </div>
+    <aside class="note" id="rgNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout rgsup" id="rgSup" aria-live="polite"></div>
+
+  <h3 class="sub">Is 4 months as good as 6? Reading the trials</h3>
+  <p class="prose">A non-inferiority trial asks whether a new regimen is not worse than the standard by more than a pre-set margin. Pick a trial: the bars show unfavourable outcomes in each arm, and the right-hand panel shows the difference from the standard with its confidence interval. If the whole interval sits left of the margin line, non-inferiority is shown.</p>
+  <div class="ctrls" role="group" aria-label="Trial">
+    <button class="btn" data-rgt="s31" aria-pressed="true">Study 31 / A5349</button>
+    <button class="btn" data-rgt="shine" aria-pressed="false">SHINE (children)</button>
+    <button class="btn" data-rgt="trunc" aria-pressed="false">TRUNCATE-TB</button>
+    <button class="btn" data-rgt="fail" aria-pressed="false">Earlier 4-month trials</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rgTrial" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bars of unfavourable outcome per trial arm, and a forest plot of each arm's difference from the standard regimen with its confidence interval and the non-inferiority margin drawn as a dashed line."></svg></div>
+      <p class="stage-cap" id="rgTrialCap"></p>
+    </div>
+    <aside class="note" id="rgTrialNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Which regimen, for whom</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Regimen</th><th>Duration</th><th>For whom, as published</th><th>Recommendation</th></tr></thead>
+    <tbody>
+      <tr><th>2HRZE/4HR</th><td>6 months: 2 months of isoniazid, rifampicin, pyrazinamide and ethambutol, then 4 months of isoniazid and rifampicin, daily</td><td>New patients with pulmonary TB. Also extrapulmonary TB, except TB of the central nervous system, bone or joint, for which some expert groups suggest longer therapy. People with HIV receive at least the same duration. [[WHO-Mod4-2025]]</td><td>WHO 1.1: strong, high certainty [[WHO-Mod4-2025]]</td></tr>
+      <tr><th>2HPMZ/2HPM</th><td>17 weeks: 8 weeks of isoniazid, rifapentine, moxifloxacin and pyrazinamide, then 9 weeks of isoniazid, rifapentine and moxifloxacin</td><td>Age 12 or older with drug-susceptible pulmonary TB. Not studied, so not covered: under 40 kg; TB meningitis, disseminated, osteoarticular or abdominal TB; HIV with CD4 below 100 cells/mm³; pregnancy, breastfeeding or postpartum. ATS/CDC/ERS/IDSA advises fluoroquinolone susceptibility testing first. [[WHO-Mod4-2025,Saukkonen2025]]</td><td>WHO 2.1: conditional, moderate certainty; adopted by ATS/CDC/ERS/IDSA in 2025 [[WHO-Mod4-2025,Saukkonen2025]]</td></tr>
+      <tr><th>2HRZ(E)/2HR</th><td>16 weeks; ethambutol in the first 2 months where HIV or isoniazid resistance is common</td><td>Children and adolescents aged 3 months to 16 years with non-severe TB and no suspected drug resistance: peripheral lymph node TB, intrathoracic node TB without airway obstruction, uncomplicated pleural effusion, or paucibacillary non-cavitary disease in one lobe without a miliary pattern. Others receive 2HRZE/4HR or a regimen for severe extrapulmonary TB. [[WHO-Mod4-2025]]</td><td>WHO 2.2: strong, moderate certainty; same strong recommendation from ATS/CDC/ERS/IDSA [[WHO-Mod4-2025,Saukkonen2025]]</td></tr>
+      <tr><th>TB meningitis</th><td>Longer than 6 months; the standard regimen in a Vietnamese trial lasted 9 months [[Heemskerk2016]]</td><td>Not covered by the 4-month trials, and not usually treated with a 6- or 4-month regimen (ATS/CDC/ERS/IDSA). Adjuvant dexamethasone or prednisolone tapered over 6–8 weeks. [[Saukkonen2025,WHO-Mod4-2025]]</td><td>Steroids, WHO 4.1: strong, moderate certainty; deaths cut by about a quarter (RR 0.75) [[WHO-Mod4-2025,Prasad2016]]</td></tr>
+      <tr><th>Bone, joint, miliary, pericardial TB</th><td>Usually longer; this guide's sources do not quote a fixed duration</td><td>Not covered by the 4-month trials; some expert groups suggest longer therapy for bone and joint TB. Steroids may be used for pericarditis. [[WHO-Mod4-2025,Saukkonen2025]]</td><td>Pericarditis steroids: conditional, very low certainty [[WHO-Mod4-2025]]</td></tr>
+      <tr><th>Drug-resistant TB</th><td>Usually 6 months (BPaLM, BPaL)</td><td>See <a href="#drtb" data-go="drtb">Treating drug-resistant TB</a></td><td>WHO Module 4 [[WHO-Mod4-2025]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Regimens and recommendations are quoted as WHO and ATS/CDC/ERS/IDSA publish them, for teaching. They are not instructions for anyone's treatment, which is decided with the clinician and national TB programme, usually free of charge.</p>
+
+  <div class="cards">
+    <div class="card"><span class="tag rx">Global outcome</span><h4>Treatment works</h4><p class="big-num">88%</p><p>Treatment success for drug-susceptible TB on first-line regimens, 2023 cohort, up from 81% in 2016. It ranged from 71% in the Americas to 93% in the Eastern Mediterranean Region, and was 79% for people with HIV. These are population figures, not a prediction for one person. [[WHO-GTR2025]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Rifampicin all the way through</h4><p>Across 57 trials and 21,472 people, using rifampicin only in the first 1 to 2 months meant more failure, relapse and acquired resistance. WHO's analysis: relapse 8.2% vs 3.1% with fully susceptible TB, about 112 relapses averted per 1,000 people treated. [[Menzies2009,WHO-Mod4-2025]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Daily, not three times a week</h4><p>WHO recommends daily dosing throughout. Thrice-weekly dosing throughout carried 3.3 times the acquired-resistance rate. In Union Study A, unfavourable outcomes 12 months after treatment were 5% with 2EHRZ/4HR against 14% with a thrice-weekly intensive phase plus 6HE. [[WHO-Mod4-2025,Jindani2004]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>One tablet or four?</h4><p>WHO prefers fixed-dose combination tablets (conditional, low certainty). In Study C, favourable outcomes were 93.9% with a 4-drug combination tablet and 94.6% with separate drugs. The 4-month rifapentine regimen has no combination tablet, so more pills a day. [[WHO-Mod4-2025,Lienhardt2011]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Treat by strategy, not by fixed length?</h4><p>TRUNCATE-TB started with 8 weeks and extended or retreated as needed. The bedaquiline-linezolid strategy averaged 85 days of treatment but 12.7% to 22.8% of strategy participants needed retreatment, and it uses core drugs for drug-resistant TB. It is not in WHO Module 4 (2025). [[Paton2023]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Steroids for meningitis</h4><p>In 545 people over 14 with TB meningitis, dexamethasone lowered death at 9 months (RR 0.69) but not severe disability among survivors. In TB pericarditis (IMPI, 1,400 adults), prednisolone did not change the main outcome but lowered constriction (4.4% vs 7.8%). [[Thwaites2004,Mayosi2014]]</p></div>
+  </div>
+  <p class="callout">Before the 4-month regimen, fluoroquinolone resistance must be excluded: see <a href="#resistance" data-go="resistance">Drug resistance</a>. Side effects and the checks during treatment are in <a href="#safety" data-go="safety">Side effects &amp; monitoring</a>; support during treatment in <a href="#living" data-go="living">Living with TB</a>.</p>
 </section>
