@@ -1,5 +1,97 @@
-<!-- ================= 2.1 SYMPTOMS & WHERE TB STRIKES (stub, replaced by its builder) ================= -->
+<!-- ================= 2.1 SYMPTOMS & WHERE TB STRIKES ================= -->
+<style>
+#m-symptoms .tbl table{min-width:620px}
+#m-symptoms .card>.ev,#m-symptoms .card>.tag{align-self:flex-start}
+#m-symptoms .calc{margin-top:2px}
+#m-symptoms #syRes{font-weight:400;line-height:1.5}
+#m-symptoms #syRes b{font-weight:700}
+#m-symptoms .legend i.dot{width:10px;height:10px;border-radius:50%}
+</style>
 <section class="mod" id="m-symptoms" data-mod="symptoms" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Symptoms &amp; where TB strikes</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Most TB starts in the lungs, with a cough that will not settle, fever, night sweats and weight loss. About one case in six is outside the lungs. Pick who you are looking at, then press Play: the symptoms appear first, then the places TB can reach.</p></div>
+  <div class="ctrls" role="group" aria-label="Whose presentation">
+    <span class="kicker">Presentation in</span>
+    <button class="btn" data-sy="adult" aria-pressed="true">An adult</button>
+    <button class="btn" data-sy="child" aria-pressed="false">A child</button>
+    <button class="btn" data-sy="hiv" aria-pressed="false">A person with HIV</button>
+  </div>
+  <div class="stepper" id="sySteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="sySvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="A body outline. As the timeline plays, symptom chips appear beside it: first the lung symptoms, then fever, night sweats and weight loss, while the figure slims. Then the places TB can reach outside the lungs light up one by one, each with its share of extrapulmonary cases: lymph nodes, pleura, bone and spine, the genitourinary tract, the peritoneum, the meninges and, last, miliary spread through the whole body."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="syPlay">Play</button><label class="stage-cap tl" for="syT">Timeline <input type="range" id="syT" min="0" max="1" step="0.001" value="0.36"></label></div>
+      <div class="readout" id="syRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative person, not a checklist: TB can show any mix of these, or none. Shares of extrapulmonary sites are from US surveillance, 1993–2006, and differ by country. [[Peto2009,WHO-GTR2025]]</p>
+    </div>
+    <aside class="note" id="syNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="callout prose"><p><b>If you have these symptoms, see a clinician.</b> A cough for 2 weeks or more, fever, night sweats or weight loss are reasons to get checked for TB, and some people with TB feel well. TB is a notifiable disease; testing and treatment are free in most public programmes, and treatment cures most people. [[VantHoog2022,Frascella2021]]</p></div>
+
+  <h3 class="sub">Screening tests on 1,000 people</h3>
+  <p class="prose">Screening asks a simple question of many people to decide who needs a proper test, such as sputum Xpert. Choose a screen and how common TB is in the group, and watch what happens to 1,000 people. Accuracy figures are pooled estimates from the populations studied, so the same screen behaves very differently where TB is common or rare. [[Getahun2011,VantHoog2022]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label for="syTest">Screen and the group it was studied in
+          <select id="syTest">
+            <option value="w4ss">WHO four-symptom screen · people with HIV</option>
+            <option value="w4noart">Four-symptom screen · people with HIV not on ART</option>
+            <option value="w4art">Four-symptom screen · people with HIV on ART</option>
+            <option value="crp">CRP ≥ 10 mg/L · people with HIV</option>
+            <option value="cough2">Cough ≥ 2 weeks · community adults</option>
+            <option value="anysym">Any TB symptom · community adults</option>
+            <option value="cxr">Any chest X-ray abnormality · community adults</option>
+            <option value="cxrs">X-ray suggestive of TB · community adults</option>
+            <option value="combo">Cough ≥ 2 weeks or abnormal X-ray · community adults</option>
+            <option value="cad">X-ray read by software (CAD4TB) · adults with cough ≥ 2 weeks</option>
+          </select></label>
+        <label for="syPrev">TB in the group: <span id="syPrevV">5%</span>
+          <input type="range" id="syPrev" min="0.5" max="25" step="0.5" value="5"></label>
+      </div>
+      <div class="scroll"><svg id="syIcons" viewBox="0 0 720 330" role="img" aria-label="An icon array of 1,000 people. People with TB are drawn first: filled magenta if the screen flags them, hollow if it misses them. People without TB follow: amber if the screen wrongly flags them, pale if it correctly clears them."></svg></div>
+      <div class="legend"><span><i class="dot" style="background:var(--tb)"></i>TB, flagged</span><span><i class="dot" style="border:2px solid var(--tb);background:none"></i>TB, missed</span><span><i class="dot" style="background:var(--warn)"></i>no TB, flagged</span><span><i class="dot" style="background:var(--line)"></i>no TB, cleared</span></div>
+      <div class="verdict maybe" id="syRes" aria-live="polite"></div>
+      <p class="stage-cap">A teaching tool, never a self-assessment: no screen replaces a clinician. Sources: [[Getahun2011,Hamada2018,Dhana2022,VantHoog2022,Crowder2026]]</p>
+    </div>
+    <aside class="note" id="syIcoNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">TB outside the lungs, site by site</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Site</th><th>Share of extrapulmonary TB (US, 1993–2006)</th><th>What is known from these sources</th></tr></thead>
+    <tbody>
+      <tr><th>Lymph nodes</th><td>40.4%</td><td>Typically 1–2 months of painless swelling of one group of neck nodes; female-to-male ratio 1.4:1, peak age 30–40. Excision biopsy has the highest sensitivity (80%); about 20% worsen for a while during treatment (a paradoxical reaction). [[Peto2009,Fontanilla2011]]</td></tr>
+      <tr><th>Pleura</th><td>19.8%</td><td>Fluid around the lung. Pleural adenosine deaminase (ADA): pooled sensitivity 0.92 and specificity 0.90 across 63 studies; free interferon-γ in pleural fluid 89% and 97%. [[Peto2009,Liang2008,Lewinsohn2017]]</td></tr>
+      <tr><th>Bone and joint</th><td>11.3%</td><td>Includes spinal TB (Pott's disease), whose spinal deformity is visible in Egyptian remains from about 2400 BC. [[Peto2009,Barberis2017]]</td></tr>
+      <tr><th>Genitourinary</th><td>6.5%</td><td>Kidney, urinary tract or genital organs. [[Peto2009]]</td></tr>
+      <tr><th>Meninges</th><td>5.4%</td><td>The most lethal and disabling form. Six-month mortality in adults 16% without HIV and 57% with HIV; in children, 19.3% died and only 36.7% survived without neurological sequelae (population averages). On CSF, Xpert Ultra detected 21 of 22 cases in Ugandan adults with HIV, and testing 6 mL or more of CSF raised detection. A consensus case definition (definite, probable, possible) is used in research. [[Peto2009,Wilkinson2017,Stadelman2020,Chiang2014,Bahr2018,Marais2010LID]]</td></tr>
+      <tr><th>Peritoneum</th><td>4.9%</td><td>Free interferon-γ in peritoneal fluid: 93% sensitive, 99% specific. [[Peto2009,Lewinsohn2017]]</td></tr>
+      <tr><th>Miliary</th><td>not counted in this series</td><td>Massive spread through lymph and blood; symptoms are non-specific and the typical X-ray pattern may appear only late. More common in immunocompromised people. [[Sharma2005,Nachiappan2017]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Smear sensitivity in extrapulmonary specimens ranges from under 10% to 42% depending on site, and culture from 23% to 90%, so a negative test does not rule TB out. Unclassified sites made up the remaining 11.8%. Extrapulmonary TB was more common in women (OR 1.7) and in people born outside the US (OR 1.5). [[Lewinsohn2017,Peto2009]]</p>
+
+  <h3 class="sub">What else can look like TB</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Condition</th><th>Why it can be confused with TB</th><th>What helps tell them apart</th></tr></thead>
+    <tbody>
+      <tr><th>Community-acquired pneumonia</th><td>Cough, fever and an abnormal X-ray.</td><td>Treating presumed pneumonia with a fluoroquinolone delayed TB diagnosis and treatment by a mean of 19 days and raised the odds of fluoroquinolone-resistant TB (pooled OR 2.70). [[Chen2011FQ]]</td></tr>
+      <tr><th>Non-tuberculous mycobacteria (NTM)</th><td>More than 190 species; some cause lung disease that looks like TB (most often <i>M. avium</i> complex, <i>M. kansasii</i>, <i>M. xenopi</i>, <i>M. abscessus</i>). They are acid-fast on a smear too.</td><td>Speciation of what grows: 77.3% of smear-negative specimens positive only in liquid culture grew NTM in one study. [[Daley2020,Chihota2010]]</td></tr>
+      <tr><th>Chronic pulmonary aspergillosis</th><td>Cavities or nodules on imaging, often in people with old TB.</td><td>Evidence of <i>Aspergillus</i> (microscopy, culture or an immune response) with the picture present for at least 3 months; Aspergillus antibody is raised in more than 90%. [[Denning2016]]</td></tr>
+      <tr><th>Sarcoidosis</th><td>Granulomas, enlarged chest lymph nodes.</td><td>A compatible picture, non-necrotising granulomas in tissue and exclusion of TB and other causes, so the diagnosis is "never fully secure". [[Crouser2020]]</td></tr>
+      <tr><th>Bacterial meningitis</th><td>Fever, headache, abnormal CSF.</td><td>Age, length of history, blood and CSF white-cell counts and CSF neutrophil proportion: a rule built on these was 86% sensitive and 79% specific when tested prospectively. [[Thwaites2002]]</td></tr>
+      <tr><th>HIV-related illness</th><td>In advanced HIV, TB is often outside the lungs, sputum may be impossible to produce and samples hold few bacilli.</td><td>Urine LF-LAM (more sensitive as CD4 falls) and Xpert Ultra, which is more sensitive than Xpert MTB/RIF in people with HIV. See <a href="#diagnose" data-go="diagnose">Diagnosing TB disease</a>. [[Peter2016,Bjerrum2019,Zifodya2021]]</td></tr>
+      <tr><th>Past, treated TB</th><td>Old scars on the X-ray.</td><td>X-ray software performs worse after previous TB, and Xpert Ultra specificity falls to 88.2% (vs 97.4% for Xpert MTB/RIF). [[Qin2021,Zifodya2021]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Worth knowing</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Subclinical TB: disease without symptoms</h4><p>In national prevalence surveys since 1990, a median 50.4% (range 36.1–79.7%) of people with bacteriologically confirmed TB screened negative on symptoms. A chest X-ray detected 89% of them. An international consensus now separates subclinical from clinical TB by reported symptoms or signs and by likely infectiousness. In 35 adults with HIV and TB infection but no symptoms, PET-CT found lung changes suggesting subclinical disease in 10, who were more likely to progress. [[Frascella2021,Coussens2024,Esmail2016]]</p><p>See <a href="#spectrum" data-go="spectrum">TB infection vs TB disease</a>.</p></div>
+    <div class="card"><span class="tag accent">Children</span><h4>Hard to confirm, so treated on clinical grounds</h4><p>Of 4,718 children under 10 assessed in 13 studies, 38.4% were classified as having TB, and only 29.9% of those were bacteriologically confirmed. WHO treatment-decision algorithms score symptoms with or without an X-ray (sensitivity 0.86, specificity 0.37 with X-ray), so primary-care workers can start treatment without a positive test. Consensus case definitions let research studies of childhood TB be compared. [[Gunasekera2023,WHO-Mod5-2022,Graham2015]]</p></div>
+    <div class="card"><span class="tag accent">HIV</span><h4>The four-symptom screen fades on ART</h4><p>In people taking antiretroviral therapy the screen caught 51.0% of TB, against 89.4% in people not yet on ART; specificity was 70.7% versus 28.1%. Adding any chest X-ray abnormality raised sensitivity on ART from 52.2% to 84.6% (two studies). [[Hamada2018]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Which second screen: CRP or X-ray software?</h4><p>In Ugandan adults with HIV starting ART, finger-prick CRP of 10 mg/L or more had 89% sensitivity and 72% specificity. [[Yoon2017]] In people with HIV not on ART, a positive symptom screen followed by CRP of 5 mg/L or more kept sensitivity at 84% and raised specificity to 64%. In a multinational cohort of adults with cough, CAD4TB reached 70.3% specificity at 90% sensitivity against 49.7% for point-of-care CRP, and CRP then CAD4TB reached 75.9%. The best choice depends on the setting. [[Dhana2022,Crowder2026]]</p></div>
+  </div>
 </section>

@@ -1,5 +1,102 @@
-<!-- ================= 2.2 TB INFECTION TESTS: TST & IGRA (stub, replaced by its builder) ================= -->
+<!-- ================= 2.2 TB INFECTION TESTS: TST & IGRA ================= -->
+<style>
+#m-tests .tbl table{min-width:640px}
+#m-tests .card>.ev,#m-tests .card>.tag{align-self:flex-start}
+#m-tests .chk{display:flex;flex-direction:row;align-items:center;gap:8px;font-weight:700;font-size:14px}
+#m-tests .verdict small{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+</style>
 <section class="mod" id="m-tests" data-mod="tests" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>TB infection tests: TST &amp; IGRA</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">The skin test and the blood test both ask one question: has this person's immune system met the TB bacterium? Neither can say whether TB is active now. Watch both run side by side over 72 hours, then change the person.</p></div>
+  <div class="ctrls" role="group" aria-label="Which test to show">
+    <span class="kicker">Show</span>
+    <button class="btn" data-tsv="both" aria-pressed="true">Both tests</button>
+    <button class="btn" data-tsv="tst" aria-pressed="false">Skin test (TST)</button>
+    <button class="btn" data-tsv="igra" aria-pressed="false">Blood test (IGRA)</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="The person tested">
+    <span class="kicker">The person</span>
+    <button class="btn" id="tsInf" aria-pressed="true">Has TB infection</button>
+    <button class="btn" id="tsBcg" aria-pressed="false">BCG-vaccinated after age 1</button>
+  </div>
+  <div class="stepper" id="tsSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="tsSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A 72-hour timeline. On the left, a tuberculin skin test on a forearm: the injection raises a pale bleb, T cells gather under the skin and a firm swelling, the induration, grows until it is measured with a millimetre ruler at 48 to 72 hours, while the wider redness is ignored. On the right, four QuantiFERON-TB Gold Plus tubes fill with blood and incubate, then bars of interferon-gamma rise against the 0.35 IU/mL cut-off, and T-SPOT.TB wells fill with spots."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="tsPlay">Play</button><label class="stage-cap tl" for="tsT">Hours <input type="range" id="tsT" min="0" max="1" step="0.001" value="0.02"></label></div>
+      <div class="readout" id="tsRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative person; the millimetres and IU/mL values are invented to show the rules, not typical results. Interpretation rules are as published: TST [[ATS2000,Lewinsohn2017]], QFT and T-SPOT.TB [[Mazurek2010]].</p>
+    </div>
+    <aside class="note" id="tsNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Reading a skin test: the 5, 10 and 15 mm rule</h3>
+  <p class="prose">The same induration can be positive for one person and negative for another, because the cut-off depends on how likely infection is and how dangerous it would be. The groups below are quoted from the ATS/IDSA/CDC 2017 guideline. [[Lewinsohn2017]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label for="tsInd">Induration: <span id="tsIndV">8 mm</span><input type="range" id="tsInd" min="0" max="30" step="1" value="8"></label>
+        <label for="tsGrp">Risk group, as published
+          <select id="tsGrp">
+            <option value="5a">≥ 5 mm · close contact of a person with TB</option>
+            <option value="5b">≥ 5 mm · immunosuppressed, including people with HIV</option>
+            <option value="5c">≥ 5 mm · evidence of current or past TB</option>
+            <option value="5d">≥ 5 mm · taking TNF blockers</option>
+            <option value="10a" selected>≥ 10 mm · born in a high-incidence country</option>
+            <option value="10b">≥ 10 mm · occupational exposure</option>
+            <option value="10c">≥ 10 mm · medical risk factors for progression</option>
+            <option value="15">≥ 15 mm · everyone else</option>
+          </select></label>
+        <label class="chk" for="tsPrevOn"><input type="checkbox" id="tsPrevOn"> A negative test in the past 2 years</label>
+        <label for="tsPrev">Previous reading: <span id="tsPrevV">0 mm</span><input type="range" id="tsPrev" min="0" max="20" step="1" value="0"></label>
+      </div>
+      <div class="scroll"><svg id="tsCalc" viewBox="0 0 720 232" role="img" aria-label="A forearm drawn to scale with the chosen induration and a millimetre ruler under it, with the cut-off for the chosen group marked on the ruler."></svg></div>
+      <div class="verdict maybe" id="tsVerdict" aria-live="polite"></div>
+      <p class="stage-cap">A teaching tool, not an interpretation of your result. Only a clinician who knows your history can interpret a test. [[Lewinsohn2017,ATS2000]]</p>
+    </div>
+    <aside class="note" id="tsCalcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Skin test or blood test?</h3>
+  <p class="prose">The 2017 guideline makes recommendations by age, risk of progression, BCG and whether the person will come back. Answer the questions to follow the path. [[Lewinsohn2017]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label for="tsQAge">Age<select id="tsQAge"><option value="5">5 years or older</option><option value="u5">Under 5 and healthy</option></select></label>
+        <label for="tsQRisk">Risk of progression to TB disease<select id="tsQRisk"><option value="lo">Low or intermediate</option><option value="hi">High (for example HIV)</option></select></label>
+        <label for="tsQBcg">BCG vaccinated?<select id="tsQBcg"><option value="n">No</option><option value="y">Yes</option></select></label>
+        <label for="tsQRet">Likely to return in 2–3 days for a reading?<select id="tsQRet"><option value="y">Yes</option><option value="n">Unlikely</option></select></label>
+        <label for="tsQSer">Tested repeatedly, as in staff screening?<select id="tsQSer"><option value="n">No</option><option value="y">Yes, serial testing</option></select></label>
+      </div>
+      <div class="scroll"><svg id="tsTree" viewBox="0 0 720 300" role="img" aria-label="A decision tree for choosing between the TST and an IGRA, with the path for the chosen answers highlighted."></svg></div>
+      <p class="stage-cap">Applies to people being tested because they are likely to be infected. Recommendations quoted from [[Lewinsohn2017]]; serial testing from [[Dorman2014HCW]].</p>
+    </div>
+    <aside class="note" id="tsTreeNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The tests compared</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Tuberculin skin test (TST)</th><th>QuantiFERON (QFT)</th><th>T-SPOT.TB</th></tr></thead>
+    <tbody>
+      <tr><th>What it measures</th><td>Induration 48–72 h after 0.1 mL of 5 TU PPD in the skin. [[ATS2000]]</td><td>Interferon-γ released by blood cells exposed to TB-specific antigens; QFT-Plus adds a tube that stimulates CD8+ as well as CD4+ T cells. [[Mazurek2010,Barcellini2016]]</td><td>Number of cells (spots) releasing interferon-γ. [[Mazurek2010]]</td></tr>
+      <tr><th>Positive</th><td>≥ 5, ≥ 10 or ≥ 15 mm by risk group. [[Lewinsohn2017]]</td><td>TB response minus Nil ≥ 0.35 IU/mL and ≥ 25% of Nil, with Nil ≤ 8.0. [[Mazurek2010]]</td><td>≥ 8 spots; 5–7 borderline; ≤ 4 negative (Nil ≤ 10 spots). [[Mazurek2010]]</td></tr>
+      <tr><th>Visits</th><td>Two: injection, then a reading 48–72 h later. [[ATS2000]]</td><td colspan="2">One blood draw; results can be ready within 24 hours. [[Mazurek2010]]</td></tr>
+      <tr><th>Sensitivity</th><td>71–82% in likely-infected people at low or intermediate risk; about 43% in people with HIV. [[Lewinsohn2017]]</td><td>70% in confirmed TB (QFT-GIT). [[Pai2008]]</td><td>90% in confirmed TB. [[Pai2008]]</td></tr>
+      <tr><th>Specificity</th><td>About 97% without BCG, about 60% with BCG. [[Lewinsohn2017]]</td><td colspan="2">QFT 99% without BCG and 96% with BCG; QFT-Plus specificity 0.12 higher than the TST. [[Pai2008,Zhang2023QFT]]</td></tr>
+      <tr><th>BCG</th><td>Can cause a positive; repeated testing can boost BCG reactivity. [[ATS2000,Farhat2006]]</td><td colspan="2">Uses ESAT-6 and CFP-10, which BCG lacks, so BCG does not cause a positive. [[Andersen2000]]</td></tr>
+      <tr><th>Serial testing (US healthcare workers, 18 months)</th><td>0.9% converted. [[Dorman2014HCW]]</td><td>6.1% converted; 76.4% of converters negative again 6 months later. [[Dorman2014HCW]]</td><td>8.3% converted; 77.1% negative again. [[Dorman2014HCW]]</td></tr>
+      <tr><th>Reversion (Indian medical and nursing students)</th><td>–</td><td colspan="2">QFT reverted in 7% of people positive on both tests at baseline, but in 70% of those whose TST and QFT disagreed. [[Pai2006HCW]]</td></tr>
+      <tr><th>Predicts TB disease? (positive predictive value)</th><td>1.5% (2.4% in high-risk groups). [[Diel2012]]</td><td colspan="2">2.7% for commercial IGRAs (6.8% in high-risk groups). [[Diel2012]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Worth knowing</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">TST</span><h4>Boosting and conversion</h4><p>BCG-induced reactivity can be boosted by repeated tuberculin testing, and no method reliably tells a BCG reaction from infection, so in a BCG-vaccinated person at increased risk a positive TST is taken to show infection. In someone retested after a negative result, an increase of 10 mm or more within 2 years counts as a conversion and suggests recent infection. [[ATS2000]]</p></div>
+    <div class="card"><span class="tag warn">False negatives</span><h4>When a negative test is less reassuring</h4><p>TST sensitivity is about 43% in people with HIV. [[Lewinsohn2017]] In children with HIV in Cape Town, the TST was positive in fewer than 20%. [[Marais2006]] A negative test never excludes TB disease in someone with symptoms. [[Lewinsohn2017]]</p></div>
+    <div class="card"><span class="tag accent">BCG</span><h4>How much does BCG matter?</h4><p>Across 24 studies of 240,203 people given BCG in infancy, 8.5% had a TST of 10 mm or more because of BCG, and only 1% when tested 10 or more years later. After BCG given past the first birthday, 41.8% did, and 21.2% still did after 10 years. Non-tuberculous mycobacteria caused false positives in only 0.1–2.3%. [[Farhat2006]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>A positive test is not TB disease</h4><p>In 13 studies of 32,034 people, positive predictive values for TB disease in lower-incidence countries were 2.74% (TST 15 mm) and 2.46% (QFT-GIT), with negative predictive values above 99.4%. Across 15 cohorts, TB incidence in IGRA-positive people was 4–48 per 1,000 person-years. [[Rangaka2012]] In the UK PREDICT cohort, 1.0% of 9,610 recent contacts and migrants developed TB over a median 2.9 years. [[Hamada2023,Abubakar2018]] See <a href="#tpt" data-go="tpt">Treating TB infection</a>.</p></div>
+    <div class="card"><span class="tag vax">WHO 2022</span><h4>Antigen-based skin tests (TBSTs)</h4><p>Cy-Tb, C-Tb, Diaskintest and C-TST inject ESAT-6 and CFP-10 into the skin, so BCG does not affect them. WHO states that "Mycobacterium tuberculosis antigen-based skin tests (TBSTs) may be used to test for TB infection" (conditional recommendation, very low certainty). C-Tb had a sensitivity of 74.5% (IGRA 71.7%) and specificity of 97.9%; in Spanish contact tracing it agreed with QFT in 94%. [[Krutikov2022,Hamada2021,WHO-Mod3-2022TBI,Ruhwald2017]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Which predicts disease better?</h4><p>A pooled hazard ratio for incident TB was 4.15 for QFT-GIT and 2.88 for a BCG-stratified TST, but much of the difference came from one study, and absolute predictive values were almost the same. In PREDICT, a 5 mm TST cut-off identified the most people who progressed (83%), at the cost of specificity. [[Hamada2023,Abubakar2018]]</p></div>
+  </div>
 </section>

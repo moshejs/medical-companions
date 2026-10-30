@@ -1,5 +1,97 @@
-<!-- ================= 2.3 DIAGNOSING TB DISEASE (stub, replaced by its builder) ================= -->
+<!-- ================= 2.3 DIAGNOSING TB DISEASE ================= -->
+<style>
+#m-diagnose .tbl table{min-width:680px}
+#m-diagnose .card>.ev,#m-diagnose .card>.tag{align-self:flex-start}
+#m-diagnose .card ul{padding-left:18px}
+</style>
 <section class="mod" id="m-diagnose" data-mod="diagnose" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Diagnosing TB disease</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">One sample, several tests, very different clocks: a rapid molecular test answers in under 2 hours, a smear the next day, and culture takes weeks. Pick a person, then follow the tests along a time axis that runs from hours to months.</p></div>
+  <div class="ctrls" role="group" aria-label="Whose sample">
+    <span class="kicker">The person</span>
+    <button class="btn" data-dxs="pos" aria-pressed="true">Adult, smear-positive</button>
+    <button class="btn" data-dxs="neg" aria-pressed="false">Adult, smear-negative</button>
+    <button class="btn" data-dxs="child" aria-pressed="false">Young child</button>
+    <button class="btn" data-dxs="hiv" aria-pressed="false">Adult with advanced HIV</button>
+  </div>
+  <div class="stepper" id="dxSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="dxSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A laboratory pipeline on a logarithmic time axis from half an hour to four months. A sample cup sends its specimen down several lanes: an Xpert cartridge, a urine LAM strip for people with advanced HIV, a stained smear slide, a liquid culture tube, a solid culture slope and drug-susceptibility testing. Each test moves along its lane as time passes and raises a result flag, positive or negative, when its published turnaround time is reached."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxPlay">Play</button><label class="stage-cap tl" for="dxT">Time (log scale) <input type="range" id="dxT" min="0" max="1" step="0.001" value="0.17"></label></div>
+      <div class="readout" id="dxRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> Times are medians or ranges from named studies and the ATS/IDSA/CDC guideline; real times depend on the laboratory and how far samples travel. Which tests turn positive is one illustrative case per person, not a prediction. [[Boehme2010,Boehme2011,Chihota2010,Lewinsohn2017]]</p>
+    </div>
+    <aside class="note" id="dxNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How many does each test find?</h3>
+  <p class="prose">Sensitivity is the share of people with TB a test finds; specificity is the share of people without TB it correctly calls negative. Pooled estimates from the populations studied, mostly adults with symptoms. [[Zifodya2021,Lewinsohn2017]]</p>
+  <div class="ctrls" role="group" aria-label="Test">
+    <button class="btn" data-dxt="smear1" aria-pressed="false">One smear</button>
+    <button class="btn" data-dxt="smear3" aria-pressed="false">Three smears</button>
+    <button class="btn" data-dxt="xpert" aria-pressed="true">Xpert MTB/RIF</button>
+    <button class="btn" data-dxt="ultra" aria-pressed="false">Xpert Ultra</button>
+    <button class="btn" data-dxt="culture" aria-pressed="false">Liquid culture</button>
+    <button class="btn" data-dxt="lam" aria-pressed="false">Urine LF-LAM (HIV)</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Group">
+    <span class="kicker">Among</span>
+    <button class="btn" data-dxv="tb" aria-pressed="true">100 people with TB</button>
+    <button class="btn" data-dxv="no" aria-pressed="false">100 people without TB</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="dxIco" viewBox="0 0 720 230" role="img" aria-label="An icon array of 100 people. The chosen test marks the people it calls positive; the count shows its sensitivity among people with TB or its false positives among people without TB."></svg></div>
+      <p class="stage-cap" id="dxIcoCap"></p>
+    </div>
+    <aside class="note" id="dxIcoNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Chest X-ray patterns</h3>
+  <div class="ctrls" role="group" aria-label="X-ray pattern">
+    <button class="btn" data-cx="cavity" aria-pressed="true">Upper-lobe cavity</button>
+    <button class="btn" data-cx="miliary" aria-pressed="false">Miliary</button>
+    <button class="btn" data-cx="effusion" aria-pressed="false">Pleural effusion</button>
+    <button class="btn" data-cx="nodes" aria-pressed="false">Hilar lymph nodes</button>
+    <button class="btn" data-cx="scar" aria-pressed="false">Old, healed TB</button>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="dxCxr" viewBox="0 0 520 330" role="img" aria-label="A schematic frontal chest film showing the chosen TB pattern, with the patient's right lung on the viewer's left."></svg></div>
+      <p class="stage-cap">Schematic drawings of the patterns, not real radiographs. The patient's right is on the viewer's left. [[Nachiappan2017]]</p>
+    </div>
+    <aside class="note" id="dxCxrNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Chest X-ray</span><h4>What an X-ray can and cannot tell</h4><ul>
+      <li><b>Can:</b> find most TB, with or without symptoms. Any abnormality had a summary sensitivity of 94.7% and specificity of 89.1%; it detected 89% of TB in prevalence surveys. [[VantHoog2022,Frascella2021]]</li>
+      <li><b>Can:</b> show cavities, which go with poorer outcomes, more transmission and drug resistance, and which feed into decisions such as treatment length. [[Urbanowski2020,Nachiappan2017]]</li>
+      <li><b>Cannot:</b> prove TB. A flagged person still needs a bacteriological test; old scars look like disease, and only stability over 6 months marks them inactive. [[VantHoog2022,Nachiappan2017]]</li>
+      <li><b>Cannot:</b> rule TB out in people with HIV, who form fewer cavities, or in miliary TB, whose pattern may appear late. [[Pai2016,Sharma2005]]</li>
+    </ul></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>X-ray read by software</h4><p>Computer-aided detection gives each digital film an abnormality score. In 23,954 people screened in Dhaka all five algorithms outperformed radiologists and halved the Xpert tests needed while keeping sensitivity above 90%, but they did worse in people over 60 and after previous TB. In Viet Nam, 6 of 12 products performed on par with an expert reader. A 2019 review found accuracy lower in clinical evaluations (median AUC 0.75) than in development studies (0.88). [[Qin2021,Codlin2021,Harris2019]]</p></div>
+  </div>
+
+  <h3 class="sub">WHO-recommended rapid diagnostic tests</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Class (WHO 2024)</th><th>Examples</th><th>Samples and setting</th><th>When, as published</th></tr></thead>
+    <tbody>
+      <tr><th>Low-complexity automated NAATs</th><td>Xpert MTB/RIF, Xpert Ultra, Truenat MTB, MTB Plus, MTB-RIF Dx</td><td>Sputum in adults; in children sputum, gastric aspirate, stool or nasopharyngeal aspirate (Ultra sensitivity 75.3%, 69.6%, 68.0% and 46.2%); CSF, pleural fluid and lymph-node aspirate. [[Kay2025,Kohli2021]]</td><td>WHO strongly recommends Xpert Ultra for the initial diagnosis of TB in adults with signs and symptoms of pulmonary TB, and conditionally recommends Truenat as an initial test. [[WHO-Mod3-2024]]</td></tr>
+      <tr><th>Moderate-complexity automated NAATs</th><td>Not detailed in these sources</td><td>Not detailed in these sources.</td><td>Listed by WHO as a recommended class. [[WHO-Mod3-2024]]</td></tr>
+      <tr><th>Line probe assays (LPA)</th><td>First- and second-line LPAs</td><td>Laboratory strips; median 20 days to a resistance result in district use. [[Boehme2011]]</td><td>Rifampicin resistance: sensitivity 96.7%, specificity 98.8%; isoniazid: 90.2% and 99.2% (74 studies). [[Nathavitharana2017LPA]]</td></tr>
+      <tr><th>Low-complexity NAATs for isoniazid and second-line resistance</th><td>Xpert MTB/XDR</td><td>Specimens in which TB has been detected.</td><td>Isoniazid 94.2%, fluoroquinolones 93.2%, ethionamide 98.0%, amikacin 86.1% sensitivity. [[Pillay2022]]</td></tr>
+      <tr><th>Targeted next-generation sequencing</th><td>Targeted NGS</td><td>Respiratory samples from people with rifampicin-resistant pulmonary TB.</td><td>WHO conditionally recommends it to detect resistance to isoniazid, fluoroquinolones, bedaquiline, linezolid and other drugs, instead of phenotypic DST. [[WHO-Mod3-2024,Schwab2024]]</td></tr>
+      <tr><th>Urine LF-LAM</th><td>AlereLAM</td><td>Urine at the bedside, people with HIV.</td><td>Strongly recommended for inpatients with HIV who have TB signs or symptoms, advanced HIV disease or serious illness, and for inpatients with CD4 under 200 regardless of symptoms; conditionally for symptomatic outpatients. An add-on, not a replacement or triage test. [[WHO-Mod3-2024]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">In 2024 a WHO-recommended rapid test was the first test for 54% of people newly diagnosed with TB; 83% of people with bacteriologically confirmed TB were tested for rifampicin resistance. [[WHO-GTR2025]] Resistance testing in depth: <a href="#resistance" data-go="resistance">Drug resistance</a>.</p>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>Does faster diagnosis save lives?</h4><p>When nurses ran Xpert in primary care, more people were diagnosed (24% vs 13%) and treated (23% vs 15%) the same day, but TB-related illness at 2 and 6 months did not differ. Pooling five trials, Xpert did not clearly lower 6-month mortality (OR 0.88, 0.68–1.14), with a possible benefit in people with HIV. Gains depend on the whole care cascade. [[Theron2014,DiTanna2019]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>What to do with an Ultra "trace"</h4><p>"Trace", Ultra's lowest positive category, made up 3.0–30.4% of Ultra positives, and data were too few to judge repeat testing. Ultra specificity is lower in people with previous TB (93% vs 98% for Xpert MTB/RIF in one study). [[Zifodya2021,Dorman2018Ultra]]</p></div>
+    <div class="card"><span class="tag accent">HIV</span><h4>Urine LAM: test everyone admitted, or target?</h4><p>In 10 African hospitals, LAM-guided treatment cut 8-week mortality from 25% to 21% (RR 0.83). STAMP, which screened all HIV-positive inpatients, found no significant overall benefit (18% vs 21%) but lower mortality with CD4 under 100, severe anaemia or suspected TB. Pooled, LAM strategies likely reduce 8-week mortality (RR 0.85). [[Peter2016,GuptaWright2018,Nathavitharana2021LAM]]</p></div>
+    <div class="card"><span class="tag accent">Children</span><h4>Most childhood TB is never confirmed</h4><p>In 13 studies, 70.1% of children classified as having pulmonary TB had no bacteriological confirmation. Gastric aspirates on three mornings yield up to 40–50% (up to 90% in infants), nasopharyngeal aspirate or induced sputum 20–30%. Xpert MTB/RIF on children's sputum was 36–44% more sensitive than microscopy. [[Gunasekera2023,Lewinsohn2017,Detjen2015]] See <a href="#special" data-go="special">TB with HIV, in children &amp; pregnancy</a>.</p></div>
+  </div>
 </section>
