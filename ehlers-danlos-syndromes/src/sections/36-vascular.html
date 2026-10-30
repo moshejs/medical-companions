@@ -1,0 +1,154 @@
+<!-- ================= 3.6 VASCULAR EDS ================= -->
+<style>
+#m-vascular .vaAlert{display:flex;gap:14px;align-items:flex-start;background:var(--vas-soft);border:1px solid var(--vas);border-radius:var(--r);padding:14px 16px;max-width:900px}
+#m-vascular .vaAlert b.h{display:block;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--vas);margin-bottom:3px}
+#m-vascular .vaAlert p{font-size:15.5px}
+#m-vascular .vaAlert svg{flex:none;width:34px;height:34px}
+#m-vascular .seg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-vascular .card>.ev,#m-vascular .card>.tag{align-self:flex-start}
+#m-vascular .card.em{border-color:var(--vas);background:linear-gradient(var(--vas-soft),var(--panel) 70%)}
+#m-vascular .vaNums{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+#m-vascular .vaNums div{background:var(--panel-2);border-radius:10px;padding:9px 11px;display:flex;flex-direction:column;gap:1px}
+#m-vascular .vaNums b{font:400 25px/1.1 var(--display)}
+#m-vascular .vaNums span{font-size:13px;color:var(--muted)}
+#m-vascular .tbl table{min-width:640px}
+#m-vascular .tbl td:nth-child(2){font-family:var(--mono);font-size:13px;white-space:nowrap}
+#m-vascular a[data-go]{font-weight:700}
+</style>
+<section class="mod" id="m-vascular" data-mod="vascular" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Body systems</p><h2>Vascular EDS</h2>
+    <p class="lede">Vascular EDS (vEDS) is a rare, autosomal dominant type caused by changes in <i>COL3A1</i>, the gene for type III collagen, a major protein of artery walls and hollow organs such as the bowel and the uterus. It affects an estimated 1 in 50,000 to 1 in 200,000 people. Problems are rare in childhood and become common in adult life. [[Byers2017,Pepin2000]]</p></div>
+
+  <div class="vaAlert" role="note">
+    <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15" style="fill:var(--vas)"/><rect x="15" y="8" width="4" height="12" rx="2" style="fill:var(--panel)"/><circle cx="17" cy="25" r="2.4" style="fill:var(--panel)"/></svg>
+    <div><b class="h">If you or someone you care for has vEDS</b>
+    <p>GeneReviews advises that people with vEDS seek immediate medical attention for sudden, unexplained pain, and carry documentation of the genetic diagnosis, such as a MedicAlert bracelet, an emergency letter or a "vascular EDS passport". This page is educational and does not replace that plan. [[Byers2025GeneReviews,Byers2017]]</p></div>
+  </div>
+
+  <div class="ctrls" role="group" aria-label="Artery wall shown">
+    <span class="kicker">Wall</span>
+    <button class="btn" data-vawall="veds" aria-pressed="true">vEDS wall</button>
+    <button class="btn" data-vawall="typ" aria-pressed="false">Typical wall</button>
+  </div>
+  <div class="stepper" id="vaSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="vaSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A medium artery in long section with intima, media and adventitia labelled. In the vEDS wall the media thins because type III collagen is faulty or reduced. Then an intimal tear opens, blood tracks into the media to form a false lumen, the wall ruptures and blood leaks out, and an emergency banner appears: sudden severe pain needs emergency care and the vEDS card should be shown."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="vaPlay">Play</button><label class="stage-cap tl" for="vaT">Sequence <input type="range" id="vaT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap">Schematic, not to scale. Wall thickness is illustrative; arteries in vEDS can tear or rupture "even without significant dilation". [[Isselbacher2022,Byers2017]]</p>
+    </div>
+    <aside class="note" id="vaNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How the risk builds with age</h3>
+  <p class="prose">Drag the age line. The lines join published points from three cohorts; they are not the original curves, and every number is a population statistic that describes groups, not what will happen to any one person. Index patients were diagnosed because of symptoms, so they are more severely affected than relatives found by family testing. [[Pepin2000,Oderich2005,Demirdas2024]]</p>
+  <div class="ctrls" role="group" aria-label="COL3A1 variant class">
+    <span class="kicker">Variant class</span>
+    <button class="btn" data-vavar="all" aria-pressed="true">All variants</button>
+    <button class="btn" data-vavar="gly" aria-pressed="false">Glycine substitution</button>
+    <button class="btn" data-vavar="spl" aria-pressed="false">Splice / in-frame</button>
+    <button class="btn" data-vavar="null" aria-pressed="false">Null (haploinsufficient)</button>
+  </div>
+  <div class="stepper" id="vaAgeSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="vaAge" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="A chart of age from 0 to 60 years. A line rises through 25% of index patients with a first complication by age 20 and more than 80% by age 40. A second line shows survival free of vascular complications falling from 90% at 20 to 39% at 40 and 20% at 60 in a Mayo Clinic series. Dots mark median survival at 48 and 51 years. Below, a bar shows the median and interquartile range of age at first major event for the chosen COL3A1 variant class."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="vaAgePlay">Play</button><label class="stage-cap tl" for="vaAgeT">Age <input type="range" id="vaAgeT" min="0" max="1" step="0.001" value="0.34"></label></div>
+      <div class="readout" id="vaAgeRead"></div>
+      <p class="stage-cap">Points: Pepin 2000 (220 index patients), Oderich 2005 (31 patients, Mayo Clinic), Pepin 2000/2014 median survival, Demirdas 2024 and Frank 2015 for variant classes. [[Pepin2000,Pepin2014,Oderich2005,Demirdas2024,Frank2015]]</p>
+    </div>
+    <aside class="note" id="vaAgeNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Out of 100 index patients: a first complication by 20, by 40</h3>
+  <div class="ctrls" role="group" aria-label="Age shown in the icon array">
+    <button class="btn" data-vaicon="20" aria-pressed="true">By age 20</button>
+    <button class="btn" data-vaicon="40" aria-pressed="false">By age 40</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="vaIcons" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="An array of 100 person icons. By age 20, 25 are coloured as having had a first complication; by age 40, more than 80 are."></svg></div>
+    <p class="stage-cap">From 220 index patients with biochemically confirmed vEDS. Relatives found through family testing do better: in a Dutch cohort the median age at death was 43 years for index patients and 65 for relatives. [[Pepin2000,Demirdas2024]]</p>
+  </div>
+
+  <h3 class="sub">Where vEDS strikes</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Site or event</th><th>Published figure</th><th>What the cohort showed</th></tr></thead>
+    <tbody>
+      <tr><th>Medium-sized arteries</th><td>61.6% of 86</td><td>had 139 aortic or arterial pathologies, median age 33. Mesenteric arteries were affected most (31.7%), then cerebrovascular (16.5%), iliac (16.5%) and renal (12.2%). 37.4% presented as emergencies. [[Shalhub2019JVS]]</td></tr>
+      <tr><th>Aorta</th><td>13 of 25 deaths</td><td>In the UK national service (180 people), 13 of 25 fatal vascular events were aortic dissections. [[Bowen2023vEDS]]</td></tr>
+      <tr><th>Bowel</th><td>≈1 in 4</td><td>Bowel rupture made up about a quarter of complications, often in the sigmoid colon, and rarely led to death. In the UK, 13.88% had a perforation, mostly under 30; 7 people perforated again. [[Pepin2000,Bowen2023vEDS]]</td></tr>
+      <tr><th>Lung</th><td>5.55% of 180</td><td>Pneumothorax, the youngest one day old; 8 of 10 happened before vEDS was diagnosed. [[Bowen2023vEDS]]</td></tr>
+      <tr><th>Carotid-cavernous fistula</th><td>3.33% of 180</td><td>All in women aged 29–55. [[Bowen2023vEDS]]</td></tr>
+      <tr><th>Spleen</th><td>4 people</td><td>Splenic rupture in the UK cohort. [[Bowen2023vEDS]]</td></tr>
+      <tr><th>Uterus</th><td>see pregnancy</td><td>Unexplained third-trimester uterine rupture is among the major criteria proposed as indications for testing. [[Demirdas2024]] See <a href="#" data-go="pregnancy">Pregnancy &amp; parenthood</a>.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Medicines that may lower the risk</h3>
+  <div class="ctrls" role="group" aria-label="Trial shown">
+    <button class="btn" data-vatrial="bbest" aria-pressed="true">BBEST: celiprolol</button>
+    <button class="btn" data-vatrial="arcade" aria-pressed="false">ARCADE: irbesartan</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="vaTrial" viewBox="0 0 720 250" style="min-width:560px" role="img" aria-label="Each icon is one trial participant. In BBEST, 5 of 25 people on celiprolol and 14 of 28 controls had an arterial rupture or dissection. In ARCADE, 8 of 29 on irbesartan and 15 of 28 on placebo, all on background celiprolol, had the composite arterial outcome."></svg></div>
+      <p class="stage-cap">Each icon is one randomised participant; coloured icons had the primary outcome. [[Ong2010,Jeunemaitre2025]]</p>
+    </div>
+    <aside class="note" id="vaTrialNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>Celiprolol and BBEST</h4>
+      <p>Celiprolol is a β1-blocker with β2-agonist action. BBEST randomised 53 people with clinical vEDS (25 celiprolol, 28 no treatment) at 9 centres in France and Belgium. The protocol gave it twice daily, uptitrated by 100 mg every 6 months to a maximum of 400 mg/day. Arterial rupture or dissection: 20% vs 50%, HR 0.36 (95% CI 0.15–0.88), mean follow-up 47 months. [[Ong2010,NCT00190411]]</p>
+      <div class="vaNums"><div><b>20% vs 50%</b><span>events, celiprolol vs control</span></div><div><b>0.36</b><span>hazard ratio</span></div></div></div>
+    <div class="card"><span class="tag warn">Limitations</span><h4>Why BBEST is not the last word</h4>
+      <ul><li>Open-label (only the endpoints were assessed blind). [[Ong2010]]</li>
+      <li>Stopped early for benefit after a mean 47 months, so the number of events is small. [[Ong2010]]</li>
+      <li>Small: 53 people, of whom only 33 had a confirmed <i>COL3A1</i> variant. [[Ong2010,Shalhub2020]]</li>
+      <li>The 2022 ACC/AHA guideline says the data were considered insufficient for FDA approval; celiprolol has no FDA approval for any indication. [[Isselbacher2022,openFDA-Celiprolol]]</li>
+      <li>Not available in several countries, and dizziness or low blood pressure sometimes limit it. [[Buso2024,Saputra2025]]</li></ul></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Cohorts on treatment</h4>
+      <p>In a French referral cohort (144 people), 90.3% were on celiprolol by the end; those treated survived better (p=0.0004), and 400 mg/day did better than lower doses. In a Swedish cohort the annual major-event risk on celiprolol was 4.7%, close to BBEST's treated arm (5%) and below its control arm (12%). These are observational: medicine and overall specialist care cannot be separated. [[Frank2019JACC,Baderkhan2021]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>ARCADE: adding irbesartan</h4>
+      <p>A double-blind, placebo-controlled trial of irbesartan in 57 adults already on celiprolol: the composite arterial outcome occurred in 27.6% vs 53.6% over 2 years (HR 0.42, 95% CI 0.17–0.99). The benefit was not explained by the 5.4 mm Hg fall in systolic pressure. [[Jeunemaitre2025,NCT02597361]]</p></div>
+    <div class="card"><span class="tag accent">Ongoing</span><h4>DiSCOVER (NCT05432466)</h4>
+      <p>A phase 3, double-blind, decentralised trial of celiprolol 200 mg twice daily versus placebo in <i>COL3A1</i>-positive vEDS, ages 15–64. Status: recruiting; started November 2022, estimated enrolment 150, estimated primary completion March 2029. Primary endpoint: time to the first vEDS-related event needing medical attention. [[NCT05432466]] More in <a href="#" data-go="frontier">Toward better treatment</a> and <a href="#" data-go="meds">Medicines</a>.</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Mouse models disagree</h4>
+      <p>In two vEDS mouse models, blocking ERK1/2 or PKCβ signalling prevented aortic rupture. In those models celiprolol "accelerated rather than reduced" death from aortic rupture, while another model suggested benefit. Animal data only. [[Bowen2020JCI,Buso2024]]</p></div>
+  </div>
+
+  <h3 class="sub">The plan: card, blood pressure, imaging, pregnancy</h3>
+  <div class="cards">
+    <div class="card em"><span class="tag bad">Emergency card</span><h4>What the card or passport carries</h4>
+      <ul><li>The diagnosis and documentation of the <i>COL3A1</i> result. [[Byers2025GeneReviews]]</li>
+      <li>The individual management plan and how to reach the specialist team, for use when travelling. [[Byers2017]]</li>
+      <li>Sudden, unexplained pain needs immediate medical attention. [[Byers2025GeneReviews]]</li>
+      <li>As published: arteriography only to find life-threatening bleeding before surgery; no routine colonoscopy without concerning symptoms; elective surgery only if the benefit is substantial. [[Byers2025GeneReviews]]</li>
+      <li>For anaesthetists: avoid central and arterial lines where possible, use ultrasound if a central line is unavoidable, and avoid neuraxial blocks. [[Wiesmann2014]] See <a href="#" data-go="surgery">Surgery &amp; anaesthesia</a>.</li></ul></div>
+    <div class="card"><span class="tag vas">Blood pressure &amp; life</span><h4>Keeping strain off the arteries</h4>
+      <p>The 2017 consensus says to "maintain blood pressure in the normal range and treat hypertension aggressively", adapt lifestyle to minimise injury and build a care team at an experienced centre. GeneReviews lists collision sports, heavy lifting and extreme weight training as things to avoid. Stopping smoking and controlling hypertension are stressed for heritable aortic disease. [[Byers2017,Byers2025GeneReviews,CalderonMartinez2025]]</p></div>
+    <div class="card"><span class="tag vas">Surveillance imaging</span><h4>Imaging as published</h4>
+      <ul><li>2017 consensus: Doppler ultrasound, CTA (low-radiation) or MRA "if feasible on an annual basis" (expert consensus). [[Byers2017]]</li>
+      <li>ACC/AHA 2022, typical protocol: baseline head-to-pelvis CT or MRI; yearly for any dilated or dissected segment; every 2 years if the first imaging is normal. The right interval is uncertain. [[Isselbacher2022]]</li>
+      <li>An Italian expert centre: every 12 to 18 months with office and 24-hour blood pressure, echocardiography and whole-body CT or MR angiography. [[Buso2024]]</li>
+      <li>European expert centres all monitor, but intervals and methods differ. [[vanDeLaar2022]]</li></ul></div>
+    <div class="card"><span class="tag vas">Pregnancy</span><h4>A high-risk pregnancy</h4>
+      <p>Pregnancy-related deaths occurred in 30 of 565 deliveries (5.3%) in family pedigrees, and a 2024 review found 5.7% maternal mortality per pregnancy. In the recent UK cohort, 10% (5 of 48) of women without later-onset variants had a life-threatening or fatal vascular event, and none had a uterine rupture; older data may overestimate today's risk. Planning with a specialist team matters. [[Murray2014GenetMed,Haem2024,Bowen2023vEDS]] See <a href="#" data-go="pregnancy">Pregnancy &amp; parenthood</a>.</p></div>
+    <div class="card"><span class="tag dx">Diagnosis</span><h4>Confirm the gene</h4>
+      <p>The consensus recommends finding the causative <i>COL3A1</i> variant before using the label. In 11 US institutions, 9.8% of people diagnosed clinically had non-pathogenic changes, and the authors wrote that a diagnosis without confirmatory testing "cannot be trusted". Testing is prompted by a family history, arterial rupture or dissection under 40, unexplained sigmoid colon rupture, or spontaneous pneumothorax with other features. [[Byers2017,Shalhub2020,Wang2026OJRD]] See <a href="#" data-go="differential">Look-alikes &amp; red flags</a>.</p></div>
+    <div class="card"><span class="tag">Children</span><h4>Found early, through family</h4>
+      <p>In London's national service, 13 of 63 children with vEDS had events in childhood, the first at a median age of 11. 55% of the whole cohort were diagnosed through family genetic testing. Each child of an affected parent has a 50% chance of inheriting the variant. [[Wilkinson2025,Byers2025GeneReviews]] See <a href="#" data-go="genes">Inheritance &amp; genetic testing</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Survival in the modern era</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Cohort</th><th>Figure</th><th>Context</th></tr></thead>
+    <tbody>
+      <tr><th>US, 2000 (index patients)</th><td>median 48 y</td><td>Calculated median survival; most deaths from arterial rupture. [[Pepin2000]]</td></tr>
+      <tr><th>US, 2014 (1,231 people)</th><td>median 51 y</td><td>Lower in men; varied with variant type. [[Pepin2014]]</td></tr>
+      <tr><th>France, 2000–2017 (144)</th><td>71.6% overall</td><td>Survival after a median 5.3 years of follow-up (95% CI 50–90%); median age at diagnosis 34.5. [[Frank2019JACC]]</td></tr>
+      <tr><th>UK national service (126)</th><td>90.53% at 5 y</td><td>From first clinic visit: 99.14% at 1 year, 96.10% at 3 years. Retrospective. [[Bowen2023vEDS]]</td></tr>
+      <tr><th>UK, by medication</th><td>96.53% vs 42.69%</td><td>5-year survival on vs not on long-term cardiovascular medication; the untreated group was small. [[Bowen2023vEDS]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Population statistics. Modern cohorts look better than older ones, but it is unresolved how much of that comes from medicines, from specialist care, or from earlier diagnosis through family testing. [[Frank2019JACC,Bowen2023vEDS,Ong2010]]</p>
+</section>

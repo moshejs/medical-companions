@@ -325,14 +325,15 @@
       }
     },
     {
-      "slug": "tuberculosis",
+      "slug": "ehlers-danlos-syndromes",
       "langs": [
         "en"
       ],
       "name": {
-        "en": "TB Companion"
+        "en": "EDS Companion",
+        "he": "מלווה תסמונות אהלרס-דנלוס"
       },
-      "published": "2026-10-25",
+      "published": "2026-10-29",
       "reviewers": {
         "en": {
           "name": "",

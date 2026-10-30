@@ -1,0 +1,96 @@
+<!-- ================= 1.1 WHAT EDS IS ================= -->
+<style>
+#m-what .seg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-what .fcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+#m-what .fc{display:block;width:100%;padding:0;border:0;background:none;text-align:left;font:inherit;color:inherit;min-height:250px}
+#m-what .fc .face{padding:20px}
+#m-what .fc .front p{font-size:clamp(19px,2.4vw,23px)}
+#m-what .fc .back p{font-size:15px;line-height:1.5}
+#m-what .fc .face small.flip{margin-top:auto}
+#m-what .whCalcOut{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+#m-what .whCalcOut div{background:var(--panel-2);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+#m-what .whCalcOut b{font:400 26px/1.1 var(--display)}
+#m-what .whCalcOut span{font-size:13.5px;color:var(--muted)}
+#m-what .tbl table{min-width:640px}
+#m-what .tbl td:nth-child(2){font-family:var(--mono);font-size:13px}
+#m-what .card .ev{align-self:flex-start}
+</style>
+<section class="mod" id="m-what" data-mod="what" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The syndromes</p><h2>What EDS is</h2>
+    <p class="lede">The Ehlers-Danlos syndromes are a family of inherited conditions of connective tissue, the body's "glue". The 2017 International Classification names 13 types: one very common type with no known gene, and twelve rare ones confirmed by a genetic test. [[Malfait2017,Tinkle2017]]</p></div>
+  <div class="ctrls" role="group" aria-label="Which diagnoses to count">
+    <span class="kicker">Count</span>
+    <button class="btn" data-whscope="all" aria-pressed="true">All EDS</button>
+    <button class="btn" data-whscope="h" aria-pressed="false">hEDS + HSD only</button>
+    <span class="kicker" style="margin-left:8px">Step 3 shows</span>
+    <button class="btn" data-whmode="wales" aria-pressed="true">Diagnosed in Wales</button>
+    <button class="btn" data-whmode="type" aria-pressed="false">Type-specific estimates</button>
+  </div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Four scenes. First, a body outline whose skin, joints, blood vessels and gut light up as places built from connective tissue. Second, thirteen tiles fan out from one EDS node, sized by published frequency and coloured by dominant or recessive inheritance, with hypermobile EDS the largest and hatched because its gene is unknown. Third, an icon array of 1,000 people with about two diagnosed with EDS or a related hypermobility condition in Wales, or, for single types, how many crowds of 1,000 you would need to meet one person. Fourth, bars for the share of diagnosed people who are female, age at diagnosis and years of diagnostic delay."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Scene <input type="range" id="whT" min="0" max="1" step="0.001" value="0.2"></label></div>
+      <div class="readout" id="whRead"></div>
+      <p class="stage-cap">Schematic body and tissues, not to scale. Tile sizes follow published frequencies on a rough logarithmic scale; prevalence figures are population statistics from the cited studies and count diagnosed people only. [[Demmler2019,VanDijk2024,Byers2017]]</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How rare is each type?</h3>
+  <p class="prose">Published frequencies differ in kind: some are estimates of how many people carry a type, some are counts of reported individuals, and the Welsh figure counts everyone with a coded diagnosis. For hypermobile EDS there is no type-specific population figure, because there is no gene test to count it by. [[VanDijk2024,Demmler2019,Malfait2017]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Type (2017)</th><th>Gene(s)</th><th>Inheritance</th><th>Published frequency</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>Hypermobile (hEDS)</th><td>none known</td><td>behaves as dominant</td><td>No type-specific estimate. Diagnosed EDS or joint hypermobility syndrome in Wales: 194.2 per 100,000, most coded as hypermobility. [[Malfait2017,Forghani2019,Demmler2019]]</td></tr>
+      <tr><th>Classical (cEDS)</th><td>COL5A1, COL5A2; rarely COL1A1</td><td>dominant</td><td>About 1 in 20,000. [[VanDijk2024,Bowen2017]]</td></tr>
+      <tr><th>Vascular (vEDS)</th><td>COL3A1</td><td>dominant</td><td>1 in 50,000 to 1 in 200,000. Dutch national minimum: about 1.1 per 100,000. [[Byers2017,Demirdas2024]]</td></tr>
+      <tr><th>Kyphoscoliotic (kEDS)</th><td>PLOD1, FKBP14</td><td>recessive</td><td>About 1 in 100,000. [[VanDijk2024]]</td></tr>
+      <tr><th>Arthrochalasia (aEDS)</th><td>COL1A1, COL1A2 (exon 6)</td><td>dominant</td><td>Fewer than 1 in 1,000,000. [[VanDijk2024,Byers1997]]</td></tr>
+      <tr><th>Dermatosparaxis (dEDS)</th><td>ADAMTS2</td><td>recessive</td><td>Fewer than 1 in 1,000,000; 15 individuals reported in childhood. [[VanDijk2024,Colige1999]]</td></tr>
+      <tr><th>Classical-like (clEDS)</th><td>TNXB; AEBP1 (type 2, added after 2017)</td><td>recessive</td><td>Fewer than 1 in 1,000,000. [[VanDijk2024,Schalkwijk2001,Blackburn2018]]</td></tr>
+      <tr><th>Cardiac-valvular (cvEDS)</th><td>COL1A2</td><td>recessive</td><td>7 individuals reported, aged 6 to 65. [[VanDijk2024,Schwarze2004]]</td></tr>
+      <tr><th>Spondylodysplastic (spEDS)</th><td>B4GALT7, B3GALT6, SLC39A13</td><td>recessive</td><td>Fewer than 1 in 1,000,000. [[VanDijk2024]]</td></tr>
+      <tr><th>Musculocontractural (mcEDS)</th><td>CHST14, DSE</td><td>recessive</td><td>Fewer than 1 in 1,000,000. [[VanDijk2024,KoshoGR-mcEDS]]</td></tr>
+      <tr><th>Myopathic (mEDS)</th><td>COL12A1</td><td>dominant or recessive</td><td>Fewer than 1 in 1,000,000; 25 individuals from 16 families. [[VanDijk2024,Zou2014COL12A1]]</td></tr>
+      <tr><th>Periodontal (pEDS)</th><td>C1R, C1S</td><td>dominant</td><td>Fewer than 1 in 1,000,000; 148 people reported since the 1970s. [[VanDijk2024,KapfererSeebacherGR-pEDS]]</td></tr>
+      <tr><th>Brittle cornea syndrome (BCS)</th><td>ZNF469, PRDM5</td><td>recessive</td><td>No population estimate; a literature review counted 85 reported patients (53 ZNF469, 32 PRDM5). [[Dhooge2021]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Recorded numbers for the rare types are probably too low: wider genetic testing now finds milder cases, and recessive types can be more common where consanguinity is more frequent. [[VanDijk2024]] Each type is explained in <a href="#types" data-go="types">The 13 types</a>.</p>
+
+  <h3 class="sub">Scale it to a population</h3>
+  <div class="stage">
+    <div class="calc">
+      <label for="whPop">Population size<input type="number" id="whPop" min="100" max="100000000" step="100" value="100000"></label>
+      <label for="whPreset">Or pick one<select id="whPreset">
+        <option value="">Choose…</option>
+        <option value="1000">A secondary school (1,000)</option>
+        <option value="5000">A GP practice (5,000)</option>
+        <option value="50000">A town (50,000)</option>
+        <option value="1000000">A city (1,000,000)</option>
+        <option value="67000000">A country of 67 million</option>
+      </select></label>
+    </div>
+    <div class="whCalcOut" id="whCalcOut" aria-live="polite"></div>
+    <p class="stage-cap" id="whCalcCap"></p>
+  </div>
+
+  <h3 class="sub">The zebra, explained</h3>
+  <p class="prose">Tap a card to turn it over.</p>
+  <div class="fcs" id="whZebra">
+    <div class="fc-wrap"><button class="fc" aria-pressed="false" aria-label="Why a zebra? Turn the card over"><div class="face front"><small>Card 1 of 3</small><p>Why is the zebra the EDS symbol?</p><small class="flip">Tap to turn</small></div><div class="face back"><small>The saying</small><p>Medical students are taught: "when you hear hoofbeats, think of horses, not zebras", meaning the common explanation is usually right. People with rare diseases took up the zebra to say that sometimes the rare diagnosis is the right one. [[Park2025,Bashe2025]]</p></div></button></div>
+    <div class="fc-wrap"><button class="fc" aria-pressed="false" aria-label="What does think zebras mean? Turn the card over"><div class="face front"><small>Card 2 of 3</small><p>What does "think zebras" ask of a clinician?</p><small class="flip">Tap to turn</small></div><div class="face back"><small>Listening</small><p>To keep a rare cause in mind, and to listen. In one survey of 505 adults with hEDS, people saw 15.6 clinicians on average before diagnosis, and 16% had been told their symptoms were psychosomatic. A caregiver's account argues that listening to patients is a clinical necessity. [[Halverson2023,Bashe2025]]</p></div></button></div>
+    <div class="fc-wrap"><button class="fc" aria-pressed="false" aria-label="How visible is EDS online? Turn the card over"><div class="face front"><small>Card 3 of 3</small><p>How visible is EDS among rare-disease stories online?</p><small class="flip">Tap to turn</small></div><div class="face back"><small>Social media</small><p>In 500 short rare-disease videos on social media, EDS was the condition named most often: 7.8% of videos, ahead of Sanfilippo syndrome and narcolepsy at 1.8% each. [[Park2025]]</p></div></button></div>
+  </div>
+
+  <h3 class="sub">What EDS is not</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Not just bendy</span><h4>Being flexible is not a disease</h4><p>Generalised joint hypermobility is common. Among 6,022 UK 14-year-olds, 27.5% of girls and 10.6% of boys scored 4 or more on the Beighton score. Hypermobility is the shared feature that hEDS, HSD and many other conditions build on, but on its own it is not a diagnosis. [[Clinch2011,Castori2017]]</p></div>
+    <div class="card"><span class="tag accent">Not one disease</span><h4>Thirteen types, many genes</h4><p>The 2017 classification lists 13 types. Every type except hEDS needs a causative variant for a definite diagnosis. By 2020 a primer counted 14 types and 20 genes, most of them for collagens I, III and V or the enzymes that process them. [[Malfait2017,Malfait2020]]</p></div>
+    <div class="card"><span class="tag accent">Not the same as HSD</span><h4>hEDS and HSD are separate labels</h4><p>Hypermobility spectrum disorder is the 2017 label for symptomatic joint hypermobility that does not meet the criteria for hEDS or another syndrome. Living with HSD can be just as hard. See <a href="#hsd" data-go="hsd">hEDS or HSD?</a> [[Castori2017]]</p></div>
+    <div class="card"><span class="tag accent">Not a home test</span><h4>A Beighton score is a starting point</h4><p>In 1,000 Australians aged 3 to 101, the common cut-off of 4 or more gave a 60% false-positive rate across the lifespan. The score and the hEDS checklist in this guide are teaching tools: only a clinician can diagnose EDS or HSD. Try it in <a href="#beighton" data-go="beighton">Beighton score</a>. [[Singh2017,Juul-Kristensen2017]]</p></div>
+    <div class="card"><span class="tag accent">Not "in the head"</span><h4>Real symptoms, long waits</h4><p>In the Ehlers-Danlos Society's Global Registry survey, people reported an average of 10.45 alternative diagnoses before hEDS, and the mean time to diagnosis was 10.39 years. Interviews describe clinicians dismissing pain and the harm that follows. [[Halverson2023,Halverson2021]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Is EDS rare?</h4><p>As a group, diagnosed EDS and joint hypermobility syndrome in Wales sat at about four times the EU rare-disease threshold of 50 per 100,000, so the authors argued they "are not rare". Each molecular type remains rare or ultra-rare. The much-repeated "1 in 5,000" has no traceable origin. [[Demmler2019,VanDijk2024]]</p></div>
+  </div>
+</section>

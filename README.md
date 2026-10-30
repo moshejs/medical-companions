@@ -12,6 +12,7 @@ Animated, cited study and patient-education guides, one disease each, on one sit
 | [Parkinson's Companion](parkinsons-disease/README.md) | `/parkinsons-disease/` | English |
 | [MS Companion](multiple-sclerosis/README.md) (multiple sclerosis) | `/multiple-sclerosis/` | English |
 | [Colorectal Cancer Companion](colorectal-cancer/README.md) (bowel cancer) | `/colorectal-cancer/` | English |
+| [EDS Companion](ehlers-danlos-syndromes/README.md) (Ehlers-Danlos syndromes) | `/ehlers-danlos-syndromes/` | English |
 | [TB Companion](tuberculosis/README.md) (tuberculosis) | `/tuberculosis/` | English |
 
 The hub at `/` links to each one and carries the shared method and disclaimer. Every companion links back to it, and its structured data names the site (`isPartOf`).
