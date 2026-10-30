@@ -1,0 +1,86 @@
+<!-- ================= 1.6 WHO IS AT RISK ================= -->
+<style>
+#m-risk .stack{display:flex;flex-direction:column;gap:18px}
+#m-risk .tgl{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+#m-risk .bmi-out{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end}
+#m-risk .bmi-out .big-num{color:var(--tb)}
+#m-risk .bmi-out small{display:block;font:500 12px var(--mono);color:var(--muted)}
+#m-risk .card .tag,#m-risk .card .ev{align-self:flex-start}
+#m-risk .ped{width:100%;max-width:260px;height:auto;display:block}
+#m-risk .tbl table{min-width:620px}
+#m-risk td.n{font-family:var(--mono);font-size:13px;white-space:nowrap}
+</style>
+<section class="mod" id="m-risk" data-mod="risk" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The infection</p><h2>Who is at risk</h2>
+    <p class="lede">Most people infected with TB never fall ill. What tips the balance is mostly recent exposure and conditions that weaken the immune defence: HIV, undernutrition, diabetes, alcohol, smoking, dust and some medicines. Every bar below is a published population estimate, not a forecast for one person.</p></div>
+  <div class="tgl" role="group" aria-label="Chart view"><span class="kicker">View</span>
+    <button class="btn" data-rkv="rr" aria-pressed="true">Relative risk</button>
+    <button class="btn" data-rkv="paf" aria-pressed="false">Share of cases attributable worldwide</button></div>
+  <div class="stepper" id="rkSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rkSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="An animated forest chart. Each risk factor for TB disease appears as a dot with a horizontal confidence interval on a logarithmic scale, with a vertical line at 1 meaning no difference. Factors to the right of the line raise risk, those to the left lower it. A second view shows the share of TB cases worldwide attributed to undernutrition, smoking, alcohol, HIV and prisons."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rkPlay">Play</button><label class="stage-cap tl" for="rkT">Walk through <input type="range" id="rkT" min="0" max="1" step="0.001" value="0.3"></label></div>
+      <p class="stage-cap"><b>How to read it.</b> A dot is the published estimate, the line its 95% confidence interval; a hollow dot has no interval in the source abstract. The scale is logarithmic, so 2 and 0.5 sit the same distance from 1. Estimates come from different study types (cohorts, registries, meta-analyses) and comparisons, so they are not a league table. The undernutrition point is derived from the per-unit gradient. Attributable shares overlap and must never be added up.</p>
+    </div>
+    <aside class="note" id="rkNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Body weight and TB: the dose-response</h3>
+  <div class="stack">
+    <div class="stage">
+      <div class="ctrls"><label class="stage-cap tl" for="rkBmi">Body-mass index (kg/m²) <input type="range" id="rkBmi" min="16" max="32" step="0.5" value="18"></label></div>
+      <div class="scroll"><svg id="rkBmiSvg" viewBox="0 0 720 280" style="min-width:560px" role="img" aria-label="TB incidence relative to a body-mass index of 25, falling steadily as BMI rises; the curve is solid between 18.5 and 30 where the data are dense, and dashed outside."></svg></div>
+      <div class="bmi-out" id="rkBmiOut" aria-live="polite"></div>
+      <p class="stage-cap">Curve: 13.8% lower incidence per 1 kg/m² (95% CI 13.4–14.2) across six cohorts, solid within 18.5–30 kg/m², dashed outside it where data were sparse. [[Lonnroth2010BMI]] A population relationship, not a personal risk score.</p>
+    </div>
+    <div class="stage">
+      <div class="scroll"><svg id="rkRat" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Two grids of 1,000 squares, each square one person-year of follow-up among household contacts in the RATIONS trial: 13 squares are filled in the control group and 8 in the group given monthly food rations."></svg></div>
+      <p class="stage-cap">RATIONS, Jharkhand, India: 10,345 household contacts in 28 TB units, cluster-randomised. Incidence 1.27 vs 0.78 per 100 person-years, shown per 1,000 person-years (12.7 and 7.8, rounded to whole squares). Adjusted IRR 0.61 (95% CI 0.43–0.85). About 30 households needed food support to prevent one case. Open-label, in one Indian state. [[Bhargava2023Lancet]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Every estimate in one table</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Factor</th><th>Estimate (95% CI)</th><th>Comparison</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>HIV with TB infection</th><td class="n">7.9 vs 0.3 per 100 person-years · ratio 24.0</td><td>People with HIV with vs without a prior positive tuberculin test (methadone programme, 1989)</td><td>[[Selwyn1989]]</td></tr>
+      <tr><th>ART, any CD4 count</th><td class="n">HR 0.35 (0.28–0.44)</td><td>On vs off antiretroviral therapy; 0.16 below 200, 0.34 at 200–350, 0.43 above 350 cells/µL</td><td>[[Suthar2012]]</td></tr>
+      <tr><th>Child contacts under 5</th><td class="n">19.0% (8.4–37.4) in 2 years</td><td>Infection-test-positive, no preventive treatment; 83% diagnosed within 90 days</td><td>[[Martinez2020Lancet]]</td></tr>
+      <tr><th>Anti-TNF antibodies</th><td class="n">SIR 12.2 (9.7–15.5)</td><td>vs the general population (French RATIO registry); infliximab 18.6, adalimumab 29.3, etanercept 1.8 (0.7–4.3)</td><td>[[Tubach2009]]</td></tr>
+      <tr><th>Transplant</th><td class="n">RR 11.35 (2.97–43.41)</td><td>Pooled, unadjusted, vs general population</td><td>[[AlEfraij2015]]</td></tr>
+      <tr><th>Silicosis</th><td class="n">RR 3.96 (2.59–6.06)</td><td>South African gold miners; silica dust raised risk even without silicosis</td><td>[[Hnizdo1998]]</td></tr>
+      <tr><th>Dialysis</th><td class="n">RR 3.62 (1.79–7.33)</td><td>Pooled adjusted, vs general population</td><td>[[AlEfraij2015]]</td></tr>
+      <tr><th>Alcohol use disorders</th><td class="n">RR 3.33 (2.14–5.19)</td><td>Alcohol-related problems; any alcohol use 1.35 (1.09–1.68)</td><td>[[Imtiaz2017]]</td></tr>
+      <tr><th>Diabetes</th><td class="n">RR 3.11 (2.27–4.26)</td><td>Cohort studies</td><td>[[Jeon2008]]</td></tr>
+      <tr><th>Smoking</th><td class="n">RR 2.33 (1.97–2.75) to 2.66 (2.15–3.28)</td><td>TB disease, 13 studies; infection 1.73 (1.46–2.04)</td><td>[[Bates2007]]</td></tr>
+      <tr><th>Undernutrition</th><td class="n">−13.8% per kg/m² (13.4–14.2)</td><td>Within BMI 18.5–30</td><td>[[Lonnroth2010BMI]]</td></tr>
+      <tr><th>Prior TB</th><td class="n">2.2 per 100 person-years</td><td>Reinfection TB after cure, Cape Town: about 4 times the rate of new TB there</td><td>[[Verver2005]]</td></tr>
+      <tr><th>Prior infection, re-exposed</th><td class="n">IRR 0.21 (0.14–0.30)</td><td>Already infected vs uninfected people after exposure (partial, not full, protection)</td><td>[[Andrews2012Reinfection]]</td></tr>
+      <tr><th>Household crowding</th><td class="n">IRR 1.05 (1.02–1.08) per unit</td><td>New Zealand census areas, adjusted for income and migration</td><td>[[Baker2008Crowding]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Conditions, not character</h3>
+  <div class="cards">
+    <div class="card"><span class="tag tb">Crowding</span><h4>Housing is an exposure</h4><p>In New Zealand, each unit of household crowding raised TB incidence by 5% (IRR 1.05), and by 8% in New Zealand-born people under 40, after adjusting for income, TB burden and migration. The authors treat crowding as a structural exposure that can be changed, not as a trait of the people living there. [[Baker2008Crowding]]</p></div>
+    <div class="card"><span class="tag tb">Prisons</span><h4>Where buildings concentrate TB</h4><p>People in prison acquired TB infection at 15.0 per 100 person-years. TB incidence was 26.9 times the general population in South America and above 10 times in three other WHO regions. Transmission inside prisons was estimated to cause 6.3–8.5% of TB in the general population outside. [[Cords2021,Baussano2010]]</p></div>
+    <div class="card"><span class="tag tb">Migration</span><h4>Infection acquired elsewhere</h4><p>In 20 low-incidence European countries, rates in recently arrived migrants appeared up to 11 times those in their countries of origin. The authors read this as infection acquired where TB is common plus the stresses of migration and barriers to care; the response they call for is accessible, free screening and care, not exclusion. [[Domaszewska2025]]</p></div>
+    <div class="card"><span class="tag tb">Poverty</span><h4>Upstream of biology</h4><p>WHO's review places living and working conditions upstream of the biological risk factors: they raise the chance of exposure and cluster undernutrition, smoking and other vulnerabilities in the same households. Thirty high-burden countries carried 87% of cases in 2024. Language that blames people affected by TB discourages the care-seeking that stops transmission. [[Lonnroth2009,Zenner2027]]</p></div>
+    <div class="card"><span class="tag tb">Diabetes</span><h4>Screening both ways</h4><p>Diabetes roughly triples TB risk, and in people treated for TB it went with more failure or death (RR 1.69) and more relapse (RR 3.89). Diabetes is growing fastest in the countries that carry the TB burden, so collaborative TB and diabetes services are described as necessary and feasible, though without trial evidence yet. <span class="ev early">Early evidence</span> [[Jeon2008,Baker2011,Lonnroth2014DM]]</p></div>
+    <div class="card"><span class="tag tb">Planned risk</span><h4>Test before the medicine</h4><p>Of 70 TB cases reported after infliximab, the median onset was 12 weeks and 40 were outside the lungs; none of 69 cases in the French registry had received correct preventive treatment. Because the exposure is planned, these are the clearest reasons to test for TB infection and offer preventive treatment first. See <a href="#tpt" data-go="tpt">Treating TB infection</a>. [[Keane2001,Tubach2009,Sterling2020]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Rare inherited susceptibility</h4>
+      <svg class="ped" viewBox="0 0 260 120" role="img" aria-label="A simple family tree: two parents each carry one copy of the TYK2 P1104A variant and are drawn half-shaded; of their three children, one has two copies and is fully shaded, one carries one copy and one has none.">
+        <line x1="80" y1="25" x2="180" y2="25" style="stroke:var(--muted);stroke-width:1.5"/><line x1="130" y1="25" x2="130" y2="55" style="stroke:var(--muted);stroke-width:1.5"/><line x1="60" y1="55" x2="200" y2="55" style="stroke:var(--muted);stroke-width:1.5"/>
+        <line x1="60" y1="55" x2="60" y2="70" style="stroke:var(--muted);stroke-width:1.5"/><line x1="130" y1="55" x2="130" y2="70" style="stroke:var(--muted);stroke-width:1.5"/><line x1="200" y1="55" x2="200" y2="70" style="stroke:var(--muted);stroke-width:1.5"/>
+        <rect x="64" y="13" width="24" height="24" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.5"/><rect x="64" y="13" width="12" height="24" style="fill:var(--tb)"/>
+        <circle cx="184" cy="25" r="12" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.5"/><path d="M184 13A12 12 0 0 0 184 37Z" style="fill:var(--tb)"/>
+        <circle cx="60" cy="82" r="12" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.5"/>
+        <rect x="118" y="70" width="24" height="24" style="fill:var(--tb);stroke:var(--ink);stroke-width:1.5"/>
+        <rect x="188" y="70" width="24" height="24" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.5"/><rect x="188" y="70" width="12" height="24" style="fill:var(--tb)"/>
+        <text x="60" y="110" class="t-xs t-mid">no copy</text><text x="130" y="110" class="t-xs t-mid">two copies</text><text x="200" y="110" class="t-xs t-mid">one copy</text>
+      </svg>
+      <p>Mendelian susceptibility to mycobacterial disease comes from inborn errors of the interferon-γ circuit; IL-12Rβ1 deficiency, the commonest form, began at a mean age of 2.4 years, usually with BCG. Each such defect is rarer than 1 in 600,000. The common TYK2 P1104A variant matters only with two copies: homozygotes made up 1% of TB patients in UK Biobank vs 0.2% of controls (OR 5.0), about 1% of TB in people of European ancestry, while one copy showed no excess. [[Bustamante2014,deBeaucoudrey2010,BoissonDupuis2018,Kerner2019]]</p></div>
+  </div>
+  <p class="callout">The practical reading of all these numbers is the same: find TB early in households, offer preventive treatment to those most at risk, treat HIV, and tackle food, housing and tobacco. Coverage, not evidence, is the bottleneck: in 2024 preventive treatment reached 58% of eligible people living with HIV but only 25% of eligible household contacts. [[Fox2013,Suthar2012,Zenner2027]]</p>
+</section>

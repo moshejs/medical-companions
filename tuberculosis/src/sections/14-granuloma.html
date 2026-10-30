@@ -1,0 +1,63 @@
+<!-- ================= 1.4 INFECTION TO GRANULOMA ================= -->
+<style>
+#m-granuloma .tbl table{min-width:660px}
+#m-granuloma .card>.ev,#m-granuloma .card>.tag{align-self:flex-start}
+#m-granuloma .parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}
+#m-granuloma .parts button{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:10px 12px;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:3px;min-width:0}
+#m-granuloma .parts button b{font-size:14.5px;line-height:1.2}
+#m-granuloma .parts button small{color:var(--muted);font-size:12.5px;line-height:1.25}
+#m-granuloma .parts button[aria-pressed="true"]{border-color:var(--tb);background:var(--tb-soft)}
+#m-granuloma .parts button[aria-pressed="true"] small{color:var(--tb)}
+</style>
+<section class="mod" id="m-granuloma" data-mod="granuloma" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The infection</p><h2>Infection to granuloma</h2>
+    <p class="lede">One to five bacilli reach an air sac. What happens over the next weeks — a macrophage that swallows but cannot digest, a ten-day wait before T cells are primed, and a ball of cells built around the bacteria — decides whether a person stays well, and whether the lesion later breaks open. Scrub the whole sequence, then weaken the immune system and watch the granuloma loosen.</p></div>
+  <div class="ctrls" role="group" aria-label="Immune state"><span class="kicker">Immune state</span>
+    <button class="btn" data-gi="0" aria-pressed="true">Intact immunity</button>
+    <button class="btn" data-gi="1" aria-pressed="false">TNF blocked</button>
+    <button class="btn" data-gi="2" aria-pressed="false">Low CD4 (HIV)</button>
+  </div>
+  <div class="stepper" id="grSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="grSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A six-scene sequence you can scrub: a droplet nucleus carrying one to five bacilli settles into an alveolus; an alveolar macrophage swallows them, the phagosome fails to acidify and the bacilli multiply inside before the infected cell moves into the lung interstitium; a dendritic cell carries antigen along a lymphatic to the draining lymph node, where T cells are primed only after about ten days, the window before a skin test or IGRA turns positive; primed T cells return and release interferon-gamma and TNF; a granuloma organises with an epithelioid ring, Langhans giant cells, a lymphocyte cuff, a fibrous capsule and a caseous centre; and finally two outcomes side by side, a contained calcified lesion and a cavity open to an airway. A small lung diagram beside the scene marks the primary focus and the draining node."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="grPlay">Play</button><label class="stage-cap tl" for="grT">Sequence <input type="range" id="grT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="grRead"></div>
+      <p class="stage-cap">Schematic, not to scale. Timings marked "in mice" are from mouse aerosol infection; human timings are given where a human study provides them. [[Chackerian2002,Reiley2008]]</p>
+    </div>
+    <aside class="note" id="grNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Inside the granuloma: pick a part</h3>
+  <div class="prose"><p>A granuloma is an organised aggregate of macrophages, often with characteristic changes in shape, together with other immune cells. It forms in response to a persistent stimulus that a single macrophage cannot clear, and it unfolds as a stepwise programme of macrophage activations and transformations that recruit further cells and change the structure. Select a part to light it up. [[Pagan2018]]</p></div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="grPartSvg" viewBox="0 0 520 330" style="min-width:420px" role="img" aria-label="A granuloma in section with its parts drawn separately: the caseous necrotic centre, the ring of epithelioid macrophages, Langhans giant cells, the lymphocyte cuff, the fibrous capsule and foamy lipid-laden macrophages. The selected part is highlighted and named."></svg></div>
+      <div class="parts" id="grParts" role="group" aria-label="Parts of a granuloma"></div>
+    </div>
+    <aside class="note" id="grPartNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Primary and post-primary disease</h3>
+  <div class="prose"><p>Radiologists split TB into two patterns. Primary disease appears shortly after infection, is commonest in children and in people whose immunity is suppressed, and presents with enlarged lymph nodes, pulmonary consolidation and pleural effusion. Post-primary disease appears after a long period of infection and presents with cavities, consolidation and centrilobular nodules. Teaching texts attach eponyms to several of these lesions; the evidence pass behind this page could not verify that terminology from an indexed source, so the lesions are described here rather than named. [[Nachiappan2017]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th scope="col">Lesion or pattern</th><th scope="col">What it is</th><th scope="col">What it tells you</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">The first focus in the lung</th><td>The implant where the inhaled bacilli land. The infecting dose is very low, usually 1–5 bacilli, and the first implant can occur anywhere in the lung. [[Balasubramanian1994]]</td><td>It is a single small lesion, and in most people it never becomes anything more. [[Smith2003]]</td></tr>
+      <tr><th scope="row">The draining lymph node</th><td>Bacteria reach the pulmonary lymph nodes 9–11 days after aerosol infection in mice, before specific T cells appear there, and initial CD4 activation happens in that node. [[Chackerian2002,Wolf2008]]</td><td>Lung focus plus enlarged draining node is the classic primary picture on a child's chest X-ray. [[Nachiappan2017]]</td></tr>
+      <tr><th scope="row">Spread through the blood</th><td>In mice, spread to spleen and liver occurs 11–14 days after infection, always before specific T cells appear in that organ. [[Chackerian2002]]</td><td>Seeding happens early and silently, before immunity has caught up. [[Chackerian2002]]</td></tr>
+      <tr><th scope="row">Apical cavitation</th><td>Cavitary disease is characteristically apical. Progression to disease is proposed to require bacilli reaching "vulnerable" apical regions, by bacillaemia during first infection or via the airway after repeated infection. [[Balasubramanian1994]] <span class="ev hyp">Hypothesis</span></td><td>Cavities interface the host response with a distinctive bacterial niche and feed treatment decisions such as duration of therapy. [[Urbanowski2020,Nachiappan2017]]</td></tr>
+      <tr><th scope="row">Miliary TB</th><td>Haematogenously disseminated disease with miliary lung nodules and multi-organ involvement, resulting from massive lympho-haematogenous dissemination; impaired cell-mediated immunity underlies it. [[Nachiappan2017,Sharma2005]]</td><td>Clinical features are non-specific, typical X-ray findings may appear only late, and cryptic presentations delay diagnosis. [[Sharma2005]]</td></tr>
+      <tr><th scope="row">Old, inactive disease</th><td>Inactive sequelae show as fibronodular opacities in the apical and upper zones. [[Nachiappan2017]]</td><td>Radiographic stability over 6 months distinguishes inactive from active disease. [[Nachiappan2017]]</td></tr>
+      <tr><th scope="row">Age changes everything</th><td>Before age 2, primary infection frequently progressed to serious disease within 12 months, often without much warning; between 2 and 10 years it rarely did; after 10 years it frequently progressed to adult-type disease. [[Marais2004]]</td><td>Young children are checked and offered preventive treatment quickly after exposure. <button class="btn ghost" data-go="tpt">Treating TB infection</button> [[Marais2004]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Container, or niche?</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>It limits the infection</h4><p>Granulomas form in response to persistent stimuli a single macrophage cannot eradicate, and the structure is the hallmark of TB. Interferon-gamma-deficient mice still form granulomas but cannot restrict bacillary growth, show heightened necrosis and die quickly; TNF-deficient mice form granulomas in equal numbers, but necrosis occurs only in them. [[Pagan2018,Flynn1993,Flynn1995]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>It also shelters the bacteria</h4><p>Intravital imaging in zebrafish showed that mycobacteria use the ESX-1/RD1 locus to recruit new macrophages into the nascent granuloma; arriving macrophages engulf infected macrophages that are dying, producing iterative expansion, and the primary granuloma then seeds secondary ones. Inside it the bacillus switches to a non-replicating but energy-generating state. [[Davis2009,Ramakrishnan2012,Ehlers2012]]</p></div>
+    <div class="card"><span class="tag warn">Heterogeneity</span><h4>Every granuloma is its own experiment</h4><p>In macaques most lung lesions appear to be founded by a single bacterium and reach similar maximum burdens, yet some are sterilised by the host while others progress — in the same animal, even in animals with active disease. On average only about 8% of granuloma T cells produce cytokine after stimulation, and blood responses did not reflect granuloma responses. [[Lin2014,Gideon2015]]</p></div>
+    <div class="card"><span class="tag accent">Architecture</span><h4>Centre and rim differ</h4><p>Laser-capture microdissection with mass spectrometry across six people with TB found a pro-inflammatory centre — antimicrobial peptides, reactive oxygen species, pro-inflammatory eicosanoids — and a comparatively anti-inflammatory rim around the caseum. Lesion types coexist in one lung and differ in cellular composition and immune activity. [[Marakalala2016,Dorhoi2016]]</p></div>
+  </div>
+</section>

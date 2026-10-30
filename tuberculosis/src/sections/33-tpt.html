@@ -1,0 +1,99 @@
+<!-- ================= 3.3 TREATING TB INFECTION ================= -->
+<style>
+#m-tpt .grp{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-tpt .calcwrap{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:14px}
+#m-tpt .calcwrap label.chk{flex-direction:row;align-items:center;gap:8px;font-weight:700}
+#m-tpt .res{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+#m-tpt .res div{background:var(--panel-2);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;min-width:0}
+#m-tpt .res small{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-tpt .res .big-num{font-size:32px;color:var(--rx)}
+#m-tpt .res .bad .big-num{color:var(--tb)}
+#m-tpt .res .mut .big-num{color:var(--ink)}
+#m-tpt .card>.tag{align-self:flex-start}
+#m-tpt .tbl table{min-width:640px}
+#m-tpt #tpIcons{display:block;width:100%;max-width:780px;height:auto}
+#m-tpt .legend i.sq{width:10px;height:10px;border-radius:3px}
+#m-tpt #tpSvg .t-xs{font-size:10.5px}
+#m-tpt svg[data-mode=n] .t-xs{font-size:12.5px}
+#m-tpt svg[data-mode=n] .t-sm{font-size:13px}
+#m-tpt svg[data-mode=n] .t-big{font-size:20px}
+</style>
+<section class="mod" id="m-tpt" data-mod="tpt" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Treating TB infection</h2>
+    <p class="lede">TB preventive treatment (TPT) stops TB infection from turning into TB disease. Six regimens run side by side here in real weeks: from 28 daily doses to 9 months of daily isoniazid. Pick a group, then press Play.</p></div>
+
+  <div class="grp" role="group" aria-label="Who is being treated">
+    <span class="kicker">Group</span>
+    <button class="btn" data-tpg="adult" aria-pressed="true">Adults</button>
+    <button class="btn" data-tpg="child" aria-pressed="false">Children</button>
+    <button class="btn" data-tpg="hiv" aria-pressed="false">People with HIV</button>
+  </div>
+  <div class="stepper" id="tpSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="tpSvg" viewBox="0 0 720 410" style="min-width:560px" role="img" aria-label="Six preventive treatment regimens drawn as calendar ribbons on one time axis in weeks: 9 months and 6 months of daily isoniazid, 4 months of daily rifampicin, 3 months of daily isoniazid plus rifampicin, 12 weekly doses of isoniazid plus rifapentine, and 28 daily doses of isoniazid plus rifapentine. A playhead moves through the weeks, a dose counter ticks for each regimen, and when a regimen ends its trial completion rate and liver-injury rate appear beside it. Regimens not covered for the chosen group are dimmed."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="tpPlay">Play</button><label class="stage-cap tl" for="tpT">Weeks <input type="range" id="tpT" min="0" max="1" step="0.001" value="0.45"></label></div>
+      <div class="readout" id="tpRead"></div>
+      <p class="stage-cap"><b>Calendar to scale; outcomes are not comparable across rows.</b> Each completion and liver-injury figure comes from the trial named beside it, in that trial's population; regimens were not all tested against each other. Dose counts for 9H and 3HR are worked out here from months (≈); the others are as NTCA/CDC publishes them. [[Sterling2020]] Doses and recommendations are quoted for teaching, not as instructions.</p>
+    </div>
+    <aside class="note" id="tpNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The regimens as published</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Regimen</th><th>What it is</th><th>WHO 2024</th><th>NTCA/CDC 2020</th><th>Key trial result</th></tr></thead>
+    <tbody>
+      <tr><th>6H / 9H</th><td>Isoniazid daily for 6 or 9 months; 6H is 180 daily doses</td><td>Recommendation 19, strong</td><td>Alternative: 6H strong, 9H conditional</td><td>Against placebo, isoniazid gave a relative risk of TB of 0.40; 6 and 12 months did not differ significantly [[Smieja2000]]</td></tr>
+      <tr><th>3HP</th><td>Isoniazid plus rifapentine, 12 weekly doses</td><td>Recommendation 19, strong</td><td>Preferred (strong, moderate certainty)</td><td>TB in 0.19% vs 0.43% on 9H; completion 82.1% vs 69.0% [[Sterling2011]]</td></tr>
+      <tr><th>3HR</th><td>Isoniazid plus rifampicin daily for 3 months</td><td>Recommendation 19, strong</td><td>Preferred (conditional, very low certainty)</td><td>In adults with HIV not on ART, TB or death 2.9 per 100 person-years vs 3.6 with 6H; none superior [[Martinson2011]]</td></tr>
+      <tr><th>4R</th><td>Rifampicin daily, 120 doses</td><td>Recommendation 20, conditional</td><td>Preferred for HIV-negative people (strong, moderate certainty)</td><td>Non-inferior to 9H; completion 15.1 points higher, grade 3–5 liver injury 1.2 points lower [[Menzies2018]]</td></tr>
+      <tr><th>1HP</th><td>Isoniazid plus rifapentine daily, 28 doses</td><td>Recommendation 20, conditional</td><td>Not among the regimens listed</td><td>In people with HIV, TB or death 0.65 vs 0.67 per 100 person-years with 9H; completion 97% vs 90% [[Swindells2019]]</td></tr>
+      <tr><th>6Lfx</th><td>Levofloxacin daily for 6 months, for contacts of people with MDR/RR-TB</td><td>Recommendation 21, strong</td><td>Not covered in the 2020 guideline</td><td>WHO pooled estimate: TB risk down 62% over 1 year (RR 0.38) [[WHO-Mod1-2024]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sources: [[WHO-Mod1-2024,Sterling2020]]. WHO's recommendations 19 and 20 apply regardless of HIV status. NTCA/CDC warns that rifampin and rifapentine are not interchangeable, and that pharmacists and prescribers who do not know them may confuse the two. [[Sterling2020]] The Priftin label approves 3HP from age 2 for people at high risk of progression, but not when exposure to rifamycin- or isoniazid-resistant TB is presumed. [[FDA-Priftin]]</p>
+
+  <h3 class="sub">How many cases does preventive treatment prevent?</h3>
+  <div class="calcwrap">
+    <p class="callout"><b>A teaching tool, not a personal risk estimate.</b> Pick a group and a regimen. The baseline risk comes from one cohort and the effect size from a different trial or meta-analysis, so the result is an illustration of how the arithmetic works: cases prevented = baseline risk × (1 − relative risk), and the number needed to treat (NNT) is 1 divided by that. [[Smieja2000]]</p>
+    <div class="calc">
+      <label for="tpG">Who
+        <select id="tpG">
+          <option value="hh">Adult household contact with TB infection</option>
+          <option value="hiv">Person with HIV and a positive skin test</option>
+          <option value="child">Child under 5, household contact, positive test</option>
+        </select></label>
+      <label for="tpR">Regimen (effect size)
+        <select id="tpR">
+          <option value="none">No preventive treatment</option>
+          <option value="h" selected>Isoniazid (RR 0.40)</option>
+          <option value="h6">6H (OR 0.65)</option>
+          <option value="rh">3–4 months RH (OR 0.53)</option>
+          <option value="r">Rifampicin alone (OR 0.41)</option>
+          <option value="hp">Weekly HP, as in 3HP (OR 0.36)</option>
+          <option value="obs">Any TPT, infection-positive children (HR 0.09)</option>
+          <option value="lfx">6 months levofloxacin, MDR contacts (RR 0.38)</option>
+        </select></label>
+      <label class="chk" for="tpArt"><input type="checkbox" id="tpArt"> Also taking ART (HIV only)</label>
+    </div>
+    <div class="scroll"><svg id="tpIcons" viewBox="0 0 720 312" role="img" aria-label="An icon array of 1,000 people. Green figures are TB cases prevented by the chosen regimen, magenta figures are cases that still occur, and grey figures never develop TB in that period."></svg></div>
+    <div class="legend"><span><i class="sq" style="background:var(--rx)"></i>case prevented</span><span><i class="sq" style="background:var(--tb)"></i>case still occurs</span><span><i class="sq" style="background:var(--fibro);opacity:.6"></i>no TB in this period</span></div>
+    <div class="res" id="tpRes"></div>
+    <p class="stage-cap" id="tpCalcCap"></p>
+  </div>
+
+  <h3 class="sub">Before, during and after</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">First step</span><h4>Rule out TB disease first</h4><p>The skin test and blood tests cannot tell TB infection from TB disease, so disease must be excluded before preventive treatment. [[Lewinsohn2017]] For HIV-negative household contacts aged 5 or over, WHO says no symptoms and a normal chest X-ray may be used to rule it out; for contacts under 15, a symptom screen (cough, fever or poor weight gain), a chest X-ray, or both. [[WHO-Mod1-2024]] In VQUIN, 61 of 3,948 people screened (1.5%) already had TB disease. [[Fox2024VQUIN]] TB disease needs full treatment, described in <a href="#regimen" data-go="regimen">Treating TB disease</a>.</p></div>
+    <div class="card"><span class="tag warn">MDR/RR-TB contacts</span><h4>Levofloxacin for contacts of drug-resistant TB</h4><p>WHO 2024 recommends 6 months of daily levofloxacin for contacts exposed to MDR/RR-TB (strong, moderate certainty). [[WHO-Mod1-2024]] Alone, neither trial was significant: in TB-CHAMP (922 children, 91% under 5) TB by week 48 was 1.1% vs 2.6% on placebo (HR 0.44); in VQUIN (2,041 household contacts) confirmed TB was 0.6% vs 1.1% (IRR 0.55). [[Hesseling2024,Fox2024VQUIN]] Pooled by WHO, risk fell 62% (RR 0.38). Completion was 86% in TB-CHAMP and 70% in VQUIN, and tolerability fell with age; any-grade adverse events were 31.9% vs 13.0% in VQUIN. [[WHO-Mod1-2024,Fox2024VQUIN]] See <a href="#drtb" data-go="drtb">Treating drug-resistant TB</a>.</p></div>
+    <div class="card"><span class="tag rx">What to expect</span><h4>Side effects to report</h4><ul>
+      <li>3HP: a flu-like reaction in 3.5% (vs 0.4% on 9H), starting after a median of 3 doses, about 4 hours after a dose, and settling in about a day. Severe reactions were 0.3%. [[Sterling2015]]</li>
+      <li>Liver: yellow eyes or skin, dark urine, stomach pain or loss of appetite should be reported at once. The isoniazid label's hepatitis rates rise with age, from under 1 per 1,000 under 20 to 23 per 1,000 at 50 to 64. [[FDA-Isoniazid]]</li>
+      <li>Rifamycins can stop hormonal contraception working; the labels advise considering another method. [[FDA-Rifampin,FDA-Priftin]]</li>
+      <li>Tingling or burning in the hands or feet: isoniazid can cause neuropathy, and vitamin B6 (pyridoxine) is often given with it. [[FDA-Isoniazid,Saukkonen2025]]</li></ul></div>
+    <div class="card"><span class="tag accent">HIV</span><h4>Rifamycins and antiretrovirals</h4><p>Rifampicin induces CYP3A4 and P-glycoprotein; combining it with indinavir, nelfinavir or saquinavir is contraindicated, and the induction takes about 2 weeks to wear off after stopping. [[Niemi2003]] The Priftin label warns about rifapentine with protease inhibitors and some reverse transcriptase inhibitors. [[FDA-Priftin]] In DOLPHIN, weekly rifapentine-isoniazid raised dolutegravir clearance by 36%, yet viral load stayed below 40 copies/mL in all 60 participants; the authors concluded 3HP can be given with dolutegravir without dose adjustment. [[Dooley2020LancetHIV]] More in <a href="#special" data-go="special">TB with HIV, in children &amp; pregnancy</a>.</p></div>
+    <div class="card"><span class="tag rx">Support</span><h4>Watched, self-given, or with reminders</h4><p>In iAdhere, 3HP completion was 87.2% with direct observation, 74.0% self-administered and 76.4% self-administered with text reminders; in the US subgroup self-administration was non-inferior. [[Belknap2017]] Observation is a form of support, not suspicion. In most programmes TB testing and treatment are free.</p></div>
+    <div class="card"><span class="tag warn">The gap</span><h4>The evidence is ahead of the reach</h4><p>Preventive treatment reached 5.3 million people in 2024, including 58% of eligible people living with HIV but only 25% of eligible household contacts. [[Zenner2027]] Contact investigation is high-yield because risk is early and concentrated: incidence among contacts peaks in the first year, and children under 5 and people with HIV are at highest risk. [[Fox2013]] See <a href="#control" data-go="control">Infection control &amp; contacts</a>.</p></div>
+  </div>
+  <p class="callout">TB is a notifiable disease. Anyone with a cough for more than 2 weeks, fever, night sweats or weight loss should see a clinician. Decisions about preventive treatment are made with a clinician and the national TB programme.</p>
+</section>
