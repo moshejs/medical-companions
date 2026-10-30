@@ -1,0 +1,67 @@
+<!-- ================= 5.2 PREGNANCY & PARENTHOOD ================= -->
+<style>
+#m-pregnancy .typebar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-pregnancy .tbl table{min-width:640px}
+#m-pregnancy .tbl td:nth-child(3){white-space:normal}
+#m-pregnancy .tally{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 13px var(--mono);color:var(--muted)}
+#m-pregnancy .tally b{color:var(--ink)}
+</style>
+<section class="mod" id="m-pregnancy" data-mod="pregnancy" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Living with EDS</p><h2>Pregnancy &amp; parenthood</h2>
+    <p class="lede">Forty weeks and the weeks after birth, by type: where the published risks gather, what planning the sources describe, and how EDS passes from parent to child.</p></div>
+
+  <div class="banner vas"><b>Population statistics</b>Every percentage here comes from a named cohort, register or survey. It describes a group of pregnancies, often recorded before genetic diagnosis was routine, and is not a prediction for any one pregnancy. Decisions belong to each person and their own obstetric and genetics team.</div>
+
+  <div class="typebar" role="group" aria-label="Type">
+    <span class="kicker">Type</span>
+    <button class="btn" data-prty="h" aria-pressed="true">hEDS / HSD</button>
+    <button class="btn" data-prty="c" aria-pressed="false">Classical EDS</button>
+    <button class="btn" data-prty="v" aria-pressed="false">Vascular EDS</button>
+    <button class="btn ghost" id="prPlan" aria-pressed="false">Planning view</button>
+  </div>
+  <div class="stepper" id="prSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="prSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A 40-week pregnancy timeline with trimester bands and six weeks after birth. A side-view silhouette shows the pregnancy growing and then the baby in arms. Rows of risk bars light up as the week cursor passes the weeks where each published risk concentrates, with its published figure. For vascular EDS a thin-walled artery develops a tear around delivery; for hypermobile EDS the pelvis widens. Planning view replaces the rows with pre-pregnancy steps for the chosen type."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="prPlay">Play</button><label class="stage-cap tl" for="prT">Week <input type="range" id="prT" min="0" max="1" step="0.001" value="0.02"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> Bars mark the weeks where each risk is reported to concentrate, not a measured curve. Figures are from the cohorts named in the note; surveys of volunteers may over-represent complicated pregnancies. [[Pearce2023,Sundelin2017,Murray2014GenetMed,Haem2024]]</p>
+    </div>
+    <aside class="note" id="prNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The evidence disagrees for hEDS</h3>
+  <div class="split2">
+    <div class="card"><span class="ev early">Early evidence</span><h4>A volunteer survey: raised risks</h4>
+      <p>An international online survey of 947 women with hEDS or HSD (1,338 pregnancies) reported preterm birth in 15.45% of babies (population figure quoted 7.8%), preterm rupture of membranes in 7.03% (under 3%), precipitate labour under 3 hours in 34.29%, postpartum haemorrhage in 20.60% (6.38%) and hyperemesis gravidarum in 25.48% (3%). These are self-reports from volunteers recruited online. [[Pearce2023]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>A national register: no excess</h4>
+      <p>A Swedish nationwide register study of 314 births to women with joint hypermobility syndrome or EDS found no increase in preterm birth (aOR 0.6, 95% CI 0.3–1.2), caesarean section (aOR 0.9) or stillbirth. Induction of labour (aOR 2.6) and amniotomy (aOR 3.8) were more common among the 62 births to women with an EDS code. [[Sundelin2017]]</p></div>
+  </div>
+  <p class="callout">US inpatient data (EDS in 7 per 100,000 births, all types including vascular) showed raised odds of preterm birth (OR 1.47), cervical incompetence (OR 3.11) and caesarean delivery (OR 1.55), and of maternal death (OR 9.04, 95% CI 1.27–64.27), an interval that wide because there were very few deaths. None of these studies separates EDS types well except the vEDS-specific ones. In a case series of eight women with hEDS, most pregnancies were uncomplicated under multidisciplinary care. [[Spiegel2022,Karthikeyan2018]]</p>
+
+  <h3 class="sub">Passing EDS on: the odds in each pregnancy</h3>
+  <div class="ctrls" role="group" aria-label="Inheritance pattern">
+    <button class="btn" data-prih="ad" aria-pressed="true">Dominant: vEDS, cEDS</button>
+    <button class="btn" data-prih="ar" aria-pressed="false">Recessive: e.g. kEDS</button>
+    <button class="btn" data-prih="heds" aria-pressed="false">hEDS: family history</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="prPed" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Pedigree with two parents and four child symbols showing the expected share of affected children, a two-by-two grid of possible allele combinations, and a running tally of simulated pregnancies whose observed share settles toward the expected value."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="prSim">Simulate 1 pregnancy</button><button class="btn" id="prSim20">Simulate 20</button><button class="btn ghost" id="prReset">Reset</button></div>
+      <div class="tally" id="prTally" aria-live="polite"></div>
+    </div>
+    <aside class="note" id="prPedNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Pregnancy by type: the published numbers</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Type</th><th>Main pregnancy risks in the sources</th><th>Numbers (population statistics)</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Vascular EDS</th><td>Arterial dissection or rupture and uterine rupture around delivery and after birth; miscarriage; preterm birth; severe perineal tears.</td><td>Deaths 30 of 565 deliveries (5.3%) by pedigree review; 5.7% per pregnancy in a systematic review; "a 5% mortality risk with each pregnancy" (GeneReviews). In 76 interviewed deliveries: life-threatening complications 14.5% (arterial 9.2%, uterine rupture 2.6%), 46% uncomplicated. A Dutch cohort with genetic diagnosis: no deaths, dissections or uterine ruptures in 121 pregnancies; miscarriage 19%.</td><td>[[Murray2014GenetMed,Haem2024,Byers2025GeneReviews,vandenBersselaar2026]]</td></tr>
+      <tr><th>Classical EDS</th><td>Fragile skin and wound healing at delivery; prematurity when the baby is affected (fragile membranes); pelvic pain; postpartum haemorrhage.</td><td>Dutch EDS study: preterm delivery 21% in affected mothers but 40% in unaffected mothers carrying an affected baby; pelvic pain and instability 26% vs 7%; postpartum haemorrhage 19% vs 7%. No large cEDS-specific obstetric cohort was found.</td><td>[[Lind2002,Almheiri2026,Malfait2024GeneReviews]]</td></tr>
+      <tr><th>hEDS / HSD</th><td>Joint instability and pelvic girdle pain; POTS and autonomic symptoms; rapid labour; reported preterm birth and haemorrhage (disputed).</td><td>Rapid or precipitous birth (≤3 h) 28–36%. Survey: preterm 15.45%, postpartum haemorrhage 20.60%. Swedish register: no excess preterm birth (aOR 0.6). French expert centre (386 women): caesarean 14.6% and premature birth 6.2%, similar to the general population; spontaneous abortion 28%.</td><td>[[Pezaro2024,Pearce2023,Sundelin2017,HugonRodin2016]]</td></tr>
+      <tr><th>EDS overall</th><td>All types pooled in administrative data.</td><td>US inpatient sample: EDS in 7 per 100,000 births; preterm OR 1.47; caesarean OR 1.55; maternal death OR 9.04 (95% CI 1.27–64.27).</td><td>[[Spiegel2022]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Older vEDS series include women diagnosed only after a catastrophe, which biases risk upward; a 2026 review reports maternal mortality from 0.10% to 50% across studies and attributes the range to older studies without genetic testing. [[Murray2014GenetMed,Bowen2023vEDS,Almheiri2026]] More on the arteries in <a href="#vascular" data-go="vascular">Vascular EDS</a>; on anaesthesia in <a href="#surgery" data-go="surgery">Surgery &amp; anaesthesia</a>.</p>
+</section>

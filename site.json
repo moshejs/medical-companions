@@ -323,6 +323,24 @@
           "date": ""
         }
       }
+    },
+    {
+      "slug": "ehlers-danlos-syndromes",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "EDS Companion",
+        "he": "מלווה תסמונות אהלרס-דנלוס"
+      },
+      "published": "2026-10-29",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
     }
   ],
   "indexnow_key": "202581197bc1993e3ed16425b36cb189"
