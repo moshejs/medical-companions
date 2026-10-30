@@ -1,5 +1,75 @@
-<!-- ================= 3.4 TREATING DRUG-RESISTANT TB (stub, replaced by its builder) ================= -->
+<!-- ================= 3.4 TREATING DRUG-RESISTANT TB ================= -->
+<style>
+#m-drtb .card>.ev,#m-drtb .card>.tag{align-self:flex-start}
+#m-drtb .tbl table{min-width:640px}
+#m-drtb .mr-pick{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+#m-drtb .mr-pick select{font:inherit;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%;min-width:0}
+</style>
 <section class="mod" id="m-drtb" data-mod="drtb" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Treating drug-resistant TB</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">In ten years, treatment for MDR/RR-TB went from about two years with daily injections to six months of tablets. Step down the ladder of regimens and watch the duration shrink, cure rates rise and the harms change.</p></div>
+  <div class="ctrls" role="group" aria-label="Fluoroquinolone susceptibility">
+    <span class="kicker">Strain</span>
+    <button class="btn" data-fq="s" aria-pressed="true">Fluoroquinolone-susceptible</button>
+    <button class="btn" data-fq="r" aria-pressed="false">Fluoroquinolone-resistant (pre-XDR)</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Age group">
+    <span class="kicker">Who</span>
+    <button class="btn" data-age="a" aria-pressed="true">Adult or adolescent (14+)</button>
+    <button class="btn" data-age="c" aria-pressed="false">Child under 14</button>
+  </div>
+  <div class="stepper" id="mrSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="mrSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A ladder of regimens for drug-resistant TB. Duration bars shrink from 20 months with daily injections, to 9–11 months, to 9 months all-oral, to 6-month BPaLM or BPaL and BDLLfxC. Beside them, outcome bars rise from 61% to around 90% favourable, and an icon array shows hearing loss falling from about 41 in 100 to 2 in 100, then linezolid neuropathy and the 2024 mix of regimens in use."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mrPlay">Play</button><label class="stage-cap tl" for="mrT">Regimen era <input type="range" id="mrT" min="0" max="1" step="0.001" value="0.12"></label></div>
+      <p class="stage-cap" id="mrCap"></p>
+      <p class="stage-cap"><b>Not a head-to-head comparison.</b> Each outcome comes from a different trial or cohort with its own population and definition; percentages describe groups, not any one person. Drug letters: B bedaquiline, Pa pretomanid, L linezolid, M moxifloxacin, Lfx levofloxacin, D delamanid, C clofazimine, Z pyrazinamide.</p>
+    </div>
+    <aside class="note" id="mrNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The regimens as published (WHO 2025)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Regimen</th><th>Duration</th><th>For whom, as published</th><th>Strength</th></tr></thead>
+    <tbody>
+      <tr><th>BPaLM</th><td>6 months</td><td>MDR/RR-TB, fluoroquinolone-susceptible; aged 14 or older regardless of HIV; pulmonary or extrapulmonary TB except CNS, osteoarticular or disseminated disease; less than 1 month of prior bedaquiline, linezolid, pretomanid or delamanid; not in pregnancy or breastfeeding [[WHO-Mod4-2025]]</td><td>WHO conditional, very low certainty; ATS/CDC/ERS/IDSA strong, very low certainty [[WHO-Mod4-2025,Saukkonen2025]]</td></tr>
+      <tr><th>BPaL</th><td>6 months</td><td>As BPaLM, when fluoroquinolone resistance is documented [[WHO-Mod4-2025]]; ATS/CDC/ERS/IDSA: fluoroquinolone resistance or intolerance [[Saukkonen2025]]</td><td>ATS/CDC/ERS/IDSA strong, very low certainty [[Saukkonen2025]]</td></tr>
+      <tr><th>BDLLfxC</th><td>6 months</td><td>MDR/RR-TB with or without fluoroquinolone resistance; all ages, including children, people with HIV, and pregnant and breastfeeding women. After DST it is trimmed to BDLLfx (fluoroquinolone-susceptible) or BDLC (fluoroquinolone-resistant) [[WHO-Mod4-2025]]</td><td>New in WHO 2025, based on BEAT Tuberculosis [[Conradie2026]]</td></tr>
+      <tr><th>BLMZ, BLLfxCZ, BDLLfxZ</th><td>9 months</td><td>When fluoroquinolone resistance has been excluded, in that order of preference. WHO suggests against DCLLfxZ and DCMZ [[WHO-Mod4-2025]]</td><td>Based on endTB [[Guglielmetti2025NEJM]]</td></tr>
+      <tr><th>Longer individualised</th><td>18–20 months for most</td><td>A last resort. Kanamycin and capreomycin are not to be used; amikacin only in adults with demonstrated susceptibility and monitoring for adverse reactions [[WHO-Mod4-2025]]</td><td>—</td></tr>
+      <tr><th>Hr-TB regimen</th><td>6 months</td><td>Isoniazid-resistant, rifampicin-susceptible TB: rifampicin, ethambutol, pyrazinamide and levofloxacin [[WHO-Mod4-2025]]. Adding a fluoroquinolone to (H)REZ was linked to greater success (aOR 2.8) [[Fregonese2018]]</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Doses as published, not instructions: WHO lists linezolid 600 mg once daily in BPaLM and BPaL, reducible to 300 mg for toxicity, and bedaquiline in the 6-month regimens as 200 mg daily for 8 weeks then 100 mg daily, or 400 mg daily for 2 weeks then 200 mg three times weekly [[WHO-Mod4-2025]]. The US bedaquiline label gives 400 mg once daily for 2 weeks, then 200 mg three times a week for 22 weeks, with food, by directly observed therapy [[FDA-Sirturo]]. The US pretomanid label limits pretomanid to use with bedaquiline and linezolid and notes that approval rests on limited data [[FDA-Pretomanid]].</p>
+
+  <h3 class="sub">The trials side by side</h3>
+  <div class="ctrls mr-pick">
+    <span class="kicker">View</span>
+    <button class="btn" data-fv="rate" aria-pressed="true">Unfavourable outcome by arm</button>
+    <button class="btn" data-fv="diff" aria-pressed="false">Difference vs control</button>
+    <label class="kicker" for="mrPick">Trial</label><select id="mrPick"></select>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="mrForest" viewBox="0 0 720 470" style="min-width:560px" role="img" aria-label="A forest-style chart of drug-resistant TB trials: unfavourable outcome rates by arm for Nix-TB, the four ZeNix linezolid arms, TB-PRACTECAL, STREAM stage 2, endTB, BEAT Tuberculosis and endTB-Q, or the difference in favourable outcome against each trial's control with confidence intervals."></svg></div>
+      <p class="stage-cap">Trials differ in who they enrolled, their controls, follow-up and outcome definitions, so compare within a trial, not across. Nix-TB and ZeNix used the pre-2021 XDR definition [[Viney2021,Conradie2022]].</p></div>
+    <aside class="note" id="mrFNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Safety, support and the gap</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Monitoring</span><h4>Heart, blood, nerves and eyes</h4><ul>
+      <li>Bedaquiline carries a boxed warning for QTc prolongation; the label requires an ECG, liver enzymes and electrolytes before starting, and stopping if QTc exceeds 500 ms or a significant arrhythmia develops [[FDA-Sirturo]].</li>
+      <li>ATS/CDC/ERS/IDSA list ECGs at baseline and at 2, 12 and 24 weeks on BPaL, and monthly when moxifloxacin or another QT-prolonging drug is added [[Saukkonen2025]].</li>
+      <li>Linezolid: weekly blood counts; peripheral and optic neuropathy, mainly beyond 28 days [[FDA-Zyvox]]. The dose is reduced or paused if they appear [[FDA-Pretomanid]].</li>
+      <li>WHO adds checking potassium, calcium and magnesium when QTc is prolonged, liver tests, and audiometry when certain agents are used [[WHO-Mod4-2025]].</li></ul></div>
+    <div class="card"><span class="ev est">Established</span><h4>QT effects add up, but no more</h4><p>In ACTG A5343, mean QTcF rose 12.3 ms with bedaquiline, 8.6 ms with delamanid and 20.7 ms with both, with no grade 3–4 QTc events: no more than additive [[Dooley2021LID]]. Delamanid added to background treatment did not significantly shorten time to culture conversion (51 vs 57 days) [[VonGroote2019]].</p></div>
+    <div class="card"><span class="tag rx">Counselling and support</span><h4>Treatment is more than tablets</h4><p>WHO recommends health education and counselling for everyone on TB treatment, and suggests material and psychological support, with MDR-TB treated mainly in ambulatory, decentralised care [[WHO-Mod4-2025]]. Depression affected 52.34% of people with MDR-TB in pooled studies [[Duko2020]]. In Uganda, nurse-led palliative care improved patient-reported outcomes for adults with MDR-TB [[Buyinza2025]]. See <a href="#living" data-go="living">Living with TB</a>.</p></div>
+    <div class="card"><span class="tag bad">The gap</span><h4>Most people still do not get the best regimen</h4><p>Only about 42% of the estimated 390 000 people with MDR/RR-TB were enrolled on treatment in 2024 (calculated from WHO figures), and 54% of those treated were still on 18–20-month regimens [[WHO-GTR2025]]. Second-line regimens cost about US$ 200–600 per person at Global Drug Facility prices, against about US$ 50 for first-line treatment, and 82% of affected households face catastrophic costs [[WHO-GTR2025]].</p></div>
+    <div class="card"><span class="tag">Contacts</span><h4>Preventing MDR-TB in households</h4><p>WHO recommends 6 months of daily levofloxacin for contacts exposed to MDR/RR-TB (strong, moderate certainty); pooled, it cut TB risk by 62% over a year. Neither VQUIN nor TB-CHAMP was significant on its own [[WHO-Mod1-2024,Fox2024VQUIN,Hesseling2024]]. More in <a href="#tpt" data-go="tpt">Treating TB infection</a>.</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Bedaquiline and deaths</h4><p>C208 recorded 10 deaths with bedaquiline against 2 with placebo, with no causal pattern, and the US label still reports the imbalance (11.4% vs 2.5%) [[Diacon2014,FDA-Sirturo]]. Observational data link bedaquiline to lower mortality, and STREAM stage 2 found no excess deaths at 132 weeks [[Ahmad2018Lancet,Goodall2024]]. Most evidence now points away from harm.</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Same evidence, different strength</h4><p>TB-PRACTECAL stopped early and its per-protocol population was small (90), giving a wide CI. WHO graded its BPaLM recommendation conditional, very low certainty; ATS/CDC/ERS/IDSA made a strong recommendation on the same evidence [[Nyangwa2022,WHO-Mod4-2025,Saukkonen2025]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Pregnancy and drug-resistant TB</h4><p>BPaLM excludes pregnancy and breastfeeding because pretomanid safety data are limited. BEAT enrolled pregnant and breastfeeding people and WHO extends BDLLfxC to them, but pregnancy safety data remain thin [[WHO-Mod4-2025,Conradie2026]]. See <a href="#special" data-go="special">TB with HIV, in children &amp; pregnancy</a>.</p></div>
+  </div>
+  <div class="callout"><p><b>In plain words.</b> Drug-resistant TB can be cured with other medicines. Today most people can take tablets only, for 6 to 9 months, and the new regimens cured about nine in ten people in trials [[WHO-Mod4-2025,Nyangwa2022,Conradie2026]]. Tingling in the hands or feet, vision changes or tiredness from low blood counts should be reported early, because the linezolid dose can be adjusted [[Conradie2022,FDA-Pretomanid]]. Heart tracings and blood tests are routine safety checks, not a sign that something is wrong [[WHO-Mod4-2025,FDA-Sirturo]].</p></div>
 </section>

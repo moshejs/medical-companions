@@ -1,5 +1,83 @@
-<!-- ================= 2.4 DRUG RESISTANCE (stub, replaced by its builder) ================= -->
+<!-- ================= 2.4 DRUG RESISTANCE ================= -->
+<style>
+#m-resistance .rs-class{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+#m-resistance .rs-class label{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:10px 12px;cursor:pointer;font-size:14.5px;font-weight:700;line-height:1.3}
+#m-resistance .rs-class label small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+#m-resistance .rs-class input{margin-top:3px;accent-color:var(--accent);width:17px;height:17px;flex:none}
+#m-resistance .rs-class label:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+#m-resistance .tbl td.y{color:var(--good);font-weight:700}
+#m-resistance .tbl td.n{color:var(--muted)}
+#m-resistance .tbl table{min-width:760px}
+#m-resistance .card .big-num{font-size:34px}
+#m-resistance .card>.ev,#m-resistance .card>.tag{align-self:flex-start}
+#m-resistance #rsCalcOut .card p{font-size:13.5px;color:var(--muted)}
+</style>
 <section class="mod" id="m-resistance" data-mod="resistance" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Drug resistance</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Resistance is not caused by the drugs: rare mutants are already in every large population of TB bacteria. Pick a scenario and watch what one drug, four drugs, or stopping early does to them, then how a resistant strain reaches someone new.</p></div>
+  <div class="ctrls" role="group" aria-label="Treatment scenario">
+    <span class="kicker">Scenario</span>
+    <button class="btn" data-rs="single" aria-pressed="true">One drug alone</button>
+    <button class="btn" data-rs="combo" aria-pressed="false">Four drugs together</button>
+    <button class="btn" data-rs="interrupt" aria-pressed="false">Treatment stopped early</button>
+  </div>
+  <div class="stepper" id="rsSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rsSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A TB cavity holds a scaled-down population of 96 rod-shaped bacteria, four of them resistant mutants. When drugs start, susceptible rods die. With one drug, the isoniazid-resistant mutants survive and regrow until they fill the cavity; with four drugs every rod dies; when treatment stops early, survivors regrow. A chart counts the rods of each kind over time, and in the last step a person coughs resistant bacteria to a contact."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rsPlay">Play</button><label class="stage-cap tl" for="rsT">Time <input type="range" id="rsT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="rsRead"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The mutants are drawn about a million times more common than they are, and the times are illustrative. Mutation rates from fluctuation tests [[David1970]]; the transmission share is a model median [[Kendall2015]].</p>
+    </div>
+    <aside class="note" id="rsNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why combinations work: the arithmetic</h3>
+  <div class="prose"><p>Each resistance mutation arises independently, so the chance that one bacillus resists two drugs at once is roughly the product of the two single-drug rates [[David1970,Dheda2024]]. Choose a population size to see how many new mutants to expect in one generation of division. The sizes are illustrative, not measured bacterial loads; the expected count is population × rate, calculated here.</p></div>
+  <div class="calc"><label for="rsPop">Dividing bacilli (illustrative)
+    <select id="rsPop"><option value="6">10⁶ (one million)</option><option value="8" selected>10⁸ (100 million)</option><option value="9">10⁹ (one billion)</option><option value="10">10¹⁰ (ten billion)</option><option value="12">10¹² (a million million)</option></select></label></div>
+  <div class="cards" id="rsCalcOut"></div>
+
+  <h3 class="sub">Name the resistance: WHO 2021 categories</h3>
+  <div class="prose"><p>In 2021 WHO redefined pre-XDR-TB and XDR-TB around the drugs that matter most today. The older XDR definition was based on fluoroquinolone plus second-line injectable resistance, and trials that enrolled before 2021, such as Nix-TB and ZeNix, used it [[Viney2021,Conradie2022]]. Tick what a strain resists.</p></div>
+  <div class="rs-class" id="rsClass" role="group" aria-label="Resistances">
+    <label><input type="checkbox" id="rsCR"><span>Rifampicin<small>the gate to every category but Hr-TB</small></span></label>
+    <label><input type="checkbox" id="rsCH"><span>Isoniazid<small>with rifampicin: MDR-TB</small></span></label>
+    <label><input type="checkbox" id="rsCF"><span>A fluoroquinolone<small>levofloxacin or moxifloxacin</small></span></label>
+    <label><input type="checkbox" id="rsCB"><span>Bedaquiline<small>Group A drug</small></span></label>
+    <label><input type="checkbox" id="rsCL"><span>Linezolid<small>Group A drug</small></span></label>
+  </div>
+  <div class="lab even">
+    <div class="stage"><div class="scroll"><svg id="rsLad" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="A staircase of WHO resistance categories: no rifampicin resistance, RR-TB or MDR-TB, pre-XDR-TB and XDR-TB. The step matching the ticked resistances lights up."></svg></div></div>
+    <div class="note" aria-live="polite"><div class="verdict maybe" id="rsVerdict"></div><p id="rsCatTxt"></p>
+      <p class="stage-cap">WHO Group A medicines: levofloxacin or moxifloxacin, bedaquiline and linezolid. Group B: clofazimine and cycloserine/terizidone. Group C includes ethambutol, delamanid, pyrazinamide, imipenem–cilastatin, meropenem and amikacin [[WHO-Mod4-2025]].</p></div>
+  </div>
+
+  <h3 class="sub">Which gene, which test</h3>
+  <div class="prose"><p>Most resistance comes from mutations in a handful of genes, so molecular tests can read resistance in hours or days instead of the weeks that growing the bacteria takes. In one implementation study the median time to a resistance result was 20 days by line probe assay against 106 days by conventional drug-susceptibility testing (DST) [[Boehme2011]]. The test columns say whether each test reports resistance to that drug, as WHO and the cited reviews describe them.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Gene</th><th>Drug</th><th>What the mutation does</th><th>Xpert MTB/RIF, Ultra, Truenat</th><th>Xpert MTB/XDR</th><th>Line probe assay</th><th>Targeted sequencing (tNGS)</th><th>Phenotypic DST</th></tr></thead>
+    <tbody>
+      <tr><th><i>rpoB</i> RRDR</th><td>Rifampicin</td><td>A 23-amino-acid region of RNA polymerase: in 64 of 66 resistant isolates the mutations fell inside it [[Telenti1993]]. It explains more than 95% of rifampicin resistance, which is why one PCR target can stand in for rifampicin DST [[Seifert2015]].</td><td class="y">Yes: Ultra 94.9% sensitive, 99.1% specific [[Zifodya2021]]</td><td class="n">—</td><td class="y">Yes: 96.7% / 98.8% [[Nathavitharana2017LPA]]</td><td class="y">Yes: 99.1% sensitive [[Schwab2024]]</td><td>Yes, but some "disputed" <i>rpoB</i> mutations are missed [[VanDeun2015]]</td></tr>
+      <tr><th><i>katG</i></th><td>Isoniazid</td><td>KatG activates isoniazid; deleting <i>katG</i> caused resistance [[Zhang1992]]. katG315 accounted for 64% of isoniazid resistance worldwide [[Seifert2015]].</td><td class="n">—</td><td class="y">Yes: isoniazid 94.2% / 98.5% [[Pillay2022]]</td><td class="y">Yes: isoniazid 90.2% / 99.2% [[Nathavitharana2017LPA]]</td><td class="y">Yes [[WHO-Mod3-2024]]</td><td>Yes, 1–2 weeks after growth [[Lewinsohn2017]]</td></tr>
+      <tr><th><i>inhA</i> promoter</th><td>Isoniazid and ethionamide</td><td><i>inhA</i> encodes a target of both drugs, so mutations can cause cross-resistance [[Banerjee1994]]. inhA −15 accounted for 19% of isoniazid resistance [[Seifert2015]].</td><td class="n">—</td><td class="y">Yes: ethionamide 98.0% / 99.7% [[Pillay2022]]</td><td class="y">Yes (isoniazid) [[Nathavitharana2017LPA]]</td><td class="y">Yes [[WHO-Mod3-2024]]</td><td>Yes</td></tr>
+      <tr><th><i>pncA</i></th><td>Pyrazinamide</td><td>Loss of pyrazinamidase, the enzyme that activates the drug [[Scorpio1996]].</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="y">Yes [[WHO-Mod3-2024]]</td><td>Yes</td></tr>
+      <tr><th><i>embB</i> (<i>embCAB</i>)</th><td>Ethambutol</td><td>Structural EmbB mutations or overexpression of Emb proteins, which build cell-wall arabinan [[Telenti1997]].</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="y">Yes [[WHO-Mod3-2024]]</td><td>Yes</td></tr>
+      <tr><th><i>gyrA</i> / <i>gyrB</i></th><td>Fluoroquinolones</td><td>Changes in DNA gyrase: <i>gyrA</i> mutations were found in all 14 isolates with a ciprofloxacin MIC above 2 µg/mL [[Takiff1994]].</td><td class="n">—</td><td class="y">Yes: 93.2% / 98.0% [[Pillay2022]]</td><td class="n">not covered here</td><td class="y">Yes [[WHO-Mod3-2024]]</td><td>Yes, 3–4 weeks on solid medium [[Lewinsohn2017]]</td></tr>
+      <tr><th><i>Rv0678</i></th><td>Bedaquiline and clofazimine</td><td>Upregulates the MmpS5–MmpL5 efflux pump: low-level cross-resistance to both drugs, found in people treated with bedaquiline [[Hartkoorn2014,Andries2014]].</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="y">Yes, but the catalogue is thin [[WHO-Mod3-2024,Walker2022]]</td><td>Yes, still needed for new drugs [[Walker2022]]</td></tr>
+      <tr><th><i>atpE</i></th><td>Bedaquiline</td><td>Changes in the ATP synthase that bedaquiline targets, seen in resistant mutants selected in the laboratory [[Andries2005]].</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="y">Yes (bedaquiline) [[WHO-Mod3-2024]]</td><td>Yes</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sensitivity / specificity are pooled estimates from the studies reviewed, not the chance that one person's result is right. WHO conditionally recommends tNGS on respiratory samples from people with rifampicin-resistant TB, covering isoniazid, fluoroquinolones, bedaquiline, linezolid, clofazimine, pyrazinamide, ethambutol, amikacin and streptomycin [[WHO-Mod3-2024]]. Across all drugs, tNGS was 94.1% sensitive and 98.1% specific [[Schwab2024]]. <span class="ev est">Established</span> The 2021 WHO mutation catalogue graded only two resistance mutations each for bedaquiline, delamanid, clofazimine and linezolid, so genotypic testing for the newest drugs is still incomplete [[Walker2022]]. More on these tests in <a href="#diagnose" data-go="diagnose">Diagnosing TB disease</a>.</p>
+
+  <h3 class="sub">The global picture</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">New MDR/RR-TB, 2024</span><b class="big-num">390 000</b><p>Estimated people who developed MDR/RR-TB in 2024 (95% UI 360 000–430 000), falling since 2015. MDR/RR-TB caused an estimated 150 000 deaths [[WHO-GTR2025]]. About a quarter of deaths caused by antimicrobial resistance are due to rifampicin-resistant TB [[Dean2022]].</p></div>
+    <div class="card"><span class="kicker">Who has it</span><b class="big-num">3.2% · 16%</b><p>Share of MDR/RR-TB among people never treated before (down from 4.7% in 2015) and among previously treated people (down from 19%). In new cases it ranged from 2.0% (African and Eastern Mediterranean regions) to 23% (European Region) [[WHO-GTR2025]].</p></div>
+    <div class="card"><span class="kicker">Where</span><b class="big-num">over half</b><p>Four countries had over half of incident MDR/RR-TB in 2024: India 32%, China 7.1%, the Philippines 7.1% and the Russian Federation 6.7%. An estimated 18% of MDR/RR-TB was pre-XDR, and 1.5 million people developed isoniazid-resistant TB [[WHO-GTR2025]].</p></div>
+    <div class="card"><span class="tag bad">The treatment gap</span><b class="big-num">≈ 42%</b><p>164 545 people were enrolled on MDR/RR-TB treatment in 2024, down from 179 491 in 2022: roughly 42% of the estimated 390 000 (calculated here from the two WHO figures). Ten countries made up 74% of the gap; India alone 33% [[WHO-GTR2025]].</p></div>
+    <div class="card"><span class="kicker">Testing</span><b class="big-num">83% · 58%</b><p>In 2024, 83% of people with bacteriologically confirmed TB were tested for rifampicin resistance, but only 58% of people with rifampicin-resistant TB were tested for fluoroquinolone resistance [[WHO-GTR2025]].</p></div>
+    <div class="card"><span class="kicker">Cost</span><b class="big-num">82%</b><p>Share of households affected by drug-resistant TB facing catastrophic costs, against 47% for all TB, even where treatment is free [[WHO-GTR2025]]. Drug-resistant TB often uses more than 50% of national TB budgets while making up less than 5–10% of cases [[Dheda2024]].</p></div>
+  </div>
+  <div class="callout"><p><b>Resistance is curable, and it is not a fault.</b> Most people with drug-resistant TB were infected with a strain that was already resistant [[Kendall2015,Shah2017NEJM]]. All-oral regimens of 6 to 9 months now cure most people in trials; see <a href="#drtb" data-go="drtb">Treating drug-resistant TB</a>. Contacts of people with MDR/RR-TB can be offered preventive treatment: WHO recommends 6 months of daily levofloxacin [[WHO-Mod1-2024]].</p></div>
 </section>
