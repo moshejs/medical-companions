@@ -1,5 +1,64 @@
-<!-- ================= 1.2 THE TB BACTERIUM (stub, replaced by its builder) ================= -->
+<!-- ================= 1.2 THE TB BACTERIUM ================= -->
+<style>
+#m-bacillus .tbl table{min-width:620px}
+#m-bacillus .card>.ev,#m-bacillus .card>.tag{align-self:flex-start}
+#m-bacillus .mtbc{display:flex;flex-wrap:wrap;gap:6px}
+#m-bacillus .mtbc button{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:7px 12px;cursor:pointer;font-size:13.5px;font-weight:700;line-height:1.2}
+#m-bacillus .mtbc button[aria-pressed="true"]{border-color:var(--tb);background:var(--tb-soft);color:var(--tb)}
+#m-bacillus .mtbc button i.s{font-style:normal;font-weight:400;color:var(--muted);margin-left:6px;font:500 11px var(--mono)}
+#m-bacillus .layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+#m-bacillus .layers div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:14px}
+#m-bacillus .layers b{display:block;font-size:15px}
+#m-bacillus .layers i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+</style>
 <section class="mod" id="m-bacillus" data-mod="bacillus" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · The infection</p><h2>The TB bacterium</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede"><i>Mycobacterium tuberculosis</i> is a slow-growing rod wrapped in a waxy, fatty envelope. That envelope is why it keeps the red stain in a sputum smear, why many drugs cannot get in, and — together with its slowness — why treatment is counted in months and culture results in weeks. Scrub from a stained smear into the cell wall, then watch it grow.</p></div>
+  <div class="stepper" id="baSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="baSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Four scenes you can scrub through: a Ziehl-Neelsen sputum smear in which magenta rods and serpentine cords sit on a blue counterstained field and magnify as time passes; a half cross-section of one bacillus whose concentric layers (cytoplasm with RNA polymerase, plasma membrane, peptidoglycan, arabinogalactan, mycolic acids and outer lipids) are drawn and labelled one by one; the same cross-section with drug tags for isoniazid, ethambutol, rifampicin and bedaquiline arrowed onto the layer each one attacks; and a growth chart in which a fast and a slow M. tuberculosis population double over 30 days against a fast-growing bacterium, with bands marking when liquid and solid cultures report."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="baPlay">Play</button><label class="stage-cap tl" for="baT">Scene <input type="range" id="baT" min="0" max="1" step="0.001" value="0.04"></label><button class="btn" id="baLog" aria-pressed="true">Log scale (growth scene)</button></div>
+      <div class="readout" id="baRead"></div>
+      <p class="stage-cap">Schematic, not to scale: the layers are drawn in their published order, not at their true thickness. Growth curves are modelled from published mean generation times in controlled culture. [[Brennan2003,Jeeves2015]]</p>
+    </div>
+    <aside class="note" id="baNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The envelope, layer by layer</h3>
+  <div class="prose"><p>The cell-wall core is one massive covalent assembly: peptidoglycan, joined through a linker unit to a linear galactofuran, attached to branched arabinofuran, attached in turn to mycolic acids standing perpendicular to the membrane — described by its chemists as "a truly special lipid barrier". That barrier is responsible for much of the organism's physiology and its capacity to cause disease, and the wall is impermeable to many compounds, which is part of why the bacillus resists so many drugs. [[Brennan2003,Hett2008]]</p></div>
+  <div class="layers" id="baLayers"></div>
+  <p class="callout">The envelope is not a fixed shell. It is remodelled during growth, division and stress — "a moving target" that matters for both drug penetration and drug discovery. [[Dulberger2020]]</p>
+
+  <h3 class="sub">Why RD1 and ESAT-6 decide what a blood test can tell you</h3>
+  <div class="cards">
+    <div class="card"><span class="tag tb">ESAT-6 · CFP-10</span><h4>Two proteins BCG does not have</h4><p>ESAT-6 is a 6 kDa protein secreted by <i>M. tuberculosis</i> and by virulent <i>M. bovis</i>, and absent from <i>M. bovis</i> BCG. Comparing BCG with virulent <i>M. bovis</i> identified the deleted stretch of genome responsible, called region of difference 1 (RD1). [[Harboe1996,Mahairas1996]]</p></div>
+    <div class="card"><span class="tag accent">Test specificity</span><h4>That gap is what makes IGRAs specific</h4><p>Because ESAT-6 and CFP-10 lie inside RD1 and are missing from BCG, an immune test built on these antigens can tell infection with <i>M. tuberculosis</i> apart from BCG vaccination — the design principle of the interferon-gamma release assays. Pooled specificity for QuantiFERON was 99% (95% CI 98–100) in people not vaccinated with BCG and 96% (94–98) in people who were; the tuberculin skin test was 97% (95–99) specific in unvaccinated people. <button class="btn ghost" data-go="tests">See the tests module</button> [[Andersen2000,Pai2008]]</p></div>
+    <div class="card"><span class="tag warn">Virulence</span><h4>RD1 is not an incidental loss</h4><p>Deleting RD1 from virulent <i>M. bovis</i> and from <i>M. tuberculosis</i> attenuated both, and the ΔRD1 mutant protected mice against aerosol challenge much as BCG does. The attenuating mechanism is loss of ESAT-6-mediated lytic activity: mutants failed to lyse pneumocytes. Loss of RD1 also contributed to the attenuation of <i>M. microti</i>, the other historical live vaccine, and putting RD1 back into BCG restored part of the virulent phenotype. [[Hsu2003,Lewis2003,Pym2002]]</p></div>
+    <div class="card"><span class="tag brand">Genome</span><h4>4.4 million letters, read in 1998</h4><p>The H37Rv genome is 4,411,529 base pairs with around 4,000 genes and a very high guanine-plus-cytosine content. An unusually large share of that coding capacity is given to enzymes that build and break down lipids, plus the glycine-rich PE/PPE protein families that may be a source of antigenic variation. [[Cole1998]]</p></div>
+  </div>
+
+  <h3 class="sub">The <i>M. tuberculosis</i> complex: one family, several members</h3>
+  <div class="prose"><p>TB is not caused by a single organism but by a group of closely related bacteria, the <i>M. tuberculosis</i> complex. The group is clonal, with so little DNA sequence diversity that standard bacterial typing methods are uninformative; whole-genome sequencing of large clinical collections is what opened up its ecology and evolution. Coalescent analysis of 259 complete genomes dates the complex to about 70,000 years ago, travelling with out-of-Africa migrations of modern humans and expanding as Neolithic population density rose. [[Gagneux2018,Comas2013]]</p></div>
+  <div class="mtbc" id="baMtbc" role="group" aria-label="Members of the M. tuberculosis complex"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="baWorld" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A schematic world strip of five coarse landmass blocks — the Americas, Europe, Africa, Asia and Oceania — with the regions named in the published description of the selected complex member or lineage shaded, and a branch diagram showing where that member sits relative to M. tuberculosis."></svg></div>
+      <p class="stage-cap">A schematic strip, not a map: it marks only the regions named in the cited descriptions. [[Gagneux2018]]</p>
+    </div>
+    <aside class="note" id="baMtbcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">TB or not TB: non-tuberculous mycobacteria</h3>
+  <div class="tbl"><table>
+    <thead><tr><th scope="col">&nbsp;</th><th scope="col"><i>M. tuberculosis</i> complex</th><th scope="col">Non-tuberculous mycobacteria</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">How many kinds</th><td>A single clonal complex with very low sequence diversity; lineages 1–9 plus animal-adapted members. [[Gagneux2018,Coscolla2021]]</td><td>More than 190 species and subspecies; <i>Mycobacterium avium</i> complex, <i>M. kansasii</i>, <i>M. xenopi</i> and <i>M. abscessus</i> are the commonest causes of lung disease. [[Daley2020]]</td></tr>
+      <tr><th scope="row">Clinical picture</th><td>TB disease, most often pulmonary, with cavities, consolidation and nodules in post-primary disease. [[Nachiappan2017]]</td><td>Some species cause lung disease that looks like TB and sits in the differential diagnosis. [[Daley2020]]</td></tr>
+      <tr><th scope="row">In the laboratory</th><td>Grows slowly; liquid culture reports growth in 10–14 days and solid culture in 3–4 weeks. [[Lewinsohn2017]]</td><td>Also grows in TB cultures: 77.3% of smear-negative specimens positive only on liquid culture grew non-tuberculous mycobacteria, which is why speciation is needed. [[Chihota2010]]</td></tr>
+      <tr><th scope="row">Effect on the skin test</th><td>Tuberculin skin test specificity 97% (95–99) in people not vaccinated with BCG. [[Pai2008]]</td><td>Cross-reaction caused false-positive skin tests in only 0.1–2.3% of people across regions, so it matters where sensitisation is common and TB infection is rare. [[Farhat2006]]</td></tr>
+      <tr><th scope="row">Effect on IGRAs</th><td>ESAT-6 and CFP-10 are complex antigens encoded in RD1. [[Harboe1996]]</td><td>Tests built on RD1 antigens were designed to separate <i>M. tuberculosis</i> infection from BCG; pooled QuantiFERON specificity was 96–99%. [[Andersen2000,Pai2008]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout"><b>Exam hook.</b> ESAT-6 and CFP-10 lie in RD1, deleted from every BCG substrain. That single deletion is why an IGRA stays specific after BCG vaccination, why BCG is safe enough to give to newborns, and why ΔRD1 <i>M. tuberculosis</i> behaves like a vaccine strain in mice. [[Mahairas1996,Hsu2003,Pai2008]]</p>
 </section>
