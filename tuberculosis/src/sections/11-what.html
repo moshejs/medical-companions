@@ -1,5 +1,101 @@
-<!-- ================= 1.1 WHAT TB IS (stub, replaced by its builder) ================= -->
+<!-- ================= 1.1 WHAT TB IS ================= -->
+<style>
+#m-what .ctrls .kicker{min-width:68px}
+#m-what .card>.tag,#m-what .card>.ev{align-self:flex-start}
+#m-what .big-num{color:var(--tb)}
+#m-what .tbl table{min-width:560px}
+#m-what .defs .card{border-top:4px solid var(--line)}
+#m-what .defs .card.inf{border-top-color:var(--accent)}
+#m-what .defs .card.dis{border-top-color:var(--tb)}
+#m-what .defs dl{margin:0;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+#m-what .defs dt{font:600 10.5px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+#m-what .defs dd{margin:0;font-size:14.5px}
+</style>
 <section class="mod" id="m-what" data-mod="what" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · The infection</p><h2>What TB is</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Tuberculosis is an airborne infection with the bacterium <i>Mycobacterium tuberculosis</i>. It is curable, and it is still the world's leading cause of death from a single infectious agent. [[WHO-GTR2025]] Scrub through one year of TB worldwide, then see how many people carry TB infection and how few of them ever fall ill.</p></div>
+
+  <div class="ctrls" role="group" aria-label="What to count">
+    <span class="kicker">Count</span>
+    <button class="btn" data-wm="ill" aria-pressed="true">People who fell ill</button>
+    <button class="btn" data-wm="deaths" aria-pressed="false">Deaths</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Which people">
+    <span class="kicker">Among</span>
+    <button class="btn" data-wp="all" aria-pressed="true">Everyone</button>
+    <button class="btn" data-wp="hiv" aria-pressed="false">People with HIV</button>
+  </div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A year of TB worldwide in four scenes that build up as the timeline plays: bars growing from the 10.7 million people who fell ill in 2024 to the 8.3 million notified, with the 2.4 million missing shaded, and the 1.23 million deaths; bars for the six WHO regions; a grid of 100 squares filling country by country to show that eight countries have two-thirds of cases; and lines for cases, notifications and deaths from 2000 to 2024 with the COVID-19 dip and the End TB milestones."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Scene <input type="range" id="whT" min="0" max="1" step="0.001" value="0.16"></label></div>
+      <div class="readout" id="whRead"></div>
+      <p class="stage-cap">Estimates from the WHO Global Tuberculosis Report 2025 (2024 data). The 2000–2024 lines are WHO database country sums, which run 1–3% below the report totals; 2019–2021 and 2023–2024 notifications are report figures. All numbers describe populations, not any one person. [[WHO-GTR2025]]</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">TB infection and TB disease are not the same</h3>
+  <div class="cards defs">
+    <div class="card inf"><span class="tag accent">TB infection</span><h4>The immune system has met the bacterium</h4>
+      <dl><dt>What it is</dt><dd>A lasting immune response to <i>M. tuberculosis</i> without TB disease. It used to be called "latent TB infection"; the old split into "latent" and "active" has been replaced by a spectrum. [[Drain2018]]</dd>
+      <dt>Contagious?</dt><dd>No. TB infection is not passed on to other people. [[Drain2018,Coussens2024]]</dd>
+      <dt>How it is found</dt><dd>A skin test or a blood test (IGRA). Both show that the body has met the germ, not whether live bacteria remain or whether the person is ill. [[Lewinsohn2017,Behr2019]] See <a href="#tests" data-go="tests">TST &amp; IGRA</a>.</dd></dl></div>
+    <div class="card dis"><span class="tag tb">TB disease</span><h4>The bacteria are causing damage</h4>
+      <dl><dt>What it is</dt><dd>An international consensus separates disease from infection by visible damage (macroscopic pathology). It can be subclinical, without reported symptoms, or clinical. [[Coussens2024]]</dd>
+      <dt>Contagious?</dt><dd>TB disease of the lungs can spread through the air when the person coughs, talks or sings. Effective treatment quickly makes people much less infectious. [[Fennelly2020,Dharmadhikari2014]] See <a href="#spread" data-go="spread">How TB spreads</a>.</dd>
+      <dt>When it appears</dt><dd>Most disease in exposed people appears within the first two years after infection. [[Behr2018]] See <a href="#spectrum" data-go="spectrum">the spectrum</a>.</dd></dl></div>
+    <div class="card"><span class="tag">Words</span><h4>Person-first language</h4><p>This guide says "people with TB" and "people affected by TB". It avoids "TB suspect", "defaulter" or "TB carrier": a person with TB infection is not carrying a disease they can pass on, and stopping treatment usually has reasons that care services can address. TB is a notifiable disease, treatment is free in most national programmes, and anyone with a long cough, fever, night sweats or weight loss should see a clinician.</p></div>
+  </div>
+
+  <h3 class="sub">A quarter of the world? TB infection in 100 people</h3>
+  <div class="ctrls" role="group" aria-label="Which estimate of TB infection">
+    <span class="kicker">Estimate</span>
+    <button class="btn" data-wi="h" aria-pressed="true">Model 2014: 23.0%</button>
+    <button class="btn" data-wi="ig" aria-pressed="false">IGRA studies: 24.8%</button>
+    <button class="btn" data-wi="ts" aria-pressed="false">Skin-test studies: 21.2%</button>
+    <button class="btn" data-wi="w" aria-pressed="false">WHO 1999: one-third</button>
+  </div>
+  <div class="ctrls"><button class="btn" id="whClear" aria-pressed="false">Allow for self-clearance (2021 model)</button></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whIco" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="An icon array of 100 people. As the timeline plays, the people with TB infection light up (about 23 in 100 on the 2014 model), then, if self-clearance is switched on, most of them fade to cleared, and finally the one or two who would develop TB disease over a lifetime are highlighted."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whIPlay">Play</button><label class="stage-cap tl" for="whIT">Lifetime <input type="range" id="whIT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="whICap"></p>
+    </div>
+    <aside class="note" id="whINote" aria-live="polite"></aside>
+  </div>
+
+  <div class="cards">
+    <div class="card"><span class="tag warn">Controversy</span><h4>How many people really carry TB infection?</h4><p>The "about a quarter" figure has two sources: a 2014 model of 131 infection surveys (23.0%, about 1.7 billion people) and a meta-analysis of 88 studies (24.8% by IGRA, 21.2% by a 10 mm skin test). [[Houben2016,Cohen2019ERJ]] Both count immune memory, not live bacteria. <span class="ev early">Early evidence</span> A 2021 model that allows for self-clearance estimates that 73.1% of infected people clear the bacteria over a lifetime, so the population truly at risk could be 35–80% smaller in India, China and Japan, while each truly infected person's lifetime risk is higher: 17.0% rather than 12.6%. [[Emery2021]] No test yet separates live from cleared infection, so the question is open.</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Is a big hidden reservoir the main problem?</h4><p>One view: about 1.7 billion people with TB infection are a central obstacle, and even with no new infections after 2015, existing infection alone would cause about 16.5 cases per 100,000 a year in 2035 (<span class="ev hyp">Hypothesis</span>, a model projection). [[Houben2016]] The other view: disease follows infection within months to two years, with no late spike, so most TB comes from recent transmission and the reservoir has been overstated. [[Behr2018]] The timing data are consistent; what they mean for strategy is still argued.</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>The "leading infectious killer"?</h4><p>WHO says yes for 2024: only about 70,000 COVID-19 deaths were officially reported to WHO that year. [[WHO-GTR2025]] But COVID-19 displaced TB in 2020, and on WHO's latest all-cause estimates (2021) TB ranked second to COVID-19 among single infectious agents. [[Chakaya2021,WHO-GTR2025]] The claim depends on the year, and on whether deaths of people with HIV are counted. The independent GBD study estimated 9.40 million cases and 1.35 million deaths in 2021, with different methods. [[GBD2021TB2024]]</p></div>
+  </div>
+
+  <h3 class="sub">Who is affected</h3>
+  <div class="cards">
+    <div class="card"><span class="tag">Men</span><p class="big-num">54%</p><p>Of the 10.7 million people who fell ill in 2024, 5.8 million were adult men, 3.7 million adult women (35%) and 1.2 million children (11%). [[WHO-GTR2025]] In prevalence surveys men are about twice as likely as women to have TB (ratio 2.21) and more often missed by services. [[Horton2016]] The reasons are structural, such as work, income and how services are designed, not individual blame. [[Chikovore2020]]</p></div>
+    <div class="card"><span class="tag">Children</span><p class="big-num">50%</p><p>Only half of children under 5 with TB were notified in 2024, against 79% of adults. [[WHO-GTR2025]] 174,000 children under 15 died of TB; of the 172,000 HIV-negative children who died, 122,000 were under 5. [[WHO-GTR2025]] Children often cannot cough up sputum, which makes TB harder to confirm [[Kay2025,Gunasekera2023]]: see <a href="#diagnose" data-go="diagnose">Diagnosing TB disease</a>.</p></div>
+    <div class="card"><span class="tag">People with HIV</span><p class="big-num">5.8%</p><p>People with HIV were 5.8% of new TB cases in 2024 (about 619,000), down from a peak of 17% in 2000; in parts of southern Africa more than half of people with a new TB episode have HIV. TB is the leading killer of people with HIV. [[WHO-GTR2025]] See <a href="#special" data-go="special">TB with HIV</a>.</p></div>
+    <div class="card"><span class="tag">Where</span><p class="big-num">87%</p><p>The 30 high TB burden countries had 87% of new cases in 2024. National rates ranged from fewer than 10 to more than 500 per 100,000; 62 countries had a low incidence, under 10 per 100,000. [[WHO-GTR2025]] What drives risk is covered in <a href="#risk" data-go="risk">Who is at risk</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Treatment works: outcomes as published</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Group (treatment cohort)</th><th>Treatment success</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><th>Drug-susceptible TB, first-line regimens (2023)</th><td>88%</td><td>Up from 81% for the 2016 cohort; 71% in the Americas to 93% in the Eastern Mediterranean Region. [[WHO-GTR2025]]</td></tr>
+      <tr><th>People with HIV (2023)</th><td>79%</td><td>Up from 75% (2017) and 68% (2012). [[WHO-GTR2025]]</td></tr>
+      <tr><th>MDR/RR-TB (2022)</th><td>71%</td><td>In 2024, 164,545 people were treated for rifampicin-resistant TB: 42% of the roughly 390,000 who developed it. [[WHO-GTR2025]] See <a href="#drtb" data-go="drtb">Treating drug-resistant TB</a>.</td></tr>
+      <tr><th>Women and girls vs men and boys (2024, 31 countries)</th><td>90% vs 87%</td><td>The share who died after starting treatment was 45% higher in men and boys. [[WHO-GTR2025]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Population statistics from national programme reports, not a prediction for any one person. WHO estimates that TB treatment averted 83 million deaths from 2000 to 2024 (a modelled figure). [[WHO-GTR2025]]</p>
+
+  <h3 class="sub">TB in countries where it is rare</h3>
+  <div class="split2">
+    <div class="callout prose"><p>In 2023 the United States provisionally reported 9,615 TB cases (2.9 per 100,000), 16% more than in 2022 and the highest count since 2013. Of cases with known birth origin, 76% were in people born outside the US: 15.0 per 100,000 against 0.8 in US-born people. CDC stresses that most US residents are at minimal risk. [[Williams2024]] About one-third of people with TB in the EU/EEA were born in, or are citizens of, another country. [[Vasiliu2025]]</p></div>
+    <div class="callout prose"><p>These patterns reflect TB infection acquired where TB is common, and the stresses of migration and barriers to care, often an old infection that becomes disease years later. [[Frieden1995,Domaszewska2025]] The authors call for accessible, free screening and tailored care, not exclusion. [[Domaszewska2025,Vasiliu2025]] TB is about exposure and conditions, not where someone comes from.</p></div>
+  </div>
 </section>

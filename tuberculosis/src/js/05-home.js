@@ -1,7 +1,7 @@
 
 /* =============== home: from a shared breath to a granuloma, contained or breaking down =============== */
 /* Fact-free until the research passes land: the epidemiology builder may add a cited sentence to HERO_CAP. */
-const HERO_CAP=['Schematic, not to scale; the timing is illustrative. Press Weakened immunity to see the other ending.','Schematic, not to scale; the timing is illustrative. This ending shows a granuloma breaking down.'];
+const HERO_CAP=['Schematic, not to scale; the timing is illustrative. About a quarter of the world is estimated to have TB infection, and most never develop TB disease. [[Houben2016,Cohen2019ERJ,Drain2018]] Press Weakened immunity to see the other ending.','Schematic, not to scale; the timing is illustrative. This ending shows a granuloma breaking down.'];
 inits.home=()=>{
   const svg=$('#heroSvg'),rg=$('#heroT'),ab=$('#heroAlt'),cap=$('#heroCap');let weak=false;
   /* the story runs t 0..1: exposure (0-.28), bacteria reach an air sac (.24-.42), a macrophage swallows them
