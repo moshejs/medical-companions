@@ -1,5 +1,64 @@
-<!-- ================= 1.5 BRAIN & STRESS SYSTEMS (stub, replaced by its builder) ================= -->
+<!-- ================= 1.5 BRAIN & STRESS SYSTEMS ================= -->
+<style>
+#m-brain .card>.ev,#m-brain .card>.tag{align-self:flex-start}
+#m-brain svg[data-mode="n"] .t-xs{font-size:11.5px}
+#m-brain svg[data-mode="n"] .t-sm{font-size:12.5px}
+#m-brain .br-board{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+#m-brain .br-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+#m-brain .br-card h4{margin:0;font-family:var(--display);font-weight:800;font-size:18px;line-height:1.2}
+#m-brain .br-card p{font-size:14px;margin:0}
+#m-brain .br-card .br-top{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+#m-brain .br-meta{font:500 12px/1.45 var(--mono);color:var(--muted)}
+#m-brain .br-meta b{color:var(--ink);font-weight:600}
+#m-brain .br-meter{display:flex;gap:3px;align-items:center}
+#m-brain .br-meter i{display:block;width:16px;height:7px;border-radius:2px;background:var(--panel-2)}
+#m-brain .br-meter i.on{background:var(--storm)}
+#m-brain .br-meter span{font:600 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:6px}
+#m-brain .br-tools{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+#m-brain .br-tools label{display:flex;gap:8px;align-items:center;font-size:14px;font-weight:700}
+#m-brain .br-tools select{font:inherit;font-weight:400;padding:7px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%}
+</style>
 <section class="mod" id="m-brain" data-mod="brain" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding BPD</p><h2>Brain &amp; stress systems</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Brain-imaging and stress-hormone studies find group differences in borderline personality disorder: in threat responses, emotion regulation, stress hormones and pain. They are averages from research groups. They describe processes, not a fixed "BPD brain", and some shift after therapy. [[Schulze2016,Marek2022,Goodman2014]]</p></div>
+  <div class="ctrls" role="group" aria-label="Group shown">
+    <span class="kicker">Show</span>
+    <button class="btn" data-brgrp="bpd" aria-pressed="true">BPD (group average)</button>
+    <button class="btn" data-brgrp="cmp" aria-pressed="false">Comparison group</button>
+    <button class="btn" data-brgrp="post" aria-pressed="false">After DBT (early evidence)</button>
+  </div>
+  <div class="stepper" id="brSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="brSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A side-view brain with glowing regions. An angry face appears and the amygdala glows more in the BPD group than in the comparison group; the prefrontal cortex and anterior cingulate glow less. Later steps show smaller hippocampus and amygdala volumes, the stress-hormone chain from hypothalamus to pituitary to adrenal gland with cortisol dots, a synapse for the opioid and oxytocin hypotheses, and a chart of imaging sample sizes. Each region carries an evidence label."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brPlay">Play</button><label class="stage-cap tl" for="brT">Finding <input type="range" id="brT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="brRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> Glow sizes show direction, not measured magnitude: the activation meta-analyses report where differences cluster, not one effect size. Volume bars use the meta-analytic averages. Evidence labels: <span class="ev est">Established</span> <span class="ev early">Early evidence</span> <span class="ev hyp">Hypothesis</span>. [[Schulze2016,Ruocco2012]]</p>
+    </div>
+    <aside class="note" id="brNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How sure are we? A replication board</h3>
+  <p class="prose">Each card is one finding, with its sample, its effect size where one was published, and a confidence meter. The meter is our editorial reading of sample size, replication and agreement between studies, not a published score. Across neuroscience, small samples inflate effects; brain–behaviour links usually need thousands of participants to replicate. [[Button2013,Marek2022]]</p>
+  <div class="br-tools">
+    <div class="ctrls" role="group" aria-label="Filter by evidence">
+      <button class="btn" data-brf="all" aria-pressed="true">All</button>
+      <button class="btn" data-brf="est" aria-pressed="false">Established</button>
+      <button class="btn" data-brf="early" aria-pressed="false">Early evidence</button>
+      <button class="btn" data-brf="hyp" aria-pressed="false">Hypothesis</button>
+    </div>
+    <label for="brSort">Sort by <select id="brSort"><option value="conf">confidence</option><option value="n">sample size</option><option value="topic">system</option></select></label>
+  </div>
+  <div class="br-board" id="brBoard" aria-live="polite"></div>
+
+  <h3 class="sub">Minds, not only brains</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Mentalizing and hypermentalizing</h4><p>Mentalizing means understanding behaviour in terms of thoughts and feelings. In a meta-analysis of 34 studies (1,448 people with BPD, 2,006 controls), reflective functioning showed a very large deficit (d = 1.68) but theory of mind only a modest one (d = 0.36); over-interpreting others' minds ("hyper-ToM" errors, d = 0.60) was among the most robust findings. Hypermentalizing is linked to psychopathology in general, not more to BPD (r = 0.26 vs 0.24). Some people with BPD even read neutral eyes better than controls. The mentalizing model itself is a hypothesis. See <a href="#mbt" data-go="mbt">Mentalization-based treatment</a>. [[Bora2021,McLaren2022,Fertuck2009,Fonagy2008]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Dissociation and stress-related paranoia</h4><p>DSM-5-TR criterion 9 is transient, stress-related paranoid ideation or severe dissociative symptoms. On the Dissociative Experiences Scale, 26% of 290 people with BPD scored high, against 3% of other personality-disorder controls. Hourly monitoring shows dissociation rising with stress, more steeply in BPD, and higher baseline dissociation predicted less improvement in inpatient DBT. About 20–50% of people with BPD report psychotic symptoms, mostly in stressful moments; the labels "pseudo-psychotic" and "quasi-psychotic" are discouraged. [[APA2022,Zanarini2000Dissociation,Stiglmayr2008,Kleindienst2011,Schroeder2013,DAgostino2019]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Why scans cannot diagnose BPD</h4><p>Early BPD imaging studies had 6 to 15 people per group. In about 50,000 people, brain-wide links between brain measures and mental-health traits were much smaller than thought, and studies at the median sample of about 25 were underpowered and failed to replicate. Limbic overactivity, prefrontal underactivity and smaller grey matter also appear in PTSD, depression or bipolar disorder. Diagnosis rests on a clinical interview: see <a href="#assess" data-go="assess">Assessment &amp; interviews</a>. [[Herpertz2001,Donegan2003,Marek2022,Schulze2019,Yu2019BJP,Lou2021]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>The brain changes with therapy</h4><p>After 12 months of standard DBT in unmedicated people with BPD (11 per group), amygdala activation fell and better amygdala habituation tracked better emotion regulation. After 12 weeks of residential DBT, pain-related amygdala deactivation and amygdala–cingulate coupling were reduced compared with usual treatment. Samples were small. See <a href="#dbt" data-go="dbt">Dialectical behaviour therapy</a>. [[Goodman2014,Niedtfeld2017]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Not specific to BPD</h4><p>Affective instability, limbic hyperactivity, hypermentalizing and low vagal tone all appear in other conditions too: limbic hyperactivation in PTSD as well as BPD, for example, while the amygdala response is blunted in major depression. These are processes, which is why the same skills-based treatments can help across diagnoses. [[Santangelo2014,Schulze2019,McLaren2022,Koenig2016]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Medicines from these pathways?</h4><p>Single-dose oxytocin and opioid studies are experiments, not treatment trials. In current reviews, drug treatment in BPD is reserved for co-occurring conditions or crises when psychosocial help is not enough. See <a href="#meds" data-go="meds">Medication: the evidence</a> and <a href="#frontier" data-go="frontier">Research toward better care</a>. [[Bohus2021,Schmahl2012]]</p></div>
+  </div>
+  <p class="crisis" role="note"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123). See <a href="#crisis" data-go="crisis">Suicide &amp; self-harm safety</a>.</span></p>
 </section>

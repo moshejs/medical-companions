@@ -1,5 +1,95 @@
-<!-- ================= 1.3 CAUSES & THE BIOSOCIAL MODEL (stub, replaced by its builder) ================= -->
+<!-- ================= 1.3 CAUSES & THE BIOSOCIAL MODEL ================= -->
+<style>
+#m-causes .card>.ev,#m-causes .card>.tag{align-self:flex-start}
+#m-causes .ca-icons{display:none}
+#m-causes .ca-icons.on{display:flex}
+#m-causes .ca-detail{min-height:84px}
+#m-causes .ca-fwrap{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+#m-causes .tbl table{min-width:620px}
+#m-causes .tbl td .ev{display:inline-block;margin-bottom:4px}
+#m-causes .ca-row{cursor:pointer}
+#m-causes svg[data-mode="n"] .t-xs{font-size:11.5px}
+#m-causes svg[data-mode="n"] .t-sm{font-size:12.5px}
+#m-causes .ca-row:focus-visible{outline:2px solid var(--storm)}
+</style>
 <section class="mod" id="m-causes" data-mod="causes" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding BPD</p><h2>Causes &amp; the biosocial model</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">No single thing causes borderline personality disorder. Inherited temperament and hard experiences add up, and they shape each other over the years. Scrub through one schematic childhood to see how the biosocial model describes that loop, then compare what the risk-factor studies actually measured. [[Lieb2004,Bohus2021]]</p></div>
+  <div class="ctrls" role="group" aria-label="Environment">
+    <span class="kicker">Environment</span>
+    <button class="btn" data-caenv="inv" aria-pressed="true">Mostly invalidating</button>
+    <button class="btn" data-caenv="val" aria-pressed="false">Mostly validating</button>
+  </div>
+  <div class="stepper" id="caSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="caSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A timeline from birth to age 25. The upper lane is a child's emotional reactions, drawn as a wave; the lower lane is how the people around the child respond. Arrows braid between the lanes at each exchange. With a mostly invalidating environment the reactions grow taller and slower to settle through childhood and adolescence; with a mostly validating environment they stay moderate. A box at the right shows the schematic outcome."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="caPlay">Play</button><label class="stage-cap tl" for="caT">Age <input type="range" id="caT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="caRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative child, not measured data and not a prediction for any family. The model is a hypothesis about how temperament and environment interact; the risk-factor numbers further down are what the studies measured. [[Crowell2009,Fruzzetti2005]]</p>
+    </div>
+    <aside class="note" id="caNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the risk-factor studies measured</h3>
+  <p class="prose">Odds ratios from meta-analyses and cohorts, on a log scale. Notice how much the size depends on the design: people with BPD compared with non-clinical controls report adversity far more often (OR 13.91), but in cohort and population designs the odds ratio is about 2.6. Most exposed people do not develop BPD, and many people with BPD report no abuse. [[Porter2020,Zanarini1997,Temes2020]]</p>
+  <div class="ctrls" role="group" aria-label="Risk factor group">
+    <span class="kicker">Show</span>
+    <button class="btn" data-cagrp="all" aria-pressed="true">All</button>
+    <button class="btn" data-cagrp="design" aria-pressed="false">Study design</button>
+    <button class="btn" data-cagrp="abuse" aria-pressed="false">Maltreatment</button>
+    <button class="btn" data-cagrp="neglect" aria-pressed="false">Neglect</button>
+    <button class="btn" data-cagrp="bully" aria-pressed="false">Bullying</button>
+    <button class="btn" data-cagrp="family" aria-pressed="false">Family &amp; parenting</button>
+    <button class="btn" data-cagrp="attach" aria-pressed="false">Attachment</button>
+  </div>
+  <div class="ca-fwrap">
+    <div class="stage">
+      <div class="scroll"><svg id="caForest" viewBox="0 0 720 560" style="min-width:560px" role="img" aria-label="Forest plot of odds ratios for childhood risk factors and borderline personality disorder or BPD symptoms, with 95% confidence intervals on a logarithmic scale from 1 to 60. Case-control comparisons give the largest odds ratios; cohort and population studies give smaller ones."></svg></div>
+      <div class="calc"><label for="caPick">Look closer at one estimate<select id="caPick"></select></label></div>
+      <p class="stage-cap">Dot = odds ratio; line = 95% confidence interval; the dashed line at 1 means no association. A line that crosses 1 is compatible with no effect. Rows without a dot report an association but no pooled odds ratio. Outcomes differ: diagnosed BPD, BPD symptoms at age 11, or borderline features.</p>
+    </div>
+    <aside class="note ca-detail" id="caDetail" aria-live="polite"></aside>
+  </div>
+
+  <div class="ctrls"><button class="btn" id="caIconBtn" aria-pressed="false">Show it as 100 children: most do not develop BPD</button></div>
+  <div class="stage ca-icons" id="caIcons">
+    <div class="calc"><label for="caIconPick">Population-based estimate<select id="caIconPick">
+      <option value="0">Any childhood adversity, epidemiological studies (OR 2.56)</option>
+      <option value="1">Family adversity in pregnancy, more than 2 (OR 1.99)</option>
+      <option value="2">Bullied, self-report (OR 2.82)</option>
+      <option value="3" selected>Chronically bullied (OR 5.44)</option>
+    </select></label></div>
+    <div class="scroll"><svg id="caIconSvg" viewBox="0 0 720 300" style="min-width:0" role="img" aria-label="Two groups of 100 children drawn as figures. Highlighted figures show how many would be expected to develop BPD without and with the chosen exposure, starting from a population rate of about 1.7%."></svg></div>
+    <p class="stage-cap"><b>Illustrative arithmetic, not a risk for any child.</b> It starts from a general-population BPD rate of about 1.7% and applies the chosen odds ratio. The ALSPAC bullying and family-adversity estimates were measured for BPD symptoms at about age 11, not for adult diagnosis, so the figures only show the scale of the effect. [[Gunderson2018,Porter2020,Wolke2012,Winsper2012]]</p>
+  </div>
+
+  <h3 class="sub">Every causal arrow, with its evidence label</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Arrow</th><th>What the studies show</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><th>Genes → BPD traits</th><td>Twin and register studies put heritability at roughly 35–69%; most of the remaining variation is unique, not shared, environment. See <a href="#genes" data-go="genes">Genes &amp; families</a>. [[Torgersen2000,Distel2008,Skoglund2021]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><th>Temperament → BPD symptoms</th><td>Emotionality at 5–8 and parent-rated hyperactivity/impulsivity predicted new positive BPD screens at 14–22 (Pittsburgh Girls Study). At age 5, poorer cognitive function, impulsivity and behavioural and emotional problems preceded borderline-related characteristics at 12 (E-Risk). [[Stepp2017,Belsky2012]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Adversity → BPD</th><td>Supported as a cause within a multifactorial model when Hill's criteria are applied; harsh treatment kept its effect in identical-twin difference analyses. A Minnesota discordant-twin study found the abuse link mostly genetic instead. The size of the direct causal share is debated. [[BallLinks2009,Belsky2012,Bornovalova2013]]</td><td><span class="ev est">Established risk factor</span> <span class="ev early">Direct share debated</span></td></tr>
+      <tr><th>Genes → exposure to adversity</th><td>The genes that influence BPD features also raised the chance of some life events (break-ups, assault, job loss): gene–environment correlation. [[Distel2011LifeEvents]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Child ⇄ parent</th><td>Child dysregulation and harsh parenting influenced each other from 5 to 14; rises in teenage BPD symptoms predicted harsher parenting more than the reverse, and teen symptoms predicted later parent symptoms. [[Hallquist2015,Stepp2014,Kaufman2020]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Temperament → bullying → BPD</th><td>Dysregulated children (4–8) were bullied more, and part of their later BPD risk ran through that bullying (indirect β = 0.097). [[Winsper2017]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Low family income → BPD symptoms</th><td>A modest but robust independent effect from age 10 to 36, after accounting for trauma, IQ, parenting and comorbidity (Children in the Community). [[Cohen2008]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Early stress → stress-hormone genes</th><td>Maltreatment went with more methylation of the glucocorticoid-receptor gene NR3C1, but a 2025 review of 19 studies found the results inconsistent. [[Perroud2011,Dawidowski2025]]</td><td><span class="ev early">Early evidence</span> <span class="ev est">Mixed overall</span></td></tr>
+      <tr><th>Specific gene × maltreatment</th><td>Oxytocin-receptor and FKBP5 variants interacted with maltreatment and sex in one study of 1,051 children. Candidate gene-by-environment findings failed broadly in depression. [[Cicchetti2014,Border2019]]</td><td><span class="ev hyp">Hypothesis</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Models, myths and what follows from them</h3>
+  <div class="cards">
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>The biosocial model</h4><p>Linehan's theory: BPD arises when a child who is biologically emotionally vulnerable grows up in an invalidating environment. The vulnerability is heightened sensitivity, difficulty regulating intense emotion, and a slow return to baseline. Crowell, Beauchaine and Linehan added impulsivity as one of the earliest traits and described development as a series of child–environment transactions. Its treatment offshoot is <a href="#dbt" data-go="dbt">dialectical behaviour therapy</a>. [[Crowell2009]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>The mentalizing and attachment model</h4><p>Fonagy and Luyten propose a low threshold for switching on the attachment system and switching off controlled mentalizing, so that under stress it is hard to tell one's own mind from someone else's. Later work recast BPD as low resilience linked to a general "p" factor, and framed epistemic hypervigilance (difficulty trusting what others teach) as an adaptation to an adverse social-learning environment. Treatment: <a href="#mbt" data-go="mbt">mentalization-based treatment</a>. [[FonagyLuyten2009,Fonagy2017a,Fonagy2017b]]</p></div>
+    <div class="card"><span class="ev est">Established association</span><h4>Attachment</h4><p>All 13 studies in one review found a strong link between BPD and insecure attachment, most often unresolved, preoccupied or fearful; the direction is unclear. In infancy cohorts, disorganised attachment, maternal withdrawal at 18 months and parental hostility came before later borderline symptoms. Gunderson and Lyons-Ruth proposed an inherited "interpersonal hypersensitivity" that meets the parents' own vulnerabilities (Hypothesis). [[Agrawal2004,Carlson2009,LyonsRuth2013,GundersonLyonsRuth2008]]</p></div>
+    <div class="card"><span class="tag storm">Myth</span><h4>"Bad parenting causes BPD"</h4><p>Not supported. The transactional model's authors frame it as blaming neither the person with BPD nor their parents. Influence runs both ways: teenage symptoms changed parenting and parents' own symptoms. Genes shared by parent and child explain part of the link between family adversity and BPD. And sexual abuse, often assumed to be the cause, is "neither necessary nor sufficient". [[Fruzzetti2005,Stepp2014,Kaufman2020,Bornovalova2013,Zanarini1997]]</p></div>
+    <div class="card"><span class="tag storm">Myth</span><h4>"Everyone with BPD was abused"</h4><p>Many people with BPD report abuse, and adversity is a real risk factor, but childhood sexual abuse was reported by 62.4% of adults and only 26.0% of adolescents with BPD in one inpatient sample. An early meta-analysis found a moderate correlation (r = .279) and concluded it was not a major or necessary cause. Retrospective recall, selection and severity may all shape these figures. [[Temes2020,Fossati1999,Temes2017]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Traits are not fixed</h4><p>BPD usually takes shape in adolescence, after age 12, often after or alongside depression, anxiety, conduct problems or hyperactivity. Traits then tend to ease: in Minnesota twins the mean score fell from 41.3 at 14 to 35.19 at 24, and in Norwegian twins the criterion count fell 28% over 10 years. See <a href="#course" data-go="course">Course &amp; recovery</a>. [[Bohus2021,Bornovalova2009,ReichbornKjennerud2015]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Invalidation, measured</h4><p>In 186 community adults, a path from perceived invalidation in close relationships through emotion dysregulation and poor distress tolerance to BPD features explained 38% of the variance. The design was cross-sectional, so it cannot show which came first. [[Sturrock2014]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Why this matters for care</h4><p>If temperament and environment shape each other, care can aim at both: skills for handling strong emotion, and support for families. For mothers with BPD, consistent warmth, monitoring, psychoeducation and mindfulness-based parenting have been suggested as targets. See <a href="#families" data-go="families">Families &amp; carers</a>. [[Crowell2009,Stepp2012,Eyden2016]]</p></div>
+  </div>
+  <p class="crisis" role="note"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123). See <a href="#crisis" data-go="crisis">Suicide &amp; self-harm safety</a>.</span></p>
 </section>
