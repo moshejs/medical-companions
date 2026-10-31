@@ -1,16 +1,67 @@
-<!-- ================= review (stub) ================= -->
+<!-- ================= 6.2 FLASHCARDS & MNEMONICS ================= -->
 <section class="mod" id="m-review" data-mod="review" hidden>
-  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Flashcards &amp; mnemonics</h2><p class="lede">This module is being written.</p></div>
+<style>
+#m-review .rv-lab{margin-top:14px}
+#m-review .mn .card p{margin:6px 0 0}
+#m-review .mn .card .tag{align-self:flex-start}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Flashcards &amp; mnemonics</h2>
+    <p class="lede">Flashcards on borderline personality disorder, from prevalence, twin studies and the emotion wave to the nine DSM-5-TR criteria, ICD-11 severity, DBT, MBT and schema therapy, the medication evidence, safety planning, recovery and nursing care. Tap a card or press Space to flip it; arrow keys move through the deck. Filter by part, or shuffle.</p></div>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="%t:cards.label%">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">%t:nav.prev%</button><button class="btn primary" id="fcFlip">%t:cards.flip%</button><button class="btn" id="fcNext">%t:nav.next%</button><button class="btn ghost" id="fcShuf">%t:cards.shuffle%</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <h3 class="sub">%t:cards.mnemonics%</h3>
+  <div class="prose"><p>Every card below is tagged <b>memory aid</b>: a short phrase written for this guide to hold a published fact in mind. None of them is an official grouping from DSM-5-TR, ICD-11 or a treatment manual, and none replaces the source.</p></div>
+  <div class="mn" id="mnList"></div>
+  <h3 class="sub">Mnemonic in motion: R-S-A-I + 9</h3>
+  <p class="prose">DSM-5-TR describes BPD as a pervasive pattern of instability in relationships, self-image and affects, with marked impulsivity [[APA2022,Kaess2025]]. Play the animation to sort the nine criteria under those four words, plus a ninth for stress, then see why "5 of 9" gives 256 different ways to meet the diagnosis and where self-harm is, and is not, counted.</p>
+  <div class="stepper" id="rvSteps"></div>
+  <div class="lab rv-lab">
+    <div class="stage"><div class="scroll"><svg id="rvSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Animated grid of the nine DSM-5-TR criteria for borderline personality disorder. The tiles sort into five rows, relationships, self, affect, impulsivity and stress, then a bar chart builds the 256 combinations of five or more criteria, two people who share only criterion 5 are compared, and the tiles for criterion 5 and criterion 6 are highlighted"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rvPlay">Play</button><label class="stage-cap tl" for="rvT">Criteria <input type="range" id="rvT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Criterion wording shortened for study. The five-row grouping is a memory aid, not a DSM-5-TR category. [[APA2022,Kaess2025,Mulay2019]]</p></div>
+    <aside class="note" id="rvNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout prose"><p>These cards are for learning, not for diagnosing yourself or anyone else. If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123) [[SAMHSA988,Samaritans116123]].</p></div>
 </section>
-<!-- ================= quiz (stub) ================= -->
+
+<!-- ================= 6.3 QUIZ ================= -->
 <section class="mod" id="m-quiz" data-mod="quiz" hidden>
-  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Quiz</h2><p class="lede">This module is being written.</p></div>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Quiz</h2>
+    <p class="lede">Multiple-choice questions on borderline personality disorder with cited explanations: prevalence, causes and the brain, DSM-5-TR and ICD-11, the differential diagnosis, the psychotherapy trials, the medication evidence, crisis care, recovery, families and nursing. Clinical-reasoning cases for nursing and medical students are mixed in. The mixed quiz draws 20 at random; or choose a part.</p></div>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
 </section>
-<!-- ================= glossary (stub) ================= -->
+
+<!-- ================= 6.4 GLOSSARY ================= -->
 <section class="mod" id="m-glossary" data-mod="glossary" hidden>
-  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Glossary</h2><p class="lede">This module is being written.</p></div>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Glossary</h2>
+    <p class="lede">A searchable glossary of BPD terms, from affective instability and the biosocial model to psychic equivalence, the ICD-11 borderline pattern, chain analysis, ZAN-BPD, safety planning and Safewards. Type to filter; the arrow on each entry jumps to the module where the term matters most.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="Search terms, e.g. DBT, MSI-BPD, remission" aria-label="%t:glossary.search%">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
 </section>
-<!-- ================= sources (stub) ================= -->
+
+<!-- ================= 6.5 SOURCES ================= -->
 <section class="mod" id="m-sources" data-mod="sources" hidden>
-  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Sources</h2><p class="lede">This module is being written.</p></div>
+<style>
+#m-sources .srcs .tag.good{text-transform:none;letter-spacing:.02em}
+#m-sources #srcStats{margin:8px 0 0}
+#m-sources .srcs .tag{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:left}
+#m-sources #srcFilter .btn{white-space:normal;text-align:left}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Sources</h2>
+    <p class="lede">Every reference behind the BPD Companion: journal articles, Cochrane reviews, guidelines, drug labels, trial registrations and crisis-line pages. The small numbers throughout the app point here; filter by research area or search.</p></div>
+  <div class="callout prose"><p>Eight research passes ran in parallel, one per area: epidemiology, presentation, stigma and history; causes, genes and the biosocial model; emotion dysregulation, neurobiology and mentalizing; diagnosis and assessment; the psychological treatments; medication evidence and suicide and self-harm safety; course, comorbidity, recovery and research; and living, families and nursing care. Before inclusion each source was checked, where possible, against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA, and the green tag on an entry names the service that confirmed it. Works found by more than one pass appear once, with any extra keys listed beside them.</p>
+    <p>Entries marked <span class="tag warn">check</span> are pages with no PMID or DOI, or works that could not be confirmed. They are used only for what they state, so treat them with extra care.</p>
+    <p id="srcStats"></p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="%t:sources.placeholder%" aria-label="%t:sources.search%">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
 </section>
