@@ -1,5 +1,79 @@
-<!-- ================= 5.1 COURSE & RECOVERY (stub, replaced by its builder) ================= -->
+<!-- ================= 5.1 COURSE & RECOVERY ================= -->
+<style>
+#m-course .tbl table{min-width:600px}
+#m-course .card>.ev,#m-course .card>.tag{align-self:flex-start}
+#m-course .card .crisis{flex-direction:column;gap:2px;font-size:14px}
+#m-course .cuhope{border:1px solid var(--line);border-left:4px solid var(--accent);background:var(--panel);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:8px;max-width:78ch}
+#m-course .cuhope h4{margin:0;font-family:var(--display);font-weight:800;font-size:21px}
+</style>
 <section class="mod" id="m-course" data-mod="course" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Course &amp; living</p><h2>Course &amp; recovery</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">BPD is not a life sentence. In the longest studies almost everyone reached a lasting remission of symptoms, and long remissions seldom ended. Getting work, study and relationships back on track takes longer, and that is where much of the remaining effort goes. [[Zanarini2012,Gunderson2011]]</p></div>
+
+  <div class="ctrls" role="group" aria-label="Which long-term study to show">
+    <span class="kicker">Study</span>
+    <button class="btn" data-cuc="msad" aria-pressed="true">McLean study (MSAD), 16 years</button>
+    <button class="btn" data-cuc="clps" aria-pressed="false">CLPS, 10 years</button>
+  </div>
+  <div class="stepper" id="cuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="cuSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="Sixteen years of the McLean Study of Adult Development: cumulative remission and recovery curves climb over a time axis, a 100-person icon array recolours from still meeting criteria to remitted to recovered, with rings for recurrence, and two bars show acute symptoms fading faster than temperamental ones. A toggle switches to the 10-year CLPS study."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuPlay">Play</button><label class="stage-cap tl" for="cuT">Years <input type="range" id="cuT" min="0" max="1" step="0.001" value="0.42"></label></div>
+      <div class="readout" id="cuRead"></div>
+      <p class="stage-cap">Population statistics from one cohort each, not a forecast for any one person. Circles mark published follow-up points; lines join them. The icon array shows cumulative shares (ever remitted, ever recovered); rings for recurrence are estimated by combining the published remission and recurrence curves, and individuals are not tracked. [[Zanarini2012,Gunderson2011]]</p>
+    </div>
+    <aside class="note" id="cuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Two words that mean different things</h3>
+  <div class="split2">
+    <div class="card"><span class="tag accent">Remission</span><h4>The symptoms settle</h4><p>Symptomatic remission means the person no longer has enough symptoms for the diagnosis. MSAD counted remissions by how long they lasted, from 2 to 8 years. By 16 years, 99% had a 2-year remission and 78% an 8-year one. [[Zanarini2012]]</p></div>
+    <div class="card"><span class="tag brand">Recovery</span><h4>Symptoms settle and life works</h4><p>Recovery adds good social and vocational functioning over the previous 2 years to remission. By 16 years, 60% had a 2-year recovery and 40% an 8-year one. "Excellent recovery", which also needs full-time work or study and no impairing other disorder, was reached by 39% of people with BPD by 20 years. [[Zanarini2010Recovery,Zanarini2012,Zanarini2018Excellent]]</p></div>
+  </div>
+
+  <h3 class="sub">Which symptoms fade first?</h3>
+  <div class="ctrls" role="group" aria-label="What the bars show">
+    <span class="kicker">Bars show</span>
+    <button class="btn" data-cur="r2" aria-pressed="true">Still without a 2-year remission</button>
+    <button class="btn" data-cur="r4" aria-pressed="false">Still without a 4-year remission</button>
+    <button class="btn" data-cur="rc" aria-pressed="false">Came back after a 2-year remission</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="cuRace" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="A remission race of eight BPD symptoms in the McLean study: bars shrink as the years pass, reaching their published 16-year values; self-harm and help-seeking suicide attempts shrink almost to nothing while chronic anger, anxiety, emptiness and depression stay longest. A toggle shows 4-year remission or recurrence after remission instead."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuRacePlay">Play</button><label class="stage-cap tl" for="cuRaceT">Years <input type="range" id="cuRaceT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap">The 16-year values are published; the path between year 0 and year 16 is drawn using the shape of the whole cohort's remission curve, because per-symptom curves are not given year by year in this guide's sources. [[Zanarini2016Fluidity,Zanarini2012]]</p>
+    </div>
+    <aside class="note" id="cuRaceNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">After 24 years</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Outcome by 24 years (MSAD)</th><th>People with BPD</th><th>Other personality disorders</th><th>What it says</th></tr></thead>
+    <tbody>
+      <tr><th>Sustained remission</th><td>77–100%</td><td>97–100%</td><td>Range depends on how long the remission had to last [[Zanarini2024Remission]]</td></tr>
+      <tr><th>Recurrence after remission</th><td>11–40%</td><td>5–10%</td><td>Longer remissions recur less [[Zanarini2024Remission,Zanarini2012]]</td></tr>
+      <tr class="hl"><th>Recovery (remission plus good social and vocational functioning)</th><td>37–60%</td><td>68–89%</td><td>Functioning is the harder goal [[Zanarini2024Remission]]</td></tr>
+      <tr><th>Loss of recovery</th><td>29–59%</td><td>not stated here</td><td>More common than symptomatic recurrence [[Zanarini2024Remission]]</td></tr>
+      <tr><th>On disability insurance (mean across 24 years)</th><td>47.2%</td><td>about one-third of the BPD rate</td><td>46% came off it at some point; 85% of them later went back on [[Kramer2023SSDI]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">What else changes over time</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Functioning lags</span><h4>Work is the sticking point</h4><p>Over 90% of poor psychosocial functioning over 10 years came from poor vocational, not social, performance. [[Zanarini2010Psychosocial]] In CLPS, social functioning stayed severely impaired with only modest gains, even as criteria fell; fewer criteria did predict later improvement in overall functioning. [[Gunderson2011]] Higher IQ, a good childhood and adult work record, lower neuroticism and higher agreeableness predicted excellent recovery. [[Zanarini2018Excellent]]</p></div>
+    <div class="card"><span class="tag accent">Comorbidity</span><h4>Other conditions improve too</h4><p>People whose BPD remitted had a substantial fall in all co-occurring disorders; those whose BPD did not remit kept stable rates. [[Zanarini2004AxisI]] More than 90% of people with a substance use disorder at baseline remitted from it within 10 years. [[Zanarini2011SUD]] Not having a substance use disorder was the strongest comorbidity predictor of BPD remission and of recovery (relative risk ratio 2.53). [[Zanarini2004AxisI,Zanarini2024Comorbid]] BPD and major depression slow each other's remission; BPD and bipolar disorder run largely independent courses. [[Gunderson2014Mood]]</p></div>
+    <div class="card"><span class="tag">Who remits sooner</span><h4>Predictors, not a verdict</h4><p>Seven baseline factors predicted earlier remission: younger age, no childhood sexual abuse, no family history of substance use disorder, a good work record, no anxious-cluster personality disorder, low neuroticism and high agreeableness. [[Zanarini2006Prediction]] <span class="ev hyp">Hypothesis</span> These are candidate guides for planning care, not a validated tool for any one person. [[Zanarini2006Prediction]]</p></div>
+    <div class="card"><span class="tag bad">Physical health</span><h4>Recovery shows in the body</h4><p>At 6 years, people whose BPD had not remitted more often had obesity, diabetes, high blood pressure, osteoarthritis, back pain and "syndrome-like" conditions such as chronic fatigue. [[Frankenburg2004Medical]] Over the next decade, people who never recovered had more medical illness and used more emergency care and hospital admissions. [[Keuroghlian2013Medical]] Physical inactivity stayed stable over 12 years in people who did not recover. [[Glass2024Inactivity]]</p></div>
+    <div class="card"><span class="tag bad">Population statistics</span><h4>Early death, and why recovery matters</h4><p>Over 24 years in MSAD, 5.9% of people with BPD died by suicide and 14.0% died of other causes, against 1.4% and 5.5% of comparison subjects. Most of those who died had not recovered before death. [[Temes2019]] In a Danish register of hospital-treated BPD, mortality was 8.3 times that of the general population. [[Kjaer2020]] These are group figures from specific cohorts; self-harm and suicide attempts fall sharply for most people over time. [[Zanarini2008SelfHarm]]</p>
+      <p class="crisis" role="note"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></p></div>
+    <div class="card"><span class="tag">How far it generalises</span><h4>Who these numbers describe</h4><p>MSAD recruited severely ill inpatients at one hospital in 1992–1995: 77.1% female, 87% white, mean age 27, mean GAF 39.8. [[Zanarini2012]] Most received many treatments, so the course is that of treated BPD. [[Zanarini2003Course]] A meta-analysis of 11 prospective studies in 9 countries found long-term remission in 50–70%, more often in younger people. [[AlvarezTomas2019Meta]] Whether treatment changes the long-term course is still unproven. [[AlvarezTomas2019Meta]]</p></div>
+  </div>
+
+  <div class="cuhope">
+    <h4>The message of hope, stated carefully</h4>
+    <p>Across the large cohorts, remission is the usual outcome, and recurrence after a long remission is uncommon. [[Zanarini2012,Gunderson2011,Ng2016Recovery]] Evidence-based psychosocial treatment can speed remission, though many people still need help with social and working life. [[Gunderson2018]] NICE asks clinicians to work "in an atmosphere of hope and optimism", explaining that recovery is "possible and attainable". [[NICE2009]] People with lived experience describe recovery as non-linear, built on hope, active engagement, treatment, and meaningful activities and relationships. [[Ng2019LivedRecovery]]</p>
+    <p class="stage-cap">These are averages across groups. They cannot promise any one person's path, and they do not mean anyone has to wait years for help: treatment options are in <a href="#dbt" data-go="dbt">Dialectical behaviour therapy</a>, <a href="#compare" data-go="compare">Therapies compared</a> and <a href="#living" data-go="living">Living with BPD</a>.</p>
+  </div>
 </section>

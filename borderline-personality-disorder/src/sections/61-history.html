@@ -1,5 +1,78 @@
-<!-- ================= 6.1 HISTORY & PEOPLE (stub, replaced by its builder) ================= -->
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<style>
+#m-history .tbl table{min-width:600px}
+#m-history .hipeople .card{flex-direction:row;gap:14px;align-items:flex-start}
+#m-history .hipeople .card svg{width:64px;height:64px;flex:none}
+#m-history .hipeople .card div{display:flex;flex-direction:column;gap:6px;min-width:0}
+#m-history .higame{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:14px}
+#m-history .hinames{display:flex;flex-wrap:wrap;gap:8px}
+#m-history .hinames .btn{cursor:grab}
+#m-history .hinames .btn[disabled]{opacity:.35;cursor:default;text-decoration:line-through}
+#m-history .hiconcepts{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+#m-history .hiconcepts button{text-align:left;border:1.5px dashed var(--line);background:var(--field);border-radius:12px;padding:12px;cursor:pointer;display:flex;flex-direction:column;gap:6px;font-size:14.5px;min-height:86px}
+#m-history .hiconcepts button.over{border-color:var(--brand);background:var(--brand-soft)}
+#m-history .hiconcepts button.ok{border-style:solid;border-color:var(--good);background:var(--good-soft)}
+#m-history .hiconcepts button.no{animation:hiShake .35s}
+#m-history .hiconcepts button b{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--good)}
+@keyframes hiShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@media (prefers-reduced-motion: reduce){#m-history .hiconcepts button.no{animation:none;border-color:var(--bad)}}
+</style>
 <section class="mod" id="m-history" data-mod="history" hidden>
   <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">In about 85 years, "borderline" went from a loose psychoanalytic word for patients between neurosis and psychosis to a defined diagnosis with specific psychotherapies and long-term studies showing that most people recover. [[Gunderson2009Ontogeny,Bohus2021]]</p></div>
+
+  <div class="ctrls" role="group" aria-label="Label the timeline by people or by ideas">
+    <span class="kicker">View</span>
+    <button class="btn" data-hiv="people" aria-pressed="true">People</button>
+    <button class="btn" data-hiv="ideas" aria-pressed="false">Ideas</button>
+  </div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A timeline from 1935 to 2026: milestone cards pop up as the scrubber passes Stern's border line group in 1938, Knight, Kernberg, Gunderson and Singer, DSM-III in 1980, the first DBT trial in 1991, ICD-10, the McLean study, Bateman and Fonagy, DSM-5 and ICD-11, and the 2024 APA guideline. Below, a band shows the outlook changing from untreatable to treatable with recovery common, and a row marks stigma milestones."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="hiRead"></div>
+      <p class="stage-cap">Dates are publication years. Silhouettes stand in for the people; no portraits are used. [[Gunderson2009Ontogeny]]</p>
+    </div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Match the person to the idea</h3>
+  <div class="higame" id="hiGame">
+    <p>Drag a name onto the idea it introduced, or press a name and then an idea. <span class="readout" style="display:inline-flex"><span id="hiScore"></span></span></p>
+    <div class="hinames" id="hiNames" role="group" aria-label="Names"></div>
+    <div class="hiconcepts" id="hiConcepts" role="group" aria-label="Ideas"></div>
+    <div class="ctrls"><button class="btn ghost" id="hiReset">Start again</button><span class="stage-cap" id="hiMsg" aria-live="polite"></span></div>
+  </div>
+
+  <h3 class="sub">The people</h3>
+  <div class="cards hipeople">
+    <div class="card"><svg id="hiPor0" viewBox="0 0 64 64" aria-hidden="true"></svg><div><h4>Adolph Stern</h4><p>In 1938 described the "border line group of neuroses", patients who seemed to sit between neurosis and psychosis. [[Stern1938]]</p></div></div>
+    <div class="card"><svg id="hiPor1" viewBox="0 0 64 64" aria-hidden="true"></svg><div><h4>Robert Knight</h4><p>Published "Borderline states" in 1953; he and Stern are named as the psychiatrists most responsible for introducing the label. [[Knight1953,Gunderson2009Ontogeny]]</p></div></div>
+    <div class="card"><svg id="hiPor2" viewBox="0 0 64 64" aria-hidden="true"></svg><div><h4>Otto Kernberg</h4><p>In 1967 defined "borderline personality organization": primitive defences such as splitting, identity diffusion and lapses in reality testing. [[Kernberg1967,Gunderson2009Ontogeny]]</p></div></div>
+    <div class="card"><svg id="hiPor3" viewBox="0 0 64 64" aria-hidden="true"></svg><div><h4>John Gunderson</h4><p>With Singer proposed six features for diagnosis at a first interview (1975), then published the Diagnostic Interview for Borderline Patients (1981); he was first author of the CLPS 10-year report. [[Gunderson1975,Gunderson1981,Gunderson2011]]</p></div></div>
+    <div class="card"><svg id="hiPor4" viewBox="0 0 64 64" aria-hidden="true"></svg><div><h4>Marsha Linehan</h4><p>Published the first randomised trial of dialectical behaviour therapy in 1991: fewer and less severe self-harm acts and fewer inpatient days than usual treatment. [[Linehan1991]] More in <a href="#dbt" data-go="dbt">DBT</a>.</p></div></div>
+    <div class="card"><svg id="hiPor5" viewBox="0 0 64 64" aria-hidden="true"></svg><div><h4>Anthony Bateman &amp; Peter Fonagy</h4><p>Their 1999 trial of psychoanalytically oriented partial hospitalisation cut suicidal acts, self-harm and inpatient days; it was the forerunner of mentalization-based treatment. [[Bateman1999]] More in <a href="#mbt" data-go="mbt">MBT</a>.</p></div></div>
+    <div class="card"><svg id="hiPor6" viewBox="0 0 64 64" aria-hidden="true"></svg><div><h4>Mary Zanarini</h4><p>Led the McLean Study of Adult Development from 1992, whose remission findings began the "recovery era". [[Zanarini2003Course,Temes2019]] More in <a href="#course" data-go="course">Course &amp; recovery</a>.</p></div></div>
+  </div>
+
+  <h3 class="sub">Former and current names</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Name</th><th>Where and when</th><th>What it meant</th></tr></thead>
+    <tbody>
+      <tr><th>"Border line group of neuroses"</th><td>Stern, 1938</td><td>Patients between neurosis and psychosis [[Stern1938]]</td></tr>
+      <tr><th>"Borderline states"</th><td>Knight, 1953</td><td>Until the 1970s a rarely and inconsistently used "colloquialism", referenced to schizophrenia [[Knight1953,Gunderson2009Ontogeny]]</td></tr>
+      <tr><th>Borderline personality organization</th><td>Kernberg, 1967</td><td>A middle level of personality organisation, broader than today's diagnosis [[Kernberg1967]]</td></tr>
+      <tr><th>Borderline personality disorder</th><td>DSM-III, 1980, to DSM-5-TR, 2022</td><td>A categorical diagnosis whose defining criteria saw no major changes from DSM-III to DSM-5 [[Leichsenring2024WP,APA2022]]</td></tr>
+      <tr><th>Emotionally unstable personality disorder, borderline type (F60.31)</th><td>ICD-10</td><td>The code used, for example, in Danish national registers of BPD [[Kjaer2020]]</td></tr>
+      <tr class="hl"><th>Personality disorder (by severity) with a "borderline pattern"</th><td>ICD-11, 2022</td><td>Severity first, up to five trait domains, and an optional borderline pattern descriptor [[Tyrer2019]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Should the name change?</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Keep it dimensional</span><h4>The ICD-11 working group</h4><p>Members argued that only a dimensional system fits the evidence and that the borderline pattern "adds little": its features are already captured by severity and the trait domains. [[Tyrer2019,Mulder2020]] ICD-11's shift was called "the most radical change in the classification history of personality disorders". [[Tyrer2019]]</p></div>
+    <div class="card"><span class="tag accent">Keep the word</span><h4>Clinicians and societies</h4><p>After lengthy debate, clinicians and personality-disorder societies won an optional borderline pattern in ICD-11, and DSM-5-TR keeps the category. [[Tyrer2019,APA2022]] The treatment trials and recovery studies were built on the BPD diagnosis. [[Linehan1991,Zanarini2012]]</p></div>
+    <div class="card"><span class="tag storm">The label itself</span><h4>Does the word carry stigma?</h4><p>The personality-disorder label alone shifted psychiatrists' judgements in 1988, and the BPD label drew less sympathy from nurses than other labels for the same behaviour. [[Lewis1988,Markham2003]] Messages pairing recovery with biological causes may reduce stigma most. [[Sheehan2016]] <span class="ev hyp">Hypothesis</span> Whether a new name would reduce stigma has not been tested in this guide's sources. See <a href="#what" data-go="what">Words matter</a> and <a href="#icd" data-go="icd">ICD-11</a>.</p></div>
+  </div>
 </section>

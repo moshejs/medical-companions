@@ -1,1 +1,106 @@
-{}
+{
+ "what": {
+  "title": "What is BPD? Prevalence, symptoms, sex ratio and stigma",
+  "description": "How common borderline personality disorder is in the community, clinics and by age, why clinic samples skew female, core features and person-first language."
+ },
+ "emotion": {
+  "title": "BPD emotion dysregulation: the emotion wave, triggers and EMA",
+  "description": "Scrub a schematic BPD emotion wave from trigger to peak and slow return, see the urge-relief-shame cycle, and compute mood instability (MSSD) live."
+ },
+ "causes": {
+  "title": "BPD causes: the biosocial model, childhood adversity and risk factors",
+  "description": "Scrub the biosocial model from birth to 25, compare abuse, neglect and bullying odds ratios, and see why most exposed children never develop BPD."
+ },
+ "genes": {
+  "title": "Is BPD genetic? Twin studies, heritability and polygenic risk",
+  "description": "BPD heritability of 35-69% in twins and 46% in a Swedish register, family risk by relatedness, the 11-locus GWAS, and what it means for one family."
+ },
+ "brain": {
+  "title": "BPD and the brain: amygdala, prefrontal cortex, cortisol and pain",
+  "description": "Animated meta-analyses of amygdala, prefrontal, hippocampus, cortisol, opioid and oxytocin findings in BPD, with a replication board rating each one."
+ },
+ "criteria": {
+  "title": "BPD DSM-5-TR criteria: the nine criteria and a 5-of-9 counter",
+  "description": "The nine DSM-5-TR criteria for borderline personality disorder, why 5 of 9 gives 256 combinations, how common each criterion is, and a teaching counter."
+ },
+ "icd": {
+  "title": "ICD-11 personality disorder, borderline pattern and the DSM-5 AMPD",
+  "description": "How ICD-11 grades personality disorder as mild, moderate or severe, its five trait domains, the 6D11.5 borderline pattern, and the DSM-5-TR alternative model."
+ },
+ "assess": {
+  "title": "BPD assessment: MSI-BPD screening, SCID-5-PD and DIB-R interviews",
+  "description": "How borderline personality disorder is assessed: MSI-BPD cut-off and accuracy, structured interviews, BSL-23, ZAN-BPD and a predictive-value calculator."
+ },
+ "differential": {
+  "title": "BPD vs bipolar, complex PTSD, ADHD and depression: differential",
+  "description": "Telling BPD from bipolar II, complex PTSD, ADHD, depression and autism: mood time scales, identity, triggers, impulsivity, and how often they co-occur."
+ },
+ "dbt": {
+  "title": "Dialectical behaviour therapy (DBT) for BPD: skills, modes and trials",
+  "description": "Watch a year of DBT fill its four skills modules and modes, build and break a behaviour chain, and see what Linehan, McMain, DBT-A and Cochrane trials found."
+ },
+ "mbt": {
+  "title": "Mentalization-based treatment (MBT) for BPD: modes and trial evidence",
+  "description": "How mentalizing fails under attachment stress, the three pre-mentalizing modes, and MBT trial results from Bateman & Fonagy 1999 to Cochrane 2020."
+ },
+ "schema": {
+  "title": "Schema therapy and TFP for BPD: schema modes, splitting and trials",
+  "description": "Schema modes and Kernberg's splitting animated, with the Giesen-Bloo trial (52% vs 29% recovered), group schema therapy and TFP outcomes compared."
+ },
+ "gpm": {
+  "title": "Good psychiatric management (GPM) for BPD: stepped care and evidence",
+  "description": "How GPM and stepped care work for BPD: diagnosis disclosure, STEPPS, crisis care, and trials showing DBT and GPM gave equal outcomes."
+ },
+ "compare": {
+  "title": "BPD therapies compared: DBT, MBT, schema therapy and TFP evidence",
+  "description": "Forest plot of BPD psychotherapy trials: DBT, MBT, schema therapy, TFP, GPM and STEPPS vs usual care and head-to-head, with GRADE certainty and dropout."
+ },
+ "meds": {
+  "title": "BPD medication evidence: lamotrigine, antipsychotics and Cochrane",
+  "description": "No medicine is approved for BPD. See what Cochrane 2022 and trials such as LABILE found, why prescriptions pile up, and what NICE and APA say about review."
+ },
+ "crisis": {
+  "title": "BPD suicide and self-harm safety: safety planning and crisis care",
+  "description": "How a safety plan works, chronic vs acute suicide risk in BPD, why risk scales should not predict, published long-term outcomes and where to get help."
+ },
+ "frontier": {
+  "title": "New BPD treatments: research pipeline, trials and evidence levels",
+  "description": "Brain stimulation, ketamine, psilocybin, apps, briefer therapy and early help for BPD: each trial with its evidence label, and how DBT reached guidelines."
+ },
+ "course": {
+  "title": "BPD course and recovery: remission rates over 16 years (MSAD, CLPS)",
+  "description": "How BPD changes over time: 99% remission and 60% recovery in the 16-year McLean study, the 10-year CLPS results, and which symptoms fade first."
+ },
+ "families": {
+  "title": "BPD and families: validation, Family Connections and carer support",
+  "description": "See how validating replies calm an emotion wave, what Family Connections studies found for carer burden and grief, and how carers can look after themselves."
+ },
+ "living": {
+  "title": "Living with BPD: work, relationships, pregnancy, health and stigma",
+  "description": "A week with borderline personality disorder: how skills and supports shorten emotion waves, with cited facts on work, study, parenting, health and stigma."
+ },
+ "nursing": {
+  "title": "Nursing care in BPD: ED, ward and community, with practice replies",
+  "description": "Nursing care for borderline personality disorder: ED to ward to follow-up, NICE guidance, validating replies that hold boundaries, training and Safewards."
+ },
+ "history": {
+  "title": "History of borderline personality disorder: from Stern 1938 to ICD-11",
+  "description": "Animated timeline of BPD from Stern's 1938 border line group to DSM-III, DBT, recovery studies and ICD-11, with the people behind each idea and a quiz game."
+ },
+ "review": {
+  "title": "BPD flashcards and mnemonics: DSM-5-TR criteria, DBT, MBT, recovery",
+  "description": "88 cited flashcards on borderline personality disorder by part, ten memory aids and an animated R-S-A-I + 9 guide to the nine DSM-5-TR criteria."
+ },
+ "quiz": {
+  "title": "BPD quiz: 98 cited questions on diagnosis, therapy and safety",
+  "description": "Multiple-choice quiz on borderline personality disorder with cited answers: criteria, ICD-11, DBT and MBT trials, medicines, crisis care and nursing cases."
+ },
+ "glossary": {
+  "title": "BPD glossary: borderline personality disorder terms explained",
+  "description": "180 searchable, cited terms on borderline personality disorder, from affective instability and mentalizing to ZAN-BPD, safety planning and Safewards."
+ },
+ "sources": {
+  "title": "BPD Companion sources: references behind every claim",
+  "description": "Every journal article, Cochrane review, guideline, drug label and trial record behind the BPD Companion, searchable and filterable by research area."
+ }
+}
