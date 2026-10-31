@@ -1,0 +1,77 @@
+<!-- ================= 4.3 SURGERY & ANAESTHESIA ================= -->
+<style>
+#m-surgery .card>.tag,#m-surgery .card>.ev{align-self:flex-start}
+#m-surgery .suNums{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+#m-surgery .suNums div{background:var(--panel-2);border-radius:10px;padding:9px 11px;display:flex;flex-direction:column;gap:1px}
+#m-surgery .suNums b{font:400 24px/1.1 var(--display)}
+#m-surgery .suNums span{font-size:13px;color:var(--muted)}
+#m-surgery .tbl table{min-width:760px}
+#m-surgery .tbl td:last-child{white-space:nowrap}
+#m-surgery a[data-go]{font-weight:700}
+</style>
+<section class="mod" id="m-surgery" data-mod="surgery" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Surgery &amp; anaesthesia</h2>
+    <p class="lede">Fragile skin and vessels, unstable joints, a jaw that can dislocate and local anaesthetics that may wear off early: an operation in EDS needs planning. What matters differs by type, and much of the advice rests on case series and expert opinion. [[Wiesmann2014,Amaral2026]]</p></div>
+
+  <div class="ctrls" role="group" aria-label="EDS type">
+    <span class="kicker">Type</span>
+    <button class="btn" data-sutype="h" aria-pressed="true">hEDS</button>
+    <button class="btn" data-sutype="c" aria-pressed="false">cEDS</button>
+    <button class="btn" data-sutype="v" aria-pressed="false">vEDS</button>
+  </div>
+  <div class="stepper" id="suSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="suSvg" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="A patient lies on an operating table. A pathway runs through pre-operative assessment, positioning, anaesthesia and airway, incision and closure, and recovery. At each stage numbered markers light up on the body and equipment, such as the jaw and airway, the neck, padding at pressure points, the blood-pressure cuff, lines, the incision and a tourniquet, with the EDS-specific considerations for the chosen type listed beside them."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="suPlay">Play</button><label class="stage-cap tl" for="suT">Pathway <input type="range" id="suT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Schematic. Considerations are quoted from published reviews and a 2026 expert consensus; they inform the team's plan and are not instructions. [[Wiesmann2014,Amaral2026]]</p>
+    </div>
+    <aside class="note" id="suNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">"It didn't go numb": local anaesthetic response</h3>
+  <div class="ctrls" role="group" aria-label="Data shown">
+    <button class="btn" data-sula="t15" aria-pressed="true">Trial: 15 minutes</button>
+    <button class="btn" data-sula="t30" aria-pressed="false">Trial: 30 minutes</button>
+    <button class="btn" data-sula="sv" aria-pressed="false">Dental survey</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="suLa" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Two arrays of 100 icons compare people with EDS and controls. In a lidocaine trial, 60% of people with EDS versus 84% of controls were still numb at 15 minutes, and 53% versus 80% at 30 minutes. In a dental survey, 88% of people with EDS versus 33% without EDS recalled inadequate pain prevention."></svg></div>
+      <p class="stage-cap">Each icon is 1 in 100 of the group's percentage. Trial: 91 people with EDS and 44 controls; survey: 980 with EDS and 249 without. [[Bourne2026RAPM,Schubart2019LA]]</p>
+    </div>
+    <aside class="note" id="suLaNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Procedures, risks and published mitigations</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Procedure</th><th>EDS-specific risk</th><th>Published mitigation</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Mask ventilation, intubation</th><td>Jaw (TMJ) dislocation; more often difficult intubation (TMJ, early spondylosis, upper-neck instability); bleeding with repeated attempts</td><td>Careful mask technique; consider elective fibreoptic intubation; smaller tubes; low cuff and airway pressures</td><td>[[Wiesmann2014]]</td></tr>
+      <tr><th>Positioning</th><td>Joint dislocation, brachial plexus injury, eye pressure, skin shear</td><td>Padding; careful positioning and mobilisation; comprehensive airway assessment for all types</td><td>[[Wiesmann2014,Amaral2026]]</td></tr>
+      <tr><th>Blood-pressure cuff, tapes</th><td>Bruising and haematoma from repeated cuff inflation; skin damage from adhesive</td><td>Easy-to-remove tapes and dressings, or none</td><td>[[Wiesmann2014]]</td></tr>
+      <tr><th>Central and arterial lines</th><td>Fragile vessels, especially in vEDS</td><td>In vEDS avoid where possible and avoid invasive BP monitoring in non-emergency surgery; if a central line is needed, ultrasound guidance is "mandatory"</td><td>[[Wiesmann2014]]</td></tr>
+      <tr><th>Spinal or epidural</th><td>Haematoma risk in vEDS</td><td>Avoid in vEDS (Wiesmann) or use only after individual risk-benefit analysis (Delphi); feasible in other types after spinal assessment</td><td>[[Wiesmann2014,Amaral2026]]</td></tr>
+      <tr><th>Tourniquet</th><td>In vEDS, anecdotal severe and lethal complications in minor limb surgery</td><td>Reported as a caution by the review authors</td><td>[[Wiesmann2014]]</td></tr>
+      <tr><th>Bleeding</th><td>Bleeding in 30% of procedures without desmopressin vs none with it (41 procedures, 26 patients, retrospective)</td><td>Bleeding-risk work-up; consider desmopressin in classical, classical-like, kyphoscoliotic and vascular EDS; consider tranexamic acid</td><td>[[Wiesmann2014,Amaral2026]]</td></tr>
+      <tr><th>Skin closure (cEDS)</th><td>Wounds gape and scars stretch</td><td>Tension-free closure, preferably in two layers; generous deep stitches; skin stitches left twice as long; tape the adjacent edges</td><td>[[Malfait2024GeneReviews]]</td></tr>
+      <tr><th>Arteriography (vEDS)</th><td>A historical series reported a 67% complication rate</td><td>Only to find life-threatening bleeding before surgery</td><td>[[Cikrit1987,Byers2025GeneReviews]]</td></tr>
+      <tr><th>Colonoscopy, elective surgery (vEDS)</th><td>Perforation and vessel injury</td><td>No routine colonoscopy without concerning symptoms or strong family history of colon cancer; elective surgery only if the benefit is substantial</td><td>[[Byers2025GeneReviews]]</td></tr>
+      <tr><th>Bowel perforation (vEDS)</th><td>Reperforation</td><td>Reperforation was considerably more frequent after partial colectomy with anastomosis than after Hartmann's procedure</td><td>[[ElMasri2018]]</td></tr>
+      <tr><th>Arterial repair (vEDS)</th><td>Mortality 30% after open surgery and 24% after endovascular procedures in published cases; 46% procedure-related morbidity in one series</td><td>Multidisciplinary aortic team; open repair favoured for intact thoracoabdominal aneurysm; vEDS "should not be a deterrent" when an operation is needed</td><td>[[Bergqvist2013,Oderich2005,Isselbacher2022,Shalhub2019JVS]]</td></tr>
+      <tr><th>Delivery</th><td>Uterine rupture and poor wound healing can complicate both vaginal and caesarean birth</td><td>Discuss cross-matched blood, cell salvage and prophylactic desmopressin</td><td>[[Wiesmann2014]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Evidence base: EDS anaesthesia knowledge "is fragmented and consists mostly of case reports, small case series and expert opinion". The 2026 modified-Delphi panel (15 experts, 3 rounds) produced the first consensus-based anaesthesia guidelines for EDS, with type-specific advice, so vEDS precautions are not applied to every type by default. [[Wiesmann2014,Amaral2026]] Vascular details: <a href="#" data-go="vascular">Vascular EDS</a>; birth: <a href="#" data-go="pregnancy">Pregnancy &amp; parenthood</a>.</p>
+
+  <h3 class="sub">Teeth, gums and jaw</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Periodontal EDS</span><h4>A complement gene, not collagen</h4><p>pEDS is autosomal dominant, caused by variants in C1R or C1S (subunits of complement C1). It brings rapidly progressive gum disease from childhood or the teens, lack of attached gingiva, darker patches on the shins and easy bruising. [[KapfererSeebacher2016]]</p></div>
+    <div class="card"><span class="tag bad">Outcomes</span><h4>Early tooth loss</h4><p>In 35 adults with confirmed pEDS, 94% had stage 3–4 periodontitis or no teeth. The first permanent tooth was lost at a median age of 21.5 years (range 13–43). [[Lepperdinger2022]]</p>
+      <div class="suNums"><div><b>28–47%</b><span>no teeth at 35–44 in pEDS</span></div><div><b>&lt;0.25%</b><span>general population</span></div></div></div>
+    <div class="card"><span class="tag rx">Care as published</span><h4>A periodontist from early childhood</h4><p>GeneReviews advises regular care by a periodontist from early childhood, with supportive care (re-evaluation, hygiene instruction, debridement) every 3–6 months. Prosthetic rehabilitation after tooth loss is challenging because most alveolar bone is destroyed. [[KapfererSeebacherGR-pEDS]]</p></div>
+    <div class="card"><span class="tag dx">hEDS</span><h4>Palate, crowding and the jaw joint</h4><p>GeneReviews lists orthodontic, maxillofacial and ENT management for a narrow palate, crowded teeth and TMJ laxity; periodontal disease gets standard treatment. Oral and TMJ involvement varies across types and interacts with wider musculoskeletal problems. [[Hakim2024GeneReviews,Mitakides2017]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Dental numbing</h4><p>In a survey, 88% of people with EDS recalled inadequate dental pain prevention vs 33% without EDS. Among named agents, articaine had the highest reported success (30%), then bupivacaine (25%) and mepivacaine (22%). Recall and selection bias apply. [[Schubart2019LA]]</p></div>
+    <div class="card"><span class="tag">Tell the dentist</span><h4>Plan ahead</h4><p>Wiesmann advises recording any history of failed local anaesthesia, for example during dental work, at pre-operative assessment. [[Wiesmann2014]] In a controlled trial, lidocaine numbed people with EDS as well as controls at 5 minutes but appeared to wear off sooner. [[Bourne2026RAPM]]</p></div>
+  </div>
+</section>

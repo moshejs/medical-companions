@@ -515,6 +515,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Bennouna2026",
+  "text": "Bennouna J, André T, Martin E, Cremolini C, Gill S, Asmis T, et al. A randomised phase III trial of adjuvant treatment intensification with mFOLFIRINOX versus mFOLFOX6 in high-risk stage III colon cancer: Results of the international IROCAS study. Ann Oncol. 2026 (online ahead of print 25 Oct 2026). PMID 42927853; doi:10.1016/j.annonc.2026.10.104.",
+  "link": "https://doi.org/10.1016/j.annonc.2026.10.104",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed, 2026-10-29"
+ },
+ {
   "key": "Benson2004",
   "text": "Benson AB 3rd, Schrag D, Somerfield MR, Cohen AM, Figueredo AT, Flynn PJ, et al. American Society of Clinical Oncology recommendations on adjuvant chemotherapy for stage II colon cancer. J Clin Oncol. 2004;22(16):3408-19. PMID 15199089; doi:10.1200/JCO.2004.05.063.",
   "link": "https://doi.org/10.1200/jco.2004.05.063",
@@ -919,6 +929,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Cercek2026",
+  "text": "Cercek A, Bachet JB, Folprecht G, Bando H, Seligmann J, Starling N, et al. Clinical Complete Response with Dostarlimab Monotherapy in dMMR/MSI-H Locally Advanced Rectal Cancer: First Results from the Global AZUR-1 Trial. Ann Oncol. 2026 (online ahead of print 25 Oct 2026). PMID 42927858; doi:10.1016/j.annonc.2026.10.1280.",
+  "link": "https://doi.org/10.1016/j.annonc.2026.10.1280",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed, 2026-10-29"
  },
  {
   "key": "Chalabi2024",
@@ -1637,13 +1657,13 @@
  },
  {
   "key": "FDA-Jemperli",
-  "text": "JEMPERLI (dostarlimab-gxly) injection, US prescribing information (GlaxoSmithKline LLC). openFDA drug label, set_id 095eab9f-545a-4f12-bfb7-19477fb901a5, effective 2025-09-02.",
+  "text": "JEMPERLI (dostarlimab-gxly) injection, US prescribing information (GlaxoSmithKline LLC). DailyMed SPL set id 095eab9f-545a-4f12-bfb7-19477fb901a5, version 15, effective 2026-10-19 (published 2026-10-23).",
   "link": "",
   "areas": [
    "F"
   ],
   "unverified": false,
-  "validated": "openFDA"
+  "validated": "DailyMed, 2026-10-29; replaces the 2025-09-02 openFDA label"
  },
  {
   "key": "FDA-Keytruda",
@@ -1657,13 +1677,13 @@
  },
  {
   "key": "FDA-Krazati",
-  "text": "Bristol-Myers Squibb (Mirati). KRAZATI (adagrasib) prescribing information, NDA216340, effective 2026-03-25, set id 0b8bf078-34c2-4f45-9012-38a8ac082b01 (label record lacks openfda metadata; sponsor from Drugs@FDA).",
+  "text": "Bristol-Myers Squibb (Mirati). KRAZATI (adagrasib) prescribing information, NDA216340, DailyMed SPL set id 0b8bf078-34c2-4f45-9012-38a8ac082b01, version 14, effective 2026-08-31 (published 2026-10-23); colorectal indication removed 08/2026.",
   "link": "",
   "areas": [
    "G"
   ],
   "unverified": false,
-  "validated": "openFDA"
+  "validated": "DailyMed, 2026-10-29; replaces the 2026-03-25 openFDA label"
  },
  {
   "key": "FDA-Lonsurf",
@@ -1724,6 +1744,16 @@
   ],
   "unverified": false,
   "validated": "openFDA"
+ },
+ {
+  "key": "FDA-SimpleScreen",
+  "text": "Freenome, LLC. SimpleScreen CRC (cell-free DNA blood test), PMA P250029, original approval 2026-07-24 (indication: colorectal cancer screening in adults aged 45 years and older at average risk; positive results to be followed by colonoscopy; not a replacement for diagnostic or surveillance colonoscopy in high-risk individuals). openFDA device PMA record.",
+  "link": "",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "openFDA, 2026-10-30"
  },
  {
   "key": "FDA-Stivarga",

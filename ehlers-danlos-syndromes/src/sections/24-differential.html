@@ -1,0 +1,76 @@
+<!-- ================= 2.4 LOOK-ALIKES & RED FLAGS ================= -->
+<style>
+#m-differential .seg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-differential .dfOut{border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;background:var(--panel);display:flex;flex-direction:column;gap:8px}
+#m-differential .dfOut h4{margin:0;font-family:var(--display);font-weight:400;font-size:21px;line-height:1.15}
+#m-differential .dfOut ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;font-size:14.5px}
+#m-differential .card>.tag,#m-differential .card>.ev{align-self:flex-start}
+#m-differential .card .gene{font:600 12px var(--mono);color:var(--muted)}
+#m-differential a[data-go]{font-weight:700}
+#m-differential .dfTw{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:1180px){#m-differential .dfTw{grid-template-columns:minmax(0,1fr)}}
+#m-differential .flags{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;max-width:75ch}
+</style>
+<section class="mod" id="m-differential" data-mod="differential" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Look-alikes &amp; red flags</h2>
+    <p class="lede">Bendy joints, stretchy skin, aortic problems and widespread pain are each shared by several conditions. The pattern of features tells them apart, and some patterns are red flags for a heritable disorder of the arteries. Only hypermobile EDS lacks a known gene; the other types are confirmed by a genetic test. [[Malfait2017,Fairweather2025]]</p></div>
+
+  <div class="ctrls" role="group" aria-label="Highlight">
+    <span class="kicker">Overlay</span>
+    <button class="btn" id="dfFlag" data-dfflag="1" aria-pressed="false">Highlight red flags for a heritable vascular disorder</button>
+  </div>
+  <div class="stepper" id="dfSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="dfSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A feature matrix. Rows are ten conditions: vascular, classical and hypermobile EDS, Marfan syndrome, Loeys-Dietz syndrome, osteogenesis imperfecta, cutis laxa, Stickler syndrome, fibromyalgia and inflammatory arthritis. Columns are nine features revealed one at a time: joint hypermobility, skin hyperextensibility, atrophic scars, aortic root dilation, arterial tortuosity, lens dislocation, fractures, blue sclerae and bifid uvula or cleft palate. Larger dots mean a hallmark or criterion feature, smaller dots a published frequency or a reported feature."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dfPlay">Play</button><label class="stage-cap tl" for="dfT">Feature <input type="range" id="dfT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="legend"><span><i style="background:var(--dx);height:10px;width:10px;border-radius:50%"></i>hallmark or criterion</span><span><i style="background:var(--dx);opacity:.7;height:8px;width:8px;border-radius:50%"></i>published frequency</span><span><i style="background:var(--dx);opacity:.45;height:6px;width:6px;border-radius:50%"></i>reported or minor feature</span><span>empty: not described in the cited sources</span></div>
+      <p class="stage-cap">A teaching summary of the cited descriptions, not a diagnostic tool. Dot sizes are categories, not exact frequencies; percentages appear where a cohort published one. An empty cell means the research behind this guide found no cited description, not that the feature never occurs.</p>
+    </div>
+    <aside class="note" id="dfNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Red flags for a heritable vascular disorder</h3>
+  <p class="prose">These features are proposed as reasons to think of vascular EDS, or of another heritable arterial disorder, and to ask about genetic testing. They are a teaching list, not a self-diagnosis checklist.</p>
+  <ul class="flags">
+    <li>Arterial rupture or dissection under age 40, spontaneous carotid-cavernous sinus fistula, spontaneous sigmoid colon perforation, or unexplained third-trimester uterine rupture. [[Demirdas2024]]</li>
+    <li>A family history of vEDS, or spontaneous pneumothorax with other features consistent with vEDS. [[Wang2026OJRD,Malfait2017]]</li>
+    <li>Thin, translucent skin with visible veins and easy bruising, and a characteristic face (thin lips, small chin, narrow nose, prominent eyes). [[Byers2025GeneReviews]]</li>
+    <li>Arterial tortuosity and aneurysms with wide-set eyes and a bifid uvula or cleft palate (the Loeys-Dietz triad). [[Loeys2006]]</li>
+    <li>Aortic root enlargement with a dislocated lens (the cardinal Marfan features). [[Loeys2010]]</li>
+  </ul>
+
+  <h3 class="sub">Which pathway applies? A teaching decision tree</h3>
+  <p class="callout"><b>Teaching only.</b> Real decisions are made by a clinician after history, examination, family history and often echocardiography and genetic testing. Use this to learn which published framework fits which picture.</p>
+  <div class="ctrls" role="group" aria-label="Presenting picture">
+    <span class="kicker">Picture</span>
+    <button class="btn" data-dfpic="vas" aria-pressed="true">Arterial, bowel or uterine rupture</button>
+    <button class="btn" data-dfpic="aor" aria-pressed="false">Aortic root or lens</button>
+    <button class="btn" data-dfpic="skin" aria-pressed="false">Very stretchy skin and scars</button>
+    <button class="btn" data-dfpic="jh" aria-pressed="false">Hypermobility, no skin fragility</button>
+    <button class="btn" data-dfpic="pain" aria-pressed="false">Widespread pain only</button>
+    <button class="btn" data-dfpic="syn" aria-pressed="false">Swollen, inflamed joints</button>
+    <button class="btn" data-dfpic="bone" aria-pressed="false">Fractures</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Refine" id="dfRefine"></div>
+  <div class="dfTw">
+    <div class="stage">
+      <div class="scroll"><svg id="dfTree" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A decision tree from a presenting picture to a published pathway: COL3A1 testing, the Ghent nosology and FBN1 or Loeys-Dietz gene testing, classical EDS molecular testing, the clinical 2017 hEDS criteria or HSD, the fibromyalgia criteria, the inflammatory arthritis criteria, or osteogenesis imperfecta testing. The chosen path is highlighted."></svg></div>
+    </div>
+    <div class="dfOut" id="dfOut" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">The look-alikes, one by one</h3>
+  <div class="cards">
+    <div class="card"><span class="tag vas">vEDS</span><span class="gene">COL3A1 · autosomal dominant</span><h4>Vascular EDS</h4><p>Arterial, bowel and uterine rupture; thin translucent skin. Joint hypermobility is often limited: 40.7% of people with a confirmed variant had it. A diagnosis made on clinical grounds alone "cannot be trusted": 9.8% of clinically diagnosed people had non-pathogenic changes. [[Shalhub2020]] See <a href="#" data-go="vascular">Vascular EDS</a>.</p></div>
+    <div class="card"><span class="tag dx">cEDS</span><span class="gene">COL5A1 / COL5A2</span><h4>Classical EDS</h4><p>Skin hyperextensibility with atrophic scarring, plus generalised joint hypermobility. Only 58.66% of 75 confirmed patients had a Beighton score of 5 or more, so a low score does not exclude it. Common minor features: skin fragility (89.33%), easy bruising (86.66%). [[Ritelli2020C]]</p></div>
+    <div class="card"><span class="tag dx">hEDS</span><span class="gene">no known gene</span><h4>Hypermobile EDS</h4><p>Diagnosed clinically with all three 2017 criteria; unusual skin fragility points elsewhere. Its scars must not be the papyraceous or haemosiderotic scars of classical EDS. [[Fairweather2025]] See <a href="#" data-go="criteria">The 2017 hEDS criteria</a> and <a href="#" data-go="hsd">hEDS or HSD?</a></p></div>
+    <div class="card"><span class="tag">Marfan</span><span class="gene">FBN1 (fibrillin-1)</span><h4>Marfan syndrome</h4><p>Cardinal features: aortic root aneurysm and ectopia lentis (lens dislocation, in about 60%). A systemic score of 7 or more out of 20 counts. About 1 in 5,000–10,000 people. [[Loeys2010,DietzGR-Marfan,Pollock2021,Dietz1991]]</p></div>
+    <div class="card"><span class="tag">Loeys-Dietz</span><span class="gene">TGFBR1/2, SMAD2/3, TGFB2/3</span><h4>Loeys-Dietz syndrome</h4><p>Triad of arterial tortuosity and aneurysms, wide-set eyes and bifid uvula or cleft palate; no lens dislocation. Velvety, translucent skin overlaps with vEDS, but vascular surgery is far better tolerated: one death in 59 operations. [[Loeys2006,MacCarrick2014,LoeysGR-LDS]]</p></div>
+    <div class="card"><span class="tag">OI</span><span class="gene">COL1A1 / COL1A2 (≈85%)</span><h4>Osteogenesis imperfecta</h4><p>The hallmark is bone fragility, unlike EDS. The hEDS criteria list skeletal dysplasias such as OI among the diagnoses to exclude. A proposed COL1-related overlap disorder sits between OI and EDS. [[Marini2017,Fairweather2025,Morlino2020]]</p></div>
+    <div class="card"><span class="tag">Cutis laxa</span><span class="gene">acquired or inherited</span><h4>Cutis laxa</h4><p>Loose, redundant skin from fragmented elastic fibres: it hangs in folds. In classical EDS, by contrast, the skin stretches and snaps back. [[Beyens2021,Malfait2024GeneReviews]]</p></div>
+    <div class="card"><span class="tag">Stickler</span><span class="gene">COL2A1, COL11A1/2, COL9A1–3</span><h4>Stickler syndrome</h4><p>A type II/XI collagenopathy: myopia, retinal detachment, hearing loss, cleft palate and early joint disease. The commonest inherited cause of rhegmatogenous retinal detachment. [[MortierGR-Stickler,Snead2011]]</p></div>
+    <div class="card"><span class="tag">Fibromyalgia</span><span class="gene">clinical criteria (2016)</span><h4>Fibromyalgia</h4><p>Widespread pain is also an hEDS Feature C item, so pain alone cannot separate them; skin, systemic and family features do. Since 2016 fibromyalgia can be diagnosed alongside another condition. [[Wolfe2016,Thwaites2022,Fairweather2025]]</p></div>
+    <div class="card"><span class="tag">Inflammatory arthritis</span><span class="gene">ACR/EULAR 2010</span><h4>Rheumatoid and other arthritis</h4><p>Overt synovitis is unusual in HSD. With an autoimmune rheumatic disease present, hEDS needs Features A and B, and Feature C cannot be counted. [[Carroll2023,Aletaha2010,Fairweather2025]]</p></div>
+  </div>
+</section>

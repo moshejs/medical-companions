@@ -1,0 +1,90 @@
+<!-- ================= 3.3 SKIN, SCARS & BRUISING ================= -->
+<style>
+#m-skin .sk-seg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-skin .sk-seg .kicker{margin-right:4px}
+#m-skin .fcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+#m-skin .fc{display:block;width:100%;padding:0;border:0;background:none;text-align:left;font:inherit;color:inherit;min-height:260px}
+#m-skin .fc .face{padding:20px}
+#m-skin .fc .front p{font-size:clamp(19px,2.4vw,22px)}
+#m-skin .fc .back p{font-size:14.5px;line-height:1.5}
+#m-skin .fc .face small.flip{margin-top:auto}
+#m-skin .sk-match{display:flex;flex-direction:column;gap:10px}
+#m-skin .sk-row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:8px 14px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+#m-skin .sk-row p{font-size:15px;font-weight:700}
+#m-skin .sk-row select{font:inherit;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);width:100%;min-width:0}
+#m-skin .sk-row .fb{grid-column:1/-1;font-size:14px;color:var(--muted)}
+#m-skin .sk-row .fb b{color:var(--ink)}
+#m-skin .sk-row .fb:empty{display:none}
+#m-skin .sk-row.ok{border-color:var(--good)} #m-skin .sk-row.ok .fb b{color:var(--good)}
+#m-skin .sk-row.no{border-color:var(--bad)} #m-skin .sk-row.no .fb b{color:var(--bad)}
+@media (max-width:600px){#m-skin .sk-row{grid-template-columns:minmax(0,1fr)}}
+#m-skin .tbl table{min-width:480px}
+#m-skin .tbl td.n{font-family:var(--mono);font-size:13.5px;white-space:nowrap}
+#m-skin .card>.ev,#m-skin .card>.tag{align-self:flex-start}
+</style>
+<section class="mod" id="m-skin" data-mod="skin" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Body systems</p><h2>Skin, scars &amp; bruising</h2>
+    <p class="lede">Skin is where several EDS types show themselves most clearly. Pinch, stretch, cut and bruise four kinds of skin in cross-section, and see why classical EDS skin stretches and scars, vascular EDS skin is thin and see-through, and hypermobile EDS skin is soft but rarely fragile. [[Stembridge2023,Malfait2017]]</p></div>
+  <div class="ctrls sk-seg" role="group" aria-label="Which skin to show">
+    <span class="kicker">Skin</span>
+    <button class="btn" data-sktype="typ" aria-pressed="false">Typical</button>
+    <button class="btn" data-sktype="h" aria-pressed="false">hEDS</button>
+    <button class="btn" data-sktype="c" aria-pressed="true">Classical (cEDS)</button>
+    <button class="btn" data-sktype="v" aria-pressed="false">Vascular (vEDS)</button>
+  </div>
+  <div class="stepper" id="skSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="skSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Skin in cross-section: epidermis, dermis with collagen bundles, and fat below. Two fingertips pinch the centre and lift it against a ruler with a dashed line at 1.5 centimetres. Classical EDS skin lifts well past the line and springs back; typical skin stops below it; hypermobile EDS skin lifts a little; vascular EDS skin is thin with a visible vein and barely stretches. Then a small cut opens and heals, into a thin line in typical skin or a wide, thin, atrophic scar in classical EDS, and a bruise spreads in the dermis."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="skPlay">Play</button><label class="stage-cap tl" for="skT">Test <input type="range" id="skT" min="0" max="1" step="0.001" value="0.28"></label></div>
+      <div class="readout" id="skRead"></div>
+      <p class="stage-cap">Schematic skin, not to scale; lifts are illustrative. The 1.5 cm cut-off applies at the distal forearm and back of the hand; 3 cm at the neck, elbows and knees. A teaching picture, not a home test. [[Ritelli2020C,Stembridge2023]]</p>
+    </div>
+    <aside class="note" id="skNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Classical EDS skin, by the numbers</h3>
+  <div class="prose"><p>In 75 people with molecularly confirmed classical EDS, skin findings were common but not universal: 16 did not meet the combined major skin criterion and 6 had no skin hyperextensibility at all. [[Ritelli2020C]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Feature (cEDS, n = 75)</th><th>Share</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>Extensive, widened atrophic scars</th><td class="n">92%</td></tr>
+      <tr><th>Piezogenic papules of the heels</th><td class="n">86.7%</td></tr>
+      <tr><th>Papyraceous ("paper-thin") scars</th><td class="n">65.3%</td></tr>
+      <tr><th>Haemosiderotic (brown-stained) scars</th><td class="n">54.7%</td></tr>
+      <tr><th>Acquired cutis laxa or premature skin ageing</th><td class="n">41.3%</td></tr>
+      <tr><th>"Cigarette paper" scars</th><td class="n">40%</td></tr>
+      <tr><th>Striae</th><td class="n">40%</td></tr>
+      <tr><th>Keratosis pilaris</th><td class="n">30.7%</td></tr>
+      <tr><th>Molluscoid pseudotumours, subcutaneous spheroids</th><td class="n">rare, "highly diagnostic"</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Population statistics from one cohort. In a larger series of 145 confirmed cEDS, 85.6% met both major criteria. [[Ritelli2020C,Colman2021]]</p>
+
+  <h3 class="sub">Wound care as published</h3>
+  <div class="prose"><p>Tap a card to turn it over. These are statements from published guidance, reported for learning, not instructions for care. [[Malfait2024GeneReviews,Pezaro2024]]</p></div>
+  <div class="fcs" id="skCards">
+    <div class="fc-wrap"><button class="fc" aria-pressed="false" aria-label="How are classical EDS wounds closed? Turn the card over"><div class="face front"><small>Card 1 of 6 · cEDS</small><p>How does GeneReviews describe closing a wound in classical EDS?</p><small class="flip">Tap to turn</small></div><div class="face back"><small>Layers, no tension</small><p>Dermal wounds are closed without tension, preferably in two layers, with deep stitches applied generously. [[Malfait2024GeneReviews]]</p></div></button></div>
+    <div class="fc-wrap"><button class="fc" aria-pressed="false" aria-label="How long do skin stitches stay in? Turn the card over"><div class="face front"><small>Card 2 of 6 · cEDS</small><p>How long are skin stitches left in?</p><small class="flip">Tap to turn</small></div><div class="face back"><small>About twice as long</small><p>GeneReviews states that skin stitches are left in place twice as long as usual, and the adjacent skin edges are carefully taped to stop the scar stretching. [[Malfait2024GeneReviews]]</p></div></button></div>
+    <div class="fc-wrap"><button class="fc" aria-pressed="false" aria-label="What about tapes, dressings and blood-pressure cuffs? Turn the card over"><div class="face front"><small>Card 3 of 6 · around surgery</small><p>Why do tapes, dressings and blood-pressure cuffs matter?</p><small class="flip">Tap to turn</small></div><div class="face back"><small>Fragile skin, easy bruising</small><p>An anaesthesia review advises that adhesive tapes and dressings should be easy to remove, or avoided, because of the risk of severe skin damage, and notes that repeated blood-pressure cuff inflations can cause bruising and haematoma. [[Wiesmann2014]]</p></div></button></div>
+    <div class="fc-wrap"><button class="fc" aria-pressed="false" aria-label="What does perinatal guidance add? Turn the card over"><div class="face front"><small>Card 4 of 6 · hEDS/HSD birth</small><p>What does guidance for childbirth with hEDS or HSD add?</p><small class="flip">Tap to turn</small></div><div class="face back"><small>Gentle handling</small><p>Perinatal guidance recommends gentle handling of fragile tissues, longer-lasting absorbable sutures, tension-free interrupted closure, and additional adhesives where the skin is particularly fragile. [[Pezaro2024]]</p></div></button></div>
+    <div class="fc-wrap"><button class="fc" aria-pressed="false" aria-label="What about dermatosparaxis EDS? Turn the card over"><div class="face front"><small>Card 5 of 6 · dEDS</small><p>Which type has the most fragile skin of all?</p><small class="flip">Tap to turn</small></div><div class="face back"><small>Dermatosparaxis EDS</small><p>dEDS, from ADAMTS-2 deficiency, brings extreme skin fragility with tears at or after birth. Five adults had injuries caused by care itself and redundant skin folds; the authors advise careful skin closure and manual handling. [[VanDamme2016,Stembridge2023,Angwin2025]]</p></div></button></div>
+    <div class="fc-wrap"><button class="fc" aria-pressed="false" aria-label="How often do wounds break down? Turn the card over"><div class="face front"><small>Card 6 of 6 · evidence</small><p>How often do surgical wounds break down in EDS?</p><small class="flip">Tap to turn</small></div><div class="face back"><small>Not well counted</small><p>Delayed wound healing with atrophic scars is a hallmark of cEDS, and in a cEDS mouse model both normal and wounded skin were weaker. No cohort-level rate of wound breakdown was found for any type in the sources behind this guide, so statements stay qualitative. [[Malfait2020,Bowen2017,Wenstrup2006]]</p></div></button></div>
+  </div>
+
+  <h3 class="sub">Which skin sign belongs to which type?</h3>
+  <div class="prose"><p>Pick a type for each sign. One sign is a trap: it is common in people without EDS.</p></div>
+  <div class="sk-match" id="skMatch"></div>
+  <div class="readout" id="skScore" aria-live="polite"></div>
+
+  <h3 class="sub">Signs in detail</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Piezogenic papules</h4><p>Small herniations of fat into the dermis that appear on the heels when standing. 72% of 322 healthy Dutch children had at least one, none painful, and hypermobile children had no more than others. They were found in 86.7% of people with cEDS and were painful in 10 of 29 people with EDS (34.5%). [[vanStraaten1991,Ritelli2020C,Kahana1987]]</p></div>
+    <div class="card"><span class="tag vas">hEDS checklist item</span><h4>Striae</h4><p>Unexplained stretch marks on the back, groin, thighs, breasts or abdomen are among the 2017 hEDS skin items. In cEDS, striae were present in 40%, more often in adults and females. [[Stembridge2023,Malfait2017,Ritelli2020C]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Molluscoid pseudotumours and spheroids</h4><p>Molluscoid pseudotumours are fleshy, fibrotic nodules up to 3 cm across, found with scars at pressure points such as elbows and knees. Subcutaneous spheroids are hard, pea-sized calcified fat lobules over the ulna and tibia, visible on X-ray. Both are rare but highly diagnostic of cEDS. [[Stembridge2023,Ritelli2020C]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Why bruises come easily</h4><p>Bruising is attributed to fragile capillaries and perivascular tissue. Clotting factors, platelet aggregation and bleeding time are usually normal; only the Hess capillary-fragility test may be abnormal. In 52 people with several EDS types, a bleeding score was abnormal in 62% vs 0% of controls. [[DePaepe2004,Kumskova2023]]</p></div>
+    <div class="card"><span class="tag vas">Children</span><h4>Bruises and safeguarding</h4><p>In cEDS, bruising often appears when children start crawling and walking, on the shins and forearms. The differential includes clotting disorders and non-accidental injury, so the skin picture needs careful, informed assessment. [[Stembridge2023]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Thinner skin, non-specific biopsies</h4><p>20-MHz ultrasound showed thinner skin in cEDS and hEDS, most at the chest and lower leg. Skin electron microscopy is no longer subtype-specific: of 177 biopsies at the London EDS service, none was specific, although collagen "flowers" were seen in most confirmed cEDS. [[Eisenbeiss2003,Angwin2020C]]</p></div>
+  </div>
+  <div class="banner vas" role="note"><b>Vascular EDS</b>Thin, translucent skin and a bleeding tendency are diagnostic clues alongside arterial, bowel and uterine rupture. In a Dutch cohort of 142, 54.3% of index patients had a highly suggestive appearance, and in them major events came younger. See <a href="#vascular" data-go="vascular">Vascular EDS</a>. [[Germain2002,Byers2017,Demirdas2024]]</div>
+</section>

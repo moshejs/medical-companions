@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.medcompanions.org/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/"/>
@@ -15,7 +15,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/amyloid/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/amyloid/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/amyloid/"/>
@@ -23,7 +23,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/antibody/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/antibody/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/antibody/"/>
@@ -31,7 +31,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/bpsd/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/bpsd/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/bpsd/"/>
@@ -39,7 +39,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/brain/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/brain/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/brain/"/>
@@ -47,7 +47,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/cascade/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/cascade/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/cascade/"/>
@@ -55,7 +55,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/cure/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/cure/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/cure/"/>
@@ -63,7 +63,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/ddx/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/ddx/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/ddx/"/>
@@ -71,7 +71,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/dx/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/dx/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/dx/"/>
@@ -79,7 +79,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/genes/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/genes/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/genes/"/>
@@ -87,7 +87,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/glia/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/glia/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/glia/"/>
@@ -95,7 +95,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/glossary/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/glossary/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/glossary/"/>
@@ -103,7 +103,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/history/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/history/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/history/"/>
@@ -111,7 +111,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/living/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/living/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/living/"/>
@@ -119,7 +119,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/nursing/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/nursing/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/nursing/"/>
@@ -127,7 +127,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/prevent/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/prevent/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/prevent/"/>
@@ -135,7 +135,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/quiz/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/quiz/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/quiz/"/>
@@ -143,7 +143,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/review/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/review/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/review/"/>
@@ -151,7 +151,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/sources/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/sources/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/sources/"/>
@@ -159,7 +159,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/stages/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/stages/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/stages/"/>
@@ -167,7 +167,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/synapse/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/synapse/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/synapse/"/>
@@ -175,7 +175,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/tau/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/tau/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/tau/"/>
@@ -183,7 +183,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/what/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/what/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/what/"/>
@@ -191,7 +191,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/"/>
@@ -199,7 +199,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/amyloid/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/amyloid/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/amyloid/"/>
@@ -207,7 +207,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/antibody/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/antibody/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/antibody/"/>
@@ -215,7 +215,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/bpsd/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/bpsd/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/bpsd/"/>
@@ -223,7 +223,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/brain/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/brain/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/brain/"/>
@@ -231,7 +231,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/cascade/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/cascade/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/cascade/"/>
@@ -239,7 +239,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/cure/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/cure/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/cure/"/>
@@ -247,7 +247,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/ddx/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/ddx/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/ddx/"/>
@@ -255,7 +255,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/dx/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/dx/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/dx/"/>
@@ -263,7 +263,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/genes/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/genes/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/genes/"/>
@@ -271,7 +271,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/glia/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/glia/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/glia/"/>
@@ -279,7 +279,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/glossary/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/glossary/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/glossary/"/>
@@ -287,7 +287,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/history/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/history/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/history/"/>
@@ -295,7 +295,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/living/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/living/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/living/"/>
@@ -303,7 +303,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/nursing/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/nursing/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/nursing/"/>
@@ -311,7 +311,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/prevent/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/prevent/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/prevent/"/>
@@ -319,7 +319,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/quiz/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/quiz/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/quiz/"/>
@@ -327,7 +327,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/review/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/review/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/review/"/>
@@ -335,7 +335,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/sources/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/sources/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/sources/"/>
@@ -343,7 +343,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/stages/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/stages/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/stages/"/>
@@ -351,7 +351,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/synapse/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/synapse/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/synapse/"/>
@@ -359,7 +359,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/tau/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/tau/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/tau/"/>
@@ -367,7 +367,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/alzheimers/he/what/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/alzheimers/what/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/alzheimers/he/what/"/>
@@ -375,7 +375,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/"/>
@@ -383,7 +383,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/amyloid/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/amyloid/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/amyloid/"/>
@@ -391,7 +391,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/attack/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/attack/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/attack/"/>
@@ -399,7 +399,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/coldose/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/coldose/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/coldose/"/>
@@ -407,7 +407,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/colin/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/colin/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/colin/"/>
@@ -415,7 +415,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/colmonths/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/colmonths/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/colmonths/"/>
@@ -423,12 +423,12 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/cure/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/ddx/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/ddx/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/ddx/"/>
@@ -436,7 +436,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/dx/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/dx/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/dx/"/>
@@ -444,7 +444,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/gene/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/gene/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/gene/"/>
@@ -452,7 +452,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/glossary/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/glossary/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/glossary/"/>
@@ -460,7 +460,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/history/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/history/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/history/"/>
@@ -468,7 +468,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/ladder/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/ladder/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/ladder/"/>
@@ -476,7 +476,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/living/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/living/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/living/"/>
@@ -484,7 +484,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/mech/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/mech/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/mech/"/>
@@ -492,7 +492,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/nursing/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/nursing/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/nursing/"/>
@@ -500,7 +500,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/quiz/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/quiz/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/quiz/"/>
@@ -508,7 +508,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/review/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/review/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/review/"/>
@@ -516,7 +516,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/sources/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/sources/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/sources/"/>
@@ -524,7 +524,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/what/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/what/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/what/"/>
@@ -532,7 +532,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/"/>
@@ -540,7 +540,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/amyloid/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/amyloid/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/amyloid/"/>
@@ -548,7 +548,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/attack/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/attack/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/attack/"/>
@@ -556,7 +556,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/coldose/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/coldose/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/coldose/"/>
@@ -564,7 +564,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/colin/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/colin/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/colin/"/>
@@ -572,7 +572,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/colmonths/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/colmonths/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/colmonths/"/>
@@ -580,7 +580,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/ddx/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/ddx/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/ddx/"/>
@@ -588,7 +588,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/dx/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/dx/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/dx/"/>
@@ -596,7 +596,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/gene/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/gene/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/gene/"/>
@@ -604,7 +604,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/glossary/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/glossary/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/glossary/"/>
@@ -612,7 +612,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/history/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/history/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/history/"/>
@@ -620,7 +620,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/ladder/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/ladder/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/ladder/"/>
@@ -628,7 +628,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/living/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/living/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/living/"/>
@@ -636,7 +636,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/mech/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/mech/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/mech/"/>
@@ -644,7 +644,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/nursing/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/nursing/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/nursing/"/>
@@ -652,7 +652,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/quiz/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/quiz/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/quiz/"/>
@@ -660,7 +660,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/review/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/review/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/review/"/>
@@ -668,7 +668,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/sources/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/sources/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/sources/"/>
@@ -676,7 +676,7 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/fmf/he/what/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.medcompanions.org/fmf/what/"/>
     <xhtml:link rel="alternate" hreflang="he" href="https://www.medcompanions.org/fmf/he/what/"/>
@@ -904,452 +904,722 @@
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/breathing/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/course/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/cure/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/ddx/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/drugs/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/dx/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/genes/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/glossary/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/history/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/living/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/neurons/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/nursing/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/nutrition/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/quiz/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/review/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/sources/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/tdp43/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/tofersen/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/als/what/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/braak/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/circuit/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/cure/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/dbs/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/ddx/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/drugs/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/dx/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/genes/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/glossary/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/history/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/levodopa/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/living/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/nonmotor/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/nursing/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/prodrome/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/quiz/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/review/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/risk/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/sources/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/stages/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/synuclein/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/wearing/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/parkinsons-disease/what/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/course/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/cure/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/ddx/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/dmt/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/dx/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/edss/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/glossary/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/history/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/immune/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/ladder/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/living/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/myelin/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/nursing/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/quiz/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/relapse/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/review/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/risk/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/safety/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/sources/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/symptoms/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/multiple-sclerosis/what/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/biomarkers/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/chemo/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/colon/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/colonoscopy/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/cure/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/genes/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/glossary/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/history/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/living/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/metastatic/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/nursing/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/quiz/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/rectal/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/review/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/risk/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/schedule/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/screening/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/sequence/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/sources/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/staging/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/surgery/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/symptoms/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.medcompanions.org/colorectal-cancer/what/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/autonomic/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/beighton/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/collagen/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/criteria/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/differential/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/frontier/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/genes/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/glossary/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/gut/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/history/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/hsd/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/joints/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/living/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/meds/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/nursing/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/pain/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/physio/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/pregnancy/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/quiz/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/review/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/skin/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/sources/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/surgery/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/types/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/vascular/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/ehlers-danlos-syndromes/what/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/bacillus/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/bcg/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/control/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/diagnose/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/drtb/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/drugs/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/frontier/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/glossary/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/granuloma/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/history/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/living/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/nursing/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/quiz/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/regimen/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/resistance/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/review/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/risk/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/safety/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/sources/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/special/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/spectrum/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/spread/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/symptoms/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/tests/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/tpt/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.medcompanions.org/tuberculosis/what/</loc>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>

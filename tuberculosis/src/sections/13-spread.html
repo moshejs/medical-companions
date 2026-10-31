@@ -1,0 +1,116 @@
+<!-- ================= 1.3 HOW TB SPREADS ================= -->
+<style>
+#m-spread .tgl{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+#m-spread .tgl .kicker{min-width:92px}
+#m-spread .wr-out{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:flex-end}
+#m-spread .wr-out .big-num{color:var(--tb)}
+#m-spread .wr-out small{display:block;font:500 12px var(--mono);color:var(--muted)}
+#m-spread .calc output{font:600 12px var(--mono);color:var(--muted);font-weight:400}
+#m-spread .flip{all:unset;box-sizing:border-box;cursor:pointer;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px;min-height:150px;min-width:0}
+#m-spread .flip:hover{border-color:var(--muted)}
+#m-spread .flip:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+#m-spread .flip .q{font-family:var(--display);font-weight:800;font-size:19px;line-height:1.2}
+#m-spread .flip .a{display:none;font-size:14.5px}
+#m-spread .flip[aria-pressed="true"]{background:var(--tb-soft);border-color:var(--tb)}
+#m-spread .flip[aria-pressed="true"] .a{display:block}
+#m-spread .flip[aria-pressed="true"] .hint{display:none}
+#m-spread .flip .hint{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:auto}
+#m-spread .card .tag{align-self:flex-start}
+#m-spread .tbl table{min-width:560px}
+</style>
+<section class="mod" id="m-spread" data-mod="spread" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The infection</p><h2>How TB spreads</h2>
+    <p class="lede">TB travels through shared air, not through touch. Watch one cough fill a closed room with droplet nuclei, then see how fresh air, ultraviolet light, a mask and effective treatment each empty it again.</p></div>
+  <div class="stepper" id="spSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="spSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A side view of a small room. On the left a person with TB of the lungs coughs; large droplets fall to the floor while tiny droplet nuclei float and drift on the airflow, building up as a pink haze. On the right a second person breathes the shared air. The haze thins when the window is opened, when upper-room ultraviolet light or a mask on the person with TB is switched on, and when effective treatment starts."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="spPlay">Play</button><label class="stage-cap tl" for="spT">Time <input type="range" id="spT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="tgl" role="group" aria-label="Ventilation"><span class="kicker">Ventilation</span>
+        <button class="btn" data-spv="closed" aria-pressed="true">Closed room</button>
+        <button class="btn" data-spv="mech" aria-pressed="false">Mechanical, 12 ACH</button>
+        <button class="btn" data-spv="open" aria-pressed="false">Windows &amp; door open</button></div>
+      <div class="tgl" role="group" aria-label="Other measures"><span class="kicker">Add</span>
+        <button class="btn" id="spUv" aria-pressed="false">Upper-room UV light</button>
+        <button class="btn" id="spMask" aria-pressed="false">Surgical mask on the person with TB</button>
+        <button class="btn" id="spTx" aria-pressed="false">On effective treatment</button></div>
+      <div class="readout" id="spRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> Particles are not to scale: real droplet nuclei are 0.65–4.7 µm across, far too small to see. The haze shows the room's average concentration of infectious doses from a well-mixed Wells–Riley model with a source of 13 quanta per hour (an estimate from one office outbreak), a 30 m³ room and a breathing rate of 0.6 m³ per hour; the last two are model inputs, not measurements. Air-change rates are the Lima measurements; UV and mask effects are applied as the reductions measured in guinea-pig studies. [[Fennelly2012,Nardell1991,Escombe2007,Escombe2009,Dharmadhikari2012]]</p>
+    </div>
+    <aside class="note" id="spNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the guinea pigs proved</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Riley's ward, 1950s</h4><p>All the air leaving a TB ward was piped over colonies of guinea pigs, which were then skin-tested for infection. The animals shared nothing with the patients but their air. Riley's pilot-ward work measured the infectivity of that air and tested ways to control it; in 1962 the team irradiated the infected air with ultraviolet light and found that infectiousness varies enormously between people. [[Escombe2008,Riley1957,Riley1962]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Wells and the droplet nucleus</h4><p>Wells and colleagues worked out the mechanics of droplet-nucleus infection with quantitative airborne TB in rabbits. Riley's later summary: the essential facts about airborne infection are simple, and have been repeatedly ignored in practice. [[Wells1948,Riley2001]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Lima, 2000s: a few people, most of the spread</h4><p>Over 505 days on an HIV–TB ward, 118 admissions exposed 292 guinea pigs, and 144 developed TB disease. Molecular fingerprinting showed that 8.5% of admissions caused 98% of the characterised animal cases, and 90% of transmission came from MDR-TB that was not yet on effective treatment. People with HIV and TB averaged 8.2 quanta per hour, against 1.25 for HIV-negative patients in the 1950s studies. [[Escombe2008,Escombe2007CID]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Effective treatment ends it fast</h4><p>In five guinea-pig experiments on an MDR-TB ward in South Africa, infection of the animals ranged from 1% to 77%. Transmission was minimal when 27 people had just started <i>effective</i> treatment; the high-transmission runs involved unsuspected XDR-TB that was not being treated effectively. Cough-aerosol cultures fell within the first 3 weeks of effective treatment. [[Dharmadhikari2014,Fennelly2004]]</p></div>
+  </div>
+
+  <h3 class="sub">A Wells–Riley calculator</h3>
+  <p class="prose">The Wells–Riley model turns a source's output of infectious doses (quanta per hour), the room's ventilation and the time spent breathing its air into the share of susceptible people expected to be infected: P = 1 − e<sup>−I·q·p·t / Q</sup>, where Q is fresh air per hour (air changes × room volume). It is a <b>teaching model</b>: it assumes perfectly mixed air and treats every quantum alike, and real outbreaks vary widely. [[Escombe2007,Nardell1991]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label for="wrQ">Source (quanta per hour)
+          <select id="wrQ">
+            <option value="1.25">1.25 · HIV-negative, 1950s</option>
+            <option value="8.2">8.2 · HIV and TB, Lima mean</option>
+            <option value="13" selected>13 · office outbreak</option>
+            <option value="40">40 · MDR-TB and HIV, Lima</option>
+            <option value="226">226 · most infectious, Lima</option>
+          </select></label>
+        <label for="wrAch">Ventilation (air changes per hour)
+          <select id="wrAch">
+            <option value="1.6">1.6 · closed (derived)</option>
+            <option value="6">6 · older isolation room</option>
+            <option value="12" selected>12 · isolation standard</option>
+            <option value="17">17 · modern room, open</option>
+            <option value="28">28 · windows open, median</option>
+            <option value="40">40 · pre-1950 room, open</option>
+          </select></label>
+        <label for="wrH">Hours of shared air <output id="wrHo"></output><input type="range" id="wrH" min="0.5" max="40" step="0.5" value="8"></label>
+        <label for="wrV">Room volume, m³ <output id="wrVo"></output><input type="range" id="wrV" min="15" max="300" step="5" value="30"></label>
+        <label for="wrP">Breathing rate, m³/hour <output id="wrPo"></output><input type="range" id="wrP" min="0.3" max="1.5" step="0.05" value="0.6"></label>
+      </div>
+      <div class="scroll"><svg id="wrSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Predicted share of susceptible people infected, plotted against hours of shared air, for the chosen source and room, with fainter curves for the other ventilation rates."></svg></div>
+      <div class="wr-out" id="wrOut" aria-live="polite"></div>
+      <p class="stage-cap">Quanta rates: [[Escombe2007CID,Nardell1991,Escombe2008]]. Air changes per hour: Lima measurements and the CDC isolation-room standard; the closed-room value is derived as 28 ÷ 18. [[Escombe2007,Jensen2005]] Volume and breathing rate are your inputs. For a published check: with the office-outbreak source, 24 hours modelled infection of 39% in mechanically ventilated rooms, 33% in modern naturally ventilated rooms and 11% in pre-1950 rooms with windows open. [[Escombe2007]]</p>
+    </div>
+    <aside class="note" id="wrNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who is infectious?</h3>
+  <div class="cards">
+    <div class="card"><span class="tag tb">Where the TB is</span><h4>Lungs, airway or larynx</h4><p>CDC's 2005 guideline usually considers someone not on treatment infectious if they cough, have cavitation on chest X-ray or a positive acid-fast smear, have disease of the lung, airway or larynx, do not cover the mouth and nose when coughing, or undergo cough-inducing procedures. TB elsewhere in the body is not on that list. [[Jensen2005]]</p></div>
+    <div class="card"><span class="tag tb">Cavities</span><h4>A hole that feeds a cough</h4><p>People with large cavities (over 7 mL) coughed about twice as often during treatment (rate ratio 1.98), and so did those whose cavity lay within 10 mm of an airway (2.44). The cause is anatomical, not behavioural: a cavity open to an airway supplies both the bacteria and the cough. [[Proano2018]]</p></div>
+    <div class="card"><span class="tag tb">Smear grade</span><h4>A crude but useful sort</h4><p>In San Francisco, smear-negative people transmitted at 0.22 times the rate of smear-positive people, yet still caused at least 17% of secondary cases. A higher smear grade went with culturable cough aerosol. [[Behr1999Lancet,Fennelly2012]]</p></div>
+    <div class="card"><span class="tag tb">Cough aerosol</span><h4>Most people with TB emit little</h4><p>Only 28 of 101 people with culture-confirmed TB in Kampala (27.7%) produced culturable cough aerosol. In households, 69% of contacts of high-aerosol producers were newly infected, against 25–30% for low-aerosol or aerosol-negative people (adjusted OR 4.81). [[Fennelly2012,JonesLopez2013]]</p></div>
+    <div class="card"><span class="tag tb">Before diagnosis</span><h4>The untreated months</h4><p>Before drug treatment existed, untreated smear-positive TB lasted about 3 years on average. Prevalence surveys keep finding people with confirmed TB and no symptoms, which points to transmission before anyone seeks care. Finding and treating people early is how the chain is broken. [[Tiemersma2011,Zenner2027]]</p></div>
+    <div class="card"><span class="tag tb">TB infection</span><h4>TB infection does not spread</h4><p>About a quarter of the world's population has immune evidence of TB infection, and only a small fraction ever develop TB disease. The model above needs a source: someone with TB disease in the lungs or throat who is producing infectious aerosol. See <a href="#spectrum" data-go="spectrum">TB infection vs TB disease</a>. [[Houben2016,Zenner2027,Jensen2005]]</p></div>
+  </div>
+
+  <h3 class="sub">Myth or route? Tap to check</h3>
+  <div class="cards" id="spFlips">
+    <button class="flip" aria-pressed="false"><span class="q">Can TB spread by shaking hands or hugging?</span><span class="hint">Tap for the evidence</span><span class="a">The route that was proved is the air. Infection starts when bacteria in aerosol particles are breathed deep enough to land on the alveoli, the lung's air sacs. A hand cannot put them there. [[Pai2016,Fennelly2020]]</span></button>
+    <button class="flip" aria-pressed="false"><span class="q">Do shared dishes, cups or food carry TB?</span><span class="hint">Tap for the evidence</span><span class="a">In the guinea-pig wards, animals that shared only the ward's exhaust air caught TB. The studies measure shared air, because that is how TB moves. Washing dishes separately is not part of TB prevention; fresh air is. [[Riley1957,Escombe2008,Escombe2007]]</span></button>
+    <button class="flip" aria-pressed="false"><span class="q">Toilets, bedding or clothes?</span><span class="hint">Tap for the evidence</span><span class="a">The infectious particles are respirable, mostly 0.65–4.7 µm, and they float in air. That is why fresh air and ventilation matter more than cleaning surfaces. [[Fennelly2012,Escombe2007]]</span></button>
+    <button class="flip" aria-pressed="false"><span class="q">Then why does sharing a bedroom matter?</span><span class="hint">Tap for the evidence</span><span class="a">Because of the air, and the hours. Sharing a bedroom with the person with TB was a risk factor for TB among contacts, and infection prevalence rose by 8.2% for every 250 hours of exposure. [[Reichler2020Risk,Reichler2020Hours]]</span></button>
+    <button class="flip" aria-pressed="false"><span class="q">Is a short flight or a bus ride a big risk?</span><span class="hint">Tap for the evidence</span><span class="a">Rarely. The one well-documented flight needed a highly infectious passenger, 8.75 hours in the air and close seating: 4 of 13 people within two rows had positive skin tests, against 2 of 55 elsewhere in the section. The authors did not conclude that air travel is generally hazardous. [[Kenyon1996]]</span></button>
+    <button class="flip" aria-pressed="false"><span class="q">Once treatment starts, is the person still a danger?</span><span class="hint">Tap for the evidence</span><span class="a">On treatment that works against their strain, people stop being infectious quickly, well before their sputum tests turn negative. "Still smear-positive" and "still infectious" are not the same. [[Dharmadhikari2014]]</span></button>
+  </div>
+
+  <h3 class="sub">Where shared air concentrates risk</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Setting</th><th>What was measured</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Households and close contacts</th><td>In 95 low- and middle-income studies, TB disease in 3.1% of contacts and TB infection in 51.5%; in high-income settings 1.4% and 28.1%. Incidence is greatest in the first year; children under 5 and people with HIV are most at risk.</td><td>[[Fox2013]]</td></tr>
+      <tr><th>Prisons</th><td>Infection incidence 15.0 per 100 person-years. TB incidence was 12.6 to 26.9 times the surrounding population in four regions. Prisons concentrate transmission, and about 6–9% of TB in the general population was attributed to transmission inside them.</td><td>[[Cords2021,Baussano2010]]</td></tr>
+      <tr><th>Health care</th><td>Across 86 studies, 7.1% of exposed people were infected, 3.8% in studies after the 2005 ventilation standards. Transmission followed long contact (median 24 hours) without respirators or negative-pressure rooms.</td><td>[[Manzoor2026]]</td></tr>
+      <tr><th>An aircraft</th><td>After an 8.75-hour flight, people within two rows of the index passenger were 8.5 times more likely to have a positive skin test (30.8% vs 3.6%).</td><td>[[Kenyon1996]]</td></tr>
+      <tr><th>An office</th><td>27 of 67 workers (40%) converted their skin test after about 4 weeks with one coworker with cavitary TB, estimated at 13 quanta per hour.</td><td>[[Nardell1991]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Shared air is a fact about buildings and time, not about blame. People with TB did not choose to be infectious, and in most programmes treatment is free and works. The fastest way to protect a household is to find TB early and start treatment that works, then open the windows. Continue to <a href="#control" data-go="control">Infection control &amp; contacts</a>. [[Dharmadhikari2014,Escombe2007,Zachariah2012]]</p>
+</section>
