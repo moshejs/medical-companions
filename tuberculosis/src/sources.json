@@ -5242,6 +5242,15 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "WHO-MutCat3-2026",
+  "text": "World Health Organization. Catalogue of mutations in Mycobacterium tuberculosis complex and their association with drug resistance, third edition. Geneva: World Health Organization; 2026 (published 30 Oct 2026). ISBN 978-92-4-012465-3 (electronic); https://www.who.int/publications/i/item/9789240124653. Validated: WHO publication page and PDF (p.13, Table 10 p.48), 2026-10-31.",
+  "link": "https://www.who.int/publications/i/item/9789240124653",
+  "areas": [
+   "D"
+  ],
+  "unverified": true
+ },
+ {
   "key": "WHO2018BCG",
   "text": "World Health Organization. BCG vaccine: WHO position paper, February 2018 - Recommendations. Vaccine. 2018;36(24):3408-3410. PMID 29609965; doi:10.1016/j.vaccine.2018.03.009. Excerpted from Wkly Epidemiol Rec. 2018;93(8):73-96 (PMID 29474026).",
   "link": "https://doi.org/10.1016/j.vaccine.2018.03.009",
