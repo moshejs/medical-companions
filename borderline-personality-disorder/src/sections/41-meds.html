@@ -1,5 +1,90 @@
-<!-- ================= 4.1 MEDICATION: THE EVIDENCE (stub, replaced by its builder) ================= -->
+<!-- ================= 4.1 MEDICATION: THE EVIDENCE ================= -->
+<style>
+#m-meds .boardgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:1100px){#m-meds .boardgrid{grid-template-columns:minmax(0,1fr)}}
+#m-meds .medcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#m-meds .medcard h4{margin:0;font-family:var(--display);font-weight:800;font-size:22px;line-height:1.15}
+#m-meds .medcard ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+#m-meds .medcard .sub{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#m-meds .medcard svg{width:100%;height:auto;display:block}
+#m-meds .clk:focus-visible{outline:2px solid var(--med)}
+#m-meds .mx table{min-width:640px;font-size:13.5px}
+#m-meds .mx td{padding:6px}
+#m-meds .mx td button{width:100%;min-height:52px;border-radius:8px;border:1px solid transparent;cursor:pointer;font:600 12px/1.25 var(--mono);padding:6px 4px;color:var(--ink)}
+#m-meds .mx td button[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 2px var(--panel),0 0 0 4px var(--ink)}
+#m-meds .mx td button small{display:block;font:500 10px var(--mono);opacity:.85;margin-top:2px}
+#m-meds .mx .c-mod{background:var(--good-soft)} #m-meds .mx .c-low{background:var(--warn-soft)} #m-meds .mx .c-vlow{background:var(--bad-soft)} #m-meds .mx .c-none{background:var(--panel-2);color:var(--muted)}
+#m-meds .card>.tag,#m-meds .card>.ev{align-self:flex-start}
+</style>
 <section class="mod" id="m-meds" data-mod="meds" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Medication, safety &amp; research</p><h2>Medication: the evidence</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">No medicine is approved for BPD itself, yet most people with BPD are prescribed several. Here is what the trials show, how a pile of prescriptions builds up, and what guidelines say about reviewing it.</p></div>
+
+  <div class="callout prose"><p><b>No medication is approved for borderline personality disorder.</b> An openFDA search of every US drug label's indications for "borderline personality" returned no matches, and reviews state that "no medications have been approved by regulatory agencies for the treatment of BPD"; all use for BPD is off-label. The European Medicines Agency was not searched directly for this guide. [[FDA-LabelSearch2026,Gartlehner2021,StoffersWinterling2022]]</p></div>
+
+  <h3 class="sub">The polypharmacy pile-up</h3>
+  <div class="stepper" id="meSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="meSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A schematic timeline of one illustrative person: each crisis adds a prescription to a growing stack of pills, while bars fill to the published shares of inpatients with BPD on one, two and three or more psychotropic drugs. A review then removes the medicines that have no clear target."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mePlay">Play</button><label class="stage-cap tl" for="meT">Months <input type="range" id="meT" min="0" max="1" step="0.001" value="0.6"></label></div>
+      <div class="readout" id="meRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative person, not a real case and not a recommendation. The bars are published population figures: 2195 inpatients with BPD in Europe, 2001–2011. [[Bridler2015]]</p>
+    </div>
+    <aside class="note" id="meNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The evidence board</h3>
+  <div class="prose"><p>Pick a drug class to open its card: the Cochrane 2022 estimates against placebo, the key trials and the main harms. Switch the lens to see where medicines do have a role: conditions that often come with BPD.</p></div>
+  <div class="ctrls" role="group" aria-label="Lens">
+    <span class="kicker">Lens</span>
+    <button class="btn" data-lens="core" aria-pressed="true">Core BPD outcomes</button>
+    <button class="btn" data-lens="co" aria-pressed="false">Co-occurring conditions</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Drug class">
+    <button class="btn" data-cl="ap" aria-pressed="true">Antipsychotics</button>
+    <button class="btn" data-cl="ms" aria-pressed="false">Mood stabilisers</button>
+    <button class="btn" data-cl="ad" aria-pressed="false">Antidepressants</button>
+    <button class="btn" data-cl="cz" aria-pressed="false">Clozapine</button>
+    <button class="btn" data-cl="bz" aria-pressed="false">Benzodiazepines</button>
+    <button class="btn" data-cl="o3" aria-pressed="false">Omega-3 &amp; others</button>
+    <button class="btn" data-cl="nw" aria-pressed="false">Newer agents</button>
+  </div>
+  <div class="boardgrid">
+    <div class="stage"><svg id="meBoard" viewBox="0 0 520 420" role="img" aria-label="An evidence board: a central capsule struck through with the words no medication approved for BPD, surrounded by seven capsules for drug classes. The selected class glows and opens its card."></svg>
+      <p class="stage-cap">Click a capsule or a button. Every class sits outside the centre: none is approved for BPD. A red ring marks extra caution: serious label warnings or a worrying observational signal.</p></div>
+    <div class="medcard" id="meCard" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Evidence-certainty matrix</h3>
+  <div class="prose"><p>Each cell is the Cochrane estimate against placebo for that drug class and outcome; the colour is its GRADE certainty. Psychotherapy against usual care is shown at the bottom for contrast. Click a cell for its numbers. [[StoffersWinterling2022,Storebo2020]]</p></div>
+  <div class="tbl mx"><table id="meMx"></table></div>
+  <div class="legend"><span><i style="background:var(--good)"></i>Moderate</span><span><i style="background:var(--warn)"></i>Low</span><span><i style="background:var(--bad)"></i>Very low</span><span><i style="background:var(--muted)"></i>No pooled estimate</span></div>
+  <div class="note" id="meMxNote" aria-live="polite"></div>
+
+  <h3 class="sub">What the guidelines say</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Guideline</th><th>Statement (quoted as published)</th></tr></thead>
+    <tbody>
+      <tr><th>NICE CG78 1.3.5.1</th><td>"Drug treatment should not be used specifically for borderline personality disorder or for the individual symptoms or behaviour associated with the disorder (for example, repeated self-harm, marked emotional instability, risk-taking behaviour and transient psychotic symptoms)." [[NICE2009]]</td></tr>
+      <tr><th>NICE CG78 1.3.5.2</th><td>"Antipsychotic drugs should not be used for the medium- and long-term treatment of borderline personality disorder." [[NICE2009]]</td></tr>
+      <tr><th>NICE CG78 1.3.5.3–4</th><td>Drug treatment "may be considered in the overall treatment of comorbid conditions". Short-term sedative medication may be considered cautiously in a crisis, "no longer than 1 week". [[NICE2009]]</td></tr>
+      <tr><th>APA 2024, statement 6 (1C)</th><td>A review of co-occurring disorders, prior psychotherapies, other non-pharmacological treatments, past medication trials and current medications "before initiating any new medication". [[APA2024Guideline]]</td></tr>
+      <tr><th>APA 2024, statement 7 (2C)</th><td>"APA suggests (2C) that any psychotropic medication treatment of borderline personality disorder be time-limited, aimed at addressing a specific measurable target symptom, and adjunctive to psychotherapy." [[APA2024Guideline]]</td></tr>
+      <tr><th>APA 2024, statement 8 (1C)</th><td>"A review and reconciliation of their medications at least every 6 months to assess the effectiveness of treatment and identify medications that warrant tapering or discontinuation." [[APA2024Guideline]]</td></tr>
+      <tr><th>NICE NG225 1.11.10</th><td>"Do not offer drug treatment as a specific intervention to reduce self-harm." [[NICE2022NG225]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">NICE is firmer than APA: NICE says drugs should not be used for BPD or its symptoms, while APA allows time-limited, symptom-targeted use alongside psychotherapy. Both agree medicines are not first-line. NICE states it is reviewing CG78 after the ICD-11 change. [[NICE2009,APA2024Guideline]]</p>
+
+  <h3 class="sub">Safety, pregnancy and questions to ask</h3>
+  <div class="crisis"><b>Support</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123). [[SAMHSA988,Samaritans116123]]</span></div>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Safety</span><h4>Overdose and access to medicines</h4><p>APA 2024 says decisions "should also consider potential risks of toxicity in overdose or potential for misuse". NICE NG225 asks prescribers to consider toxicity in overdose and to use shared decision making about limiting the quantity supplied, for example weekly prescriptions, and returning unwanted medicines. [[APA2024Guideline,NICE2022NG225]]</p></div>
+    <div class="card"><span class="tag bad">Pregnancy</span><h4>Valproate</h4><p>The US boxed warning: valproate "can cause major congenital malformations, particularly neural tube defects", and decreased IQ after exposure in the womb. In the EURAP registry, 9.9% of valproate-exposed pregnancies had a major malformation vs 3.1% with lamotrigine; in NEAD, mean IQ at age 6 was 97 vs 108. People who could become pregnant should discuss this with their doctor before starting or stopping it. [[FDA-Depakote,Battino2024EURAP,Meador2013NEAD]]</p></div>
+    <div class="card"><span class="tag bad">Caution</span><h4>Benzodiazepines</h4><p>APA: "not generally recommended because of potential for greater impulsivity or disinhibition as well as potential for misuse or development of dependence". In a Swedish within-person cohort of 22,601 people with BPD, the hazard of attempted or completed suicide was higher on than off benzodiazepines (HR 1.61; 1.45–1.78); this is observational and cannot rule out that medicines were started when people were already worse. <span class="ev early">Early evidence</span> [[APA2024Guideline,Lieslehto2023Suicide]]</p></div>
+    <div class="card"><span class="tag warn">Labels</span><h4>Boxed warnings worth knowing</h4><p>Lamotrigine: serious rash including Stevens-Johnson syndrome (about 0.08–0.3% of adults). Antidepressants: more suicidal thoughts and behaviour in children, adolescents and young adults in short-term studies. Lithium: toxicity "can occur at doses close to therapeutic levels". Clozapine: severe neutropenia, seizures, myocarditis and more. [[FDA-Lamictal,FDA-Prozac,FDA-Lithobid,FDA-Clozaril]]</p></div>
+    <div class="card"><span class="tag accent">Ask</span><h4>Questions for a prescriber</h4><ul><li>What is this medicine for: a co-occurring condition, or a specific target symptom?</li><li>How will we know if it works, and when will we review it? (APA: at least every 6 months.)</li><li>What is the evidence for it in BPD, and what are the harms? (NICE asks for written information.)</li><li>Which of my current medicines could be reduced or stopped?</li></ul><p>[[APA2024Guideline,NICE2009]]</p></div>
+    <div class="card"><span class="tag rx">Plain words</span><h4>Therapy first</h4><p>No medicine is approved to treat BPD itself; talking therapies are the main treatment. Medicines can still help with conditions that often come with BPD, such as depression, or for a short time in a crisis. Tell your care team about side effects such as weight gain, sleepiness or restlessness. See <a href="#compare" data-go="compare">Therapies compared</a> and <a href="#crisis" data-go="crisis">Suicide &amp; self-harm safety</a>. [[Bohus2021,NICE2009]]</p></div>
+  </div>
 </section>
