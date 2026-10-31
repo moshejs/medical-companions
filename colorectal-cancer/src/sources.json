@@ -1766,6 +1766,15 @@
   "validated": "openFDA"
  },
  {
+  "key": "FDA-Tecentriq",
+  "text": "TECENTRIQ (atezolizumab) injection, US prescribing information (Genentech, Inc.). DailyMed SPL set id 6fa682c9-a312-4932-9831-f286908660ee, version 46, effective 2026-10-13 (published 2026-10-16); indication 1.7, stage III dMMR colon cancer. Validated: DailyMed, 2026-10-31.",
+  "link": "",
+  "areas": [
+   "F"
+  ],
+  "unverified": true
+ },
+ {
   "key": "FDA-Tukysa",
   "text": "Seagen. TUKYSA (tucatinib) prescribing information, NDA213411, effective 2024-11-04, set id f27eb1b9-b7fc-424e-988f-84dd7bb195a3 (label record lacks openfda metadata; sponsor from Drugs@FDA).",
   "link": "",
