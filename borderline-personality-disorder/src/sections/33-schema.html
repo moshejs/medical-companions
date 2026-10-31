@@ -1,5 +1,69 @@
-<!-- ================= 3.3 SCHEMA THERAPY & TFP (stub, replaced by its builder) ================= -->
+<!-- ================= 3.3 SCHEMA THERAPY & TFP ================= -->
+<style>
+#m-schema .card>.ev,#m-schema .card>.tag{align-self:flex-start}
+#m-schema .tbl table{min-width:620px}
+</style>
 <section class="mod" id="m-schema" data-mod="schema" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Psychotherapies</p><h2>Schema therapy &amp; TFP</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Two long-term therapies with very different maps of the mind. Schema therapy pictures a cast of "modes" that take the stage in turn; transference-focused psychotherapy pictures a world split into all-good and all-bad. Switch views, scrub the timeline, then see how they did head to head.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Therapy view">
+    <span class="kicker">View</span>
+    <button class="btn" data-scv="st" aria-pressed="true">Schema therapy: modes</button>
+    <button class="btn" data-scv="tfp" aria-pressed="false">TFP: split representations</button>
+  </div>
+  <div class="stepper" id="scSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="scSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Schema therapy view: a schematic trigger, a text cancelling plans, sets five mode figures stepping forward in turn on a stage: vulnerable child, angry or impulsive child, punitive parent, detached protector and a small healthy adult, each with an activation bar. Over years of therapy the healthy adult figure grows and the other modes quieten. TFP view: two half-circles hold all-good and all-bad pictures of self and other; they light up in turn and finally slide together into one whole."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="scPlay">Play</button><label class="stage-cap tl" for="scT">Timeline <input type="range" id="scT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="scRead"></div>
+      <p class="stage-cap" id="scCap"></p>
+    </div>
+    <aside class="note" id="scNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Head to head: schema therapy vs TFP</h3>
+  <div class="prose"><p>The Dutch trial randomised 88 patients at 4 community mental health centres to 3 years of schema-focused therapy or TFP, both twice a week. Both helped on all measures; more schema therapy patients recovered. [[GiesenBloo2006]] The 4-year recovery percentages come from the trial's cost-effectiveness paper. [[vanAsselt2008]]</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="scRec" viewBox="0 0 600 330" style="min-width:500px" role="img" aria-label="Recovery over 4 years in the Giesen-Bloo trial: two rising curves, schema-focused therapy reaching the published 52% recovered and TFP 29% at 4 years, with the 3-year treatment period shaded and the published relative risk of 2.18 marked at year 3."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="scRecPlay">Play</button><label class="stage-cap tl" for="scRecT">Years since entry <input type="range" id="scRecT" min="0" max="1" step="0.002" value="1"></label></div>
+      <div class="readout" id="scRecRead"></div>
+      <p class="stage-cap"><b>Endpoints published, shape drawn.</b> The circled 4-year values are from van Asselt 2008; the curves between entry and year 4 are a schematic rise, not measured data. Group averages from one trial, not predictions for anyone. [[vanAsselt2008,GiesenBloo2006]]</p>
+    </div>
+    <aside class="note" id="scRecNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Group schema therapy: the 2022 trial</h3>
+  <div class="prose"><p>495 outpatients at 15 sites in 5 countries were randomised to mainly group schema therapy (PGST), combined individual and group schema therapy (IGST) or optimal usual care, over 2 years. [[Arntz2022GST]]</p></div>
+  <div class="ctrls" role="group" aria-label="Group schema therapy outcome">
+    <button class="btn" data-scg="eff" aria-pressed="true">Effect on BPD severity</button>
+    <button class="btn" data-scg="ret" aria-pressed="false">Staying in treatment</button>
+  </div>
+  <div class="stage" style="max-width:760px">
+    <div class="scroll"><svg id="scGst" viewBox="0 0 600 290" style="min-width:480px" role="img" aria-label="Arntz 2022 group schema therapy trial: either Cohen d effect sizes with confidence intervals for each comparison, or retention bars at 1 and 2 years for the three arms."></svg></div>
+    <p class="stage-cap" id="scGstCap"></p>
+  </div>
+
+  <h3 class="sub">Side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Schema therapy</th><th>Transference-focused psychotherapy</th></tr></thead>
+    <tbody>
+      <tr><th>Core idea</th><td>People with BPD flip between maladaptive modes (detached protector, punitive parent, abandoned/abused child, angry/impulsive child) while the healthy adult mode is weak. [[Arntz2005Modes,Lobbestael2005]]</td><td>Grows out of Kernberg's 1967 "borderline personality organization": primitive defences such as splitting, identity diffusion and lapses in reality testing. [[Kernberg1967,Gunderson2009Ontogeny]]</td></tr>
+      <tr><th>What it asks of you</th><td>Long-term, frequent sessions: twice a week for 3 years in the Dutch trial [[GiesenBloo2006]]; 2 years of group, or group plus individual, therapy in the 2022 trial. [[Arntz2022GST]]</td><td>Twice-weekly sessions for 3 years in the Dutch trial [[GiesenBloo2006]]; 1 year in two other trials. [[Clarkin2007,Doering2010]]</td></tr>
+      <tr><th>Key trial results</th><td>Beat TFP on recovery (RR 2.18) and reliable improvement (RR 2.33) over 3 years. [[GiesenBloo2006]] 42% recovered after 1.5 years in regular care. [[Nadort2009]] Combined group plus individual beat usual care (d 1.14). [[Arntz2022GST]]</td><td>Beat experienced community therapists on borderline symptoms (d 1.6), suicide attempts (d 0.8), functioning (d 1.0) and dropout (38.5% vs 67.3%); self-harm did not change in either group. [[Doering2010]] Only TFP changed irritability and verbal and direct assault in a three-way trial. [[Clarkin2007]]</td></tr>
+      <tr><th>Dropout</th><td>Lowest dropout of any approach in a survival meta-analysis of 111 studies. [[Arntz2023Dropout]]</td><td>Higher dropout risk than schema therapy in the Dutch trial (P = .01). [[GiesenBloo2006]]</td></tr>
+      <tr><th>Certainty</th><td>A review found support for many parts of Young's model but "mixed results and some empirical blanks". [[Sempertegui2013]] Mode profiles fit, but specificity is doubtful. [[Lobbestael2008]]</td><td>Fewer trials; the pooled reviews find no psychotherapy clearly superior to another. [[Storebo2020,Leichsenring2024]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="cards">
+    <div class="card"><span class="tag warn">Exam hook</span><h4>Modes are states; splitting is a defence</h4><p><b>Schema modes</b> are the states a person with BPD flips between, measurable in experiments: a stress film raised the detached protector more in BPD than in either control group. [[Arntz2005Modes]] <b>Splitting</b> is a primitive defence in Kernberg's borderline personality organisation. [[Kernberg1967]] Do not mix up the two vocabularies.</p></div>
+    <div class="card"><span class="tag warn">Exam hook</span><h4>The four BPD modes</h4><ul><li>Detached protector</li><li>Punitive parent</li><li>Abandoned/abused (vulnerable) child</li><li>Angry/impulsive child</li></ul><p>Healthy adult: low in BPD, high in non-patients. [[Arntz2005Modes,Lobbestael2005]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>No clear winner overall</h4><p>In the BOOTS trial, 204 outpatients had 2 years of DBT or schema therapy: no significant difference in BPD severity at 3 years (d 0.15; 95% CI −0.17 to 0.47), with large improvements in both; dropout at 2 years was 52% vs 46%. [[Wibbelink2026BOOTS]] Schema therapy beat TFP in one trial, but most head-to-head trials find no difference. See <a href="#compare" data-go="compare">Therapies compared</a>. [[GiesenBloo2006,Leichsenring2024]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Schema therapy in an app</h4><p>In 580 adults in Germany, an unguided schema-therapy-based app plus usual care improved BSL-23 scores more at 3 months (d 0.24) and was followed by fewer suicide attempts (7 vs 21), against usual care alone. One trial; it needs replication. [[Assmann2025]]</p></div>
+    <div class="card"><span class="tag rx">Cost</span><h4>Cheaper and more effective</h4><p>Over 4 years, mean costs were EUR 37,826 with schema therapy and EUR 46,795 with TFP, while more people recovered with schema therapy, so it was "dominant" for recovery. [[vanAsselt2008]] Adding therapist phone availability outside office hours added nothing in regular care. [[Nadort2009]]</p></div>
+  </div>
+  <p class="callout">In plain words: both therapies are long and demanding, and both helped people in trials. Most people with BPD reach symptom remission over the years: by 10 years, 93% had a remission lasting at least 2 years in one long cohort. See <a href="#course" data-go="course">Course &amp; recovery</a>. [[Gunderson2018,Zanarini2010Recovery]]</p>
 </section>
