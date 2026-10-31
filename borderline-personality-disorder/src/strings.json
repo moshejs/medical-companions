@@ -6,5 +6,5 @@
   "shell.note": "An animated, cited guide for students, people living with borderline personality disorder, and their families and carers. Educational only, not medical advice. Your place is saved on this device.",
   "shell.skip": "Skip to the module",
   "shell.tagline": "Borderline personality",
-  "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). {chk} are marked <span class=\"tag warn\">check</span>."
+  "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). Marked <span class=\"tag warn\">check</span> (not cited anywhere in the guide): {chk}."
 }

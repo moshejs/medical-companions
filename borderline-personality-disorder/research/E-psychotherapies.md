@@ -48,7 +48,7 @@ Access notes:
 
 ### dbt · How long does DBT need to be?
 - McMain 2022: 240 suicidal or self-harming people with BPD (mean age 28; 79% female) randomised to 6 months (DBT-6) or 12 months (DBT-12) of comprehensive DBT, with assessments to month 24 [[McMain2022]].
-- McMain 2022: 6 months was non-inferior to 12 months for total self-harm at 6, 12 and 24 months (for example at 24 months, mean difference 0.16 vs margin −1.25; 95% CI −0.02 to 0.36) [[McMain2022]].
+- McMain 2022: 6 months was non-inferior to 12 months for total self-harm at 6, 12 and 24 months (for example at 24 months, mean difference 0.12 vs margin −1.25; 95% CI −0.02 to 0.36) [[McMain2022]].
 - McMain 2022: DBT-6 also showed faster reductions in BPD symptoms and general psychopathology, and dropout did not differ between arms [[McMain2022]].
 
 ### dbt · DBT for adolescents (DBT-A)

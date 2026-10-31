@@ -1,5 +1,93 @@
-<!-- ================= 1.2 THE EMOTION WAVE (stub, replaced by its builder) ================= -->
+<!-- ================= 1.2 THE EMOTION WAVE ================= -->
+<style>
+#m-emotion .card>.ev,#m-emotion .card>.tag{align-self:flex-start}
+#m-emotion .emstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+#m-emotion .emstats div{background:var(--panel-2);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+#m-emotion .emstats small{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-emotion .emstats b{font:800 24px/1.1 var(--display)}
+#m-emotion .emstats .bpd b{color:var(--storm)} #m-emotion .emstats .cmp b{color:var(--calm)}
+#m-emotion .emedit{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+#m-emotion .emedit label{display:flex;gap:8px;align-items:center;font:500 12.5px var(--mono);color:var(--muted)}
+#m-emotion .emedit select{font:inherit;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+#m-emotion .emedit input[type=range]{width:140px}
+#m-emotion #emEpSvg{touch-action:none;cursor:ns-resize}
+#m-emotion .tbl table{min-width:620px}
+</style>
 <section class="mod" id="m-emotion" data-mod="emotion" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding BPD</p><h2>The emotion wave</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Many people with BPD describe emotions that start fast, run high and take a long time to settle. Scrub through one schematic wave, from a calm baseline through an interpersonal trigger to the peak and the return, then see the cycle that can follow. Each phase says what the research does and does not support.</p></div>
+  <div class="ctrls" role="group" aria-label="Curves to show">
+    <span class="kicker">Curves</span>
+    <button class="btn" id="emCmp" aria-pressed="false">Add a comparison curve</button>
+    <button class="btn" id="emSk" aria-pressed="false">Skills used (illustrative)</button>
+  </div>
+  <div class="stepper" id="emSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="emSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A schematic emotion wave. A calm baseline is followed by a message from another person; negative emotion climbs fast, peaks above a dashed line where urges become more likely, then falls slowly. A thermometer and a brain sketch beside it fill with the current intensity. In the last phase the wave fades and a ring of six links turns: trigger, emotion, urge, urgent action, short-term relief, shame and conflict, then back to the next trigger."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="emPlay">Play</button><label class="stage-cap tl" for="emT">Time <input type="range" id="emT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="emRead"></div>
+      <p class="stage-cap"><b>Schematic, not measured.</b> No study gives minute-by-minute values for this curve. The shape follows the published directions: a higher starting level in BPD, a rise roughly parallel to comparison groups in the laboratory, and a slower return in some contexts such as shame after criticism. The "skills" curve shows the idea of regulation, not a trial result. [[Jacob2009,Bortolla2020,Gratz2010,Reitz2012]]</p>
+    </div>
+    <aside class="note" id="emNote" aria-live="polite"></aside>
+  </div>
+  <p class="crisis" role="note"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123). Urges build and then pass; reaching out to someone during the peak matters. See <a href="#crisis" data-go="crisis">Suicide &amp; self-harm safety</a>.</span></p>
+
+  <h3 class="sub">Three parts of emotion vulnerability, and what tests show</h3>
+  <div class="prose">
+    <p>Linehan's biosocial account describes emotion vulnerability in BPD as three parts: high <b>sensitivity</b> (reacting to small cues), high <b>intensity</b> or reactivity, and a <b>slow return</b> to baseline. As a theory it is a hypothesis, and the tests do not all agree. [[Kuo2009,Reitz2012]] Carpenter and Trull add a fourth angle: too few helpful regulation strategies and too many unhelpful ones. [[Carpenter2013]]</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Part</th><th>What supports it</th><th>What complicates it</th></tr></thead>
+    <tbody>
+      <tr><th>Sensitivity</th><td>People with BPD felt excluded in a ball-tossing game even while being included. [[Renneberg2012,Staebler2011PsycholMed]] Rejection sensitivity is linked to BPD features (pooled r = 0.326; 0.655 for clinical samples against controls). [[Foxhall2019]]</td><td>Much of this comes from self-report; laboratory measures were called for early on. [[Rosenthal2008]]</td></tr>
+      <tr><th>Intensity / reactivity</th><td>In daily life, everyday stress raised negative affect more in BPD than in psychosis or controls. [[Glaser2008]] Reactions were larger to negative evaluation, not to a general stressor. [[Gratz2010]]</td><td>A meta-analysis of 31 laboratory studies (1,675 people) found null-to-small differences in physiological and behavioural reactivity; the large difference was how negatively stimuli were rated. [[Bortolla2020]] Kuo and Linehan found a higher baseline, not a bigger response. [[Kuo2009]]</td></tr>
+      <tr><th>Slow return</th><td>Shame after negative evaluation stayed raised through the recovery period; aversive tension returned more slowly in a pilot study. [[Gratz2010,Reitz2012]] Affect carried over from one interpersonal event to the next. [[Sadikaj2010]]</td><td>A weaker pull back to baseline in e-diary data was inconsistent and small across three datasets. [[EbnerPriemer2015]] <span class="ev early">Early evidence</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Measure it yourself: an e-diary day</h3>
+  <div class="prose"><p>Studies that ask people to rate their mood on a phone many times a day show the shifts clearly. [[Trull2008,Santangelo2014]] The preferred instability index is the <b>mean squared successive difference (MSSD)</b>: the average of the squared jumps between one rating and the next. Unlike the plain variance, it depends on the order of the ratings, so it tells sudden swings apart from slow drift. [[Jahng2008]] Drag any point (or pick a prompt and use the slider), then press <b>Sort the same readings</b>: the mean and variance stay the same, the MSSD falls.</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Profile to edit">
+        <span class="kicker">Edit</span>
+        <button class="btn" data-ep="bpd" aria-pressed="true">BPD profile</button>
+        <button class="btn" data-ep="cmp" aria-pressed="false">Comparison profile</button>
+        <button class="btn" id="emSort" aria-pressed="false">Sort the same readings</button>
+        <button class="btn ghost" id="emReset">Reset</button>
+      </div>
+      <div class="scroll"><svg id="emEpSvg" viewBox="0 0 720 330" style="min-width:520px" role="img" aria-label="Two lines of 24 distress ratings across one day on a 0 to 10 scale: a schematic BPD profile with frequent large jumps and a schematic comparison profile near zero. Bars underneath show the squared jump between each pair of ratings; jumps of 3 points or more are highlighted."></svg></div>
+      <div class="emedit"><label for="emEpI">Prompt <select id="emEpI"></select></label><label for="emEpV">Distress <input type="range" id="emEpV" min="0" max="10" step="1" value="3"></label></div>
+      <p class="stage-cap">Schematic profiles. Their means are set close to the mean momentary distress reported in one e-diary study: 4.85 in BPD and 0.34 in healthy controls, on a 0–10 scale. [[Santangelo2014]] The ≥3-point "acute change" cut-off is chosen for this demo; studies define it from their own data. [[Trull2008,Jahng2008]]</p>
+    </div>
+    <aside class="note">
+      <div class="kicker">Live statistics</div>
+      <div class="emstats" id="emStats" aria-live="polite"></div>
+      <div class="pt"><b>In plain words</b>Two days can have the same average mood. What differs is how big the jumps are from one moment to the next.</div>
+      <div class="hook"><b>Exam hook</b>MSSD and the probability of acute change are preferred over within-person variance because they capture the timing of change. [[Jahng2008]]</div>
+    </aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Design</th><th>Finding</th></tr></thead>
+    <tbody>
+      <tr><th>Ebner-Priemer 2007</th><td>24-hour e-diary, 50 women with BPD, 50 healthy women</td><td>48% of drops from a very positive mood reached a negative mood in BPD, against 9% in controls: sudden large drops were the typical pattern. [[EbnerPriemer2007PsycholMed]]</td></tr>
+      <tr><th>Trull 2008</th><td>About 1 month, up to 6 prompts a day; 34 BPD, 26 depressive disorder</td><td>Mean affect did not differ; BPD showed more variability and more large successive changes in hostility, fear and sadness. [[Trull2008]]</td></tr>
+      <tr><th>Santangelo 2014</th><td>Prompts about every 15 minutes for 24 hours; BPD, PTSD, bulimia nervosa, controls</td><td>BPD more unstable than controls on every index, mostly from drops out of highly positive mood; PTSD and bulimia nervosa were similar to BPD. [[Santangelo2014]]</td></tr>
+      <tr><th>Houben 2021</th><td>10 ratings a day for 1 week; BPD, major depression, controls</td><td>BPD differs in the size of departures from baseline, not necessarily their abruptness. [[Houben2021]] <span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Kockler 2022</th><td>12 prompts a day for 4 days; BPD, anxiety disorders, controls</td><td>Affective instability similar to anxiety disorders; self-esteem instability higher in BPD on every index. [[Kockler2022]] <span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Santangelo 2018</th><td>130 women with BPD, 130 healthy women, aged 14–53</td><td>Affective instability declined with older age in BPD. [[Santangelo2018]] <span class="ev early">Early evidence</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Riding on the wave</h3>
+  <div class="cards">
+    <div class="card"><span class="tag storm">Trigger</span><h4>Rejection sensitivity</h4><p>On the Rejection Sensitivity Questionnaire, people with BPD scored highest of all groups tested, above people with social anxiety disorder. [[Staebler2011CPP]] In 21 days of daily life, rejection was followed by hostility and sadness more strongly in BPD than in community adults. [[Hepp2018]] In 30 inpatients, stronger reactions appeared after disappointment in someone else, not after general appraisals. [[Houben2018]]</p><div class="hook"><b>Exam hook</b>Cyberball: people with BPD feel excluded even when they are included. [[Renneberg2012,Staebler2011PsycholMed]]</div></div>
+    <div class="card"><span class="tag storm">Criterion 7</span><h4>Chronic emptiness</h4><p>DSM-5-TR lists chronic feelings of emptiness as one of the nine criteria. [[APA2022]] In 1,870 outpatients, emptiness was the only single feature that marked impairment on every index of psychosocial functioning. [[Ellison2016]] It is one of the slower symptoms to settle: by 16 years in the McLean study, 71% had a 2-year remission of chronic loneliness or emptiness, against 96% for affective instability. [[Zanarini2016Fluidity]]</p><div class="hook"><b>Exam hook</b>Affective symptoms (anger, emptiness) are the most persistent; impulsive ones remit fastest. [[Zanarini2007Subsyndromal]]</div></div>
+    <div class="card"><span class="tag storm">Criterion 9</span><h4>Dissociation under stress</h4><p>DSM-5-TR criterion 9 is transient, stress-related paranoid ideation or severe dissociative symptoms. [[APA2022]] In hourly monitoring over 48 hours, dissociation rose with stress in every group, more steeply in BPD. [[Stiglmayr2008]] On the Dissociative Experiences Scale, 26% of 290 people with BPD scored high, against 3% of controls. [[Zanarini2000Dissociation]] Aversive tension correlated strongly with dissociation. [[Stiglmayr2001]]</p><div class="hook"><b>Exam hook</b>Higher baseline dissociation predicted less improvement in a 3-month inpatient DBT programme. [[Kleindienst2011]]</div></div>
+    <div class="card"><span class="tag">Shame</span><h4>Shame keeps the wave going</h4><p>60 women with BPD reported more shame-proneness and state shame than women with social phobia or healthy women, and shame-proneness went with lower self-esteem and quality of life. [[Rusch2007]] After criticism in the laboratory, shame stayed raised in BPD through the recovery period. [[Gratz2010]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Not only BPD</h4><p>Affective instability is also high in PTSD and bulimia nervosa, and similar in BPD and ADHD; the authors advise against using emotion dysregulation alone to tell them apart. [[Santangelo2014,Moukhtarian2021]] See <a href="#differential" data-go="differential">BPD or something else?</a></p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Reactivity, or a high baseline?</h4><p>Linehan's model predicts high reactivity and slow recovery; laboratory studies mostly find a high baseline of negative emotion and little extra physiological reactivity. Reactivity tied to specific contexts, such as rejection, criticism and shame, is the best-supported middle position. The question is unresolved. [[Kuo2009,Jacob2009,Bortolla2020,Gratz2010,Hepp2018]]</p></div>
+  </div>
+  <p class="callout">The wave changes over time. In the McLean study, 96% of people had a 2-year remission of affective instability by 16 years, and e-diary instability is lower in older people with BPD. These are population figures, not a forecast for one person. [[Zanarini2016Fluidity,Santangelo2018]] More in <a href="#course" data-go="course">Course &amp; recovery</a>, and on how therapy targets the wave in <a href="#dbt" data-go="dbt">Dialectical behaviour therapy</a>.</p>
 </section>
