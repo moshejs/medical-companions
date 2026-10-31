@@ -1,5 +1,72 @@
-<!-- ================= 2.2 ICD-11 & DIMENSIONAL MODELS (stub, replaced by its builder) ================= -->
+<!-- ================= 2.2 ICD-11 & DIMENSIONAL MODELS ================= -->
+<style>
+#m-icd .ic-sev{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+#m-icd .ic-sev label{flex:1;min-width:200px;display:flex;gap:10px;align-items:center}
+#m-icd .ic-crit{display:flex;flex-wrap:wrap;gap:6px}
+#m-icd .ic-crit .btn{font-size:13px;padding:6px 11px}
+#m-icd .ic-tbl table{min-width:760px;font-size:14px}
+#m-icd .ic-tbl tbody th button{all:unset;cursor:pointer;font-weight:700;display:flex;gap:8px;align-items:baseline}
+#m-icd .ic-tbl tbody th button:focus-visible{outline:2px solid var(--dx);outline-offset:2px;border-radius:4px}
+#m-icd .ic-tbl tbody th button b{font:600 11px var(--mono);color:var(--muted)}
+#m-icd .ic-tbl tbody th button[aria-pressed="true"]{color:var(--dx)}
+#m-icd .ic-tbl tr.on th,#m-icd .ic-tbl tr.on td{background:var(--dx-soft)}
+#m-icd .ic-tbl td{transition:background .25s}
+#m-icd .card>.tag,#m-icd .card>.ev{align-self:flex-start}
+#m-icd .ic-codes{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;font-size:14px;margin:0}
+#m-icd .ic-codes dt{font:600 12px var(--mono);color:var(--dx);padding-top:2px}
+#m-icd .ic-codes dd{margin:0}
+</style>
 <section class="mod" id="m-icd" data-mod="icd" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>ICD-11 &amp; dimensional models</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">ICD-11 no longer sorts people into named personality disorders. It asks how severe the difficulties are, then describes their style, and keeps "borderline" only as an optional pattern. Scrub from the old boxes to the new dimensions, and compare with the DSM's Alternative Model.</p></div>
+  <div class="stepper" id="icSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="icSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="ICD-10 named personality disorder boxes, with emotionally unstable personality disorder split into impulsive and borderline types, merge into one ICD-11 personality disorder bar with a severity gauge from personality difficulty through mild, moderate and severe. A five-spoke radar of trait domains then grows, the borderline pattern specifier overlays it with nine features of which five are needed, and finally the DSM-5-TR Alternative Model shows four areas of personality functioning and seven traits."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="icPlay">Play</button><label class="stage-cap tl" for="icT">Step <input type="range" id="icT" min="0" max="1" step="0.001" value="0.12"></label></div>
+      <div class="ic-sev">
+        <label class="stage-cap" for="icSev">Severity <input type="range" id="icSev" min="0" max="1" step="0.01" value="0.62"></label>
+        <div class="ctrls" role="group" aria-label="Trait model"><span class="kicker">Trait model</span><button class="btn" data-icv="icd" aria-pressed="true">ICD-11</button><button class="btn" data-icv="ampd" aria-pressed="false">DSM-5 AMPD</button></div>
+      </div>
+      <div class="readout" id="icRead"></div>
+      <p class="stage-cap">Codes as reproduced in the Indian Psychiatric Society guideline; severity descriptors and domain definitions as adapted from the WHO guidelines by Bach and First. The trait profile is schematic, not a measured person. [[Sharan2023,Bach2018BMC]]</p>
+    </div>
+    <aside class="note" id="icNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Where does each criterion go?</h3>
+  <p class="prose">Pick a DSM-5-TR criterion to see where its content sits in ICD-11 and in the DSM's Alternative Model. This is a teaching map that pairs elements by their published definitions; it is not an official crosswalk. ICD-11's borderline pattern adapts all nine criteria, so every criterion maps to it. [[Bach2018BMC,Kaess2025]]</p>
+  <div class="ic-crit" id="icCrit" role="group" aria-label="DSM-5-TR criterion"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="icMapSvg" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="The chosen DSM-5-TR criterion at the top, with lines to its counterparts among ICD-11 elements on the left and DSM-5 Alternative Model elements on the right."></svg></div>
+      <p class="stage-cap">Left: ICD-11 (borderline pattern, severity aspects, trait domains). Right: AMPD Criterion A areas and Criterion B traits for BPD.</p>
+    </div>
+    <aside class="note" id="icMapNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl ic-tbl"><table>
+    <thead><tr><th>DSM-5-TR criterion</th><th>ICD-11 counterpart</th><th>AMPD counterpart</th></tr></thead>
+    <tbody id="icTbl"></tbody>
+  </table></div>
+
+  <h3 class="sub">The ICD-11 code map</h3>
+  <dl class="ic-codes">
+    <dt>6D10</dt><dd>Personality disorder: <b>6D10.0</b> mild, <b>6D10.1</b> moderate, <b>6D10.2</b> severe. [[Sharan2023]]</dd>
+    <dt>6D11.0–.4</dt><dd>Trait domains: Negative Affectivity, Detachment, Dissociality, Disinhibition, Anankastia. Record as many as apply. [[Sharan2023,Bach2018BMC]]</dd>
+    <dt>6D11.5</dt><dd>Borderline pattern: at least 5 of 9 features adapted from the DSM-5 criteria. [[Sharan2023,Bach2018BMC]]</dd>
+    <dt>QE50.7</dt><dd>Personality difficulty: listed among factors influencing health status, not a mental disorder. [[Sharan2023,Bach2018BMC]]</dd>
+  </dl>
+
+  <h3 class="sub">Why it changed, and what it means</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Why</span><h4>No clear line between types</h4><p>The ICD-11 rationale: there is no clear threshold between types and degrees of personality dysfunction, so pathology is best placed on one dimension from normal personality to severe disorder. [[Tyrer2015Lancet]] Its authors called it "the most radical change in the classification history of personality disorders". [[Tyrer2019]] In a bifactor analysis of 966 inpatients, BPD criteria loaded only on a general personality-pathology factor. <span class="ev early">Early evidence</span> [[Sharp2015JAP]]</p></div>
+    <div class="card"><span class="tag dx">Records</span><h4>What it means for a person's notes</h4><p>ICD-11 has been used for health reporting since 1 January 2022. [[Reed2019]] A full ICD-11 description can combine every layer, for example "Moderate personality disorder, with borderline pattern, with Negative Affectivity, Disinhibition and Dissociality". [[Bach2018BMC]] ICD-11 also says personality disorders are only "relatively" stable after young adulthood and may lessen by middle age. [[Bach2018BMC]] NICE CG78 is under review because of the change. [[NICE2009]]</p></div>
+    <div class="card"><span class="tag warn">Debate</span><h4>Keep "borderline" or drop it?</h4><p>Some argue BPD is a spurious category that should give way to severity plus traits, [[Mulder2023]] and that the borderline pattern is redundant because severity and three domains already capture it. [[Mulder2020]] Others point out that BPD is diagnosed reliably, its criteria form a coherent construct, and it links to effective specific treatments. [[Leichsenring2024WP,Sanislow2002]] After lengthy debate, ICD-11 added the pattern as an optional descriptor. [[Tyrer2019]] Status: unresolved.</p></div>
+    <div class="card"><span class="tag dx">Two systems</span><h4>DSM-5-TR still has the category</h4><p>The DSM-5 work group proposed the Alternative Model and the Task Force endorsed it, but the APA Board placed it in Section III. [[Morey2013]] So DSM-5-TR runs two systems in parallel: the nine-criterion category in Section II, and the AMPD, which aligns closely with ICD-11. [[Mulder2021]] The ICD-11 and DSM-5 trait models share four domains; ICD-11 adds Anankastia, DSM-5 adds Psychoticism. [[Bach2018ANZJP]]</p></div>
+    <div class="card"><span class="tag accent">Exam hooks</span><h4>Remember</h4><ul>
+      <li>ICD-11: severity first (6D10.0–.2), then domains (6D11.0–.4), then the optional borderline pattern (6D11.5). [[Sharan2023]]</li>
+      <li>Harm to self or others: typically not (mild), sometimes (moderate), often (severe). [[Bach2018BMC]]</li>
+      <li>No psychoticism domain in ICD-11: schizotypal features sit with the psychotic disorders. [[Bach2018BMC]]</li>
+      <li>The ICD-11 domains can be scored from 16 PID-5 facets, replicated in Danish and US samples. [[Bach2017]]</li></ul></div>
+  </div>
 </section>
