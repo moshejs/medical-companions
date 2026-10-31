@@ -1,5 +1,66 @@
-<!-- ================= 5.4 NURSING CARE (stub, replaced by its builder) ================= -->
+<!-- ================= 5.4 NURSING CARE ================= -->
+<style>
+#m-nursing .card>.tag,#m-nursing .card>.ev{align-self:flex-start}
+#m-nursing .nu-reps{display:flex;flex-direction:column;gap:8px}
+#m-nursing .nu-reps .btn{text-align:left;font-weight:500;border-radius:12px;line-height:1.4;padding:10px 14px}
+#m-nursing .nu-reps .btn b{font:600 11px var(--mono);letter-spacing:.06em;margin-right:6px}
+</style>
 <section class="mod" id="m-nursing" data-mod="nursing" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Course &amp; living</p><h2>Nursing care</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Nurses are often the first and most frequent contact for people with BPD in crisis. Follow one journey from the emergency department to the ward and home, practise replies that validate while holding boundaries, and see what training and ward culture can change.</p></div>
+  <p class="crisis"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></p>
+  <div class="stepper" id="nuSteps"></div>
+  <div class="ctrls" role="group" aria-label="Setting"><span class="kicker">Focus</span>
+    <button class="btn" data-nufocus="ed" aria-pressed="true">Emergency department</button>
+    <button class="btn" data-nufocus="ward" aria-pressed="false">Inpatient ward</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A nursing timeline with five stations. A nurse and a patient walk along it together, the line between them growing stronger as care stays consistent. At each station three panels show the nurse's actions, the evidence and a common pitfall."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">Play</button><label class="stage-cap tl" for="nuT">Care pathway <input type="range" id="nuT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap">Schematic pathway; the strengthening line between nurse and patient illustrates the therapeutic relationship and is not a measure. No details of injuries or methods are shown. Guidance as published. [[NICE2009,NICE2022SelfHarm]]</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Practise: validate and hold the boundary</h3>
+  <p class="prose">Validation means communicating that a person's feelings make sense from where they stand. It does not mean agreeing with everything or giving up the plan. NICE asks for a calm, non-threatening attitude, empathic open questions and validating statements, without minimising the person's reasons. [[NICE2009]] Pick a situation, then choose a reply.</p>
+  <div class="ctrls" role="group" aria-label="Situation"><span class="kicker">Situation</span>
+    <button class="btn" data-nusc="0" aria-pressed="true">ED, after self-harm</button>
+    <button class="btn" data-nusc="1" aria-pressed="false">Ward, one nurse</button>
+    <button class="btn" data-nusc="2" aria-pressed="false">Before discharge</button>
+    <button class="btn" data-nusc="3" aria-pressed="false">Community call</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuTalk" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="A patient's speech bubble with what they say; after you choose a reply, the nurse's reply appears in a second bubble."></svg></div>
+      <div class="nu-reps" id="nuReps" role="group" aria-label="Possible replies"></div>
+    </div>
+    <aside class="note" id="nuTalkNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Attitudes, training and ward culture</h3>
+  <p class="prose">A review of 40 studies found that mental health nurses' attitudes toward people with BPD were poorer than those of other professionals and poorer than toward other diagnoses; nurses asked for a coherent therapeutic framework, and care seemed better where one existed. [[Dickens2016]] Training helps, mostly with what nurses know and think. [[Dickens2016Interventions]]</p>
+  <div class="stage">
+    <div class="scroll"><svg id="nuBars" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="Left: the relative size of training effects found in a review, largest for knowledge and cognitive attitudes and smaller for feelings. Right: in the Safewards cluster trial, conflict fell by 15 percent and containment by 23.2 percent, with their confidence intervals."></svg></div>
+    <div class="ctrls"><button class="btn" id="nuBarsGo">Replay bars</button></div>
+    <p class="stage-cap">Left panel: relative ordering only, as reported in the review of 8 training studies (1 with a control group); the bar lengths are not measured values. Right panel: published Safewards results with 95% confidence intervals. [[Dickens2016Interventions,Bowers2015]]</p>
+  </div>
+
+  <h3 class="sub">Key points for practice</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Relationship</span><h4>The therapeutic relationship</h4><p>People with BPD cared for by community mental health nurses named three helpful parts of the relationship: learning about the disorder, building trust, and being empowered through validation. [[RomeuLabayen2020]] On acute wards, people valued being listened to, time to talk and feeling safe, and found negative attitudes, little staff contact and poor discharge planning harmful. [[Stapleton2019]]</p></div>
+    <div class="card"><span class="tag brand">Team</span><h4>Consistency across the team</h4><p>Community teams should manage risk as a whole multidisciplinary team, with good supervision, especially for less experienced staff. [[NICE2009]] Expect endings and transitions to evoke strong emotions: discuss changes beforehand, phase them, and keep access to crisis services. [[NICE2009]] One shared plan means every nurse responds the same way.</p></div>
+    <div class="card"><span class="tag accent">Least restrictive</span><h4>Observation and de-escalation</h4><p>Decide on close observation case by case, taking the person's views into account, by trained staff, reviewed regularly. [[NICE2022SelfHarm]] De-escalation combines communication, self-regulation, assessment, actions and safety maintenance, aiming to reduce aggression while minimising coercion. [[Hallett2017]] Safewards cut conflict by 15% and containment by 23.2% on 31 wards. [[Bowers2015]]</p></div>
+    <div class="card"><span class="tag med">Medicines</span><h4>Medication safety</h4><p>NICE CG78: no drug treatment specifically for BPD or its individual symptoms; crisis sedation cautiously, for no longer than 1 week, and "prescribe fewer tablets more frequently if there is a significant risk of overdose", with one named primary prescriber. [[NICE2009]] NICE NG225 adds shared decisions about limited quantities and returning unwanted medicines. [[NICE2022NG225]] <button class="btn ghost" data-go="meds">Medication: the evidence →</button></p></div>
+    <div class="card"><span class="tag dx">Records</span><h4>Documentation and crisis plans</h4><p>A care plan should include a crisis plan with triggers, self-management strategies and how to reach services, shared with the GP and the person, and updated with them after a crisis. [[NICE2009]] In 41 joint crisis plans, people asked to be treated with dignity and respect; some recorded refusals of particular medicines or of involuntary treatment. [[Borschmann2014]] Measures help document change: the BSL-23 (self-rated) and ZAN-BPD (clinician-rated, past week, 0–36). [[Bohus2009,Zanarini2003ZAN]]</p></div>
+    <div class="card"><span class="tag warn">Staff care</span><h4>Supervision and burnout</h4><p>Inpatient nurses start with strong motivation, then unexpected demands lead to emotional exhaustion and compassion fatigue. [[Nordkamp2024]] NICE asks for routine supervision and staff support [[NICE2009]], and for regular, high-quality supervision with reflective practice for staff working with self-harm. [[NICE2022SelfHarm]] DBT skills-coaching training for 22 nursing staff reduced burnout and stigma <span class="ev early">Early evidence</span> [[Haynos2016]]</p></div>
+    <div class="card"><span class="tag rx">Groups</span><h4>Groups nurses can deliver</h4><p>STEPPS is a 20-week manualised group that includes the person's support network. In an RCT of 124 people it improved ZAN-BPD scores, impulsivity, mood and functioning more than usual care, but not suicide attempts, self-harm or hospitalisation. [[Blum2008STEPPS]] A 1-day STEPPS workshop improved 271 clinicians' empathy and attitudes. [[Shanks2011]]</p></div>
+    <div class="card"><span class="tag warn">Exam hooks</span><h4>For nursing students</h4><ul>
+      <li>NICE NG225: no risk scales or low/medium/high stratification to predict suicide or decide treatment; risk formulation instead. [[NICE2022SelfHarm]]</li>
+      <li>Do not delay the psychosocial assessment until medical care is finished or because of alcohol levels. [[NICE2022SelfHarm]]</li>
+      <li>Crisis or home treatment team before admission; agree length and purpose of any admission. [[NICE2009]]</li>
+      <li>Training effects are largest for knowledge, smaller for feelings. [[Dickens2016Interventions]]</li>
+      <li>Safewards: conflict −15%, containment −23.2%. [[Bowers2015]]</li></ul></div>
+  </div>
 </section>

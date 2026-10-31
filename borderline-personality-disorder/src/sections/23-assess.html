@@ -1,5 +1,90 @@
-<!-- ================= 2.3 ASSESSMENT & INTERVIEWS (stub, replaced by its builder) ================= -->
+<!-- ================= 2.3 ASSESSMENT & INTERVIEWS ================= -->
+<style>
+#m-assess .as-big{font:800 34px/1 var(--display);color:var(--dx)}
+#m-assess .as-sw{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:5px}
+#m-assess .card>.tag,#m-assess .card>.ev{align-self:flex-start}
+#m-assess .as-row{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:baseline}
+#m-assess .as-row>div{display:flex;flex-direction:column;gap:2px;min-width:110px}
+#m-assess .as-row small{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-assess .calc input[type=range]{margin-top:6px}
+</style>
 <section class="mod" id="m-assess" data-mod="assess" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Assessment &amp; interviews</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">A questionnaire can flag a possibility; only a careful interview makes the diagnosis. Climb the assessment pathway from the first concern to a shared plan, then see why a positive screen means something different in a GP surgery and on a psychiatric ward.</p></div>
+  <div class="stepper" id="asSteps"></div>
+  <div class="ctrls" role="group" aria-label="Pathway"><span class="kicker">Pathway</span>
+    <button class="btn" data-asage="adult" aria-pressed="true">Adult</button>
+    <button class="btn" data-asage="teen" aria-pressed="false">Adolescent (12–17)</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="asSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A seven-step staircase of the assessment pathway: concern raised, screening questionnaire, structured interview, differential diagnosis and comorbidities, sharing the diagnosis, measuring severity and change, and a safety plan. A figure climbs one step at a time while a panel above shows the tool or the published numbers for that step, such as ten questionnaire boxes filling past the cut-off of seven, interview reliability, comorbidity bars and remission bars."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="asPlay">Play</button><label class="stage-cap tl" for="asT">Pathway <input type="range" id="asT" min="0" max="1" step="0.001" value="0.2"></label></div>
+      <p class="stage-cap">Schematic pathway; real assessments loop back and steps overlap. Questionnaire ticks and the BSL-23 and ZAN-BPD scores in the measurement step are illustrative, not a real person's results. Published numbers as cited in the note. [[Kaess2025,Zanarini2003MSI,Zanarini2021Comorbidity]]</p>
+    </div>
+    <aside class="note" id="asNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The instruments at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Instrument</th><th>Type</th><th>Used for</th><th>Published numbers</th></tr></thead>
+    <tbody>
+      <tr><th>MSI-BPD</th><td>10 yes/no self-report items</td><td>Screening</td><td>Cut-off 7: sensitivity 0.81, specificity 0.85 (200 people, 139 with interview-confirmed BPD); age 25 or under: 0.90 and 0.93. [[Zanarini2003MSI]] Dutch version: cut-off 5 gave 0.94 and 0.86. [[Andre2015]]</td></tr>
+      <tr><th>BPQ</th><td>Self-report</td><td>Screening young people</td><td>Ages 15–25: sensitivity 0.68, specificity 0.90, PPV 0.65, NPV 0.91; outperformed the MSI on ROC analysis. [[Chanen2008]]</td></tr>
+      <tr><th>One question</th><td>Clinician asks about affective instability</td><td>Ruling out</td><td>Sensitivity 92.8%; its absence nearly rules BPD out (NPV 99%). [[Zimmerman2017BJP]]</td></tr>
+      <tr><th>PAI-BOR</th><td>Self-report scale</td><td>Borderline features</td><td>T-score 70 or more classified 73% of outpatients correctly. [[Stein2007PAI]]</td></tr>
+      <tr><th>SCID-5-PD / SCID-II</th><td>Semi-structured interview</td><td>Diagnosis</td><td>SCID-II: excellent inter-rater agreement for most personality disorders. [[Lobbestael2011]] SCID-5-PD (Persian, 250 patients): kappa above 0.4 for BPD <span class="ev early">Early evidence</span> [[Gharraee2022]]</td></tr>
+      <tr><th>DIB-R</th><td>Semi-structured interview</td><td>Diagnosis</td><td>Kappa above 0.75 for the BPD diagnosis in inter-rater, test-retest and longitudinal substudies. [[Zanarini2002DIBR]]</td></tr>
+      <tr><th>IPDE</th><td>Semi-structured interview (ICD and DSM)</td><td>Diagnosis</td><td>WHO field trial: 716 patients, 14 centres, 11 countries; reliability roughly similar to interviews for psychosis, mood and anxiety disorders. [[Loranger1994]]</td></tr>
+      <tr><th>BSL-23</th><td>23 self-rated items</td><td>Severity and change</td><td>Alpha 0.935–0.969; detected change after 3 months of DBT (d = 0.47). [[Bohus2009]] Six grades of mean item score, 0–4. [[Kleindienst2020]]</td></tr>
+      <tr><th>ZAN-BPD</th><td>Clinician-rated, past week</td><td>Change over time</td><td>9 criteria, each 0–4, total 0–36; internal consistency 0.85; tracked change over 7–10 days. [[Zanarini2003ZAN]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Try it: what a positive screen means in different places</h3>
+  <p class="callout"><b>A teaching tool, not a test.</b> The same questionnaire, with the same sensitivity and specificity, gives very different answers depending on how common BPD is among the people being screened. The counts below are calculated from published accuracy figures and published prevalence estimates; they describe populations, not any one person. [[Zanarini2003MSI,Ellison2018,Gross2002PrimaryCare]]</p>
+  <div class="ctrls" role="group" aria-label="Setting"><span class="kicker">Setting</span>
+    <button class="btn" data-asset="0" aria-pressed="false">Community</button>
+    <button class="btn" data-asset="1" aria-pressed="false">Primary care</button>
+    <button class="btn" data-asset="2" aria-pressed="true">Psychiatric outpatients</button>
+    <button class="btn" data-asset="3" aria-pressed="false">Psychiatric inpatients</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label for="asTest">Questionnaire and cut-off
+          <select id="asTest">
+            <option value="0">MSI-BPD, cut-off 7 (sens 0.81, spec 0.85)</option>
+            <option value="1">MSI-BPD, cut-off 7, age 25 or under (0.90, 0.93)</option>
+            <option value="2">MSI-BPD Dutch, cut-off 5 (0.94, 0.86)</option>
+            <option value="3">MSI-BPD Dutch, cut-off 7 (0.71, 0.96)</option>
+            <option value="4">BPQ, ages 15–25 (0.68, 0.90)</option>
+          </select></label>
+        <label for="asPrev"><span>Prevalence: <span id="asPrevV">11%</span></span>
+          <input type="range" id="asPrev" min="0.5" max="40" step="0.5" value="11"></label>
+      </div>
+      <div class="scroll"><svg id="asIcons" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="An icon array of 1,000 people screened. Squares are coloured by whether the person truly meets criteria and whether the questionnaire flagged them: true positives, missed cases, false positives and true negatives."></svg></div>
+      <div class="legend"><span><i style="background:var(--storm)"></i>has BPD, screen positive</span><span><i style="background:var(--storm-soft);outline:1px solid var(--storm)"></i>has BPD, missed</span><span><i style="background:var(--dx)"></i>no BPD, screen positive</span><span><i style="background:var(--panel-2)"></i>no BPD, screen negative</span></div>
+      <div class="as-row" id="asRead"></div>
+    </div>
+    <aside class="note" id="asCalcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Telling someone the diagnosis</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Do</span><h4>Share it well</h4><ul>
+      <li>Name the diagnosis. Withholding a psychiatric diagnosis to protect the patient is now generally seen as unethical, and non-disclosure harms integrated care. [[Sims2022]]</li>
+      <li>Explain it, then talk about treatments together: disclosure opens the way to psychoeducation and to specific, effective therapies. [[Lequesne2004]]</li>
+      <li>Offer hope. NICE asks clinicians to explore options "in an atmosphere of hope and optimism, explaining that recovery is possible and attainable". [[NICE2009]]</li>
+      <li>Follow with psychoeducation: a workshop within a week of disclosure reduced impulsivity and relationship "storminess" over 12 weeks. <span class="ev early">Early evidence</span> [[Zanarini2008Psychoed]]</li></ul></div>
+    <div class="card"><span class="tag bad">Avoid</span><h4>What not to do</h4><ul>
+      <li>Do not keep it secret. In a survey of 134 US psychiatrists, 57% had at some point not disclosed a BPD diagnosis and 37% had not documented it, mostly because of stigma or uncertainty. [[Sisti2016]]</li>
+      <li>Do not use the diagnosis to exclude. People with BPD should not be excluded from any service because of their diagnosis or because they have self-harmed. [[NICE2009]]</li>
+      <li>Do not miss it. A missed diagnosis leads to misleading drug treatment that rarely succeeds. [[Gunderson2018]]</li></ul></div>
+    <div class="card"><span class="tag dx">Reliability</span><h4>Interviews are reliable</h4><p>The DIB-R reached kappas above 0.75 for the diagnosis. [[Zanarini2002DIBR]] The IPDE performed about as reliably as interviews for psychosis and mood disorders in a WHO trial in 11 countries. [[Loranger1994]] Self-report gives higher endorsement rates, and using interview and self-report together identified BPD criteria best. [[Hopwood2008]]</p></div>
+    <div class="card"><span class="tag warn">Exam hook</span><h4>Screening is not diagnosis</h4><p>A screen flags, an interview diagnoses. Self-report questionnaires are for screening or rating severity, and a structured or semi-structured interview is for the diagnosis. [[Kaess2025,Leichsenring2024WP]] Screening "is not a replacement for clinical diagnosis". [[Chanen2008]] With sensitivity 0.81 and specificity 0.85, the PPV of an MSI-BPD score of 7 or more would be about 5% at 1% prevalence and about 57% at 20%. [[Zanarini2003MSI,Ellison2018]]</p></div>
+    <div class="card"><span class="tag accent">Recovery</span><h4>The message behind the hope</h4><p>In 290 people with severe BPD followed prospectively, 34.5% were in remission at 2 years, 49.4% at 4 years and 68.6% at 6 years; only 5.9% of remissions were followed by recurrence. [[Zanarini2003Course]] These are population statistics from one inpatient cohort. <button class="btn ghost" data-go="course">Course &amp; recovery →</button></p></div>
+    <div class="card"><span class="tag dx">Next</span><h4>Is it BPD, or something else?</h4><p>Mood episodes in BPD usually last hours, rarely more than a few days; sustained episodes point to bipolar disorder. [[Kaess2025,Paris2015]] Abandonment fears, an unstable self, unstable relationships and impulsiveness separate BPD from complex PTSD. [[Cloitre2014]] <button class="btn ghost" data-go="differential">BPD or something else? →</button></p></div>
+  </div>
+  <p class="crisis"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123). [[SAMHSA988,Samaritans116123]]</span></p>
 </section>
