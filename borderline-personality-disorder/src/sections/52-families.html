@@ -1,0 +1,118 @@
+<!-- ================= 5.2 FAMILIES & CARERS ================= -->
+<style>
+#m-families .persp{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-families .fc-ctrls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-families .fa-check{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
+#m-families .fa-check li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+#m-families .fa-check label{display:flex;gap:10px;align-items:flex-start;font-weight:700;cursor:pointer}
+#m-families .fa-check input{margin-top:4px;accent-color:var(--accent);width:18px;height:18px;flex:none}
+#m-families .fa-check .tip{font-size:14.5px;color:var(--ink);border-left:3px solid var(--accent);padding-left:10px}
+#m-families .fa-check .tip[hidden]{display:none}
+#m-families .say{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;margin:0;padding:0;list-style:none}
+#m-families .say li{font-size:14.5px;padding:6px 10px;border-radius:8px;background:var(--panel-2)}
+#m-families .say li.no{background:var(--storm-soft)}
+#m-families .say li.yes{background:var(--accent-soft)}
+#m-families .say li b{font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;display:block;color:var(--muted)}
+#m-families .card>.ev,#m-families .card>.tag{align-self:flex-start}
+#m-families .tbl table{min-width:640px}
+#m-families #faFcSum{font-size:14.5px}
+</style>
+<section class="mod" id="m-families" data-mod="families" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Course &amp; living</p><h2>Families &amp; carers</h2>
+    <p class="lede">The same moment, three replies. Watch how an invalidating reply, a kind but dismissive one and a validating one change the emotion wave and the bond between two people. Then see what family programmes have shown, and how carers can look after themselves.</p></div>
+
+  <div class="persp" role="group" aria-label="Whose perspective">
+    <span class="kicker">Perspective</span>
+    <button class="btn" data-fap="parent" aria-pressed="true">A parent and a young adult</button>
+    <button class="btn" data-fap="partner" aria-pressed="false">Two partners</button>
+  </div>
+  <div class="stepper" id="faSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="faSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Two people talk. A person living with BPD says something painful and a family member replies in one of three ways. Speech bubbles show each reply, the line between them thins and breaks or grows thicker, thermometers show each person's emotional intensity, and a chart plots three emotion waves: the invalidating reply escalates, the dismissive reply plateaus, and the validating reply brings the wave down."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="faPlay">Play</button><label class="stage-cap tl" for="faT">Conversation <input type="range" id="faT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="faRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> An illustrative conversation, not a recording or a measured result. The wave heights are drawn to show a pattern, and no reply guarantees an outcome. Nobody here is to blame: the transactional model describes how both people's responses shape each other. [[Fruzzetti2005,Crowell2009]]</p>
+    </div>
+    <aside class="note" id="faNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What validation is, and what it is not</h3>
+  <div class="prose">
+    <p>Validation means communicating that another person's feelings make sense from where they stand. It does not mean agreeing with everything, approving of a behaviour or giving up your own limits. DBT family skills training aims to build a <i>mutually</i> validating environment, with skills for every family member, not just the person with the diagnosis. [[Hoffman1999]] In a co-produced study, both people with BPD and carers described helpful language as "connecting, validating and accepting". [[vanSchie2024]]</p>
+    <p>The crisis principles in the NICE guideline describe the same moves for clinicians: stay calm, try to understand the crisis from the person's point of view, ask open questions, use validating statements, avoid minimising the stated reasons, and do not offer solutions before the problem is clear. [[NICE2009]]</p>
+  </div>
+  <div class="split2">
+    <div class="card"><span class="tag storm">Often heard as invalidating</span>
+      <ul class="say">
+        <li class="no"><b>Dismisses</b>"You're overreacting."</li>
+        <li class="no"><b>Minimises</b>"It's not a big deal."</li>
+        <li class="no"><b>Jumps to fixing</b>"Just do X and it'll be fine."</li>
+        <li class="no"><b>Labels the person</b>"You're being dramatic again."</li>
+      </ul>
+      <p class="stage-cap">Illustrative phrases. Minimising the stated reasons and offering solutions before the problem is clear are what NICE advises against. [[NICE2009]]</p></div>
+    <div class="card"><span class="tag accent">Often heard as validating</span>
+      <ul class="say">
+        <li class="yes"><b>Listens</b>"Tell me what happened."</li>
+        <li class="yes"><b>Reflects</b>"That sounds really lonely."</li>
+        <li class="yes"><b>Makes sense of it</b>"Given the week you've had, it makes sense you're upset."</li>
+        <li class="yes"><b>Asks before fixing</b>"Do you want ideas, or just to talk?"</li>
+      </ul>
+      <p class="stage-cap">Illustrative phrases built on the same principles: understand first, use validating statements, then problem-solve. [[NICE2009,Hoffman1999]]</p></div>
+  </div>
+
+  <h3 class="sub">Family Connections: what the studies found</h3>
+  <div class="prose"><p>Family Connections is a 12-week manualised programme for relatives, led by trained family members. It is based on DBT and DBT for families, and covers information about BPD, coping skills, family skills and building a support network. [[Hoffman2005]] Pick a study to see which outcomes moved.</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="fc-ctrls" role="group" aria-label="Choose a study">
+        <span class="kicker">Study</span>
+        <button class="btn" data-fas="h05" aria-pressed="true">Hoffman 2005</button>
+        <button class="btn" data-fas="f17" aria-pressed="false">Flynn 2017</button>
+        <button class="btn" data-fas="g24" aria-pressed="false">Guillén 2024 (RCT)</button>
+        <button class="btn" data-fas="l25" aria-pressed="false">Lanfredi 2025</button>
+      </div>
+      <div class="scroll"><svg id="faFc" viewBox="0 0 620 290" style="min-width:520px" role="img" aria-label="Before and after bars for four carer outcomes, burden, grief, depression and mastery, in the chosen Family Connections study. An arrow and a label give the direction of change and its significance."></svg></div>
+      <p class="stage-cap"><b>Bar lengths show direction, not size.</b> The study abstracts report which outcomes changed and how significant the change was, not comparable scores, so every "before" bar is drawn the same length. Lower burden, grief and depression, and higher mastery, are improvements.</p>
+    </div>
+    <aside class="note" id="faFcNote" aria-live="polite"></aside>
+  </div>
+  <div class="prose" id="faFcSum"><p>Taken together: Family Connections has reduced burden and grief in uncontrolled and controlled studies, but in the one randomised trial against an active comparison of similar length it was not statistically superior on burden. Promising, not yet proven superior. [[Hoffman2005,Flynn2017,Guillen2024]] <span class="ev early">Early evidence</span></p></div>
+
+  <h3 class="sub">Other family and carer programmes</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Programme</th><th>What it is</th><th>What was found</th></tr></thead>
+    <tbody>
+      <tr><th>Family Connections</th><td>12 weeks, DBT-based, led by trained family members. [[Hoffman2005]]</td><td>Burden, grief, depression and mastery improved in controlled and uncontrolled studies; not superior to active TAU on burden in the RCT (121 relatives). Hopelessness was mostly minimal or mild at the start (mean 4.61) and did not change. [[Flynn2017,Guillen2024,Joyce2024]]</td></tr>
+      <tr><th>Group psychoeducation for carers</th><td>10 weeks, groups of 6–8 carers, compared with a waitlist. [[Grenyer2019]]</td><td>Better relationship adjustment with the relative, more family empowerment and less expressed emotion; held at 12 months. [[Grenyer2019]]</td></tr>
+      <tr><th>Making Sense of BPD (Orygen)</th><td>Two online modules, with or without three in-person multi-family sessions, for carers of 15–25-year-olds. [[Betts2023]]</td><td>The in-person sessions added no benefit on negative caregiving experiences; knowledge improved in both arms. [[Betts2023]]</td></tr>
+      <tr><th>DBT family skills training</th><td>Skills for every family member, aiming at a mutually validating environment. [[Hoffman1999]]</td><td>Described as an approach; no outcome figures in our sources.</td></tr>
+      <tr><th>Psychoeducational family approach</th><td>Gunderson and colleagues' early model for families. [[Gunderson1997]]</td><td>Preliminary suggestions of effectiveness only. <span class="ev early">Early evidence</span> [[Gunderson1997]]</td></tr>
+      <tr><th>Three-session psychoeducation</th><td>The comparison arm in the Irish Family Connections study. [[Flynn2017]]</td><td>"Of limited benefit". [[Flynn2017]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">A 2007 review noted that programmes for families of people with personality disorders lag well behind those for other mental disorders. [[Hoffman2007CPR]]</p>
+
+  <h3 class="sub">Carer wellbeing: a checklist for you</h3>
+  <div class="prose"><p>Tick what is already in place. Nothing is scored: each item opens a short note about why it matters.</p></div>
+  <ul class="fa-check" id="faCheck">
+    <li><label><input type="checkbox" data-fac="sleep">I am getting enough sleep and looking after my own health</label><p class="tip" hidden>Carers in one survey of 287 reported symptoms consistent with mood, anxiety and posttraumatic stress disorders. Your own health is part of the picture, not a luxury. [[Bailey2014]]</p></li>
+    <li><label><input type="checkbox" data-fac="support">I have people I can talk to: a carer group, a peer or a friend</label><p class="tip" hidden>NICE asks services to tell families about local carer support groups. Carers in interviews valued support from carer peer workers with lived experience. [[NICE2009,Barr2020]]</p></li>
+    <li><label><input type="checkbox" data-fac="therapy">I have help of my own, such as a skills course or therapy</label><p class="tip" hidden>A 10-week carer group improved empowerment and lowered expressed emotion for at least 12 months, and Family Connections lowered burden and grief in several studies. [[Grenyer2019,Flynn2017]]</p></li>
+    <li><label><input type="checkbox" data-fac="limits">I know my limits and can say them calmly</label><p class="tip" hidden>Family skills programmes teach everyone's emotion regulation and interpersonal skills, so limits can be held without blame. Validating a feeling and holding a limit can happen in the same sentence. [[Hoffman1999,Hoffman2005]]</p></li>
+    <li><label><input type="checkbox" data-fac="info">My information comes from accurate, hopeful sources</label><p class="tip" hidden>In one small study, families who knew more about BPD reported more burden and hostility, and the authors questioned the accuracy of the information they had received. Good information matters more than lots of it. [[Hoffman2003]] <span class="ev early">Early evidence</span></p></li>
+  </ul>
+  <p class="stage-cap" id="faCheckOut" aria-live="polite"></p>
+
+  <h3 class="sub">For families and carers</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Common</span><h4>What families commonly feel</h4><p>In a review of 465 carers, burden was about half a standard deviation higher than for carers of people with other serious mental illnesses, with grief, low empowerment, depression and anxiety. [[Bailey2013]] Carers described grieving for the change in their lives. [[Bailey2014]] Carers of young people with BPD features reported adversity similar to or greater than carers of young people with eating disorders, cancer or psychosis. [[Seigerman2020]] These are common reactions, not failures.</p></div>
+    <div class="card"><span class="tag storm">Language</span><h4>What not to say</h4><p>Every participant in a co-produced study had met stigmatising language, and carers felt frustrated when they felt blamed or their needs went unacknowledged. [[vanSchie2024]] High criticism (82.9%) and emotional overinvolvement (69.6%) were common among 280 carers, and overinvolvement went with more burden. [[Bailey2015]] Avoid labels for the person; describe the behaviour and the feeling.</p></div>
+    <div class="card"><span class="tag accent">Skills</span><h4>Setting limits kindly</h4><p>A limit is about what <i>you</i> will do, said calmly and ahead of time where possible: "I want to hear this. I can't talk while we're shouting, so I'll step out for ten minutes and come back." Family skills training covers everyone's emotion regulation and interpersonal skills, so limits sit alongside validation, not instead of it. [[Hoffman1999]] The transactional model blames neither the person with BPD nor the parents. [[Fruzzetti2005]] <span class="ev hyp">Hypothesis</span></p></div>
+    <div class="card"><span class="tag brand">Children</span><h4>Siblings and children</h4><p>Reviews link BPD in mothers with less sensitive, more intrusive or hostile parenting and with emotional and behavioural difficulties in children; the authors call for parenting support, and prospective studies are still needed. [[Eyden2016,Petfield2015,Steele2019]] <span class="ev early">Early evidence</span> A 25-week Mother–Infant DBT group improved mothers' depression, anxiety and BPD symptoms. [[SvedWilliams2021]] Brothers and sisters are relatives too: Family Connections is open to family members, not only parents. [[Hoffman2005]] More in <a href="#living" data-go="living">Living with BPD</a>.</p></div>
+    <div class="card"><span class="tag warn">Urgent help</span><h4>When and how to seek urgent help</h4><p>If someone is in immediate danger, contact emergency services. A crisis plan agreed in advance with the care team lists warning signs, what helps and who to call. [[NICE2009]] Even when a person has not consented to family involvement, families and carers can still give information to staff after self-harm. [[NICE2022SelfHarm]] See <a href="#crisis" data-go="crisis">Suicide &amp; self-harm safety</a>.</p>
+      <p class="crisis" role="note"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></p></div>
+    <div class="card"><span class="tag brand">Support</span><h4>Where support comes from</h4><p>Kinds of support, without endorsing any organisation: family-led skills programmes such as Family Connections, run by trained family members [[Hoffman2005]]; local carer support groups, which NICE asks services to tell families about [[NICE2009]]; and carer peer workers with lived experience [[Barr2020]]. Ask the care team what exists locally. NICE asks clinicians to check whether the person wants family involved and to make sure involvement never reduces the person's access to services. [[NICE2009]]</p></div>
+  </div>
+  <p class="callout">Recovery is common. Over 16 years in the McLean study, 78–99% of people with BPD reached remission, depending on how long it had to last; recovery that includes steady work or study took longer (40–60%). These are population figures, not a forecast for one person. See <a href="#course" data-go="course">Course &amp; recovery</a>. [[Zanarini2012]]</p>
+</section>
