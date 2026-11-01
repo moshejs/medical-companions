@@ -15,6 +15,7 @@ Animated, cited study and patient-education guides, one disease each, on one sit
 | [EDS Companion](ehlers-danlos-syndromes/README.md) (Ehlers-Danlos syndromes) | `/ehlers-danlos-syndromes/` | English |
 | [TB Companion](tuberculosis/README.md) (tuberculosis) | `/tuberculosis/` | English |
 | [BPD Companion](borderline-personality-disorder/README.md) (borderline personality disorder) | `/borderline-personality-disorder/` | English |
+| [ADHD Companion](adhd/README.md) (attention deficit hyperactivity disorder) | `/adhd/` | English |
 
 The hub at `/` links to each one and carries the shared method and disclaimer. Every companion links back to it, and its structured data names the site (`isPartOf`).
 
