@@ -82,9 +82,9 @@ inits.history=()=>{
   function draw(t){const N=vb(svg,'720 420','400 640'),yr=fy(t);let s='';
     const L=N?{nx:200,ny:44,nw:24,sh:[16,200,384,280],g:[16,384,380],ax:[24,376],ay:520}:{nx:360,ny:44,nw:46,sh:[20,128,330,232],g:[372,700,170],ax:[30,690],ay:340};
     /* name morph */
-    let ni=0;HI_NAMES.forEach((n,i)=>{if(yr>=n[0]-.5)ni=i});
+    let ni=0;HI_NAMES.forEach((n,i)=>{if(yr>=n[0]-.6)ni=i});
     s+=T(L.nx,18,'t-xs t-mid','WHAT IT WAS CALLED','fill:var(--brand)');
-    HI_NAMES.forEach((n,i)=>{const nextY=(HI_NAMES[i+1]||[3000])[0];const op=i===ni?Math.min(ramp(yr,n[0]-.5,n[0]+1.5)||1,1)*(1-ramp(yr,nextY-1.5,nextY-.5)):0;
+    HI_NAMES.forEach((n,i)=>{const nextY=(HI_NAMES[i+1]||[3000])[0];const op=(i?ramp(yr,n[0]-1,n[0]-.2):1)*(1-ramp(yr,nextY-1,nextY-.2));
       if(op<=.01)return;const dy=(1-op)*8;const lines=wrap(n[1],L.nw);
       lines.forEach((l,j)=>{s+=T(L.nx,L.ny+dy+j*24-(lines.length-1)*8,'t-big t-mid',l,`font-size:${N?19:22}px;opacity:${f1(op)}`)});
       s+=T(L.nx,L.ny+dy+lines.length*24-(lines.length-1)*8+(N?2:0),'t-sm t-mid',`${n[0]} · ${n[2]}`,`opacity:${f1(op)}`)});

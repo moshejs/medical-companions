@@ -4,19 +4,19 @@ const GE_STEPS=[
   txt:`In this illustrative family, a boy is diagnosed at 8; his father recognises himself and is diagnosed at 38; a brother is diagnosed later; a grandfather had the traits but was never assessed. Clustering like this is typical. In 894 children with ADHD and 1,135 siblings, the siblings had a ninefold higher risk than siblings of control children. In an adoption study, 18% of the biological parents of children with ADHD had ADHD, against 6% of adoptive parents of adopted children with ADHD and 3% of parents of controls. Of 84 children of referred adults with childhood-onset ADHD, 57% met criteria themselves. [[Faraone2019,Sprich2000,Biederman1995]]`,
   pt:`ADHD often runs in families. A parent may only recognise their own ADHD when their child is diagnosed.`,
   hook:`Adoption design: ADHD in 18% of biological parents vs 6% of adoptive parents (vs 3% of control parents) points to genes, not upbringing. [[Sprich2000]]`},
- {from:.2,at:.3,k:'Step 2 · twins',t:'Identical and non-identical twins',
+ {from:.2,at:.37,k:'Step 2 · twins',t:'Identical and non-identical twins',
   txt:`Identical twins share all their genes, non-identical twins about half, and both share a home. If identical pairs are much more alike, genes explain much of the difference between people. In a Swedish register of 1.66 million people, the co-twin of an identical twin with ADHD had a hazard ratio of 70.45; of a non-identical twin, 8.44, about the same as a full sibling (8.27). Across 37 twin studies, mean heritability is 74%; the Swedish twin register gives 0.88 for diagnosed ADHD and 0.72 in adults. Self-rated adult studies give 30–40%, mostly because of rater effects. <span class="ev est">Established</span> [[Chen2017JCPP,Faraone2019,Larsson2014]]`,
   pt:`When one identical twin has ADHD, the other very often does too. That tells us genes matter a lot.`,
   hook:`Twin heritability of ADHD ≈ 74% (37 studies). Low adult estimates (30–40%) come mostly from self-report. [[Faraone2019]]`},
- {from:.4,at:.5,k:'Step 3 · genome-wide studies',t:'Many small effects',
+ {from:.4,at:.57,k:'Step 3 · genome-wide studies',t:'Many small effects',
   txt:`Before 2019 no single variant passed genome-wide significance: samples were too small. With 20,183 people with ADHD and 35,191 controls, the first 12 loci appeared, each risk allele raising the odds by a factor of only 1.077 to 1.198. With 38,691 cases and 186,843 controls, 27 loci and 76 candidate genes, enriched for expression in early brain development. About 7,300 common variants account for 90% of the SNP heritability. Each tick in the panel is one tiny push; together they make a polygenic score. [[Faraone2019,Demontis2019,Demontis2023,Demontis2026]]`,
   pt:`There is no single ADHD gene. Thousands of tiny genetic differences each add a very small amount of risk.`,
   hook:`GWAS: 12 loci (2019, 20,183 cases) → 27 loci (2023, 38,691 cases). Index-SNP odds ratios 1.08–1.20. [[Demontis2019,Demontis2023]]`},
- {from:.6,at:.7,k:'Step 4 · polygenic scores',t:'Why a score cannot diagnose',
+ {from:.6,at:.77,k:'Step 4 · polygenic scores',t:'Why a score cannot diagnose',
   txt:`Adding up the tiny effects gives a polygenic score. People with ADHD score higher on average (OR 1.56 per standard deviation in iPSYCH), but the score explained at most 5.5% of variance there, and a meta-analysis of 12 effect sizes (N=40,088) found r ≈ 0.20, or 3.6–4.0% of variance. The two curves overlap almost entirely: most people with a high score do not have ADHD, and many people with ADHD have an average score. The same score also tracks anxiety and depression. Adding a polygenic score to an adult rating scale raised variance explained from 61.11% to 61.69%. [[Demontis2019,Li2021PGS,Faraone2021,Hoberg2024]]`,
   pt:`A gene score can show a small tilt in risk across a big group. It cannot tell whether one person has ADHD.`,
   hook:`Polygenic scores explain about 4–5.5% of variance in ADHD: a research tool, not a diagnostic test. [[Li2021PGS,Demontis2019,Thapar2013]]`},
- {from:.8,at:.9,k:'Step 5 · rare variants',t:'Rare variants and CNVs: big effects, small share',
+ {from:.8,at:.97,k:'Step 5 · rare variants',t:'Rare variants and CNVs: big effects, small share',
   txt:`Rare variants act on top of the common ones. Large rare copy-number variants (CNVs, over 500 kb) were about twice as common in children with ADHD (rate 0.156 vs 0.075), and higher still with intellectual disability. Duplications at 15q13.3 (CHRNA7), found in 0.6%, carried OR 2.22. In exomes of 8,895 people with ADHD, rare protein-truncating variants in constrained genes carried OR 1.35, and three genes (MAP1A, ANO8, ANK2) had odds ratios of 5.55–15.13. Yet rare-variant burden explains about 2.5% of liability, and rare and common effects add together. [[Williams2010Lancet,Williams2012AJP,Demontis2026]]`,
   pt:`A few rare genetic changes raise the chance of ADHD a lot, but they are found in only a small number of people.`,
   hook:`Effect ladder: common SNP OR ≈ 1.1 · 15q13.3 duplication 2.22 · MAP1A/ANO8/ANK2 5.55–15.13. Large effect ≠ large share of cases. [[Demontis2019,Williams2012AJP,Demontis2026]]`}
@@ -34,7 +34,7 @@ inits.genes=()=>{
     const G={father:.82,mother:.5,pro:.9,sis:.42,bro:.76,aunt:.55,uncle:.38,PGF:.7,PGM:.45,MGF:.4,MGM:.5};
     P.forEach(([id,x,y,sx,a,lab])=>{s+=ped(x,y,sx,a,{proband:id==='pro'});
       if(lab)s+=`<text x="${id==='pro'?x+8:x}" y="${y+25}" class="t-xs t-mid" style="fill:${a>=1?'var(--dz)':'var(--warn)'}">${lab}</text>`;
-      if(pgs>0){const w=34*G[id]*pgs;s+=`<rect x="${x-17}" y="${y+(lab?30:17)}" width="34" height="4" rx="2" style="fill:var(--panel-2)"/><rect x="${x-17}" y="${y+(lab?30:17)}" width="${f1(w)}" height="4" rx="2" style="fill:var(--dz)"/>`}});
+      if(pgs>0){const w=34*G[id]*pgs;s+=`<rect x="${x-17}" y="${y+30}" width="34" height="4" rx="2" style="fill:var(--panel-2)"/><rect x="${x-17}" y="${y+30}" width="${f1(w)}" height="4" rx="2" style="fill:var(--dz)"/>`}});
     if(pgs>0)s+=`<text x="2" y="272" class="t-xs">bars: each person's polygenic score (illustrative)</text>`;
     return s+'</g>'}
   /* ---- right-hand panels; B = {x,y,w,h} ---- */
@@ -101,7 +101,7 @@ inits.genes=()=>{
     const xa=B.x+4,xb=B.x+B.w-8,X=v=>lerp(xa,xb,Math.log(v)/Math.log(20));
     [1,2,5,10,20].forEach(v=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${B.y+26}" y2="${B.y+228}" class="grid"/><text x="${f1(X(v))}" y="${B.y+242}" class="t-xs t-mid">${v}</text>`});
     const R=[ ['common','Common SNP (each index allele) · thousands',1.077,1.198,null],['rare','Rare truncating variants, constrained genes',1.26,1.45,1.35],['rare','15q13.3 duplication (CHRNA7) · 0.6%',1.5,3.6,2.22],['rare','MAP1A · ANO8 · ANK2 (single genes)',5.55,15.13,null] ];
-    R.forEach(([g,l,lo,hi,pt],i)=>{const y=B.y+48+i*50,q=ease(ramp(p,i*.15,.3+i*.15)),on=g===gv,op=on?1:.35,c=g==='common'?'var(--dz)':'var(--warn)';
+    R.forEach(([g,l,lo,hi,pt],i)=>{const y=B.y+48+i*50,q=ease(ramp(p,i*.15,.3+i*.15)),on=g===gv,op=on?1:.55,c=g==='common'?'var(--dz)':'var(--warn)';
       s+=`<g style="opacity:${op}"><text x="${xa}" y="${y-6}" class="t-xs" style="fill:var(--ink)">${l}</text>`;
       if(q>0){s+=`<line x1="${f1(X(1))}" x2="${f1(lerp(X(1),X(hi),q))}" y1="${y+8}" y2="${y+8}" style="stroke:${c};stroke-width:2;opacity:.35"/><rect x="${f1(X(lo))}" y="${y+2}" width="${f1(Math.max(3,(X(hi)-X(lo))*q))}" height="12" rx="6" style="fill:${c}"/>`;
         if(pt)s+=`<circle cx="${f1(X(pt))}" cy="${y+8}" r="5" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.6"/>`;
@@ -134,7 +134,7 @@ inits.genes=()=>{
   const stop=playWire(rg,$('#gePlay'),draw,22000,'Replay','genes');
   setSt=stepWire($('#geSteps'),GE_STEPS,rg,draw,stop);
   $$('[data-gv]').forEach(b=>b.addEventListener('click',()=>{gv=b.dataset.gv;$$('[data-gv]').forEach(x=>x.setAttribute('aria-pressed',x===b));
-    const t=+rg.value;if(gv==='rare'&&t<.8){stop();rg.value=.9}else if(gv==='common'&&t<.4){stop();rg.value=.5}draw(+rg.value)}));
+    const t=+rg.value;if(gv==='rare'&&t<.8){stop();rg.value=.97}else if(gv==='common'&&t<.4){stop();rg.value=.57}draw(+rg.value)}));
   draw(+rg.value);
 
   /* ---- family-risk comparator ---- */
@@ -151,7 +151,7 @@ inits.genes=()=>{
   };
   let rel='sib',shown=null,stopA=null;
   const nOf=k=>k==='par'?{a:9,b:57}:{a:Math.round(100*(1-Math.pow(1-P0,REL[k].hr))),b:0};
-  function drawI(fr){const N=vb(isv,'720 300','400 560'),R=REL[rel],cur=fr||nOf(rel);let s='';
+  function drawI(fr){const N=vb(isv,'720 300','400 640'),R=REL[rel],cur=fr||nOf(rel);let s='';
     const cell=N?34:26,ox=N?30:24,oy=N?44:36;
     s+=`<text x="${ox-8}" y="${oy-16}" class="t-sm" style="fill:var(--dz)">${N?'100 PEOPLE WITH THIS RELATIVE':'OUT OF 100 PEOPLE WITH THIS RELATIVE'}</text>`;
     for(let i=0;i<100;i++){const x=ox+(i%10)*cell,y=oy+Math.floor(i/10)*cell,c=i<cur.a?'var(--dz)':i<cur.b?'var(--da)':'var(--line)';s+=person(x,y,cell*.8,c)}
@@ -159,7 +159,7 @@ inits.genes=()=>{
     const ly=oy+10*cell+12;
     s+=`<text x="${ox-8}" y="${ly+8}" class="t-big" style="fill:var(--dz)">${cnt}</text><text x="${ox+(rel==='par'?42:30)}" y="${ly+8}" class="t-xs" style="fill:var(--ink)">${rel==='par'?'published range, offspring studies':'modelled from the hazard ratio'}</text>`;
     /* ladder */
-    const L=N?{x0:40,x1:370,y0:ly+46}:{x0:330,x1:690,y0:60};
+    const L=N?{x0:40,x1:370,y0:ly+64}:{x0:330,x1:690,y0:60};
     const X=v=>lerp(L.x0,L.x1,Math.log(v)/Math.log(100));
     s+=`<text x="${L.x0-10}" y="${L.y0-24}" class="t-sm">HAZARD RATIO, LOG SCALE</text>`;
     [1,2,5,10,20,50,100].forEach(v=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${L.y0-10}" y2="${L.y0+(N?150:208)}" class="grid"/><text x="${f1(X(v))}" y="${L.y0+(N?164:222)}" class="t-xs t-mid">${v}</text>`});

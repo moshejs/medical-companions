@@ -53,7 +53,7 @@ inits.women=()=>{
         if(on&&(k===last||big)){const lx=clamp(x,L.x0+40,L.x1-50),ly=y+(N?36:26)+(k===last&&!big?0:0);const row=kind==='rec'&&(who==='girl'||N)?(N?26:24):0;
           lab.forEach((l,j)=>{s+=T(lx,ly+row+j*11,'t-xs t-mid',l,`fill:${k===last?'var(--ink)':'var(--muted)'};${big?'font-weight:700':''}`)})}})});
     /* the gap brackets: Danish peaks 8 vs 17, Swedish records 19.6 vs 23.5 */
-    const br=(a1,a2,txt,o,side)=>{if(o<=0)return '';const y=(L.lane.boy+L.lane.girl)/2+(N?0:2);return `<g style="opacity:${f1(o)}"><path d="M${f1(X(a1))} ${f1(L.lane.boy+(N?56:46))}L${f1(X(a1))} ${f1(y)}L${f1(X(a2))} ${f1(y)}L${f1(X(a2))} ${f1(L.lane.girl-8)}" style="fill:none;stroke:var(--muted);stroke-width:1.4;stroke-dasharray:4 3" marker-end="url(#wmArr)"/>`+(side?T(X(a2)+8,y+4,'t-xs',txt,'fill:var(--ink);font-weight:700'):T((X(a1)+X(a2))/2,y-6,'t-xs t-mid',txt,'fill:var(--ink);font-weight:700'))+'</g>'};
+    const br=(a1,a2,txt,o,side)=>{if(o<=0)return '';const y=(L.lane.boy+L.lane.girl)/2+(N?0:2);return `<g style="opacity:${f1(o)}"><path d="M${f1(X(a1))} ${f1(L.lane.boy+(N?56:46))}L${f1(X(a1))} ${f1(y)}L${f1(X(a2))} ${f1(y)}L${f1(X(a2))} ${f1(L.lane.girl-8)}" style="fill:none;stroke:var(--muted);stroke-width:1.4;stroke-dasharray:4 3" marker-end="url(#wmArr)"/>`+(side?T(X(a2)+8,y+16,'t-xs',txt,'fill:var(--ink);font-weight:700'):T((X(a1)+X(a2))/2,y-6,'t-xs t-mid',txt,'fill:var(--ink);font-weight:700'))+'</g>'};
     s+=br(8,17,'9 years',ramp(age,17,18.5)*(1-ramp(age,22,23)))+br(19.6,23.5,'≈ 4 years later',ramp(age,23.5,25),1);
     /* the two people at the cursor */
     const sz=a=>lerp(N?36:40,N?62:70,clamp((a-5)/16));

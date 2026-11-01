@@ -55,13 +55,13 @@ inits.outcomes=()=>{
       if(a<=25.05)d1+=(d1?'L':'M')+f1(X(a))+' '+f1(SY(v));if(a>=25)d2+=(d2?'L':'M')+f1(X(a))+' '+f1(SY(v))}
     s+=rem+(d1?`<path d="${d1}" style="fill:none;stroke:var(--brand);stroke-width:2.4;stroke-linejoin:round"/>`:'')+(d2?`<path d="${d2}" style="fill:none;stroke:var(--brand);stroke-width:2;stroke-dasharray:4 3;opacity:.7"/>`:'');
     const fr=(()=>{for(let a=10;a<age;a+=.1)if(sym(a)<6)return a+.6;return null})();if(fr!=null)s+=`<text x="${f1(X(fr))}" y="${C.y1-6}" class="t-xs t-mid" style="fill:var(--good)">remission</text>`;
-    if(ph===3||ph===4){const mx=N?x0-24:X(29.4),my=N?C.y1+30:C.y0+4,W=N?x1-x0+24:x1-X(29.4),parts=[ [9.1,'var(--good)','recovery'],[15.6,'var(--da)','partial'],[63.8,'var(--brand)','fluctuating'],[10.8,'var(--dz)','persistent'] ];let cx=mx;
+    if(ph===3||ph===4){const mx=N?x0-24:X(29.4),my=N?C.y1+30:C.y0+4,W=N?x1-x0+24:x1-X(29.4),parts=[ [9.1,'var(--good)','recover'],[15.6,'var(--da)','partial'],[63.8,'var(--brand)','fluctuate'],[10.8,'var(--dz)','persist'] ];let cx=mx;
       if(!N)s+=`<rect x="${f1(mx-6)}" y="${my-14}" width="${f1(W+8)}" height="72" rx="6" style="fill:var(--panel);stroke:var(--line)"/>`;
       s+=`<text x="${f1(mx)}" y="${my-2}" class="t-xs" style="fill:var(--ink);font-weight:700">MTA course mix (N=558)</text>`;
       parts.forEach(([v,c,l],k)=>{const w=W*v/99.3;s+=`<rect x="${f1(cx)}" y="${my+4}" width="${f1(w-1)}" height="12" style="fill:${c}"/>`;cx+=w;
         const lx=mx+(k%2)*W/2,ly=my+32+Math.floor(k/2)*15;s+=`<rect x="${f1(lx)}" y="${ly-8}" width="8" height="8" style="fill:${c}"/><text x="${f1(lx+12)}" y="${ly}" class="t-xs" style="fill:var(--ink)">${l} ${v}%</text>`})}
     /* ---- life-course ribbon ---- */
-    if(N){const y0=C.y1+(ph>=3?96:34);s+=`<text x="10" y="${y0}" class="t-sm" style="fill:var(--brand)">LIFE-COURSE MARKERS · GROUP RATIOS</text>`;
+    if(N){const y0=C.y1+(ph>=3?104:34);s+=`<text x="10" y="${y0}" class="t-sm" style="fill:var(--brand)">LIFE-COURSE MARKERS · GROUP RATIOS</text>`;
       RIB.forEach(([a,l,r],i)=>{const y=y0+20+i*(ph>=3?27:31),on=age>=a;
         s+=`<circle cx="22" cy="${y-4}" r="6" style="fill:${on?'var(--brand)':'var(--panel-2)'};stroke:var(--brand);stroke-width:1.2"/><text x="36" y="${y}" class="t-xs" style="fill:${on?'var(--ink)':'var(--muted)'}">age ${a} · ${l}</text><text x="384" y="${y}" class="t-xs t-end" style="fill:${on?'var(--brand)':'var(--line)'};font-weight:700">${on?r:''}</text>`})}
     else{const ry=416;s+=`<text x="${x0-30}" y="${ry-58}" class="t-sm" style="fill:var(--brand)">LIFE-COURSE MARKERS · PEOPLE WITH ADHD VS WITHOUT (GROUP RATIOS)</text>`;
