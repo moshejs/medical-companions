@@ -27,11 +27,11 @@ inits.outcomes=()=>{
   const sh=a=>1-Math.pow(1-ramp(a,6,25),1.7);
   const band=a=>{const s=sh(a);return{full:1-.85*s,part:.5*s,rem:.35*s}};
   const sym=a=>clamp(lerp(12,7.5,ramp(a,8,25))+3.3*Math.sin(2*Math.PI*(a-12.6)/4.4)*ramp(a,11,14)*(1-.35*ramp(a,26,40)),0,18);
-  const RIB=[ [8,'injuries','OR 1.53'],[13,'substance use','more at every age'],[15,'parent at 12–16','IRR 3.62 ♀'],[17,'no high-school exit','OR 3.7'],[18,'driving crashes','RR 1.23'],[20,'convictions','RR 3.3'],[22,'recurrent depression','OR 1.35'],[25,'unemployment','OR 2.0'],[30,'income','−17%'],[36,'mortality','MRR 2.07'] ];
-  function draw(t){const N=vb(svg,'720 470','400 790'),age=lerp(OC_A0,OC_A1,t),ph=phaseOf(OC_STEPS,t);let s='';
+  const RIB=[ [8,'injuries','OR 1.53'],[13,'substance use','↑ (MTA)'],[15,'teen parent','IRR 3.62'],[17,'no school exit','OR 3.7'],[18,'crashes','RR 1.23'],[20,'convictions','RR 3.3'],[22,'depression','OR 1.35'],[25,'unemployment','OR 2.0'],[30,'income','−17%'],[36,'mortality','MRR 2.07'] ];
+  function draw(t){const N=vb(svg,'720 480','400 800'),age=lerp(OC_A0,OC_A1,t),ph=phaseOf(OC_STEPS,t);let s='';
     const x0=N?40:52,x1=N?384:704,X=a=>lerp(x0,x1,(a-OC_A0)/(OC_A1-OC_A0));
     /* ---- persistence bands ---- */
-    const P={y0:N?44:40,y1:N?220:180};const V=v=>lerp(P.y1,P.y0,v);
+    const P={y0:N?44:44,y1:N?220:184};const V=v=>lerp(P.y1,P.y0,v);
     s+=`<text x="${x0-30}" y="${P.y0-14}" class="t-sm" style="fill:var(--brand)">${N?'CHILDREN DIAGNOSED: STATUS BY AGE':'OF 100 CHILDREN DIAGNOSED WITH ADHD: STATUS BY AGE'}</text>`;
     [0,.5,1].forEach(v=>s+=`<line x1="${x0}" x2="${x1}" y1="${f1(V(v))}" y2="${f1(V(v))}" class="${v?'grid':'axis'}"/><text x="${x0-6}" y="${f1(V(v)+3)}" class="t-xs t-end">${v*100}%</text>`);
     const ages=[];for(let a=6;a<=age+1e-6;a+=.25)ages.push(a);ages.push(age);
@@ -42,11 +42,11 @@ inits.outcomes=()=>{
       s+=area(b=>b.full+b.part,b=>b.full,'var(--da)',on('part')?.75:.3);
       s+=area(b=>b.full,b=>0,'var(--brand)',.8);
       s+=`<path d="${top(b=>b.full+b.part)}" style="fill:none;stroke:var(--panel);stroke-width:1"/>`;
-      if(age>25)s+=`<line x1="${f1(X(25))}" x2="${f1(X(25))}" y1="${P.y0}" y2="${P.y1}" style="stroke:var(--ink);stroke-width:1;stroke-dasharray:3 3"/><text x="${f1(X(25)+4)}" y="${P.y0+10}" class="t-xs" style="fill:var(--ink)">${N?'25: last data':'age 25: last published point · held flat after'}</text>`;
+      if(age>25)s+=`<line x1="${f1(X(25))}" x2="${f1(X(25))}" y1="${P.y0}" y2="${P.y1}" style="stroke:var(--ink);stroke-width:1;stroke-dasharray:3 3"/><text x="${f1(X(25)+4)}" y="${P.y0+24}" class="t-xs" style="fill:var(--ink)">${N?'25: last data':'age 25: last published point · held flat after'}</text>`;
       const b=band(Math.min(age,40));
       if(age>=12){const lx=X(Math.min(age,25))-4;[ ['full syndrome',b.full/2,'var(--on-brand)'],['partial remission',b.full+b.part/2,'var(--ink)'],['remission',b.full+b.part+b.rem/2,'var(--ink)'] ].forEach(([l,v,c])=>{s+=`<text x="${f1(lx)}" y="${f1(V(v)+3)}" class="t-xs t-end" style="fill:${c};font-weight:700">${l}</text>`})}}
     /* ---- one person's course ---- */
-    const C={y0:N?260:212,y1:N?380:296};const SY=v=>lerp(C.y1,C.y0,v/16);
+    const C={y0:N?262:234,y1:N?380:316};const SY=v=>lerp(C.y1,C.y0,v/16);
     s+=`<text x="${x0-30}" y="${C.y0-10}" class="t-sm" style="fill:var(--brand)">${N?'ONE PERSON (ILLUSTRATIVE)':'ONE PERSON\'S SYMPTOM COUNT (ILLUSTRATIVE, MTA-LIKE COURSE)'}</text>`;
     s+=`<line x1="${x0}" x2="${x1}" y1="${f1(SY(6))}" y2="${f1(SY(6))}" style="stroke:var(--dz);stroke-width:1.2;stroke-dasharray:5 4"/><text x="${x1}" y="${f1(SY(6)-4)}" class="t-xs t-end" style="fill:var(--dz)">threshold</text>`;
     s+=`<line x1="${x0}" x2="${x1}" y1="${C.y1}" y2="${C.y1}" class="axis"/><text x="${x0-6}" y="${f1(SY(0)+3)}" class="t-xs t-end">0</text><text x="${x0-6}" y="${f1(SY(16)+3)}" class="t-xs t-end">16</text>`;
@@ -54,21 +54,22 @@ inits.outcomes=()=>{
       if(v<6)rem+=`<rect x="${f1(X(a))}" y="${C.y0}" width="${f1(X(a+.1)-X(a)+.3)}" height="${C.y1-C.y0}" style="fill:var(--good);opacity:.16"/>`;
       if(a<=25.05)d1+=(d1?'L':'M')+f1(X(a))+' '+f1(SY(v));if(a>=25)d2+=(d2?'L':'M')+f1(X(a))+' '+f1(SY(v))}
     s+=rem+(d1?`<path d="${d1}" style="fill:none;stroke:var(--brand);stroke-width:2.4;stroke-linejoin:round"/>`:'')+(d2?`<path d="${d2}" style="fill:none;stroke:var(--brand);stroke-width:2;stroke-dasharray:4 3;opacity:.7"/>`:'');
-    if(age>=14)s+=`<text x="${f1(X(16.6))}" y="${C.y1-6}" class="t-xs t-mid" style="fill:var(--good)">remission</text>`;
-    if(ph===3||ph===4){const mx=N?x0:X(30),my=N?C.y1+26:C.y0+2,W=N?x1-x0:x1-X(30),parts=[ [9.1,'var(--good)','recover'],[15.6,'var(--da)','partial'],[63.8,'var(--brand)','fluctuate'],[10.8,'var(--dz)','persist'] ];let cx=mx;
-      if(!N)s+=`<rect x="${f1(mx-6)}" y="${my-14}" width="${f1(W+8)}" height="64" rx="6" style="fill:var(--panel);opacity:.92"/>`;
-      s+=`<text x="${f1(mx)}" y="${my-2}" class="t-xs" style="fill:var(--ink)">MTA course mix (N=558)</text>`;
-      parts.forEach(([v,c,l])=>{const w=W*v/99.3;s+=`<rect x="${f1(cx)}" y="${my+4}" width="${f1(w-1)}" height="14" style="fill:${c}"/>`;if(w>34)s+=`<text x="${f1(cx+w/2)}" y="${my+32}" class="t-xs t-mid">${l} ${v}</text>`;else s+=`<text x="${f1(cx+w/2)}" y="${my+44}" class="t-xs t-mid">${l} ${v}</text>`;cx+=w})}
+    const fr=(()=>{for(let a=10;a<age;a+=.1)if(sym(a)<6)return a+.6;return null})();if(fr!=null)s+=`<text x="${f1(X(fr))}" y="${C.y1-6}" class="t-xs t-mid" style="fill:var(--good)">remission</text>`;
+    if(ph===3||ph===4){const mx=N?x0-24:X(29.4),my=N?C.y1+30:C.y0+4,W=N?x1-x0+24:x1-X(29.4),parts=[ [9.1,'var(--good)','recovery'],[15.6,'var(--da)','partial'],[63.8,'var(--brand)','fluctuating'],[10.8,'var(--dz)','persistent'] ];let cx=mx;
+      if(!N)s+=`<rect x="${f1(mx-6)}" y="${my-14}" width="${f1(W+8)}" height="72" rx="6" style="fill:var(--panel);stroke:var(--line)"/>`;
+      s+=`<text x="${f1(mx)}" y="${my-2}" class="t-xs" style="fill:var(--ink);font-weight:700">MTA course mix (N=558)</text>`;
+      parts.forEach(([v,c,l],k)=>{const w=W*v/99.3;s+=`<rect x="${f1(cx)}" y="${my+4}" width="${f1(w-1)}" height="12" style="fill:${c}"/>`;cx+=w;
+        const lx=mx+(k%2)*W/2,ly=my+32+Math.floor(k/2)*15;s+=`<rect x="${f1(lx)}" y="${ly-8}" width="8" height="8" style="fill:${c}"/><text x="${f1(lx+12)}" y="${ly}" class="t-xs" style="fill:var(--ink)">${l} ${v}%</text>`})}
     /* ---- life-course ribbon ---- */
-    if(N){const y0=C.y1+(ph>=3?84:30);s+=`<text x="10" y="${y0}" class="t-sm" style="fill:var(--brand)">LIFE-COURSE MARKERS · GROUP RATIOS</text>`;
+    if(N){const y0=C.y1+(ph>=3?96:34);s+=`<text x="10" y="${y0}" class="t-sm" style="fill:var(--brand)">LIFE-COURSE MARKERS · GROUP RATIOS</text>`;
       RIB.forEach(([a,l,r],i)=>{const y=y0+20+i*(ph>=3?27:31),on=age>=a;
         s+=`<circle cx="22" cy="${y-4}" r="6" style="fill:${on?'var(--brand)':'var(--panel-2)'};stroke:var(--brand);stroke-width:1.2"/><text x="36" y="${y}" class="t-xs" style="fill:${on?'var(--ink)':'var(--muted)'}">age ${a} · ${l}</text><text x="384" y="${y}" class="t-xs t-end" style="fill:${on?'var(--brand)':'var(--line)'};font-weight:700">${on?r:''}</text>`})}
-    else{const ry=388;s+=`<text x="${x0-30}" y="${ry-58}" class="t-sm" style="fill:var(--brand)">LIFE-COURSE MARKERS · PEOPLE WITH ADHD VS WITHOUT (GROUP RATIOS)</text>`;
+    else{const ry=416;s+=`<text x="${x0-30}" y="${ry-58}" class="t-sm" style="fill:var(--brand)">LIFE-COURSE MARKERS · PEOPLE WITH ADHD VS WITHOUT (GROUP RATIOS)</text>`;
       s+=`<line x1="${x0}" x2="${f1(X(age))}" y1="${ry}" y2="${ry}" style="stroke:var(--brand);stroke-width:6;stroke-linecap:round;opacity:.5"/><line x1="${f1(X(age))}" x2="${x1}" y1="${ry}" y2="${ry}" style="stroke:var(--line);stroke-width:6;stroke-linecap:round"/>`;
-      const TY=[-34,-14,24,44];
+      const TY=[-32,-14,24,42];
       RIB.forEach(([a,l,r],i)=>{const on=age>=a,x=X(a),ty=ry+TY[i%4];
         s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${ry}" y2="${f1(ty+(ty<ry?4:-12))}" style="stroke:${on?'var(--brand)':'var(--line)'};stroke-width:1"/><circle cx="${f1(x)}" cy="${ry}" r="6" style="fill:${on?'var(--brand)':'var(--panel)'};stroke:var(--brand);stroke-width:1.4"/>`;
-        if(on)s+=`<text x="${f1(x+4)}" y="${ty}" class="t-xs" style="fill:var(--ink)">${l} <tspan style="fill:var(--brand);font-weight:700">${r}</tspan></text>`})}
+        if(on)s+=`<text x="${f1(a>=33?x-4:x+4)}" y="${ty}" class="t-xs${a>=33?' t-end':''}" style="fill:var(--ink)">${l} <tspan style="fill:var(--brand);font-weight:700">${r}</tspan></text>`})}
     /* age axis & playhead */
     [6,10,15,20,25,30,35,40].forEach(a=>s+=`<text x="${f1(X(a))}" y="${P.y1+13}" class="t-xs t-mid">${a}</text>`);
     s+=`<line x1="${f1(X(age))}" x2="${f1(X(age))}" y1="${P.y0}" y2="${C.y1}" style="stroke:var(--ink);stroke-width:1.2;opacity:.4"/><text x="${f1(clamp(X(age),x0+20,x1-20))}" y="${P.y0-2}" class="t-xs t-mid" style="fill:var(--ink);font-weight:700">age ${Math.floor(age)}</text>`;
@@ -117,11 +118,11 @@ inits.outcomes=()=>{
     hook:`Starting ADHD medication: lower 2-year mortality (HR 0.79), driven by unnatural causes. [[Li2024JAMA]]`}
   };
   let mk='crash',stopM=null,prevG=null;
-  function drawM(fr){const N=vb(ms,'720 300','400 470'),M=MED[mk],G=M.G;let s='';
+  function drawM(fr){const M=MED[mk],G=M.G,N=vb(ms,`720 ${70+G.length*60}`,`400 ${80+G.length*84}`);let s='';
     const lx=N?16:16,bx0=N?16:230,bx1=N?330:620,X=v=>lerp(bx0,bx1,v/M.max);
     s+=`<text x="${lx}" y="22" class="t-sm" style="fill:var(--brand)">${M.t.toUpperCase()}</text><text x="${N?384:704}" y="22" class="t-xs t-end">${N?'':M.unit}</text>`;
     if(N)s+=`<text x="${lx}" y="40" class="t-xs">${M.unit}</text>`;
-    const rowH=N?Math.min(96,380/G.length):Math.min(62,240/G.length),y0=N?62:48;
+    const rowH=N?84:60,y0=N?62:48;
     G.forEach(([l,off,on,lab],i)=>{const y=y0+i*rowH,onV=fr?fr[i]:on;
       if(N)s+=`<text x="${lx}" y="${y+10}" class="t-xs" style="fill:var(--ink);font-weight:700">${l}</text>`;else s+=`<text x="${lx}" y="${y+22}" class="t-xs" style="fill:var(--ink);font-weight:700">${l}</text>`;
       const by=N?y+16:y+4,bh=N?16:18;
