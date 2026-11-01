@@ -24,9 +24,9 @@
 <meta name="twitter:title" content="ADHD Companion: ADHD in children and adults, explained">
 <meta name="twitter:description" content="ADHD in children and adults, explained with animations you can scrub: brain networks and dopamine, genes, DSM-5-TR criteria and rating scales as teaching tools, how methylphenidate, amphetamines, atomoxetine, viloxazine and guanfacine work, parent training, CBT, the MTA study, outcomes and nursing care. Cited throughout. Educational only, not medical advice.">
 <meta name="twitter:image" content="%SITE%/adhd/share-card.png">
-<meta name="theme-color" content="#ac401b" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1a110d" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='18' fill='%23ac401b'/%3E%3Cpath d='M7 21q4-9 8 0t8 0t8 0' fill='none' stroke='%23ffe3d4' stroke-width='3.4' stroke-linecap='round'/%3E%3Ccircle cx='31' cy='21' r='4.2' fill='%2356cbc9'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#c2185b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a0f14" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='18' fill='%23c2185b'/%3E%3Cpath d='M7 21q4-9 8 0t8 0t8 0' fill='none' stroke='%23ffe4ee' stroke-width='3.4' stroke-linecap='round'/%3E%3Ccircle cx='31' cy='21' r='4.2' fill='%2356cbc9'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@500;700&family=Fira+Code:wght@500;600&display=swap">
@@ -35,18 +35,18 @@
 <!--/META-->
 <!--HREFLANG-->
 <style>
-/* ADHD Companion. Coral-orange carries the interface; deep teal is the accent and the colour of medicines.
-   Part colours: the condition rose-red (--dz), diagnosis indigo (--dx), medication deep teal (--rx),
-   behavioural and psychological care leaf green (--beh); Parts 5 and 6 use the coral brand.
+/* ADHD Companion. Raspberry pink carries the interface; deep teal is the accent and the colour of medicines.
+   Part colours: the condition coral-orange (--dz), diagnosis indigo (--dx), medication deep teal (--rx),
+   behavioural and psychological care leaf green (--beh); Parts 5 and 6 use the raspberry brand.
    Drawing kit: dopamine amber (--da), noradrenaline periwinkle (--ne), transporters DAT/NET teal (--dat),
    a medicine molecule coral (--drug), receptors violet (--rcpt); brain regions: prefrontal cortex (--pfc),
    striatum (--str), parietal cortex (--par), cerebellum (--cb), default-mode hubs (--dmn).
    The FAQPage JSON-LD above is a placeholder ({}) until the epidemiology builder writes the questions. */
 :root{
-  --bg:#fbf4f0; --panel:#fffbf8; --panel-2:#f5e9e2; --ink:#2a1913; --muted:#6b554c; --line:#ecd9cf;
-  --brand:#ac401b; --brand-soft:#fde2d4; --on-brand:#ffffff;
+  --bg:#fcf4f6; --panel:#fffafb; --panel-2:#f6e8ed; --ink:#2a1520; --muted:#6b5160; --line:#eed8e0;
+  --brand:#c2185b; --brand-soft:#fbdce8; --on-brand:#ffffff;
   --accent:#0c5a61; --accent-soft:#d2ebea;
-  --dz:#b3264a; --dz-soft:#f9dbe2;
+  --dz:#ac401b; --dz-soft:#fde2d4;
   --dx:#4b47a8; --dx-soft:#e3e2f6;
   --rx:#0c5a61; --rx-soft:#d2ebea;
   --beh:#3a7430; --beh-soft:#e0efd6;
@@ -62,10 +62,10 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#1a110d; --panel:#231813; --panel-2:#2f211a; --ink:#f7ebe4; --muted:#c4aca0; --line:#432f26;
-    --brand:#ff9466; --brand-soft:#4d2414; --on-brand:#1a0c06;
+    --bg:#1a0f14; --panel:#23161c; --panel-2:#2f1e26; --ink:#f8eaf0; --muted:#c7a9b7; --line:#45293a;
+    --brand:#ff80ab; --brand-soft:#4a1428; --on-brand:#1a0610;
     --accent:#56cbc9; --accent-soft:#0f3536;
-    --dz:#ff7c98; --dz-soft:#47172a;
+    --dz:#ff9466; --dz-soft:#4d2414;
     --dx:#aba7ff; --dx-soft:#25234d;
     --rx:#56cbc9; --rx-soft:#0f3536;
     --beh:#8fd16f; --beh-soft:#1d3514;
@@ -78,10 +78,10 @@
   }
 }
 :root[data-theme="dark"]{
-  --bg:#1a110d; --panel:#231813; --panel-2:#2f211a; --ink:#f7ebe4; --muted:#c4aca0; --line:#432f26;
-  --brand:#ff9466; --brand-soft:#4d2414; --on-brand:#1a0c06;
+  --bg:#1a0f14; --panel:#23161c; --panel-2:#2f1e26; --ink:#f8eaf0; --muted:#c7a9b7; --line:#45293a;
+  --brand:#ff80ab; --brand-soft:#4a1428; --on-brand:#1a0610;
   --accent:#56cbc9; --accent-soft:#0f3536;
-  --dz:#ff7c98; --dz-soft:#47172a;
+  --dz:#ff9466; --dz-soft:#4d2414;
   --dx:#aba7ff; --dx-soft:#25234d;
   --rx:#56cbc9; --rx-soft:#0f3536;
   --beh:#8fd16f; --beh-soft:#1d3514;
@@ -203,8 +203,8 @@ p{margin:0}
 .btn.primary{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
 .c-dz .btn.primary{background:var(--dz);border-color:var(--dz);color:#fff}
 .c-rx .btn.primary{background:var(--rx);border-color:var(--rx);color:#fff}
-:root[data-theme="dark"] .c-dz .btn.primary,:root[data-theme="dark"] .c-rx .btn.primary{color:#1a110d}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .c-dz .btn.primary,:root:not([data-theme="light"]) .c-rx .btn.primary{color:#1a110d}}
+:root[data-theme="dark"] .c-dz .btn.primary,:root[data-theme="dark"] .c-rx .btn.primary{color:#1a0f14}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .c-dz .btn.primary,:root:not([data-theme="light"]) .c-rx .btn.primary{color:#1a0f14}}
 .tl{flex:1;min-width:170px;display:flex;gap:10px;align-items:center}
 input[type=range]{accent-color:var(--brand);width:100%}
 .c-dz input[type=range]{accent-color:var(--dz)} .c-rx input[type=range]{accent-color:var(--rx)}
@@ -324,8 +324,8 @@ main:focus{outline:none}
 .c-dx input[type=range]{accent-color:var(--dx)}
 .c-dx .stepper button[aria-pressed="true"]{border-color:var(--dx);background:var(--dx-soft)}
 .c-dx .callout{border-left-color:var(--dx)}
-:root[data-theme="dark"] .c-dx .btn.primary{color:#1a110d}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .c-dx .btn.primary{color:#1a110d}}
+:root[data-theme="dark"] .c-dx .btn.primary{color:#1a0f14}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .c-dx .btn.primary{color:#1a0f14}}
 .tag.beh{background:var(--beh-soft);color:var(--beh)}
 .g-beh .navbtn[aria-current="page"]{background:var(--beh-soft);color:var(--beh)}
 .g-beh .navbtn[aria-current="page"] .n{color:var(--beh)}
@@ -334,8 +334,8 @@ main:focus{outline:none}
 .c-beh input[type=range]{accent-color:var(--beh)}
 .c-beh .stepper button[aria-pressed="true"]{border-color:var(--beh);background:var(--beh-soft)}
 .c-beh .callout{border-left-color:var(--beh)}
-:root[data-theme="dark"] .c-beh .btn.primary{color:#1a110d}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .c-beh .btn.primary{color:#1a110d}}
+:root[data-theme="dark"] .c-beh .btn.primary{color:#1a0f14}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .c-beh .btn.primary{color:#1a0f14}}
 .tag.da{background:var(--da-soft);color:var(--warn)} .tag.ne{background:var(--ne-soft);color:var(--ne)}
 .btn.ghost{background:none}
 .verdict{border-radius:12px;padding:12px 14px;font-weight:700}
