@@ -1,5 +1,126 @@
-<!-- ================= 5.3 NURSING CARE (stub, replaced by its builder) ================= -->
+<!-- ================= 5.3 NURSING CARE ================= -->
+<style>
+#m-nursing .nuchk{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px}
+#m-nursing .nuchk li{display:flex;gap:8px;align-items:flex-start}
+#m-nursing .nuchk li i{flex:0 0 18px;height:18px;border-radius:5px;border:1.5px solid var(--line);font-style:normal;font-size:12px;line-height:15px;text-align:center;color:var(--on-brand)}
+#m-nursing .nuchk li.on i{background:var(--brand);border-color:var(--brand)}
+#m-nursing .nuchk li.on i::after{content:"✓"}
+#m-nursing .nuchk li:not(.on){color:var(--muted)}
+#m-nursing .nuvisits{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+#m-nursing .nuvisit{border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:6px;min-width:0;background:var(--field)}
+#m-nursing .nuvisit b{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+#m-nursing .nuvisit label{display:flex;flex-direction:column;gap:3px;font-size:12.5px;min-width:0}
+#m-nursing .nuvisit label.ck{flex-direction:row;align-items:center;gap:6px}
+#m-nursing .nuvisit input[type=number],#m-nursing .nuvisit select,#m-nursing .nusel select{font:inherit;font-size:14px;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);width:100%;min-width:0;box-sizing:border-box}
+#m-nursing .nuvisit input[type=checkbox],#m-nursing .nucard input[type=checkbox]{width:17px;height:17px;margin:2px 0 0;flex:0 0 17px;accent-color:var(--brand)}
+#m-nursing .nusel{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end}
+#m-nursing .nusel label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700}
+#m-nursing .nucard{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:6px 18px}
+#m-nursing .nucard label{display:flex;gap:8px;align-items:flex-start;font-size:14px}
+#m-nursing .card>.ev,#m-nursing .card>.tag{align-self:flex-start}
+#m-nursing .verdict{font-weight:400}
+#m-nursing .tbl table{min-width:0}
+@media (max-width:600px){#m-nursing .tbl th,#m-nursing .tbl td{padding:9px 10px;font-size:14px}#m-nursing .tbl tbody th{width:38%}}
+</style>
 <section class="mod" id="m-nursing" data-mod="nursing" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living with ADHD</p><h2>Nursing care</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Nurses carry much of ADHD care: the baseline checks before medication, the measurements at every visit, the teaching that keeps medicines safe, and the hand-over to adult services. Follow one person along the care pathway, then plot readings and see which ones the guideline says should prompt a review.</p></div>
+  <div class="stepper" id="nuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A care pathway with six stations, referral, baseline, titration, maintenance, annual review and transition, with a figure walking along it. Below, a monitoring calendar from month 0 to month 24 fills in as time passes: height every 6 months, weight every 3 months in children aged 10 and under, pulse and blood pressure at every dose change and every 6 months, and annual reviews. At transition the calendar gives way to bars showing how many young people reach adult services."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">Play</button><label class="stage-cap tl" for="nuT">Care pathway <input type="range" id="nuT" min="0" max="1" step="0.001" value="0.24"></label></div>
+      <div class="readout" id="nuRead"></div>
+      <p class="stage-cap">Monitoring intervals as published in NICE NG87 (recommendations 1.7.4–1.10.3); the pathway is schematic and local services differ. [[NICE2018F]]</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Before the first dose: when does NICE ask for a cardiology opinion?</h3>
+  <p class="prose">NICE says an ECG "is not needed before starting stimulants, atomoxetine or guanfacine" unless a cardiac risk feature is present or another medicine raises cardiac risk. Tick what the history and examination found. [[NICE2018F]]</p>
+  <div class="stage">
+    <div class="nucard" id="nuCardio"></div>
+    <div class="verdict yes" id="nuCardioOut" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Plot the readings: which ones prompt a review?</h3>
+  <p class="callout"><b>A teaching tool.</b> Enter one person's readings at six visits, or load an example. The chart flags the thresholds NICE NG87 publishes for review. Blood pressure centiles have to be read from a chart for age, sex and height, so here you choose the band. Real decisions belong to the prescriber. [[NICE2018F]]</p>
+  <div class="ctrls" role="group" aria-label="Example readings"><span class="kicker">Examples</span>
+    <button class="btn" data-nuex="ok" aria-pressed="true">Small expected rise</button>
+    <button class="btn" data-nuex="hr" aria-pressed="false">Fast pulse twice</button>
+    <button class="btn" data-nuex="bp" aria-pressed="false">BP above 95th centile twice</button>
+    <button class="btn" data-nuex="wt" aria-pressed="false">Weight falling</button>
+  </div>
+  <div class="nusel"><label for="nuWho">Person
+    <select id="nuWho"><option value="c">Child or young person</option><option value="a">Adult</option></select></label></div>
+  <div class="nuvisits" id="nuVisits"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuChart" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="Resting heart rate at six visits against a 120 beats per minute line, systolic blood pressure centile bands, and weight, with flagged readings circled."></svg></div>
+      <p class="stage-cap">Readings are the learner's own or invented examples. Thresholds quoted from NICE NG87 1.7.6, 1.8.6 and 1.8.11. [[NICE2018F]]</p>
+    </div>
+    <aside class="note" id="nuChartNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The monitoring schedule at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>What, for whom</th><th>How often (NICE NG87, as published)</th></tr></thead>
+    <tbody>
+      <tr><th>Height<br><small style="font-weight:400;color:var(--muted)">Children and young people</small></th><td>Every 6 months, plotted on a growth chart with weight for the treating clinician</td></tr>
+      <tr><th>Weight<br><small style="font-weight:400;color:var(--muted)">Children 10 and under</small></th><td>Every 3 months</td></tr>
+      <tr><th>Weight<br><small style="font-weight:400;color:var(--muted)">Over 10 and young people</small></th><td>At 3 and 6 months after starting, then every 6 months, or more often if there are concerns</td></tr>
+      <tr><th>Weight<br><small style="font-weight:400;color:var(--muted)">Adults</small></th><td>Every 6 months</td></tr>
+      <tr><th>Pulse and blood pressure<br><small style="font-weight:400;color:var(--muted)">Everyone on medication</small></th><td>Against the normal range for age before and after each dose change, and every 6 months</td></tr>
+      <tr><th>Blood tests, ECG<br><small style="font-weight:400;color:var(--muted)">Everyone</small></th><td>Not routinely, only if clinically indicated</td></tr>
+      <tr><th>Tics, seizures, sleep, behaviour, sexual dysfunction (atomoxetine)<br><small style="font-weight:400;color:var(--muted)">As relevant to the medicine</small></th><td>Monitored throughout; sleep with a diary if needed</td></tr>
+      <tr><th>Medication review<br><small style="font-weight:400;color:var(--muted)">Everyone on medication</small></th><td>At least once a year, by a clinician with ADHD expertise</td></tr>
+    </tbody></table></div>
+  <p class="stage-cap">Source: NICE NG87 1.8.5, 1.8.9, 1.8.10, 1.8.13–1.8.18 and 1.10.1. [[NICE2018F]]</p>
+
+  <h3 class="sub">Safe handling and teaching</h3>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Controlled drugs</span><h4>Storage and disposal</h4>
+      <p>Stimulants are Schedule II controlled substances in the US. Their boxed warning asks clinicians to teach patients and families about "proper storage" and "proper disposal of any unused drug". Labels advise storing the medicine "in a safe place, preferably locked", and not giving it to anyone else. [[FDA-Concerta,FDA-Vyvanse,FDA-AdderallXR]]</p>
+      <p>Storage temperatures as labelled: Concerta at 25 °C, protected from humidity; Vyvanse and Adderall XR at 20 to 25 °C in a tight, light-resistant container. Prescribers should know the controlled-drug law that governs stimulants. [[FDA-Concerta,FDA-Vyvanse,FDA-AdderallXR,NICE2018F]]</p></div>
+    <div class="card"><span class="tag accent">School</span><h4>Medicines at school</h4>
+      <p>The AAP's school medication policy says the best arrangement is full-time registered nurses giving routine and emergency medicines, with any delegation to unlicensed staff supervised by the nurse under state nurse practice acts. [[AAP2009School]] The AAP and National Association of School Nurses (2024) call for a collaborative model with student and family, safe storage and administration, and protocols to prevent school-specific medication errors. [[Miotto2024]] NICE lists fewer "problems of storing and administering controlled drugs at school" among the reasons to consider once-daily modified-release stimulants. [[NICE2018F]]</p></div>
+    <div class="card"><span class="tag rx">Teaching points</span><h4>How each product is taken, as labelled</h4>
+      <ul>
+        <li>Concerta: once daily in the morning, swallowed whole; "Do not split, crush, or chew". [[FDA-Concerta]]</li>
+        <li>Adderall XR and Focalin XR: may be opened and sprinkled on applesauce, eaten at once without chewing. [[FDA-AdderallXR,FDA-FocalinXR]]</li>
+        <li>Vyvanse: may be opened and mixed with yogurt, water or orange juice and taken at once; "A single dose should not be divided." [[FDA-Vyvanse]]</li>
+        <li>Jornay PM: "only in the evening", between 6:30 and 9:30 p.m.; "Do not take JORNAY PM in the morning." [[FDA-JornayPM]]</li>
+        <li>Strattera: "Take STRATTERA capsules whole; do not open the capsules." [[FDA-Strattera]]</li>
+        <li>Intuniv: "Do not crush, chew, or break tablets"; not with high-fat meals; stopped by tapering no more than 1 mg every 3 to 7 days. [[FDA-Intuniv]]</li>
+      </ul></div>
+    <div class="card"><span class="tag warn">Missed and double doses</span><h4>What the labels say</h4>
+      <p>Strattera: "take the dose as soon as possible, but do not take more than the prescribed total daily amount of STRATTERA in any 24-hour period." Intuniv: after two or more missed doses, "consider titration based on patient tolerability". [[FDA-Strattera,FDA-Intuniv]] US poison centres recorded 124,383 out-of-hospital ADHD medication errors in under-20s from 2000 to 2021, up 299%; 53.9% were a dose taken or given twice. [[DeCoster2023]]</p>
+      <p>NICE suggests picture or written instructions kept with the medicine, alarms or apps, and linking doses to routines such as meals or brushing teeth. [[NICE2018F]]</p></div>
+    <div class="card"><span class="tag dz">What to report</span><h4>Tell the team promptly about</h4>
+      <ul>
+        <li>New sad, hopeless or suicidal thoughts on atomoxetine or viloxazine (boxed warnings). [[FDA-Strattera,FDA-Qelbree]]</li>
+        <li>A sustained or painful erection: immediate medical help. [[FDA-Concerta]]</li>
+        <li>Changes in the fingers or toes: the labels warn of peripheral vasculopathy, including Raynaud's phenomenon. [[FDA-Concerta]]</li>
+        <li>Fainting or dizziness on standing with guanfacine. [[NICE2018F]]</li>
+        <li>New tics, seizures, sleep changes, worse behaviour, poor weight gain. [[NICE2018F]]</li>
+      </ul></div>
+    <div class="card"><span class="tag bad">Interactions</span><h4>MAOIs and more</h4>
+      <p>Concerta, Vyvanse, Adderall XR, Strattera and Qelbree are contraindicated with a monoamine oxidase inhibitor or within 14 days of stopping one, because of hypertensive crisis; the Vyvanse and Adderall XR labels name linezolid and intravenous methylene blue as MAOIs. Qelbree is also contraindicated with sensitive or narrow-range CYP1A2 substrates. Strattera is contraindicated in narrow-angle glaucoma and phaeochromocytoma. [[FDA-Concerta,FDA-Vyvanse,FDA-AdderallXR,FDA-Strattera,FDA-Qelbree]]</p></div>
+    <div class="card"><span class="tag beh">Sleep hygiene</span><h4>A bedtime routine is a treatment</h4>
+      <p>In a trial of 244 children with ADHD, two sessions of sleep hygiene and behavioural strategies cut moderate to severe sleep problems at 3 months from 56% to 30% (number needed to treat 3.9), and also eased ADHD symptoms a little. [[Hiscock2015]] NICE suggests a sleep diary to track changes and adjust medication. [[NICE2018F]] Melatonin brought sleep onset 26.9 minutes earlier in one trial; in the US it is a supplement, and child ingestions rose 530% from 2012 to 2021, so it is stored out of reach. [[VanderHeijden2007,Lelak2022]]</p></div>
+    <div class="card"><span class="tag dx">Misuse &amp; diversion</span><h4>Watch, without suspicion</h4>
+      <p>The AAP advises monitoring adolescents' symptoms and refill requests for misuse or diversion, "including by parents, classmates, or other acquaintances", and notes prescription drug monitoring programmes can help. [[Wolraich2019]] NICE asks clinicians and parents to watch for changes in that risk with age and circumstances. [[NICE2018F]] 16% to 29% of students with prescriptions have been asked to give, sell or trade them. [[Wilens2008]] Side effects and misuse are covered in more depth in <button class="btn ghost" data-go="safety">3.5 Side effects &amp; safety</button></p></div>
+  </div>
+
+  <h3 class="sub">Common misunderstandings</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Belief</th><th>What the sources say</th></tr></thead>
+    <tbody>
+      <tr><th>"Everyone needs an ECG first."</th><td>NICE: not needed unless there are cardiac risk features. Screening 1,470 children found confirmed heart disease in 0.3%. [[NICE2018F,Mahle2009]]</td></tr>
+      <tr><th>"A rating scale can diagnose ADHD."</th><td>NICE: "a diagnosis of ADHD should not be made solely on the basis of rating scale or observational data". Scales track progress. [[NICE2018F]]</td></tr>
+      <tr><th>"Parent training means bad parenting."</th><td>NICE says parent training "does not imply bad parenting". [[NICE2018F]]</td></tr>
+      <tr><th>"Stimulants cause tics."</th><td>In 22 trials, tics were as common on placebo (6.5%) as on stimulants (5.7%). [[Cohen2015Tics]]</td></tr>
+      <tr><th>"Stopping is harmless once things are going well."</th><td>After 2+ years on methylphenidate, 40.4% worsened after withdrawal versus 15.9% who continued, though some did not worsen; hence planned, reviewed trials off medicine. [[Matthijssen2019,NICE2018F]]</td></tr>
+      <tr><th>"ADHD ends at 18."</th><td>NICE asks for reassessment at school-leaving age and transfer by 18 if treatment is still needed; in UK surveillance only 22% attended a first adult appointment. [[NICE2018F,Eke2020]]</td></tr>
+    </tbody></table></div>
 </section>
