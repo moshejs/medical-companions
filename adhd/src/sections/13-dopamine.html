@@ -1,5 +1,96 @@
-<!-- ================= 1.3 DOPAMINE & NORADRENALINE (stub, replaced by its builder) ================= -->
+<!-- ================= 1.3 DOPAMINE & NORADRENALINE ================= -->
+<style>
+#m-dopamine .card>.ev,#m-dopamine .card>.tag{align-self:flex-start}
+#m-dopamine .tbl table{min-width:540px}
+#m-dopamine .efbar{display:inline-block;height:9px;border-radius:3px;background:var(--dz);vertical-align:middle;margin-right:8px}
+#m-dopamine .efbar.wm{background:var(--ne)}
+#m-dopamine td.num{font-family:var(--mono);white-space:nowrap}
+</style>
 <section class="mod" id="m-dopamine" data-mod="dopamine" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · The condition</p><h2>Dopamine &amp; noradrenaline</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Two chemical messengers, the catecholamines, tune the circuits that hold attention and weigh rewards. Follow one signal across a synapse, then see why the prefrontal cortex works best with a "just right" amount, and why a reward later can feel worth less than a reward now.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Transmitter">
+    <span class="kicker">Synapse</span>
+    <button class="btn" data-dant="da" aria-pressed="true">Dopamine · striatum</button>
+    <button class="btn" data-dant="ne" aria-pressed="false">Noradrenaline · prefrontal cortex</button>
+  </div>
+  <div class="stepper" id="daSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="daSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="One synapse, presynaptic terminal above and postsynaptic cell below. An action potential travels down the axon, a vesicle fuses and empties transmitter into the cleft, receptors (D1 or alpha-2A) fill, then transporters (DAT or NET) pull the transmitter back in. A graph beside it plots the level of transmitter in the cleft over time."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="daPlay">Play</button><label class="stage-cap tl" for="daT">Milliseconds (schematic) <input type="range" id="daT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> One release event, not to scale in time or size. Receptor and transporter names follow the cited reviews; how much each matters in ADHD is still debated. [[Arnsten2009CNS,Bymaster2002,DelCampo2011]]</p>
+    </div>
+    <aside class="note" id="daNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The inverted U: "just right" for the prefrontal cortex</h3>
+  <div class="prose"><p>Prefrontal networks hold goals "in mind" by exciting each other, and small changes in noradrenaline or dopamine have large effects on them. Move the level and watch performance and the network's signal and noise. <span class="ev est">Established in animal studies</span> [[Arnsten2009CNS]]</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Situations">
+        <span class="kicker">Try</span>
+        <button class="btn" data-dau="0.12" aria-pressed="false">Tired or bored</button>
+        <button class="btn" data-dau="0.5" aria-pressed="true">Alert and interested</button>
+        <button class="btn" data-dau="0.9" aria-pressed="false">Acute stress</button>
+      </div>
+      <div class="scroll"><svg id="daU" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="An inverted-U curve of prefrontal performance against catecholamine level, with too-little, optimal and too-much zones. A dot moves along the curve with the slider. Beside it, two bars show network firing for the remembered item (signal) and for other items (noise)."></svg></div>
+      <label class="stage-cap tl" for="daL">Catecholamine level in prefrontal cortex <input type="range" id="daL" min="0" max="1" step="0.005" value="0.5"></label>
+      <p class="stage-cap"><b>Schematic shape.</b> The curve and bars are drawn to show the published relationship, not measured values. [[Arnsten2009CNS,Gamo2010]]</p>
+    </div>
+    <aside class="note" id="daUNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Reward now or later</h3>
+  <div class="prose"><p>Delay discounting: how fast a reward loses value as you wait for it. Choose between a small reward now (50 points) and a larger one (100 points) after a delay. Groups with ADHD discount moderately more steeply on average. <span class="ev est">Established</span> [[Jackson2016]]</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Discounting curve">
+        <span class="kicker">Curve</span>
+        <button class="btn" data-dadd="steep" aria-pressed="true">Steeper (ADHD group average)</button>
+        <button class="btn" data-dadd="shallow" aria-pressed="false">Shallower (comparison average)</button>
+      </div>
+      <div class="scroll"><svg id="daDd" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="Two hyperbolic discounting curves show how much a 100-point reward is worth after a delay. A marker at the chosen delay shows whether it is still worth more than 50 points now."></svg></div>
+      <label class="stage-cap tl" for="daDel">Delay to the larger reward (days) <input type="range" id="daDel" min="0" max="60" step="1" value="20"></label>
+      <div class="readout" id="daDdRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The two curves are illustrative hyperbolas, not fitted data. The real group difference is moderate (d = 0.43) and the groups overlap a lot. [[Jackson2016]]</p>
+    </div>
+    <aside class="note">
+      <div class="kicker">Reward timing · meta-analyses</div>
+      <h4>Why "later" can feel like "never"</h4>
+      <p>Across 21 studies (N = 3,913), monetary delay discounting was steeper in ADHD (d = 0.43), with no difference by age, by real versus hypothetical rewards, or by conduct or oppositional problems. A second meta-analysis (37 comparisons) found small-to-medium effects favouring small immediate rewards; with real rewards in simple-choice tasks the odds ratio almost doubled. [[Jackson2016,Marx2021]]</p>
+      <p>In fMRI, the ventral striatum responds less while people with ADHD anticipate a reward (d = 0.48–0.58). <span class="ev hyp">Hypothesis</span> The dopamine transfer deficit theory proposes that dopamine firing moves poorly from the reward itself to the cues that predict it, so delayed or partial rewards work less well. [[Plichta2014,Tripp2008]]</p>
+      <div class="pt"><b>In plain words</b>Many people with ADHD find waiting for a reward harder and prefer a smaller reward now to a bigger one later. [[Jackson2016,Marx2021]]</div>
+      <div class="hook"><b>Exam hook</b>Delay discounting is moderately steeper in ADHD (d = 0.43). [[Jackson2016]]</div>
+    </aside>
+  </div>
+
+  <h3 class="sub">What the evidence says about catecholamines in ADHD</h3>
+  <div class="cards">
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>The dopamine hypothesis and its limits</h4><p>The dopamine deficit theory proposes that low dopamine signalling in frontal-striatal circuits underlies ADHD and explains why stimulants help. [[Swanson2007]] In 53 never-medicated adults, PET showed lower DAT and D2/D3 binding in the left reward pathway. [[Volkow2009]] But other scans found <i>higher</i> striatal DAT, a meta-analysis of 9 studies averaged 14% higher with large heterogeneity (higher in previously medicated people), and 12 months of methylphenidate raised DAT by 24%. Treatment history is a major confounder. [[Krause2000,Spencer2007DAT,FusarPoli2012,Wang2013DAT]]</p></div>
+    <div class="card"><span class="ev est">Established in animal studies</span><h4>Noradrenaline and alpha-2A receptors</h4><p>Noradrenaline's helpful effects act at postsynaptic alpha-2A receptors on prefrontal dendritic spines, strengthening network inputs; moderate dopamine acts at D1 receptors, weakening irrelevant inputs. In monkeys, alpha-2A stimulation inhibits cAMP and closes HCN channels, strengthening working-memory firing. Blocking prefrontal alpha-2A receptors in animals produces hyperactivity, impulsivity and poor working memory. [[Arnsten2009CNS,Wang2007Cell]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Two (or three) pathways</h4><p>The dual-pathway model links poor inhibitory control to the mesocortical dopamine branch (prefrontal cortex) and delay aversion to the mesolimbic branch (nucleus accumbens). [[SonugaBarke2002]] <span class="ev early">Early evidence</span> In 71 children with ADHD, timing, inhibition and delay deficits were independent, and many children had only one. [[SonugaBarke2010]]</p></div>
+    <div class="card"><span class="tag warn">Open question</span><h4>Dopamine, noradrenaline, or neither?</h4><p>Dopamine-deficit models sit alongside prefrontal noradrenaline models, and an effective medicine also acts on serotonin receptors. Del Campo and colleagues judge that the precise mechanisms of treatment "remain to be fully specified". Catecholamine involvement is established; a single-transmitter cause is not. [[Swanson2007,Arnsten2009CNS,GarciaOlivares2026,DelCampo2011]]</p></div>
+    <div class="card"><span class="tag dz">Motivation</span><h4>Dopamine and drive</h4><p>In 45 adults with ADHD and 41 controls, trait motivation was lower in ADHD (11 ± 5 vs 14 ± 3) and tracked D2/D3 availability in the accumbens (r = 0.39) and midbrain (r = 0.41) in ADHD only. Attention ratings also correlated with D2/D3 availability. [[Volkow2011,Volkow2009]]</p></div>
+  </div>
+
+  <h3 class="sub">Executive function: how big are the differences?</h3>
+  <div class="prose"><p>Across 83 studies (3,734 with ADHD, 2,969 without), every executive function task showed a medium effect (0.46–0.69), strongest for response inhibition, vigilance, working memory and planning. The same authors concluded these weaknesses are "neither necessary nor sufficient" to cause all cases of ADHD. [[Willcutt2005]] A review of 34 meta-analyses gives the weighted effect sizes below. [[Pievsky2018]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Domain</th><th>Effect size (SMD)</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><th>Reaction-time variability</th><td class="num"><span class="efbar" style="width:99px"></span>0.66</td><td>Not specific to ADHD; stimulants reduce it (g = −0.74). [[Pievsky2018,Kofler2013]]</td></tr>
+      <tr><th>Intelligence / achievement</th><td class="num"><span class="efbar" style="width:90px"></span>0.60</td><td>[[Pievsky2018]]</td></tr>
+      <tr><th>Vigilance</th><td class="num"><span class="efbar" style="width:84px"></span>0.56</td><td>[[Pievsky2018]]</td></tr>
+      <tr><th>Working memory</th><td class="num"><span class="efbar wm" style="width:81px"></span>0.54</td><td>In children, spatial tasks (0.85–1.06) exceeded verbal (0.43–0.47). [[Pievsky2018,Martinussen2005]]</td></tr>
+      <tr><th>Response inhibition</th><td class="num"><span class="efbar" style="width:78px"></span>0.52</td><td>Stop-signal reaction time is longer in children and adults. [[Pievsky2018,Lijffijt2005]]</td></tr>
+      <tr><th>Set shifting</th><td class="num"><span class="efbar" style="width:53px"></span>0.35</td><td>Smallest domain mean. [[Pievsky2018]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Meta-analyses with drug-company funding reported larger effects. Executive deficits vary greatly from person to person and some people with ADHD show none. [[Pievsky2018,Posner2020,Nigg2005Heterogeneity]]</p>
+
+  <div class="callout prose">
+    <p><b>Exam hooks.</b> DAT clears dopamine in the striatum; in the prefrontal cortex the noradrenaline transporter (NET) clears both noradrenaline and dopamine, so the selective NET blocker atomoxetine raised prefrontal but not striatal dopamine in rats. [[Bymaster2002]] Prefrontal function follows an inverted U. [[Arnsten2009CNS,Gamo2010]] How medicines act on these synapses: <a href="#stimulants" data-go="stimulants">How stimulants work</a> and <a href="#nonstim" data-go="nonstim">Non-stimulant medicines</a>.</p>
+  </div>
 </section>

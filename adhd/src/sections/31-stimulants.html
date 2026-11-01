@@ -1,5 +1,112 @@
-<!-- ================= 3.1 HOW STIMULANTS WORK (stub, replaced by its builder) ================= -->
+<!-- ================= 3.1 HOW STIMULANTS WORK ================= -->
+<style>
+#m-stimulants .card>.ev,#m-stimulants .card>.tag{align-self:flex-start}
+#m-stimulants .fam svg{width:100%;max-width:260px;height:auto;display:block}
+#m-stimulants .fam dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;font-size:14px}
+#m-stimulants .fam dt{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+#m-stimulants .fam dd{margin:0}
+#m-stimulants .fam .btn{align-self:flex-start;margin-top:auto}
+#m-stimulants .ctrls select{max-width:100%}
+#m-stimulants .tbl table{min-width:520px}
+</style>
 <section class="mod" id="m-stimulants" data-mod="stimulants" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Medication</p><h2>How stimulants work</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Two families, one target: the dopamine synapse. Methylphenidate jams the recycling pump; amphetamine slips in through it, empties the stores and makes the pump run backwards. Switch between no medicine, methylphenidate and amphetamine and watch the cleft.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Medicine at the synapse">
+    <span class="kicker">Synapse</span>
+    <button class="btn" data-stm="none" aria-pressed="false">No medicine</button>
+    <button class="btn" data-stm="mph" aria-pressed="true">Methylphenidate</button>
+    <button class="btn" data-stm="amph" aria-pressed="false">Amphetamine</button>
+  </div>
+  <div class="ctrls">
+    <label class="stage-cap" for="stDose">Methylphenidate dose (oral, healthy adults, PET at 120 min)
+      <select id="stDose"><option value="5">5 mg</option><option value="10">10 mg</option><option value="20" selected>20 mg</option><option value="40">40 mg</option><option value="60">60 mg</option></select></label>
+  </div>
+  <div class="stepper" id="stSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="stSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A dopamine synapse with brief pulses of release. With methylphenidate, medicine molecules sit in the dopamine transporters and each pulse lingers longer and higher in the cleft. With amphetamine, molecules enter through the transporters, dopamine leaks out of the vesicles into the terminal, and arrows show the transporters running backwards. A graph plots cleft dopamine over time for the chosen setting, with the other two settings as faint dashed lines."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stPlay">Play</button><label class="stage-cap tl" for="stT">Time (schematic) <input type="range" id="stT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> Pulse shapes and heights are drawn to show the mechanisms, not measured. Transporter occupancy figures are from PET in healthy adults. [[Volkow1998,Sulzer2005]]</p>
+    </div>
+    <aside class="note" id="stNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="callout prose">
+    <p><b>Not a "paradoxical" effect.</b> In 1978, a single dose of dextroamphetamine in 14 typically developing boys reduced motor activity and reaction time and improved test performance, which "casts doubt" on the idea of a special stimulant response in ADHD. In 1980, typically developing boys, boys with hyperactivity and men all showed less motor activity, more vigilance and better learning; the men reported euphoria, the boys felt "tired" or "different". A response to a stimulant therefore cannot confirm or rule out ADHD. <span class="ev est">Established</span> [[Rapoport1978,Rapoport1980]]</p>
+  </div>
+
+  <h3 class="sub">One family, several medicines</h3>
+  <div class="prose"><p>Every US stimulant label says its mode of therapeutic action in ADHD is not known, and every one carries a boxed warning for "abuse, misuse, and addiction". Stimulants are Schedule II controlled substances. [[FDA-RitalinC,FDA-AdderallXR,FDA-Concerta,FDA-Vyvanse,FDA-Strattera,FDA-Intuniv]] Doses and release curves are in <a href="#release" data-go="release">Formulations &amp; the daily curve</a>.</p></div>
+  <div class="cards">
+    <div class="card fam"><svg id="stF1" viewBox="0 0 260 64" role="img" aria-label="A round tablet labelled d and l: methylphenidate is a mix of two mirror-image forms."></svg>
+      <span class="tag rx">Reuptake blocker</span><h4>Methylphenidate</h4>
+      <dl><dt>Examples</dt><dd>Ritalin, Concerta</dd>
+        <dt>Mechanism</dt><dd>Blocks reuptake of noradrenaline and dopamine and increases their release into the extraneuronal space (label). [[FDA-RitalinC,FDA-Concerta]]</dd>
+        <dt>Form</dt><dd>Racemic: d-threo and l-threo enantiomers; d-threo is the more active. Oral bioavailability is low (22% d, 5% l). [[FDA-RitalinC,FDA-RitalinE]]</dd>
+        <dt>Status</dt><dd>Schedule II. [[FDA-Concerta]]</dd></dl>
+      <button class="btn" data-stgo="mph">See it at the synapse</button></div>
+    <div class="card fam"><svg id="stF2" viewBox="0 0 260 64" role="img" aria-label="A tablet labelled d only: dexmethylphenidate is the single active form."></svg>
+      <span class="tag rx">Reuptake blocker</span><h4>Dexmethylphenidate</h4>
+      <dl><dt>Examples</dt><dd>Focalin, Focalin XR; combined with serdexmethylphenidate in Azstarys</dd>
+        <dt>Mechanism</dt><dd>The d-threo enantiomer of methylphenidate alone. [[FDA-RitalinC,FDA-Focalin]]</dd>
+        <dt>Form</dt><dd>Label: people switching from racemic methylphenidate start at half their current total daily dose. [[FDA-Focalin]]</dd>
+        <dt>Status</dt><dd>Stimulants are Schedule II. [[FDA-Concerta,FDA-Strattera,FDA-Intuniv]]</dd></dl>
+      <button class="btn" data-stgo="mph">See it at the synapse</button></div>
+    <div class="card fam"><svg id="stF3" viewBox="0 0 260 64" role="img" aria-label="A capsule with beads and a 3 to 1 ratio of d to l amphetamine."></svg>
+      <span class="tag accent">Releaser + blocker</span><h4>Mixed amphetamine salts</h4>
+      <dl><dt>Examples</dt><dd>Adderall, Adderall XR</dd>
+        <dt>Mechanism</dt><dd>Non-catecholamine sympathomimetic amines: block reuptake of noradrenaline and dopamine and increase their release. [[FDA-AdderallXR]]</dd>
+        <dt>Form</dt><dd>d- and l-amphetamine in a 3:1 ratio. [[FDA-Adderall,FDA-AdderallXR]]</dd>
+        <dt>Status</dt><dd>Schedule II. [[FDA-AdderallXR]]</dd></dl>
+      <button class="btn" data-stgo="amph">See it at the synapse</button></div>
+    <div class="card fam"><svg id="stF4" viewBox="0 0 260 64" role="img" aria-label="A tablet labelled d only: dextroamphetamine."></svg>
+      <span class="tag accent">Releaser + blocker</span><h4>Dextroamphetamine</h4>
+      <dl><dt>Examples</dt><dd>Zenzedi, Dexedrine Spansule</dd>
+        <dt>Mechanism</dt><dd>The d-enantiomer of amphetamine: the same release-plus-blockade actions; lisdexamfetamine is converted into it. [[FDA-AdderallXR,FDA-Vyvanse,Sulzer2005]]</dd>
+        <dt>Form</dt><dd>Zenzedi is labelled for "pediatric patients (ages 3 to 16 years)"; Dexedrine Spansule for 6 to 16. [[FDA-Zenzedi,FDA-Dexedrine]]</dd>
+        <dt>Status</dt><dd>Stimulants are Schedule II. [[FDA-Concerta,FDA-Strattera,FDA-Intuniv]]</dd></dl>
+      <button class="btn" data-stgo="amph">See it at the synapse</button></div>
+    <div class="card fam"><svg id="stF5" viewBox="0 0 260 64" role="img" aria-label="A capsule, an arrow to a red blood cell, and an arrow to d-amphetamine plus l-lysine: lisdexamfetamine is a prodrug."></svg>
+      <span class="tag warn">Prodrug</span><h4>Lisdexamfetamine</h4>
+      <dl><dt>Examples</dt><dd>Vyvanse</dd>
+        <dt>Mechanism</dt><dd>Inactive itself: the parent molecule does not bind dopamine or noradrenaline reuptake sites. Red blood cells split it into dextroamphetamine and l-lysine, even at 33% of normal haematocrit, without CYP450. [[FDA-Vyvanse]]</dd>
+        <dt>Timing</dt><dd>In children 6–12, lisdexamfetamine peaks at about 1 hour and dextroamphetamine at about 3.5 hours. [[FDA-Vyvanse]]</dd>
+        <dt>Status</dt><dd>Schedule II, "a prodrug of amphetamine". [[FDA-Vyvanse]]</dd></dl>
+      <button class="btn" data-stgo="amph">See it at the synapse</button></div>
+  </div>
+
+  <h3 class="sub">Speed matters: by mouth versus snorted or injected</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Route">
+        <span class="kicker">Route</span>
+        <button class="btn" data-strt="oral" aria-pressed="true">Taken by mouth</button>
+        <button class="btn" data-strt="iv" aria-pressed="false">Snorted or injected</button>
+      </div>
+      <div class="scroll"><svg id="stRoute" viewBox="0 0 720 250" style="min-width:560px" role="img" aria-label="Two curves of dopamine transporter blockade in the brain over two hours. Taken by mouth, blockade rises slowly and peaks at about an hour. Snorted or injected, it rises within minutes. A dashed line marks about 60% blockade."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stRtPlay">Play</button><label class="stage-cap tl" for="stRtT">Minutes after the dose <input type="range" id="stRtT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap"><b>Schematic curves</b> built around published anchors: oral methylphenidate peaks in the brain at about 60 minutes; reinforcing effects of intravenous doses appear above about 60% DAT blockade. [[Volkow1998,Swanson2003MPH]]</p>
+    </div>
+    <aside class="note" id="stRtNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Key numbers</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Measure</th><th>Value</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Methylphenidate DAT occupancy, oral, 120 min</th><td>12% (5 mg), 40% (10 mg), 54% (20 mg), 72% (40 mg), 74% (60 mg)</td><td>7 healthy adults, PET [[Volkow1998]]</td></tr>
+      <tr><th>Dose blocking half of DAT (ED50)</th><td>0.25 mg/kg; therapeutic 0.3–0.6 mg/kg likely above 50%</td><td>[[Volkow1998]]</td></tr>
+      <tr><th>Dose blocking half of NET (ED50)</th><td>0.14 mg/kg; 70–80% NET occupancy at 0.35–0.55 mg/kg</td><td>11 healthy adults, PET [[Hannestad2010]]</td></tr>
+      <tr><th>Striatal dopamine rise</th><td>D2 availability fell 20 ± 12% after 0.8 mg/kg oral</td><td>11 healthy adults [[Volkow2001]]</td></tr>
+      <tr><th>Clearance from the striatum</th><td>Methylphenidate about 90 min vs cocaine about 20 min</td><td>PET [[Volkow1995]]</td></tr>
+      <tr><th>Reaction-time variability on stimulants</th><td>Reduced, g = −0.74</td><td>Meta-analysis [[Kofler2013]]</td></tr>
+      <tr><th>Cognition in people without ADHD</th><td>Small effects on inhibition and short-term memory; overall "probably modest"</td><td>48 studies, 1,409 people [[Ilieva2015]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout prose">
+    <p><b>Exam hooks.</b> Methylphenidate is a reuptake blocker (DAT and NET); amphetamine is a releaser plus blocker: a transporter substrate that redistributes dopamine from vesicles via VMAT2 and reverses the transporter. [[Volkow1998,Hannestad2010,Sulzer2005,Sitte2015,Faraone2018Pharm]] Lisdexamfetamine is converted to d-amphetamine and l-lysine by red blood cells, not CYP450. [[FDA-Vyvanse]] Stimulants act similarly with and without ADHD. [[Rapoport1978,Rapoport1980]] See also <a href="#nonstim" data-go="nonstim">Non-stimulant medicines</a> and <a href="#safety" data-go="safety">Side effects, safety &amp; misuse</a>.</p>
+  </div>
 </section>
