@@ -1,0 +1,433 @@
+# A · Epidemiology, history & the classification
+
+Pass date: 2026-10-25. Modules served: what, history.
+
+This pass covers how common the Ehlers-Danlos syndromes (EDS) and hypermobility spectrum disorders (HSD) are: diagnosed prevalence (combined and per type), sex ratio, age at diagnosis, diagnostic delay, the population prevalence of generalised joint hypermobility (GJH), and burden of illness. It also covers the history of the name and the classifications: Tschernogubow 1892, Ehlers 1901, Danlos 1908, Berlin 1986/1988, Villefranche 1997/1998 and the 2017 International Classification, plus the zebra symbol, the HEDGE study and the announced 2026 criteria revision. Genetics of each type (pass B), diagnostic criteria detail (pass D) and comorbidity and outcomes (pass G) are left to those passes.
+
+Access notes:
+- The full texts of the 2017 Am J Med Genet C special issue (Malfait2017, Tinkle2017, Castori2017, Byers2017, Bowen2017, Brady2017, Juul-Kristensen2017) and of the Nat Rev Dis Primers primer (Malfait2020) are paywalled and have no PMC copy. Facts from them come from their PubMed/Europe PMC abstracts only. Per-type prevalences that those papers may also give are taken from open-access sources I could read in full: van Dijk 2024 (Med Genet, PMC11610443), Demirdas 2024 and Byers2017's abstract.
+- Read in full via Europe PMC full text: Demmler2019, Cederlof2016, Clinch2011, Halverson2023, VanDijk2024, Forghani2019, Malek2021, Demirdas2024, Rauterberg2025, Douglas2026, Griggs2025, Park2025.
+- Beighton1973 is a scanned article with no abstract or text layer. Its population (1,083 Tswana Africans, adults and children) is taken from Clinch2011's description of it. I did not download the PDF.
+- GeneReviews chapters (NBK1494, NBK1279, NBK1244) are in PubMed, but the NCBI Bookshelf returned a CAPTCHA page. I did not try to bypass it, and I do not cite them.
+- The announced 2026 criteria revision is not yet in any indexed journal. It comes from two Ehlers-Danlos Society web pages, marked (unverified). The Society writes dates as DD/MM/YYYY. "11/03/2026" can only be 11 March 2026, because 3 November 2026 is after this pass date.
+- MedlinePlus' "at least 1 in 5,000" was not used, because no validation service covers it. The older 1-in-5,000 figure is cited from Demmler2019, Ritelli2020 and Cederlof2016 instead.
+
+Corrections to the brief:
+- The Berlin nosology was agreed at the 7th International Congress of Human Genetics in Berlin in **1986** and published in **1988** [[Beighton1988,Forghani2019]].
+- Malfait2020 counts **14** types, because classical-like EDS type 2 (AEBP1) was described after 2017. The 2017 classification itself has 13 [[Malfait2020,Malfait2017]].
+- Sources give Tschernogubow's (Chernogubov's) report as 1892 [[Forghani2019]] or 1891 [[Rauterberg2025]].
+
+## Findings
+
+### what · How many people have EDS or HSD: the headline numbers
+- In Wales (UK; linked primary care and hospital records, 1 July 1990 to 30 June 2017), 6,021 people had a coded diagnosis of EDS or joint hypermobility syndrome (JHS). That is a diagnosed point prevalence of 194.2 per 100,000 in 2016/2017 (0.19%), described as "1 in 500", or about 10 people in a GP practice of 5,000 [[Demmler2019]].
+- Most of the Welsh cohort carried the JHS label rather than EDS: 5,064 (84%) were coded JHS and 957 (16%) EDS. Under the 2017 classification the authors map these mainly to hEDS or HSD [[Demmler2019,Castori2017]].
+- In the Welsh primary care data, the EDS subtype was coded for only 136 people (19% of those with an EDS code): 114 (16%) as hypermobility type and 22 (3%) as other subtypes [[Demmler2019]].
+- Diagnosed EDS/JHS in Wales rose steadily over the 27 study years [[Demmler2019]].
+- The long-quoted "1 in 5,000" figure for EDS has unclear origins. Demmler 2019 traces it to an unreferenced "reasonable estimate" in a medical textbook [[Demmler2019]]. Reviews and registry papers still repeat it [[Ritelli2020,Cederlof2016]].
+- The EU defines a rare disease as one affecting fewer than 50 per 100,000. The Welsh combined diagnosed prevalence (194 per 100,000) is about four times that threshold, which led the authors to argue that EDS/HSD as a group "are not rare" [[Demmler2019]].
+- Denmark (whole population, national registers 2000–2012, EDS code only): 1,427 people with EDS, a national prevalence of 0.02% (about 20 per 100,000). JHS diagnoses were not included [[KulasSoborg2017,Demmler2019]].
+- Sweden (national patient registry): 1,780 people with an EDS diagnosis and 10,019 with hypermobility syndrome [[Cederlof2016]]. Demmler 2019 extrapolates a combined Swedish JHS-plus-EDS diagnosed prevalence of about 120 per 100,000 from these data [[Demmler2019]].
+- These registry figures count diagnosed cases only. True prevalence depends on case-finding, coding habits and which criteria were in use. For example, 16 of 19 studies in a 2026 GI meta-analysis predated the 2017 criteria [[Demmler2019,Kulin2026]].
+- hEDS is described as "likely the most common hereditary disorder of connective tissue" [[Tinkle2017]] and as the most common EDS subtype [[Forghani2019,Malfait2020]].
+
+### what · Prevalence by type (13 types, 2017)
+- Classical EDS (cEDS): about 1 in 20,000. Autosomal dominant, mostly COL5A1/COL5A2 [[VanDijk2024,Bowen2017]].
+- Vascular EDS (vEDS): 1/50,000 to 1/200,000 [[Byers2017]]. The Dutch national cohort estimates a minimum vEDS prevalence in the Netherlands of about 1.1 per 100,000 (≈200 known people among 17.4 million). The authors think the true figure is higher because the diagnosis is missed [[Demirdas2024]].
+- Kyphoscoliotic EDS (kEDS; PLOD1 or FKBP14): about 1 in 100,000 [[VanDijk2024]].
+- These types are each estimated at fewer than 1 in 1,000,000 [[VanDijk2024]]:
+  - arthrochalasia
+  - dermatosparaxis
+  - classical-like
+  - myopathic
+  - periodontal
+  - musculocontractural
+  - spondylodysplastic
+- Some rare types are known from a handful of people [[VanDijk2024]]:
+  - dermatosparaxis EDS: 15 individuals reported in childhood
+  - myopathic EDS: 25 individuals from 16 families
+  - cardiac-valvular EDS: 7 individuals (age 6–65 years)
+- Recorded prevalence of the rare types is probably an underestimate, for two reasons [[VanDijk2024]]:
+  - wider genetic testing now finds milder cases
+  - recessive types can be more common in populations where consanguinity is more frequent
+- hEDS has no per-type population prevalence from a molecular test, because no causal gene is known. The definite diagnosis of every other type needs a causative variant [[Malfait2017,Malfait2020]].
+- In clinic and registry series, hEDS/HSD dominates the case mix:
+  - Spanish paediatric EDS clinic (n=41, 2017 criteria): 61% hEDS/HSD, 22% cEDS, 7.3% vEDS, 9.7% other subtypes [[FozFelipe2025]]
+  - Welsh primary care records with a subtype code: 114 of 136 (84%) hypermobility type [[Demmler2019]]
+  - Both are referral and coding samples, not population estimates (Early evidence).
+
+### what · The 2017 classification in numbers
+- The International EDS Consortium's 2017 classification recognises 13 subtypes, each with suggestive clinical criteria. For all subtypes except hEDS, the definite diagnosis "relies on molecular confirmation" [[Malfait2017]].
+- In 2017, 12 of the 13 types were monogenic (proven gene causes) and hEDS was the only clinical diagnosis [[VanDijk2024,Malfait2017]].
+- The 2020 Nat Rev Dis Primers primer counts 14 types (13 with a known molecular cause) caused by variants in 20 genes. Most of these genes encode the fibrillar collagens I, III and V, the enzymes that modify or process them, or enzymes that modify glycosaminoglycan chains of proteoglycans [[Malfait2020]].
+- The 2017 classification also proposed a pathogenetic grouping of subtypes whose causative proteins work in the same pathway, for research use [[Malfait2017]].
+- The 2017 framework added "hypermobility spectrum disorders" (HSD). HSD is the label for people with symptomatic joint hypermobility who do not fit any other syndrome, including hEDS [[Castori2017]].
+- No specific medical or genetic therapy exists for any EDS type (as of 2020) [[Malfait2020]].
+
+### what · Sex ratio
+- Wales, EDS/JHS combined: 70% women (4,244 of 6,021) [[Demmler2019]].
+- Denmark, EDS: 73.9% female, 26.1% male; mean age 34.9 (SD 18.6) years [[KulasSoborg2017]].
+- Sweden: 74% female for EDS; 67% female for hypermobility syndrome [[Cederlof2016]].
+- US commercial claims, newly diagnosed EDS (n=4,765): 78% female; mean age 28.8 years [[Oyediran2026]].
+- Swedish Quality Registry for Pain Rehabilitation: women made up more than 90% of EDS/hypermobility-syndrome patients, against about 64% of patients with spinal pain or whiplash [[Molander2020]].
+- Specialist hEDS/HSD cohorts are even more female:
+  - Mayo Clinic Florida (2017 criteria): 90.6% female in hEDS (ratio 9.6:1) and 95.2% in HSD (19.6:1). This is a preprint, not peer reviewed (Early evidence) [[Wilson2026Preprint]].
+  - HEDGE registry participants: 92% female [[Halverson2023]].
+- A large US EHR database (2004–2024) found hEDS/HSD diagnoses in 0.16% of cisgender females and 0.04% of cisgender males (about 4:1) [[Tabernacki2026]].
+- In the same database, prevalence was 2.62% in transgender and gender-diverse people assigned female at birth and 1.00% in those assigned male at birth (OR 18.45 vs cisgender) (Early evidence) [[Tabernacki2026]]. A gender-affirming primary care clinic found hEDS in 2.7% of 2,180 patients [[Stein2025]].
+- hEDS behaves as an autosomal dominant trait, so equal numbers of affected males and females would be expected [[Forghani2019,Wilson2026Preprint]]. The observed female excess is unexplained. Proposed contributors:
+  - sex-hormone effects on pain perception and connective tissue (Hypothesis) [[Forghani2019]]
+  - under-recognition in males (Hypothesis) [[Douglas2026]]
+- vEDS, a molecularly defined type, is not female-predominant: the Dutch national cohort was 50% female [[Demirdas2024]]. Men with vEDS have shorter median survival than women [[Pepin2014]], and in the Dutch cohort major events came more often and earlier in men [[Demirdas2024]].
+
+### what · Age at diagnosis and diagnostic delay
+- Wales [[Demmler2019]]:
+  - Age at first coded EDS/JHS diagnosis peaked at 5–9 years in males and 15–19 years in females.
+  - Women were diagnosed on average 8.5 years later than men (95% CI 7.70–9.22). The gap was 9.6 years in EDS (95% CI 6.85–12.31) and 8.3 years in JHS (95% CI 7.58–9.11).
+  - 72% of males were diagnosed in childhood (<18 years), against 41% of females.
+- Ehlers-Danlos Society Global Registry survey (505 adults with clinically confirmed hEDS, all HEDGE enrollees) [[Halverson2023]]:
+  - mean time to diagnosis: 10.39 years (SD 10.88)
+  - clinicians seen before diagnosis: 15.6 on average; 24% saw 20 or more
+  - diagnosed by: a geneticist in 57%, a rheumatologist in 20%, a primary care physician in 5%
+- The same survey found an average of 10.45 alternative diagnoses per person. Anxiety, depression and migraine were the most common. Functional neurological disorder, multiple sclerosis and fibromyalgia were the diagnoses most often rejected by respondents [[Halverson2023]].
+- In that survey, 16% (82 people) had been told their symptoms were psychosomatic [[Halverson2023]].
+- German EDS service survey (n=99): mean time to diagnosis 22.0 years overall; 23.0 years for hEDS/HSD vs 14.5 years for cEDS/clEDS [[Rauterberg2025]].
+- Earlier work put the delay at 5 or more years [[Halverson2023]]. Published estimates therefore range from about 5 to 23 years, depending on the setting and on whether delay is counted from first symptoms.
+- Dutch vEDS cohort: median age at genetic diagnosis 41.0 years [[Demirdas2024]].
+- vEDS is often diagnosed only after a first major event. In a 220-index-patient series, 25% had a first complication by age 20 and more than 80% by age 40 [[Pepin2000]].
+- A qualitative synthesis of 13 studies grouped the causes of diagnostic delay in hEDS/HSD under four headings [[Anderson2021]]:
+  - disease: nature of symptoms, no confirmatory test
+  - patient: emotional responses, many providers, multiple diagnoses
+  - provider: limited knowledge, attitudes
+  - system: siloed care, bureaucracy
+- Interviews with 22 people with hEDS described a "diagnostic odyssey" marked by clinicians dismissing subjective pain and by negative psychosocial consequences [[Halverson2021]].
+
+### what · Generalised joint hypermobility in the population (by age, sex, ancestry)
+- GJH is common and is not a disease. It is the shared feature that hEDS, HSD and many other conditions build on [[Castori2017]].
+- GJH is sex- and age-related (more common in women and children), and racial differences are identifiable [[Remvig2007]].
+- In 6,022 UK 14-year-olds (ALSPAC, mean age 13.8), 27.5% of girls and 10.6% of boys had a Beighton score of ≥4. Hypermobile fingers were found in 45% of girls and 29% of boys [[Clinch2011]].
+- Earlier school studies reported GJH in 8.8% to 64.6% of 6–15-year-olds. The wide range reflects selected samples and differing cut-offs [[Clinch2011]].
+- In 1,000 Australians aged 3–101 years, females and non-Caucasians had higher Beighton scores across the lifespan (P<0.001) [[Singh2017]].
+- In the same study, the ≥4 cut-off had a sensitivity of 0.8%, a specificity of 99.3% and a 60% false-positive rate. It was appropriate only for females aged 40–59 and males aged 8–39 [[Singh2017]].
+- US college students aged 17–26 (n=267, Beighton cut-off 5/9) [[Russek2016]]:
+  - GJH: 26.2% overall (females 36.7%, males 13.7%)
+  - JHS (Brighton criteria): 19.5% overall (females 24.5%, males 13.7%)
+- UK general-population postal survey (12,853 responders): 18.3% classified as hypermobile on a self-report questionnaire [[Mulvey2013]].
+- In that survey, hypermobile people were 40% more likely to report the most severe chronic widespread pain (RRR 1.4, 95% CI 1.1–1.7, adjusted for age and sex). The authors call the association modest [[Mulvey2013]].
+- hEDS is reported to be more common in some populations, such as Africans, than in Caucasians (Early evidence; cited in a review) [[Forghani2019]].
+- The Beighton score was devised on 1,083 Tswana Africans, adults and children, in South Africa [[Beighton1973,Clinch2011]].
+- It adapted a score of joint laxity earlier described by Carter and Wilkinson [[Carter1964,Clinch2011]], and Beighton and Horan's work on joint involvement in EDS [[Beighton1969]].
+- A systematic review rated all measurement-property studies of GJH tools "fair" or "poor" (COSMIN). It recommended Beighton cut-points of 5/9 in adults (with history) and at least 6/9 in children, while calling for more validity data [[Juul-Kristensen2017]].
+- Juul-Kristensen 2017 identified four test methods (Beighton, Carter-Wilkinson, Hospital del Mar, Rotés-Querol) and two questionnaires (five-part questionnaire, self-reported Beighton) [[Juul-Kristensen2017]].
+- The five-part questionnaire (5PQ): two "yes" answers or more had 84% sensitivity and 89% specificity for hypermobility in the derivation cohort, and 84%/80% in a second cohort [[Hakim2003]].
+
+### history · From Hippocrates to Ehlers and Danlos
+- A condition with joint laxity and multiple scars was described by Hippocrates in 400 BC [[Parapia2008,Forghani2019]].
+- In 1892 the Russian dermatologist Tschernogubow (also spelled Chernogubov) published the first comprehensive description [[Forghani2019]]. One source dates his report to 1891 [[Rauterberg2025]].
+- In 1901 the Danish dermatologist Edvard Ehlers recognised the condition as a distinct entity [[Parapia2008,Forghani2019]].
+- In 1908 the French dermatologist Henri-Alexandre Danlos suggested that skin extensibility and fragility were its cardinal features [[Parapia2008]].
+- In 1936 the English dermatologist Frederick Parkes-Weber suggested the name "Ehlers-Danlos syndrome" [[Forghani2019]].
+- The first description of joint hypermobility syndrome was published in 1967 by Kirk, Ansell and Bywaters [[Kirk1967,Forghani2019]].
+- In the 1960s it became clear that EDS was several disorders with different Mendelian inheritance patterns. Classification began in the late 1960s [[VanDijk2024,Beighton1998]].
+- EDS is one of the oldest known causes of bruising and bleeding [[Parapia2008]].
+
+### history · Berlin, Villefranche, Brighton and 2017
+- **Berlin nosology:** proposed at the 7th International Congress of Human Genetics (Berlin, 1986) and published in 1988 [[Beighton1988,Forghani2019]].
+- Berlin defined 11 EDS subtypes, numbered with Roman numerals, mainly by inheritance and clinical picture [[Forghani2019]]. Examples:
+  - type I gravis, type II mitis
+  - type III hypermobile
+  - type IV arterial-ecchymotic
+  - type VII arthrochalasis/dermatosparaxis
+  - type XI familial hypermobility [[Malek2021]]
+- **Villefranche nosology:** agreed at Villefranche-sur-Mer in 1997 and published in 1998. It defined 6 types, mainly by cause [[Beighton1998,Forghani2019,Brady2017]]:
+  - classical
+  - hypermobility
+  - vascular
+  - kyphoscoliosis
+  - arthrochalasia
+  - dermatosparaxis
+- Villefranche gave major and minor criteria for each type and was sponsored by the Ehlers-Danlos National Foundation (USA) and the Ehlers-Danlos Support Group (UK) [[Beighton1998]].
+- Under Villefranche, hEDS was diagnosed by GJH (Beighton ≥5) plus hyperextensible and/or smooth, velvety skin. People with this historical diagnosis keep it [[VanDijk2024]].
+- **Brighton 1998 criteria:** revised criteria for benign joint hypermobility syndrome, published in 2000 [[Grahame2000]].
+- JHS (Brighton) and hEDS (Villefranche) overlapped so much that the 2017 nosology folded them together into hEDS, with HSD for those who do not meet the stricter criteria [[Tinkle2017,Castori2017]].
+- Several Berlin types were dropped from EDS altogether [[Malek2021]]:
+  - X-linked type V
+  - occipital horn syndrome (type IX)
+  - fibronectin-deficient type X
+  - familial hypermobility type XI
+- Two developments after 1998 drove the 2017 revision [[Bloom2017]]:
+  - many new molecularly defined EDS variants
+  - concern that the hypermobile type had an expanded phenotype, might be genetically heterogeneous, and had inadequate criteria
+- The International Consortium on EDS met for about 2 years before 2017 to write the new criteria and management guidelines [[Bloom2017]].
+- **2017 International Classification:** 13 subtypes, new stricter clinical criteria for hEDS, and molecular confirmation required for the other 12 [[Malfait2017,VanDijk2024]].
+- In the 2017 framework, "EDS" means "Ehlers-Danlos syndromes", plural [[VanDijk2024]].
+- Classical-like EDS type 2 (AEBP1) was added after 2017, giving 14 types in the 2020 primer [[Malfait2020,Malek2021]].
+- The 2017 hEDS criteria are aimed at adults and are not suitable for children [[VanDijk2024]].
+- In one genetics team's experience, adults rarely meet the 2017 hEDS criteria when they are strictly applied (expert opinion) [[VanDijk2024]].
+- An Italian reference centre reassessed 327 people (213 families) previously diagnosed under the Villefranche or Brighton criteria. It concluded that the 2017 criteria should be made less stringent [[Ritelli2024]].
+
+### history · The zebra, the Society, HEDGE and the next criteria
+- The zebra symbol comes from the medical teaching "when you hear hoofbeats, think of horses, not zebras". People with rare diseases adopt "zebra" to say that the rare diagnosis is sometimes the right one [[Park2025,Bashe2025]].
+- In 500 short rare-disease videos on social media, EDS was the most often named condition (7.8% of videos), ahead of Sanfilippo syndrome and narcolepsy (1.8% each) [[Park2025]].
+- The Ehlers-Danlos Society runs the DICE Global Registry of EDS and HSD, described as "the largest EDS registry in the world" [[Halverson2023]].
+- The Hypermobile Ehlers-Danlos Genetic Evaluation (HEDGE) study was begun by the Ehlers-Danlos Society in 2018 to find the genetic basis of hEDS by large-scale whole-genome sequencing [[Douglas2026]].
+- HEDGE aims to sequence 1,000 adults who meet the 2017 hEDS criteria. Experts expect that most people with hEDS will not have a single-gene cause and that hEDS may be multifactorial (Hypothesis) [[VanDijk2024]].
+- HEDGE enrolment (N=1,021) was 92% female, 95% White, and 62% from the United States [[Halverson2023]]. HEDGE samples have been used in proteomic studies, for example serum from 29 women with hEDS vs 29 controls (Early evidence) [[Griggs2025]].
+- As of this pass, no causal gene for hEDS has been confirmed [[Malfait2020,Forghani2025]].
+- The Ehlers-Danlos Society has sponsored an hEDS/HSD criteria review study since 2022, with 326 participants at eight sites in six countries. Early results suggest hEDS and HSD sit on a "shared biological spectrum" with no single distinguishing feature (unverified) [[EDSSociety2025Criteria]].
+- On 11 March 2026 the Society announced revised diagnostic criteria for all EDS types and for HSD, to be published in the American Journal of Medical Genetics on 1 December 2026. A second paper on care and management pathways is planned for March 2027 (unverified) [[EDSSociety2026Criteria]].
+- Social media reports that hEDS and HSD will be merged under a new name could not be confirmed from a primary source, so they are not stated as fact here.
+
+### what · Burden of illness: quality of life, disability and healthcare use
+- In Wales, an EDS/JHS diagnosis was associated with higher odds of other diagnoses in the year before and after diagnosis. In under-18s, 16 of 20 diagnosis chapters were more common than in matched controls [[Demmler2019]]. Odds ratios for the three most raised chapters:
+  - musculoskeletal: OR 9.36 (95% CI 7.98–11.00)
+  - congenital anomalies: OR 5.89 (3.98–8.80)
+  - mental disorders: OR 4.16 (3.29–5.27)
+- In the same under-18 group, the most raised prescription categories were [[Demmler2019]]:
+  - musculoskeletal drugs: OR 3.65 (3.18–4.18)
+  - gastrointestinal drugs: OR 3.02 (2.54–3.58)
+- Danish EDS cohort (2000–2012) [[KulasSoborg2017]]:
+  - 31.6% received state-granted subsidies, 77% of them as early retirement pension
+  - 28.1% had only primary education as their highest level
+  - 42 people died during follow-up, at a mean age of 53.6 (SD 21.7) years
+  - These are population statistics for a mixed-type, diagnosed cohort, not a personal prognosis.
+- Danish EDS patients (n=1,319) vs 46,700 matched controls: every disease category was more frequent. The most common comorbidities were gastrointestinal functional disorders, hernias, asthma, pneumonia and osteoporosis [[Leganger2022]].
+- Swedish registry: people with EDS had higher risks of psychiatric diagnoses than matched comparisons [[Cederlof2016]]:
+  - autism spectrum disorder: RR 7.4 (95% CI 5.2–10.7)
+  - ADHD: RR 5.6 (4.2–7.4)
+  - depression: RR 3.4 (2.9–4.1)
+  - bipolar disorder: RR 2.7 (1.5–4.7)
+  - attempted suicide: RR 2.1 (1.7–2.7)
+  - no raised risk of suicide or schizophrenia
+  - Siblings without EDS also had raised risks of ADHD, depression and suicide attempt.
+- Swedish EDS association survey (250 respondents): 74.8% scored high for anxiety and 22.4% for depression on the HADS. SF-36 health-related quality of life was lower than a Swedish population sample [[Berglund2015]].
+- Females with EDS hypermobility type had a burden of disease similar to fibromyalgia and worse than rheumatoid arthritis on the Sickness Impact Profile. Pain severity and life interference were higher than in rheumatoid arthritis [[Rombaut2011]].
+- Among 273 Dutch EDS patient-organisation members, chronic pain was highly prevalent, more severe in the hypermobility type than in the classic type, and contributed to functional impairment independent of fatigue [[Voermans2010]].
+- Norwegian adults with JHS/EDS-HT vs matched controls [[Johannessen2016]]:
+  - SF-36 Physical Component Score: 28.1 vs 49.9
+  - pain NRS: 6.4 vs 2.7
+  - generalised pain reported by 96%
+- US adults with EDS-HT/JHS: SF-36 scores were significantly below the US average in 8 of 10 categories, and 71% reported worse health over the past year [[Bovet2016]].
+- German EDS service survey [[Rauterberg2025]]:
+  - 24.2% had a recognised disability degree of ≥50
+  - sick leave in the last 3 months: 21.3 days for hEDS/HSD vs 4.6 days for cEDS/clEDS
+  - at least 15 medical specialties were involved in care
+- In the same German service, 85% reported moderate-to-severe mental burden, and self-reported lifetime prevalence of a mental-health diagnosis was 58.6% [[Henning2026]].
+- US MarketScan 2021, mean annual excess healthcare cost vs matched controls [[Schubart2024]]:
+  - adults: US$21,100 with EDS; US$11,600 with HSD
+  - children: US$17,000 with EDS; US$11,000 with HSD
+- US claims, newly diagnosed EDS (n=4,765), mean total annual cost: US$19,733 in the year before diagnosis, US$28,922 in year 1 after diagnosis, US$21,804 in year 2 (2022 dollars) [[Oyediran2026]].
+- US claims, ages 10–24, within 2 years of diagnosis [[Kozyra2024]]:
+  - digestive disorders: 54.6% with hEDS and 41.6% with hypermobility syndrome, vs 28.5% of the general population
+  - cardiovascular disorders: 43.6%, 21.8% and 10.3%
+
+### Exam hooks
+- The 2017 International Classification recognises 13 EDS types. All except hEDS need a causative variant for a definite diagnosis [[Malfait2017]].
+- hEDS is the only EDS type with no known gene. It is a clinical diagnosis [[Malfait2017,Malfait2020]].
+- HSD is the 2017 label for symptomatic joint hypermobility that does not meet criteria for hEDS or another syndrome [[Castori2017]].
+- Diagnosed EDS + JHS in Wales: 194.2 per 100,000, about 1 in 500 [[Demmler2019]].
+- vEDS frequency: 1/50,000–1/200,000; cause: COL3A1 [[Byers2017]].
+- cEDS: about 1 in 20,000, mostly COL5A1/COL5A2 [[VanDijk2024]].
+- vEDS median survival: 48 years in Pepin 2000 (n=220 index patients plus 199 relatives) [[Pepin2000]] and 51 years in Pepin 2014 (n=1,231), lower in men [[Pepin2014]].
+- Beighton score: 9 points, devised on 1,083 Tswana Africans [[Beighton1973,Clinch2011]]. Recommended cut-points: ≥5/9 in adults, ≥6/9 in children [[Juul-Kristensen2017]].
+- Ehlers 1901 (Danish dermatologist), Danlos 1908 (French dermatologist) [[Parapia2008]].
+- Berlin nosology (1986, published 1988): 11 Roman-numeral types. Villefranche (1997, published 1998): 6 named types [[Forghani2019,Beighton1998]].
+- EDS type III (Berlin) = hypermobility type (Villefranche) = hEDS (2017) [[Malek2021]].
+- Women in Wales were diagnosed on average 8.5 years later than men [[Demmler2019]].
+- Mean time to hEDS diagnosis in the Global Registry survey: 10.39 years, after an average of 15.6 clinicians [[Halverson2023]].
+- In UK 14-year-olds, Beighton ≥4 was found in 27.5% of girls vs 10.6% of boys, so GJH alone is common and is not a diagnosis [[Clinch2011]].
+- Malfait 2020 counts 14 types (20 genes) because classical-like EDS type 2 (AEBP1) was added after 2017 [[Malfait2020,Malek2021]].
+- HEDGE (begun 2018): whole-genome sequencing of 1,000 adults meeting the 2017 hEDS criteria [[Douglas2026,VanDijk2024]].
+
+### In plain words
+- The Ehlers-Danlos syndromes are a family of 13 conditions that affect connective tissue, the body's "glue" [[Malfait2017]].
+- The most common type, hypermobile EDS, has no blood or gene test yet. Doctors diagnose it with a checklist and an examination [[Malfait2017]].
+- In Wales, about 1 in every 500 people has been diagnosed with EDS or a related joint hypermobility condition [[Demmler2019]].
+- Some types are very rare. Vascular EDS affects roughly 1 person in 50,000 to 200,000 [[Byers2017]].
+- Being bendy is common, especially in children and girls, and on its own it is not a disease [[Clinch2011,Castori2017]].
+- The Beighton score is a quick bendiness check doctors use. It is a starting point, not a diagnosis, and a high score at home does not mean you have EDS [[Juul-Kristensen2017,Singh2017]].
+- Many people wait years for an answer. In one large survey the average wait was about 10 years, and people saw about 15 clinicians along the way [[Halverson2023]].
+- More women than men are diagnosed with hypermobile EDS. Doctors do not yet know why [[Demmler2019,Wilson2026Preprint]].
+- Boys tend to be diagnosed in childhood, while many women are not diagnosed until adulthood [[Demmler2019]].
+- The zebra is the EDS community symbol. It is a reminder that sometimes the rare answer is the right one [[Park2025]].
+- The condition is named after two skin doctors: Edvard Ehlers from Denmark (1901) and Henri-Alexandre Danlos from France (1908) [[Parapia2008]].
+- Researchers are reading the full genetic code of about 1,000 people with hypermobile EDS to look for its causes [[VanDijk2024]].
+- The EDS Society has said new diagnostic criteria will be published at the end of 2026 [[EDSSociety2026Criteria]].
+
+## Numbers for the animations
+- prevalence_diagnosed_per100k | Wales EDS+JHS 2016/17 | 194.2 | per 100,000 | [[Demmler2019]]
+- prevalence_diagnosed_per100k | Sweden EDS+JHS (extrapolated) | 120 | per 100,000 | [[Demmler2019]]
+- prevalence_diagnosed_per100k | Denmark EDS only 2000–2012 | 20 | per 100,000 | [[KulasSoborg2017]]
+- prevalence_diagnosed_per100k | EU rare-disease threshold | 50 | per 100,000 | [[Demmler2019]]
+- prevalence_type_1_in | cEDS | 20000 | 1 in N | [[VanDijk2024]]
+- prevalence_type_1_in | vEDS (upper estimate) | 50000 | 1 in N | [[Byers2017]]
+- prevalence_type_1_in | vEDS (lower estimate) | 200000 | 1 in N | [[Byers2017]]
+- prevalence_type_1_in | kEDS | 100000 | 1 in N | [[VanDijk2024]]
+- prevalence_type_1_in | each ultra-rare type (aEDS, dEDS, clEDS, mEDS, pEDS, mcEDS, spEDS) | 1000000 | fewer than 1 in N | [[VanDijk2024]]
+- vEDS_min_prevalence_per100k | Netherlands | 1.1 | per 100,000 | [[Demirdas2024]]
+- welsh_cohort_label_share | JHS | 84 | % | [[Demmler2019]]
+- welsh_cohort_label_share | EDS | 16 | % | [[Demmler2019]]
+- peds_clinic_type_share | hEDS/HSD | 61 | % | [[FozFelipe2025]]
+- peds_clinic_type_share | cEDS | 22 | % | [[FozFelipe2025]]
+- peds_clinic_type_share | vEDS | 7.3 | % | [[FozFelipe2025]]
+- peds_clinic_type_share | other | 9.7 | % | [[FozFelipe2025]]
+- female_share | Wales EDS/JHS | 70 | % | [[Demmler2019]]
+- female_share | Denmark EDS | 73.9 | % | [[KulasSoborg2017]]
+- female_share | Sweden EDS | 74 | % | [[Cederlof2016]]
+- female_share | Sweden hypermobility syndrome | 67 | % | [[Cederlof2016]]
+- female_share | US claims new EDS | 78 | % | [[Oyediran2026]]
+- female_share | HEDGE participants | 92 | % | [[Halverson2023]]
+- female_share | Mayo hEDS (preprint) | 90.6 | % | [[Wilson2026Preprint]]
+- female_share | Mayo HSD (preprint) | 95.2 | % | [[Wilson2026Preprint]]
+- female_share | Dutch vEDS | 50 | % | [[Demirdas2024]]
+- dx_age_peak | Wales males | 5–9 | years | [[Demmler2019]]
+- dx_age_peak | Wales females | 15–19 | years | [[Demmler2019]]
+- dx_in_childhood | Wales males | 72 | % | [[Demmler2019]]
+- dx_in_childhood | Wales females | 41 | % | [[Demmler2019]]
+- dx_gap_women_vs_men | Wales EDS/JHS | 8.5 | years | [[Demmler2019]]
+- diagnostic_delay | hEDS Global Registry | 10.39 | years (mean) | [[Halverson2023]]
+- diagnostic_delay | Germany hEDS/HSD | 23.0 | years (mean) | [[Rauterberg2025]]
+- diagnostic_delay | Germany cEDS/clEDS | 14.5 | years (mean) | [[Rauterberg2025]]
+- clinicians_seen_before_dx | hEDS Global Registry | 15.6 | clinicians (mean) | [[Halverson2023]]
+- alternative_diagnoses | hEDS Global Registry | 10.45 | diagnoses (mean) | [[Halverson2023]]
+- vEDS_median_age_genetic_dx | Netherlands | 41.0 | years | [[Demirdas2024]]
+- vEDS_first_complication_cumulative | age 20 | 25 | % of index patients | [[Pepin2000]]
+- vEDS_first_complication_cumulative | age 40 | 80 | % (more than) | [[Pepin2000]]
+- vEDS_median_survival | Pepin 2000 cohort | 48 | years | [[Pepin2000]]
+- vEDS_median_survival | Pepin 2014 cohort | 51 | years | [[Pepin2014]]
+- GJH_beighton_ge4 | UK girls age 13.8 | 27.5 | % | [[Clinch2011]]
+- GJH_beighton_ge4 | UK boys age 13.8 | 10.6 | % | [[Clinch2011]]
+- hypermobile_fingers | UK girls age 13.8 | 45 | % | [[Clinch2011]]
+- hypermobile_fingers | UK boys age 13.8 | 29 | % | [[Clinch2011]]
+- GJH_beighton_ge5 | US college females | 36.7 | % | [[Russek2016]]
+- GJH_beighton_ge5 | US college males | 13.7 | % | [[Russek2016]]
+- GJH_self_report | UK adults general population | 18.3 | % | [[Mulvey2013]]
+- beighton_ge4_performance | sensitivity | 0.8 | % | [[Singh2017]]
+- beighton_ge4_performance | specificity | 99.3 | % | [[Singh2017]]
+- beighton_ge4_performance | false-positive rate | 60 | % | [[Singh2017]]
+- five_part_questionnaire | sensitivity (cohort 1) | 84 | % | [[Hakim2003]]
+- five_part_questionnaire | specificity (cohort 1) | 89 | % | [[Hakim2003]]
+- classification_type_count | Berlin 1986/1988 | 11 | types | [[Forghani2019]]
+- classification_type_count | Villefranche 1997/1998 | 6 | types | [[Beighton1998]]
+- classification_type_count | International 2017 | 13 | types | [[Malfait2017]]
+- classification_type_count | Nat Rev Dis Primers 2020 | 14 | types | [[Malfait2020]]
+- history_timeline | Hippocrates | -400 | year (400 BC) | [[Parapia2008]]
+- history_timeline | Tschernogubow | 1892 | year | [[Forghani2019]]
+- history_timeline | Ehlers | 1901 | year | [[Parapia2008]]
+- history_timeline | Danlos | 1908 | year | [[Parapia2008]]
+- history_timeline | name "EDS" proposed (Parkes-Weber) | 1936 | year | [[Forghani2019]]
+- history_timeline | first JHS description (Kirk) | 1967 | year | [[Kirk1967]]
+- history_timeline | Beighton score (Tswana study) | 1973 | year | [[Beighton1973]]
+- history_timeline | Berlin nosology agreed | 1986 | year | [[Beighton1988]]
+- history_timeline | Villefranche nosology agreed | 1997 | year | [[Beighton1998]]
+- history_timeline | Brighton JHS criteria | 1998 | year | [[Grahame2000]]
+- history_timeline | International Classification | 2017 | year | [[Malfait2017]]
+- history_timeline | HEDGE begins | 2018 | year | [[Douglas2026]]
+- history_timeline | revised criteria due (announced) | 2026 | year (1 Dec) | [[EDSSociety2026Criteria]]
+- annual_cost_usd | new EDS, year before diagnosis | 19733 | US$ (2022) | [[Oyediran2026]]
+- annual_cost_usd | new EDS, year 1 after | 28922 | US$ (2022) | [[Oyediran2026]]
+- annual_cost_usd | new EDS, year 2 after | 21804 | US$ (2022) | [[Oyediran2026]]
+- excess_cost_usd | adult EDS | 21100 | US$/year | [[Schubart2024]]
+- excess_cost_usd | adult HSD | 11600 | US$/year | [[Schubart2024]]
+- excess_cost_usd | child EDS | 17000 | US$/year | [[Schubart2024]]
+- excess_cost_usd | child HSD | 11000 | US$/year | [[Schubart2024]]
+- psychiatric_RR_vs_matched | autism | 7.4 | RR | [[Cederlof2016]]
+- psychiatric_RR_vs_matched | ADHD | 5.6 | RR | [[Cederlof2016]]
+- psychiatric_RR_vs_matched | depression | 3.4 | RR | [[Cederlof2016]]
+- SF36_PCS | JHS/EDS-HT | 28.1 | score | [[Johannessen2016]]
+- SF36_PCS | controls | 49.9 | score | [[Johannessen2016]]
+- denmark_state_subsidy | EDS cohort | 31.6 | % | [[KulasSoborg2017]]
+
+## Open questions and controversies
+- **Is EDS rare?** As a group, diagnosed EDS + HSD sits at about 194 per 100,000 in Wales, above the EU rare-disease threshold of 50 per 100,000 [[Demmler2019]]. Each molecular type remains rare or ultra-rare [[VanDijk2024,Byers2017]]. The "1 in 5,000" figure has no traceable origin [[Demmler2019]]. Status: the answer depends on whether hEDS/HSD are counted. No true (as opposed to diagnosed) population prevalence of hEDS exists.
+- **Why are most diagnosed people female?** An autosomal dominant pattern predicts 1:1 [[Forghani2019,Wilson2026Preprint]]. The observed female share is 67–74% in national registries [[Demmler2019,KulasSoborg2017,Cederlof2016]] and above 90% in specialist and research cohorts [[Halverson2023,Wilson2026Preprint]]. Candidate explanations:
+  - hormonal effects on connective tissue and pain (Hypothesis) [[Forghani2019]]
+  - referral and ascertainment bias, or under-recognition in males (Hypothesis) [[Douglas2026]]
+  - Status: unresolved.
+- **Are the 2017 hEDS criteria too strict?** Ritelli 2024 argues they should be relaxed, after 327 previously diagnosed people were reassessed [[Ritelli2024]]. Van Dijk 2024 notes adults rarely meet them when they are strictly applied [[VanDijk2024]]. The criteria are also seen as unsuitable for children [[VanDijk2024]]. Philosophical critics argue they encode a contested line between normal and pathological [[RosasTosas2025]]. Status: the Society's review study suggests an hEDS–HSD spectrum, and revised criteria are announced for 1 December 2026 (unverified) [[EDSSociety2025Criteria,EDSSociety2026Criteria]].
+- **Which Beighton cut-off?** The common ≥4 cut-off gave a 60% false-positive rate across the lifespan [[Singh2017]] and labelled 27.5% of 14-year-old girls hypermobile [[Clinch2011]]. Juul-Kristensen recommends ≥5 for adults and ≥6 for children, but rates the evidence "fair/poor" [[Juul-Kristensen2017]]. Age-, sex- and ancestry-specific norms have been proposed [[Singh2017,Remvig2007]]. Status: no consensus.
+- **Does HEDGE find a gene?** HEDGE began in 2018 with a target of 1,000 genomes [[Douglas2026,VanDijk2024]]. Experts expect most hEDS to be non-monogenic (Hypothesis) [[VanDijk2024]]. No causal gene has been published as of this pass [[Forghani2025]]. Status: open.
+- **Diagnostic delay estimates vary widely:** about 5 years in older reports, 10.4 years in a registry survey, and 22–23 years in a German service survey [[Halverson2023,Rauterberg2025]]. The differences reflect starting points (first symptom vs first visit), recall and selection bias.
+- **Higher hEDS/HSD diagnosis rates in transgender and gender-diverse people** (2.6–2.7% vs 0.16% in cisgender females) [[Tabernacki2026,Stein2025]]. Both are single-database or single-clinic studies with possible ascertainment bias (Early evidence). Mechanism unknown.
+
+## Sources
+- [Malfait2017] Malfait F, Francomano C, Byers P, Belmont J, Berglund B, Black J, et al. The 2017 international classification of the Ehlers-Danlos syndromes. Am J Med Genet C Semin Med Genet. 2017;175(1):8-26. PMID 28306229; doi:10.1002/ajmg.c.31552. (validated: Europe PMC)
+- [Tinkle2017] Tinkle B, Castori M, Berglund B, Cohen H, Grahame R, Kazkaz H, et al. Hypermobile Ehlers-Danlos syndrome (a.k.a. Ehlers-Danlos syndrome Type III and Ehlers-Danlos syndrome hypermobility type): Clinical description and natural history. Am J Med Genet C Semin Med Genet. 2017;175(1):48-69. PMID 28145611; doi:10.1002/ajmg.c.31538. (validated: Europe PMC)
+- [Castori2017] Castori M, Tinkle B, Levy H, Grahame R, Malfait F, Hakim A. A framework for the classification of joint hypermobility and related conditions. Am J Med Genet C Semin Med Genet. 2017;175(1):148-157. PMID 28145606; doi:10.1002/ajmg.c.31539. (validated: Europe PMC)
+- [Malfait2020] Malfait F, Castori M, Francomano CA, Giunta C, Kosho T, Byers PH. The Ehlers-Danlos syndromes. Nat Rev Dis Primers. 2020;6(1):64. PMID 32732924; doi:10.1038/s41572-020-0194-9. (validated: Europe PMC)
+- [Byers2017] Byers PH, Belmont J, Black J, De Backer J, Frank M, Jeunemaitre X, et al. Diagnosis, natural history, and management in vascular Ehlers-Danlos syndrome. Am J Med Genet C Semin Med Genet. 2017;175(1):40-47. PMID 28306228; doi:10.1002/ajmg.c.31553. (validated: Europe PMC)
+- [Pepin2000] Pepin M, Schwarze U, Superti-Furga A, Byers PH. Clinical and genetic features of Ehlers-Danlos syndrome type IV, the vascular type. N Engl J Med. 2000;342(10):673-680. PMID 10706896; doi:10.1056/NEJM200003093421001. (validated: Europe PMC)
+- [Pepin2014] Pepin MG, Schwarze U, Rice KM, Liu M, Leistritz D, Byers PH. Survival is affected by mutation type and molecular mechanism in vascular Ehlers-Danlos syndrome (EDS type IV). Genet Med. 2014;16(12):881-888. PMID 24922459; doi:10.1038/gim.2014.72. (validated: Europe PMC)
+- [Beighton1973] Beighton P, Solomon L, Soskolne CL. Articular mobility in an African population. Ann Rheum Dis. 1973;32(5):413-418. PMID 4751776; PMCID PMC1006136; doi:10.1136/ard.32.5.413. (validated: Europe PMC)
+- [Beighton1998] Beighton P, De Paepe A, Steinmann B, Tsipouras P, Wenstrup RJ. Ehlers-Danlos syndromes: revised nosology, Villefranche, 1997. Ehlers-Danlos National Foundation (USA) and Ehlers-Danlos Support Group (UK). Am J Med Genet. 1998;77(1):31-37. PMID 9557891; doi:10.1002/(sici)1096-8628(19980428)77:1<31::aid-ajmg8>3.0.co;2-o. (validated: Europe PMC)
+- [Beighton1988] Beighton P, de Paepe A, Danks D, Finidori G, Gedde-Dahl T, Goodman R, et al. International Nosology of Heritable Disorders of Connective Tissue, Berlin, 1986. Am J Med Genet. 1988;29(3):581-594. PMID 3287925; doi:10.1002/ajmg.1320290316. (validated: Europe PMC)
+- [Demmler2019] Demmler JC, Atkinson MD, Reinhold EJ, Choy E, Lyons RA, Brophy ST. Diagnosed prevalence of Ehlers-Danlos syndrome and hypermobility spectrum disorder in Wales, UK: a national electronic cohort study and case-control comparison. BMJ Open. 2019;9(11):e031365. PMID 31685485; PMCID PMC6858200; doi:10.1136/bmjopen-2019-031365. (validated: Europe PMC)
+- [Juul-Kristensen2017] Juul-Kristensen B, Schmedling K, Rombaut L, Lund H, Engelbert RH. Measurement properties of clinical assessment methods for classifying generalized joint hypermobility-A systematic review. Am J Med Genet C Semin Med Genet. 2017;175(1):116-147. PMID 28306223; doi:10.1002/ajmg.c.31540. (validated: Europe PMC)
+- [KulasSoborg2017] Kulas Søborg ML, Leganger J, Quitzau Mortensen L, Rosenberg J, Burcharth J. Establishment and baseline characteristics of a nationwide Danish cohort of patients with Ehlers-Danlos syndrome. Rheumatology (Oxford). 2017;56(5):763-767. PMID 28077691; doi:10.1093/rheumatology/kew478. (validated: Europe PMC)
+- [Leganger2022] Leganger J, Fonnes S, Kulas Søborg ML, Rosenberg J, Burcharth J. The most common comorbidities in patients with Ehlers-Danlos syndrome: a 15-year nationwide population-based cohort study. Disabil Rehabil. 2022;44(2):189-193. PMID 32412854; doi:10.1080/09638288.2020.1761890. (validated: Europe PMC)
+- [Cederlof2016] Cederlöf M, Larsson H, Lichtenstein P, Almqvist C, Serlachius E, Ludvigsson JF. Nationwide population-based cohort study of psychiatric disorders in individuals with Ehlers-Danlos syndrome or hypermobility syndrome and their siblings. BMC Psychiatry. 2016;16:207. PMID 27377649; PMCID PMC4932739; doi:10.1186/s12888-016-0922-6. (validated: Europe PMC)
+- [Ritelli2020] Ritelli M, Colombi M. Molecular Genetics and Pathogenesis of Ehlers-Danlos Syndrome and Related Connective Tissue Disorders. Genes (Basel). 2020;11(5):547. PMID 32414079; PMCID PMC7288446; doi:10.3390/genes11050547. (validated: Europe PMC)
+- [Kulin2026] Kulin D, Holtmann G, Fairlie T, Staller K, Nurko S, Keefer L, et al. Meta-Analysis: Chronic Gastrointestinal Symptoms and Comorbidities in Hypermobile Ehlers-Danlos Syndrome and Hypermobility Spectrum Disorders. Aliment Pharmacol Ther. 2026;64(5):574-589. PMID 42437376; PMCID PMC13466160; doi:10.1111/apt.70856. (validated: Europe PMC)
+- [VanDijk2024] van Dijk FS, Angwin C, Demirdas S, Ghali N, Zschocke J. Clinical diagnosis of the monogenic Ehlers-Danlos syndromes. Med Genet. 2024;36(4):225-234. PMID 39629459; PMCID PMC11610443; doi:10.1515/medgen-2024-2060. (validated: Europe PMC)
+- [Bowen2017] Bowen JM, Sobey GJ, Burrows NP, Colombi M, Lavallee ME, Malfait F, et al. Ehlers-Danlos syndrome, classical type. Am J Med Genet C Semin Med Genet. 2017;175(1):27-39. PMID 28192633; doi:10.1002/ajmg.c.31548. (validated: Europe PMC)
+- [Brady2017] Brady AF, Demirdas S, Fournel-Gigleux S, Ghali N, Giunta C, Kapferer-Seebacher I, et al. The Ehlers-Danlos syndromes, rare types. Am J Med Genet C Semin Med Genet. 2017;175(1):70-115. PMID 28306225; doi:10.1002/ajmg.c.31550. (validated: Europe PMC)
+- [Demirdas2024] Demirdas S, van den Bersselaar LM, Lechner R, Bos J, Alsters SIM, Baars MJH, et al. Vascular Ehlers-Danlos Syndrome: A Comprehensive Natural History Study in a Dutch National Cohort of 142 Patients. Circ Genom Precis Med. 2024;17(3):e003978. PMID 38623759; PMCID PMC11188628; doi:10.1161/CIRCGEN.122.003978. (validated: Europe PMC)
+- [FozFelipe2025] Foz Felipe D, Casas-Alba D, Sadok SH, Toral Fernández M, Vega-Hanna L, Plaza L, et al. Unveiling the Spectrum: Clinical and Molecular Insights from a Spanish Pediatric Cohort with Hypermobility Disorders and Ehlers-Danlos Syndrome. Genes (Basel). 2025;16(8):925. PMID 40869974; PMCID PMC12386060; doi:10.3390/genes16080925. (validated: Europe PMC)
+- [Oyediran2026] Oyediran SA, Kim Y, Novikov Z, Krause TM. Understanding Ehlers-Danlos Syndrome: A Claims-Based Analysis of Healthcare Cost Patterns. J Health Econ Outcomes Res. 2026;13(2):8-15. PMID 42491842; PMCID PMC13378745; doi:10.36469/001c.145941. (validated: Europe PMC)
+- [Molander2020] Molander P, Novo M, Hållstam A, Löfgren M, Stålnacke BM, Gerdle B. Ehlers-Danlos Syndrome and Hypermobility Syndrome Compared with Other Common Chronic Pain Diagnoses-A Study from the Swedish Quality Registry for Pain Rehabilitation. J Clin Med. 2020;9(7):2143. PMID 32645981; PMCID PMC7408708; doi:10.3390/jcm9072143. (validated: Europe PMC)
+- [Wilson2026Preprint] Wilson FC, Zangerle DJ, Darakjian AA, Bhutani M, Fliess JJ, Gehin JM, et al. Sex differences in self-reported symptoms and comorbidities associated with hypermobile Ehlers-Danlos syndrome and hypermobility spectrum disorders: A retrospective study. Research Square (preprint, not peer reviewed). Posted 2026 Jan 30. doi:10.21203/rs.3.rs-8310986/v1. (validated: Crossref)
+- [Halverson2023] Halverson CME, Cao S, Perkins SM, Francomano CA. Comorbidity, misdiagnoses, and the diagnostic odyssey in patients with hypermobile Ehlers-Danlos syndrome. Genet Med Open. 2023;1(1):100812. PMID 39669244; PMCID PMC11613559; doi:10.1016/j.gimo.2023.100812. (validated: Europe PMC)
+- [Halverson2021] Halverson CME, Clayton EW, Garcia Sierra A, Francomano C. Patients with Ehlers-Danlos syndrome on the diagnostic odyssey: Rethinking complexity and difficulty as a hero's journey. Am J Med Genet C Semin Med Genet. 2021;187(4):416-424. PMID 34524722; doi:10.1002/ajmg.c.31935. (validated: Europe PMC)
+- [Anderson2021] Anderson LK, Lane KR. The diagnostic journey in adults with hypermobile Ehlers-Danlos syndrome and hypermobility spectrum disorders. J Am Assoc Nurse Pract. 2021;34(4):639-648. PMID 34739411; doi:10.1097/JXX.0000000000000672. (validated: Europe PMC)
+- [Tabernacki2026] Tabernacki T, McLachlan L, Loria M, Gupta S, Banik S, Mishra K, et al. Prevalence of Hypermobile Ehlers-Danlos Syndrome in Transgender and Gender Diverse Individuals: A Retrospective Cohort Study. LGBT Health. 2026;13(1):32-38. PMID 40986523; doi:10.1177/23258292251382250. (validated: Europe PMC)
+- [Stein2025] Stein T, Collins S, St Louis J. The prevalence of hypermobile Ehlers-Danlos syndrome at a gender-affirming primary care clinic. SAGE Open Med. 2025;13:20503121251315021. PMID 39850941; PMCID PMC11755520; doi:10.1177/20503121251315021. (validated: Europe PMC)
+- [Forghani2019] Forghani I. Updates in Clinical and Genetics Aspects of Hypermobile Ehlers Danlos Syndrome. Balkan Med J. 2019;36(1):12-16. PMID 30063214; PMCID PMC6335943; doi:10.4274/balkanmedj.2018.1113. (validated: Europe PMC)
+- [Forghani2025] Forghani I, See J, McGonigle WC. Hypermobile Ehlers-Danlos Syndrome: Diagnostic Challenges and the Role of Genetic Testing. Genes (Basel). 2025;16(5):530. PMID 40428350; PMCID PMC12111038; doi:10.3390/genes16050530. (validated: Europe PMC)
+- [Douglas2026] Douglas AC, Staas DJ. The WNT/β-catenin Pathway and Matrix Metalloproteinase-9 in hypermobile Ehlers-Danlos Syndrome and Autism Spectrum Disorder: A Possible Connection. J Musculoskelet Neuronal Interact. 2026;26(3):466-481. PMID 42675949; PMCID PMC13539730. (validated: Europe PMC)
+- [Griggs2025] Griggs M, Daylor V, Petrucci T, Weintraub A, Huff M, Willey S, et al. Proteomic discoveries in hypermobile Ehlers-Danlos syndrome reveal insights into disease pathophysiology. Immunohorizons. 2025;9(10):vlaf044. PMID 40972649; PMCID PMC12448790; doi:10.1093/immhor/vlaf044. (validated: Europe PMC)
+- [Rauterberg2025] Rauterberg J, Hock M, Kernich N, Shukri A, Klapproth H, Löw V, et al. Health care supply in patients with Ehlers-Danlos syndromes and generalized hypermobility spectrum disorder: a German perspective. Orphanet J Rare Dis. 2025;20(1):436. PMID 40819036; PMCID PMC12358066; doi:10.1186/s13023-025-03937-4. (validated: Europe PMC)
+- [Henning2026] Henning M, Hock M, Shukri A, Löw V, Kernich N, Rauterberg J, et al. Prevalence and management of mental health comorbidities in a German cohort of patients with Ehlers-Danlos syndromes and a generalized hypermobility spectrum disorder. Orphanet J Rare Dis. 2026;21(1):83. PMID 41634809; PMCID PMC12958675; doi:10.1186/s13023-026-04242-4. (validated: Europe PMC)
+- [Remvig2007] Remvig L, Jensen DV, Ward RC. Epidemiology of general joint hypermobility and basis for the proposed criteria for benign joint hypermobility syndrome: review of the literature. J Rheumatol. 2007;34(4):804-809. PMID 17407233. No DOI listed. (validated: Europe PMC)
+- [Clinch2011] Clinch J, Deere K, Sayers A, Palmer S, Riddoch C, Tobias JH, et al. Epidemiology of generalized joint laxity (hypermobility) in fourteen-year-old children from the UK: a population-based evaluation. Arthritis Rheum. 2011;63(9):2819-2827. PMID 21547894; PMCID PMC3164233; doi:10.1002/art.30435. (validated: Europe PMC)
+- [Singh2017] Singh H, McKay M, Baldwin J, Nicholson L, Chan C, Burns J, et al. Beighton scores and cut-offs across the lifespan: cross-sectional study of an Australian population. Rheumatology (Oxford). 2017;56(11):1857-1864. PMID 28340003; doi:10.1093/rheumatology/kex043. (validated: Europe PMC)
+- [Russek2016] Russek LN, Errico DM. Prevalence, injury rate and, symptom frequency in generalized joint laxity and joint hypermobility syndrome in a "healthy" college population. Clin Rheumatol. 2016;35(4):1029-1039. PMID 25930211; doi:10.1007/s10067-015-2951-9. (validated: Europe PMC)
+- [Mulvey2013] Mulvey MR, Macfarlane GJ, Beasley M, Symmons DP, Lovell K, Keeley P, et al. Modest association of joint hypermobility with disabling and limiting musculoskeletal pain: results from a large-scale general population-based survey. Arthritis Care Res (Hoboken). 2013;65(8):1325-1333. PMID 23401475; doi:10.1002/acr.21979. (validated: Europe PMC)
+- [Hakim2003] Hakim AJ, Grahame R. A simple questionnaire to detect hypermobility: an adjunct to the assessment of patients with diffuse musculoskeletal pain. Int J Clin Pract. 2003;57(3):163-166. PMID 12723715. No DOI listed. (validated: Europe PMC)
+- [Carter1964] Carter C, Wilkinson J. Persistent joint laxity and congenital dislocation of the hip. J Bone Joint Surg Br. 1964;46:40-45. PMID 14126235; doi:10.1302/0301-620X.46B1.40. (validated: Europe PMC)
+- [Beighton1969] Beighton P, Horan F. Orthopaedic aspects of the Ehlers-Danlos syndrome. J Bone Joint Surg Br. 1969;51(3):444-453. PMID 5820785; doi:10.1302/0301-620X.51B3.444. (validated: Europe PMC)
+- [Kirk1967] Kirk JA, Ansell BM, Bywaters EG. The hypermobility syndrome. Musculoskeletal complaints associated with generalized joint hypermobility. Ann Rheum Dis. 1967;26(5):419-425. PMID 6039590; PMCID PMC1031347; doi:10.1136/ard.26.5.419. (validated: Europe PMC)
+- [Grahame2000] Grahame R, Bird HA, Child A. The revised (Brighton 1998) criteria for the diagnosis of benign joint hypermobility syndrome (BJHS). J Rheumatol. 2000;27(7):1777-1779. PMID 10914867. No DOI listed. (validated: Europe PMC)
+- [Parapia2008] Parapia LA, Jackson C. Ehlers-Danlos syndrome--a historical review. Br J Haematol. 2008;141(1):32-35. PMID 18324963; doi:10.1111/j.1365-2141.2008.06994.x. (validated: Europe PMC)
+- [Bloom2017] Bloom L, Byers P, Francomano C, Tinkle B, Malfait F, Steering Committee of The International Consortium on the Ehlers-Danlos Syndromes. The international consortium on the Ehlers-Danlos syndromes. Am J Med Genet C Semin Med Genet. 2017;175(1):5-7. PMID 28306227; doi:10.1002/ajmg.c.31547. (validated: Europe PMC)
+- [Malek2021] Malek S, Köster DV. The Role of Cell Adhesion and Cytoskeleton Dynamics in the Pathogenesis of the Ehlers-Danlos Syndromes and Hypermobility Spectrum Disorders. Front Cell Dev Biol. 2021;9:649082. PMID 33968931; PMCID PMC8097055; doi:10.3389/fcell.2021.649082. (validated: Europe PMC)
+- [Ritelli2024] Ritelli M, Chiarelli N, Cinquina V, Vezzoli M, Venturini M, Colombi M. Looking back and beyond the 2017 diagnostic criteria for hypermobile Ehlers-Danlos syndrome: A retrospective cross-sectional study from an Italian reference center. Am J Med Genet A. 2024;194(2):174-194. PMID 37774134; doi:10.1002/ajmg.a.63426. (validated: Europe PMC)
+- [RosasTosas2025] Rosàs Tosas M. The Contradictions in the Criteria for Diagnosing Hypermobile Ehlers-Danlos Syndrome as Reflecting Some of the Philosophical Debates about the Threshold between the Normal and the Pathological. J Med Philos. 2025;50(4):248-261. PMID 40237709; PMCID PMC12279013; doi:10.1093/jmp/jhaf004. (validated: Europe PMC)
+- [Park2025] Park HJ, Scott CJ, Smith HS, Wojcik MH. Rare disease narratives on social media: A content analysis. Genet Med Open. 2025;3:102844. PMID 40115594; PMCID PMC11925512; doi:10.1016/j.gimo.2025.102844. (validated: Europe PMC)
+- [Bashe2025] Bashe G. A Caregiver's Perspective: Identifying "Zebras"-Listening to Patients is a Clinical Necessity. J Patient Exp. 2025;12:23743735251404807. PMID 41394325; PMCID PMC12696320; doi:10.1177/23743735251404807. (validated: Europe PMC)
+- [Schubart2024] Schubart JR, Schaefer EW, Knight DRT, Mills SE, Francomano CA. Estimates of the excess cost burden of Ehlers-Danlos syndromes: a United States MarketScan® claims database analysis. Front Public Health. 2024;12:1365712. PMID 39022417; PMCID PMC11252068; doi:10.3389/fpubh.2024.1365712. (validated: Europe PMC)
+- [Kozyra2024] Kozyra M, Kostyun R, Strecker S. The prevalence of multisystem diagnoses among young patients with hypermobile Ehlers-Danlos syndrome and hypermobility spectrum disorder: A retrospective analysis using a large healthcare claims database. Medicine (Baltimore). 2024;103(41):e39212. PMID 39465806; PMCID PMC11479467; doi:10.1097/MD.0000000000039212. (validated: Europe PMC)
+- [Berglund2015] Berglund B, Pettersson C, Pigg M, Kristiansson P. Self-reported quality of life, anxiety and depression in individuals with Ehlers-Danlos syndrome (EDS): a questionnaire study. BMC Musculoskelet Disord. 2015;16:89. PMID 25880527; PMCID PMC4403907; doi:10.1186/s12891-015-0549-7. (validated: Europe PMC)
+- [Bovet2016] Bovet C, Carlson M, Taylor M. Quality of life, unmet needs, and iatrogenic injuries in rehabilitation of patients with Ehlers-Danlos Syndrome hypermobility type/Joint Hypermobility Syndrome. Am J Med Genet A. 2016;170(8):2044-2051. PMID 27273746; doi:10.1002/ajmg.a.37774. (validated: Europe PMC)
+- [Voermans2010] Voermans NC, Knoop H, Bleijenberg G, van Engelen BG. Pain in ehlers-danlos syndrome is common, severe, and associated with functional impairment. J Pain Symptom Manage. 2010;40(3):370-378. PMID 20579833; doi:10.1016/j.jpainsymman.2009.12.026. (validated: Europe PMC)
+- [Rombaut2011] Rombaut L, Malfait F, De Paepe A, Rimbaut S, Verbruggen G, De Wandele I, et al. Impairment and impact of pain in female patients with Ehlers-Danlos syndrome: a comparative study with fibromyalgia and rheumatoid arthritis. Arthritis Rheum. 2011;63(7):1979-1987. PMID 21391202; doi:10.1002/art.30337. (validated: Europe PMC)
+- [Johannessen2016] Johannessen EC, Reiten HS, Løvaas H, Maeland S, Juul-Kristensen B. Shoulder function, pain and health related quality of life in adults with joint hypermobility syndrome/Ehlers-Danlos syndrome-hypermobility type. Disabil Rehabil. 2016;38(14):1382-1390. PMID 26824670; doi:10.3109/09638288.2015.1102336. (validated: Europe PMC)
+- [EDSSociety2026Criteria] The Ehlers-Danlos Society. New global diagnostic criteria 2026 (news item, published 11/03/2026). https://www.ehlers-danlos.com/new-global-diagnostic-criteria-2026/ (accessed 2026-10-25). (unverified: organisation web page, not indexed by a validation service; essential for the announced criteria date)
+- [EDSSociety2025Criteria] The Ehlers-Danlos Society. hEDS & HSD criteria review study update (news item, published 10/11/2025). https://www.ehlers-danlos.com/heds-hsd-criteria-review-study-update/ (accessed 2026-10-25). (unverified: organisation web page, not indexed by a validation service)
+
+## Provenance
+- Validation: every journal source was checked by its PMID against Europe PMC (`/search?query=EXT_ID:<PMID> AND SRC:MED`, resultType=core): authors, title, journal, year, volume, issue, pages, PMCID and DOI. PubMed E-utilities were heavily rate-limited by the parallel passes, so Europe PMC (which mirrors MEDLINE) was the primary validator. The preprint (Wilson2026Preprint) was validated on Crossref (Research Square, posted 2026-01-30).
+- Shared canonical keys validated and used: Malfait2017 (28306229), Tinkle2017 (28145611), Castori2017 (28145606), Malfait2020 (32732924), Byers2017 (28306228), Pepin2000 (10706896), Pepin2014 (24922459), Beighton1973 (4751776), Beighton1998 (9557891), Demmler2019 (31685485), Juul-Kristensen2017 (28306223).
+- Validated but not cited, because no fact in this pass needed them: Frank2015 (25758994), Ong2010 (20825986), Hakim2017 (28160388), Engelbert2017 (28306230), Chopra2017 (28186390).
+- Numbers came from abstracts, except for the following, which were read in Europe PMC full text:
+  - Demmler2019: subtype coding, age peaks, childhood diagnosis shares, the 1-in-5,000 origin, the Swedish extrapolation
+  - Cederlof2016: sex shares
+  - Clinch2011: the Tswana n=1,083 and the 8.8–64.6% range
+  - Halverson2023: clinicians seen, specialty of diagnosis, HEDGE demographics
+  - VanDijk2024: per-type prevalences, HEDGE 1,000 genomes
+  - Forghani2019 and Malek2021: history and Berlin types
+  - Demirdas2024: the Dutch prevalence estimate
+  - Douglas2026: HEDGE start year
+  - Park2025: zebra metaphor
+- Not accessed: full texts of the 2017 AJMG C papers and Malfait2020 (paywalled); the Beighton1973 scanned PDF (not downloaded); GeneReviews chapters (CAPTCHA). EURORDIS survey reports and MedlinePlus are not indexed by the validation services and were not used.
+- Unverified items: the two Ehlers-Danlos Society web pages (criteria review study, 2026 criteria announcement). The reported merging of hEDS and HSD under a new name was found only on secondary social media and is not stated as fact.
+- Dropped: a specific Woodward attribution of the "zebra" aphorism (no validated source read); MedlinePlus "1 in 5,000" wording; EDS Society founding date (no validated source).

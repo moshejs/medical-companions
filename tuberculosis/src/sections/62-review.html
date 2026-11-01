@@ -1,0 +1,68 @@
+<!-- ================= 6.2 FLASHCARDS & MNEMONICS ================= -->
+<section class="mod" id="m-review" data-mod="review" hidden>
+<style>
+#m-review .rv-lab{margin-top:14px}
+#m-review .mn .card p{margin:6px 0 0}
+#m-review .mn .card .tag{align-self:flex-start}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Flashcards &amp; mnemonics</h2>
+    <p class="lede">Ninety flashcards on tuberculosis, from droplet nuclei and the granuloma to the 5-10-15 mm rule, Xpert, 2HRZE/4HR, BPaLM, BCG, contact tracing and life after treatment. Tap a card or press Space to flip it; arrow keys move through the deck. Filter by part, or shuffle.</p></div>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="%t:cards.label%">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">%t:nav.prev%</button><button class="btn primary" id="fcFlip">%t:cards.flip%</button><button class="btn" id="fcNext">%t:nav.next%</button><button class="btn ghost" id="fcShuf">%t:cards.shuffle%</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <h3 class="sub">%t:cards.mnemonics%</h3>
+  <div class="prose"><p>Cards tagged <b>well known</b> are mnemonics or acronyms in common use; cards tagged <b>memory aid</b> were written for this guide to hold a published fact in mind. Neither replaces the source, and none is a dosing instruction.</p></div>
+  <div class="mn" id="mnList"></div>
+  <h3 class="sub">Mnemonic in motion: RIPE and its warning signs</h3>
+  <p class="prose">Play the scene to send each first-line drug to the part of the body its best-known side effect touches: rifampicin to the tears and urine, isoniazid to the nerves (and the B6 that protects them), pyrazinamide to the liver and the big toe, ethambutol to the eyes. Then watch the four run together as 2HRZE/4HR. See <a href="#safety" data-go="safety">Side effects &amp; monitoring</a> for the full story.</p>
+  <div class="stepper" id="rvSteps"></div>
+  <div class="lab rv-lab">
+    <div class="stage"><div class="scroll"><svg id="rvSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Animated figure in which four drug capsules, rifampicin, isoniazid, pyrazinamide and ethambutol, fly in turn to the body: orange tears and urine for rifampicin with a list of drugs whose levels fall, tingling leg nerves calmed by vitamin B6 for isoniazid, a glowing liver and urate crystals at the big toe for pyrazinamide with a bar chart of major adverse events, and fading red-green colour vision for ethambutol, ending with a six-month timeline of two months of four drugs and four months of two"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rvPlay">Play</button><label class="stage-cap tl" for="rvT">Drug by drug <input type="range" id="rvT" min="0" max="1" step="0.002" value="0.12"></label></div>
+      <p class="stage-cap">Schematic, not anatomy. Bars: major adverse events per 100 person-months in one Montreal cohort [[Yee2003]]; isoniazid hepatitis rates from its label [[FDA-Isoniazid]]. Teaching only, not instructions.</p></div>
+    <aside class="note" id="rvNote" aria-live="polite"></aside>
+  </div>
+</section>
+
+<!-- ================= 6.3 QUIZ ================= -->
+<section class="mod" id="m-quiz" data-mod="quiz" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Quiz</h2>
+    <p class="lede">Single-best-answer questions on tuberculosis with cited explanations, including vignettes on TST and IGRA interpretation, infection versus disease, regimen choice, drug interactions and adverse effects. The mixed quiz draws 20 at random; or choose a part.</p></div>
+  <div class="callout prose"><p>The vignettes are exam teaching. They quote guidelines and labels as published and are not advice for any real person; decisions about testing, treatment or isolation belong to a clinician or TB programme.</p></div>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
+</section>
+
+<!-- ================= 6.4 GLOSSARY ================= -->
+<section class="mod" id="m-glossary" data-mod="glossary" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Glossary</h2>
+    <p class="lede">A searchable glossary of TB terms, from acid-fast bacilli and RD1 to 3HP, BPaLM, AII rooms and catastrophic costs. Type to filter; the arrow on each entry jumps to the module where the term matters most.</p></div>
+  <div class="callout prose"><p>Entries marked <b>Language note</b> give person-first terms proposed by TB programme authors in place of blaming ones: "person with presumptive TB" rather than "TB suspect", "lost to follow-up" rather than "defaulter" [[Zachariah2012]]. This guide also says <b>TB infection</b> for what used to be called latent TB, and <b>TB disease</b> for illness.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="Search terms, e.g. IGRA, BPaLM, RRDR" aria-label="%t:glossary.search%">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
+</section>
+
+<!-- ================= 6.5 SOURCES ================= -->
+<section class="mod" id="m-sources" data-mod="sources" hidden>
+<style>
+#m-sources .srcs .tag.good{text-transform:none;letter-spacing:.02em}
+#m-sources .srcs .tag{white-space:normal;max-width:100%;text-align:left}
+#m-sources #srcFilter .btn{white-space:normal;text-align:left}
+#m-sources #srcStats{margin:8px 0 0}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Sources</h2>
+    <p class="lede">Every reference behind the TB Companion: journal articles, WHO and CDC guidelines, US drug labels, trial registrations and regulator records. The small numbers throughout the app point here; filter by research area or search.</p></div>
+  <div class="callout prose"><p>Eight research passes ran in parallel, one per area: epidemiology, global burden and history; transmission, risk factors and host susceptibility; microbiology, immunology and pathogenesis; clinical presentation and diagnosis; treatment of drug-susceptible TB disease and TB infection; drug-resistant TB, comorbidity and outcomes; living with TB, infection control and nursing; and vaccines, the End TB Strategy and research. Before inclusion each source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA, and the green tag on an entry names the service that confirmed it. Works found by more than one pass appear once, with any extra keys listed beside them.</p>
+    <p>Entries marked <span class="tag warn">check</span>, if any, are works that could not be confirmed against a database. They are used only for what they state, so treat them with extra care.</p>
+    <p id="srcStats"></p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="%t:sources.placeholder%" aria-label="%t:sources.search%">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
+</section>

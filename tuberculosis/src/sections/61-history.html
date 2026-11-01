@@ -1,0 +1,72 @@
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<style>
+#m-history .ctrls .kicker{min-width:58px}
+#m-history .card>.tag,#m-history .card>.ev{align-self:flex-start}
+#m-history .card .yr{font:600 11px var(--mono);letter-spacing:.08em;color:var(--muted)}
+#m-history #hiYears{gap:5px}
+#m-history .names dt{font-family:var(--display);font-weight:800;font-size:17px}
+#m-history .names dd{margin:0 0 8px;font-size:14.5px}
+#m-history .names{margin:0}
+</style>
+<section class="mod" id="m-history" data-mod="history" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
+    <p class="lede">TB is at least 9,000 years old. Scrub from Neolithic bones to Koch's 1882 lecture, sanatoria, BCG, the first randomised trial of streptomycin, six-month treatment and the all-oral BPaLM regimen, and watch the toolbox fill. [[Hershkovitz2008,Barberis2017]]</p></div>
+
+  <div class="ctrls" role="group" aria-label="Show milestones">
+    <span class="kicker">Show</span>
+    <button class="btn" data-hf="d" aria-pressed="true">Discoveries &amp; tests</button>
+    <button class="btn" data-hf="t" aria-pressed="true">Treatment</button>
+    <button class="btn" data-hf="p" aria-pressed="true">Public health</button>
+  </div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSvg" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="A timeline of tuberculosis from about 7000 BCE to 2023 on a stretched time axis. As the playhead moves, milestones light up in three lanes (discoveries and tests, treatment, public health), a card shows the latest milestone, and a toolbox below fills with the tests, vaccine and drugs available in that year, along with the length of standard treatment."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.44"></label></div>
+      <div class="chips" id="hiYears" role="group" aria-label="Jump to a milestone"></div>
+      <p class="stage-cap">The time axis is stretched: each segment between the tick marks covers a different span of years. Dates as given in the cited histories.</p>
+    </div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What changed the curve?</h3>
+  <div class="prose"><p>TB deaths were falling in England and Wales long before any drug existed, and they did not fall the same way everywhere. Pick a lens. [[Davies1999,Vynnycky1999,Hermans2015]]</p></div>
+  <div class="ctrls" role="group" aria-label="What changed">
+    <span class="kicker">Lens</span>
+    <button class="btn" data-hm="decline" aria-pressed="true">Victorian decline</button>
+    <button class="btn" data-hm="contacts" aria-pressed="false">Contacts per case</button>
+    <button class="btn" data-hm="fatality" aria-pressed="false">Case fatality, 3 cities</button>
+    <button class="btn" data-hm="trial" aria-pressed="false">1948 streptomycin trial</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiMort" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A chart that changes with the chosen lens: TB mortality in England and Wales falling from 1853 to 1910 before any drug; the modelled number of people each infectious person effectively contacted, falling from 22 in 1900 to 1 in 1990 with the antibiotic era marked; case fatality before and after chemotherapy in Cape Town, New York and London; or the 1948 trial's deaths at six months, 4 of 55 on streptomycin against 15 of 52 on bed rest."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiMPlay">Play</button><label class="stage-cap tl" for="hiMT"><span id="hiMLab">Year</span> <input type="range" id="hiMT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="hiMCap"></p>
+    </div>
+    <aside class="note" id="hiMNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">People</h3>
+  <div class="cards">
+    <div class="card"><span class="yr">1882 · Berlin</span><h4>Robert Koch</h4><p>Presented his isolation of the tubercle bacillus to the Physiological Society in Berlin on 24 March 1882, the date World TB Day now marks. [[Barberis2017,CDC2018WTBD]] The work rested on Villemin's proof that TB is transmissible and on two new methods: a staining technique and a solid, serum-based culture medium. [[Cambau2014]] His tuberculin, offered as a cure in 1890–91, failed in practice but later became a diagnostic tool. Nobel Prize, 1905. [[Gradmann2006,Sakula1982,Barberis2017]]</p></div>
+    <div class="card"><span class="yr">1908–1921</span><h4>Albert Calmette and Camille Guérin</h4><p>From 1908 they subcultured a virulent bovine strain on bile-glycerine-potato medium; after about 230 passages over 11 years it no longer caused progressive TB in animals. On 18 July 1921 Weill-Hallé and Turpin gave the first human dose, by mouth, to a newborn in Paris whose mother had died of TB. [[Luca2013]] BCG is still the only licensed TB vaccine. [[Lange2022]] See <a href="#bcg" data-go="bcg">BCG &amp; new vaccines</a>.</p></div>
+    <div class="card"><span class="yr">1944</span><h4>Albert Schatz, Elizabeth Bugie and Selman Waksman</h4><p>Reported streptomycin, from a soil actinomycete, in 1944. [[Schatz1944,Crofton2006]] Its first controlled test, the 1948 MRC trial, also showed resistance emerging when it was used alone. [[Crofton2006]]</p></div>
+    <div class="card"><span class="yr">1946</span><h4>Jörgen Lehmann</h4><p>Reported para-aminosalicylic acid (PAS) in The Lancet in January 1946. Given with streptomycin, it greatly reduced drug resistance: the first step to combination therapy. [[Lehmann1946,Murray2015]]</p></div>
+    <div class="card"><span class="yr">1948</span><h4>John Crofton</h4><p>His first-hand account of the 1948 MRC streptomycin trial, "a view from the clinical front line", records the deaths and the resistance that followed single-drug treatment, the lesson that TB must be treated with several drugs together. [[Crofton2006]]</p></div>
+    <div class="card"><span class="yr">The short-course era</span><h4>Denis Mitchison</h4><p>Best known for the idea that TB bacteria live as subpopulations, some growing fast and some barely metabolising, that different drugs reach differently: the basis of multi-drug, two-phase short-course treatment. [[Mitchison2000]] His summary of the trial-proven steps: streptomycin works, combinations prevent resistance, home treatment works, supervised intermittent dosing helps, and rifampicin and pyrazinamide shorten treatment. [[Mitchison2005]]</p></div>
+  </div>
+
+  <div class="split2">
+    <div class="card"><span class="tag">Former names</span><h4>What TB used to be called</h4>
+      <dl class="names">
+        <dt>Phthisis</dt><dd>The ancient Greek name; Hippocrates described a fatal disease, especially of young adults. [[Barberis2017]]</dd>
+        <dt>Consumption</dt><dd>The English name, as in Benjamin Marten's 1720 "A new theory of Consumption", the first suggestion of an infectious cause. [[Barberis2017]]</dd>
+        <dt>Pott's disease</dt><dd>TB of the spine; its deformity is visible in Egyptian remains from about 2400 BC. [[Barberis2017]]</dd>
+        <dt>"Captain of All These Men of Death"</dt><dd>Its title in 18th- and 19th-century Europe and North America, when it caused about one death in four. [[Barberis2017,Daniel2006]]</dd>
+        <dt>Tuberculosis</dt><dd>Coined by Johann Lukas Schönlein in the mid-19th century. [[Barberis2017]] Historians also call it "the white death". [[Gradmann2006]]</dd>
+      </dl></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Why did TB fall before drugs?</h4><p>One model credits a fall in effective contact: each infectious person effectively contacted about 22 people in 1900, 10 by 1950 and about 1 by 1990. [[Vynnycky1999]] Another analysis found that TB mortality fell 1.71% a year from 1853 to 1910 while total mortality, infant mortality and housing density did not fall significantly, and proposed a role for natural selection (<span class="ev hyp">Hypothesis</span>). [[Davies1999]] Comparing cities, rates fell in New York and London but stayed high in Cape Town, pointing to transmission tied to social and economic conditions. [[Hermans2015]] The sanatorium movement drew attention to people with TB and helped spur public-health action. [[Murray2015]]</p></div>
+  </div>
+  <p class="stage-cap">Discrepancies in the sources: Murray and colleagues say PAS was "discovered in 1945", while Lehmann's Lancet report is dated January 1946. [[Murray2015,Lehmann1946]]</p>
+</section>

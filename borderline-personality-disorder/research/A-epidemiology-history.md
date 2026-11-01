@@ -1,0 +1,418 @@
+# A · Epidemiology, presentation, stigma & history
+
+Pass date: 2026-10-25. Modules served: what, history.
+
+This pass covers how common borderline personality disorder (BPD) is in the community, in primary care, in psychiatric outpatient and inpatient services, in adolescents and in older adults; the sex ratio and why clinical samples skew female; the typical presentation; functional impairment and costs; mortality (suicide and other causes) as population statistics; stigma and language; and the history of the diagnosis from Stern (1938) to ICD-11. Causes, mechanisms, formal diagnostic criteria, treatments, course and recovery in depth, and living with BPD are covered by passes B–H.
+
+Access notes:
+- Every number below comes from a PubMed / Europe PMC abstract, except where a bullet says it comes from a full text. Full texts read: Tomko 2014 (PMC3864176), Gunderson 2009 (PMC3145201) and Gunderson 2011 (PMC3158489), all PMC author manuscripts.
+- Lenzenweger 2007 (NCS-R): the abstract gives cluster-level rates only (Cluster B 1.5%, any PD 9.1%). The BPD-specific 1.4% figure is not in the abstract, and the full text is not open access. I confirmed it at second hand: Gunderson 2009 cites Lenzenweger 2007 and Grant 2008 together for a community range of "1.4%–5.9%". It is cited that way below.
+- Leichsenring 2024 (World Psychiatry) and Grant 2008 full texts were not retrievable through the PMC API (not open access). Their numbers are taken from the abstracts.
+- The ICD-11 browser (icd.who.int) needs JavaScript and the ICD API needs a token, so I could not confirm the WHO2022ICD11 record. It is not cited. The ICD-11 borderline pattern is cited from Tyrer 2019 and Mulder 2020 instead.
+- Linehan 2006, Bateman 2009, Giesen-Bloo 2006, McMain 2009, Storebø 2020 and Stoffers-Winterling 2022 belong to the treatment passes (E, F) and are not cited here.
+- Safe messaging: self-harm and suicide figures are given as population rates only, with no methods or means.
+
+## Findings
+
+### what · How common is BPD in the general population?
+- In the 2001–2003 US National Comorbidity Survey Replication, the multiple-imputation prevalence of any DSM-IV personality disorder was 9.1%; Cluster A was 5.7%, Cluster B 1.5% and Cluster C 6.0% (IPDE screening questions in n = 5,692, calibrated against clinical interviews in a sub-sample) [[Lenzenweger2007]].
+- US community estimates of BPD range from 1.4% (NCS-R) to 5.9% (NESARC Wave 2) [[Gunderson2009Ontogeny,Lenzenweger2007,Grant2008]].
+- NESARC Wave 2 (face-to-face interviews with 34,653 US adults, 2004–2005) reported lifetime BPD prevalence of 5.9% (99% CI 5.4–6.4) [[Grant2008]].
+- NESARC Wave 2 found no sex difference in BPD: 5.6% of men (99% CI 5.0–6.2) and 6.2% of women (99% CI 5.6–6.9) [[Grant2008]].
+- In NESARC Wave 2, BPD was more common in Native American men, younger adults, separated/divorced/widowed adults and people with lower income and education. It was less common among Hispanic men and women and Asian women [[Grant2008]].
+- Grant 2008 concluded that BPD is "much more prevalent in the general population than previously recognized." That 5.9% figure was later criticised as inflated [[Grant2008,Trull2010,Tomko2014]].
+- Reanalysis of NESARC that required each personality-disorder criterion to cause distress or impairment cut the prevalence of any personality disorder from 21.5% to 9.1% [[Trull2010]].
+- With the stricter NESARC algorithm (n = 34,481), lifetime BPD prevalence was 2.7% (95% CI 2.5–3.0) [[Tomko2014]].
+- Tomko 2014 argued that Grant's "more liberal diagnostic rules" probably counted people with subthreshold BPD (full text) [[Tomko2014]].
+- In Oslo, Norway (n = 2,053, aged 18–65, SIDP-R interviews, 1994–1997), BPD prevalence was 0.7% (SE 0.2). Any personality disorder was 13.4% [[Torgersen2001]].
+- A household survey in Great Britain (n = 626, SCID-II, two-phase) found a weighted prevalence of any personality disorder of 4.4% (95% CI 2.9–6.7) [[Coid2006]].
+- The WHO World Mental Health Surveys (13 countries, n = 21,162) estimated any personality disorder at 6.1% and Cluster B at 1.5% [[Huang2009]].
+- A 2020 global meta-analysis (46 studies, 21 countries, 6 continents) put community prevalence of any personality disorder at 7.8% (95% CI 6.1–9.5) and Cluster B at 2.8% (1.6–3.7). Rates were 9.6% in high-income countries and 4.3% in low- and middle-income countries [[Winsper2020]].
+- A meta-analysis of Western community studies (10 studies, n = 113,998) put any personality disorder at 12.16% (95% CI 8.01–17.02). Rates were lower when experts rated than with self-report [[Volkert2018]].
+- Across community studies, median point prevalence of BPD is roughly 1%, with higher or lower rates in some subpopulations [[Ellison2018]].
+- Lifetime prevalence of BPD in the general adult population: 0.7% to 2.7% (Leichsenring 2024 review); about 1.7% (Gunderson 2018 primer) [[Leichsenring2024WP,Gunderson2018]].
+- In the stricter NESARC analysis, BPD was 5.0% in Native Americans, 3.5% in Black respondents and 1.2% in Asian respondents [[Tomko2014]].
+- In the stricter NESARC analysis, BPD was 4.8% with family income below $20,000, 4.3% under age 30, and 4.5% among separated, divorced or widowed adults (full text) [[Tomko2014]].
+- Why the estimates differ (Established): sampling, interview instrument, one- versus two-stage design and the impairment threshold all change the result [[Ellison2018,Winsper2020,Trull2010]].
+
+### what · Prevalence in clinical settings
+- In a US urban primary care practice (n = 218, structured interviews), lifetime BPD prevalence was 6.4% (14/218). The authors call this about four times the community rate [[Gross2002PrimaryCare]].
+- In that primary care sample, half of patients with BPD had no mental health treatment in the past year, and 42.9% were not recognised by their physician as having an emotional problem [[Gross2002PrimaryCare]].
+- Psychiatric outpatient clinics: BPD prevalence is about 10–12%. Psychiatric inpatient units: about 20–22% [[Ellison2018]].
+- Leichsenring 2024 gives about 12% in outpatient and 22% in inpatient psychiatric services [[Leichsenring2024WP]].
+- Gunderson 2018 gives 15–28% of patients in psychiatric clinics or hospitals [[Gunderson2018]].
+- Of 859 Rhode Island outpatients (SIDP-IV), 31.4% had one of the ten DSM-IV personality disorders. Borderline was among the three most frequent specific diagnoses, with avoidant and obsessive-compulsive [[Zimmerman2005]].
+- Outpatient estimates vary from 7% to 27% depending on setting and method [[Korzekwa2008]].
+- In one university outpatient clinic, 22.6% (95% CI 17.3–27.9) of screened patients met DIB-R criteria for BPD; 75.4% of those were female [[Korzekwa2008]].
+
+### what · Adolescents and early intervention
+- A coherent BPD syndrome usually begins in adolescence, after age 12 [[Bohus2021]].
+- BPD can be reliably diagnosed in adolescents as young as 11 [[Guile2018]].
+- Community prevalence of BPD in adolescents is around 3% [[Guile2018]].
+- Clinical prevalence in adolescents ranges from 11% in outpatient clinics to 78% among suicidal adolescents seen in an emergency department [[Guile2018]].
+- In the Bristol birth cohort, 3.2% of 6,330 English 11-year-olds met DSM-IV BPD criteria, against 5.9% of 34,653 US adults (NESARC) [[Zanarini2011JPD]].
+- Children were more likely than adults to report being angry and moody. Adults were more likely to report paranoia/dissociation, identity disturbance, impulsivity and frantic efforts to avoid abandonment [[Zanarini2011JPD]].
+- In a US community cohort of 816 young people assessed at mean ages 14, 16 and 22, personality-disorder traits fell by 28% across both adolescence and early adulthood [[Johnson2000Acta]].
+- Adolescents with a personality disorder often still had elevated traits as young adults [[Johnson2000Acta]].
+- In inpatients, lifetime self-injury (about 90%) and suicide attempts (about 75%) were similar in 104 adolescents and 290 adults with BPD [[Goodman2017]].
+- Adolescents reported more frequent lifetime self-injury than adults. Adults more often reported five or more suicide attempts [[Goodman2017]].
+- Diagnosing BPD in adolescents is as reliable and valid as in adults. Classification systems and national guidelines now recognise it, and calling the diagnosis controversial in this age group "is no longer justified" (Established) [[Kaess2014]].
+- BPD suits prevention and early intervention because it is common in clinical practice, highly disabling and treatable, and can be diagnosed reliably early on (Early evidence) [[Chanen2013]].
+- BPD traits in youth are flexible and malleable [[Chanen2013]].
+- A Global Alliance for Prevention and Early Intervention for BPD has called early intervention for BPD "a novel public health priority" [[Chanen2017WP]].
+- Evidence supports early detection and intervention for subsyndromal as well as full BPD across an extended developmental period. Effective treatments for young people "are rarely available internationally" (Early evidence) [[Chanen2020YoungPeople]].
+- Recent research aims to dispel long-held myths that adolescent personality disorders are invalid, diagnostically useless or untreatable [[Sharp2015]].
+- Danish register data compared 171 people diagnosed with BPD before age 19 with 677 matched controls. At age 20, the BPD group was about 22 times more likely to be unemployed (OR 21.7, 95% CI 11.9–39.6) after adjusting for parental education [[Hastrup2022]].
+- In the same study, the early-onset group was nearly 15 times more likely to be on disability pension (OR 14.8, 95% CI 5.0–43.9) [[Hastrup2022]].
+- Total health care costs in the early-onset group were more than eight times higher than in controls [[Hastrup2022]].
+
+### what · Older adults
+- In a German community sample (n = 2,488, all ages), syndromal and subsyndromal BPD fell sharply between adolescence and young adulthood, then stayed stable. Depressivity rose with age while impulsivity fell [[Arens2013]].
+- Among more than 3,000 psychiatric outpatients, 46 older adults (45–68) and 97 younger adults (18–25) met BPD criteria [[Morgan2013Older]].
+- The older adults were more likely to endorse chronic emptiness and less likely to endorse impulsivity, self-harm and affective instability [[Morgan2013Older]].
+- The older adults also had fewer substance use disorders, more lifetime hospitalisations and greater social impairment [[Morgan2013Older]].
+- Few studies cover BPD in people aged 65 and over, and no diagnostic or rating instrument has been developed for this group. A review describes BPD in old age as an often missed diagnosis [[Beatson2016]].
+
+### what · Sex ratio and referral bias
+- DSM-IV-TR stated that BPD is "diagnosed predominantly (about 75%) in females," a 3:1 ratio [[Skodol2003]].
+- The higher rate of BPD in women in clinical settings "appears to be largely a function of sampling bias"; the true prevalence by sex is unknown [[Skodol2003]].
+- Community data show near-equal rates: NESARC Wave 2 gave 5.6% for men and 6.2% for women [[Grant2008]].
+- The stricter NESARC algorithm gave 3.0% for women and 2.4% for men (full text) [[Tomko2014]].
+- The wide clinical sex gap is "likely a result of sampling only clinical patients in treatment settings" (full text) [[Tomko2014]].
+- Earlier research reported more women than men with BPD, but more recent research finds no difference in prevalence by sex [[Sansone2011Gender]].
+- Men with BPD more often have substance use disorders and antisocial personality disorder. Women more often have eating, mood, anxiety and post-traumatic stress disorders [[Sansone2011Gender]].
+- In the CLPS cohort, women and men with BPD "displayed more similarities than differences" [[Johnson2003CLPS]].
+- In CLPS, men more often had substance use disorders and schizotypal, narcissistic and antisocial personality disorders. Women more often had PTSD, eating disorders and the identity disturbance criterion [[Johnson2003CLPS]].
+- In a multinational clinical-trial sample of 770 people with BPD (211 men), suicidality, aggression and substance misuse did not differ by sex [[Silberschmidt2015]].
+- The authors of that sample concluded that BPD "may diminish normal gender differences" [[Silberschmidt2015]].
+
+### what · Typical presentation
+- BPD is defined by instability in self-image, interpersonal relationships and affect [[Leichsenring2024WP]].
+- Other core features include impulsivity, intense anger, feelings of emptiness, strong fears of abandonment, suicidal or self-injuring behaviour, and transient stress-related paranoid ideation or severe dissociation [[Leichsenring2024WP]].
+- BPD is characterised by "extreme sensitivity to perceived interpersonal slights," an unstable sense of self, intense and volatile emotions, and impulsive, often self-destructive behaviour [[Gunderson2018]].
+- BPD often follows or develops alongside internalising problems (depression, anxiety), externalising problems (conduct problems, hyperactivity, substance use), or both [[Bohus2021]].
+- On the Revised Diagnostic Interview for Borderlines (120 BPD vs 103 other personality-disorder patients), 7 of 22 clinical features were relatively specific to BPD. Eleven discriminated BPD but were not specific, and four were common but did not discriminate [[Zanarini1990DIBR]].
+- MSAD separates "acute" symptoms (such as self-injury and help-seeking suicidal threats or attempts) from "temperamental" symptoms (such as chronic intense anger and profound abandonment concerns) [[Zanarini2005MSAD]].
+- Acute symptoms resolve faster and often drive costly care. Temperamental symptoms resolve more slowly and track ongoing psychosocial impairment [[Zanarini2005MSAD]].
+- Over 10 years, impulsive and interpersonal-management symptoms resolved quickest. Chronic dysphoria (anger, loneliness/emptiness) and abandonment or dependency symptoms were the most stable [[Zanarini2007Subsyndromal]].
+- Twelve of 24 BPD symptoms fell sharply over 10 years: fewer than 15% of patients who had them at baseline still reported them [[Zanarini2007Subsyndromal]].
+- About 20–50% of people with BPD report psychotic symptoms, mostly hallucinations. The review advises against the terms "pseudo-psychotic" and "quasi-psychotic" as misleading [[Schroeder2013]].
+- In ambulatory monitoring over 48 hours (51 BPD patients vs clinical and healthy controls), dissociation rose with stress in all groups. The rise was steeper in BPD, matching the "stress-related" wording of the criterion [[Stiglmayr2008]].
+- In 21 outpatients with BPD, 76% met criteria for a DSM-IV dissociative disorder. Almost all reported identity confusion, unexplained mood changes and depersonalisation [[Korzekwa2009]].
+- Comorbidity is the rule. In NESARC, 84.8% of people with BPD had a lifetime anxiety disorder, 82.7% a lifetime mood disorder and 78.2% a lifetime substance use disorder [[Tomko2014]].
+- BPD is associated with depressive, substance use, post-traumatic stress, ADHD, bipolar, bulimia nervosa and other personality disorders [[Leichsenring2024WP]].
+
+### what · Functional impairment, health care use and costs
+- BPD is associated with low occupational and educational attainment, few long-term relationships, more partner conflict, sexual risk-taking, low social support, low life satisfaction and more service use [[Bohus2021]].
+- In NESARC Wave 2, BPD was associated with substantial mental and physical disability, especially in women [[Grant2008]].
+- In CLPS (175 patients with BPD followed 10 years), 85% remitted and 12% relapsed. Social functioning showed "severe and persistent impairment" [[Gunderson2011]].
+- In a Dutch sample of 1,708 personality-disorder patients, mean EQ-5D quality-of-life index was 0.56. The authors rated this burden as comparable to severe somatic illness [[Soeteman2008QoL]].
+- In that sample, the number of personality-disorder diagnoses drove quality of life more than the type, and BPD did not carry the highest burden [[Soeteman2008QoL]].
+- Treatment-seeking Dutch patients with personality disorders (n = 1,740) cost €11,126 each in the 12 months before treatment. Two-thirds (66.5%) of this was direct medical cost [[Soeteman2008Cost]].
+- In that Dutch sample, BPD was one of two diagnoses (with obsessive-compulsive personality disorder) uniquely linked to higher total costs [[Soeteman2008Cost]].
+- In 167 German patients seeking specialist outpatient care for BPD, societal cost of illness was €31,130 per patient-year (2015 prices). Of this, €17,044 (54.8%) was direct cost, mostly hospital care, and €14,086 (45.2%) indirect cost [[Wagner2022Cost]].
+- In a German DBT cohort, mean annual BPD-related cost was €28,026 in the year before treatment, €18,758 during the DBT year (47 completers) and €14,750 in the follow-up year (33 participants). The savings came mainly from fewer inpatient stays [[Wagner2014DBTCost]].
+- A systematic review of 30 economic evaluations (134,136 patients) found a mean saving of USD 2,987.82 per patient per year with evidence-based psychotherapy for BPD (2015 USD) [[Meuldijk2017]].
+- The same review found a further weighted reduction of USD 1,551 per patient per year compared with treatment as usual [[Meuldijk2017]].
+- In MSAD (290 inpatients with BPD), 79% had been hospitalised before baseline. Only 33% were hospitalised in the final 2 years of a 6-year follow-up [[Zanarini2004Services]].
+- About three-quarters of MSAD patients were still in psychotherapy and taking psychotropic medication at 6 years [[Zanarini2004Services]].
+- About 40% of MSAD patients took three or more standing psychotropic medications in each follow-up period [[Zanarini2004Services]].
+- In NESARC, 74.9% of people with BPD had received therapy or consultation at some point in their lives (full text) [[Tomko2014]].
+
+### what · Mortality: suicide and other causes (population statistics)
+- Suicidal behaviour is common in BPD. At least three-quarters of patients attempt suicide and about 10% eventually die by suicide (clinical cohort estimates) [[Black2004Suicide]].
+- Risk is highest with prior attempts, comorbid major depression or substance use disorder, hopelessness and impulsivity [[Black2004Suicide]].
+- Up to 10% of people with BPD will die by suicide [[Paris2019Suicidality]].
+- No research shows that suicide prevention measures work specifically in BPD, and hospitalisation has not been shown to be useful. Specifically designed psychotherapies have the strongest evidence [[Paris2019Suicidality]].
+- In a Canadian cohort of 64 patients followed a mean of 27 years, suicides reached 10.3% of the original cohort and 18.2% had died of any cause [[Paris2001]].
+- Only five of those 64 patients still met BPD criteria at 27 years [[Paris2001]].
+- Suicide rates near 10% fall mostly late in the course of illness, and early all-cause mortality exceeds 18% (Paris's long-term follow-up studies) [[Paris2002]].
+- A meta-analysis of eight cohorts (1,179 patients) counted 94 suicides, about 8%. Every study found higher suicide rates than in the general population, with risk highest early in follow-up [[Pompili2005]].
+- In MSAD, 290 inpatients with BPD and 72 comparison patients with other personality disorders were recruited at McLean Hospital in 1992–1995 and followed every 2 years [[Temes2019]].
+- Over 24 years, 5.9% of MSAD patients with BPD died by suicide, against 1.4% of comparison subjects [[Temes2019]].
+- Over the same 24 years, 14.0% of patients with BPD and 5.5% of comparison subjects died from causes other than suicide [[Temes2019]].
+- In MSAD, more prior hospitalisations predicted suicide (HR 1.62). Patients who never recovered were at disproportionately higher risk of early death [[Temes2019]].
+- At 6 years, MSAD suicides were "far more rare than anticipated (about 4% vs. 10%)" [[Zanarini2005MSAD]].
+- Danish registers (10,545 people with a first hospital diagnosis of BPD, ICD-10 F60.31, 1995–2011, mean follow-up 7.98 years) recorded 547 deaths. The standardised mortality ratio (SMR) was 8.3 (95% CI 7.6–9.1) [[Kjaer2020]].
+- Mortality in that cohort was higher with more than three admissions a year or with a comorbid substance use disorder [[Kjaer2020]].
+- In 1,836 South London patients with any personality disorder in secondary care, life expectancy at birth was 63.3 years for women and 59.1 years for men. That is 18.7 and 17.7 years shorter than the general population of England and Wales (not BPD-specific) [[Fok2012]].
+- The SMR in that cohort was 4.2 overall (95% CI 3.03–5.64) [[Fok2012]].
+- In NESARC Wave 2, BPD was associated with arteriosclerosis or hypertension, liver disease, cardiovascular disease, gastrointestinal disease, arthritis and sexually transmitted disease after full adjustment (adjusted ORs 1.46–2.80) [[ElGabalawy2010]].
+- In MSAD at 6 years, patients whose BPD had not remitted were more likely than remitted patients to have chronic "syndrome-like" conditions, obesity, osteoarthritis, diabetes, hypertension and back pain, and to use costly forms of care [[Frankenburg2004]].
+- Over a decade of follow-up, patients who never recovered were more likely than recovered patients to have a medical syndrome, obesity, osteoarthritis, diabetes, urinary incontinence or multiple medical conditions [[Keuroghlian2013]].
+- Self-injury and suicide attempts in BPD decline sharply over 10 years. The authors call the course "initially more serious and ultimately more benign than previously recognized" [[Zanarini2008SelfHarm]].
+- Clinicians should not read repeated suicide attempts as a sign of little wish to die [[Black2004Suicide]].
+
+### what · Stigma, clinician attitudes and language
+- In a 1988 vignette study, psychiatrists judged patients labelled "personality disorder" as more difficult and less deserving of care than identical controls [[Lewis1988]].
+- In that study, the authors concluded that the personality-disorder label worked as "an enduring pejorative judgement rather than a clinical diagnosis" [[Lewis1988]].
+- Mental health nurses gave the "borderline personality disorder" label more negative responses than schizophrenia or depression labels for the same challenging behaviour. They saw people with BPD as more in control of the behaviour and reported less sympathy and optimism [[Markham2003]].
+- A survey of 706 clinicians at nine US academic centres found most considered BPD a valid diagnosis, yet "nearly half reported that they preferred to avoid these patients" [[Black2011Attitudes]].
+- In that survey, staff nurses rated themselves lowest on caring, empathy and treatment optimism. Clinicians who had treated more people with BPD in the past year rated higher on all three [[Black2011Attitudes]].
+- A review of clinician responses found mostly negative perceptions of, and emotional reactions to, patients with BPD. Psychiatric nurses were the most studied group [[Sansone2013Clinicians]].
+- A systematic review of 40 studies found mental health nurses' attitudes to people with BPD poorer than other professionals' and poorer than towards other diagnoses. Nurses reported many training needs [[Dickens2016]].
+- Stigma attached to BPD may exceed that of other mental illnesses. Clinicians who distance themselves can trigger rejection-sensitive reactions in patients, creating "a self-fulfilling prophecy and a cycle of stigmatization" (Hypothesis) [[Aviram2006]].
+- A review of 30 studies (12 patient-perspective, 18 clinician-perspective) found six themes, including stigma around diagnosis and disclosure, perceived untreatability, and low BPD health literacy among both patients and professionals [[Ring2019]].
+- Public knowledge of personality disorders is low, and people with them may be seen as "purposefully misbehaving." Health-provider stigma "seems particularly pernicious" for BPD [[Sheehan2016]].
+- Messages that combine recovery potential with biological causes may reduce stigma the most (Early evidence) [[Sheehan2016]].
+- A scoping review of 57 citations found structural stigma — policies, norms and service design — that limits access to health and crisis care for people with BPD and their families [[Klein2022]].
+- In an Australian survey of 153 people with a BPD diagnosis, respondents reported significant discrimination in public and private services. Emergency department visits during crises were particularly hard [[Lawn2015]].
+- An integrative review of emergency-department care found mainly negative experiences among consumers, carers and clinicians, with stigmatising attitudes seen as driving further visits [[Miller2024ED]].
+- In a co-produced study (33 people with BPD, 30 carers), every participant reported stigmatising language. Language heard as connecting, validating and accepting was experienced as helpful [[vanSchie2024]].
+- BPD "remains terribly and unfairly stigmatized" [[Gunderson2009Ontogeny]].
+- NIMH research funding for BPD (about $6 million a year in 2009) was less than 2% of the amount spent on schizophrenia research (full text) [[Gunderson2009Ontogeny]].
+- Language guidance for this companion: say "people with BPD" or "people living with BPD" and describe behaviour, not character. The pejorative terms clinicians attached to the personality-disorder label in Lewis and Appleby's study are exactly what the stigma literature warns against [[Lewis1988,vanSchie2024,Sheehan2016]].
+
+### history · From "border line" to ICD-11
+- 1938: Adolph Stern described the "border line group of neuroses," between neurosis and psychosis, in the Psychoanalytic Quarterly [[Stern1938]].
+- 1953: Robert Knight published "Borderline states." He and Stern are named as the psychiatrists most responsible for introducing the label (full text) [[Knight1953,Gunderson2009Ontogeny]].
+- Until the 1970s, "borderline" remained a rarely and inconsistently used "colloquialism within the psychoanalytic fraternity." Its main reference point was schizophrenia (full text) [[Gunderson2009Ontogeny]].
+- 1967: Otto Kernberg defined "borderline personality organization," a middle level of personality organisation marked by primitive defences (splitting, projective identification), identity diffusion and lapses in reality testing [[Kernberg1967,Gunderson2009Ontogeny]].
+- 1968: Grinker and colleagues published the empirical study "The Borderline Syndrome." It is cited in Gunderson 2009 (full text) and was not separately validated [[Gunderson2009Ontogeny]].
+- 1975: Gunderson and Singer reviewed the descriptive literature and proposed six features for diagnosing borderline patients at an initial interview. Among them were intense (usually depressive or hostile) affect, impulsive behaviour and brief psychotic experiences [[Gunderson1975]].
+- 1978: Gunderson and Kolb showed borderline patients could be distinguished with high accuracy from schizophrenic and neurotic-depressed comparison groups using seven criteria [[Gunderson1978]].
+- 1981: the Diagnostic Interview for Borderline Patients (DIB), a semi-structured interview covering five areas of functioning, was published. A revised version (DIB-R) followed [[Gunderson1981,Zanarini1990DIBR]].
+- 1979: Spitzer, Endicott and Gibbon built two criteria sets from data on 808 borderline and 808 control patients. These became DSM-III borderline personality disorder and schizotypal personality disorder, splitting "borderline personality" from "borderline schizophrenia" [[Spitzer1979]].
+- 1980: BPD was introduced in DSM-III. From DSM-III to DSM-5 its defining criteria saw no major changes [[Leichsenring2024WP]].
+- Fewer than 15 research reports on BPD were published before 1980, and more than 275 in 1980–1990 (full text) [[Gunderson2009Ontogeny]].
+- 1991: Linehan and colleagues published the first RCT of dialectical behaviour therapy in chronically parasuicidal women with BPD. Compared with treatment as usual over 1 year, DBT reduced parasuicide and its medical severity, kept more people in therapy and cut inpatient days [[Linehan1991]].
+- 1992: ICD-10 code F60.31 (emotionally unstable personality disorder, borderline type) is the code used in Danish national register studies of BPD [[Kjaer2020]].
+- 1992–1995: the McLean Study of Adult Development (MSAD) recruited 290 inpatients with BPD and 72 comparison subjects. It was the first NIMH-funded prospective study of the course of BPD [[Temes2019,Zanarini2005MSAD]].
+- 1999: Bateman and Fonagy's RCT of psychoanalytically oriented partial hospitalisation (38 patients, up to 18 months) cut suicidal acts, self-harm and inpatient days compared with standard psychiatric care. This was the forerunner of mentalization-based treatment [[Bateman1999]].
+- 2000: the Collaborative Longitudinal Personality Disorders Study (CLPS) enrolled 668 treatment-seeking adults, 175 of them with BPD, at four US sites [[Gunderson2000CLPS]].
+- 2003: MSAD reported that 34.5% of patients with BPD had remitted at 2 years, 49.4% at 4 years and 68.6% at 6 years. Only 5.9% of those who remitted had a recurrence. These findings began the "recovery era" [[Zanarini2003Course]].
+- 2008: on 1 April the US House of Representatives unanimously passed House Resolution 1005, supporting May as BPD awareness month (full text) [[Gunderson2009Ontogeny]].
+- 2009: NICE issued its first national guideline on BPD, described as taking "the first comprehensive view of the disorder" [[NICE2009]].
+- 2010–2012: MSAD reported that 93% of patients reached a 2-year symptomatic remission and 50% reached recovery (remission plus good social and vocational functioning) within 10 years [[Zanarini2010Recovery]].
+- At 16 years, MSAD sustained remission reached 78–99% and recovery 40–60%, depending on the definition [[Zanarini2012]].
+- 2011: CLPS reported 85% remission and 12% relapse over 10 years, with persistent social impairment [[Gunderson2011]].
+- 2013: DSM-5 was published, keeping the categorical BPD criteria; it also added a Section III Alternative Model for Personality Disorders [[APA2013]]. That model grew out of the work group's proposal to describe each personality-disorder type, borderline included, by core impairments in personality functioning plus pathological traits [[Skodol2011]].
+- 2013: the DSM-5 work group had proposed cutting specified personality-disorder types from 10 to 5, borderline among them, each rated on a dimension of fit [[Skodol2011]].
+- 2022: ICD-11 replaced categorical personality-disorder diagnoses with a single severity spectrum plus up to five trait domains, "the most radical change in the classification history of personality disorders" [[Tyrer2019]].
+- After lengthy debate, ICD-11 added an optional "borderline pattern" descriptor, chosen once severity is set [[Tyrer2019]].
+- 2022: DSM-5-TR was published and keeps BPD as a categorical diagnosis [[APA2022]].
+- 2024: the American Psychiatric Association published a new practice guideline for the treatment of patients with BPD [[APA2024Guideline]].
+- Arc of the concept: BPD moved from a psychoanalytic colloquialism for "untreatable neurotics" to a valid diagnosis with significant heritability and specific, effective psychotherapies (Established) [[Gunderson2009Ontogeny]].
+- BPD "was previously regarded as untreatable," but earlier diagnosis and better treatment have improved outcomes (Established) [[Bohus2021]].
+- Psychological or psychosocial intervention is the primary recommended treatment, and medication is advised only as an adjunct [[Bateman2015Lancet,Bohus2021]].
+
+### Exam hooks
+- Community prevalence of BPD is roughly 1–3%. The median point prevalence across studies is about 1% [[Ellison2018,Tomko2014]].
+- BPD affects about 10–12% of psychiatric outpatients and about 20–22% of psychiatric inpatients [[Ellison2018]].
+- In primary care, lifetime BPD prevalence was 6.4%, and nearly half of cases went unrecognised by the physician [[Gross2002PrimaryCare]].
+- NESARC Wave 2 gave a 5.9% lifetime prevalence. Requiring distress or impairment for each criterion lowers this to 2.7% [[Grant2008,Tomko2014]].
+- Clinical samples are about 75% female, but community samples show near-equal rates. The difference is mainly sampling (referral) bias [[Skodol2003,Grant2008]].
+- BPD usually begins in adolescence (after age 12), can be diagnosed from about age 11, and affects about 3% of adolescents in the community [[Bohus2021,Guile2018]].
+- Up to about 10% of people with BPD in long-term clinical cohorts die by suicide. In MSAD, 5.9% died by suicide over 24 years [[Paris2019Suicidality,Temes2019]].
+- In MSAD, deaths from causes other than suicide (14.0%) outnumbered suicides (5.9%) over 24 years [[Temes2019]].
+- Hospital-treated BPD in Denmark had a standardised mortality ratio of 8.3 [[Kjaer2020]].
+- Stern (1938) and Knight (1953) introduced "borderline." Kernberg (1967) described borderline personality organisation. Gunderson & Singer (1975) gave descriptive features [[Gunderson2009Ontogeny,Gunderson1975]].
+- BPD entered DSM-III in 1980, after the Spitzer 1979 criteria study separated it from schizotypal personality disorder [[Leichsenring2024WP,Spitzer1979]].
+- The first DBT RCT was Linehan 1991 [[Linehan1991]].
+- ICD-11 uses severity plus trait domains with an optional "borderline pattern" specifier. ICD-10 used F60.31 [[Tyrer2019,Kjaer2020]].
+- Impulsive symptoms remit fastest. Affective symptoms (anger, emptiness) are the most persistent [[Zanarini2003Course,Zanarini2007Subsyndromal]].
+- About 20–50% of people with BPD report psychotic symptoms, mostly hallucinations, and dissociation rises with stress [[Schroeder2013,Stiglmayr2008]].
+- Nearly half of 706 surveyed clinicians preferred to avoid patients with BPD. More contact with people with BPD went with more empathy [[Black2011Attitudes]].
+- Older adults with BPD show more emptiness and less impulsivity and self-harm, so the diagnosis can be missed [[Morgan2013Older,Beatson2016]].
+
+### In plain words
+- BPD is a common mental health condition. About 1 to 3 adults in 100 have it at some point in their lives [[Ellison2018,Tomko2014]].
+- It is far more common among people who visit a mental health clinic: about 1 in 10 outpatients and 1 in 5 hospital patients [[Ellison2018]].
+- Men get BPD about as often as women. Women are diagnosed more often mainly because they seek help more often in the settings where studies were done [[Skodol2003,Grant2008]].
+- BPD usually starts in the teenage years, and getting help early can make a difference [[Bohus2021,Chanen2013]].
+- People with BPD often feel emotions very strongly and very quickly. They may fear being left, feel empty inside, or not be sure who they are [[Leichsenring2024WP]].
+- Under heavy stress, some people with BPD feel unreal or numb, or become very suspicious for a short time [[Stiglmayr2008,Leichsenring2024WP]].
+- BPD can make school, work and relationships hard, and it costs families and health systems a lot [[Bohus2021,Wagner2022Cost]].
+- Most people with BPD get much better over time. Many stop meeting the criteria within a few years [[Zanarini2003Course,Gunderson2011]].
+- The risk of suicide is higher with BPD. That is why it matters to ask for help early. If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123) [[Paris2019Suicidality]].
+- People with BPD also have more physical health problems, so regular check-ups matter [[ElGabalawy2010,Temes2019]].
+- Some health workers still hold unfair views about BPD. Those views can hurt care and are not supported by the evidence [[Black2011Attitudes,Ring2019]].
+- Kind, respectful words help. Labels that blame people hurt [[vanSchie2024]].
+- BPD used to be called "untreatable." Today there are therapies that work [[Gunderson2009Ontogeny,Bohus2021]].
+- In older adults, BPD can look different, with more emptiness and fewer impulsive acts, so it is sometimes missed [[Morgan2013Older,Beatson2016]].
+
+## Numbers for the animations
+- prevalence_community_estimates | NCS-R 2007 (US) | 1.4 | % | [[Gunderson2009Ontogeny,Lenzenweger2007]]
+- prevalence_community_estimates | Oslo 2001 | 0.7 | % | [[Torgersen2001]]
+- prevalence_community_estimates | NESARC strict 2014 | 2.7 | % lifetime | [[Tomko2014]]
+- prevalence_community_estimates | NESARC Wave 2 2008 | 5.9 | % lifetime | [[Grant2008]]
+- prevalence_community_estimates | median across studies | 1 | % point | [[Ellison2018]]
+- prevalence_by_setting | community | 1 | % (median point) | [[Ellison2018]]
+- prevalence_by_setting | adolescents community | 3 | % | [[Guile2018]]
+- prevalence_by_setting | primary care | 6.4 | % lifetime | [[Gross2002PrimaryCare]]
+- prevalence_by_setting | psychiatric outpatients | 11 | % (10–12) | [[Ellison2018]]
+- prevalence_by_setting | adolescent outpatients | 11 | % | [[Guile2018]]
+- prevalence_by_setting | psychiatric inpatients | 21 | % (20–22) | [[Ellison2018]]
+- prevalence_by_setting | suicidal adolescents in ED | 78 | % | [[Guile2018]]
+- sex_split_clinical_vs_community | DSM-IV-TR clinical (female share) | 75 | % female | [[Skodol2003]]
+- sex_split_clinical_vs_community | NESARC women | 6.2 | % prevalence | [[Grant2008]]
+- sex_split_clinical_vs_community | NESARC men | 5.6 | % prevalence | [[Grant2008]]
+- sex_split_clinical_vs_community | NESARC strict women | 3.0 | % prevalence | [[Tomko2014]]
+- sex_split_clinical_vs_community | NESARC strict men | 2.4 | % prevalence | [[Tomko2014]]
+- age_prevalence | 11-year-olds (Bristol) | 3.2 | % | [[Zanarini2011JPD]]
+- age_prevalence | US adults (NESARC) | 5.9 | % | [[Zanarini2011JPD]]
+- age_prevalence | NESARC strict, age <30 | 4.3 | % | [[Tomko2014]]
+- comorbidity_lifetime | anxiety disorder | 84.8 | % of people with BPD | [[Tomko2014]]
+- comorbidity_lifetime | mood disorder | 82.7 | % of people with BPD | [[Tomko2014]]
+- comorbidity_lifetime | substance use disorder | 78.2 | % of people with BPD | [[Tomko2014]]
+- msad_remission_curve | 0 y | 0 | % remitted | [[Zanarini2003Course]]
+- msad_remission_curve | 2 y | 34.5 | % remitted | [[Zanarini2003Course]]
+- msad_remission_curve | 4 y | 49.4 | % remitted | [[Zanarini2003Course]]
+- msad_remission_curve | 6 y | 68.6 | % remitted | [[Zanarini2003Course]]
+- msad_remission_curve | 10 y | 93 | % with ≥2-y remission | [[Zanarini2010Recovery]]
+- msad_recovery | 10 y | 50 | % recovered | [[Zanarini2010Recovery]]
+- msad_hospitalisation | baseline (prior) | 79 | % ever hospitalised | [[Zanarini2004Services]]
+- msad_hospitalisation | years 4–6 | 33 | % hospitalised | [[Zanarini2004Services]]
+- msad_day_residential | baseline | 55 | % | [[Zanarini2004Services]]
+- msad_day_residential | years 4–6 | 22 | % | [[Zanarini2004Services]]
+- msad_24y_deaths | BPD suicide | 5.9 | % of cohort | [[Temes2019]]
+- msad_24y_deaths | BPD other causes | 14.0 | % of cohort | [[Temes2019]]
+- msad_24y_deaths | comparison suicide | 1.4 | % of cohort | [[Temes2019]]
+- msad_24y_deaths | comparison other causes | 5.5 | % of cohort | [[Temes2019]]
+- montreal_27y | suicide | 10.3 | % of cohort | [[Paris2001]]
+- montreal_27y | all-cause deaths | 18.2 | % of cohort | [[Paris2001]]
+- mortality_ratio | Danish hospital-treated BPD SMR | 8.3 | × general population | [[Kjaer2020]]
+- mortality_ratio | any PD in secondary care (London) SMR | 4.2 | × general population | [[Fok2012]]
+- life_expectancy_PD | women with PD | 63.3 | years | [[Fok2012]]
+- life_expectancy_PD | men with PD | 59.1 | years | [[Fok2012]]
+- self_harm_lifetime_inpatients | self-injury | 90 | % | [[Goodman2017]]
+- self_harm_lifetime_inpatients | suicide attempt | 75 | % | [[Goodman2017]]
+- german_cost_dbt | year before DBT | 28026 | EUR/patient-year | [[Wagner2014DBTCost]]
+- german_cost_dbt | DBT year | 18758 | EUR/patient-year | [[Wagner2014DBTCost]]
+- german_cost_dbt | follow-up year | 14750 | EUR/patient-year | [[Wagner2014DBTCost]]
+- german_cost_split_2015 | direct | 17044 | EUR/patient-year | [[Wagner2022Cost]]
+- german_cost_split_2015 | indirect | 14086 | EUR/patient-year | [[Wagner2022Cost]]
+- early_onset_outcomes_age20 | unemployment OR | 21.7 | odds ratio | [[Hastrup2022]]
+- early_onset_outcomes_age20 | disability pension OR | 14.8 | odds ratio | [[Hastrup2022]]
+- clinician_attitudes | prefer to avoid patients with BPD | 50 | % (≈"nearly half") | [[Black2011Attitudes]]
+- research_output | reports before 1980 | 15 | papers (fewer than) | [[Gunderson2009Ontogeny]]
+- research_output | reports 1980–1990 | 275 | papers (more than) | [[Gunderson2009Ontogeny]]
+- history_timeline | 1938 | 1 | Stern "border line group" | [[Stern1938]]
+- history_timeline | 1953 | 1 | Knight "Borderline states" | [[Knight1953]]
+- history_timeline | 1967 | 1 | Kernberg borderline personality organisation | [[Kernberg1967]]
+- history_timeline | 1975 | 1 | Gunderson & Singer | [[Gunderson1975]]
+- history_timeline | 1979 | 1 | Spitzer criteria (808 vs 808) | [[Spitzer1979]]
+- history_timeline | 1980 | 1 | DSM-III BPD | [[Leichsenring2024WP]]
+- history_timeline | 1991 | 1 | First DBT RCT | [[Linehan1991]]
+- history_timeline | 1992 | 1 | MSAD recruitment begins | [[Temes2019]]
+- history_timeline | 1999 | 1 | Bateman & Fonagy partial hospitalisation RCT | [[Bateman1999]]
+- history_timeline | 2008 | 1 | US House Resolution 1005 | [[Gunderson2009Ontogeny]]
+- history_timeline | 2009 | 1 | NICE guideline | [[NICE2009]]
+- history_timeline | 2013 | 1 | DSM-5 incl. Section III AMPD | [[APA2013]]
+- history_timeline | 2022 | 1 | ICD-11 borderline pattern; DSM-5-TR | [[Tyrer2019,APA2022]]
+- history_timeline | 2024 | 1 | APA practice guideline | [[APA2024Guideline]]
+
+## Open questions and controversies
+- True community prevalence. Position A: 5.9% lifetime (NESARC Wave 2) [[Grant2008]]. Position B: 0.7–2.7%, with NESARC inflated by liberal rules that counted subthreshold cases [[Trull2010,Tomko2014,Torgersen2001]]. Status: most reviews quote about 1–3% [[Ellison2018,Leichsenring2024WP]].
+- Sex ratio. Position A: about 75% of diagnosed patients are women [[Skodol2003]]. Position B: community rates are near-equal or only slightly higher in women [[Grant2008,Tomko2014]]. Status: the clinical skew is attributed mainly to sampling bias; the true sex ratio is unknown [[Skodol2003]].
+- Suicide rate. Position A: about 10% in older long-term cohorts [[Paris2001,Black2004Suicide]]. Position B: 5.9% over 24 years in MSAD, with non-suicide deaths more common [[Temes2019]]. Status: rates differ by cohort, era and treatment. All are population statistics, not individual predictions.
+- Is BPD a valid category? Position A: the ICD-11 working group held that only a dimensional system fits the evidence, and the borderline pattern "adds little" [[Tyrer2019,Mulder2020]]. Position B: clinicians and personality-disorder societies argued to keep borderline, and ICD-11 added the optional descriptor [[Tyrer2019]]. Status: both coexist in ICD-11. DSM-5-TR keeps the category [[APA2022]].
+- Diagnosis in adolescents. Position A: historically avoided as invalid or stigmatising. Position B: reliable and valid from about age 11 to 12, and early intervention is a public health priority [[Kaess2014,Guile2018,Chanen2017WP]]. Status: the field has moved to position B. Scalable services are still scarce [[Chanen2020YoungPeople]].
+- Stigma: patient behaviour or clinician bias? One view frames negative clinician reactions as a "very human reaction" to complex interpersonal behaviour [[Sansone2013Clinicians]]. Another shows that the label alone shifts attributions, and that stigma is structural [[Markham2003,Klein2022]]. Status: both are probably true. Education and more contact with people with BPD are linked to better attitudes [[Black2011Attitudes,Sheehan2016]].
+- Older adults. BPD may be under-recognised because its presentation changes with age, and no age-specific instrument exists (Early evidence) [[Beatson2016,Morgan2013Older]].
+- Physical health and early death. Unclear how much is due to BPD itself, to comorbid substance use, or to health behaviours and access to care (Hypothesis) [[Kjaer2020,Keuroghlian2013,Temes2019]].
+
+## Sources
+- [Lenzenweger2007] Lenzenweger MF, Lane MC, Loranger AW, Kessler RC. DSM-IV personality disorders in the National Comorbidity Survey Replication. Biol Psychiatry. 2007;62(6):553-64. PMID 17217923; PMCID PMC2044500; doi:10.1016/j.biopsych.2006.09.019. (validated: PubMed)
+- [Grant2008] Grant BF, Chou SP, Goldstein RB, Huang B, Stinson FS, Saha TD, et al. Prevalence, correlates, disability, and comorbidity of DSM-IV borderline personality disorder: results from the Wave 2 National Epidemiologic Survey on Alcohol and Related Conditions. J Clin Psychiatry. 2008;69(4):533-45. PMID 18426259; PMCID PMC2676679; doi:10.4088/jcp.v69n0404. (validated: PubMed)
+- [Ellison2018] Ellison WD, Rosenstein LK, Morgan TA, Zimmerman M. Community and Clinical Epidemiology of Borderline Personality Disorder. Psychiatr Clin North Am. 2018;41(4):561-573. PMID 30447724; doi:10.1016/j.psc.2018.07.008. (validated: PubMed)
+- [Winsper2020] Winsper C, Bilgin A, Thompson A, Marwaha S, Chanen AM, Singh SP, et al. The prevalence of personality disorders in the community: a global systematic review and meta-analysis. Br J Psychiatry. 2020;216(2):69-78. PMID 31298170; doi:10.1192/bjp.2019.166. (validated: PubMed)
+- [Huang2009] Huang Y, Kotov R, de Girolamo G, Preti A, Angermeyer M, Benjet C, et al. DSM-IV personality disorders in the WHO World Mental Health Surveys. Br J Psychiatry. 2009;195(1):46-53. PMID 19567896; PMCID PMC2705873; doi:10.1192/bjp.bp.108.058552. (validated: PubMed)
+- [Tomko2014] Tomko RL, Trull TJ, Wood PK, Sher KJ. Characteristics of borderline personality disorder in a community sample: comorbidity, treatment utilization, and general functioning. J Pers Disord. 2014;28(5):734-50. PMID 25248122; PMCID PMC3864176; doi:10.1521/pedi_2012_26_093. (validated: PubMed)
+- [Trull2010] Trull TJ, Jahng S, Tomko RL, Wood PK, Sher KJ. Revised NESARC personality disorder diagnoses: gender, prevalence, and comorbidity with substance dependence disorders. J Pers Disord. 2010;24(4):412-26. PMID 20695803; PMCID PMC3771514; doi:10.1521/pedi.2010.24.4.412. (validated: PubMed)
+- [Torgersen2001] Torgersen S, Kringlen E, Cramer V. The prevalence of personality disorders in a community sample. Arch Gen Psychiatry. 2001;58(6):590-6. PMID 11386989; doi:10.1001/archpsyc.58.6.590. (validated: PubMed)
+- [Coid2006] Coid J, Yang M, Tyrer P, Roberts A, Ullrich S. Prevalence and correlates of personality disorder in Great Britain. Br J Psychiatry. 2006;188:423-31. PMID 16648528; doi:10.1192/bjp.188.5.423. (validated: PubMed)
+- [Volkert2018] Volkert J, Gablonski TC, Rabung S. Prevalence of personality disorders in the general adult population in Western countries: systematic review and meta-analysis. Br J Psychiatry. 2018;213(6):709-715. PMID 30261937; doi:10.1192/bjp.2018.202. (validated: PubMed)
+- [Gross2002PrimaryCare] Gross R, Olfson M, Gameroff M, Shea S, Feder A, Fuentes M, et al. Borderline personality disorder in primary care. Arch Intern Med. 2002;162(1):53-60. PMID 11784220; doi:10.1001/archinte.162.1.53. (validated: PubMed)
+- [Korzekwa2008] Korzekwa MI, Dell PF, Links PS, Thabane L, Webb SP. Estimating the prevalence of borderline personality disorder in psychiatric outpatients using a two-phase procedure. Compr Psychiatry. 2008;49(4):380-6. PMID 18555059; doi:10.1016/j.comppsych.2008.01.007. (validated: PubMed)
+- [Zimmerman2005] Zimmerman M, Rothschild L, Chelminski I. The prevalence of DSM-IV personality disorders in psychiatric outpatients. Am J Psychiatry. 2005;162(10):1911-8. PMID 16199838; doi:10.1176/appi.ajp.162.10.1911. (validated: PubMed)
+- [Gunderson2018] Gunderson JG, Herpertz SC, Skodol AE, Torgersen S, Zanarini MC. Borderline personality disorder. Nat Rev Dis Primers. 2018;4:18029. PMID 29795363; doi:10.1038/nrdp.2018.29. (validated: PubMed)
+- [Bohus2021] Bohus M, Stoffers-Winterling J, Sharp C, Krause-Utz A, Schmahl C, Lieb K. Borderline personality disorder. Lancet. 2021;398(10310):1528-1540. PMID 34688371; doi:10.1016/S0140-6736(21)00476-1. (validated: PubMed)
+- [Leichsenring2024WP] Leichsenring F, Fonagy P, Heim N, Kernberg OF, Leweke F, Luyten P, et al. Borderline personality disorder: a comprehensive review of diagnosis and clinical presentation, etiology, treatment, and current controversies. World Psychiatry. 2024;23(1):4-25. PMID 38214629; PMCID PMC10786009; doi:10.1002/wps.21156. (validated: PubMed)
+- [Kaess2014] Kaess M, Brunner R, Chanen A. Borderline personality disorder in adolescence. Pediatrics. 2014;134(4):782-93. PMID 25246626; doi:10.1542/peds.2013-3677. (validated: PubMed)
+- [Guile2018] Guilé JM, Boissel L, Alaux-Cantin S, de La Rivière SG. Borderline personality disorder in adolescents: prevalence, diagnosis, and treatment strategies. Adolesc Health Med Ther. 2018;9:199-210. PMID 30538595; PMCID PMC6257363; doi:10.2147/AHMT.S156565. (validated: PubMed)
+- [Zanarini2011JPD] Zanarini MC, Horwood J, Wolke D, Waylen A, Fitzmaurice G, Grant BF. Prevalence of DSM-IV borderline personality disorder in two community samples: 6,330 English 11-year-olds and 34,653 American adults. J Pers Disord. 2011;25(5):607-19. PMID 22023298; PMCID PMC4678770; doi:10.1521/pedi.2011.25.5.607. (validated: PubMed)
+- [Johnson2000Acta] Johnson JG, Cohen P, Kasen S, Skodol AE, Hamagami F, Brook JS. Age-related change in personality disorder trait levels between early adolescence and adulthood: a community-based longitudinal investigation. Acta Psychiatr Scand. 2000;102(4):265-75. PMID 11089726; doi:10.1034/j.1600-0447.2000.102004265.x. (validated: PubMed)
+- [Sharp2015] Sharp C, Fonagy P. Practitioner Review: Borderline personality disorder in adolescence--recent conceptualization, intervention, and implications for clinical practice. J Child Psychol Psychiatry. 2015;56(12):1266-88. PMID 26251037; doi:10.1111/jcpp.12449. (validated: PubMed)
+- [Chanen2013] Chanen AM, McCutcheon L. Prevention and early intervention for borderline personality disorder: current status and recent evidence. Br J Psychiatry Suppl. 2013;54:s24-9. PMID 23288497; doi:10.1192/bjp.bp.112.119180. (validated: PubMed)
+- [Chanen2017WP] Chanen A, Sharp C, Hoffman P; Global Alliance for Prevention and Early Intervention for Borderline Personality Disorder. Prevention and early intervention for borderline personality disorder: a novel public health priority. World Psychiatry. 2017;16(2):215-216. PMID 28498598; PMCID PMC5428197; doi:10.1002/wps.20429. (validated: PubMed)
+- [Chanen2020YoungPeople] Chanen AM, Nicol K, Betts JK, Thompson KN. Diagnosis and Treatment of Borderline Personality Disorder in Young People. Curr Psychiatry Rep. 2020;22(5):25. PMID 32335771; doi:10.1007/s11920-020-01144-5. (validated: PubMed)
+- [Morgan2013Older] Morgan TA, Chelminski I, Young D, Dalrymple K, Zimmerman M. Differences between older and younger adults with borderline personality disorder on clinical presentation and impairment. J Psychiatr Res. 2013;47(10):1507-13. PMID 23866737; doi:10.1016/j.jpsychires.2013.06.009. (validated: PubMed)
+- [Beatson2016] Beatson J, Broadbear JH, Sivakumaran H, George K, Kotler E, Moss F, et al. Missed diagnosis: The emerging crisis of borderline personality disorder in older people. Aust N Z J Psychiatry. 2016;50(12):1139-1145. PMID 27056175; doi:10.1177/0004867416640100. (validated: PubMed)
+- [Arens2013] Arens EA, Stopsack M, Spitzer C, Appel K, Dudeck M, Völzke H, et al. Borderline personality disorder in four different age groups: a cross-sectional study of community residents in Germany. J Pers Disord. 2013;27(2):196-207. PMID 23514183; doi:10.1521/pedi.2013.27.2.196. (validated: PubMed)
+- [Skodol2003] Skodol AE, Bender DS. Why are women diagnosed borderline more than men? Psychiatr Q. 2003;74(4):349-60. PMID 14686459; doi:10.1023/a:1026087410516. (validated: PubMed)
+- [Sansone2011Gender] Sansone RA, Sansone LA. Gender patterns in borderline personality disorder. Innov Clin Neurosci. 2011;8(5):16-20. PMID 21686143; PMCID PMC3115767. (validated: PubMed)
+- [Johnson2003CLPS] Johnson DM, Shea MT, Yen S, Battle CL, Zlotnick C, Sanislow CA, et al. Gender differences in borderline personality disorder: findings from the Collaborative Longitudinal Personality Disorders Study. Compr Psychiatry. 2003;44(4):284-92. PMID 12923706; doi:10.1016/S0010-440X(03)00090-7. (validated: PubMed)
+- [Silberschmidt2015] Silberschmidt A, Lee S, Zanarini M, Schulz SC. Gender Differences in Borderline Personality Disorder: Results From a Multinational, Clinical Trial Sample. J Pers Disord. 2015;29(6):828-38. PMID 25562535; doi:10.1521/pedi_2014_28_175. (validated: PubMed)
+- [Soeteman2008QoL] Soeteman DI, Verheul R, Busschbach JJ. The burden of disease in personality disorders: diagnosis-specific quality of life. J Pers Disord. 2008;22(3):259-68. PMID 18540798; doi:10.1521/pedi.2008.22.3.259. (validated: PubMed)
+- [Soeteman2008Cost] Soeteman DI, Hakkaart-van Roijen L, Verheul R, Busschbach JJ. The economic burden of personality disorders in mental health care. J Clin Psychiatry. 2008;69(2):259-65. PMID 18363454; doi:10.4088/jcp.v69n0212. (validated: PubMed)
+- [Wagner2014DBTCost] Wagner T, Fydrich T, Stiglmayr C, Marschall P, Salize HJ, Renneberg B, et al. Societal cost-of-illness in patients with borderline personality disorder one year before, during and after dialectical behavior therapy in routine outpatient care. Behav Res Ther. 2014;61:12-22. PMID 25113523; doi:10.1016/j.brat.2014.07.004. (validated: PubMed)
+- [Wagner2022Cost] Wagner T, Assmann N, Köhne S, Schaich A, Alvarez-Fischer D, Borgwardt S, et al. The societal cost of treatment-seeking patients with borderline personality disorder in Germany. Eur Arch Psychiatry Clin Neurosci. 2022;272(4):741-752. PMID 34605983; PMCID PMC9095542; doi:10.1007/s00406-021-01332-1. (validated: PubMed)
+- [Meuldijk2017] Meuldijk D, McCarthy A, Bourke ME, Grenyer BF. The value of psychological treatment for borderline personality disorder: Systematic review and cost offset analysis of economic evaluations. PLoS One. 2017;12(3):e0171592. PMID 28249032; PMCID PMC5332029; doi:10.1371/journal.pone.0171592. (validated: PubMed)
+- [Hastrup2022] Hastrup LH, Jennum P, Ibsen R, Kjellberg J, Simonsen E. Welfare consequences of early-onset Borderline Personality Disorder: a nationwide register-based case-control study. Eur Child Adolesc Psychiatry. 2022;31(2):253-260. PMID 33231787; doi:10.1007/s00787-020-01683-5. (validated: PubMed)
+- [Zanarini2004Services] Zanarini MC, Frankenburg FR, Hennen J, Silk KR. Mental health service utilization by borderline personality disorder patients and Axis II comparison subjects followed prospectively for 6 years. J Clin Psychiatry. 2004;65(1):28-36. PMID 14744165; doi:10.4088/jcp.v65n0105. (validated: PubMed)
+- [Temes2019] Temes CM, Frankenburg FR, Fitzmaurice GM, Zanarini MC. Deaths by Suicide and Other Causes Among Patients With Borderline Personality Disorder and Personality-Disordered Comparison Subjects Over 24 Years of Prospective Follow-Up. J Clin Psychiatry. 2019;80(1):18m12436. PMID 30688417; doi:10.4088/JCP.18m12436. (validated: PubMed)
+- [Paris2002] Paris J. Implications of long-term outcome research for the management of patients with borderline personality disorder. Harv Rev Psychiatry. 2002;10(6):315-23. PMID 12485978; doi:10.1080/10673220216229. (validated: PubMed)
+- [Paris2001] Paris J, Zweig-Frank H. A 27-year follow-up of patients with borderline personality disorder. Compr Psychiatry. 2001;42(6):482-7. PMID 11704940; doi:10.1053/comp.2001.26271. (validated: PubMed)
+- [Paris2019Suicidality] Paris J. Suicidality in Borderline Personality Disorder. Medicina (Kaunas). 2019;55(6):223. PMID 31142033; PMCID PMC6632023; doi:10.3390/medicina55060223. (validated: PubMed)
+- [Black2004Suicide] Black DW, Blum N, Pfohl B, Hale N. Suicidal behavior in borderline personality disorder: prevalence, risk factors, prediction, and prevention. J Pers Disord. 2004;18(3):226-39. PMID 15237043; doi:10.1521/pedi.18.3.226.35445. (validated: PubMed)
+- [Pompili2005] Pompili M, Girardi P, Ruberto A, Tatarelli R. Suicide in borderline personality disorder: a meta-analysis. Nord J Psychiatry. 2005;59(5):319-24. PMID 16757458; doi:10.1080/08039480500320025. (validated: PubMed)
+- [Kjaer2020] Kjær JNR, Biskin R, Vestergaard C, Munk-Jørgensen P. All-Cause Mortality of Hospital-Treated Borderline Personality Disorder: A Nationwide Cohort Study. J Pers Disord. 2020;34(6):723-735. PMID 30307824; doi:10.1521/pedi_2018_32_403. (validated: PubMed)
+- [Fok2012] Fok ML, Hayes RD, Chang CK, Stewart R, Callard FJ, Moran P. Life expectancy at birth and all-cause mortality among people with personality disorder. J Psychosom Res. 2012;73(2):104-7. PMID 22789412; doi:10.1016/j.jpsychores.2012.05.001. (validated: PubMed)
+- [ElGabalawy2010] El-Gabalawy R, Katz LY, Sareen J. Comorbidity and associated severity of borderline personality disorder and physical health conditions in a nationally representative sample. Psychosom Med. 2010;72(7):641-7. PMID 20508177; doi:10.1097/PSY.0b013e3181e10c7b. (validated: PubMed)
+- [Frankenburg2004] Frankenburg FR, Zanarini MC. The association between borderline personality disorder and chronic medical illnesses, poor health-related lifestyle choices, and costly forms of health care utilization. J Clin Psychiatry. 2004;65(12):1660-5. PMID 15641871; doi:10.4088/jcp.v65n1211. (validated: PubMed)
+- [Keuroghlian2013] Keuroghlian AS, Frankenburg FR, Zanarini MC. The relationship of chronic medical illnesses, poor health-related lifestyle choices, and health care utilization to recovery status in borderline patients over a decade of prospective follow-up. J Psychiatr Res. 2013;47(10):1499-506. PMID 23856083; PMCID PMC3884821; doi:10.1016/j.jpsychires.2013.06.012. (validated: PubMed)
+- [Goodman2017] Goodman M, Tomas IA, Temes CM, Fitzmaurice GM, Aguirre BA, Zanarini MC. Suicide attempts and self-injurious behaviours in adolescent and adult patients with borderline personality disorder. Personal Ment Health. 2017;11(3):157-163. PMID 28544496; PMCID PMC5571736; doi:10.1002/pmh.1375. (validated: PubMed)
+- [Zanarini2008SelfHarm] Zanarini MC, Frankenburg FR, Reich DB, Fitzmaurice G, Weinberg I, Gunderson JG. The 10-year course of physically self-destructive acts reported by borderline patients and axis II comparison subjects. Acta Psychiatr Scand. 2008;117(3):177-84. PMID 18241308; PMCID PMC3884820; doi:10.1111/j.1600-0447.2008.01155.x. (validated: PubMed)
+- [Sansone2013Clinicians] Sansone RA, Sansone LA. Responses of mental health clinicians to patients with borderline personality disorder. Innov Clin Neurosci. 2013;10(5-6):39-43. PMID 23882440; PMCID PMC3719460. (validated: PubMed)
+- [Ring2019] Ring D, Lawn S. Stigma perpetuation at the interface of mental health care: a review to compare patient and clinician perspectives of stigma and borderline personality disorder. J Ment Health. 2025;34(1):57-77 (published online 2019). PMID 30862201; doi:10.1080/09638237.2019.1581337. (validated: PubMed)
+- [Aviram2006] Aviram RB, Brodsky BS, Stanley B. Borderline personality disorder, stigma, and treatment implications. Harv Rev Psychiatry. 2006;14(5):249-56. PMID 16990170; doi:10.1080/10673220600975121. (validated: PubMed)
+- [Black2011Attitudes] Black DW, Pfohl B, Blum N, McCormick B, Allen J, North CS, et al. Attitudes toward borderline personality disorder: a survey of 706 mental health clinicians. CNS Spectr. 2011;16(3):67-74. PMID 24725357; doi:10.1017/S109285291200020X. (validated: PubMed)
+- [Lewis1988] Lewis G, Appleby L. Personality disorder: the patients psychiatrists dislike. Br J Psychiatry. 1988;153:44-9. PMID 3224249; doi:10.1192/bjp.153.1.44. (validated: PubMed)
+- [Markham2003] Markham D, Trower P. The effects of the psychiatric label 'borderline personality disorder' on nursing staff's perceptions and causal attributions for challenging behaviours. Br J Clin Psychol. 2003;42(Pt 3):243-56. PMID 14565891; doi:10.1348/01446650360703366. (validated: PubMed)
+- [Sheehan2016] Sheehan L, Nieweglowski K, Corrigan P. The Stigma of Personality Disorders. Curr Psychiatry Rep. 2016;18(1):11. PMID 26780206; doi:10.1007/s11920-015-0654-1. (validated: PubMed)
+- [Dickens2016] Dickens GL, Lamont E, Gray S. Mental health nurses' attitudes, behaviour, experience and knowledge regarding adults with a diagnosis of borderline personality disorder: systematic, integrative literature review. J Clin Nurs. 2016;25(13-14):1848-75. PMID 27139693; doi:10.1111/jocn.13202. (validated: PubMed)
+- [vanSchie2024] van Schie CC, Lewis K, Barr KR, Jewell M, Malcolmson N, Townsend ML, et al. Borderline personality disorder and stigma: Lived experience perspectives on helpful and hurtful language. Personal Ment Health. 2024;18(3):216-226. PMID 38482732; doi:10.1002/pmh.1609. (validated: PubMed)
+- [Klein2022] Klein P, Fairweather AK, Lawn S. Structural stigma and its impact on healthcare for borderline personality disorder: a scoping review. Int J Ment Health Syst. 2022;16(1):48. PMID 36175958; PMCID PMC9520817; doi:10.1186/s13033-022-00558-3. (validated: PubMed)
+- [Lawn2015] Lawn S, McMahon J. Experiences of care by Australians with a diagnosis of borderline personality disorder. J Psychiatr Ment Health Nurs. 2015;22(7):510-21. PMID 26122817; PMCID PMC4755162; doi:10.1111/jpm.12226. (validated: PubMed)
+- [Miller2024ED] Miller J, Nguyen E, Lam AYH, Brann P, Innes S, Buntine P, et al. Experiences of consumers, carers and clinicians during borderline personality disorder presentations to the emergency department-An integrative review. J Psychiatr Ment Health Nurs. 2024;31(4):572-582. PMID 38108606; doi:10.1111/jpm.13009. (validated: PubMed)
+- [Gunderson2009Ontogeny] Gunderson JG. Borderline personality disorder: ontogeny of a diagnosis. Am J Psychiatry. 2009;166(5):530-9. PMID 19411380; PMCID PMC3145201; doi:10.1176/appi.ajp.2009.08121825. (validated: PubMed)
+- [Stern1938] Stern A. Psychoanalytic Investigation of and Therapy in the Border Line Group of Neuroses. Psychoanal Q. 1938;7(4):467-489. doi:10.1080/21674086.1938.11925367. (validated: Crossref)
+- [Knight1953] Knight RP. Borderline states. Bull Menninger Clin. 1953;17(1):1-12. PMID 13009379. (validated: PubMed)
+- [Kernberg1967] Kernberg O. Borderline personality organization. J Am Psychoanal Assoc. 1967;15(3):641-85. PMID 4861171; doi:10.1177/000306516701500309. (validated: PubMed)
+- [Gunderson1975] Gunderson JG, Singer MT. Defining borderline patients: an overview. Am J Psychiatry. 1975;132(1):1-10. PMID 802958; doi:10.1176/ajp.132.1.1. (validated: PubMed)
+- [Gunderson1978] Gunderson JG, Kolb JE. Discriminating features of borderline patients. Am J Psychiatry. 1978;135(7):792-6. PMID 665789; doi:10.1176/ajp.135.7.792. (validated: PubMed)
+- [Gunderson1981] Gunderson JG, Kolb JE, Austin V. The diagnostic interview for borderline patients. Am J Psychiatry. 1981;138(7):896-903. PMID 7258348; doi:10.1176/ajp.138.7.896. (validated: PubMed)
+- [Spitzer1979] Spitzer RL, Endicott J, Gibbon M. Crossing the border into borderline personality and borderline schizophrenia. The development of criteria. Arch Gen Psychiatry. 1979;36(1):17-24. PMID 760694; doi:10.1001/archpsyc.1979.01780010023001. (validated: PubMed)
+- [Linehan1991] Linehan MM, Armstrong HE, Suarez A, Allmon D, Heard HL. Cognitive-behavioral treatment of chronically parasuicidal borderline patients. Arch Gen Psychiatry. 1991;48(12):1060-4. PMID 1845222; doi:10.1001/archpsyc.1991.01810360024003. (validated: PubMed)
+- [Bateman1999] Bateman A, Fonagy P. Effectiveness of partial hospitalization in the treatment of borderline personality disorder: a randomized controlled trial. Am J Psychiatry. 1999;156(10):1563-9. PMID 10518167; doi:10.1176/ajp.156.10.1563. (validated: PubMed)
+- [NICE2009] National Collaborating Centre for Mental Health (UK). Borderline Personality Disorder: Treatment and Management. NICE Clinical Guideline CG78 (full guideline). Leicester (UK): British Psychological Society; 2009. PMID 21796831 (NCBI Bookshelf). (validated: Europe PMC)
+- [Skodol2011] Skodol AE, Bender DS, Morey LC, Clark LA, Oldham JM, Alarcon RD, et al. Personality disorder types proposed for DSM-5. J Pers Disord. 2011;25(2):136-69. PMID 21466247; doi:10.1521/pedi.2011.25.2.136. (validated: PubMed)
+- [Tyrer2019] Tyrer P, Mulder R, Kim YR, Crawford MJ. The Development of the ICD-11 Classification of Personality Disorders: An Amalgam of Science, Pragmatism, and Politics. Annu Rev Clin Psychol. 2019;15:481-502. PMID 30601688; doi:10.1146/annurev-clinpsy-050718-095736. (validated: PubMed)
+- [Mulder2020] Mulder RT, Horwood LJ, Tyrer P. The borderline pattern descriptor in the International Classification of Diseases, 11th Revision: A redundant addition to classification. Aust N Z J Psychiatry. 2020;54(11):1095-1100. PMID 32900208; doi:10.1177/0004867420951608. (validated: PubMed)
+- [Zanarini2005MSAD] Zanarini MC, Frankenburg FR, Hennen J, Reich DB, Silk KR. The McLean Study of Adult Development (MSAD): overview and implications of the first six years of prospective follow-up. J Pers Disord. 2005;19(5):505-23. PMID 16274279; doi:10.1521/pedi.2005.19.5.505. (validated: PubMed)
+- [Zanarini2003Course] Zanarini MC, Frankenburg FR, Hennen J, Silk KR. The longitudinal course of borderline psychopathology: 6-year prospective follow-up of the phenomenology of borderline personality disorder. Am J Psychiatry. 2003;160(2):274-83. PMID 12562573; doi:10.1176/appi.ajp.160.2.274. (validated: PubMed)
+- [Zanarini2007Subsyndromal] Zanarini MC, Frankenburg FR, Reich DB, Silk KR, Hudson JI, McSweeney LB. The subsyndromal phenomenology of borderline personality disorder: a 10-year follow-up study. Am J Psychiatry. 2007;164(6):929-35. PMID 17541053; doi:10.1176/ajp.2007.164.6.929. (validated: PubMed)
+- [Zanarini2010Recovery] Zanarini MC, Frankenburg FR, Reich DB, Fitzmaurice G. Time to attainment of recovery from borderline personality disorder and stability of recovery: A 10-year prospective follow-up study. Am J Psychiatry. 2010;167(6):663-7. PMID 20395399; PMCID PMC3203735; doi:10.1176/appi.ajp.2009.09081130. (validated: PubMed)
+- [Zanarini2012] Zanarini MC, Frankenburg FR, Reich DB, Fitzmaurice G. Attainment and stability of sustained symptomatic remission and recovery among patients with borderline personality disorder and axis II comparison subjects: a 16-year prospective follow-up study. Am J Psychiatry. 2012;169(5):476-83. PMID 22737693; PMCID PMC3509999; doi:10.1176/appi.ajp.2011.11101550. (validated: PubMed)
+- [Gunderson2011] Gunderson JG, Stout RL, McGlashan TH, Shea MT, Morey LC, Grilo CM, et al. Ten-year course of borderline personality disorder: psychopathology and function from the Collaborative Longitudinal Personality Disorders study. Arch Gen Psychiatry. 2011;68(8):827-37. PMID 21464343; PMCID PMC3158489; doi:10.1001/archgenpsychiatry.2011.37. (validated: PubMed)
+- [Gunderson2000CLPS] Gunderson JG, Shea MT, Skodol AE, McGlashan TH, Morey LC, Stout RL, et al. The Collaborative Longitudinal Personality Disorders Study: development, aims, design, and sample characteristics. J Pers Disord. 2000;14(4):300-15. PMID 11213788; doi:10.1521/pedi.2000.14.4.300. (validated: PubMed)
+- [Zanarini1990DIBR] Zanarini MC, Gunderson JG, Frankenburg FR, Chauncey DL. Discriminating borderline personality disorder from other axis II disorders. Am J Psychiatry. 1990;147(2):161-7. PMID 2301653; doi:10.1176/ajp.147.2.161. (validated: PubMed)
+- [Schroeder2013] Schroeder K, Fisher HL, Schäfer I. Psychotic symptoms in patients with borderline personality disorder: prevalence and clinical management. Curr Opin Psychiatry. 2013;26(1):113-9. PMID 23168909; doi:10.1097/YCO.0b013e32835a2ae7. (validated: PubMed)
+- [Korzekwa2009] Korzekwa MI, Dell PF, Links PS, Thabane L, Fougere P. Dissociation in borderline personality disorder: a detailed look. J Trauma Dissociation. 2009;10(3):346-67. PMID 19585341; doi:10.1080/15299730902956838. (validated: PubMed)
+- [Stiglmayr2008] Stiglmayr CE, Ebner-Priemer UW, Bretz J, Behm R, Mohse M, Lammers CH, et al. Dissociative symptoms are positively related to stress in borderline personality disorder. Acta Psychiatr Scand. 2008;117(2):139-47. PMID 18028248; doi:10.1111/j.1600-0447.2007.01126.x. (validated: PubMed)
+- [APA2024Guideline] Keepers GA, Fochtmann LJ, Anzia JM, Benjamin S, Lyness JM, Mojtabai R, et al. The American Psychiatric Association Practice Guideline for the Treatment of Patients With Borderline Personality Disorder. Am J Psychiatry. 2024;181(11):1024-1028. PMID 39482953; doi:10.1176/appi.ajp.24181010. (validated: PubMed)
+- [Bateman2015Lancet] Bateman AW, Gunderson J, Mulder R. Treatment of personality disorder. Lancet. 2015;385(9969):735-43. PMID 25706219; doi:10.1016/S0140-6736(14)61394-5. (validated: PubMed)
+- [APA2022] American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR). Washington, DC: American Psychiatric Association Publishing; 2022. doi:10.1176/appi.books.9780890425787. (validated: Crossref)
+- [APA2013] American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition (DSM-5). Arlington, VA: American Psychiatric Association; 2013. doi:10.1176/appi.books.9780890425596. (validated: Crossref)
+
+## Provenance
+- Validation: 88 PubMed records were checked by E-utilities esummary on 2026-10-25 (authors, title, journal, year, volume/pages, PMCID, DOI). Abstracts were read through Europe PMC (core). Stern 1938, DSM-5 and DSM-5-TR were validated on Crossref. The NICE/NCCMH 2009 full guideline (NCBI Bookshelf, PMID 21796831) was confirmed in Europe PMC because esummary returns no bibliographic fields for Bookshelf records.
+- Full texts read (PMC author manuscripts): Tomko 2014 (sex-specific prevalences, income/age subgroups, 74.9% lifetime therapy, critique of Grant 2008); Gunderson 2009 (Stern/Knight attribution, Kernberg 1967 definition, Grinker 1968, the 1.4–5.9% range, research output before and after 1980, House Resolution 1005, NIMH funding); Gunderson 2011 (12% relapse, remission and relapse definitions).
+- Not directly verified: the BPD-specific NCS-R estimate of 1.4% (Lenzenweger 2007) is not in the abstract, and the full text is not open access. It is cited through Gunderson 2009, which attributes the 1.4% lower bound to Lenzenweger 2007. Grinker et al. 1968 (book) is cited only through Gunderson 2009.
+- ICD-10 (1992) is cited only through its F60.31 code in the Danish register study, and ICD-11's borderline pattern through Tyrer 2019 and Mulder 2020. The WHO ICD-11 browser and API could not be read (JavaScript or token required), so WHO2022ICD11 is not listed.
+- NICE CG78: whether it has been updated or replaced was not checked, so this file makes no claim about it.
+- I computed one figure myself: the Pompili 2005 crude proportion (94/1,179, about 8%). The source gives only the counts.
+- The year-by-year "msad_remission_curve" values at 2, 4 and 6 years come from Zanarini 2003. The 10-year point is the cumulative ≥2-year remission from Zanarini 2010. They are not one continuous Kaplan–Meier series.
+- Dropped as out of scope or duplicating other passes: treatment RCT details (pass E), medication evidence (pass F), detailed course and recovery predictors (pass G), and family experiences (pass H).
+- Safe-messaging: no methods or means of self-harm or suicide are described. The figures are population statistics from clinical cohorts and registers.

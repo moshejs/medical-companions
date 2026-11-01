@@ -1,0 +1,60 @@
+<!-- ================= 2.4 BPD OR SOMETHING ELSE? ================= -->
+<style>
+#m-differential .df-tbl table{min-width:980px;font-size:13.5px}
+#m-differential .df-tbl th,#m-differential .df-tbl td{transition:background .25s}
+#m-differential .df-tbl thead th:nth-child(2),#m-differential .df-tbl tbody td:nth-child(2){background:var(--dx-soft)}
+#m-differential .df-tbl tbody th{min-width:150px}
+#m-differential .df-tbl tbody th button{all:unset;cursor:pointer;font-weight:700;display:flex;flex-direction:column;gap:2px}
+#m-differential .df-tbl tbody th button small{font:600 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+#m-differential .df-tbl tbody th button:focus-visible{outline:2px solid var(--dx);outline-offset:2px;border-radius:4px}
+#m-differential .df-tbl tbody th button[aria-pressed="true"]{color:var(--dx)}
+#m-differential .df-tbl tr.on th,#m-differential .df-tbl tr.on td,#m-differential .df-tbl tr.on td:nth-child(2){background:var(--warn-soft)}
+#m-differential .df-none{color:var(--muted)}
+#m-differential .df-out{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--dx);border-radius:var(--r);padding:12px 16px;font-size:15px;min-height:52px}
+#m-differential .card>.tag,#m-differential .card>.ev{align-self:flex-start}
+</style>
+<section class="mod" id="m-differential" data-mod="differential" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>BPD or something else?</h2>
+    <p class="lede">Mood swings, impulsivity and a shaky sense of self appear in several conditions. The clearest clue is often time: how long a mood lasts and what sets it off. Compare schematic eight-week mood traces, then use the feature matrix to see what separates each condition from BPD, and where they overlap.</p></div>
+  <div class="stepper" id="dfSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="dfSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Schematic mood traces over the same eight-week axis. BPD shows many sharp dips lasting hours, each just after an interpersonal trigger. Bipolar II shows a raised episode lasting about a week and a low episode lasting weeks, not tied to triggers. Complex PTSD shows a steadily lowered baseline. ADHD shows frequent small fluctuations. Depression shows a sustained low. An inset zooms into one day."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dfPlay">Play</button><label class="stage-cap tl" for="dfT">Profile <input type="range" id="dfT" min="0" max="1" step="0.001" value="0.18"></label></div>
+      <div class="ctrls" role="group" aria-label="Display"><span class="kicker">Show</span><button class="btn" data-dfm="one" aria-pressed="true">One at a time</button><button class="btn" data-dfm="all" aria-pressed="false">Overlay all</button></div>
+      <p class="stage-cap">Schematic shapes drawn from the published descriptions, not recordings of real people. Time scales: BPD mood states usually last hours and rarely more than a few days; bipolar episodes last days to weeks. [[APA2022,Kaess2025,Paris2015]]</p>
+    </div>
+    <aside class="note" id="dfNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Feature by feature</h3>
+  <p class="prose">Pick a feature to see it in the traces above. Every cell is from the cited source; a dash means the sources used here do not address that cell.</p>
+  <div class="df-out" id="dfOut" aria-live="polite"></div>
+  <div class="tbl df-tbl"><table>
+    <thead><tr><th>Feature</th><th>BPD</th><th>Bipolar disorder</th><th>Complex PTSD</th><th>ADHD</th><th>Depression</th><th>Autism</th></tr></thead>
+    <tbody id="dfTbl"></tbody>
+  </table></div>
+
+  <h3 class="sub">Often both: co-occurring conditions</h3>
+  <p class="prose">A differential is not always "either, or". In inpatients with BPD, most also had at least one other lifetime diagnosis; rates were lower in adolescents. When BPD remits, rates of co-occurring disorders fall substantially. [[Zanarini2021Comorbidity,Zanarini2004AxisI,Shah2018]]</p>
+  <div class="ctrls" role="group" aria-label="Age group"><span class="kicker">Inpatients with BPD</span><button class="btn" data-dfa="0" aria-pressed="true">Adults</button><button class="btn" data-dfa="1" aria-pressed="false">Adolescents</button></div>
+  <div class="stage">
+    <div class="scroll"><svg id="dfCoSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Horizontal bars of lifetime co-occurring disorders in adult and adolescent inpatients with BPD: major depression, any anxiety disorder, complex comorbidity, substance use disorder, eating disorder, PTSD, ADHD and bipolar II."></svg></div>
+    <p class="stage-cap">Lifetime rates in inpatients with BPD, as published. Adult PTSD is printed as 53.3% although the table's count (169 of 290) would give 58.3%. [[Zanarini2021Comorbidity]]</p>
+  </div>
+
+  <div class="cards">
+    <div class="card"><span class="tag dx">Bipolar</span><h4>About 1 in 5, each way</h4><p>BPD was found in 21.6% of people with bipolar disorder (37.7% in bipolar II), and bipolar disorder in 18.5% of people with BPD. [[Fornaro2016]] Yet in 80–90% of cases each occurs without the other, and depression, substance use and PTSD are all more common in BPD than bipolar disorder is. [[Zimmerman2013DCN]]</p></div>
+    <div class="card"><span class="tag dx">PTSD</span><h4>Common, not universal</h4><p>In the US population, 30.2% of people with BPD also had PTSD and 24.2% of people with PTSD had BPD; having both meant poorer quality of life and more childhood trauma than either alone. [[Pagura2010PTSD]] PTSD being common but not universal argues against seeing BPD as simply chronic PTSD. [[Zanarini1998AxisI]] Latent class analysis separated PTSD, complex PTSD and BPD classes. [[Cloitre2014]]</p></div>
+    <div class="card"><span class="tag dx">ADHD</span><h4>An impulsive overlap</h4><p>In 118 women seeking treatment for BPD, 41.5% had childhood ADHD and 16.1% adult ADHD. [[Philipsen2008]] In another adult sample, 38.1% had adult ADHD; that group had more substance use disorders (59.4% vs 38.4%) and fewer mood disorders. [[Ferrer2010]] Among adults with ADHD, 21.9% had BPD, with very high heterogeneity between studies. [[Adamis2026]]</p></div>
+    <div class="card"><span class="tag dx">Autism</span><h4>Autistic women and BPD</h4><p>Pooled overlap is low: BPD in 4% of autistic people and autism in 3% of people with BPD, within population estimates. [[May2021]] In women, identity disruption was much higher in BPD and sensory processing differences favoured autism; five features together classified 95.1% correctly. [[Barnicot2026]] Late-diagnosed autistic women may be misread as having BPD, so a full developmental history is advised. <span class="ev hyp">Hypothesis</span> [[McQuaid2024]]</p></div>
+    <div class="card"><span class="tag dx">Voices</span><h4>Hearing voices is not schizophrenia</h4><p>Hallucinations were present in 43% of 324 outpatients with BPD, mostly distressing voices. Their severity tracked delusions and unusual thoughts but not negative symptoms or disorganisation, which helps separate them from primary psychotic disorders. [[Niemantsverdriet2017]]</p></div>
+    <div class="card"><span class="tag warn">Harms</span><h4>Misdiagnosis cuts both ways</h4><p>Calling BPD bipolar disorder can deprive a person of effective psychotherapy; calling bipolar disorder BPD can deprive them of effective medication. [[Paris2015]] Of 82 outpatients whose earlier bipolar diagnosis was not confirmed, 24.4% had BPD, against 6.1% of those never so diagnosed. [[Zimmerman2010JCP]] Missing BPD leads to drug treatment that rarely succeeds. [[Gunderson2018]]</p></div>
+    <div class="card"><span class="tag accent">Exam hooks</span><h4>Remember</h4><ul>
+      <li>Hours (BPD) versus days to weeks (bipolar). [[Paris2015,Kaess2025]]</li>
+      <li>Abandonment fears and identity disturbance best separate BPD from bipolar disorder. [[Bayes2020]]</li>
+      <li>Self-concept: alternating in BPD, stably negative in complex PTSD. [[Frost2020]]</li>
+      <li>"Complex comorbidity", a disorder of affect plus a disorder of impulse, is a strong marker of BPD. [[Zanarini1998AxisI]]</li>
+      <li>About half of people with BPD have a current substance use disorder. [[Trull2018]]</li></ul></div>
+  </div>
+</section>

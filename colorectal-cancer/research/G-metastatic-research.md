@@ -133,7 +133,7 @@ Access notes:
 - CodeBreaK 300 (160 patients, chemorefractory KRAS G12C): sotorasib 960 mg plus panitumumab gave median PFS 5.6 vs 2.2 months with trifluridine/tipiracil or regorafenib (HR 0.49, 0.30–0.80). Response was 26.4% vs 0% [[Fakih2023]].
 - CodeBreaK 300 OS (not adequately powered): HR 0.70 (0.41–1.18; P=0.20) for sotorasib 960 mg plus panitumumab vs investigator's choice. Updated response was 30.2% vs 1.9% [[Pietrantonio2025]].
 - Lumakras (sotorasib) US label: 960 mg once daily with panitumumab for KRAS G12C-mutated mCRC after fluoropyrimidine, oxaliplatin and irinotecan chemotherapy [[FDA-Lumakras]]. Drugs@FDA records this efficacy supplement on 2025-01-16 [[FDA-DrugsAtFDA]].
-- Krazati (adagrasib) US label: with cetuximab for KRAS G12C-mutated locally advanced or metastatic CRC after fluoropyrimidine, oxaliplatin and irinotecan. This is an accelerated approval based on response rate and duration of response [[FDA-Krazati]]. Drugs@FDA records the efficacy supplement on 2024-06-21 [[FDA-DrugsAtFDA]].
+- Krazati (adagrasib) US label: the colorectal indication (with cetuximab for KRAS G12C-mutated locally advanced or metastatic CRC after fluoropyrimidine, oxaliplatin and irinotecan; accelerated approval) was removed: "Accelerated Approval Indication Removed 08/2026". The label now covers NSCLC only (updated U-2026-10-29) [[FDA-Krazati]]. Drugs@FDA records the efficacy supplement on 2024-06-21 [[FDA-DrugsAtFDA]].
 
 ### biomarkers · NTRK fusions (rare, tumour-agnostic)
 - Larotrectinib across 17 TRK fusion-positive tumour types (55 patients) gave a 75% independently reviewed response rate. At 1 year, 71% of responses were ongoing [[Drilon2018]].
@@ -426,7 +426,7 @@ Access notes:
 - [FDA-Braftovi] Array BioPharma. BRAFTOVI (encorafenib) prescribing information, NDA210496, effective 2026-02-26, set id 235dfc38-0f0b-4037-b501-7a9f4294740c. (validated: openFDA)
 - [FDA-Tukysa] Seagen. TUKYSA (tucatinib) prescribing information, NDA213411, effective 2024-11-04, set id f27eb1b9-b7fc-424e-988f-84dd7bb195a3 (label record lacks openfda metadata; sponsor from Drugs@FDA). (validated: openFDA)
 - [FDA-Lumakras] Amgen. LUMAKRAS (sotorasib) prescribing information, NDA214665, effective 2025-01-22, set id c80a362c-7ac3-4894-a076-0691e68ef8c1. (validated: openFDA)
-- [FDA-Krazati] Bristol-Myers Squibb (Mirati). KRAZATI (adagrasib) prescribing information, NDA216340, effective 2026-03-25, set id 0b8bf078-34c2-4f45-9012-38a8ac082b01 (label record lacks openfda metadata; sponsor from Drugs@FDA). (validated: openFDA)
+- [FDA-Krazati] Bristol-Myers Squibb (Mirati). KRAZATI (adagrasib) prescribing information, NDA216340, DailyMed SPL set id 0b8bf078-34c2-4f45-9012-38a8ac082b01, version 14, effective 2026-08-31 (published 2026-10-23); colorectal indication removed 08/2026. (validated: DailyMed, 2026-10-29; replaces the 2026-03-25 openFDA label)
 - [FDA-Stivarga] Bayer HealthCare. STIVARGA (regorafenib) prescribing information, NDA203085, effective 2026-02-09, set id 824f19c9-0546-4a8a-8d8f-c4055c04f7c7. (validated: openFDA)
 - [FDA-Lonsurf] Taiho Pharmaceutical. LONSURF (trifluridine and tipiracil) prescribing information, NDA207981, effective 2025-11-05, set id f5beed22-d71d-4c0d-8dca-2c7317d65d85. (validated: openFDA)
 - [FDA-Fruzaqla] Takeda. FRUZAQLA (fruquintinib) prescribing information, NDA217564, effective 2026-07-31, set id 186d786e-dc8a-45f2-b5e1-01ac0201879f. (validated: openFDA)

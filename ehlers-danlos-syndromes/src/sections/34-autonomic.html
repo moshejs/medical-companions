@@ -1,0 +1,91 @@
+<!-- ================= 3.4 POTS & THE AUTONOMIC LINK ================= -->
+<style>
+#m-autonomic .auc{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px 14px}
+#m-autonomic .auc label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;min-width:0}
+#m-autonomic .auc input[type=number],#m-autonomic .auc select{font:inherit;font-weight:400;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%;min-width:0;width:100%}
+#m-autonomic .auc .wide{grid-column:1/-1}
+#m-autonomic .auc label.chk{flex-direction:row;align-items:center;gap:8px;font-weight:400}
+#m-autonomic .auc label.chk input{width:18px;height:18px;margin:0;accent-color:var(--vas)}
+#m-autonomic .auc fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;min-width:0}
+#m-autonomic .auc legend{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 4px}
+#m-autonomic .card>.ev,#m-autonomic .card>.tag{align-self:flex-start}
+#m-autonomic .card .num{font:400 30px/1 var(--display);color:var(--vas)}
+</style>
+<section class="mod" id="m-autonomic" data-mod="autonomic" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Body systems</p><h2>POTS &amp; the autonomic link</h2>
+    <p class="lede">Many people with hypermobile EDS feel dizzy, faint or have a racing heart when they stand. Watch a tilt-table test move a person from lying to upright, see where the published thresholds sit, and see how strong the link with EDS really is.</p></div>
+  <div class="stepper" id="auSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Response pattern"><span class="kicker">Pattern</span>
+        <button class="btn" data-aup="typical" aria-pressed="true">Typical</button>
+        <button class="btn" data-aup="pots" aria-pressed="false">POTS</button>
+        <button class="btn" data-aup="oh" aria-pressed="false">Orthostatic hypotension</button>
+        <button class="btn ghost" id="auTeen" aria-pressed="false">Age 12–19</button>
+      </div>
+      <div class="scroll"><svg id="auSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A person on a tilt table is swung from lying flat to 70 degrees upright and kept there for 10 minutes. Blood shifts toward the legs. Beside the table, heart-rate and systolic blood-pressure traces draw minute by minute against dashed threshold lines: baseline plus 30 beats per minute (40 at ages 12 to 19) for POTS, and baseline minus 20 mmHg for orthostatic hypotension."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="auPlay">Play</button><label class="stage-cap tl" for="auT">Minutes <input type="range" id="auT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="auRead"></div>
+      <p class="stage-cap">Illustrative curves for one imaginary person per pattern, not patient data. The threshold lines are the published definitions. [[Vernino2021,Sheldon2015]]</p>
+    </div>
+    <aside class="note" id="auNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: an active stand test, read against the definitions</h3>
+  <p class="banner vas"><b>A teaching tool, not a diagnosis</b>Enter numbers from a worked example or a textbook case to see which published definition they would meet. A real assessment is done by a clinician, who also looks for other causes; the Canadian Cardiovascular Society warns that the POTS label is often given to people who do not have it. Heart rate alone, measured at home, cannot diagnose POTS. [[Raj2020CCS,Vernino2021]]</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Load an example"><span class="kicker">Examples</span>
+        <button class="btn" data-auex="typical" aria-pressed="false">Typical</button>
+        <button class="btn" data-auex="pots" aria-pressed="false">POTS pattern</button>
+        <button class="btn" data-auex="oh" aria-pressed="false">Blood pressure falls</button>
+        <button class="btn" data-auex="brief" aria-pressed="false">Brief spike</button>
+      </div>
+      <div class="auc">
+        <label for="auCAge" class="wide">Age group
+          <select id="auCAge"><option value="adult">Adult (threshold 30 beats/min)</option><option value="teen">12–19 years (threshold 40 beats/min)</option></select></label>
+        <fieldset class="wide"><legend>Lying, after rest</legend>
+          <label for="auCHr0">Heart rate (beats/min)<input type="number" id="auCHr0" min="30" max="220" inputmode="numeric"></label>
+          <label for="auCSb0">Systolic BP (mmHg)<input type="number" id="auCSb0" min="50" max="250" inputmode="numeric"></label></fieldset>
+        <fieldset><legend>Standing 1 min</legend>
+          <label for="auCHr1">HR<input type="number" id="auCHr1" inputmode="numeric"></label><label for="auCSb1">Systolic<input type="number" id="auCSb1" inputmode="numeric"></label></fieldset>
+        <fieldset><legend>Standing 3 min</legend>
+          <label for="auCHr3">HR<input type="number" id="auCHr3" inputmode="numeric"></label><label for="auCSb3">Systolic<input type="number" id="auCSb3" inputmode="numeric"></label></fieldset>
+        <fieldset><legend>Standing 5 min</legend>
+          <label for="auCHr5">HR<input type="number" id="auCHr5" inputmode="numeric"></label><label for="auCSb5">Systolic<input type="number" id="auCSb5" inputmode="numeric"></label></fieldset>
+        <fieldset><legend>Standing 10 min</legend>
+          <label for="auCHr10">HR<input type="number" id="auCHr10" inputmode="numeric"></label><label for="auCSb10">Systolic<input type="number" id="auCSb10" inputmode="numeric"></label></fieldset>
+        <label class="chk wide" for="auCSym"><input type="checkbox" id="auCSym"> Frequent symptoms on standing that improve quickly on lying down</label>
+      </div>
+      <div class="ctrls"><button class="btn ghost" id="auCReset">Clear</button></div>
+    </div>
+    <div class="stage">
+      <div class="scroll"><svg id="auCalcSvg" viewBox="0 0 440 262" style="min-width:360px" role="img" aria-label="For each standing reading, a red bar shows the heart-rate rise above the lying value against a dashed 30 (or 40) beats per minute line, and a blue bar shows the systolic fall against a dashed 20 mmHg line."></svg></div>
+      <div id="auCalcOut" aria-live="polite"></div>
+      <p class="stage-cap">Rules used: POTS needs a heart-rate rise of at least 30 beats/min (40 at ages 12–19) within 10 minutes, with symptoms, and no sustained systolic fall of 20 mmHg or more. The definition says "sustained" without a fixed count; this tool calls a change sustained when it is present at two or more standing readings. [[Vernino2021,Sheldon2015]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">How often? POTS and orthostatic intolerance in hEDS cohorts</h3>
+  <p class="prose">The association is seen again and again in clinics: a review of 10 studies found orthostatic intolerance consistently more common in joint hypermobility or EDS than in controls. But nearly every cohort was recruited in an autonomic or hypermobility clinic, so the percentages are likely upper estimates, not how common POTS is in everyone with hEDS. An international expert review states that incidence, prevalence and natural history "remain unquantified". [[Roma2018,Hakim2017]]</p>
+  <div class="stage">
+    <div class="ctrls"><button class="btn" id="auCohCtl" aria-pressed="false">Show comparison groups</button></div>
+    <div class="scroll"><svg id="auCohSvg" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Horizontal bars of published percentages. Orthostatic intolerance: 78 percent in joint hypermobility syndrome versus 10 percent of controls; 74 percent of women with EDS hypermobility type versus 34 percent of controls; POTS in 48 percent of hEDS or HSD adults; postural tachycardia in 41 percent on tilt. In POTS cohorts: 31 percent of adults met 2017 hEDS criteria; in children, 22.4 percent had hEDS and 34.9 percent HSD."></svg></div>
+    <p class="stage-cap">Sources, top to bottom: [[Gazit2003]] [[DeWandele2014Mech]] [[Celletti2020]] [[DeWandele2016]] [[Miller2020]] [[Boris2018]]. Older studies used the labels "joint hypermobility syndrome" and "EDS hypermobility type", which predate the 2017 criteria.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>More common in clinic cohorts</h4><p>Orthostatic intolerance was found in 78% of people with joint hypermobility syndrome vs 10% of controls, and in 74% of women with EDS hypermobility type vs 34% of matched controls, most often as postural tachycardia. In clinic populations the association is consistent; population prevalence is unknown. [[Gazit2003,DeWandele2014Mech,Roma2018]]</p></div>
+    <div class="card"><span class="tag warn">Selection bias</span><h4>Why the numbers run high</h4><p>People referred to autonomic or hypermobility clinics are those with the most symptoms. The NIH consensus gives "about 20–30%" of POTS patients meeting hEDS criteria and up to 40% of people with hEDS or HSD having orthostatic intolerance and tachycardia, but notes both come from small samples or uncontrolled surveys. [[Vernino2021,Hakim2017]]</p></div>
+    <div class="card"><span class="tag">From the other side</span><h4>Hypermobility in POTS clinics</h4><p>Of 91 adults with POTS assessed with the 2017 checklist, 31% met hEDS criteria and a further 24% had generalised joint hypermobility without hEDS. In 708 children in a POTS programme, symptoms started earlier with hypermobility (median 12.6 vs 13.7 years) and lasted longer before diagnosis (3.3 vs 1.5 years). [[Miller2020,Boris2018]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Stretchy veins, pooled blood</h4><p>The HRS 2015 consensus explains the link through the veins: abnormal connective tissue in dependent blood vessels may let veins distend excessively under ordinary hydrostatic pressure, so more blood pools on standing. This is a mechanism proposed in a consensus statement, not one measured in a controlled hEDS study. [[Sheldon2015]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Fatigue and the whole-body burden</h4><p>Autonomic symptom scores were higher in EDS hypermobility type (57.9) than in controls (11.3), classical EDS (32.3) and vascular EDS (29.1). On tilt, fatigue rose by 3.1 points vs 0.5 in controls, and orthostatic intolerance, pain, distress, lower activity and sedative use together explained 47.7% of fatigue severity. [[DeWandele2014ASP,DeWandele2016]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Chiari and the craniocervical junction</h4><p>Chiari I malformation and craniocervical instability are reported in hEDS mostly from neurosurgical referral cohorts; a systematic review found only level III–V evidence. The HRS 2015 consensus lists surgical correction of Chiari I among procedures not recommended for routine POTS care and potentially harmful. [[Lohkamp2022,Henderson2017,Sheldon2015]]</p></div>
+  </div>
+
+  <h3 class="sub">What is tried, and where to read more</h3>
+  <div class="split2">
+    <div class="card"><h4>The guidelines' starting point</h4><p>The NIH 2019 consensus states there are no FDA-approved medicines for POTS and that evidence for many medicines used is not robust. In hEDS, an expert review reserves drug treatment for moderate-to-severe impairment of daily function after conservative measures have not helped enough. The non-drug measures, the medicines and the strength of evidence for each are laid out step by step in the medicines module. [[Vernino2021,Hakim2017]]</p>
+      <div class="ctrls"><button class="btn" data-go="meds">Go to 4.2 Medicines</button><button class="btn ghost" data-go="physio">4.1 Exercise &amp; physiotherapy</button></div></div>
+    <div class="card"><span class="tag accent">In plain words</span><h4>What this means day to day</h4><p>Feeling faint, foggy or having a pounding heart when standing is common in hypermobile EDS, and it is a real, measurable change in the body, not imagined. A simple lying-and-standing test can show it. Not everyone with EDS has POTS, and not everyone with POTS has EDS. [[DeWandele2016,Aziz2025,Miller2020]]</p></div>
+  </div>
+</section>

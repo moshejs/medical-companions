@@ -1,0 +1,106 @@
+{
+ "what": {
+  "title": "What is TB? Global numbers, TB infection vs disease, who is affected",
+  "description": "TB in 2024: 10.7 million fell ill, 1.23 million died. Scrub the cascade, regions and 2000–2024 trends, and see why 1 in 4 people may have TB infection."
+ },
+ "bacillus": {
+  "title": "The TB bacterium: cell wall, drug targets and why it grows so slowly",
+  "description": "Mycobacterium tuberculosis explained: the acid-fast smear, the mycolic acid wall layer by layer, the four main drug targets, and why culture takes weeks."
+ },
+ "spread": {
+  "title": "How TB spreads: droplet nuclei, ventilation and Wells-Riley risk",
+  "description": "How tuberculosis spreads through shared air: cough droplet nuclei, who is infectious, and how open windows, UV light, masks and treatment cut the risk."
+ },
+ "granuloma": {
+  "title": "TB pathogenesis: from inhaled bacillus to granuloma and cavity",
+  "description": "An animated walk-through: the blocked phagosome, the ten-day wait before T cells are primed, how a TB granuloma organises, and what TNF blockade does to it."
+ },
+ "spectrum": {
+  "title": "TB infection vs TB disease: how often infection becomes TB, and when",
+  "description": "Follow 100 people with TB infection over 20 years: how many develop TB disease, how fast, how risk changes with HIV or age, and why TB is read as a spectrum."
+ },
+ "risk": {
+  "title": "TB risk factors: HIV, diabetes, undernutrition, smoking and more",
+  "description": "Who gets TB disease after infection: relative risks for HIV, diabetes, low BMI, smoking, alcohol, silicosis and anti-TNF drugs, and cases attributable."
+ },
+ "symptoms": {
+  "title": "TB symptoms: cough, night sweats and TB outside the lungs",
+  "description": "Tuberculosis symptoms in adults, children and people with HIV, extrapulmonary TB sites with their shares, and how symptom and X-ray screens perform."
+ },
+ "tests": {
+  "title": "TB skin test (TST) and IGRA blood test: 5, 10 and 15 mm cut-offs",
+  "description": "How the Mantoux skin test and QuantiFERON or T-SPOT.TB work, reading induration with the 5-10-15 mm rule, BCG effects, and when to pick each test."
+ },
+ "diagnose": {
+  "title": "Diagnosing TB disease: smear, Xpert Ultra, culture, LAM and X-ray",
+  "description": "How TB disease is confirmed: sputum smear, Xpert MTB/RIF and Ultra, culture times, urine LF-LAM in HIV, chest X-ray patterns and WHO rapid tests."
+ },
+ "resistance": {
+  "title": "Drug-resistant TB: how resistance arises, MDR to XDR, gene tests",
+  "description": "Watch rare mutants survive one drug but not four, then classify RR, MDR, pre-XDR and XDR-TB by WHO 2021 rules, with the genes and tests that detect each."
+ },
+ "drugs": {
+  "title": "How TB drugs work: isoniazid, rifampicin, pyrazinamide, ethambutol",
+  "description": "Animated guide to why TB needs four drugs: which bacteria each one kills, early kill vs sterilising, drug targets, resistance and published doses."
+ },
+ "regimen": {
+  "title": "Treating TB disease: 6-month 2HRZE/4HR vs 4-month regimens",
+  "description": "See a TB dose calendar fill week by week: 2HRZE/4HR, the 4-month rifapentine-moxifloxacin regimen and SHINE for children, with trial results."
+ },
+ "tpt": {
+  "title": "TB preventive treatment: 3HP, 1HP, 4R, 3HR and isoniazid compared",
+  "description": "Treating TB infection: 3HP, 1HP, 3HR, 4R and isoniazid side by side in weeks, with trial completion and liver-injury rates and a cases-prevented calculator."
+ },
+ "drtb": {
+  "title": "Treating drug-resistant TB: BPaLM, BPaL and the trials behind them",
+  "description": "From 2-year injectable regimens to 6-month all-oral BPaLM: durations, hearing loss, cure rates, and Nix-TB, ZeNix, TB-PRACTECAL and endTB compared."
+ },
+ "safety": {
+  "title": "TB drug side effects and monitoring: liver, eyes, nerves, QT",
+  "description": "When TB drug side effects appear, from orange urine to liver injury and optic neuritis, plus the ATS liver rule, rifampicin interactions and checks."
+ },
+ "special": {
+  "title": "TB with HIV, in children and in pregnancy: ART timing and IRIS",
+  "description": "When to start ART during TB treatment (SAPIT, CAMELIA, STRIDE), TB-IRIS, why young children get very sick, and TB care in pregnancy and diabetes."
+ },
+ "bcg": {
+  "title": "BCG vaccine: what it protects against, and new TB vaccines like M72",
+  "description": "How BCG works from injection to scar, a forest plot of its protection by age and latitude, side effects, and the TB vaccine pipeline: M72, MTBVAC, VPM1002."
+ },
+ "control": {
+  "title": "TB infection control and contact tracing: isolation, masks, N95",
+  "description": "How clinics stop TB spreading: triage and FAST, negative-pressure rooms at 12 air changes, UV, masks and N95 respirators, and how contact investigation works."
+ },
+ "frontier": {
+  "title": "Ending TB: End TB targets vs progress, and new TB drugs and tests",
+  "description": "End TB Strategy targets for 2020–2035 against WHO data to 2024, catastrophic costs, the funding gap, and new TB drugs, regimens and tests with evidence labels."
+ },
+ "living": {
+  "title": "Living with TB: treatment support, stigma, costs and life after cure",
+  "description": "Follow one person through six months of TB treatment: side effects, stigma, household costs, what support did in trials, and lung health after cure. Cited."
+ },
+ "nursing": {
+  "title": "TB nursing care: isolation, sputum collection, DOT and monitoring",
+  "description": "An animated TB care pathway for nurses: airborne isolation, sputum collection and induction, DOT and VOT, monitoring by drug, teaching and handover. Cited."
+ },
+ "history": {
+  "title": "History of tuberculosis: Koch, BCG, streptomycin to BPaLM",
+  "description": "A scrubbable TB timeline from 9,000-year-old bones to Koch, sanatoria, BCG, the 1948 streptomycin trial, 6-month treatment and BPaLM, and who made it."
+ },
+ "review": {
+  "title": "TB flashcards and mnemonics: RIPE drugs, TST cut-offs and more",
+  "description": "90 cited tuberculosis flashcards by part, 10 mnemonics such as RIPE and 5-10-15 mm, and an animation linking each first-line drug to its key side effect."
+ },
+ "quiz": {
+  "title": "TB quiz: 98 questions on TST, IGRA, regimens and side effects",
+  "description": "Single-best-answer tuberculosis quiz with cited explanations: TST and IGRA vignettes, infection vs disease, 2HRZE/4HR, BPaLM, drug interactions and BCG."
+ },
+ "glossary": {
+  "title": "TB glossary: 150 tuberculosis terms from AFB to XDR-TB",
+  "description": "Searchable glossary of 150 tuberculosis terms, from acid-fast bacilli and RD1 to 3HP, BPaLM and AII rooms, with person-first language notes and module links."
+ },
+ "sources": {
+  "title": "TB Companion sources: every cited study, guideline and label",
+  "description": "All references behind the TB Companion, numbered and filterable by research area, with the database (PubMed, Crossref or openFDA) that validated each one."
+ }
+}
