@@ -142,7 +142,7 @@ inits.frontiers=()=>{
     if(E.d[0]!==E.d[1]&&show>0)s+=curve(dg,'fill:none;stroke:var(--warn);stroke-width:1.6;stroke-dasharray:4 3');
     s+=curve(d,`fill:var(--rx);fill-opacity:.18;stroke:var(--rx);stroke-width:2`);
     s+=T(X(0),ey+14,'t-xs t-mid','comparison')+T(X(d)+(N?30:40),ey-eh-6,'t-xs t-mid',ex==='nf'?'neurofeedback':'active device','fill:var(--rx)');
-    if(E.d[0]!==E.d[1]&&show>0)s+=T(X(dg)+(N?34:60),ey-eh+12,'t-xs t-mid',`${E.dl[0]} ${E.d[0]}`,'fill:var(--warn)');
+    if(E.d[0]!==E.d[1]&&show>0)s+=T(X(dg)+(N?70:110),ey-eh*.55,'t-xs t-mid',`${E.dl[0]} ${E.d[0]}`,'fill:var(--warn)');
     /* meter */
     let conf=E.start*ramp(t,0,.1);E.pts.forEach((p,i)=>{conf+=p*ramp(t,csteps[i+1].from,csteps[i+1].from+.06)});
     const pending=ex==='tns'?.25*ramp(t,.72,.78):0;

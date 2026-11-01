@@ -36,25 +36,25 @@ const MT_OUTNOTE={
  sub:`<div class="callout"><b>Substance use.</b> By a mean age of 17, neither the randomised treatment, medication at follow-up nor cumulative stimulant treatment was associated with adolescent substance use or substance use disorder, in either direction. Participants with ADHD used more substances than classmates at every time point. Register studies with within-person designs find fewer substance-related emergencies during medicated months, so the two designs answer different questions. [[Molina2013,Quinn2017]]</div>`};
 /* lower chart: % of children taking medication more than half the time */
 const MT_MED=[{n:'Behavioural arm',c:'var(--beh)',p:[[1,14],[3,45]]},{n:'Medication arms',c:'var(--dx)',p:[[1,91],[3,71]]},{n:'Community care',c:'var(--gold)',p:[[1,60],[3,62]]},{n:'Whole sample (days)',c:'var(--muted)',p:[[1,63.3],[5,32.5]],dash:'4 3'}];
-const MT_PROT=[['Titration, then monthly visits','Methylphenidate usually 3×/day','Contact with the school'],['Parent, school and child parts','Therapist contact faded','75% unmedicated in year 1'],['Medication management','plus the behavioural package'],['Usual community care','About 2 in 3 took medication']];
+const MT_PROT=[['Titration, monthly visits','Methylphenidate ~3×/day','Contact with school'],['Parent + school + child','Therapist contact faded','75% unmedicated, year 1'],['Medication management','+ behavioural package'],['Usual community care','~2 in 3 took medication']];
 const MT_ARMTXT=[
  `<b>Medication management.</b> Titration followed by monthly visits; in practice careful but adequate dosing, methylphenidate usually three times a day, monthly follow-up and communication with schools. Success at 14 months: 56%. [[MTA1999,Jensen2001MTA,Swanson2001MTA]]`,
  `<b>Behavioural treatment.</b> Parent, school and child components, with therapist involvement reduced gradually over time. 75% of these children stayed unmedicated during the treatment year. Success at 14 months: 34%; children with anxiety disorders did relatively well in this arm. [[MTA1999,Pelham2016,Swanson2001MTA,MTA1999Moderators]]`,
  `<b>Combined.</b> Both packages together. Not better than medication alone on core symptoms, but ahead on several non-ADHD outcomes and on a composite measure (effect size 0.28 against medication management, 0.70 against community care). Success at 14 months: 68%. In families whose negative discipline fell most, combined treatment brought teacher-rated disruptive behaviour into the normal range. [[MTA1999,Conners2001,Swanson2001MTA,Hinshaw2000]]`,
  `<b>Community care.</b> The comparison group received usual care in the community; about two-thirds took medication during the study, yet did less well than the study medication strategies. Success at 14 months: 25%. [[MTA1999,Swanson2001MTA]]`];
-const MT_SM=[['Classroom rule violations per hour',8.4,12.6,14,'',1],['Needed added treatment at school',67,47,100,'%',0],['Normalised teacher ratings',78,69,100,'%',0],['Parents with an adequate dose of parent training',69,11,100,'%',0],['Cost of a school year (2013 US$)',961,1669,1800,'$',1]];
+const MT_SM=[['Classroom rule violations per hour',8.4,12.6,14,'',1],['Needed added treatment at school',67,47,100,'%',0],['Normalised teacher ratings',78,69,100,'%',0],['Adequate parent-training dose',69,11,100,'%',2],['Cost of a school year (2013 US$)',961,1669,1800,'$',1]];
 
 inits.mta=()=>{
   const svg=$('#mtSvg'),rg=$('#mtT');let out='sym';
   const ink='fill:var(--ink)';
   const val=(k,ti)=>{const i=Math.min(5,Math.floor(ti)),f=ease(clamp(ti-i));return lerp(k[i],k[Math.min(6,i+1)],f)};
-  function draw(t){const N=vb(svg,'720 440','400 560'),ti=t*6,P=phaseOf(MT_STEPS,t),st=MT_STEPS[P];
+  function draw(t){const N=vb(svg,'720 440','400 510'),ti=t*6,P=phaseOf(MT_STEPS,t),st=MT_STEPS[P];
     const L=N?{x:44,y:44,w:262,h:230,lx:316,my:340,mh:120}:{x:64,y:40,w:430,h:218,lx:530,my:316,mh:84};
     let s='';
     /* top chart */
     if(out==='sym'){const A=axes(L.x,L.y,L.w,L.h,{x0:0,x1:6.3,y0:0,y1:1.08,xt:[0,1,2,3,4,5,6],fx:i=>MT_TL[i],yt:[],xl:N?'':'follow-up (not to scale)'});s+=A.svg;
       s+=`<text x="${L.x}" y="${L.y-14}" class="t-sm" style="fill:var(--beh);font-weight:700">ADHD SYMPTOMS · SCHEMATIC</text><text x="${L.x-6}" y="${f1(A.Y(1)+3)}" class="t-xs t-end">start</text><text x="${L.x-6}" y="${f1(A.Y(.12))}" class="t-xs t-end">fewer</text>`;
-      s+=`<rect x="${f1(A.X(0))}" y="${L.y}" width="${f1(A.X(1)-A.X(0))}" height="${L.h}" style="fill:var(--beh-soft);opacity:.5"/><text x="${f1(A.X(.5))}" y="${L.y+12}" class="t-xs t-mid" style="fill:var(--beh)">randomised</text>`;
+      s+=`<rect x="${f1(A.X(0))}" y="${L.y}" width="${f1(A.X(1)-A.X(0))}" height="${L.h}" style="fill:var(--beh-soft);opacity:.5"/><text x="${f1(A.X(.5))}" y="${L.y+12}" class="t-xs t-mid" style="fill:var(--beh)">${N?'trial':'randomised'}</text>`;
       if(ti>4.6){const o=clamp((ti-4.6)*2);s+=`<g style="opacity:${f1(o)}"><path d="M${f1(A.X(5))} ${f1(A.Y(.2))}L${f1(A.X(Math.min(ti,6)))} ${f1(A.Y(.22))}" style="stroke:var(--muted);stroke-width:2;stroke-dasharray:4 3"/><circle cx="${f1(A.X(5))}" cy="${f1(A.Y(.2))}" r="3" style="fill:var(--muted)"/><text x="${f1(A.X(5)-6)}" y="${f1(A.Y(.2)+4)}" class="t-xs t-end">classmates</text></g>`}
       MT_ARMS.forEach((a,k)=>{const pts=[];for(let u=0;u<=Math.min(ti,6)+1e-6;u+=.05)pts.push([u,val(MT_SYM[k],u)]);pts.push([Math.min(ti,6),val(MT_SYM[k],Math.min(ti,6))]);
         s+=trace(pts,A.X,A.Y,{c:a.c,w:2.4});const cx=A.X(Math.min(ti,6)),cy=A.Y(val(MT_SYM[k],Math.min(ti,6)));s+=`<circle cx="${f1(cx)}" cy="${f1(cy)}" r="4" style="fill:${a.c}"/>`;
@@ -88,8 +88,8 @@ inits.mta=()=>{
     s+=`<text x="${L.x}" y="${L.my-8}" class="t-sm" style="fill:var(--beh);font-weight:700">TAKING MEDICATION MOST OF THE TIME</text>`;
     MT_MED.forEach((m,k)=>{if(ti<m.p[0][0])return;const a=m.p[0],b=m.p[1],u=Math.min(ti,b[0]),v=lerp(a[1],b[1],ramp(u,a[0],b[0]));
       s+=trace([[a[0],a[1]],[u,v]],M.X,M.Y,{c:m.c,w:2.2,dash:m.dash});s+=`<circle cx="${f1(M.X(a[0]))}" cy="${f1(M.Y(a[1]))}" r="3" style="fill:${m.c}"/>`;
-      if(ti>=b[0])s+=`<circle cx="${f1(M.X(b[0]))}" cy="${f1(M.Y(b[1]))}" r="3" style="fill:${m.c}"/><text x="${f1(M.X(b[0])+6)}" y="${f1(M.Y(b[1])+(k===2?-4:k===0?10:4))}" class="t-xs" style="fill:${m.c};font-weight:700">${b[1]}%</text>`;
-      s+=`<text x="${f1(M.X(a[0])-6)}" y="${f1(M.Y(a[1])+(k===3?10:k===2?-2:4))}" class="t-xs t-end" style="fill:${m.c}">${a[1]}</text>`});
+      if(ti>=b[0])s+=`<circle cx="${f1(M.X(b[0]))}" cy="${f1(M.Y(b[1]))}" r="3" style="fill:${m.c}"/><text x="${f1(M.X(b[0])+6)}" y="${f1(M.Y(b[1])+(k===1?-5:k===3?4:12))}" class="t-xs" style="fill:${m.c};font-weight:700">${b[1]}%</text>`;
+      s+=`<text x="${f1(M.X(a[0])-6)}" y="${f1(M.Y(a[1])+(k===3?-4:k===2?12:4))}" class="t-xs t-end" style="fill:${m.c}">${a[1]}</text>`});
     MT_MED.forEach((m,k)=>{const y=N?L.my+L.mh+18+Math.floor(k/2)*14:L.my+8+k*18,x=N?L.x+(k%2)*170:L.lx;s+=`<rect x="${x}" y="${y-7}" width="12" height="4" rx="2" style="fill:${m.c}"/><text x="${x+16}" y="${y-2}" class="t-xs">${m.n}</text>`});
     /* now marker */
     const nx=Math.min(ti,6.3);s+=`<line x1="${f1(M.X(nx))}" x2="${f1(M.X(nx))}" y1="${L.y}" y2="${L.my+L.mh}" style="stroke:var(--ink);opacity:.18"/>`;
@@ -133,7 +133,7 @@ inits.mta=()=>{
   function drawS(){const N=vb(ss,'720 300','400 470');let s='';const lx=N?14:12,bx0=N?14:300,bx1=N?330:640,rh=N?88:54;
     s+=`<rect x="${N?14:300}" y="6" width="12" height="8" rx="2" style="fill:var(--beh)"/><text x="${N?30:316}" y="14" class="t-xs" style="${ink}">behaviour first</text><rect x="${N?140:430}" y="6" width="12" height="8" rx="2" style="fill:var(--dx)"/><text x="${N?156:446}" y="14" class="t-xs" style="${ink}">medication first</text>`;
     MT_SM.forEach(([n,b,m,mx,u,lowGood],i)=>{const y=(N?34:34)+i*rh,ly=N?y+4:y+20,by=N?y+14:y+8;
-      s+=`<text x="${lx}" y="${ly}" class="t-sm" style="${ink}">${n}</text>`;if(!N&&lowGood)s+=`<text x="${lx}" y="${ly+14}" class="t-xs">lower is better</text>`;
+      s+=`<text x="${lx}" y="${ly}" class="t-sm" style="${ink}">${n}</text>`;if(!N&&lowGood)s+=`<text x="${lx}" y="${ly+14}" class="t-xs">${lowGood===2?'parents, when it was offered':'lower is better'}</text>`;
       [[b,'var(--beh)','beh'],[m,'var(--dx)','med']].forEach(([v,c,k],j)=>{const w=(bx1-bx0)*v/mx*(k===pick?grow:1),yy=by+j*17,hl=k===pick;
         s+=`<rect x="${bx0}" y="${yy}" width="${f1(w)}" height="13" rx="3" style="fill:${c};opacity:${hl?1:.35}"/><text x="${f1(bx0+w+6)}" y="${yy+10.5}" class="t-xs" style="${hl?ink+';font-weight:700':''}">${u==='$'?'$'+v.toLocaleString('en-US'):v+(u||'')}</text>`})});
     ss.innerHTML=s;

@@ -149,8 +149,8 @@ inits.living=()=>{
     let s=desk(cx-40,gy,90,{focus:fc*(1-br),distract:ds,fidget:br*.9,t,fill:who==='teen'?'var(--muted)':'var(--neuron)'});
     const hx=cx-40-21,hy=gy-87;if(u>.18)s+=`<g style="opacity:${f1(ramp(u,.18,.3))}">${headphones(hx,hy,12)}</g>`+T(hx-20,hy-22,'t-xs t-mid','headphones');
     if(who==='adult')s+=`<rect x="${f1(cx-40+18)}" y="${f1(gy-74)}" width="30" height="20" rx="2" style="fill:var(--panel-2);stroke:var(--ink);stroke-width:1.4"/><path d="M${f1(cx-40+14)} ${f1(gy-53)}H${f1(cx-40+52)}" style="stroke:var(--ink);stroke-width:2"/>`;
-    s+=note(cx+70,gy-168,110,who==='teen'?['1. Read page 12','2. Questions 1–5','3. Hand in at 2pm']:['1. Draft the report','2. Reply to Sam','3. Call at 3pm']);
-    s+=T(cx+125,gy-103,'t-xs t-mid','written steps');
+    s+=note(cx+60,gy-168,122,who==='teen'?['1. Read page 12','2. Questions 1–5','3. Hand in at 2pm']:['1. Draft the report','2. Reply to Sam','3. Call at 3pm']);
+    s+=T(cx+121,gy-103,'t-xs t-mid','written steps');
     if(br>.05)s+=`<g style="opacity:${f1(br)}">${bubble(cx-170,gy-200,118,28,'I need a break',{tx:cx-70,ty:gy-120,c:'var(--beh)'})}</g>`;
     s+=T(cx+125,gy-30,'t-xs t-mid',br>.3?'movement break':(u<.3?'fewer distractions':'focus'),`fill:${br>.3?'var(--beh)':'var(--accent)'}`);
     s+=T(cx-150,gy+16,'t-xs',who==='teen'?'Classroom':'Office','fill:var(--muted)');
