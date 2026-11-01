@@ -1,7 +1,7 @@
 /* =============== 4.2 CBT, coaching & adult support =============== */
 const TH_STEPS=[
  {from:0,at:.07,k:'Before therapy',t:'The avoidance loop',
-  txt:`A common way to describe the problem CBT targets: a task feels too big ("I'll do it later"), that brings a wave of overwhelm, the task is avoided, and the relief of avoiding it makes avoiding more likely next time, while unfinished tasks pile up. The loop is an illustration. The trial that made CBT for adult ADHD widely known enrolled 86 adults who were already taking medication but still had significant symptoms, and compared 12 individual CBT sessions with 12 sessions of relaxation plus educational support. [[Safren2010]]`,
+  txt:`A common way to describe the problem CBT targets: a task feels too big ("I'll do it later"), that brings a wave of overwhelm, the task is avoided, and the relief of avoiding it makes avoiding more likely next time, while unfinished tasks pile up. The loop is an illustration. The trial that made CBT for adult ADHD widely known enrolled 86 adults who were already taking medication but still had significant symptoms, and compared 12 individual CBT sessions with an attention-matched control: relaxation plus educational support. [[Safren2010]]`,
   pt:`Putting things off is not laziness. Avoiding a task gives quick relief, and that relief keeps the habit going.`,
   hook:`Safren 2010 (JAMA): 86 medication-treated adults with persistent symptoms; CBT vs an attention-matched relaxation-plus-education control.`},
  {from:.14,at:.25,k:'Sessions 1–4 · core module 1',t:'Organise and plan',
@@ -126,7 +126,7 @@ inits.therapy=()=>{
     s+=`<text x="${N?14:10}" y="${N?24:22}" class="t-sm" style="fill:var(--muted)">${arm==='cbt'?'CBT arm':'Comparison arm'} · session ${thSess(t)} of 12</text>`;
     svg.innerHTML=s;setSt(P);
     rg.setAttribute('aria-valuetext',`Session ${thSess(t)} of 12: ${st.t}`);
-    $('#thNote').innerHTML=noteHTML(st)+(arm==='ctl'&&P>0?`<div class="callout"><b>Comparison arm.</b> The control group had the same number of sessions of relaxation training with educational support about ADHD, matched for therapist attention, so the trial tests the CBT skills rather than simply seeing a therapist. In this arm 33% responded on the ADHD rating scale, against 67% with CBT. [[Safren2010]]</div>`:'')}
+    $('#thNote').innerHTML=noteHTML(st)+(arm==='ctl'&&P>0?`<div class="callout"><b>Comparison arm.</b> The control group had relaxation training with educational support about ADHD, matched for therapist attention, so the trial tests the CBT skills rather than simply seeing a therapist. In this arm 33% responded on the ADHD rating scale, against 67% with CBT. [[Safren2010]]</div>`:'')}
   const stop=playWire(rg,$('#thPlay'),draw,30000,'%t:player.replay%','therapy');
   const setSt=stepWire($('#thSteps'),TH_STEPS,rg,draw,stop);
   $$('[data-th-arm]').forEach(b=>b.addEventListener('click',()=>{arm=b.dataset.thArm;$$('[data-th-arm]').forEach(x=>x.setAttribute('aria-pressed',x===b));draw(+rg.value)}));

@@ -82,7 +82,9 @@ inits.mta=()=>{
     const lg=N?{x:L.lx,y:L.y+10,dy:44}:{x:L.lx,y:L.y+16,dy:44};
     if(out==='sym')MT_ARMS.forEach((a,k)=>{const y=lg.y+k*lg.dy;s+=`<rect x="${lg.x}" y="${y-8}" width="12" height="4" rx="2" style="fill:${a.c}"/><text x="${lg.x+16}" y="${y-2}" class="t-xs" style="${ink}">${N?a.sh:a.n}</text>`;
       const sv=stat(k);if(sv)s+=`<text x="${lg.x+16}" y="${y+12}" class="${N?'t-xs':'t-sm'}" style="fill:${a.c};font-weight:700">${sv}</text>`});
-    if(out==='sym'&&P>=1&&P<=3)s+=`<text x="${lg.x}" y="${lg.y+4*lg.dy}" class="t-xs">${P===1?'low-symptom success':P===2?'mean dose at 24 mo':'on medication >50%'}</text>`;
+    if(out!=='sym'&&!N){const T=out==='height'?['Compared in young','adulthood by how much','stimulant was taken:','','consistent or','inconsistent use vs','negligible use','−2.55 ± 0.73 cm']:['All four arms drawn','as one bundle: no','randomised or','medication effect','by mean age 17.','','Dashed: classmates','without ADHD.'];
+      T.forEach((l,k)=>s+=`<text x="${lg.x}" y="${lg.y+k*15}" class="t-xs" style="${k===7&&out==='height'?'fill:var(--brand);font-weight:700':ink}">${l}</text>`)}
+    if(out==='sym'&&!N&&P>=1&&P<=3)s+=`<text x="${lg.x}" y="${lg.y+4*lg.dy}" class="t-xs">${P===1?'low-symptom success':P===2?'mean dose at 24 mo':'on medication >50%'}</text>`;
     /* lower chart: medication use */
     const M=axes(L.x,L.my,L.w,L.mh,{x0:0,x1:6.3,y0:0,y1:100,xt:N?[]:[],yt:[0,50,100],fy:v=>v+'%'});s+=M.svg;
     s+=`<text x="${L.x}" y="${L.my-8}" class="t-sm" style="fill:var(--beh);font-weight:700">TAKING MEDICATION MOST OF THE TIME</text>`;
@@ -151,12 +153,12 @@ inits.mta=()=>{
 
   /* ---- discontinuation trial ---- */
   const ds=$('#mtDiscSvg'),dr=$('#mtDiscT');
-  function drawD(t){const N=vb(ds,'720 280','400 420');const w=t*7;let s='';
+  function drawD(t){const N=vb(ds,'720 280','400 390');const w=t*7;let s='';
     const A=axes(N?44:56,30,N?300:380,N?190:200,{x0:0,x1:7,y0:15,y1:27,xt:[0,1,2,3,4,5,6,7],yt:[15,18,21,24,27],xl:'weeks',yl:'ADHD-RS score (higher = more symptoms)'});s+=A.svg;
     s+=`<rect x="${f1(A.X(0))}" y="30" width="${f1(A.X(3)-A.X(0))}" height="${N?190:200}" style="fill:var(--panel-2);opacity:.6"/><text x="${f1(A.X(1.5))}" y="44" class="t-xs t-mid">3-week taper</text>`;
     const C=[[0,21.4],[7,21.9]],S=[[0,19.6],[7,24.7]],at=(p,x)=>lerp(p[0][1],p[1][1],x/7);
     s+=trace([[0,21.4],[w,at(C,w)]],A.X,A.Y,{c:'var(--rx)',w:2.6})+trace([[0,19.6],[w,at(S,w)]],A.X,A.Y,{c:'var(--drug)',w:2.6});
-    [[C,'continued','var(--rx)',-8],[S,'switched to placebo','var(--drug)',14]].forEach(([p,l,c,dy])=>{s+=`<circle cx="${f1(A.X(w))}" cy="${f1(A.Y(at(p,w)))}" r="4" style="fill:${c}"/><text x="${f1(Math.min(A.X(w)+6,A.X(7)-2))}" y="${f1(A.Y(at(p,w))+dy)}" class="t-xs${w>5?' t-end':''}" style="fill:${c};font-weight:700">${at(p,w).toFixed(1)} ${l}</text>`});
+    [[C,'continued','var(--rx)',-8],[S,'switched to placebo','var(--drug)',14]].forEach(([p,l,c,dy])=>{s+=`<circle cx="${f1(A.X(w))}" cy="${f1(A.Y(at(p,w)))}" r="4" style="fill:${c}"/><text x="${f1(Math.min(A.X(w)+6,A.X(7)-2))}" y="${f1(A.Y(at(p,w))+dy)}" class="t-xs${w>5?' t-end':''}" style="fill:${c};font-weight:700;paint-order:stroke;stroke:var(--panel);stroke-width:3px">${at(p,w).toFixed(1)} ${l}</text>`});
     const g=ease(ramp(t,.85,1)),bx=N?44:500,by=N?296:60,bw=N?300:190;
     s+=`<text x="${bx}" y="${by-12}" class="t-sm" style="fill:var(--beh);font-weight:700">CLINICAL WORSENING</text>`;
     [['continued',15.9,'var(--rx)'],['stopped',40.4,'var(--drug)']].forEach(([l,v,c],i)=>{const y=by+i*(N?40:56);s+=`<text x="${bx}" y="${y+8}" class="t-xs" style="${ink}">${l}</text><rect x="${bx}" y="${y+14}" width="${f1(bw*v/50*g)}" height="16" rx="3" style="fill:${c}"/><text x="${f1(bx+bw*v/50*g+6)}" y="${y+26}" class="t-xs" style="${ink};font-weight:700">${g>0?(v*g).toFixed(1)+'%':''}</text>`});
