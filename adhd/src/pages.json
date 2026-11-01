@@ -1,1 +1,110 @@
-{}
+{
+ "brain": {
+  "title": "The ADHD brain: networks, cortical maturation and MRI findings",
+  "description": "Animated guide to ADHD brain imaging: networks, a 3-year delay in cortical maturation, small ENIGMA volume differences, and why no scan can diagnose ADHD."
+ },
+ "compare": {
+  "title": "ADHD medication effectiveness: effect sizes, children vs adults",
+  "description": "Cortese 2018 effect sizes and dropout odds for amphetamines, methylphenidate and atomoxetine, an effect-size translator, and blinded non-drug results."
+ },
+ "criteria": {
+  "title": "ADHD DSM-5-TR criteria: symptom checklist calculator and ICD-11",
+  "description": "Tick the 18 DSM-5-TR ADHD symptoms in a teaching calculator, see the 6 or 5 threshold by age, onset before 12, and how the criteria changed since DSM-IV."
+ },
+ "differential": {
+  "title": "ADHD look-alikes: anxiety, autism, bipolar, sleep and co-occurrence",
+  "description": "How clinicians tell ADHD from anxiety, depression, bipolar disorder, autism, sleep apnoea, seizures and trauma, and how often they occur together."
+ },
+ "dopamine": {
+  "title": "Dopamine and noradrenaline in ADHD: synapse, inverted U, reward",
+  "description": "How dopamine and noradrenaline work in ADHD: an animated synapse with DAT and NET, the prefrontal inverted U, delay discounting and the PET evidence."
+ },
+ "frontiers": {
+  "title": "ADHD research frontiers: centanafadine, devices, neurofeedback, genes",
+  "description": "New ADHD treatments by evidence stage: centanafadine, solriamfetol, EndeavorRx, trigeminal nerve stimulation, neurofeedback, polygenic scores and debates."
+ },
+ "genes": {
+  "title": "ADHD genetics: heritability, twin studies and polygenic scores",
+  "description": "Is ADHD genetic? Twin heritability of 74%, sibling risk, GWAS loci, polygenic scores and rare variants, animated, and why no gene test can diagnose ADHD."
+ },
+ "glossary": {
+  "title": "ADHD glossary: 180+ terms from DAT and the inverted-U to PPV",
+  "description": "A searchable ADHD glossary of over 180 cited terms, from alpha-2A receptors and delay discounting to Criterion C, the MTA study and drug holidays."
+ },
+ "history": {
+  "title": "History of ADHD: from Crichton 1798 to DSM-5-TR",
+  "description": "How ADHD was described and renamed: Crichton, Still, Bradley's Benzedrine, methylphenidate, DSM-II to DSM-5-TR and ICD-11, and how the thresholds changed."
+ },
+ "living": {
+  "title": "Living with ADHD: school, work, driving, sleep and pregnancy",
+  "description": "A day with ADHD hour by hour: school and workplace supports, driving risk, sleep, medicines in pregnancy and breastfeeding, family and respectful language."
+ },
+ "mta": {
+  "title": "The MTA study of ADHD treatment: 14 months to 16 years explained",
+  "description": "The MTA trial of 579 children with ADHD: medication, behaviour therapy or both, why the groups converged, the sequencing trial and stopping medication."
+ },
+ "nonstim": {
+  "title": "Non-stimulant ADHD medicines: atomoxetine, viloxazine, guanfacine",
+  "description": "How atomoxetine, viloxazine, guanfacine ER and clonidine ER work, how many weeks they take, boxed warnings, side-effect rates and tapering."
+ },
+ "nursing": {
+  "title": "ADHD nursing care: baseline checks, NICE monitoring and teaching",
+  "description": "ADHD nursing care: baseline height, weight, BP and pulse, the NICE NG87 monitoring schedule, review thresholds, safe storage and patient teaching."
+ },
+ "outcomes": {
+  "title": "ADHD in adulthood: persistence, outcomes and medication effects",
+  "description": "Does ADHD persist into adulthood? Persistence by definition, the MTA fluctuating course, injury, crash and mortality risks, and outcomes on vs off medication."
+ },
+ "parenting": {
+  "title": "ADHD parent training & classroom support: what the trials show",
+  "description": "Behavioural parent training for ADHD explained: AAP and NICE advice by age, blinded effect sizes, daily report cards and organisation skills at school."
+ },
+ "quiz": {
+  "title": "ADHD quiz: 99 multiple-choice questions with cited explanations",
+  "description": "Test yourself on ADHD: prevalence, genetics, brain imaging, DSM-5-TR criteria, stimulants and non-stimulants, the MTA study, outcomes and nursing care."
+ },
+ "release": {
+  "title": "ADHD medication formulations: IR vs extended-release daily curves",
+  "description": "How Concerta, Vyvanse, Adderall XR, bead capsules and evening Jornay PM rise and fade over a school day, with label onset, Tmax, duration and doses."
+ },
+ "review": {
+  "title": "ADHD flashcards and mnemonics: DSM-5-TR, medicines and NICE monitoring",
+  "description": "86 cited ADHD flashcards by part, ten memory aids and an animated DSM-5-TR checklist: 18 symptoms, the 6 or 5 threshold, onset before 12, two settings."
+ },
+ "risk": {
+  "title": "ADHD causes and risk factors: preterm birth, smoking, myths",
+  "description": "Which ADHD risk factors survive sibling comparisons, why the youngest in class are diagnosed more often, and what studies say about sugar, vaccines and screens."
+ },
+ "safety": {
+  "title": "ADHD medication side effects: growth, heart, misuse and safety",
+  "description": "ADHD medicine side effects compared with placebo, growth and blood pressure over years, heart, psychosis and tic risks, and stimulant misuse, cited."
+ },
+ "scales": {
+  "title": "ADHD rating scales: ASRS, Vanderbilt, SNAP-IV and how assessment works",
+  "description": "ASRS, Vanderbilt, SNAP-IV, DIVA-5 and QbTest compared, a 1,000-person icon array showing why screeners give false positives, and the full ADHD assessment."
+ },
+ "signs": {
+  "title": "ADHD symptoms by age: preschool, school, teens, adults and parents",
+  "description": "How ADHD looks from age 3 to 60, outwardly and from the inside: inattention persists, hyperactivity fades. Plus a DSM-5-TR teaching tool on impairment."
+ },
+ "sources": {
+  "title": "ADHD Companion sources: every reference, validated and searchable",
+  "description": "Every reference behind the ADHD Companion: journal articles, guidelines, FDA labels and trial registrations, checked against PubMed, Crossref or openFDA."
+ },
+ "stimulants": {
+  "title": "How ADHD stimulants work: methylphenidate vs amphetamine",
+  "description": "Animated synapse showing how methylphenidate blocks DAT and NET and amphetamine reverses them via VMAT2, plus lisdexamfetamine, enantiomers and Schedule II."
+ },
+ "therapy": {
+  "title": "CBT for adult ADHD, coaching and the non-drug evidence ladder",
+  "description": "CBT for ADHD in adults: the Safren trial session by session, plus mindfulness, coaching, neurofeedback, diets and exercise ranked by blinded evidence."
+ },
+ "what": {
+  "title": "What is ADHD? How common it is in children and adults, who is missed",
+  "description": "ADHD affects about 5 in 100 children worldwide and many adults. Animated prevalence, boy-girl ratios, persistence to age 25 and US diagnosis versus treatment."
+ },
+ "women": {
+  "title": "ADHD in girls and women: why it is missed and diagnosed late",
+  "description": "Why girls with inattentive ADHD are referred less and diagnosed about 4 years later than males, plus sex ratios by setting, hormones and pregnancy."
+ }
+}
