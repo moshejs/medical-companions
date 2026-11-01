@@ -105,7 +105,7 @@ inits.history=()=>{
     [0,3,6,9,12,15,18].forEach(v=>{s+=T(ax(v),gy+24,'t-xs t-mid',v)});
     const on=yr>=1994,onset=yr>=2013?lerp(7,12,ease(ramp(yr,2012,2013.5))):7;
     if(on){s+=`<rect x="${gx0}" y="${gy}" width="${f1(ax(onset)-gx0)}" height="10" rx="5" style="fill:var(--dx);opacity:.7"/><path d="M${f1(ax(onset))} ${gy-3}v16" style="stroke:var(--ink);stroke-width:2.4"/>`+T(ax(onset),gy-8,'t-sm t-mid',`${Math.round(onset)}`,'fill:var(--ink);font-weight:700');
-      if(yr>=2019)s+=T(gx1,gy-8,'t-xs t-end','ICD-11: no precise age','fill:var(--accent)')}
+      if(yr>=2019)s+=T(gx1,gy0-60,'t-xs t-end','ICD-11: no precise age','fill:var(--accent)')}
     else s+=T(gx0+gw/2,gy-6,'t-xs t-mid',yr>=1968?'not stated in this guide\'s sources':'—');
     const ay=gy0+12;s+=T(gx0,ay-12,'t-xs','SYMPTOMS NEEDED IN A DOMAIN, AGE 17+','fill:var(--dx)');
     for(let i=0;i<9;i++){const need=5,act=yr>=2013;const cx=gx0+8+i*(gw-16)/8;

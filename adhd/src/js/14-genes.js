@@ -54,9 +54,9 @@ inits.genes=()=>{
   function twinPair(x,y,mz,a2,r){let s=`<path d="M${x} ${y-30}L${x-16} ${y-r}M${x} ${y-30}L${x+16} ${y-r}" style="stroke:var(--ink);stroke-width:1.3;fill:none"/>`;
     if(mz)s+=`<line x1="${x-9}" x2="${x+9}" y1="${y-21}" y2="${y-21}" style="stroke:var(--ink);stroke-width:1.3"/>`;
     return s+ped(x-16,y,'m',1,{r})+ped(x+16,y,'m',a2,{r})}
-  function pTwins(B,p){let s=`<text x="${B.x}" y="${B.y+12}" class="t-sm" style="fill:var(--dz)">TWINS · ONE TWIN DIAGNOSED (LEFT OF EACH PAIR)</text>`;
+  function pTwins(B,p){let s=`<text x="${B.x}" y="${B.y+12}" class="t-sm" style="fill:var(--dz)">TWINS · LEFT TWIN DIAGNOSED (SCHEMATIC PAIRS)</text>`;
     const n=B.w>380?5:4,gap=(B.w-30)/n,r=9;
-    const rows=[ ['Identical (MZ): all genes shared',true,[1,1,1,1,0],'co-twin HR 70.45'],['Non-identical (DZ): about half shared',false,[1,0,0,0,0],'co-twin HR 8.44'] ];
+    const rows=[ ['Identical (MZ): all genes shared',true,[1,1,1,0,1],'co-twin HR 70.45'],['Non-identical (DZ): about half shared',false,[1,0,0,0,0],'co-twin HR 8.44'] ];
     rows.forEach(([l,mz,c,hr],ri)=>{const y=B.y+76+ri*86;
       s+=`<text x="${B.x}" y="${y-44}" class="t-xs" style="fill:var(--ink)">${l}</text><text x="${B.x+B.w}" y="${y-44}" class="t-xs t-end" style="fill:var(--dz)">${p>.35?hr:''}</text>`;
       for(let i=0;i<n;i++){const q=ramp(p,.1+i*.08,.3+i*.08);s+=twinPair(B.x+26+i*gap,y,mz,q>=1?c[i]:0,r)}});
@@ -69,7 +69,7 @@ inits.genes=()=>{
     [0,50,100].forEach(k=>{const [x,y]=P(k);s+=`<text x="${f1(x)}" y="${f1(y+(k===50?-12:16))}" class="t-xs t-mid">${k}%</text>`});
     [ [72,'adults 72'],[88,'Sweden 88'] ].forEach(([k,l])=>{if(p<.9)return;const [x,y]=P(k),[xo,yo]=[cx+Math.cos(A(k))*(R+12),cy-Math.sin(A(k))*(R+12)];s+=`<line x1="${f1(x)}" y1="${f1(y)}" x2="${f1(xo)}" y2="${f1(yo)}" style="stroke:var(--ink);stroke-width:1.2"/><text x="${f1(xo+4)}" y="${f1(yo)}" class="t-xs" style="fill:var(--ink)">${l}</text>`});
     const [nx,ny]=P(v);s+=`<line x1="${cx}" y1="${cy}" x2="${f1(lerp(cx,nx,.82))}" y2="${f1(lerp(cy,ny,.82))}" style="stroke:var(--ink);stroke-width:2.4;stroke-linecap:round"/><circle cx="${cx}" cy="${cy}" r="4" style="fill:var(--ink)"/>`;
-    s+=`<text x="${cx}" y="${cy-24}" class="t-big t-mid">${Math.round(v)}%</text><text x="${cx}" y="${cy+16}" class="t-xs t-mid">heritability · mean of 37 twin studies</text>`;
+    s+=`<text x="${cx}" y="${cy-24}" class="t-big t-mid">${Math.round(v)}%</text><text x="${cx}" y="${cy+32}" class="t-xs t-mid">heritability · mean of 37 twin studies</text>`;
     s+=`<text x="${f1(P(35)[0]-10)}" y="${f1(P(35)[1]-14)}" class="t-xs t-end" style="fill:var(--warn)">self-report 30–40</text>`;
     return s}
   function pTicks(B,p){let s=`<text x="${B.x}" y="${B.y+12}" class="t-sm" style="fill:var(--dz)">GENOME-WIDE STUDIES · MANY TINY EFFECTS</text>`;

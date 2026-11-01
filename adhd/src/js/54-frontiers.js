@@ -71,7 +71,7 @@ const RC_EX={
    ['wait',`A larger trial (218 enrolled) completed in April 2026 without posted results, so the finding has not yet been replicated. [[NCT05374187]]`,'larger trial: results pending']],
   pts:[.2,.2,.12,0],start:.15,verdict:'Promising; waiting for replication'}
 };
-const RC_GATES=['Sham or placebo?','Blind raters?','How big?','Repeated?'];
+const RC_GATES=['Sham control?','Blind raters?','How big?','Repeated?'];
 inits.frontiers=()=>{
   const svg=$('#rsSvg'),rg=$('#rsT');
   const T=(x,y,c,v,st)=>`<text x="${f1(x)}" y="${f1(y)}" class="${c}"${st?` style="${st}"`:''}>${v}</text>`;
@@ -123,8 +123,8 @@ inits.frontiers=()=>{
     s+=`<rect x="${cx0}" y="14" width="${cw}" height="42" rx="12" style="fill:var(--brand-soft);stroke:var(--brand);stroke-width:1.4"/>`+T(cx0+cw/2,40,'t-lbl t-mid',E.claim,N?'font-size:11.5px':'');
     s+=T(cx0+cw/2,72,'t-xs t-mid','headline claim · how much should we trust it?');
     /* gates */
-    const gw=N?176:112,gh=74;
-    E.checks.forEach(([st,tx,short],i)=>{const gx=N?16+(i%2)*192:20+i*(gw+7),gy=N?92+Math.floor(i/2)*86:94,act=t>=csteps[i+1].from,cur=k===i+1;
+    const gw=N?176:128,gh=74;
+    E.checks.forEach(([st,tx,short],i)=>{const gx=N?16+(i%2)*192:20+i*(gw+6),gy=N?92+Math.floor(i/2)*86:94,act=t>=csteps[i+1].from,cur=k===i+1;
       const [c,mk]=act?ST[st]:['var(--line)',String(i+1)];
       s+=`<rect x="${gx}" y="${gy}" width="${gw}" height="${gh}" rx="10" style="fill:${act?'var(--panel)':'var(--panel-2)'};stroke:${c};stroke-width:${cur?2.6:1.4}"/>`;
       s+=`<circle cx="${gx+18}" cy="${gy+20}" r="11" style="fill:${act?c:'var(--panel)'};stroke:${c};stroke-width:1.4"/>`+T(gx+18,gy+24.5,'t-sm t-mid',mk,`fill:${act?'var(--panel)':'var(--muted)'};font-weight:700`);
@@ -132,7 +132,7 @@ inits.frontiers=()=>{
       if(act){const words=short.split(' '),lines=[''];words.forEach(w=>{if((lines[lines.length-1]+' '+w).length>(N?26:17))lines.push(w);else lines[lines.length-1]=(lines[lines.length-1]+' '+w).trim()});
         lines.slice(0,3).forEach((l,j)=>{s+=T(gx+10,gy+44+j*12,'t-xs',l,`fill:${c}`)})}});
     /* effect-size curves */
-    const ex0=N?20:20,ex1=N?380:500,ey=N?420:300,eh=N?90:66,eT=N?300:190;
+    const ex0=N?20:20,ex1=N?380:470,ey=N?420:300,eh=N?90:66,eT=N?300:190;
     const show=ramp(t,.54,.62),d=lerp(0,E.d[1],show),dg=lerp(0,E.d[0],show);
     s+=T(ex0,eT,'t-sm',`EFFECT SIZE: ${show>.01?E.dl[1]+' '+E.d[1].toFixed(2):'not shown yet'}`,'fill:var(--brand)');
     const X=v=>lerp(ex0,ex1,(v+3.2)/(6.4+.6)),Yc=v=>ey-v*eh;
@@ -157,7 +157,7 @@ inits.frontiers=()=>{
       if(pending)s+=`<rect x="${mx}" y="${f1(my1-hc-H*pending)}" width="${mw}" height="${f1(H*pending)}" rx="10" style="fill:none;stroke:var(--warn);stroke-dasharray:4 3"/>`+T(mx-6,my1-hc-H*pending/2,'t-xs t-end','if replicated','fill:var(--warn)');
       s+=`<rect x="${mx}" y="${f1(my1-Math.max(6,hc))}" width="${mw}" height="${f1(Math.max(6,hc))}" rx="12" style="fill:var(--brand)"/>`;
       s+=T(mx+mw/2,my1+16,'t-xs t-mid','teaching only');
-      if(k===5){const words=E.verdict.split('; ');words.forEach((w,j)=>{s+=T(mx-6,my0+12+j*14,'t-xs t-end',w,'fill:var(--ink);font-weight:600')})}}
+      if(k===5){const words=E.verdict.split('; ');words.forEach((w,j)=>{s+=T(mx-10,my1-24+j*14,'t-xs t-end',w,'fill:var(--ink);font-weight:600')})}}
     csvg.innerHTML=s;
     let P;if(k===0)P={k:'Step 1 · The claim',t:E.claim.replace(/"/g,''),txt:ex==='nf'?`Neurofeedback trains people to change their own EEG patterns. Early meta-analyses looked encouraging, mostly because of ratings by people who knew which treatment a child had. [[Cortese2016]]`:`External trigeminal nerve stimulation sends a mild current through forehead electrodes overnight. The FDA authorised one device, Monarch eTNS, in 2019. [[FDA-MonarchETNS]]`,pt:`Start every headline with: compared with what, and who was measuring?`};
     else if(k<5){const [st,tx]=E.checks[k-1];P={k:`Step ${k+1} · ${RC_GATES[k-1]}`,t:{pass:'Passed',fail:'Not passed',weak:'Weak',wait:'Not yet known'}[st]+': '+csteps[k].t.toLowerCase(),txt:tx,
