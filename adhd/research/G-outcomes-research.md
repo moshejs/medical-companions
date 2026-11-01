@@ -191,8 +191,8 @@ Access notes:
 - The 2023 GWAS meta-analysis (38,691 people with ADHD, 186,843 controls) found 27 genome-wide significant loci and estimated that 84-98% of ADHD-influencing variants are shared with other psychiatric disorders [[Demontis2023]].
 - In 576 adults with ADHD and 530 controls, adding an ADHD polygenic score to the ASRS raised variance explained by only 0.58 percentage points (61.11% to 61.69%), so the score is "currently not a clinically useful diagnostic aid" (Hypothesis for future clinical use) [[Hoberg2024]].
 - The CPIC guideline gives atomoxetine recommendations based on CYP2D6 genotype, because CYP2D6 variants change atomoxetine exposure, efficacy and safety (Established) [[Brown2019CPIC]].
-- The US Strattera label states that atomoxetine AUC is about 10-fold higher and peak concentration about 5-fold higher in CYP2D6 poor metabolizers, and that poor metabolizers are about 7% of White and 2% of Asian and Black populations [[FDA-Strattera]].
-- The label recommends a longer titration interval (4 weeks) in CYP2D6 poor metabolizers or with strong CYP2D6 inhibitors, quoted as published and not as instructions [[FDA-Strattera]].
+- The US Strattera label states that atomoxetine AUC is about 10-fold higher and peak concentration about 5-fold higher in CYP2D6 poor metabolizers, and that poor metabolizers are about 7% of White and 2% of Asian and Black populations [[FDA-StratteraG]].
+- The label recommends a longer titration interval (4 weeks) in CYP2D6 poor metabolizers or with strong CYP2D6 inhibitors, quoted as published and not as instructions [[FDA-StratteraG]].
 
 ### frontiers · Rising adult diagnoses, telehealth and the over/under-diagnosis debate
 - In Kaiser Permanente Northern California (5.28 million adults), adult ADHD diagnosis prevalence rose from 0.43% in 2007 to 0.96% in 2016, and incidence rose from 9.43 to 13.49 per 10,000 person-years [[Chung2019]].
@@ -225,7 +225,7 @@ Access notes:
 - Blinded neurofeedback trials show no specific benefit over sham [[NFCG2021,Westwood2025NF]].
 - EndeavorRx (2020) is an FDA-authorised digital therapeutic for ADHD; Monarch eTNS (2019) is an FDA-authorised forehead nerve stimulator [[FDA-EndeavorRx,FDA-MonarchETNS]].
 - Centanafadine is a norepinephrine-dopamine-serotonin reuptake inhibitor with small effect sizes (0.24-0.40) in adult phase 3 trials [[Adler2022]].
-- CYP2D6 poor metabolizers have about 10-fold higher atomoxetine exposure [[FDA-Strattera]].
+- CYP2D6 poor metabolizers have about 10-fold higher atomoxetine exposure [[FDA-StratteraG]].
 - No ADHD treatment has high-certainty evidence at 52 weeks [[Gosling2025]].
 - Relative-age effect: the youngest children in a school year are more often diagnosed [[Layton2018]].
 
@@ -434,7 +434,7 @@ Access notes:
 - [DuPaul2013] DuPaul GJ, Gormley MJ, Laracy SD. Comorbidity of LD and ADHD: implications of DSM-5 for assessment and treatment. J Learn Disabil. 2013;46(1):43-51. PMID 23144063; doi:10.1177/0022219412464351. (validated: PubMed)
 - [Kozhevnikova2026] Kozhevnikova S, Emilian C, Scola G, Chang Z, Yukhnenko D, Fazel S. Effect of psychotropic medications on suicide-related outcomes: a systematic review and meta-analysis of observational studies. EClinicalMedicine. 2026;93:103800. PMID 41768277; PMCID PMC12945523; doi:10.1016/j.eclinm.2026.103800. (validated: PubMed)
 - [FDA-Simtriyo] US Food and Drug Administration, Drugs@FDA. Simtriyo (centanafadine hydrochloride) extended-release capsule, Otsuka Pharmaceutical Co Ltd. NDA218145; original submission (Type 1, new molecular entity, priority review) status "AP", status date 2026-07-24; label document dated 2026-07-27. openFDA drugsfda record. (validated: openFDA)
-- [FDA-Strattera] Eli Lilly and Company. STRATTERA (atomoxetine) prescribing information. NDA021411; label effective 2026-06-30. openFDA drug label record. (validated: openFDA)
+- [FDA-StratteraG] Eli Lilly and Company. STRATTERA (atomoxetine) prescribing information. NDA021411; label effective 2026-06-30. openFDA drug label record. (validated: openFDA)
 - [FDA-EndeavorRx] US Food and Drug Administration. De Novo DEN200026: EndeavorRx (Akili Interactive Labs, Inc.), decision date 2020-06-15; product code QFT, "Digital Therapeutic Software For Attention Deficit Hyperactivity Disorder", 21 CFR 882.5803, class II. openFDA device 510(k)/De Novo and classification records. (validated: openFDA)
 - [FDA-MonarchETNS] US Food and Drug Administration. De Novo DEN180041: Monarch eTNS System (NeuroSigma, Inc.), decision date 2019-04-19; product code QGL, "Transcutaneous Nerve Stimulator For ADHD", 21 CFR 882.5898, class II. openFDA device 510(k)/De Novo and classification records. (validated: openFDA)
 - [FDA-NEBA] US Food and Drug Administration. De Novo DEN110019: NEBA System (Lexicor Medical Technology, LLC), decision date 2013-07-15; product code NCG, "Neuropsychiatric Interpretative Electroencephalograph Assessment Aid", 21 CFR 882.1440, class II. openFDA device 510(k)/De Novo and classification records. (validated: openFDA)

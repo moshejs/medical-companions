@@ -138,8 +138,8 @@ Access notes:
 - A meta-analysis of 48 studies (1,409 healthy participants) found only small effects of methylphenidate and amphetamine on inhibitory control and short-term episodic memory, small and inconsistent effects on working memory, and publication bias. The authors judged the overall cognitive benefit in healthy people "probably modest" [[Ilieva2015]].
 
 ### stimulants · Methylphenidate: DAT and NET blockade
-- US labels state that methylphenidate's mode of therapeutic action in ADHD is not known. It "blocks the reuptake of norepinephrine and dopamine into the presynaptic neuron and increases the release of these monoamines into the extraneuronal space" [[FDA-Ritalin,FDA-Concerta]].
-- Methylphenidate is a racemic mixture. The d-threo enantiomer is more pharmacologically active than the l-threo enantiomer [[FDA-Ritalin]].
+- US labels state that methylphenidate's mode of therapeutic action in ADHD is not known. It "blocks the reuptake of norepinephrine and dopamine into the presynaptic neuron and increases the release of these monoamines into the extraneuronal space" [[FDA-RitalinC,FDA-Concerta]].
+- Methylphenidate is a racemic mixture. The d-threo enantiomer is more pharmacologically active than the l-threo enantiomer [[FDA-RitalinC]].
 - Oral methylphenidate blocked DAT in a dose-dependent way 120 minutes after dosing (7 healthy adults): 12% at 5 mg, 40% at 10 mg, 54% at 20 mg, 72% at 40 mg, 74% at 60 mg [[Volkow1998]].
 - The estimated dose blocking 50% of DAT (ED50) was 0.25 mg/kg. At the weight-adjusted doses used therapeutically (0.3–0.6 mg/kg), occupancy is likely above 50% [[Volkow1998]].
 - Oral methylphenidate did not reach peak brain concentration until 60 minutes after dosing (baboon PET), matching the reported time to peak behavioural effect [[Volkow1998]].
@@ -157,7 +157,7 @@ Access notes:
 - Intravenous methylphenidate, like cocaine, is reinforcing at doses above a DAT-blockade threshold of about 60%. Oral clinical doses also exceed this threshold but rarely produce reinforcing effects [[Swanson2003MPH]].
 - Volkow and Swanson identified four variables separating therapeutic from reinforcing effects: dose, pharmacokinetics (fast rise with injection or snorting vs slow rise with oral use), individual sensitivity, and context [[Volkow2003MPH]].
 - Their model: reinforcing effects follow large, fast dopamine rises that mimic phasic firing, while therapeutic effects follow slow, steady rises that mimic tonic firing (Hypothesis) [[Volkow2003MPH,Swanson2003MPH]].
-- Every US stimulant label carries a boxed warning on abuse, misuse and addiction. It states that misuse can cause overdose and death and that risk rises with higher doses or unapproved routes "such as snorting or injection" [[FDA-Ritalin,FDA-AdderallXR,FDA-Vyvanse,FDA-Concerta]].
+- Every US stimulant label carries a boxed warning on abuse, misuse and addiction. It states that misuse can cause overdose and death and that risk rises with higher doses or unapproved routes "such as snorting or injection" [[FDA-RitalinC,FDA-AdderallXR,FDA-Vyvanse,FDA-Concerta]].
 - Amphetamine is a Schedule II controlled substance [[FDA-AdderallXR]].
 
 ### stimulants · Amphetamine: release, VMAT2 and TAAR1
@@ -245,7 +245,7 @@ Access notes:
 - The focus centre works best with a "just right" amount of these messengers. Too little, as when bored or tired, or too much, as under stress, both make focusing harder [[Arnsten2009CNS]].
 - Many people with ADHD find waiting for a reward harder and prefer a smaller reward now to a bigger one later [[Jackson2016,Marx2021]].
 - Stimulant medicines affect people with and without ADHD in similar ways, so feeling more focused on a stimulant does not prove someone has ADHD [[Rapoport1978,Rapoport1980]].
-- Taken by mouth at prescribed doses, stimulants raise dopamine slowly. Snorting or injecting them makes dopamine rise fast, and that is what makes misuse risky [[Volkow2003MPH,FDA-Ritalin]].
+- Taken by mouth at prescribed doses, stimulants raise dopamine slowly. Snorting or injecting them makes dopamine rise fast, and that is what makes misuse risky [[Volkow2003MPH,FDA-RitalinC]].
 - Lisdexamfetamine is an inactive form that red blood cells slowly switch into the active medicine [[FDA-Vyvanse]].
 - Non-stimulants work differently: atomoxetine and viloxazine mainly block noradrenaline recycling, and guanfacine and clonidine act on noradrenaline receptors in the brain [[FDA-Strattera,FDA-Qelbree,FDA-Intuniv,FDA-OnydaXR]].
 - A brain-wave (EEG) measure has FDA approval as a marker for ADHD, but research shows it is not reliable enough to make the diagnosis on its own [[Arns2013,Saad2018]].
@@ -333,7 +333,7 @@ Access notes:
 - d_amphetamine_halflife | adult | 10 | hours | [[FDA-AdderallXR]]
 - lisdexamfetamine_tmax_child | prodrug | 1 | hours | [[FDA-Vyvanse]]
 - lisdexamfetamine_tmax_child | d-amphetamine | 3.5 | hours | [[FDA-Vyvanse]]
-- ritalin_tmax_child | 0 | 1.9 | hours | [[FDA-Ritalin]]
+- ritalin_tmax_child | 0 | 1.9 | hours | [[FDA-RitalinC]]
 - concerta_tmax_range | 0 | 6-10 | hours | [[FDA-Concerta]]
 - atomoxetine_bioavailability | normal CYP2D6 | 63 | % | [[FDA-Strattera]]
 - atomoxetine_bioavailability | CYP2D6 poor metaboliser | 94 | % | [[FDA-Strattera]]
@@ -364,7 +364,7 @@ Access notes:
 - Single core deficit or several pathways? Executive deficits are neither necessary nor sufficient [[Willcutt2005]] and affect only a subgroup [[Nigg2005Heterogeneity]]. Dual- and triple-pathway models add delay aversion and timing [[SonugaBarke2002,SonugaBarke2010]]. Status: heterogeneity is the consensus. Validated neuropsychological subtypes do not yet exist.
 - How reliable are network findings? Task fMRI meta-analyses converge on frontoparietal, ventral attention and default networks [[Cortese2012,Hart2013]], but resting-state studies show no spatial convergence [[Cortese2021RestingState]], and typical imaging sample sizes are far too small for reproducible brain-behaviour associations [[Marek2022]]. Status: default-mode interference remains a hypothesis [[SonugaBarke2007]].
 - EEG theta/beta ratio: a very large early effect [[Snyder2006]] shrank to a moderate, heterogeneous one [[Arns2013]], yet an FDA-authorised marker exists [[Saad2018]]. Status: not a reliable stand-alone diagnostic test. A possible prognostic role in a subgroup is under study.
-- Why do oral stimulants rarely cause euphoria in clinical use when they block DAT as much as intravenous doses? The rate-of-rise (phasic vs tonic) model [[Volkow2003MPH,Swanson2003MPH]] and preferential prefrontal action at low doses [[Berridge2006,Arnsten2009CNS]] are leading explanations. The labels still carry abuse, misuse and addiction boxed warnings [[FDA-Ritalin,FDA-AdderallXR]]. Status: mechanistic hypotheses with human PET support.
+- Why do oral stimulants rarely cause euphoria in clinical use when they block DAT as much as intravenous doses? The rate-of-rise (phasic vs tonic) model [[Volkow2003MPH,Swanson2003MPH]] and preferential prefrontal action at low doses [[Berridge2006,Arnsten2009CNS]] are leading explanations. The labels still carry abuse, misuse and addiction boxed warnings [[FDA-RitalinC,FDA-AdderallXR]]. Status: mechanistic hypotheses with human PET support.
 - Atomoxetine selectivity: in vitro binding shows NET selectivity [[Bymaster2002]], but monkey PET estimates more than 85% SERT occupancy at clinical doses [[Ding2014Atomoxetine]]. Status: early evidence. Human SERT occupancy has not been confirmed.
 
 ## Sources
@@ -387,7 +387,7 @@ Access notes:
 - [FDA-Intuniv] Takeda Pharmaceuticals America, Inc. INTUNIV (guanfacine) extended-release tablets. US prescribing information. openFDA drug label set_id b972af81-3a37-40be-9fe1-3ddf59852528, effective 2025-06-23. Sections 1 and 12.1-12.3 read. (validated: openFDA)
 - [FDA-OnydaXR] NextWave Pharmaceuticals, Inc. ONYDA XR (clonidine hydrochloride) extended-release oral suspension. US prescribing information. openFDA drug label set_id 4a15c850-9da5-4bdc-a34d-7f740a6149b7, effective 2025-04-11. Sections 1, 12.1 and 12.2 read; wording matches generic clonidine HCl extended-release tablet labels. (validated: openFDA)
 - [FDA-Qelbree] Supernus Pharmaceuticals, Inc. QELBREE (viloxazine) extended-release capsules. US prescribing information. openFDA drug label set_id aedf408d-0f84-418d-9416-7c39ddb0d29a, effective 2025-12-05; original approval 2021-04-02 (Drugs@FDA NDA211964). Sections 1, 12.1, 12.2 and boxed warning read. (validated: openFDA)
-- [FDA-Ritalin] Sandoz Inc. RITALIN (methylphenidate hydrochloride) tablets, CII. US prescribing information. openFDA drug label set_id d6fb2750-cdab-4749-ba0d-7534840a5892, effective 2025-02-05. Sections 1, 12.1-12.3 and boxed warning read. (validated: openFDA)
+- [FDA-RitalinC] Sandoz Inc. RITALIN (methylphenidate hydrochloride) tablets, CII. US prescribing information. openFDA drug label set_id d6fb2750-cdab-4749-ba0d-7534840a5892, effective 2025-02-05. Sections 1, 12.1-12.3 and boxed warning read. (validated: openFDA)
 - [FDA-Strattera] Eli Lilly and Company. STRATTERA (atomoxetine) capsules. US prescribing information. openFDA drug label set_id 309de576-c318-404a-bc15-660c2b1876fb, effective 2026-06-30. Sections 1, 12.1-12.3 and boxed warning read. (validated: openFDA)
 - [FDA-Vyvanse] Takeda Pharmaceuticals America, Inc. VYVANSE (lisdexamfetamine dimesylate) capsules and chewable tablets, CII. US prescribing information. openFDA drug label set_id 704e4378-ca83-445c-8b45-3cfa51c1ecad, effective 2026-04-30. Sections 1, 12.1-12.3 and boxed warning read. (validated: openFDA)
 - [Faraone2018Pharm] Faraone SV. The pharmacology of amphetamine and methylphenidate: Relevance to the neurobiology of attention-deficit/hyperactivity disorder and other psychiatric comorbidities. Neurosci Biobehav Rev. 2018;87:255-270. PMID 29428394; PMCID PMC8063758; doi:10.1016/j.neubiorev.2018.02.001. (validated: PubMed)

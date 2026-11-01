@@ -13,7 +13,7 @@ Access notes:
 - Faraone 2021 consensus wording was read from the PMC author manuscript (PMC8328933). AAP 2019 key action statements were read from the PMC full text (PMC7067282).
 - The Cochrane methylphenidate review has a newer version (CD009885.pub4, Dec 2025, PMID 41342306). Its PubMed abstract repeats the 2023 search date (March 2022) and the same effect estimates, so numbers are cited to the 2023 version and the 2025 record is noted only for currency.
 
-Shared canonical keys used and checked: Cortese2018 (PMID 30097390), Faraone2021 (33549739), Wolraich2019 (31570648), NICE2018 (29634174), MTA1999 (10591283), Staley2024 (39388378).
+Shared canonical keys used and checked: Cortese2018 (PMID 30097390), Faraone2021 (33549739), Wolraich2019 (31570648), NICE2018E (29634174), MTA1999 (10591283), Staley2024 (39388378).
 
 ## Findings
 
@@ -24,14 +24,14 @@ Shared canonical keys used and checked: Cortese2018 (PMID 30097390), Faraone2021
 - Methylphenidate (Concerta) and lisdexamfetamine (Vyvanse, "a prodrug of amphetamine") are Schedule II controlled substances in the US [[FDA-Concerta,FDA-Vyvanse]].
 - The non-stimulants atomoxetine and guanfacine ER are not controlled substances. The Intuniv label says guanfacine ER "has no known potential for abuse or dependence" [[FDA-Strattera,FDA-Intuniv]].
 - All stimulant labels read here contraindicate use with a monoamine oxidase inhibitor (MAOI), or within 14 days of stopping one, because of the risk of hypertensive crisis. Hypersensitivity to the drug is also a contraindication [[FDA-Concerta,FDA-Vyvanse]].
-- Before starting a stimulant, the labels ask prescribers to screen for heart disease (careful history, family history of sudden death or ventricular arrhythmia, and a physical exam) and for a personal or family history of tics or Tourette's syndrome [[FDA-Concerta,FDA-Ritalin,FDA-AdderallXR]].
+- Before starting a stimulant, the labels ask prescribers to screen for heart disease (careful history, family history of sudden death or ventricular arrhythmia, and a physical exam) and for a personal or family history of tics or Tourette's syndrome [[FDA-Concerta,FDA-RitalinE,FDA-AdderallXR]].
 - Lisdexamfetamine is converted to dextroamphetamine and l-lysine, mainly in the blood by red blood cells. The label notes that substantial hydrolysis occurred even at low haematocrit levels (33% of normal) [[FDA-Vyvanse]].
 - Mixed amphetamine salts (Adderall IR and XR) contain d-amphetamine and l-amphetamine in a 3:1 ratio [[FDA-Adderall,FDA-AdderallXR]].
-- Methylphenidate is metabolised mainly by de-esterification to ritalinic acid, "which has little or no pharmacologic activity". 78% to 97% of a dose is excreted in the urine within 48 to 96 hours [[FDA-Ritalin]].
-- Oral methylphenidate has low absolute bioavailability: 22 ± 8% for the d-enantiomer and 5 ± 3% for the l-enantiomer [[FDA-Ritalin]].
+- Methylphenidate is metabolised mainly by de-esterification to ritalinic acid, "which has little or no pharmacologic activity". 78% to 97% of a dose is excreted in the urine within 48 to 96 hours [[FDA-RitalinE]].
+- Oral methylphenidate has low absolute bioavailability: 22 ± 8% for the d-enantiomer and 5 ± 3% for the l-enantiomer [[FDA-RitalinE]].
 
 ### stimulants · Label indications, ages and doses (quoted as published)
-- Ritalin (methylphenidate IR) is indicated for ADHD "in pediatric patients 6 years and older and adults", and for narcolepsy. Children start at 5 mg twice daily (before breakfast and lunch), titrated weekly in 5–10 mg steps. Doses above 60 mg/day are "not recommended". The adult average is 20–30 mg/day in 2–3 doses, with a maximum of 60 mg/day [[FDA-Ritalin]].
+- Ritalin (methylphenidate IR) is indicated for ADHD "in pediatric patients 6 years and older and adults", and for narcolepsy. Children start at 5 mg twice daily (before breakfast and lunch), titrated weekly in 5–10 mg steps. Doses above 60 mg/day are "not recommended". The adult average is 20–30 mg/day in 2–3 doses, with a maximum of 60 mg/day [[FDA-RitalinE]].
 - Concerta (OROS methylphenidate) is indicated for ADHD "in patients aged 6 to 65 years old". In patients new to methylphenidate it starts at 18 mg once daily (18 or 36 mg in adults), increased weekly in 18 mg steps. Maximum: 54 mg/day at 6–12 years and 72 mg/day at 13–17 years ("not to exceed 2 mg/kg/day") and in adults [[FDA-Concerta]].
 - Concerta must be swallowed whole with liquids. It must not be split, crushed or chewed, because "doing so will compromise the extended-release characteristics" [[FDA-Concerta]].
 - Ritalin LA (methylphenidate ER capsules) is indicated for ADHD in children aged 6 to 12 years. It starts at 20 mg once daily, increased weekly by 10 mg. Doses above 60 mg/day are not recommended. Capsules may be opened and sprinkled on applesauce [[FDA-RitalinLA]].
@@ -50,7 +50,7 @@ Shared canonical keys used and checked: Cortese2018 (PMID 30097390), Faraone2021
 - Most extended-release stimulant labels say they are "not recommended in pediatric patients younger than 6 years of age because they had higher plasma exposure and a higher incidence of adverse reactions (e.g., weight loss)" [[FDA-Concerta,FDA-AdderallXR,FDA-FocalinXR,FDA-JornayPM]].
 
 ### release · Plasma curves, onset and duration (label pharmacokinetics)
-- Methylphenidate IR: peak plasma concentration about 2 hours after a 10 mg tablet in adults, and 1.9 hours (range 0.3–4.4 h) in children. Food has no relevant effect on absorption [[FDA-Ritalin]].
+- Methylphenidate IR: peak plasma concentration about 2 hours after a 10 mg tablet in adults, and 1.9 hours (range 0.3–4.4 h) in children. Food has no relevant effect on absorption [[FDA-RitalinE]].
 - In 36 healthy adults, one 18 mg Concerta dose and three 5 mg IR methylphenidate doses 4 hours apart gave similar exposure. Concerta: Cmax 3.7 ng/mL, Tmax 6.8 h, half-life 3.5 h. IR ×3: Cmax 4.2 ng/mL, Tmax 6.5 h, half-life 3.0 h [[FDA-Concerta]].
 - Concerta's plasma methylphenidate makes "an initial maximum concentration at about 1 hour", then rises gradually over the next 5 to 9 hours. Mean Tmax across doses was 6 to 10 hours [[FDA-Concerta]].
 - 22% of the methylphenidate in Concerta is available for immediate release and 78% for extended release [[FDA-Concerta]].
@@ -133,12 +133,12 @@ Shared canonical keys used and checked: Cortese2018 (PMID 30097390), Faraone2021
 - In a randomised discontinuation trial in 94 youths treated with methylphenidate for more than 2 years, those switched to placebo worsened more (ADHD-RS difference −4.6, 95% CI −8.7 to −0.56). Clinician-rated worsening was 40.4% after stopping versus 15.9% when continuing [[Matthijssen2019]].
 
 ### compare · Guideline ordering (NICE and AAP)
-- NICE NG87: "Offer methylphenidate (either short or long acting) as the first line pharmacological treatment for children aged 5 years and over and young people with ADHD" [[NICE2018]].
-- NICE NG87: consider switching to lisdexamfetamine in children and young people after "a 6-week trial of methylphenidate at an adequate dose" without enough benefit [[NICE2018]].
-- NICE NG87 for adults: "Offer lisdexamfetamine or methylphenidate as first-line pharmacological treatment for adults with ADHD". Atomoxetine is offered if neither is tolerated or effective after separate 6-week trials [[NICE2018]].
-- NICE NG87: "Do not offer medication for ADHD for any child under 5 years without a second specialist opinion" from a specialist ADHD service. Group parent training is first-line for children under 5 [[NICE2018]].
-- NICE NG87 (amended 2019): an ECG "is not needed before starting stimulants, atomoxetine or guanfacine" unless there are specified cardiac features or a co-prescribed medicine with cardiac risk. Refer to a paediatric hypertension specialist if blood pressure is consistently above the 95th centile [[NICE2018]].
-- NICE NG87 monitoring: measure height every 6 months in children and young people, weight every 3 months in children 10 and under, and weight every 6 months in adults [[NICE2018]].
+- NICE NG87: "Offer methylphenidate (either short or long acting) as the first line pharmacological treatment for children aged 5 years and over and young people with ADHD" [[NICE2018E]].
+- NICE NG87: consider switching to lisdexamfetamine in children and young people after "a 6-week trial of methylphenidate at an adequate dose" without enough benefit [[NICE2018E]].
+- NICE NG87 for adults: "Offer lisdexamfetamine or methylphenidate as first-line pharmacological treatment for adults with ADHD". Atomoxetine is offered if neither is tolerated or effective after separate 6-week trials [[NICE2018E]].
+- NICE NG87: "Do not offer medication for ADHD for any child under 5 years without a second specialist opinion" from a specialist ADHD service. Group parent training is first-line for children under 5 [[NICE2018E]].
+- NICE NG87 (amended 2019): an ECG "is not needed before starting stimulants, atomoxetine or guanfacine" unless there are specified cardiac features or a co-prescribed medicine with cardiac risk. Refer to a paediatric hypertension specialist if blood pressure is consistently above the 95th centile [[NICE2018E]].
+- NICE NG87 monitoring: measure height every 6 months in children and young people, weight every 3 months in children 10 and under, and weight every 6 months in adults [[NICE2018E]].
 - AAP KAS 5a: for preschool children (age 4 to the sixth birthday), behavioural parent training and/or classroom interventions come first. Methylphenidate "may be considered" if these do not give significant improvement and moderate-to-severe disturbance continues (grade B) [[Wolraich2019]].
 - AAP KAS 5b and 5c: for ages 6 to 12, prescribe FDA-approved medication plus parent training and/or classroom intervention. For adolescents, prescribe FDA-approved medication "with the adolescent's assent" (grade A). KAS 6: titrate doses "to achieve maximum benefit with tolerable side effects" [[Wolraich2019]].
 - In the Preschool ADHD Treatment Study (303 enrolled, 165 randomised to titration), IR methylphenidate at 2.5, 5 and 7.5 mg three times daily reduced symptoms versus placebo. The mean optimal dose was 14.2 ± 8.1 mg/day (0.7 mg/kg/day), and effect sizes (0.4–0.8) were smaller than in school-age children [[Greenhill2006PATS]].
@@ -212,7 +212,7 @@ Shared canonical keys used and checked: Cortese2018 (PMID 30097390), Faraone2021
 - Concerta delivers 22% of its methylphenidate immediately and 78% as extended release, and must be swallowed whole [[FDA-Concerta]].
 - Jornay PM is the methylphenidate product taken in the evening; its median Tmax is 14 hours [[FDA-JornayPM]].
 - Cortese 2018: preferred first choices are methylphenidate for children and adolescents and amphetamines for adults [[Cortese2018]].
-- NICE adults: lisdexamfetamine or methylphenidate first line; NICE children (5+): methylphenidate first line [[NICE2018]].
+- NICE adults: lisdexamfetamine or methylphenidate first line; NICE children (5+): methylphenidate first line [[NICE2018E]].
 - AAP: for ages 4–5, behavioural parent training first; methylphenidate may be considered if it is not enough [[Wolraich2019]].
 - AAP effect sizes: stimulants about 1.0, non-stimulants about 0.7 [[Wolraich2019]].
 - Usual stimulant effect on vital signs: blood pressure +2 to 4 mm Hg, heart rate +3 to 6 bpm [[FDA-Concerta]].
@@ -229,7 +229,7 @@ Shared canonical keys used and checked: Cortese2018 (PMID 30097390), Faraone2021
 - Some capsules can be opened and sprinkled on applesauce for people who cannot swallow pills. Some tablets must never be crushed or chewed [[FDA-AdderallXR,FDA-Concerta]].
 - The most common side effects are a smaller appetite, trouble falling asleep, stomach aches and headaches. These are usually mild and can often be fixed by changing the dose, the timing or the medicine [[FDA-Vyvanse,Faraone2021]].
 - These medicines raise heart rate and blood pressure a little, so the care team checks them regularly [[FDA-Concerta,Farhat2025CV]].
-- Children on stimulants may grow a little slower, so height and weight are measured and plotted on a growth chart [[FDA-Concerta,NICE2018]].
+- Children on stimulants may grow a little slower, so height and weight are measured and plotted on a growth chart [[FDA-Concerta,NICE2018E]].
 - Stimulants are controlled medicines. Keep them locked away, never share them, and get rid of leftovers safely [[FDA-Concerta]].
 - Taking someone else's stimulant to study is not proven to raise grades, and snorting or injecting it can be deadly [[Faraone2020NMU,FDA-Concerta]].
 - Guanfacine and clonidine should not be stopped suddenly, because blood pressure can jump [[FDA-Intuniv,FDA-ClonidineER]].
@@ -237,9 +237,9 @@ Shared canonical keys used and checked: Cortese2018 (PMID 30097390), Faraone2021
 - If you are pregnant or planning a pregnancy, talk with your doctor about the risks and benefits of continuing ADHD medicine [[Cohen2017Placenta,Huybrechts2018]].
 
 ## Numbers for the animations
-- mph_ir_plasma | 0 h | 0 | ng/mL | [[FDA-Ritalin]]
-- mph_ir_plasma | 2 h | 4.3 | ng/mL (mean peak after 10 mg tablet) | [[FDA-Ritalin]]
-- mph_ir_plasma_child_tmax | 1.9 | h | Tmax in children | [[FDA-Ritalin]]
+- mph_ir_plasma | 0 h | 0 | ng/mL | [[FDA-RitalinE]]
+- mph_ir_plasma | 2 h | 4.3 | ng/mL (mean peak after 10 mg tablet) | [[FDA-RitalinE]]
+- mph_ir_plasma_child_tmax | 1.9 | h | Tmax in children | [[FDA-RitalinE]]
 - concerta_plasma | 1 h | first peak | initial maximum at about 1 h | [[FDA-Concerta]]
 - concerta_plasma | 6.8 h | 3.7 | ng/mL (Cmax after 18 mg, healthy adults) | [[FDA-Concerta]]
 - concerta_half_life | 3.5 | h | [[FDA-Concerta]]
@@ -345,7 +345,7 @@ Shared canonical keys used and checked: Cortese2018 (PMID 30097390), Faraone2021
 - [Cortese2018] Cortese S, Adamo N, Del Giovane C, Mohr-Jensen C, Hayes AJ, Carucci S, et al. Comparative efficacy and tolerability of medications for attention-deficit hyperactivity disorder in children, adolescents, and adults: a systematic review and network meta-analysis. Lancet Psychiatry. 2018;5(9):727-738. PMID 30097390; PMCID PMC6109107; doi:10.1016/S2215-0366(18)30269-4. (validated: PubMed)
 - [Faraone2021] Faraone SV, Banaschewski T, Coghill D, Zheng Y, Biederman J, Bellgrove MA, et al. The World Federation of ADHD International Consensus Statement: 208 Evidence-based conclusions about the disorder. Neurosci Biobehav Rev. 2021;128:789-818. PMID 33549739; PMCID PMC8328933; doi:10.1016/j.neubiorev.2021.01.022. (validated: PubMed)
 - [Wolraich2019] Wolraich ML, Hagan JF Jr, Allan C, Chan E, Davison D, Earls M, et al. Clinical Practice Guideline for the Diagnosis, Evaluation, and Treatment of Attention-Deficit/Hyperactivity Disorder in Children and Adolescents. Pediatrics. 2019;144(4):e20192528. PMID 31570648; PMCID PMC7067282; doi:10.1542/peds.2019-2528. (validated: PubMed)
-- [NICE2018] National Institute for Health and Care Excellence. Attention deficit hyperactivity disorder: diagnosis and management (NG87). London: NICE; 2018, updated 2019. PMID 29634174 (NCBI Bookshelf record); recommendations read on nice.org.uk/guidance/ng87. (validated: PubMed)
+- [NICE2018E] National Institute for Health and Care Excellence. Attention deficit hyperactivity disorder: diagnosis and management (NG87). London: NICE; 2018, updated 2019. PMID 29634174 (NCBI Bookshelf record); recommendations read on nice.org.uk/guidance/ng87. (validated: PubMed)
 - [MTA1999] The MTA Cooperative Group. A 14-month randomized clinical trial of treatment strategies for attention-deficit/hyperactivity disorder. Multimodal Treatment Study of Children with ADHD. Arch Gen Psychiatry. 1999;56(12):1073-86. PMID 10591283; doi:10.1001/archpsyc.56.12.1073. (validated: PubMed)
 - [Staley2024] Staley BS, Robinson LR, Claussen AH, Katz SM, Danielson ML, Summers AD, et al. Attention-Deficit/Hyperactivity Disorder Diagnosis, Treatment, and Telehealth Use in Adults - National Center for Health Statistics Rapid Surveys System, United States, October-November 2023. MMWR Morb Mortal Wkly Rep. 2024;73(40):890-895. PMID 39388378; PMCID PMC11466376; doi:10.15585/mmwr.mm7340a1. (validated: PubMed)
 - [Storebo2015BMJ] Storebø OJ, Krogh HB, Ramstad E, Moreira-Maia CR, Holmskov M, Skoog M, et al. Methylphenidate for attention-deficit/hyperactivity disorder in children and adolescents: Cochrane systematic review with meta-analyses and trial sequential analyses of randomised clinical trials. BMJ. 2015;351:h5203. PMID 26608309; PMCID PMC4659414; doi:10.1136/bmj.h5203. (validated: PubMed)
@@ -399,7 +399,7 @@ Shared canonical keys used and checked: Cortese2018 (PMID 30097390), Faraone2021
 - [Broms2023] Bröms G, Hernandez-Diaz S, Huybrechts KF, Bateman BT, Kristiansen EB, Einarsdóttir K, et al. Atomoxetine in Early Pregnancy and the Prevalence of Major Congenital Malformations: A Multinational Study. J Clin Psychiatry. 2023;84(1). PMID 36652686; doi:10.4088/JCP.22m14430. (validated: PubMed)
 - [Cohen2017Placenta] Cohen JM, Hernández-Díaz S, Bateman BT, Park Y, Desai RJ, Gray KJ, et al. Placental Complications Associated With Psychostimulant Use in Pregnancy. Obstet Gynecol. 2017;130(6):1192-1201. PMID 29112657; PMCID PMC5709205; doi:10.1097/AOG.0000000000002362. (validated: PubMed)
 - [Suarez2024] Suarez EA, Bateman BT, Hernandez-Diaz S, Straub L, McDougle CJ, Wisner KL, et al. Prescription Stimulant Use During Pregnancy and Risk of Neurodevelopmental Disorders in Children. JAMA Psychiatry. 2024;81(5):477-488. PMID 38265792; PMCID PMC10809143; doi:10.1001/jamapsychiatry.2023.5073. (validated: PubMed)
-- [FDA-Ritalin] Sandoz Inc. RITALIN (methylphenidate hydrochloride tablets) prescribing information, NDA010187, effective 2025-02-05, set id d6fb2750-cdab-4749-ba0d-7534840a5892. (validated: openFDA)
+- [FDA-RitalinE] Sandoz Inc. RITALIN (methylphenidate hydrochloride tablets) prescribing information, NDA010187, effective 2025-02-05, set id d6fb2750-cdab-4749-ba0d-7534840a5892. (validated: openFDA)
 - [FDA-RitalinLA] Novartis Pharmaceuticals Corporation. RITALIN LA (methylphenidate hydrochloride extended-release capsules) prescribing information, NDA021284, effective 2025-09-23, set id effd952d-ac94-47bb-b107-589a4934dcca. (validated: openFDA)
 - [FDA-Concerta] Janssen Pharmaceuticals, Inc. CONCERTA (methylphenidate hydrochloride extended-release tablets) prescribing information, NDA021121, effective 2026-04-20, set id 1a88218c-5b18-4220-8f56-526de1a276cd. (validated: openFDA)
 - [FDA-Focalin] Sandoz Inc. FOCALIN (dexmethylphenidate hydrochloride tablets) prescribing information, NDA021278, effective 2024-05-30, set id 2016f5c2-95d2-4655-af65-c588c2bf5e6d. (validated: openFDA)

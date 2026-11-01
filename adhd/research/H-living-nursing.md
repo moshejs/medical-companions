@@ -17,9 +17,9 @@ Access notes:
 ### living · School: what guidelines say
 - The AAP 2019 guideline says educational interventions and individualised instructional supports are "a necessary part of any treatment plan". It names school environment, class placement, instructional placement and behavioural supports, and says these "often include an Individualized Education Program (IEP) or a rehabilitation plan (504 plan)" (grade A, strong recommendation) [[Wolraich2019]].
 - For school-age children (6 to 12 years), AAP 2019 recommends FDA-approved medication together with parent training in behaviour management and/or behavioural classroom intervention, preferably both (grade A) [[Wolraich2019]].
-- NICE NG87 1.4.12 asks clinicians, with consent, to contact the school, college or university at diagnosis, when symptoms change, and at each transition between schools or into college or university. The contact covers how ADHD may affect school life, the treatment plan, special educational needs, and advice on "reasonable adjustments and environmental modifications" [[NICE2018]].
-- NICE gives examples of environmental modifications: changes to seating, lighting and noise; fewer distractions (for example headphones); shorter periods of focus with movement breaks, including "I need a break" cards; written instructions to back up spoken requests; and teaching assistants at school [[NICE2018]].
-- NICE says universal screening for ADHD should not be done in nursery, primary or secondary schools. When a child with conduct problems and suspected ADHD is referred to the school SENCO, the SENCO should tell parents about local parent-training programmes [[NICE2018]].
+- NICE NG87 1.4.12 asks clinicians, with consent, to contact the school, college or university at diagnosis, when symptoms change, and at each transition between schools or into college or university. The contact covers how ADHD may affect school life, the treatment plan, special educational needs, and advice on "reasonable adjustments and environmental modifications" [[NICE2018H]].
+- NICE gives examples of environmental modifications: changes to seating, lighting and noise; fewer distractions (for example headphones); shorter periods of focus with movement breaks, including "I need a break" cards; written instructions to back up spoken requests; and teaching assistants at school [[NICE2018H]].
+- NICE says universal screening for ADHD should not be done in nursery, primary or secondary schools. When a child with conduct problems and suspected ADHD is referred to the school SENCO, the SENCO should tell parents about local parent-training programmes [[NICE2018H]].
 - In a study of 97 middle-school students with ADHD in the US, 61.9% had an IEP and 38.1% had a Section 504 plan. Services listed on these plans often matched Department of Education recommendations "but had little to no research supporting their effectiveness". Services with evidence of benefit were rarely included [[Spiel2014]].
 - In 85% of IEPs, the statement of present performance described non-academic or behaviour problems, but fewer than half had measurable goals targeting those needs [[Spiel2014]].
 
@@ -35,7 +35,7 @@ Access notes:
 - About 2% to 8% of college students report clinically significant ADHD symptoms, and at least 25% of college students with disabilities have an ADHD diagnosis [[DuPaul2009College]].
 - In a review of college students with ADHD, about 7% of all college students reported non-prescribed stimulant use ("diversion") [[DuPaul2009College]].
 - Among first-year US college students, 55.0% of those with well-defined ADHD had at least one other psychiatric diagnosis and 31.8% had two or more. Comparison students had rates of 11.2% and 4.0%, mostly reflecting higher rates of depression and generalised anxiety [[Anastopoulos2018]].
-- NICE lists the move from school to college or university as a point at which, with consent, clinicians should contact the institution. NICE defines "reasonable adjustments" as the legal duty of employers and higher education providers to make sure disabled students and workers are not substantially disadvantaged [[NICE2018]].
+- NICE lists the move from school to college or university as a point at which, with consent, clinicians should contact the institution. NICE defines "reasonable adjustments" as the legal duty of employers and higher education providers to make sure disabled students and workers are not substantially disadvantaged [[NICE2018H]].
 
 ### living · Work, income and money
 - In 1.2 million Swedish school leavers followed for 6 to 16 years, people with ADHD had on average 17% lower annual income (ratio 0.83, 95% CI 0.83–0.84) than controls. They also had 12.19 more days of unemployment per year (95% CI 11.89–12.49) and much higher odds of a disability pension (OR 19.0, 95% CI 18.4–19.6) [[Jangmo2021]].
@@ -46,7 +46,7 @@ Access notes:
 - A US systematic review estimated the national annual excess cost of ADHD at US$143 to $266 billion (2010 dollars). Most of this was in adults ($105 to $194 billion), mainly productivity and income losses ($87 to $138 billion). Family members carried $33 to $43 billion [[Doshi2012]].
 - A US study of about 15,000 adolescents found that, in adulthood, people with ADHD had 12% lower employment and 34% lower earnings than their siblings without ADHD (as summarised in the World Federation consensus) [[Faraone2021]].
 - An international consensus on occupational issues found weak arrangements in the UK and elsewhere for work difficulties linked to adult ADHD. It found occupational health was used as a "last resort" and not as a way to make positive workplace changes [[Adamou2013]].
-- NICE 1.4.3 says the discussion after diagnosis should cover employment issues, "for example, impact on career choices and rights to reasonable adjustments in the workplace" [[NICE2018]].
+- NICE 1.4.3 says the discussion after diagnosis should cover employment issues, "for example, impact on career choices and rights to reasonable adjustments in the workplace" [[NICE2018H]].
 
 ### safety · Driving
 - In a meta-analysis of 16 studies (32 results), drivers with ADHD had a relative crash risk of 1.36 (95% CI 1.18–1.57) without control for exposure. The figure was 1.23 (95% CI 1.04–1.46) after controlling for distance driven, similar to drivers with cardiovascular disease [[Vaa2014]].
@@ -59,7 +59,7 @@ Access notes:
 - In 2,319,450 US patients with ADHD (2005–2014), months on ADHD medication had lower odds of an emergency visit for a motor vehicle crash than months off medication: men OR 0.62 (0.56–0.67), women OR 0.58 (0.53–0.62). Up to 22.1% of crashes might have been avoided with medication throughout follow-up [[Chang2017Crash]].
 - A systematic review of 15 randomised trials found that stimulants generally improved driving performance in simulators or cars, especially in teenagers and young adults. Immediate-release methylphenidate lost its effect in the evening, and extended-release mixed amphetamine salts worsened evening driving [[Gobbo2014]].
 - AAP 2019 advises "special concern" to provide medication coverage while adolescents with ADHD drive, and notes that longer-acting or late-afternoon short-acting doses may help [[Wolraich2019]].
-- NICE 1.4.3 tells clinicians to discuss that ADHD symptoms may impair driving and that medication may improve it. It notes that in the UK people with ADHD must tell the DVLA if their symptoms or medication affect their ability to drive safely [[NICE2018]].
+- NICE 1.4.3 tells clinicians to discuss that ADHD symptoms may impair driving and that medication may improve it. It notes that in the UK people with ADHD must tell the DVLA if their symptoms or medication affect their ability to drive safely [[NICE2018H]].
 - In Sweden (148,581 people with newly diagnosed ADHD, target trial emulation), starting medication was associated with fewer first transport accidents: 24.0 compared with 27.5 per 1000 person-years (IRR 0.88, 0.82–0.94). For recurrent transport accidents the IRR was 0.84 (0.76–0.91) [[Zhang2025BMJ]].
 
 ### safety · Injuries and accidental death
@@ -78,22 +78,22 @@ Access notes:
 - In the Danish population (2.7 million people born 1960–2001), people with ADHD were more likely to become parents at 12 to 16 years (IRR 3.62 in females, 2.30 in males) and at 17 to 19 years (IRR 1.94 in females, 2.27 in males) [[Ostergaard2017]].
 - The authors of that study suggest offering people with ADHD sexual education and contraceptive counselling [[Ostergaard2017]].
 - The World Federation consensus reports that long-term ADHD medication was linked to a 30% decrease in teenage pregnancy in a Taiwanese study of more than 7,500 adolescents. It also reports reductions in sexually transmitted infections of about 30% with short-term use and 40% with long-term use, seen in males only [[Faraone2021]].
-- NICE 1.4.10 advises families of adults with ADHD on how ADHD may affect relationships and functioning, and on the importance of structure in daily activities [[NICE2018]].
+- NICE 1.4.10 advises families of adults with ADHD on how ADHD may affect relationships and functioning, and on the importance of structure in daily activities [[NICE2018H]].
 
 ### living · Parenting, parents with ADHD and siblings
-- NICE 1.4.11 tells clinicians to explain that a recommendation for parent training "does not imply bad parenting". Its aim is to meet "the above-average parenting needs" of children with ADHD [[NICE2018]].
-- NICE 1.4.8 asks clinicians to think about the needs of a parent with ADHD whose child also has ADHD, including extra help with organisation, treatment adherence and school routines [[NICE2018]].
+- NICE 1.4.11 tells clinicians to explain that a recommendation for parent training "does not imply bad parenting". Its aim is to meet "the above-average parenting needs" of children with ADHD [[NICE2018H]].
+- NICE 1.4.8 asks clinicians to think about the needs of a parent with ADHD whose child also has ADHD, including extra help with organisation, treatment adherence and school routines [[NICE2018H]].
 - A meta-analysis of 32 studies found that parental ADHD symptoms explained 2.9% of the variance in harsh parenting, 3.2% in lax parenting and 0.5% in positive parenting. These effects are small and similar to those of other parental mental health conditions [[Park2017Parenting]].
 - Parents of youths diagnosed with ADHD in childhood (n = 282) were more likely to divorce, and to divorce sooner, than parents of youths without ADHD (n = 206) [[Wymbs2008]].
 - In a UK survey of 476 children with ADHD and 337 siblings, the child with ADHD had about 6% lower health-related quality of life (CHU-9D). Siblings had no consistent loss of health-related quality of life but reported lower happiness with life and family, and sibling bullying was more common [[Peasgood2016]].
-- NICE 1.4.6–1.4.7 asks clinicians to discuss how ADHD affects other family members and to encourage carers to seek an assessment of their own needs and to join support groups [[NICE2018]].
+- NICE 1.4.6–1.4.7 asks clinicians to discuss how ADHD affects other family members and to encourage carers to seek an assessment of their own needs and to join support groups [[NICE2018H]].
 - US family members of people with ADHD had average annual healthcare costs of US$2,728, compared with $1,440 for family members of matched controls (as summarised in the World Federation consensus) [[Faraone2021]].
 
 ### living · Sleep and sleep hygiene
 - A meta-analysis of 16 studies (722 children with ADHD, 638 controls, no medication) found more bedtime resistance, more trouble falling asleep, more night waking, more difficulty waking in the morning and more daytime sleepiness in children with ADHD. Objective measures showed longer sleep onset latency on actigraphy [[Cortese2009Sleep]].
 - In adults (13 studies), people with ADHD differed from controls on 7 of 9 self-reported sleep measures (SMD 0.56 to 1.55). On actigraphy they had longer sleep onset latency (SMD 0.80) and lower sleep efficiency (SMD −0.68). Polysomnography showed no differences [[DiazRoman2018]].
 - In a meta-analysis of randomised trials with objective sleep measures (9 studies, n = 246), stimulants lengthened sleep latency (effect size 0.54), lowered sleep efficiency (−0.32) and shortened total sleep (−0.59). The effect was smaller with longer time on medication [[Kidwell2015]].
-- NICE 1.8.17 recommends monitoring changes in sleep pattern, for example with a sleep diary, and adjusting medication accordingly [[NICE2018]].
+- NICE 1.8.17 recommends monitoring changes in sleep pattern, for example with a sleep diary, and adjusting medication accordingly [[NICE2018H]].
 - The Adderall XR and Vyvanse labels say afternoon doses should be avoided because they may cause insomnia [[FDA-AdderallXR,FDA-Vyvanse]].
 - In a randomised trial of 244 children aged 5 to 12 with ADHD in 21 Australian paediatric practices, two sessions of sleep hygiene and behavioural strategies cut moderate to severe sleep problems at 3 months (30% compared with 56%; aOR 0.30). The absolute risk reduction was 25.7%, giving a number needed to treat of 3.9 [[Hiscock2015]].
 - The same sleep intervention also reduced ADHD symptom severity (adjusted mean difference −2.9 at 3 months, −3.7 at 6 months; effect size −0.3 to −0.4). It improved behaviour, quality of life and daily functioning, though not parents' mental health [[Hiscock2015]].
@@ -110,7 +110,7 @@ Access notes:
 - A meta-analysis of 8 randomised trials (n = 249) found that short-term aerobic exercise had moderate to large effects on attention (SMD 0.84), hyperactivity (0.56), impulsivity (0.56), anxiety (0.66) and executive function (0.58) in children with ADHD (Early evidence) [[Cerrillo2015]].
 - A meta-analysis of 10 studies found that exercise improved functional outcomes such as executive function and motor skills (g = 0.627), with larger effects for longer programmes (Early evidence) [[Vysniauske2020]].
 - The World Federation consensus is more cautious. One meta-analysis (10 studies, 300 children) found a moderate reduction in symptoms that was no longer significant after adjusting for publication bias. Another found no effect on core symptoms but reductions in anxiety and depression [[Faraone2021]].
-- NICE 1.5.4 lists "the benefits of a healthy lifestyle, including exercise" among the topics to discuss before starting any ADHD treatment [[NICE2018]].
+- NICE 1.5.4 lists "the benefits of a healthy lifestyle, including exercise" among the topics to discuss before starting any ADHD treatment [[NICE2018H]].
 
 ### living · Pregnancy and breastfeeding
 - A systematic review covers maternal ADHD in pregnancy, birth outcomes, early parent–child interaction and development up to age 3, and the risks of ADHD medicines in pregnancy and breastfeeding. It notes that more women are becoming pregnant, planned or unplanned, while taking stimulants [[KittelSchneider2021]].
@@ -134,15 +134,15 @@ Access notes:
 ### living · Stigma, language and girls and women
 - The World Federation consensus was written because "misconceptions about ADHD stigmatize affected people, reduce credibility of providers, and prevent/delay treatment". It lists 208 evidence-based statements, approved by 80 authors from 27 countries and endorsed by 366 readers [[Faraone2021]].
 - A review of ADHD stigma found the main contributors were doubt about whether the diagnosis is valid, perceived dangerousness, scepticism about medication, and disclosing a diagnosis or medication use. It describes stigma as an underestimated risk factor for poor adherence and lower wellbeing [[Mueller2012]].
-- NICE 1.4.3 asks clinicians to discuss with people after diagnosis both the positive effects (understanding symptoms, building on strengths, better access to services) and the negative effects, "such as stigma and labelling" [[NICE2018]].
-- NICE 1.9.3 tells clinicians to check that adherence problems are not caused by misconceptions, "for example, tell people that medication does not change personality" [[NICE2018]].
-- NICE 1.7.20 lists "reducing stigma (because there is no need to take medication at school or in the workplace)" as one reason to think about once-daily modified-release stimulants [[NICE2018]].
+- NICE 1.4.3 asks clinicians to discuss with people after diagnosis both the positive effects (understanding symptoms, building on strengths, better access to services) and the negative effects, "such as stigma and labelling" [[NICE2018H]].
+- NICE 1.9.3 tells clinicians to check that adherence problems are not caused by misconceptions, "for example, tell people that medication does not change personality" [[NICE2018H]].
+- NICE 1.7.20 lists "reducing stigma (because there is no need to take medication at school or in the workplace)" as one reason to think about once-daily modified-release stimulants [[NICE2018H]].
 - A UK expert consensus says the male-to-female gap in diagnosis partly reflects under-recognition and referral bias in girls. It advises attending to "more subtle and/or internalised" presentations and to compensatory strategies that can mask symptoms [[Young2020Females]].
 - Parent ratings (29 studies) and teacher ratings (24 studies) show a male-to-female symptom ratio of roughly two to one in young people [[Faraone2021]].
 
 ### living · Transition from child to adult services
-- NICE 1.1.4 says young people with ADHD should be reassessed at school-leaving age. If they need continuing treatment, transition to adult services "should usually be completed by the time the young person is 18 years" [[NICE2018]].
-- NICE 1.1.5 advises considering a formal meeting between child and adult services and using the care programme approach from age 16. NICE 1.1.6 asks adult services to carry out a full assessment after transfer [[NICE2018]].
+- NICE 1.1.4 says young people with ADHD should be reassessed at school-leaving age. If they need continuing treatment, transition to adult services "should usually be completed by the time the young person is 18 years" [[NICE2018H]].
+- NICE 1.1.5 advises considering a formal meeting between child and adult services and using the care programme approach from age 16. NICE 1.1.6 asks adult services to carry out a full assessment after transfer [[NICE2018H]].
 - AAP 2019 says transition planning is best started at about age 14, at the start of high school, with a focus on the 2 years before high school ends [[Wolraich2019]].
 - In a UK national surveillance study, the need for transition among young people on ADHD medication was 202 to 511 per 100,000 people aged 17 to 19 per year. Successful transition was 38 to 96 per 100,000 [[Eke2020]].
 - In that study, 64% had their referral accepted but only 22% attended a first adult appointment, and only 6% met the criteria for optimal transition [[Eke2020]].
@@ -152,9 +152,9 @@ Access notes:
 - Young people gave several reasons for stopping ADHD medication: the balance of benefit against side effects, seeing ADHD as a childhood or school-only disorder, life circumstances, and difficulty getting services [[Titheradge2022]].
 
 ### nursing · Baseline assessment before medication
-- NICE 1.7.4 says the baseline assessment should include: a medical history, current medicines, height and weight (recorded against the normal range for age, height and sex), and pulse and blood pressure (measured with an appropriately sized cuff and compared with the normal range for age). It should also include a cardiovascular assessment and a risk assessment for substance misuse and drug diversion [[NICE2018]].
-- NICE says an ECG "is not needed before starting stimulants, atomoxetine or guanfacine" unless a cardiac risk feature from 1.7.5 is present, or the person is taking another medicine for a coexisting condition that may raise cardiac risk [[NICE2018]].
-- NICE 1.7.5 calls for a cardiology opinion before starting medication if any of these apply [[NICE2018]]:
+- NICE 1.7.4 says the baseline assessment should include: a medical history, current medicines, height and weight (recorded against the normal range for age, height and sex), and pulse and blood pressure (measured with an appropriately sized cuff and compared with the normal range for age). It should also include a cardiovascular assessment and a risk assessment for substance misuse and drug diversion [[NICE2018H]].
+- NICE says an ECG "is not needed before starting stimulants, atomoxetine or guanfacine" unless a cardiac risk feature from 1.7.5 is present, or the person is taking another medicine for a coexisting condition that may raise cardiac risk [[NICE2018H]].
+- NICE 1.7.5 calls for a cardiology opinion before starting medication if any of these apply [[NICE2018H]]:
   - congenital heart disease or previous cardiac surgery
   - sudden death in a first-degree relative under 40 years that suggests cardiac disease
   - shortness of breath on exertion compared with peers
@@ -164,7 +164,7 @@ Access notes:
   - signs of heart failure
   - a murmur
   - blood pressure in the adult hypertensive range
-- NICE 1.7.6 calls for referral to a paediatric hypertension specialist before starting medication if a child's blood pressure is consistently above the 95th centile for age and height [[NICE2018]].
+- NICE 1.7.6 calls for referral to a paediatric hypertension specialist before starting medication if a child's blood pressure is consistently above the 95th centile for age and height [[NICE2018H]].
 - Stimulant labels (Concerta, Vyvanse, Adderall XR, Focalin XR, Jornay PM) require pretreatment screening for cardiac disease: "a careful history, family history of sudden death or ventricular arrhythmia, and physical exam". They also require a check of family history and examination for tics or Tourette's syndrome [[FDA-Concerta,FDA-Vyvanse,FDA-AdderallXR,FDA-FocalinXR,FDA-JornayPM]].
 - Before starting Strattera, the label requires screening for a personal or family history of bipolar disorder, mania or hypomania. Before starting Qelbree, the label requires measuring heart rate and blood pressure and screening for a personal or family history of suicide, bipolar disorder and depression [[FDA-Strattera,FDA-Qelbree]].
 - AAP 2019 advises taking a history of cardiac symptoms and a family history of sudden death, Wolff-Parkinson-White syndrome, hypertrophic cardiomyopathy and long QT syndrome before stimulants. If any are present, further evaluation should follow [[Wolraich2019]].
@@ -175,21 +175,21 @@ Access notes:
 - A cost-effectiveness model estimated that adding an ECG to history and examination would prevent 13 sudden cardiac deaths per 400,000 children seeking stimulant treatment, at US$1.2 to $1.6 million per life saved. The authors judged this "borderline" cost-effective [[Denchev2010]].
 
 ### nursing · Monitoring schedule and thresholds (NICE as published)
-- NICE 1.8.5, height: measure every 6 months in children and young people taking ADHD medication, and plot height and weight on a growth chart for review by the treating clinician [[NICE2018]].
-- NICE 1.8.5, weight: every 3 months in children aged 10 and under. In children over 10 and young people, at 3 and 6 months after starting, then every 6 months, or more often if there are concerns. In adults, every 6 months [[NICE2018]].
-- NICE 1.8.9, heart rate and blood pressure: compare with the normal range for age before and after each dose change and every 6 months [[NICE2018]].
-- NICE 1.8.10: no routine blood tests (including liver function tests) or ECGs unless clinically indicated [[NICE2018]].
-- NICE 1.8.11, threshold for review: if a person on ADHD medication has, on 2 occasions, sustained resting tachycardia above 120 beats per minute, arrhythmia, or systolic blood pressure above the 95th percentile (or a clinically significant increase), reduce the dose and refer to a paediatric hypertension specialist or adult physician [[NICE2018]].
-- NICE 1.8.12: for sustained orthostatic hypotension or fainting on guanfacine, reduce the dose or switch to another medicine [[NICE2018]].
-- NICE 1.8.6 lists options when weight loss is a concern [[NICE2018]]:
+- NICE 1.8.5, height: measure every 6 months in children and young people taking ADHD medication, and plot height and weight on a growth chart for review by the treating clinician [[NICE2018H]].
+- NICE 1.8.5, weight: every 3 months in children aged 10 and under. In children over 10 and young people, at 3 and 6 months after starting, then every 6 months, or more often if there are concerns. In adults, every 6 months [[NICE2018H]].
+- NICE 1.8.9, heart rate and blood pressure: compare with the normal range for age before and after each dose change and every 6 months [[NICE2018H]].
+- NICE 1.8.10: no routine blood tests (including liver function tests) or ECGs unless clinically indicated [[NICE2018H]].
+- NICE 1.8.11, threshold for review: if a person on ADHD medication has, on 2 occasions, sustained resting tachycardia above 120 beats per minute, arrhythmia, or systolic blood pressure above the 95th percentile (or a clinically significant increase), reduce the dose and refer to a paediatric hypertension specialist or adult physician [[NICE2018H]].
+- NICE 1.8.12: for sustained orthostatic hypotension or fainting on guanfacine, reduce the dose or switch to another medicine [[NICE2018H]].
+- NICE 1.8.6 lists options when weight loss is a concern [[NICE2018H]]:
   - taking medication with or after food
   - extra meals early in the morning or late in the evening
   - dietary advice
   - high-calorie foods of good nutritional value
   - a planned break from treatment
   - changing medication
-- NICE 1.8.13–1.8.18 also asks clinicians to monitor for tics (stimulants), sexual dysfunction (atomoxetine), new or worse seizures, changes in sleep, and worse behaviour [[NICE2018]].
-- NICE 1.10.1 asks for a medication review at least once a year by a clinician with ADHD expertise. The review covers benefits, adverse effects, effects on education and employment, and the effects of missed doses, planned dose reductions and periods without treatment [[NICE2018]].
+- NICE 1.8.13–1.8.18 also asks clinicians to monitor for tics (stimulants), sexual dysfunction (atomoxetine), new or worse seizures, changes in sleep, and worse behaviour [[NICE2018H]].
+- NICE 1.10.1 asks for a medication review at least once a year by a clinician with ADHD expertise. The review covers benefits, adverse effects, effects on education and employment, and the effects of missed doses, planned dose reductions and periods without treatment [[NICE2018H]].
 - AAP 2019 states that stimulants raise heart rate on average by 1 to 2 beats per minute and blood pressure by 1 to 4 mm Hg. Larger increases occur in 5% to 15% of people, so vital signs should be monitored [[Wolraich2019]].
 - The Concerta label gives mean increases of about 2 to 4 mm Hg in blood pressure and 3 to 6 beats per minute in heart rate, with larger increases in some patients. It says to monitor all patients for hypertension and tachycardia [[FDA-Concerta]].
 - A meta-analysis of 18 trials in children (5,837 participants) found small rises in systolic blood pressure with methylphenidate (SMD 0.25), amphetamines (0.09) and atomoxetine (0.16), and small to medium rises in heart rate with amphetamines (0.37) and atomoxetine (0.43). About 2% stopped medication because of a cardiovascular effect [[Hennissen2017]].
@@ -214,12 +214,12 @@ Access notes:
 - Qelbree: capsules may be swallowed whole or opened and sprinkled onto applesauce or pudding [[FDA-Qelbree]].
 - Intuniv: "Do not crush, chew, or break tablets", which would speed up release. It should not be taken with high-fat meals. It is taken once daily in the morning or evening at about the same time each day [[FDA-Intuniv]].
 - Intuniv: stop by tapering in steps of no more than 1 mg every 3 to 7 days, because abrupt stopping can cause "clinically significant and persistent rebound hypertension" [[FDA-Intuniv]].
-- NICE 1.9.4 adherence supports [[NICE2018]]:
+- NICE 1.9.4 adherence supports [[NICE2018H]]:
   - picture or written instructions kept with the medicine (for example, a sticker on the packet)
   - visual reminders such as apps, alarms, pill dispensers or calendar notes
   - linking doses to daily routines such as meals or brushing teeth
   - peer support groups
-- NICE 1.9.2 notes that ADHD symptoms themselves can make it hard to remember to order and collect medicine. NICE 1.9.5 encourages parents and carers to oversee medication for children and young people [[NICE2018]].
+- NICE 1.9.2 notes that ADHD symptoms themselves can make it hard to remember to order and collect medicine. NICE 1.9.5 encourages parents and carers to oversee medication for children and young people [[NICE2018H]].
 
 ### nursing · Missed doses (as labelled)
 - Strattera: "If a STRATTERA dose is missed, take the dose as soon as possible, but do not take more than the prescribed total daily amount of STRATTERA in any 24-hour period." No taper is needed when stopping [[FDA-Strattera]].
@@ -239,19 +239,19 @@ Access notes:
 - Since the class update, stimulant labels carry a boxed warning on "abuse, misuse, and addiction". Clinicians must assess risk before prescribing, teach patients and families about "proper storage" and "proper disposal of any unused drug", and reassess risk throughout treatment [[FDA-Concerta,FDA-Vyvanse,FDA-AdderallXR]].
 - The labels advise patients to "store [the drug] in a safe place, preferably locked" and "not give [it] to anyone else" [[FDA-Concerta,FDA-Vyvanse]].
 - Storage: Concerta at 25 °C, protected from humidity. Vyvanse and Adderall XR at 20 to 25 °C in a tight, light-resistant container [[FDA-Concerta,FDA-Vyvanse,FDA-AdderallXR]].
-- NICE 1.7.20 gives reasons to consider once-daily modified-release stimulants [[NICE2018]]:
+- NICE 1.7.20 gives reasons to consider once-daily modified-release stimulants [[NICE2018H]]:
   - convenience
   - better adherence
   - less stigma
   - fewer "problems of storing and administering controlled drugs at school"
   - lower risk of misuse and diversion than with immediate-release forms
-- NICE 1.7.25 says prescribers should know the controlled-drug legislation that governs prescribing and supplying stimulants [[NICE2018]].
+- NICE 1.7.25 says prescribers should know the controlled-drug legislation that governs prescribing and supplying stimulants [[NICE2018H]].
 - The AAP 2009 school medication policy says the best arrangement is full-time licensed registered nurses giving all routine and emergency medicines at school. Any delegation to unlicensed assistive personnel must be supervised by the nurse and follow state nurse practice acts [[AAP2009School]].
 - The AAP and National Association of School Nurses 2024 policy calls for a collaborative model with the student and family, safe medication storage and administration, and protocols designed to prevent medication errors specific to schools [[Miotto2024]].
 
 ### nursing · Medication breaks and discontinuation
-- NICE 1.8.7: if medication has clearly affected a child's height over time, consider a planned break in treatment over school holidays to allow "catch-up" growth [[NICE2018]].
-- NICE 1.10.3: consider trial periods of stopping or reducing the dose when the balance of benefit and harm suggests it, and record the reasons if treatment continues [[NICE2018]].
+- NICE 1.8.7: if medication has clearly affected a child's height over time, consider a planned break in treatment over school holidays to allow "catch-up" growth [[NICE2018H]].
+- NICE 1.10.3: consider trial periods of stopping or reducing the dose when the balance of benefit and harm suggests it, and record the reasons if treatment continues [[NICE2018H]].
 - A review of 22 studies (1972–2013) found drug holidays in 25% to 70% of families, mostly during school holidays. Longer breaks were linked to better growth, and shorter breaks could reduce insomnia and improve appetite [[Ibrahim2015]].
 - In a randomised discontinuation trial of 94 young people who had taken methylphenidate for more than 2 years, ADHD-RS scores worsened more after withdrawal than with continued treatment (difference −4.6, 95% CI −8.7 to −0.56). Clinical worsening was seen in 40.4% after withdrawal and 15.9% with continuation [[Matthijssen2019]].
 - The authors note that "some individual patients may, however, be withdrawn from methylphenidate without deterioration", which supports periodic review [[Matthijssen2019]].
@@ -264,19 +264,19 @@ Access notes:
 - A later systematic review of 111 studies found self-reported non-medical use of 2.1% to 58.7% and diversion of 0.7% to 80.0%. Most non-medical use is oral, and harms, including death, are more likely with non-oral routes. There is "little evidence" that it improves academic performance in people without ADHD [[Faraone2020NMU]].
 - The labels list signs of stimulant misuse or abuse, including raised heart rate, breathing rate or blood pressure, sweating, dilated pupils, hyperactivity, restlessness, insomnia, poor appetite, tremor and loss of coordination. They also list anxiety, psychosis, hostility and aggression [[FDA-Concerta]].
 - AAP 2019 advises monitoring adolescents' symptoms and refill requests for signs of misuse or diversion, "including by parents, classmates, or other acquaintances". It notes that prescription drug monitoring programmes can help, and that non-stimulants have less potential for misuse [[Wolraich2019]].
-- NICE 1.7.23–1.7.24: be cautious prescribing stimulants if there is a risk of diversion for cognitive enhancement or appetite suppression. Do not offer immediate-release stimulants, or modified-release stimulants that can easily be injected or snorted, when there is a risk of misuse or diversion [[NICE2018]].
-- NICE 1.8.19: clinicians and parents should watch for changes in the potential for misuse and diversion, which can change with age and circumstances [[NICE2018]].
+- NICE 1.7.23–1.7.24: be cautious prescribing stimulants if there is a risk of diversion for cognitive enhancement or appetite suppression. Do not offer immediate-release stimulants, or modified-release stimulants that can easily be injected or snorted, when there is a risk of misuse or diversion [[NICE2018H]].
+- NICE 1.8.19: clinicians and parents should watch for changes in the potential for misuse and diversion, which can change with age and circumstances [[NICE2018H]].
 - In the Swedish target trial emulation, starting ADHD medication was linked to less substance misuse (58.7 compared with 69.1 per 1000 person-years; IRR 0.85) and fewer first suicidal behaviours (IRR 0.83) [[Zhang2025BMJ]].
 
 ### nursing · Rating scales at follow-up and documentation
-- NICE 1.7.26: during titration, record symptoms, impairment and adverse effects at baseline and at each dose change, using standard scales completed by parents and teachers. Progress should be reviewed regularly with a specialist, for example by weekly phone contact [[NICE2018]].
-- NICE 1.8.1–1.8.3: monitor and document effectiveness and adverse effects. Encourage people to record their own adverse effects, for example with a checklist. Consider standard symptom and adverse-effect rating scales throughout treatment [[NICE2018]].
-- NICE 1.8.4: review and follow-up should match the severity of the condition, whether or not the person is taking medication [[NICE2018]].
-- NICE adds that "a diagnosis of ADHD should not be made solely on the basis of rating scale or observational data". Rating scales are aids, not tests [[NICE2018]].
+- NICE 1.7.26: during titration, record symptoms, impairment and adverse effects at baseline and at each dose change, using standard scales completed by parents and teachers. Progress should be reviewed regularly with a specialist, for example by weekly phone contact [[NICE2018H]].
+- NICE 1.8.1–1.8.3: monitor and document effectiveness and adverse effects. Encourage people to record their own adverse effects, for example with a checklist. Consider standard symptom and adverse-effect rating scales throughout treatment [[NICE2018H]].
+- NICE 1.8.4: review and follow-up should match the severity of the condition, whether or not the person is taking medication [[NICE2018H]].
+- NICE adds that "a diagnosis of ADHD should not be made solely on the basis of rating scale or observational data". Rating scales are aids, not tests [[NICE2018H]].
 - Vanderbilt parent scale (teaching example; community sample of 587 parents): internal consistency alpha .91 to .94, test–retest above .80, sensitivity .80, specificity .75, positive predictive value .19 and negative predictive value .98 [[Bard2013Parent]].
 - SNAP-IV (teaching example; 1,613 parents, 1,205 teachers): a parent item-average above 1.2 raised the probability of concern (LR above 10), and above 1.8 raised the probability of an ADHD diagnosis (LR above 3) [[Bussing2008]].
 - ASRS adult screener (teaching example): the 6-question version had sensitivity of 68.7% and specificity of 99.5% against blind clinical diagnosis in 154 respondents. It is a screening tool, not a diagnosis [[Kessler2005]].
-- Documentation items named by NICE [[NICE2018]]:
+- Documentation items named by NICE [[NICE2018H]]:
   - baseline height, weight, pulse and blood pressure against age norms, with cardiovascular history and family history
   - risk of misuse and diversion
   - rating scales at each dose change
@@ -285,13 +285,13 @@ Access notes:
   - the reasons for continuing medication at each annual review
 
 ### Exam hooks
-- NICE NG87: no routine ECG before stimulants, atomoxetine or guanfacine unless cardiac risk features are present [[NICE2018]].
-- Sudden death in a first-degree relative under 40 years that suggests cardiac disease is a reason for a cardiology opinion before ADHD medication [[NICE2018]].
-- On ADHD medication, height is measured every 6 months in children and young people [[NICE2018]].
-- On ADHD medication, children aged 10 and under have their weight measured every 3 months [[NICE2018]].
-- Heart rate and blood pressure are checked before and after every dose change and every 6 months [[NICE2018]].
-- Resting heart rate above 120 beats per minute, arrhythmia, or systolic blood pressure above the 95th percentile on 2 occasions means reduce the dose and refer [[NICE2018]].
-- ADHD medication is reviewed at least once a year [[NICE2018]].
+- NICE NG87: no routine ECG before stimulants, atomoxetine or guanfacine unless cardiac risk features are present [[NICE2018H]].
+- Sudden death in a first-degree relative under 40 years that suggests cardiac disease is a reason for a cardiology opinion before ADHD medication [[NICE2018H]].
+- On ADHD medication, height is measured every 6 months in children and young people [[NICE2018H]].
+- On ADHD medication, children aged 10 and under have their weight measured every 3 months [[NICE2018H]].
+- Heart rate and blood pressure are checked before and after every dose change and every 6 months [[NICE2018H]].
+- Resting heart rate above 120 beats per minute, arrhythmia, or systolic blood pressure above the 95th percentile on 2 occasions means reduce the dose and refer [[NICE2018H]].
+- ADHD medication is reviewed at least once a year [[NICE2018H]].
 - Stimulants and atomoxetine are contraindicated with MAOIs and within 14 days of stopping an MAOI (risk of hypertensive crisis) [[FDA-Concerta,FDA-Strattera]].
 - Concerta tablets must not be crushed, chewed or split. Adderall XR and Focalin XR capsules may be sprinkled on applesauce [[FDA-Concerta,FDA-AdderallXR,FDA-FocalinXR]].
 - Strattera capsules must not be opened [[FDA-Strattera]].
@@ -305,13 +305,13 @@ Access notes:
 - Only 6% of UK young people on ADHD medication had an optimal transition to adult care [[Eke2020]].
 - Extended time is the most common accommodation, but it has little ADHD-specific evidence [[Lovett2021]].
 - A brief behavioural sleep intervention gave an NNT of 3.9 for moderate to severe sleep problems at 3 months [[Hiscock2015]].
-- Parent training for ADHD "does not imply bad parenting" (NICE wording) [[NICE2018]].
+- Parent training for ADHD "does not imply bad parenting" (NICE wording) [[NICE2018H]].
 
 ### In plain words
-- ADHD is nobody's fault. Parent training is offered because children with ADHD need extra parenting skills, not because the parents did something wrong [[NICE2018]].
-- Before ADHD medicine starts, the nurse or doctor checks height, weight, pulse and blood pressure, and asks about heart problems in you and your family [[NICE2018]].
-- Most people do not need a heart tracing (ECG) before starting. It is done when there are warning signs [[NICE2018]].
-- On medicine, a child's height is checked every 6 months, and pulse and blood pressure are checked after each dose change and every 6 months [[NICE2018]].
+- ADHD is nobody's fault. Parent training is offered because children with ADHD need extra parenting skills, not because the parents did something wrong [[NICE2018H]].
+- Before ADHD medicine starts, the nurse or doctor checks height, weight, pulse and blood pressure, and asks about heart problems in you and your family [[NICE2018H]].
+- Most people do not need a heart tracing (ECG) before starting. It is done when there are warning signs [[NICE2018H]].
+- On medicine, a child's height is checked every 6 months, and pulse and blood pressure are checked after each dose change and every 6 months [[NICE2018H]].
 - Some long-acting tablets must be swallowed whole. Some capsules can be opened and sprinkled on applesauce. Check your own medicine's leaflet [[FDA-Concerta,FDA-AdderallXR]].
 - Keep stimulant medicine locked away, never share it, and get rid of leftover tablets safely [[FDA-Concerta]].
 - If you miss a dose of atomoxetine, take it when you remember, but never take more than one day's total in 24 hours [[FDA-Strattera]].
@@ -320,7 +320,7 @@ Access notes:
 - Melatonin can help some children fall asleep sooner. Store it out of reach, because children can swallow it by accident [[VanderHeijden2007,Lelak2022]].
 - If you take ADHD medicine and plan a pregnancy or become pregnant, talk with your doctor before stopping. Large studies are mostly reassuring about the baby's development [[BangMadsen2025,Cohen2017Placenta]].
 - Moving from children's to adult services can be hard. Ask about it from about age 14 so nothing gets lost [[Wolraich2019,Eke2020]].
-- Rating scales help your team track how you are doing. They cannot diagnose ADHD on their own [[NICE2018]].
+- Rating scales help your team track how you are doing. They cannot diagnose ADHD on their own [[NICE2018H]].
 
 ## Numbers for the animations
 - Crash relative risk by adjustment | unadjusted | 1.36 | RR | [[Vaa2014]]
@@ -338,11 +338,11 @@ Access notes:
 - Traumatic brain injury HR, medicated vs unmedicated periods | childhood | 0.27 | HR | [[Ghirardi2020]]
 - Mortality rate | without ADHD | 2.21 | per 10,000 PY | [[Dalsgaard2015]]
 - Mortality rate | with ADHD | 5.85 | per 10,000 PY | [[Dalsgaard2015]]
-- NICE weight checks, child 10 and under | months after start | 3, 6, 9, 12 | month | [[NICE2018]]
-- NICE weight checks, child over 10 | months after start | 3, 6, 12, 18 | month | [[NICE2018]]
-- NICE height checks, children and young people | interval | 6 | months | [[NICE2018]]
-- NICE BP and HR checks | interval (plus every dose change) | 6 | months | [[NICE2018]]
-- NICE tachycardia threshold for review | resting, sustained, 2 occasions | 120 | beats/min | [[NICE2018]]
+- NICE weight checks, child 10 and under | months after start | 3, 6, 9, 12 | month | [[NICE2018H]]
+- NICE weight checks, child over 10 | months after start | 3, 6, 12, 18 | month | [[NICE2018H]]
+- NICE height checks, children and young people | interval | 6 | months | [[NICE2018H]]
+- NICE BP and HR checks | interval (plus every dose change) | 6 | months | [[NICE2018H]]
+- NICE tachycardia threshold for review | resting, sustained, 2 occasions | 120 | beats/min | [[NICE2018H]]
 - Mean BP rise on Concerta | on treatment | 2–4 | mm Hg | [[FDA-Concerta]]
 - Mean HR rise on Concerta | on treatment | 3–6 | beats/min | [[FDA-Concerta]]
 - Adult height difference, consistent/inconsistent vs negligible stimulant use | age 25 | −2.55 | cm | [[Swanson2017MTA]]
@@ -383,12 +383,12 @@ Access notes:
 - Teenage parenthood IRR, females with ADHD | age 17–19 | 1.94 | IRR | [[Ostergaard2017]]
 
 ## Open questions and controversies
-- Routine ECG before stimulants. The AHA 2008 statement was read as favouring ECG screening, and the AHA and AAP later clarified it as "reasonable" but not mandatory [[Vetter2008,Leslie2008]]. The AAP said routine ECG "is not warranted" [[Perrin2008,Leslie2008]], and NICE does not recommend ECG without risk features [[NICE2018]]. Screening finds disease in about 0.3% with a PPV of 4.2% [[Mahle2009]], and modelled cost-effectiveness is "borderline" [[Denchev2010]]. Status: history and examination first, with ECG for risk features, is the prevailing approach.
+- Routine ECG before stimulants. The AHA 2008 statement was read as favouring ECG screening, and the AHA and AAP later clarified it as "reasonable" but not mandatory [[Vetter2008,Leslie2008]]. The AAP said routine ECG "is not warranted" [[Perrin2008,Leslie2008]], and NICE does not recommend ECG without risk features [[NICE2018H]]. Screening finds disease in about 0.3% with a PPV of 4.2% [[Mahle2009]], and modelled cost-effectiveness is "borderline" [[Denchev2010]]. Status: history and examination first, with ECG for risk features, is the prevailing approach.
 - Long-term cardiovascular effects. Large US cohorts found no rise in serious cardiovascular events with current use [[Cooper2011,Habel2011]]. A Swedish study found risk of cardiovascular disease, mainly hypertension, rose with cumulative years of use (AOR 1.04 per year) [[Zhang2024JAMAPsych]]. Status: unresolved, and it supports ongoing blood pressure and heart rate monitoring (Early evidence).
 - Growth. MTA follow-up linked consistent stimulant use to about 2.5 cm shorter adult height [[Swanson2017MTA]], while the 2-year ADDUCE cohort found little effect on height velocity [[Man2023ADDUCE]]. A meta-analysis finds small effects concentrated in the first 2 to 2.5 years [[Carucci2021]]. Status: small average effect with individual variation, so the 6-monthly height checks remain.
-- Medication holidays. NICE suggests planned breaks for catch-up growth [[NICE2018]], and observational studies suggest benefit for growth and appetite [[Ibrahim2015]]. A randomised discontinuation trial shows symptoms worsen in many children after stopping, though not all [[Matthijssen2019]]. Status: individualised decision with structured review.
+- Medication holidays. NICE suggests planned breaks for catch-up growth [[NICE2018H]], and observational studies suggest benefit for growth and appetite [[Ibrahim2015]]. A randomised discontinuation trial shows symptoms worsen in many children after stopping, though not all [[Matthijssen2019]]. Status: individualised decision with structured review.
 - Extended-time accommodations. They are the most used school support but have little ADHD-specific evidence [[Lovett2021]], and students with more symptoms may benefit less [[Lovett2015]]. Skill-building interventions outperformed accommodations in one RCT [[Harrison2020]]. Status: research gap. Evidence favours pairing accommodations with skill-building interventions.
-- Exercise. Early meta-analyses report moderate to large benefits [[Cerrillo2015,Vysniauske2020]], but the World Federation consensus notes the effect becomes non-significant after correcting for publication bias [[Faraone2021]]. Status: recommended for general health [[NICE2018]], with symptom benefit unproven (Early evidence).
+- Exercise. Early meta-analyses report moderate to large benefits [[Cerrillo2015,Vysniauske2020]], but the World Federation consensus notes the effect becomes non-significant after correcting for publication bias [[Faraone2021]]. Status: recommended for general health [[NICE2018H]], with symptom benefit unproven (Early evidence).
 - Methylphenidate in early pregnancy and cardiac malformations. The pooled RR of 1.28 (1.00–1.64) is at the edge of significance [[Huybrechts2018]]. Neurodevelopmental outcomes in children are reassuring across Danish, Swedish and US cohorts [[BangMadsen2023,BangMadsen2025,Suarez2024]]. Status: individual risk–benefit discussion. No dedicated pregnancy guideline was identified in this pass.
 - Do medication-linked reductions in crashes and injuries reflect cause and effect? Within-person designs reduce confounding [[Chang2017Crash,Ghirardi2020]]. The target trial emulation found no reduction in first accidental injuries but did find reductions for transport accidents and recurrent events [[Zhang2025BMJ]]. Status: probably protective for transport accidents (Early evidence to Established), less certain for all injuries.
 - Melatonin for ADHD-related insomnia. RCTs show earlier sleep onset with no effect on daytime behaviour [[VanderHeijden2007,Weiss2006]]. In the US it is sold as a dietary supplement with variable content and rising child ingestions [[Lelak2022,Erland2017]]. Status: evidence of sleep benefit, with product quality and safe storage as practical concerns.
@@ -396,7 +396,7 @@ Access notes:
 ## Sources
 - [Faraone2021] Faraone SV, Banaschewski T, Coghill D, Zheng Y, Biederman J, Bellgrove MA, et al. The World Federation of ADHD International Consensus Statement: 208 Evidence-based conclusions about the disorder. Neurosci Biobehav Rev. 2021;128:789-818. PMID 33549739; PMCID PMC8328933; doi:10.1016/j.neubiorev.2021.01.022. Full text read via PMC (BioC). (validated: PubMed)
 - [Wolraich2019] Wolraich ML, Hagan JF Jr, Allan C, Chan E, Davison D, Earls M, et al. Clinical Practice Guideline for the Diagnosis, Evaluation, and Treatment of Attention-Deficit/Hyperactivity Disorder in Children and Adolescents. Pediatrics. 2019;144(4):e20192528. PMID 31570648; PMCID PMC7067282; doi:10.1542/peds.2019-2528. Full text read via PMC (BioC). (validated: PubMed)
-- [NICE2018] National Institute for Health and Care Excellence. Attention deficit hyperactivity disorder: diagnosis and management (NG87). London: NICE; 2018, updated 13 September 2019. PMID 29634174 (NCBI Bookshelf NBK493361); recommendations read on nice.org.uk/guidance/ng87 on 2026-10-25. (validated: PubMed)
+- [NICE2018H] National Institute for Health and Care Excellence. Attention deficit hyperactivity disorder: diagnosis and management (NG87). London: NICE; 2018, updated 13 September 2019. PMID 29634174 (NCBI Bookshelf NBK493361); recommendations read on nice.org.uk/guidance/ng87 on 2026-10-25. (validated: PubMed)
 - [Dalsgaard2015] Dalsgaard S, Østergaard SD, Leckman JF, Mortensen PB, Pedersen MG. Mortality in children, adolescents, and adults with attention deficit hyperactivity disorder: a nationwide cohort study. Lancet. 2015;385(9983):2190-6. PMID 25726514; doi:10.1016/S0140-6736(14)61684-6. (validated: PubMed)
 - [Kessler2005] Kessler RC, Adler L, Ames M, Demler O, Faraone S, Hiripi E, et al. The World Health Organization Adult ADHD Self-Report Scale (ASRS): a short screening scale for use in the general population. Psychol Med. 2005;35(2):245-56. PMID 15841682; doi:10.1017/s0033291704002892. (validated: PubMed)
 - [Chang2014JAMAPsych] Chang Z, Lichtenstein P, D'Onofrio BM, Sjölander A, Larsson H. Serious transport accidents in adults with attention-deficit/hyperactivity disorder and the effect of medication: a population-based study. JAMA Psychiatry. 2014;71(3):319-25. PMID 24477798; PMCID PMC3949159; doi:10.1001/jamapsychiatry.2013.4174. (validated: PubMed)
