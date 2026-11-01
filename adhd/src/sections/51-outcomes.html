@@ -1,5 +1,73 @@
-<!-- ================= 5.1 COURSE & OUTCOMES (stub, replaced by its builder) ================= -->
+<!-- ================= 5.1 COURSE & OUTCOMES ================= -->
+<style>
+#m-outcomes .card>.ev,#m-outcomes .card>.tag{align-self:flex-start}
+#m-outcomes .tbl table{min-width:600px}
+#m-outcomes .ocm{display:flex;flex-wrap:wrap;gap:6px}
+</style>
 <section class="mod" id="m-outcomes" data-mod="outcomes" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living with ADHD</p><h2>Course &amp; outcomes</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">From age 6 to 40: how often ADHD lasts, how it ebbs and returns, and which risks run higher on average. Then: what happens to those risks in the same people during months on and off medication. Every number here describes large groups, not any one person.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Definition of persistence">
+    <span class="kicker">Count as still having ADHD</span>
+    <button class="btn" data-ocdef="full" aria-pressed="true">Full syndrome only</button>
+    <button class="btn" data-ocdef="part" aria-pressed="false">Including partial remission</button>
+  </div>
+  <div class="stepper" id="ocSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ocSvg" viewBox="0 0 720 470" style="min-width:560px" role="img" aria-label="Age 6 to 40 runs left to right. At the top, a stacked area shows the share of children with ADHD who still meet full criteria, are in partial remission, or are in remission, reaching 15%, 50% and 35% by age 25. In the middle, one illustrative person's symptom count rises and falls across a diagnostic threshold several times. At the bottom, a life-course ribbon gains markers as age passes: injuries, substance use, teenage parenthood, school completion, driving crashes, convictions, depression, unemployment, income and mortality, each with its group ratio."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ocPlay">Play</button><label class="stage-cap tl" for="ocT">Age <input type="range" id="ocT" min="0" max="1" step="0.001" value="0.62"></label></div>
+      <div class="readout" id="ocRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The persistence bands are drawn through the published age-25 values of one meta-analysis, with an invented smooth shape before 25 and held flat after. The single course is illustrative, built from the MTA averages (about 3.6 swings of 6–7 symptoms). Ribbon ratios come from different studies and compare groups, not individuals. [[Faraone2006,Sibley2022,Sibley2024]]</p>
+    </div>
+    <aside class="note" id="ocNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">On and off medication: the same people compared with themselves</h3>
+  <div class="prose"><p>Register studies can follow the same person through months on and off ADHD medication. Comparing a person with themselves removes everything that stays fixed, such as genes and upbringing. It does not remove things that change over time, and it is still observational. Pick an outcome. [[Chen2014BMJ,Kozhevnikova2026]]</p></div>
+  <div class="ocm" role="group" aria-label="Choose an outcome">
+    <button class="btn" data-ocm="crash" aria-pressed="true">Driving crashes</button>
+    <button class="btn" data-ocm="crime" aria-pressed="false">Criminal convictions</button>
+    <button class="btn" data-ocm="injury" aria-pressed="false">Injuries</button>
+    <button class="btn" data-ocm="subst" aria-pressed="false">Substance-related events</button>
+    <button class="btn" data-ocm="suic" aria-pressed="false">Suicide-related events</button>
+    <button class="btn" data-ocm="death" aria-pressed="false">Mortality</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ocMed" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Paired bars compare event rates in periods off and on ADHD medication for the chosen outcome, with the off-medication rate set to 100."></svg></div>
+      <p class="stage-cap" id="ocMedCap"></p>
+    </div>
+    <aside class="note" id="ocMedNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Group risks across the life course</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Outcome</th><th>People with ADHD vs without</th><th>Study</th></tr></thead>
+    <tbody>
+      <tr><th>Unintentional injury (children, adolescents)</th><td>OR 1.53 (1.40–1.67)</td><td>28 studies, 350,938 with ADHD [[RuizGoikoetxea2018]]</td></tr>
+      <tr><th>Not finishing high school</th><td>OR 3.7 (2.0–7.0)</td><td>Longitudinal meta-analysis [[Erskine2016]]</td></tr>
+      <tr><th>Parenthood at 12–16</th><td>IRR 3.62 (females), 2.30 (males)</td><td>Danish registers, 2.70 million people [[Ostergaard2017]]</td></tr>
+      <tr><th>Driving crashes</th><td>RR 1.36; 1.23 after adjusting for driving exposure</td><td>16 studies; higher risk tied to co-occurring conduct problems [[Vaa2014]]</td></tr>
+      <tr><th>Conviction</th><td>RR 3.3 (2.1–5.2); arrest 2.2, incarceration 2.9</td><td>9 samples, 15,442 people with childhood ADHD [[MohrJensen2016]]</td></tr>
+      <tr><th>Suicide attempt</th><td>OR 2.37 (1.64–3.43); ideation 3.53</td><td>57 studies, crude ORs [[Septier2019]]</td></tr>
+      <tr><th>Recurrent depression at 18–25</th><td>OR 1.35 (1.05–1.73) for ADHD at age 7</td><td>ALSPAC, N=8,310 [[Riglin2021]]</td></tr>
+      <tr><th>Unemployment</th><td>OR 2.0 (1.0–3.9)</td><td>Longitudinal meta-analysis [[Erskine2016]]</td></tr>
+      <tr><th>Annual income</th><td>17% lower on average (ratio 0.83); 12.19 more days unemployed a year</td><td>1.2 million Swedish school leavers [[Jangmo2021]]</td></tr>
+      <tr class="hl"><th>All-cause mortality</th><td>MRR 2.07 (1.70–2.50); 5.85 vs 2.21 per 10,000 person-years</td><td>Danish cohort, 1.92 million people; accidents the most common cause [[Dalsgaard2015]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Mortality: about twice, mostly accidents</h4><p>In Denmark the fully adjusted mortality rate ratio was 2.07, and accidents were the most common cause of death. It was 1.86 for diagnosis before 6, 1.58 at 6–17 and 4.25 at 18 or older. Excluding oppositional, conduct and substance use disorders it was 1.50, higher in girls and women (2.85) than boys and men (1.27). A meta-analysis of 8 studies found RR 2.13 for all causes (low confidence), raised for unnatural (2.81) but not clearly for natural causes. [[Dalsgaard2015,CatalaLopez2022]]</p></div>
+    <div class="card"><span class="tag">Co-occurring conditions</span><h4>Risk climbs with other diagnoses</h4><p>In Sweden (2.68 million people), the mortality HR was 1.41 for ADHD alone and 25.22 with four or more co-occurring psychiatric conditions. After adjusting for later disorders, ADHD stayed linked with death from unintentional injury (HR 2.14) but not significantly with suicide (1.13). Spotting and treating co-occurring conditions matters: see <a href="#differential" data-go="differential">Look-alikes &amp; co-occurring conditions</a>. [[Sun2019]]</p></div>
+    <div class="card"><span class="ev early">Debated</span><h4>How much shorter is life expectancy?</h4><p>UK primary-care data estimated 6.78 years less for men and 8.64 for women with diagnosed ADHD, but only about 1 in 9 adults with ADHD there had a diagnosis, so the figure may not apply to the undiagnosed majority. A modelled estimate from 131 hyperactive children gave 8.4 years (12.7 if ADHD persisted), but it projects risk factors in a small clinical sample, not observed deaths. Excess mortality is consistent; the size of the gap is not. [[ONions2025,Barkley2019]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Persistence depends on the definition</h4><p>Published adult persistence rates range from 5% to 75% depending on informant and threshold. Parent reports give higher rates than self-reports. In the MTA, combining parent and self-report with a norm-based threshold, 60% had persistent symptoms and 41% had symptoms plus impairment. Across 20 WHO surveys, 57.0% of people with childhood ADHD still had it as adults. [[Sibley2017Persistence,Fayyad2017]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Late-onset ADHD?</h4><p>In the Dunedin cohort, childhood ADHD (6%) and adult ADHD (3%) were "virtually nonoverlapping": 90% of adult cases had no childhood ADHD. In the Pelotas cohort only 12.6% of young adults with ADHD had had it as children, and the adult group was mostly female. DSM still requires several symptoms before age 12; the question is unresolved and may partly reflect measurement and co-occurring conditions. See <a href="#women" data-go="women">Girls, women &amp; late diagnosis</a>. [[Moffitt2015,Caye2016]]</p></div>
+    <div class="card"><span class="ev early">Disputed</span><h4>ADHD in prison: 8% or 26%?</h4><p>A 2018 meta-analysis of 102 studies estimated 26.2% of adults in detention have ADHD. Restricted to 11 unselected prison samples, a 2024 meta-analysis found 8.3%, about one in 12; the original authors' reanalysis gave 22.2%. The gap is about which studies to include. [[Baggio2018,Fazel2024,Baggio2024]]</p></div>
+    <div class="card"><span class="tag">Randomised vs register</span><h4>When trials and registers disagree</h4><p>In the randomised MTA, neither the childhood treatment nor later stimulant use was linked to adolescent substance use in either direction, while US and Swedish registers found fewer substance-related events in medicated periods. At 16 years, extended medication use was not linked to lower adult symptom severity, and consistent use went with adult height 2.55 cm shorter. See <a href="#mta" data-go="mta">The MTA study</a>. [[Molina2013,Quinn2017,Chang2014SUD,Swanson2017MTA]]</p></div>
+    <div class="card"><span class="tag">School &amp; work</span><h4>Medication and exams</h4><p>In 657,720 Swedish students, three months of ADHD medication went with lower odds of not qualifying for upper secondary school (OR 0.80) and 9.35 more grade points out of 320. Young adults who sat the university entrance test more than once scored 4.80 points higher (out of 200) when on medication. In the MTA, people whose symptoms eased did better on education, work and income than those whose symptoms persisted. [[Jangmo2019,Lu2017,Hechtman2016]]</p></div>
+  </div>
+  <div class="callout prose"><p><b>In plain words.</b> These numbers describe large groups, not what will happen to any one person. Many people with ADHD do well, and most of the extra risk comes from accidents, which can be reduced. In large studies, the same people had fewer crashes, injuries, convictions and substance problems during months on ADHD medicine; those studies are strong but not perfect. [[Dalsgaard2015,Lichtenstein2012,Chang2017Crash,Quinn2017,Kozhevnikova2026]]</p></div>
 </section>

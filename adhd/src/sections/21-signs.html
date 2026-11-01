@@ -1,5 +1,66 @@
-<!-- ================= 2.1 SIGNS ACROSS THE LIFESPAN (stub, replaced by its builder) ================= -->
+<!-- ================= 2.1 SIGNS ACROSS THE LIFESPAN ================= -->
+<style>
+#m-signs .card>.ev,#m-signs .card>.tag{align-self:flex-start}
+#m-signs .calc output{font-weight:400;color:var(--muted);font-size:13.5px}
+#m-signs .tbl table{min-width:640px}
+</style>
 <section class="mod" id="m-signs" data-mod="signs" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Recognising &amp; diagnosing</p><h2>Signs across the lifespan</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">The 18 DSM-5-TR symptoms stay the same from preschool to old age, but the way they show changes with every new set of demands. [[APA2022DSM,Wolraich2019]] Follow one person from age 3 to 60, then switch between what other people see and what it can feel like from the inside.</p></div>
+  <div class="ctrls" role="group" aria-label="Point of view">
+    <span class="kicker">View</span>
+    <button class="btn" data-sv="out" aria-pressed="true">Outward: what others see</button>
+    <button class="btn" data-sv="in" aria-pressed="false">Inward: what it feels like</button>
+  </div>
+  <div class="stepper" id="sgSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="sgSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="One person from age 3 to 60 in five scenes: a preschooler running round a block tower, a pupil fidgeting at a desk, a teenager at homework beside a car, a student at a laptop facing a midnight deadline, and a parent with a child, a full calendar and lost keys. Speech bubbles show what others notice, or thought bubbles what it feels like. Five symptom chips change size with age: hyperactivity shrinks, inattention and executive-function problems stay large, and emotional dysregulation stays common."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sgPlay">Play</button><label class="stage-cap tl" for="sgT">Age <input type="range" id="sgT" min="0" max="1" step="0.001" value="0.3"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> Chip sizes show only the direction of change reported in follow-up studies (hyperactivity-impulsivity declines faster than inattention), not measured levels; the scenes are illustrations, not a checklist. [[Biederman2000Decline,Faraone2021,Shaw2014Emotion,Willcutt2005]]</p>
+    </div>
+    <aside class="note" id="sgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Ordinary, or impairing?</h3>
+  <p class="prose">Everyone loses keys and drifts off in a dull meeting. The DSM-5-TR definition turns on how often, in how many places and how much it gets in the way. Move the sliders for one everyday difficulty and see which parts of the definition it touches. [[APA2022DSM]]</p>
+  <div class="teach"><b>Teaching tool</b><span>This shows the structure of the criteria. It is not a test and gives no verdict: ADHD can only be diagnosed by a licensed clinician. [[Faraone2021]]</span></div>
+  <div class="calc">
+    <label for="sgOften">How often does it happen? <input type="range" id="sgOften" min="0" max="3" step="1" value="2"><output id="sgOftenV"></output></label>
+    <label for="sgSet">In how many settings? <input type="range" id="sgSet" min="1" max="3" step="1" value="1"><output id="sgSetV"></output></label>
+    <label for="sgImp">How much does it get in the way? <input type="range" id="sgImp" min="0" max="2" step="1" value="1"><output id="sgImpV"></output></label>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="sgCalcSvg" viewBox="0 0 720 250" style="min-width:560px" role="img" aria-label="Seven DSM-5-TR elements, A to E, light up green when the example meets them, amber when unclear, red when not, and stay dashed when this tool does not ask about them."></svg></div>
+      <p class="stage-cap">Settings: home, school or work, with friends or relatives, in other activities. Symptoms that are only oppositional behaviour, defiance or failure to understand tasks do not count. [[APA2022DSM]] The full symptom count is in <a href="#criteria" data-go="criteria">2.2 DSM-5-TR criteria</a>.</p>
+    </div>
+    <aside class="note" id="sgCalcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the symptoms can look like</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>DSM-5-TR symptom (paraphrased)</th><th>At school</th><th>As a student or adult</th></tr></thead>
+    <tbody>
+      <tr><th>Careless mistakes, misses details</th><td>Errors in sums the child can do</td><td>Mistakes in forms, reports or bank transfers</td></tr>
+      <tr><th>Trouble sustaining attention</th><td>Drifts off in long lessons or reading</td><td>Loses the thread of lectures, meetings, long documents</td></tr>
+      <tr><th>Difficulty organising tasks</th><td>Messy bag, unfinished projects</td><td>Poor time management, missed deadlines</td></tr>
+      <tr><th>Avoids tasks needing sustained mental effort</th><td>Homework put off</td><td>Reports, tax returns and long forms put off</td></tr>
+      <tr><th>Easily distracted</th><td>By noises and classmates</td><td>Also by unrelated thoughts</td></tr>
+      <tr><th>Forgetful in daily activities</th><td>Forgets homework, kit, messages home</td><td>Forgets appointments, bills, calls back</td></tr>
+      <tr><th>Fidgets; leaves seat; runs or climbs</th><td>Out of seat when expected to sit</td><td>Often only a feeling of restlessness</td></tr>
+      <tr><th>Blurts out; can't wait; interrupts</th><td>Answers before the question ends</td><td>Talks over others; impatient in queues and traffic</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">The examples paraphrase the published criteria set; DSM-5 added adolescent and adult examples to the same 18 symptoms. [[APA2022DSM,Epstein2013]] Inattention is more strongly linked to academic and work difficulties, hyperactivity-impulsivity to peer rejection, risky driving and injuries. [[Faraone2021]]</p>
+
+  <h3 class="sub">Alongside the core symptoms</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Emotional dysregulation</h4><p>Quick frustration, irritability and mood changes are found in about 25–45% of children and 30–70% of adults with ADHD; in a population study, mood lability affected 38% of children with ADHD, a ten-fold increase. It is not part of the DSM criteria, and whether it is a core feature is still debated <span class="ev hyp">Hypothesis</span>. [[Shaw2014Emotion]] George Still noted "an abnormal degree of passionateness" in 1902. [[Lange2010]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Sleep problems</h4><p>Unmedicated children with ADHD show more bedtime resistance, trouble falling asleep, night waking and daytime sleepiness, [[Cortese2009Sleep]] and adults report worse sleep on 7 of 9 measures. [[DiazRoman2018]] In a trial of 244 children, two sessions of sleep-hygiene advice cut moderate to severe sleep problems from 56% to 30%. [[Hiscock2015]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Executive functions</h4><p>On average, people with ADHD show medium-sized weaknesses in response inhibition, vigilance, working memory and planning (effect sizes 0.46–0.69 across 83 studies). Not every person with ADHD has them, so a normal test does not rule ADHD out. [[Willcutt2005,Faraone2021]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Strengths and "hyperfocus"</h4><p>"Hyperfocus", long absorbed focus on a task of interest, is a popular term rather than one of the 18 DSM-5-TR symptoms, [[APA2022DSM]] and the studies behind this guide do not measure it. NICE asks clinicians to talk with people after diagnosis about positive effects, including building on strengths, as well as stigma. [[NICE2018H]] ADHD occurs at every level of intelligence. [[Faraone2021]]</p></div>
+    <div class="card"><span class="tag">Not a DSM term</span><h4>"Rejection sensitivity"</h4><p>Intense hurt at criticism or rejection is widely discussed, but it is not a DSM-5-TR criterion or diagnosis. [[APA2022DSM]] The nearest studied idea is emotional dysregulation, which is common in ADHD. [[Shaw2014Emotion]] Being rejected by peers, a different thing, is linked to hyperactive-impulsive symptoms. [[Faraone2021]] <span class="ev hyp">Hypothesis</span></p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>ADHD first noticed in adulthood</h4><p>In three population cohorts most adults with ADHD had not met criteria as children. [[Moffitt2015,AgnewBlais2016,Caye2016]] With repeated assessments from several informants, about 95% of apparent late-onset cases were excluded, most often because symptoms occurred only during heavy substance use. [[Sibley2018LateOnset]] DSM-5-TR still requires several symptoms before age 12. [[APA2022DSM]]</p></div>
+  </div>
 </section>

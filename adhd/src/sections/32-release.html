@@ -1,5 +1,60 @@
-<!-- ================= 3.2 FORMULATIONS & THE DAILY CURVE (stub, replaced by its builder) ================= -->
+<!-- ================= 3.2 FORMULATIONS & THE DAILY CURVE ================= -->
+<style>
+#m-release .fsel{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-release .finfo{background:var(--panel-2);border-radius:12px;padding:12px 14px;font-size:14.5px;display:flex;flex-direction:column;gap:6px}
+#m-release .finfo b.n{font-family:var(--display);font-size:17px}
+#m-release .cmp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media (max-width:760px){#m-release .cmp{grid-template-columns:minmax(0,1fr)}}
+#m-release .lblcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#m-release .lblcard select{font:inherit;font-weight:700;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);width:100%}
+#m-release .lblhead{display:flex;gap:12px;align-items:center}
+#m-release .lblhead svg{width:92px;height:46px;flex:none}
+#m-release .lblhead p{font-size:14px;color:var(--muted)}
+#m-release .lblcard dl{margin:0;display:flex;flex-direction:column;gap:9px}
+#m-release .lblcard dt{font:600 10.5px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.11em;color:var(--muted);margin-bottom:2px}
+#m-release .lblcard dd{margin:0;font-size:14.5px}
+#m-release .card>.ev,#m-release .card>.tag{align-self:flex-start}
+</style>
 <section class="mod" id="m-release" data-mod="release" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Medication</p><h2>Formulations &amp; the daily curve</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">The same molecule can be packed to peak once, twice or slowly over the day. Pick a formulation, then scrub from the 07:00 dose to bedtime and watch how the blood level lines up with school, homework and an evening drive.</p></div>
+  <div class="fsel" role="group" aria-label="Formulation">
+    <span class="kicker">Formulation</span>
+    <button class="btn" data-rlf="mphir" aria-pressed="false">IR methylphenidate ×3</button>
+    <button class="btn" data-rlf="oros" aria-pressed="true">OROS methylphenidate</button>
+    <button class="btn" data-rlf="beads" aria-pressed="false">Biphasic beads</button>
+    <button class="btn" data-rlf="masxr" aria-pressed="false">Mixed amphetamine salts XR</button>
+    <button class="btn" data-rlf="ldx" aria-pressed="false">Lisdexamfetamine</button>
+    <button class="btn" data-rlf="jornay" aria-pressed="false">Evening-dosed DR/ER methylphenidate</button>
+  </div>
+  <div class="ctrls"><button class="btn ghost" id="rlGhost" aria-pressed="false">Overlay IR methylphenidate ×3 for comparison</button></div>
+  <div class="stepper" id="rlSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rlSvg" viewBox="0 0 720 362" style="min-width:560px" role="img" aria-label="A 24-hour day from 06:00 to 06:00. A schematic plasma-level curve for the chosen formulation draws itself as the clock moves, with circled anchor points from the US label and a ribbon underneath that shades school, homework, an evening drive and sleep by how high the level is at those times."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rlPlay">Play</button><label class="stage-cap tl" for="rlT">Time of day <input type="range" id="rlT" min="0" max="1" step="0.001" value="0.17"></label></div>
+      <div class="readout" id="rlRead"></div>
+      <div class="finfo" id="rlInfo"></div>
+      <p class="stage-cap"><b>Schematic shape from published Tmax and half-life.</b> Each curve is a one-compartment sketch scaled to its own peak, so heights cannot be compared between products and the shading is not an effect window. Circles are label anchors; brackets are the hours over which a label trial showed an effect. Real levels vary widely between people. [[FDA-RitalinC,FDA-Concerta,FDA-FocalinXR,FDA-AdderallXR,FDA-Vyvanse,FDA-JornayPM]]</p>
+    </div>
+    <aside class="note" id="rlNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Label facts, side by side</h3>
+  <p class="prose">Choose two products to compare what their US labels say. Doses are quoted as each label publishes them, as teaching facts, not instructions: the right product and dose are a decision for the prescriber and the person. Every stimulant label read for this guide carries a boxed warning for "abuse, misuse, and addiction". [[FDA-Concerta,FDA-Vyvanse,FDA-AdderallXR,FDA-Focalin,FDA-Zenzedi,FDA-Azstarys]]</p>
+  <div class="cmp">
+    <div class="lblcard"><label class="kicker" for="rlA">Product A</label><select id="rlA"></select><div id="rlCardA"></div></div>
+    <div class="lblcard"><label class="kicker" for="rlB">Product B</label><select id="rlB"></select><div id="rlCardB"></div></div>
+  </div>
+
+  <h3 class="sub">Same molecule, different day</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Wearing off</span><h4>When the curve falls</h4><p>Labels pin duration to trials, not to a promise: Concerta's paediatric results "were maintained through 12 hours after dosing"; Vyvanse separated from placebo from hours 2 to 12 in children and 2 to 14 in adults; Mydayis is taken on waking "because the effects may last up to 16 hours". In a review of 15 randomised driving trials, immediate-release methylphenidate lost its effect in the evening. [[FDA-Concerta,FDA-Vyvanse,FDA-Mydayis,Gobbo2014]]</p><p>Planning the day around the curve (which product, what time) is part of the conversation with the prescriber.</p></div>
+    <div class="card"><span class="tag rx">Not interchangeable</span><h4>Why one ER product is not simply another</h4><p>Release depends on the device. Concerta must be swallowed whole: splitting, crushing or chewing "will compromise the extended-release characteristics". Jornay PM should not be swapped for other methylphenidate products milligram for milligram. A methylphenidate patch on inflamed skin gave about 3-fold higher Cmax and AUC. Extended-release guanfacine is not interchangeable mg for mg with the immediate-release tablet (see <a href="#nonstim" data-go="nonstim">non-stimulants</a>). [[FDA-Concerta,FDA-JornayPM,FDA-Daytrana,FDA-Intuniv]]</p></div>
+    <div class="card"><span class="tag rx">Prodrug</span><h4>Lisdexamfetamine waits for red blood cells</h4><p>Lisdexamfetamine is inactive until it is split into dextroamphetamine and l-lysine, mainly in the blood by red blood cells. Substantial hydrolysis still happened at low haematocrit (33% of normal). The prodrug peaks at about 1 hour and its own half-life is under 1 hour; the dextroamphetamine it releases peaks at about 3.5 hours in children. Heal and colleagues describe this rate-limited route as central to its sustained effect and to a lower potential for recreational abuse. [[FDA-Vyvanse,Pennick2010,Heal2013]]</p></div>
+    <div class="card"><span class="tag rx">Food</span><h4>Breakfast moves some curves</h4><p>A high-fat meal pushed Mydayis's d-amphetamine Tmax from 7.0 to 12.0 hours and Focalin's from 1.5 to 2.9 hours. Food delays Vyvanse's Tmax by about 1 hour without changing exposure. A high-fat breakfast did not change Concerta's pharmacokinetics, and food has no relevant effect on IR methylphenidate. [[FDA-Mydayis,FDA-Focalin,FDA-Vyvanse,FDA-Concerta,FDA-RitalinC]]</p></div>
+    <div class="card"><span class="tag rx">Patch</span><h4>A day you can switch off</h4><p>The methylphenidate patch (ages 6 to 17) goes on the hip 2 hours before an effect is needed and comes off 9 hours after application. Peak levels come about 10 hours after a single application and 8 hours after repeated ones. [[FDA-Daytrana]]</p></div>
+    <div class="card"><span class="tag warn">Supply</span><h4>The 2022–2024 shortages</h4><p>A national shortage of immediate-release mixed amphetamine salts was announced in October 2022, and dispensing to children shifted toward dexmethylphenidate. In 2023, 71.5% of US adults taking a stimulant had difficulty getting a prescription filled because it was unavailable. A shortage database counted 26 ADHD stimulant shortages from 2001 to 2023, lasting a mean 20.7 months. <span class="ev early">Early evidence</span> A 2026 analysis links the shortage to simultaneous manufacturing cutbacks and a fall in raw amphetamine imports, not only to DEA quotas. [[He2025Pediatrics,Staley2024,Sheykhsoltan2025,Currie2026]]</p></div>
+  </div>
+  <div class="callout"><p><b>In plain words.</b> Long-acting pills release the medicine slowly, so one morning dose can last a school or work day. Some capsules can be opened and sprinkled on applesauce for people who cannot swallow pills; some tablets must never be crushed or chewed. [[FDA-Concerta,FDA-Vyvanse,FDA-AdderallXR]]</p></div>
 </section>

@@ -1,5 +1,77 @@
-<!-- ================= 1.4 GENES & HERITABILITY (stub, replaced by its builder) ================= -->
+<!-- ================= 1.4 GENES & HERITABILITY ================= -->
+<style>
+#m-genes .card>.ev,#m-genes .card>.tag{align-self:flex-start}
+#m-genes .rel{display:flex;flex-wrap:wrap;gap:6px}
+#m-genes .tbl table{min-width:540px}
+#m-genes .geBig{display:flex;flex-wrap:wrap;gap:4px 18px;align-items:baseline}
+#m-genes .geBig .big-num{color:var(--dz)}
+#m-genes .geBig small{font:500 12.5px var(--mono);color:var(--muted)}
+</style>
 <section class="mod" id="m-genes" data-mod="genes" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · The condition</p><h2>Genes &amp; heritability</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">ADHD runs strongly in families, mostly through genes. But there is no single "ADHD gene": thousands of common variants with tiny effects add up, and a few rare variants with larger effects sit on top. Scrub through one family, twin studies, genome-wide studies and rare variants.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Variant lens">
+    <span class="kicker">Show</span>
+    <button class="btn" data-gv="common" aria-pressed="true">Common variants</button>
+    <button class="btn" data-gv="rare" aria-pressed="false">Rare variants &amp; CNVs</button>
+  </div>
+  <div class="stepper" id="geSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="geSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A three-generation family tree on the left fills in as people are diagnosed. On the right, the panel changes with each step: an adoption comparison, identical and non-identical twin pairs with a heritability gauge that sweeps to 74%, tiny genetic effects accumulating into a polygenic score, two overlapping bell curves for people with and without ADHD, and a ladder of odds ratios for common and rare variants."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gePlay">Play</button><label class="stage-cap tl" for="geT">Step <input type="range" id="geT" min="0" max="1" step="0.001" value="0.17"></label></div>
+      <div class="readout" id="geRead"></div>
+      <p class="stage-cap"><b>Schematic family.</b> The family tree is an illustration, not a real pedigree; the numbers in the right-hand panel are published values. Shading: rose = diagnosed, half amber = some traits, never assessed. [[Chen2017JCPP,Faraone2019,Demontis2023]]</p>
+    </div>
+    <aside class="note" id="geNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">If a relative has ADHD: what changes?</h3>
+  <div class="prose"><p>Pick a relative. The ratio is the published hazard ratio from a Swedish register of 1,656,943 people followed from age 3, compared with people whose relative of the same kind does not have ADHD. The 100 figures turn that ratio into people, using the cohort's own diagnosis rate, so you can see a large ratio on a small baseline. [[Chen2017JCPP]]</p></div>
+  <div class="rel" role="group" aria-label="Choose a relative">
+    <button class="btn" data-rel="mz" aria-pressed="false">Identical twin</button>
+    <button class="btn" data-rel="dz" aria-pressed="false">Non-identical twin</button>
+    <button class="btn" data-rel="sib" aria-pressed="true">Full sibling</button>
+    <button class="btn" data-rel="mhs" aria-pressed="false">Half-sibling (same mother)</button>
+    <button class="btn" data-rel="phs" aria-pressed="false">Half-sibling (same father)</button>
+    <button class="btn" data-rel="cous" aria-pressed="false">Cousin</button>
+    <button class="btn" data-rel="par" aria-pressed="false">Parent</button>
+    <button class="btn" data-rel="none" aria-pressed="false">No relative with ADHD</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="geIcons" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="An array of 100 people, with the expected number diagnosed shaded for the chosen relative, next to a ladder of published hazard ratios on a log scale with the chosen relative highlighted."></svg></div>
+      <p class="stage-cap" id="geIconCap"></p>
+    </div>
+    <aside class="note" id="geRelNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How much is inherited depends on how you measure it</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Design</th><th>Estimate</th><th>What it measures</th></tr></thead>
+    <tbody>
+      <tr><th>37 twin studies (mean)</th><td>74%</td><td>Twin heritability of diagnosis or symptom counts [[Faraone2019,Faraone2021]]</td></tr>
+      <tr><th>Same parent or teacher rates both twins</th><td>70–80%</td><td>Heritability falls to about 30–40% with self-ratings or different raters, mostly from rater effects and measurement error [[Faraone2019]]</td></tr>
+      <tr><th>Swedish twins, register diagnosis</th><td>88% (95% CI 83–92); adults 72% (56–84)</td><td>59,514 twins; shared environment non-significant [[Larsson2014]]</td></tr>
+      <tr><th>Adoption study</th><td>18% vs 6% vs 3%</td><td>ADHD in biological parents of children with ADHD, adoptive parents of adopted children with ADHD, parents of controls [[Sprich2000]]</td></tr>
+      <tr><th>SNP heritability, 2019 GWAS</th><td>0.216 (SE 0.014)</td><td>Common variants measured on genotyping arrays: about one-third of twin heritability [[Demontis2019,Faraone2019]]</td></tr>
+      <tr><th>Two largest GWAS</th><td>14–22%</td><td>Variation in liability explained by common variants; about 7,300 variants carry 90% of it [[Demontis2026,Demontis2023]]</td></tr>
+      <tr><th>Rare-variant burden</th><td>2.5%</td><td>Rare protein-truncating variants, exomes of 8,895 people with ADHD [[Demontis2026]]</td></tr>
+      <tr><th>Polygenic score (meta-analysis)</th><td>r ≈ 0.20; 3.6–4.0% of variance</td><td>12 effect sizes, N=40,088 [[Li2021PGS]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">What the genetics does and does not mean</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Heritable does not mean fixed or untreatable</h4><p>Heritability describes differences between people in a population. It does not say that 74% of one person's ADHD is "caused by genes", and it does not mean the environment cannot matter: gene–environment interplay is folded into the twin estimate. Calling a cause either "genetic" or "environmental" is, in Thapar's words, "unhelpful and incorrect". Treatments work whatever the cause: see <a href="#compare" data-go="compare">How well treatments work</a>. [[Faraone2021,Thapar2013]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>No genetic test can diagnose ADHD</h4><p>Known genetic risks are individually small or rare and raise risk for many conditions, so they "cannot be used for prediction, genetic testing or diagnostic purposes" beyond what a family history already tells you. The World Federation of ADHD consensus statement says genetic and brain findings help explain causes but are "not useful for diagnosing the disorder". Diagnosis comes from a careful history and assessment: see <a href="#criteria" data-go="criteria">DSM-5-TR criteria</a>. [[Thapar2013,Faraone2021]]</p></div>
+    <div class="card"><span class="tag dz">Shared genetics</span><h4>Genetic overlap with other conditions</h4><p>Of 219 traits tested, 43 had a significant genetic correlation (rg) with ADHD: years of schooling −0.53, intelligence −0.41, ever smoked 0.48, major depression 0.42, age at first birth −0.612, childhood obesity 0.22. Twin studies put the ADHD–autism genetic correlation above 0.50. Across 8 disorders, ADHD grouped with autism, Tourette syndrome and depression in an "early-onset neurodevelopmental" factor. An estimated 84–98% of ADHD-influencing variants are shared with other psychiatric disorders. [[Demontis2019,Faraone2019,PGCCDG2019,Demontis2023]]</p></div>
+    <div class="card"><span class="tag">History</span><h4>The candidate-gene era: DRD4 and DAT1</h4><p>Before genome-wide studies, researchers tested genes chosen from dopamine biology. A meta-analytic review found significant associations for DAT1 (SLC6A3), DRD4, DRD5, 5HTT, HTR1B and SNAP25, with effect sizes that varied across studies. Each has an odds ratio below 1.5. The DRD4 7-repeat association held in case-control and family studies and is "small" but real. Robust genome-wide loci came only from samples of more than 20,000 cases. [[Gizer2009,Faraone2019,Faraone2001DRD4,Demontis2019]]</p></div>
+    <div class="card"><span class="tag dz">Girls &amp; women</span><h4>A higher family load in diagnosed girls</h4><p>ADHD is diagnosed 2 to 7 times more often in males. In Swedish registers, siblings of affected females had a higher familial risk than siblings of affected males (OR 1.14, 95% CI 1.11–1.18), but common-variant polygenic scores were not higher in female cases (OR 1.02), so autosomal common variants do not explain the sex ratio. This fits a higher threshold in girls, and also under-recognition: see <a href="#women" data-go="women">Girls, women &amp; late diagnosis</a>. <span class="ev hyp">Hypothesis</span> [[Martin2018SexBias]]</p></div>
+    <div class="card"><span class="tag">Rare syndromes</span><h4>When one genetic change matters a lot</h4><p>High rates of ADHD occur in 22q11.2 deletion (velo-cardio-facial) syndrome, fragile X, Turner, tuberous sclerosis, neurofibromatosis, Klinefelter and Williams syndromes. In rare cases ADHD-like symptoms follow a single genetic abnormality, extreme early deprivation or early brain injury: see <a href="#risk" data-go="risk">Environment, risk &amp; myths</a>. [[Faraone2019,Faraone2021]]</p></div>
+    <div class="card"><span class="ev early">Open question</span><h4>The "missing heritability"</h4><p>Twins give 74–88%; common variants explain 14–22% and rare-variant burden about 2.5%. Explanations under study: many more rare variants (one exome study estimated 1,057 contributing genes), gene–environment interplay counted inside twin estimates, and rater effects. [[Faraone2019,Larsson2014,Demontis2026,Olfson2024,Thapar2013]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Genes and life outcomes: Mendelian randomisation</h4><p>Each doubling of genetic liability to ADHD went with 1.7 fewer months of education (95% CI −2.8 to −0.7), and genetic liability to more education lowered ADHD risk (OR 0.33 per SD). Genetic liability to ADHD may raise the risk of major depression (OR 1.21), and higher BMI may raise ADHD risk. [[Dardani2022,Riglin2021,MartinsSilva2019]]</p></div>
+  </div>
+  <div class="callout prose"><p><b>In plain words.</b> If one child has ADHD, a brother or sister is several times more likely to have it too. That is useful for families and clinicians to know. It is not a verdict: genes shape likelihood, and support, school adjustments and treatment shape how things go. [[Chen2017JCPP,Faraone2021]]</p></div>
 </section>

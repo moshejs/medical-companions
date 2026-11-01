@@ -1,5 +1,66 @@
-<!-- ================= 4.2 CBT, COACHING & ADULT SUPPORT (stub, replaced by its builder) ================= -->
+<!-- ================= 4.2 CBT, COACHING & ADULT SUPPORT ================= -->
+<style>
+#m-therapy .card>.ev,#m-therapy .card>.tag{align-self:flex-start}
+#m-therapy .thiv{display:flex;flex-wrap:wrap;gap:6px}
+#m-therapy .thiv .btn{font-size:13px;padding:6px 11px}
+#m-therapy .tbl table{min-width:560px}
+</style>
 <section class="mod" id="m-therapy" data-mod="therapy" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Behavioural &amp; psychological care</p><h2>CBT, coaching &amp; adult support</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Cognitive behavioural therapy for ADHD is mostly skills training: planning, organising, handling distraction and getting started. Watch the avoidance loop, then twelve sessions fill a week planner as they did in the best-known adult trial. Switch to the comparison arm to see what the control group received.</p></div>
+  <div class="ctrls" role="group" aria-label="Trial arm">
+    <span class="kicker">Trial arm (Safren 2010)</span>
+    <button class="btn" data-th-arm="cbt" aria-pressed="true">CBT</button>
+    <button class="btn" data-th-arm="ctl" aria-pressed="false">Comparison: relaxation + educational support</button>
+  </div>
+  <div class="stepper" id="thSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="thSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="On the left, a loop of four boxes: a thought such as 'I'll do it later', a feeling of overwhelm, avoidance, and short-term relief, while a pile of unfinished tasks grows. On the right, a week planner fills with planned tasks, short work blocks and a rewritten thought as the CBT modules are added, and a row of twelve session boxes fills in. In the last step, bars show responders in the CBT and comparison arms."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="thPlay">Play</button><label class="stage-cap tl" for="thT">Sessions <input type="range" id="thT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The loop and the planner entries are illustrations of what each module teaches. The module order and session counts, the comparison arm and the responder rates are from the published trial in 86 medication-treated adults. [[Safren2010]]</p>
+    </div>
+    <aside class="note" id="thNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Other adult trials</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Compared with</th><th>Main result</th></tr></thead>
+    <tbody>
+      <tr><th>Safren 2005 (pilot)</th><td>31 adults on stable medication</td><td>Medication alone</td><td>Responders 56% vs 13% [[Safren2005]]</td></tr>
+      <tr><th>Solanto 2010, meta-cognitive therapy</th><td>88 adults, 12 weekly groups on time management, organisation and planning</td><td>Supportive group therapy</td><td>Odds ratio for response 5.41 (95% CI 1.77 to 16.55) [[Solanto2010]]</td></tr>
+      <tr><th>R&amp;R2ADHD (Iceland)</th><td>95 medication-treated adults, 15 group and individual sessions</td><td>Treatment as usual</td><td>Better on blind clinician-rated and self-rated symptoms, kept at 3 months; anxiety and depression took longer [[Young2015RR2]]</td></tr>
+      <tr><th>COMPAS (Germany)</th><td>433 adults at 7 centres, 2×2 design for 1 year</td><td>Individual clinical management; methylphenidate vs placebo</td><td>Group therapy no better than clinical management on the blinded ADHD index (17.6 vs 16.5 at 3 months); methylphenidate beat placebo (16.2 vs 17.9) [[Philipsen2015]]</td></tr>
+      <tr><th>Janssen 2019, MBCT</th><td>120 adults, 8 weekly mindfulness groups plus usual treatment</td><td>Usual treatment</td><td>Clinician-rated difference −3.44 (d 0.41), kept at 6 months; 27% vs 4% reached a 30% reduction [[Janssen2019]]</td></tr>
+      <tr><th>Sprich 2016, adolescents</th><td>46 medicated 14- to 18-year-olds</td><td>Wait list, then crossover</td><td>Responders 50% vs 18% (parent report), 58% vs 18% (teen report) [[Sprich2016]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Pooled: CBT beat the wait list (SMD 0.76; 4 trials) and active controls (SMD 0.43; 3 trials), and adult gains lasted at least 12 months, with smaller effects in group DBT trials and trials with active controls. [[YoungZ2020,LopezPinar2018]]</p>
+
+  <h3 class="sub">The evidence ladder</h3>
+  <p class="prose">Every intervention here has been studied, but not to the same standard. Each row sits on a rung by its evidence label. Switch between the lenient and the strict comparison to watch the effect sizes move: for several treatments the effect shrinks or vanishes when the people rating the outcome do not know who was treated. Select a row for the details.</p>
+  <div class="ctrls" role="group" aria-label="Comparison">
+    <span class="kicker">Comparison</span>
+    <button class="btn" data-th-test="open" aria-pressed="true">Lenient: raters close to treatment, or a wait list</button>
+    <button class="btn" data-th-test="strict" aria-pressed="false">Strict: probably blinded, or an active control</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="thLadSvg" viewBox="0 0 720 490" style="min-width:560px" role="img" aria-label="An evidence ladder. Rows of interventions are grouped on rungs: established, early evidence, hypothesis, and no specific effect on blinded measures. Each row has a dot on a standardised-mean-difference scale from 0 to 1.2; switching from the lenient to the strict comparison moves the dots, and for neurofeedback, cognitive training and parent training's effect on ADHD symptoms they move towards zero."></svg></div>
+      <div class="thiv" id="thIv" role="group" aria-label="Choose an intervention"></div>
+      <p class="stage-cap">Effect sizes come from different meta-analyses and trials with different outcomes and comparators, so compare rows with care. The dashed line is methylphenidate in adults on clinician ratings (SMD 0.50), for scale. [[Gosling2025]]</p>
+    </div>
+    <aside class="note" id="thLadNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Before and around therapy</h3>
+  <div class="cards">
+    <div class="card"><span class="tag beh">First step</span><h4>Psychoeducation: understanding the diagnosis</h4><p>NICE asks clinicians to discuss with people after diagnosis both the positive effects (understanding symptoms, building on strengths, better access to services) and the negative ones, "such as stigma and labelling", and to talk about work, driving and relationships. As a minimum for adults, NICE recommends a structured supportive psychological intervention focused on ADHD, with regular follow-up. [[NICE2018F]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>How much psychoeducation?</h4><p>In a network meta-analysis of 113 adult RCTs, psychoeducation beat placebo on clinician-rated scales (SMD −0.77), but not on self-rated scales. In parent training, higher doses of psychoeducation went with worse parent outcomes. Information is a start, not a whole treatment. [[Ostinelli2025,Dekkers2022]]</p></div>
+    <div class="card"><span class="tag accent">NICE NG87 · adults</span><h4>When non-drug treatment is offered</h4><p>NICE suggests considering non-drug treatment for adults who have chosen not to take medication, have difficulty adhering, or found it ineffective or not tolerated, and combining it with medication for adults who still have significant impairment. It may include elements of, or a full course of, CBT. [[NICE2018F]]</p></div>
+    <div class="card"><span class="tag warn">Self-report, labelled</span><h4>What adults report helps</h4><p>These come from people's own accounts and uncontrolled studies, not trials. In a qualitative review of women diagnosed as adults, self-acceptance after diagnosis was a recurring theme. Adults who had coaching reported benefits, without a control group. NICE lists practical adherence supports: reminders such as apps, alarms or pill dispensers, linking doses to routines, and peer support groups. [[Attoe2023,Kubik2010,Prevatt2015,NICE2018F]]</p></div>
+    <div class="card"><span class="tag dx">Cost and access</span><h4>Who can get it, and from whom</h4><p>A family therapy for teenagers worked in a university trial, but delivered by community therapists it beat usual care only when the therapist was licensed (22% of the sample). Brief school-delivered programmes with sessions under 20 minutes did produce large gains. In a 2023 US survey, about half of adults with ADHD had used telehealth for ADHD care. [[Sibley2016STAND,Sibley2021STAND,Langberg2018,Staley2024]]</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Clinician-rated or self-rated?</h4><p>The 2025 umbrella review rated adult CBT as moderate-certainty evidence on clinician ratings (SMD 0.53), similar to methylphenidate (0.50). A component network meta-analysis found CBT, mindfulness, psychoeducation and cognitive remediation beat placebo only on clinician-rated scales; only stimulants and atomoxetine improved both self- and clinician-rated core symptoms at 12 weeks. [[Gosling2025,Ostinelli2025]]</p></div>
+  </div>
+  <p class="callout">These results describe groups of people and cannot predict how one person will respond. For the medicines that CBT usually accompanies, see <a href="#compare" data-go="compare">How well treatments work</a>; for daily life, see <a href="#living" data-go="living">Living with ADHD</a>.</p>
 </section>

@@ -1,5 +1,64 @@
-<!-- ================= 2.5 GIRLS, WOMEN & LATE DIAGNOSIS (stub, replaced by its builder) ================= -->
+<!-- ================= 2.5 GIRLS, WOMEN & LATE DIAGNOSIS ================= -->
+<style>
+#m-women .card>.ev,#m-women .card>.tag{align-self:flex-start}
+#m-women .split2 .card{height:100%}
+</style>
 <section class="mod" id="m-women" data-mod="women" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Recognising &amp; diagnosing</p><h2>Girls, women &amp; late diagnosis</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">ADHD is diagnosed far more often in boys, yet by adulthood the gap between men and women is much smaller. [[Hinshaw2022]] Follow two illustrative lives on one age axis to see where girls are missed, then compare the sex ratio across settings.</p></div>
+  <div class="ctrls" role="group" aria-label="Point of view for her timeline">
+    <span class="kicker">Her timeline</span>
+    <button class="btn" data-wv="out" aria-pressed="true">What others see</button>
+    <button class="btn" data-wv="in" aria-pressed="false">What she experiences</button>
+  </div>
+  <div class="stepper" id="wmSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="wmSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Two timelines from age 5 to 45. A boy with a hyperactive presentation is noticed early, with a diagnosis marker at age 8, the Danish incidence peak in boys. A girl with an inattentive presentation is quiet at school, struggles at the move to secondary school, is treated for anxiety or low mood, reaches the Danish incidence peak for girls at 17 and the Swedish mean age at first ADHD record, 23.5, about 4 years after the male mean of 19.6. Speech or thought bubbles show what others see or what she experiences."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="wmPlay">Play</button><label class="stage-cap tl" for="wmT">Age <input type="range" id="wmT" min="0" max="1" step="0.001" value="0.2"></label></div>
+      <p class="stage-cap"><b>Two illustrative lives, not real people.</b> Diamonds sit at published population ages: incidence peaks in Danish registers and mean ages at first ADHD record in Swedish registers. Circles are illustrations of patterns described in reviews. [[Dalsgaard2020JAMAPsych,Skoglund2024,Young2020Females,Hinshaw2022]]</p>
+    </div>
+    <aside class="note" id="wmNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How many boys per girl? It depends where you look</h3>
+  <div class="ctrls" role="group" aria-label="Setting">
+    <button class="btn" data-wr="all" aria-pressed="true">All settings</button>
+    <button class="btn" data-wr="ref" aria-pressed="false">Referred children</button>
+    <button class="btn" data-wr="com" aria-pressed="false">Community children</button>
+    <button class="btn" data-wr="adu" aria-pressed="false">Adults</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="wmCmp" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Paired bars of the share of males and females among people with ADHD in seven settings: about 91 to 9 in clinic-referred children, 75 to 25 in community samples, about 70 to 30 in other community and youth data, and 56 to 44 among US adults with current ADHD."></svg></div>
+      <p class="stage-cap">Ratios converted to shares of cases. Sources, top to bottom: [[Biederman2002Gender]] (two rows), [[Ramtekkar2010]], [[Faraone2021]], [[Xu2018]], [[Cortese2026GBD]], [[Staley2024]]. Population statistics.</p>
+    </div>
+    <aside class="note" id="wmCmpNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Assessing girls and women</h3>
+  <div class="split2">
+    <div class="card"><span class="tag dx">Assessment</span><h4>What a careful adult assessment includes</h4><ul>
+      <li>Collateral history from a parent or carer, or someone who has known the person well for 5 years or more, plus school, college or work reports where available. [[Young2020Females]]</li>
+      <li>Female norms on rating scales where they exist, with cut-offs read cautiously: rigid use gives both false positives and false negatives. [[Young2020Females]]</li>
+      <li>Questions about compensatory strategies, emotional dysregulation, self-harm and eating patterns, and a look for co-occurring autism, tics, mood, anxiety and eating disorders. [[Young2020Females]]</li>
+      <li>Whether problems are trait-like (more typical of ADHD) or episodic. [[Young2020Females]] Satisfactory academic achievement should not rule out ADHD. [[Quinn2014]]</li>
+    </ul></div>
+    <div class="card"><span class="tag dx">Informants</span><h4>Who reports changes the answer</h4><p>In hyperactive children followed to age 19–25, ADHD persisted in 5% by self-report but 46% by parent report. [[Barkley2002]] In 283 children with high symptoms, parents under-rated diagnosed girls' hyperactive-impulsive symptoms compared with an interviewer, and over-rated boys'; emotional problems especially distinguished the girls who met full criteria. [[Mowlem2019]]</p><p>The authors suggest girls' ADHD may need extra emotional or behavioural problems before it is "made more prominent" enough to meet criteria. [[Mowlem2019]]</p></div>
+  </div>
+
+  <h3 class="sub">Hormones, pregnancy and later life</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>Puberty and hormonal change</h4><p>The female ADHD consensus states that hormonal transitions, starting with puberty, may change ADHD symptoms, and suggests that women track their symptoms across these periods. [[Young2020Females]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Postpartum and menopause</h4><p>The same consensus lists the postpartum period and menopause as transitions that may change symptoms, again with a suggestion to track them rather than firm evidence of how often or how much. [[Young2020Females]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Pregnancy and medicines</h4><p>Among 4,717 Danish pregnancies with ADHD medication use, about 60% stopped or paused. [[BangMadsen2024]] In US Medicaid data, stimulants were linked to small absolute increases in preeclampsia and preterm birth; the authors conclude women with significant ADHD "should not be counseled to suspend their ADHD treatment based on these findings". [[Cohen2017Placenta]] In 861,650 Swedish children, exposure in the womb was not linked to neurodevelopmental disorders. [[BangMadsen2025]] Decisions are individual and made with the prescriber; the labels point to a pregnancy registry. [[FDA-Concerta,FDA-Vyvanse]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Why recognition matters</h4><p>In a 10-year follow-up of 140 girls with ADHD, those with childhood ADHD had more impairment and higher rates of suicide attempts and self-injury than comparison girls, concentrated in the combined type. [[Hinshaw2012Girls]] Females with ADHD have heightened risks in close relationships, self-harm, intimate partner violence and unplanned pregnancy. [[Hinshaw2022]] In Denmark, the ADHD-linked mortality rate ratio was 2.85 in girls and women versus 1.27 in boys and men, after excluding major co-occurring conditions (population statistics). [[Dalsgaard2015]]</p></div>
+  </div>
+
+  <h3 class="sub">Both risks are real</h3>
+  <div class="split2">
+    <div class="card"><span class="tag bad">Under-diagnosis</span><h4>Missed or misdiagnosed</h4><p>Clinic ratios of up to 16:1 against about 3:1 in the community point to under-recognition of girls. [[Young2020Females,Biederman2002Gender]] Females are recorded with ADHD about 4 years later, after more contact with services for other problems. [[Skoglund2024]] Adults' ADHD symptoms are often mistaken for depression, anxiety or alcohol problems. [[Ginsberg2014]] <span class="ev est">Established</span> for under-referral; the size of any true sex difference is debated.</p></div>
+    <div class="card"><span class="tag warn">Over-diagnosis</span><h4>Labels that may not fit</h4><p>A scoping review of 334 studies found <span class="ev early">Early evidence</span> of overdiagnosis at the milder end in children. [[Kazda2021]] With repeated assessments from several informants, about 95% of apparent late-onset cases were excluded, most often because symptoms occurred only with heavy substance use. [[Sibley2018LateOnset]] Feigned ADHD is hard to detect on self-report questionnaires. [[Musso2014]] A careful history guards against both errors.</p></div>
+  </div>
+  <p class="stage-cap">How ADHD looks at each age: <a href="#signs" data-go="signs">2.1 Signs across the lifespan</a>. Conditions that mimic or accompany ADHD: <a href="#differential" data-go="differential">2.4 Look-alikes</a>. Screeners as teaching tools: <a href="#scales" data-go="scales">2.3 Rating scales</a>.</p>
 </section>

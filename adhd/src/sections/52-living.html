@@ -1,5 +1,106 @@
-<!-- ================= 5.2 LIVING WITH ADHD (stub, replaced by its builder) ================= -->
+<!-- ================= 5.2 LIVING WITH ADHD ================= -->
+<style>
+#m-living .lv-plan{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+#m-living .lv-plan li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14.5px;display:flex;flex-direction:column;gap:6px}
+#m-living .lv-plan li .lv-lab{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-living .lv-plan li a{font-size:13.5px;font-weight:700}
+#m-living .lv-set{display:flex;flex-direction:column;gap:12px}
+#m-living .card>.ev,#m-living .card>.tag{align-self:flex-start}
+#m-living .lv-lang td:first-child{color:var(--bad)}
+#m-living .lv-lang td:nth-child(2){color:var(--good);font-weight:700}
+#m-living .lv-lang table{min-width:560px}
+#m-living .lv-grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media (max-width:900px){#m-living .lv-grid2{grid-template-columns:minmax(0,1fr)}}
+</style>
 <section class="mod" id="m-living" data-mod="living" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living with ADHD</p><h2>Living with ADHD</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">One day, hour by hour, for a teenager or an adult with ADHD: what tends to be hard at each time, and which strategies have guidelines or trials behind them. Then school, university and workplace supports, driving, pregnancy, sleep, family and the words we use.</p></div>
+  <div class="ctrls" role="group" aria-label="Whose day">
+    <span class="kicker">Whose day</span>
+    <button class="btn" data-lvwho="teen" aria-pressed="true">A teenager at school</button>
+    <button class="btn" data-lvwho="adult" aria-pressed="false">An adult at work</button>
+    <button class="btn" id="lvCover" aria-pressed="true">Show a schematic medicine-cover curve</button>
+  </div>
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A day from 6 in the morning to midnight. A clock turns, the sun crosses the sky and sets, and the scene changes with the time: a morning checklist, a pupil or worker at a desk with headphones and a movement break, exercise in the afternoon, focus blocks at homework, an evening drive, and bedtime. Below, a schematic medicine-cover curve rises after a morning dose and fades by evening, and a coloured ribbon marks the parts of the day."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">Play</button><label class="stage-cap tl" for="lvT">Time of day <input type="range" id="lvT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="lvRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The people and scenes are illustrations. The medicine-cover curve is the general shape of one long-acting morning dose, not a dosing guide: real curves differ by medicine, dose and person (see <a href="#release" data-go="release">Formulations &amp; the daily curve</a>). Each strategy carries its evidence label and source.</p>
+    </div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+  <h3 class="sub" id="lvPlanH">Strategies at this time of day</h3>
+  <ul class="lv-plan" id="lvPlan" aria-live="polite"></ul>
+  <p class="stage-cap">Labels: <span class="tag accent">Guideline</span> a NICE or AAP recommendation · <span class="tag rx">Label</span> a US prescribing label statement, quoted as published · <span class="ev est">Established</span> · <span class="ev early">Early evidence</span> · <span class="tag warn">Little evidence</span> common practice that studies have not supported · <span class="tag">Population data</span> group averages, not predictions · <span class="tag">Practical tip</span> not tested in a trial identified here.</p>
+
+  <h3 class="sub">Supports at school, university and work</h3>
+  <p class="prose">Each setting has its own words and rules. The summaries below describe what guidelines and studies say, not legal advice; local law and policy decide what applies.</p>
+  <div class="ctrls" role="group" aria-label="Setting">
+    <button class="btn" data-lvset="us" aria-pressed="true">School (US)</button>
+    <button class="btn" data-lvset="uk" aria-pressed="false">School (UK)</button>
+    <button class="btn" data-lvset="uni" aria-pressed="false">University</button>
+    <button class="btn" data-lvset="work" aria-pressed="false">Workplace</button>
+  </div>
+  <div class="lv-set" id="lvSet" aria-live="polite"></div>
+
+  <h3 class="sub">Driving</h3>
+  <div class="lv-grid2">
+    <div class="stage">
+      <div class="scroll"><svg id="lvDrive" viewBox="0 0 520 300" style="min-width:420px" role="img" aria-label="Bar chart of crash risk in drivers with ADHD compared with drivers without ADHD. The relative risk is 1.36 without adjustment, 1.29 after correcting for publication bias and 1.23 after controlling for distance driven. Where most drivers also had oppositional defiant or conduct disorder it was 1.86, and 1.31 without them. A dashed outline shows the older fourfold claim, which the meta-analysis rejected."></svg></div>
+      <div class="ctrls"><button class="btn" id="lvDrvMed" aria-pressed="false">Add: months on versus off medication</button></div>
+      <p class="stage-cap">Relative risk against drivers without ADHD. Population statistics from a meta-analysis of 16 studies and a US claims study. [[Vaa2014,Chang2017Crash]]</p>
+    </div>
+    <div class="cards" style="grid-template-columns:minmax(0,1fr)">
+      <div class="card"><span class="ev est">Established</span><h4>A modest raised risk, not "fourfold"</h4><p>After controlling for distance driven, drivers with ADHD had a crash relative risk of 1.23 (95% CI 1.04–1.46), similar to drivers with cardiovascular disease. The meta-analysis rejected the older claim of a roughly fourfold risk; risk was higher where most drivers also had oppositional defiant or conduct disorder. [[Vaa2014]]</p></div>
+      <div class="card"><span class="tag">Population data</span><h4>New drivers and older drivers</h4><p>Newly licensed New Jersey drivers with ADHD had an adjusted crash rate ratio of 1.62 in their first month, and 3.6 times the rate of alcohol and/or drug violations in their first year. [[Curry2019]] In 2,832 drivers aged 65–79, ADHD was linked to more self-reported crashes (aIRR 1.74). [[Liu2023Drivers]]</p></div>
+      <div class="card"><span class="ev early">Early evidence</span><h4>Medication and crashes</h4><p>Comparing the same people on and off medication, US months on ADHD medication had lower odds of a crash-related emergency visit (men OR 0.62, women OR 0.58). [[Chang2017Crash]] In Sweden, starting medication was associated with fewer first transport accidents: 24.0 versus 27.5 per 1000 person-years. [[Zhang2025BMJ]] These are observational designs. More in <a href="#outcomes" data-go="outcomes">Course &amp; outcomes</a>.</p></div>
+      <div class="card"><span class="tag accent">Guideline</span><h4>What the guidelines say</h4><p>AAP 2019 asks for "special concern" to provide medication coverage while adolescents drive. [[Wolraich2019]] NICE asks clinicians to discuss that ADHD may impair driving and that medication may improve it, and notes that in the UK people with ADHD must tell the DVLA if their symptoms or medication affect their ability to drive safely. [[NICE2018F]]</p></div>
+    </div>
+  </div>
+
+  <h3 class="sub">Pregnancy and breastfeeding</h3>
+  <div class="lv-grid2">
+    <div class="stage">
+      <div class="scroll"><svg id="lvPreg" viewBox="0 0 520 330" style="min-width:420px" role="img" aria-label="Two charts. Top: of 4,717 Danish pregnancies with ADHD medication around pregnancy, 23.3% continued, 41.8% stopped, 17.2% paused and restarted after birth, and 17.7% started after birth. Bottom: major malformations per 1000 infants in US Medicaid data: 35.0 unexposed, 45.9 after first-trimester methylphenidate and 45.4 after amphetamines; the adjusted relative risks were not significant."></svg></div>
+      <div class="ctrls"><button class="btn" id="lvPregRR" aria-pressed="false">Show adjusted relative risks</button></div>
+      <p class="stage-cap">Register studies: observational population data, not a recommendation to stop or continue a medicine. [[BangMadsen2024,Huybrechts2018]]</p>
+    </div>
+    <div class="cards" style="grid-template-columns:minmax(0,1fr)">
+      <div class="card"><span class="ev est">Established</span><h4>Child development: mostly reassuring</h4><p>In 861,650 Swedish children, exposure in the womb to methylphenidate, amphetamines or atomoxetine was not linked to any neurodevelopmental disorder (aHR 0.95); pooled with Danish data, HR 1.00. [[BangMadsen2025]] Danish children whose mothers continued medication had no higher risk than those whose mothers stopped before pregnancy (aHR 0.97). [[BangMadsen2023]] A US link between methylphenidate and child ADHD disappeared with stricter control for maternal ADHD. [[Suarez2024]]</p></div>
+      <div class="card"><span class="ev early">Early evidence</span><h4>Malformations and pregnancy outcomes</h4><p>First-trimester methylphenidate had an adjusted RR of 1.28 (1.00–1.64) for cardiac malformations, at the edge of significance; amphetamines showed no increase (0.96). [[Huybrechts2018]] Atomoxetine: any major malformation 0.99 (0.74–1.34). [[Broms2023]] Stimulants in early pregnancy were linked to preeclampsia (aRR 1.29), with small absolute increases; the authors say women with significant ADHD "should not be counseled to suspend their ADHD treatment based on these findings". [[Cohen2017Placenta]] Swedish data showed more neonatal intensive care admissions (aOR 1.5), with uncertainty about how much the medicine explains. [[Norby2017]]</p></div>
+      <div class="card"><span class="tag rx">Label</span><h4>Breastfeeding, as the US labels state</h4><p>Methylphenidate (Concerta): infant doses of 0.16% to 0.7% of the mother's weight-adjusted dose in limited sampling; monitor for agitation, poor sleep, feeding changes and reduced weight gain. [[FDA-Concerta]] Amphetamines (Adderall XR, Vyvanse): relative infant doses of 2% to 13.8%; "breastfeeding is not recommended". [[FDA-AdderallXR,FDA-Vyvanse]] Atomoxetine: no data in human milk. [[FDA-Strattera]] Viloxazine (Qelbree): "may cause maternal harm; discontinue when pregnancy is recognized" unless benefits outweigh the risk. [[FDA-Qelbree]] Several labels point to the National Pregnancy Registry for ADHD Medications. [[FDA-Concerta,FDA-Vyvanse,FDA-Strattera,FDA-Intuniv]]</p></div>
+    </div>
+  </div>
+  <p class="callout">In Denmark, ADHD medication fills in pregnancy rose from 0.08 to 7.71 per 1000 pregnancies between 2005 and 2022. [[Madsen2025Fills]] This guide's research found no dedicated pregnancy guideline, so decisions are an individual risk–benefit discussion with the prescriber. A systematic review covers maternal ADHD, birth outcomes and early development alongside the medicines. [[KittelSchneider2021]]</p>
+
+  <h3 class="sub">Sleep, family and moving to adult care</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Sleep problems are common</h4><p>Unmedicated children with ADHD have more bedtime resistance, trouble falling asleep, night waking and difficulty waking in the morning (16 studies). [[Cortese2009Sleep]] Stimulants lengthen sleep latency and shorten total sleep in trials with objective measures. [[Kidwell2015]] A two-session sleep hygiene programme cut moderate to severe sleep problems from 56% to 30% (NNT 3.9). [[Hiscock2015]]</p></div>
+    <div class="card"><span class="tag bad">Safety</span><h4>Melatonin: helps sleep onset, store it safely</h4><p>Melatonin brought sleep onset 26.9 minutes earlier in unmedicated children with insomnia, with no effect on daytime behaviour. [[VanderHeijden2007]] In the US it is sold as a dietary supplement; content in 31 tested products ranged from −83% to +478% of the label, [[Erland2017]] and poison-centre reports of child ingestions rose 530% from 2012 to 2021. [[Lelak2022]]</p></div>
+    <div class="card"><span class="tag accent">Family</span><h4>Siblings, parents and a parent with ADHD</h4><p>In a UK survey, siblings of children with ADHD reported lower happiness with life and family, and sibling bullying was more common. [[Peasgood2016]] Parents of youths with ADHD were more likely to divorce, and sooner. [[Wymbs2008]] Parental ADHD symptoms explained only 2.9% of the variance in harsh parenting, similar to other parental mental health conditions. [[Park2017Parenting]] NICE asks clinicians to consider the needs of a parent who also has ADHD, including help with organisation, adherence and school routines, and to encourage carers to seek an assessment of their own needs. [[NICE2018F]]</p></div>
+    <div class="card"><span class="tag">Population data</span><h4>The move to adult services</h4><p>In a UK surveillance study, 64% of young people on ADHD medication had a referral accepted, 22% attended a first adult appointment and 6% had an optimal transition. [[Eke2020]] NICE says transition "should usually be completed by the time the young person is 18 years"; AAP suggests starting to plan at about age 14. [[NICE2018F,Wolraich2019]] See <a href="#nursing" data-go="nursing">Nursing care</a>.</p></div>
+    <div class="card"><span class="tag dz">Often missed</span><h4>Girls and women</h4><p>A UK expert consensus says the gap in diagnosis partly reflects under-recognition and referral bias in girls, and advises attention to "more subtle and/or internalised" presentations and to coping strategies that mask symptoms. [[Young2020Females]] More in <a href="#women" data-go="women">Girls, women &amp; late diagnosis</a>.</p></div>
+    <div class="card"><span class="tag">Population data</span><h4>Relationships and teenage parenthood</h4><p>Research on adults points to "short-lived and discordant" romantic relationships, with little work on what protects against this. [[Wymbs2021]] In Danish registers, young women with ADHD were more likely to become parents at 12–16 (IRR 3.62); the authors suggest offering sexual education and contraceptive counselling. [[Ostergaard2017]]</p></div>
+  </div>
+
+  <h3 class="sub">Words that help, words that hurt</h3>
+  <p class="prose">Stigma is an underestimated risk factor for poor adherence and lower wellbeing; doubt about whether the diagnosis is valid is one of its main sources. [[Mueller2012]] The World Federation consensus was written because misconceptions "stigmatize affected people, reduce credibility of providers, and prevent/delay treatment". [[Faraone2021]]</p>
+  <div class="tbl lv-lang"><table>
+    <thead><tr><th>Instead of</th><th>Try</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>"an ADHD kid", "ADHDer" (in clinical writing)</td><td>a child or person with ADHD</td><td>Person-first wording keeps the person in front of the diagnosis.</td></tr>
+      <tr><td>"lazy", "not trying"</td><td>finds it hard to start or finish tasks</td><td>ICD-11 places ADHD among neurodevelopmental disorders, and twin studies put its heritability at about 74%. [[Posner2020,Faraone2019]]</td></tr>
+      <tr><td>"bad parenting"</td><td>a child with above-average parenting needs</td><td>NICE: a recommendation for parent training "does not imply bad parenting". [[NICE2018F]]</td></tr>
+      <tr><td>"they'll grow out of it"</td><td>symptoms often change with age</td><td>At 25, about 15% still met full criteria and about 65% when partial remission was counted. [[Faraone2006]]</td></tr>
+      <tr><td>"the pills change who you are"</td><td>medicine treats symptoms</td><td>NICE asks clinicians to "tell people that medication does not change personality". [[NICE2018F]]</td></tr>
+      <tr><td>"it's not a real condition"</td><td>a diagnosis made after a full assessment</td><td>208 evidence-based conclusions, 80 authors from 27 countries. [[Faraone2021]]</td></tr>
+      <tr><td>"suffers from ADHD"</td><td>has ADHD, lives with ADHD</td><td>Neutral wording; NICE asks clinicians to discuss positive effects of diagnosis as well as "stigma and labelling". [[NICE2018F]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Extended time is the most common school accommodation but has little ADHD-specific evidence; skill-building beat accommodations in an RCT. Drivers with ADHD: crash RR about 1.23 after mileage adjustment. About 60% of Danish women stop or pause ADHD medication around pregnancy. [[Lovett2021,Harrison2020,Vaa2014,BangMadsen2024]]</div>
+    <div class="pt"><b>In plain words</b>ADHD is nobody's fault. Supports work best when they teach skills, planning covers the hard times of day such as driving and bedtime, and big decisions, like medicine in pregnancy, are made together with the prescriber. [[NICE2018F,Wolraich2019]]</div>
+  </div>
 </section>

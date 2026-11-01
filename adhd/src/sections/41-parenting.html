@@ -1,5 +1,104 @@
-<!-- ================= 4.1 PARENT TRAINING & CLASSROOM SUPPORT (stub, replaced by its builder) ================= -->
+<!-- ================= 4.1 PARENT TRAINING & CLASSROOM SUPPORT ================= -->
+<style>
+#m-parenting .card>.ev,#m-parenting .card>.tag{align-self:flex-start}
+#m-parenting .tbl table{min-width:560px}
+#m-parenting .ptsup{display:flex;flex-wrap:wrap;gap:6px}
+#m-parenting .ptev{display:flex;flex-direction:column;gap:10px}
+#m-parenting .ptev .card{padding:12px 14px;gap:6px}
+#m-parenting .ptev .card h4{font-size:16.5px}
+#m-parenting .ptev .card p{font-size:14px}
+#m-parenting .ptev .card .chips{gap:5px}
+#m-parenting .ptnum{font:700 22px/1 var(--display);color:var(--beh)}
+</style>
 <section class="mod" id="m-parenting" data-mod="parenting" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Behavioural &amp; psychological care</p><h2>Parent training &amp; classroom support</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Behavioural parent training teaches practical tools for what happens before and after a child's behaviour. It is not a verdict on anyone's parenting. Step through one morning routine, then switch on the escalation loop to see what the tools are meant to replace.</p></div>
+  <div class="ctrls" role="group" aria-label="Scenario">
+    <span class="kicker">Scenario</span>
+    <button class="btn" data-pt-mode="with" aria-pressed="true">With strategies</button>
+    <button class="btn" data-pt-mode="coer" aria-pressed="false">Coercive cycle (schematic)</button>
+  </div>
+  <div class="stepper" id="ptSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ptSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A parent and a child during a morning routine. Three boxes across the top, antecedent, behaviour and consequence, light up in turn as the parent gives an instruction, the child responds and the parent responds back. A toolkit list on the right ticks off clear instructions, specific praise, planned ignoring, calm limits and tokens; in the last step it turns into bars comparing effects rated by parents with effects rated by blinded assessors. In the coercive-cycle scenario the instructions get louder, the child refuses, the parent gives in, and a conflict meter climbs."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ptPlay">Play</button><label class="stage-cap tl" for="ptT">Session <input type="range" id="ptT" min="0" max="1" step="0.001" value="0.07"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The family scene illustrates techniques that manuals combine (one meta-analysis coded 39 of them); it is not a script, and the conflict meter is drawn, not measured. The bars in step 6 are pooled effect sizes from randomised trials, which describe groups, not any one family. [[Dekkers2022,Daley2014]]</p>
+    </div>
+    <aside class="note" id="ptNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the guidelines say, by age</h3>
+  <div class="cards">
+    <div class="card"><span class="tag beh">AAP 2019 · ages 4 to 5</span><h4>Behavioural treatment first</h4><p>For preschool children, the clinician "should prescribe evidence-based PTBM and/or behavioral classroom interventions as the first line of treatment, if available" (grade A for parent training). Methylphenidate "may be considered" if these do not bring enough improvement and moderate-to-severe disturbance continues. Before age 4, parent training "does not require a diagnosis to be applied". [[Wolraich2019]]</p></div>
+    <div class="card"><span class="tag beh">AAP 2019 · ages 6 to 11</span><h4>Medication plus behavioural support, "preferably both"</h4><p>The clinician should prescribe FDA-approved ADHD medication along with parent training and/or behavioural classroom intervention, "preferably both". Educational supports are "a necessary part of any treatment plan". For adolescents, medication is prescribed "with the adolescent's assent", and behavioural or training interventions are encouraged if available. [[Wolraich2019]]</p></div>
+    <div class="card"><span class="tag beh">NICE NG87 · under 5</span><h4>Group parent training is first-line</h4><p>NICE recommends offering an ADHD-focused group parent-training programme to parents or carers of children under 5 as first-line treatment. ADHD medication should not be offered to any child under 5 without a second specialist opinion from an ADHD service with expertise in young children. [[NICE2018F]]</p></div>
+    <div class="card"><span class="tag beh">NICE NG87 · 5 and over</span><h4>Parent training when there is defiance, and individual formats</h4><p>For children aged 5 and over with ADHD and oppositional or conduct symptoms, NICE recommends offering parents a parent-training programme as well as group ADHD-focused support. Individual parent training is considered when a family finds group sessions hard to attend. Medication is offered only if impairment persists after environmental changes have been made and reviewed. [[NICE2018F]]</p></div>
+    <div class="card"><span class="tag good">Language</span><h4>"Does not imply bad parenting"</h4><p>NICE tells clinicians to explain that recommending parent training "does not imply bad parenting": its aim is to meet "the above-average parenting needs" of children with ADHD. When the parent also has ADHD, NICE asks clinicians to think about extra help with organisation, adherence and school routines. [[NICE2018F]]</p></div>
+    <div class="card"><span class="tag accent">Preschool evidence</span><h4>The strongest data are in young children</h4><p>In a US review of preschoolers at high risk for ADHD, 8 good-quality parent-training studies (424 children) pooled to SMD −0.68 for child behaviour, with high strength of evidence; only one good study tested methylphenidate. A meta-analysis of 16 preschool studies found parent-rated effects of g 0.51 on ADHD symptoms, but on independent assessment only negative parenting improved. [[Charach2013,Rimestad2019]]</p></div>
+  </div>
+
+  <h3 class="sub">Blinded or not: why the same treatment gets different numbers</h3>
+  <div class="prose">
+    <p>Parents who deliver the training also rate the results. The European ADHD Guidelines Group therefore split outcomes into ratings by the people closest to treatment and "probably blinded" ratings by people unlikely to know who had been treated. On blinded ratings the gains in parenting and conduct held up, but the effect on core ADHD symptoms did not. [[Daley2014,SonugaBarke2013]]</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Outcome (32 RCTs)</th><th>Rated by people close to treatment</th><th>Probably blinded rating</th><th>Reading</th></tr></thead>
+    <tbody>
+      <tr><th>Positive parenting</th><td>SMD 0.68</td><td>SMD 0.63</td><td>Holds up when blinded</td></tr>
+      <tr><th>Negative parenting</th><td>SMD 0.57</td><td>SMD 0.43</td><td>Holds up when blinded</td></tr>
+      <tr><th>Child conduct problems</th><td>SMD 0.26</td><td>SMD 0.31</td><td>Holds up when blinded</td></tr>
+      <tr><th>Child ADHD symptoms</th><td>SMD 0.35</td><td>not significant</td><td>No blinded evidence</td></tr>
+      <tr><th>Social skills · academic · parenting self-concept</th><td>SMD 0.47 · 0.28 · 0.37</td><td>not reported here</td><td>Unblinded only</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sources: [[Daley2014]]. Parents' own mental well-being did not improve on blinded evidence. [[Daley2014]]</p>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Controversy</span><h4>Front-line for core symptoms?</h4><p>On blinded evidence, behavioural intervention "cannot be supported as a front-line treatment for core ADHD symptoms", yet it is an important part of multimodal care because it improves parenting and reduces oppositional behaviour. A meta-analysis that counted all designs found effect sizes of 0.83 (between-group) to 3.78 (single-subject) and called behavioural treatment "highly effective". [[Daley2018,Fabiano2009]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Classed "well-established"</h4><p>Under Society of Clinical Child and Adolescent Psychology criteria, behavioural parent training, behavioural classroom management, behavioural peer interventions and organisation training are "well-established". The 2018 update found children of more educated parents over-represented in trials. [[Evans2014,Evans2018]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Which parts do the work?</h4><p>Across 29 RCTs, techniques that change the setting before behaviour went with better parent competence and mental health, and more reinforcement of wanted behaviour went with bigger drops in negative parenting. More psychoeducation went with worse parent outcomes. In pooled individual data from 19 RCTs, gains in parenting and warmth tracked gains in the child, in both directions. [[Dekkers2022,Psyllou2025]]</p></div>
+    <div class="card"><span class="tag accent">Umbrella review 2025</span><h4>Low certainty across the board</h4><p>Across 221 re-estimated meta-analyses, no non-drug intervention for children reached moderate or high certainty for ADHD symptoms, and no intervention of any kind had high-certainty long-term evidence. Guidelines still recommend parent training for mild-to-moderate ADHD and oppositional behaviour. [[Gosling2025]]</p></div>
+  </div>
+
+  <h3 class="sub">The classroom: what each support targets</h3>
+  <p class="prose">Switch supports on and off, then play a 40-minute lesson. The pupil is drawn to show what each support is aimed at, not a measured effect; the evidence for each one is listed beside the scene. Daily report cards and organisation training have trial evidence; most accommodations, such as extended time, do not have ADHD-specific evidence. [[Lovett2021]]</p>
+  <div class="ptsup" role="group" aria-label="Classroom supports">
+    <button class="btn" data-pt-sup="drc" aria-pressed="true">Daily report card</button>
+    <button class="btn" data-pt-sup="seat" aria-pressed="false">Seating &amp; fewer distractions</button>
+    <button class="btn" data-pt-sup="chunk" aria-pressed="false">Short work blocks</button>
+    <button class="btn" data-pt-sup="move" aria-pressed="false">Movement break</button>
+    <button class="btn" data-pt-sup="ost" aria-pressed="false">Organisational skills training</button>
+    <button class="btn" data-pt-sup="acc" aria-pressed="false">Extended time</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ptClsSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A pupil at a desk in a classroom with a board on the left and a window on the right. As supports are switched on, the desk moves closer to the board, distractions at the window fade, the worksheet is split into short blocks with a timer, the pupil stands for a movement break halfway through, an organised binder appears, and at the end of the lesson the teacher ticks goals on a daily report card."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ptClsPlay">Play</button><label class="stage-cap tl" for="ptClsT">Lesson <input type="range" id="ptClsT" min="0" max="1" step="0.001" value="0.9"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The pupil's fidgeting and focus beam change to show the target of each support. They are not effect sizes. The examples of adjustments are NICE's. [[NICE2018F]]</p>
+    </div>
+    <aside class="note ptev" id="ptClsNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>School-intervention studies</th><th>Between-group designs</th><th>Within-subject / pre-post</th><th>Single-subject</th></tr></thead>
+    <tbody>
+      <tr><th>DuPaul 2012 (60 studies, 1996–2010)</th><td>0.18 (not significant)</td><td>0.72</td><td>2.20</td></tr>
+      <tr><th>Fabiano 2009 (174 studies, all behavioural treatment)</th><td>0.83</td><td>0.70 (pre-post) · 2.64 (within-group)</td><td>3.78</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">The same kind of treatment gives very different numbers depending on the study design, which is one reason reviews disagree. A UK review of 36 meta-analysed school RCTs found effects from very small to large, with substantial heterogeneity. [[DuPaul2012,Fabiano2009,Richardson2015]]</p>
+
+  <h3 class="sub">School plans, explained neutrally</h3>
+  <div class="split2">
+    <div class="card"><span class="tag dx">United States</span><h4>504 plans and IEPs</h4><p>The AAP notes that ADHD qualifies as a disability under a Section 504 plan, but qualifies for an Individualized Education Program (under "other health impairment") only when its severity impairs the child's ability to learn. In 97 US middle-school students with ADHD, 61.9% had an IEP and 38.1% a 504 plan; the services listed often had "little to no research supporting their effectiveness", and services with evidence were rarely included. Fewer than half of IEPs had measurable goals for the behaviour problems they described. [[Wolraich2019,Spiel2014]]</p></div>
+    <div class="card"><span class="tag dx">United Kingdom</span><h4>Contact with school, and reasonable adjustments</h4><p>NICE asks clinicians, with consent, to contact the school, college or university at diagnosis, when symptoms change and at each transition, covering the treatment plan, special educational needs and "reasonable adjustments and environmental modifications". NICE advises against universal screening for ADHD in schools. When a child with conduct problems and suspected ADHD is referred to the school's special educational needs coordinator (SENCO), parents should be told about local parent-training programmes. [[NICE2018F]]</p></div>
+  </div>
+
+  <h3 class="sub">Teenagers, social skills and the research-to-practice gap</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>STAND: works in trials, harder in clinics</h4><p>Parent-teen skills therapy with motivational interviewing improved ADHD symptoms, organisation and parenting stress in a university RCT of 128 adolescents, with 85% of families completing it. Delivered by community therapists to 278 adolescents, it did not beat usual care overall; it did when therapists were licensed (22% of the sample), and it raised parent participation and medication engagement. [[Sibley2016STAND,Sibley2021STAND]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>CBT for medicated teenagers</h4><p>In 46 medication-treated adolescents aged 14 to 18 with persistent symptoms, CBT lowered the blind-evaluator-rated parent-report score by a mean 10.93 points; responders were 50% versus 18% by parent report. See <a href="#therapy" data-go="therapy">CBT, coaching &amp; adult support</a>. [[Sprich2016]]</p></div>
+    <div class="card"><span class="tag bad">No clinically relevant effect</span><h4>Social skills training</h4><p>A Cochrane review of 25 RCTs (2,690 children) found SMD 0.11 on teacher-rated social skills, about 1.22 points on a 0–102 scale where the smallest clinically relevant difference is 10. The AAP says social skills training has not been shown to be effective for children with ADHD. [[Storebo2019,Wolraich2019]]</p></div>
+    <div class="card"><span class="tag accent">Formats</span><h4>Group, individual, generic or ADHD-specific</h4><p>All formats have reported benefits, and experts advise respecting parents' preference. They found no reason to limit behavioural treatment to families with parenting difficulties or children with conduct problems; treating a parent's depression may increase the effect. Preschool programmes are typically group-based and may be relatively low cost, though not always covered by insurance. [[Daley2018,Wolraich2019]]</p></div>
+  </div>
+  <p class="callout">How parent training sits beside medication over years is the subject of <a href="#mta" data-go="mta">The MTA study &amp; long-term treatment</a>, including a trial that compared starting with behavioural treatment against starting with medication.</p>
 </section>
