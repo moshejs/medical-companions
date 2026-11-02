@@ -1,5 +1,105 @@
-<!-- ================= 5.1 FAMILY, SCHOOL & PLAY (stub, replaced by its builder) ================= -->
+<!-- ================= 5.1 FAMILY, SCHOOL & PLAY ================= -->
+<style>
+#m-school .shsup{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-school .shsup .btn{font-size:13px;padding:6px 11px}
+#m-school .shnav{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+#m-school .shnav .q{font-weight:700;font-size:15.5px}
+#m-school .shout{display:flex;flex-direction:column;gap:10px}
+#m-school .shout h4{margin:0;font-family:var(--display);font-weight:800;font-size:21px;line-height:1.15}
+#m-school .shout ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:14.5px}
+#m-school .card>.ev,#m-school .card>.tag{align-self:flex-start}
+#m-school .tbl table{min-width:560px}
+</style>
 <section class="mod" id="m-school" data-mod="school" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living &amp; lifespan</p><h2>Family, school &amp; play</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">One autistic child's day, at school or at home, with a stress dial that rises at changes and noisy moments. Switch the supports on one at a time and watch which peaks each one lowers.</p></div>
+  <div class="prose"><p>A note on words: many autistic people prefer identity-first language ("an autistic child"), while many families and clinicians say "a child with autism". A UK survey of 3,470 people found no single term that everyone accepts, so this guide uses both and the best rule is to ask. [[Kenny2016]]</p></div>
+  <div class="ctrls" role="group" aria-label="Scene">
+    <span class="kicker">Scene</span>
+    <button class="btn" data-shsc="school" aria-pressed="true">A school day</button>
+    <button class="btn" data-shsc="home" aria-pressed="false">At home</button>
+  </div>
+  <div class="shsup" role="group" aria-label="Supports">
+    <span class="kicker">Supports</span>
+    <button class="btn" data-shm="off" aria-pressed="true">Without supports</button>
+    <button class="btn" data-shm="on" aria-pressed="false">With all supports</button>
+    <span class="kicker" aria-hidden="true">or one at a time:</span>
+    <button class="btn" data-shs="sched" aria-pressed="false">Visual schedule</button>
+    <button class="btn" data-shs="warn" aria-pressed="false">Warnings before change</button>
+    <button class="btn" data-shs="quiet" aria-pressed="false">Quiet space / ear defenders</button>
+    <button class="btn" data-shs="teacch" aria-pressed="false">Structured teaching (TEACCH)</button>
+    <button class="btn" data-shs="adult" aria-pressed="false">A trusted adult</button>
+  </div>
+  <div class="stepper" id="shSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="shSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A schematic school day or home day. A strip of picture cards shows the visual schedule, with finished cards ticked. Below it a small scene changes from classroom to playground, lunch hall, a new teacher and home time. A stress dial and a stress curve over the day rise at transitions and noisy moments and fall when supports are switched on; the dashed curve shows the other setting for comparison."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="shPlay">Play</button><label class="stage-cap tl" for="shT">Time of day <input type="range" id="shT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="shRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative child, not measured data. The curve shows the idea that stress builds at changes and sensory peaks and that supports lower specific peaks; the height of each peak is drawn, not measured. Every child's triggers and helpful supports are different.</p>
+    </div>
+    <aside class="note" id="shNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How strong is the evidence for school supports?</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Support</th><th>What it is</th><th>What the evidence says</th></tr></thead>
+    <tbody>
+      <tr><th>Visual activity schedule</th><td>The day or a task shown as a row of pictures, symbols or words; finished items are moved to "done".</td><td><span class="ev est">Established</span> Meets criteria as an evidence-based practice from preschool through adulthood, especially with systematic instruction (31 studies, 16 of acceptable quality). [[Knight2015]]</td></tr>
+      <tr><th>Structured teaching (TEACCH)</th><td>The room, the schedule and each task are organised so the child can see what to do, how much, and what comes next.</td><td><span class="ev early">Early evidence</span> 13 studies, 172 people: small effects on perceptual, motor, verbal and cognitive skills; moderate-to-large gains in social and maladaptive behaviour. The authors call the results exploratory. [[ViruesOrtega2013]]</td></tr>
+      <tr><th>Social Stories</th><td>A short, personalised story describing a situation and what will happen.</td><td><span class="ev early">Early evidence</span> "Low to questionable" overall effectiveness in single-subject studies; better for reducing behaviours that cause problems than for teaching social skills. [[Kokina2010]]</td></tr>
+      <tr><th>Noise-attenuating headphones</th><td>Ear defenders worn in loud places.</td><td><span class="ev early">Early evidence</span> Lowered skin-conductance arousal in six children with hyperacusis (single-subject design); parents and teachers reported more participation at school. [[Pfeiffer2019EDA,Pfeiffer2019Participation]]</td></tr>
+      <tr><th>Focused practices overall</th><td>Specific teaching practices, such as prompting, visual supports and modelling.</td><td><span class="ev est">Established</span> The third-generation US review synthesised 972 articles and found 28 focused practices that met its criteria for evidence-based practice. [[Hume2021]]</td></tr>
+      <tr><th>Parent training</th><td>Sessions teaching parents practical strategies for disruptive behaviour.</td><td><span class="ev est">Established</span> 8 RCTs, 653 participants: standardised mean difference −0.59 (95% CI −0.88 to −0.30), with heterogeneity. [[Postorino2017]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Inclusion or integration? A review of 233 studies of "inclusive" interventions found that most tried to change the autistic student's social skills. Lived-experience consultants argued that this is integration (the student adapts to the school) rather than inclusion (the school adapts to the student). There is no agreed way to measure inclusion. [[Perrelet2025]] More on these approaches in <a href="#supports" data-go="supports">Supports &amp; the evidence</a>.</p>
+
+  <h3 class="sub">Education rights: a navigator</h3>
+  <div class="prose"><p>General principles only, not legal advice. Laws, names and deadlines differ by country and change over time; a local parent advice service or advocate can tell you what applies to your child.</p></div>
+  <div class="lab even">
+    <div class="shnav">
+      <div class="ctrls" role="group" aria-label="Where is the child at school?">
+        <span class="kicker">1 · Where?</span>
+        <button class="btn" data-shj="us" aria-pressed="true">United States</button>
+        <button class="btn" data-shj="en" aria-pressed="false">England</button>
+        <button class="btn" data-shj="other" aria-pressed="false">Somewhere else</button>
+      </div>
+      <p class="q" id="shQ"></p>
+      <div class="ctrls" role="group" aria-label="Answer">
+        <span class="kicker">2 · Answer</span>
+        <button class="btn" data-sha="yes" aria-pressed="false">Yes</button>
+        <button class="btn" data-sha="no" aria-pressed="true">No, or not sure</button>
+      </div>
+      <div class="ctrls" role="group" aria-label="Current worry">
+        <span class="kicker">3 · Main worry now</span>
+        <button class="btn" data-shw="learn" aria-pressed="true">Learning &amp; coping</button>
+        <button class="btn" data-shw="bully" aria-pressed="false">Bullying</button>
+        <button class="btn" data-shw="absent" aria-pressed="false">Missing school</button>
+        <button class="btn" data-shw="leave" aria-pressed="false">Leaving school soon</button>
+      </div>
+      <div class="scroll"><svg id="shNavSvg" viewBox="0 0 520 200" role="img" aria-label="A flow chart from a concern about a child's schooling to the type of plan that fits, with the chosen path highlighted."></svg></div>
+    </div>
+    <div class="note shout" id="shOut" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Family life</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Caregivers</span><h4>Parenting stress is real, and common</h4><p>A meta-analysis found a large effect size for higher parenting stress in parents of autistic children than in parents of typically developing children. [[Hayes2013]] Across 133 studies of clinical groups, stress tracked child externalising problems (r = 0.57) more than internalising ones (r = 0.37). [[Barroso2018]] In 31 studies (9,208 parents), 31% had a depressive disorder and 33% an anxiety disorder, with wide variation between studies. [[Schnabel2020]]</p><p><b>In plain words:</b> it is fine, and wise, to ask for help for yourself too.</p></div>
+    <div class="card"><span class="tag brand">Caregivers</span><h4>Support for parents works</h4><p>In the RUBI trial (180 children aged 3–7), parent training cut parent-rated irritability by 47.7% against 31.8% with parent education, and a blinded clinician rated 68.5% against 39.6% as responders; neither parent measure reached its prespecified minimal clinically important difference. [[Bearss2015]] In the REACH-ASD trial (379 caregivers), an online programme with Acceptance and Commitment Therapy improved caregiver mental health at 52 weeks. <span class="ev early">Early evidence</span> [[Leadbitter2025]]</p></div>
+    <div class="card"><span class="tag brand">Family</span><h4>Brothers and sisters</h4><p>Across 69 samples, siblings of autistic people had slightly more negative outcomes overall (Hedges g −0.26), including anxiety (−0.25) and depression (−0.36), but no difference in adjustment, coping or family functioning. The authors recommend including siblings in family support. [[Shivers2019]]</p></div>
+    <div class="card"><span class="tag brand">Family</span><h4>Respite and couples</h4><p>In 101 couples raising an autistic child, each extra hour a week of respite care went with a half standard deviation higher marital quality, through lower daily stress and more daily uplifts (cross-sectional). [[Harper2013]] Divorce was more common than in a matched comparison group (23.5% vs 13.8%) and stayed high into the child's adulthood. [[Hartley2010]]</p></div>
+    <div class="card"><span class="tag brand">Family</span><h4>Diagnosis and after</h4><p>In a UK survey of 1,047 parents, families waited about a year before seeking help, then about 3.5 years from first approaching a professional to a diagnosis; post-diagnostic support was rated unsatisfactory. [[Crane2016Diagnosis]] The AAP describes service needs across behavioural, educational, health, leisure and family-support areas, and calls for shared decision-making with families. [[Hyman2020]]</p></div>
+    <div class="card"><span class="tag warn">Money</span><h4>The cost to families</h4><p>In US survey data (2002–2008), mothers of autistic children earned 56% less than mothers of children with no health limitation and worked 7 hours less a week; family earnings were 28% lower. [[Cidav2012]] Estimated lifetime cost of support: $2.4 million (US) and £1.5 million (UK) with intellectual disability, $1.4 million and £0.92 million without; special education and parents' lost work dominate in childhood. [[Buescher2014]]</p></div>
+  </div>
+
+  <h3 class="sub">School life</h3>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Bullying</span><h4>Almost half are bullied</h4><p>Pooled across 17 studies: 44% of autistic school-age youth had been bullied, 10% had bullied others and 16% both; by type, 50% verbal, 33% physical and 31% relational. [[Maiano2016]] In US national data, 46.3% had been bullied in the past school year; it was more likely with more classes in general education, ADHD, lower social skills and some conversational ability. [[Sterzing2012]]</p><p><b>In plain words:</b> tell the school, and ask what they will do to keep your child safe.</p></div>
+    <div class="card"><span class="tag warn">Attendance</span><h4>Absence and exclusion</h4><p>Parents of 486 UK autistic students (mean age 11) reported 5 of 23 school days missed in a month; 43% met the threshold for persistent absence. Of absences, 43% were school refusal, 9% exclusion, 9% school withdrawal and 32% illness or appointments; truancy was almost non-existent. [[Totsika2020]] In Norway, school refusal went with lower social motivation, more difficulty starting tasks and more withdrawn and depressive symptoms. [[Munkhaugen2019]] English pupils could attend and enjoy school when they had the right support. [[Gray2023School]]</p></div>
+    <div class="card"><span class="tag good">Outcomes</span><h4>Leaving school</h4><p>In US special-education data for 2019, 71% of autistic students exiting high school graduated with a diploma, against 48% with intellectual disability, and dropout was lower (6–8% vs 15–18% in other disabilities). [[McLean2026]] Services start to fall away before school ends: see <a href="#adult" data-go="adult">Autistic adults</a>. [[Laxman2019]]</p></div>
+    <div class="card"><span class="tag good">Strengths</span><h4>Play and focused interests</h4><p>Writers on respectful language suggest "focused" or "intense" interests rather than "special interests". [[BottemaBeutel2021Ableist]] Monotropism, a theory co-authored by an autistic researcher, proposes that attention concentrates on a few interests at a time. <span class="ev hyp">Hypothesis</span> [[Murray2005]] Therapies that coach parents to follow their child's lead in play can change how parent and child communicate, sometimes for years. [[Pickles2016,Oono2013]] A child's interest is often the easiest door into learning and friendship.</p></div>
+    <div class="card"><span class="tag accent">Overload</span><h4>Meltdown and shutdown</h4><p>Autistic people describe a meltdown as being overwhelmed by sensory, information and social-emotional load, not as chosen behaviour; a shutdown is quieter and more inward. Young people said compassion and collaboration from trusted adults help, while demands such as eye contact during distress make it worse. [[Lewis2023Meltdown,Phung2021]] More in <a href="#senses" data-go="senses">The sensory world</a>.</p></div>
+    <div class="card"><span class="tag accent">Plans</span><h4>What school plans contain</h4><p>In a US population cohort of 1,787 autistic adolescents, school IEP services varied widely between sites, students with intellectual disability were less likely to get school-based mental health services, and 37% did not take part in standardised testing. ADHD (47%) and anxiety (39%) were the commonest co-occurring conditions recorded by age 16. [[Hughes2024IEP]]</p></div>
+  </div>
 </section>
