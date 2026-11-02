@@ -1,0 +1,5080 @@
+(()=>{
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const store={get(k,d){try{const v=localStorage.getItem('aut:'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('aut:'+k,JSON.stringify(v))}catch(e){}}};
+function rng(seed){let a=seed>>>0;return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const lerp=(a,b,t)=>a+(b-a)*t, clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)), ramp=(x,a,b)=>clamp((x-a)/(b-a));
+const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const bump=(x,a,b)=>Math.sin(Math.PI*ramp(x,a,b));
+const f1=n=>(+n).toFixed(1);
+function animate(dur,step,done){
+  if(RM){step(1);done&&done();return()=>{}}
+  let s=null,id;const f=ts=>{if(s==null)s=ts;const p=Math.min(1,(ts-s)/dur);step(p);if(p<1)id=requestAnimationFrame(f);else done&&done()};
+  id=requestAnimationFrame(f);return()=>cancelAnimationFrame(id);
+}
+/* polyline path from function over [0,1] */
+function pathFn(fn,x0,x1,y0,y1,N=120){let d='';for(let i=0;i<=N;i++){const u=i/N,v=clamp(fn(u),-.05,1.05);d+=(i?'L':'M')+f1(lerp(x0,x1,u))+' '+f1(lerp(y0,y1,v))}return d}
+/* ---- drawing kit for this subject ----
+   All colours come from CSS tokens, so they follow the theme. Every function returns an SVG string
+   (or an object with .svg) to concatenate into an <svg>'s innerHTML. Coordinates are SVG user units.
+   brain(x,y,s,o)          a brain in side view, front to the left; (x,y) is the top-left of its box and s the
+                           scale (1 = 200 wide, 150 tall). Lobes: frontal, parietal, temporal, occipital, plus
+                           cerebellum, brainstem and amygdala (a dot inside the temporal lobe). o: {hl:['frontal',..]
+                           regions tinted, hlCol (CSS colour, default var(--brand)), glow:{region:0..1} per-region
+                           tint strength, labels (true: lobe names), id (unique clip id when two brains share an svg)}.
+                           Returns {svg, at:{region:[x,y]}} with a label anchor for each region.
+   neuron(x,y,s,o)         a neuron: soma at (x,y), dendrites branching to the left, axon to the right ending in
+                           boutons. s = soma radius (default 10; the whole cell spans about 9s). o: {spines 0..1
+                           (dendritic spine density), prune 0..1 (share of spines removed, drawn fading),
+                           n (dendrites, default 5), seed, axon (false hides it), col (soma colour)}.
+   synapse(x,y,s,o)        a synapse in section: presynaptic bouton above, cleft at (x,y), postsynaptic membrane
+                           below; s = scale (1 = 80 wide). o: {kind 'e' (glutamate, --excite) | 'i' (GABA,
+                           --inhibit), release 0..1 (vesicles cross the cleft), receptors (count, default 4)}.
+   face(x,y,r,o)           a simple face, centre (x,y), radius r. o: {gaze (degrees; 0 = looking right, 90 =
+                           down, null = at the viewer), mouth 'smile'|'flat'|'open'|'wavy', brows 'calm'|'tense',
+                           ear (true: ear defenders), col (skin colour)}.
+   bubble(x,y,w,h,o)       a speech bubble, top-left (x,y). o: {text (one line, centred), tail 'left'|'right'|
+                           'down'|'none', col (stroke colour), fill, broken (dashed: a message that did not land),
+                           think (rounder, a thought)}.
+   wave(x,y,w,amp,o)       a wave path across [x, x+w] centred on y with amplitude amp. o: {freq (cycles across
+                           w, default 4), phase (0..1), col (default var(--sense)), sw (stroke width), env (fn u->0..1
+                           scaling the amplitude along the wave), fill (true: filled band, for a sensory lane)}.
+   profile(x,y,r,vals,o)   a radar wheel ("spider" profile) centred at (x,y): vals 0..1 for each spoke. o: {labels
+                           [...], col (default var(--brand)), ghost (an earlier vals array drawn dashed), rings
+                           (default 3), lab (false hides labels), fs (label font class, default 't-xs')}.
+                           Returns {svg, pt(i,v)->[x,y]}.
+   dial(x,y,r,v,o)         a half-circle gauge, centre (x,y), value v 0..1 from calm (green) through amber to
+                           overload (red). o: {label (under it), th (a threshold tick 0..1), battery (true: draw an
+                           energy battery instead, full when v = 1, w = 2r)}.
+   chrom(x,y,h,o)          a chromosome standing at (x,y) (top), height h, with bands. o: {cen 0..1 (centromere,
+                           default .4), seg:[a,b] a highlighted segment (0..1 along it), kind 'del'|'dup'|'var'
+                           (deletion drawn as a dashed gap, duplication doubled, variant a dot), label, w (width)}.
+   tl(x,y,w,o)             a horizontal time axis. o: {min (0), max (36), step (6), unit ('mo'), labels (true),
+                           minor (step for small ticks)}. Returns {svg, at(v)->x}.
+   person(x,y,s,fill,o)    a person pictogram for icon arrays (s = height), fill a CSS colour; o: {op}.
+   ped(x,y,sex,aff,o)      a pedigree symbol: sex 'm' square, 'f' circle; aff 0 unaffected, 1 autistic/affected
+                           (--neuro), .5 carrier (half shaded, --gold); o: {dead, proband (arrow; needs
+                           marker('pedArrow') in the svg's defs), r}.
+   marker(id,color)        an arrowhead <marker> for <defs>. */
+let _kid=0;
+const BR_REG={
+  frontal:'M0 0H96L89 60L60 79L0 112Z', parietal:'M96 0H162L151 63L89 60Z', occipital:'M162 0H200V125L151 63Z',
+  temporal:'M0 112L60 79L89 60L151 63L200 125V150H0Z'};
+const BR_AT={frontal:[52,46],parietal:[124,34],occipital:[176,62],temporal:[106,92],cerebellum:[152,124],brainstem:[124,140],amygdala:[86,96]};
+function brain(x,y,s=1,o={}){const id=o.id||'brc'+(++_kid),hl=o.hl||[],gl=o.glow||{},hc=o.hlCol||'var(--brand)';
+  const cer='M28 96C16 70 28 30 70 18C102 7 146 11 171 34C191 52 193 82 181 100C171 112 150 113 136 108C124 118 104 121 90 114C74 121 50 118 40 108C34 104 30 100 28 96Z';
+  let g=`<g transform="translate(${f1(x)} ${f1(y)}) scale(${s})"><clipPath id="${id}"><path d="${cer}"/></clipPath>`;
+  /* cerebellum and brainstem sit behind the cerebrum */
+  g+=`<path d="M118 106C120 124 120 138 122 150L134 150C133 136 134 122 138 108Z" style="fill:var(--cortex);stroke:var(--cortex-line);stroke-width:1.4"/>`;
+  g+=`<path d="M132 110C140 102 168 100 180 108C188 116 182 132 166 134C150 136 136 128 132 110Z" style="fill:var(--cortex);stroke:var(--cortex-line);stroke-width:1.4"/>`;
+  for(let i=0;i<4;i++)g+=`<path d="M${138+i*2} ${114+i*5}Q${160} ${108+i*6} ${180-i*3} ${112+i*5}" style="fill:none;stroke:var(--cortex-line);stroke-width:.8;opacity:.6"/>`;
+  ['cerebellum','brainstem'].forEach(r=>{const k=hl.includes(r)?1:(gl[r]||0);if(k>0){const p=r==='cerebellum'?'M132 110C140 102 168 100 180 108C188 116 182 132 166 134C150 136 136 128 132 110Z':'M118 106C120 124 120 138 122 150L134 150C133 136 134 122 138 108Z';
+    g+=`<path d="${p}" style="fill:${hc};opacity:${f1(.55*k)}"/>`}});
+  g+=`<path d="${cer}" style="fill:var(--cortex);stroke:var(--cortex-line);stroke-width:1.6"/>`;
+  g+=`<g clip-path="url(#${id})">`;
+  for(const r in BR_REG){const k=hl.includes(r)?1:(gl[r]||0);if(k>0)g+=`<path d="${BR_REG[r]}" style="fill:${hc};opacity:${f1(.5*k)}"/>`}
+  /* gyri for texture, then the three landmark sulci */
+  const rr=rng(11);for(let i=0;i<16;i++){const gx=30+rr()*150,gy=24+rr()*80;g+=`<path d="M${f1(gx)} ${f1(gy)}q${f1(6+rr()*6)} ${f1(-6+rr()*4)} ${f1(12+rr()*8)} ${f1(rr()*6-3)}" style="fill:none;stroke:var(--cortex-line);stroke-width:.9;opacity:.45"/>`}
+  g+=`</g><path d="M98 15C92 34 97 46 89 60" style="fill:none;stroke:var(--cortex-line);stroke-width:1.6"/><path d="M48 90C70 76 102 66 142 72" style="fill:none;stroke:var(--cortex-line);stroke-width:1.6"/><path d="M162 30C157 45 153 55 151 63" style="fill:none;stroke:var(--cortex-line);stroke-width:1.3"/>`;
+  {const k=hl.includes('amygdala')?1:(gl.amygdala||0);g+=`<circle cx="86" cy="96" r="5" style="fill:${k>0?hc:'var(--cortex-line)'};opacity:${k>0?f1(.4+.6*k):.35}"/>`}
+  if(o.labels){const nm={frontal:'Frontal',parietal:'Parietal',temporal:'Temporal',occipital:'Occipital',cerebellum:'Cerebellum'};for(const r in nm)g+=`<text x="${BR_AT[r][0]}" y="${BR_AT[r][1]}" class="t-xs t-mid" style="fill:var(--ink)">${nm[r]}</text>`}
+  g+='</g>';const at={};for(const r in BR_AT)at[r]=[x+BR_AT[r][0]*s,y+BR_AT[r][1]*s];
+  return {svg:g,at}}
+function neuron(x,y,s=10,o={}){const rr=rng(o.seed||3),n=o.n||5,sp=clamp(o.spines==null?.6:o.spines),pr=clamp(o.prune||0);let g='';
+  for(let i=0;i<n;i++){const a=Math.PI*(.62+.76*i/Math.max(1,n-1)),L=s*(3+rr()*1.4);
+    const ex=x+Math.cos(a)*L,ey=y-Math.sin(a)*L*.9,mx=x+Math.cos(a)*L*.5+(rr()-.5)*s,my=y-Math.sin(a)*L*.45;
+    g+=`<path d="M${f1(x)} ${f1(y)}Q${f1(mx)} ${f1(my)} ${f1(ex)} ${f1(ey)}" style="fill:none;stroke:var(--axon);stroke-width:${f1(s*.28)};stroke-linecap:round"/>`;
+    const bx=lerp(x,ex,.6),by=lerp(y,ey,.6),ba=a+(rr()<.5?.5:-.5),bl=L*.4;
+    g+=`<path d="M${f1(bx)} ${f1(by)}l${f1(Math.cos(ba)*bl)} ${f1(-Math.sin(ba)*bl)}" style="stroke:var(--axon);stroke-width:${f1(s*.18)};stroke-linecap:round"/>`;
+    /* spines along the outer half of each dendrite */
+    const ns=Math.round(10*sp);for(let k=0;k<ns;k++){const u=.35+.6*(k+.5)/ns,px=lerp(x,ex,u)+(rr()-.5)*s*.3,py=lerp(y,ey,u)+(rr()-.5)*s*.3,
+      side=k%2?1:-1,qa=a+side*Math.PI/2,ln=s*.42,gone=rr()<pr;
+      g+=`<path d="M${f1(px)} ${f1(py)}l${f1(Math.cos(qa)*ln)} ${f1(-Math.sin(qa)*ln)}" style="stroke:var(--spine);stroke-width:${f1(s*.13)};stroke-linecap:round;opacity:${gone?.12:1}"/><circle cx="${f1(px+Math.cos(qa)*ln)}" cy="${f1(py-Math.sin(qa)*ln)}" r="${f1(s*.14)}" style="fill:var(--spine);opacity:${gone?.12:1}"/>`}}
+  if(o.axon!==false){const ax=x+s*5.5;g+=`<path d="M${f1(x+s)} ${f1(y)}C${f1(x+s*2.5)} ${f1(y+s*.8)} ${f1(x+s*3.8)} ${f1(y-s*.6)} ${f1(ax)} ${f1(y)}" style="fill:none;stroke:var(--axon);stroke-width:${f1(s*.24)}"/>`;
+    for(let k=-1;k<=1;k++){g+=`<path d="M${f1(ax)} ${f1(y)}l${f1(s*.9)} ${f1(k*s*.7)}" style="stroke:var(--axon);stroke-width:${f1(s*.16)}"/><circle cx="${f1(ax+s*.9)}" cy="${f1(y+k*s*.7)}" r="${f1(s*.22)}" style="fill:var(--vesicle)"/>`}}
+  g+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(s)}" style="fill:${o.col||'var(--soma)'};stroke:var(--axon);stroke-width:1.2"/><circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(s*.38)}" style="fill:var(--nuc);opacity:.7"/>`;
+  return g}
+function synapse(x,y,s=1,o={}){const col=o.kind==='i'?'var(--inhibit)':'var(--excite)',rel=clamp(o.release||0),nr=o.receptors||4,rr=rng(o.seed||9);
+  let g=`<g transform="translate(${f1(x)} ${f1(y)}) scale(${s})">`;
+  g+=`<path d="M-40 -6C-40 -40 -26 -58 0 -58C26 -58 40 -40 40 -6Z" style="fill:var(--cell);stroke:var(--axon);stroke-width:1.6"/>`;
+  g+=`<path d="M-44 8C-30 6 30 6 44 8V30H-44Z" style="fill:var(--cell);stroke:var(--axon);stroke-width:1.6"/>`;
+  for(let i=0;i<nr;i++){const rx=-30+i*60/Math.max(1,nr-1);g+=`<rect x="${f1(rx-3)}" y="5" width="6" height="7" rx="1.5" style="fill:${col};opacity:.85"/>`}
+  for(let i=0;i<7;i++){const vx=-24+(i%4)*16+(i>3?8:0),vy=-38+(i>3?16:0);g+=`<circle cx="${vx}" cy="${vy}" r="5.5" style="fill:none;stroke:${col};stroke-width:1.3"/>`;
+    for(let k=0;k<3;k++)g+=`<circle cx="${f1(vx+(rr()-.5)*5)}" cy="${f1(vy+(rr()-.5)*5)}" r="1.1" style="fill:${col}"/>`}
+  /* released transmitter crosses the cleft */
+  if(rel>0)for(let i=0;i<12;i++){const px=-26+rr()*52,py=lerp(-8,6,clamp(rel*1.2-rr()*.2));g+=`<circle cx="${f1(px)}" cy="${f1(py)}" r="1.5" style="fill:${col};opacity:${f1(.4+.6*rel)}"/>`}
+  return g+'</g>'}
+function face(x,y,r=20,o={}){let g=`<circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(r)}" style="fill:${o.col||'var(--skin)'};stroke:var(--hair);stroke-width:1.2"/>`;
+  g+=`<path d="M${f1(x-r*.96)} ${f1(y-r*.2)}A${f1(r)} ${f1(r)} 0 0 1 ${f1(x+r*.96)} ${f1(y-r*.2)}Q${f1(x)} ${f1(y-r*.72)} ${f1(x-r*.96)} ${f1(y-r*.2)}Z" style="fill:var(--hair)"/>`;
+  const ga=o.gaze,dx=ga==null?0:Math.cos(ga*Math.PI/180)*r*.1,dy=ga==null?0:Math.sin(ga*Math.PI/180)*r*.1;
+  [-1,1].forEach(k=>{const ex=x+k*r*.36,ey=y+r*.02;g+=`<ellipse cx="${f1(ex)}" cy="${f1(ey)}" rx="${f1(r*.17)}" ry="${f1(r*.13)}" style="fill:var(--bubble)"/><circle cx="${f1(ex+dx)}" cy="${f1(ey+dy)}" r="${f1(r*.08)}" style="fill:var(--ink)"/>`;
+    const tense=o.brows==='tense',inner=ey-r*(tense?.2:.26),outer=ey-r*(tense?.32:.26);
+    g+=`<path d="M${f1(ex-r*.17)} ${f1(k<0?outer:inner)}L${f1(ex+r*.17)} ${f1(k<0?inner:outer)}" style="stroke:var(--hair);stroke-width:${f1(r*.06)};stroke-linecap:round"/>`});
+  const my=y+r*.45,m=o.mouth||'smile';
+  g+=m==='open'?`<ellipse cx="${f1(x)}" cy="${f1(my)}" rx="${f1(r*.15)}" ry="${f1(r*.12)}" style="fill:var(--ink);opacity:.75"/>`:
+     `<path d="${m==='flat'?`M${f1(x-r*.22)} ${f1(my)}H${f1(x+r*.22)}`:m==='wavy'?`M${f1(x-r*.26)} ${f1(my)}q${f1(r*.13)} ${f1(-r*.1)} ${f1(r*.26)} 0t${f1(r*.26)} 0`:`M${f1(x-r*.26)} ${f1(my-r*.05)}Q${f1(x)} ${f1(my+r*.18)} ${f1(x+r*.26)} ${f1(my-r*.05)}`}" style="fill:none;stroke:var(--ink);stroke-width:${f1(r*.07)};stroke-linecap:round"/>`;
+  if(o.ear){g+=`<path d="M${f1(x-r*1.08)} ${f1(y)}A${f1(r*1.08)} ${f1(r*1.15)} 0 0 1 ${f1(x+r*1.08)} ${f1(y)}" style="fill:none;stroke:var(--accent);stroke-width:${f1(r*.14)}"/>`;
+    [-1,1].forEach(k=>g+=`<rect x="${f1(x+k*r*1.08-r*.2)}" y="${f1(y-r*.28)}" width="${f1(r*.4)}" height="${f1(r*.56)}" rx="${f1(r*.12)}" style="fill:var(--accent)"/>`)}
+  return g}
+function bubble(x,y,w,h,o={}){const c=o.col||'var(--line)',fl=o.fill||'var(--bubble)',rad=o.think?h/2:Math.min(10,h/3),t=o.tail||'down';
+  let g=`<rect x="${f1(x)}" y="${f1(y)}" width="${f1(w)}" height="${f1(h)}" rx="${f1(rad)}" style="fill:${fl};stroke:${c};stroke-width:1.4${o.broken?';stroke-dasharray:4 3':''}"/>`;
+  const tp=t==='left'?`M${f1(x+w*.2)} ${f1(y+h-1)}l-14 12l4 -12`:t==='right'?`M${f1(x+w*.8)} ${f1(y+h-1)}l14 12l-4 -12`:t==='down'?`M${f1(x+w*.45)} ${f1(y+h-1)}l4 12l8 -12`:'';
+  if(tp&&!o.think)g+=`<path d="${tp}" style="fill:${fl};stroke:${c};stroke-width:1.4;stroke-linejoin:round${o.broken?';stroke-dasharray:4 3':''}"/>`;
+  if(o.think&&t!=='none')[[.3,1.25,4],[.22,1.55,2.6]].forEach(([u,v,rr])=>g+=`<circle cx="${f1(x+w*u)}" cy="${f1(y+h*v)}" r="${rr}" style="fill:${fl};stroke:${c};stroke-width:1.2"/>`);
+  if(o.text)g+=`<text x="${f1(x+w/2)}" y="${f1(y+h/2+4)}" class="t-sm t-mid" style="fill:var(--ink)">${o.text}</text>`;
+  return g}
+function wave(x,y,w,amp,o={}){const fq=o.freq||4,ph=(o.phase||0)*2*Math.PI,env=o.env||(()=>1),N=Math.max(40,Math.round(w/3));let d='';
+  for(let i=0;i<=N;i++){const u=i/N,a=amp*env(u),v=Math.sin(u*fq*2*Math.PI+ph)*a;d+=(i?'L':'M')+f1(x+u*w)+' '+f1(y-v)}
+  if(o.fill){let top='',bot='';for(let i=0;i<=N;i++){const u=i/N,a=amp*env(u);top+=(i?'L':'M')+f1(x+u*w)+' '+f1(y-a);bot=`L${f1(x+u*w)} ${f1(y+a)}`+bot}
+    return `<path d="${top}${bot}Z" style="fill:${o.col||'var(--sense)'};opacity:.16"/><path d="${d}" style="fill:none;stroke:${o.col||'var(--sense)'};stroke-width:${o.sw||1.6};stroke-linejoin:round"/>`}
+  return `<path d="${d}" style="fill:none;stroke:${o.col||'var(--sense)'};stroke-width:${o.sw||1.6};stroke-linejoin:round"/>`}
+function profile(x,y,r,vals,o={}){const n=vals.length,col=o.col||'var(--brand)',rings=o.rings||3,lb=o.labels||[];
+  const pt=(i,v)=>{const a=-Math.PI/2+i*2*Math.PI/n;return[x+Math.cos(a)*r*v,y+Math.sin(a)*r*v]};
+  let g='';for(let k=1;k<=rings;k++){let d='';for(let i=0;i<n;i++){const p=pt(i,k/rings);d+=(i?'L':'M')+f1(p[0])+' '+f1(p[1])}g+=`<path d="${d}Z" style="fill:none;stroke:var(--line);stroke-width:1"/>`}
+  for(let i=0;i<n;i++){const p=pt(i,1);g+=`<line x1="${f1(x)}" y1="${f1(y)}" x2="${f1(p[0])}" y2="${f1(p[1])}" style="stroke:var(--line);stroke-width:1"/>`}
+  const poly=v=>v.map((q,i)=>{const p=pt(i,clamp(q,.04,1));return(i?'L':'M')+f1(p[0])+' '+f1(p[1])}).join('')+'Z';
+  if(o.ghost)g+=`<path d="${poly(o.ghost)}" style="fill:none;stroke:var(--muted);stroke-width:1.2;stroke-dasharray:3 3"/>`;
+  g+=`<path d="${poly(vals)}" style="fill:${col};fill-opacity:.22;stroke:${col};stroke-width:2;stroke-linejoin:round"/>`;
+  vals.forEach((q,i)=>{const p=pt(i,clamp(q,.04,1));g+=`<circle cx="${f1(p[0])}" cy="${f1(p[1])}" r="3.2" style="fill:${col}"/>`});
+  if(o.lab!==false)lb.forEach((t,i)=>{const p=pt(i,1.16),a=-Math.PI/2+i*2*Math.PI/n,c=Math.cos(a);const an=Math.abs(c)<.3?'t-mid':c>0?'':'t-end';
+    g+=`<text x="${f1(p[0])}" y="${f1(p[1]+(Math.sin(a)>.5?9:Math.sin(a)<-.5?-2:4))}" class="${o.fs||'t-xs'} ${an}">${t}</text>`});
+  return {svg:g,pt}}
+function dial(x,y,r,v,o={}){v=clamp(v);let g='';
+  if(o.battery){const w=2*r,h=r*.8,x0=x-r,y0=y-h;const col=v>.5?'var(--calm)':v>.2?'var(--warn)':'var(--bad)';
+    g+=`<rect x="${f1(x0)}" y="${f1(y0)}" width="${f1(w)}" height="${f1(h)}" rx="5" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.6"/><rect x="${f1(x0+w)}" y="${f1(y0+h*.3)}" width="5" height="${f1(h*.4)}" rx="1.5" style="fill:var(--ink)"/>`;
+    g+=`<rect x="${f1(x0+3)}" y="${f1(y0+3)}" width="${f1(Math.max(0,(w-6)*v))}" height="${f1(h-6)}" rx="3" style="fill:${col}"/>`;
+    if(o.label)g+=`<text x="${f1(x)}" y="${f1(y+14)}" class="t-xs t-mid">${o.label}</text>`;return g}
+  const arc=(a0,a1,c)=>{const p0=[x-Math.cos(a0*Math.PI)*r,y-Math.sin(a0*Math.PI)*r],p1=[x-Math.cos(a1*Math.PI)*r,y-Math.sin(a1*Math.PI)*r];
+    return `<path d="M${f1(p0[0])} ${f1(p0[1])}A${r} ${r} 0 0 1 ${f1(p1[0])} ${f1(p1[1])}" style="fill:none;stroke:${c};stroke-width:${f1(r*.22)}"/>`};
+  g+=arc(0,.5,'var(--calm)')+arc(.5,.78,'var(--warn)')+arc(.78,1,'var(--bad)');
+  if(o.th!=null){const a=o.th*Math.PI;g+=`<line x1="${f1(x-Math.cos(a)*r*.7)}" y1="${f1(y-Math.sin(a)*r*.7)}" x2="${f1(x-Math.cos(a)*r*1.18)}" y2="${f1(y-Math.sin(a)*r*1.18)}" style="stroke:var(--ink);stroke-width:2;stroke-dasharray:2 2"/>`}
+  const a=v*Math.PI;g+=`<line x1="${f1(x)}" y1="${f1(y)}" x2="${f1(x-Math.cos(a)*r*.86)}" y2="${f1(y-Math.sin(a)*r*.86)}" style="stroke:var(--ink);stroke-width:2.4;stroke-linecap:round"/><circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(r*.1)}" style="fill:var(--ink)"/>`;
+  if(o.label)g+=`<text x="${f1(x)}" y="${f1(y+16)}" class="t-xs t-mid">${o.label}</text>`;
+  return g}
+function chrom(x,y,h,o={}){const w=o.w||h*.16,cen=o.cen==null?.4:o.cen,cy=y+h*cen,rr=rng(o.seed||5);
+  let g=`<path d="M${f1(x-w/2)} ${f1(y+w/2)}A${f1(w/2)} ${f1(w/2)} 0 0 1 ${f1(x+w/2)} ${f1(y+w/2)}V${f1(cy-w*.3)}Q${f1(x+w*.15)} ${f1(cy)} ${f1(x+w/2)} ${f1(cy+w*.3)}V${f1(y+h-w/2)}A${f1(w/2)} ${f1(w/2)} 0 0 1 ${f1(x-w/2)} ${f1(y+h-w/2)}V${f1(cy+w*.3)}Q${f1(x-w*.15)} ${f1(cy)} ${f1(x-w/2)} ${f1(cy-w*.3)}Z" style="fill:var(--panel-2);stroke:var(--ink);stroke-width:1.3"/>`;
+  for(let i=0;i<9;i++){const u=.06+i*.1+rr()*.03;if(Math.abs(u-cen)<.05)continue;g+=`<rect x="${f1(x-w/2+1)}" y="${f1(y+h*u)}" width="${f1(w-2)}" height="${f1(h*(.02+rr()*.03))}" style="fill:var(--muted);opacity:.45"/>`}
+  if(o.seg){const[a,b]=o.seg,y0=y+h*a,y1=y+h*b,k=o.kind||'var';
+    if(k==='del')g+=`<rect x="${f1(x-w/2-1)}" y="${f1(y0)}" width="${f1(w+2)}" height="${f1(y1-y0)}" style="fill:var(--bg);stroke:var(--neuro);stroke-width:1.6;stroke-dasharray:3 2"/>`;
+    else if(k==='dup')g+=`<rect x="${f1(x-w/2)}" y="${f1(y0)}" width="${f1(w)}" height="${f1(y1-y0)}" style="fill:var(--neuro);opacity:.8"/><rect x="${f1(x+w/2+3)}" y="${f1(y0)}" width="${f1(w*.6)}" height="${f1(y1-y0)}" rx="2" style="fill:var(--neuro);opacity:.8"/>`;
+    else g+=`<circle cx="${f1(x)}" cy="${f1((y0+y1)/2)}" r="${f1(w*.32)}" style="fill:var(--neuro)"/>`;
+    if(o.label)g+=`<text x="${f1(x+w/2+(k==='dup'?w*.6+8:6))}" y="${f1((y0+y1)/2+4)}" class="t-xs">${o.label}</text>`}
+  return g}
+function tl(x,y,w,o={}){const mn=o.min||0,mx=o.max==null?36:o.max,st=o.step||6,u=o.unit==null?'mo':o.unit,at=v=>x+w*(v-mn)/(mx-mn);
+  let g=`<line x1="${f1(x)}" x2="${f1(x+w)}" y1="${f1(y)}" y2="${f1(y)}" class="axis" style="stroke:var(--muted)"/>`;
+  if(o.minor)for(let v=mn;v<=mx+1e-9;v+=o.minor)g+=`<line x1="${f1(at(v))}" x2="${f1(at(v))}" y1="${f1(y-2)}" y2="${f1(y+2)}" class="axis"/>`;
+  for(let v=mn;v<=mx+1e-9;v+=st){g+=`<line x1="${f1(at(v))}" x2="${f1(at(v))}" y1="${f1(y-5)}" y2="${f1(y+5)}" style="stroke:var(--muted);stroke-width:1.2"/>`;
+    if(o.labels!==false)g+=`<text x="${f1(at(v))}" y="${f1(y+17)}" class="t-xs t-mid">${+v.toFixed(2)}${u}</text>`}
+  return {svg:g,at}}
+function person(x,y,s=14,fill='var(--muted)',o={}){const r=s*.17;return `<g transform="translate(${f1(x)} ${f1(y)})" style="opacity:${o.op==null?1:o.op}"><circle cx="0" cy="${f1(r)}" r="${f1(r)}" style="fill:${fill}"/><path d="M${f1(-s*.26)} ${f1(s)}V${f1(s*.6)}Q${f1(-s*.26)} ${f1(s*.4)} 0 ${f1(s*.4)}Q${f1(s*.26)} ${f1(s*.4)} ${f1(s*.26)} ${f1(s*.6)}V${f1(s)}Z" style="fill:${fill}"/></g>`}
+function ped(x,y,sex='m',aff=0,o={}){const r=o.r||11;let g='';const sh=sex==='m'?`<rect x="${f1(x-r)}" y="${f1(y-r)}" width="${2*r}" height="${2*r}" rx="1.5"`:`<circle cx="${f1(x)}" cy="${f1(y)}" r="${r}"`;
+  g+=`${sh} style="fill:${aff>=1?'var(--neuro)':'var(--panel)'};stroke:var(--ink);stroke-width:1.5"/>`;
+  if(aff>0&&aff<1){const cid='pc'+Math.round(x)+'_'+Math.round(y);g+=`<clipPath id="${cid}"><rect x="${f1(x-r)}" y="${f1(y-r)}" width="${r}" height="${2*r}"/></clipPath>${sh} clip-path="url(#${cid})" style="fill:var(--gold);stroke:none"/>${sh} style="fill:none;stroke:var(--ink);stroke-width:1.5"/>`}
+  if(o.dead)g+=`<line x1="${f1(x-r*1.3)}" y1="${f1(y+r*1.3)}" x2="${f1(x+r*1.3)}" y2="${f1(y-r*1.3)}" style="stroke:var(--ink);stroke-width:1.4"/>`;
+  if(o.proband)g+=`<path d="M${f1(x-r*2.2)} ${f1(y+r*1.9)}L${f1(x-r*1.15)} ${f1(y+r*.95)}" style="stroke:var(--ink);stroke-width:1.6" marker-end="url(#pedArrow)"/>`;
+  return g}
+function marker(id,color='var(--muted)'){return `<marker id="${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:${color}"/></marker>`}
+
+/* =============== routing =============== */
+const MODS=[
+ {id:'home',t:'Start here',g:0,n:'00',d:''},
+ {id:'what',t:'What autism is',g:1,n:'1.1',d:'Who is autistic, how many, and why the numbers rose'},
+ {id:'words',t:'Words, identity & neurodiversity',g:1,n:'1.2',d:'Identity-first or person-first, double empathy, masking'},
+ {id:'senses',t:'The sensory world',g:1,n:'1.3',d:'Hyper- and hypo-reactivity, overload, meltdown and shutdown'},
+ {id:'genes',t:'Genes & heritability',g:2,n:'2.1',d:'Twins, common and rare variants, syndromes and a pedigree'},
+ {id:'risk',t:'Risk factors & myths',g:2,n:'2.2',d:'Prenatal factors, absolute risk, and why vaccines are not a cause'},
+ {id:'brain',t:'The developing brain',g:2,n:'2.3',d:'Growth, synapses, connectivity and the main hypotheses'},
+ {id:'milestones',t:'Early signs & development',g:3,n:'3.1',d:'Social-communication milestones and red flags, 0–36 months'},
+ {id:'screening',t:'Screening tools',g:3,n:'3.2',d:'M-CHAT-R/F logic, predictive value, and why a screen is not a diagnosis'},
+ {id:'criteria',t:'DSM-5-TR & ICD-11 criteria',g:3,n:'3.3',d:'A criteria walk-through, specifiers and the three support levels'},
+ {id:'assessment',t:'The diagnostic assessment',g:3,n:'3.4',d:'Who assesses, which tools, waiting times, adults and differentials'},
+ {id:'cooccur',t:'Co-occurring conditions',g:3,n:'3.5',d:'ADHD, anxiety, depression, intellectual disability and more'},
+ {id:'supports',t:'Supports & the evidence',g:4,n:'4.1',d:'Early intervention, what helps, and how sure we are'},
+ {id:'aba',t:'ABA and the debate',g:4,n:'4.2',d:'Behavioural approaches, NDBIs and what autistic people say'},
+ {id:'therapies',t:'Communication, AAC & therapies',g:4,n:'4.3',d:'Speech therapy, AAC, OT, social skills and adapted CBT'},
+ {id:'meds',t:'Medication',g:4,n:'4.4',d:'What medicines can and cannot do: irritability, ADHD, sleep'},
+ {id:'unproven',t:'Unproven & harmful treatments',g:4,n:'4.5',d:'Secretin, chelation, bleach, diets and how to judge a claim'},
+ {id:'frontier',t:'Research toward better support',g:4,n:'4.6',d:'Trials, new diagnostics and what autistic people want studied'},
+ {id:'school',t:'Family, school & play',g:5,n:'5.1',d:'A week with supports, education rights and caregiver wellbeing'},
+ {id:'adult',t:'Autistic adults',g:5,n:'5.2',d:'Late diagnosis, work, relationships, burnout and ageing'},
+ {id:'health',t:'Physical health, sleep & safety',g:5,n:'5.3',d:'Epilepsy, sleep, gut, feeding, mortality and safety'},
+ {id:'nursing',t:'Nursing & healthcare visits',g:5,n:'5.4',d:'An autism-adapted visit, communication, pain and restraint'},
+ {id:'history',t:'History & people',g:6,n:'6.1',d:'From Bleuler and Sukhareva to DSM-5 and neurodiversity'},
+ {id:'review',t:'Flashcards & mnemonics',g:6,n:'6.2',d:'Flip cards by part'},
+ {id:'quiz',t:'Quiz',g:6,n:'6.3',d:'Questions with explanations'},
+ {id:'glossary',t:'Glossary',g:6,n:'6.4',d:'Every term, searchable'},
+ {id:'sources',t:'Sources',g:6,n:'6.5',d:'Every reference behind the app'}
+];
+/* group colours: 1, 5 and 6 use the ochre brand; 2 violet (--neuro), 3 charcoal-blue (--accent), 4 green (--rx) */
+const GROUPS={1:['Understanding autism','g-und','c-und'],2:['Causes & the brain','g-cause','c-cause'],3:['Signs & diagnosis','g-dx','c-dx'],4:['Supports & interventions','g-rx','c-rx'],5:['Living & lifespan','g-live','c-live'],6:['Context & review','g-ix','c-ix']};
+const inits={},onShow={},onHide={};let cur=null;
+/* Each module is its own page, so search engines can index it: the body names the
+   module (data-page) and the way back up to the companion's first page (data-root).
+   A page that carries every module, like the artifact, has no data-page and switches
+   modules by #hash. */
+const PAGE=document.body.dataset.page||'',UP=document.body.dataset.root||'';
+const href=id=>PAGE?(id==='home'?UP||'./':UP+id+'/'):'#'+id;
+function go(id,hash,replace){const u=href(id)+(location.protocol==='file:'?'index.html':'')+(hash||'');replace?location.replace(u):location.assign(u)}
+/* the first page opened in a tab (not one reached by a click inside the guide) may reopen the module last read */
+let fresh=false;try{fresh=!sessionStorage.getItem('aut:tab');sessionStorage.setItem('aut:tab','1')}catch(e){}
+(function buildNav(){
+  let h='';
+  for(const g of Object.keys(GROUPS).map(Number)){
+    h+=`<div class="navgroup ${GROUPS[g][1]}"><h3>${GROUPS[g][0]}</h3><ol>`;
+    MODS.filter(m=>m.g===g).forEach(m=>{h+=`<li><a class="navbtn" href="${href(m.id)}" data-go="${m.id}"><span class="n">${m.n}</span><span>${m.t.replace('&','&amp;')}</span></a></li>`});
+    h+='</ol></div>';
+  }
+  $('#navgroups').innerHTML=h;
+  let u='';
+  Object.keys(GROUPS).map(Number).forEach(g=>{
+    u+=`<div class="unit"><p class="eyebrow">Part ${g}</p><h2>${GROUPS[g][0].replace('&','&amp;')}</h2><ol>`;
+    MODS.filter(m=>m.g===g).forEach(m=>{u+=`<li><button data-go="${m.id}"><span class="n">${m.n}</span><b>${m.t.replace('&','&amp;')}</b><small>${m.d}</small></button></li>`});
+    u+='</ol></div>';
+  });
+  if($('#homeUnits'))$('#homeUnits').innerHTML=u;
+  MODS.forEach((m,i)=>{
+    const sec=$('#m-'+m.id);if(!sec)return;
+    if(m.g)sec.classList.add(GROUPS[m.g][2]);
+    if(m.id==='home')return;
+    const p=MODS[i-1],n=MODS[i+1];
+    const pg=document.createElement('div');pg.className='pager';
+    pg.innerHTML=(p?`<button data-go="${p.id}"><small>← Previous</small><span>${p.t.replace('&','&amp;')}</span></button>`:'')+(n?`<button class="next" data-go="${n.id}"><small>Next →</small><span>${n.t.replace('&','&amp;')}</span></button>`:'');
+    sec.appendChild(pg);
+  });
+})();
+function show(id,keepScroll){
+  if(!MODS.some(m=>m.id===id))id='home';
+  if(PAGE&&id!==PAGE){
+    /* boot asks first: for the #module of an old link, or for the module last read */
+    if(cur){go(id);return}
+    if(location.hash.slice(1)===id||(PAGE==='home'&&fresh)){go(id,'',true);return}
+    id=PAGE;
+  }
+  const first=!cur;
+  if(cur&&onHide[cur])onHide[cur]();
+  $$('[data-mod]').forEach(s=>s.hidden=s.dataset.mod!==id);
+  $$('.navbtn').forEach(b=>b.setAttribute('aria-current',b.dataset.go===id?'page':'false'));
+  cur=id;
+  if(inits[id]&&!inits[id].done){inits[id].done=true;inits[id]()}
+  guardLive($('#m-'+id)||document);
+  if(onShow[id])onShow[id]();
+  store.set('last',id);
+  if(!PAGE)try{history.replaceState(null,'','#'+id)}catch(e){}
+  if(!keepScroll)window.scrollTo(0,0);
+  const nb=$(`.navbtn[data-go="${id}"]`);
+  if(nb&&matchMedia('(max-width:900px)').matches){const side=$('#side');side.scrollTo({left:nb.offsetLeft-side.clientWidth/2+nb.offsetWidth/2,behavior:RM?'auto':'smooth'})}
+  if(first&&location.hash.startsWith('#src-'))flashSrc(location.hash.slice(5));
+}
+function flashSrc(k){const li=document.getElementById('src-'+k);if(li){li.scrollIntoView({block:'center',behavior:RM?'auto':'smooth'});li.classList.add('flash');setTimeout(()=>li.classList.remove('flash'),2200)}}
+document.addEventListener('click',e=>{
+  const sk=e.target.closest('.skip');if(sk){e.preventDefault();const m=$('#main');m&&m.focus();return}
+  const c=e.target.closest('sup.c');
+  if(c){e.preventDefault();const k=c.dataset.ref.split(',')[0];if(PAGE&&PAGE!=='sources'){go('sources','#src-'+k);return}show('sources');flashSrc(k);return}
+  const b=e.target.closest('[data-go]');if(b){if(b.href&&(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey))return;e.preventDefault();show(b.dataset.go)}
+});
+/* theme: auto → light → dark */
+/* language switch keeps the current module */
+(function lang(){const a=$('#langBtn');if(!a)return;const base=a.getAttribute('href');
+  const upd=()=>a.setAttribute('href',base+location.hash);['pointerdown','focus','click','mouseenter'].forEach(e=>a.addEventListener(e,upd));upd()})();
+(function theme(){
+  const btn=$('#themeBtn');const modes=['auto','light','dark'];let m=store.get('theme','auto');
+  function apply(){if(m==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',m);btn.textContent='Theme: '+{auto:'auto',light:'light',dark:'dark'}[m]}
+  btn.addEventListener('click',()=>{m=modes[(modes.indexOf(m)+1)%3];store.set('theme',m);apply()});apply();
+})();
+/* ---- narrow mode ----
+   Phone stages are too small for the 720-wide layouts, so draw() asks NARROW()
+   and lays its panels out in a tall column instead of a wide row. Modules that
+   register a player are redrawn automatically when the stage crosses the
+   threshold, so a rotation or a window resize re-lays-out the scene. */
+const NARROW=()=>matchMedia('(max-width:820px)').matches;
+const redraws={};
+let _wasNarrow=NARROW(),_rt;
+addEventListener('resize',()=>{clearTimeout(_rt);_rt=setTimeout(()=>{
+  const n=NARROW();if(n===_wasNarrow)return;_wasNarrow=n;
+  const f=redraws[cur];if(f)try{f()}catch(e){}
+},160)});
+/* fit the viewBox to the mode: wide|narrow are "w h" pairs */
+function vb(svg,wide,narrow){const v=NARROW()?narrow:wide;svg.setAttribute('viewBox','0 0 '+v);svg.dataset.mode=NARROW()?'n':'w';return NARROW()}
+
+/* ---- live regions ----
+   Every frame of an animation rewrites its note panel, and a screen reader will
+   announce an aria-live region each time its contents are replaced, even with the
+   same text. Shadow innerHTML on those elements so an identical write is dropped:
+   the reader hears the note once per real change, not sixty times a second. */
+const _ihDesc=Object.getOwnPropertyDescriptor(Element.prototype,'innerHTML');
+function guardLive(root=document){
+  $$('[aria-live]',root).forEach(el=>{
+    if(el._lguard)return;el._lguard=true;
+    Object.defineProperty(el,'innerHTML',{configurable:true,
+      get(){return _ihDesc.get.call(this)},
+      set(v){if(v===this._lastHTML)return;this._lastHTML=v;_ihDesc.set.call(this,v)}});
+  });
+}
+
+/* the shared player: a range input + a play button drive draw(t) */
+function playWire(rg,pb,draw,dur,doneLabel='Replay',hideKey){
+  let stopA=null;function stop(){if(stopA)stopA();stopA=null;pb.textContent='Play'}
+  rg.addEventListener('input',()=>{stop();draw(+rg.value)});
+  rg.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pb.click()}});
+  if(!rg.getAttribute('aria-keyshortcuts'))rg.setAttribute('aria-keyshortcuts','Enter Space');
+  pb.addEventListener('click',()=>{if(stopA){stop();return}let t0=+rg.value;const mx=+rg.max||1,mn=+rg.min||0;if(t0>=mx-(mx-mn)*.01)t0=mn;pb.textContent='Pause';
+    stopA=animate((mx-t0)/(mx-mn)*dur,p=>{const t=t0+(mx-t0)*p;rg.value=t;draw(t)},()=>{stopA=null;pb.textContent=doneLabel})});
+  if(hideKey){const prev=onHide[hideKey];onHide[hideKey]=()=>{prev&&prev();stop()}}
+  if(hideKey){const prevR=redraws[hideKey];redraws[hideKey]=()=>{prevR&&prevR();stop();draw(+rg.value)}}
+  return stop;
+}
+/* stepper buttons that jump the timeline */
+function stepWire(el,steps,rg,draw,stop){
+  el.innerHTML=steps.map((s,i)=>`<button data-st="${i}" aria-pressed="false"><b>${String(i+1).padStart(2,'0')}</b><span>${s.t}</span></button>`).join('');
+  el.addEventListener('click',e=>{const b=e.target.closest('[data-st]');if(!b)return;stop&&stop();const s=steps[+b.dataset.st];rg.value=s.at;draw(s.at)});
+  el.setAttribute('role','group');el.setAttribute('aria-label','Steps');
+  return i=>{$$('[data-st]',el).forEach((b,k)=>b.setAttribute('aria-pressed',k===i));
+    /* screen readers hear the step name, not a bare number, when the slider moves */
+    if(rg&&steps[i])rg.setAttribute('aria-valuetext',`Step ${i+1} of ${steps.length}: ${steps[i].t}`)};
+}
+function phaseOf(steps,t){let p=0;steps.forEach((s,i)=>{if(t>=s.from)p=i});return p}
+function noteHTML(P){return `<div class="kicker">${P.k||''}</div><h4>${P.t}</h4>${P.txt?`<p>${P.txt}</p>`:''}${P.pt?`<div class="pt"><b>In plain words</b>${P.pt}</div>`:''}${P.hook?`<div class="hook"><b>Exam hook</b>${P.hook}</div>`:''}`}
+const SOURCES=[{"key": "ADDM2007SY2000", "text": "Autism and Developmental Disabilities Monitoring Network Surveillance Year 2000 Principal Investigators; Centers for Disease Control and Prevention. Prevalence of autism spectrum disorders--autism and developmental disabilities monitoring network, six sites, United States, 2000. MMWR Surveill Summ. 2007;56(1):1-11. PMID 17287714.", "link": "https://pubmed.ncbi.nlm.nih.gov/17287714/", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "ADDM2007SY2002", "text": "Autism and Developmental Disabilities Monitoring Network Surveillance Year 2002 Principal Investigators; Centers for Disease Control and Prevention. Prevalence of autism spectrum disorders--autism and developmental disabilities monitoring network, 14 sites, United States, 2002. MMWR Surveill Summ. 2007;56(1):12-28. PMID 17287715.", "link": "https://pubmed.ncbi.nlm.nih.gov/17287715/", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "ADDM2009SY2006", "text": "Autism and Developmental Disabilities Monitoring Network Surveillance Year 2006 Principal Investigators; Centers for Disease Control and Prevention (CDC). Prevalence of autism spectrum disorders - Autism and Developmental Disabilities Monitoring Network, United States, 2006. MMWR Surveill Summ. 2009;58(10):1-20. PMID 20023608.", "link": "https://pubmed.ncbi.nlm.nih.gov/20023608/", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "ADDM2012SY2008", "text": "Autism and Developmental Disabilities Monitoring Network Surveillance Year 2008 Principal Investigators; Centers for Disease Control and Prevention. Prevalence of autism spectrum disorders--Autism and Developmental Disabilities Monitoring Network, 14 sites, United States, 2008. MMWR Surveill Summ. 2012;61(3):1-19. PMID 22456193.", "link": "https://pubmed.ncbi.nlm.nih.gov/22456193/", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "ADDM2014SY2010", "text": "Developmental Disabilities Monitoring Network Surveillance Year 2010 Principal Investigators; Centers for Disease Control and Prevention (CDC). Prevalence of autism spectrum disorder among children aged 8 years - autism and developmental disabilities monitoring network, 11 sites, United States, 2010. MMWR Surveill Summ. 2014;63(2):1-21. PMID 24670961.", "link": "https://pubmed.ncbi.nlm.nih.gov/24670961/", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Agrawal2018Preterm", "text": "Agrawal S, Rao SC, Bulsara MK, Patole SK. Prevalence of Autism Spectrum Disorder in Preterm Infants: A Meta-analysis. Pediatrics. 2018;142(3):e20180134. PMID 30076190; doi:10.1542/peds.2018-0134.", "link": "https://doi.org/10.1542/peds.2018-0134", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Ahlqvist2024", "text": "Ahlqvist VH, Sjöqvist H, Dalman C, Karlsson H, Stephansson O, Johansson S, et al. Acetaminophen Use During Pregnancy and Children's Risk of Autism, ADHD, and Intellectual Disability. JAMA. 2024;331(14):1205-1214. PMID 38592388; PMCID PMC11004836; doi:10.1001/jama.2024.3172.", "link": "https://doi.org/10.1001/jama.2024.3172", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "AiA2025EOC", "text": "Advances in Autism. Expression of concern: Evidence of increased PTSD symptoms in autistics exposed to applied behavior analysis. Advances in Autism. 2025;12(1):117. doi:10.1108/AIA-11-2025-0117. Record confirmed; text not accessible (publisher page HTTP 403).", "link": "https://doi.org/10.1108/aia-11-2025-0117", "areas": ["E"], "unverified": false, "validated": "Crossref"}, {"key": "Allison2008", "text": "Allison C, Baron-Cohen S, Wheelwright S, Charman T, Richler J, Pasco G, et al. The Q-CHAT (Quantitative CHecklist for Autism in Toddlers): a normally distributed quantitative measure of autistic traits at 18-24 months of age: preliminary report. J Autism Dev Disord. 2008;38(8):1414-25. PMID 18240013; doi:10.1007/s10803-007-0509-7.", "link": "https://doi.org/10.1007/s10803-007-0509-7", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Allison2012", "text": "Allison C, Auyeung B, Baron-Cohen S. Toward brief \"Red Flags\" for autism screening: The Short Autism Spectrum Quotient and the Short Quantitative Checklist for Autism in toddlers in 1,000 cases and 3,000 controls [corrected]. J Am Acad Child Adolesc Psychiatry. 2012;51(2):202-212.e7. PMID 22265366; doi:10.1016/j.jaac.2011.11.003.", "link": "https://doi.org/10.1016/j.jaac.2011.11.003", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Almirall2016", "text": "Almirall D, DiStefano C, Chang YC, Shire S, Kaiser A, Lu X, et al. Longitudinal Effects of Adaptive Interventions With a Speech-Generating Device in Minimally Verbal Children With ASD. J Clin Child Adolesc Psychol. 2016;45(4):442-456. PMID 26954267; PMCID PMC4930379; doi:10.1080/15374416.2016.1138407.", "link": "https://doi.org/10.1080/15374416.2016.1138407", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Alvares2020", "text": "Alvares GA, Bebbington K, Cleary D, Evans K, Glasson EJ, Maybery MT, et al. The misnomer of 'high functioning autism': Intelligence is an imprecise predictor of functional abilities at diagnosis. Autism. 2020;24(1):221-232. PMID 31215791; doi:10.1177/1362361319852831.", "link": "https://doi.org/10.1177/1362361319852831", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Aman2009", "text": "Aman MG, McDougle CJ, Scahill L, Handen B, Arnold LE, Johnson C, et al. Medication and parent training in children with pervasive developmental disorders and serious behavior problems: results from a randomized clinical trial. J Am Acad Child Adolesc Psychiatry. 2009;48(12):1143-54. PMID 19858761; PMCID PMC3142923; doi:10.1097/CHI.0b013e3181bfd669.", "link": "https://doi.org/10.1097/chi.0b013e3181bfd669", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Amiet2008", "text": "Amiet C, Gourfinkel-An I, Bouzamondo A, Tordjman S, Baulac M, Lechat P, et al. Epilepsy in autism is associated with intellectual disability and gender: evidence from a meta-analysis. Biol Psychiatry. 2008;64(7):577-82. PMID 18565495; doi:10.1016/j.biopsych.2008.04.030.", "link": "https://doi.org/10.1016/j.biopsych.2008.04.030", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Amir1999", "text": "Amir RE, Van den Veyver IB, Wan M, Tran CQ, Francke U, Zoghbi HY. Rett syndrome is caused by mutations in X-linked MECP2, encoding methyl-CpG-binding protein 2. Nat Genet. 1999;23(2):185-8. PMID 10508514; doi:10.1038/13810.", "link": "https://doi.org/10.1038/13810", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Anderson2012Elopement", "text": "Anderson C, Law JK, Daniels A, Rice C, Mandell DS, Hagopian L, et al. Occurrence and family impact of elopement in children with autism spectrum disorders. Pediatrics. 2012;130(5):870-7. PMID 23045563; PMCID PMC4524545; doi:10.1542/peds.2012-0762.", "link": "https://doi.org/10.1542/peds.2012-0762", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Anderson2014Outcome", "text": "Anderson DK, Liang JW, Lord C. Predicting young adult outcome among more and less cognitively able individuals with autism spectrum disorders. J Child Psychol Psychiatry. 2014;55(5):485-94. PMID 24313878; PMCID PMC5819743; doi:10.1111/jcpp.12178.", "link": "https://doi.org/10.1111/jcpp.12178", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Anderson2014Residential", "text": "Anderson KA, Shattuck PT, Cooper BP, Roux AM, Wagner M. Prevalence and correlates of postsecondary residential status among young adults with an autism spectrum disorder. Autism. 2014;18(5):562-70. PMID 23996904; PMCID PMC4006316; doi:10.1177/1362361313481860.", "link": "https://doi.org/10.1177/1362361313481860", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Anderson2023", "text": "Anderson LK. Autistic experiences of applied behavior analysis. Autism. 2023;27(3):737-750. PMID 35999706; doi:10.1177/13623613221118216.", "link": "https://doi.org/10.1177/13623613221118216", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Antaki2022", "text": "Antaki D, Guevara J, Maihofer AX, Klein M, Gujral M, Grove J, et al. A phenotypic spectrum of autism is attributable to the combined effects of rare variants, polygenic risk and sex. Nat Genet. 2022;54(9):1284-1292. PMID 35654974; PMCID PMC9474668; doi:10.1038/s41588-022-01064-5.", "link": "https://doi.org/10.1038/s41588-022-01064-5", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Antoine2019", "text": "Antoine MW, Langberg T, Schnepel P, Feldman DE. Increased Excitation-Inhibition Ratio Stabilizes Synapse and Circuit Excitability in Four Autism Mouse Models. Neuron. 2019;101(4):648-661.e4. PMID 30679017; PMCID PMC6733271; doi:10.1016/j.neuron.2018.12.026.", "link": "https://doi.org/10.1016/j.neuron.2018.12.026", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "APA2013", "text": "American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition (DSM-5). Arlington, VA: American Psychiatric Association; 2013. doi:10.1176/appi.books.9780890425596.", "link": "https://doi.org/10.1176/appi.books.9780890425596", "areas": ["A"], "unverified": false, "validated": "Crossref"}, {"key": "APA2022", "text": "American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR). Washington, DC: American Psychiatric Association Publishing; 2022. doi:10.1176/appi.books.9780890425787.", "link": "https://doi.org/10.1176/appi.books.9780890425787", "areas": ["A", "C", "D"], "unverified": false, "validated": "Crossref"}, {"key": "Aran2021", "text": "Aran A, Harel M, Cassuto H, Polyansky L, Schnapp A, Wattad N, et al. Cannabinoid treatment for autism: a proof-of-concept randomized trial. Mol Autism. 2021;12(1):6. PMID 33536055; PMCID PMC7860205; doi:10.1186/s13229-021-00420-2.", "link": "https://doi.org/10.1186/s13229-021-00420-2", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Araujo2026", "text": "Araújo LA. Warning signs for identifying neurodevelopmental disorders: a systematic literature review. J Pediatr (Rio J). 2026;102 Suppl 1:101478. PMID 41248901; PMCID PMC12856872; doi:10.1016/j.jped.2025.101478.", "link": "https://doi.org/10.1016/j.jped.2025.101478", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Arnold2015", "text": "Arnold B, Elliott A, Laohamroonvorapongse D, Hanna J, Norvell D, Koh J. Autistic children and anesthesia: is their perioperative experience different?. Paediatr Anaesth. 2015;25(11):1103-10. PMID 26338278; doi:10.1111/pan.12739.", "link": "https://doi.org/10.1111/pan.12739", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Arnold2023Burnout", "text": "Arnold SR, Higgins JM, Weise J, Desai A, Pellicano E, Trollor JN. Towards the measurement of autistic burnout. Autism. 2023;27(7):1933-1948. PMID 36637292; doi:10.1177/13623613221147401.", "link": "https://doi.org/10.1177/13623613221147401", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "ASHA2018FC", "text": "American Speech-Language-Hearing Association, Ad Hoc Committee on Facilitated Communication and the Rapid Prompting Method. Facilitated Communication [Position Statement]. 2018 (last reviewed April 2026). https://www.asha.org/policy/ps2018-00352/ (accessed 2026-10-25). (unverified: professional-body web page read directly; no Crossref DOI found)", "link": "https://www.asha.org/policy/ps2018-00352/", "areas": ["E"], "unverified": true}, {"key": "ASHA2018RPM", "text": "American Speech-Language-Hearing Association, Ad Hoc Committee on Facilitated Communication and the Rapid Prompting Method. Rapid Prompting Method [Position Statement]. 2018. https://www.asha.org/policy/ps2018-00351/ (accessed 2026-10-25). (unverified: professional-body web page read directly; no Crossref DOI found)", "link": "https://www.asha.org/policy/ps2018-00351/", "areas": ["E"], "unverified": true}, {"key": "Ashwood2016", "text": "Ashwood KL, Gillan N, Horder J, Hayward H, Woodhouse E, McEwen FS, et al. Predicting the diagnosis of autism in adults using the Autism-Spectrum Quotient (AQ) questionnaire. Psychol Med. 2016;46(12):2595-604. PMID 27353452; PMCID PMC4988267; doi:10.1017/S0033291716001082.", "link": "https://doi.org/10.1017/s0033291716001082", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Asperger1944", "text": "Asperger H. Die „Autistischen Psychopathen\" im Kindesalter. Archiv für Psychiatrie und Nervenkrankheiten. 1944;117(1):76-136. doi:10.1007/BF01837709.", "link": "https://doi.org/10.1007/bf01837709", "areas": ["A"], "unverified": false, "validated": "Crossref"}, {"key": "Atladottir2010", "text": "Atladóttir HO, Thorsen P, Østergaard L, Schendel DE, Lemcke S, Abdallah M, et al. Maternal infection requiring hospitalization during pregnancy and autism spectrum disorders. J Autism Dev Disord. 2010;40(12):1423-30. PMID 20414802; doi:10.1007/s10803-010-1006-y.", "link": "https://doi.org/10.1007/s10803-010-1006-y", "areas": ["B", "C"], "unverified": false, "validated": "PubMed"}, {"key": "Ayres2018", "text": "Ayres M, Parr JR, Rodgers J, Mason D, Avery L, Flynn D. A systematic review of quality of life of adults on the autism spectrum. Autism. 2018;22(7):774-783. PMID 28805071; doi:10.1177/1362361317714988.", "link": "https://doi.org/10.1177/1362361317714988", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Bai2019", "text": "Bai D, Yip BHK, Windham GC, Sourander A, Francis R, Yoffe R, et al. Association of Genetic and Environmental Factors With Autism in a 5-Country Cohort. JAMA Psychiatry. 2019;76(10):1035-1043. PMID 31314057; PMCID PMC6646998; doi:10.1001/jamapsychiatry.2019.1411.", "link": "https://doi.org/10.1001/jamapsychiatry.2019.1411", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Baio2018", "text": "Baio J, Wiggins L, Christensen DL, Maenner MJ, Daniels J, Warren Z, et al. Prevalence of Autism Spectrum Disorder Among Children Aged 8 Years - Autism and Developmental Disabilities Monitoring Network, 11 Sites, United States, 2014. MMWR Surveill Summ. 2018;67(6):1-23. PMID 29701730; PMCID PMC5919599; doi:10.15585/mmwr.ss6706a1.", "link": "https://doi.org/10.15585/mmwr.ss6706a1", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "BarahonaCorrea2015", "text": "Barahona-Corrêa JB, Filipe CN. A Concise History of Asperger Syndrome: The Short Reign of a Troublesome Diagnosis. Front Psychol. 2015;6:2024. PMID 26834663; PMCID PMC4725185; doi:10.3389/fpsyg.2015.02024.", "link": "https://doi.org/10.3389/fpsyg.2015.02024", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Barger2013", "text": "Barger BD, Campbell JM, McDonough JD. Prevalence and onset of regression within autism spectrum disorders: a meta-analytic review. J Autism Dev Disord. 2013;43(4):817-28. PMID 22855372; doi:10.1007/s10803-012-1621-x.", "link": "https://doi.org/10.1007/s10803-012-1621-x", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Bargiela2016", "text": "Bargiela S, Steward R, Mandy W. The Experiences of Late-diagnosed Women with Autism Spectrum Conditions: An Investigation of the Female Autism Phenotype. J Autism Dev Disord. 2016;46(10):3281-94. PMID 27457364; PMCID PMC5040731; doi:10.1007/s10803-016-2872-8.", "link": "https://doi.org/10.1007/s10803-016-2872-8", "areas": ["D", "G", "H"], "unverified": false, "validated": "PubMed"}, {"key": "BaronCohen2001", "text": "Baron-Cohen S, Wheelwright S, Skinner R, Martin J, Clubley E. The autism-spectrum quotient (AQ): evidence from Asperger syndrome/high-functioning autism, males and females, scientists and mathematicians. J Autism Dev Disord. 2001;31(1):5-17. PMID 11439754; doi:10.1023/a:1005653411471.", "link": "https://doi.org/10.1023/a:1005653411471", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Barroso2018", "text": "Barroso NE, Mendez L, Graziano PA, Bagner DM. Parenting Stress through the Lens of Different Clinical Groups: a Systematic Review & Meta-Analysis. J Abnorm Child Psychol. 2018;46(3):449-461. PMID 28555335; PMCID PMC5725271; doi:10.1007/s10802-017-0313-6.", "link": "https://doi.org/10.1007/s10802-017-0313-6", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Bashir2026", "text": "Bashir A, Rana KS, Murphy J, Drozd M. Tier 1 evaluating the implementation of the Oliver McGowan Mandatory Training in learning disabilities and autism across interdisciplinarity health-related courses at Aston University. Front Med (Lausanne). 2026;13:1672094. PMID 41884132; PMCID PMC13008663; doi:10.3389/fmed.2026.1672094.", "link": "https://doi.org/10.3389/fmed.2026.1672094", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Baxter2015", "text": "Baxter AJ, Brugha TS, Erskine HE, Scheurer RW, Vos T, Scott JG. The epidemiology and global burden of autism spectrum disorders. Psychol Med. 2015;45(3):601-13. PMID 25108395; doi:10.1017/S003329171400172X.", "link": "https://doi.org/10.1017/s003329171400172x", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Bearss2015", "text": "Bearss K, Johnson C, Smith T, Lecavalier L, Swiezy N, Aman M, et al. Effect of parent training vs parent education on behavioral problems in children with autism spectrum disorder: a randomized clinical trial. JAMA. 2015;313(15):1524-33. PMID 25898050; PMCID PMC9078140; doi:10.1001/jama.2015.3150.", "link": "https://doi.org/10.1001/jama.2015.3150", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Begeer2013", "text": "Begeer S, Mandell D, Wijnker-Holmes B, Venderbosch S, Rem D, Stekelenburg F, et al. Sex differences in the timing of identification among children and adults with autism spectrum disorders. J Autism Dev Disord. 2013;43(5):1151-6. PMID 23001766; doi:10.1007/s10803-012-1656-z.", "link": "https://doi.org/10.1007/s10803-012-1656-z", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Benevides2020", "text": "Benevides TW, Shore SM, Palmer K, Duncan P, Plank A, Andresen ML, et al. Listening to the autistic voice: Mental health priorities to guide research and practice in autism from a stakeholder-driven project. Autism. 2020;24(4):822-833. PMID 32429818; PMCID PMC7787673; doi:10.1177/1362361320908410.", "link": "https://doi.org/10.1177/1362361320908410", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "BenSasson2009", "text": "Ben-Sasson A, Hen L, Fluss R, Cermak SA, Engel-Yeger B, Gal E. A meta-analysis of sensory modulation symptoms in individuals with autism spectrum disorders. J Autism Dev Disord. 2009;39(1):1-11. PMID 18512135; doi:10.1007/s10803-008-0593-3.", "link": "https://doi.org/10.1007/s10803-008-0593-3", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "BenSasson2019", "text": "Ben-Sasson A, Gal E, Fluss R, Katz-Zetler N, Cermak SA. Update of a Meta-analysis of Sensory Symptoms in ASD: A New Decade of Research. J Autism Dev Disord. 2019;49(12):4974-4996. PMID 31501953; doi:10.1007/s10803-019-04180-0.", "link": "https://doi.org/10.1007/s10803-019-04180-0", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Bieleninik2017", "text": "Bieleninik L, Geretsegger M, Mössler K, Assmus J, Thompson G, Gattino G, et al. Effects of Improvisational Music Therapy vs Enhanced Standard Care on Symptom Severity Among Children With Autism Spectrum Disorder: The TIME-A Randomized Clinical Trial. JAMA. 2017;318(6):525-535. PMID 28787504; PMCID PMC5817481; doi:10.1001/jama.2017.9478.", "link": "https://doi.org/10.1001/jama.2017.9478", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Bolton2011", "text": "Bolton PF, Carcani-Rathwell I, Hutton J, Goode S, Howlin P, Rutter M. Epilepsy in autism: features and correlates. Br J Psychiatry. 2011;198(4):289-94. PMID 21972278; PMCID PMC3065774; doi:10.1192/bjp.bp.109.076877.", "link": "https://doi.org/10.1192/bjp.bp.109.076877", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Botha2024", "text": "Botha M, Chapman R, Giwa Onaiwu M, Kapp SK, Stannard Ashley A, Walker N. The neurodiversity concept was developed collectively: An overdue correction on the origins of neurodiversity theory. Autism. 2024;28(6):1591-1594. PMID 38470140; doi:10.1177/13623613241237871.", "link": "https://doi.org/10.1177/13623613241237871", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "BottemaBeutel2021ABAJ", "text": "Bottema-Beutel K, Crowley S. Pervasive Undisclosed Conflicts of Interest in Applied Behavior Analysis Autism Literature. Front Psychol. 2021;12:676303. PMID 34025538; PMCID PMC8131529; doi:10.3389/fpsyg.2021.676303.", "link": "https://doi.org/10.3389/fpsyg.2021.676303", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "BottemaBeutel2021Ableist", "text": "Bottema-Beutel K, Kapp SK, Lester JN, Sasson NJ, Hand BN. Avoiding Ableist Language: Suggestions for Autism Researchers. Autism Adulthood. 2021;3(1):18-29. PMID 36601265; PMCID PMC8992888; doi:10.1089/aut.2020.0014.", "link": "https://doi.org/10.1089/aut.2020.0014", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "BottemaBeutel2021AE", "text": "Bottema-Beutel K, Crowley S, Sandbank M, Woynaroski TG. Adverse event reporting in intervention research for young autistic children. Autism. 2021;25(2):322-335. PMID 33076682; PMCID PMC7870528; doi:10.1177/1362361320965331.", "link": "https://doi.org/10.1177/1362361320965331", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "BottemaBeutel2021COI", "text": "Bottema-Beutel K, Crowley S, Sandbank M, Woynaroski TG. Research Review: Conflicts of Interest (COIs) in autism early intervention research - a meta-analysis of COI influences on intervention effects. J Child Psychol Psychiatry. 2021;62(1):5-15. PMID 32353179; PMCID PMC7606324; doi:10.1111/jcpp.13249.", "link": "https://doi.org/10.1111/jcpp.13249", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "BottemaBeutel2025", "text": "Bottema-Beutel K, Guo R, Hinson-Wiliams J, Shen Y, LaPoint S, Woynaroski T, et al. Research Review: Conceptualizing and measuring 'problem behavior' in early intervention autism research - a project AIM secondary systematic review. J Child Psychol Psychiatry. 2025;66(11):1765-1780. PMID 40451187; PMCID PMC12354140; doi:10.1111/jcpp.14177.", "link": "https://doi.org/10.1111/jcpp.14177", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "BottemaBeutel2026", "text": "Bottema-Beutel K, Hinson-Williams J, Shen Y, Guo R, Brayton S, Alicea J, et al. A 5-Year Update of Conflicts of Interest in Autism Intervention Research in Applied Behavior Analysis Journals. Autism. 2026;30(7):1887-1894. PMID 41956104; doi:10.1177/13623613261433165.", "link": "https://doi.org/10.1177/13623613261433165", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Bradley2021", "text": "Bradley L, Shaw R, Baron-Cohen S, Cassidy S. Autistic Adults' Experiences of Camouflaging and Its Perceived Impact on Mental Health. Autism Adulthood. 2021;3(4):320-329. PMID 36601637; PMCID PMC8992917; doi:10.1089/aut.2020.0071.", "link": "https://doi.org/10.1089/aut.2020.0071", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Breau2002", "text": "Breau LM, McGrath PJ, Camfield CS, Finley GA. Psychometric properties of the non-communicating children's pain checklist-revised. Pain. 2002;99(1-2):349-57. PMID 12237214; doi:10.1016/s0304-3959(02)00179-3.", "link": "https://doi.org/10.1016/s0304-3959(02)00179-3", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Brown2006", "text": "Brown MJ, Willis T, Omalu B, Leiker R. Deaths resulting from hypocalcemia after administration of edetate disodium: 2003-2005. Pediatrics. 2006;118(2):e534-6. PMID 16882789; doi:10.1542/peds.2006-0858.", "link": "https://doi.org/10.1542/peds.2006-0858", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Brown2014CRP", "text": "Brown AS, Sourander A, Hinkka-Yli-Salomäki S, McKeague IW, Sundvall J, Surcel HM. Elevated maternal C-reactive protein and autism in a national birth cohort. Mol Psychiatry. 2014;19(2):259-64. PMID 23337946; PMCID PMC3633612; doi:10.1038/mp.2012.197.", "link": "https://doi.org/10.1038/mp.2012.197", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "BrownLavoie2014", "text": "Brown-Lavoie SM, Viecili MA, Weiss JA. Sexual knowledge and victimization in adults with autism spectrum disorders. J Autism Dev Disord. 2014;44(9):2185-96. PMID 24664634; PMCID PMC4131130; doi:10.1007/s10803-014-2093-y.", "link": "https://doi.org/10.1007/s10803-014-2093-y", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Brugha2011", "text": "Brugha TS, McManus S, Bankart J, Scott F, Purdon S, Smith J, et al. Epidemiology of autism spectrum disorders in adults in the community in England. Arch Gen Psychiatry. 2011;68(5):459-65. PMID 21536975; doi:10.1001/archgenpsychiatry.2011.38.", "link": "https://doi.org/10.1001/archgenpsychiatry.2011.38", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Brugha2016", "text": "Brugha TS, Spiers N, Bankart J, Cooper SA, McManus S, Scott FJ, et al. Epidemiology of autism in adults across age groups and ability levels. Br J Psychiatry. 2016;209(6):498-503. PMID 27388569; doi:10.1192/bjp.bp.115.174649.", "link": "https://doi.org/10.1192/bjp.bp.115.174649", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Buescher2014", "text": "Buescher AV, Cidav Z, Knapp M, Mandell DS. Costs of autism spectrum disorders in the United Kingdom and the United States. JAMA Pediatr. 2014;168(8):721-8. PMID 24911948; doi:10.1001/jamapediatrics.2014.210.", "link": "https://doi.org/10.1001/jamapediatrics.2014.210", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Bury2020", "text": "Bury SM, Hedley D, Uljarević M, Gal E. The autism advantage at work: A critical and systematic review of current evidence. Res Dev Disabil. 2020;105:103750. PMID 32810716; doi:10.1016/j.ridd.2020.103750.", "link": "https://doi.org/10.1016/j.ridd.2020.103750", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Bury2023", "text": "Bury SM, Jellett R, Haschek A, Wenzel M, Hedley D, Spoor JR. Understanding language preference: Autism knowledge, experience of stigma and autism identity. Autism. 2023;27(6):1588-1600. PMID 36510834; doi:10.1177/13623613221142383.", "link": "https://doi.org/10.1177/13623613221142383", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Butler2005PTEN", "text": "Butler MG, Dasouki MJ, Zhou XP, Talebizadeh Z, Brown M, Takahashi TN, et al. Subset of individuals with autism spectrum disorders and extreme macrocephaly associated with germline PTEN tumour suppressor gene mutations. J Med Genet. 2005;42(4):318-21. PMID 15805158; PMCID PMC1736032; doi:10.1136/jmg.2004.024646.", "link": "https://doi.org/10.1136/jmg.2004.024646", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Cage2020", "text": "Cage E, Howes J. Dropping out and moving on: A qualitative study of autistic people's experiences of university. Autism. 2020;24(7):1664-1675. PMID 32476451; PMCID PMC7575306; doi:10.1177/1362361320918750.", "link": "https://doi.org/10.1177/1362361320918750", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Carbone2020", "text": "Carbone PS, Campbell K, Wilkes J, Stoddard GJ, Huynh K, Young PC, et al. Primary Care Autism Screening and Later Autism Diagnosis. Pediatrics. 2020;146(2):e20192314. PMID 32632024; PMCID PMC7397730; doi:10.1542/peds.2019-2314.", "link": "https://doi.org/10.1542/peds.2019-2314", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Carr2002PBS", "text": "Carr EG, Dunlap G, Horner RH, Koegel RL, Turnbull AP, Sailor W, et al. Positive Behavior Support: Evolution of an Applied Science. J Posit Behav Interv. 2002;4(1):4-16. doi:10.1177/109830070200400102.", "link": "https://doi.org/10.1177/109830070200400102", "areas": ["E"], "unverified": false, "validated": "Crossref"}, {"key": "Carruthers2024", "text": "Carruthers S, Pickles A, Charman T, McConachie H, Le Couteur A, Slonims V, et al. Mediation of 6-year mid-childhood follow-up outcomes after pre-school social communication (PACT) therapy for autistic children: randomised controlled trial. J Child Psychol Psychiatry. 2024;65(2):233-244. PMID 37095645; PMCID PMC10953331; doi:10.1111/jcpp.13798.", "link": "https://doi.org/10.1111/jcpp.13798", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Cassidy2014", "text": "Cassidy S, Bradley P, Robinson J, Allison C, McHugh M, Baron-Cohen S. Suicidal ideation and suicide plans or attempts in adults with Asperger's syndrome attending a specialist diagnostic clinic: a clinical cohort study. Lancet Psychiatry. 2014;1(2):142-7. PMID 26360578; doi:10.1016/S2215-0366(14)70248-2.", "link": "https://doi.org/10.1016/s2215-0366(14)70248-2", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Cassidy2023Camouflaging", "text": "Cassidy S, McLaughlin E, McGranaghan R, Pelton M, O'Connor R, Rodgers J. Is camouflaging autistic traits associated with defeat, entrapment, and lifetime suicidal thoughts? Expanding the Integrated Motivational Volitional Model of Suicide. Suicide Life Threat Behav. 2023;53(4):572-585. PMID 37129164; doi:10.1111/sltb.12965.", "link": "https://doi.org/10.1111/sltb.12965", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "CatalaLopez2022", "text": "Catalá-López F, Hutton B, Page MJ, Driver JA, Ridao M, Alonso-Arroyo A, et al. Mortality in Persons With Autism Spectrum Disorder or Attention-Deficit/Hyperactivity Disorder: A Systematic Review and Meta-analysis. JAMA Pediatr. 2022;176(4):e216401. PMID 35157020; PMCID PMC8845021; doi:10.1001/jamapediatrics.2021.6401.", "link": "https://doi.org/10.1001/jamapediatrics.2021.6401", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Cermak2015", "text": "Cermak SA, Stein Duker LI, Williams ME, Dawson ME, Lane CJ, Polido JC. Sensory Adapted Dental Environments to Enhance Oral Care for Children with Autism Spectrum Disorders: A Randomized Controlled Pilot Study. J Autism Dev Disord. 2015;45(9):2876-88. PMID 25931290; PMCID PMC4554774; doi:10.1007/s10803-015-2450-5.", "link": "https://doi.org/10.1007/s10803-015-2450-5", "areas": ["C", "H"], "unverified": false, "validated": "PubMed"}, {"key": "Chahboun2022", "text": "Chahboun S, Stenseng F, Page AG. The changing faces of autism: The fluctuating international diagnostic criteria and the resulting inclusion and exclusion-A Norwegian perspective. Front Psychiatry. 2022;13:787893. PMID 35966490; PMCID PMC9365987; doi:10.3389/fpsyt.2022.787893.", "link": "https://doi.org/10.3389/fpsyt.2022.787893", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Chandler2007", "text": "Chandler S, Charman T, Baird G, Simonoff E, Loucas T, Meldrum D, et al. Validation of the social communication questionnaire in a population cohort of children with autism spectrum disorders. J Am Acad Child Adolesc Psychiatry. 2007;46(10):1324-1332. PMID 17885574; doi:10.1097/chi.0b013e31812f7d8d.", "link": "https://doi.org/10.1097/chi.0b013e31812f7d8d", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Chawarska2013", "text": "Chawarska K, Macari S, Shic F. Decreased spontaneous attention to social scenes in 6-month-old infants later diagnosed with autism spectrum disorders. Biol Psychiatry. 2013;74(3):195-203. PMID 23313640; PMCID PMC3646074; doi:10.1016/j.biopsych.2012.11.022.", "link": "https://doi.org/10.1016/j.biopsych.2012.11.022", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "CheslackPostava2014", "text": "Cheslack-Postava K, Suominen A, Jokiranta E, Lehti V, McKeague IW, Sourander A, et al. Increased risk of autism spectrum disorders at short and long interpregnancy intervals in Finland. J Am Acad Child Adolesc Psychiatry. 2014;53(10):1074-81.e4. PMID 25245351; PMCID PMC4174278; doi:10.1016/j.jaac.2014.06.009.", "link": "https://doi.org/10.1016/j.jaac.2014.06.009", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Chess1967", "text": "Chess S. The Empty Fortress: Infantile Autism and the Birth of the Self [book review of Bettelheim B, 1967]. JAMA. 1967;199(12):949. doi:10.1001/jama.1967.03120120137043.", "link": "https://doi.org/10.1001/jama.1967.03120120137043", "areas": ["A"], "unverified": false, "validated": "Crossref"}, {"key": "Chevallier2012", "text": "Chevallier C, Kohls G, Troiani V, Brodkin ES, Schultz RT. The social motivation theory of autism. Trends Cogn Sci. 2012;16(4):231-9. PMID 22425667; PMCID PMC3329932; doi:10.1016/j.tics.2012.02.007.", "link": "https://doi.org/10.1016/j.tics.2012.02.007", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "ChitaTegmark2016", "text": "Chita-Tegmark M. Social attention in ASD: A review and meta-analysis of eye-tracking studies. Res Dev Disabil. 2016;48:79-93. PMID 26547134; doi:10.1016/j.ridd.2015.10.011.", "link": "https://doi.org/10.1016/j.ridd.2015.10.011", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Chlebowski2013", "text": "Chlebowski C, Robins DL, Barton ML, Fein D. Large-scale use of the modified checklist for autism in low-risk toddlers. Pediatrics. 2013;131(4):e1121-7. PMID 23530174; PMCID PMC3608483; doi:10.1542/peds.2012-1525.", "link": "https://doi.org/10.1542/peds.2012-1525", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Choi2016", "text": "Choi GB, Yim YS, Wong H, Kim S, Kim H, Kim SV, et al. The maternal interleukin-17a pathway in mice promotes autism-like phenotypes in offspring. Science. 2016;351(6276):933-9. PMID 26822608; PMCID PMC4782964; doi:10.1126/science.aad0314.", "link": "https://doi.org/10.1126/science.aad0314", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Christensen2013", "text": "Christensen J, Grønborg TK, Sørensen MJ, Schendel D, Parner ET, Pedersen LH, et al. Prenatal valproate exposure and risk of autism spectrum disorders and childhood autism. JAMA. 2013;309(16):1696-703. PMID 23613074; PMCID PMC4511955; doi:10.1001/jama.2013.2270.", "link": "https://doi.org/10.1001/jama.2013.2270", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Christensen2016", "text": "Christensen DL, Baio J, Van Naarden Braun K, Bilder D, Charles J, Constantino JN, et al. Prevalence and Characteristics of Autism Spectrum Disorder Among Children Aged 8 Years--Autism and Developmental Disabilities Monitoring Network, 11 Sites, United States, 2012. MMWR Surveill Summ. 2016;65(3):1-23. PMID 27031587; PMCID PMC7909709; doi:10.15585/mmwr.ss6503a1.", "link": "https://doi.org/10.15585/mmwr.ss6503a1", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Cidav2012", "text": "Cidav Z, Marcus SC, Mandell DS. Implications of childhood autism for parental employment and earnings. Pediatrics. 2012;129(4):617-23. PMID 22430453; PMCID PMC3356150; doi:10.1542/peds.2011-2700.", "link": "https://doi.org/10.1542/peds.2011-2700", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Colvert2015", "text": "Colvert E, Tick B, McEwen F, Stewart C, Curran SR, Woodhouse E, et al. Heritability of Autism Spectrum Disorder in a UK Population-Based Twin Sample. JAMA Psychiatry. 2015;72(5):415-23. PMID 25738232; PMCID PMC4724890; doi:10.1001/jamapsychiatry.2014.3028.", "link": "https://doi.org/10.1001/jamapsychiatry.2014.3028", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "CondeAgudelo2016", "text": "Conde-Agudelo A, Rosas-Bermudez A, Norton MH. Birth Spacing and Risk of Autism and Other Neurodevelopmental Disabilities: A Systematic Review. Pediatrics. 2016;137(5):e20153482. PMID 27244802; doi:10.1542/peds.2015-3482.", "link": "https://doi.org/10.1542/peds.2015-3482", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Constantino2017", "text": "Constantino JN, Kennon-McGill S, Weichselbaum C, Marrus N, Haider A, Glowinski AL, et al. Infant viewing of social scenes is under genetic control and is atypical in autism. Nature. 2017;547(7663):340-344. PMID 28700580; PMCID PMC5842695; doi:10.1038/nature22999.", "link": "https://doi.org/10.1038/nature22999", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Cook2021Camouflaging", "text": "Cook J, Hull L, Crane L, Mandy W. Camouflaging in autism: A systematic review. Clin Psychol Rev. 2021;89:102080. PMID 34563942; doi:10.1016/j.cpr.2021.102080.", "link": "https://doi.org/10.1016/j.cpr.2021.102080", "areas": ["A", "D", "G"], "unverified": false, "validated": "PubMed"}, {"key": "Corsello2007", "text": "Corsello C, Hus V, Pickles A, Risi S, Cook EH Jr, Leventhal BL, et al. Between a ROC and a hard place: decision making and making decisions about using the SCQ. J Child Psychol Psychiatry. 2007;48(9):932-40. PMID 17714378; doi:10.1111/j.1469-7610.2007.01762.x.", "link": "https://doi.org/10.1111/j.1469-7610.2007.01762.x", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Cortesi2010", "text": "Cortesi F, Giannotti F, Ivanenko A, Johnson K. Sleep in children with autistic spectrum disorder. Sleep Med. 2010;11(7):659-64. PMID 20605110; doi:10.1016/j.sleep.2010.01.010.", "link": "https://doi.org/10.1016/j.sleep.2010.01.010", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Courchesne2003HC", "text": "Courchesne E, Carper R, Akshoomoff N. Evidence of brain overgrowth in the first year of life in autism. JAMA. 2003;290(3):337-44. PMID 12865374; doi:10.1001/jama.290.3.337.", "link": "https://doi.org/10.1001/jama.290.3.337", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Courchesne2011PFC", "text": "Courchesne E, Mouton PR, Calhoun ME, Semendeferi K, Ahrens-Barbeau C, Hallet MJ, et al. Neuron number and size in prefrontal cortex of children with autism. JAMA. 2011;306(18):2001-10. PMID 22068992; doi:10.1001/jama.2011.1638.", "link": "https://doi.org/10.1001/jama.2011.1638", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Cowie1965", "text": "Cowie V. Infantile Autism: the Syndrome and Its Implications for a Neural Theory of Behaviour. By Bernard Rimland. New York: Appleton-Century-Crofts; 1964 [book review]. Br J Psychiatry. 1965;111(474):455-456. doi:10.1192/bjp.111.474.455-a.", "link": "https://doi.org/10.1192/bjp.111.474.455-a", "areas": ["A"], "unverified": false, "validated": "Crossref"}, {"key": "Crane2009", "text": "Crane L, Goddard L, Pring L. Sensory processing in adults with autism spectrum disorders. Autism. 2009;13(3):215-28. PMID 19369385; doi:10.1177/1362361309103794.", "link": "https://doi.org/10.1177/1362361309103794", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Crane2016Diagnosis", "text": "Crane L, Chester JW, Goddard L, Henry LA, Hill E. Experiences of autism diagnosis: A survey of over 1000 parents in the United Kingdom. Autism. 2016;20(2):153-62. PMID 25810370; doi:10.1177/1362361315573636.", "link": "https://doi.org/10.1177/1362361315573636", "areas": ["D", "H"], "unverified": false, "validated": "PubMed"}, {"key": "Crane2016Police", "text": "Crane L, Maras KL, Hawken T, Mulcahy S, Memon A. Experiences of Autism Spectrum Disorder and Policing in England and Wales: Surveying Police and the Autism Community. J Autism Dev Disord. 2016;46(6):2028-2041. PMID 26861714; doi:10.1007/s10803-016-2729-1.", "link": "https://doi.org/10.1007/s10803-016-2729-1", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Croen2015Adults", "text": "Croen LA, Zerbo O, Qian Y, Massolo ML, Rich S, Sidney S, et al. The health status of adults on the autism spectrum. Autism. 2015;19(7):814-23. PMID 25911091; doi:10.1177/1362361315577517.", "link": "https://doi.org/10.1177/1362361315577517", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Crompton2020", "text": "Crompton CJ, Ropar D, Evans-Williams CV, Flynn EG, Fletcher-Watson S. Autistic peer-to-peer information transfer is highly effective. Autism. 2020;24(7):1704-1712. PMID 32431157; PMCID PMC7545656; doi:10.1177/1362361320919286.", "link": "https://doi.org/10.1177/1362361320919286", "areas": ["A", "C"], "unverified": false, "validated": "PubMed"}, {"key": "Crompton2025", "text": "Crompton CJ, Foster SJ, Wilks CEH, Dodd M, Efthimiou TN, Ropar D, et al. Information transfer within and between autistic and non-autistic people. Nat Hum Behav. 2025;9(7):1488-1500. PMID 40369213; PMCID PMC12283400; doi:10.1038/s41562-025-02163-z.", "link": "https://doi.org/10.1038/s41562-025-02163-z", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Crump2021Preterm", "text": "Crump C, Sundquist J, Sundquist K. Preterm or Early Term Birth and Risk of Autism. Pediatrics. 2021;148(3):e2020032300. PMID 34380775; PMCID PMC9809198; doi:10.1542/peds.2020-032300.", "link": "https://doi.org/10.1542/peds.2020-032300", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Cummings2022PTEN", "text": "Cummings K, Watkins A, Jones C, Dias R, Welham A. Behavioural and psychological features of PTEN mutations: a systematic review of the literature and meta-analysis of the prevalence of autism spectrum disorder characteristics. J Neurodev Disord. 2022;14(1):1. PMID 34983360; PMCID PMC8903687; doi:10.1186/s11689-021-09406-w.", "link": "https://doi.org/10.1186/s11689-021-09406-w", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Czech2018", "text": "Czech H. Hans Asperger, National Socialism, and \"race hygiene\" in Nazi-era Vienna. Mol Autism. 2018;9:29. PMID 29713442; PMCID PMC5907291; doi:10.1186/s13229-018-0208-6.", "link": "https://doi.org/10.1186/s13229-018-0208-6", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "daMotta2026", "text": "da Motta TP, da Mota DG, Bitencourt FV, Jardim PF, Abreu LG, Zina LG, et al. Dental Caries of Individuals with Autism Spectrum Disorder (ASD): A Systematic Review and Meta-Analysis. J Autism Dev Disord. 2026;56(7):2735-2751. PMID 39976759; doi:10.1007/s10803-025-06754-7.", "link": "https://doi.org/10.1007/s10803-025-06754-7", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Daniels2014", "text": "Daniels AM, Mandell DS. Explaining differences in age at autism spectrum disorder diagnosis: a critical review. Autism. 2014;18(5):583-97. PMID 23787411; PMCID PMC4775077; doi:10.1177/1362361313480277.", "link": "https://doi.org/10.1177/1362361313480277", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "daSilva2017", "text": "da Silva SN, Gimenez T, Souza RC, Mello-Moura ACV, Raggio DP, Morimoto S, et al. Oral health status of children and young adults with autism spectrum disorders: systematic review and meta-analysis. Int J Paediatr Dent. 2017;27(5):388-398. PMID 27796062; doi:10.1111/ipd.12274.", "link": "https://doi.org/10.1111/ipd.12274", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Davignon2018", "text": "Davignon MN, Qian Y, Massolo M, Croen LA. Psychiatric and Medical Conditions in Transition-Aged Individuals With ASD. Pediatrics. 2018;141(Suppl 4):S335-S345. PMID 29610415; doi:10.1542/peds.2016-4300K.", "link": "https://doi.org/10.1542/peds.2016-4300k", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Davit2011", "text": "Davit CJ, Hundley RJ, Bacic JD, Hanson EM. A pilot study to improve venipuncture compliance in children and adolescents with autism spectrum disorders. J Dev Behav Pediatr. 2011;32(7):521-5. PMID 21694630; PMCID PMC3690561; doi:10.1097/DBP.0b013e3182245b09.", "link": "https://doi.org/10.1097/dbp.0b013e3182245b09", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Dawson2010", "text": "Dawson G, Rogers S, Munson J, Smith M, Winter J, Greenson J, et al. Randomized, controlled trial of an intervention for toddlers with autism: the Early Start Denver Model. Pediatrics. 2010;125(1):e17-23. PMID 19948568; PMCID PMC4951085; doi:10.1542/peds.2009-0958.", "link": "https://doi.org/10.1542/peds.2009-0958", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Dawson2012", "text": "Dawson G, Jones EJ, Merkle K, Venema K, Lowy R, Faja S, et al. Early behavioral intervention is associated with normalized brain activity in young children with autism. J Am Acad Child Adolesc Psychiatry. 2012;51(11):1150-1159. PMID 23101741; PMCID PMC3607427; doi:10.1016/j.jaac.2012.08.018.", "link": "https://doi.org/10.1016/j.jaac.2012.08.018", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Dawson2017", "text": "Dawson G, Sun JM, Davlantis KS, Murias M, Franz L, Troy J, et al. Autologous Cord Blood Infusions Are Safe and Feasible in Young Children with Autism Spectrum Disorder: Results of a Single-Center Phase I Open-Label Trial. Stem Cells Transl Med. 2017;6(5):1332-1339. PMID 28378499; PMCID PMC5442708; doi:10.1002/sctm.16-0474.", "link": "https://doi.org/10.1002/sctm.16-0474", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Dawson2020", "text": "Dawson G, Sun JM, Baker J, Carpenter K, Compton S, Deaver M, et al. A Phase II Randomized Clinical Trial of the Safety and Efficacy of Intravenous Umbilical Cord Blood Infusion for Treatment of Children with Autism Spectrum Disorder. J Pediatr. 2020;222:164-173.e5. PMID 32444220; doi:10.1016/j.jpeds.2020.03.011.", "link": "https://doi.org/10.1016/j.jpeds.2020.03.011", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Deer2011", "text": "Deer B. How the case against the MMR vaccine was fixed. BMJ. 2011;342:c5347. PMID 21209059; doi:10.1136/bmj.c5347.", "link": "https://doi.org/10.1136/bmj.c5347", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "denHouting2019", "text": "den Houting J. Neurodiversity: An insider's perspective. Autism. 2019;23(2):271-273. PMID 30556743; doi:10.1177/1362361318820762.", "link": "https://doi.org/10.1177/1362361318820762", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "DeStefano2013", "text": "DeStefano F, Price CS, Weintraub ES. Increasing exposure to antibody-stimulating proteins and polysaccharides in vaccines is not associated with risk of autism. J Pediatr. 2013;163(2):561-7. PMID 23545349; doi:10.1016/j.jpeds.2013.02.001.", "link": "https://doi.org/10.1016/j.jpeds.2013.02.001", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Dietz2020", "text": "Dietz PM, Rose CE, McArthur D, Maenner M. National and State Estimates of Adults with Autism Spectrum Disorder. J Autism Dev Disord. 2020;50(12):4258-4266. PMID 32390121; PMCID PMC9128411; doi:10.1007/s10803-020-04494-4.", "link": "https://doi.org/10.1007/s10803-020-04494-4", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "DiMartino2014", "text": "Di Martino A, Yan CG, Li Q, Denio E, Castellanos FX, Alaerts K, et al. The autism brain imaging data exchange: towards a large-scale evaluation of the intrinsic brain architecture in autism. Mol Psychiatry. 2014;19(6):659-67. PMID 23774715; PMCID PMC4162310; doi:10.1038/mp.2013.78.", "link": "https://doi.org/10.1038/mp.2013.78", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Doherty2022", "text": "Doherty M, Neilson S, O'Sullivan J, Carravallah L, Johnson M, Cullen W, et al. Barriers to healthcare and self-reported adverse outcomes for autistic adults: a cross-sectional study. BMJ Open. 2022;12(2):e056904. PMID 35193921; PMCID PMC8883251; doi:10.1136/bmjopen-2021-056904.", "link": "https://doi.org/10.1136/bmjopen-2021-056904", "areas": ["G", "H"], "unverified": false, "validated": "PubMed"}, {"key": "Dugdale2021", "text": "Dugdale AS, Thompson AR, Leedham A, Beail N, Freeth M. Intense connection and love: The experiences of autistic mothers. Autism. 2021;25(7):1973-1984. PMID 33840262; PMCID PMC8419292; doi:10.1177/13623613211005987.", "link": "https://doi.org/10.1177/13623613211005987", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Dunn2001", "text": "Dunn W. The sensations of everyday life: empirical, theoretical, and pragmatic considerations. Am J Occup Ther. 2001;55(6):608-20. PMID 12959225; doi:10.5014/ajot.55.6.608.", "link": "https://doi.org/10.5014/ajot.55.6.608", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Dworzynski2012", "text": "Dworzynski K, Ronald A, Bolton P, Happé F. How different are girls and boys above and below the diagnostic threshold for autism spectrum disorders? J Am Acad Child Adolesc Psychiatry. 2012;51(8):788-97. PMID 22840550; doi:10.1016/j.jaac.2012.05.018.", "link": "https://doi.org/10.1016/j.jaac.2012.05.018", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Edwards2025AlertCard", "text": "Edwards C, Love AM, Flower RL, Ying Cai R, Gibbs V. 'Just knowing it's there gives me comfort': Exploring the benefits and challenges of autism alert cards. Autism. 2025;29(3):673-683. PMID 39422173; PMCID PMC11894890; doi:10.1177/13623613241286025.", "link": "https://doi.org/10.1177/13623613241286025", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Eicher2026", "text": "Eicher T, Ne'eman A, Quackenbush J. Genomic, Transcriptomic, and Regulomic Analyses Do Not Support Profound Autism as a Distinct Biological Category. bioRxiv preprint, posted 2026-06-04 (not peer reviewed). Europe PMC PPR1247080; doi:10.64898/2026.06.01.729392.", "link": "https://doi.org/10.64898/2026.06.01.729392", "areas": ["A"], "unverified": false, "validated": "Europe PMC"}, {"key": "Eigsti2023", "text": "Eigsti IM, Fein D, Larson C. Editorial Perspective: Another look at 'optimal outcome' in autism spectrum disorder. J Child Psychol Psychiatry. 2023;64(2):332-334. PMID 35772988; PMCID PMC10600574; doi:10.1111/jcpp.13658.", "link": "https://doi.org/10.1111/jcpp.13658", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Ellis2023", "text": "Ellis R, Asbury K. An investigation of autistic opinions about autism-related genomic research. PsyArXiv preprint (Center for Open Science), posted 2023-02-17. doi:10.31234/osf.io/7x8cw. Not peer reviewed.", "link": "https://doi.org/10.31234/osf.io/7x8cw", "areas": ["F"], "unverified": false, "validated": "Crossref"}, {"key": "Elsabbagh2012", "text": "Elsabbagh M, Divan G, Koh YJ, Kim YS, Kauchali S, Marcín C, et al. Global prevalence of autism and other pervasive developmental disorders. Autism Res. 2012;5(3):160-79. PMID 22495912; PMCID PMC3763210; doi:10.1002/aur.239.", "link": "https://doi.org/10.1002/aur.239", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Elsabbagh2012C", "text": "Elsabbagh M, Mercure E, Hudry K, Chandler S, Pasco G, Charman T, et al. Infant neural sensitivity to dynamic eye gaze is associated with later emerging autism. Curr Biol. 2012;22(4):338-42. PMID 22285033; PMCID PMC3314921; doi:10.1016/j.cub.2011.12.056.", "link": "https://doi.org/10.1016/j.cub.2011.12.056", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Emerson2017", "text": "Emerson RW, Adams C, Nishino T, Hazlett HC, Wolff JJ, Zwaigenbaum L, et al. Functional neuroimaging of high-risk 6-month-old infants predicts a diagnosis of autism at 24 months of age. Sci Transl Med. 2017;9(393):eaag2882. PMID 28592562; PMCID PMC5819345; doi:10.1126/scitranslmed.aag2882.", "link": "https://doi.org/10.1126/scitranslmed.aag2882", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Estes2016", "text": "Estes ML, McAllister AK. Maternal immune activation: Implications for neuropsychiatric disorders. Science. 2016;353(6301):772-7. PMID 27540164; PMCID PMC5650490; doi:10.1126/science.aag3194.", "link": "https://doi.org/10.1126/science.aag3194", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Evans2013", "text": "Evans B. How autism became autism: The radical transformation of a central concept of child development in Britain. Hist Human Sci. 2013;26(3):3-31. PMID 24014081; PMCID PMC3757918; doi:10.1177/0952695113484320.", "link": "https://doi.org/10.1177/0952695113484320", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Falkmer2013", "text": "Falkmer T, Anderson K, Falkmer M, Horlin C. Diagnostic procedures in autism spectrum disorders: a systematic literature review. Eur Child Adolesc Psychiatry. 2013;22(6):329-40. PMID 23322184; doi:10.1007/s00787-013-0375-0.", "link": "https://doi.org/10.1007/s00787-013-0375-0", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "FDA-Abilify", "text": "Otsuka America Pharmaceutical. ABILIFY (aripiprazole) prescribing information, NDA021436, effective 2025-01-29, set id c040bd1d-45b7-49f2-93ea-aed7220b30ac.", "link": "", "areas": ["F"], "unverified": false, "validated": "openFDA"}, {"key": "FDA-DEN200069", "text": "US Food and Drug Administration. De Novo DEN200069, Cognoa ASD Diagnosis Aid (Cognoa, Inc.), decision 2021-06-02; product code QPF, \"Pediatric Autism Spectrum Disorder Diagnosis Aid\", class II, 21 CFR 882.1491. Retrieved via openFDA device 510k and classification endpoints 2026-10-25.", "link": "", "areas": ["F"], "unverified": false, "validated": "openFDA"}, {"key": "FDA-Depakote", "text": "AbbVie Inc. DEPAKOTE (divalproex sodium) delayed-release tablets, for oral use: US prescribing information (boxed warning: Fetal Risk; Warnings and Precautions; Use in Specific Populations 8.1). openFDA drug label, set id 08a65cf4-7749-4ceb-6895-8f4805e2b01f, effective 2026-03-31.", "link": "", "areas": ["B"], "unverified": false, "validated": "openFDA"}, {"key": "FDA-DrugsFDA-Abilify", "text": "US Food and Drug Administration. Drugs@FDA record NDA021436 (Abilify): original approval 15 Nov 2002; efficacy supplement S-027 approved 19 Nov 2009. Retrieved via openFDA drugsfda endpoint 2026-10-25.", "link": "", "areas": ["F"], "unverified": false, "validated": "openFDA"}, {"key": "FDA-DrugsFDA-Risperdal", "text": "US Food and Drug Administration. Drugs@FDA record NDA020272 (Risperdal): original approval 29 Dec 1993; efficacy supplements S-036 and S-041 approved 6 Oct 2006. Retrieved via openFDA drugsfda endpoint 2026-10-25.", "link": "", "areas": ["F"], "unverified": false, "validated": "openFDA"}, {"key": "FDA-K213882", "text": "US Food and Drug Administration. 510(k) K213882, EarliPoint System (EarliTec Diagnostics, Inc.), substantially equivalent, decision 2022-06-08, product code QPF. Retrieved via openFDA device 510k endpoint.", "link": "", "areas": ["F"], "unverified": false, "validated": "openFDA"}, {"key": "FDA-K243558", "text": "US Food and Drug Administration. 510(k) K243558, Canvas Dx (Cognoa, Inc.), substantially equivalent, decision 2025-04-11, product code QPF. Retrieved via openFDA device 510k endpoint.", "link": "", "areas": ["F"], "unverified": false, "validated": "openFDA"}, {"key": "FDA-Risperdal", "text": "Janssen Pharmaceuticals. RISPERDAL (risperidone) prescribing information, NDA020272/NDA020588/NDA021444, effective 2026-05-28, set id 7e117c7e-02fc-4343-92a1-230061dfc5e0.", "link": "", "areas": ["F"], "unverified": false, "validated": "openFDA"}, {"key": "FDA-Wellcovorin", "text": "WELLCOVORIN (leucovorin calcium) tablets prescribing information, effective 2026-03-09, set id 6fc53cb8-739d-4c0d-b928-5103abcb4f73 (Indications 1.2 and Clinical Studies 14.1 added 3/2026; the same FOLR1-CFTD indication appears on generic leucovorin labels, e.g. Hikma set id 33663425-4731-4977-9127-9e59b6b91497).", "link": "", "areas": ["F"], "unverified": false, "validated": "openFDA"}, {"key": "FDA2020ESDBan", "text": "Food and Drug Administration. Banned Devices; Electrical Stimulation Devices for Self-Injurious or Aggressive Behavior. Final rule. Federal Register. 2020 Mar 6;85 FR 13312. Document 2020-04328. (unverified: Federal Register record read via federalregister.gov API; not indexed by the listed APIs)", "link": "", "areas": ["E"], "unverified": true}, {"key": "FDA2020ESDStay", "text": "Food and Drug Administration. Medical Devices; Petition for an Administrative Stay of Action: Electrical Stimulation Devices for Self-Injurious or Aggressive Behavior. Federal Register. 2020 Aug 19;85 FR 50950. Document 2020-16595. (unverified: Federal Register record read via federalregister.gov API; not indexed by the listed APIs)", "link": "", "areas": ["E"], "unverified": true}, {"key": "FDA2024ESDProposed", "text": "Food and Drug Administration. Banned Devices; Proposal To Ban Electrical Stimulation Devices for Self-Injurious or Aggressive Behavior. Proposed rule. Federal Register. 2024 Mar 26;89 FR 20882. Document 2024-06037. Full text read; it states the D.C. Circuit vacatur of 6 July 2021 (3 F.4th 390) and FDORA (Pub. L. 117-328). (unverified: Federal Register full text read directly; not indexed by the listed APIs)", "link": "", "areas": ["E"], "unverified": true, "aliases": ["FDA2016ESDProposed"]}, {"key": "Fein2013", "text": "Fein D, Barton M, Eigsti IM, Kelley E, Naigles L, Schultz RT, et al. Optimal outcome in individuals with a history of autism. J Child Psychol Psychiatry. 2013;54(2):195-205. PMID 23320807; PMCID PMC3547539; doi:10.1111/jcpp.12037.", "link": "https://doi.org/10.1111/jcpp.12037", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Filipek2000", "text": "Filipek PA, Accardo PJ, Ashwal S, Baranek GT, Cook EH Jr, Dawson G, et al. Practice parameter: screening and diagnosis of autism: report of the Quality Standards Subcommittee of the American Academy of Neurology and the Child Neurology Society [RETIRED]. Neurology. 2000;55(4):468-79. PMID 10953176; doi:10.1212/wnl.55.4.468.", "link": "https://doi.org/10.1212/wnl.55.4.468", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Findling2014", "text": "Findling RL, Mankoski R, Timko K, Lears K, McCartney T, McQuade RD, et al. A randomized controlled trial investigating the safety and efficacy of aripiprazole in the long-term maintenance treatment of pediatric patients with irritability associated with autistic disorder. J Clin Psychiatry. 2014;75(1):22-30. PMID 24502859; doi:10.4088/JCP.13m08500.", "link": "https://doi.org/10.4088/jcp.13m08500", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Flippin2010", "text": "Flippin M, Reszka S, Watson LR. Effectiveness of the Picture Exchange Communication System (PECS) on communication and speech for children with autism spectrum disorders: a meta-analysis. Am J Speech Lang Pathol. 2010;19(2):178-195. PMID 20181849; doi:10.1044/1058-0360(2010/09-0022).", "link": "https://doi.org/10.1044/1058-0360(2010/09-0022)", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Folstein1977", "text": "Folstein S, Rutter M. Infantile autism: a genetic study of 21 twin pairs. J Child Psychol Psychiatry. 1977;18(4):297-321. PMID 562353; doi:10.1111/j.1469-7610.1977.tb00443.x.", "link": "https://doi.org/10.1111/j.1469-7610.1977.tb00443.x", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Fombonne2020Camouflage", "text": "Fombonne E. Camouflage and autism. J Child Psychol Psychiatry. 2020;61(7):735-738. PMID 32658354; doi:10.1111/jcpp.13296.", "link": "https://doi.org/10.1111/jcpp.13296", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Foster2025", "text": "Foster SJ, Ackerman RA, Wilks CE, Dodd M, Calderon R, Ropar D, et al. Rapport in same and mixed neurotype groups of autistic and non-autistic adults. Autism. 2025;29(7):1700-1710. PMID 39989258; PMCID PMC12159336; doi:10.1177/13623613251320444.", "link": "https://doi.org/10.1177/13623613251320444", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Frazier2017Gaze", "text": "Frazier TW, Strauss M, Klingemier EW, Zetzer EE, Hardan AY, Eng C, et al. A Meta-Analysis of Gaze Differences to Social and Nonsocial Information Between Individuals With and Without Autism. J Am Acad Child Adolesc Psychiatry. 2017;56(7):546-555. PMID 28647006; PMCID PMC5578719; doi:10.1016/j.jaac.2017.05.005.", "link": "https://doi.org/10.1016/j.jaac.2017.05.005", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Frye2018", "text": "Frye RE, Slattery J, Delhey L, Furgerson B, Strickland T, Tippett M, et al. Folinic acid improves verbal communication in children with autism and language impairment: a randomized double-blind placebo-controlled trial. Mol Psychiatry. 2018;23(2):247-256. PMID 27752075; PMCID PMC5794882; doi:10.1038/mp.2016.168.", "link": "https://doi.org/10.1038/mp.2016.168", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Fu2022", "text": "Fu JM, Satterstrom FK, Peng M, Brand H, Collins RL, Dong S, et al. Rare coding variation provides insight into the genetic architecture and phenotypic context of autism. Nat Genet. 2022;54(9):1320-1331. PMID 35982160; PMCID PMC9653013; doi:10.1038/s41588-022-01104-0.", "link": "https://doi.org/10.1038/s41588-022-01104-0", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Fuentes2021ESCAP", "text": "Fuentes J, Hervás A, Howlin P. ESCAP practice guidance for autism: a summary of evidence-based recommendations for diagnosis and treatment. Eur Child Adolesc Psychiatry. 2021;30(6):961-984. PMID 32666205; PMCID PMC8140956; doi:10.1007/s00787-020-01587-4.", "link": "https://doi.org/10.1007/s00787-020-01587-4", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Fuentes2023", "text": "Fuentes J, Parellada M, Georgoula C, Oliveira G, Marret S, Crutel V, et al. Bumetanide oral solution for the treatment of children and adolescents with autism spectrum disorder: Results from two randomized phase III studies. Autism Res. 2023;16(10):2021-2034. PMID 37794745; doi:10.1002/aur.3005.", "link": "https://doi.org/10.1002/aur.3005", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Fuller2020", "text": "Fuller EA, Oliver K, Vejnoska SF, Rogers SJ. The Effects of the Early Start Denver Model for Children with Autism Spectrum Disorder: A Meta-Analysis. Brain Sci. 2020;10(6):368. PMID 32545615; PMCID PMC7349854; doi:10.3390/brainsci10060368.", "link": "https://doi.org/10.3390/brainsci10060368", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Fung2016", "text": "Fung LK, Mahajan R, Nozzolillo A, Bernal P, Krasner A, Jo B, et al. Pharmacologic Treatment of Severe Irritability and Problem Behaviors in Autism: A Systematic Review and Meta-analysis. Pediatrics. 2016;137 Suppl 2:S124-35. PMID 26908468; doi:10.1542/peds.2015-2851K.", "link": "https://doi.org/10.1542/peds.2015-2851k", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "FusarPoli2022", "text": "Fusar-Poli L, Brondino N, Politi P, Aguglia E. Missed diagnoses and misdiagnoses of adults with autism spectrum disorder. Eur Arch Psychiatry Clin Neurosci. 2022;272(2):187-198. PMID 32892291; PMCID PMC8866369; doi:10.1007/s00406-020-01189-w.", "link": "https://doi.org/10.1007/s00406-020-01189-w", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Gandal2018", "text": "Gandal MJ, Haney JR, Parikshak NN, Leppa V, Ramaswami G, Hartl C, et al. Shared molecular neuropathology across major psychiatric disorders parallels polygenic overlap. Science. 2018;359(6376):693-697. PMID 29439242; PMCID PMC5898828; doi:10.1126/science.aad6469.", "link": "https://doi.org/10.1126/science.aad6469", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Gandal2022", "text": "Gandal MJ, Haney JR, Wamsley B, Yap CX, Parhami S, Emani PS, et al. Broad transcriptomic dysregulation occurs across the cerebral cortex in ASD. Nature. 2022;611(7936):532-539. PMID 36323788; PMCID PMC9668748; doi:10.1038/s41586-022-05377-7.", "link": "https://doi.org/10.1038/s41586-022-05377-7", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Ganz2012", "text": "Ganz JB, Earles-Vollrath TL, Heath AK, Parker RI, Rispoli MJ, Duran JB. A meta-analysis of single case research studies on aided augmentative and alternative communication systems with individuals with autism spectrum disorders. J Autism Dev Disord. 2012;42(1):60-74. PMID 21380612; doi:10.1007/s10803-011-1212-2.", "link": "https://doi.org/10.1007/s10803-011-1212-2", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Gardener2009", "text": "Gardener H, Spiegelman D, Buka SL. Prenatal risk factors for autism: comprehensive meta-analysis. Br J Psychiatry. 2009;195(1):7-14. PMID 19567888; PMCID PMC3712619; doi:10.1192/bjp.bp.108.051672.", "link": "https://doi.org/10.1192/bjp.bp.108.051672", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Garfinkel2016", "text": "Garfinkel SN, Tiley C, O'Keeffe S, Harrison NA, Seth AK, Critchley HD. Discrepancies between dimensions of interoception in autism: Implications for emotion and anxiety. Biol Psychol. 2016;114:117-26. PMID 26724504; doi:10.1016/j.biopsycho.2015.12.003.", "link": "https://doi.org/10.1016/j.biopsycho.2015.12.003", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Gates2017", "text": "Gates JA, Kang E, Lerner MD. Efficacy of group social skills interventions for youth with autism spectrum disorder: A systematic review and meta-analysis. Clin Psychol Rev. 2017;52:164-181. PMID 28130983; PMCID PMC5358101; doi:10.1016/j.cpr.2017.01.006.", "link": "https://doi.org/10.1016/j.cpr.2017.01.006", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Gaugler2014", "text": "Gaugler T, Klei L, Sanders SJ, Bodea CA, Goldberg AP, Lee AB, et al. Most genetic risk for autism resides with common variation. Nat Genet. 2014;46(8):881-5. PMID 25038753; PMCID PMC4137411; doi:10.1038/ng.3039.", "link": "https://doi.org/10.1038/ng.3039", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Gelbar2014", "text": "Gelbar NW, Smith I, Reichow B. Systematic review of articles describing experience and supports of individuals with autism enrolled in college and university programs. J Autism Dev Disord. 2014;44(10):2593-601. PMID 24816943; doi:10.1007/s10803-014-2135-5.", "link": "https://doi.org/10.1007/s10803-014-2135-5", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Geretsegger2022", "text": "Geretsegger M, Fusar-Poli L, Elefant C, Mössler KA, Vitale G, Gold C. Music therapy for autistic people. Cochrane Database Syst Rev. 2022;5:CD004381. PMID 35532041; PMCID PMC9082683; doi:10.1002/14651858.CD004381.pub4.", "link": "https://doi.org/10.1002/14651858.cd004381.pub4", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Gernsbacher2017", "text": "Gernsbacher MA. Editorial Perspective: The use of person-first language in scholarly writing may accentuate stigma. J Child Psychol Psychiatry. 2017;58(7):859-861. PMID 28621486; PMCID PMC5545113; doi:10.1111/jcpp.12706.", "link": "https://doi.org/10.1111/jcpp.12706", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Gernsbacher2018Puzzle", "text": "Gernsbacher MA, Raimond AR, Stevenson JL, Boston JS, Harp B. Do puzzle pieces and autism puzzle piece logos evoke negative associations? Autism. 2018;22(2):118-125. PMID 28823194; PMCID PMC6085079; doi:10.1177/1362361317727125.", "link": "https://doi.org/10.1177/1362361317727125", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Ghirardi2018", "text": "Ghirardi L, Brikell I, Kuja-Halkola R, Freitag CM, Franke B, Asherson P, et al. The familial co-aggregation of ASD and ADHD: a register-based cohort study. Mol Psychiatry. 2018;23(2):257-262. PMID 28242872; PMCID PMC5794881; doi:10.1038/mp.2017.17.", "link": "https://doi.org/10.1038/mp.2017.17", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Ghirardi2021", "text": "Ghirardi L, Kuja-Halkola R, Butwicka A, Martin J, Larsson H, D'Onofrio BM, et al. Familial and genetic associations between autism spectrum disorder and other neurodevelopmental and psychiatric disorders. J Child Psychol Psychiatry. 2021;62(11):1274-1284. PMID 34415058; doi:10.1111/jcpp.13508.", "link": "https://doi.org/10.1111/jcpp.13508", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Godlee2011", "text": "Godlee F, Smith J, Marcovitch H. Wakefield's article linking MMR vaccine and autism was fraudulent. BMJ. 2011;342:c7452. PMID 21209060; doi:10.1136/bmj.c7452.", "link": "https://doi.org/10.1136/bmj.c7452", "areas": ["A", "B"], "unverified": false, "validated": "PubMed"}, {"key": "GonzalezBarrero2018", "text": "Gonzalez-Barrero AM, Nadig A. Bilingual children with autism spectrum disorders: The impact of amount of language exposure on vocabulary and morphological skills at school age. Autism Res. 2018;11(12):1667-1678. PMID 30456826; doi:10.1002/aur.2023.", "link": "https://doi.org/10.1002/aur.2023", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Gordon2011", "text": "Gordon K, Pasco G, McElduff F, Wade A, Howlin P, Charman T. A communication-based intervention for nonverbal children with autism: what changes? Who benefits? J Consult Clin Psychol. 2011;79(4):447-457. PMID 21787048; doi:10.1037/a0024379.", "link": "https://doi.org/10.1037/a0024379", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Gorycki2020", "text": "Gorycki KA, Ruppel PR, Zane T. Is long-term ABA therapy abusive: A response to Sandoval-Norton and Shkedy. Cogent Psychology. 2020;7(1):1823615. doi:10.1080/23311908.2020.1823615.", "link": "https://doi.org/10.1080/23311908.2020.1823615", "areas": ["E"], "unverified": false, "validated": "Crossref"}, {"key": "Gotham2009", "text": "Gotham K, Pickles A, Lord C. Standardizing ADOS scores for a measure of severity in autism spectrum disorders. J Autism Dev Disord. 2009;39(5):693-705. PMID 19082876; PMCID PMC2922918; doi:10.1007/s10803-008-0674-3.", "link": "https://doi.org/10.1007/s10803-008-0674-3", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Gotham2015", "text": "Gotham K, Marvin AR, Taylor JL, Warren Z, Anderson CM, Law PA, et al. Characterizing the daily life, needs, and priorities of adults with autism spectrum disorder from Interactive Autism Network data. Autism. 2015;19(7):794-804. PMID 25964655; PMCID PMC4581903; doi:10.1177/1362361315583818.", "link": "https://doi.org/10.1177/1362361315583818", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Gray2023School", "text": "Gray L, Hill V, Pellicano E. \"He's shouting so loud but nobody's hearing him\": A multi-informant study of autistic pupils' experiences of school non-attendance and exclusion. Autism Dev Lang Impair. 2023;8:23969415231207816. PMID 37860824; PMCID PMC10583514; doi:10.1177/23969415231207816.", "link": "https://doi.org/10.1177/23969415231207816", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Green2010", "text": "Green J, Charman T, McConachie H, Aldred C, Slonims V, Howlin P, et al. Parent-mediated communication-focused treatment in children with autism (PACT): a randomised controlled trial. Lancet. 2010;375(9732):2152-2160. PMID 20494434; PMCID PMC2890859; doi:10.1016/S0140-6736(10)60587-9.", "link": "https://doi.org/10.1016/s0140-6736(10)60587-9", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Green2015SOR", "text": "Green SA, Hernandez L, Tottenham N, Krasileva K, Bookheimer SY, Dapretto M. Neurobiology of Sensory Overresponsivity in Youth With Autism Spectrum Disorders. JAMA Psychiatry. 2015;72(8):778-86. PMID 26061819; PMCID PMC4861140; doi:10.1001/jamapsychiatry.2015.0737.", "link": "https://doi.org/10.1001/jamapsychiatry.2015.0737", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Green2016DSM5", "text": "Green D, Chandler S, Charman T, Simonoff E, Baird G. Brief Report: DSM-5 Sensory Behaviours in Children With and Without an Autism Spectrum Disorder. J Autism Dev Disord. 2016;46(11):3597-3606. PMID 27475418; doi:10.1007/s10803-016-2881-7.", "link": "https://doi.org/10.1007/s10803-016-2881-7", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Green2017iBASIS", "text": "Green J, Pickles A, Pasco G, Bedford R, Wan MW, Elsabbagh M, et al. Randomised trial of a parent-mediated intervention for infants at high risk for autism: longitudinal outcomes to age 3 years. J Child Psychol Psychiatry. 2017;58(12):1330-1340. PMID 28393350; PMCID PMC5724485; doi:10.1111/jcpp.12728.", "link": "https://doi.org/10.1111/jcpp.12728", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "GreenBenSasson2010", "text": "Green SA, Ben-Sasson A. Anxiety disorders and sensory over-responsivity in children with autism spectrum disorders: is there a causal relationship? J Autism Dev Disord. 2010;40(12):1495-504. PMID 20383658; PMCID PMC2980623; doi:10.1007/s10803-010-1007-x.", "link": "https://doi.org/10.1007/s10803-010-1007-x", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Gresham1998", "text": "Gresham FM, MacMillan DL. Early Intervention Project: can its claims be substantiated and its effects replicated? J Autism Dev Disord. 1998;28(1):5-13. PMID 9546297; doi:10.1023/a:1026002717402.", "link": "https://doi.org/10.1023/a:1026002717402", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Gringras2014", "text": "Gringras P, Green D, Wright B, Rush C, Sparrowhawk M, Pratt K, et al. Weighted blankets and sleep in autistic children--a randomized controlled trial. Pediatrics. 2014;134(2):298-306. PMID 25022743; doi:10.1542/peds.2013-4285.", "link": "https://doi.org/10.1542/peds.2013-4285", "areas": ["C", "E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Gringras2017", "text": "Gringras P, Nir T, Breddy J, Frydman-Marom A, Findling RL. Efficacy and Safety of Pediatric Prolonged-Release Melatonin for Insomnia in Children With Autism Spectrum Disorder. J Am Acad Child Adolesc Psychiatry. 2017;56(11):948-957.e4. PMID 29096777; doi:10.1016/j.jaac.2017.09.414.", "link": "https://doi.org/10.1016/j.jaac.2017.09.414", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Grove2019", "text": "Grove J, Ripke S, Als TD, Mattheisen M, Walters RK, Won H, et al. Identification of common genetic risk variants for autism spectrum disorder. Nat Genet. 2019;51(3):431-444. PMID 30804558; PMCID PMC6454898; doi:10.1038/s41588-019-0344-8.", "link": "https://doi.org/10.1038/s41588-019-0344-8", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Guan2017AJPH", "text": "Guan J, Li G. Injury Mortality in Individuals With Autism. Am J Public Health. 2017;107(5):791-793. PMID 28323463; PMCID PMC5388960; doi:10.2105/AJPH.2017.303696.", "link": "https://doi.org/10.2105/ajph.2017.303696", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Guan2017Drowning", "text": "Guan J, Li G. Characteristics of unintentional drowning deaths in children with autism spectrum disorder. Inj Epidemiol. 2017;4(1):32. PMID 29218603; PMCID PMC5721095; doi:10.1186/s40621-017-0129-4.", "link": "https://doi.org/10.1186/s40621-017-0129-4", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Guastella2023", "text": "Guastella AJ, Boulton KA, Whitehouse AJO, Song YJ, Thapa R, Gregory SG, et al. The effect of oxytocin nasal spray on social interaction in young children with autism: a randomized clinical trial. Mol Psychiatry. 2023;28(2):834-842. PMID 36302965; PMCID PMC9607840; doi:10.1038/s41380-022-01845-8.", "link": "https://doi.org/10.1038/s41380-022-01845-8", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Gundel1993", "text": "Gündel H, Rudolf GA. Schizophrenic autism. 1. Historical evolution and perspectives. Psychopathology. 1993;26(5-6):294-303. PMID 8190851; doi:10.1159/000284837.", "link": "https://doi.org/10.1159/000284837", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Guthrie2019", "text": "Guthrie W, Wallis K, Bennett A, Brooks E, Dudley J, Gerdes M, et al. Accuracy of Autism Screening in a Large Pediatric Network. Pediatrics. 2019;144(4):e20183963. PMID 31562252; doi:10.1542/peds.2018-3963.", "link": "https://doi.org/10.1542/peds.2018-3963", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Haar2016", "text": "Haar S, Berman S, Behrmann M, Dinstein I. Anatomical Abnormalities in Autism? Cereb Cortex. 2016;26(4):1440-52. PMID 25316335; doi:10.1093/cercor/bhu242.", "link": "https://doi.org/10.1093/cercor/bhu242", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Hagerman2017", "text": "Hagerman RJ, Berry-Kravis E, Hazlett HC, Bailey DB Jr, Moine H, Kooy RF, et al. Fragile X syndrome. Nat Rev Dis Primers. 2017;3:17065. PMID 28960184; doi:10.1038/nrdp.2017.65.", "link": "https://doi.org/10.1038/nrdp.2017.65", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Hallmayer2011", "text": "Hallmayer J, Cleveland S, Torres A, Phillips J, Cohen B, Torigoe T, et al. Genetic heritability and shared environmental factors among twin pairs with autism. Arch Gen Psychiatry. 2011;68(11):1095-102. PMID 21727249; PMCID PMC4440679; doi:10.1001/archgenpsychiatry.2011.76.", "link": "https://doi.org/10.1001/archgenpsychiatry.2011.76", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Hambly2012", "text": "Hambly C, Fombonne E. The impact of bilingual environments on language development in children with autism spectrum disorders. J Autism Dev Disord. 2012;42(7):1342-52. PMID 21938563; doi:10.1007/s10803-011-1365-z.", "link": "https://doi.org/10.1007/s10803-011-1365-z", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Hampton2016", "text": "Hampton LH, Kaiser AP. Intervention effects on spoken-language outcomes for children with autism: a systematic review and meta-analysis. J Intellect Disabil Res. 2016;60(5):444-463. PMID 27120988; doi:10.1111/jir.12283.", "link": "https://doi.org/10.1111/jir.12283", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Hand2020Medicare", "text": "Hand BN, Angell AM, Harris L, Carpenter LA. Prevalence of physical and mental health conditions in Medicare-enrolled, autistic older adults. Autism. 2020;24(3):755-764. PMID 31773968; PMCID PMC7433648; doi:10.1177/1362361319890793.", "link": "https://doi.org/10.1177/1362361319890793", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Handen2015", "text": "Handen BL, Aman MG, Arnold LE, Hyman SL, Tumuluru RV, Lecavalier L, et al. Atomoxetine, Parent Training, and Their Combination in Children With Autism Spectrum Disorder and Attention-Deficit/Hyperactivity Disorder. J Am Acad Child Adolesc Psychiatry. 2015;54(11):905-15. PMID 26506581; PMCID PMC4625086; doi:10.1016/j.jaac.2015.08.013.", "link": "https://doi.org/10.1016/j.jaac.2015.08.013", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Hanley2003", "text": "Hanley GP, Iwata BA, McCord BE. Functional analysis of problem behavior: a review. J Appl Behav Anal. 2003;36(2):147-185. PMID 12858983; PMCID PMC1284431; doi:10.1901/jaba.2003.36-147.", "link": "https://doi.org/10.1901/jaba.2003.36-147", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Hansen2015Reporting", "text": "Hansen SN, Schendel DE, Parner ET. Explaining the increase in the prevalence of autism spectrum disorders: the proportion attributable to changes in reporting practices. JAMA Pediatr. 2015;169(1):56-62. PMID 25365033; doi:10.1001/jamapediatrics.2014.1893.", "link": "https://doi.org/10.1001/jamapediatrics.2014.1893", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Hansen2019Recurrence", "text": "Hansen SN, Schendel DE, Francis RW, Windham GC, Bresnahan M, Levine SZ, et al. Recurrence Risk of Autism in Siblings and Cousins: A Multinational, Population-Based Study. J Am Acad Child Adolesc Psychiatry. 2019;58(9):866-875. PMID 30851399; PMCID PMC6708733; doi:10.1016/j.jaac.2018.11.017.", "link": "https://doi.org/10.1016/j.jaac.2018.11.017", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Happe2006", "text": "Happé F, Frith U. The weak coherence account: detail-focused cognitive style in autism spectrum disorders. J Autism Dev Disord. 2006;36(1):5-25. PMID 16450045; doi:10.1007/s10803-005-0039-0.", "link": "https://doi.org/10.1007/s10803-005-0039-0", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Happe2020", "text": "Happé F, Frith U. Annual Research Review: Looking back to look forward - changes in the concept of autism and implications for future research. J Child Psychol Psychiatry. 2020;61(3):218-232. PMID 31994188; doi:10.1111/jcpp.13176.", "link": "https://doi.org/10.1111/jcpp.13176", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Harfterkamp2012", "text": "Harfterkamp M, van de Loo-Neus G, Minderaa RB, van der Gaag RJ, Escobar R, Schacht A, et al. A randomized double-blind study of atomoxetine versus placebo for attention-deficit/hyperactivity disorder symptoms in children with autism spectrum disorder. J Am Acad Child Adolesc Psychiatry. 2012;51(7):733-41. PMID 22721596; doi:10.1016/j.jaac.2012.04.011.", "link": "https://doi.org/10.1016/j.jaac.2012.04.011", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Harper2013", "text": "Harper A, Taylor Dyches T, Harper J, Olsen Roper S, South M. Respite care, marital quality, and stress in parents of children with autism spectrum disorders. J Autism Dev Disord. 2013;43(11):2604-16. PMID 23529841; doi:10.1007/s10803-013-1812-0.", "link": "https://doi.org/10.1007/s10803-013-1812-0", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Harris2018Kanner", "text": "Harris J. Leo Kanner and autism: a 75-year perspective. Int Rev Psychiatry. 2018;30(1):3-17. PMID 29667863; doi:10.1080/09540261.2018.1455646.", "link": "https://doi.org/10.1080/09540261.2018.1455646", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Hartley2010", "text": "Hartley SL, Barker ET, Seltzer MM, Floyd F, Greenberg J, Orsmond G, et al. The relative risk and timing of divorce in families of children with an autism spectrum disorder. J Fam Psychol. 2010;24(4):449-57. PMID 20731491; PMCID PMC2928572; doi:10.1037/a0019847.", "link": "https://doi.org/10.1037/a0019847", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Hashemi2017", "text": "Hashemi E, Ariza J, Rogers H, Noctor SC, Martínez-Cerdeño V. The Number of Parvalbumin-Expressing Interneurons Is Decreased in the Prefrontal Cortex in Autism. Cereb Cortex. 2017;27(3):1931-1943. PMID 26922658; PMCID PMC6074948; doi:10.1093/cercor/bhw021.", "link": "https://doi.org/10.1093/cercor/bhw021", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Hayes2013", "text": "Hayes SA, Watson SL. The impact of parenting stress: a meta-analysis of studies comparing the experience of parenting stress in parents of children with and without autism spectrum disorder. J Autism Dev Disord. 2013;43(3):629-42. PMID 22790429; doi:10.1007/s10803-012-1604-y.", "link": "https://doi.org/10.1007/s10803-012-1604-y", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Hazlett2005", "text": "Hazlett HC, Poe M, Gerig G, Smith RG, Provenzale J, Ross A, et al. Magnetic resonance imaging and head circumference study of brain size in autism: birth through age 2 years. Arch Gen Psychiatry. 2005;62(12):1366-76. PMID 16330725; doi:10.1001/archpsyc.62.12.1366.", "link": "https://doi.org/10.1001/archpsyc.62.12.1366", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Hazlett2017", "text": "Hazlett HC, Gu H, Munsell BC, Kim SH, Styner M, Wolff JJ, et al. Early brain development in infants at high risk for autism spectrum disorder. Nature. 2017;542(7641):348-351. PMID 28202961; PMCID PMC5336143; doi:10.1038/nature21369.", "link": "https://doi.org/10.1038/nature21369", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "HCA2022", "text": "Health and Care Act 2022 (c. 31), section 181: Mandatory training on learning disability and autism. UK Public General Acts. https://www.legislation.gov.uk/ukpga/2022/31/section/181 (accessed 2026-11-02). (unverified: legislation web page read directly; not indexed by the listed APIs)", "link": "https://www.legislation.gov.uk/ukpga/2022/31/section/181", "areas": ["H"], "unverified": true}, {"key": "Hedley2017", "text": "Hedley D, Uljarević M, Cameron L, Halder S, Richdale A, Dissanayake C. Employment programmes and interventions targeting adults with autism spectrum disorder: A systematic review of the literature. Autism. 2017;21(8):929-941. PMID 27542395; doi:10.1177/1362361316661855.", "link": "https://doi.org/10.1177/1362361316661855", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Heifetz2018", "text": "Heifetz M, Lunsky Y. Implementation and evaluation of health passport communication tools in emergency departments. Res Dev Disabil. 2018;72:23-32. PMID 29080483; doi:10.1016/j.ridd.2017.10.010.", "link": "https://doi.org/10.1016/j.ridd.2017.10.010", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Henske2016", "text": "Henske EP, Jóźwiak S, Kingswood JC, Sampson JR, Thiele EA. Tuberous sclerosis complex. Nat Rev Dis Primers. 2016;2:16035. PMID 27226234; doi:10.1038/nrdp.2016.35.", "link": "https://doi.org/10.1038/nrdp.2016.35", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Higgins2021", "text": "Higgins JM, Arnold SR, Weise J, Pellicano E, Trollor JN. Defining autistic burnout through experts by lived experience: Grounded Delphi method investigating #AutisticBurnout. Autism. 2021;25(8):2356-2369. PMID 34088219; doi:10.1177/13623613211019858.", "link": "https://doi.org/10.1177/13623613211019858", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Hipp2025", "text": "Hipp JF, Bacino CA, Bird LM, Bruenig-Traebert I, Chan D, de Wit MC, et al. The UBE3A-ATS antisense oligonucleotide rugonersen in children with Angelman syndrome: a phase 1 trial. Nat Med. 2025;31(9):2936-2945. PMID 40646322; doi:10.1038/s41591-025-03784-7.", "link": "https://doi.org/10.1038/s41591-025-03784-7", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Hira2026", "text": "Hira F, Hira S. Does the Physical Restraint Disparity Increase With Age in Autistic Youth? J Autism Dev Disord. 2026;56(11):4595-4596. PMID 42720860; doi:10.1007/s10803-026-07530-x.", "link": "https://doi.org/10.1007/s10803-026-07530-x", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Hirota2023", "text": "Hirota T, King BH. Autism Spectrum Disorder: A Review. JAMA. 2023;329(2):157-168. PMID 36625807; doi:10.1001/jama.2022.23661.", "link": "https://doi.org/10.1001/jama.2022.23661", "areas": ["A", "D"], "unverified": false, "validated": "PubMed"}, {"key": "Hirsch2016", "text": "Hirsch LE, Pringsheim T. Aripiprazole for autism spectrum disorders (ASD). Cochrane Database Syst Rev. 2016;2016(6):CD009043. PMID 27344135; PMCID PMC7120220; doi:10.1002/14651858.CD009043.pub3.", "link": "https://doi.org/10.1002/14651858.cd009043.pub3", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Hirvikoski2016", "text": "Hirvikoski T, Mittendorfer-Rutz E, Boman M, Larsson H, Lichtenstein P, Bölte S. Premature mortality in autism spectrum disorder. Br J Psychiatry. 2016;208(3):232-8. PMID 26541693; doi:10.1192/bjp.bp.114.160192.", "link": "https://doi.org/10.1192/bjp.bp.114.160192", "areas": ["A", "G"], "unverified": false, "validated": "PubMed"}, {"key": "Hirvikoski2020", "text": "Hirvikoski T, Boman M, Chen Q, D'Onofrio BM, Mittendorfer-Rutz E, Lichtenstein P, et al. Individual risk and familial liability for suicide attempt and suicide in autism: a population-based study. Psychol Med. 2020;50(9):1463-1474. PMID 31238998; doi:10.1017/S0033291719001405.", "link": "https://doi.org/10.1017/s0033291719001405", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Hodgetts2011", "text": "Hodgetts S, Magill-Evans J, Misiaszek JE. Weighted vests, stereotyped behaviors and arousal in children with autism. J Autism Dev Disord. 2011;41(6):805-814. PMID 20839040; doi:10.1007/s10803-010-1104-x.", "link": "https://doi.org/10.1007/s10803-010-1104-x", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Hofer2017", "text": "Höfer J, Hoffmann F, Bachmann C. Use of complementary and alternative medicine in children and adolescents with autism spectrum disorder: A systematic review. Autism. 2017;21(4):387-402. PMID 27231337; doi:10.1177/1362361316646559.", "link": "https://doi.org/10.1177/1362361316646559", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Holiga2019", "text": "Holiga Š, Hipp JF, Chatham CH, Garces P, Spooren W, D'Ardhuy XL, et al. Patients with autism spectrum disorders display reproducible functional connectivity alterations. Sci Transl Med. 2019;11(481):eaat9223. PMID 30814340; doi:10.1126/scitranslmed.aat9223.", "link": "https://doi.org/10.1126/scitranslmed.aat9223", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Hollander2022", "text": "Hollander E, Jacob S, Jou R, McNamara N, Sikich L, Tobe R, et al. Balovaptan vs Placebo for Social Communication in Childhood Autism Spectrum Disorder: A Randomized Clinical Trial. JAMA Psychiatry. 2022;79(8):760-769. PMID 35793101; PMCID PMC9260643; doi:10.1001/jamapsychiatry.2022.1717.", "link": "https://doi.org/10.1001/jamapsychiatry.2022.1717", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Hollocks2019", "text": "Hollocks MJ, Lerh JW, Magiati I, Meiser-Stedman R, Brugha TS. Anxiety and depression in adults with autism spectrum disorder: a systematic review and meta-analysis. Psychol Med. 2019;49(4):559-572. PMID 30178724; doi:10.1017/S0033291718002283.", "link": "https://doi.org/10.1017/s0033291718002283", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Hornig2018", "text": "Hornig M, Bresnahan MA, Che X, Schultz AF, Ukaigwe JE, Eddy ML, et al. Prenatal fever and autism risk. Mol Psychiatry. 2018;23(3):759-766. PMID 28607458; PMCID PMC5822459; doi:10.1038/mp.2017.119.", "link": "https://doi.org/10.1038/mp.2017.119", "areas": ["B", "C"], "unverified": false, "validated": "PubMed"}, {"key": "Hossain2020", "text": "Hossain MM, Khan N, Sultana A, Ma P, McKyer ELJ, Ahmed HU, et al. Prevalence of comorbid psychiatric disorders among people with autism spectrum disorder: An umbrella review of systematic reviews and meta-analyses. Psychiatry Res. 2020;287:112922. PMID 32203749; doi:10.1016/j.psychres.2020.112922.", "link": "https://doi.org/10.1016/j.psychres.2020.112922", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Hough2023", "text": "Hough D, Mao AR, Aman M, Lozano R, Smith-Hicks C, Martinez-Cerdeno V, et al. Randomized clinical trial of low dose suramin intravenous infusions for treatment of autism spectrum disorder. Ann Gen Psychiatry. 2023;22(1):45. PMID 37932739; PMCID PMC10626700; doi:10.1186/s12991-023-00477-8.", "link": "https://doi.org/10.1186/s12991-023-00477-8", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Howlin2004", "text": "Howlin P, Goode S, Hutton J, Rutter M. Adult outcome for children with autism. J Child Psychol Psychiatry. 2004;45(2):212-29. PMID 14982237; doi:10.1111/j.1469-7610.2004.00215.x.", "link": "https://doi.org/10.1111/j.1469-7610.2004.00215.x", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Howlin2007", "text": "Howlin P, Gordon RK, Pasco G, Wade A, Charman T. The effectiveness of Picture Exchange Communication System (PECS) training for teachers of children with autism: a pragmatic, group randomised controlled trial. J Child Psychol Psychiatry. 2007;48(5):473-481. PMID 17501728; doi:10.1111/j.1469-7610.2006.01707.x.", "link": "https://doi.org/10.1111/j.1469-7610.2006.01707.x", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Huang2020", "text": "Huang Y, Arnold SR, Foley KR, Trollor JN. Diagnosis of autism in adulthood: A scoping review. Autism. 2020;24(6):1311-1327. PMID 32106698; doi:10.1177/1362361320903128.", "link": "https://doi.org/10.1177/1362361320903128", "areas": ["D", "H"], "unverified": false, "validated": "PubMed", "aliases": ["Huang2020AdultDx"]}, {"key": "Hudson2019", "text": "Hudson CC, Hall L, Harkness KL. Prevalence of Depressive Disorders in Individuals with Autism Spectrum Disorder: a Meta-Analysis. J Abnorm Child Psychol. 2019;47(1):165-175. PMID 29497980; doi:10.1007/s10802-018-0402-1.", "link": "https://doi.org/10.1007/s10802-018-0402-1", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Huerta2012", "text": "Huerta M, Bishop SL, Duncan A, Hus V, Lord C. Application of DSM-5 criteria for autism spectrum disorder to three samples of children with DSM-IV diagnoses of pervasive developmental disorders. Am J Psychiatry. 2012;169(10):1056-64. PMID 23032385; PMCID PMC6003412; doi:10.1176/appi.ajp.2012.12020276.", "link": "https://doi.org/10.1176/appi.ajp.2012.12020276", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Hughes2023", "text": "Hughes MM, Shaw KA, DiRienzo M, Durkin MS, Esler A, Hall-Lande J, et al. The Prevalence and Characteristics of Children With Profound Autism, 15 Sites, United States, 2000-2016. Public Health Rep. 2023;138(6):971-980. PMID 37074176; PMCID PMC10576490; doi:10.1177/00333549231163551.", "link": "https://doi.org/10.1177/00333549231163551", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Hughes2024IEP", "text": "Hughes MM, Pas ET, Durkin MS, DaWalt LS, Bilder DA, Bakian AV, et al. Health Conditions, Education Services, and Transition Planning for Adolescents With Autism. Pediatrics. 2024;153(4):e2023063672. PMID 38501189; PMCID PMC11098059; doi:10.1542/peds.2023-063672.", "link": "https://doi.org/10.1542/peds.2023-063672", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Hull2017", "text": "Hull L, Petrides KV, Allison C, Smith P, Baron-Cohen S, Lai MC, et al. \"Putting on My Best Normal\": Social Camouflaging in Adults with Autism Spectrum Conditions. J Autism Dev Disord. 2017;47(8):2519-2534. PMID 28527095; PMCID PMC5509825; doi:10.1007/s10803-017-3166-5.", "link": "https://doi.org/10.1007/s10803-017-3166-5", "areas": ["A", "D", "E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Hull2019CATQ", "text": "Hull L, Mandy W, Lai MC, Baron-Cohen S, Allison C, Smith P, et al. Development and Validation of the Camouflaging Autistic Traits Questionnaire (CAT-Q). J Autism Dev Disord. 2019;49(3):819-833. PMID 30361940; PMCID PMC6394586; doi:10.1007/s10803-018-3792-6.", "link": "https://doi.org/10.1007/s10803-018-3792-6", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Hull2020Gender", "text": "Hull L, Lai MC, Baron-Cohen S, Allison C, Smith P, Petrides KV, et al. Gender differences in self-reported camouflaging in autistic and non-autistic adults. Autism. 2020;24(2):352-363. PMID 31319684; doi:10.1177/1362361319864804.", "link": "https://doi.org/10.1177/1362361319864804", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Hultman2011", "text": "Hultman CM, Sandin S, Levine SZ, Lichtenstein P, Reichenberg A. Advancing paternal age and risk of autism: new evidence from a population-based study and a meta-analysis of epidemiological studies. Mol Psychiatry. 2011;16(12):1203-12. PMID 21116277; doi:10.1038/mp.2010.121.", "link": "https://doi.org/10.1038/mp.2010.121", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Hume2021", "text": "Hume K, Steinbrenner JR, Odom SL, Morin KL, Nowell SW, Tomaszewski B, et al. Evidence-Based Practices for Children, Youth, and Young Adults with Autism: Third Generation Review. J Autism Dev Disord. 2021;51(11):4013-4032. PMID 33449225; PMCID PMC8510990; doi:10.1007/s10803-020-04844-2.", "link": "https://doi.org/10.1007/s10803-020-04844-2", "areas": ["E", "H"], "unverified": false, "validated": "Europe PMC"}, {"key": "Hutsler2010", "text": "Hutsler JJ, Zhang H. Increased dendritic spine densities on cortical projection neurons in autism spectrum disorders. Brain Res. 2010;1309:83-94. PMID 19896929; doi:10.1016/j.brainres.2009.09.120.", "link": "https://doi.org/10.1016/j.brainres.2009.09.120", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Huttenlocher1997", "text": "Huttenlocher PR, Dabholkar AS. Regional differences in synaptogenesis in human cerebral cortex. J Comp Neurol. 1997;387(2):167-78. PMID 9336221; doi:10.1002/(sici)1096-9861(19971020)387:2<167::aid-cne1>3.0.co;2-z.", "link": "https://doi.org/10.1002/(sici)1096-9861(19971020)387:2<167::aid-cne1>3.0.co", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Hviid2003", "text": "Hviid A, Stellfeld M, Wohlfahrt J, Melbye M. Association between thimerosal-containing vaccine and autism. JAMA. 2003;290(13):1763-6. PMID 14519711; doi:10.1001/jama.290.13.1763.", "link": "https://doi.org/10.1001/jama.290.13.1763", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Hviid2019", "text": "Hviid A, Hansen JV, Frisch M, Melbye M. Measles, Mumps, Rubella Vaccination and Autism: A Nationwide Cohort Study. Ann Intern Med. 2019;170(8):513-520. PMID 30831578; doi:10.7326/M18-2101.", "link": "https://doi.org/10.7326/m18-2101", "areas": ["A", "B", "F"], "unverified": false, "validated": "PubMed"}, {"key": "Hyman2020", "text": "Hyman SL, Levy SE, Myers SM; Council on Children with Disabilities, Section on Developmental and Behavioral Pediatrics. Identification, Evaluation, and Management of Children With Autism Spectrum Disorder. Pediatrics. 2020;145(1):e20193447. PMID 31843864; doi:10.1542/peds.2019-3447.", "link": "https://doi.org/10.1542/peds.2019-3447", "areas": ["A", "D", "E", "F", "G", "H"], "unverified": false, "validated": "Europe PMC"}, {"key": "InalKaleli2025", "text": "Inal-Kaleli I, Dogan N, Kose S, Bora E. Investigating the Presence of Autistic Traits and Prevalence of Autism Spectrum Disorder Symptoms in Anorexia Nervosa: A Systematic Review and Meta-Analysis. Int J Eat Disord. 2025;58(1):66-90. PMID 39530423; PMCID PMC11784827; doi:10.1002/eat.24307.", "link": "https://doi.org/10.1002/eat.24307", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Iossifov2014", "text": "Iossifov I, O'Roak BJ, Sanders SJ, Ronemus M, Krumm N, Levy D, et al. The contribution of de novo coding mutations to autism spectrum disorder. Nature. 2014;515(7526):216-21. PMID 25363768; PMCID PMC4313871; doi:10.1038/nature13908.", "link": "https://doi.org/10.1038/nature13908", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Isong2014", "text": "Isong IA, Rao SR, Holifield C, Iannuzzi D, Hanson E, Ware J, et al. Addressing dental fear in children with autism spectrum disorders: a randomized controlled pilot study using electronic screen media. Clin Pediatr (Phila). 2014;53(3):230-7. PMID 24391123; doi:10.1177/0009922813517169.", "link": "https://doi.org/10.1177/0009922813517169", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Iwata1994", "text": "Iwata BA, Dorsey MF, Slifer KJ, Bauman KE, Richman GS. Toward a functional analysis of self-injury. J Appl Behav Anal. 1994;27(2):197-209. PMID 8063622; PMCID PMC1297798; doi:10.1901/jaba.1994.27-197.", "link": "https://doi.org/10.1901/jaba.1994.27-197", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Jacob2022", "text": "Jacob S, Veenstra-VanderWeele J, Murphy D, McCracken J, Smith J, Sanders K, et al. Efficacy and safety of balovaptan for socialisation and communication difficulties in autistic adults in North America and Europe: a phase 3, randomised, placebo-controlled trial. Lancet Psychiatry. 2022;9(3):199-210. PMID 35151410; doi:10.1016/S2215-0366(21)00429-6.", "link": "https://doi.org/10.1016/s2215-0366(21)00429-6", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Jacobsen2010", "text": "Jacobsen K. Diagnostic politics: the curious case of Kanner's syndrome. Hist Psychiatry. 2010;21(84 Pt 4):436-54. PMID 21877421; doi:10.1177/0957154X09341438.", "link": "https://doi.org/10.1177/0957154x09341438", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Jain2015MMR", "text": "Jain A, Marshall J, Buikema A, Bancroft T, Kelly JP, Newschaffer CJ. Autism occurrence by MMR vaccine status among US children with older siblings with and without autism. JAMA. 2015;313(15):1534-40. PMID 25898051; doi:10.1001/jama.2015.3077.", "link": "https://doi.org/10.1001/jama.2015.3077", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "James2015", "text": "James S, Stevenson SW, Silove N, Williams K. Chelation for autism spectrum disorder (ASD). Cochrane Database Syst Rev. 2015;(5):CD010766. PMID 26114777; PMCID PMC6457964; doi:10.1002/14651858.CD010766.pub2.", "link": "https://doi.org/10.1002/14651858.cd010766.pub2", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Jepson2011", "text": "Jepson B, Granpeesheh D, Tarbox J, Olive ML, Stott C, Braud S, et al. Controlled evaluation of the effects of hyperbaric oxygen therapy on the behavior of 16 children with autism spectrum disorders. J Autism Dev Disord. 2011;41(5):575-88. PMID 20680427; doi:10.1007/s10803-010-1075-y.", "link": "https://doi.org/10.1007/s10803-010-1075-y", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Jiang2016Infection", "text": "Jiang HY, Xu LL, Shao L, Xia RM, Yu ZH, Ling ZX, et al. Maternal infection during pregnancy and risk of autism spectrum disorders: A systematic review and meta-analysis. Brain Behav Immun. 2016;58:165-172. PMID 27287966; doi:10.1016/j.bbi.2016.06.005.", "link": "https://doi.org/10.1016/j.bbi.2016.06.005", "areas": ["B", "C"], "unverified": false, "validated": "PubMed"}, {"key": "Johnson2014iPad", "text": "Johnson N, Bree O, Lalley EE, Rettler K, Grande P, Gani MO, et al. Effect of a social script iPad application for children with autism going to imaging. J Pediatr Nurs. 2014;29(6):651-9. PMID 24836052; doi:10.1016/j.pedn.2014.04.007.", "link": "https://doi.org/10.1016/j.pedn.2014.04.007", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Jones2013Eyes", "text": "Jones W, Klin A. Attention to eyes is present but in decline in 2-6-month-old infants later diagnosed with autism. Nature. 2013;504(7480):427-31. PMID 24196715; PMCID PMC4035120; doi:10.1038/nature12715.", "link": "https://doi.org/10.1038/nature12715", "areas": ["C", "D"], "unverified": false, "validated": "PubMed", "aliases": ["Jones2013Nature"]}, {"key": "Jones2023", "text": "Jones W, Klaiman C, Richardson S, Aoki C, Smith C, Minjarez M, et al. Eye-Tracking-Based Measurement of Social Visual Engagement Compared With Expert Clinical Diagnosis of Autism. JAMA. 2023;330(9):854-865. PMID 37668621; PMCID PMC10481242; doi:10.1001/jama.2023.13295.", "link": "https://doi.org/10.1001/jama.2023.13295", "areas": ["C", "F"], "unverified": false, "validated": "PubMed"}, {"key": "Kahathuduwa2019", "text": "Kahathuduwa CN, West BD, Blume J, Dharavath N, Moustaid-Moussa N, Mastergeorge A. The risk of overweight and obesity in children with autism spectrum disorders: A systematic review and meta-analysis. Obes Rev. 2019;20(12):1667-1679. PMID 31595678; doi:10.1111/obr.12933.", "link": "https://doi.org/10.1111/obr.12933", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Kalb2012ED", "text": "Kalb LG, Stuart EA, Freedman B, Zablotsky B, Vasa R. Psychiatric-related emergency department visits among children with an autism spectrum disorder. Pediatr Emerg Care. 2012;28(12):1269-76. PMID 23187983; doi:10.1097/PEC.0b013e3182767d96.", "link": "https://doi.org/10.1097/pec.0b013e3182767d96", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Kalb2019START", "text": "Kalb LG, Beasley J, Caoili A, Klein A. Improvement in Mental Health Outcomes and Caregiver Service Experiences Associated With the START Program. Am J Intellect Dev Disabil. 2019;124(1):25-34. PMID 30715923; doi:10.1352/1944-7558-124.1.25.", "link": "https://doi.org/10.1352/1944-7558-124.1.25", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Kandeel2022", "text": "Kandeel M, El-Deeb W. The Application of Natural Camel Milk Products to Treat Autism-Spectrum Disorders: Risk Assessment and Meta-Analysis of Randomized Clinical Trials. Bioinorg Chem Appl. 2022;2022:6422208. PMID 35669459; PMCID PMC9166988; doi:10.1155/2022/6422208. RETRACTED: retraction notice Bioinorg Chem Appl. 2023;2023:9807391, PMID 37829661, doi:10.1155/2023/9807391.", "link": "https://doi.org/10.1155/2022/6422208", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Kang2017", "text": "Kang DW, Adams JB, Gregory AC, Borody T, Chittick L, Fasano A, et al. Microbiota Transfer Therapy alters gut ecosystem and improves gastrointestinal and autism symptoms: an open-label study. Microbiome. 2017;5(1):10. PMID 28122648; PMCID PMC5264285; doi:10.1186/s40168-016-0225-7.", "link": "https://doi.org/10.1186/s40168-016-0225-7", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Kang2019", "text": "Kang DW, Adams JB, Coleman DM, Pollard EL, Maldonado J, McDonough-Means S, et al. Long-term benefit of Microbiota Transfer Therapy on autism symptoms and gut microbiota. Sci Rep. 2019;9(1):5821. PMID 30967657; PMCID PMC6456593; doi:10.1038/s41598-019-42183-0.", "link": "https://doi.org/10.1038/s41598-019-42183-0", "areas": ["C", "F"], "unverified": false, "validated": "PubMed"}, {"key": "Kanner1968", "text": "Kanner L. Autistic disturbances of affective contact. Acta Paedopsychiatr. 1968;35(4):100-36. PMID 4880460. Reprint of the original 1943 paper.", "link": "https://pubmed.ncbi.nlm.nih.gov/4880460/", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Kanner1971", "text": "Kanner L. Follow-up study of eleven autistic children originally reported in 1943. J Autism Child Schizophr. 1971;1(2):119-45. PMID 5172388; doi:10.1007/BF01537953.", "link": "https://doi.org/10.1007/bf01537953", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Kapp2013", "text": "Kapp SK, Gillespie-Lynch K, Sherman LE, Hutman T. Deficit, difference, or both? Autism and neurodiversity. Dev Psychol. 2013;49(1):59-71. PMID 22545843; doi:10.1037/a0028353.", "link": "https://doi.org/10.1037/a0028353", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Kapp2019", "text": "Kapp SK, Steward R, Crane L, Elliott D, Elphick C, Pellicano E, et al. 'People should be allowed to do what they like': Autistic adults' views and experiences of stimming. Autism. 2019;23(7):1782-1792. PMID 30818970; PMCID PMC6728747; doi:10.1177/1362361319829628.", "link": "https://doi.org/10.1177/1362361319829628", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Kasari2006", "text": "Kasari C, Freeman S, Paparella T. Joint attention and symbolic play in young children with autism: a randomized controlled intervention study. J Child Psychol Psychiatry. 2006;47(6):611-620. PMID 16712638; doi:10.1111/j.1469-7610.2005.01567.x.", "link": "https://doi.org/10.1111/j.1469-7610.2005.01567.x", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Kasari2008", "text": "Kasari C, Paparella T, Freeman S, Jahromi LB. Language outcome in autism: randomized comparison of joint attention and play interventions. J Consult Clin Psychol. 2008;76(1):125-137. PMID 18229990; doi:10.1037/0022-006X.76.1.125.", "link": "https://doi.org/10.1037/0022-006x.76.1.125", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Kasari2014", "text": "Kasari C, Kaiser A, Goods K, Nietfeld J, Mathy P, Landa R, et al. Communication interventions for minimally verbal children with autism: a sequential multiple assignment randomized trial. J Am Acad Child Adolesc Psychiatry. 2014;53(6):635-646. PMID 24839882; PMCID PMC4030683; doi:10.1016/j.jaac.2014.01.019.", "link": "https://doi.org/10.1016/j.jaac.2014.01.019", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Kaufmann2017", "text": "Kaufmann WE, Kidd SA, Andrews HF, Budimirovic DB, Esler A, Haas-Givler B, et al. Autism Spectrum Disorder in Fragile X Syndrome: Cooccurring Conditions and Current Treatment. Pediatrics. 2017;139(Suppl 3):S194-S206. PMID 28814540; PMCID PMC5619699; doi:10.1542/peds.2016-1159F.", "link": "https://doi.org/10.1542/peds.2016-1159f", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Keating2023", "text": "Keating CT, Hickman L, Leung J, Monk R, Montgomery A, Heath H, et al. Autism-related language preferences of English-speaking individuals across the globe: A mixed methods investigation. Autism Res. 2023;16(2):406-428. PMID 36474364; PMCID PMC10946540; doi:10.1002/aur.2864.", "link": "https://doi.org/10.1002/aur.2864", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Kendall2013", "text": "Kendall T, Megnin-Viggars O, Gould N, Taylor C, Burt LR, Baird G, et al. Management of autism in children and young people: summary of NICE and SCIE guidance. BMJ. 2013;347:f4865. PMID 23985309; doi:10.1136/bmj.f4865.", "link": "https://doi.org/10.1136/bmj.f4865", "areas": ["E", "F"], "unverified": false, "validated": "Europe PMC"}, {"key": "Kenny2016", "text": "Kenny L, Hattersley C, Molins B, Buckley C, Povey C, Pellicano E. Which terms should be used to describe autism? Perspectives from the UK autism community. Autism. 2016;20(4):442-462. PMID 26134030; doi:10.1177/1362361315588200.", "link": "https://doi.org/10.1177/1362361315588200", "areas": ["A", "C", "D", "E", "H"], "unverified": false, "validated": "Europe PMC"}, {"key": "Kentrou2024", "text": "Kentrou V, Livingston LA, Grove R, Hoekstra RA, Begeer S. Perceived misdiagnosis of psychiatric conditions in autistic adults. EClinicalMedicine. 2024;71:102586. PMID 38596613; PMCID PMC11001629; doi:10.1016/j.eclinm.2024.102586.", "link": "https://doi.org/10.1016/j.eclinm.2024.102586", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Keville2025", "text": "Keville S, Mills M, Ludlow AK. Exploring mothers' experiences of accessing an Education Health and Care Plan (EHCP) for an autistic child attending mainstream school in the United Kingdom. Int J Dev Disabil. 2025;71(7):1061-1072. PMID 41262105; PMCID PMC12624898; doi:10.1080/20473869.2023.2298606.", "link": "https://doi.org/10.1080/20473869.2023.2298606", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Khalifa2020", "text": "Khalifa G, Sharif Z, Sultan M, Di Rezze B. Workplace accommodations for adults with autism spectrum disorder: a scoping review. Disabil Rehabil. 2020;42(9):1316-1331. PMID 30714420; doi:10.1080/09638288.2018.1527952.", "link": "https://doi.org/10.1080/09638288.2018.1527952", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Kim2012Lord", "text": "Kim SH, Lord C. Combining information from multiple sources for the diagnosis of autism spectrum disorders for toddlers and young preschoolers from 12 to 47 months of age. J Child Psychol Psychiatry. 2012;53(2):143-51. PMID 21883205; PMCID PMC3235227; doi:10.1111/j.1469-7610.2011.02458.x.", "link": "https://doi.org/10.1111/j.1469-7610.2011.02458.x", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Kim2017MIA", "text": "Kim S, Kim H, Yim YS, Ha S, Atarashi K, Tan TG, et al. Maternal gut bacteria promote neurodevelopmental abnormalities in mouse offspring. Nature. 2017;549(7673):528-532. PMID 28902840; PMCID PMC5870873; doi:10.1038/nature23910.", "link": "https://doi.org/10.1038/nature23910", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Kim2019Umbrella", "text": "Kim JY, Son MJ, Son CY, Radua J, Eisenhut M, Gressier F, et al. Environmental risk factors and biomarkers for autism spectrum disorder: an umbrella review of the evidence. Lancet Psychiatry. 2019;6(7):590-600. PMID 31230684; doi:10.1016/S2215-0366(19)30181-6.", "link": "https://doi.org/10.1016/s2215-0366(19)30181-6", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "King2009", "text": "King M, Bearman P. Diagnostic change and the increased prevalence of autism. Int J Epidemiol. 2009;38(5):1224-34. PMID 19737791; PMCID PMC2800781; doi:10.1093/ije/dyp261.", "link": "https://doi.org/10.1093/ije/dyp261", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "King2009F", "text": "King BH, Hollander E, Sikich L, McCracken JT, Scahill L, Bregman JD, et al. Lack of efficacy of citalopram in children with autism spectrum disorders and high levels of repetitive behavior: citalopram ineffective in children with autism. Arch Gen Psychiatry. 2009;66(6):583-90. PMID 19487623; PMCID PMC4112556; doi:10.1001/archgenpsychiatry.2009.30.", "link": "https://doi.org/10.1001/archgenpsychiatry.2009.30", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "King2014CJS", "text": "King C, Murphy GH. A systematic review of people with autism spectrum disorder and the criminal justice system. J Autism Dev Disord. 2014;44(11):2717-33. PMID 24577785; doi:10.1007/s10803-014-2046-5.", "link": "https://doi.org/10.1007/s10803-014-2046-5", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "King2019FC", "text": "King JB, Prigge MBD, King CK, Morgan J, Weathersby F, Fox JC, et al. Generalizability and reproducibility of functional connectivity in autism. Mol Autism. 2019;10:27. PMID 31285817; PMCID PMC6591952; doi:10.1186/s13229-019-0273-5.", "link": "https://doi.org/10.1186/s13229-019-0273-5", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Kinnaird2019", "text": "Kinnaird E, Stewart C, Tchanturia K. Investigating alexithymia in autism: A systematic review and meta-analysis. Eur Psychiatry. 2019;55:80-89. PMID 30399531; PMCID PMC6331035; doi:10.1016/j.eurpsy.2018.09.004.", "link": "https://doi.org/10.1016/j.eurpsy.2018.09.004", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Kinnealey2012", "text": "Kinnealey M, Pfeiffer B, Miller J, Roan C, Shoener R, Ellner ML. Effect of classroom modification on attention and engagement of students with autism or dyspraxia. Am J Occup Ther. 2012;66(5):511-9. PMID 22917117; doi:10.5014/ajot.2012.004010.", "link": "https://doi.org/10.5014/ajot.2012.004010", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Kirkham2017", "text": "Kirkham P. 'The line between intervention and abuse' – autism and applied behaviour analysis. Hist Human Sci. 2017;30(2):107-126. doi:10.1177/0952695117702571.", "link": "https://doi.org/10.1177/0952695117702571", "areas": ["E"], "unverified": false, "validated": "Crossref"}, {"key": "Klein2025", "text": "Klein M, Witthöft M, Jungmann SM. Interoception in individuals with autism spectrum disorder: a systematic literature review and meta-analysis. Front Psychiatry. 2025;16:1573263. PMID 40909407; PMCID PMC12406136; doi:10.3389/fpsyt.2025.1573263.", "link": "https://doi.org/10.3389/fpsyt.2025.1573263", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Klin2009", "text": "Klin A, Lin DJ, Gorrindo P, Ramsay G, Jones W. Two-year-olds with autism orient to non-social contingencies rather than biological motion. Nature. 2009;459(7244):257-61. PMID 19329996; PMCID PMC2758571; doi:10.1038/nature07868.", "link": "https://doi.org/10.1038/nature07868", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Knickmeyer2008", "text": "Knickmeyer RC, Gouttard S, Kang C, Evans D, Wilber K, Smith JK, et al. A structural MRI study of human brain development from birth to 2 years. J Neurosci. 2008;28(47):12176-82. PMID 19020011; PMCID PMC2884385; doi:10.1523/JNEUROSCI.3479-08.2008.", "link": "https://doi.org/10.1523/jneurosci.3479-08.2008", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Knight2015", "text": "Knight V, Sartini E, Spriggs AD. Evaluating visual activity schedules as evidence-based practice for individuals with autism spectrum disorders. J Autism Dev Disord. 2015;45(1):157-78. PMID 25081593; doi:10.1007/s10803-014-2201-z.", "link": "https://doi.org/10.1007/s10803-014-2201-z", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Kogan2018", "text": "Kogan MD, Vladutiu CJ, Schieve LA, Ghandour RM, Blumberg SJ, Zablotsky B, et al. The Prevalence of Parent-Reported Autism Spectrum Disorder Among US Children. Pediatrics. 2018;142(6). PMID 30478241; PMCID PMC6317762; doi:10.1542/peds.2017-4161.", "link": "https://doi.org/10.1542/peds.2017-4161", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Kokina2010", "text": "Kokina A, Kern L. Social Story interventions for students with autism spectrum disorders: a meta-analysis. J Autism Dev Disord. 2010;40(7):812-26. PMID 20054628; doi:10.1007/s10803-009-0931-0.", "link": "https://doi.org/10.1007/s10803-009-0931-0", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Kolves2021", "text": "Kõlves K, Fitzgerald C, Nordentoft M, Wood SJ, Erlangsen A. Assessment of Suicidal Behaviors Among Individuals With Autism Spectrum Disorder in Denmark. JAMA Netw Open. 2021;4(1):e2033565. PMID 33433599; PMCID PMC12578491; doi:10.1001/jamanetworkopen.2020.33565.", "link": "https://doi.org/10.1001/jamanetworkopen.2020.33565", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Kosmicki2017", "text": "Kosmicki JA, Samocha KE, Howrigan DP, Sanders SJ, Slowikowski K, Lek M, et al. Refining the role of de novo protein-truncating variants in neurodevelopmental disorders by using population reference samples. Nat Genet. 2017;49(4):504-510. PMID 28191890; PMCID PMC5496244; doi:10.1038/ng.3789.", "link": "https://doi.org/10.1038/ng.3789", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Krantz2023", "text": "Krantz M, Dalmacy D, Bishop L, Hyer JM, Hand BN. Mortality rate and age of death among Medicare-enrolled autistic older adults. Res Autism Spectr Disord. 2023;100. PMID 36685335; PMCID PMC9851177; doi:10.1016/j.rasd.2022.102077.", "link": "https://doi.org/10.1016/j.rasd.2022.102077", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Kulage2014", "text": "Kulage KM, Smaldone AM, Cohn EG. How will DSM-5 affect autism diagnosis? A systematic literature review and meta-analysis. J Autism Dev Disord. 2014;44(8):1918-32. PMID 24531932; doi:10.1007/s10803-014-2065-2.", "link": "https://doi.org/10.1007/s10803-014-2065-2", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Kulage2020", "text": "Kulage KM, Goldberg J, Usseglio J, Romero D, Bain JM, Smaldone AM. How has DSM-5 Affected Autism Diagnosis? A 5-Year Follow-Up Systematic Literature Review and Meta-analysis. J Autism Dev Disord. 2020;50(6):2102-2127. PMID 30852784; doi:10.1007/s10803-019-03967-5.", "link": "https://doi.org/10.1007/s10803-019-03967-5", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Kupferstein2018", "text": "Kupferstein H. Evidence of increased PTSD symptoms in autistics exposed to applied behavior analysis. Advances in Autism. 2018;4(1):19-29. doi:10.1108/AIA-08-2017-0016.", "link": "https://doi.org/10.1108/aia-08-2017-0016", "areas": ["E"], "unverified": false, "validated": "Crossref"}, {"key": "Lai2014", "text": "Lai MC, Lombardo MV, Baron-Cohen S. Autism. Lancet. 2014;383(9920):896-910. PMID 24074734; doi:10.1016/S0140-6736(13)61539-1.", "link": "https://doi.org/10.1016/s0140-6736(13)61539-1", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Lai2015LancetPsych", "text": "Lai MC, Baron-Cohen S. Identifying the lost generation of adults with autism spectrum conditions. Lancet Psychiatry. 2015;2(11):1013-27. PMID 26544750; doi:10.1016/S2215-0366(15)00277-1.", "link": "https://doi.org/10.1016/s2215-0366(15)00277-1", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Lai2017Camouflaging", "text": "Lai MC, Lombardo MV, Ruigrok AN, Chakrabarti B, Auyeung B, Szatmari P, et al. Quantifying and exploring camouflaging in men and women with autism. Autism. 2017;21(6):690-702. PMID 27899710; PMCID PMC5536256; doi:10.1177/1362361316671012.", "link": "https://doi.org/10.1177/1362361316671012", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Lai2019", "text": "Lai MC, Kassee C, Besney R, Bonato S, Hull L, Mandy W, et al. Prevalence of co-occurring mental health diagnoses in the autism population: a systematic review and meta-analysis. Lancet Psychiatry. 2019;6(10):819-829. PMID 31447415; doi:10.1016/S2215-0366(19)30289-5.", "link": "https://doi.org/10.1016/s2215-0366(19)30289-5", "areas": ["A", "G"], "unverified": false, "validated": "PubMed"}, {"key": "Lai2021Commentary", "text": "Lai MC, Hull L, Mandy W, Chakrabarti B, Nordahl CW, Lombardo MV, et al. Commentary: 'Camouflaging' in autistic people - reflection on Fombonne (2020). J Child Psychol Psychiatry. 2021;62(8). PMID 33289092; doi:10.1111/jcpp.13344.", "link": "https://doi.org/10.1111/jcpp.13344", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Lancet2010Retraction", "text": "[No authors listed]. Retraction--Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and pervasive developmental disorder in children. Lancet. 2010;375(9713):445. PMID 20137807; doi:10.1016/S0140-6736(10)60175-4.", "link": "https://doi.org/10.1016/s0140-6736(10)60175-4", "areas": ["A", "B"], "unverified": false, "validated": "PubMed"}, {"key": "LaPoint2025", "text": "LaPoint S, Klein CB, Sandbank M, Bottema-Beutel K, Fletcher-Watson S, Divan G, et al. Maximizing the Quality and Reporting Standards of Autism Intervention Science. Autism Res. 2025;18(11):2166-2173. PMID 41070555; PMCID PMC12661279; doi:10.1002/aur.70126.", "link": "https://doi.org/10.1002/aur.70126", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Laugeson2009", "text": "Laugeson EA, Frankel F, Mogil C, Dillon AR. Parent-assisted social skills training to improve friendships in teens with autism spectrum disorders. J Autism Dev Disord. 2009;39(4):596-606. PMID 19015968; doi:10.1007/s10803-008-0664-5.", "link": "https://doi.org/10.1007/s10803-008-0664-5", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Laugeson2012", "text": "Laugeson EA, Frankel F, Gantman A, Dillon AR, Mogil C. Evidence-based social skills training for adolescents with autism spectrum disorders: the UCLA PEERS program. J Autism Dev Disord. 2012;42(6):1025-1036. PMID 21858588; doi:10.1007/s10803-011-1339-1.", "link": "https://doi.org/10.1007/s10803-011-1339-1", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Laugeson2015", "text": "Laugeson EA, Gantman A, Kapp SK, Orenski K, Ellingsen R. A Randomized Controlled Trial to Improve Social Skills in Young Adults with Autism Spectrum Disorder: The UCLA PEERS® Program. J Autism Dev Disord. 2015;45(12):3978-3989. PMID 26109247; doi:10.1007/s10803-015-2504-8.", "link": "https://doi.org/10.1007/s10803-015-2504-8", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Lawson2014", "text": "Lawson RP, Rees G, Friston KJ. An aberrant precision account of autism. Front Hum Neurosci. 2014;8:302. PMID 24860482; PMCID PMC4030191; doi:10.3389/fnhum.2014.00302.", "link": "https://doi.org/10.3389/fnhum.2014.00302", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Lawson2017", "text": "Lawson RP, Mathys C, Rees G. Adults with autism overestimate the volatility of the sensory environment. Nat Neurosci. 2017;20(9):1293-1299. PMID 28758996; PMCID PMC5578436; doi:10.1038/nn.4615.", "link": "https://doi.org/10.1038/nn.4615", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Laxman2019", "text": "Laxman DJ, Taylor JL, DaWalt LS, Greenberg JS, Mailick MR. Loss in services precedes high school exit for teens with autism spectrum disorder: A longitudinal study. Autism Res. 2019;12(6):911-921. PMID 31033222; PMCID PMC6546537; doi:10.1002/aur.2113.", "link": "https://doi.org/10.1002/aur.2113", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Leadbitter2025", "text": "Leadbitter K, Langhorne S, Smallman R, Chu P, Ellis C, Harrison L, et al. Clinical effectiveness of an online psychoeducational and psychotherapeutic programme for caregivers of children newly diagnosed as autistic: a parallel, assessor-masked, randomised controlled trial in the UK (REACH-ASD). Lancet Psychiatry. 2025;12(4):289-302. PMID 40086467; doi:10.1016/S2215-0366(25)00036-7.", "link": "https://doi.org/10.1016/s2215-0366(25)00036-7", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Leaf2018AiA", "text": "Leaf JB, Ross RK, Cihon JH, Weiss MJ. Evaluating Kupferstein's claims of the relationship of behavioral intervention to PTSS for individuals with autism. Advances in Autism. 2018;4(3):122-129. doi:10.1108/AIA-02-2018-0007.", "link": "https://doi.org/10.1108/aia-02-2018-0007", "areas": ["E"], "unverified": false, "validated": "Crossref"}, {"key": "Leaf2022JADD", "text": "Leaf JB, Cihon JH, Leaf R, McEachin J, Liu N, Russell N, et al. Concerns About ABA-Based Intervention: An Evaluation and Recommendations. J Autism Dev Disord. 2022;52(6):2838-2853. PMID 34132968; PMCID PMC9114057; doi:10.1007/s10803-021-05137-y.", "link": "https://doi.org/10.1007/s10803-021-05137-y", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Lebersfeld2021", "text": "Lebersfeld JB, Swanson M, Clesi CD, O'Kelley SE. Systematic Review and Meta-Analysis of the Clinical Utility of the ADOS-2 and the ADI-R in Diagnosing Autism Spectrum Disorders in Children. J Autism Dev Disord. 2021;51(11):4101-4114. PMID 33475930; doi:10.1007/s10803-020-04839-z.", "link": "https://doi.org/10.1007/s10803-020-04839-z", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Leekam2007", "text": "Leekam SR, Nieto C, Libby SJ, Wing L, Gould J. Describing the sensory abnormalities of children and adults with autism. J Autism Dev Disord. 2007;37(5):894-910. PMID 17016677; doi:10.1007/s10803-006-0218-7.", "link": "https://doi.org/10.1007/s10803-006-0218-7", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Lemonnier2017", "text": "Lemonnier E, Villeneuve N, Sonie S, Serret S, Rosier A, Roue M, et al. Effects of bumetanide on neurobehavioral function in children and adolescents with autism spectrum disorders. Transl Psychiatry. 2017;7(3):e1056. PMID 28291262; PMCID PMC5416661; doi:10.1038/tp.2017.10. An erratum was published as Transl Psychiatry 2017;7(5):e1124.", "link": "https://doi.org/10.1038/tp.2017.10", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Lever2016", "text": "Lever AG, Geurts HM. Age-related differences in cognition across the adult lifespan in autism spectrum disorder. Autism Res. 2016;9(6):666-76. PMID 26333004; doi:10.1002/aur.1545.", "link": "https://doi.org/10.1002/aur.1545", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Levine2018", "text": "Levine SZ, Kodesh A, Viktorin A, Smith L, Uher R, Reichenberg A, et al. Association of Maternal Use of Folic Acid and Multivitamin Supplements in the Periods Before and During Pregnancy With the Risk of Autism Spectrum Disorder in Offspring. JAMA Psychiatry. 2018;75(2):176-184. PMID 29299606; PMCID PMC5838577; doi:10.1001/jamapsychiatry.2017.4050.", "link": "https://doi.org/10.1001/jamapsychiatry.2017.4050", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Lewis2023Meltdown", "text": "Lewis LF, Stevens K. The lived experience of meltdowns for autistic adults. Autism. 2023;27(6):1817-1825. PMID 36632658; doi:10.1177/13623613221145783.", "link": "https://doi.org/10.1177/13623613221145783", "areas": ["C", "H"], "unverified": false, "validated": "PubMed", "aliases": ["Lewis2023Meltdowns"]}, {"key": "Lindsay2026", "text": "Lindsay R, Joshi B, Abaza N, Smith BC, Ramos-Torres S, Humphries R, et al. Exploring Family Experiences With Section 504 Plans for Their Autistic Children. J Autism Dev Disord. 2026;56(10):3866-3877. PMID 40317350; PMCID PMC13538220; doi:10.1007/s10803-025-06856-2.", "link": "https://doi.org/10.1007/s10803-025-06856-2", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Lipkin2020", "text": "Lipkin PH, Macias MM. Promoting Optimal Development: Identifying Infants and Young Children With Developmental Disorders Through Developmental Surveillance and Screening. Pediatrics. 2020;145(1):e20193449. PMID 31843861; doi:10.1542/peds.2019-3449.", "link": "https://doi.org/10.1542/peds.2019-3449", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Liu2017ED", "text": "Liu G, Pearl AM, Kong L, Leslie DL, Murray MJ. A Profile on Emergency Department Utilization in Adolescents and Young Adults with Autism Spectrum Disorders. J Autism Dev Disord. 2017;47(2):347-358. PMID 27844247; doi:10.1007/s10803-016-2953-8.", "link": "https://doi.org/10.1007/s10803-016-2953-8", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "LockwoodEstrin2021", "text": "Lockwood Estrin G, Milner V, Spain D, Happé F, Colvert E. Barriers to Autism Spectrum Disorder Diagnosis for Young Women and Girls: a Systematic Review. Rev J Autism Dev Disord. 2021;8(4):454-470. PMID 34868805; PMCID PMC8604819; doi:10.1007/s40489-020-00225-8.", "link": "https://doi.org/10.1007/s40489-020-00225-8", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Loomes2017", "text": "Loomes R, Hull L, Mandy WPL. What Is the Male-to-Female Ratio in Autism Spectrum Disorder? A Systematic Review and Meta-Analysis. J Am Acad Child Adolesc Psychiatry. 2017;56(6):466-474. PMID 28545751; doi:10.1016/j.jaac.2017.03.013.", "link": "https://doi.org/10.1016/j.jaac.2017.03.013", "areas": ["A", "B", "D"], "unverified": false, "validated": "PubMed"}, {"key": "Lord1994", "text": "Lord C, Rutter M, Le Couteur A. Autism Diagnostic Interview-Revised: a revised version of a diagnostic interview for caregivers of individuals with possible pervasive developmental disorders. J Autism Dev Disord. 1994;24(5):659-85. PMID 7814313; doi:10.1007/BF02172145.", "link": "https://doi.org/10.1007/bf02172145", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Lord2000", "text": "Lord C, Risi S, Lambrecht L, Cook EH Jr, Leventhal BL, DiLavore PC, et al. The autism diagnostic observation schedule-generic: a standard measure of social and communication deficits associated with the spectrum of autism. J Autism Dev Disord. 2000;30(3):205-23. PMID 11055457; doi:10.1023/A:1005592401947.", "link": "https://doi.org/10.1023/a:1005592401947", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Lord2006", "text": "Lord C, Risi S, DiLavore PS, Shulman C, Thurm A, Pickles A. Autism from 2 to 9 years of age. Arch Gen Psychiatry. 2006;63(6):694-701. PMID 16754843; doi:10.1001/archpsyc.63.6.694.", "link": "https://doi.org/10.1001/archpsyc.63.6.694", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Lord2018", "text": "Lord C, Elsabbagh M, Baird G, Veenstra-Vanderweele J. Autism spectrum disorder. Lancet. 2018;392(10146):508-520. PMID 30078460; PMCID PMC7398158; doi:10.1016/S0140-6736(18)31129-2.", "link": "https://doi.org/10.1016/s0140-6736(18)31129-2", "areas": ["A", "B", "C", "F", "G"], "unverified": false, "validated": "PubMed"}, {"key": "Lord2020NRDP", "text": "Lord C, Brugha TS, Charman T, Cusack J, Dumas G, Frazier T, et al. Autism spectrum disorder. Nat Rev Dis Primers. 2020;6(1):5. PMID 31949163; PMCID PMC8900942; doi:10.1038/s41572-019-0138-4.", "link": "https://doi.org/10.1038/s41572-019-0138-4", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Lord2022Lancet", "text": "Lord C, Charman T, Havdahl A, Carbone P, Anagnostou E, Boyd B, et al. The Lancet Commission on the future of care and clinical research in autism. Lancet. 2022;399(10321):271-334. PMID 34883054; doi:10.1016/S0140-6736(21)01541-5.", "link": "https://doi.org/10.1016/s0140-6736(21)01541-5", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Lovaas1987", "text": "Lovaas OI. Behavioral treatment and normal educational and intellectual functioning in young autistic children. J Consult Clin Psychol. 1987;55(1):3-9. PMID 3571656; doi:10.1037//0022-006x.55.1.3. No abstract in PubMed; claims taken from validated secondary sources.", "link": "https://doi.org/10.1037//0022-006x.55.1.3", "areas": ["E"], "unverified": false, "validated": "PubMed"}, {"key": "LovaasSimmons1969", "text": "Lovaas OI, Simmons JQ. Manipulation of self-destruction in three retarded children. J Appl Behav Anal. 1969;2(3):143-157. PMID 16795215; PMCID PMC1311058; doi:10.1901/jaba.1969.2-143.", "link": "https://doi.org/10.1901/jaba.1969.2-143", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Lukmanji2019", "text": "Lukmanji S, Manji SA, Kadhim S, Sauro KM, Wirrell EC, Kwon CS, et al. The co-occurrence of epilepsy and autism: A systematic review. Epilepsy Behav. 2019;98(Pt A):238-248. PMID 31398688; doi:10.1016/j.yebeh.2019.07.037.", "link": "https://doi.org/10.1016/j.yebeh.2019.07.037", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Lundstrom2015", "text": "Lundström S, Reichenberg A, Anckarsäter H, Lichtenstein P, Gillberg C. Autism phenotype versus registered diagnosis in Swedish children: prevalence trends over 10 years in general population samples. BMJ. 2015;350:h1961. PMID 25922345; PMCID PMC4413835; doi:10.1136/bmj.h1961.", "link": "https://doi.org/10.1136/bmj.h1961", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Luo2026Paracetamol", "text": "Luo S, Gong Q, Ai Y, Zhang J, Chan L, Wong WCW, et al. Prenatal Acetaminophen (Paracetamol) Use and the Risk of Autism and/or Attention-Deficit/Hyperactivity Disorder Among Sibling-Matched Cohorts. JAMA Intern Med. 2026;186(9):1102-1111. PMID 42371637; PMCID PMC13316715; doi:10.1001/jamainternmed.2026.2215.", "link": "https://doi.org/10.1001/jamainternmed.2026.2215", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Luyster2009", "text": "Luyster R, Gotham K, Guthrie W, Coffing M, Petrak R, Pierce K, et al. The Autism Diagnostic Observation Schedule-toddler module: a new module of a standardized diagnostic measure for autism spectrum disorders. J Autism Dev Disord. 2009;39(9):1305-20. PMID 19415479; PMCID PMC2893552; doi:10.1007/s10803-009-0746-z.", "link": "https://doi.org/10.1007/s10803-009-0746-z", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Lyall2017", "text": "Lyall K, Croen L, Daniels J, Fallin MD, Ladd-Acosta C, Lee BK, et al. The Changing Epidemiology of Autism Spectrum Disorders. Annu Rev Public Health. 2017;38:81-102. PMID 28068486; PMCID PMC6566093; doi:10.1146/annurev-publhealth-031816-044318.", "link": "https://doi.org/10.1146/annurev-publhealth-031816-044318", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "MacLennan2023", "text": "MacLennan K, Woolley C, Andsensory E, Heasman B, Starns J, George B, et al. \"It Is a Big Spider Web of Things\": Sensory Experiences of Autistic Adults in Public Spaces. Autism Adulthood. 2023;5(4):411-422. PMID 38116051; PMCID PMC10726197; doi:10.1089/aut.2022.0024.", "link": "https://doi.org/10.1089/aut.2022.0024", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Madsen2002", "text": "Madsen KM, Hviid A, Vestergaard M, Schendel D, Wohlfahrt J, Thorsen P, et al. A population-based study of measles, mumps, and rubella vaccination and autism. N Engl J Med. 2002;347(19):1477-82. PMID 12421889; doi:10.1056/NEJMoa021134.", "link": "https://doi.org/10.1056/nejmoa021134", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Maenner2020", "text": "Maenner MJ, Shaw KA, Baio J, Washington A, Patrick M, DiRienzo M, et al. Prevalence of Autism Spectrum Disorder Among Children Aged 8 Years - Autism and Developmental Disabilities Monitoring Network, 11 Sites, United States, 2016. MMWR Surveill Summ. 2020;69(4):1-12. PMID 32214087; PMCID PMC7119644; doi:10.15585/mmwr.ss6904a1.", "link": "https://doi.org/10.15585/mmwr.ss6904a1", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Maenner2021", "text": "Maenner MJ, Shaw KA, Bakian AV, Bilder DA, Durkin MS, Esler A, et al. Prevalence and Characteristics of Autism Spectrum Disorder Among Children Aged 8 Years - Autism and Developmental Disabilities Monitoring Network, 11 Sites, United States, 2018. MMWR Surveill Summ. 2021;70(11):1-16. PMID 34855725; PMCID PMC8639024; doi:10.15585/mmwr.ss7011a1.", "link": "https://doi.org/10.15585/mmwr.ss7011a1", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Maenner2023", "text": "Maenner MJ, Warren Z, Williams AR, Amoakohene E, Bakian AV, Bilder DA, et al. Prevalence and Characteristics of Autism Spectrum Disorder Among Children Aged 8 Years - Autism and Developmental Disabilities Monitoring Network, 11 Sites, United States, 2020. MMWR Surveill Summ. 2023;72(2):1-14. PMID 36952288; PMCID PMC10042614; doi:10.15585/mmwr.ss7202a1.", "link": "https://doi.org/10.15585/mmwr.ss7202a1", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Magiati2014", "text": "Magiati I, Tay XW, Howlin P. Cognitive, language, social and behavioural outcomes in adults with autism spectrum disorders: a systematic review of longitudinal follow-up studies in adulthood. Clin Psychol Rev. 2014;34(1):73-86. PMID 24424351; doi:10.1016/j.cpr.2013.11.002.", "link": "https://doi.org/10.1016/j.cpr.2013.11.002", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Maiano2016", "text": "Maïano C, Normand CL, Salvas MC, Moullec G, Aimé A. Prevalence of School Bullying Among Youth with Autism Spectrum Disorders: A Systematic Review and Meta-Analysis. Autism Res. 2016;9(6):601-15. PMID 26451871; doi:10.1002/aur.1568.", "link": "https://doi.org/10.1002/aur.1568", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Malow2014", "text": "Malow BA, Adkins KW, Reynolds A, Weiss SK, Loh A, Fawkes D, et al. Parent-based sleep education for children with autism spectrum disorders. J Autism Dev Disord. 2014;44(1):216-28. PMID 23754339; PMCID PMC3818449; doi:10.1007/s10803-013-1866-z.", "link": "https://doi.org/10.1007/s10803-013-1866-z", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Malow2021", "text": "Malow BA, Findling RL, Schroder CM, Maras A, Breddy J, Nir T, et al. Sleep, Growth, and Puberty After 2 Years of Prolonged-Release Melatonin in Children With Autism Spectrum Disorder. J Am Acad Child Adolesc Psychiatry. 2021;60(2):252-261.e3. PMID 31982581; PMCID PMC8084705; doi:10.1016/j.jaac.2019.12.007.", "link": "https://doi.org/10.1016/j.jaac.2019.12.007", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Malviya2006", "text": "Malviya S, Voepel-Lewis T, Burke C, Merkel S, Tait AR. The revised FLACC observational pain tool: improved reliability and validity for pain assessment in children with cognitive impairment. Paediatr Anaesth. 2006;16(3):258-65. PMID 16490089; doi:10.1111/j.1460-9592.2005.01773.x.", "link": "https://doi.org/10.1111/j.1460-9592.2005.01773.x", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Mandell2009", "text": "Mandell DS, Wiggins LD, Carpenter LA, Daniels J, DiGuiseppi C, Durkin MS, et al. Racial/ethnic disparities in the identification of children with autism spectrum disorders. Am J Public Health. 2009;99(3):493-8. PMID 19106426; PMCID PMC2661453; doi:10.2105/AJPH.2007.131243.", "link": "https://doi.org/10.2105/ajph.2007.131243", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Manouilenko2015", "text": "Manouilenko I, Bejerot S. Sukhareva--Prior to Asperger and Kanner. Nord J Psychiatry. 2015;69(6):479-82. PMID 25826582; doi:10.3109/08039488.2015.1005022.", "link": "https://doi.org/10.3109/08039488.2015.1005022", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Maras2018", "text": "Maras A, Schroder CM, Malow BA, Findling RL, Breddy J, Nir T, et al. Long-Term Efficacy and Safety of Pediatric Prolonged-Release Melatonin for Insomnia in Children with Autism Spectrum Disorder. J Child Adolesc Psychopharmacol. 2018;28(10):699-710. PMID 30132686; PMCID PMC6306655; doi:10.1089/cap.2018.0020.", "link": "https://doi.org/10.1089/cap.2018.0020", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Marco2011", "text": "Marco EJ, Hinkley LB, Hill SS, Nagarajan SS. Sensory processing in autism: a review of neurophysiologic findings. Pediatr Res. 2011;69(5 Pt 2):48R-54R. PMID 21289533; PMCID PMC3086654; doi:10.1203/PDR.0b013e3182130c54.", "link": "https://doi.org/10.1203/pdr.0b013e3182130c54", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Marcus2009", "text": "Marcus RN, Owen R, Kamen L, Manos G, McQuade RD, Carson WH, et al. A placebo-controlled, fixed-dose study of aripiprazole in children and adolescents with irritability associated with autistic disorder. J Am Acad Child Adolesc Psychiatry. 2009;48(11):1110-1119. PMID 19797985; doi:10.1097/CHI.0b013e3181b76658.", "link": "https://doi.org/10.1097/chi.0b013e3181b76658", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Marcus2011", "text": "Marcus RN, Owen R, Manos G, Mankoski R, Kamen L, McQuade RD, et al. Safety and tolerability of aripiprazole for irritability in pediatric patients with autistic disorder: a 52-week, open-label, multicenter study. J Clin Psychiatry. 2011;72(9):1270-6. PMID 21813076; doi:10.4088/JCP.09m05933.", "link": "https://doi.org/10.4088/jcp.09m05933", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Marlborough2021", "text": "Marlborough M, Welham A, Jones C, Reckless S, Moss J. Autism spectrum disorder in females with fragile X syndrome: a systematic review and meta-analysis of prevalence. J Neurodev Disord. 2021;13(1):28. PMID 34294028; PMCID PMC8299695; doi:10.1186/s11689-021-09362-5.", "link": "https://doi.org/10.1186/s11689-021-09362-5", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Mason2018QoL", "text": "Mason D, McConachie H, Garland D, Petrou A, Rodgers J, Parr JR. Predictors of quality of life for autistic adults. Autism Res. 2018;11(8):1138-1147. PMID 29734506; PMCID PMC6220831; doi:10.1002/aur.1965.", "link": "https://doi.org/10.1002/aur.1965", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Mason2019Barriers", "text": "Mason D, Ingham B, Urbanowicz A, Michael C, Birtles H, Woodbury-Smith M, et al. A Systematic Review of What Barriers and Facilitators Prevent and Enable Physical Healthcare Services Access for Autistic Adults. J Autism Dev Disord. 2019;49(8):3387-3400. PMID 31124030; PMCID PMC6647496; doi:10.1007/s10803-019-04049-2.", "link": "https://doi.org/10.1007/s10803-019-04049-2", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Mathur2024", "text": "Mathur SK, Renz E, Tarbox J. Affirming Neurodiversity within Applied Behavior Analysis. Behav Anal Pract. 2024;17(2):471-485. PMID 38966275; PMCID PMC11219658; doi:10.1007/s40617-024-00907-3.", "link": "https://doi.org/10.1007/s40617-024-00907-3", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "May2021BPD", "text": "May T, Pilkington PD, Younan R, Williams K. Overlap of autism spectrum disorder and borderline personality disorder: A systematic review and meta-analysis. Autism Res. 2021;14(12):2688-2710. PMID 34608760; doi:10.1002/aur.2619.", "link": "https://doi.org/10.1002/aur.2619", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "McCracken2002", "text": "McCracken JT, McGough J, Shah B, Cronin P, Hong D, Aman MG, et al. Risperidone in children with autism and serious behavioral problems. N Engl J Med. 2002;347(5):314-21. PMID 12151468; doi:10.1056/NEJMoa013171.", "link": "https://doi.org/10.1056/nejmoa013171", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "McEachin1993", "text": "McEachin JJ, Smith T, Lovaas OI. Long-term outcome for children with autism who received early intensive behavioral treatment. Am J Ment Retard. 1993;97(4):359-372. PMID 8427693. No DOI listed.", "link": "https://pubmed.ncbi.nlm.nih.gov/8427693/", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "McElhanon2014", "text": "McElhanon BO, McCracken C, Karpen S, Sharp WG. Gastrointestinal symptoms in autism spectrum disorder: a meta-analysis. Pediatrics. 2014;133(5):872-83. PMID 24777214; doi:10.1542/peds.2013-3995.", "link": "https://doi.org/10.1542/peds.2013-3995", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "McGaughey2026", "text": "McGaughey S, Chung S, Sheridan D, Burns B. Age-Dependent Restraint Patterns in Pediatric Emergency Department Patients With Autism Spectrum Disorder: A Brief Report. J Autism Dev Disord. 2026. PMID 42189370; doi:10.1007/s10803-026-07359-4.", "link": "https://doi.org/10.1007/s10803-026-07359-4", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "McGill2020", "text": "McGill O, Robinson A. \"Recalling hidden harms\": autistic experiences of childhood applied behavioural analysis (ABA). Advances in Autism. 2020;7(4):269-282. doi:10.1108/AIA-04-2020-0025.", "link": "https://doi.org/10.1108/aia-04-2020-0025", "areas": ["E"], "unverified": false, "validated": "Crossref"}, {"key": "McLean2026", "text": "McLean KJ, Carey ME, Cooper D, Lyall K, Mandell DS, Shea LL. High School Exiting Among Autistic Students: A National Analysis of Special Education Data from 2015 to 2019. Behav Sci (Basel). 2026;16(4):566. PMID 42073929; PMCID PMC13113501; doi:10.3390/bs16040566.", "link": "https://doi.org/10.3390/bs16040566", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "McPartland2012", "text": "McPartland JC, Reichow B, Volkmar FR. Sensitivity and specificity of proposed DSM-5 diagnostic criteria for autism spectrum disorder. J Am Acad Child Adolesc Psychiatry. 2012;51(4):368-83. PMID 22449643; PMCID PMC3424065; doi:10.1016/j.jaac.2012.01.007.", "link": "https://doi.org/10.1016/j.jaac.2012.01.007", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Megerian2022", "text": "Megerian JT, Dey S, Melmed RD, Coury DL, Lerner M, Nicholls CJ, et al. Evaluation of an artificial intelligence-based medical device for diagnosis of autism spectrum disorder. NPJ Digit Med. 2022;5(1):57. PMID 35513550; PMCID PMC9072329; doi:10.1038/s41746-022-00598-6.", "link": "https://doi.org/10.1038/s41746-022-00598-6", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Meier2015", "text": "Meier SM, Petersen L, Schendel DE, Mattheisen M, Mortensen PB, Mors O. Obsessive-Compulsive Disorder and Autism Spectrum Disorders: Longitudinal and Offspring Risk. PLoS One. 2015;10(11):e0141703. PMID 26558765; PMCID PMC4641696; doi:10.1371/journal.pone.0141703.", "link": "https://doi.org/10.1371/journal.pone.0141703", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Meindl2019", "text": "Meindl JN, Saba S, Gray M, Stuebing L, Jarvis A. Reducing blood draw phobia in an adult with autism spectrum disorder using low-cost virtual reality exposure therapy. J Appl Res Intellect Disabil. 2019;32(6):1446-1452. PMID 31192520; doi:10.1111/jar.12637.", "link": "https://doi.org/10.1111/jar.12637", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Merkel1997", "text": "Merkel SI, Voepel-Lewis T, Shayevitz JR, Malviya S. The FLACC: a behavioral scale for scoring postoperative pain in young children. Pediatr Nurs. 1997;23(3):293-7. PMID 9220806.", "link": "https://pubmed.ncbi.nlm.nih.gov/9220806/", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Messmer2008", "text": "Messmer RL, Nader R, Craig KD. Brief report: judging pain intensity in children with autism undergoing venepuncture: the influence of facial activity. J Autism Dev Disord. 2008;38(7):1391-4. PMID 18161016; doi:10.1007/s10803-007-0511-0.", "link": "https://doi.org/10.1007/s10803-007-0511-0", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Miller2010CMA", "text": "Miller DT, Adam MP, Aradhya S, Biesecker LG, Brothman AR, Carter NP, et al. Consensus statement: chromosomal microarray is a first-tier clinical diagnostic test for individuals with developmental disabilities or congenital anomalies. Am J Hum Genet. 2010;86(5):749-64. PMID 20466091; PMCID PMC2869000; doi:10.1016/j.ajhg.2010.04.006.", "link": "https://doi.org/10.1016/j.ajhg.2010.04.006", "areas": ["B", "D"], "unverified": false, "validated": "PubMed"}, {"key": "Miller2017Name", "text": "Miller M, Iosif AM, Hill M, Young GS, Schwichtenberg AJ, Ozonoff S. Response to Name in Infants Developing Autism Spectrum Disorder: A Prospective Study. J Pediatr. 2017;183:141-146.e1. PMID 28162768; PMCID PMC5370582; doi:10.1016/j.jpeds.2016.12.071.", "link": "https://doi.org/10.1016/j.jpeds.2016.12.071", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Millward2008", "text": "Millward C, Ferriter M, Calver S, Connell-Jones G. Gluten- and casein-free diets for autistic spectrum disorder. Cochrane Database Syst Rev. 2008;(2):CD003498. PMID 18425890; PMCID PMC4164915; doi:10.1002/14651858.CD003498.pub3. Withdrawn from the Cochrane Library in 2019 (PMID 30938835).", "link": "https://doi.org/10.1002/14651858.cd003498.pub3", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Milton2012", "text": "Milton DEM. On the ontological status of autism: the 'double empathy problem'. Disabil Soc. 2012;27(6):883-887. doi:10.1080/09687599.2012.710008.", "link": "https://doi.org/10.1080/09687599.2012.710008", "areas": ["A", "C"], "unverified": false, "validated": "Crossref"}, {"key": "Milton2022", "text": "Milton D, Gurbuz E, Lopez B. The 'double empathy problem': Ten years on. Autism. 2022;26(8):1901-1903. PMID 36263746; doi:10.1177/13623613221129123.", "link": "https://doi.org/10.1177/13623613221129123", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Mitchell2021", "text": "Mitchell P, Sheppard E, Cassidy S. Autism and the double empathy problem: Implications for development and mental health. Br J Dev Psychol. 2021;39(1):1-18. PMID 33393101; doi:10.1111/bjdp.12350.", "link": "https://doi.org/10.1111/bjdp.12350", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Mitchell2025TSC", "text": "Mitchell RA, Lami F, Barton SM, Harvey AS, Williams K. Deep developmental phenotyping in children with tuberous sclerosis complex, with and without autism. Dev Med Child Neurol. 2025;67(9):1165-1175. PMID 40051284; PMCID PMC12336396; doi:10.1111/dmcn.16293.", "link": "https://doi.org/10.1111/dmcn.16293", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Modabbernia2017", "text": "Modabbernia A, Velthorst E, Reichenberg A. Environmental risk factors for autism: an evidence-based review of systematic reviews and meta-analyses. Mol Autism. 2017;8:13. PMID 28331572; PMCID PMC5356236; doi:10.1186/s13229-017-0121-4.", "link": "https://doi.org/10.1186/s13229-017-0121-4", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Morgan2020Sleep", "text": "Morgan B, Nageye F, Masi G, Cortese S. Sleep in adults with Autism Spectrum Disorder: a systematic review and meta-analysis of subjective and objective studies. Sleep Med. 2020;65:113-120. PMID 31739229; doi:10.1016/j.sleep.2019.07.019.", "link": "https://doi.org/10.1016/j.sleep.2019.07.019", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Morton2023", "text": "Morton JT, Jin DM, Mills RH, Shao Y, Rahman G, McDonald D, et al. Multi-level analysis of the gut-brain axis shows autism spectrum disorder-associated molecular and microbial profiles. Nat Neurosci. 2023;26(7):1208-1217. PMID 37365313; PMCID PMC10322709; doi:10.1038/s41593-023-01361-0.", "link": "https://doi.org/10.1038/s41593-023-01361-0", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Moskowitz2011", "text": "Moskowitz A, Heim G. Eugen Bleuler's Dementia praecox or the group of schizophrenias (1911): a centenary appreciation and reconsideration. Schizophr Bull. 2011;37(3):471-9. PMID 21505113; PMCID PMC3080676; doi:10.1093/schbul/sbr016.", "link": "https://doi.org/10.1093/schbul/sbr016", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Mottron2006", "text": "Mottron L, Dawson M, Soulières I, Hubert B, Burack J. Enhanced perceptual functioning in autism: an update, and eight principles of autistic perception. J Autism Dev Disord. 2006;36(1):27-43. PMID 16453071; doi:10.1007/s10803-005-0040-7.", "link": "https://doi.org/10.1007/s10803-005-0040-7", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Mudford2001", "text": "Mudford OC, Martin NT, Eikeseth S, Bibby P. Parent-managed behavioral treatment for preschool children with autism: some characteristics of UK programs. Res Dev Disabil. 2001;22(3):173-182. PMID 11380057; doi:10.1016/s0891-4222(01)00066-x.", "link": "https://doi.org/10.1016/s0891-4222(01)00066-x", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Mul2018", "text": "Mul CL, Stagg SD, Herbelin B, Aspell JE. The Feeling of Me Feeling for You: Interoception, Alexithymia and Empathy in Autism. J Autism Dev Disord. 2018;48(9):2953-2967. PMID 29644587; doi:10.1007/s10803-018-3564-3.", "link": "https://doi.org/10.1007/s10803-018-3564-3", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Munkhaugen2019", "text": "Munkhaugen EK, Torske T, Gjevik E, Nærland T, Pripp AH, Diseth TH. Individual characteristics of students with autism spectrum disorders and school refusal behavior. Autism. 2019;23(2):413-423. PMID 29241346; doi:10.1177/1362361317748619.", "link": "https://doi.org/10.1177/1362361317748619", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Murray2005", "text": "Murray D, Lesser M, Lawson W. Attention, monotropism and the diagnostic criteria for autism. Autism. 2005;9(2):139-56. PMID 15857859; doi:10.1177/1362361305051398.", "link": "https://doi.org/10.1177/1362361305051398", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Nader2004", "text": "Nader R, Oberlander TF, Chambers CT, Craig KD. Expression of pain in children with autism. Clin J Pain. 2004;20(2):88-97. PMID 14770048; doi:10.1097/00002508-200403000-00005.", "link": "https://doi.org/10.1097/00002508-200403000-00005", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Nadig2007", "text": "Nadig AS, Ozonoff S, Young GS, Rozga A, Sigman M, Rogers SJ. A prospective study of response to name in infants at risk for autism. Arch Pediatr Adolesc Med. 2007;161(4):378-83. PMID 17404135; doi:10.1001/archpedi.161.4.378.", "link": "https://doi.org/10.1001/archpedi.161.4.378", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Naviaux2017", "text": "Naviaux RK, Curtis B, Li K, Naviaux JC, Bright AT, Reiner GE, et al. Low-dose suramin in autism spectrum disorder: a small, phase I/II, randomized clinical trial. Ann Clin Transl Neurol. 2017;4(7):491-505. PMID 28695149; PMCID PMC5497533; doi:10.1002/acn3.424.", "link": "https://doi.org/10.1002/acn3.424", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "NCT00376194", "text": "National Institute of Mental Health. Mercury Chelation to Treat Autism. ClinicalTrials.gov NCT00376194; phase 2; status withdrawn, 0 enrolled (record read 2026-10-25).", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT01233414", "text": "Randomized Trial of Parent Training for Young Children With Autism (RUBI). ClinicalTrials.gov NCT01233414. Completed; enrollment 180 (actual); start 2010-09, completion 2015-03.", "link": "", "areas": ["H"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT01288716", "text": "Seaside Therapeutics. Study of Arbaclofen for the Treatment of Social Withdrawal in Subjects With Autism Spectrum Disorders. ClinicalTrials.gov NCT01288716; phase 2; completed; 150 enrolled.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT01944046", "text": "Sikich L (sponsor-investigator). Study of Oxytocin in Autism to Improve Reciprocal Social Behaviors (SOARS-B). ClinicalTrials.gov NCT01944046; phase 2; completed; 290 enrolled; results posted.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT02430051", "text": "Sensory Adapted Dental Environments to Enhance Oral Care for Children (SADE-2). ClinicalTrials.gov NCT02430051. Completed; enrollment 220 (actual); start 2015-05, completion 2021-04-29.", "link": "", "areas": ["H"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT02504554", "text": "Arizona State University. Beneficial Bacteria Treatment for Autism. ClinicalTrials.gov NCT02504554; phase 1/2; completed; 18 enrolled.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT02901431", "text": "Hoffmann-La Roche. A Study to Investigate the Efficacy and Safety of Balovaptan (RO5285119) in Participants With Autism Spectrum Disorder (aV1ation). ClinicalTrials.gov NCT02901431; phase 2; terminated; 339 enrolled.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT02956226", "text": "Shaare Zedek Medical Center. Cannabinoids for Behavioral Problems in Children With ASD. ClinicalTrials.gov NCT02956226; phase 2; completed; 150 enrolled.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT03408886", "text": "Arizona State University. Microbiota Transfer Therapy for Adults With Autism Spectrum Disorder (ASD) Who Have Gastrointestinal Disorders. ClinicalTrials.gov NCT03408886; phase 2; active, not recruiting; 55 enrolled.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT03469986", "text": "EarliTec Diagnostics. A Multi-site Comparison of Social Visual Engagement to Clinical Diagnosis for Autism Spectrum Disorder. ClinicalTrials.gov NCT03469986; completed 2019-05-31; 505 enrolled.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT03504917", "text": "Hoffmann-La Roche. A Study of Balovaptan in Adults With Autism Spectrum Disorder With a 2-Year Open-Label Extension (V1aduct). ClinicalTrials.gov NCT03504917; phase 3; terminated for futility; 322 enrolled.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT03682978", "text": "Arango C (sponsor-investigator). Arbaclofen in Children and Adolescents With ASD. ClinicalTrials.gov NCT03682978; phase 2; completed 2023-01-27; 124 enrolled; no results posted.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT03715153", "text": "Institut de Recherches Internationales Servier. Efficacy and Safety of Bumetanide Oral Liquid Formulation in Children Aged From 2 to Less Than 7 Years Old With Autism Spectrum Disorder (SIGN 2). ClinicalTrials.gov NCT03715153; phase 3; terminated; 211 enrolled.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT03715166", "text": "Institut de Recherches Internationales Servier. Efficacy and Safety of Bumetanide Oral Liquid Formulation in Children and Adolescents Aged From 7 to Less Than 18 Years Old With Autism Spectrum Disorder (SIGN 1). ClinicalTrials.gov NCT03715166; phase 3; terminated (no difference at 6-month efficacy analysis); 211 enrolled.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT04182633", "text": "Arizona State University. MTT for Children With ASD Who Have Gastrointestinal Disorders. ClinicalTrials.gov NCT04182633; phase 2; active, not recruiting; 50 enrolled.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT04517799", "text": "University of California, San Diego. Trial of Cannabidiol to Treat Severe Behavior Problems in Children With Autism. ClinicalTrials.gov NCT04517799; phase 2; active, not recruiting; 42 enrolled.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT04745026", "text": "Jazz Pharmaceuticals. Trial to Investigate the Safety and Efficacy of Cannabidiol Oral Solution (GWP42003-P; CBD-OS) in Children and Adolescents With Autism Spectrum Disorder. ClinicalTrials.gov NCT04745026; phase 2; completed 2023-12-21; 103 enrolled; results posted.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT06617429", "text": "Ultragenyx Pharmaceutical. Phase 3 Efficacy and Safety Study of GTX-102 in Pediatric Subjects With Angelman Syndrome. ClinicalTrials.gov NCT06617429; phase 3; active, not recruiting; 129 enrolled.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT06914609", "text": "Ionis Pharmaceuticals. REVEAL: A Phase 3 Study of Obudanersen (ION582) in Angelman Syndrome. ClinicalTrials.gov NCT06914609; phase 3; active, not recruiting; 156 enrolled.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "NCT07605429", "text": "OHB Pediatrics. BEACON - Phase III Clinical Study of Rugonersen in Angelman Syndrome. ClinicalTrials.gov NCT07605429; phase 3; recruiting; start 2026-06-23; target 165.", "link": "", "areas": ["F"], "unverified": false, "validated": "ClinicalTrials.gov"}, {"key": "Nelson2015", "text": "Nelson SB, Valakh V. Excitatory/Inhibitory Balance and Circuit Homeostasis in Autism Spectrum Disorders. Neuron. 2015;87(4):684-98. PMID 26291155; PMCID PMC4567857; doi:10.1016/j.neuron.2015.07.033.", "link": "https://doi.org/10.1016/j.neuron.2015.07.033", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Neul2010", "text": "Neul JL, Kaufmann WE, Glaze DG, Christodoulou J, Clarke AJ, Bahi-Buisson N, et al. Rett syndrome: revised diagnostic criteria and nomenclature. Ann Neurol. 2010;68(6):944-50. PMID 21154482; PMCID PMC3058521; doi:10.1002/ana.22124.", "link": "https://doi.org/10.1002/ana.22124", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Nevill2018", "text": "Nevill RE, Lecavalier L, Stratis EA. Meta-analysis of parent-mediated interventions for young children with autism spectrum disorder. Autism. 2018;22(2):84-98. PMID 29490483; doi:10.1177/1362361316677838.", "link": "https://doi.org/10.1177/1362361316677838", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "NICE-CG128", "text": "National Institute for Health and Care Excellence. Autism spectrum disorder in under 19s: recognition, referral and diagnosis (CG128). Published 28 September 2011; last updated 20 December 2017. https://www.nice.org.uk/guidance/cg128/chapter/Recommendations and https://www.nice.org.uk/guidance/cg128/chapter/Appendix-Features-suggesting-possible-autism (accessed 2026-11-02). (unverified: guideline web page read directly; not indexed by the listed APIs)", "link": "https://www.nice.org.uk/guidance/cg128/chapter/Recommendations", "areas": ["D", "H"], "unverified": true}, {"key": "NICE-CG142", "text": "National Institute for Health and Care Excellence. Autism spectrum disorder in adults: diagnosis and management (CG142). Published 27 June 2012; last updated 14 June 2021. https://www.nice.org.uk/guidance/cg142/chapter/Recommendations (accessed 2026-10-25). (unverified: guideline web page read directly; not indexed by the listed APIs)", "link": "https://www.nice.org.uk/guidance/cg142/chapter/Recommendations", "areas": ["D", "E", "F", "H"], "unverified": true}, {"key": "NICE-CG170", "text": "National Institute for Health and Care Excellence. Autism spectrum disorder in under 19s: support and management (CG170). Published 28 August 2013; last updated 14 June 2021. https://www.nice.org.uk/guidance/cg170/chapter/Recommendations (accessed 2026-10-25). (unverified: guideline web page read directly; not indexed by the listed APIs)", "link": "https://www.nice.org.uk/guidance/cg170/chapter/Recommendations", "areas": ["E", "F", "H"], "unverified": true}, {"key": "NICE-NG10", "text": "National Institute for Health and Care Excellence. Violence and aggression: short-term management in mental health, health and community settings (NG10). Published 28 May 2015. https://www.nice.org.uk/guidance/ng10/chapter/Recommendations (accessed 2026-11-02). (unverified: guideline web page read directly; not indexed by the listed APIs)", "link": "https://www.nice.org.uk/guidance/ng10/chapter/Recommendations", "areas": ["H"], "unverified": true}, {"key": "Nicolaidis2013", "text": "Nicolaidis C, Raymaker D, McDonald K, Dern S, Boisclair WC, Ashkenazy E, et al. Comparison of healthcare experiences in autistic and non-autistic adults: a cross-sectional online survey facilitated by an academic-community partnership. J Gen Intern Med. 2013;28(6):761-9. PMID 23179969; PMCID PMC3663938; doi:10.1007/s11606-012-2262-7.", "link": "https://doi.org/10.1007/s11606-012-2262-7", "areas": ["G", "H"], "unverified": false, "validated": "PubMed"}, {"key": "Nicolaidis2015", "text": "Nicolaidis C, Raymaker DM, Ashkenazy E, McDonald KE, Dern S, Baggs AE, et al. \"Respect the way I need to communicate with you\": Healthcare experiences of adults on the autism spectrum. Autism. 2015;19(7):824-31. PMID 25882392; PMCID PMC4841263; doi:10.1177/1362361315576221.", "link": "https://doi.org/10.1177/1362361315576221", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Nicolaidis2016", "text": "Nicolaidis C, Raymaker D, McDonald K, Kapp S, Weiner M, Ashkenazy E, et al. The Development and Evaluation of an Online Healthcare Toolkit for Autistic Adults and their Primary Care Providers. J Gen Intern Med. 2016;31(10):1180-9. PMID 27271730; PMCID PMC5023610; doi:10.1007/s11606-016-3763-6.", "link": "https://doi.org/10.1007/s11606-016-3763-6", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Norbury2014", "text": "Norbury CF. Practitioner review: Social (pragmatic) communication disorder conceptualization, evidence and clinical implications. J Child Psychol Psychiatry. 2014;55(3):204-16. PMID 24117874; doi:10.1111/jcpp.12154.", "link": "https://doi.org/10.1111/jcpp.12154", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Northway2017", "text": "Northway R, Rees S, Davies M, Williams S. Hospital passports, patient safety and person-centred care: A review of documents currently used for people with intellectual disabilities in the UK. J Clin Nurs. 2017;26(23-24):5160-5168. PMID 28881074; doi:10.1111/jocn.14065.", "link": "https://doi.org/10.1111/jocn.14065", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Ohl2017", "text": "Ohl A, Grice Sheff M, Small S, Nguyen J, Paskor K, Zanjirian A. Predictors of employment status among adults with Autism Spectrum Disorder. Work. 2017;56(2):345-355. PMID 28211841; doi:10.3233/WOR-172492.", "link": "https://doi.org/10.3233/wor-172492", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Olmsted2016", "text": "Olmsted D, Blaxill M. Leo Kanner's Mention of 1938 in His Report on Autism Refers to His First Patient. J Autism Dev Disord. 2016;46(1):340-341. PMID 26231203; doi:10.1007/s10803-015-2541-3.", "link": "https://doi.org/10.1007/s10803-015-2541-3", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "ONions2023", "text": "O'Nions E, Petersen I, Buckman JEJ, Charlton R, Cooper C, Corbett A, et al. Autism in England: assessing underdiagnosis in a population-based cohort study of prospectively collected primary care data. Lancet Reg Health Eur. 2023;29:100626. PMID 37090088; PMCID PMC10114511; doi:10.1016/j.lanepe.2023.100626.", "link": "https://doi.org/10.1016/j.lanepe.2023.100626", "areas": ["A", "D"], "unverified": false, "validated": "PubMed"}, {"key": "ONS2021Outcomes", "text": "Office for National Statistics. Outcomes for disabled people in the UK: 2020. Released 18 February 2021. https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/disability/articles/outcomesfordisabledpeopleintheuk/2020 (accessed 2026-11-02). (unverified: official statistics web page read directly; not indexed by the listed APIs)", "link": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/disability/articles/outcomesfordisabledpeopleintheuk/2020", "areas": ["H"], "unverified": true}, {"key": "ONS2022Outcomes", "text": "Office for National Statistics. Outcomes for disabled people in the UK: 2021. Released 10 February 2022. https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/disability/articles/outcomesfordisabledpeopleintheuk/2021 (accessed 2026-11-02). (unverified: official statistics web page read directly; not indexed by the listed APIs)", "link": "https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/disability/articles/outcomesfordisabledpeopleintheuk/2021", "areas": ["H"], "unverified": true}, {"key": "Oono2013", "text": "Oono IP, Honey EJ, McConachie H. Parent-mediated early intervention for young children with autism spectrum disorders (ASD). Cochrane Database Syst Rev. 2013;(4):CD009774. PMID 23633377; PMCID PMC11831248; doi:10.1002/14651858.CD009774.pub2.", "link": "https://doi.org/10.1002/14651858.cd009774.pub2", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Oredipe2023", "text": "Oredipe T, Kofner B, Riccio A, Cage E, Vincent J, Kapp SK, et al. Does learning you are autistic at a younger age lead to better adult outcomes? A participatory exploration of the perspectives of autistic university students. Autism. 2023;27(1):200-212. PMID 35404160; doi:10.1177/13623613221086700.", "link": "https://doi.org/10.1177/13623613221086700", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Orellana2014", "text": "Orellana LM, Martínez-Sanchis S, Silvestre FJ. Training adults and children with an autism spectrum disorder to be compliant with a clinical dental assessment using a TEACCH-based approach. J Autism Dev Disord. 2014;44(4):776-85. PMID 24002415; doi:10.1007/s10803-013-1930-8.", "link": "https://doi.org/10.1007/s10803-013-1930-8", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Orinstein2015", "text": "Orinstein A, Tyson KE, Suh J, Troyb E, Helt M, Rosenthal M, et al. Psychiatric Symptoms in Youth with a History of Autism and Optimal Outcome. J Autism Dev Disord. 2015;45(11):3703-14. PMID 26155764; PMCID PMC4609588; doi:10.1007/s10803-015-2520-8.", "link": "https://doi.org/10.1007/s10803-015-2520-8", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Owen2009", "text": "Owen R, Sikich L, Marcus RN, Corey-Lisle P, Manos G, McQuade RD, et al. Aripiprazole in the treatment of irritability in children and adolescents with autistic disorder. Pediatrics. 2009;124(6):1533-40. PMID 19948625; doi:10.1542/peds.2008-3782.", "link": "https://doi.org/10.1542/peds.2008-3782", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Ozonoff2010", "text": "Ozonoff S, Iosif AM, Baguio F, Cook IC, Hill MM, Hutman T, et al. A prospective study of the emergence of early behavioral signs of autism. J Am Acad Child Adolesc Psychiatry. 2010;49(3):256-66.e1-2. PMID 20410715; PMCID PMC2923050.", "link": "https://pubmed.ncbi.nlm.nih.gov/20410715/", "areas": ["C", "D"], "unverified": false, "validated": "PubMed"}, {"key": "Ozonoff2011", "text": "Ozonoff S, Young GS, Carter A, Messinger D, Yirmiya N, Zwaigenbaum L, et al. Recurrence risk for autism spectrum disorders: a Baby Siblings Research Consortium study. Pediatrics. 2011;128(3):e488-95. PMID 21844053; PMCID PMC3164092; doi:10.1542/peds.2010-2825.", "link": "https://doi.org/10.1542/peds.2010-2825", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Ozonoff2015", "text": "Ozonoff S, Young GS, Landa RJ, Brian J, Bryson S, Charman T, et al. Diagnostic stability in young children at risk for autism spectrum disorder: a baby siblings research consortium study. J Child Psychol Psychiatry. 2015;56(9):988-98. PMID 25921776; PMCID PMC4532646; doi:10.1111/jcpp.12421.", "link": "https://doi.org/10.1111/jcpp.12421", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Ozonoff2018Onset", "text": "Ozonoff S, Gangi D, Hanzel EP, Hill A, Hill MM, Miller M, et al. Onset patterns in autism: Variation across informants, methods, and timing. Autism Res. 2018;11(5):788-797. PMID 29524310; PMCID PMC5992045; doi:10.1002/aur.1943.", "link": "https://doi.org/10.1002/aur.1943", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Ozonoff2024", "text": "Ozonoff S, Young GS, Bradshaw J, Charman T, Chawarska K, Iverson JM, et al. Familial Recurrence of Autism: Updates From the Baby Siblings Research Consortium. Pediatrics. 2024;154(2):e2023065297. PMID 39011552; PMCID PMC11291960; doi:10.1542/peds.2023-065297.", "link": "https://doi.org/10.1542/peds.2023-065297", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Pandina2026", "text": "Pandina G, Martin WJ, Chatham C, Murphy D, Myles J, Ring RH, et al. Lessons Learned from Drug Development Programs in Autism: Implications for Future Programs. Innov Clin Neurosci. 2026;23(4-6):10-17. PMID 42761731; PMCID PMC13588654.", "link": "https://pubmed.ncbi.nlm.nih.gov/42761731/", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Parikshak2013", "text": "Parikshak NN, Luo R, Zhang A, Won H, Lowe JK, Chandran V, et al. Integrative functional genomic analyses implicate specific molecular pathways and circuits in autism. Cell. 2013;155(5):1008-21. PMID 24267887; PMCID PMC3934107; doi:10.1016/j.cell.2013.10.031.", "link": "https://doi.org/10.1016/j.cell.2013.10.031", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Parikshak2016", "text": "Parikshak NN, Swarup V, Belgard TG, Irimia M, Ramaswami G, Gandal MJ, et al. Genome-wide changes in lncRNA, splicing, and regional gene expression patterns in autism. Nature. 2016;540(7633):423-427. PMID 27919067; PMCID PMC7102905; doi:10.1038/nature20612.", "link": "https://doi.org/10.1038/nature20612", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Peden2020", "text": "Peden AE, Willcox-Pidgeon S. Autism spectrum disorder and unintentional fatal drowning of children and adolescents in Australia: an epidemiological analysis. Arch Dis Child. 2020;105(9):869-874. PMID 32169851; doi:10.1136/archdischild-2019-318658.", "link": "https://doi.org/10.1136/archdischild-2019-318658", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Pellicano2012", "text": "Pellicano E, Burr D. When the world becomes 'too real': a Bayesian explanation of autistic perception. Trends Cogn Sci. 2012;16(10):504-10. PMID 22959875; doi:10.1016/j.tics.2012.08.009.", "link": "https://doi.org/10.1016/j.tics.2012.08.009", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Pellicano2014", "text": "Pellicano E, Dinsmore A, Charman T. What should autism research focus upon? Community views and priorities from the United Kingdom. Autism. 2014;18(7):756-770. PMID 24789871; PMCID PMC4230972; doi:10.1177/1362361314529627.", "link": "https://doi.org/10.1177/1362361314529627", "areas": ["E", "F"], "unverified": false, "validated": "Europe PMC"}, {"key": "Pellicano2022", "text": "Pellicano E, den Houting J. Annual Research Review: Shifting from 'normal science' to neurodiversity in autism science. J Child Psychol Psychiatry. 2022;63(4):381-396. PMID 34730840; PMCID PMC9298391; doi:10.1111/jcpp.13534.", "link": "https://doi.org/10.1111/jcpp.13534", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Perrelet2025", "text": "Perrelet V, Veyre A, Chawki L, Margot C, Cappe É. What are we targeting when we support inclusive education for autistic students? A systematic review of 233 empirical studies and call for community partnerships. Autism. 2025;29(12):2927-2940. PMID 40757974; PMCID PMC12618732; doi:10.1177/13623613251352223.", "link": "https://doi.org/10.1177/13623613251352223", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Perrin2012", "text": "Perrin JM, Coury DL, Hyman SL, Cole L, Reynolds AM, Clemons T. Complementary and alternative medicine use in a large pediatric autism sample. Pediatrics. 2012;130 Suppl 2:S77-82. PMID 23118257; doi:10.1542/peds.2012-0900E.", "link": "https://doi.org/10.1542/peds.2012-0900e", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Petanjek2011", "text": "Petanjek Z, Judaš M, Šimic G, Rasin MR, Uylings HB, Rakic P, et al. Extraordinary neoteny of synaptic spines in the human prefrontal cortex. Proc Natl Acad Sci U S A. 2011;108(32):13281-6. PMID 21788513; PMCID PMC3156171; doi:10.1073/pnas.1105108108.", "link": "https://doi.org/10.1073/pnas.1105108108", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Pfeiffer2019EDA", "text": "Pfeiffer B, Stein Duker L, Murphy A, Shui C. Effectiveness of Noise-Attenuating Headphones on Physiological Responses for Children With Autism Spectrum Disorders. Front Integr Neurosci. 2019;13:65. PMID 31798424; PMCID PMC6863142; doi:10.3389/fnint.2019.00065.", "link": "https://doi.org/10.3389/fnint.2019.00065", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Pfeiffer2019Participation", "text": "Pfeiffer B, Erb SR, Slugg L. Impact of Noise-Attenuating Headphones on Participation in the Home, Community, and School for Children with Autism Spectrum Disorder. Phys Occup Ther Pediatr. 2019;39(1):60-76. PMID 30265827; doi:10.1080/01942638.2018.1496963.", "link": "https://doi.org/10.1080/01942638.2018.1496963", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Phung2021", "text": "Phung J, Penner M, Pirlot C, Welch C. What I Wish You Knew: Insights on Burnout, Inertia, Meltdown, and Shutdown From Autistic Youth. Front Psychol. 2021;12:741421. PMID 34803822; PMCID PMC8595127; doi:10.3389/fpsyg.2021.741421.", "link": "https://doi.org/10.3389/fpsyg.2021.741421", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Pickles2016", "text": "Pickles A, Le Couteur A, Leadbitter K, Salomone E, Cole-Fletcher R, Tobin H, et al. Parent-mediated social communication therapy for young children with autism (PACT): long-term follow-up of a randomised controlled trial. Lancet. 2016;388(10059):2501-2509. PMID 27793431; PMCID PMC5121131; doi:10.1016/S0140-6736(16)31229-6.", "link": "https://doi.org/10.1016/s0140-6736(16)31229-6", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Pierce2016", "text": "Pierce K, Marinero S, Hazin R, McKenna B, Barnes CC, Malige A. Eye Tracking Reveals Abnormal Visual Preference for Geometric Images as an Early Biomarker of an Autism Spectrum Disorder Subtype Associated With Increased Symptom Severity. Biol Psychiatry. 2016;79(8):657-66. PMID 25981170; PMCID PMC4600640; doi:10.1016/j.biopsych.2015.03.032.", "link": "https://doi.org/10.1016/j.biopsych.2015.03.032", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Pierce2019", "text": "Pierce K, Gazestani VH, Bacon E, Barnes CC, Cha D, Nalabolu S, et al. Evaluation of the Diagnostic Stability of the Early Autism Spectrum Disorder Phenotype in the General Population Starting at 12 Months. JAMA Pediatr. 2019;173(6):578-587. PMID 31034004; PMCID PMC6547081; doi:10.1001/jamapediatrics.2019.0624.", "link": "https://doi.org/10.1001/jamapediatrics.2019.0624", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Pilling2012", "text": "Pilling S, Baron-Cohen S, Megnin-Viggars O, Lee R, Taylor C; Guideline Development Group. Recognition, referral, diagnosis, and management of adults with autism: summary of NICE guidance. BMJ. 2012;344:e4082. PMID 22740567; doi:10.1136/bmj.e4082.", "link": "https://doi.org/10.1136/bmj.e4082", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Piwowarczyk2018", "text": "Piwowarczyk A, Horvath A, Łukasik J, Pisula E, Szajewska H. Gluten- and casein-free diet and autism spectrum disorders in children: a systematic review. Eur J Nutr. 2018;57(2):433-440. PMID 28612113; doi:10.1007/s00394-017-1483-2.", "link": "https://doi.org/10.1007/s00394-017-1483-2", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Pohl2020", "text": "Pohl AL, Crockford SK, Blakemore M, Allison C, Baron-Cohen S. A comparative study of autistic and non-autistic women's experience of motherhood. Mol Autism. 2020;11(1):3. PMID 31911826; PMCID PMC6945630; doi:10.1186/s13229-019-0304-2.", "link": "https://doi.org/10.1186/s13229-019-0304-2", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Postorino2017", "text": "Postorino V, Sharp WG, McCracken CE, Bearss K, Burrell TL, Evans AN, et al. A Systematic Review and Meta-analysis of Parent Training for Disruptive Behavior in Children with Autism Spectrum Disorder. Clin Child Fam Psychol Rev. 2017;20(4):391-402. PMID 28600643; doi:10.1007/s10567-017-0237-2.", "link": "https://doi.org/10.1007/s10567-017-0237-2", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Pozzi2024", "text": "Pozzi CM, Riesgo RDS, Assumpção Junior FB. Revisiting the history of autism before Kanner and Asperger: a tribute to Grunya Sukhareva. Arq Neuropsiquiatr. 2024;82(8):1-3. PMID 39117349; doi:10.1055/s-0044-1788269.", "link": "https://doi.org/10.1055/s-0044-1788269", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Prada2025", "text": "Prada D, Ritz B, Bauer AZ, Baccarelli AA. Evaluation of the evidence on acetaminophen use and neurodevelopmental disorders using the Navigation Guide methodology. Environ Health. 2025;24(1):56. PMID 40804730; PMCID PMC12351903; doi:10.1186/s12940-025-01208-0.", "link": "https://doi.org/10.1186/s12940-025-01208-0", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Price2010Thimerosal", "text": "Price CS, Thompson WW, Goodson B, Weintraub ES, Croen LA, Hinrichsen VL, et al. Prenatal and infant exposure to thimerosal from vaccines and immunoglobulins and risk of autism. Pediatrics. 2010;126(4):656-64. PMID 20837594; doi:10.1542/peds.2010-0309.", "link": "https://doi.org/10.1542/peds.2010-0309", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Rai2017Antidepressants", "text": "Rai D, Lee BK, Dalman C, Newschaffer C, Lewis G, Magnusson C. Antidepressants during pregnancy and autism in offspring: population based cohort study. BMJ. 2017;358:j2811. PMID 28724519; PMCID PMC5516223; doi:10.1136/bmj.j2811.", "link": "https://doi.org/10.1136/bmj.j2811", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Rai2018Depression", "text": "Rai D, Heuvelman H, Dalman C, Culpin I, Lundberg M, Carpenter P, et al. Association Between Autism Spectrum Disorders With or Without Intellectual Disability and Depression in Young Adulthood. JAMA Netw Open. 2018;1(4):e181465. PMID 30646131; PMCID PMC6324523; doi:10.1001/jamanetworkopen.2018.1465.", "link": "https://doi.org/10.1001/jamanetworkopen.2018.1465", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Randall2018", "text": "Randall M, Egberts KJ, Samtani A, Scholten RJ, Hooft L, Livingstone N, et al. Diagnostic tests for autism spectrum disorder (ASD) in preschool children. Cochrane Database Syst Rev. 2018;7(7):CD009044. PMID 30075057; PMCID PMC6513463; doi:10.1002/14651858.CD009044.pub2.", "link": "https://doi.org/10.1002/14651858.cd009044.pub2", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Randell2022", "text": "Randell E, Wright M, Milosevic S, Gillespie D, Brookes-Howell L, Busse-Morris M, et al. Sensory integration therapy for children with autism and sensory processing difficulties: the SenITA RCT. Health Technol Assess. 2022;26(29):1-140. PMID 35766242; doi:10.3310/TQGE0020.", "link": "https://doi.org/10.3310/tqge0020", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Ratto2018", "text": "Ratto AB, Kenworthy L, Yerys BE, Bascom J, Wieckowski AT, White SW, et al. What About the Girls? Sex-Based Differences in Autistic Traits and Adaptive Skills. J Autism Dev Disord. 2018;48(5):1698-1711. PMID 29204929; PMCID PMC5925757; doi:10.1007/s10803-017-3413-9.", "link": "https://doi.org/10.1007/s10803-017-3413-9", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Rava2017", "text": "Rava J, Shattuck P, Rast J, Roux A. The Prevalence and Correlates of Involvement in the Criminal Justice System Among Youth on the Autism Spectrum. J Autism Dev Disord. 2017;47(2):340-346. PMID 27844248; doi:10.1007/s10803-016-2958-3.", "link": "https://doi.org/10.1007/s10803-016-2958-3", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Raymaker2020", "text": "Raymaker DM, Teo AR, Steckler NA, Lentz B, Scharer M, Delos Santos A, et al. \"Having All of Your Internal Resources Exhausted Beyond Measure and Being Left with No Clean-Up Crew\": Defining Autistic Burnout. Autism Adulthood. 2020;2(2):132-143. PMID 32851204; PMCID PMC7313636; doi:10.1089/aut.2019.0079.", "link": "https://doi.org/10.1089/aut.2019.0079", "areas": ["A", "G"], "unverified": false, "validated": "PubMed"}, {"key": "Raznahan2013", "text": "Raznahan A, Wallace GL, Antezana L, Greenstein D, Lenroot R, Thurm A, et al. Compared to what? Early brain overgrowth in autism and the perils of population norms. Biol Psychiatry. 2013;74(8):563-75. PMID 23706681; PMCID PMC4837958; doi:10.1016/j.biopsych.2013.03.022.", "link": "https://doi.org/10.1016/j.biopsych.2013.03.022", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Reed2019ICD11", "text": "Reed GM, First MB, Kogan CS, Hyman SE, Gureje O, Gaebel W, et al. Innovations and changes in the ICD-11 classification of mental, behavioural and neurodevelopmental disorders. World Psychiatry. 2019;18(1):3-19. PMID 30600616; PMCID PMC6313247; doi:10.1002/wps.20611.", "link": "https://doi.org/10.1002/wps.20611", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Reichow2012Cochrane", "text": "Reichow B, Steiner AM, Volkmar F. Social skills groups for people aged 6 to 21 with autism spectrum disorders (ASD). Cochrane Database Syst Rev. 2012;(7):CD008511. PMID 22786515; PMCID PMC11975264; doi:10.1002/14651858.CD008511.pub2.", "link": "https://doi.org/10.1002/14651858.cd008511.pub2", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Reichow2018Cochrane", "text": "Reichow B, Hume K, Barton EE, Boyd BA. Early intensive behavioral intervention (EIBI) for young children with autism spectrum disorders (ASD). Cochrane Database Syst Rev. 2018;5:CD009260. PMID 29742275; PMCID PMC6494600; doi:10.1002/14651858.CD009260.pub3.", "link": "https://doi.org/10.1002/14651858.cd009260.pub3", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Reichow2026Umbrella", "text": "Reichow B, Barton EE, Song J. Umbrella Review of Meta-Analyses of Comprehensive Applied Behavior Analytic Interventions for Young Children With Autism Spectrum Disorder. J Autism Dev Disord. 2026 (online ahead of print). PMID 42821188; doi:10.1007/s10803-026-07551-6.", "link": "https://doi.org/10.1007/s10803-026-07551-6", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Richards2015", "text": "Richards C, Jones C, Groves L, Moss J, Oliver C. Prevalence of autism spectrum disorder phenomenology in genetic disorders: a systematic review and meta-analysis. Lancet Psychiatry. 2015;2(10):909-16. PMID 26341300; doi:10.1016/S2215-0366(15)00376-4.", "link": "https://doi.org/10.1016/s2215-0366(15)00376-4", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Robertson2017", "text": "Robertson CE, Baron-Cohen S. Sensory perception in autism. Nat Rev Neurosci. 2017;18(11):671-684. PMID 28951611; doi:10.1038/nrn.2017.112.", "link": "https://doi.org/10.1038/nrn.2017.112", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Robins2001", "text": "Robins DL, Fein D, Barton ML, Green JA. The Modified Checklist for Autism in Toddlers: an initial study investigating the early detection of autism and pervasive developmental disorders. J Autism Dev Disord. 2001;31(2):131-44. PMID 11450812; doi:10.1023/a:1010738829569.", "link": "https://doi.org/10.1023/a:1010738829569", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Robins2014", "text": "Robins DL, Casagrande K, Barton M, Chen CM, Dumont-Mathieu T, Fein D. Validation of the modified checklist for Autism in toddlers, revised with follow-up (M-CHAT-R/F). Pediatrics. 2014;133(1):37-45. PMID 24366990; PMCID PMC3876182; doi:10.1542/peds.2013-1813.", "link": "https://doi.org/10.1542/peds.2013-1813", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Robinson2013", "text": "Robinson EB, Lichtenstein P, Anckarsäter H, Happé F, Ronald A. Examining and interpreting the female protective effect against autistic behavior. Proc Natl Acad Sci U S A. 2013;110(13):5258-62. PMID 23431162; PMCID PMC3612665; doi:10.1073/pnas.1211070110.", "link": "https://doi.org/10.1073/pnas.1211070110", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Roche2021", "text": "Roche L, Adams D, Clark M. Research priorities of the autism community: A systematic review of key stakeholder perspectives. Autism. 2021;25(2):336-348. PMID 33143455; doi:10.1177/1362361320967790.", "link": "https://doi.org/10.1177/1362361320967790", "areas": ["E", "F"], "unverified": false, "validated": "Europe PMC"}, {"key": "Rodgaard2019", "text": "Rødgaard EM, Jensen K, Vergnes JN, Soulières I, Mottron L. Temporal Changes in Effect Sizes of Studies Comparing Individuals With and Without Autism: A Meta-analysis. JAMA Psychiatry. 2019;76(11):1124-1132. PMID 31433441; PMCID PMC6704749; doi:10.1001/jamapsychiatry.2019.1956.", "link": "https://doi.org/10.1001/jamapsychiatry.2019.1956", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Rogers2019", "text": "Rogers SJ, Estes A, Lord C, Munson J, Rocha M, Winter J, et al. A Multisite Randomized Controlled Two-Phase Trial of the Early Start Denver Model Compared to Treatment as Usual. J Am Acad Child Adolesc Psychiatry. 2019;58(9):853-865. PMID 30768394; PMCID PMC12088912; doi:10.1016/j.jaac.2019.01.004.", "link": "https://doi.org/10.1016/j.jaac.2019.01.004", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Rogers2021", "text": "Rogers SJ, Yoder P, Estes A, Warren Z, McEachin J, Munson J, et al. A Multisite Randomized Controlled Trial Comparing the Effects of Intervention Intensity and Intervention Style on Outcomes for Young Children With Autism. J Am Acad Child Adolesc Psychiatry. 2021;60(6):710-722. PMID 32853704; PMCID PMC8057785; doi:10.1016/j.jaac.2020.06.013.", "link": "https://doi.org/10.1016/j.jaac.2020.06.013", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Rolison2026", "text": "Rolison MJ, Adu M, Faustino IV, Kumar A, Huang S, Powers E, et al. Structural and Clinical Factors Associated with Physical Restraint Use in a Pediatric Emergency Department. J Am Coll Emerg Physicians Open. 2026;7(1):100277. PMID 41321938; PMCID PMC12657716; doi:10.1016/j.acepjo.2025.100277.", "link": "https://doi.org/10.1016/j.acepjo.2025.100277", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Rosen2021", "text": "Rosen NE, Lord C, Volkmar FR. The Diagnosis of Autism: From Kanner to DSM-III to DSM-5 and Beyond. J Autism Dev Disord. 2021;51(12):4253-4270. PMID 33624215; PMCID PMC8531066; doi:10.1007/s10803-021-04904-1.", "link": "https://doi.org/10.1007/s10803-021-04904-1", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Rosenfeld2013", "text": "Rosenfeld JA, Coe BP, Eichler EE, Cuckle H, Shaffer LG. Estimates of penetrance for recurrent pathogenic copy-number variations. Genet Med. 2013;15(6):478-81. PMID 23258348; PMCID PMC3664238; doi:10.1038/gim.2012.164.", "link": "https://doi.org/10.1038/gim.2012.164", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Rossignol2009", "text": "Rossignol DA, Rossignol LW, Smith S, Schneider C, Logerquist S, Usman A, et al. Hyperbaric treatment for children with autism: a multicenter, randomized, double-blind, controlled trial. BMC Pediatr. 2009;9:21. PMID 19284641; PMCID PMC2662857; doi:10.1186/1471-2431-9-21.", "link": "https://doi.org/10.1186/1471-2431-9-21", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Rossignol2011", "text": "Rossignol DA, Frye RE. Melatonin in autism spectrum disorders: a systematic review and meta-analysis. Dev Med Child Neurol. 2011;53(9):783-792. PMID 21518346; doi:10.1111/j.1469-8749.2011.03980.x.", "link": "https://doi.org/10.1111/j.1469-8749.2011.03980.x", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Rossignol2021", "text": "Rossignol DA, Frye RE. Cerebral Folate Deficiency, Folate Receptor Alpha Autoantibodies and Leucovorin (Folinic Acid) Treatment in Autism Spectrum Disorders: A Systematic Review and Meta-Analysis. J Pers Med. 2021;11(11):1141. PMID 34834493; PMCID PMC8622150; doi:10.3390/jpm11111141.", "link": "https://doi.org/10.3390/jpm11111141", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Rothman2026", "text": "Rothman JM, Kwan B, Longhurst CA, Jena AB. Rates of Leucovorin Prescriptions for Children With Autism. JAMA Netw Open. 2026;9(5):e2613286. PMID 42149597; PMCID PMC13184797; doi:10.1001/jamanetworkopen.2026.13286. Research letter; numbers read from the full text in Europe PMC.", "link": "https://doi.org/10.1001/jamanetworkopen.2026.13286", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Roux2013", "text": "Roux AM, Shattuck PT, Cooper BP, Anderson KA, Wagner M, Narendorf SC. Postsecondary employment experiences among young adults with an autism spectrum disorder. J Am Acad Child Adolesc Psychiatry. 2013;52(9):931-9. PMID 23972695; PMCID PMC3753691; doi:10.1016/j.jaac.2013.05.019.", "link": "https://doi.org/10.1016/j.jaac.2013.05.019", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Rubenstein2003", "text": "Rubenstein JL, Merzenich MM. Model of autism: increased ratio of excitation/inhibition in key neural systems. Genes Brain Behav. 2003;2(5):255-67. PMID 14606691; PMCID PMC6748642; doi:10.1034/j.1601-183x.2003.00037.x.", "link": "https://doi.org/10.1034/j.1601-183x.2003.00037.x", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "RUPP2005Methylphenidate", "text": "Research Units on Pediatric Psychopharmacology Autism Network. Randomized, controlled, crossover trial of methylphenidate in pervasive developmental disorders with hyperactivity. Arch Gen Psychiatry. 2005;62(11):1266-74. PMID 16275814; doi:10.1001/archpsyc.62.11.1266.", "link": "https://doi.org/10.1001/archpsyc.62.11.1266", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "RUPP2005Risperidone", "text": "Research Units on Pediatric Psychopharmacology Autism Network. Risperidone treatment of autistic disorder: longer-term benefits and blinded discontinuation after 6 months. Am J Psychiatry. 2005;162(7):1361-9. PMID 15994720; doi:10.1176/appi.ajp.162.7.1361.", "link": "https://doi.org/10.1176/appi.ajp.162.7.1361", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Russell2022", "text": "Russell G, Stapley S, Newlove-Delgado T, Salmon A, White R, Warren F, et al. Time trends in autism diagnosis over 20 years: a UK population-based cohort study. J Child Psychol Psychiatry. 2022;63(6):674-682. PMID 34414570; doi:10.1111/jcpp.13505.", "link": "https://doi.org/10.1111/jcpp.13505", "areas": ["A", "D"], "unverified": false, "validated": "PubMed"}, {"key": "Sacco2015", "text": "Sacco R, Gabriele S, Persico AM. Head circumference and brain size in autism spectrum disorder: A systematic review and meta-analysis. Psychiatry Res. 2015;234(2):239-51. PMID 26456415; doi:10.1016/j.pscychresns.2015.08.016.", "link": "https://doi.org/10.1016/j.pscychresns.2015.08.016", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Sader2025", "text": "Sader M, Weston A, Buchan K, Kerr-Gaffney J, Gillespie-Smith K, Sharpe H, et al. The Co-Occurrence of Autism and Avoidant/Restrictive Food Intake Disorder (ARFID): A Prevalence-Based Meta-Analysis. Int J Eat Disord. 2025;58(3):473-488. PMID 39760303; PMCID PMC11891632; doi:10.1002/eat.24369.", "link": "https://doi.org/10.1002/eat.24369", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Sala2020", "text": "Sala G, Hooley M, Stokes MA. Romantic Intimacy in Autism: A Qualitative Analysis. J Autism Dev Disord. 2020;50(11):4133-4147. PMID 31993919; doi:10.1007/s10803-020-04377-8.", "link": "https://doi.org/10.1007/s10803-020-04377-8", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "SalazarDePablo2023", "text": "Salazar de Pablo G, Pastor Jordá C, Vaquerizo-Serrano J, Moreno C, Cabras A, Arango C, et al. Systematic Review and Meta-analysis: Efficacy of Pharmacological Interventions for Irritability and Emotional Dysregulation in Autism Spectrum Disorder and Predictors of Response. J Am Acad Child Adolesc Psychiatry. 2023;62(2):151-168. PMID 35470032; doi:10.1016/j.jaac.2022.03.033.", "link": "https://doi.org/10.1016/j.jaac.2022.03.033", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "SalcedoArellano2020", "text": "Salcedo-Arellano MJ, Hagerman RJ, Martínez-Cerdeño V. Fragile X syndrome: clinical presentation, pathology and treatment. Gac Med Mex. 2020;156(1):60-66. PMID 32026885; doi:10.24875/GMM.19005275.", "link": "https://doi.org/10.24875/gmm.19005275", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Salkic2026", "text": "Salkić A, Tideman M, Martini MI, Larsson H, Lichtenstein P, Chang Z, et al. The proportion of intellectual disability in autism spectrum disorder over two decades. Psychiatry Res. 2026;363:117246. PMID 42214315; doi:10.1016/j.psychres.2026.117246.", "link": "https://doi.org/10.1016/j.psychres.2026.117246", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Sammels2022", "text": "Sammels O, Karjalainen L, Dahlgren J, Wentz E. Autism Spectrum Disorder and Obesity in Children: A Systematic Review and Meta-Analysis. Obes Facts. 2022;15(3):305-320. PMID 35263756; PMCID PMC9210004; doi:10.1159/000523943.", "link": "https://doi.org/10.1159/000523943", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Sandbank2020", "text": "Sandbank M, Bottema-Beutel K, Crowley S, Cassidy M, Dunham K, Feldman JI, et al. Project AIM: Autism intervention meta-analysis for studies of young children. Psychol Bull. 2020;146(1):1-29. PMID 31763860; PMCID PMC8783568; doi:10.1037/bul0000215.", "link": "https://doi.org/10.1037/bul0000215", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Sandbank2023BMJ", "text": "Sandbank M, Bottema-Beutel K, Crowley LaPoint S, Feldman JI, Barrett DJ, Caldwell N, et al. Autism intervention meta-analysis of early childhood studies (Project AIM): updated systematic review and secondary analysis. BMJ. 2023;383:e076733. PMID 37963634; PMCID PMC10644209; doi:10.1136/bmj-2023-076733.", "link": "https://doi.org/10.1136/bmj-2023-076733", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Sandbank2024JAMAPed", "text": "Sandbank M, Pustejovsky JE, Bottema-Beutel K, Caldwell N, Feldman JI, Crowley LaPoint S, et al. Determining Associations Between Intervention Amount and Outcomes for Young Autistic Children: A Meta-Analysis. JAMA Pediatr. 2024;178(8):763-773. PMID 38913359; PMCID PMC11197026; doi:10.1001/jamapediatrics.2024.1832.", "link": "https://doi.org/10.1001/jamapediatrics.2024.1832", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Sanders2015Neuron", "text": "Sanders SJ, He X, Willsey AJ, Ercan-Sencicek AG, Samocha KE, Cicek AE, et al. Insights into Autism Spectrum Disorder Genomic Architecture and Biology from 71 Risk Loci. Neuron. 2015;87(6):1215-1233. PMID 26402605; PMCID PMC4624267; doi:10.1016/j.neuron.2015.09.016.", "link": "https://doi.org/10.1016/j.neuron.2015.09.016", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Sandin2014", "text": "Sandin S, Lichtenstein P, Kuja-Halkola R, Larsson H, Hultman CM, Reichenberg A. The familial risk of autism. JAMA. 2014;311(17):1770-7. PMID 24794370; PMCID PMC4381277; doi:10.1001/jama.2014.4144.", "link": "https://doi.org/10.1001/jama.2014.4144", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Sandin2016", "text": "Sandin S, Schendel D, Magnusson P, Hultman C, Surén P, Susser E, et al. Autism risk associated with parental age and with increasing difference in age between the parents. Mol Psychiatry. 2016;21(5):693-700. PMID 26055426; PMCID PMC5414073; doi:10.1038/mp.2015.70.", "link": "https://doi.org/10.1038/mp.2015.70", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Sandin2017", "text": "Sandin S, Lichtenstein P, Kuja-Halkola R, Hultman C, Larsson H, Reichenberg A. The Heritability of Autism Spectrum Disorder. JAMA. 2017;318(12):1182-1184. PMID 28973605; PMCID PMC5818813; doi:10.1001/jama.2017.12141.", "link": "https://doi.org/10.1001/jama.2017.12141", "areas": ["A", "B"], "unverified": false, "validated": "PubMed"}, {"key": "Sandler1999", "text": "Sandler AD, Sutton KA, DeWeese J, Girardi MA, Sheppard V, Bodfish JW. Lack of benefit of a single dose of synthetic human secretin in the treatment of autism and pervasive developmental disorder. N Engl J Med. 1999;341(24):1801-6. PMID 10588965; doi:10.1056/NEJM199912093412404.", "link": "https://doi.org/10.1056/nejm199912093412404", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "SandovalNorton2019", "text": "Sandoval-Norton AH, Shkedy G, Shkedy D. How much compliance is too much compliance: Is long-term ABA therapy abuse? Cogent Psychology. 2019;6(1):1641258. doi:10.1080/23311908.2019.1641258.", "link": "https://doi.org/10.1080/23311908.2019.1641258", "areas": ["E"], "unverified": false, "validated": "Crossref"}, {"key": "Santomauro2024Suicide", "text": "Santomauro DF, Hedley D, Sahin E, Brugha TS, Naghavi M, Vos T, et al. The global burden of suicide mortality among people on the autism spectrum: A systematic review, meta-analysis, and extension of estimates from the Global Burden of Disease Study 2021. Psychiatry Res. 2024;341:116150. PMID 39197224; doi:10.1016/j.psychres.2024.116150.", "link": "https://doi.org/10.1016/j.psychres.2024.116150", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Santomauro2025", "text": "Global Burden of Disease Study 2021 Autism Spectrum Collaborators (Santomauro DF, Erskine HE, Mantilla Herrera AM, Miller PA, Shadid J, Hagins H, et al.). The global epidemiology and health burden of the autism spectrum: findings from the Global Burden of Disease Study 2021. Lancet Psychiatry. 2025;12(2):111-121. PMID 39709974; PMCID PMC11750762; doi:10.1016/S2215-0366(24)00363-8.", "link": "https://doi.org/10.1016/s2215-0366(24)00363-8", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Sasson2017", "text": "Sasson NJ, Faso DJ, Nugent J, Lovell S, Kennedy DP, Grossman RB. Neurotypical Peers are Less Willing to Interact with Those with Autism based on Thin Slice Judgments. Sci Rep. 2017;7:40700. PMID 28145411; PMCID PMC5286449; doi:10.1038/srep40700.", "link": "https://doi.org/10.1038/srep40700", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Satterstrom2020", "text": "Satterstrom FK, Kosmicki JA, Wang J, Breen MS, De Rubeis S, An JY, et al. Large-Scale Exome Sequencing Study Implicates Both Developmental and Functional Changes in the Neurobiology of Autism. Cell. 2020;180(3):568-584.e23. PMID 31981491; PMCID PMC7250485; doi:10.1016/j.cell.2019.12.036.", "link": "https://doi.org/10.1016/j.cell.2019.12.036", "areas": ["B", "C"], "unverified": false, "validated": "PubMed"}, {"key": "Scahill2015", "text": "Scahill L, McCracken JT, King BH, Rockhill C, Shah B, Politte L, et al. Extended-Release Guanfacine for Hyperactivity in Children With Autism Spectrum Disorder. Am J Psychiatry. 2015;172(12):1197-206. PMID 26315981; doi:10.1176/appi.ajp.2015.15010055.", "link": "https://doi.org/10.1176/appi.ajp.2015.15010055", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Schaaf2014", "text": "Schaaf RC, Benevides T, Mailloux Z, Faller P, Hunt J, van Hooydonk E, et al. An intervention for sensory difficulties in children with autism: a randomized trial. J Autism Dev Disord. 2014;44(7):1493-1506. PMID 24214165; PMCID PMC4057638; doi:10.1007/s10803-013-1983-8.", "link": "https://doi.org/10.1007/s10803-013-1983-8", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Schaefer2013", "text": "Schaefer GB, Mendelsohn NJ. Clinical genetics evaluation in identifying the etiology of autism spectrum disorders: 2013 guideline revisions. Genet Med. 2013;15(5):399-407. PMID 23519317; doi:10.1038/gim.2013.32.", "link": "https://doi.org/10.1038/gim.2013.32", "areas": ["B", "D"], "unverified": false, "validated": "PubMed"}, {"key": "Schechter2008", "text": "Schechter R, Grether JK. Continuing increases in autism reported to California's developmental services system: mercury in retrograde. Arch Gen Psychiatry. 2008;65(1):19-24. PMID 18180424; doi:10.1001/archgenpsychiatry.2007.1.", "link": "https://doi.org/10.1001/archgenpsychiatry.2007.1", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Schlosser2008", "text": "Schlosser RW, Wendt O. Effects of augmentative and alternative communication intervention on speech production in children with autism: a systematic review. Am J Speech Lang Pathol. 2008;17(3):212-230. PMID 18663107; doi:10.1044/1058-0360(2008/021).", "link": "https://doi.org/10.1044/1058-0360(2008/021)", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Schlosser2014FC", "text": "Schlosser RW, Balandin S, Hemsley B, Iacono T, Probst P, von Tetzchner S. Facilitated communication and authorship: a systematic review. Augment Altern Commun. 2014;30(4):359-368. PMID 25384895; doi:10.3109/07434618.2014.971490.", "link": "https://doi.org/10.3109/07434618.2014.971490", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Schlosser2019RPM", "text": "Schlosser RW, Hemsley B, Shane H, Todd J, Lang R, Lilienfeld SO, et al. Rapid Prompting Method and Autism Spectrum Disorder: Systematic Review Exposes Lack of Evidence. Rev J Autism Dev Disord. 2019;6(4):403-412. doi:10.1007/s40489-019-00175-w. No abstract deposited; finding taken from the title.", "link": "https://doi.org/10.1007/s40489-019-00175-w", "areas": ["E"], "unverified": false, "validated": "Crossref"}, {"key": "Schlosser2026RPM", "text": "Schlosser RW, Shane H, Bryant L, Beals K, Todd J, Lang R, et al. Systematic Review of Authorship in Rapid Prompting Method, Spelling to Communicate, and Variants: Outcomes, Significance and Clinical Implications. Rev J Autism Dev Disord. 2026 (online 17 July 2026). doi:10.1007/s40489-026-00569-7.", "link": "https://doi.org/10.1007/s40489-026-00569-7", "areas": ["E"], "unverified": false, "validated": "Crossref"}, {"key": "Schnabel2020", "text": "Schnabel A, Youssef GJ, Hallford DJ, Hartley EJ, McGillivray JA, Stewart M, et al. Psychopathology in parents of children with autism spectrum disorder: A systematic review and meta-analysis of prevalence. Autism. 2020;24(1):26-40. PMID 31070044; doi:10.1177/1362361319844636.", "link": "https://doi.org/10.1177/1362361319844636", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Schneider2014Del22q", "text": "Schneider M, Debbané M, Bassett AS, Chow EW, Fung WL, van den Bree M, et al. Psychiatric disorders from childhood to adulthood in 22q11.2 deletion syndrome: results from the International Consortium on Brain and Behavior in 22q11.2 Deletion Syndrome. Am J Psychiatry. 2014;171(6):627-39. PMID 24577245; PMCID PMC4285461; doi:10.1176/appi.ajp.2013.13070864.", "link": "https://doi.org/10.1176/appi.ajp.2013.13070864", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Schoen2019", "text": "Schoen SA, Lane SJ, Mailloux Z, May-Benson T, Parham LD, Smith Roley S, et al. A systematic review of ayres sensory integration intervention for children with autism. Autism Res. 2019;12(1):6-19. PMID 30548827; PMCID PMC6590432; doi:10.1002/aur.2046.", "link": "https://doi.org/10.1002/aur.2046", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Schreibman2015", "text": "Schreibman L, Dawson G, Stahmer AC, Landa R, Rogers SJ, McGee GG, et al. Naturalistic Developmental Behavioral Interventions: Empirically Validated Treatments for Autism Spectrum Disorder. J Autism Dev Disord. 2015;45(8):2411-2428. PMID 25737021; PMCID PMC4513196; doi:10.1007/s10803-015-2407-8.", "link": "https://doi.org/10.1007/s10803-015-2407-8", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Schuck2022", "text": "Schuck RK, Tagavi DM, Baiden KMP, Dwyer P, Williams ZJ, Osuna A, et al. Neurodiversity and Autism Intervention: Reconciling Perspectives Through a Naturalistic Developmental Behavioral Intervention Framework. J Autism Dev Disord. 2022;52(10):4625-4645. PMID 34643863; PMCID PMC9508016; doi:10.1007/s10803-021-05316-x.", "link": "https://doi.org/10.1007/s10803-021-05316-x", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Schuck2025", "text": "Schuck RK, Chetcuti L, Dwyer P, Milosavljevic K, Bury SM, Hedley D, et al. Preferences for Identity-First and Person-First Language: A Systematic Review of Research With Autistic Adults/Adults With Autism. J Autism Dev Disord. 2025 (online ahead of print, 13 Dec 2025). PMID 41389164; doi:10.1007/s10803-025-07174-3.", "link": "https://doi.org/10.1007/s10803-025-07174-3", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Shabani2006", "text": "Shabani DB, Fisher WW. Stimulus fading and differential reinforcement for the treatment of needle phobia in a youth with autism. J Appl Behav Anal. 2006;39(4):449-52. PMID 17236343; PMCID PMC1702338; doi:10.1901/jaba.2006.30-05.", "link": "https://doi.org/10.1901/jaba.2006.30-05", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Sharma2021", "text": "Sharma S, Hucker A, Matthews T, Grohmann D, Laws KR. Cognitive behavioural therapy for anxiety in children and young people on the autism spectrum: a systematic review and meta-analysis. BMC Psychol. 2021;9(1):151. PMID 34598734; PMCID PMC8487131; doi:10.1186/s40359-021-00658-8.", "link": "https://doi.org/10.1186/s40359-021-00658-8", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Sharon2019", "text": "Sharon G, Cruz NJ, Kang DW, Gandal MJ, Wang B, Kim YM, et al. Human Gut Microbiota from Autism Spectrum Disorder Promote Behavioral Symptoms in Mice. Cell. 2019;177(6):1600-1618.e17. PMID 31150625; PMCID PMC6993574; doi:10.1016/j.cell.2019.05.004.", "link": "https://doi.org/10.1016/j.cell.2019.05.004", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Sharp2013Feeding", "text": "Sharp WG, Berry RC, McCracken C, Nuhu NN, Marvel E, Saulnier CA, et al. Feeding problems and nutrient intake in children with autism spectrum disorders: a meta-analysis and comprehensive review of the literature. J Autism Dev Disord. 2013;43(9):2159-73. PMID 23371510; doi:10.1007/s10803-013-1771-5.", "link": "https://doi.org/10.1007/s10803-013-1771-5", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Shattuck2011Services", "text": "Shattuck PT, Wagner M, Narendorf S, Sterzing P, Hensley M. Post-high school service use among young adults with an autism spectrum disorder. Arch Pediatr Adolesc Med. 2011;165(2):141-6. PMID 21300654; PMCID PMC3097532; doi:10.1001/archpediatrics.2010.279.", "link": "https://doi.org/10.1001/archpediatrics.2010.279", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Shattuck2012", "text": "Shattuck PT, Narendorf SC, Cooper B, Sterzing PR, Wagner M, Taylor JL. Postsecondary education and employment among youth with an autism spectrum disorder. Pediatrics. 2012;129(6):1042-9. PMID 22585766; PMCID PMC3362908; doi:10.1542/peds.2011-2864.", "link": "https://doi.org/10.1542/peds.2011-2864", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Shaw2025", "text": "Shaw KA, Williams S, Patrick ME, Valencia-Prado M, Durkin MS, Howerton EM, et al. Prevalence and Early Identification of Autism Spectrum Disorder Among Children Aged 4 and 8 Years - Autism and Developmental Disabilities Monitoring Network, 16 Sites, United States, 2022. MMWR Surveill Summ. 2025;74(2):1-22. PMID 40232988; PMCID PMC12011386; doi:10.15585/mmwr.ss7402a1.", "link": "https://doi.org/10.15585/mmwr.ss7402a1", "areas": ["A", "D", "G"], "unverified": false, "validated": "PubMed"}, {"key": "Sheikh2025", "text": "Sheikh J, Allotey J, Sobhy S, Plana MN, Martinez-Barros H, Naidu H, et al. Maternal paracetamol (acetaminophen) use during pregnancy and risk of autism spectrum disorder and attention deficit/hyperactivity disorder in offspring: umbrella review of systematic reviews. BMJ. 2025;391:e088141. PMID 41207796; PMCID PMC12838471; doi:10.1136/bmj-2025-088141.", "link": "https://doi.org/10.1136/bmj-2025-088141", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Shen2013", "text": "Shen MD, Nordahl CW, Young GS, Wootton-Gorges SL, Lee A, Liston SE, et al. Early brain enlargement and elevated extra-axial fluid in infants who develop autism spectrum disorder. Brain. 2013;136(Pt 9):2825-35. PMID 23838695; PMCID PMC3754460; doi:10.1093/brain/awt166.", "link": "https://doi.org/10.1093/brain/awt166", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Shen2017", "text": "Shen MD, Kim SH, McKinstry RC, Gu H, Hazlett HC, Nordahl CW, et al. Increased Extra-axial Cerebrospinal Fluid in High-Risk Infants Who Later Develop Autism. Biol Psychiatry. 2017;82(3):186-193. PMID 28392081; PMCID PMC5531051; doi:10.1016/j.biopsych.2017.02.1095.", "link": "https://doi.org/10.1016/j.biopsych.2017.02.1095", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Shivers2019", "text": "Shivers CM, Jackson JB, McGregor CM. Functioning Among Typically Developing Siblings of Individuals with Autism Spectrum Disorder: A Meta-Analysis. Clin Child Fam Psychol Rev. 2019;22(2):172-196. PMID 30178117; doi:10.1007/s10567-018-0269-2.", "link": "https://doi.org/10.1007/s10567-018-0269-2", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Siafis2020", "text": "Siafis S, Çıray O, Schneider-Thoma J, Bighelli I, Krause M, Rodolico A, et al. Placebo response in pharmacological and dietary supplement trials of autism spectrum disorder (ASD): systematic review and meta-regression analysis. Mol Autism. 2020;11(1):66. PMID 32847616; PMCID PMC7448339; doi:10.1186/s13229-020-00372-z.", "link": "https://doi.org/10.1186/s13229-020-00372-z", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Siegel2026", "text": "Siegel M, Lord CL, Tager-Flusberg H, Ursitti J, Halladay A, Singer AT. Developing a consensus research definition for profound autism using a modified Delphi method. Mol Autism. 2026;17(1). PMID 42380932; PMCID PMC13326320; doi:10.1186/s13229-026-00727-y.", "link": "https://doi.org/10.1186/s13229-026-00727-y", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Sikich2021", "text": "Sikich L, Kolevzon A, King BH, McDougle CJ, Sanders KB, Kim SJ, et al. Intranasal Oxytocin in Children and Adolescents with Autism Spectrum Disorder. N Engl J Med. 2021;385(16):1462-1473. PMID 34644471; PMCID PMC9701092; doi:10.1056/NEJMoa2103583.", "link": "https://doi.org/10.1056/nejmoa2103583", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Simonoff2008", "text": "Simonoff E, Pickles A, Charman T, Chandler S, Loucas T, Baird G. Psychiatric disorders in children with autism spectrum disorders: prevalence, comorbidity, and associated factors in a population-derived sample. J Am Acad Child Adolesc Psychiatry. 2008;47(8):921-9. PMID 18645422; doi:10.1097/CHI.0b013e318179964f.", "link": "https://doi.org/10.1097/chi.0b013e318179964f", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Siu2016", "text": "Siu AL, Bibbins-Domingo K, Grossman DC, Baumann LC, Davidson KW, Ebell M, et al. Screening for Autism Spectrum Disorder in Young Children: US Preventive Services Task Force Recommendation Statement. JAMA. 2016;315(7):691-6. PMID 26881372; doi:10.1001/jama.2016.0018.", "link": "https://doi.org/10.1001/jama.2016.0018", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Smith2000AJMR", "text": "Smith T, Groen AD, Wynn JW. Randomized trial of intensive early intervention for children with pervasive developmental disorder. Am J Ment Retard. 2000;105(4):269-285. PMID 10934569; doi:10.1352/0895-8017(2000)105<0269:RTOIEI>2.0.CO;2.", "link": "https://doi.org/10.1352/0895-8017(2000)105<0269:rtoiei>2.0.co", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Smith2015JADD", "text": "Smith IC, Reichow B, Volkmar FR. The Effects of DSM-5 Criteria on Number of Individuals Diagnosed with Autism Spectrum Disorder: A Systematic Review. J Autism Dev Disord. 2015;45(8):2541-52. PMID 25796195; doi:10.1007/s10803-015-2423-8.", "link": "https://doi.org/10.1007/s10803-015-2423-8", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Smith2025Adjustments", "text": "Smith H, Shaw SCK, Doherty M, Ives J. Reasonable adjustments for autistic clinicians: A qualitative study. PLoS One. 2025;20(3):e0319082. PMID 40131884; PMCID PMC11936167; doi:10.1371/journal.pone.0319082.", "link": "https://doi.org/10.1371/journal.pone.0319082", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "SmithDaWalt2019", "text": "Smith DaWalt L, Hong J, Greenberg JS, Mailick MR. Mortality in individuals with autism spectrum disorder: Predictors over a 20-year period. Autism. 2019;23(7):1732-1739. PMID 30818975; PMCID PMC6713622; doi:10.1177/1362361319827412.", "link": "https://doi.org/10.1177/1362361319827412", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Snyder2021", "text": "Snyder J, Turner L. Crowdfunding, stem cell interventions and autism spectrum disorder: comparing campaigns related to an international \"stem cell clinic\" and US academic medical center. Cytotherapy. 2021;23(3):198-202. PMID 33082092; doi:10.1016/j.jcyt.2020.09.002.", "link": "https://doi.org/10.1016/j.jcyt.2020.09.002", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Sohal2019", "text": "Sohal VS, Rubenstein JLR. Excitation-inhibition balance as a framework for investigating mechanisms in neuropsychiatric disorders. Mol Psychiatry. 2019;24(9):1248-1257. PMID 31089192; PMCID PMC6742424; doi:10.1038/s41380-019-0426-0.", "link": "https://doi.org/10.1038/s41380-019-0426-0", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Spencer2013", "text": "Spencer D, Marshall J, Post B, Kulakodlu M, Newschaffer C, Dennen T, et al. Psychotropic medication use and polypharmacy in children with autism spectrum disorders. Pediatrics. 2013;132(5):833-40. PMID 24144704; PMCID PMC3813388; doi:10.1542/peds.2012-3774.", "link": "https://doi.org/10.1542/peds.2012-3774", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Sprengers2021", "text": "Sprengers JJ, van Andel DM, Zuithoff NPA, Keijzer-Veen MG, Schulp AJA, Scheepers FE, et al. Bumetanide for Core Symptoms of Autism Spectrum Disorder (BAMBI): A Single Center, Double-Blinded, Participant-Randomized, Placebo-Controlled, Phase-2 Superiority Trial. J Am Acad Child Adolesc Psychiatry. 2021;60(7):865-876. PMID 32730977; doi:10.1016/j.jaac.2020.07.888.", "link": "https://doi.org/10.1016/j.jaac.2020.07.888", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Srivastava2019", "text": "Srivastava S, Love-Nichols JA, Dies KA, Ledbetter DH, Martin CL, Chung WK, et al. Meta-analysis and multidisciplinary consensus statement: exome sequencing is a first-tier clinical diagnostic test for individuals with neurodevelopmental disorders. Genet Med. 2019;21(11):2413-2421. PMID 31182824; PMCID PMC6831729; doi:10.1038/s41436-019-0554-6.", "link": "https://doi.org/10.1038/s41436-019-0554-6", "areas": ["B", "D"], "unverified": false, "validated": "PubMed"}, {"key": "Ssucharewa1996", "text": "Ssucharewa GE, Wolff S. The first account of the syndrome Asperger described? Translation of a paper entitled \"Die schizoiden Psychopathien im Kindesalter\" by Dr. G.E. Ssucharewa; scientific assistant, which appeared in 1926 in the Monatsschrift für Psychiatrie und Neurologie 60:235-261. Eur Child Adolesc Psychiatry. 1996;5(3):119-32. PMID 8908418; doi:10.1007/BF00571671.", "link": "https://doi.org/10.1007/bf00571671", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Stagg2019", "text": "Stagg SD, Belcher H. Living with autism without knowing: receiving a diagnosis in later life. Health Psychol Behav Med. 2019;7(1):348-361. PMID 34040855; PMCID PMC8114403; doi:10.1080/21642850.2019.1684920.", "link": "https://doi.org/10.1080/21642850.2019.1684920", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "SteenfeldtKristensen2020", "text": "Steenfeldt-Kristensen C, Jones CA, Richards C. The Prevalence of Self-injurious Behaviour in Autism: A Meta-analytic Study. J Autism Dev Disord. 2020;50(11):3857-3873. PMID 32297123; PMCID PMC7557528; doi:10.1007/s10803-020-04443-1.", "link": "https://doi.org/10.1007/s10803-020-04443-1", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "SteinDuker2023", "text": "Stein Duker LI, Como DH, Jolette C, Vigen C, Gong CL, Williams ME, et al. Sensory Adaptations to Improve Physiological and Behavioral Distress During Dental Visits in Autistic Children: A Randomized Crossover Trial. JAMA Netw Open. 2023;6(6):e2316346. PMID 37266941; PMCID PMC10238943; doi:10.1001/jamanetworkopen.2023.16346.", "link": "https://doi.org/10.1001/jamanetworkopen.2023.16346", "areas": ["C", "H"], "unverified": false, "validated": "PubMed"}, {"key": "Steinhausen2016", "text": "Steinhausen HC, Mohr Jensen C, Lauritsen MB. A systematic review and meta-analysis of the long-term overall outcome of autism spectrum disorders in adolescence and adulthood. Acta Psychiatr Scand. 2016;133(6):445-52. PMID 26763353; doi:10.1111/acps.12559.", "link": "https://doi.org/10.1111/acps.12559", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Stephenson2009", "text": "Stephenson J, Carter M. The use of weighted vests with children with autism spectrum disorders and other disabilities. J Autism Dev Disord. 2009;39(1):105-114. PMID 18592366; doi:10.1007/s10803-008-0605-3.", "link": "https://doi.org/10.1007/s10803-008-0605-3", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Sterzing2012", "text": "Sterzing PR, Shattuck PT, Narendorf SC, Wagner M, Cooper BP. Bullying involvement and autism spectrum disorders: prevalence and correlates of bullying involvement among adolescents with an autism spectrum disorder. Arch Pediatr Adolesc Med. 2012;166(11):1058-64. PMID 22945284; PMCID PMC3537883; doi:10.1001/archpediatrics.2012.790.", "link": "https://doi.org/10.1001/archpediatrics.2012.790", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Stiles2010", "text": "Stiles J, Jernigan TL. The basics of brain development. Neuropsychol Rev. 2010;20(4):327-48. PMID 21042938; PMCID PMC2989000; doi:10.1007/s11065-010-9148-4.", "link": "https://doi.org/10.1007/s11065-010-9148-4", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Stoner2014", "text": "Stoner R, Chow ML, Boyle MP, Sunkin SM, Mouton PR, Roy S, et al. Patches of disorganization in the neocortex of children with autism. N Engl J Med. 2014;370(13):1209-1219. PMID 24670167; PMCID PMC4499461; doi:10.1056/NEJMoa1307491.", "link": "https://doi.org/10.1056/nejmoa1307491", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Strunz2017", "text": "Strunz S, Schermuck C, Ballerstein S, Ahlers CJ, Dziobek I, Roepke S. Romantic Relationships and Relationship Satisfaction Among Adults With Asperger Syndrome and High-Functioning Autism. J Clin Psychol. 2017;73(1):113-125. PMID 27196958; doi:10.1002/jclp.22319.", "link": "https://doi.org/10.1002/jclp.22319", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Sturman2017", "text": "Sturman N, Deckx L, van Driel ML. Methylphenidate for children and adolescents with autism spectrum disorder. Cochrane Database Syst Rev. 2017;11(11):CD011144. PMID 29159857; PMCID PMC6486133; doi:10.1002/14651858.CD011144.pub2.", "link": "https://doi.org/10.1002/14651858.cd011144.pub2", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Sturner2022", "text": "Sturner R, Howard B, Bergmann P, Attar S, Stewart-Artz L, Bet K, et al. Autism screening at 18 months of age: a comparison of the Q-CHAT-10 and M-CHAT screeners. Mol Autism. 2022;13(1):2. PMID 34980240; PMCID PMC8722322; doi:10.1186/s13229-021-00480-4.", "link": "https://doi.org/10.1186/s13229-021-00480-4", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Sujan2017", "text": "Sujan AC, Rickert ME, Öberg AS, Quinn PD, Hernández-Díaz S, Almqvist C, et al. Associations of Maternal Antidepressant Use During the First Trimester of Pregnancy With Preterm Birth, Small for Gestational Age, Autism Spectrum Disorder, and Attention-Deficit/Hyperactivity Disorder in Offspring. JAMA. 2017;317(15):1553-1562. PMID 28418479; PMCID PMC5875187; doi:10.1001/jama.2017.3413.", "link": "https://doi.org/10.1001/jama.2017.3413", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Suren2013", "text": "Surén P, Roth C, Bresnahan M, Haugen M, Hornig M, Hirtz D, et al. Association between maternal use of folic acid supplements and risk of autism spectrum disorders in children. JAMA. 2013;309(6):570-7. PMID 23403681; PMCID PMC3908544; doi:10.1001/jama.2012.155925.", "link": "https://doi.org/10.1001/jama.2012.155925", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Swineford2014", "text": "Swineford LB, Thurm A, Baird G, Wetherby AM, Swedo S. Social (pragmatic) communication disorder: a research review of this new DSM-5 diagnostic category. J Neurodev Disord. 2014;6(1):41. PMID 25484991; PMCID PMC4258293; doi:10.1186/1866-1955-6-41.", "link": "https://doi.org/10.1186/1866-1955-6-41", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Taboas2023", "text": "Taboas A, Doepke K, Zimmerman C. Preferences for identity-first versus person-first language in a US sample of autism stakeholders. Autism. 2023;27(2):565-570. PMID 36237135; doi:10.1177/13623613221130845.", "link": "https://doi.org/10.1177/13623613221130845", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "TagerFlusberg2013", "text": "Tager-Flusberg H, Kasari C. Minimally verbal school-aged children with autism spectrum disorder: the neglected end of the spectrum. Autism Res. 2013;6(6):468-78. PMID 24124067; PMCID PMC3869868; doi:10.1002/aur.1329.", "link": "https://doi.org/10.1002/aur.1329", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Taghizadeh2015", "text": "Taghizadeh N, Davidson A, Williams K, Story D. Autism spectrum disorder (ASD) and its perioperative management. Paediatr Anaesth. 2015;25(11):1076-84. PMID 26248302; doi:10.1111/pan.12732.", "link": "https://doi.org/10.1111/pan.12732", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Taghizadeh2019", "text": "Taghizadeh N, Heard G, Davidson A, Williams K, Story D. The experiences of children with autism spectrum disorder, their caregivers and health care providers during day procedure: A mixed methods study. Paediatr Anaesth. 2019;29(9):927-937. PMID 31448870; doi:10.1111/pan.13689.", "link": "https://doi.org/10.1111/pan.13689", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Talantseva2023", "text": "Talantseva OI, Romanova RS, Shurdova EM, Dolgorukova TA, Sologub PS, Titova OS, et al. The global prevalence of autism spectrum disorder: A three-level meta-analysis. Front Psychiatry. 2023;14:1071181. PMID 36846240; PMCID PMC9947250; doi:10.3389/fpsyt.2023.1071181.", "link": "https://doi.org/10.3389/fpsyt.2023.1071181", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Tamanaha2023", "text": "Tamanaha AC, Olivatti DOF, Silva SCD, Vieira SCP, Perissinoto J. Picture Exchange Communication System (PECS) Implementation Program for children with autism spectrum disorder. Codas. 2023;35(4):e20210305. PMID 37729341; PMCID PMC10546919; doi:10.1590/2317-1782/20232021305pt. Phase descriptions read from the open full text.", "link": "https://doi.org/10.1590/2317-1782/20232021305pt", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Tammimies2015", "text": "Tammimies K, Marshall CR, Walker S, Kaur G, Thiruvahindrapuram B, Lionel AC, et al. Molecular Diagnostic Yield of Chromosomal Microarray Analysis and Whole-Exome Sequencing in Children With Autism Spectrum Disorder. JAMA. 2015;314(9):895-903. PMID 26325558; doi:10.1001/jama.2015.10078.", "link": "https://doi.org/10.1001/jama.2015.10078", "areas": ["B", "D"], "unverified": false, "validated": "PubMed"}, {"key": "Tan2021", "text": "Tan C, Frewer V, Cox G, Williams K, Ure A. Prevalence and Age of Onset of Regression in Children with Autism Spectrum Disorder: A Systematic Review and Meta-analytical Update. Autism Res. 2021;14(3):582-598. PMID 33491292; doi:10.1002/aur.2463.", "link": "https://doi.org/10.1002/aur.2463", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Tang2014", "text": "Tang G, Gudsnuk K, Kuo SH, Cotrina ML, Rosoklija G, Sosunov A, et al. Loss of mTOR-dependent macroautophagy causes autistic-like synaptic pruning deficits. Neuron. 2014;83(5):1131-43. PMID 25155956; PMCID PMC4159743; doi:10.1016/j.neuron.2014.07.040.", "link": "https://doi.org/10.1016/j.neuron.2014.07.040", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Tavassoli2014", "text": "Tavassoli T, Miller LJ, Schoen SA, Nielsen DM, Baron-Cohen S. Sensory over-responsivity in adults with autism spectrum conditions. Autism. 2014;18(4):428-32. PMID 24085741; doi:10.1177/1362361313477246.", "link": "https://doi.org/10.1177/1362361313477246", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Taylor2011Employment", "text": "Taylor JL, Seltzer MM. Employment and post-secondary educational activities for young adults with autism spectrum disorders during the transition to adulthood. J Autism Dev Disord. 2011;41(5):566-74. PMID 20640591; PMCID PMC3033449; doi:10.1007/s10803-010-1070-3.", "link": "https://doi.org/10.1007/s10803-010-1070-3", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Taylor2014Vaccine", "text": "Taylor LE, Swerdfeger AL, Eslick GD. Vaccines are not associated with autism: an evidence-based meta-analysis of case-control and cohort studies. Vaccine. 2014;32(29):3623-9. PMID 24814559; doi:10.1016/j.vaccine.2014.04.085.", "link": "https://doi.org/10.1016/j.vaccine.2014.04.085", "areas": ["A", "B", "F"], "unverified": false, "validated": "PubMed"}, {"key": "Taylor2020Twins", "text": "Taylor MJ, Rosenqvist MA, Larsson H, Gillberg C, D'Onofrio BM, Lichtenstein P, et al. Etiology of Autism Spectrum Disorders and Autistic Traits Over Time. JAMA Psychiatry. 2020;77(9):936-943. PMID 32374377; PMCID PMC7203675; doi:10.1001/jamapsychiatry.2020.0680.", "link": "https://doi.org/10.1001/jamapsychiatry.2020.0680", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Taylor2026Mortality", "text": "Taylor MJ, Martini MI, Kuja-Halkola R, Cassidy S, Ronald A, Tideman M, et al. Association between co-occurring psychiatric conditions and premature mortality in autistic people: population-based cohort study. Br J Psychiatry. 2026:1-9. PMID 42317041; doi:10.1192/bjp.2026.10696.", "link": "https://doi.org/10.1192/bjp.2026.10696", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Tick2016", "text": "Tick B, Bolton P, Happé F, Rutter M, Rijsdijk F. Heritability of autism spectrum disorders: a meta-analysis of twin studies. J Child Psychol Psychiatry. 2016;57(5):585-95. PMID 26709141; PMCID PMC4996332; doi:10.1111/jcpp.12499.", "link": "https://doi.org/10.1111/jcpp.12499", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Tomchek2007", "text": "Tomchek SD, Dunn W. Sensory processing in children with and without autism: a comparative study using the short sensory profile. Am J Occup Ther. 2007;61(2):190-200. PMID 17436841; doi:10.5014/ajot.61.2.190.", "link": "https://doi.org/10.5014/ajot.61.2.190", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Tostanoski2014", "text": "Tostanoski A, Lang R, Raulston T, Carnett A, Davis T. Voices from the past: comparing the rapid prompting method and facilitated communication. Dev Neurorehabil. 2014;17(4):219-223. PMID 24102487; doi:10.3109/17518423.2012.749952.", "link": "https://doi.org/10.3109/17518423.2012.749952", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Totsika2020", "text": "Totsika V, Hastings RP, Dutton Y, Worsley A, Melvin G, Gray K, et al. Types and correlates of school non-attendance in students with autism spectrum disorders. Autism. 2020;24(7):1639-1649. PMID 32419486; PMCID PMC7545649; doi:10.1177/1362361320916967.", "link": "https://doi.org/10.1177/1362361320916967", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Travers2025", "text": "Travers J, Tincani M. In Defense of Applied Behavior Analysis and Evidence-Based Practice. Perspect Behav Sci. 2025;48(3):641-653. PMID 40919367; PMCID PMC12411346; doi:10.1007/s40614-025-00468-y.", "link": "https://doi.org/10.1007/s40614-025-00468-y", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Troost2005", "text": "Troost PW, Lahuis BE, Steenhuis MP, Ketelaars CE, Buitelaar JK, van Engeland H, et al. Long-term effects of risperidone in children with autism spectrum disorders: a placebo discontinuation study. J Am Acad Child Adolesc Psychiatry. 2005;44(11):1137-44. PMID 16239862; doi:10.1097/01.chi.0000177055.11229.76.", "link": "https://doi.org/10.1097/01.chi.0000177055.11229.76", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Unigwe2017", "text": "Unigwe S, Buckley C, Crane L, Kenny L, Remington A, Pellicano E. GPs' confidence in caring for their patients on the autism spectrum: an online self-report study. Br J Gen Pract. 2017;67(659):e445-e452. PMID 28483821; PMCID PMC5442960; doi:10.3399/bjgp17X690449.", "link": "https://doi.org/10.3399/bjgp17x690449", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Urraca2013", "text": "Urraca N, Cleary J, Brewer V, Pivnick EK, McVicar K, Thibert RL, et al. The interstitial duplication 15q11.2-q13 syndrome includes autism, mild facial anomalies and a characteristic EEG signature. Autism Res. 2013;6(4):268-79. PMID 23495136; PMCID PMC3884762; doi:10.1002/aur.1284.", "link": "https://doi.org/10.1002/aur.1284", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "VandeCruys2014", "text": "Van de Cruys S, Evers K, Van der Hallen R, Van Eylen L, Boets B, de-Wit L, et al. Precise minds in uncertain worlds: predictive coding in autism. Psychol Rev. 2014;121(4):649-75. PMID 25347312; doi:10.1037/a0037665.", "link": "https://doi.org/10.1037/a0037665", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "vanHeijst2015", "text": "van Heijst BF, Geurts HM. Quality of life in autism across the lifespan: a meta-analysis. Autism. 2015;19(2):158-67. PMID 24443331; doi:10.1177/1362361313517053.", "link": "https://doi.org/10.1177/1362361313517053", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "vanRooij2018", "text": "van Rooij D, Anagnostou E, Arango C, Auzias G, Behrmann M, Busatto GF, et al. Cortical and Subcortical Brain Morphometry Differences Between Patients With Autism Spectrum Disorder and Healthy Individuals Across the Lifespan: Results From the ENIGMA ASD Working Group. Am J Psychiatry. 2018;175(4):359-369. PMID 29145754; PMCID PMC6546164; doi:10.1176/appi.ajp.2017.17010100.", "link": "https://doi.org/10.1176/appi.ajp.2017.17010100", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "vanRosmalen2020", "text": "van Rosmalen L, van der Veer R, van der Horst FC. The nature of love: Harlow, Bowlby and Bettelheim on affectionless mothers. Hist Psychiatry. 2020;31(2):227-231. PMID 31969024; PMCID PMC7433398; doi:10.1177/0957154X19898997.", "link": "https://doi.org/10.1177/0957154x19898997", "areas": ["A", "B"], "unverified": false, "validated": "PubMed"}, {"key": "vanSteensel2011", "text": "van Steensel FJ, Bögels SM, Perrin S. Anxiety disorders in children and adolescents with autistic spectrum disorders: a meta-analysis. Clin Child Fam Psychol Rev. 2011;14(3):302-17. PMID 21735077; PMCID PMC3162631; doi:10.1007/s10567-011-0097-0.", "link": "https://doi.org/10.1007/s10567-011-0097-0", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "vantHof2021", "text": "van 't Hof M, Tisseur C, van Berckelear-Onnes I, van Nieuwenhuyzen A, Daniels AM, Deen M, et al. Age at autism spectrum disorder diagnosis: A systematic review and meta-analysis from 2012 to 2019. Autism. 2021;25(4):862-873. PMID 33213190; doi:10.1177/1362361320971107.", "link": "https://doi.org/10.1177/1362361320971107", "areas": ["A", "D"], "unverified": false, "validated": "PubMed"}, {"key": "VanWieren2008", "text": "Van Wieren TA, Reid CA, McMahon BT. Workplace discrimination and autism spectrum disorders: The National EEOC Americans with Disabilities Act Research project. Work. 2008;31(3):299-308. PMID 19029671.", "link": "https://pubmed.ncbi.nlm.nih.gov/19029671/", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "VaquerizoSerrano2021", "text": "Vaquerizo-Serrano J, Salazar De Pablo G, Singh J, Santosh P. Catatonia in autism spectrum disorders: A systematic review and meta-analysis. Eur Psychiatry. 2021;65(1):e4. PMID 34906264; PMCID PMC8792870; doi:10.1192/j.eurpsy.2021.2259.", "link": "https://doi.org/10.1192/j.eurpsy.2021.2259", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Varcin2022", "text": "Varcin KJ, Herniman SE, Lin A, Chen Y, Perry Y, Pugh C, et al. Occurrence of psychosis and bipolar disorder in adults with autism: A systematic review and meta-analysis. Neurosci Biobehav Rev. 2022;134:104543. PMID 35063494; doi:10.1016/j.neubiorev.2022.104543.", "link": "https://doi.org/10.1016/j.neubiorev.2022.104543", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Varga2009", "text": "Varga EA, Pastore M, Prior T, Herman GE, McBride KL. The prevalence of PTEN mutations in a clinical pediatric cohort with autism spectrum disorders, developmental delay, and macrocephaly. Genet Med. 2009;11(2):111-7. PMID 19265751; doi:10.1097/GIM.0b013e31818fd762.", "link": "https://doi.org/10.1097/gim.0b013e31818fd762", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "VeenstraVanderWeele2017", "text": "Veenstra-VanderWeele J, Cook EH, King BH, Zarevics P, Cherubini M, Walton-Bowen K, et al. Arbaclofen in Children and Adolescents with Autism Spectrum Disorder: A Randomized, Controlled, Phase 2 Trial. Neuropsychopharmacology. 2017;42(7):1390-1398. PMID 27748740; PMCID PMC5436109; doi:10.1038/npp.2016.237.", "link": "https://doi.org/10.1038/npp.2016.237", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Velmeshev2019", "text": "Velmeshev D, Schirmer L, Jung D, Haeussler M, Perez Y, Mayer S, et al. Single-cell genomics identifies cell type-specific molecular changes in autism. Science. 2019;364(6441):685-689. PMID 31097668; PMCID PMC7678724; doi:10.1126/science.aav8130.", "link": "https://doi.org/10.1126/science.aav8130", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Verkerk1991", "text": "Verkerk AJ, Pieretti M, Sutcliffe JS, Fu YH, Kuhl DP, Pizzuti A, et al. Identification of a gene (FMR-1) containing a CGG repeat coincident with a breakpoint cluster region exhibiting length variation in fragile X syndrome. Cell. 1991;65(5):905-14. PMID 1710175; doi:10.1016/0092-8674(91)90397-h.", "link": "https://doi.org/10.1016/0092-8674(91)90397-h", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Vicedo2021", "text": "Vicedo M, Ilerbaig J. Autism in Baltimore, 1938-1943. J Autism Dev Disord. 2021;51(4):1157-1172. PMID 32720104; doi:10.1007/s10803-020-04602-4.", "link": "https://doi.org/10.1007/s10803-020-04602-4", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "ViruesOrtega2013", "text": "Virues-Ortega J, Julio FM, Pastor-Barriuso R. The TEACCH program for children and adults with autism: a meta-analysis of intervention studies. Clin Psychol Rev. 2013;33(8):940-953. PMID 23988454; doi:10.1016/j.cpr.2013.07.005.", "link": "https://doi.org/10.1016/j.cpr.2013.07.005", "areas": ["E", "H"], "unverified": false, "validated": "Europe PMC"}, {"key": "Viscidi2013", "text": "Viscidi EW, Triche EW, Pescosolido MF, McLean RL, Joseph RM, Spence SJ, et al. Clinical characteristics of children with autism spectrum disorder and co-occurring epilepsy. PLoS One. 2013;8(7):e67797. PMID 23861807; PMCID PMC3701630; doi:10.1371/journal.pone.0067797.", "link": "https://doi.org/10.1371/journal.pone.0067797", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Vivanti2021", "text": "Vivanti G, Tao S, Lyall K, Robins DL, Shea LL. The prevalence and incidence of early-onset dementia among adults with autism spectrum disorder. Autism Res. 2021;14(10):2189-2199. PMID 34378867; PMCID PMC8487995; doi:10.1002/aur.2590.", "link": "https://doi.org/10.1002/aur.2590", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Vlassakova2016", "text": "Vlassakova BG, Emmanouil DE. Perioperative considerations in children with autism spectrum disorder. Curr Opin Anaesthesiol. 2016;29(3):359-66. PMID 26914785; doi:10.1097/ACO.0000000000000325.", "link": "https://doi.org/10.1097/aco.0000000000000325", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Vohra2016", "text": "Vohra R, Madhavan S, Sambamoorthi U. Emergency Department Use Among Adults with Autism Spectrum Disorders (ASD). J Autism Dev Disord. 2016;46(4):1441-54. PMID 26762115; PMCID PMC4845033; doi:10.1007/s10803-015-2692-2.", "link": "https://doi.org/10.1007/s10803-015-2692-2", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Voineagu2011", "text": "Voineagu I, Wang X, Johnston P, Lowe JK, Tian Y, Horvath S, et al. Transcriptomic analysis of autistic brain reveals convergent molecular pathology. Nature. 2011;474(7351):380-4. PMID 21614001; PMCID PMC3607626; doi:10.1038/nature10110.", "link": "https://doi.org/10.1038/nature10110", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Volkmar2014", "text": "Volkmar FR, McPartland JC. From Kanner to DSM-5: autism as an evolving diagnostic concept. Annu Rev Clin Psychol. 2014;10:193-212. PMID 24329180; doi:10.1146/annurev-clinpsy-032813-153710.", "link": "https://doi.org/10.1146/annurev-clinpsy-032813-153710", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Wakefield1998", "text": "Wakefield AJ, Murch SH, Anthony A, Linnell J, Casson DM, Malik M, et al. Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and pervasive developmental disorder in children. Lancet. 1998;351(9103):637-41. PMID 9500320; doi:10.1016/s0140-6736(97)11096-0. RETRACTED (see Lancet2010Retraction).", "link": "https://doi.org/10.1016/s0140-6736(97)11096-0", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Wan2018Diabetes", "text": "Wan H, Zhang C, Li H, Luan S, Liu C. Association of maternal diabetes with autism spectrum disorders in offspring: A systemic review and meta-analysis. Medicine (Baltimore). 2018;97(2):e9438. PMID 29480832; PMCID PMC5943853; doi:10.1097/MD.0000000000009438.", "link": "https://doi.org/10.1097/md.0000000000009438", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Ward2023PhysHealth", "text": "Ward JH, Weir E, Allison C, Baron-Cohen S. Increased rates of chronic physical health conditions across all organ systems in autistic adolescents and adults. Mol Autism. 2023;14(1):35. PMID 37730651; PMCID PMC10510241; doi:10.1186/s13229-023-00565-2.", "link": "https://doi.org/10.1186/s13229-023-00565-2", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Wehman2017", "text": "Wehman P, Schall CM, McDonough J, Graham C, Brooke V, Riehle JE, et al. Effects of an employer-based intervention on employment outcomes for youth with significant support needs due to autism. Autism. 2017;21(3):276-290. PMID 27154907; doi:10.1177/1362361316635826.", "link": "https://doi.org/10.1177/1362361316635826", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Weir2021", "text": "Weir E, Allison C, Warrier V, Baron-Cohen S. Increased prevalence of non-communicable physical health conditions among autistic adults. Autism. 2021;25(3):681-694. PMID 32907337; PMCID PMC7610707; doi:10.1177/1362361320953652.", "link": "https://doi.org/10.1177/1362361320953652", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Weiss2008NEJM", "text": "Weiss LA, Shen Y, Korn JM, Arking DE, Miller DT, Fossdal R, et al. Association between microdeletion and microduplication at 16p11.2 and autism. N Engl J Med. 2008;358(7):667-75. PMID 18184952; doi:10.1056/NEJMoa075974.", "link": "https://doi.org/10.1056/nejmoa075974", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Weiss2018Victimization", "text": "Weiss JA, Fardella MA. Victimization and Perpetration Experiences of Adults With Autism. Front Psychiatry. 2018;9:203. PMID 29887806; PMCID PMC5980973; doi:10.3389/fpsyt.2018.00203.", "link": "https://doi.org/10.3389/fpsyt.2018.00203", "areas": ["H"], "unverified": false, "validated": "PubMed"}, {"key": "Weston2016", "text": "Weston L, Hodgekins J, Langdon PE. Effectiveness of cognitive behavioural therapy with people who have autistic spectrum disorders: A systematic review and meta-analysis. Clin Psychol Rev. 2016;49:41-54. PMID 27592496; doi:10.1016/j.cpr.2016.08.001.", "link": "https://doi.org/10.1016/j.cpr.2016.08.001", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Westwood2017", "text": "Westwood H, Tchanturia K. Autism Spectrum Disorder in Anorexia Nervosa: An Updated Literature Review. Curr Psychiatry Rep. 2017;19(7):41. PMID 28540593; PMCID PMC5443871; doi:10.1007/s11920-017-0791-9.", "link": "https://doi.org/10.1007/s11920-017-0791-9", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "Whitehouse2019", "text": "Whitehouse AJO, Varcin KJ, Alvares GA, Barbaro J, Bent C, Boutrus M, et al. Pre-emptive intervention versus treatment as usual for infants showing early behavioural risk signs of autism spectrum disorder: a single-blind, randomised controlled trial. Lancet Child Adolesc Health. 2019;3(9):605-615. PMID 31324597; doi:10.1016/S2352-4642(19)30184-1.", "link": "https://doi.org/10.1016/s2352-4642(19)30184-1", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Whitehouse2021", "text": "Whitehouse AJO, Varcin KJ, Pillar S, Billingham W, Alvares GA, Barbaro J, et al. Effect of Preemptive Intervention on Developmental Outcomes Among Infants Showing Early Signs of Autism: A Randomized Clinical Trial of Outcomes to Diagnosis. JAMA Pediatr. 2021;175(11):e213298. PMID 34542577; PMCID PMC8453361; doi:10.1001/jamapediatrics.2021.3298.", "link": "https://doi.org/10.1001/jamapediatrics.2021.3298", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Wieckowski2023", "text": "Wieckowski AT, Williams LN, Rando J, Lyall K, Robins DL. Sensitivity and Specificity of the Modified Checklist for Autism in Toddlers (Original and Revised): A Systematic Review and Meta-analysis. JAMA Pediatr. 2023;177(4):373-383. PMID 36804771; PMCID PMC9941975; doi:10.1001/jamapediatrics.2022.5975.", "link": "https://doi.org/10.1001/jamapediatrics.2022.5975", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Wigdor2022", "text": "Wigdor EM, Weiner DJ, Grove J, Fu JM, Thompson WK, Carey CE, et al. The female protective effect against autism spectrum disorder. Cell Genom. 2022;2(6):100134. PMID 36778135; PMCID PMC9903803; doi:10.1016/j.xgen.2022.100134.", "link": "https://doi.org/10.1016/j.xgen.2022.100134", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Williams2012Secretin", "text": "Williams K, Wray JA, Wheeler DM. Intravenous secretin for autism spectrum disorders (ASD). Cochrane Database Syst Rev. 2012;2012(4):CD003495. PMID 22513913; PMCID PMC7154585; doi:10.1002/14651858.CD003495.pub3.", "link": "https://doi.org/10.1002/14651858.cd003495.pub3", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Williams2013SSRI", "text": "Williams K, Brignell A, Randall M, Silove N, Hazell P. Selective serotonin reuptake inhibitors (SSRIs) for autism spectrum disorders (ASD). Cochrane Database Syst Rev. 2013;2013(8):CD004677. PMID 23959778; PMCID PMC11990048; doi:10.1002/14651858.CD004677.pub3.", "link": "https://doi.org/10.1002/14651858.cd004677.pub3", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Williams2021DST", "text": "Williams ZJ, He JL, Cascio CJ, Woynaroski TG. A review of decreased sound tolerance in autism: Definitions, phenomenology, and potential mechanisms. Neurosci Biobehav Rev. 2021;121:1-17. PMID 33285160; PMCID PMC7855558; doi:10.1016/j.neubiorev.2020.11.030.", "link": "https://doi.org/10.1016/j.neubiorev.2020.11.030", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Williams2021Hyperacusis", "text": "Williams ZJ, Suzman E, Woynaroski TG. Prevalence of Decreased Sound Tolerance (Hyperacusis) in Individuals With Autism Spectrum Disorder: A Meta-Analysis. Ear Hear. 2021;42(5):1137-1150. PMID 33577214; PMCID PMC8349927; doi:10.1097/AUD.0000000000001005.", "link": "https://doi.org/10.1097/aud.0000000000001005", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Williams2023Interoception", "text": "Williams ZJ, Suzman E, Bordman SL, Markfeld JE, Kaiser SM, Dunham KA, et al. Characterizing Interoceptive Differences in Autism: A Systematic Review and Meta-analysis of Case-control Studies. J Autism Dev Disord. 2023;53(3):947-962. PMID 35819587; PMCID PMC9832174; doi:10.1007/s10803-022-05656-2.", "link": "https://doi.org/10.1007/s10803-022-05656-2", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "WilliamsBuckley2020", "text": "Williams Buckley A, Hirtz D, Oskoui M, Armstrong MJ, Batra A, Bridgemohan C, et al. Practice guideline: Treatment for insomnia and disrupted sleep behavior in children and adolescents with autism spectrum disorder: Report of the Guideline Development, Dissemination, and Implementation Subcommittee of the American Academy of Neurology. Neurology. 2020;94(9):392-404. PMID 32051244; PMCID PMC7238942; doi:10.1212/WNL.0000000000009033.", "link": "https://doi.org/10.1212/wnl.0000000000009033", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Willsey2013", "text": "Willsey AJ, Sanders SJ, Li M, Dong S, Tebbenkamp AT, Muhle RA, et al. Coexpression networks implicate human midfetal deep cortical projection neurons in the pathogenesis of autism. Cell. 2013;155(5):997-1007. PMID 24267886; PMCID PMC3995413; doi:10.1016/j.cell.2013.10.020.", "link": "https://doi.org/10.1016/j.cell.2013.10.020", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Wing1981", "text": "Wing L. Asperger's syndrome: a clinical account. Psychol Med. 1981;11(1):115-29. PMID 7208735; doi:10.1017/s0033291700053332.", "link": "https://doi.org/10.1017/s0033291700053332", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Wing2000", "text": "Wing L, Shah A. Catatonia in autistic spectrum disorders. Br J Psychiatry. 2000;176:357-62. PMID 10827884; doi:10.1192/bjp.176.4.357.", "link": "https://doi.org/10.1192/bjp.176.4.357", "areas": ["G"], "unverified": false, "validated": "PubMed"}, {"key": "WingGould1979", "text": "Wing L, Gould J. Severe impairments of social interaction and associated abnormalities in children: epidemiology and classification. J Autism Dev Disord. 1979;9(1):11-29. PMID 155684; doi:10.1007/BF01531288.", "link": "https://doi.org/10.1007/bf01531288", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Wolff2012DTI", "text": "Wolff JJ, Gu H, Gerig G, Elison JT, Styner M, Gouttard S, et al. Differences in white matter fiber tract development present from 6 to 24 months in infants with autism. Am J Psychiatry. 2012;169(6):589-600. PMID 22362397; PMCID PMC3377782; doi:10.1176/appi.ajp.2011.11091447.", "link": "https://doi.org/10.1176/appi.ajp.2011.11091447", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Wolff2017RRB", "text": "Wolff JJ, Swanson MR, Elison JT, Gerig G, Pruett JR Jr, Styner MA, et al. Neural circuitry at age 6 months associated with later repetitive behavior and sensory responsiveness in autism. Mol Autism. 2017;8:8. PMID 28316772; PMCID PMC5351210; doi:10.1186/s13229-017-0126-z.", "link": "https://doi.org/10.1186/s13229-017-0126-z", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Wood2020", "text": "Wood JJ, Kendall PC, Wood KS, Kerns CM, Seltzer M, Small BJ, et al. Cognitive Behavioral Treatments for Anxiety in Children With Autism Spectrum Disorder: A Randomized Clinical Trial. JAMA Psychiatry. 2020;77(5):474-483. PMID 31755906; PMCID PMC6902190; doi:10.1001/jamapsychiatry.2019.4160.", "link": "https://doi.org/10.1001/jamapsychiatry.2019.4160", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "WoodburySmith2005", "text": "Woodbury-Smith MR, Robinson J, Wheelwright S, Baron-Cohen S. Screening adults for Asperger Syndrome using the AQ: a preliminary study of its diagnostic validity in clinical practice. J Autism Dev Disord. 2005;35(3):331-5. PMID 16119474; doi:10.1007/s10803-005-3300-7.", "link": "https://doi.org/10.1007/s10803-005-3300-7", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Wu2017ParentalAge", "text": "Wu S, Wu F, Ding Y, Hou J, Bi J, Zhang Z. Advanced parental age and autism risk in children: a systematic review and meta-analysis. Acta Psychiatr Scand. 2017;135(1):29-41. PMID 27858958; doi:10.1111/acps.12666.", "link": "https://doi.org/10.1111/acps.12666", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Xiang2015", "text": "Xiang AH, Wang X, Martinez MP, Walthall JC, Curry ES, Page K, et al. Association of maternal diabetes with autism in offspring. JAMA. 2015;313(14):1425-34. PMID 25871668; doi:10.1001/jama.2015.2707.", "link": "https://doi.org/10.1001/jama.2015.2707", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Yap2021", "text": "Yap CX, Henders AK, Alvares GA, Wood DLA, Krause L, Tyson GW, et al. Autism-related dietary preferences mediate autism-gut microbiome associations. Cell. 2021;184(24):5916-5931.e17. PMID 34767757; doi:10.1016/j.cell.2021.10.015.", "link": "https://doi.org/10.1016/j.cell.2021.10.015", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Yizhar2011", "text": "Yizhar O, Fenno LE, Prigge M, Schneider F, Davidson TJ, O'Shea DJ, et al. Neocortical excitation/inhibition balance in information processing and social dysfunction. Nature. 2011;477(7363):171-8. PMID 21796121; PMCID PMC4155501; doi:10.1038/nature10360.", "link": "https://doi.org/10.1038/nature10360", "areas": ["C"], "unverified": false, "validated": "PubMed"}, {"key": "Yu2022", "text": "Yu X, Xu X. The future of care and clinical research in autism - recommendations from the 2021 Lancet Commission. Med Rev (2021). 2022;2(3):216-218. PMID 37724192; PMCID PMC10388786; doi:10.1515/mr-2022-0015.", "link": "https://doi.org/10.1515/mr-2022-0015", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Zeidan2022", "text": "Zeidan J, Fombonne E, Scorah J, Ibrahim A, Durkin MS, Saxena S, et al. Global prevalence of autism: A systematic review update. Autism Res. 2022;15(5):778-790. PMID 35238171; PMCID PMC9310578; doi:10.1002/aur.2696.", "link": "https://doi.org/10.1002/aur.2696", "areas": ["A"], "unverified": false, "validated": "PubMed"}, {"key": "Zhou2022", "text": "Zhou X, Feliciano P, Shu C, Wang T, Astrovskaya I, Hall JB, et al. Integrating de novo and inherited variants in 42,607 autism cases identifies mutations in new moderate-risk genes. Nat Genet. 2022;54(9):1305-1319. PMID 35982159; PMCID PMC9470534; doi:10.1038/s41588-022-01148-2.", "link": "https://doi.org/10.1038/s41588-022-01148-2", "areas": ["B"], "unverified": false, "validated": "PubMed"}, {"key": "Zimmer2012", "text": "Section on Complementary and Integrative Medicine; Council on Children with Disabilities; American Academy of Pediatrics; Zimmer M, Desch L. Sensory integration therapies for children with developmental and behavioral disorders. Pediatrics. 2012;129(6):1186-1189. PMID 22641765; doi:10.1542/peds.2012-0876.", "link": "https://doi.org/10.1542/peds.2012-0876", "areas": ["E"], "unverified": false, "validated": "Europe PMC"}, {"key": "Zimmerman2021", "text": "Zimmerman AW, Singh K, Connors SL, Liu H, Panjwani AA, Lee LC, et al. Randomized controlled trial of sulforaphane and metabolite discovery in children with Autism Spectrum Disorder. Mol Autism. 2021;12(1):38. PMID 34034808; PMCID PMC8146218; doi:10.1186/s13229-021-00447-5.", "link": "https://doi.org/10.1186/s13229-021-00447-5", "areas": ["F"], "unverified": false, "validated": "PubMed"}, {"key": "Zubler2022", "text": "Zubler JM, Wiggins LD, Macias MM, Whitaker TM, Shaw JS, Squires JK, et al. Evidence-Informed Milestones for Developmental Surveillance Tools. Pediatrics. 2022;149(3):e2021052138. PMID 35132439; PMCID PMC9680195; doi:10.1542/peds.2021-052138.", "link": "https://doi.org/10.1542/peds.2021-052138", "areas": ["C", "D"], "unverified": false, "validated": "PubMed"}, {"key": "Zuckerman2015", "text": "Zuckerman KE, Lindly OJ, Sinche BK. Parental concerns, provider response, and timeliness of autism spectrum disorder diagnosis. J Pediatr. 2015;166(6):1431-9.e1. PMID 25888348; PMCID PMC4446243; doi:10.1016/j.jpeds.2015.03.007.", "link": "https://doi.org/10.1016/j.jpeds.2015.03.007", "areas": ["D"], "unverified": false, "validated": "PubMed"}, {"key": "Zwaigenbaum2005", "text": "Zwaigenbaum L, Bryson S, Rogers T, Roberts W, Brian J, Szatmari P. Behavioral manifestations of autism in the first year of life. Int J Dev Neurosci. 2005;23(2-3):143-52. PMID 15749241; doi:10.1016/j.ijdevneu.2004.05.001.", "link": "https://doi.org/10.1016/j.ijdevneu.2004.05.001", "areas": ["C", "D"], "unverified": false, "validated": "PubMed"}, {"key": "Zwaigenbaum2015", "text": "Zwaigenbaum L, Bauman ML, Stone WL, Yirmiya N, Estes A, Hansen RL, et al. Early Identification of Autism Spectrum Disorder: Recommendations for Practice and Research. Pediatrics. 2015;136 Suppl 1:S10-40. PMID 26430168; PMCID PMC9923897; doi:10.1542/peds.2014-3667C.", "link": "https://doi.org/10.1542/peds.2014-3667c", "areas": ["D"], "unverified": false, "validated": "PubMed"}];
+
+/* =============== home: four made-up profiles, as wheels and as one line =============== */
+/* HERO_CAP: [wheel view, line view]. Schematic only; the 'what' builder may add a cited sentence. */
+const HERO_CAP=['Schematic: four made-up profiles, not measurements. Each spoke is an area where autistic people can differ; the further out, the more that area shapes daily life.','Schematic: squeeze each made-up wheel into one number and four different people land in almost the same place. That is why support needs are described area by area.'];
+inits.home=()=>{
+  const svg=$('#heroSvg'),rg=$('#heroT'),lb=$('#heroLine'),cap=$('#heroCap');let line=false;
+  const AX=['Social','Sensory','Routine','Interests','Language','Movement'];
+  /* made-up values chosen so that the four averages are nearly equal while the shapes differ */
+  const P=[[.85,.3,.6,.9,.2,.4],[.3,.9,.7,.4,.8,.2],[.6,.62,.3,.5,.48,.8],[.45,.2,.88,.74,.35,.6]];
+  const COL=['var(--brand)','var(--accent)','var(--neuro)','var(--rx)'];
+  const avg=v=>v.reduce((a,b)=>a+b,0)/v.length;
+  function at(t){const u=clamp(t)*3,i=Math.min(2,Math.floor(u)),f=ease(ramp(u-i,.3,.7));
+    return {vals:P[i].map((v,k)=>lerp(v,P[i+1][k],f)),idx:f<.5?i:i+1}}
+  function draw(t){const N=vb(svg,'520 300','400 360');const {vals,idx}=at(t);let s='';
+    const cx=N?200:170,cy=N?150:150,r=N?92:100;
+    const w=profile(cx,cy,r,vals,{labels:AX,col:COL[idx],fs:'t-sm'});
+    s+=`<g style="opacity:${line?.22:1};transition:opacity .3s">${w.svg}</g>`;
+    if(line){}
+    else if(!N){s+=person(410,70,64,COL[idx]);
+      s+=`<text x="410" y="160" class="t-big t-mid" style="fill:${COL[idx]}">Person ${idx+1}</text><text x="410" y="178" class="t-sm t-mid">made up, ${idx+1} of 4</text>`}
+    else s+=`<text x="20" y="28" class="t-big" style="fill:${COL[idx]}">Person ${idx+1}</text><text x="20" y="44" class="t-sm">made up, ${idx+1} of 4</text>`;
+    /* the one-line view: every wheel reduced to its average */
+    const lx0=line?(N?40:90):(N?40:300),lx1=line?(N?360:430):(N?360:500),ly=line?150:(N?318:262),big=line;
+    if(line&&!N){s+=`<rect x="${lx0-30}" y="${ly-62}" width="${lx1-lx0+60}" height="108" rx="12" style="fill:var(--panel);stroke:var(--line)"/>`}
+    if(line&&N){s+=`<rect x="${lx0-20}" y="${ly-58}" width="${lx1-lx0+40}" height="104" rx="12" style="fill:var(--panel);stroke:var(--line)"/>`}
+    s+=`<line x1="${lx0}" x2="${lx1}" y1="${ly}" y2="${ly}" style="stroke:var(--muted);stroke-width:${big?2.4:1.4}"/>`;
+    s+=`<text x="${lx0}" y="${ly+18}" class="t-xs">less</text><text x="${lx1}" y="${ly+18}" class="t-xs t-end">more</text>`;
+    s+=`${big?`<text x="${(lx0+lx1)/2}" y="${ly+36}" class="t-sm t-mid">Person ${idx+1} is the large dot</text>`:''}<text x="${(lx0+lx1)/2}" y="${ly-(big?36:12)}" class="${big?'t-lbl':'t-xs'} t-mid">${big?'One line: four people, one point':'one-line view'}</text>`;
+    const xs=P.map(v=>lerp(lx0,lx1,avg(v)));
+    P.forEach((v,k)=>{const x=xs[k],on=k===idx,dy=big?(k-1.5)*7:0;
+      s+=`<circle cx="${f1(x)}" cy="${f1(ly+dy)}" r="${on?(big?7:5):(big?5:3.2)}" style="fill:${COL[k]};stroke:var(--panel);stroke-width:1.5;opacity:${on?1:.75}"/>`});
+    svg.innerHTML=s}
+  lb.addEventListener('click',()=>{line=!line;lb.setAttribute('aria-pressed',line);cap.innerHTML=line?HERO_CAP[1]:HERO_CAP[0];draw(+rg.value)});
+  cap.innerHTML=HERO_CAP[0];
+  playWire(rg,$('#heroPlay'),draw,12000,'Replay','home');draw(+rg.value);
+};
+/* =============== 1.1 What autism is =============== */
+/* ADDM prevalence per 1,000 8-year-olds, 1 in N, number of sites */
+const WH_US=[
+ {y:2000,v:6.7,n:150,s:6,src:'about 1 in 150 (rounded from 6.7 per 1,000)'},{y:2002,v:6.6,n:152,s:14},{y:2006,v:9.0,n:110,s:11},{y:2008,v:11.3,n:88,s:14},
+ {y:2010,v:14.7,n:68,s:11},{y:2012,v:14.6,n:68,s:11},{y:2014,v:16.8,n:59,s:11},{y:2016,v:18.5,n:54,s:11},{y:2018,v:23.0,n:44,s:11},
+ {y:2020,v:27.6,n:36,s:11},{y:2022,v:32.2,n:31,s:16}];
+/* worldwide: GBD age-standardised (per 1,000 from per 100,000) and the two global review medians */
+const WH_W=[
+ {y:1990,v:7.732,n:129,kind:'gbd',lab:'GBD 1990',sub:'773.2 per 100,000, age-standardised',calc:true},
+ {y:2010,v:7.6,n:132,kind:'gbd10',lab:'GBD 2010',sub:'52 million people, 7.6 per 1,000'},
+ {y:2012,v:6.2,n:161,kind:'rev',lab:'Elsabbagh 2012',sub:'review median 62 per 10,000',calc:true},
+ {y:2021,v:7.883,n:127,kind:'gbd',lab:'GBD 2021',sub:'61.8 million people, 788.3 per 100,000'},
+ {y:2022,v:10.0,n:100,kind:'rev',lab:'Zeidan 2022',sub:'review median 100 per 10,000'}];
+const WH_STEPS_US=[
+ {from:0,at:.09,k:'Surveillance years 2000–2002',t:'Early counts',
+  txt:`CDC's Autism and Developmental Disabilities Monitoring (ADDM) Network counts autism in 8-year-olds by reviewing health records, and at most sites education records too, in selected US communities. It is not a national sample. In 2000, six sites found 6.7 per 1,000, about 1 in 150; in 2002, 14 sites found 6.6 per 1,000, "one of every 152". <sup class="c" data-ref="Baio2018,ADDM2007SY2000,ADDM2007SY2002" title="Source 1,2,35">1,2,35</sup>`,
+  pt:`In the early 2000s, about 1 in 150 eight-year-olds in these US communities had been identified as autistic.`,
+  hook:`ADDM is records-based surveillance of 8-year-olds in selected sites, not a national survey. Sites that could read education records found more (2002: 7.2 vs 5.1 per 1,000). <sup class="c" data-ref="ADDM2007SY2002" title="Source 2">2</sup>`},
+ {from:.2,at:.46,k:'Surveillance years 2006–2012',t:'DSM-IV era',
+  txt:`Counts rose under the same DSM-IV criteria: 9.0 per 1,000 in 2006 (1 in 110), 11.3 in 2008 (1 in 88) and 14.7 in 2010 (1 in 68). Between 2002 and 2006 the average across 10 sites rose 57%. CDC wrote that improved ascertainment explains some of the rise but "a true increase in the risk ... cannot be ruled out". <sup class="c" data-ref="ADDM2009SY2006,ADDM2012SY2008,ADDM2014SY2010" title="Source 3,4,5">3,4,5</sup>`,
+  pt:`Same rulebook, more children found: services were getting better at noticing autism.`,
+  hook:`2002 to 2008: up an estimated 78%, from 6.4 to 11.4 per 1,000. <sup class="c" data-ref="ADDM2012SY2008" title="Source 4">4</sup>`},
+ {from:.58,at:.64,k:'DSM-5, 2013',t:'A new definition',
+  txt:`DSM-5 merged Asperger's disorder and the other subtypes into one diagnosis, autism spectrum disorder, in 2013. When CDC scored the 2014 records both ways, DSM-IV-TR counts were less than 5% higher than DSM-5 counts, and the two definitions overlapped by about 86% (kappa 0.85). Prevalence was 16.8 per 1,000 in 2014 (1 in 59) and 18.5 in 2016 (1 in 54). <sup class="c" data-ref="BarahonaCorrea2015,Baio2018,Maenner2020" title="Source 35,36,348">35,36,348</sup>`,
+  pt:`The new definition did not by itself make the numbers jump: both definitions found almost the same children.`,
+  hook:`ADDM 2014: DSM-IV-TR and DSM-5 case definitions agreed with kappa 0.85; DSM-IV-TR counted under 5% more. <sup class="c" data-ref="Baio2018" title="Source 35">35</sup>`},
+ {from:.76,at:.91,k:'Surveillance years 2016–2020',t:'Girls and children of colour',
+  txt:`In 2010, White children were about 30% more likely than Black children and almost 50% more likely than Hispanic children to be identified. By 2016 White, Black and Asian/Pacific Islander rates were about equal. In 2020, for the first time, prevalence was lower in White children (24.3 per 1,000) than in Black (29.3), Hispanic (31.6) and A/PI children (33.4). The boy-to-girl ratio fell from 4.3 in 2016 to 3.8 in 2020. <sup class="c" data-ref="ADDM2014SY2010,Maenner2020,Maenner2023" title="Source 5,348,350">5,348,350</sup>`,
+  pt:`Children who used to be missed, especially children of colour and girls, are now found more often.`,
+  hook:`ADDM 2020 was the first year White 8-year-olds had lower identified prevalence than Black, Hispanic and A/PI children. <sup class="c" data-ref="Maenner2023" title="Source 350">350</sup>`},
+ {from:.955,at:1,k:'Surveillance year 2022',t:'Latest: 1 in 31',
+  txt:`In 2022, 16 sites found 32.2 per 1,000 8-year-olds, 1 in 31. Boys were identified 3.4 times as often as girls (49.2 vs 14.3 per 1,000). Sites ranged from 9.7 per 1,000 in Laredo, Texas, to 53.1 in California, more than fivefold. Only 34.6% of the children counted had all three elements of the case definition in their records. <sup class="c" data-ref="Shaw2025" title="Source 541">541</sup>`,
+  pt:`About 1 in 31 eight-year-olds in these US communities had been identified as autistic in 2022. The number tells us about identification as well as about autism.`,
+  hook:`ADDM 2022: 32.2 per 1,000 (1 in 31), 16 sites, boys 3.4 times girls, median diagnosis age 47 months. <sup class="c" data-ref="Shaw2025" title="Source 541">541</sup>`}];
+const WH_STEPS_W=[
+ {from:0,at:.03,k:'Worldwide · 1990',t:'A modelled baseline',
+  txt:`The Global Burden of Disease (GBD) study models autism in every country and age group. Its age-standardised estimate for 1990 was 773.2 per 100,000, about 7.7 per 1,000 people of all ages. <sup class="c" data-ref="Santomauro2025" title="Source 518">518</sup>`,
+  pt:`Worldwide models count people of every age, not only children, so their numbers look smaller than US school-age counts.`,
+  hook:`GBD: modelled, all ages, age-standardised. ADDM: records, 8-year-olds, selected US sites. Neither is "the" number.`},
+ {from:.5,at:.63,k:'GBD 2010',t:'GBD 2010: 1 in 132',
+  txt:`The GBD 2010 estimate was 52 million autistic people, 7.6 per 1,000 or one in 132. After adjusting for methods, the authors found "no clear evidence of a change in prevalence" between 1990 and 2010. <sup class="c" data-ref="Baxter2015" title="Source 42">42</sup>`,
+  pt:`Once differences in how studies counted are allowed for, the worldwide estimate hardly moved over 20 years.`,
+  hook:`GBD 2010: 52 million, 1 in 132, no clear change since 1990. <sup class="c" data-ref="Baxter2015" title="Source 42">42</sup>`},
+ {from:.67,at:.69,k:'Global review, 2012',t:'A review median',
+  txt:`A global review of prevalence studies in 2012 gave a median of 62 per 10,000. It found no clear differences by region, ethnicity or socioeconomic status, but evidence from low- and middle-income countries was thin. <sup class="c" data-ref="Elsabbagh2012" title="Source 128">128</sup>`,
+  pt:`A review median is the middle study: half the studies found more, half found less.`,
+  hook:`Global review medians: 62 per 10,000 (2012) and 100 per 10,000 (2022). <sup class="c" data-ref="Elsabbagh2012,Zeidan2022" title="Source 128,650">128,650</sup>`},
+ {from:.8,at:.97,k:'GBD 2021',t:'GBD 2021: 1 in 127',
+  txt:`GBD 2021 estimated 61.8 million autistic people in 2021 (uncertainty interval 52.1–72.7 million), one in every 127. Age-standardised prevalence was 788.3 per 100,000, almost the same as in 1990. The high-income super-region was highest (1,090.2 per 100,000); the lowest country estimate was Bangladesh (588.2). The authors call their US estimate "more conservative" than CDC's, and only six studies of adults fed their models. <sup class="c" data-ref="Santomauro2025" title="Source 518">518</sup>`,
+  pt:`About 1 in 127 people worldwide are autistic, and the modelled rate has barely changed since 1990.`,
+  hook:`GBD 2021: 61.8 million, 1 in 127; 1,064.7 per 100,000 males vs 508.1 per 100,000 females. <sup class="c" data-ref="Santomauro2025" title="Source 518">518</sup>`},
+ {from:.99,at:1,k:'Global review, 2022',t:'Zeidan 2022: about 1 in 100',
+  txt:`The 2022 systematic review update pooled 99 estimates from 71 studies published 2012–2021: median 100 per 10,000 (about 1 in 100), with a huge range (1.09 to 436.0 per 10,000). It attributes the variation to "community awareness, service capacity, help seeking, and sociodemographic factors". A separate three-level meta-analysis pooled 0.72%. <sup class="c" data-ref="Zeidan2022,Talantseva2023" title="Source 579,650">579,650</sup>`,
+  pt:`Countries count autism very differently. How many people are found depends a lot on who is looking and which services exist.`,
+  hook:`Zeidan 2022: median about 1 in 100; male-to-female 4.2; 33.0% with intellectual disability. <sup class="c" data-ref="Zeidan2022" title="Source 650">650</sup>`}];
+const WH_CAP={us:`ADDM prevalence per 1,000 8-year-olds by surveillance year; the icons show the published "1 in N" (2000 is a rounding of 6.7 per 1,000). Flags mark what changed. <sup class="c" data-ref="ADDM2007SY2000,ADDM2007SY2002,ADDM2009SY2006,ADDM2012SY2008,ADDM2014SY2010,Christensen2016,Baio2018,Maenner2020,Maenner2021,Maenner2023,Shaw2025" title="Source 1,2,3,4,5,35,86,348,349,350,541">1,2,3,4,5,35,86,348,349,350,541</sup>`,
+ w:`GBD: age-standardised modelled prevalence, all ages (per 100,000 shown per 1,000). Review medians are from published studies. "1 in 129" for 1990 and "1 in 161" for 2012 are our conversions of the published rates. <sup class="c" data-ref="Santomauro2025,Baxter2015,Elsabbagh2012,Zeidan2022" title="Source 42,128,518,650">42,128,518,650</sup>`};
+const WH_EST=[
+ {n:127,l:'Worldwide, all ages',tx:`GBD 2021 estimated that 61.8 million people, one in every 127, were on the autism spectrum in 2021. This is a model across all countries and ages. <sup class="c" data-ref="Santomauro2025" title="Source 518">518</sup>`},
+ {n:100,l:'Global review median',tx:`The median of 99 estimates from 71 studies published 2012–2021 was 100 per 10,000, about 1 in 100. Individual studies ranged from 1.09 to 436.0 per 10,000. <sup class="c" data-ref="Zeidan2022" title="Source 650">650</sup>`},
+ {n:91,l:'Adults in England',tx:`England's Adult Psychiatric Morbidity Survey, with a case-register survey of adults with intellectual disability, gave 11 per 1,000 adults (about 1.1%). Prevalence did not fall with age. <sup class="c" data-ref="Brugha2016,Brugha2011" title="Source 62,63">62,63</sup>`},
+ {n:45,l:'US adults (modelled)',tx:`A CDC modelling study estimated that 2.21% of US adults, about 5.4 million people, were autistic in 2017, including undiagnosed adults. State estimates ranged from 1.97% to 2.42%. <sup class="c" data-ref="Dietz2020" title="Source 118">118</sup>`},
+ {n:40,l:'US children, parent report',tx:`In the 2016 National Survey of Children's Health, parents of 2.50% of US children aged 3–17 (1 in 40) said their child had ever received an autism diagnosis and still had it. <sup class="c" data-ref="Kogan2018" title="Source 298">298</sup>`},
+ {n:34,l:'English 10–14-year-olds, recorded',tx:`In English primary care in 2018, 2.94% of 10–14-year-olds had a recorded autism diagnosis (1 in 34). <sup class="c" data-ref="ONions2023" title="Source 432">432</sup>`},
+ {n:31,l:'US 8-year-olds, ADDM 2022',tx:`In 16 US communities in 2022, 32.2 per 1,000 8-year-olds (1 in 31) had been identified as autistic. <sup class="c" data-ref="Shaw2025" title="Source 541">541</sup>`},
+ {n:6000,l:'English adults 70+, recorded',tx:`Only 0.02% of people aged 70 or older in English primary care had a recorded autism diagnosis in 2018 (1 in 6,000). Compare the adult survey: about 1 in 91 adults, at every age. The gap is people who were never diagnosed. <sup class="c" data-ref="ONions2023,Brugha2016" title="Source 63,432">63,432</sup>`}];
+inits.what=()=>{
+  const svg=$('#whSvg'),rg=$('#whT'),note=$('#whNote'),cap=$('#whCap'),bUS=$('#whUS'),bW=$('#whWorld');
+  let mode='us';
+  const steps=WH_STEPS_US.slice();
+  /* flags: what changed (US view) */
+  const FL=[{y:2002,l:'education records',s:'records'},{y:2006,l:'awareness, services',s:'services'},{y:2013,l:'DSM-5 definition',s:'DSM-5'},{y:2020,l:'children of colour',s:'children of colour'},{y:2022,l:'more girls',s:'girls'}];
+  const R=rng(7);const LIT={};
+  const litIdx=n=>{if(LIT[n]==null)LIT[n]=Math.floor(R()*n);return LIT[n]};
+  function icons(x0,y0,w,rows,n,s,col){let g='';const cols=Math.ceil(n/rows),dx=w/cols,dy=s*1.22,li=litIdx(n);
+    for(let i=0;i<n;i++){const c=i%cols,r=Math.floor(i/cols);const on=i===li;
+      g+=person(x0+c*dx+dx/2,y0+r*dy,s,on?col:'var(--muted)',{op:on?1:.3})}
+    return g}
+  function draw(t){
+    const N=vb(svg,'720 380','400 590');const us=mode==='us',D=us?WH_US:WH_W;
+    const y0=us?2000:1990,y1=2022,yr=lerp(y0,y1,clamp(t)),yMax=us?35:12;
+    const C=N?{x0:46,x1:380,top:316,bot:540}:{x0:66,x1:700,top:150,bot:330};
+    const X=y=>lerp(C.x0,C.x1,(y-y0)/(y1-y0)),Y=v=>lerp(C.bot,C.top,v/yMax);
+    let s=`<defs>${marker('whAr','var(--muted)')}</defs>`;
+    /* current estimate: last point reached */
+    let ci=0;D.forEach((d,i)=>{if(d.y<=yr+1e-6)ci=i});const cu=D[ci];
+    /* headline and icon array */
+    const col=us?'var(--brand)':'var(--accent)';
+    const bx=N?20:18,by=N?44:52;
+    s+=`<text x="${bx}" y="${by}" style="font:800 ${N?30:34}px var(--display);fill:${col}">1 in ${cu.n.toLocaleString('en')}</text>`;
+    const l2=us?`8-year-olds · ADDM ${cu.y}`:`${cu.lab}`,l3=us?`${f1(cu.v)} per 1,000 · ${cu.s} sites`:cu.sub,l4=us?(cu.src?'rounded from the rate':'published figure'):(cu.calc?'1 in N: our conversion':'published figure');
+    if(N){s+=`<text x="${bx}" y="${by+20}" class="t-sm">${l2}</text><text x="${bx}" y="${by+36}" class="t-xs">${l3}</text>`;
+      s+=`<text x="380" y="${by}" class="t-xs t-end">${l4}</text>`;
+      s+=icons(18,by+50,364,8,cu.n,16,col)}
+    else{s+=`<text x="${bx}" y="${by+22}" class="t-sm">${l2}</text>`;
+      const w3=l3.length>30?l3.split(', '):[l3];w3.forEach((q,k)=>s+=`<text x="${bx}" y="${by+40+k*13}" class="t-xs">${q}</text>`);
+      s+=`<text x="${bx}" y="${by+40+w3.length*13+4}" class="t-xs" style="font-style:italic">${l4}</text>`;
+      s+=icons(212,8,500,4,cu.n,22,col)}
+    /* chart frame */
+    const gr=us?[0,10,20,30]:[0,4,8,12];
+    gr.forEach(v=>s+=`<line x1="${C.x0}" x2="${C.x1}" y1="${f1(Y(v))}" y2="${f1(Y(v))}" class="grid"/><text x="${C.x0-6}" y="${f1(Y(v)+3)}" class="t-xs t-end">${v}</text>`);
+    s+=`<text x="${C.x0-6}" y="${C.top-10}" class="t-xs">per 1,000</text>`;
+    s+=`<line x1="${C.x0}" x2="${C.x1}" y1="${C.bot}" y2="${C.bot}" style="stroke:var(--muted)"/>`;
+    const ls=us?(N?4:2):(N?8:4);
+    for(let y=y0;y<=y1;y+=ls)s+=`<line x1="${f1(X(y))}" x2="${f1(X(y))}" y1="${C.bot}" y2="${C.bot+4}" style="stroke:var(--muted)"/><text x="${f1(X(y))}" y="${C.bot+16}" class="t-xs t-mid">${y}</text>`;
+    /* cursor */
+    s+=`<line x1="${f1(X(yr))}" x2="${f1(X(yr))}" y1="${C.top-4}" y2="${C.bot}" style="stroke:var(--ink);stroke-width:1;opacity:.35"/><text x="${f1(clamp(X(yr),C.x0+14,C.x1-14))}" y="${C.bot+33}" class="t-sm t-mid" style="fill:var(--ink);font-weight:600">${Math.floor(yr+1e-6)}</text>`;
+    if(us){
+      /* flags */
+      FL.forEach((f,k)=>{if(yr<f.y-.05)return;const op=clamp((yr-f.y+.05)/.8);const x=X(f.y),ly=C.bot-10-(k%2)*14;
+        s+=`<g style="opacity:${f1(op)}"><line x1="${f1(x)}" x2="${f1(x)}" y1="${C.top+6}" y2="${C.bot}" style="stroke:var(--gold);stroke-width:1.2;stroke-dasharray:3 3"/>`;
+        const anc=x>C.x1-120?'t-end':'',tx=anc?x-4:x+4;
+        s+=`<text x="${f1(tx)}" y="${ly}" class="t-xs ${anc}" style="fill:var(--warn)">${N?f.s:f.l}</text></g>`});
+      /* line drawn to the current year */
+      let d='',area='';const pts=[];
+      for(let i=0;i<D.length;i++){const p=D[i];if(p.y>yr)break;pts.push([X(p.y),Y(p.v)])}
+      const nx=D[ci+1];if(nx&&yr>cu.y){const u=(yr-cu.y)/(nx.y-cu.y);pts.push([X(yr),Y(lerp(cu.v,nx.v,u))])}
+      pts.forEach((p,i)=>d+=(i?'L':'M')+f1(p[0])+' '+f1(p[1]));
+      if(pts.length>1){area=d+`L${f1(pts[pts.length-1][0])} ${C.bot}L${f1(pts[0][0])} ${C.bot}Z`;s+=`<path d="${area}" style="fill:var(--brand);opacity:.1"/>`}
+      s+=`<path d="${d}" style="fill:none;stroke:var(--brand);stroke-width:2.6;stroke-linejoin:round"/>`;
+      D.forEach((p,i)=>{if(p.y>yr)return;const on=i===ci;
+        s+=`<circle cx="${f1(X(p.y))}" cy="${f1(Y(p.v))}" r="${on?5.5:3.6}" style="fill:${on?'var(--brand)':'var(--panel)'};stroke:var(--brand);stroke-width:2"/>`;
+        if((!N&&p.y!==2002&&p.y!==2012)||on){const lx=clamp(X(p.y),C.x0+20,C.x1-22);s+=`<text x="${f1(lx)}" y="${f1(Y(p.v)-10)}" class="t-xs t-mid" style="${on?'fill:var(--ink);font-weight:700':''}">${on?f1(p.v):'1 in '+p.n}</text>`}});
+    }else{
+      /* GBD: almost flat modelled line */
+      const g0=WH_W[0],g1=WH_W[3],ye=Math.min(yr,2021),u=(ye-1990)/(2021-1990);
+      s+=`<path d="M${f1(X(1990))} ${f1(Y(g0.v))}L${f1(X(ye))} ${f1(Y(lerp(g0.v,g1.v,u)))}" style="fill:none;stroke:var(--accent);stroke-width:2.6"/>`;
+      s+=`<text x="${f1(X(1993))}" y="${f1(Y(g0.v)+18)}" class="t-xs" style="fill:var(--accent)">GBD, modelled, age-standardised</text>`;
+      D.forEach((p,i)=>{if(p.y>yr+1e-6)return;const on=i===ci,x=X(p.y),y=Y(p.v);
+        if(p.kind==='rev')s+=`<path d="M${f1(x)} ${f1(y-6)}L${f1(x+6)} ${f1(y)}L${f1(x)} ${f1(y+6)}L${f1(x-6)} ${f1(y)}Z" style="fill:${on?'var(--gold)':'var(--panel)'};stroke:var(--gold);stroke-width:2"/>`;
+        else s+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="${on?5.5:4}" style="fill:${on?'var(--accent)':'var(--panel)'};stroke:var(--accent);stroke-width:2"/>`;
+        const above=p.kind!=='rev'||p.v>8,ty=above?y-12:y+18,lx=clamp(x,C.x0+30,C.x1-30);
+        if(!N||on||p.kind==='rev')s+=`<text x="${f1(lx)}" y="${f1(ty)}" class="t-xs t-mid" style="${on?'fill:var(--ink);font-weight:700':''}">${p.lab}</text>`});
+      /* the US school-age count is off this scale */
+      if(yr>=2021.5){s+=`<text x="${C.x1}" y="${C.top-10}" class="t-xs t-end" style="fill:var(--brand)">↑ US ADDM 2022: 32.2 per 1,000, off this scale</text>`}
+    }
+    svg.innerHTML=s;
+    const ph=phaseOf(steps,t);note.innerHTML=noteHTML(steps[ph]);setA(ph);
+  }
+  const stop=playWire(rg,$('#whPlay'),draw,14000,'Replay','what');
+  const setA=stepWire($('#whSteps'),steps,rg,draw,stop);
+  function setMode(m){mode=m;stop();bUS.setAttribute('aria-pressed',m==='us');bW.setAttribute('aria-pressed',m!=='us');
+    steps.splice(0,steps.length,...(m==='us'?WH_STEPS_US:WH_STEPS_W));
+    $$('#whSteps [data-st] span').forEach((sp,i)=>sp.textContent=steps[i].t);
+    cap.innerHTML=WH_CAP[m];rg.value=steps[0].at;draw(+rg.value)}
+  bUS.addEventListener('click',()=>setMode('us'));bW.addEventListener('click',()=>setMode('w'));
+  cap.innerHTML=WH_CAP.us;draw(+rg.value);
+
+  /* ---- sex ratio bars ---- */
+  const sx=$('#whSex'),sxCap=$('#whSexCap');let sv='loomes';
+  const SX={loomes:[{l:'Diagnosed-only studies',v:4.56,ci:'4.10–5.07'},{l:'All 54 studies pooled',v:4.20,ci:'3.84–4.60'},{l:'High-quality studies',v:3.32,ci:'2.88–3.84'},{l:'Population-screened studies',v:3.25,ci:'2.93–3.62'}],
+    addm:[{l:'ADDM 2016',v:4.3},{l:'ADDM 2018',v:4.2},{l:'ADDM 2020',v:3.8},{l:'ADDM 2022',v:3.4},{l:'GBD 2021 (modelled)',v:2.1,calc:true}]};
+  const SXC={loomes:`Pooled male-to-female odds ratios from 54 prevalence studies (13,784,284 participants; I² 90.9%). The dashed line marks 3:1. <sup class="c" data-ref="Loomes2017" title="Source 332">332</sup>`,
+    addm:`ADDM boy-to-girl prevalence ratios for 8-year-olds. The GBD figure is our calculation from its sex-specific rates (1,064.7 ÷ 508.1 per 100,000). <sup class="c" data-ref="Maenner2020,Maenner2021,Maenner2023,Shaw2025,Santomauro2025" title="Source 348,349,350,518,541">348,349,350,518,541</sup>`};
+  function drawSex(){const N=vb(sx,'720 240','400 400');const rows=SX[sv];let s='';
+    const L=N?{x0:16,x1:330,y0:44,dy:66,bh:16}:{x0:236,x1:500,y0:40,dy:rows.length>4?38:46,bh:18};
+    const X=v=>lerp(L.x0,L.x1,v/5),yb=L.y0+rows.length*L.dy-(N?30:18);
+    for(let v=0;v<=5;v++)s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${L.y0-12}" y2="${yb}" class="grid"/><text x="${f1(X(v))}" y="${L.y0-18}" class="t-xs t-mid">${v}:1</text>`;
+    s+=`<line x1="${f1(X(3))}" x2="${f1(X(3))}" y1="${L.y0-12}" y2="${yb}" style="stroke:var(--good);stroke-width:1.6;stroke-dasharray:5 3"/>`;
+    if(!N)s+=`<text x="650" y="${L.y0-18}" class="t-xs t-mid">boys per girl</text>`;
+    rows.forEach((r,i)=>{const y=N?L.y0+i*L.dy+14:L.y0+i*L.dy,c=r.calc?'var(--muted)':(sv==='loomes'&&i>1?'var(--good)':'var(--accent)');
+      if(N)s+=`<text x="${L.x0}" y="${y-7}" class="t-sm" style="fill:var(--ink)">${r.l}</text>`;
+      else s+=`<text x="${L.x0-10}" y="${y+L.bh/2+4}" class="t-sm t-end" style="fill:var(--ink)">${r.l}</text>`;
+      s+=`<rect x="${L.x0}" y="${y}" width="${f1(X(r.v)-L.x0)}" height="${L.bh}" rx="4" style="fill:${c};opacity:.85"/>`;
+      s+=`<text x="${f1(X(r.v)+6)}" y="${y+L.bh/2+4}" class="t-sm" style="fill:var(--ink);font-weight:700">${r.v.toFixed(sv==='loomes'?2:1)}${r.ci&&!N?`<tspan class="t-xs" style="font-weight:400"> (${r.ci})</tspan>`:''}</text>`;
+      /* icons: boys for every girl */
+      const full=Math.floor(r.v),fr=r.v-full,dx=N?9:14,sz=N?14:20,ox=N?384-(full+2)*dx-4:600,iy=N?y-21:y-2;let g='';
+      for(let k=0;k<full;k++)g+=person(ox+k*dx,iy,sz,'var(--accent)');
+      if(fr>.05)g+=`${person(ox+full*dx,iy,sz,'var(--accent)',{op:.18})}<clipPath id="whsx${i}"><rect x="${f1(ox+full*dx-sz*.3)}" y="${f1(iy-2)}" width="${f1(sz*.6*fr)}" height="${sz+4}"/></clipPath><g clip-path="url(#whsx${i})">${person(ox+full*dx,iy,sz,'var(--accent)')}</g>`;
+      g+=person(ox+(full+1)*dx+(N?4:8),iy,sz,'var(--neuro)');s+=g});
+    const ly=yb+(N?26:24),lx=N?16:236;
+    s+=`<g transform="translate(${lx} ${ly})">${person(0,-12,15,'var(--accent)')}<text x="10" y="0" class="t-xs">boys</text>${person(54,-12,15,'var(--neuro)')}<text x="64" y="0" class="t-xs">girl (one per row)</text><line x1="${N?186:206}" x2="${N?206:226}" y1="-4" y2="-4" style="stroke:var(--good);stroke-width:1.6;stroke-dasharray:5 3"/><text x="${N?210:230}" y="0" class="t-xs">"closer to 3:1"</text></g>`;
+    sx.innerHTML=s;sxCap.innerHTML=SXC[sv]}
+  $$('[data-whsx]').forEach(b=>b.addEventListener('click',()=>{sv=b.dataset.whsx;$$('[data-whsx]').forEach(q=>q.setAttribute('aria-pressed',q===b));drawSex()}));
+  drawSex();
+
+  /* ---- 100-icon array ---- */
+  const ic=$('#whIcons'),sel=$('#whEst'),en=$('#whEstNote');
+  function drawIcons(){const e=WH_EST[+sel.value],per=100/e.n;let s='';
+    const cols=10,dx=36,dy=27,x0=38,y0=10,sz=22;
+    for(let i=0;i<100;i++){const c=i%cols,r=Math.floor(i/cols),x=x0+c*dx,y=y0+r*dy,f=clamp(per-i);
+      s+=person(x,y,sz,'var(--muted)',{op:.28});
+      if(f>0){if(f>=1)s+=person(x,y,sz,'var(--brand)');
+        else s+=`<clipPath id="whic${i}"><rect x="${f1(x-sz*.3)}" y="${y-1}" width="${f1(Math.max(.8,sz*.6*f))}" height="${sz+2}"/></clipPath><g clip-path="url(#whic${i})">${person(x,y,sz,'var(--brand)')}</g>`}}
+    s+=`<text x="200" y="${y0+10*dy+12}" class="t-xs t-mid">each icon = 1 person in 100</text>`;
+    ic.innerHTML=s;
+    const pv=per>=1?f1(per):per>=.1?per.toFixed(2):per.toFixed(3);
+    en.innerHTML=`<div class="kicker">${e.l}</div><div class="wh-big"><span class="big-num">1 in ${e.n.toLocaleString('en')}</span><small>${pv} of every 100 people</small></div><p>${e.tx}</p><div class="pt"><b>In plain words</b>Which group is counted, and how, changes the number: children or adults, records or surveys, diagnosed or estimated.</div>`}
+  sel.addEventListener('change',drawIcons);drawIcons();
+
+  /* ---- age at diagnosis ---- */
+  const ag=$('#whAge');
+  const AG=[{l:'ADDM 2000',a:52,b:56},{l:'ADDM 2010',a:53},{l:'ADDM 2014',a:52},{l:'ADDM 2016',a:51},{l:'ADDM 2020',a:49},{l:'ADDM 2022',a:47,hl:1},{l:'World, all studies',a:60.48,w:1},{l:'World, children ≤10 y',a:43.18,w:1}];
+  function drawAge(){const N=vb(ag,'720 250','400 330');let s='';
+    const x0=N?120:170,x1=N?384:690,y0=N?34:30,dy=N?34:26,X=m=>lerp(x0,x1,m/72);
+    for(let m=0;m<=72;m+=12)s+=`<line x1="${f1(X(m))}" x2="${f1(X(m))}" y1="${y0-10}" y2="${y0+AG.length*dy-10}" class="grid"/><text x="${f1(X(m))}" y="${y0-14}" class="t-xs t-mid">${m}${m===72?' mo':''}</text>`;
+    s+=`<rect x="${f1(X(36))}" y="${y0-10}" width="${f1(X(48)-X(36))}" height="${AG.length*dy}" style="fill:var(--good);opacity:.08"/>`;
+    AG.forEach((r,i)=>{const y=y0+i*dy+4+(r.w?6:0),c=r.w?'var(--accent)':'var(--brand)';
+      s+=`<text x="${x0-10}" y="${y+4}" class="t-xs t-end" style="fill:var(--ink)">${r.l}</text><line x1="${x0}" x2="${f1(X(r.b||r.a))}" y1="${y}" y2="${y}" style="stroke:var(--line);stroke-width:2"/>`;
+      if(r.b)s+=`<rect x="${f1(X(r.a))}" y="${y-5}" width="${f1(X(r.b)-X(r.a))}" height="10" rx="5" style="fill:${c}"/>`;
+      else s+=`<circle cx="${f1(X(r.a))}" cy="${y}" r="${r.hl?6.5:5}" style="fill:${c};stroke:var(--panel);stroke-width:1.5"/>`;
+      s+=`<text x="${f1(X(r.b||r.a)+10)}" y="${y+4}" class="t-xs" style="${r.hl?'fill:var(--ink);font-weight:700':''}">${r.b?r.a+'–'+r.b:(r.a%1?f1(r.a):r.a)}</text>`});
+    s+=`<text x="${f1(X(42))}" y="${y0+AG.length*dy+8}" class="t-xs t-mid" style="fill:var(--good)">3–4 years</text>`;
+    ag.innerHTML=s}
+  drawAge();
+  onShow.what=()=>{drawSex();drawAge()};
+  const pr=redraws.what;redraws.what=()=>{pr&&pr();drawSex();drawAge()};
+};
+/* =============== 1.2 Words, identity & neurodiversity =============== */
+/* identity-first [0] and person-first [1] forms; {key} tokens in step text are filled live */
+const WO_W={p:['autistic people','people with autism'],P:['Autistic people','People with autism'],a:['autistic adults','adults with autism'],A:['Autistic adults','Adults with autism'],
+ o:['an autistic person','a person with autism'],O:['An autistic person','A person with autism'],f:['autistic women','women with autism'],m:['autistic men','men with autism'],
+ /* short forms for SVG labels */
+ r1:['Chain 1 · autistic people','Chain 1 · people with autism'],r3:['Chain 3 · mixed: autistic and non-autistic','Chain 3 · mixed: people with and without autism'],
+ r3n:['Chain 3 · mixed','Chain 3 · mixed'],g1:['autistic','with autism'],chainA:['autistic chains','chains of people with autism']};
+let woPF=0;
+const woW=k=>(WO_W[k]||[k,k])[woPF];
+const woFill=s=>s.replace(/\{(\w+)\}/g,(m,k)=>WO_W[k]?woW(k):m);
+const WO_STEPS=[
+ {from:0,at:.2,k:'Chain 1',t:'Autistic to autistic',
+  txt:`In 2012 Damian Milton, an autistic sociologist, described the "double empathy problem": social difficulty as a two-way mismatch between autistic and non-autistic people, not a one-sided deficit. Crompton and colleagues tested it with diffusion chains: a 30-detail story passed person to person along chains of eight. Chains of {p} recalled a mean of 12.96 details. <span class="ev hyp">Hypothesis, with supporting studies</span> <sup class="c" data-ref="Milton2012,Milton2022,Crompton2020" title="Source 101,382,383">101,382,383</sup>`,
+  pt:`{P} passed the story to each other as well as anyone did.`,
+  hook:`Double empathy problem: Milton, 2012. The misunderstanding runs both ways, not from one side.`},
+ {from:.22,at:.42,k:'Chain 2',t:'Non-autistic to non-autistic',
+  txt:`Chains of non-autistic people recalled 12.40 details on average, no different from the chains of {p} (Tukey p = 0.92). <sup class="c" data-ref="Crompton2020" title="Source 101">101</sup>`,
+  pt:`Chains where everyone shared a way of communicating kept about the same amount of the story.`,
+  hook:`Crompton 2020: 72 adults in nine eight-person chains: 3 autistic, 3 non-autistic, 3 mixed. <sup class="c" data-ref="Crompton2020" title="Source 101">101</sup>`},
+ {from:.44,at:.68,k:'Chain 3',t:'Mixed chain',
+  txt:`In chains that mixed {p} and non-autistic people, only 8.92 details survived on average, significantly fewer, and detail was lost faster along the chain. The breaks are drawn from both sides: neither group caused them alone. <sup class="c" data-ref="Crompton2020" title="Source 101">101</sup>`,
+  pt:`When the two groups passed the story to each other, more of it got lost, in both directions.`,
+  hook:`Mean details recalled (of 30): {chainA} 12.96, non-autistic chains 12.40, mixed chains 8.92. <sup class="c" data-ref="Crompton2020" title="Source 101">101</sup>`},
+ {from:.7,at:.8,k:'Rapport',t:'Who feels at ease',
+  txt:`Rapport ratings were lower in mixed chains. In groups of four, all-autistic groups had rapport similar to all-non-autistic groups and rated enjoyment and friendliness higher than mixed groups did; the rapport of {p} fell as more non-autistic people joined. Non-autistic observers formed less favourable first impressions of {p} from seconds-long videos, but not from transcripts alone: "style, not substance". <span class="ev est">Established across three studies</span> <sup class="c" data-ref="Crompton2020,Foster2025,Sasson2017" title="Source 101,152,519">101,152,519</sup>`,
+  pt:`People tend to feel most at ease with people who communicate the way they do.`,
+  hook:`Sasson 2017 "thin slices": the first-impression bias disappeared when observers read transcripts. <sup class="c" data-ref="Sasson2017" title="Source 519">519</sup>`},
+ {from:.86,at:1,k:'2025',t:'A larger replication',
+  txt:`A larger pre-registered replication (N = 311) found no difference in information transfer between single-neurotype and mixed chains. Non-autistic chains reported higher rapport, and disclosing a diagnosis improved rapport. Mitchell and colleagues propose that misperceptions by the majority lead to exclusion, which harms mental health (Hypothesis). <span class="ev early">Early evidence: mixed</span> <sup class="c" data-ref="Crompton2025,Mitchell2021" title="Source 102,384">102,384</sup>`,
+  pt:`The newest, bigger study did not find the gap in passing on information, so the science is still settling. Understanding on both sides still matters.`,
+  hook:`Crompton 2020 found a mixed-chain penalty; Crompton 2025 (N = 311) did not. <sup class="c" data-ref="Crompton2020,Crompton2025" title="Source 101,102">101,102</sup>`}];
+/* a made-up day: hours, social demand 0..1 */
+const WO_SEG=[{a:7,b:8,n:'Getting ready',d:.15},{a:8,b:9,n:'Commute',d:.45},{a:9,b:12,n:'Lessons or meetings',d:.6},{a:12,b:13,n:'Lunch: unstructured time',d:.95},
+ {a:13,b:16,n:'Afternoon tasks',d:.6},{a:16,b:17,n:'Commute home',d:.45},{a:17,b:23,n:'Home',d:0,home:1}];
+inits.words=()=>{
+  const sec=$('#m-words');
+  /* ---- energy curves (schematic) ---- */
+  const seg=h=>WO_SEG.find(s=>h>=s.a&&h<s.b)||WO_SEG[WO_SEG.length-1];
+  function energy(mask){const pts=[];let e=1;const dt=.05;
+    for(let h=7;h<=23+1e-9;h+=dt){pts.push([h,e]);const s=seg(h);
+      if(s.home){const rec=mask?(h<19?0:.06):.08;e=Math.min(1,e+rec*dt)}
+      else e=Math.max(.04,e-(mask?(.035+.1*s.d):(.02+.05*s.d))*dt)}
+    return pts}
+  const EM=energy(true),EF=energy(false);
+  const eAt=(P,h)=>P[clamp(Math.round((h-7)/.05),0,P.length-1)][1];
+  const recBy=P=>{for(const[h,e]of P)if(h>=17&&e>=.9)return h;return null};
+
+  /* ---- preference chart ---- */
+  const pf=$('#woPref');
+  function drawPref(){const N=vb(pf,'720 262','400 392');let s='';
+    const x0=N?16:250,x1=N?340:630,X=v=>lerp(x0,x1,v/100);
+    const rows=[{h:'Across studies in a 19-study review (Schuck 2025): % rating terms acceptable'},{l:'Identity-first terms',a:40,b:97,k:0},{l:'Person-first terms',a:5,b:53,k:1},
+      {h:'UK autistic adults: % endorsing functioning labels'},{l:'"high-functioning"',b:20,approx:1},{l:'"low-functioning"',b:10,lt:1}];
+    let y=N?20:26;
+    for(let v=0;v<=100;v+=20)s+=`<text x="${f1(X(v))}" y="${N?384:256}" class="t-xs t-mid">${v}%</text>`;
+    rows.forEach(r=>{
+      if(r.h){if(y>30)y+=N?6:10;s+=`<text x="${N?16:16}" y="${y+4}" class="t-sm" style="fill:var(--ink);font-weight:600">${N?r.h.replace(': ',':|').split('|').map((q,i)=>`<tspan x="16" dy="${i?13:0}">${q}</tspan>`).join(''):r.h}</text>`;y+=N?38:30;return}
+      const on=r.k!=null&&r.k===woPF,col=r.k==null?'var(--muted)':on?'var(--brand)':'var(--accent)';
+      if(N){s+=`<text x="16" y="${y}" class="t-sm" style="fill:var(--ink)">${r.l}${on?' · this page':''}</text>`;y+=8}
+      else s+=`<text x="${x0-12}" y="${y+12}" class="t-sm t-end" style="fill:var(--ink)">${r.l}${on?' ◂':''}</text>`;
+      s+=`<line x1="${x0}" x2="${x1}" y1="${y+8}" y2="${y+8}" style="stroke:var(--line);stroke-width:8;stroke-linecap:round"/>`;
+      const a=r.a==null?0:r.a;
+      s+=`<rect x="${f1(X(a))}" y="${y}" width="${f1(X(r.b)-X(a))}" height="16" rx="8" style="fill:${col};opacity:${on||r.k==null?.95:.6}"/>`;
+      const lab=r.a!=null?`${r.a}–${r.b}%`:(r.lt?'under 10%':'about 20%');
+      s+=`<text x="${f1(X(r.b)+8)}" y="${y+12}" class="t-sm" style="fill:var(--ink);font-weight:700">${lab}</text>`;
+      y+=N?40:34});
+    for(let v=0;v<=100;v+=20)s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${N?40:20}" y2="${N?370:244}" class="grid"/>`;
+    pf.innerHTML=s}
+
+  /* ---- main scrubber: diffusion chains ---- */
+  const svg=$('#woSvg'),rg=$('#woT'),note=$('#woNote');
+  const ROWS=[{a:0,b:.2,mix:0,m:12.96,lab:'r1',sub:'recalled 12.96',dec:.9},{a:.22,b:.42,mix:0,non:1,m:12.40,lab:'',sub:'recalled 12.40',dec:.9},{a:.44,b:.68,mix:1,m:8.92,lab:'r3',sub:'recalled 8.92',dec:.8}];
+  function draw(t){
+    const N=vb(svg,'720 380','400 620');let s=`<defs>${marker('woAr','var(--muted)')}${marker('woArB','var(--bad)')}</defs>`;
+    const L=N?{ry:i=>96+i*162,px:k=>30+k*48,ps:30,lx:16,bx0:30,bx1:330,by:44}:{ry:i=>66+i*110,px:k=>186+k*52,ps:38,lx:14,bx0:574,bx1:704,by:8};
+    const BX=v=>lerp(L.bx0,L.bx1,v/30);
+    if(!N)s+=`<text x="${L.bx0}" y="26" class="t-xs">mean details recalled</text><text x="${L.bx0}" y="38" class="t-xs">(of 30)</text>`;
+    ROWS.forEach((R,i)=>{const y=L.ry(i),p=ramp(t,R.a,R.b),pos=p*7,act=t>=R.a-.001;
+      const lab=i===0?woW('r1'):i===1?'Chain 2 · non-autistic people':(N?woW('r3n'):woW('r3'));
+      if(N){s+=`<text x="${L.lx}" y="${y-58}" class="t-lbl">${lab}</text>`;if(i===2)s+=`<text x="${L.lx}" y="${y-44}" class="t-xs">alternating: ${woW('g1')} and not</text>`}
+      else{const w=lab.split(' · ');s+=`<text x="${L.lx}" y="${y+8}" class="t-lbl">${w[0]}</text>`;
+        const ws=w[1].split(' ');let ln=[''];ws.forEach(q=>{if((ln[ln.length-1]+' '+q).trim().length>24)ln.push(q);else ln[ln.length-1]=(ln[ln.length-1]+' '+q).trim()});
+        ln.forEach((q,k)=>s+=`<text x="${L.lx}" y="${y+23+k*12}" class="t-xs">${q}</text>`)}
+      /* people */
+      for(let k=0;k<8;k++){const aut=R.mix?k%2===0:!R.non,col=aut?'var(--brand)':'var(--accent)',heard=act&&k<=pos+.02;
+        s+=person(L.px(k),y,L.ps,col,{op:heard?1:.35})}
+      /* passes between neighbours */
+      for(let k=0;k<7;k++){if(!act||pos<k+.95)continue;const xa=L.px(k)+L.ps*.32,xb=L.px(k+1)-L.ps*.32,ym=y+L.ps*.55;
+        if(R.mix&&t>=R.a){s+=`<path d="M${f1(xa)} ${f1(ym-4)}L${f1((xa+xb)/2-3)} ${f1(ym-4)}M${f1((xa+xb)/2+3)} ${f1(ym-4)}L${f1(xb)} ${f1(ym-4)}" style="stroke:var(--bad);stroke-width:1.4;stroke-dasharray:3 2" marker-end="url(#woArB)"/><path d="M${f1(xb)} ${f1(ym+4)}L${f1((xa+xb)/2+3)} ${f1(ym+4)}M${f1((xa+xb)/2-3)} ${f1(ym+4)}L${f1(xa)} ${f1(ym+4)}" style="stroke:var(--bad);stroke-width:1.4;stroke-dasharray:3 2" marker-end="url(#woArB)"/>`}
+        else s+=`<path d="M${f1(xa)} ${f1(ym)}L${f1(xb)} ${f1(ym)}" style="stroke:var(--muted);stroke-width:1.4" marker-end="url(#woAr)"/>`}
+      /* the travelling bubble with a schematic detail bar */
+      if(act&&p<1){const k=Math.floor(pos),u=pos-k,bx=lerp(L.px(k),L.px(Math.min(7,k+1)),ease(u)),det=Math.pow(R.dec,pos),bw=N?40:46,bh=N?18:20,byy=y-bh-(N?14:12);
+        s+=bubble(bx-bw/2,byy,bw,bh,{tail:'down',col:R.mix?'var(--bad)':'var(--line)',broken:R.mix&&u>.3&&u<.7});
+        s+=`<rect x="${f1(bx-bw/2+6)}" y="${f1(byy+bh/2-3)}" width="${f1((bw-12)*det)}" height="6" rx="3" style="fill:${R.mix?'var(--bad)':'var(--brand)'}"/>`}
+      /* published mean */
+      const bp=ramp(t,R.b-.03,R.b+.02);
+      if(bp>0){const by=N?y+L.by:y+L.by;
+        s+=`<rect x="${L.bx0}" y="${by}" width="${f1((BX(R.m)-L.bx0)*ease(bp))}" height="16" rx="4" style="fill:${R.mix?'var(--bad)':i===0?'var(--brand)':'var(--accent)'};opacity:.85"/>`;
+        s+=`<line x1="${f1(BX(30))}" x2="${f1(BX(30))}" y1="${by-2}" y2="${by+18}" style="stroke:var(--muted);stroke-dasharray:2 2"/>`;
+        if(bp>.6)s+=`<text x="${f1(BX(R.m)+6)}" y="${by+12}" class="t-sm" style="fill:var(--ink);font-weight:700">${R.m.toFixed(2)}</text>`;
+        if(N&&bp>.6)s+=`<text x="${f1(BX(30))}" y="${by+12}" class="t-xs t-end">of 30</text>`}
+      /* rapport */
+      if(t>=.7){const hi=!R.mix,op=clamp((t-.7)/.04);const rx=N?L.lx:L.bx0,ry=N?y+L.by+34:y+L.by+36;
+        s+=`<g style="opacity:${f1(op)}"><text x="${rx}" y="${ry}" class="t-xs" style="fill:${hi?'var(--good)':'var(--warn)'};font-weight:600">rapport: ${hi?'higher':'lower'}${t>=.86&&i===1?' (2025: highest)':''}</text></g>`}
+    });
+    /* 2025 replication stamp */
+    if(t>=.86){const op=clamp((t-.86)/.05),x=N?16:574,y=N?516:300,w=N?368:136,h=N?50:66;
+      s+=`<g style="opacity:${f1(op)}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="8" style="fill:var(--warn-soft);stroke:var(--warn)"/>`;
+      const T=N?['2025 replication, N = 311:','no difference in information transfer','between same and mixed chains']:['2025 replication','N = 311: no','difference in','information transfer'];
+      T.forEach((q,k)=>s+=`<text x="${x+8}" y="${y+15+k*(N?13:13)}" class="t-xs" style="fill:var(--warn);${k===0?'font-weight:700':''}">${q}</text>`);s+='</g>'}
+    s+=`<g transform="translate(${N?16:186} ${N?600:368})">${person(0,-12,14,'var(--brand)')}<text x="10" y="0" class="t-xs">${woW('g1')}</text>${person(N?110:120,-12,14,'var(--accent)')}<text x="${N?120:130}" y="0" class="t-xs">non-autistic</text><line x1="${N?220:236}" x2="${N?244:260}" y1="-4" y2="-4" style="stroke:var(--bad);stroke-width:1.4;stroke-dasharray:3 2"/><text x="${N?248:264}" y="0" class="t-xs">${N?'misread,':'misunderstood, both ways'}</text>${N?'<text x="248" y="12" class="t-xs">both ways</text>':''}</g>`;
+    svg.innerHTML=s;
+    const ph=phaseOf(WO_STEPS,t),P=WO_STEPS[ph];note.innerHTML=noteHTML({k:P.k,t:woFill(P.t),txt:woFill(P.txt),pt:woFill(P.pt),hook:woFill(P.hook)});setA(ph)}
+  const stop=playWire(rg,$('#woPlay'),draw,16000,'Replay','words');
+  const setA=stepWire($('#woSteps'),WO_STEPS,rg,draw,stop);
+
+  /* ---- the masking day ---- */
+  const dy=$('#woDay'),hr=$('#woH'),dn=$('#woDayNote');let mask=true;
+  const clock=h=>{const H=Math.floor(h),M=Math.floor((h-H)*60/15)*15;return `${H}:${String(M).padStart(2,'0')}`};
+  function drawDay(t){const N=vb(dy,'720 300','400 452');const h=lerp(7,23,clamp(t)),S=seg(h),P=mask?EM:EF,e=eAt(P,h);let s='';
+    const fx=N?78:96,fy=N?96:118,fr=N?38:44;
+    s+=`<text x="${N?16:20}" y="${N?26:28}" class="t-big">${clock(h)}</text><text x="${N?16:20}" y="${N?44:46}" class="t-sm" style="fill:var(--ink)">${S.n}</text>`;
+    const social=!S.home&&S.d>=.4,earDef=!mask&&S.d>=.9;
+    s+=face(fx,fy,fr,{mouth:mask&&social?'flat':S.home&&!mask?'smile':S.home?'flat':'flat',brows:e<.35?'tense':'calm',gaze:mask&&social?null:20,ear:earDef});
+    if(mask&&!S.home&&S.d>0){/* the mask: an outward smile held over the face */
+      s+=`<path d="M${f1(fx-fr*.95)} ${f1(fy-fr*.15)}Q${f1(fx)} ${f1(fy-fr*.42)} ${f1(fx+fr*.95)} ${f1(fy-fr*.15)}Q${f1(fx+fr*.9)} ${f1(fy+fr*.95)} ${f1(fx)} ${f1(fy+fr*1.0)}Q${f1(fx-fr*.9)} ${f1(fy+fr*.95)} ${f1(fx-fr*.95)} ${f1(fy-fr*.15)}Z" style="fill:var(--bubble);stroke:var(--muted);stroke-width:1.4;opacity:.9"/>`;
+      [-1,1].forEach(k=>s+=`<ellipse cx="${f1(fx+k*fr*.36)}" cy="${f1(fy+fr*.02)}" rx="${f1(fr*.16)}" ry="${f1(fr*.1)}" style="fill:var(--ink);opacity:.75"/>`);
+      s+=`<path d="M${f1(fx-fr*.3)} ${f1(fy+fr*.42)}Q${f1(fx)} ${f1(fy+fr*.7)} ${f1(fx+fr*.3)} ${f1(fy+fr*.42)}" style="fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round"/>`;
+      s+=`<text x="${fx}" y="${fy+fr+18}" class="t-xs t-mid">mask on</text>`}
+    else if(!mask&&!S.home&&S.d>0)s+=`<text x="${fx}" y="${fy+fr+18}" class="t-xs t-mid">${earDef?'ear defenders, quiet corner':'stimming is fine here'}</text>`;
+    else s+=`<text x="${fx}" y="${fy+fr+18}" class="t-xs t-mid">${S.home?(mask&&h<19?'crash: needs to be alone':'recharging'):''}</text>`;
+    /* battery */
+    const bx=N?286:96,by=N?96:236,br=N?52:56;
+    s+=dial(bx,by,br,e,{battery:true,label:'energy (schematic)'});
+    /* plot */
+    const P0=N?{x0:40,x1:384,y0:200,y1:420}:{x0:250,x1:704,y0:24,y1:250};
+    const X=q=>lerp(P0.x0,P0.x1,(q-7)/16),Y=q=>lerp(P0.y1,P0.y0,q);
+    WO_SEG.forEach(g=>{if(g.d>0)s+=`<rect x="${f1(X(g.a))}" y="${P0.y0}" width="${f1(X(g.b)-X(g.a))}" height="${P0.y1-P0.y0}" style="fill:var(--warn);opacity:${f1(.04+.16*g.d)}"/>`});
+    s+=`<rect x="${f1(X(17))}" y="${P0.y0}" width="${f1(X(23)-X(17))}" height="${P0.y1-P0.y0}" style="fill:var(--calm);opacity:.07"/>`;
+    s+=`<text x="${f1(X(12.5))}" y="${P0.y0+12}" class="t-xs t-mid" style="fill:var(--warn)">lunch</text><text x="${f1(X(20))}" y="${P0.y0+12}" class="t-xs t-mid" style="fill:var(--calm)">home</text>`;
+    for(let q=8;q<=22;q+=N?4:2)s+=`<line x1="${f1(X(q))}" x2="${f1(X(q))}" y1="${P0.y1}" y2="${P0.y1+4}" style="stroke:var(--muted)"/><text x="${f1(X(q))}" y="${P0.y1+16}" class="t-xs t-mid">${q}:00</text>`;
+    s+=`<line x1="${P0.x0}" x2="${P0.x1}" y1="${P0.y1}" y2="${P0.y1}" style="stroke:var(--muted)"/><text x="${P0.x0-4}" y="${Y(1)+4}" class="t-xs t-end">full</text><text x="${P0.x0-4}" y="${Y(0)}" class="t-xs t-end">low</text>`;
+    const path=(Q,hm)=>Q.filter(p=>p[0]<=hm+1e-9).map((p,i)=>(i?'L':'M')+f1(X(p[0]))+' '+f1(Y(p[1]))).join('');
+    [[EM,true,'var(--brand)','masking'],[EF,false,'var(--rx)','able to unmask']].forEach(([Q,m,c,l])=>{const sel=m===mask;
+      s+=`<path d="${path(Q,23)}" style="fill:none;stroke:${c};stroke-width:1.4;opacity:.3;stroke-dasharray:4 3"/>`;
+      if(sel)s+=`<path d="${path(Q,h)}" style="fill:none;stroke:${c};stroke-width:3;stroke-linejoin:round"/>`;
+      const ey=Y(Q[Q.length-1][1]);s+=`<text x="${P0.x1}" y="${f1(ey+(m?14:-8))}" class="t-xs t-end" style="fill:${c};${sel?'font-weight:700':''}">${l}</text>`});
+    s+=`<line x1="${f1(X(h))}" x2="${f1(X(h))}" y1="${P0.y0}" y2="${P0.y1}" style="stroke:var(--ink);opacity:.4"/><circle cx="${f1(X(h))}" cy="${f1(Y(e))}" r="5" style="fill:${mask?'var(--brand)':'var(--rx)'};stroke:var(--panel);stroke-width:1.5"/>`;
+    const rb=recBy(P);if(h>=17){const tx=rb?`back to ~90% by ${clock(rb)}`:'still recovering at bedtime';s+=`<text x="${P0.x1-4}" y="${P0.y0+28}" class="t-xs t-end" style="fill:var(--ink);font-weight:600">${tx}</text>`}
+    dy.innerHTML=s;
+    /* note */
+    let k=`${clock(h)} · ${S.n}`,ti,tx,pt,hk;
+    if(S.home){ti=mask?'The cost comes due':'Recovery';
+      tx=mask?`In a survey of 277 ${woW('a')}, camouflaging was described as both protective (access to social spaces, safety) and harmful (exhaustion, isolation, loss of identity, delayed diagnosis); the time spent camouflaging seemed most damaging. ${woW('A')} describe autistic burnout as chronic exhaustion, loss of skills and reduced tolerance to stimuli. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Bradley2021,Raymaker2020" title="Source 57,474">57,474</sup>`
+        :`Unmasking and acceptance were linked with recovery from autistic burnout. Places where people can relax and be themselves help. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Raymaker2020,Bradley2021" title="Source 57,474">57,474</sup>`;
+      pt=mask?'After a day of hiding, many people need long, quiet time alone before they feel like themselves again.':'When people can be themselves during the day, there is more left at the end of it.';
+      hk=`Autistic burnout (Raymaker 2020): chronic exhaustion, loss of skills, reduced tolerance to stimuli. <sup class="c" data-ref="Raymaker2020" title="Source 474">474</sup>`}
+    else{ti=mask?'Masking':'Able to unmask';
+      tx=mask?`Camouflaging is motivated by fitting in and connecting with others, and done by masking and compensation; its consequences include exhaustion. ${S.d>=.9?'Unstructured social time asks the most of the mask in this made-up day. ':''}Higher self-reported camouflaging goes with worse mental health in a review of 29 studies, though samples were not representative. <sup class="c" data-ref="Hull2017,Cook2021Camouflaging" title="Source 91,241">91,241</sup>`
+        :`The same day with fewer demands to hide: ${S.d>=.9?'ear defenders and a quiet corner at lunch, ':''}room to stim, and people who know. Camouflaging can be protective, so being able to unmask depends on the place being safe and accepting. <sup class="c" data-ref="Bradley2021,Lai2014" title="Source 57,306">57,306</sup>`;
+      pt=mask?'Masking means hiding or covering autistic traits to fit in. It can work in the moment and still use up a lot of energy.':'Unmasking is not a switch a person flips alone: it depends on the people and the place around them.';
+      hk=`CAT-Q: 25 items, three factors (compensation, masking, assimilation); a research measure, not a diagnostic test. <sup class="c" data-ref="Hull2019CATQ" title="Source 242">242</sup>`}
+    dn.innerHTML=noteHTML({k,t:ti,txt:tx,pt,hook:hk})}
+  const stopD=playWire(hr,$('#woDayPlay'),drawDay,12000,'Replay','words');
+  $$('[data-wom]').forEach(b=>b.addEventListener('click',()=>{mask=b.dataset.wom==='mask';$$('[data-wom]').forEach(q=>q.setAttribute('aria-pressed',q===b));drawDay(+hr.value)}));
+
+  /* ---- the wording switch ---- */
+  function applyWords(){$$('.wo-w',sec).forEach(el=>{el.textContent=woW(el.dataset.w)});
+    $$('[data-wolang]').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.wolang==='pf')===!!woPF));
+    $$('#woSteps [data-st] span').forEach((sp,i)=>sp.textContent=woFill(WO_STEPS[i].t));
+    drawPref();draw(+rg.value);drawDay(+hr.value)}
+  $$('[data-wolang]').forEach(b=>b.addEventListener('click',()=>{woPF=b.dataset.wolang==='pf'?1:0;store.set('wording',woPF);applyWords()}));
+  woPF=store.get('wording',0)?1:0;
+  applyWords();
+  const pr=redraws.words;redraws.words=()=>{pr&&pr();drawPref()};
+};
+/* =============== 1.3 The sensory world =============== */
+/* One schematic day. Six input lanes (what the surroundings give, and what registers), one load curve
+   against a threshold, and a person whose state follows the load. All numbers in the model are
+   illustrative; the facts in the notes come from the cited studies. */
+const SE_LANES=[
+  {k:'sound',n:'Sound',s:'Sound',col:'var(--sense)'},
+  {k:'light',n:'Light',s:'Light',col:'var(--gold)'},
+  {k:'touch',n:'Touch',s:'Touch',col:'var(--sense)'},
+  {k:'smell',n:'Smell',s:'Smell',col:'var(--gold)'},
+  {k:'crowd',n:'Crowds',s:'Crowd',col:'var(--sense)'},
+  {k:'intero',n:'Body signals',s:'Body',col:'var(--neuro)'}];
+/* scenes of the day: a..b on the 0..1 timeline, x = input per lane */
+const SE_SC=[
+  {a:0,b:.12,n:'Wake up',s:'Wake',x:[.15,.2,.25,.1,0,.3]},
+  {a:.12,b:.27,n:'Bus',s:'Bus',x:[.6,.35,.5,.35,.7,.2]},
+  {a:.27,b:.47,n:'Classroom or office',s:'Class',x:[.55,.7,.3,.15,.5,.25]},
+  {a:.47,b:.62,n:'Lunch hall',s:'Lunch',x:[.95,.5,.5,.9,.95,.3]},
+  {a:.62,b:.78,n:'Shop',s:'Shop',x:[.7,.8,.35,.5,.7,.25]},
+  {a:.78,b:1,n:'Home',s:'Home',x:[.1,.15,.1,.15,0,.2]}];
+/* single events: a lane spike, or an unexpected change (ch) that a warning can soften */
+const SE_EV=[
+  {u:.19,lane:0,a:.35,w:.008,lb:'brakes screech'},
+  {u:.40,ch:1,a:.3,w:.016,lb:'room change, no warning'},
+  {u:.555,lane:0,a:.45,w:.008,lb:'trays crash'},
+  {u:.70,lane:2,a:.55,w:.006,lb:'bumped by a trolley'}];
+/* profiles: w = how strongly each lane registers; th = overload threshold; chg = sensitivity to change */
+const SE_PROF={
+  hyper:{n:'Hyper-reactive',w:[1.15,1,1,1,.9,.7],th:.72,chg:1},
+  hypo:{n:'Hypo-reactive',w:[.35,.35,.3,.3,.35,.15],th:.9,chg:.5},
+  seek:{n:'Sensory-seeking',w:[.55,.6,.5,.5,.5,.4],th:.86,chg:.6}};
+const SE_SUP=[
+  {k:'ear',n:'Ear defenders'},{k:'glasses',n:'Sunglasses or a cap'},{k:'quiet',n:'Quiet space at lunch'},{k:'warn',n:'Warning before changes'}];
+/* piecewise-linear input for lane i at time u, before supports */
+function seRaw(i,u){const K=[];SE_SC.forEach(S=>{K.push([S.a+(S.a?.012:0),S.x[i]],[S.b-(S.b<1?.012:0),S.x[i]])});
+  let v=K[0][1];for(let k=1;k<K.length;k++)if(u<=K[k][0]){const A=K[k-1],B=K[k];v=A[1]+(B[1]-A[1])*clamp((u-A[0])/Math.max(1e-6,B[0]-A[0]));break}else v=K[k][1];
+  if(i===5)v+=.32*bump(u,.34,.5)+.3*bump(u,.66,.77);/* hunger before lunch, needing the toilet in the shop */
+  v*=.86+.14*Math.sin(u*97+i*1.7)*Math.sin(u*31+i);
+  SE_EV.forEach(E=>{if(E.lane===i)v+=E.a*Math.exp(-Math.pow((u-E.u)/E.w,2))});
+  return clamp(v,0,1.2)}
+function seChange(u){let c=0;SE_EV.forEach(E=>{if(E.ch)c+=E.a*Math.exp(-Math.pow((u-E.u)/E.w,2))});
+  SE_SC.forEach((S,k)=>{if(k)c+=.1*Math.exp(-Math.pow((u-S.a)/.01,2))});return c}
+/* what reaches the person once supports are in place */
+function seEnv(i,u,sup){let v=seRaw(i,u);
+  if(sup.ear&&i===0)v*=.45;
+  if(sup.glasses&&i===1)v*=.5;
+  if(sup.quiet&&u>.49&&u<.62&&i<5)v*=.45;
+  return v}
+/* the day simulated once per setting: load L, energy E, crossing time, seeking moments */
+function seSim(pk,sup){const P=SE_PROF[pk],N=600,L=[],E=[],I=[],SK=[];let l=.12,e=1,cross=null,seek=0;
+  for(let k=0;k<=N;k++){const u=k/N;let inp=0;for(let i=0;i<6;i++)inp+=P.w[i]*seEnv(i,u,sup);
+    inp=inp/4.5+P.chg*seChange(u)*(sup.warn?.25:1);
+    /* a sensory seeker adds movement and touch when things are quiet, which helps regulate */
+    let sk=0;if(pk==='seek'&&l<.5*P.th&&Math.sin(u*70)>.55)sk=1;SK.push(sk);if(sk)inp-=.08;
+    I.push(inp);
+    l+=inp>l?(inp-l)*.032:(inp-l)*.004*(u>.78?2.4:1);
+    if(cross==null&&l>=P.th)cross=u;
+    if(cross!=null&&u>=cross&&u<cross+.07)l=Math.max(l,P.th+.07*bump(u,cross,cross+.07));
+    if(cross!=null&&Math.abs(u-(cross+.07))<.5/N)l=Math.max(.3,l-.22);
+    e-=l*l*2.1/N;if(cross!=null&&Math.abs(u-(cross+.07))<.5/N)e-=.22;if(u>.8)e+=2.2*(1-l)/N;e=clamp(e,.03,1);
+    L.push(l);E.push(e)}
+  return {L,E,I,SK,cross,th:P.th,N}}
+function seState(S,pk,resp,t){const k=Math.round(t*S.N),l=S.L[k],c=S.cross;
+  if(c!=null&&t>=c){if(t<c+.012)return{k:'over',n:'Overload',d:'too much at once'};
+    if(t<c+.07)return resp==='shut'?{k:'shut',n:'Shutdown',d:'goes still, withdraws'}:{k:'melt',n:'Meltdown',d:'out of control'};
+    if(t<.78)return{k:'drained',n:'Drained',d:'low energy, on edge'};
+    return l>.32?{k:'rec',n:'Recovering',d:'quiet, no demands'}:{k:'calm',n:'Calm again',d:'load back down'}}
+  if(pk==='hypo'){const m=SE_MISS.find(M=>Math.abs(t-M.u)<.035);if(m)return{k:'miss',n:'Cue missed',d:m.lb}}
+  if(pk==='seek'&&S.SK[k])return{k:'seek',n:'Seeking input',d:'moves, fidgets, stims'};
+  const r=l/S.th;return r<.62?{k:'calm',n:'Calm',d:'comfortable'}:r<.86?{k:'busy',n:'Busy',d:'coping, using energy'}:{k:'edge',n:'Near the limit',d:'needs a break soon'}}
+const SE_MISS=[{u:.44,lane:5,lb:'hunger not noticed'},{u:.70,lane:2,lb:'a bump, no sign of pain'},{u:.73,lane:5,lb:'needs the toilet'}];
+
+function seSteps(pk,S,resp){const P=SE_PROF[pk],crossed=S.cross!=null;
+  const cw=crossed?(S.cross<.47?'classroom':S.cross<.62?'lunch hall':'shop'):'';
+  const st=[
+  {from:0,at:.06,k:'07:00 · Home',t:'Six channels, one nervous system',
+   txt:`DSM-5-TR criterion B4, paraphrased: being much more or much less reactive to sensory input, or unusually interested in sensory aspects of the surroundings. Its examples include seeming indifferent to pain or temperature, strong reactions to certain sounds or textures, lots of smelling or touching of objects, and fascination with lights or movement. <sup class="c" data-ref="APA2022" title="Source 23">23</sup> DSM-5 placed these differences in the restricted and repetitive behaviours domain to reflect how common they are. <sup class="c" data-ref="Lord2020NRDP" title="Source 337">337</sup> Each lane is one channel; "body signals" is interoception, the sense of the body's inner state. The thin line is what the surroundings give; the filled wave is what registers for this profile.`,
+   pt:`Each wavy line is one sense. The bigger the filled wave, the more that sense is taking in right now.`,
+   hook:`Sensory hyper- or hypo-reactivity is criterion B4, inside domain B (restricted, repetitive behaviours), not domain A.`},
+  {from:.12,at:.2,k:'07:45 · The bus',t:'Noise, jostling, smells',
+   txt:`<span class="ev est">Established</span> A meta-analysis of 67 studies put current hyperacusis (everyday sounds feeling too loud or painful) in autistic people at 41.42%, and lifetime hyperacusis at 60.58%; with objective or observational measures, current prevalence was 27.30%. <sup class="c" data-ref="Williams2021Hyperacusis" title="Source 634">634</sup> <span class="ev hyp">Hypothesis</span> A review proposes splitting decreased sound tolerance into hyperacusis, misophonia (learned aversion to specific sounds) and phonophobia (fear of sound). <sup class="c" data-ref="Williams2021DST" title="Source 633">633</sup> <span class="ev early">Early evidence</span> Autistic adults in participatory focus groups named public transport among commonly disabling places. <sup class="c" data-ref="MacLennan2023" title="Source 346">346</sup>`,
+   pt:`About 4 in 10 autistic people find everyday sounds too loud or painful right now, and about 6 in 10 do at some point in life.`,
+   hook:`Hyperacusis in autism: about 41% current, about 61% lifetime (meta-analysis, Williams 2021).`},
+  {from:.27,at:.39,k:'09:00 · Classroom or office',t:'It does not fade into the background',
+   txt:`<span class="ev early">Early evidence</span> In an fMRI study of 19 autistic and 19 non-autistic youth, mildly aversive sounds and touch produced stronger responses in primary sensory cortex and the amygdala in autistic youth. Youth with over-responsivity showed reduced habituation: the response did not fade with repetition. <sup class="c" data-ref="Green2015SOR" title="Source 182">182</sup> More than half of autistic youth have sensory over-responsivity, and it often co-occurs with anxiety; which causes which is still open. <sup class="c" data-ref="Green2015SOR,GreenBenSasson2010" title="Source 182,185">182,185</sup> Watch the load: it climbs with each input and falls only slowly. The "!" is a change of plan with no warning.`,
+   pt:`For many autistic people a buzzing light or a ticking clock never fades into the background. It stays loud all day, and the strain adds up.`,
+   hook:`Sensory over-responsivity: stronger primary-sensory and amygdala responses and reduced habituation (Green 2015).`},
+  crossed?
+  {from:.47,at:Math.min(.6,S.cross+.035),k:`Over the threshold · ${cw}`,t:resp==='shut'?'Overload, then shutdown':'Overload, then meltdown',
+   txt:`<span class="ev early">Early evidence</span> In interviews with 32 autistic adults, meltdowns were described as being overwhelmed by information, senses, and social and emotional stress, with extreme emotion, trouble thinking and remembering, a sense of "not being themselves", and a release of pent-up emotion. <sup class="c" data-ref="Lewis2023Meltdown" title="Source 327">327</sup> Autistic youth described meltdowns as "feeling out of control" and shutdowns as "feeling frozen": more inward, with withdrawal from the surroundings, ranging from mild to severe. <sup class="c" data-ref="Phung2021" title="Source 457">457</sup> Switch between <b>Meltdown</b> and <b>Shutdown</b> to see both. Then turn supports on and watch the curve.`,
+   pt:`A meltdown is a response to overload, not bad behaviour. A shutdown is a quieter version, where the person goes still or withdraws.`,
+   hook:`Meltdown: an involuntary response to overload. Shutdown: inward, withdrawn, "feeling frozen" (Phung 2021).`}:
+  pk==='hypo'?
+  {from:.47,at:.5,k:'12:30 · Lunch hall',t:'High threshold: little registers',
+   txt:`<span class="ev est">Established model</span> In Dunn's model, low registration is a high neurological threshold with passive regulation: cues are missed. <sup class="c" data-ref="Dunn2001" title="Source 122">122</sup> The hall is just as loud (thin line), but little of it registers, so the load stays low. The risk here is different: hunger, needing the toilet or an injury can go unnoticed. One DSM-5-TR example of B4 is apparent indifference to pain or temperature. <sup class="c" data-ref="APA2022" title="Source 23">23</sup> In the 2009 meta-analysis, under-responsivity showed the largest difference between autistic and typical groups. <sup class="c" data-ref="BenSasson2009" title="Source 46">46</sup>`,
+   pt:`Some autistic people hardly notice noise, pain, hunger or cold. They are not ignoring you: the signal does not get through.`,
+   hook:`Dunn: low registration = high threshold + passive strategy. Watch for missed pain, hunger and temperature.`}:
+  {from:.47,at:.53,k:'12:30 · Lunch hall',t:pk==='seek'?'Seeking keeps the balance':'Supports keep the load under the line',
+   txt:pk==='seek'?`<span class="ev est">Established model</span> In Dunn's model, sensation seeking is a high threshold with an active strategy: the person adds input. <sup class="c" data-ref="Dunn2001" title="Source 122">122</sup> The green marks are moments of movement, touch or stimming. <span class="ev early">Early evidence</span> In interviews with 32 autistic adults, stimming served as self-regulation, to soothe or to express intense emotion. <sup class="c" data-ref="Kapp2019" title="Source 273">273</sup> A seeker can still be overloaded: every person has some amount of each pattern. <sup class="c" data-ref="Dunn2001" title="Source 122">122</sup>`
+     :`The same hall, with supports on. The thin line still shows how loud the room is; the filled waves show what reaches the person. <span class="ev early">Early evidence</span> In a single-subject study of six children with autism and hyperacusis, noise-attenuating headphones lowered skin-conductance markers of arousal. In parent and teacher interviews, headphones increased participation at home, at school and in the community. <sup class="c" data-ref="Pfeiffer2019EDA,Pfeiffer2019Participation" title="Source 455,456">455,456</sup> Lunch in a quiet room and warning before a change do the rest.`,
+   pt:pk==='seek'?`Rocking, bouncing or fiddling with something can be how a person keeps themselves steady.`:`Changing the room, not the person, can keep the day under the limit.`,
+   hook:pk==='seek'?`Dunn: seeking = high threshold + active strategy. Stimming often serves self-regulation (Kapp 2019).`:`Supports work on the input side: less noise, softer light, warning before changes, a place to recover.`},
+  {from:.62,at:.71,k:'15:30 · The shop',t:crossed?'Drained, still on edge':'Still coping',
+   txt:(crossed?`After an episode, energy is low and the threshold feels closer. `:'')+`<span class="ev early">Early evidence</span> Autistic adults named supermarkets, eateries, town centres, public transport and health-care settings as commonly disabling. <sup class="c" data-ref="MacLennan2023" title="Source 346">346</sup> When a meltdown was coming, adults tried to avoid triggers or to be alone, to prevent harm to their bodies, emotions and relationships. <sup class="c" data-ref="Lewis2023Meltdown" title="Source 327">327</sup> Youth said compassion and collaboration from trusted adults help, while demands such as eye contact during distress make things worse. <sup class="c" data-ref="Phung2021" title="Source 457">457</sup>`,
+   pt:crossed?`After a meltdown or shutdown, people need time and calm, not questions or a lecture.`:`Bright lights, music and crowds in a shop can push a full day over the edge.`,
+   hook:`During distress: fewer demands, no insistence on eye contact, a calm trusted adult (Phung 2021).`},
+  {from:.78,at:.92,k:'18:00 · Home',t:'Recovery',
+   txt:`At home the inputs drop and the load falls, slowly. <span class="ev early">Early evidence</span> Autistic adults in participatory focus groups identified six principles of enabling spaces: sensoryscape, space, predictability, understanding, adjustments and recovery. <sup class="c" data-ref="MacLennan2023" title="Source 346">346</sup> Autistic adults describe autistic burnout as chronic exhaustion, loss of skills and reduced tolerance to stimuli, arising from accumulated stressors and barriers to relief. <sup class="c" data-ref="Raymaker2020" title="Source 474">474</sup> The energy battery in the figure is a teaching picture of that idea, not a measurement.`,
+   pt:`Rest in a calm place lets the load fall again. Recovery time is part of the day, not a luxury.`,
+   hook:`Enabling spaces (MacLennan 2023): sensoryscape, space, predictability, understanding, adjustments, recovery.`}];
+  return st}
+
+inits.senses=()=>{
+  const svg=$('#seSvg'),rg=$('#seT');let pk='hyper',resp='melt';const sup={ear:false,glasses:false,quiet:false,warn:false};
+  let S=seSim(pk,sup),RAW=seSim(pk,{}),STEPS=seSteps(pk,S,resp),setSt=()=>{};
+  function draw(t){
+    const N=vb(svg,'720 400','400 600');
+    const G=N?{x0:52,x1:394,sT:4,sB:28,tk:32,l0:62,lh:30,p0:256,p1:340,ft:592}:{x0:104,x1:560,sT:4,sB:28,tk:32,l0:62,lh:32,p0:266,p1:360,ft:394};
+    const X=u=>lerp(G.x0,G.x1,u),xt=X(t),P=SE_PROF[pk],k=Math.round(t*S.N);
+    const st=seState(S,pk,resp,t);let s=`<defs><clipPath id="seCA"><rect x="${G.x0}" y="0" width="${G.x1-G.x0}" height="${f1(lerp(G.p1,G.p0,P.th/1.1))}"/></clipPath><clipPath id="seCB"><rect x="${G.x0}" y="${f1(lerp(G.p1,G.p0,P.th/1.1))}" width="${G.x1-G.x0}" height="400"/></clipPath></defs>`;
+    /* scene strip */
+    SE_SC.forEach((C,i)=>{const on=t>=C.a&&t<(i===5?1.01:C.b);s+=`<rect x="${f1(X(C.a))}" y="${G.sT}" width="${f1(X(C.b)-X(C.a)-1)}" height="${G.sB-G.sT}" rx="4" style="fill:${on?'var(--brand-soft)':'var(--panel-2)'};stroke:${on?'var(--brand)':'none'}"/>`;
+      s+=`<text x="${f1((X(C.a)+X(C.b))/2)}" y="${G.sB-8}" class="t-xs t-mid" style="fill:${on?'var(--ink)':'var(--muted)'}">${N||C.n.length*5.6>X(C.b)-X(C.a)-6?C.s:C.n}</text>`});
+    s+=`<text x="${G.x0-8}" y="${G.sB-8}" class="t-xs t-end">${N?'DAY':'THE DAY'}</text>`;
+    /* track: change markers and the walking person */
+    SE_EV.forEach(E=>{if(!E.ch||t<E.u-.005)return;s+=`<text x="${f1(X(E.u))}" y="${G.tk+20}" class="t-lbl t-mid" style="fill:${sup.warn?'var(--muted)':'var(--bad)'}">!</text>`;
+      if(!N)s+=`<text x="${f1(X(E.u)+8)}" y="${G.tk+19}" class="t-xs">${sup.warn?'change, warned ahead':E.lb}</text>`});
+    const pc={calm:'var(--calm)',busy:'var(--gold)',edge:'var(--warn)',over:'var(--bad)',melt:'var(--bad)',shut:'var(--muted)',drained:'var(--warn)',rec:'var(--calm)',miss:'var(--neuro)',seek:'var(--rx)'}[st.k];
+    s+=person(xt,G.tk,26,pc);
+    /* lanes */
+    SE_LANES.forEach((Ln,i)=>{const yc=G.l0+i*G.lh+G.lh/2,w=Math.max(.5,xt-G.x0),amp=G.lh*.42;
+      s+=`<line x1="${G.x0}" x2="${G.x1}" y1="${f1(yc)}" y2="${f1(yc)}" class="grid"/><text x="${G.x0-8}" y="${f1(yc+4)}" class="t-sm t-end" style="fill:var(--ink)">${N?Ln.s:Ln.n}</text>`;
+      if(t>.002){const fq=Math.max(1,30*t),ph=t*6;
+        s+=`<g style="opacity:.55">${wave(G.x0,yc,w,amp,{freq:fq,phase:ph,env:u=>clamp(seRaw(i,u*t)/1.05),col:'var(--muted)',sw:1})}</g>`;
+        s+=wave(G.x0,yc,w,amp,{freq:fq,phase:ph,env:u=>clamp(P.w[i]*seEnv(i,u*t,sup)/1.05),col:Ln.col,fill:true,sw:1.5})}
+      if(pk==='seek'&&i===2)for(let q=0;q<S.N*t;q+=6)if(S.SK[q])s+=`<rect x="${f1(X(q/S.N)-1.5)}" y="${f1(yc-amp)}" width="3" height="${f1(2*amp)}" rx="1.5" style="fill:var(--rx);opacity:.75"/>`;
+      if(pk==='hypo')SE_MISS.forEach(M=>{if(M.lane!==i||t<M.u)return;const mx=X(M.u);s+=`<circle cx="${f1(mx)}" cy="${f1(yc)}" r="6" style="fill:none;stroke:var(--neuro);stroke-width:1.6;stroke-dasharray:2 2"/>`;
+        const ed=N?M.u>.5:M.u>.72;if(!N||M.u<.72)s+=`<text x="${f1(mx+(ed?-9:9))}" y="${f1(yc-amp+(ed?-1:4))}" class="t-xs${ed?' t-end':''}" style="fill:var(--neuro)">${M.lb}</text>`})});
+    if(pk==='seek'&&t>.15&&!N)s+=`<text x="${f1(X(.02))}" y="${f1(G.l0+2*G.lh+5)}" class="t-xs" style="fill:var(--rx)">green: seeks movement or touch</text>`;
+    /* load panel */
+    const Y=v=>lerp(G.p1,G.p0,clamp(v/1.1)),ty=Y(P.th);
+    s+=`<rect x="${G.x0}" y="${G.p0}" width="${G.x1-G.x0}" height="${G.p1-G.p0}" rx="4" style="fill:var(--field);stroke:var(--line)"/>`;
+    s+=`<text x="${G.x0-8}" y="${G.p0+14}" class="t-sm t-end" style="fill:var(--ink)">Load</text>`;
+    if(S.cross!=null&&t>=S.cross){const a=X(S.cross),b=X(Math.min(t,S.cross+.07));s+=`<rect x="${f1(a)}" y="${G.p0}" width="${f1(b-a)}" height="${G.p1-G.p0}" style="fill:var(--bad);opacity:.1"/>`;
+      if(t>S.cross+.03)s+=`<text x="${f1((a+X(S.cross+.07))/2)}" y="${G.p1-6}" class="t-xs t-mid" style="fill:var(--bad)">${resp==='shut'?'shutdown':'meltdown'}</text>`}
+    if(k>1){let d='';for(let q=0;q<=k;q+=2)d+=(q?'L':'M')+f1(X(q/S.N))+' '+f1(Y(S.L[q]));const ar=d+`L${f1(X(k/S.N))} ${G.p1}L${G.x0} ${G.p1}Z`;
+      s+=`<path d="${ar}" clip-path="url(#seCB)" style="fill:var(--sense);opacity:.28"/><path d="${ar}" clip-path="url(#seCA)" style="fill:var(--bad);opacity:.4"/>`;
+      if(Object.values(sup).some(Boolean)){let g='';for(let q=0;q<=k;q+=3)g+=(q?'L':'M')+f1(X(q/S.N))+' '+f1(Y(RAW.L[q]));s+=`<path d="${g}" style="fill:none;stroke:var(--muted);stroke-width:1.2;stroke-dasharray:3 3"/>`}
+      s+=`<path d="${d}" style="fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linejoin:round"/>`}
+    s+=`<line x1="${G.x0}" x2="${G.x1}" y1="${f1(ty)}" y2="${f1(ty)}" style="stroke:var(--bad);stroke-width:1.6;stroke-dasharray:6 4"/><text x="${G.x1-4}" y="${f1(ty-5)}" class="t-xs t-end" style="fill:var(--bad)">${N?'threshold':'overload threshold for this profile'}</text>`;
+    if(Object.values(sup).some(Boolean)&&!N)s+=`<text x="${G.x0+6}" y="${G.p0+13}" class="t-xs">dashed: the same day without supports</text>`;
+    s+=`<line x1="${f1(xt)}" x2="${f1(xt)}" y1="${G.sB+2}" y2="${G.p1}" style="stroke:var(--ink);stroke-width:1.2;opacity:.35"/>`;
+    /* the person */
+    const F=N?{fx:74,fy:410,fr:40,tx:136,ty:396,dx:110,dy:540,bx:290,by:536}:{fx:645,fy:96,fr:38,tx:645,ty:168,dx:645,dy:268,bx:645,by:346};
+    const melt=st.k==='melt'||st.k==='over',shut=st.k==='shut';
+    if(melt){for(let q=0;q<10;q++){const a=q/10*2*Math.PI+t*40,r1=F.fr*1.22,r2=F.fr*(1.45+.12*Math.sin(t*90+q));
+      s+=`<path d="M${f1(F.fx+Math.cos(a)*r1)} ${f1(F.fy+Math.sin(a)*r1)}L${f1(F.fx+Math.cos(a+.08)*r2)} ${f1(F.fy+Math.sin(a+.08)*r2)}" style="stroke:var(--bad);stroke-width:2.2;stroke-linecap:round"/>`}}
+    if(shut)s+=`<circle cx="${F.fx}" cy="${F.fy}" r="${f1(F.fr*1.3)}" style="fill:var(--panel-2);stroke:var(--muted);stroke-dasharray:3 4"/>`;
+    const mouth={calm:'smile',busy:'flat',edge:'wavy',over:'wavy',melt:'open',shut:'flat',drained:'flat',rec:'flat',miss:'smile',seek:'smile'}[st.k];
+    s+=`<g style="opacity:${shut?.6:1}">${face(F.fx,F.fy,F.fr,{mouth,brows:['edge','over','melt','drained'].includes(st.k)?'tense':'calm',gaze:shut?90:st.k==='miss'?0:null,ear:sup.ear})}</g>`;
+    if(sup.glasses)[-1,1].forEach(q=>s+=`<rect x="${f1(F.fx+q*F.fr*.36-F.fr*.22)}" y="${f1(F.fy-F.fr*.12)}" width="${f1(F.fr*.44)}" height="${f1(F.fr*.28)}" rx="${f1(F.fr*.1)}" style="fill:var(--ink);opacity:.82"/>`);
+    if(st.k==='miss')s+=bubble(F.fx+F.fr*.5,F.fy-F.fr*1.9,30,22,{text:'?',tail:'left',think:true});
+    s+=`<text x="${F.tx}" y="${F.ty}" class="t-big${N?'':' t-mid'}" style="fill:${pc}">${st.n}</text><text x="${F.tx}" y="${F.ty+16}" class="t-xs${N?'':' t-mid'}">${st.d}</text>`;
+    if(N)s+=`<text x="${F.tx}" y="${F.ty+34}" class="t-xs">${P.n} · ${SE_SC.find((C,i)=>t>=C.a&&(t<C.b||i===5)).n}</text>`;
+    s+=dial(F.dx,F.dy,N?44:42,clamp(S.L[k]/1.1),{th:P.th/1.1,label:'load · tick = limit'});
+    s+=dial(F.bx,F.by,N?42:34,S.E[k],{battery:true,label:'energy'});
+    s+=`<text x="${N?8:8}" y="${G.ft}" class="t-xs" style="fill:var(--warn)">SCHEMATIC · one illustrative day, not a measurement</text>`;
+    svg.innerHTML=s;
+    const ph=phaseOf(STEPS,t);setSt(ph);$('#seNote').innerHTML=noteHTML(STEPS[ph]);
+    $('#seRead').innerHTML=`<span>profile <b>${P.n}</b></span><span>now <b>${st.n.toLowerCase()}</b></span><span>load <b>${Math.round(S.L[k]/P.th*100)}%</b> of threshold</span><span>peak today <b>${Math.round(Math.max(...S.L)/P.th*100)}%</b></span><span>supports <b>${SE_SUP.filter(x=>sup[x.k]).length}</b> of 4</span>`;
+  }
+  const stop=playWire(rg,$('#sePlay'),draw,30000,'Replay','senses');
+  function rebuild(){S=seSim(pk,sup);RAW=seSim(pk,{});STEPS=seSteps(pk,S,resp);const old=$('#seSteps'),nu=old.cloneNode(false);old.replaceWith(nu);setSt=stepWire(nu,STEPS,rg,draw,stop);draw(+rg.value)}
+  $$('[data-sep]').forEach(b=>b.addEventListener('click',()=>{stop();pk=b.dataset.sep;$$('[data-sep]').forEach(x=>x.setAttribute('aria-pressed',x===b));rebuild()}));
+  $$('[data-ser]').forEach(b=>b.addEventListener('click',()=>{resp=b.dataset.ser;$$('[data-ser]').forEach(x=>x.setAttribute('aria-pressed',x===b));rebuild()}));
+  $$('[data-ses]').forEach(b=>b.addEventListener('click',()=>{const q=b.dataset.ses;sup[q]=!sup[q];b.setAttribute('aria-pressed',sup[q]);rebuild()}));
+  $('#seAll').addEventListener('click',()=>{const on=!SE_SUP.every(x=>sup[x.k]);SE_SUP.forEach(x=>sup[x.k]=on);$$('[data-ses]').forEach(b=>b.setAttribute('aria-pressed',on));rebuild()});
+  rebuild();
+
+  /* ---- the sensory profile builder (a teaching tool) ---- */
+  const PB=[
+   {n:'Sound',s:'Sound',hi:`Noise-attenuating headphones or ear defenders, a seat away from doors and scraping chairs, and quiet times to shop or travel. In a small single-subject study headphones lowered arousal; in interviews they increased participation, and many children learned to ask for them. <sup class="c" data-ref="Pfeiffer2019EDA,Pfeiffer2019Participation" title="Source 455,456">455,456</sup>`,
+     lo:`Get attention first, with the person's name plus a visual cue, before giving information. Check that hearing has been tested.`},
+   {n:'Light and sight',s:'Light',hi:`Softer, steady lighting, a seat away from glare and flicker, and a cap or tinted glasses if they help. Changed lighting was part of the sensory-adapted dental room that lowered stress in a randomised trial. <sup class="c" data-ref="SteinDuker2023" title="Source 563">563</sup>`,
+     lo:`Use clear, high-contrast visual supports. Visual activity schedules meet criteria as an evidence-based practice from preschool to adulthood. <sup class="c" data-ref="Knight2015" title="Source 297">297</sup>`},
+   {n:'Touch and textures',s:'Touch',hi:`Ask before touching and say what will happen. Let the person choose clothing and textures that feel right. A sensory-adapted dental room changed touch input too. <sup class="c" data-ref="SteinDuker2023" title="Source 563">563</sup>`,
+     lo:`Check for bumps, cuts and burns after falls or play, because pain may not show in the usual way. <sup class="c" data-ref="APA2022" title="Source 23">23</sup>`},
+   {n:'Smell and taste',s:'Smell',hi:`Offer a choice of where to eat, away from strong food smells and perfume. Autistic adults named eateries and supermarkets among commonly disabling places. <sup class="c" data-ref="MacLennan2023" title="Source 346">346</sup>`,
+     lo:`Check food temperature and freshness, and make sure smoke alarms work rather than relying on smell.`},
+   {n:'Movement and balance',s:'Move',hi:`Warn before lifts, escalators, swings or being moved, and keep movement predictable.`,
+     lo:`Build in movement breaks and active jobs. Not every sensory product helps: weighted blankets did not lengthen measured sleep in a randomised trial, though many children and parents liked them. <sup class="c" data-ref="Gringras2014" title="Source 187">187</sup>`},
+   {n:'Body signals (interoception)',s:'Body',hi:`Strong awareness of heartbeat or breathing can feed anxiety: in one study the gap between felt and measured body awareness tracked anxiety. Naming the sensation calmly can help. <sup class="c" data-ref="Garfinkel2016" title="Source 165">165</sup>`,
+     lo:`Use reminders for drinks, food and the toilet, and ask about pain directly, since it may show only as a change in behaviour. <sup class="c" data-ref="Williams2023Interoception,McElhanon2014" title="Source 369,635">369,635</sup>`}];
+  const pS=$('#seProfSvg'),box=$('#seSliders');
+  box.innerHTML=PB.map((p,i)=>`<label for="sePb${i}"><span>${p.n} <output id="sePo${i}">5</output></span><input type="range" id="sePb${i}" min="0" max="10" step="1" value="5" aria-describedby="sePbScale"><span class="se-seek"><input type="checkbox" id="sePc${i}"> seeks this out</span></label>`).join('');
+  const PRE={a:[9,8,7,6,4,4],b:[2,3,1,3,3,1],c:[5,5,4,5,2,5]},PRES={a:[0,0,0,0,1,0],b:[0,0,0,0,0,0],c:[0,0,1,0,1,0]};
+  function drawP(){const N=vb(pS,'720 330','400 420'),v=PB.map((p,i)=>+$('#sePb'+i).value),sk=PB.map((p,i)=>$('#sePc'+i).checked);
+    PB.forEach((p,i)=>$('#sePo'+i).textContent=v[i]);
+    const cx=N?200:200,cy=N?190:168,r=N?118:118;let s='';
+    s+=`<circle cx="${cx}" cy="${cy}" r="${f1(r*.3)}" style="fill:var(--neuro-soft);opacity:.55"/><circle cx="${cx}" cy="${cy}" r="${r}" style="fill:none;stroke:var(--bad);stroke-width:1;stroke-dasharray:2 3;opacity:.5"/>`;
+    const R=profile(cx,cy,r,v.map(x=>x/10),{labels:PB.map(p=>p.s),ghost:[.5,.5,.5,.5,.5,.5],col:'var(--sense)',fs:'t-sm'});s+=R.svg;
+    sk.forEach((q,i)=>{if(!q)return;const p=R.pt(i,clamp(v[i]/10,.04,1));s+=`<circle cx="${f1(p[0])}" cy="${f1(p[1])}" r="8" style="fill:none;stroke:var(--rx);stroke-width:2"/>`});
+    s+=`<text x="${cx}" y="${N?24:14}" class="t-xs t-mid">centre: hardly registers · dashed: middle · rim: very intense</text>`;
+    const hi=v.filter(x=>x>=7).length,lo=v.filter(x=>x<=3).length,ns=sk.filter(Boolean).length;
+    const lean=hi&&lo?'a mixed profile: some channels very intense, others hardly registering':hi?'mostly intense input (in Dunn\'s terms, a lower threshold: sensitivity or avoiding)':lo?(ns?'high threshold with seeking':'mostly low registration (a higher threshold)'):ns?'sensation seeking':'close to the middle on every channel';
+    const lx=N?20:400,ly=N?354:60;
+    s+=`<text x="${lx}" y="${ly}" class="t-sm" style="fill:var(--ink)">THIS SKETCH LEANS TOWARD</text>`;
+    const words=lean.split(' ');let line='',ln=0;const mw=N?52:44;words.forEach(w=>{if((line+' '+w).length>mw){s+=`<text x="${lx}" y="${ly+20+ln*17}" class="t-lbl">${line.trim()}</text>`;ln++;line=''}line+=' '+w});s+=`<text x="${lx}" y="${ly+20+ln*17}" class="t-lbl">${line.trim()}</text>`;
+    if(!N){s+=`<text x="${lx}" y="${ly+80}" class="t-xs">intense (7 or more): ${hi} · hardly registers (3 or less): ${lo}</text><text x="${lx}" y="${ly+96}" class="t-xs">seeks out: ${ns} · green ring = seeks this out</text>`;
+      s+=`<text x="${lx}" y="${ly+140}" class="t-xs" style="fill:var(--warn)">A TEACHING TOOL, NOT AN ASSESSMENT</text><text x="${lx}" y="${ly+156}" class="t-xs">Real profiles use standardised questionnaires</text><text x="${lx}" y="${ly+170}" class="t-xs">such as the Sensory Profile, with a professional.</text>`}
+    pS.innerHTML=s;
+    let h='';PB.forEach((p,i)=>{const it=[];if(v[i]>=7)it.push(['Very intense',p.hi]);if(v[i]<=3)it.push(['Hardly registers',p.lo]);if(sk[i])it.push(['Seeks it out',`Build safe ways to get this input into the day, such as movement breaks, fidget items or something to chew. Leave harmless stims alone: autistic adults describe stimming as self-regulation and object to efforts to eliminate it. <sup class="c" data-ref="Kapp2019" title="Source 273">273</sup>`]);
+      it.forEach(([a,b])=>h+=`<li><b>${p.n}: ${a.toLowerCase()}.</b> ${b}</li>`)});
+    $('#seProfNote').innerHTML=`<div class="kicker">Matching adjustments</div><h4>${h?'Ideas to discuss':'Move a slider to the ends'}</h4>`+(h?`<ul class="se-list">${h}</ul>`:`<p>Set a channel to 7 or more (very intense) or 3 or less (hardly registers), or tick "seeks this out", to see adjustments people often try. Every person has some of each pattern. <sup class="c" data-ref="Dunn2001" title="Source 122">122</sup></p>`)+`<div class="pt"><b>In plain words</b>The point is to change the surroundings to fit the person, and to ask them what helps.</div>`;
+  }
+  $$('#seSliders input').forEach(x=>x.addEventListener('input',drawP));$$('#seSliders input[type=checkbox]').forEach(x=>x.addEventListener('change',drawP));
+  $$('[data-sepre]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.sepre;PB.forEach((p,i)=>{$('#sePb'+i).value=k==='r'?5:PRE[k][i];$('#sePc'+i).checked=k==='r'?false:!!PRES[k][i]});drawP()}));
+  drawP();
+  redraws.senses=(()=>{const prev=redraws.senses;return()=>{prev&&prev();drawP()}})();
+};
+/* =============== 2.1 Genes & heritability =============== */
+const GE_STEPS=[
+ {from:0,at:.12,k:'Panel 1 · twins',t:'Twins who share all or half their genes',
+  txt:`Identical (monozygotic, MZ) twins share essentially all their DNA; non-identical (dizygotic, DZ) twins share about half, like other siblings. In a California study of 192 twin pairs, if one male twin was autistic the other was too in 77% of MZ pairs (95% CI 65–86%) against 31% of DZ pairs (16–46%); in female twins the figures were 50% and 36%. A meta-analysis of twin studies found an MZ correlation of 0.98 (0.96–0.99) against 0.53 (0.44–0.60) for DZ twins at an assumed 5% prevalence. The first twin study of autism, in 1977, examined 21 pairs. <sup class="c" data-ref="Hallmayer2011,Tick2016,Folstein1977" title="Source 150,197,589">150,197,589</sup>`,
+  pt:`When one identical twin is autistic, the other usually is too. For non-identical twins it happens much less often. That gap points to genes.`,
+  hook:`MZ concordance much higher than DZ = genetic influence. Twin meta-analysis: MZ correlation 0.98, heritability 64–91%. <sup class="c" data-ref="Tick2016" title="Source 589">589</sup>`},
+ {from:.17,at:.3,k:'Panel 1 · heritability',t:'Heritability: about 80%',
+  txt:`<span class="ev est">Established</span> Twin and family studies converge on a high heritability. A Swedish reanalysis gave 0.83 (95% CI 0.79–0.87) with nonshared environment 0.17; a five-country cohort of 2,001,631 people gave a median of 80.8% (73.2–85.5%), ranging from 50.9% in Finland to 86.8% in Israel. The 2014 Swedish analysis of the same data had given 0.50; the 2017 letter attributes the gap to how time-to-event data were modelled. The California study is the main outlier at 38% (14–67%); a UK population twin sample gave 56–95%. Autism has a strong genetic component, and other causes contribute too. <sup class="c" data-ref="Sandin2017,Bai2019,Sandin2014,Hallmayer2011,Colvert2015,Lord2018" title="Source 34,88,197,336,512,514">34,88,197,336,512,514</sup>`,
+  pt:`About 80% of the differences in autism between people in a population line up with genetic differences. That is a statement about groups, not about one person.`,
+  hook:`Heritability ≠ inheritance. 80% heritability does not mean 80% of one person's autism is genetic, nor that a parent "passed it on". <sup class="c" data-ref="Sandin2017,Bai2019" title="Source 34,514">34,514</sup>`},
+ {from:.33,at:.44,k:'Panel 2 · common variants',t:'Many common variants, each tiny',
+  txt:`Most genetic risk sits in common variants that many people carry, each with a tiny effect. In a Swedish sample, narrow-sense heritability was about 52.4%, mostly from common variation, while rare de novo mutations explained 2.6% of the variance in liability. The largest GWAS of its time (18,381 autistic people, 27,969 controls) found five genome-wide significant loci; common variants measured on the chip explained 11.8% of liability (SNP heritability). Autism's genetic correlation was 0.41 with major depression, 0.21 with schizophrenia and 0.20 with educational attainment. <sup class="c" data-ref="Gaugler2014,Grove2019" title="Source 167,189">167,189</sup>`,
+  pt:`Thousands of ordinary DNA differences, each almost harmless alone, can add up. Everyone carries some of them.`,
+  hook:`Polygenic: most heritable liability in common variants; SNP heritability 11.8% (Grove 2019). <sup class="c" data-ref="Grove2019,Gaugler2014" title="Source 167,189">167,189</sup>`},
+ {from:.5,at:.62,k:'Panel 2 · rare variants',t:'Rare de novo variants, each large',
+  txt:`A de novo variant is new in the child: it is not found in either parent's blood DNA. Exome studies keep finding more genes where such variants raise the chance of autism: 65 genes within 71 risk loci in 2015, 102 genes in 35,584 samples in 2020, and in 2022, 72 genes at a strict false-discovery threshold (185 at a looser one) in 63,237 people. De novo protein-truncating variants made up 57.5% of the association evidence, damaging missense variants 21.1% and copy-number variants 8.44%. Including CNVs, coding de novo mutations contribute to about 30% of diagnoses in simplex families and 45% in girls. <sup class="c" data-ref="Sanders2015Neuron,Satterstrom2020,Fu2022,Iossifov2014" title="Source 155,252,511,520">155,252,511,520</sup>`,
+  pt:`Sometimes one new change in a single important gene plays a big part. It usually happens by chance, and nobody caused it.`,
+  hook:`Satterstrom 2020: 102 risk genes. Fu 2022: 72 genes at FDR ≤0.001. Most act in gene-expression regulation or neuronal communication. <sup class="c" data-ref="Satterstrom2020,Fu2022" title="Source 155,520">155,520</sup>`},
+ {from:.67,at:.78,k:'Panel 2 · CNVs and syndromes',t:'Missing or extra DNA, and syndromes',
+  txt:`Copy-number variants delete or duplicate a stretch of DNA. A de novo 593-kb deletion at 16p11.2, and its reciprocal duplication, together appear to account for about 1% of autism. Penetrance is incomplete: across recurrent CNVs, estimates for an abnormal phenotype range from 10.4% (15q11.2 deletion) to 62.4% (distal 16p11.2 deletion), so many carriers are unaffected or mildly affected. In every genetic syndrome studied, autism features were more common than in the general population: 61% of girls with Rett syndrome, 36% with tuberous sclerosis, 34% with Angelman syndrome, 30% of males with fragile X. <sup class="c" data-ref="Weiss2008NEJM,Rosenfeld2013,Richards2015" title="Source 480,491,623">480,491,623</sup>`,
+  pt:`Some children have a small missing or extra piece of a chromosome, or a known genetic condition, that makes autism more likely. Many people with the same change are not autistic.`,
+  hook:`16p11.2 deletion/duplication ≈1% of autism. Rett (MECP2, X-linked) shows autism features in about 61%. <sup class="c" data-ref="Weiss2008NEJM,Amir1999,Richards2015" title="Source 15,480,623">15,480,623</sup>`},
+ {from:.83,at:.97,k:'Panel 3 · one family',t:'Three generations, three patterns',
+  txt:``,pt:``,hook:``}
+];
+const GE_FAM={
+ poly:{n:'Polygenic',col:'var(--neuro)',
+  txt:`In most families autism reflects many common variants, sometimes plus a rare variant of larger effect, and environmental contributions. Relatives share more or fewer of these variants, so autism can appear in an uncle and a grandson without a simple pattern. The bars under each symbol sketch a liability threshold model: autism appears when combined load passes a threshold. In large family samples, rare-variant and polygenic loads were higher in autistic girls than boys, and mothers of autistic children carried slightly more polygenic risk than fathers (0.08 SD), consistent with a higher threshold for girls. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Satterstrom2020,Antaki2022,Wigdor2022" title="Source 20,520,630">20,520,630</sup>`,
+  pt:`Each person carries a different mix of small genetic differences. When enough add up, autism becomes more likely. The bars are a picture of that idea, not a measurement.`,
+  hook:`Liability threshold: a higher threshold in girls would explain why siblings of autistic girls are more often autistic (female protective effect). <sup class="c" data-ref="Robinson2013,Ozonoff2024" title="Source 444,484">444,484</sup>`},
+ denovo:{n:'De novo',col:'var(--gold)',
+  txt:`Here the variant is new in the child: neither parent carries it in their blood DNA, and grandparents, uncle and siblings are clear. De novo mutations explain only 2.6% of the population variance in liability but "contribute substantially to individual liability". Parental age effects reflect several mechanisms, including de novo mutations that accumulate in the father's germline. About one-third of apparently new variants also occur as ordinary variation in population adults, which is why laboratories check population reference data before calling a variant causal. <span class="ev early">Early evidence</span> for the parental-age mechanisms. <sup class="c" data-ref="Gaugler2014,Antaki2022,Kosmicki2017" title="Source 20,167,301">20,167,301</sup>`,
+  pt:`The change happened for the first time in this child. The parents did not pass it on and could not have prevented it.`,
+  hook:`De novo = absent in both parents. Large effect for the individual, small share of population variance (2.6%). <sup class="c" data-ref="Gaugler2014" title="Source 167">167</sup>`},
+ x:{n:'X-linked: fragile X',col:'var(--accent)',
+  txt:`Fragile X syndrome is the leading inherited cause of intellectual disability and autism: more than 200 CGG repeats in FMR1 silence the gene, and its protein FMRP is lost. FMR1 lies on the X chromosome at Xq27.3, identified in 1991. In line with X-linkage, autism is more common in males with fragile X than in females: about half of males and nearly 20% of females met DSM-5 criteria in a US registry, and a meta-analysis put the figure for females at 14% (95% CI 13–18%). Here it passes through the mother's side: half-shaded symbols are carriers, a standard pedigree convention. <sup class="c" data-ref="Hagerman2017,Verkerk1991,Kaufmann2017,Marlborough2021" title="Source 196,277,362,609">196,277,362,609</sup>`,
+  pt:`The change sits on the X chromosome and passes through the mother's side of the family. Boys are more often strongly affected than girls.`,
+  hook:`Fragile X: >200 CGG repeats in FMR1 (Xq27.3). ASD in about half of males and 14–20% of females with fragile X. <sup class="c" data-ref="Hagerman2017,Kaufmann2017,Marlborough2021" title="Source 196,277,362">196,277,362</sup>`}
+};
+/* pedigree layout (panel C local coords) and status per scenario: [sex, gen, x, aff by scenario, liability load] */
+const GE_PED=[
+ {id:'gf',s:'m',g:0,x:62,a:{poly:0,denovo:0,x:0},l:.42},
+ {id:'gm',s:'f',g:0,x:132,a:{poly:0,denovo:0,x:.5},l:.55},
+ {id:'un',s:'m',g:1,x:36,a:{poly:1,denovo:0,x:1},l:.78},
+ {id:'mo',s:'f',g:1,x:106,a:{poly:0,denovo:0,x:.5},l:.66},
+ {id:'fa',s:'m',g:1,x:170,a:{poly:0,denovo:0,x:0},l:.5},
+ {id:'p',s:'m',g:2,x:104,a:{poly:1,denovo:1,x:1},l:.82,pro:1},
+ {id:'da',s:'f',g:2,x:138,a:{poly:0,denovo:0,x:.5},l:.72},
+ {id:'so',s:'m',g:2,x:172,a:{poly:0,denovo:0,x:0},l:.4}
+];
+const GE_GY=[64,138,214];
+
+inits.genes=()=>{
+  const svg=$('#geSvg'),rg=$('#geT');let scen='poly',setSt=()=>{};
+  const W={A:220,B:262,C:206},H=346;
+  const txt=(x,y,s,cls='t-xs',st='')=>`<text x="${f1(x)}" y="${f1(y)}" class="${cls}"${st?` style="${st}"`:''}>${s}</text>`;
+  const frame=(w,title,on)=>`<rect x="0" y="0" width="${w}" height="${H}" rx="12" style="fill:var(--panel);stroke:${on?'var(--neuro)':'var(--line)'};stroke-width:${on?2:1}"/>`+txt(12,20,title,'t-sm',`fill:${on?'var(--neuro)':'var(--muted)'};font-weight:700;letter-spacing:.06em`);
+
+  /* ---- panel A: twins and heritability ---- */
+  function pA(p){let s='';
+    const g=ease(ramp(p,.04,.42));
+    const pair=(x,l1,l2,same)=>{s+=person(x,28,22,'var(--neuro)')+person(x+18,28,22,same?'var(--neuro)':'var(--neuro)',{op:same?1:.55})+txt(x+20,62,l1,'t-xs t-mid','fill:var(--ink)')+txt(x+20,73,l2,'t-xs t-mid')};
+    pair(34,'identical','MZ: all genes',1);pair(136,'non-identical','DZ: about half',0);
+    const y0=170,hmax=78;
+    s+=`<line x1="10" x2="${W.A-10}" y1="${y0}" y2="${y0}" class="axis"/>`;
+    [[22,.77,'var(--neuro)'],[54,.50,'var(--gold)'],[124,.31,'var(--neuro)'],[156,.36,'var(--gold)']].forEach(([x,v,c])=>{const h=hmax*v*g;
+      s+=`<rect x="${x}" y="${f1(y0-h)}" width="24" height="${f1(h)}" rx="3" style="fill:${c};opacity:.85"/>`;
+      if(g>.05)s+=txt(x+12,y0-h-4,Math.round(v*100*g)+'%','t-xs t-mid','fill:var(--ink);font-weight:600')});
+    s+=txt(50,y0+12,'MZ','t-xs t-mid','fill:var(--ink);font-weight:600')+txt(152,y0+12,'DZ','t-xs t-mid','fill:var(--ink);font-weight:600');
+    s+=txt(12,y0+25,'co-twin also autistic','t-xs')+txt(12,y0+37,'■ boys','t-xs','fill:var(--neuro)')+txt(62,y0+37,'■ girls','t-xs','fill:var(--gold)');
+    /* heritability rows */
+    const k=ramp(p,.5,1),X=v=>lerp(88,W.A-12,v/100),ax=310;
+    s+=txt(12,226,'HERITABILITY ESTIMATES','t-xs','fill:var(--ink);font-weight:600;letter-spacing:.05em');
+    const R=[['Hallmayer 11',38,14,67],['Sandin 14',50,45,56],['Tick 16',null,64,91],['Bai 19',80.8,73.2,85.5],['Sandin 17',83,79,87]];
+    s+=`<line x1="${f1(X(80))}" x2="${f1(X(80))}" y1="232" y2="${ax}" style="stroke:var(--neuro);stroke-dasharray:3 3;opacity:${f1(ramp(k,.75,1))}"/>`;
+    R.forEach(([n,v,lo,hi],i)=>{const kk=ease(ramp(k,i*.14,i*.14+.22)),y=lerp(232,240+i*15,kk);if(kk<=0){s+=txt(12,240+i*15+3,n,'t-xs','opacity:.4');return}
+      s+=txt(12,240+i*15+3,n,'t-xs','fill:var(--ink)');
+      s+=`<line x1="${f1(X(lo))}" x2="${f1(X(hi))}" y1="${f1(y)}" y2="${f1(y)}" style="stroke:var(--neuro);stroke-width:${v==null?6:2};opacity:${v==null?.45:.8};stroke-linecap:round"/>`;
+      if(v!=null)s+=`<circle cx="${f1(X(v))}" cy="${f1(y)}" r="4" style="fill:${i===0?'var(--gold)':'var(--neuro)'}"/>`});
+    s+=`<line x1="88" x2="${W.A-12}" y1="${ax}" y2="${ax}" class="axis" style="stroke:var(--muted)"/>`;
+    [0,50,100].forEach(v=>s+=txt(X(v),ax+12,v+'%','t-xs '+(v===100?'t-end':'t-mid')));
+    if(k>.8)s+=txt(W.A/2,ax+30,'heritability ≈ 80%','t-sm t-mid',`fill:var(--neuro);font-weight:700;opacity:${f1(ramp(k,.8,.95))}`);
+    return s}
+
+  /* ---- panel B: genetic architecture, three scenes ---- */
+  const DOTS=(()=>{const r=rng(41),a=[];for(let i=0;i<70;i++)a.push({c:Math.floor(r()*6),u:.08+r()*.84,d:r()});return a})();
+  function sceneCommon(q){let s=txt(12,38,'Common variants: many, each tiny','t-xs','fill:var(--ink)');
+    for(let i=0;i<6;i++)s+=chrom(32+i*40,50,112,{w:14,seed:7+i,cen:[.38,.45,.3,.42,.35,.48][i]});
+    DOTS.forEach((d,i)=>{const kk=ramp(q,d.d*.6,d.d*.6+.25);if(kk<=0)return;const x=32+d.c*40+(i%3-1)*3,y=lerp(40,50+112*d.u,ease(kk));
+      s+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="1.7" style="fill:var(--neuro);opacity:${f1(.35+.4*kk)}"/>`});
+    const hits=[[0,.22],[1,.7],[2,.55],[4,.3],[5,.8]],hk=ramp(q,.6,.8);
+    if(hk>0)hits.forEach(([c,u])=>{s+=`<circle cx="${32+c*40}" cy="${f1(50+112*u)}" r="${f1(5*hk)}" style="fill:none;stroke:var(--ink);stroke-width:1.6"/>`});
+    if(hk>0)s+=txt(12,180,'○ 5 genome-wide significant loci (GWAS, 2019)','t-xs','fill:var(--ink)');
+    /* liability bar */
+    const b=ease(ramp(q,.3,.85)),x0=12,bw=W.B-24,y=204;
+    s+=txt(12,198,'Variance in liability (Sweden)','t-xs','fill:var(--ink);font-weight:600');
+    s+=`<rect x="${x0}" y="${y}" width="${bw}" height="16" rx="4" style="fill:var(--panel-2)"/>`;
+    s+=`<rect x="${x0}" y="${y}" width="${f1(bw*.524*b)}" height="16" rx="4" style="fill:var(--neuro);opacity:.85"/>`;
+    s+=`<rect x="${f1(x0+bw*.524*b)}" y="${y}" width="${f1(bw*.026*b)}" height="16" style="fill:var(--gold)"/>`;
+    s+=txt(x0,y+30,'■ heritable, mostly common: 52.4%','t-xs','fill:var(--neuro)')+txt(x0,y+43,'■ rare de novo: 2.6%','t-xs','fill:var(--gold)')+txt(x0,y+56,'□ other and unexplained','t-xs');
+    const k2=ramp(q,.7,1);
+    s+=txt(12,286,'SNP heritability on the chip: 11.8%','t-xs',`fill:var(--ink);opacity:${f1(k2)}`);
+    s+=txt(12,300,'genetic correlation: depression 0.41,','t-xs',`opacity:${f1(k2)}`)+txt(12,313,'schizophrenia 0.21, education 0.20','t-xs',`opacity:${f1(k2)}`);
+    return s}
+  function sceneRare(q){let s=txt(12,38,'Rare, often de novo: few, each large','t-xs','fill:var(--ink)');
+    const C=[{x:12,n:65,y:'2015',l:'65 genes'},{x:96,n:102,y:'2020',l:'102 genes'},{x:180,n:72,m:185,y:'2022',l:'72 · 185'}];
+    C.forEach((c,ci)=>{const kk=ramp(q,ci*.22,ci*.22+.32),shown=Math.round(c.n*kk),sm=c.m?Math.round(c.m*ramp(q,.6,.85)):0;
+      s+=txt(c.x+35,58,c.y,'t-sm t-mid','fill:var(--ink);font-weight:700');
+      const tot=Math.max(shown,sm);for(let i=0;i<tot;i++){const cx=c.x+3.5+(i%10)*7,cy=68+Math.floor(i/10)*6.6;
+        s+=i<shown?`<circle cx="${f1(cx)}" cy="${f1(cy)}" r="2.6" style="fill:var(--neuro)"/>`:`<circle cx="${f1(cx)}" cy="${f1(cy)}" r="2.2" style="fill:none;stroke:var(--neuro);stroke-width:.9"/>`}
+      s+=txt(c.x+35,206,kk>0?c.l:'','t-xs t-mid','fill:var(--ink)')});
+    s+=txt(12,220,'● strict threshold  ○ looser (2022)','t-xs');
+    const b=ease(ramp(q,.5,.9)),x0=12,bw=W.B-24,y=246,P=[[.575,'var(--neuro)'],[.211,'var(--gold)'],[.0844,'var(--accent)']];
+    s+=txt(12,240,'Share of association evidence (2022)','t-xs','fill:var(--ink);font-weight:600');
+    s+=`<rect x="${x0}" y="${y}" width="${bw}" height="14" rx="4" style="fill:var(--panel-2)"/>`;let xx=x0;
+    P.forEach(([v,c])=>{s+=`<rect x="${f1(xx)}" y="${y}" width="${f1(bw*v*b)}" height="14" style="fill:${c};opacity:.85"/>`;xx+=bw*v*b});
+    s+=txt(x0,y+27,'■ de novo truncating 57.5%','t-xs','fill:var(--neuro)')+txt(x0,y+40,'■ damaging missense 21.1%','t-xs','fill:var(--gold)')+txt(x0,y+53,'■ copy-number variants 8.44%','t-xs','fill:var(--accent)');
+    s+=txt(12,322,'high-penetrance genes, e.g. CHD8,','t-xs',`fill:var(--ink);opacity:${f1(ramp(q,.8,1))}`)+txt(12,335,'SCN2A, ADNP, FOXP1, SHANK3','t-xs',`fill:var(--ink);opacity:${f1(ramp(q,.8,1))}`);
+    return s}
+  function sceneCNV(q){let s=txt(12,38,'Copy-number variants and syndromes','t-xs','fill:var(--ink)');
+    const k=ramp(q,.05,.35);
+    s+=chrom(34,52,118,{w:18,cen:.45,seed:16})+`<g style="opacity:${f1(k)}">${chrom(34,52,118,{w:18,cen:.45,seed:16,seg:[.25,.33],kind:'del',label:'deletion'})}</g>`;
+    s+=chrom(140,52,118,{w:18,cen:.45,seed:16})+`<g style="opacity:${f1(k)}">${chrom(140,52,118,{w:18,cen:.45,seed:16,seg:[.25,.33],kind:'dup',label:'duplication'})}</g>`;
+    s+=txt(34,184,'chr 16','t-xs t-mid')+txt(140,184,'chr 16','t-xs t-mid');
+    s+=txt(12,198,'16p11.2 (593 kb): deletion + dup.','t-xs',`fill:var(--ink);opacity:${f1(ramp(q,.2,.4))}`)+txt(12,210,'≈ 1% of autism; penetrance','t-xs',`fill:var(--ink);opacity:${f1(ramp(q,.2,.4))}`);
+    s+=txt(12,222,'10.4–62.4% across CNVs','t-xs',`opacity:${f1(ramp(q,.25,.45))}`);
+    const S=[['Rett (girls)',61],['Tuberous scl.',36],['Angelman',34],['Fragile X (m)',30],['22q11.2 del',11]];
+    s+=txt(12,240,'Autistic features in each syndrome','t-xs','fill:var(--ink);font-weight:600');
+    S.forEach(([n,v],i)=>{const kk=ease(ramp(q,.4+i*.09,.6+i*.09)),y=248+i*17,bx=100,bw=(W.B-140)*v/100*kk;
+      s+=txt(12,y+9,n,'t-xs','fill:var(--ink)')+`<rect x="${bx}" y="${y}" width="${f1(W.B-140)}" height="11" rx="3" style="fill:var(--panel-2)"/><rect x="${bx}" y="${y}" width="${f1(bw)}" height="11" rx="3" style="fill:var(--neuro);opacity:.85"/>`;
+      if(kk>.05)s+=txt(bx+bw+5,y+9,Math.round(v*kk)+'%','t-xs','fill:var(--ink)')});
+    return s}
+  function pB(t,ph){const sc=ph<=2?2:ph>=4?4:3,q=sc===2?ramp(t,.33,.48):sc===3?ramp(t,.5,.65):ramp(t,.67,.82);
+    return sc===2?sceneCommon(q):sc===3?sceneRare(q):sceneCNV(q)}
+
+  /* ---- panel C: pedigree ---- */
+  function pC(p){const F=GE_FAM[scen];let s=txt(12,38,F.n,'t-xs',`fill:${F.col};font-weight:700`);
+    ['I','II','III'].forEach((r,i)=>s+=txt(10,GE_GY[i]+4,r,'t-xs','font-weight:700'));
+    const show=g=>ramp(p,.06+g*.26,.2+g*.26);
+    /* lines */
+    const ln=(x1,y1,x2,y2)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" style="stroke:var(--ink);stroke-width:1.3"/>`;
+    s+=ln(73,GE_GY[0],121,GE_GY[0])+ln(97,GE_GY[0],97,100)+ln(36,100,106,100)+ln(36,100,36,GE_GY[1]-11)+ln(106,100,106,GE_GY[1]-11);
+    s+=ln(117,GE_GY[1],159,GE_GY[1])+ln(138,GE_GY[1],138,176)+ln(104,176,172,176);
+    [104,138,172].forEach(x=>s+=ln(x,176,x,GE_GY[2]-11));
+    GE_PED.forEach(P=>{const k=show(P.g),y=GE_GY[P.g],aff=k>.5?P.a[scen]:0;
+      s+=ped(P.x,y,P.s,aff,{r:11,proband:P.pro});
+      if(scen==='poly'&&k>0){const bw=26,bx=P.x-13,by=y+16,th=P.s==='f'?.8:.7;
+        s+=`<rect x="${bx}" y="${by}" width="${bw}" height="4" rx="2" style="fill:var(--panel-2)"/><rect x="${bx}" y="${by}" width="${f1(bw*P.l*ease(k))}" height="4" rx="2" style="fill:var(--neuro);opacity:.7"/><line x1="${f1(bx+bw*th)}" x2="${f1(bx+bw*th)}" y1="${by-2}" y2="${by+6}" style="stroke:var(--ink);stroke-width:1.2"/>`}
+      if(scen==='denovo'&&P.id==='p'&&k>.5)s+=`<circle cx="${P.x+12}" cy="${y-12}" r="5" style="fill:var(--gold);stroke:var(--ink);stroke-width:1"/>`+txt(P.x+20,y-22,'new','t-xs','fill:var(--ink)')});
+    if(scen==='poly')s+=txt(196,246,'bar = load · | = threshold','t-xs t-end');
+    /* chromosome strip */
+    const kc=ramp(p,.75,.95),cy=256;
+    if(scen==='poly'){for(let i=0;i<4;i++)s+=chrom(30+i*24,cy,62,{w:11,seed:3+i,cen:.4});
+      const r=rng(9);for(let i=0;i<22;i++){const c=Math.floor(r()*4),u=.1+r()*.8;if(r()<kc)s+=`<circle cx="${30+c*24}" cy="${f1(cy+62*u)}" r="1.8" style="fill:var(--neuro)"/>`}
+      s+=txt(126,cy+20,'many','t-xs','fill:var(--ink)')+txt(126,cy+33,'small','t-xs','fill:var(--ink)')+txt(126,cy+46,'variants','t-xs','fill:var(--ink)')}
+    else if(scen==='denovo'){s+=chrom(46,cy,60,{w:13,seed:21,cen:.35})+`<g style="opacity:${f1(kc)}">${chrom(46,cy,60,{w:13,seed:21,cen:.35,seg:[.62,.66],kind:'var',label:'one new variant'})}</g>`;
+      s+=txt(66,cy+56,'in the child only','t-xs','fill:var(--ink)')}
+    else{s+=chrom(46,cy,60,{w:14,seed:23,cen:.38})+`<g style="opacity:${f1(kc)}">${chrom(46,cy,60,{w:14,seed:23,cen:.38,seg:[.8,.86],kind:'var',label:'FMR1 · Xq27.3'})}</g>`;
+      s+=txt(66,cy+10,'X chromosome','t-xs','fill:var(--ink)');
+      s+=txt(66,cy+24,'>200 CGG repeats','t-xs',`opacity:${f1(kc)}`)+txt(66,cy+36,'silence the gene','t-xs',`opacity:${f1(kc)}`)}
+    s+=`<g transform="translate(14 ${H-14})">${ped(5,-4,'m',1,{r:5})}${txt(14,0,'autistic','t-xs')}${ped(80,-4,'m',.5,{r:5})}${txt(89,0,'carrier','t-xs')}${ped(148,-4,'m',0,{r:5})}${txt(157,0,'not','t-xs')}</g>`;
+    return s}
+
+  function draw(t){const N=NARROW(),ph=phaseOf(GE_STEPS,t),act=ph<=1?'A':ph<=4?'B':'C';
+    const pa=ramp(t,0,.33),pc=ramp(t,.83,.98);
+    let s=`<defs>${marker('pedArrow','var(--ink)')}</defs>`;
+    const body={A:()=>pA(pa),B:()=>pB(t,ph),C:()=>pC(pc)},ttl={A:'1 · TWINS',B:'2 · GENETIC ARCHITECTURE',C:'3 · A FAMILY'};
+    if(!N){vb(svg,'720 470','400 600');
+      const a=1.3,x0=4+W[act]*a+16;s+=`<g transform="translate(4 8) scale(${a})">${frame(W[act],ttl[act],true)}${body[act]()}</g>`;
+      let y=8;['A','B','C'].filter(k=>k!==act).forEach(k=>{const tb=Math.min((716-x0)/W[k],.64),h=H*tb;
+        s+=`<g class="clk" data-gepanel="${k}" transform="translate(${f1(x0)} ${f1(y)}) scale(${f1(tb*100)/100})"><g style="opacity:.6">${frame(W[k],ttl[k],false)}${body[k]()}</g><rect width="${W[k]}" height="${H}" style="fill:transparent"/></g>`;y+=h+10});
+    }else{const w=W[act],sc=Math.min(380/w,1.6),h=Math.round(52+H*sc+8);vb(svg,'720 380','400 '+h);
+      ['A','B','C'].forEach((k,i)=>{const on=k===act,tx=6+i*130;s+=`<rect x="${tx}" y="4" width="124" height="34" rx="9" style="fill:${on?'var(--neuro-soft)':'var(--panel)'};stroke:${on?'var(--neuro)':'var(--line)'};stroke-width:${on?2:1}"/>`+txt(tx+62,26,['1 Twins','2 DNA','3 Family'][i],'t-sm t-mid',`fill:${on?'var(--neuro)':'var(--muted)'};font-weight:700`)});
+      s+=`<g transform="translate(${f1((400-w*sc)/2)} 50) scale(${f1(sc*100)/100})">${frame(w,ttl[act],true)}${body[act]()}</g>`}
+    svg.innerHTML=s;setSt(ph);
+    const P=ph===5?Object.assign({},GE_STEPS[5],GE_FAM[scen],{t:'One family: '+GE_FAM[scen].n.toLowerCase()}):GE_STEPS[ph];
+    $('#geNote').innerHTML=noteHTML(P)}
+  const stop=playWire(rg,$('#gePlay'),draw,30000,'Replay','genes');
+  setSt=stepWire($('#geSteps'),GE_STEPS,rg,draw,stop);
+  $$('[data-gesc]').forEach(b=>b.addEventListener('click',()=>{scen=b.dataset.gesc;$$('[data-gesc]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    if(+rg.value<.83){stop();rg.value=.97}draw(+rg.value)}));
+  svg.addEventListener('click',e=>{const g=e.target.closest('[data-gepanel]');if(!g)return;stop();rg.value={A:.12,B:.44,C:.97}[g.dataset.gepanel];draw(+rg.value)});
+  draw(+rg.value);
+
+  /* ---- sibling recurrence icon array ---- */
+  const sv=$('#geSib'),selS=$('#geSibStudy'),selX=$('#geSibSex'),selN=$('#geSibN');let shown=null,stopA=null;
+  function est(){const b=selS.value==='2024'?20.2:18.7,sx=selX.value,n=selN.value;
+    let v=b*(sx==='m'?1.5:sx==='f'?.5:1)*(n==='2'?2:1);return{b,v:Math.min(v,95),derived:sx!=='any'||n!=='1'}}
+  function drawSib(v){const N=vb(sv,'720 250','400 470'),E=est();let s='';
+    const gx=N?20:24,gy=N?14:20,cs=N?36:21.5,ps=N?26:17;
+    for(let i=0;i<100;i++){const r=Math.floor(i/10),c=i%10,x=gx+c*cs+cs/2,y=gy+r*(N?25:21.5);
+      const f=clamp(v-i,0,1);s+=person(x,y,ps,f>=.5?'var(--neuro)':'var(--line)')}
+    const ox=N?20:270,oy=N?290:30;
+    s+=`<text x="${ox}" y="${oy}" class="t-sm" style="fill:var(--ink);font-weight:700">${E.derived?'≈ ':''}${f1(v)} in 100 younger siblings</text>`;
+    s+=`<text x="${ox}" y="${oy+16}" class="t-xs">${E.derived?'teaching estimate from the published ratios':'published recurrence by age 3 (Baby Siblings Consortium)'}</text>`;
+    /* comparison bars */
+    const bars=[['Infant-sibling cohort ('+selS.value+')',E.b,'var(--neuro)'],['US claims: older sibling autistic',6.9,'var(--gold)'],['US claims: older sibling not autistic',0.9,'var(--muted)']];
+    const bx=ox,bw=N?360:420;
+    bars.forEach(([l,val,c],i)=>{const y=oy+44+i*38;s+=`<text x="${bx}" y="${y}" class="t-xs" style="fill:var(--ink)">${l}</text><rect x="${bx}" y="${y+6}" width="${bw}" height="10" rx="3" style="fill:var(--panel-2)"/><rect x="${bx}" y="${y+6}" width="${f1(bw*val/40)}" height="10" rx="3" style="fill:${c}"/><text x="${f1(bx+bw*val/40+6)}" y="${y+15}" class="t-xs" style="fill:var(--ink)">${val}%</text>`});
+    s+=`<text x="${bx}" y="${oy+44+3*38}" class="t-xs">bar scale 0–40%</text>`;
+    sv.innerHTML=s}
+  function out(){const E=est(),sx=selX.value,n=selN.value;
+    const why=[];if(sx==='m')why.push('male infants had almost three times the risk of female infants');if(sx==='f')why.push('female infants had about a third of the risk of male infants');if(n==='2')why.push('more than one older autistic sibling roughly doubled the risk again');
+    $('#geSibOut').innerHTML=`<div class="kicker">Recurrence by age 3</div><div class="big-num">${E.derived?'≈':''}${Math.round(E.v)}%</div>
+      <p>${selS.value==='2011'?'In 664 infants with an older autistic sibling, 18.7% were autistic by 36 months.':'In the 2024 update (1,605 infants, 18 sites), recurrence was 20.2% by age 3, not significantly different from 18.7% in 2011.'} <sup class="c" data-ref="Ozonoff2011,Ozonoff2024" title="Source 441,444">441,444</sup></p>
+      ${E.derived?`<p class="geDeriv">How this estimate is made: the study reports that ${why.join(', and that ')}. <sup class="c" data-ref="Ozonoff2011" title="Source 441">441</sup> Assuming equal numbers of boys and girls, ×${sx==='m'?'1.5':sx==='f'?'0.5':'1'} for sex and ×${n==='2'?'2':'1'} for more than one sibling. This is arithmetic for teaching, not a published subgroup figure.</p>`:''}
+      <p>The 2024 update also found siblings of autistic <b>girls</b> more likely to be autistic than siblings of autistic boys; race and maternal education also predicted recurrence. <sup class="c" data-ref="Ozonoff2024" title="Source 444">444</sup></p>
+      <div class="pt"><b>In plain words</b>About 1 in 5 younger siblings is autistic, so about 4 in 5 are not. Families who want a personal estimate can ask for genetic counselling.</div>
+      <div class="hook"><b>Exam hook</b>Sibling recurrence ≈ 1 in 5 in prospective cohorts (18.7%, 20.2%); higher if the younger sibling is male, if more than one sibling is autistic, or if the autistic sibling is a girl. <sup class="c" data-ref="Ozonoff2011,Ozonoff2024" title="Source 441,444">441,444</sup></div>`}
+  function upd(){const to=est().v,from=shown==null?to:shown;if(stopA)stopA();
+    stopA=animate(500,p=>{shown=lerp(from,to,ease(p));drawSib(shown)},()=>{shown=to;stopA=null});out()}
+  [selS,selX,selN].forEach(e=>e.addEventListener('change',upd));
+  shown=est().v;drawSib(shown);out();
+  redraws.genes=(prev=>()=>{prev&&prev();drawSib(shown==null?est().v:shown)})(redraws.genes);
+};
+/* =============== 2.2 Risk factors & myths =============== */
+/* forest rows: label, short label (phones), estimate, CI, measure, phase in which it drops in, kind */
+const RI_ROWS=[
+ {l:'Father 50+ vs 20–29',e:1.66,lo:1.49,hi:1.85,m:'RR',ph:0},
+ {l:'Mother 40–49 vs 20–29',e:1.15,lo:1.06,hi:1.24,m:'RR',ph:0},
+ {l:'Extremely preterm (boys)',e:3.72,lo:3.27,hi:4.23,m:'PR',ph:1},
+ {l:'All preterm (boys)',e:1.35,lo:1.30,hi:1.40,m:'PR',ph:1},
+ {l:'Gestational diabetes ≤26 wk',e:1.42,lo:1.15,hi:1.74,m:'HR',ph:1},
+ {l:'Valproate in pregnancy',e:2.9,lo:1.7,hi:4.9,m:'aHR',ph:2},
+ {l:'Infection needing hospital',e:1.30,lo:1.14,hi:1.50,m:'OR',ph:3},
+ {l:'Fever, 2nd trimester',e:1.40,lo:1.09,hi:1.79,m:'aOR',ph:3},
+ {l:'Pregnancies <12 mo apart',e:1.90,lo:1.16,hi:3.09,m:'OR',ph:3},
+ {l:'Folic acid around conception',e:.61,lo:.41,hi:.90,m:'aOR',ph:4,k:'good'},
+ {l:'MMR vaccine (comparison)',e:.93,lo:.85,hi:1.02,m:'HR',ph:4,k:'null'}
+];
+const RI_STEPS=[
+ {from:0,at:.1,k:'Step 1 · reading the plot',t:'Older parents',
+  txt:`Each dot is a study's estimate and each line its 95% confidence interval. The vertical line at 1 means "no difference"; to the right, a higher chance; to the left, lower. In a five-country cohort of 5,766,794 children, fathers aged 50 or older (against 20–29) had RR 1.66 (1.49–1.85) and mothers aged 40–49 RR 1.15 (1.06–1.24), after mutual adjustment; mothers under 20 also had a slightly higher risk (RR 1.18). Parental age effects reflect several genetic mechanisms, including de novo mutations in the father's germline and inherited risk. In Sweden the paternal-age association held within discordant sibling pairs, and a meta-analysis of 27 studies found risk rising by 18% (mothers) and 21% (fathers) per additional 10 years. <sup class="c" data-ref="Sandin2016,Antaki2022,Hultman2011,Wu2017ParentalAge" title="Source 20,244,513,645">20,244,513,645</sup>`,
+  pt:`Children of older parents are a little more often autistic. Most children of older parents are not autistic.`,
+  hook:`Paternal age ≥50 vs 20–29: RR 1.66. Advanced parental age is one of two "established" non-genetic risk factors, with preterm birth. <sup class="c" data-ref="Sandin2016,Lyall2017" title="Source 345,513">345,513</sup>`},
+ {from:.17,at:.27,k:'Step 2 · pregnancy and birth',t:'Preterm birth and diabetes',
+  txt:`In 4,061,795 Swedish singletons, autism prevalence rose as gestation shortened: 1.4% at term (39–41 weeks), 1.9% late preterm, 2.6% at 28–33 weeks and 6.1% when extremely preterm (22–27 weeks). Adjusted prevalence ratios for extremely preterm birth were 3.72 in boys and 4.19 in girls, "only slightly attenuated" in co-sibling analyses. <span class="ev early">Early evidence</span> for a causal link. Gestational diabetes diagnosed by 26 weeks was associated with autism (HR 1.42; 1.15–1.74); pre-existing type 2 diabetes was not after full adjustment (HR 1.21; 0.97–1.52), and antidiabetic medicines were not independently associated. A meta-analysis of 16 studies gave a pooled RR of 1.48 for maternal diabetes, with high heterogeneity and publication bias. <sup class="c" data-ref="Crump2021Preterm,Xiang2015,Wan2018Diabetes" title="Source 103,619,646">103,619,646</sup>`,
+  pt:`Babies born very early are more often autistic later. This is a pattern in large groups, not a sign that anyone did something wrong.`,
+  hook:`Extremely preterm (22–27 wk): 6.1% autism vs 1.4% at term. Preterm cohorts overall: 7%. <sup class="c" data-ref="Crump2021Preterm,Agrawal2018Preterm" title="Source 6,103">6,103</sup>`},
+ {from:.33,at:.42,k:'Step 3 · a medicine',t:'Valproate in pregnancy',
+  txt:`Valproate is the clearest medicine signal. In 655,615 Danish children, prenatal exposure gave an adjusted HR of 2.9 (1.7–4.9) for autism and 5.2 (2.7–10.0) for childhood autism. Among children of mothers with epilepsy the HR was 1.7 (0.9–3.2) for autism and 2.9 (1.4–6.0) for childhood autism. The US label's boxed warning names neurodevelopmental disorders after in utero exposure. Quoted as published, not as advice: nobody should stop valproate without their prescriber. <sup class="c" data-ref="Christensen2013,FDA-Depakote" title="Source 85,136">85,136</sup>`,
+  pt:`One epilepsy medicine, valproate, can affect a baby's brain development. Doctors discuss this before pregnancy; it is not something to change alone.`,
+  hook:`Valproate: 14-year absolute risk 4.42% vs 1.53% in all children (aHR 2.9). <sup class="c" data-ref="Christensen2013" title="Source 85">85</sup>`},
+ {from:.5,at:.6,k:'Step 4 · infection and spacing',t:'Infection, fever and short spacing',
+  txt:`Across 15 studies, maternal infection in pregnancy was associated with autism (OR 1.13; 1.03–1.23), more so for infections needing hospital care (OR 1.30; 1.14–1.50). In all Danish births 1980–2005, any infection was not significantly associated (HR 1.14; 0.96–1.34). In Norway, fever in the second trimester gave aOR 1.40 (1.09–1.79), and three or more fevers after 12 weeks 3.12 (1.28–7.63). <span class="ev hyp">Hypothesis</span> Maternal immune activation is a proposed mechanism. Pregnancies less than 12 months apart, against 36 months or more, gave OR 1.90 (1.16–3.09); long intervals were also associated, and the mechanism is unknown. <sup class="c" data-ref="Jiang2016Infection,Atladottir2010,Hornig2018,CondeAgudelo2016,CheslackPostava2014" title="Source 32,79,89,231,260">32,79,89,231,260</sup>`,
+  pt:`Being very unwell with fever or infection in pregnancy is linked with a slightly higher chance. Nobody chooses to get an infection.`,
+  hook:`Short interpregnancy interval is only a "potential" risk factor; both short and long intervals are associated. <sup class="c" data-ref="Lyall2017,CheslackPostava2014" title="Source 79,345">79,345</sup>`},
+ {from:.67,at:.78,k:'Step 5 · left of the line, and on it',t:'Folic acid, and a null result',
+  txt:`In the Norwegian MoBa cohort (85,176 children), autistic disorder occurred in 0.10% of children whose mothers took folic acid from 4 weeks before to 8 weeks after the start of pregnancy, against 0.21% without (aOR 0.61; 0.41–0.90). An Israeli cohort found similar associations before (RR 0.56) and during pregnancy (RR 0.32). These are observational and "cannot establish causality"; folic acid is recommended anyway to prevent neural tube defects. <span class="ev early">Early evidence</span> For comparison, the MMR vaccine sits on the line: HR 0.93 (0.85–1.02). <sup class="c" data-ref="Suren2013,Levine2018,Hviid2019" title="Source 249,326,573">249,326,573</sup>`,
+  pt:`Folic acid taken around conception is linked with a lower chance of autism in some big studies. The MMR vaccine shows no link at all.`,
+  hook:`A confidence interval that crosses 1 (MMR: 0.85–1.02) means no detectable association. <sup class="c" data-ref="Hviid2019" title="Source 249">249</sup>`},
+ {from:.84,at:1,k:'Step 6 · absolute risk',t:'Out of 100 children',
+  txt:`Relative risks sound large; absolute risks show the size. Of 100 children exposed to valproate, about 4.4 were autistic by 14 years, against about 1.5 of 100 children overall: about 95 of 100 exposed children were not autistic. Within mothers with epilepsy the comparison was 4.15 against 2.44 in 100. Of 100 children born extremely preterm, about 6 were autistic, against 1.4 born at term. <sup class="c" data-ref="Christensen2013,Crump2021Preterm" title="Source 85,103">85,103</sup>`,
+  pt:`Even with the strongest known factors, most children are not autistic. A risk factor changes the odds for a group a little; it does not decide what happens to one child.`,
+  hook:`Always ask "out of how many?" A doubled risk of something rare is still uncommon. <sup class="c" data-ref="Christensen2013" title="Source 85">85</sup>`}
+];
+const RI_ABS=[
+ {t:'Valproate in pregnancy',a:['all children',1.53],b:['exposed',4.42],src:'14-year risk, Denmark'},
+ {t:'Epilepsy in mother',a:['not exposed',2.44],b:['valproate',4.15],src:'14-year risk, Denmark'},
+ {t:'Birth timing',a:['term 39–41 wk',1.4],b:['22–27 wk',6.1],src:'prevalence, Sweden'}
+];
+const RI_VAX=[
+ {y:1998,s:'1998 · case series',d:`A 12-child case series in The Lancet suggested a link between MMR vaccination and developmental regression. <sup class="c" data-ref="Wakefield1998" title="Source 618">618</sup>`,pt:`One small report of 12 children started the fear. It had no comparison group.`},
+ {y:2002,s:'2002 · 537,303 children',d:`A Danish cohort of 537,303 children (82.0% MMR-vaccinated) found adjusted relative risks of 0.92 (0.68–1.24) for autistic disorder and 0.83 (0.65–1.07) for other ASD, with no link to age at or time since vaccination. <sup class="c" data-ref="Madsen2002" title="Source 347">347</sup>`,pt:`Half a million children: vaccinated and unvaccinated children were diagnosed at the same rate.`},
+ {y:2003,s:'2003 · thimerosal',d:`In 467,450 Danish children, thimerosal-containing and thimerosal-free versions of the same vaccine carried similar risk (RR 0.85; 0.60–1.20), with no dose-response (RR 0.98 per 25 µg ethylmercury). <sup class="c" data-ref="Hviid2003" title="Source 248">248</sup>`,pt:`The mercury-based preservative made no difference.`},
+ {y:2008,s:'2008 · rates kept rising',d:`After thimerosal was removed from nearly all US childhood vaccines (1999–2001), autism counts in California's developmental services system kept rising through 2007. This does not support thimerosal as a primary cause. <sup class="c" data-ref="Schechter2008" title="Source 524">524</sup>`,pt:`Taking the preservative out did not lower autism numbers.`},
+ {y:2010,s:'2010 · retraction',d:`In February 2010 The Lancet formally retracted the 1998 Wakefield paper. <sup class="c" data-ref="Lancet2010Retraction" title="Source 311">311</sup>`,pt:`The journal withdrew the paper that started the scare.`},
+ {y:2011,s:'2011 · fraud',d:`The BMJ published an investigation by Brian Deer and an editorial concluding that the Wakefield article was fraudulent. <sup class="c" data-ref="Deer2011,Godlee2011" title="Source 115,174">115,174</sup>`,pt:`An investigation found the original study was fraudulent.`},
+ {y:2013,s:'2013 · "too many too soon"',d:`Cumulative exposure to vaccine antigens by age 2 was not associated with autism (aOR 0.999 per 25-unit increase). <sup class="c" data-ref="DeStefano2013" title="Source 117">117</sup>`,pt:`The number of vaccines in early childhood made no difference.`},
+ {y:2014,s:'2014 · 1.26 million',d:`A meta-analysis of five cohort studies (1,256,407 children) found no link between vaccination and autism (OR 0.99; 0.92–1.06), nor for MMR (0.84; 0.70–1.01), thimerosal (1.00) or mercury (1.00). <sup class="c" data-ref="Taylor2014Vaccine" title="Source 586">586</sup>`,pt:`More than a million children across studies: no link.`},
+ {y:2015,s:'2015 · siblings',d:`Among US children with an autistic older sibling, MMR was not associated with higher risk: RR 0.76 (0.49–1.18) for one dose at age 2 and 0.56 (0.31–1.01) for two doses at age 5. <sup class="c" data-ref="Jain2015MMR" title="Source 257">257</sup>`,pt:`Even in families where an older child is autistic, the vaccine did not raise the chance.`},
+ {y:2019,s:'2019 · 657,461 children',d:`In a nationwide Danish cohort of 657,461 children (6,517 autism diagnoses), MMR-vaccinated children had a fully adjusted hazard ratio of 0.93 (0.85–1.02) against unvaccinated children, with no increase in subgroups such as children with an autistic sibling and no clustering after vaccination. <sup class="c" data-ref="Hviid2019" title="Source 249">249</sup>`,pt:`The two groups below look the same because they are the same.`}
+];
+const RI_AP={
+ apap:{n:'Paracetamol (acetaminophen)',pop:[1.05,1.02,1.08],sib:[.98,.93,1.04],abs:[1.33,1.53],absL:'crude 10-year risk',N:'2,480,797 Swedish children',
+  popT:`Across 2,480,797 Swedish children, crude 10-year autism risk was 1.33% without and 1.53% with prenatal paracetamol exposure. The population model gave HR 1.05 (1.02–1.08), a risk difference of 0.09%. <sup class="c" data-ref="Ahlqvist2024" title="Source 7">7</sup>`,
+  sibT:`Comparing siblings in the same cohort, one exposed and one not, the association disappeared: HR 0.98 (0.93–1.04), with no dose-response. The authors attribute the population link to familial confounding. A Hong Kong sibling-matched cohort found aHR 1.00 (0.91–1.11), and paracetamol use <i>before</i> pregnancy also "associated" with autism (HR 1.12), a negative control that points to confounding. A 2025 BMJ umbrella review concluded the evidence "does not clearly link" maternal paracetamol with autism. A 2025 Navigation Guide review argued the evidence is consistent with an association; its senior author disclosed serving as a plaintiffs' expert witness. <sup class="c" data-ref="Ahlqvist2024,Luo2026Paracetamol,Sheikh2025,Prada2025" title="Source 7,343,466,542">7,343,466,542</sup>`,
+  hook:`Population HR 1.05 → sibling HR 0.98: familial confounding, not a drug effect. <sup class="c" data-ref="Ahlqvist2024" title="Source 7">7</sup>`},
+ ad:{n:'Antidepressants, first trimester',pop:[2.02,null,null],sib:[.83,.62,1.13],abs:[2.14,5.28],absL:'risk by age 15',N:'1,580,629 Swedish offspring',
+  popT:`In 1,580,629 Swedish offspring, 5.28% of children exposed in the first trimester were autistic by age 15 against 2.14% unexposed (HR 2.02; its interval is not shown here). The umbrella review rated SSRI use convincing (OR 1.84) but found antidepressant use before pregnancy carried a similar risk (RR 1.48). <sup class="c" data-ref="Sujan2017,Kim2019Umbrella" title="Source 286,572">286,572</sup>`,
+  sibT:`In sibling comparisons the HR was 0.83 (0.62–1.13), pointing to familial confounding. In Stockholm the authors judged the association "might not solely be" confounding, and stressed that the absolute risk was small and the number of cases preventable by stopping antidepressants would be small. Decisions about treatment in pregnancy belong with the prescriber. <sup class="c" data-ref="Sujan2017,Rai2017Antidepressants" title="Source 468,572">468,572</sup>`,
+  hook:`A link that also appears with use before pregnancy, and fades in siblings, points to the mother's condition and family factors. <sup class="c" data-ref="Kim2019Umbrella,Sujan2017" title="Source 286,572">286,572</sup>`}
+};
+
+inits.risk=()=>{
+  const svg=$('#riSvg'),rg=$('#riT');let setSt=()=>{};
+  const txt=(x,y,s,cls='t-xs',st='')=>`<text x="${f1(x)}" y="${f1(y)}" class="${cls}"${st?` style="${st}"`:''}>${s}</text>`;
+  const LG=v=>Math.log(v),lmin=LG(.4),lmax=LG(5);
+  function icons(x,y,v,cols,sp,ps,col,k){let s='';const vv=v*k;
+    for(let i=0;i<100;i++){const c=i%cols,r=Math.floor(i/cols),f=clamp(vv-i,0,1);
+      s+=person(x+c*sp+sp/2,y+r*sp*1.12,ps,f>0?col:'var(--muted)',{op:f>0?f1(.4+.6*f):.22})}
+    return s}
+  function draw(t){const N=vb(svg,'720 380','400 660'),ph=phaseOf(RI_STEPS,t),m=ease(ramp(t,.84,.95));let s='';
+    /* --- forest --- */
+    if(m<1){const L=N?{x0:12,x1:300,top:40,rh:47,vx:396}:{x0:262,x1:600,top:46,rh:25.5,vx:714};
+      const X=v=>lerp(L.x0,L.x1,(LG(v)-lmin)/(lmax-lmin)),bot=L.top+RI_ROWS.length*L.rh;
+      let g=txt(N?12:12,N?22:24,'PRENATAL &amp; PERINATAL FACTORS · 95% CI','t-sm','fill:var(--neuro);font-weight:700;letter-spacing:.05em');
+      g+=`<rect x="${f1(X(1))}" y="${L.top-8}" width="${f1(L.x1-X(1))}" height="${f1(bot-L.top+4)}" style="fill:var(--bad-soft);opacity:.22"/>`;
+      g+=`<rect x="${f1(L.x0)}" y="${L.top-8}" width="${f1(X(1)-L.x0)}" height="${f1(bot-L.top+4)}" style="fill:var(--good-soft);opacity:.3"/>`;
+      [.5,1,2,3,5].forEach(v=>{g+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${L.top-8}" y2="${f1(bot)}" class="${v===1?'':'grid'}" style="${v===1?'stroke:var(--ink);stroke-width:1.6':''}"/>`+txt(X(v),bot+14,v,'t-xs t-mid')});
+      g+=txt(X(1)-6,bot+28,'← lower','t-xs t-end','fill:var(--good)')+txt(X(1)+6,bot+28,'higher →','t-xs','fill:var(--bad)');
+      RI_ROWS.forEach((r,i)=>{const st=RI_STEPS[r.ph].from,k=ease(ramp(t,st+.01+(i%3)*.025,st+.08+(i%3)*.025));
+        const yc=L.top+i*L.rh+(N?22:6),y=lerp(yc-30,yc,k),col=r.k==='good'?'var(--good)':r.k==='null'?'var(--muted)':'var(--neuro)',cur=r.ph===ph;
+        const ly=N?L.top+i*L.rh+6:yc+4;
+        g+=txt(N?12:12,ly,r.l,N?'t-xs':'t-sm',`fill:var(--ink);opacity:${k>0?1:.35};${cur&&k>0?'font-weight:700':''}`);
+        if(k<=0)return;
+        g+=`<g style="opacity:${f1(k)}"><line x1="${f1(X(r.lo))}" x2="${f1(X(r.hi))}" y1="${f1(y)}" y2="${f1(y)}" style="stroke:${col};stroke-width:2.2"/><line x1="${f1(X(r.lo))}" x2="${f1(X(r.lo))}" y1="${f1(y-4)}" y2="${f1(y+4)}" style="stroke:${col};stroke-width:1.6"/><line x1="${f1(X(r.hi))}" x2="${f1(X(r.hi))}" y1="${f1(y-4)}" y2="${f1(y+4)}" style="stroke:${col};stroke-width:1.6"/><rect x="${f1(X(r.e)-4.5)}" y="${f1(y-4.5)}" width="9" height="9" style="fill:${col}"/></g>`;
+        g+=txt(L.vx,N?y+4:yc+4,`${r.m} ${r.e} (${r.lo}–${r.hi})`,'t-xs t-end',`fill:var(--ink);opacity:${f1(k)}`)});
+      s+=`<g style="opacity:${f1(1-m)}">${g}</g>`}
+    /* --- absolute icon arrays --- */
+    if(m>0){let g=txt(12,N?22:24,'OUT OF 100 CHILDREN','t-sm','fill:var(--neuro);font-weight:700;letter-spacing:.05em');
+      const fk=ramp(t,.9,1);
+      RI_ABS.forEach((A,i)=>{if(N){const bx=12,by=40+i*196,sp=12.5,ps=11;
+          g+=txt(bx,by+6,A.t,'t-sm','fill:var(--ink);font-weight:700')+txt(bx,by+20,A.src,'t-xs');
+          [[A.a,'var(--gold)',0],[A.b,'var(--neuro)',1]].forEach(([[lab,v],c,j])=>{const ax=bx+j*(sp*10+40),ay=by+30;
+            g+=icons(ax,ay,v,10,sp,ps,c,fk);g+=txt(ax,ay+sp*11.2+8,lab,'t-xs','fill:var(--ink)')+txt(ax,ay+sp*11.2+21,f1(v*fk)+' in 100','t-sm',`fill:${c};font-weight:700`)});return}
+        const by=46+i*104,sp=12.6,ps=12.5;
+        g+=txt(12,by+18,A.t,'t-sm','fill:var(--ink);font-weight:700')+txt(12,by+33,A.src,'t-xs');
+        [[A.a,'var(--gold)',0],[A.b,'var(--neuro)',1]].forEach(([[lab,v],c,j])=>{const ax=186+j*266,ay=by;
+          g+=icons(ax,ay,v,20,sp,ps,c,fk);g+=txt(ax,ay+5*sp*1.12+14,lab,'t-xs','fill:var(--ink)')+txt(ax+20*sp,ay+5*sp*1.12+14,f1(v*fk)+' in 100','t-sm t-end',`fill:${c};font-weight:700`)})});
+      if(!N)g+=txt(12,372,'Shaded figures: autistic children per 100 in each group. Most children in every group are not autistic.','t-xs','fill:var(--ink)');
+      else g+=txt(12,650,'Most children in every group are not autistic.','t-xs','fill:var(--ink)');
+      s+=`<g style="opacity:${f1(m)}">${g}</g>`}
+    svg.innerHTML=s;setSt(ph);
+    $$('[data-rimode]').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.rimode==='abs')===(t>=.84)));
+    $('#riNote').innerHTML=noteHTML(RI_STEPS[ph])}
+  const stop=playWire(rg,$('#riPlay'),draw,26000,'Replay','risk');
+  setSt=stepWire($('#riSteps'),RI_STEPS,rg,draw,stop);
+  $$('[data-rimode]').forEach(b=>b.addEventListener('click',()=>{stop();rg.value=b.dataset.rimode==='abs'?1:.8;draw(+rg.value)}));
+  draw(+rg.value);
+
+  /* ---- vaccine timeline and icon arrays ---- */
+  const vs=$('#riVax'),vr=$('#riVaxT');
+  function drawV(t){const N=vb(vs,'720 330','400 560'),yr=lerp(1998,2019,t);let s='';
+    const x0=N?24:40,x1=N?376:680,ty=N?40:44,X=y=>lerp(x0,x1,(y-1998)/21);
+    s+=txt(12,18,'THE MMR SCARE AND THE EVIDENCE','t-sm','fill:var(--neuro);font-weight:700;letter-spacing:.05em');
+    s+=`<line x1="${x0}" x2="${x1}" y1="${ty}" y2="${ty}" style="stroke:var(--line);stroke-width:4;stroke-linecap:round"/><line x1="${x0}" x2="${f1(X(yr))}" y1="${ty}" y2="${ty}" style="stroke:var(--neuro);stroke-width:4;stroke-linecap:round"/>`;
+    [1998,2003,2008,2013,2019].forEach(y=>s+=txt(X(y),ty+18,y,'t-xs t-mid'));
+    let cur=0;RI_VAX.forEach((e,i)=>{if(yr>=e.y-.01)cur=i});
+    RI_VAX.forEach((e,i)=>{const on=yr>=e.y-.01,bad=e.y===1998,flag=e.y===2010||e.y===2011;
+      s+=`<circle cx="${f1(X(e.y))}" cy="${ty}" r="${i===cur?7:5}" style="fill:${on?(bad?'var(--bad)':flag?'var(--warn)':'var(--good)'):'var(--panel)'};stroke:var(--ink);stroke-width:1.2"/>`});
+    const E=RI_VAX[cur],bx=N?12:Math.min(Math.max(12,X(E.y)-130),440);
+    s+=`<rect x="${f1(bx)}" y="${ty+28}" width="${N?376:268}" height="26" rx="8" style="fill:var(--neuro-soft);stroke:var(--neuro)"/>`+txt(bx+(N?188:134),ty+45,E.s,'t-sm t-mid','fill:var(--ink);font-weight:700');
+    /* icon arrays */
+    const k=ramp(t,.86,1),ay=N?150:120,sp=N?15:15.5,ps=N?12:13.5;
+    [['MMR-vaccinated',0],['Unvaccinated',1]].forEach(([lab,j])=>{const ax=N?12+j*196:70+j*250;
+      s+=txt(ax,ay-8,lab,'t-sm','fill:var(--ink);font-weight:700');
+      for(let i=0;i<100;i++){const c=i%10,r=Math.floor(i/10),fill=i===0&&k>.5;s+=person(ax+c*sp+sp/2,ay+r*sp,ps,fill?'var(--neuro)':'var(--line)',{op:k>0?1:.5})}
+      s+=txt(ax,ay+sp*10+16,k>.5?'≈ 1 in 100 diagnosed':'—','t-xs','fill:var(--ink)')});
+    if(N){s+=txt(12,ay+sp*10+48,`HR ${k>.5?'0.93 (0.85–1.02)':'…'} · Denmark, 657,461 children`,'t-sm','fill:var(--ink);font-weight:700')}
+    else{s+=txt(560,ay+40,'Hazard ratio','t-xs')+txt(560,ay+62,k>.5?'0.93':'…','t-big','fill:var(--neuro)')+txt(560,ay+80,k>.5?'95% CI 0.85–1.02':'','t-xs','fill:var(--ink)')+txt(560,ay+96,'657,461 children','t-xs')+txt(560,ay+110,'Denmark, 2019','t-xs')}
+    vs.innerHTML=s;
+    $('#riVaxNote').innerHTML=noteHTML({k:'Year '+Math.floor(yr),t:E.s.replace(/^\d+ · /,''),txt:E.d,pt:E.pt,
+      hook:`MMR does not cause autism: HR 0.93 (0.85–1.02) in 657,461 children. The 1998 paper was retracted (2010) and judged fraudulent (BMJ 2011). <sup class="c" data-ref="Hviid2019,Lancet2010Retraction,Godlee2011" title="Source 174,249,311">174,249,311</sup>`})}
+  playWire(vr,$('#riVaxPlay'),drawV,16000,'Replay','risk');drawV(+vr.value);
+
+  /* ---- association vs cause ---- */
+  const as=$('#riApap'),sel=$('#riApEx');let mode='pop',mk=0,stopM=null;
+  function drawA(){const N=vb(as,'720 300','400 560'),D=RI_AP[sel.value],k=ease(mk);let s='';
+    /* DAG */
+    const fx=N?200:180,fy=N?40:46,ex=N?80:60,ey=N?190:220,ox=N?320:300,oy=ey;
+    const box=(x,y,w,l1,l2,st)=>`<rect x="${f1(x-w/2)}" y="${f1(y-20)}" width="${w}" height="40" rx="9" style="${st}"/>`+txt(x,y-3,l1,'t-sm t-mid','fill:var(--ink);font-weight:700')+txt(x,y+12,l2,'t-xs t-mid');
+    const arr=(x1,y1,x2,y2,st)=>`<line x1="${f1(x1)}" y1="${f1(y1)}" x2="${f1(x2)}" y2="${f1(y2)}" style="${st}" marker-end="url(#riArr)"/>`;
+    s+=`<defs>${marker('riArr','var(--muted)')}</defs>`;
+    s+=box(fx,fy,N?230:220,'Family factors','shared genes, mother\'s health',`fill:${k>.5?'var(--panel-2)':'var(--gold-soft)'};stroke:var(--gold);stroke-width:1.4;${k>.5?'stroke-dasharray:4 3':''}`);
+    s+=arr(fx-40,fy+20,ex+20,ey-22,`stroke:var(--gold);stroke-width:2;opacity:${f1(1-.75*k)}`)+arr(fx+40,fy+20,ox-20,oy-22,`stroke:var(--gold);stroke-width:2;opacity:${f1(1-.75*k)}`);
+    if(k>.05)s+=txt(fx,fy+40,'held constant within siblings','t-xs t-mid',`fill:var(--gold);opacity:${f1(k)}`);
+    s+=box(ex,ey,N?130:118,'Exposure','in pregnancy','fill:var(--panel);stroke:var(--ink)')+box(ox,oy,N?130:118,'Autism','diagnosis','fill:var(--panel);stroke:var(--ink)');
+    s+=`<line x1="${ex+60}" y1="${ey}" x2="${ox-62}" y2="${oy}" style="stroke:var(--neuro);stroke-width:2.2;stroke-dasharray:5 4;opacity:${f1(1-.8*k)}" marker-end="url(#riArr)"/>`;
+    s+=txt((ex+ox)/2,ey-8,k<.5?'association?':'no association','t-xs t-mid',`fill:${k<.5?'var(--neuro)':'var(--good)'};font-weight:600`);
+    /* mini forest */
+    const L=N?{x0:40,x1:370,y:330}:{x0:440,x1:700,y:80},lo=Math.log(.5),hi=Math.log(2.5),X=v=>lerp(L.x0,L.x1,(Math.log(v)-lo)/(hi-lo));
+    s+=txt(L.x0-(N?28:0),L.y-24,'HAZARD RATIO','t-xs','fill:var(--ink);font-weight:600;letter-spacing:.05em');
+    [.5,1,2].forEach(v=>s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${L.y-12}" y2="${L.y+78}" style="${v===1?'stroke:var(--ink);stroke-width:1.5':'stroke:var(--line);stroke-dasharray:2 3'}"/>`+txt(X(v),L.y+92,v,'t-xs t-mid'));
+    const row=(lab,[e,l,h],y,on,col)=>{let g=txt(L.x0-(N?28:0),y-10,lab,'t-xs',`fill:var(--ink);${on?'font-weight:700':''}`);
+      if(l!=null)g+=`<line x1="${f1(X(l))}" x2="${f1(X(h))}" y1="${y}" y2="${y}" style="stroke:${col};stroke-width:2.2"/>`;
+      g+=`<rect x="${f1(X(e)-5)}" y="${y-5}" width="10" height="10" style="fill:${col}"/>`+txt(X(e)+9,y+16,e.toFixed(2)+(l!=null?` (${l.toFixed(2)}–${h.toFixed(2)})`:''),'t-xs','fill:var(--ink)');
+      return `<g style="opacity:${on?1:.45}">${g}</g>`};
+    s+=row('Whole population',D.pop,L.y+16,k<.5,'var(--neuro)')+row('Sibling comparison',D.sib,L.y+60,k>=.5,'var(--good)');
+    /* absolute */
+    const ay=N?470:200,ax=N?40:440,aw=N?320:240,am=6;
+    s+=txt(ax-(N?28:0),ay,`Absolute: ${D.absL}`,'t-xs','fill:var(--ink);font-weight:600');
+    [['not exposed',D.abs[0],'var(--muted)'],['exposed',D.abs[1],'var(--neuro)']].forEach(([l,v,c],i)=>{const y=ay+10+i*24;
+      s+=`<rect x="${ax-(N?28:0)}" y="${y}" width="${aw}" height="12" rx="3" style="fill:var(--panel-2)"/><rect x="${ax-(N?28:0)}" y="${y}" width="${f1(aw*v/am)}" height="12" rx="3" style="fill:${c}"/>`+txt(ax-(N?28:0)+aw*v/am+6,y+10,`${v}% ${l}`,'t-xs','fill:var(--ink)')});
+    as.innerHTML=s;
+    $('#riApCap').innerHTML=`${D.n}: ${D.N}. Bars on a 0–6% scale. Schematic diagram of confounding; the numbers are as published. `+(sel.value==='apap'?'<sup class="c" data-ref="Ahlqvist2024" title="Source 7">7</sup>':'<sup class="c" data-ref="Sujan2017" title="Source 572">572</sup>');
+    $('#riApNote').innerHTML=noteHTML({k:mode==='pop'?'Whole-population analysis':'Sibling comparison',t:mode==='pop'?'A small association':(sel.value==='apap'?'The association disappears':'The association fades'),
+      txt:mode==='pop'?D.popT:D.sibT,
+      pt:mode==='pop'?`Across a whole country, children exposed before birth were diagnosed a little more often. That does not yet show the medicine caused it.`:`When brothers and sisters are compared, one exposed and one not, the difference goes away. Something families share explained it.`,
+      hook:D.hook})}
+  function setMode(m){mode=m;$$('[data-riap]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.riap===m));
+    if(stopM)stopM();const from=mk,to=m==='sib'?1:0;stopM=animate(650,p=>{mk=lerp(from,to,p);drawA()},()=>{mk=to;stopM=null;drawA()})}
+  $$('[data-riap]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.riap)));
+  sel.addEventListener('change',drawA);
+  drawA();
+  redraws.risk=(prev=>()=>{prev&&prev();drawA()})(redraws.risk);
+
+  /* ---- flip cards ---- */
+  $$('#riFlips .fc').forEach(c=>c.addEventListener('click',e=>{if(e.target.closest('a,sup'))return;const on=c.getAttribute('aria-pressed')!=='true';c.setAttribute('aria-pressed',on);c.classList.toggle('flip',on)}));
+};
+/* =============== 2.3 The developing brain =============== */
+/* Timeline: t 0..0.22 = gestational week 20 to birth, 0.22..0.72 = birth to 24 months, 0.72..1 = 24 to 48 months.
+   Ages are in months relative to birth (GW20 is about -4.6). */
+const BR_K=[[0,-4.6],[.22,0],[.72,24],[1,48]];
+function brAge(t){for(let i=1;i<BR_K.length;i++)if(t<=BR_K[i][0]){const A=BR_K[i-1],B=BR_K[i];return lerp(A[1],B[1],(t-A[0])/(B[0]-A[0]))}return 48}
+function brT(a){for(let i=1;i<BR_K.length;i++)if(a<=BR_K[i][1]){const A=BR_K[i-1],B=BR_K[i];return lerp(A[0],B[0],(a-A[1])/(B[1]-A[1]))}return 1}
+function brAgeLbl(a){if(a<0){const w=Math.round(40+a*40/9.2);return 'gestational week '+w}if(a<24)return f1(a).replace('.0','')+' months';return (a/12).toFixed(1).replace('.0','')+' years'}
+/* total brain volume index, birth = 100: +101% in year 1, +15% in year 2 (Knickmeyer 2008). Prenatal part and the
+   part after 24 months are drawn, not measured. */
+function brVol(a){if(a<0)return lerp(100,22,Math.pow(-a/4.6,1.3));if(a<=12)return 100+101*(1-Math.pow(1-a/12,1.7));if(a<=24)return 201+30*(1-Math.pow(1-(a-12)/12,1.5));return 231+12*(1-Math.exp(-(a-24)/14))}
+/* the later-diagnosed group average: direction only (surface area first, then volume, Hazlett 2017); size not to scale */
+const brVolA=a=>brVol(a)*(1+.08*ramp(a,11,24));
+/* synapse density, relative units (schematic heights): auditory peaks near 3 months, prefrontal after 15 months */
+function brSyn(r,a){const on=-3.2;if(a<on)return 0;
+  if(r==='aud'){if(a<3)return 2.6*Math.pow((a-on)/(3-on),1.4);return 1+1.6*Math.exp(-(a-3)/40)}
+  if(a<18)return 2.6*Math.pow((a-on)/(18-on),1.6);return 2.6-.05*(a-18)/30}
+const BR_TICK=[[-4.6,'GW20'],[0,'birth'],[6,'6'],[12,'12'],[18,'18'],[24,'24'],[36,'36'],[48,'48 mo']];
+const BR_NOTE=[[-4.6,'Neurons made from embryonic day 42 migrate','and build the cortex from the inside out.'],
+  [-3.2,'Synapses start forming in the cortex','before 27 weeks of gestation.'],
+  [0,'Year 1: brain volume +101%, grey matter','+149%, cerebellum +240% (group means).'],
+  [2,'2–6 months: eye-looking falls in infants','later diagnosed, after a typical start.'],
+  [6,'6–12 months: faster surface-area growth in','infants later diagnosed (group average).'],
+  [12,'12–24 months: volume overgrowth in that','group, linked to social differences.'],
+  [24,'Year 2: +15% volume. Diagnosis rests on','behaviour: no scan or blood test for it.']];
+
+const BR_STEPS=[
+ {from:0,at:brT(-4),k:'Gestational weeks 20–26',t:'Building the cortex',
+  txt:`<span class="ev est">Established</span> Human brain development begins in the third gestational week. Neuron production starts on embryonic day 42 and is largely complete by midgestation in most areas. Neurons migrate along radial glial guides and build the six-layered cortex "inside-out": the first arrivals form layer 6. Thalamocortical axons reach the cortex around week 22, and these pathways are complete by about week 26. <sup class="c" data-ref="Stiles2010" title="Source 567">567</sup> <span class="ev early">Early evidence</span> Focal patches of disorganised cortical layers were found in tissue from 10 of 11 autistic children and 1 of 11 non-autistic children, pointing to prenatal differences in layer formation. <sup class="c" data-ref="Stoner2014" title="Source 568">568</sup> Networks of high-confidence autism genes converged on midfetal layer 5/6 projection neurons. <sup class="c" data-ref="Willsey2013" title="Source 637">637</sup>`,
+  pt:`The brain's outer layer is built before birth, layer by layer, from the inside out. Some autism-related differences seem to start this early.`,
+  hook:`Neurogenesis from about E42, largely complete by midgestation; cortex built inside-out (layer 6 first).`},
+ {from:brT(-3.2),at:brT(-1.6),k:'Gestational weeks 27–40',t:'The first synapses',
+  txt:`<span class="ev est">Established</span> Synapse formation in the cortex begins before 27 weeks of conceptional age. <sup class="c" data-ref="Huttenlocher1997" title="Source 247">247</sup> Of 102 autism risk genes found by exome sequencing in 11,986 autistic people, most act in gene-expression regulation or neuronal communication and are expressed early in brain development, in both excitatory and inhibitory neuron lineages. <sup class="c" data-ref="Satterstrom2020" title="Source 520">520</sup> <span class="ev early">Early evidence</span> An integrative analysis found autism genes clustered in modules for early transcriptional regulation and synaptic development. <sup class="c" data-ref="Parikshak2013" title="Source 446">446</sup>`,
+  pt:`Before birth the brain starts wiring its cells together. Many genes linked to autism are busy exactly then, helping cells switch genes on and talk to each other.`,
+  hook:`Most of the 102 Satterstrom genes: gene-expression regulation or neuronal communication, expressed early.`},
+ {from:brT(0),at:brT(3),k:'Birth to 6 months',t:'Fast growth, first peaks',
+  txt:`<span class="ev est">Established</span> In 98 healthy children scanned from birth to age 2, total brain volume rose 101% in the first year: grey matter grew 149%, cerebellar volume 240%. <sup class="c" data-ref="Knickmeyer2008" title="Source 296">296</sup> Synaptic density peaks near 3 months after birth in auditory cortex. <sup class="c" data-ref="Huttenlocher1997" title="Source 247">247</sup> <span class="ev early">Early evidence</span> In 110 infants, the 12 later diagnosed with autism showed eye fixation starting at typical levels and then declining from 2 to 6 months (−4.8% a month, against +3.6% a month in typically developing infants): present, then fading, not absent from birth. <sup class="c" data-ref="Jones2013Eyes" title="Source 262">262</sup>`,
+  pt:`A baby's brain about doubles in size in the first year. Many babies later diagnosed make eye contact at first, and it fades over the following months.`,
+  hook:`Brain volume +101% in year 1 (Knickmeyer). Eye-looking in infants later diagnosed is typical at 2 months, then declines (Jones & Klin 2013).`},
+ {from:brT(6),at:brT(9),k:'6–12 months',t:'Surface area expands early',
+  txt:`<span class="ev early">Early evidence</span> In 106 high-familial-likelihood and 42 low-likelihood infants, cortical surface-area hyperexpansion at 6–12 months came before brain-volume overgrowth at 12–24 months in the 15 infants diagnosed at 24 months. A deep-learning model using mainly 6–12-month surface-area data had a positive predictive value of 81% and sensitivity of 88% in high-likelihood infants: a research cohort, not a clinical test. <sup class="c" data-ref="Hazlett2017" title="Source 214">214</sup> Infants later diagnosed also had 18% more extra-axial fluid (around the brain) at 6 months. <sup class="c" data-ref="Shen2017" title="Source 544">544</sup> Resting-state connectivity at 6 months classified 9 of 11 later-diagnosed infants in a sample of 59. <sup class="c" data-ref="Emerson2017" title="Source 130">130</sup> Switch to <b>Individual variation</b>: these are group averages.`,
+  pt:`In research studies of baby brothers and sisters of autistic children, the brain's surface grew a little faster on average in those later diagnosed. This is a group finding, not a test for one baby.`,
+  hook:`Hazlett 2017 order: surface area (6–12 mo) first, then volume (12–24 mo). Research prediction only.`},
+ {from:brT(12),at:brT(18),k:'12–24 months',t:'Volume, and the head-size debate',
+  txt:`<span class="ev early">Early evidence</span> Brain-volume overgrowth at 12–24 months was linked to the emergence and severity of autistic social differences. <sup class="c" data-ref="Hazlett2017" title="Source 214">214</sup> <span class="ev est">Established</span> Volume rose another 15% in year 2 in typical development, and synaptic density in prefrontal cortex does not peak until after 15 months. <sup class="c" data-ref="Knickmeyer2008,Huttenlocher1997" title="Source 247,296">247,296</sup> <span class="ev hyp">Hypothesis</span>, later contested: a 2003 chart study reported accelerated head growth in 59% of infants with autistic disorder against 6% of healthy infants. <sup class="c" data-ref="Courchesne2003HC" title="Source 94">94</sup> A 2013 reappraisal showed that typical children also "overgrew" against classical population norms, so much of early overgrowth reflected norm bias. <sup class="c" data-ref="Raznahan2013" title="Source 475">475</sup> A meta-analysis found macrocephaly in 15.7% of autistic people: a subgroup. <sup class="c" data-ref="Sacco2015" title="Source 501">501</sup>`,
+  pt:`Some autistic toddlers have larger heads or brains, but most do not. Head size is not a useful sign of autism.`,
+  hook:`Early overgrowth: present in a subgroup (macrocephaly 15.7%), largely a norm artefact in head-circumference charts (Raznahan 2013). <sup class="c" data-ref="Lord2018" title="Source 336">336</sup>`},
+ {from:brT(24),at:brT(38),k:'2–4 years and beyond',t:'Pruning, and a behavioural diagnosis',
+  txt:`<span class="ev est">Established</span> Typical development overbuilds and then trims: pruning removes up to 50% of the connections first made. <sup class="c" data-ref="Stiles2010" title="Source 567">567</sup> Prefrontal spine density in childhood is two to three times the adult value, and elimination continues into the third decade. <sup class="c" data-ref="Petanjek2011" title="Source 454">454</sup> <span class="ev early">Early evidence</span> Postmortem autistic temporal cortex had more spines with less developmental pruning, tracking overactive mTOR signalling. <sup class="c" data-ref="Tang2014" title="Source 583">583</sup> <span class="ev est">Established</span> There are no reliable biomarkers: autism is diagnosed from behaviour and developmental history. <sup class="c" data-ref="Lord2018,Lord2020NRDP" title="Source 336,337">336,337</sup> In about 1,000 people, anatomical MRI classifiers reached under 60% accuracy. <sup class="c" data-ref="Haar2016" title="Source 195">195</sup>`,
+  pt:`The brain makes extra connections early and trims the unused ones over childhood and the teenage years. No scan or blood test can tell whether someone is autistic.`,
+  hook:`No brain scan or blood test diagnoses autism. Anatomical MRI classifiers: under 60% accuracy (Haar 2016).`}];
+
+inits.brain=()=>{
+  const svg=$('#brSvg'),rg=$('#brT');let mode='avg',ei='bal',reg='aud',setSt=()=>{};
+  const RR=rng(77),DOTS=[...Array(26)].map(()=>({a:RR(),b:RR(),g:RR()<.5}));
+  /* Box-Muller from the seeded generator: individual offsets in volume, in standard deviations */
+  DOTS.forEach(d=>{d.z=Math.sqrt(-2*Math.log(d.a+1e-9))*Math.cos(2*Math.PI*d.b)});
+  function axis(x0,x1,y,N){let s=`<line x1="${x0}" x2="${x1}" y1="${y}" y2="${y}" class="axis" style="stroke:var(--muted)"/>`;
+    BR_TICK.forEach(([a,l])=>{if(N&&(a===18||a===6))return;const x=lerp(x0,x1,brT(a));s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${y-3}" y2="${y+3}" style="stroke:var(--muted)"/><text x="${f1(x)}" y="${y+13}" class="t-xs t-mid">${l}</text>`});return s}
+  function panelA(ox,oy,W,t,a,N){let s=`<text x="${ox}" y="${oy+14}" class="t-sm" style="fill:var(--neuro)">BRAIN GROWTH</text>`;
+    const V=brVol(a),sc=.56*Math.cbrt(V/100),bx=ox+8,by=oy+30+(108-150*sc)*.6;
+    const b=brain(bx,by,sc,{id:'brBr',glow:a>=6&&a<12&&mode==='avg'?{frontal:.5,parietal:.5,temporal:.5,occipital:.5}:{},hlCol:'var(--neuro)'});
+    s+=`<g style="opacity:${a<0?.7:1}">${b.svg}</g>`;
+    if(a>=0&&a<1.5)s+=`<path d="M${f1(bx+100*sc)} ${f1(by-6)}v-6" style="stroke:var(--muted)"/>`;
+    if(mode==='avg'&&a>=6){const k=ramp(a,6,12);s+=`<ellipse cx="${f1(bx+108*sc)}" cy="${f1(by+68*sc)}" rx="${f1(92*sc*(1+.07*k))}" ry="${f1(55*sc*(1+.07*k))}" style="fill:none;stroke:var(--neuro);stroke-width:1.4;stroke-dasharray:4 3"/>`;
+      s+=`<text x="${ox+(N?196:170)}" y="${oy+128}" class="t-xs" style="fill:var(--neuro)">${a<12?'- - surface area: faster':'- - then volume'}</text><text x="${ox+(N?196:170)}" y="${oy+140}" class="t-xs" style="fill:var(--neuro)">(later diagnosed, group avg)</text>`}
+    const tx=ox+(N?196:170);
+    s+=`<text x="${tx}" y="${oy+48}" class="t-big">${brAgeLbl(a)}</text><text x="${tx}" y="${oy+68}" class="t-xs">brain volume index</text>`;
+    s+=`<text x="${tx}" y="${oy+94}" style="font:800 26px var(--display);fill:var(--neuro)">${Math.round(V)}</text><text x="${tx}" y="${oy+110}" class="t-xs">${a<0||a>24?'drawn, not measured':'birth = 100 (typical mean)'}</text>`;
+    let nt=BR_NOTE[0];BR_NOTE.forEach(n=>{if(a>=n[0])nt=n});
+    s+=`<rect x="${ox}" y="${oy+150}" width="${W}" height="42" rx="8" style="fill:var(--neuro-soft)"/><text x="${ox+8}" y="${oy+166}" class="t-xs" style="fill:var(--ink)">${nt[1]}</text><text x="${ox+8}" y="${oy+182}" class="t-xs" style="fill:var(--ink)">${nt[2]}</text>`;
+    return s}
+  function panelB(ox,oy,W,t,a,N){let s=`<text x="${ox}" y="${oy+14}" class="t-sm" style="fill:var(--neuro)">SYNAPSES: BUILD, THEN PRUNE</text>`;
+    const d=brSyn(reg,a),pk=2.6,peakA=reg==='aud'?3:18,past=a>peakA;
+    s+=`<g style="opacity:${a<-3.2?.45:1}">${neuron(ox+54,oy+104,N?10:8.5,{spines:a<-3.2?0:past?1:d/pk,prune:past?clamp((pk-d)/pk*1.4):0,seed:5})}</g>`;
+    const l1=a<-3.2?'no synapses':past?'pruning:':'spines forming:',l2=a<-3.2?'yet':past?Math.round(clamp((pk-d)/pk*1.4)*100)+'% fading':Math.round(d/pk*100)+'% of peak';
+    s+=`<text x="${ox+54}" y="${oy+170}" class="t-xs t-mid">${l1}</text><text x="${ox+54}" y="${oy+183}" class="t-xs t-mid" style="fill:var(--ink)">${l2}</text>`;
+    const cx0=ox+(N?150:146),cx1=ox+W-4,cy0=oy+40,cy1=oy+160,X=tt=>lerp(cx0,cx1,tt),Y=v=>lerp(cy1,cy0,v/2.8);
+    s+=`<rect x="${cx0}" y="${cy0}" width="${cx1-cx0}" height="${cy1-cy0}" style="fill:var(--field)"/>`;
+    [['aud','auditory','var(--sense)'],['pfc','prefrontal','var(--neuro)']].forEach(([r,l,c])=>{const on=r===reg;
+      s+=`<path d="${pathFn(u=>brSyn(r,brAge(u))/2.8,cx0,cx1,cy1,cy0,90)}" style="fill:none;stroke:${c};stroke-width:${on?2.4:1.2};opacity:${on?1:.45}"/>`;
+      const lx=X(brT(r==='aud'?3:18));s+=r==='aud'?`<text x="${f1(lx+6)}" y="${f1(Y(2.6)+12)}" class="t-xs" style="fill:${c}">${l}: ~3 mo</text>`:`<text x="${f1(cx1)}" y="${f1(cy0-6)}" class="t-xs t-end" style="fill:${c}">${l}: after 15 mo</text>`});
+    s+=`<line x1="${f1(X(t))}" x2="${f1(X(t))}" y1="${cy0}" y2="${cy1}" style="stroke:var(--ink);opacity:.35"/><circle cx="${f1(X(t))}" cy="${f1(Y(d))}" r="4" style="fill:var(--ink)"/>`;
+    const L=BR_TICK.filter(x=>[-4.6,0,12,24,48].includes(x[0]));s+=`<line x1="${cx0}" x2="${cx1}" y1="${cy1}" y2="${cy1}" class="axis" style="stroke:var(--muted)"/>`;
+    L.forEach(([q,l])=>s+=`<text x="${f1(X(brT(q)))}" y="${cy1+12}" class="t-xs t-mid">${l==='48 mo'?'48':l}</text>`);
+    s+=`<text x="${cx1}" y="${cy1+24}" class="t-xs t-end">timing real, heights drawn</text>`;
+    return s}
+  function panelC(ox,oy,W,t,a,N){let s=`<text x="${ox}" y="${oy+14}" class="t-sm" style="fill:var(--neuro)">${mode==='avg'?'GROUP AVERAGES':'INDIVIDUAL VARIATION'}</text>`;
+    const x0=ox+34,x1=ox+W-6,y0=oy+28,y1=oy+166,X=tt=>lerp(x0,x1,tt),Y=v=>lerp(y1,y0,v/300);
+    [0,100,200,300].forEach(v=>s+=`<line x1="${x0}" x2="${x1}" y1="${f1(Y(v))}" y2="${f1(Y(v))}" class="${v?'grid':'axis'}"/><text x="${x0-4}" y="${f1(Y(v)+3)}" class="t-xs t-end">${v}</text>`);
+    s+=axis(x0,x1,y1,N);
+    const seg=(f,a0,a1)=>pathFn(u=>f(brAge(lerp(brT(a0),brT(a1),u)))/300,X(brT(a0)),X(brT(a1)),y1,y0,50);
+    const ae=Math.min(a,48);
+    if(mode==='ind'){const band=(f,col)=>{let up='',dn='';for(let i=0;i<=60;i++){const tt=lerp(brT(0),brT(Math.max(0,ae)),i/60),v=f(brAge(tt));up+=(i?'L':'M')+f1(X(tt))+' '+f1(Y(v*1.13));dn='L'+f1(X(tt))+' '+f1(Y(v*.87))+dn}return `<path d="${up}${dn}Z" style="fill:${col};opacity:.16"/>`};
+      if(a>0)s+=band(brVol,'var(--muted)')+band(brVolA,'var(--neuro)')}
+    s+=`<path d="${seg(brVol,-4.6,0)}" style="fill:none;stroke:var(--muted);stroke-width:1.4;stroke-dasharray:2 3"/>`;
+    if(a>0){s+=`<path d="${seg(brVol,0,Math.min(ae,24))}" style="fill:none;stroke:var(--ink);stroke-width:2.2"/>`;
+      if(ae>24)s+=`<path d="${seg(brVol,24,ae)}" style="fill:none;stroke:var(--ink);stroke-width:1.6;stroke-dasharray:4 3"/>`;
+      if(a>6)s+=`<path d="${seg(brVolA,6,ae)}" style="fill:none;stroke:var(--neuro);stroke-width:2;stroke-dasharray:${mode==='avg'?'6 3':'2 3'}"/>`}
+    [[12,201],[24,231]].forEach(([q,v])=>{if(a>=q)s+=`<circle cx="${f1(X(brT(q)))}" cy="${f1(Y(v))}" r="4.5" style="fill:none;stroke:var(--ink);stroke-width:1.6"/><text x="${f1(X(brT(q))+(q===24?6:-6))}" y="${f1(Y(v)+(q===24?16:-8))}" class="t-xs${q===24?'':' t-end'}" style="fill:var(--ink)">${v}</text>`});
+    if(mode==='ind'&&a>0){const v0=brVol(a),v1=brVolA(a),xx=X(t);DOTS.forEach((d,i)=>{const v=(d.g?v1:v0)*(1+.065*d.z),dx=(i%13-6)*2.4;s+=`<circle cx="${f1(xx+dx)}" cy="${f1(Y(v))}" r="2.6" style="fill:${d.g?'var(--neuro)':'var(--muted)'};opacity:.85"/>`})}
+    s+=`<line x1="${f1(X(t))}" x2="${f1(X(t))}" y1="${y0}" y2="${y1}" style="stroke:var(--ink);opacity:.3"/>`;
+    const gy=Y(118),gx=x1-4;s+=mode==='avg'?`<text x="${gx}" y="${f1(gy)}" class="t-xs t-end" style="fill:var(--ink)">— typical (measured to 24 mo)</text><text x="${gx}" y="${f1(gy+12)}" class="t-xs t-end" style="fill:var(--neuro)">- - later diagnosed, group mean</text><text x="${gx}" y="${f1(gy+24)}" class="t-xs t-end" style="fill:var(--neuro)">(direction only, not to scale)</text>`
+      :`<text x="${gx}" y="${f1(gy)}" class="t-xs t-end">each dot: one child (illustrative)</text><text x="${gx}" y="${f1(gy+12)}" class="t-xs t-end"><tspan style="fill:var(--neuro)">● later diagnosed</tspan>  ● not</text><text x="${gx}" y="${f1(gy+24)}" class="t-xs t-end" style="fill:var(--neuro)">the clouds overlap almost completely</text>`;
+    return s}
+  function panelD(ox,oy,W,t,a,N){const sh=ei==='shift';let s=`<text x="${ox}" y="${oy+14}" class="t-sm" style="fill:var(--neuro)">EXCITATION / INHIBITION</text>`;
+    const re=.5+.5*Math.sin(t*2*Math.PI*14),ri=.5+.5*Math.sin(t*2*Math.PI*14+1.6);
+    const ex=ox+W*.26,ix=ox+W*.74,sy=oy+92;
+    s+=synapse(ex,sy,.82,{kind:'e',release:re,receptors:sh?6:4,seed:4});
+    s+=synapse(ix,sy,.82,{kind:'i',release:ri*(sh?.45:1),receptors:sh?2:4,seed:8});
+    s+=`<text x="${f1(ex)}" y="${sy+42}" class="t-xs t-mid" style="fill:var(--excite)">glutamate: excites</text><text x="${f1(ix)}" y="${sy+42}" class="t-xs t-mid" style="fill:var(--inhibit)">GABA: inhibits</text>`;
+    const fx=ox+W/2,fy=oy+186,ang=sh?.16:0,L=W*.34,ly=fy-14;
+    s+=`<path d="M${fx-9} ${fy}L${fx} ${ly}L${fx+9} ${fy}Z" style="fill:var(--muted)"/>`;
+    const lx1=fx-Math.cos(ang)*L,ly1=ly+Math.sin(ang)*L,rx1=fx+Math.cos(ang)*L,ry1=ly-Math.sin(ang)*L;
+    s+=`<line x1="${f1(lx1)}" y1="${f1(ly1)}" x2="${f1(rx1)}" y2="${f1(ry1)}" style="stroke:var(--ink);stroke-width:2.4;stroke-linecap:round"/>`;
+    s+=`<circle cx="${f1(lx1)}" cy="${f1(ly1-(sh?12:9))}" r="${sh?12:9}" style="fill:var(--excite)"/><circle cx="${f1(rx1)}" cy="${f1(ry1-(sh?7:9))}" r="${sh?7:9}" style="fill:var(--inhibit)"/>`;
+    s+=`<text x="${fx}" y="${oy+31}" class="t-xs t-mid" style="fill:${sh?'var(--rx)':'var(--ink)'}">${sh?'shifted toward excitation: a HYPOTHESIS':'balanced: excitation matched by inhibition'}</text>`;
+    return s}
+  function draw(t){const N=vb(svg,'720 440','400 852'),a=brAge(t);let s='';
+    const P=N?[[10,0],[10,212],[10,428],[10,644]]:[[10,10],[372,10],[10,226],[372,226]],W=N?380:338;
+    s+=panelA(P[0][0],P[0][1],W,t,a,N)+panelB(P[1][0],P[1][1],W,t,a,N)+panelC(P[2][0],P[2][1],W,t,a,N)+panelD(P[3][0],P[3][1],W,t,a,N);
+    if(!N)s+=`<line x1="361" x2="361" y1="14" y2="420" class="grid"/><line x1="14" x2="706" y1="218" y2="218" class="grid"/>`;
+    s+=`<text x="${N?10:14}" y="${N?850:436}" class="t-xs" style="fill:var(--warn)">${N?'SCHEMATIC · circles = measured group means':'SCHEMATIC · circled values measured (typical group means); other shapes drawn'}</text>`;
+    svg.innerHTML=s;const ph=phaseOf(BR_STEPS,t);setSt(ph);$('#brNote').innerHTML=noteHTML(BR_STEPS[ph]);
+    $('#brRead').innerHTML=`<span>age <b>${brAgeLbl(a)}</b></span><span>volume index <b>${Math.round(brVol(a))}</b>${a<0||a>24?' (drawn)':''}</span><span>view <b>${mode==='avg'?'group averages':'individual variation'}</b></span><span>E/I <b>${ei==='bal'?'balanced':'shifted (hypothesis)'}</b></span>`}
+  const stop=playWire(rg,$('#brPlay'),draw,26000,'Replay','brain');
+  setSt=stepWire($('#brSteps'),BR_STEPS,rg,draw,stop);
+  const tog=(attr,set)=>$$(`[${attr}]`).forEach(b=>b.addEventListener('click',()=>{set(b.getAttribute(attr));$$(`[${attr}]`).forEach(x=>x.setAttribute('aria-pressed',x===b));draw(+rg.value)}));
+  tog('data-brv',v=>mode=v);tog('data-brei',v=>ei=v);tog('data-brr',v=>reg=v);
+  draw(+rg.value);
+
+  /* ---- effect-size explorer ---- */
+  const es=$('#brEsSvg'),er=$('#brEs');
+  const erf=x=>{const s=Math.sign(x);x=Math.abs(x);const k=1/(1+.3275911*x);return s*(1-(((((1.061405429*k-1.453152027)*k)+1.421413741)*k-.284496736)*k+.254829592)*k*Math.exp(-x*x))};
+  const Phi=x=>.5*(1+erf(x/Math.SQRT2));
+  function drawE(){const N=vb(es,'720 250','400 300'),d=+er.value;let s='';
+    const x0=N?14:30,x1=N?386:470,yb=N?190:200,yt=N?40:40,sd=(x1-x0)/8,mid=(x0+x1)/2,ma=mid-d*sd/2,mb=mid+d*sd/2,pdf=z=>Math.exp(-z*z/2);
+    const curve=m=>{let p='';for(let i=0;i<=120;i++){const x=lerp(x0,x1,i/120);p+=(i?'L':'M')+f1(x)+' '+f1(yb-(yb-yt)*pdf((x-m)/sd))}return p};
+    let ov='';for(let i=0;i<=120;i++){const x=lerp(x0,x1,i/120);ov+=(i?'L':'M')+f1(x)+' '+f1(yb-(yb-yt)*Math.min(pdf((x-ma)/sd),pdf((x-mb)/sd)))}
+    s+=`<path d="${ov}L${x1} ${yb}L${x0} ${yb}Z" style="fill:var(--neuro);opacity:.14"/>`;
+    s+=`<path d="${curve(ma)}" style="fill:none;stroke:var(--muted);stroke-width:2"/><path d="${curve(mb)}" style="fill:none;stroke:var(--neuro);stroke-width:2.2"/>`;
+    s+=`<line x1="${x0}" x2="${x1}" y1="${yb}" y2="${yb}" class="axis"/><line x1="${f1(ma)}" x2="${f1(ma)}" y1="${yt-4}" y2="${yb}" style="stroke:var(--muted);stroke-dasharray:3 3"/><line x1="${f1(mb)}" x2="${f1(mb)}" y1="${yt-4}" y2="${yb}" style="stroke:var(--neuro);stroke-dasharray:3 3"/>`;
+    s+=`<text x="${f1(ma-4)}" y="${yt-8}" class="t-xs t-end">non-autistic</text><text x="${f1(mb+4)}" y="${yt-8}" class="t-xs" style="fill:var(--neuro)">autistic</text><text x="${mid}" y="${yb+16}" class="t-xs t-mid">any one brain measure (illustrative), in standard deviations</text>`;
+    const OVL=2*Phi(-d/2),acc=Phi(d/2),U3=Phi(d);
+    const rows=[['overlap of the two groups',Math.round(OVL*100)+'%'],['best accuracy from this measure alone',Math.round(acc*100)+'%'],['autistic people above the other group\'s mean',Math.round(U3*100)+'%']];
+    rows.forEach(([l,v],i)=>{const x=N?x0+i*126:500,y=N?250:62+i*62;s+=`<text x="${x}" y="${y}" style="font:800 ${N?20:26}px var(--display);fill:var(--neuro)">${v}</text><text x="${x}" y="${y+(N?14:16)}" class="t-xs">${N?l.split(' ').slice(0,3).join(' '):l.length>30?l.slice(0,l.lastIndexOf(' ',30)):l}</text>${!N&&l.length>30?`<text x="${x}" y="${y+28}" class="t-xs">${l.slice(l.lastIndexOf(' ',30)+1)}</text>`:''}`});
+    es.innerHTML=s;$('#brEsOut').textContent=d.toFixed(2);
+    $('#brEsNote').innerHTML=noteHTML({k:`Effect size d = ${d.toFixed(2)}`,t:d<=.3?'Small: the groups overlap almost entirely':d<.7?'Medium: still mostly overlapping':'Large: still a lot of overlap',
+      txt:`<span class="ev est">Established</span> The ENIGMA mega-analysis of 1,571 autistic and 1,651 non-autistic people (age 2–64) found smaller pallidum, putamen, amygdala and nucleus accumbens volumes, thicker frontal and thinner temporal cortex, with effect sizes between d −0.21 and 0.20. <sup class="c" data-ref="vanRooij2018" title="Source 599">599</sup> At d = 0.2 the two curves overlap by about 92%, and one measure alone could sort people correctly only about 54% of the time. In about 1,000 ABIDE participants, anatomical MRI classifiers reached under 60%. <sup class="c" data-ref="Haar2016" title="Source 195">195</sup> The numbers on the right are computed from d for two normal curves.`,
+      pt:`A real average difference between groups can still be far too small to say anything about one person.`,
+      hook:`Group difference ≠ diagnostic test. Brain-structure effects in autism are small (|d| ≤ 0.21 in ENIGMA).`})}
+  er.addEventListener('input',drawE);
+  $$('[data-bres]').forEach(b=>b.addEventListener('click',()=>{er.value=b.dataset.bres;$$('[data-bres]').forEach(x=>x.setAttribute('aria-pressed',x===b));drawE()}));
+  drawE();
+
+  /* ---- hypothesis board: filters and counterpoints ---- */
+  $$('[data-brf]').forEach(b=>b.addEventListener('click',()=>{const f=b.dataset.brf;$$('[data-brf]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    $$('#brBoard .card').forEach(c=>c.hidden=!(f==='all'||c.dataset.ev===f))}));
+  $$('#brBoard [data-brcp]').forEach(b=>b.addEventListener('click',()=>{const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);b.closest('.card').querySelector('.br-cp').hidden=!on;b.textContent=on?'Hide the counterpoint':'Show the counterpoint'}));
+  const prevR=redraws.brain;redraws.brain=()=>{prevR&&prevR();drawE()};
+};
+/* =============== 3.1 Early signs & development =============== */
+/* milestone chips: a = CDC 2022 checklist age in months (Zubler 2022; pretend play at the ESCAP red-flag age),
+   l = lane in the wide layout, s = a social-communication skill (dimmed in the early-signs view),
+   lost = a skill that the regression view shows gained and then lost */
+const MI_CH=[
+ {a:2,t:'Social smile',l:0,s:1},
+ {a:4,t:'Smiles to engage',l:1,s:1},
+ {a:6,t:'Laughs',l:2},
+ {a:9,t:'Turns to name',l:0,s:1,lost:1},
+ {a:9,t:'Lifts arms',l:3},
+ {a:12,t:'Waves bye-bye',l:1,s:1,lost:1},
+ {a:15,t:'First words',l:0,s:1,lost:1},
+ {a:15,t:'Shows you a toy',l:2,s:1,lost:1},
+ {a:18,t:'Points to show',l:1,s:1,lost:1},
+ {a:18,t:'Pretend play',l:3,s:1},
+ {a:24,t:'2-word phrases',l:0,s:1},
+ {a:24,t:'Checks faces',l:1,s:1},
+ {a:30,t:'About 50 words',l:0,s:1},
+ {a:30,t:'Plays alongside',l:1,s:1}];
+const MI_FLAGS=[{a:12,t:'no name or wave',n:'12',an:'t-end',dx:-4},{a:16,t:'no words',n:'16',an:'',dx:14},{a:24,t:'no 2-word phrases',n:'24',an:'',dx:14}];
+const MI_REG=19.8; /* weighted mean onset of regression in the 2021 meta-analytic update, months (Tan 2021) */
+const miAt=m=>m/36;
+/* one step list; mode-specific fields in .early and .reg replace the shared ones */
+const MI_STEPS=[
+ {from:0,at:miAt(2.4),k:'0–3 months',t:'Faces first',
+  txt:`Newborns are drawn to faces and voices. On the 2022 CDC checklists, by 2 months a baby looks at the parent's face and smiles back when talked to. Each milestone sits at the age by which at least 75% of children show it, so a quarter of babies are still on the way at that visit. The revision cut 216 milestones on 10 checklists to 159 on 12. <sup class="c" data-ref="Zubler2022" title="Source 654">654</sup>`,
+  pt:`Looking at faces and smiling back are the first steps of a conversation, long before words.`,
+  hook:`CDC 2022: milestones set at the ≥75th percentile age. Missing one means screen, not diagnose. <sup class="c" data-ref="Zubler2022" title="Source 654">654</sup>`,
+  early:{txt:`<span class="ev early">Early evidence</span> In an eye-tracking study, infants later diagnosed with autism looked at eyes as much as other babies at 2 months. Their eye-looking then declined between 2 and 6 months (about −4.8% a month, against a rise of +3.6% a month in typically developing infants). So eye contact is present at first rather than absent from birth. This comes from one cohort of 110 infants, 12 of them later diagnosed. <sup class="c" data-ref="Jones2013Eyes" title="Source 262">262</sup>`,
+   pt:`Many babies later diagnosed do make eye contact at first. It can fade over the following months.`,
+   hook:`Jones &amp; Klin 2013: attention to eyes is present at 2 months, then declines from 2 to 6 months. <sup class="c" data-ref="Jones2013Eyes" title="Source 262">262</sup>`}},
+ {from:miAt(4),at:miAt(9.5),k:'4–9 months',t:'Turning to a name',
+  txt:`By 9 months most babies look when their name is called, lift their arms to be picked up and play peek-a-boo. A parent calling and a baby turning back is an early back-and-forth. Repeatedly not responding to a name at 9–12 months, although hearing is normal, is one early sign described in a 2026 systematic review. That is why hearing is checked first. <sup class="c" data-ref="Zubler2022,Araujo2026" title="Source 25,654">25,654</sup>`,
+  pt:`A baby who does not turn to their name may not hear well, may be busy, or may be developing differently. Checking hearing comes first.`,
+  hook:`"No response to name despite normal hearing": the hearing test comes before any conclusion. <sup class="c" data-ref="Araujo2026" title="Source 25">25</sup>`,
+  early:{txt:`<span class="ev early">Early evidence</span> In a prospective study of 25 infants later diagnosed and 25 typically developing infants, gaze to faces, shared smiles and directed sounds were similar at 6 months, then declined in the autism group, with most differences significant by 12 months. Response to name is not a yes/no test: at 12 months, failing to respond had specificity 0.89 but sensitivity only 0.50, so many autistic infants do turn to their name. <sup class="c" data-ref="Ozonoff2010,Nadig2007" title="Source 396,440">396,440</sup>`,
+   pt:`Differences often appear gradually after 6 months, rather than being there from the first weeks.`,
+   hook:`Failing to respond to name at 12 months: sensitivity 0.50, specificity 0.89. Many autistic babies respond. <sup class="c" data-ref="Nadig2007" title="Source 396">396</sup>`}},
+ {from:miAt(11),at:miAt(13.5),k:'12–15 months',t:'Gestures and first words',
+  txt:`At 12 months children wave bye-bye and play games such as pat-a-cake. By 15 months they show you an object they like, point to ask for something and try one or two words besides "mama" or "dada". Red flags quoted at 12 months: no response to name and no "goodbye" gesture. <sup class="c" data-ref="Zubler2022,Fuentes2021ESCAP,Araujo2026" title="Source 25,156,654">25,156,654</sup>`,
+  pt:`Gestures such as waving and pointing are a bridge to words. They show the child wants to share something with you.`,
+  hook:`Red flag at 12 months: no response to name (CDC, quoted by ESCAP) and no goodbye gesture. <sup class="c" data-ref="Fuentes2021ESCAP,Araujo2026" title="Source 25,156">25,156</sup>`,
+  early:{txt:`Among 150 younger siblings of autistic children, those later diagnosed could be told apart by 12 months on eye contact, visual tracking, disengaging attention, orienting to name, imitation, social smiling and social interest. Gestures may be few, or used to get things more than to share. <sup class="c" data-ref="Zwaigenbaum2005" title="Source 656">656</sup>`,
+   pt:`Some children point to get a snack but rarely to show you something just because it is interesting.`,
+   hook:`Early signs in younger siblings were detectable by 12 months (Zwaigenbaum 2005). <sup class="c" data-ref="Zwaigenbaum2005" title="Source 656">656</sup>`}},
+ {from:miAt(15.6),at:miAt(18.6),k:'16–18 months',t:'Pointing to share',
+  txt:`By 18 months a toddler points to show you something interesting, then looks back at your face to check you saw it. Two people attending to the same thing is joint attention, and it is one of the foundations of language. Red flags: no single words by 16 months, no pointing to show by 14 months, and no pretend play by 18 months. The AAP recommends autism-specific screening at the 18-month visit. <sup class="c" data-ref="Zubler2022,Araujo2026,Fuentes2021ESCAP,Hyman2020" title="Source 25,156,250,654">25,156,250,654</sup>`,
+  pt:`Pointing at a dog and then looking at you means "Look! Did you see it too?" That shared moment matters a lot.`,
+  hook:`Joint attention = pointing to show + checking the other person's face. AAP screens at 18 and 24 months. <sup class="c" data-ref="Hyman2020" title="Source 250">250</sup>`,
+  early:{txt:`In this view the toddler points at the ball but does not look back to share it, one way reduced joint attention can look. No pointing to share interest at 12–18 months and a narrow range of gestures at 16 months are among the most consistent early signs, and they are more meaningful when combined with other social differences. Their absence in a very young child does not rule autism out. <sup class="c" data-ref="Araujo2026,Fuentes2021ESCAP" title="Source 25,156">25,156</sup>`,
+   pt:`The child enjoys the ball, but the "Did you see it too?" look back to the parent is missing.`,
+   hook:`Declarative pointing (to share) is more telling than imperative pointing (to request). <sup class="c" data-ref="Araujo2026" title="Source 25">25</sup>`},
+  reg:{txt:`So far this child has gained skills on time. Loss of skills is usually noticed in the second year: the 2013 meta-analysis put the mean onset at 1.78 years (about 21 months) and the 2021 update at 19.8 months. <sup class="c" data-ref="Barger2013,Tan2021" title="Source 37,582">37,582</sup>`,
+   pt:`Some autistic children develop words and social games and then stop using them, often between 18 and 24 months.`,
+   hook:`Regression: mean onset about 1.8 years (Barger 2013), 19.8 months (Tan 2021). <sup class="c" data-ref="Barger2013,Tan2021" title="Source 37,582">37,582</sup>`}},
+ {from:miAt(20.5),at:miAt(24.6),k:'24 months',t:'Two-word phrases',
+  txt:`At 24 months children put two words together ("more milk") and notice when others are upset. No spontaneous two-word phrases by 24 months is one of the two most consistent language red flags, with no single words by 16 months. The AAP repeats the autism-specific screen at 24 months. <sup class="c" data-ref="Zubler2022,Araujo2026,Hyman2020" title="Source 25,250,654">25,250,654</sup>`,
+  pt:`Two-word phrases show a child combining ideas. By 2 years most children do it, but not all, and a late talker is not necessarily autistic.`,
+  hook:`Two language red flags: no words by 16 months, no two-word phrases by 24 months, most predictive with social differences. <sup class="c" data-ref="Araujo2026" title="Source 25">25</sup>`,
+  reg:{txt:`Here words and social games fade. In a 2013 meta-analysis of 85 articles (29,035 autistic participants), 32.1% had a regression; a 2021 update found 30%. The rate depends on how it is defined and counted: language loss alone 20%, language plus social 40%; 21.8% in population samples but 40.8% in parent surveys. <sup class="c" data-ref="Barger2013,Tan2021" title="Source 37,582">37,582</sup> Unexplained loss of skills warrants further, including neurological, assessment. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>`,
+   pt:`If a child stops using words or games they used to have, tell a health professional promptly, at any age.`,
+   hook:`About 1 in 3 autistic children are reported to lose skills (32.1%; 30% in 2021). <sup class="c" data-ref="Barger2013,Tan2021" title="Source 37,582">37,582</sup>`}},
+ {from:miAt(28),at:miAt(33),k:'30–36 months',t:'Words and play',
+  txt:`By 30 months children say about 50 words and play next to, and sometimes with, other children. The AAP recommends general developmental screening at 9, 18 and 30 months alongside surveillance at every visit. Autism can be diagnosed from 18 months, but in 2022 US surveillance the median age at earliest known diagnosis was 47 months. <sup class="c" data-ref="Zubler2022,Lipkin2020,Hyman2020,Shaw2025" title="Source 250,329,541,654">250,329,541,654</sup>`,
+  pt:`There is a long gap between the first signs and a diagnosis for many families. Raising a concern early helps close it.`,
+  hook:`AAP: general developmental screening at 9, 18, 30 months; autism-specific at 18 and 24 months. <sup class="c" data-ref="Lipkin2020,Hyman2020" title="Source 250,329">250,329</sup>`,
+  early:{txt:`Parents often notice differences early. In US national survey data, parents of autistic children had concerns at younger ages than parents of children with other delays, but were more likely to get "reassuring or passive" responses, which went with longer delays to diagnosis. <sup class="c" data-ref="Zuckerman2015" title="Source 655">655</sup> Among younger siblings, a diagnosis at 24 months was stable in 82%, but 41% of children diagnosed at 36 months had not been diagnosed at 24. <sup class="c" data-ref="Ozonoff2015" title="Source 442">442</sup>`,
+   pt:`If you are worried and are told to "wait and see", it is reasonable to ask again or ask for a referral.`,
+   hook:`Passive provider responses to parental concern were linked to longer diagnostic delays. <sup class="c" data-ref="Zuckerman2015" title="Source 655">655</sup>`},
+  reg:{txt:`How common regression is depends on how it is measured. In a prospective study of infant siblings, examiners' repeated ratings found a declining trajectory in 88% of children later diagnosed and parents' prospective ratings in 69%, but retrospective or yes/no questions found only 29–47%. In an earlier study, repeated testing documented loss of skills in most infants later diagnosed, though most parents did not report a regression. <sup class="c" data-ref="Ozonoff2018Onset,Ozonoff2010" title="Source 440,443">440,443</sup> <span class="ev est">Established</span> Vaccines do not cause it. <sup class="c" data-ref="Hviid2019,Taylor2014Vaccine" title="Source 249,586">249,586</sup>`,
+   pt:`Skill loss can be sudden and obvious, or so gradual that families only see it looking back.`,
+   hook:`Regression rates: 88% (examiner, prospective) vs 29–47% (retrospective). Definitions drive the number. <sup class="c" data-ref="Ozonoff2018Onset" title="Source 443">443</sup>`}}
+];
+
+inits.milestones=()=>{
+  const svg=$('#miSvg'),rg=$('#miT');let mode='td',setSt=()=>{};
+  const MODE_N={td:'Typical development',early:'Early autism signs',reg:'Loss of skills'};
+  const steps=()=>MI_STEPS.map(s=>Object.assign({},s,s[mode]||{}));
+  /* weight of the child's gaze on the toy (1) versus the parent (0) */
+  function gazeW(m){
+    const osc=.5+.5*Math.sin(m*2.3);
+    if(m<5)return .1;
+    const typ=m<15?.25+.5*osc:osc>.5?1:0;           /* from 15 months: look at the toy, look back to share */
+    const aut=.82+.18*osc;                            /* mostly on the object, rarely back */
+    if(mode==='early')return lerp(typ,aut,ramp(m,4,9));
+    if(mode==='reg')return lerp(typ,aut,ramp(m,MI_REG-1,MI_REG+3));
+    return typ}
+  /* for each chip: 0 hidden, otherwise its look */
+  function chipState(c,m){
+    const on=ramp(m,c.a-.4,c.a+.3);if(on<=0)return null;
+    let st='ok';
+    if(mode==='early'&&c.s)st='dim';
+    if(mode==='reg'){if(c.lost&&m>=MI_REG+1.2)st='lost';else if(c.a>=MI_REG)st='dim'}
+    return {on,st}}
+  function draw(t){
+    const N=vb(svg,'720 410','400 720'),m=t*36;let s=`<defs>${marker('miArr','var(--muted)')}</defs>`;
+    const P=N?{px:62,py:96,cx:300,cy:112,tx:190,ty:44,pan:{x:16,y:196,w:368,h:142}}:{px:70,py:104,cx:250,cy:122,tx:165,ty:46,pan:{x:350,y:12,w:356,h:196}};
+    /* ---- scene: parent, child and a ball ---- */
+    const cr=lerp(19,27,m/36),w=gazeW(m),hp=[P.px,P.py],ht=[P.tx,P.ty];
+    s+=`<rect x="${N?8:8}" y="8" width="${N?384:330}" height="${N?176:198}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
+    s+=`<path d="M${P.px-34} ${P.py+86}Q${P.px-34} ${P.py+40} ${P.px} ${P.py+40}Q${P.px+34} ${P.py+40} ${P.px+34} ${P.py+86}Z" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.2"/>`;
+    s+=`<path d="M${f1(P.cx-cr*1.1)} ${f1(P.cy+cr*2.6)}Q${f1(P.cx-cr*1.1)} ${f1(P.cy+cr*1.05)} ${P.cx} ${f1(P.cy+cr*1.05)}Q${f1(P.cx+cr*1.1)} ${f1(P.cy+cr*1.05)} ${f1(P.cx+cr*1.1)} ${f1(P.cy+cr*2.6)}Z" style="fill:var(--brand-soft);stroke:var(--brand);stroke-width:1.2"/>`;
+    /* ball */
+    s+=`<circle cx="${P.tx}" cy="${P.ty}" r="13" style="fill:var(--gold-soft);stroke:var(--gold);stroke-width:1.6"/><path d="M${P.tx-13} ${P.ty}Q${P.tx} ${P.ty-8} ${P.tx+13} ${P.ty}M${P.tx} ${P.ty-13}Q${P.tx+7} ${P.ty} ${P.tx} ${P.ty+13}" style="fill:none;stroke:var(--gold);stroke-width:1.3"/>`;
+    /* gaze lines: child to its current target, parent to child or ball */
+    const ang=(a,b)=>Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI;
+    const cEye=[P.cx,P.cy],tgt=w>.5?ht:hp,gAng=ang(cEye,tgt),dom=Math.abs(w-.5)*2;
+    const pointing=m>=15&&!(mode==='reg'&&m>=MI_REG+1.2);
+    const pTarget=m>=15?ht:[P.cx,P.cy];
+    s+=`<line x1="${P.px+8}" y1="${P.py}" x2="${f1(lerp(P.px,pTarget[0],.86))}" y2="${f1(lerp(P.py,pTarget[1],.86))}" style="stroke:var(--accent);stroke-width:1.3;stroke-dasharray:3 4;opacity:.55"/>`;
+    s+=`<line x1="${f1(P.cx-4)}" y1="${f1(P.cy)}" x2="${f1(lerp(P.cx,tgt[0],.84))}" y2="${f1(lerp(P.cy,tgt[1],.84))}" style="stroke:var(--brand);stroke-width:1.6;stroke-dasharray:3 4;opacity:${f1(.35+.6*dom)}"/>`;
+    /* pointing arm */
+    if(pointing){const sx=P.cx-cr*.9,sy=P.cy+cr*1.5,ex=lerp(sx,P.tx,.42),ey=lerp(sy,P.ty,.42);
+      s+=`<path d="M${f1(sx)} ${f1(sy)}L${f1(ex)} ${f1(ey)}" style="stroke:var(--skin);stroke-width:5;stroke-linecap:round"/><path d="M${f1(sx)} ${f1(sy)}L${f1(ex)} ${f1(ey)}" style="stroke:var(--hair);stroke-width:1;stroke-linecap:round;opacity:.5"/>`}
+    const smileC=(mode==='td'||(mode==='reg'&&m<MI_REG+1.2)||(mode==='early'&&m<5))&&m>=1.5&&w<.6;
+    s+=face(P.px,P.py,30,{gaze:ang(hp,pTarget),mouth:'smile'});
+    s+=face(P.cx,P.cy,cr,{gaze:gAng,mouth:smileC?'smile':m<1.5?'open':'flat'});
+    /* speech */
+    if(m>=7.5&&m<12){const bx=N?P.px+30:P.px+26;s+=bubble(bx,P.py-74,60,24,{text:'Sam!',tail:'left'});
+      const turned=w<.5;s+=`<text x="${P.cx}" y="${f1(P.cy-cr-10)}" class="t-xs t-mid" style="fill:${turned?'var(--good)':'var(--muted)'}">${turned?'turns to the name':'keeps looking at the ball'}</text>`}
+    const cw=m>=30?'big red ball!':m>=24?'big ball!':m>=15?'ball!':'';
+    if(cw){const lost=mode==='reg'&&m>=MI_REG+1.2,late=(mode==='early')||(mode==='reg'&&m>=MI_REG&&!lost&&m>=24);
+      const bw=cw.length*7+22,bx=Math.min(P.cx+cr*.4,(N?392:336)-bw-4);
+      s+=bubble(bx,P.cy-cr-46,bw,24,{text:lost?'…':cw,tail:'left',broken:lost||late});
+}
+    if(m>=15){const sh=w<.5&&pointing;s+=`<text x="16" y="${N?22:198}" class="t-xs" style="fill:${sh?'var(--good)':'var(--muted)'}">${pointing?(sh?'points, then looks back: joint attention':(mode==='td'?'points to the ball…':'looks at the ball, rarely back to share')):(mode==='reg'?'words and pointing used before have stopped':'not pointing now')}</text>`}
+    else s+=`<text x="16" y="${N?22:198}" class="t-xs">${m<2?'newborn: faces and voices':m<7.5?'looks at faces, smiles back':'watching'}</text>`;
+    s+=`<text x="${N?384:330}" y="22" class="t-sm t-end" style="fill:var(--ink)">${Math.floor(m)} months</text>`;
+
+    /* ---- side panel ---- */
+    const Q=P.pan;s+=`<rect x="${Q.x}" y="${Q.y}" width="${Q.w}" height="${Q.h}" rx="12" style="fill:var(--panel);stroke:var(--line)"/>`;
+    const shown=MI_CH.filter(c=>m>=c.a).length;
+    if(mode==='td'){
+      s+=`<text x="${Q.x+14}" y="${Q.y+22}" class="t-sm" style="fill:var(--accent)">THE 75% LINE</text>`;
+      for(let i=0;i<4;i++)s+=person(Q.x+24+i*30,Q.y+36,34,i<3?'var(--accent)':'var(--line)');
+      const L=['Milestone age = when about','3 in 4 children show it.','1 in 4 are still learning:','missing one = check, not diagnose.'];
+      L.forEach((l,i)=>s+=`<text x="${Q.x+(N?150:14)}" y="${Q.y+(N?36:96)+i*(N?13:15)}" class="t-xs" style="fill:var(--ink)">${l}</text>`);
+      const bx=Q.x+14,by=Q.y+Q.h-36,bw=Q.w-28;
+      s+=`<text x="${bx}" y="${by-6}" class="t-xs">skills shown so far: <tspan style="fill:var(--ink);font-weight:600">${shown} of ${MI_CH.length}</tspan></text><rect x="${bx}" y="${by}" width="${bw}" height="10" rx="5" style="fill:var(--panel-2)"/><rect x="${bx}" y="${by}" width="${f1(bw*shown/MI_CH.length)}" height="10" rx="5" style="fill:var(--accent)"/>`;
+      s+=`<text x="${bx}" y="${by+24}" class="t-xs">drawn chips: CDC 2022 checklist ages</text>`;
+    }else if(mode==='early'){
+      s+=`<text x="${Q.x+14}" y="${Q.y+20}" class="t-sm" style="fill:var(--accent)">LOOKING AT EYES</text><text x="${Q.x+Q.w-12}" y="${Q.y+20}" class="t-xs t-end" style="fill:var(--warn)">early evidence · 1 cohort</text>`;
+      const x0=Q.x+40,x1=Q.x+Q.w-18,y0=Q.y+48,y1=Q.y+Q.h-36,X=v=>lerp(x0,x1,(v-2)/22),Y=v=>lerp(y1,y0,v/80);
+      [0,40,80].forEach(v=>s+=`<line x1="${x0}" x2="${x1}" y1="${f1(Y(v))}" y2="${f1(Y(v))}" class="${v?'grid':'axis'}"/>`);
+      [2,6,12,18,24].forEach(v=>s+=`<text x="${f1(X(v))}" y="${y1+13}" class="t-xs t-mid">${v}</text>`);
+ s+=``;
+      const td=v=>v<=6?50+3.6*(v-2):64.4+.3*(v-6),au=v=>v<=6?50-4.8*(v-2):30.8+.23*(v-6);
+      const e=clamp(m,2,24);
+      if(m>2){const ln=(f,c,w2)=>`<path d="${pathFn(u=>1-f(lerp(2,e,u))/80,x0,X(e),y0,y1,40)}" style="fill:none;stroke:${c};stroke-width:${w2};stroke-linecap:round"/>`;
+        s+=ln(td,'var(--muted)',2)+ln(au,'var(--accent)',2.6);
+        s+=`<circle cx="${f1(X(e))}" cy="${f1(Y(td(e)))}" r="3" style="fill:var(--muted)"/><circle cx="${f1(X(e))}" cy="${f1(Y(au(e)))}" r="3.4" style="fill:var(--accent)"/>`}
+      s+=`<text x="${Q.x+14}" y="${Q.y+36}" class="t-xs"><tspan style="fill:var(--muted)">— typical +3.6%/mo</tspan>  <tspan style="fill:var(--accent)">— later diagnosed −4.8%/mo</tspan></text>`;
+      if(m>=20)s+=`<text x="${x1}" y="${f1(Y(au(24))+14)}" class="t-xs t-end" style="fill:var(--accent)">about half of typical by 24 mo</text>`;
+      s+=`<text x="${Q.x+14}" y="${Q.y+Q.h-6}" class="t-xs">months · 2–6 mo slopes from study, rest drawn</text>`;
+    }else{
+      s+=`<text x="${Q.x+14}" y="${Q.y+20}" class="t-sm" style="fill:var(--accent)">SKILLS GAINED, THEN LOST</text>`;
+      const x0=Q.x+16,x1=Q.x+Q.w-16,y0=Q.y+34,y1=Q.y+(N?84:118),X=v=>lerp(x0,x1,v/36),Y=v=>lerp(y1,y0,v/10);
+      const sk=v=>{const g=MI_CH.filter(c=>c.s&&v>=c.a).length*.9;if(v<MI_REG)return g;const loss=ramp(v,MI_REG,MI_REG+3);return Math.max(1.2,g-loss*5.4-(v-MI_REG)*.12)};
+      s+=`<line x1="${x0}" x2="${x1}" y1="${y1}" y2="${y1}" class="axis"/>`;
+      s+=`<rect x="${f1(X(MI_REG-1))}" y="${y0-6}" width="${f1(X(MI_REG+3)-X(MI_REG-1))}" height="${f1(y1-y0+6)}" style="fill:var(--bad-soft)"/><text x="${f1(X(MI_REG+1))}" y="${y0+4}" class="t-xs t-mid" style="fill:var(--bad)">mean onset ≈ 20 mo</text>`;
+      if(m>0)s+=`<path d="${pathFn(u=>1-sk(u*m)/10,x0,X(m),y0,y1,80)}" style="fill:none;stroke:var(--accent);stroke-width:2.4"/>`;
+      [0,12,24,36].forEach(v=>s+=`<text x="${f1(X(v))}" y="${y1+12}" class="t-xs t-mid">${v}</text>`);
+      const iy=y1+24;
+      for(let i=0;i<3;i++)s+=person(x0+8+i*24,iy,30,i===0?'var(--bad)':'var(--line)');
+      s+=`<text x="${x0+84}" y="${iy+12}" class="t-xs" style="fill:var(--ink)">about 1 in 3 autistic children</text><text x="${x0+84}" y="${iy+25}" class="t-xs">32.1% (2013) · 30% (2021) meta-analyses</text>`;
+    }
+    /* ---- timeline with chips ---- */
+    if(!N){
+      const T=tl(40,330,650,{max:36,step:6,minor:3}),X=T.at,laneY=[226,248,270,292];
+      s+=T.svg;
+      MI_CH.forEach(c=>{const S=chipState(c,m),x=X(c.a)-4,y=laneY[c.l];s+=`<circle cx="${f1(X(c.a))}" cy="330" r="2.4" style="fill:${m>=c.a?'var(--accent)':'var(--line)'}"/>`;if(S)s+=miChip(x,y,c.t,S)});
+      MI_FLAGS.forEach(F=>{const x=X(F.a),hot=m>=F.a;s+=`<path d="M${f1(x)} 352V368M${f1(x)} 352l11 4l-11 4" style="fill:${hot?'var(--bad)':'none'};stroke:var(--bad);stroke-width:1.4;stroke-linejoin:round"/><text x="${f1(x+F.dx)}" y="366" class="t-xs ${F.an}" style="fill:${hot?'var(--bad)':'var(--muted)'}">${F.t}</text>`});
+      s+=`<line x1="40" x2="690" y1="400" y2="400" style="stroke:var(--bad);stroke-width:1.4;stroke-dasharray:5 4;opacity:.7"/><text x="365" y="396" class="t-xs t-mid" style="fill:var(--bad)">any loss of skills, at any age: talk to a clinician promptly</text>`;
+      s+=`<line x1="${f1(X(m))}" x2="${f1(X(m))}" y1="216" y2="336" style="stroke:var(--ink);stroke-width:1.2;opacity:.4"/><circle cx="${f1(X(m))}" cy="330" r="4.5" style="fill:var(--ink)"/>`;
+    }else{
+      const y0=372,y1=690,Y=v=>lerp(y0,y1,v/36),ax=46;
+      s+=`<line x1="${ax}" x2="${ax}" y1="${y0}" y2="${y1}" style="stroke:var(--muted)"/>`;
+      for(let v=0;v<=36;v+=6)s+=`<line x1="${ax-4}" x2="${ax+4}" y1="${f1(Y(v))}" y2="${f1(Y(v))}" style="stroke:var(--muted)"/><text x="${ax-8}" y="${f1(Y(v)+3)}" class="t-xs t-end">${v}mo</text>`;
+      const grp={};MI_CH.forEach(c=>{const k=grp[c.a]||0;grp[c.a]=k+1;const S=chipState(c,m);s+=`<circle cx="${ax}" cy="${f1(Y(c.a))}" r="2.4" style="fill:${m>=c.a?'var(--accent)':'var(--line)'}"/>`;
+        if(S)s+=miChip(ax+14+k*114,Y(c.a)-8,c.t,S,110)});
+      MI_FLAGS.forEach(F=>{const y=Y(F.a),hot=m>=F.a;s+=`<path d="M${ax-34} ${f1(y-1)}l-8 -4v8z" style="fill:${hot?'var(--bad)':'none'};stroke:var(--bad);stroke-width:1.3"/>`});
+      s+=`<text x="${ax+14}" y="${y1+18}" class="t-xs" style="fill:var(--bad)">◂ red flags: 12, 16, 24 mo; skill loss: any age</text>`;
+      s+=`<line x1="${ax-6}" x2="390" y1="${f1(Y(m))}" y2="${f1(Y(m))}" style="stroke:var(--ink);stroke-width:1.1;opacity:.35"/><circle cx="${ax}" cy="${f1(Y(m))}" r="4.5" style="fill:var(--ink)"/>`;
+    }
+    svg.innerHTML=s;
+    const ST=steps(),ph=phaseOf(ST,t);setSt(ph);
+    const nf=MI_FLAGS.find(F=>F.a>m);
+    $('#miRead').innerHTML=`<span>age <b>${f1(m)} months</b></span><span>view <b>${MODE_N[mode]}</b></span><span>chips shown <b>${shown} of ${MI_CH.length}</b></span><span>${nf?`next red-flag age <b>${nf.n} months</b>`:'red-flag ages <b>passed</b>'}</span>`;
+    $('#miNote').innerHTML=noteHTML(ST[ph]);
+  }
+  function miChip(x,y,txt,S,wFix){const w=Math.max(wFix||0,txt.length*6.6+12),st=S.st;
+    const fill=st==='lost'?'var(--bad-soft)':st==='dim'?'var(--panel)':'var(--accent-soft)',stroke=st==='lost'?'var(--bad)':'var(--accent)';
+    let g=`<g style="opacity:${f1(S.on*(st==='dim'?.6:1))}"><rect x="${f1(x)}" y="${f1(y)}" width="${f1(w)}" height="17" rx="8.5" style="fill:${fill};stroke:${stroke};stroke-width:1.1${st==='dim'?';stroke-dasharray:3 2.5':''}"/>`;
+    g+=`<text x="${f1(x+6)}" y="${f1(y+12)}" class="t-xs" style="fill:${st==='lost'?'var(--bad)':'var(--ink)'}">${txt}</text>`;
+    if(st==='lost')g+=`<line x1="${f1(x+7)}" x2="${f1(x+w-7)}" y1="${f1(y+8.5)}" y2="${f1(y+8.5)}" style="stroke:var(--bad);stroke-width:1.2"/>`;
+    return g+'</g>'}
+  const stop=playWire(rg,$('#miPlay'),draw,22000,'Replay','milestones');
+  function wire(){const old=$('#miSteps'),nu=old.cloneNode(false);old.replaceWith(nu);setSt=stepWire(nu,steps(),rg,draw,stop)}
+  $$('[data-mi]').forEach(b=>b.addEventListener('click',()=>{stop();mode=b.dataset.mi;$$('[data-mi]').forEach(x=>x.setAttribute('aria-pressed',x===b));wire();draw(+rg.value)}));
+  wire();draw(+rg.value);
+
+  /* ---- if you are worried: which step matters most ---- */
+  const WHY={
+   name:{on:['hear','talk'],txt:`Start with hearing: not turning to a name only counts as an early sign of autism when hearing is normal. <sup class="c" data-ref="Araujo2026" title="Source 25">25</sup> Then raise it at the next visit; many autistic infants do respond to their name, and many who do not are not autistic. <sup class="c" data-ref="Nadig2007" title="Source 396">396</sup>`},
+   words:{on:['talk','hear','ref'],txt:`No single words by 16 months and no two-word phrases by 24 months are reasons for a closer look, most of all alongside social differences. <sup class="c" data-ref="Araujo2026" title="Source 25">25</sup> Two languages at home do not explain a delay. <sup class="c" data-ref="Hambly2012" title="Source 198">198</sup>`},
+   point:{on:['note','talk'],txt:`Pointing to share interest is a key early social skill. Note whether the child points to ask, to show, or both, and mention it at the 18- or 24-month visit, when the AAP recommends autism-specific screening. <sup class="c" data-ref="Araujo2026,Hyman2020" title="Source 25,250">25,250</sup>`},
+   lost:{on:['talk','ref'],txt:`Loss of words, social or other skills should be raised promptly, at any age. Unexplained loss of skills warrants further, including neurological, assessment. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup> Sudden, severe loss after typical development is rare and needs its own investigation. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>`},
+   feel:{on:['note','talk','now'],txt:`A parent's sense that something is different matters: parents of autistic children report concerns early, and passive "wait and see" responses were linked to longer delays. <sup class="c" data-ref="Zuckerman2015" title="Source 655">655</sup> A negative screen does not rule autism out if you are still worried. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>`}};
+  $$('[data-mw]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.mw,was=b.getAttribute('aria-pressed')==='true';
+    $$('[data-mw]').forEach(x=>x.setAttribute('aria-pressed',!was&&x===b));
+    $$('#miPath [data-mp]').forEach(c=>c.classList.toggle('on',!was&&WHY[k].on.includes(c.dataset.mp)));
+    $('#miWhy').innerHTML=was?'Choose a concern above. Every path starts the same way: your observations count.':WHY[k].txt}));
+};
+/* =============== 3.2 Screening tools =============== */
+/* teaching model: pooled M-CHAT(-R/F) accuracy (Wieckowski 2023), prevalence 2.2% (Guthrie 2019) or 20.2%
+   in younger siblings (Ozonoff 2024); about 90% of non-autistic screen-positives had another developmental
+   concern, derived from Robins 2014 ((94.6 - 47.5) / (100 - 47.5)). Band split is illustrative. */
+const SC_POP={gen:{p:.022,n:'General population'},sib:{p:.202,n:'Younger siblings'}};
+const SC_SE=.83,SC_SP=.94,SC_OTH=.897;
+const SC_STEPS_BASE=[
+ {from:0,at:.06,k:'Step 1 · who is screened',t:'1,000 toddlers at a check-up',
+  txt:`The AAP recommends autism-specific screening at the 18- and 24-month visits, alongside developmental surveillance at every visit. <sup class="c" data-ref="Hyman2020" title="Source 250">250</sup> The M-CHAT-R/F was validated in 16,071 toddlers screened at those visits in primary care. <sup class="c" data-ref="Robins2014" title="Source 483">483</sup> In this group of 1,000, 22 will turn out to be autistic: 2.2%, the prevalence found when a universally screened primary-care cohort was followed to age 4–8. <sup class="c" data-ref="Guthrie2019" title="Source 194">194</sup> No one knows yet which 22.`,
+  pt:`A screen is a quick first look at many children. It does not decide anything about one child.`,
+  hook:`AAP: autism-specific screening at 18 and 24 months; general developmental screening at 9, 18 and 30 months. <sup class="c" data-ref="Hyman2020,Lipkin2020" title="Source 250,329">250,329</sup>`,
+  sib:{txt:`Younger siblings of autistic children have a much higher chance of being autistic: in a 2024 consortium study of 1,605 infants at 18 sites, 20.2% were autistic by age 3 (18.7% in the 2011 study). <sup class="c" data-ref="Ozonoff2024,Ozonoff2011" title="Source 441,444">441,444</sup> So in this group of 1,000, about 202 will turn out to be autistic.`,
+   pt:`In families who already have an autistic child, the chance for a younger sibling is about 1 in 5.`,
+   hook:`Sibling recurrence about 20% by 36 months (Baby Siblings Research Consortium). <sup class="c" data-ref="Ozonoff2024" title="Source 444">444</sup>`}},
+ {from:.2,at:.29,k:'Step 2 · the questionnaire',t:'Three score bands',
+  txt:`A parent answers 20 yes/no questions, so scores run from 0 to 20. A score of 0–2 is low likelihood; 3–7 means a follow-up interview is recommended; 8 or more is screen-positive without the interview. <sup class="c" data-ref="Robins2014,Sturner2022" title="Source 483,571">483,571</sup> The items are copyrighted and are not shown here. The original 23-item M-CHAT dates from 2001. <sup class="c" data-ref="Robins2001" title="Source 482">482</sup>`,
+  pt:`Most children land in the low band. A middle score is not a "fail": it means a few more questions.`,
+  hook:`M-CHAT-R: 0–2 low · 3–7 follow-up interview · 8–20 refer directly. <sup class="c" data-ref="Robins2014,Sturner2022" title="Source 483,571">483,571</sup>`},
+ {from:.4,at:.49,k:'Step 3 · follow-up interview',t:'A second look at the middle band',
+  txt:`For scores of 3–7, a clinician goes back over the answered items with the parent, asking for examples. Children still scoring 2 or more after the interview are screen-positive; the rest return to the screen-negative group. <sup class="c" data-ref="Robins2014" title="Source 483">483</sup> At 18 months, one study found the interview cut sensitivity from 0.73 to 0.36 while raising specificity from 0.66 to 0.89. <sup class="c" data-ref="Sturner2022" title="Source 571">571</sup> In real practice the interview is often skipped. <sup class="c" data-ref="Carbone2020" title="Source 69">69</sup>`,
+  pt:`The interview catches answers that were misunderstood, so fewer families get a false alarm.`,
+  hook:`Two-stage screening trades sensitivity for specificity. <sup class="c" data-ref="Sturner2022" title="Source 571">571</sup>`},
+ {from:.6,at:.7,k:'Step 4 · diagnostic evaluation',t:'Who the screen-positive children are',
+  txt:`Screen-positive children are referred for a full assessment. In this model, {POS} of 1,000 screen positive and {TP} of them are autistic: a PPV of {PPV}. In the M-CHAT-R/F validation study itself, 47.5% of children who stayed positive after the interview were autistic and 94.6% had some developmental delay or concern. <sup class="c" data-ref="Robins2014" title="Source 483">483</sup> So most screen-positive children who are not autistic still need help.`,
+  pt:`A positive screen means "this child should be seen by specialists", not "this child is autistic".`,
+  hook:`M-CHAT-R/F after follow-up: PPV 47.5% for autism, 94.6% for any developmental concern. <sup class="c" data-ref="Robins2014" title="Source 483">483</sup>`,
+  sib:{txt:`In siblings, {POS} of 1,000 screen positive and {TP} are autistic: a PPV of {PPV}, far higher than in the general population with the same test, because autism is far more common in this group. The model assumes the same sensitivity and specificity; accuracy in sibling samples was not part of the pooled estimate used here. <sup class="c" data-ref="Wieckowski2023" title="Source 629">629</sup>`,
+   pt:`The same score means more in a group where autism is common. This is why the setting matters.`,
+   hook:`PPV depends on prevalence: same test, higher PPV in a high-likelihood group.`}},
+ {from:.8,at:.92,k:'Step 5 · what the screen missed',t:'Autistic children who screened negative',
+  txt:`{FN} autistic children screened negative in this model. Real-world data are less kind than the pooled estimate: when every child in a primary-care network was followed to age 4–8, M-CHAT/F sensitivity was 38.8% and PPV 14.6%; in Utah, 33.1% and 17.8%. <sup class="c" data-ref="Guthrie2019,Carbone2020" title="Source 69,194">69,194</sup> A negative screen does not rule autism out, and screening needs repeating after 18 months. <sup class="c" data-ref="Fuentes2021ESCAP,Sturner2022" title="Source 156,571">156,571</sup>`,
+  pt:`If you are still worried after a "normal" screen, say so. Development keeps unfolding, and checks can be repeated.`,
+  hook:`Universal screening, full follow-up: sensitivity 38.8%, PPV 14.6% (CHOP 2019). A negative screen is not reassurance on its own. <sup class="c" data-ref="Guthrie2019" title="Source 194">194</sup>`,
+  sib:{txt:`{FN} autistic siblings screened negative in this model. Among younger siblings, 63% of children diagnosed at 36 months had not been diagnosed at 18 months and 41% not at 24 months, so families with an autistic child benefit from repeated developmental checks. <sup class="c" data-ref="Ozonoff2015" title="Source 442">442</sup>`,
+   pt:`For younger siblings, one check is not enough. Signs can appear later.`,
+   hook:`Sibling studies: many children diagnosed at 36 months were not yet diagnosed at 18 (63%) or 24 months (41%). <sup class="c" data-ref="Ozonoff2015" title="Source 442">442</sup>`}}
+];
+
+inits.screening=()=>{
+  const svg=$('#scSvg'),rg=$('#scT');let pop='gen',setSt=()=>{},M=null;
+  const steps=()=>SC_STEPS_BASE.map(s=>Object.assign({},s,s[pop]||{}));
+  /* build the 1,000 children for a population: outcome, band and a stable shuffled order */
+  function build(k){const p=SC_POP[k].p,N=1000,A=Math.round(N*p),TP=Math.round(A*SC_SE),FN=A-TP,FP=Math.round((N-A)*(1-SC_SP)),POS=TP+FP;
+    const ppl=[];for(let i=0;i<N;i++)ppl.push({aut:i<A,pos:i<TP||(i>=A&&i<A+FP)});
+    /* other concern among false positives */
+    let fpk=0;ppl.forEach(q=>{if(q.pos&&!q.aut){q.oth=fpk<Math.round(FP*SC_OTH);fpk++}});
+    /* illustrative bands: 30% of positives score 8+, the rest pass through the interview; 1.3x as many again
+       score 3-7 and drop back after it (taking half the missed autistic children first) */
+    const posL=ppl.filter(q=>q.pos),hiN=Math.round(.3*POS);posL.forEach((q,i)=>q.band=i<hiN?'high':'med');
+    const dropN=Math.round(1.3*(POS-hiN));let d=0;
+    ppl.filter(q=>q.aut&&!q.pos).slice(0,Math.ceil(FN/2)).forEach(q=>{q.band='med';q.drop=1;d++});
+    const r=rng(k==='gen'?41:73);const negs=ppl.filter(q=>!q.pos&&!q.aut);
+    for(let i=negs.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[negs[i],negs[j]]=[negs[j],negs[i]]}
+    negs.forEach(q=>{if(d<dropN){q.band='med';q.drop=1;d++}});
+    ppl.forEach(q=>{if(!q.band)q.band='low'});
+    /* shuffled grid order */
+    const ord=ppl.map((q,i)=>i);for(let i=N-1;i>0;i--){const j=Math.floor(r()*(i+1));[ord[i],ord[j]]=[ord[j],ord[i]]}
+    ord.forEach((pi,gi)=>ppl[pi].g=gi);
+    return {ppl,A,TP,FN,FP,POS,TN:N-A-FP,hiN,medN:POS-hiN+dropN,dropN}}
+  const MODELS={gen:build('gen'),sib:build('sib')};
+  /* stage layouts: positions for every child at stage 0..3 */
+  function layout(Md,N){
+    const G=N?{lx:22,ly:74,lc:40,mx:22,my:410,mc:19,hx:212,hy:410,hc:19,cw:9,ch:11}:{lx:22,ly:74,lc:40,mx:412,my:74,mc:12,hx:548,hy:74,hc:15,cw:9,ch:11};
+    const at=(x0,y0,c,i)=>[x0+(i%c)*G.cw,y0+Math.floor(i/c)*G.ch];
+    const P=Md.ppl,byG=[...P].sort((a,b)=>a.g-b.g);
+    byG.forEach((q,i)=>q.s0=at(G.lx,G.ly,G.lc,i));
+    let lo=0,me=0,hi=0;byG.forEach(q=>{q.s1=q.band==='low'?at(G.lx,G.ly,G.lc,lo++):q.band==='med'?at(G.mx,G.my,G.mc,me++):at(G.hx,G.hy,G.hc,hi++)});
+    /* stage 2: dropped children join the end of the low grid; passers join the positive bin */
+    let lo2=lo,po=hi;byG.forEach(q=>{if(q.band==='low')q.s2=q.s1;else if(q.drop)q.s2=at(G.lx,G.ly,G.lc,lo2++);else if(q.band==='high')q.s2=q.s1;else q.s2=at(G.hx,G.hy,G.hc,po++)});
+    /* stage 3: positives sorted by outcome */
+    const rank=q=>q.aut?0:q.oth?1:2;let k3=0;
+    byG.filter(q=>q.pos).sort((a,b)=>rank(a)-rank(b)||a.g-b.g).forEach(q=>q.s3=at(G.hx,G.hy,G.hc,k3++));
+    byG.forEach(q=>{if(!q.pos)q.s3=q.s2});
+    return {G,lowRows:Math.ceil(lo2/G.lc)}}
+  function draw(t){
+    const N=vb(svg,'720 440','400 670');M=MODELS[pop];const L=layout(M,N),G=L.G;
+    const e1=ease(ramp(t,.18,.34)),e2=ease(ramp(t,.4,.54)),e3=ramp(t,.6,.7),e4=ramp(t,.8,.88);
+    let s=`<defs><symbol id="scP" viewBox="0 0 8 11"><circle cx="4" cy="2" r="1.9"/><path d="M1 11V6.6Q1 4.6 4 4.6Q7 4.6 7 6.6V11Z"/></symbol></defs>`;
+    /* bins */
+    const lowH=Math.max(L.lowRows,22)*G.ch;
+    const bin=(x,y,w,h,title,sub,col,op)=>`<g style="opacity:${f1(op)}"><rect x="${x-8}" y="${y-8}" width="${w+16}" height="${h+14}" rx="10" style="fill:none;stroke:${col};stroke-width:1.2;stroke-dasharray:4 3"/><text x="${x-6}" y="${y-30}" class="t-sm" style="fill:${col}">${title}</text><text x="${x-6}" y="${y-16}" class="t-xs">${sub}</text></g>`;
+    const medRows=Math.ceil(M.medN/G.mc),posRows=Math.ceil(M.POS/G.hc);
+    s+=bin(G.lx,G.ly,G.lc*G.cw-1,(t<.18?Math.ceil(1000/G.lc):Math.max(L.lowRows,1))*G.ch,t<.18?'1,000 TODDLERS':t<.54?'SCORE 0–2 · SCREEN NEGATIVE':'SCREEN NEGATIVE',t<.18?'at the 18- or 24-month visit':t<.4?'low likelihood':t<.6?'low band + those cleared at interview':'no referral from this screen','var(--muted)',1);
+    s+=bin(G.mx,G.my,G.mc*G.cw-1,Math.max(1,medRows)*G.ch,N?'SCORE 3–7':'SCORE 3–7',t<.54?'follow-up interview':'interview done','var(--warn)',e1*(1-e2));
+    s+=bin(G.hx,G.hy,G.hc*G.cw-1,Math.max(1,t<.5?Math.ceil(M.hiN/G.hc):posRows)*G.ch,t<.5?'SCORE 8–20':'SCREEN POSITIVE',t<.5?'positive, no interview needed':t<.6?'after the interview':'→ diagnostic evaluation','var(--accent)',e1);
+    /* people */
+    const pos=q=>{let [x,y]=q.s0;if(e1>0){x=lerp(x,q.s1[0],e1);y=lerp(y,q.s1[1],e1)}if(e2>0){x=lerp(x,q.s2[0],e2);y=lerp(y,q.s2[1],e2)}if(e3>0){x=lerp(x,q.s3[0],ease(e3));y=lerp(y,q.s3[1],ease(e3))}return[x,y]};
+    let missed=0;
+    M.ppl.forEach(q=>{const [x,y]=pos(q);let col='var(--muted)',op=.55;
+      if(e1>0&&q.band!=='low'&&!(q.drop&&e2>.5)){col=q.band==='high'?'var(--accent)':'var(--warn)';op=.55+.4*e1}
+      if(e2>.5&&q.pos){col='var(--accent)';op=.95}
+      if(e3>0&&q.pos){col=q.aut?'var(--accent)':q.oth?'var(--gold)':'var(--muted)';op=q.aut||q.oth?1:.6;if(!q.aut)op*=lerp(1,q.oth?1:.8,e3)}
+      if(q.pos&&e3>0&&!q.aut)col=e3>.5?(q.oth?'var(--gold)':'var(--muted)'):'var(--accent)';
+      if(e4>0&&q.aut&&!q.pos){col='var(--bad)';op=lerp(.55,1,e4);missed++;s+=`<circle cx="${f1(x+4)}" cy="${f1(y+5.5)}" r="${f1(5.5+2*e4)}" style="fill:none;stroke:var(--bad);stroke-width:1.3;opacity:${f1(e4)}"/>`}
+      s+=`<use href="#scP" x="${f1(x)}" y="${f1(y)}" width="8" height="11" style="fill:${col};opacity:${f1(op)}"/>`});
+    /* stage-3 legend */
+    if(e3>0){const lx=N?G.hx-6:G.hx-6,ly=G.hy+posRows*G.ch+(N?20:22),oth=Math.round(M.FP*SC_OTH);
+      const rows=[ ['var(--accent)',`autistic: ${M.TP}`],['var(--gold)',`other concern: ${oth}`],['var(--muted)',`typical development: ${M.FP-oth}`] ];
+      rows.forEach((r,i)=>s+=`<g style="opacity:${f1(e3)}"><use href="#scP" x="${lx}" y="${ly+i*15-9}" width="8" height="11" style="fill:${r[0]}"/><text x="${lx+13}" y="${ly+i*15}" class="t-xs" style="fill:var(--ink)">${r[1]}</text></g>`);
+      const ppv=M.TP/M.POS;s+=`<text x="${lx}" y="${ly+50}" class="t-sm" style="fill:var(--accent);opacity:${f1(e3)}">PPV ${Math.round(ppv*100)}% (model)</text>`}
+    if(e4>0){const y=G.ly+lowH+(N?20:18);s+=`<text x="${G.lx-6}" y="${Math.min(y,G.ly+L.lowRows*G.ch+20)}" class="t-sm" style="fill:var(--bad);opacity:${f1(e4)}">○ missed: ${M.FN} autistic children screened negative</text>`}
+    /* stage arrows across the top */
+    const stg=N?['All','Score','Interview','Evaluate','Missed']:['Toddlers','Questionnaire','Interview','Evaluation','Missed'],cur=t<.18?0:t<.4?1:t<.6?2:t<.8?3:4;
+    const sx=N?16:22,sw=N?76:136;
+    stg.forEach((n,i)=>s+=`<text x="${sx+i*sw}" y="18" class="t-xs" style="fill:${i===cur?'var(--accent)':'var(--muted)'};font-weight:${i===cur?700:500}">${String(i+1)}·${n}</text>`);
+    svg.innerHTML=s;
+    const ST=steps(),ph=phaseOf(ST,t);setSt(ph);
+    const fill=x=>x.replace(/\{POS\}/g,M.POS).replace(/\{TP\}/g,M.TP).replace(/\{FN\}/g,M.FN).replace(/\{PPV\}/g,Math.round(M.TP/M.POS*100)+'%');
+    const P=Object.assign({},ST[ph]);P.txt=fill(P.txt);P.hook=fill(P.hook||'');
+    $('#scNote').innerHTML=noteHTML(P);
+    $('#scRead').innerHTML=`<span>group <b>${SC_POP[pop].n}</b></span><span>prevalence <b>${(SC_POP[pop].p*100).toFixed(1)}%</b></span><span>sens/spec <b>83% / 94%</b></span><span>screen positive <b>${M.POS}</b></span><span>autistic among them <b>${M.TP}</b></span><span>missed <b>${M.FN}</b></span><span>PPV <b>${Math.round(M.TP/M.POS*100)}%</b></span><span>NPV <b>${(M.TN/(M.TN+M.FN)*100).toFixed(1)}%</b></span>`;
+  }
+  const stop=playWire(rg,$('#scPlay'),draw,20000,'Replay','screening');
+  function wire(){const old=$('#scSteps'),nu=old.cloneNode(false);old.replaceWith(nu);setSt=stepWire(nu,steps(),rg,draw,stop)}
+  $$('[data-sc]').forEach(b=>b.addEventListener('click',()=>{stop();pop=b.dataset.sc;$$('[data-sc]').forEach(x=>x.setAttribute('aria-pressed',x===b));wire();draw(+rg.value)}));
+  wire();draw(+rg.value);
+
+  /* ---- predictive-value calculator ---- */
+  const cs=$('#scCalcSvg'),se=$('#scSe'),sp=$('#scSp'),pv=$('#scPv');
+  const PRE={
+   pool:{se:83,sp:94,pv:2.2,cap:`Pooled M-CHAT(-R/F) sensitivity 0.83 and specificity 0.94 <sup class="c" data-ref="Wieckowski2023" title="Source 629">629</sup> at the 2.2% prevalence of a universally screened cohort. <sup class="c" data-ref="Guthrie2019" title="Source 194">194</sup> Teaching calculation.`},
+   chop:{se:38.8,sp:94.9,pv:2.2,cap:`Philadelphia primary-care network, every child followed to age 4–8: sensitivity 38.8%, PPV 14.6%, prevalence 2.2%. <sup class="c" data-ref="Guthrie2019" title="Source 194">194</sup> Specificity here (94.9%) is back-calculated from those three published numbers, not reported.`},
+   utah:{se:33.1,sp:97.8,pv:1.4,cap:`Utah health system, 36,233 toddlers: sensitivity 33.1%, PPV 17.8%, 1.4% later diagnosed. <sup class="c" data-ref="Carbone2020" title="Source 69">69</sup> Specificity here (97.8%) is back-calculated from those numbers, not reported.`},
+   sib:{se:83,sp:94,pv:20.2,cap:`The pooled accuracy <sup class="c" data-ref="Wieckowski2023" title="Source 629">629</sup> applied to younger siblings, 20.2% of whom were autistic by age 3. <sup class="c" data-ref="Ozonoff2024" title="Source 444">444</sup> Assumes the same accuracy in siblings. Teaching calculation.`},
+   aq:{se:77,sp:29,pv:73,cap:`Adults referred to a UK diagnostic service: 73% were diagnosed; AQ sensitivity 0.77, specificity 0.29, published PPV 0.76 and NPV 0.36. <sup class="c" data-ref="Ashwood2016" title="Source 30">30</sup> When nearly everyone tested has the condition, PPV is high even for a test that barely separates groups.`}};
+  function calc(){
+    const Se=+se.value/100,Sp=+sp.value/100,Pv=+pv.value/100,Nn=1000;
+    const A=Pv*Nn,TP=Se*A,FN=A-TP,FP=(1-Sp)*(Nn-A),TN=Nn-A-FP,ppv=TP/(TP+FP),npv=TN/(TN+FN);
+    $('#scSeO').textContent=(+se.value).toFixed(1)+'%';$('#scSpO').textContent=(+sp.value).toFixed(1)+'%';$('#scPvO').textContent=(+pv.value).toFixed(1)+'%';
+    const n=v=>Math.round(v);let tp=n(TP),fn=n(A)-tp,fp=n(FP);if(tp+fn+fp>Nn)fp=Nn-tp-fn;
+    const NN=vb(cs,'560 320','400 480');const cols=NN?32:50,cw=NN?11:10,x0=NN?24:30,y0=NN?16:12;
+    let s='';
+    for(let i=0;i<Nn;i++){const c=i<tp?'var(--accent)':i<tp+fn?'var(--bad)':i<tp+fn+fp?'var(--gold)':'var(--panel-2)',x=x0+(i%cols)*cw,y=y0+Math.floor(i/cols)*cw;
+      s+=i>=tp&&i<tp+fn?`<rect x="${x+1}" y="${y+1}" width="${cw-3}" height="${cw-3}" rx="1.5" style="fill:none;stroke:${c};stroke-width:1.4"/>`:`<rect x="${x+.5}" y="${y+.5}" width="${cw-2}" height="${cw-2}" rx="1.5" style="fill:${c}"/>`}
+    const lx=NN?24:30,ly=NN?380:232;
+    const leg=[ ['var(--accent)',`true positive · ${tp}`,0],['var(--bad)',`autistic, missed · ${fn}`,1],['var(--gold)',`false positive · ${fp}`,0],['var(--panel-2)',`true negative · ${Nn-tp-fn-fp}`,0] ];
+    leg.forEach((l,i)=>{const x=lx+(i%2)*(NN?180:260),y=ly+Math.floor(i/2)*20;
+      s+=l[2]?`<rect x="${x+1}" y="${y-9}" width="9" height="9" rx="1.5" style="fill:none;stroke:${l[0]};stroke-width:1.4"/>`:`<rect x="${x}" y="${y-10}" width="10" height="10" rx="1.5" style="fill:${l[0]};stroke:var(--line)"/>`;
+      s+=`<text x="${x+16}" y="${y}" class="t-xs" style="fill:var(--ink)">${l[1]}</text>`});
+    const by=ly+52,bw=NN?352:500,pos=tp+fp;
+    s+=`<text x="${lx}" y="${by}" class="t-xs">of ${pos} screen-positive:</text><rect x="${lx}" y="${by+6}" width="${bw}" height="12" rx="6" style="fill:var(--gold)"/><rect x="${lx}" y="${by+6}" width="${f1(pos?bw*tp/pos:0)}" height="12" rx="6" style="fill:var(--accent)"/>`;
+    s+=`<text x="${lx}" y="${by+34}" class="t-sm" style="fill:var(--accent)">${Math.round(ppv*100)}% are autistic</text>`;
+    cs.innerHTML=s;
+    $('#scPPV').textContent=isFinite(ppv)?Math.round(ppv*100)+'%':'–';
+    $('#scNPV').textContent=isFinite(npv)?(npv*100).toFixed(1)+'%':'–';
+    $('#scPos').textContent=`${pos} / 1,000`;$('#scMiss').textContent=fn;
+    $('#scSay').innerHTML=`Out of 1,000 people screened, <b>${n(A)}</b> are autistic. The screen flags <b>${pos}</b>: <b>${tp}</b> autistic and <b>${fp}</b> not. It misses <b>${fn}</b>. ${ppv<.3?'Most positives here are false alarms, so a positive result is a reason to assess, not a conclusion.':ppv<.7?'A positive result here is close to a coin toss for autism itself.':'Here most positives are autistic, mainly because autism is common in the group tested.'}`;
+  }
+  function preset(k){const P=PRE[k];se.value=P.se;sp.value=P.sp;pv.value=P.pv;$('#scCalcCap').innerHTML=P.cap;$$('[data-scp]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.scp===k));calc()}
+  [se,sp,pv].forEach(r=>r.addEventListener('input',()=>{$$('[data-scp]').forEach(b=>b.setAttribute('aria-pressed','false'));$('#scCalcCap').textContent='Your own values: a teaching calculation.';calc()}));
+  $$('[data-scp]').forEach(b=>b.addEventListener('click',()=>preset(b.dataset.scp)));
+  preset('pool');
+  redraws.screening=(prev=>()=>{prev&&prev();calc()})(redraws.screening);
+};
+/* =============== 3.3 DSM-5-TR & ICD-11 criteria =============== */
+/* paraphrased criteria (DSM-5-TR, cross-checked against the ESCAP 2021 summary); never quoted */
+const CR_BOX={
+ A1:{n:'A1',l:['Social-emotional','reciprocity'],d:'back-and-forth conversation, sharing interests or feelings, starting or answering interaction'},
+ A2:{n:'A2',l:['Nonverbal','communication'],d:'eye contact, gestures, facial expression and body language, and understanding them'},
+ A3:{n:'A3',l:['Relationships'],d:'developing, keeping and understanding relationships'},
+ B1:{n:'B1',l:['Repetitive','movement/speech'],ln:['Repetitive','acts, speech'],d:'stereotyped or repetitive movements, use of objects or speech'},
+ B2:{n:'B2',l:['Sameness,','routines'],d:'insistence on sameness, inflexible routines or ritualised behaviour'},
+ B3:{n:'B3',l:['Intense','interests'],d:'highly restricted, fixated interests, unusual in intensity or focus'},
+ B4:{n:'B4',l:['Sensory','reactivity'],d:'hyper- or hyporeactivity to sensory input, or unusual sensory interests'},
+ C:{n:'C',l:['Early development'],l2:['Onset in development'],d:'present in the early developmental period; may only show when social demands exceed capacities, or be masked later'},
+ D:{n:'D',l:['Significant impact'],l2:['Impairment'],d:'clinically significant impairment in social, occupational or other important areas'},
+ E:{n:'E',l:['Not better explained'],d:'not better explained by intellectual developmental disorder or global developmental delay'}};
+const CR_LV=['requiring support','requiring substantial support','requiring very substantial support'];
+const CR_LANG=['mild or no impairment of functional language','impaired functional language','absence of functional language'];
+const CR_HIST=[
+ {from:0,at:.05,k:'Before 1980',t:'Not yet an official category',
+  txt:`In 1979 Lorna Wing and Judith Gould surveyed children in Camberwell, London, and found that children with "Kanner's early childhood autism" shared many features with other socially impaired children. Classifying by the quality of social interaction laid the groundwork for the spectrum idea. <sup class="c" data-ref="WingGould1979" title="Source 640">640</sup>`,
+  pt:`Before 1980 there were descriptions of autism in research, but no official diagnosis in the American manual.`,
+  hook:`Wing &amp; Gould 1979 (Camberwell): the basis of the spectrum concept. <sup class="c" data-ref="WingGould1979" title="Source 640">640</sup>`},
+ {from:.09,at:.16,k:'1980 · DSM-III',t:'Infantile autism enters the manual',
+  txt:`In 1980 autism entered the American Psychiatric Association's DSM-III as an official diagnostic category for the first time, and Kanner reviewed the criteria that year. <sup class="c" data-ref="Rosen2021,Harris2018Kanner" title="Source 209,490">209,490</sup> In 1981 Wing's clinical account brought Asperger's syndrome to English-language readers, grouping it with early childhood autism. <sup class="c" data-ref="Wing1981" title="Source 638">638</sup>`,
+  pt:`For the first time clinicians shared one written definition of autism.`,
+  hook:`DSM-III (1980): the first official DSM category for autism. <sup class="c" data-ref="Rosen2021" title="Source 490">490</sup>`},
+ {from:.37,at:.45,k:'1994 · DSM-IV',t:'Splitting into subtypes',
+  txt:`DSM-IV added Asperger's disorder in 1994. <sup class="c" data-ref="BarahonaCorrea2015" title="Source 36">36</sup> Autism was split across separate diagnoses including autistic disorder, Asperger's disorder, childhood disintegrative disorder and pervasive developmental disorder not otherwise specified (PDD-NOS). <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup> In Denmark the 1994 criteria change alone explained about a third of the later rise in recorded prevalence. <sup class="c" data-ref="Hansen2015Reporting" title="Source 203">203</sup>`,
+  pt:`For almost 20 years, people could be given one of several different autism-related labels.`,
+  hook:`DSM-IV (1994): Asperger's disorder added; subtypes included autistic disorder, Asperger's, CDD and PDD-NOS. <sup class="c" data-ref="BarahonaCorrea2015,Fuentes2021ESCAP" title="Source 36,156">36,156</sup>`},
+ {from:.75,at:.8,k:'2013 · DSM-5',t:'One spectrum',
+  txt:`DSM-5 merged autistic disorder, Asperger's disorder, childhood disintegrative disorder and PDD-NOS into one diagnosis, autism spectrum disorder, with two core domains, and placed it among the neurodevelopmental disorders. <sup class="c" data-ref="Fuentes2021ESCAP,APA2013" title="Source 22,156">22,156</sup> People with a well-established DSM-IV diagnosis keep the diagnosis as autism spectrum disorder. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup> A new category, social (pragmatic) communication disorder, covers social communication difficulties without restricted, repetitive behaviours. <sup class="c" data-ref="Norbury2014" title="Source 428">428</sup> Estimates of who would lose a diagnosis ranged from about 40% to 9%; a later meta-analysis found a 20.8% fall. <sup class="c" data-ref="McPartland2012,Huerta2012,Kulage2020" title="Source 238,304,373">238,304,373</sup>`,
+  pt:`Asperger's and the other labels became one name: autism spectrum disorder. Support needs are now described with levels instead.`,
+  hook:`DSM-5 (2013): "lumping" after DSM-IV's "splitting". <sup class="c" data-ref="Volkmar2014,Rosen2021" title="Source 490,617">490,617</sup>`},
+ {from:.86,at:.95,k:'2019–2022 · ICD-11 and DSM-5-TR',t:'Two manuals line up',
+  txt:`ICD-11 was approved by the World Health Assembly in May 2019, and health reporting under it began on 1 January 2022. <sup class="c" data-ref="Reed2019ICD11" title="Source 476">476</sup> Like DSM-5, it has one autism spectrum disorder with two domains, subdivided by intellectual development and functional language (6A02.0–6A02.5). <sup class="c" data-ref="Fuentes2021ESCAP,Chahboun2022" title="Source 76,156">76,156</sup> DSM-5-TR (2022) clarified that all three A criteria are needed. <sup class="c" data-ref="APA2022" title="Source 23">23</sup>`,
+  pt:`Today the American and the WHO manuals describe autism in a similar way, with different ways of recording support needs.`,
+  hook:`ICD-11 6A02: subdivided by intellectual development × functional language, not by DSM support levels. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>`}];
+
+inits.criteria=()=>{
+  const svg=$('#crSvg');let sys='dsm',pulse=1,stopP=null;
+  const on=new Set(),sp=new Set();let lvS=0,lvR=0;
+  const lang=()=>+$('#crLang').value;
+  /* geometry for both layouts */
+  function geo(N){
+    if(!N)return{
+      A:{A1:[16,50,124,54],A2:[148,50,124,54],A3:[280,50,124,54]},
+      B:{B1:[16,154,96,54],B2:[118,154,96,54],B3:[220,154,96,54],B4:[322,154,96,54]},
+      gA:[456,77],gB:[456,181],J:[512,129],
+      C:[548,40,158,40],D:[548,96,158,40],E:[548,152,158,76],
+      V:[400,246,306,58],lv:[16,254,360],chips:[16,352,690],title:[16,18]};
+    return{
+      A:{A1:[10,40,122,54],A2:[139,40,122,54],A3:[268,40,122,54]},
+      B:{B1:[10,172,88,54],B2:[102,172,88,54],B3:[194,172,88,54],B4:[286,172,88,54]},
+      gA:[200,124],gB:[200,268],J:[200,306],
+      C:[10,324,380,40],D:[10,374,380,40],E:[10,424,380,76],
+      V:[10,512,380,62],lv:[10,600,380],chips:[10,690,380],title:[10,22]}}
+  const bez=(p,t)=>{const u=1-t;return[u*u*u*p[0]+3*u*u*t*p[2]+3*u*t*t*p[4]+t*t*t*p[6],u*u*u*p[1]+3*u*u*t*p[3]+3*u*t*t*p[5]+t*t*t*p[7]]};
+  function conn(p,lit,col){let g=`<path d="M${f1(p[0])} ${f1(p[1])}C${f1(p[2])} ${f1(p[3])} ${f1(p[4])} ${f1(p[5])} ${f1(p[6])} ${f1(p[7])}" style="fill:none;stroke:${lit?col:'var(--line)'};stroke-width:${lit?2.4:1.4}${lit?'':';stroke-dasharray:4 3'}"/>`;
+    if(lit&&pulse<1){const q=bez(p,pulse);g+=`<circle cx="${f1(q[0])}" cy="${f1(q[1])}" r="4" style="fill:${col}"/>`}return g}
+  function box(k,r,lit,lines,sub){const [x,y,w,h]=r;
+    let g=`<g class="clk" data-crb="${k}" role="button" tabindex="0" aria-pressed="${lit}" aria-label="${k}: ${CR_BOX[k]?CR_BOX[k].d:''}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9" style="fill:${lit?'var(--accent-soft)':'var(--panel)'};stroke:${lit?'var(--accent)':'var(--line)'};stroke-width:${lit?2:1.2}"/>`;
+    g+=`<text x="${x+8}" y="${y+15}" class="t-xs" style="fill:${lit?'var(--accent)':'var(--muted)'};font-weight:700">${k}${lit?' ✓':''}</text>`;
+    lines.forEach((l,i)=>g+=`<text x="${x+8}" y="${y+30+i*13}" class="t-xs" style="fill:var(--ink)">${l}</text>`);
+    if(sub)g+=sub;return g+'</g>'}
+  function gate(c,ok,label,val){return `<circle cx="${c[0]}" cy="${c[1]}" r="24" style="fill:${ok?'var(--accent)':'var(--panel)'};stroke:${ok?'var(--accent)':'var(--muted)'};stroke-width:1.6"/><text x="${c[0]}" y="${c[1]-3}" class="t-xs t-mid" style="fill:${ok?'var(--bg)':'var(--muted)'};font-weight:700">${label}</text><text x="${c[0]}" y="${c[1]+10}" class="t-xs t-mid" style="fill:${ok?'var(--bg)':'var(--ink)'}">${val}</text>`}
+  function state(){const nA=['A1','A2','A3'].filter(k=>on.has(k)).length,nB=['B1','B2','B3','B4'].filter(k=>on.has(k)).length;
+    const okA=sys==='dsm'?nA===3:nA>0,okB=sys==='dsm'?nB>=2:nB>0,okC=on.has('C'),okD=on.has('D'),okE=sys==='dsm'?on.has('E'):true;
+    return{nA,nB,okA,okB,okC,okD,okE,all:okA&&okB&&okC&&okD&&okE,code:'6A02.'+(lang()*2+(sp.has('id')?1:0))}}
+  function draw(){
+    const N=vb(svg,'720 410','400 780'),Gm=geo(N),S=state(),icd=sys==='icd';
+    let s=`<text x="${Gm.title[0]}" y="${Gm.title[1]}" class="t-sm" style="fill:var(--accent)">${icd?'ICD-11 6A02 · AUTISM SPECTRUM DISORDER':'DSM-5-TR · AUTISM SPECTRUM DISORDER'}</text>`;
+    if(!N)s+=`<text x="704" y="22" class="t-xs t-end">paraphrased · teaching only</text>`;
+    /* connectors first */
+    const Acol='var(--accent)';
+    for(const k in Gm.A){const [x,y,w,h]=Gm.A[k],bx=x+w/2,by=y+h;
+      const p=N?[bx,by,bx,by+18,Gm.gA[0],Gm.gA[1]-44,Gm.gA[0],Gm.gA[1]-24]:[bx,by,bx,by+26,Gm.gA[0]-60,Gm.gA[1],Gm.gA[0]-24,Gm.gA[1]];s+=conn(p,on.has(k),Acol)}
+    for(const k in Gm.B){const [x,y,w,h]=Gm.B[k],bx=x+w/2,by=y+h;
+      const p=N?[bx,by,bx,by+22,Gm.gB[0]+(bx<200?-30:30),Gm.gB[1]-30,Gm.gB[0]+(bx<200?-17:17),Gm.gB[1]-17]:[bx,by,bx,by+26,Gm.gB[0]-60,Gm.gB[1],Gm.gB[0]-24,Gm.gB[1]];s+=conn(p,on.has(k),Acol)}
+    const J=Gm.J;
+    if(N){s+=`<path d="M224 124H372Q390 124 390 142V288Q390 306 372 306H206" style="fill:none;stroke:${S.okA?Acol:'var(--line)'};stroke-width:${S.okA?2.4:1.4}${S.okA?'':';stroke-dasharray:4 3'}"/>`;
+      s+=conn([Gm.gB[0],Gm.gB[1]+24,J[0],J[1]-10,J[0],J[1]-10,J[0],J[1]-6],S.okB,Acol)}
+    else{s+=conn([Gm.gA[0]+24,Gm.gA[1],J[0]-20,Gm.gA[1],J[0],J[1]-30,J[0],J[1]],S.okA,Acol);s+=conn([Gm.gB[0]+24,Gm.gB[1],J[0]-20,Gm.gB[1],J[0],J[1]+30,J[0],J[1]],S.okB,Acol)}
+    const C=Gm.C,D=Gm.D,E=Gm.E,V=Gm.V,ab=S.okA&&S.okB;
+    if(N)s+=conn([J[0],J[1],J[0],J[1]+8,J[0],C[1]-8,J[0],C[1]],ab,Acol);
+    else s+=conn([J[0],J[1],J[0]+20,J[1],C[0]-30,C[1]+C[3]/2,C[0],C[1]+C[3]/2],ab,Acol);
+    const mid=r=>r[0]+r[2]/2;
+    s+=conn([mid(C),C[1]+C[3],mid(C),C[1]+C[3]+6,mid(D),D[1]-6,mid(D),D[1]],ab&&S.okC,Acol);
+    s+=conn([mid(D),D[1]+D[3],mid(D),D[1]+D[3]+6,mid(E),E[1]-6,mid(E),E[1]],ab&&S.okC&&S.okD,Acol);
+    s+=conn(N?[mid(E),E[1]+E[3],mid(E),E[1]+E[3]+4,mid(V),V[1]-4,mid(V),V[1]]:[mid(E),E[1]+E[3],mid(E),E[1]+E[3]+12,V[0]+V[2]-60,V[1]-12,V[0]+V[2]-60,V[1]],S.all,Acol);
+    /* boxes */
+    if(icd){const dom=(r,t)=>`<text x="${r[0]}" y="${r[1]-6}" class="t-xs" style="fill:var(--accent)">${t}</text>`;
+      s+=dom(Gm.A.A1,'DOMAIN 1 · social interaction &amp; communication')+dom(Gm.B.B1,N?'DOMAIN 2 · restricted, repetitive':'DOMAIN 2 · restricted, repetitive, inflexible')}
+    else{s+=`<text x="${Gm.A.A1[0]}" y="${Gm.A.A1[1]-6}" class="t-xs" style="fill:var(--accent)">A · SOCIAL COMMUNICATION &amp; INTERACTION · ALL 3</text><text x="${Gm.B.B1[0]}" y="${Gm.B.B1[1]-6}" class="t-xs" style="fill:var(--accent)">B · RESTRICTED, REPETITIVE · AT LEAST 2 OF 4</text>`}
+    for(const k in Gm.A)s+=box(k,Gm.A[k],on.has(k),CR_BOX[k].l);
+    for(const k in Gm.B)s+=box(k,Gm.B[k],on.has(k),CR_BOX[k].ln||CR_BOX[k].l);
+    s+=gate(Gm.gA,S.okA,icd?'D1':'A',icd?(S.nA?'✓':'–'):S.nA+'/3');
+    s+=gate(Gm.gB,S.okB,icd?'D2':'B',icd?(S.nB?'✓':'–'):S.nB+'/4');
+    s+=`<circle cx="${J[0]}" cy="${J[1]}" r="6" style="fill:${ab?'var(--accent)':'var(--panel)'};stroke:var(--muted)"/>`;
+    s+=box('C',C,on.has('C'),icd?CR_BOX.C.l2:CR_BOX.C.l);
+    s+=box('D',D,on.has('D'),icd?CR_BOX.D.l2:CR_BOX.D.l);
+    if(!icd)s+=box('E',E,on.has('E'),N?['Not better explained by intellectual','disability or global developmental delay']:['Not better explained','by intellectual','disability']);
+    else{const [x,y,w,h]=E,cw=(w-12)/2,chh=(h-24)/3;
+      s+=`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9" style="fill:var(--panel);stroke:var(--line)"/><text x="${x+6}" y="${y+12}" class="t-xs">${N?'subtype: ID no / yes × language':'ID: no | yes  ×  language'}</text>`;
+      for(let l=0;l<3;l++)for(let d=0;d<2;d++){const c='6A02.'+(l*2+d),hit=c===S.code,cx=x+4+d*(cw+4),cy=y+20+l*chh;
+        s+=`<rect x="${f1(cx)}" y="${f1(cy)}" width="${f1(cw)}" height="${f1(chh-2)}" rx="4" style="fill:${hit?'var(--accent)':'var(--panel-2)'}"/><text x="${f1(cx+cw/2)}" y="${f1(cy+chh/2+2)}" class="t-xs t-mid" style="fill:${hit?'var(--bg)':'var(--ink)'}">${c}${N?' · '+['lang ok','lang impaired','no lang'][l]:''}</text>`}}
+    /* verdict node */
+    const vc=S.all?'var(--good)':'var(--muted)';
+    s+=`<rect x="${V[0]}" y="${V[1]}" width="${V[2]}" height="${V[3]}" rx="12" style="fill:${S.all?'var(--good-soft)':'var(--panel-2)'};stroke:${vc};stroke-width:${S.all?2:1.2}"/>`;
+    s+=`<text x="${V[0]+12}" y="${V[1]+22}" class="t-lbl" style="fill:${S.all?'var(--good)':'var(--ink)'}">${S.all?(icd?'Fits the published structure: '+S.code:'Meets the published structure'):'Does not meet the published structure'}</text>`;
+    s+=`<text x="${V[0]+12}" y="${V[1]+42}" class="t-xs">${S.all?'on paper only: clinicians judge each criterion':icd?'needs both domains, onset and impairment':'needs A 3/3, B ≥2/4, and C, D, E'}</text>`;
+    /* support levels or ICD note */
+    const L=Gm.lv;
+    if(!icd){s+=`<text x="${L[0]}" y="${L[1]}" class="t-xs" style="fill:var(--accent)">SUPPORT LEVELS · RATED SEPARATELY</text>`;
+      [ ['Social communication',lvS],['Restricted, repetitive',lvR] ].forEach(([n,v],i)=>{const y=L[1]+14+i*34,bw=(L[2]-8)/3;
+        s+=`<text x="${L[0]}" y="${y+9}" class="t-xs" style="fill:var(--ink)">${n}: Level ${v+1}${N?', '+CR_LV[v]:''}</text>`;
+        for(let k=0;k<3;k++)s+=`<rect x="${f1(L[0]+k*(bw+4))}" y="${y+14}" width="${f1(bw)}" height="9" rx="4.5" style="fill:${k<=v?'var(--accent)':'var(--panel-2)'}"/>`})}
+    else{s+=`<text x="${L[0]}" y="${L[1]}" class="t-xs" style="fill:var(--accent)">NO DSM SUPPORT LEVELS IN ICD-11</text><text x="${L[0]}" y="${L[1]+16}" class="t-xs" style="fill:var(--ink)">recorded instead: intellectual development</text><text x="${L[0]}" y="${L[1]+30}" class="t-xs" style="fill:var(--ink)">and functional language (${CR_LANG[lang()].split(' of ')[0]})</text>`}
+    /* specifier chips */
+    const ch=Gm.chips,chips=[];
+    if(!icd){chips.push((sp.has('id')?'with':'without')+' intellectual impairment');chips.push((lang()>0?'with':'without')+' language impairment');
+      if(sp.has('gen'))chips.push('known genetic/medical condition');if(sp.has('ndd'))chips.push('another neurodevelopmental, mental or behavioural condition');if(sp.has('cat'))chips.push('with catatonia')}
+    else{chips.push((sp.has('id')?'with':'no')+' disorder of intellectual development');chips.push(CR_LANG[lang()])}
+    s+=`<text x="${ch[0]}" y="${ch[1]-8}" class="t-xs" style="fill:var(--accent)">${icd?'SUBTYPE AXES':'SPECIFIERS'}</text>`;
+    let cx=ch[0],cy=ch[1];chips.forEach(c=>{const w=c.length*6.7+14;if(cx+w>ch[0]+ch[2]){cx=ch[0];cy+=22}
+      s+=`<rect x="${f1(cx)}" y="${cy}" width="${f1(w)}" height="17" rx="8.5" style="fill:var(--accent-soft);stroke:var(--accent)"/><text x="${f1(cx+7)}" y="${cy+12}" class="t-xs" style="fill:var(--ink)">${c}</text>`;cx+=w+6});
+    svg.innerHTML=s;
+    note(S);
+  }
+  function note(S){const icd=sys==='icd',why=[];
+    if(!icd){if(S.nA<3)why.push(`A: ${S.nA} of 3 selected. All three are needed, currently or by history. <sup class="c" data-ref="APA2022" title="Source 23">23</sup>`);
+      if(S.nB<2)why.push(`B: ${S.nB} of 4 selected. At least two are needed. <sup class="c" data-ref="APA2022,Fuentes2021ESCAP" title="Source 23,156">23,156</sup>`);
+      if(!S.okC)why.push(`C: signs must be present in the early developmental period, even if they only became clear later or were masked. <sup class="c" data-ref="APA2022,Fuentes2021ESCAP" title="Source 23,156">23,156</sup>`);
+      if(!S.okD)why.push(`D: the differences must cause clinically significant impairment in current functioning. <sup class="c" data-ref="APA2022" title="Source 23">23</sup>`);
+      if(!S.okE)why.push(`E: not better explained by intellectual developmental disorder or global developmental delay. When both are present, social communication should be below the expected level for general development. <sup class="c" data-ref="APA2022" title="Source 23">23</sup>`)}
+    else{if(!S.okA)why.push(`Domain 1 (social interaction and communication): nothing selected.`);if(!S.okB)why.push(`Domain 2 (restricted, repetitive, inflexible patterns): nothing selected.`);
+      if(!S.okC)why.push(`Onset in the developmental period: not selected.`);if(!S.okD)why.push(`Impairment, usually seen across settings: not selected. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>`)}
+    let h=`<div class="kicker">${icd?'ICD-11 · teaching drawing':'DSM-5-TR · teaching drawing'}</div><h4>${S.all?(icd?'Fits the structure of '+S.code:'Meets the published structure'):'Does not meet the published structure'}</h4>`;
+    h+=`<div class="verdict ${S.all?'yes':S.nA+S.nB>0?'maybe':'no'}">${S.all?'Every part of the structure is selected.':'Missing: '+(why.length)+' part'+(why.length===1?'':'s')}</div>`;
+    if(why.length)h+=`<ul>${why.map(w=>`<li>${w}</li>`).join('')}</ul>`;
+    if(!icd&&S.nA===3&&S.nB===0)h+=`<div class="hook"><b>Exam hook</b>Social communication differences with no restricted, repetitive behaviours, now or in the past, point to social (pragmatic) communication disorder rather than autism. <sup class="c" data-ref="Norbury2014,Fuentes2021ESCAP" title="Source 156,428">156,428</sup></div>`;
+    if(S.all){const st=icd?`${S.code}: autism spectrum disorder ${sp.has('id')?'with':'without'} disorder of intellectual development, with ${CR_LANG[lang()]}.`:
+      `Autism spectrum disorder, ${CR_LV[lvS]} (Level ${lvS+1}) for social communication and ${CR_LV[lvR]} (Level ${lvR+1}) for restricted, repetitive behaviours; ${sp.has('id')?'with':'without'} accompanying intellectual impairment; ${lang()>0?'with':'without'} accompanying language impairment${sp.has('gen')?'; associated with a known genetic or other medical condition or environmental factor':''}${sp.has('ndd')?'; associated with another neurodevelopmental, mental or behavioural problem':''}${sp.has('cat')?'; with catatonia':''}.`;
+      h+=`<div class="cr-stmt"><b>How it would be recorded</b>${st}</div>`;
+      h+=`<p>${icd?'ICD-11 subdivides by intellectual development and functional language; the validity and stability of the six combinations had not yet been shown when the ESCAP guidance was written. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>':'Severity is rated separately for the two domains. DSM-5 does not define what "substantial" support means, a point the ESCAP guidance criticises. <sup class="c" data-ref="APA2022,Fuentes2021ESCAP" title="Source 23,156">23,156</sup>'}</p>`}
+    h+=`<div class="pt"><b>In plain words</b>${icd?'The WHO manual describes the same two areas, then records whether the person also has an intellectual disability and how much they use language.':'Autism is diagnosed when differences in social communication and repetitive or sensory patterns started early and make everyday life harder. A diagnosis also describes how much support someone needs.'}</div>`;
+    $('#crNote').innerHTML=h}
+  function kick(){const icd=sys==='icd';$('#crAk').textContent=icd?'Domain 1':'A · all 3';$('#crBk').textContent=icd?'Domain 2':'B · 2 of 4';$('#crCk').textContent=icd?'Timing':'C–E';
+    $('#crEbtn').hidden=icd;$('#crLvRow').style.opacity=icd?.45:1}
+  function sync(){$$('[data-cr]').forEach(b=>b.setAttribute('aria-pressed',on.has(b.dataset.cr)));
+    $$('[data-crsp]').forEach(b=>b.setAttribute('aria-pressed',sp.has(b.dataset.crsp)));
+    $$('[data-lv]').forEach(b=>{const k=b.dataset.lv;b.setAttribute('aria-pressed',k[0]==='s'?+k[1]-1===lvS:+k[1]-1===lvR)})}
+  function changed(){sync();if(stopP)stopP();stopP=animate(650,p=>{pulse=p;draw()},()=>{pulse=1;stopP=null})}
+  function tog(k){on.has(k)?on.delete(k):on.add(k);changed()}
+  $$('[data-cr]').forEach(b=>b.addEventListener('click',()=>tog(b.dataset.cr)));
+  svg.addEventListener('click',e=>{const g=e.target.closest('[data-crb]');if(g)tog(g.dataset.crb)});
+  svg.addEventListener('keydown',e=>{const g=e.target.closest('[data-crb]');if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();tog(g.dataset.crb);setTimeout(()=>{const n=svg.querySelector(`[data-crb="${g.dataset.crb}"]`);n&&n.focus()},0)}});
+  $$('[data-crsp]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.crsp;sp.has(k)?sp.delete(k):sp.add(k);changed()}));
+  $$('[data-lv]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.lv;if(k[0]==='s')lvS=+k[1]-1;else lvR=+k[1]-1;changed()}));
+  $('#crLang').addEventListener('change',changed);
+  $$('[data-crs]').forEach(b=>b.addEventListener('click',()=>{sys=b.dataset.crs;$$('[data-crs]').forEach(x=>x.setAttribute('aria-pressed',x===b));kick();changed()}));
+  const PRE={meets:['A1','A2','A3','B2','B4','C','D','E'],scd:['A1','A2','A3','C','D','E'],clear:[]};
+  $$('[data-crp]').forEach(b=>b.addEventListener('click',()=>{on.clear();PRE[b.dataset.crp].forEach(k=>on.add(k));changed()}));
+  if(onHide.criteria){const prev=onHide.criteria;onHide.criteria=()=>{prev();stopP&&stopP()}}else onHide.criteria=()=>{stopP&&stopP()};
+  redraws.criteria=()=>draw();
+  sync();kick();draw();
+
+  /* ---- names over time ---- */
+  const hs=$('#crHSvg'),hr=$('#crHT');let setH=()=>{};
+  const yr=t=>1975+50*t;
+  function drawH(t){const N=vb(hs,'720 300','400 340'),Y=yr(t);
+    const x0=N?14:40,x1=N?386:690,X=y=>lerp(x0,x1,(y-1975)/50),ax=N?306:266;let s='';
+    for(let y=1975;y<=2025;y+=N?10:5){s+=`<line x1="${f1(X(y))}" x2="${f1(X(y))}" y1="34" y2="${ax}" class="grid"/><text x="${f1(X(y))}" y="${ax+16}" class="t-xs t-mid">${y}</text>`}
+    s+=`<line x1="${x0}" x2="${x1}" y1="${ax}" y2="${ax}" class="axis"/>`;
+    const bar=(y0,y1,lane,label,col,sh)=>{if(Y<y0)return '';const a=X(y0),b=X(Math.min(y1,Y)),h=N?20:22,yy=lane;
+      let g=`<rect x="${f1(a)}" y="${yy}" width="${f1(Math.max(2,b-a))}" height="${h}" rx="6" style="fill:${col};opacity:${sh||.9}"/>`;
+      if(b-a>label.length*6.7+10)g+=`<text x="${f1(a+6)}" y="${yy+h/2+3.5}" class="t-xs" style="fill:var(--bg);font-weight:600">${label}</text>`;
+      else if(y0>=2013)g+=`<text x="${f1(a-5)}" y="${yy+h/2+3.5}" class="t-xs t-end" style="fill:var(--ink)">${label}</text>`;
+      else g+=`<text x="${f1(b+5)}" y="${yy+h/2+3.5}" class="t-xs" style="fill:var(--ink)">${label}</text>`;return g};
+    const L=N?{a:40,b:66,c:92,d:118,asd:79,scd:150,icd:196,lvl:176}:{a:40,b:68,c:96,d:124,asd:82,scd:162,icd:214,lvl:192};
+    /* before 1980 */
+    s+=`<rect x="${f1(X(1975))}" y="${L.a}" width="${f1(X(Math.min(1980,Y))-X(1975))}" height="${N?20:22}" rx="6" style="fill:none;stroke:var(--muted);stroke-dasharray:4 3"/>`;
+    if(Y<1980)s+=`<text x="${f1(X(1975)+6)}" y="${L.a+15}" class="t-xs">no official DSM category</text>`;
+    const wy=N?[L.d+40,0]:[L.b+15,L.c+15];
+    if(Y>=1979)s+=`<circle cx="${f1(X(1979))}" cy="${wy[0]-4}" r="4" style="fill:var(--brand)"/><text x="${f1(X(1979)+7)}" y="${wy[0]}" class="t-xs" style="fill:var(--brand)">1979 Wing &amp; Gould</text>`;
+    if(Y>=1981&&!N)s+=`<circle cx="${f1(X(1981))}" cy="${wy[1]-4}" r="4" style="fill:var(--brand)"/><text x="${f1(X(1981)+7)}" y="${wy[1]}" class="t-xs" style="fill:var(--brand)">1981 Wing on Asperger</text>`;
+    s+=bar(1980,1994,L.a,N?'DSM-III autism':'DSM-III: infantile autism','var(--accent)');
+    /* 1994-2013 subtypes, which converge into one bar in 2013 */
+    const k=ease(ramp(Y,2012,2014.5));
+    const sub=[ [L.a,N?'Autistic dis.':'Autistic disorder'],[L.b,N?'Asperger’s':'Asperger’s disorder'],[L.c,'PDD-NOS'],[L.d,N?'CDD':'Childhood disintegrative'] ];
+    sub.forEach(([lane,n])=>s+=bar(1994,2013,lane,n,'var(--accent)',.75));
+    if(Y>=2013){sub.forEach(([lane])=>{const yy=lerp(lane,L.asd+((N?20:22)-12)/2,k);s+=`<path d="M${f1(X(2013))} ${lane+(N?10:11)}C${f1(X(2014.5))} ${lane+(N?10:11)} ${f1(X(2014))} ${f1(L.asd+(N?20:22)/2)} ${f1(X(2015.5))} ${f1(L.asd+(N?20:22)/2)}" style="fill:none;stroke:var(--accent);stroke-width:1.4;opacity:${f1(.3+.5*k)}"/>`});
+      const a=X(2013),b=X(Math.min(2025,Y)),h=(N?20:22)*1.6;s+=`<rect x="${f1(a+ (N?6:10))}" y="${f1(L.asd-4)}" width="${f1(Math.max(2,b-a-(N?6:10)))}" height="${f1(h)}" rx="8" style="fill:var(--accent)"/>`;
+      if(b-a>(N?40:120))s+=`<text x="${f1(a+(N?10:16))}" y="${f1(L.asd+h/2)}" class="t-xs" style="fill:var(--bg);font-weight:700">${N?'ASD':'ASD: one spectrum'}</text>`;
+      s+=bar(2013,2025,L.scd,N?'SCD':'Social (pragmatic) communication disorder','var(--warn)',.85);
+      if(!N||Y>=2013)s+=bar(2013,2025,L.lvl,N?'Levels 1–3':'Support levels 1–3','var(--accent)',.45)}
+    if(Y>=2019){s+=bar(2019,2025,L.icd,N?'ICD-11':'ICD-11 6A02 (approved 2019)','var(--neuro)',.85)}
+    if(Y>=2022)s+=`<circle cx="${f1(X(2022))}" cy="${L.icd+30}" r="4" style="fill:var(--ink)"/><text x="${f1(X(2022)-8)}" y="${L.icd+34}" class="t-xs t-end" style="fill:var(--ink)">2022: ICD-11 in effect · DSM-5-TR</text>`;
+    s+=`<line x1="${f1(X(Y))}" x2="${f1(X(Y))}" y1="30" y2="${ax}" style="stroke:var(--ink);stroke-width:1.4;opacity:.45"/><text x="${f1(clamp(X(Y),x0+20,x1-20))}" y="22" class="t-sm t-mid" style="fill:var(--ink)">${Math.floor(Y)}</text>`;
+    hs.innerHTML=s;const ph=phaseOf(CR_HIST,t);setH(ph);$('#crHNote').innerHTML=noteHTML(CR_HIST[ph])}
+  const stopH=playWire(hr,$('#crHPlay'),drawH,16000,'Replay','criteria');
+  setH=stepWire($('#crHSteps'),CR_HIST,hr,drawH,stopH);
+  drawH(+hr.value);
+};
+/* =============== 3.4 The diagnostic assessment =============== */
+const AS_FROM=[0,.17,.34,.5,.67,.84];
+const AS_CHILD=[
+ {k:'Station 1 · Primary care',t:'Surveillance & screening',lab:['Surveillance','& screening'],
+  txt:`Development is watched at every routine visit, and the AAP recommends an autism-specific screen at 18 and 24 months on top of that surveillance. <sup class="c" data-ref="Hyman2020" title="Source 250">250</sup> A screen only raises the possibility of autism and cannot confirm it; a negative screen does not rule autism out when other information points to developmental differences. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup> In a UK survey of 1,047 parents, families typically waited about a year after first concerns before seeking help. <sup class="c" data-ref="Crane2016Diagnosis" title="Source 98">98</sup>`,
+  pt:`A questionnaire at a check-up is a first look, not an answer. A parent's worry is a good reason to ask for a closer look.`,
+  hook:`AAP: autism-specific screening at 18 and 24 months, plus developmental surveillance at every visit. <sup class="c" data-ref="Hyman2020" title="Source 250">250</sup>`},
+ {k:'Station 2 · Referral',t:'Referral & the wait',lab:['Referral','& the wait'],
+  txt:`A positive screen, or a concern raised by a family, teacher or clinician, leads to referral for a diagnostic assessment. In the UK survey, the delay from first approaching a professional to a confirmed diagnosis was about 3.5 years, and just over half of parents were dissatisfied with the process. <sup class="c" data-ref="Crane2016Diagnosis" title="Source 98">98</sup> In a Utah health system, screen-positive children were diagnosed earlier than unscreened children (38.5 vs 48.5 months). <sup class="c" data-ref="Carbone2020" title="Source 69">69</sup>`,
+  pt:`Getting from a first worry to a diagnosis often takes years, not weeks.`,
+  hook:`Screen-positive vs unscreened toddlers in Utah: diagnosed at 38.5 vs 48.5 months. <sup class="c" data-ref="Carbone2020" title="Source 69">69</sup>`},
+ {k:'Station 3 · Assessment',t:'History & observation',lab:['History &','observation'],
+  txt:`The reference standard combines a semistructured caregiver interview with semistructured direct observation. <sup class="c" data-ref="Hirota2023" title="Source 222">222</sup> The ADI-R interview is usable from a mental age of about 18 months into adulthood. <sup class="c" data-ref="Lord1994" title="Source 333">333</sup> The ADOS observes social interaction, communication, play and imaginative use of materials, in four modules of about 30 minutes chosen by expressive language, <sup class="c" data-ref="Lord2000" title="Source 334">334</sup> with a Toddler Module under 30 months that reports a "range of concern". <sup class="c" data-ref="Luyster2009" title="Source 344">344</sup>`,
+  pt:`One part is a long talk with the family about the early years. The other is a planned play session in which the clinician watches how the child communicates and plays.`,
+  hook:`ADI-R = caregiver interview; ADOS-2 = direct observation. Neither alone makes the diagnosis. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>`},
+ {k:'Station 4 · Assessment',t:'Development, senses & medical',lab:['Development','& medical'],
+  txt:`The ESCAP minimum assessment adds developmental level and language, a physical and sensory examination (hearing, vision and a neurological screen), emotional and behavioural difficulties, and socio-environmental factors. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup> If the examination finds no specific problem, EEG and neuroimaging are usually not needed. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup> Chromosomal microarray, the first-tier genetic test for unexplained developmental delay or autism, finds a cause in 15–20%, against about 3% for a karyotype. <sup class="c" data-ref="Miller2010CMA" title="Source 379">379</sup>`,
+  pt:`Hearing is checked, because repeatedly not answering to one's name counts as an autism sign only when hearing is normal. Blood tests and scans cannot diagnose autism. <sup class="c" data-ref="Araujo2026,Hirota2023" title="Source 25,222">25,222</sup>`,
+  hook:`CMA yield 15–20% vs karyotype ≈3% <sup class="c" data-ref="Miller2010CMA" title="Source 379">379</sup>; exome sequencing ≈36% across neurodevelopmental disorders. <sup class="c" data-ref="Srivastava2019" title="Source 559">559</sup>`},
+ {k:'Station 5 · Diagnosis',t:'Feedback & report',lab:['Feedback','& report'],
+  txt:`No single instrument decides: the diagnosis rests on expert clinical judgement using information from all relevant sources. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup> In the 2022 ADDM data, the median age at earliest known diagnosis among 8-year-olds was 47 months, from 36 months in California to 69.5 months in Laredo, Texas. <sup class="c" data-ref="Shaw2025" title="Source 541">541</sup> Early diagnoses mostly hold: overall stability was 0.84 in toddlers evaluated at 12–36 months. <sup class="c" data-ref="Pierce2019" title="Source 460">460</sup>`,
+  pt:`The team puts all the pieces together and talks them through with the family. It is their judgement, not one test score.`,
+  hook:`ADDM 2022: median age at diagnosis 47 months (site range 36–69.5). <sup class="c" data-ref="Shaw2025" title="Source 541">541</sup>`},
+ {k:'Station 6 · After the diagnosis',t:'Post-diagnostic support',lab:['Post-diagnostic','support'],
+  txt:`A diagnosis should open the way to support. Autistic children have service needs across behavioural, educational, health, leisure and family-support areas, chosen with families through shared decision-making. <sup class="c" data-ref="Hyman2020" title="Source 250">250</sup> Co-occurring conditions should be assessed routinely. <sup class="c" data-ref="Simonoff2008,Lai2019" title="Source 309,549">309,549</sup> Parents in the UK survey rated post-diagnostic support as unsatisfactory; <sup class="c" data-ref="Crane2016Diagnosis" title="Source 98">98</sup> in one trial, an online group programme improved caregivers' mental health at 52 weeks <span class="ev early">Early evidence</span>. <sup class="c" data-ref="Leadbitter2025" title="Source 319">319</sup>`,
+  pt:`The diagnosis is a start, not an end: it should lead to help at home, at school and with health.`,
+  hook:`70% of autistic 10–14-year-olds had at least one co-occurring psychiatric disorder: always look for them. <sup class="c" data-ref="Simonoff2008" title="Source 549">549</sup>`}
+];
+const AS_ADULT=[
+ {k:'Station 1 · Recognition',t:'Autism noticed in adulthood',lab:['Noticed in','adulthood'],
+  txt:`Recorded autism incidence in UK primary care rose 787% between 1998 and 2018, most steeply in adults and in females, which suggests better recognition rather than a true rise alone. <sup class="c" data-ref="Russell2022" title="Source 500">500</sup> In England, 2.94% of 10–14-year-olds have a recorded diagnosis against 0.02% of people aged 70 or older, and an estimated 59–72% of autistic people may be undiagnosed. <sup class="c" data-ref="ONions2023" title="Source 432">432</sup>`,
+  pt:`Many autistic adults grew up before autism was well understood. It is never too late to ask for an assessment. <sup class="c" data-ref="ONions2023,Russell2022" title="Source 432,500">432,500</sup>`,
+  hook:`An estimated 59–72% of autistic people in England may be undiagnosed. <sup class="c" data-ref="ONions2023" title="Source 432">432</sup>`},
+ {k:'Station 2 · Screening',t:'A short questionnaire',lab:['Short','questionnaire'],
+  txt:`The AQ-10 is a ten-item questionnaire. In a case-control sample, the adult version at a cut-point of 6 had sensitivity 0.88, specificity 0.91 and PPV 0.85, <sup class="c" data-ref="Allison2012" title="Source 10">10</sup> but case-control accuracy is usually higher than in real clinics. <sup class="c" data-ref="Allison2012,Ashwood2016" title="Source 10,30">10,30</sup> In 476 adults referred to a UK service, the full AQ did not significantly predict diagnosis (specificity 0.29), 64% of those below the cutoff were in fact autistic, and generalised anxiety raised scores. <sup class="c" data-ref="Ashwood2016" title="Source 30">30</sup>`,
+  pt:`Online autism quizzes measure traits. They cannot tell you whether you are autistic, and stress or anxiety can raise scores. <sup class="c" data-ref="Ashwood2016" title="Source 30">30</sup>`,
+  hook:`Adult AQ-10 cut-point 6: sensitivity 0.88, specificity 0.91 in case-control data <sup class="c" data-ref="Allison2012" title="Source 10">10</sup>; full AQ specificity in a referral clinic: 0.29. <sup class="c" data-ref="Ashwood2016" title="Source 30">30</sup>`},
+ {k:'Station 3 · Assessment',t:'Interview & informant history',lab:['Interview &','informant'],
+  txt:`First diagnosis in adulthood is harder: there may be no one to give a developmental history, the person may have learned camouflaging strategies, and co-occurring conditions are common. <sup class="c" data-ref="Lai2015LancetPsych" title="Source 307">307</sup> Camouflaging combines masking and compensation to fit in, at a cost that includes exhaustion. <sup class="c" data-ref="Hull2017" title="Source 241">241</sup> The criteria allow for this: features are present in early development but may be masked later by learned strategies. <sup class="c" data-ref="APA2022" title="Source 23">23</sup>`,
+  pt:`The team asks about childhood as well as now, because autism starts early even when it is noticed late. <sup class="c" data-ref="APA2022" title="Source 23">23</sup>`,
+  hook:`Why adult diagnosis is harder: missing developmental history, camouflaging, co-occurring conditions. <sup class="c" data-ref="Lai2015LancetPsych" title="Source 307">307</sup>`},
+ {k:'Station 4 · Differentials',t:'Earlier diagnoses',lab:['Earlier','diagnoses'],
+  txt:`In 1,211 Dutch autistic adults, 24.6% reported an earlier psychiatric diagnosis they saw as a misdiagnosis: 31.7% of women and 16.7% of men; personality disorder was the most frequent. <sup class="c" data-ref="Kentrou2024" title="Source 281">281</sup> In 161 adults diagnosed in two Italian centres, two thirds had received other diagnoses first, most often intellectual disability, psychoses, personality disorders and depression. <sup class="c" data-ref="FusarPoli2022" title="Source 160">160</sup> These may be misdiagnoses, true co-occurring conditions, or both. <sup class="c" data-ref="Lai2015LancetPsych,Kentrou2024" title="Source 281,307">281,307</sup>`,
+  pt:`Some adults are given a different diagnosis before autism is recognised, women more often than men. <sup class="c" data-ref="Kentrou2024" title="Source 281">281</sup>`,
+  hook:`Reported misdiagnosis: 31.7% of autistic women vs 16.7% of men; personality disorder most often. <sup class="c" data-ref="Kentrou2024" title="Source 281">281</sup>`},
+ {k:'Station 5 · Diagnosis',t:'Diagnosis, often late',lab:['Diagnosis,','often late'],
+  txt:`In the Italian centres, the median age at autism diagnosis was 23 years; the first mental-health evaluation had been at a median of 13, an 11-year gap. <sup class="c" data-ref="FusarPoli2022" title="Source 160">160</sup> Girls who meet criteria are at disproportionate risk of not being diagnosed, <sup class="c" data-ref="Loomes2017" title="Source 332">332</sup> and in a Dutch survey of 2,275 autistic people, adult women with autistic disorder were identified later than men. <sup class="c" data-ref="Begeer2013" title="Source 44">44</sup>`,
+  pt:`Many women are diagnosed late. Some describe "pretending to be normal" for years, and professionals missing their autism because of their gender. <sup class="c" data-ref="Bargiela2016" title="Source 38">38</sup>`,
+  hook:`Late-diagnosed adults: first mental-health contact at a median of 13, autism diagnosis at 23. <sup class="c" data-ref="FusarPoli2022" title="Source 160">160</sup>`},
+ {k:'Station 6 · After the diagnosis',t:'Post-diagnostic support',lab:['Post-diagnostic','support'],
+  txt:`A scoping review found that adults often feel strong emotions after diagnosis, that adult pathways are unclear and inconsistent, and that post-diagnostic support is scarce. <sup class="c" data-ref="Huang2020" title="Source 236">236</sup> Nine adults diagnosed after 50 had previously been treated for anxiety and depression, and saw the diagnosis as positive, allowing a "reconfiguration of self". <sup class="c" data-ref="Stagg2019" title="Source 561">561</sup>`,
+  pt:`Relief, grief or both are common after a late diagnosis. Meeting other autistic people and finding the right support can help make sense of it.`,
+  hook:`Adult post-diagnostic services are scarce; the route to diagnosis is unclear and variable. <sup class="c" data-ref="Huang2020" title="Source 236">236</sup>`}
+];
+AS_CHILD.forEach((s,i)=>{s.from=AS_FROM[i];s.at=AS_FROM[i]+.08});
+AS_ADULT.forEach((s,i)=>{s.from=AS_FROM[i];s.at=AS_FROM[i]+.08});
+
+/* differential matrix content */
+const AS_DD={
+ lang:{n:'Language disorder / social (pragmatic) communication disorder',
+  sh:`Late or limited speech. No single words by 16 months and no two-word phrases by 24 months are red flags for autism, but they predict more when combined with social differences. <sup class="c" data-ref="Araujo2026" title="Source 25">25</sup>`,
+  au:`Social-communication differences together with restricted, repetitive behaviours, now or in the past. <sup class="c" data-ref="APA2022,Norbury2014" title="Source 23,428">23,428</sup> Requiring both parent report and clinician observation improved specificity against non-autism diagnoses such as language disorder. <sup class="c" data-ref="Huerta2012" title="Source 238">238</sup>`,
+  ot:`Social (pragmatic) communication disorder: social-communication difficulty without restricted or repetitive behaviours, current or past. <sup class="c" data-ref="Norbury2014,Fuentes2021ESCAP" title="Source 156,428">156,428</sup>`,
+  v:'yes',vt:`Can co-occur. DSM-5-TR records accompanying language impairment as a specifier. <sup class="c" data-ref="APA2022" title="Source 23">23</sup>`},
+ id:{n:'Intellectual disability or global developmental delay',
+  sh:`Development is delayed across areas. Many children with profound intellectual disability develop in ways that resemble autism. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>`,
+  au:`Social communication is below what is expected for the person's general developmental level. <sup class="c" data-ref="APA2022" title="Source 23">23</sup> A developmental assessment is crucial to tell them apart. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>`,
+  ot:`Social communication broadly in line with overall developmental level; the differences are better explained by the intellectual disability. <sup class="c" data-ref="APA2022" title="Source 23">23</sup>`,
+  v:'yes',vt:`Can co-occur, often: 39.6% of autistic 8-year-olds with cognitive data in ADDM 2022 had intellectual disability. <sup class="c" data-ref="Shaw2025" title="Source 541">541</sup>`},
+ adhd:{n:'ADHD',
+  sh:`Trouble with attention and social difficulties can appear in both; social (pragmatic) communication difficulties overlap with ADHD too. <sup class="c" data-ref="Norbury2014" title="Source 428">428</sup>`,
+  au:`Autism needs all three social-communication criteria and at least two restricted or repetitive patterns. <sup class="c" data-ref="APA2022,Fuentes2021ESCAP" title="Source 23,156">23,156</sup>`,
+  ot:`ADHD criteria centre on inattention and hyperactivity-impulsivity, not on social communication or repetitive patterns. <sup class="c" data-ref="APA2022" title="Source 23">23</sup> More in the <a href="https://www.medcompanions.org/adhd/">ADHD Companion</a>.`,
+  v:'yes',vt:`Can co-occur, often: 28% pooled prevalence of ADHD in autistic people <sup class="c" data-ref="Lai2019" title="Source 309">309</sup>; autistic people in Sweden had 22 times the odds of an ADHD diagnosis. <sup class="c" data-ref="Ghirardi2018" title="Source 172">172</sup>`},
+ hear:{n:'Hearing loss',
+  sh:`Not answering to one's name and delayed speech.`,
+  au:`Repeated failure to respond to name at 9–12 months despite normal hearing is an early autism sign. <sup class="c" data-ref="Araujo2026" title="Source 25">25</sup>`,
+  ot:`A physical and sensory examination, including hearing and vision, is part of the minimum assessment. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>`,
+  v:'yes',vt:`Can co-occur: autism is more common with profound deafness, and diagnosis is harder there. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>`},
+ sanx:{n:'Social anxiety',
+  sh:`Avoiding social situations. Anxiety can raise autism-questionnaire scores: in adult referrals, generalised anxiety disorder appeared to "mimic" autism and caused false positives on the AQ. <sup class="c" data-ref="Ashwood2016" title="Source 30">30</sup>`,
+  au:`Differences present from the early developmental period, even if masked later, plus restricted or repetitive patterns. <sup class="c" data-ref="APA2022" title="Source 23">23</sup>`,
+  ot:`Without social-communication differences from early development, the autism criteria are not met. <sup class="c" data-ref="APA2022" title="Source 23">23</sup>`,
+  v:'yes',vt:`Can co-occur, often: social anxiety disorder in 29.2% of autistic 10–14-year-olds <sup class="c" data-ref="Simonoff2008" title="Source 549">549</sup>; any anxiety disorder 20% pooled. <sup class="c" data-ref="Lai2019" title="Source 309">309</sup>`},
+ ocd:{n:'Obsessive-compulsive disorder',
+  sh:`Repetitive behaviour and insistence on routines (in autism, criteria B1 and B2). <sup class="c" data-ref="APA2022" title="Source 23">23</sup>`,
+  au:`In autism, repetitive patterns sit with social-communication differences present from early development. <sup class="c" data-ref="APA2022" title="Source 23">23</sup>`,
+  ot:`The link runs both ways in Danish registers: autism raised the risk of a later OCD diagnosis (IRR 2.18), and OCD raised the risk of a later autism diagnosis (IRR 3.91). <sup class="c" data-ref="Meier2015" title="Source 375">375</sup>`,
+  v:'yes',vt:`Can co-occur: OCD 9% pooled <sup class="c" data-ref="Lai2019" title="Source 309">309</sup>; 17.4% in autistic young people. <sup class="c" data-ref="vanSteensel2011" title="Source 601">601</sup>`},
+ regr:{n:'Regression conditions: Rett syndrome, Landau–Kleffner syndrome',
+  sh:`Loss of language or social skills that were there before. About a third of autistic children lose skills (32.1%), at a mean of about 1.8 years. <sup class="c" data-ref="Barger2013" title="Source 37">37</sup>`,
+  au:`Autistic regression happens within the autism profile; the full assessment still looks for the two domains. <sup class="c" data-ref="APA2022,Barger2013" title="Source 23,37">23,37</sup>`,
+  ot:`Consider Rett syndrome (MECP2) with regression, particularly in girls. Landau–Kleffner syndrome presents with sudden language loss and EEG abnormalities after typical development. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>`,
+  v:'maybe',vt:`A genetic syndrome and autism can coexist; social and repetitive features may be part of the syndrome, which makes diagnosis harder. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>`},
+ pd:{n:'Personality disorders (adults)',
+  sh:`Personality disorder was the most frequent earlier diagnosis that autistic adults later saw as a misdiagnosis. <sup class="c" data-ref="Kentrou2024" title="Source 281">281</sup>`,
+  au:`An early developmental history of autistic features, plus restricted or repetitive patterns; that history may be hard to get in adults. <sup class="c" data-ref="APA2022,Lai2015LancetPsych" title="Source 23,307">23,307</sup>`,
+  ot:`A meta-analysis found borderline personality disorder in 4% of autistic people and autism in 3% of people with BPD, within population ranges; it could not test misdiagnosis directly <span class="ev hyp">Hypothesis</span>. <sup class="c" data-ref="May2021BPD" title="Source 366">366</sup> See the <a href="https://www.medcompanions.org/borderline-personality-disorder/">BPD Companion</a>.`,
+  v:'maybe',vt:`Possible: the earlier label may be a misdiagnosis, a true co-occurring condition, or both. <sup class="c" data-ref="Lai2015LancetPsych,Kentrou2024" title="Source 281,307">281,307</sup>`},
+ psy:{n:'Psychosis (adults)',
+  sh:`Psychoses were among the commonest earlier diagnoses in adults diagnosed with autism late. <sup class="c" data-ref="FusarPoli2022" title="Source 160">160</sup>`,
+  au:`Autism is a neurodevelopmental condition, not a psychotic disorder, <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup> with features present from early development. <sup class="c" data-ref="APA2022" title="Source 23">23</sup>`,
+  ot:`The confusion is old: Bleuler coined "autism" in 1911 for a symptom of schizophrenia. <sup class="c" data-ref="Gundel1993" title="Source 193">193</sup>`,
+  v:'yes',vt:`Can co-occur: psychosis in 9.4% of autistic adults <sup class="c" data-ref="Varcin2022" title="Source 605">605</sup>; schizophrenia spectrum disorders 4% pooled. <sup class="c" data-ref="Lai2019" title="Source 309">309</sup>`}
+};
+const AS_ACC={ados:{n:'ADOS',se:.94,sp:.80},adir:{n:'ADI-R',se:.52,sp:.84},cars:{n:'CARS',se:.80,sp:.88}};
+
+inits.assessment=()=>{
+  const svg=$('#asSvg'),rg=$('#asT'),stEl=$('#asSteps');
+  let mode='child';
+  const ST=AS_CHILD.slice();
+  const T=(x,y,txt,cls='t-xs',st='')=>`<text x="${f1(x)}" y="${f1(y)}" class="${cls}"${st?` style="${st}"`:''}>${txt}</text>`;
+  const box=(x,y,w,h,o={})=>`<rect x="${f1(x)}" y="${f1(y)}" width="${f1(w)}" height="${f1(h)}" rx="${o.r==null?8:o.r}" style="fill:${o.fill||'var(--panel)'};stroke:${o.col||'var(--line)'};stroke-width:${o.sw||1.2}${o.dash?';stroke-dasharray:4 3':''};opacity:${o.op==null?1:o.op}"/>`;
+  const doc=(x,y,w,h,lines,fill,col)=>{let g=`<path d="M${f1(x)} ${f1(y)}h${f1(w-14)}l14 14v${f1(h-14)}h${f1(-w)}z" style="fill:var(--panel);stroke:${col||'var(--accent)'};stroke-width:1.4"/><path d="M${f1(x+w-14)} ${f1(y)}v14h14" style="fill:none;stroke:${col||'var(--accent)'};stroke-width:1.2"/>`;
+    for(let i=0;i<lines;i++){const on=i<fill;g+=`<rect x="${f1(x+10)}" y="${f1(y+22+i*((h-30)/lines))}" width="9" height="9" rx="2" style="fill:${on?'var(--accent)':'none'};stroke:var(--accent);stroke-width:1"/><line x1="${f1(x+26)}" x2="${f1(x+w-12)}" y1="${f1(y+27+i*((h-30)/lines))}" y2="${f1(y+27+i*((h-30)/lines))}" style="stroke:var(--muted);stroke-width:1.4;opacity:.5"/>`}
+    return g};
+  /* ---- scenes, drawn in a 430 x 240 local box ---- */
+  function sceneChild(i,f){let g='';
+    if(i===0){g+=doc(30,26,130,180,8,Math.floor(ramp(f,.05,.9)*8.99));g+=T(95,224,'questionnaire','t-xs t-mid');
+      g+=face(290,92,34,{gaze:f*360%360<180?20:160,mouth:'smile'})+face(372,112,26,{gaze:180,mouth:'flat',brows:f>.5?'tense':'calm'});
+      g+=bubble(318,22,104,26,{text:'is this usual?',think:true,tail:'left'});
+      const vx=n=>196+n*6.6;g+=`<line x1="${vx(6)}" x2="${vx(36)}" y1="196" y2="196" style="stroke:var(--muted);stroke-width:1.4"/>`;
+      [9,18,24,30].forEach(m=>{const sc=m===18||m===24,on=f>(m-6)/30;g+=`<circle cx="${f1(vx(m))}" cy="196" r="${sc?7:5}" style="fill:${on?(sc?'var(--accent)':'var(--muted)'):'var(--panel)'};stroke:${sc?'var(--accent)':'var(--muted)'};stroke-width:1.4"/>`+T(vx(m),216,m===30?'30 mo':String(m),'t-xs t-mid')});
+      g+=T(vx(21),180,'autism screen 18 &amp; 24 mo','t-xs t-mid','fill:var(--accent);font-weight:600');
+      g+=T(300,236,'surveillance at every visit','t-xs t-mid')}
+    else if(i===1){g+=box(14,70,92,70,{col:'var(--muted)'})+T(60,98,'Primary','t-lbl t-mid')+T(60,114,'care','t-lbl t-mid');
+      g+=box(324,60,96,90,{col:'var(--accent)',fill:'var(--accent-soft)'})+T(372,92,'Autism','t-lbl t-mid')+T(372,108,'team','t-lbl t-mid')+T(372,128,'assessment','t-xs t-mid');
+      const n=7;for(let k=0;k<n;k++){const adv=ramp(f,.1,.95)*n,x=300-k*28+Math.min(adv,k+1)*0;const gone=k<Math.floor(adv*.6);g+=person(lerp(296-k*26,320,gone?1:0),150,30,gone?'var(--accent)':'var(--muted)',{op:gone?0:.85})}
+      g+=T(212,198,'waiting list','t-xs t-mid');
+      const ex=lerp(110,300,ease(ramp(f,0,.5))),ey=88-30*bump(f,0,.5);
+      g+=`<g transform="translate(${f1(ex)} ${f1(ey)})"><rect x="-16" y="-11" width="32" height="22" rx="3" style="fill:var(--panel);stroke:var(--accent);stroke-width:1.5"/><path d="M-16 -11L0 2L16 -11" style="fill:none;stroke:var(--accent);stroke-width:1.3"/></g>`;
+      g+=T(205,40,'referral','t-sm t-mid','fill:var(--accent)');
+      g+=T(215,216,'UK survey: ≈3.5 years from first','t-xs t-mid','fill:var(--ink)')+T(215,230,'professional to diagnosis','t-xs t-mid','fill:var(--ink)')}
+    else if(i===2){g+=box(4,8,206,224,{fill:'var(--field)'})+box(220,8,206,224,{fill:'var(--field)'});
+      g+=T(107,30,'ADI-R · caregiver interview','t-sm t-mid','fill:var(--accent);font-weight:600');
+      g+=face(60,140,28,{gaze:0,mouth:f>.4?'open':'smile'})+face(156,140,28,{gaze:180,mouth:'flat'});
+      const qs=['early years?','first words?','play &amp; friends?','routines?'],qi=Math.min(3,Math.floor(f*4));
+      g+=bubble(108,52,96,26,{text:qs[qi],tail:'right'})+bubble(12,62,80,26,{text:'…',tail:'left'});
+      g+=T(107,196,'from mental age ≈18 months','t-xs t-mid')+T(107,210,'into adulthood','t-xs t-mid');
+      g+=T(323,30,'ADOS-2 · observation','t-sm t-mid','fill:var(--accent);font-weight:600');
+      g+=face(282,120,26,{gaze:60+40*Math.sin(f*12),mouth:'smile'});
+      const nb=1+Math.floor(f*4.99);for(let k=0;k<nb;k++)g+=`<rect x="${f1(300+((k%2)*4))}" y="${f1(176-k*14)}" width="22" height="13" rx="2" style="fill:${['var(--brand)','var(--rx)','var(--neuro)','var(--sense)','var(--accent)'][k]};opacity:.85"/>`;
+      g+=face(386,104,22,{gaze:160,mouth:'flat'});
+      g+=`<path d="M368 136l-14 8" style="stroke:var(--muted);stroke-width:1.3"/><ellipse cx="386" cy="148" rx="16" ry="9" style="fill:none;stroke:var(--muted);stroke-width:1.2"/><circle cx="386" cy="148" r="3.5" style="fill:var(--muted)"/>`;
+      g+=T(323,210,'4 modules ≈30 min + Toddler','t-xs t-mid')+T(323,224,'module under 30 months','t-xs t-mid')}
+    else if(i===3){const tiles=[['Development','& cognition'],['Language'],['Adaptive','skills'],['Hearing','& vision'],['Physical &','neuro exam'],['Genetics','if indicated']];
+      tiles.forEach((tt,k)=>{const cx=k%3,cy=Math.floor(k/3),x=10+cx*142,y=14+cy*112,on=ramp(f,k*.13,k*.13+.15);
+        g+=box(x,y,130,100,{col:on>.5?'var(--accent)':'var(--line)',fill:on>.5?'var(--accent-soft)':'var(--panel)',sw:on>.5?2:1.2});
+        g+=`<circle cx="${x+22}" cy="${y+24}" r="10" style="fill:${on>.5?'var(--accent)':'var(--panel-2)'}"/>`+T(x+22,y+28,on>.5?'✓':String(k+1),'t-xs t-mid',on>.5?'fill:#fff;font-weight:700':'');
+        tt.forEach((ln,j)=>g+=T(x+65,y+56+j*15,ln,'t-lbl t-mid'))});
+      g+=T(355,108+112,'CMA yield 15–20%','t-xs t-mid','fill:var(--accent);opacity:'+f1(ramp(f,.75,.9)))}
+    else if(i===4){const ins=['Interview','Observation','Development','Medical','Home &amp; school'];
+      ins.forEach((n,k)=>{const y=22+k*46,p=ramp(f,k*.08,k*.08+.45);g+=box(4,y,110,30,{col:'var(--accent)'})+T(59,y+19,n,'t-xs t-mid','fill:var(--ink)');
+        g+=`<path d="M114 ${y+15}Q170 ${y+15} 206 120" style="fill:none;stroke:var(--accent);stroke-width:1.3;opacity:.45"/>`;
+        const qx=lerp(114,206,p),qy=lerp(y+15,120,p*p);if(p>0&&p<1)g+=`<circle cx="${f1(qx)}" cy="${f1(qy)}" r="4" style="fill:var(--accent)"/>`});
+      const gl=ramp(f,.4,.7);g+=`<circle cx="236" cy="120" r="${f1(30+6*gl)}" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:2"/>`+T(236,116,'Clinical','t-xs t-mid','fill:var(--ink);font-weight:600')+T(236,129,'judgement','t-xs t-mid','fill:var(--ink);font-weight:600');
+      const r=ramp(f,.65,.95);g+=`<path d="M272 120H${f1(lerp(272,322,r))}" style="stroke:var(--accent);stroke-width:2"/>`;
+      g+=`<g style="opacity:${f1(r)}">`+doc(326,58,92,124,4,Math.floor(r*4.99),'var(--accent)')+T(372,198,'feedback &amp;','t-xs t-mid')+T(372,211,'written report','t-xs t-mid')+'</g>'}
+    else {const sp=['Family support','Education','Speech &amp; language','Co-occurring check','Sleep, gut, health','Play &amp; leisure'];
+      g+=`<circle cx="215" cy="120" r="44" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:2"/>`+T(215,116,'Child','t-lbl t-mid')+T(215,132,'&amp; family','t-lbl t-mid');
+      sp.forEach((n,k)=>{const a=-Math.PI/2+k*Math.PI/3,p=ease(ramp(f,k*.1,k*.1+.35)),ex=215+Math.cos(a)*lerp(46,142,p),ey=120+Math.sin(a)*lerp(46,92,p);
+        g+=`<line x1="${f1(215+Math.cos(a)*44)}" y1="${f1(120+Math.sin(a)*44)}" x2="${f1(ex)}" y2="${f1(ey)}" style="stroke:var(--accent);stroke-width:1.4;opacity:.6"/>`;
+        if(p>.05)g+=`<g style="opacity:${f1(p)}"><rect x="${f1(ex-64)}" y="${f1(ey-12)}" width="128" height="24" rx="12" style="fill:var(--panel);stroke:var(--accent);stroke-width:1.3"/>`+T(ex,ey+4,n,'t-xs t-mid','fill:var(--ink)')+'</g>'})}
+    return g}
+  function sceneAdult(i,f){let g='';
+    if(i===0){const n=50;for(let k=0;k<n;k++){const cx=k%10,cy=Math.floor(k/10),x=40+cx*36,y=20+cy*38;
+        const und=k<30,unc=k>=30&&k<36,show=ramp(f,.1,.9)*n>k;
+        g+=person(x,y,30,und?'var(--panel-2)':unc?'var(--accent-soft)':'var(--accent)',{op:show?1:.25});
+        if(und&&show)g+=`<circle cx="${x}" cy="${y+5}" r="5" style="fill:none;stroke:var(--muted);stroke-dasharray:2 2"/>`}
+      g+=T(215,220,'England: an estimated 59–72% of autistic','t-xs t-mid','fill:var(--ink)')+T(215,234,'people may be undiagnosed (hollow)','t-xs t-mid','fill:var(--ink)')}
+    else if(i===1){const sc=Math.floor(ramp(f,.05,.85)*7.99);g+=doc(30,20,150,190,10,sc);
+      g+=T(105,228,'ten-item questionnaire (schematic)','t-xs t-mid');
+      const X=v=>220+v*19;g+=`<line x1="${X(0)}" x2="${X(10)}" y1="110" y2="110" style="stroke:var(--muted);stroke-width:1.5"/>`;
+      for(let v=0;v<=10;v++)g+=`<line x1="${X(v)}" x2="${X(v)}" y1="105" y2="115" style="stroke:var(--muted)"/>`+T(X(v),130,String(v),'t-xs t-mid');
+      g+=`<line x1="${X(6)}" x2="${X(6)}" y1="70" y2="118" style="stroke:var(--accent);stroke-width:2;stroke-dasharray:4 3"/>`+T(X(6),64,'cut-point 6','t-xs t-mid','fill:var(--accent);font-weight:600');
+      g+=`<circle cx="${f1(X(sc))}" cy="110" r="8" style="fill:${sc>=6?'var(--accent)':'var(--panel)'};stroke:var(--accent);stroke-width:2"/>`+T(X(sc),94,'score '+sc,'t-xs t-mid','fill:var(--ink)');
+      g+=T(315,160,sc>=6?'above the cut-point':'below: not a "no"','t-xs t-mid','fill:var(--ink)');
+      g+=T(315,180,'in a clinic, 64% below','t-xs t-mid')+T(315,194,'the AQ cutoff were autistic','t-xs t-mid');
+      g+=T(315,222,'teaching example only','t-xs t-mid','fill:var(--accent)')}
+    else if(i===2){g+=box(4,8,206,224,{fill:'var(--field)'})+box(220,8,206,224,{fill:'var(--field)'});
+      g+=T(107,30,'masking, then unmasking','t-sm t-mid','fill:var(--accent);font-weight:600');
+      g+=face(107,118,40,{gaze:null,mouth:f<.5?'smile':'flat'});
+      const m=1-ramp(f,.3,.8);if(m>0)g+=`<g style="opacity:${f1(m)}" transform="translate(0 ${f1(-30*(1-m))})"><path d="M62 104Q107 80 152 104Q150 150 107 156Q64 150 62 104Z" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:2"/><ellipse cx="92" cy="114" rx="8" ry="5" style="fill:var(--field)"/><ellipse cx="122" cy="114" rx="8" ry="5" style="fill:var(--field)"/><path d="M90 136Q107 146 124 136" style="fill:none;stroke:var(--accent);stroke-width:2"/></g>`;
+      g+=T(107,190,'camouflaging: masking','t-xs t-mid')+T(107,204,'+ compensation, to fit in','t-xs t-mid');
+      g+=T(323,30,'informant history','t-sm t-mid','fill:var(--accent);font-weight:600');
+      g+=face(268,110,24,{gaze:0,mouth:'smile',col:'var(--skin)'})+face(372,110,24,{gaze:180,mouth:f>.3?'open':'flat'});
+      g+=bubble(320,52,98,26,{text:'as a child…',tail:'right'});
+      g+=`<g style="opacity:${f1(ramp(f,.4,.7))}">`+doc(286,150,70,66,3,3)+'</g>';
+      g+=T(400,190,'records','t-xs t-mid')+T(400,204,'if any','t-xs t-mid')}
+    else if(i===3){const lb=['Depression','Anxiety','Personality disorder','Psychosis'];
+      lb.forEach((n,k)=>{const p=ramp(f,k*.12,k*.12+.2),y=24+k*38;g+=`<g style="opacity:${f1(p)}">`+box(10+k*8,y,170,30,{col:'var(--muted)',dash:true})+T(95+k*8,y+19,n,'t-xs t-mid','fill:var(--ink)')+'</g>'});
+      const pa=ramp(f,.55,.75);g+=`<g style="opacity:${f1(pa)}">`+box(42,180,170,32,{col:'var(--accent)',fill:'var(--accent-soft)',sw:2})+T(127,200,'Autism','t-lbl t-mid')+'</g>';
+      g+=T(320,30,'reported earlier misdiagnosis','t-sm t-mid','fill:var(--accent);font-weight:600');
+      [['Women',31.7],['Men',16.7]].forEach(([n,v],k)=>{const h=150*v/40*ramp(f,.2,.8),x=262+k*76;
+        g+=`<rect x="${x}" y="${f1(200-h)}" width="48" height="${f1(h)}" rx="3" style="fill:${k?'var(--accent-soft)':'var(--accent)'};stroke:var(--accent)"/>`+T(x+24,192-h,f1(v*ramp(f,.2,.8))+'%','t-xs t-mid','fill:var(--ink)')+T(x+24,216,n,'t-xs t-mid')});
+      g+=`<line x1="250" x2="400" y1="200" y2="200" class="axis"/>`+T(325,232,'1,211 Dutch autistic adults','t-xs t-mid')}
+    else if(i===4){const ins=['Self-report','Interview','Informant','Observation','Health history'];
+      ins.forEach((n,k)=>{const y=22+k*46,p=ramp(f,k*.08,k*.08+.45);g+=box(4,y,118,30,{col:'var(--accent)'})+T(63,y+19,n,'t-xs t-mid','fill:var(--ink)');
+        g+=`<path d="M122 ${y+15}Q172 ${y+15} 206 120" style="fill:none;stroke:var(--accent);stroke-width:1.3;opacity:.45"/>`;
+        const qx=lerp(122,206,p),qy=lerp(y+15,120,p*p);if(p>0&&p<1)g+=`<circle cx="${f1(qx)}" cy="${f1(qy)}" r="4" style="fill:var(--accent)"/>`});
+      const gl=ramp(f,.4,.7);g+=`<circle cx="238" cy="120" r="${f1(30+6*gl)}" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:2"/>`+T(238,116,'Clinical','t-xs t-mid','fill:var(--ink);font-weight:600')+T(238,129,'judgement','t-xs t-mid','fill:var(--ink);font-weight:600');
+      const r=ramp(f,.6,.95);g+=`<g style="opacity:${f1(r)}">`+T(346,100,'median age','t-xs t-mid')+`<text x="346" y="136" class="t-mid" style="font:800 34px var(--display);fill:var(--accent)">23</text>`+T(346,156,'years at diagnosis','t-xs t-mid')+T(346,170,'(two Italian centres)','t-xs t-mid')+'</g>'}
+    else {const sp=['Information','Autistic peers','Mental health care','Work &amp; study','Relationships','Health checks'];
+      g+=`<circle cx="215" cy="120" r="44" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:2"/>`+T(215,112,'Relief,','t-xs t-mid','fill:var(--ink);font-weight:600')+T(215,126,'grief,','t-xs t-mid','fill:var(--ink);font-weight:600')+T(215,140,'or both','t-xs t-mid','fill:var(--ink);font-weight:600');
+      sp.forEach((n,k)=>{const a=-Math.PI/2+k*Math.PI/3,p=ease(ramp(f,k*.1,k*.1+.35)),ex=215+Math.cos(a)*lerp(46,142,p),ey=120+Math.sin(a)*lerp(46,92,p);
+        g+=`<line x1="${f1(215+Math.cos(a)*44)}" y1="${f1(120+Math.sin(a)*44)}" x2="${f1(ex)}" y2="${f1(ey)}" style="stroke:var(--accent);stroke-width:1.4;opacity:.6;stroke-dasharray:${k%2?'4 3':'none'}"/>`;
+        if(p>.05)g+=`<g style="opacity:${f1(p)}"><rect x="${f1(ex-64)}" y="${f1(ey-12)}" width="128" height="24" rx="12" style="fill:var(--panel);stroke:var(--accent);stroke-width:1.3"/>`+T(ex,ey+4,n,'t-xs t-mid','fill:var(--ink)')+'</g>'});
+      g+=T(215,236,'adult post-diagnostic support is scarce','t-xs t-mid')}
+    return g}
+  /* elapsed wait: child in months since first concern (1 y to seek help + 3.5 y to diagnosis); adult in years from first mental-health contact */
+  const elapsed=t=>mode==='child'?(t<.17?12*ramp(t,.02,.17):t<.67?12+42*ramp(t,.17,.67):54):(t<.34?0:t<.84?11*ramp(t,.34,.84):11);
+  function clock(cx,cy,r,t,N){const e=elapsed(t),mx=mode==='child'?60:12,u=e/mx,ch=mode==='child';let g='';
+    g+=`<circle cx="${cx}" cy="${cy}" r="${r}" style="fill:var(--panel);stroke:var(--line);stroke-width:${f1(r*.18)}"/>`;
+    if(u>0){const a1=-Math.PI/2+u*2*Math.PI,lg=u>.5?1:0,rr=r;g+=u>=.999?`<circle cx="${cx}" cy="${cy}" r="${rr}" style="fill:none;stroke:var(--accent);stroke-width:${f1(r*.18)}"/>`:
+      `<path d="M${cx} ${f1(cy-rr)}A${rr} ${rr} 0 ${lg} 1 ${f1(cx+Math.cos(a1)*rr)} ${f1(cy+Math.sin(a1)*rr)}" style="fill:none;stroke:var(--accent);stroke-width:${f1(r*.18)}"/>`}
+    const tk=ch?[12,24,36,48,60]:[3,6,9,12];tk.forEach(v=>{const a=-Math.PI/2+v/mx*2*Math.PI;g+=`<line x1="${f1(cx+Math.cos(a)*r*.78)}" y1="${f1(cy+Math.sin(a)*r*.78)}" x2="${f1(cx+Math.cos(a)*r*.9)}" y2="${f1(cy+Math.sin(a)*r*.9)}" style="stroke:var(--muted);stroke-width:1.4"/>`});
+    if(ch){const a=-Math.PI/2+12/mx*2*Math.PI;g+=`<circle cx="${f1(cx+Math.cos(a)*r)}" cy="${f1(cy+Math.sin(a)*r)}" r="4" style="fill:var(--ink)"/>`}
+    const ha=-Math.PI/2+u*2*Math.PI;g+=`<line x1="${cx}" y1="${cy}" x2="${f1(cx+Math.cos(ha)*r*.66)}" y2="${f1(cy+Math.sin(ha)*r*.66)}" style="stroke:var(--ink);stroke-width:2.4;stroke-linecap:round"/><circle cx="${cx}" cy="${cy}" r="3.5" style="fill:var(--ink)"/>`;
+    const big=ch?(e/12).toFixed(1)+' yr':Math.round(e)+' yr';
+    g+=`<text x="${cx}" y="${f1(cy+r*.48)}" class="t-mid" style="font:800 ${N?16:18}px var(--display);fill:var(--accent)">${big}</text>`;
+    return g}
+  function ruler(x0,x1,y,t){let g='';const ch=mode==='child',mx=ch?72:60,X=v=>lerp(x0,x1,v/mx);
+    g+=`<line x1="${x0}" x2="${x1}" y1="${y}" y2="${y}" style="stroke:var(--muted);stroke-width:1.4"/>`;
+    (ch?[0,12,24,36,48,60,72]:[0,10,20,30,40,50,60]).forEach(v=>g+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${y-4}" y2="${y+4}" style="stroke:var(--muted)"/>`+T(X(v),y+15,ch?(v/12)+'y':v+'y','t-xs t-mid'));
+    const fin=ramp(t,.62,.75);
+    if(ch){g+=`<rect x="${f1(X(36))}" y="${y-7}" width="${f1(X(69.5)-X(36))}" height="14" rx="3" style="fill:var(--accent-soft);opacity:${f1(.3+.7*fin)}"/>`;
+      [18,24].forEach(m=>g+=`<path d="M${f1(X(m))} ${y-10}l4 -6h-8z" style="fill:var(--accent)"/>`);
+      g+=`<circle cx="${f1(X(47))}" cy="${y}" r="${f1(4+3*fin)}" style="fill:var(--accent)"/>`+T(X(47),y-12,'median 47 mo','t-xs t-mid','fill:var(--ink);font-weight:600;opacity:'+f1(.45+.55*fin))}
+    else{g+=`<circle cx="${f1(X(13))}" cy="${y}" r="5" style="fill:var(--muted)"/>`+T(X(13),y-11,'13','t-xs t-mid');
+      g+=`<line x1="${f1(X(13))}" x2="${f1(X(lerp(13,23,ramp(t,.34,.84))))}" y1="${y}" y2="${y}" style="stroke:var(--accent);stroke-width:4"/>`;
+      g+=`<circle cx="${f1(X(23))}" cy="${y}" r="${f1(4+3*fin)}" style="fill:var(--accent);opacity:${f1(.4+.6*fin)}"/>`+T(X(23)+4,y-11,'23','t-xs','fill:var(--ink);font-weight:600')}
+    return g}
+  function draw(t){
+    const N=vb(svg,'720 380','400 548');
+    const p=phaseOf(ST,t),S=ST[p],nf=p<5?AS_FROM[p+1]:1.0001,f=clamp((t-S.from)/(nf-S.from));
+    let s='';
+    /* pathway */
+    const px0=N?34:56,px1=N?366:664,py=N?34:42,PX=k=>lerp(px0,px1,k/5);
+    s+=`<line x1="${px0}" x2="${px1}" y1="${py}" y2="${py}" style="stroke:var(--line);stroke-width:4;stroke-linecap:round"/>`;
+    const tp=p+ (p<5?f*.999:0);s+=`<line x1="${px0}" x2="${f1(lerp(px0,px1,clamp(tp/5)))}" y1="${py}" y2="${py}" style="stroke:var(--accent);stroke-width:4;stroke-linecap:round"/>`;
+    ST.forEach((st,k)=>{const x=PX(k),cur=k===p,done=k<p;
+      s+=`<circle cx="${f1(x)}" cy="${py}" r="${cur?15:12}" style="fill:${cur||done?'var(--accent)':'var(--panel)'};stroke:var(--accent);stroke-width:2"/>`+T(x,py+4,String(k+1),'t-xs t-mid',cur||done?'fill:#fff;font-weight:700':'fill:var(--accent);font-weight:700');
+      if(!N)st.lab.forEach((ln,j)=>s+=T(x,py+30+j*12,ln,'t-xs t-mid',cur?'fill:var(--ink);font-weight:600':''))});
+    if(N)s+=T(200,py+34,S.t.replace('&','&amp;'),'t-lbl t-mid');
+    /* scene panel */
+    const sb=N?{x:10,y:84,w:380,h:244}:{x:14,y:86,w:448,h:282};
+    s+=box(sb.x,sb.y,sb.w,sb.h,{fill:'var(--field)',r:12});
+    const sc=Math.min((sb.w-12)/430,(sb.h-12)/240),ox=sb.x+(sb.w-430*sc)/2,oy=sb.y+(sb.h-240*sc)/2;
+    s+=`<g class="${N?'asn':''}" transform="translate(${f1(ox)} ${f1(oy)}) scale(${sc.toFixed(3)})">${mode==='child'?sceneChild(p,f):sceneAdult(p,f)}</g>`;
+    /* clock panel */
+    const cb=N?{x:10,y:340,w:380,h:200}:{x:474,y:86,w:232,h:282};
+    s+=box(cb.x,cb.y,cb.w,cb.h,{r:12});
+    const ch=mode==='child';
+    if(N){s+=T(cb.x+14,cb.y+22,ch?'TIME SINCE FIRST CONCERN':'FROM FIRST MENTAL-HEALTH CONTACT','t-sm','fill:var(--accent)');
+      s+=clock(cb.x+70,cb.y+86,46,t,N);
+      const lx=cb.x+136;(ch?['≈1 yr: concern → seeking help','≈3.5 yr: first professional','→ confirmed diagnosis','UK survey, 1,047 parents']:['median 13: first evaluation','median 23: autism diagnosis','an 11-year gap','161 adults, two Italian centres']).forEach((l,k)=>s+=T(lx,cb.y+60+k*16,l,'t-xs',k===3?'':'fill:var(--ink)'));
+      s+=T(cb.x+14,cb.y+152,ch?'AGE AT DIAGNOSIS · ADDM 2022':'AGE (YEARS)','t-xs','fill:var(--accent)');
+      s+=ruler(cb.x+24,cb.x+cb.w-24,cb.y+174,t)}
+    else{s+=T(cb.x+14,cb.y+22,ch?'TIME SINCE FIRST CONCERN':'FROM FIRST MH CONTACT','t-sm','fill:var(--accent)');
+      s+=clock(cb.x+cb.w/2,cb.y+100,56,t,N);
+      (ch?['≈1 yr concern → help · ≈3.5 yr','help → diagnosis (UK, 1,047 parents)']:['median 13 → median 23:','an 11-year gap (161 adults)']).forEach((l,k)=>s+=T(cb.x+cb.w/2,cb.y+182+k*13,l,'t-xs t-mid',k?'':'fill:var(--ink)'));
+      s+=T(cb.x+14,cb.y+222,ch?'AGE AT DIAGNOSIS · ADDM 2022':'AGE (YEARS)','t-xs','fill:var(--accent)');
+      s+=ruler(cb.x+18,cb.x+cb.w-18,cb.y+252,t)}
+    svg.innerHTML=s;
+    setSt(p);
+    const e=elapsed(t);
+    $('#asRead').innerHTML=`<span>route <b>${ch?'child':'adult'}</b></span><span>station <b>${p+1} of 6 · ${S.t.replace('&','&amp;')}</b></span><span>${ch?'since first concern':'since first mental-health contact'} <b>${ch?(e/12).toFixed(1)+' years':Math.round(e)+' years'}</b></span>`;
+    $('#asNote').innerHTML=noteHTML(S);
+  }
+  const renderSteps=()=>{stEl.innerHTML=ST.map((s,i)=>`<button data-st="${i}" aria-pressed="false"><b>${String(i+1).padStart(2,'0')}</b><span>${s.t.replace('&','&amp;')}</span></button>`).join('')};
+  const stop=playWire(rg,$('#asPlay'),draw,22000,'Replay','assessment');
+  const setSt=stepWire(stEl,ST,rg,draw,stop);
+  renderSteps();
+  $$('[data-aspath]').forEach(b=>b.addEventListener('click',()=>{stop();mode=b.dataset.aspath;$$('[data-aspath]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    ST.splice(0,ST.length,...(mode==='child'?AS_CHILD:AS_ADULT));renderSteps();rg.value=ST[0].at;draw(+rg.value)}));
+  draw(+rg.value);
+
+  /* ---- accuracy and prevalence ---- */
+  const as=$('#asAccSvg'),ap=$('#asAccP'),at=$('#asAccTool');
+  function drawAcc(){const N=vb(as,'720 230','400 470'),I=AS_ACC[at.value],P=+ap.value;
+    const aut=Math.round(P*100),tp=Math.round(aut*I.se),fn=aut-tp,non=100-aut,tn=Math.round(non*I.sp),fp=non-tn;
+    $('#asAccPv').textContent=Math.round(P*100)+'%';
+    const cats=[['picked up (true positive)',tp,'var(--accent)'],['missed (false negative)',fn,'var(--accent-soft)'],['wrongly flagged (false positive)',fp,'var(--warn)'],['correctly cleared (true negative)',tn,'var(--panel-2)']];
+    let s='',k=0;const cols=N?10:20,dx=N?34:20,dy=N?26:20,x0=N?32:24,y0=N?24:28;
+    cats.forEach(([n,c,col],ci)=>{for(let j=0;j<c;j++){const cx=k%cols,cy=Math.floor(k/cols);s+=`<circle cx="${f1(x0+cx*dx)}" cy="${f1(y0+cy*dy)}" r="${N?9:7.5}" style="fill:${col};stroke:${ci===1?'var(--accent)':ci===3?'var(--muted)':col};stroke-width:1.2${ci===1?';stroke-dasharray:2 2':''}"/>`;k++}});
+    const lx=N?20:440,ly=N?300:40;
+    cats.forEach(([n,c,col],ci)=>{const y=ly+ci*(N?30:28);s+=`<circle cx="${lx+8}" cy="${y-4}" r="7" style="fill:${col};stroke:${ci===1?'var(--accent)':ci===3?'var(--muted)':col};stroke-width:1.2${ci===1?';stroke-dasharray:2 2':''}"/>`+T(lx+24,y,`<tspan style="font-weight:700;fill:var(--ink)">${c}</tspan> ${n}`,'t-sm')});
+    const ppv=tp+fp?tp/(tp+fp):0;
+    s+=T(lx,ly+(N?136:130),`Of ${tp+fp} flagged, ${Math.round(ppv*100)}% are autistic.`,'t-lbl');
+    as.innerHTML=s;
+    $('#asAccNote').innerHTML=`<div class="kicker">${I.n} · ${Math.round(P*100)}% autistic among those assessed</div><h4>${tp+fp} of 100 flagged, ${fp} wrongly</h4>
+      <p>With sensitivity ${I.se.toFixed(2)} and specificity ${I.sp.toFixed(2)}, ${I.n} picks up ${tp} of ${aut} autistic people and wrongly flags ${fp} of ${non} who are not. Lower the share of autistic people being assessed and false positives make up more of the flags: the review warns that false positives would be more common in lower-prevalence settings. <sup class="c" data-ref="Randall2018" title="Source 470">470</sup></p>
+      <div class="pt"><b>In plain words</b>A tool that is good in a specialist clinic can mislead where few people are autistic. That is one reason the team weighs everything, not one score. <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup></div>
+      <div class="hook"><b>Exam hook</b>Cochrane, preschool: ADOS sensitivity 0.94, specificity 0.80; ADI-R 0.52 and 0.84; CARS 0.80 and 0.88. <sup class="c" data-ref="Randall2018" title="Source 470">470</sup></div>`;
+  }
+  ap.addEventListener('input',drawAcc);at.addEventListener('change',drawAcc);
+  redraws.assessment=(prev=>()=>{prev&&prev();drawAcc()})(redraws.assessment);
+  drawAcc();
+
+  /* ---- differential matrix ---- */
+  function drawDd(id){const D=AS_DD[id];
+    $('#asDd').innerHTML=`<div class="card"><p class="kicker">Shared features</p><h4>What overlaps</h4><p>${D.sh}</p></div>
+      <div class="card mid"><p class="kicker">Points towards autism</p><h4>Autism</h4><p>${D.au}</p></div>
+      <div class="card"><p class="kicker">Points towards the other condition</p><h4>${D.n}</h4><p>${D.ot}</p></div>`;
+    $('#asDdV').innerHTML=`<div class="verdict ${D.v}">${D.vt}</div>`}
+  $$('[data-asdd]').forEach(b=>b.addEventListener('click',()=>{$$('[data-asdd]').forEach(x=>x.setAttribute('aria-pressed',x===b));drawDd(b.dataset.asdd)}));
+  drawDd('lang');
+};
+/* =============== 3.5 Co-occurring conditions =============== */
+/* n per 100 from pooled prevalence; on = schematic typical onset age (years) */
+const CO_C=[
+ {id:'id',n:'Intellectual disability',s:'Intellectual dis.',p:40,v:'39.6%',on:2,c:'var(--neuro)'},
+ {id:'sleep',n:'Sleep-wake disorder',s:'Sleep-wake',p:13,v:'13%',on:2.5,c:'var(--accent)'},
+ {id:'adhd',n:'ADHD',s:'ADHD',p:28,v:'28%',on:6,c:'var(--sense)'},
+ {id:'disr',n:'Disruptive / conduct',s:'Disruptive',p:12,v:'12%',on:7,c:'var(--warn)'},
+ {id:'anx',n:'Anxiety disorder',s:'Anxiety',p:20,v:'20%',on:9,c:'var(--inhibit)'},
+ {id:'epi',n:'Epilepsy',s:'Epilepsy',p:12,v:'12.1%',on:11,c:'var(--bad)'},
+ {id:'ocd',n:'OCD',s:'OCD',p:9,v:'9%',on:13,c:'var(--calm)'},
+ {id:'dep',n:'Depressive disorder',s:'Depression',p:11,v:'11%',on:15,c:'var(--gold)'},
+ {id:'bip',n:'Bipolar disorder',s:'Bipolar',p:5,v:'5%',on:21,c:'var(--excite)'},
+ {id:'psy',n:'Schizophrenia spectrum',s:'Psychosis',p:4,v:'4%',on:22,c:'var(--muted)'}
+];
+const CO_STEPS=[
+ {from:0,at:.075,k:'Age 0–5',t:'Early childhood',
+  txt:`Some differences are present from the start. In ADDM 2022, 39.6% of autistic 8-year-olds with cognitive data had intellectual disability. <sup class="c" data-ref="Shaw2025" title="Source 541">541</sup> Sleep problems are reported in 40–80% of autistic children, far more than the 13% with a diagnosed sleep-wake disorder, because a diagnosis is a stricter bar. <sup class="c" data-ref="Cortesi2010,Lai2019" title="Source 93,309">93,309</sup> Feeding problems are about five times as likely as in peers (OR 5.11). <sup class="c" data-ref="Sharp2013Feeding" title="Source 538">538</sup>`,
+  pt:`Sleep and eating difficulties often show up early. They are common, and help exists.`,
+  hook:`Diagnosed sleep-wake disorder 13% vs reported sleep problems 40–80%: the definitions differ. <sup class="c" data-ref="Lai2019,Cortesi2010" title="Source 93,309">93,309</sup>`},
+ {from:.125,at:.2,k:'Age 5–10',t:'Childhood: ADHD',
+  txt:`ADHD is the commonest co-occurring condition in the pooled data (28%). <sup class="c" data-ref="Lai2019" title="Source 309">309</sup> In a population-derived sample of autistic 10–14-year-olds, 70% had at least one psychiatric disorder and 41% had two or more; ADHD (28.2%) and oppositional defiant disorder (28.1%) were among the commonest, and 84% of those with ADHD had a further diagnosis. <sup class="c" data-ref="Simonoff2008" title="Source 549">549</sup>`,
+  pt:`Many autistic children also have ADHD. Spotting it matters, because it can be treated.`,
+  hook:`70% of autistic 10–14-year-olds had ≥1 psychiatric disorder; 41% had ≥2. <sup class="c" data-ref="Simonoff2008" title="Source 549">549</sup>`},
+ {from:.25,at:.3,k:'Age 10–15',t:'Adolescence: anxiety, epilepsy',
+  txt:`Anxiety disorders affect 39.6% of autistic young people under 18, most often specific phobia, OCD and social anxiety. <sup class="c" data-ref="vanSteensel2011" title="Source 601">601</sup> Epilepsy prevalence averaged 12.5% at ages 2–17 and 26% from 13 upward, <sup class="c" data-ref="Viscidi2013" title="Source 612">612</sup> and in a cohort followed to adulthood most seizures began after age 10. <sup class="c" data-ref="Bolton2011" title="Source 49">49</sup> Autism also raises the risk of a later OCD diagnosis (IRR 2.18). <sup class="c" data-ref="Meier2015" title="Source 375">375</sup>`,
+  pt:`The teenage years bring new risks: anxiety, and for some, seizures that start for the first time.`,
+  hook:`Epilepsy in autism: 21.5% with intellectual disability vs 8% without; onsets often after age 10. <sup class="c" data-ref="Amiet2008,Bolton2011" title="Source 14,49">14,49</sup>`},
+ {from:.375,at:.5,k:'Age 15–25',t:'Young adulthood: depression',
+  txt:`Depression accumulates through adolescence: by age 27, 19.8% of autistic people in Stockholm had a depression diagnosis against 6.0% of the population (adjusted RR 3.64), and the risk was higher in autism without intellectual disability (RR 4.28). <sup class="c" data-ref="Rai2018Depression" title="Source 469">469</sup> Compared with their own siblings, autistic people still had more than twice the odds. <sup class="c" data-ref="Rai2018Depression" title="Source 469">469</sup> Catatonic deterioration usually emerges in adolescence or early adulthood. <sup class="c" data-ref="Wing2000,VaquerizoSerrano2021" title="Source 604,639">604,639</sup>`,
+  pt:`Low mood is common in autistic teenagers and young adults. It is not "just autism": it can be treated.`,
+  hook:`Depression by 27: 19.8% autistic vs 6.0% general population. <sup class="c" data-ref="Rai2018Depression" title="Source 469">469</sup>`},
+ {from:.6,at:.95,k:'Age 25–40',t:'Adulthood',
+  txt:`In autistic adults, pooled anxiety was 27% current and 42% lifetime, and depression 23% current and 37% lifetime. <sup class="c" data-ref="Hollocks2019" title="Source 230">230</sup> Psychosis affected 9.4% and bipolar disorder 7.5%; males more often had psychosis and females bipolar disorder. <sup class="c" data-ref="Varcin2022" title="Source 605">605</sup> Nearly every medical and psychiatric condition was more common in 1,507 autistic adults than in matched controls. <sup class="c" data-ref="Croen2015Adults" title="Source 100">100</sup>`,
+  pt:`By adulthood, many autistic people have more than one other condition. Each one deserves its own care.`,
+  hook:`Lai 2019 order: ADHD 28 > anxiety 20 > sleep 13 > disruptive 12 > depression 11 > OCD 9 > bipolar 5 > schizophrenia spectrum 4 (%). <sup class="c" data-ref="Lai2019" title="Source 309">309</sup>`}
+];
+/* deterministic, clustered assignment: people who already have a condition are more likely to get another */
+const CO_ASSIGN=(()=>{const r=rng(11),cnt=new Array(100).fill(0),A={};
+  CO_C.forEach(c=>{const w=cnt.map(k=>r()+.1*k);const idx=[...Array(100).keys()].sort((a,b)=>w[b]-w[a]).slice(0,c.p);
+    const order=idx.map(i=>[i,r()]).sort((a,b)=>a[1]-b[1]);A[c.id]=new Map(order.map(([i],k)=>[i,k/c.p]));idx.forEach(i=>cnt[i]++)});
+  return A})();
+
+inits.cooccur=()=>{
+  const svg=$('#coSvg'),rg=$('#coT');
+  const on={};CO_C.forEach(c=>on[c.id]=true);
+  $('#coTg').innerHTML='<span class="kicker">Conditions</span>'+CO_C.map(c=>`<button class="btn" data-cotg="${c.id}" aria-pressed="true"><i style="background:${c.c}"></i>${c.s}</button>`).join('');
+  const vis=(c,age)=>on[c.id]?ramp(age,c.on,c.on+5):0;
+  function draw(t){
+    const N=vb(svg,'720 400','400 708'),age=t*40;
+    const L=N?{gx:24,gy:16,dx:36,dy:34,ps:20,bx:132,bw:186,by:372,bh:22,ax:[30,370],ay:684,lx:14}
+             :{gx:26,gy:14,dx:35,dy:32,ps:18,bx:520,bw:150,by:30,bh:26,ax:[40,690],ay:368,lx:388};
+    let s='';
+    const has=new Array(100).fill(0);
+    for(let i=0;i<100;i++){const cx=i%10,cy=Math.floor(i/10),x=L.gx+cx*L.dx+L.dx/2,y=L.gy+cy*L.dy;
+      const pips=[];CO_C.forEach(c=>{const m=CO_ASSIGN[c.id];if(m.has(i)){const v=vis(c,age);if(v>m.get(i))pips.push(c)}});
+      has[i]=pips.length;
+      s+=person(x,y,L.ps,pips.length?'var(--ink)':'var(--muted)',{op:pips.length?.9:.45});
+      pips.forEach((c,k)=>{const px=x-12+(k%5)*6,py=y+L.ps+4+Math.floor(k/5)*6;s+=`<circle cx="${f1(px)}" cy="${f1(py)}" r="2.7" style="fill:${c.c}"/>`})}
+    const one=has.filter(v=>v>=1).length,two=has.filter(v=>v>=2).length,three=has.filter(v=>v>=3).length;
+    /* bars */
+    CO_C.forEach((c,k)=>{const y=L.by+k*L.bh,v=vis(c,age),w=L.bw*c.p/40;
+      s+=`<text x="${L.bx-8}" y="${y+12}" class="t-xs t-end" style="fill:${on[c.id]?'var(--ink)':'var(--muted)'};${on[c.id]?'':'opacity:.5'}">${c.s}</text>`;
+      s+=`<rect x="${L.bx}" y="${y+2}" width="${f1(w)}" height="${L.bh-9}" rx="3" style="fill:none;stroke:${c.c};stroke-dasharray:2 2;opacity:.6"/>`;
+      s+=`<rect x="${L.bx}" y="${y+2}" width="${f1(w*v)}" height="${L.bh-9}" rx="3" style="fill:${c.c}"/>`;
+      s+=`<text x="${f1(L.bx+w+5)}" y="${y+12}" class="t-xs" style="fill:${v>.99?'var(--ink)':'var(--muted)'}">${c.v}</text>`});
+    const cy0=L.by+10*L.bh+(N?10:14);
+    s+=`<text x="${L.lx}" y="${cy0}" class="t-sm" style="fill:var(--accent)">IN THIS ILLUSTRATION, BY AGE ${Math.round(age)}</text>`;
+    s+=`<text x="${L.lx}" y="${cy0+20}" class="t-lbl">${one} of 100 have at least one condition</text><text x="${L.lx}" y="${cy0+37}" class="t-lbl">${two} have two or more · ${three} three or more</text>`;
+    /* lifespan axis */
+    const X=v=>lerp(L.ax[0],L.ax[1],v/40);
+    s+=`<line x1="${L.ax[0]}" x2="${L.ax[1]}" y1="${L.ay}" y2="${L.ay}" style="stroke:var(--muted);stroke-width:1.4"/>`;
+    for(let v=0;v<=40;v+=5)s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${L.ay-4}" y2="${L.ay+4}" style="stroke:var(--muted)"/><text x="${f1(X(v))}" y="${L.ay+16}" class="t-xs t-mid">${v}${v===40?' y':''}</text>`;
+    CO_C.forEach(c=>{if(on[c.id])s+=`<circle cx="${f1(X(c.on))}" cy="${L.ay}" r="3.5" style="fill:${c.c}"/>`});
+    s+=`<line x1="${f1(X(age))}" x2="${f1(X(age))}" y1="${L.ay-12}" y2="${L.ay+6}" style="stroke:var(--ink);stroke-width:2"/><text x="${f1(clamp(X(age),L.ax[0]+20,L.ax[1]-20))}" y="${L.ay-16}" class="t-xs t-mid" style="fill:var(--ink);font-weight:700">age ${Math.round(age)}</text>`;
+    svg.innerHTML=s;
+    const p=phaseOf(CO_STEPS,t);setSt(p);
+    rg.setAttribute('aria-valuetext',`Age ${Math.round(age)}: ${one} of 100 with at least one condition, ${two} with two or more`);
+    $('#coRead').innerHTML=`<span>age <b>${Math.round(age)}</b></span><span>≥1 condition <b>${one}/100</b></span><span>≥2 <b>${two}/100</b></span><span>shown <b>${CO_C.filter(c=>on[c.id]).length} of 10</b></span>`;
+    $('#coNote').innerHTML=noteHTML(CO_STEPS[p]);
+  }
+  const stop=playWire(rg,$('#coPlay'),draw,20000,'Replay','cooccur');
+  const setSt=stepWire($('#coSteps'),CO_STEPS,rg,draw,stop);
+  $$('[data-cotg]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.cotg;on[k]=!on[k];b.setAttribute('aria-pressed',on[k]);draw(+rg.value)}));
+  const setAll=v=>{CO_C.forEach(c=>on[c.id]=v);$$('[data-cotg]').forEach(b=>b.setAttribute('aria-pressed',v));draw(+rg.value)};
+  $('#coAll').addEventListener('click',()=>setAll(true));$('#coNone').addEventListener('click',()=>setAll(false));
+  draw(+rg.value);
+
+  /* ---- AuDHD ---- */
+  const au=$('#coAuSvg');let view='overlap',stopA=null,prog=1;
+  const AU_NOTE={
+   overlap:{k:'AuDHD · how often',t:'Two conditions, often together',
+    txt:`Pooled across 96 studies, 28% of autistic people have ADHD, the commonest co-occurring condition. <sup class="c" data-ref="Lai2019" title="Source 309">309</sup> In 1,899,654 people born in Sweden, autistic people had 22 times the odds of an ADHD diagnosis (OR 22.33), and the link was stronger in autism without intellectual disability. <sup class="c" data-ref="Ghirardi2018" title="Source 172">172</sup>`,
+    pt:`Having both autism and ADHD, sometimes called "AuDHD", is common. Each needs to be recognised.`,
+    hook:`ADHD in autism: 28% pooled <sup class="c" data-ref="Lai2019" title="Source 309">309</sup>; OR 22.33 in Swedish registers. <sup class="c" data-ref="Ghirardi2018" title="Source 172">172</sup>`},
+   family:{k:'AuDHD · families and genes',t:'It runs in families',
+    txt:`Relatives of autistic people had a higher risk of ADHD, graded by genetic relatedness: identical twins OR 17.77, non-identical twins 4.33, full siblings 4.59 <span class="ev est">Established</span>. <sup class="c" data-ref="Ghirardi2018" title="Source 172">172</sup> In 2.4 million Swedes, the genetic correlation between autism and other neurodevelopmental disorders was 0.73. <sup class="c" data-ref="Ghirardi2021" title="Source 173">173</sup>`,
+    pt:`The closer the family tie to an autistic person, the higher the chance of ADHD. Shared genes explain much of the overlap.`,
+    hook:`Graded by relatedness: MZ 17.77 > DZ 4.33 ≈ full sibling 4.59. <sup class="c" data-ref="Ghirardi2018" title="Source 172">172</sup>`},
+   treat:{k:'AuDHD · treatment',t:'Treating ADHD in autistic children',
+    txt:`In the RUPP crossover trial (72 children), 49% responded to methylphenidate; response was smaller and side effects more frequent than in non-autistic children with ADHD, and 18% stopped because of adverse effects. <sup class="c" data-ref="RUPP2005Methylphenidate" title="Source 498">498</sup> Extended-release guanfacine: 50% responders vs 9.4% on placebo. <sup class="c" data-ref="Scahill2015" title="Source 521">521</sup> Atomoxetine lowered ADHD ratings, <sup class="c" data-ref="Harfterkamp2012" title="Source 207">207</sup> and parent training alone also beat placebo. <sup class="c" data-ref="Handen2015" title="Source 201">201</sup> Medicines are covered in <a href="#meds" data-go="meds">Medication</a> and in the <a href="https://www.medcompanions.org/adhd/">ADHD Companion</a>.`,
+    pt:`ADHD medicines can help autistic children, but they work a little less well and side effects are more common, so doctors start carefully and review often.`,
+    hook:`Methylphenidate in autism: 49% responders, 18% stopped for adverse effects. <sup class="c" data-ref="RUPP2005Methylphenidate" title="Source 498">498</sup>`}
+  };
+  function drawAu(){const N=vb(au,'720 320','400 470'),u=ease(prog);let s='';
+    if(view==='overlap'){const cx=N?200:300,cy=N?150:150,R=N?100:110,d=lerp(N?150:220,N?70:110,u);
+      s+=`<circle cx="${f1(cx-d/2)}" cy="${cy}" r="${R}" style="fill:var(--accent);fill-opacity:.16;stroke:var(--accent);stroke-width:2"/><circle cx="${f1(cx+d/2)}" cy="${cy}" r="${R*.72}" style="fill:var(--sense);fill-opacity:.18;stroke:var(--sense);stroke-width:2"/>`;
+      s+=`<text x="${f1(cx-d/2-R*.45)}" y="${cy-R*.15}" class="t-lbl t-mid">Autism</text><text x="${f1(cx+d/2+R*.36)}" y="${cy-R*.15}" class="t-lbl t-mid">ADHD</text>`;
+      s+=`<g style="opacity:${f1(ramp(u,.6,1))}"><text x="${f1(cx+d/4)}" y="${cy+4}" class="t-mid" style="font:800 22px var(--display);fill:var(--ink)">28%</text><text x="${f1(cx+d/4)}" y="${cy+20}" class="t-xs t-mid" style="fill:var(--ink)">of autistic</text><text x="${f1(cx+d/4)}" y="${cy+32}" class="t-xs t-mid" style="fill:var(--ink)">people</text></g>`;
+      const tx=N?20:520,ty=N?300:60;
+      [['OR 22.33','odds of an ADHD diagnosis','if autistic (Sweden)'],['stronger','in autism without','intellectual disability'],['84%','of autistic children with ADHD','had a further diagnosis']].forEach((r,k)=>{const y=ty+k*(N?54:72);
+        s+=`<g style="opacity:${f1(ramp(u,.3+k*.15,.6+k*.15))}"><text x="${tx}" y="${y}" style="font:800 20px var(--display);fill:var(--accent)">${r[0]}</text><text x="${tx}" y="${y+16}" class="t-xs">${r[1]}</text><text x="${tx}" y="${y+28}" class="t-xs">${r[2]}</text></g>`})}
+    else if(view==='family'){const rows=[['Autistic person (vs not)',22.33],['Identical twin',17.77],['Non-identical twin',4.33],['Full sibling',4.59]];
+      const x0=N?150:220,x1=N?380:640,y0=N?40:50,rh=N?60:56,X=v=>lerp(x0,x1,v/25);
+      s+=`<text x="${N?14:24}" y="${N?22:30}" class="t-sm" style="fill:var(--accent)">ODDS OF ADHD (OR) · 1 = NO RAISED RISK</text>`;
+      rows.forEach(([n,v],k)=>{const y=y0+k*rh,w=X(v*u)-x0;s+=`<text x="${x0-8}" y="${y+18}" class="t-xs t-end" style="fill:var(--ink)">${n}</text><rect x="${x0}" y="${y+4}" width="${f1(Math.max(0,w))}" height="22" rx="4" style="fill:${k?'var(--sense)':'var(--accent)'};opacity:${k?.75:1}"/><text x="${f1(x0+w+6)}" y="${y+20}" class="t-xs" style="fill:var(--ink);font-weight:600">${(v*u).toFixed(2)}</text>`});
+      s+=`<line x1="${f1(X(1))}" x2="${f1(X(1))}" y1="${y0}" y2="${y0+4*rh}" style="stroke:var(--ink);stroke-dasharray:3 3"/><text x="${f1(X(1))}" y="${y0+4*rh+14}" class="t-xs t-mid">1</text>`;
+      s+=`<text x="${N?14:24}" y="${y0+4*rh+(N?44:40)}" class="t-xs" style="fill:var(--ink)">Genetic correlation, autism with other neurodevelopmental disorders: rg 0.73</text>`}
+    else{const rows=[['Methylphenidate: responders',49,null],['Methylphenidate: stopped for side effects',18,null],['Guanfacine XR: responders',50,9.4],['Atomoxetine: "much improved" (n.s.)',20.9,8.7]];
+      const x0=N?14:250,x1=N?380:640,y0=N?40:44,rh=N?92:60,X=v=>lerp(x0,x1,v/100);
+      s+=`<text x="${N?14:24}" y="${N?22:28}" class="t-sm" style="fill:var(--accent)">% OF AUTISTIC CHILDREN · DRUG vs PLACEBO</text>`;
+      rows.forEach(([n,v,pl],k)=>{const y=y0+k*rh,ly=N?y+12:y+18,by=N?y+20:y+4;
+        s+=`<text x="${N?x0:x0-8}" y="${ly}" class="t-xs ${N?'':'t-end'}" style="fill:var(--ink)">${n}</text>`;
+        s+=`<rect x="${x0}" y="${by}" width="${f1(X(v*u)-x0)}" height="18" rx="4" style="fill:${k===1?'var(--warn)':'var(--sense)'}"/><text x="${f1(X(v*u)+6)}" y="${by+13}" class="t-xs" style="fill:var(--ink);font-weight:600">${(v*u).toFixed(1)}%</text>`;
+        if(pl!=null)s+=`<rect x="${x0}" y="${by+22}" width="${f1(X(pl*u)-x0)}" height="12" rx="3" style="fill:var(--muted);opacity:.6"/><text x="${f1(X(pl*u)+6)}" y="${by+32}" class="t-xs">placebo ${(pl*u).toFixed(1)}%</text>`});
+      s+=`<text x="${N?14:24}" y="${y0+4*rh+(N?6:10)}" class="t-xs">Different trials and outcomes: not a head-to-head comparison.</text>`}
+    au.innerHTML=s;
+    $('#coAuNote').innerHTML=noteHTML(AU_NOTE[view]);
+  }
+  $$('[data-auv]').forEach(b=>b.addEventListener('click',()=>{view=b.dataset.auv;$$('[data-auv]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    if(stopA)stopA();prog=0;stopA=animate(1400,p=>{prog=p;drawAu()},()=>{stopA=null})}));
+  redraws.cooccur=(prev=>()=>{prev&&prev();drawAu()})(redraws.cooccur);
+  onHide.cooccur=(prev=>()=>{prev&&prev();if(stopA)stopA()})(onHide.cooccur);
+  drawAu();
+};
+/* =============== 4.1 Supports & the evidence =============== */
+const SU_FAM=[
+ {id:'beh',n:'Behavioural',c:'var(--accent)'},
+ {id:'dev',n:'Developmental',c:'var(--neuro)'},
+ {id:'ndbi',n:'NDBI',c:'var(--rx)'},
+ {id:'teacch',n:'TEACCH',c:'var(--gold)'},
+ {id:'sens',n:'Sensory-based',c:'var(--sense)'},
+ {id:'animal',n:'Animal-assisted',c:'var(--muted)'},
+ {id:'tech',n:'Technology-based',c:'var(--inhibit)'}];
+/* significant summary effects in the 2023 Project AIM update, RCTs only; g per filter stage:
+   [all RCTs, no caregiver/teacher report, also no high detection-bias risk]; null = no longer significant */
+const SU_EF=[
+ {f:'beh',c:'Ch',o:'social-emotional / challenging behaviour',g:[.58,null,null],ci:[.11,1.06],dy:0},
+ {f:'dev',c:'SC',o:'social communication',g:[.28,.31,null],ci:[.12,.44],dy:0},
+ {f:'ndbi',c:'La',o:'language',g:[.16,null,null],dy:-8},
+ {f:'ndbi',c:'Pl',o:'play',g:[.19,null,null],dy:8},
+ {f:'ndbi',c:'Ad',o:'adaptive behaviour',g:[.23,null,null],dy:-8},
+ {f:'ndbi',c:'SC',o:'social communication',g:[.35,.36,null],ci:[.23,.47],dy:8},
+ {f:'ndbi',c:'Dx',o:'diagnostic characteristics',g:[.38,.44,.30],ci:[.17,.59],ci3:[.03,.57],dy:-8},
+ {f:'tech',c:'SC',o:'social communication',g:[.33,null,null],dy:-8},
+ {f:'tech',c:'Ch',o:'social-emotional / challenging behaviour',g:[.57,null,null],dy:8}];
+const SU_STEPS=[
+ {from:0,at:.12,k:'Project AIM · the evidence base',t:'Thousands of children, seven families',
+  txt:`Project AIM is the largest meta-analysis of early autism interventions. The 2020 review pooled 1,615 effect sizes from 130 samples covering 6,240 children aged 0–8, across seven intervention types: behavioural, developmental, naturalistic developmental behavioural (NDBI), TEACCH, sensory-based, animal-assisted and technology-based. <sup class="c" data-ref="Sandbank2020" title="Source 508">508</sup> The 2023 update (search November 2021) included 252 studies and 13,304 participants: the evidence base roughly doubled in four years. <sup class="c" data-ref="Sandbank2023BMJ" title="Source 509">509</sup> Medicines were not part of Project AIM; see <a href="#meds" data-go="meds">Medication</a>.`,
+  pt:`Researchers gathered almost every study of early autism support they could find, so they could ask what works and how sure we can be.`,
+  hook:`Project AIM 2020: 130 samples, 6,240 children, 7 intervention types. <sup class="c" data-ref="Sandbank2020" title="Source 508">508</sup>`},
+ {from:.2,at:.3,k:'Filter 1 · randomised trials only',t:'Nine significant effects',
+  txt:`Counting only randomised controlled trials, the 2023 update found significant summary effects for behavioural interventions on challenging behaviour (g 0.58, 95% CI 0.11 to 1.06), developmental interventions on social communication (0.28), NDBI on adaptive behaviour (0.23), language (0.16), play (0.19), social communication (0.35) and diagnostic characteristics (0.38), and technology-based interventions on social communication (0.33) and challenging behaviour (0.57). TEACCH, sensory-based and animal-assisted interventions had none. <sup class="c" data-ref="Sandbank2023BMJ" title="Source 509">509</sup>`,
+  pt:`In the fairer studies, where children are put into groups by chance, several kinds of support still look helpful.`,
+  hook:`Hedges' g is a standardised mean difference: 0.2 is often called small, 0.5 medium.`},
+ {from:.4,at:.5,k:'Filter 2 · no caregiver or teacher reports',t:'Who is doing the rating?',
+  txt:`Parents and teachers usually know which group a child is in, and they often help deliver the intervention. Excluding caregiver- and teacher-reported outcomes left three significant effects: developmental interventions on social communication (g 0.31), NDBI on social communication (0.36) and NDBI on diagnostic characteristics (0.44). Behavioural and technology effects were no longer significant. <sup class="c" data-ref="Sandbank2023BMJ" title="Source 509">509</sup>`,
+  pt:`When the people who rate progress are not the people who hoped for it, many of the gains get smaller or disappear.`,
+  hook:`Rater effects: unblinded caregiver and teacher reports inflate effect sizes in autism trials. <sup class="c" data-ref="Sandbank2023BMJ" title="Source 509">509</sup>`},
+ {from:.6,at:.7,k:'Filter 3 · low risk of detection bias',t:'One effect left',
+  txt:`<span class="ev est">Established</span> When effects at high risk of detection bias were also excluded, only one significant summary effect remained: NDBI on measures of diagnostic characteristics of autism, g 0.30 (95% CI 0.03 to 0.57). <sup class="c" data-ref="Sandbank2023BMJ" title="Source 509">509</sup> In 2020, the same strict test (RCTs with outcomes free of detection bias) left no intervention type with a significant effect on any outcome. <sup class="c" data-ref="Sandbank2020" title="Source 508">508</sup>`,
+  pt:`Under the strictest test, only one small effect is left. That does not mean nothing helps; it means we cannot yet be sure how much.`,
+  hook:`Project AIM: strictest filter → none significant (2020); only NDBI on diagnostic characteristics, g 0.30 (2023). <sup class="c" data-ref="Sandbank2020,Sandbank2023BMJ" title="Source 508,509">508,509</sup>`},
+ {from:.8,at:.92,k:'Why certainty is low',t:'Harms, conflicts and hours',
+  txt:`Three more reasons for caution. Only 11 of 150 early-intervention reports mentioned adverse events. <sup class="c" data-ref="BottemaBeutel2021AE" title="Source 53">53</sup> 70% of reports had at least one conflict of interest, but only about 6% fully disclosed them. <sup class="c" data-ref="BottemaBeutel2021COI" title="Source 54">54</sup> And across 144 studies, more hours of intervention did not go with bigger effects; the authors found "little robust evidence" for intensive programmes. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Sandbank2024JAMAPed" title="Source 510">510</sup>`,
+  pt:`Studies rarely check for downsides, many authors also sell the therapy, and more hours a week have not been shown to help more.`,
+  hook:`70% of early-intervention reports had a conflict of interest; ~6% fully disclosed. Only 11/150 mentioned adverse events. <sup class="c" data-ref="BottemaBeutel2021COI,BottemaBeutel2021AE" title="Source 53,54">53,54</sup>`}];
+
+/* ---- PACT ---- */
+const SU_PROWS=[
+ {l:'Parent synchrony',w:'13 mo',v:1.22,ci:null,at:.28,src:'G'},
+ {l:'Child initiations',w:'13 mo',v:.41,ci:null,at:.3,src:'G'},
+ {l:'Symptoms (ADOS-G)',w:'13 mo',v:.24,ci:[-.11,.59],at:.4,src:'G',ns:1},
+ {l:'Severity (ADOS CSS)',w:'endpoint',v:.64,ci:[.07,1.20],at:.62,src:'P'},
+ {l:'Severity (ADOS CSS)',w:'follow-up',v:.70,ci:[-.05,1.47],at:.7,src:'P'},
+ {l:'Severity, whole period',w:'0–6 y',v:.55,ci:[.14,.91],at:.74,src:'P'},
+ {l:'Language',w:'follow-up',v:.15,ci:[-.23,.53],at:.86,src:'P',ns:1},
+ {l:'Child initiations',w:'follow-up',v:.29,ci:null,at:.88,src:'P'}];
+const SU_PSTEPS=[
+ {from:0,at:.08,k:'Enrolment · age 2 to 4',t:'Randomised to two groups',
+  txt:`152 children aged 2 years to 4 years 11 months were randomised at three UK centres: 77 to PACT plus treatment as usual, 75 to treatment as usual. PACT is parent-mediated: a therapist uses video feedback to help the parent notice and respond to the child's communication. <sup class="c" data-ref="Green2010" title="Source 181">181</sup>`,
+  pt:`Families were put into two groups by chance. In one, parents had coaching on top of the usual services.`,
+  hook:`PACT = Preschool Autism Communication Trial; parent-mediated, communication-focused. <sup class="c" data-ref="Green2010" title="Source 181">181</sup>`},
+ {from:.16,at:.29,k:'13 months · end of therapy',t:'Parents and children in step',
+  txt:`PACT clearly improved parent synchronous response (effect size 1.22) and the child's initiations with the parent (0.41). <sup class="c" data-ref="Green2010" title="Source 181">181</sup> Across 17 RCTs, Cochrane also found strong evidence that parent-mediated interventions change parent–child interaction (parent synchrony SMD 0.90), while most child outcomes were inconclusive. <sup class="c" data-ref="Oono2013" title="Source 435">435</sup>`,
+  pt:`Parents learned to follow their child's lead, and children started more back-and-forth with their parent.`,
+  hook:`Parent-mediated therapy changes the interaction first: synchrony ES 1.22 in PACT. <sup class="c" data-ref="Green2010" title="Source 181">181</sup>`},
+ {from:.36,at:.42,k:'13 months · symptom scores',t:'No significant difference yet',
+  txt:`ADOS-G symptom scores fell by 3.9 points with PACT and 2.9 with treatment as usual; the between-group effect size, −0.24 (95% CI −0.59 to 0.11), was not significant. <sup class="c" data-ref="Green2010" title="Source 181">181</sup> A trial can change how a family communicates before it changes a diagnostic score, and the 2010 paper's headline was a negative primary outcome.`,
+  pt:`At the end of therapy, the autism assessment scores were similar in both groups.`,
+  hook:`PACT 2010 primary outcome (ADOS-G at 13 months): not significant, ES −0.24. <sup class="c" data-ref="Green2010" title="Source 181">181</sup>`},
+ {from:.55,at:.7,k:'About 6 years later · mean age 10.5',t:'A long-term difference',
+  txt:`<span class="ev est">Established</span> The follow-up traced 121 of 152 children (80%) a median 5.75 years after the trial ended. The effect on ADOS calibrated severity was 0.64 (95% CI 0.07 to 1.20) at endpoint and 0.70 (−0.05 to 1.47) at follow-up; over the whole period it was 0.55 (0.14 to 0.91, p=0.004), the first RCT to show long-term symptom reduction. <sup class="c" data-ref="Pickles2016" title="Source 458">458</sup>`,
+  pt:`Years later, the children whose parents had coaching showed, on average, fewer autism-related difficulties on the assessment.`,
+  hook:`PACT follow-up: ADOS CSS ES 0.55 over about 6 years. <sup class="c" data-ref="Pickles2016" title="Source 458">458</sup>`},
+ {from:.82,at:.94,k:'What carried the effect',t:'Language did not differ; initiations did',
+  txt:`At follow-up there was no group difference in language (ES 0.15, 95% CI −0.23 to 0.53); child initiations with the parent were 0.29. <sup class="c" data-ref="Pickles2016" title="Source 458">458</sup> Mediation analysis found that more child communication initiation at the treatment midpoint explained 73% of the effect on follow-up severity. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Carruthers2024" title="Source 71">71</sup>`,
+  pt:`The change that lasted seems to start with the child reaching out to communicate more, not with learning more words.`,
+  hook:`PACT mediation: 73% of the follow-up effect ran through child initiations at midpoint. <sup class="c" data-ref="Carruthers2024" title="Source 71">71</sup>`}];
+
+inits.supports=()=>{
+  /* ===== evidence map ===== */
+  const svg=$('#suSvg'),rg=$('#suT');
+  const famC=Object.fromEntries(SU_FAM.map(f=>[f.id,f.c])),famI=Object.fromEntries(SU_FAM.map((f,i)=>[f.id,i]));
+  function gAt(e,t){const k1=ramp(t,.36,.46),k2=ramp(t,.56,.66);
+    const v=[e.g[0],e.g[1],e.g[2]];
+    const a=v[0],b=v[1]==null?0:v[1],c=v[2]==null?0:v[2];
+    const g=k2>0?lerp(b,c,ease(k2)):lerp(a,b,ease(k1));
+    const alive=k2>=.5?v[2]!=null:k1>=.5?v[1]!=null:true;
+    const ci=k2>=.5?(alive?e.ci3:null):k1>=.5?null:e.ci;
+    return {g,alive,ci}}
+  let setSt=()=>{};
+  function draw(t){
+    const N=vb(svg,'720 396','400 600');
+    const x0=N?24:180,x1=N?380:640,gx=g=>x0+(x1-x0)*clamp(g,0,.8)/.8;
+    const ly=i=>N?104+i*46:74+i*34,axY=N?414:318;
+    let s=`<defs>${marker('suAr','var(--muted)')}</defs>`;
+    const nPart=Math.round(lerp(6240,13304,ramp(t,.02,.16)));
+    const st=[`RCTs only`,`no caregiver/teacher report`,`low detection-bias risk`];
+    const stage=t<.41?0:t<.61?1:2;
+    s+=`<text x="${N?12:20}" y="28" class="t-big">${t<.18?'Project AIM: building the evidence base':'Filter: '+['randomised trials only','+ no caregiver or teacher reports','+ low risk of detection bias'][stage]}</text>`;
+    s+=`<text x="${N?12:20}" y="${N?48:48}" class="t-sm">${t<.18?(nPart<13304?nPart.toLocaleString('en-GB')+' participants':'13,304 participants · 252 studies (2023)'):'2023 update · Hedges’ g'}</text>`;
+    /* grid + axis */
+    for(let g=0;g<=.8001;g+=.2){const x=gx(g);s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${f1(ly(0)-22)}" y2="${axY}" class="grid" style="stroke:var(--line);stroke-dasharray:${g?'2 3':'0'}"/><text x="${f1(x)}" y="${axY+16}" class="t-xs t-mid">${g.toFixed(1)}</text>`}
+    s+=`<line x1="${x0}" x2="${x1}" y1="${axY}" y2="${axY}" class="axis" style="stroke:var(--muted)"/>`;
+    s+=`<text x="${f1((x0+x1)/2)}" y="${axY+32}" class="t-xs t-mid">pooled effect size (Hedges’ g) → larger benefit</text>`;
+    /* lanes */
+    SU_FAM.forEach((f,i)=>{const y=ly(i);
+      s+=`<line x1="${x0}" x2="${x1}" y1="${y}" y2="${y}" style="stroke:var(--line);stroke-width:1"/>`;
+      s+=N?`<text x="${x0}" y="${y-17}" class="t-xs" style="fill:${f.c};font-weight:600">${f.n}</text>`:`<text x="${x0-12}" y="${y+4}" class="t-lbl t-end" style="fill:${f.c}">${f.n}</text>`;
+      if(['teacch','sens','animal'].includes(f.id)&&t>=.18)s+=`<text x="${f1(x0+8)}" y="${y+(N?-4:-6)}" class="t-xs" style="opacity:${f1(ramp(t,.18,.24))}">no significant RCT effect</text>`;
+    });
+    /* bubbles */
+    const appear=i=>ramp(t,.02+i*.017,.06+i*.017);
+    let alive=0;const rB=N?8:9;
+    SU_EF.forEach((e,i)=>{const A=appear(i);if(A<=0)return;const S=gAt(e,t),y=ly(famI[e.f])+e.dy,x=gx(S.g*A+(1-A)*0),c=famC[e.f];
+      if(S.alive)alive++;
+      if(S.ci&&S.alive&&t>=.18){const cx0=gx(S.ci[0]),cx1=gx(S.ci[1]),over=S.ci[1]>.8;
+        s+=`<line x1="${f1(cx0)}" x2="${f1(cx1-(over?4:0))}" y1="${y}" y2="${y}" style="stroke:${c};stroke-width:2;opacity:.55"${over?' marker-end="url(#suAr)"':''}/><line x1="${f1(cx0)}" x2="${f1(cx0)}" y1="${y-5}" y2="${y+5}" style="stroke:${c};stroke-width:2;opacity:.55"/>`;
+        if(!over)s+=`<line x1="${f1(cx1)}" x2="${f1(cx1)}" y1="${y-5}" y2="${y+5}" style="stroke:${c};stroke-width:2;opacity:.55"/>`}
+      const r=S.alive?rB:rB*.62;
+      s+=`<circle cx="${f1(x)}" cy="${y}" r="${f1(r)}" style="fill:${S.alive?c:'var(--panel)'};stroke:${c};stroke-width:1.6;opacity:${f1(A*(S.alive?.92:.5))}"/>`;
+      if(S.alive)s+=`<text x="${f1(x)}" y="${y+3.3}" class="t-xs t-mid" style="fill:var(--bg);font-weight:700;opacity:${f1(A)}">${e.c}</text>`;
+      if(S.alive&&t>=.6&&e.c==='Dx'&&e.f==='ndbi')s+=`<text x="${f1(x+14)}" y="${y-10}" class="t-sm" style="fill:var(--ink)">g ${S.g.toFixed(2)}</text>`;
+    });
+    /* legend or the step-5 panel */
+    const pk=ramp(t,.78,.86);
+    const lgY=N?466:368;
+    if(pk<1){const L=[['Ch','challenging behaviour'],['SC','social communication'],['Dx','diagnostic characteristics'],['La','language'],['Pl','play'],['Ad','adaptive']];
+      let lx=N?12:20,ly2=lgY;s+=`<g style="opacity:${f1(1-pk)}">`;
+      L.forEach(([a,b],j)=>{const w=(a.length+b.length+1)*6.9+14;if(lx+w>(N?392:712)){lx=N?12:20;ly2+=16}
+        s+=`<text x="${lx}" y="${ly2}" class="t-xs"><tspan style="font-weight:700;fill:var(--ink)">${a}</tspan> ${b}</text>`;lx+=w});
+      s+='</g>'}
+    if(pk>0){const px=N?12:412,py=N?456:66,pw=N?376:296,ph=N?124:240;
+      s+=`<g style="opacity:${f1(pk)}"><rect x="${px}" y="${py}" width="${pw}" height="${ph}" rx="12" style="fill:var(--panel);stroke:var(--line);stroke-width:1.4"/>`;
+      const rows=[['Reports mentioning adverse events',11/150,'11 of 150','var(--warn)'],['Reports with ≥1 conflict of interest',.70,'70%','var(--bad)'],['… that fully disclosed them',.06,'≈6%','var(--bad)']];
+      const bw=pw-28;rows.forEach((r,j)=>{const yy=py+(N?22:30)+j*(N?30:44);
+        s+=`<text x="${px+14}" y="${yy}" class="t-xs" style="fill:var(--ink)">${r[0]}</text><rect x="${px+14}" y="${yy+5}" width="${bw}" height="9" rx="4" style="fill:var(--panel-2)"/><rect x="${px+14}" y="${yy+5}" width="${f1(bw*r[1]*ramp(t,.82,.9))}" height="9" rx="4" style="fill:${r[3]}"/><text x="${px+pw-14}" y="${yy}" class="t-xs t-end" style="font-weight:700;fill:var(--ink)">${r[2]}</text>`});
+      const hy=py+(N?112:180);
+      s+=`<text x="${px+14}" y="${hy}" class="t-xs" style="fill:var(--ink)">More hours → bigger effect?</text><text x="${px+pw-14}" y="${hy}" class="t-xs t-end" style="font-weight:700;fill:var(--ink)">no link in 144 studies</text>`;
+      if(!N)s+=`<text x="${px+14}" y="${hy+22}" class="t-xs">Sources in the note panel.</text>`;
+      s+='</g>'}
+    svg.innerHTML=s;
+    const ph=phaseOf(SU_STEPS,t);setSt(ph);
+    $('#suNote').innerHTML=noteHTML(SU_STEPS[ph]);
+    $('#suRead').innerHTML=`<span>stage <b>${t<.18?'evidence base':['RCTs only','+ no caregiver/teacher report','+ low detection-bias risk'][stage]}</b></span><span>significant effects <b>${t<.18?'—':alive}</b></span><span>participants (2023) <b>13,304</b></span>`;
+  }
+  const stop=playWire(rg,$('#suPlay'),draw,22000,'Replay','supports');
+  setSt=stepWire($('#suSteps'),SU_STEPS,rg,draw,stop);
+  draw(+rg.value);
+
+  /* ===== PACT ===== */
+  const ps=$('#suPSvg'),pr=$('#suPT');let foc='pact',setP=()=>{};
+  const TURNS=(()=>{const r=rng(77),a=[];for(let i=0;i<16;i++)a.push({u:(i+.5)/16,p:r(),q:r()});return a})();
+  function syncShare(t,g){/* schematic: share of child turns met in step */
+    return g==='pact'?lerp(.3,.85,ramp(t,.08,.28)):lerp(.3,.42,ramp(t,.08,.28))}
+  function drawP(t){
+    const N=vb(ps,'720 380','400 700');
+    let s='';
+    /* --- scene --- */
+    const sx=N?0:0,sy=N?0:0;
+    const P=foc==='pact',col=P?'var(--rx)':'var(--muted)';
+    const fx1=N?90:70,fx2=N?250:200,fy=N?78:86;
+    s+=`<text x="${N?14:20}" y="26" class="t-lbl">${P?'PACT: parent follows the child’s lead':'Usual care only'}</text>`;
+    s+=face(fx1,fy,N?26:24,{gaze:0,mouth:'smile'});
+    s+=face(fx2,fy+6,N?20:18,{gaze:P&&t>.12?180:120,mouth:P&&t>.12?'open':'flat'});
+    s+=`<text x="${fx1}" y="${fy+(N?42:40)}" class="t-xs t-mid">parent</text><text x="${fx2}" y="${fy+(N?40:38)}" class="t-xs t-mid">child</text>`;
+    /* turn strip: child turns on top, parent responses below; linked when in step */
+    const tx0=N?20:24,tx1=N?380:268,cy=N?150:160,py=N?182:190,sh=syncShare(t,foc);
+    s+=`<text x="${tx0}" y="${cy-12}" class="t-xs">child turns</text><text x="${tx0}" y="${py+20}" class="t-xs">parent responses</text>`;
+    let met=0;
+    TURNS.forEach((T,i)=>{const x=lerp(tx0+6,tx1-6,T.u),inStep=T.p<sh;if(inStep)met++;
+      s+=`<circle cx="${f1(x)}" cy="${cy}" r="4.5" style="fill:var(--brand)"/>`;
+      const dx=inStep?0:(T.q-.5)*16+8;
+      s+=`<rect x="${f1(x+dx-4)}" y="${py-4}" width="8" height="8" rx="2" style="fill:${inStep?col:'var(--panel-2)'};stroke:${col};stroke-width:1.2"/>`;
+      if(inStep)s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${cy+5}" y2="${py-5}" style="stroke:${col};stroke-width:1.6"/>`});
+    /* pictograms: 10 per group, about 8 children each; 2 fade at follow-up (121/152 traced) */
+    const gy1=N?244:240,gy2=N?284:284,fade=ramp(t,.52,.6);
+    [['pact','PACT · 77','var(--rx)',gy1],['tau','Usual care · 75','var(--muted)',gy2]].forEach(([g,lab,c,yy])=>{
+      const on=foc===g;s+=`<text x="${tx0}" y="${yy-4}" class="t-xs" style="fill:${on?'var(--ink)':'var(--muted)'};font-weight:${on?700:500}">${lab}</text>`;
+      for(let k=0;k<10;k++){const lost=k>=8&&fade>0;s+=person(tx0+(N?120:100)+k*(N?24:16),yy-22,N?22:18,c,{op:(on?1:.45)*(lost?1-.75*fade:1)})}});
+    if(fade>0)s+=`<text x="${tx0}" y="${(N?gy2+22:gy2+20)}" class="t-xs" style="opacity:${f1(fade)}">121 of 152 children traced at follow-up (80%)</text>`;
+    /* --- forest --- */
+    const fx0=N?150:440,fxe=N?384:700,fyy=N?330:58,rowH=N?30:28,vx=v=>lerp(fx0,fxe,(clamp(v,-.4,1.6)+.4)/2);
+    s+=`<text x="${N?14:300}" y="${fyy-18}" class="t-lbl">Between-group effect sizes</text>`;
+    const fbot=fyy+SU_PROWS.length*rowH;
+    s+=`<line x1="${f1(vx(0))}" x2="${f1(vx(0))}" y1="${fyy-6}" y2="${fbot}" style="stroke:var(--muted);stroke-width:1.2"/>`;
+    [0,.5,1,1.5].forEach(v=>s+=`<text x="${f1(vx(v))}" y="${fbot+14}" class="t-xs t-mid">${v}</text>`);
+    s+=`<text x="${f1(vx(.6))}" y="${fbot+28}" class="t-xs t-mid">favours PACT →</text>`;
+    SU_PROWS.forEach((R,i)=>{const y=fyy+i*rowH+10,A=ramp(t,R.at-.05,R.at);
+      const lx=N?14:300;
+      s+=`<text x="${lx}" y="${y-2}" class="t-xs" style="fill:${A>0?'var(--ink)':'var(--muted)'};opacity:${A>0?1:.45}">${R.l}</text><text x="${lx}" y="${y+9}" class="t-xs" style="opacity:${A>0?1:.45}">${R.w} · ${R.src==='G'?'2010':'2016'}</text>`;
+      if(A<=0)return;
+      const c=R.ns?'var(--muted)':'var(--rx)';
+      if(R.ci)s+=`<line x1="${f1(vx(R.ci[0]))}" x2="${f1(vx(lerp(R.ci[0],R.ci[1],A)))}" y1="${y}" y2="${y}" style="stroke:${c};stroke-width:2"/>`;
+      const x=vx(R.v*ease(A));
+      s+=`<rect x="${f1(x-5)}" y="${y-5}" width="10" height="10" style="fill:${R.ns?'var(--panel)':c};stroke:${c};stroke-width:1.6"/>`;
+      s+=`<text x="${f1(Math.min(x+10,fxe-30))}" y="${y-6}" class="t-xs" style="fill:var(--ink);font-weight:600">${R.v.toFixed(2)}${R.ns?' ns':''}</text>`});
+    /* --- age axis --- */
+    const ay=N?670:350,ax0=N?24:40,ax1=N?380:690,AG=[2,11],age=a=>lerp(ax0,ax1,(a-AG[0])/(AG[1]-AG[0]));
+    s+=`<line x1="${ax0}" x2="${ax1}" y1="${ay}" y2="${ay}" style="stroke:var(--muted);stroke-width:1.2"/>`;
+    for(let a=2;a<=11;a++)s+=`<line x1="${f1(age(a))}" x2="${f1(age(a))}" y1="${ay-4}" y2="${ay+4}" style="stroke:var(--muted)"/><text x="${f1(age(a))}" y="${ay+16}" class="t-xs t-mid">${a}</text>`;
+    s+=`<rect x="${f1(age(2))}" y="${ay-12}" width="${f1(age(4.9)-age(2))}" height="6" rx="3" style="fill:var(--rx);opacity:.35"/>`;
+    s+=`<text x="${f1(age(2))}" y="${ay-16}" class="t-xs">enrolled 2–4 y 11 m</text><text x="${f1(age(10.5))}" y="${ay-16}" class="t-xs t-end">follow-up, mean 10.5 y</text>`;
+    const ag=t<.5?lerp(3.5,4.6,ramp(t,0,.45)):lerp(4.6,10.5,ramp(t,.5,.72));
+    s+=`<circle cx="${f1(age(ag))}" cy="${ay}" r="6" style="fill:var(--brand);stroke:var(--bg);stroke-width:2"/>`;
+    s+=`<text x="${N?14:20}" y="${ay-36}" class="t-xs">age (years) · mean age now ≈ ${f1(ag)}</text>`;
+    ps.innerHTML=s;
+    const ph=phaseOf(SU_PSTEPS,t);setP(ph);
+    const base=SU_PSTEPS[ph];
+    const extra=P?'':` In the usual-care group, children received treatment as usual only; the comparison shows what PACT added on top of it. <sup class="c" data-ref="Green2010" title="Source 181">181</sup>`;
+    $('#suPNote').innerHTML=noteHTML(Object.assign({},base,{txt:base.txt+extra}));
+    $('#suPRead').innerHTML=`<span>focus <b>${P?'PACT + usual care (n=77)':'usual care (n=75)'}</b></span><span>child turns met in step (schematic) <b>${met} of 16</b></span><span>traced at follow-up <b>${t>=.56?'121 of 152':'—'}</b></span>`;
+  }
+  const stopP=playWire(pr,$('#suPPlay'),drawP,20000,'Replay','supports');
+  setP=stepWire($('#suPSteps'),SU_PSTEPS,pr,drawP,stopP);
+  $$('[data-sug]').forEach(b=>b.addEventListener('click',()=>{foc=b.dataset.sug;$$('[data-sug]').forEach(x=>x.setAttribute('aria-pressed',x===b));drawP(+pr.value)}));
+  drawP(+pr.value);
+};
+/* =============== 4.2 ABA and the debate =============== */
+const AB_Y0=1965,AB_Y1=2026;
+const abT=y=>(y-AB_Y0)/(AB_Y1-AB_Y0);
+/* items: y year, s step, k 'ev' (event) | 'pro' (proponents argue) | 'crit' (critics argue), l short label (SVG, no citations) */
+const AB_IT=[
+ {y:1969,s:0,k:'ev',l:'Lovaas & Simmons: shock contingent on self-injury'},
+ {y:1969,s:0,k:'pro',l:'Self-injury was suppressed during shock'},
+ {y:1969,s:0,k:'crit',l:'It returned once shock was removed'},
+ {y:2017,s:0,k:'crit',l:'Painful aversives rejected outright'},
+ {y:1987,s:1,k:'ev',l:'Lovaas: 47% "normal functioning", ~40 h/week'},
+ {y:1993,s:1,k:'ev',l:'McEachin: follow-up to mean age 11.5'},
+ {y:1998,s:1,k:'ev',l:'Gresham & MacMillan critique'},
+ {y:2000,s:1,k:'ev',l:'Smith RCT: 28 children, 24.5 h/week'},
+ {y:2001,s:1,k:'ev',l:'UK EIBI programmes average 32 h/week'},
+ {y:1987,s:1,k:'pro',l:'47% reached "normal functioning"'},
+ {y:1993,s:1,k:'pro',l:'Gains kept to age 11.5'},
+ {y:2000,s:1,k:'pro',l:'RCT: better IQ, language, academics'},
+ {y:1998,s:1,k:'crit',l:'No random assignment; validity threats'},
+ {y:2000,s:1,k:'crit',l:'No gain in adaptive skills or behaviour'},
+ {y:2001,s:1,k:'crit',l:'No UK child met all original conditions'},
+ {y:1994,s:2,k:'ev',l:'Iwata: functional analysis of self-injury'},
+ {y:2002,s:2,k:'ev',l:'Positive behaviour support defined'},
+ {y:2003,s:2,k:'ev',l:'Functional analysis "a hallmark"'},
+ {y:1994,s:2,k:'pro',l:'6 of 9: self-injury had a clear function'},
+ {y:2002,s:2,k:'pro',l:'PBS: quality of life, prevention'},
+ {y:2025,s:2,k:'crit',l:'Targets mix harmful and harmless acts'},
+ {y:2006,s:3,k:'ev',l:'Kasari: joint attention & play RCT'},
+ {y:2010,s:3,k:'ev',l:'ESDM RCT: 48 toddlers, 2 years'},
+ {y:2015,s:3,k:'ev',l:'NDBI umbrella defined'},
+ {y:2019,s:3,k:'ev',l:'ESDM multisite: partial replication'},
+ {y:2021,s:3,k:'ev',l:'15 vs 25 h/week RCT: no main effect'},
+ {y:2010,s:3,k:'pro',l:'ESDM: IQ +17.6 vs +7.0 points'},
+ {y:2022,s:3,k:'pro',l:'NDBIs as a bridge to neurodiversity'},
+ {y:2019,s:3,k:'crit',l:'Replication: no change in autism severity'},
+ {y:2021,s:3,k:'crit',l:'More hours gave no extra benefit'},
+ {y:2017,s:4,k:'ev',l:'Kirkham: history of the critique'},
+ {y:2018,s:4,k:'ev',l:'Kupferstein survey; Leaf et al. reply'},
+ {y:2020,s:4,k:'ev',l:'McGill & Robinson: "hidden harms"'},
+ {y:2023,s:4,k:'ev',l:'Anderson: 7 adults recall ABA'},
+ {y:2025,s:4,k:'ev',l:'Expression of concern on Kupferstein'},
+ {y:2018,s:4,k:'pro',l:'Survey: leading questions, no diagnosis check'},
+ {y:2020,s:4,k:'pro',l:'Rebuttal: long-term ABA is not abuse'},
+ {y:2022,s:4,k:'pro',l:'Change goals, do not abandon ABA'},
+ {y:2025,s:4,k:'pro',l:'Critiques rest on "myths"'},
+ {y:2017,s:4,k:'crit',l:'Removing benign autistic behaviour is harm'},
+ {y:2018,s:4,k:'crit',l:'46% met a PTSD threshold (self-report)'},
+ {y:2019,s:4,k:'crit',l:'Compliance emphasis can become abuse'},
+ {y:2023,s:4,k:'crit',l:'Trauma; made to act like peers'},
+ {y:2018,s:5,k:'ev',l:'Cochrane EIBI: 5 studies, 1 RCT'},
+ {y:2021,s:5,k:'ev',l:'84% of ABA papers: author COI, 2% disclosed'},
+ {y:2023,s:5,k:'ev',l:'Project AIM update: 252 studies'},
+ {y:2024,s:5,k:'ev',l:'No link between hours and effect'},
+ {y:2026,s:5,k:'ev',l:'Umbrella review; 5-year COI update'},
+ {y:2018,s:5,k:'pro',l:'EIBI: IQ +15.4, adaptive +9.6 points'},
+ {y:2024,s:5,k:'pro',l:'Reform: affirm neurodiversity in ABA'},
+ {y:2026,s:5,k:'pro',l:'6 meta-analyses: "consistent, replicated"'},
+ {y:2018,s:5,k:'crit',l:'Certainty low or very low'},
+ {y:2023,s:5,k:'crit',l:'Behavioural effects fade under blinding'},
+ {y:2026,s:5,k:'crit',l:'93% of "no COI" statements false'}];
+const AB_STEPS=[
+ {from:0,at:abT(1969.5),k:'1960s · aversive beginnings',t:'Shock and self-injury',
+  txt:`Early behavioural work used physical aversives. In a 1969 study, Lovaas and Simmons gave three children painful electric shock contingent on self-injury: the behaviour was suppressed, but came back when shock was removed. <sup class="c" data-ref="LovaasSimmons1969" title="Source 340">340</sup> Neurodiversity-movement critics reject these aversives outright; the Judge Rotenberg Center's use of electric shock is their main present-day example. <sup class="c" data-ref="Kirkham2017" title="Source 293">293</sup>`,
+  pt:`Some of the earliest behaviour programmes hurt children to stop them hurting themselves. That is the history many autistic people remember when they hear "ABA".`,
+  hook:`Punishment suppressed self-injury only while it was applied (Lovaas & Simmons 1969). <sup class="c" data-ref="LovaasSimmons1969" title="Source 340">340</sup>`},
+ {from:abT(1984),at:abT(1989),k:'1987–2001 · EIBI',t:'Lovaas and 40 hours a week',
+  txt:`Lovaas's 1987 UCLA project reported that 47% of 19 treated children reached "normal functioning", with treatment at about 40 hours a week. <sup class="c" data-ref="Lovaas1987,Mudford2001" title="Source 339,391">339,391</sup> A follow-up to mean age 11.5 reported that gains were kept. <sup class="c" data-ref="McEachin1993" title="Source 368">368</sup> Critics pointed to serious threats to validity, including no random assignment. <span class="ev est">Established</span> <sup class="c" data-ref="Gresham1998" title="Source 186">186</sup> A small later RCT (24.52 hours a week) found gains in IQ, language and academics but not in adaptive functioning or behaviour problems. <sup class="c" data-ref="Smith2000AJMR" title="Source 551">551</sup> UK programmes averaged 32 hours, and no child met all the original conditions. <sup class="c" data-ref="Mudford2001" title="Source 391">391</sup>`,
+  pt:`One famous study said almost half the children "recovered" with 40 hours a week. It was not a fair test, because children were not put into groups by chance.`,
+  hook:`Lovaas 1987: 47% "normal functioning", ~40 h/week, not randomised. <sup class="c" data-ref="Mudford2001,Gresham1998" title="Source 186,391">186,391</sup>`},
+ {from:abT(1992.5),at:abT(1998),k:'1994–2003 · asking why',t:'Functional analysis and PBS',
+  txt:`Functional analysis exposes a person briefly and repeatedly to conditions that vary play materials, demands and attention. In 1994, 6 of 9 participants showed self-injury mostly in one condition, showing it served an identifiable function. <sup class="c" data-ref="Iwata1994" title="Source 254">254</sup> By 2003 it was "a hallmark" of behavioural assessment. <sup class="c" data-ref="Hanley2003" title="Source 202">202</sup> Positive behaviour support grew from ABA, the inclusion movement and person-centred values, with lifestyle change, stakeholder participation and prevention as defining features. <sup class="c" data-ref="Carr2002PBS" title="Source 70">70</sup> A later review warned that many studies' target behaviours mixed harm with harmless difference. <sup class="c" data-ref="BottemaBeutel2025" title="Source 55">55</sup>`,
+  pt:`Instead of only stopping a behaviour, practitioners began asking what the behaviour does for the person, and changing the situation.`,
+  hook:`Functional analysis = direct observation under ≥2 conditions in which one environmental variable is changed. <sup class="c" data-ref="Hanley2003" title="Source 202">202</sup>`},
+ {from:abT(2005),at:abT(2012),k:'2006–2021 · NDBIs',t:'Following the child’s lead',
+  txt:`Naturalistic developmental behavioural interventions (NDBIs) teach in natural settings with shared control and natural rewards; ESDM and JASPER belong here. <sup class="c" data-ref="Schreibman2015" title="Source 532">532</sup> In the ESDM RCT, IQ rose 17.6 points against 7.0 over 2 years. <sup class="c" data-ref="Dawson2010" title="Source 111">111</sup> A multisite replication was "partial": a language advantage, but no differences in autism severity or adaptive behaviour. <sup class="c" data-ref="Rogers2019" title="Source 487">487</sup> A meta-analysis of 12 ESDM studies found g 0.357, driven by cognition and language. <sup class="c" data-ref="Fuller2020" title="Source 158">158</sup> An RCT found no main effect of 15 vs 25 hours a week, or of NDBI vs discrete trial style. <sup class="c" data-ref="Rogers2021" title="Source 488">488</sup> NDBIs have been proposed as a bridge to the neurodiversity movement. <span class="ev hyp">Hypothesis</span> <sup class="c" data-ref="Schuck2022" title="Source 533">533</sup>`,
+  pt:`Newer approaches mix behavioural teaching with play and the child's own interests, usually with parents involved.`,
+  hook:`ESDM: IQ +17.6 vs +7.0 (Dawson 2010); replication partial (Rogers 2019). <sup class="c" data-ref="Dawson2010,Rogers2019" title="Source 111,487">111,487</sup>`},
+ {from:abT(2016),at:abT(2020),k:'2017–2025 · autistic voices',t:'The autistic critique',
+  txt:`Critics argue that removing benign autistic behaviour is harmful to the person and to society. <sup class="c" data-ref="Kirkham2017" title="Source 293">293</sup> Ten autistic adults described "hidden harms" <sup class="c" data-ref="McGill2020" title="Source 371">371</sup>; seven recalled traumatic events, rejected being made to act like peers and called ABA unethical, while also reporting some benefits. <sup class="c" data-ref="Anderson2023" title="Source 19">19</sup> Kupferstein's online survey (460 respondents; self-diagnosis allowed) reported 46% of ABA-exposed respondents over a PTSD threshold. <sup class="c" data-ref="Kupferstein2018" title="Source 305">305</sup> <b>Its limits:</b> leading questions in a non-validated survey, no diagnosis check, social-media recruitment and a cross-sectional design that cannot show cause. <sup class="c" data-ref="Leaf2018AiA" title="Source 320">320</sup> The journal issued an expression of concern in 2025. <sup class="c" data-ref="AiA2025EOC" title="Source 8">8</sup> Defenders call the claims of trauma and abuse "unfounded criticism and longstanding myths". <sup class="c" data-ref="Travers2025" title="Source 593">593</sup>`,
+  pt:`Many autistic adults say ABA hurt them. The one survey that tried to count harm had serious weaknesses, so nobody knows yet how common harm is.`,
+  hook:`Kupferstein 2018: self-selected, non-validated survey; correlational; now under an expression of concern. <sup class="c" data-ref="Leaf2018AiA,AiA2025EOC" title="Source 8,320">8,320</sup>`},
+ {from:abT(2021.5),at:abT(2025.5),k:'2018–2026 · the reviews',t:'Same studies, different verdicts',
+  txt:`Cochrane (2018) found 5 studies, 1 of them randomised, with 219 children: EIBI improved adaptive behaviour (MD 9.58) and IQ (MD 15.44), not autism symptoms, with low or very low certainty. <sup class="c" data-ref="Reichow2018Cochrane" title="Source 478">478</sup> A 2026 umbrella review of 6 meta-analyses called the IQ and adaptive gains "consistent, replicated" <sup class="c" data-ref="Reichow2026Umbrella" title="Source 479">479</sup>; Project AIM, using only blinded, non-caregiver-rated RCT outcomes, found behavioural effects did not survive. <sup class="c" data-ref="Sandbank2023BMJ" title="Source 509">509</sup> The difference is which designs and outcomes count. In ABA journals, 93% of "no conflict" statements were false. <sup class="c" data-ref="BottemaBeutel2026" title="Source 56">56</sup> Some analysts now call for neurodiversity-affirming practice. <sup class="c" data-ref="Mathur2024" title="Source 365">365</sup>`,
+  pt:`Experts read the same evidence differently, depending on which studies they trust. The question is unsettled.`,
+  hook:`Cochrane EIBI 2018: 5 studies, 1 RCT, 219 children; certainty low or very low. <sup class="c" data-ref="Reichow2018Cochrane" title="Source 478">478</sup>`}];
+const AB_FN={
+ sens:{n:'Sensory',a:'Noisy group work: many voices, chairs scraping',a2:'The noise gets louder',b:'Leaves the room, hands over ears',c:'The corridor is quiet; the noise stops',
+  h:'Function: getting away from overwhelming sound',
+  sup:[`Lower the noise at its source, and offer ear defenders and a quiet space she can choose to use.`,
+   `Teach a "break" card so she can ask to leave instead of having to run.`,
+   `Why it matters: an estimated 41% of autistic people currently have hyperacusis, where everyday sounds feel too loud or painful. <sup class="c" data-ref="Williams2021Hyperacusis" title="Source 634">634</sup> In an RCT, a sensory-adapted dental room lowered physiological stress. <sup class="c" data-ref="SteinDuker2023" title="Source 563">563</sup>`],
+  q:'Does she leave mostly when it is loud, whatever the task?'},
+ esc:{n:'Escape a demand',a:'Asked to read aloud to the class',a2:'Her turn is next',b:'Leaves the room',c:'The reading task is dropped',
+  h:'Function: avoiding a task that feels too hard or too exposing',
+  sup:[`Make the task doable: a written answer, reading to one adult, or choosing the passage.`,
+   `Warn her ahead of time and agree a way to pass.`,
+   `Positive behaviour support aims at prevention and quality of life, not just stopping the behaviour. <sup class="c" data-ref="Carr2002PBS" title="Source 70">70</sup> Critics warn against goals that train compliance for its own sake. <sup class="c" data-ref="SandovalNorton2019" title="Source 516">516</sup>`],
+  q:'Does she leave mostly when a demand is made, even in a quiet room?'},
+ att:{n:'Attention',a:'Teacher busy with another group',a2:'No one has spoken to her for a while',b:'Leaves the room',c:'An adult follows and talks with her',
+  h:'Function: connection with an adult',
+  sup:[`Give planned attention before she needs to leave: regular check-ins.`,
+   `Teach a clear way to ask for help or company, and answer it.`,
+   `In functional analysis, attention is one of the conditions varied to test what maintains a behaviour. <sup class="c" data-ref="Iwata1994" title="Source 254">254</sup>`],
+  q:'Does she leave mostly when adults are busy elsewhere?'},
+ tan:{n:'Tangible',a:'Tablet put away for group work',a2:'The tablet is on the teacher’s desk',b:'Leaves the room',c:'She gets the tablet back in the corridor',
+  h:'Function: getting back a wanted item or activity',
+  sup:[`Show on a visual timetable when the tablet comes back.`,
+   `Give transition warnings and agree a fair plan with her.`,
+   `Play materials are one of the conditions varied in functional analysis. <sup class="c" data-ref="Iwata1994,Hanley2003" title="Source 202,254">202,254</sup>`],
+  q:'Does she leave mostly when a favourite item is taken away?'}};
+
+inits.aba=()=>{
+  /* ===== timeline ===== */
+  const svg=$('#abSvg'),rg=$('#abT');let view='ev',setSt=()=>{};
+  const colOf=k=>k==='pro'?'var(--rx)':k==='crit'?'var(--neuro)':'var(--accent)';
+  function rows(items,x,y0,dir,N,W,txt){let s='';const lh=N?20:21;
+    items.forEach((it,j)=>{const ry=y0+dir*j*lh,xd=x(it.y),lab=`${it.y} · ${it.l}`,w=lab.length*6.7;
+      const tx=N?12:clamp(xd-12,14,W-14-w);
+      s+=`<line x1="${f1(xd)}" x2="${f1(xd)}" y1="${f1(txt)}" y2="${f1(ry+(dir<0?4:-11))}" style="stroke:${colOf(it.k)};stroke-width:1;opacity:.45;stroke-dasharray:2 2"/>`;
+      s+=`<circle cx="${f1(tx-6)}" cy="${f1(ry-3)}" r="3" style="fill:${colOf(it.k)}"/><text x="${f1(tx)}" y="${f1(ry)}" class="t-xs" style="fill:var(--ink)">${lab}</text>`});
+    return s}
+  function draw(t){
+    const P=view==='pc',H=NARROW()?(P?440:420):400,N=vb(svg,'720 400','400 '+H),W=N?400:720;
+    const x0=N?20:30,x1=N?380:690,x=y=>lerp(x0,x1,(y-AB_Y0)/(AB_Y1-AB_Y0)),axY=N?(P?230:210):206;
+    const yr=lerp(AB_Y0,AB_Y1,t),ph=phaseOf(AB_STEPS,t);
+    let s=`<text x="${N?12:20}" y="26" class="t-big">${AB_STEPS[ph].t}</text><text x="${N?12:20}" y="44" class="t-sm">${AB_STEPS[ph].k}</text>`;
+    /* lanes for split view */
+    if(P){s+=`<rect x="${x0-8}" y="${N?60:56}" width="${x1-x0+16}" height="${axY-(N?66:62)}" rx="10" style="fill:var(--rx-soft);opacity:.45"/><rect x="${x0-8}" y="${axY+8}" width="${x1-x0+16}" height="${H-10-axY-8}" rx="10" style="fill:var(--neuro-soft);opacity:.45"/>`;
+      s+=`<text x="${x1}" y="${N?74:70}" class="t-xs t-end" style="fill:var(--rx);font-weight:700">PROPONENTS ARGUE ↑</text><text x="${x1}" y="${H-16}" class="t-xs t-end" style="fill:var(--neuro);font-weight:700">CRITICS ARGUE ↓</text>`}
+    /* axis */
+    s+=`<line x1="${x0}" x2="${x1}" y1="${axY}" y2="${axY}" style="stroke:var(--muted);stroke-width:1.4"/>`;
+    for(let d=1970;d<=2020;d+=10)s+=`<line x1="${f1(x(d))}" x2="${f1(x(d))}" y1="${axY-4}" y2="${axY+4}" style="stroke:var(--muted)"/><text x="${f1(x(d))}" y="${axY+17}" class="t-xs t-mid">${N&&d%20?'':d+'s'}</text>`;
+    /* dots for everything already reached */
+    AB_IT.forEach(it=>{if(it.y>yr+.01)return;if(!P&&it.k!=='ev')return;if(P&&it.k==='ev')return;
+      const on=it.s===ph,dy=P?(it.k==='pro'?-7:7):0;
+      s+=`<circle cx="${f1(x(it.y))}" cy="${axY+dy}" r="${on?5:3.4}" style="fill:${colOf(it.k)};opacity:${on?1:.45}"/>`});
+    /* cursor */
+    s+=`<line x1="${f1(x(yr))}" x2="${f1(x(yr))}" y1="${axY-14}" y2="${axY+14}" style="stroke:var(--brand);stroke-width:2.4"/><text x="${f1(clamp(x(yr),x0+16,x1-16))}" y="${axY+33}" class="t-sm t-mid" style="fill:var(--brand);font-weight:700">${Math.round(yr)}</text>`;
+    /* labels for the current era */
+    const all=AB_IT.filter(it=>it.s===ph);
+    if(!P){const ev=all.filter(i=>i.k==='ev').sort((a,b)=>a.y-b.y);s+=rows(ev,x,axY-20-(ev.length-1)*(N?20:21),1,N,W,axY-6)}
+    else{const pro=all.filter(i=>i.k==='pro').sort((a,b)=>b.y-a.y),cr=all.filter(i=>i.k==='crit').sort((a,b)=>a.y-b.y);
+      s+=rows(pro,x,axY-22,-1,N,W,axY-10);s+=rows(cr,x,axY+(N?58:56),1,N,W,axY+10)}
+    /* detail below the axis in events view */
+    if(!P){const dy=axY+(N?56:52);
+      if(ph===1){const H=[['Lovaas 1987',40,'var(--accent)'],['UK programmes 2001',32,'var(--accent)'],['Smith RCT 2000',24.52,'var(--accent)'],['Rogers RCT arm B',25,'var(--rx)'],['Rogers RCT arm A',15,'var(--rx)']];
+        const bw=N?200:300,lx=N?12:150;s+=`<text x="${lx}" y="${dy}" class="t-xs" style="font-weight:700;fill:var(--ink)">Hours per week</text>`;
+        H.forEach((h,j)=>{const yy=dy+14+j*(N?22:20),k=ramp(t,AB_STEPS[1].from+.01*j,AB_STEPS[1].from+.03+.01*j);
+          s+=`<text x="${lx}" y="${yy+8}" class="t-xs">${h[0]}</text><rect x="${lx+(N?120:130)}" y="${yy}" width="${f1(bw*h[1]/40*k)}" height="10" rx="3" style="fill:${h[2]}"/><text x="${f1(lx+(N?124:134)+bw*h[1]/40*k)}" y="${yy+8}" class="t-xs" style="fill:var(--ink)">${h[1]}</text>`});
+        s+=`<text x="${lx}" y="${dy+(N?130:122)}" class="t-xs">Green bars: one RCT, 15 vs 25 h/week; no main effect.</text>`}
+      else if(ph===5){const B=[['Cochrane EIBI: randomised studies',1,5,'1 of 5'],['ABA journal studies with a COI author (2026)',.93,1,'93%'],['"No COI" statements that were false (2026)',.93,1,'93%']];
+        const lx=N?12:150,bw=N?370:420;B.forEach((b,j)=>{const yy=dy+j*(N?38:36);
+          s+=`<text x="${lx}" y="${yy}" class="t-xs" style="fill:var(--ink)">${b[0]}</text><rect x="${lx}" y="${yy+5}" width="${bw}" height="9" rx="4" style="fill:var(--panel-2)"/><rect x="${lx}" y="${yy+5}" width="${f1(bw*b[1]/b[2]*ramp(t,AB_STEPS[5].from,AB_STEPS[5].from+.04))}" height="9" rx="4" style="fill:var(--accent)"/><text x="${lx+bw}" y="${yy}" class="t-xs t-end" style="font-weight:700;fill:var(--ink)">${b[3]}</text>`})}
+      else s+=`<text x="${N?12:x0}" y="${dy}" class="t-xs">${N?'Switch the view to see each side’s arguments.':'Switch to “Proponents | critics” to see each side’s arguments for this era.'}</text>`}
+    svg.innerHTML=s;setSt(ph);
+    $('#abNote').innerHTML=noteHTML(AB_STEPS[ph]);
+  }
+  const stop=playWire(rg,$('#abPlay'),draw,30000,'Replay','aba');
+  setSt=stepWire($('#abSteps'),AB_STEPS,rg,draw,stop);
+  $$('[data-abv]').forEach(b=>b.addEventListener('click',()=>{view=b.dataset.abv;$$('[data-abv]').forEach(q=>q.setAttribute('aria-pressed',q===b));draw(+rg.value)}));
+  draw(+rg.value);
+
+  /* ===== ABC analyser ===== */
+  const as=$('#abcSvg');let fn='sens';
+  function wrap(txt,n){const w=txt.split(' '),L=[];let l='';w.forEach(q=>{if((l+' '+q).trim().length>n){L.push(l.trim());l=q}else l+=' '+q});if(l.trim())L.push(l.trim());return L}
+  function drawABC(){
+    const N=vb(as,'720 300','400 600'),F=AB_FN[fn];let s=`<defs>${marker('abAr','var(--muted)')}</defs>`;
+    const box=N?[[14,14,372,180],[14,214,372,170],[14,404,372,180]]:[[10,10,224,280],[248,10,224,280],[486,10,224,280]];
+    const ttl=['A · Antecedent','B · Behaviour','C · Consequence'],cols=['var(--accent)','var(--brand)','var(--rx)'];
+    box.forEach(([bx,by,bw,bh],i)=>{s+=`<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="12" style="fill:var(--panel);stroke:${cols[i]};stroke-width:1.6"/><text x="${bx+12}" y="${by+20}" class="t-xs" style="fill:${cols[i]};font-weight:700;letter-spacing:.08em">${ttl[i].toUpperCase()}</text>`;
+      if(i<2)s+=N?`<line x1="200" x2="200" y1="${by+bh+2}" y2="${by+bh+18}" style="stroke:var(--muted);stroke-width:1.6" marker-end="url(#abAr)"/>`:`<line x1="${bx+bw+2}" x2="${bx+bw+12}" y1="150" y2="150" style="stroke:var(--muted);stroke-width:1.6" marker-end="url(#abAr)"/>`});
+    const tw=(i,lines,dy)=>{const [bx,by]=box[i];return lines.map((l,j)=>`<text x="${bx+12}" y="${by+dy+j*15}" class="t-sm" style="fill:var(--ink)">${l}</text>`).join('')};
+    const nc=N?44:26;
+    /* A: classroom */
+    const [ax,ay]=box[0];
+    s+=tw(0,wrap(F.a,nc),40);
+    const sy=N?ay+110:ay+150;
+    if(fn==='sens')for(let k=0;k<3;k++)s+=wave(ax+30,sy-20+k*20,N?150:170,6+k*2,{freq:5,phase:k*.3,sw:1.4});
+    else if(fn==='esc')s+=`<rect x="${ax+40}" y="${sy-30}" width="70" height="52" rx="4" style="fill:var(--panel-2);stroke:var(--muted)"/>${[0,1,2,3].map(j=>`<line x1="${ax+48}" x2="${ax+100}" y1="${sy-18+j*10}" y2="${sy-18+j*10}" style="stroke:var(--muted)"/>`).join('')}`+face(ax+150,sy-4,18,{mouth:'flat',brows:'tense'});
+    else if(fn==='att')s+=face(ax+50,sy-4,16,{gaze:0})+face(ax+100,sy-4,14,{gaze:180})+face(ax+170,sy+6,16,{gaze:90,mouth:'flat'});
+    else s+=`<rect x="${ax+40}" y="${sy-28}" width="60" height="44" rx="6" style="fill:var(--ink);opacity:.85"/><rect x="${ax+45}" y="${sy-23}" width="50" height="34" rx="3" style="fill:var(--accent-soft)"/>`+face(ax+160,sy-4,18,{gaze:180,mouth:'flat'});
+    s+=`<text x="${ax+12}" y="${box[0][1]+box[0][3]-14}" class="t-xs">then: ${F.a2.toLowerCase()}</text>`;
+    /* B: leaving */
+    const [bx2,by2,bw2]=box[1];s+=tw(1,wrap(F.b,nc),40);
+    const dx=N?bx2+260:bx2+150,dyy=N?by2+80:by2+120;
+    s+=`<rect x="${dx}" y="${dyy-10}" width="44" height="80" rx="3" style="fill:var(--panel-2);stroke:var(--muted);stroke-width:1.4"/><circle cx="${dx+36}" cy="${dyy+32}" r="2.5" style="fill:var(--muted)"/>`;
+    s+=face(N?bx2+90:bx2+70,dyy+20,20,{gaze:0,mouth:fn==='sens'?'wavy':'flat',brows:'tense',ear:false});
+    if(fn==='sens')[-1,1].forEach(k=>s+=`<rect x="${(N?bx2+90:bx2+70)+k*22-5}" y="${dyy+12}" width="10" height="16" rx="4" style="fill:var(--skin);stroke:var(--hair)"/>`);
+    s+=`<line x1="${N?bx2+120:bx2+96}" x2="${dx-8}" y1="${dyy+30}" y2="${dyy+30}" style="stroke:var(--brand);stroke-width:2" marker-end="url(#abAr)"/>`;
+    /* C */
+    const [cx,cy]=box[2];s+=tw(2,wrap(F.c,nc),40);
+    s+=`<text x="${cx+12}" y="${cy+(N?96:110)}" class="t-xs" style="font-weight:700;fill:var(--ink)">What the behaviour may achieve:</text>`;
+    s+=wrap(F.h.replace('Function: ',''),nc).map((l,j)=>`<text x="${cx+12}" y="${cy+(N?114:128)+j*14}" class="t-sm" style="fill:var(--rx)">${l}</text>`).join('');
+    s+=`<text x="${cx+12}" y="${cy+(N?146:200)}" class="t-xs" style="font-weight:700;fill:var(--ink)">Test the hypothesis:</text>`;
+    s+=wrap(F.q,nc).map((l,j)=>`<text x="${cx+12}" y="${cy+(N?162:216)+j*14}" class="t-xs">${l}</text>`).join('');
+    as.innerHTML=s;
+    $('#abcNote').innerHTML=`<div class="kicker">ABC · ${F.n}</div><h4>${F.h}</h4><p>A functional assessment looks for patterns across many episodes and checks for pain, illness or distress first. If this were the function, respectful, assent-based support might include:</p><ul>${F.sup.map(x=>`<li>${x}</li>`).join('')}</ul><div class="hook"><b>Exam hook</b>The same behaviour can serve different functions, so the same "leaving the room" needs different supports. Functional analysis tests this by changing one condition at a time. <sup class="c" data-ref="Iwata1994,Hanley2003" title="Source 202,254">202,254</sup></div>`;
+  }
+  $$('[data-abf]').forEach(b=>b.addEventListener('click',()=>{fn=b.dataset.abf;$$('[data-abf]').forEach(q=>q.setAttribute('aria-pressed',q===b));drawABC()}));
+  drawABC();
+  redraws.aba=(p=>()=>{p&&p();drawABC()})(redraws.aba);
+};
+/* =============== 4.3 Communication, AAC & therapies =============== */
+const TH_LANES=[
+ {id:'ges',n:'Gestures',c:'var(--gold)'},
+ {id:'pic',n:'Pictures (PECS)',c:'var(--accent)'},
+ {id:'sgd',n:'Speech-generating device',c:'var(--rx)'},
+ {id:'spk',n:'Spoken words',c:'var(--neuro)'}];
+const TH_PECS=[['I','exchange',100],['II','distance',100],['III','discriminate',100],['IV','sentence',82],['V','"What do you want?"',64],['VI','commenting',19]];
+/* the person's path between lanes: [t, lane] knots (schematic) */
+const TH_PATH=[[0,0],[.14,0],[.2,1],[.55,1],[.6,2],[.72,2],[.76,0],[.8,2],[.88,3],[.92,2],[1,2]];
+const TH_MSG={ges:'points',pic:'juice card',sgd:'"I want juice"',spk:'"juice"'};
+const TH_STEPS=[
+ {from:0,at:.08,k:'Many paths',t:'Not a ladder',
+  txt:`People communicate in many ways at once: gestures, pictures, devices and speech. Augmentative and alternative communication (AAC) adds to these. A meta-analysis of 24 single-case studies found large overall effects of aided AAC, with picture exchange (PECS) and speech-generating devices showing larger effects than other picture-based systems. <sup class="c" data-ref="Ganz2012" title="Source 163">163</sup> A person can use several paths on the same day, and switch between them.`,
+  pt:`Pointing, pictures, a talking tablet and words are all real communication. Using one does not mean a person has "failed" at another.`,
+  hook:`AAC = augmentative and alternative communication: aided (pictures, devices) and unaided (gestures, signs). <sup class="c" data-ref="Ganz2012" title="Source 163">163</sup>`},
+ {from:.18,at:.3,k:'PECS phases I–III',t:'Exchanging a picture',
+  txt:`PECS is taught in six phases. I: physical exchange (how to communicate); II: distance and persistence; III: picture discrimination. In a 24-session programme with 22 minimally verbal children aged 6–12, all children reached phases I–III. <sup class="c" data-ref="Tamanaha2023" title="Source 580">580</sup>`,
+  pt:`First the child learns that handing over a picture gets a response, then to go and find the person, then to choose the right picture.`,
+  hook:`PECS phases: I exchange · II distance & persistence · III discrimination · IV sentence · V "What do you want?" · VI commenting. <sup class="c" data-ref="Tamanaha2023" title="Source 580">580</sup>`},
+ {from:.38,at:.5,k:'PECS phases IV–VI',t:'Sentences and comments',
+  txt:`Phase IV builds sentences ("I want…"), V answers "What do you want?", and VI is commenting. In the same programme about 82% reached phase IV, 64% phase V and 19% phase VI. <sup class="c" data-ref="Tamanaha2023" title="Source 580">580</sup> In a group RCT of PECS teacher training (84 children, mean age 6.8), PECS use (OR 3.90) and initiations (OR 2.72) rose, but speech, ADOS scores and language tests did not, and effects faded once the active intervention stopped. <sup class="c" data-ref="Howlin2007" title="Source 235">235</sup> A meta-analysis called PECS "promising but not yet established". <span class="ev early">Early evidence</span> <sup class="c" data-ref="Flippin2010" title="Source 149">149</sup>`,
+  pt:`Most children learned to ask for things with pictures. Fewer went on to comment on the world, which is harder to teach.`,
+  hook:`PECS RCT: more communication with pictures, but gains faded when support stopped. <sup class="c" data-ref="Howlin2007" title="Source 235">235</sup>`},
+ {from:.58,at:.68,k:'Speech-generating devices',t:'A voice on a tablet',
+  txt:`In a sequential multiple assignment randomised trial of 61 minimally verbal children aged 5–8, starting a play-based intervention (JASP+EMT) with a speech-generating device produced more spontaneous communicative utterances, new words and comments than spoken-word intervention alone. <sup class="c" data-ref="Kasari2014" title="Source 276">276</sup> Follow-up to week 36 again favoured the approach that began with the device. <sup class="c" data-ref="Almirall2016" title="Source 11">11</sup>`,
+  pt:`Giving a child a talking device from the start led to more communication, including more words, than working on speech alone.`,
+  hook:`Kasari 2014 SMART: starting with an SGD beat spoken-word-only intervention for minimally verbal 5–8-year-olds. <sup class="c" data-ref="Kasari2014" title="Source 276">276</sup>`},
+ {from:.78,at:.93,k:'Does AAC stop speech?',t:'Speech keeps its own path',
+  txt:`<span class="ev est">Established</span> A systematic review of 9 single-subject and 2 group studies concluded that AAC interventions "do not impede speech production"; most studies reported increased speech, though gains were modest. <sup class="c" data-ref="Schlosser2008" title="Source 525">525</sup> In the PECS RCT, spontaneous speech rose (RR 1.77) and was the only effect still present at 9 months. <sup class="c" data-ref="Gordon2011" title="Source 176">176</sup> A PECS meta-analysis found speech gains "small to negative", so AAC should not be promised as a route to speech either. <sup class="c" data-ref="Flippin2010" title="Source 149">149</sup>`,
+  pt:`Using pictures, devices or other AAC does not stop a person learning to talk. It gives them a way to be understood now.`,
+  hook:`Schlosser & Wendt 2008: AAC does not impede speech production. <sup class="c" data-ref="Schlosser2008" title="Source 525">525</sup>`}];
+const TH_CARDS=[
+ {g:['comm'],ev:'est',n:'Early language intervention',age:'children, mean age 3.3 years',tg:'spoken language',
+  t:`Across 26 studies (1,738 children), early intervention improved spoken language, g 0.26 (95% CI 0.11 to 0.42); effects were largest when both a parent and a clinician delivered it. <sup class="c" data-ref="Hampton2016" title="Source 199">199</sup>`},
+ {g:['comm'],ev:'est',n:'Parent-mediated therapy (e.g. PACT)',age:'1–6 years',tg:'parent–child interaction, social communication',
+  t:`19 RCTs found small effects, g 0.18 to 0.27; more parent training did not change outcomes. <sup class="c" data-ref="Nevill2018" title="Source 420">420</sup> Cochrane found strong evidence for changes in parent–child interaction (parent synchrony SMD 0.90), with most child outcomes inconclusive. <sup class="c" data-ref="Oono2013" title="Source 435">435</sup> See <a href="#supports" data-go="supports">PACT</a>.`},
+ {g:['comm'],ev:'early',n:'JASPER (joint attention, play)',age:'3–4 years; 5–8 in later trials',tg:'joint attention, play, language',
+  t:`In an RCT of 58 children, each group improved in its targeted skill <sup class="c" data-ref="Kasari2006" title="Source 274">274</sup>; 12 months later both had larger expressive-language gains than controls, most for joint-attention training in children with the lowest starting language. <sup class="c" data-ref="Kasari2008" title="Source 275">275</sup>`},
+ {g:['comm'],ev:'est',n:'AAC and speech-generating devices',age:'mostly children; 5–8 in the SMART trial',tg:'communication, including speech',
+  t:`Aided AAC showed large effects in single-case studies <sup class="c" data-ref="Ganz2012" title="Source 163">163</sup>; AAC does not impede speech production. <sup class="c" data-ref="Schlosser2008" title="Source 525">525</sup> Starting with a speech-generating device gave more spontaneous communication. <sup class="c" data-ref="Kasari2014" title="Source 276">276</sup>`},
+ {g:['comm'],ev:'early',n:'PECS',age:'mean age 6.8 (RCT); 6–12 (programme)',tg:'requesting, initiation',
+  t:`PECS use and initiations rose in an RCT, but speech and language tests did not, and effects faded after the active phase. <sup class="c" data-ref="Howlin2007" title="Source 235">235</sup> "Promising but not yet established". <sup class="c" data-ref="Flippin2010" title="Source 149">149</sup>`},
+ {g:['daily'],ev:'early',n:'Occupational therapy: Ayres sensory integration',age:'4–8 (RCT); 4–12 (review)',tg:'sensory-related goals, self-care',
+  t:`A small manualised RCT (17 vs 15 children) found better goal attainment (d 1.2) and less caregiver help with self-care (d 0.9). <sup class="c" data-ref="Schaaf2014" title="Source 522">522</sup> A review by authors linked to the approach rated it evidence-based. <sup class="c" data-ref="Schoen2019" title="Source 531">531</sup> The larger UK SenITA RCT (138 children) found no effect on its primary outcome and no cost-effectiveness, though carers reported better daily functioning. <sup class="c" data-ref="Randell2022" title="Source 471">471</sup> The AAP calls the research "limited and inconclusive". <sup class="c" data-ref="Zimmer2012" title="Source 652">652</sup>`},
+ {g:['daily'],ev:'no',n:'Weighted blankets and vests',age:'5–16 (blanket RCT)',tg:'sleep, calm',
+  t:`In a placebo-controlled crossover RCT of 67 children, a weighted blanket did not increase total sleep time or improve sleep onset or waking, though children and parents preferred it. <sup class="c" data-ref="Gringras2014" title="Source 187">187</sup> A review of 7 studies concluded weighted vests "cannot be recommended for clinical application". <sup class="c" data-ref="Stephenson2009" title="Source 565">565</sup>`},
+ {g:['daily'],ev:'early',n:'TEACCH structured teaching',age:'children and adults',tg:'skills, behaviour, independence',
+  t:`A meta-analysis of 13 studies (172 people) found small effects on perceptual, motor, verbal and cognitive skills and moderate to large gains in social and maladaptive behaviour; the authors called the results exploratory. <sup class="c" data-ref="ViruesOrtega2013" title="Source 611">611</sup>`},
+ {g:['friend'],ev:'est',n:'Social skills groups and PEERS',age:'6–21 (Cochrane); teens 13–17; adults 18–24',tg:'friendships, social knowledge',
+  t:`Cochrane (5 RCTs) found improved social competence (ES 0.47) and friendship quality (0.41), mostly in US children aged 7–12 with average or above-average IQ. <sup class="c" data-ref="Reichow2012Cochrane" title="Source 477">477</sup> PEERS improved social-skills knowledge and get-togethers in teens <sup class="c" data-ref="Laugeson2009" title="Source 313">313</sup> and social skills in young adults, with most gains held at 16 weeks. <sup class="c" data-ref="Laugeson2015" title="Source 315">315</sup> Self-reported gains reflected knowledge more than performance. <sup class="c" data-ref="Gates2017" title="Source 166">166</sup>`},
+ {g:['anx'],ev:'est',n:'CBT adapted for autistic people',age:'7–13 (RCT)',tg:'anxiety',
+  t:`In an RCT of 167 children, adapted CBT (BIACA) beat standard CBT and treatment as usual: response 92.4%, 81.0% and 11.1%. <sup class="c" data-ref="Wood2020" title="Source 643">643</sup> Across 19 RCTs effects depended on the rater and were not maintained at follow-up. <sup class="c" data-ref="Sharma2021" title="Source 536">536</sup>`},
+ {g:['comm'],ev:'early',n:'Music therapy',age:'children, adolescents and adults; 4–7 in TIME-A',tg:'global improvement, wellbeing',
+  t:`Cochrane (26 studies, 1,165 participants): more likely to give global improvement than placebo or standard care, RR 1.22, NNTB 11, moderate certainty; no clear effect on social interaction or communication. <sup class="c" data-ref="Geretsegger2022" title="Source 169">169</sup> The largest trial, TIME-A (364 children), found no difference in ADOS social affect. <sup class="c" data-ref="Bieleninik2017" title="Source 48">48</sup>`}];
+const TH_EV={est:['est','Established'],early:['early','Early evidence'],no:['','Not supported']};
+const TH_RATE={
+ cbt:{n:'CBT for anxiety in autistic youth',rows:[['Clinician',.88],['Parent',.40],['Child',.25]],
+  txt:`A meta-analysis of 19 RCTs (833 participants) found that the effect of CBT on anxiety depended on who rated it: clinicians saw the most change, children themselves the least, and benefits were not maintained at follow-up. <sup class="c" data-ref="Sharma2021" title="Source 536">536</sup> Across 48 studies of CBT in autistic people, effects on affective disorders were 0.24 (not significant) on self-report. <sup class="c" data-ref="Weston2016" title="Source 625">625</sup>`,
+  pt:`The same therapy looked most helpful to clinicians and least helpful to the young people themselves.`,
+  hook:`Clinician g 0.88 vs child g 0.25 for the same treatment: ask who measured the outcome. <sup class="c" data-ref="Sharma2021" title="Source 536">536</sup>`},
+ ss:{n:'Group social skills interventions',rows:[['Self-report',.92],['Task-based',.58],['Parent',.47],['Observer',.40],['Teacher',0]],
+  txt:`A meta-analysis of 19 RCTs found an overall g of 0.51, but the self-report effect reflected social knowledge (g 1.15) more than social performance (g 0.28, not significant); teacher ratings showed no significant effect. <sup class="c" data-ref="Gates2017" title="Source 166">166</sup>`,
+  pt:`Young people said they had learned a lot about social rules; people watching them saw smaller changes in what they did.`,
+  hook:`Social skills groups: knowing the rules improved more than using them. <sup class="c" data-ref="Gates2017" title="Source 166">166</sup>`}};
+
+inits.therapies=()=>{
+  const svg=$('#thSvg'),rg=$('#thT');let who='child',setSt=()=>{};
+  const laneAt=t=>{for(let i=1;i<TH_PATH.length;i++)if(t<=TH_PATH[i][0]){const a=TH_PATH[i-1],b=TH_PATH[i];return lerp(a[1],b[1],ease(ramp(t,a[0],b[0])))}return TH_PATH[TH_PATH.length-1][1]};
+  const tablet=(x,y,s,c)=>{let g=`<rect x="${f1(x)}" y="${f1(y)}" width="${f1(30*s)}" height="${f1(22*s)}" rx="${f1(3*s)}" style="fill:var(--ink);opacity:.85"/>`;
+    for(let i=0;i<6;i++)g+=`<rect x="${f1(x+3*s+(i%3)*8.2*s)}" y="${f1(y+3*s+Math.floor(i/3)*8.2*s)}" width="${f1(6.6*s)}" height="${f1(6.6*s)}" rx="1" style="fill:${i===1?c:'var(--accent-soft)'}"/>`;return g};
+  const card=(x,y,s,c)=>`<rect x="${f1(x)}" y="${f1(y)}" width="${f1(18*s)}" height="${f1(22*s)}" rx="2" style="fill:var(--bubble);stroke:${c};stroke-width:1.4"/><circle cx="${f1(x+9*s)}" cy="${f1(y+9*s)}" r="${f1(4.5*s)}" style="fill:${c};opacity:.7"/>`;
+  const hand=(x,y,s,c)=>`<circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(6*s)}" style="fill:var(--skin);stroke:${c};stroke-width:1.2"/><line x1="${f1(x+4*s)}" y1="${f1(y-2*s)}" x2="${f1(x+14*s)}" y2="${f1(y-8*s)}" style="stroke:var(--skin);stroke-width:${f1(3.4*s)};stroke-linecap:round"/>`;
+  function draw(t){
+    const N=vb(svg,'720 380','400 480');
+    const A=who==='adult';
+    const lx0=N?24:212,lx1=N?300:600,ly=i=>N?122+i*96:92+i*72;
+    let s=`<text x="${N?12:20}" y="26" class="t-big">${A?'An adult who speaks few or no words':'A young child, minimally verbal'}</text>`;
+    const nMsg=Math.floor(t*14);
+    s+=`<text x="${N?12:20}" y="46" class="t-sm">messages understood (schematic): ${nMsg}</text>`;
+    TH_LANES.forEach((L,i)=>{const y=ly(i),on=t>=i*.03;
+      s+=`<rect x="${lx0}" y="${y-16}" width="${lx1-lx0}" height="32" rx="16" style="fill:${L.c};opacity:${on?.12:.04}"/>`;
+      s+=N?`<text x="${lx0}" y="${y-22}" class="t-xs" style="fill:${L.c};font-weight:700">${L.n}</text>`:`<text x="${lx0-12}" y="${y+4}" class="t-lbl t-end" style="fill:${L.c}">${L.n}</text>`;
+      const ix=lx0+12;s+=i===0?hand(ix+6,y,1,L.c):i===1?card(ix-2,y-11,1,L.c):i===2?tablet(ix-4,y-11,1,L.c):bubble(ix-6,y-11,28,18,{tail:'none',col:L.c,text:''})});
+    /* PECS phases on the pictures lane */
+    const pk=ramp(t,.18,.5),py=ly(1);
+    TH_PECS.forEach((P,j)=>{const x=lerp(lx0+56,lx1-20,j/5),k=ramp(pk,j/6,(j+1)/6);if(k<=0)return;
+      const h=22*P[2]/100*k;
+      s+=`<rect x="${f1(x-9)}" y="${f1(py+11-h)}" width="18" height="${f1(h)}" rx="2" style="fill:var(--accent);opacity:.55"/><text x="${f1(x)}" y="${N?py+27:py-19}" class="t-xs t-mid" style="fill:var(--ink);font-weight:700">${P[0]}</text>`;
+      if(k>=1&&!N)s+=`<text x="${f1(x)}" y="${py+28}" class="t-xs t-mid">${P[2]}%</text>`;
+      if(k>=1&&N)s+=`<text x="${f1(x)}" y="${py+39}" class="t-xs t-mid">${P[2]}%</text>`});
+    if(pk>0)s+=`<text x="${lx1}" y="${py+(N?54:42)}" class="t-xs t-end">${N?'% of 22 children reaching each phase':'% of 22 children reaching each PECS phase'}</text>`;
+    /* the spoken-words lane keeps growing: a path, not a ceiling */
+    const sy=ly(3),gw=(lx1-lx0-50)*lerp(.15,.85,t);
+    s+=`<rect x="${lx0+40}" y="${sy-4}" width="${f1(gw)}" height="8" rx="4" style="fill:var(--neuro);opacity:.6"/>`;
+    s+=`<text x="${f1(lx0+46+gw)}" y="${sy+4}" class="t-xs" style="fill:var(--neuro)">${t>.78?'speech still growing':''}</text>`;
+    /* the person moving between lanes, with a trail */
+    let d='';for(let u=0;u<=t+1e-9;u+=.01){const xx=lerp(lx0+40,lx1-14,u),yy=lerp(ly(0),ly(3),laneAt(u)/3);d+=(d?'L':'M')+f1(xx)+' '+f1(yy)}
+    s+=`<path d="${d}" style="fill:none;stroke:var(--brand);stroke-width:2;stroke-dasharray:4 3;opacity:.7"/>`;
+    const L=laneAt(t),px=lerp(lx0+40,lx1-14,t),pyy=lerp(ly(0),ly(3),L/3),lane=TH_LANES[Math.round(L)];
+    s+=`<circle cx="${f1(px)}" cy="${f1(pyy)}" r="${A?13:10}" style="fill:var(--brand);stroke:var(--bg);stroke-width:2"/>`+person(px,pyy-(A?11:8),A?20:15,'var(--bg)');
+    /* partner + message */
+    const fx=N?334:668,fy=N?ly(1)+48:ly(1)+36;
+    s+=face(fx,fy,N?22:24,{gaze:180,mouth:'smile'})+`<text x="${fx}" y="${fy+(N?38:40)}" class="t-xs t-mid">${A?'support worker':'parent'}</text>`;
+    const mw=N?112:110,bx=fx-mw/2,byy=fy-(N?74:78);
+    s+=bubble(bx,byy,mw,26,{tail:'down',col:lane.c,text:TH_MSG[lane.id]});
+    s+=`<line x1="${f1(px+14)}" y1="${f1(pyy)}" x2="${f1(fx-28)}" y2="${f1(fy)}" style="stroke:${lane.c};stroke-width:1.4;stroke-dasharray:2 3;opacity:.7"/>`;
+    /* counter strip */
+    const cy=N?462:362;
+    if(t>=.74)s+=`<text x="${N?12:20}" y="${cy}" class="t-sm" style="fill:var(--ink)">${N?'AAC review (11 studies): speech not impeded':'AAC review: 11 studies · "do not impede speech production"'}</text>`;
+    else s+=`<text x="${N?12:20}" y="${cy}" class="t-sm">now using: ${lane.n.toLowerCase()}</text>`;
+    svg.innerHTML=s;
+    const ph=phaseOf(TH_STEPS,t);setSt(ph);
+    const P=TH_STEPS[ph];
+    $('#thNote').innerHTML=noteHTML(A?Object.assign({},P,{txt:P.txt+' <b>For adults:</b> the trials and programmes cited here enrolled children (ages given above), so these numbers describe children, not adults. <sup class="c" data-ref="Tamanaha2023,Kasari2014,Schlosser2008" title="Source 276,525,580">276,525,580</sup>'}):P);
+    $('#thRead').innerHTML=`<span>path now <b>${lane.n}</b></span><span>PECS phases shown <b>${Math.min(6,Math.ceil(pk*6))} of 6</b></span><span>speech impeded by AAC (review) <b>${t>=.78?'no':'—'}</b></span>`;
+  }
+  const stop=playWire(rg,$('#thPlay'),draw,24000,'Replay','therapies');
+  setSt=stepWire($('#thSteps'),TH_STEPS,rg,draw,stop);
+  $$('[data-thw]').forEach(b=>b.addEventListener('click',()=>{who=b.dataset.thw;$$('[data-thw]').forEach(q=>q.setAttribute('aria-pressed',q===b));draw(+rg.value)}));
+  draw(+rg.value);
+
+  /* ===== comparator cards ===== */
+  const wrapC=$('#thCards');
+  wrapC.innerHTML=TH_CARDS.map((c,i)=>{const e=TH_EV[c.ev];return `<div class="card" data-goal="${c.g.join(' ')}">${e[0]?`<span class="ev ${e[0]}">${e[1]}</span>`:`<span class="tag warn">${e[1]}</span>`}<h4>${c.n}</h4><p class="meta">Ages studied: ${c.age}<br>Targets: ${c.tg}</p><p>${c.t}</p></div>`}).join('');
+  $$('[data-thg]').forEach(b=>b.addEventListener('click',()=>{const g=b.dataset.thg;$$('[data-thg]').forEach(q=>q.setAttribute('aria-pressed',q===b));
+    $$('.card',wrapC).forEach(c=>c.hidden=!(g==='all'||c.dataset.goal.split(' ').includes(g)))}));
+
+  /* ===== rater bars ===== */
+  const rs=$('#thRSvg');let rk='cbt',stopR=null;
+  function drawR(k){const N=vb(rs,'720 260','400 300'),R=TH_RATE[rk];
+    const x0=N?110:170,x1=N?370:640,gx=g=>x0+(x1-x0)*g/1;let s=`<text x="${N?12:20}" y="24" class="t-lbl">${R.n}</text>`;
+    const rh=N?40:36,y0=52;
+    [0,.25,.5,.75,1].forEach(g=>s+=`<line x1="${f1(gx(g))}" x2="${f1(gx(g))}" y1="${y0-8}" y2="${y0+R.rows.length*rh}" style="stroke:var(--line);stroke-dasharray:${g?'2 3':'0'}"/><text x="${f1(gx(g))}" y="${y0+R.rows.length*rh+14}" class="t-xs t-mid">${g}</text>`);
+    R.rows.forEach(([l,v],i)=>{const y=y0+i*rh;s+=`<text x="${x0-10}" y="${y+14}" class="t-sm t-end" style="fill:var(--ink)">${l}</text>`;
+      if(v>0)s+=`<rect x="${x0}" y="${y+2}" width="${f1((gx(v)-x0)*k)}" height="18" rx="4" style="fill:var(--rx);opacity:.85"/><text x="${f1(gx(v*k)+6)}" y="${y+15}" class="t-sm" style="fill:var(--ink);font-weight:700">${v.toFixed(2)}</text>`;
+      else s+=`<text x="${x0+6}" y="${y+15}" class="t-sm">not significant</text>`});
+    s+=`<text x="${f1((x0+x1)/2)}" y="${y0+R.rows.length*rh+30}" class="t-xs t-mid">Hedges’ g, by who rated the outcome</text>`;
+    rs.innerHTML=s;
+    $('#thRNote').innerHTML=noteHTML({k:'Rater effects',t:R.n,txt:R.txt,pt:R.pt,hook:R.hook})}
+  $$('[data-thr]').forEach(b=>b.addEventListener('click',()=>{rk=b.dataset.thr;$$('[data-thr]').forEach(q=>q.setAttribute('aria-pressed',q===b));stopR&&stopR();stopR=animate(700,p=>drawR(ease(p)))}));
+  drawR(1);
+  redraws.therapies=(p=>()=>{p&&p();drawR(1)})(redraws.therapies);
+};
+/* =============== 4.4 Medication =============== */
+/* Two 8-week placebo-controlled trials. End points are published; curve shapes between week 0 and 8 are drawn. */
+const ME_D={
+ ris:{name:'Risperidone',short:'RIS',trial:'RUPP 2002 · 101 children, 5–17 y · 8 weeks',
+  unit:'%',yMax:70,yStep:20,yLab:'ABC-Irritability, % fall from baseline',
+  lines:[{v:-56.9,l:'risperidone −56.9%',main:1}],plac:-14.1,placL:'placebo −14.1%',
+  wMax:3,w:[{v:2.7,l:'+2.7 kg',main:1}],wP:.8,wPL:'+0.8 kg',
+  ae:{h:'Side effects, % of children (label, autism trials)',rows:[['Sedation',63,15],['More appetite',44,15],['Fatigue',31,9],['Drooling',12,4],['Parkinsonism',8,1]],src:'<sup class="c" data-ref="FDA-Risperdal" title="Source 141">141</sup>'},
+  icons:{h:'Responders at week 8',sub:'≥25% fall in irritability and CGI-I much or very much improved',d:[34,49],p:[6,52],src:'<sup class="c" data-ref="McCracken2002" title="Source 367">367</sup>'},
+  rel:{h:'After 6 months: relapse when the medicine is stopped',d:12.5,p:62.5,dl:'kept on risperidone',pl:'switched to placebo',src:'<sup class="c" data-ref="RUPP2005Risperidone" title="Source 499">499</sup>'},
+  cap:'Risperidone data: RUPP Autism Network trial and its 6-month extension; side effects from the US label. <sup class="c" data-ref="McCracken2002,RUPP2005Risperidone,FDA-Risperdal" title="Source 141,367,499">141,367,499</sup>'},
+ ari:{name:'Aripiprazole',short:'ARI',trial:'Marcus 2009 · fixed dose · 218 children, 6–17 y · 8 weeks',
+  unit:' pts',yMax:16,yStep:4,yLab:'ABC-Irritability, points fallen',
+  lines:[{v:-14.4,l:'15 mg −14.4',main:1},{v:-13.2,l:'10 mg −13.2'},{v:-12.4,l:'5 mg −12.4'}],plac:-8.4,placL:'placebo −8.4',
+  wMax:3,w:[{v:1.5,l:'15 mg +1.5 kg',main:1},{v:1.3,l:''}],wP:.3,wPL:'+0.3 kg',
+  ae:{h:'Side effects, % of children (Owen 2009, flexible dose)',rows:[['Extrapyramidal',14.9,8.0],['Stopped: side effects',10.6,5.9]],src:'<sup class="c" data-ref="Owen2009" title="Source 439">439</sup>'},
+  icons:{h:'Extrapyramidal side effects per 100',sub:'movement side effects such as tremor or stiffness, Owen 2009',d:[15,100],p:[8,100],src:'<sup class="c" data-ref="Owen2009" title="Source 439">439</sup>'},
+  rel:{h:'Maintenance: relapse over 16 weeks after stabilising',d:35,p:52,dl:'kept on aripiprazole',pl:'switched to placebo',src:'<sup class="c" data-ref="Findling2014" title="Source 148">148</sup>',ns:1},
+  cap:'The thin lines are the 5 and 10 mg arms (−12.4 and −13.2 points). Aripiprazole data: the fixed-dose trial for irritability and weight; the flexible-dose trial for side effects; the maintenance trial for relapse. <sup class="c" data-ref="Marcus2009,Owen2009,Findling2014" title="Source 148,360,439">148,360,439</sup>'}
+};
+const ME_STEPS={
+ ris:[
+  {from:0,at:.02,k:'Week 0 · who took part',t:'Severe irritability',
+   txt:`The RUPP Autism Network randomised 101 children aged 5–17 with autistic disorder and severe tantrums, aggression or self-injury: 49 to risperidone (0.5–3.5 mg/day) and 52 to placebo, for 8 weeks. Irritability was rated on the Aberrant Behavior Checklist. The target was the behaviour, not autism. <sup class="c" data-ref="McCracken2002" title="Source 367">367</sup>`,
+   pt:`This trial was for children whose outbursts or self-injury were serious enough to hurt them or others. It did not try to change autism.`},
+  {from:.08,at:.24,k:'Weeks 1–4',t:'The curves part',
+   txt:`Both groups improve a little at first: families and raters expect change, and placebo responses in autism trials are large. The risperidone curve keeps falling while the placebo curve levels off. On the right the brain tints as the medicine takes effect; appetite and sleepiness begin to show. <sup class="c" data-ref="McCracken2002,Siafis2020" title="Source 367,546">367,546</sup>`,
+   hook:`A placebo arm is essential: about 1 in 5 participants on placebo in autism drug trials is rated "much improved". <sup class="c" data-ref="Siafis2020" title="Source 546">546</sup>`},
+  {from:.42,at:.56,k:'Week 8 · the result',t:'Irritability down, weight up',
+   txt:`ABC-Irritability fell 56.9% on risperidone and 14.1% on placebo (P<0.001). Weight rose 2.7 ± 2.9 kg vs 0.8 ± 2.2 kg in 8 weeks (P<0.001). Increased appetite, fatigue, drowsiness, dizziness and drooling were more common on risperidone. <sup class="c" data-ref="McCracken2002" title="Source 367">367</sup>`,
+   pt:`The medicine calmed severe outbursts much more than the dummy pill, but children put on weight quickly.`,
+   hook:`RUPP 2002: irritability −56.9% vs −14.1%; weight +2.7 vs +0.8 kg in 8 weeks. <sup class="c" data-ref="McCracken2002" title="Source 367">367</sup>`},
+  {from:.62,at:.68,k:'Side effects',t:'What it costs',
+   txt:`Across the label's paediatric autism trials (risperidone n=107, placebo n=115), sedation affected 63% vs 15%, increased appetite 44% vs 15%, fatigue 31% vs 9%, drooling 12% vs 4% and parkinsonism 8% vs 1%. Prolactin was raised in 49% vs 2%. <sup class="c" data-ref="FDA-Risperdal" title="Source 141">141</sup>`,
+   hook:`Risperidone's commonest paediatric side effect is sedation (63% vs 15%); it raises prolactin (49% vs 2%). <sup class="c" data-ref="FDA-Risperdal" title="Source 141">141</sup>`},
+  {from:.74,at:.8,k:'Week 8 · who responded',t:'Responders',
+   txt:`A positive response meant at least a 25% fall in irritability and a clinician rating of "much" or "very much improved": 69% (34 of 49) on risperidone vs 12% (6 of 52) on placebo. In two thirds of responders (23 of 34), benefit was maintained at 6 months. <sup class="c" data-ref="McCracken2002" title="Source 367">367</sup>`,
+   pt:`About 7 in 10 children improved clearly on the medicine, and about 1 in 10 on the dummy pill. Not everyone responds.`},
+  {from:.87,at:.95,k:'Months 4–6 and after',t:'Stopping or continuing',
+   txt:`In the extension, 63 responders took open-label risperidone for 16 more weeks and gained a mean 5.1 kg. In a blinded discontinuation, relapse was 62.5% with a gradual switch to placebo vs 12.5% on continued risperidone. A Dutch study found relapse in 8 of 12 switched to placebo vs 3 of 12 who stayed on it. NICE advises review at 3–4 weeks, stopping if there is no meaningful response by 6 weeks, and the minimum effective dose. <sup class="c" data-ref="RUPP2005Risperidone,Troost2005,Kendall2013" title="Source 279,499,594">279,499,594</sup>`,
+   pt:`If the medicine helps, stopping it often brings the outbursts back. If it does not help within about 6 weeks, it should usually be stopped.`,
+   hook:`Relapse after stopping risperidone: 62.5% (placebo) vs 12.5% (continued). <sup class="c" data-ref="RUPP2005Risperidone" title="Source 499">499</sup>`}],
+ ari:[
+  {from:0,at:.02,k:'Week 0 · who took part',t:'Two trials, two designs',
+   txt:`Aripiprazole was tested in a fixed-dose trial (218 children aged 6–17 randomised to 5, 10 or 15 mg/day or placebo) and a flexible-dose trial (98 children: 47 aripiprazole, 51 placebo). Both lasted 8 weeks and both targeted irritability. The US label covers ages 6–17. <sup class="c" data-ref="Marcus2009,Owen2009,FDA-Abilify" title="Source 134,360,439">134,360,439</sup>`,
+   pt:`Like risperidone, this medicine was tested for serious outbursts and self-injury, not for autism itself.`},
+  {from:.08,at:.24,k:'Weeks 1–4',t:'Early separation',
+   txt:`In the flexible-dose trial, ABC-Irritability improved more on aripiprazole from week 1 through week 8. Placebo improved too. <sup class="c" data-ref="Owen2009" title="Source 439">439</sup>`,
+   hook:`Aripiprazole separated from placebo from week 1 in the flexible-dose trial. <sup class="c" data-ref="Owen2009" title="Source 439">439</sup>`},
+  {from:.42,at:.56,k:'Week 8 · the result',t:'Every dose beat placebo',
+   txt:`ABC-Irritability fell 12.4 points on 5 mg, 13.2 on 10 mg and 14.4 on 15 mg vs 8.4 on placebo (all p<.05). Weight changed +1.3, +1.3 and +1.5 kg vs +0.3 kg. In the flexible-dose trial weight rose 2.0 vs 0.8 kg. A Cochrane review of the two trials (316 children) found a mean difference of −6.17 points on ABC-Irritability (95% CI −9.07 to −3.26), moderate-quality evidence. <sup class="c" data-ref="Marcus2009,Owen2009,Hirsch2016" title="Source 223,360,439">223,360,439</sup>`,
+   pt:`All three doses calmed outbursts more than the dummy pill. Weight went up, but less than with risperidone in these trials.`,
+   hook:`Aripiprazole vs placebo, Cochrane: ABC-I −6.17 points; weight +1.13 kg. All included trials were industry-supported. <sup class="c" data-ref="Hirsch2016" title="Source 223">223</sup>`},
+  {from:.62,at:.68,k:'Side effects',t:'What it costs',
+   txt:`In the flexible-dose trial, 10.6% stopped for side effects vs 5.9%, and extrapyramidal (movement) events affected 14.9% vs 8.0%. In the fixed-dose trial sedation was the commonest reason to stop. Cochrane: sedation RR 4.28, tremor RR 10.26. Unlike risperidone, aripiprazole tends to lower prolactin. <sup class="c" data-ref="Owen2009,Marcus2009,Hirsch2016,FDA-Abilify" title="Source 134,223,360,439">134,223,360,439</sup>`,
+   hook:`Risperidone raises prolactin; aripiprazole tends to lower it. <sup class="c" data-ref="FDA-Risperdal,FDA-Abilify" title="Source 134,141">134,141</sup>`},
+  {from:.74,at:.8,k:'Movement side effects',t:'Per 100 children',
+   txt:`Seen as icons, extrapyramidal events were about 15 in 100 children on aripiprazole and 8 in 100 on placebo. These include tremor and stiffness, and they are one reason the labels ask for monitoring. <sup class="c" data-ref="Owen2009,FDA-Abilify" title="Source 134,439">134,439</sup>`,
+   pt:`Some children get shaky or stiff on this medicine. Doctors watch for it and can lower the dose or stop.`},
+  {from:.87,at:.95,k:'Months 3–7',t:'Is maintenance needed?',
+   txt:`85 stabilised children were randomised to stay on aripiprazole or switch to placebo for 16 weeks. Relapse was 35% vs 52% (HR 0.57, 95% CI 0.28 to 1.12; P=.097, not significant; NNT 6). The authors advise periodic reassessment, and the label states maintenance efficacy "was not established". In a 52-week open-label study, 60.3% completed a year and BMI z-score rose by 0.31. <sup class="c" data-ref="Findling2014,FDA-Abilify,Marcus2011" title="Source 134,148,361">134,148,361</sup>`,
+   pt:`After a few months, it is worth checking whether the medicine is still needed.`,
+   hook:`Abilify label: maintenance efficacy for autism irritability "was not established". <sup class="c" data-ref="FDA-Abilify" title="Source 134">134</sup>`}]
+};
+const ME_CMP=[
+ {id:'mph',name:'Methylphenidate',tag:'ADHD symptoms',tc:'accent',
+  bars:[['Responders',49],['Stopped: side effects',18]],unit:'%',single:1,
+  front:`RUPP crossover trial, 72 children aged 5–14 with hyperactivity: 49% (35/72) responded; effect sizes 0.20–0.54 by dose and rater. <sup class="c" data-ref="RUPP2005Methylphenidate" title="Source 498">498</sup>`,
+  back:[`Response was smaller and side effects more frequent than in typically developing children with ADHD; side effects ended the study drug in 18% (13/72). <sup class="c" data-ref="RUPP2005Methylphenidate" title="Source 498">498</sup>`,
+   `Cochrane (4 trials, 113 children): high-dose methylphenidate improved teacher-rated hyperactivity (SMD −0.78), low-quality evidence; reduced appetite RR 8.28. <sup class="c" data-ref="Sturman2017" title="Source 570">570</sup>`,
+   `No evidence that it worsens or improves the core features of autism. <sup class="c" data-ref="Sturman2017" title="Source 570">570</sup>`]},
+ {id:'atx',name:'Atomoxetine',tag:'ADHD symptoms',tc:'accent',
+  bars:[['ADHD-RS fall, drug',9.1],['ADHD-RS fall, placebo',.3]],unit:' pts',max:12,
+  front:`8 weeks, 97 children aged 6–17 with autism and ADHD: ADHD-RS fell from 40.7 to 31.6 vs 38.6 to 38.3 on placebo (difference −6.7; p<.001). <sup class="c" data-ref="Harfterkamp2012" title="Source 207">207</sup>`,
+  back:[`Clinician-rated "much improved" did not differ significantly: 20.9% vs 8.7%. Adverse events: 81.3% vs 65.3%. <sup class="c" data-ref="Harfterkamp2012" title="Source 207">207</sup>`,
+   `In a 2×2 trial (128 children), atomoxetine, atomoxetine plus parent training, and parent training alone each beat placebo on ADHD symptoms (effect sizes 0.57–0.98). <sup class="c" data-ref="Handen2015" title="Source 201">201</sup>`]},
+ {id:'gfc',name:'Guanfacine (extended release)',tag:'Hyperactivity',tc:'accent',
+  bars:[['Responders, drug',50],['Responders, placebo',9.4]],unit:'%',
+  front:`8 weeks, 62 children (mean age 8.5): ABC-Hyperactivity fell 43.6% (34.2 to 19.3) vs 13.2% on placebo; responders 50% (15/30) vs 9.4% (3/32). <sup class="c" data-ref="Scahill2015" title="Source 521">521</sup>`,
+  back:[`Common side effects: drowsiness, fatigue and decreased appetite. <sup class="c" data-ref="Scahill2015" title="Source 521">521</sup>`,
+   `Blood pressure fell in the first 4 weeks and returned nearly to baseline by week 8. <sup class="c" data-ref="Scahill2015" title="Source 521">521</sup>`,
+   `ADHD medicines as a group also reduced irritability, though less than antipsychotics (SMD 0.471 vs 1.028). <sup class="c" data-ref="SalazarDePablo2023" title="Source 504">504</sup>`]},
+ {id:'mel',name:'Melatonin (prolonged release)',tag:'Sleep',tc:'rx',
+  bars:[['Extra sleep, drug',57.5],['Extra sleep, placebo',9.1]],unit:' min',max:70,
+  front:`13 weeks, 125 children aged 2–17.5 whose sleep had not improved with behavioural steps alone: total sleep rose 57.5 vs 9.14 min (adjusted difference 32.43 min). <sup class="c" data-ref="Gringras2017" title="Source 188">188</sup>`,
+  back:[`Behavioural strategies come first; melatonin is offered if they have not helped. <sup class="c" data-ref="WilliamsBuckley2020" title="Source 636">636</sup> Clinically meaningful response 68.9% vs 39.3%; sleep latency fell 39.6 vs 12.5 min; somnolence was more common. <sup class="c" data-ref="Gringras2017" title="Source 188">188</sup>`,
+   `Open-label to 52 weeks: 62.08 min more sleep than baseline. Over 104 weeks, growth, BMI and puberty stayed within normal ranges. <sup class="c" data-ref="Maras2018,Malow2021" title="Source 354,358">354,358</sup>`,
+   `A meta-analysis found melatonin did not reduce night-time awakenings. <sup class="c" data-ref="Rossignol2011" title="Source 493">493</sup> The AAN advises counselling about the lack of long-term safety data. <sup class="c" data-ref="WilliamsBuckley2020" title="Source 636">636</sup>`]},
+ {id:'cit',name:'Citalopram (an SSRI)',tag:'Repetitive behaviour',tc:'bad',
+  bars:[['Response, drug',32.9],['Response, placebo',34.2]],unit:'%',
+  front:`STAART trial, 149 children aged 5–17 with high levels of repetitive behaviour, 12 weeks: response 32.9% vs 34.2% on placebo (RR 0.96). No benefit. <sup class="c" data-ref="King2009F" title="Source 288">288</sup>`,
+  back:[`Side effects were more likely on citalopram: increased energy, impulsiveness, hyperactivity, stereotypy, diarrhoea and insomnia. <sup class="c" data-ref="King2009F" title="Source 288">288</sup>`,
+   `Cochrane (9 trials): "There is no evidence of effect of SSRIs in children and emerging evidence of harm." <sup class="c" data-ref="Williams2013SSRI" title="Source 632">632</sup>`,
+   `Repetitive behaviour is a core feature of autism; anxiety or depression in an autistic person is a separate question. <sup class="c" data-ref="Pilling2012" title="Source 461">461</sup>`]}
+];
+const ME_SMD=[['Aripiprazole',1.179],['Risperidone',1.074],['Antipsychotics (class)',1.028],['ADHD medicines',.471]];
+const ME_USE=[['Any psychotropic',64],['2+ classes at once',35],['3+ classes at once',15]];
+
+inits.meds=()=>{
+  const svg=$('#meSvg'),rg=$('#meT');let drug=store.get('meDrug','ris');if(!ME_D[drug])drug='ris';
+  const shape=w=>(1-Math.exp(-w/2.1))/(1-Math.exp(-8/2.1));            /* drawn path, reaches 1 at week 8 */
+  const wshape=w=>w/8;                                                    /* weight: roughly linear in 8 weeks */
+  function icons(x,y,n,k,col,per,sz){let g='';for(let i=0;i<n;i++){const cx=x+(i%per)*sz,cy=y+Math.floor(i/per)*(sz*1.25);g+=person(cx,cy,sz*.95,i<k?col:'var(--line)')}return g}
+  function draw(t){
+    const N=vb(svg,'720 380','400 760'),D=ME_D[drug],S=ME_STEPS[drug],p=phaseOf(S,t),w=8*ramp(t,.03,.56);
+    const L=N?{x0:48,x1:380,c0:44,c1:220,wy0:268,wy1:350,px:8,py:384,pw:384,ph:368}
+             :{x0:58,x1:420,c0:40,c1:196,wy0:240,wy1:330,px:446,py:14,pw:262,ph:354};
+    const X=v=>lerp(L.x0,L.x1,v/8),Y=v=>lerp(L.c0,L.c1,Math.abs(v)/D.yMax),WY=v=>lerp(L.wy1,L.wy0,v/D.wMax);
+    let s=`<defs>${marker('meArr','var(--muted)')}</defs>`;
+    s+=`<text x="${L.x0-40}" y="${L.c0-20}" class="t-sm">${D.yLab}</text>`;
+    for(let v=0;v<=D.yMax+1e-9;v+=D.yStep){s+=`<line x1="${L.x0}" x2="${L.x1}" y1="${f1(Y(v))}" y2="${f1(Y(v))}" class="grid"/><text x="${L.x0-6}" y="${f1(Y(v)+3)}" class="t-xs t-end">${v?'−'+v:'0'}${D.unit==='%'?'%':''}</text>`}
+    for(let k=0;k<=8;k+=2){s+=`<text x="${f1(k?X(k):X(0)+2)}" y="${f1(L.c1+16)}" class="t-xs ${k?(k===8?'t-end':'t-mid'):''}">wk ${k}</text>`}
+    /* placebo and drug curves up to the current week */
+    const curve=(end,col,sw,dash)=>{let d='';const n=Math.max(2,Math.round(w*12));for(let i=0;i<=n;i++){const ww=w*i/n;d+=(i?'L':'M')+f1(X(ww))+' '+f1(Y(end*shape(ww)))}
+      return `<path d="${d}" style="fill:none;stroke:${col};stroke-width:${sw};stroke-linecap:round;${dash?'stroke-dasharray:5 4':''}"/>`};
+    s+=curve(D.plac,'var(--muted)',2.4,1);
+    D.lines.slice().reverse().forEach(l=>s+=curve(l.v,'var(--rx)',l.main?3.2:1.6,0).replace('stroke-linecap',l.main?'stroke-linecap':'opacity:.55;stroke-linecap'));
+    const cx=X(w);s+=`<circle cx="${f1(cx)}" cy="${f1(Y(D.lines[0].v*shape(w)))}" r="4.5" style="fill:var(--rx)"/><circle cx="${f1(cx)}" cy="${f1(Y(D.plac*shape(w)))}" r="4" style="fill:var(--muted)"/>`;
+    if(w>7.9){const ly=Y(D.lines[0].v);s+=`<text x="${f1(L.x1-14)}" y="${f1(ly-8)}" class="t-lbl t-end" style="fill:var(--rx)">${D.lines[0].l}</text>`;
+      s+=`<text x="${f1(L.x1-4)}" y="${f1(Y(D.plac)-7)}" class="t-lbl t-end" style="fill:var(--muted)">${D.placL}</text>`;
+      if(!N)s+=`<path d="M${f1(L.x1+8)} ${f1(Y(D.plac))}V${f1(Y(D.lines[0].v))}" style="stroke:var(--ink);stroke-width:1.3" marker-end="url(#meArr)" marker-start="url(#meArr)"/>`}
+    else s+=`<text x="${f1(Math.min(cx+8,L.x1-60))}" y="${f1(Y(D.lines[0].v*shape(w))+18)}" class="t-xs" style="fill:var(--rx)">${D.name.toLowerCase()} ${f1(D.lines[0].v*shape(w))}${D.unit}</text>`;
+    /* weight panel */
+    s+=`<text x="${L.x0-40}" y="${L.wy0-12}" class="t-sm">Weight gained, kg</text>`;
+    [0,1,2,3].forEach(v=>s+=`<line x1="${L.x0}" x2="${L.x1}" y1="${f1(WY(v))}" y2="${f1(WY(v))}" class="grid"/><text x="${L.x0-6}" y="${f1(WY(v)+3)}" class="t-xs t-end">${v}</text>`);
+    const wl=(v,col,sw,dash)=>`<path d="M${f1(X(0))} ${f1(WY(0))}L${f1(X(w))} ${f1(WY(v*wshape(w)))}" style="stroke:${col};stroke-width:${sw};stroke-linecap:round;${dash?'stroke-dasharray:5 4':''}"/>`;
+    s+=wl(D.wP,'var(--muted)',2.2,1)+wl(D.w[0].v,'var(--warn)',3,0);
+    s+=`<text x="${f1(Math.min(X(w)+6,L.x1-2))}" y="${f1(WY(D.w[0].v*wshape(w))-6)}" class="t-xs ${w>6?'t-end':''}" style="fill:var(--warn)">${w>7.9?D.w[0].l:'+'+f1(D.w[0].v*wshape(w))+' kg'}</text>`;
+    s+=`<text x="${f1(Math.min(X(w)+6,L.x1-2))}" y="${f1(WY(D.wP*wshape(w))-5)}" class="t-xs ${w>6?'t-end':''}">${w>7.9?'placebo '+D.wPL:''}</text>`;
+    s+=`<text x="${f1(X(w))}" y="${f1(L.wy1+14)}" class="t-xs ${w>7?'t-end':'t-mid'}" style="fill:var(--ink);font-weight:700">week ${f1(w)}</text>`;
+    /* panel on the right / below */
+    s+=`<rect x="${L.px}" y="${L.py}" width="${L.pw}" height="${L.ph}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
+    const bx=L.px+14,by=L.py+12,bs=N?.52:.62,g=ramp(t,.08,.5);
+    const B=brain(bx,by,bs,{glow:{frontal:g,parietal:g*.8,temporal:g*.8,occipital:g*.6,brainstem:g*.5},hlCol:'var(--rx)',id:'meBr'});
+    s+=B.svg;
+    const tx=bx+200*bs+10;
+    s+=`<text x="${f1(tx)}" y="${f1(by+14)}" class="t-lbl">${D.name}</text><text x="${f1(tx)}" y="${f1(by+30)}" class="t-xs">psychotropic</text>`;
+    const fx=[['sleepiness',.14],['appetite ↑',.3],['irritability ↓',.08]];
+    fx.forEach(([l,a],i)=>{const op=ramp(t,a,a+.12);if(op>0)s+=`<text x="${f1(tx)}" y="${f1(by+50+i*15)}" class="t-xs" style="fill:${i===2?'var(--rx)':'var(--warn)'};opacity:${f1(op)}">${l}</text>`});
+    const cy0=by+150*bs+22,cw=L.pw-28;
+    if(p<=2){
+      const tp=D.trial.split(' · ');s+=`<text x="${bx}" y="${f1(cy0)}" class="t-sm">${tp[0]}</text><text x="${bx}" y="${f1(cy0+14)}" class="t-xs">${tp.slice(1).join(' · ')}</text>`;
+      const rows=[['Irritability',D.lines[0].v*shape(w),D.plac*shape(w),D.unit],['Weight',D.w[0].v*wshape(w),D.wP*wshape(w),' kg']];
+      rows.forEach((r,i)=>{const y=cy0+34+i*64;s+=`<text x="${bx}" y="${f1(y)}" class="t-xs">${r[0]}</text>`;
+        s+=`<text x="${bx}" y="${f1(y+28)}" style="font:800 24px var(--display);fill:${i?'var(--warn)':'var(--rx)'}">${(r[1]>0?'+':'')+f1(r[1])}${r[3]}</text>`;
+        s+=`<text x="${f1(bx+cw*.55)}" y="${f1(y+28)}" style="font:800 18px var(--display);fill:var(--muted)">${(r[2]>0?'+':'')+f1(r[2])}${r[3]}</text>`;
+        s+=`<text x="${f1(bx+cw*.55)}" y="${f1(y+40)}" class="t-xs">placebo</text><text x="${bx}" y="${f1(y+40)}" class="t-xs">${D.short.toLowerCase()==='ris'?'risperidone':'aripiprazole'}</text>`});
+    }else if(p===3){
+      s+=`<text x="${bx}" y="${f1(cy0)}" class="t-sm">${D.ae.h.split(' (')[0]}</text>`;
+      const rows=D.ae.rows,rh=Math.min(30,(L.py+L.ph-cy0-30)/rows.length),lw=N?110:92,bw=cw-lw-34,k=ramp(t,.62,.7);
+      rows.forEach((r,i)=>{const y=cy0+16+i*rh;s+=`<text x="${bx}" y="${f1(y+10)}" class="t-xs">${r[0]}</text>`;
+        s+=`<rect x="${bx+lw}" y="${f1(y)}" width="${f1(bw*r[1]/70*k)}" height="8" rx="2" style="fill:var(--warn)"/><rect x="${bx+lw}" y="${f1(y+10)}" width="${f1(bw*r[2]/70*k)}" height="6" rx="2" style="fill:var(--muted);opacity:.7"/>`;
+        s+=`<text x="${f1(bx+lw+bw*r[1]/70*k+4)}" y="${f1(y+8)}" class="t-xs" style="fill:var(--warn)">${r[1]}%</text><text x="${f1(bx+lw+bw*r[2]/70*k+4)}" y="${f1(y+17)}" class="t-xs">${r[2]}%</text>`});
+      s+=`<text x="${bx}" y="${f1(L.py+L.ph-10)}" class="t-xs"><tspan style="fill:var(--warn)">■</tspan> ${D.name.toLowerCase()}  <tspan style="fill:var(--muted)">■</tspan> placebo</text>`;
+    }else if(p===4){
+      const I=D.icons;s+=`<text x="${bx}" y="${f1(cy0)}" class="t-sm">${I.h}</text>`;
+      const k=ramp(t,.74,.82),per=I.d[1]>60?10:7,sz=N?(I.d[1]>60?14:16):(I.d[1]>60?9:14),colW=per*sz+14,y0=cy0+26;
+      s+=`<text x="${bx}" y="${f1(y0-6)}" class="t-xs" style="fill:var(--rx)">drug ${I.d[0]}/${I.d[1]}</text>`;
+      s+=icons(bx+4,y0,I.d[1],Math.round(I.d[0]*k),drug==='ris'?'var(--rx)':'var(--warn)',per,sz);
+      s+=`<text x="${f1(bx+colW)}" y="${f1(y0-6)}" class="t-xs">placebo ${I.p[0]}/${I.p[1]}</text>`;
+      s+=icons(bx+colW+4,y0,I.p[1],Math.round(I.p[0]*k),'var(--muted)',per,sz);
+      s+=`<text x="${bx}" y="${f1(L.py+L.ph-10)}" class="t-xs">${N?I.sub.split(' and ')[0].split(' such')[0]:I.sub}</text>`;
+    }else{
+      const R=D.rel,k=ramp(t,.87,.96);s+=`<text x="${bx}" y="${f1(cy0)}" class="t-sm">${N?R.h:R.h.split(':')[0]}</text>`;
+      if(!N)s+=`<text x="${bx}" y="${f1(cy0+14)}" class="t-xs">${R.h.split(': ')[1]||''}</text>`;
+      const bw=cw-60,y=cy0+34;[[R.pl,R.p,'var(--warn)'],[R.dl,R.d,'var(--rx)']].forEach(([l,v,c],i)=>{const yy=y+i*44;
+        s+=`<text x="${bx}" y="${f1(yy)}" class="t-xs">${l}</text><rect x="${bx}" y="${f1(yy+6)}" width="${f1(bw*v/70*k)}" height="16" rx="3" style="fill:${c}"/><text x="${f1(bx+bw*v/70*k+6)}" y="${f1(yy+19)}" class="t-lbl">${f1(v*k)}%</text>`});
+      if(R.ns)s+=`<text x="${bx}" y="${f1(y+100)}" class="t-xs" style="fill:var(--warn)">difference not significant (P=.097)</text>`;
+    }
+    svg.innerHTML=s;setSt(p);
+    $('#meRead').innerHTML=`<span>week <b>${f1(w)}</b></span><span>${D.name.toLowerCase()} <b>${f1(D.lines[0].v*shape(w))}${D.unit}</b></span><span>placebo <b>${f1(D.plac*shape(w))}${D.unit}</b></span><span>weight <b>+${f1(D.w[0].v*wshape(w))} kg</b> vs <b>+${f1(D.wP*wshape(w))} kg</b></span>`;
+    $('#meNote').innerHTML=noteHTML(S[p]);
+  }
+  const stop=playWire(rg,$('#mePlay'),draw,22000,'Replay','meds');
+  let setSt=stepWire($('#meSteps'),ME_STEPS[drug],rg,draw,stop);
+  function setDrug(d){drug=d;store.set('meDrug',d);$$('[data-me]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.me===d));
+    /* the stepper keeps its buttons; refresh their titles for this medicine */
+    $$('#meSteps [data-st]').forEach((b,i)=>{const sp=b.querySelector('span');if(sp)sp.textContent=ME_STEPS[d][i].t});
+    $('#meCap').innerHTML=ME_D[d].cap;draw(+rg.value)}
+  /* stepWire captured the first steps array; both arrays share the same .at values, so jumps stay right */
+  $$('[data-me]').forEach(b=>b.addEventListener('click',()=>{stop();setDrug(b.dataset.me)}));
+  setDrug(drug);
+
+  /* effect sizes / prescribing */
+  const sm=$('#meSmd');let smode='smd';
+  function drawSmd(k=1){const N=vb(sm,'720 230','400 300');const rows=smode==='smd'?ME_SMD:ME_USE,mx=smode==='smd'?1.3:70;
+    const lx=N?12:20,bx0=N?150:200,bx1=N?360:640,top=N?40:36,rh=N?(smode==='smd'?58:72):(smode==='smd'?42:52);let s='';
+    s+=`<text x="${lx}" y="${top-14}" class="t-sm">${smode==='smd'?(N?'Effect on irritability (SMD)':'Effect vs placebo on irritability (SMD; bigger = more effect)'):(N?'US children with autism, 2001–2009':'Psychotropic prescriptions, 33,565 US children with autism, 2001–2009')}</text>`;
+    if(smode==='smd')[0,.5,1].forEach(v=>{const x=lerp(bx0,bx1,v/mx);s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${top}" y2="${top+rows.length*rh}" class="grid"/><text x="${f1(x)}" y="${top+rows.length*rh+14}" class="t-xs t-mid">${v}</text>`});
+    rows.forEach((r,i)=>{const y=top+i*rh+8,w=(bx1-bx0)*r[1]/mx*k,col=smode==='smd'?(i<3?'var(--rx)':'var(--accent)'):'var(--warn)';
+      s+=`<text x="${lx}" y="${y+14}" class="t-lbl" style="font-size:${N?12:13}px">${r[0]}</text><rect x="${bx0}" y="${y}" width="${f1(w)}" height="20" rx="4" style="fill:${col}"/><text x="${f1(bx0+w+6)}" y="${y+15}" class="t-lbl">${smode==='smd'?r[1].toFixed(3):Math.round(r[1]*k)+'%'}</text>`});
+    sm.innerHTML=s;
+    $('#meSmdCap').innerHTML=smode==='smd'?'Meta-analysis of 45 placebo-controlled trials (2,856 participants). No other drug class beat placebo for irritability. An SMD around 1 is a large effect; 0.5 is moderate. <sup class="c" data-ref="SalazarDePablo2023,Fung2016" title="Source 159,504">159,504</sup>':'Claims data: 64% filled at least one psychotropic prescription, 35% had polypharmacy across at least 2 classes and 15% used at least 3 classes at once. <sup class="c" data-ref="Spencer2013" title="Source 557">557</sup>'}
+  let stopS=null;
+  $$('[data-ms]').forEach(b=>b.addEventListener('click',()=>{smode=b.dataset.ms;$$('[data-ms]').forEach(x=>x.setAttribute('aria-pressed',x===b));stopS&&stopS();stopS=animate(700,p=>drawSmd(ease(p)))}));
+  drawSmd(1);redraws.meds=(f=>()=>{f&&f();drawSmd(1);drawCards()})(redraws.meds);
+
+  /* comparator cards */
+  const box=$('#meCards');
+  box.innerHTML=ME_CMP.map((c,i)=>`<div class="mecard" id="meC${i}"><span class="tag ${c.tc}">${c.tag}</span><h4>${c.name}</h4><svg id="meCs${i}" viewBox="0 0 300 74" role="img" aria-label="${c.bars.map(b=>b[0]+' '+b[1]+c.unit).join(', ')}"></svg><div class="fr"><p>${c.front}</p></div><div class="bk" hidden><ul>${c.back.map(x=>`<li>${x}</li>`).join('')}</ul></div><button class="btn ghost flip" data-mc="${i}" aria-pressed="false">Turn over: side effects &amp; caveats</button></div>`).join('');
+  function drawCards(){ME_CMP.forEach((c,i)=>{const sv=$('#meCs'+i),mx=c.max||70;let s='';
+    c.bars.forEach((b,k)=>{const y=6+k*32,w=170*b[1]/mx,col=c.single?(k?'var(--warn)':'var(--accent)'):(k?'var(--muted)':(c.tc==='bad'?'var(--bad)':c.tc==='rx'?'var(--rx)':'var(--accent)'));
+      s+=`<text x="0" y="${y+9}" class="t-xs">${b[0]}</text><rect x="0" y="${y+13}" width="${f1(Math.max(2,w))}" height="11" rx="3" style="fill:${col}"/><text x="${f1(Math.max(2,w)+5)}" y="${y+23}" class="t-lbl" style="font-size:12px">${b[1]}${c.unit}</text>`});
+    sv.innerHTML=s})}
+  drawCards();
+  box.addEventListener('click',e=>{const b=e.target.closest('[data-mc]');if(!b)return;const card=$('#meC'+b.dataset.mc),on=b.getAttribute('aria-pressed')!=='true';
+    b.setAttribute('aria-pressed',on);card.classList.toggle('back',on);$('.fr',card).hidden=on;$('.bk',card).hidden=!on;$('svg',card).style.opacity=on?.35:1;
+    b.innerHTML=on?'Turn back: the trial result':'Turn over: side effects &amp; caveats'});
+};
+/* =============== 4.5 Unproven & harmful treatments =============== */
+/* One hype curve per case. u in [0,1] runs through five stages; the band is drawn by hand (schematic),
+   the events are from the cited studies. kind: claim, spread, pos (a positive small study), neg (no benefit),
+   harm, stop (trial withdrawn or retracted), rev (systematic review), guide (guideline). */
+const UN_STAGES=['The idea','It spreads','The test','The verdict','Afterwards'];
+const UN_KIND={claim:['?','var(--muted)'],spread:['↑','var(--warn)'],pos:['+','var(--good)'],neg:['×','var(--bad)'],harm:['!','var(--bad)'],stop:['■','var(--bad)'],rev:['R','var(--accent)'],guide:['G','var(--rx)']};
+const UN_CASES={
+ secretin:{name:'Secretin',peak:.36,h:.95,fall:.62,res:.06,ev:[0,0],
+  e:[{u:.07,k:'claim',l:'An anecdote',d:'One anecdote about a gut hormone, secretin, spreads before any trial. <sup class="c" data-ref="Sandler1999" title="Source 515">515</sup>'},
+     {u:.27,k:'spread',l:'"Thousands" injected',d:'"Thousands" of children receive secretin injections before trials are done. <sup class="c" data-ref="Sandler1999" title="Source 515">515</sup>'},
+     {u:.47,k:'neg',l:'RCT: no benefit',d:'Randomised trial, 60 children: no outcome improved. The checklist fell 8.9 points on secretin and 17.8 on placebo. <sup class="c" data-ref="Sandler1999" title="Source 515">515</sup>'},
+     {u:.55,k:'spread',l:'69% still want it',d:'After hearing the negative result, 69% of parents in that trial still wanted secretin. <sup class="c" data-ref="Sandler1999" title="Source 515">515</sup>'},
+     {u:.7,k:'rev',l:'Cochrane: 16 RCTs',d:'Cochrane: 16 RCTs, more than 900 children. Secretin "should not be recommended or administered as a treatment for ASD". <sup class="c" data-ref="Williams2012Secretin" title="Source 631">631</sup>'},
+     {u:.88,k:'guide',l:'NICE: do not use',d:'NICE guidance for adults lists secretin among interventions not to use for core features. <sup class="c" data-ref="Pilling2012" title="Source 461">461</sup>'}],
+  cap:'Secretin: <sup class="c" data-ref="Sandler1999,Williams2012Secretin,Pilling2012" title="Source 461,515,631">461,515,631</sup>',
+  n:[{txt:`Secretin is a gut hormone given by injection. The idea that it helped autism spread from one anecdote, without a controlled study. <sup class="c" data-ref="Sandler1999" title="Source 515">515</sup>`,pt:`One family's story travelled fast, long before anyone had tested it fairly.`},
+     {txt:`Before any trial was done, "thousands" of children received secretin injections. Publicity, not evidence, drove demand. <sup class="c" data-ref="Sandler1999" title="Source 515">515</sup>`,hook:`Secretin is the classic example of publicity outrunning evidence: "thousands" treated before a trial. <sup class="c" data-ref="Sandler1999" title="Source 515">515</sup>`},
+     {txt:`A randomised trial gave one IV dose of synthetic human secretin or saline to 60 children (56 analysed). No outcome improved. The Autism Behavior Checklist fell 8.9 points with secretin and 17.8 with placebo (difference −8.9, 95% CI −19.4 to 1.6). Even so, 69% of parents in the trial still wanted secretin afterwards. <sup class="c" data-ref="Sandler1999" title="Source 515">515</sup>`,pt:`When it was tested fairly against salt water, children on salt water did just as well.`},
+     {txt:`A Cochrane review pooled 16 randomised trials and more than 900 children and concluded that secretin "should not be recommended or administered as a treatment for ASD". <sup class="c" data-ref="Williams2012Secretin" title="Source 631">631</sup>`,hook:`Secretin: 16 RCTs, 900+ children, no benefit. <sup class="c" data-ref="Williams2012Secretin" title="Source 631">631</sup>`},
+     {txt:`NICE guidance lists secretin among interventions not to use for the core features of autism in adults. Interest faded, but the lesson remains: a placebo response can make an ineffective treatment look effective. <sup class="c" data-ref="Pilling2012,Siafis2020" title="Source 461,546">461,546</sup>`,pt:`Secretin is no longer recommended anywhere in this guide's sources.`}]},
+ chelation:{name:'Chelation',peak:.34,h:.7,fall:.6,res:.08,ev:[0,0],
+  e:[{u:.07,k:'claim',l:'"Metals cause autism"',d:'Chelation was promoted on the idea that heavy metals, including mercury in the vaccine preservative thimerosal, cause autism. <sup class="c" data-ref="James2015" title="Source 258">258</sup>'},
+     {u:.3,k:'harm',l:'3 deaths reported',d:'2003–2005: CDC received reports of 3 deaths from hypocalcaemia during chelation; 2 were children given edetate disodium. <sup class="c" data-ref="Brown2006" title="Source 59">59</sup>'},
+     {u:.44,k:'neg',l:'No vaccine link',d:'657,461 Danish children: MMR adjusted HR 0.93. 1,256,407 children: no link with thimerosal or mercury. <sup class="c" data-ref="Hviid2019,Taylor2014Vaccine" title="Source 249,586">249,586</sup>'},
+     {u:.54,k:'stop',l:'NIMH trial withdrawn',d:'The NIMH "Mercury Chelation to Treat Autism" trial is listed as withdrawn, with 0 participants enrolled. <sup class="c" data-ref="NCT00376194" title="Source 398">398</sup>'},
+     {u:.7,k:'rev',l:'Cochrane: no evidence',d:'Cochrane: one eligible RCT and "no clinical trial evidence"; risks outweigh proven benefits. <sup class="c" data-ref="James2015" title="Source 258">258</sup>'},
+     {u:.88,k:'guide',l:'NICE: do not use',d:'NICE guidance for adults lists chelation among interventions not to use for core features. <sup class="c" data-ref="Pilling2012" title="Source 461">461</sup>'}],
+  cap:'Chelation: <sup class="c" data-ref="James2015,Brown2006,NCT00376194,Hviid2019,Taylor2014Vaccine" title="Source 59,249,258,398,586">59,249,258,398,586</sup>',
+  n:[{txt:`Chelation drugs bind metals so the body can excrete them. They were promoted for autism on the idea that heavy metals, including the mercury-containing vaccine preservative thimerosal, cause autism. <sup class="c" data-ref="James2015" title="Source 258">258</sup>`,pt:`The treatment was built on a belief that metals from vaccines caused autism. That belief is wrong.`},
+     {txt:`Between 2003 and 2005, CDC received reports of 3 deaths from cardiac arrest caused by hypocalcaemia (low calcium) during chelation. Two were children, both given edetate disodium. <sup class="c" data-ref="Brown2006" title="Source 59">59</sup>`,hook:`Chelation has killed children: hypocalcaemia with edetate disodium. <sup class="c" data-ref="Brown2006" title="Source 59">59</sup>`},
+     {txt:`The premise was tested directly. In 657,461 Danish children, MMR vaccination did not raise autism risk (adjusted HR 0.93, 95% CI 0.85–1.02). A meta-analysis of 1,256,407 children found no association with vaccination (OR 0.99), thimerosal (OR 1.00) or mercury (OR 1.00). An NIMH-sponsored chelation trial is listed as withdrawn with 0 enrolled. <sup class="c" data-ref="Hviid2019,Taylor2014Vaccine,NCT00376194" title="Source 249,398,586">249,398,586</sup>`,pt:`Vaccines do not cause autism. Very large studies checked this.`},
+     {txt:`Cochrane found only one eligible randomised trial (oral DMSA) and "no clinical trial evidence" that chelation works for autism. Given reported hypocalcaemia, renal impairment and death, the reviewers judged that "the risks of using chelation for ASD currently outweigh proven benefits". <sup class="c" data-ref="James2015" title="Source 258">258</sup>`,hook:`Chelation: no trial evidence of benefit; deaths reported. <sup class="c" data-ref="James2015,Brown2006" title="Source 59,258">59,258</sup>`},
+     {txt:`NICE lists chelation among interventions not to use for the core features of autism in adults. <sup class="c" data-ref="Pilling2012" title="Source 461">461</sup>`,pt:`Chelation does not help autism and can kill. Please do not use it.`}]},
+ hbot:{name:'Hyperbaric oxygen',peak:.4,h:.6,fall:.66,res:.12,ev:[.38,.5],
+  e:[{u:.08,k:'claim',l:'Pressurised oxygen',d:'Hyperbaric oxygen: sessions breathing oxygen in a pressurised chamber. <sup class="c" data-ref="Rossignol2009" title="Source 492">492</sup>'},
+     {u:.42,k:'pos',l:'RCT: 30% vs 8%',d:'Multicentre RCT, 62 children aged 2–7, 40 sessions at 1.3 atm and 24% oxygen: physician-rated "much improved" 30% vs 8% on slightly pressurised air. <sup class="c" data-ref="Rossignol2009" title="Source 492">492</sup>'},
+     {u:.56,k:'neg',l:'"No consistent effects"',d:'Controlled within-subject study, 16 children, same 1.3 atm and 24% oxygen: "no consistent effects" on 11 observed behaviours. <sup class="c" data-ref="Jepson2011" title="Source 259">259</sup>'},
+     {u:.86,k:'guide',l:'NICE: do not use',d:'NICE guidance for adults lists hyperbaric oxygen among interventions not to use for core features. <sup class="c" data-ref="Pilling2012" title="Source 461">461</sup>'}],
+  cap:'Hyperbaric oxygen: <sup class="c" data-ref="Rossignol2009,Jepson2011,Pilling2012" title="Source 259,461,492">259,461,492</sup>',
+  n:[{txt:`Hyperbaric oxygen means breathing extra oxygen inside a pressurised chamber, usually over many sessions. <sup class="c" data-ref="Rossignol2009" title="Source 492">492</sup>`},
+     {txt:`Interest grew with clinics offering long courses of sessions. This case shows why one positive trial is not the end of the story.`,pt:`A treatment can sound scientific and still not be proven.`},
+     {txt:`One multicentre RCT (62 children aged 2–7, 40 sessions at 1.3 atm and 24% oxygen) reported better physician global ratings: 30% vs 8% "much" or "very much improved". A controlled within-subject study of 16 children at the same settings found "no consistent effects" on 11 directly observed behaviours. <sup class="c" data-ref="Rossignol2009,Jepson2011" title="Source 259,492">259,492</sup>`,hook:`One positive RCT, one negative controlled study: unreplicated benefit is not established benefit. <sup class="c" data-ref="Rossignol2009,Jepson2011" title="Source 259,492">259,492</sup>`},
+     {txt:`The single positive result was not confirmed. The evidence line rose briefly, then fell back when observed behaviour was measured directly. <sup class="c" data-ref="Jepson2011" title="Source 259">259</sup>`,pt:`When researchers watched the children's actual behaviour, the oxygen made no steady difference.`},
+     {txt:`NICE lists hyperbaric oxygen among interventions not to use for the core features of autism in adults. <sup class="c" data-ref="Pilling2012" title="Source 461">461</sup>`}]},
+ gfcf:{name:'GFCF diets',peak:.38,h:.85,fall:.64,res:.42,ev:[.06,.46],
+  e:[{u:.08,k:'claim',l:'Gluten & casein out',d:'Gluten-free, casein-free (GFCF) diets remove wheat proteins and milk proteins. <sup class="c" data-ref="Piwowarczyk2018" title="Source 462">462</sup>'},
+     {u:.28,k:'spread',l:'Diets lead CAM use',d:'Special diets and supplements ranked first in 75% of CAM studies; 17% of ATN children were on special diets. <sup class="c" data-ref="Hofer2017,Perrin2012" title="Source 227,453">227,453</sup>'},
+     {u:.46,k:'rev',l:'Cochrane: "poor"',d:'Cochrane 2008: two small RCTs (n=35), evidence "poor". The review was withdrawn in 2019. <sup class="c" data-ref="Millward2008" title="Source 381">381</sup>'},
+     {u:.66,k:'neg',l:'6 RCTs: little evidence',d:'2018 review of 6 RCTs (214 children): "little evidence" a GFCF diet helps autism symptoms. <sup class="c" data-ref="Piwowarczyk2018" title="Source 462">462</sup>'},
+     {u:.88,k:'guide',l:'NICE: not for core features',d:'NICE: do not use exclusion diets such as gluten- or casein-free diets for core features. <sup class="c" data-ref="Kendall2013" title="Source 279">279</sup>'}],
+  cap:'GFCF diets: <sup class="c" data-ref="Hofer2017,Perrin2012,Millward2008,Piwowarczyk2018,Kendall2013" title="Source 227,279,381,453,462">227,279,381,453,462</sup>',
+  n:[{txt:`Gluten-free, casein-free (GFCF) diets remove wheat and milk proteins on the idea that they affect behaviour. <sup class="c" data-ref="Piwowarczyk2018" title="Source 462">462</sup>`},
+     {txt:`Diets became the most common alternative approach: special diets and supplements ranked first in 75% of studies of CAM use, and 17% of children in the Autism Treatment Network registry were on special diets. Use was higher in children with gastrointestinal symptoms. <sup class="c" data-ref="Hofer2017,Perrin2012" title="Source 227,453">227,453</sup>`,pt:`Many families try a special diet. It feels safe and is something you can do at home.`},
+     {txt:`A 2008 Cochrane review found two small RCTs with 35 children and called the evidence "poor". It was later withdrawn from the Cochrane Library (2019), not replaced with a positive update. <sup class="c" data-ref="Millward2008" title="Source 381">381</sup>`},
+     {txt:`A 2018 systematic review of 6 RCTs (214 children) found "little evidence" that a GFCF diet helps autism symptoms; with few exceptions, core-symptom scores did not differ between groups. <sup class="c" data-ref="Piwowarczyk2018" title="Source 462">462</sup>`,hook:`GFCF diet: 6 RCTs, 214 children, "little evidence" of benefit. <sup class="c" data-ref="Piwowarczyk2018" title="Source 462">462</sup>`},
+     {txt:`NICE says not to use exclusion diets such as gluten- or casein-free diets for the core features of autism in children and young people. Interest stays high, which is why the band does not fall to zero. <sup class="c" data-ref="Kendall2013,Hofer2017" title="Source 227,279">227,279</sup>`,pt:`Diets have not been shown to change autism. Talk to a doctor before cutting out foods.`}]},
+ stem:{name:'Stem cells',peak:.4,h:.75,fall:.66,res:.2,ev:[.15,.3],
+  e:[{u:.1,k:'pos',l:'Phase I: feasible',d:'Phase I open-label trial, 25 children, one cord-blood infusion: safe and feasible; no control group. <sup class="c" data-ref="Dawson2017" title="Source 113">113</sup>'},
+     {u:.3,k:'spread',l:'Crowdfunded clinics',d:'Crowdfunding for "stem cell" treatment at an international clinic: strong claims, testimonials, academic trials cited for credibility. <sup class="c" data-ref="Snyder2021" title="Source 555">555</sup>'},
+     {u:.56,k:'neg',l:'Phase II RCT: no benefit',d:'Phase II RCT, 180 children aged 2–7: one cord-blood infusion did not improve socialisation or autism symptoms at 6 months. <sup class="c" data-ref="Dawson2020" title="Source 114">114</sup>'},
+     {u:.74,k:'rev',l:'Subgroups exploratory',d:'Signals in children without intellectual disability were exploratory only. <sup class="c" data-ref="Dawson2020" title="Source 114">114</sup>'}],
+  cap:'Stem cells and cord blood: <sup class="c" data-ref="Dawson2017,Dawson2020,Snyder2021" title="Source 113,114,555">113,114,555</sup>',
+  n:[{txt:`A phase I open-label trial gave one infusion of the child's own cord blood to 25 children and found it safe and feasible. Its uncontrolled behavioural gains were used only to choose outcomes for a controlled trial. <sup class="c" data-ref="Dawson2017" title="Source 113">113</sup>`,pt:`A first small study checked safety. It could not show whether the treatment works.`},
+     {txt:`Crowdfunding campaigns for "stem cell" treatment at an international clinic made strong efficacy claims and relied on testimonials. Early academic trials and press releases were used to lend these clinics credibility. <sup class="c" data-ref="Snyder2021" title="Source 555">555</sup>`,hook:`Stem-cell clinics borrow credibility from early academic trials. <sup class="c" data-ref="Snyder2021" title="Source 555">555</sup>`},
+     {txt:`The controlled phase II trial randomised 180 children aged 2–7. One cord-blood infusion was not associated with better socialisation or fewer autism symptoms at 6 months. <sup class="c" data-ref="Dawson2020" title="Source 114">114</sup>`,pt:`When tested fairly, the infusion did not help.`},
+     {txt:`Subgroup signals in children without intellectual disability were exploratory, which means they need their own trial before anyone can rely on them. <sup class="c" data-ref="Dawson2020" title="Source 114">114</sup>`},
+     {txt:`Families raising money for overseas clinics are paying for something a controlled trial did not support. Ask whether a treatment is part of a registered trial before paying for it. <sup class="c" data-ref="Snyder2021,Dawson2020" title="Source 114,555">114,555</sup>`}]},
+ camel:{name:'Camel milk',peak:.4,h:.55,fall:.7,res:.15,ev:[.4,.55],
+  e:[{u:.1,k:'claim',l:'Marketed as helpful',d:'Camel milk and other products are sold to families with claims about autism. <sup class="c" data-ref="Kandeel2022" title="Source 267">267</sup>'},
+     {u:.44,k:'rev',l:'2022 meta-analysis',d:'A 2022 meta-analysis claimed camel milk lowered CARS scores. <sup class="c" data-ref="Kandeel2022" title="Source 267">267</sup>'},
+     {u:.62,k:'stop',l:'Retracted 2023',d:'The journal retracted that meta-analysis in 2023. <sup class="c" data-ref="Kandeel2022" title="Source 267">267</sup>'},
+     {u:.86,k:'guide',l:'NICE: no supplements',d:'NICE: do not use vitamins, minerals or dietary supplements for core features in adults. <sup class="c" data-ref="Pilling2012" title="Source 461">461</sup>'}],
+  cap:'Camel milk: <sup class="c" data-ref="Kandeel2022,Pilling2012" title="Source 267,461">267,461</sup>',
+  n:[{txt:`Camel milk is one of many products marketed to families. In this guide's sources, its evidence rests on a single meta-analysis. <sup class="c" data-ref="Kandeel2022" title="Source 267">267</sup>`},
+     {txt:`Products spread through word of mouth and online shops; diets and supplements are the most-used alternative approaches. <sup class="c" data-ref="Hofer2017" title="Source 227">227</sup>`},
+     {txt:`A 2022 meta-analysis claimed that camel milk lowered CARS scores, and the evidence line rises. <sup class="c" data-ref="Kandeel2022" title="Source 267">267</sup>`,pt:`A paper can look like strong evidence and still be wrong.`},
+     {txt:`In 2023 the journal retracted that meta-analysis. A retracted paper is no longer evidence, and the line falls back to zero. <sup class="c" data-ref="Kandeel2022" title="Source 267">267</sup>`,hook:`Check for retractions: the camel-milk meta-analysis (2022) was retracted in 2023. <sup class="c" data-ref="Kandeel2022" title="Source 267">267</sup>`},
+     {txt:`NICE lists vitamins, minerals and dietary supplements among interventions not to use for the core features of autism in adults. <sup class="c" data-ref="Pilling2012" title="Source 461">461</sup>`}]}
+};
+const UN_STEPS=UN_STAGES.map((t,i)=>({from:i*.2,at:i*.2+.13,t}));
+const UN_Q=['Tested against placebo in randomised trials?','Benefit on outcomes that matter?','Confirmed by larger trials or reviews?','Promoted by independent clinicians, not the seller?','Harms small and well known?','Cost and burden reasonable?'];
+/* g = reassuring, b = warning, u = unknown */
+const UN_EX={
+ secretin:{a:[['g','Yes: 16 RCTs, 900+ children'],['b','No: no outcome improved'],['b','Cochrane: do not use'],['b','Spread by publicity after one anecdote'],['u','Not the main issue: it does not work'],['u','Not reported in these sources']],v:'no',vt:'Not supported',vx:'Tested many times, and it does not work. <sup class="c" data-ref="Williams2012Secretin,Sandler1999" title="Source 515,631">515,631</sup>'},
+ chelation:{a:[['b','No: one small RCT; NIMH trial withdrawn'],['b','No trial evidence of benefit'],['b','Cochrane: risks outweigh benefits'],['b','Built on a vaccine–mercury idea that large studies reject'],['b','Deaths from hypocalcaemia; renal impairment'],['u','Not reported in these sources']],v:'no',vt:'Harmful: do not use',vx:'No evidence of benefit, a false premise, and deaths reported. <sup class="c" data-ref="James2015,Brown2006,Hviid2019" title="Source 59,249,258">59,249,258</sup>'},
+ hbot:{a:[['g','One RCT of 62 children'],['u','Mixed: one positive, one negative study'],['b','Not confirmed; NICE: do not use'],['u','Not reported in these sources'],['u','Not reported in these sources'],['b','40 chamber sessions in the trial']],v:'no',vt:'Not recommended',vx:'A single unconfirmed positive trial is not enough. <sup class="c" data-ref="Rossignol2009,Jepson2011,Pilling2012" title="Source 259,461,492">259,461,492</sup>'},
+ gfcf:{a:[['g','6 small RCTs, 214 children'],['b','"Little evidence" for autism symptoms'],['b','Cochrane 2008 "poor", later withdrawn'],['u','Not reported in these sources'],['u','Not reported in these sources'],['u','Not reported in these sources']],v:'no',vt:'Not supported for core features',vx:'Trials found little evidence; NICE advises against exclusion diets for core features. <sup class="c" data-ref="Piwowarczyk2018,Kendall2013" title="Source 279,462">279,462</sup>'},
+ stem:{a:[['g','Phase II RCT, 180 children'],['b','No better socialisation at 6 months'],['b','Phase I had no control group'],['b','Clinics crowdfunded with testimonials'],['u','Not reported in these sources'],['b','Families crowdfund to pay']],v:'no',vt:'Not supported',vx:'The controlled trial was negative; clinics sell what trials did not show. <sup class="c" data-ref="Dawson2020,Snyder2021" title="Source 114,555">114,555</sup>'},
+ camel:{a:[['u','No trial details in these sources'],['b','The only meta-analysis was retracted'],['b','Retracted in 2023'],['u','Sold as a product'],['u','Not reported in these sources'],['u','Not reported in these sources']],v:'no',vt:'Not supported',vx:'Its only evidence was retracted. <sup class="c" data-ref="Kandeel2022" title="Source 267">267</sup>'},
+ mel:{a:[['g','RCT, 125 children, 13 weeks'],['g','+57.5 vs +9.1 min sleep'],['g','Meta-analysis of 5 crossover RCTs'],['g','AAN guideline, after behavioural steps'],['u','Somnolence; long-term safety data lacking'],['g','Pharmaceutical-grade product advised']],v:'yes',vt:'Supported, for sleep, after behavioural steps',vx:'It helps sleep in trials; it does not treat autism. Long-term safety data are limited. <sup class="c" data-ref="Gringras2017,Rossignol2011,WilliamsBuckley2020" title="Source 188,493,636">188,493,636</sup>'},
+ ris:{a:[['g','RCT, 101 children, 8 weeks'],['g','69% vs 12% responders'],['g','45-trial meta-analysis'],['g','US label for irritability'],['b','Weight gain, sedation, prolactin'],['u','Needs regular monitoring']],v:'maybe',vt:'Supported for severe irritability, with real costs',vx:'It works for aggression and self-injury, not for autism itself, and needs monitoring. <sup class="c" data-ref="McCracken2002,SalazarDePablo2023,FDA-Risperdal" title="Source 141,367,504">141,367,504</sup>'}
+};
+
+inits.unproven=()=>{
+  const svg=$('#unSvg'),rg=$('#unT');let cs=store.get('unCase','secretin');if(!UN_CASES[cs])cs='secretin';
+  const band=(C,u)=>{if(u<C.peak)return C.h*Math.pow(Math.sin(Math.PI/2*u/C.peak),1.6);
+    if(u<C.fall)return lerp(C.h,(C.h+C.res)/2,ease(ramp(u,C.peak,C.fall)));return lerp((C.h+C.res)/2,C.res,ease(ramp(u,C.fall,Math.min(1,C.fall+.2))))};
+  const evid=(C,u)=>C.ev[0]?C.ev[0]*bump(u,C.ev[1]-.12,C.ev[1]+.14):0;
+  function draw(t){
+    const N=vb(svg,'720 380','400 460'),C=UN_CASES[cs],p=phaseOf(UN_STEPS,t);
+    const L=N?{x0:16,x1:384,y0:60,y1:290}:{x0:30,x1:700,y0:84,y1:262};
+    const X=u=>lerp(L.x0,L.x1,u),Y=v=>lerp(L.y1,L.y0,v);let s='';
+    UN_STAGES.forEach((n,i)=>{const a=X(i*.2),b=X(i*.2+.2);s+=`<rect x="${f1(a)}" y="${L.y0-(N?30:58)}" width="${f1(b-a)}" height="${f1(L.y1-L.y0+(N?30:58))}" style="fill:${i===p?'var(--rx-soft)':'none'};opacity:.6"/>`;
+      if(i)s+=`<line x1="${f1(a)}" x2="${f1(a)}" y1="${L.y0-(N?30:58)}" y2="${L.y1}" class="grid"/>`;
+      s+=`<text x="${f1((a+b)/2)}" y="${L.y0-(N?14:46)}" class="t-xs t-mid" style="${i===p?'fill:var(--ink);font-weight:700':''}">${N?n.replace('The ','').replace('It ',''):n}</text>`});
+    s+=`<line x1="${L.x0}" x2="${L.x1}" y1="${L.y1}" y2="${L.y1}" class="axis" style="stroke:var(--muted)"/>`;
+    /* interest band up to t */
+    let top='',n=Math.max(2,Math.round(t*120));for(let i=0;i<=n;i++){const u=t*i/n;top+=(i?'L':'M')+f1(X(u))+' '+f1(Y(band(C,u)))}
+    s+=`<path d="${top}L${f1(X(t))} ${L.y1}L${X(0)} ${L.y1}Z" style="fill:var(--warn);opacity:.2"/><path d="${top}" style="fill:none;stroke:var(--warn);stroke-width:2.6"/>`;
+    let ev='';for(let i=0;i<=n;i++){const u=t*i/n;ev+=(i?'L':'M')+f1(X(u))+' '+f1(Y(evid(C,u)))}
+    s+=`<path d="${ev}" style="fill:none;stroke:var(--good);stroke-width:2.4;stroke-dasharray:6 3"/>`;
+    s+=`<line x1="${f1(X(t))}" x2="${f1(X(t))}" y1="${L.y0-30}" y2="${L.y1}" style="stroke:var(--ink);stroke-width:1;opacity:.5"/>`;
+    /* legend */
+    const lgy=L.y1+(N?20:18);
+    s+=`<rect x="${L.x0}" y="${lgy-8}" width="14" height="6" style="fill:var(--warn)"/><text x="${L.x0+20}" y="${lgy}" class="t-xs">interest and use</text>`;
+    s+=`<line x1="${L.x0+(N?186:150)}" x2="${L.x0+(N?202:166)}" y1="${lgy-4}" y2="${lgy-4}" style="stroke:var(--good);stroke-width:2.4;stroke-dasharray:6 3"/><text x="${L.x0+(N?208:172)}" y="${lgy}" class="t-xs">evidence of benefit</text>`;
+    /* events */
+    let last=null;C.e.forEach((E,i)=>{const on=t>=E.u;if(!on)return;last=E;const K=UN_KIND[E.k],x=X(E.u),bv=band(C,E.u),y=Y(bv)-14-(i%2)*(N?0:0);
+      s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${f1(y+9)}" y2="${L.y1}" style="stroke:${K[1]};stroke-width:1;stroke-dasharray:2 3;opacity:.7"/>`;
+      s+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="9" style="fill:${K[1]}"/><text x="${f1(x)}" y="${f1(y+4)}" class="t-xs t-mid" style="fill:var(--bg);font-weight:700">${K[0]}</text>`;
+      if(!N){const ly=L.y0-30+(i%3)*12,anc=E.u>.85?'t-end':E.u<.12?'':'t-mid';s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${f1(ly+3)}" y2="${f1(y-9)}" style="stroke:${K[1]};stroke-width:1;opacity:.6"/><text x="${f1(x)}" y="${f1(ly)}" class="t-xs ${anc}" style="fill:var(--ink)">${E.l}</text>`}});
+    /* the latest event, spelled out */
+    const by=N?lgy+18:lgy+14,bw=L.x1-L.x0;
+    s+=`<rect x="${L.x0}" y="${by}" width="${bw}" height="${N?(460-by-6):(380-by-8)}" rx="10" style="fill:var(--field);stroke:var(--line)"/>`;
+    if(last){const K=UN_KIND[last.k];s+=`<circle cx="${L.x0+18}" cy="${by+20}" r="9" style="fill:${K[1]}"/><text x="${L.x0+18}" y="${by+24}" class="t-xs t-mid" style="fill:var(--bg);font-weight:700">${K[0]}</text><text x="${L.x0+34}" y="${by+24}" class="t-lbl">${last.l}</text>`;
+      const words=last.d.replace(/\s*<sup[^>]*>.*?<\/sup>/g,'').replace(/\s*\[\[[^\]]*\]\]/g,'').split(' '),mx=N?44:92;let line='',k=0;const lines=[];words.forEach(w=>{if((line+' '+w).length>mx){lines.push(line);line=w}else line=line?line+' '+w:w});lines.push(line);
+      lines.slice(0,N?4:2).forEach((ln,j)=>s+=`<text x="${L.x0+14}" y="${by+42+j*15}" class="t-sm" style="fill:var(--ink)">${ln}</text>`);void k}
+    else s+=`<text x="${L.x0+14}" y="${by+24}" class="t-sm">Press Play to follow ${C.name.toLowerCase()} from claim to verdict.</text>`;
+    svg.innerHTML=s;setSt(p);
+    const nn=C.n[p];$('#unNote').innerHTML=noteHTML({k:C.name+' · stage '+(p+1)+' of 5',t:UN_STAGES[p],txt:nn.txt,pt:nn.pt,hook:nn.hook});
+    rg.setAttribute('aria-valuetext',`${C.name}: ${UN_STAGES[p]}${last?', '+last.l:''}`);
+  }
+  const stop=playWire(rg,$('#unPlay'),draw,20000,'Replay','unproven');
+  const setSt=stepWire($('#unSteps'),UN_STEPS,rg,draw,stop);
+  function setCase(c){cs=c;store.set('unCase',c);$$('[data-un]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.un===c));$('#unCap').innerHTML=UN_CASES[c].cap;draw(+rg.value)}
+  $$('[data-un]').forEach(b=>b.addEventListener('click',()=>{stop();setCase(b.dataset.un)}));
+  setCase(cs);
+
+  /* claim checker */
+  const tree=$('#unTree'),sel=$('#unEx'),own=['u','u','u','u','u','u'];
+  $('#unQs').innerHTML=UN_Q.map((q,i)=>`<div class="unq"><span>${i+1}. ${q}</span><div class="unrow" role="group" aria-label="${q}">${[['g','Yes'],['b','No'],['u','Not sure']].map(([v,l])=>`<button class="btn" data-uq="${i}" data-uv="${v}" aria-pressed="${v==='u'}">${l}</button>`).join('')}</div></div>`).join('');
+  const COL={g:'var(--good)',b:'var(--bad)',u:'var(--muted)'},SOFT={g:'var(--good-soft)',b:'var(--bad-soft)',u:'var(--panel-2)'},MARK={g:'✓',b:'✕',u:'?'};
+  function ownVerdict(){const a=own;
+    if(a[0]==='b')return['no','Unproven','No randomised, placebo-controlled trial. In autism research, about 1 in 5 children improve on placebo, so stories and before-and-after reports cannot tell you whether it works. <sup class="c" data-ref="Siafis2020" title="Source 546">546</sup>'];
+    if(a[1]==='b')return['no','Not supported','It was tested and did not help. Treatments like secretin were abandoned for this reason. <sup class="c" data-ref="Williams2012Secretin" title="Source 631">631</sup>'];
+    if(a[4]==='b')return['no','Weigh the harms carefully','Known serious harms need a clear, proven benefit to justify them, as with chelation, which has killed children. <sup class="c" data-ref="Brown2006,James2015" title="Source 59,258">59,258</sup>'];
+    if(a.slice(0,3).every(x=>x==='g'))return['yes','Promising: discuss with your clinician','Randomised, beneficial and confirmed. Ask what it is for, what it costs you, and how you will know if it is working. <sup class="c" data-ref="Hyman2020" title="Source 250">250</sup>'];
+    if(a[3]==='b')return['maybe','Be cautious','Promotion by the seller, testimonials and crowdfunding are warning signs. <sup class="c" data-ref="Snyder2021" title="Source 555">555</sup>'];
+    return['maybe','Not enough information yet','Look for a registered, randomised trial and an independent review before spending money or time. <sup class="c" data-ref="Siafis2020" title="Source 546">546</sup>']}
+  function drawTree(){const N=vb(tree,'520 470','400 520'),ex=sel.value,E=UN_EX[ex],ans=ex==='own'?own.map(v=>[v,{g:'Yes',b:'No',u:'Not sure'}[v]]):E.a;
+    const w=N?380:500,x0=10,bh=N?62:56,gap=N?20:20;let s=`<defs>${marker('unArr','var(--muted)')}</defs>`;
+    ans.forEach(([v,txt],i)=>{const y=8+i*(bh+gap);
+      s+=`<rect x="${x0}" y="${y}" width="${w}" height="${bh}" rx="10" style="fill:${SOFT[v]};stroke:${COL[v]};stroke-width:1.4"/>`;
+      s+=`<circle cx="${x0+22}" cy="${y+bh/2}" r="13" style="fill:${COL[v]}"/><text x="${x0+22}" y="${y+bh/2+5}" class="t-lbl t-mid" style="fill:var(--bg)">${MARK[v]}</text>`;
+      s+=`<text x="${x0+44}" y="${y+22}" class="t-lbl" style="font-size:${N?13:13.5}px">${i+1}. ${UN_Q[i]}</text>`;
+      s+=`<text x="${x0+44}" y="${y+42}" class="t-sm" style="fill:var(--ink)">${txt}</text>`;
+      if(i<5)s+=`<path d="M${x0+22} ${y+bh+2}V${y+bh+gap-3}" style="stroke:var(--muted);stroke-width:1.4" marker-end="url(#unArr)"/>`});
+    tree.innerHTML=s;
+    const V=ex==='own'?ownVerdict():[E.v,E.vt,E.vx];
+    $('#unVerdict').innerHTML=`<div class="verdict ${V[0]}">${V[1]}<p>${V[2]}</p></div>`;
+    $('#unOwn').hidden=ex!=='own'}
+  sel.addEventListener('change',drawTree);
+  $('#unQs').addEventListener('click',e=>{const b=e.target.closest('[data-uq]');if(!b)return;const i=+b.dataset.uq;own[i]=b.dataset.uv;
+    $$(`[data-uq="${i}"]`).forEach(x=>x.setAttribute('aria-pressed',x===b));drawTree()});
+  drawTree();
+  redraws.unproven=(f=>()=>{f&&f();drawTree()})(redraws.unproven);
+};
+/* =============== 4.6 Research toward better support =============== */
+/* Lanes of rows. s/e: first and latest result (decimal years) in this guide's sources.
+   m: milestones {y, l}. res: the outcome shown at e: neg, mixed, early, ongoing, pos, cleared. ev: est|early|hyp. */
+const FR_Y0=2010,FR_Y1=2026.9;
+const FR_RES={neg:['No benefit','var(--bad)'],mixed:['Mixed','var(--warn)'],early:['Early','var(--warn)'],ongoing:['Ongoing','var(--accent)'],pos:['Benefit','var(--good)'],cleared:['FDA cleared','var(--good)'],paused:['Postponed','var(--bad)'],created:['Category created','var(--good)'],rec:['Recommended','var(--rx)'],set:['Priorities set','var(--rx)']};
+const FR_LANES={
+ med:{name:'Medicines',rows:[
+  {n:'Bumetanide',s:2017.2,e:2023.8,res:'neg',ev:'est',m:[{y:2017.2,l:'phase 2b: CARS better in completers'},{y:2021.5,l:'BAMBI: no benefit'},{y:2023.8,l:'phase 3 SIGN 1 & 2 stopped'}]},
+  {n:'Oxytocin',s:2021.8,e:2023.1,res:'neg',ev:'est',m:[{y:2021.8,l:'SOARS-B, 290 children: no benefit'},{y:2023.1,l:'87 children: no overall effect'}]},
+  {n:'Balovaptan',s:2022.2,e:2022.6,res:'neg',ev:'est',m:[{y:2022.2,l:'adults: stopped for futility'},{y:2022.6,l:'children: no benefit'}]},
+  {n:'Arbaclofen',s:2017.4,e:2023.1,res:'early',ev:'early',m:[{y:2017.4,l:'missed primary outcome'},{y:2023.1,l:'EU trial done, no results posted'}]},
+  {n:'Suramin',s:2017.5,e:2023.8,res:'neg',ev:'hyp',m:[{y:2017.5,l:'pilot, 10 boys'},{y:2023.8,l:'RCT, 52 boys: no benefit'}]},
+  {n:'Sulforaphane',s:2021.4,e:2021.4,res:'mixed',ev:'early',m:[{y:2021.4,l:'primary missed; caregiver ABC better'}]},
+  {n:'Cannabinoids',s:2021.1,e:2023.95,res:'mixed',ev:'early',m:[{y:2021.1,l:'one primary failed, CGI-I 49% vs 21%'},{y:2023.95,l:'CBD solution: no difference'}]},
+  {n:'Microbiota transfer',s:2017.1,e:2026.8,res:'ongoing',ev:'early',m:[{y:2017.1,l:'open-label, 18 children'},{y:2019.3,l:'2-year follow-up'},{y:2026.8,l:'placebo-controlled trials: no results yet'}]},
+  {n:'Leucovorin',s:2018.1,e:2026.2,res:'early',ev:'early',m:[{y:2018.1,l:'RCT, 48 children: d=0.70'},{y:2021.9,l:'meta-analysis'},{y:2025.7,l:'promotion; prescribing 24× up'},{y:2026.2,l:'label: FOLR1 deficiency, not autism'}]},
+  {n:'ASOs, Angelman',s:2025.5,e:2026.5,res:'ongoing',ev:'hyp',m:[{y:2025.5,l:'phase 1: safety met'},{y:2026.5,l:'3 phase 3 trials'}]}]},
+ dx:{name:'Diagnostics',rows:[
+  {n:'EarliPoint',s:2019.4,e:2023.7,res:'cleared',ev:'est',m:[{y:2019.4,l:'pivotal study completes'},{y:2022.45,l:'FDA 510(k) clearance'},{y:2023.7,l:'JAMA: sens 71%, spec 81%'}]},
+  {n:'Canvas Dx (Cognoa)',s:2021.4,e:2025.3,res:'cleared',ev:'est',m:[{y:2021.4,l:'De Novo: new device type'},{y:2022.35,l:'result in 31.8% of children'},{y:2025.3,l:'cleared again, 510(k)'}]},
+  {n:'Device category QPF',s:2021.4,e:2026.8,res:'created',ev:'est',m:[{y:2021.4,l:'"Pediatric ASD Diagnosis Aid", class II'}]}]},
+ sup:{name:'Services & supports',rows:[
+  {n:'PACT parent coaching',s:2010.4,e:2016.9,res:'pos',ev:'est',m:[{y:2010.4,l:'13 months: symptoms not significant'},{y:2016.9,l:'6 years on: ES 0.55'}]},
+  {n:'Community priorities',s:2014.5,e:2021.1,res:'set',ev:'est',m:[{y:2014.5,l:'UK: "clear disparity"'},{y:2015.5,l:'US survey: life skills'},{y:2020.5,l:'mental-health priorities'},{y:2021.1,l:'review of 7 studies'}]},
+  {n:'Music therapy',s:2017.6,e:2017.6,res:'neg',ev:'est',m:[{y:2017.6,l:'364 children: no difference'}]},
+  {n:'Adapted CBT, anxiety',s:2020.1,e:2020.1,res:'pos',ev:'est',m:[{y:2020.1,l:'response 92.4% vs 11.1%'}]},
+  {n:'Project AIM review',s:2020.2,e:2020.2,res:'mixed',ev:'est',m:[{y:2020.2,l:'low-bias outcomes: no effects'}]},
+  {n:'Spectrum 10K',s:2021.7,e:2023.1,res:'paused',ev:'est',m:[{y:2021.7,l:'postponed after backlash'},{y:2023.1,l:'interviews: trust, data'}]},
+  {n:'Sensory integration',s:2022.4,e:2022.4,res:'neg',ev:'est',m:[{y:2022.4,l:'138 children: no effect'}]},
+  {n:'Trial registration',s:2025.4,e:2025.4,res:'rec',ev:'est',m:[{y:2025.4,l:'INSAR: require registration'}]}]}
+};
+const FR_WIN=[[2010,2013.99,'2010–2013'],[2014,2017.99,'2014–2017'],[2018,2020.99,'2018–2020'],[2021,2023.99,'2021–2023'],[2024,2026.9,'2024–2026']];
+const FR_STEPS=FR_WIN.map(([a,b,t])=>({from:(a-FR_Y0)/(FR_Y1-FR_Y0),at:Math.min(1,(b-FR_Y0)/(FR_Y1-FR_Y0)),t}));
+const FR_NOTES={
+ med:[
+  {txt:`In this guide's sources, no medicine trial for autism itself reports before 2017. The approved medicines of the period treat irritability, not autism (see <a href="#meds" data-go="meds">Medication</a>). <sup class="c" data-ref="Pandina2026,FDA-Risperdal" title="Source 141,445">141,445</sup>`,pt:`There is still no medicine for autism itself. Research has tried to find one; so far none has worked in large trials.`},
+  {txt:`<span class="ev early">Early evidence</span> Small studies looked promising. A phase 2b bumetanide study (88 participants) reported better CARS scores in completers, with dose-dependent hypokalaemia. Arbaclofen missed its primary outcome in 150 participants. An open-label microbiota transfer study in 18 children reported about an 80% fall in GI symptoms, with no placebo arm. A suramin pilot treated 5 boys. <sup class="c" data-ref="Lemonnier2017,VeenstraVanderWeele2017,Kang2017,Naviaux2017" title="Source 268,324,397,607">268,324,397,607</sup>`,hook:`Small, open-label or completer-only results often shrink or vanish in large placebo-controlled trials. <sup class="c" data-ref="Siafis2020" title="Source 546">546</sup>`},
+  {txt:`<span class="ev early">Early evidence</span> Folinic acid (leucovorin) improved verbal communication in a 12-week RCT of 48 children (d=0.70), more in children with folate receptor-α autoantibodies. At 2 years, most of the microbiota transfer GI gains persisted, and the authors called for a double-blind trial. <sup class="c" data-ref="Frye2018,Kang2019" title="Source 154,269">154,269</sup>`,pt:`A few small studies gave hope. They need bigger, fairer tests.`},
+  {txt:`<span class="ev est">Established: negative</span> The big trials reported. Oxytocin (SOARS-B, 290 children, 24 weeks): social withdrawal −3.7 vs −3.5 on placebo, P=0.61. Balovaptan: adults stopped for futility (Vineland +4.56 vs +6.83 on placebo); children no better (P=.91). Bumetanide: BAMBI no benefit, hypokalaemia 51% vs 0%; both phase 3 SIGN trials stopped for lack of efficacy. Cannabinoids and sulforaphane were mixed; suramin's RCT missed its primary outcome. <sup class="c" data-ref="Sikich2021,Jacob2022,Hollander2022,Sprengers2021,Fuentes2023,Aran2021,Zimmerman2021,Hough2023" title="Source 24,157,229,233,255,548,558,653">24,157,229,233,255,548,558,653</sup>`,hook:`Oxytocin (SOARS-B), balovaptan (V1aduct, aV1ation) and bumetanide (SIGN 1 and 2) were all negative in large trials. <sup class="c" data-ref="Sikich2021,Jacob2022,Hollander2022,Fuentes2023" title="Source 157,229,255,548">157,229,255,548</sup>`},
+  {txt:`<span class="ev hyp">Hypothesis</span> for autism in general: in Angelman syndrome, the antisense oligonucleotide rugonersen met its phase 1 safety endpoint in 61 children, and three phase 3 trials are registered. <span class="ev early">Early evidence</span> Leucovorin's 2026 label is for FOLR1 cerebral folate transport deficiency, not autism, yet prescribing to autistic children rose more than 24-fold after promotion in 2025. Placebo-controlled microbiota trials are active with no results posted. <sup class="c" data-ref="Hipp2025,NCT07605429,FDA-Wellcovorin,Rothman2026,NCT04182633,NCT03408886" title="Source 142,220,406,412,417,495">142,220,406,412,417,495</sup>`,pt:`Leucovorin is approved for a rare genetic folate disorder, not for autism. Research in autism is still early.`}],
+ dx:[
+  {txt:`Diagnosis relied on specialist assessment, with long waits for many families. No FDA device category for an autism diagnosis aid existed in this window in these sources. <sup class="c" data-ref="Crane2016Diagnosis,FDA-DEN200069" title="Source 98,135">98,135</sup>`},
+  {txt:`Researchers developed eye-tracking of social visual engagement and machine-learning tools that combine questionnaires and home videos. The EarliPoint pivotal study enrolled children aged 16–30 months. <sup class="c" data-ref="NCT03469986,Jones2023" title="Source 263,407">263,407</sup>`,pt:`Scientists tried to build tools that help specialists recognise autism earlier.`},
+  {txt:`The EarliPoint pivotal study (NCT03469986) completed in May 2019 and compared eye-tracking with expert diagnosis. <sup class="c" data-ref="NCT03469986" title="Source 407">407</sup>`},
+  {txt:`<span class="ev est">Established</span> The FDA created a new device type, "Pediatric Autism Spectrum Disorder Diagnosis Aid" (class II), with Cognoa's De Novo grant on 2 June 2021. EarliPoint was cleared on 8 June 2022. Canvas Dx combines a caregiver questionnaire, two home videos and a clinician questionnaire: in 425 children aged 18–72 months it gave a result in 31.8%, with sensitivity 98.4% and specificity 78.9% when it did. EarliPoint: sensitivity 71.0% and specificity 80.7% in 475 children; 78.0% and 85.4% where diagnosis was certain. <sup class="c" data-ref="FDA-DEN200069,FDA-K213882,Megerian2022,Jones2023" title="Source 135,139,263,374">135,139,263,374</sup>`,hook:`Canvas Dx gives no result in about two thirds of children; EarliPoint sensitivity was 71% in all children tested. Both are aids to clinicians. <sup class="c" data-ref="Megerian2022,Jones2023" title="Source 263,374">263,374</sup>`},
+  {txt:`Canvas Dx was cleared again as a 510(k) on 11 April 2025. These devices may shorten waits, but they are cleared as aids to clinicians, not stand-alone tests, and are not for self-diagnosis. <sup class="c" data-ref="FDA-K243558,Megerian2022,Jones2023" title="Source 140,263,374">140,263,374</sup>`,pt:`A computer tool can help a specialist, but it does not replace a full assessment.`}],
+ sup:[
+  {txt:`<span class="ev est">Established</span> PACT randomised 152 children aged 2–4 years to parent-mediated communication therapy or usual care. At 13 months, symptom scores were not significantly different (ES −0.24), but parent synchronous response improved strongly (ES 1.22). <sup class="c" data-ref="Green2010" title="Source 181">181</sup>`,pt:`Coaching parents to follow their child's lead changed how parents and children talked together.`},
+  {txt:`<span class="ev est">Established</span> Autistic people and families were asked what research should study: UK consultation found a "clear disparity" with funding. A US survey of 255 autistic adults and 143 guardian-reported adults named life skills, co-occurring conditions, jobs and education, public services, health-care access and, "above all", public acceptance. PACT follow-up at about 6 years found a lasting symptom effect (ES 0.55 over the whole period). The TIME-A music therapy trial (364 children) found no difference. <sup class="c" data-ref="Pellicano2014,Gotham2015,Pickles2016,Bieleninik2017" title="Source 48,179,450,458">48,179,450,458</sup>`,hook:`PACT: the first RCT to show long-term symptom reduction (ES 0.55, 6 years). <sup class="c" data-ref="Pickles2016" title="Source 458">458</sup>`},
+  {txt:`<span class="ev est">Established</span> CBT adapted for autism beat standard CBT and usual care for anxiety in 167 children (response 92.4% vs 81.0% vs 11.1%). Project AIM: restricted to RCTs and outcomes with no risk of detection bias, no intervention type showed a significant effect. An autistic-co-led project set 5 mental-health research priorities. <sup class="c" data-ref="Wood2020,Sandbank2020,Benevides2020" title="Source 45,508,643">45,508,643</sup>`,pt:`Therapy adapted for autistic children worked better for anxiety than the standard version.`},
+  {txt:`Spectrum 10K, a UK genetic study planning 10,000 autistic participants, was postponed in 2021 after backlash; interviews later recorded concerns about trust and data reuse. A review of 7 priority-setting studies found consistent priorities for real-world impact and lifelong skills. A UK sensory integration trial (138 children) found no effect on irritability. <sup class="c" data-ref="Ellis2023,Roche2021,Randell2022" title="Source 127,471,485">127,471,485</sup>`,hook:`Spectrum 10K (2021) was postponed after community objections: consent and trust matter in genetic research. <sup class="c" data-ref="Ellis2023" title="Source 127">127</sup>`},
+  {txt:`In 2025 an INSAR group of autistic people, clinicians and researchers recommended that autism journals require trial registration, published protocols and analysis plans. <sup class="c" data-ref="LaPoint2025" title="Source 312">312</sup>`,pt:`Researchers and autistic people are agreeing on rules that make studies easier to trust.`}]
+};
+/* priorities (Gotham 2015 order) and the primary outcomes of the medicine trials above (this guide's count) */
+const FR_PRI=[{n:'Life skills',k:'life'},{n:'Co-occurring conditions',k:'co'},{n:'Jobs & education',k:'job'},{n:'Public services',k:'svc'},{n:'Health-care access',k:'hc'},{n:'Public acceptance ("above all")',k:'acc'}];
+const FR_OUT=[{n:'Autism-severity scales (CARS2, SRS-2)',c:4,t:'SIGN 1 & 2, BAMBI, oxytocin',to:[]},
+ {n:'Behaviour-problem scales (HSQ, ABC)',c:3,t:'2 cannabinoid trials, suramin',to:['co']},
+ {n:'Social withdrawal (ABC)',c:2,t:'SOARS-B oxytocin, arbaclofen',to:[]},
+ {n:'Adaptive behaviour (Vineland)',c:1,t:'balovaptan in adults',to:['life']},
+ {n:'Verbal communication',c:1,t:'leucovorin',to:['life']},
+ {n:'Gastrointestinal symptoms',c:1,t:'microbiota transfer',to:['co']},
+ {n:'Global clinical rating',c:1,t:'sulforaphane',to:[]},
+ {n:'Safety',c:1,t:'Angelman ASO phase 1',to:[]}];
+
+inits.frontier=()=>{
+  const svg=$('#frSvg'),rg=$('#frT');let lane=store.get('frLane','med');if(!FR_LANES[lane])lane='med';
+  function draw(t){
+    const R=FR_LANES[lane].rows,nr=R.length,N=vb(svg,'720 400',`400 ${110+nr*56}`),yr=lerp(FR_Y0,FR_Y1,t),p=phaseOf(FR_STEPS,t);
+    const L=N?{x0:14,x1:386,top:52,rh:56}:{x0:160,x1:704,top:40,rh:Math.min(52,330/nr)};
+    const X=y=>lerp(L.x0,L.x1,(y-FR_Y0)/(FR_Y1-FR_Y0)),bot=L.top+nr*L.rh;let s='';
+    for(let y=2010;y<=2026;y+=2){const x=X(y);s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${L.top-6}" y2="${f1(bot)}" class="grid"/><text x="${f1(x)}" y="${L.top-12}" class="t-xs t-mid">${N?"'"+String(y).slice(2):y}</text>`}
+    FR_WIN.forEach(([a,b],i)=>{if(i===p)s+=`<rect x="${f1(X(a))}" y="${L.top-6}" width="${f1(X(Math.min(b+.01,FR_Y1))-X(a))}" height="${f1(bot-L.top+6)}" style="fill:var(--rx-soft);opacity:.5"/>`});
+    R.forEach((r,i)=>{const y0=L.top+i*L.rh,on=yr>=r.s,done=yr>=r.e,RS=FR_RES[r.res];
+      const by=N?y0+L.rh*.42:y0+L.rh*.22,bh=N?L.rh*.34:L.rh*.5,ty=N?y0+L.rh*.34:y0+L.rh*.56;
+      const evc=r.ev==='est'?'var(--good)':r.ev==='early'?'var(--warn)':'var(--rx)';
+      s+=`<text x="${N?L.x0:L.x0-10}" y="${f1(N?y0+L.rh*.3:ty)}" class="t-lbl ${N?'':'t-end'}" style="font-size:${N?13:12.5}px;opacity:${on?1:.45}">${r.n}</text>`;
+      if(!N)s+=`<circle cx="${L.x0-4}" cy="${f1(ty-4)}" r="0" />`;
+      if(on){const xe=X(Math.min(yr,Math.max(r.e,r.s+.35))),xs=X(r.s);
+        s+=`<rect x="${f1(xs)}" y="${f1(by)}" width="${f1(Math.max(6,xe-xs))}" height="${f1(bh)}" rx="5" style="fill:${done?RS[1]:'var(--muted)'};opacity:${done?.85:.45}"/>`;
+        s+=`<rect x="${f1(xs)}" y="${f1(by)}" width="4" height="${f1(bh)}" rx="2" style="fill:${evc}"/>`;
+        let lastM=null;r.m.forEach(m=>{if(yr>=m.y){lastM=m;s+=`<circle cx="${f1(X(m.y))}" cy="${f1(by+bh/2)}" r="4" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.4"/>`}});
+        /* label: the result badge when finished, else the latest milestone */
+        const lab=done?RS[0]+(lastM?' · '+lastM.l:''):(lastM?lastM.l:'');
+        if(lab){let lx,anc='',room;
+          if(N){lx=L.x0+(r.n.length*8.2)+8;room=L.x1-lx}
+          else{const rr=L.x1-xe-8,rl=xs-8-L.x0;if(rr>=rl||rr>220){lx=xe+8;room=rr}else{lx=xs-8;room=rl;anc='t-end'}}
+          const mx=Math.max(4,Math.floor(room/(N?7.9:6.1)));const txt=lab.length>mx?lab.slice(0,mx-1)+'…':lab;
+          if(room>30)s+=`<text x="${f1(lx)}" y="${f1(N?y0+L.rh*.3:by+bh/2+4)}" class="t-xs ${anc}" style="fill:${done?RS[1]:'var(--ink)'};font-weight:${done?700:500}">${txt}</text>`}}
+      s+=`<line x1="${N?L.x0:L.x0-150}" x2="${L.x1}" y1="${f1(y0+L.rh)}" y2="${f1(y0+L.rh)}" style="stroke:var(--line);stroke-width:.6"/>`});
+    const cx=X(yr);s+=`<line x1="${f1(cx)}" x2="${f1(cx)}" y1="${L.top-6}" y2="${f1(bot+4)}" style="stroke:var(--ink);stroke-width:1.6"/><rect x="${f1(clamp(cx-24,L.x0,L.x1-48))}" y="${f1(bot+6)}" width="48" height="18" rx="9" style="fill:var(--ink)"/><text x="${f1(clamp(cx,L.x0+24,L.x1-24))}" y="${f1(bot+19)}" class="t-xs t-mid" style="fill:var(--bg);font-weight:700">${Math.floor(yr)}</text>`;
+    /* legend */
+    const ly=bot+(N?44:40);let lx=N?L.x0:L.x0-150;
+    [['est','Established','var(--good)'],['early','Early','var(--warn)'],['hyp','Hypothesis','var(--rx)']].forEach(([k,l,c])=>{s+=`<rect x="${lx}" y="${ly-9}" width="4" height="11" style="fill:${c}"/><text x="${lx+8}" y="${ly}" class="t-xs">${l}</text>`;lx+=N?124:96});
+    if(!N)s+=`<text x="${L.x1}" y="${ly}" class="t-xs t-end">bar colour = result · dots = milestones · left edge = evidence label</text>`;
+    svg.innerHTML=s;setSt(p);
+    const nn=FR_NOTES[lane][p];$('#frNote').innerHTML=noteHTML({k:FR_LANES[lane].name+' · '+FR_WIN[p][2],t:['Before the big trials','Small studies, big hopes','First signals','The large trials report','Where things stand'][p],txt:nn.txt,pt:nn.pt,hook:nn.hook});
+    rg.setAttribute('aria-valuetext',`${Math.floor(yr)}, ${FR_LANES[lane].name}`);
+  }
+  const stop=playWire(rg,$('#frPlay'),draw,24000,'Replay','frontier');
+  const setSt=stepWire($('#frSteps'),FR_STEPS,rg,draw,stop);
+  function setLane(l){lane=l;store.set('frLane',l);$$('[data-fr]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.fr===l));
+    $('#frCap').innerHTML={med:'Medicines: <sup class="c" data-ref="Lemonnier2017,Sprengers2021,Fuentes2023" title="Source 157,324,558">157,324,558</sup> <sup class="c" data-ref="Sikich2021,Guastella2023,Jacob2022" title="Source 192,255,548">192,255,548</sup> <sup class="c" data-ref="Hollander2022,VeenstraVanderWeele2017,NCT03682978" title="Source 229,409,607">229,409,607</sup> <sup class="c" data-ref="Naviaux2017,Hough2023,Zimmerman2021" title="Source 233,397,653">233,397,653</sup> <sup class="c" data-ref="Aran2021,NCT04745026,Kang2017" title="Source 24,268,414">24,268,414</sup> <sup class="c" data-ref="Kang2019,NCT04182633,Frye2018" title="Source 154,269,412">154,269,412</sup> <sup class="c" data-ref="Rossignol2021,Rothman2026,FDA-Wellcovorin" title="Source 142,494,495">142,494,495</sup> <sup class="c" data-ref="Hipp2025,NCT07605429" title="Source 220,417">220,417</sup>',
+      dx:'Diagnostics: <sup class="c" data-ref="NCT03469986,FDA-K213882,Jones2023" title="Source 139,263,407">139,263,407</sup> <sup class="c" data-ref="FDA-DEN200069,Megerian2022,FDA-K243558" title="Source 135,140,374">135,140,374</sup>',
+      sup:'Services and supports: <sup class="c" data-ref="Green2010,Pickles2016,Pellicano2014" title="Source 181,450,458">181,450,458</sup> <sup class="c" data-ref="Gotham2015,Benevides2020,Roche2021" title="Source 45,179,485">45,179,485</sup> <sup class="c" data-ref="Bieleninik2017,Wood2020,Sandbank2020" title="Source 48,508,643">48,508,643</sup> <sup class="c" data-ref="Ellis2023,Randell2022,LaPoint2025" title="Source 127,312,471">127,312,471</sup>'}[l];
+    draw(+rg.value)}
+  $$('[data-fr]').forEach(b=>b.addEventListener('click',()=>{stop();setLane(b.dataset.fr)}));
+  setLane(lane);
+
+  /* priorities explorer */
+  const ms=$('#frMatch');let pk=null,stopM=null;
+  $('#frPri').innerHTML=FR_PRI.map(q=>`<button class="btn" data-fp="${q.k}" aria-pressed="false">${q.n}</button>`).join('');
+  function drawM(k=1){const N=vb(ms,'720 360','400 640');let s='';
+    const lw=N?{x:12,w:376,y0:40,h:38,ry0:330,rh:36}:{x:16,w:250,y0:44,h:44,rx:380,rw:324,ry0:44,rh:38};
+    s+=`<text x="${lw.x}" y="${lw.y0-16}" class="t-sm">What the community prioritises</text>`;
+    const pos={};FR_PRI.forEach((q,i)=>{const y=lw.y0+i*lw.h,on=pk===q.k,lit=pk?on:true;pos[q.k]=[lw.x+(N?lw.w:lw.w),y+lw.h*.4];
+      s+=`<rect x="${lw.x}" y="${y}" width="${N?lw.w*.62:lw.w}" height="${lw.h-8}" rx="8" style="fill:${on?'var(--rx-soft)':'var(--field)'};stroke:${on?'var(--rx)':'var(--line)'};opacity:${lit?1:.55}"/>`;
+      s+=`<text x="${lw.x+10}" y="${y+lw.h*.5}" class="t-lbl" style="font-size:${N?12.5:13}px">${i+1}. ${q.n}</text>`;
+      pos[q.k]=[lw.x+(N?lw.w*.62:lw.w),y+(lw.h-8)/2]});
+    const rx=N?12:lw.rx,rw=N?376:lw.rw,ry0=N?lw.ry0:lw.ry0,mxc=4;
+    s+=`<text x="${rx}" y="${ry0-16}" class="t-sm">${N?'What the medicine trials measured':'What the medicine trials measured'}</text>`;
+    FR_OUT.forEach((o,i)=>{const y=ry0+i*lw.rh,lit=pk?o.to.includes(pk):true,bw=(N?140:80)*o.c/mxc;
+      const tx=N?rx+bw+38:rx+10;
+      s+=`<rect x="${N?rx:rx}" y="${y}" width="${f1(N?bw+28:rw)}" height="${lw.rh-8}" rx="6" style="fill:${N?(lit?'var(--accent-soft)':'var(--field)'):(lit?'var(--accent-soft)':'var(--field)')};stroke:${pk&&lit?'var(--accent)':'var(--line)'};opacity:${lit?1:.5}"/>`;
+      if(!N)s+=`<rect x="${rx+rw-bw-34}" y="${y+6}" width="${f1(bw)}" height="${lw.rh-20}" rx="3" style="fill:var(--accent);opacity:${lit?.8:.35}"/>`;
+      s+=`<text x="${N?rx+8:rx+rw-8}" y="${y+(lw.rh-8)/2+4}" class="t-lbl ${N?'':'t-end'}" style="font-size:12px">${o.c}</text>`;
+      s+=`<text x="${tx}" y="${y+(lw.rh-8)/2}" class="t-xs" style="fill:var(--ink);opacity:${lit?1:.6}">${o.n.replace(/ \(.*\)/,'')}</text>`;
+      s+=`<text x="${tx}" y="${y+(lw.rh-8)/2+12}" class="t-xs" style="opacity:${lit?1:.6}">${o.t}</text>`;
+      o.to.forEach(q=>{const a=pos[q],b=[rx,y+(lw.rh-8)/2],show=!N&&(!pk||pk===q);if(!show)return;
+        const c1=N?[a[0]+30,a[1]]:[a[0]+60,a[1]],c2=N?[b[0]-0,b[1]-40]:[b[0]-60,b[1]];
+        const d=`M${f1(a[0])} ${f1(a[1])}C${f1(c1[0])} ${f1(c1[1])} ${f1(c2[0])} ${f1(c2[1])} ${f1(b[0])} ${f1(b[1])}`;
+        s+=`<path d="${d}" pathLength="1" style="fill:none;stroke:var(--rx);stroke-width:${pk?2.6:1.6};opacity:${f1(.2+.65*k)}"/>`})});
+    ms.innerHTML=s;
+    const P=FR_PRI.find(q=>q.k===pk),hits=pk?FR_OUT.filter(o=>o.to.includes(pk)):[];
+    $('#frMatchCap').innerHTML=(pk?(hits.length?`<b>${P.n}</b>: ${hits.map(o=>o.n+' ('+o.t+')').join('; ')}. `:`<b>${P.n}</b>: none of the medicine trials in this module measured this as a primary outcome; it is studied in services research. `):'Lines join each community priority to the trial outcomes that address it. ')+
+      'Left: priorities named by 255 autistic adults and 143 guardian-reported adults, in the order published. <sup class="c" data-ref="Gotham2015" title="Source 179">179</sup> Right: this guide\'s count of the primary outcome in 14 medicine trials from the timeline, one per trial. Most measured autism-severity or social scales, which a 2026 review advises against using as efficacy endpoints. <sup class="c" data-ref="Pandina2026" title="Source 445">445</sup>'}
+  $('#frPri').addEventListener('click',e=>{const b=e.target.closest('[data-fp]');if(!b)return;pk=pk===b.dataset.fp?null:b.dataset.fp;
+    $$('[data-fp]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.fp===pk));stopM&&stopM();stopM=animate(700,q=>drawM(ease(q)))});
+  drawM(1);
+  redraws.frontier=(f=>()=>{f&&f();drawM(1)})(redraws.frontier);
+};
+/* =============== 5.1 Family, school & play =============== */
+inits.school=()=>{
+  const svg=$('#shSvg'),rg=$('#shT');
+  const TH=.78,SUPS=['sched','warn','quiet','teacch','adult'];
+  const SUPN={sched:'visual schedule',warn:'warnings',quiet:'quiet space',teacch:'TEACCH',adult:'trusted adult'};
+  let scene='school';const sup={sched:0,warn:0,quiet:0,teacch:0,adult:0};let setSt=()=>{};
+
+  /* ---- the day: events with the supports that soften them ----
+     kind: tr (transition, a sharp peak), ch (unexpected change), se (sensory), so (social), de (demand), ca (carry-over) */
+  const EV={
+    school:[
+      {a:0,b:.05,k:'tr',amp:.36,by:['sched','warn','adult'],c:0,sc:'gate',n:'arrival'},
+      {a:.05,b:.27,k:'de',amp:.17,by:['teacch','sched'],c:1,sc:'class',n:'maths lesson'},
+      {a:.286,b:.36,k:'so',amp:.4,by:['adult','quiet'],c:2,sc:'yard',n:'break time'},
+      {a:.36,b:.39,k:'tr',amp:.26,by:['sched','warn'],c:3,sc:'trans',n:'back to class'},
+      {a:.39,b:.5,k:'de',amp:.13,by:['teacch'],c:3,sc:'class',n:'reading'},
+      {a:.5,b:.607,k:'se',amp:.62,by:['quiet','adult'],c:4,sc:'lunch',n:'lunch hall'},
+      {a:.607,b:.64,k:'tr',amp:.2,by:['sched','warn'],c:5,sc:'trans',n:'corridor'},
+      {a:.64,b:.86,k:'ch',amp:.52,by:['warn','sched','adult'],c:5,sc:'change',n:'art with a new teacher'},
+      {a:.86,b:1,k:'tr',amp:.32,by:['sched','adult','warn'],c:6,sc:'home',n:'home time'}],
+    home:[
+      {a:0,b:.15,k:'de',amp:.24,by:['sched','teacch'],c:0,sc:'kitchen',n:'getting dressed, breakfast'},
+      {a:.16,b:.3,k:'tr',amp:.42,by:['warn','sched','adult'],c:1,sc:'door',n:'leaving the house'},
+      {a:.3,b:.4,k:'away',amp:0,by:[],c:2,sc:'away',n:'at school'},
+      {a:.4,b:.55,k:'ca',amp:0,by:['quiet','adult'],c:3,sc:'sofa',n:'calm time after school'},
+      {a:.56,b:.68,k:'de',amp:.36,by:['teacch','sched','adult'],c:4,sc:'desk',n:'homework'},
+      {a:.7,b:.82,k:'se',amp:.3,by:['quiet','sched'],c:5,sc:'dinner',n:'family dinner'},
+      {a:.86,b:1,k:'tr',amp:.27,by:['sched','warn'],c:6,sc:'bed',n:'bedtime'}]};
+  const CARDS={school:[['bag','Arrive'],['book','Maths'],['ball','Break'],['book','Reading'],['plate','Lunch'],['teacher','Art'],['house','Home']],
+    home:[['bowl','Eat'],['car','Leave'],['school','School'],['sofa','Calm'],['pencil','Work'],['plate','Dinner'],['moon','Bed']]};
+  const hourOf=(sc,t)=>{let h;if(sc==='school')h=8.5+7*t;else if(t<=.3)h=7+1.25*t/.3;else if(t<.4)h=8.25+(15.5-8.25)*(t-.3)/.1;else h=15.5+5*(t-.4)/.6;
+    const hh=Math.floor(h),mm=Math.round((h-hh)*60/5)*5;return (mm===60?hh+1:hh)+':'+String(mm%60).padStart(2,'0')};
+
+  function stressCurve(sc,S,N=300){
+    const evs=EV[sc],tau=S.quiet?.03:.075,out=[];
+    const carry=sc==='home'?meanSchool(S):0;
+    const red=e=>e.by.reduce((m,k)=>m*(S[k]?.62:1),1);
+    for(let i=0;i<=N;i++){const x=i/N;
+      let v=.12+.16*x*(S.quiet?.4:1)*(S.teacch?.7:1);
+      evs.forEach(e=>{if(x<e.a)return;let f;
+        if(e.k==='away'){return}
+        if(e.k==='ca'){/* the school day comes home: an early high that settles, faster with a calm space */
+          f=x<=e.b?Math.exp(-(x-e.a)/(S.quiet?.03:.09)):Math.exp(-(e.b-e.a)/(S.quiet?.03:.09))*Math.exp(-(x-e.b)/tau);v+=carry*.95*red(e)*f;return}
+        if(e.k==='tr'){f=x<e.a+.012?ramp(x,e.a,e.a+.012):Math.exp(-(x-e.a-.012)/(tau*.7))}
+        else if(e.k==='ch'){f=x<e.a+.015?ramp(x,e.a,e.a+.015):x<=e.b?.38+.62*Math.exp(-(x-e.a-.015)/.05):(.38)*Math.exp(-(x-e.b)/tau)}
+        else{const ri=ramp(x,e.a,e.a+Math.min(.03,(e.b-e.a)/2));f=x<=e.b?ri*(e.k==='se'?.85+.15*Math.sin(x*140):1):Math.exp(-(x-e.b)/tau)}
+        v+=e.amp*red(e)*f});
+      /* while away at school the home curve shows the school day's mean, in a hatched band */
+      if(sc==='home'&&x>=.3&&x<.4)v=lerp(v,carry+.08,bump(x,.3,.4)*.9);
+      out.push(clamp(v,0,1))}
+    return out}
+  const _mc={};
+  function meanSchool(S){const key=SUPS.map(k=>S[k]).join('');if(_mc[key]!=null)return _mc[key];const c=stressCurve('school',S,120);return _mc[key]=c.reduce((a,b)=>a+b,0)/c.length}
+  const evAt=(sc,t)=>{const E=EV[sc];let e=E[0];E.forEach(x=>{if(t>=x.a)e=x});return e};
+
+  /* ---- little picture-card icons, centred at (x,y), size s ---- */
+  function ico(k,x,y,s){const st='style="fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round"',fl=c=>`style="fill:${c};stroke:var(--ink);stroke-width:1.4"`;
+    const X=v=>f1(x+v*s),Y=v=>f1(y+v*s);
+    switch(k){
+      case'bag':return `<rect x="${X(-.42)}" y="${Y(-.2)}" width="${f1(.84*s)}" height="${f1(.62*s)}" rx="3" ${fl('var(--gold-soft)')}/><path d="M${X(-.18)} ${Y(-.2)}V${Y(-.38)}H${X(.18)}V${Y(-.2)}" ${st}/>`;
+      case'book':return `<path d="M${X(0)} ${Y(-.3)}Q${X(-.25)} ${Y(-.42)} ${X(-.48)} ${Y(-.32)}V${Y(.36)}Q${X(-.25)} ${Y(.26)} ${X(0)} ${Y(.38)}Q${X(.25)} ${Y(.26)} ${X(.48)} ${Y(.36)}V${Y(-.32)}Q${X(.25)} ${Y(-.42)} ${X(0)} ${Y(-.3)}V${Y(.38)}" ${fl('var(--accent-soft)')}/>`;
+      case'ball':return `<circle cx="${X(0)}" cy="${Y(0)}" r="${f1(.38*s)}" ${fl('var(--rx-soft)')}/><path d="M${X(-.38)} ${Y(0)}Q${X(0)} ${Y(-.22)} ${X(.38)} ${Y(0)}M${X(0)} ${Y(-.38)}Q${X(.18)} ${Y(0)} ${X(0)} ${Y(.38)}" ${st}/>`;
+      case'plate':return `<circle cx="${X(.05)}" cy="${Y(0)}" r="${f1(.34*s)}" ${fl('var(--panel)')}/><circle cx="${X(.05)}" cy="${Y(0)}" r="${f1(.2*s)}" ${st}/><path d="M${X(-.45)} ${Y(-.34)}V${Y(.36)}M${X(-.52)} ${Y(-.34)}V${Y(-.12)}M${X(-.38)} ${Y(-.34)}V${Y(-.12)}" ${st}/>`;
+      case'teacher':return person(x-s*.22,y-s*.42,s*.82,'var(--neuro)')+`<text x="${X(.3)}" y="${Y(.05)}" class="t-lbl t-mid" style="fill:var(--neuro)">?</text>`;
+      case'house':return `<path d="M${X(-.42)} ${Y(-.02)}L${X(0)} ${Y(-.4)}L${X(.42)} ${Y(-.02)}V${Y(.38)}H${X(-.42)}Z" ${fl('var(--brand-soft)')}/><rect x="${X(-.1)}" y="${Y(.1)}" width="${f1(.2*s)}" height="${f1(.28*s)}" ${st}/>`;
+      case'bowl':return `<path d="M${X(-.42)} ${Y(-.05)}H${X(.42)}Q${X(.4)} ${Y(.38)} ${X(0)} ${Y(.38)}Q${X(-.4)} ${Y(.38)} ${X(-.42)} ${Y(-.05)}Z" ${fl('var(--gold-soft)')}/><path d="M${X(.1)} ${Y(-.05)}L${X(.36)} ${Y(-.4)}" ${st}/>`;
+      case'car':return `<path d="M${X(-.46)} ${Y(.2)}V${Y(0)}L${X(-.26)} ${Y(-.22)}H${X(.22)}L${X(.46)} ${Y(0)}V${Y(.2)}Z" ${fl('var(--accent-soft)')}/><circle cx="${X(-.24)}" cy="${Y(.24)}" r="${f1(.1*s)}" ${fl('var(--ink)')}/><circle cx="${X(.24)}" cy="${Y(.24)}" r="${f1(.1*s)}" ${fl('var(--ink)')}/>`;
+      case'school':return `<path d="M${X(-.44)} ${Y(.38)}V${Y(-.1)}L${X(0)} ${Y(-.38)}L${X(.44)} ${Y(-.1)}V${Y(.38)}Z" ${fl('var(--panel-2)')}/><circle cx="${X(0)}" cy="${Y(-.08)}" r="${f1(.09*s)}" ${st}/><rect x="${X(-.1)}" y="${Y(.12)}" width="${f1(.2*s)}" height="${f1(.26*s)}" ${st}/>`;
+      case'sofa':return `<path d="M${X(-.46)} ${Y(.28)}V${Y(-.06)}H${X(-.32)}V${Y(-.3)}H${X(.32)}V${Y(-.06)}H${X(.46)}V${Y(.28)}Z" ${fl('var(--rx-soft)')}/><path d="M${X(-.32)} ${Y(.06)}H${X(.32)}" ${st}/>`;
+      case'pencil':return `<path d="M${X(-.36)} ${Y(.36)}L${X(-.3)} ${Y(.14)}L${X(.22)} ${Y(-.38)}L${X(.38)} ${Y(-.22)}L${X(-.14)} ${Y(.3)}Z" ${fl('var(--gold-soft)')}/>`;
+      case'moon':return `<path d="M${X(.1)} ${Y(-.4)}A${f1(.4*s)} ${f1(.4*s)} 0 1 0 ${X(.4)} ${Y(.2)}A${f1(.3*s)} ${f1(.3*s)} 0 0 1 ${X(.1)} ${Y(-.4)}Z" ${fl('var(--neuro-soft)')}/>`}
+    return ''}
+
+  /* ---- the scene box: one small picture per activity ---- */
+  function child(x,y,v,o={}){const mouth=v<.38?'smile':v<.62?'flat':'wavy';
+    return `<rect x="${f1(x-15)}" y="${f1(y+18)}" width="30" height="34" rx="9" style="fill:var(--gold);opacity:.85"/>`+face(x,y,19,{mouth,brows:v>.55?'tense':'calm',ear:o.ear,gaze:o.gaze})}
+  function sceneSVG(sc,bx,by,bw,bh,v,t,S){
+    const fy=by+bh-16,cx=bx+bw*.5;let g=`<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="10" style="fill:var(--field);stroke:var(--line)"/><line x1="${bx+8}" x2="${bx+bw-8}" y1="${fy}" y2="${fy}" style="stroke:var(--line);stroke-width:2"/>`;
+    const ppl=(n,x0,x1,y,s,seed,mv)=>{const r=rng(seed);let o='';for(let i=0;i<n;i++){const px=lerp(x0,x1,(i+.5)/n)+(r()-.5)*10+(mv?Math.sin(t*90+i*1.7)*mv:0);o+=person(px,y-s,s,i%3?'var(--muted)':'var(--accent)',{op:.75})}return o};
+    const sw=(x,y,amp,n)=>{let o='';for(let i=0;i<n;i++)o+=wave(x+i*16,y-i*3,14,amp*(.6+.4*Math.sin(t*120+i)),{freq:2,phase:(t*30+i*.3)%1,sw:1.3});return o};
+    const bub=(x,y,w,txt,o={})=>bubble(x,y,w,22,Object.assign({text:txt,tail:'left'},o));
+    const cy=fy-56;
+    switch(sc){
+      case'gate':{g+=`<path d="M${bx+bw*.62} ${fy}V${by+30}M${bx+bw*.9} ${fy}V${by+30}M${bx+bw*.62} ${by+34}Q${bx+bw*.76} ${by+14} ${bx+bw*.9} ${by+34}" style="fill:none;stroke:var(--muted);stroke-width:3"/>`;
+        for(let i=0;i<6;i++)g+=`<line x1="${f1(bx+bw*.62+i*bw*.056)}" x2="${f1(bx+bw*.62+i*bw*.056)}" y1="${by+40}" y2="${fy}" style="stroke:var(--muted);stroke-width:1;opacity:.6"/>`;
+        g+=ppl(4,bx+bw*.62,bx+bw*.9,fy,34,4,3)+person(bx+bw*.16,fy-58,58,'var(--brand)')+child(bx+bw*.36,cy,v);
+        g+=S.adult?`<text x="${bx+bw*.76}" y="${by+18}" class="t-xs t-mid" style="fill:var(--rx)">met by a known adult</text>`:`<text x="${bx+bw*.76}" y="${by+18}" class="t-xs t-mid">crowded gate, bell</text>`;break}
+      case'class':{g+=`<rect x="${bx+16}" y="${by+14}" width="${f1(bw*.42)}" height="44" rx="3" style="fill:var(--panel);stroke:var(--muted)"/><text x="${f1(bx+16+bw*.21)}" y="${by+40}" class="t-sm t-mid" style="fill:var(--ink)">${t<.3?'7 × 8 = ?':'Chapter 3'}</text>`;
+        g+=person(bx+bw*.5,fy-70,70,'var(--accent)')+`<rect x="${f1(cx+36)}" y="${fy-30}" width="${f1(bw*.36)}" height="10" rx="2" style="fill:var(--cortex-line)"/>`+child(cx+60+bw*.1,cy-4,v,{gaze:90});
+        if(S.teacch){const tx=bx+bw-62;g+=`<g>${[0,1,2].map(i=>`<rect x="${tx+i*16}" y="${by+16}" width="13" height="13" rx="2" style="fill:${(t*40)%3>i?'var(--rx-soft)':'var(--panel)'};stroke:var(--rx)"/><text x="${tx+i*16+6.5}" y="${by+26}" class="t-xs t-mid" style="fill:var(--rx)">${i+1}</text>`).join('')}<text x="${tx+22}" y="${by+42}" class="t-xs t-mid" style="fill:var(--rx)">work → done</text></g>`}
+        else g+=`<text x="${bx+bw-40}" y="${by+26}" class="t-xs t-mid">how long?</text>`;break}
+      case'yard':{g+=`<circle cx="${bx+bw-30}" cy="${by+24}" r="12" style="fill:var(--gold-soft);stroke:var(--gold)"/>`+ppl(6,bx+20,bx+bw*.62,fy,36,7,14);
+        g+=`<circle cx="${f1(bx+bw*.3+Math.sin(t*70)*60)}" cy="${f1(fy-10-Math.abs(Math.sin(t*140))*40)}" r="6" style="fill:var(--rx-soft);stroke:var(--ink)"/>`+child(bx+bw*.8,cy,v,{gaze:180});
+        if(S.adult)g+=person(bx+bw*.92,fy-60,60,'var(--rx)');
+        g+=S.quiet?`<text x="${bx+bw*.78}" y="${by+20}" class="t-xs t-mid" style="fill:var(--rx)">quiet club open</text>`:sw(bx+30,by+30,5,5);break}
+      case'trans':{g+=ppl(7,bx+14,bx+bw-14,fy,34,11,22)+`<path d="M${bx+30} ${by+30}H${bx+bw-40}" class="arrow" marker-end="url(#shArr)"/>`+child(bx+bw*.5,cy,v);
+        g+=S.warn?`<text x="${f1(cx)}" y="${by+22}" class="t-xs t-mid" style="fill:var(--rx)">"2 minutes, then reading"</text>`:sw(bx+bw*.68,by+48,6,4);break}
+      case'lunch':{for(let i=0;i<3;i++)g+=`<rect x="${f1(bx+18+i*bw*.22)}" y="${fy-30}" width="${f1(bw*.18)}" height="9" rx="2" style="fill:var(--cortex-line)"/>`;
+        g+=ppl(9,bx+12,bx+bw*.68,fy-14,30,21,4)+sw(bx+20,by+30,7,8);
+        g+=S.quiet?`<rect x="${f1(bx+bw*.74)}" y="${by+10}" width="${f1(bw*.24)}" height="${bh-30}" rx="6" style="fill:var(--rx-soft);opacity:.7"/><text x="${f1(bx+bw*.86)}" y="${by+24}" class="t-xs t-mid" style="fill:var(--rx)">quieter table</text>`+child(bx+bw*.86,cy,v,{ear:true}):child(bx+bw*.82,cy,v,{gaze:200});break}
+      case'change':{g+=`<rect x="${bx+16}" y="${by+14}" width="${f1(bw*.36)}" height="40" rx="3" style="fill:var(--panel);stroke:var(--muted)"/><text x="${f1(bx+16+bw*.18)}" y="${by+38}" class="t-sm t-mid" style="fill:var(--ink)">Art</text>`;
+        g+=person(bx+bw*.46,fy-72,72,'var(--neuro)')+bub(bx+bw*.5,by+12,112,"I'm Mr K, hello!")+child(bx+bw*.8,cy,v,{gaze:180});
+        g+=bubble(bx+bw*.68,cy-50,S.warn||S.sched?96:40,22,{think:true,tail:'left',text:S.warn||S.sched?'knew this':'?',col:S.warn||S.sched?'var(--rx)':'var(--bad)'});
+        if(S.adult)g+=person(bx+bw*.95,fy-58,58,'var(--rx)');break}
+      case'home':{g+=`<path d="M${bx+bw*.6} ${fy}V${by+30}M${bx+bw*.9} ${fy}V${by+30}M${bx+bw*.6} ${by+34}Q${bx+bw*.75} ${by+14} ${bx+bw*.9} ${by+34}" style="fill:none;stroke:var(--muted);stroke-width:3"/>`;
+        g+=person(bx+bw*.2,fy-60,60,'var(--brand)')+child(bx+bw*.4,cy,v)+ppl(3,bx+bw*.62,bx+bw*.9,fy,34,31,6);
+        g+=`<text x="${bx+bw*.75}" y="${by+18}" class="t-xs t-mid">${S.sched?'card 7 of 7: home':'home time, at last'}</text>`;break}
+      case'kitchen':{g+=`<rect x="${f1(bx+bw*.3)}" y="${fy-32}" width="${f1(bw*.4)}" height="10" rx="2" style="fill:var(--cortex-line)"/>`+ico('bowl',bx+bw*.4,fy-44,22);
+        g+=`<circle cx="${bx+bw-40}" cy="${by+36}" r="18" style="fill:var(--panel);stroke:var(--ink)"/><path d="M${bx+bw-40} ${by+36}V${by+24}M${bx+bw-40} ${by+36}L${f1(bx+bw-40+Math.cos(t*30)*12)} ${f1(by+36+Math.sin(t*30)*12)}" style="stroke:var(--ink);stroke-width:1.6"/>`;
+        g+=child(bx+bw*.55,cy-6,v)+person(bx+bw*.14,fy-62,62,'var(--brand)');
+        if(S.sched)g+=[0,1,2,3].map(i=>`<rect x="${bx+14+i*24}" y="${by+12}" width="20" height="20" rx="3" style="fill:${t>.035*(i+1)?'var(--rx-soft)':'var(--panel)'};stroke:var(--rx)"/>`).join('')+`<text x="${bx+60}" y="${by+44}" class="t-xs t-mid" style="fill:var(--rx)">dress → eat → teeth → shoes</text>`;break}
+      case'door':{g+=`<rect x="${f1(bx+bw*.08)}" y="${by+20}" width="54" height="${fy-by-20}" rx="3" style="fill:var(--panel-2);stroke:var(--ink)"/>`+ico('car',bx+bw*.82,fy-18,48);
+        g+=child(bx+bw*.45,cy,v)+person(bx+bw*.62,fy-62,62,'var(--brand)');
+        g+=S.warn?`<text x="${f1(cx)}" y="${by+22}" class="t-xs t-mid" style="fill:var(--rx)">timer: "shoes in 5 minutes"</text>`:bub(bx+bw*.66,by+12,86,'Hurry up!',{col:'var(--bad)'});break}
+      case'away':{g+=`<rect x="${bx+10}" y="${by+10}" width="${bw-20}" height="${bh-30}" rx="8" style="fill:url(#shHatch)"/><text x="${f1(cx)}" y="${f1(by+bh/2-6)}" class="t-lbl t-mid">at school</text><text x="${f1(cx)}" y="${f1(by+bh/2+12)}" class="t-xs t-mid">the school day's load comes home with the child</text>`;break}
+      case'sofa':{g+=ico('sofa',bx+bw*.42,fy-30,70)+child(bx+bw*.42,cy-10,v,{ear:S.quiet})+`<path d="M${bx+bw*.78} ${fy}V${by+40}M${bx+bw*.72} ${by+40}H${bx+bw*.84}L${bx+bw*.8} ${by+24}H${bx+bw*.76}Z" style="fill:var(--gold-soft);stroke:var(--ink);stroke-width:1.4"/>`;
+        g+=S.quiet?`<text x="${f1(cx)}" y="${by+20}" class="t-xs t-mid" style="fill:var(--rx)">time alone, no questions yet</text>`:bub(bx+bw*.6,by+12,120,'How was school?',{col:'var(--warn)'});break}
+      case'desk':{g+=`<rect x="${f1(bx+bw*.3)}" y="${fy-34}" width="${f1(bw*.42)}" height="10" rx="2" style="fill:var(--cortex-line)"/>`+ico('pencil',bx+bw*.46,fy-46,20)+child(bx+bw*.6,cy-8,v,{gaze:100});
+        if(S.adult)g+=person(bx+bw*.82,fy-62,62,'var(--brand)');
+        g+=S.teacch?`<text x="${f1(cx)}" y="${by+20}" class="t-xs t-mid" style="fill:var(--rx)">3 questions, then finished box</text>`:`<text x="${f1(cx)}" y="${by+20}" class="t-xs t-mid">a whole worksheet, no end in sight</text>`;break}
+      case'dinner':{g+=`<rect x="${f1(bx+bw*.18)}" y="${fy-32}" width="${f1(bw*.6)}" height="10" rx="2" style="fill:var(--cortex-line)"/>`+person(bx+bw*.22,fy-62,62,'var(--brand)')+person(bx+bw*.38,fy-44,44,'var(--accent)')+person(bx+bw*.54,fy-62,62,'var(--muted)');
+        g+=child(bx+bw*.74,cy,v,{ear:S.quiet})+(S.quiet?'':sw(bx+bw*.3,by+30,5,4))+`<text x="${f1(bx+bw*.38)}" y="${by+20}" class="t-xs t-mid">sibling</text>`;break}
+      case'bed':{g+=`<rect x="${f1(bx+bw*.2)}" y="${fy-30}" width="${f1(bw*.5)}" height="20" rx="4" style="fill:var(--neuro-soft);stroke:var(--ink)"/>`+ico('moon',bx+bw-40,by+34,34)+child(bx+bw*.3,cy+10,v);
+        g+=S.sched?`<text x="${f1(cx)}" y="${by+20}" class="t-xs t-mid" style="fill:var(--rx)">same steps, same order, every night</text>`:`<text x="${f1(cx)}" y="${by+20}" class="t-xs t-mid">screens off now? why?</text>`;break}
+    }
+    return g}
+
+  /* ---- notes ---- */
+  const STEPS={
+   school:[
+    {from:0,at:.03,k:'08:30 · arrival',t:'Arrival and the visual schedule',
+     txt:`A visual activity schedule shows the day as a row of pictures, symbols or words; each finished card is ticked or moved to "done". A review of 31 studies (16 of acceptable quality) concluded that visual activity schedules meet criteria as an evidence-based practice from preschool through adulthood, especially when combined with systematic instruction. <sup class="c" data-ref="Knight2015" title="Source 297">297</sup> Without one, the child sees only "now" and has to guess the rest: here the strip shows question marks. Predictability is one of six principles autistic adults named for enabling spaces. <sup class="c" data-ref="MacLennan2023" title="Source 346">346</sup>`,
+     pt:`A picture timetable shows what is coming next, so there are fewer surprises in the day.`,
+     hook:`Visual activity schedules meet criteria as an evidence-based practice. <sup class="c" data-ref="Knight2015" title="Source 297">297</sup>`},
+    {from:.05,at:.16,k:'09:00 · lessons',t:'Lessons with structure',
+     txt:`Structured teaching (TEACCH) organises the room, the timetable and each task, so the child can see what to do, how much, and what comes after: here a tray of three numbered tasks leads to "done". A meta-analysis of 13 TEACCH studies (172 people) found small effects on perceptual, motor, verbal and cognitive skills and moderate-to-large gains in social and maladaptive behaviour; the authors called the results exploratory. <span class="ev early">Early evidence</span> <sup class="c" data-ref="ViruesOrtega2013" title="Source 611">611</sup> The third-generation US review found 28 focused practices that met its criteria for evidence-based practice. <sup class="c" data-ref="Hume2021" title="Source 245">245</sup>`,
+     pt:`Work laid out step by step, with a clear end, is easier to start and to finish.`,
+     hook:`TEACCH = structured teaching; pooled evidence is exploratory. <sup class="c" data-ref="ViruesOrtega2013" title="Source 611">611</sup>`},
+    {from:.286,at:.32,k:'10:30 · break',t:'Break time',
+     txt:`Breaks are loud, unstructured and social, and that is where bullying often happens. Pooled across 17 studies, 44% of autistic school-age youth had been bullied, 10% had bullied others and 16% both. <sup class="c" data-ref="Maiano2016" title="Source 352">352</sup> In US national data, 46.3% had been bullied in the past school year, more often with more classes in general education, ADHD, lower social skills and some conversational ability. <sup class="c" data-ref="Sterzing2012" title="Source 566">566</sup> A trusted adult nearby and a quiet alternative, such as a lunchtime club, lower this peak in the drawing.`,
+     pt:`Breaks can be the hardest part of the day: noisy, no written rules, and more chance of being picked on.`,
+     hook:`Bullying victimisation: pooled 44% (Maiano 2016); 46.3% in US national data (Sterzing 2012). <sup class="c" data-ref="Maiano2016,Sterzing2012" title="Source 352,566">352,566</sup>`},
+    {from:.5,at:.565,k:'12:00 · lunch',t:'The lunch hall',
+     txt:`Noise, echo, smells and crowding peak at once. More than half of autistic youth have sensory over-responsivity, which often comes with anxiety. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Green2015SOR" title="Source 182">182</sup> In six children with hyperacusis, noise-attenuating headphones lowered skin-conductance arousal (single-subject design), and parents and teachers said they increased participation at school. <sup class="c" data-ref="Pfeiffer2019EDA,Pfeiffer2019Participation" title="Source 455,456">455,456</sup> Without supports the needle crosses the dashed overload line: autistic people describe a meltdown as being overwhelmed, not as chosen behaviour, and a shutdown as a quieter, inward version. <sup class="c" data-ref="Lewis2023Meltdown,Phung2021" title="Source 327,457">327,457</sup>`,
+     pt:`The noise and crowd add up. Ear defenders, a quieter table or eating somewhere calmer keep it under the line.`,
+     hook:`Meltdown = overload, not chosen behaviour; shutdown = the quieter, inward response. <sup class="c" data-ref="Lewis2023Meltdown,Phung2021" title="Source 327,457">327,457</sup>`},
+    {from:.64,at:.68,k:'13:00 · a change',t:'A change of teacher',
+     txt:`A supply teacher replaces the class teacher. Without warning, the change is a sharp peak that lingers all afternoon. A warning in the morning, a photo of the new adult on the schedule and a familiar adult nearby soften it. Autistic young people said compassion and collaboration from trusted adults help, while demands such as eye contact during distress make things worse. <sup class="c" data-ref="Phung2021" title="Source 457">457</sup> Social Stories, short personalised stories about what will happen, are widely used, but their pooled effect is "low to questionable". <span class="ev early">Early evidence</span> <sup class="c" data-ref="Kokina2010" title="Source 299">299</sup>`,
+     pt:`A change is easier if someone tells you before it happens and a person you trust is close by.`,
+     hook:`Social Stories: low to questionable overall effect, better for reducing behaviours that cause problems than teaching social skills. <sup class="c" data-ref="Kokina2010" title="Source 299">299</sup>`},
+    {from:.86,at:.95,k:'15:00 · home time',t:'Home time, and tomorrow',
+     txt:`Count the times the needle crossed the line today (readout below the drawing). Days like that can turn into not going at all. Parents of 486 UK autistic students reported 5 of 23 days missed in a month, and 43% of students met the threshold for persistent absence; 43% of absences were school refusal and 9% exclusion. <sup class="c" data-ref="Totsika2020" title="Source 592">592</sup> In a multi-informant English study, pupils who avoided school or were excluded could attend and enjoy it when they received the right support. <sup class="c" data-ref="Gray2023School" title="Source 180">180</sup> Switch to <b>At home</b> to see where the day's load goes next.`,
+     pt:`When school keeps going over the line, a child may stop wanting to go. Better support at school is what helps, not more pressure.`,
+     hook:`43% persistent absence; school refusal is the commonest reason. <sup class="c" data-ref="Totsika2020" title="Source 592">592</sup>`}],
+   home:[
+    {from:0,at:.07,k:'07:00 · morning',t:'The morning routine',
+     txt:`Getting dressed and eating breakfast is a chain of small steps against the clock. A picture sequence (dress, eat, teeth, shoes) turns it into a visible routine. Parenting stress is higher in parents of autistic children than of typically developing children, with a large effect size in a meta-analysis. <sup class="c" data-ref="Hayes2013" title="Source 212">212</sup> Across 133 studies, stress was linked more to the child's externalising problems (r = 0.57) than internalising ones (r = 0.37). <sup class="c" data-ref="Barroso2018" title="Source 40">40</sup>`,
+     pt:`Mornings are hard for many families. A picture list of the steps can take the arguing out of it.`,
+     hook:`Parenting stress: large effect versus typically developing comparisons (Hayes 2013). <sup class="c" data-ref="Hayes2013" title="Source 212">212</sup>`},
+    {from:.16,at:.24,k:'08:00 · leaving',t:'Leaving the house',
+     txt:`"Hurry up!" is a demand with no picture and no time. A timer and a warning ("shoes in 5 minutes") make the change visible. Parent training teaches strategies like these: in the RUBI trial of 180 children aged 3–7, parent-rated irritability fell 47.7% with 24 weeks of parent training against 31.8% with parent education, and a blinded clinician rated 68.5% against 39.6% as responders. Neither parent measure reached its prespecified minimal clinically important difference. <sup class="c" data-ref="Bearss2015" title="Source 43">43</sup> A meta-analysis of 8 RCTs found a standardised mean difference of −0.59. <sup class="c" data-ref="Postorino2017" title="Source 464">464</sup>`,
+     pt:`Parent training teaches practical ways to handle the hard moments at home, and it helps many families.`,
+     hook:`RUBI: parent training beat parent education (ABC-Irritability −47.7% vs −31.8%). <sup class="c" data-ref="Bearss2015" title="Source 43">43</sup>`},
+    {from:.3,at:.47,k:'15:30 · after school',t:'The school day comes home',
+     txt:`The hatched band is the school day. The child arrives home carrying its load, which is why the curve starts high: switch supports on at school and this peak falls too. Autistic adults describe trying to get away or be alone when overload is building, to avoid harm. <sup class="c" data-ref="Lewis2023Meltdown" title="Source 327">327</sup> "Recovery" space is one of the six principles of enabling places. <sup class="c" data-ref="MacLennan2023" title="Source 346">346</sup> A quiet corner and time before questions let the load drain.`,
+     pt:`Some children hold it together at school and let it out at home. Quiet time first, questions later.`,
+     hook:`Overload builds across settings: what happens at school shows up at home.`},
+    {from:.56,at:.62,k:'17:00 · homework',t:'Homework and demands',
+     txt:`A whole worksheet with no visible end is a big demand; three questions and a "finished" box is a small one. Caregivers carry these hours too: in 31 studies (9,208 parents of autistic children), 31% had a depressive disorder and 33% an anxiety disorder. <sup class="c" data-ref="Schnabel2020" title="Source 529">529</sup> In the REACH-ASD trial, an online group programme for newly diagnosed families, with Acceptance and Commitment Therapy, improved caregiver mental health at 52 weeks against usual psychoeducation. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Leadbitter2025" title="Source 319">319</sup>`,
+     pt:`Caring can be very tiring. Many parents feel stressed, anxious or low, and help for parents is part of help for the child.`,
+     hook:`Parents of autistic children: depression 31%, anxiety 33% (pooled). <sup class="c" data-ref="Schnabel2020" title="Source 529">529</sup>`},
+    {from:.7,at:.76,k:'18:00 · dinner',t:'Family time and siblings',
+     txt:`Dinner is noisy, smelly and social, with a sibling too. Across 69 samples, siblings had slightly more negative outcomes overall (Hedges g −0.26), mainly anxiety and depression, with no difference in adjustment or family functioning; the authors recommend including siblings in support. <sup class="c" data-ref="Shivers2019" title="Source 545">545</sup> Respite matters: in 101 couples, each extra hour a week of respite care went with higher marital quality, through lower daily stress. <sup class="c" data-ref="Harper2013" title="Source 208">208</sup>`,
+     pt:`Brothers and sisters need support too, and good services include them. Short breaks help the whole family.`,
+     hook:`Siblings: small overall difference (g −0.26), mainly anxiety and depression. <sup class="c" data-ref="Shivers2019" title="Source 545">545</sup>`},
+    {from:.84,at:.93,k:'19:30 · bed',t:'Bedtime',
+     txt:`The same steps in the same order every night is a visual schedule for bedtime. Sleep problems are reported in 40–80% of autistic children and adolescents. <sup class="c" data-ref="Cortesi2010" title="Source 93">93</sup> Sleep, and the medicines sometimes used for it, are covered in <a href="#health" data-go="health">Physical health, sleep &amp; safety</a> and <a href="#meds" data-go="meds">Medication</a>.`,
+     pt:`A calm, predictable bedtime routine helps many children settle.`,
+     hook:`Sleep problems: reported in 40–80% of autistic children and adolescents. <sup class="c" data-ref="Cortesi2010" title="Source 93">93</sup>`}]};
+
+  /* ---- layout ---- */
+  function draw(t){
+    const N=vb(svg,'720 400','400 620');
+    const L=N?{cx0:12,cw:50,cg:4,cy:8,ch:54,bx:12,by:74,bw:376,bh:168,dx:96,dy:326,dr:58,sx:186,sy:270,gx0:40,gx1:370,gy0:404,gy1:500,hy:516,lg:546}
+             :{cx0:34,cw:84,cg:10,cy:8,ch:62,bx:24,by:84,bw:410,bh:170,dx:570,dy:196,dr:66,sx:480,sy:92,gx0:52,gx1:700,gy0:282,gy1:356,hy:372,lg:392};
+    const S=sup,cur=stressCurve(scene,S),any=SUPS.some(k=>S[k]),alt=stressCurve(scene,any?{}:{sched:1,warn:1,quiet:1,teacch:1,adult:1});
+    const i=Math.round(t*300),v=cur[i],e=evAt(scene,t);let s=`<defs>${marker('shArr')}<pattern id="shHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" style="fill:var(--panel-2)"/><line x1="0" y1="0" x2="0" y2="8" style="stroke:var(--line);stroke-width:3"/></pattern></defs>`;
+    /* schedule strip */
+    CARDS[scene].forEach((cd,k)=>{const x=L.cx0+k*(L.cw+L.cg),y=L.cy,now=k===e.c,done=k<e.c,show=S.sched||now;
+      s+=`<rect x="${x}" y="${y}" width="${L.cw}" height="${L.ch}" rx="7" style="fill:${now?'var(--brand-soft)':'var(--panel)'};stroke:${now?'var(--brand)':'var(--line)'};stroke-width:${now?2.2:1.2};opacity:${done&&S.sched?.55:1}"/>`;
+      if(show){s+=ico(cd[0],x+L.cw/2,y+L.ch*.4,N?22:26)+`<text x="${f1(x+L.cw/2)}" y="${y+L.ch-6}" class="t-xs t-mid" style="fill:var(--ink)">${cd[1]}</text>`;
+        if(done)s+=`<path d="M${x+L.cw-18} ${y+12}l4 4l8 -9" style="fill:none;stroke:var(--rx);stroke-width:2.4;stroke-linecap:round"/>`}
+      else s+=`<text x="${f1(x+L.cw/2)}" y="${f1(y+L.ch/2+7)}" class="t-big t-mid" style="fill:var(--muted)">?</text>`});
+    /* scene */
+    s+=sceneSVG(e.sc,L.bx,L.by,L.bw,L.bh,v,t,S);
+    /* dial and status */
+    const word=v<.4?'calm':v<.6?'rising':v<TH?'near overload':'over the line';
+    s+=dial(L.dx,L.dy,L.dr,v,{th:TH,label:'stress (schematic)'});
+    s+=`<text x="${N?L.sx:L.dx}" y="${N?L.sy+8:L.dy-L.dr-38}" class="${N?'t-xs':'t-sm t-mid'}">${hourOf(scene,t)} · ${N&&e.n.length>22?e.n.slice(0,21)+'…':e.n}</text>`;
+    s+=`<text x="${N?L.sx:L.dx}" y="${N?L.sy+30:L.dy-L.dr-18}" class="t-big ${N?'':'t-mid'}" style="fill:${v>=TH?'var(--bad)':v>=.6?'var(--warn)':'var(--calm)'}">${word}</text>`;
+    const on=SUPS.filter(k=>S[k]).map(k=>SUPN[k]);
+    if(N){s+=`<text x="${L.sx}" y="${L.sy+52}" class="t-xs">supports on: ${on.length}/5</text>`;if(v>=TH)s+=`<text x="${L.sx}" y="${L.sy+70}" class="t-xs" style="fill:var(--bad)">meltdown or shutdown likely</text>`}
+    else{s+=`<text x="${L.dx}" y="${L.dy+34}" class="t-xs t-mid">supports on: ${on.length?on.join(', '):'none'}</text>`;if(v>=TH)s+=`<text x="${L.dx}" y="${L.dy+50}" class="t-xs t-mid" style="fill:var(--bad)">meltdown or shutdown likely</text>`}
+    /* the curve over the day */
+    const X=u=>lerp(L.gx0,L.gx1,u),Y=w=>lerp(L.gy1,L.gy0,w);
+    s+=`<text x="${L.gx0}" y="${L.gy0-10}" class="t-sm">${N?'STRESS ACROSS THE DAY':'STRESS ACROSS THE DAY · solid: this setting, dashed: '+(any?'without supports':'with all supports')}</text>`;
+    if(scene==='home')s+=`<rect x="${f1(X(.3))}" y="${L.gy0}" width="${f1(X(.4)-X(.3))}" height="${L.gy1-L.gy0}" style="fill:url(#shHatch);opacity:.8"/>`;
+    s+=`<line x1="${L.gx0}" x2="${L.gx1}" y1="${f1(Y(TH))}" y2="${f1(Y(TH))}" style="stroke:var(--bad);stroke-width:1.2;stroke-dasharray:5 4"/><text x="${L.gx1}" y="${f1(Y(TH)-4)}" class="t-xs t-end" style="fill:var(--bad)">overload</text>`;
+    s+=`<line x1="${L.gx0}" x2="${L.gx1}" y1="${L.gy1}" y2="${L.gy1}" class="axis"/>`;
+    EV[scene].forEach(ev=>{if(ev.k==='away')return;const x=X(ev.a);s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${L.gy1}" y2="${L.gy1+4}" style="stroke:var(--muted)"/>`});
+    const pth=(arr,upto)=>{let d='';for(let k=0;k<=upto;k++)d+=(k?'L':'M')+f1(X(k/300))+' '+f1(Y(arr[k]));return d};
+    s+=`<path d="${pth(alt,300)}" style="fill:none;stroke:var(--muted);stroke-width:1.4;stroke-dasharray:4 3;opacity:.8"/>`;
+    s+=`<path d="${pth(cur,i)}" style="fill:none;stroke:var(--brand);stroke-width:2.6;stroke-linejoin:round"/>`;
+    /* moments over the line so far */
+    let over=0,was=false;for(let k=0;k<=i;k++){const o=cur[k]>=TH;if(o&&!was){over++;s+=`<circle cx="${f1(X(k/300))}" cy="${f1(Y(cur[k]))}" r="4" style="fill:var(--bad)"/>`}was=o}
+    s+=`<line x1="${f1(X(t))}" x2="${f1(X(t))}" y1="${L.gy0}" y2="${L.gy1}" style="stroke:var(--ink);opacity:.35"/><circle cx="${f1(X(t))}" cy="${f1(Y(v))}" r="4.5" style="fill:var(--brand);stroke:var(--panel);stroke-width:1.5"/>`;
+    const hrs=scene==='school'?(N?[[0,'8:30'],[.5,'12:00'],[1,'15:30']]:[[0,'8:30'],[.214,'10:00'],[.5,'12:00'],[.714,'13:30'],[1,'15:30']]):[[0,'7:00'],[.3,'8:15'],[.4,'15:30'],[.7,'18:00'],[1,'20:30']];
+    hrs.forEach(([u,l])=>s+=`<text x="${f1(X(u))}" y="${L.hy}" class="t-xs t-mid">${l}</text>`);
+    if(N)s+=`<text x="${L.gx0}" y="${L.lg}" class="t-xs"><tspan style="fill:var(--brand)">— this setting</tspan>   <tspan>- - ${any?'without supports':'with all supports'}</tspan></text><text x="${L.gx0}" y="${L.lg+18}" class="t-xs" style="fill:var(--warn)">SCHEMATIC · one illustrative child</text>`;
+    else s+=`<text x="${L.gx0}" y="${L.lg}" class="t-xs" style="fill:var(--warn)">SCHEMATIC · one illustrative child</text>`;
+    svg.innerHTML=s;
+    const ph=phaseOf(STEPS[scene],t);setSt(ph);
+    $('#shNote').innerHTML=noteHTML(STEPS[scene][ph]);
+    const peak=Math.max(...cur),peakAlt=Math.max(...alt);
+    $('#shRead').innerHTML=`<span>time <b>${hourOf(scene,t)}</b></span><span>now <b>${e.n}</b></span><span>over the line so far <b>${over}</b></span><span>highest today <b>${peak>=TH?'over':'under'}</b> the line (${any?'without':'with all'} supports: <b>${peakAlt>=TH?'over':'under'}</b>)</span>`;
+  }
+  const stop=playWire(rg,$('#shPlay'),draw,24000,'Replay','school');
+  function wire(){const old=$('#shSteps'),nu=old.cloneNode(false);old.replaceWith(nu);setSt=stepWire(nu,STEPS[scene],rg,draw,stop)}
+  function syncBtns(){const n=SUPS.filter(k=>sup[k]).length;
+    $$('[data-shs]').forEach(b=>b.setAttribute('aria-pressed',!!sup[b.dataset.shs]));
+    $$('[data-shm]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.shm==='on'?n===5:n===0))}
+  $$('[data-shsc]').forEach(b=>b.addEventListener('click',()=>{stop();scene=b.dataset.shsc;$$('[data-shsc]').forEach(x=>x.setAttribute('aria-pressed',x===b));rg.value=STEPS[scene][0].at;wire();draw(+rg.value)}));
+  $$('[data-shm]').forEach(b=>b.addEventListener('click',()=>{const on=b.dataset.shm==='on';SUPS.forEach(k=>sup[k]=on?1:0);syncBtns();draw(+rg.value)}));
+  $$('[data-shs]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.shs;sup[k]=sup[k]?0:1;syncBtns();draw(+rg.value)}));
+  wire();syncBtns();draw(+rg.value);
+
+  /* ================= education-rights navigator ================= */
+  const nsvg=$('#shNavSvg');let J='us',A='no',W='learn';
+  const NV={
+    us:{q:'Does the child need specially designed teaching (special education), not only changes that give access to ordinary lessons?',
+      yes:{n:'An IEP under IDEA',sh:'IEP (IDEA)',s:'Individualized Education Program',
+        txt:`The Individuals with Disabilities Education Act (IDEA) provides special education services to eligible students with disabilities, including autistic students, up to age 21. The mean exit age of autistic students was about 18, so many leave before their eligibility ends. <sup class="c" data-ref="McLean2026" title="Source 372">372</sup> In a US population cohort, school IEP services varied widely between sites. <sup class="c" data-ref="Hughes2024IEP" title="Source 240">240</sup>`},
+      no:{n:'A Section 504 plan',sh:'Section 504 plan',s:'Accommodations under the Rehabilitation Act',
+        txt:`Section 504 of the Rehabilitation Act gives accommodations to students who may not qualify for an IEP; over 1.38 million students have 504 plans. Most of 23 families of autistic children interviewed reported negative experiences, often schools unwilling to provide accommodations, so put requests in writing and keep records. <sup class="c" data-ref="Lindsay2026" title="Source 328">328</sup>`}},
+    en:{q:'Are the child\'s needs more than the school can meet from the support it already arranges?',
+      yes:{n:'Ask for an EHC needs assessment',sh:'EHC assessment → EHCP',s:'Education, Health and Care Plan (EHCP)',
+        txt:`Education, Health and Care Plans are the legal framework for accessing additional support for school-age children in England. Six mothers of autistic children in mainstream school described the process as intimidating and overwhelmingly difficult. <sup class="c" data-ref="Keville2025" title="Source 282">282</sup> Parents in another study described "fighting" a complex system. <sup class="c" data-ref="Gray2023School" title="Source 180">180</sup> Advice services and advocates can help with the paperwork.`},
+      no:{n:'A school support plan, reviewed together',sh:'School support plan',s:'Support the school arranges itself',
+        txt:`Many children are supported by a written plan the school puts in place from its own resources. Ask for it in writing, with named supports and a review date. If the plan is not working, or needs keep growing, you can still ask for an EHC needs assessment later. <sup class="c" data-ref="Keville2025" title="Source 282">282</sup>`}},
+    other:{q:'Does your country have a written plan for pupils with additional needs?',
+      yes:{n:'Use your country\'s plan',sh:'Your country\'s plan',s:'The same principles apply',
+        txt:`Names differ (IEP, EHCP, 504 plan and many others), but the pattern is similar: an assessment of needs, a written plan, named supports and regular review. The evidence below on supports, bullying and attendance comes mainly from the US and UK.`},
+      no:{n:'Ask for a written support agreement',sh:'Written agreement',s:'Even without a legal plan',
+        txt:`Without a formal plan, ask the school to write down what it will do, who is responsible and when it will be reviewed. A short written agreement makes supports easier to keep when staff change.`}}};
+  const WORRY={
+    learn:{t:'Learning and coping',li:[`a visual schedule for the day and for tasks <sup class="c" data-ref="Knight2015" title="Source 297">297</sup>`,`structured tasks with a clear end (TEACCH-style) <sup class="c" data-ref="ViruesOrtega2013" title="Source 611">611</sup>`,`warnings before changes, including staff changes <sup class="c" data-ref="Phung2021" title="Source 457">457</sup>`,`a quiet space or ear defenders for loud places <sup class="c" data-ref="Pfeiffer2019Participation" title="Source 456">456</sup>`,`a named, trusted adult`]},
+    bully:{t:'Bullying',li:[`a written plan for keeping the child safe at break and lunch <sup class="c" data-ref="Maiano2016" title="Source 352">352</sup>`,`a named adult to report to, and how reports will be followed up`,`supervised or structured alternatives to the playground`,`a review of where it happens: victimisation was more likely with more classes in general education <sup class="c" data-ref="Sterzing2012" title="Source 566">566</sup>`]},
+    absent:{t:'Missing school',li:[`ask what lies behind the absence: in one UK survey 43% of absences were school refusal and 9% exclusion <sup class="c" data-ref="Totsika2020" title="Source 592">592</sup>`,`adjust the school day (timetable, sensory load, a safe base) rather than adding pressure <sup class="c" data-ref="Gray2023School" title="Source 180">180</sup>`,`watch mood: school refusal went with more withdrawn and depressive symptoms <sup class="c" data-ref="Munkhaugen2019" title="Source 393">393</sup>`,`a written plan for a gradual return, with review dates`]},
+    leave:{t:'Leaving school soon',li:[`start transition planning early: services begin to fall away before school ends <sup class="c" data-ref="Laxman2019" title="Source 318">318</sup>`,`ask which services continue after school; 39.1% of US autistic young adults received none after high school <sup class="c" data-ref="Shattuck2011Services" title="Source 539">539</sup>`,`plan work, study and daily-living goals; see <a href="#adult" data-go="adult">Autistic adults</a>`,`in the US, note that IDEA eligibility can run to 21 <sup class="c" data-ref="McLean2026" title="Source 372">372</sup>`]}};
+  function drawNav(){const n=vb(nsvg,'520 200','360 330'),R=NV[J],ch=R[A],ot=R[A==='yes'?'no':'yes'];
+    const node=(x,y,w,h,txt,on,sub)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9" style="fill:${on?'var(--brand-soft)':'var(--panel)'};stroke:${on?'var(--brand)':'var(--line)'};stroke-width:${on?2:1.2}"/><text x="${f1(x+w/2)}" y="${f1(y+h/2+(sub?-2:4))}" class="t-lbl t-mid" style="font-size:12px">${txt}</text>${sub?`<text x="${f1(x+w/2)}" y="${f1(y+h/2+12)}" class="t-xs t-mid">${sub}</text>`:''}`;
+    const ln=(x1,y1,x2,y2,on)=>`<path d="M${x1} ${y1}L${x2} ${y2}" style="fill:none;stroke:${on?'var(--brand)':'var(--line)'};stroke-width:${on?2.4:1.4}" marker-end="url(#shNavA${on?1:0})"/>`;
+    const jn={us:'United States',en:'England',other:'Elsewhere'}[J];let s=`<defs>${marker('shNavA1','var(--brand)')}${marker('shNavA0','var(--line)')}</defs>`;
+    const yesOn=A==='yes';
+    if(!n){s+=node(8,78,104,44,'A concern',true,'about school')+ln(112,100,140,100,true)+node(142,78,110,44,jn,true,'where?')+ln(252,100,280,100,true);
+      s+=`<path d="M318 72L356 100L318 128L280 100Z" style="fill:var(--panel);stroke:var(--brand);stroke-width:2"/><text x="318" y="104" class="t-xs t-mid" style="fill:var(--ink)">need?</text>`;
+      s+=ln(340,84,372,46,yesOn)+ln(340,116,372,154,!yesOn)+node(374,14,140,54,R.yes.sh,yesOn,'if yes')+node(374,132,140,54,R.no.sh,!yesOn,'if no / not sure')}
+    else{s+=node(110,6,140,40,'A concern',true,'about school')+ln(180,46,180,62,true)+node(110,64,140,40,jn,true,'where?')+ln(180,104,180,118,true);
+      s+=`<path d="M180 120L214 146L180 172L146 146Z" style="fill:var(--panel);stroke:var(--brand);stroke-width:2"/><text x="180" y="150" class="t-xs t-mid" style="fill:var(--ink)">need?</text>`;
+      s+=ln(160,162,94,214,yesOn)+ln(200,162,266,214,!yesOn)+node(8,216,168,58,R.yes.sh,yesOn,'if yes')+node(184,216,168,58,R.no.sh,!yesOn,'if no / not sure');
+      s+=`<text x="180" y="300" class="t-xs t-mid">general principles, not legal advice</text>`}
+    nsvg.innerHTML=s;
+    $('#shQ').textContent=R.q;
+    const w=WORRY[W];
+    $('#shOut').innerHTML=`<div class="kicker">${jn} · ${ch.s}</div><h4>${ch.n}</h4><p>${ch.txt}</p>
+      <div><b>What to ask for (${w.t.toLowerCase()})</b><ul>${w.li.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+      <div><b>When</b><ul><li>as soon as there is a concern: you do not need a diagnosis to ask for support to be discussed</li><li>before every transition: a new class, a new school, leaving school</li><li>after any exclusion or a run of absences</li><li>at each review, and whenever the plan stops working</li></ul></div>
+      <p class="stage-cap">The other route here: <b>${ot.n}</b>. General principles only, not legal advice.</p>`}
+  $$('[data-shj]').forEach(b=>b.addEventListener('click',()=>{J=b.dataset.shj;$$('[data-shj]').forEach(x=>x.setAttribute('aria-pressed',x===b));drawNav()}));
+  $$('[data-sha]').forEach(b=>b.addEventListener('click',()=>{A=b.dataset.sha;$$('[data-sha]').forEach(x=>x.setAttribute('aria-pressed',x===b));drawNav()}));
+  $$('[data-shw]').forEach(b=>b.addEventListener('click',()=>{W=b.dataset.shw;$$('[data-shw]').forEach(x=>x.setAttribute('aria-pressed',x===b));drawNav()}));
+  drawNav();
+  const prevR=redraws.school;redraws.school=()=>{prevR&&prevR();drawNav()};
+};
+/* =============== 5.2 Autistic adults =============== */
+inits.adult=()=>{
+  const svg=$('#adSvg'),rg=$('#adT');let path='child',setSt=()=>{};
+  /* age axis: 16–30 gets the first 45% of the time line, 30–50 the next 30%, 50–75 the rest */
+  const AG=[[0,16],[.45,30],[.75,50],[1,75]];
+  const age=t=>{for(let i=1;i<AG.length;i++)if(t<=AG[i][0])return lerp(AG[i-1][1],AG[i][1],(t-AG[i-1][0])/(AG[i][0]-AG[i-1][0]));return 75};
+  const T=a=>{for(let i=1;i<AG.length;i++)if(a<=AG[i][1])return lerp(AG[i-1][0],AG[i][0],(a-AG[i-1][1])/(AG[i][1]-AG[i-1][1]));return 1};
+  /* eased interpolation through knots [[age,value],...] */
+  const PL=(k,a)=>{if(a<=k[0][0])return k[0][1];for(let i=1;i<k.length;i++)if(a<=k[i][0]){const p=k[i-1],q=k[i];return lerp(p[1],q[1],ease((a-p[0])/(q[0]-p[0])))}return k[k.length-1][1]};
+  const P={
+    child:{svc:[[16,.82],[16.6,.8],[18,.62],[18.4,.6],[19.2,.26],[25,.22],[40,.18],[62,.2],[75,.32]],
+      en:[[16,.74],[18.2,.7],[19.4,.42],[21.5,.66],[25,.68],[27,.5],[29,.12],[30,.14],[32.5,.62],[36,.72],[55,.7],[75,.58]],
+      mask:[[16,.45],[26,.55],[29,.6],[31.5,.32],[75,.28]],
+      ev:[[17,'transition plan',0,'rx'],[18.4,'leaves school',1,'bad'],[20,'college',2,''],[23,'first job',3,''],[26,'own flat',0,''],[29,'burnout',1,'bad'],[32,'recovery',2,'rx'],[36,'partner',3,''],[62,'health checks',0,'']]},
+    late:{svc:[[16,.12],[37.6,.1],[38.4,.4],[42,.2],[62,.18],[75,.3]],
+      en:[[16,.7],[19,.58],[21,.64],[23.5,.32],[25.5,.55],[29,.5],[33,.3],[35.5,.06],[37.5,.1],[40,.48],[44,.72],[55,.72],[75,.6]],
+      mask:[[16,.72],[30,.85],[37,.92],[39,.6],[44,.34],[75,.3]],
+      ev:[[17,'anxiety treated',0,'warn'],[18.4,'leaves school',1,''],[21,'university',2,''],[23.6,'depression',3,'warn'],[28,'job, masked',0,''],[35.5,'burnout',1,'bad'],[38.2,'diagnosis',2,'brand'],[42,'reconfiguring',3,'rx'],[62,'health checks',0,'']]}};
+
+  /* the side panel: published values, a different source for each stage */
+  const R=(l,v,d,c)=>({l,v,d,c});
+  const PAN={
+    tr:{h:'BY AGE 16 · US cohort, 1,787 adolescents',rows:[R('ADHD recorded',47,'47%'),R('anxiety recorded',39,'39%'),R('no standardised testing',37,'37%')],src:'Hughes2024IEP'},
+    cliff:{h:'AFTER HIGH SCHOOL · US, ages 19–23',rows:[R('received no services',39.1,'39.1%','bad'),R('case management (most used)',41.9,'41.9%'),R('speech therapy',9.1,'9.1%'),R('sheltered workshop / day centre (n=66)',56,'56%','warn')],src:'Shattuck2011Services,Taylor2011Employment'},
+    work:{h:'WORK & STUDY · US young adults',rows:[R('ever paid job, 6 yrs after school',55.1,'55.1%'),R('ever attended college',34.7,'34.7%'),R('ever worked for pay, age 21–25',53.4,'53.4%'),R('job 3 mo after Project SEARCH+ASD',90,'90%','rx'),R('… control group',6,'6%')],src:'Shattuck2012,Roux2013,Wehman2017'},
+    home:{h:'HOME & RELATIONSHIPS',rows:[R('ever lived with a parent (US)',87.1,'87.1%'),R('ever lived independently (US)',16.6,'16.6%'),R('ever in a supervised setting (US)',11.8,'11.8%'),R('relationship experience (n=229)',73,'73%','rx'),R('no wish for a relationship',7,'7%')],src:'Anderson2014Residential,Strunz2017'},
+    burn:{h:'AUTISTIC BURNOUT · in autistic adults\' words',list:['Cause: life stressors pile up into a cumulative load, with barriers to relief, until expectations outweigh abilities.','Signs: chronic exhaustion, loss of skills, reduced tolerance to sensory input.','Recovery: acceptance and social support, time off or fewer demands, doing things in an autistic way and unmasking.','Seems distinct from work burnout and depression (hypothesis; measurement is early).'],src:'Raymaker2020,Higgins2021,Arnold2023Burnout'},
+    age:{h:'AGED 65+ VS MATCHED CONTROLS · odds ratios',scale:20,rows:[R('epilepsy',18.9,'OR 18.9','bad'),R('Parkinson\'s disease',6.1,'OR 6.1','warn'),R('gastrointestinal conditions',5.2,'OR 5.2','warn'),R('dementia 30–64 (%): autism only',4.04,'4.04%'),R('dementia 30–64 (%): general population',.97,'0.97%')],src:'Hand2020Medicare,Vivanti2021'},
+    undx:{h:'ENGLAND 2018 · primary-care records',rows:[R('diagnosed, age 10–14',2.94,'2.94%'),R('diagnosed, age 70+',.02,'0.02%'),R('estimated undiagnosed (59–72%)',65.5,'59–72%','warn')],src:'ONions2023'},
+    mis:{h:'BEFORE AN ADULT DIAGNOSIS',rows:[R('earlier other diagnoses (Italy)',67,'two thirds','warn'),R('felt misdiagnosed: women (NL)',31.7,'31.7%','bad'),R('felt misdiagnosed: men (NL)',16.7,'16.7%'),R('median age at diagnosis (Italy)',23,'23 yrs')],src:'FusarPoli2022,Kentrou2024'},
+    mask:{h:'CAMOUFLAGING · in autistic adults\' words',list:['Why: to fit in and to connect with others.','How: masking autistic traits and compensating with learned strategies.','Cost: exhaustion, threats to self-perception, delayed diagnosis.','The time spent camouflaging seemed to be what hurt most.'],src:'Hull2017,Bradley2021'},
+    dx:{h:'AFTER AN ADULT DIAGNOSIS',list:['Strong emotions are common; routes to diagnosis vary and support afterwards is scarce.','Many describe relief and a "reconfiguration of self".','UK recorded diagnoses rose 787% in 1998–2018, fastest in adults and females.','Students told younger reported higher quality of life (early evidence).'],src:'Huang2020,Stagg2019,Russell2022,Oredipe2023'}};
+
+  const STEPS={
+   child:[
+    {from:0,at:T(16.8),k:'Ages 16–18',t:'Planning the transition',pn:'tr',
+     txt:`The top lane is the level of formal services. In a 14-year study of 204 autistic young people, services declined during high school, dropped at school exit (sharply for those with intellectual disability) and unmet needs rose right after: the cliff starts before school ends. <sup class="c" data-ref="Laxman2019" title="Source 318">318</sup> In a US cohort of 1,787 autistic 16-year-olds, ADHD (47%) and anxiety (39%) were the commonest co-occurring conditions recorded. <sup class="c" data-ref="Hughes2024IEP" title="Source 240">240</sup>`,
+     pt:`Leaving school can mean losing services suddenly. Start planning for adult life early.`,
+     hook:`The "services cliff" begins before school exit. <sup class="c" data-ref="Laxman2019" title="Source 318">318</sup>`},
+    {from:T(18),at:T(19.2),k:'Ages 18–21',t:'The services cliff',pn:'cliff',
+     txt:`At school exit the line drops. In the US NLTS2 cohort, 39.1% of autistic young adults aged 19–23 received no services at all; use ranged from 9.1% for speech therapy to 41.9% for case management, and African American young adults and those from low-income families were more likely to get nothing. <sup class="c" data-ref="Shattuck2011Services" title="Source 539">539</sup> Among 66 recent school leavers, 56% spent time in sheltered workshops or day centres. <sup class="c" data-ref="Taylor2011Employment" title="Source 585">585</sup> The energy line dips: losing structure and support is itself a stressor.`,
+     pt:`After school, many young autistic adults lose most of their support at once.`,
+     hook:`39.1% of US autistic young adults received no services after high school. <sup class="c" data-ref="Shattuck2011Services" title="Source 539">539</sup>`},
+    {from:T(19.6),at:T(23),k:'Ages 19–25',t:'Work and study',pn:'work',
+     txt:`In the first 6 years after high school, 55.1% had held paid work and 34.7% had attended college; autistic youth had the lowest employment of the disability groups compared. <sup class="c" data-ref="Shattuck2012" title="Source 540">540</sup> At 21–25, 53.4% had ever worked for pay, earning on average $8.10 an hour. <sup class="c" data-ref="Roux2013" title="Source 496">496</sup> Support changes this: in a small trial of Project SEARCH plus ASD Supports, 90% had competitive jobs 3 months after graduation against 6% of controls. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Wehman2017" title="Source 621">621</sup> Most employment studies have small samples and no controls. <sup class="c" data-ref="Hedley2017" title="Source 216">216</sup> Try the adjustments builder below.`,
+     pt:`Many autistic adults want to work and can work well with the right job match and support.`,
+     hook:`Project SEARCH + ASD Supports: 90% vs 6% employed at 3 months. <sup class="c" data-ref="Wehman2017" title="Source 621">621</sup>`},
+    {from:T(25),at:T(27.5),k:'Ages 25–30',t:'Home and relationships',pn:'home',
+     txt:`Since leaving high school, 87.1% of US autistic young adults had lived with a parent, 16.6% had ever lived independently and 11.8% in a supervised setting; independent living was more likely with better conversation and daily-living skills and higher household income. <sup class="c" data-ref="Anderson2014Residential" title="Source 18">18</sup> Relationships are wanted: 73% of 229 autistic adults had romantic experience and only 7% wanted none. <sup class="c" data-ref="Strunz2017" title="Source 569">569</sup> Autistic and non-autistic adults describe intimacy in similar terms. <sup class="c" data-ref="Sala2020" title="Source 503">503</sup>`,
+     pt:`Most autistic adults want close relationships, and many have them.`,
+     hook:`87.1% ever lived with a parent vs 16.6% ever independently (NLTS2). <sup class="c" data-ref="Anderson2014Residential" title="Source 18">18</sup>`},
+    {from:T(28.3),at:T(30.5),k:'Ages 28–32',t:'Masking, burnout and recovery',pn:'burn',
+     txt:`The masking strip darkens as a new job demands more camouflaging, and the energy line falls into the red zone: autistic burnout. Autistic adults describe it as chronic exhaustion, loss of skills and reduced tolerance to stimuli, arising when a cumulative load outweighs abilities, and link it to harm to health and independence, including suicidal behaviour. Recovery came with acceptance and social support, time off or fewer demands, and unmasking. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Raymaker2020" title="Source 474">474</sup> A Delphi study warned that depression treatments might worsen burnout. <span class="ev hyp">Hypothesis</span> <sup class="c" data-ref="Higgins2021" title="Source 219">219</sup> A burnout measure did not yet separate current from past burnout. <sup class="c" data-ref="Arnold2023Burnout" title="Source 27">27</sup>`,
+     pt:`Autistic burnout is deep exhaustion with loss of skills, often after long periods of masking and stress. Rest, acceptance and fewer demands help people recover.`,
+     hook:`Autistic burnout: chronic exhaustion, loss of skills, reduced tolerance to stimuli. <sup class="c" data-ref="Raymaker2020" title="Source 474">474</sup>`},
+    {from:T(48),at:T(64),k:'Ages 50–75',t:'Growing older',pn:'age',
+     txt:`Services rise again, now for health. Autistic Medicare enrollees aged 65 and over had higher odds of nearly all physical health conditions, including epilepsy (OR 18.9) and Parkinson's disease (OR 6.1). <sup class="c" data-ref="Hand2020Medicare" title="Source 200">200</sup> Dementia diagnoses were more frequent before 65 in claims data. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Vivanti2021" title="Source 613">613</sup> Their 5-year mortality was 2.87 times higher, but the median age at death (72 vs 75) gap was much smaller than in younger cohorts. <sup class="c" data-ref="Krantz2023" title="Source 302">302</sup> All are group statistics, not forecasts for any one person.`,
+     pt:`Autistic adults grow old too. Older autistic adults need the same health checks as everyone else, and some extra ones.`,
+     hook:`Autistic adults 65+: higher odds of nearly all physical conditions (Hand 2020). <sup class="c" data-ref="Hand2020Medicare" title="Source 200">200</sup>`}],
+   late:[
+    {from:0,at:T(17),k:'Ages 16–18',t:'Not yet recognised',pn:'undx',
+     txt:`No diagnosis means no services to lose: the top line stays low. In English primary care in 2018, 2.94% of 10–14-year-olds had an autism diagnosis but only 0.02% of people aged 70 or older, and an estimated 59–72% of autistic people in England may be undiagnosed. <sup class="c" data-ref="ONions2023" title="Source 432">432</sup> Girls' differences are often more subtle, and many camouflage. <sup class="c" data-ref="Fuentes2021ESCAP,Hull2017" title="Source 156,241">156,241</sup> The masking strip is dark from the start.`,
+     pt:`Many autistic people, especially girls and women, are not recognised in childhood.`,
+     hook:`England 2018: an estimated 59–72% of autistic people undiagnosed. <sup class="c" data-ref="ONions2023" title="Source 432">432</sup>`},
+    {from:T(18),at:T(24.2),k:'Ages 17–25',t:'Anxiety and depression first',pn:'mis',
+     txt:`In 161 Italian adults diagnosed with autism, the median age at diagnosis was 23, 11 years after a first mental-health evaluation, and two thirds had received other diagnoses first. <sup class="c" data-ref="FusarPoli2022" title="Source 160">160</sup> In 1,211 Dutch autistic adults, 24.6% reported an earlier diagnosis they saw as a misdiagnosis, more often women (31.7%) than men (16.7%). <sup class="c" data-ref="Kentrou2024" title="Source 281">281</sup> Anxiety, depression and personality disorders can be misdiagnoses, true co-occurring conditions, or both. <sup class="c" data-ref="Lai2015LancetPsych" title="Source 307">307</sup>`,
+     pt:`Before autism is recognised, people are often treated for anxiety or depression, sometimes with a wrong label.`,
+     hook:`Adult diagnosis: possible misdiagnosis, especially in women, should be explored. <sup class="c" data-ref="Lai2015LancetPsych" title="Source 307">307</sup>`},
+    {from:T(26),at:T(29),k:'Ages 25–32',t:'Work while masking',pn:'mask',
+     txt:`Camouflaging lets people fit in, at a price. Autistic adults described masking and compensation, motivated by fitting in, with exhaustion and threats to self-perception as costs. <sup class="c" data-ref="Hull2017" title="Source 241">241</sup> In 277 autistic adults it was both protective and harmful, and the time spent camouflaging seemed most damaging. <sup class="c" data-ref="Bradley2021" title="Source 57">57</sup> Late-diagnosed women described "pretending to be normal". <sup class="c" data-ref="Bargiela2016" title="Source 38">38</sup> Autistic people who left university named late diagnosis among the reasons. <sup class="c" data-ref="Cage2020" title="Source 68">68</sup>`,
+     pt:`Hiding autistic traits all day can get you through work, but it drains energy every day.`,
+     hook:`Camouflaging = masking + compensation; cost: exhaustion. <sup class="c" data-ref="Hull2017" title="Source 241">241</sup>`},
+    {from:T(32),at:T(35.5),k:'Ages 32–37',t:'Burnout',pn:'burn',
+     txt:`Years of masking without support push the energy line deep into the red zone, lower and longer than on the other path. Autistic adults describe burnout as chronic exhaustion, loss of skills and reduced tolerance to stimuli, from a cumulative load with barriers to relief, and link it to suicidal behaviour. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Raymaker2020" title="Source 474">474</sup> It may be mistaken for depression; a Delphi study warned that depression treatments might worsen it. <span class="ev hyp">Hypothesis</span> <sup class="c" data-ref="Higgins2021" title="Source 219">219</sup> If someone is in crisis, see the support box at the end of this page.`,
+     pt:`Burnout can look like depression from outside. Asking about masking and sensory load can change the plan.`,
+     hook:`Is autistic burnout distinct from depression? Qualitative work says yes; measurement is still early. <sup class="c" data-ref="Raymaker2020,Arnold2023Burnout" title="Source 27,474">27,474</sup>`},
+    {from:T(37.6),at:T(39.5),k:'Age 38',t:'Diagnosis in adulthood',pn:'dx',
+     txt:`A diagnosis at 38 opens a short burst of services, then little. Adults diagnosed after 50 described a "reconfiguration of self" and saw the diagnosis as positive. <sup class="c" data-ref="Stagg2019" title="Source 561">561</sup> A scoping review found strong emotions after diagnosis, unclear routes to it and few post-diagnostic services. <sup class="c" data-ref="Huang2020" title="Source 236">236</sup> UK recorded diagnoses rose 787% from 1998 to 2018, steepest in adults and females, which the authors put down mainly to more recognition. <sup class="c" data-ref="Russell2022" title="Source 500">500</sup> Unmasking and acceptance help recovery. <sup class="c" data-ref="Raymaker2020" title="Source 474">474</sup>`,
+     pt:`Getting diagnosed as an adult can bring relief and a new way of understanding yourself.`,
+     hook:`Adult and female diagnoses are rising fastest (UK, 787% overall rise 1998–2018). <sup class="c" data-ref="Russell2022" title="Source 500">500</sup>`},
+    {from:T(48),at:T(64),k:'Ages 50–75',t:'Growing older',pn:'age',
+     txt:`Most of today's older autistic adults were never diagnosed as children. Those diagnosed had higher odds of nearly all physical health conditions after 65, including epilepsy (OR 18.9) and Parkinson's disease (OR 6.1). <sup class="c" data-ref="Hand2020Medicare" title="Source 200">200</sup> In cross-sectional tests, age-related cognitive differences were parallel or smaller, not larger, and theory-of-mind differences were absent after 50. <span class="ev hyp">Hypothesis</span> <sup class="c" data-ref="Lever2016" title="Source 325">325</sup> Group statistics, not forecasts.`,
+     pt:`It is never too late to be assessed, and older autistic adults need good health checks.`,
+     hook:`Lever 2016: no accelerated cognitive ageing in autistic adults (cross-sectional). <sup class="c" data-ref="Lever2016" title="Source 325">325</sup>`}]};
+
+  const wrap=(s,n)=>{const w=s.split(' '),o=[];let l='';w.forEach(x=>{if((l+' '+x).trim().length>n){o.push(l.trim());l=x}else l+=' '+x});if(l.trim())o.push(l.trim());return o};
+  const lvl=v=>v<.25?'low':v<.55?'some':'high';
+  function draw(t){
+    const N=vb(svg,'720 420','400 680'),a=age(t),D=P[path];
+    const L=N?{x0:44,x1:384,s1T:18,s10:26,s11:78,e1T:100,e10:108,e11:182,m0:190,m1:198,vT:222,rows:[228,248,268,288],ax:304,al:318,ft:352,bx:72,by:388,br:36,px:24,pT:420,pw:356,p0:456,ph:46}
+             :{x0:66,x1:460,s1T:20,s10:28,s11:92,e1T:114,e10:122,e11:206,m0:214,m1:224,vT:246,rows:[252,272,292,312],ax:334,al:350,ft:390,bx:596,by:58,br:38,px:486,pT:100,pw:222,p0:138,ph:48};
+    const X=g=>lerp(L.x0,L.x1,T(g)),xN=X(a);
+    const sv=PL(D.svc,a),en=PL(D.en,a),mk=PL(D.mask,a);let s='';
+    /* age grid */
+    [16,18,21,25,30,40,50,60,75].forEach(g=>{if(N&&(g===21||g===40||g===60))return;s+=`<line x1="${f1(X(g))}" x2="${f1(X(g))}" y1="${L.s10}" y2="${L.ax}" class="grid"/><text x="${f1(X(g))}" y="${L.al}" class="t-xs t-mid">${g}</text>`});
+    s+=`<line x1="${L.x0}" x2="${L.x1}" y1="${L.ax}" y2="${L.ax}" class="axis"/><text x="${L.x1}" y="${L.al+14}" class="t-xs t-end">age (years)</text>`;
+    /* lane 1: services */
+    const S=v=>lerp(L.s11,L.s10,v),E=v=>lerp(L.e11,L.e10,v);
+    s+=`<text x="${L.x0}" y="${L.s1T}" class="t-sm" style="fill:var(--accent)">FORMAL SERVICES &amp; SUPPORT</text>`;
+    let d='',d2='';for(let g=16;g<=a+1e-6;g+=.1){d+=(d?'L':'M')+f1(X(g))+' '+f1(S(PL(D.svc,g)))}
+    if(d){s+=`<path d="${d}L${f1(xN)} ${L.s11}L${f1(X(16))} ${L.s11}Z" style="fill:var(--accent);opacity:.16"/><path d="${d}" style="fill:none;stroke:var(--accent);stroke-width:2.2"/>`}
+    if(path==='child'&&a>=18.4)s+=`<text x="${f1(X(19.4)+4)}" y="${f1(S(.5))}" class="t-xs" style="fill:var(--bad)">${N?'cliff':'the services cliff'}</text>`;
+    if(path==='late'&&a>=38.2)s+=`<text x="${f1(X(38.4)+4)}" y="${f1(S(.48))}" class="t-xs" style="fill:var(--accent)">${N?'after dx':'after diagnosis'}</text>`;
+    /* lane 2: energy with burnout zone */
+    s+=`<text x="${L.x0}" y="${L.e1T}" class="t-sm" style="fill:var(--calm)">${N?'ENERGY vs DEMANDS':'ENERGY: capacity left after demands and masking'}</text>`;
+    s+=`<rect x="${L.x0}" y="${f1(E(.25))}" width="${L.x1-L.x0}" height="${f1(E(0)-E(.25))}" style="fill:var(--bad);opacity:.1"/><text x="${L.x1-4}" y="${f1(E(0)-5)}" class="t-xs t-end" style="fill:var(--bad)">burnout zone</text>`;
+    d='';for(let g=16;g<=a+1e-6;g+=.1){d+=(d?'L':'M')+f1(X(g))+' '+f1(E(PL(D.en,g)))}
+    const other=P[path==='child'?'late':'child'];for(let g=16;g<=75;g+=.25){d2+=(d2?'L':'M')+f1(X(g))+' '+f1(E(PL(other.en,g)))}
+    s+=`<path d="${d2}" style="fill:none;stroke:var(--muted);stroke-width:1.2;stroke-dasharray:4 3;opacity:.7"/>`;
+    if(d)s+=`<path d="${d}" style="fill:none;stroke:var(--calm);stroke-width:2.6;stroke-linejoin:round"/><circle cx="${f1(xN)}" cy="${f1(E(en))}" r="4.5" style="fill:${en<.25?'var(--bad)':'var(--calm)'};stroke:var(--panel);stroke-width:1.5"/>`;
+    /* masking strip */
+    for(let g=16;g<a;g+=.5){const g2=Math.min(a,g+.5);s+=`<rect x="${f1(X(g))}" y="${L.m0}" width="${f1(X(g2)-X(g)+.4)}" height="${L.m1-L.m0}" style="fill:var(--neuro);opacity:${f1(PL(D.mask,g)*.85)}"/>`}
+    s+=`<rect x="${L.x0}" y="${L.m0}" width="${L.x1-L.x0}" height="${L.m1-L.m0}" style="fill:none;stroke:var(--line)"/><text x="${L.x0-6}" y="${L.m1-1}" class="t-xs t-end" style="fill:var(--neuro)">mask</text>`;
+    /* lane 3: life events */
+    s+=`<text x="${L.x0}" y="${L.vT}" class="t-sm">LIFE EVENTS</text>`;
+    D.ev.forEach(([g,l,r,c])=>{if(a<g-.05)return;const x=X(g),w=l.length*6.3+12,y=L.rows[r],col=c?`var(--${c})`:'var(--muted)',xl=Math.min(x,L.x1-w);
+      s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${y+16}" y2="${L.ax}" style="stroke:${col};stroke-width:1;opacity:.5"/><rect x="${f1(xl)}" y="${y}" width="${f1(w)}" height="17" rx="8" style="fill:var(--panel);stroke:${col};stroke-width:1.3"/><text x="${f1(xl+w/2)}" y="${y+12}" class="t-xs t-mid" style="fill:var(--ink)">${l}</text>`});
+    /* playhead */
+    s+=`<line x1="${f1(xN)}" x2="${f1(xN)}" y1="${L.s10}" y2="${L.ax}" style="stroke:var(--ink);opacity:.35"/><rect x="${f1(Math.min(xN,L.x1-24)-22)}" y="${L.ax-15}" width="44" height="13" rx="4" style="fill:var(--panel)"/><text x="${f1(Math.min(xN,L.x1-24))}" y="${L.ax-5}" class="t-xs t-mid" style="fill:var(--ink)">age ${Math.floor(a)}</text>`;
+    s+=`<text x="${L.x0}" y="${L.ft}" class="t-xs" style="fill:var(--warn)">SCHEMATIC · dashed: the ${path==='child'?'late-diagnosis':'childhood-diagnosis'} path</text>`;
+    /* battery and side panel */
+    const ph=phaseOf(STEPS[path],t),st=STEPS[path][ph],pn=PAN[st.pn],grow=ramp(t,st.from,st.at+.02);
+    s+=dial(L.bx,L.by,L.br,en,{battery:true,label:'energy now'});
+    s+=`<text x="${N?L.bx+L.br+18:L.bx}" y="${N?L.by-12:L.by+30}" class="t-xs ${N?'':'t-mid'}" style="fill:var(--neuro)">masking: ${lvl(mk)}</text>`;
+    if(N)s+=`<text x="${L.bx+L.br+18}" y="${L.by+4}" class="t-xs" style="fill:var(--accent)">services: ${lvl(sv)}</text>`;
+    wrap(pn.h,N?52:30).forEach((l,k)=>s+=`<text x="${L.px}" y="${L.pT+k*13}" class="t-xs" style="fill:var(--brand)">${l}</text>`);
+    if(pn.rows){const sc=pn.scale||100;pn.rows.forEach((r,k)=>{const y=L.p0+k*L.ph,bw=L.pw*clamp(r.v/sc)*grow,col=r.c?`var(--${r.c})`:'var(--brand)';
+      s+=`<text x="${L.px}" y="${y}" class="t-xs" style="fill:var(--ink)">${r.l}</text><rect x="${L.px}" y="${y+6}" width="${L.pw}" height="11" rx="3" style="fill:var(--panel-2)"/><rect x="${L.px}" y="${y+6}" width="${f1(Math.max(1.5,bw))}" height="11" rx="3" style="fill:${col}"/><text x="${L.px+L.pw}" y="${y+30}" class="t-xs t-end" style="fill:${col}">${grow>.98?r.d:''}</text>`})}
+    else{let y=L.p0;pn.list.forEach(li=>{const ls=wrap(li,N?50:30);ls.forEach((l,k)=>{s+=`<text x="${L.px+(k?10:0)}" y="${y}" class="t-xs" style="fill:var(--ink);opacity:${f1(grow)}">${k?'':'• '}${l}</text>`;y+=14});y+=8})}
+    svg.innerHTML=s;
+    setSt(ph);$('#adNote').innerHTML=noteHTML(st);
+    $('#adRead').innerHTML=`<span>age <b>${Math.floor(a)}</b></span><span>path <b>${path==='child'?'diagnosed in childhood':'diagnosed as an adult'}</b></span><span>services <b>${lvl(sv)}</b></span><span>energy <b>${en<.25?'burnout zone':lvl(en)}</b></span><span>masking <b>${lvl(mk)}</b></span><span>panel source <b>${pn.src.split(',').join(', ')}</b></span>`;
+  }
+  const stop=playWire(rg,$('#adPlay'),draw,26000,'Replay','adult');
+  function wire(){const old=$('#adSteps'),nu=old.cloneNode(false);old.replaceWith(nu);setSt=stepWire(nu,STEPS[path],rg,draw,stop)}
+  $$('[data-adp]').forEach(b=>b.addEventListener('click',()=>{stop();path=b.dataset.adp;$$('[data-adp]').forEach(x=>x.setAttribute('aria-pressed',x===b));wire();draw(+rg.value)}));
+  wire();draw(+rg.value);
+
+  /* ================= workplace adjustments builder ================= */
+  const K='<sup class="c" data-ref="Khalifa2020" title="Source 283">283</sup>';
+  const ADJ={
+    interview:{n:'Job interviews',a:[['Questions in writing, sent in advance',0],['A practical task or work trial as well as, or instead of, a talk',0],['Clear directions, timing and who will be in the room',0],['Supported employment: job matching and coaching through recruitment',1,'<sup class="c" data-ref="Wehman2017" title="Source 621">621</sup>']]},
+    noise:{n:'Open-plan noise and light',a:[['A quieter desk away from walkways',1,K],['Noise-reducing headphones allowed',1,K],['A desk away from harsh lighting',0],['Some home-working days',0]]},
+    rules:{n:'Unwritten rules',a:[['Expectations written down: hours, breaks, who to ask',0],['A named mentor or buddy',0],['A job coach (the most common workplace support studied)',1,K]]},
+    rota:{n:'Changing rotas and tasks',a:[['A fixed or predictable rota',1,K],['Changes notified in writing, as early as possible',0],['Predictable core duties',1,K]]},
+    verbal:{n:'Spoken instructions',a:[['Written follow-up after spoken instructions',0],['One task at a time, with priorities stated',0],['Time to think before answering',0]]},
+    social:{n:'Meetings and social events',a:[['Agendas sent before meetings',0],['Social events optional, without penalty',0],['Chat or email as an alternative to calls',0]]}};
+  const LAW={uk:`<b>Great Britain.</b> Autism may count as a disability under the Equality Act 2010 if it has a substantial and long-term negative effect on normal daily activities, which brings an entitlement to reasonable adjustments. Autistic clinicians described unmet adjustments and recommended that employer and employee discuss and revisit adjustments individually. <sup class="c" data-ref="Smith2025Adjustments" title="Source 553">553</sup>`,
+    us:`<b>United States.</b> Title I of the Americans with Disabilities Act covers employment discrimination. In charges filed with the EEOC, autistic charging parties were more often younger and male and more often filed against retail employers; charges against larger and service-industry employers were more likely to be upheld. <sup class="c" data-ref="VanWieren2008" title="Source 603">603</sup>`,
+    other:`<b>Elsewhere.</b> Many countries have disability or equality laws with a duty to adjust work; check the law where you work. The research on which adjustments help is international: minimising distractions, reducing noise and predictable duties were among the successful strategies. <sup class="c" data-ref="Khalifa2020" title="Source 283">283</sup>`};
+  const DISC={no:`<b>Disclosure.</b> Adjustments usually need the employer to know about a need, though not always the diagnosis. In 254 US autistic adults, those who had disclosed were more than three times as likely to be employed; this cross-sectional link cannot show cause, and disclosure is a personal decision. <sup class="c" data-ref="Ohl2017" title="Source 430">430</sup>`,
+    yes:`<b>Disclosed.</b> Ask for a meeting to agree adjustments in writing, with a date to review them. Autistic clinicians described adjustments made "under the radar" and recommended revisiting them as the job changes. <sup class="c" data-ref="Smith2025Adjustments" title="Source 553">553</sup>`};
+  const plan=$('#adPlan');
+  function build(){const on=$$('[data-adb]').filter(c=>c.checked).map(c=>c.dataset.adb);const law=$('#adLaw').value,disc=$('#adDisc').value;
+    let n=0,ev=0;const items=on.map(k=>{const B=ADJ[k];n+=B.a.length;ev+=B.a.filter(x=>x[1]).length;
+      return `<li><b>${B.n}</b>${B.a.map(x=>`${x[0]}${x[1]?` <span class="ev est">studied</span> ${x[2]}`:''}`).join('; ')}.</li>`}).join('');
+    $('#adOut').innerHTML=`<div class="kicker">Draft for a conversation · ${on.length} barrier${on.length===1?'':'s'}, ${n} ideas, ${ev} with research behind them</div><h4>${on.length?'Adjustments to discuss':'Tick a barrier to start'}</h4>${on.length?`<ol>${items}</ol>`:''}<p>${LAW[law]}</p><p>${DISC[disc]}</p><p class="stage-cap">Not legal advice. Adjustments should be agreed with the person, written down and reviewed. <sup class="c" data-ref="Smith2025Adjustments" title="Source 553">553</sup></p>`;
+    const H=Math.max(110,48+on.length*34);plan.setAttribute('viewBox',`0 0 400 ${H}`);
+    let s=`<text x="8" y="18" class="t-sm">IDEAS PER BARRIER</text><text x="392" y="18" class="t-xs t-end"><tspan style="fill:var(--good)">■ studied</tspan>  <tspan>■ common request</tspan></text>`;
+    if(!on.length)s+=`<text x="200" y="70" class="t-sm t-mid">no barriers ticked</text>`;
+    on.forEach((k,i)=>{const B=ADJ[k],y=40+i*34,e=B.a.filter(x=>x[1]).length,c=B.a.length-e,u=40;
+      s+=`<text x="8" y="${y+14}" class="t-xs" style="fill:var(--ink)">${B.n}</text>`;
+      for(let j=0;j<B.a.length;j++)s+=`<rect x="${196+j*u}" y="${y+2}" width="${u-6}" height="18" rx="4" style="fill:${j<e?'var(--good)':'var(--panel-2)'};stroke:${j<e?'var(--good)':'var(--line)'}"/>`;
+      s+=`<text x="${196+B.a.length*u+2}" y="${y+15}" class="t-xs">${e}/${e+c}</text>`});
+    plan.innerHTML=s}
+  $$('[data-adb]').forEach(c=>c.addEventListener('change',build));['#adLaw','#adDisc'].forEach(q=>$(q).addEventListener('change',build));
+  build();
+};
+/* =============== 5.3 Physical health, sleep & safety =============== */
+/* hot spots, relative to the figure: [dx/s, dy/s] */
+const HE_SYS={
+ brain:{n:'Brain',at:[0,.12],lab:'epilepsy',col:'var(--neuro)',big:'12.1%',bl:'median epilepsy prevalence in autism',u:'%',mx:30,
+  bars:[['With intellectual disability',21.5],['Without intellectual disability',8],['Ages 13 and over',26],['By adulthood (followed to 21+)',22]],
+  k:'Brain · epilepsy',t:'Epilepsy',
+  txt:`Across 74 studies, the median prevalence of epilepsy in autism was 12.1%. <sup class="c" data-ref="Lukmanji2019" title="Source 341">341</sup> It was 21.5% in autistic people with intellectual disability against 8% without, <sup class="c" data-ref="Amiet2008" title="Source 14">14</sup> and 26% from age 13 upward. <sup class="c" data-ref="Viscidi2013" title="Source 612">612</sup> In a cohort followed to adulthood, 22% developed epilepsy, mostly after age 10; most were controlled with one or two anticonvulsants. <sup class="c" data-ref="Bolton2011" title="Source 49">49</sup> Epilepsy was the commonest cause of death in autism with intellectual disability. <sup class="c" data-ref="Hirvikoski2016" title="Source 224">224</sup>`,
+  pt:`About 1 in 8 autistic people have epilepsy. Seizures can start in the teenage years or later, so new episodes deserve a check. <sup class="c" data-ref="Lukmanji2019,Bolton2011" title="Source 49,341">49,341</sup>`,
+  hook:`Epilepsy in autism: 21.5% with ID vs 8% without; onsets often after age 10. <sup class="c" data-ref="Amiet2008,Bolton2011" title="Source 14,49">14,49</sup>`},
+ sleep:{n:'Sleep',at:[-.32,.08],lab:'sleep',col:'var(--accent)',big:'40–80%',bl:'of autistic children with sleep problems',u:'%',mx:100,
+  bars:[['Sleep problems reported (upper)',80],['Sleep problems reported (lower)',40],['Diagnosed sleep-wake disorder',13]],
+  k:'Sleep',t:'Sleep',
+  txt:`Sleep problems, especially insomnia, are reported in 40–80% of autistic children and adolescents, and children with a history of regression sleep worse. <sup class="c" data-ref="Cortesi2010" title="Source 93">93</sup> A diagnosed sleep-wake disorder is a stricter bar: 13% pooled. <sup class="c" data-ref="Lai2019" title="Source 309">309</sup> Autistic adults sleep worse too, with longer time to fall asleep and more waking after sleep onset. <sup class="c" data-ref="Morgan2020Sleep" title="Source 387">387</sup> Follow one night in the chart below.`,
+  pt:`Poor sleep is very common in autistic children. Bedtime routines often help, and a doctor can discuss other options. <sup class="c" data-ref="Cortesi2010" title="Source 93">93</sup>`,
+  hook:`Behavioural strategies first, then melatonin if they have not helped (AAN 2020). <sup class="c" data-ref="WilliamsBuckley2020" title="Source 636">636</sup>`},
+ teeth:{n:'Teeth',at:[0,.25],lab:'teeth',col:'var(--gold)',big:'60.6%',bl:'dental caries, children and young adults',u:'%',mx:100,
+  bars:[['Dental caries',60.6],['Periodontal disease (3 studies)',69.4]],
+  k:'Mouth · dental health',t:'Teeth',
+  txt:`A meta-analysis found dental caries in 60.6% and periodontal disease in 69.4% (from only 3 studies) of autistic children and young adults. <sup class="c" data-ref="daSilva2017" title="Source 108">108</sup> A later, larger meta-analysis found no difference in most caries indices but more severely affected tooth surfaces <span class="ev hyp">Hypothesis</span>. <sup class="c" data-ref="daMotta2026" title="Source 106">106</sup> A sensory-adapted dental room (changed lighting, sound and touch) lowered physiological stress and distress during cleaning in 162 autistic children. <sup class="c" data-ref="SteinDuker2023" title="Source 563">563</sup>`,
+  pt:`Dental visits can be hard because of light, noise and touch. Dimmer lights and calmer rooms help many children. <sup class="c" data-ref="SteinDuker2023" title="Source 563">563</sup>`,
+  hook:`Sensory-adapted dental environment: lower skin conductance and less distress in an RCT. <sup class="c" data-ref="SteinDuker2023" title="Source 563">563</sup>`},
+ feed:{n:'Feeding',at:[.4,.5],lab:'feeding',col:'var(--rx)',big:'OR 5.11',bl:'feeding problems vs peers',u:'or',mx:6,
+  bars:[['Feeding problems',5.11],['Calcium intake',0.31],['Protein intake',0.35]],
+  k:'Feeding · selectivity and ARFID',t:'Feeding',
+  txt:`Across 17 controlled studies, autistic children had about five times the odds of feeding problems (OR 5.11), with lower calcium (OR 0.31) and protein intake (OR 0.35). <sup class="c" data-ref="Sharp2013Feeding" title="Source 538">538</sup> About 11% of autistic groups met criteria for ARFID, from only three studies with a very wide interval. <sup class="c" data-ref="Sader2025" title="Source 502">502</sup>`,
+  pt:`Many autistic children eat a narrow range of foods, often because of taste, texture or smell. Watching growth and nutrition matters.`,
+  hook:`Feeding problems OR 5.11; lower calcium and protein intake. <sup class="c" data-ref="Sharp2013Feeding" title="Source 538">538</sup>`},
+ gut:{n:'Gut',at:[0,.72],lab:'gut',col:'var(--sense)',big:'OR 4.42',bl:'general GI symptoms vs peers',u:'or',mx:6,
+  bars:[['General GI symptoms',4.42],['Constipation',3.86],['Diarrhoea',3.63],['Abdominal pain',2.45]],
+  k:'Gut · gastrointestinal symptoms',t:'Gut',
+  txt:`In 15 controlled studies, autistic children had more GI symptoms overall (OR 4.42), with more diarrhoea (OR 3.63), constipation (OR 3.86) and abdominal pain (OR 2.45). <sup class="c" data-ref="McElhanon2014" title="Source 369">369</sup> Causes could not be analysed; dietary restriction is one possible factor <span class="ev hyp">Hypothesis</span>. <sup class="c" data-ref="McElhanon2014" title="Source 369">369</sup> GI conditions remain more common in autistic adults over 65 (OR 5.2). <sup class="c" data-ref="Hand2020Medicare" title="Source 200">200</sup>`,
+  pt:`Tummy problems like constipation are more common. Pain can show up as a change in behaviour, so it is worth checking. <sup class="c" data-ref="McElhanon2014" title="Source 369">369</sup>`,
+  hook:`GI symptoms OR 4.42; constipation OR 3.86. <sup class="c" data-ref="McElhanon2014" title="Source 369">369</sup>`},
+ weight:{n:'Weight',at:[0,1.05],lab:'weight',col:'var(--warn)',big:'17%',bl:'obesity in autistic children and teens',u:'%',mx:40,
+  bars:[['Obesity (20 studies)',17],['Obesity (second meta-analysis)',22.2],['Obesity, ages 14–25',25]],
+  k:'Weight · obesity and medicines',t:'Weight',
+  txt:`In 20 studies, 17% of autistic children and adolescents had obesity (RR 1.58 vs controls), mostly from US data. <sup class="c" data-ref="Sammels2022" title="Source 507">507</sup> Another meta-analysis found 22.2%, <sup class="c" data-ref="Kahathuduwa2019" title="Source 264">264</sup> and 25% of autistic 14–25-year-olds in Kaiser Permanente had obesity. <sup class="c" data-ref="Davignon2018" title="Source 109">109</sup> Medicines add to it: over 8 weeks, children on risperidone gained 2.7 kg vs 0.8 kg on placebo, <sup class="c" data-ref="McCracken2002" title="Source 367">367</sup> and the label lists metabolic changes including weight gain. <sup class="c" data-ref="FDA-Risperdal" title="Source 141">141</sup>`,
+  pt:`Some medicines for irritability cause weight gain, so doctors check weight and blood tests. <sup class="c" data-ref="McCracken2002,FDA-Risperdal" title="Source 141,367">141,367</sup>`,
+  hook:`Risperidone: +2.7 kg vs +0.8 kg on placebo in 8 weeks (RUPP). <sup class="c" data-ref="McCracken2002" title="Source 367">367</sup>`},
+ safety:{n:'Safety',at:[-.4,.8],lab:'wandering &amp; water',col:'var(--bad)',big:'49%',bl:'tried to wander away after age 4',u:'%',mx:100,
+  bars:[['Ever tried to wander off (after 4)',49],['Missing long enough to worry',26],['Fatal drownings after wandering',73.9],['Deaths from injury (US)',27.9]],
+  k:'Safety · wandering, injury, drowning',t:'Wandering & water',
+  txt:`In 1,218 autistic children, 49% had tried to wander away after age 4 and 26% were missing long enough to cause concern; of those who went missing, 24% were in danger of drowning. <sup class="c" data-ref="Anderson2012Elopement" title="Source 16">16</sup> Injury caused 27.9% of 1,367 US deaths with autism recorded, and drowning had the highest proportionate mortality ratio (39.89). <sup class="c" data-ref="Guan2017AJPH" title="Source 190">190</sup> Wandering preceded 73.9% of news-reported fatal drownings, most often in ponds. <sup class="c" data-ref="Guan2017Drowning" title="Source 191">191</sup>`,
+  pt:`Some autistic children wander away, and water is a real danger. Close supervision, barriers around water and personal alarms are worth thinking about. <sup class="c" data-ref="Anderson2012Elopement,Guan2017Drowning,Peden2020" title="Source 16,191,448">16,191,448</sup>`,
+  hook:`Leading injury causes of death in autism: suffocation, asphyxiation and drowning (PMR 39.89). <sup class="c" data-ref="Guan2017AJPH" title="Source 190">190</sup>`}
+};
+const HE_ORDER=['brain','sleep','teeth','feed','gut','weight','safety'];
+/* the night: minutes after 18:00; the "none" night and the plan's size are illustrative, melatonin deltas from Gringras 2017 */
+const HE_NIGHT={none:{lat:100,morn:750,n:'No support'},beh:{lat:70,morn:750,n:'Behavioural sleep plan'},mel:{lat:30.4,morn:767.9,n:'Plan plus melatonin'}};
+const HE_BED=120,HE_WAKE=[480,520];
+const HE_STEPS=[
+ {from:0,at:.07,k:'18:00–20:00',t:'Wind-down',
+  txt:`The AAN guideline says to look first for medicines and co-existing conditions that could cause the sleep problem, and to counsel parents on behavioural strategies "as a first-line treatment approach". <sup class="c" data-ref="WilliamsBuckley2020" title="Source 636">636</sup> Children with a history of regression tend to sleep worse. <sup class="c" data-ref="Cortesi2010" title="Source 93">93</sup>`,
+  pt:`A calm, predictable bedtime routine is the usual first step.`,
+  hook:`AAN 2020: behavioural strategies first; melatonin only if they have not helped. <sup class="c" data-ref="WilliamsBuckley2020" title="Source 636">636</sup>`},
+ {from:.133,at:.17,k:'Lights out',t:'Lying awake',
+  txt:`Trouble falling asleep is the commonest complaint. Parent-based sleep education for 80 children aged 2–10 shortened the time to fall asleep on actigraphy within a few sessions, in group or individual formats. <sup class="c" data-ref="Malow2014" title="Source 353">353</sup> Weighted blankets did not lengthen sleep in an RCT, though children and parents liked them. <sup class="c" data-ref="Gringras2014" title="Source 187">187</sup>`,
+  pt:`Simple teaching for parents can help children fall asleep sooner. Popular products do not always work.`,
+  hook:`Weighted blankets: no gain in total sleep time vs a usual blanket. <sup class="c" data-ref="Gringras2014" title="Source 187">187</sup>`},
+ {from:.27,at:.4,k:'Asleep',t:'Sleep',
+  txt:`In 125 children aged 2–17.5 whose sleep had not improved with behavioural support alone, prolonged-release melatonin added 57.5 minutes of total sleep vs 9.14 on placebo at 13 weeks, and sleep latency fell 39.6 vs 12.5 minutes; 68.9% vs 39.3% had a meaningful response. <sup class="c" data-ref="Gringras2017" title="Source 188">188</sup> Somnolence was more common on melatonin. <sup class="c" data-ref="Gringras2017" title="Source 188">188</sup>`,
+  pt:`For children who still sleep badly, melatonin helped many fall asleep sooner and sleep about half an hour longer than placebo.`,
+  hook:`PedPRM trial: +57.5 vs +9.14 min total sleep; responders 68.9% vs 39.3%. <sup class="c" data-ref="Gringras2017" title="Source 188">188</sup>`},
+ {from:.52,at:.545,k:'Night',t:'Night waking',
+  txt:`In a meta-analysis of 5 crossover trials, melatonin lengthened sleep by 44 minutes and shortened the time to fall asleep by 39 minutes, but did not reduce night-time awakenings. <sup class="c" data-ref="Rossignol2011" title="Source 493">493</sup> Autistic adults also have more waking after sleep onset than non-autistic adults. <sup class="c" data-ref="Morgan2020Sleep" title="Source 387">387</sup>`,
+  pt:`Melatonin helps with falling asleep more than with staying asleep.`,
+  hook:`Melatonin: longer sleep and shorter latency, but no fewer awakenings. <sup class="c" data-ref="Rossignol2011" title="Source 493">493</sup>`},
+ {from:.78,at:.86,k:'Morning',t:'Morning & the long run',
+  txt:`In open-label follow-up, benefits held over 104 weeks, and weight, height, BMI and pubertal development stayed within normal ranges for age. <sup class="c" data-ref="Malow2021" title="Source 354">354</sup> The AAN recommends pharmaceutical-grade melatonin and counselling about the lack of long-term safety data. <sup class="c" data-ref="WilliamsBuckley2020" title="Source 636">636</sup> Melatonin and other medicines are covered in <a href="#meds" data-go="meds">Medication</a>.`,
+  pt:`Better nights help the whole family. Any medicine for sleep should be reviewed regularly.`,
+  hook:`Two-year follow-up: growth and puberty normal for age on prolonged-release melatonin. <sup class="c" data-ref="Malow2021" title="Source 354">354</sup>`}
+];
+const HE_OUT={
+ all:{u:'ratio',mx:10,t:'All-cause mortality',k:'Mortality · ratio vs comparison',
+  rows:[['Meta-analysis, 12 studies (RR)',2.37],['Sweden, all autistic (OR)',2.56],['Autism with intellectual disability',5.78],['Autism without intellectual disability',2.18],['Females, autism with ID',8.52]],
+  txt:`In Sweden, 2.60% of 27,122 autistic people died during follow-up against 0.91% of controls (OR 2.56); relative mortality was highest in autism with intellectual disability (OR 5.78), especially in females (8.52). <sup class="c" data-ref="Hirvikoski2016" title="Source 224">224</sup> A meta-analysis of 12 studies found all-cause mortality RR 2.37. <sup class="c" data-ref="CatalaLopez2022" title="Source 74">74</sup>`,
+  pt:`On average, autistic people die younger than other people. This is a group figure, not a prediction for any one person. <sup class="c" data-ref="Hirvikoski2016" title="Source 224">224</sup>`,
+  hook:`All-cause mortality about 2.4–2.6 times the general population. <sup class="c" data-ref="CatalaLopez2022,Hirvikoski2016" title="Source 74,224">74,224</sup>`},
+ sui:{u:'ratio',mx:10,t:'Suicide',k:'Suicide · ratio vs comparison',
+  rows:[['Sweden, all autistic (OR)',7.55],['Autism without ID (OR)',9.40],['Autism with ID (OR)',2.41],['Denmark, suicide (aIRR)',3.75],['Meta-analysis, 10 studies (RR)',2.85]],
+  txt:`Suicide risk was raised most in autism without intellectual disability (OR 9.40), <sup class="c" data-ref="Hirvikoski2016" title="Source 224">224</sup> and highest of all with co-occurring ADHD. <sup class="c" data-ref="Hirvikoski2020" title="Source 225">225</sup> In Denmark, the adjusted suicide rate ratio was 3.75, autistic females had 4.41 times the attempt rate of autistic males, and over 90% of those who attempted or died had another diagnosis. <sup class="c" data-ref="Kolves2021" title="Source 300">300</sup> A meta-analysis gave RR 2.85, higher in females. <sup class="c" data-ref="Santomauro2024Suicide" title="Source 517">517</sup>`,
+  pt:`Thoughts of suicide are more common in autistic people, especially autistic women and people who also have depression or ADHD. If you are worried, get help early. <sup class="c" data-ref="Kolves2021,Cassidy2014" title="Source 72,300">72,300</sup>`,
+  hook:`Highest relative suicide risk: autism without intellectual disability, with ADHD. <sup class="c" data-ref="Hirvikoski2016,Hirvikoski2020" title="Source 224,225">224,225</sup>`},
+ psy:{u:'rate',mx:3.6,t:'The role of mental health',k:'Deaths per 1,000 person-years, ages 16–46',
+  rows:[['Non-autistic, no psychiatric condition',0.27],['Autistic, no psychiatric condition',0.96],['Autistic, with psychiatric conditions',3.2]],
+  txt:`In a Swedish cohort followed from age 16, the death rate was 3.2 per 1,000 person-years in autistic people with psychiatric conditions, 0.96 without, and 0.27 in non-autistic people without them. <sup class="c" data-ref="Taylor2026Mortality" title="Source 588">588</sup> For suicide attempts in Denmark, the rate ratio was 1.33 with autism alone and 9.27 with another diagnosis. <sup class="c" data-ref="Kolves2021" title="Source 300">300</sup>`,
+  pt:`Much of the extra risk travels with depression, anxiety and other conditions that can be treated.`,
+  hook:`Autism + psychiatric condition: HR 13.85 for premature death vs neither. <sup class="c" data-ref="Taylor2026Mortality" title="Source 588">588</sup>`},
+ age:{u:'yr',mx:80,t:'Age at death',k:'Mean or median age at death, years',
+  rows:[['Controls, Sweden (mean)',70.20],['All autistic, Sweden (mean)',53.87],['Autism without ID (mean)',58.39],['Autism with ID (mean)',39.50],['Non-autistic aged 65+ (median)',75],['Autistic aged 65+ (median)',72]],
+  txt:`Mean age at death in Sweden was 53.87 years for autistic people against 70.20 for controls; 39.50 with intellectual disability and 58.39 without. <sup class="c" data-ref="Hirvikoski2016" title="Source 224">224</sup> Among people who reach 65, the gap shrinks: median 72 vs 75. <sup class="c" data-ref="Krantz2023" title="Source 302">302</sup> Mean age at death among those who died is not life expectancy; a US death-certificate study's mean of 36.2 years drew on a biased sample of deaths. <sup class="c" data-ref="Guan2017AJPH" title="Source 190">190</sup>`,
+  pt:`Headlines about autistic life expectancy often use age at death, which is not the same thing. Many autistic people live into old age. <sup class="c" data-ref="Krantz2023" title="Source 302">302</sup>`,
+  hook:`Age at death ≠ life expectancy; the gap is small (72 vs 75) in those who reach 65. <sup class="c" data-ref="Krantz2023" title="Source 302">302</sup>`}
+};
+
+inits.health=()=>{
+  /* ---- body map ---- */
+  const bs=$('#heBody');let sel='brain',bp=1,stopB=null;
+  const T=(x,y,txt,cls='t-xs',st='')=>`<text x="${f1(x)}" y="${f1(y)}" class="${cls}"${st?` style="${st}"`:''}>${txt}</text>`;
+  function icon(id,x,y,c){if(id==='sleep')return `<path d="M${f1(x+4)} ${f1(y-10)}A10 10 0 1 0 ${f1(x+6)} ${f1(y+8)}A8 8 0 1 1 ${f1(x+4)} ${f1(y-10)}Z" style="fill:${c}"/>`;
+    if(id==='feed')return `<circle cx="${f1(x)}" cy="${f1(y)}" r="11" style="fill:var(--panel);stroke:${c};stroke-width:2"/><circle cx="${f1(x)}" cy="${f1(y)}" r="6" style="fill:none;stroke:${c};stroke-width:1.2"/>`;
+    if(id==='weight')return `<rect x="${f1(x-14)}" y="${f1(y-7)}" width="28" height="14" rx="3" style="fill:var(--panel);stroke:${c};stroke-width:2"/><line x1="${f1(x)}" x2="${f1(x+5)}" y1="${f1(y)}" y2="${f1(y-4)}" style="stroke:${c};stroke-width:1.6"/>`;
+    if(id==='safety')return `<path d="M${f1(x-14)} ${f1(y-3)}q3.5 -5 7 0t7 0t7 0t7 0M${f1(x-14)} ${f1(y+4)}q3.5 -5 7 0t7 0t7 0t7 0" style="fill:none;stroke:${c};stroke-width:2"/>`;
+    return `<circle cx="${f1(x)}" cy="${f1(y)}" r="7" style="fill:${c}"/>`}
+  function drawBody(){const N=vb(bs,'720 420','400 680');
+    const F=N?{x:200,y:14,s:300}:{x:200,y:16,s:360},P=N?{x:16,y:390,w:368}:{x:404,y:24,w:300};
+    let s=person(F.x,F.y,F.s,'var(--cortex)',{op:.95});
+    s+=`<path d="M${F.x} ${f1(F.y+F.s*.42)}V${f1(F.y+F.s*.98)}" style="stroke:var(--cortex-line);stroke-width:1;opacity:.4"/>`;
+    HE_ORDER.forEach(id=>{const S=HE_SYS[id],x=F.x+S.at[0]*F.s,y=F.y+S.at[1]*F.s,on=id===sel,c=S.col;
+      s+=`<g class="clk" role="button" tabindex="0" data-hsk="${id}" aria-label="${S.n}" aria-pressed="${on}">`;
+      s+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="${on?24+3*Math.sin(bp*Math.PI):19}" style="fill:${on?c:'var(--panel)'};fill-opacity:${on?.22:.85};stroke:${c};stroke-width:${on?2.6:1.6}"/>`;
+      s+=icon(id,x,y,c);
+      const side=Math.abs(S.at[0])>.1,lb=id==='safety'?'water':S.lab;
+      s+=side?T(x,y+36,lb,'t-sm t-mid',on?'fill:var(--ink);font-weight:700':''):T(x+30,y+4,lb,'t-sm',on?'fill:var(--ink);font-weight:700':'');
+      s+='</g>'});
+    /* data panel */
+    const S=HE_SYS[sel],u=ease(bp);
+    s+=`<rect x="${P.x}" y="${P.y}" width="${P.w}" height="${N?276:370}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
+    s+=T(P.x+16,P.y+24,S.n.toUpperCase(),'t-sm','fill:'+S.col);
+    s+=`<text x="${P.x+16}" y="${P.y+66}" style="font:800 ${N?34:38}px var(--display);fill:${S.col}">${S.big}</text>`+T(P.x+16,P.y+86,S.bl,'t-xs','fill:var(--ink)');
+    const bx0=P.x+16,bx1=P.x+P.w-50,X=v=>lerp(bx0,bx1,clamp(v/S.mx)),rh=N?42:52,y0=P.y+(N?116:118);
+    S.bars.forEach(([n,v],k)=>{const y=y0+k*rh;s+=T(bx0,y,n,'t-xs','fill:var(--ink)');
+      s+=`<rect x="${bx0}" y="${y+5}" width="${f1(bx1-bx0)}" height="16" rx="4" style="fill:var(--panel-2)"/><rect x="${bx0}" y="${y+5}" width="${f1(Math.max(0,X(v*u)-bx0))}" height="16" rx="4" style="fill:${S.col};opacity:${k?.75:1}"/>`;
+      s+=T(X(v*u)+6,y+18,S.u==='or'?'OR '+(v*u).toFixed(2):(v*u).toFixed(1)+'%','t-xs','fill:var(--ink);font-weight:600')});
+    if(S.u==='or'){const x1=X(1);s+=`<line x1="${f1(x1)}" x2="${f1(x1)}" y1="${y0-6}" y2="${y0+S.bars.length*rh}" style="stroke:var(--ink);stroke-dasharray:3 3"/>`+T(x1,y0+S.bars.length*rh+12,'1 = same as peers','t-xs t-mid')}
+    bs.innerHTML=s;
+    $('#heBodyNote').innerHTML=noteHTML(S)}
+  function pick(id){sel=id;$$('[data-hs]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.hs===id));if(stopB)stopB();bp=0;stopB=animate(900,p=>{bp=p;drawBody()},()=>{stopB=null})}
+  $$('[data-hs]').forEach(b=>b.addEventListener('click',()=>pick(b.dataset.hs)));
+  bs.addEventListener('click',e=>{const g=e.target.closest('[data-hsk]');if(g)pick(g.dataset.hsk)});
+  bs.addEventListener('keydown',e=>{const g=e.target.closest('[data-hsk]');if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();pick(g.dataset.hsk);setTimeout(()=>{const n=bs.querySelector(`[data-hsk="${g.dataset.hsk}"]`);n&&n.focus()},0)}});
+  drawBody();
+
+  /* ---- one night's sleep ---- */
+  const ss=$('#heSleep'),rg=$('#heT');let mode='none',cur={...HE_NIGHT.none},stopM=null;
+  const hhmm=m=>{const t=(18*60+Math.round(m))%(24*60);return String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0')};
+  function drawSleep(t){const N=vb(ss,'720 340','400 372'),m=t*900;
+    const C=N?{x0:30,x1:380,ty:40,by:150,gy:206,fy:96,ry:270}:{x0:60,x1:700,ty:40,by:150,gy:210,fy:96,ry:270};
+    const X=v=>lerp(C.x0,C.x1,v/900);let s='';
+    /* time axis */
+    for(let h=0;h<=15;h++){const x=X(h*60),lab=(18+h)%24;s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${C.ty+10}" y2="${C.gy+28}" class="grid" style="opacity:${h%3?.4:1}"/>`;
+      if(h%(N?3:2)===0)s+=T(x,C.ty+4,String(lab).padStart(2,'0')+':00','t-xs t-mid')}
+    const seg=(n,y,h,o)=>{const on=HE_BED+n.lat,w=[HE_WAKE[0],HE_WAKE[1]];let g='';
+      const st=o.ghost?`fill:none;stroke:var(--muted);stroke-dasharray:4 3`:'';
+      g+=`<rect x="${f1(X(HE_BED))}" y="${y}" width="${f1(X(on)-X(HE_BED))}" height="${h}" rx="4" style="${st||'fill:var(--sense);opacity:.85'}"/>`;
+      g+=`<rect x="${f1(X(on))}" y="${y}" width="${f1(X(w[0])-X(on))}" height="${h}" rx="4" style="${st||'fill:var(--neuro)'}"/>`;
+      g+=`<rect x="${f1(X(w[0]))}" y="${y}" width="${f1(X(w[1])-X(w[0]))}" height="${h}" rx="4" style="${st||'fill:var(--warn);opacity:.85'}"/>`;
+      g+=`<rect x="${f1(X(w[1]))}" y="${y}" width="${f1(X(n.morn)-X(w[1]))}" height="${h}" rx="4" style="${st||'fill:var(--neuro)'}"/>`;
+      return g};
+    s+=T(C.x0,C.by-10,HE_NIGHT[mode].n.toUpperCase(),'t-sm','fill:var(--ink)');
+    s+=seg(cur,C.by,36,{});
+    s+=T(C.x0,C.gy-6,'without support (outline)','t-xs');s+=seg(HE_NIGHT.none,C.gy,14,{ghost:true});
+    if(!N){s+=T(X(HE_BED+cur.lat/2),C.by+23,'awake','t-xs t-mid','fill:var(--bg);font-weight:700');s+=T(X((HE_BED+cur.lat+HE_WAKE[0])/2),C.by+23,'asleep','t-xs t-mid','fill:var(--bg);font-weight:700');s+=T(X((HE_WAKE[0]+HE_WAKE[1])/2),C.by+23,'up','t-xs t-mid','fill:var(--bg);font-weight:700')}
+    /* cursor and child */
+    const onset=HE_BED+cur.lat,asleep=m>=onset&&m<cur.morn&&!(m>=HE_WAKE[0]&&m<HE_WAKE[1]),inBed=m>=HE_BED&&m<cur.morn;
+    const cx=X(m);s+=`<line x1="${f1(cx)}" x2="${f1(cx)}" y1="${C.ty+10}" y2="${C.gy+22}" style="stroke:var(--ink);stroke-width:2"/>`;
+    const fx=clamp(cx,C.x0+26,C.x1-26);
+    s+=face(fx,C.fy,20,{gaze:asleep?90:inBed?-60:0,mouth:asleep?'flat':inBed?'wavy':'smile',brows:inBed&&!asleep?'tense':'calm'});
+    if(asleep){s+=`<rect x="${f1(fx-14)}" y="${f1(C.fy-4)}" width="28" height="7" rx="3" style="fill:var(--skin)"/>`;s+=T(fx+24,C.fy-16,'z','t-sm','fill:var(--neuro)')+T(fx+32,C.fy-26,'z','t-lbl','fill:var(--neuro)')}
+    s+=T(fx,C.fy+36,hhmm(m),'t-xs t-mid','fill:var(--ink);font-weight:700');
+    /* readouts */
+    const tst=cur.morn-onset-(HE_WAKE[1]-HE_WAKE[0]),b0=HE_NIGHT.none,tst0=b0.morn-HE_BED-b0.lat-(HE_WAKE[1]-HE_WAKE[0]);
+    const rd=[['falls asleep',hhmm(onset)],['time to fall asleep',Math.round(cur.lat)+' min'],['total sleep',Math.floor(tst/60)+' h '+Math.round(tst%60)+' min'],['vs no support',(tst-tst0>=0?'+':'')+Math.round(tst-tst0)+' min']];
+    rd.forEach(([k,v],i)=>{const x=N?C.x0+(i%2)*180:C.x0+i*160,y=N?C.ry+Math.floor(i/2)*44:C.ry;s+=T(x,y,k.toUpperCase(),'t-xs')+`<text x="${f1(x)}" y="${y+22}" style="font:800 19px var(--display);fill:var(--ink)">${v}</text>`});
+    ss.innerHTML=s;
+    const p=phaseOf(HE_STEPS,t);setSt(p);
+    rg.setAttribute('aria-valuetext',`${hhmm(m)}: ${HE_STEPS[p].t}`);
+    $('#heRead').innerHTML=`<span>time <b>${hhmm(m)}</b></span><span>child is <b>${asleep?'asleep':inBed?'awake in bed':'up'}</b></span><span>support <b>${HE_NIGHT[mode].n}</b></span>`;
+    $('#heSleepNote').innerHTML=noteHTML(HE_STEPS[p]);
+  }
+  const stop=playWire(rg,$('#hePlay'),drawSleep,20000,'Replay','health');
+  const setSt=stepWire($('#heSteps'),HE_STEPS,rg,drawSleep,stop);
+  $$('[data-hsl]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.hsl;$$('[data-hsl]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    const a={...cur},z=HE_NIGHT[mode];if(stopM)stopM();stopM=animate(900,p=>{const e=ease(p);cur={lat:lerp(a.lat,z.lat,e),morn:lerp(a.morn,z.morn,e)};drawSleep(+rg.value)},()=>{stopM=null})}));
+  drawSleep(+rg.value);
+
+  /* ---- outcomes compared ---- */
+  const os=$('#heOut');let ov='all',op=1,stopO=null;
+  function drawOut(){const N=vb(os,'720 320','400 470'),O=HE_OUT[ov],u=ease(op);let s='';
+    const x0=N?16:270,x1=N?330:640,X=v=>lerp(x0,x1,clamp(v/O.mx)),rh=N?66:44,y0=N?40:34;
+    s+=T(N?16:24,N?20:20,O.k.toUpperCase(),'t-sm','fill:var(--brand)');
+    O.rows.forEach(([n,v],k)=>{const y=y0+k*rh,ly=N?y+10:y+17,by=N?y+16:y+4,hi=ov==='age'?(k===0||k===4):ov==='psy'&&k===0;
+      s+=T(N?x0:x0-10,ly,n,'t-xs '+(N?'':'t-end'),'fill:var(--ink)');
+      s+=`<rect x="${x0}" y="${by}" width="${f1(Math.max(0,X(v*u)-x0))}" height="20" rx="4" style="fill:${hi?'var(--muted)':'var(--brand)'};opacity:${hi?.55:.9}"/>`;
+      s+=T(X(v*u)+6,by+15,O.u==='yr'?(v*u).toFixed(1)+' y':O.u==='rate'?(v*u).toFixed(2):(v*u).toFixed(2)+'×','t-xs','fill:var(--ink);font-weight:700')});
+    if(O.u==='ratio'){const xr=X(1),yb=y0+O.rows.length*rh;s+=`<line x1="${f1(xr)}" x2="${f1(xr)}" y1="${y0-4}" y2="${yb}" style="stroke:var(--ink);stroke-width:1.5;stroke-dasharray:4 3"/>`+T(xr,yb+14,'1 = general population','t-xs t-mid','fill:var(--ink)')}
+    os.innerHTML=s;
+    $('#heOutNote').innerHTML=noteHTML(O)+`<p class="kicker">Population statistics, not predictions for one person.</p>`}
+  $$('[data-hoc]').forEach(b=>b.addEventListener('click',()=>{ov=b.dataset.hoc;$$('[data-hoc]').forEach(x=>x.setAttribute('aria-pressed',x===b));if(stopO)stopO();op=0;stopO=animate(900,p=>{op=p;drawOut()},()=>{stopO=null})}));
+  redraws.health=(prev=>()=>{prev&&prev();drawBody();drawOut()})(redraws.health);
+  onHide.health=(prev=>()=>{prev&&prev();[stopB,stopM,stopO].forEach(f=>f&&f())})(onHide.health);
+  drawOut();
+};
+/* =============== 5.4 Nursing & healthcare visits =============== */
+inits.nursing=()=>{
+  const svg=$('#nuSvg'),rg=$('#nuT');let mode='usual',setSt=()=>{};const TH=.86;
+  const ST=[['phone','Before the visit','Before'],['door','Arrival','Arrive'],['chairs','Waiting','Wait'],['clip','Assessment','Assess'],['needle','Blood test','Blood'],['bed','Recovery','Recover'],['house','Discharge','Home']];
+  const KN={usual:[[0,.3],[.07,.42],[.143,.4],[.2,.54],[.286,.52],[.36,.72],[.429,.7],[.5,.77],[.571,.75],[.63,.96],[.68,.99],[.72,.88],[.79,.7],[.857,.6],[.93,.5],[1,.44]],
+    adapt:[[0,.22],[.07,.2],[.143,.2],[.2,.27],[.286,.24],[.36,.26],[.429,.28],[.5,.33],[.571,.36],[.63,.6],[.68,.56],[.72,.44],[.79,.3],[.857,.24],[.93,.2],[1,.16]]};
+  const sAt=(m,t)=>{const k=KN[m];for(let i=1;i<k.length;i++)if(t<=k[i][0]){const p=k[i-1],q=k[i];return lerp(p[1],q[1],ease((t-p[0])/(q[0]-p[0])))}return k[k.length-1][1]};
+  const CH={
+    usual:[['phone booking only','no idea what will happen'],['busy, bright reception','tell your story again'],['noisy waiting room','unknown wait'],['many questions at once','touched without warning','gown and BP "for everyone"'],['rushed','held still'],['busy, noisy bay'],['spoken instructions only','no follow-up plan']],
+    adapt:[['hospital passport sent ahead','online or text booking','reason for visit sent ahead','photos / social story of the room'],['first appointment of the day','met at the door'],['quiet room, or wait in the car','dim light, less noise'],['one instruction at a time','say before you touch','write it down, show pictures','family as experts','skip non-essential checks'],['practised beforehand','numbing cream if prescribed','distraction: a favourite video','a plan B that is not restraint'],['quiet space','comfort object, own clothes'],['written plan with pictures','passport updated','who to call, and when']]};
+  const STEPS=[
+    {from:0,at:.06,k:'Before the visit',t:'Contact before the visit',
+     txt:`In an international survey, 80% of 507 autistic adults against 37% of 157 non-autistic adults reported difficulty visiting a GP. The top barriers were deciding whether symptoms warranted a visit (72%), booking by telephone (62%), not feeling understood (56%), communicating with the doctor (53%) and the waiting room (51%); barriers were linked to untreated conditions and late presentation. Autistic adults asked for online or text booking, sending the reason for the visit in advance, the first or last appointment of the day and a quiet place to wait. <sup class="c" data-ref="Doherty2022" title="Source 120">120</sup> After using the AASPIRE toolkit, which produces a personalised accommodations report, mean barriers fell from 4.07 to 2.82 (single-arm). <sup class="c" data-ref="Nicolaidis2016" title="Source 427">427</sup>`,
+     pt:`You can ask for reasonable adjustments, such as booking online, a quiet place to wait or the first appointment of the day.`,
+     hook:`80% of autistic adults vs 37% of non-autistic adults report difficulty visiting a GP. <sup class="c" data-ref="Doherty2022" title="Source 120">120</sup>`},
+    {from:1/7,at:1/7+.06,k:'Arrival',t:'Arrival',
+     txt:`A hospital passport tells staff how the person communicates, what upsets them and what helps. A review of 60 UK passports (for people with intellectual disabilities) found wide variation, and some omitted allergies, risk assessment or reasonable adjustments. <sup class="c" data-ref="Northway2017" title="Source 429">429</sup> Passports tailored for emergency departments were rated helpful by staff, agencies and families. <sup class="c" data-ref="Heifetz2018" title="Source 217">217</sup> Of 272 Australian users of an autism alert card, 16% had used it in healthcare and 76.2% would recommend it, though some met disbelief. <sup class="c" data-ref="Edwards2025AlertCard" title="Source 124">124</sup>`,
+     pt:`A hospital passport tells staff how you communicate, what upsets you and what helps.`,
+     hook:`Check the passport on arrival, and check it is complete: allergies, risks, adjustments. <sup class="c" data-ref="Northway2017" title="Source 429">429</sup>`},
+    {from:2/7,at:2/7+.07,k:'Waiting',t:'Waiting',
+     txt:`The waiting room is one of the commonest barriers (51%). <sup class="c" data-ref="Doherty2022" title="Source 120">120</sup> Autistic adults name health-care settings among the places that most often disable them. <sup class="c" data-ref="MacLennan2023" title="Source 346">346</sup> In the SADE-2 randomised crossover trial (162 autistic children aged 6–12), a sensory-adapted dental room with changed lighting, sound and touch lowered physiological stress (skin conductance −1.22 μS) and video-coded distress (Cohen d −0.84 to −1.19) against a regular room. <sup class="c" data-ref="SteinDuker2023,NCT02430051" title="Source 402,563">402,563</sup> An earlier pilot found lower anxiety, pain and sensory discomfort. <sup class="c" data-ref="Cermak2015" title="Source 75">75</sup>`,
+     pt:`Small changes to a room, like softer light, less noise and a quiet place to wait, lower stress.`,
+     hook:`SADE-2: a sensory-adapted environment lowered physiological and behavioural distress (RCT, crossover). <sup class="c" data-ref="SteinDuker2023" title="Source 563">563</sup>`},
+    {from:3/7,at:3/7+.07,k:'Assessment',t:'Assessment',
+     txt:`Autistic adults described patient factors (sensory sensitivities, slow processing, body awareness, verbal communication), provider factors (wrong assumptions, unwillingness to allow written communication) and system factors. <sup class="c" data-ref="Nicolaidis2015" title="Source 426">426</sup> Parents and staff of autistic children having day procedures valued clear explanations and flexibility, such as skipping unnecessary blood-pressure checks and not changing into gowns. <sup class="c" data-ref="Taghizadeh2019" title="Source 578">578</sup> Parents are their child's experts. <sup class="c" data-ref="Taghizadeh2015" title="Source 577">577</sup> In a survey of 304 UK GPs, 39.5% had never had formal autism training. <sup class="c" data-ref="Unigwe2017" title="Source 595">595</sup>`,
+     pt:`One question at a time, time to answer, and writing or pictures if they help. Ask the family what works.`,
+     hook:`Allow written communication; say what you will do before you touch. <sup class="c" data-ref="Nicolaidis2015" title="Source 426">426</sup>`},
+    {from:4/7,at:.66,k:'Blood test',t:'The procedure',
+     txt:`This is the peak. Preparation works: a Blood Draw Intervention Program raised compliance from 85.4% to 96.6% (OR 4.80; quasi-randomised). <sup class="c" data-ref="Davit2011" title="Source 110">110</sup> Gradual exposure helped a teenager with needle phobia, and virtual-reality exposure an adult (single cases). <sup class="c" data-ref="Shabani2006,Meindl2019" title="Source 376,535">376,535</sup> Watching a favourite film through video goggles lowered dental anxiety in an RCT of 80 children. <sup class="c" data-ref="Isong2014" title="Source 253">253</sup> Autistic children do feel pain and show it on their faces. <sup class="c" data-ref="Nader2004" title="Source 395">395</sup> Without these steps, distress can end in restraint: in one paediatric ED, physical restraint was used for 14.1% of autistic patients needing psychiatric consultation against 6.0% of others (adjusted OR 2.28). <sup class="c" data-ref="McGaughey2026" title="Source 370">370</sup>`,
+     pt:`Practise first, numb the skin if the prescriber agrees, distract with something loved, and have a plan B that is not holding the person down.`,
+     hook:`Blood Draw Intervention Program: compliance 85.4% → 96.6%. <sup class="c" data-ref="Davit2011" title="Source 110">110</sup>`},
+    {from:5/7,at:5/7+.07,k:'Recovery',t:'Recovery',
+     txt:`Stress can stay high after the procedure in a busy bay. A quiet space and comfort objects help it settle. In 121 autistic and 881 non-autistic children having general anaesthesia for dental treatment, complications, pain, recovery-room time and time to discharge were similar, although autistic children more often had non-standard premedication. <sup class="c" data-ref="Arnold2015" title="Source 26">26</sup> If overload builds, treat it as overload, not defiance: autistic adults describe trying to get away or be alone to avoid harm. <sup class="c" data-ref="Lewis2023Meltdown" title="Source 327">327</sup>`,
+     pt:`After the test, a quiet place and something familiar help the body calm down.`,
+     hook:`With good planning, autistic children's anaesthesia outcomes were similar to other children's. <sup class="c" data-ref="Arnold2015" title="Source 26">26</sup>`},
+    {from:6/7,at:.95,k:'Discharge',t:'Going home',
+     txt:`Give the plan in writing, with pictures if helpful, and update the passport with what worked, so the next visit starts there. <sup class="c" data-ref="Northway2017" title="Source 429">429</sup> The cost of getting it wrong is real: autistic adults had higher odds of unmet physical (OR 1.9) and mental health (OR 2.2) needs, lower odds of Pap smears (OR 0.5) and higher odds of using the ED (OR 2.1). <sup class="c" data-ref="Nicolaidis2013" title="Source 425">425</sup> Compare the curves: in adapted care the line never reaches the overload zone.`,
+     pt:`Written instructions and a named person to call make going home safer.`,
+     hook:`Autistic adults: more unmet health needs and more ED use than non-autistic adults. <sup class="c" data-ref="Nicolaidis2013" title="Source 425">425</sup>`}];
+
+  function ico(k,x,y,r){const st='style="fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"';const u=r/20,X=v=>f1(x+v*u),Y=v=>f1(y+v*u);
+    switch(k){case'phone':return `<rect x="${X(-6)}" y="${Y(-10)}" width="${f1(12*u)}" height="${f1(20*u)}" rx="2" ${st}/><line x1="${X(-2)}" x2="${X(2)}" y1="${Y(7)}" y2="${Y(7)}" ${st}/>`;
+      case'door':return `<rect x="${X(-7)}" y="${Y(-10)}" width="${f1(14*u)}" height="${f1(20*u)}" ${st}/><circle cx="${X(3)}" cy="${Y(1)}" r="${f1(1.3*u)}" style="fill:var(--ink)"/>`;
+      case'chairs':return `<path d="M${X(-10)} ${Y(8)}V${Y(-4)}M${X(-10)} ${Y(2)}H${X(-2)}V${Y(8)}M${X(2)} ${Y(8)}V${Y(-4)}M${X(2)} ${Y(2)}H${X(10)}V${Y(8)}" ${st}/>`;
+      case'clip':return `<rect x="${X(-7)}" y="${Y(-9)}" width="${f1(14*u)}" height="${f1(19*u)}" rx="2" ${st}/><path d="M${X(-3)} ${Y(-3)}H${X(3)}M${X(-3)} ${Y(1)}H${X(3)}M${X(-3)} ${Y(5)}H${X(1)}" ${st}/>`;
+      case'needle':return `<path d="M${X(-9)} ${Y(9)}L${X(-5)} ${Y(5)}M${X(-5)} ${Y(1)}L${X(1)} ${Y(-5)}L${X(5)} ${Y(-1)}L${X(-1)} ${Y(5)}Z M${X(3)} ${Y(-7)}L${X(9)} ${Y(-1)}" ${st}/>`;
+      case'bed':return `<path d="M${X(-10)} ${Y(-6)}V${Y(8)}M${X(-10)} ${Y(3)}H${X(10)}V${Y(8)}M${X(-6)} ${Y(-1)}H${X(9)}" ${st}/>`;
+      case'house':return `<path d="M${X(-9)} ${Y(9)}V${Y(-1)}L${X(0)} ${Y(-9)}L${X(9)} ${Y(-1)}V${Y(9)}Z" ${st}/>`}return ''}
+  function chips(list,x0,x1,y0,prog,col,N){let s='',x=x0,y=y0;const h=N?20:22;
+    list.forEach((c,j)=>{const w=c.length*(N?6.2:6.4)+16;if(x+w>x1){x=x0;y+=h+6}
+      const vis=clamp((prog-j/(list.length+1))*6);if(vis>0)s+=`<g style="opacity:${f1(vis)}"><rect x="${f1(x)}" y="${y}" width="${f1(w)}" height="${h}" rx="${h/2}" style="fill:${col}-soft);stroke:${col});stroke-width:1.2"/><text x="${f1(x+w/2)}" y="${y+h/2+3.5}" class="t-xs t-mid" style="fill:var(--ink)">${c}</text></g>`;x+=w+6});return s}
+  function draw(t){
+    const N=vb(svg,'720 380','400 600'),k=Math.min(6,Math.floor(t*7)),loc=t*7-k,v=sAt(mode,t),vo=sAt(mode==='usual'?'adapt':'usual',t);
+    const L=N?{sx0:30,sx1:370,sy:56,sr:15,lab:86,cx0:14,cx1:386,cy:118,fx:70,fy:276,fr:34,dx:250,dy:302,dr:62,gx0:42,gx1:380,gy0:360,gy1:480,gl:496,lg:524}
+             :{sx0:62,sx1:658,sy:50,sr:20,lab:88,cx0:24,cx1:696,cy:124,fx:84,fy:240,fr:40,dx:226,dy:276,dr:62,gx0:334,gx1:700,gy0:196,gy1:314,gl:330,lg:364};
+    const SX=i=>lerp(L.sx0,L.sx1,i/6);let s='';
+    /* pathway */
+    s+=`<line x1="${L.sx0}" x2="${L.sx1}" y1="${L.sy}" y2="${L.sy}" style="stroke:var(--line);stroke-width:4;stroke-linecap:round"/><line x1="${L.sx0}" x2="${f1(lerp(L.sx0,L.sx1,clamp(t*7/6.5)))}" y1="${L.sy}" y2="${L.sy}" style="stroke:var(--brand);stroke-width:4;stroke-linecap:round"/>`;
+    ST.forEach((S,i)=>{const on=i===k,done=i<k;s+=`<circle cx="${f1(SX(i))}" cy="${L.sy}" r="${L.sr}" style="fill:${on?'var(--brand-soft)':'var(--panel)'};stroke:${on?'var(--brand)':done?'var(--muted)':'var(--line)'};stroke-width:${on?2.4:1.4}"/>`+ico(S[0],SX(i),L.sy,L.sr*.9);
+      s+=`<text x="${f1(SX(i))}" y="${L.lab}" class="t-xs t-mid" style="fill:${on?'var(--ink)':'var(--muted)'}">${N?S[2]:S[1]}</text>`});
+    const pp=clamp(t*7/6.5)*6,px=lerp(L.sx0,L.sx1,pp/6);
+    s+=face(px,L.sy-L.sr-12,N?9:11,{mouth:v<.4?'smile':v<.65?'flat':'wavy',brows:v>.6?'tense':'calm'});
+    /* chips */
+    const col=mode==='usual'?'var(--bad':'var(--rx';
+    s+=`<text x="${L.cx0}" y="${L.cy-8}" class="t-sm" style="fill:${col})">${mode==='usual'?'BARRIERS MET HERE':'NURSE ACTIONS HERE'} · ${ST[k][1].toUpperCase()}</text>`;
+    s+=chips(CH[mode][k],L.cx0,L.cx1,L.cy,loc*1.4+.1,col,N);
+    /* face and dial */
+    s+=face(L.fx,L.fy,L.fr,{mouth:v<.4?'smile':v<.65?'flat':v<TH?'wavy':'open',brows:v>.55?'tense':'calm',gaze:v>.7?120:null,ear:mode==='adapt'&&k===2});
+    s+=`<text x="${L.fx}" y="${L.fy+L.fr+18}" class="t-xs t-mid">the patient</text>`;
+    s+=dial(L.dx,L.dy,L.dr,v,{th:TH,label:'stress (schematic)'});
+    const word=v<.4?'calm':v<.65?'uneasy':v<TH?'distressed':'overload';
+    s+=`<text x="${L.dx}" y="${L.dy-L.dr-14}" class="t-big t-mid" style="fill:${v>=TH?'var(--bad)':v>=.65?'var(--warn)':'var(--calm)'}">${word}</text>`;
+    /* curves */
+    const X=u=>lerp(L.gx0,L.gx1,u),Y=w=>lerp(L.gy1,L.gy0,w);
+    s+=`<text x="${L.gx0}" y="${L.gy0-10}" class="t-sm">STRESS ACROSS THE VISIT</text>`;
+    s+=`<rect x="${L.gx0}" y="${L.gy0}" width="${L.gx1-L.gx0}" height="${f1(Y(TH)-L.gy0)}" style="fill:var(--bad);opacity:.1"/><text x="${L.gx1-4}" y="${L.gy0+11}" class="t-xs t-end" style="fill:var(--bad)">overload: restraint risk</text>`;
+    for(let i=1;i<7;i++)s+=`<line x1="${f1(X(i/7))}" x2="${f1(X(i/7))}" y1="${L.gy0}" y2="${L.gy1}" class="grid"/>`;
+    ST.forEach((S,i)=>s+=`<text x="${f1(X((i+.5)/7))}" y="${L.gl}" class="t-xs t-mid">${N?S[2].slice(0,4):S[2]}</text>`);
+    s+=`<line x1="${L.gx0}" x2="${L.gx1}" y1="${L.gy1}" y2="${L.gy1}" class="axis"/>`;
+    const pth=(m,u1)=>{let d='';for(let i=0;i<=200;i++){const u=i/200;if(u>u1)break;d+=(i?'L':'M')+f1(X(u))+' '+f1(Y(sAt(m,u)))}return d};
+    const oth=mode==='usual'?'adapt':'usual';
+    s+=`<path d="${pth(oth,1)}" style="fill:none;stroke:${oth==='usual'?'var(--bad)':'var(--rx)'};stroke-width:1.4;stroke-dasharray:4 3;opacity:.7"/>`;
+    s+=`<path d="${pth(mode,t)}" style="fill:none;stroke:${mode==='usual'?'var(--bad)':'var(--rx)'};stroke-width:2.8;stroke-linejoin:round"/>`;
+    s+=`<line x1="${f1(X(t))}" x2="${f1(X(t))}" y1="${L.gy0}" y2="${L.gy1}" style="stroke:var(--ink);opacity:.35"/><circle cx="${f1(X(t))}" cy="${f1(Y(v))}" r="4.5" style="fill:${mode==='usual'?'var(--bad)':'var(--rx)'};stroke:var(--panel);stroke-width:1.5"/>`;
+    s+=`<text x="${N?L.gx0:L.gx0}" y="${L.lg}" class="t-xs"><tspan style="fill:var(--bad)">${mode==='usual'?'—':'- -'} usual care</tspan>   <tspan style="fill:var(--rx)">${mode==='adapt'?'—':'- -'} autism-adapted care</tspan></text><text x="${N?L.gx0:24}" y="${L.lg+(N?18:0)}" class="t-xs" style="fill:var(--warn)">${N?'SCHEMATIC · one illustrative patient':''}</text>`;
+    if(!N)s+=`<text x="24" y="${L.lg}" class="t-xs" style="fill:var(--warn)">SCHEMATIC · one illustrative patient</text>`;
+    svg.innerHTML=s;
+    const ph=phaseOf(STEPS,t);setSt(ph);$('#nuNote').innerHTML=noteHTML(STEPS[ph]);
+    let peakU=0,peakA=0;for(let i=0;i<=100;i++){peakU=Math.max(peakU,sAt('usual',i/100));peakA=Math.max(peakA,sAt('adapt',i/100))}
+    $('#nuRead').innerHTML=`<span>stage <b>${ST[k][1]}</b></span><span>care <b>${mode==='usual'?'usual':'autism-adapted'}</b></span><span>now <b>${word}</b> (other model: ${vo<.4?'calm':vo<.65?'uneasy':vo<TH?'distressed':'overload'})</span><span>reaches overload zone: usual <b>${peakU>=TH?'yes':'no'}</b> · adapted <b>${peakA>=TH?'yes':'no'}</b></span>`;
+  }
+  const stop=playWire(rg,$('#nuPlay'),draw,24000,'Replay','nursing');
+  setSt=stepWire($('#nuSteps'),STEPS,rg,draw,stop);
+  $$('[data-nuc]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.nuc;$$('[data-nuc]').forEach(x=>x.setAttribute('aria-pressed',x===b));draw(+rg.value)}));
+  draw(+rg.value);
+
+  /* ================= FLACC walkthrough ================= */
+  const FL=[ ['Face',['no particular expression, or a smile','occasional grimace or frown; withdrawn, uninterested','frequent or constant quivering chin, clenched jaw']],
+    ['Legs',['normal position or relaxed','uneasy, restless, tense','kicking, or legs drawn up']],
+    ['Activity',['lying quietly, normal position, moves easily','squirming, shifting back and forth, tense','arched, rigid or jerking']],
+    ['Cry',['no cry','moans or whimpers; occasional complaint','crying steadily, screams or sobs; frequent complaints']],
+    ['Consolability',['content, relaxed','reassured by touch, hugs or talk; can be distracted','hard to console or comfort']]];
+  const IND={hum:[3,'hums one tune, louder'],still:[2,'goes very still'],rock:[1,'rocks faster than usual']};
+  const sel=[0,0,0,0,0],ind={hum:0,still:0,rock:0};const box=$('#nuFlacc'),psvg=$('#nuPain');
+  box.innerHTML=FL.map((r,i)=>`<div class="row"><div><b>${r[0]}</b><small id="nuFi${i}"></small></div><div class="opts3" role="group" aria-label="${r[0]} score">${r[1].map((d,v)=>`<button data-fl="${i}:${v}" aria-pressed="${v===0}"><b>${v}</b>${d}</button>`).join('')}</div></div>`).join('');
+  function eff(){const e=sel.slice();for(const k in ind)if(ind[k]){const r=IND[k][0];e[r]=Math.max(e[r],1)}return e}
+  function drawPain(){const e=eff(),tot=e.reduce((a,b)=>a+b,0);let s='';
+    const band=tot===0?['no pain behaviours scored','var(--calm)']:tot<=3?['lower range (1–3)','var(--calm)']:tot<=6?['middle range (4–6)','var(--warn)']:['upper range (7–10)','var(--bad)'];
+    s+=`<text x="30" y="34" class="t-sm">FLACC TOTAL (0–10)</text><text x="30" y="92" style="font:800 56px var(--display);fill:${band[1]}">${tot}</text><text x="30" y="116" class="t-xs" style="fill:${band[1]}">${band[0]}</text>`;
+    s+=face(320,74,44,{mouth:tot<=1?'smile':tot<=4?'flat':tot<=7?'wavy':'open',brows:tot>3?'tense':'calm'});
+    const X=v=>lerp(30,370,v/10);
+    [[0,1,'var(--calm)'],[1,4,'var(--calm)'],[4,7,'var(--warn)'],[7,10,'var(--bad)']].forEach(([a,b,c],i)=>s+=`<rect x="${f1(X(a))}" y="150" width="${f1(X(b)-X(a))}" height="18" style="fill:${c};opacity:${i?.35:.15}"/>`);
+    for(let v=0;v<=10;v++)s+=`<text x="${f1(X(v))}" y="184" class="t-xs t-mid">${v}</text>`;
+    s+=`<path d="M${f1(X(tot))} 146l-7 -12h14z" style="fill:var(--ink)"/>`;
+    [[6.1,'before analgesia 6.1',212],[1.9,'after 1.9',236]].forEach(([v,l,y])=>s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="168" y2="${y-10}" style="stroke:var(--neuro);stroke-dasharray:2 2"/><text x="${f1(X(v))}" y="${y}" class="t-xs t-mid" style="fill:var(--neuro)">${l}</text>`);
+    s+=`<text x="30" y="262" class="t-xs">r-FLACC study means, 52 children (Malviya 2006)</text><text x="30" y="282" class="t-xs" style="fill:var(--warn)">bands for teaching only; local policy sets action points</text>`;
+    psvg.innerHTML=s;
+    FL.forEach((r,i)=>{const added=Object.keys(ind).filter(k=>ind[k]&&IND[k][0]===i).map(k=>IND[k][1]);$('#nuFi'+i).textContent=`score ${e[i]}`+(added.length?` · parent-added sign: ${added.join(', ')}`:'')});
+    $('#nuPainCap').innerHTML=`Total ${tot} of 10: ${band[0]}. ${Object.values(ind).some(Boolean)?'The parent-added behaviours lift their category to at least 1, as the r-FLACC allows. <sup class="c" data-ref="Malviya2006" title="Source 355">355</sup> ':''}Re-score after any pain relief: a falling score is part of the picture. <sup class="c" data-ref="Merkel1997" title="Source 377">377</sup>`}
+  box.addEventListener('click',ev=>{const b=ev.target.closest('[data-fl]');if(!b)return;const[i,v]=b.dataset.fl.split(':').map(Number);sel[i]=v;$$(`[data-fl^="${i}:"]`,box).forEach(x=>x.setAttribute('aria-pressed',x===b));drawPain()});
+  $$('[data-nui]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.nui;ind[k]=ind[k]?0:1;b.setAttribute('aria-pressed',!!ind[k]);drawPain()}));
+  $('#nuReset').addEventListener('click',()=>{sel.fill(0);for(const k in ind)ind[k]=0;$$('[data-fl]',box).forEach(x=>x.setAttribute('aria-pressed',x.dataset.fl.endsWith(':0')));$$('[data-nui]').forEach(x=>x.setAttribute('aria-pressed','false'));drawPain()});
+  drawPain();
+};
+/* =============== 6.1 History & people =============== */
+/* events: year, mode (s science, c community, b both), name, two short card lines, the full sentence with its citation */
+const HI_EV=[
+ {y:1911,m:'s',n:'Eugen Bleuler',a:'coins "autism"',b:'a term within schizophrenia',x:`Bleuler introduces "autism" as a term within schizophrenia, one of his "4 A's". <sup class="c" data-ref="Gundel1993,Moskowitz2011" title="Source 193,389">193,389</sup>`},
+ {y:1926,m:'s',n:'Grunya Sukhareva',a:'describes autistic children',b:'in Kyiv; long overlooked',x:`Sukhareva publishes detailed descriptions of children with autistic traits, almost two decades before Kanner and Asperger. <sup class="c" data-ref="Manouilenko2015,Pozzi2024" title="Source 357,465">357,465</sup>`},
+ {y:1943,m:'s',n:'Leo Kanner',a:'11 children, Baltimore',b:'"early infantile autism"',x:`Kanner publishes "Autistic disturbances of affective contact", the first systematic description of early infantile autism, based on 11 children. <sup class="c" data-ref="Kanner1968,Kanner1971" title="Source 270,271">270,271</sup>`},
+ {y:1944,m:'s',n:'Hans Asperger',a:'"autistic psychopaths"',b:'Vienna; first described 1938',x:`Asperger's full study of "autistic psychopaths" is published in Vienna; it found international recognition only in the 1980s. <sup class="c" data-ref="Asperger1944,Czech2018" title="Source 31,105">31,105</sup>`},
+ {y:1958,m:'b',n:'Bruno Bettelheim',a:'the "refrigerator mother"',b:'blames mothers; now rejected',x:`Bettelheim holds the "refrigerator mother" responsible for her child's autism; his solution is to remove the mother. <sup class="c" data-ref="vanRosmalen2020" title="Source 600">600</sup>`},
+ {y:1964,m:'b',n:'Bernard Rimland',a:'psychologist and parent',b:'argues for a neural basis',x:`Rimland's "Infantile Autism" argues for a biological, neural basis. <sup class="c" data-ref="Cowie1965" title="Source 96">96</sup>`},
+ {y:1967,m:'c',n:'"The Empty Fortress"',a:'Bettelheim\'s book',b:'reviewed in JAMA',x:`Bettelheim's "The Empty Fortress: Infantile Autism and the Birth of the Self" is reviewed in JAMA. <sup class="c" data-ref="Chess1967" title="Source 80">80</sup>`},
+ {y:1971,m:'s',n:'Kanner follow-up',a:'the 11 children',b:'followed up in adulthood',x:`Kanner publishes a follow-up of the 11 children first reported in 1943. <sup class="c" data-ref="Kanner1971" title="Source 271">271</sup>`},
+ {y:1979,m:'s',n:'Wing & Gould',a:'Camberwell survey',b:'the spectrum idea',x:`Wing and Gould propose classifying by the quality of social interaction, laying the groundwork for the spectrum idea. <sup class="c" data-ref="WingGould1979" title="Source 640">640</sup>`},
+ {y:1980,m:'s',n:'DSM-III',a:'an official category',b:'first time in the APA manual',x:`Autism enters DSM-III as an official diagnostic category for the first time. <sup class="c" data-ref="Rosen2021" title="Source 490">490</sup>`},
+ {y:1981,m:'s',n:'Lorna Wing',a:'"Asperger\'s syndrome"',b:'brought to English readers',x:`Wing's "Asperger's syndrome: a clinical account" brings Asperger's work to English-language readers. <sup class="c" data-ref="Wing1981" title="Source 638">638</sup>`},
+ {y:1994,m:'s',n:'DSM-IV',a:'adds Asperger\'s disorder',b:'beside autistic disorder',x:`DSM-IV adds Asperger's disorder. <sup class="c" data-ref="BarahonaCorrea2015,Fuentes2021ESCAP" title="Source 36,156">36,156</sup>`},
+ {y:1998,m:'s',n:'Wakefield paper',a:'MMR, 12 children',b:'retracted 2010; fraudulent',x:`A 12-child case series in The Lancet suggests a link between MMR and regression; it is retracted in 2010 and judged fraudulent in 2011. <sup class="c" data-ref="Wakefield1998,Lancet2010Retraction,Godlee2011" title="Source 174,311,618">174,311,618</sup>`},
+ {y:1998.5,m:'c',n:'Neurodiversity',a:'often credited to J. Singer',b:'developed collectively',x:`The neurodiversity concept, often credited to Judy Singer in the late 1990s, was "collectively developed by neurodivergent people". <sup class="c" data-ref="Botha2024" title="Source 50">50</sup>`},
+ {y:2010,m:'s',n:'The Lancet',a:'retracts the 1998 paper',b:'BMJ: "fraudulent" (2011)',x:`The Lancet retracts the 1998 paper; the BMJ concludes it was fraudulent. <sup class="c" data-ref="Lancet2010Retraction,Godlee2011" title="Source 174,311">174,311</sup>`},
+ {y:2012,m:'c',n:'Damian Milton',a:'the double empathy problem',b:'an autistic sociologist',x:`Milton describes the "double empathy problem": a two-way mismatch, not a one-sided deficit. <sup class="c" data-ref="Milton2012" title="Source 382">382</sup>`},
+ {y:2013,m:'s',n:'DSM-5',a:'autism spectrum disorder',b:'the subtypes merged',x:`DSM-5 merges Asperger's disorder and the other subtypes into one category, autism spectrum disorder. <sup class="c" data-ref="BarahonaCorrea2015,APA2013" title="Source 22,36">22,36</sup>`},
+ {y:2013.4,m:'c',n:'Kapp and colleagues',a:'"deficit, difference, or both?"',b:'657 people surveyed',x:`Identifying as autistic and knowing about neurodiversity go with seeing autism as an identity "that needs no cure". <sup class="c" data-ref="Kapp2013" title="Source 272">272</sup>`},
+ {y:2016,m:'c',n:'Kenny and colleagues',a:'which words to use?',b:'3,470 people, UK',x:`A UK survey finds that autistic people, families and professionals endorse different terms. <sup class="c" data-ref="Kenny2016" title="Source 280">280</sup>`},
+ {y:2017,m:'c',n:'M. A. Gernsbacher',a:'person-first language',b:'"may accentuate stigma"',x:`Person-first language in scholarly writing "may actually accentuate stigma". <sup class="c" data-ref="Gernsbacher2017" title="Source 170">170</sup>`},
+ {y:2018,m:'s',n:'Herwig Czech',a:'Asperger\'s Nazi-era record',b:'archival study',x:`Czech's archival study shows Asperger cooperated with Nazi race-hygiene policy. <sup class="c" data-ref="Czech2018" title="Source 105">105</sup>`},
+ {y:2018.4,m:'c',n:'Puzzle-piece study',a:'negative associations',b:'400 members of the public',x:`Puzzle pieces evoke "incompleteness, imperfection, and oddity". <sup class="c" data-ref="Gernsbacher2018Puzzle" title="Source 171">171</sup>`},
+ {y:2019,m:'s',n:'Danish MMR cohort',a:'657,461 children',b:'no link to autism',x:`A nationwide Danish cohort finds no increased autism risk after MMR (adjusted HR 0.93). <sup class="c" data-ref="Hviid2019" title="Source 249">249</sup>`},
+ {y:2019.3,m:'c',n:'J. den Houting',a:'"an insider\'s perspective"',b:'acceptance with support',x:`An autistic researcher describes neurodiversity as accepting autism as natural variation while still supporting people with their disabilities. <sup class="c" data-ref="denHouting2019" title="Source 116">116</sup>`},
+ {y:2020,m:'c',n:'Raymaker and colleagues',a:'autistic burnout defined',b:'from autistic adults\' accounts',x:`Autistic adults describe autistic burnout: chronic exhaustion, loss of skills, reduced tolerance to stimuli. <sup class="c" data-ref="Raymaker2020" title="Source 474">474</sup>`},
+ {y:2021,m:'c',n:'Bottema-Beutel et al.',a:'avoiding ableist language',b:'suggested alternatives',x:`Researchers propose alternatives to ableist terms, such as "co-occurring" for "comorbid". <sup class="c" data-ref="BottemaBeutel2021Ableist" title="Source 52">52</sup>`},
+ {y:2022,m:'b',n:'Lancet Commission',a:'autistic people, parents',b:'among 32 authors',x:`The Lancet Commission, written by 32 authors including autistic people and parents, calls for personalised, stepped care and proposes "profound autism". <sup class="c" data-ref="Lord2022Lancet,Yu2022" title="Source 338,649">338,649</sup>`},
+ {y:2022.3,m:'s',n:'ICD-11 · DSM-5-TR',a:'ICD-11 in use from 1 Jan',b:'DSM-5-TR published',x:`ICD-11, approved in May 2019, comes into use on 1 January 2022; DSM-5-TR is published. <sup class="c" data-ref="Reed2019ICD11,APA2022" title="Source 23,476">23,476</sup>`},
+ {y:2023,m:'c',n:'Keating and colleagues',a:'654 autistic adults',b:'language across countries',x:`Autistic adults across English-speaking countries favour "autistic person"; the guiding principle is to respect personal preference. <sup class="c" data-ref="Keating2023" title="Source 278">278</sup>`},
+ {y:2024,m:'c',n:'Botha and colleagues',a:'"an overdue correction"',b:'neurodiversity\'s origins',x:`Botha and colleagues set out archival evidence that "neurological diversity" was in use before the late 1990s. <sup class="c" data-ref="Botha2024" title="Source 50">50</sup>`},
+ {y:2025,m:'c',n:'Crompton and colleagues',a:'replication, N = 311',b:'double empathy retested',x:`A larger replication finds no difference in information transfer between same- and mixed-neurotype chains. <sup class="c" data-ref="Crompton2025" title="Source 102">102</sup>`}];
+const HI_BAND=[{a:1911,b:1943,l:'"autism": a symptom of schizophrenia',s:'a symptom'},{a:1943,b:1980,l:'early infantile autism (Kanner)',s:'infantile autism'},{a:1980,b:1994,l:'DSM-III autism',s:'DSM-III'},
+ {a:1994,b:2013,l:'DSM-IV: autistic disorder, Asperger\'s, PDD-NOS',s:'DSM-IV subtypes'},{a:2013,b:2025,l:'autism spectrum disorder',s:'ASD'}];
+const HI_C=['var(--muted)','var(--gold)','var(--accent)','var(--neuro)','var(--brand)'];
+const hiT=y=>(y-1910)/115;
+const HI_STEPS_S=[
+ {from:0,at:hiT(1926.2),k:'1911–1926',t:'Naming it',
+  txt:`In 1911 the Swiss psychiatrist Eugen Bleuler introduced "autism" as a term within schizophrenia, one of his "4 A's" (association, affect, ambivalence, autism). In 1926 Grunya Sukhareva, a child psychiatrist in Kyiv, described children with autistic traits, first as "schizoid (eccentric) psychopathy". Her paper was long overlooked; an English translation appeared in 1996. <sup class="c" data-ref="Gundel1993,Moskowitz2011,Manouilenko2015,Ssucharewa1996" title="Source 193,357,389,560">193,357,389,560</sup>`,
+  pt:`The word "autism" is older than the diagnosis: at first it described a symptom of schizophrenia.`,
+  hook:`Bleuler coined "autism" in 1911; Sukhareva described autistic children in 1926, before Kanner (1943) and Asperger (1944). <sup class="c" data-ref="Gundel1993,Manouilenko2015" title="Source 193,357">193,357</sup>`},
+ {from:hiT(1937.5),at:hiT(1944.3),k:'1938–1944',t:'Kanner and Asperger',
+  txt:`Kanner examined the first child of his series in 1938 and in 1943 described 11 children who "have come into the world with an innate inability to form the usual, biologically provided contact with people". Calling children "autistic" was not new; an inborn condition distinct from childhood schizophrenia was. In Vienna, Hans Asperger described "autistic psychopaths" in 1938 and published his full study in 1944. <sup class="c" data-ref="Olmsted2016,Harris2018Kanner,Vicedo2021,Czech2018" title="Source 105,209,431,610">105,209,431,610</sup>`,
+  pt:`Two doctors on two continents described autistic children within a year of each other.`,
+  hook:`Kanner 1943: 11 children; follow-up published 1971. Asperger 1944, recognised internationally only in the 1980s. <sup class="c" data-ref="Kanner1971,Czech2018" title="Source 105,271">105,271</sup>`},
+ {from:hiT(1956),at:hiT(1964.6),k:'1958–1967',t:'Blame, then biology',
+  txt:`In 1958 Bruno Bettelheim held the "refrigerator mother" responsible for her child's autism. In 1964 Bernard Rimland, a psychologist and parent, argued for a biological, neural basis. Parent-blaming theories are now rejected: a Swedish reanalysis estimated heritability at about 83%. Historians add that the usual story of biology "supplanting" blame is simplified. <span class="ev est">Established</span> <sup class="c" data-ref="vanRosmalen2020,Cowie1965,Sandin2017,Lord2018,Jacobsen2010" title="Source 96,256,336,514,600">96,256,336,514,600</sup>`,
+  pt:`Parents do not cause autism through how they love or raise their child. The "refrigerator mother" idea was wrong.`,
+  hook:`Heritability of autism: about 83% (Swedish cohort reanalysis). <sup class="c" data-ref="Sandin2017" title="Source 514">514</sup>`},
+ {from:hiT(1976),at:hiT(1981.4),k:'1960s–1981',t:'A spectrum',
+  txt:`In 1960s Britain, researchers such as Victor Lotter and Michael Rutter turned autism into an epidemiological category. In 1979 Lorna Wing and Judith Gould found that children with Kanner's autism shared many features with other socially impaired children, and proposed classification by quality of social interaction. Autism became an official DSM-III category in 1980, and in 1981 Wing brought Asperger's syndrome to English-language readers. <sup class="c" data-ref="Evans2013,WingGould1979,Rosen2021,Wing1981" title="Source 132,490,638,640">132,490,638,640</sup>`,
+  pt:`Instead of one narrow box, researchers began to see a wide family of related ways of being.`,
+  hook:`Wing and Gould (1979): the Camberwell study and the spectrum idea; DSM-III (1980): first official category. <sup class="c" data-ref="WingGould1979,Rosen2021" title="Source 490,640">490,640</sup>`},
+ {from:hiT(1992),at:hiT(2013.2),k:'1994–2013',t:'Split, then lumped',
+  txt:`DSM-IV added Asperger's disorder in 1994, beside autistic disorder, childhood disintegrative disorder and PDD-NOS. A fraudulent 1998 paper launched the MMR scare; it was retracted in 2010. DSM-5 (2013) merged the subtypes into autism spectrum disorder, "a significant departure" that swung from "splitting" back to "lumping". <sup class="c" data-ref="BarahonaCorrea2015,Fuentes2021ESCAP,Wakefield1998,Lancet2010Retraction,Volkmar2014" title="Source 36,156,311,617,618">36,156,311,617,618</sup>`,
+  pt:`For almost 20 years autism had several separate names. Since 2013, doctors use one umbrella term.`,
+  hook:`DSM-III 1980, first category; DSM-IV 1994, adds Asperger's; DSM-5 2013, one autism spectrum disorder. <sup class="c" data-ref="Rosen2021,BarahonaCorrea2015" title="Source 36,490">36,490</sup>`},
+ {from:hiT(2016),at:1,k:'2018–2025',t:'Now',
+  txt:`In 2018 Herwig Czech showed from archives that Asperger joined Nazi-affiliated organisations, legitimised race hygiene and cooperated with the child "euthanasia" programme. ICD-11, approved in 2019, came into use on 1 January 2022, the year DSM-5-TR appeared and the Lancet Commission called for personalised, stepped care with more appreciation of neurodiversity. <sup class="c" data-ref="Czech2018,Reed2019ICD11,APA2022,Lord2022Lancet,Yu2022" title="Source 23,105,338,476,649">23,105,338,476,649</sup>`,
+  pt:`Today one name is used in both major manuals, and history is being re-read, including who deserves credit.`,
+  hook:`ICD-11: approved May 2019, in use from 1 January 2022; DSM-5-TR: 2022. <sup class="c" data-ref="Reed2019ICD11,APA2022" title="Source 23,476">23,476</sup>`}];
+const HI_STEPS_C=[
+ {from:0,at:hiT(1967.3),k:'1958–1967',t:'Parents push back',
+  txt:`Bettelheim's "refrigerator mother" blamed parents, and his book "The Empty Fortress" was reviewed in JAMA in 1967. A parent, the psychologist Bernard Rimland, argued instead for a neural basis in 1964. Parent-blaming is now rejected. <sup class="c" data-ref="vanRosmalen2020,Chess1967,Cowie1965,Sandin2017" title="Source 80,96,514,600">80,96,514,600</sup>`,
+  pt:`Some of the first people to challenge blaming parents were parents themselves.`,
+  hook:`Rimland 1964, "Infantile Autism": a biological, neural basis. <sup class="c" data-ref="Cowie1965" title="Source 96">96</sup>`},
+ {from:hiT(1980),at:hiT(1998.6),k:'Late 1990s',t:'Neurodiversity',
+  txt:`The neurodiversity concept is often credited to the Australian sociologist Judy Singer in the late 1990s. Botha and colleagues present archival evidence that "neurological diversity" was used earlier and conclude it was "collectively developed by neurodivergent people". The paradigm treats autism as one form of variation in a diversity of minds. <sup class="c" data-ref="Botha2024,Pellicano2022" title="Source 50,451">50,451</sup>`,
+  pt:`Neurodiversity means human brains vary, and autistic brains are part of that natural variety.`,
+  hook:`Who coined neurodiversity? Commonly credited to Singer; Botha 2024 argues for collective origins. <sup class="c" data-ref="Botha2024" title="Source 50">50</sup>`},
+ {from:hiT(2005),at:hiT(2013.6),k:'2012–2013',t:'Autistic scholars',
+  txt:`In 2012 Damian Milton, an autistic sociologist, described the "double empathy problem". In 2013, a survey of 657 people found that identifying as autistic and knowing about neurodiversity went with seeing autism as an identity "that needs no cure", while groups still overlapped in recognising its difficulties. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Milton2012,Kapp2013" title="Source 272,382">272,382</sup>`,
+  pt:`Autistic people became researchers of autism, not only subjects of it.`,
+  hook:`Milton 2012: the double empathy problem. <sup class="c" data-ref="Milton2012" title="Source 382">382</sup>`},
+ {from:hiT(2015),at:hiT(2018.5),k:'2016–2018',t:'Changing words',
+  txt:`A UK survey of 3,470 people (2016) found no single preferred term. Person-first language "may actually accentuate stigma" (2017), puzzle pieces evoke negative associations (2018), and Czech's archival study (2018) led many to question the Asperger eponym. <sup class="c" data-ref="Kenny2016,Gernsbacher2017,Gernsbacher2018Puzzle,Czech2018" title="Source 105,170,171,280">105,170,171,280</sup>`,
+  pt:`Words and symbols were re-examined: which ones respect people, and which carry old baggage.`,
+  hook:`Kenny 2016: 3,470 respondents; "autism" and "on the autism spectrum" most widely endorsed. <sup class="c" data-ref="Kenny2016" title="Source 280">280</sup>`},
+ {from:hiT(2019),at:hiT(2022.1),k:'2019–2022',t:'Partnership',
+  txt:`An autistic researcher described neurodiversity as acceptance with support (2019). Autistic adults' own accounts defined autistic burnout (2020). Researchers set out alternatives to ableist language (2021). The 2021 Lancet Commission, published in 2022, included autistic people and parents among its 32 authors. <sup class="c" data-ref="denHouting2019,Raymaker2020,BottemaBeutel2021Ableist,Lord2022Lancet,Yu2022" title="Source 52,116,338,474,649">52,116,338,474,649</sup>`,
+  pt:`More research is now planned and written together with autistic people and families.`,
+  hook:`Lancet Commission: 32 authors, 6 continents, 13 disciplines; proposed "profound autism". <sup class="c" data-ref="Lord2022Lancet,Yu2022" title="Source 338,649">338,649</sup>`},
+ {from:hiT(2022.7),at:1,k:'2023–2025',t:'Open debates',
+  txt:`A survey of 654 autistic adults across countries favoured "autistic person" but stressed personal preference (2023). The origins of neurodiversity were re-examined (2024). A larger replication did not find the double empathy information gap (2025). "Profound autism" is still debated. <span class="ev early">Early evidence: mixed</span> <sup class="c" data-ref="Keating2023,Botha2024,Crompton2025,Siegel2026,Eicher2026" title="Source 50,102,125,278,547">50,102,125,278,547</sup>`,
+  pt:`The conversation is still going on, and autistic people are part of it.`,
+  hook:`Crompton 2020 found a mixed-chain penalty; the 2025 replication (N = 311) did not. <sup class="c" data-ref="Crompton2020,Crompton2025" title="Source 101,102">101,102</sup>`}];
+inits.history=()=>{
+  const svg=$('#hiSvg'),rg=$('#hiT'),note=$('#hiNote'),rd=$('#hiRead'),yrs=$('#hiYears');let mode='sci';
+  const steps=HI_STEPS_S.slice();
+  const evs=()=>HI_EV.filter(e=>e.m==='b'||e.m===(mode==='sci'?'s':'c'));
+  function draw(t){const N=vb(svg,'720 380','400 590');const yr=lerp(1910,2025,clamp(t)),E=evs();let s='';
+    const A=N?{x0:22,x1:380,y:476,by:500}:{x0:30,x1:700,y:262,by:292};const X=y=>lerp(A.x0,A.x1,(y-1910)/115);
+    const shown=E.filter(e=>e.y<=yr+.01).slice(-3);
+    /* axis and decades */
+    s+=`<line x1="${A.x0}" x2="${A.x1}" y1="${A.y}" y2="${A.y}" style="stroke:var(--muted);stroke-width:1.6"/>`;
+    for(let d=1910;d<=2020;d+=N?20:10)s+=`<line x1="${f1(X(d))}" x2="${f1(X(d))}" y1="${A.y-4}" y2="${A.y+4}" style="stroke:var(--muted)"/><text x="${f1(X(d))}" y="${A.y+16}" class="t-xs t-mid">${d}</text>`;
+    /* name band */
+    HI_BAND.forEach((b,i)=>{const x0=X(b.a),x1=X(Math.min(b.b,yr)),on=yr>=b.a&&yr<b.b+(i===4?1:0);if(yr<b.a)return;
+      s+=`<rect x="${f1(x0)}" y="${A.by+10}" width="${f1(Math.max(0,x1-x0))}" height="14" style="fill:${HI_C[i]};opacity:${on?.9:.45}"/>`;
+      if(!N&&X(b.b)-x0>70&&x1-x0>60)s+=`<text x="${f1(x0+4)}" y="${A.by+38}" class="t-xs" style="${on?'fill:var(--ink);font-weight:600':''}">${b.s}</text>`});
+    const cb=HI_BAND.find((b,i)=>yr>=b.a&&(yr<b.b||i===4));
+    if(N)s+=`<text x="${A.x0}" y="${A.by+42}" class="t-xs">Name in use:</text><text x="${A.x0}" y="${A.by+57}" class="t-sm" style="fill:var(--ink)">${cb?cb.l:'no name yet'}</text>`;
+    else s+=`<text x="${A.x0}" y="${A.by+58}" class="t-sm" style="fill:var(--ink)">${cb?'Name in use: '+cb.l:'Before 1911: no name yet'}</text>`;
+    /* event dots */
+    E.forEach(e=>{const lit=e.y<=yr+.01,sh=shown.includes(e);s+=`<circle cx="${f1(X(e.y))}" cy="${A.y}" r="${sh?5.5:3.5}" style="fill:${lit?(e.m==='c'?'var(--rx)':e.m==='b'?'var(--gold)':'var(--brand)'):'var(--panel)'};stroke:${lit?'var(--panel)':'var(--muted)'};stroke-width:1.4"/>`});
+    /* cursor */
+    s+=`<path d="M${f1(X(yr))} ${A.y-14}L${f1(X(yr)-5)} ${A.y-22}H${f1(X(yr)+5)}Z" style="fill:var(--ink)"/><text x="${f1(clamp(X(yr),A.x0+14,A.x1-14))}" y="${A.y-26}" class="t-sm t-mid" style="fill:var(--ink);font-weight:700">${Math.floor(yr)}</text>`;
+    /* name cards for the three most recent events */
+    shown.forEach((e,k)=>{const slot=k+(3-shown.length),fresh=clamp((yr-e.y)/1.2+.15);
+      const C=N?{x:16,y:16+slot*134,w:368,h:118}:{x:12+slot*238,y:30,w:226,h:166};
+      const col=e.m==='c'?'var(--rx)':e.m==='b'?'var(--gold)':'var(--brand)';
+      s+=`<g style="opacity:${f1(.35+.65*fresh*(slot===2?1:.85))}">`;
+      if(!N)s+=`<path d="M${f1(C.x+C.w/2)} ${C.y+C.h}L${f1(C.x+C.w/2)} ${C.y+C.h+16}L${f1(X(e.y))} ${A.y-34}L${f1(X(e.y))} ${A.y-6}" style="fill:none;stroke:${col};stroke-width:1.2;stroke-dasharray:3 3"/>`;
+      s+=`<rect x="${C.x}" y="${C.y}" width="${C.w}" height="${C.h}" rx="12" style="fill:var(--panel);stroke:${slot===2?col:'var(--line)'};stroke-width:${slot===2?2:1}"/>`;
+      s+=`<rect x="${C.x}" y="${C.y}" width="6" height="${C.h}" rx="3" style="fill:${col}"/>`;
+      s+=`<text x="${C.x+18}" y="${C.y+(N?34:40)}" style="font:800 ${N?26:30}px var(--display);fill:${col}">${Math.floor(e.y)}</text>`;
+      if(N){s+=`<text x="${C.x+100}" y="${C.y+30}" class="t-lbl">${e.n}</text><text x="${C.x+100}" y="${C.y+50}" class="t-xs" style="fill:var(--ink);font-weight:600">${e.a}</text><text x="${C.x+100}" y="${C.y+68}" class="t-xs">${e.b}</text>`;
+        s+=`<text x="${C.x+18}" y="${C.y+100}" class="t-xs">${e.m==='c'?'community and rights':e.m==='b'?'both stories':'science and diagnosis'}</text>`}
+      else{s+=`<text x="${C.x+18}" y="${C.y+70}" class="t-lbl">${e.n}</text><text x="${C.x+18}" y="${C.y+96}" class="t-xs" style="fill:var(--ink);font-weight:600">${e.a}</text><text x="${C.x+18}" y="${C.y+114}" class="t-xs">${e.b}</text>`;
+        s+=`<text x="${C.x+18}" y="${C.y+148}" class="t-xs" style="fill:${col}">${e.m==='c'?'community and rights':e.m==='b'?'both stories':'science and diagnosis'}</text>`}
+      s+='</g>'});
+    if(!shown.length)s+=`<text x="${N?200:360}" y="${N?200:120}" class="t-sm t-mid">Scrub forward to 1911</text>`;
+    svg.innerHTML=s;
+    const last=shown[shown.length-1];rd.innerHTML=last?`<b>${Math.floor(last.y)} · ${last.n}.</b> ${last.x}`:'';
+    const ph=phaseOf(steps,t);note.innerHTML=noteHTML(steps[ph]);setA(ph)}
+  const stop=playWire(rg,$('#hiPlay'),draw,22000,'Replay','history');
+  const setA=stepWire($('#hiSteps'),steps,rg,draw,stop);
+  function chips(){yrs.innerHTML=evs().map(e=>`<button class="tag" data-hy="${e.y}">${Math.floor(e.y)} · ${e.n}</button>`).join('')}
+  yrs.addEventListener('click',e=>{const b=e.target.closest('[data-hy]');if(!b)return;stop();rg.value=clamp(hiT(+b.dataset.hy)+.003);draw(+rg.value)});
+  $$('[data-himode]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.himode;stop();$$('[data-himode]').forEach(q=>q.setAttribute('aria-pressed',q===b));
+    steps.splice(0,steps.length,...(mode==='sci'?HI_STEPS_S:HI_STEPS_C));$$('#hiSteps [data-st] span').forEach((sp,i)=>sp.textContent=steps[i].t);
+    chips();rg.value=steps[0].at;draw(+rg.value)}));
+  chips();draw(+rg.value);
+  /* name cards flip */
+  $$('#hiNames .card').forEach(c=>{const b=$('button',c);b.addEventListener('click',()=>{const o=!c.classList.contains('open');c.classList.toggle('open',o);b.setAttribute('aria-pressed',o);b.textContent=o?'Back':'When and why'})});
+};
+/* =============== 6.2 flashcards & mnemonics =============== */
+const RV_PARTN={1:"Part 1 · Understanding autism",2:"Part 2 · Causes & the brain",3:"Part 3 · Signs & diagnosis",4:"Part 4 · Supports & interventions",5:"Part 5 · Living & lifespan",6:"Part 6 · History"};
+const RV_FC=[
+ /* ---- Part 1: understanding autism ---- */
+ [1,`How many people worldwide were autistic in 2021?`,`About 61.8 million, or 1 in every 127 people, in the Global Burden of Disease Study 2021 <sup class="c" data-ref="Santomauro2025" title="Source 518">518</sup>.`],
+ [1,`What did the US ADDM Network find for 8-year-olds in 2022?`,`32.2 per 1,000 (about 1 in 31) across 16 sites, with boys identified 3.4 times as often as girls (49.2 vs 14.3 per 1,000) <sup class="c" data-ref="Shaw2025" title="Source 541">541</sup>.`],
+ [1,`How far has ADDM prevalence moved since 2000?`,`From 6.7 per 1,000 (about 1 in 150) in 2000 to 32.2 per 1,000 in 2022 <sup class="c" data-ref="ADDM2007SY2000,Shaw2025" title="Source 1,541">1,541</sup>. ADDM is not a nationally representative sample <sup class="c" data-ref="Baio2018" title="Source 35">35</sup>.`],
+ [1,`Why have recorded autism rates risen?`,`Mostly better recognition. In Denmark, two reporting changes explained 60% of the rise <sup class="c" data-ref="Hansen2015Reporting" title="Source 203">203</sup>; in Sweden the symptom phenotype in twins stayed stable while registered diagnoses rose <sup class="c" data-ref="Lundstrom2015" title="Source 342">342</sup>.`],
+ [1,`What is the true male-to-female ratio?`,`Closer to 3:1 than 4:1. High-quality studies give 3.32; studies counting only existing diagnoses give 4.56, because girls who meet criteria are missed <sup class="c" data-ref="Loomes2017" title="Source 332">332</sup>.`],
+ [1,`What changed in ADDM 2020 by race and ethnicity?`,`For the first time, prevalence was lower in White 8-year-olds (24.3 per 1,000) than in Black, Hispanic and Asian/Pacific Islander children <sup class="c" data-ref="Maenner2023" title="Source 350">350</sup>.`],
+ [1,`Is autism lifelong? What does adult prevalence show?`,`Yes. Adult prevalence in England is about 1.1% and does not fall with age <sup class="c" data-ref="Brugha2016,Brugha2011" title="Source 62,63">62,63</sup>.`],
+ [1,`"Autistic person" or "person with autism"?`,`Both are used. Many autistic adults prefer identity-first terms and professionals more often use person-first ones <sup class="c" data-ref="Kenny2016,Taboas2023" title="Source 280,575">280,575</sup>. A 19-study review found no consensus and advises respecting each person's preference <sup class="c" data-ref="Schuck2025" title="Source 534">534</sup>.`],
+ [1,`Why are "high-functioning" and "low-functioning" labels criticised?`,`In 2,225 children, IQ was "a weak predictor" of adaptive behaviour <sup class="c" data-ref="Alvares2020" title="Source 12">12</sup>, and few UK autistic adults endorse these labels: about 20% for "high-functioning" and under 10% for "low-functioning" <sup class="c" data-ref="BottemaBeutel2021Ableist,Keating2023" title="Source 52,278">52,278</sup>.`],
+ [1,`What is the double empathy problem?`,`Milton's 2012 idea that social difficulty is a two-way mismatch between autistic and non-autistic people, not a one-sided deficit <sup class="c" data-ref="Milton2012" title="Source 382">382</sup>. Mixed chains passed on fewer story details in 2020 <sup class="c" data-ref="Crompton2020" title="Source 101">101</sup>, but a larger 2025 replication found no difference <sup class="c" data-ref="Crompton2025" title="Source 102">102</sup>.`],
+ [1,`What are the three stages of camouflaging?`,`Motivations (fitting in, connecting), techniques (masking and compensation) and consequences (exhaustion, threats to self-perception), from interviews with 92 autistic adults <sup class="c" data-ref="Hull2017" title="Source 241">241</sup>.`],
+ [1,`What is "profound autism"?`,`An administrative term proposed by the 2021 Lancet Commission for autistic people who need 24-hour access to an adult to stay safe <sup class="c" data-ref="Lord2022Lancet" title="Source 338">338</sup>. A working definition applied to ADDM data gave 26.7% of autistic 8-year-olds <sup class="c" data-ref="Hughes2023" title="Source 239">239</sup>.`],
+ [1,`How common are sensory differences in autism?`,`Over 90% of autistic children and 94.4% of autistic adults report them <sup class="c" data-ref="Leekam2007,Crane2009" title="Source 97,323">97,323</sup>. DSM-5 placed them in criterion B4 <sup class="c" data-ref="APA2022" title="Source 23">23</sup>.`],
+ [1,`What are Dunn's four sensory patterns?`,`Low registration, sensation seeking, sensory sensitivity and sensation avoiding, from crossing neurological threshold with self-regulation strategy. Everyone has some of each <sup class="c" data-ref="Dunn2001" title="Source 122">122</sup>.`],
+ [1,`Meltdown or shutdown: what is the difference?`,`A meltdown is being overwhelmed by sensory, social and emotional load, "feeling out of control"; a shutdown is more inward, "feeling frozen" and withdrawn <sup class="c" data-ref="Lewis2023Meltdown,Phung2021" title="Source 327,457">327,457</sup>.`],
+ /* ---- Part 2: causes & the brain ---- */
+ [2,`How heritable is autism?`,`About 80%: a five-country median of 80.8% <sup class="c" data-ref="Bai2019" title="Source 34">34</sup> and 0.83 in a Swedish reanalysis <sup class="c" data-ref="Sandin2017" title="Source 514">514</sup>.`],
+ [2,`What is the recurrence for a younger sibling of an autistic child?`,`About 1 in 5: 18.7% (2011) and 20.2% (2024) in prospective infant-sibling cohorts <sup class="c" data-ref="Ozonoff2011,Ozonoff2024" title="Source 441,444">441,444</sup>. Most younger siblings are not autistic.`],
+ [2,`How does relative recurrence risk fall with relatedness?`,`Identical twin 153, full sibling 10.3, half-sibling about 3, cousin 2.0 <sup class="c" data-ref="Sandin2014" title="Source 512">512</sup>.`],
+ [2,`Common or rare variants: which carry most heritable liability?`,`Common variants. De novo mutations explain only 2.6% of population variance but can matter greatly for an individual <sup class="c" data-ref="Gaugler2014" title="Source 167">167</sup>.`],
+ [2,`How many autism risk genes have exome studies identified?`,`102 in Satterstrom 2020 and 72 at FDR ≤0.001 in Fu 2022 <sup class="c" data-ref="Satterstrom2020,Fu2022" title="Source 155,520">155,520</sup>.`],
+ [2,`How much autism do 16p11.2 changes account for?`,`About 1%, counting the deletion and the duplication together <sup class="c" data-ref="Weiss2008NEJM" title="Source 623">623</sup>.`],
+ [2,`What causes fragile X syndrome, and how often is autism present?`,`More than 200 CGG repeats in FMR1 silence the gene <sup class="c" data-ref="Hagerman2017" title="Source 196">196</sup>. About half of males and nearly 20% of females with fragile X meet autism criteria <sup class="c" data-ref="Kaufmann2017" title="Source 277">277</sup>.`],
+ [2,`Which gene causes Rett syndrome?`,`MECP2, X-linked; it occurs almost only in females <sup class="c" data-ref="Amir1999" title="Source 15">15</sup>, and about 61% show autism features <sup class="c" data-ref="Richards2015" title="Source 480">480</sup>.`],
+ [2,`When is PTEN testing considered?`,`In autism with extreme macrocephaly <sup class="c" data-ref="Butler2005PTEN" title="Source 67">67</sup>. About 25% of PTEN carriers have autism features <sup class="c" data-ref="Cummings2022PTEN" title="Source 104">104</sup>.`],
+ [2,`What are the yields of first-tier genetic tests?`,`Chromosomal microarray 15–20% (karyotype about 3%) <sup class="c" data-ref="Miller2010CMA" title="Source 379">379</sup>; exome sequencing 36% across neurodevelopmental disorders <sup class="c" data-ref="Srivastava2019" title="Source 559">559</sup>.`],
+ [2,`What is the absolute autism risk after prenatal valproate?`,`4.42% vs 1.53% in all children (adjusted HR 2.9) <sup class="c" data-ref="Christensen2013" title="Source 85">85</sup>. Anyone taking it is advised to talk with their doctor before pregnancy, not to stop on their own <sup class="c" data-ref="FDA-Depakote" title="Source 136">136</sup>.`],
+ [2,`Does the MMR vaccine cause autism?`,`No. In 657,461 Danish children the adjusted HR was 0.93 (0.85–1.02) <sup class="c" data-ref="Hviid2019" title="Source 249">249</sup>; a meta-analysis of 1,256,407 children found OR 0.99 <sup class="c" data-ref="Taylor2014Vaccine" title="Source 586">586</sup>.`],
+ [2,`What happened to the 1998 Wakefield paper?`,`The Lancet retracted it in 2010 <sup class="c" data-ref="Lancet2010Retraction" title="Source 311">311</sup> and the BMJ concluded it was fraudulent in 2011 <sup class="c" data-ref="Godlee2011" title="Source 174">174</sup>.`],
+ [2,`Does acetaminophen (paracetamol) in pregnancy cause autism?`,`Not shown. In sibling comparisons the HR was 0.98 (0.93–1.04): the population association reflects familial confounding <sup class="c" data-ref="Ahlqvist2024" title="Source 7">7</sup>.`],
+ [2,`What did infant-sibling MRI show before diagnosis?`,`Cortical surface-area hyperexpansion at 6–12 months came before brain-volume overgrowth at 12–24 months <sup class="c" data-ref="Hazlett2017" title="Source 214">214</sup>. Group averages only: no scan diagnoses autism <sup class="c" data-ref="Lord2018" title="Source 336">336</sup>.`],
+ [2,`Is eye contact absent from birth in infants later diagnosed?`,`No. Fixation on eyes is typical at 2 months and then declines <sup class="c" data-ref="Jones2013Eyes" title="Source 262">262</sup>.`],
+ [2,`What is the excitation/inhibition (E/I) hypothesis?`,`Rubenstein and Merzenich (2003) proposed increased excitation relative to inhibition <sup class="c" data-ref="Rubenstein2003" title="Source 497">497</sup>; mouse data suggest the shift may be compensatory <sup class="c" data-ref="Antoine2019" title="Source 21">21</sup>.`],
+ /* ---- Part 3: signs & diagnosis ---- */
+ [3,`How were the CDC milestones set in 2022?`,`At the age by which at least 75% of children reach each one. Missing a milestone means screen, not diagnose <sup class="c" data-ref="Zubler2022" title="Source 654">654</sup>.`],
+ [3,`Which two language red flags are most consistent?`,`No single words by 16 months and no spontaneous two-word phrases by 24 months, more predictive alongside social differences <sup class="c" data-ref="Araujo2026" title="Source 25">25</sup>.`],
+ [3,`When does the AAP recommend autism-specific screening?`,`At 18 and 24 months, alongside developmental surveillance at every visit <sup class="c" data-ref="Hyman2020" title="Source 250">250</sup>.`],
+ [3,`What did the USPSTF say in 2016?`,`An "I statement": insufficient evidence on screening children aged 18–30 months with no concerns raised. It is not a recommendation against screening <sup class="c" data-ref="Siu2016" title="Source 550">550</sup>.`],
+ [3,`What are the M-CHAT-R score bands?`,`0–2 low likelihood; 3–7 follow-up interview; 8 or more screen-positive without the interview <sup class="c" data-ref="Robins2014,Sturner2022" title="Source 483,571">483,571</sup>. A teaching example here, never a self-test.`],
+ [3,`What is the PPV of a positive M-CHAT-R/F?`,`47.5% for autism and 94.6% for any developmental concern: most screen-positive children need some support <sup class="c" data-ref="Robins2014" title="Source 483">483</sup>.`],
+ [3,`How did the M-CHAT/F perform in universal real-world screening?`,`Sensitivity 38.8% and PPV 14.6% in 25,999 toddlers. A negative screen does not rule out autism <sup class="c" data-ref="Guthrie2019" title="Source 194">194</sup>.`],
+ [3,`How common is regression (loss of skills)?`,`About one third: 32.1%, at a mean of 1.78 years <sup class="c" data-ref="Barger2013" title="Source 37">37</sup>.`],
+ [3,`What is the DSM-5-TR rule for autism spectrum disorder?`,`All 3 social-communication criteria (A1–A3) plus at least 2 of 4 restricted or repetitive criteria (B1–B4), with criteria C–E <sup class="c" data-ref="APA2022,Fuentes2021ESCAP" title="Source 23,156">23,156</sup>.`],
+ [3,`What do DSM-5 severity levels describe?`,`Support needed, rated separately for each domain: Level 1 "requiring support", Level 2 "requiring substantial support", Level 3 "requiring very substantial support" <sup class="c" data-ref="APA2022" title="Source 23">23</sup>.`],
+ [3,`How does ICD-11 subdivide 6A02?`,`By intellectual development and functional language, giving 6A02.0 to 6A02.5, plus .Y and .Z <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>.`],
+ [3,`What is social (pragmatic) communication disorder?`,`Social communication difficulties without restricted or repetitive behaviours, now or in the past <sup class="c" data-ref="Norbury2014" title="Source 428">428</sup>.`],
+ [3,`ADOS and ADI-R: what are they?`,`The ADOS is a standardised observation <sup class="c" data-ref="Lord2000" title="Source 334">334</sup>; the ADI-R is a caregiver interview <sup class="c" data-ref="Lord1994" title="Source 333">333</sup>. Neither alone makes the diagnosis <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>.`],
+ [3,`How accurate are the ADOS and ADI-R in preschool children?`,`Cochrane: ADOS sensitivity 0.94 and specificity 0.80; ADI-R sensitivity 0.52 and specificity 0.84 <sup class="c" data-ref="Randall2018" title="Source 470">470</sup>.`],
+ [3,`Why can an AQ score mislead an adult?`,`In 476 referred adults the AQ did not predict diagnosis (specificity 0.29), 64% below the cut-off were autistic, and anxiety raised scores <sup class="c" data-ref="Ashwood2016" title="Source 30">30</sup>.`],
+ [3,`What is the median age at diagnosis in ADDM 2022?`,`47 months, ranging from 36 months in California to 69.5 months in Laredo <sup class="c" data-ref="Shaw2025" title="Source 541">541</sup>.`],
+ [3,`Which co-occurring conditions are most common?`,`Pooled: ADHD 28%, anxiety 20%, sleep-wake disorders 13%, depression 11%, OCD 9% <sup class="c" data-ref="Lai2019" title="Source 309">309</sup>.`],
+ [3,`Does learning two languages cause extra delay?`,`No. Bilingual autistic children's language levels did not differ from monolingual peers <sup class="c" data-ref="Hambly2012" title="Source 198">198</sup>.`],
+ /* ---- Part 4: supports & interventions ---- */
+ [4,`What did Project AIM find when it kept only rigorous trials?`,`Restricting to RCTs with outcomes free of detection bias left no significant effects (2020), or only NDBI on diagnostic characteristics, g 0.30 (2023) <sup class="c" data-ref="Sandbank2020,Sandbank2023BMJ" title="Source 508,509">508,509</sup>.`],
+ [4,`Do more intervention hours mean bigger effects?`,`No association between amount and effect size across 144 studies <sup class="c" data-ref="Sandbank2024JAMAPed" title="Source 510">510</sup>.`],
+ [4,`What did Cochrane 2018 conclude about EIBI?`,`Only 5 studies, 1 of them an RCT (219 children); certainty low or very low <sup class="c" data-ref="Reichow2018Cochrane" title="Source 478">478</sup>.`],
+ [4,`What did Lovaas 1987 claim, and what is its main weakness?`,`47% reached "normal functioning" at about 40 hours a week <sup class="c" data-ref="Lovaas1987" title="Source 339">339</sup>, but there was no random assignment <sup class="c" data-ref="Gresham1998" title="Source 186">186</sup>.`],
+ [4,`What do autistic adults who had childhood ABA report?`,`Qualitative studies describe "hidden harms", traumatic memories and rejection of being made to behave like peers <sup class="c" data-ref="McGill2020,Anderson2023" title="Source 19,371">19,371</sup>. Behaviour analysts are split between reform and rebuttal <sup class="c" data-ref="Mathur2024,Travers2025" title="Source 365,593">365,593</sup>.`],
+ [4,`What are the limits of the Kupferstein 2018 PTSD survey?`,`Self-selected online sample, self-diagnosis allowed, a non-validated survey and a correlational design; it cannot show causation <sup class="c" data-ref="Kupferstein2018,Leaf2018AiA" title="Source 305,320">305,320</sup>.`],
+ [4,`What is an NDBI?`,`A naturalistic developmental behavioural intervention: natural settings, shared control, natural contingencies; ESDM and JASPER are examples <sup class="c" data-ref="Schreibman2015" title="Source 532">532</sup>.`],
+ [4,`What did PACT show?`,`No significant effect at 13 months (ES −0.24) <sup class="c" data-ref="Green2010" title="Source 181">181</sup>, but symptom reduction over about 6 years of follow-up (ES 0.55) <sup class="c" data-ref="Pickles2016" title="Source 458">458</sup>.`],
+ [4,`Does AAC stop children learning to speak?`,`No. AAC interventions "do not impede speech production"; most studies report modest gains in speech <sup class="c" data-ref="Schlosser2008" title="Source 525">525</sup>.`],
+ [4,`Who authors facilitated communication messages?`,`The facilitator: there is "unequivocal evidence for facilitator control" <sup class="c" data-ref="Schlosser2014FC" title="Source 526">526</sup>. No evidence supports RPM either <sup class="c" data-ref="Schlosser2019RPM" title="Source 527">527</sup>.`],
+ [4,`How well did CBT adapted for autism work for anxiety?`,`Response 92.4% vs 81.0% for standard CBT and 11.1% for treatment as usual, in children aged 7–13 <sup class="c" data-ref="Wood2020" title="Source 643">643</sup>.`],
+ [4,`Is there a medicine for the core features of autism?`,`No. Medicines target co-occurring problems such as irritability, ADHD symptoms and insomnia <sup class="c" data-ref="Pandina2026,Hyman2020" title="Source 250,445">250,445</sup>.`],
+ [4,`Which two drugs carry an FDA label for autism?`,`Risperidone and aripiprazole, both for "irritability associated with autistic disorder" <sup class="c" data-ref="FDA-Risperdal,FDA-Abilify" title="Source 134,141">134,141</sup>.`],
+ [4,`What did the RUPP risperidone trial find?`,`Response 69% vs 12% on placebo over 8 weeks, with weight gain of 2.7 vs 0.8 kg <sup class="c" data-ref="McCracken2002" title="Source 367">367</sup>.`],
+ [4,`What comes first for sleep problems?`,`Behavioural strategies <sup class="c" data-ref="WilliamsBuckley2020" title="Source 636">636</sup>. Prolonged-release melatonin then added about 32 minutes of sleep vs placebo at 13 weeks <sup class="c" data-ref="Gringras2017" title="Source 188">188</sup>.`],
+ [4,`Secretin: what does the evidence say?`,`16 RCTs and more than 900 children: no benefit; it "should not be recommended" <sup class="c" data-ref="Williams2012Secretin" title="Source 631">631</sup>.`],
+ [4,`Why is chelation dangerous?`,`It has no trial evidence of benefit <sup class="c" data-ref="James2015" title="Source 258">258</sup>, and deaths from hypocalcaemia have followed edetate disodium <sup class="c" data-ref="Brown2006" title="Source 59">59</sup>.`],
+ [4,`How large is the placebo response in autism drug trials?`,`About 1 in 5 (19%) on placebo are rated "much improved" <sup class="c" data-ref="Siafis2020" title="Source 546">546</sup>.`],
+ /* ---- Part 5: living & lifespan ---- */
+ [5,`What did RUBI parent training show?`,`Against parent education, ABC-Irritability fell 47.7% vs 31.8% and response was 68.5% vs 39.6% in children aged 3–7 <sup class="c" data-ref="Bearss2015" title="Source 43">43</sup>.`],
+ [5,`How common are depression and anxiety in parents of autistic children?`,`About 31% meet criteria for a depressive disorder and 33% for an anxiety disorder <sup class="c" data-ref="Schnabel2020" title="Source 529">529</sup>.`],
+ [5,`How common is bullying of autistic youth?`,`Pooled 44% <sup class="c" data-ref="Maiano2016" title="Source 352">352</sup>; 46.3% in US national data <sup class="c" data-ref="Sterzing2012" title="Source 566">566</sup>.`],
+ [5,`Visual schedules and Social Stories: how strong is the evidence?`,`Visual activity schedules meet criteria as an evidence-based practice <sup class="c" data-ref="Knight2015" title="Source 297">297</sup>; Social Stories have "low to questionable" overall effect <sup class="c" data-ref="Kokina2010" title="Source 299">299</sup>.`],
+ [5,`What is the "services cliff"?`,`The drop in services at school exit: 39.1% of US autistic young adults received no services after high school <sup class="c" data-ref="Shattuck2011Services" title="Source 539">539</sup>.`],
+ [5,`What did Project SEARCH plus ASD Supports achieve?`,`90% vs 6% in competitive jobs 3 months after graduation <sup class="c" data-ref="Wehman2017" title="Source 621">621</sup>.`],
+ [5,`How many autistic adults find it hard to visit a GP?`,`80%, against 37% of non-autistic adults <sup class="c" data-ref="Doherty2022" title="Source 120">120</sup>.`],
+ [5,`Which pain scales help when a child cannot self-report?`,`NCCPC-R, where 7 or more suggests pain (sensitivity 84%) <sup class="c" data-ref="Breau2002" title="Source 58">58</sup>, and FLACC (Face, Legs, Activity, Cry, Consolability) <sup class="c" data-ref="Merkel1997" title="Source 377">377</sup>.`],
+ [5,`How much higher is all-cause mortality in autism?`,`About 2.4 times: RR 2.37 in a 12-study meta-analysis <sup class="c" data-ref="CatalaLopez2022" title="Source 74">74</sup>. A population statistic, not a forecast for one person.`],
+ [5,`What is the leading injury cause of death by proportionate mortality?`,`Drowning (PMR 39.89) <sup class="c" data-ref="Guan2017AJPH" title="Source 190">190</sup>; 49% of autistic children had tried to wander off after age 4 <sup class="c" data-ref="Anderson2012Elopement" title="Source 16">16</sup>.`],
+ [5,`How common is epilepsy in autism?`,`Median 12.1% overall <sup class="c" data-ref="Lukmanji2019" title="Source 341">341</sup>; about 21.5% with intellectual disability vs 8% without <sup class="c" data-ref="Amiet2008" title="Source 14">14</sup>.`],
+ [5,`What is autistic burnout?`,`Chronic exhaustion, loss of skills and reduced tolerance to stimuli, from a cumulative load; acceptance and unmasking aided recovery <sup class="c" data-ref="Raymaker2020" title="Source 474">474</sup>.`],
+ [5,`What predicts adult outcome most strongly?`,`Childhood IQ and early language <sup class="c" data-ref="Magiati2014" title="Source 351">351</sup>. About 30% of autistic children remain minimally verbal <sup class="c" data-ref="TagerFlusberg2013" title="Source 576">576</sup>.`],
+ /* ---- Part 6: history ---- */
+ [6,`Who coined "autism", and when?`,`Eugen Bleuler, in 1911, for a symptom of schizophrenia <sup class="c" data-ref="Gundel1993" title="Source 193">193</sup>; it was one of his "4 A's" <sup class="c" data-ref="Moskowitz2011" title="Source 389">389</sup>.`],
+ [6,`Who described autistic children in 1926?`,`Grunya Sukhareva in Kyiv, almost two decades before Kanner and Asperger <sup class="c" data-ref="Manouilenko2015,Ssucharewa1996" title="Source 357,560">357,560</sup>.`],
+ [6,`What did Kanner publish in 1943?`,`"Autistic disturbances of affective contact", describing 11 children <sup class="c" data-ref="Kanner1971,Harris2018Kanner" title="Source 209,271">209,271</sup>.`],
+ [6,`What did Czech 2018 find about Hans Asperger?`,`He accommodated himself to the Nazi regime and on several occasions actively cooperated with the child "euthanasia" programme <sup class="c" data-ref="Czech2018" title="Source 105">105</sup>.`],
+ [6,`What was the "refrigerator mother" theory?`,`Bettelheim's claim that cold mothering caused autism <sup class="c" data-ref="vanRosmalen2020" title="Source 600">600</sup>. It is rejected: heritability is about 83% <sup class="c" data-ref="Sandin2017" title="Source 514">514</sup>.`],
+ [6,`What did Wing and Gould show in 1979?`,`In the Camberwell study, children with Kanner's autism shared many features with other socially impaired children, laying the groundwork for the spectrum <sup class="c" data-ref="WingGould1979" title="Source 640">640</sup>.`],
+ [6,`DSM-III, DSM-IV, DSM-5: what changed?`,`DSM-III (1980) first official category; DSM-IV (1994) added Asperger syndrome; DSM-5 (2013) merged the subtypes into autism spectrum disorder <sup class="c" data-ref="Rosen2021,BarahonaCorrea2015" title="Source 36,490">36,490</sup>.`],
+ [6,`When did ICD-11 come into use?`,`Approved in May 2019; health reporting under it began on 1 January 2022 <sup class="c" data-ref="Reed2019ICD11" title="Source 476">476</sup>.`]
+];
+const RV_MN=[
+ ["All 3, any 2 of 4","memory aid",`DSM-5-TR: all three social-communication criteria (A1 reciprocity, A2 nonverbal communication, A3 relationships) and at least two of four restricted or repetitive criteria (B1–B4) <sup class="c" data-ref="APA2022,Fuentes2021ESCAP" title="Source 23,156">23,156</sup>.`],
+ ["0–2 · 3–7 · 8+","memory aid",`M-CHAT-R: 0–2 low likelihood, 3–7 follow-up interview, 8 or more screen-positive without the interview <sup class="c" data-ref="Robins2014,Sturner2022" title="Source 483,571">483,571</sup>. A teaching tool for clinicians, never a self-test.`],
+ ["12 · 16 · 24","memory aid",`Red flags: no "goodbye" gesture at 12 months, no single words by 16 months, no two-word phrases by 24 months <sup class="c" data-ref="Araujo2026" title="Source 25">25</sup>. A missed milestone means screen, not diagnose <sup class="c" data-ref="Zubler2022" title="Source 654">654</sup>.`],
+ ["FLACC","well known",`Face, Legs, Activity, Cry, Consolability: five behaviours scored for pain <sup class="c" data-ref="Merkel1997" title="Source 377">377</sup>. In the revised r-FLACC, parents add the child's own pain behaviours <sup class="c" data-ref="Malviya2006" title="Source 355">355</sup>.`],
+ ["One in five, four in five not","memory aid",`Younger siblings of an autistic child: about 20% are autistic (20.2%), so most are not <sup class="c" data-ref="Ozonoff2024" title="Source 444">444</sup>.`],
+ ["Fragile at 200","memory aid",`More than 200 CGG repeats in FMR1 silence the gene in fragile X syndrome <sup class="c" data-ref="Hagerman2017" title="Source 196">196</sup>.`],
+ ["Threshold × strategy","memory aid",`Dunn's 2 × 2: high threshold gives low registration (passive) or seeking (active); low threshold gives sensitivity (passive) or avoiding (active) <sup class="c" data-ref="Dunn2001" title="Source 122">122</sup>.`],
+ ["Two drugs, one target","memory aid",`Risperidone and aripiprazole are the only FDA-labelled autism indications, both for irritability; no drug treats core features <sup class="c" data-ref="FDA-Risperdal,FDA-Abilify,Pandina2026" title="Source 134,141,445">134,141,445</sup>.`],
+ ["Two axes, six codes","memory aid",`ICD-11 6A02.0–6A02.5: intellectual development (with or without) × functional language (mild or none, impaired, absent) <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>.`],
+ ["Three to one, not four","memory aid",`The male-to-female ratio is about 3:1 in well-designed studies; 4:1 reflects missed girls <sup class="c" data-ref="Loomes2017" title="Source 332">332</sup>.`]
+];
+const RV_STEPS=[
+ {from:0,at:.18,k:'A · all 3',t:'Domain A: all three',txt:`Criterion A needs persistent differences in social communication and social interaction across contexts, with all three present, currently or by history: A1 social-emotional reciprocity, A2 nonverbal communication, A3 developing, maintaining and understanding relationships <sup class="c" data-ref="APA2022,Fuentes2021ESCAP" title="Source 23,156">23,156</sup>. DSM-5-TR clarified the wording to "all of the following"; the intended rule did not change <sup class="c" data-ref="APA2022" title="Source 23">23</sup>.`,pt:'All three social-communication areas must be affected, now or earlier in life.',hook:'A means all: 3 of 3 <sup class="c" data-ref="APA2022" title="Source 23">23</sup>.'},
+ {from:.2,at:.4,k:'B · any 2 of 4',t:'Domain B: any two of four',txt:`Criterion B needs at least two of four restricted or repetitive patterns. In this teaching example B2 (insistence on sameness) and B4 (sensory reactivity) are present, so B1 and B3 are not needed <sup class="c" data-ref="APA2022,Fuentes2021ESCAP" title="Source 23,156">23,156</sup>. DSM-5 moved sensory hyper- or hyporeactivity into criterion B <sup class="c" data-ref="APA2022,Lord2020NRDP" title="Source 23,337">23,337</sup>; over 90% of autistic children report sensory differences <sup class="c" data-ref="Leekam2007" title="Source 323">323</sup>.`,pt:'Two of the four repetitive or sensory areas are enough, and which two differs from person to person.',hook:'B means any 2 of 4; B4 is sensory <sup class="c" data-ref="APA2022" title="Source 23">23</sup>.'},
+ {from:.42,at:.59,k:'C · D · E',t:'Three more gates',txt:`C: present in the early developmental period, though it may not show fully until social demands exceed capacities, or may be masked by learned strategies. D: clinically significant impairment. E: not better explained by intellectual developmental disorder or global developmental delay <sup class="c" data-ref="APA2022,Fuentes2021ESCAP" title="Source 23,156">23,156</sup>. If restricted, repetitive behaviours are absent now and in the past, social (pragmatic) communication disorder is considered instead <sup class="c" data-ref="Norbury2014" title="Source 428">428</sup>.`,pt:'The signs began in early childhood, even if they were noticed late or hidden by coping strategies.',hook:'No B criteria, ever? Think social (pragmatic) communication disorder <sup class="c" data-ref="Norbury2014" title="Source 428">428</sup>.'},
+ {from:.61,at:.79,k:'Levels 1–3',t:'Support levels, per domain',txt:`Severity is rated separately for social communication and for restricted, repetitive behaviours: Level 1 "requiring support", Level 2 "requiring substantial support", Level 3 "requiring very substantial support" <sup class="c" data-ref="APA2022" title="Source 23">23</sup>. Specifiers add intellectual or language impairment, a known genetic or medical condition, another neurodevelopmental or mental condition, and catatonia <sup class="c" data-ref="APA2022,Fuentes2021ESCAP" title="Source 23,156">23,156</sup>. ESCAP notes that DSM-5 does not define how much support each level means <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>.`,pt:'Levels describe how much support someone needs, and the two areas can differ.',hook:'Levels are per domain, for example social communication 2 and repetitive behaviour 1 <sup class="c" data-ref="APA2022" title="Source 23">23</sup>.'},
+ {from:.81,at:.97,k:'ICD-11 6A02',t:'ICD-11: two axes, six codes',txt:`ICD-11 code 6A02 has no severity levels. It subdivides autism by intellectual development and functional language, giving 6A02.0 to 6A02.5, plus 6A02.Y (other specified) and 6A02.Z (unspecified) <sup class="c" data-ref="Fuentes2021ESCAP,Chahboun2022" title="Source 76,156">76,156</sup>. ICD-11 came into effect on 1 January 2022 <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>. These criteria are for trained clinicians: a teaching tool here, not a self-test <sup class="c" data-ref="Hyman2020,Hirota2023" title="Source 222,250">222,250</sup>.`,pt:'Only a full assessment by trained professionals can say whether someone is autistic.',hook:'6A02: intellectual development × functional language = 6 codes <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>.'}
+];
+const RV_A=[['A1','Social-emotional reciprocity','back-and-forth, sharing interests'],['A2','Nonverbal communication','eye contact, gesture, facial expression'],['A3','Relationships: make, keep, understand','developing, maintaining, understanding']];
+const RV_B=[['B1','Repetitive movements or speech','movements, use of objects or speech'],['B2','Insistence on sameness, routines','inflexible routines, ritualised behaviour'],['B3','Intense, highly focused interests','unusual in intensity or focus'],['B4','Sensory hyper- or hyporeactivity','or unusual sensory interests']];
+inits.review=()=>{
+  let filt='all',deck=[],i=0;
+  const F=[['all','All cards'],...Object.keys(RV_PARTN).map(k=>[k,'Part '+k])];
+  $('#fcFilter').innerHTML=F.map(([k,l])=>`<button class="btn" data-ff="${k}" aria-pressed="${k==='all'}">${l}</button>`).join('');
+  const fc=$('#fc');
+  function build(shuf){deck=RV_FC.filter(c=>filt==='all'||String(c[0])===filt);if(shuf){const r=rng(Date.now()%1e6);for(let k=deck.length-1;k>0;k--){const j=Math.floor(r()*(k+1));[deck[k],deck[j]]=[deck[j],deck[k]]}}i=0;render()}
+  function render(){const c=deck[i];fc.classList.remove('flip');
+    $('#fcTagF').textContent=RV_PARTN[c[0]]+' · question';$('#fcTagB').textContent=RV_PARTN[c[0]]+' · answer';
+    $('#fcFront').textContent=c[1];$('#fcBack').innerHTML=c[2];$('#fcCount').textContent=`${i+1} / ${deck.length}`;$('#fcBar').style.width=((i+1)/deck.length*100)+'%'}
+  const flip=()=>fc.classList.toggle('flip');
+  fc.addEventListener('click',e=>{if(e.target.closest('sup.c'))return;flip()});$('#fcFlip').onclick=flip;
+  const next=()=>{i=(i+1)%deck.length;render()},prev=()=>{i=(i-1+deck.length)%deck.length;render()};
+  $('#fcNext').onclick=next;$('#fcPrev').onclick=prev;$('#fcShuf').onclick=()=>build(true);
+  $('#fcFilter').addEventListener('click',e=>{const b=e.target.closest('[data-ff]');if(!b)return;filt=b.dataset.ff;$$('[data-ff]').forEach(x=>x.setAttribute('aria-pressed',x===b));build(false)});
+  document.addEventListener('keydown',e=>{if(cur!=='review')return;if(e.target.closest('input')||(e.target.closest('button')&&e.target!==fc))return;
+    if(e.key===' '||e.key==='Enter'){e.preventDefault();flip()}else if(e.key==='ArrowRight')next();else if(e.key==='ArrowLeft')prev()});
+  build(false);
+  $('#mnList').innerHTML=RV_MN.map(m=>`<div class="card"><span class="tag ${m[1]==='well known'?'good':'accent'}">${m[1]}</span><b class="big">${m[0]}</b><p>${m[2]}</p></div>`).join('');
+
+  /* ---- mnemonic in motion: DSM-5-TR, all 3 A + any 2 of 4 B ---- */
+  const svg=$('#rvSvg'),rg=$('#rvT');
+  const tick=(x,y,c)=>`<path d="M${x-7} ${y} L${x-2} ${y+5} L${x+8} ${y-6}" style="fill:none;stroke:var(${c||'--good'});stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round"/>`;
+  /* one criterion tile; st: 'on' (p = fill progress) or 'off' (shown absent, not needed) */
+  function tile(x,y,w,it,st,p,col,N){
+    let s=`<rect x="${x}" y="${y}" width="${w}" height="36" rx="8" style="fill:var(--field);stroke:var(--line);stroke-width:1.2"/>`;
+    if(st==='on'&&p>0)s+=`<rect x="${x}" y="${y}" width="${f1(w*ease(p))}" height="36" rx="8" style="fill:var(${col}-soft);opacity:.95"/><rect x="${x}" y="${y}" width="${w}" height="36" rx="8" style="fill:none;stroke:var(${col});stroke-width:1.6;opacity:${f1(p)}"/>`;
+    const on=st==='on'&&p>.5,off=st==='off'&&p>.5;
+    s+=`<circle cx="${x+20}" cy="${y+18}" r="13" style="fill:var(${on?col:'--panel'});stroke:var(${on?col:'--line'});stroke-width:1.4"/><text class="t-xs t-mid" x="${x+20}" y="${y+21.5}" style="font-weight:700;fill:var(${on?'--on-brand':'--ink'})">${it[0]}</text>`;
+    s+=`<text class="t-lbl" x="${x+40}" y="${y+15}" style="font-size:${N?13:12}px;${off?'fill:var(--muted)':''}">${it[1]}</text><text class="t-xs" x="${x+40}" y="${y+29}" style="font-size:${N?10.5:9.5}px">${off?'not present: not needed here':it[2]}</text>`;
+    if(on)s+=tick(x+w-18,y+18);
+    if(off)s+=`<line x1="${x+w-25}" y1="${y+18}" x2="${x+w-11}" y2="${y+18}" style="stroke:var(--muted);stroke-width:2.4;stroke-linecap:round"/>`;
+    return s}
+  function draw(t){
+    const N=vb(svg,'720 380','400 650');
+    const L=N?{A:[10,30,380],B:[10,182,380],G:{x:10,y:390,w:380,h:30,dx:0,dy:36},P:[10,506,380,136]}
+             :{A:[10,30,345],B:[365,30,345],G:{x:10,y:236,w:226,h:30,dx:237,dy:0},P:[10,278,700,96]};
+    const aT=[ramp(t,.03,.08),ramp(t,.08,.13),ramp(t,.13,.18)];
+    const bT=[ramp(t,.23,.26),ramp(t,.26,.31),ramp(t,.31,.34),ramp(t,.34,.39)],bOn=[0,1,0,1];
+    const gT=[ramp(t,.44,.49),ramp(t,.49,.54),ramp(t,.54,.59)];
+    const nA=aT.filter(v=>v>.5).length,nB=bT.filter((v,k)=>bOn[k]&&v>.5).length,nG=gT.filter(v=>v>.5).length;
+    let s='';
+    /* domain A */
+    {const [x,y,w]=L.A;const done=nA===3;
+      s+=`<text class="t-lbl" x="${x}" y="${y+4}" style="fill:var(--accent)">A · Social communication: all 3</text><text class="t-lbl t-end" x="${x+w}" y="${y+4}" style="fill:var(${done?'--good':'--muted'})">${nA} / 3${done?' ✓':''}</text>`;
+      RV_A.forEach((it,k)=>{s+=tile(x,y+14+k*44,w,it,'on',aT[k],'--accent',N)});
+      if(!N)s+=`<text class="t-xs" x="${x}" y="${y+158}">Each may be present now or by history (criterion A)</text>`}
+    /* domain B */
+    {const [x,y,w]=L.B;const done=nB>=2,b4=bump(t,.35,.6);
+      s+=`<text class="t-lbl" x="${x}" y="${y+4}" style="fill:var(--neuro)">B · Restricted, repetitive: any 2 of 4</text><text class="t-lbl t-end" x="${x+w}" y="${y+4}" style="fill:var(${done?'--good':'--muted'})">${nB} / 2${done?' ✓':''}</text>`;
+      RV_B.forEach((it,k)=>{s+=tile(x,y+14+k*44,w,it,bOn[k]?'on':'off',bT[k],'--neuro',N)});
+      /* sensory waves pulse beside B4 while it is discussed */
+      if(b4>0){const yy=y+14+4*44+3;s+=`<g style="opacity:${f1(b4)}">${wave(x+40,yy,w-150,3.5,{freq:9,phase:t*6,sw:1.6})}<text class="t-xs t-end" x="${x+w}" y="${yy+3}" style="fill:var(--sense)">sensory input</text></g>`}}
+    /* gates C, D, E */
+    {const G=L.G,lab=['C · Early developmental period','D · Significant impairment','E · Not explained by ID/GDD'];
+      lab.forEach((l,k)=>{const x=G.x+k*G.dx,y=G.y+k*G.dy,p=gT[k],on=p>.5;
+        s+=`<rect x="${x}" y="${y}" width="${G.w}" height="${G.h}" rx="15" style="fill:var(${on?'--good-soft':'--field'});stroke:var(${on?'--good':'--line'});stroke-width:1.4"/>`;
+        s+=`<text class="t-lbl" x="${x+14}" y="${y+19.5}" style="font-size:${N?13:11}px;${on?'':'fill:var(--muted)'}">${l}</text>`;
+        if(on)s+=tick(x+G.w-18,y+15)})}
+    /* bottom panel: verdict, then levels, then ICD-11 */
+    {const [x,y,w,h]=L.P;
+      s+=`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" style="fill:var(--panel-2);stroke:var(--line)"/>`;
+      if(t<.605){const met=nA===3&&nB>=2&&nG===3;
+        const v=met?'Criteria met: 3 of 3 A, 2 of 4 B, then C, D and E':nB<2?`Counting: A ${nA} of 3 · B ${nB} of 2 needed`:`Gates: ${nG} of 3 checked`;
+        s+=`<text class="t-big" x="${x+14}" y="${y+28}" style="font-size:${N?14:16}px;fill:var(${met?'--good':'--ink'})">${v}</text>`;
+        const lines=N?['A teaching example, not a person’s assessment.','Only a trained clinician, using history and','observation together, can make a diagnosis.']:['A teaching example, not a person’s assessment. Only a trained clinician, using history','and observation together, can make a diagnosis.'];
+        lines.forEach((l,k)=>{s+=`<text class="t-sm" x="${x+14}" y="${y+52+k*16}">${l}</text>`})}
+      else if(t<.805){const lv=[2*ramp(t,.63,.71),ramp(t,.7,.77)],nm=['Social communication','Restricted, repetitive'],mean=['requiring support','requiring substantial support','requiring very substantial support'];
+        const bx=N?x+168:x+190,bw=N?66:72,ry=N?[y+16,y+52]:[y+14,y+52];
+        nm.forEach((n,r)=>{const L1=Math.round(lv[r]);
+          s+=`<text class="t-lbl" x="${x+12}" y="${ry[r]+18}" style="font-size:12px">${n}</text>`;
+          for(let k=0;k<3;k++){const on=lv[r]>=k+.5;s+=`<rect x="${bx+k*(bw+4)}" y="${ry[r]}" width="${bw}" height="28" rx="6" style="fill:var(${on?(r?'--neuro':'--accent'):'--field'});stroke:var(--line);opacity:${on?.9:1}"/><text class="t-xs t-mid" x="${bx+k*(bw+4)+bw/2}" y="${ry[r]+18}" style="font-weight:700;fill:var(${on?'--on-brand':'--muted'})">Level ${k+1}</text>`}
+          const mx=N?x+12:bx+3*(bw+4)+10,my=N?y+100+r*16:ry[r]+18;
+          if(L1>0)s+=`<text class="t-sm" x="${mx}" y="${my}">${N?(r?'Repetitive: ':'Social: '):''}L${L1} = ${mean[L1-1]}</text>`})}
+      else{const cols=N?['mild/none','impaired','absent']:['language mild or none','impaired language','no functional language'],rows=N?['No ID','With ID']:['No intellectual disorder','With intellectual disorder'];
+        const cx=N?x+92:x+190,cw=N?94:164,hdr=N?['ICD-11 6A02: intellectual development','× functional language (+ .Y, .Z)']:['ICD-11 6A02: intellectual development × functional language (plus 6A02.Y and 6A02.Z)'];
+        hdr.forEach((l,k)=>{s+=`<text class="t-lbl" x="${x+12}" y="${y+16+k*15}" style="font-size:12px">${l}</text>`});
+        const hy=y+16+hdr.length*15+(N?4:0);
+        cols.forEach((c,k)=>{s+=`<text class="t-xs t-mid" x="${cx+k*(cw+4)+cw/2}" y="${hy}">${c}</text>`});
+        rows.forEach((r,ri)=>{const yy=hy+6+ri*28;s+=`<text class="t-xs" x="${x+12}" y="${yy+15}" style="fill:var(--ink)">${r}</text>`;
+          for(let k=0;k<3;k++){const code=k*2+ri,p=ramp(t,.83+code*.02,.86+code*.02);
+            s+=`<rect x="${cx+k*(cw+4)}" y="${yy}" width="${cw}" height="22" rx="5" style="fill:var(--field);stroke:var(--line)"/><rect x="${cx+k*(cw+4)}" y="${yy}" width="${cw}" height="22" rx="5" style="fill:var(--accent);opacity:${f1(p*.85)}"/><text class="t-xs t-mid" x="${cx+k*(cw+4)+cw/2}" y="${yy+15}" style="font-weight:700;fill:var(${p>.5?'--on-brand':'--muted'})">6A02.${code}</text>`}});
+        if(N)s+=`<text class="t-xs" x="${x+12}" y="${y+h-8}">No severity levels; in use from 1 Jan 2022</text>`}}
+    svg.innerHTML=s;
+    const p=phaseOf(RV_STEPS,t);setSt(p);$('#rvNote').innerHTML=noteHTML(RV_STEPS[p]);
+  }
+  const stop=playWire(rg,$('#rvPlay'),draw,16000,'Replay','review');
+  const setSt=stepWire($('#rvSteps'),RV_STEPS,rg,draw,stop);
+  draw(+rg.value);
+};
+
+/* =============== 6.3 quiz =============== */
+const QZ_Q=[
+ /* ---- Part 1 ---- */
+ [1,`In the Global Burden of Disease Study 2021, about how many people worldwide were autistic?`,`1 in 31|1 in 127|1 in 500|1 in 2,000`,1,`About 1 in 127, or 61.8 million people <sup class="c" data-ref="Santomauro2025" title="Source 518">518</sup>. 1 in 31 is the ADDM 2022 figure for US 8-year-olds <sup class="c" data-ref="Shaw2025" title="Source 541">541</sup>.`],
+ [1,`ADDM 2022 prevalence among US 8-year-olds was:`,`6.7 per 1,000|14.7 per 1,000|23.0 per 1,000|32.2 per 1,000`,3,`32.2 per 1,000 (1 in 31) across 16 sites <sup class="c" data-ref="Shaw2025" title="Source 541">541</sup>; 6.7 was the 2000 figure <sup class="c" data-ref="ADDM2007SY2000" title="Source 1">1</sup>.`],
+ [1,`In high-quality prevalence studies, the male-to-female ratio is closest to:`,`3:1|1:1|7:1|10:1`,0,`3.32 in high-quality studies; studies of existing diagnoses give 4.56 because girls are missed <sup class="c" data-ref="Loomes2017" title="Source 332">332</sup>.`],
+ [1,`In the Danish register study, what share of the rise in recorded autism was explained by reporting changes?`,`5%|25%|60%|100%`,2,`60%, from the 1994 criteria change and the 1995 inclusion of outpatients <sup class="c" data-ref="Hansen2015Reporting" title="Source 203">203</sup>.`],
+ [1,`Which statement best fits the surveys on "autistic person" versus "person with autism"?`,`Professionals overwhelmingly prefer identity-first terms|Both terms are rejected by most autistic adults|All autistic adults prefer person-first terms|There is no consensus, so personal preference should be respected`,3,`Many autistic adults prefer identity-first terms and professionals more often use person-first ones, but a 19-study review found no consensus <sup class="c" data-ref="Taboas2023,Schuck2025" title="Source 534,575">534,575</sup>.`],
+ [1,`The "double empathy problem" was described in 2012 by:`,`Damian Milton|Lorna Wing|Bernard Rimland|Leo Kanner`,0,`Milton, an autistic sociologist, framed social difficulty as a two-way mismatch <sup class="c" data-ref="Milton2012" title="Source 382">382</sup>.`],
+ [1,`In Crompton 2020's diffusion chains, which chains passed on the fewest story details?`,`Autistic chains|Non-autistic chains|All chains were identical|Mixed autistic and non-autistic chains`,3,`Mixed chains recalled 8.92 of 30 details vs 12.96 and 12.40 <sup class="c" data-ref="Crompton2020" title="Source 101">101</sup>. A larger 2025 replication found no difference in transfer <sup class="c" data-ref="Crompton2025" title="Source 102">102</sup>.`],
+ [1,`The CAT-Q is best described as:`,`A 10-item toddler screen|A diagnostic interview for adults|A sensory profile|A 25-item research measure of camouflaging`,3,`25 items in three factors; a research measure, not a diagnostic test <sup class="c" data-ref="Hull2019CATQ" title="Source 242">242</sup>.`],
+ [1,`The Lancet Commission's term "profound autism" describes autistic people who:`,`Have an IQ above 100|Were diagnosed after age 18|Have no co-occurring conditions|Need 24-hour access to an adult to stay safe`,3,`It was proposed as an administrative term <sup class="c" data-ref="Lord2022Lancet" title="Source 338">338</sup>; 26.7% of autistic 8-year-olds met a working definition in ADDM data <sup class="c" data-ref="Hughes2023" title="Source 239">239</sup>.`],
+ [1,`In DSM-5, sensory hyper- or hyporeactivity appears as:`,`Criterion A2|Criterion B4|Criterion C|A specifier only`,1,`DSM-5 moved sensory reactivity into criterion B <sup class="c" data-ref="APA2022,Lord2020NRDP" title="Source 23,337">23,337</sup>.`],
+ [1,`Current hyperacusis (decreased sound tolerance) in autistic people is about:`,`5%|15%|41%|90%`,2,`About 41% currently and 61% over a lifetime <sup class="c" data-ref="Williams2021Hyperacusis" title="Source 634">634</sup>.`],
+ [1,`Dunn's sensory model crosses neurological threshold with:`,`Self-regulation strategy|IQ|Age|Language level`,0,`Giving low registration, seeking, sensitivity and avoiding <sup class="c" data-ref="Dunn2001" title="Source 122">122</sup>.`],
+ [1,`In Alvares 2020, how well did IQ predict adaptive behaviour?`,`Perfectly|Weakly|Better than any other measure|It was not measured`,1,`IQ was "a weak predictor" of Vineland adaptive scores, so IQ-based "high functioning" labels can hide real needs <sup class="c" data-ref="Alvares2020" title="Source 12">12</sup>.`],
+ [1,`About what share of autistic people have alexithymia?`,`5%|20%|35%|50%`,3,`49.93%, against 4.89% of controls <sup class="c" data-ref="Kinnaird2019" title="Source 291">291</sup>.`],
+ /* ---- Part 2 ---- */
+ [2,`Twin and family studies put the heritability of autism at about:`,`20%|50%|80%|100%`,2,`About 80%: five-country median 80.8% and a Swedish estimate of 0.83 <sup class="c" data-ref="Bai2019,Sandin2017" title="Source 34,514">34,514</sup>.`],
+ [2,`In prospective infant-sibling cohorts, recurrence in younger siblings is about:`,`1 in 100|1 in 5|1 in 2|9 in 10`,1,`18.7% in 2011 and 20.2% in 2024 <sup class="c" data-ref="Ozonoff2011,Ozonoff2024" title="Source 441,444">441,444</sup>.`],
+ [2,`De novo mutations explain what share of population variance in autism liability?`,`2.6%|26%|52%|80%`,0,`2.6%: common variants carry most of the heritable liability <sup class="c" data-ref="Gaugler2014" title="Source 167">167</sup>.`],
+ [2,`The 16p11.2 deletion and duplication together account for about:`,`25% of autism|50% of autism|10% of autism|1% of autism`,3,`About 1% <sup class="c" data-ref="Weiss2008NEJM" title="Source 623">623</sup>.`],
+ [2,`Fragile X syndrome is caused by:`,`An MECP2 deletion|More than 200 CGG repeats in FMR1|Loss of TSC2|A PTEN variant`,1,`The repeats silence FMR1 and its protein FMRP is lost <sup class="c" data-ref="Hagerman2017" title="Source 196">196</sup>.`],
+ [2,`Rett syndrome is caused by variants in:`,`FMR1|PTEN|MECP2|UBE3A`,2,`MECP2, X-linked <sup class="c" data-ref="Amir1999" title="Source 15">15</sup>. UBE3A loss causes Angelman syndrome <sup class="c" data-ref="Hipp2025" title="Source 220">220</sup>.`],
+ [2,`The diagnostic yield of chromosomal microarray in unexplained DD, ID or autism is about:`,`3%|15–20%|50%|90%`,1,`15–20%, against about 3% for a karyotype <sup class="c" data-ref="Miller2010CMA" title="Source 379">379</sup>.`],
+ [2,`After prenatal valproate, the absolute autism risk was:`,`44%|20%|4.42%|0.1%`,2,`4.42% vs 1.53% in all children (adjusted HR 2.9) <sup class="c" data-ref="Christensen2013" title="Source 85">85</sup>.`],
+ [2,`In 657,461 Danish children, the adjusted hazard ratio for autism after MMR was:`,`0.93 (0.85–1.02)|1.93|3.2|7.5`,0,`No increased risk <sup class="c" data-ref="Hviid2019" title="Source 249">249</sup>.`],
+ [2,`The 1998 Wakefield paper linking MMR and regression was:`,`Replicated in 2010|Never published|Confirmed by the Danish cohort|Retracted in 2010 and judged fraudulent in 2011`,3,`Retracted by The Lancet <sup class="c" data-ref="Lancet2010Retraction" title="Source 311">311</sup> and judged fraudulent by the BMJ <sup class="c" data-ref="Godlee2011" title="Source 174">174</sup>.`],
+ [2,`In sibling-control analysis, prenatal acetaminophen (paracetamol) had an autism HR of:`,`2.5|1.5|0.98|0.5`,2,`0.98 (0.93–1.04): familial confounding explains the population association <sup class="c" data-ref="Ahlqvist2024" title="Source 7">7</sup>.`],
+ [2,`Autism prevalence after extremely preterm birth (22–27 weeks) was:`,`61%|30%|1.4%|6.1%`,3,`6.1%, against 1.4% at term; most children born preterm are not autistic <sup class="c" data-ref="Crump2021Preterm" title="Source 103">103</sup>.`],
+ [2,`In infant-sibling MRI, which change came first?`,`Brain-volume overgrowth at birth|No change before 36 months|Cerebellar shrinkage at 3 years|Cortical surface-area hyperexpansion at 6–12 months`,3,`Surface-area hyperexpansion at 6–12 months preceded volume overgrowth at 12–24 months <sup class="c" data-ref="Hazlett2017" title="Source 214">214</sup>.`],
+ [2,`Early head-circumference "overgrowth" in autism is now thought to be:`,`Largely an artefact of biased population norms|Present in every autistic child|A diagnostic test|Caused by vaccines`,0,`Biased norms explained much of it <sup class="c" data-ref="Raznahan2013" title="Source 475">475</sup>.`],
+ [2,`Gut microbiome differences in autistic children largely track:`,`Vaccination status|Diagnosis itself|Diet diversity|IQ`,2,`They track dietary preferences, not diagnosis <sup class="c" data-ref="Yap2021" title="Source 647">647</sup>.`],
+ [2,`In humans, maternal infection in pregnancy is associated with autism with an odds ratio of about:`,`5.0|1.13|0.5|20`,1,`A modest OR of 1.13; most children whose mothers had an infection are not autistic <sup class="c" data-ref="Jiang2016Infection" title="Source 260">260</sup>.`],
+ [2,`Postmortem autistic cortex shows:`,`Fewer dendritic spines|Absent synapses|No neurons in layer 4|More dendritic spines and reduced pruning`,3,`Linked to overactive mTOR signalling <sup class="c" data-ref="Tang2014" title="Source 583">583</sup>.`],
+ /* ---- Part 3 ---- */
+ [3,`The CDC's 2022 milestones are set at the age by which this share of children reach them:`,`50%|75%|90%|99%`,1,`At least 75%, to discourage "wait and see"; missing one means screen, not diagnose <sup class="c" data-ref="Zubler2022" title="Source 654">654</sup>.`],
+ [3,`Which pair are among the most consistent language red flags?`,`No single words by 16 months; no two-word phrases by 24 months|No sentences by 12 months|No reading by 3 years|No babbling by 2 months`,0,`More predictive when combined with social differences <sup class="c" data-ref="Araujo2026" title="Source 25">25</sup>.`],
+ [3,`The AAP recommends autism-specific screening at:`,`9 and 12 months|18 and 24 months|3 and 5 years|Only when parents are worried`,1,`At 18 and 24 months, with surveillance at every visit <sup class="c" data-ref="Hyman2020" title="Source 250">250</sup>.`],
+ [3,`The USPSTF 2016 statement on screening children aged 18–30 months with no concerns was:`,`A recommendation against screening|Grade A|An I statement (insufficient evidence)|Grade B`,2,`Insufficient evidence on the balance of benefits and harms; not a recommendation against <sup class="c" data-ref="Siu2016" title="Source 550">550</sup>.`],
+ [3,`A toddler's M-CHAT-R total is 5. The published algorithm says:`,`Low likelihood, no action|This is a diagnosis of autism|Refer without the interview|Do the follow-up interview`,3,`3–7 means the follow-up interview; 8 or more refers directly <sup class="c" data-ref="Robins2014,Sturner2022" title="Source 483,571">483,571</sup>.`],
+ [3,`After a positive M-CHAT-R/F, what share had any developmental delay or concern?`,`14.6%|47.5%|94.6%|38.8%`,2,`94.6%; 47.5% had autism <sup class="c" data-ref="Robins2014" title="Source 483">483</sup>.`],
+ [3,`In universal real-world screening at CHOP, M-CHAT/F sensitivity was:`,`38.8%|83%|94%|100%`,0,`With a PPV of 14.6%: a negative screen does not rule out autism <sup class="c" data-ref="Guthrie2019" title="Source 194">194</sup>.`],
+ [3,`Regression (loss of skills) is reported in about:`,`3% of autistic children|One third (32.1%)|Three quarters|All autistic children`,1,`32.1%, at a mean onset of 1.78 years <sup class="c" data-ref="Barger2013" title="Source 37">37</sup>.`],
+ [3,`DSM-5-TR autism spectrum disorder requires:`,`2 of 3 A and 1 of 4 B|Any 3 of 7 criteria|All 7 criteria|All 3 A and at least 2 of 4 B`,3,`Plus criteria C–E <sup class="c" data-ref="APA2022,Fuentes2021ESCAP" title="Source 23,156">23,156</sup>.`],
+ [3,`Social (pragmatic) communication disorder is distinguished from autism by:`,`The absence of restricted, repetitive behaviours, now and in the past|Normal hearing|Onset after 18|A positive genetic test`,0,`If RRBs were ever present, autism must be considered first <sup class="c" data-ref="Norbury2014,APA2022" title="Source 23,428">23,428</sup>.`],
+ [3,`ICD-11 subdivides 6A02 by:`,`Severity levels 1–3|Intellectual development and functional language|Age at onset|Sex`,1,`Giving 6A02.0 to 6A02.5 <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>.`],
+ [3,`In the Cochrane review, ADOS sensitivity and specificity in preschool children were:`,`0.52 and 0.84|0.38 and 0.15|0.94 and 0.80|1.00 and 1.00`,2,`0.52 and 0.84 belong to the ADI-R <sup class="c" data-ref="Randall2018" title="Source 470">470</sup>.`],
+ [3,`The ADI-R is:`,`A semistructured caregiver interview|A play-based observation|A blood test|A self-report questionnaire`,0,`Suitable from a mental age of about 18 months <sup class="c" data-ref="Lord1994" title="Source 333">333</sup>; the ADOS is the observation <sup class="c" data-ref="Lord2000" title="Source 334">334</sup>.`],
+ [3,`Median age at earliest known diagnosis in ADDM 2022 was:`,`18 months|24 months|47 months|8 years`,2,`47 months <sup class="c" data-ref="Shaw2025" title="Source 541">541</sup>.`],
+ [3,`In adults referred to a UK diagnostic service, the AQ:`,`Perfectly separated autistic from non-autistic adults|Was replaced by a blood test|Could be used for self-diagnosis|Did not significantly predict diagnosis, and anxiety raised scores`,3,`Specificity 0.29; 64% below the cut-off were autistic <sup class="c" data-ref="Ashwood2016" title="Source 30">30</sup>.`],
+ [3,`For toddlers first evaluated at 12–36 months, overall diagnostic stability of autism was:`,`0.25|0.50|0.84|1.00`,2,`0.84, higher than any other diagnostic group <sup class="c" data-ref="Pierce2019" title="Source 460">460</sup>.`],
+ [3,`Bilingual exposure in autistic children:`,`Did not cause additional language delay|Doubled language delay|Causes autism|Must be stopped`,0,`Language levels did not differ from monolingual peers <sup class="c" data-ref="Hambly2012" title="Source 198">198</sup>.`],
+ [3,`The most common co-occurring condition in Lai 2019's pooled estimates is:`,`Depression|ADHD|Bipolar disorder|Schizophrenia`,1,`ADHD 28%, then anxiety 20% <sup class="c" data-ref="Lai2019" title="Source 309">309</sup>.`],
+ /* ---- Part 4 ---- */
+ [4,`How many medicines are approved for the core features of autism?`,`None|One|Two|Five`,0,`None; medicines target co-occurring problems <sup class="c" data-ref="Pandina2026,Hyman2020" title="Source 250,445">250,445</sup>.`],
+ [4,`Risperidone and aripiprazole carry FDA autism labels for:`,`Social communication|Repetitive behaviour|Irritability associated with autistic disorder|Sleep`,2,`Both for irritability <sup class="c" data-ref="FDA-Risperdal,FDA-Abilify" title="Source 134,141">134,141</sup>.`],
+ [4,`In the RUPP risperidone trial, response was:`,`12% vs 69% on placebo|50% vs 50%|69% vs 12% on placebo|100% vs 0%`,2,`With weight gain of 2.7 vs 0.8 kg over 8 weeks <sup class="c" data-ref="McCracken2002" title="Source 367">367</sup>.`],
+ [4,`The most common side effect of risperidone in the paediatric autism trials on the label is:`,`Sedation|Hair loss|Hypertension|Cough`,0,`Sedation 63% vs 15%, then increased appetite 44% vs 15% <sup class="c" data-ref="FDA-Risperdal" title="Source 141">141</sup>.`],
+ [4,`After 6 months on risperidone, switching to placebo led to relapse in:`,`5%|12.5%|33%|62.5%`,3,`62.5% vs 12.5% on continued risperidone <sup class="c" data-ref="RUPP2005Risperidone" title="Source 499">499</sup>.`],
+ [4,`Methylphenidate for hyperactivity in autistic children:`,`Works better than in non-autistic ADHD|Has no effect|Helps, but response (49%) is lower and side effects more frequent|Is banned`,2,`<sup class="c" data-ref="RUPP2005Methylphenidate" title="Source 498">498</sup>`],
+ [4,`Citalopram for repetitive behaviour in children:`,`Did not beat placebo and caused more activation side effects|Doubled response|Is FDA-labelled for autism|Was never tested`,0,`Response 32.9% vs 34.2% <sup class="c" data-ref="King2009F" title="Source 288">288</sup>.`],
+ [4,`Prolonged-release melatonin, after behavioural strategies, added about this much sleep:`,`2 minutes|32 minutes|3 hours|6 hours`,1,`About 32 minutes vs placebo at 13 weeks <sup class="c" data-ref="Gringras2017" title="Source 188">188</sup>.`],
+ [4,`Secretin for autism:`,`Is first-line|Helped in 16 RCTs|Was never trialled|Showed no benefit in 16 RCTs with more than 900 children`,3,`It "should not be recommended" <sup class="c" data-ref="Williams2012Secretin" title="Source 631">631</sup>.`],
+ [4,`Deaths during chelation have been caused by:`,`Hypercalcaemia|Hyponatraemia|Hyperkalaemia|Hypocalcaemia with edetate disodium`,3,`Three deaths reported to CDC, two children <sup class="c" data-ref="Brown2006" title="Source 59">59</sup>; no trial evidence of benefit <sup class="c" data-ref="James2015" title="Source 258">258</sup>.`],
+ [4,`In autism drug trials, the share of placebo participants rated "much improved" is about:`,`1%|19%|50%|80%`,1,`About 1 in 5 <sup class="c" data-ref="Siafis2020" title="Source 546">546</sup>.`],
+ [4,`Project AIM, restricting to RCTs with outcomes free of detection bias, found:`,`Large effects for every approach|That more hours always help|That every approach works equally well|No significant effects, or only NDBI on diagnostic characteristics`,3,`<sup class="c" data-ref="Sandbank2020,Sandbank2023BMJ" title="Source 508,509">508,509</sup>`],
+ [4,`Across 144 early-intervention studies, intervention amount (hours):`,`Was not associated with effect size|Strongly predicted effect size|Was always 40 hours|Predicted harm`,0,`<sup class="c" data-ref="Sandbank2024JAMAPed" title="Source 510">510</sup>`],
+ [4,`The main design weakness of Lovaas 1987 was:`,`Too many participants|No random assignment|Using a placebo pill|Testing adults`,1,`<sup class="c" data-ref="Gresham1998" title="Source 186">186</sup>`],
+ [4,`Which is a recognised limitation of Kupferstein 2018?`,`It was a large RCT|It confirmed every diagnosis|It allowed self-diagnosis and used a non-validated survey|It measured outcomes blind`,2,`It cannot show that ABA causes PTSD <sup class="c" data-ref="Kupferstein2018,Leaf2018AiA" title="Source 305,320">305,320</sup>.`],
+ [4,`PACT's effect on symptom severity over about 6 years of follow-up was:`,`ES 0.55|ES 0|ES −1.2|ES 3.0`,0,`Despite no significant effect at 13 months <sup class="c" data-ref="Green2010,Pickles2016" title="Source 181,458">181,458</sup>.`],
+ [4,`In the iBASIS-VIPP trial, the share meeting autism criteria at age 3 was:`,`20.5% vs 6.7%|50% vs 50%|0% vs 100%|6.7% vs 20.5% with usual care`,3,`OR 0.18, NNT 7.2; preregistered one-tailed tests <sup class="c" data-ref="Whitehouse2021" title="Source 628">628</sup>.`],
+ [4,`AAC (augmentative and alternative communication):`,`Stops children learning to speak|Does not impede speech, and modest gains are common|Is only for adults|Has been banned`,1,`<sup class="c" data-ref="Schlosser2008" title="Source 525">525</sup>`],
+ [4,`Facilitated communication messages are authored by:`,`The person typing, always|The facilitator|A computer|Nobody knows`,1,`"Unequivocal evidence for facilitator control" <sup class="c" data-ref="Schlosser2014FC" title="Source 526">526</sup>.`],
+ [4,`In children with autism and anxiety, adapted CBT (BIACA) response was:`,`11.1%|50%|81.0%|92.4%`,3,`Against 81.0% for standard CBT and 11.1% for treatment as usual <sup class="c" data-ref="Wood2020" title="Source 643">643</sup>.`],
+ [4,`The SenITA trial of sensory integration therapy found:`,`No significant effect on its primary outcome and no cost-effectiveness|A large effect|Harm|That it removes sensory differences`,0,`Carers still reported improved daily functioning <sup class="c" data-ref="Randell2022" title="Source 471">471</sup>.`],
+ [4,`The 2026 US leucovorin label indication is:`,`Autism in all children|Irritability|FOLR1 cerebral folate transport deficiency|Sleep problems`,2,`Not autism <sup class="c" data-ref="FDA-Wellcovorin" title="Source 142">142</sup>.`],
+ [4,`The phase 3 SIGN trials of bumetanide were:`,`Stopped early for lack of efficacy|Positive|Not started|Cut short for benefit`,0,`<sup class="c" data-ref="Fuentes2023" title="Source 157">157</sup>`],
+ /* ---- Part 5 ---- */
+ [5,`Against parent education, RUBI parent training in children aged 3–7 gave a clinician-rated response of:`,`39.6%|68.5%|10%|100%`,1,`68.5% vs 39.6% <sup class="c" data-ref="Bearss2015" title="Source 43">43</sup>.`],
+ [5,`About what share of parents of autistic children meet criteria for a depressive disorder?`,`5%|31%|60%|90%`,1,`About 31%, and 33% for an anxiety disorder <sup class="c" data-ref="Schnabel2020" title="Source 529">529</sup>.`],
+ [5,`Pooled bullying victimisation in autistic youth is about:`,`4%|14%|44%|94%`,2,`44% <sup class="c" data-ref="Maiano2016" title="Source 352">352</sup>.`],
+ [5,`In a UK survey, the commonest reason for persistent absence in autistic students was:`,`Illness|School refusal|Holidays|Exclusion`,1,`43% had persistent absence <sup class="c" data-ref="Totsika2020" title="Source 592">592</sup>.`],
+ [5,`The US "services cliff": after high school, the share of autistic young adults receiving no services was:`,`9%|20%|39.1%|90%`,2,`<sup class="c" data-ref="Shattuck2011Services" title="Source 539">539</sup>`],
+ [5,`Project SEARCH plus ASD Supports: employment 3 months after graduation was:`,`6% vs 90%|50% vs 50%|20% vs 15%|90% vs 6%`,3,`<sup class="c" data-ref="Wehman2017" title="Source 621">621</sup>`],
+ [5,`In an international survey, difficulty visiting a GP was reported by:`,`80% of autistic vs 37% of non-autistic adults|10% vs 10%|37% vs 80%|100% vs 0%`,0,`<sup class="c" data-ref="Doherty2022" title="Source 120">120</sup>`],
+ [5,`On the NCCPC-R, a score suggesting pain is:`,`1 or more|3 or more|7 or more|20 or more`,2,`Sensitivity 84% <sup class="c" data-ref="Breau2002" title="Source 58">58</sup>.`],
+ [5,`In FLACC, the "C"s stand for:`,`Cry and Consolability|Colour and Cough|Calm and Comfort|Crying and Cooling`,0,`Face, Legs, Activity, Cry, Consolability <sup class="c" data-ref="Merkel1997" title="Source 377">377</sup>.`],
+ [5,`In one paediatric emergency department, restraint was used in:`,`6.0% of autistic vs 14.1% of non-autistic children|Equal shares|0% of autistic children|14.1% of autistic vs 6.0% of non-autistic children`,3,`<sup class="c" data-ref="McGaughey2026" title="Source 370">370</sup>`],
+ [5,`A 12-study meta-analysis put all-cause mortality in autism, relative to others, at about:`,`RR 1.0|RR 2.37|RR 10|RR 50`,1,`A population statistic, not a forecast for one person <sup class="c" data-ref="CatalaLopez2022" title="Source 74">74</sup>.`],
+ [5,`Among leading injury causes of death in autism, the highest proportionate mortality ratio was for:`,`Falls|Poisoning|Drowning|Burns`,2,`PMR 39.89 <sup class="c" data-ref="Guan2017AJPH" title="Source 190">190</sup>.`],
+ [5,`Epilepsy in autistic people with intellectual disability is about:`,`1%|8%|21.5%|80%`,2,`Against 8% without <sup class="c" data-ref="Amiet2008" title="Source 14">14</sup>.`],
+ [5,`Catatonia affects about this share of autistic people:`,`1 in 10|1 in 2|1 in 1,000|None`,0,`10.4%, usually emerging in adolescence or early adulthood <sup class="c" data-ref="VaquerizoSerrano2021,Wing2000" title="Source 604,639">604,639</sup>.`],
+ [5,`In Denmark, the share of autistic people who died by suicide who had another psychiatric diagnosis was:`,`About 10%|About 50%|About 25%|More than 90%`,3,`90.6% <sup class="c" data-ref="Kolves2021" title="Source 300">300</sup>.`],
+ [5,`Which describes autistic burnout in Raymaker 2020?`,`A sudden onset of autism in adulthood|Chronic exhaustion, loss of skills and reduced tolerance to stimuli|The same as occupational burnout|A type of epilepsy`,1,`It appeared distinct from occupational burnout and depression <sup class="c" data-ref="Raymaker2020" title="Source 474">474</sup>.`],
+ [5,`A sensory-adapted dental environment in autistic children:`,`Lowered physiological stress and behavioural distress|Raised stress|Had no measurable effect|Required general anaesthesia`,0,`<sup class="c" data-ref="SteinDuker2023" title="Source 563">563</sup>`],
+ /* ---- Part 6 ---- */
+ [6,`Who coined "autism" in 1911?`,`Leo Kanner|Hans Asperger|Eugen Bleuler|Lorna Wing`,2,`For a symptom of schizophrenia <sup class="c" data-ref="Gundel1993" title="Source 193">193</sup>.`],
+ [6,`Who described autistic children in 1926, before Kanner and Asperger?`,`Grunya Sukhareva|Bruno Bettelheim|Michael Rutter|Judith Gould`,0,`In Kyiv <sup class="c" data-ref="Manouilenko2015,Ssucharewa1996" title="Source 357,560">357,560</sup>.`],
+ [6,`Kanner's 1943 paper was based on:`,`1 child|11 children|100 children|1,000 children`,1,`<sup class="c" data-ref="Kanner1971" title="Source 271">271</sup>`],
+ [6,`Autism first entered the DSM as an official category in:`,`DSM-I (1952)|DSM-II (1968)|DSM-IV (1994)|DSM-III (1980)`,3,`<sup class="c" data-ref="Rosen2021" title="Source 490">490</sup>`],
+ [6,`DSM-5 (2013) changed autism diagnosis by:`,`Adding Asperger syndrome|Merging the subtypes into autism spectrum disorder|Removing autism|Adding severity in IQ points`,1,`<sup class="c" data-ref="BarahonaCorrea2015,APA2013" title="Source 22,36">22,36</sup>`],
+ [6,`The 1979 Camberwell study that laid the groundwork for the spectrum was by:`,`Wing and Gould|Lovaas and Simmons|Kanner and Eisenberg|Bleuler and Jung`,0,`<sup class="c" data-ref="WingGould1979" title="Source 640">640</sup>`],
+ [6,`The "refrigerator mother" theory, promoted by Bettelheim, held that autism was caused by:`,`Vaccines|Genes|Cold mothering|Diet`,2,`Now rejected <sup class="c" data-ref="vanRosmalen2020,Sandin2017" title="Source 514,600">514,600</sup>.`],
+ [6,`Czech 2018 concluded that Asperger:`,`Opposed the Nazi regime throughout|Never saw patients|Actively cooperated with the child "euthanasia" programme on several occasions|Coined the word autism`,2,`<sup class="c" data-ref="Czech2018" title="Source 105">105</sup>`]
+];
+inits.quiz=()=>{
+  const F=[['mix','Mixed (20)'],...Object.keys(RV_PARTN).map(k=>[k,'Part '+k])];
+  $('#qFilter').innerHTML=F.map(([k,l])=>`<button class="btn" data-qf="${k}" aria-pressed="${k==='mix'}">${l}</button>`).join('');
+  const Q4=QZ_Q.map(q=>[q[0],q[1],q[2].split('|'),q[3],q[4]]);
+  let list=[],i=0,score=0,missed=[],answered=false;
+  function start(k){const r=rng(Date.now()%1e6);let L=Q4.filter(q=>k==='mix'||String(q[0])===k).slice();for(let a=L.length-1;a>0;a--){const j=Math.floor(r()*(a+1));[L[a],L[j]]=[L[j],L[a]]}
+    list=k==='mix'?L.slice(0,20):L;i=0;score=0;missed=[];q()}
+  function q(){answered=false;$('#qBar').style.width=(i/list.length*100)+'%';
+    if(i>=list.length){const pct=Math.round(score/list.length*100);
+      $('#qCard').innerHTML=`<div class="kicker">Finished</div><div class="q">You scored ${score} / ${list.length} (${pct}%)</div><p>${pct>=85?'Excellent work.':pct>=65?'Solid. Review the ones you missed below.':'Worth another pass through the modules, then try again.'}</p>`+
+       (missed.length?`<dl class="kv">${missed.map(m=>`<div><dt>${m[1]}</dt><dd><b>${m[2][m[3]]}.</b> ${m[4]}</dd></div>`).join('')}</dl>`:'')+`<div class="ctrls"><button class="btn primary" id="qAgain">Try again</button><button class="btn" data-go="review">Go to flashcards</button></div>`;
+      $('#qAgain').onclick=()=>start($('[data-qf][aria-pressed="true"]').dataset.qf);return}
+    const Q=list[i];
+    $('#qCard').innerHTML=`<div class="readout"><span>question <b>${i+1} / ${list.length}</b></span><span>score <b>${score}</b></span><span>${RV_PARTN[Q[0]]}</span></div><div class="q">${Q[1]}</div><div class="opts">${Q[2].map((o,j)=>`<button class="opt" data-o="${j}"><span class="l">${'ABCD'[j]}</span><span>${o}</span></button>`).join('')}</div><div id="qFb"></div>`;
+  }
+  $('#qCard').addEventListener('click',e=>{const b=e.target.closest('.opt');if(b&&!answered){answered=true;const Q=list[i],j=+b.dataset.o,ok=j===Q[3];if(ok)score++;else missed.push(Q);
+      $$('.opt',$('#qCard')).forEach((o,k)=>{o.disabled=true;if(k===Q[3])o.classList.add('right');else if(k===j)o.classList.add('wrong')});
+      const ansL='ABCD'[Q[3]];
+      $('#qFb').innerHTML=`<div class="expl"><b style="color:var(${ok?'--good':'--bad'})">${ok?'Correct.':'Not quite.'}</b> The answer is ${ansL}. ${Q[4]}</div><div class="ctrls" style="margin-top:12px"><button class="btn primary" id="qNext">${i+1<list.length?'Next question →':'See results'}</button></div>`;
+      $('#qNext').onclick=()=>{i++;q()};$('#qNext').focus({preventScroll:true})}});
+  $('#qFilter').addEventListener('click',e=>{const b=e.target.closest('[data-qf]');if(!b)return;$$('[data-qf]').forEach(x=>x.setAttribute('aria-pressed',x===b));start(b.dataset.qf)});
+  start('mix');
+};
+
+/* =============== 6.4 glossary =============== */
+const GL_T=[
+ ["16p11.2 deletion and duplication",`Copy-number changes on chromosome 16 that together account for about 1% of autism <sup class="c" data-ref="Weiss2008NEJM" title="Source 623">623</sup>.`,"genes"],
+ ["22q11.2 deletion syndrome",`A deletion syndrome in which about 11% of people show autism features <sup class="c" data-ref="Richards2015" title="Source 480">480</sup>.`,"genes"],
+ ["AAC (augmentative and alternative communication)",`Pictures, symbol systems or speech-generating devices that add to or replace speech; they do not impede speech <sup class="c" data-ref="Schlosser2008,Ganz2012" title="Source 163,525">163,525</sup>.`,"therapies"],
+ ["ABA (applied behaviour analysis)",`Behavioural approaches built on learning principles; early intensive forms (EIBI) run 20–40 hours a week. Evidence and ethics are debated <sup class="c" data-ref="Reichow2018Cochrane,Kirkham2017" title="Source 293,478">293,478</sup>.`,"aba"],
+ ["Ableist language",`Language that "assumes disabled people are inferior to nondisabled people" <sup class="c" data-ref="BottemaBeutel2021Ableist" title="Source 52">52</sup>.`,"words"],
+ ["ABC-Irritability",`The Aberrant Behavior Checklist irritability subscale, the main outcome in risperidone and aripiprazole trials <sup class="c" data-ref="McCracken2002,Owen2009" title="Source 367,439">367,439</sup>.`,"meds"],
+ ["ADDM Network",`CDC's Autism and Developmental Disabilities Monitoring Network, reviewing records of 8-year-olds at selected US sites; not nationally representative <sup class="c" data-ref="Baio2018" title="Source 35">35</sup>.`,"what"],
+ ["ADHD",`Attention deficit hyperactivity disorder, the most common co-occurring condition (pooled 28%) <sup class="c" data-ref="Lai2019" title="Source 309">309</sup>.`,"cooccur"],
+ ["ADI-R",`Autism Diagnostic Interview–Revised, a semistructured caregiver interview <sup class="c" data-ref="Lord1994" title="Source 333">333</sup>.`,"assessment"],
+ ["ADOS",`Autism Diagnostic Observation Schedule: a standardised observation in four modules chosen by language level <sup class="c" data-ref="Lord2000" title="Source 334">334</sup>; a Toddler Module covers under 30 months <sup class="c" data-ref="Luyster2009" title="Source 344">344</sup>.`,"assessment"],
+ ["ADOS calibrated severity score",`A score that standardises ADOS totals across modules and ages, so severity can be compared over time <sup class="c" data-ref="Gotham2009" title="Source 178">178</sup>.`,"assessment"],
+ ["Adverse events reporting",`Only 11 of 150 early-intervention reports mentioned adverse events <sup class="c" data-ref="BottemaBeutel2021AE" title="Source 53">53</sup>.`,"supports"],
+ ["Alexithymia",`Difficulty identifying and describing one's own emotions; about half of autistic people (49.93%) vs 4.89% of controls <sup class="c" data-ref="Kinnaird2019" title="Source 291">291</sup>.`,"senses"],
+ ["Angelman syndrome",`A single-gene condition (loss of maternal UBE3A) in which many children meet autism criteria; antisense oligonucleotide trials are under way <sup class="c" data-ref="Hipp2025" title="Source 220">220</sup>.`,"frontier"],
+ ["Antisense oligonucleotide (ASO)",`A short synthetic strand that alters gene expression; in Angelman syndrome it aims to switch on the silent paternal UBE3A <sup class="c" data-ref="Hipp2025" title="Source 220">220</sup>.`,"frontier"],
+ ["Aripiprazole",`An antipsychotic FDA-labelled for irritability associated with autistic disorder, ages 6–17 <sup class="c" data-ref="FDA-Abilify" title="Source 134">134</sup>.`,"meds"],
+ ["ARFID",`Avoidant/restrictive food intake disorder; 11.41% of autistic groups in a meta-analysis, with a very wide interval <sup class="c" data-ref="Sader2025" title="Source 502">502</sup>.`,"cooccur"],
+ ["Asperger syndrome",`A category introduced to English readers by Wing in 1981 <sup class="c" data-ref="Wing1981" title="Source 638">638</sup>, added to DSM-IV in 1994 and merged into autism spectrum disorder in DSM-5 <sup class="c" data-ref="BarahonaCorrea2015" title="Source 36">36</sup>.`,"history"],
+ ["AQ (Autism-Spectrum Quotient)",`A 50-item self-report trait scale <sup class="c" data-ref="BaronCohen2001" title="Source 39">39</sup>. In referred adults it did not predict diagnosis <sup class="c" data-ref="Ashwood2016" title="Source 30">30</sup>; not for self-diagnosis.`,"screening"],
+ ["AQ-10",`A 10-item short form; case-control accuracy at a cut-point of 6 overstates real-clinic accuracy <sup class="c" data-ref="Allison2012,Ashwood2016" title="Source 10,30">10,30</sup>.`,"screening"],
+ ["Autism alert card",`A card explaining a person's autism to others; about half of 272 users used it, mostly on transport and in healthcare <sup class="c" data-ref="Edwards2025AlertCard" title="Source 124">124</sup>.`,"nursing"],
+ ["Autism spectrum disorder",`The single DSM-5 diagnosis that replaced autistic disorder, Asperger's disorder and PDD-NOS in 2013 <sup class="c" data-ref="BarahonaCorrea2015,APA2013" title="Source 22,36">22,36</sup>.`,"criteria"],
+ ["Autistic burnout",`Chronic exhaustion, loss of skills and reduced tolerance to stimuli from cumulative load <sup class="c" data-ref="Raymaker2020" title="Source 474">474</sup>.`,"adult"],
+ ["Balovaptan",`A vasopressin V1a antagonist; negative phase 3 trials in adults and children <sup class="c" data-ref="Jacob2022,Hollander2022" title="Source 229,255">229,255</sup>.`,"frontier"],
+ ["Bumetanide",`An NKCC1 chloride-importer blocker; phase 3 SIGN trials stopped for lack of efficacy <sup class="c" data-ref="Fuentes2023" title="Source 157">157</sup>.`,"frontier"],
+ ["Bullying",`Pooled victimisation of 44% in autistic youth <sup class="c" data-ref="Maiano2016" title="Source 352">352</sup>.`,"school"],
+ ["Camouflaging (masking)",`Masking and compensating for autistic traits to fit in; exhausting and linked to poorer mental health <sup class="c" data-ref="Hull2017,Cook2021Camouflaging" title="Source 91,241">91,241</sup>.`,"words"],
+ ["Canvas Dx",`An FDA-authorised AI diagnosis aid for clinicians; it gave a determinate result in 31.8% of children tested <sup class="c" data-ref="Megerian2022,FDA-DEN200069" title="Source 135,374">135,374</sup>.`,"frontier"],
+ ["CARS",`Childhood Autism Rating Scale; Cochrane sensitivity 0.80 and specificity 0.88 <sup class="c" data-ref="Randall2018" title="Source 470">470</sup>.`,"assessment"],
+ ["CAT-Q",`Camouflaging Autistic Traits Questionnaire: 25 items, three factors; a research measure <sup class="c" data-ref="Hull2019CATQ" title="Source 242">242</sup>.`,"words"],
+ ["Catatonia",`A movement and behaviour syndrome affecting about 10.4% of autistic people, usually from adolescence <sup class="c" data-ref="VaquerizoSerrano2021" title="Source 604">604</sup>.`,"health"],
+ ["Cerebral folate deficiency",`Low folate in the brain; a 2021 meta-analysis estimated 38% prevalence in autism (Early evidence) <sup class="c" data-ref="Rossignol2021" title="Source 494">494</sup>.`,"frontier"],
+ ["Chelation",`Drugs that bind metals; no trial evidence of benefit in autism and deaths from hypocalcaemia <sup class="c" data-ref="James2015,Brown2006" title="Source 59,258">59,258</sup>.`,"unproven"],
+ ["Chromosomal microarray (CMA)",`A first-tier test for copy-number changes; yield 15–20% in unexplained DD, ID or autism <sup class="c" data-ref="Miller2010CMA" title="Source 379">379</sup>.`,"genes"],
+ ["Co-occurring",`Suggested in place of "comorbid": conditions that occur alongside autism <sup class="c" data-ref="BottemaBeutel2021Ableist" title="Source 52">52</sup>. More than 70% have at least one <sup class="c" data-ref="Lai2014" title="Source 306">306</sup>.`,"cooccur"],
+ ["Complementary and alternative medicine (CAM)",`Non-mainstream treatments; used by a median 54% of autistic people across studies <sup class="c" data-ref="Hofer2017" title="Source 227">227</sup>.`,"unproven"],
+ ["Conflict of interest",`About 70% of early-intervention reports had one, but only about 6% fully disclosed it <sup class="c" data-ref="BottemaBeutel2021COI" title="Source 54">54</sup>.`,"supports"],
+ ["Copy-number variant (CNV)",`A deleted or duplicated stretch of DNA; six de novo CNV loci were confirmed in the Simons Simplex Collection <sup class="c" data-ref="Sanders2015Neuron" title="Source 511">511</sup>.`,"genes"],
+ ["Cord blood infusion",`An unproven treatment; a 180-child RCT found no benefit on socialisation <sup class="c" data-ref="Dawson2020" title="Source 114">114</sup>.`,"unproven"],
+ ["Criterion A (DSM-5-TR)",`Social communication and interaction: all three of A1–A3 required <sup class="c" data-ref="APA2022" title="Source 23">23</sup>.`,"criteria"],
+ ["Criterion B (DSM-5-TR)",`Restricted, repetitive patterns: at least two of B1–B4 required <sup class="c" data-ref="APA2022" title="Source 23">23</sup>.`,"criteria"],
+ ["DALY",`Disability-adjusted life-year, a measure of health loss; it does not judge the worth of autistic lives <sup class="c" data-ref="Santomauro2025" title="Source 518">518</sup>.`,"what"],
+ ["De novo mutation",`A new variant not inherited from either parent; explains 2.6% of population variance <sup class="c" data-ref="Gaugler2014" title="Source 167">167</sup>.`,"genes"],
+ ["Dementia in autistic adults",`More frequent than in the general population in US claims data (aHR 1.96 for autism only) <sup class="c" data-ref="Vivanti2021" title="Source 613">613</sup>.`,"adult"],
+ ["Developmental surveillance",`Ongoing monitoring of development at every health visit, with screening at set ages <sup class="c" data-ref="Lipkin2020" title="Source 329">329</sup>.`,"milestones"],
+ ["Diagnostic overshadowing",`A new symptom being put down to autism itself and not assessed (Hypothesis) <sup class="c" data-ref="Nicolaidis2013" title="Source 425">425</sup>.`,"cooccur"],
+ ["Double empathy problem",`Milton's account of social difficulty as a two-way mismatch <sup class="c" data-ref="Milton2012" title="Source 382">382</sup>.`,"words"],
+ ["DSM-5-TR",`The 2022 text revision of DSM-5 <sup class="c" data-ref="APA2022" title="Source 23">23</sup>.`,"criteria"],
+ ["Dunn's model",`Four sensory patterns from threshold × strategy: low registration, seeking, sensitivity, avoiding <sup class="c" data-ref="Dunn2001" title="Source 122">122</sup>.`,"senses"],
+ ["EarliPoint",`An FDA-cleared eye-tracking diagnosis aid; sensitivity 71.0% and specificity 80.7% vs expert diagnosis <sup class="c" data-ref="FDA-K213882,Jones2023" title="Source 139,263">139,263</sup>.`,"frontier"],
+ ["EHCP",`Education, Health and Care Plan, the legal framework for extra school support in England <sup class="c" data-ref="Keville2025" title="Source 282">282</sup>.`,"school"],
+ ["EIBI",`Early intensive behavioural intervention: ABA-based, 20–40 hours a week for years; evidence low or very low certainty <sup class="c" data-ref="Reichow2018Cochrane" title="Source 478">478</sup>.`,"aba"],
+ ["Elopement (wandering)",`Leaving a safe place; 49% of autistic children tried at least once after age 4 <sup class="c" data-ref="Anderson2012Elopement" title="Source 16">16</sup>.`,"health"],
+ ["Epilepsy",`Seizure disorder; median 12.1% in autism <sup class="c" data-ref="Lukmanji2019" title="Source 341">341</sup>, 21.5% with intellectual disability <sup class="c" data-ref="Amiet2008" title="Source 14">14</sup>.`,"health"],
+ ["Equality Act 2010",`In Great Britain, autism may count as a disability and bring an entitlement to reasonable adjustments <sup class="c" data-ref="Smith2025Adjustments" title="Source 553">553</sup>.`,"adult"],
+ ["ESDM",`Early Start Denver Model, an NDBI; in a 2010 RCT IQ rose 17.6 vs 7.0 points <sup class="c" data-ref="Dawson2010" title="Source 111">111</sup>, with a partial replication <sup class="c" data-ref="Rogers2019" title="Source 487">487</sup>.`,"therapies"],
+ ["Excitation/inhibition (E/I) balance",`The hypothesis that excitation is raised relative to inhibition <sup class="c" data-ref="Rubenstein2003" title="Source 497">497</sup>; the shift may be compensatory <sup class="c" data-ref="Antoine2019" title="Source 21">21</sup>.`,"brain"],
+ ["Exome sequencing",`Sequencing all protein-coding genes; yield 36% in neurodevelopmental disorders <sup class="c" data-ref="Srivastava2019" title="Source 559">559</sup>.`,"genes"],
+ ["Facilitated communication (FC)",`Physical support while a person types; messages are authored by the facilitator <sup class="c" data-ref="Schlosser2014FC" title="Source 526">526</sup>.`,"therapies"],
+ ["Female protective effect",`The idea that girls need a higher genetic load to be autistic; siblings of high-trait girls had more traits (Early evidence) <sup class="c" data-ref="Robinson2013,Antaki2022" title="Source 20,484">20,484</sup>.`,"genes"],
+ ["FLACC",`A pain scale: Face, Legs, Activity, Cry, Consolability <sup class="c" data-ref="Merkel1997" title="Source 377">377</sup>.`,"nursing"],
+ ["Folic acid",`Already advised around conception; some studies link it with a lower chance of autism <sup class="c" data-ref="Suren2013,Levine2018" title="Source 326,573">326,573</sup>.`,"risk"],
+ ["Fragile X syndrome",`More than 200 CGG repeats silence FMR1 <sup class="c" data-ref="Hagerman2017" title="Source 196">196</sup>; about half of males meet autism criteria <sup class="c" data-ref="Kaufmann2017" title="Source 277">277</sup>.`,"genes"],
+ ["Functional analysis",`Testing which environmental events maintain a behaviour by varying conditions <sup class="c" data-ref="Iwata1994,Hanley2003" title="Source 202,254">202,254</sup>.`,"aba"],
+ ["Functioning labels",`"High-" and "low-functioning"; IQ-based labels can hide real needs <sup class="c" data-ref="Alvares2020" title="Source 12">12</sup>.`,"words"],
+ ["GBD (Global Burden of Disease)",`The study estimating 61.8 million autistic people worldwide in 2021 <sup class="c" data-ref="Santomauro2025" title="Source 518">518</sup>.`,"what"],
+ ["GFCF diet",`Gluten-free, casein-free diet; "little evidence" of benefit in 6 RCTs <sup class="c" data-ref="Piwowarczyk2018" title="Source 462">462</sup>.`,"unproven"],
+ ["GI symptoms",`Gastrointestinal symptoms are more common in autistic children (OR 4.42; constipation OR 3.86) <sup class="c" data-ref="McElhanon2014" title="Source 369">369</sup>.`,"health"],
+ ["Grandfather clause",`DSM-5 says a well-established DSM-IV diagnosis should become autism spectrum disorder <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>.`,"criteria"],
+ ["Guanfacine extended release",`An ADHD medicine; 50% vs 9.4% responders for hyperactivity in autistic children <sup class="c" data-ref="Scahill2015" title="Source 521">521</sup>.`,"meds"],
+ ["Heritability",`The share of variation in liability due to genetic differences; about 80% for autism <sup class="c" data-ref="Bai2019" title="Source 34">34</sup>.`,"genes"],
+ ["Hospital passport",`A document recording a person's communication, sensory and care needs; formats vary widely <sup class="c" data-ref="Northway2017,Heifetz2018" title="Source 217,429">217,429</sup>.`,"nursing"],
+ ["Hyperacusis",`Decreased sound tolerance; about 41% of autistic people currently <sup class="c" data-ref="Williams2021Hyperacusis" title="Source 634">634</sup>.`,"senses"],
+ ["Hyperbaric oxygen",`Pressurised oxygen; one RCT reported gains, a controlled study found no consistent effects <sup class="c" data-ref="Rossignol2009,Jepson2011" title="Source 259,492">259,492</sup>.`,"unproven"],
+ ["Hypo-priors",`Pellicano and Burr's account: perception less shaped by prior expectations <sup class="c" data-ref="Pellicano2012" title="Source 449">449</sup>.`,"brain"],
+ ["iBASIS-VIPP",`A video-feedback parenting programme for infants showing early signs <sup class="c" data-ref="Green2017iBASIS,Whitehouse2021" title="Source 184,628">184,628</sup>.`,"therapies"],
+ ["I statement (USPSTF)",`A finding of insufficient evidence, as for screening children with no concerns raised <sup class="c" data-ref="Siu2016" title="Source 550">550</sup>.`,"screening"],
+ ["ICD-11 6A02",`The ICD-11 code for autism spectrum disorder, subdivided by intellectual development and functional language <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>.`,"criteria"],
+ ["IDEA",`The US Individuals with Disabilities Education Act, providing special education to eligible students up to age 21 <sup class="c" data-ref="McLean2026" title="Source 372">372</sup>.`,"school"],
+ ["Identity-first language",`"Autistic person"; preferred by many autistic adults <sup class="c" data-ref="Taboas2023,Keating2023" title="Source 278,575">278,575</sup>.`,"words"],
+ ["IEP",`Individualised Education Program; school-based IEP services varied widely across ADDM sites <sup class="c" data-ref="Hughes2024IEP" title="Source 240">240</sup>.`,"school"],
+ ["Inclusion",`The school adapting to the student, as opposed to "integration", where the student adapts <sup class="c" data-ref="Perrelet2025" title="Source 452">452</sup>.`,"school"],
+ ["Infant-sibling study",`A prospective study of younger siblings of autistic children, followed from infancy <sup class="c" data-ref="Ozonoff2011,Hazlett2017" title="Source 214,441">214,441</sup>.`,"brain"],
+ ["Intellectual disability",`Recorded in 39.6% of autistic 8-year-olds with IQ data in ADDM 2022 <sup class="c" data-ref="Shaw2025" title="Source 541">541</sup>.`,"cooccur"],
+ ["Interoception",`Sensing internal body signals; a meta-analysis found no clear difference in adult cardiac interoceptive accuracy <sup class="c" data-ref="Klein2025" title="Source 294">294</sup>.`,"senses"],
+ ["Interpregnancy interval",`Time between pregnancies; under 12 months was associated with autism (OR 1.90) <sup class="c" data-ref="CondeAgudelo2016" title="Source 89">89</sup>.`,"risk"],
+ ["JASPER",`A joint-attention and symbolic-play NDBI; targeted skills improved <sup class="c" data-ref="Kasari2006,Kasari2008" title="Source 274,275">274,275</sup>.`,"therapies"],
+ ["Judge Rotenberg Center",`The US school whose use of skin-shock devices was the main target of campaigns against painful aversives <sup class="c" data-ref="Kirkham2017" title="Source 293">293</sup>.`,"aba"],
+ ["Landau–Kleffner syndrome",`An acquired epileptic aphasia: sudden language loss with EEG abnormalities after typical development <sup class="c" data-ref="Fuentes2021ESCAP" title="Source 156">156</sup>.`,"milestones"],
+ ["Lancet Commission (2021)",`A 32-author commission calling for personalised, stepped care; it proposed "profound autism" <sup class="c" data-ref="Lord2022Lancet" title="Source 338">338</sup>.`,"words"],
+ ["Late diagnosis",`Diagnosis in adolescence or adulthood; in England 59–72% of autistic people may be undiagnosed <sup class="c" data-ref="ONions2023" title="Source 432">432</sup>.`,"adult"],
+ ["Leucovorin (folinic acid)",`Its 2026 US label indication is FOLR1 cerebral folate transport deficiency, not autism <sup class="c" data-ref="FDA-Wellcovorin" title="Source 142">142</sup>.`,"frontier"],
+ ["Loss of autism diagnosis",`Proposed replacement for "optimal outcome"; 9% by age 19 in one cohort <sup class="c" data-ref="Eigsti2023,Anderson2014Outcome" title="Source 17,126">17,126</sup>.`,"adult"],
+ ["M-CHAT-R/F",`A 20-item toddler screen with a follow-up interview; 0–2 low, 3–7 interview, 8+ positive <sup class="c" data-ref="Robins2014" title="Source 483">483</sup>. For clinicians, not self-diagnosis.`,"screening"],
+ ["Maternal immune activation",`Infection or inflammation in pregnancy; in humans only modestly linked to autism (OR 1.13) <sup class="c" data-ref="Jiang2016Infection" title="Source 260">260</sup>.`,"brain"],
+ ["Meltdown",`An involuntary response to overload, "feeling out of control" <sup class="c" data-ref="Lewis2023Meltdown,Phung2021" title="Source 327,457">327,457</sup>.`,"senses"],
+ ["Melatonin",`A sleep hormone; after behavioural strategies, prolonged-release melatonin added about 32 minutes of sleep <sup class="c" data-ref="Gringras2017" title="Source 188">188</sup>.`,"meds"],
+ ["Methylphenidate",`A stimulant; helps hyperactivity in autism, with 49% response and more side effects <sup class="c" data-ref="RUPP2005Methylphenidate" title="Source 498">498</sup>.`,"meds"],
+ ["Microbiota transfer therapy",`Faecal transplant after antibiotics and bowel cleanse; open-label gains, no placebo arm yet reported <sup class="c" data-ref="Kang2017,Kang2019" title="Source 268,269">268,269</sup>.`,"frontier"],
+ ["Minimally verbal",`Using few or no spoken words; about 30% of autistic children <sup class="c" data-ref="TagerFlusberg2013" title="Source 576">576</sup>.`,"cooccur"],
+ ["MMR vaccine",`Measles, mumps and rubella vaccine; it does not cause autism (HR 0.93) <sup class="c" data-ref="Hviid2019" title="Source 249">249</sup>.`,"risk"],
+ ["mTOR",`A growth-signalling pathway; overactive in TSC <sup class="c" data-ref="Henske2016" title="Source 218">218</sup> and linked to reduced spine pruning in autistic cortex <sup class="c" data-ref="Tang2014" title="Source 583">583</sup>.`,"brain"],
+ ["Music therapy",`Cochrane: global improvement RR 1.22 <sup class="c" data-ref="Geretsegger2022" title="Source 169">169</sup>; TIME-A found no ADOS difference <sup class="c" data-ref="Bieleninik2017" title="Source 48">48</sup>.`,"therapies"],
+ ["NCCPC-R",`Non-communicating Children's Pain Checklist–Revised; 7 or more suggests pain <sup class="c" data-ref="Breau2002" title="Source 58">58</sup>.`,"nursing"],
+ ["NDBI",`Naturalistic developmental behavioural intervention, such as ESDM or JASPER <sup class="c" data-ref="Schreibman2015" title="Source 532">532</sup>.`,"therapies"],
+ ["Neurodiversity",`Autism as one form of variation in a diversity of minds <sup class="c" data-ref="Pellicano2022" title="Source 451">451</sup>; the concept was "collectively developed by neurodivergent people" <sup class="c" data-ref="Botha2024" title="Source 50">50</sup>.`,"words"],
+ ["Neurogenesis",`The birth of neurons; in humans from about embryonic day 42, largely complete by midgestation <sup class="c" data-ref="Stiles2010" title="Source 567">567</sup>.`,"brain"],
+ ["Oxytocin",`A hormone tested intranasally; the 290-child SOARS-B trial was negative <sup class="c" data-ref="Sikich2021" title="Source 548">548</sup>.`,"frontier"],
+ ["PACT",`Preschool Autism Communication Trial of parent-mediated therapy; long-term symptom reduction ES 0.55 <sup class="c" data-ref="Green2010,Pickles2016" title="Source 181,458">181,458</sup>.`,"therapies"],
+ ["Parent-mediated intervention",`Therapy delivered through coached parents; it changes parent–child interaction <sup class="c" data-ref="Oono2013,Nevill2018" title="Source 420,435">420,435</sup>.`,"therapies"],
+ ["Paternal age",`Fathers aged 50 or older vs 20–29: RR 1.66 for autism <sup class="c" data-ref="Sandin2016" title="Source 513">513</sup>.`,"risk"],
+ ["PECS",`Picture Exchange Communication System, taught in six phases <sup class="c" data-ref="Tamanaha2023" title="Source 580">580</sup>; "promising but not yet established" <sup class="c" data-ref="Flippin2010" title="Source 149">149</sup>.`,"therapies"],
+ ["PEERS",`A manualised, parent-assisted social skills programme for teens and young adults <sup class="c" data-ref="Laugeson2009,Laugeson2015" title="Source 313,315">313,315</sup>.`,"therapies"],
+ ["Person-first language",`"Person with autism"; used more often by professionals <sup class="c" data-ref="Kenny2016,Taboas2023" title="Source 280,575">280,575</sup>.`,"words"],
+ ["Placebo response",`19% of placebo participants rated "much improved" in autism drug trials <sup class="c" data-ref="Siafis2020" title="Source 546">546</sup>.`,"meds"],
+ ["Positive behaviour support (PBS)",`Educational and systems-change methods to improve quality of life and reduce problem behaviour <sup class="c" data-ref="Carr2002PBS" title="Source 70">70</sup>.`,"aba"],
+ ["Positive predictive value (PPV)",`The chance that a positive screen is a true case; 47.5% for M-CHAT-R/F in validation <sup class="c" data-ref="Robins2014" title="Source 483">483</sup> but 14.6% in universal screening <sup class="c" data-ref="Guthrie2019" title="Source 194">194</sup>.`,"screening"],
+ ["Premedication",`Medicine before a procedure; options include alpha-2 agonists, midazolam and ketamine <sup class="c" data-ref="Taghizadeh2015" title="Source 577">577</sup>.`,"nursing"],
+ ["Preterm birth",`Birth at 22–27 weeks: 6.1% autism prevalence vs 1.4% at term <sup class="c" data-ref="Crump2021Preterm" title="Source 103">103</sup>.`,"risk"],
+ ["Profound autism",`An administrative term for autistic people needing 24-hour access to an adult to stay safe <sup class="c" data-ref="Lord2022Lancet,Hughes2023" title="Source 239,338">239,338</sup>.`,"words"],
+ ["Project AIM",`Meta-analysis of early-intervention trials by quality; few effects survive rigorous filters <sup class="c" data-ref="Sandbank2020,Sandbank2023BMJ" title="Source 508,509">508,509</sup>.`,"supports"],
+ ["Project SEARCH",`Supported internships; with ASD Supports, 90% vs 6% employed <sup class="c" data-ref="Wehman2017" title="Source 621">621</sup>.`,"adult"],
+ ["Prolactin",`A pituitary hormone raised by risperidone (49% vs 2%) <sup class="c" data-ref="FDA-Risperdal" title="Source 141">141</sup>.`,"meds"],
+ ["Psychotropic polypharmacy",`Using several psychiatric drug classes at once; 35% of insured US autistic children <sup class="c" data-ref="Spencer2013" title="Source 557">557</sup>.`,"meds"],
+ ["PTEN",`A gene to test in autism with extreme macrocephaly <sup class="c" data-ref="Butler2005PTEN" title="Source 67">67</sup>.`,"genes"],
+ ["Puzzle-piece symbol",`An autism logo that evoked negative implicit associations in the public <sup class="c" data-ref="Gernsbacher2018Puzzle" title="Source 171">171</sup>.`,"words"],
+ ["Q-CHAT",`Quantitative Checklist for Autism in Toddlers, a 25-item trait score <sup class="c" data-ref="Allison2008" title="Source 9">9</sup>.`,"screening"],
+ ["Quality of life",`Lower in autistic people (d −0.96), at all ages <sup class="c" data-ref="vanHeijst2015" title="Source 598">598</sup>.`,"adult"],
+ ["Refrigerator mother",`Bettelheim's discredited claim that cold mothering causes autism <sup class="c" data-ref="vanRosmalen2020" title="Source 600">600</sup>.`,"history"],
+ ["Regression",`Loss of acquired skills, in about 32.1% of autistic children <sup class="c" data-ref="Barger2013" title="Source 37">37</sup>.`,"milestones"],
+ ["Respite care",`Short breaks for carers; more hours linked to higher marital quality (cross-sectional) <sup class="c" data-ref="Harper2013" title="Source 208">208</sup>.`,"school"],
+ ["Response to name",`Fails in only about half of infants later diagnosed at 12 months (sensitivity 0.50) <sup class="c" data-ref="Nadig2007" title="Source 396">396</sup>.`,"milestones"],
+ ["Restraint",`Physical holding or restriction; used more often for autistic children in one ED (14.1% vs 6.0%) <sup class="c" data-ref="McGaughey2026" title="Source 370">370</sup>.`,"nursing"],
+ ["Rett syndrome",`An MECP2 condition, almost only in girls, with autism features in about 61% <sup class="c" data-ref="Amir1999,Richards2015" title="Source 15,480">15,480</sup>.`,"genes"],
+ ["Risperidone",`An antipsychotic FDA-labelled for irritability associated with autistic disorder <sup class="c" data-ref="FDA-Risperdal" title="Source 141">141</sup>.`,"meds"],
+ ["RPM (Rapid Prompting Method)",`A letter-board method; no evidence supports it <sup class="c" data-ref="Schlosser2019RPM,Schlosser2026RPM" title="Source 527,528">527,528</sup>.`,"therapies"],
+ ["RUBI parent training",`A parent training programme that beat parent education for disruptive behaviour <sup class="c" data-ref="Bearss2015" title="Source 43">43</sup>.`,"school"],
+ ["School refusal",`The commonest reason for persistent absence in a UK survey of autistic students <sup class="c" data-ref="Totsika2020" title="Source 592">592</sup>.`,"school"],
+ ["SCQ",`Social Communication Questionnaire, a parent questionnaire derived from the ADI <sup class="c" data-ref="Chandler2007" title="Source 77">77</sup>.`,"screening"],
+ ["Secretin",`A gut hormone once promoted for autism; no benefit in 16 RCTs <sup class="c" data-ref="Williams2012Secretin" title="Source 631">631</sup>.`,"unproven"],
+ ["Section 504",`A US law giving school accommodations to students who may not qualify for an IEP <sup class="c" data-ref="Lindsay2026" title="Source 328">328</sup>.`,"school"],
+ ["Self-injury",`Self-injurious behaviour, in about 42% of autistic people <sup class="c" data-ref="SteenfeldtKristensen2020" title="Source 562">562</sup>.`,"cooccur"],
+ ["Sensitivity",`The share of true cases a test finds; M-CHAT/F 38.8% in universal screening <sup class="c" data-ref="Guthrie2019" title="Source 194">194</sup>.`,"screening"],
+ ["Sensory integration therapy",`An OT approach; the SenITA RCT was negative on its primary outcome <sup class="c" data-ref="Randell2022" title="Source 471">471</sup>.`,"therapies"],
+ ["Sensory-adapted environment",`Changed light, sound and touch; lowered stress during dental care <sup class="c" data-ref="SteinDuker2023" title="Source 563">563</sup>.`,"nursing"],
+ ["Services cliff",`The fall in services at school exit <sup class="c" data-ref="Shattuck2011Services" title="Source 539">539</sup>.`,"adult"],
+ ["Severity levels",`DSM-5 Levels 1–3, rated per domain, describing support needed <sup class="c" data-ref="APA2022" title="Source 23">23</sup>.`,"criteria"],
+ ["Shutdown",`A quieter overload response, "feeling frozen" and withdrawn <sup class="c" data-ref="Phung2021" title="Source 457">457</sup>.`,"senses"],
+ ["Sibling recurrence",`The chance a younger sibling is autistic: about 20% <sup class="c" data-ref="Ozonoff2024" title="Source 444">444</sup>.`,"genes"],
+ ["Social (pragmatic) communication disorder",`Social communication difficulties without restricted or repetitive behaviours <sup class="c" data-ref="Norbury2014" title="Source 428">428</sup>.`,"criteria"],
+ ["Social skills groups",`Group programmes improving social competence (ES 0.47) <sup class="c" data-ref="Reichow2012Cochrane" title="Source 477">477</sup>.`,"therapies"],
+ ["Social Stories",`Short individualised stories about situations; "low to questionable" overall effect <sup class="c" data-ref="Kokina2010" title="Source 299">299</sup>.`,"school"],
+ ["Specificity",`The share of non-cases a test correctly clears; AQ specificity was 0.29 in referred adults <sup class="c" data-ref="Ashwood2016" title="Source 30">30</sup>.`,"screening"],
+ ["Specifiers",`DSM-5-TR add-ons for intellectual or language impairment, known conditions and catatonia <sup class="c" data-ref="APA2022" title="Source 23">23</sup>.`,"criteria"],
+ ["Spectrum 10K",`A UK genetic study postponed in 2021 after community backlash <sup class="c" data-ref="Ellis2023" title="Source 127">127</sup>.`,"frontier"],
+ ["Stimming",`Repetitive movements or sounds used to self-regulate or express emotion <sup class="c" data-ref="Kapp2019" title="Source 273">273</sup>.`,"senses"],
+ ["Supported employment",`Job support in real workplaces, as in Project SEARCH <sup class="c" data-ref="Wehman2017" title="Source 621">621</sup>.`,"adult"],
+ ["Synaptic pruning",`Removal of unused synapses, running into adolescence in prefrontal cortex <sup class="c" data-ref="Huttenlocher1997,Petanjek2011" title="Source 247,454">247,454</sup>.`,"brain"],
+ ["TEACCH",`A structured-teaching approach; a 13-study meta-analysis found exploratory gains <sup class="c" data-ref="ViruesOrtega2013" title="Source 611">611</sup>.`,"therapies"],
+ ["Thimerosal",`A mercury-containing preservative; its removal did not lower autism rates <sup class="c" data-ref="Schechter2008,Hviid2003" title="Source 248,524">248,524</sup>.`,"risk"],
+ ["Tuberous sclerosis complex (TSC)",`An autosomal dominant mTOR condition (TSC1 or TSC2) <sup class="c" data-ref="Henske2016" title="Source 218">218</sup>; 56% of a 50-child cohort were autistic <sup class="c" data-ref="Mitchell2025TSC" title="Source 385">385</sup>.`,"genes"],
+ ["Valproate",`An antiseizure drug; prenatal exposure raised absolute autism risk to 4.42% <sup class="c" data-ref="Christensen2013" title="Source 85">85</sup>.`,"risk"],
+ ["Vineland",`An adaptive behaviour scale; IQ predicted it only weakly <sup class="c" data-ref="Alvares2020" title="Source 12">12</sup>.`,"words"],
+ ["Visual activity schedule",`A picture sequence of tasks; an evidence-based practice <sup class="c" data-ref="Knight2015" title="Source 297">297</sup>.`,"school"],
+ ["Wakefield 1998",`The retracted, fraudulent MMR paper <sup class="c" data-ref="Lancet2010Retraction,Godlee2011" title="Source 174,311">174,311</sup>.`,"history"],
+ ["Weighted blanket",`Did not lengthen sleep in an RCT, though families preferred it <sup class="c" data-ref="Gringras2014" title="Source 187">187</sup>.`,"therapies"],
+ ["Weighted vest",`"On balance" ineffective <sup class="c" data-ref="Stephenson2009" title="Source 565">565</sup>.`,"therapies"]
+];
+inits.glossary=()=>{
+  const inp=$('#glSearch');const tname=id=>{const m=MODS.find(x=>x.id===id);return m?m.t:''};
+  /* drop citation markup and fold dashes away, so 'mchat' and 'm-chat' match */
+  const norm=s=>s.replace(/<sup[^>]*>.*?<\/sup>/g,'').replace(/<[^>]+>/g,'').toLowerCase().replace(/[-–\/]/g,'');
+  function render(){const q=norm(inp.value.trim());const L=GL_T.filter(g=>!q||norm(g[0]).includes(q)||norm(g[1]).includes(q));
+    $('#glList').innerHTML=L.map(g=>`<div><b>${g[0]}</b>${g[1]} <button class="btn ghost" style="padding:3px 9px;font-size:12px;margin-top:6px" data-go="${g[2]}">→ ${tname(g[2])}</button></div>`).join('')||'<p>No matching terms.</p>';
+    $('#glCount').textContent=`${L.length} of ${GL_T.length} terms`}
+  inp.addEventListener('input',render);render();
+};
+
+/* =============== 6.5 sources =============== */
+const SR_AREAN={A:'Epidemiology, identity, language & history',B:'Genetics, causes & risk factors',C:'Neuroscience, brain development & sensory processing',D:'Early signs, screening, criteria & assessment',E:'Supports & non-pharmacological interventions',F:'Medication, unproven treatments & research',G:'Co-occurring conditions, physical health & outcomes',H:'Family, school, work, adulthood & nursing'};
+const SR_SVC=['PubMed','Europe PMC','Crossref','ClinicalTrials.gov','openFDA'];
+const SR_svc=s=>s.unverified?[]:SR_SVC.filter(x=>(s.validated||'').includes(x));
+/* a link cut at a parenthesis inside the DOI is rebuilt from the DOI in the citation text */
+const SR_link=s=>{let l=s.link||'';if(l.split('(').length!==l.split(')').length){const m=s.text.match(/doi:\s*(\S+?)\.?(?=\s|$)/);l=m?'https://doi.org/'+m[1]:''}return l};
+inits.sources=()=>{
+  let area='all';const inp=$('#srcSearch');
+  $('#srcFilter').innerHTML=[['all','All']].concat(Object.entries(SR_AREAN)).map(([k,l])=>`<button class="btn" data-sa="${k}" aria-pressed="${k==='all'}">${l}</button>`).join('');
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  /* counts come from the list itself, so they stay right when sources change */
+  const nAll=SOURCES.length,nChk=SOURCES.filter(s=>s.unverified).length,by={};
+  SOURCES.forEach(s=>SR_svc(s).forEach(v=>{by[v]=(by[v]||0)+1}));
+  const svcTxt=SR_SVC.filter(v=>by[v]).map(v=>`${v} ${by[v]}`).join(' · ');
+  $('#srcStats').innerHTML=`${nAll} sources in all. ${nAll-nChk} were confirmed against a database before inclusion (some by more than one: ${svcTxt}). ${nChk} are marked <span class="tag warn">check</span>.`;
+  function render(){const q=inp.value.trim().toLowerCase();let n=0;
+    $('#srcList').innerHTML=SOURCES.map((s,i)=>{const show=(area==='all'||(s.areas||[]).includes(area))&&(!q||s.text.toLowerCase().includes(q)||s.key.toLowerCase().includes(q)||(s.aliases||[]).some(a=>a.toLowerCase().includes(q)));if(!show)return'';n++;
+      const sv=SR_svc(s).map(v=>`<span class="tag good" title="${esc('Validated: '+s.validated)}"><span class="sr">validated by </span>${esc(v)}</span>`).join('');
+      return `<li id="src-${s.key}" value="${i+1}"><span class="key">[${i+1}] ${esc(s.key)}${s.aliases?' · also '+s.aliases.map(esc).join(', '):''}</span><span>${esc(s.text)}</span>${SR_link(s)?`<a href="${esc(SR_link(s))}" target="_blank" rel="noopener">${esc(SR_link(s))}</a>`:''}${s.note?`<span class="srcnote">${esc(s.note)}</span>`:''}<span class="mods">${(s.areas||[]).map(a=>`<span class="tag">${SR_AREAN[a]||a}</span>`).join('')}${sv}${s.unverified?'<span class="tag warn">check</span>':''}</span></li>`}).join('');
+    $('#srcCount').textContent=`${n} of ${nAll} sources`}
+  inp.addEventListener('input',render);
+  $('#srcFilter').addEventListener('click',e=>{const b=e.target.closest('[data-sa]');if(!b)return;area=b.dataset.sa;$$('[data-sa]').forEach(x=>x.setAttribute('aria-pressed',x===b));render()});
+  render();
+};
+onShow.sources=()=>{const inp=$('#srcSearch');if(inp&&inp.value){inp.value='';inp.dispatchEvent(new Event('input'))}
+  if($('[data-sa="all"]')&&$('[data-sa="all"]').getAttribute('aria-pressed')!=='true')$('[data-sa="all"]').click()};
+
+/* =============== boot =============== */
+const h0=location.hash.slice(1);
+show(MODS.some(m=>m.id===h0)?h0:store.get('last','home'),true);
+window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(h&&h!==cur&&MODS.some(m=>m.id===h))show(h)});
+})();

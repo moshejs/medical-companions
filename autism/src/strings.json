@@ -1,0 +1,10 @@
+{
+  "foot.not_advice": "<b>It is not medical advice.</b> It cannot diagnose anyone, and the questionnaires and criteria it explains are teaching tools, not tests to use on yourself or your child. Nothing here should change a support plan or a medicine without your own clinician. Criteria, doses and guideline statements are quoted as published. Please check the original sources, which are listed in full in the <a href=\"#sources\" data-go=\"sources\">Sources</a> module.",
+  "quiz.answer_is": "The answer is {l}.",
+  "shell.disclaimer": "An educational synthesis of published research for study and understanding. It cannot diagnose autism: only a qualified assessment can, and the questionnaires shown here are teaching tools, not for self-diagnosis. Doses, criteria and guideline statements are reported as published, not as instructions.",
+  "shell.home": "Autism Companion home",
+  "shell.note": "An animated, cited guide for students, autistic people, families and caregivers. Educational only, not medical advice and not a diagnostic tool. Your place is saved on this device.",
+  "shell.skip": "Skip to the module",
+  "shell.tagline": "Autism spectrum",
+  "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). {chk} are marked <span class=\"tag warn\">check</span>."
+}
