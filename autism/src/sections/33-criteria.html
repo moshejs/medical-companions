@@ -1,5 +1,100 @@
-<!-- ================= 3.3 DSM-5-TR & ICD-11 CRITERIA (stub, replaced by its builder) ================= -->
+<!-- ================= 3.3 DSM-5-TR & ICD-11 CRITERIA ================= -->
+<style>
+#m-criteria .cr-grid{display:flex;flex-wrap:wrap;gap:6px}
+#m-criteria .cr-grid .btn{font-size:13px;padding:7px 11px}
+#m-criteria .cr-grid .btn b{font-family:var(--mono);font-size:11px;margin-right:4px}
+#m-criteria .cr-row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+#m-criteria .cr-row .kicker{min-width:9ch}
+#m-criteria .cr-row select{font:inherit;font-size:14px;padding:7px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%}
+#m-criteria .cr-lv{display:inline-flex;gap:4px}
+#m-criteria .cr-lv .btn{padding:6px 11px;font-size:13px}
+#m-criteria .cr-ctl{display:flex;flex-direction:column;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+#m-criteria .note ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;font-size:15px}
+#m-criteria .cr-stmt{font-size:15px;background:var(--accent-soft);border-radius:10px;padding:10px 12px}
+#m-criteria .cr-stmt b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:2px}
+#m-criteria .card>.ev,#m-criteria .card>.tag{align-self:flex-start}
+#m-criteria .tbl table{min-width:640px}
+</style>
 <section class="mod" id="m-criteria" data-mod="criteria" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Signs &amp; diagnosis</p><h2>DSM-5-TR &amp; ICD-11 criteria</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Both manuals describe autism with two core domains: social communication and interaction, and restricted, repetitive patterns. Switch criteria on and off to see how the published structure fits together, then switch to ICD-11 to see how it subdivides the same diagnosis.</p></div>
+  <p class="teach"><b>Teaching tool only</b><span>Criteria are paraphrased here, not quoted, and this is not a checklist for diagnosing yourself or anyone else. Each criterion is judged by trained clinicians from a developmental history and direct observation, and no single instrument makes the diagnosis on its own. [[APA2022,Fuentes2021ESCAP]]</span></p>
+
+  <div class="ctrls" role="group" aria-label="Classification">
+    <span class="kicker">Manual</span>
+    <button class="btn" data-crs="dsm" aria-pressed="true">DSM-5-TR (2022)</button>
+    <button class="btn" data-crs="icd" aria-pressed="false">ICD-11 (6A02)</button>
+    <span class="kicker" style="margin-left:8px">Examples</span>
+    <button class="btn ghost" data-crp="meets">A full pattern</button>
+    <button class="btn ghost" data-crp="scd">Social differences only</button>
+    <button class="btn ghost" data-crp="clear">Clear</button>
+  </div>
+  <div class="cr-ctl">
+    <div class="cr-row"><span class="kicker" id="crAk">A · all 3</span><div class="cr-grid" role="group" aria-labelledby="crAk">
+      <button class="btn" data-cr="A1" aria-pressed="false"><b>A1</b>Social-emotional reciprocity</button>
+      <button class="btn" data-cr="A2" aria-pressed="false"><b>A2</b>Nonverbal communication</button>
+      <button class="btn" data-cr="A3" aria-pressed="false"><b>A3</b>Relationships</button></div></div>
+    <div class="cr-row"><span class="kicker" id="crBk">B · 2 of 4</span><div class="cr-grid" role="group" aria-labelledby="crBk">
+      <button class="btn" data-cr="B1" aria-pressed="false"><b>B1</b>Repetitive movements, objects or speech</button>
+      <button class="btn" data-cr="B2" aria-pressed="false"><b>B2</b>Insistence on sameness</button>
+      <button class="btn" data-cr="B3" aria-pressed="false"><b>B3</b>Intense, focused interests</button>
+      <button class="btn" data-cr="B4" aria-pressed="false"><b>B4</b>Sensory reactivity</button></div></div>
+    <div class="cr-row"><span class="kicker" id="crCk">C–E</span><div class="cr-grid" role="group" aria-labelledby="crCk">
+      <button class="btn" data-cr="C" aria-pressed="false"><b>C</b>Present in early development</button>
+      <button class="btn" data-cr="D" aria-pressed="false"><b>D</b>Clinically significant impact</button>
+      <button class="btn" data-cr="E" aria-pressed="false" id="crEbtn"><b>E</b>Not better explained by intellectual disability</button></div></div>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="crSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="A gate diagram of the autism criteria. Three A boxes feed a gate that needs all three; four B boxes feed a gate that needs at least two. Both gates join and pass through C, D and E to an end node that says whether the selected pattern meets the published structure. Support levels for each domain and specifier chips are drawn underneath. In ICD-11 mode the two domains feed a grid of codes 6A02.0 to 6A02.5 by intellectual development and functional language. Selecting a criterion lights its box and path."></svg></div>
+      <p class="stage-cap">Click a box in the drawing or use the buttons above. Paraphrased from DSM-5-TR and cross-checked against the ESCAP summary; ICD-11 codes from two peer-reviewed reproductions. [[APA2022,Fuentes2021ESCAP,Chahboun2022]]</p>
+    </div>
+    <aside class="note" id="crNote" aria-live="polite"></aside>
+  </div>
+  <div class="cr-ctl">
+    <div class="cr-row" id="crLvRow"><span class="kicker">Support</span>
+      <span>Social communication</span><span class="cr-lv" role="group" aria-label="Support level, social communication"><button class="btn" data-lv="s1" aria-pressed="true">1</button><button class="btn" data-lv="s2" aria-pressed="false">2</button><button class="btn" data-lv="s3" aria-pressed="false">3</button></span>
+      <span>Restricted, repetitive</span><span class="cr-lv" role="group" aria-label="Support level, restricted and repetitive behaviours"><button class="btn" data-lv="r1" aria-pressed="true">1</button><button class="btn" data-lv="r2" aria-pressed="false">2</button><button class="btn" data-lv="r3" aria-pressed="false">3</button></span></div>
+    <div class="cr-row"><span class="kicker">Specifiers</span><div class="cr-grid" role="group" aria-label="Specifiers">
+      <button class="btn" data-crsp="id" aria-pressed="false">Intellectual impairment</button>
+      <button class="btn" data-crsp="gen" aria-pressed="false">Known genetic or medical condition</button>
+      <button class="btn" data-crsp="ndd" aria-pressed="false">Another neurodevelopmental, mental or behavioural condition</button>
+      <button class="btn" data-crsp="cat" aria-pressed="false">Catatonia</button></div>
+      <label>Functional language <select id="crLang"><option value="0">mild or no impairment</option><option value="1">impaired</option><option value="2">absent</option></select></label></div>
+  </div>
+
+  <h3 class="sub">Names over time</h3>
+  <div class="stepper" id="crHSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="crHSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A timeline from 1975 to 2025 in which category bars grow as time passes: infantile autism enters DSM-III in 1980; in 1994 DSM-IV splits the field into subtypes including autistic disorder, Asperger's disorder, PDD-NOS and childhood disintegrative disorder; in 2013 the subtypes merge into one bar, autism spectrum disorder, with social (pragmatic) communication disorder added beside it; ICD-11 and DSM-5-TR follow in 2019 to 2022."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="crHPlay">Play</button><label class="stage-cap tl" for="crHT">Year <input type="range" id="crHT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Dates from historical and classification reviews. [[Rosen2021,BarahonaCorrea2015,Reed2019ICD11,APA2022]]</p>
+    </div>
+    <aside class="note" id="crHNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">DSM-5-TR and ICD-11 side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>DSM-5-TR (APA, 2022)</th><th>ICD-11 (WHO, in effect 2022)</th></tr></thead>
+    <tbody>
+      <tr><th>Core domains</th><td>A: social communication and interaction (all three of A1–A3). B: restricted, repetitive patterns (at least two of B1–B4). [[APA2022,Fuentes2021ESCAP]]</td><td>Persistent difficulties starting and sustaining reciprocal social interaction and communication; restricted, repetitive and inflexible patterns of behaviour, interests or activities. [[Fuentes2021ESCAP]]</td></tr>
+      <tr><th>Timing and impact</th><td>C: present in the early developmental period, though it may only show when social demands exceed capacities, or be masked later. D: clinically significant impairment. [[APA2022,Fuentes2021ESCAP]]</td><td>The differences cause impairment and are usually seen across settings, though severity can vary with context. [[Fuentes2021ESCAP]]</td></tr>
+      <tr><th>Subdivided by</th><td>Support levels 1–3, rated separately for each domain; specifiers. [[APA2022]]</td><td>Intellectual development and functional language: 6A02.0–6A02.5, plus 6A02.Y (other specified) and 6A02.Z (unspecified). [[Fuentes2021ESCAP,Chahboun2022]]</td></tr>
+      <tr><th>Sensory differences</th><td>Part of criterion B (B4). [[APA2022]]</td><td>The ESCAP guidance states that ICD-11 does not include sensory hyper- or hyporeactivity; this could not be checked against the WHO text. [[Fuentes2021ESCAP]]</td></tr>
+      <tr><th>Social communication without B</th><td>Social (pragmatic) communication disorder. [[Norbury2014]]</td><td>A category of developmental language disorder with mainly pragmatic impairment. [[Fuentes2021ESCAP]]</td></tr>
+      <tr><th>People who no longer meet full criteria but still have needs</th><td>No category. [[Fuentes2021ESCAP]]</td><td>Accounted for, according to the ESCAP guidance. [[Fuentes2021ESCAP]]</td></tr>
+      <tr><th>Asperger's</th><td>No longer separate since 2013; a well-established DSM-IV diagnosis should be given as autism spectrum disorder. [[Fuentes2021ESCAP]]</td><td>No longer separate. [[Chahboun2022]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Points students get asked about</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Differential</span><h4>Social (pragmatic) communication disorder</h4><p>DSM-5 introduced SCD for persistent difficulty using verbal and nonverbal communication socially, without restricted and repetitive behaviours or interests. If those behaviours were present at any point in development, autism must be considered first. [[Norbury2014,APA2022]] <span class="ev hyp">Hypothesis</span> SCD lacks well-validated measures, overlaps with ADHD, conduct disorder and genetic syndromes, and may be better seen as a dimensional profile across conditions. [[Norbury2014,Swineford2014]]</p></div>
+    <div class="card"><span class="tag accent">2013 change</span><h4>Who kept a diagnosis?</h4><p>Early field-trial reanalysis: only 60.6% of people with a DSM-IV diagnosis met DSM-5 (Asperger's disorder 0.25, PDD-NOS 0.28). [[McPartland2012]] Using parent and clinician data: 91%. [[Huerta2012]] A five-year follow-up meta-analysis put the fall in diagnoses at 20.8%, and fewer than a third (28.8%) of those not meeting DSM-5 qualified for SCD. [[Kulage2020]]</p></div>
+    <div class="card"><span class="tag accent">Support levels</span><h4>"Requiring support" to "very substantial support"</h4><p>Levels are rated separately for social communication and for restricted, repetitive behaviours: Level 1 "requiring support", Level 2 "requiring substantial support", Level 3 "requiring very substantial support". [[APA2022]] The ESCAP guidance criticises them because DSM-5 does not define what some, substantial or very substantial support means. [[Fuentes2021ESCAP]]</p></div>
+    <div class="card"><span class="tag accent">Criterion C</span><h4>Masking and late diagnosis</h4><p>Criterion C allows that differences may not be fully apparent until social demands exceed capacities, or may be masked by learned strategies. [[APA2022,Fuentes2021ESCAP]] Camouflaging, described by autistic adults as masking plus compensation, has costs including exhaustion. [[Hull2017]] See <a href="#adult" data-go="adult">Autistic adults</a>.</p></div>
+    <div class="card"><span class="tag accent">2022 wording</span><h4>"All of the following"</h4><p>DSM-5-TR clarified criterion A to say all three A symptoms are needed. Some had read the 2013 phrase as allowing fewer; the intended rule, all three A and at least two B, did not change. [[APA2022,Fuentes2021ESCAP]]</p></div>
+    <div class="card"><span class="tag accent">Identity</span><h4>When a name disappears</h4><p>ICD-11, like DSM-5, no longer separates Asperger syndrome. Some people for whom "Asperger" was part of their identity found the change confusing or unwelcome. [[Chahboun2022]] Historians have also documented Hans Asperger's cooperation with Nazi race-hygiene policy. [[Czech2018]] How people describe themselves is their own choice. See <a href="#words" data-go="words">Words, identity &amp; neurodiversity</a>.</p></div>
+  </div>
 </section>
