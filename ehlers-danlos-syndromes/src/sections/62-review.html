@@ -1,0 +1,67 @@
+<!-- ================= 6.2 FLASHCARDS & MNEMONICS ================= -->
+<section class="mod" id="m-review" data-mod="review" hidden>
+<style>
+#m-review .rv-lab{margin-top:14px}
+#m-review .mn .card p{margin:6px 0 0}
+#m-review .mn .card .tag{align-self:flex-start}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Flashcards &amp; mnemonics</h2>
+    <p class="lede">Flashcards on the Ehlers-Danlos syndromes and hypermobility spectrum disorders, from Gly-X-Y collagen and the 13 types to the Beighton score, the 2017 hEDS criteria, POTS, vascular EDS emergencies, physiotherapy and pregnancy. Tap a card or press Space to flip it; the arrow keys move through the deck. Filter by part, or shuffle.</p></div>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="%t:cards.label%">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">%t:nav.prev%</button><button class="btn primary" id="fcFlip">%t:cards.flip%</button><button class="btn" id="fcNext">%t:nav.next%</button><button class="btn ghost" id="fcShuf">%t:cards.shuffle%</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <h3 class="sub">%t:cards.mnemonics%</h3>
+  <div class="prose"><p>Cards tagged <b>well known</b> are sayings or formulas in common use; cards tagged <b>memory aid</b> were written for this guide to hold a published fact in mind. Neither replaces the source, and none of them is a way to diagnose yourself.</p></div>
+  <div class="mn" id="mnList"></div>
+  <h3 class="sub">Mnemonic in motion: four pairs and a bow</h3>
+  <p class="prose">Play the timeline to watch a Beighton score build one manoeuvre at a time: four paired items worth 2 points each (little fingers, thumbs, elbows, knees) and one forward bow worth 1, for 9 in all. Then see how the same total reads against the age cut-offs of the 2017 hEDS criteria, 6-5-4. The figure is a teaching example; a score is measured by a clinician and is never a diagnosis on its own.</p>
+  <div class="stepper" id="rvSteps"></div>
+  <div class="lab rv-lab">
+    <div class="stage"><div class="scroll"><svg id="rvSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Animated Beighton score: five tiles show the little fingers bending back past 90 degrees, the thumbs reaching the forearms, the elbows and knees straightening against a dashed 10-degree line, and a forward bend with palms flat on the floor, while nine score pips fill in and a ladder compares the total with the age cut-offs of 6, 5 and 4"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rvPlay">Play</button><label class="stage-cap tl" for="rvT">Examination <input type="range" id="rvT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap">Illustrative example, not a real patient; angles are drawn schematically. Item definitions [[Thwaites2022,Carroll2023]]; age cut-offs [[Tofts2023,Fairweather2025]].</p></div>
+    <aside class="note" id="rvNote" aria-live="polite"></aside>
+  </div>
+</section>
+
+<!-- ================= 6.3 QUIZ ================= -->
+<section class="mod" id="m-quiz" data-mod="quiz" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Quiz</h2>
+    <p class="lede">Multiple-choice questions on the Ehlers-Danlos syndromes with cited explanations: collagen and the 13 types, inheritance, the Beighton score and the 2017 criteria, HSD, POTS and the gut, vascular EDS, physiotherapy, medicines and anaesthesia, pregnancy and nursing care. Case vignettes ask what a clinician would consider next; they are not a self-test. The mixed quiz draws 20 at random; or choose a part.</p></div>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
+</section>
+
+<!-- ================= 6.4 GLOSSARY ================= -->
+<section class="mod" id="m-glossary" data-mod="glossary" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Glossary</h2>
+    <p class="lede">A searchable glossary of EDS terms, from ADAMTS-2 and the D-period to the 13 type abbreviations, Feature A, G-HSD, POTS, the "20% + 2" tryptase rule, celiprolol and the vEDS passport. Type to filter; the arrow on each entry jumps to the module where the term matters most.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="Search terms, e.g. vEDS, 5PQ, COL3A1" aria-label="%t:glossary.search%">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
+</section>
+
+<!-- ================= 6.5 SOURCES ================= -->
+<section class="mod" id="m-sources" data-mod="sources" hidden>
+<style>
+#m-sources .srcs .tag.good{text-transform:none;letter-spacing:.02em}
+#m-sources #srcStats{margin:8px 0 0}
+#m-sources .srcs .mods{display:flex;flex-wrap:wrap;gap:4px;min-width:0}
+#m-sources .srcs .tag{white-space:normal;max-width:100%;overflow-wrap:anywhere}
+#m-sources #srcFilter .btn{white-space:normal;text-align:left}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Sources</h2>
+    <p class="lede">Every reference behind the EDS Companion: journal articles, consensus statements, GeneReviews chapters, drug labels, trial registrations and society pages. The small numbers throughout the app point here; filter by research area or search.</p></div>
+  <div class="callout prose"><p>Eight research passes ran in parallel, one per area: epidemiology, history and the classification; genetics, collagen biology and the 13 types; mechanisms in tissue, joints, skin, pain and fatigue; diagnosis, criteria, the differential and assessment tools; physiotherapy, exercise and psychological care; medicines, surgery and anaesthesia; course, comorbidity and outcomes; and living, family, nursing and research toward better care. Before inclusion each source was checked, where possible, against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA, and the green tag on an entry names the service that confirmed it. Works found by more than one pass appear once, with any extra keys listed beside them.</p>
+    <p>Entries marked <span class="tag warn">check</span> are society pages and announcements that have no PMID or DOI, or works that could not be confirmed. Nothing in the app cites them; they are listed so you can see what was left out and why.</p>
+    <p id="srcStats"></p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="%t:sources.placeholder%" aria-label="%t:sources.search%">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
+</section>

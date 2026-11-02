@@ -2319,6 +2319,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Kallin2026",
+  "text": "Kallin S, Svenningsson A, Olén O, Hedin C, Lycke J, Alping P. Risk of Inflammatory Bowel Disease After Anti-CD20 Treatment in Multiple Sclerosis. JAMA Neurol. 2026 (online ahead of print 22 Oct 2026):e263439. PMID 42911175; PMCID PMC13691918; doi:10.1001/jamaneurol.2026.3439.",
+  "link": "https://doi.org/10.1001/jamaneurol.2026.3439",
+  "areas": [
+   "E"
+  ],
+  "unverified": false,
+  "validated": "PubMed, 2026-10-29; added by research update U-2026-10-29"
+ },
+ {
   "key": "Kapoor2018",
   "text": "Kapoor R, Ho PR, Campbell N, Chang I, Deykin A, Forrestal F, et al. Effect of natalizumab on disease progression in secondary progressive multiple sclerosis (ASCEND): a phase 3, randomised, double-blind, placebo-controlled trial with an open-label extension. Lancet Neurol. 2018;17(5):405-415. PMID 29545067. doi:10.1016/S1474-4422(18)30069-3.",
   "link": "https://doi.org/10.1016/s1474-4422(18)30069-3",
@@ -5009,6 +5019,16 @@
   ],
   "unverified": false,
   "validated": "PubMed"
+ },
+ {
+  "key": "Wiendl2026",
+  "text": "Wiendl H, Bermel R, Airas L, Chitnis T, Nakahara J, Williams M, et al. Remibrutinib versus teriflunomide in relapsing multiple sclerosis (REMODEL-1 and REMODEL-2): two randomised, phase 3 trials. Lancet. 2026 (online ahead of print 23 Oct 2026):S0140-6736(26)02058-1. PMID 42915009; doi:10.1016/S0140-6736(26)02058-1.",
+  "link": "https://doi.org/10.1016/s0140-6736(26)02058-1",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed, 2026-10-29; added by research update U-2026-10-29"
  },
  {
   "key": "Willer2003",

@@ -1,0 +1,85 @@
+<!-- ================= 5.1 LIVING WITH TB ================= -->
+<style>
+#m-living .card>.tag{align-self:flex-start}
+#m-living .tbl table{min-width:620px}
+#m-living .lv-bar{display:inline-block;height:9px;border-radius:5px;vertical-align:middle;margin-right:6px;background:var(--brand)}
+#m-living .lv-bar.base{background:var(--fibro)}
+#m-living td.num{white-space:nowrap;font-family:var(--mono);font-size:13px}
+</style>
+<section class="mod" id="m-living" data-mod="living" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Living with TB</p><h2>Living with TB</h2>
+    <p class="lede">Six months of treatment is a long road, and most of it happens at home, at work and with family. Follow one person from the first cough to cure and beyond, and switch a support package on and off to see what the trials found.</p></div>
+  <div class="ctrls" role="group" aria-label="Support package">
+    <span class="kicker">Support</span>
+    <button class="btn" id="lvSup" aria-pressed="false">With a support package: food, transport, video DOT, cash</button>
+  </div>
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvSvg" viewBox="0 0 720 460" style="min-width:560px" role="img" aria-label="One person's journey with TB on a timeline of months, from weeks of cough before diagnosis to cure at month 6 and a lung check-up after. Flags pop up for feelings and practical problems. Below the road, lanes fill in as time passes: daily doses taken or missed, the published share of people whose sputum turns negative at 2 weeks and 2 months, the share of household costs already spent, and the support package when it is switched on."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">Play</button><label class="stage-cap tl" for="lvT">Months <input type="range" id="lvT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="lvRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative person on the standard 6-month regimen. The dose strip is drawn, not measured. Circled points on the sputum lane are pooled published values; the cost curve is drawn through the published finding that half the costs come before treatment starts. The trial bars come from different studies in different countries and cannot be added together. [[Calderwood2021,Tanimura2014]]</p>
+    </div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What support did in trials</h3>
+  <p class="prose">WHO recommends health education and counselling for everyone on TB treatment (strong recommendation, moderate certainty), and says a package of adherence interventions may be offered with a suitable way of taking treatment (conditional, low certainty). Material support means food or money: meals, food baskets, vouchers, transport subsidies, living allowances or housing incentives, to cover indirect costs and soften lost income. [[WHO-Mod4-2025]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Support</th><th>Where and who</th><th>Without</th><th>With</th><th>What it means</th></tr></thead>
+    <tbody>
+      <tr><th>Cash transfers, community meetings, home visits</th><td>Peru, 282 households, randomised</td><td class="num"><span class="lv-bar base" style="width:53px"></span>53%</td><td class="num"><span class="lv-bar" style="width:64px"></span>64%</td><td>Treatment success rose; preventive therapy started in 43% of young contacts against 25%. [[Wingfield2017]]</td></tr>
+      <tr><th>Interactive app, treatment supporter, weekly urine test</th><td>Argentina, 555 people, randomised</td><td class="num"><span class="lv-bar base" style="width:74px"></span>74%</td><td class="num"><span class="lv-bar" style="width:82px"></span>82%</td><td>Success rose and loss to follow-up fell from 24% to 17%. <span class="ev early">Early evidence</span> [[Rubinstein2026]]</td></tr>
+      <tr><th>Cash transfer programme (Bolsa Família)</th><td>Brazil, matched national data, 2167 people</td><td class="num" colspan="2">+10.58 percentage points</td><td>Higher treatment success in people receiving the transfer; observational. [[Carter2019BMJGH]]</td></tr>
+      <tr><th>Reminder pillbox (with or without texts)</th><td>China, 4173 people, cluster-randomised</td><td class="num">29.9%</td><td class="num">13.9–17.0%</td><td>Share of patient-months with at least 20% of doses missed. Text messages alone: 27.3%, not significant. [[Liu2015PLoSMed]]</td></tr>
+      <tr><th>Video-observed therapy</th><td>Moldova, 197 people, randomised</td><td class="num">5.24</td><td class="num">1.29</td><td>Unobserved days per 2 weeks; people also saved about 58 hours and about EUR 25 each. [[Ravenscroft2020]]</td></tr>
+      <tr><th>Smartphone video-observed treatment</th><td>London, randomised</td><td class="num">31%</td><td class="num">70%</td><td>Completed at least 80% of observations in the first 2 months. [[Story2019]]</td></tr>
+      <tr><th>Smart pillboxes and medication labels</th><td>ASCENT: Philippines, South Africa, Tanzania, Ukraine, Ethiopia</td><td class="num" colspan="2">no difference</td><td><span class="ev est">Established</span> No fall in poor end-of-treatment outcomes in any country. Two people in a pillbox arm had their TB status disclosed by accident and withdrew. [[Jerene2025,Tadesse2025LDH]]</td></tr>
+      <tr><th>Food: 1200 kcal and 52 g protein a day</th><td>India, RATIONS patient cohort (no control group)</td><td class="num">n/a</td><td class="num">93.7%</td><td>Treatment success; 82.4% were underweight at the start. Gaining 5% of body weight by 2 months went with a lower hazard of death (aHR 0.39). [[Bhargava2023LGH]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Across 22 randomised trials, cure rates were 18% higher with DOTS and 16% higher with education and counselling; loss to follow-up fell 49% with DOTS, 26% with financial incentives and 13% with education. None reduced mortality significantly. [[Muller2018]] A 2025 meta-analysis found digital adherence tools gave only a modest, non-significant rise in treatment success in trials; smartphone apps did better. [[Mohamed2025]] Better adherence data have not always turned into better outcomes: how a programme responds to a missed dose may matter more than the device.</p>
+
+  <h3 class="sub">After cure: lungs, life and money</h3>
+  <div class="ctrls" role="group" aria-label="Post-TB comparison">
+    <span class="kicker">Mortality after treatment</span>
+    <button class="btn" data-lp="all" aria-pressed="true">Everyone treated</button>
+    <button class="btn" data-lp="cured" aria-pressed="false">Cured or completed</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Household costs">
+    <span class="kicker">Catastrophic costs</span>
+    <button class="btn" data-lc="all" aria-pressed="true">All TB</button>
+    <button class="btn" data-lc="dr" aria-pressed="false">Drug-resistant TB</button>
+    <button class="btn" data-lc="poor" aria-pressed="false">Poorest fifth</button>
+    <button class="btn" data-lc="rich" aria-pressed="false">Richest fifth</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvPost" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Left: an icon array. For every 10 deaths expected in a same-age general population, about 29 occurred among people treated for TB, or about 38 among those cured or who completed treatment. Right: 100 houses, with the share of TB-affected households facing catastrophic costs filled in. Below: a bar splitting the healthy life lost to each TB episode into the illness itself and the years after it."></svg></div>
+      <p class="stage-cap">Population statistics from meta-analyses and national surveys, not a prediction for any one person. Icons are rounded to whole people and houses. [[Romanowski2019,WHO-GTR2025,Portnoy2023,Menzies2021LGH]]</p>
+    </div>
+    <aside class="note" id="lvPostNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Everyday questions</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Work &amp; school</span><h4>Going back</h4><p>When you can go back depends on whether you can still pass TB on, and your clinician decides. For health workers, CDC states the published rule: return after three consecutive negative sputum samples (8 to 24 hours apart, one early in the morning), a response to treatment that is probably effective, and a physician's judgement that they are no longer infectious. [[Jensen2005]]</p><p>For people sent home before their sputum turns negative, CDC lists conditions: a follow-up plan with the TB programme, DOT arranged, no children under 4 or immunocompromised people in the home, and a willingness not to go out except for health-care visits. [[Jensen2005]] CDC counts disease of the lung, airway or larynx, cough and a positive smear among the signs that someone is infectious. [[Jensen2005]] More in <a href="#control" data-go="control">Infection control &amp; contacts</a>.</p></div>
+    <div class="card"><span class="tag rx">Pregnancy</span><h4>Pregnancy and breastfeeding</h4><ul>
+      <li>There is no absolute contraindication to breastfeeding during TB treatment, and breastmilk is best for newborns in most settings. Parents who do not breastfeed should be supported too. [[Maugans2023]]</li>
+      <li>Infection control should not usually separate a parent from their newborn: most pregnant people on effective therapy are unlikely to pass TB on. [[Maugans2023]]</li>
+      <li>The isoniazid label says the low levels in breast milk "do not threaten the neonate"; the ethambutol label says the drug is excreted in breast milk. [[FDA-Isoniazid,FDA-Ethambutol]]</li>
+      <li>Rifampicin can make the pill and other hormonal contraceptives less reliable; the label advises considering other methods. [[FDA-Rifampin]]</li>
+      <li>The best-practice guidance suggests an emergency supply of TB medicines and a referral letter before the due date. [[Maugans2023]] More in <a href="#special" data-go="special">TB with HIV, in children &amp; pregnancy</a>.</li></ul></div>
+    <div class="card"><span class="tag warn">Alcohol &amp; smoking</span><h4>They make treatment work less well</h4><p>Alcohol use roughly doubled the odds of death, treatment failure or loss to follow-up (OR 1.99 in drug-susceptible TB, 2.00 in MDR-TB; 111 studies). [[Ragan2020]] Smoking was linked to poorer outcomes (OR 1.51) and slower sputum conversion. [[Burusie2020,Wang2020IJTLD]] Smoking plus alcohol misuse raised unfavourable outcomes about 3.6- to 4.7-fold in one Indian cohort. [[Thomas2019PLoSOne]]</p><p>The rifampin label asks people to avoid alcohol and liver-toxic drugs or herbs. [[FDA-Rifampin]] WHO counts alcohol-cessation counselling, self-help groups and TB clubs as psychological support. [[WHO-Mod4-2025]] Your clinic can help you cut down or quit.</p></div>
+    <div class="card"><span class="tag accent">Family</span><h4>Talking to family and children</h4><p>TB is nobody's fault: it is caused by a germ in the air, and it can be cured. Household contacts are checked because they shared the air, not because anyone did something wrong. About half of household contacts in high-burden settings have TB infection and about 3% have TB disease. [[Fox2013]]</p><p>Children under 5 who live with someone with TB are high priority: they may be given preventive medicine once TB disease is excluded, even before a second test. [[NTCA2005]] WHO suggests family-centred, integrated care for children and adolescents. [[WHO-Mod4-2025]] Feeding the whole household can protect it: monthly food rations cut TB in contacts by 39% to 48%. [[Bhargava2023Lancet]]</p></div>
+    <div class="card"><span class="tag bad">Stigma &amp; rights</span><h4>Privacy, fairness and work</h4><p>In a national survey in Ethiopia, fear of losing a job (32.5%) and of isolation (15.3%) shaped whether people disclosed TB; more knowledge went with less stigma. [[Datiko2020]] In Lusaka, 82% of people who described their experience reported stigma, and women more often than men. [[Cremers2015]]</p><p>Public-health interviews take place in your own language, with an interpreter if needed, and you are told how confidentiality is protected and where its limits are. [[NTCA2005]] Where communicable-disease laws are used, NTCA/CDC states that "the least restrictive measures" come first. [[NTCA2005]] Employment and disability protections vary by country: a TB nurse or social worker can point you to local advice.</p></div>
+    <div class="card"><span class="tag good">Help</span><h4>Where to get help</h4><ul>
+      <li>Your TB clinic or programme: in most national programmes treatment is free and effective. Ask what food, transport and cash support exists; WHO lists all three as material support. [[WHO-Mod4-2025]]</li>
+      <li>Your nurse, if you feel low: depression affected about 45% of people with TB in a pooled analysis (52% in MDR-TB), and it is treatable. [[Duko2020]]</li>
+      <li>Community or home-based treatment support is preferred by WHO over clinic-only or unsupported treatment. [[WHO-Mod4-2025]]</li>
+      <li>After treatment: ask about a lung check and rehabilitation if breathing is still hard. [[Migliori2021PTLD]]</li>
+      <li>TB is a notifiable disease. Anyone with a long cough, fever, night sweats or weight loss should see a clinician.</li></ul></div>
+    <div class="card"><span class="tag">Words matter</span><h4>Person-first language</h4><p>Authors from TB programmes on five continents proposed "person with presumptive TB" instead of "TB suspect", "person lost to follow-up" instead of "defaulter", and "prevention and care" instead of "control". They called the old terms coercive and blaming. [[Zachariah2012]] This guide says "TB infection" (formerly latent TB) and "TB disease".</p></div>
+  </div>
+</section>

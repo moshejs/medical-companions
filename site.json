@@ -325,6 +325,75 @@
       }
     },
     {
+      "slug": "ehlers-danlos-syndromes",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "EDS Companion",
+        "he": "מלווה תסמונות אהלרס-דנלוס"
+      },
+      "published": "2026-10-29",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "tuberculosis",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "TB Companion"
+      },
+      "published": "2026-10-30",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "borderline-personality-disorder",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "BPD Companion"
+      },
+      "published": "2026-10-31",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "adhd",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "ADHD Companion"
+      },
+      "published": "2026-11-01",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
       "slug": "autism",
       "langs": [
         "en"
@@ -332,7 +401,7 @@
       "name": {
         "en": "Autism Companion"
       },
-      "published": "2026-10-25",
+      "published": "2026-11-02",
       "reviewers": {
         "en": {
           "name": "",

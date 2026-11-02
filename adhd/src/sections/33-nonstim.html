@@ -1,0 +1,86 @@
+<!-- ================= 3.3 NON-STIMULANT MEDICINES ================= -->
+<style>
+#m-nonstim .card>.tag,#m-nonstim .card>.ev{align-self:flex-start}
+#m-nonstim .card dl{margin:0;display:flex;flex-direction:column;gap:7px}
+#m-nonstim .card dt{font:600 10.5px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.11em;color:var(--muted)}
+#m-nonstim .card dd{margin:0;font-size:14.5px}
+#m-nonstim .tbl table{min-width:640px}
+</style>
+<section class="mod" id="m-nonstim" data-mod="nonstim" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Medication</p><h2>Non-stimulant medicines</h2>
+    <p class="lede">Four medicines treat ADHD without being stimulants. Two block the noradrenaline transporter; two switch on alpha-2 receptors. Pick one and step from the synapse to the prefrontal network to the rest of the body.</p></div>
+  <div class="ctrls" role="group" aria-label="Medicine">
+    <span class="kicker">Medicine</span>
+    <button class="btn" data-nsd="atx" aria-pressed="true">Atomoxetine</button>
+    <button class="btn" data-nsd="vlx" aria-pressed="false">Viloxazine ER</button>
+    <button class="btn" data-nsd="gxr" aria-pressed="false">Guanfacine ER</button>
+    <button class="btn" data-nsd="clon" aria-pressed="false">Clonidine ER</button>
+  </div>
+  <div class="stepper" id="nsSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nsSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Mechanism of the chosen non-stimulant. For atomoxetine and viloxazine, medicine molecules fill the noradrenaline transporters of a prefrontal synapse and noradrenaline builds up in the cleft, with bars for the measured rises or receptor occupancies. For guanfacine and clonidine, the medicine binds alpha-2A receptors on a dendritic spine, cAMP falls, HCN channels close and a network firing trace holds its activity. A brain on the right lights up the prefrontal cortex, then the brainstem and body effects appear."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nsPlay">Play</button><label class="stage-cap tl" for="nsT">Mechanism <input type="range" id="nsT" min="0" max="1" step="0.001" value="0.3"></label></div>
+      <p class="stage-cap">Schematic, not to scale. Each label states that the medicine's exact mechanism in ADHD is unknown or unclear; the steps show the leading explanations from animal and receptor studies. [[FDA-Strattera,FDA-Qelbree,FDA-Intuniv,FDA-OnydaXR]]</p>
+    </div>
+    <aside class="note" id="nsNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Weeks to full effect</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nsWk" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="Schematic response curves over 12 weeks: a stimulant reaches most of its effect within the first week, viloxazine separates from placebo from week 1, clonidine ER by week 2, guanfacine ER climbs as the dose is raised weekly, and atomoxetine starts within 1 to 2 weeks and keeps rising beyond 12 weeks."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nsWkPlay">Play</button><label class="stage-cap tl" for="nsWkT">Weeks <input type="range" id="nsWkT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap"><b>Schematic shapes.</b> Each curve is drawn as a share of that medicine's own eventual improvement, so heights do not compare effect sizes (see <a href="#compare" data-go="compare">How well treatments work</a>). Circles mark published anchors from trials and reviews. [[Adler2008LDX,Nasser2020Children,Clemow2015,Jain2011,Biederman2008GXR]]</p>
+    </div>
+    <aside class="note" id="nsWkNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Each medicine on its label</h3>
+  <p class="prose">Doses are quoted as each US label publishes them, as teaching facts, not instructions. Neither atomoxetine nor guanfacine ER is a controlled substance; the Intuniv label says guanfacine ER "has no known potential for abuse or dependence". [[FDA-Strattera,FDA-Intuniv]]</p>
+  <div class="cards">
+    <div class="card"><span class="tag rx">NET inhibitor</span><h4>Atomoxetine (Strattera)</h4><dl>
+      <dt>Indication</dt><dd>ADHD in adults and children 6 years and older, "as an integral part of a total treatment program". [[FDA-Strattera]]</dd>
+      <dt>Boxed warning</dt><dd>"Suicidal thoughts and behaviors in pediatric patients 6 years of age and older": suicidal ideation in 0.4% (5/1,357) of children on atomoxetine vs 0% (0/851) on placebo in 12 short-term studies. [[FDA-Strattera]]</dd>
+      <dt>Dose, as published</dt><dd>Under 70 kg: start 0.5 mg/kg/day, target 1.2 mg/kg/day, maximum 1.4 mg/kg/day or 100 mg/day, whichever is less. 70 kg or more and adults: start 40 mg/day, target 80 mg/day, maximum 100 mg/day. "No additional benefit has been demonstrated with STRATTERA dosages higher than 1.2 mg/kg/day". [[FDA-Strattera]]</dd>
+      <dt>Common adverse events (children vs placebo)</dt><dd>Headache 19% vs 15%, abdominal pain 18% vs 10%, decreased appetite 16% vs 4%, somnolence 11% vs 4%, vomiting 11% vs 6%. [[FDA-Strattera]]</dd>
+      <dt>Also</dt><dd>Severe liver injury warning; contraindicated with MAOIs (within 14 days), narrow-angle glaucoma, pheochromocytoma and severe cardiac or vascular disorders. Capsules taken whole, not opened. [[FDA-Strattera]]</dd></dl></div>
+    <div class="card"><span class="tag rx">NET inhibitor + 5-HT</span><h4>Viloxazine ER (Qelbree)</h4><dl>
+      <dt>Indication</dt><dd>ADHD in adults and children 6 years and older. [[FDA-Qelbree]]</dd>
+      <dt>Boxed warning</dt><dd>"higher rates of suicidal thoughts and behavior were reported in patients with ADHD treated with Qelbree than in patients treated with placebo": 0.9% (9/1,019) vs 0.4% (2/463) in children; 1.6% (3/189) vs 0/183 in adults. [[FDA-Qelbree]]</dd>
+      <dt>Dose, as published</dt><dd>Ages 6–11: start 100 mg once daily, maximum 400 mg. Ages 12–17: start 200 mg, maximum 400 mg. Adults: start 200 mg, maximum 600 mg. Capsules can be sprinkled on applesauce or pudding. [[FDA-Qelbree]]</dd>
+      <dt>Common adverse events (adults vs placebo)</dt><dd>Insomnia 23% vs 7%, headache 17% vs 7%, nausea 12% vs 3%, fatigue 12% vs 3%, dry mouth 10% vs 2%, decreased appetite 10% vs 3%. [[FDA-Qelbree]]</dd>
+      <dt>Also</dt><dd>Contraindicated with MAOIs and with sensitive or narrow-therapeutic-range CYP1A2 substrates. In children on 100 mg, 22% had a heart-rate rise of at least 20 bpm at some point, vs 9% on placebo. [[FDA-Qelbree]]</dd></dl></div>
+    <div class="card"><span class="tag rx">Alpha-2A agonist</span><h4>Guanfacine ER (Intuniv)</h4><dl>
+      <dt>Indication</dt><dd>ADHD "as monotherapy and as adjunctive therapy to stimulant medications"; studied at ages 6 to 17; not established below 6. [[FDA-Intuniv]]</dd>
+      <dt>Dose, as published</dt><dd>Begin 1 mg once daily, increase by no more than 1 mg/week; target 0.05–0.12 mg/kg/day (total 1–7 mg/day). Not with high-fat meals; do not crush or chew; not interchangeable mg for mg with immediate-release guanfacine. [[FDA-Intuniv]]</dd>
+      <dt>Adverse events</dt><dd>Somnolence rose with dose: 11% placebo, 28% at 1 mg, 30% at 2 mg, 38% at 3 mg, 51% at 4 mg. Hypotension 7% vs 3%. [[FDA-Intuniv]]</dd>
+      <dt>Stopping</dt><dd>Abrupt discontinuation "can lead to clinically significant and persistent rebound hypertension"; the label tapers by no more than 1 mg every 3 to 7 days. [[FDA-Intuniv]]</dd></dl></div>
+    <div class="card"><span class="tag rx">Alpha-2 agonist</span><h4>Clonidine ER</h4><dl>
+      <dt>Indication</dt><dd>ADHD as monotherapy or as an add-on to stimulants; established at ages 6 to 17. [[FDA-ClonidineER]]</dd>
+      <dt>Dose, as published</dt><dd>0.1 mg at bedtime, rising by 0.1 mg/day weekly, given twice a day with an equal or larger bedtime dose. Doses above 0.4 mg/day "were not evaluated in clinical trials for ADHD and are not recommended". [[FDA-ClonidineER]]</dd>
+      <dt>Adverse events</dt><dd>Somnolence 38% at 0.2 mg/day and 31% at 0.4 mg/day vs 4% on placebo (monotherapy); 19% vs 7% as an add-on to stimulants. [[FDA-ClonidineER]]</dd>
+      <dt>Stopping</dt><dd>Taper by no more than 0.1 mg every 3 to 7 days to avoid rebound hypertension. [[FDA-ClonidineER]]</dd></dl></div>
+  </div>
+
+  <h3 class="sub">Where they fit</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Guidelines</span><h4>Usually after a stimulant</h4><p>NICE offers methylphenidate first in children 5 and over, and lisdexamfetamine or methylphenidate first in adults; atomoxetine is offered to adults if neither is tolerated or effective after separate 6-week trials. The AAP grades the evidence for school-age children "particularly strong for stimulant medications" and "sufficient, but not as strong, for atomoxetine, extended-release guanfacine, and extended-release clonidine, in that order". [[NICE2018F,Wolraich2019]]</p></div>
+    <div class="card"><span class="tag accent">Effect</span><h4>Moderate, not large</h4><p><span class="ev est">Established</span> The World Federation consensus describes moderate improvements with atomoxetine at all ages and with extended-release guanfacine in children, against large ones with amphetamines. The AAP gives an effect size of about 0.7 for non-stimulants and 1.0 for stimulants. [[Faraone2021,Wolraich2019]]</p></div>
+    <div class="card"><span class="tag accent">Reasons to choose one</span><h4>Misuse concerns, intolerance, add-on</h4><p>Stimulants "are more effective than non-stimulant medications but are also more likely to be diverted, misused, and abused". Non-stimulants are not controlled substances, and both alpha-2 agonists are labelled as add-ons to a stimulant. On tics, a meta-analysis of 22 trials found new or worse tics equally common on stimulants (5.7%) and placebo (6.5%). [[Faraone2021,FDA-Strattera,FDA-Intuniv,FDA-ClonidineER,Cohen2015Tics]]</p></div>
+    <div class="card"><span class="tag warn">Heart and blood pressure</span><h4>Both directions</h4><p>Atomoxetine and viloxazine raise pulse in children (by 5.58 and 2.79 bpm vs placebo in a network meta-analysis); guanfacine lowers it (−4.06 bpm) and lowers systolic pressure (−2.83 mm Hg). NICE asks for a dose reduction or switch if sustained orthostatic hypotension or fainting occurs on guanfacine. [[Farhat2025CV,NICE2018F]]</p></div>
+  </div>
+
+  <h3 class="sub">Pharmacokinetics at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Medicine</th><th>Tmax</th><th>Half-life</th><th>Metabolism / interactions</th><th>Food</th></tr></thead>
+    <tbody>
+      <tr><th>Atomoxetine</th><td>1 h (2.5 h in CYP2D6 poor metabolisers)</td><td>5.2 h; 21.6 h in poor metabolisers</td><td>Mainly CYP2D6; 4-week titration steps suggested for poor metabolisers or with strong CYP2D6 inhibitors</td><td>Cmax −37%, Tmax +3 h, AUC unchanged</td></tr>
+      <tr><th>Viloxazine ER</th><td>≈5 h (3–9)</td><td>7.02 h; steady state after 2 days</td><td>Contraindicated with sensitive CYP1A2 substrates and MAOIs</td><td>High-fat meal: Cmax −9%, AUC −8%</td></tr>
+      <tr><th>Guanfacine ER</th><td>≈5 h (children); 6.0 h vs 3.0 h IR (adults)</td><td>18 ± 4 h</td><td>Mainly CYP3A4</td><td>High-fat meal: Cmax +75%, AUC +40%</td></tr>
+      <tr><th>Clonidine</th><td>3–5 h (immediate release)</td><td>12–16 h (IR); up to 41 h in severe renal impairment</td><td>ER Cmax 50% lower than IR</td><td>Not covered in this guide's label extract</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sources: [[FDA-Strattera,FDA-Qelbree,FDA-Intuniv,FDA-ClonidineER]]</p>
+  <div class="callout"><p><b>In plain words.</b> Non-stimulants take longer to work than stimulants. On atomoxetine or viloxazine, families should watch for new sad, hopeless or suicidal thoughts and tell the doctor right away. Guanfacine and clonidine should not be stopped suddenly, because blood pressure can jump. [[Clemow2015,FDA-Strattera,FDA-Qelbree,FDA-Intuniv,FDA-ClonidineER]]</p></div>
+</section>
