@@ -1,5 +1,62 @@
-<!-- ================= 4.3 COMMUNICATION, AAC & THERAPIES (stub, replaced by its builder) ================= -->
+<!-- ================= 4.3 COMMUNICATION, AAC & THERAPIES ================= -->
+<style>
+#m-therapies .card>.ev,#m-therapies .card>.tag{align-self:flex-start}
+#m-therapies .card .meta{font:500 12px/1.45 var(--mono);color:var(--muted);margin:0}
+#m-therapies .card[hidden]{display:none}
+#m-therapies .ctrls .kicker{margin-right:4px}
+#m-therapies .fcw{border-left:3px solid var(--bad);padding-left:14px}
+</style>
 <section class="mod" id="m-therapies" data-mod="therapies" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Supports &amp; interventions</p><h2>Communication, AAC &amp; therapies</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Communication is not a ladder with speech at the top. Gestures, pictures, devices and spoken words are parallel paths a person can move between. Then compare the therapies families ask about most, with what each has and has not been shown to do.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Who is communicating">
+    <span class="kicker">Scene</span>
+    <button class="btn" data-thw="child" aria-pressed="true">Young child</button>
+    <button class="btn" data-thw="adult" aria-pressed="false">Minimally speaking adult</button>
+  </div>
+  <div class="stepper" id="thSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="thSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Four parallel lanes: gestures, pictures (PECS), a speech-generating device and spoken words. A person moves between lanes over time, sending messages to a partner. PECS phases I to VI fill in with the share of children who reached each phase, and the spoken-words lane keeps growing, showing that AAC does not stop speech developing."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="thPlay">Play</button><label class="stage-cap tl" for="thT">Time <input type="range" id="thT" min="0" max="1" step="0.001" value="0.3"></label></div>
+      <div class="readout" id="thRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The person's path between lanes is illustrative. PECS percentages are from one 24-session programme with 22 children aged 6–12. [[Tamanaha2023]] The speech finding is the review's conclusion, not a measured curve. [[Schlosser2008]]</p>
+    </div>
+    <aside class="note" id="thNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Therapies compared</h3>
+  <p class="stage-cap">Filter by the goal that matters to you. Ages are those studied; evidence labels summarise the cited reviews and trials.</p>
+  <div class="ctrls" role="group" aria-label="Filter by goal">
+    <span class="kicker">Goal</span>
+    <button class="btn" data-thg="all" aria-pressed="true">All</button>
+    <button class="btn" data-thg="comm" aria-pressed="false">Communication</button>
+    <button class="btn" data-thg="anx" aria-pressed="false">Anxiety</button>
+    <button class="btn" data-thg="daily" aria-pressed="false">Daily living &amp; sleep</button>
+    <button class="btn" data-thg="friend" aria-pressed="false">Friendships</button>
+  </div>
+  <div class="cards" id="thCards"></div>
+
+  <h3 class="sub">Who is rating the change?</h3>
+  <div class="ctrls" role="group" aria-label="Meta-analysis shown">
+    <span class="kicker">Meta-analysis</span>
+    <button class="btn" data-thr="cbt" aria-pressed="true">CBT for anxiety</button>
+    <button class="btn" data-thr="ss" aria-pressed="false">Social skills groups</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="thRSvg" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="Bar chart of pooled effect sizes by who rated the outcome. For CBT for anxiety: clinician 0.88, parent 0.40, child 0.25. For social skills groups: self-report 0.92, task-based 0.58, parent 0.47, observer 0.40, teacher not significant."></svg></div>
+      <p class="stage-cap">Pooled Hedges' g by rater. Study-population statistics. [[Sharma2021,Gates2017]]</p>
+    </div>
+    <aside class="note" id="thRNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Whose words? Facilitated communication and spelling methods</h3>
+  <div class="cards">
+    <div class="card fcw"><span class="ev est">Established</span><h4>Facilitated communication</h4><p>In facilitated communication (FC), a facilitator gives physical support while the person types or points. A systematic review found "unequivocal evidence for facilitator control": the messages are authored by the facilitator, and FC "has no validity". [[Schlosser2014FC]]</p></div>
+    <div class="card fcw"><span class="tag warn">No evidence of authorship</span><h4>RPM and spelling to communicate</h4><p>In the Rapid Prompting Method the facilitator holds and moves the letter board rather than the person's hand, and its proponents make claims similar to those once made for FC. [[Tostanoski2014]] A 2019 review found no evidence supporting RPM. [[Schlosser2019RPM]] A 2026 review of authorship in RPM, Spelling to Communicate and variants found no study that met its design criteria, and advises stopping these methods until independent authorship studies show they are valid. [[Schlosser2026RPM]]</p></div>
+    <div class="card"><h4>Why authorship testing matters</h4><p>A person who cannot speak still has a right to their own words. If the facilitator is unknowingly shaping the message, the person's real wishes, including about health, consent or abuse, can be overwritten. Authorship tests give the person information the facilitator does not have and check whose knowledge appears in the message. In the FC studies reviewed, it was the facilitator's. [[Schlosser2014FC]] Users of spelling methods report that it lets them communicate; controlled authorship testing is what is still missing. [[Schlosser2026RPM]] Independent AAC, where the person selects without being touched or having the board moved, is the alternative this page describes above.</p></div>
+  </div>
+  <p class="stage-cap">The wider evidence map is in <a href="#supports" data-go="supports">Supports &amp; the evidence</a>; behavioural approaches in <a href="#aba" data-go="aba">ABA and the debate</a>; sensory differences in <a href="#senses" data-go="senses">The sensory world</a>.</p>
 </section>
