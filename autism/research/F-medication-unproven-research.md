@@ -163,7 +163,7 @@ Access notes:
 - A 2011 meta-analysis of 5 crossover RCTs found that melatonin, compared with placebo, increased sleep duration by 44 min and shortened sleep-onset latency by 39 min, with minimal side effects. It did not reduce night-time awakenings [[Rossignol2011]].
 
 ### meds · SSRIs and repetitive behaviour
-- STAART citalopram trial: 149 children aged 5–17 with high levels of repetitive behaviour, 12 weeks, mean maximum dose 16.5 mg/day [[King2009]].
+- STAART citalopram trial: 149 children aged 5–17 with high levels of repetitive behaviour, 12 weeks, mean maximum dose 16.5 mg/day [[King2009F]].
   - Response: 32.9% vs 34.2% on placebo (RR 0.96, 95% CI 0.61–1.51).
   - Change in CYBOCS-PDD: −2.0 vs −1.9.
   - Adverse events were more likely on citalopram, including increased energy, impulsiveness, hyperactivity, stereotypy, diarrhoea and insomnia.
@@ -306,7 +306,7 @@ Access notes:
 - NICE: review an antipsychotic at 3–4 weeks and stop it if there is no meaningful response by 6 weeks [[NICE-CG170]].
 - Methylphenidate helps hyperactivity in autism, but response (49%) is lower and side effects more frequent than in non-autistic ADHD [[RUPP2005Methylphenidate]].
 - Guanfacine ER: 50% vs 9.4% responders for hyperactivity [[Scahill2015]].
-- Citalopram did not reduce repetitive behaviour (32.9% vs 34.2% response) and caused more activation side effects [[King2009]].
+- Citalopram did not reduce repetitive behaviour (32.9% vs 34.2% response) and caused more activation side effects [[King2009F]].
 - Sleep: behavioural strategies come first. Prolonged-release melatonin added about 32 min of sleep vs placebo at 13 weeks [[WilliamsBuckley2020,Gringras2017]].
 - Secretin: 16 RCTs and more than 900 children, no benefit. Do not use [[Williams2012Secretin,NICE-CG170]].
 - Chelation has caused deaths from hypocalcaemia (edetate disodium) and has no trial evidence of benefit [[Brown2006,James2015]].
@@ -371,8 +371,8 @@ Access notes:
 - atomoxetine_ADHDRS | 8wk_atomoxetine | 31.6 | points | [[Harfterkamp2012]]
 - atomoxetine_ADHDRS | baseline_placebo | 38.6 | points | [[Harfterkamp2012]]
 - atomoxetine_ADHDRS | 8wk_placebo | 38.3 | points | [[Harfterkamp2012]]
-- citalopram_response_pct | 12wk_citalopram | 32.9 | % | [[King2009]]
-- citalopram_response_pct | 12wk_placebo | 34.2 | % | [[King2009]]
+- citalopram_response_pct | 12wk_citalopram | 32.9 | % | [[King2009F]]
+- citalopram_response_pct | 12wk_placebo | 34.2 | % | [[King2009F]]
 - melatonin_sleep_gain_min | 13wk_PedPRM | 57.5 | min | [[Gringras2017]]
 - melatonin_sleep_gain_min | 13wk_placebo | 9.14 | min | [[Gringras2017]]
 - melatonin_sleep_gain_min | 52wk_PedPRM_openlabel | 62.08 | min | [[Maras2018]]
@@ -464,7 +464,7 @@ Access notes:
 - [Maras2018] Maras A, Schroder CM, Malow BA, Findling RL, Breddy J, Nir T, et al. Long-Term Efficacy and Safety of Pediatric Prolonged-Release Melatonin for Insomnia in Children with Autism Spectrum Disorder. J Child Adolesc Psychopharmacol. 2018;28(10):699-710. PMID 30132686; PMCID PMC6306655; doi:10.1089/cap.2018.0020. (validated: PubMed)
 - [Malow2021] Malow BA, Findling RL, Schroder CM, Maras A, Breddy J, Nir T, et al. Sleep, Growth, and Puberty After 2 Years of Prolonged-Release Melatonin in Children With Autism Spectrum Disorder. J Am Acad Child Adolesc Psychiatry. 2021;60(2):252-261.e3. PMID 31982581; PMCID PMC8084705; doi:10.1016/j.jaac.2019.12.007. (validated: PubMed)
 - [Rossignol2011] Rossignol DA, Frye RE. Melatonin in autism spectrum disorders: a systematic review and meta-analysis. Dev Med Child Neurol. 2011;53(9):783-792. PMID 21518346; doi:10.1111/j.1469-8749.2011.03980.x. (validated: PubMed)
-- [King2009] King BH, Hollander E, Sikich L, McCracken JT, Scahill L, Bregman JD, et al. Lack of efficacy of citalopram in children with autism spectrum disorders and high levels of repetitive behavior: citalopram ineffective in children with autism. Arch Gen Psychiatry. 2009;66(6):583-90. PMID 19487623; PMCID PMC4112556; doi:10.1001/archgenpsychiatry.2009.30. (validated: PubMed)
+- [King2009F] King BH, Hollander E, Sikich L, McCracken JT, Scahill L, Bregman JD, et al. Lack of efficacy of citalopram in children with autism spectrum disorders and high levels of repetitive behavior: citalopram ineffective in children with autism. Arch Gen Psychiatry. 2009;66(6):583-90. PMID 19487623; PMCID PMC4112556; doi:10.1001/archgenpsychiatry.2009.30. (validated: PubMed)
 - [Williams2013SSRI] Williams K, Brignell A, Randall M, Silove N, Hazell P. Selective serotonin reuptake inhibitors (SSRIs) for autism spectrum disorders (ASD). Cochrane Database Syst Rev. 2013;2013(8):CD004677. PMID 23959778; PMCID PMC11990048; doi:10.1002/14651858.CD004677.pub3. (validated: PubMed)
 - [Hofer2017] Höfer J, Hoffmann F, Bachmann C. Use of complementary and alternative medicine in children and adolescents with autism spectrum disorder: A systematic review. Autism. 2017;21(4):387-402. PMID 27231337; doi:10.1177/1362361316646559. (validated: PubMed)
 - [Perrin2012] Perrin JM, Coury DL, Hyman SL, Cole L, Reynolds AM, Clemons T. Complementary and alternative medicine use in a large pediatric autism sample. Pediatrics. 2012;130 Suppl 2:S77-82. PMID 23118257; doi:10.1542/peds.2012-0900E. (validated: PubMed)
