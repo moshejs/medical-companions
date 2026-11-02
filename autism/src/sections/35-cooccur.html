@@ -1,5 +1,69 @@
-<!-- ================= 3.5 CO-OCCURRING CONDITIONS (stub, replaced by its builder) ================= -->
+<!-- ================= 3.5 CO-OCCURRING CONDITIONS ================= -->
+<style>
+#m-cooccur .cotg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-cooccur .cotg .btn{display:inline-flex;align-items:center;gap:7px}
+#m-cooccur .cotg .btn i{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none}
+#m-cooccur .card>.ev,#m-cooccur .card>.tag{align-self:flex-start}
+#m-cooccur .crisis{display:flex;flex-direction:column;gap:2px;font-size:14px;border:1px solid var(--bad);background:var(--bad-soft);border-radius:12px;padding:10px 14px}
+#m-cooccur .crisis b{color:var(--bad)}
+#m-cooccur svg[data-mode="n"] .t-xs{font-size:11px}
+</style>
 <section class="mod" id="m-cooccur" data-mod="cooccur" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Signs &amp; diagnosis</p><h2>Co-occurring conditions</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Most autistic people have at least one other condition, and many have several. Watch 100 autistic people across 40 years as ADHD, anxiety, depression, epilepsy and others arrive at their usual ages, and see how they stack up.</p></div>
+  <div class="cotg" role="group" aria-label="Conditions shown on the icon array" id="coTg"></div>
+  <div class="ctrls"><button class="btn ghost" id="coAll">Show all</button><button class="btn ghost" id="coNone">Clear all</button></div>
+  <div class="stepper" id="coSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="An array of 100 autistic people. As a lifespan slider moves from birth to age 40, coloured dots appear under the people for each co-occurring condition at its typical age of onset: intellectual disability and sleep problems in early childhood, ADHD and disruptive behaviour in childhood, anxiety, epilepsy and OCD around adolescence, depression in adolescence and young adulthood, and bipolar disorder and psychosis in adulthood. Bars beside the array build to the pooled prevalence of each condition, and a counter shows how many people have one, two or more."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="coPlay">Play</button><label class="stage-cap tl" for="coT">Age <input type="range" id="coT" min="0" max="1" step="0.001" value="1"></label></div>
+      <div class="readout" id="coRead"></div>
+      <p class="stage-cap">Counts per 100 use pooled prevalence from 96 studies (Lai 2019), intellectual disability from ADDM 2022 and epilepsy from a 74-study review. Who has which condition, and the onset ages, are schematic: overlap is drawn clustered because it clusters in real samples (41% of autistic 10–14-year-olds had two or more disorders). [[Lai2019,Shaw2025,Lukmanji2019,Simonoff2008]]</p>
+    </div>
+    <aside class="note" id="coNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The numbers, with their ranges</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Condition</th><th>Pooled prevalence in autistic people (95% CI)</th><th>Other estimates</th></tr></thead>
+    <tbody>
+      <tr><th>ADHD</th><td>28% (25–32) [[Lai2019]]</td><td>28.2% of 10–14-year-olds in a population sample [[Simonoff2008]]</td></tr>
+      <tr><th>Anxiety disorders</th><td>20% (17–23) [[Lai2019]]</td><td>39.6% of young people under 18 [[vanSteensel2011]]; adults 27% current, 42% lifetime [[Hollocks2019]]</td></tr>
+      <tr><th>Sleep-wake disorders</th><td>13% (9–17) [[Lai2019]]</td><td>Sleep problems reported in 40–80% of children; a diagnosis is a stricter bar [[Cortesi2010,Lai2019]]</td></tr>
+      <tr><th>Disruptive, impulse-control, conduct</th><td>12% (10–15) [[Lai2019]]</td><td>Oppositional defiant disorder 28.1% of 10–14-year-olds [[Simonoff2008]]</td></tr>
+      <tr><th>Depressive disorders</th><td>11% (9–13) [[Lai2019]]</td><td>Lifetime 14.4%, higher with interviews (28.5%) and self-report (48.6%) [[Hudson2019]]; adults 23% current, 37% lifetime [[Hollocks2019]]</td></tr>
+      <tr><th>OCD</th><td>9% (7–10) [[Lai2019]]</td><td>17.4% of young people [[vanSteensel2011]]</td></tr>
+      <tr><th>Bipolar disorders</th><td>5% (3–6) [[Lai2019]]</td><td>7.5% of autistic adults [[Varcin2022]]</td></tr>
+      <tr><th>Schizophrenia spectrum</th><td>4% (3–5) [[Lai2019]]</td><td>Psychosis 9.4% of autistic adults [[Varcin2022]]</td></tr>
+      <tr><th>Intellectual disability</th><td>39.6% of 8-year-olds with cognitive data (ADDM 2022) [[Shaw2025]]</td><td>52.8% of Black vs 32.7% of White autistic children in the same data [[Shaw2025]]</td></tr>
+      <tr><th>Epilepsy</th><td>Median 12.1% across 74 studies [[Lukmanji2019]]</td><td>21.5% with intellectual disability vs 8% without [[Amiet2008]]</td></tr>
+    </tbody></table></div>
+  <div class="prose"><p>Why the ranges are wide: clinical samples give higher estimates than population and registry studies, and heterogeneity across the 96 studies was very large (I² above 95%). Age, gender, intellectual functioning and country each explained part of it. [[Lai2019]] Most data come from high-income countries. [[Hossain2020]]</p></div>
+
+  <h3 class="sub">AuDHD: where autism and ADHD meet</h3>
+  <div class="ctrls" role="group" aria-label="AuDHD view"><span class="kicker">View</span>
+    <button class="btn" data-auv="overlap" aria-pressed="true">How often</button>
+    <button class="btn" data-auv="family" aria-pressed="false">Families &amp; genes</button>
+    <button class="btn" data-auv="treat" aria-pressed="false">Treating ADHD in autism</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coAuSvg" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="Three views of autism and ADHD together: two overlapping circles sliding together with the share of autistic people who have ADHD; bars of the odds of ADHD for autistic people and for their twins and siblings, falling with genetic relatedness; and bars of response rates to ADHD medicines in autistic children against placebo."></svg></div>
+      <p class="stage-cap">Swedish register data (1.9 million people) and randomised trials in autistic children. [[Ghirardi2018,Simonoff2008,RUPP2005Methylphenidate,Scahill2015]]</p>
+    </div>
+    <aside class="note" id="coAuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Getting the right diagnosis</h3>
+  <div class="cards">
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Diagnostic overshadowing</h4><p>A new symptom, such as pain, low mood or catatonia, can be put down to autism itself and not assessed. This is one proposed reason why autistic adults report more unmet mental health needs (OR 2.2) and physical health needs (OR 1.9) than non-autistic adults. [[Nicolaidis2013]] Anxiety and low mood are not "just part of autism": a change deserves its own check. [[Hollocks2019,Nicolaidis2013]]</p></div>
+    <div class="card"><span class="tag accent">Measurement</span><h4>How you ask changes the answer</h4><p>Depression rates in autistic people were higher with standardised interviews (lifetime 28.5%) and highest when people reported their own symptoms (48.6%). [[Hudson2019]] Questionnaire measures and intellectual disability changed anxiety estimates in adults. [[Hollocks2019]] Treating these conditions can make daily life much easier. [[Lai2019]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Autistic women and "borderline"</h4><p>Late-diagnosed women describe "pretending to be normal" and being misdiagnosed first. [[Bargiela2016]] Among Dutch autistic adults, 31.7% of women vs 16.7% of men reported a misdiagnosis, most often personality disorder. [[Kentrou2024]] Yet a meta-analysis found BPD in only 4% of autistic people, within population ranges, and could not test misdiagnosis directly. [[May2021BPD]] See the <a href="%SITE%/borderline-personality-disorder/">BPD Companion</a>.</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Eating disorders and ARFID</h4><p>About 11% of autistic groups met criteria for ARFID (avoidant/restrictive food intake disorder), from only 3 studies (95% CI 2.9–35.8%), and 16% of people with ARFID were autistic. [[Sader2025]] In anorexia nervosa, 29% scored above the ADOS cut-off, but starvation itself can produce social and rigid features, so this is a screening signal, not a diagnosis. [[InalKaleli2025,Westwood2017]]</p></div>
+    <div class="card"><span class="tag accent">Self-injury</span><h4>Self-injurious behaviour</h4><p>A meta-analysis of 37 papers estimated self-injury in 42% of autistic people; hand-hitting was the most common form (23%) and self-cutting the least (3%), and females had higher prevalence. [[SteenfeldtKristensen2020]]</p></div>
+    <div class="card"><span class="tag accent">Mood and risk</span><h4>Depression and suicide</h4><p>By age 27, 19.8% of autistic people in Stockholm had a depression diagnosis vs 6.0% of the population, more so without intellectual disability. [[Rai2018Depression]] In Denmark, over 90% of autistic people who attempted or died by suicide had another psychiatric diagnosis. [[Kolves2021]] See <a href="#health" data-go="health">Physical health, sleep &amp; safety</a>.</p>
+      <p class="crisis" role="note"><b>Need help now?</b><span>If you or someone you support is in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></p></div>
+  </div>
+  <p class="callout">Medicines for ADHD symptoms, irritability and sleep are covered in <a href="#meds" data-go="meds">Medication</a>; the assessment that looks for these conditions is in <a href="#assessment" data-go="assessment">The diagnostic assessment</a>.</p>
 </section>

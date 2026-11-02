@@ -1,5 +1,87 @@
-<!-- ================= 3.4 THE DIAGNOSTIC ASSESSMENT (stub, replaced by its builder) ================= -->
+<!-- ================= 3.4 THE DIAGNOSTIC ASSESSMENT ================= -->
+<style>
+#m-assessment .asdd{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:900px){#m-assessment .asdd{grid-template-columns:minmax(0,1fr)}}
+#m-assessment .asdd .card h4{font-size:16px}
+#m-assessment .asdd .card .kicker{margin-bottom:-4px}
+#m-assessment .asdd .card.mid{border-color:var(--accent);background:var(--accent-soft)}
+#m-assessment .asgrp{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-assessment .asgrp .kicker{margin-right:4px}
+#m-assessment .card>.ev,#m-assessment .card>.tag{align-self:flex-start}
+#m-assessment g.asn .t-xs{font-size:11.5px}
+#m-assessment .asacc{display:flex;flex-direction:column;gap:10px}
+</style>
 <section class="mod" id="m-assessment" data-mod="assessment" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Signs &amp; diagnosis</p><h2>The diagnostic assessment</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">From a first worry to a diagnosis and support: who is involved, which tools they use, how long the wait tends to be, and why no single score decides. Switch between the child and the adult route.</p></div>
+  <p class="callout">A note on words: many autistic adults prefer identity-first language ("autistic person"), while many families and professionals use person-first language ("person with autism"); no single term is preferred by everyone. [[Kenny2016]] This guide uses both.</p>
+  <div class="ctrls" role="group" aria-label="Pathway">
+    <span class="kicker">Pathway</span>
+    <button class="btn" data-aspath="child" aria-pressed="true">Child pathway</button>
+    <button class="btn" data-aspath="adult" aria-pressed="false">Adult pathway</button>
+  </div>
+  <div class="stepper" id="asSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="asSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A pathway of six stations from first concern to support. A marker travels along it while a scene shows each station: a screening questionnaire filling in, a referral letter passing a waiting list, a caregiver interview and a play-based observation, tiles for developmental, language, adaptive, hearing and medical tests, all evidence flowing into clinical judgement and a report, and a hub of supports. A clock fills with the published wait, and an age ruler marks the median age at diagnosis. The adult route shows undiagnosed adults, a short questionnaire, masking and an informant history, earlier diagnoses, and a diagnosis at a median age of 23."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="asPlay">Play</button><label class="stage-cap tl" for="asT">Pathway <input type="range" id="asT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="asRead"></div>
+      <p class="stage-cap">Schematic pathway; services differ by country. Waits: a UK survey of 1,047 parents (child route) and two Italian adult centres (adult route). Ages at diagnosis: US ADDM 2022 surveillance of 8-year-olds. [[Crane2016Diagnosis,FusarPoli2022,Shaw2025]]</p>
+    </div>
+    <aside class="note" id="asNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who is in the room</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Team</span><h4>A multidisciplinary evaluation</h4><p>The reference standard is a comprehensive multidisciplinary evaluation that combines semistructured direct observation with a semistructured caregiver interview. [[Hirota2023]] The ESCAP minimum assessment adds clinical history, developmental level and language, a physical and sensory examination (hearing, vision, neurological screen), emotional and behavioural difficulties and socio-environmental factors. [[Fuentes2021ESCAP]]</p></div>
+    <div class="card"><span class="tag accent">ADI-R</span><h4>The caregiver interview</h4><p>The Autism Diagnostic Interview–Revised is a semistructured interview with a parent or carer, linked to ICD-10 and DSM-IV criteria, usable from a mental age of about 18 months into adulthood. [[Lord1994]]</p></div>
+    <div class="card"><span class="tag accent">ADOS-2</span><h4>The observation</h4><p>The ADOS is a semistructured, standardised observation of social interaction, communication, play and imaginative use of materials, with four modules of about 30 minutes chosen by expressive language. [[Lord2000]] A Toddler Module covers children under 30 months with a "range of concern" instead of one cutoff, [[Luyster2009]] and calibrated severity scores let severity be compared across modules and over time. [[Gotham2009]]</p></div>
+    <div class="card"><span class="tag accent">Medical workup</span><h4>Tests that can help, and ones that cannot</h4><p>No autism-specific biomarker exists. [[Hirota2023]] If the examination finds nothing specific, EEG and neuroimaging are usually not needed; epilepsy or unexplained loss of skills warrants more. [[Fuentes2021ESCAP]] Chromosomal microarray finds a cause in 15–20%, against about 3% for a karyotype, [[Miller2010CMA]] and ESCAP estimates genetic causes can now be found in 25–35% of autistic people. [[Fuentes2021ESCAP]] More in <a href="#genes" data-go="genes">Genes &amp; heritability</a>.</p></div>
+  </div>
+
+  <h3 class="sub">How accurate are ADOS and ADI-R?</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label for="asAccTool">Instrument (Cochrane summary, preschool children)
+          <select id="asAccTool">
+            <option value="ados">ADOS: sensitivity 0.94, specificity 0.80</option>
+            <option value="adir">ADI-R: sensitivity 0.52, specificity 0.84</option>
+            <option value="cars">CARS: sensitivity 0.80, specificity 0.88</option>
+          </select></label>
+        <label for="asAccP">Share of those assessed who are autistic: <span id="asAccPv">74%</span>
+          <input type="range" id="asAccP" min="0.1" max="0.9" step="0.01" value="0.74"></label>
+      </div>
+      <div class="scroll"><svg id="asAccSvg" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="100 people who were assessed, shown as dots: autistic people the instrument picked up, autistic people it missed, non-autistic people it wrongly flagged, and non-autistic people it correctly cleared. The counts change with the instrument and with the share of people assessed who are autistic."></svg></div>
+      <p class="stage-cap">Arithmetic from the published summary sensitivity and specificity. 74% is the autism prevalence across the review's samples; many studies were at high risk of bias. [[Randall2018]]</p>
+    </div>
+    <aside class="note asacc" id="asAccNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Look-alikes: the differential matrix</h3>
+  <div class="prose"><p>Several conditions share features with autism, and several can sit alongside it. Pick one to see what overlaps, what points each way, and whether both can be present. This is a teaching summary, not a checklist for diagnosing anyone.</p></div>
+  <div class="asgrp" role="group" aria-label="Condition to compare (children)"><span class="kicker">Children</span>
+    <button class="btn" data-asdd="lang" aria-pressed="true">Language disorder / SCD</button>
+    <button class="btn" data-asdd="id" aria-pressed="false">Intellectual disability</button>
+    <button class="btn" data-asdd="adhd" aria-pressed="false">ADHD</button>
+    <button class="btn" data-asdd="hear" aria-pressed="false">Hearing loss</button>
+    <button class="btn" data-asdd="sanx" aria-pressed="false">Social anxiety</button>
+    <button class="btn" data-asdd="ocd" aria-pressed="false">OCD</button>
+    <button class="btn" data-asdd="regr" aria-pressed="false">Regression: Rett, Landau–Kleffner</button>
+  </div>
+  <div class="asgrp" role="group" aria-label="Condition to compare (adults)"><span class="kicker">Adults</span>
+    <button class="btn" data-asdd="pd" aria-pressed="false">Personality disorders</button>
+    <button class="btn" data-asdd="psy" aria-pressed="false">Psychosis</button>
+  </div>
+  <div class="asdd" id="asDd" aria-live="polite"></div>
+  <div id="asDdV"></div>
+
+  <h3 class="sub">Why the score never decides alone</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Clinical judgement</h4><p>No supporting instrument should be used on its own to make the diagnosis; it needs expert clinical judgement using information from all relevant sources. [[Fuentes2021ESCAP]] Across 68 studies, ADI-R and ADOS had the largest evidence base, and together classified 80.8% correctly against the gold standard. [[Falkmer2013]]</p></div>
+    <div class="card"><span class="tag accent">Mixed findings</span><h4>Two tools or one?</h4><p>In 595 children aged 12–47 months, using both the ADI-R and the ADOS improved specificity over either alone, with sensitivity and specificity both above 80%. [[Kim2012Lord]] In the Cochrane review, one study found adding the ADI-R to the ADOS did not improve accuracy. [[Randall2018]]</p></div>
+    <div class="card"><span class="tag accent">Other estimates</span><h4>Numbers move with the setting</h4><p>A 2021 meta-analysis gave ADOS-2 sensitivity 0.89–0.92 and specificity 0.81–0.85; ADI-R specificity was lower in clinical than research samples (0.72 vs 0.85). [[Lebersfeld2021]] A 2023 review cites ADOS-2 sensitivity 91% and specificity 76%. [[Hirota2023]]</p></div>
+    <div class="card"><span class="tag accent">Stability</span><h4>Does an early diagnosis hold?</h4><p>In 1,269 toddlers first evaluated at 12–36 months, overall stability was 0.84, rising from 0.50 at 12–13 months to 0.83 at 16 months; 23.8% not identified at the first visit were identified later. [[Pierce2019]] Screening and review may need repeating. [[Ozonoff2015]]</p></div>
+  </div>
+  <p class="callout">Screening questionnaires come before all this, and a screen is not a diagnosis: see <a href="#screening" data-go="screening">Screening tools</a> and the <a href="#criteria" data-go="criteria">DSM-5-TR &amp; ICD-11 criteria</a>. Conditions often found during the assessment are in <a href="#cooccur" data-go="cooccur">Co-occurring conditions</a>.</p>
 </section>

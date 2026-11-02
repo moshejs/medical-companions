@@ -1,5 +1,73 @@
-<!-- ================= 5.3 PHYSICAL HEALTH, SLEEP & SAFETY (stub, replaced by its builder) ================= -->
+<!-- ================= 5.3 PHYSICAL HEALTH, SLEEP & SAFETY ================= -->
+<style>
+#m-health .hesys{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-health #heBody .clk:focus-visible circle{stroke:var(--brand);stroke-width:3}
+#m-health svg[data-mode="n"] .t-xs{font-size:11px}
+#m-health .card>.ev,#m-health .card>.tag{align-self:flex-start}
+#m-health .crisis{display:flex;flex-direction:column;gap:2px;font-size:14.5px;border:1px solid var(--bad);background:var(--bad-soft);border-radius:12px;padding:10px 14px;max-width:80ch}
+#m-health .crisis b{color:var(--bad)}
+</style>
 <section class="mod" id="m-health" data-mod="health" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living &amp; lifespan</p><h2>Physical health, sleep &amp; safety</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Autism is not an illness, but autistic people meet some health problems more often: epilepsy, poor sleep, gut and feeding difficulties, dental decay, weight gain, and injuries, especially drowning. Tap a part of the body map, then follow one night's sleep with and without support.</p></div>
+  <div class="hesys" role="group" aria-label="Body system"><span class="kicker">System</span>
+    <button class="btn" data-hs="brain" aria-pressed="true">Brain: epilepsy</button>
+    <button class="btn" data-hs="sleep" aria-pressed="false">Sleep</button>
+    <button class="btn" data-hs="teeth" aria-pressed="false">Teeth</button>
+    <button class="btn" data-hs="feed" aria-pressed="false">Feeding</button>
+    <button class="btn" data-hs="gut" aria-pressed="false">Gut</button>
+    <button class="btn" data-hs="weight" aria-pressed="false">Weight</button>
+    <button class="btn" data-hs="safety" aria-pressed="false">Wandering &amp; water</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="heBody" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A large figure with seven markers: the head for epilepsy, a moon for sleep, the mouth for teeth, a plate for feeding, the belly for gut symptoms, a scale for weight and waves for wandering and drowning. Choosing one highlights it and builds bars with its published figures beside the figure."></svg></div>
+      <p class="stage-cap">Tap a marker or a button. Figures are from meta-analyses and cohort studies; odds ratios compare autistic people with non-autistic peers. [[Lukmanji2019,McElhanon2014,Sharp2013Feeding,Sammels2022,daSilva2017,Guan2017AJPH]]</p>
+    </div>
+    <aside class="note" id="heBodyNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">One night's sleep</h3>
+  <div class="prose"><p>Sleep problems, especially insomnia, are reported in 40–80% of autistic children and adolescents. [[Cortesi2010]] Follow one child from wind-down to morning, then switch the support to see what the trials changed.</p></div>
+  <div class="ctrls" role="group" aria-label="Sleep support"><span class="kicker">Support</span>
+    <button class="btn" data-hsl="none" aria-pressed="true">No support</button>
+    <button class="btn" data-hsl="beh" aria-pressed="false">Behavioural sleep plan</button>
+    <button class="btn" data-hsl="mel" aria-pressed="false">Plan plus melatonin</button>
+  </div>
+  <div class="stepper" id="heSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="heSleep" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="A night from 6 pm to 9 am. A cursor moves through wind-down, lying awake, sleep, a night waking and morning while a child's face changes from awake to asleep. Bars for the chosen support, behavioural plan or plan plus melatonin, slide against a dashed outline of the night without support, and readouts show time to fall asleep and total sleep."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hePlay">Play</button><label class="stage-cap tl" for="heT">Night <input type="range" id="heT" min="0" max="1" step="0.001" value="0.3"></label></div>
+      <div class="readout" id="heRead"></div>
+      <p class="stage-cap">The night without support and the size of the behavioural-plan change are illustrative. The melatonin changes are the trial's mean changes over 13 weeks (sleep 57.5 min longer, falling asleep 39.6 min sooner), in children whose sleep had not improved with behavioural support alone; night waking is drawn unchanged because melatonin did not reduce awakenings in a meta-analysis. [[Gringras2017,Rossignol2011]]</p>
+    </div>
+    <aside class="note" id="heSleepNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Outcomes compared</h3>
+  <div class="prose"><p>This section covers early death and suicide. The figures are population statistics from specific cohorts and periods: they describe groups, not any one person's life. Much of the excess comes from causes that can be found and treated: epilepsy, mental health conditions and accidents. [[Hirvikoski2016,Taylor2026Mortality]]</p></div>
+  <p class="crisis" role="note"><b>Need help now?</b><span>If you or someone you support is in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></p>
+  <div class="ctrls" role="group" aria-label="Outcome"><span class="kicker">Outcome</span>
+    <button class="btn" data-hoc="all" aria-pressed="true">All-cause mortality</button>
+    <button class="btn" data-hoc="sui" aria-pressed="false">Suicide</button>
+    <button class="btn" data-hoc="psy" aria-pressed="false">The role of mental health</button>
+    <button class="btn" data-hoc="age" aria-pressed="false">Age at death</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="heOut" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="Bars comparing autistic people with the general population: all-cause mortality ratios, suicide ratios, mortality rates with and without co-occurring psychiatric conditions, and mean age at death, each against a reference line for the general population."></svg></div>
+      <p class="stage-cap">Odds and rate ratios: 1 means the same as the comparison group. Swedish, Danish and US cohorts and meta-analyses. [[Hirvikoski2016,CatalaLopez2022,Kolves2021,Santomauro2024Suicide]]</p>
+    </div>
+    <aside class="note" id="heOutNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Getting good healthcare</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Barriers</span><h4>Why the doctor's surgery is hard</h4><p>80% of autistic adults vs 37% of non-autistic adults reported difficulty visiting a GP: deciding whether symptoms warranted a visit (72%), phone booking (62%), not feeling understood (56%) and the waiting room (51%). [[Doherty2022]] Autistic adults named sensory sensitivities, slow processing, body awareness, wrong assumptions and unwillingness to allow written communication. [[Nicolaidis2015]] Asking for online booking, a quiet place to wait and the first or last appointment is reasonable. [[Doherty2022]]</p></div>
+    <div class="card"><span class="tag brand">Prevention</span><h4>Regular health checks</h4><p>Autistic adults had lower odds of tetanus vaccination and Pap smears (OR 0.5 each) and more unmet physical health needs (OR 1.9). [[Nicolaidis2013]] Nearly every medical condition, including diabetes, hypertension and seizures, was more common in autistic adults, [[Croen2015Adults]] so autism has been described as needing regular follow-up and routine screening, [[Davignon2018]] including in older age. [[Hand2020Medicare]]</p></div>
+    <div class="card"><span class="tag brand">Pain</span><h4>Pain may look different</h4><p>Autistic children do feel pain: during venepuncture they showed a strong facial pain reaction, and parents' global reports matched it less well than in other children. [[Nader2004]] Observers judged pain from facial activity. [[Messmer2008]] Behaviour checklists help: on the NCCPC-R, 7 or more suggests pain (sensitivity 84%). [[Breau2002]] More in <a href="#nursing" data-go="nursing">Nursing &amp; healthcare visits</a>.</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Catatonia: a treatable complication</h4><p>About 1 in 10 autistic people (10.4%) have catatonia, [[VaquerizoSerrano2021]] usually emerging in adolescence or early adulthood; in a UK clinic, 17% of referrals aged 15 or older had severe catatonic features. [[Wing2000]] Reported treatments include benzodiazepines, antipsychotics and ECT, and the review suggested ECT might help. [[VaquerizoSerrano2021]] DSM-5-TR records catatonia as a specifier. [[APA2022]]</p></div>
+  </div>
+  <p class="callout">Conditions of the mind, such as anxiety, depression and ADHD, are in <a href="#cooccur" data-go="cooccur">Co-occurring conditions</a>; melatonin and other medicines are in <a href="#meds" data-go="meds">Medication</a>.</p>
 </section>
