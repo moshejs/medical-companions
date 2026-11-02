@@ -1,5 +1,121 @@
-<!-- ================= 2.3 THE DEVELOPING BRAIN (stub, replaced by its builder) ================= -->
+<!-- ================= 2.3 THE DEVELOPING BRAIN ================= -->
+<style>
+#m-brain .br-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-brain .br-row .kicker{min-width:96px}
+#m-brain .card>.ev,#m-brain .card>.tag{align-self:flex-start}
+#m-brain .card .br-cite{font-size:13px;color:var(--muted)}
+#m-brain .card .br-cp{border-left:3px solid var(--neuro);padding-left:10px}
+#m-brain .card .btn{align-self:flex-start;font-size:13px;padding:6px 12px}
+#m-brain .card.br-key{border-color:var(--neuro);background:var(--neuro-soft)}
+#m-brain #brEsSvg{max-width:900px}
+</style>
 <section class="mod" id="m-brain" data-mod="brain" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Causes &amp; the brain</p><h2>The developing brain</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">From mid-pregnancy to age 4: the brain grows, wires itself, then trims. Scrub the timeline to see what typical development looks like, what infant studies found in groups of children later diagnosed with autism, and why none of it adds up to a brain test for one person.</p></div>
+
+  <div class="br-row" role="group" aria-label="How to show the groups"><span class="kicker">Show</span>
+    <button class="btn" data-brv="avg" aria-pressed="true">Group averages</button>
+    <button class="btn" data-brv="ind" aria-pressed="false">Individual variation</button>
+  </div>
+  <div class="br-row" role="group" aria-label="Excitation and inhibition"><span class="kicker">E/I balance</span>
+    <button class="btn" data-brei="bal" aria-pressed="true">Balanced</button>
+    <button class="btn" data-brei="shift" aria-pressed="false">Shifted (hypothesis)</button>
+  </div>
+  <div class="br-row" role="group" aria-label="Cortical area for the neuron"><span class="kicker">Neuron from</span>
+    <button class="btn" data-brr="aud" aria-pressed="true">Auditory cortex</button>
+    <button class="btn" data-brr="pfc" aria-pressed="false">Prefrontal cortex</button>
+  </div>
+  <div class="stepper" id="brSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="brSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="Four panels on one timeline from gestational week 20 to age 4. A brain drawing grows, with the volume index rising from 100 at birth to 201 at 12 months and 231 at 24 months. A neuron grows dendritic spines, which peak and are then pruned, beside synapse-density curves that peak near 3 months in auditory cortex and after 15 months in prefrontal cortex. A growth chart shows the typical curve and the group average for infants later diagnosed, or, in individual-variation view, two overlapping clouds of children. Two synapses release glutamate and GABA on a seesaw that is balanced, or tipped toward excitation as a hypothesis."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brPlay">Play</button><label class="stage-cap tl" for="brT">Age <input type="range" id="brT" min="0" max="1" step="0.001" value="0.5"></label></div>
+      <div class="readout" id="brRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The typical volume index uses group means from 98 healthy children (birth = 100, 201 at 12 months, 231 at 24 months). [[Knickmeyer2008]] Before birth and after 24 months the curve is drawn, not measured. Synapse curves show published peak timings, not heights. [[Huttenlocher1997]] The later-diagnosed line shows the direction and order of the infant-sibling findings (surface area, then volume), not their size. [[Hazlett2017]] The time axis is stretched: pregnancy and the first two years take more room.</p>
+    </div>
+    <aside class="note" id="brNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How big is a "brain difference"?</h3>
+  <p class="prose">Group studies can find real average differences that say almost nothing about one person. Move the effect size and watch the two groups overlap.</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="brEsSvg" viewBox="0 0 720 250" style="min-width:0" role="img" aria-label="Two bell curves for a brain measure in autistic and non-autistic groups. As the effect size grows, the curves move apart; the shaded overlap and the best possible accuracy of a test based on this measure are shown as numbers."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="brEs">Effect size d = <output id="brEsOut">0.20</output> <input type="range" id="brEs" min="0.05" max="1.5" step="0.01" value="0.2"></label></div>
+      <div class="ctrls"><span class="kicker">Try</span>
+        <button class="btn" data-bres="0.21" aria-pressed="true">Largest ENIGMA effect (0.21)</button>
+        <button class="btn" data-bres="0.5" aria-pressed="false">Medium (0.5)</button>
+        <button class="btn" data-bres="0.8" aria-pressed="false">Large (0.8)</button></div>
+    </div>
+    <aside class="note" id="brEsNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The hypothesis board</h3>
+  <p class="prose">Each idea below has an evidence label and two sources. Filter by label, and open the counterpoint: most of these ideas are debated, and none of them is "the autistic brain".</p>
+  <div class="br-row" role="group" aria-label="Filter by evidence"><span class="kicker">Filter</span>
+    <button class="btn" data-brf="all" aria-pressed="true">All</button>
+    <button class="btn" data-brf="est" aria-pressed="false">Established</button>
+    <button class="btn" data-brf="early" aria-pressed="false">Early evidence</button>
+    <button class="btn" data-brf="hyp" aria-pressed="false">Hypothesis</button>
+  </div>
+  <div class="cards" id="brBoard">
+    <div class="card br-key" data-ev="est"><span class="ev est">Established</span><h4>No brain scan or blood test diagnoses autism</h4>
+      <p>Because there are no reliable biomarkers, autism is diagnosed from behaviour and developmental history. MRI needs more work before it could be a reliable biomarker, because replication has been difficult. Gross brain pathology is not characteristic of autism. [[Lord2018,Lord2020NRDP]]</p>
+      <button class="btn ghost" data-brcp aria-pressed="false">Show the counterpoint</button>
+      <p class="br-cp" hidden>Eye-tracking of social visual engagement in 475 children aged 16–30 months had 71.0% sensitivity and 80.7% specificity against expert diagnosis. It was evaluated as an aid to specialist diagnosis, not a stand-alone test. <span class="ev early">Early evidence</span> [[Jones2023]]</p></div>
+    <div class="card" data-ev="hyp"><span class="ev hyp">Hypothesis</span><h4>Excitation/inhibition balance</h4>
+      <p>Rubenstein and Merzenich proposed in 2003 that some forms of autism arise from an increased ratio of excitation to inhibition in sensory, memory, social and emotional systems. [[Rubenstein2003]] In mice, raising E/I balance in medial prefrontal cortex impaired social behaviour, and boosting inhibitory cells partly rescued it. [[Yizhar2011]]</p>
+      <button class="btn ghost" data-brcp aria-pressed="false">Show the counterpoint</button>
+      <p class="br-cp" hidden>Across four autism mouse models the E/I ratio rose but spiking stayed largely normal, suggesting the shift may be homeostatic compensation rather than a cause. [[Antoine2019]] A review stresses that compensation makes a primary defect hard to separate. [[Nelson2015]] Human support is indirect, including fewer parvalbumin interneurons postmortem. [[Hashemi2017]]</p></div>
+    <div class="card" data-ev="hyp"><span class="ev hyp">Hypothesis</span><h4>Predictive coding: the world "too real"</h4>
+      <p>Pellicano and Burr proposed "hypo-priors": weaker expectations, so perception is shaped more by raw input than by past experience. [[Pellicano2012]] Related accounts put too much weight (precision) on sensory evidence, or uniformly high weight on prediction errors, which could make sameness a way to make the world predictable. [[Lawson2014,VandeCruys2014]]</p>
+      <button class="btn ghost" data-brcp aria-pressed="false">Show the counterpoint</button>
+      <p class="br-cp" hidden>The accounts disagree with each other, and experimental support is early: autistic adults in one study overestimated how volatile the environment is. <span class="ev early">Early evidence</span> [[Lawson2017,Pellicano2012]]</p></div>
+    <div class="card" data-ev="early"><span class="ev early">Early evidence</span><h4>Synaptic pruning and mTOR</h4>
+      <p>Postmortem autistic temporal cortex had higher spine density with less developmental pruning, tracking overactive mTOR signalling and impaired autophagy. [[Tang2014]] Golgi staining also found higher spine densities, mainly in layer II and temporal layer V. [[Hutsler2010]]</p>
+      <button class="btn ghost" data-brcp aria-pressed="false">Show the counterpoint</button>
+      <p class="br-cp" hidden>The tissue samples are small, and the mechanism (rapamycin correcting pruning and behaviour) was shown in Tsc2 mice, an animal model, not in people. [[Tang2014]] Postmortem neuron counts in 7 autistic boys were called "small" and "preliminary" by their own authors. [[Courchesne2011PFC]]</p></div>
+    <div class="card" data-ev="early"><span class="ev early">Early evidence</span><h4>Early brain overgrowth</h4>
+      <p>In infant-sibling MRI, surface-area hyperexpansion at 6–12 months came before brain-volume overgrowth at 12–24 months in infants later diagnosed. [[Hazlett2017]] A meta-analysis found macrocephaly in 15.7% of autistic people and brain overgrowth in 9.1%, largest in early childhood. [[Sacco2015]]</p>
+      <button class="btn ghost" data-brcp aria-pressed="false">Show the counterpoint</button>
+      <p class="br-cp" hidden>Studies against population norms found "overgrowth" far more often than studies with local controls; typical children also overgrew against classical norms. The best-replicated parts reflect norm bias, not a disease marker. [[Raznahan2013]] Head circumference has little use as a predictor of autism. [[Lord2018]]</p></div>
+    <div class="card" data-ev="early"><span class="ev early">Early evidence</span><h4>Social attention from 2 to 6 months</h4>
+      <p>In infants later diagnosed, eye fixation began at typical levels at 2 months and then declined (−4.8% a month, against +3.6% in typical infants), reaching about half the typical level by 24 months. [[Jones2013Eyes]] A meta-analysis of 122 studies found the largest gaze differences for eyes and whole faces during interaction. [[Frazier2017Gaze]]</p>
+      <button class="btn ghost" data-brcp aria-pressed="false">Show the counterpoint</button>
+      <p class="br-cp" hidden>The infant finding comes from a single cohort of 12 later-diagnosed infants. [[Jones2013Eyes]] And social difficulty may be two-way: autistic-to-autistic chains passed on information as well as non-autistic chains, while mixed chains did worse (the double empathy problem). <span class="ev hyp">Hypothesis</span> [[Milton2012,Crompton2020]]</p></div>
+    <div class="card" data-ev="early"><span class="ev early">Early evidence</span><h4>Maternal immune activation</h4>
+      <p>In animal models, immune activation in pregnancy alone can cause lifelong changes in offspring, through maternal IL-17a in mice. [[Estes2016,Choi2016]] In humans, a meta-analysis of 15 studies found maternal infection associated with autism (OR 1.13; 1.30 with hospitalisation). [[Jiang2016Infection]]</p>
+      <button class="btn ghost" data-brcp aria-pressed="false">Show the counterpoint</button>
+      <p class="br-cp" hidden>The animal work shows a mechanism; the human data show modest associations, and most children exposed to maternal infection are not autistic. [[Jiang2016Infection,Estes2016]] In all Danish births 1980–2005, any infection over the whole pregnancy was not associated with autism. [[Atladottir2010]]</p></div>
+    <div class="card" data-ev="hyp"><span class="ev hyp">Hypothesis</span><h4>The gut microbiome</h4>
+      <p>Mice given gut microbiota from autistic donors showed autism-like behaviours. [[Sharon2019]] An open-label microbiota transfer study in 18 children reported lower GI symptom scores and autism ratings at 2 years, with no control group. [[Kang2019]]</p>
+      <button class="btn ghost" data-brcp aria-pressed="false">Show the counterpoint</button>
+      <p class="br-cp" hidden><span class="ev est">Established</span> for its design: in 247 people, diagnosis had a negligible direct link with the microbiome; restricted interests went with a less varied diet, which went with lower microbial diversity. [[Yap2021]] The autism-linked profile appeared in age- and sex-matched cohorts but not in sibling-matched ones. [[Morton2023]] Causal role: not shown.</p></div>
+    <div class="card" data-ev="est"><span class="ev est">Established</span><h4>Convergent gene-expression patterns</h4>
+      <p>Postmortem cortex shows attenuated frontal-versus-temporal gene-expression differences, a downregulated neuronal module and an upregulated immune-glial module, replicated in a larger cohort. [[Voineagu2011,Parikshak2016]] Changes span the whole cortex and are largest in primary visual cortex. <span class="ev early">Early evidence</span> [[Gandal2022]]</p>
+      <button class="btn ghost" data-brcp aria-pressed="false">Show the counterpoint</button>
+      <p class="br-cp" hidden>The immune-glial module was not enriched for autism genetic signal, so it may be a consequence rather than a cause. [[Voineagu2011]] Autism shares many of these changes with schizophrenia and bipolar disorder. [[Gandal2018]]</p></div>
+    <div class="card" data-ev="est"><span class="ev est">Established</span><h4>Connectivity: both under and over</h4>
+      <p>ABIDE pooled 1,112 resting-state scans: both under- and over-connectivity appeared, with under-connectivity dominant for cortico-cortical and interhemispheric links. [[DiMartino2014]]</p>
+      <button class="btn ghost" data-brcp aria-pressed="false">Show the counterpoint</button>
+      <p class="br-cp" hidden>No single connectivity method gave reproducible results across sites, and consistent findings needed large samples. [[King2019FC]] Large overlap with controls limits diagnostic use. [[Holiga2019]]</p></div>
+    <div class="card br-key" data-ev="est"><span class="ev est">Established</span><h4>Vaccines do not cause autism</h4>
+      <p>In 657,461 Danish children, MMR-vaccinated children had an adjusted autism hazard ratio of 0.93 (95% CI 0.85–1.02) against unvaccinated children. [[Hviid2019]] A meta-analysis of 1,256,407 children found no link between vaccination and autism (OR 0.99). [[Taylor2014Vaccine]] More in <a href="#risk" data-go="risk">Risk factors &amp; myths</a>.</p>
+      <button class="btn ghost" data-brcp aria-pressed="false">Show the counterpoint</button>
+      <p class="br-cp" hidden>There is no credible counterpoint: the 1998 paper that started the scare was retracted and found to be fraudulent. [[Lancet2010Retraction,Godlee2011]]</p></div>
+  </div>
+
+  <h3 class="sub">Established, early or hypothesis?</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Claim</th><th>Status</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><th>The typical brain overbuilds connections, then prunes up to 50%</th><td><span class="ev est">Established</span></td><td>Developmental neuroscience across many studies. [[Stiles2010,Huttenlocher1997]]</td></tr>
+      <tr><th>No scan or blood test diagnoses autism</th><td><span class="ev est">Established</span></td><td>No reliable biomarker; classifiers under 60% in large data. [[Lord2018,Haar2016]]</td></tr>
+      <tr><th>Surface area expands early in infants later diagnosed</th><td><span class="ev early">Early evidence</span></td><td>One high-likelihood sibling cohort, 15 diagnosed infants. [[Hazlett2017]]</td></tr>
+      <tr><th>Less spine pruning, overactive mTOR</th><td><span class="ev early">Early evidence</span></td><td>Small postmortem samples plus mouse mechanism. [[Tang2014]]</td></tr>
+      <tr><th>Raised excitation/inhibition ratio causes autism</th><td><span class="ev hyp">Hypothesis</span></td><td>Mouse data suggest the shift may be compensatory. [[Rubenstein2003,Antoine2019]]</td></tr>
+      <tr><th>Gut bacteria cause autism</th><td><span class="ev hyp">Hypothesis</span>, not supported</td><td>Differences largely track diet. [[Yap2021]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout"><b>Exam hook.</b> Brain findings in autism are group averages with small effects and wide overlap. They help explain development but do not diagnose anyone: diagnosis is behavioural. [[Lord2020NRDP,vanRooij2018]] For sensory differences in daily life, see <a href="#senses" data-go="senses">The sensory world</a>; for genes, <a href="#genes" data-go="genes">Genes &amp; heritability</a>.</p>
 </section>

@@ -1,5 +1,120 @@
-<!-- ================= 1.3 THE SENSORY WORLD (stub, replaced by its builder) ================= -->
+<!-- ================= 1.3 THE SENSORY WORLD ================= -->
+<style>
+#m-senses .se-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-senses .se-row .kicker{min-width:88px}
+#m-senses .card>.ev,#m-senses .card>.tag{align-self:flex-start}
+#m-senses .se-sl{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 18px}
+#m-senses .se-sl label{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:700;min-width:0}
+#m-senses .se-sl label>span:first-child{display:flex;justify-content:space-between;gap:8px}
+#m-senses .se-sl output{font:600 13px var(--mono);color:var(--sense)}
+#m-senses .se-seek{font-weight:400;font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}
+#m-senses .se-seek input{width:16px;height:16px;margin:0;accent-color:var(--rx)}
+#m-senses .se-list{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:14.5px}
+#m-senses .se-dunn{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1fr);gap:6px;font-size:14px}
+#m-senses .se-dunn>div{background:var(--panel-2);border-radius:10px;padding:8px 10px;min-width:0}
+#m-senses .se-dunn>.h{background:none;font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:4px 2px;align-self:center}
+#m-senses .se-dunn b{display:block}
+#m-senses #seProfSvg{max-width:760px;margin:0 auto}
+</style>
 <section class="mod" id="m-senses" data-mod="senses" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding autism</p><h2>The sensory world</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Almost every autistic person experiences the senses differently: some input feels far too strong, some hardly registers, some is sought out. Follow one schematic day and watch the load build, cross a threshold and fall again, then see what supports change.</p></div>
+
+  <div class="se-row" role="group" aria-label="Sensory profile"><span class="kicker">Profile</span>
+    <button class="btn" data-sep="hyper" aria-pressed="true">Hyper-reactive</button>
+    <button class="btn" data-sep="hypo" aria-pressed="false">Hypo-reactive</button>
+    <button class="btn" data-sep="seek" aria-pressed="false">Sensory-seeking</button>
+  </div>
+  <div class="se-row" role="group" aria-label="Supports"><span class="kicker">Supports</span>
+    <button class="btn" data-ses="ear" aria-pressed="false">Ear defenders</button>
+    <button class="btn" data-ses="glasses" aria-pressed="false">Sunglasses or a cap</button>
+    <button class="btn" data-ses="quiet" aria-pressed="false">Quiet space at lunch</button>
+    <button class="btn" data-ses="warn" aria-pressed="false">Warning before changes</button>
+    <button class="btn ghost" id="seAll">All supports on / off</button>
+  </div>
+  <div class="se-row" role="group" aria-label="Response to overload"><span class="kicker">If overloaded</span>
+    <button class="btn" data-ser="melt" aria-pressed="true">Meltdown</button>
+    <button class="btn" data-ser="shut" aria-pressed="false">Shutdown</button>
+  </div>
+  <div class="stepper" id="seSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="seSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A schematic day from waking to home. Six wavy lanes show input from sound, light, touch, smell, crowds and body signals; a thin line is what the surroundings give and a filled wave is what registers for the chosen profile. Below, a load curve rises through the day against a dashed overload threshold; when it crosses, a face shows overload and then a meltdown or shutdown, and the load falls again at home. Supports shrink the inputs and keep the curve under the line."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sePlay">Play</button><label class="stage-cap tl" for="seT">Time of day <input type="range" id="seT" min="0" max="1" step="0.001" value="0.2"></label></div>
+      <div class="readout" id="seRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative day. The inputs, weights, threshold and the effect of each support are chosen to show the idea, not measured; real people and real supports vary. The three profiles follow Dunn's model of thresholds and strategies. [[Dunn2001]]</p>
+    </div>
+    <aside class="note" id="seNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Four patterns, two questions: Dunn's model</h3>
+  <div class="split2">
+    <div class="prose">
+      <p>Dunn's model crosses two questions. How much input does it take before the nervous system notices (a high or low <b>threshold</b>)? And does the person act on it or let it happen (an <b>active</b> or <b>passive</b> strategy)? The answers give four patterns. <span class="ev est">Established model</span> [[Dunn2001]]</p>
+      <p>Every person has some amount of each pattern. The model describes preferences across the general population from birth to 90 years; it is not a disorder in itself. [[Dunn2001]] One autistic person can be over-responsive to sound and under-responsive to pain on the same day.</p>
+      <p class="stage-cap">Words: many autistic people prefer identity-first language ("autistic person"), while many families and clinicians use person-first language ("person with autism"). A UK survey of 3,470 community members found no single term that everyone accepted, so this guide uses both. [[Kenny2016]]</p>
+    </div>
+    <div class="se-dunn" role="table" aria-label="Dunn's four sensory processing patterns">
+      <div class="h" role="columnheader"></div><div class="h" role="columnheader">Passive strategy</div><div class="h" role="columnheader">Active strategy</div>
+      <div class="h" role="rowheader">High threshold</div><div role="cell"><b>Low registration</b>Misses cues: a name called, a bump, hunger.</div><div role="cell"><b>Sensation seeking</b>Adds input: moving, touching, sound.</div>
+      <div class="h" role="rowheader">Low threshold</div><div role="cell"><b>Sensory sensitivity</b>Notices everything, and it is a lot.</div><div role="cell"><b>Sensation avoiding</b>Limits input: leaves, covers ears, keeps routines.</div>
+    </div>
+  </div>
+
+  <h3 class="sub">Build a sensory profile</h3>
+  <p class="teach"><b>Teaching tool</b><span>This is a sketch for learning and for starting a conversation, not an assessment. Real sensory profiles use standardised questionnaires, such as the Short Sensory Profile or the Adult/Adolescent Sensory Profile, interpreted by a trained professional. [[Tomchek2007,Crane2009]]</span></p>
+  <div class="lab">
+    <div class="stage">
+      <div class="se-sl" id="seSliders"></div>
+      <p class="stage-cap" id="sePbScale">0 = hardly registers · 5 = the middle · 10 = very intense</p>
+      <div class="ctrls"><span class="kicker">Examples</span>
+        <button class="btn" data-sepre="a">Sound and light sensitive</button>
+        <button class="btn" data-sepre="b">Low registration</button>
+        <button class="btn" data-sepre="c">Seeks movement and touch</button>
+        <button class="btn ghost" data-sepre="r">Reset</button></div>
+      <div class="scroll"><svg id="seProfSvg" viewBox="0 0 720 330" style="min-width:0" role="img" aria-label="A six-spoke radar profile for sound, light, touch, smell, movement and body signals. The dashed hexagon is the middle; points move outward as a channel feels more intense and inward as it registers less. Green rings mark channels the person seeks out."></svg></div>
+    </div>
+    <aside class="note" id="seProfNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What people often get wrong</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>A meltdown is not a tantrum</h4>
+      <p>Autistic informants describe meltdowns as responses to overload that feel out of their control, not as chosen behaviour. [[Phung2021,Lewis2023Meltdown]] Adults described extreme emotion, trouble thinking and remembering, a sense of "not being themselves", and then a release of pent-up emotion. [[Lewis2023Meltdown]]</p>
+      <p><b>What helped, in their words:</b> compassion and collaboration from a trusted adult, fewer demands, and space. Demands such as eye contact during distress made things worse. [[Phung2021]] Many adults try to get away from triggers or be alone when a meltdown is coming. [[Lewis2023Meltdown]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Shutdown is the quiet version</h4>
+      <p>Autistic youth described shutdown or inertia as "feeling frozen". Shutdowns are more inward, with withdrawal from the surroundings, and range from mild to severe. [[Phung2021]] Because a shutdown is quiet, it is easy to miss or to read as defiance or "not trying".</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Stimming: leave harmless stims alone</h4>
+      <p>Stimming means repetitive movements or sounds, such as rocking, hand-flapping or humming. In interviews with 32 autistic adults, stimming served as self-regulation, to soothe or to express intense emotion, and participants objected to treatment that aims to eliminate it. [[Kapp2019]] A stim that causes injury is a different matter for the person and their clinician: see <a href="#cooccur" data-go="cooccur">Co-occurring conditions</a>.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>How common are sensory differences?</h4>
+      <ul>
+        <li>95% of 281 autistic children aged 3–6 showed some difference on the Short Sensory Profile. [[Tomchek2007]]</li>
+        <li>Over 90% of autistic children had differences across several senses on the DISCO interview, persisting across age and ability. [[Leekam2007]]</li>
+        <li>94.4% of autistic adults had an extreme score in at least one sensory quadrant, with striking variability between people. [[Crane2009]]</li>
+        <li>92% of autistic 10–14-year-olds, but also 67% of non-autistic children with special educational needs: common, not unique to autism. [[Green2016DSM5]]</li>
+      </ul>
+      <p class="stage-cap">These are group statistics from research samples.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Ben-Sasson's meta-analyses</h4>
+      <p>The 2009 meta-analysis (14 studies) found the largest autistic–typical difference in under-responsivity, then over-responsivity, then sensation seeking, with the biggest differences at ages 6–9. [[BenSasson2009]]</p>
+      <p>The 2019 update (55 questionnaire studies, 4,606 autistic people) found large effects against typical controls for all three. Only over-responsivity also exceeded every other clinical comparison group. [[BenSasson2019]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Interoception and pain</h4>
+      <p>Interoception is sensing the body's inner state: heartbeat, hunger, needing the toilet. A Bayesian meta-analysis (15 studies) found lower heartbeat-counting performance (g = −0.333) with higher confidence (g = 0.430) in autistic people, and no difference on other measures. [[Williams2023Interoception]] A 2025 meta-analysis of five adult studies found no significant difference, so the findings conflict. [[Klein2025]]</p>
+      <p>Alexithymia (difficulty identifying and describing one's own feelings) was found in 49.93% of autistic participants against 4.89% of non-autistic participants [[Kinnaird2019]], and it, rather than autism itself, mediated the link between interoception and empathy in one study. [[Mul2018]] Seeming indifferent to pain or temperature is one DSM-5-TR example of criterion B4 [[APA2022]], and pain can show up as a change in behaviour, so it is worth checking. [[McElhanon2014]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>What happens in the brain?</h4>
+      <p>Sensory differences have been measured with EEG, MEG and fMRI in hearing, touch and vision, including differences in combining the senses. <span class="ev est">Established</span> that differences exist; the mechanisms are open. [[Marco2011]] Over-responsive youth showed stronger primary-sensory and amygdala responses that did not habituate. [[Green2015SOR]] A cortex-wide gene-expression study found its largest changes in primary visual cortex, a sensory area. [[Gandal2022]] More in <a href="#brain" data-go="brain">The developing brain</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Sensory supports: what has been tested</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Support</th><th>Study</th><th>Finding</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><th>Sensory-adapted dental room (lighting, sound, touch)</th><td>Randomised crossover trial, 162 autistic children aged 6–12</td><td>Lower physiological stress (skin conductance −1.22 μS, 95% CI −2.17 to −0.27) and less video-coded distress (Cohen d −0.84 to −1.19); no withdrawals for adverse effects. [[SteinDuker2023]]</td><td><span class="ev est">Established</span> for this setting</td></tr>
+      <tr><th>Same, pilot</th><td>22 autistic and 22 typical children</td><td>Lower physiological anxiety, pain and sensory discomfort for both groups. [[Cermak2015]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Noise-attenuating headphones</th><td>6 children (single-subject); parent and teacher interviews</td><td>Lower skin-conductance arousal; more participation at home, school and in the community, and many children learned to ask for them. [[Pfeiffer2019EDA,Pfeiffer2019Participation]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Sound-absorbing walls, halogen lighting</th><td>4 students aged 13–20</td><td>More attending and engagement afterwards. [[Kinnealey2012]]</td><td><span class="ev early">Early evidence</span>, very small</td></tr>
+      <tr><th>Weighted blankets for sleep</th><td>2-week crossover RCT, 67 children with severe sleep problems</td><td>No increase in actigraphy-measured sleep time, though children and parents preferred them. [[Gringras2014]]</td><td><span class="ev est">Established</span>: no measured benefit</td></tr>
+      <tr><th>Sensory-integration therapy</th><td>Reviews (see <a href="#therapies" data-go="therapies">Communication, AAC &amp; therapies</a>)</td><td>Short-term gains in sensory and motor skills; single components (weighted blankets, swings, brushing) have not shown consistent benefit. [[Lord2018]]</td><td><span class="ev est">Established</span> for short-term gains</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">The pattern: changing the environment has trial support in at least one setting, while popular sensory products are not automatically effective. Test each support, and treat what autistic people say they prefer as an outcome that matters alongside the measurements. [[SteinDuker2023,Gringras2014,MacLennan2023]]</p>
 </section>
