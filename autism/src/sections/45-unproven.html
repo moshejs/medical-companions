@@ -1,5 +1,78 @@
-<!-- ================= 4.5 UNPROVEN & HARMFUL TREATMENTS (stub, replaced by its builder) ================= -->
+<!-- ================= 4.5 UNPROVEN & HARMFUL TREATMENTS ================= -->
+<style>
+#m-unproven .unrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-unproven .unq{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+#m-unproven .unq:first-child{border-top:0}
+#m-unproven .unq span{font-size:14.5px;font-weight:700}
+#m-unproven .unq .unrow .btn{padding:6px 11px;font-size:13px}
+@media (max-width:600px){#m-unproven .unq{grid-template-columns:minmax(0,1fr)}}
+#m-unproven .unpanel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+#m-unproven .unpanel svg{width:100%;height:auto;display:block}
+#m-unproven .verdict p{font-weight:400;color:var(--ink);margin-top:6px;font-size:14.5px}
+#m-unproven .unvax{border:1px solid var(--good);background:var(--good-soft);border-radius:12px;padding:12px 16px;max-width:86ch;display:flex;gap:12px;align-items:flex-start}
+#m-unproven .unvax b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--good);white-space:nowrap;padding-top:3px}
+@media (max-width:600px){#m-unproven .unvax{flex-direction:column;gap:4px}}
+@media (max-width:820px){#m-unproven svg .t-xs{font-size:12px}#m-unproven svg .t-sm{font-size:12.5px}#m-unproven svg .t-lbl{font-size:14px}}
+</style>
 <section class="mod" id="m-unproven" data-mod="unproven" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Supports &amp; interventions</p><h2>Unproven &amp; harmful treatments</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Families try treatments out of love and hope, often while waiting for help. Some of those treatments were tested and failed; a few have killed children. Watch how interest rises and collapses, then learn a quick way to judge the next claim.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Treatment shown on the hype curve">
+    <span class="kicker">Case</span>
+    <button class="btn" data-un="secretin" aria-pressed="true">Secretin</button>
+    <button class="btn" data-un="chelation" aria-pressed="false">Chelation</button>
+    <button class="btn" data-un="hbot" aria-pressed="false">Hyperbaric oxygen</button>
+    <button class="btn" data-un="gfcf" aria-pressed="false">Gluten- &amp; casein-free diets</button>
+    <button class="btn" data-un="stem" aria-pressed="false">Stem cells &amp; cord blood</button>
+    <button class="btn" data-un="camel" aria-pressed="false">Camel milk</button>
+  </div>
+  <div class="stepper" id="unSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="unSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A hype curve: a filled band of public interest rises after a claim, peaks as it spreads, then collapses after randomised trials and reviews, while a thin line for evidence of benefit stays near zero. Markers appear for each study, harm report and guideline, with the latest one described below the chart."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="unPlay">Play</button><label class="stage-cap tl" for="unT">Time <input type="range" id="unT" min="0" max="1" step="0.001" value="0.52"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The height of the band is interest and use drawn by hand, not measured; the order of events and every marker are from the cited studies. Evidence of benefit is drawn from what the trials found. <span id="unCap"></span></p>
+    </div>
+    <aside class="note" id="unNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="unvax" role="note"><b>Vaccines</b><span>Vaccines do not cause autism. In 657,461 Danish children, the MMR vaccine was not linked to autism (adjusted HR 0.93, 95% CI 0.85–1.02). A meta-analysis of 1,256,407 children found no association with vaccination (OR 0.99), thimerosal (OR 1.00) or mercury (OR 1.00). Treatments built on the idea that vaccines or mercury caused a child's autism, such as chelation, start from a false premise. See <a href="#risk" data-go="risk">Risk factors &amp; myths</a>. [[Hviid2019,Taylor2014Vaccine]]</span></div>
+
+  <h3 class="sub">How to judge a claim</h3>
+  <p class="prose">Six questions, in order. Pick an example to see how the evidence answers them, or answer them yourself for something you have read about. This is a thinking aid, not a substitute for talking with a clinician you trust.</p>
+  <div class="split2">
+    <div class="unpanel">
+      <div class="calc"><label for="unEx">Example<select id="unEx">
+        <option value="secretin">Secretin injections</option>
+        <option value="chelation">Chelation</option>
+        <option value="hbot">Hyperbaric oxygen</option>
+        <option value="gfcf">Gluten- and casein-free diet</option>
+        <option value="stem">Stem-cell clinic</option>
+        <option value="camel">Camel milk</option>
+        <option value="mel">Melatonin for sleep, after behavioural steps</option>
+        <option value="ris">Risperidone for severe irritability</option>
+        <option value="own">A claim I have read about</option>
+      </select></label></div>
+      <svg id="unTree" viewBox="0 0 520 470" role="img" aria-label="A decision path of six questions: randomised placebo-controlled trials, benefit on outcomes that matter, confirmation by larger trials or reviews, who promotes it, harms, and cost. Each answer is coloured green for reassuring, red for a warning and grey for unknown."></svg>
+    </div>
+    <div class="unpanel">
+      <div id="unOwn" hidden>
+        <p class="kicker">Your answers</p>
+        <div id="unQs"></div>
+      </div>
+      <div id="unVerdict" aria-live="polite"></div>
+      <p class="stage-cap">Questions adapted from the reasons trials are needed: large placebo responses in autism research, and treatments promoted ahead of evidence. [[Siafis2020,Sandler1999,Snyder2021]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Why families try these, and how to talk about them</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Common</span><h4>Most families try something</h4><p>Across 20 studies (9,540 participants), use of complementary and alternative medicine in autism ranged from 28% to 95%, median 54%. Special diets and supplements ranked first in 75% of studies. [[Hofer2017]] In 3,173 children in the Autism Treatment Network, 28% reported use; it was more likely with gastrointestinal symptoms (OR 1.88), seizures (OR 1.58) and behaviour problems (OR 1.29). [[Perrin2012]]</p></div>
+    <div class="card"><span class="tag brand">Love &amp; hope</span><h4>Why it makes sense to parents</h4><p>Parents want to help now. In a UK survey of 1,047 parents, the delay from first approaching a professional to diagnosis was about 3.5 years. [[Crane2016Diagnosis]] A treatment that seems to work is powerful: 19% of children given placebo in autism drug trials were rated "much improved", which makes an ineffective product look effective in everyday use. [[Siafis2020]]</p></div>
+    <div class="card"><span class="tag accent">For clinicians</span><h4>Ask, without shaming</h4><p>The AAP advises shared decision-making with families when choosing interventions. [[Hyman2020]] Ask about every product and diet, because some are potentially harmful, and families may not mention them unless asked. [[Hofer2017,Perrin2012]] Start from the goal the family has, then look at the evidence together.</p></div>
+    <div class="card"><span class="tag warn">Publicity</span><h4>When news runs ahead of trials</h4><p>After one anecdote, "thousands" of children received secretin injections before any trial. After hearing a negative result, 69% of parents in that trial still wanted secretin. [[Sandler1999]] Stem-cell crowdfunding campaigns used testimonials, early academic trials and press releases to lend clinics credibility. [[Snyder2021]]</p></div>
+    <div class="card"><span class="tag bad">Harm</span><h4>Reports and reviews that warn</h4><p>CDC received reports of 3 deaths from hypocalcaemia during chelation between 2003 and 2005; two were children given edetate disodium. [[Brown2006]] A Cochrane review judged that "the risks of using chelation for ASD currently outweigh proven benefits". [[James2015]] A camel-milk meta-analysis was retracted by its journal in 2023. [[Kandeel2022]]</p></div>
+    <div class="card"><span class="tag rx">Guidelines</span><h4>What NICE says not to use</h4><p>For the core features of autism in adults, NICE lists chelation, secretin, hyperbaric oxygen, exclusion diets, vitamins, minerals and dietary supplements, oxytocin, testosterone regulation and others as interventions not to use. [[Pilling2012]] For under-19s it lists exclusion diets such as gluten- or casein-free diets. [[Kendall2013]] What does help is in <a href="#supports" data-go="supports">Supports &amp; the evidence</a> and <a href="#meds" data-go="meds">Medication</a>.</p></div>
+  </div>
 </section>
