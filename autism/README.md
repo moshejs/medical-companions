@@ -37,7 +37,7 @@ python3 tools/share_card.py autism/src/share-card.html autism/share-card.png
 
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
-- `00-head.html` holds all CSS (theme tokens for light and dark). Ochre-gold carries the interface and parts 1, 5 and 6; charcoal-blue is the accent and marks signs and diagnosis; violet marks causes and the brain; green marks supports and interventions. In the drawings the brain is warm sand, neurons amber, excitation orange-red, inhibition blue and sensory input amber waves. Fonts: Bitter, Lexend and Martian Mono. The icon is the infinity loop many autistic people use for neurodiversity.
+- `00-head.html` holds all CSS (theme tokens for light and dark). Ochre-gold carries the interface and parts 1, 5 and 6; charcoal-blue is the accent and marks signs and diagnosis; violet marks causes and the brain; green marks supports and interventions. In the drawings the brain is warm sand, neurons amber, excitation orange-red, inhibition blue and sensory input amber waves. Fonts: Bitter, Lexend and Martian Mono. The icon is a gold infinity loop.
 - `js/00-core.js` has the shared helpers and this companion's drawing kit (`brain`, `neuron`, `synapse`, `face`, `bubble`, `wave`, `profile`, `dial`, `chrom`, `tl`, `person`, `ped`, `marker`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.

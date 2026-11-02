@@ -1,5 +1,61 @@
-<!-- ================= 6.1 HISTORY & PEOPLE (stub, replaced by its builder) ================= -->
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<style>
+#m-history .hi-names{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+#m-history .hi-names .card{gap:8px}
+#m-history .hi-names .card p.back{display:none}
+#m-history .hi-names .card.open p.back{display:block}
+#m-history .hi-names .card.open p.front{display:none}
+#m-history .hi-names .yr{font:600 11px var(--mono);letter-spacing:.08em;color:var(--brand)}
+#m-history .hi-names .btn{align-self:flex-start;font-size:13px;padding:6px 12px}
+#m-history .card>.ev,#m-history .card>.tag{align-self:flex-start}
+#m-history .hi-read{font-size:14.5px;max-width:80ch}
+#m-history .hi-read b{font-family:var(--display);font-weight:800}
+</style>
 <section class="mod" id="m-history" data-mod="history" hidden>
   <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">From a word for a symptom of schizophrenia in 1911 to "autism spectrum disorder" in 2013, and from blaming mothers to research done with autistic people. Scrub through more than a century, then switch to the story told by parents and the autistic community.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Which history to show"><span class="kicker">Timeline</span>
+    <button class="btn" data-himode="sci" aria-pressed="true">Science and diagnosis</button>
+    <button class="btn" data-himode="com" aria-pressed="false">Community and rights</button>
+  </div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A timeline from 1910 to 2025. As the cursor moves, events light up as dots on the line, and name cards without portraits show the three most recent: who, when and what changed. Under the line, a coloured band shows which name for autism was in clinical use: a symptom of schizophrenia, early infantile autism, the DSM-III category, the DSM-IV subtypes including Asperger's disorder, and autism spectrum disorder from 2013."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.14"></label></div>
+      <div class="chips" id="hiYears" aria-label="Jump to an event"></div>
+      <p class="hi-read" id="hiRead" aria-live="polite"></p>
+      <p class="stage-cap">Name cards carry no portraits. Dates of books are taken from validated secondary sources and contemporary reviews. The name band follows the manuals and key papers. [[Gundel1993,Kanner1971,Rosen2021,Fuentes2021ESCAP,BarahonaCorrea2015]]</p>
+    </div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How the name changed</h3>
+  <p class="prose">Each card is a name that has been used for autism. Open it to see when it appeared and why it changed.</p>
+  <div class="hi-names" id="hiNames">
+    <div class="card"><span class="yr">1911</span><h4>"Autism" (a symptom)</h4><p class="front">Before it named a condition, the word named a symptom.</p><p class="back">Eugen Bleuler introduced "autism" as a term within schizophrenia, one of his "4 A's" with association, affect and ambivalence. [[Gundel1993,Moskowitz2011]]</p><button class="btn" aria-pressed="false">When and why</button></div>
+    <div class="card"><span class="yr">1926 · 1938–1944</span><h4>"Autistic psychopathy"</h4><p class="front">Two clinicians used it, years apart.</p><p class="back">Grunya Sukhareva first called her cases "schizoid (eccentric) psychopathy" and later "autistic (pathological avoidant) psychopathy"; Hans Asperger described "autistic psychopaths" in 1938 and published his full study in 1944. [[Manouilenko2015,Czech2018,Asperger1944]]</p><button class="btn" aria-pressed="false">When and why</button></div>
+    <div class="card"><span class="yr">1943</span><h4>"Early infantile autism"</h4><p class="front">The first systematic description.</p><p class="back">Leo Kanner described 11 children in "Autistic disturbances of affective contact". What was new was an inborn condition distinct from childhood schizophrenia. [[Kanner1971,Harris2018Kanner,Vicedo2021]]</p><button class="btn" aria-pressed="false">When and why</button></div>
+    <div class="card"><span class="yr">1981 · 1994</span><h4>"Asperger's syndrome" / "Asperger's disorder"</h4><p class="front">A name borrowed from Vienna.</p><p class="back">Lorna Wing's 1981 paper brought Asperger's syndrome to English-language readers; DSM-IV added Asperger's disorder in 1994. Archival work later showed Asperger cooperated with Nazi race-hygiene policy, so many now question the eponym, while some people still identify with it. [[Wing1981,BarahonaCorrea2015,Czech2018,Chahboun2022]]</p><button class="btn" aria-pressed="false">When and why</button></div>
+    <div class="card"><span class="yr">1994–2013</span><h4>"PDD-NOS"</h4><p class="front">A catch-all that disappeared.</p><p class="back">Pervasive developmental disorder not otherwise specified was a DSM-IV category beside autistic disorder, Asperger's disorder and childhood disintegrative disorder. DSM-5 merged them all into autism spectrum disorder; people with a well-established DSM-IV diagnosis keep the new one. [[Fuentes2021ESCAP]]</p><button class="btn" aria-pressed="false">When and why</button></div>
+    <div class="card"><span class="yr">2013 · 2022</span><h4>"Autism spectrum disorder"</h4><p class="front">One umbrella term.</p><p class="back">DSM-5 (2013) swung from "splitting" into subgroups back to "lumping". ICD-11, in use from 1 January 2022, also uses autism spectrum disorder (6A02), subdivided by intellectual development and functional language. [[BarahonaCorrea2015,Volkmar2014,Reed2019ICD11,Fuentes2021ESCAP]]</p><button class="btn" aria-pressed="false">When and why</button></div>
+    <div class="card"><span class="yr">In research titles</span><h4>"Autism spectrum condition"</h4><p class="front">"Condition" instead of "disorder".</p><p class="back">Some researchers use "condition", as in the titles of camouflaging and adult-diagnosis papers. The UK survey found "autism" and "on the autism spectrum" the most widely endorsed terms. [[Hull2017,Lai2015LancetPsych,Kenny2016]]</p><button class="btn" aria-pressed="false">When and why</button></div>
+    <div class="card"><span class="yr">Today</span><h4>"Autistic"</h4><p class="front">An identity, chosen by many.</p><p class="back">Autistic adults in English-language surveys mostly prefer identity-first terms such as "autistic person"; there is no single consensus, so the person's own choice comes first. See <a href="../words/" data-go="words">1.2 Words</a>. [[Taboas2023,Keating2023,Schuck2025]]</p><button class="btn" aria-pressed="false">When and why</button></div>
+  </div>
+
+  <h3 class="sub">People</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">1911</span><h4>Eugen Bleuler</h4><p>Swiss psychiatrist who introduced the word "autism" in 1911, as a term within schizophrenia: one of his "4 A's" (association, affect, ambivalence, autism). [[Gundel1993,Moskowitz2011]]</p></div>
+    <div class="card"><span class="tag brand">1926</span><h4>Grunya Sukhareva (1891–1981)</h4><p>A child psychiatrist in Kyiv who published detailed descriptions of children with autistic traits almost two decades before Kanner and Asperger. Long overlooked; an English translation appeared in 1996. [[Manouilenko2015,Pozzi2024,Ssucharewa1996]]</p></div>
+    <div class="card"><span class="tag brand">1943</span><h4>Leo Kanner</h4><p>Wrote that the 11 children he described "have come into the world with an innate inability to form the usual, biologically provided contact with people". He followed them up in 1971 and reviewed the DSM-III criteria in 1980. [[Harris2018Kanner,Kanner1971]]</p></div>
+    <div class="card"><span class="tag bad">1938–1944</span><h4>Hans Asperger</h4><p>Archival work shows he accommodated himself to the Nazi regime, publicly legitimised race-hygiene policies including forced sterilisation, and on several occasions actively cooperated with the child "euthanasia" programme. The story of Asperger as a defender of his patients "does not hold up". [[Czech2018]]</p></div>
+    <div class="card"><span class="tag">1958–1967</span><h4>Bruno Bettelheim and Bernard Rimland</h4><p>Bettelheim blamed the "refrigerator mother" and proposed removing the mother. Rimland, a psychologist and parent, argued in 1964 for a biological, neural basis. Parent-blaming is now rejected; autism is highly heritable (about 83% in a Swedish reanalysis). <span class="ev est">Established</span> [[vanRosmalen2020,Chess1967,Cowie1965,Sandin2017]]</p></div>
+    <div class="card"><span class="tag brand">1979–1981</span><h4>Lorna Wing and Judith Gould</h4><p>Their Camberwell survey of children in London proposed classifying by the quality of social interaction, the groundwork of the spectrum idea. Wing then grouped Asperger's syndrome with early childhood autism in one wider family. [[WingGould1979,Wing1981]]</p></div>
+    <div class="card"><span class="tag rx">2012</span><h4>Damian Milton</h4><p>An autistic sociologist who described the "double empathy problem": social difficulty as a two-way mismatch, not a one-sided deficit. [[Milton2012,Milton2022]] See <a href="../words/" data-go="words">1.2 Words, identity &amp; neurodiversity</a>.</p></div>
+    <div class="card"><span class="tag rx">Late 1990s</span><h4>Judy Singer, and many others</h4><p>The Australian sociologist is often credited with the concept of neurodiversity; archival evidence shows "neurological diversity" was in use earlier and the idea was "collectively developed by neurodivergent people". [[Botha2024]]</p></div>
+  </div>
+
+  <p class="callout"><b>Vaccines do not cause autism.</b> The 1998 Lancet case series of 12 children that started the MMR scare was retracted in 2010 and judged fraudulent by the BMJ in 2011. A Danish cohort of 657,461 children found an MMR adjusted hazard ratio of 0.93 (0.85–1.02), and a meta-analysis of 1,256,407 children found no link. <span class="ev est">Established</span> [[Wakefield1998,Lancet2010Retraction,Godlee2011,Hviid2019,Taylor2014Vaccine]] More in <a href="../risk/" data-go="risk">2.2 Risk factors &amp; myths</a>.</p>
+  <p class="stage-cap">Historians describe the usual story, in which parent-blaming theories were simply "supplanted" by biological research, as simplified: factors outside science also shaped how the category grew. [[Jacobsen2010,Evans2013]]</p>
 </section>
