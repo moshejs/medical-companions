@@ -1,5 +1,93 @@
-<!-- ================= 2.2 RISK FACTORS, AND WHAT DOES NOT CAUSE AUTISM (stub, replaced by its builder) ================= -->
+<!-- ================= 2.2 RISK FACTORS, AND WHAT DOES NOT CAUSE AUTISM ================= -->
+<style>
+#m-risk .tbl table{min-width:620px}
+#m-risk .riFlips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+#m-risk .fc{width:100%;min-height:300px;padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;display:block}
+#m-risk .fc .face{padding:20px}
+#m-risk .fc .front{background:var(--panel)}
+#m-risk .fc .front p{font-size:clamp(19px,2.4vw,23px)}
+#m-risk .fc .back{background:var(--neuro-soft)}
+#m-risk .fc .back p{font-size:14.5px;line-height:1.45}
+#m-risk .fc .face small.hint{margin-top:auto;color:var(--neuro)}
+#m-risk .fc:focus-visible{outline:2px solid var(--neuro);outline-offset:3px;border-radius:var(--r)}
+#m-risk .riMode{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+</style>
 <section class="mod" id="m-risk" data-mod="risk" hidden>
-  <div class="mhead"><p class="eyebrow">Part 2 · Causes &amp; the brain</p><h2>Risk factors, and what does not cause autism</h2>
-    <p class="lede">This module is being written.</p></div>
+  <div class="mhead"><p class="eyebrow">Part 2 · Causes &amp; the brain</p><h2>Risk factors &amp; myths</h2>
+    <p class="lede">A few things around pregnancy and birth are linked with a somewhat higher chance of autism; most of the links are small, and none is a reason for blame. Vaccines do not cause autism. See the factors on a forest plot, turn them into absolute numbers, and test the claims.</p></div>
+  <div class="callout"><p>A "risk factor" is a statistical association in a large population. It is not a cause in any one family, and most children with any listed exposure are not autistic. Genes explain most of the variation in autism; see <a href="#genes" data-go="genes">Genes &amp; heritability</a>. [[Bai2019,Kim2019Umbrella]]</p></div>
+
+  <div class="riMode" role="group" aria-label="Risk scale">
+    <span class="kicker">Show as</span>
+    <button class="btn" data-rimode="rel" aria-pressed="true">Relative risk</button>
+    <button class="btn" data-rimode="abs" aria-pressed="false">Absolute risk (out of 100)</button>
+  </div>
+  <div class="stepper" id="riSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="riSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="An animated forest plot: each prenatal or perinatal factor drops onto a logarithmic axis with its point estimate and 95% confidence interval, beside the line of no effect at 1. Folic acid sits left of the line, the MMR vaccine on it. In the last step the plot turns into icon arrays of 100 children showing absolute risks for valproate exposure and extremely preterm birth."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="riPlay">Play</button><label class="stage-cap tl" for="riT">Factors <input type="range" id="riT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap">Each row comes from a different study with its own comparison and measure (relative risk, hazard ratio, odds ratio or prevalence ratio), so the rows are not directly comparable. Log scale. [[Sandin2016,Crump2021Preterm,Xiang2015,Christensen2013,Jiang2016Infection,Hornig2018,CondeAgudelo2016,Suren2013,Hviid2019]]</p>
+    </div>
+    <aside class="note" id="riNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Valproate: what the label says</h3>
+  <div class="split2">
+    <div class="callout prose"><p>The US Depakote label's boxed warning on fetal risk states that "valproate can cause decreased IQ scores and neurodevelopmental disorders following in utero exposure". Section 8.1 names autism spectrum disorder, intellectual disability and ADHD among these risks. The label states valproate should not be used in pregnant women with epilepsy or bipolar disorder unless other medicines have failed or are unacceptable, and that it is contraindicated for migraine prophylaxis in pregnancy. [[FDA-Depakote]]</p></div>
+    <div class="callout prose"><p>This is quoted as published, not as advice. Anyone taking valproate should not stop it without talking with their prescriber, ideally before a pregnancy. In Danish data the 14-year absolute risk of autism was 4.42% after exposure against 1.53% in all children; childhood autism, the narrower diagnosis, 2.50% against 0.48%. [[FDA-Depakote,Christensen2013]]</p></div>
+  </div>
+
+  <h3 class="sub">Vaccines do not cause autism</h3>
+  <div class="prose"><p>This question has been studied in millions of children. MMR, thimerosal-containing vaccines and the number of vaccine antigens are not associated with autism. The 1998 paper that started the scare was retracted and judged fraudulent. <span class="ev est">Established</span> [[Hviid2019,Taylor2014Vaccine,Hviid2003,DeStefano2013,Lancet2010Retraction,Godlee2011]]</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="riVax" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A timeline from 1998 to 2019 fills in event by event: the 1998 case series, large cohort studies, the 2010 retraction and the 2011 fraud finding. Below, two arrays of 100 children, MMR-vaccinated and unvaccinated, from the 2019 Danish cohort of 657,461 children, are drawn the same, because the hazard ratio was 0.93 with a confidence interval spanning 1."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="riVaxPlay">Play</button><label class="stage-cap tl" for="riVaxT">Year <input type="range" id="riVaxT" min="0" max="1" step="0.001" value="0"></label></div>
+      <p class="stage-cap">Icon arrays: about 1 in 100 children in the cohort was diagnosed during follow-up (6,517 of 657,461); the two groups are drawn the same because the hazard ratio was close to 1. [[Hviid2019]]</p>
+    </div>
+    <aside class="note" id="riVaxNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Association or cause? Paracetamol (acetaminophen) in pregnancy</h3>
+  <div class="prose"><p>A link in a whole population can come from something else that families share: genes, the mother's health, the reason the medicine was taken. Comparing brothers and sisters, who share much of that, is one way to check. Switch between the two analyses.</p></div>
+  <div class="riMode" role="group" aria-label="Analysis">
+    <span class="kicker">Analysis</span>
+    <button class="btn" data-riap="pop" aria-pressed="true">Whole population</button>
+    <button class="btn" data-riap="sib" aria-pressed="false">Sibling comparison</button>
+    <label class="kicker" for="riApEx" style="margin-left:6px">Exposure</label>
+    <select id="riApEx" class="btn"><option value="apap">Paracetamol (acetaminophen)</option><option value="ad">Antidepressants (first trimester)</option></select>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="riApap" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A confounding diagram: family factors point to both the exposure and an autism diagnosis. Beside it, hazard ratios: in the whole population the point sits slightly above 1; in the sibling comparison the family factors are held constant and the point moves onto 1."></svg></div>
+      <p class="stage-cap" id="riApCap"></p>
+    </div>
+    <aside class="note" id="riApNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Myth or evidence? Tap a card</h3>
+  <div class="riFlips" id="riFlips">
+    <div class="fc-wrap"><button class="fc" aria-pressed="false"><div class="face front"><small>Claim</small><p>"The MMR vaccine causes autism."</p><small class="hint">Tap to see the evidence</small></div><div class="face back"><small>Evidence</small><p>No. In 657,461 Danish children the adjusted hazard ratio was 0.93 (95% CI 0.85–1.02), with no increase in children with an autistic sibling and no clustering after vaccination. A meta-analysis of 1,256,407 children found OR 0.99 for vaccination. Among US children with an autistic older sibling, MMR was not associated with higher risk. [[Hviid2019,Taylor2014Vaccine,Jain2015MMR]]</p></div></button></div>
+    <div class="fc-wrap"><button class="fc" aria-pressed="false"><div class="face front"><small>Claim</small><p>"Mercury (thimerosal) in vaccines causes autism."</p><small class="hint">Tap to see the evidence</small></div><div class="face back"><small>Evidence</small><p>No. In 467,450 Danish children, thimerosal-containing and thimerosal-free versions of the same vaccine carried similar risk (RR 0.85; 0.60–1.20), with no dose-response. A US case-control study found no risk from prenatal or infant ethylmercury. After thimerosal was removed from nearly all US childhood vaccines, autism counts in California kept rising. [[Hviid2003,Price2010Thimerosal,Schechter2008]]</p></div></button></div>
+    <div class="fc-wrap"><button class="fc" aria-pressed="false"><div class="face front"><small>Claim</small><p>"Too many vaccines, too soon."</p><small class="hint">Tap to see the evidence</small></div><div class="face back"><small>Evidence</small><p>Cumulative exposure to vaccine antigens by age 2 was not associated with autism (adjusted OR 0.999 per 25-unit increase). A review of reviews lists vaccination and thimerosal among factors unrelated to autism risk. [[DeStefano2013,Modabbernia2017]]</p></div></button></div>
+    <div class="fc-wrap"><button class="fc" aria-pressed="false"><div class="face front"><small>Claim</small><p>"Cold parenting, 'refrigerator mothers', cause autism."</p><small class="hint">Tap to see the evidence</small></div><div class="face back"><small>Evidence</small><p>No. Bruno Bettelheim promoted the idea in the mid-20th century and proposed separating children from their mothers. Twin and family studies show heritability of about 80% with little or no shared-environment effect, and a maternal effect of only 0.4–1.6%. Parents do not cause autism by how they love or raise a child. [[vanRosmalen2020,Bai2019,Sandin2017,Tick2016]]</p></div></button></div>
+    <div class="fc-wrap"><button class="fc" aria-pressed="false"><div class="face front"><small>Claim</small><p>"Diet and gut bacteria cause autism, and a special diet fixes it."</p><small class="hint">Tap to see the evidence</small></div><div class="face back"><small>Evidence</small><p>In 247 people, the autism diagnosis had a negligible direct link with the gut microbiome; autistic children's narrower food preferences went with less diverse diets, which shaped the microbes. A review of 6 randomised trials found "little evidence" that a gluten- and casein-free diet helps. [[Yap2021,Piwowarczyk2018]]</p></div></button></div>
+    <div class="fc-wrap"><button class="fc" aria-pressed="false"><div class="face front"><small>Claim</small><p>"Rising diagnoses prove an environmental epidemic."</p><small class="hint">Tap to see the evidence</small></div><div class="face back"><small>Evidence</small><p>In Swedish twins born 1982–2008, heritability stayed at 0.88–0.97 and the environmental share did not grow, so environmental change is "unlikely to explain" the rise. [[Taylor2020Twins]]</p></div></button></div>
+  </div>
+
+  <h3 class="sub">Putting environmental factors in context</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Factor</th><th>Pooled estimate</th><th>How strong is the evidence?</th></tr></thead>
+    <tbody>
+      <tr><th>Mother aged 35 or older</th><td>RR 1.31 (1.18–1.45)</td><td rowspan="5">Graded convincing in an umbrella review of 67 environmental factors (544,212 cases). Only overweight and SSRI use kept a high grade in sensitivity analyses. [[Kim2019Umbrella]]</td></tr>
+      <tr><th>Chronic / gestational hypertension</th><td>OR 1.48 (1.29–1.70) / 1.37 (1.21–1.54)</td></tr>
+      <tr><th>Pre-eclampsia</th><td>RR 1.32 (1.20–1.45)</td></tr>
+      <tr><th>Overweight before or during pregnancy</th><td>RR 1.28 (1.19–1.36)</td></tr>
+      <tr><th>SSRI use in pregnancy</th><td>OR 1.84</td></tr>
+      <tr><th>Antidepressant use <i>before</i> pregnancy</th><td>RR 1.48</td><td>A similar link before pregnancy suggests confounding by the mother's underlying condition. [[Kim2019Umbrella]]</td></tr>
+      <tr><th>Maternal smoking, assisted reproduction</th><td>not associated</td><td>"Most likely" unrelated to autism in a review of reviews. [[Modabbernia2017]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Advanced parental age and preterm birth are the non-genetic risk factors epidemiology has "established"; short interpregnancy interval is a "potential" one. Most associations are modest, with relative risks of about 1.1–2. Evidence on hypertension and pre-eclampsia has shifted: a 2009 meta-analysis listed them among factors with evidence against a role. [[Lyall2017,Kim2019Umbrella,Gardener2009]]</p>
 </section>
