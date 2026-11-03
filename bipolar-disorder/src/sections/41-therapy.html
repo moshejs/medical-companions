@@ -1,5 +1,77 @@
-<!-- ================= 4.1 PSYCHOEDUCATION &AMP; TALKING THERAPIES (stub, replaced by its builder) ================= -->
+<!-- ================= 4.1 PSYCHOEDUCATION & TALKING THERAPIES ================= -->
+<style>
+#m-therapy .th-pick{display:flex;flex-wrap:wrap;gap:8px}
+#m-therapy .th-detail{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:900px){#m-therapy .th-detail{grid-template-columns:minmax(0,1fr)}}
+#m-therapy .th-detail dl{margin:0;display:flex;flex-direction:column;gap:10px}
+#m-therapy .th-detail dt{font:600 10.5px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:3px}
+#m-therapy .th-detail dd{margin:0;font-size:15px}
+#m-therapy .th-head{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-therapy .th-head h4{margin:0;font-family:var(--display);font-weight:800;font-size:22px;line-height:1.15}
+#m-therapy .th-rows{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+#m-therapy .th-rows .kicker{min-width:7ch}
+#m-therapy .th-score{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+#m-therapy .card>.ev,#m-therapy .card>.tag{align-self:flex-start}
+</style>
 <section class="mod" id="m-therapy" data-mod="therapy" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Therapy, safety &amp; pregnancy</p><h2>Psychoeducation &amp; talking therapies</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Talking therapies are added to medicines, not used instead of them. Watch two landmark trials unfold over follow-up, compare the main therapies side by side, and try the daily-routine idea behind social rhythm therapy.</p></div>
+
+  <div class="callout prose"><p>NICE recommends that, to prevent relapse, people with bipolar disorder are offered "a structured psychological intervention (individual, group or family), which has been designed for bipolar disorder and has a published evidence-based manual", alongside medicines. [[NICE2014CG185]] A Lancet seminar states that adding psychosocial treatments and involving caregivers "have been shown to improve health outcomes". [[McIntyre2020Lancet]]</p></div>
+
+  <div class="stepper" id="thSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="thSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Two trial panels fill in as follow-up time passes. Left: in the Barcelona group psychoeducation trial, mean recurrences per person climb to 3.86 with psychoeducation and 8.37 in the control group by year 5, and days acutely ill grow to 154 and 586. Right: in STEP-BD, the share of people recovered from bipolar depression rises over 12 months to 64.4% with intensive psychotherapy and 51.5% with collaborative care."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="thPlay">Play</button><label class="stage-cap tl" for="thT">Follow-up <input type="range" id="thT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="thRead"></div>
+      <p class="stage-cap"><b>Schematic shapes, published end points.</b> The lines are drawn between the start and the published results: the Barcelona 5-year means and the STEP-BD year-end recovery rates. The trials did not publish these exact curves, and the abstract of the 2-year Barcelona report gives no percentages. [[Colom2003,Colom2009,Miklowitz2007]]</p>
+    </div>
+    <aside class="note" id="thNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Compare the therapies</h3>
+  <div class="prose"><p>Pick a therapy to see what happens in the sessions, how long it lasts, the key trial and what the 2021 network meta-analysis found. The bars show each therapy's headline trial result. [[Miklowitz2021NMA]]</p></div>
+  <div class="th-pick" id="thPick" role="group" aria-label="Choose a therapy"></div>
+  <div class="th-detail">
+    <div class="card" id="thCard" aria-live="polite"></div>
+    <div class="stage">
+      <svg id="thCmpSvg" viewBox="0 0 400 230" role="img" aria-label="Two bars compare the selected therapy's headline trial result with its comparison group."></svg>
+      <p class="stage-cap" id="thCmpCap"></p>
+    </div>
+  </div>
+
+  <h3 class="sub">Social rhythms: try a week</h3>
+  <div class="prose"><p>Interpersonal and social rhythm therapy (IPSRT) adds one ingredient to interpersonal psychotherapy: regular daily routines. In its trial, IPSRT made routines more regular, and people who became more regular were less likely to have a recurrence (<span class="ev early">Early evidence</span> for routine as the mechanism). [[Frank2005IPSRT]] Switch each routine between steady and irregular and watch the week's regularity change.</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="th-rows" id="thRhythmBtns" role="group" aria-label="Make a routine irregular"></div>
+      <div class="scroll"><svg id="thRhythm" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="A week of five daily anchors, one row each: out of bed, first meal, start of the main activity, evening meal and lights out. Dots show how far each day's time was from the usual time; a shaded band marks within one hour."></svg></div>
+      <div class="th-score"><span class="big-num" id="thScore">100%</span><span class="stage-cap" id="thScoreTxt"></span></div>
+      <p class="stage-cap"><b>Schematic.</b> This score simply counts anchors that fall within an hour of the usual time. It is a teaching device, not the scoring rules of any published social rhythm scale.</p>
+    </div>
+    <aside class="note" id="thRhythmNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the bigger reviews say</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Review</th><th>What it pooled</th><th>Finding as published</th></tr></thead>
+    <tbody>
+      <tr><th>Miklowitz 2021 network meta-analysis</th><td>39 RCTs, 3863 participants</td><td>Manualised psychotherapy plus medication had lower recurrence than control treatments (OR 0.56, 95% CI 0.43–0.74). Psychoeducation with guided skills practice in a family or group format beat the same strategies delivered individually (OR 0.12, 95% CI 0.02–0.94). [[Miklowitz2021NMA]]</td></tr>
+      <tr><th>Oud 2016</th><td>55 RCTs, 6010 participants</td><td>Individual psychological interventions reduced relapse at the end of treatment (RR 0.66) and at follow-up (RR 0.74; moderate-quality evidence). Collaborative care reduced hospital admissions (RR 0.68). [[Oud2016]]</td></tr>
+      <tr><th>Chatterton 2017</th><td>Network meta-analysis</td><td>Only carer-focused interventions significantly reduced manic or depressive relapse. Psychoeducation, alone or with CBT, reduced not taking medication. [[Chatterton2017]]</td></tr>
+      <tr><th>Jackson 2003</th><td>17 studies, 1191 people</td><td>At least 80% of people with a mood disorder can identify one or more early warning symptoms. Sleep disturbance is the most robust early sign of mania (median 77%). [[Jackson2003]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">More approaches, with evidence labels</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>Early-warning-sign training</h4><p>Seven to 12 sessions teaching people to spot their early symptoms and get prompt treatment lengthened the time to a first manic relapse (65 vs 17 weeks at the 25th centile) and cut manic relapses over 18 months. It did not change depressive relapse. [[Perry1999BMJ]] Coping early at the prodromal stage went with fewer relapses in a naturalistic study. [[Lam2001Prodromes]] A Cochrane review of these interventions is under way. [[Gupta2025Cochrane]]</p><p>See your own warning signs on a mood chart in <a href="#living" data-go="living">Living well</a>.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Collaborative and specialist care</h4><p>Nurse care managers with group psychoeducation and phone monitoring cut time with significant mania symptoms (19.2 vs 24.7 weeks), but not depressive time. [[Simon2006Care]] A VA collaborative chronic care model cut time in episodes by a net 6.2 weeks over 3 years and was cost-neutral. [[Bauer2006CCM]] A specialised mood clinic early in the illness reduced readmission (HR 0.60). [[Kessing2013Clinic]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Online programmes and apps</h4><p>An online psychoeducation trial found all three arms improved equally; adding online peer support raised adherence. [[Proudfoot2012]] MoodSwings 2.0 gave a small benefit for depression symptoms. [[Gliddon2019]] Daily smartphone self-monitoring in MONARCA I did not reduce symptoms. [[FaurholtJepsen2015]] Digital tools are not a substitute for care.</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Children and young people</h4><p>In teenagers with bipolar disorder, family-focused therapy did not change recurrence but sped recovery from depressive symptoms (HR 1.85). [[Miklowitz2008FFTA]] In high-risk youth, 12 sessions of FFT delayed the next mood episode (HR 0.55), mainly depressive episodes. [[Miklowitz2020FFT]] Multifamily psychoeducation lowered mood severity in children aged 8–12. [[Fristad2009]] More on families in <a href="#families" data-go="families">Families, work &amp; school</a>.</p></div>
+    <div class="card"><span class="tag warn">Open question</span><h4>Does timing matter?</h4><p>Group psychoeducation helped most in people with 1–7 previous episodes (HR 0.28), and CBT helped people with fewer than 12 previous episodes but not those with more. Together these suggest structured therapy may work best early in the illness. <span class="ev early">Early evidence</span> [[Morriss2016PARADES,Scott2006CBT]]</p></div>
+    <div class="card"><span class="tag warn">Open question</span><h4>Which ingredient matters?</h4><p>The network meta-analysis favours family or group skills practice; another found only carer-focused interventions reduced relapse. Trials differ a lot and certainty is low to moderate. [[Miklowitz2021NMA,Chatterton2017,Oud2016]]</p></div>
+  </div>
+  <div class="callout prose"><p><b>In plain words.</b> Learning about the illness in a group, or with family, helps people stay well longer. In one study, people who took a 6-month class about bipolar disorder spent about 154 days unwell over 5 years, compared with about 586 days for those who did not. [[Colom2009,Miklowitz2021NMA]]</p></div>
 </section>

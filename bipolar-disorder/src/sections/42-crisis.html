@@ -1,5 +1,75 @@
-<!-- ================= 4.2 SUICIDE RISK &AMP; CRISIS SAFETY (stub, replaced by its builder) ================= -->
+<!-- ================= 4.2 SUICIDE RISK & CRISIS SAFETY ================= -->
+<style>
+#m-crisis .crisis{max-width:none;font-size:16px}
+#m-crisis .crisis .cs-nums{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:4px}
+#m-crisis .crisis .cs-nums b{font:800 20px var(--display);color:var(--accent);letter-spacing:0;text-transform:none;padding:0;white-space:normal}
+#m-crisis .cs-plan{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media (max-width:900px){#m-crisis .cs-plan{grid-template-columns:minmax(0,1fr)}}
+#m-crisis .cs-field{display:flex;flex-direction:column;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+#m-crisis .cs-field label{font-weight:800;font-size:15.5px}
+#m-crisis .cs-field small{color:var(--muted);font-size:13.5px;line-height:1.4}
+#m-crisis .cs-field textarea{font:inherit;font-size:15px;min-height:84px;resize:vertical;padding:9px 11px;border-radius:10px;border:1px solid var(--line);background:var(--field);color:var(--ink);width:100%}
+#m-crisis .cs-field textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+#m-crisis .cs-field .n{font:600 11px var(--mono);color:var(--accent);letter-spacing:.1em}
+#m-crisis .cs-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-crisis .card>.tag,#m-crisis .card>.ev{align-self:flex-start}
+</style>
 <section class="mod" id="m-crisis" data-mod="crisis" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Therapy, safety &amp; pregnancy</p><h2>Suicide risk &amp; crisis safety</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Suicide risk in bipolar disorder is real, it rises at predictable times, and it can be lowered. This page shows when risk is higher, what protects, and how to write a safety plan.</p></div>
+
+  <div class="crisis" role="note"><b>Help now</b><div>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123). Help works.
+    <div class="cs-nums"><span><b>988</b> US, call or text</span><span><b>116 123</b> Samaritans, UK &amp; Ireland</span><span><b>Local emergency number</b> anywhere</span></div></div></div>
+
+  <div class="callout prose"><p>How this page talks about suicide: no method details, a focus on help and recovery, and the crisis line always in view. Media stories of people coping with a crisis are linked with lower suicide rates, while sensational reporting is linked with higher ones. [[Niederkrotenthaler2010,Niederkrotenthaler2020]]</p></div>
+
+  <div class="stepper" id="csSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="csSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="An illustrative mood chart moves through steady mood, depression, a mixed state, a hospital stay and recovery. A bar panel shows how much more often suicide attempts occur in each mood state compared with remission, then the suicide rate in the months and years after discharge. A balance scale weighs risk factors against protective factors, and tips towards protection when treatment, connection, follow-up, a safety plan and lithium are added."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="csPlay">Play</button><label class="stage-cap tl" for="csT">Course <input type="range" id="csT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative course, not a prediction for anyone. Bar values are published population figures; the balance is a teaching picture, not a risk score. All figures are population statistics. [[Holma2014,Chung2017JAMAPsych]]</p>
+    </div>
+    <aside class="note" id="csNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Write a safety plan</h3>
+  <div class="prose">
+    <p>A safety plan is a brief, written, prioritised list of coping strategies and sources of support that a person can use in a crisis. [[Stanley2012SPI,Stanley2018ED]] It is best written when you are well, ideally with your care team and the people close to you. NICE describes a plan made jointly with the person and their carer that covers triggers and early warning signs, the person's own coping strategies, how services will respond, and who to contact in a crisis. [[NICE2014CG185]]</p>
+    <p>Does it help? In a meta-analysis of 6 studies (3536 people), safety-planning-type interventions reduced suicidal behaviour (RR 0.57; number needed to treat 16). [[Nuij2021]] Plans work on paper or digitally, with or without a clinician. [[Ferguson2022]]</p>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <svg id="csLadder" viewBox="0 0 400 170" role="img" aria-label="A staircase with one step for each part of the plan; steps light up as you fill them in."></svg>
+      <p class="stage-cap" id="csLadderCap"></p>
+      <div class="cs-tools"><button class="btn primary" id="csPrint" type="button">Print or save as PDF</button><button class="btn ghost" id="csClear" type="button">Clear my plan</button></div>
+      <p class="stage-cap"><b>Private.</b> What you type is saved only in this browser on this device. It is never sent anywhere. Clear it on a shared computer.</p>
+    </div>
+    <div class="crisis" role="note"><b>In a crisis</b><div>Contact local emergency services or a crisis line: in the US call or text <strong>988</strong>; in the UK and Ireland call Samaritans on <strong>116 123</strong>. These numbers are printed on your plan.</div></div>
+  </div>
+  <div class="cs-plan" id="csPlan"></div>
+
+  <h3 class="sub">Risk after leaving hospital</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Time since psychiatric discharge</th><th>Pooled suicide rate (per 100,000 person-years)</th><th>What it means</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>First 3 months</th><td>1132 (95% CI 874–1467)</td><td>The highest-risk window: follow-up should be arranged before the person leaves.</td></tr>
+      <tr><th>3 months to 1 year</th><td>654</td><td rowspan="4">Risk falls over time but stays raised for years. People admitted with suicidal thoughts or behaviour had the highest rate (2078). [[Chung2017JAMAPsych]]</td></tr>
+      <tr><th>1–5 years</th><td>494</td></tr>
+      <tr><th>5–10 years</th><td>366</td></tr>
+      <tr><th>More than 10 years</th><td>277</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Meta-analysis of 100 studies, all diagnoses; population statistics. [[Chung2017JAMAPsych]] Active contact and follow-up after an emergency visit for suicidal behaviour halved repeat attempts within 6 months (RR 0.48). [[Inagaki2019]] "Active follow-up of patients after discharge or a suicide-related crisis should be routine." [[Mann2021Suicide]]</p>
+
+  <h3 class="sub">For families, friends and anyone worried</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Families</span><h4>Talk openly, and plan together</h4><p>NICE asks services to give carers written and spoken information about getting help in a crisis, to agree early how information will be shared, stressing information about risk, and to make crisis plans jointly with the person and their carer. [[NICE2014CG185]] If you are worried, you can ask the person calmly and directly how they are and whether they are having thoughts of suicide, listen, and help them contact their care team or a crisis line.</p></div>
+    <div class="card"><span class="tag bad">Emergency</span><h4>When it cannot wait</h4><ul><li>If someone may act on thoughts of suicide, or is unsafe right now: call local emergency services.</li><li>Crisis lines: <b>988</b> (US, call or text); <b>Samaritans 116 123</b> (UK &amp; Ireland).</li><li>On lithium with shaking, unsteadiness, slurred speech or confusion: suspected toxicity is an emergency too. [[FDA-Lithobid]]</li></ul></div>
+    <div class="card"><span class="tag up">During mania</span><h4>Other risks: money, driving, decisions</h4><p>The criteria for a manic episode include "excessive involvement in activities with a high potential for painful consequences". [[APA2022]] NICE advises people with mania not to make important decisions until they recover, and to discuss a lasting power of attorney if mania has caused financial problems. [[NICE2014CG185]] People with acute mania are not fit to drive; fitness can usually be confirmed after remission under psychiatric supervision. [[Laux2014]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Low and mixed moods: ask for extra help</h4><p>Suicidal behaviour is associated with depressed or mixed states, not with mania. [[Miller2020Suicide]] Low moods and mixed moods are the times to ask for extra help, and shortening time in these phases is a prevention target. [[Valtonen2008,Holma2014]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Making surroundings safer</h4><p>Restricting access to lethal means prevents suicide, and the evidence for this has strengthened. [[Zalsman2016,Mann2021Suicide]] Talk with the care team about what this means for your household; this page gives no specifics.</p></div>
+    <div class="card"><span class="tag warn">Open question</span><h4>Can risk be predicted for one person?</h4><p>Not well. Pooled across cohorts, "high-risk" categories had 56% sensitivity and 79% specificity, and most people labelled high-risk did not die by suicide (5.5% over about 5 years). [[Large2016]] "There is no effective algorithm to predict suicide in clinical practice", so reviews favour good care and safety planning for everyone. [[Turecki2016Lancet,Bolton2015BMJ]]</p></div>
+  </div>
+  <div class="callout prose"><p><b>In plain words.</b> Most people with bipolar disorder never die by suicide, and treatment, support and planning lower the risk further. If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123). Help works. [[Nordentoft2011,Nuij2021,Stanley2018ED]]</p></div>
 </section>
