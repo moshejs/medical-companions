@@ -1,5 +1,93 @@
-<!-- ================= 1.2 MANIA, HYPOMANIA &AMP; DEPRESSION (stub, replaced by its builder) ================= -->
+<!-- ================= 1.2 MANIA, HYPOMANIA & DEPRESSION ================= -->
+<style>
+#m-episodes .card>.tag,#m-episodes .card>.ev{align-self:flex-start}
+#m-episodes .tbl table{min-width:600px}
+#m-episodes .tbl th[scope=row]{white-space:nowrap}
+#m-episodes .ep-sort{display:flex;flex-direction:column;gap:14px}
+#m-episodes .ep-zones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:820px){ #m-episodes .ep-zones{grid-template-columns:minmax(0,1fr)} }
+#m-episodes .ep-zone{border:2px dashed var(--line);border-radius:var(--r);padding:10px;min-height:96px;display:flex;flex-direction:column;gap:8px;background:var(--panel);transition:border-color .15s,background .15s}
+#m-episodes .ep-zone.over{border-color:var(--brand);background:var(--brand-soft)}
+#m-episodes .ep-zone h4{margin:0;font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+#m-episodes .ep-zone[data-z=m] h4{color:var(--up)} #m-episodes .ep-zone[data-z=d] h4{color:var(--down)} #m-episodes .ep-zone[data-z=b] h4{color:var(--mixed)}
+#m-episodes .ep-zone[data-z=m]{border-color:color-mix(in srgb,var(--up-fill) 45%,var(--line))}
+#m-episodes .ep-zone[data-z=d]{border-color:color-mix(in srgb,var(--down-fill) 45%,var(--line))}
+#m-episodes .ep-zone[data-z=b]{border-color:color-mix(in srgb,var(--mixed-fill) 45%,var(--line))}
+#m-episodes .ep-pool{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+#m-episodes .ep-pool:empty::after{content:"All 12 cards are sorted.";font:500 13px var(--mono);color:var(--muted)}
+#m-episodes .ep-card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:10px;padding:9px 10px;display:flex;flex-direction:column;gap:6px;cursor:grab;min-width:0}
+#m-episodes .ep-card.ok{border-left-color:var(--good)} #m-episodes .ep-card.no{border-left-color:var(--bad)}
+#m-episodes .ep-card b{font-size:14.5px;line-height:1.25}
+#m-episodes .ep-card .ep-opts{display:flex;flex-wrap:wrap;gap:4px}
+#m-episodes .ep-card .ep-opts button{font:600 11.5px var(--body);padding:4px 9px;border-radius:999px;border:1px solid var(--line);background:var(--panel-2);color:var(--ink);cursor:pointer}
+#m-episodes .ep-card .ep-opts button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#m-episodes .ep-card .ep-fb{font-size:13.5px;line-height:1.4;margin:0}
+#m-episodes .ep-card .ep-fb:empty{display:none}
+#m-episodes .ep-card.ok .ep-fb b:first-child{color:var(--good)} #m-episodes .ep-card.no .ep-fb b:first-child{color:var(--bad)}
+#m-episodes .ep-score{font:600 14px var(--mono)}
+#m-episodes .ep-wlab{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+</style>
 <section class="mod" id="m-episodes" data-mod="episodes" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding bipolar disorder</p><h2>Mania, hypomania &amp; depression</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Bipolar disorder is defined by episodes: stretches of days or weeks when mood, energy, sleep, speech and thinking all change together. Scrub through one illustrative course to watch a hypomanic, a manic, a mixed and a depressive stretch build, and see when each one is long enough to count.</p></div>
+  <div class="stepper" id="epSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="epSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A life chart of one illustrative person's mood over 36 weeks: a steady band in the middle, hypomania and mania above, depression below. As the line is drawn it rises into a short hypomania, later into mania, passes through a mixed stretch shaded mauve, falls into a long depression and returns to steady mood. Side panels show sleep, energy, speech and thinking changing with it, and a meter counts the days of the current episode against the DSM-5-TR minimum."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="epPlay">Play</button><label class="stage-cap tl" for="epT">Weeks <input type="range" id="epT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="epRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative course, not a prediction for anyone; real courses vary widely. The height of the line and the band edges are drawing conventions: DSM-5-TR separates mania from hypomania by duration, impairment, hospitalisation and psychosis, not by how "high" mood goes. The side panels are pictures, not measurements. [[APA2022,Yatham2018]]</p>
+    </div>
+    <aside class="note" id="epNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Mania and hypomania side by side</h3>
+  <div class="prose"><p>Both need the same core: a distinct period of abnormally and persistently elevated, expansive or irritable mood <b>plus</b> abnormally and persistently increased activity or energy, with at least 3 of the same 7 symptoms (4 if the mood is only irritable). What separates them is how long they last and how much they disrupt life. [[APA2022,Yatham2018]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th scope="col"></th><th scope="col">Manic episode</th><th scope="col">Hypomanic episode</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Duration (DSM-5-TR)</th><td>At least 1 week, most of the day, nearly every day, or any duration if hospitalisation is necessary [[APA2022,Yatham2018]]</td><td>At least 4 consecutive days, most of the day, nearly every day [[APA2022,Yatham2018]]</td></tr>
+      <tr><th scope="row">Symptoms (Criterion B)</th><td colspan="2">The same list for both: at least 3 of 7 (4 if mood is only irritable), present to a significant degree and a noticeable change from usual behaviour [[APA2022,Yatham2018]]</td></tr>
+      <tr><th scope="row">Impairment</th><td>Marked impairment in social or occupational functioning (or hospitalisation, or psychosis) [[APA2022,Yatham2018]]</td><td>An unequivocal change in functioning that others can observe, but <b>not</b> marked impairment [[APA2022,Yatham2018]]</td></tr>
+      <tr><th scope="row">Psychosis</th><td>Can occur. In bipolar I, psychotic symptoms were present in 57% of manic episodes (point prevalence, meta-analysis) [[Aminoff2022]]</td><td>None. If psychotic features are present, the episode is by definition manic [[APA2022,Yatham2018]]</td></tr>
+      <tr><th scope="row">Hospitalisation</th><td>May be needed to prevent harm; if so, the 1-week minimum no longer applies [[APA2022,Yatham2018]]</td><td>Not needed by definition: an episode that needs hospital care is mania [[APA2022,Yatham2018]]</td></tr>
+      <tr><th scope="row">What it means for diagnosis</th><td>One lifetime manic episode is required, and enough, for bipolar I disorder [[APA2022,McIntyre2020Lancet]]</td><td>Bipolar II needs at least one hypomanic <b>and</b> one major depressive episode, and never mania [[APA2022,Yatham2018]]</td></tr>
+      <tr><th scope="row">ICD-11</th><td>At least 1 week, unless shortened by treatment; no fixed symptom count [[Stein2020BMC]]</td><td>"At least several days", without marked impairment [[Stein2020BMC,Angst2020ICD11]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Criteria are quoted for learning. They are not a self-test: only a clinician who knows the whole story can make the diagnosis. See <a href="#criteria" data-go="criteria">DSM-5-TR criteria</a> for the full counter and <a href="#types" data-go="types">Bipolar I, II &amp; cyclothymia</a> for how the episodes add up to a diagnosis.</p>
+
+  <h3 class="sub">What changed? Sort the symptoms</h3>
+  <div class="prose"><p>Each card describes a change someone might notice. Tap where it belongs, or drag it into a box: mostly a sign of the high pole (mania or hypomania), mostly a sign of depression, or one that turns up in <b>both</b>, which is part of why mixed states are hard to spot. Feedback appears on each card.</p></div>
+  <div class="ep-sort" id="epSort">
+    <div class="ep-pool" id="epPool" aria-label="Unsorted cards"></div>
+    <div class="ep-zones">
+      <div class="ep-zone" data-z="m" id="epZm"><h4>Mania / hypomania</h4></div>
+      <div class="ep-zone" data-z="d" id="epZd"><h4>Depression</h4></div>
+      <div class="ep-zone" data-z="b" id="epZb"><h4>Both (seen in mixed states)</h4></div>
+    </div>
+    <div class="ctrls"><span class="ep-score" id="epScore" aria-live="polite">0 of 12 sorted</span><button class="btn" id="epReveal">Sort them all for me</button><button class="btn ghost" id="epReset">Start again</button></div>
+  </div>
+
+  <h3 class="sub">How much time goes to each pole?</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Which cohort"><span class="kicker">Cohort</span><button class="btn" data-ew="1" aria-pressed="true">Bipolar I (146 people, 12.8 years)</button><button class="btn" data-ew="2" aria-pressed="false">Bipolar II (86 people, 13.4 years)</button></div>
+      <div class="scroll"><svg id="epWeeks" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A grid of 100 squares, each one per cent of follow-up weeks, filling in with the share of weeks spent with depressive, manic or hypomanic, and cycling or mixed symptoms, and the share without symptoms, for the bipolar I or bipolar II cohort of the NIMH Collaborative Depression Study."></svg></div>
+      <p class="stage-cap">Each square is 1% of follow-up weeks, rounded. Weekly ratings in the NIMH Collaborative Depression Study. Group averages, not a forecast for any one person. [[Judd2002,Judd2003]]</p>
+    </div>
+    <aside class="note" id="epWNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Things worth knowing</h3>
+  <div class="cards">
+    <div class="card"><span class="tag up">Mania</span><h4>Mania is not always happy</h4><p>Among 316 inpatients with mania, the commonest signs were motor activation, accelerated thinking, pressured speech and decreased sleep. Irritability, dysphoric mood and mood lability were also prominent, so mania is "not a purely euphoric state". [[Cassidy1998]]</p></div>
+    <div class="card"><span class="tag mixed">Mixed</span><h4>Mixed features are common</h4><p>DSM-5 replaced the old "mixed episode" with a "with mixed features" specifier. In a meta-analysis, mixed features were present in 11.6% of major depressive episodes and 26.8% of manic or hypomanic episodes. ICD-11 still keeps a mixed episode lasting at least 2 weeks. [[Mason2016,Na2021,Stein2020BMC]]</p></div>
+    <div class="card"><span class="tag down">Depression</span><h4>Bipolar depression looks like other depression</h4><p>There are no separate criteria for "bipolar depression": it is a major depressive episode in someone with bipolar disorder, and no single feature reliably tells it apart from unipolar depression. That is why asking about past highs matters. [[Yatham2018,Mitchell2008]]</p></div>
+    <div class="card"><span class="tag">Psychosis</span><h4>Losing touch with reality</h4><p>A meta-analysis of 54 studies found lifetime psychotic symptoms (delusions or hallucinations) in 63% of people with bipolar I and 22% with bipolar II. Grandiose delusions are the commonest kind. Psychosis can mask the mood symptoms. [[Aminoff2022,Dunayevich2000]]</p></div>
+    <div class="card"><span class="tag dx">Course</span><h4>Highs and lows often come in pairs</h4><p>Predominant polarity: about 30.0% of people mainly have manic or hypomanic episodes and 28.5% mainly depressive ones; a depressive onset was strongly linked to depressive predominance (OR 12.09). In 206 people with bipolar II, 80% had a "biphasic" course, one episode followed straight away by the opposite pole. [[Bartoli2024,Benazzi2006]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Energy joined mood in 2013</h4><p>DSM-5 made increased activity or energy a required core symptom alongside the mood change. Applied to 907 patients, it cut the number with a hypomanic or manic visit by 34%; in STEP-BD it lowered prevalence but did not change longitudinal outcomes. [[Mason2016,Fredskild2019,MachadoVieira2017]]</p></div>
+    <div class="card"><span class="tag good">Recovery</span><h4>Episodes end, and most people recover</h4><p>In the McLean-Harvard first-episode study, 98% of people hospitalised for a first manic episode reached syndromal recovery within 2 years, half of them by 5.4 weeks. Functional recovery was slower: 43% regained their previous work and living status within 2 years, which is why ongoing care matters. [[Tohen2003]]</p></div>
+    <div class="card"><span class="tag accent">Safety</span><h4>When a low feels unbearable</h4><p>Depressive episodes can bring thoughts of death. These are symptoms of an illness that is treatable, and help works. If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123). See <a href="#crisis" data-go="crisis">Suicide risk &amp; crisis safety</a>.</p></div>
+  </div>
 </section>
