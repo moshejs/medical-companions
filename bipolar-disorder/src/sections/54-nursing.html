@@ -1,0 +1,74 @@
+<!-- ================= 5.4 NURSING CARE ================= -->
+<style>
+#m-nursing .nu-flips{display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+#m-nursing .nu-flip{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:8px;min-height:150px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;overflow-wrap:break-word;min-width:0}
+#m-nursing .nu-flip:hover{border-color:var(--accent)}
+#m-nursing .nu-flip:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+#m-nursing .nu-flip .k{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--brand)}
+#m-nursing .nu-flip .q{font:800 19px/1.2 var(--display)}
+#m-nursing .nu-flip .a{display:none;font-size:14.5px;line-height:1.5}
+#m-nursing .nu-flip .hint{font:500 12px var(--mono);color:var(--muted);margin-top:auto}
+#m-nursing .nu-flip[aria-pressed="true"]{background:var(--brand-soft);border-color:var(--brand)}
+#m-nursing .nu-flip[aria-pressed="true"] .a{display:block}
+#m-nursing .nu-flip[aria-pressed="true"] .q{font-size:16px}
+#m-nursing .nu-flip[aria-pressed="true"] .hint{display:none}
+#m-nursing .nu-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-nursing .nu-quiz .qcard{max-width:820px}
+#m-nursing .nu-quiz .nu-nav{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+#m-nursing .card>.tag,#m-nursing .card>.ev{align-self:flex-start}
+#m-nursing .nu-mon{max-width:960px}
+</style>
+<section class="mod" id="m-nursing" data-mod="nursing" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Course &amp; living</p><h2>Nursing care</h2>
+    <p class="lede">A day on an acute ward with someone in a manic episode, the lithium teaching every nurse gives, the monitoring schedules for lithium and antipsychotics, and six priority questions in the style of nursing exams.</p></div>
+
+  <div class="stepper" id="nuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="An illustrative inpatient day in acute mania. A 24-hour clock advances from morning admission to night and then to discharge. In a schematic room, light, noise and visitors fall as the environment is calmed, a water glass fills, agitation peaks and settles with de-escalation, the observing nurse moves from arm's length to intermittent checks, and sleep returns. Gauges track stimulation, hydration, agitation, sleep and readiness for discharge, and a stack of nursing priorities highlights the current focus."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">Play</button><label class="stage-cap tl" for="nuT">Day <input type="range" id="nuT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative person; the gauges are drawn to show direction, not measured values. Our sources contain no bipolar-specific nursing trial for acute mania beyond a Delphi consensus, so nutrition and hydration rest on guideline monitoring rules and the lithium label's fluid advice. [[Goossens2022,NICE2014CG185,NICE-NG10,FDA-Lithobid]]</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Observation levels</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>NICE NG10 level</th><th>As published</th><th>In practice</th></tr></thead>
+    <tbody>
+      <tr><th>Low-level intermittent</th><td>Once every 30–60 minutes</td><td rowspan="4">At least once each shift a nurse should set aside dedicated time to assess the person's mental state and engage positively with them. Policies should require a multidisciplinary review when observation continues for 1 week or more. [[NICE-NG10]]</td></tr>
+      <tr><th>High-level intermittent</th><td>Once every 15–30 minutes</td></tr>
+      <tr><th>Continuous</th><td>Within eyesight or arm's length of a designated nurse</td></tr>
+      <tr><th>Multiprofessional continuous</th><td>Within eyesight of 2–3 staff and arm's length of at least 1</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Source: NICE NG10 recommendation 1.4.11. [[NICE-NG10]] Patients often dislike special observation and nurses find it stressful; a 2020 review found no consensus on how to improve constant observation, though teamwork interventions may reduce how often and how intensively it is used. [[Bowers2001Observation,Reen2020]]</p>
+
+  <h3 class="sub">Lithium teaching: flip the cards</h3>
+  <div class="prose"><p>The points a nurse covers when someone takes lithium, quoted from the US label and NICE as published, not as instructions. Tap a card to see the answer. Levels, toxicity and interactions are explained in depth in <a href="#levels" data-go="levels">Lithium levels, toxicity &amp; interactions</a>. [[FDA-Lithobid,NICE2014CG185]]</p></div>
+  <div class="nu-bar"><button class="btn" id="nuAll" aria-pressed="false">Show all answers</button><span class="stage-cap">Suspected lithium toxicity is an emergency.</span></div>
+  <div class="nu-flips" id="nuFlips"></div>
+
+  <h3 class="sub">Monitoring schedules</h3>
+  <div class="prose"><p>What NICE CG185 lists for physical monitoring, laid out on a timeline, and how often it happens in routine practice. Schedules are quoted as published and vary between countries and individuals. [[NICE2014CG185]]</p></div>
+  <div class="ctrls" role="group" aria-label="Choose a schedule"><span class="kicker">Schedule</span><button class="btn" data-mon="ap" aria-pressed="true">Antipsychotic</button><button class="btn" data-mon="li" aria-pressed="false">Lithium</button></div>
+  <div class="stage nu-mon">
+    <div class="scroll"><svg id="nuMon" viewBox="0 0 720 380" style="min-width:560px;max-width:900px;margin:0 auto" role="img" aria-label="A monitoring timeline: rows of checks with dots at the times NICE lists them, and bars showing how often each check was done in routine-practice studies."></svg></div>
+    <p class="stage-cap" id="nuMonCap"></p>
+  </div>
+
+  <h3 class="sub">Priority practice: what comes first?</h3>
+  <div class="prose"><p>Six short scenarios in the style of nursing licensing exams. Pick the first action; each answer is explained with its source. A teaching exercise, not clinical guidance.</p></div>
+  <div class="nu-quiz" id="nuQuiz"></div>
+
+  <h3 class="sub">After the ward</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>The first 3 months after discharge</h4><p>Suicide rates after psychiatric discharge are highest in the first 3 months (1132 per 100,000 person-years, a population statistic), so follow-up contact should be arranged before the person leaves. Our sources do not set a specific number of days for the first contact; they say active follow-up after discharge "should be routine". [[Chung2017JAMAPsych,Mann2021Suicide]] See <a href="#crisis" data-go="crisis">Suicide risk &amp; crisis safety</a>.</p></div>
+    <div class="card"><span class="tag accent">NICE CG185</span><h4>What a discharge plan contains</h4><ul><li>recovery goals</li><li>a crisis plan with early warning signs and triggers</li><li>a mental-state assessment</li><li>a medication plan with review dates and monitoring</li></ul><p>The person and their GP each get a copy, and the person is encouraged to share it with carers. Consider intensive case management for people likely to disengage. [[NICE2014CG185]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Safewards</h4><p>In a cluster RCT on 31 wards, ten simple staff-patient relationship interventions reduced conflict events by 15% and containment events by 23.2%. [[Bowers2015]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>A standard of nursing care for acute mania</h4><p>A Dutch three-round Delphi study of professionals, patients and informal caregivers reached consensus on all 89 statements for a standard of nursing care in acute mania on a closed ward. It is consensus, not a trial. [[Goossens2022]]</p></div>
+    <div class="card"><span class="tag warn">Physical health</span><h4>Why metabolic checks matter</h4><p>Metabolic syndrome affects 37.3% of people with bipolar disorder, 45.3% of those taking antipsychotics and 32.4% of those not taking them. [[Vancampfort2013]] Severe mental illness carries higher cardiovascular disease incidence (HR 1.78) and cardiovascular death (HR 1.85). [[Correll2017CVD]] NICE recommends a combined healthy-eating and physical-activity programme for people on antipsychotics and long-term medicines. [[NICE2014CG185]]</p></div>
+    <div class="card"><span class="tag warn">Gaps in practice</span><h4>Monitoring is often missed</h4><p>In a UK audit of people on lithium for a year or more, NICE standards were met for 30% of lithium levels, 55% of renal checks and 50% of thyroid checks. [[Collins2010]] Before guidelines, baseline glucose was checked in 44.3% of people starting antipsychotics, and lipids stayed low even afterwards (28.9%). [[Mitchell2012Monitoring]]</p></div>
+  </div>
+  <div class="callout prose"><p><b>In plain words.</b> On the ward, safety comes first, then food, fluids and sleep, then a calm space and calm talk, then learning and planning for home. Looking after the heart matters too: regular checks of weight, blood pressure, blood sugar and cholesterol are part of good care. [[NICE2014CG185,NICE-NG10,Correll2017CVD]]</p></div>
+</section>
