@@ -1,0 +1,684 @@
+# D · Diagnosis: DSM-5-TR and ICD-11, types and specifiers, screening and differential
+
+Pass date: 2026-11-03. Modules served: criteria, types, screening, differential, episodes.
+
+This pass covers how bipolar disorders are defined and recognised: the DSM-5-TR episode criteria (manic, hypomanic, major depressive), the bipolar types (I, II, cyclothymic, substance/medication-induced, due to another medical condition, other specified and unspecified), the course specifiers, the ICD-11 codes 6A60 to 6A62 and how ICD-11 differs from DSM, the screening and rating instruments (MDQ, HCL-32, BSDS, YMRS, MADRS, HAM-D, SCID, CIDI), the main differentials (unipolar depression, borderline personality disorder, ADHD, substance- and medication-induced states, medical and neurological causes, primary psychotic disorders), and the evidence on missed, delayed and over-made diagnoses.
+
+Every tool and criterion here is a teaching aid. The MDQ, the HCL-32 and any criteria counter built from this file are not for self-diagnosis or for interpreting one's own score: a positive screen means "talk to a clinician", not "you have bipolar disorder". If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).
+
+Access notes:
+- The DSM-5-TR manual itself is paywalled. Its record is confirmed on Crossref (doi:10.1176/appi.books.9780890425787). The core criteria for manic, hypomanic and major depressive episodes, bipolar I and II, cyclothymic disorder, the list of specifiers and the antidepressant-emergent rule were cross-checked against the published reproductions in the CANMAT/ISBD 2018 guideline [[Yatham2018]], the rapid-cycling wording against Strawbridge2022, and the other-specified examples against Severus2014. Finer details that could not be re-read against the manual or a reproduction in this pass carry "(unverified)" at the end of the bullet.
+- The WHO ICD-11 browser (icd.who.int) is script-rendered and returned no readable content to the validation tools. ICD-11 codes and wording come from two open-access PubMed papers: the ICD-10/ICD-11 code table in Härter2025 and the bipolar section (by Berk and Vieta) in Stein2020BMC. WHO2022ICD11 is kept as the canonical key but marked unverified, as the borderline-personality companion did.
+- NICE CG185 recommendation wording was read on nice.org.uk on 2026-11-03. The page says "Published: 24 September 2014. Last updated: 02 September 2025", so the brief's "updated 2023" is out of date. The PubMed record checked is the full NCCMH guideline (PMID 29718639).
+- PMC full text for First2021 and Reed2019ICD11 was not open access, and pmc.ncbi.nlm.nih.gov and the NCBI Bookshelf (StatPearls) returned a CAPTCHA page. Only the abstract of First2021 is used, and Reed2019ICD11 is not cited.
+
+## Findings
+
+### criteria · The manic episode (DSM-5-TR)
+- Criterion A has two parts that must both be present. The first is a distinct period of abnormally and persistently elevated, expansive or irritable mood. The second is abnormally and persistently increased activity or energy. Together they must last at least 1 week and be present most of the day, nearly every day, or any duration if hospitalisation is necessary [[APA2022,Yatham2018]].
+- Criterion B requires at least 3 of 7 symptoms, or 4 if the mood is only irritable. The symptoms must be present to a significant degree and represent a noticeable change from usual behaviour:
+  - inflated self-esteem or grandiosity
+  - decreased need for sleep
+  - more talkative than usual, or pressure to keep talking
+  - flight of ideas, or the experience that thoughts are racing
+  - distractibility
+  - increased goal-directed activity or psychomotor agitation
+  - excessive involvement in activities with a high potential for painful consequences [[APA2022,Yatham2018]]
+- The DSM text illustrates decreased need for sleep as feeling rested after only 3 hours of sleep. This is different from insomnia, where the person wants to sleep but cannot (unverified) [[APA2022]].
+- Criterion C requires at least one of the following, which separates mania from hypomania:
+  - marked impairment in social or occupational functioning
+  - hospitalisation to prevent harm to self or others
+  - psychotic features [[APA2022,Yatham2018]]
+- Criterion D requires that the episode is not attributable to the physiological effects of a substance (a drug of abuse, a medication, another treatment) or to another medical condition [[APA2022,Yatham2018]].
+- A full manic episode that emerges during antidepressant treatment (medication or ECT) and persists at a fully syndromal level beyond the physiological effect of that treatment is sufficient evidence for a manic episode, and therefore for bipolar I disorder. CANMAT notes that DSM-IV did not allow this [[APA2022,Yatham2018]].
+- DSM-5 (2013) changed Criterion A for mania and hypomania by adding "abnormally and persistently increased activity or energy". In DSM-IV a mood change alone was enough [[Yatham2018,Grunze2021]].
+- Grunze and colleagues report from their own research that the prevalence of manic or hypomanic episodes drops by at least one third when the DSM-5 energy/activity requirement is applied. Whether this helps or harms practice is unresolved (Early evidence) [[Grunze2021]].
+- At least one lifetime manic episode is required, and is enough, for a DSM-5-TR diagnosis of bipolar I disorder [[APA2022,McIntyre2020Lancet]].
+
+### criteria · The hypomanic episode (DSM-5-TR)
+- Hypomania has the same two-part Criterion A as mania (elevated, expansive or irritable mood plus increased activity or energy). It needs to last at least 4 consecutive days and be present most of the day, nearly every day [[APA2022,Yatham2018]].
+- It requires the same 3 of 7 Criterion B symptoms (4 if the mood is only irritable), persisting and present to a significant degree [[APA2022,Yatham2018]].
+- The episode brings an unequivocal change in functioning that is uncharacteristic of the person when not symptomatic, and the change is observable by others [[APA2022,Yatham2018]].
+- The episode is not severe enough to cause marked impairment or to need hospitalisation. If there are psychotic features, the episode is by definition manic [[APA2022,Yatham2018]].
+- A full hypomanic episode that emerges during antidepressant treatment and persists at a fully syndromal level beyond the physiological effect of the treatment counts as hypomania. DSM cautions that one or two symptoms, particularly irritability, edginess or agitation after starting an antidepressant, are not enough for this diagnosis and do not necessarily indicate a bipolar diathesis (unverified) [[APA2022]].
+- DSM-5 also allows the mixed features specifier on hypomanic episodes [[Yatham2018]].
+
+### criteria · The major depressive episode (DSM-5-TR)
+- A major depressive episode requires 5 or more of 9 symptoms during the same 2-week period, representing a change from previous functioning. At least one of the symptoms must be depressed mood or loss of interest or pleasure [[APA2022,Yatham2018]].
+- The 9 symptoms are:
+  - depressed mood
+  - markedly diminished interest or pleasure
+  - significant weight or appetite change
+  - insomnia or hypersomnia
+  - psychomotor agitation or retardation
+  - fatigue or loss of energy
+  - feelings of worthlessness or excessive guilt
+  - diminished ability to think, concentrate or decide
+  - recurrent thoughts of death or suicide [[APA2022,Yatham2018]]
+- The weight criterion is illustrated as a change of more than 5% of body weight in a month (unverified) [[APA2022]].
+- The episode must cause clinically significant distress or impairment and must not be attributable to a substance or another medical condition [[APA2022]].
+- CANMAT states that the DSM-5 criteria for bipolar depression are unchanged from DSM-IV. No separate criteria set exists for "bipolar depression"; it is a major depressive episode occurring in someone with bipolar disorder [[Yatham2018,Mitchell2008]].
+- Mitchell and colleagues found "no pathognomonic characteristics" that tell bipolar I depression from unipolar depression, and proposed a probabilistic approach instead of categorical criteria [[Mitchell2008]].
+
+### types · Bipolar I, bipolar II and cyclothymic disorder
+- Bipolar I disorder requires at least one manic episode. Hypomanic or major depressive episodes may come before or after it but are not required [[APA2022,McIntyre2020Lancet]].
+- The bipolar I diagnosis also requires that the episodes are not better explained by schizoaffective disorder, schizophrenia, schizophreniform disorder, delusional disorder or another psychotic disorder (unverified) [[APA2022]].
+- Bipolar II disorder requires at least one hypomanic episode and at least one major depressive episode, and never a manic episode [[APA2022,Yatham2018,McIntyre2020Lancet]].
+- In bipolar II, the depression, or the unpredictability caused by frequent alternation between depression and hypomania, must cause clinically significant distress or impairment (unverified) [[APA2022]].
+- CANMAT calls the view of bipolar II as a "less severe form" of bipolar disorder "long-standing but discredited". Its points:
+  - the disability of bipolar II is comparable to that of bipolar I
+  - its economic burden is up to four times greater
+  - people with bipolar II spend as much time symptomatic as those with bipolar I, mostly in the depressive phase [[Yatham2018]]
+- CANMAT states that rates of attempted suicide are similar in bipolar I and bipolar II. This is a population statistic, and it is a reason for regular, kind safety check-ins and early help-seeking, not for fear [[Yatham2018]].
+- The bipolar II diagnosis is generally stable over time. There may be a higher risk of conversion to bipolar I early in the illness [[Yatham2018]].
+- Cyclothymic disorder requires at least 2 years (at least 1 year in children and adolescents) of numerous periods with hypomanic symptoms that do not meet criteria for a hypomanic episode, and numerous periods with depressive symptoms that do not meet criteria for a major depressive episode [[APA2022,Yatham2018]].
+- In cyclothymic disorder the symptoms are present at least half the time, and the person is not without symptoms for more than 2 months at a time (unverified) [[APA2022]].
+- Criteria for a major depressive, manic or hypomanic episode have never been met in cyclothymic disorder. CANMAT places it at the mild end of the bipolar spectrum, with bipolar I at the other end and bipolar II between them [[APA2022,Yatham2018]].
+- Van Meter and colleagues describe cyclothymic disorder as rarely diagnosed clinically despite evidence that it "may be the most prevalent form of bipolar disorder". They call it highly impairing and a possible diathesis for major mood disorders (Early evidence) [[VanMeter2012]].
+- In the WHO World Mental Health surveys of 61,392 adults in 11 countries, lifetime prevalences were:
+  - bipolar I: 0.6%
+  - bipolar II: 0.4%
+  - subthreshold bipolar disorder: 1.4%
+  - whole bipolar spectrum: 2.4%
+  - Twelve-month figures were 0.4%, 0.3%, 0.8% and 1.5% [[Merikangas2011]].
+- CANMAT cites a similar Canadian prevalence for bipolar II (0.67%) and bipolar I (0.87%) [[Yatham2018]].
+
+### types · Other bipolar and related categories
+- DSM-5 replaced DSM-IV's "bipolar disorder not otherwise specified" with two categories, "other specified bipolar and related disorder" and "unspecified bipolar and related disorder" [[Yatham2018,Severus2014]].
+- DSM-5 includes "substance/medication-induced bipolar and related disorder" and "bipolar and related disorder due to another medical condition" [[APA2022,Yatham2018]].
+- The DSM-5 examples of other specified bipolar and related disorder include:
+  - short-duration hypomanic episodes (2 to 3 days) with major depressive episodes
+  - hypomanic episodes with insufficient symptoms, with major depressive episodes [[Severus2014,APA2022]]
+- Two further DSM examples are a hypomanic episode without a prior major depressive episode, and short-duration cyclothymia lasting less than 24 months (unverified) [[APA2022]].
+- DSM-5-TR (2022) added the diagnosis "unspecified mood disorder" for mood presentations that cannot yet be placed in either the bipolar or the depressive chapter (unverified) [[APA2022]].
+- Severus and Bauer warn that the new subthreshold category can change treatment decisions. A diagnosis made after treatment has started can be shaped by that treatment [[Severus2014]].
+
+### types · Wider "bipolar spectrum" proposals (research, not current criteria)
+- In the Zurich community cohort, Angst and colleagues proposed softer criteria. Their reported figures were:
+  - cumulative prevalence of broadly defined bipolar II: 10.9%
+  - "minor bipolar disorder": 9.4%
+  - pure hypomania: 3.3%
+  - whole "soft bipolar spectrum": 23.7%
+  - The authors argued that hypomania should be defined by 3 of 7 symptoms plus a change in functioning, regardless of episode length (Hypothesis) [[Angst2003]].
+- In the US National Comorbidity Survey Replication, nearly 40% of people with a history of major depressive disorder had a history of subthreshold hypomania. That subgroup had earlier onset, more depressive episodes and more comorbidity (Early evidence) [[Angst2010NCSR]].
+- Ghaemi and colleagues proposed a heuristic "bipolar spectrum disorder" that gives weight to family history and to antidepressant-induced manic symptoms. It is not part of DSM or ICD (Hypothesis) [[Ghaemi2002]].
+
+### types · ICD-11 (WHO) and how it differs from DSM-5-TR
+- In ICD-11 the bipolar disorders sit within mood disorders, with the codes:
+  - 6A60: bipolar type I disorder
+  - 6A61: bipolar type II disorder
+  - 6A62: cyclothymic disorder [[Harter2025,WHO2022ICD11]]
+- ICD-11 subcodes record the current episode, for example:
+  - 6A60.0: current manic episode without psychotic symptoms
+  - 6A60.1: current manic episode with psychotic symptoms
+  - 6A60.2: current hypomanic episode
+  - 6A60.9 / 6A60.A: current mixed episode, without / with psychotic symptoms
+  - 6A60.F: currently in full remission [[Harter2025]]
+- ICD-10 required two or more episodes of elevated mood. ICD-11 needs one or more manic or mixed episodes for bipolar type I, and a manic episode is no longer a stand-alone diagnosis [[Stein2020BMC,Harter2025]].
+- ICD-11 requires mania to last at least 1 week, unless shortened by treatment. ICD-10 had no duration criterion [[Stein2020BMC]].
+- ICD-11 describes mania as euphoria, irritability or expansiveness, together with increased activity or subjectively increased energy and other characteristic symptoms. It does not specify a number of symptoms [[Stein2020BMC]].
+- ICD-11 keeps the mixed episode as an episode type, defined as rapid alternation between, or an admixture of, prominent manic and depressive symptoms for at least 2 weeks. DSM-5 turned mixed states into a specifier [[Stein2020BMC]].
+- ICD-11 defines hypomania as lasting "at least several days", without causing marked impairment. This avoids the 4-day versus 2-day controversy [[Stein2020BMC]].
+- ICD-11 gives bipolar type II "equal status" with type I. ICD-10 had placed it under "other bipolar affective disorders" [[Stein2020BMC]].
+- ICD-11 moves cyclothymia from ICD-10's "persistent affective disorders" into the bipolar grouping. It requires a duration of at least 2 years [[Stein2020BMC,Harter2025]].
+- ICD-11 qualifiers (code 6A80) are the counterpart of DSM specifiers:
+  - with prominent anxiety symptoms: 6A80.0
+  - with panic attacks: 6A80.1
+  - current depressive episode persistent: 6A80.2
+  - with melancholia: 6A80.3
+  - with seasonal pattern: 6A80.4
+  - with rapid cycling: 6A80.5 [[Harter2025]]
+- Unlike DSM, ICD-11 offers no "predominant polarity" qualifier [[Stein2020BMC]].
+- Berk and Vieta summarise the philosophical difference this way: DSM-5 keeps fixed symptom counts, while ICD-11 offers descriptive requirements that let the clinician "pattern-fit" the diagnosis [[Stein2020BMC]].
+- Across 103 disorders present in both systems, First and colleagues rated the differences as:
+  - major: 19.4%
+  - minor definitional: 40.8%
+  - minor, due to greater specification in DSM-5: 9.7%
+  - essentially identical: 30.1% [[First2021]]
+- An ICD-11 depressive episode requires at least five symptoms, one of them from the affective cluster. ICD-10 required four [[Harter2025]].
+
+### criteria · Specifiers (DSM-5-TR)
+- Which specifiers apply where [[Yatham2018,APA2022]]:
+  - both manic and depressive episodes: anxious distress, mixed features, psychotic features, catatonia, peripartum onset
+  - depressive episodes only: melancholic features, atypical features
+  - illness course: rapid cycling, seasonal pattern
+- With anxious distress requires at least 2 of the following (unverified) [[APA2022]]:
+  - feeling keyed up or tense
+  - feeling unusually restless
+  - difficulty concentrating because of worry
+  - fear that something awful may happen
+  - feeling that one might lose control
+- With mixed features requires at least 3 symptoms of the opposite pole during most days of the episode. This means depressive symptoms during mania or hypomania, or manic/hypomanic symptoms during a major depressive episode (unverified) [[APA2022]].
+- DSM-5 removed the categorical "mixed episode" and replaced it with the dimensional "mixed features" specifier. It also allows mixed features in major depressive disorder, which CANMAT expects to pose diagnostic and management dilemmas [[Yatham2018]].
+- In the International Mood Disorders Collaborative Project, the DSM-5 mixed features specifier was common [[McIntyre2015Mixed]]:
+  - during a major depressive episode: 26.0% in MDD, 34.0% in bipolar I and 33.8% in bipolar II
+  - during a hypo/manic episode: 20.4% in bipolar I and 5.1% in bipolar II
+- With rapid cycling requires at least 4 distinct mood episodes (manic, hypomanic or major depressive) within 12 months. Episodes may come in any order. They must be separated by partial or full remission of at least 2 months, or by a switch to the opposite polarity [[Strawbridge2022,Stein2020BMC,APA2022]].
+- An umbrella meta-review of 13,698 people with bipolar disorder reported on rapid cycling [[Miola2023]]:
+  - pooled one-year prevalence: 22.3% (CI 14.4–32.9)
+  - pooled lifetime prevalence: 35.5% (CI 27.6–44.3)
+  - lifetime prevalence is higher in women than in men
+  - strong evidence links it to suicide attempts and to poorer response to mood stabilisers
+- People with rapid cycling have about seven times more (hypo)manic episodes and twice as many depressive episodes as people with non-rapid-cycling bipolar disorder [[Strawbridge2022]].
+- NICE recommends offering people with rapid cycling bipolar disorder the same interventions as people with other types, because there is "no strong evidence" that they should be treated differently [[NICE2014CG185]].
+- With melancholic features requires loss of pleasure in all or almost all activities, or lack of reactivity to pleasant events, plus at least 3 of the following (unverified) [[APA2022]]:
+  - a distinct quality of depressed mood
+  - mood regularly worse in the morning
+  - early-morning waking
+  - marked psychomotor change
+  - significant anorexia or weight loss
+  - excessive or inappropriate guilt
+- With atypical features requires mood reactivity plus at least 2 of the following (unverified) [[APA2022]]:
+  - significant weight gain or increased appetite
+  - hypersomnia
+  - leaden paralysis
+  - long-standing sensitivity to interpersonal rejection
+- With psychotic features is coded as mood-congruent (for example grandiose delusions in mania) or mood-incongruent [[APA2022,Yatham2018]].
+- In 1,342 people with bipolar I assessed with the SCID [[vanBergen2019]]:
+  - lifetime psychotic symptoms: 73.8%
+  - delusions: 68.9%
+  - hallucinations: 42.6%
+  - psychotic symptoms were linked to earlier onset and more hospital admissions for mania
+- More than half of people with bipolar disorder have psychotic symptoms at some point, and grandiose delusions are the most common type [[Dunayevich2000]].
+- In 352 people with bipolar I in the Stanley Network, no single type of psychotic symptom was diagnostically specific [[Keck2003]].
+- With catatonia can be added to manic or depressive episodes [[Yatham2018,APA2022]].
+- Across 74 studies of clinical samples (all diagnoses, not only bipolar disorder), mean catatonia prevalence was 9.0% (95% CI 6.9–11.7) [[Solmi2018]].
+- With peripartum onset applies when mood symptoms begin during pregnancy or in the 4 weeks after delivery (unverified) [[APA2022]].
+- In 1,785 parous women in the UK Bipolar Disorder Research Network [[DiFlorio2013]]:
+  - women with bipolar I had about a 50% risk of a perinatal major mood episode per pregnancy/postpartum period
+  - women with bipolar II or recurrent depression had about 40%
+  - most perinatal episodes began in the first postpartum month, with mania or psychosis starting earlier than depression
+- A meta-analysis of 5,700 deliveries found [[Wesseloo2016]]:
+  - overall postpartum relapse risk in high-risk women: 35% (95% CI 29–41)
+  - women with bipolar disorder who were medication-free in pregnancy: 66%
+  - women with bipolar disorder who used prophylactic medication: 23%
+  - Pregnancy planning is a decision to make with the care team.
+- CANMAT says all women with depressive symptoms in pregnancy and postpartum should be screened for bipolar disorder. The MDQ, alone or with the Edinburgh Postnatal Depression Scale, is useful, but any positive screen must be followed by a clinical interview [[Yatham2018]].
+- With seasonal pattern needs a regular link between the time of year and the onset of episodes of at least one type, with remissions also at a characteristic time of year. Seasonal episodes must substantially outnumber non-seasonal ones (unverified) [[APA2022]].
+- A systematic review of 51 papers found a seasonal pattern in about 15% of manic and 25% of depressive episodes. Mania peaks in spring and summer; depression peaks in early winter [[Geoffroy2014]].
+- The current episode can also be specified for severity (mild, moderate, severe) and for remission (partial or full) [[Yatham2018,APA2022]].
+
+### episodes · What the illness looks like over time
+- In 146 people with bipolar I followed for a mean of 12.8 years [[Judd2002]]:
+  - they had symptoms in 47.3% of weeks
+  - depressive symptoms took up 31.9% of weeks, manic/hypomanic 8.9%, and cycling/mixed 5.9%
+- In the same bipolar I cohort, subsyndromal and minor symptoms were nearly three times as frequent as full syndromal episodes (29.9% vs 11.2% of weeks). Symptom status changed on average 6 times a year, and polarity more than 3 times a year [[Judd2002]].
+- In 86 people with bipolar II followed for a mean of 13.4 years [[Judd2003]]:
+  - they had symptoms in 53.9% of weeks
+  - depressive symptoms took up 50.3% of weeks, hypomanic 1.3%, and cycling/mixed 2.3%
+- In the bipolar II cohort, people with brief hypomanias (2–6 days) did not differ on any measure from those with hypomanias of 7 days or more. The authors conclude both are "part of the same disease process" [[Judd2003]].
+- CANMAT estimates that depressed mood accounts for up to two-thirds of the time spent unwell, even with treatment [[Yatham2018]].
+- Although mania defines bipolar I, depressive episodes and symptoms dominate the long-term course and account disproportionately for illness burden [[McIntyre2020Lancet]].
+- In the World Mental Health surveys, 74.0% of people with bipolar depression reported severe role impairment, compared with 50.9% of those with mania [[Merikangas2011]].
+- In a 1994 survey of members of a US patient association, 59% reported their first symptoms in childhood or adolescence [[Lish1994]].
+- In the same survey, social difficulties were "diminished by effective treatment". Diagnosis matters because treatment helps [[Lish1994]].
+- Many people do well with treatment. In the 2000 patient-association survey, respondents were generally satisfied with treatment that often combined medication, talk therapy and support groups. Those highly satisfied with their provider had a more positive outlook [[Hirschfeld2003Perceptions]].
+
+### screening · What screening is and is not
+- CANMAT: validated self-report tools such as the MDQ may "flag patients for whom a more detailed assessment is needed". However, the guideline adds [[Yatham2018]]:
+  - they have poor sensitivity and specificity, especially in community or highly comorbid populations
+  - they also flag people with borderline traits
+  - they should be used "only as an adjunct for screening clinical populations and not for diagnostic or treatment planning purposes"
+- NICE: "Do not use questionnaires in primary care to identify bipolar disorder in adults" (recommendation 1.2.3). The same applies to children and young people (1.11.1) [[NICE2014CG185]].
+- NICE recommendation 1.2.1: when adults present in primary care with depression, ask about previous periods of overactivity or disinhibited behaviour. If that behaviour lasted 4 days or more, consider referral for a specialist mental health assessment [[NICE2014CG185]].
+- NICE 1.2.2: refer urgently if mania or severe depression is suspected, or if the person is a danger to themselves or others [[NICE2014CG185]].
+- Zimmerman showed that several studies used the MDQ as a "diagnostic proxy" (case-finding) instead of a screen. He argues this has distorted conclusions about the prevalence, morbidity and under-recognition of bipolar disorder [[Zimmerman2012MDQ]].
+- A systematic review of primary care found bipolar disorder in 3.4%–9% of patients with depression or psychiatric complaints when structured interviews were used, but 20.9%–30.8% when screening measures were used. Screens overestimate because of false positives [[Cerimele2013]].
+
+### screening · The Mood Disorder Questionnaire (MDQ)
+- The MDQ is a self-report screen with three parts [[Hirschfeld2000MDQ,Palmer2021,Wagner2006]]:
+  - 13 yes/no items about lifetime hypomanic/manic symptoms
+  - a question on whether several of them happened in the same period
+  - a rating of how much of a problem they caused
+- The standard positive screen is 7 or more of the 13 items, plus co-occurrence in the same period, plus a "moderate" or "serious" problem [[Hirschfeld2000MDQ,Palmer2021]].
+- In the original validation, 198 patients at five mood-disorder outpatient clinics were checked against a blinded SCID bipolar module. A score of 7 or more gave sensitivity 0.73 and specificity 0.90 [[Hirschfeld2000MDQ]].
+- In a US general-population validation (695 people interviewed, drawn from 85,358 respondents), sensitivity was 0.281 and specificity 0.972. The authors note that its operating characteristics "differ substantially" from those in psychiatric outpatients [[Hirschfeld2003AJP]].
+- In a mailed survey of 85,358 US adults, 3.4% screened positive (3.7% after adjustment for non-response). Of those who screened positive [[Hirschfeld2003Community]]:
+  - 19.8% had a prior bipolar diagnosis
+  - 31.2% had been told they had unipolar depression
+  - 49.0% had received neither diagnosis
+- In an urban low-income primary care clinic, 9.8% of 1,157 adults (95% CI 8.0–11.5) screened positive for lifetime bipolar disorder. Only 8.4% of them reported ever receiving a bipolar diagnosis [[Das2005]].
+- In 428 psychiatric outpatients without bipolar disorder on the SCID, 15.2% still screened positive. False positives were linked to PTSD, substance use, eating, impulse-control and attention-deficit disorders [[Zimmerman2011MDQ]].
+- Borderline personality disorder was diagnosed four times more often in MDQ-positive than MDQ-negative non-bipolar outpatients (21.5% vs 4.1%). Of 98 positive screens, 23.5% had bipolar disorder and 27.6% had borderline personality disorder [[Zimmerman2010Screening]].
+- In 757 mood-unit inpatients, the MDQ had specificity 83.7% and sensitivity 67.8% against discharge diagnosis. Items on elevated mood, grandiosity, increased energy, pressured speech, decreased need for sleep and hyperactivity predicted bipolar disorder but not borderline personality disorder [[Palmer2021]].
+- For the adolescent version (MDQ-A, 104 adolescents), the parent-report version at 5 or more items gave sensitivity 0.72 and specificity 0.81. This was better than self-report [[Wagner2006]].
+
+### screening · HCL-32, BSDS and the meta-analytic picture
+- The Hypomania Checklist (HCL-32) has 32 hypomania items. In 266 people with bipolar disorder and 160 with major depression it had sensitivity 80% and specificity 51%. It loaded on two factors ("active/elated" and "risk-taking/irritable") and could not separate bipolar I from bipolar II [[Angst2005HCL32]].
+- The Spanish validation (237 people) added 8 severity and impact items to the 32 hypomania items. Its results [[Vieta2007HCL32]]:
+  - Cronbach's alpha: 0.94
+  - test-retest reliability: 0.90
+  - at a cut-off of 14 "yes" answers: sensitivity 0.85 (95% CI 0.78–0.91) and specificity 0.79 (0.72–0.87)
+- A meta-analysis of 53 studies (N = 21,542) gave these summary figures in psychiatric services at recommended cut-offs [[Carvalho2015]]:
+  - HCL-32: sensitivity 81%, specificity 67%
+  - MDQ: sensitivity 66%, specificity 79%
+  - Bipolar Spectrum Diagnostic Scale (BSDS): sensitivity 69%, specificity 86%
+- In the same meta-analysis, the HCL-32 detected bipolar II better than the MDQ in mental health settings (P = 0.018). In primary care or general-population settings the MDQ at a cut-off of 7 had summary sensitivity 43% and specificity 95% [[Carvalho2015]].
+- Worked example for teaching, derived from the figures above with an assumed prevalence (not a figure from a study):
+  - Assume 5% of people screened have bipolar disorder, and the MDQ has sensitivity 43% and specificity 95%.
+  - Then about 2.2 of every 100 people screened are true positives and about 4.8 are false positives.
+  - So roughly 31% of positive screens would be true positives.
+  - This is why a positive screen needs a full assessment [[Carvalho2015]].
+
+### screening · Rating scales and structured interviews
+- The Young Mania Rating Scale (YMRS) is an 11-item, clinician-administered scale. Inter-rater correlation was 0.93 for the total score and 0.66–0.92 for individual items. It distinguished patients before and after two weeks of treatment [[Young1978]].
+- YMRS total scores range from 0 to 60 [[Pigott2016Cochrane]].
+- The Montgomery–Åsberg Depression Rating Scale (MADRS) has 10 items, chosen from 17 because they changed most with treatment. It tracked change better than the Hamilton scale [[Montgomery1979]].
+- Hamilton published his clinician-rated "rating scale for depression" (HAM-D) in 1960. Its 17-item form (HAMD-17), along with the MADRS and YMRS, is still used, for example to operationalise the DSM-5 mixed features specifier in research [[Hamilton1960,McIntyre2015Mixed]].
+- The Structured Clinical Interview for DSM (SCID) has these features [[Spitzer1992]]:
+  - semistructured and clinician-administered
+  - modular, so sections can be used separately
+  - follows a decision tree to test diagnostic hypotheses
+  - records whether each disorder is present currently (past month) and over the lifetime
+- The WHO Composite International Diagnostic Interview (WMH-CIDI) is fully structured and given by trained lay interviewers. It has a screening module and 40 sections, and generates ICD-10 and DSM-IV diagnoses by computer [[Kessler2004CIDI,Merikangas2011]].
+- Against blinded SCID reappraisal in the NCS-R, the CIDI showed [[Kessler2006CIDI]]:
+  - excellent agreement for lifetime bipolar I: AUC 0.99, kappa 0.88
+  - lower agreement for bipolar II alone: AUC 0.83, kappa 0.50
+  - a lifetime bipolar-spectrum prevalence estimate of 4.4%
+  - brief CIDI-based screens detected 67–96% of true cases, with a positive predictive value of 31–52%
+- NICE's assessment of suspected bipolar disorder (1.3.2) asks for a detailed history of mood, episodes of overactivity and disinhibition, symptoms between episodes, triggers and relapse patterns, and family history. It also asks clinicians to encourage a family member or carer to give a corroborative history [[NICE2014CG185]].
+- CANMAT recommends collateral information from friends and family, and ongoing mood charting. Confirmation is more confident "when episodes are prospectively observed" [[Yatham2018]].
+
+### differential · Missed and delayed diagnosis
+- A meta-analysis of 27 studies (51 samples, 9,415 patients) found a pooled interval of 5.8 years between onset of bipolar disorder and its management (standardized difference 0.53, 95% CI 0.45–0.62) [[Dagani2017]].
+- The interval was longer in studies that [[Dagani2017]]:
+  - counted from the first episode
+  - counted to the age at diagnosis
+  - had fewer bipolar I patients
+  - had an earlier age of onset
+- In a 2000 survey of 600 members of a US patient association [[Hirschfeld2003Perceptions]]:
+  - 69% had been misdiagnosed, most often with unipolar depression
+  - misdiagnosed respondents had seen a mean of 4 physicians first
+  - over a third waited 10 years or more for the correct diagnosis
+- CANMAT puts the typical pattern this way [[Yatham2018]]:
+  - many people are not accurately diagnosed until up to 10 years after symptoms begin, after one to four other diagnoses
+  - the most frequent misdiagnosis is major depressive disorder
+  - schizophrenia and other psychotic disorders are second, as the initial diagnosis in up to 30%
+- Of 48 consecutive inpatients with bipolar I or schizoaffective bipolar type, 40% had previously undiagnosed bipolar disorder. All had been diagnosed with unipolar major depression, and 7.5 ± 9.8 years passed before the bipolar diagnosis [[Ghaemi1999]].
+- In 163 people with bipolar disorder in one Spanish region, mood-incongruent psychotic symptoms were the only independent factor linked to an initial diagnosis of schizophrenia or another psychosis [[GonzalezPinto1998]].
+- Ghaemi and colleagues attribute under-diagnosis to three things: clinicians' limited understanding of manic symptoms, people's reduced insight into mania, and "especially" failure to involve family members or other informants [[Ghaemi2002]].
+
+### differential · Over-diagnosis
+- In 700 outpatients interviewed with the SCID, fewer than half of those who reported a previous bipolar diagnosis met SCID criteria. The authors call over-diagnosis a problem "equal if not greater" than under-diagnosis [[Zimmerman2008]].
+- Among 82 outpatients whose earlier bipolar diagnosis was not confirmed, the most common actual lifetime diagnosis was major depressive disorder (82.9%). Borderline personality disorder was four times as common as in never-diagnosed patients (24.4% vs 6.1%) [[Zimmerman2010JCP,Ruggero2010]].
+- Zimmerman's 20-year review of the Rhode Island MIDAS project reports that unstructured clinical interviews under-recognise comorbidity overall but over-diagnose bipolar disorder [[Zimmerman2016MIDAS]].
+- CANMAT lists borderline personality disorder, substance use disorder and ADHD as the conditions whose overlapping symptoms most often lead to bipolar over-diagnosis. Its advice is to "strictly adhere to diagnostic criteria rather than relying on heuristics" [[Yatham2018]].
+- Between 1994–1995 and 2002–2003, US office visits with a bipolar diagnosis rose from 25 to 1,003 per 100,000 youth, and from 905 to 1,679 per 100,000 adults [[Moreno2007]].
+- In 1999–2003, 32.2% of youth bipolar visits also carried an ADHD diagnosis, against 3.0% of adult visits [[Moreno2007]].
+
+### differential · Bipolar versus unipolar depression
+- Features that favour bipolar depression [[Mitchell2008,Yatham2018]]:
+  - atypical symptoms (hypersomnia, hyperphagia, leaden paralysis)
+  - psychomotor retardation
+  - psychotic features or pathological guilt
+  - mood lability
+  - earlier onset of the first depression
+  - more prior episodes
+  - shorter episodes
+  - a family history of bipolar disorder
+- Features that favour unipolar depression [[Mitchell2008,Yatham2018]]:
+  - initial insomnia
+  - weight loss
+  - normal or increased activity
+  - somatic complaints
+  - later onset
+  - long episodes
+  - no family history of bipolar disorder
+- CANMAT's table gives working thresholds [[Yatham2018]]:
+  - favouring bipolar: onset of first depression before 25 and at least 5 prior episodes
+  - favouring unipolar: onset after 25 and a current episode longer than 6 months
+- CANMAT also lists postpartum depression or psychosis, past suicide attempts, and antidepressant-induced manic symptoms or rapid cycling as features that should raise suspicion of bipolarity [[Yatham2018]].
+- In a Canadian population survey (467 people with bipolar disorder vs 4,145 with MDD), bipolar disorder was linked to [[Schaffer2010]]:
+  - more lifetime depressive episodes and earlier first episode
+  - lifetime anxiety disorder, problematic substance use and lifetime suicide attempt
+  - agitation, suicidal ideation, anxiety and irritability during depression
+  - Models reached an AUC of 0.72–0.81.
+- In the BRIDGE study of 5,635 adults with a current major depressive episode [[Angst2011BRIDGE]]:
+  - 16.0% (95% CI 15.1–17.0) met DSM-IV-TR criteria for bipolar disorder
+  - 47.0% met broader "bipolarity specifier" criteria
+  - a family history of mania/hypomania and multiple past episodes were each associated with bipolarity (OR > 2)
+- A meta-analysis of 56 prospective studies found that 22.5% of adults and adolescents with MDD developed bipolar disorder over a mean follow-up of 12–18 years. Risk was highest in the first 5 years. Predictors were [[Ratheesh2017]]:
+  - family history of bipolar disorder: OR 2.89 (95% CI 2.01–4.14)
+  - psychotic symptoms: OR 4.76 (1.79–12.66)
+  - earlier onset of depression: g = −0.33
+- In 74 young adults hospitalised for unipolar depression and followed for 15 years, 27% developed hypomania and another 19% developed mania. Psychotic features at the index depression predicted the switch [[Goldberg2001]].
+- In 550 people with major depression followed for a mean of 17.5 years, 19.6% developed hypomania or mania. Their diagnoses were revised to bipolar II in 12.2% and bipolar I in 7.5% [[Fiedorowicz2011]].
+- In that cohort, baseline subthreshold decreased need for sleep, unusually high energy and increased goal-directed activity predicted progression. Most people who progressed had no hypomanic symptoms at baseline [[Fiedorowicz2011]].
+- Across 51 reports of people with MDD treated with antidepressants, mood switching to mania, hypomania or mixed states occurred in 8.18% over 2.39 years (3.42% per year). Further findings [[Baldessarini2013]]:
+  - switching was 2.6 times more likely with antidepressant treatment than without
+  - it was 4.5 times more frequent in juveniles than in adults
+  - new bipolar diagnoses occurred at a lower rate, 0.61% per year
+
+### differential · Bipolar disorder versus borderline personality disorder
+- Both conditions involve affective instability, but the pattern differs. Mood shifts in borderline personality disorder are transient and reactive to interpersonal stress, while bipolar mood changes are sustained [[Paris2015]].
+- The two conditions look alike in mood lability and impulsivity. They differ on the other diagnostic validators [[Ghaemi2014]]:
+  - past sexual abuse (course)
+  - family history of bipolar disorder (genetics)
+  - parasuicidal self-harm (symptoms)
+  - treatment response and neurobiology
+- In an Australian sample, features most consistently pointing to borderline personality disorder were childhood sexual abuse, childhood depersonalisation, relationship difficulties, sensitivity to criticism and no family history of bipolar disorder. Adding hypo/manic features raised correct classification to 92–95% [[Bayes2016]].
+- CANMAT's differential table notes that in borderline personality disorder "true euphoria and prolonged well-functioning intervals are extremely rare", and that the pattern begins early and is long-standing [[Yatham2018]].
+- A meta-analysis found [[Fornaro2016]]:
+  - borderline personality disorder in 21.6% of 5,273 people with bipolar disorder (95% CI 17.0–27.1)
+  - 37.7% in bipolar II samples
+  - bipolar disorder in 18.5% of 1,814 people with borderline personality disorder (12.7–26.1)
+- So both can be present together, and having one does not rule out the other [[Fornaro2016]].
+
+### differential · Bipolar disorder versus ADHD
+- In a meta-analysis of 71 studies with 646,766 participants [[Schiweck2021]]:
+  - 7.95% of adults with ADHD also had bipolar disorder
+  - 17.11% of adults with bipolar disorder had ADHD
+  - comorbid ADHD brought bipolar onset 3.96 years earlier
+- In adult women, ADHD interview and self-rating measures best separated ADHD from bipolar disorder. Emotional-lability and depression scores were raised in both. Assessing chronicity versus episodicity of symptoms helped tell them apart [[Kitsune2016]].
+- Berk and Vieta flag ICD-11's acceptance of irritability alone as the mood change in mania as controversial. Irritability is non-specific and overlaps with ADHD, conduct disorder and personality disorders [[Stein2020BMC]].
+- Severe, non-episodic irritability in youth predicts later anxiety and unipolar depression, not bipolar disorder. This work underlies the DSM-5 diagnosis of disruptive mood dysregulation disorder [[Leibenluft2011,APA2022]].
+- NICE on children and young people [[NICE2014CG185]]:
+  - diagnose only after intensive, prospective, longitudinal monitoring by trained professionals
+  - mania must be present
+  - euphoria must be present on most days, most of the time, for at least 7 days
+  - irritability is "not a core diagnostic criterion"
+  - do not diagnose on the basis of depression plus a family history
+
+### differential · Substance- and medication-induced states
+- CANMAT's differential table lists substances and medications that can produce a substance/medication-induced mood disorder, during intoxication or withdrawal [[Yatham2018]]:
+  - illicit drugs
+  - stimulants
+  - steroids
+  - levodopa
+  - antidepressants
+  - toxins
+- Among 372,696 UK primary care patients prescribed oral glucocorticoids, the hazard ratio for mania was 4.35 (95% CI 3.67–5.16) compared with untreated people with the same underlying disease. Higher doses and a past history of neuropsychiatric disorder raised the risk [[Fardet2012]].
+- A meta-analysis of two prospective studies linked cannabis use with about a threefold higher risk of new-onset manic symptoms (OR 2.97, 95% CI 1.80–4.90). Cannabis use also worsened manic symptoms in people already diagnosed (Early evidence) [[Gibbs2015]].
+- In a Danish registry of 6,788 people with substance-induced psychosis [[Starzer2018]]:
+  - 32.2% later received a diagnosis of schizophrenia or bipolar disorder
+  - the figure was 47.4% after cannabis-induced psychosis
+  - half of conversions to bipolar disorder happened within 4.4 years
+- In DSM, an episode that clears once the substance's physiological effect has worn off counts as substance/medication-induced. A full episode that persists beyond that effect counts towards bipolar disorder [[APA2022,Yatham2018]].
+
+### differential · Medical and neurological causes ("secondary mania")
+- Krauthammer and Klerman described "secondary mania" occurring with drugs, infection, neoplasm, epilepsy and metabolic disturbance in people with no history of mood disorder. They urged clinicians to screen for it [[Krauthammer1978]].
+- Medical and neurological conditions in CANMAT's differential table [[Yatham2018]]:
+  - traumatic brain injury
+  - brain tumours such as frontal lobe meningiomas
+  - multiple sclerosis
+  - stroke
+  - Cushing's disease
+  - hyperthyroidism
+- NICE asks clinicians to consider "underlying physical disorders such as hypo- or hyperthyroidism" [[Yatham2018,NICE2014CG185]].
+- The prevalence of mania after brain lesions ranges from under 2% after stroke to 31% in basal ganglia calcification. Lesions are usually frontal, temporal or subcortical limbic, and often right-sided [[Satzer2016]].
+- Satzer and Bond advise suspecting secondary mania when there are neurological deficits, a history atypical for bipolar disorder, or a first manic episode after age 40 [[Satzer2016]].
+- NICE's full differential list for suspected bipolar disorder [[NICE2014CG185]]:
+  - schizophrenia spectrum disorders
+  - personality disorders
+  - drug misuse
+  - alcohol-use disorders
+  - ADHD
+  - physical disorders such as thyroid disease
+
+### differential · Schizoaffective disorder and primary psychotic disorders
+- In CANMAT's differential table, primary psychotic disorders (schizoaffective disorder, schizophrenia, delusional disorder) show periods of psychotic symptoms without prominent mood symptoms. Onset, accompanying symptoms, past course and family history help separate them [[Yatham2018]].
+- DSM-5-TR schizoaffective disorder (unverified) [[APA2022]]:
+  - a major mood episode occurs at the same time as schizophrenia Criterion A
+  - delusions or hallucinations last 2 weeks or more without a major mood episode
+  - mood episodes are present for the majority of the total duration of illness
+- In bipolar disorder with psychotic features, by contrast, psychosis occurs only during mood episodes [[APA2022]].
+- Psychotic symptoms can mask the mood symptoms, especially in minority groups. Prior history, family history and treatment response help tell affective psychosis from primary psychotic disorders [[Dunayevich2000]].
+- ICD-11 renamed the block "schizophrenia or other primary psychotic disorders". The word "primary" separates them from bipolar and other disorders that can include psychotic symptoms [[Stein2020BMC]].
+
+### Exam hooks
+- Mania: at least 1 week (any duration if hospitalised); 3 of 7 B symptoms, 4 if mood is only irritable; needs marked impairment, hospitalisation or psychosis [[APA2022,Yatham2018]].
+- Hypomania: at least 4 consecutive days; observable change; no marked impairment, no hospitalisation, no psychosis. Psychosis makes it mania by definition [[APA2022,Yatham2018]].
+- Major depressive episode: 5 of 9 symptoms for 2 weeks, including depressed mood or loss of interest [[APA2022,Yatham2018]].
+- Bipolar I = at least one manic episode. Bipolar II = at least one hypomanic plus at least one major depressive episode, and never mania [[APA2022,McIntyre2020Lancet]].
+- Cyclothymic disorder: at least 2 years in adults, 1 year in youth; subthreshold highs and lows; full episode criteria never met [[APA2022,Yatham2018]].
+- Since DSM-5, Criterion A needs increased activity or energy as well as mood change [[Yatham2018,Grunze2021]].
+- Antidepressant-emergent mania that persists at full syndromal level beyond the drug's physiological effect counts as bipolar I [[APA2022,Yatham2018]].
+- Rapid cycling = at least 4 mood episodes in 12 months, separated by at least 2 months of remission or a polarity switch [[Strawbridge2022]].
+- DSM-5 dropped the "mixed episode" for a "mixed features" specifier, while ICD-11 keeps a mixed episode of at least 2 weeks [[Yatham2018,Stein2020BMC]].
+- ICD-11 codes: 6A60 bipolar type I, 6A61 bipolar type II, 6A62 cyclothymic disorder. One manic or mixed episode is enough for type I [[Harter2025,Stein2020BMC]].
+- The MDQ positive screen is 7 or more of 13 items, plus co-occurrence, plus a moderate or serious problem [[Hirschfeld2000MDQ,Palmer2021]].
+- MDQ: sensitivity 0.73 and specificity 0.90 in clinics, but sensitivity 0.28 and specificity 0.97 in the general population [[Hirschfeld2000MDQ,Hirschfeld2003AJP]].
+- NICE: do not use questionnaires in primary care to identify bipolar disorder. Ask depressed adults about past overactivity lasting 4 days or more [[NICE2014CG185]].
+- The YMRS has 11 items and scores 0–60. The MADRS has 10 items [[Young1978,Pigott2016Cochrane,Montgomery1979]].
+- The most common misdiagnosis of bipolar disorder is unipolar depression; psychotic disorders are second [[Yatham2018,Hirschfeld2003Perceptions]].
+- Pooled delay from onset of bipolar disorder to management is 5.8 years [[Dagani2017]].
+- Predictors of switch from MDD to bipolar disorder: family history (OR 2.89), psychotic depression (OR 4.76) and early onset [[Ratheesh2017]].
+- Borderline personality disorder: transient, reactive mood shifts. Bipolar disorder: sustained episodes, with well intervals between them [[Paris2015,Yatham2018]].
+- Suspect secondary mania with a first manic episode after 40, neurological signs or an atypical history [[Satzer2016]].
+- Glucocorticoids raise the risk of mania (HR 4.35 against untreated people with the same disease) [[Fardet2012]].
+
+### In plain words
+- Bipolar disorder is diagnosed from a person's story over time, not from a blood test or a brain scan [[Yatham2018,Mitchell2008]].
+- A "high" counts as mania when it lasts about a week or more and causes serious problems, needs hospital care, or comes with losing touch with reality [[APA2022,Yatham2018]].
+- Hypomania is a milder high that lasts at least 4 days. Other people notice the change, but it does not wreck work or home life [[APA2022,Yatham2018]].
+- In bipolar I there has been at least one manic episode. In bipolar II there have been hypomanic episodes and major depressions, but never full mania [[APA2022,McIntyre2020Lancet]].
+- Bipolar II is not "bipolar lite". Its lows can be just as heavy and long as those in bipolar I [[Yatham2018,Judd2003]].
+- Most people with bipolar disorder spend far more time low than high, which is why it is often first mistaken for depression [[Judd2002,Yatham2018]].
+- A questionnaire such as the MDQ can only say "worth a closer look". It cannot tell you that you have bipolar disorder [[Yatham2018,NICE2014CG185]].
+- Many people who score positive on these questionnaires turn out to have something else, such as anxiety, trauma or a personality difficulty [[Zimmerman2011MDQ,Zimmerman2010Screening]].
+- Bringing a family member or friend to the assessment helps, because they often remember the "highs" more clearly [[Ghaemi2002,NICE2014CG185]].
+- It often takes years to get the right diagnosis. Telling your doctor about any past times of unusual energy, little need for sleep or racing thoughts can speed this up [[Dagani2017,NICE2014CG185]].
+- Some medicines, such as steroids, and some drugs, such as cannabis, can set off a manic-like state. Doctors check for these before deciding it is bipolar disorder [[Fardet2012,Gibbs2015,Yatham2018]].
+- Thyroid problems and some brain conditions can also look like mania, so a doctor may order tests [[NICE2014CG185,Satzer2016]].
+- Getting the right diagnosis matters because effective treatment exists and makes life better for many people [[Lish1994,Hirschfeld2003Perceptions]].
+- If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).
+
+## Numbers for the animations
+- episode_min_duration_days | mania | 7 | days | [[APA2022]]
+- episode_min_duration_days | hypomania | 4 | days | [[APA2022]]
+- episode_min_duration_days | major_depression | 14 | days | [[APA2022]]
+- episode_min_duration_days | icd11_mixed_episode | 14 | days | [[Stein2020BMC]]
+- episode_min_duration_days | other_specified_short_hypomania_low | 2 | days | [[Severus2014]]
+- episode_min_duration_days | other_specified_short_hypomania_high | 3 | days | [[Severus2014]]
+- cyclothymia_min_duration_years | adults | 2 | years | [[APA2022]]
+- cyclothymia_min_duration_years | children_adolescents | 1 | years | [[APA2022]]
+- criterion_b_needed | mood_elevated_or_expansive | 3 | of 7 symptoms | [[APA2022]]
+- criterion_b_needed | mood_only_irritable | 4 | of 7 symptoms | [[APA2022]]
+- mde_symptoms_needed | major_depressive_episode | 5 | of 9 symptoms | [[APA2022]]
+- rapid_cycling_threshold | episodes_in_12_months | 4 | episodes | [[Strawbridge2022]]
+- rapid_cycling_threshold | remission_gap_between_episodes | 2 | months | [[Strawbridge2022]]
+- peripartum_onset_window | after_delivery | 4 | weeks | [[APA2022]]
+- weeks_symptomatic_bp1 | any_symptoms | 47.3 | % of weeks | [[Judd2002]]
+- weeks_symptomatic_bp1 | depressive | 31.9 | % of weeks | [[Judd2002]]
+- weeks_symptomatic_bp1 | manic_hypomanic | 8.9 | % of weeks | [[Judd2002]]
+- weeks_symptomatic_bp1 | cycling_mixed | 5.9 | % of weeks | [[Judd2002]]
+- weeks_symptomatic_bp2 | any_symptoms | 53.9 | % of weeks | [[Judd2003]]
+- weeks_symptomatic_bp2 | depressive | 50.3 | % of weeks | [[Judd2003]]
+- weeks_symptomatic_bp2 | hypomanic | 1.3 | % of weeks | [[Judd2003]]
+- weeks_symptomatic_bp2 | cycling_mixed | 2.3 | % of weeks | [[Judd2003]]
+- lifetime_prevalence_wmh | bipolar_I | 0.6 | % | [[Merikangas2011]]
+- lifetime_prevalence_wmh | bipolar_II | 0.4 | % | [[Merikangas2011]]
+- lifetime_prevalence_wmh | subthreshold | 1.4 | % | [[Merikangas2011]]
+- lifetime_prevalence_wmh | spectrum_total | 2.4 | % | [[Merikangas2011]]
+- mdq_accuracy | clinic_2000_sensitivity | 73 | % | [[Hirschfeld2000MDQ]]
+- mdq_accuracy | clinic_2000_specificity | 90 | % | [[Hirschfeld2000MDQ]]
+- mdq_accuracy | general_population_2003_sensitivity | 28.1 | % | [[Hirschfeld2003AJP]]
+- mdq_accuracy | general_population_2003_specificity | 97.2 | % | [[Hirschfeld2003AJP]]
+- screen_meta_psychiatric | HCL32_sensitivity | 81 | % | [[Carvalho2015]]
+- screen_meta_psychiatric | HCL32_specificity | 67 | % | [[Carvalho2015]]
+- screen_meta_psychiatric | MDQ_sensitivity | 66 | % | [[Carvalho2015]]
+- screen_meta_psychiatric | MDQ_specificity | 79 | % | [[Carvalho2015]]
+- screen_meta_psychiatric | BSDS_sensitivity | 69 | % | [[Carvalho2015]]
+- screen_meta_psychiatric | BSDS_specificity | 86 | % | [[Carvalho2015]]
+- screen_meta_primary_care | MDQ_cutoff7_sensitivity | 43 | % | [[Carvalho2015]]
+- screen_meta_primary_care | MDQ_cutoff7_specificity | 95 | % | [[Carvalho2015]]
+- hcl32_spanish | cutoff14_sensitivity | 85 | % | [[Vieta2007HCL32]]
+- hcl32_spanish | cutoff14_specificity | 79 | % | [[Vieta2007HCL32]]
+- mdq_positive_screens_outpatients | bipolar_on_SCID | 23.5 | % of positives | [[Zimmerman2010Screening]]
+- mdq_positive_screens_outpatients | borderline_PD_on_SIDP | 27.6 | % of positives | [[Zimmerman2010Screening]]
+- primary_care_bipolar_rate | structured_interview_low | 3.4 | % | [[Cerimele2013]]
+- primary_care_bipolar_rate | structured_interview_high | 9 | % | [[Cerimele2013]]
+- primary_care_bipolar_rate | screening_measure_low | 20.9 | % | [[Cerimele2013]]
+- primary_care_bipolar_rate | screening_measure_high | 30.8 | % | [[Cerimele2013]]
+- us_community_mdq_positive_prior_dx | told_bipolar | 19.8 | % | [[Hirschfeld2003Community]]
+- us_community_mdq_positive_prior_dx | told_unipolar_depression | 31.2 | % | [[Hirschfeld2003Community]]
+- us_community_mdq_positive_prior_dx | no_diagnosis | 49.0 | % | [[Hirschfeld2003Community]]
+- diagnostic_delay | pooled_onset_to_management | 5.8 | years | [[Dagani2017]]
+- diagnostic_delay | survey_misdiagnosed | 69 | % | [[Hirschfeld2003Perceptions]]
+- diagnostic_delay | survey_physicians_seen_before_correct_dx | 4 | mean number | [[Hirschfeld2003Perceptions]]
+- diagnostic_delay | inpatients_previously_undiagnosed | 40 | % | [[Ghaemi1999]]
+- mdd_to_bipolar_conversion | meta_mean_12_to_18_years | 22.5 | % | [[Ratheesh2017]]
+- mdd_to_bipolar_conversion | goldberg_15y_hypomania | 27 | % | [[Goldberg2001]]
+- mdd_to_bipolar_conversion | goldberg_15y_mania | 19 | % | [[Goldberg2001]]
+- mdd_to_bipolar_conversion | fiedorowicz_mean_17.5y_any | 19.6 | % | [[Fiedorowicz2011]]
+- mdd_to_bipolar_conversion | fiedorowicz_to_bp2 | 12.2 | % | [[Fiedorowicz2011]]
+- mdd_to_bipolar_conversion | fiedorowicz_to_bp1 | 7.5 | % | [[Fiedorowicz2011]]
+- conversion_predictor_or | family_history_bipolar | 2.89 | odds ratio | [[Ratheesh2017]]
+- conversion_predictor_or | psychotic_depression | 4.76 | odds ratio | [[Ratheesh2017]]
+- antidepressant_switch | rate_per_year_mdd | 3.42 | % per year | [[Baldessarini2013]]
+- antidepressant_switch | new_bipolar_dx_per_year | 0.61 | % per year | [[Baldessarini2013]]
+- bridge_mde_patients | dsm_iv_tr_bipolar | 16.0 | % | [[Angst2011BRIDGE]]
+- bridge_mde_patients | bipolarity_specifier | 47.0 | % | [[Angst2011BRIDGE]]
+- mixed_features_prevalence | mde_in_mdd | 26.0 | % | [[McIntyre2015Mixed]]
+- mixed_features_prevalence | mde_in_bp1 | 34.0 | % | [[McIntyre2015Mixed]]
+- mixed_features_prevalence | mde_in_bp2 | 33.8 | % | [[McIntyre2015Mixed]]
+- mixed_features_prevalence | mania_in_bp1 | 20.4 | % | [[McIntyre2015Mixed]]
+- mixed_features_prevalence | hypomania_in_bp2 | 5.1 | % | [[McIntyre2015Mixed]]
+- rapid_cycling_prevalence | one_year | 22.3 | % | [[Miola2023]]
+- rapid_cycling_prevalence | lifetime | 35.5 | % | [[Miola2023]]
+- psychotic_features_bp1_lifetime | any | 73.8 | % | [[vanBergen2019]]
+- psychotic_features_bp1_lifetime | delusions | 68.9 | % | [[vanBergen2019]]
+- psychotic_features_bp1_lifetime | hallucinations | 42.6 | % | [[vanBergen2019]]
+- seasonal_pattern | manic_episodes | 15 | % | [[Geoffroy2014]]
+- seasonal_pattern | depressive_episodes | 25 | % | [[Geoffroy2014]]
+- perinatal_episode_risk | bp1_per_pregnancy | 50 | % (approx.) | [[DiFlorio2013]]
+- perinatal_episode_risk | bp2_or_recurrent_depression_per_pregnancy | 40 | % (approx.) | [[DiFlorio2013]]
+- postpartum_relapse | medication_free_in_pregnancy | 66 | % | [[Wesseloo2016]]
+- postpartum_relapse | prophylaxis_in_pregnancy | 23 | % | [[Wesseloo2016]]
+- comorbidity_overlap | borderline_PD_in_bipolar | 21.6 | % | [[Fornaro2016]]
+- comorbidity_overlap | bipolar_in_borderline_PD | 18.5 | % | [[Fornaro2016]]
+- comorbidity_overlap | adhd_in_adult_bipolar | 17.11 | % | [[Schiweck2021]]
+- comorbidity_overlap | bipolar_in_adult_adhd | 7.95 | % | [[Schiweck2021]]
+- youth_bipolar_visits_us | 1994_1995 | 25 | visits per 100,000 | [[Moreno2007]]
+- youth_bipolar_visits_us | 2002_2003 | 1003 | visits per 100,000 | [[Moreno2007]]
+- adult_bipolar_visits_us | 1994_1995 | 905 | visits per 100,000 | [[Moreno2007]]
+- adult_bipolar_visits_us | 2002_2003 | 1679 | visits per 100,000 | [[Moreno2007]]
+- secondary_mania_risk | glucocorticoids_hazard_ratio | 4.35 | hazard ratio | [[Fardet2012]]
+- secondary_mania_risk | cannabis_new_onset_odds_ratio | 2.97 | odds ratio | [[Gibbs2015]]
+- substance_psychosis_conversion | any_to_scz_or_bipolar | 32.2 | % | [[Starzer2018]]
+- substance_psychosis_conversion | cannabis_to_scz_or_bipolar | 47.4 | % | [[Starzer2018]]
+- icd11_vs_dsm5_differences | major | 19.4 | % of 103 disorders | [[First2021]]
+- icd11_vs_dsm5_differences | minor_definitional | 40.8 | % of 103 disorders | [[First2021]]
+- icd11_vs_dsm5_differences | minor_greater_dsm_specification | 9.7 | % of 103 disorders | [[First2021]]
+- icd11_vs_dsm5_differences | essentially_identical | 30.1 | % of 103 disorders | [[First2021]]
+- rating_scale_items | YMRS | 11 | items | [[Young1978]]
+- rating_scale_max | YMRS | 60 | points | [[Pigott2016Cochrane]]
+- rating_scale_items | MADRS | 10 | items | [[Montgomery1979]]
+- rating_scale_items | MDQ | 13 | yes/no items | [[Palmer2021]]
+- rating_scale_items | HCL32 | 32 | hypomania items | [[Angst2005HCL32]]
+
+## Open questions and controversies
+- How long must hypomania last? DSM-5-TR requires 4 days and puts 2–3-day hypomania under "other specified" [[APA2022,Severus2014]]. Judd found no difference between 2–6-day and 7+-day hypomanias in bipolar II [[Judd2003]]. Angst proposed dropping episode length if 3 of 7 symptoms and a change in functioning are present [[Angst2003]]. ICD-11 says "at least several days" [[Stein2020BMC]]. Status: unresolved; the systems differ.
+- How broad is the bipolar spectrum? Soft-spectrum research suggests bipolarity is far commoner than DSM counts: 23.7% "soft spectrum" in Zurich [[Angst2003]], and 47% bipolarity-specifier positives in BRIDGE [[Angst2011BRIDGE]]. MIDAS data argue that over-diagnosis is an "equal if not greater" problem [[Zimmerman2008,Zimmerman2016MIDAS]]. Status: active debate. CANMAT asks for strict use of criteria [[Yatham2018]].
+- Should screening questionnaires be used?
+  - Against, in primary care: NICE says no [[NICE2014CG185]].
+  - As an adjunct only, in clinical populations: CANMAT allows the MDQ for this [[Yatham2018]], and recommends it, with a confirmatory interview, for perinatal depression.
+  - The original authors call the MDQ useful [[Hirschfeld2000MDQ,Hirschfeld2003AJP]].
+  - Zimmerman argues against self-report screens in psychiatric practice [[Zimmerman2012MDQ]].
+  - Status: guidance differs by country and setting.
+- Is the DSM-5 energy/activity requirement right? DSM-5 added it to Criterion A [[Yatham2018]]. Berk and Vieta call it "an important and positive change" [[Stein2020BMC]]. Grunze and colleagues estimate it cuts manic/hypomanic episode prevalence by at least a third, with unknown net effect [[Grunze2021]]. Status: open.
+- Mixed states: specifier or episode? DSM-5 uses a "mixed features" specifier [[Yatham2018]]; ICD-11 keeps a 2-week mixed episode [[Stein2020BMC]]. Berk and Vieta also flag the use of irritability as a stand-alone mood criterion as controversial because it overlaps with ADHD and personality disorders [[Stein2020BMC]]. Status: the two systems diverge.
+- Bipolar disorder and borderline personality disorder: one spectrum or two disorders? Ghaemi and colleagues and Paris and Black argue they are different and can be told apart [[Ghaemi2014,Paris2015]]. A meta-analysis finds that about one in five people with one condition also meets criteria for the other [[Fornaro2016]]. Status: most evidence favours separate disorders that often co-occur.
+- Does early diagnosis change outcome? Delay is long (5.8 years pooled) [[Dagani2017]]. CANMAT links delay to worse recurrence and functional outcome [[Yatham2018]]. Better prediction from MDD is still limited, because most people who later develop bipolar disorder had no hypomanic symptoms at baseline [[Fiedorowicz2011]]. Status: plausible, not proven by trials.
+
+## Sources
+- [APA2022] American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR). Washington, DC: American Psychiatric Association Publishing; 2022. doi:10.1176/appi.books.9780890425787. (validated: Crossref)
+- [WHO2022ICD11] World Health Organization. ICD-11 for Mortality and Morbidity Statistics: 6A60 Bipolar type I disorder; 6A61 Bipolar type II disorder; 6A62 Cyclothymic disorder. Geneva: WHO; 2022. https://icd.who.int (unverified: the icd.who.int browser is script-rendered and returned no readable content to the validation tools; codes cross-checked against Harter2025 and Stein2020BMC)
+- [NICE2014CG185] National Institute for Health and Care Excellence. Bipolar disorder: assessment and management. Clinical guideline CG185. London: NICE; 2014 (last updated 2 September 2025). Recommendation wording read at nice.org.uk/guidance/cg185 on 2026-11-03. Full guideline: National Collaborating Centre for Mental Health (UK). Bipolar Disorder: The NICE Guideline on the Assessment and Management of Bipolar Disorder in Adults, Children and Young People in Primary and Secondary Care. 2014. PMID 29718639; NBK498655. (validated: PubMed)
+- [Yatham2018] Yatham LN, Kennedy SH, Parikh SV, Schaffer A, Bond DJ, Frey BN, et al. Canadian Network for Mood and Anxiety Treatments (CANMAT) and International Society for Bipolar Disorders (ISBD) 2018 guidelines for the management of patients with bipolar disorder. Bipolar Disord. 2018;20(2):97-170. PMID 29536616; PMCID PMC5947163; doi:10.1111/bdi.12609. (validated: PubMed)
+- [McIntyre2020Lancet] McIntyre RS, Berk M, Brietzke E, Goldstein BI, López-Jaramillo C, Kessing LV, et al. Bipolar disorders. Lancet. 2020;396(10265):1841-1856. PMID 33278937; doi:10.1016/S0140-6736(20)31544-0. (validated: PubMed)
+- [Merikangas2011] Merikangas KR, Jin R, He JP, Kessler RC, Lee S, Sampson NA, et al. Prevalence and correlates of bipolar spectrum disorder in the world mental health survey initiative. Arch Gen Psychiatry. 2011;68(3):241-51. PMID 21383262; PMCID PMC3486639; doi:10.1001/archgenpsychiatry.2011.12. (validated: PubMed)
+- [Judd2002] Judd LL, Akiskal HS, Schettler PJ, Endicott J, Maser J, Solomon DA, et al. The long-term natural history of the weekly symptomatic status of bipolar I disorder. Arch Gen Psychiatry. 2002;59(6):530-7. PMID 12044195; doi:10.1001/archpsyc.59.6.530. (validated: PubMed)
+- [Judd2003] Judd LL, Akiskal HS, Schettler PJ, Coryell W, Endicott J, Maser JD, et al. A prospective investigation of the natural history of the long-term weekly symptomatic status of bipolar II disorder. Arch Gen Psychiatry. 2003;60(3):261-9. PMID 12622659; doi:10.1001/archpsyc.60.3.261. (validated: PubMed)
+- [Hirschfeld2000MDQ] Hirschfeld RM, Williams JB, Spitzer RL, Calabrese JR, Flynn L, Keck PE Jr, et al. Development and validation of a screening instrument for bipolar spectrum disorder: the Mood Disorder Questionnaire. Am J Psychiatry. 2000;157(11):1873-5. PMID 11058490; doi:10.1176/appi.ajp.157.11.1873. (validated: PubMed)
+- [Hirschfeld2003AJP] Hirschfeld RM, Holzer C, Calabrese JR, Weissman M, Reed M, Davies M, et al. Validity of the mood disorder questionnaire: a general population study. Am J Psychiatry. 2003;160(1):178-80. PMID 12505821; doi:10.1176/appi.ajp.160.1.178. (validated: PubMed)
+- [Hirschfeld2003Community] Hirschfeld RM, Calabrese JR, Weissman MM, Reed M, Davies MA, Frye MA, et al. Screening for bipolar disorder in the community. J Clin Psychiatry. 2003;64(1):53-9. PMID 12590624; doi:10.4088/jcp.v64n0111. (validated: PubMed)
+- [Hirschfeld2003Perceptions] Hirschfeld RM, Lewis L, Vornik LA. Perceptions and impact of bipolar disorder: how far have we really come? Results of the national depressive and manic-depressive association 2000 survey of individuals with bipolar disorder. J Clin Psychiatry. 2003;64(2):161-74. PMID 12633125. (validated: PubMed)
+- [Angst2005HCL32] Angst J, Adolfsson R, Benazzi F, Gamma A, Hantouche E, Meyer TD, et al. The HCL-32: towards a self-assessment tool for hypomanic symptoms in outpatients. J Affect Disord. 2005;88(2):217-33. PMID 16125784; doi:10.1016/j.jad.2005.05.011. (validated: PubMed)
+- [Vieta2007HCL32] Vieta E, Sánchez-Moreno J, Bulbena A, Chamorro L, Ramos JL, Artal J, et al. Cross validation with the mood disorder questionnaire (MDQ) of an instrument for the detection of hypomania in Spanish: the 32 item hypomania symptom check list (HCL-32). J Affect Disord. 2007;101(1-3):43-55. PMID 17189651; doi:10.1016/j.jad.2006.09.040. (validated: PubMed)
+- [Young1978] Young RC, Biggs JT, Ziegler VE, Meyer DA. A rating scale for mania: reliability, validity and sensitivity. Br J Psychiatry. 1978;133:429-35. PMID 728692; doi:10.1192/bjp.133.5.429. (validated: PubMed)
+- [Montgomery1979] Montgomery SA, Asberg M. A new depression scale designed to be sensitive to change. Br J Psychiatry. 1979;134:382-9. PMID 444788; doi:10.1192/bjp.134.4.382. (validated: PubMed)
+- [Hamilton1960] Hamilton M. A rating scale for depression. J Neurol Neurosurg Psychiatry. 1960;23(1):56-62. PMID 14399272; PMCID PMC495331; doi:10.1136/jnnp.23.1.56. (validated: PubMed)
+- [Pigott2016Cochrane] Pigott K, Galizia I, Vasudev K, Watson S, Geddes J, Young AH. Topiramate for acute affective episodes in bipolar disorder in adults. Cochrane Database Syst Rev. 2016;9(9):CD003384. PMID 27591453; PMCID PMC6457604; doi:10.1002/14651858.CD003384.pub3. (validated: PubMed)
+- [Dagani2017] Dagani J, Signorini G, Nielssen O, Bani M, Pastore A, Girolamo G, et al. Meta-analysis of the Interval between the Onset and Management of Bipolar Disorder. Can J Psychiatry. 2017;62(4):247-258. PMID 27462036; PMCID PMC5407546; doi:10.1177/0706743716656607. (validated: PubMed)
+- [Carvalho2015] Carvalho AF, Takwoingi Y, Sales PM, Soczynska JK, Köhler CA, Freitas TH, et al. Screening for bipolar spectrum disorders: A comprehensive meta-analysis of accuracy studies. J Affect Disord. 2015;172:337-46. PMID 25451435; doi:10.1016/j.jad.2014.10.024. (validated: PubMed)
+- [Zimmerman2012MDQ] Zimmerman M. Misuse of the Mood Disorders Questionnaire as a case-finding measure and a critique of the concept of using a screening scale for bipolar disorder in psychiatric practice. Bipolar Disord. 2012;14(2):127-34. PMID 22420588; doi:10.1111/j.1399-5618.2012.00994.x. (validated: PubMed)
+- [Zimmerman2011MDQ] Zimmerman M, Galione JN, Chelminski I, Young D, Dalrymple K. Psychiatric diagnoses in patients who screen positive on the Mood Disorder Questionnaire: Implications for using the scale as a case-finding instrument for bipolar disorder. Psychiatry Res. 2011;185(3):444-9. PMID 20656360; doi:10.1016/j.psychres.2010.06.025. (validated: PubMed)
+- [Zimmerman2010Screening] Zimmerman M, Galione JN, Ruggero CJ, Chelminski I, Young D, Dalrymple K, et al. Screening for bipolar disorder and finding borderline personality disorder. J Clin Psychiatry. 2010;71(9):1212-7. PMID 20361913; doi:10.4088/JCP.09m05161yel. (validated: PubMed)
+- [Zimmerman2010JCP] Zimmerman M, Ruggero CJ, Chelminski I, Young D. Psychiatric diagnoses in patients previously overdiagnosed with bipolar disorder. J Clin Psychiatry. 2010;71(1):26-31. PMID 19646366; doi:10.4088/JCP.08m04633. (validated: PubMed)
+- [Ruggero2010] Ruggero CJ, Zimmerman M, Chelminski I, Young D. Borderline personality disorder and the misdiagnosis of bipolar disorder. J Psychiatr Res. 2010;44(6):405-8. PMID 19889426; PMCID PMC2849890; doi:10.1016/j.jpsychires.2009.09.011. (validated: PubMed)
+- [Zimmerman2008] Zimmerman M, Ruggero CJ, Chelminski I, Young D. Is bipolar disorder overdiagnosed? J Clin Psychiatry. 2008;69(6):935-40. PMID 18466044; doi:10.4088/jcp.v69n0608. (validated: PubMed)
+- [Zimmerman2016MIDAS] Zimmerman M. A Review of 20 Years of Research on Overdiagnosis and Underdiagnosis in the Rhode Island Methods to Improve Diagnostic Assessment and Services (MIDAS) Project. Can J Psychiatry. 2016;61(2):71-9. PMID 27253697; PMCID PMC4784239; doi:10.1177/0706743715625935. (validated: PubMed)
+- [Goldberg2001] Goldberg JF, Harrow M, Whiteside JE. Risk for bipolar illness in patients initially hospitalized for unipolar depression. Am J Psychiatry. 2001;158(8):1265-70. PMID 11481161; doi:10.1176/appi.ajp.158.8.1265. (validated: PubMed)
+- [Ratheesh2017] Ratheesh A, Davey C, Hetrick S, Alvarez-Jimenez M, Voutier C, Bechdolf A, et al. A systematic review and meta-analysis of prospective transition from major depression to bipolar disorder. Acta Psychiatr Scand. 2017;135(4):273-284. PMID 28097648; doi:10.1111/acps.12686. (validated: PubMed)
+- [Fiedorowicz2011] Fiedorowicz JG, Endicott J, Leon AC, Solomon DA, Keller MB, Coryell WH. Subthreshold hypomanic symptoms in progression from unipolar major depression to bipolar disorder. Am J Psychiatry. 2011;168(1):40-8. PMID 21078709; PMCID PMC3042431; doi:10.1176/appi.ajp.2010.10030328. (validated: PubMed)
+- [Mitchell2008] Mitchell PB, Goodwin GM, Johnson GF, Hirschfeld RM. Diagnostic guidelines for bipolar depression: a probabilistic approach. Bipolar Disord. 2008;10(1 Pt 2):144-52. PMID 18199233; doi:10.1111/j.1399-5618.2007.00559.x. (validated: PubMed)
+- [Ghaemi2002] Ghaemi SN, Ko JY, Goodwin FK. "Cade's disease" and beyond: misdiagnosis, antidepressant use, and a proposed definition for bipolar spectrum disorder. Can J Psychiatry. 2002;47(2):125-34. PMID 11926074; doi:10.1177/070674370204700202. (validated: PubMed)
+- [Ghaemi1999] Ghaemi SN, Sachs GS, Chiou AM, Pandurangi AK, Goodwin K. Is bipolar disorder still underdiagnosed? Are antidepressants overutilized? J Affect Disord. 1999;52(1-3):135-44. PMID 10357026; doi:10.1016/s0165-0327(98)00076-7. (validated: PubMed)
+- [GonzalezPinto1998] Gonzalez-Pinto A, Gutierrez M, Mosquera F, Ballesteros J, Lopez P, Ezcurra J, et al. First episode in bipolar disorder: misdiagnosis and psychotic symptoms. J Affect Disord. 1998;50(1):41-4. PMID 9716278; doi:10.1016/s0165-0327(98)00032-9. (validated: PubMed)
+- [Miola2023] Miola A, Fountoulakis KN, Baldessarini RJ, Veldic M, Solmi M, Rasgon N, et al. Prevalence and outcomes of rapid cycling bipolar disorder: Mixed method systematic meta-review. J Psychiatr Res. 2023;164:404-415. PMID 37429185; doi:10.1016/j.jpsychires.2023.06.021. (validated: PubMed)
+- [Strawbridge2022] Strawbridge R, Kurana S, Kerr-Gaffney J, Jauhar S, Kaufman KR, Yalin N, et al. A systematic review and meta-analysis of treatments for rapid cycling bipolar disorder. Acta Psychiatr Scand. 2022;146(4):290-311. PMID 35778967; PMCID PMC9796364; doi:10.1111/acps.13471. (validated: PubMed)
+- [Severus2014] Severus E, Bauer M. The impact of treatment decisions on the diagnosis of bipolar disorders. Int J Bipolar Disord. 2014;2:3. PMID 25909048; PMCID PMC4406985; doi:10.1186/2194-7511-2-3. (validated: PubMed)
+- [DiFlorio2013] Di Florio A, Forty L, Gordon-Smith K, Heron J, Jones L, Craddock N, et al. Perinatal episodes across the mood disorder spectrum. JAMA Psychiatry. 2013;70(2):168-75. PMID 23247604; doi:10.1001/jamapsychiatry.2013.279. (validated: PubMed)
+- [Wesseloo2016] Wesseloo R, Kamperman AM, Munk-Olsen T, Pop VJ, Kushner SA, Bergink V. Risk of Postpartum Relapse in Bipolar Disorder and Postpartum Psychosis: A Systematic Review and Meta-Analysis. Am J Psychiatry. 2016;173(2):117-27. PMID 26514657; doi:10.1176/appi.ajp.2015.15010124. (validated: PubMed)
+- [Geoffroy2014] Geoffroy PA, Bellivier F, Scott J, Etain B. Seasonality and bipolar disorder: a systematic review, from admission rates to seasonality of symptoms. J Affect Disord. 2014;168:210-23. PMID 25063960; doi:10.1016/j.jad.2014.07.002. (validated: PubMed)
+- [Fardet2012] Fardet L, Petersen I, Nazareth I. Suicidal behavior and severe neuropsychiatric disorders following glucocorticoid therapy in primary care. Am J Psychiatry. 2012;169(5):491-7. PMID 22764363; doi:10.1176/appi.ajp.2011.11071009. (validated: PubMed)
+- [Krauthammer1978] Krauthammer C, Klerman GL. Secondary mania: manic syndromes associated with antecedent physical illness or drugs. Arch Gen Psychiatry. 1978;35(11):1333-9. PMID 757997; doi:10.1001/archpsyc.1978.01770350059005. (validated: PubMed)
+- [Baldessarini2013] Baldessarini RJ, Faedda GL, Offidani E, Vázquez GH, Marangoni C, Serra G, et al. Antidepressant-associated mood-switching and transition from unipolar major depression to bipolar disorder: a review. J Affect Disord. 2013;148(1):129-35. PMID 23219059; doi:10.1016/j.jad.2012.10.033. (validated: PubMed)
+- [Angst2011BRIDGE] Angst J, Azorin JM, Bowden CL, Perugi G, Vieta E, Gamma A, et al. Prevalence and characteristics of undiagnosed bipolar disorders in patients with a major depressive episode: the BRIDGE study. Arch Gen Psychiatry. 2011;68(8):791-8. PMID 21810644; doi:10.1001/archgenpsychiatry.2011.87. (validated: PubMed)
+- [Angst2003] Angst J, Gamma A, Benazzi F, Ajdacic V, Eich D, Rössler W. Toward a re-definition of subthreshold bipolarity: epidemiology and proposed criteria for bipolar-II, minor bipolar disorders and hypomania. J Affect Disord. 2003;73(1-2):133-46. PMID 12507746; doi:10.1016/s0165-0327(02)00322-1. (validated: PubMed)
+- [Angst2010NCSR] Angst J, Cui L, Swendsen J, Rothen S, Cravchik A, Kessler RC, et al. Major depressive disorder with subthreshold bipolarity in the National Comorbidity Survey Replication. Am J Psychiatry. 2010;167(10):1194-201. PMID 20713498; PMCID PMC3145248; doi:10.1176/appi.ajp.2010.09071011. (validated: PubMed)
+- [McIntyre2015Mixed] McIntyre RS, Soczynska JK, Cha DS, Woldeyohannes HO, Dale RS, Alsuwaidan MT, et al. The prevalence and illness characteristics of DSM-5-defined "mixed feature specifier" in adults with major depressive disorder and bipolar disorder: Results from the International Mood Disorders Collaborative Project. J Affect Disord. 2015;172:259-64. PMID 25451425; doi:10.1016/j.jad.2014.09.026. (validated: PubMed)
+- [Das2005] Das AK, Olfson M, Gameroff MJ, Pilowsky DJ, Blanco C, Feder A, et al. Screening for bipolar disorder in a primary care practice. JAMA. 2005;293(8):956-63. PMID 15728166; doi:10.1001/jama.293.8.956. (validated: PubMed)
+- [Moreno2007] Moreno C, Laje G, Blanco C, Jiang H, Schmidt AB, Olfson M. National trends in the outpatient diagnosis and treatment of bipolar disorder in youth. Arch Gen Psychiatry. 2007;64(9):1032-9. PMID 17768268; doi:10.1001/archpsyc.64.9.1032. (validated: PubMed)
+- [Satzer2016] Satzer D, Bond DJ. Mania secondary to focal brain lesions: implications for understanding the functional neuroanatomy of bipolar disorder. Bipolar Disord. 2016;18(3):205-20. PMID 27112231; doi:10.1111/bdi.12387. (validated: PubMed)
+- [Starzer2018] Starzer MSK, Nordentoft M, Hjorthøj C. Rates and Predictors of Conversion to Schizophrenia or Bipolar Disorder Following Substance-Induced Psychosis. Am J Psychiatry. 2018;175(4):343-350. PMID 29179576; doi:10.1176/appi.ajp.2017.17020223. (validated: PubMed)
+- [Kessler2006CIDI] Kessler RC, Akiskal HS, Angst J, Guyer M, Hirschfeld RM, Merikangas KR, et al. Validity of the assessment of bipolar spectrum disorders in the WHO CIDI 3.0. J Affect Disord. 2006;96(3):259-69. PMID 16997383; PMCID PMC1821426; doi:10.1016/j.jad.2006.08.018. (validated: PubMed)
+- [Kessler2004CIDI] Kessler RC, Ustün TB. The World Mental Health (WMH) Survey Initiative Version of the World Health Organization (WHO) Composite International Diagnostic Interview (CIDI). Int J Methods Psychiatr Res. 2004;13(2):93-121. PMID 15297906; PMCID PMC6878592; doi:10.1002/mpr.168. (validated: PubMed)
+- [Spitzer1992] Spitzer RL, Williams JB, Gibbon M, First MB. The Structured Clinical Interview for DSM-III-R (SCID). I: History, rationale, and description. Arch Gen Psychiatry. 1992;49(8):624-9. PMID 1637252; doi:10.1001/archpsyc.1992.01820080032005. (validated: PubMed)
+- [Paris2015] Paris J, Black DW. Borderline personality disorder and bipolar disorder: what is the difference and why does it matter? J Nerv Ment Dis. 2015;203(1):3-7. PMID 25536097; doi:10.1097/NMD.0000000000000225. (validated: PubMed)
+- [Ghaemi2014] Ghaemi SN, Dalley S, Catania C, Barroilhet S. Bipolar or borderline: a clinical overview. Acta Psychiatr Scand. 2014;130(2):99-108. PMID 24571137; doi:10.1111/acps.12257. (validated: PubMed)
+- [Bayes2016] Bayes AJ, McClure G, Fletcher K, Román Ruiz Del Moral YE, Hadzi-Pavlovic D, Stevenson JL, et al. Differentiating the bipolar disorders from borderline personality disorder. Acta Psychiatr Scand. 2016;133(3):187-95. PMID 26432099; doi:10.1111/acps.12509. (validated: PubMed)
+- [Fornaro2016] Fornaro M, Orsolini L, Marini S, De Berardis D, Perna G, Valchera A, et al. The prevalence and predictors of bipolar and borderline personality disorders comorbidity: Systematic review and meta-analysis. J Affect Disord. 2016;195:105-18. PMID 26881339; doi:10.1016/j.jad.2016.01.040. (validated: PubMed)
+- [Schiweck2021] Schiweck C, Arteaga-Henriquez G, Aichholzer M, Edwin Thanarajah S, Vargas-Cáceres S, Matura S, et al. Comorbidity of ADHD and adult bipolar disorder: A systematic review and meta-analysis. Neurosci Biobehav Rev. 2021;124:100-123. PMID 33515607; doi:10.1016/j.neubiorev.2021.01.017. (validated: PubMed)
+- [Kitsune2016] Kitsune GL, Kuntsi J, Costello H, Frangou S, Hosang GM, McLoughlin G, et al. Delineating ADHD and bipolar disorder: A comparison of clinical profiles in adult women. J Affect Disord. 2016;192:125-33. PMID 26724691; doi:10.1016/j.jad.2015.12.024. (validated: PubMed)
+- [Solmi2018] Solmi M, Pigato GG, Roiter B, Guaglianone A, Martini L, Fornaro M, et al. Prevalence of Catatonia and Its Moderators in Clinical Samples: Results from a Meta-analysis and Meta-regression Analysis. Schizophr Bull. 2018;44(5):1133-1150. PMID 29140521; PMCID PMC6101628; doi:10.1093/schbul/sbx157. (validated: PubMed)
+- [Lish1994] Lish JD, Dime-Meenan S, Whybrow PC, Price RA, Hirschfeld RM. The National Depressive and Manic-depressive Association (DMDA) survey of bipolar members. J Affect Disord. 1994;31(4):281-94. PMID 7989643; doi:10.1016/0165-0327(94)90104-x. (validated: PubMed)
+- [Palmer2021] Palmer BA, Pahwa M, Geske JR, Kung S, Nassan M, Schak KM, et al. Self-report screening instruments differentiate bipolar disorder and borderline personality disorder. Brain Behav. 2021;11(7):e02201. PMID 34056864; PMCID PMC8323027; doi:10.1002/brb3.2201. (validated: PubMed)
+- [Wagner2006] Wagner KD, Hirschfeld RM, Emslie GJ, Findling RL, Gracious BL, Reed ML. Validation of the Mood Disorder Questionnaire for bipolar disorders in adolescents. J Clin Psychiatry. 2006;67(5):827-30. PMID 16841633; doi:10.4088/jcp.v67n0518. (validated: PubMed)
+- [Gibbs2015] Gibbs M, Winsper C, Marwaha S, Gilbert E, Broome M, Singh SP. Cannabis use and mania symptoms: a systematic review and meta-analysis. J Affect Disord. 2015;171:39-47. PMID 25285897; doi:10.1016/j.jad.2014.09.016. (validated: PubMed)
+- [Grunze2021] Grunze A, Born C, Fredskild MU, Grunze H. How Does Adding the DSM-5 Criterion Increased Energy/Activity for Mania Change the Bipolar Landscape? Front Psychiatry. 2021;12:638440. PMID 33679488; PMCID PMC7930230; doi:10.3389/fpsyt.2021.638440. (validated: PubMed)
+- [Schaffer2010] Schaffer A, Cairney J, Veldhuizen S, Kurdyak P, Cheung A, Levitt A. A population-based analysis of distinguishers of bipolar disorder from major depressive disorder. J Affect Disord. 2010;125(1-3):103-10. PMID 20223522; doi:10.1016/j.jad.2010.02.118. (validated: PubMed)
+- [Cerimele2013] Cerimele JM, Chwastiak LA, Dodson S, Katon WJ. The prevalence of bipolar disorder in primary care patients with depression or other psychiatric complaints: a systematic review. Psychosomatics. 2013;54(6):515-24. PMID 23932528; PMCID PMC3830717; doi:10.1016/j.psym.2013.05.009. (validated: PubMed)
+- [Leibenluft2011] Leibenluft E. Severe mood dysregulation, irritability, and the diagnostic boundaries of bipolar disorder in youths. Am J Psychiatry. 2011;168(2):129-42. PMID 21123313; PMCID PMC3396206; doi:10.1176/appi.ajp.2010.10050766. (validated: PubMed)
+- [vanBergen2019] van Bergen AH, Verkooijen S, Vreeker A, Abramovic L, Hillegers MH, Spijker AT, et al. The characteristics of psychotic features in bipolar disorder. Psychol Med. 2019;49(12):2036-2048. PMID 30303059; doi:10.1017/S0033291718002854. (validated: PubMed)
+- [Dunayevich2000] Dunayevich E, Keck PE Jr. Prevalence and description of psychotic features in bipolar mania. Curr Psychiatry Rep. 2000;2(4):286-90. PMID 11122970; doi:10.1007/s11920-000-0069-4. (validated: PubMed)
+- [Keck2003] Keck PE Jr, McElroy SL, Havens JR, Altshuler LL, Nolen WA, Frye MA, et al. Psychosis in bipolar disorder: phenomenology and impact on morbidity and course of illness. Compr Psychiatry. 2003;44(4):263-9. PMID 12923703; doi:10.1016/S0010-440X(03)00089-0. (validated: PubMed)
+- [VanMeter2012] Van Meter AR, Youngstrom EA, Findling RL. Cyclothymic disorder: a critical review. Clin Psychol Rev. 2012;32(4):229-43. PMID 22459786; doi:10.1016/j.cpr.2012.02.001. (validated: PubMed)
+- [Stein2020BMC] Stein DJ, Szatmari P, Gaebel W, Berk M, Vieta E, Maj M, et al. Mental, behavioral and neurodevelopmental disorders in the ICD-11: an international perspective on key changes and controversies. BMC Med. 2020;18(1):21. PMID 31983345; PMCID PMC6983973; doi:10.1186/s12916-020-1495-2. (validated: PubMed)
+- [Harter2025] Härter M, Schneider F. Affective disorders-developments of ICD-11 in comparison with ICD-10. Nervenarzt. 2025;96(Suppl 1):6-10. PMID 40932648; PMCID PMC12638406; doi:10.1007/s00115-025-01877-9. (validated: PubMed)
+- [First2021] First MB, Gaebel W, Maj M, Stein DJ, Kogan CS, Saunders JB, et al. An organization- and category-level comparison of diagnostic requirements for mental disorders in ICD-11 and DSM-5. World Psychiatry. 2021;20(1):34-51. PMID 33432742; PMCID PMC7801846; doi:10.1002/wps.20825. (validated: PubMed)
+
+## Provenance
+- How sources were validated:
+  - Every PubMed source was confirmed with an NCBI E-utilities esummary batch call on 2026-11-03: authors, title, journal, year, volume/issue/pages, PMID, PMCID and DOI.
+  - Every number was taken from the PubMed abstract (efetch). Exceptions were taken from open-access full text: Yatham2018 (PMC5947163), Stein2020BMC (PMC6983973), Harter2025 (PMC12638406), Strawbridge2022 (PMC9796364) and Severus2014 (PMC4406985).
+  - APA2022 was confirmed on Crossref.
+  - NICE2014CG185 wording was read on nice.org.uk, and its full-guideline record (PMID 29718639, NBK498655) on PubMed.
+- Unverified items:
+  - WHO2022ICD11 is unverified, because icd.who.int is script-rendered. Its codes match the ICD-11 table in Harter2025.
+  - DSM-5-TR text could not be read; the manual is paywalled.
+  - Bullets marked "(unverified)" give DSM details that were not found in an open reproduction in this pass: the 3-hour sleep example, the 5% weight example, the antidepressant-emergent hypomania caution, the anxious distress, melancholic and atypical item lists, the mixed-features threshold of 3, cyclothymia's "half the time / 2 months" rule, two of the four other-specified examples, the 4-week peripartum window, the seasonal pattern rule, schizoaffective criteria, bipolar II distress criterion, the psychotic-disorder exclusion for bipolar I, and DSM-5-TR's "unspecified mood disorder".
+  - The Numbers rows for the 4-week peripartum window and for the cyclothymia durations rest on the same paraphrase. The 2-year adult duration is confirmed by Yatham2018's description and by ICD-11 in Stein2020BMC. The 1-year youth figure is unverified.
+- Keys reused and dropped:
+  - Shared keys reused from other companions with their existing text: APA2022 (autism, borderline-PD), Paris2015, Ghaemi2014, Bayes2016, Fornaro2016, Ruggero2010, Zimmerman2010JCP (borderline-PD) and Schiweck2021 (ADHD).
+  - Reed2019ICD11 exists in two companions but was not cited, because its bipolar content was not readable.
+  - Kessler2005 is already the ASRS paper in the ADHD companion, so the CIDI papers are keyed Kessler2004CIDI and Kessler2006CIDI.
+  - Canonical keys from the brief not cited here, because they belong to other passes and were not needed: Merikangas2007, Geddes2010BALANCE, Cipriani2013, Sachs2007STEPBD, Miklowitz2007, Mullins2021, OConnell2025, Cade1949 and FDA-Lithium.
+- Searched for but dropped:
+  - Dunner & Fieve 1974 (origin of "rapid cycling"; PubMed record has no abstract).
+  - Malhi 2017 "Mixed mood" editorial (no abstract).
+  - The original BSDS validation (Ghaemi 2005); it was not found in PubMed by title search, so BSDS figures come only from Carvalho2015.
+  - The NCBI StatPearls chapter (CAPTCHA).
+- Safe messaging: suicide is mentioned only as a criterion symptom and as population statistics. No methods or means are described, and the crisis line is given in the intro and in "In plain words".
+- Pregnancy content is framed as planning with the care team.
