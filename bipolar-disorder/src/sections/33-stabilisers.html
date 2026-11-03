@@ -1,5 +1,105 @@
-<!-- ================= 3.3 VALPROATE, LAMOTRIGINE &AMP; CARBAMAZEPINE (stub, replaced by its builder) ================= -->
+<!-- ================= 3.3 VALPROATE, LAMOTRIGINE & CARBAMAZEPINE ================= -->
+<style>
+#m-stabilisers .stsch{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-stabilisers .stcmp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+@media (max-width:700px){#m-stabilisers .stcmp{grid-template-columns:minmax(0,1fr)}}
+#m-stabilisers .stcmp .card h4{font-size:17px}
+#m-stabilisers .stcmp .card .kicker{color:var(--rx)}
+#m-stabilisers .card>.tag,#m-stabilisers .card>.ev{align-self:flex-start}
+#m-stabilisers .stleg i.on{height:6px}
+#m-stabilisers .quote{font-style:italic}
+#m-stabilisers #stCmpSvg{max-width:760px}
+</style>
 <section class="mod" id="m-stabilisers" data-mod="stabilisers" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Medicines</p><h2>Valproate, lamotrigine &amp; carbamazepine</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Three medicines first made for epilepsy also treat or prevent mood episodes. Each has a different strength, its own boxed warning, and its own reasons for careful planning. Watch lamotrigine's slow start as the label publishes it, see why valproate and pregnancy need planning, and compare the three side by side.</p></div>
+
+  <p class="callout"><b>Quoted from the label for learning, not a dosing guide.</b> The schedules below are the US Lamictal label's published tables. They are not instructions and are not for working out anyone's own dose: starting, changing or stopping any of these medicines is planned with the prescriber. [[FDA-Lamictal]]</p>
+
+  <div class="stsch" role="group" aria-label="Which published lamotrigine schedule to show">
+    <span class="kicker">Label schedule</span>
+    <button class="btn" data-stsch="std" aria-pressed="true">Lamotrigine alone</button>
+    <button class="btn" data-stsch="vpa" aria-pressed="false">With valproate</button>
+    <button class="btn" data-stsch="ind" aria-pressed="false">With enzyme inducers</button>
+  </div>
+  <div class="stepper" id="stSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="stSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A seven-week calendar fills day by day above a step chart of lamotrigine daily dose in milligrams as published in the US label for adults with bipolar disorder. The chosen schedule climbs in steps toward its target while the two other published schedules show as faint dashed lines; a shaded band from week 2 onward marks the weeks in which nearly all life-threatening rashes have occurred."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stPlay">Play</button><label class="stage-cap tl" for="stT">Days since starting <input type="range" id="stT" min="0" max="1" step="0.001" value="0.07"></label></div>
+      <div class="readout" id="stRead"></div>
+      <div class="legend stleg" id="stLeg"></div>
+      <p class="stage-cap">Doses as published in the Lamictal label (Table 5, adults with bipolar disorder). Weeks 1–2 with valproate are 25 mg every other day, drawn as an average of 12.5 mg/day. The rash band is the label's 2–8-week window. [[FDA-Lamictal]]</p>
+    </div>
+    <aside class="note" id="stNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Valproate in pregnancy: the numbers behind the warning</h3>
+  <div class="prose"><p>Valproate is very effective for some people, but it carries the highest risk to a developing baby of any of these medicines. Each block below is 100 pregnancies from the EURAP registry with one anticonvulsant taken on its own; the highlighted figures are babies with a major malformation at 1 year. These are population statistics from registries, mostly of women with epilepsy, not a prediction for any one pregnancy. [[Tomson2018,Battino2024EURAP]]</p></div>
+  <div class="ctrls" role="group" aria-label="Which EURAP analysis to show">
+    <span class="kicker">Registry analysis</span>
+    <button class="btn" data-stpg="2018" aria-pressed="true">EURAP 2018 (7,355 pregnancies)</button>
+    <button class="btn" data-stpg="2024" aria-pressed="false">EURAP 2024 (9,840 pregnancies)</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="stPg" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="Four blocks of 100 person icons, one each for valproate, carbamazepine, lamotrigine and levetiracetam taken alone in pregnancy. As the animation runs, the icons representing babies with a major malformation are highlighted: about 10 in 100 for valproate, about 5 to 6 for carbamazepine and about 3 for lamotrigine and levetiracetam, followed by the label's spina bifida comparison."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stPgPlay">Play</button><label class="stage-cap tl" for="stPgT">Build up <input type="range" id="stPgT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap">Icons are rounded to whole babies; the percentages are as published. [[Tomson2018,Battino2024EURAP,FDA-Depakote]]</p>
+    </div>
+    <aside class="note" id="stPgNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Outcome in the child</th><th>After valproate</th><th>Comparison</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Major malformation (Cochrane review)</th><td>10.93% (95% CI 8.91–13.13), the highest of any antiepileptic drug</td><td>Risk ratio 5.69 vs children of women without epilepsy; lamotrigine showed no increased risk</td><td>[[Weston2016]]</td></tr>
+      <tr><th>Spina bifida (US label)</th><td>About 1–2% (100–200 in 10,000)</td><td>About 0.06–0.07% (6–7 in 10,000) in the general population</td><td>[[FDA-Depakote]]</td></tr>
+      <tr><th>Mean IQ at age 6 (NEAD)</th><td>97 (95% CI 94–101)</td><td>105 carbamazepine, 108 lamotrigine, 108 phenytoin; higher valproate doses went with lower IQ (r = −0.56)</td><td>[[Meador2013NEAD]]</td></tr>
+      <tr><th>IQ difference (Cochrane review)</th><td>About 8.94 points lower (95% CI −11.96 to −5.92)</td><td>vs children of women without epilepsy</td><td>[[Bromley2014]]</td></tr>
+      <tr><th>Autism spectrum disorder by age 14 (Denmark, 655,615 children)</th><td>4.42% (95% CI 2.59–7.46%)</td><td>1.53% overall; adjusted HR 2.9 (1.7–4.9)</td><td>[[Christensen2013]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="split2">
+    <div class="card"><span class="tag rx">Label and regulators, as published</span><h4>What the rules say</h4>
+      <p>The Depakote boxed warning: <span class="quote">"Valproate can cause major congenital malformations, particularly neural tube defects (e.g., spina bifida). In addition, valproate can cause decreased IQ scores and neurodevelopmental disorders following in utero exposure."</span> The label says it should not be used in women with bipolar disorder who are pregnant or plan to become pregnant unless other medicines have failed or are otherwise unacceptable. [[FDA-Depakote]]</p>
+      <p>In April 2018 the UK MHRA banned valproate prescribing for women and girls of childbearing potential who are not in its Pregnancy Prevention Programme. [[Iacobucci2018]] NICE CG185 reproduces the later MHRA measures: do not start valproate for the first time in anyone under 55, male or female, <span class="quote">"unless 2 specialists independently agree and document that there is no other effective and tolerated treatment, or there are compelling reasons that the reproductive risks do not apply"</span>. [[NICE2014CG185F]]</p></div>
+    <div class="card"><span class="tag accent">Plan with your care team</span><h4>Planning, not stopping suddenly</h4>
+      <p>Guidelines frame valproate and pregnancy as something to plan well ahead with the care team. Stopping valproate abruptly is itself flagged as a risk in the label, so any change is planned with the prescriber, never made alone. [[FDA-Depakote,NICE2014CG185F]]</p>
+      <p>Over time, EURAP's overall malformation rate fell from 6.1% (1998–2004) to 3.7% (2015–2022) as prescribing moved away from valproate and carbamazepine. [[Battino2024EURAP]] For relapse risk around birth and planning the other medicines, see <a href="#pregnancy" data-go="pregnancy">Pregnancy &amp; the postpartum period</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Compare the three</h3>
+  <div class="prose"><p>Pick a medicine to see where the evidence is strongest, what its boxed warning covers, what is monitored, and which interactions matter. Guideline positions are CANMAT/ISBD 2018 unless stated. [[Yatham2018]]</p></div>
+  <div class="ctrls" role="group" aria-label="Which medicine to compare">
+    <button class="btn" data-stdrug="vpa" aria-pressed="true">Valproate</button>
+    <button class="btn" data-stdrug="ltg" aria-pressed="false">Lamotrigine</button>
+    <button class="btn" data-stdrug="cbz" aria-pressed="false">Carbamazepine</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="stCmpSvg" viewBox="0 0 720 150" style="min-width:560px" role="img" aria-label="Three tiles, for acute mania, acute bipolar depression and maintenance, show the chosen medicine's guideline position for each phase."></svg></div>
+  </div>
+  <div class="stcmp" id="stCmp"></div>
+
+  <h3 class="sub">Key trials in numbers</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Result</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Divalproex vs lithium vs placebo in mania (1994)</th><td>179 people in hospital, 21 days</td><td>≥50% improvement: 48% divalproex, 49% lithium, 25% placebo; divalproex worked as well in rapid-cycling mania</td><td>[[Bowden1994Divalproex]]</td></tr>
+      <tr><th>Divalproex maintenance (2000)</th><td>372 outpatients, 12 months</td><td>No difference from placebo on time to any mood episode (the primary outcome); better on some secondary outcomes</td><td>[[Bowden2000Divalproex]]</td></tr>
+      <tr><th>BALANCE (2010)</th><td>330 people with bipolar I, up to 24 months</td><td>Relapse event: 54% lithium + valproate, 59% lithium, 69% valproate; combination vs valproate HR 0.59 (0.42–0.83)</td><td>[[Geddes2010BALANCE]]</td></tr>
+      <tr><th>Lamotrigine maintenance, pooled (2004)</th><td>638 people, 18 months</td><td>Median days to intervention for any episode: 86 placebo, 184 lithium, 197 lamotrigine; no sign of an affective switch</td><td>[[Goodwin2004Lamotrigine]]</td></tr>
+      <tr><th>Lamotrigine in recent depression (2003)</th><td>463 people, 18 months</td><td>Free of intervention for depression at 1 year: 57% lamotrigine, 46% lithium, 45% placebo; for mania: 77%, 86%, 72%</td><td>[[Calabrese2003Lamotrigine]]</td></tr>
+      <tr><th>Extended-release carbamazepine in mania (2005)</th><td>239 people, 3 weeks</td><td>Better than placebo on YMRS from day 7; dizziness 39.3%, somnolence 30.3%, nausea 23.8%</td><td>[[Weisler2005Carbamazepine]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="cards">
+    <div class="card"><span class="tag rx">Stopping</span><h4>Slowly, and planned</h4><p>NICE CG185 says that when valproate, lamotrigine or an antipsychotic is stopped, the dose should be reduced <i>"gradually over at least 4 weeks to minimise the risk of relapse"</i>. [[NICE2014CG185F]]</p></div>
+    <div class="card"><span class="tag rx">Blood levels</span><h4>Not checked routinely</h4><p>Unlike lithium, NICE says plasma valproate and lamotrigine levels should not be measured routinely <i>"unless there is evidence of ineffectiveness, poor adherence or toxicity"</i>. In the label's mania trials, valproate was dosed to a trough between 50 and 125 mcg/mL. [[NICE2014CG185F,FDA-Depakote]] For lithium's own levels, see <a href="#levels" data-go="levels">Lithium levels</a>.</p></div>
+    <div class="card"><span class="tag rx">Compared with lithium</span><h4>Where lithium fits</h4><p>NICE asks clinicians to <i>"explain that lithium is the most effective long‑term treatment for bipolar disorder"</i>. In BALANCE, lithium alone or with valproate prevented relapse better than valproate alone. [[NICE2014CG185F,Geddes2010BALANCE]] See <a href="#lithium" data-go="lithium">Lithium: how it works</a>.</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Valproate in men</h4><p>NICE (2025) reproduces MHRA advice that men use effective contraception during valproate and for 3 months after, noting a <i>"possible association"</i> with neurodevelopmental disorders in children. A 2026 Taiwanese cohort of 2.58 million births, including sibling comparisons, found no association (autism HR 0.86, 0.61–1.22). Regulators have kept their precautions. [[NICE2014CG185F,Feng2026]]</p></div>
+  </div>
+  <div class="prose"><p>With the right medicine, many people stay well for long stretches: in the pooled lamotrigine trials, the median time before needing treatment for a new episode more than doubled compared with placebo. These are group averages. [[Goodwin2004Lamotrigine]]</p></div>
 </section>
