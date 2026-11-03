@@ -1,5 +1,135 @@
-<!-- ================= 3.2 LITHIUM LEVELS, TOXICITY &AMP; INTERACTIONS (stub, replaced by its builder) ================= -->
+<!-- ================= 3.2 LITHIUM LEVELS, TOXICITY & INTERACTIONS ================= -->
+<style>
+#m-levels .lvwarn{border:1px solid var(--line);border-left:4px solid var(--bad);background:var(--bad-soft);border-radius:12px;padding:12px 16px;font-size:15px;max-width:76ch;display:flex;flex-direction:column;gap:4px}
+#m-levels .lvwarn b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--bad)}
+#m-levels .lvtog{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-levels .lvexp{display:flex;flex-direction:column;gap:10px;font-size:15px;max-width:76ch}
+#m-levels .lvexp h4{margin:0;font-family:var(--display);font-weight:800;font-size:21px;line-height:1.15}
+#m-levels .lvval{font:800 34px/1 var(--display);color:var(--ink)}
+#m-levels .lvval small{font:600 12px var(--mono);color:var(--muted);margin-left:6px}
+#m-levels #lvGauge{max-width:900px}
+#m-levels .tbl table{min-width:660px}
+#m-levels .card>.tag{align-self:flex-start}
+</style>
 <section class="mod" id="m-levels" data-mod="levels" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Medicines</p><h2>Lithium levels, toxicity &amp; interactions</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">The amount of lithium in the blood matters: too little may not work and too much can harm, so blood tests are part of the treatment. Watch a week of dosing build to a steady level, see how the kidney handles lithium, and learn what the published ranges mean. [[FDA-Lithium,NICE2014CG185]]</p></div>
+  <div class="lvwarn" role="note"><b>Teaching tool, not medical advice</b><span>Every range, dose and schedule here is quoted as published in a label or guideline, never as an instruction. Nothing on this page can interpret your own result: that needs your care team, who look at how you are as well as the number. Worsening shaking, being very unsteady, confusion, or severe vomiting or diarrhoea can be signs of too much lithium: this needs urgent medical help, so contact emergency services. [[FDA-Lithium]]</span></div>
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="lvtog" role="group" aria-label="Model settings">
+        <span class="kicker">Tablet</span>
+        <button class="btn" data-lvf="ir" aria-pressed="true">Immediate release</button>
+        <button class="btn" data-lvf="sr" aria-pressed="false">Sustained release</button>
+        <span class="kicker">Half-life</span>
+        <button class="btn" data-lvh="18" aria-pressed="false">18 h</button>
+        <button class="btn" data-lvh="24" aria-pressed="true">24 h</button>
+        <button class="btn" data-lvh="36" aria-pressed="false">36 h</button>
+      </div>
+      <div class="scroll"><svg id="lvSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A serum lithium level curve over seven days of schematic twice-daily dosing. Each dose makes a peak a few hours later, then the level falls; troughs are sampled 12 hours after the evening dose. The troughs climb to about half the steady state after one day and reach steady state after about five days. Behind the curve are shaded bands for the published target ranges and the toxic threshold of 1.5."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">Play</button><label class="stage-cap tl" for="lvT">Hours 0–168 <input type="range" id="lvT" min="0" max="1" step="0.001" value="0.035"></label></div>
+      <div class="readout" id="lvRead"></div>
+      <p class="stage-cap"><b>Schematic teaching curve, not a dosing guide.</b> The shape is computed from first-order kinetics with the labelled half-life (18–36 hours; about 24 hours in the LITHOBID label) and labelled time to peak, scaled so the steady trough lands at 0.7 mmol/L; doses are deliberately not shown. Real levels vary from person to person. 1 mmol/L = 1 mEq/L. [[FDA-Lithium,FDA-Lithobid,Grandjean2009PartII]]</p>
+    </div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The kidney: lithium is handled like sodium</h3>
+  <p class="prose">Lithium is not broken down by the liver. The kidney filters it and about 80% of what is filtered is reabsorbed in the proximal tubule, much as sodium is; when the body is short of sodium or water, it holds on to more lithium. Switch on a situation or medicine to see the published size of its effect on a steady level. [[FDA-Lithium,FDA-Lithobid]]</p>
+  <div class="lvtog" role="group" aria-label="Situations and medicines that raise lithium levels">
+    <button class="btn" data-lvx="dehy" aria-pressed="false">Dehydration, vomiting or diarrhoea</button>
+    <button class="btn" data-lvx="thz" aria-pressed="false">Thiazide diuretic</button>
+    <button class="btn" data-lvx="ace" aria-pressed="false">ACE inhibitor or ARB</button>
+    <button class="btn" data-lvx="nsaid" aria-pressed="false">NSAID painkiller</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvKid" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="A nephron: lithium and sodium ions arrive in the blood, are filtered at the glomerulus, and most are reabsorbed back into the blood along the proximal tubule while the rest leave in the urine. Beside it a chart over 14 days shows a steady lithium level that rises after day 4 when a medicine or situation that raises levels is switched on."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvKPlay">Play</button><label class="stage-cap tl" for="lvKT">Days 0–14 <input type="range" id="lvKT" min="0" max="1" step="0.001" value="0.2"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> Ion movements are drawn, not measured. The level chart starts from an illustrative steady 0.7 mmol/L and rises with the half-life after the change on day 4, by the published average effect. Combined effects are shown multiplied only as an illustration: no source gives a combined figure.</p>
+    </div>
+    <aside class="note" id="lvKNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Level explainer</h3>
+  <div class="lvwarn" role="note"><b>Not for your own result</b><span>This explainer shows which published band a number falls in and what the label or guideline says about that band. It cannot tell you what your result means for you, and a level inside a range does not rule out toxicity. If you have symptoms of lithium toxicity, get urgent medical help whatever your last level was. [[FDA-Lithium,NICE2014CG185]]</span></div>
+  <div class="calc">
+    <label for="lvVal">Sample value: <b id="lvValT">0.70</b> mmol/L (= mEq/L)<input type="range" id="lvVal" min="0.1" max="5" step="0.05" value="0.7"></label>
+    <label for="lvPop">Who (as the sources group people)<select id="lvPop"><option value="adult">Adult</option><option value="o60">Older adult, 60–79</option><option value="o80">Older adult, 80 or over</option></select></label>
+    <label for="lvWhen">When the blood was taken<select id="lvWhen"><option value="t12">About 12 hours after the last dose</option><option value="early">Within a few hours of a dose</option><option value="unk">Not known</option></select></label>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="lvGauge" viewBox="0 0 720 130" style="min-width:560px" role="img" aria-label="A horizontal scale of serum lithium from 0 to 5 mmol per litre with the published bands shaded and a marker at the chosen value."></svg></div>
+    <div class="lvexp" id="lvExp" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Toxicity: signs by severity</h3>
+  <p class="prose">The boxed warning: "Lithium toxicity is closely related to serum lithium concentrations, and can occur at doses close to therapeutic concentrations." [[FDA-Lithium,FDA-Lithobid]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Severity</th><th>Neurological signs (generic US label)</th><th>Level bands (LITHOBID label)</th></tr></thead>
+    <tbody>
+      <tr><th>Mild</th><td>Fine tremor, light-headedness, lack of coordination, weakness</td><td>Mild to moderate reactions may occur at 1.5–2.5 mEq/L. Diarrhoea, vomiting, drowsiness, muscle weakness and lack of coordination may be early signs below 2.0.</td></tr>
+      <tr><th>Moderate</th><td>Giddiness, apathy, drowsiness, hyperreflexia, muscle twitching, ataxia, blurred vision, tinnitus, slurred speech</td><td>Moderate to severe reactions at 2.0 mEq/L and above.</td></tr>
+      <tr><th>Severe</th><td>Clonus, confusion, seizure, coma and death</td><td>Above 3.0 mEq/L, a complex multi-organ picture; the generic label says patients "may progress to seizures, coma, and irreversible brain damage".</td></tr>
+      <tr><th>Other systems</th><td colspan="2">Heart: QT prolongation, ST/T changes, myocarditis. Kidney: urine concentrating defect, nephrogenic diabetes insipidus, renal failure. Gut: nausea, vomiting, diarrhoea, bloating.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sources: [[FDA-Lithium,FDA-Lithobid]]. Labelled risk factors: recent febrile illness, drugs that raise lithium or affect the kidney, acute ingestion, impaired kidney function, volume depletion or dehydration, significant cardiovascular disease, and sodium or potassium changes. [[FDA-Lithium]]</p>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Pattern</span><h4>Chronic poisoning is the common one</h4><p>Lithium poisoning is acute, acute-on-chronic or chronic. Chronic poisoning is the most common and usually unintentional: intake outstrips what the kidneys clear, often during volume depletion, nephrogenic diabetes insipidus, illness or a new interacting drug. In 97 cases, 26 of 28 with severe neurotoxicity came from chronic therapeutic use (OR 136 against overdose). [[BairdGunning2017,Oakley2001]]</p></div>
+    <div class="card"><span class="tag warn">Who is at risk</span><h4>Older age, kidneys, thyroid</h4><p>Independent risk factors for chronic poisoning were nephrogenic diabetes insipidus (adjusted OR 26.96), thyroid dysfunction (9.30) and age over 50 (6.20). In Ontario, 3.9% of adults aged 66 or over taking lithium were admitted at least once for toxicity over 1992–2001. [[Oakley2001,Juurlink2004]]</p></div>
+    <div class="card"><span class="tag good">Perspective</span><h4>Rare with monitoring</h4><p>In a Swedish cohort of 1,340 people, levels of 1.5 mmol/L or more occurred 0.01 times per patient-year; of 91 episodes, 34% needed intensive care and 13% haemodialysis, with no deaths. The authors said physicians "should not withhold lithium for fear of intoxication" but should screen for it readily. [[Ott2016]]</p></div>
+    <div class="card"><span class="tag bad">Lasting harm</span><h4>SILENT</h4><p>The syndrome of irreversible lithium-effectuated neurotoxicity means sequelae lasting at least 2 months after lithium stops; a 2005 review found 90 published cases, most often with persistent cerebellar problems. [[Adityanjee2005,FDA-Lithium]]</p></div>
+  </div>
+
+  <h3 class="sub">How toxicity is treated (as published)</h3>
+  <div class="cards">
+    <div class="card"><h4>No antidote; charcoal does not help</h4><p>There is no specific antidote. Mild toxicity can usually be managed by lowering or stopping the dose. Activated charcoal is not recommended because it does not bind lithium ions significantly. [[FDA-Lithium]]</p></div>
+    <div class="card"><h4>Haemodialysis</h4><p>The generic label calls haemodialysis "the treatment of choice" for severe toxicity; levels can rebound as lithium leaves the tissues. EXTRIP graded lithium as dialyzable. [[FDA-Lithium,Decker2015]]</p></div>
+    <div class="card"><h4>EXTRIP thresholds</h4><p>Recommended with impaired kidney function and a level above 4.0 mEq/L, or with decreased consciousness, seizures or life-threatening dysrhythmias at any level; suggested above 5.0, with significant confusion, or if the level is expected to take more than 36 hours to fall below 1.0. The evidence is very low quality, mostly case reports. [[Decker2015,BairdGunning2017]]</p></div>
+    <div class="card"><h4>Sick days</h4><p>NICE advises people taking lithium to seek medical attention if they develop diarrhoea or vomiting or become acutely ill for any reason, and to keep up fluids after sweating, in hot climates, with fever, during long immobility or with a chest infection. [[NICE2014CG185]]</p></div>
+  </div>
+
+  <h3 class="sub">Interactions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Medicine or situation</th><th>Effect on lithium (as published)</th></tr></thead>
+    <tbody>
+      <tr><th>Thiazide diuretics</th><td>The greatest potential among diuretics: levels often rise 25–40% after a thiazide starts. Loop and potassium-sparing diuretics have minor, variable effects on levels. [[Finley1995]]</td></tr>
+      <tr><th>ACE inhibitors, ARBs</th><td>Starting an ACE inhibitor raised steady-state lithium by 36.1% and cut clearance by 25.5% in 20 people. Renin-angiotensin system antagonists can raise levels. [[Finley1996,FDA-Lithium]]</td></tr>
+      <tr><th>Older adults (Ontario)</th><td>Admission for toxicity rose within a month of starting a loop diuretic (RR 5.5) or an ACE inhibitor (RR 7.6); thiazides and NSAIDs were not independently associated in this study. [[Juurlink2004]]</td></tr>
+      <tr><th>NSAIDs</th><td>Reduce renal blood flow and lithium clearance; indomethacin and piroxicam significantly raise levels, COX-2 inhibitors appear to; celecoxib raised levels by about 17% in volunteers. NICE warns people taking lithium not to take over-the-counter NSAIDs, and says a prescribed NSAID should be taken regularly, not as needed, with monthly level checks until stable. [[FDA-Lithium,FDA-Lithobid,NICE2014CG185]]</td></tr>
+      <tr><th>Metronidazole</th><td>Nitroimidazole antibiotics can raise levels. Starting any potentially interacting drug, often an antibiotic, was common in people whose level rose to 1.3 mmol/L or more. [[FDA-Lithium,Wilting2005]]</td></tr>
+      <tr><th>Lower levels</th><td>Acetazolamide, urea, xanthines and alkalinising agents such as sodium bicarbonate increase excretion; SGLT2 inhibitors may lower serum lithium. [[FDA-Lithium]]</td></tr>
+      <tr><th>Other effects</th><td>Calcium-channel blockers may increase neurological effects; iodide may cause hypothyroidism; lithium may prolong neuromuscular blockers; serotonin syndrome with serotonergic drugs; an encephalopathic syndrome with antipsychotics. [[FDA-Lithium]]</td></tr>
+      <tr><th>Sweating, fever, low salt</th><td>Protracted sweating, diarrhoea or fever lower tolerance; a low-sodium state raises lithium retention, so the labels stress a normal salt intake. Irregular dispensing was also linked with high levels (OR 3.14). [[FDA-Lithium,FDA-Lithobid,Wilting2005]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="prose">People taking lithium are advised to tell every prescriber and pharmacist that they take it. [[FDA-Lithium,NICE2014CG185]]</p>
+
+  <h3 class="sub">Monitoring schedules as published</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>NICE CG185</th><th>US generic label</th><th>CANMAT/ISBD 2018 and LITHOBID</th></tr></thead>
+    <tbody>
+      <tr><th>Before starting</th><td>Weight or BMI, urea and electrolytes including calcium, eGFR, thyroid function, full blood count; ECG with cardiovascular disease or risk factors</td><td>Renal function, vital signs, electrolytes, thyroid function, concurrent medicines, pregnancy status</td><td>–</td></tr>
+      <tr><th>First levels</th><td>1 week after starting and 1 week after every dose change, then weekly until stable</td><td>After 3 days, 12 hours after the last dose, and regularly until stable</td><td>CANMAT: about 5 days after the last dose change; two consecutive in-range levels in the acute phase. LITHOBID: twice weekly in the acute phase until stable</td></tr>
+      <tr><th>Ongoing levels</th><td>Every 3 months in the first year, then every 6 months; stays 3-monthly for older people, interacting drugs, risk of kidney, thyroid or calcium problems, poor control or adherence, or a last level of 0.8 mmol/L or higher</td><td>Recheck after a dose change, starting or stopping interacting drugs, a marked change in strenuous exercise, and during illness</td><td>CANMAT: every 3–6 months. LITHOBID: at least every two months in uncomplicated maintenance</td></tr>
+      <tr><th>Other tests</th><td>Weight or BMI, urea and electrolytes including calcium, eGFR and thyroid function every 6 months</td><td>Thyroid function before starting, at 3 months and every 6–12 months</td><td>–</td></tr>
+      <tr><th>Every visit</th><td>Neurotoxicity (paraesthesia, ataxia, tremor, cognitive impairment), which "can occur at therapeutic levels"</td><td>Do not rely on levels alone: assessment is clinical as well as laboratory</td><td>–</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sources: [[NICE2014CG185,FDA-Lithium,Yatham2018,FDA-Lithobid]]. A UK audit of 3,373 patients on lithium for a year or more found NICE standards met for levels in 30%, kidney function in 55% and thyroid function in 50%. [[Collins2010]] Nursing teaching for lithium is covered in <a href="#nursing" data-go="nursing">Nursing care</a>.</p>
+
+  <h3 class="sub">Long-term effects: kidney, thyroid, parathyroid</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Organ</th><th>What the studies found</th><th>What it means</th></tr></thead>
+    <tbody>
+      <tr><th>Kidney: concentrating urine</th><td>Urinary concentrating ability reduced by 15% of the normal maximum. Nephrogenic diabetes insipidus (thirst, passing a lot of urine) can begin within weeks; usually reversible, perhaps only partly after long use. [[McKnight2012,FDA-Lithium]]</td><td>Thirst and passing more urine are common; amiloride is named in the label as a possible treatment.</td></tr>
+      <tr><th>Kidney: filtration (eGFR)</th><td>Meta-analysis: mean GFR −6.22 mL/min, not significant; 0.5% received renal replacement therapy. Over a mean 18 years, 29.5% had an eGFR below 60 at least once and none developed end-stage kidney failure. Lithium added 0.54 mL/min/1.73 m² of decline per year of treatment. [[McKnight2012,Tondo2017,Fransson2022]]</td><td>Real but usually slow. Lifetime risk of stage 4 kidney disease was 13.9–18.6% starting at 55–74, with a 10-year risk of 0–0.7% starting at 18–54. [[Golic2023]]</td></tr>
+      <tr><th>Kidney: after stopping</th><td>In 168 people who stopped after at least 4.5 years, yearly eGFR change went from −1.58 to −0.02 mL/min/1.73 m². <span class="ev early">Early evidence</span> [[Fransson2025]]</td><td>Decisions on continuing may need a kidney specialist. [[NICE2014CG185]]</td></tr>
+      <tr><th>Thyroid</th><td>Clinical hypothyroidism more common than with placebo (OR 5.78); TSH up by 4.00 on average; laboratory data HR 2.31. Hyperthyroidism is rare. [[McKnight2012,Shine2015,Kibirige2013]]</td><td>A blood test finds it, and lithium-associated hypothyroidism is usually treated with thyroid hormone. [[Kibirige2013,FDA-Lithium]]</td></tr>
+      <tr><th>Parathyroid, calcium</th><td>Calcium up 0.09 mmol/L and parathyroid hormone up 7.32 pg/mL; 18% had lithium-associated hyperparathyroidism after a mean 13.5 years; hypercalcaemia prevalence 26% in another cohort. [[McKnight2012,Meehan2015,Meehan2018]]</td><td>Calcium is checked before and during treatment; it is often multiglandular and may persist after stopping. [[McKnight2012,FDA-Lithium]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="prose">For how lithium works and the evidence for it, see <a href="#lithium" data-go="lithium">Lithium: how it works and the evidence</a>. For lithium in pregnancy, planned with the care team, see <a href="#pregnancy" data-go="pregnancy">Pregnancy &amp; the postpartum period</a>.</p>
 </section>
