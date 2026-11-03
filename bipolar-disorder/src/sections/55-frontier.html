@@ -1,5 +1,61 @@
-<!-- ================= 5.5 RESEARCH TOWARD BETTER TREATMENT (stub, replaced by its builder) ================= -->
+<!-- ================= 5.5 RESEARCH TOWARD BETTER TREATMENT ================= -->
+<style>
+#m-frontier .card>.ev,#m-frontier .card>.tag{align-self:flex-start}
+#m-frontier .frbtns{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-frontier .frbtns>span{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);min-width:72px}
+#m-frontier .frfilt{display:flex;flex-direction:column;gap:10px}
+#m-frontier .trial{gap:8px}
+#m-frontier .trial .tid{font:600 12px var(--mono);color:var(--brand);letter-spacing:.04em}
+#m-frontier .trial .row{display:flex;flex-wrap:wrap;gap:6px}
+#m-frontier .trial dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:14.5px}
+#m-frontier .trial dt{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-top:3px}
+#m-frontier .trial dd{margin:0}
+#m-frontier .res{font:600 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:5px;white-space:nowrap}
+#m-frontier .res.pos{background:var(--good-soft);color:var(--good)}
+#m-frontier .res.neg{background:var(--bad-soft);color:var(--bad)}
+#m-frontier .res.none{background:var(--panel-2);color:var(--muted)}
+#m-frontier .empty{border:1px dashed var(--line);border-radius:var(--r);padding:16px;max-width:72ch}
+#m-frontier .note .ev{margin-right:4px}
+</style>
 <section class="mod" id="m-frontier" data-mod="frontier" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Course &amp; living</p><h2>Research toward better treatment</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Most new ideas for treating bipolar disorder never reach routine care, and the ones that do take years. Scrub along the research pipeline to see where seven lines of work stand today, each with its evidence label, then filter the registered trials behind them.</p></div>
+  <div class="crisis" role="note"><b>Crisis</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></div>
+  <div class="stepper" id="frSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="frSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A research pipeline with five stages: idea, lab, early trials, large trials and guidelines. Seven programme cards move along their own lanes as you scrub: gene-based targets stop in the lab, lithium-response prediction between lab and early trials, phone monitoring, ketamine and chronotherapy in early trials, anti-inflammatory add-ons stall after negative large trials, and newer antipsychotics for maintenance stall after a negative relapse-prevention trial. Each card carries its evidence label."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="frPlay">Play</button><label class="stage-cap tl" for="frT">Programme <input type="range" id="frT" min="0" max="1" step="0.001" value="0.07"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> Stage positions are our reading of the studies in the notes, not an official ranking; a programme can sit in several stages at once. The evidence label is the one the research summary gives each line of work. [[Mullins2021,Hou2016Lithium,Kutcher2026,Bahji2021,Rosenblat2016,Lam2020Light,NCT03573297]]</p>
+    </div>
+    <aside class="note" id="frNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Registered trials behind the headlines</h3>
+  <div class="prose"><p>Every trial below has a ClinicalTrials.gov number that was checked against the registry. Filter by what the trial aims at and by the evidence label for its question. A trial that found no benefit is still useful: it tells people what not to rely on.</p></div>
+  <div class="frfilt">
+    <div class="frbtns" role="group" aria-label="Filter by target"><span>Target</span>
+      <button class="btn" data-frt="all" aria-pressed="true">All</button>
+      <button class="btn" data-frt="relapse" aria-pressed="false">Relapse prevention</button>
+      <button class="btn" data-frt="depression" aria-pressed="false">Depression</button>
+      <button class="btn" data-frt="mania" aria-pressed="false">Mania</button>
+      <button class="btn" data-frt="prediction" aria-pressed="false">Prediction</button>
+    </div>
+    <div class="frbtns" role="group" aria-label="Filter by evidence"><span>Evidence</span>
+      <button class="btn" data-fre="all" aria-pressed="true">All</button>
+      <button class="btn" data-fre="est" aria-pressed="false">Established</button>
+      <button class="btn" data-fre="early" aria-pressed="false">Early evidence</button>
+      <button class="btn" data-fre="hyp" aria-pressed="false">Hypothesis</button>
+    </div>
+    <p class="stage-cap" id="frCount" aria-live="polite"></p>
+  </div>
+  <div class="cards" id="frTrials"></div>
+
+  <h3 class="sub">Reading the research</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Checklist</span><h4>How to read a trial headline</h4><p>Ask how many people took part: the ketamine trials that reported 71% and 79% response had 18 and 15 participants, and a network meta-analysis gave ketamine a response ratio of 12.49 with a 95% interval from 3.06 to 50.93, wide because the trials were few and small. Ask what it was compared with, how long it lasted and whether the effect lasted: the first ketamine benefit lasted through day 3. Ask whether a larger trial agreed: a meta-analysis of 8 small trials favoured anti-inflammatory add-ons, but larger trials of minocycline, celecoxib and aspirin were negative. And check that a result exists: an inhaled esketamine trial finished in 2021 with no results posted. [[Diazgranados2010,Zarate2012,Bahji2021,Rosenblat2016,Husain2020,Bruun2026,NCT03965871]]</p></div>
+    <div class="card"><span class="tag brand">Prediction is not benefit</span><h4>Accurate is not the same as helpful</h4><p>Phone-call voice features told manic or mixed states apart with an AUC of 0.89, yet a randomised trial of daily smartphone self-monitoring did not reduce symptoms, and a 12-month passive-sensing study raised too many false alarms for clinical use. A good classifier still has to be tested in a trial that measures whether people do better. [[FaurholtJepsen2016,FaurholtJepsen2015,Ludwig2025]]</p></div>
+    <div class="card"><span class="tag brand">Taking part</span><h4>How to join research safely</h4><p>Look the study up on ClinicalTrials.gov by its NCT number: the record shows who runs it, what it is compared with, how many people it needs and whether results have been posted. Talk to your own care team before changing or stopping any medicine for a study. When lithium is stopped, more than half of new episodes come within 10 weeks, and NICE advises that rapid discontinuation may raise the risk of relapse. [[Suppes1991,NICE2014CG185E,NCT06372964]] For your current options, see <a href="#lithium" data-go="lithium">Lithium</a>, <a href="#antipsychotics" data-go="antipsychotics">Antipsychotics</a> and <a href="#depression" data-go="depression">Treating bipolar depression</a>.</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Light and sleep, already near the clinic</h4><p>The 2025 ISBD chronobiology task force judged adjunctive bright light likely efficacious for bipolar depression, with anti-manic cover and clinical monitoring. Sleep loss has also been proposed as a pathway into mania, which is why chronotherapy is given by specialist teams alongside medicines. [[Geoffroy2025,Wehr1987,Benedetti2014]] See <a href="#brain" data-go="brain">Brain, sleep &amp; the body clock</a> and <a href="#living" data-go="living">Living well</a>.</p></div>
+  </div>
 </section>
