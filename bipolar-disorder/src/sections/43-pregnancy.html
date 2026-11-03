@@ -1,5 +1,74 @@
-<!-- ================= 4.3 PREGNANCY &AMP; THE POSTPARTUM PERIOD (stub, replaced by its builder) ================= -->
+<!-- ================= 4.3 PREGNANCY & THE POSTPARTUM PERIOD ================= -->
+<style>
+#m-pregnancy .card>.ev,#m-pregnancy .card>.tag{align-self:flex-start}
+#m-pregnancy .tbl table{min-width:560px}
+#m-pregnancy .pg-pick{display:flex;flex-wrap:wrap;gap:8px}
+#m-pregnancy .note .tag{align-self:flex-start}
+</style>
 <section class="mod" id="m-pregnancy" data-mod="pregnancy" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Therapy, safety &amp; pregnancy</p><h2>Pregnancy &amp; the postpartum period</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Forty weeks of pregnancy and the first twelve weeks after birth, with the published relapse figures laid along them. The weeks after birth carry the highest risk, and planning ahead with the care team changes the numbers.</p></div>
+  <div class="callout"><b>Plan with your care team.</b> Nothing here is advice to stop, start or change a medicine. Stopping suddenly carries its own risk, so any change is planned with the prescriber, ideally before pregnancy. [[Viguera2007Pregnancy,NICE2014CG192]]</div>
+  <div class="stepper" id="pgSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="pgSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A timeline of 40 weeks of pregnancy and 12 weeks after birth. In pregnancy, a curve for women who were well at conception rises to 71% with a recurrence by delivery, about half of them in the first trimester. After birth, two curves rise mostly in the first month: 66% relapse in women who were medication-free in pregnancy and 23% in those who used preventive medication. A peak marks the highest risk of psychiatric admission 10 to 19 days after a first birth, and a strip of 1,000 dots shows postpartum psychosis at about 1 to 3 per 1,000 births."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="pgPlay">Play</button><label class="stage-cap tl" for="pgT">Weeks <input type="range" id="pgT" min="0" max="1" step="0.001" value="0.8"></label></div>
+      <div class="readout" id="pgRead"></div>
+      <p class="stage-cap"><b>Schematic shapes, published end points.</b> The pregnancy curve uses one cohort (89 women well at conception; 71% recurrence, 47% of recurrences in the first trimester). The postpartum curves end at the meta-analysis figures; their early rise follows the finding that most perinatal episodes began in the first month. The admission peak is relative risk for first-time mothers. Postpartum weeks are drawn wider than pregnancy weeks. Population figures, not predictions for one person. [[Viguera2007Pregnancy,Wesseloo2016,DiFlorio2013,MunkOlsen2006,VanderKruik2017]]</p>
+    </div>
+    <aside class="note" id="pgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Medicines in pregnancy, per 1,000 births</h3>
+  <p class="prose">Pick a medicine to see the published malformation figures as 1,000 dots. Each figure comes from a different study and outcome, named under the dots, so compare within a panel rather than across them. Every option has to be weighed against the risk of becoming unwell, which is why NICE CG192 asks for an individual decision. [[NICE2014CG192,Jones2014Lancet]]</p>
+  <div class="pg-pick" role="group" aria-label="Medicine">
+    <button class="btn" data-pgm="li" aria-pressed="true">Lithium</button>
+    <button class="btn" data-pgm="vpa" aria-pressed="false">Valproate</button>
+    <button class="btn" data-pgm="cbz" aria-pressed="false">Carbamazepine</button>
+    <button class="btn" data-pgm="ltg" aria-pressed="false">Lamotrigine</button>
+    <button class="btn" data-pgm="ap" aria-pressed="false">Antipsychotics</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" id="pgLiOpts">
+        <button class="btn" data-pgo="card" aria-pressed="true">Heart defects</button>
+        <button class="btn" data-pgo="any" aria-pressed="false">Any major malformation</button>
+        <label class="stage-cap" for="pgDose">First-trimester dose <select id="pgDose" class="btn"><option value="0">600 mg/day or less</option><option value="1">601–900 mg/day</option><option value="2" selected>more than 900 mg/day</option></select></label>
+      </div>
+      <div class="scroll"><svg id="pgMed" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Two grids of 1,000 dots compare how many babies per 1,000 had a malformation after exposure to the chosen medicine and in a comparison group, with a second panel of supporting figures."></svg></div>
+      <p class="stage-cap" id="pgMedCap"></p>
+    </div>
+    <aside class="note" id="pgMedNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">NICE CG192, in its own words</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Topic</th><th>What the guideline says (as published)</th></tr></thead>
+    <tbody>
+      <tr><th>Lithium</th><td>Do not offer lithium to women planning a pregnancy or pregnant "unless antipsychotic medication has not been effective"; if it is offered, the woman should know the size of the fetal heart risk is uncertain, and levels are monitored more often. [[NICE2014CG192]]</td></tr>
+      <tr><th>Lithium levels</th><td>If lithium is continued, check plasma levels every 4 weeks, then weekly from the 36th week. Quoted as guideline wording, not instructions. In late pregnancy lithium clearance rises by 30–50%. [[NICE2014CG192,Grandjean2009PartII]]</td></tr>
+      <tr><th>Pregnant while taking lithium</th><td>Options listed: stopping gradually over 4 weeks if well, switching gradually to an antipsychotic, or continuing lithium if at high risk of relapse; the guideline warns "there is a risk of relapse, particularly in the postnatal period". [[NICE2014CG192]]</td></tr>
+      <tr><th>Valproate</th><td>Do not offer for a mental health problem to women or girls of childbearing potential "unless other options are ineffective or not tolerated and the pregnancy prevention programme is in place". [[NICE2014CG192]]</td></tr>
+      <tr><th>Carbamazepine and lamotrigine</th><td>Do not offer carbamazepine to women planning a pregnancy, pregnant or considering breastfeeding; check lamotrigine levels often around pregnancy "because they vary substantially at these times". [[NICE2014CG192]]</td></tr>
+      <tr><th>Breastfeeding</th><td>Encourage breastfeeding unless the woman is taking carbamazepine, clozapine or lithium, and support each woman's own feeding choice. [[NICE2014CG192]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Before, during and after</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Before pregnancy</span><h4>Preconception planning</h4>
+      <p>Among 89 women who were well at conception, 71% had a recurrence in pregnancy. Stopping mood stabilisers doubled the risk compared with continuing, and abrupt or rapid stopping shortened the median time to recurrence 11-fold compared with gradual stopping. [[Viguera2007Pregnancy]]</p>
+      <p>Pregnancy itself was not protective: after stopping lithium, recurrence over 40 weeks was 52% in pregnant and 58% in non-pregnant women. [[Viguera2000]] NICE advises people taking lithium to talk to their doctor as soon as possible if they plan a pregnancy or become pregnant. [[NICE2014CG185]]</p></div>
+    <div class="card"><span class="tag rx">Lithium</span><h4>What the lithium label says</h4>
+      <p>The Lithobid label states that lithium "may cause fetal harm" and that registry data suggest more cardiac and other anomalies, "especially Ebstein's anomaly". [[FDA-Lithobid]] A large cohort found right ventricular outflow tract defects, the group including Ebstein's anomaly, in 0.60% vs 0.18% of infants, and called the effect smaller than previously thought. [[Patorno2017]]</p>
+      <p>Babies exposed late in pregnancy can show lithium toxicity (hypotonia, cyanosis, poor feeding, slow heart rate) that may take up to 14 days to clear. [[FDA-Lithium]] Neonatal readmission within 28 days was 27.5% vs 14.3%. [[MunkOlsen2018]]</p></div>
+    <div class="card"><span class="tag brand">Breastfeeding</span><h4>Breastfeeding, from the labels</h4>
+      <p><b>Lithium:</b> the label says nursing "should not be undertaken during lithium therapy except in rare and unusual circumstances". In 10 mother–infant pairs, trough lithium was 0.76 mEq/L in mothers, 0.35 in milk and 0.16 in infants, with no serious infant adverse events. The evidence is small and the question is unresolved. [[FDA-Lithobid,Viguera2007Breastmilk]]</p>
+      <p><b>Valproate:</b> found in milk at 1–10% of maternal serum; the label advises watching breastfed infants for signs of liver damage. <b>Lamotrigine:</b> infant levels can rise if a dose raised in pregnancy is not reduced after delivery. <b>Cariprazine:</b> no human lactation studies. [[FDA-Depakote,FDA-Lamictal,FDA-Vraylar]]</p></div>
+    <div class="card"><span class="tag bad">After birth</span><h4>Postpartum psychosis is an emergency</h4>
+      <p>It is rare, about 1 to 3 per 1,000 births (reported 0.89–2.6), and starts mostly in the first weeks. A 1987 record-linkage study concluded that most puerperal psychoses are bipolar-spectrum illnesses. [[VanderKruik2017,MunkOlsen2006,Kendell1987]]</p>
+      <p>Sudden confusion, strange beliefs or not sleeping at all after giving birth need urgent help. In one clinic, none of 20 women with psychosis limited to the postpartum period who started preventive treatment right after delivery relapsed, against 44.4% of those who declined it. [[Jones2014Lancet,Bergink2012]]</p></div>
+  </div>
+  <p class="crisis"><b>Crisis</b><span>Suicide is a leading cause of maternal death, and the weeks after birth are a time of extra risk. [[Jones2014Lancet]] If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123). See <a href="#crisis" data-go="crisis">Suicide risk &amp; crisis safety</a>.</span></p>
 </section>
