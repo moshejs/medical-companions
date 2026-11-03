@@ -1,5 +1,77 @@
-<!-- ================= 1.1 WHAT BIPOLAR DISORDER IS (stub, replaced by its builder) ================= -->
+<!-- ================= 1.1 WHAT BIPOLAR DISORDER IS ================= -->
+<style>
+#m-what .wm-card{display:flex;flex-direction:column;gap:10px}
+#m-what .wm-flip{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;width:100%;border:1px dashed var(--line);background:var(--panel-2);border-radius:12px;padding:12px 14px;cursor:pointer;font:inherit;color:inherit;min-height:84px}
+#m-what .wm-flip:hover{border-color:var(--muted)}
+#m-what .wm-flip[aria-pressed="true"]{border-style:solid;border-color:var(--brand);background:var(--brand-soft)}
+#m-what .wm-flip small{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#m-what .wm-flip[aria-pressed="true"] small{color:var(--brand)}
+#m-what .wm-flip .wm-say{font-family:var(--display);font-size:19px;line-height:1.2}
+#m-what .wm-flip[aria-pressed="false"] .wm-say{text-decoration:line-through;text-decoration-thickness:1px;text-decoration-color:var(--bad)}
+#m-what .wm-why{font-size:14.5px;color:var(--muted)}
+#m-what .wm-why[hidden]{display:none}
+#m-what .mood-dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+#m-what .tbl table{min-width:560px}
+#m-what .delay-stage{max-width:880px}
+</style>
 <section class="mod" id="m-what" data-mod="what" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding bipolar disorder</p><h2>What bipolar disorder is</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Bipolar disorder is a long-term illness in which mood and energy swing between lows (depression) and highs (mania or hypomania). [[Grande2016]] It is common, it usually starts young, and it is treatable. Below, 1,000 adults show how many live with it, when it begins, and why the lows matter most.</p></div>
+
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Who lives with bipolar disorder: an array of 1,000 adult figures recolours to show lifetime prevalence of bipolar I, bipolar II and subthreshold bipolar disorder in the World Mental Health surveys (24 in 1,000) and in the US National Comorbidity Survey Replication (45 in 1,000); then an age-at-onset curve draws in with published mean onset ages; then two 52-week strips fill in to show the share of weeks with depressive, manic or hypomanic and mixed symptoms in bipolar I and bipolar II."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Story <input type="range" id="whT" min="0" max="1" step="0.001" value="0.14"></label></div>
+      <div class="readout" id="whRead"></div>
+      <p class="stage-cap">Prevalence figures are population statistics from surveys, not anyone's personal risk. Each figure in the array stands for 1 adult in 1,000; coloured figures are scattered at random. The onset curve's shape is schematic; the marked ages are published. Weeks are sorted by state, not shown in calendar order. [[Merikangas2011,Merikangas2007,Bellivier2003,Judd2002,Judd2003]]</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Two big surveys, two different answers</h3>
+  <div class="prose"><p>The worldwide figure comes from the WHO World Mental Health surveys: 61,392 adults in 11 countries. [[Merikangas2011]] The higher US figure comes from the National Comorbidity Survey Replication, 9,282 US adults. [[Merikangas2007]] The surveys do not contradict each other. In the worldwide surveys the US itself had the highest spectrum prevalence (4.4% lifetime) and India the lowest (0.1%), so it is not surprising that a US-only survey sits above the 11-country average. [[Merikangas2011]] Broader definitions of the spectrum give higher figures still, up to 3–6.5% lifetime in one review. [[Angst1998]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Group</th><th>Worldwide (WMH), lifetime</th><th>Worldwide (WMH), 12-month</th><th>US (NCS-R), lifetime</th><th>US (NCS-R), 12-month</th></tr></thead>
+    <tbody>
+      <tr><th>Bipolar I</th><td>0.6%</td><td>0.4%</td><td>1.0%</td><td>0.6%</td></tr>
+      <tr><th>Bipolar II</th><td>0.4%</td><td>0.3%</td><td>1.1%</td><td>0.8%</td></tr>
+      <tr><th>Subthreshold bipolar</th><td>1.4%</td><td>0.8%</td><td>2.4%</td><td>1.4%</td></tr>
+      <tr><th>Whole spectrum</th><td>2.4%</td><td>1.5%</td><td>4.5% (sum)</td><td>2.8% (sum)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sources: WMH [[Merikangas2011]]; NCS-R [[Merikangas2007]]. The NCS-R spectrum row is the sum of its three rows. "Subthreshold" means recurrent hypomania without a major depressive episode, or hypomania with too few symptoms to reach the threshold; the NCS-R authors found it "common, clinically significant, and underdetected in treatment settings". [[Merikangas2007]] In young people, a meta-analysis of 19 studies found bipolar spectrum disorders in 3.9%, and the rate was not rising over time. [[VanMeter2019]]</p>
+
+  <h3 class="sub">The three mood states, in plain words</h3>
+  <div class="cards">
+    <div class="card"><h4><span class="mood-dot" style="background:var(--down-fill)"></span>Depression</h4><p>Low mood or loss of interest, with changes in sleep, energy and thinking. Bipolar depressive episodes look like the depressive episodes of unipolar depression, and depression is the most frequent first presentation. [[Nierenberg2023]] It is the state people spend most time in (see step 4 above). [[Judd2002,Judd2003]]</p></div>
+    <div class="card"><h4><span class="mood-dot" style="background:var(--up-fill)"></span>Hypomania</h4><p>A milder high, a clear change from usual that lasts days: DSM-5 sets at least 4 days, ICD-11 says "several days". [[Angst2020ICD11]] It does not cause marked impairment, so it can feel good and go unnoticed, which is one reason diagnosis often takes years. [[Mason2016,Grande2016,Scott2022Delay]]</p></div>
+    <div class="card"><h4><span class="mood-dot" style="background:var(--up)"></span>Mania</h4><p>Raised or irritable mood plus increased energy or activity, with symptoms such as less need for sleep, racing thoughts, pressured speech, grandiosity and risky behaviour. [[Angst2020ICD11]] Mania is "not a purely euphoric state": irritability and restlessness are common. [[Cassidy1998]] Psychotic symptoms occur at some point in about 63% of people with bipolar I. [[Aminoff2022]]</p></div>
+    <div class="card"><h4><span class="mood-dot" style="background:var(--mixed-fill)"></span>Mixed features</h4><p>Symptoms of both poles at once. A meta-analysis found DSM-5 mixed features in 11.6% of major depressive episodes and 26.8% of manic or hypomanic episodes. [[Na2021]] See <a href="#episodes" data-go="episodes">Mania, hypomania &amp; depression</a> for the episodes on a life chart, and <a href="#types" data-go="types">Bipolar I, II &amp; cyclothymia</a> for which episodes make which diagnosis.</p></div>
+  </div>
+
+  <h3 class="sub">Why it takes so long to get the right diagnosis</h3>
+  <div class="stage delay-stage">
+    <div class="scroll"><svg id="whDelay" viewBox="0 0 720 250" role="img" aria-label="Bar chart of published delays in bipolar disorder: median 3.5 years to seeking help, 5.9 years of untreated illness and 6.7 years to diagnosis in a 2022 meta-analysis; a pooled 5.8 years from onset to first management in a 2017 meta-analysis; and a pooled mean of 9.1 years of undiagnosed or untreated illness in a 2025 meta-analysis."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="whDelayPlay">Play</button><label class="stage-cap tl" for="whDelayT">Years <input type="range" id="whDelayT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="stage-cap">Medians and pooled means from three meta-analyses; they differ because "onset" can mean first symptoms or first episode, and the end point can be diagnosis or treatment. [[Scott2022Delay,Dagani2017,Keramatian2025]]</p>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>First told it was "just depression"</h4><p>The illness usually begins with a depressive episode that looks like unipolar depression, and there is no valid biomarker, so spotting past hypomania and following the person over time are key. [[Grande2016,Vieta2018]] In a survey of 600 people with bipolar disorder, 69% had been misdiagnosed, most often with unipolar depression, after seeing a mean of 4 physicians. [[Hirschfeld2003]]</p></div>
+    <div class="card"><h4>What makes the delay longer or shorter</h4><p>The delay was longer with early onset, a depressive first episode, comorbid anxiety or alcohol use and a family history of bipolar disorder, and shorter with bipolar I and psychotic symptoms. [[Keramatian2025]] Untreated illness was shorter after a manic or psychotic onset and where early-intervention services existed. [[Scott2022Delay]] Earlier diagnosis and treatment are associated with a better prognosis. [[Nierenberg2023]]</p></div>
+    <div class="card"><h4>Who it affects</h4><p>Bipolar disorders affect more than 1% of the world's population "irrespective of nationality, ethnic origin, or socioeconomic status". [[Grande2016,Vieta2018]] The sex ratio is about equal overall; bipolar II, rapid cycling and mixed episodes are more common in women. [[Diflorio2010]] Fewer than half of people with lifetime bipolar spectrum disorder in the worldwide surveys had received mental health treatment: 50.2% in high-income and 25.2% in low-income countries. [[Merikangas2011]]</p></div>
+  </div>
+
+  <h3 class="sub">Words matter</h3>
+  <div class="prose"><p>Self-stigma is moderate to high in people with bipolar disorder across 25 studies, [[Ellison2013Stigma]] and in a 13-country European survey 71.6% of people with bipolar disorder or depression reported moderate or high perceived discrimination. [[Brohan2011]] The words other people use are part of that. Tap each card to see a more accurate way to say it, and why.</p></div>
+  <div class="cards" id="whWords"></div>
+
+  <h3 class="sub">Impact, the mortality gap, and hope</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Population statistic</span><h4>A gap in life expectancy</h4><p>Across 11 studies, pooled life expectancy for people with bipolar disorder was 66.88 years, about 12.9 potential years of life lost; roughly as many of those years came from natural causes (5.94) as from unnatural causes (5.69). [[Chan2022]] All-cause mortality is about twice that of the general population (SMR 2.05). [[Hayes2015]] Heart and lung disease contribute a large share, so physical health care matters as much as mental health care. [[Biazus2023,Kessing2015]] These are group averages, not a forecast for any one person.</p></div>
+    <div class="card"><span class="tag warn">Population statistic</span><h4>Suicide risk is raised, and it can be lowered</h4><p>Suicide risk is many times higher than in the general population (suicide SMR 14.44 in one meta-analysis). [[Hayes2015]] Treatment helps: in randomised trials lithium reduced suicides compared with placebo (odds ratio 0.13). [[Cipriani2013]] Early recognition, ongoing risk assessment and access to care matter. [[McIntyre2020Lancet]] See <a href="#crisis" data-go="crisis">Suicide risk &amp; crisis safety</a>.</p>
+      <p class="crisis" role="note"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></p></div>
+    <div class="card"><span class="tag good">Recovery</span><h4>Most episodes end, and many people do well</h4><p>Of people treated in hospital for a first manic episode, 98% reached syndromal recovery within 2 years, half of them by 5.4 weeks. [[Tohen2003]] About 40–60% of people with established bipolar disorder are employed, more so early in the illness. [[Marwaha2013]] Effective treatments exist for every phase, [[Yatham2018]] and treating other conditions, adding psychosocial treatment and involving carers improve outcomes. [[McIntyre2020Lancet]] More in <a href="#course" data-go="course">Course, relapse &amp; comorbidity</a>.</p></div>
+  </div>
+  <p class="stage-cap">Burden in numbers: GBD 2013 counted 48.8 million people with bipolar disorder worldwide, up from 32.7 million in 1990, a rise explained entirely by population growth and ageing, and 9.9 million disability-adjusted life-years. [[Ferrari2016]] In the worldwide surveys, 74.0% reported severe role impairment during depression and 50.9% during mania. [[Merikangas2011]]</p>
 </section>

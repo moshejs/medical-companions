@@ -1,5 +1,59 @@
-<!-- ================= 6.1 HISTORY &AMP; PEOPLE (stub, replaced by its builder) ================= -->
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<style>
+#m-history .hi-ev{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;font-size:15px;display:flex;flex-direction:column;gap:4px}
+#m-history .hi-ev b.yr{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--brand)}
+#m-history #hiYears .tag[aria-pressed="true"]{background:var(--brand-soft);color:var(--brand);border-color:var(--brand)}
+#m-history .nm-btns{display:flex;flex-wrap:wrap;gap:6px}
+#m-history .tbl table{min-width:600px}
+</style>
 <section class="mod" id="m-history" data-mod="history" hidden>
   <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">The idea that mania and depression can be two sides of one illness is almost two thousand years old. Its name, its borders and its treatment changed many times. Play the timeline from Aretaeus to the genome studies of the 2020s, or tap a year to jump.</p></div>
+
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSvg" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="A timeline of bipolar disorder from Aretaeus in the first century AD through Falret and Baillarger in 1854, Kraepelin in 1899, Cade's lithium in 1949, Schou's trial in 1954, Leonhard in 1957, Angst and Perris in 1966, US lithium approval in 1970, DSM-III in 1980, DSM-IV and bipolar II in 1994, divalproex and the atypical antipsychotics, DSM-5 in 2013, ICD-11 and DSM-5-TR in 2022 and genome-wide studies from 2019 to 2025. A play head moves along it and lights each milestone in turn, with its year, people and a short note."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Timeline <input type="range" id="hiT" min="0" max="1" step="0.001" value="0"></label></div>
+      <div class="chips" id="hiYears" role="group" aria-label="Jump to a milestone"></div>
+      <div class="hi-ev" id="hiRead" aria-live="polite"></div>
+      <p class="stage-cap">The years before 1850 are compressed on the wide timeline. Approval years are as given in the cited reviews.</p>
+    </div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How the name changed</h3>
+  <div class="prose"><p>Each name drew the border of the illness in a different place: around alternating mania and melancholia, around all mood disorders, or around two kinds of bipolar disorder kept separate from unipolar depression. Choose a name to see what it included.</p></div>
+  <div class="nm-btns" id="hiNames" role="group" aria-label="Choose a name"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiNameSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A diagram of what each historical name for the illness included: circles for alternating mania and depression, for depression only, and for hypomania with depression, drawn inside one shared border when a name grouped them together and apart when a name separated them."></svg></div>
+      <p class="stage-cap">Schematic: the circles show which forms a name grouped together, not how common they are.</p>
+    </div>
+    <aside class="note" id="hiNameNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How the manuals wrote it down</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Manual</th><th>Year</th><th>Term and change</th></tr></thead>
+    <tbody>
+      <tr><th>DSM-I</th><td>1952</td><td>"Manic depressive reaction", classed as a psychotic disorder</td></tr>
+      <tr><th>DSM-II</th><td>1968</td><td>"Manic-depressive illness", moved under the affective disorders</td></tr>
+      <tr><th>DSM-III</th><td>1980</td><td>Specific criteria and the term "bipolar disorder"; a manic episode alone is enough; "bipolar II" appears only as an example of atypical bipolar disorder</td></tr>
+      <tr><th>DSM-III-R</th><td>1987</td><td>A "hypomanic syndrome" for symptoms without marked impairment</td></tr>
+      <tr><th>DSM-IV</th><td>1994</td><td>A stand-alone hypomanic episode (at least 4 days, no marked impairment, no psychosis), the building block of bipolar II; a "mixed episode" added</td></tr>
+      <tr><th>DSM-5</th><td>2013</td><td>Increased activity or energy becomes a required core symptom of mania and hypomania; the mixed episode is replaced by a "with mixed features" specifier</td></tr>
+      <tr><th>ICD-11</th><td>2019 / 2022</td><td>Approved by the World Health Assembly in May 2019, in use from 1 January 2022; keeps the bipolar type I / type II split</td></tr>
+      <tr><th>DSM-5-TR</th><td>2022</td><td>Text revision published in March 2022</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sources: DSM-I to DSM-5 [[Mason2016]]; ICD-11 [[Reed2019,Angst2020ICD11]]; DSM-5-TR [[APA2022]]. Adding the energy criterion cut the number of people with a manic or hypomanic visit by 34% in one network and by at least a third in a review, without changing longitudinal outcomes in STEP-BD. [[Fredskild2019,Grunze2021,MachadoVieira2017]] ICD-11 and DSM-5 are "closer than at any time since the ICD-8 and DSM-II". [[First2021]] For today's criteria see <a href="#criteria" data-go="criteria">DSM-5-TR criteria</a>.</p>
+
+  <h3 class="sub">People behind the ideas</h3>
+  <div class="cards">
+    <div class="card"><span class="tag">1854</span><h4>Falret and Baillarger: a quarrel over priority</h4><p>On 31 January 1854 Jules Baillarger lectured to the French Imperial Academy of Medicine on "la folie à double forme". Jean-Pierre Falret replied that he had already described the same illness as "folie circulaire" and lectured on it on 14 February. Baillarger accused Falret of plagiarism; a later study of the printed record supports Falret's priority and finds his description the closer to modern ideas. [[Pichot2004]] Falret even hinted that brief hypomanias at the end of depressions might be mild forms of the illness, an early glimpse of the bipolar spectrum. [[Haustgen2006]]</p></div>
+    <div class="card"><span class="tag">1899</span><h4>Emil Kraepelin</h4><p>Kraepelin brought all types of affective disorder together as "manic-depressive insanity", a unitary concept adopted worldwide, [[Angst2001]] and separated it from dementia praecox mainly by the deterioration seen in the latter. [[Pichot2004]] His descriptions of mood symptoms "have arguably never been surpassed". [[Mondimore2005]] His final views stressed mixed features and a temperament seen between episodes and in unaffected relatives. [[Kendler2021]]</p></div>
+    <div class="card"><span class="tag">1949–1970</span><h4>John Cade and Mogens Schou</h4><p>Lithium had been used in psychiatry in the mid-19th century, but that work was forgotten. [[Shorter2009]] In 1949 John Cade published "Lithium salts in the treatment of psychotic excitement" in the Medical Journal of Australia. [[Cade1949,Shorter2009]] In 1954 Mogens Schou and colleagues reported a randomly controlled trial in manic psychoses, [[Schou1954,Shorter2009]] and in 1967 Baastrup and Schou reported lithium as a preventive treatment. [[Baastrup1967]] See <a href="#lithium" data-go="lithium">Lithium: how it works and the evidence</a>.</p></div>
+    <div class="card"><span class="tag">1957–1966</span><h4>Leonhard, Angst, Perris and Winokur</h4><p>Karl Leonhard's 1957 classification distinguished bipolar from unipolar ("monopolar") forms. [[Haustgen2006,Perris1992]] In 1966 Jules Angst and Carlo Perris independently published family, clinical and course data separating bipolar from unipolar depressive illness, and George Winokur's work supported the same split. [[Angst1966,Perris1966,Angst2001]] In Pichot's words, Falret's illness "regained its autonomy only in 1966". [[Pichot2004]]</p></div>
+  </div>
 </section>
