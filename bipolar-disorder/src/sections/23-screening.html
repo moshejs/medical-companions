@@ -1,5 +1,97 @@
-<!-- ================= 2.3 SCREENING &AMP; RATING SCALES (stub, replaced by its builder) ================= -->
+<!-- ================= 2.3 SCREENING & RATING SCALES ================= -->
+<style>
+#m-screening .scbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-screening .scbar .kicker{min-width:74px}
+#m-screening .card>.tag{align-self:flex-start}
+#m-screening .scwarn{border:2px solid var(--dx);background:var(--dx-soft);border-radius:12px;padding:12px 14px;font-size:15px;max-width:80ch}
+#m-screening .scwarn b:first-child{display:block;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dx);margin-bottom:3px}
+</style>
 <section class="mod" id="m-screening" data-mod="screening" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Screening &amp; rating scales</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">A screening questionnaire sorts people into "look closer" and "probably not". How well it sorts depends on the setting: follow 1,000 people through the Mood Disorder Questionnaire or the HCL-32 and watch what a positive result really means.</p></div>
+  <div class="scwarn" role="note"><b>Screening is not diagnosis</b>A positive screen means "worth a full assessment by a clinician", not "you have bipolar disorder". These tools are shown here to explain how they work, not for scoring yourself or someone else. [[Yatham2018,NICE2014CG185]]</div>
+  <div class="scbar" role="group" aria-label="Screening tool"><span class="kicker">Tool</span>
+    <button class="btn" data-sctool="mdq" aria-pressed="true">MDQ</button>
+    <button class="btn" data-sctool="hcl" aria-pressed="false">HCL-32</button></div>
+  <div class="scbar" role="group" aria-label="Accuracy figures from" id="scSrc"></div>
+  <div class="scbar" role="group" aria-label="How common bipolar disorder is among the people screened"><span class="kicker">Prevalence</span>
+    <button class="btn" data-scprev="0" aria-pressed="false">2.4% · community</button>
+    <button class="btn" data-scprev="1" aria-pressed="false">5% · primary care (assumed)</button>
+    <button class="btn" data-scprev="2" aria-pressed="true">16% · current depression</button></div>
+  <div class="stepper" id="scSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="scSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="An icon array of 1,000 dots, one per person screened. The people who have bipolar disorder are coloured, then the screen marks true positives and leaves missed cases hollow, then false positives turn amber, and finally all positive screens slide together so the share that are true positives (the positive predictive value) can be read off a bar beside a two-by-two table."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="scPlay">Play</button><label class="stage-cap tl" for="scT">Screening <input type="range" id="scT" min="0" max="1" step="0.001" value="1"></label></div>
+      <div class="readout" id="scRead"></div>
+      <p class="stage-cap">Each dot is one person. Sensitivity and specificity are published figures; the 5% primary-care prevalence is an assumed teaching value. Counts are rounded. [[Hirschfeld2000MDQ,Hirschfeld2003AJP,Carvalho2015,Vieta2007HCL32]]</p>
+    </div>
+    <aside class="note" id="scNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why the same questionnaire behaves differently</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">MDQ</span><h4>Mood Disorder Questionnaire</h4><p>13 yes/no items on lifetime hypomanic or manic symptoms, a question on whether several happened in the same period, and a rating of how much of a problem they caused. The standard positive screen is 7 or more items, plus co-occurrence, plus a "moderate" or "serious" problem. [[Hirschfeld2000MDQ,Palmer2021]]</p></div>
+    <div class="card"><span class="tag dx">Setting</span><h4>Clinic versus community</h4><p>In mood clinics a score of 7 or more gave sensitivity 0.73 and specificity 0.90; in the US general population, 0.281 and 0.972. The authors note the figures "differ substantially" from those in psychiatric outpatients. [[Hirschfeld2000MDQ,Hirschfeld2003AJP]]</p></div>
+    <div class="card"><span class="tag dx">HCL-32</span><h4>Hypomania Checklist</h4><p>32 hypomania items. In its first study it had sensitivity 80% and specificity 51%, and could not separate bipolar I from bipolar II. In a meta-analysis it detected bipolar II better than the MDQ in mental-health settings. [[Angst2005HCL32,Carvalho2015]]</p></div>
+    <div class="card"><span class="tag warn">False positives</span><h4>Who else screens positive</h4><p>Among outpatients without bipolar disorder, 15.2% still screened positive on the MDQ, linked to PTSD, substance use, eating, impulse-control and attention-deficit disorders. Of 98 positive screens, 23.5% had bipolar disorder and 27.6% borderline personality disorder. [[Zimmerman2011MDQ,Zimmerman2010Screening]]</p></div>
+    <div class="card"><span class="tag warn">Overcounting</span><h4>Screens inflate prevalence</h4><p>In primary care, bipolar disorder was found in 3.4–9% of patients with depression or psychiatric complaints by structured interview, but 20.9–30.8% by screening measures. Using the MDQ as a "diagnostic proxy" has distorted conclusions about how common bipolar disorder is. [[Cerimele2013,Zimmerman2012MDQ]]</p></div>
+    <div class="card"><span class="tag dx">Guidelines differ</span><h4>NICE and CANMAT</h4><p>NICE: "Do not use questionnaires in primary care to identify bipolar disorder in adults", and the same for children and young people. CANMAT allows tools like the MDQ only as an adjunct for screening clinical populations, not for diagnosis or treatment planning, and recommends screening all women with depressive symptoms in pregnancy and postpartum, followed by a clinical interview. [[NICE2014CG185,Yatham2018]]</p></div>
+  </div>
+
+  <h3 class="sub">Rating scales measure severity, not diagnosis</h3>
+  <p class="prose">A rating scale is filled in by a trained clinician to track how severe symptoms are and how they change with treatment. The Young Mania Rating Scale (YMRS) has 11 items and scores 0–60; inter-rater correlation was 0.93 for the total score and 0.66–0.92 for individual items, and it distinguished patients before and after two weeks of treatment. The item wording is not reproduced here, and the scale is not something to fill in for yourself. [[Young1978,Pigott2016Cochrane]]</p>
+  <div class="scbar" role="group" aria-label="YMRS example"><span class="kicker">Example</span>
+    <button class="btn" data-scy="0" aria-pressed="true">Trial baseline</button>
+    <button class="btn" data-scy="1" aria-pressed="false">Change in a week</button>
+    <button class="btn" data-scy="2" aria-pressed="false">Drug vs placebo</button>
+    <button class="btn" data-scy="3" aria-pressed="false">Drug vs drug</button></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="scYm" viewBox="0 0 720 240" style="min-width:560px" role="img" aria-label="A 0 to 60 YMRS ruler with eleven dots for its eleven clinician-rated items, a marker at a published trial baseline, and bars showing published changes in YMRS points from trials."></svg></div>
+      <p class="stage-cap">Published trial numbers on the 0–60 YMRS scale; the eleven dots stand for the eleven items, not their weights. [[Young1978,Pigott2016Cochrane,Khanna2005Risperidone,Henriksen2016,Calabrese2015Cariprazine,Young2017GERIBD]]</p>
+    </div>
+    <aside class="note" id="scYmNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Tool</th><th>Who fills it in</th><th>What it does</th><th>Key published figures</th></tr></thead>
+    <tbody>
+      <tr><th>MDQ</th><td>The person (parent version for adolescents)</td><td>Screens for lifetime hypomania or mania</td><td>13 items; in a meta-analysis of psychiatric services, sensitivity 66%, specificity 79%; adolescent parent version at 5+ items 0.72 / 0.81 [[Carvalho2015,Wagner2006]]</td></tr>
+      <tr><th>HCL-32</th><td>The person</td><td>Screens for hypomania</td><td>32 items; meta-analysis sensitivity 81%, specificity 67% [[Carvalho2015]]</td></tr>
+      <tr><th>BSDS</th><td>The person</td><td>Screens for the bipolar spectrum</td><td>Meta-analysis sensitivity 69%, specificity 86% [[Carvalho2015]]</td></tr>
+      <tr><th>YMRS</th><td>Clinician</td><td>Rates mania severity</td><td>11 items, 0–60 [[Young1978,Pigott2016Cochrane]]</td></tr>
+      <tr><th>MADRS</th><td>Clinician</td><td>Rates depression severity</td><td>10 items chosen because they changed most with treatment [[Montgomery1979]]</td></tr>
+      <tr><th>HAM-D</th><td>Clinician</td><td>Rates depression severity</td><td>Published 1960; the 17-item form is still used in research [[Hamilton1960,McIntyre2015Mixed]]</td></tr>
+      <tr><th>SCID</th><td>Clinician</td><td>Semistructured diagnostic interview</td><td>Modular, follows a decision tree, records current and lifetime diagnoses [[Spitzer1992]]</td></tr>
+      <tr><th>WMH-CIDI</th><td>Trained lay interviewer</td><td>Fully structured survey interview</td><td>Lifetime bipolar I: AUC 0.99, kappa 0.88; bipolar II alone: AUC 0.83, kappa 0.50 [[Kessler2004CIDI,Kessler2006CIDI]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">A mood chart shows what memory misses</h3>
+  <p class="prose">Diagnosis is more confident "when episodes are prospectively observed", and CANMAT recommends collateral information from family and friends plus ongoing mood charting. The NIMH Life Chart Method rates mood every day by how much it impairs functioning; its mania ratings correlated with the YMRS (r = 0.656). [[Yatham2018,Denicoff2000]]</p>
+  <div class="scbar" role="group" aria-label="Chart view"><span class="kicker">View</span>
+    <button class="btn" data-scmc="recall" aria-pressed="false">What is remembered</button>
+    <button class="btn" data-scmc="chart" aria-pressed="true">Daily chart</button></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="scMc" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="A six-month life chart drawn day by day: a few steady weeks, a five-day high that a partner noticed, a long low, and recovery. In the remembered view only the low is clear and the short high is lost."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="scMcPlay">Play</button><label class="stage-cap tl" for="scMcT">Weeks <input type="range" id="scMcT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap">An illustrative course, not a real person's chart. Band edges are drawing conventions; DSM-5-TR separates hypomania from mania by duration and impairment, not by height. [[Yatham2018,Denicoff2000]]</p>
+    </div>
+    <aside class="note" id="scMcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Getting to a diagnosis</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Structured interviews</span><h4>How research makes the diagnosis</h4><p>The SCID is semistructured and clinician-administered, built in modules that test diagnostic hypotheses through a decision tree. The WMH-CIDI is fully structured, given by trained lay interviewers, and scores diagnoses by computer; brief CIDI-based screens detected 67–96% of true cases, with a positive predictive value of 31–52%. [[Spitzer1992,Kessler2004CIDI,Kessler2006CIDI]]</p></div>
+    <div class="card"><span class="tag dx">In primary care</span><h4>Ask about overactivity</h4><p>NICE: when adults present with depression, ask about previous periods of overactivity or disinhibited behaviour; if it lasted 4 days or more, consider referral for a specialist assessment. Refer urgently if mania or severe depression is suspected, or if the person is a danger to themselves or others. [[NICE2014CG185]]</p></div>
+    <div class="card"><span class="tag brand">For patients and families</span><h4>What to bring to an appointment</h4><ul>
+      <li>Any times of unusual energy, little need for sleep or racing thoughts, and how long they lasted</li>
+      <li>Periods of low mood, what seemed to trigger episodes, and how you were between them</li>
+      <li>Family history of mood problems</li>
+      <li>A family member or friend, who often remembers the highs more clearly</li>
+      <li>A mood chart, if you keep one</li></ul>
+      <p class="stage-cap">Based on NICE's list for assessing suspected bipolar disorder. [[NICE2014CG185,Ghaemi2002]]</p></div>
+    <div class="card"><span class="tag good">Why it matters</span><h4>The right diagnosis opens the right treatment</h4><p>It often takes years: a pooled 5.8 years from onset to management. Effective treatment exists, and in a patient-association survey social difficulties were "diminished by effective treatment". [[Dagani2017,Lish1994]] What a screen can be mistaken for is in <a href="../differential/" data-go="differential">2.4</a>.</p></div>
+  </div>
 </section>

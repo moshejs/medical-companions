@@ -1,5 +1,106 @@
-<!-- ================= 2.1 DSM-5-TR CRITERIA (stub, replaced by its builder) ================= -->
+<!-- ================= 2.1 DSM-5-TR CRITERIA ================= -->
+<style>
+#m-criteria .crmode{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-criteria .crform{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+#m-criteria fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px 12px;margin:0;min-width:0;display:flex;flex-direction:column;gap:6px;background:var(--panel)}
+#m-criteria legend{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dx);padding:0 4px}
+#m-criteria fieldset label{display:flex;gap:8px;align-items:flex-start;font-size:14px;line-height:1.3;cursor:pointer}
+#m-criteria fieldset input[type=checkbox]{width:17px;height:17px;margin:1px 0 0;flex:none;accent-color:var(--dx)}
+#m-criteria fieldset select{font:inherit;padding:7px 9px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%}
+#m-criteria .crletter{font:600 11px var(--mono);color:var(--dx);min-width:12px}
+#m-criteria .crwarn{border:2px solid var(--dx);background:var(--dx-soft);border-radius:12px;padding:12px 14px;font-size:15px}
+#m-criteria .crwarn b:first-child{display:block;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dx);margin-bottom:3px}
+#m-criteria .crres{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+#m-criteria .crres .card ul{list-style:none;padding:0}
+#m-criteria .crres .card li{display:flex;gap:6px}
+#m-criteria .crres .ok{color:var(--good);font-weight:700}
+#m-criteria .crres .no{color:var(--bad);font-weight:700}
+#m-criteria .dig{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+#m-criteria .dig div{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--panel);font-size:14px}
+#m-criteria .dig b{display:block;font:800 26px/1 var(--display);color:var(--dx)}
+#m-criteria .card>.tag{align-self:flex-start}
+</style>
 <section class="mod" id="m-criteria" data-mod="criteria" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>DSM-5-TR criteria</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Bipolar disorder is diagnosed from episodes: a manic, hypomanic or major depressive episode each has its own checklist of mood, symptoms, duration, severity and exclusions. Watch each definition assemble gate by gate, then try a teaching counter.</p></div>
+  <div class="crmode" role="group" aria-label="Episode definition">
+    <span class="kicker">Episode</span>
+    <button class="btn" data-crm="mania" aria-pressed="true">Manic episode</button>
+    <button class="btn" data-crm="hypo" aria-pressed="false">Hypomanic episode</button>
+    <button class="btn" data-crm="mde" aria-pressed="false">Major depressive episode</button>
+  </div>
+  <div class="stepper" id="crSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="crSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="The criteria for the chosen episode are assembled gate by gate: a mood and energy card with a duration bar that fills day by day to its threshold, symptom tiles that light up while a counter climbs to the number needed, severity icons, and a filter that rules out substances and medical causes, ending in a verdict banner."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="crPlay">Play</button><label class="stage-cap tl" for="crT">Criteria <input type="range" id="crT" min="0" max="1" step="0.001" value="0.3"></label></div>
+      <div class="readout" id="crRead"></div>
+      <p class="stage-cap">Criteria paraphrased from DSM-5-TR as reproduced in the CANMAT/ISBD guideline; the lit symptoms are one illustrative example. Letters on the tiles are the DIGFAST memory aid. [[APA2022,Yatham2018]]</p>
+    </div>
+    <aside class="note" id="crNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The three episode definitions side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Part</th><th>Manic episode</th><th>Hypomanic episode</th><th>Major depressive episode</th></tr></thead>
+    <tbody>
+      <tr><th>Core change</th><td>Abnormally and persistently elevated, expansive or irritable mood <b>and</b> abnormally and persistently increased activity or energy</td><td>The same two-part change as mania</td><td>Depressed mood or markedly diminished interest or pleasure (at least one of the five symptoms must be one of these)</td></tr>
+      <tr><th>Duration</th><td>At least 1 week, most of the day, nearly every day, or any duration if hospitalisation is needed</td><td>At least 4 consecutive days, most of the day, nearly every day</td><td>The same 2-week period, a change from previous functioning</td></tr>
+      <tr><th>Symptoms</th><td>3 or more of 7 (4 if the mood is only irritable), to a significant degree</td><td>The same 3 of 7 (4 if only irritable)</td><td>5 or more of 9</td></tr>
+      <tr><th>Severity</th><td>Marked impairment, <b>or</b> hospitalisation to prevent harm, <b>or</b> psychotic features</td><td>An unequivocal change in functioning, observable by others, but <b>not</b> marked impairment or hospitalisation; psychotic features make it mania by definition</td><td>Clinically significant distress or impairment</td></tr>
+      <tr><th>Exclusion</th><td colspan="3">Not attributable to the physiological effects of a substance (a drug of abuse, a medication, another treatment) or to another medical condition</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Paraphrased, not quoted. The full wording, examples and notes are in the DSM-5-TR manual. [[APA2022,Yatham2018]]</p>
+
+  <h3 class="sub">Try it: a criteria counter</h3>
+  <div class="crwarn" role="note"><b>A teaching tool, not a diagnosis</b>This counter shows how the published definitions fit together. It cannot diagnose anyone, and it is not for checking yourself or someone you know: a diagnosis comes from a clinician's full assessment over time, usually with a family member's account, and the same symptoms can have other causes. If you are worried about your mood, talk to a doctor. If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</div>
+  <div class="crform" id="crForm">
+    <fieldset><legend>Mood and energy</legend>
+      <label><input type="checkbox" data-cr="el"> Elevated or expansive mood</label>
+      <label><input type="checkbox" data-cr="irr"> Irritable mood</label>
+      <label><input type="checkbox" data-cr="en"> Increased activity or energy</label>
+      <label><input type="checkbox" data-cr="dep"> Depressed mood</label>
+      <label><input type="checkbox" data-cr="anh"> Loss of interest or pleasure</label>
+    </fieldset>
+    <fieldset><legend>Manic symptoms (Criterion B)</legend><div id="crManBox" style="display:flex;flex-direction:column;gap:6px"></div></fieldset>
+    <fieldset><legend>Other depressive symptoms</legend><div id="crDepBox" style="display:flex;flex-direction:column;gap:6px"></div></fieldset>
+    <fieldset><legend>Duration, severity, cause</legend>
+      <label for="crDur" style="flex-direction:column;gap:4px">How long has it lasted, most of the day, nearly every day?
+        <select id="crDur">
+          <option value="1">Less than 2 days</option>
+          <option value="2.5">2 to 3 days</option>
+          <option value="5" selected>4 to 6 days</option>
+          <option value="10">7 to 13 days</option>
+          <option value="14">2 weeks or more</option>
+        </select></label>
+      <label><input type="checkbox" data-cr="obs"> Change in functioning that others notice</label>
+      <label><input type="checkbox" data-cr="imp"> Marked impairment at work, school or socially</label>
+      <label><input type="checkbox" data-cr="hosp"> Hospital care needed to prevent harm</label>
+      <label><input type="checkbox" data-cr="psy"> Psychotic features (losing touch with reality)</label>
+      <label><input type="checkbox" data-cr="dist"> Clinically significant distress</label>
+      <label><input type="checkbox" data-cr="sub"> Explained by a drug, medicine or medical condition</label>
+    </fieldset>
+  </div>
+  <div class="ctrls"><button class="btn" id="crEx1" aria-pressed="false">Example: a week-long high</button><button class="btn" id="crEx2" aria-pressed="false">Example: a 5-day high</button><button class="btn" id="crEx3" aria-pressed="false">Example: a 2-week low</button><button class="btn ghost" id="crReset">Clear</button></div>
+  <div class="stage" style="max-width:860px"><svg id="crMeter" viewBox="0 0 720 150" role="img" aria-label="Three meters: manic symptoms ticked against the 3 or 4 needed, depressive symptoms against the 5 needed, and the duration against the 4-day, 7-day and 14-day lines."></svg></div>
+  <div class="crres" id="crOut" aria-live="polite"></div>
+
+  <h3 class="sub">Remembering the seven: DIGFAST</h3>
+  <p class="prose">DIGFAST is a widely taught memory aid, not part of DSM. Each letter points to one of the seven Criterion B symptoms of mania and hypomania. [[APA2022,Yatham2018]]</p>
+  <div class="dig">
+    <div><b>D</b>Distractibility</div><div><b>I</b>Irresponsibility: risky activities with painful consequences</div><div><b>G</b>Grandiosity, inflated self-esteem</div><div><b>F</b>Flight of ideas, racing thoughts</div><div><b>A</b>Activity: more goal-directed activity, or agitation</div><div><b>S</b>Sleep: decreased need for it</div><div><b>T</b>Talkativeness, pressure to keep talking</div>
+  </div>
+
+  <h3 class="sub">Rules that often come up</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Bipolar I</span><h4>One manic episode is enough</h4><p>At least one lifetime manic episode is required for bipolar I disorder, and is sufficient. Hypomanic or major depressive episodes may come before or after it but are not needed. [[APA2022,McIntyre2020Lancet]] How episodes combine into bipolar I, II and cyclothymic disorder is in <a href="../types/" data-go="types">2.2</a>.</p></div>
+    <div class="card"><span class="tag dx">Antidepressants</span><h4>Mania that starts on treatment</h4><p>A full manic episode that emerges during antidepressant treatment (medicine or ECT) and persists at a fully syndromal level beyond the treatment's physiological effect is sufficient evidence for a manic episode, and so for bipolar I. DSM-IV did not allow this. [[APA2022,Yatham2018]]</p></div>
+    <div class="card"><span class="tag dx">DSM-5 change</span><h4>Energy joined mood in Criterion A</h4><p>DSM-5 (2013) added "abnormally and persistently increased activity or energy"; in DSM-IV a mood change alone was enough. [[Yatham2018,Grunze2021]] <span class="ev early">Early evidence</span> Grunze and colleagues report that the extra requirement cuts the prevalence of manic or hypomanic episodes by at least a third; whether that helps practice is unresolved. [[Grunze2021]]</p></div>
+    <div class="card"><span class="tag dx">Bipolar depression</span><h4>No separate checklist</h4><p>Bipolar depression is a major depressive episode in someone with bipolar disorder; DSM-5 criteria for it are unchanged from DSM-IV. No single feature tells it apart from unipolar depression. [[Yatham2018,Mitchell2008]] The clues that raise suspicion are in <a href="../differential/" data-go="differential">2.4</a>.</p></div>
+    <div class="card"><span class="tag dx">Mixed features</span><h4>Both poles at once</h4><p>DSM-5 removed the categorical "mixed episode" and replaced it with a "mixed features" specifier, which can also apply in major depressive disorder. ICD-11 still keeps a mixed episode of at least 2 weeks. [[Yatham2018,Stein2020BMC]]</p></div>
+    <div class="card"><span class="tag dx">Hypomania length</span><h4>Why 4 days?</h4><p>DSM-5-TR requires 4 days and lists 2–3-day hypomania with major depressive episodes as "other specified bipolar and related disorder". In bipolar II, people with 2–6-day hypomanias did not differ from those with longer ones, and ICD-11 says only "at least several days". [[Severus2014,Judd2003,Stein2020BMC]]</p></div>
+  </div>
+  <p class="callout">Criteria describe episodes, not people. Most people with bipolar disorder spend much more of their time low than high, and getting the diagnosis right matters because effective treatment exists and helps many people live well. [[Judd2002,Lish1994,Hirschfeld2003Perceptions]]</p>
+  <div class="crisis"><b>Crisis</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></div>
 </section>

@@ -1,5 +1,57 @@
-<!-- ================= 2.4 BIPOLAR OR SOMETHING ELSE? (stub, replaced by its builder) ================= -->
+<!-- ================= 2.4 BIPOLAR OR SOMETHING ELSE? ================= -->
+<style>
+#m-differential .dfclues{display:flex;flex-wrap:wrap;gap:8px}
+#m-differential .dfclues .btn{font-size:13.5px}
+#m-differential .dflist{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
+#m-differential .dflist li{border-left:3px solid var(--dx);padding:2px 0 2px 10px;font-size:14.5px}
+#m-differential .dflist b{display:block}
+#m-differential .card>.tag{align-self:flex-start}
+</style>
 <section class="mod" id="m-differential" data-mod="differential" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Bipolar or something else?</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Low moods, mood swings, restlessness and highs all have more than one cause. The shape of mood over time is often what tells them apart: distinct episodes, a lifelong pattern, hour-to-hour shifts, or a change that starts and stops with a substance.</p></div>
+  <div class="stepper" id="dfSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="dfSvg" viewBox="0 0 720 410" style="min-width:560px" role="img" aria-label="Five mood timelines over two years are drawn one after another: bipolar II with distinct weeks-long lows and short highs separated by well periods; recurrent unipolar depression with lows only; borderline personality disorder with rapid shifts triggered by stressful events; ADHD with a constant band of symptoms that began in childhood; and a substance-induced high that starts with a corticosteroid course and settles when it stops."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dfPlay">Play</button><label class="stage-cap tl" for="dfT">Months <input type="range" id="dfT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Schematic courses, not real people. Each pattern is the typical teaching contrast; real presentations overlap, and two conditions can be present together. [[Paris2015,Yatham2018,Kitsune2016]]</p>
+    </div>
+    <aside class="note" id="dfNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Clues to hidden bipolarity in depression</h3>
+  <p class="prose">No single feature separates bipolar from unipolar depression; guidelines suggest weighing several clues together. [[Mitchell2008,Yatham2018]] Tap the clues to see what each one is linked to. This is a teaching list, not a score or a self-test: the clues raise suspicion and call for a careful history, a family member's account and charting over time.</p>
+  <div class="dfclues" id="dfClues" role="group" aria-label="Clues"></div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="dfClueSvg" viewBox="0 0 600 320" style="min-width:480px" role="img" aria-label="A depressive episode card in the centre with nine clue badges around it; the clues that are switched on light up and connect to the card."></svg></div>
+    </div>
+    <div class="note" id="dfClueNote" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Medical and substance causes to rule out</h3>
+  <p class="prose">"Secondary mania" can follow drugs, infection, tumours, epilepsy and metabolic disturbance in people with no history of mood disorder. [[Krauthammer1978]] Satzer and Bond advise suspecting it with neurological deficits, a history atypical for bipolar disorder, or a first manic episode after age 40. [[Satzer2016]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Mimic</th><th>What is known</th><th>What points to it, and what clinicians check</th></tr></thead>
+    <tbody>
+      <tr><th>Thyroid disease (hyper- or hypothyroidism)</th><td>Hyperthyroidism is in CANMAT's list of medical mimics; NICE asks clinicians to consider "underlying physical disorders such as hypo- or hyperthyroidism". [[Yatham2018,NICE2014CG185]]</td><td>A physical health assessment; NICE's annual physical health check for people with bipolar disorder includes thyroid function, a blood test. [[NICE2014CG185]]</td></tr>
+      <tr><th>Corticosteroids</th><td>Among 372,696 UK primary-care patients prescribed oral glucocorticoids, the hazard ratio for mania was 4.35 (95% CI 3.67–5.16) against untreated people with the same disease; higher doses and a past neuropsychiatric history raised the risk. [[Fardet2012]]</td><td>The medicine history and its timing. In DSM, an episode that clears once the drug's physiological effect wears off is substance/medication-induced; one that persists at full strength beyond it counts towards bipolar disorder. [[APA2022,Yatham2018]]</td></tr>
+      <tr><th>Stimulants, cannabis and other drugs</th><td>CANMAT lists illicit drugs, stimulants, steroids, levodopa, antidepressants and toxins, during intoxication or withdrawal. <span class="ev early">Early evidence</span> Cannabis use was linked to about a threefold risk of new manic symptoms (OR 2.97). [[Yatham2018,Gibbs2015]]</td><td>A substance-use history. After a substance-induced psychosis, 32.2% later received a diagnosis of schizophrenia or bipolar disorder (47.4% after cannabis), so follow-up matters. [[Starzer2018]]</td></tr>
+      <tr><th>Brain lesions: frontal tumours, injury, stroke, MS</th><td>CANMAT lists traumatic brain injury, brain tumours such as frontal meningiomas, multiple sclerosis and stroke. Mania after brain lesions ranges from under 2% after stroke to 31% in basal ganglia calcification; lesions are usually frontal, temporal or subcortical limbic, and often right-sided. [[Yatham2018,Satzer2016]]</td><td>Red flags that prompt a medical and neurological work-up: neurological signs, an atypical history, or a first mania after 40. [[Satzer2016]]</td></tr>
+      <tr><th>Cushing's disease</th><td>In CANMAT's list of medical and neurological mimics. [[Yatham2018]]</td><td>Part of the medical assessment of a first episode. [[Yatham2018]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Missed, delayed and over-made diagnoses</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Delay</span><h4>Years to the right diagnosis</h4><p>A meta-analysis of 27 studies found a pooled 5.8 years between onset and management. In a patient-association survey, 69% had been misdiagnosed, most often with unipolar depression, and over a third waited 10 years or more. [[Dagani2017,Hirschfeld2003Perceptions]]</p></div>
+    <div class="card"><span class="tag dx">Over-diagnosis</span><h4>A problem in the other direction</h4><p>In 700 outpatients interviewed with the SCID, fewer than half of those who reported a previous bipolar diagnosis met criteria; the authors call over-diagnosis a problem "equal if not greater" than under-diagnosis. CANMAT names borderline personality disorder, substance use disorder and ADHD as the usual sources, and advises to "strictly adhere to diagnostic criteria". [[Zimmerman2008,Yatham2018]]</p></div>
+    <div class="card"><span class="tag dx">Borderline PD</span><h4>Both can be present</h4><p>Borderline personality disorder was found in 21.6% of people with bipolar disorder (37.7% in bipolar II samples), and bipolar disorder in 18.5% of people with borderline personality disorder. Having one does not rule out the other. [[Fornaro2016]] More in the <a href="../../borderline-personality-disorder/differential/">Borderline Personality Disorder Companion</a>.</p></div>
+    <div class="card"><span class="tag dx">ADHD</span><h4>Overlap in adults and children</h4><p>17.11% of adults with bipolar disorder had ADHD, and comorbid ADHD brought bipolar onset 3.96 years earlier. In 1999–2003, 32.2% of US youth bipolar visits also carried an ADHD diagnosis. [[Schiweck2021,Moreno2007]] More in the <a href="../../adhd/differential/">ADHD Companion</a>.</p></div>
+    <div class="card"><span class="tag dx">Children</span><h4>Irritability is not enough</h4><p>Severe, non-episodic irritability in youth predicts later anxiety and unipolar depression, not bipolar disorder, the work behind disruptive mood dysregulation disorder. NICE: diagnose mania in children only after prospective monitoring, with euphoria on most days for at least 7 days; irritability is "not a core diagnostic criterion". [[Leibenluft2011,APA2022,NICE2014CG185]]</p></div>
+    <div class="card"><span class="tag dx">Psychosis</span><h4>Schizophrenia and schizoaffective disorder</h4><p>Psychotic disorders are the second most frequent initial misdiagnosis, in up to 30%. Mood-incongruent psychotic symptoms were the only factor linked to an initial diagnosis of schizophrenia. In bipolar disorder with psychotic features, psychosis occurs only during mood episodes. [[Yatham2018,GonzalezPinto1998,APA2022]]</p></div>
+  </div>
+  <p class="callout">The episode definitions are in <a href="../criteria/" data-go="criteria">2.1</a>, what screening questionnaires can and cannot do is in <a href="../screening/" data-go="screening">2.3</a>, and how mood episodes look on a life chart is in <a href="../episodes/" data-go="episodes">1.2</a>.</p>
+  <div class="crisis"><b>Crisis</b><span>If you are in crisis or thinking about suicide, contact local emergency services or a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></div>
 </section>
