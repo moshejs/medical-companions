@@ -14,7 +14,7 @@ Access notes:
 - The olanzapine–fluoxetine label read is a generic (Teva) label in openFDA. The Symbyax brand label was not returned by the openFDA brand search.
 - Lamotrigine immediate-release label: openFDA's brand search returned Lamictal XR first, so the Lamictal/Lamictal ODT label was retrieved by set id (d7e3572d-56fe-4727-2bb4-013ccca22678).
 
-Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), Geddes2010BALANCE (PMID 20092882) and Sachs2007STEPBD (PMID 17392295). Keys reused from other companions with their existing text: Tomson2018, Battino2024EURAP, Meador2013NEAD, Christensen2013, FDA-Depakote, FDA-Lamictal.
+Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185F (PMID 31556980), Geddes2010BALANCE (PMID 20092882) and Sachs2007STEPBD (PMID 17392295). Keys reused from other companions with their existing text: Tomson2018, Battino2024EURAP, Meador2013NEAD, Christensen2013, FDA-Depakote, FDA-Lamictal.
 
 ## Findings
 
@@ -30,11 +30,11 @@ Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), 
 - For bipolar II maintenance, CANMAT/ISBD 2018 lists quetiapine (level 1), lithium (level 2) and lamotrigine (level 2) monotherapy as first-line [[Yatham2018]].
 - CANMAT/ISBD's 2021 mixed-presentations update found that "No agents met threshold for first-line treatment of DSM-5 manic or depressive episodes with mixed features". For mania with mixed features it lists asenapine, cariprazine, divalproex and aripiprazole as second-line. For depression with mixed features it lists cariprazine and lurasidone as second-line [[Yatham2021Mixed]].
 - A 2023 CANMAT/ISBD summary paper restates the 2018 first-, second- and third-line recommendations and adds newer evidence across the lifespan. It is not a new full guideline [[Keramatian2023]].
-- NICE CG185 (last updated 2025) says: "Do not offer lamotrigine to treat mania" [[NICE2014CG185]].
-- NICE CG185 says that for long-term treatment, clinicians should "explain that lithium is the most effective long‑term treatment for bipolar disorder". If lithium is ineffective, poorly tolerated or unsuitable, NICE suggests considering an antipsychotic. If an alternative antipsychotic is ineffective, it suggests considering valproate combined with an antipsychotic or lithium [[NICE2014CG185]].
-- NICE CG185 says "Do not start valproate in primary care to treat bipolar disorder" [[NICE2014CG185]].
-- NICE CG185 says that if stopping valproate, lamotrigine or an antipsychotic, the dose should be reduced "gradually over at least 4 weeks to minimise the risk of relapse" [[NICE2014CG185]].
-- NICE CG185 says plasma valproate and lamotrigine levels should not be measured routinely "unless there is evidence of ineffectiveness, poor adherence or toxicity" [[NICE2014CG185]].
+- NICE CG185 (last updated 2025) says: "Do not offer lamotrigine to treat mania" [[NICE2014CG185F]].
+- NICE CG185 says that for long-term treatment, clinicians should "explain that lithium is the most effective long‑term treatment for bipolar disorder". If lithium is ineffective, poorly tolerated or unsuitable, NICE suggests considering an antipsychotic. If an alternative antipsychotic is ineffective, it suggests considering valproate combined with an antipsychotic or lithium [[NICE2014CG185F]].
+- NICE CG185 says "Do not start valproate in primary care to treat bipolar disorder" [[NICE2014CG185F]].
+- NICE CG185 says that if stopping valproate, lamotrigine or an antipsychotic, the dose should be reduced "gradually over at least 4 weeks to minimise the risk of relapse" [[NICE2014CG185F]].
+- NICE CG185 says plasma valproate and lamotrigine levels should not be measured routinely "unless there is evidence of ineffectiveness, poor adherence or toxicity" [[NICE2014CG185F]].
 - BAP 2016 states that the risk/benefit of valproate "contraindicates its use in women of child bearing potential under normal circumstances" (evidence category I) [[Goodwin2016BAP]].
 
 ### stabilisers · Valproate: efficacy
@@ -52,7 +52,7 @@ Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), 
 - Pancreatitis: the label reports life-threatening and sometimes haemorrhagic pancreatitis, with "2 cases of pancreatitis without alternative etiology in 2,416 patients, representing 1,044 patient-years" in clinical trials [[FDA-Depakote]].
 - Thrombocytopenia: in an epilepsy trial, 27% (34/126) of patients on about 50 mg/kg/day had at least one platelet count ≤75 × 10⁹/L. The risk "appeared to increase significantly at total valproate concentrations of ≥110 mcg/mL (females) or ≥135 mcg/mL (males)" [[FDA-Depakote]].
 - The label also warns of hyperammonaemia and hyperammonaemic encephalopathy. It advises measuring ammonia if unexplained lethargy, vomiting or mental status changes occur [[FDA-Depakote]].
-- NICE CG185 advises measuring weight or BMI, full blood count and liver function at the start of valproate, again at 6 months, and then annually [[NICE2014CG185]].
+- NICE CG185 advises measuring weight or BMI, full blood count and liver function at the start of valproate, again at 6 months, and then annually [[NICE2014CG185F]].
 
 ### stabilisers · Valproate in pregnancy and the Pregnancy Prevention Programme
 - The Depakote boxed warning: "Valproate can cause major congenital malformations, particularly neural tube defects (e.g., spina bifida). In addition, valproate can cause decreased IQ scores and neurodevelopmental disorders following in utero exposure" [[FDA-Depakote]].
@@ -65,10 +65,10 @@ Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), 
 - In a Cochrane review, children exposed to valproate had IQ about 8.94 points lower (95% CI −11.96 to −5.92) than children of women without epilepsy [[Bromley2014]].
 - In a Danish population study of 655,615 children, the 14-year absolute risk of autism spectrum disorder was 4.42% (95% CI 2.59–7.46%) after prenatal valproate vs 1.53% overall (adjusted HR 2.9, 1.7–4.9) [[Christensen2013]].
 - In April 2018 the UK MHRA banned valproate prescribing for women and girls of childbearing potential who are not in its Pregnancy Prevention Programme [[Iacobucci2018]].
-- NICE CG185 reproduces the later MHRA measures (Box 1). Do not start valproate for the first time in anyone (male or female) under 55 "unless 2 specialists independently agree and document that there is no other effective and tolerated treatment, or there are compelling reasons that the reproductive risks do not apply" [[NICE2014CG185]].
-- NICE CG185 adds MHRA precautionary advice for men: effective contraception is recommended throughout valproate treatment and for 3 months after stopping. NICE also notes a "possible association" between paternal valproate use around conception and neurodevelopmental disorders in children (2025 recommendation) [[NICE2014CG185]].
+- NICE CG185 reproduces the later MHRA measures (Box 1). Do not start valproate for the first time in anyone (male or female) under 55 "unless 2 specialists independently agree and document that there is no other effective and tolerated treatment, or there are compelling reasons that the reproductive risks do not apply" [[NICE2014CG185F]].
+- NICE CG185 adds MHRA precautionary advice for men: effective contraception is recommended throughout valproate treatment and for 3 months after stopping. NICE also notes a "possible association" between paternal valproate use around conception and neurodevelopmental disorders in children (2025 recommendation) [[NICE2014CG185F]].
 - A Taiwanese nationwide cohort (2,583,503 births; 1,701 with paternal valproate exposure) found no association between paternal valproate and offspring autism (HR 0.86, 0.61–1.22), ADHD (HR 1.02) or congenital malformations (OR 1.07). The findings held in sibling comparisons (Early evidence) [[Feng2026]].
-- For patients, guidelines frame valproate and pregnancy as a matter for advance planning with the care team. Stopping valproate abruptly is itself flagged as a risk in the label, so any change is planned with the prescriber, not made alone [[FDA-Depakote,NICE2014CG185]].
+- For patients, guidelines frame valproate and pregnancy as a matter for advance planning with the care team. Stopping valproate abruptly is itself flagged as a risk in the label, so any change is planned with the prescriber, not made alone [[FDA-Depakote,NICE2014CG185F]].
 
 ### stabilisers · Lamotrigine: what it does and does not treat
 - The US Lamictal label indicates lamotrigine for "Maintenance treatment of bipolar I disorder to delay the time to occurrence of mood episodes". It also states: "Treatment of acute manic or mixed episodes is not recommended" [[FDA-Lamictal]].
@@ -94,7 +94,7 @@ Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), 
 - Per the label, if valproate is stopped, the lamotrigine dose "should be doubled over a 2-week period in equal weekly increments". If an inducer is stopped, the dose is held for a week and then halved over 2 weeks [[FDA-Lamictal]].
 - Estrogen-containing oral contraceptives increase lamotrigine clearance. The label says the maintenance dose "will in most cases need to be increased by as much as 2-fold" when they are taken, and decreased by as much as 50% when they are stopped [[FDA-Lamictal]].
 - The label advises that people taking lamotrigine for more than 16 weeks "should be periodically reassessed to determine the need for maintenance treatment" [[FDA-Lamictal]].
-- NICE CG185 advises people taking lamotrigine to "contact their doctor immediately if they develop a rash while the dose of lamotrigine is being increased" [[NICE2014CG185]].
+- NICE CG185 advises people taking lamotrigine to "contact their doctor immediately if they develop a rash while the dose of lamotrigine is being increased" [[NICE2014CG185F]].
 - Lamotrigine's slow titration means it cannot be judged by an early (2-week) response the way other bipolar depression treatments can. CANMAT/ISBD 2018 suggests a lamotrigine target of "a minimum of 200 mg/day" [[Yatham2018]].
 
 ### stabilisers · Carbamazepine: efficacy, HLA-B*15:02 and enzyme induction
@@ -119,7 +119,7 @@ Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), 
 - In Yildiz 2011, second-generation antipsychotics did not differ from haloperidol in direct comparisons, and lithium did not differ from valproate [[Yildiz2011Mania]].
 - In a 3-week trial of risperidone 1–6 mg/day for mania (290 inpatients, mean baseline YMRS 37.2), risperidone beat placebo from week 1. Extrapyramidal symptoms were its most frequent adverse events [[Khanna2005Risperidone]].
 - In a 3-week cariprazine mania trial (497 patients), YMRS fell 6.1 points more than placebo at 3–6 mg/day (95% CI −8.4 to −3.8) and 5.9 points more at 6–12 mg/day. Akathisia was more common on cariprazine [[Calabrese2015Cariprazine]].
-- NICE CG185: if mania develops in someone not taking an antipsychotic or mood stabiliser, "offer haloperidol, olanzapine, quetiapine or risperidone". If the first antipsychotic fails, offer another. Then consider adding lithium, then valproate [[NICE2014CG185]].
+- NICE CG185: if mania develops in someone not taking an antipsychotic or mood stabiliser, "offer haloperidol, olanzapine, quetiapine or risperidone". If the first antipsychotic fails, offer another. Then consider adding lithium, then valproate [[NICE2014CG185F]].
 - BAP 2016: "haloperidol, olanzapine, risperidone and quetiapine are particularly effective in short-term reduction of symptoms". Valproate is described as an alternative with less motor risk that "should not be used for women of child bearing potential" [[Goodwin2016BAP]].
 - Labels quoted as published: quetiapine for bipolar mania in adults starts at 50 mg twice daily, with a recommended 400–800 mg/day and a maximum of 800 mg/day [[FDA-Seroquel]]. Cariprazine for bipolar mania starts at 1.5 mg daily, with a recommended 3–6 mg daily and a maximum of 6 mg [[FDA-Vraylar]].
 
@@ -150,7 +150,7 @@ Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), 
 - For cariprazine 1.5–3 mg/day (pooled), response was 46.3% vs 35.9% on placebo (NNT 10, 95% CI 7–21) and remission 30.2% vs 20.9% (NNT 11) [[Citrome2019Cariprazine]].
 - In CANMAT/ISBD 2018, quetiapine is "the only recommended first‐line treatment for BDII depression (level 1)". Lithium, sertraline, venlafaxine, lamotrigine and ECT are second-line [[Yatham2018]].
 - The ISBD's 2025 task force defined treatment-resistant bipolar depression as failure of at least two approved, adequately dosed treatments. For bipolar I it named quetiapine 300–600 mg/day (≥8 weeks), lurasidone 20–120 mg/day (≥6 weeks), olanzapine 6–12 mg plus fluoxetine 25–75 mg (≥8 weeks), cariprazine 1.5–3 mg/day (≥6 weeks) and lumateperone 42 mg/day (≥6 weeks) [[Vieta2025TRBD]].
-- NICE CG185: for moderate or severe bipolar depression in someone not on treatment, "offer fluoxetine combined with olanzapine, or quetiapine on its own". Olanzapine alone or lamotrigine alone are the options if the person prefers [[NICE2014CG185]].
+- NICE CG185: for moderate or severe bipolar depression in someone not on treatment, "offer fluoxetine combined with olanzapine, or quetiapine on its own". Olanzapine alone or lamotrigine alone are the options if the person prefers [[NICE2014CG185F]].
 - CANMAT/ISBD 2018 does not recommend aripiprazole monotherapy for bipolar depression (level 1 negative). It failed two trials, and its pooled MADRS advantage of 1.12 points was judged not clinically meaningful [[Yatham2018]].
 
 ### antipsychotics · Maintenance and long-acting injectables
@@ -177,10 +177,10 @@ Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), 
 - From the Seroquel label weight table, the share of adults gaining ≥7% body weight was 21% vs 7% on placebo in bipolar mania monotherapy (up to 12 weeks) and 8% vs 2% in bipolar depression (up to 8 weeks) [[FDA-Seroquel]].
 - Every antipsychotic label read carries a boxed warning of increased mortality in elderly patients with dementia-related psychosis [[FDA-Seroquel,FDA-Latuda,FDA-Vraylar,FDA-Caplyta,FDA-AbilifyMaintena,FDA-RisperdalConsta]].
 - The labels of the antipsychotics approved for depression also carry the antidepressant-class boxed warning on suicidal thoughts and behaviours in children, adolescents and young adults. They advise close monitoring for clinical worsening [[FDA-Seroquel,FDA-Latuda,FDA-Vraylar,FDA-Caplyta,FDA-OlanzapineFluoxetine]].
-- NICE CG185: before starting an antipsychotic, measure and record weight or BMI, pulse, blood pressure, fasting blood glucose or HbA1c, and blood lipid profile [[NICE2014CG185]].
-- NICE CG185 monitoring during treatment: weight or BMI weekly for the first 6 weeks and then at 12 weeks. Fasting glucose or HbA1c and lipids at 12 weeks. Also pulse and blood pressure after each dose change, movement disorders and adherence [[NICE2014CG185]].
-- NICE CG185 recommends offering a combined healthy-eating and physical-activity programme to people with bipolar disorder, "especially those taking antipsychotics and long‑term medication" [[NICE2014CG185]].
-- NICE CG185 advises against regular combined antipsychotic medication "except for short periods (for example, when changing medication)" [[NICE2014CG185]].
+- NICE CG185: before starting an antipsychotic, measure and record weight or BMI, pulse, blood pressure, fasting blood glucose or HbA1c, and blood lipid profile [[NICE2014CG185F]].
+- NICE CG185 monitoring during treatment: weight or BMI weekly for the first 6 weeks and then at 12 weeks. Fasting glucose or HbA1c and lipids at 12 weeks. Also pulse and blood pressure after each dose change, movement disorders and adherence [[NICE2014CG185F]].
+- NICE CG185 recommends offering a combined healthy-eating and physical-activity programme to people with bipolar disorder, "especially those taking antipsychotics and long‑term medication" [[NICE2014CG185F]].
+- NICE CG185 advises against regular combined antipsychotic medication "except for short periods (for example, when changing medication)" [[NICE2014CG185F]].
 
 ### depression · Antidepressants in bipolar depression
 - In STEP-BD (366 people with bipolar depression on a mood stabiliser, up to 26 weeks), durable recovery occurred in 23.5% (42/179) with an added antidepressant vs 27.3% (51/187) with added placebo (P = 0.40). Rates of treatment-emergent affective switch were similar [[Sachs2007STEPBD]].
@@ -196,7 +196,7 @@ Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), 
 - ISBD task force: SSRIs and bupropion "may have lower rates of manic switch" than tricyclics, tetracyclics and SNRIs. In bipolar I, antidepressants "should be prescribed only as an adjunct to mood-stabilizing medications" [[Pacchiarotti2013]].
 - CANMAT/ISBD 2018 moved adjunctive SSRIs/bupropion from first-line (2013) to second-line in bipolar I depression because of weak efficacy data. It states "Antidepressant monotherapy should NOT be used for the treatment of BDI depression" [[Yatham2018]].
 - CANMAT/ISBD 2018 says antidepressants should ideally be avoided, or used cautiously, after antidepressant-induced mania or hypomania, with current mixed features, or with recent rapid cycling [[Yatham2018]].
-- NICE CG185: if mania or hypomania develops on antidepressant monotherapy, consider stopping the antidepressant and offer an antipsychotic "regardless of whether the antidepressant is stopped" [[NICE2014CG185]].
+- NICE CG185: if mania or hypomania develops on antidepressant monotherapy, consider stopping the antidepressant and offer an antipsychotic "regardless of whether the antidepressant is stopped" [[NICE2014CG185F]].
 - In a 2021 network meta-analysis of adjunctive treatments (69 trials, 8,007 participants), adjunctive fluoxetine had "the most consistent evidence base for both efficacy and tolerability" (response RR 1.51, 1.11–2.06). None of the agents raised switch rates [[Bahji2021]].
 
 ### depression · ECT
@@ -204,7 +204,7 @@ Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), 
 - In a meta-analysis of six cohort studies, ECT remission was 53.2% (168/316) in bipolar depression and 50.9% (402/790) in unipolar depression (OR 1.08, 0.75–1.57) [[Dierckx2012]].
 - CANMAT/ISBD 2018 lists ECT as second-line for bipolar I depression. It is "particularly for treatment‐refractory patients and those for whom a rapid treatment response is needed", including severe depression with imminent suicidal risk, catatonia or psychotic depression [[Yatham2018]].
 - CANMAT/ISBD 2018 also lists ECT as second-line for acute mania (level 3). It cites evidence "that up to 80% of patients will show marked clinical improvements", and prefers bifrontal over bitemporal placement [[Yatham2018]].
-- NICE CG185 notes ECT as an option for "rapid short-term treatment of a prolonged or severe manic episode when other treatments have not worked or the condition is life-threatening" (NICE TA59) [[NICE2014CG185]].
+- NICE CG185 notes ECT as an option for "rapid short-term treatment of a prolonged or severe manic episode when other treatments have not worked or the condition is life-threatening" (NICE TA59) [[NICE2014CG185F]].
 
 ### depression · Ketamine (Early evidence)
 - In a crossover add-on RCT (18 people with treatment-resistant bipolar depression on lithium or valproate), one IV ketamine infusion of 0.5 mg/kg improved depression within 40 minutes (d = 0.52). The peak effect was at day 2 (d = 0.80), and benefit lasted through day 3 (Early evidence) [[Diazgranados2010]].
@@ -227,7 +227,7 @@ Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), 
 - Antidepressant monotherapy in bipolar disorder raises mania risk (HR 2.83). With a mood stabiliser it does not (HR 0.79) [[Viktorin2014]].
 - Tricyclics carry the highest switch risk (10% vs 3.2% for other antidepressants) [[Gijsman2004]].
 - Olanzapine is effective but second-line in CANMAT/ISBD because of metabolic harm [[Yatham2018,Pillinger2020]].
-- NICE antipsychotic metabolic monitoring: weight weekly for 6 weeks, then at 12 weeks. Glucose/HbA1c and lipids at 12 weeks [[NICE2014CG185]].
+- NICE antipsychotic metabolic monitoring: weight weekly for 6 weeks, then at 12 weeks. Glucose/HbA1c and lipids at 12 weeks [[NICE2014CG185F]].
 - Long-acting injectable risperidone and aripiprazole mainly prevent manic, not depressive, recurrence [[Quiroz2010,Calabrese2017AOM]].
 - ECT in treatment-resistant bipolar depression: response 73.9% vs 35.0% with medication alone [[Schoeyen2015]].
 - BALANCE: lithium alone or with valproate prevents relapse better than valproate alone [[Geddes2010BALANCE]].
@@ -235,11 +235,11 @@ Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), 
 ### In plain words
 - Lithium is not the only medicine for bipolar disorder. Some seizure medicines and some antipsychotic medicines also help prevent or treat mood episodes [[Yatham2018]].
 - Lamotrigine helps most with keeping depression away over the long term. It does not calm mania [[FDA-Lamictal,Calabrese2003Lamotrigine]].
-- Lamotrigine has to be started very slowly to lower the chance of a serious rash. A new rash while the dose is going up is a reason to call the doctor right away [[FDA-Lamictal,NICE2014CG185]].
-- Valproate can harm an unborn baby. Anyone who could become pregnant should plan medicines and pregnancy with their care team well ahead of time, and should not stop a medicine suddenly on their own [[FDA-Depakote,NICE2014CG185]].
+- Lamotrigine has to be started very slowly to lower the chance of a serious rash. A new rash while the dose is going up is a reason to call the doctor right away [[FDA-Lamictal,NICE2014CG185F]].
+- Valproate can harm an unborn baby. Anyone who could become pregnant should plan medicines and pregnancy with their care team well ahead of time, and should not stop a medicine suddenly on their own [[FDA-Depakote,NICE2014CG185F]].
 - Several antipsychotic medicines treat bipolar depression, not only mania. Each has different side effects [[Yildiz2023]].
-- Some of these medicines can cause weight gain and raise blood sugar or cholesterol. Regular weight and blood checks help catch this early [[Pillinger2020,NICE2014CG185]].
-- Healthy eating and physical activity programmes are part of good care, especially for people taking antipsychotics [[NICE2014CG185]].
+- Some of these medicines can cause weight gain and raise blood sugar or cholesterol. Regular weight and blood checks help catch this early [[Pillinger2020,NICE2014CG185F]].
+- Healthy eating and physical activity programmes are part of good care, especially for people taking antipsychotics [[NICE2014CG185F]].
 - Standard antidepressants on their own can tip some people with bipolar disorder into mania. Doctors usually use them, if at all, only together with a mood stabiliser [[Viktorin2014,Pacchiarotti2013]].
 - A monthly or two-weekly injection is an option for people who find daily pills hard to keep up with [[Yatham2018,Calabrese2017AOM]].
 - ECT is a safe, well-studied treatment that can help when depression is severe or other treatments have not worked [[Schoeyen2015,Yatham2018]].
@@ -346,9 +346,9 @@ Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), 
 - quetiapine_weight_gain_7pct | bipolar depression placebo | 2 | % | [[FDA-Seroquel]]
 - quetiapine_weight_gain_7pct | bipolar mania quetiapine | 21 | % | [[FDA-Seroquel]]
 - quetiapine_weight_gain_7pct | bipolar mania placebo | 7 | % | [[FDA-Seroquel]]
-- NICE_antipsychotic_weight_checks | week 0 | 1 | measurement | [[NICE2014CG185]]
-- NICE_antipsychotic_weight_checks | weeks 1-6 | 1 | measurement per week | [[NICE2014CG185]]
-- NICE_antipsychotic_weight_checks | week 12 | 1 | measurement (plus glucose/HbA1c and lipids) | [[NICE2014CG185]]
+- NICE_antipsychotic_weight_checks | week 0 | 1 | measurement | [[NICE2014CG185F]]
+- NICE_antipsychotic_weight_checks | weeks 1-6 | 1 | measurement per week | [[NICE2014CG185F]]
+- NICE_antipsychotic_weight_checks | week 12 | 1 | measurement (plus glucose/HbA1c and lipids) | [[NICE2014CG185F]]
 - STEPBD_durable_recovery | antidepressant + mood stabiliser | 23.5 | % | [[Sachs2007STEPBD]]
 - STEPBD_durable_recovery | placebo + mood stabiliser | 27.3 | % | [[Sachs2007STEPBD]]
 - mania_risk_with_without_antidepressant | with antidepressant | 12.5 | % | [[Tondo2010]]
@@ -368,8 +368,8 @@ Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), 
 
 ## Open questions and controversies
 - Antidepressants in bipolar depression: STEP-BD found no added benefit and no added switch [[Sachs2007STEPBD]]. A meta-analysis found a small symptom benefit without better response, with longer use linked to more switching [[McGirr2016]]. Register data put the switch risk on antidepressant monotherapy, not on combination with a mood stabiliser [[Viktorin2014]]. A 2025 network meta-analysis found no single antidepressant with significant switch risk, at low certainty [[Oliva2025]]. Status: CANMAT/ISBD 2018 keeps adjunctive SSRIs/bupropion as second-line, and monotherapy is not recommended in bipolar I [[Yatham2018]].
-- Valproate in men: NICE (2025) reproduces the MHRA precaution on a possible link between paternal valproate and neurodevelopmental disorders [[NICE2014CG185]]. A large 2026 Taiwanese sibling-controlled cohort found no association [[Feng2026]]. Status: unresolved, and regulators have kept their precautions.
-- Where olanzapine belongs: NICE lists olanzapine among the first antipsychotics to offer for mania and with fluoxetine for bipolar depression [[NICE2014CG185]]. CANMAT/ISBD 2018 ranks it second-line for mania and maintenance because of metabolic risk [[Yatham2018]]. Network meta-analysis ranks olanzapine among the worst for metabolic effects [[Pillinger2020]]. Status: a values trade-off between efficacy and metabolic harm.
+- Valproate in men: NICE (2025) reproduces the MHRA precaution on a possible link between paternal valproate and neurodevelopmental disorders [[NICE2014CG185F]]. A large 2026 Taiwanese sibling-controlled cohort found no association [[Feng2026]]. Status: unresolved, and regulators have kept their precautions.
+- Where olanzapine belongs: NICE lists olanzapine among the first antipsychotics to offer for mania and with fluoxetine for bipolar depression [[NICE2014CG185F]]. CANMAT/ISBD 2018 ranks it second-line for mania and maintenance because of metabolic risk [[Yatham2018]]. Network meta-analysis ranks olanzapine among the worst for metabolic effects [[Pillinger2020]]. Status: a values trade-off between efficacy and metabolic harm.
 - How much lamotrigine helps acute bipolar depression: the IPD meta-analysis showed a modest overall effect, mainly in more severe depression [[Geddes2009Lamotrigine]]. The 2023 network meta-analysis gave it the smallest effect among effective agents (SMD 0.16) [[Yildiz2023]]. CANMAT/ISBD still lists lamotrigine first-line for bipolar I depression [[Yatham2018]]. Status: an accepted option, valued mainly for prevention and tolerability.
 - Weight of relapse-prevention (enriched withdrawal) trials: BAP 2016 accepts them "for what they are while recognizing their limitations" and notes that NICE "effectively discounted much of the longer term data generated by relapse-prevention studies" [[Goodwin2016BAP]]. This partly explains why the guidelines differ on antipsychotic maintenance.
 - How long to continue an antipsychotic added for mania: there is clear benefit for 6 months after response, but "the benefits beyond 6 months remain uncertain" [[Yatham2018]].
@@ -379,7 +379,7 @@ Shared keys checked: Yatham2018 (PMID 29536616), NICE2014CG185 (PMID 31556980), 
 
 ## Sources
 - [Yatham2018] Yatham LN, Kennedy SH, Parikh SV, Schaffer A, Bond DJ, Frey BN, et al. Canadian Network for Mood and Anxiety Treatments (CANMAT) and International Society for Bipolar Disorders (ISBD) 2018 guidelines for the management of patients with bipolar disorder. Bipolar Disord. 2018;20(2):97-170. PMID 29536616; PMCID PMC5947163; doi:10.1111/bdi.12609. Recommendation wording read from the Europe PMC full text. (validated: PubMed)
-- [NICE2014CG185] National Institute for Health and Care Excellence (NICE). Bipolar disorder: assessment and management. Clinical guideline CG185. London: NICE; published 24 September 2014, last updated 2 September 2025. NCBI Bookshelf NBK547001; PMID 31556980. Recommendation wording read from nice.org.uk/guidance/cg185/chapter/Recommendations (accessed 2026-11-03). (validated: PubMed)
+- [NICE2014CG185F] National Institute for Health and Care Excellence (NICE). Bipolar disorder: assessment and management. Clinical guideline CG185. London: NICE; published 24 September 2014, last updated 2 September 2025. NCBI Bookshelf NBK547001; PMID 31556980. Recommendation wording read from nice.org.uk/guidance/cg185/chapter/Recommendations (accessed 2026-11-03). (validated: PubMed)
 - [Goodwin2016BAP] Goodwin GM, Haddad PM, Ferrier IN, Aronson JK, Barnes T, Cipriani A, et al. Evidence-based guidelines for treating bipolar disorder: Revised third edition recommendations from the British Association for Psychopharmacology. J Psychopharmacol. 2016;30(6):495-553. PMID 26979387; PMCID PMC4922419; doi:10.1177/0269881116636545. Wording read from the PMC author manuscript. (validated: PubMed)
 - [Keramatian2023] Keramatian K, Chithra NK, Yatham LN. The CANMAT and ISBD Guidelines for the Treatment of Bipolar Disorder: Summary and a 2023 Update of Evidence. Focus (Am Psychiatr Publ). 2023;21(4):344-353. PMID 38695002; PMCID PMC11058959; doi:10.1176/appi.focus.20230009. (validated: PubMed)
 - [Yatham2021Mixed] Yatham LN, Chakrabarty T, Bond DJ, Schaffer A, Beaulieu S, Parikh SV, et al. Canadian Network for Mood and Anxiety Treatments (CANMAT) and International Society for Bipolar Disorders (ISBD) recommendations for the management of patients with bipolar disorder with mixed presentations. Bipolar Disord. 2021;23(8):767-788. PMID 34599629; doi:10.1111/bdi.13135. (validated: PubMed)

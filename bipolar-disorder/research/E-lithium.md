@@ -10,7 +10,7 @@ Access notes:
 - CANMAT/ISBD 2018 wording was read from the open full text (Europe PMC, PMC5947163).
 - PubMed E-utilities rate-limited searches (HTTP 429), so searching was done in Europe PMC. Every cited PMID was then confirmed in one PubMed esummary batch.
 - Units: for lithium, 1 mEq/L equals 1 mmol/L. Bowden 1994 wrote "1.5 mmol/L (conventionally expressed as milliequivalents per liter)" [[Bowden1994]]. US labels use mEq/L and UK/European sources use mmol/L.
-- Shared keys checked and used: Yatham2018, NICE2014CG185, Geddes2010BALANCE, Cipriani2013, Cade1949, FDA-Lithobid (FDA-Lithium names the generic label read). Patorno2017 and FDA-Lithobid reuse the text in the borderline personality disorder companion's sources.json.
+- Shared keys checked and used: Yatham2018, NICE2014CG185E, Geddes2010BALANCE, Cipriani2013, Cade1949, FDA-Lithobid (FDA-Lithium names the generic label read). Patorno2017 and FDA-Lithobid reuse the text in the borderline personality disorder companion's sources.json.
 
 ## Findings
 
@@ -18,8 +18,8 @@ Access notes:
 - John Cade's report "Lithium salts in the treatment of psychotic excitement" appeared in the Medical Journal of Australia in September 1949. It is the founding paper of lithium treatment in psychiatry [[Cade1949]].
 - The current US generic label indicates lithium as monotherapy for bipolar I disorder: treatment of acute manic and mixed episodes, and maintenance treatment, in patients 7 years and older [[FDA-Lithium]].
 - The LITHOBID label says that, given during a manic episode, lithium "may produce a normalization of symptomatology within 1 to 3 weeks" [[FDA-Lithobid]].
-- NICE CG185 (recommendation 1.7.7): "Offer lithium as a first-line, long-term pharmacological treatment for bipolar disorder" [[NICE2014CG185]].
-- If lithium is ineffective, poorly tolerated or not suitable, NICE says to consider an antipsychotic (asenapine, aripiprazole, olanzapine, quetiapine or risperidone). One example of "not suitable" it gives is that "the person does not agree to routine blood monitoring" [[NICE2014CG185]].
+- NICE CG185 (recommendation 1.7.7): "Offer lithium as a first-line, long-term pharmacological treatment for bipolar disorder" [[NICE2014CG185E]].
+- If lithium is ineffective, poorly tolerated or not suitable, NICE says to consider an antipsychotic (asenapine, aripiprazole, olanzapine, quetiapine or risperidone). One example of "not suitable" it gives is that "the person does not agree to routine blood monitoring" [[NICE2014CG185E]].
 - CANMAT/ISBD 2018 lists lithium among the first-line treatments for acute mania (with quetiapine, divalproex, asenapine, aripiprazole, paliperidone, risperidone and cariprazine) and among the first-line options for bipolar I depression [[Yatham2018]].
 - CANMAT/ISBD 2018 calls lithium "the gold standard for maintenance treatment". It prevents both manic and depressive episodes, with a larger effect against mania, and "appears to have a degree of anti‑suicidal effects" [[Yatham2018]].
 - In CANMAT/ISBD 2018, lithium is a second-line option for bipolar II depression, "ideally at a serum level of 0.8‐1.2 mEq/L" [[Yatham2018]].
@@ -29,9 +29,9 @@ Access notes:
 
 ### lithium · Maintenance (relapse prevention) evidence
 - Geddes 2004 pooled 5 placebo-controlled RCTs (770 participants). Lithium reduced all relapses (random-effects RR 0.65, 95% CI 0.50–0.84) and manic relapses (RR 0.62, 0.40–0.95). The effect on depressive relapses was smaller and uncertain (RR 0.72, 0.49–1.07) [[Geddes2004]].
-- The Severus 2014 update pooled 7 placebo-controlled trials (1,580 participants). Lithium reduced overall mood episodes (RR 0.66, 0.53–0.82) and manic episodes (RR 0.52, 0.38–0.71). For depressive episodes the random-effects RR was 0.78 (0.59–1.03) and the fixed-effect RR was 0.73 (0.60–0.88) [[Severus2014]].
-- In the same meta-analysis, more people stopped lithium than placebo for reasons other than a mood episode (RR 1.33, 1.07–1.65). More people on lithium completed the study (RR 1.69, 1.12–2.55) [[Severus2014]].
-- Against anticonvulsants (7 trials, n = 1,305), lithium was better at preventing manic episodes (RR 0.66, 0.44–1.00). It did not differ in overall or depressive episodes [[Severus2014]].
+- The Severus 2014 update pooled 7 placebo-controlled trials (1,580 participants). Lithium reduced overall mood episodes (RR 0.66, 0.53–0.82) and manic episodes (RR 0.52, 0.38–0.71). For depressive episodes the random-effects RR was 0.78 (0.59–1.03) and the fixed-effect RR was 0.73 (0.60–0.88) [[Severus2014E]].
+- In the same meta-analysis, more people stopped lithium than placebo for reasons other than a mood episode (RR 1.33, 1.07–1.65). More people on lithium completed the study (RR 1.69, 1.12–2.55) [[Severus2014E]].
+- Against anticonvulsants (7 trials, n = 1,305), lithium was better at preventing manic episodes (RR 0.66, 0.44–1.00). It did not differ in overall or depressive episodes [[Severus2014E]].
 - BALANCE was an open-label RCT of 330 people with bipolar I disorder in the UK, France, the USA and Italy, followed for up to 24 months. The groups were lithium (target 0.4–1.0 mmol/L), valproate (750–1250 mg) and the two combined [[Geddes2010BALANCE]].
 - BALANCE primary-outcome events (a new intervention for an emerging mood episode): 54% with the combination, 59% with lithium and 69% with valproate [[Geddes2010BALANCE]].
 - BALANCE hazard ratios:
@@ -76,8 +76,8 @@ Safe-messaging note for builders (not a finding): if you are in crisis or thinki
 ### lithium · Stopping lithium and adherence
 - Suppes 1991 pooled 14 studies (257 people with bipolar I disorder) who stopped lithium after an average of 30 months. More than 50% of new episodes came within 10 weeks of stopping [[Suppes1991]].
 - In those studies, the median time to the end of remission was 5.0 months after stopping. 25% had a manic recurrence by 2.7 months, against 14 months for a depressive recurrence [[Suppes1991]].
-- NICE: "If stopping lithium, reduce the dose gradually over at least 4 weeks, and preferably up to 3 months." It advises close monitoring for early signs of mania and depression during the reduction and for 3 months after stopping [[NICE2014CG185]].
-- When starting lithium, NICE advises telling the person that poor adherence or rapid discontinuation may increase the risk of relapse [[NICE2014CG185]].
+- NICE: "If stopping lithium, reduce the dose gradually over at least 4 weeks, and preferably up to 3 months." It advises close monitoring for early signs of mania and depression during the reduction and for 3 months after stopping [[NICE2014CG185E]].
+- When starting lithium, NICE advises telling the person that poor adherence or rapid discontinuation may increase the risk of relapse [[NICE2014CG185E]].
 - A 2008 review found that an abrupt fall in serum level of more than 0.2 mmol/L was associated with a higher relapse risk [[Severus2008]].
 
 ### levels · Pharmacokinetics (how the body handles lithium)
@@ -101,8 +101,8 @@ Safe-messaging note for builders (not a finding): if you are in crisis or thinki
 - Generic US label: titrate to 0.8–1.2 mEq/L for acute manic or mixed episodes and 0.8–1.0 mEq/L for maintenance (patients 7 years and older) [[FDA-Lithium]].
 - LITHOBID label: acute mania doses "normally produce" 1.0–1.5 mEq/L; desirable long-term levels are 0.6–1.2 mEq/L. It states that levels should not exceed 2.0 mEq/L during the acute phase [[FDA-Lithobid]].
 - Both labels give ≥1.5 mEq/L as the toxic concentration, "close to the therapeutic range (0.8 to 1.2 mEq/L)" [[FDA-Lithium,FDA-Lithobid]].
-- NICE: aim for 0.6–0.8 mmol/L in people prescribed lithium for the first time [[NICE2014CG185]].
-- NICE suggests considering 0.8–1.0 mmol/L for a trial of at least 6 months in people who relapsed on lithium before, or who have subthreshold symptoms with functional impairment [[NICE2014CG185]].
+- NICE: aim for 0.6–0.8 mmol/L in people prescribed lithium for the first time [[NICE2014CG185E]].
+- NICE suggests considering 0.8–1.0 mmol/L for a trial of at least 6 months in people who relapsed on lithium before, or who have subthreshold symptoms with functional impairment [[NICE2014CG185E]].
 - CANMAT/ISBD 2018: "The target serum level for lithium in acute treatment is 0.8‐1.2 mEq/L (0.4‐0.8 mEq/L in older adults) while in maintenance treatment, serum levels of 0.6‐1 mEq/L may be sufficient" [[Yatham2018]].
 - The ISBD/IGSLI Delphi consensus (2019) for adults: standard level 0.60–0.80 mmol/L, lowered to 0.40–0.60 if response is good but tolerance poor, or raised to 0.80–1.00 if response is insufficient and tolerance good [[Nolen2019]].
 - For older adults, the majority (not a consensus) of that panel endorsed 0.40–0.60 mmol/L usually, with a maximum of 0.70–0.80 at ages 65–79 and 0.70 over age 80 [[Nolen2019]].
@@ -118,12 +118,12 @@ Safe-messaging note for builders (not a finding): if you are in crisis or thinki
 - Generic label: obtain the first level after 3 days, 12 hours after the last oral dose, and regularly until stable. Recheck after any change in dose, after starting or stopping interacting drugs (diuretics, NSAIDs, renin-angiotensin system antagonists, metronidazole), after a marked change in strenuous exercise, and during intercurrent illness [[FDA-Lithium]].
 - LITHOBID label: check levels twice weekly in the acute phase until stable, then at least every two months in uncomplicated maintenance [[FDA-Lithobid]].
 - CANMAT/ISBD 2018: draw levels about 5 days after the most recent dose change. It recommends two consecutive in-range levels in the acute phase, then checks every 3–6 months [[Yatham2018]].
-- NICE: measure the level 1 week after starting and 1 week after every dose change, and weekly until stable. Then every 3 months for the first year [[NICE2014CG185]].
-- After the first year, NICE advises every 6 months. It keeps 3-monthly checks for older people, people on interacting drugs, people at risk of renal or thyroid problems or raised calcium, people with poor symptom control or adherence, and people whose last level was 0.8 mmol/L or higher [[NICE2014CG185]].
-- NICE: check weight or BMI, urea and electrolytes including calcium, eGFR and thyroid function every 6 months, and more often if problems appear [[NICE2014CG185]].
-- NICE: at every appointment, monitor for neurotoxicity (paraesthesia, ataxia, tremor, cognitive impairment), which "can occur at therapeutic levels" [[NICE2014CG185]].
+- NICE: measure the level 1 week after starting and 1 week after every dose change, and weekly until stable. Then every 3 months for the first year [[NICE2014CG185E]].
+- After the first year, NICE advises every 6 months. It keeps 3-monthly checks for older people, people on interacting drugs, people at risk of renal or thyroid problems or raised calcium, people with poor symptom control or adherence, and people whose last level was 0.8 mmol/L or higher [[NICE2014CG185E]].
+- NICE: check weight or BMI, urea and electrolytes including calcium, eGFR and thyroid function every 6 months, and more often if problems appear [[NICE2014CG185E]].
+- NICE: at every appointment, monitor for neurotoxicity (paraesthesia, ataxia, tremor, cognitive impairment), which "can occur at therapeutic levels" [[NICE2014CG185E]].
 - Generic label baseline checks: renal function, vital signs, serum electrolytes, thyroid function, concurrent medicines and pregnancy status. Thyroid function is checked before starting, at 3 months and every 6–12 months [[FDA-Lithium]].
-- NICE's baseline set: weight or BMI, urea and electrolytes including calcium, eGFR, thyroid function and a full blood count. It adds an ECG for people with cardiovascular disease or its risk factors [[NICE2014CG185]].
+- NICE's baseline set: weight or BMI, urea and electrolytes including calcium, eGFR, thyroid function and a full blood count. It adds an ECG for people with cardiovascular disease or its risk factors [[NICE2014CG185E]].
 - A UK national audit (3,373 patients, 38 trusts) found that for patients on lithium for a year or more, NICE standards were met for serum levels in 30%, renal function in 55% and thyroid function in 50% [[Collins2010]].
 
 ### levels · Toxicity: signs, patterns and risk factors
@@ -172,8 +172,8 @@ Safe-messaging note for builders (not a finding): if you are in crisis or thinki
   - an expected time to fall below 1.0 mEq/L of more than 36 hours (2D) [[Decker2015]]
 - EXTRIP: continue until clinical improvement or a level below 1.0 mEq/L, or for at least 6 hours if levels cannot be measured. Haemodialysis is preferred; continuous renal replacement therapy is an acceptable alternative [[Decker2015]].
 - The evidence behind the EXTRIP recommendations is very low quality, mostly case reports. No randomised trials of dialysis for lithium poisoning exist [[Decker2015,BairdGunning2017]].
-- NICE advises people taking lithium to seek medical attention if they develop diarrhoea or vomiting or become acutely ill for any reason [[NICE2014CG185]].
-- NICE also advises maintaining fluid intake after sweating, in hot climates, with fever, during long immobility, or with a chest infection [[NICE2014CG185]].
+- NICE advises people taking lithium to seek medical attention if they develop diarrhoea or vomiting or become acutely ill for any reason [[NICE2014CG185E]].
+- NICE also advises maintaining fluid intake after sweating, in hot climates, with fever, during long immobility, or with a chest infection [[NICE2014CG185E]].
 
 ### levels · Interactions and situations that change lithium levels
 - Thiazide diuretics have the greatest potential to raise lithium: concentrations often rise by 25–40% after a thiazide starts. Loop and potassium-sparing diuretics have minor, variable effects [[Finley1995]].
@@ -181,8 +181,8 @@ Safe-messaging note for builders (not a finding): if you are in crisis or thinki
 - In Ontario adults aged 66 or older, hospital admission for lithium toxicity rose within a month of starting a loop diuretic (RR 5.5, 95% CI 1.9–16.1) or an ACE inhibitor (RR 7.6, 2.6–22.0). Thiazides and NSAIDs were not independently associated in this study [[Juurlink2004]].
 - NSAIDs reduce renal blood flow and lithium clearance and raise serum lithium. Indomethacin and piroxicam significantly raise steady-state levels, and COX-2 inhibitors appear to do the same [[FDA-Lithium,FDA-Lithobid]].
 - In healthy volunteers, celecoxib 200 mg twice daily raised mean steady-state lithium by about 17% [[FDA-Lithobid]].
-- NICE warns people taking lithium not to take over-the-counter NSAIDs [[NICE2014CG185]].
-- If an NSAID is prescribed, NICE says it should be taken regularly (not as needed), with monthly level checks until stable and then every 3 months [[NICE2014CG185]].
+- NICE warns people taking lithium not to take over-the-counter NSAIDs [[NICE2014CG185E]].
+- If an NSAID is prescribed, NICE says it should be taken regularly (not as needed), with monthly level checks until stable and then every 3 months [[NICE2014CG185E]].
 - Renin-angiotensin system antagonists (ACE inhibitors, ARBs) and nitroimidazole antibiotics such as metronidazole can raise lithium levels [[FDA-Lithium]].
 - Acetazolamide, urea, xanthines and alkalinising agents such as sodium bicarbonate lower lithium by increasing its excretion. SGLT2 inhibitors may also lower serum lithium [[FDA-Lithium]].
 - Calcium-channel blockers may increase neurological adverse effects (ataxia, tremor, nausea, vomiting, diarrhoea, tinnitus). Iodide preparations may cause hypothyroidism [[FDA-Lithium]].
@@ -211,7 +211,7 @@ Safe-messaging note for builders (not a finding): if you are in crisis or thinki
 - The label describes lithium-induced CKD mainly as chronic tubulointerstitial nephropathy. It advises re-evaluating treatment if renal function changes progressively or suddenly, "even within the normal range" [[FDA-Lithium]].
 - The label recommends against lithium in severe renal impairment (creatinine clearance below 30 mL/min). With clearance of 30–89 mL/min, it advises lower starting doses and slow titration [[FDA-Lithium]].
 - Nephrogenic diabetes insipidus (polyuria, polydipsia) can begin within weeks. It is usually reversible but may be only partly reversible after long-term use; the label names amiloride as a possible treatment [[FDA-Lithium]].
-- NICE: if eGFR falls over 2 or more tests, monitor more often and assess the rate of decline. Decisions on continuing lithium may need input from a renal specialist [[NICE2014CG185]].
+- NICE: if eGFR falls over 2 or more tests, monitor more often and assess the rate of decline. Decisions on continuing lithium may need input from a renal specialist [[NICE2014CG185E]].
 
 ### lithium · Thyroid and parathyroid
 - McKnight 2012: clinical hypothyroidism was more common with lithium than with placebo (OR 5.78, 2.00–16.67), and TSH rose by 4.00 on average [[McKnight2012]].
@@ -254,7 +254,7 @@ Safe-messaging note for builders (not a finding): if you are in crisis or thinki
 - Lithium passes freely into breast milk [[Grandjean2009PartII]].
 - The LITHOBID label advises against nursing during lithium therapy "except in rare and unusual circumstances" [[FDA-Lithobid]].
 - McKnight 2012 recommends weighing the balance of risks before stopping lithium in pregnancy, because the malformation risk is uncertain [[McKnight2012]].
-- NICE advises people taking lithium to talk to their doctor as soon as possible if they become pregnant or plan a pregnancy [[NICE2014CG185]].
+- NICE advises people taking lithium to talk to their doctor as soon as possible if they become pregnant or plan a pregnancy [[NICE2014CG185E]].
 
 ### lithium · Research landscape
 - A genome-wide association study by ConLiGen (2,563 patients) found a chromosome 21 locus linked with lithium response. Two long non-coding RNA genes are in the region (Early evidence) [[Hou2016]].
@@ -267,8 +267,8 @@ Safe-messaging note for builders (not a finding): if you are in crisis or thinki
 - The boxed warning: lithium toxicity is closely related to serum concentration and can occur at doses close to therapeutic ones [[FDA-Lithium]].
 - Draw the level as a trough, about 12 hours after the last dose [[FDA-Lithium,Yatham2018]].
 - Half-life is 18–36 hours. CANMAT checks levels about 5 days after a dose change [[FDA-Lithium,Yatham2018]].
-- NICE target for a first prescription: 0.6–0.8 mmol/L. Consider 0.8–1.0 after a relapse on lithium [[NICE2014CG185]].
-- NICE checks levels every 3 months in year 1, then every 6 months. eGFR, thyroid function, calcium and weight are checked every 6 months [[NICE2014CG185]].
+- NICE target for a first prescription: 0.6–0.8 mmol/L. Consider 0.8–1.0 after a relapse on lithium [[NICE2014CG185E]].
+- NICE checks levels every 3 months in year 1, then every 6 months. eGFR, thyroid function, calcium and weight are checked every 6 months [[NICE2014CG185E]].
 - Toxic threshold in US labels: ≥1.5 mEq/L [[FDA-Lithium,FDA-Lithobid]].
 - Lithium is renally excreted, not metabolised. About 80% of filtered lithium is reabsorbed in the proximal tubule [[FDA-Lithium]].
 - Thiazides raise lithium levels by 25–40% [[Finley1995]]. ACE inhibitors raised them by 36% in one series [[Finley1996]].
@@ -276,27 +276,27 @@ Safe-messaging note for builders (not a finding): if you are in crisis or thinki
 - Severe neurotoxicity comes mostly from chronic, not acute, poisoning [[Oakley2001]].
 - EXTRIP: extracorporeal treatment if the level is above 4.0 mEq/L with impaired kidneys, or with seizures, reduced consciousness or dysrhythmia at any level [[Decker2015]].
 - Activated charcoal does not bind lithium [[FDA-Lithium]].
-- Lithium vs placebo for relapse prevention: RR 0.66 overall and 0.52 for mania. The effect is stronger against mania than depression [[Severus2014]].
+- Lithium vs placebo for relapse prevention: RR 0.66 overall and 0.52 for mania. The effect is stronger against mania than depression [[Severus2014E]].
 - BALANCE: lithium alone or with valproate beat valproate alone [[Geddes2010BALANCE]].
 - Lithium vs placebo for suicide: OR 0.13 [[Cipriani2013]].
-- Stopping lithium: more than 50% of recurrences come within 10 weeks; NICE tapers over at least 4 weeks [[Suppes1991,NICE2014CG185]].
+- Stopping lithium: more than 50% of recurrences come within 10 weeks; NICE tapers over at least 4 weeks [[Suppes1991,NICE2014CG185E]].
 - Hypothyroidism on lithium: OR 5.78 [[McKnight2012]]. Check calcium for hyperparathyroidism [[McKnight2012,FDA-Lithium]].
 - Ebstein's anomaly and RVOT defects: 0.60% vs 0.18%. The absolute risk is lower than once believed [[Patorno2017]].
 - SILENT means neurological sequelae, most often cerebellar, lasting at least 2 months after toxicity [[Adityanjee2005]].
 
 ### In plain words
-- Lithium is one of the oldest and best-studied medicines for bipolar disorder, and many guidelines list it first for long-term treatment [[NICE2014CG185,Yatham2018]].
-- Long term, lithium lowers the chance of new mood episodes, especially highs [[Severus2014]].
+- Lithium is one of the oldest and best-studied medicines for bipolar disorder, and many guidelines list it first for long-term treatment [[NICE2014CG185E,Yatham2018]].
+- Long term, lithium lowers the chance of new mood episodes, especially highs [[Severus2014E]].
 - People taking lithium have lower suicide rates in many studies [[Cipriani2013,Song2017]]. If you are in crisis, call or text 988 in the US, or call Samaritans on 116 123 in the UK and Ireland.
-- The amount of lithium in the blood matters. Too little may not work, and too much can be harmful, so regular blood tests are part of the treatment [[FDA-Lithium,NICE2014CG185]].
+- The amount of lithium in the blood matters. Too little may not work, and too much can be harmful, so regular blood tests are part of the treatment [[FDA-Lithium,NICE2014CG185E]].
 - The blood test is usually taken about 12 hours after the last dose, often in the morning before that day's dose [[FDA-Lithium]].
-- Being sick with vomiting or diarrhoea, sweating a lot, or not drinking enough can push lithium levels up. Contact your care team if this happens [[NICE2014CG185]].
-- Some common medicines, such as some painkillers (NSAIDs like ibuprofen), water pills and some blood pressure pills, can raise lithium levels. Always tell every prescriber and pharmacist you take lithium [[FDA-Lithium,NICE2014CG185]].
+- Being sick with vomiting or diarrhoea, sweating a lot, or not drinking enough can push lithium levels up. Contact your care team if this happens [[NICE2014CG185E]].
+- Some common medicines, such as some painkillers (NSAIDs like ibuprofen), water pills and some blood pressure pills, can raise lithium levels. Always tell every prescriber and pharmacist you take lithium [[FDA-Lithium,NICE2014CG185E]].
 - Shaking that gets worse, being very unsteady, confusion, or severe vomiting or diarrhoea can be signs of too much lithium. This needs urgent medical help [[FDA-Lithium]].
 - Lithium can slow the thyroid. A simple blood test finds this, and it can be treated [[Kibirige2013,FDA-Lithium]].
-- Over many years, lithium can lower kidney function in some people. Regular kidney blood tests help catch changes early [[Tondo2017,NICE2014CG185]].
-- Stopping lithium suddenly raises the chance of a quick relapse. Changes should be planned with your care team and done slowly [[Suppes1991,NICE2014CG185]].
-- If you are pregnant or planning a pregnancy, talk with your care team early. Do not stop or start lithium on your own [[NICE2014CG185,Patorno2017]].
+- Over many years, lithium can lower kidney function in some people. Regular kidney blood tests help catch changes early [[Tondo2017,NICE2014CG185E]].
+- Stopping lithium suddenly raises the chance of a quick relapse. Changes should be planned with your care team and done slowly [[Suppes1991,NICE2014CG185E]].
+- If you are pregnant or planning a pregnancy, talk with your care team early. Do not stop or start lithium on your own [[NICE2014CG185E,Patorno2017]].
 - Many people take lithium for years with few problems and stay well [[Tondo2017,Ott2016]].
 
 ## Numbers for the animations
@@ -319,12 +319,12 @@ Level-over-time model (a teaching curve, not a dosing guide). The steady-state f
 - fraction_of_steady_state | 120 | 96.9 | % | [[FDA-Lithobid]]
 - first_level_check_label | 3 | 1 | days after start (generic label) | [[FDA-Lithium]]
 - first_level_check_canmat | 5 | 1 | days after dose change | [[Yatham2018]]
-- first_level_check_nice | 7 | 1 | days after start or dose change | [[NICE2014CG185]]
+- first_level_check_nice | 7 | 1 | days after start or dose change | [[NICE2014CG185E]]
 
 Level bands (for the level gauge; ranges as published):
-- nice_first_prescription_low | 0 | 0.6 | mmol/L | [[NICE2014CG185]]
-- nice_first_prescription_high | 0 | 0.8 | mmol/L | [[NICE2014CG185]]
-- nice_after_relapse_high | 0 | 1.0 | mmol/L | [[NICE2014CG185]]
+- nice_first_prescription_low | 0 | 0.6 | mmol/L | [[NICE2014CG185E]]
+- nice_first_prescription_high | 0 | 0.8 | mmol/L | [[NICE2014CG185E]]
+- nice_after_relapse_high | 0 | 1.0 | mmol/L | [[NICE2014CG185E]]
 - label_maintenance_low | 0 | 0.8 | mEq/L | [[FDA-Lithium]]
 - label_maintenance_high | 0 | 1.0 | mEq/L | [[FDA-Lithium]]
 - label_acute_high | 0 | 1.2 | mEq/L | [[FDA-Lithium]]
@@ -403,7 +403,7 @@ Toxicity and monitoring in practice:
 - uk_audit_thyroid_standard_met | 0 | 50 | % | [[Collins2010]]
 
 ## Open questions and controversies
-- Best maintenance level: NICE starts at 0.6–0.8 mmol/L [[NICE2014CG185]]. The generic US label titrates maintenance to 0.8–1.0 mEq/L [[FDA-Lithium]]. ISBD/IGSLI recommends 0.60–0.80 with individual adjustment [[Nolen2019]]. The only direct RCT favoured 0.8–1.0 over 0.4–0.6 for relapse but found more side effects [[Gelenberg1989]]. Status: consensus-based, with little modern trial evidence.
+- Best maintenance level: NICE starts at 0.6–0.8 mmol/L [[NICE2014CG185E]]. The generic US label titrates maintenance to 0.8–1.0 mEq/L [[FDA-Lithium]]. ISBD/IGSLI recommends 0.60–0.80 with individual adjustment [[Nolen2019]]. The only direct RCT favoured 0.8–1.0 over 0.4–0.6 for relapse but found more side effects [[Gelenberg1989]]. Status: consensus-based, with little modern trial evidence.
 - Lithium and suicide: meta-analyses of RCTs and registers favour lithium [[Cipriani2013,Baldessarini2006,Song2017]]. The VA trial of adding lithium after a recent suicidal event found no benefit, at mean levels around 0.5 mEq/L [[Katz2022]]. Status: established in general mood-disorder populations; uncertain as an add-on for high-risk people already in treatment.
 - Lithium and the kidney: older and laboratory cohorts show more CKD stage 3 and renal failure [[Shine2015,Close2014]]. Newer cohorts show a modest added eGFR decline, no end-stage renal failure in long-term users, and a low 10-year risk before age 55 [[Tondo2017,Fransson2022,Golic2023]]. Stopping lithium slows the decline [[Fransson2025]]. Status: real but usually slow; the trade-off is individual.
 - Dosing around delivery: the label advises lowering or pausing lithium 2–3 days before delivery [[FDA-Lithium]]. A 2021 observational study found no level rise after delivery and advises stable dosing to protect against postpartum relapse [[Molenaar2021]]. Status: unresolved; decided with the care team.
@@ -417,12 +417,12 @@ Toxicity and monitoring in practice:
 - [FDA-Lithobid] ANI Pharmaceuticals. LITHOBID (lithium carbonate) extended-release tablets, US prescribing information, effective 2026-08-24, set id f7f5b69a-c2a1-4586-a189-1475d41387c0 (boxed warning read). (validated: openFDA)
 - [NCT01928446] VA Office of Research and Development. Lithium for Suicidal Behavior in Mood Disorders. ClinicalTrials.gov NCT01928446; terminated; 519 enrolled; 2015-07-08 to 2019-08-13. (validated: ClinicalTrials.gov)
 - [NCT01166425] Eunice Kennedy Shriver National Institute of Child Health and Human Development (NICHD). Safety and Efficacy Study of Lithium for the Treatment of Pediatric Mania. ClinicalTrials.gov NCT01166425; completed; 81 enrolled; 2010-06 to 2013-04. (validated: ClinicalTrials.gov)
-- [NICE2014CG185] National Institute for Health and Care Excellence. Bipolar disorder: assessment and management. Clinical guideline CG185. London: NICE; 2014 (last updated 2 September 2025). PMID 31556980 (NCBI Bookshelf record, ISBN 9781473171633). Recommendation wording read on nice.org.uk/guidance/cg185 on 2026-11-03. (validated: PubMed)
+- [NICE2014CG185E] National Institute for Health and Care Excellence. Bipolar disorder: assessment and management. Clinical guideline CG185. London: NICE; 2014 (last updated 2 September 2025). PMID 31556980 (NCBI Bookshelf record, ISBN 9781473171633). Recommendation wording read on nice.org.uk/guidance/cg185 on 2026-11-03. (validated: PubMed)
 - [Yatham2018] Yatham LN, Kennedy SH, Parikh SV, Schaffer A, Bond DJ, Frey BN, et al. Canadian Network for Mood and Anxiety Treatments (CANMAT) and International Society for Bipolar Disorders (ISBD) 2018 guidelines for the management of patients with bipolar disorder. Bipolar Disord. 2018;20(2):97-170. PMID 29536616; PMCID PMC5947163; doi:10.1111/bdi.12609. (validated: PubMed)
 - [Cade1949] Cade JF. Lithium salts in the treatment of psychotic excitement. Med J Aust. 1949;2(10):349-52. PMID 18142718. The PubMed record carries the DOI of the 1999 Aust N Z J Psychiatry reprint (doi:10.1080/j.1440-1614.1999.06241.x). (validated: PubMed)
 - [Geddes2004] Geddes JR, Burgess S, Hawton K, Jamison K, Goodwin GM. Long-term lithium therapy for bipolar disorder: systematic review and meta-analysis of randomized controlled trials. Am J Psychiatry. 2004;161(2):217-22. PMID 14754766; doi:10.1176/appi.ajp.161.2.217. (validated: PubMed)
 - [Geddes2010BALANCE] Geddes JR, Goodwin GM, Rendell J, Azorin JM, Cipriani A, Ostacher MJ, et al. Lithium plus valproate combination therapy versus monotherapy for relapse prevention in bipolar I disorder (BALANCE): a randomised open-label trial. Lancet. 2010;375(9712):385-95. PMID 20092882; doi:10.1016/S0140-6736(09)61828-6. (validated: PubMed)
-- [Severus2014] Severus E, Taylor MJ, Sauer C, Pfennig A, Ritter P, Bauer M, et al. Lithium for prevention of mood episodes in bipolar disorders: systematic review and meta-analysis. Int J Bipolar Disord. 2014;2:15. PMID 25530932; PMCID PMC4272359; doi:10.1186/s40345-014-0015-8. (validated: PubMed)
+- [Severus2014E] Severus E, Taylor MJ, Sauer C, Pfennig A, Ritter P, Bauer M, et al. Lithium for prevention of mood episodes in bipolar disorders: systematic review and meta-analysis. Int J Bipolar Disord. 2014;2:15. PMID 25530932; PMCID PMC4272359; doi:10.1186/s40345-014-0015-8. (validated: PubMed)
 - [Cipriani2011] Cipriani A, Barbui C, Salanti G, Rendell J, Brown R, Stockton S, et al. Comparative efficacy and acceptability of antimanic drugs in acute mania: a multiple-treatments meta-analysis. Lancet. 2011;378(9799):1306-15. PMID 21851976; doi:10.1016/S0140-6736(11)60873-8. (validated: PubMed)
 - [Cipriani2013] Cipriani A, Hawton K, Stockton S, Geddes JR. Lithium in the prevention of suicide in mood disorders: updated systematic review and meta-analysis. BMJ. 2013;346:f3646. PMID 23814104; doi:10.1136/bmj.f3646. (validated: PubMed)
 - [Song2017] Song J, Sjölander A, Joas E, Bergen SE, Runeson B, Larsson H, et al. Suicidal Behavior During Lithium and Valproate Treatment: A Within-Individual 8-Year Prospective Study of 50,000 Patients With Bipolar Disorder. Am J Psychiatry. 2017;174(8):795-802. PMID 28595491; doi:10.1176/appi.ajp.2017.16050542. (validated: PubMed)
