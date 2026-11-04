@@ -1,0 +1,63 @@
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<style>
+#m-history .card>.tag{align-self:flex-start}
+#m-history .card .yr{font:600 11px var(--mono);color:var(--muted);letter-spacing:.06em}
+#m-history #hiNow{font:500 13.5px/1.5 var(--body);color:var(--ink);min-height:3em}
+#m-history #hiNow b{font-family:var(--mono);font-size:12.5px;color:var(--brand);margin-right:4px}
+#m-history .cure{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;max-width:760px}
+#m-history .cure div{display:grid;grid-template-columns:minmax(0,15em) minmax(0,1fr) 3.2em;gap:10px;align-items:center;font-size:14px}
+#m-history .cure i{display:block;height:12px;border-radius:6px;background:var(--rx)}
+#m-history .cure span.b{background:var(--panel-2);border-radius:6px;display:block}
+#m-history .cure b{font:700 14px var(--mono);text-align:right}
+@media (max-width:600px){#m-history .cure div{grid-template-columns:minmax(0,1fr) 3.2em}#m-history .cure div>span.b{grid-column:1/3;grid-row:2}}
+</style>
+<section class="mod" id="m-history" data-mod="history" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
+    <p class="lede">Two hundred years in one timeline: from a footnote that named a tawny liver, through the first liver transplants, the scores that rank illness, a shunt placed through the neck and the cure of hepatitis C, to the new names of 2023. Press Play, or tap a year.</p></div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A timeline from 1819 to 2024 in four lanes: transplant, scores, viruses and medicines, and names, shunts and consensus. A play head moves through the years; each milestone lights as it passes and appears in a card with its year, title and a small picture: Laennec naming cirrhosis in 1819, Starzl's first liver transplant in 1963, the Child–Turcotte and Child–Pugh classifications in 1964 and 1973, cyclosporin, the discovery of hepatitis C and the first TIPS in 1989, MELD in 2000 and 2001, sofosbuvir in 2013, the 2020 Nobel Prize, MELD 3.0, the MASLD names in 2023 and resmetirom in 2024. On phones the timeline runs from top to bottom."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.27"></label></div>
+      <p id="hiNow" aria-live="polite"></p>
+      <div class="chips" id="hiYears" role="group" aria-label="Jump to a milestone"></div>
+      <p class="stage-cap">The 1819–1950 stretch is compressed. The first human TIPS is dated 1989, the earliest validated report. [[Richter1989Radiologe]]</p>
+    </div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">From incurable to curable: hepatitis C</h3>
+  <p class="prose">Hepatitis C was identified in 1989 and causes about 700,000 deaths a year; modern antivirals clear the virus in up to 95% of those treated. [[Choo1989,Lin2021Nobel]] Clearing it matters for the liver. Switch between the two groups below: 530 people with hepatitis C and advanced fibrosis or cirrhosis, treated with interferon-based therapy and followed for a median 8.4 years, compared by whether the virus was cleared (sustained virological response, SVR). [[vanderMeer2012]]</p>
+  <div class="ctrls" role="group" aria-label="Hepatitis C group">
+    <button class="btn" data-hc="no" aria-pressed="true">No cure (no SVR)</button>
+    <button class="btn" data-hc="svr" aria-pressed="false">Cured (SVR)</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiHcv" viewBox="0 0 720 290" style="min-width:560px" role="img" aria-label="Three 100-person icon arrays over 10 years for people with hepatitis C and advanced fibrosis: deaths from any cause, liver failure and liver cancer. Without a cure they fill to 26.0, 29.9 and 21.8 per 100; with a cure they empty to 8.9, 2.1 and 5.1 per 100."></svg></div>
+      <p class="stage-cap">10-year cumulative incidence in one observational cohort; population statistics, not a forecast for any one person. [[vanderMeer2012]]</p>
+    </div>
+    <aside class="note" id="hiHcvNote" aria-live="polite"></aside>
+  </div>
+  <h3 class="sub">Cure rates in the antiviral trials</h3>
+  <div class="cure" id="hiCure">
+    <div><span>2013 · sofosbuvir + peginterferon–ribavirin, 12 weeks, untreated (mainly genotype 1 or 4)</span><span class="b"><i style="width:90%"></i></span><b>90%</b></div>
+    <div><span>ASTRAL-1 · sofosbuvir–velpatasvir, 12 weeks, genotypes 1, 2, 4, 5, 6</span><span class="b"><i style="width:99%"></i></span><b>99%</b></div>
+    <div><span>EXPEDITION-1 · glecaprevir–pibrentasvir, 12 weeks, compensated cirrhosis</span><span class="b"><i style="width:99%"></i></span><b>99%</b></div>
+    <div><span>ASTRAL-4 · sofosbuvir–velpatasvir + ribavirin, 12 weeks, decompensated (Child–Pugh B)</span><span class="b"><i style="width:94%"></i></span><b>94%</b></div>
+    <div><span>ASTRAL-4 · sofosbuvir–velpatasvir alone, 12 weeks, decompensated</span><span class="b"><i style="width:83%"></i></span><b>83%</b></div>
+  </div>
+  <p class="stage-cap">SVR rates as published. [[Lawitz2013,Feld2015ASTRAL1,Forns2017EXPEDITION1,Curry2015ASTRAL4]] After a cure, people with cirrhosis still had liver cancer at 1.82 per 100 person-years, so surveillance continues. [[Kanwal2017]] More in <a href="#hepatitis" data-go="hepatitis">Viral hepatitis B &amp; C</a>.</p>
+
+  <h3 class="sub">People behind the ideas</h3>
+  <div class="cards">
+    <div class="card"><span class="yr">1819</span><h4>René Laennec</h4><p>He named cirrhosis in a brief footnote to his treatise on mediate auscultation, from <i>kirrhos</i>, tawny. In France the eponym is rarely used; North America took it up through William Osler's textbook. [[Duffin1987]]</p></div>
+    <div class="card"><span class="yr">1964 · 1973</span><h4>C. G. Child, J. G. Turcotte and R. N. Pugh</h4><p>Child and Turcotte's classification came from a monograph on surgery and portal hypertension; Pugh and colleagues modified it in a 1973 paper on oesophageal transection for bleeding varices. [[ChildTurcotte1964,Pugh1973]] Try the scores in <a href="#scores" data-go="scores">Child–Pugh &amp; MELD</a>.</p></div>
+    <div class="card"><span class="yr">1963 · 1967 · 1989</span><h4>T. E. Starzl</h4><p>Performed the first human liver transplant in 1963 (none of the first five recipients lived beyond 23 days), began a successful series in 1967, and by 1989 reported 1,179 consecutive transplants with 73% 1-year and 64% 5-year survival. [[Starzl1963,Meirelles2015]]</p></div>
+    <div class="card"><span class="yr">1967 · 1979</span><h4>R. Y. Calne</h4><p>His antilymphocyte serum encouraged Starzl's 1967 series, and in 1979 he reported cyclosporin A as the first immunosuppressant in 34 recipients of cadaveric organs, 2 of them livers. [[Meirelles2015,Calne1979]]</p></div>
+    <div class="card"><span class="yr">1969 · 1989</span><h4>J. Rösch, G. M. Richter and J. C. Palmaz</h4><p>Rösch's team described an experimental transjugular shunt in 1969; Richter, Palmaz and colleagues in Heidelberg placed the first stent-supported TIPS in a person in 1989. [[Rosch1969,Richter1989Radiologe]]</p></div>
+    <div class="card"><span class="yr">1965 · 1989 · 2020</span><h4>B. S. Blumberg, Harvey Alter, Michael Houghton, Charles Rice</h4><p>Blumberg and Alter described the Australia antigen of hepatitis B; Houghton's group cloned hepatitis C; Alter, Houghton and Rice shared the 2020 Nobel Prize for its discovery. [[Blumberg1965,Choo1989,Lin2021Nobel]]</p></div>
+    <div class="card"><span class="yr">2000 · 2008 · 2021</span><h4>M. Malinchoc, P. S. Kamath and W. R. Kim</h4><p>A model built to predict survival after TIPS became MELD; Kim's group added sodium (MELD-Na) and then female sex and albumin (MELD 3.0), adopted for US allocation in July 2023. [[Malinchoc2000,Kamath2001MELD,Kim2008MELDNa,Kim2021MELD3,Kwong2025OPTN]]</p></div>
+    <div class="card"><span class="yr">2023</span><h4>M. E. Rinella and 236 panellists</h4><p>A multisociety Delphi process with panellists from 56 countries renamed NAFLD as MASLD, partly because many felt "nonalcoholic" and "fatty" were stigmatising. [[Rinella2023MASLD]] See <a href="#masld" data-go="masld">MASLD &amp; MASH</a>.</p></div>
+  </div>
+</section>

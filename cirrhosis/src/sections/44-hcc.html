@@ -1,0 +1,104 @@
+<!-- ================= 4.4 LIVER CANCER SURVEILLANCE ================= -->
+<style>
+#m-hcc .card>.ev,#m-hcc .card>.tag{align-self:flex-start}
+#m-hcc .tbl table{min-width:520px}
+#m-hcc .bc-ctrls .btn{min-width:64px}
+#m-hcc .bcpanel{display:flex;flex-direction:column;gap:10px}
+#m-hcc .bcpanel ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+#m-hcc .bcpanel .surv{font:700 15px var(--mono);color:var(--accent)}
+#m-hcc .milan{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){#m-hcc .milan{grid-template-columns:minmax(0,1fr)}}
+#m-hcc .milan .calc{grid-template-columns:minmax(0,1fr)}
+#m-hcc .milan label.chk{flex-direction:row;align-items:center;gap:8px}
+#m-hcc .rng{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+#m-hcc .rng output{font:700 15px var(--mono);color:var(--ink)}
+#m-hcc #hcMilanSvg,#m-hcc #hcIvSvg{width:100%;height:auto;display:block}
+</style>
+<section class="mod" id="m-hcc" data-mod="hcc" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Complications</p><h2>Liver cancer surveillance</h2>
+    <p class="lede">People with cirrhosis have a higher chance of liver cancer (hepatocellular carcinoma, HCC). An ultrasound, often with an AFP blood test, every 6 months aims to find it while it is small and easier to treat. Follow one illustrative tumour with and without that check.</p></div>
+
+  <p class="crisis" role="note"><b>Urgent care</b><span>Vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen need urgent care: call your local emergency number or go to an emergency department.</span></p>
+
+  <div class="ctrls" role="group" aria-label="Surveillance test">
+    <span class="kicker">Each 6-monthly check uses</span>
+    <button class="btn" data-hm="usafp" aria-pressed="true">Ultrasound + AFP</button>
+    <button class="btn" data-hm="us" aria-pressed="false">Ultrasound alone</button>
+  </div>
+  <div class="stepper" id="hcSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hcSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="On the left, 100 people with cirrhosis; as the years pass, a few of them develop liver cancer each year. On the right, two timelines follow the same illustrative tumour: on the upper one, checks every 6 months find it while it is small and it is treated; on the lower one, with no checks, it grows until it causes symptoms. A strip of BCLC stages at the bottom shows where each track ends up, with the published median survival for each stage."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hcPlay">Play</button><label class="stage-cap tl" for="hcT">Years <input type="range" id="hcT" min="0" max="1" step="0.001" value="0.12"></label></div>
+      <div class="readout" id="hcRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The tumour, its growth and the visit at which it is found are illustrative: no source in this guide gives a growth rate. The icon array uses the 1.3 per 100 patient-years seen in a VA cirrhosis cohort [[Ioannou2007HCC]]; sensitivities are from a meta-analysis [[Tzartzeva2018]]; median survival by stage is a population statistic from BCLC 2022 [[Reig2022BCLC]].</p>
+    </div>
+    <aside class="note" id="hcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who is offered surveillance</h3>
+  <div class="prose"><p>AASLD 2023 recommends surveillance when HCC risk is at least 1.0% a year, a lower threshold than the traditional 1.5%. That covers Child–Pugh A–B cirrhosis of any cause, Child–Pugh C transplant candidates, and selected people with hepatitis B without cirrhosis [[Singal2023AASLDHCC]]. Risk differs by cause. In a classic review, the 5-year cumulative incidence of HCC in cirrhosis was:</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Cause of cirrhosis</th><th>5-year cumulative HCC incidence</th></tr></thead>
+    <tbody>
+      <tr><th>Hepatitis C</th><td>about 30% in Japan, 17% in the West</td></tr>
+      <tr><th>Haemochromatosis</th><td>21%</td></tr>
+      <tr><th>Hepatitis B</th><td>15% in high-endemic areas, 10% in the West</td></tr>
+      <tr><th>Alcohol-related cirrhosis</th><td>8%</td></tr>
+      <tr><th>Advanced biliary cirrhosis</th><td>4%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Population figures [[Fattovich2004HCC]]. Coinfection (HCV with HBV, or HBV with HDV) raised risk 2- to 6-fold, and continued heavy alcohol use 2- to 4-fold [[Fattovich2004HCC]]. In people with MASLD, incidence was 10.6 per 1000 person-years with cirrhosis, and 20% of MASLD-related HCCs arose without evidence of cirrhosis [[Kanwal2018NAFLD]].</p>
+
+  <h3 class="sub">Why every 6 months?</h3>
+  <div class="ctrls" role="group" aria-label="Surveillance interval">
+    <button class="btn" data-iv="3" aria-pressed="false">Every 3 months</button>
+    <button class="btn" data-iv="6" aria-pressed="true">Every 6 months</button>
+    <button class="btn" data-iv="12" aria-pressed="false">Every 12 months</button>
+  </div>
+  <div class="split2">
+    <div class="stage"><svg id="hcIvSvg" viewBox="0 0 400 170" role="img" aria-label="Three years of visits drawn as ticks on a timeline, for the chosen surveillance interval."></svg></div>
+    <div class="note" id="hcIvNote" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">BCLC stages and the treatments offered</h3>
+  <div class="prose"><p>The Barcelona Clinic Liver Cancer (BCLC) system combines the tumour, liver function and how well the person can carry out daily activities (performance status, PS) [[Reig2022BCLC]]. Pick a stage. Treatments are listed as published; survival figures describe large groups, not any one person.</p></div>
+  <div class="ctrls bc-ctrls" role="group" aria-label="BCLC stage">
+    <button class="btn" data-bc="0" aria-pressed="true">0 · very early</button>
+    <button class="btn" data-bc="1" aria-pressed="false">A · early</button>
+    <button class="btn" data-bc="2" aria-pressed="false">B · intermediate</button>
+    <button class="btn" data-bc="3" aria-pressed="false">C · advanced</button>
+    <button class="btn" data-bc="4" aria-pressed="false">D · end stage</button>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="hcBc" viewBox="0 0 520 300" style="min-width:0" role="img" aria-label="A schematic cirrhotic liver with the tumour burden of the chosen BCLC stage, and a bar of the published median survival for each stage."></svg></div>
+    </div>
+    <div class="note bcpanel" id="hcBcNote" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Transplant and the Milan criteria</h3>
+  <div class="milan">
+    <div class="calc">
+      <p class="safety"><b>Teaching tool</b>This shows how the published Milan criteria are built. It is never for diagnosis or transplant decisions, which need full imaging and a transplant team.</p>
+      <label for="hcMn">Number of tumours<select id="hcMn"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4 or more</option></select></label>
+      <label for="hcMs"><span class="rng">Largest tumour <output id="hcMsO">2.5 cm</output></span><input type="range" id="hcMs" min="0.5" max="9" step="0.1" value="2.5"></label>
+      <label class="chk" for="hcMv"><input type="checkbox" id="hcMv"> Macrovascular invasion</label>
+      <div class="verdict yes" id="hcMV" aria-live="polite"></div>
+    </div>
+    <div class="stage"><svg id="hcMilanSvg" viewBox="0 0 400 210" role="img" aria-label="Tumours drawn to scale against the Milan limits: a 5 cm circle for a single tumour, 3 cm circles for two or three tumours."></svg>
+      <p class="stage-cap">Milan: a single tumour ≤5 cm, or up to 3 tumours each ≤3 cm, with no macrovascular invasion. In the original 48 recipients, 4-year survival was 75% and recurrence 8% [[Mazzaferro1996Milan]]. In 1556 transplants, 5-year survival was 73.3% within Milan versus 53.6% beyond [[Mazzaferro2009UpToSeven]]. Wider criteria: UCSF (single tumour ≤6.5 cm, or ≤3 nodules with the largest ≤4.5 cm and total ≤8 cm) gave 75.2% 5-year survival [[Yao2001UCSF]]; successful downstaging to Milan is accepted [[Singal2023AASLDHCC]].</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Making surveillance work</h3>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Underused</span><h4>Only about 1 in 4</h4><p>Across 29 studies of 118,799 people with cirrhosis, pooled surveillance use was 24.0%: 73.7% in specialist clinics but 8.8% in population-based cohorts, and lower with alcohol-related or NASH-related cirrhosis. All eight intervention studies (education, reminders or recall, outreach) raised it, by 9.4–63.6% [[Wolf2021Surveillance]]. AASLD recommends best-practice alerts or outreach programmes [[Singal2023AASLDHCC]]. It is fine to ask your care team when your next scan is due.</p></div>
+    <div class="card"><span class="tag rx">After hepatitis C cure</span><h4>Lower risk, not zero</h4><p>In 22,500 US veterans treated with direct-acting antivirals, cure (SVR) lowered HCC incidence from 3.45 to 0.90 per 100 person-years, but with cirrhosis it stayed at 1.82 [[Kanwal2017]]. In Sicily, 1-year HCC incidence in Child–Pugh A was 2.1% with SVR versus 6.6% without [[Calvaruso2018]]. AASLD 2023 says risk stays raised for up to 10 years after SVR in cirrhosis, so surveillance should continue indefinitely [[Singal2023AASLDHCC]]. See <a href="#hepatitis" data-go="hepatitis">Viral hepatitis B &amp; C</a>.</p></div>
+    <div class="card"><span class="tag accent">Hard scans</span><h4>When ultrasound cannot see well</h4><p>In 941 people with cirrhosis, 20.3% of ultrasounds were inadequate to exclude HCC, more often with a higher BMI, Child–Pugh B/C, alcohol-related or NASH cirrhosis [[Simmons2017US]]. When visualisation is severely limited, AASLD says MRI may be considered [[Singal2023AASLDHCC]]. <span class="ev early">Early evidence</span> Abbreviated MRI reached a pooled 86% sensitivity and 96% specificity [[Kim2021AMRI]]; the GALAD blood panel 60–80% sensitivity for early HCC [[Singal2023AASLDHCC,Johnson2014GALAD]]. AASLD does not yet recommend them routinely [[Singal2023AASLDHCC]].</p></div>
+    <div class="card"><span class="tag dx">The blood test</span><h4>AFP</h4><p>At the usual surveillance cut-off of 20 ng/mL, AFP has about 60% sensitivity and 90% specificity, and over 40% of HCCs have a normal AFP [[Singal2023AASLDHCC]]. Added to ultrasound it raised sensitivity for early HCC from 45% to 63%, with a small loss of specificity [[Tzartzeva2018]]. A new solid lesion of 1 cm or more, or a rising AFP, leads to multiphase CT or contrast MRI, read with LI-RADS [[Singal2023AASLDHCC,Chernyak2018LIRADS]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Does surveillance save lives?</h4><p>In a Shanghai trial of 18,816 people with hepatitis B or chronic hepatitis, AFP plus ultrasound every 6 months cut HCC mortality by 37% despite 58.2% adherence; resection was possible in 46.5% of screened versus 7.5% of control cancers [[Zhang2004Screening]]. In cirrhosis the evidence is mainly cohort studies: in 47 studies surveillance was linked with early detection (OR 2.08), curative treatment (OR 2.24) and longer survival (OR 1.90) [[Singal2014PLoSMed]]. There is no randomised trial in cirrhosis itself, and cohort studies are prone to lead-time bias [[Singal2014PLoSMed]].</p></div>
+    <div class="card"><span class="tag good">Beyond the stage</span><h4>Care alongside treatment</h4><p>AASLD describes palliative care as specialised care for physical, spiritual and psychosocial needs that can be considered at any stage of cirrhosis, alongside treatment aimed at the disease [[Rogal2022AASLD]]. It is about support and comfort, and it does not mean stopping treatment. See <a href="#living" data-go="living">Living with cirrhosis</a>.</p></div>
+  </div>
+  <p class="callout">Primary liver cancer is the sixth most common cancer worldwide and the third leading cause of cancer death; HCC makes up 75–86% of cases, and men are affected 2–3 times more than women [[Singal2023AASLDHCC]]. Every survival number here describes large groups of people and cannot predict what will happen to any one person. Earlier: <a href="#portal" data-go="portal">portal hypertension</a>, which also decides whether some cancer treatments are safe.</p>
+</section>

@@ -1,0 +1,76 @@
+<!-- ================= 1.2 THE LIVER AND WHAT IT DOES ================= -->
+<style>
+#m-liver .lfbtns{display:flex;flex-wrap:wrap;gap:8px}
+#m-liver .lfout{display:flex;flex-direction:column;gap:12px}
+#m-liver .lfcard{border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:0 12px 12px 0;padding:10px 14px;display:flex;flex-direction:column;gap:6px;background:var(--panel)}
+#m-liver .lfcard h4{margin:0;font-family:var(--display);font-weight:700;font-size:18px;line-height:1.2}
+#m-liver .lfcard p{font-size:14.5px}
+#m-liver .lfcard .row{display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 10px;font-size:14.5px}
+#m-liver .lfcard .row b{font:600 10.5px/1.6 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:600px){#m-liver .lfcard .row{grid-template-columns:minmax(0,1fr);gap:0}}
+#m-liver .tbl table{min-width:520px}
+#m-liver svg[data-mode=n] .t-xs{font-size:11px}
+#m-liver svg[data-mode=n] .t-sm{font-size:12px}
+#m-liver .card>.ev,#m-liver .card>.tag{align-self:flex-start}
+</style>
+<section class="mod" id="m-liver" data-mod="liver" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding cirrhosis</p><h2>The liver and what it does</h2>
+    <p class="lede">Follow blood into one liver lobule and watch its cells at work: two blood supplies, oxygen zones, the cells that line each sinusoid, and the jobs that keep the rest of the body running. Then switch functions off to see what changes when the liver fails.</p></div>
+  <div class="stepper" id="liSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="liSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="On the left, a hexagonal liver lobule with portal triads at its corners and a central vein in the middle; blood dots stream from the corners to the centre. On the right, a close-up changes with each step: the portal vein and hepatic artery filling a 75 to 25 split, the oxygen zones along one sinusoid, the cells lining it, albumin and clotting proteins leaving a hepatocyte, bile flowing the opposite way to blood, glycogen filling and emptying, and ammonia turned into urea while medicines are broken down."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="liPlay">Play</button><label class="stage-cap tl" for="liT">Tour <input type="range" id="liT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="liRead"></div>
+      <p class="stage-cap">Schematic, not to scale. Dot counts show proportions only (three portal dots for each arterial dot). [[Eipel2010,Trefts2017]]</p>
+    </div>
+    <aside class="note" id="liNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The liver by the numbers</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Feature</th><th>Value (healthy adults unless stated)</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Share of body weight / of cardiac output</th><td>about 2.5% / nearly 25%</td><td>[[Eipel2010]]</td></tr>
+      <tr><th>Total hepatic blood flow</th><td>800–1200 mL/min (about 100 mL/min per 100 g of liver)</td><td>[[Eipel2010]]</td></tr>
+      <tr><th>Inflow split</th><td>portal vein 75–80%, hepatic artery about 25%</td><td>[[Eipel2010]]</td></tr>
+      <tr><th>Blood held in the sinusoids</th><td>up to 60% of hepatic blood volume; the liver can make up for up to 25% of a haemorrhage</td><td>[[Eipel2010]]</td></tr>
+      <tr><th>Sinusoid window size (fenestrae)</th><td>50–180 nm in humans</td><td>[[Trefts2017]]</td></tr>
+      <tr><th>Stellate cells</th><td>about 15% of resident liver cells; hold 80–90% of the liver's vitamin A</td><td>[[Friedman2008PhysiolRev]]</td></tr>
+      <tr><th>Kupffer cells</th><td>80–90% of all tissue macrophages in the body</td><td>[[Bilzer2006]]</td></tr>
+      <tr><th>Protein output</th><td>85–90% of circulating protein volume; albumin about 55% of plasma protein</td><td>[[Trefts2017]]</td></tr>
+      <tr><th>Albumin</th><td>about 10.5 g made a day; turnover about 25 days</td><td>[[Levitt2016]]</td></tr>
+      <tr><th>Drug metabolism</th><td>about a dozen CYP enzymes handle 70–80% of drugs in clinical use</td><td>[[Zanger2013]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">What goes wrong when it fails</h3>
+  <p class="prose">Switch on the functions a scarred liver loses. Each one has its own signs and its own blood test, and several are built into the Child–Pugh and MELD scores. Bodies and tests are drawn schematically; real people rarely lose functions one at a time.</p>
+  <div class="lfbtns" id="liFail" role="group" aria-label="Lost liver functions">
+    <button class="btn" data-lf="alb" aria-pressed="true">Albumin</button>
+    <button class="btn" data-lf="clot" aria-pressed="false">Clotting proteins</button>
+    <button class="btn" data-lf="bili" aria-pressed="false">Bilirubin &amp; bile</button>
+    <button class="btn" data-lf="nh3" aria-pressed="false">Ammonia clearance</button>
+    <button class="btn" data-lf="glu" aria-pressed="false">Fuel store</button>
+    <button class="btn" data-lf="drug" aria-pressed="false">Medicine handling</button>
+    <button class="btn" data-lf="flow" aria-pressed="false">Blood flow through</button>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="liFailSvg" viewBox="0 0 720 360" role="img" aria-label="A schematic person, a brain and a lab sheet. Each switched-on function changes the picture: fluid fills the belly, the skin turns yellow, a violet fog covers the brain, and lab rows show arrows for albumin, INR, platelets, bilirubin, ammonia, muscle and medicine levels."></svg></div>
+      <p class="stage-cap">Schematic. Arrows show the usual direction of change, not values or thresholds.</p>
+    </div>
+    <div class="lfout" id="liFailOut" aria-live="polite"></div>
+  </div>
+  <div class="crisis"><b>Urgent</b><span>Vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen need urgent care: call your local emergency number or go to an emergency department.</span></div>
+
+  <h3 class="sub">The liver that rebuilds itself</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>The "hepatostat"</h4><p>The liver is the only solid organ that restores itself to 100% of the liver-to-body-weight ratio the body needs. Acute regeneration after a single injury is beneficial. [[Michalopoulos2021]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Slow turnover, huge reserve</h4><p>In a healthy liver, hepatocytes are replaced very slowly. Yet in recolonisation experiments hepatocytes show unlimited regenerative capacity. [[Michalopoulos2021]]</p></div>
+    <div class="card"><span class="tag accent">The catch</span><h4>When injury never stops</h4><p>Chronic, repeated hepatocyte loss is different: instead of clean regrowth it often leads to fibrosis, cirrhosis and cancer. That story is the next module, <a href="#fibrosis" data-go="fibrosis">From injury to scar</a>. [[Michalopoulos2021]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Zone 2 steps in</h4><p>Zonation is a continuum, not three fixed boxes: after damage, zone 2 hepatocytes can take on zone 1 functions. In liver disease, zonation is often lost. [[Trefts2017,Kietzmann2017]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>A built-in blood bank</h4><p>The sinusoids hold up to 60% of the liver's blood volume, and the liver can make up for up to 25% of a haemorrhage by squeezing blood out of its capacitance vessels. [[Eipel2010]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Cells as medicine</h4><p>Hepatocyte transplantation was first reported for Crigler–Najjar syndrome type I in 1998. It is still limited by tissue shortage, early cell loss and poor engraftment. See <a href="#frontier" data-go="frontier">Research toward better treatment</a>. [[Fox1998,Nguyen2020]]</p></div>
+  </div>
+</section>

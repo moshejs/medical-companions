@@ -1,0 +1,102 @@
+{
+ "what": {
+  "title": "What is cirrhosis? Causes, how common it is and early symptoms",
+  "description": "What cirrhosis is, its many causes, how many people live with it worldwide, why most do not know, early symptoms and person-first language."
+ },
+ "liver": {
+  "title": "What the liver does: lobule, blood supply and signs of liver failure",
+  "description": "Animated liver lobule: portal vein and artery, zones, stellate and Kupffer cells, albumin, bile, glucose, ammonia to urea, and what liver failure changes."
+ },
+ "fibrosis": {
+  "title": "Liver fibrosis to cirrhosis: stellate cells, METAVIR, regression",
+  "description": "How liver injury becomes scar: stellate-cell activation, collagen, capillarisation, nodules, METAVIR F0–F4, progression rates and evidence fibrosis regresses."
+ },
+ "alcohol": {
+  "title": "Alcohol-related liver disease: fatty liver to cirrhosis, and stopping",
+  "description": "How heavy drinking moves from fatty liver to hepatitis and cirrhosis, risk by drinks a day in women and men, steroids, Lille, early transplant and abstinence."
+ },
+ "masld": {
+  "title": "MASLD and MASH: fatty liver disease, fibrosis stages and treatment",
+  "description": "MASLD, MASH and MetALD explained: global prevalence, why fibrosis stage predicts outcomes, weight-loss results, bariatric surgery, resmetirom and semaglutide."
+ },
+ "hepatitis": {
+  "title": "Hepatitis B and C cirrhosis: viral load, antivirals and DAA cure",
+  "description": "Animated, cited guide to hepatitis B and C as causes of cirrhosis: REVEAL-HBV viral load risk, tenofovir regression, DAA cure rates and HCC risk after SVR."
+ },
+ "othercauses": {
+  "title": "Other causes of cirrhosis: haemochromatosis, Wilson, AIH, PBC, PSC",
+  "description": "Haemochromatosis, Wilson disease, alpha-1 antitrypsin, autoimmune hepatitis, PBC, PSC, drug injury and Fontan liver: key tests, treatments and inheritance."
+ },
+ "tests": {
+  "title": "Cirrhosis blood tests, ultrasound and liver biopsy explained",
+  "description": "How to read ALT, AST, ALP, bilirubin, albumin, INR and platelets as patterns in cirrhosis, what ultrasound shows, and biopsy roles and risks."
+ },
+ "noninvasive": {
+  "title": "FIB-4 calculator and FibroScan kPa bands for liver fibrosis",
+  "description": "A teaching FIB-4 calculator with published cut-offs, Baveno VII rule of five for FibroScan kPa, and APRI, ELF and MR elastography accuracy."
+ },
+ "scores": {
+  "title": "Child-Pugh and MELD scores: MELD-Na and MELD 3.0 calculator",
+  "description": "Child-Pugh items and classes A, B and C explained, with a teaching calculator for MELD, MELD-Na and MELD 3.0 using the published formulas."
+ },
+ "portal": {
+  "title": "Portal hypertension and varices: HVPG, bleeding and treatment",
+  "description": "Animated HVPG gauge from 5 to 12 mmHg, how varices form and bleed, the variceal bleed bundle, PREDESCI, carvedilol and the Baveno VII endoscopy rule."
+ },
+ "ascites": {
+  "title": "Ascites in cirrhosis: diuretics, paracentesis, SBP and HRS explained",
+  "description": "How fluid builds up in cirrhosis, with EASL diuretic steps, albumin after paracentesis, TIPS, the SBP neutrophil threshold and terlipressin for HRS."
+ },
+ "encephalopathy": {
+  "title": "Hepatic encephalopathy: ammonia, West Haven grades and treatment",
+  "description": "Hepatic encephalopathy animated: how ammonia reaches the brain, West Haven grades, triggers, lactulose and rifaximin trials, and the animal naming test."
+ },
+ "hcc": {
+  "title": "Liver cancer surveillance in cirrhosis: ultrasound, AFP and BCLC",
+  "description": "Why people with cirrhosis get an ultrasound and AFP every 6 months: HCC risk, early-detection sensitivity, BCLC stages, treatments and a Milan checker."
+ },
+ "course": {
+  "title": "Cirrhosis stages: compensated, decompensated, ACLF and survival",
+  "description": "The stages of cirrhosis from compensated to decompensated and ACLF, with 5-year mortality by stage, Baveno VII definitions and recompensation."
+ },
+ "transplant": {
+  "title": "Liver transplant: referral, MELD waiting list and survival",
+  "description": "The liver transplant journey animated: referral and MELD, evaluation, waiting-list outcomes, deceased and living donors, tacrolimus and US survival figures."
+ },
+ "nutrition": {
+  "title": "Cirrhosis nutrition: late evening snack, sarcopenia, safer medicines",
+  "description": "Why cirrhosis behaves like accelerated starvation, EASL protein and energy targets, the late evening snack, sarcopenia, frailty and paracetamol limits."
+ },
+ "nursing": {
+  "title": "Cirrhosis nursing care: paracentesis, variceal bleed, NCLEX scenarios",
+  "description": "A ward shift in decompensated cirrhosis: daily weights, asterixis, lactulose stool counts, paracentesis checks, variceal bleed priorities and CIWA-Ar."
+ },
+ "living": {
+  "title": "Living with cirrhosis: daily weights, red flags and palliative care",
+  "description": "A week with cirrhosis: medicines, daily weights, late snack, 6-monthly scans, symptoms, urgent red flags, a self-check log, carers and palliative care."
+ },
+ "frontier": {
+  "title": "Cirrhosis research: MASH drugs, statins, cell therapy and trials",
+  "description": "Evidence-labelled pipeline of cirrhosis research: resmetirom, semaglutide, FGF21 drugs, statin trials, macrophage therapy, machine perfusion and NCT trials."
+ },
+ "history": {
+  "title": "History of cirrhosis: Laennec to MELD, liver transplant and HCV cure",
+  "description": "A timeline of cirrhosis from Laennec in 1819 through Starzl's transplants, Child–Pugh, TIPS, MELD and the hepatitis C cure to MASLD and resmetirom."
+ },
+ "review": {
+  "title": "Cirrhosis flashcards and mnemonics: Child–Pugh, MELD, varices, HE",
+  "description": "88 cited cirrhosis flashcards by part, ten memory aids, and an animated ABCDE walk through Child–Pugh points and classes, for students and patients."
+ },
+ "quiz": {
+  "title": "Cirrhosis quiz: 98 questions with cited explanations",
+  "description": "Multiple-choice cirrhosis questions on causes, FIB-4, elastography, MELD, varices, ascites, SBP, encephalopathy, liver cancer and transplant, each explained."
+ },
+ "glossary": {
+  "title": "Cirrhosis glossary: 150+ liver terms from ACLF to West Haven",
+  "description": "Searchable cirrhosis glossary: MASLD, MetALD, HVPG, SAAG, SBP, MELD 3.0, LI-RADS, stellate cells and more, each cited and linked to its module."
+ },
+ "sources": {
+  "title": "Cirrhosis Companion sources: guidelines, trials and drug labels",
+  "description": "Every reference behind the Cirrhosis Companion, from AASLD, EASL and Baveno VII guidance to trials and FDA labels, filterable by research area."
+ }
+}

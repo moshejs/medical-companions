@@ -1,0 +1,75 @@
+<!-- ================= 5.1 LIVER TRANSPLANT ================= -->
+<style>
+#m-transplant .card>.ev,#m-transplant .card>.tag{align-self:flex-start}
+#m-transplant .tbl table{min-width:520px}
+#m-transplant #txMeldBtns .btn{font-size:13px}
+</style>
+<section class="mod" id="m-transplant" data-mod="transplant" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Treatment &amp; living</p><h2>Liver transplant</h2>
+    <p class="lede">When the liver is failing, or for some liver cancers, a new liver can be a treatment. Follow the journey from referral to life years later, and switch between a deceased and a living donor. Every figure is a population statistic from the US registry or a named study, not a prediction for anyone. [[Gines2021Lancet,Kwong2025OPTN]]</p></div>
+
+  <div class="ctrls" role="group" aria-label="Donor type">
+    <span class="kicker">Donor</span>
+    <button class="btn" data-txdonor="dd" aria-pressed="true">Deceased donor</button>
+    <button class="btn" data-txdonor="ld" aria-pressed="false">Living donor</button>
+  </div>
+  <div class="stepper" id="txSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="txSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A person moves along six stations: referral, evaluation, waiting list, surgery, recovery and long-term life. Below, each station shows its data: the survival benefit of transplant by MELD band, the parts of the evaluation, an array of 100 people showing what happened 3 years after listing, the diseased liver replaced by a donor liver, immunosuppression at discharge, and graft and patient survival over the years for the chosen donor type."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="txPlay">Play</button><label class="stage-cap tl" for="txT">The journey <input type="range" id="txT" min="0" max="1" step="0.001" value="0.07"></label></div>
+      <div class="readout" id="txRead"></div>
+      <p class="stage-cap"><b>Schematic path, published numbers.</b> US OPTN/SRTR registry data unless another study is named; survival lines are drawn through the published points (circled). Population statistics, not a prediction for any one person. [[Kwong2025OPTN,Kwong2026SRTR]]</p>
+    </div>
+    <aside class="note" id="txNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">MELD and the waiting list</h3>
+  <div class="prose"><p>In the US, donor livers are offered largely by MELD score: the sicker the liver, the higher the priority. These are the published risks of dying on the list at different scores. Work a score out yourself in <a href="../scores/" data-go="scores">Child–Pugh &amp; MELD scores</a>. [[Wiesner2003,Kwong2025OPTN]]</p></div>
+  <p class="safety"><b>Teaching tool</b>MELD and these bands are shown for learning only, never for diagnosis, prognosis or transplant decisions. Transplant teams weigh many things a score cannot capture.</p>
+  <div class="ctrls" id="txMeldBtns" role="group" aria-label="Choose a published MELD band">
+    <button class="btn" data-txm="0" aria-pressed="false">MELD under 9</button>
+    <button class="btn" data-txm="1" aria-pressed="false">MELD-Na 20</button>
+    <button class="btn" data-txm="2" aria-pressed="true">MELD-Na 30</button>
+    <button class="btn" data-txm="3" aria-pressed="false">MELD-Na 40</button>
+    <button class="btn" data-txm="4" aria-pressed="false">MELD 40 or more</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="txMeld" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="An array of 100 people on the waiting list; the number filled in shows the published share who died at the chosen MELD band: 1.9 in 100 within 3 months at MELD under 9, 6, 16 and 37 in 100 within 6 months at MELD-Na 20, 30 and 40, and 71.3 in 100 within 3 months at MELD 40 or more."></svg></div>
+      <p class="stage-cap" id="txMeldCap"></p>
+    </div>
+    <aside class="note" id="txMeldNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who is considered, and why</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Milan criteria for liver cancer</h4><p>A single tumour ≤5 cm, or no more than 3 nodules each ≤3 cm, with no macrovascular invasion. In the first 48 recipients, 4-year survival was 75%; within the criteria on explant pathology, 85%, with 92% recurrence-free. AASLD 2023 calls Milan "the standard for optimal patient selection": transplant is linked with a median survival of 10 years, and people beyond Milan but within downstaging criteria "should be considered for LT following successful downstaging". [[Mazzaferro1996Milan,Singal2023AASLDHCC]]</p></div>
+    <div class="card"><span class="tag">Beyond Milan</span><h4>Up-to-seven and UCSF</h4><p>In 1,556 transplants for liver cancer, 5-year survival was 73.3% within Milan and 53.6% beyond; within "up-to-seven" without microvascular invasion it was 71.2%. The UCSF criteria (a single tumour ≤6.5 cm, or ≤3 nodules with the largest ≤4.5 cm and total ≤8 cm) gave 75.2% at 5 years. See <a href="../hcc/" data-go="hcc">Liver cancer surveillance</a>. [[Mazzaferro2009UpToSeven,Yao2001UCSF]]</p></div>
+    <div class="card"><span class="tag accent">Brain</span><h4>Hepatic encephalopathy</h4><p>The AASLD/EASL guideline: "Recurrent intractable OHE, together with liver failure, is an indication for LT." After a first episode of acute hepatic encephalopathy, survival was 42% at 1 year in one cohort, and the authors said such people "should be considered as potential candidates". [[Vilstrup2014HE,Bustamante1999]]</p></div>
+    <div class="card"><span class="tag liver">Indications</span><h4>Why people receive a liver</h4><p>In 2023, alcohol-associated liver disease was the leading indication in US adults: 41.1% of recipients (34.6% cirrhosis, 6.5% hepatitis), followed by MASH at 20.3%. See <a href="../alcohol/" data-go="alcohol">Alcohol-related liver disease</a> and <a href="../masld/" data-go="masld">Fatty liver disease</a>. [[Kwong2025OPTN]]</p></div>
+  </div>
+
+  <h3 class="sub">Alcohol and the six-month rule</h3>
+  <div class="split2">
+    <div class="prose">
+      <p>For years, "a 6-month abstinence from alcohol is usually required" before people with severe alcohol-associated hepatitis were considered. Yet most deaths from that illness come within 2 months. [[Mathurin2011NEJM]]</p>
+      <p>Early transplant for carefully selected people changed the picture: 6-month survival of 77% vs 23% in matched controls in the Franco-Belgian pilot, and 94% at 1 year and 84% at 3 years in ACCELERATE-AH (median 55 days' abstinence). Sustained alcohol use after transplant (10% at 1 year, 17% at 3 years) was linked to higher mortality (HR 4.59). [[Mathurin2011NEJM,Lee2018Gastro]]</p>
+    </div>
+    <div class="prose">
+      <p><span class="ev early">Debated</span> In QuickTrans, return to drinking at 2 years was 34% after early transplant vs 25% after standard transplant, so non-inferiority was not shown, and heavy drinking was more frequent after early transplant. Two-year post-transplant survival was similar (HR 0.87). [[Louvet2022Lancet]]</p>
+      <p>ACG 2024 says selection requires rigorous psychosocial evaluation by a multidisciplinary team, using tools such as SIPAT, and that transplant "should be considered in selected patients with AH, who are unresponsive to medical therapy and have a low risk of relapse". [[Jophlin2024ACG]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Life after transplant</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Label</span><h4>Tacrolimus, for life</h4><p>Tacrolimus is indicated "for the prophylaxis of organ rejection" in liver transplant, with other immunosuppressants. Its boxed warning: "Increased risk for developing serious infections and malignancies". Warnings include new diabetes, kidney injury, tremor and seizures, high potassium and blood pressure, and "Avoid eating grapefruit or drinking grapefruit juice"; blood levels are monitored. Quoted as published. [[FDA-Prograf]]</p></div>
+    <div class="card"><span class="ev est">Meta-analysis</span><h4>Why tacrolimus</h4><p>Against cyclosporin in 16 trials, tacrolimus lowered 1-year mortality (RR 0.85), graft loss (RR 0.73) and acute rejection (RR 0.81), but raised new diabetes (RR 1.38). Per 100 recipients: rejection avoided in 9, graft loss in 5 and death in 2, with 4 more developing diabetes. [[McAlister2006]]</p></div>
+    <div class="card"><span class="tag good">Recovery</span><h4>Strength comes back, slowly</h4><p>At least 90% of recipients improve their Karnofsky functional score, with a median 20% gain by 1 year. The share who were frail fell from 29% to 9% at 12 months, but many are still not "robust", so rehabilitation continues after surgery. Frailty and sarcopenia are now part of assessment, but AASLD says they should not be used as an absolute contraindication. See <a href="../nutrition/" data-go="nutrition">Nutrition &amp; muscle</a>. [[Lai2021AASLD]]</p></div>
+    <div class="card"><span class="tag">Living donors</span><h4>A gift with its own risks</h4><p>Receiving a living donor liver was linked to lower mortality than waiting for a deceased donor (adjusted HR 0.56; 0.35 at centres with more than 20 cases). The authors note this "must be balanced against the risks undertaken by the living donors themselves". In 2023 there were 659 US living liver donors, an all-time high. [[Berg2007A2ALL,Kwong2025OPTN]]</p></div>
+    <div class="card"><span class="tag rx">Alongside treatment</span><h4>Palliative care is not giving up</h4><p>Palliative care is extra support for comfort, symptoms and planning, and it can sit alongside active treatment, including transplant evaluation. AASLD guidance says goals-of-care discussions should be prioritised when transplant is being considered. Among 102 people removed from or declined for transplant, only 11% were referred for palliative care. [[Rogal2022AASLD,Poonja2014]]</p></div>
+    <div class="card"><span class="tag">History</span><h4>From 1963 to today</h4><p>Starzl and colleagues performed the first human liver transplant in 1963; none of the first five patients lived more than 23 days. Cyclosporin-based immunosuppression followed in 1981, and a US NIH consensus conference on liver transplantation met in 1983. In 2024 the US performed 11,458 liver transplants, a record. See <a href="../history/" data-go="history">History &amp; people</a>. [[Starzl1963,Meirelles2015,Starzl1981NEJM,NIH1984LT,Kwong2026SRTR]]</p></div>
+  </div>
+  <p class="crisis" role="note"><b>Urgent care</b><span>Vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen need urgent care: call your local emergency number or go to an emergency department.</span></p>
+</section>
