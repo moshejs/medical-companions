@@ -32,9 +32,9 @@ const FA_LANG={
 inits.families=()=>{
   const svg=$('#faSvg'),rg=$('#faT');
   function draw(t){
-    const N=vb(svg,'720 380','400 640'),p=phaseOf(FA_STEPS,t),u=ramp(t,FA_STEPS[p].from,p<5?FA_STEPS[p+1].from:1);
+    const N=vb(svg,'720 380','400 600'),p=phaseOf(FA_STEPS,t),u=ramp(t,FA_STEPS[p].from,p<5?FA_STEPS[p+1].from:1);
     /* constellation box */
-    const O=N?{cx:200,cy:150,sc:1}:{cx:200,cy:186,sc:1.05};
+    const O=N?{cx:200,cy:158,sc:1.22}:{cx:205,cy:182,sc:1.38};
     const M=[{k:'partner',n:'partner',a:-.5,d:118,s:52},{k:'kid1',n:'child',a:.45,d:120,s:38},{k:'kid2',n:'child',a:1.05,d:112,s:34},{k:'par',n:'parent',a:Math.PI+.45,d:122,s:50},{k:'fr',n:'friend',a:Math.PI-.35,d:126,s:48}];
     let s=`<defs>${marker('faA','var(--rx)')}</defs>`;
     const pos=m=>[O.cx+Math.cos(m.a)*m.d*O.sc,O.cy+Math.sin(m.a)*m.d*O.sc*.92];
@@ -47,16 +47,16 @@ inits.families=()=>{
     if(p===2||p===3){const k=p===2?ramp(u,0,.6):1;[M[0],M[3]].forEach(m=>{const [x,y]=pos(m);s+=`<circle cx="${f1(x)}" cy="${f1(y+m.s*.5)}" r="${f1(m.s*.85*k+1)}" style="fill:var(--good-soft);stroke:var(--good);stroke-width:1.4;opacity:${f1(.9*k)}"/>`});
       const [x,y]=pos(M[0]);s+=`<text x="${f1(x)}" y="${f1(y-12)}" class="t-xs t-mid" style="fill:var(--good);opacity:${f1(k)}">support for you</text>`}
     /* couples therapy: a shared circle */
-    if(p===5){const [x,y]=pos(M[0]),k=ramp(u,0,.6),mx=(x+O.cx)/2,my=(y+O.cy)/2+14;s+=`<ellipse cx="${f1(mx)}" cy="${f1(my)}" rx="${f1(30+86*k)}" ry="${f1(26+44*k)}" style="fill:var(--rx-soft);stroke:var(--rx);stroke-width:1.6;opacity:${f1(.4+.5*k)}"/><text x="${f1(mx)}" y="${f1(my+60*k+18)}" class="t-xs t-mid" style="fill:var(--rx);font-weight:700;opacity:${f1(k)}">couples therapy</text>`}
+    if(p===5){const [x,y]=pos(M[0]),k=ramp(u,0,.6),mx=(x+O.cx)/2,my=(y+O.cy)/2+14;s+=`<ellipse cx="${f1(mx)}" cy="${f1(my)}" rx="${f1(30+86*k)}" ry="${f1(26+44*k)}" style="fill:var(--rx-soft);stroke:var(--rx);stroke-width:1.6;opacity:${f1(.4+.5*k)}"/><text x="${f1(mx)}" y="${f1(my-(26+44*k)-6)}" class="t-sm t-mid" style="fill:var(--rx);font-weight:700;opacity:${f1(k)}">couples therapy</text>`}
     /* people */
     M.forEach(m=>{const [x,y]=pos(m),hl=(p===1&&m.k.startsWith('kid'))||((p===2||p===3||p===4)&&m.k==='partner')||(p===5&&m.k==='partner');
-      s+=person(x,y,m.s,hl?'var(--rx)':'var(--muted)');
+      s+=person(x,y,m.s*1.15,hl?'var(--rx)':'var(--muted)');
       if(p===0){const k=ramp(u,.2,.7);if(k>0)s+=`<path d="M${f1(x-8)} ${f1(y-6)}q4 -6 8 0q4 6 8 0" style="fill:none;stroke:var(--accent);stroke-width:1.4;opacity:${f1(k)}"/>`}
-      s+=`<text x="${f1(x)}" y="${f1(y+m.s+14)}" class="t-xs t-mid">${m.n}</text>`});
-    s+=person(O.cx,O.cy-30,62,'var(--ink)')+`<text x="${O.cx}" y="${O.cy+46}" class="t-xs t-mid" style="fill:var(--ink)">person with AUD</text>`;
-    if(p===4){const ok=u>.5;s+=`<text x="${O.cx}" y="${O.cy-40}" class="t-sm t-mid" style="fill:${ok?'var(--rx)':'var(--muted)'};font-weight:700">${ok?'enters treatment?':'…'}</text>`}
+      s+=`<text x="${f1(x)}" y="${f1(y+m.s*1.15+14)}" class="t-xs t-mid">${m.n}</text>`});
+    s+=person(O.cx,O.cy-36,72,'var(--ink)')+`<text x="${O.cx}" y="${O.cy+52}" class="t-xs t-mid" style="fill:var(--ink)">person with AUD</text>`;
+    if(p===4){const ok=u>.5;s+=`<text x="${O.cx}" y="${O.cy-40}" class="t-sm t-mid" style="fill:${ok?'var(--rx)':'var(--muted)'};font-weight:700">${ok?'enters treatment?':''}</text>`}
     /* side panel */
-    const B=N?{x:10,y:322,w:380,h:308}:{x:410,y:14,w:300,h:352};
+    const B=N?{x:10,y:338,w:380,h:256}:{x:410,y:14,w:300,h:352};
     s+=`<rect x="${B.x}" y="${B.y}" width="${B.w}" height="${B.h}" rx="12" style="fill:var(--panel);stroke:var(--line)"/>`;
     const X0=B.x+16,W=B.w-32;let y=B.y+28;
     const hd=(a,b)=>{s+=`<text x="${X0}" y="${y}" class="t-sm" style="fill:var(--ink);font-weight:700">${a}</text>`;if(b)s+=`<text x="${X0}" y="${y+15}" class="t-xs">${b}</text>`;y+=b?36:22};
@@ -66,7 +66,7 @@ inits.families=()=>{
       y+=6;s+=`<text x="${X0}" y="${y}" class="t-xs">Family members had more SUD, depression</text><text x="${X0}" y="${y+15}" class="t-xs">and trauma diagnoses than families of</text><text x="${X0}" y="${y+30}" class="t-xs">people with diabetes or asthma.</text>`}
     else if(p===1){hd('Mean adverse childhood experiences','by parental alcohol problem · ACE study');
       [['None',1.4,'var(--muted)'],['Father only',2.6,'var(--warn)'],['Mother only',3.2,'var(--accent)'],['Both parents',3.8,'var(--accent)']].forEach((r,i)=>bar(r[0],r[1],4,r[2],r[1].toFixed(1),ease(ramp(u,i*.15,i*.15+.4))));
-      s+=`<text x="${X0}" y="${y+2}" class="t-xs">Retrospective reports: association, not proof</text><text x="${X0}" y="${y+17}" class="t-xs">of cause. 10.5% of US children lived with a</text><text x="${X0}" y="${y+32}" class="t-xs">parent with past-year AUD.</text>`}
+      s+=`<text x="${X0}" y="${y+2}" class="t-xs">Retrospective reports: an association,</text><text x="${X0}" y="${y+17}" class="t-xs">not proof of cause. 10.5% of US children</text><text x="${X0}" y="${y+32}" class="t-xs">lived with a parent with past-year AUD.</text>`}
     else if(p===2){hd('Al-Anon family groups','national survey · Timko 2013');
       bar('Newcomers surveyed',359,400,'var(--muted)','359',ramp(u,0,.4));bar('Members surveyed',264,400,'var(--good)','264',ramp(u,.15,.55));
       s+=`<text x="${X0}" y="${y}" class="t-sm" style="fill:var(--good);font-weight:700">Members: more satisfied with</text><text x="${X0}" y="${y+17}" class="t-sm" style="fill:var(--good);font-weight:700">their quality of life</text>`;
@@ -79,7 +79,7 @@ inits.families=()=>{
     else if(p===4){hd('Loved ones engaged in treatment','RCT, 130 family members · Miller 1999');
       [['CRAFT',64,'var(--rx)'],['Johnson confrontation',30,'var(--warn)'],['Al-Anon facilitation',13,'var(--muted)']].forEach((r,i)=>bar(r[0],r[1],100,r[2],r[1]+'%',ease(ramp(u,.05+i*.08,.6+i*.08))));
       s+=`<text x="${X0}" y="${y}" class="t-xs">Review: CRAFT RR 3.25 vs Al-Anon (NNT 2),</text><text x="${X0}" y="${y+15}" class="t-xs">RR 2.15 vs Johnson (NNT 3).</text><text x="${X0}" y="${y+36}" class="t-xs" style="fill:var(--warn)">70% of Johnson families did not go</text><text x="${X0}" y="${y+51}" class="t-xs" style="fill:var(--warn)">ahead with the confrontation.</text>`}
-    else{hd('Behavioural couples therapy vs individual','meta-analysis, 12 RCTs · effect size d');
+    else{hd('Couples therapy vs individual','BCT meta-analysis, 12 RCTs · effect size d');
       [['Overall',.54,'var(--rx)'],['Frequency of use (follow-up)',.45,'var(--rx)'],['Consequences (follow-up)',.5,'var(--rx)'],['Relationship satisfaction',.51,'var(--good)']].forEach((r,i)=>bar(r[0],r[1],.8,r[2],'d '+r[1].toFixed(2),ease(ramp(u,i*.12,i*.12+.45))))}
     svg.innerHTML=s;setSt(p);$('#faNote').innerHTML=noteHTML(FA_STEPS[p]);
   }

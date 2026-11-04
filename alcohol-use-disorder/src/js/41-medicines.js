@@ -207,12 +207,12 @@ inits.medicines=()=>{
 
   /* ---- approval timeline ---- */
   const ts=$('#meTlSvg');
-  function drawT(){const N=vb(ts,'720 160','400 260');let s='';
+  function drawT(){const N=vb(ts,'720 190','400 260');let s='';
     if(N){s+=`<line x1="40" x2="40" y1="16" y2="244" style="stroke:var(--rx);stroke-width:2"/>`;
       ME_TL.forEach(([yr,l],i)=>{const y=30+i*40;s+=`<circle cx="40" cy="${y}" r="6" style="fill:${i===5?'var(--panel)':'var(--rx)'};stroke:var(--rx);stroke-width:2"/><text x="56" y="${y+4}" class="t-lbl">${yr}</text><text x="100" y="${y+4}" class="t-sm" style="fill:var(--ink)">${l.join(' ')}</text>`})}
-    else{const T=tline(40,80,640,{min:1945,max:2020,step:5,fmt:v=>v%10?'':v});s+=T.svg;
-      ME_TL.forEach(([yr,l,lv],i)=>{const x=T.X(yr),up=lv%2===0,yb=up?(lv===2?20:40):(lv===3?140:110),anc=i===5?' t-end':' t-mid',tx=i===5?x+40:x;
-        s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="80" y2="${up?yb+16:yb-14}" style="stroke:var(--rx);stroke-width:1"/><circle cx="${f1(x)}" cy="80" r="5" style="fill:${i===5?'var(--panel)':'var(--rx)'};stroke:var(--rx);stroke-width:2"/>`;
+    else{const AY=100,T=tline(40,AY,640,{min:1945,max:2020,step:5,fmt:v=>v%10?'':v});s+=T.svg;
+      ME_TL.forEach(([yr,l,lv],i)=>{const x=T.X(yr),up=lv%2===0,yb=[62,132,24,166][lv],anc=i===5?' t-end':' t-mid',tx=i===5?x+40:x;
+        s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${AY}" y2="${up?yb+16:yb-12}" style="stroke:var(--rx);stroke-width:1"/><circle cx="${f1(x)}" cy="${AY}" r="5" style="fill:${i===5?'var(--panel)':'var(--rx)'};stroke:var(--rx);stroke-width:2"/>`;
         s+=`<text x="${f1(tx)}" y="${up?yb-4:yb}" class="t-sm${anc}" style="fill:var(--ink);font-weight:600">${yr} · ${l[0]}</text><text x="${f1(tx)}" y="${up?yb+9:yb+13}" class="t-xs${anc}">${l[1]}</text>`})}
     ts.innerHTML=s}
   drawT();
