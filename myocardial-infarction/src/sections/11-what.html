@@ -1,5 +1,77 @@
-<!-- ================= 1.1 WHAT A HEART ATTACK IS (stub, replaced by its builder) ================= -->
+<!-- ================= 1.1 WHAT A HEART ATTACK IS ================= -->
+<style>
+#m-what .cases{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+#m-what .case{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0;transition:border-color .2s}
+#m-what .case.on{border-color:var(--brand)}
+#m-what .case h4{margin:0;font-family:var(--display);font-weight:800;font-size:18px;line-height:1.2}
+#m-what .case p{font-size:14.5px}
+#m-what .case .ans{display:flex;flex-wrap:wrap;gap:6px}
+#m-what .case .exp{font-size:14.5px;border-top:1px solid var(--line);padding-top:10px;display:flex;flex-direction:column;gap:8px}
+#m-what .case .verdict{font-size:14px}
+#m-what .score{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+#m-what .score b{font:800 22px var(--display)}
+#m-what .tbl table{min-width:520px}
+#m-what td.num{font-family:var(--mono);white-space:nowrap}
+#m-what .card .tag{align-self:flex-start}
+#m-what #whSvg .t-xs{font-size:10.5px}
+#m-what #whSvg[data-mode=n] .t-xs,#m-what #whFlow[data-mode=n] .t-xs{font-size:11px}
+#m-what .flowstage{max-width:900px}
+</style>
 <section class="mod" id="m-what" data-mod="what" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding heart attack</p><h2>What a heart attack is</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">A heart attack (myocardial infarction, MI) is heart muscle damaged because its blood supply failed. Here it is as numbers you can watch: how often it happens, which kinds there are, who it affects, and what happens afterwards.</p></div>
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU). Do not wait to see if it passes.</span></p>
+
+  <h3 class="sub">Who has a heart attack?</h3>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="An array of 1,000 person icons, each standing for about 805 of the 805,000 heart attacks in the US each year, fills in while a stopwatch counts one heart attack every 40 seconds; recurrent and silent attacks are marked. The icons then recolour into NSTEMI (72%) and STEMI (28%) and the five types of the universal definition appear as cards; then the average age at a first heart attack for men and women is marked on an age line; finally two grids of 100 people show how many died within 1 and 5 years of a first heart attack, labelled as population statistics."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Story <input type="range" id="whT" min="0" max="1" step="0.001" value="0.14"></label></div>
+      <div class="readout" id="whRead"></div>
+      <p class="stage-cap">Each icon in the array stands for about 805 heart attacks a year in the US (AHA tabulation of ARIC data). Icon positions are arranged for reading, not by person. Survival grids are population statistics from pooled US cohorts treated in 1995–2012, not predictions for anyone. [[Martin2025HDSS]]</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the word means</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">In plain words</span><h4>Muscle starved of blood</h4><p>A heart attack happens when part of the heart muscle goes without enough blood and oxygen for long enough to be damaged. [[Thygesen2018UDMI4]] Most often a clot forms on a fatty plaque inside a coronary artery and blocks it (see <a href="#plaque" data-go="plaque">plaque, rupture &amp; clot</a>). [[Badimon2014]]</p></div>
+    <div class="card"><span class="tag dx">The definition</span><h4>Injury plus ischaemia</h4><p>The Fourth Universal Definition (2018) defines MI as acute myocardial injury, detected by abnormal cardiac biomarkers, in the setting of evidence of acute myocardial ischaemia. Injury means a cardiac troponin value above the 99th-percentile upper reference limit; it is acute when values rise and/or fall. [[Thygesen2018UDMI4,Domienik2021UDMI4]]</p></div>
+    <div class="card"><span class="tag">Silent attacks</span><h4>About 1 in 5 goes unnoticed</h4><p>Of the 805,000 US heart attacks a year, an estimated 170,000 are silent. [[Martin2025HDSS]] In Framingham, more than a quarter of MIs were found only on routine ECGs, and unrecognised MIs were as likely as recognised ones to lead to death, heart failure or stroke. [[Kannel1984Unrecognized]] In ARIC, silent MI went with a higher risk of coronary death (HR 3.06). [[Zhang2016SilentMI]]</p></div>
+  </div>
+
+  <h3 class="sub">Injury or infarction?</h3>
+  <p class="prose">A raised troponin shows the heart muscle has been injured. It does not say why. In 372,310 South Australian emergency episodes tested with high-sensitivity troponin, acute MI was the diagnosis in 5.12%, while acute or chronic injury without MI was far more common. [[Chuang2021Injury]] Decide each case below, then watch its path light up in the flow chart.</p>
+  <p class="teach" role="note"><b>Teaching tool</b>These cases teach how the universal definition sorts troponin results. They are not for checking symptoms or deciding whether to seek care.</p>
+  <div class="stage flowstage">
+    <div class="scroll"><svg id="whFlow" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A flow chart from the Fourth Universal Definition: troponin above the 99th percentile, then a rise and/or fall, then clinical evidence of acute ischaemia, leading to myocardial infarction, which is type 1 with acute atherothrombosis or type 2 from supply–demand mismatch; the no-branches lead to no injury, chronic injury and acute non-ischaemic injury; a side branch marks procedure-related types 4 and 5. The path for the chosen case is highlighted."></svg></div>
+    <p class="stage-cap" id="whFlowCap">Choose a case below to light its path. Criteria summarised from the Fourth Universal Definition. [[Thygesen2018UDMI4,Domienik2021UDMI4]]</p>
+  </div>
+  <div class="score"><span class="kicker">Score</span><b id="whScore">0 / 6</b><button class="btn ghost" id="whReset">Start again</button></div>
+  <div class="cases" id="whCases"></div>
+
+  <h3 class="sub">What troponin found in the emergency department</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Category (Fourth Universal Definition)</th><th>Share of 372,310 episodes</th><th>What it means</th></tr></thead>
+    <tbody>
+      <tr><th>No myocardial injury</th><td class="num">69.58%</td><td>Troponin at or below the 99th percentile.</td></tr>
+      <tr><th>Chronic myocardial injury</th><td class="num">14.79%</td><td>Raised but stable troponin, with no rise or fall.</td></tr>
+      <tr><th>Acute injury without coronary artery disease</th><td class="num">8.66%</td><td>Rising or falling troponin from another illness, with no evidence of acute ischaemia.</td></tr>
+      <tr><th>Acute injury with coronary artery disease</th><td class="num">1.86%</td><td>Acute injury in someone with known coronary disease, without an acute MI.</td></tr>
+      <tr class="hl"><th>Acute myocardial infarction</th><td class="num">5.12%</td><td>Acute injury plus clinical evidence of acute ischaemia.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">South Australia, 2011–2019, high-sensitivity troponin T. [[Chuang2021Injury]] In an Edinburgh cohort of 2,122 people with raised troponin I, adjudicated diagnoses were type 1 MI 55.2%, type 2 MI 20.2% and myocardial injury 24.6%; 5-year death was 36.7%, 62.5% and 72.4%, mostly from non-cardiovascular causes after type 2 MI or injury (population statistics). [[Chapman2018Type2]]</p>
+
+  <h3 class="sub">Warning signs, women, and MINOCA</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Warning signs</span><h4>More than pain in the chest</h4><p>The 2021 AHA/ACC chest pain guideline's first message is that chest pain means more than pain in the chest: pressure, tightness or discomfort, and pain in the shoulders, arms, neck, back, upper abdomen or jaw, all count. [[Gulati2021ChestPain]] The 2023 ESC guideline lists breathlessness, epigastric pain and arm, neck or jaw pain as chest pain-equivalent symptoms. [[Byrne2023ESC]] More in <a href="#symptoms" data-go="symptoms">symptoms &amp; who presents differently</a>.</p>
+      <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p></div>
+    <div class="card"><span class="tag accent">Women</span><h4>Chest pain is the usual symptom for women too</h4><p>In VIRGO (adults aged 18–55), 87.0% of women and 89.5% of men had chest pain, pressure, tightness or discomfort. More women reported three or more additional symptoms (61.9% vs 54.8%). Before the heart attack, 29.5% of women had sought care for similar symptoms, and 53% of those women said the provider did not think the symptoms were heart-related (37% of men). [[Lichtman2018VIRGO]] The ESC guideline states that the descriptor "atypical" should be avoided. [[Byrne2023ESC]]</p></div>
+    <div class="card"><span class="tag isch">MINOCA</span><h4>A heart attack without a blocked artery</h4><p>MI with non-obstructive coronary arteries (MINOCA) was found in 6% of MI patients in a review of 28 publications; median age was 55 and 40% were women. On cardiac MRI, only 24% showed a typical infarct and 33% had myocarditis. [[Pasupathy2015]] In the US ACTION registry, MINOCA made up 10.5% of MIs in women and 3.4% in men. [[Smilowitz2017ACTION]]</p></div>
+    <div class="card"><span class="tag">Younger adults</span><h4>Not only an older man's problem</h4><p>In ARIC surveillance, the share of heart attack hospitalisations aged 35–54 rose from 27% (1995–1999) to 32% (2010–2014), with the biggest increase in young women. Young women were less likely than young men to receive lipid-lowering therapy (RR 0.87) or revascularisation (RR 0.79). [[Arora2019ARICyoung]]</p></div>
+    <div class="card"><span class="tag">Fairness</span><h4>Where you live shapes risk and care</h4><p>Lower socioeconomic position is linked to more acute coronary syndrome, less optimal care and higher mortality. Black adults with heart attacks in 2012–2017 were less likely than White adults to have angiography (61.9% vs 73.1%). [[Martin2025HDSS]] Income, education, employment and neighbourhood are consistently linked to cardiovascular disease. [[Schultz2018SES]]</p></div>
+    <div class="card"><span class="tag good">The long view</span><h4>Far fewer deaths than 30 years ago</h4><p>In Swedish STEMI care, 1-year mortality fell from 22.1% in 1995 to 14.1% in 2014 while primary PCI rose from 4.5% to 78.0%. [[Szummer2017STEMI]] US Medicare 30-day mortality after heart attack fell from 20.0% to 12.4% between 1995 and 2014. These are population statistics. [[Martin2025HDSS]] The story of how it happened is in <a href="#history" data-go="history">history &amp; people</a>.</p></div>
+  </div>
 </section>

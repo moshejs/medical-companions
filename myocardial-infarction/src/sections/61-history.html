@@ -1,5 +1,70 @@
-<!-- ================= 6.1 HISTORY & PEOPLE (stub, replaced by its builder) ================= -->
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<style>
+#m-history #hiYears{gap:6px}
+#m-history #hiYears .tag.on{border-color:var(--brand);background:var(--brand-soft);color:var(--brand)}
+#m-history .chartstage{max-width:980px}
+#m-history .tgl{display:flex;flex-wrap:wrap;gap:6px}
+#m-history .card .yr{font:600 11px var(--mono);letter-spacing:.08em;color:var(--brand)}
+#m-history .tbl table{min-width:520px}
+#m-history #hiChart .t-xs{font-size:10.5px}
+#m-history #hiChart[data-mode=n] .t-xs{font-size:11px}
+</style>
 <section class="mod" id="m-history" data-mod="history" hidden>
   <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">From the first description of a coronary blockage to troponin tests that rule a heart attack out in an hour: a century of ideas, each one tested against the one before. Press Play, or jump to a year.</p></div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A timeline from the first account of angina and Einthoven's 1903 ECG to the 2025 ACC/AHA guideline. A play head moves along it; each milestone lights up in turn with a card naming the year, the people and what they found, beside a small animation: an ECG being written, ST elevation appearing, an artery blocking, the wavefront of muscle death, a balloon and a stent, trial results as bars, a troponin curve and the types of the universal definition. Shaded bands show Braunwald's three eras of treatment."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Timeline <input type="range" id="hiT" min="0" max="1" step="0.0005" value="0.05"></label></div>
+      <div class="chips" id="hiYears" role="group" aria-label="Jump to a milestone"></div>
+      <p class="stage-cap">Bars are results reported by the studies named; animal data are labelled. Eras after Braunwald (2012). [[Braunwald2012History]]</p>
+    </div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How survival changed</h3>
+  <p class="prose">Each line joins only the cited points from one registry or cohort, and each uses its own measure (30-day, 6-month or 1-year death), so the lines show direction, not a single trend. Turn on the treatments to see where they arrived and what their trials found. All figures are population statistics.</p>
+  <div class="lab">
+    <div class="stage chartstage">
+      <div class="tgl" role="group" aria-label="Treatments to show">
+        <button class="btn" data-hx="ccu" aria-pressed="false">Coronary care units</button>
+        <button class="btn" data-hx="lysis" aria-pressed="true">Clot-busting drugs &amp; aspirin</button>
+        <button class="btn" data-hx="pci" aria-pressed="false">Primary angioplasty &amp; stents</button>
+        <button class="btn" data-hx="statin" aria-pressed="false">Statins after MI</button>
+        <button class="btn" data-hx="trop" aria-pressed="false">Troponin-era definitions</button>
+      </div>
+      <div class="scroll"><svg id="hiChart" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="A chart of mortality after heart attack from 1960 to 2020: Framingham 30-day mortality falling from 12.2% in the 1970s to 4.1% in the 1990s, US Medicare 30-day mortality from 20.0% in 1995 to 12.4% in 2014, Swedish STEMI 1-year mortality from 22.1% to 14.1%, and French STEMI 6-month mortality from 17.2% to 5.3%. Toggles add the coronary care unit era, trial results for clot-busting drugs and aspirin and for primary angioplasty, the rise of primary PCI and statins, and the switch to troponin."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiChPlay">Play</button><label class="stage-cap tl" for="hiChT">Up to year <input type="range" id="hiChT" min="0" max="1" step="0.001" value="1"></label></div>
+      <div class="readout" id="hiChRead"></div>
+      <p class="stage-cap">Straight lines join the cited points only; the years between are not data. Sources: Framingham [[Velagaleti2008]]; Medicare [[Martin2025HDSS]]; SWEDEHEART [[Szummer2017STEMI,Jernberg2011SWEDEHEART]]; FAST-MI [[Puymirat2017FASTMI]]; trials [[GISSI1986,ISIS2_1988,Grines1993PAMI,Keeley2003]].</p>
+    </div>
+    <aside class="note" id="hiChNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Three eras, and a fourth</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Era (Braunwald)</th><th>Years</th><th>What changed</th></tr></thead>
+    <tbody>
+      <tr><th>Bed rest and "expectant" care</th><td>1912–1961</td><td>After Herrick's description, treatment was mostly rest and waiting. [[Braunwald2012History,Herrick1912]]</td></tr>
+      <tr><th>The coronary care unit</th><td>1961–1974</td><td>Julian's 1961 paper on treating cardiac arrest in acute myocardial ischaemia began the era; Killip and Kimball reported 250 patients treated in a coronary care unit in 1967. [[Julian1961CCU,Killip1967CCU]]</td></tr>
+      <tr><th>Myocardial reperfusion</th><td>1975 onward</td><td>Clot-busting drugs, aspirin, then primary angioplasty and stents reopened the artery. [[Braunwald2012History,ISIS2_1988,Keeley2003]]</td></tr>
+      <tr><th><span class="ev hyp">Hypothesis</span> A fourth phase</th><td>emerging</td><td>Reducing reperfusion injury and regenerative medicine. Large trials of both have so far been neutral: see <a href="#frontier" data-go="frontier">research toward better treatment</a>. [[Braunwald2012History,Hausenloy2019CONDI2,Fisher2015Cochrane]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">The IMPACT model credited about 47% of the fall in US coronary death rates between 1980 and 2000 (from 542.9 to 266.8 per 100,000 in men) to treatments and about 44% to changes in risk factors such as cholesterol, blood pressure and smoking. <span class="ev est">Established</span> [[Ford2007IMPACT]]</p>
+
+  <h3 class="sub">The people behind the ideas</h3>
+  <div class="cards">
+    <div class="card"><span class="yr">The first account</span><h4>William Heberden</h4><p>Gave the first account of classic angina pectoris; Prinzmetal's report of variant angina came nearly two centuries later. [[Sternbach1991Heberden]]</p></div>
+    <div class="card"><span class="yr">1903</span><h4>Willem Einthoven</h4><p>Published galvanometric recording of the human electrocardiogram in Pflügers Archiv. [[Einthoven1903]]</p></div>
+    <div class="card"><span class="yr">1912</span><h4>James B. Herrick</h4><p>Described the clinical features of sudden obstruction of the coronary arteries in JAMA: the clinical description of acute MI. [[Herrick1912,Braunwald2012History]]</p></div>
+    <div class="card"><span class="yr">1920</span><h4>Harold E. B. Pardee</h4><p>Published "An electrocardiographic sign of coronary artery obstruction" in Archives of Internal Medicine. [[Pardee1920]]</p></div>
+    <div class="card"><span class="yr">1948–1961</span><h4>The Framingham investigators</h4><p>The study examined its first volunteer in 1948, its origins tied to President Roosevelt's death in 1945. Dawber and colleagues described its approach in 1951; Kannel and colleagues' "Factors of risk" report followed in 1961. [[Mahmood2014Framingham,Dawber1951Framingham,Kannel1961Framingham]]</p></div>
+    <div class="card"><span class="yr">1961</span><h4>Desmond Julian</h4><p>His Lancet paper on treating cardiac arrest in acute myocardial ischaemia and infarction began the coronary care unit era. [[Julian1961CCU,Braunwald2012History]]</p></div>
+    <div class="card"><span class="yr">1978–1979</span><h4>Andreas Grüntzig</h4><p>Reported transluminal dilatation of a coronary stenosis in a 1978 Lancet letter. In his 1979 series of 50 patients the procedure succeeded in 32, reducing stenosis from a mean of 84% to 34%. [[Gruntzig1978Lancet,Gruntzig1979NEJM]]</p></div>
+    <div class="card"><span class="yr">1980</span><h4>DeWood and colleagues</h4><p>Found total occlusion in 87% of patients studied within 4 hours of transmural MI, and retrieved thrombus by catheter in 52 of 59 patients whose angiograms suggested it, which established thrombosis as the cause. [[DeWood1980]]</p></div>
+    <div class="card"><span class="yr">1989–1991</span><h4>Katus and colleagues</h4><p>Described an immunoassay for cardiac troponin T, raised in all 50 patients with transmural AMI, then showed it in serum within 3 hours of pain in 50% of patients, staying raised for more than 130 hours. [[Katus1989TnT,Katus1991TnT]]</p></div>
+    <div class="card"><span class="yr">2000–2018</span><h4>Thygesen, Alpert and colleagues</h4><p>Authored the 2000 ESC/ACC redefinition around troponin and the universal definitions of 2007, 2012 and 2018, which introduced and refined the five types. [[Alpert2000Redefined,Thygesen2007UDMI,Thygesen2012UDMI3,Thygesen2018UDMI4]]</p></div>
+  </div>
 </section>
