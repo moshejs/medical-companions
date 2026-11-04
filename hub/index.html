@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Medical Companions: animated, cited guides to fifteen conditions</title>
+<title>Medical Companions: animated, cited guides to sixteen conditions</title>
 <meta name="description" content="Free animated, cited guides to Alzheimer's, Parkinson's, MS, ALS, myasthenia gravis, gout, FMF, bowel cancer, EDS, TB, BPD and ADHD. Not medical advice.">
 <link rel="canonical" href="%SITE%/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
@@ -15,7 +15,7 @@
 <meta property="og:image" content="%SITE%/share-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Medical Companions: animated, cited guides to fifteen conditions, for students, patients and families">
+<meta property="og:image:alt" content="Medical Companions: animated, cited guides to sixteen conditions, for students, patients and families">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="%SITE%/share-card.png">
 <meta name="theme-color" content="#f6eee1" media="(prefers-color-scheme: light)">
@@ -37,7 +37,7 @@
 {"@type":"MedicalWebPage","name":"Colorectal Cancer Companion","url":"%SITE%/colorectal-cancer/","about":{"@type":"MedicalCondition","name":"Colorectal cancer"}},
 {"@type":"MedicalWebPage","name":"EDS Companion","url":"%SITE%/ehlers-danlos-syndromes/","about":{"@type":"MedicalCondition","name":"Ehlers-Danlos syndromes"}},
 {"@type":"MedicalWebPage","name":"TB Companion","url":"%SITE%/tuberculosis/","about":{"@type":"MedicalCondition","name":"Tuberculosis"}},
-{"@type":"MedicalWebPage","name":"BPD Companion","url":"%SITE%/borderline-personality-disorder/","about":{"@type":"MedicalCondition","name":"Borderline personality disorder"}},{"@type":"MedicalWebPage","name":"ADHD Companion","url":"%SITE%/adhd/","about":{"@type":"MedicalCondition","name":"Attention deficit hyperactivity disorder"}},{"@type":"MedicalWebPage","name":"Autism Companion","url":"%SITE%/autism/","about":{"@type":"MedicalCondition","name":"Autism spectrum disorder"}},{"@type":"MedicalWebPage","name":"Bipolar Companion","url":"%SITE%/bipolar-disorder/","about":{"@type":"MedicalCondition","name":"Bipolar disorder"}},{"@type":"MedicalWebPage","name":"AUD Companion","url":"%SITE%/alcohol-use-disorder/","about":{"@type":"MedicalCondition","name":"Alcohol use disorder"}}]}]}</script>
+{"@type":"MedicalWebPage","name":"BPD Companion","url":"%SITE%/borderline-personality-disorder/","about":{"@type":"MedicalCondition","name":"Borderline personality disorder"}},{"@type":"MedicalWebPage","name":"ADHD Companion","url":"%SITE%/adhd/","about":{"@type":"MedicalCondition","name":"Attention deficit hyperactivity disorder"}},{"@type":"MedicalWebPage","name":"Autism Companion","url":"%SITE%/autism/","about":{"@type":"MedicalCondition","name":"Autism spectrum disorder"}},{"@type":"MedicalWebPage","name":"Bipolar Companion","url":"%SITE%/bipolar-disorder/","about":{"@type":"MedicalCondition","name":"Bipolar disorder"}},{"@type":"MedicalWebPage","name":"AUD Companion","url":"%SITE%/alcohol-use-disorder/","about":{"@type":"MedicalCondition","name":"Alcohol use disorder"}},{"@type":"MedicalWebPage","name":"Heart Attack Companion","url":"%SITE%/myocardial-infarction/","about":{"@type":"MedicalCondition","name":"Myocardial infarction"}}]}]}</script>
 <style>
 :root{
   --bg:#f6eee1; --bg-2:#efe3d0; --panel:#fffaf1; --ink:#2b221c; --muted:#6a5a4e; --line:#e3d5c0;
@@ -58,6 +58,7 @@
   --aut:#2e4257; --aut-soft:#dfe6ee; --aut-line:#e9b949;
   --bip:#1f5f4a; --bip-soft:#dcebe3; --bip-line:#f5f2ea; --bip-up:#e2ac1f; --bip-down:#8fb0dc;
   --aud:#4f5b1c; --aud-soft:#e7eacf; --aud-lobe:#f6f1e4; --aud-line:#c4621d;
+  --mi:#a3122a; --mi-soft:#f8dfe2; --mi-line:#fff4f2;
   --display:"Newsreader",Georgia,"Times New Roman",serif;
   --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
@@ -82,6 +83,7 @@
     --aut:#a9c1db; --aut-soft:#1f2b38; --aut-line:#8a5b00;
     --bip:#7fcfae; --bip-soft:#18302a; --bip-line:#10241d; --bip-up:#8a6400; --bip-down:#2c4a73;
     --aud:#bccb6c; --aud-soft:#2a3213; --aud-lobe:#12140d; --aud-line:#f29a5c;
+    --mi:#ff7d8c; --mi-soft:#3a171c; --mi-line:#1c0b0e;
     color-scheme:dark;
   }
 }
@@ -130,7 +132,7 @@ h1 .soft{display:block;font-style:italic;font-weight:400;color:var(--muted);font
   border-radius:20px;box-shadow:0 1px 0 var(--line),0 10px 28px -18px rgba(70,40,15,.35);transition:box-shadow .35s var(--ease),transform .35s var(--ease)}
 .book:hover{transform:translateY(-2px);box-shadow:0 1px 0 var(--line),0 18px 36px -18px rgba(70,40,15,.42)}
 .book.alz{--c:var(--alz);--soft:var(--alz-soft)} .book.fmf{--c:var(--fmf);--soft:var(--fmf-soft)} .book.mg{--c:var(--mg);--soft:var(--mg-soft)}
-.book.gout{--c:var(--gout);--soft:var(--gout-soft)} .book.als{--c:var(--als);--soft:var(--als-soft)} .book.pd{--c:var(--pd);--soft:var(--pd-soft)} .book.ms{--c:var(--ms);--soft:var(--ms-soft)} .book.crc{--c:var(--crc);--soft:var(--crc-soft)} .book.eds{--c:var(--eds);--soft:var(--eds-soft)} .book.tb{--c:var(--tb);--soft:var(--tb-soft)} .book.bpd{--c:var(--bpd);--soft:var(--bpd-soft)} .book.adhd{--c:var(--adhd);--soft:var(--adhd-soft)} .book.aut{--c:var(--aut);--soft:var(--aut-soft)} .book.bip{--c:var(--bip);--soft:var(--bip-soft)} .book.aud{--c:var(--aud);--soft:var(--aud-soft)}
+.book.gout{--c:var(--gout);--soft:var(--gout-soft)} .book.als{--c:var(--als);--soft:var(--als-soft)} .book.pd{--c:var(--pd);--soft:var(--pd-soft)} .book.ms{--c:var(--ms);--soft:var(--ms-soft)} .book.crc{--c:var(--crc);--soft:var(--crc-soft)} .book.eds{--c:var(--eds);--soft:var(--eds-soft)} .book.tb{--c:var(--tb);--soft:var(--tb-soft)} .book.bpd{--c:var(--bpd);--soft:var(--bpd-soft)} .book.adhd{--c:var(--adhd);--soft:var(--adhd-soft)} .book.aut{--c:var(--aut);--soft:var(--aut-soft)} .book.bip{--c:var(--bip);--soft:var(--bip-soft)} .book.aud{--c:var(--aud);--soft:var(--aud-soft)} .book.mi{--c:var(--mi);--soft:var(--mi-soft)}
 .cover{position:relative;display:grid;place-items:center;align-self:start;aspect-ratio:3/4;border-radius:6px 12px 12px 6px;background:var(--soft);overflow:hidden}
 .cover::before{content:"";position:absolute;inset:0 auto 0 0;width:13px;background:var(--c);opacity:.9}
 .cover::after{content:"";position:absolute;right:15px;top:0;bottom:0;width:6px;background:var(--c);opacity:.22}
@@ -393,6 +395,24 @@ footer{margin-top:56px;padding-block:22px max(36px,env(safe-area-inset-bottom,0p
           <div class="actions">
             <a class="start" href="alcohol-use-disorder/" data-slug="alcohol-use-disorder">Open the guide<span aria-hidden="true"> →</span></a>
             <span class="langs">%LANGS:alcohol-use-disorder%</span>
+          </div>
+        </div>
+      </li>
+      <li class="book mi">
+        <a class="cover" href="myocardial-infarction/" tabindex="-1" aria-hidden="true"><svg class="emblem" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--mi)"/><path d="M20 30.5C13 25.8 9 21.6 9 16.6C9 13.3 11.5 10.8 14.6 10.8C16.9 10.8 18.8 12.1 20 14C21.2 12.1 23.1 10.8 25.4 10.8C28.5 10.8 31 13.3 31 16.6C31 21.6 27 25.8 20 30.5Z" fill="none" stroke="var(--mi-line)" stroke-width="2.6" stroke-linejoin="round"/><path d="M10.5 20H16L18 16.5L21 24L23.2 20H29.5" fill="none" stroke="var(--mi-line)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="page">
+          <h3><a href="myocardial-infarction/">Heart Attack Companion</a></h3>
+          <p class="blurb">Myocardial infarction from plaque and a blocked coronary artery to the warning signs, the ECG and troponin, emergency treatment, the medicines after and cardiac rehab.</p>
+          <ul class="inside">
+          <li>Plaque rupture, ischaemia and the risk factors you can change</li>
+          <li>Symptoms, the 12-lead ECG, troponin and risk scores</li>
+          <li>Calling for help, opening the artery and antiplatelet medicines</li>
+          <li>Complications, statins, bypass surgery, rehab, living well and nursing care</li>
+          </ul>
+          <p class="facts">%CITED:myocardial-infarction% cited sources · %LANGNAMES:myocardial-infarction%</p>
+          <div class="actions">
+            <a class="start" href="myocardial-infarction/" data-slug="myocardial-infarction">Open the guide<span aria-hidden="true"> →</span></a>
+            <span class="langs">%LANGS:myocardial-infarction%</span>
           </div>
         </div>
       </li>
