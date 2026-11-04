@@ -1,5 +1,82 @@
-<!-- ================= 3.3 ANTIPLATELETS & ANTICOAGULANTS (stub, replaced by its builder) ================= -->
+<!-- ================= 3.3 ANTIPLATELETS & ANTICOAGULANTS ================= -->
+<style>
+#m-antithrombotic .card>.tag,#m-antithrombotic .card>.ev{align-self:flex-start}
+#m-antithrombotic .tbl table{min-width:760px}
+#m-antithrombotic .tbl td q{quotes:"\201C" "\201D"}
+#m-antithrombotic .atq{font-style:italic}
+#m-antithrombotic .kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0;font-size:14.5px}
+#m-antithrombotic .kv dt{font:600 12px var(--mono);color:var(--muted);padding-top:2px}
+#m-antithrombotic .kv dd{margin:0}
+</style>
 <section class="mod" id="m-antithrombotic" data-mod="antithrombotic" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Emergency treatment</p><h2>Antiplatelets &amp; anticoagulants</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">A heart attack (myocardial infarction, MI) is usually a clot on a torn plaque. Medicines that calm platelets and slow clotting stop that clot growing, but every one of them also makes bleeding more likely. Watch how aspirin and the P2Y12 blockers work, then see the trials that weighed fewer heart attacks against more bleeding.</p></div>
+  <div class="stepper" id="atSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="atSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Left: a torn plaque in a coronary artery where platelets gather, switch on and release thromboxane; an aspirin tablet then stops the thromboxane and a P2Y12 blocker plugs the ADP receptors on the platelet rim, so the clot shrinks. Right: first the speed of onset and offset of each drug, then bars for ISIS-2, CURE, TRITON-TIMI 38 and PLATO showing the main ischaemic outcome and bleeding for each drug against its comparator."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="atPlay">Play</button><label class="stage-cap tl" for="atT">Story <input type="range" id="atT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Platelet panel is schematic. Bars are the published trial percentages; each trial compared different patients, outcomes and follow-up, so compare within a row, not between rows. Percentages are population statistics. [[ISIS2_1988,Yusuf2001CURE,Wiviott2007TRITON,Wallentin2009PLATO]]</p>
+    </div>
+    <aside class="note" id="atNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why two kinds of medicine?</h3>
+  <div class="prose">
+    <p>When a plaque tears, platelets stick to it, switch on and clump, and the clotting (coagulation) proteins make thrombin and fibrin that bind the clump together. Antiplatelet tablets (aspirin and a P2Y12 inhibitor) act on the first part; injected anticoagulants (heparin, enoxaparin, bivalirudin, fondaparinux) act on the second. The 2023 ESC guideline puts it plainly: <span class="atq">“A combination of antiplatelet and anticoagulant therapy is indicated acutely for patients with ACS.”</span> [[Byrne2023ESC]]</p>
+    <p>Taking aspirin and a P2Y12 inhibitor together is called dual antiplatelet therapy (DAPT). The 2023 ESC default is <span class="atq">“DAPT including aspirin and a potent P2Y12 receptor inhibitor (prasugrel or ticagrelor)”</span>, with clopidogrel kept for when those <span class="atq">“are contraindicated/not available.”</span> [[Byrne2023ESC]] The ACC/AHA 2025 guideline also prefers ticagrelor or prasugrel to clopidogrel after PCI (as summarised by its chair). [[Restrepo2026,Rao2025ACC]] How the artery itself is reopened is covered in <a href="#reperfusion" data-go="reperfusion">Reperfusion: PCI &amp; clot-busting drugs</a>.</p>
+  </div>
+
+  <h3 class="sub">The 12-month balance: fewer clots, more bleeds</h3>
+  <p class="prose">Each strategy below is one randomised trial, so the two lines in each panel are a fair comparison. Move through the months to watch ischaemic events (heart attacks, strokes, deaths) and bleeding pile up in each arm; the scale on the right weighs the difference per 1000 people.</p>
+  <p class="teach" role="note"><b>Teaching tool</b>This compares published trial results. It does not say which medicine or how long is right for anyone: that depends on each person's own clotting and bleeding risk, decided with their care team. Never stop or change an antiplatelet medicine on your own.</p>
+  <div class="ctrls" role="group" aria-label="Strategy">
+    <span class="kicker">Strategy</span>
+    <button class="btn" data-atb="plato" aria-pressed="true">Potent vs clopidogrel (PLATO)</button>
+    <button class="btn" data-atb="twilight" aria-pressed="false">Drop aspirin at 3 months (TWILIGHT)</button>
+    <button class="btn" data-atb="ultimate" aria-pressed="false">Drop aspirin at 1 month (ULTIMATE-DAPT)</button>
+    <button class="btn" data-atb="stopdapt" aria-pressed="false">Clopidogrel alone after 1–2 months (STOPDAPT-2 ACS)</button>
+  </div>
+  <div class="ctrls"><button class="btn" id="atHbr" aria-pressed="false">High bleeding risk (HBR) patients</button></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="atBal" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="Two small charts of cumulative events by month for the two arms of the chosen trial, ischaemic events above and bleeding below, and a balance scale whose pans fill with dots for ischaemic events avoided and extra bleeds per 1000 people, tilting toward whichever is larger."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="atBalPlay">Play</button><label class="stage-cap tl" for="atBalT">Month <input type="range" id="atBalT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap" id="atBalCap">End points as published; the month-by-month shape between them is drawn, not measured. Per-1000 figures are the published percentage-point differences × 10.</p>
+    </div>
+    <aside class="note" id="atBalNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The three P2Y12 tablets, as their US labels describe them</h3>
+  <p class="prose">Wording below is quoted from the current US prescribing information. It is shown to teach how the drugs differ, not as dosing advice. [[FDA-Plavix,FDA-Effient,FDA-Brilinta]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Medicine</th><th>How it binds</th><th>Boxed warning (as published)</th><th>Other key label cautions</th><th>Label dosing in ACS (as published)</th></tr></thead>
+    <tbody>
+      <tr><th>Clopidogrel (Plavix)</th><td>Prodrug; its active metabolite binds the P2Y12 receptor irreversibly, and platelets stay affected “for the remainder of their lifespan (about 7 to 10 days)”. [[FDA-Plavix]]</td><td>“Effectiveness of Plavix depends on conversion to an active metabolite by the cytochrome P450 (CYP) system, principally CYP2C19.” “Consider use of another platelet P2Y12 inhibitor in patients identified as CYP2C19 poor metabolizers.” [[FDA-Plavix]]</td><td>“Avoid concomitant use of Plavix with omeprazole or esomeprazole because both significantly reduce the antiplatelet activity of Plavix.” “Discontinue 5 days prior to elective surgery that has a major risk of bleeding.” [[FDA-Plavix]]</td><td>“Initiate Plavix with a single 300 mg oral loading dose and then continue at 75 mg once daily.” [[FDA-Plavix]]</td></tr>
+      <tr><th>Prasugrel (Effient)</th><td>Active metabolite binds the P2Y12 receptor irreversibly; aggregation returns to baseline over 5–9 days, reflecting “new platelet production rather than pharmacokinetics”. [[FDA-Effient]]</td><td>Bleeding risk. “In patients ≥75 years of age, Effient is generally not recommended … except in high-risk situations (patients with diabetes or a history of prior myocardial infarction [MI])”; lists “body weight &lt;60 kg” as an additional risk factor. Prior TIA or stroke is a contraindication. [[FDA-Effient]]</td><td>Stopping, “particularly in the first few weeks after acute coronary syndrome, increases the risk of subsequent cardiovascular (CV) events.” “When possible, discontinue Effient at least 7 days prior to any surgery.” [[FDA-Effient]]</td><td>“a single 60 mg oral loading dose and then continue at 10 mg orally once daily”; “Consider 5 mg once daily for patients &lt;60 kg” (this dose “has not been prospectively studied”). [[FDA-Effient]]</td></tr>
+      <tr><th>Ticagrelor (Brilinta)</th><td>Binds the P2Y12 receptor reversibly; needs no metabolic activation (parent drug and metabolite “approximately equipotent”). [[FDA-Brilinta]]</td><td>Bleeding risk. “Do not start BRILINTA in patients undergoing urgent coronary artery bypass graft surgery (CABG).” “If possible, manage bleeding without discontinuing BRILINTA. Stopping BRILINTA increases the risk of subsequent cardiovascular events.” [[FDA-Brilinta]]</td><td>Breathlessness (dyspnoea) in “about 14% (PLATO and PEGASUS) to 21% (THEMIS)”; “Dyspnea from BRILINTA is self-limiting.” Bradyarrhythmias, including ventricular pauses. Aspirin with it: “good reason to restrict aspirin maintenance dosage accompanying ticagrelor to 100 mg”. [[FDA-Brilinta]]</td><td>“Initiate treatment with a 180 mg loading dose … Administer 90 mg of BRILINTA twice daily during the first year after an ACS event. After one year, administer 60 mg of BRILINTA twice daily,” with “a daily maintenance dose of aspirin of 75 mg to 100 mg.” [[FDA-Brilinta]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">The aspirin-dose statement used to sit in Brilinta's boxed warning; in the current label it is in the dosing and clinical studies sections, and the boxed warning is about bleeding only. [[FDA-Brilinta]]</p>
+
+  <h3 class="sub">Closer looks</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Genes</span><h4>CYP2C19 and clopidogrel</h4>
+      <p>Clopidogrel must be switched on by the liver enzyme CYP2C19. About 2% of White and 4% of Black patients are poor metabolisers, and more Asian patients are (for example 14% of Chinese patients). [[FDA-Plavix]]</p>
+      <p>In TRITON-TIMI 38, clopidogrel-treated carriers of a reduced-function gene had more cardiovascular death, MI or stroke (12.1% vs 8.0%) and about three times the stent thrombosis (2.6% vs 0.8%). [[Mega2009CYP2C19]] In POPular Genetics, choosing the drug by genotype was noninferior and cut bleeding (9.8% vs 12.5%). [[Claassens2019POPGEN]]</p></div>
+    <div class="card"><span class="tag rx">Atrial fibrillation</span><h4>When an anticoagulant is needed too (AUGUSTUS)</h4>
+      <p>In AUGUSTUS (4614 people with AF and a recent ACS or PCI, all on a P2Y12 inhibitor), aspirin raised major or clinically relevant bleeding from 9.0% to 16.1%, and apixaban bled less than a vitamin K antagonist (10.5% vs 14.7%). Ischaemic events were similar. [[Lopes2019AUGUSTUS]]</p>
+      <p>ESC 2023: a NOAC plus a single antiplatelet <span class="atq">“is recommended as the default strategy for up to 12 months after up to 1 week of TAT”</span>, and <span class="atq">“The use of prasugrel or ticagrelor as part of TAT is not recommended.”</span> [[Byrne2023ESC]]</p></div>
+    <div class="card"><span class="tag rx">Stomach</span><h4>Proton pump inhibitors</h4>
+      <p>In COGENT, omeprazole cut gastrointestinal events on aspirin plus clopidogrel (1.1% vs 2.9%), with no significant change in cardiovascular events (4.9% vs 5.7%), though the authors say this does “not rule out a clinically meaningful difference”. [[Bhatt2010COGENT]] ESC 2023 recommends PPIs for patients on DAPT <span class="atq">“at higher-than-average risk of gastrointestinal bleeds”</span>. [[Byrne2023ESC]]</p></div>
+    <div class="card"><span class="tag rx">In the cath lab</span><h4>Heparin, bivalirudin, fondaparinux</h4>
+      <p>Fondaparinux bled less than enoxaparin in OASIS-5 (2.2% vs 4.1%) [[Yusuf2006OASIS5]], but ESC 2023 says it <span class="atq">“is not recommended in patients with STEMI undergoing PPCI.”</span> [[Byrne2023ESC]] Bivalirudin trials disagree: HEAT-PPCI favoured heparin, MATRIX and VALIDATE-SWEDEHEART were neutral, BRIGHT-4 favoured bivalirudin with a high-dose infusion after PCI. [[Shahzad2014HEAT,Valgimigli2015MATRIXE,Erlinge2017VALIDATE,Li2022BRIGHT4]] <span class="ev early">Debated</span></p></div>
+    <div class="card"><span class="tag rx">After year one</span><h4>Which single drug long term?</h4>
+      <p>HOST-EXAM (clopidogrel vs aspirin, 5.7% vs 7.7% for its composite) and SMART-CHOICE 3 (4.4% vs 6.6% death, MI or stroke at 3 years) both favoured clopidogrel. [[Koo2021HOSTEXAM,Choi2025SMARTCHOICE3]] Both were open-label Korean trials, and a 2026 review says they <span class="atq">“suggest that P2Y12 monotherapy may be better than aspirin”</span>. [[Restrepo2026]] <span class="ev early">Early evidence</span></p></div>
+    <div class="card"><span class="tag rx">Surgery &amp; dentists</span><h4>Never stop on your own</h4>
+      <p>Stopping a P2Y12 inhibitor early raises the risk of heart attack and stent clotting; the labels give planned stop times before surgery (clopidogrel and ticagrelor 5 days, prasugrel at least 7 days), set by the doctors involved. [[FDA-Plavix,FDA-Brilinta,FDA-Effient]] In the DAPT trial, stent thrombosis and MI rose in the 3 months after stopping. [[Mauri2014DAPT]]</p>
+      <p>Bleeding to report: black or bloody stools, vomiting blood, blood in the urine, or bleeding that will not stop.</p></div>
+  </div>
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+  <p class="prose">The medicines that follow once you leave hospital are in <a href="#secondary" data-go="secondary">Medicines after a heart attack</a>.</p>
 </section>
