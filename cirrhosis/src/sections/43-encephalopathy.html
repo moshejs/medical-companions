@@ -1,5 +1,128 @@
-<!-- ================= 4.3 HEPATIC ENCEPHALOPATHY (stub, replaced by its builder) ================= -->
+<!-- ================= 4.3 HEPATIC ENCEPHALOPATHY ================= -->
+<style>
+#m-encephalopathy .lab.even svg{min-width:0}
+#m-encephalopathy .card>.ev,#m-encephalopathy .card>.tag{align-self:flex-start}
+#m-encephalopathy .tbl table{min-width:560px}
+#m-encephalopathy .pcl{display:flex;flex-direction:column;gap:8px}
+#m-encephalopathy .pcl label{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);cursor:pointer;font-size:15px}
+#m-encephalopathy .pcl input{margin-top:4px;accent-color:var(--accent)}
+#m-encephalopathy .pcl label:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+#m-encephalopathy #enPcOut{display:flex;flex-direction:column;gap:10px}
+#m-encephalopathy #enPcOut .expl{font-size:14.5px}
+#m-encephalopathy .quotes{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:72ch}
+#m-encephalopathy .antbtns{display:flex;flex-wrap:wrap;gap:8px}
+</style>
 <section class="mod" id="m-encephalopathy" data-mod="encephalopathy" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Complications</p><h2>Hepatic encephalopathy</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">When a scarred liver and its bypass veins let ammonia slip past, the brain is affected: from changes only a test can find, to confusion, sleepiness and coma. Follow ammonia from the gut to the brain, see the West Haven grades as published, and how lactulose and rifaximin are used.</p></div>
+
+  <p class="crisis" role="note"><b>Urgent care</b><span>Vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen need urgent care: call your local emergency number or go to an emergency department.</span></p>
+
+  <div class="stepper" id="enSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="enSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Ammonia molecules made in the gut travel in the portal vein to the liver. A healthy liver turns them into urea for the kidneys. As the liver scars and a bypass vein opens, ammonia passes on to the brain, an astrocyte swells, the brain clouds, and a marker moves along the West Haven grades from minimal to grade IV, then falls back with treatment."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="enPlay">Play</button><label class="stage-cap tl" for="enT">Stage <input type="range" id="enT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="enRead"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The ammonia level, the haze and the grade marker are drawn to show the sequence, not measured. Ammonia is not the only cause: inflammation and other factors also contribute. [[Rose2020,Vilstrup2014HE]]</p>
+    </div>
+    <aside class="note" id="enNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The West Haven grades, as published</h3>
+  <div class="prose"><p>Overt hepatic encephalopathy (HE) will occur "in 30%-40% of those with cirrhosis at some time during their clinical course", and minimal or covert HE "occurs in 20%-80%"; a 2024 meta-analysis of 101 studies pooled covert HE at 40.9%. In a US cohort of 294 people without prior HE, the 1-year chance of a first overt episode was 10% in Child A and 25% in Child B. [[Vilstrup2014HE,Lv2024CHE,Tapper2020OHE]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Grade</th><th>Group</th><th>Description (AASLD/EASL 2014, Table 2)</th></tr></thead>
+    <tbody>
+      <tr><th>Minimal</th><td><span class="tag nh3">Covert</span></td><td>Abnormal psychometric or neurophysiological tests "without clinical evidence of mental change".</td></tr>
+      <tr><th>Grade I</th><td><span class="tag nh3">Covert</span></td><td>"Trivial lack of awareness", euphoria or anxiety, shortened attention span, impaired addition or subtraction, altered sleep rhythm. Still oriented in time and space.</td></tr>
+      <tr class="nh3"><th>Grade II</th><td><span class="tag bad">Overt</span></td><td>Lethargy or apathy, disorientation for time, obvious personality change, inappropriate behaviour, dyspraxia, asterixis (the "liver flap", a flapping tremor). [[Lui2026Asterixis]] Operative criterion: at least three of day of the month, day of the week, month, season or year are wrong.</td></tr>
+      <tr class="nh3"><th>Grade III</th><td><span class="tag bad">Overt</span></td><td>Somnolence to semistupor, responsive to stimuli, confused, gross disorientation, bizarre behaviour. Also disoriented for space: at least three of country, state or region, city or place are wrong.</td></tr>
+      <tr class="nh3"><th>Grade IV</th><td><span class="tag bad">Overt</span></td><td>Coma: "does not respond even to painful stimuli".</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Quoted from the AASLD/EASL 2014 guideline, which calls the West Haven criteria the gold standard while noting "limited interobserver reliability, especially for grade I HE". HE is also classified by cause (type A acute liver failure, type B mainly bypass, type C cirrhosis), course (episodic, recurrent, persistent) and whether it was precipitated, as in the guideline's example: "Type C, Grade 3, Recurrent, Precipitated (by urinary tract infection)". HE is diagnosed by excluding other causes of brain dysfunction. [[Vilstrup2014HE]]</p>
+
+  <h3 class="sub">How lactulose and rifaximin are used</h3>
+  <div class="lab even">
+    <div class="stage">
+      <p class="kicker">Toggle a treatment · schematic gut</p>
+      <div class="ctrls" role="group" aria-label="Treatments">
+        <button class="btn" id="enLac" aria-pressed="false">Lactulose</button>
+        <button class="btn" id="enRif" aria-pressed="false">Rifaximin</button>
+      </div>
+      <div class="scroll"><svg id="enMech" viewBox="0 0 440 300" role="img" aria-label="A length of bowel with bacteria. Ammonia molecules form near the bacteria; some cross the bowel wall into the portal blood above, others leave with the stool. Lactulose speeds the contents out; rifaximin thins out the bacteria. A meter shows how much ammonia reaches the blood."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="enMPlay">Play</button><label class="stage-cap tl" for="enMt">Time <input type="range" id="enMt" min="0" max="1" step="0.001" value="0.3"></label></div>
+      <div id="enMechNote" aria-live="polite"></div>
+    </div>
+    <div class="stage">
+      <p class="kicker">The trials · per 100 people</p>
+      <div class="ctrls" role="group" aria-label="Trial">
+        <button class="btn" data-tr="0" aria-pressed="true">Lactulose: HE came back</button>
+        <button class="btn" data-tr="1" aria-pressed="false">Rifaximin: breakthrough HE</button>
+        <button class="btn" data-tr="2" aria-pressed="false">Rifaximin: HE hospital stay</button>
+      </div>
+      <div class="scroll"><svg id="enTrialSvg" viewBox="0 0 440 330" role="img" aria-label="Two grids of 100 people, comparing placebo with the treatment for the chosen trial outcome."></svg></div>
+      <p class="stage-cap" id="enTrialCap"></p>
+    </div>
+  </div>
+  <div class="split2">
+    <div class="prose">
+      <p><b>Guideline statements, quoted as published (AASLD/EASL 2014), not instructions:</b></p>
+      <ul class="quotes">
+        <li>"An episode of OHE (whether spontaneous or precipitated) should be actively treated."</li>
+        <li>"Lactulose is the first choice for treatment of episodic OHE": "25 mL of lactulose syrup every 12 hours until at least two soft or loose bowel movements per day are produced", then "titrated to maintain two to three bowel movements per day".</li>
+        <li>"Lactulose is recommended for prevention of recurrent episodes of HE after the initial episode."</li>
+        <li>"Rifaximin as an add-on to lactulose is recommended for prevention of recurrent episodes of HE after the second episode."</li>
+        <li>"Primary prophylaxis for prevention of episodes of OHE is not required, except in patients with cirrhosis with a known high risk to develop HE."</li>
+        <li>"Recurrent intractable OHE, together with liver failure, is an indication for LT [liver transplantation]."</li>
+      </ul>
+      <p class="stage-cap">[[Vilstrup2014HE]]</p>
+    </div>
+    <div class="prose">
+      <p>The guideline warns that too much lactulose can cause "aspiration, dehydration, hypernatremia, and severe perianal skin irritation, and overuse can even precipitate HE". The US label (Enulose) adjusts the dose "every day or two to produce 2 or 3 soft stools daily" and reports lower blood ammonia "by 25 to 50%". The US rifaximin label (Xifaxan) is for "reduction in risk of overt hepatic encephalopathy (HE) recurrence in adults", "550 mg taken orally two times a day", with caution in "severe (Child-Pugh Class C) hepatic impairment". [[Vilstrup2014HE,FDA-Enulose,FDA-Xifaxan]]</p>
+      <p>Across 38 trials (1,828 people), lactulose and lactitol improved HE (RR 0.63) and lowered mortality in overt HE (RR 0.36). Rifaximin added to lactulose for an acute episode gave complete reversal in 76% vs 50.8% in one trial of 120. [[Gluud2016NAD,Sharma2013RifaxLact]] <span class="ev early">Early evidence</span> In a 50-person single-centre trial, a polyethylene glycol bowel prep improved HE grade at 24 hours more often than lactulose (91% vs 52%). [[Rahimi2014HELP]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Finding the trigger</h3>
+  <div class="prose"><p>Precipitating factors "can be identified in nearly all bouts of episodic HE type C" and should be "actively sought and treated". Tick what you want to learn about; the chart shows where each sits in the guideline's ranked lists. This is a study aid, not a way to work out what is happening to a person. [[Vilstrup2014HE]]</p></div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="pcl" role="group" aria-label="Possible triggers">
+        <label for="enPc0"><input type="checkbox" id="enPc0" data-pc="0"><span><b>Infection</b> (for example urine or chest infection, or SBP)</span></label>
+        <label for="enPc1"><input type="checkbox" id="enPc1" data-pc="1"><span><b>Bleeding</b> into the gut (black stools, vomiting blood)</span></label>
+        <label for="enPc2"><input type="checkbox" id="enPc2" data-pc="2"><span><b>Constipation</b></span></label>
+        <label for="enPc3"><input type="checkbox" id="enPc3" data-pc="3"><span><b>Dehydration</b> or too much diuretic</span></label>
+        <label for="enPc4"><input type="checkbox" id="enPc4" data-pc="4"><span><b>Electrolyte problems</b> such as low sodium</span></label>
+        <label for="enPc5"><input type="checkbox" id="enPc5" data-pc="5"><span><b>Sedating medicines</b>: sleeping pills, benzodiazepines, opioids</span></label>
+      </div>
+      <div class="scroll"><svg id="enPcSvg" viewBox="0 0 440 250" role="img" aria-label="Two ranked lists from the guideline, episodic overt HE on the left and recurrent HE on the right, with lines joining the same precipitant. Ticked items are highlighted."></svg></div>
+    </div>
+    <div class="note" id="enPcOut" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">The animal naming test: a teaching tool</h3>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="enAntSvg" viewBox="0 0 440 210" role="img" aria-label="A scale from 0 to 30 animals named in one minute, with the published three-level score bands: 2 points below 10, 1 point for 10 to 14, 0 points for 15 or more."></svg></div>
+      <label class="stage-cap tl" for="enAnt">Animals named in 1 minute <input type="range" id="enAnt" min="0" max="30" step="1" value="18"></label>
+      <div class="antbtns"><button class="btn primary" id="enAntGo">Try it: start 60 seconds</button><button class="btn" id="enAntTap" disabled>+1 animal</button></div>
+      <p class="safety"><b>Teaching tool</b>The published score (S-ANT1) is adjusted for age and education, and abnormal results need a clinician to interpret them. This uses the raw count only. It cannot tell you whether you or someone you care for has HE. [[Campagna2017ANT]]</p>
+    </div>
+    <div class="note" id="enAntNote" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Everyday life with HE</h3>
+  <div class="cards">
+    <div class="card"><span class="tag nh3">Covert HE</span><h4>Driving</h4><p>Drivers with minimal HE on an inhibitory control test had more crashes in the year before (17% vs 3% by transport records; relative risk 5.77) and more crashes or violations over the next year (22% vs 7%). The guideline says a covert HE diagnosis "does not automatically mean that the affected subject is a dangerous driver", that doctors should counsel on the risks, and that "often, the safest advice is to stop driving until the responsible driving authorities have formally cleared the patient" (quoted, not advice). [[Bajaj2009Crashes,Vilstrup2014HE]] Ask your care team whether driving is safe for you.</p></div>
+    <div class="card"><span class="tag accent">For carers</span><h4>Spotting early signs</h4><p>Early changes can be small: the published grade I signs include altered sleep rhythm, shortened attention, euphoria or anxiety, and trouble with simple sums. [[Vilstrup2014HE]] The LiverHope programme teaches carers to look for early signs of HE and infection and to call the nurse or go to the emergency department; HE education about giving and adjusting medicines can ease the load on carers, whose burden is higher after HE. [[Fabrellas2020LiverHope,Rogal2022AASLD,Bajaj2011Burden]] New confusion or drowsiness needs urgent care.</p></div>
+    <div class="card"><span class="tag rx">Food</span><h4>Protein is not cut</h4><p>In a trial of 30 people admitted with HE, normal protein did as well as a low-protein diet, which caused more protein breakdown. EASL 2019: "Avoid protein restriction in patients with HE"; AASLD 2021: 1.2–1.5 g/kg/day "is safe, does not worsen HE" (quoted, not instructions). Muscle is a second place the body can clear ammonia, which is why muscle loss raises HE risk. [[Cordoba2004,EASL2019Nutrition,Lai2021AASLD,Rose2020]] More in <a href="#nutrition" data-go="nutrition">Nutrition, muscle &amp; medicine safety</a>.</p></div>
+    <div class="card"><span class="tag dx">Tests</span><h4>Is a blood ammonia level needed?</h4><p>The guideline: "High blood-ammonia levels alone do not add any diagnostic, staging, or prognostic value in HE patients with CLD". A normal level in someone with overt HE puts the diagnosis "in question". [[Vilstrup2014HE]]</p></div>
+    <div class="card"><span class="tag warn">Falls</span><h4>Falls and medicines</h4><p>40% of outpatients with minimal HE reported a fall in the prior year, against 12.9% without (adjusted OR 2.91). Opioids (HE in 3.3% with none, 6.3% with chronic prescriptions), long-acting or high-dose benzodiazepines and proton pump inhibitors (adjusted HR 1.36) have all been linked to HE. [[Roman2011Falls,Moon2020Opioids,Lee2014BZD,Dam2016PPI]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Fully reversible?</h4><p>HE has been seen as fully reversible after transplant, but evidence of neuronal cell death and lasting deficits after overt episodes "fundamentally changes our understanding of HE as a reversible syndrome". [[Rose2020]]</p></div>
+    <div class="card"><span class="tag accent">Outlook</span><h4>What the numbers mean</h4><p>After a first acute episode, 42% of one Barcelona cohort were alive at 1 year and 23% at 3 years, and the authors said such people "should be considered as potential candidates" for transplant. In a Danish cohort with alcohol-related cirrhosis, 1-year mortality was 64% after HE vs 17% without complications. These are population statistics from older cohorts, not predictions for one person. [[Bustamante1999,Jepsen2010]] See <a href="#transplant" data-go="transplant">Liver transplant</a>.</p></div>
+    <div class="card"><span class="tag brand">Support</span><h4>Palliative care alongside treatment</h4><p>AASLD describes palliative care as multidisciplinary specialised care for the physical, spiritual and psychosocial needs of people with serious illness and their carers, which can be considered at any stage of cirrhosis alongside treatment of the liver disease. Near the end of life, HE treatment can be shaped around the person's goals. [[Rogal2022AASLD]] See <a href="#living" data-go="living">Living with cirrhosis</a>.</p></div>
+  </div>
+  <p class="stage-cap">Doses and guideline statements on this page are quoted as published (AASLD/EASL, US labels), never as instructions. HE can happen in cirrhosis of any cause: MASLD, alcohol-related liver disease, viral hepatitis, autoimmune and genetic diseases. [[Gines2021Lancet]] Related: <a href="#ascites" data-go="ascites">Ascites, infection &amp; kidney injury</a>, <a href="#nursing" data-go="nursing">Nursing care</a>.</p>
 </section>
