@@ -1,0 +1,89 @@
+<!-- ================= 3.1 THE FIRST MINUTES: CALLING FOR HELP, CPR & DEFIBRILLATORS ================= -->
+<style>
+#m-call .callnow{font-size:16.5px;max-width:none}
+#m-call .callnow span{font-weight:700}
+#m-call .chainbtns{display:flex;flex-wrap:wrap;gap:6px}
+#m-call .chainbtns .btn b{font:600 11px var(--mono);margin-right:6px;opacity:.75}
+#m-call #caChainTxt h4{margin:0;font-family:var(--display);font-weight:800;font-size:21px;line-height:1.15}
+#m-call #caChainTxt ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+#m-call .card>.tag{align-self:flex-start}
+#m-call .quote{font-style:italic}
+#m-call .tbl table{min-width:620px}
+#m-call .shock-out{font:500 14px var(--body)}
+</style>
+<section class="mod" id="m-call" data-mod="call" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Emergency treatment</p><h2>The first minutes: calling for help, CPR &amp; defibrillators</h2>
+    <p class="lede">In a heart attack (myocardial infarction, MI) the clock starts when symptoms start. Follow two people from the first symptom to an open artery, one who rode in an ambulance and one who made their own way, and see what bystanders can do if the heart stops.</p></div>
+
+  <p class="callnow" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+
+  <div class="stepper" id="caSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="caSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Two timelines start at symptom onset. In the top lane an ambulance reaches hospital at a median of 89 minutes and the artery is opened 63 minutes later; in the lower lane a person travelling by their own means arrives at a median of 120 minutes and the artery is opened 76 minutes later. A small heart at the end of each lane greys as muscle is lost until the artery is opened. A bottom panel shows population survival after out-of-hospital cardiac arrest with and without bystander CPR and a defibrillator."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="caPlay">Play</button><label class="stage-cap tl" for="caT">Minutes <input type="range" id="caT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="caRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> Lane lengths are registry medians from 37,634 US STEMI patients (2007–2009), placed end to end; medians cannot simply be added, so the totals are approximate. Where the call, the ECG and the alert fall inside a lane is drawn, not measured. The hearts are drawings of "time is muscle", not measurements. Survival bars are population statistics from separate studies. [[Mathews2011,HasselqvistAx2015,Weisfeldt2010]]</p>
+    </div>
+    <aside class="note" id="caNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why minutes matter</h3>
+  <div class="prose"><p>In a classic animal experiment, the share of threatened heart wall that died rose from 38% after 40 minutes of blocked flow to 57% at 3 hours, 71% at 6 hours and 85% at 24 hours, moving like a wavefront from the inner layer outward. [[Reimer1977]] In people treated with clot-dissolving drugs, 65 lives were saved per 1000 treated in the first hour after symptoms began, against 26–29 per 1000 at 2–6 hours. [[Boersma1996]] The <a href="#ischaemia" data-go="ischaemia">time-is-muscle module</a> animates this in detail, and <a href="#reperfusion" data-go="reperfusion">Reperfusion</a> shows how the artery is opened.</p></div>
+
+  <h3 class="sub">If the heart stops: links in the chain of survival</h3>
+  <div class="prose"><p>A heart attack can trigger cardiac arrest, when the heart stops pumping. The 2025 American Heart Association (AHA) basic life support guideline covers recognising cardiac arrest, activating the emergency response, high-quality CPR and using an automated external defibrillator (AED). [[Kleinman2025BLS]] Its executive summary stresses high-quality chest compressions and early defibrillation, and its systems-of-care chapter covers lay rescuers, public-access defibrillators and the role of emergency dispatchers. [[DelRios2025AHA,Dezfulian2025Systems]] Pick a link to see what the evidence says about it.</p></div>
+  <div class="chainbtns" role="group" aria-label="Links in the chain of survival" id="caChainBtns">
+    <button class="btn" data-ch="0" aria-pressed="true"><b>1</b>Recognise</button>
+    <button class="btn" data-ch="1" aria-pressed="false"><b>2</b>Call</button>
+    <button class="btn" data-ch="2" aria-pressed="false"><b>3</b>CPR</button>
+    <button class="btn" data-ch="3" aria-pressed="false"><b>4</b>Defibrillator</button>
+    <button class="btn" data-ch="4" aria-pressed="false"><b>5</b>Advanced care</button>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="caChain" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A chain of five links: recognise, call, CPR, defibrillator and advanced care. The chosen link is highlighted and illustrated below the chain."></svg></div>
+      <p class="stage-cap">Illustration only. Learn CPR and how to use an AED in a certified course; this page does not teach the steps.</p>
+    </div>
+    <div class="note" id="caChainTxt" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Every minute to the first shock</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="caShock" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="A curve falls as the minutes from collapse to the first defibrillator shock increase, showing the relative odds of surviving with good brain function, modelled from a Japanese nationwide study's adjusted odds ratio of 0.91 per minute."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="caMin">Minutes from collapse to first shock <input type="range" id="caMin" min="0" max="10" step="0.1" value="3.7"></label></div>
+      <p class="stage-cap"><b>Teaching model.</b> The study reports an adjusted odds ratio of 0.91 for each minute of delay; the curve repeats that figure minute after minute, which assumes a constant effect. Population statistics, not a prediction for anyone. [[Kitamura2010]]</p>
+    </div>
+    <aside class="note" id="caShockNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the numbers say</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who</th><th>Finding (population statistics)</th></tr></thead>
+    <tbody>
+      <tr><th>Sweden, 1990–2011</th><td>30,381 witnessed arrests outside hospital</td><td>CPR before the ambulance came in 51.1%. 30-day survival 10.5% with early CPR vs 4.0% without; adjusted OR 2.15 (95% CI 1.88–2.45). [[HasselqvistAx2015]]</td></tr>
+      <tr><th>Resuscitation Outcomes Consortium, 2005–2007</th><td>13,769 arrests outside hospital (US and Canada)</td><td>Survival to discharge 9% with bystander CPR but no AED, 24% when an AED was applied before EMS arrived, 38% when it delivered a shock. [[Weisfeldt2010]]</td></tr>
+      <tr><th>Japan, 2005–2007</th><td>Witnessed arrests of cardiac origin in ventricular fibrillation</td><td>31.6% of those shocked with a public AED were alive at 1 month with minimal brain impairment, vs 14.4% of all such patients. Odds of a good outcome fell with each minute to the first shock (adjusted OR 0.91 per minute). [[Kitamura2010]]</td></tr>
+      <tr><th>Japan, 2005–2013</th><td>43,762 witnessed arrests in ventricular fibrillation</td><td>Public-access defibrillation rose from 1.1% to 16.5% of cases. Good neurological survival at 1 month 38.5% with it vs 18.2% without. [[Kitamura2016]]</td></tr>
+      <tr><th>Denmark, 2001–2012</th><td>Arrests not witnessed by EMS</td><td>Bystander CPR rose from 66.7% to 80.6%, bystander defibrillation from 2.1% to 16.8%. Among 30-day survivors, bystander CPR went with less brain damage or nursing-home admission at 1 year (HR 0.62). [[Kragholm2017]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Calling, aspirin and the trip to hospital</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Why not drive yourself</span><h4>The ambulance brings the hospital forward</h4>
+      <p>ESC 2023 advice on patient delay, as published: <span class="quote">"The recommended action should be to contact the EMS rather than to self-present."</span> [[Byrne2023ESC]] In a US registry, ambulance transport went with a shorter median time from symptoms to arrival (89 vs 120 minutes) and to an opened artery after arrival (63 vs 76 minutes). [[Mathews2011]] The crew can record a 12-lead ECG and warn the hospital: with a prehospital ECG, median door-to-balloon time was 61 vs 75 minutes. [[Diercks2009]]</p></div>
+    <div class="card"><span class="tag warn">Quoted, not an instruction</span><h4>Aspirin: what the guideline and the trial say</h4>
+      <p>ESC 2023 gives the aspirin loading dose for ACS as <span class="quote">"LD of 150–300 mg orally or 75–250 mg i.v. if oral ingestion is not possible"</span>, and in its fibrinolysis section states <span class="quote">"The first dose of aspirin (162–325 mg) should be chewed or given i.v."</span> These are words for treating teams. [[Byrne2023ESC]] In ISIS-2 (17,187 patients), a month of aspirin cut 5-week vascular death from 11.8% to 9.4%. [[ISIS2_1988]] If you have symptoms, call emergency services and follow the dispatcher's advice.</p></div>
+    <div class="card"><span class="tag accent">When to call</span><h4>Red flags in the guideline</h4>
+      <p>ESC 2023 lists symptoms that should prompt contact with emergency services: <span class="quote">"prolonged chest pain (&gt;15 min) and/or recurrent pain within 1 h"</span>. [[Byrne2023ESC]] Symptoms differ from person to person and can be felt in the arm, jaw, neck, back or upper belly: see <a href="#symptoms" data-go="symptoms">Symptoms &amp; who presents differently</a>. If in doubt, call.</p></div>
+    <div class="card"><span class="tag accent">No blame</span><h4>Who waits longer, and why</h4>
+      <p>In four US communities, about half of people (49.5% in 2000) took 4 hours or more to reach hospital, with no significant change from 1987. Black patients and women had longer delays, although the gaps narrowed. [[McGinn2005]] A review of 42 studies found women and older people more likely to arrive later. [[Nguyen2010]] Delay reflects access, systems and how symptoms are taught, not only personal choices. [[McGinn2005]]</p></div>
+    <div class="card"><span class="tag brand">After resuscitation</span><h4>Straight to the cath lab?</h4>
+      <p>ESC 2023: resuscitated patients with persistent ST elevation <span class="quote">"should, in general, undergo a PPCI strategy"</span>; without ST elevation, <span class="quote">"routine immediate ICA is not superior to a delayed invasive strategy"</span>. [[Byrne2023ESC]] In COACT, 90-day survival was 64.5% with immediate vs 67.2% with delayed angiography; in TOMAHAWK, 30-day death was 54.0% vs 46.0%. [[Lemkes2019COACT,Desch2021TOMAHAWK]]</p></div>
+    <div class="card"><span class="tag good">Awareness</span><h4>Most people know to call; fewer know the symptoms</h4>
+      <p>In US survey data, 94.9% of adults in 2017 knew to call 9-1-1 for a heart attack, but only 50.2% knew all five common symptoms: jaw, neck or back discomfort; weakness or light-headedness; chest discomfort; arm or shoulder discomfort; and shortness of breath. [[Fang2019MMWR]]</p></div>
+  </div>
+  <p class="teach"><b>Teaching tool</b>Time targets and registry medians on this page explain how emergency systems work. They are never a way to decide whether to seek care. If in doubt, call.</p>
+</section>

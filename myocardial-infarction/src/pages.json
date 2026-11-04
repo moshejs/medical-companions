@@ -1,0 +1,102 @@
+{
+ "what": {
+  "title": "What is a heart attack? STEMI, NSTEMI, the five types and survival",
+  "description": "How common heart attacks are, STEMI versus NSTEMI, the five types of MI, myocardial injury versus infarction, and survival shown as population statistics."
+ },
+ "plaque": {
+  "title": "Atherosclerosis and plaque rupture: how a coronary clot forms",
+  "description": "Animated guide to coronary plaque: LDL in the artery wall, fatty streak, thin-cap fibroatheroma, rupture vs erosion, and the clot behind a heart attack."
+ },
+ "ischaemia": {
+  "title": "Time is muscle: how heart muscle dies in a heart attack",
+  "description": "Scrub the ischaemic wavefront hour by hour, reopen the artery to see salvage, and compare delay with outcomes in PCI, fibrinolysis and cardiac MRI data."
+ },
+ "risk": {
+  "title": "Heart attack risk factors: INTERHEART, LDL, Lp(a) and prevention",
+  "description": "INTERHEART's nine modifiable risk factors and their odds ratios, plus a teaching explorer for smoking, blood pressure, LDL, diabetes, Lp(a) and women's risks."
+ },
+ "symptoms": {
+  "title": "Heart attack symptoms in women and men, and without chest pain",
+  "description": "Where heart attack pain is felt, extra symptoms in women vs men, why 1 in 3 had no chest pain in NRMI-2, and words that delay calling for help. Cited."
+ },
+ "ecg": {
+  "title": "Heart attack ECG: STEMI criteria, Q waves and lead territories",
+  "description": "Watch an ECG evolve after a heart attack: hyperacute T, ST elevation, Q waves. Test UDMI4 STEMI thresholds by lead, age and sex. Posterior MI, LBBB."
+ },
+ "troponin": {
+  "title": "Troponin after a heart attack: hs-troponin and the 0/1-hour algorithm",
+  "description": "How troponin rises and falls after a heart attack, sex-specific 99th percentiles, the ESC 0/1-hour rule-out algorithm, and injury vs type 1 and type 2 MI."
+ },
+ "scores": {
+  "title": "HEART, TIMI and GRACE scores: teaching calculators and event rates",
+  "description": "Build the HEART score item by item, see 6-week event rates by band, try teaching HEART and TIMI calculators, and see what GRACE weighs. Not for triage."
+ },
+ "differential": {
+  "title": "Chest pain: heart attack, aortic dissection, PE, takotsubo or SCAD?",
+  "description": "Animated chest map of heart attack mimics: aortic dissection, pulmonary embolism, pericarditis, takotsubo, SCAD and MINOCA, with which test helps each."
+ },
+ "call": {
+  "title": "Heart attack first minutes: calling 911/999/112, CPR and AEDs",
+  "description": "Why to call an ambulance rather than drive, the prehospital ECG, and how bystander CPR and public defibrillators change cardiac arrest survival."
+ },
+ "reperfusion": {
+  "title": "Reperfusion in STEMI: primary PCI vs fibrinolysis and time targets",
+  "description": "Primary PCI and clot-busting drugs raced against the ESC 120-minute target, Keeley 2003 outcomes, door-to-balloon delay, radial access and COMPLETE."
+ },
+ "antithrombotic": {
+  "title": "Aspirin, P2Y12 inhibitors and DAPT after a heart attack, explained",
+  "description": "How aspirin, clopidogrel, prasugrel and ticagrelor block platelets, what ISIS-2, CURE, TRITON and PLATO found, and how DAPT trades clots for bleeding."
+ },
+ "complications": {
+  "title": "Heart attack complications: arrhythmias, rupture and cardiogenic shock",
+  "description": "When VF, heart block, AF, heart wall rupture, LV clot, pericarditis and heart failure appear after a heart attack, plus SHOCK, IABP and DanGer Shock trials."
+ },
+ "secondary": {
+  "title": "Medicines after a heart attack: statins, beta-blockers, ACE inhibitors",
+  "description": "Why each medicine after a heart attack is used and the trial behind it, from aspirin and statins to beta-blockers after REDUCE-AMI, MRAs and SGLT2 drugs."
+ },
+ "lipids": {
+  "title": "Lowering LDL cholesterol after a heart attack: targets and medicines",
+  "description": "How far to lower LDL cholesterol after a heart attack and why: the CTT evidence, statins, ezetimibe, PCSK9 inhibitors, bempedoic acid and the ESC goals."
+ },
+ "cabg": {
+  "title": "Stents or bypass after a heart attack? PCI vs CABG trials explained",
+  "description": "PCI stents or CABG bypass grafts for one, three or left main arteries and diabetes: SYNTAX 10-year, FREEDOM, EXCEL and NOBLE results, LIMA grafts, ISCHEMIA."
+ },
+ "rehab": {
+  "title": "Cardiac rehabilitation after a heart attack: benefits and access gaps",
+  "description": "How cardiac rehab works week by week, what Cochrane trials show for heart attacks and hospital admissions, home vs centre, and the US participation gap."
+ },
+ "living": {
+  "title": "Cardiac rehabilitation after a heart attack: benefits and access gaps",
+  "description": "The first year after a heart attack: readmission risk, flying, sex, return to work, depression, anxiety and PTSD rates, plus a recovery checklist to keep."
+ },
+ "nursing": {
+  "title": "Nursing care for heart attack (MI): ECG, oxygen, access site, NCLEX",
+  "description": "Nursing priorities in myocardial infarction from door-to-ECG to discharge: oxygen trials, morphine and ticagrelor, radial vs femoral care, NCLEX-style quiz."
+ },
+ "frontier": {
+  "title": "Heart attack research: colchicine, Lp(a), inclisiran and AI ECG trials",
+  "description": "Where new heart attack treatments stand: colchicine, IL-6 drugs, Lp(a) lowering, inclisiran, cell therapy, the polypill and AI ECG, with evidence labels."
+ },
+ "history": {
+  "title": "History of heart attack care: from Herrick to stents and troponin",
+  "description": "Heart attack history, animated: Herrick 1912, the ECG, coronary care units, clot-busting drugs and aspirin, angioplasty, stents and the troponin era."
+ },
+ "review": {
+  "title": "Heart attack flashcards and mnemonics: MI facts by part, cited",
+  "description": "88 cited flashcards on heart attack, from plaque and the ECG to PCI, DAPT and rehab, ten memory aids, and an animated guide to the STEMI time targets."
+ },
+ "quiz": {
+  "title": "Heart attack quiz: 98 cited questions on MI diagnosis and care",
+  "description": "Multiple-choice quiz on heart attack with cited answers: troponin, ECG criteria, HEART and GRACE, PCI and fibrinolysis, antiplatelets, shock and rehab."
+ },
+ "glossary": {
+  "title": "Heart attack glossary: MI terms from troponin to DAPT explained",
+  "description": "164 searchable, cited heart attack terms, from thin-cap fibroatheroma and the 99th-percentile troponin limit to Sgarbossa, door-to-balloon and SCAI stages."
+ },
+ "sources": {
+  "title": "Heart Attack Companion sources: the references behind every claim",
+  "description": "Every journal article, systematic review, guideline, drug label and trial record behind the Heart Attack Companion, searchable and filterable by area."
+ }
+}

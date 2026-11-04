@@ -1,0 +1,72 @@
+<!-- ================= 1.4 RISK FACTORS & PREVENTION ================= -->
+<style>
+#m-risk .card>.ev,#m-risk .card>.tag{align-self:flex-start}
+#m-risk .tbl table{min-width:560px}
+#m-risk .rkf{display:flex;flex-wrap:wrap;gap:6px}
+#m-risk .rkf .btn{font-size:13px;padding:6px 11px}
+#m-risk .calc{margin-top:4px}
+#m-risk .calc label[hidden]{display:none}
+#m-risk .readout{min-height:2.6em}
+</style>
+<section class="mod" id="m-risk" data-mod="risk" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding heart attack</p><h2>Risk factors &amp; prevention</h2>
+    <p class="lede">In a study of first heart attacks in 52 countries, nine things that can be measured, and for many people changed, accounted for about 9 in 10 of them. Some risks, such as genes and family history, cannot be changed; knowing about them helps people and their clinicians plan. [[Yusuf2004INTERHEART,Kronenberg2022,LloydJones2004]]</p></div>
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+  <div class="stepper" id="rkSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rkSvg" viewBox="0 0 720 380" role="img" aria-label="INTERHEART risk factors appear one by one as bars of odds ratios on a log scale, from the ApoB/ApoA1 ratio (3.25) and smoking (2.87) down to the protective factors daily fruit and vegetables (0.70), regular activity (0.86) and alcohol (0.91). Beside them a meter fills with the combined population attributable risk, reaching about 90%, the published figure for men; 94% for women."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rkPlay">Play</button><label class="stage-cap tl" for="rkT">Factors added <input type="range" id="rkT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="rkf" id="rkTog" role="group" aria-label="Include or leave out each factor"></div>
+      <div class="readout" id="rkRead"></div>
+      <p class="stage-cap"><b>How to read it.</b> Odds ratios compare people with a factor to people without it (case-control study, so these are odds, not risks). The population attributable risk (PAR) is the share of heart attacks in the study population linked to a factor. PARs overlap, so they cannot be added; the meter combines them as 1 − (1 − PAR₁)(1 − PAR₂)…, a schematic that assumes independence. The published combined figures are marked. Population statistics, not a prediction for anyone. [[Yusuf2004INTERHEART]]</p>
+    </div>
+    <aside class="note" id="rkNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">A teaching explorer: one factor at a time</h3>
+  <p class="teach" role="note"><b>Teaching tool, not your personal risk</b>Each row shows a published relative estimate for one factor, from its own study, against that study's reference group. They come from different populations, outcomes and designs, so they cannot be multiplied into one person's risk. Clinicians estimate 10-year risk with validated equations such as the Pooled Cohort Equations or PREVENT, followed by a clinician–patient risk discussion. Risk calculators are for planning prevention with a clinician, never for deciding whether symptoms need emergency care. [[Arnett2019ACC,Khan2024PREVENT]]</p>
+  <div class="calc" id="rkCalc">
+    <label>Sex <select id="rkSex"><option value="w">Woman</option><option value="m">Man</option></select></label>
+    <label>Tobacco <select id="rkSmk"><option value="1">Never smoked</option><option value="1.24">Second-hand smoke 1–7 h a week</option><option value="1.62">Second-hand smoke &gt;21 h a week</option><option value="1.22">Quit 20 or more years ago</option><option value="1.87">Quit within the last 3 years</option><option value="2.95">Smokes now</option></select></label>
+    <label>Usual systolic blood pressure (ages 40–69) <select id="rkBp"><option value="1">Reference level</option><option value="2">20 mm Hg higher</option><option value="4">40 mm Hg higher</option></select></label>
+    <label>LDL cholesterol <select id="rkLdl"><option value="1">Reference</option><option value="0.78">1 mmol/L lower with a statin</option><option value="0.455">1 mmol/L lower for life (genetic)</option><option value="13">Familial hypercholesterolaemia (up to)</option></select></label>
+    <label>Diabetes <select id="rkDm"><option value="1">No</option><option value="2">Yes</option></select></label>
+    <label>Kidney function (eGFR) <select id="rkCkd"><option value="1">60 or more</option><option value="1.4">45–59</option><option value="2">30–44</option><option value="2.8">15–29</option><option value="3.4">Under 15</option></select></label>
+    <label>Waist-to-hip ratio <select id="rkWhr"><option value="1">Lowest fifth</option><option value="1.15">2nd fifth</option><option value="1.39">Middle fifth</option><option value="1.9">4th fifth</option><option value="2.52">Highest fifth</option></select></label>
+    <label>Parent with early cardiovascular disease <select id="rkFh"><option value="0">No</option><option value="1">Yes (father &lt;55, mother &lt;65)</option></select></label>
+    <label>Lp(a)-raising gene variants <select id="rkLpa"><option value="1">None</option><option value="1.51">One</option><option value="2.57">Two or more</option></select></label>
+    <label>Chronic inflammatory condition <select id="rkInf"><option value="1">None</option><option value="1.68">Rheumatoid arthritis</option><option value="1.75">HIV</option><option value="3.1">Severe psoriasis, age 30</option></select></label>
+    <label data-women>Pregnancy history <select id="rkPe"><option value="1">No pre-eclampsia</option><option value="2.16">Pre-eclampsia</option></select></label>
+    <label data-women>Menopause <select id="rkMeno"><option value="1">At 40 or later</option><option value="1.36">Natural, before 40</option><option value="1.87">Surgical, before 40</option></select></label>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="rkEx" viewBox="0 0 720 420" role="img" aria-label="A forest plot: one row per factor, with a dot at the published relative estimate for the level chosen, on a log scale where 1 means no difference from the reference group."></svg></div>
+    <div class="readout" id="rkExRead"></div>
+    <p class="stage-cap">Sources, by row: tobacco OR vs never smoking for non-fatal MI [[Teo2006Tobacco]]; blood pressure, ischaemic heart disease death rate, twofold per 20 mm Hg with no threshold down to 115/75 [[Lewington2002BP]]; LDL, major vascular events per 1 mmol/L in statin trials [[CTT2010]], coronary heart disease per 1 mmol/L lifelong (54.5% lower) [[Ference2012MR]], familial hypercholesterolaemia up to 13-fold [[Nordestgaard2013FH]]; diabetes HR for coronary heart disease [[ERFC2010]]; eGFR, cardiovascular events [[Go2004CKD]]; waist-to-hip ratio OR for MI [[Yusuf2005Obesity]]; parental premature CVD, 8-year events, OR 2.0 in men and 1.7 in women [[LloydJones2004]]; LPA variants, coronary disease [[Clarke2009]]; rheumatoid arthritis [[AvinaZubieta2012RA]], HIV [[Triant2007HIV]], psoriasis [[Gelfand2006Psoriasis]]; pre-eclampsia, later ischaemic heart disease [[Bellamy2007]]; premature menopause, composite cardiovascular disease [[Honigberg2019]].</p>
+  </div>
+
+  <h3 class="sub">How guidelines sort 10-year risk</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>2019 ACC/AHA category</th><th>10-year ASCVD risk (as published)</th><th>Risk-enhancing factors listed in the guideline</th></tr></thead>
+    <tbody>
+      <tr><th>Borderline</th><td>5% to &lt;7.5%</td><td rowspan="3">Family history of premature ASCVD (men &lt;55, women &lt;65); LDL-C 160–189 mg/dL; metabolic syndrome; CKD (eGFR 15–59); chronic inflammatory conditions (psoriasis, rheumatoid arthritis, lupus, HIV/AIDS); premature menopause (before 40) and pre-eclampsia; South Asian ancestry; persistently high triglycerides (≥175 mg/dL); Lp(a) ≥50 mg/dL or ≥125 nmol/L</td></tr>
+      <tr><th>Intermediate</th><td>≥7.5% to &lt;20%</td></tr>
+      <tr><th>High</th><td>≥20%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">The guideline recommends the Pooled Cohort Equations for adults aged 40–75, followed by a clinician–patient risk discussion before starting medicines, and advises at least 150 minutes a week of moderate-intensity (or 75 minutes of vigorous) physical activity, quoted as published. [[Arnett2019ACC]] The AHA PREVENT equations were derived from 3,281,919 people and validated in 3,330,085 more, US adults aged 30–79 without cardiovascular disease. They are sex-specific and race-free, add eGFR, and predict total cardiovascular disease including heart failure; median C-statistics were 0.794 in women and 0.757 in men. [[Khan2024PREVENT]]</p>
+
+  <h3 class="sub">Factors in focus</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>LDL is causal</h4><p>The European Atherosclerosis Society concluded that the evidence "unequivocally establishes that LDL causes ASCVD", with a dose-dependent, log-linear link that grows with longer exposure. [[Ference2017EAS]] Lifelong, naturally lower LDL cholesterol was associated with 54.5% lower coronary risk per 1 mmol/L, about 3 times the reduction per unit seen with statins started later in life. [[Ference2012MR]] PCSK9 nonsense variants in Black participants meant 28% lower LDL and 88% lower coronary risk. [[Cohen2006PCSK9]] Familial hypercholesterolaemia affects about 1 in 500 to 1 in 200 people and is diagnosed in under 1% in most countries. [[Nordestgaard2013FH]] See <a href="#lipids" data-go="lipids">Lowering LDL cholesterol</a>.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Lipoprotein(a)</h4><p>Lp(a) levels are more than 90% set by genes at the LPA locus. High Lp(a) affects about 1.4 billion people, and the link with cardiovascular disease is causal and continuous, even when LDL is very low. Very high Lp(a) (&gt;180 mg/dL or &gt;430 nmol/L) carries a lifetime risk like untreated familial hypercholesterolaemia. The EAS panel recommends measuring Lp(a) at least once in adults; as of 2022 no specific Lp(a)-lowering therapy had been shown to reduce events. [[Kronenberg2022]] Trials are in <a href="#frontier" data-go="frontier">Research</a>.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Family history</h4><p>In the Framingham Offspring Study, at least one parent with premature cardiovascular disease (father before 55, mother before 65) gave an adjusted OR of 2.0 (95% CI 1.2–3.1) in men and 1.7 (0.9–3.1) in women for an event within 8 years. [[LloydJones2004]] It is a risk-enhancing factor in the 2019 ACC/AHA guideline. [[Arnett2019ACC]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Women-specific factors</h4><p>Pre-eclampsia was associated with RR 2.16 for later ischaemic heart disease and 3.70 for hypertension. [[Bellamy2007]] A later meta-analysis of more than 6.4 million women reported RR 2.50 for coronary heart disease. [[Wu2017Preeclampsia]] The AHA lists hypertensive disorders of pregnancy, preterm delivery, gestational diabetes, small-for-gestational-age delivery, placental abruption and pregnancy loss. [[Parikh2021APO]] Premature surgical menopause carried HR 1.87. [[Honigberg2019]] Women had their first MI at a median 65 years vs 56 in men; hypertension and diabetes were more strongly linked to MI in women. [[Anand2008Women]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>South Asian ancestry</h4><p>South Asian people in the US have higher proportional mortality from ASCVD than other Asian groups and non-Hispanic White people. The biology is "no different" from other groups: most of the excess is explained by known risk factors, especially insulin resistance. [[Volgman2018SouthAsian]] The 2019 ACC/AHA guideline lists South Asian ancestry as a risk-enhancing factor. [[Arnett2019ACC]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Tobacco, in every form</h4><p>Risk rose 5.6% for each additional cigarette smoked. Chewing tobacco alone had OR 2.23, smoking plus chewing 4.09, and beedies 2.89, similar to cigarettes. After quitting, the OR fell to 1.87 within 3 years, with a small excess (1.22) after 20 years or more. The PAR of current smoking was 58.3% in young men and 6.2% in older women. [[Teo2006Tobacco]] Quitting lowers heart attack risk within a few years, at any age. [[Teo2006Tobacco]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Stress and triggers</h4><p>In INTERHEART, permanent stress at work had OR 2.14, permanent stress at home 2.12, severe financial stress 1.33 and depression 1.55. [[Rosengren2004Psychosocial]] In the hour before symptoms, heavy physical exertion (OR 2.31) and anger or emotional upset (OR 2.44) were more common, and both together OR 3.05. [[Smyth2016Triggers]] Stress is not a personal failing.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Inflammatory diseases and kidneys</h4><p>Rheumatoid arthritis (pooled RR 1.68), HIV (adjusted RR 1.75; 2.98 in women) and severe psoriasis in younger people (RR 3.10 at age 30) raise MI risk; women aged 35–44 with lupus had a rate ratio of 52.43 against Framingham women of similar age. [[AvinaZubieta2012RA,Triant2007HIV,Gelfand2006Psoriasis,Manzi1997SLE]] Lower kidney function and raised urine albumin increase cardiovascular risk two- to four-fold after adjustment. [[Gansevoort2013]]</p></div>
+    <div class="card"><span class="tag accent">Trend</span><h4>A changing landscape</h4><p>Atherosclerosis now affects younger people, more women and more ethnic groups than before. Research attention has widened to triglyceride-rich lipoproteins and to non-traditional drivers such as disturbed sleep, inactivity, air pollution and environmental stress. [[Libby2021Nature]] How plaque forms is in <a href="#plaque" data-go="plaque">Plaque, rupture &amp; clot</a>.</p></div>
+  </div>
+</section>

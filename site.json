@@ -445,6 +445,23 @@
       }
     },
     {
+      "slug": "myocardial-infarction",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Heart Attack Companion"
+      },
+      "published": "2026-11-04",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
       "slug": "cirrhosis",
       "langs": [
         "en"

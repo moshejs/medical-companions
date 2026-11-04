@@ -1,0 +1,130 @@
+<!-- ================= 2.3 TROPONIN & RAPID RULE-OUT ================= -->
+<style>
+#m-troponin .card>.ev,#m-troponin .card>.tag{align-self:flex-start}
+#m-troponin .tr-seg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-troponin .calc .chk{flex-direction:row;align-items:flex-start;gap:8px;font-weight:600}
+#m-troponin .calc .chk input{margin-top:3px}
+#m-troponin .tr-ev{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px 16px;border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:0}
+#m-troponin .tr-ev legend{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 4px}
+#m-troponin .tr-ev label{display:flex;gap:8px;align-items:flex-start;font-size:14px}
+#m-troponin .tr-ev input{margin-top:4px}
+#m-troponin .tr-out{display:flex;flex-direction:column;gap:10px}
+#m-troponin .tbl table{min-width:560px}
+#m-troponin .tr-halo{paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round}
+#m-troponin .stage-cap b{color:var(--ink)}
+</style>
+<section class="mod" id="m-troponin" data-mod="troponin" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Troponin &amp; rapid rule-out</h2>
+    <p class="lede">Troponin is a protein inside heart muscle cells. When they are damaged it leaks into the blood, where a test can measure it. Watch one illustrative curve rise and fall over a week, switch between assays and thresholds, then see how the ESC 0/1-hour algorithm sorts patients in the emergency department.</p></div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU). Do not wait for a blood test or to see if symptoms pass.</span></p>
+
+  <div class="ctrls" role="group" aria-label="Assay and threshold">
+    <span class="kicker">Assay</span>
+    <button class="btn" data-trass="hs" aria-pressed="true">High-sensitivity troponin I</button>
+    <button class="btn" data-trass="conv" aria-pressed="false">Contemporary assay, one threshold</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Sex-specific 99th percentile and infarct size">
+    <span class="kicker">99th percentile</span>
+    <button class="btn" data-trsex="f" aria-pressed="true">Woman · 16 ng/L</button>
+    <button class="btn" data-trsex="m" aria-pressed="false">Man · 34 ng/L</button>
+    <span class="kicker">Infarct</span>
+    <button class="btn" data-trsize="big" aria-pressed="true">Larger</button>
+    <button class="btn" data-trsize="small" aria-pressed="false">Smaller</button>
+  </div>
+  <div class="stepper" id="trSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="trSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A troponin curve drawn over 7 days on a logarithmic scale. It starts below the 99th percentile line, rises within hours, peaks and falls slowly over days. Horizontal lines mark the sex-specific 99th percentiles, a contemporary assay's single threshold and a very low rule-out level. Blood tubes at 0, 1 and 3 hours fill as samples are taken, and a heart releases troponin particles while it is injured."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="trPlay">Play</button><label class="stage-cap tl" for="trT">Hours since symptoms began <input type="range" id="trT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="trRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative curve: its shape follows the published description (a rise usually within 1 hour with high-sensitivity assays, raised for several days), but the concentrations and the peak time are drawn, not measured, and vary widely between people and assays. The threshold lines are real published values for one high-sensitivity troponin I assay (16 and 34 ng/L) and a contemporary assay (50 ng/L), as used in the cited studies; other assays have their own. The time axis is stretched at the start. [[Byrne2023ESC,Lee2019,Ferry2019]]</p>
+    </div>
+    <aside class="note" id="trNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The ESC 0/1-hour algorithm, patient by patient</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>This animation shows how a published rapid algorithm sorted patients in research cohorts. It is not a way to interpret anyone's own troponin results and must never be used for self-triage or to decide whether to seek care. The assay-specific cut-off values sit in the ESC guideline's online supplement and are not shown here.</p>
+  <div class="ctrls" role="group" aria-label="Cohort">
+    <span class="kicker">Cohort</span>
+    <button class="btn" data-trco="r15" aria-pressed="true">Reichlin 2015 (validation)</button>
+    <button class="btn" data-trco="trapid" aria-pressed="false">TRAPID-AMI 2016</button>
+    <button class="btn" data-trco="r12" aria-pressed="false">Reichlin 2012 (derivation)</button>
+    <button class="btn" data-trco="tw19" aria-pressed="false">Twerenbold 2019 (routine care)</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="trAlg" viewBox="0 0 720 310" style="min-width:560px" role="img" aria-label="One hundred dots, each standing for one patient in 100, flow from an arrival box through a 0-hour and 1-hour troponin test into three boxes: rule-out, observe and rule-in, in the published proportions. Dots for patients who had a heart attack are filled in the rule-in box, and the share is given as the positive predictive value."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="trAlgPlay">Play</button><label class="stage-cap tl" for="trAlgT">Patients sorted <input type="range" id="trAlgT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap">Each dot is 1 patient in 100, rounded. Filled dots in the rule-in box show the positive predictive value (PPV): the share who had an MI. In the rule-out box, the negative predictive value (NPV) is the share who did not. [[Reichlin2012,Reichlin2015,Mueller2016,Twerenbold2019,Byrne2023ESC]]</p>
+    </div>
+    <aside class="note" id="trAlgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Injury or infarction? The UDMI4 categories</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>This explainer walks through the published definitions in the Fourth Universal Definition of Myocardial Infarction (UDMI4). It is not a diagnosis and must never be used for self-triage or to decide whether to seek care. Clinicians adjudicate these categories with the full clinical picture.</p>
+  <div class="calc" id="trCalc">
+    <label for="trPat">Troponin pattern
+      <select id="trPat">
+        <option value="none">All values ≤ 99th percentile</option>
+        <option value="stable">Above 99th percentile, stable</option>
+        <option value="rise" selected>Above 99th percentile, rising and/or falling</option>
+      </select></label>
+    <label for="trMech">Mechanism, as judged by clinicians
+      <select id="trMech">
+        <option value="athero">Acute atherothrombosis (plaque + clot)</option>
+        <option value="imb">Supply–demand imbalance, no atherothrombosis</option>
+        <option value="unk">Not yet known</option>
+      </select></label>
+    <label for="trCtx">Setting
+      <select id="trCtx">
+        <option value="none">No recent procedure</option>
+        <option value="pci">Within 48 h of PCI (normal baseline)</option>
+        <option value="cabg">Within 48 h of CABG (normal baseline)</option>
+      </select></label>
+    <label for="trMul"><span>Highest value: <span id="trMulV">3</span> × the 99th percentile</span><input type="range" id="trMul" min="1" max="20" step="0.5" value="3"></label>
+  </div>
+  <fieldset class="tr-ev"><legend>Evidence of acute myocardial ischaemia (tick any)</legend>
+    <label for="trE1"><input type="checkbox" id="trE1" checked><span>Symptoms of acute myocardial ischaemia</span></label>
+    <label for="trE2"><input type="checkbox" id="trE2"><span>New ischaemic ECG changes</span></label>
+    <label for="trE3"><input type="checkbox" id="trE3"><span>New pathological Q waves</span></label>
+    <label for="trE4"><input type="checkbox" id="trE4"><span>Imaging: new loss of viable muscle or new regional wall-motion abnormality</span></label>
+    <label for="trE5"><input type="checkbox" id="trE5"><span>Coronary thrombus at angiography or autopsy</span></label>
+  </fieldset>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="trTree" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="A decision path through the UDMI4 definitions: troponin above the 99th percentile, rise and/or fall, evidence of acute ischaemia, then mechanism. The path for the current choices is highlighted and ends at a category."></svg></div>
+      <p class="stage-cap">Paths follow the published UDMI4 definitions; type 3 MI (death before troponin can be measured) is described in the note. [[Thygesen2018UDMI4C,Domienik2021UDMI4]]</p>
+    </div>
+    <div class="tr-out">
+      <div class="verdict maybe" id="trVerdict" aria-live="polite"></div>
+      <aside class="note" id="trTreeNote"></aside>
+    </div>
+  </div>
+
+  <h3 class="sub">Raised troponin without a heart attack</h3>
+  <div class="prose"><p>A single raised value is not an MI. [[Byrne2023ESC]] Many conditions damage heart muscle; without clinical evidence of acute ischaemia they are called myocardial injury, not MI. [[Domienik2021UDMI4]] In 372,310 South Australian emergency episodes tested with high-sensitivity troponin T, 5.12% were acute MI, 1.86% acute injury with coronary artery disease, 8.66% acute injury without it, 14.79% chronic injury and 69.58% no injury. [[Chuang2021Injury]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Condition</th><th>What the sources say</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Myocarditis</th><td>A cardiac cause of non-ischaemic myocardial injury. In a systematic review of MINOCA, cardiac MRI showed myocarditis in 33%. [[Pasupathy2015]]</td><td>[[Thygesen2018UDMI4C,Byrne2023ESC]]</td></tr>
+      <tr><th>Heart failure</th><td>Listed among causes of non-ischaemic myocardial injury.</td><td>[[Thygesen2018UDMI4C,Domienik2021UDMI4]]</td></tr>
+      <tr><th>Sepsis</th><td>Listed among causes of myocardial injury.</td><td>[[Thygesen2018UDMI4C,Byrne2023ESC]]</td></tr>
+      <tr><th>Kidney disease</th><td>Listed among causes of non-ischaemic myocardial injury.</td><td>[[Thygesen2018UDMI4C,Domienik2021UDMI4]]</td></tr>
+      <tr><th>Takotsubo syndrome</th><td>Classed under UDMI4 as another cause of myocardial injury, not MI; troponin rises are usually transient and modest. See <a href="#differential" data-go="differential">the differential diagnosis</a>.</td><td>[[Domienik2021UDMI4,Thygesen2018UDMI4C]]</td></tr>
+      <tr><th>Heart valve disease</th><td>Listed among causes of myocardial injury.</td><td>[[Byrne2023ESC]]</td></tr>
+      <tr><th>Anaemia, ventricular tachyarrhythmia, hypotensive shock, hypoxaemia</th><td>Can cause injury without MI. With clinical evidence of ischaemia, the same triggers can cause a type 2 MI (supply–demand mismatch).</td><td>[[Domienik2021UDMI4,DeFilippis2019Type2]]</td></tr>
+      <tr><th>After non-cardiac surgery</th><td>About 35% of patients have high-sensitivity troponin above the 99th percentile in post-operative samples.</td><td>[[Domienik2021UDMI4]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">What the research says</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Why serial samples</h4><p>UDMI4 advises sampling at presentation (0 h) and again "3–6 h later, or earlier with hs-cTn assays"; people who arrive more than 12–18 h after onset may take longer to show a changing pattern. The ESC recommends the 0 h/1 h algorithm as the "best option" and 0 h/2 h as the "second-best option". [[Thygesen2018UDMI4C,Byrne2023ESC]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Single-sample rule-out, with a time condition</h4><p>Very low values at presentation gave NPVs around 99.5%: hs-cTnI &lt;5 ng/L applied to 49% of 22,457 patients (NPV 99.5%), and to 61% of those without MI in High-STEACS (NPV 99.6%). [[Chapman2017,Shah2015]] An hs-cTnT below the limit of detection plus a non-ischaemic ECG classed 30.6% as low risk (sensitivity 98.7%). [[Pickering2017]] The ESC limits the very-low single 0 h rule-out to chest pain that began more than 3 h before the sample. [[Byrne2023ESC]]</p></div>
+    <div class="card"><span class="tag warn">Debate</span><h4>Sex-specific thresholds</h4><p>UDMI4 recommends sex-specific 99th percentiles for hs-cTn assays, because values are lower in women; age-specific cut-offs are not recommended. [[Thygesen2018UDMI4C]] In one study, 16 ng/L for women and 34 ng/L for men increased diagnoses of myocardial injury by 42% in women and 6% in men, but afterwards women with injury were less often revascularised (15% vs 34%) or given dual antiplatelet therapy (26% vs 43%). [[Lee2019]] High-STEACS implementation did not lower 1-year MI or cardiovascular death among those reclassified (adjusted OR 1.10). [[Shah2018]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Type 2 MI and injury are not benign</h4><p>Among 2,122 Edinburgh patients with raised troponin I, 55.2% had type 1 MI, 20.2% type 2 MI and 24.6% myocardial injury. Five-year death was 36.7% after type 1 MI, 62.5% after type 2 and 72.4% after injury, mostly from non-cardiovascular causes. These are population figures, not predictions. [[Chapman2018Type2]] No treatment strategy has been proven for type 2 MI and injury. [[DeFilippis2019Type2]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Sensitive assays find MI earlier</h4><p>In 718 emergency patients, sensitive assays at presentation had an AUC of 0.95–0.96 against 0.90 for a standard assay, and 0.92–0.94 vs 0.76 in those arriving within 3 h. [[Reichlin2009]] The ESC says CK-MB, myosin-binding protein C and copeptin add only limited value on top of troponin in most situations. [[Byrne2023ESC]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Faster pathways</h4><p>In COMPASS-MI (22,651 patients), hs-cTnI &lt;6 ng/L at presentation plus a change &lt;4 ng/L after 45–120 min gave an NPV of 99.5% and classed 56.5% as low risk. [[Neumann2019]] In BACC, hs-TnI &lt;3 ng/L with a low-risk ECG ruled out 28% with an NPV of 100%. [[Neumann2017]] Risk scores used alongside troponin are covered in <a href="#scores" data-go="scores">HEART, TIMI &amp; GRACE</a>.</p></div>
+  </div>
+</section>
