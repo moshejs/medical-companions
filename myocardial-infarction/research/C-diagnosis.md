@@ -7,16 +7,16 @@ This pass covers how a heart attack (myocardial infarction, MI) shows itself and
 **Call-now box (for every page that discusses symptoms):** "If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU)."
 
 Access notes:
-- UDMI4 (shared key Thygesen2018UDMI4) was validated and read in its Eur Heart J 2019 version (PMID 30165617), using the publisher's full text. Its ECG criteria table (Table 2) and its table of causes of raised troponin (Table 1) are images in the online text. The V2–V3 ST-elevation thresholds below come from the published Table 2. They match the text's own sentence that healthy men under 40 can have up to 2.5 mm of J-point elevation in V2–V3, with lower cut-offs in women.
+- UDMI4 (shared key Thygesen2018UDMI4C) was validated and read in its Eur Heart J 2019 version (PMID 30165617), using the publisher's full text. Its ECG criteria table (Table 2) and its table of causes of raised troponin (Table 1) are images in the online text. The V2–V3 ST-elevation thresholds below come from the published Table 2. They match the text's own sentence that healthy men under 40 can have up to 2.5 mm of J-point elevation in V2–V3, with lower cut-offs in women.
 - The 2023 ESC ACS guideline (Byrne2023ESC) was read in the publisher's full text (sections 3.1–3.5). Assay-specific 0 h/1 h and 0 h/2 h cut-off values sit in its online supplement, which I could not open, so I give no assay cut-offs.
 - I could not open the 2021 AHA/ACC chest pain guideline (Gulati2021ChestPain) or the 2025 ACC/AHA ACS guideline (Rao2025ACC) full texts (HTTP 403). The record and abstract of each were validated. The Gulati "cardiac / possibly cardiac / noncardiac" and "avoid atypical" wording is paraphrased from the guideline's widely reported top-10 take-home messages and is flagged as such. Rao2025ACC is cited only for what its abstract states.
 - The HEART score item table was read in Six 2008 (PMC2442661). The EDACS point weights could not be read (Than 2014 is paywalled), so only EDACS performance figures are given.
-- Shared keys used and checked: Thygesen2018UDMI4 (PMID 30165617), Byrne2023ESC (37622654), Rao2025ACC (40014670), Gulati2021ChestPain (34709879), Six2008HEART (18665203). Not cited because no fact in this pass needed them: Martin2025HDSS, Yusuf2004INTERHEART, Keeley2003, ISIS2_1988, Wallentin2009PLATO, Wiviott2007TRITON, Mehta2019COMPLETE, Yndigegn2024REDUCE, CTT2010, Hochman1999SHOCK and Reimer1977. These belong to other passes.
+- Shared keys used and checked: Thygesen2018UDMI4C (PMID 30165617), Byrne2023ESC (37622654), Rao2025ACC (40014670), Gulati2021ChestPain (34709879), Six2008HEART (18665203). Not cited because no fact in this pass needed them: Martin2025HDSS, Yusuf2004INTERHEART, Keeley2003, ISIS2_1988, Wallentin2009PLATO, Wiviott2007TRITON, Mehta2019COMPLETE, Yndigegn2024REDUCE, CTT2010, Hochman1999SHOCK and Reimer1977. These belong to other passes.
 
 ## Findings
 
 ### symptoms · What a heart attack feels like
-- UDMI4 lists ischaemic symptoms as "various combinations of chest, upper extremity, mandibular, or epigastric discomfort during exertion or at rest", and notes that these symptoms are not specific for myocardial ischaemia [[Thygesen2018UDMI4]].
+- UDMI4 lists ischaemic symptoms as "various combinations of chest, upper extremity, mandibular, or epigastric discomfort during exertion or at rest", and notes that these symptoms are not specific for myocardial ischaemia [[Thygesen2018UDMI4C]].
 - The 2023 ESC guideline lists dyspnoea, epigastric pain, and pain in the left or right arm or neck/jaw as chest pain-equivalent symptoms [[Byrne2023ESC]].
 - The 2023 ESC guideline names prolonged chest pain (>15 min) and/or pain that recurs within 1 h as red-flag symptoms [[Byrne2023ESC]].
 - The 2023 ESC guideline states that "the use of the descriptor 'atypical' should be avoided." It also advises against stereotyped messaging based on sex, ethnicity or social background [[Byrne2023ESC]].
@@ -47,30 +47,30 @@ Access notes:
 
 ### ecg · Getting the ECG and reading it
 - The 2023 ESC guideline says the 12-lead ECG should be "obtained immediately upon FMC [first medical contact] and interpreted ... within 10 min", and repeated as needed, especially if symptoms wane [[Byrne2023ESC]].
-- UDMI4 likewise says the ECG should be acquired and interpreted promptly, with a target of within 10 min of first medical contact [[Thygesen2018UDMI4]].
+- UDMI4 likewise says the ECG should be acquired and interpreted promptly, with a target of within 10 min of first medical contact [[Thygesen2018UDMI4C]].
 - The 2023 ESC guideline says ambulance staff should record an ECG as soon as possible, then either interpret it or transmit it for expert review [[Byrne2023ESC]].
 - The ESC "working diagnosis" of ACS is classified as STEMI or NSTE-ACS on the basis of available clinical information, including the ECG [[Byrne2023ESC]].
-- In UDMI4, ST elevation in leads other than V2–V3 means new or presumed new J-point elevation ≥1 mm in two contiguous leads [[Thygesen2018UDMI4]].
-- UDMI4 sets higher V2–V3 thresholds that depend on age and sex: ≥2 mm in men ≥40 years, ≥2.5 mm in men <40 years, and ≥1.5 mm in women of any age [[Thygesen2018UDMI4]].
-- UDMI4 also counts these ECG changes as ischaemic: new horizontal or downsloping ST depression ≥0.5 mm in two contiguous leads, and/or T inversion >1 mm in two contiguous leads with a prominent R wave or R/S ratio >1 [[Thygesen2018UDMI4]].
-- UDMI4 says ST depression ≥1 mm in six leads, with ST elevation in aVR, suggests multivessel or left main disease [[Thygesen2018UDMI4]].
+- In UDMI4, ST elevation in leads other than V2–V3 means new or presumed new J-point elevation ≥1 mm in two contiguous leads [[Thygesen2018UDMI4C]].
+- UDMI4 sets higher V2–V3 thresholds that depend on age and sex: ≥2 mm in men ≥40 years, ≥2.5 mm in men <40 years, and ≥1.5 mm in women of any age [[Thygesen2018UDMI4C]].
+- UDMI4 also counts these ECG changes as ischaemic: new horizontal or downsloping ST depression ≥0.5 mm in two contiguous leads, and/or T inversion >1 mm in two contiguous leads with a prominent R wave or R/S ratio >1 [[Thygesen2018UDMI4C]].
+- UDMI4 says ST depression ≥1 mm in six leads, with ST elevation in aVR, suggests multivessel or left main disease [[Thygesen2018UDMI4C]].
 - The 2023 ESC guideline gives the same warning: ST depression ≥1 mm in ≥6 surface leads plus ST elevation in aVR and/or V1 suggests multivessel ischaemia or left main obstruction [[Byrne2023ESC]].
-- UDMI4 says hyperacute T waves, with increased amplitude and prominent symmetrical T waves in at least two contiguous leads, may come before ST elevation [[Thygesen2018UDMI4]].
-- UDMI4 says new pathological Q waves indicate necrosis that starts minutes to hours after the insult. Reperfusion usually brings a large, prompt fall in ST elevation [[Thygesen2018UDMI4]].
-- UDMI4 says prior-MI Q waves are most specific when they appear in several leads or lead groupings or last >0.04 s. Q waves with inverted T waves in the same lead group raise the likelihood of prior MI [[Thygesen2018UDMI4]].
-- Typical order of the ECG changes: hyperacute T waves, then ST elevation, then Q waves, then T inversion (Established) [[Thygesen2018UDMI4]].
+- UDMI4 says hyperacute T waves, with increased amplitude and prominent symmetrical T waves in at least two contiguous leads, may come before ST elevation [[Thygesen2018UDMI4C]].
+- UDMI4 says new pathological Q waves indicate necrosis that starts minutes to hours after the insult. Reperfusion usually brings a large, prompt fall in ST elevation [[Thygesen2018UDMI4C]].
+- UDMI4 says prior-MI Q waves are most specific when they appear in several leads or lead groupings or last >0.04 s. Q waves with inverted T waves in the same lead group raise the likelihood of prior MI [[Thygesen2018UDMI4C]].
+- Typical order of the ECG changes: hyperacute T waves, then ST elevation, then Q waves, then T inversion (Established) [[Thygesen2018UDMI4C]].
 - Territory teaching convention: inferior leads II, III and aVF usually reflect the right coronary artery (or sometimes the circumflex). Anterior leads V1–V4 reflect the left anterior descending artery. Lateral leads I, aVL, V5 and V6 reflect the circumflex or diagonal branches (unverified).
 - For posterior MI, the 2023 ESC guideline says ST depression in V1–V3 and/or ST elevation in V7–V9 is "highly suggestive of posterior coronary artery occlusion" [[Byrne2023ESC]].
-- UDMI4 recommends a cut-off of 0.5 mm ST elevation in V7–V9, and ≥1 mm in men under 40 [[Thygesen2018UDMI4]].
-- For right ventricular infarction, UDMI4 gives ST elevation ≥0.5 mm in V3R/V4R (≥1 mm in men <30 years) as supportive. The absence of these changes does not exclude it [[Thygesen2018UDMI4]].
+- UDMI4 recommends a cut-off of 0.5 mm ST elevation in V7–V9, and ≥1 mm in men under 40 [[Thygesen2018UDMI4C]].
+- For right ventricular infarction, UDMI4 gives ST elevation ≥0.5 mm in V3R/V4R (≥1 mm in men <30 years) as supportive. The absence of these changes does not exclude it [[Thygesen2018UDMI4C]].
 - The 2023 ESC guideline says the ECG may be normal in more than one-third of patients with NSTE-ACS [[Byrne2023ESC]].
 - In the Fanaroff review, the most useful ECG findings for ACS were ST depression (specificity 95%, LR 5.3) and any evidence of ischaemia (LR 3.6) [[Fanaroff2015]].
 - The de Zwaan–Wellens pattern of precordial ST-T changes in unstable angina marks a critical stenosis high in the LAD. It was seen in 18% (26/145) of patients admitted with unstable angina. Of 16 such patients not operated on, 12 (75%) developed an extensive anterior MI within weeks [[deZwaan1982]].
-- De Winter and colleagues described a sign of proximal LAD occlusion without classic ST elevation. UDMI4 notes that upsloping precordial ST depression >1 mm at the J point is linked to LAD occlusion [[deWinter2008,Thygesen2018UDMI4]].
+- De Winter and colleagues described a sign of proximal LAD occlusion without classic ST elevation. UDMI4 notes that upsloping precordial ST depression >1 mm at the J point is linked to LAD occlusion [[deWinter2008,Thygesen2018UDMI4C]].
 
 ### ecg · Left bundle branch block, paced rhythm and Sgarbossa
 - The 2023 ESC guideline says bundle branch block or paced rhythm "precludes an accurate assessment of the presence or absence of ST-segment elevation." When clinical suspicion is high, these patients should be managed in the same way as clear STEMI [[Byrne2023ESC]].
-- UDMI4 says ST elevation ≥1 mm concordant with the QRS in any lead may indicate acute ischaemia in LBBB. Similar findings can help in right ventricular paced rhythms [[Thygesen2018UDMI4]].
+- UDMI4 says ST elevation ≥1 mm concordant with the QRS in any lead may indicate acute ischaemia in LBBB. Similar findings can help in right ventricular paced rhythms [[Thygesen2018UDMI4C]].
 - In GUSTO-1, 131 of 26,003 North American patients with MI (0.5%) had LBBB [[Sgarbossa1996]].
 - Sgarbossa's three independent criteria for MI in LBBB were (1) concordant ST elevation ≥1 mm, (2) ST depression ≥1 mm in V1, V2 or V3, and (3) discordant ST elevation ≥5 mm. They were combined into a 0–10 point score [[Sgarbossa1996]].
 - The modified (Smith) Sgarbossa rule replaces the ≥5 mm criterion with an ST/S ratio ≤ −0.25 and needs only one of three criteria. In the derivation study its sensitivity was 91% vs 52% for the weighted original rule. Specificity was 90% vs 98% [[Smith2012]].
@@ -86,21 +86,21 @@ Access notes:
 - The OMI/NOMI model proposes replacing the STEMI/NSTEMI split with occlusion vs non-occlusion MI. No guideline has adopted it as of 2026-11, although the 2023 ESC guideline lists posterior and LBBB patterns for immediate management (Hypothesis) [[Meyers2021OMI,Byrne2023ESC]].
 
 ### troponin · Definitions: injury versus infarction
-- UDMI4: "Detection of an elevated cTn value above the 99th percentile URL is defined as myocardial injury." The injury is acute if values rise and/or fall [[Thygesen2018UDMI4]].
-- UDMI4 type 1 MI: "Detection of a rise and/or fall of cTn values with at least one value above the 99th percentile URL" plus at least one of the following: ischaemic symptoms, new ischaemic ECG changes, new pathological Q waves, imaging evidence of new loss of viable myocardium or new regional wall motion abnormality, or coronary thrombus at angiography or autopsy [[Thygesen2018UDMI4]].
-- UDMI4 type 2 MI requires "evidence of an imbalance between myocardial oxygen supply and demand unrelated to acute coronary athero-thrombosis," plus the troponin rise/fall and at least one ischaemic criterion [[Thygesen2018UDMI4]].
-- UDMI4 type 3 MI covers cardiac death with symptoms suggesting ischaemia and presumed new ischaemic ECG changes or ventricular fibrillation, in someone who dies before biomarkers can be obtained [[Thygesen2018UDMI4]].
-- UDMI4 type 4a (PCI-related) MI requires cTn >5 times the 99th percentile URL. Type 5 (CABG-related) MI requires cTn >10 times the URL within 48 h, from a normal baseline, plus the other criteria [[Thygesen2018UDMI4]].
-- UDMI4 says the 99th percentile URL is the decision level for myocardial injury and must be set for each assay. It recommends sex-specific 99th percentile URLs for hs-cTn assays because values are lower in women. Age-specific cut-offs are not recommended [[Thygesen2018UDMI4]].
-- UDMI4 says non-ischaemic myocardial injury can come from cardiac conditions such as myocarditis, and also from heart failure, sepsis and kidney disease [[Thygesen2018UDMI4]].
+- UDMI4: "Detection of an elevated cTn value above the 99th percentile URL is defined as myocardial injury." The injury is acute if values rise and/or fall [[Thygesen2018UDMI4C]].
+- UDMI4 type 1 MI: "Detection of a rise and/or fall of cTn values with at least one value above the 99th percentile URL" plus at least one of the following: ischaemic symptoms, new ischaemic ECG changes, new pathological Q waves, imaging evidence of new loss of viable myocardium or new regional wall motion abnormality, or coronary thrombus at angiography or autopsy [[Thygesen2018UDMI4C]].
+- UDMI4 type 2 MI requires "evidence of an imbalance between myocardial oxygen supply and demand unrelated to acute coronary athero-thrombosis," plus the troponin rise/fall and at least one ischaemic criterion [[Thygesen2018UDMI4C]].
+- UDMI4 type 3 MI covers cardiac death with symptoms suggesting ischaemia and presumed new ischaemic ECG changes or ventricular fibrillation, in someone who dies before biomarkers can be obtained [[Thygesen2018UDMI4C]].
+- UDMI4 type 4a (PCI-related) MI requires cTn >5 times the 99th percentile URL. Type 5 (CABG-related) MI requires cTn >10 times the URL within 48 h, from a normal baseline, plus the other criteria [[Thygesen2018UDMI4C]].
+- UDMI4 says the 99th percentile URL is the decision level for myocardial injury and must be set for each assay. It recommends sex-specific 99th percentile URLs for hs-cTn assays because values are lower in women. Age-specific cut-offs are not recommended [[Thygesen2018UDMI4C]].
+- UDMI4 says non-ischaemic myocardial injury can come from cardiac conditions such as myocarditis, and also from heart failure, sepsis and kidney disease [[Thygesen2018UDMI4C]].
 - The 2023 ESC guideline lists myocarditis, sepsis, takotsubo cardiomyopathy and heart valve disease among causes of myocardial injury, and states that a single raised value alone is not MI [[Byrne2023ESC]].
 - Among 2122 Edinburgh patients with raised cTnI, adjudicated diagnoses were type 1 MI in 55.2%, type 2 MI in 20.2% and myocardial injury in 24.6% [[Chapman2018]].
 - 5-year all-cause death was 62.5% after type 2 MI and 72.4% after myocardial injury, vs 36.7% after type 1 MI. Most of the excess deaths were noncardiovascular (HR 2.32 vs type 1 MI) [[Chapman2018]].
 
 ### troponin · Kinetics and high-sensitivity assays
 - The 2023 ESC guideline says cTn levels "rise rapidly (i.e. usually within 1 h if using high-sensitivity assays)" after symptom onset and stay raised for a variable time, usually several days [[Byrne2023ESC]].
-- UDMI4 says hs-cTn assays shorten the time to diagnosis to within 3 h of symptom onset in many patients, and raised cTn can often be detected for days after an acute event [[Thygesen2018UDMI4]].
-- UDMI4 advises sampling at presentation (0 h) and again "3–6 h later, or earlier with hs-cTn assays". Patients presenting more than 12–18 h after onset may take longer to show a changing pattern [[Thygesen2018UDMI4]].
+- UDMI4 says hs-cTn assays shorten the time to diagnosis to within 3 h of symptom onset in many patients, and raised cTn can often be detected for days after an acute event [[Thygesen2018UDMI4C]].
+- UDMI4 advises sampling at presentation (0 h) and again "3–6 h later, or earlier with hs-cTn assays". Patients presenting more than 12–18 h after onset may take longer to show a changing pattern [[Thygesen2018UDMI4C]].
 - The 2023 ESC guideline says CK-MB, myosin-binding protein C and copeptin add only limited value on top of cTn in most situations [[Byrne2023ESC]].
 - In 718 ED patients (17% with MI), sensitive troponin assays at presentation had an AUC of 0.95–0.96, vs 0.90 for a standard assay. In patients presenting within 3 h, the figures were 0.92–0.94 vs 0.76 [[Reichlin2009]].
 - In High-STEACS (48,282 patients, 47% women), the hs-cTnI assay reclassified 1771 of the 10,360 patients with myocardial injury or MI (17%). Implementation did not lower 1-year MI or cardiovascular death in those reclassified (adjusted OR 1.10; 95% CI 0.75–1.61) [[Shah2018]].
@@ -155,9 +155,9 @@ Access notes:
 - The 2025 ACC/AHA/ACEP/NAEMSP/SCAI ACS guideline replaces the 2013 STEMI and 2014 NSTE-ACS guidelines as the US reference for ACS management [[Rao2025ACC]].
 
 ### differential · Takotsubo syndrome
-- UDMI4 says takotsubo syndrome is found in about 1–2% of patients presenting with suspected STEMI, and that over 90% of patients are post-menopausal women [[Thygesen2018UDMI4]].
+- UDMI4 says takotsubo syndrome is found in about 1–2% of patients presenting with suspected STEMI, and that over 90% of patients are post-menopausal women [[Thygesen2018UDMI4C]].
 - The InterTAK consensus estimates takotsubo at about 1–3% of all patients, and 5–6% of women, presenting with suspected STEMI. About 90% are women, with a mean age of 67–70 years [[Ghadri2018]].
-- UDMI4 says ST elevation occurs in 44% of takotsubo cases, usually widespread beyond one coronary territory. Troponin rises are usually transient and modest, and apical akinesis is the commonest pattern (82%) [[Thygesen2018UDMI4]].
+- UDMI4 says ST elevation occurs in 44% of takotsubo cases, usually widespread beyond one coronary territory. Troponin rises are usually transient and modest, and apical akinesis is the commonest pattern (82%) [[Thygesen2018UDMI4C]].
 - InterTAK diagnostic criteria include transient LV dysfunction usually extending beyond a single coronary territory, new ECG abnormalities, moderately raised troponin, and frequently raised BNP. Significant coronary artery disease does not rule takotsubo out [[Ghadri2018]].
 - In the InterTAK registry (1750 patients), 89.8% were women (mean age 66.8). Physical triggers (36.0%) were more common than emotional ones (27.7%), and 28.5% had no evident trigger [[Templin2015]].
 - Compared with matched ACS patients, takotsubo patients more often had neurological or psychiatric disorders (55.8% vs 25.7%) and had lower LVEF (40.7% vs 51.5%). Rates of severe in-hospital complications were similar [[Templin2015]].
@@ -167,7 +167,7 @@ Access notes:
 - The AHA statement describes SCAD as an important cause of ACS, MI and sudden death, particularly among young women and people with few conventional risk factors. It is linked to pregnancy, stress triggers and fibromuscular dysplasia [[Hayes2018]].
 - In the Canadian SCAD cohort (750 patients), mean age was 51.8, 88.5% were women and 33.9% had no cardiac risk factors. Emotional stress was reported in 50.3% and fibromuscular dysplasia found in 31.1% [[Saw2019]].
 - In that cohort, 84.3% were treated conservatively, and 30-day MACE was 8.8% [[Saw2019]].
-- UDMI4 estimates MINOCA at 6–8% of patients diagnosed with MI, more often in women and in NSTEMI [[Thygesen2018UDMI4]].
+- UDMI4 estimates MINOCA at 6–8% of patients diagnosed with MI, more often in women and in NSTEMI [[Thygesen2018UDMI4C]].
 - The AHA MINOCA statement says MINOCA is found in about 5–6% of patients with acute MI who are referred for angiography, and has many causes that each need evaluation [[TamisHolland2019]].
 - A systematic review found MINOCA in 6% of patients (95% CI 5–7%), with a median age of 55 and 40% women. 12-month mortality was 4.7% in MINOCA vs 6.7% in MI with obstructive disease [[Pasupathy2015]].
 - In that review, cardiac MRI showed a typical infarct in only 24% of MINOCA patients and myocarditis in 33%. Coronary spasm was inducible in 27% [[Pasupathy2015]].
@@ -186,12 +186,12 @@ Access notes:
 - In 10,689 ED patients with possible ischaemia, 55% had noncardiac problems, 21% other cardiac problems and 17% acute cardiac ischaemia [[Pope2000]].
 
 ### Exam hooks
-- UDMI4 STEMI: ≥1 mm J-point elevation in 2 contiguous leads, except V2–V3, where the threshold is ≥2 mm in men ≥40, ≥2.5 mm in men <40 and ≥1.5 mm in women [[Thygesen2018UDMI4]].
-- Posterior leads V7–V9: a threshold of 0.5 mm ST elevation [[Thygesen2018UDMI4]].
+- UDMI4 STEMI: ≥1 mm J-point elevation in 2 contiguous leads, except V2–V3, where the threshold is ≥2 mm in men ≥40, ≥2.5 mm in men <40 and ≥1.5 mm in women [[Thygesen2018UDMI4C]].
+- Posterior leads V7–V9: a threshold of 0.5 mm ST elevation [[Thygesen2018UDMI4C]].
 - The ECG target is within 10 minutes of first medical contact [[Byrne2023ESC]].
-- Myocardial injury is a cTn above the 99th percentile URL. MI also requires a rise and/or fall plus evidence of ischaemia [[Thygesen2018UDMI4]].
-- Type 2 MI is a supply-demand imbalance without acute atherothrombosis [[Thygesen2018UDMI4]].
-- Type 4a MI requires cTn >5× URL. Type 5 MI requires cTn >10× URL [[Thygesen2018UDMI4]].
+- Myocardial injury is a cTn above the 99th percentile URL. MI also requires a rise and/or fall plus evidence of ischaemia [[Thygesen2018UDMI4C]].
+- Type 2 MI is a supply-demand imbalance without acute atherothrombosis [[Thygesen2018UDMI4C]].
+- Type 4a MI requires cTn >5× URL. Type 5 MI requires cTn >10× URL [[Thygesen2018UDMI4C]].
 - The 0 h/1 h algorithm is ESC's preferred rapid pathway. Rule-out NPV is >99% and rule-in PPV about 70–75% [[Byrne2023ESC]].
 - The single very-low 0 h rule-out is valid only if chest pain began more than 3 h earlier [[Byrne2023ESC]].
 - One in three people with MI in NRMI-2 had no chest pain on arrival. They were older, more often women and more often had diabetes [[Canto2000]].
@@ -206,13 +206,13 @@ Access notes:
 - MINOCA accounts for about 6% of MI. It is a working diagnosis, and cardiac MRI often shows myocarditis [[Pasupathy2015]].
 
 ### In plain words
-- A heart attack usually feels like pressure, tightness or heavy pain in the chest. The pain can spread to the arm, neck, jaw, back or upper belly [[Thygesen2018UDMI4,Byrne2023ESC]].
+- A heart attack usually feels like pressure, tightness or heavy pain in the chest. The pain can spread to the arm, neck, jaw, back or upper belly [[Thygesen2018UDMI4C,Byrne2023ESC]].
 - Most women and most men having a heart attack have chest pain or chest discomfort [[Lichtman2018VIRGO,Ferry2019]].
 - Women more often have extra symptoms too, like feeling sick, breathlessness, palpitations, or pain between the shoulder blades [[Lichtman2018VIRGO]].
 - About 1 in 3 people with a heart attack in one large US registry had no chest pain at all. This was more common in older people, women and people with diabetes [[Canto2000]].
 - If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU). Do not wait to see if it passes.
 - The heart tracing (ECG) should be done within 10 minutes of reaching medical help, often already in the ambulance [[Byrne2023ESC]].
-- Troponin is a protein released when heart muscle is damaged. A raised level alone does not prove a heart attack. Doctors look at whether it is rising or falling, and at your symptoms and ECG [[Thygesen2018UDMI4]].
+- Troponin is a protein released when heart muscle is damaged. A raised level alone does not prove a heart attack. Doctors look at whether it is rising or falling, and at your symptoms and ECG [[Thygesen2018UDMI4C]].
 - Modern blood tests can often rule out a heart attack within 1 to 2 hours of arriving in the emergency department [[Byrne2023ESC,Twerenbold2019]].
 - Scores like HEART help doctors decide who needs more tests. They are not meant for checking yourself at home [[Six2008HEART]].
 - Some conditions feel like a heart attack, such as a tear in the main artery (aortic dissection), a clot in the lung (pulmonary embolism), or inflammation around the heart (pericarditis). That is why emergency care matters [[Hagan2000,Imazio2015]].
@@ -236,15 +236,15 @@ Access notes:
 - delay_to_hospital | with chest pain | 5.3 | h (mean) | [[Canto2000]]
 - delay_to_hospital | without chest pain | 7.9 | h (mean) | [[Canto2000]]
 - ecg_target | first medical contact | 10 | min | [[Byrne2023ESC]]
-- STE_threshold_V2V3 | men ≥40 y | 2 | mm | [[Thygesen2018UDMI4]]
-- STE_threshold_V2V3 | men <40 y | 2.5 | mm | [[Thygesen2018UDMI4]]
-- STE_threshold_V2V3 | women | 1.5 | mm | [[Thygesen2018UDMI4]]
-- STE_threshold_other_leads | all | 1 | mm | [[Thygesen2018UDMI4]]
-- STE_threshold_V7V9 | all (≥1 mm men <40) | 0.5 | mm | [[Thygesen2018UDMI4]]
+- STE_threshold_V2V3 | men ≥40 y | 2 | mm | [[Thygesen2018UDMI4C]]
+- STE_threshold_V2V3 | men <40 y | 2.5 | mm | [[Thygesen2018UDMI4C]]
+- STE_threshold_V2V3 | women | 1.5 | mm | [[Thygesen2018UDMI4C]]
+- STE_threshold_other_leads | all | 1 | mm | [[Thygesen2018UDMI4C]]
+- STE_threshold_V7V9 | all (≥1 mm men <40) | 0.5 | mm | [[Thygesen2018UDMI4C]]
 - hscTn_kinetics | onset | baseline | ≤99th percentile URL | [[Byrne2023ESC]]
 - hscTn_kinetics | ~1 h | rise usually detectable with hs assays | qualitative | [[Byrne2023ESC]]
-- hscTn_kinetics | ≤3 h | diagnosis possible in many patients | qualitative | [[Thygesen2018UDMI4]]
-- hscTn_kinetics | several days | remains raised | qualitative | [[Byrne2023ESC,Thygesen2018UDMI4]]
+- hscTn_kinetics | ≤3 h | diagnosis possible in many patients | qualitative | [[Thygesen2018UDMI4C]]
+- hscTn_kinetics | several days | remains raised | qualitative | [[Byrne2023ESC,Thygesen2018UDMI4C]]
 - ESC_0h1h_triage_Reichlin2015 | rule-out | 59.5 | % of patients | [[Reichlin2015]]
 - ESC_0h1h_triage_Reichlin2015 | observe | 24.1 | % of patients | [[Reichlin2015]]
 - ESC_0h1h_triage_Reichlin2015 | rule-in | 16.4 | % of patients | [[Reichlin2015]]
@@ -297,15 +297,15 @@ Access notes:
 - five_year_death_by_MI_type | myocardial injury | 72.4 | % | [[Chapman2018]]
 
 ## Open questions and controversies
-- **STEMI vs OMI.** Guidelines (UDMI4, ESC 2023) keep the ST-elevation criteria while listing exceptions for posterior MI, LBBB and paced rhythm [[Thygesen2018UDMI4,Byrne2023ESC]]. OMI researchers report that STEMI criteria miss about half or more of acute occlusions and propose an occlusion-based approach [[Meyers2021OMI,Aslanger2020,Meyers2021STD]]. Status: early evidence, mostly retrospective case-control studies. A prospective trial (DIFOCCULT-3) is under way.
-- **Sex-specific troponin thresholds.** UDMI4 recommends sex-specific 99th percentiles [[Thygesen2018UDMI4]]. High-STEACS found they identified many more women with injury, but outcomes did not improve, and treatment gaps for women persisted [[Lee2019,Shah2018]]. Status: unresolved. The debate is about what follows the diagnosis rather than about the threshold.
+- **STEMI vs OMI.** Guidelines (UDMI4, ESC 2023) keep the ST-elevation criteria while listing exceptions for posterior MI, LBBB and paced rhythm [[Thygesen2018UDMI4C,Byrne2023ESC]]. OMI researchers report that STEMI criteria miss about half or more of acute occlusions and propose an occlusion-based approach [[Meyers2021OMI,Aslanger2020,Meyers2021STD]]. Status: early evidence, mostly retrospective case-control studies. A prospective trial (DIFOCCULT-3) is under way.
+- **Sex-specific troponin thresholds.** UDMI4 recommends sex-specific 99th percentiles [[Thygesen2018UDMI4C]]. High-STEACS found they identified many more women with injury, but outcomes did not improve, and treatment gaps for women persisted [[Lee2019,Shah2018]]. Status: unresolved. The debate is about what follows the diagnosis rather than about the threshold.
 - **Are "typical" symptoms different in women?** NRMI registries show more women presenting without chest pain, especially at younger ages [[Canto2012]]. VIRGO and High-STEACS found chest pain in most women, and "typical" features at least as often in women [[Lichtman2018VIRGO,Ferry2019]]. Status: chest pain is the main symptom in both sexes. Women more often report additional symptoms.
 - **Single-sample rule-out.** Very low single hs-cTn values give NPVs of about 99.5% [[Chapman2017,Pickering2017]]. ESC limits this to patients with chest pain onset >3 h before sampling [[Byrne2023ESC]]. Status: established for late presenters. Early presenters need serial testing.
 - **Value of HEART in practice.** HEART discriminates better than TIMI or GRACE in ED cohorts [[Backus2013,Poldervaart2017IJC]]. In a cluster RCT, though, it barely changed resource use [[Poldervaart2017AIM]], whereas the HEART Pathway RCT reduced testing and length of stay [[Mahler2015]]. Status: safe, but its efficiency gains depend on whether clinicians follow it.
 - **Type 2 MI and myocardial injury.** Long-term mortality is higher than after type 1 MI, mostly from noncardiovascular causes [[Chapman2018]]. No treatment strategy has been proven, so management focuses on the underlying cause.
 
 ## Sources
-- [Thygesen2018UDMI4] Thygesen K, Alpert JS, Jaffe AS, Chaitman BR, Bax JJ, Morrow DA, et al. Fourth universal definition of myocardial infarction (2018). Eur Heart J. 2019;40(3):237-269. PMID 30165617; doi:10.1093/eurheartj/ehy462. (validated: PubMed)
+- [Thygesen2018UDMI4C] Thygesen K, Alpert JS, Jaffe AS, Chaitman BR, Bax JJ, Morrow DA, et al. Fourth universal definition of myocardial infarction (2018). Eur Heart J. 2019;40(3):237-269. PMID 30165617; doi:10.1093/eurheartj/ehy462. (validated: PubMed)
 - [Byrne2023ESC] Byrne RA, Rossello X, Coughlan JJ, Barbato E, Berry C, Chieffo A, et al. 2023 ESC Guidelines for the management of acute coronary syndromes. Eur Heart J. 2023;44(38):3720-3826. PMID 37622654; doi:10.1093/eurheartj/ehad191. (validated: PubMed)
 - [Rao2025ACC] Rao SV, O'Donoghue ML, Ruel M, Rab T, Tamis-Holland JE, Alexander JH, et al. 2025 ACC/AHA/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines. Circulation. 2025;151(13):e771-e862. PMID 40014670; doi:10.1161/CIR.0000000000001309. (validated: PubMed)
 - [Gulati2021ChestPain] Gulati M, Levy PD, Mukherjee D, Amsterdam E, Bhatt DL, Birtcher KK, et al. 2021 AHA/ACC/ASE/CHEST/SAEM/SCCT/SCMR Guideline for the Evaluation and Diagnosis of Chest Pain: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines. Circulation. 2021;144(22):e368-e454. PMID 34709879; doi:10.1161/CIR.0000000000001029. (validated: PubMed)
