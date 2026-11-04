@@ -68,21 +68,21 @@ inits.history=()=>{
     hook:`DSM-5: merged abuse + dependence, legal problems out, craving in, threshold ≥2 of 11. [[Hasin2013]]`}];
   const EMB=STEPS.map(s=>s.em);
   function nameAt(y){let i=0;HI_NAME.forEach((n,k)=>{if(y>=n.y)i=k});return i}
-  function draw(t){const N=vb(svg,'720 420','400 720'),yr=hiYr(t),p=phaseOf(STEPS,t),S=STEPS[p];let s='';
+  function draw(t){const N=vb(svg,'720 380','400 720'),yr=hiYr(t),p=phaseOf(STEPS,t),S=STEPS[p];let s='';
     /* ---- banner: what we called it ---- */
     const ni=nameAt(yr),nm=HI_NAME[ni],since=yr-nm.y,fade=clamp(since/4),prev=ni>0?HI_NAME[ni-1]:null;
     const bw=N?368:672,bx=N?16:24;
-    s+=`<rect x="${bx}" y="10" width="${bw}" height="${N?92:66}" rx="12" style="fill:var(--brand-soft)"/>`;
+    s+=`<rect x="${bx}" y="10" width="${bw}" height="${N?98:66}" rx="12" style="fill:var(--brand-soft)"/>`;
     s+=`<text x="${bx+14}" y="28" class="t-sm" style="fill:var(--brand)">WHAT WE CALLED IT</text>`;
     s+=`<text x="${bx+bw-14}" y="${N?34:52}" class="t-big t-end" style="font-size:${N?24:30}px;fill:var(--brand)">${Math.round(yr)}</text>`;
-    const nameLines=n=>N?(n.includes('|')?n.split(' | ').map((x,i)=>i?'| '+x:x):hiWrap(n,24)):[n];
-    const putName=(n,op,dy)=>nameLines(n.n).map((l,i)=>`<text x="${bx+14}" y="${f1((N?56:54)+i*22+dy)}" class="t-big" style="font-size:${N?20:24}px;opacity:${f1(op)}">${l}</text>`).join('');
+    const nameLines=n=>N?(n.includes('|')?n.split(' | ').map((x,i)=>i?'| '+x:x):hiWrap(n,28)):[n];
+    const putName=(n,op,dy)=>nameLines(n.n).map((l,i)=>`<text x="${bx+14}" y="${f1((N?54:54)+i*21+dy)}" class="t-big" style="font-size:${N?18:24}px;opacity:${f1(op)}">${l}</text>`).join('');
     if(prev&&fade<1&&prev.n!==nm.n)s+=putName(prev,1-fade,-6*fade);
     s+=putName(nm,prev&&prev.n!==nm.n?fade:1,prev&&prev.n!==nm.n?6*(1-fade):0);
-    const subY=N?(nameLines(nm.n).length>1?92:76):70;
+    const subY=N?(nameLines(nm.n).length>1?98:80):70;
     s+=`<text x="${bx+14}" y="${subY}" class="t-xs" style="opacity:${f1(Math.max(.4,fade))}">${nm.s}</text>`;
     /* ---- era detail ---- */
-    const D=N?{y:116,ex:52,ey:166,es:.8,tx:104,tw:36,ty:132}:{y:88,ex:76,ey:150,es:1,tx:150,tw:76,ty:110};
+    const D=N?{y:120,ex:52,ey:172,es:.8,tx:104,tw:36,ty:138}:{y:88,ex:76,ey:150,es:1,tx:150,tw:76,ty:110};
     S.em.forEach((k,i)=>{s+=hiEmblem(k,D.ex+(S.em.length>1?(i?20:-14):0),D.ey+(S.em.length>1?(i?22:-14):0),D.es*(S.em.length>1?.68:1))});
     s+=hiWrap(S.t,N?28:60).map((l,i)=>`<text x="${D.tx}" y="${D.ty+i*20}" class="t-big" style="font-size:${N?16:19}px">${l}</text>`).join('');
     const tl=hiWrap(S.t,N?28:60).length;s+=`<text x="${D.tx}" y="${D.ty+tl*20-2}" class="t-sm">${S.k}</text>`;
@@ -90,18 +90,18 @@ inits.history=()=>{
     evs.slice(0,N?5:5).forEach(e=>{const on=yr>=e.y-.2,c=HI_TR[e.tr][1];
       s+=`<circle cx="${D.tx+4}" cy="${ly-4}" r="4" style="fill:${on?c:'none'};stroke:${c};stroke-width:1.5"/><text x="${D.tx+14}" y="${ly}" class="t-xs" style="fill:${on?'var(--ink)':'var(--muted)'};opacity:${on?1:.55};font-weight:${on?600:400}">${Math.floor(e.y)} · ${e.l}</text>`;ly+=N?15:14});
     /* ---- timeline ---- */
-    if(!N){const x0=130,x1=696,X=y=>lerp(x0,x1,hiU(y)),ty=[262,288,314],ay=338,xm=X(yr);
+    if(!N){const x0=130,x1=696,X=y=>lerp(x0,x1,hiU(y)),ty=[236,262,288],ay=312,xm=X(yr);
       HI_TR.forEach(([n,c],i)=>{s+=`<text x="24" y="${ty[i]+3.5}" class="t-xs" style="fill:${c};font-weight:600">${n}</text><line x1="${x0}" x2="${x1}" y1="${ty[i]}" y2="${ty[i]}" style="stroke:var(--line);stroke-width:1"/>`});
       /* scale break */
       s+=`<rect x="${f1(X(HI_YB)-3)}" y="${ay-6}" width="6" height="12" style="fill:var(--panel)"/><path d="M${f1(X(HI_YB)-5)} ${ay+6}l4 -12M${f1(X(HI_YB)+1)} ${ay+6}l4 -12" style="stroke:var(--muted);stroke-width:1.2"/>`;
       s+=`<line x1="${x0}" x2="${x1}" y1="${ay}" y2="${ay}" class="axis" style="stroke:var(--muted)"/>`;
-      [1780,1800,1850,1900,1930,1950,1975,2000,2025].forEach(y=>{s+=`<line x1="${f1(X(y))}" x2="${f1(X(y))}" y1="${ay-3}" y2="${ay+3}" style="stroke:var(--muted)"/><text x="${f1(X(y))}" y="${ay+15}" class="t-xs t-mid">${y}</text>`});
+      [1780,1850,1900,1930,1950,1975,2000,2025].forEach(y=>{s+=`<line x1="${f1(X(y))}" x2="${f1(X(y))}" y1="${ay-3}" y2="${ay+3}" style="stroke:var(--muted)"/><text x="${f1(X(y))}" y="${ay+15}" class="t-xs t-mid">${y}</text>`});
       HI_ERA.forEach((e,i)=>{const a=X(e.a),b=X(e.b),on=i===p;s+=`<rect x="${f1(a+1)}" y="${ay+22}" width="${f1(b-a-2)}" height="18" rx="4" style="fill:${on?'var(--brand)':'var(--panel-2)'}"/><text x="${f1((a+b)/2)}" y="${ay+34.5}" class="t-xs t-mid" style="fill:${on?'var(--on-brand)':'var(--muted)'};font-weight:600">${e.n}</text>`});
-      s+=`<rect x="${f1(X(1880))}" y="${ty[1]-5}" width="${f1(X(1933)-X(1880))}" height="10" rx="5" style="fill:var(--dx);opacity:.12"/><text x="${f1(X(1933)-4)}" y="${ty[1]-8}" class="t-xs t-end" style="fill:var(--dx)">temperance → Prohibition repealed 1933</text>`;
+      s+=`<rect x="${f1(X(1880))}" y="${ty[1]-5}" width="${f1(X(1933)-X(1880))}" height="10" rx="5" style="fill:var(--dx);opacity:.12"/><text x="${f1(X(1933)-4)}" y="${ty[1]+14}" class="t-xs t-end" style="fill:var(--dx)">temperance → Prohibition repealed 1933</text>`;
       HI_EV.forEach(e=>{const x=X(e.y),y=ty[e.tr],c=HI_TR[e.tr][1],on=yr>=e.y-.2,cur=e.y>=S.y0&&e.y<S.y1;
         s+=`<circle cx="${f1(x)}" cy="${y}" r="${cur?5.5:4}" style="fill:${on?c:'var(--panel)'};stroke:${c};stroke-width:1.6"/>`});
-      s+=`<line x1="${f1(xm)}" x2="${f1(xm)}" y1="246" y2="${ay}" style="stroke:var(--ink);stroke-width:1.6"/><path d="M${f1(xm)} ${ay-1}l-6 -9h12Z" style="fill:var(--ink)"/>`;
-      s+=`<text x="${f1(clamp(xm,150,676))}" y="242" class="t-xs t-mid" style="fill:var(--ink);font-weight:600">${Math.round(yr)}</text>`}
+      s+=`<line x1="${f1(xm)}" x2="${f1(xm)}" y1="220" y2="${ay}" style="stroke:var(--ink);stroke-width:1.6"/><path d="M${f1(xm)} ${ay-1}l-6 -9h12Z" style="fill:var(--ink)"/>`;
+      s+=`<text x="${f1(clamp(xm,150,676))}" y="216" class="t-xs t-mid" style="fill:var(--ink);font-weight:600">${Math.round(yr)}</text>`}
     else{const y0=300,y1=700,Y=y=>lerp(y0,y1,hiU(y)),ax=70,tx=[86,100,114],ym=Y(yr);
       HI_TR.forEach(([n,c],i)=>{s+=`<circle cx="${16+i*124}" cy="${y0-28}" r="4" style="fill:${c}"/><text x="${24+i*124}" y="${y0-24.5}" class="t-xs" style="fill:${c};font-weight:600">${n}</text>`;
         s+=`<line x1="${tx[i]}" x2="${tx[i]}" y1="${y0}" y2="${y1}" style="stroke:var(--line)"/>`});

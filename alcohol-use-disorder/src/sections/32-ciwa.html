@@ -1,5 +1,76 @@
-<!-- ================= 3.2 CIWA-AR: SCORING WITHDRAWAL (stub, replaced by its builder) ================= -->
+<!-- ================= 3.2 CIWA-AR: SCORING WITHDRAWAL ================= -->
+<style>
+#m-ciwa .ci-calc{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){#m-ciwa .ci-calc{grid-template-columns:minmax(0,1fr)}}
+#m-ciwa .ci-items{display:flex;flex-direction:column;gap:8px}
+#m-ciwa .ci-item{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+#m-ciwa .ci-item .ci-top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+#m-ciwa .ci-item b{font-size:15px}
+#m-ciwa .ci-item output{font:700 15px var(--mono);color:var(--accent);min-width:42px;text-align:right}
+#m-ciwa .ci-item small{font-size:12.5px;color:var(--muted);line-height:1.35}
+#m-ciwa .ci-item input[type=range]{accent-color:var(--accent)}
+#m-ciwa .ci-out{display:flex;flex-direction:column;gap:12px;position:sticky;top:12px}
+@media (max-width:900px){#m-ciwa .ci-out{position:static}}
+#m-ciwa .ci-out svg{width:100%;height:auto;display:block;max-width:380px;margin:0 auto}
+#m-ciwa .card>.tag{align-self:flex-start}
+</style>
 <section class="mod" id="m-ciwa" data-mod="ciwa" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Withdrawal &amp; acute care</p><h2>CIWA-Ar: scoring withdrawal</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">The CIWA-Ar puts a number on how severe alcohol withdrawal is: ten items, a total from 0 to 67. Try the teaching calculator, then watch how symptom-triggered care uses the score to give less medicine for a shorter time than a fixed schedule.</p></div>
+
+  <div class="safety"><b>Safety</b>Stopping suddenly after long, heavy daily drinking can be dangerous: get medical help to stop safely. A seizure, confusion or hallucinations during withdrawal are an emergency: call emergency services. [[ASAM2020Withdrawal]]</div>
+
+  <h3 class="sub">The ten items: a teaching calculator</h3>
+  <div class="prose"><p>CIWA-Ar is a 10-item shortened version of the CIWA-A, designed to be efficient while keeping its clinical usefulness, validity and reliability. Nine items score 0–7 and orientation scores 0–4, so the maximum is 67. [[Sullivan1989CIWA,Mirijello2015]] Before scoring, compare: the <a href="#withdrawal" data-go="withdrawal">PAWSS</a> predicts risk before symptoms start; CIWA-Ar measures withdrawal once it has started. [[ASAM2020Withdrawal]]</p></div>
+  <div class="safety"><b>Teaching tool</b>This calculator shows how the published scale is built and how the bands are read. It is for learning only: it is not a self-test, not for scoring yourself or a family member, and not a substitute for a clinician's assessment. In practice the score is taken by trained staff and used only within their own clinical protocols. It never says what medicine or dose to give.</div>
+  <div class="ci-calc">
+    <div class="ci-items" id="ciItems"></div>
+    <div class="ci-out">
+      <svg id="ciGauge" viewBox="0 0 340 210" role="img" aria-label="A half-dial gauge from 0 to 67 showing the teaching CIWA-Ar total, coloured with the ASAM 2020 bands: mild below 10, moderate 10 to 18, severe 19 or more."></svg>
+      <div class="ctrls"><button class="btn" id="ciMir" aria-pressed="false">Compare Mirijello 2015 bands</button><button class="btn ghost" id="ciReset">Reset to 0</button></div>
+      <div id="ciOut" aria-live="polite"></div>
+    </div>
+  </div>
+  <p class="stage-cap">Item list and ranges from the Mirijello 2015 table (modified from Sullivan 1989). Only the tremor and orientation anchors are quoted here; the full scale gives a written anchor for each step of every item. Bands: ASAM 2020, which adds that classification "is ultimately up to the judgment of clinicians". [[Mirijello2015,Sullivan1989CIWA,ASAM2020Withdrawal]]</p>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Mild</th><th>Moderate</th><th>Severe</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>ASAM 2020</th><td>&lt;10</td><td>10–18</td><td>≥19</td><td>Complicated: ≥19 with seizure or signs of delirium.</td></tr>
+      <tr><th>Mirijello 2015</th><td>&lt;8</td><td>8–15</td><td>&gt;15</td><td>A score &gt;15 also predicts seizures and delirium.</td></tr>
+      <tr><th>Saitz 1998</th><td colspan="3">8 or less with no added seizure risk: can be managed without specific drugs; 8–15 or more: medication</td><td>Older review.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">No single set of cut-offs is validated, so every band here is labelled with its source. [[ASAM2020Withdrawal,Mirijello2015,Saitz1998AHRW]]</p>
+
+  <h3 class="sub">Symptom-triggered vs fixed schedule</h3>
+  <div class="stepper" id="ciSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ciSvg" viewBox="0 0 720 370" style="min-width:560px" role="img" aria-label="Two lanes share the same schematic CIWA-Ar curve over 72 hours. In the symptom-triggered lane, a tablet appears only when an hourly score reaches the protocol threshold, and treatment stops after about 9 hours. In the fixed-schedule lane, tablets appear at set times whatever the score, until about 68 hours. Counters build to the Saitz 1994 medians: 100 versus 425 mg of chlordiazepoxide, 9 versus 68 hours."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ciPlay">Play</button><label class="stage-cap tl" for="ciT">Hours <input type="range" id="ciT" min="0" max="1" step="0.001" value="0.02"></label></div>
+      <div class="readout" id="ciRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The score curve, tablet times and sizes are drawn, not trial data; tablets are abstract and carry no dose. The final counters are the published Saitz 1994 medians for the whole course (101 inpatients, people with past seizures excluded); in-between values are scaled to them. The scrubber runs 72 h so that the 68 h fixed-schedule median fits. [[Saitz1994]]</p>
+    </div>
+    <aside class="note" id="ciNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Symptom-triggered</th><th>Fixed schedule</th><th>Outcome</th></tr></thead>
+    <tbody>
+      <tr><th>Saitz 1994 (JAMA, 101 inpatients, chlordiazepoxide)</th><td>median 9 h; 100 mg</td><td>median 68 h; 425 mg</td><td>No difference in withdrawal severity, seizures or DT (P&lt;.001 for duration and dose).</td></tr>
+      <tr><th>Daeppen 2002 (117 patients, oxazepam)</th><td>39% treated at all; mean 37.5 mg; 20.0 h</td><td>100% treated; 231.4 mg; 62.7 h</td><td>All P&lt;.001. One seizure in the symptom-triggered group; comfort did not differ.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Trial results, not instructions. [[Saitz1994,Daeppen2002]] A meta-analysis found that individualising therapy with withdrawal scales gives significantly less medication and shorter treatment. [[MayoSmith1997]] ASAM 2020 Recommendation V.23: inpatient symptom-triggered treatment "is the preferred benzodiazepine dosing method"; a fixed scheduled taper may be used if symptom-triggered dosing cannot be. [[ASAM2020Withdrawal]] For medicines and settings, see <a href="#detox" data-go="detox">Managing withdrawal safely</a>.</p>
+
+  <h3 class="sub">When CIWA-Ar doesn't fit</h3>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Not a diagnosis</span><h4>Other conditions raise the score</h4><p>ASAM 2020 Recommendation I.6: withdrawal scales including CIWA-Ar "should not be used as a diagnostic tool", because conditions other than withdrawal can raise the score. [[ASAM2020Withdrawal]] Tremor, sweating, a fast pulse or anxiety can have other causes.</p></div>
+    <div class="card"><span class="tag dx">Delirium &amp; ICU</span><h4>It needs a patient who can answer</h4><p>Recommendation VI.9: CIWA-Ar is not recommended in delirium, because it relies on patient-reported symptoms; CAM-ICU, DDS, RASS or MINDS are used instead. [[ASAM2020Withdrawal]] CAM-ICU in 111 ventilated ICU patients: sensitivity 100% and 93%, specificity 98% and 100% for two nurses, about 2 minutes to give. [[Ely2001CAMICU]] RASS runs from +4 ("combative") to −5 ("unarousable"). [[Sessler2002RASS]]</p></div>
+    <div class="card"><span class="tag warn">Medical &amp; surgical wards</span><h4>Trust low scores, question high ones</h4><p>Recommendation VII.16: in general medical or surgical patients, low scores can usually be trusted but high scores should be read with caution; fever from infection, some medicines and communication problems can all confound the score. [[ASAM2020Withdrawal]]</p></div>
+    <div class="card"><span class="tag accent">Misuse in practice</span><h4>Half the protocols were misapplied</h4><p>Of 124 randomly chosen Mayo Clinic inpatients on a CIWA-Ar protocol, only 60 (48%) met both requirements: recent drinking and intact verbal communication. 9 drank but could not communicate, 35 could communicate but had not been drinking, and 20 met neither. [[Hecksel2008]]</p></div>
+    <div class="card"><span class="tag rx">Other scales</span><h4>SAWS and GMAWS</h4><p>The Short Alcohol Withdrawal Scale is a 10-item self-administered scale for ambulatory care that records the prior few hours. The Glasgow Modified Alcohol Withdrawal Scale has 5 items (maximum 10): ≥1 gave sensitivity 100%, specificity 12%, and ≥2 gave 98% and 39% for predicting CIWA-A ≥8. [[ASAM2020Withdrawal]]</p></div>
+  </div>
+
+  <div class="crisis"><b>Get help</b><span>If you or someone else may have alcohol poisoning or severe withdrawal (seizure, confusion, hallucinations), call emergency services. For help with drinking in the US, SAMHSA's National Helpline is free and confidential: 1-800-662-4357. If you are in crisis or thinking about suicide, contact a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></div>
 </section>

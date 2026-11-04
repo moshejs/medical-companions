@@ -57,9 +57,9 @@ inits.pregnancy=()=>{
     s+=`<text x="${L.tx1}" y="${L.ty-18}" class="t-xs t-end">weeks</text>`;
     const nx=X(Math.min(w,40));s+=`<path d="M${f1(nx-6)} ${L.ty-2}L${f1(nx+6)} ${L.ty-2}L${f1(nx)} ${L.ty+8}Z" style="fill:var(--ink)"/>`;
     /* the guidance band across the whole timeline */
-    const bw=(L.tx1-L.tx0)*clamp(ramp(t,0,.3)+.08);
+    const bw=L.tx1-L.tx0;
     s+=`<rect x="${L.tx0}" y="${L.ty-46}" width="${f1(bw)}" height="18" rx="9" style="fill:var(--accent-soft)"/>`;
-    if(bw>200)s+=`<text x="${L.tx0+10}" y="${L.ty-33}" class="t-xs" style="fill:var(--accent);font-weight:700">${N?'no known safe amount · no safe trimester':'no known safe amount · no safe trimester · all drinks similar risk'}</text>`;
+    s+=`<text x="${L.tx0+10}" y="${L.ty-33}" class="t-xs" style="fill:var(--accent);font-weight:700">${N?'no known safe amount · no safe trimester':'no known safe amount · no safe trimester · all drinks similar risk'}</text>`;
     /* womb and fetus, cross-fading to the face after birth */
     const op=1-born;
     if(op>0){s+=`<g style="opacity:${f1(op)}"><circle cx="${L.wx}" cy="${L.wy}" r="${L.wr}" style="fill:var(--liver-soft);stroke:var(--liver);stroke-width:2"/><circle cx="${L.wx}" cy="${L.wy}" r="${L.wr-8}" style="fill:var(--panel);opacity:.55"/>`;

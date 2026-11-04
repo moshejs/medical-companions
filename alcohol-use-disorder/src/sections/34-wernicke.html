@@ -1,5 +1,78 @@
-<!-- ================= 3.4 THIAMINE, WERNICKE AND KORSAKOFF (stub, replaced by its builder) ================= -->
+<!-- ================= 3.4 THIAMINE, WERNICKE AND KORSAKOFF ================= -->
+<style>
+#m-wernicke .card>.ev,#m-wernicke .card>.tag{align-self:flex-start}
+#m-wernicke .tbl table{min-width:640px}
+#m-wernicke .caine{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
+#m-wernicke .caine label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--panel);cursor:pointer;font-size:14.5px;line-height:1.35}
+#m-wernicke .caine label b{display:block;font-size:15px}
+#m-wernicke .caine input{margin-top:3px;accent-color:var(--accent);width:18px;height:18px;flex:none}
+#m-wernicke .caine label.on{border-color:var(--accent);background:var(--accent-soft)}
+#m-wernicke .weres{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+</style>
 <section class="mod" id="m-wernicke" data-mod="wernicke" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Withdrawal &amp; acute care</p><h2>Thiamine, Wernicke and Korsakoff</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Heavy drinking can use up vitamin B1 (thiamine). Very low thiamine can cause Wernicke encephalopathy, an acute brain emergency that is often missed, and untreated it can leave lasting memory loss: Korsakoff syndrome. Thiamine is cheap and is given early to protect the brain. [[Galvin2010EFNS,Sechi2007,Kopelman2009]]</p></div>
+
+  <div class="ctrls" role="group" aria-label="Thiamine scenario">
+    <span class="kicker">Scenario</span>
+    <button class="btn" id="weThi" aria-pressed="false">Give thiamine early</button>
+  </div>
+  <div class="stepper" id="weSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="weSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="The thiamine story in five scenes. A thiamine store drawn as a tank drains as poor diet and malabsorption cut what comes in; a side-view brain lights up in the mammillary bodies and thalamus as the store runs low; glucose is given, contrasting the older thiamine-first rule with ASAM's any-order advice; a grid of 131 autopsy cases shows that only 16 percent had the classic triad of confusion, unsteadiness and eye-movement problems; and a memory strip shows new memories fading in Korsakoff syndrome while skills remain. With early thiamine, the tank refills."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="wePlay">Play</button><label class="stage-cap tl" for="weT">Story <input type="range" id="weT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="weRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The tank level and glow are drawn to show the idea, not measured. The 131-case grid uses Harper 1986's published shares. [[Harper1986JNNP]]</p>
+    </div>
+    <aside class="note" id="weNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The Caine criteria: a teaching checklist</h3>
+  <p class="prose">The classic triad of confusion, unsteadiness (ataxia) and eye-movement problems was present in only 16% of 131 people found at autopsy to have had Wernicke encephalopathy. Caine and colleagues proposed a looser rule for people who drink heavily: any 2 of 4 signs. The EFNS 2010 guideline adopted it. Tick the signs in an imaginary case to see how the two rules differ. This is a teaching tool, not a way to diagnose anyone. [[Harper1986JNNP,Caine1997,Galvin2010EFNS]]</p>
+  <div class="caine" id="weCaine">
+    <label><input type="checkbox" data-wc="diet"><span><b>Dietary deficiency</b>Signs of poor nutrition or a poor diet</span></label>
+    <label><input type="checkbox" data-wc="eye"><span><b>Eye signs</b>Oculomotor abnormalities, such as abnormal eye movements</span></label>
+    <label><input type="checkbox" data-wc="cbl"><span><b>Cerebellar dysfunction</b>Unsteadiness, poor coordination (ataxia)</span></label>
+    <label><input type="checkbox" data-wc="mind"><span><b>Altered mental state or mild memory impairment</b>Confusion, drowsiness or memory problems</span></label>
+    <label><input type="checkbox" data-wc="he"><span><b>Also has hepatic encephalopathy</b>Confusion from severe liver disease (a known pitfall)</span></label>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="weCaineSvg" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="Four sign tiles, with a bracket over the three that make up the classic triad. Ticked signs light up, and two meters show whether the imaginary case meets the Caine rule of 2 of 4 and whether it shows the full classic triad."></svg></div>
+    </div>
+    <div class="weres" id="weCaineOut" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Thiamine regimens as published</h3>
+  <p class="prose">Guidelines disagree on dose and route, and the trials do not settle it: a Cochrane review found the evidence "insufficient to guide clinicians" on dose, frequency, route or duration. Every row below is quoted as published, for study. None of it is an instruction. [[Day2013Cochrane]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Situation</th><th>What it says (quoted)</th></tr></thead>
+    <tbody>
+      <tr><th>EFNS 2010 (Rec. 5, Level C)</th><td>Suspected or manifest Wernicke encephalopathy</td><td>Thiamine before any carbohydrate, "200 mg thrice daily, preferably intravenously". The overall safety of thiamine is very good (Level B). [[Galvin2010EFNS]]</td></tr>
+      <tr><th>EFNS 2010 (Rec. 8)</th><td>At-risk people in the emergency room</td><td>Parenteral thiamine for all at-risk people admitted to the emergency room (good practice point). [[Galvin2010EFNS]]</td></tr>
+      <tr><th>RCP London 2002</th><td>Emergency department</td><td>People with evidence of chronic heavy drinking and a suspected poor diet should get IV or IM B vitamins at the outset, especially when intoxication masks the signs. [[Thomson2002RCP]]</td></tr>
+      <tr><th>ASAM 2020 (Rec. V.7)</th><td>Inpatient withdrawal, prevention</td><td>IV or IM preferred, typically "100 mg IV/IM per day for 3-5 days"; oral can also be offered; thiamine and glucose "in any order or concurrently". [[ASAM2020Withdrawal]]</td></tr>
+      <tr><th>ASAM 2020 (Rec. IV.9)</th><td>Ambulatory withdrawal</td><td>"Typical dosing is 100 mg PO per day for 3-5 days". [[ASAM2020Withdrawal]]</td></tr>
+      <tr><th>ASAM 2020 (ICU discussion)</th><td>Signs that mimic or mask Wernicke encephalopathy</td><td>Citing one study: "200-500 mg IV thiamine every 8 hours, 64 mg/kg magnesium sulfate, and 400-1,000 mcg IV folate" instead of the "banana bag". [[ASAM2020Withdrawal]]</td></tr>
+      <tr><th>Thiamine injection label (US)</th><td>Wernicke-Korsakoff syndrome; dextrose</td><td>"administered IV in an initial dose of 100 mg, followed by IM doses of 50 to 100 mg daily until the patient is consuming a regular, balanced diet"; with dextrose, people with marginal thiamine status "should receive 100 mg thiamine hydrochloride in each of the first few liters of IV fluid". [[FDA-ThiamineInj]]</td></tr>
+      <tr><th>Kattimani 2013 (review)</th><td>Everyone in withdrawal; suspected WE</td><td>At least 250 mg parenteral thiamine daily for 3–5 days, and 500 mg a day for 3–5 days if WE is suspected. [[Kattimani2013]]</td></tr>
+      <tr class="hl"><th>Trials</th><td>What the RCTs found</td><td>Cochrane 2013: only 2 eligible trials; one (107 people) favoured 200 mg over 5 mg a day on one memory test. Dingwall 2022 (393 at-risk and 127 symptomatic patients): no dose clearly better. [[Day2013Cochrane,Dingwall2022RCT]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="safety"><b>Label warning</b>The thiamine injection label warns that "serious hypersensitivity/anaphylactic reactions can occur, especially after repeated administration. Deaths have resulted from IV or IM administration of thiamine". [[FDA-ThiamineInj]]</div>
+
+  <h3 class="sub">Glucose, magnesium and refeeding</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Guidelines differ</span><h4>Thiamine before glucose?</h4><p>Older teaching, kept by EFNS 2005 and 2010, is to give thiamine before any carbohydrate. ASAM 2020 allows "any order or concurrently", so that glucose is not delayed. A review of 19 papers found nothing above case-report level: prolonged glucose without thiamine may be a risk factor, but low blood sugar should be treated at once, with thiamine promptly after or alongside. [[Galvin2010EFNS,Brathen2005EFNS,ASAM2020Withdrawal,Schabelman2012]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Dextrose first, in practice</h4><p>In US veterans' emergency departments (2010–2019), 120 encounters in which people with alcohol intoxication got dextrose before thiamine were followed for 90 days: no case of Wernicke encephalopathy was found. One observational series cannot prove safety. [[Jasti2025]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Magnesium and thiamine</h4><p>In 105 heavy drinkers in Alice Springs, 48% of those tested had low magnesium (below 0.80 mmol/L), and serum magnesium, but not thiamine pyrophosphate, tracked cognitive scores. The authors suggest low magnesium may impair the body's use of thiamine. ASAM gives magnesium for low levels, arrhythmias, electrolyte disturbances or past withdrawal seizures. [[Dingwall2015Mg,ASAM2020Withdrawal]]</p></div>
+    <div class="card"><span class="tag accent">Refeeding</span><h4>Feeding again after poor nutrition</h4><p>A 2025 systematic review of 30 studies found past alcohol misuse among the risk factors for refeeding syndrome reported by two or more studies. In a small detox-unit cohort (36 people), none developed refeeding syndrome by day 3, although 44% had low magnesium. ASAM supplements phosphorus below 1 mg/dL and corrects moderate lows through nutrition. [[Zheng2025,Manning2014,ASAM2020Withdrawal]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Missed in life</h4><p>Autopsy series keep finding Wernicke encephalopathy that was never diagnosed: 1.7% of necropsies in Perth (7 of 51 diagnosed in life), 0.8% in Oslo, and 1.1% in Sydney in 1996–97, where prevalence had fallen since bread flour was enriched with thiamine. [[Harper1979JNNP,Torvik1982,Harper1998MJA]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Scans help, but cannot rule it out</h4><p>In 15 people with acute Wernicke encephalopathy, MRI had a sensitivity of 53% and specificity of 93%; CT "proved not useful". A normal MRI does not exclude it. EFNS advises MRI to support the diagnosis, and measuring blood thiamine just before giving it. [[Antunez1998,Galvin2010EFNS]]</p></div>
+  </div>
+
+  <div class="callout"><p><b>Korsakoff syndrome is preventable, and people can still learn.</b> It is a memory disorder that usually follows an episode of Wernicke encephalopathy. Episodic memory is badly affected while skills learned without conscious recall are preserved, and people can learn new routines in a calm, structured, cued setting, helped by agendas, memory cards, smartphones and smartwatches. People with Korsakoff syndrome "are reported to have a normal life expectancy if they remain abstinent". [[Kopelman2009,Arts2017]] For families and carers, see <a href="#families" data-go="families">Families, friends and everyday life</a>.</p></div>
+  <div class="crisis"><b>Get help</b><span>If you or someone else may have alcohol poisoning or severe withdrawal (seizure, confusion, hallucinations), call emergency services. For help with drinking in the US, SAMHSA's National Helpline is free and confidential: 1-800-662-4357. If you are in crisis or thinking about suicide, contact a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></div>
+  <p class="stage-cap">See also: <a href="#detox" data-go="detox">managing withdrawal safely</a> and <a href="#nursing" data-go="nursing">nursing care in hospital</a>.</p>
 </section>

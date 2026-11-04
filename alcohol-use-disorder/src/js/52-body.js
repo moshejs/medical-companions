@@ -37,8 +37,8 @@ inits.body=()=>{
    {n:'Atrial fibrillation',o:'heart',c:'hrt',f:g=>g<=0?[1,'RR 1']:[afRR(g),'RR '+afRR(g).toFixed(2)+(g/12>=5?'+':'')]},
    {n:'High blood pressure',o:'heart',c:'hrt',f:g=>g<24?[1,'vs 12 g: —']:g<36?[1.11,'RR 1.11 vs 12 g']:g<48?[1.22,'RR 1.22 vs 12 g']:[1.33,'RR 1.33+ vs 12 g']},
    {n:'Cardiomyopathy',o:'heart',c:'hrt',f:g=>g>80?[2,'>80 g/d for >5 y']:[1,'—']},
-   {n:'Chronic pancreatitis',o:'panc',c:'pan',f:g=>g>=95?[6.29,'RR 6.29 at 100 g']:g>0?[1+g/40,'rises with intake']:[1,'—']},
-   {n:'Brain volume',o:'brain',c:'brn',f:g=>g>0?[1+Math.min(1.5,g/40),'lower with intake']:[1,'—']}
+   {n:'Chronic pancreatitis',o:'panc',c:'pan',f:g=>g>=95?[6.29,'RR 6.29 at 100 g']:g>0?[1+g/40,'rising']:[1,'—']},
+   {n:'Brain volume',o:'brain',c:'brn',f:g=>g>0?[1+Math.min(1.5,g/40),'lower']:[1,'—']}
   ];
   const CC={can:'var(--glu-fill)',hrt:'var(--ember)',pan:'var(--eth-fill)',brn:'var(--dx)'};
   /* all-cause mortality RR vs lifetime non-drinkers (Zhao 2023), as steps over g/day */
@@ -48,7 +48,7 @@ inits.body=()=>{
   function draw(t){
     const N=vb(svg,'720 380','400 600'),ph=phaseOf(BD_STEPS,t),g=t*100;setSt(ph);
     const L=N?{bx:70,by:16,bs:1.0,rx:150,ry:26,rh:21.5,rv:392,cx:56,cy:312,cw:320,ch:170,lx:56,ly:540}
-             :{bx:112,by:20,bs:1.38,rx:240,ry:36,rh:26.5,rv:468,cx:512,cy:56,cw:190,ch:190,lx:500,ly:300};
+             :{bx:92,by:20,bs:1.32,rx:196,ry:38,rh:26.5,rv:432,cx:484,cy:56,cw:222,ch:180,lx:468,ly:290};
     const hl={},col={};
     const vals=ROWS.map(r=>{const [v,txt]=r.f(g),gl=clamp((v-1)/1.6);if(!hl[r.o]||gl>hl[r.o]){hl[r.o]=gl;col[r.o]=CC[r.c]}return [v,txt,gl]});
     if(band(g)===2){hl.stomach=.12;col.stomach=CC.can}
@@ -73,11 +73,11 @@ inits.body=()=>{
     s+=`<circle cx="${f1(X(0))}" cy="${f1(Y(1))}" r="3.5" style="fill:var(--muted)"/>`;
     let d='';ZH.forEach(([a,b,v])=>{if(g<=a)return;const e=Math.min(g,b);d+=`M${f1(X(a))} ${f1(Y(v))}H${f1(X(e))}`});
     if(d)s+=`<path d="${d}" style="stroke:var(--glu);stroke-width:3;stroke-linecap:round;fill:none"/>`;
-    ZH.forEach(([a,b,v,sig])=>{if(g>a+(b-a)*.4)s+=`<text x="${f1(X((a+b)/2))}" y="${f1(Y(v)-6)}" class="t-xs t-mid" style="fill:var(--ink)">${v.toFixed(2)}${sig?'':'*'}</text>`});
+    ZH.forEach(([a,b,v,sig],i)=>{if(i&&g>a+(b-a)*.4)s+=`<text x="${f1(X((a+b)/2))}" y="${f1(Y(v)+(i===1?13:-6))}" class="t-xs t-mid" style="fill:var(--ink)">${v.toFixed(2)}${sig?'':'*'}</text>`});
     const zr=zRR(g);s+=`<circle cx="${f1(X(g))}" cy="${f1(Y(zr))}" r="5" style="fill:var(--glu);stroke:var(--panel);stroke-width:2"/>`;
-    s+=`<text x="${L.lx}" y="${L.ly}" class="t-xs">* not significant · vs lifetime non-drinkers · Zhao 2023</text>`;
-    s+=`<text x="${L.lx}" y="${L.ly+18}" class="t-sm">LIFE EXPECTANCY AT 40 (WOOD 2018)</text><text x="${L.lx}" y="${L.ly+36}" class="t-lbl" style="fill:${g*7>100?'var(--glu)':'var(--ink)'}">${life(g*7)}</text>`;
-    if(!N)s+=`<text x="${L.lx}" y="${L.ly+52}" class="t-xs">at ${Math.round(g*7)} g a week, vs &gt;0–100 g</text>`;
+    s+=`<text x="${L.lx}" y="${L.ly}" class="t-xs">* not significant; vs lifetime</text><text x="${L.lx}" y="${L.ly+12}" class="t-xs">non-drinkers (Zhao 2023)</text>`;
+    s+=`<text x="${L.lx}" y="${L.ly+34}" class="t-sm">LIFE EXPECTANCY AT 40 (WOOD 2018)</text><text x="${L.lx}" y="${L.ly+52}" class="t-lbl" style="fill:${g*7>100?'var(--glu)':'var(--ink)'}">${life(g*7)}</text>`;
+    if(!N)s+=`<text x="${L.lx}" y="${L.ly+68}" class="t-xs">at ${Math.round(g*7)} g a week, vs &gt;0–100 g</text>`;
     svg.innerHTML=s;
     rd.innerHTML=`<span>Intake <b>${Math.round(g)} g/day</b></span><span>≈ <b>${f1(g/10)}</b> standard drinks of 10 g</span><span><b>${Math.round(g*7)} g</b> a week</span><span>Cancer band <b>${band(g)<0?'none':BN[band(g)]}</b></span>`;
     note.innerHTML=noteHTML(BD_STEPS[ph]);

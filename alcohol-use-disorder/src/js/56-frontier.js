@@ -121,25 +121,25 @@ inits.frontier=()=>{
   /* ---- policy chart ---- */
   const ps=$('#frPol'),pr=$('#frPr');
   const EL=[['beer',-.46],['wine',-.69],['spirits',-.80],['heavy drinking',-.28]];
-  function drawP(){const N=vb(ps,'720 330','400 600'),pc=Math.round(+pr.value*30);let s='';
+  function drawP(){const N=vb(ps,'720 270','400 520'),pc=Math.round(+pr.value*30);let s='';
     /* left: observed changes */
-    const A=N?{x0:20,x1:380,y0:40}:{x0:20,x1:340,y0:40},sc=v=>A.x0+130+(A.x1-A.x0-140)*(-v/20);
+    const A=N?{x0:20,x1:380,y0:40}:{x0:20,x1:340,y0:40},sc=v=>A.x0+170+(A.x1-A.x0-180)*(-v/20);
     s+=`<text x="${A.x0}" y="24" class="t-sm" style="fill:var(--brand)">${N?'OBSERVED POLICY EFFECTS':'OBSERVED POLICY EFFECTS (% change)'}</text>`;
     const OB=[{l:'Scotland MUP:',l2:'deaths wholly due to alcohol',v:-13.4,ci:[-18.4,-8.3]},{l:'Scotland MUP:',l2:'hospitalisations',v:-4.1,ns:1},{l:'Yukon warning',l2:'labels: sales per capita',v:-6.31}];
     [0,-5,-10,-15,-20].forEach(v=>s+=`<line x1="${f1(sc(v))}" x2="${f1(sc(v))}" y1="${A.y0}" y2="${A.y0+OB.length*56}" class="${v?'grid':'axis'}"/><text x="${f1(sc(v))}" y="${A.y0+OB.length*56+14}" class="t-xs t-mid">${v}%</text>`);
     OB.forEach((o,i)=>{const y=A.y0+10+i*56;s+=`<text x="${A.x0}" y="${y+10}" class="t-xs" style="fill:var(--ink);font-weight:700">${o.l}</text><text x="${A.x0}" y="${y+23}" class="t-xs">${o.l2}</text>`;
-      s+=`<rect x="${f1(sc(o.v))}" y="${y+2}" width="${f1(sc(0)-sc(o.v))}" height="18" rx="4" style="fill:${o.ns?'var(--muted)':'var(--brand)'};opacity:${o.ns?.45:.8}"/>`;
+      s+=`<rect x="${f1(sc(0))}" y="${y+2}" width="${f1(sc(o.v)-sc(0))}" height="18" rx="4" style="fill:${o.ns?'var(--muted)':'var(--brand)'};opacity:${o.ns?.45:.8}"/>`;
       if(o.ci)s+=`<line x1="${f1(sc(o.ci[0]))}" x2="${f1(sc(o.ci[1]))}" y1="${y+11}" y2="${y+11}" style="stroke:var(--ink);stroke-width:1.5"/><line x1="${f1(sc(o.ci[0]))}" x2="${f1(sc(o.ci[0]))}" y1="${y+5}" y2="${y+17}" style="stroke:var(--ink);stroke-width:1.5"/><line x1="${f1(sc(o.ci[1]))}" x2="${f1(sc(o.ci[1]))}" y1="${y+5}" y2="${y+17}" style="stroke:var(--ink);stroke-width:1.5"/>`;
       s+=`<text x="${f1(sc(0))}" y="${y+34}" class="t-xs" style="fill:var(--ink)">${o.v}%${o.ns?' (not significant)':o.ci?' (95% CI −18.4 to −8.3)':''}</text>`});
     /* right: elasticity arithmetic */
-    const B=N?{x0:20,x1:380,y0:270}:{x0:390,x1:704,y0:40},bx=v=>B.x0+100+(B.x1-B.x0-110)*(-v/30);
+    const B=N?{x0:20,x1:380,y0:262}:{x0:390,x1:704,y0:40},bx=v=>B.x0+100+(B.x1-B.x0-110)*(-v/30);
     s+=`<text x="${B.x0}" y="${B.y0-16}" class="t-sm" style="fill:var(--accent)">${N?`IF PRICES ROSE ${pc}%: ARITHMETIC`:`IF PRICES ROSE ${pc}%: ELASTICITY ARITHMETIC`}</text>`;
     [0,-10,-20,-30].forEach(v=>s+=`<line x1="${f1(bx(v))}" x2="${f1(bx(v))}" y1="${B.y0}" y2="${B.y0+EL.length*44}" class="${v?'grid':'axis'}"/><text x="${f1(bx(v))}" y="${B.y0+EL.length*44+14}" class="t-xs t-mid">${v}%</text>`);
     EL.forEach(([n,e],i)=>{const y=B.y0+10+i*44,v=e*pc;s+=`<text x="${B.x0}" y="${y+12}" class="t-xs" style="fill:var(--ink);font-weight:700">${n}</text><text x="${B.x0}" y="${y+25}" class="t-xs">elasticity ${e.toFixed(2)}</text>`;
-      s+=`<rect x="${f1(bx(v))}" y="${y+2}" width="${f1(Math.max(1,bx(0)-bx(v)))}" height="16" rx="4" style="fill:var(--accent);opacity:.75"/><text x="${f1(bx(v)+5)}" y="${y+14}" class="t-xs" style="fill:var(--ink)">${v.toFixed(1)}%</text>`});
-    s+=`<text x="${B.x0}" y="${B.y0+EL.length*44+32}" class="t-xs" style="fill:var(--warn)">${N?'simple mean elasticities × price: not a forecast':'simple mean elasticity × price change: a sketch, not a forecast'}</text>`;
+      s+=`<rect x="${f1(bx(0))}" y="${y+2}" width="${f1(Math.max(1,bx(v)-bx(0)))}" height="16" rx="4" style="fill:var(--accent);opacity:.75"/><text x="${f1(bx(v)+5)}" y="${y+14}" class="t-xs" style="fill:var(--ink)">${v.toFixed(1)}%</text>`});
+    s+=`<text x="${B.x0}" y="${B.y0+EL.length*44+32}" class="t-xs" style="fill:var(--warn)">${N?'simple mean elasticities × price: not a forecast':'mean elasticity × price change: not a forecast'}</text>`;
     ps.innerHTML=s;
-    $('#frPolCap').innerHTML=`Left: Scotland's minimum unit price (£0.50 per unit, from 1 May 2018) compared with England, and alcohol sales during Yukon's warning-label study. Right: mean price elasticities from a meta-analysis of 1,003 estimates, multiplied by a ${pc}% price rise; real responses are not this simple. [[Wyper2023,Zhao2020Labels,Wagenaar2009]]`;
+    $('#frPolCap').innerHTML=`Observed: Scotland's minimum unit price (£0.50 per unit, from 1 May 2018) compared with England, and alcohol sales during Yukon's warning-label study. Arithmetic: mean price elasticities from a meta-analysis of 1,003 estimates, multiplied by a ${pc}% price rise; real responses are not this simple. [[Wyper2023,Zhao2020Labels,Wagenaar2009]]`;
     $('#frPolNote').innerHTML=noteHTML({k:'Population policy',t:pc<8?'Price is a lever':'Bigger price rises, bigger cuts',txt:`Scotland's minimum unit pricing was associated with a 13.4% fall (95% CI −18.4 to −8.3) in deaths wholly attributable to alcohol and a non-significant 4.1% fall in such hospitalisations, driven by chronic conditions, especially alcohol-related liver disease, and largest in the four most deprived deciles. [[Wyper2023]] A synthesis of 40 evaluation reports found no strong evidence of population-level harm, but some qualitative evidence that financially vulnerable people with alcohol dependence fared worse. [[Patterson2023]] Raising excise taxes cost less than I$100 per healthy life year gained in a global model. [[Chisholm2018]]`,
       pt:`When alcohol costs more, people drink less, and fewer die of alcohol-related illness. People with dependence may need extra support when prices rise.`,
       hook:`Scotland MUP: deaths wholly attributable to alcohol −13.4%. Mean price elasticity: beer −0.46, wine −0.69, spirits −0.80. [[Wyper2023,Wagenaar2009]]`});

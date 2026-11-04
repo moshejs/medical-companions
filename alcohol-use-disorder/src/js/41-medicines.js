@@ -161,7 +161,7 @@ inits.medicines=()=>{
     const L=ME_NNT[src].lab,a=ME_NNT[src][out].aca,n=ME_NNT[src][out].ntx;
     $('#meNntNote').innerHTML=noteHTML({k:L,t:out==='any'?'Preventing a return to any drinking':'Preventing a return to heavy drinking',
       txt:(out==='any'?`Acamprosate NNT ${a[0]} (95% CI ${a[1]}) vs oral naltrexone NNT ${n[0]} (${n[1]}): a lower NNT means more people helped per 100 treated. In direct comparisons the two did not differ significantly for any drinking or heavy drinking. ${src==='m'?'[[Jonas2014JAMA,McPheeters2023JAMA]]':'[[Jonas2014JAMA]]'}`
-        :`Oral naltrexone NNT ${n[0]} (95% CI ${n[1]}). Acamprosate has no NNT for this outcome: the Cochrane review found it did not significantly reduce heavy drinking. ${src==='m'?'[[McPheeters2023JAMA,Rosner2010Acamprosate]]':'[[Jonas2014JAMA,Rosner2010Acamprosate]]'}`)+` A wide interval, such as 11–500, means the true effect could be much smaller than the central estimate.`,
+        :`Oral naltrexone NNT ${n[0]} (95% CI ${n[1]}). Acamprosate has no NNT for this outcome: the Cochrane review found it did not significantly reduce heavy drinking. ${src==='m'?'[[McPheeters2023JAMA,Rosner2010Acamprosate]]':'[[Jonas2014JAMA,Rosner2010Acamprosate]]'}`)+` A wide interval means the true effect could be much smaller or larger than the central estimate.`,
       pt:`Out of every 100 people who take the medicine, a handful avoid going back to drinking who otherwise would not have. That is a real effect for a common, serious condition, and these medicines work best alongside counselling or support. [[McPheeters2023JAMA]]`,
       hook:`Jonas 2014 NNTs: acamprosate 12 (any drinking); oral naltrexone 20 (any) and 12 (heavy). Acamprosate best supports abstinence; naltrexone best reduces heavy drinking and craving. [[Jonas2014JAMA,Maisel2013]]`})
       +`<div class="kv"><div><dt>Harms</dt><dd>Naltrexone: one extra trial withdrawal for adverse events per 48 treated; nausea RR 1.73. Acamprosate: adverse-event withdrawals not significantly increased; diarrhoea RR 1.58. [[Jonas2014JAMA,McPheeters2023JAMA]]</dd></div></div>`;
@@ -194,7 +194,6 @@ inits.medicines=()=>{
     s+=`<text x="${N?x0:x0}" y="${top-14}" class="t-xs">PERCENT DAYS ABSTINENT DURING 16 WEEKS</text>`;
     cs.innerHTML=s}
   drawC(1);
-  let cDone=false;const prevShow=onShow.medicines;onShow.medicines=()=>{prevShow&&prevShow();if(!cDone){cDone=true;animate(1100,drawC)}};
 
   /* ---- underuse ---- */
   const us=$('#meUseSvg');
@@ -212,7 +211,7 @@ inits.medicines=()=>{
     if(N){s+=`<line x1="40" x2="40" y1="16" y2="244" style="stroke:var(--rx);stroke-width:2"/>`;
       ME_TL.forEach(([yr,l],i)=>{const y=30+i*40;s+=`<circle cx="40" cy="${y}" r="6" style="fill:${i===5?'var(--panel)':'var(--rx)'};stroke:var(--rx);stroke-width:2"/><text x="56" y="${y+4}" class="t-lbl">${yr}</text><text x="100" y="${y+4}" class="t-sm" style="fill:var(--ink)">${l.join(' ')}</text>`})}
     else{const T=tline(40,80,640,{min:1945,max:2020,step:5,fmt:v=>v%10?'':v});s+=T.svg;
-      ME_TL.forEach(([yr,l,lv],i)=>{const x=T.X(yr),up=lv%2===0,yb=up?(lv?20:40):(lv?140:110),anc=i===5?' t-end':' t-mid',tx=i===5?x+40:x;
+      ME_TL.forEach(([yr,l,lv],i)=>{const x=T.X(yr),up=lv%2===0,yb=up?(lv===2?20:40):(lv===3?140:110),anc=i===5?' t-end':' t-mid',tx=i===5?x+40:x;
         s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="80" y2="${up?yb+16:yb-14}" style="stroke:var(--rx);stroke-width:1"/><circle cx="${f1(x)}" cy="80" r="5" style="fill:${i===5?'var(--panel)':'var(--rx)'};stroke:var(--rx);stroke-width:2"/>`;
         s+=`<text x="${f1(tx)}" y="${up?yb-4:yb}" class="t-sm${anc}" style="fill:var(--ink);font-weight:600">${yr} · ${l[0]}</text><text x="${f1(tx)}" y="${up?yb+9:yb+13}" class="t-xs${anc}">${l[1]}</text>`})}
     ts.innerHTML=s}

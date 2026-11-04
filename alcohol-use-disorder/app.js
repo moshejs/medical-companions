@@ -1809,7 +1809,7 @@ inits.medicines=()=>{
     const L=ME_NNT[src].lab,a=ME_NNT[src][out].aca,n=ME_NNT[src][out].ntx;
     $('#meNntNote').innerHTML=noteHTML({k:L,t:out==='any'?'Preventing a return to any drinking':'Preventing a return to heavy drinking',
       txt:(out==='any'?`Acamprosate NNT ${a[0]} (95% CI ${a[1]}) vs oral naltrexone NNT ${n[0]} (${n[1]}): a lower NNT means more people helped per 100 treated. In direct comparisons the two did not differ significantly for any drinking or heavy drinking. ${src==='m'?'<sup class="c" data-ref="Jonas2014JAMA,McPheeters2023JAMA" title="Source 209,326">209,326</sup>':'<sup class="c" data-ref="Jonas2014JAMA" title="Source 209">209</sup>'}`
-        :`Oral naltrexone NNT ${n[0]} (95% CI ${n[1]}). Acamprosate has no NNT for this outcome: the Cochrane review found it did not significantly reduce heavy drinking. ${src==='m'?'<sup class="c" data-ref="McPheeters2023JAMA,Rosner2010Acamprosate" title="Source 326,403">326,403</sup>':'<sup class="c" data-ref="Jonas2014JAMA,Rosner2010Acamprosate" title="Source 209,403">209,403</sup>'}`)+` A wide interval, such as 11–500, means the true effect could be much smaller than the central estimate.`,
+        :`Oral naltrexone NNT ${n[0]} (95% CI ${n[1]}). Acamprosate has no NNT for this outcome: the Cochrane review found it did not significantly reduce heavy drinking. ${src==='m'?'<sup class="c" data-ref="McPheeters2023JAMA,Rosner2010Acamprosate" title="Source 326,403">326,403</sup>':'<sup class="c" data-ref="Jonas2014JAMA,Rosner2010Acamprosate" title="Source 209,403">209,403</sup>'}`)+` A wide interval means the true effect could be much smaller or larger than the central estimate.`,
       pt:`Out of every 100 people who take the medicine, a handful avoid going back to drinking who otherwise would not have. That is a real effect for a common, serious condition, and these medicines work best alongside counselling or support. <sup class="c" data-ref="McPheeters2023JAMA" title="Source 326">326</sup>`,
       hook:`Jonas 2014 NNTs: acamprosate 12 (any drinking); oral naltrexone 20 (any) and 12 (heavy). Acamprosate best supports abstinence; naltrexone best reduces heavy drinking and craving. <sup class="c" data-ref="Jonas2014JAMA,Maisel2013" title="Source 209,305">209,305</sup>`})
       +`<div class="kv"><div><dt>Harms</dt><dd>Naltrexone: one extra trial withdrawal for adverse events per 48 treated; nausea RR 1.73. Acamprosate: adverse-event withdrawals not significantly increased; diarrhoea RR 1.58. <sup class="c" data-ref="Jonas2014JAMA,McPheeters2023JAMA" title="Source 209,326">209,326</sup></dd></div></div>`;
@@ -1842,7 +1842,6 @@ inits.medicines=()=>{
     s+=`<text x="${N?x0:x0}" y="${top-14}" class="t-xs">PERCENT DAYS ABSTINENT DURING 16 WEEKS</text>`;
     cs.innerHTML=s}
   drawC(1);
-  let cDone=false;const prevShow=onShow.medicines;onShow.medicines=()=>{prevShow&&prevShow();if(!cDone){cDone=true;animate(1100,drawC)}};
 
   /* ---- underuse ---- */
   const us=$('#meUseSvg');
@@ -1860,7 +1859,7 @@ inits.medicines=()=>{
     if(N){s+=`<line x1="40" x2="40" y1="16" y2="244" style="stroke:var(--rx);stroke-width:2"/>`;
       ME_TL.forEach(([yr,l],i)=>{const y=30+i*40;s+=`<circle cx="40" cy="${y}" r="6" style="fill:${i===5?'var(--panel)':'var(--rx)'};stroke:var(--rx);stroke-width:2"/><text x="56" y="${y+4}" class="t-lbl">${yr}</text><text x="100" y="${y+4}" class="t-sm" style="fill:var(--ink)">${l.join(' ')}</text>`})}
     else{const T=tline(40,80,640,{min:1945,max:2020,step:5,fmt:v=>v%10?'':v});s+=T.svg;
-      ME_TL.forEach(([yr,l,lv],i)=>{const x=T.X(yr),up=lv%2===0,yb=up?(lv?20:40):(lv?140:110),anc=i===5?' t-end':' t-mid',tx=i===5?x+40:x;
+      ME_TL.forEach(([yr,l,lv],i)=>{const x=T.X(yr),up=lv%2===0,yb=up?(lv===2?20:40):(lv===3?140:110),anc=i===5?' t-end':' t-mid',tx=i===5?x+40:x;
         s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="80" y2="${up?yb+16:yb-14}" style="stroke:var(--rx);stroke-width:1"/><circle cx="${f1(x)}" cy="80" r="5" style="fill:${i===5?'var(--panel)':'var(--rx)'};stroke:var(--rx);stroke-width:2"/>`;
         s+=`<text x="${f1(tx)}" y="${up?yb-4:yb}" class="t-sm${anc}" style="fill:var(--ink);font-weight:600">${yr} · ${l[0]}</text><text x="${f1(tx)}" y="${up?yb+9:yb+13}" class="t-xs${anc}">${l[1]}</text>`})}
     ts.innerHTML=s}
@@ -2048,6 +2047,172 @@ inits.therapy=()=>{
   const prevR=redraws.therapy;redraws.therapy=()=>{prevR&&prevR();drawRP()};
   drawRP();
 };
+/* =============== 4.4 Course, relapse and recovery =============== */
+/* NESARC 2001-02 end proportions (Dawson 2005), 100 icons */
+const RC_CAT=[
+ {k:'dep',n:'Still dependent',c:'var(--accent)',v:25.0},
+ {k:'part',n:'Partial remission',c:'var(--warn)',v:27.3},
+ {k:'asym',n:'Asymptomatic risk drinking',c:'var(--eth-fill)',v:11.8},
+ {k:'low',n:'Low-risk drinking',c:'var(--rx)',v:17.7},
+ {k:'abs',n:'Abstinent',c:'var(--good)',v:18.2}];
+const RC_N=[25,27,12,18,18];
+const RC_STEPS=[
+ {from:0,at:.02,k:'Year 0',t:'Everyone starts with AUD',
+  txt:`Start with 100 people who have alcohol use disorder. Most of them will never be treated: only 25.5% of US adults with past alcohol dependence in NESARC had ever had treatment, 19.8% of people with lifetime AUD in NESARC-III, and about 1 in 6 worldwide (17.3%; 9.3% in low and lower-middle-income countries). <sup class="c" data-ref="Dawson2005,Grant2015NESARC,Mekonen2021" title="Source 78,146,328">78,146,328</sup>`,
+  pt:`AUD is a medical condition that can be treated, not a moral failing. Many people never get help, so it matters that help is easy to find.`,
+  hook:`Treatment gap: about 1 in 6 people with AUD worldwide are treated (17.3%). <sup class="c" data-ref="Mekonen2021" title="Source 328">328</sup>`},
+ {from:.1,at:.26,k:'Years 2–8',t:'Many change course, often without treatment',
+  txt:`Icons start to change colour. In NESARC, recovery happened both with and without abstinence, and much of it without formal treatment. Being married went with both abstinent and non-abstinent recovery and heavier drinking with less of both; greater severity raised the odds of abstinent recovery but lowered the odds of non-abstinent recovery. <sup class="c" data-ref="Dawson2005" title="Source 78">78</sup>`,
+  pt:`People change at different times and in different ways. Some stop, some cut down a lot.`,
+  hook:`Severity pushes towards abstinent rather than non-abstinent recovery (NESARC). <sup class="c" data-ref="Dawson2005" title="Source 78">78</sup>`},
+ {from:.4,at:.5,k:'Years 8–12',t:'Returns to drinking are common, and not the end',
+  txt:`Some icons flash back to "still dependent" and then recover again. In a 16-year cohort of 461 people who first sought help, those who got no help were less likely to reach 3-year remission and more likely to relapse; relapse was more likely with heavier drinking, not seeing drinking as a problem, low self-efficacy and avoidance coping. Yet among people who had resolved a problem, the median number of serious attempts was 2 (IQR 1–4). <sup class="c" data-ref="Moos2006Relapse,Kelly2019Attempts" title="Source 232,336">232,336</sup>`,
+  pt:`A return to drinking is common on the way. It does not cancel what was learned, and most people did not need dozens of tries.`,
+  hook:`Quote the median: 2 serious attempts (mean 5.35, skewed by a few people with many). <sup class="c" data-ref="Kelly2019Attempts" title="Source 232">232</sup>`},
+ {from:.6,at:.75,k:'Years 12–17',t:'The population snapshot',
+  txt:`The array settles on the NESARC 2001–02 snapshot of 4,422 adults whose dependence began before the past year: 25.0% still dependent, 27.3% in partial remission, 11.8% asymptomatic risk drinkers, 17.7% low-risk drinkers and 18.2% abstainers. A meta-analysis of 21 long-term studies found remission in 35.0–54.4% over a mean of 17 years, a projected 6.8–9.1% a year. <sup class="c" data-ref="Dawson2005,Fleury2016" title="Source 78,129">78,129</sup>`,
+  pt:`Years later, about half of people who once had alcohol dependence no longer had symptoms. These are group numbers, not a forecast for one person.`,
+  hook:`NESARC: 25% still dependent; about 36% low-risk drinkers or abstainers; only 25.5% ever treated. <sup class="c" data-ref="Dawson2005" title="Source 78">78</sup>`},
+ {from:.85,at:.95,k:'Years 17–20',t:'Recovery capital and the long view',
+  txt:`Recovery capital is the personal, social and community resources that support recovery; in 312 people in recovery, more of it predicted sustained recovery, better quality of life and less stress a year later. In the National Recovery Survey, quality of life, happiness, self-esteem and recovery capital rose steeply in the first 6 years after resolving a problem, then more gradually; self-esteem and happiness dipped in the first year. 9.1% of US adults report having resolved an alcohol or drug problem. <sup class="c" data-ref="Laudet2008,Kelly2018QoL,Kelly2017Recovery" title="Source 230,231,277">230,231,277</sup>`,
+  pt:`The first year can feel hard. For many people life then gets steadily better, and keeps improving for years.`,
+  hook:`9.1% of US adults have resolved an AOD problem; 53.9% of them used an assisted pathway, most often mutual help (45.1%). <sup class="c" data-ref="Kelly2017Recovery" title="Source 230">230</sup>`}
+];
+/* recovery-capital / quality-of-life shape after resolution (Kelly 2018): a first-year dip, steep rise to ~6 y, then gradual */
+const rcQoL=y=>{const d=-.08*Math.sin(Math.PI*clamp(y/1.2));return clamp(.18+d+.55*(1-Math.exp(-Math.max(0,y-.6)/2.4))+.012*Math.max(0,y-6),0,1)};
+const RD_STEPS=[
+ {from:0,at:.06,k:'The road',t:'Recovery is a process, not a switch',
+  txt:`The later version of Marlatt's model treats relapse as a dynamic process in which many risk factors and situations interact, rather than a fixed chain of events. Long-term care with continued monitoring, as for diabetes, hypertension or asthma, gives lasting benefit. <sup class="c" data-ref="Witkiewitz2004RP,McLellan2000" title="Source 325,498">325,498</sup>`,
+  pt:`Recovery has bends and hills. Planning for them is part of the treatment.`,
+  hook:`AUD fits a chronic-illness model: adherence and relapse rates are similar to diabetes, hypertension and asthma. <sup class="c" data-ref="McLellan2000" title="Source 325">325</sup>`},
+ {from:.2,at:.3,k:'A high-risk bend',t:'High-risk situations',
+  txt:`Immediate triggers in the Marlatt model are high-risk situations, coping skills and outcome expectancies; hidden antecedents include lifestyle imbalance and urges. Therapy teaches coping for a person's own high-risk situations and builds self-efficacy. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup> See the <a href="#therapy" data-go="therapy">relapse-prevention chain</a>.`,
+  pt:`Some places, moods or people make drinking more likely. Knowing yours helps you plan.`,
+  hook:`Self-efficacy and readiness to change were the strongest predictors of 3-year outcome in Project MATCH. <sup class="c" data-ref="ProjectMATCH1998" title="Source 375">375</sup>`},
+ {from:.38,at:.44,k:'A lapse',t:'One drink is a lapse, not a relapse',
+  txt:`A lapse is a single use after a period of change. Whether it becomes a relapse depends partly on how the person reads it. In a study of 1,288 people, "recurrence of use" carried a more positive association than "relapse". <sup class="c" data-ref="Larimer1999,Ashford2018" title="Source 21,274">21,274</sup>`,
+  pt:`A slip does not erase progress.`,
+  hook:`Lapse = a single use; relapse = return to the previous pattern. The abstinence violation effect is what links them. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup>`},
+ {from:.5,at:.66,k:'Two ways back',t:'The abstinence violation effect, or a reframe',
+  txt:`The long loop is the abstinence violation effect: guilt and a sense of having "blown it", which makes full relapse more likely. The short path is the relapse-prevention response: plan for lapses beforehand and reframe a lapse as a mistake in a specific situation to learn from. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup> After long, heavy daily drinking, get medical help to stop safely.`,
+  pt:`Thinking "I have blown it" makes things worse. Thinking "this was a hard moment, what can I change?" helps you get back on track.`,
+  hook:`Treatment plans for lapses and reframes them, so a lapse does not have to become a relapse. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup>`},
+ {from:.82,at:.95,k:'Further on',t:'Back on the road, with more support',
+  txt:`AA's benefit came mostly through changes in social networks and confidence to stay abstinent in social settings. People who took part in AA for 27 weeks or more in the first year had better 16-year outcomes. A recovery-support app cut risky drinking days after residential treatment (1.39 vs 2.75). <sup class="c" data-ref="Kelly2012AAMech,Moos2006AA,Gustafson2014" title="Source 154,228,335">154,228,335</sup>`,
+  pt:`People around you, a group, an app or a counsellor all make the road easier.`,
+  hook:`AA works mainly through social networks: mediators explained 43–67% of its effect. <sup class="c" data-ref="Kelly2012AAMech" title="Source 228">228</sup>`}
+];
+const RC_LV=[
+ {s:'Mutual help',n:'Mutual help and recovery support',who:[`Anyone at any stage, alone or alongside treatment: free peer groups such as AA, SMART Recovery, LifeRing and Women for Sobriety. <sup class="c" data-ref="Kelly2020Cochrane,Zemore2018" title="Source 234,513">234,513</sup>`,`45.1% of US adults who resolved a problem used mutual help, 21.8% recovery support services and 6.2% recovery community centres. <sup class="c" data-ref="Kelly2017Recovery" title="Source 230">230</sup>`]},
+ {s:'Brief advice',n:'Brief intervention in primary care',who:[`Adults with risky or hazardous drinking found by screening: the USPSTF recommends offering brief behavioural counselling (B). <sup class="c" data-ref="USPSTF2018Alcohol" title="Source 470">470</sup>`,`Not proven for people with dependence or very heavy drinking, who need more. <sup class="c" data-ref="Saitz2010" title="Source 411">411</sup>`]},
+ {s:'Outpatient',n:'Outpatient treatment',who:[`Therapy such as CBT, MET or twelve-step facilitation (the Project MATCH outpatient trial, N = 952), often with medicine. <sup class="c" data-ref="ProjectMATCH1997,Ray2020CBT" title="Source 373,378">373,378</sup> See <a href="#medicines" data-go="medicines">medicines</a>.`,`Withdrawal can usually be managed safely as an outpatient when risk factors are limited (ASAM Level 1-WM: appropriate for CIWA-Ar &lt;10), with daily check-ins for up to 5 days. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`]},
+ {s:'Day / on-site',n:'Extended on-site monitoring and day programmes',who:[`ASAM Level 2-WM, extended on-site monitoring: appropriate for CIWA-Ar &lt;18; severe but not complicated withdrawal is uncertain. Drinking more than 8 standard drinks a day is flagged as neutral or uncertain at both outpatient levels. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`,`Project MATCH's aftercare trial (N = 774) enrolled people after inpatient or day-hospital care. <sup class="c" data-ref="ProjectMATCH1997" title="Source 373">373</sup>`]},
+ {s:'Residential',n:'Residential treatment and continuing care',who:[`Studies of people leaving residential treatment show what helps next: a recovery-support app cut risky drinking days, and 6 months or more in a self-run Oxford House went with far less substance use at 24 months (15.6% vs 64.8% with usual aftercare). <sup class="c" data-ref="Gustafson2014,Jason2007" title="Source 154,198">154,198</sup>`,`Long-term care with continued monitoring, as in other chronic illnesses. <sup class="c" data-ref="McLellan2000" title="Source 325">325</sup>`]},
+ {s:'Inpatient',n:'Medically managed inpatient care',who:[`A 1995 estimate quoted by ASAM: about 10% of people with alcohol withdrawal syndrome need inpatient treatment. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`,`ASAM reasons to move up: agitation or tremor that does not resolve despite several doses; persistent vomiting, marked agitation, hallucinations, confusion or seizure; worsening illness or over-sedation; return to drinking; syncope or unstable vital signs. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`,`ASAM: consider inpatient care for every pregnant patient who needs withdrawal management, and assess suicide risk at intake. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup> See <a href="#detox" data-go="detox">managing withdrawal</a>.`]}
+];
+inits.recovery=()=>{
+  /* ---- 100 people over 20 years ---- */
+  const svg=$('#rcSvg'),rg=$('#rcT'),r=rng(44);
+  const P=[];RC_N.forEach((n,ci)=>{for(let i=0;i<n;i++)P.push({c:ci})});
+  /* shuffle positions so groups are mixed through the grid */
+  const pos=P.map((_,i)=>i);for(let i=pos.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[pos[i],pos[j]]=[pos[j],pos[i]]}
+  P.forEach((p,i)=>{p.g=pos[i];p.ty=p.c===0?99:1.5+r()*11.5;p.back=null;
+    if(p.c>0&&r()<.22){const b=Math.max(p.ty+1,4+r()*7);p.back=[b,b+.8+r()*1.6]}});
+  function state(p,y){if(y<p.ty)return 0;if(p.back&&y>=p.back[0]&&y<p.back[1])return -1;return p.c}
+  function draw(t){
+    const N=vb(svg,'720 400','400 740'),y=t*20,ph=phaseOf(RC_STEPS,t);
+    const L=N?{ax:[30,370,22],gx:30,gy:52,cs:34,ps:26,bx:20,by:418,bw:360,qx:20,qy:600,qw:170,ax2:224,aw:156}:{ax:[20,300,22],gx:20,gy:48,cs:28,ps:21,bx:340,by:44,bw:360,qx:340,qy:250,qw:180,ax2:560,aw:140};
+    let s='';
+    const T=tline(L.ax[0],L.ax[2],L.ax[1]-L.ax[0],{min:0,max:20,step:5,fmt:v=>v,big:true});s+=T.svg;
+    s+=`<circle cx="${f1(T.X(y))}" cy="${L.ax[2]}" r="5" style="fill:var(--rx)"/><text x="${f1(Math.min(T.X(y)+8,L.ax[1]-60))}" y="${L.ax[2]+16}" class="t-xs" style="fill:var(--rx);font-weight:700">year ${y.toFixed(1)}</text>`;
+    const cnt=[0,0,0,0,0];let back=0;
+    P.forEach(p=>{const st=state(p,y),gx=L.gx+(p.g%10)*L.cs+L.cs/2,gy=L.gy+Math.floor(p.g/10)*L.cs+2;
+      const col=st===-1?'var(--accent)':RC_CAT[st].c;cnt[st===-1?0:st]++;if(st===-1)back++;
+      s+=person(gx,gy,L.ps,col);
+      if(st===-1)s+=`<circle cx="${f1(gx)}" cy="${f1(gy+L.ps*.55)}" r="${f1(L.ps*.62)}" style="fill:none;stroke:var(--accent);stroke-width:1.4;stroke-dasharray:2 2"/>`});
+    /* live counts */
+    s+=`<text x="${L.bx}" y="${L.by}" class="t-sm" style="fill:var(--ink);font-weight:600">Of 100 people, now (illustrative timing)</text>`;
+    RC_CAT.forEach((c,i)=>{const yy=L.by+12+i*28,bw=L.bw-172,w=bw*cnt[i]/100;
+      s+=`<text x="${L.bx}" y="${yy+13}" class="t-xs" style="fill:var(--ink)">${c.n}</text>`;
+      s+=`<rect x="${L.bx+172}" y="${yy+3}" width="${f1(bw)}" height="14" rx="4" style="fill:var(--panel-2)"/><rect x="${L.bx+172}" y="${yy+3}" width="${f1(Math.max(0,w))}" height="14" rx="4" style="fill:${c.c}"/>`;
+      s+=`<text x="${f1(L.bx+176+Math.max(w,0))}" y="${yy+14}" class="t-xs" style="fill:var(--ink);font-weight:700">${cnt[i]}${i===0&&back?` (${back} returned)`:''}</text>`});
+    if(ph>=3)s+=`<text x="${L.bx}" y="${L.by+166}" class="t-xs" style="fill:var(--muted)">NESARC snapshot: 25.0 · 27.3 · 11.8 · 17.7 · 18.2%</text>`;
+    /* recovery capital curve */
+    const C=curve(L.qx,L.qy+18,L.qw,90,rcQoL,{x0:0,x1:20,upto:Math.max(.05,y),col:'var(--good)',fill:true,dot:true});s+=C.svg;
+    s+=`<text x="${L.qx}" y="${L.qy}" class="t-sm" style="fill:var(--ink);font-weight:600">Quality of life</text><text x="${L.qx}" y="${L.qy+13}" class="t-xs">and recovery capital: shape only</text>`;
+    s+=`<text x="${L.qx}" y="${L.qy+122}" class="t-xs">0</text><text x="${f1(C.X(6))}" y="${L.qy+122}" class="t-xs t-mid">6</text><text x="${L.qx+L.qw}" y="${L.qy+122}" class="t-xs t-end">20</text><text x="${f1(L.qx+L.qw/2)}" y="${L.qy+136}" class="t-xs t-mid">years since resolving</text>`;
+    if(y>.4&&y<4)s+=`<text x="${f1(C.X(1)+6)}" y="${f1(C.Y(rcQoL(1))+16)}" class="t-xs" style="fill:var(--accent)">first-year dip</text>`;
+    /* attempts strip */
+    const op=ph>=2?1:.3,ax=L.ax2,aw=L.aw,X=v=>ax+aw*v/8,ay=L.qy+60;
+    s+=`<g style="opacity:${op}"><text x="${ax}" y="${L.qy}" class="t-sm" style="fill:var(--ink);font-weight:600">Serious attempts</text><text x="${ax}" y="${L.qy+13}" class="t-xs">before resolution</text>`;
+    s+=`<line x1="${ax}" x2="${ax+aw}" y1="${ay+18}" y2="${ay+18}" class="axis"/>`;[0,2,4,6,8].forEach(v=>s+=`<text x="${f1(X(v))}" y="${ay+32}" class="t-xs t-mid">${v}</text>`);
+    s+=`<rect x="${f1(X(1))}" y="${ay-8}" width="${f1(X(4)-X(1))}" height="16" rx="3" style="fill:var(--rx-soft);stroke:var(--rx)"/><line x1="${f1(X(2))}" x2="${f1(X(2))}" y1="${ay-12}" y2="${ay+12}" style="stroke:var(--rx);stroke-width:3"/>`;
+    s+=`<text x="${f1(X(2))}" y="${ay-16}" class="t-xs t-mid" style="fill:var(--rx);font-weight:700">median 2</text><path d="M${f1(X(5.35))} ${ay-6}l5 6l-5 6l-5 -6Z" style="fill:var(--muted)"/><text x="${f1(X(5.35)+8)}" y="${ay-8}" class="t-xs">mean 5.35</text><text x="${ax}" y="${ay+46}" class="t-xs">box = IQR 1–4</text></g>`;
+    svg.innerHTML=s;setSt(ph);
+    $('#rcRead').innerHTML=`<span>year <b>${y.toFixed(1)}</b></span><span>still dependent <b>${cnt[0]}</b></span><span>in some remission <b>${100-cnt[0]}</b></span><span>no symptoms (risk, low-risk or abstinent) <b>${cnt[2]+cnt[3]+cnt[4]}</b></span>`;
+    $('#rcNote').innerHTML=noteHTML(RC_STEPS[ph]);
+    rg.setAttribute('aria-valuetext',`Year ${y.toFixed(0)}: ${cnt[0]} still dependent, ${100-cnt[0]} in some remission`);
+  }
+  const stop=playWire(rg,$('#rcPlay'),draw,24000,'Replay','recovery');
+  const setSt=stepWire($('#rcSteps'),RC_STEPS,rg,draw,stop);
+  draw(+rg.value);
+
+  /* ---- the winding road ---- */
+  const rs=$('#rdSvg'),rr=$('#rdT');
+  const bez=(a,b,c,d,u)=>{const v=1-u;return [v*v*v*a[0]+3*v*v*u*b[0]+3*v*u*u*c[0]+u*u*u*d[0],v*v*v*a[1]+3*v*v*u*b[1]+3*v*u*u*c[1]+u*u*u*d[1]]};
+  function drawRD(t){
+    const N=vb(rs,'720 300','400 620'),ph=phaseOf(RD_STEPS,t);
+    const R=N?(u=>[200+70*Math.sin(u*Math.PI*2.4),lerp(40,590,u)]):(u=>[lerp(30,690,u),150+55*Math.sin(u*Math.PI*2.4)]);
+    const off=(u,d)=>{const a=R(u),b=R(Math.min(1,u+.002)),dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy)||1;return [a[0]-dy/l*d,a[1]+dx/l*d]};
+    let s=`<defs>${marker('rdA','var(--muted)')}</defs>`;
+    let d='';for(let i=0;i<=160;i++){const p=R(i/160);d+=(i?'L':'M')+f1(p[0])+' '+f1(p[1])}
+    s+=`<path d="${d}" style="fill:none;stroke:var(--panel-2);stroke-width:26;stroke-linecap:round;stroke-linejoin:round"/><path d="${d}" style="fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:8 8"/>`;
+    /* high-risk bend */
+    const hb=R(.3),uL=.42,lp=off(uL,N?-48:46),rj=R(.5),aj=R(.8);
+    s+=`<g style="opacity:${ph>=1?1:.35}"><path d="M${f1(hb[0])} ${f1(hb[1]-(N?0:30))}l-10 -18h20Z" transform="${N?`translate(46 0)`:''}" style="fill:var(--warn-soft);stroke:var(--warn);stroke-width:1.4"/><text x="${f1(hb[0]+(N?46:0))}" y="${f1(hb[1]-(N?24:54))}" class="t-xs t-mid" style="fill:var(--warn);font-weight:700">high-risk bend</text></g>`;
+    /* detour (AVE) and reframe paths from the lapse spot */
+    const A1=N?[[lp[0]-90,lp[1]+40],[lp[0]-120,aj[1]-40]]:[[lp[0]+40,lp[1]+150],[aj[0]-80,aj[1]+150]];
+    const B1=N?[[lp[0]+10,lp[1]+30],[rj[0]-50,rj[1]-20]]:[[lp[0]+30,lp[1]+30],[rj[0]-20,rj[1]+40]];
+    const pathOf=(c)=>{let q='';for(let i=0;i<=60;i++){const p=bez(lp,c[0],c[1],c===A1?aj:rj,i/60);q+=(i?'L':'M')+f1(p[0])+' '+f1(p[1])}return q};
+    const showB=ph>=3;
+    s+=`<path d="${pathOf(A1)}" style="fill:none;stroke:var(--bad);stroke-width:2;stroke-dasharray:5 4;opacity:${showB?.85:0}"/>`;
+    s+=`<path d="${pathOf(B1)}" style="fill:none;stroke:var(--good);stroke-width:2.6;opacity:${showB?1:0}"/>`;
+    if(showB){const ma=bez(lp,A1[0],A1[1],aj,.5),mb=bez(lp,B1[0],B1[1],rj,.55);
+      s+=`<text x="${f1(ma[0]+(N?-6:0))}" y="${f1(ma[1]+(N?0:16))}" class="t-sm ${N?'t-end':'t-mid'}" style="fill:var(--bad);font-weight:600">abstinence violation effect</text><text x="${f1(ma[0]+(N?-6:0))}" y="${f1(ma[1]+(N?14:30))}" class="t-xs ${N?'t-end':'t-mid'}">"I have blown it" → longer detour</text>`;
+      s+=`<text x="${f1(mb[0]+(N?14:12))}" y="${f1(mb[1]+(N?4:4))}" class="t-sm" style="fill:var(--good);font-weight:600">reframe</text>`}
+    if(ph>=2){s+=`<circle cx="${f1(lp[0])}" cy="${f1(lp[1])}" r="9" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.6"/><text x="${f1(lp[0]+(N?-14:0))}" y="${f1(lp[1]+(N?4:-14))}" class="t-sm ${N?'t-end':'t-mid'}" style="fill:var(--accent);font-weight:700">lapse</text>`}
+    /* traveller */
+    let tp,ghost=null;
+    if(t<.4)tp=R(lerp(0,uL,t/.4));
+    else if(t<.46){const k=ramp(t,.4,.46),a=R(uL);tp=[lerp(a[0],lp[0],k),lerp(a[1],lp[1],k)]}
+    else if(t<.5)tp=lp;
+    else if(t<.7){const k=ease(ramp(t,.5,.7));tp=bez(lp,B1[0],B1[1],rj,k);ghost=bez(lp,A1[0],A1[1],aj,ramp(t,.5,.95))}
+    else{tp=R(lerp(.5,1,ramp(t,.7,1)));if(t<.95)ghost=bez(lp,A1[0],A1[1],aj,ramp(t,.5,.95))}
+    if(ghost)s+=`<g style="opacity:.45">${person(ghost[0],ghost[1]-26,24,'var(--bad)')}</g>`;
+    s+=person(tp[0],tp[1]-30,28,'var(--rx)');
+    const st=R(0),en=R(1);s+=`<text x="${f1(st[0]+(N?40:0))}" y="${f1(st[1]+(N?0:34))}" class="t-xs ${N?'':'t-mid'}">start of change</text><text x="${f1(en[0]+(N?-40:0))}" y="${f1(en[1]+(N?0:34))}" class="t-xs ${N?'t-end':'t-mid'}">further on</text>`;
+    rs.innerHTML=s;setRd(ph);$('#rdNote').innerHTML=noteHTML(RD_STEPS[ph]);
+  }
+  const stopR=playWire(rr,$('#rdPlay'),drawRD,16000,'Replay','recovery');
+  const setRd=stepWire($('#rdSteps'),RD_STEPS,rr,drawRD,stopR);
+  drawRD(+rr.value);
+
+  /* ---- levels of care ---- */
+  const ls=$('#rcLv');let lv=2;
+  $('#rcLvBtns').innerHTML=`<span class="kicker">Level</span>`+RC_LV.map((l,i)=>`<button class="btn" data-lv="${i}" aria-pressed="${i===lv}">${l.s}</button>`).join('');
+  function drawLv(){
+    const N=vb(ls,'720 230','400 300'),W=N?380:690,H=N?250:190;
+    const Lr=ladder(N?10:15,N?20:16,W,H,RC_LV.map(l=>N?'':l.s),{at:lv,col:'var(--rx)',done:true});let s=Lr.svg;
+    if(N)RC_LV.forEach((l,i)=>{const [x,y]=Lr.top(i);s+=`<text x="${f1(x-1.5)}" y="${f1(y+16)}" class="t-xs t-mid" style="fill:${i===lv?'var(--on-brand)':'var(--ink)'}">${i+1}</text>`});
+    const [tx,ty]=Lr.top(lv);s+=person(tx-1.5,ty-(N?34:40),N?30:34,'var(--ink)');
+    s+=`<text x="${N?10:15}" y="${N?290:222}" class="t-xs">less intensive</text><text x="${N?390:705}" y="${N?290:222}" class="t-xs t-end">more intensive, more medical care →</text>`;
+    ls.innerHTML=s;
+    const L=RC_LV[lv];$('#rcLvNote').innerHTML=`<div class="kicker">Level ${lv+1} of ${RC_LV.length}</div><h4>${L.n}</h4><ul>${L.who.map(x=>`<li>${x}</li>`).join('')}</ul><div class="pt"><b>In plain words</b>The right setting is the least intensive one that is safe. It can change as needs change. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup></div><p class="stage-cap">Teaching summary of published statements, not a placement tool.</p>`;
+  }
+  $$('[data-lv]').forEach(b=>b.addEventListener('click',()=>{lv=+b.dataset.lv;$$('[data-lv]').forEach(x=>x.setAttribute('aria-pressed',x===b));drawLv()}));
+  const prevR=redraws.recovery;redraws.recovery=()=>{prevR&&prevR();drawLv()};
+  drawLv();
+};
 /* =============== 5.1 The liver: fatty liver to cirrhosis =============== */
 const LV_STEPS=[
  {from:0,at:.05,k:'Start',t:'A healthy liver',
@@ -2231,8 +2396,8 @@ inits.body=()=>{
    {n:'Atrial fibrillation',o:'heart',c:'hrt',f:g=>g<=0?[1,'RR 1']:[afRR(g),'RR '+afRR(g).toFixed(2)+(g/12>=5?'+':'')]},
    {n:'High blood pressure',o:'heart',c:'hrt',f:g=>g<24?[1,'vs 12 g: —']:g<36?[1.11,'RR 1.11 vs 12 g']:g<48?[1.22,'RR 1.22 vs 12 g']:[1.33,'RR 1.33+ vs 12 g']},
    {n:'Cardiomyopathy',o:'heart',c:'hrt',f:g=>g>80?[2,'>80 g/d for >5 y']:[1,'—']},
-   {n:'Chronic pancreatitis',o:'panc',c:'pan',f:g=>g>=95?[6.29,'RR 6.29 at 100 g']:g>0?[1+g/40,'rises with intake']:[1,'—']},
-   {n:'Brain volume',o:'brain',c:'brn',f:g=>g>0?[1+Math.min(1.5,g/40),'lower with intake']:[1,'—']}
+   {n:'Chronic pancreatitis',o:'panc',c:'pan',f:g=>g>=95?[6.29,'RR 6.29 at 100 g']:g>0?[1+g/40,'rising']:[1,'—']},
+   {n:'Brain volume',o:'brain',c:'brn',f:g=>g>0?[1+Math.min(1.5,g/40),'lower']:[1,'—']}
   ];
   const CC={can:'var(--glu-fill)',hrt:'var(--ember)',pan:'var(--eth-fill)',brn:'var(--dx)'};
   /* all-cause mortality RR vs lifetime non-drinkers (Zhao 2023), as steps over g/day */
@@ -2242,7 +2407,7 @@ inits.body=()=>{
   function draw(t){
     const N=vb(svg,'720 380','400 600'),ph=phaseOf(BD_STEPS,t),g=t*100;setSt(ph);
     const L=N?{bx:70,by:16,bs:1.0,rx:150,ry:26,rh:21.5,rv:392,cx:56,cy:312,cw:320,ch:170,lx:56,ly:540}
-             :{bx:112,by:20,bs:1.38,rx:240,ry:36,rh:26.5,rv:468,cx:512,cy:56,cw:190,ch:190,lx:500,ly:300};
+             :{bx:92,by:20,bs:1.32,rx:196,ry:38,rh:26.5,rv:432,cx:484,cy:56,cw:222,ch:180,lx:468,ly:290};
     const hl={},col={};
     const vals=ROWS.map(r=>{const [v,txt]=r.f(g),gl=clamp((v-1)/1.6);if(!hl[r.o]||gl>hl[r.o]){hl[r.o]=gl;col[r.o]=CC[r.c]}return [v,txt,gl]});
     if(band(g)===2){hl.stomach=.12;col.stomach=CC.can}
@@ -2267,11 +2432,11 @@ inits.body=()=>{
     s+=`<circle cx="${f1(X(0))}" cy="${f1(Y(1))}" r="3.5" style="fill:var(--muted)"/>`;
     let d='';ZH.forEach(([a,b,v])=>{if(g<=a)return;const e=Math.min(g,b);d+=`M${f1(X(a))} ${f1(Y(v))}H${f1(X(e))}`});
     if(d)s+=`<path d="${d}" style="stroke:var(--glu);stroke-width:3;stroke-linecap:round;fill:none"/>`;
-    ZH.forEach(([a,b,v,sig])=>{if(g>a+(b-a)*.4)s+=`<text x="${f1(X((a+b)/2))}" y="${f1(Y(v)-6)}" class="t-xs t-mid" style="fill:var(--ink)">${v.toFixed(2)}${sig?'':'*'}</text>`});
+    ZH.forEach(([a,b,v,sig],i)=>{if(i&&g>a+(b-a)*.4)s+=`<text x="${f1(X((a+b)/2))}" y="${f1(Y(v)+(i===1?13:-6))}" class="t-xs t-mid" style="fill:var(--ink)">${v.toFixed(2)}${sig?'':'*'}</text>`});
     const zr=zRR(g);s+=`<circle cx="${f1(X(g))}" cy="${f1(Y(zr))}" r="5" style="fill:var(--glu);stroke:var(--panel);stroke-width:2"/>`;
-    s+=`<text x="${L.lx}" y="${L.ly}" class="t-xs">* not significant · vs lifetime non-drinkers · Zhao 2023</text>`;
-    s+=`<text x="${L.lx}" y="${L.ly+18}" class="t-sm">LIFE EXPECTANCY AT 40 (WOOD 2018)</text><text x="${L.lx}" y="${L.ly+36}" class="t-lbl" style="fill:${g*7>100?'var(--glu)':'var(--ink)'}">${life(g*7)}</text>`;
-    if(!N)s+=`<text x="${L.lx}" y="${L.ly+52}" class="t-xs">at ${Math.round(g*7)} g a week, vs &gt;0–100 g</text>`;
+    s+=`<text x="${L.lx}" y="${L.ly}" class="t-xs">* not significant; vs lifetime</text><text x="${L.lx}" y="${L.ly+12}" class="t-xs">non-drinkers (Zhao 2023)</text>`;
+    s+=`<text x="${L.lx}" y="${L.ly+34}" class="t-sm">LIFE EXPECTANCY AT 40 (WOOD 2018)</text><text x="${L.lx}" y="${L.ly+52}" class="t-lbl" style="fill:${g*7>100?'var(--glu)':'var(--ink)'}">${life(g*7)}</text>`;
+    if(!N)s+=`<text x="${L.lx}" y="${L.ly+68}" class="t-xs">at ${Math.round(g*7)} g a week, vs &gt;0–100 g</text>`;
     svg.innerHTML=s;
     rd.innerHTML=`<span>Intake <b>${Math.round(g)} g/day</b></span><span>≈ <b>${f1(g/10)}</b> standard drinks of 10 g</span><span><b>${Math.round(g*7)} g</b> a week</span><span>Cancer band <b>${band(g)<0?'none':BN[band(g)]}</b></span>`;
     note.innerHTML=noteHTML(BD_STEPS[ph]);
@@ -2402,9 +2567,9 @@ inits.pregnancy=()=>{
     s+=`<text x="${L.tx1}" y="${L.ty-18}" class="t-xs t-end">weeks</text>`;
     const nx=X(Math.min(w,40));s+=`<path d="M${f1(nx-6)} ${L.ty-2}L${f1(nx+6)} ${L.ty-2}L${f1(nx)} ${L.ty+8}Z" style="fill:var(--ink)"/>`;
     /* the guidance band across the whole timeline */
-    const bw=(L.tx1-L.tx0)*clamp(ramp(t,0,.3)+.08);
+    const bw=L.tx1-L.tx0;
     s+=`<rect x="${L.tx0}" y="${L.ty-46}" width="${f1(bw)}" height="18" rx="9" style="fill:var(--accent-soft)"/>`;
-    if(bw>200)s+=`<text x="${L.tx0+10}" y="${L.ty-33}" class="t-xs" style="fill:var(--accent);font-weight:700">${N?'no known safe amount · no safe trimester':'no known safe amount · no safe trimester · all drinks similar risk'}</text>`;
+    s+=`<text x="${L.tx0+10}" y="${L.ty-33}" class="t-xs" style="fill:var(--accent);font-weight:700">${N?'no known safe amount · no safe trimester':'no known safe amount · no safe trimester · all drinks similar risk'}</text>`;
     /* womb and fetus, cross-fading to the face after birth */
     const op=1-born;
     if(op>0){s+=`<g style="opacity:${f1(op)}"><circle cx="${L.wx}" cy="${L.wy}" r="${L.wr}" style="fill:var(--liver-soft);stroke:var(--liver);stroke-width:2"/><circle cx="${L.wx}" cy="${L.wy}" r="${L.wr-8}" style="fill:var(--panel);opacity:.55"/>`;
@@ -2770,25 +2935,25 @@ inits.frontier=()=>{
   /* ---- policy chart ---- */
   const ps=$('#frPol'),pr=$('#frPr');
   const EL=[['beer',-.46],['wine',-.69],['spirits',-.80],['heavy drinking',-.28]];
-  function drawP(){const N=vb(ps,'720 330','400 600'),pc=Math.round(+pr.value*30);let s='';
+  function drawP(){const N=vb(ps,'720 270','400 520'),pc=Math.round(+pr.value*30);let s='';
     /* left: observed changes */
-    const A=N?{x0:20,x1:380,y0:40}:{x0:20,x1:340,y0:40},sc=v=>A.x0+130+(A.x1-A.x0-140)*(-v/20);
+    const A=N?{x0:20,x1:380,y0:40}:{x0:20,x1:340,y0:40},sc=v=>A.x0+170+(A.x1-A.x0-180)*(-v/20);
     s+=`<text x="${A.x0}" y="24" class="t-sm" style="fill:var(--brand)">${N?'OBSERVED POLICY EFFECTS':'OBSERVED POLICY EFFECTS (% change)'}</text>`;
     const OB=[{l:'Scotland MUP:',l2:'deaths wholly due to alcohol',v:-13.4,ci:[-18.4,-8.3]},{l:'Scotland MUP:',l2:'hospitalisations',v:-4.1,ns:1},{l:'Yukon warning',l2:'labels: sales per capita',v:-6.31}];
     [0,-5,-10,-15,-20].forEach(v=>s+=`<line x1="${f1(sc(v))}" x2="${f1(sc(v))}" y1="${A.y0}" y2="${A.y0+OB.length*56}" class="${v?'grid':'axis'}"/><text x="${f1(sc(v))}" y="${A.y0+OB.length*56+14}" class="t-xs t-mid">${v}%</text>`);
     OB.forEach((o,i)=>{const y=A.y0+10+i*56;s+=`<text x="${A.x0}" y="${y+10}" class="t-xs" style="fill:var(--ink);font-weight:700">${o.l}</text><text x="${A.x0}" y="${y+23}" class="t-xs">${o.l2}</text>`;
-      s+=`<rect x="${f1(sc(o.v))}" y="${y+2}" width="${f1(sc(0)-sc(o.v))}" height="18" rx="4" style="fill:${o.ns?'var(--muted)':'var(--brand)'};opacity:${o.ns?.45:.8}"/>`;
+      s+=`<rect x="${f1(sc(0))}" y="${y+2}" width="${f1(sc(o.v)-sc(0))}" height="18" rx="4" style="fill:${o.ns?'var(--muted)':'var(--brand)'};opacity:${o.ns?.45:.8}"/>`;
       if(o.ci)s+=`<line x1="${f1(sc(o.ci[0]))}" x2="${f1(sc(o.ci[1]))}" y1="${y+11}" y2="${y+11}" style="stroke:var(--ink);stroke-width:1.5"/><line x1="${f1(sc(o.ci[0]))}" x2="${f1(sc(o.ci[0]))}" y1="${y+5}" y2="${y+17}" style="stroke:var(--ink);stroke-width:1.5"/><line x1="${f1(sc(o.ci[1]))}" x2="${f1(sc(o.ci[1]))}" y1="${y+5}" y2="${y+17}" style="stroke:var(--ink);stroke-width:1.5"/>`;
       s+=`<text x="${f1(sc(0))}" y="${y+34}" class="t-xs" style="fill:var(--ink)">${o.v}%${o.ns?' (not significant)':o.ci?' (95% CI −18.4 to −8.3)':''}</text>`});
     /* right: elasticity arithmetic */
-    const B=N?{x0:20,x1:380,y0:270}:{x0:390,x1:704,y0:40},bx=v=>B.x0+100+(B.x1-B.x0-110)*(-v/30);
+    const B=N?{x0:20,x1:380,y0:262}:{x0:390,x1:704,y0:40},bx=v=>B.x0+100+(B.x1-B.x0-110)*(-v/30);
     s+=`<text x="${B.x0}" y="${B.y0-16}" class="t-sm" style="fill:var(--accent)">${N?`IF PRICES ROSE ${pc}%: ARITHMETIC`:`IF PRICES ROSE ${pc}%: ELASTICITY ARITHMETIC`}</text>`;
     [0,-10,-20,-30].forEach(v=>s+=`<line x1="${f1(bx(v))}" x2="${f1(bx(v))}" y1="${B.y0}" y2="${B.y0+EL.length*44}" class="${v?'grid':'axis'}"/><text x="${f1(bx(v))}" y="${B.y0+EL.length*44+14}" class="t-xs t-mid">${v}%</text>`);
     EL.forEach(([n,e],i)=>{const y=B.y0+10+i*44,v=e*pc;s+=`<text x="${B.x0}" y="${y+12}" class="t-xs" style="fill:var(--ink);font-weight:700">${n}</text><text x="${B.x0}" y="${y+25}" class="t-xs">elasticity ${e.toFixed(2)}</text>`;
-      s+=`<rect x="${f1(bx(v))}" y="${y+2}" width="${f1(Math.max(1,bx(0)-bx(v)))}" height="16" rx="4" style="fill:var(--accent);opacity:.75"/><text x="${f1(bx(v)+5)}" y="${y+14}" class="t-xs" style="fill:var(--ink)">${v.toFixed(1)}%</text>`});
-    s+=`<text x="${B.x0}" y="${B.y0+EL.length*44+32}" class="t-xs" style="fill:var(--warn)">${N?'simple mean elasticities × price: not a forecast':'simple mean elasticity × price change: a sketch, not a forecast'}</text>`;
+      s+=`<rect x="${f1(bx(0))}" y="${y+2}" width="${f1(Math.max(1,bx(v)-bx(0)))}" height="16" rx="4" style="fill:var(--accent);opacity:.75"/><text x="${f1(bx(v)+5)}" y="${y+14}" class="t-xs" style="fill:var(--ink)">${v.toFixed(1)}%</text>`});
+    s+=`<text x="${B.x0}" y="${B.y0+EL.length*44+32}" class="t-xs" style="fill:var(--warn)">${N?'simple mean elasticities × price: not a forecast':'mean elasticity × price change: not a forecast'}</text>`;
     ps.innerHTML=s;
-    $('#frPolCap').innerHTML=`Left: Scotland's minimum unit price (£0.50 per unit, from 1 May 2018) compared with England, and alcohol sales during Yukon's warning-label study. Right: mean price elasticities from a meta-analysis of 1,003 estimates, multiplied by a ${pc}% price rise; real responses are not this simple. <sup class="c" data-ref="Wyper2023,Zhao2020Labels,Wagenaar2009" title="Source 484,507,515">484,507,515</sup>`;
+    $('#frPolCap').innerHTML=`Observed: Scotland's minimum unit price (£0.50 per unit, from 1 May 2018) compared with England, and alcohol sales during Yukon's warning-label study. Arithmetic: mean price elasticities from a meta-analysis of 1,003 estimates, multiplied by a ${pc}% price rise; real responses are not this simple. <sup class="c" data-ref="Wyper2023,Zhao2020Labels,Wagenaar2009" title="Source 484,507,515">484,507,515</sup>`;
     $('#frPolNote').innerHTML=noteHTML({k:'Population policy',t:pc<8?'Price is a lever':'Bigger price rises, bigger cuts',txt:`Scotland's minimum unit pricing was associated with a 13.4% fall (95% CI −18.4 to −8.3) in deaths wholly attributable to alcohol and a non-significant 4.1% fall in such hospitalisations, driven by chronic conditions, especially alcohol-related liver disease, and largest in the four most deprived deciles. <sup class="c" data-ref="Wyper2023" title="Source 507">507</sup> A synthesis of 40 evaluation reports found no strong evidence of population-level harm, but some qualitative evidence that financially vulnerable people with alcohol dependence fared worse. <sup class="c" data-ref="Patterson2023" title="Source 357">357</sup> Raising excise taxes cost less than I$100 per healthy life year gained in a global model. <sup class="c" data-ref="Chisholm2018" title="Source 61">61</sup>`,
       pt:`When alcohol costs more, people drink less, and fewer die of alcohol-related illness. People with dependence may need extra support when prices rise.`,
       hook:`Scotland MUP: deaths wholly attributable to alcohol −13.4%. Mean price elasticity: beer −0.46, wine −0.69, spirits −0.80. <sup class="c" data-ref="Wyper2023,Wagenaar2009" title="Source 484,507">484,507</sup>`});
@@ -2866,21 +3031,21 @@ inits.history=()=>{
     hook:`DSM-5: merged abuse + dependence, legal problems out, craving in, threshold ≥2 of 11. <sup class="c" data-ref="Hasin2013" title="Source 169">169</sup>`}];
   const EMB=STEPS.map(s=>s.em);
   function nameAt(y){let i=0;HI_NAME.forEach((n,k)=>{if(y>=n.y)i=k});return i}
-  function draw(t){const N=vb(svg,'720 420','400 720'),yr=hiYr(t),p=phaseOf(STEPS,t),S=STEPS[p];let s='';
+  function draw(t){const N=vb(svg,'720 380','400 720'),yr=hiYr(t),p=phaseOf(STEPS,t),S=STEPS[p];let s='';
     /* ---- banner: what we called it ---- */
     const ni=nameAt(yr),nm=HI_NAME[ni],since=yr-nm.y,fade=clamp(since/4),prev=ni>0?HI_NAME[ni-1]:null;
     const bw=N?368:672,bx=N?16:24;
-    s+=`<rect x="${bx}" y="10" width="${bw}" height="${N?92:66}" rx="12" style="fill:var(--brand-soft)"/>`;
+    s+=`<rect x="${bx}" y="10" width="${bw}" height="${N?98:66}" rx="12" style="fill:var(--brand-soft)"/>`;
     s+=`<text x="${bx+14}" y="28" class="t-sm" style="fill:var(--brand)">WHAT WE CALLED IT</text>`;
     s+=`<text x="${bx+bw-14}" y="${N?34:52}" class="t-big t-end" style="font-size:${N?24:30}px;fill:var(--brand)">${Math.round(yr)}</text>`;
-    const nameLines=n=>N?(n.includes('|')?n.split(' | ').map((x,i)=>i?'| '+x:x):hiWrap(n,24)):[n];
-    const putName=(n,op,dy)=>nameLines(n.n).map((l,i)=>`<text x="${bx+14}" y="${f1((N?56:54)+i*22+dy)}" class="t-big" style="font-size:${N?20:24}px;opacity:${f1(op)}">${l}</text>`).join('');
+    const nameLines=n=>N?(n.includes('|')?n.split(' | ').map((x,i)=>i?'| '+x:x):hiWrap(n,28)):[n];
+    const putName=(n,op,dy)=>nameLines(n.n).map((l,i)=>`<text x="${bx+14}" y="${f1((N?54:54)+i*21+dy)}" class="t-big" style="font-size:${N?18:24}px;opacity:${f1(op)}">${l}</text>`).join('');
     if(prev&&fade<1&&prev.n!==nm.n)s+=putName(prev,1-fade,-6*fade);
     s+=putName(nm,prev&&prev.n!==nm.n?fade:1,prev&&prev.n!==nm.n?6*(1-fade):0);
-    const subY=N?(nameLines(nm.n).length>1?92:76):70;
+    const subY=N?(nameLines(nm.n).length>1?98:80):70;
     s+=`<text x="${bx+14}" y="${subY}" class="t-xs" style="opacity:${f1(Math.max(.4,fade))}">${nm.s}</text>`;
     /* ---- era detail ---- */
-    const D=N?{y:116,ex:52,ey:166,es:.8,tx:104,tw:36,ty:132}:{y:88,ex:76,ey:150,es:1,tx:150,tw:76,ty:110};
+    const D=N?{y:120,ex:52,ey:172,es:.8,tx:104,tw:36,ty:138}:{y:88,ex:76,ey:150,es:1,tx:150,tw:76,ty:110};
     S.em.forEach((k,i)=>{s+=hiEmblem(k,D.ex+(S.em.length>1?(i?20:-14):0),D.ey+(S.em.length>1?(i?22:-14):0),D.es*(S.em.length>1?.68:1))});
     s+=hiWrap(S.t,N?28:60).map((l,i)=>`<text x="${D.tx}" y="${D.ty+i*20}" class="t-big" style="font-size:${N?16:19}px">${l}</text>`).join('');
     const tl=hiWrap(S.t,N?28:60).length;s+=`<text x="${D.tx}" y="${D.ty+tl*20-2}" class="t-sm">${S.k}</text>`;
@@ -2888,18 +3053,18 @@ inits.history=()=>{
     evs.slice(0,N?5:5).forEach(e=>{const on=yr>=e.y-.2,c=HI_TR[e.tr][1];
       s+=`<circle cx="${D.tx+4}" cy="${ly-4}" r="4" style="fill:${on?c:'none'};stroke:${c};stroke-width:1.5"/><text x="${D.tx+14}" y="${ly}" class="t-xs" style="fill:${on?'var(--ink)':'var(--muted)'};opacity:${on?1:.55};font-weight:${on?600:400}">${Math.floor(e.y)} · ${e.l}</text>`;ly+=N?15:14});
     /* ---- timeline ---- */
-    if(!N){const x0=130,x1=696,X=y=>lerp(x0,x1,hiU(y)),ty=[262,288,314],ay=338,xm=X(yr);
+    if(!N){const x0=130,x1=696,X=y=>lerp(x0,x1,hiU(y)),ty=[236,262,288],ay=312,xm=X(yr);
       HI_TR.forEach(([n,c],i)=>{s+=`<text x="24" y="${ty[i]+3.5}" class="t-xs" style="fill:${c};font-weight:600">${n}</text><line x1="${x0}" x2="${x1}" y1="${ty[i]}" y2="${ty[i]}" style="stroke:var(--line);stroke-width:1"/>`});
       /* scale break */
       s+=`<rect x="${f1(X(HI_YB)-3)}" y="${ay-6}" width="6" height="12" style="fill:var(--panel)"/><path d="M${f1(X(HI_YB)-5)} ${ay+6}l4 -12M${f1(X(HI_YB)+1)} ${ay+6}l4 -12" style="stroke:var(--muted);stroke-width:1.2"/>`;
       s+=`<line x1="${x0}" x2="${x1}" y1="${ay}" y2="${ay}" class="axis" style="stroke:var(--muted)"/>`;
-      [1780,1800,1850,1900,1930,1950,1975,2000,2025].forEach(y=>{s+=`<line x1="${f1(X(y))}" x2="${f1(X(y))}" y1="${ay-3}" y2="${ay+3}" style="stroke:var(--muted)"/><text x="${f1(X(y))}" y="${ay+15}" class="t-xs t-mid">${y}</text>`});
+      [1780,1850,1900,1930,1950,1975,2000,2025].forEach(y=>{s+=`<line x1="${f1(X(y))}" x2="${f1(X(y))}" y1="${ay-3}" y2="${ay+3}" style="stroke:var(--muted)"/><text x="${f1(X(y))}" y="${ay+15}" class="t-xs t-mid">${y}</text>`});
       HI_ERA.forEach((e,i)=>{const a=X(e.a),b=X(e.b),on=i===p;s+=`<rect x="${f1(a+1)}" y="${ay+22}" width="${f1(b-a-2)}" height="18" rx="4" style="fill:${on?'var(--brand)':'var(--panel-2)'}"/><text x="${f1((a+b)/2)}" y="${ay+34.5}" class="t-xs t-mid" style="fill:${on?'var(--on-brand)':'var(--muted)'};font-weight:600">${e.n}</text>`});
-      s+=`<rect x="${f1(X(1880))}" y="${ty[1]-5}" width="${f1(X(1933)-X(1880))}" height="10" rx="5" style="fill:var(--dx);opacity:.12"/><text x="${f1(X(1933)-4)}" y="${ty[1]-8}" class="t-xs t-end" style="fill:var(--dx)">temperance → Prohibition repealed 1933</text>`;
+      s+=`<rect x="${f1(X(1880))}" y="${ty[1]-5}" width="${f1(X(1933)-X(1880))}" height="10" rx="5" style="fill:var(--dx);opacity:.12"/><text x="${f1(X(1933)-4)}" y="${ty[1]+14}" class="t-xs t-end" style="fill:var(--dx)">temperance → Prohibition repealed 1933</text>`;
       HI_EV.forEach(e=>{const x=X(e.y),y=ty[e.tr],c=HI_TR[e.tr][1],on=yr>=e.y-.2,cur=e.y>=S.y0&&e.y<S.y1;
         s+=`<circle cx="${f1(x)}" cy="${y}" r="${cur?5.5:4}" style="fill:${on?c:'var(--panel)'};stroke:${c};stroke-width:1.6"/>`});
-      s+=`<line x1="${f1(xm)}" x2="${f1(xm)}" y1="246" y2="${ay}" style="stroke:var(--ink);stroke-width:1.6"/><path d="M${f1(xm)} ${ay-1}l-6 -9h12Z" style="fill:var(--ink)"/>`;
-      s+=`<text x="${f1(clamp(xm,150,676))}" y="242" class="t-xs t-mid" style="fill:var(--ink);font-weight:600">${Math.round(yr)}</text>`}
+      s+=`<line x1="${f1(xm)}" x2="${f1(xm)}" y1="220" y2="${ay}" style="stroke:var(--ink);stroke-width:1.6"/><path d="M${f1(xm)} ${ay-1}l-6 -9h12Z" style="fill:var(--ink)"/>`;
+      s+=`<text x="${f1(clamp(xm,150,676))}" y="216" class="t-xs t-mid" style="fill:var(--ink);font-weight:600">${Math.round(yr)}</text>`}
     else{const y0=300,y1=700,Y=y=>lerp(y0,y1,hiU(y)),ax=70,tx=[86,100,114],ym=Y(yr);
       HI_TR.forEach(([n,c],i)=>{s+=`<circle cx="${16+i*124}" cy="${y0-28}" r="4" style="fill:${c}"/><text x="${24+i*124}" y="${y0-24.5}" class="t-xs" style="fill:${c};font-weight:600">${n}</text>`;
         s+=`<line x1="${tx[i]}" x2="${tx[i]}" y1="${y0}" y2="${y1}" style="stroke:var(--line)"/>`});
