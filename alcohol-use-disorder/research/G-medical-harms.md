@@ -23,11 +23,11 @@ Terminology: the AASLD now uses "alcohol-associated liver disease (ALD)" and "al
 - The AASLD's 2019 practice guidance uses the term "alcohol-associated liver diseases" in place of the older "alcoholic liver disease" [[Crabb2020AASLD]].
 - ALD is a clinical-histologic spectrum: fatty liver (steatosis), alcohol-associated hepatitis, and cirrhosis with its complications (Established) [[Singal2018ACG,Seitz2018NRDP]].
 - ALD is described as the most prevalent type of chronic liver disease worldwide [[Seitz2018NRDP]].
-- Most people who drink more than 40 g of alcohol per day develop alcoholic fatty liver, but only a subset go on to more advanced disease [[Seitz2018NRDP]].
+- Most people who drink more than 40 g of alcohol per day develop alcohol-related fatty liver, but only a subset go on to more advanced disease [[Seitz2018NRDP]].
 - Steatosis develops in about 90% of people who drink heavily and may be seen within 2 weeks of heavy, regular drinking; it resolves rapidly after complete abstinence [[Singal2018ACG]].
 - With continued excessive drinking, about one-third of people with steatosis show liver inflammation on histology (alcohol-associated steatohepatitis, ASH) [[Singal2018ACG]].
 - Among people with steatohepatitis on biopsy, 20–40% develop fibrosis and 8–20% develop cirrhosis, per the ACG guideline [[Singal2018ACG]].
-- "Pure" fatty liver is not benign: of 88 people with biopsy-proven pure alcoholic fatty liver followed for a median 10.5 years, 9 developed cirrhosis and 7 more developed fibrosis [[Teli1995Lancet]].
+- "Pure" fatty liver is not benign: of 88 people with biopsy-proven "pure" alcohol-related fatty liver followed for a median 10.5 years, 9 developed cirrhosis and 7 more developed fibrosis [[Teli1995Lancet]].
 - In that cohort, 8 of the 9 who developed cirrhosis were still drinking more than 40 units per week at follow-up; with continued heavy drinking, mixed macro/microvesicular fat and giant mitochondria identified a 47–61% risk of progression [[Teli1995Lancet]].
 - Mechanisms include hepatic steatosis, oxidative stress, acetaldehyde-mediated toxicity and cytokine- and chemokine-driven inflammation (Established) [[Seitz2018NRDP]].
 - Genetic, epigenetic and non-genetic factors are thought to explain the large person-to-person variation in who develops advanced ALD (Established) [[Seitz2018NRDP]].
@@ -163,7 +163,7 @@ Terminology: the AASLD now uses "alcohol-associated liver disease (ALD)" and "al
 - In Whitehall II (9,087 people, 23 years), above 14 units/week each extra 7 units was associated with 17% higher dementia risk; alcohol-related hospital admission had HR 4.28 [[Sabia2018BMJ]].
 
 ### body · injuries and medicine interactions
-- Injury risk rises non-linearly with the amount drunk on one occasion: for motor-vehicle crashes, the odds ratio rises 1.24 per 10 g and reaches 52.0 at 120 g [[Taylor2010DAD]].
+- Injury risk rises non-linearly with the amount of alcohol consumed on one occasion: for motor-vehicle crashes, the odds ratio rises 1.24 per 10 g and reaches 52.0 at 120 g [[Taylor2010DAD]].
 - For non-traffic injuries, the odds ratio rises 1.30 per 10 g, reaching 24.2 at 140 g; the authors state that no level of drinking is safe when driving [[Taylor2010DAD]].
 - Alcohol interacts with many medicines in two ways: by changing how the liver handles them (pharmacokinetic) and by adding to their effects, especially sedation (pharmacodynamic) [[Weathermon1999]].
 - Classes that interact include antibiotics, antidepressants, antihistamines, barbiturates, benzodiazepines, muscle relaxants, opioids, non-opioid pain medicines and warfarin, as well as some over-the-counter and herbal products [[Weathermon1999]].
