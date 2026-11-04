@@ -2168,7 +2168,7 @@ inits.wernicke=()=>{
   /* ---- Caine checklist ---- */
   const cs=$('#weCaineSvg'),CK={diet:false,eye:false,cbl:false,mind:false,he:false};
   const TILES=[['diet','Dietary','deficiency'],['eye','Eye','signs'],['cbl','Cerebellar','dysfunction'],['mind','Mental state','or memory']];
-  function drawC(){const N=vb(cs,'720 260','400 400');let s='';const n=['diet','eye','cbl','mind'].filter(k=>CK[k]).length,tri=['eye','cbl','mind'].filter(k=>CK[k]).length;
+  function drawC(){const N=vb(cs,'720 230','400 330');let s='';const n=['diet','eye','cbl','mind'].filter(k=>CK[k]).length,tri=['eye','cbl','mind'].filter(k=>CK[k]).length;
     const tw=N?176:150,th=N?62:70,gap=N?12:20,x0=N?18:40,y0=N?40:50;
     const pos=i=>N?[x0+(i%2)*(tw+gap),y0+Math.floor(i/2)*(th+gap)]:[x0+i*(tw+gap),y0];
     /* triad bracket over tiles 2-4 (wide) */
@@ -3260,8 +3260,8 @@ inits.pregnancy=()=>{
     g+=`<path d="M-18 44Q-8 ${f1(44-lt)} 0 ${f1(44-lt*.4)}Q8 ${f1(44-lt)} 18 44Q0 ${f1(44+1)} -18 44Z" style="fill:var(--glu-fill);opacity:.8"/><path d="M-16 45Q0 54 16 45" style="fill:var(--glu-fill);opacity:.6;stroke:none"/>`;
     return g+'</g>'}
   function draw(t){
-    const N=vb(svg,'720 380','400 640'),ph=phaseOf(PG_STEPS,t),w=wk(t),born=ramp(t,.8,.86);setSt(ph);
-    const L=N?{tx0:24,tx1:376,ty:52,wx:200,wy:232,wr:104,fx:200,fy:236,fs:1.25,px:12,py:372,pw:376,ph:256}
+    const N=vb(svg,'720 380','400 600'),ph=phaseOf(PG_STEPS,t),w=wk(t),born=ramp(t,.8,.86);setSt(ph);
+    const L=N?{tx0:24,tx1:376,ty:52,wx:200,wy:232,wr:104,fx:200,fy:236,fs:1.25,px:12,py:372,pw:376,ph:212}
              :{tx0:30,tx1:690,ty:52,wx:175,wy:228,wr:118,fx:175,fy:230,fs:1.35,px:392,py:96,pw:316,ph:270};
     let s='';
     /* timeline */
@@ -3285,7 +3285,7 @@ inits.pregnancy=()=>{
       const lab=(x1,y1,x2,y2,a,b,anc)=>`<line x1="${f1(x1)}" y1="${f1(y1)}" x2="${f1(x2)}" y2="${f1(y2)}" style="stroke:var(--muted);stroke-width:.9"/><text x="${f1(x2+(anc==='e'?-3:3))}" y="${f1(y2-2)}" class="t-xs${anc==='e'?' t-end':''}" style="fill:var(--ink)">${a}</text><text x="${f1(x2+(anc==='e'?-3:3))}" y="${f1(y2+10)}" class="t-xs${anc==='e'?' t-end':''}">${b}</text>`;
       if(m>.3){const cx=L.wx,cy=L.wy+6;
         s+=lab(cx+24*sc,cy-8*sc,cx+(N?88:96),cy-74,'short palpebral','fissures (≤10th)','s');
-        s+=lab(cx,cy+34*sc,L.wx-(N?186:161),cy+98,'smooth','philtrum (rank 4–5)','s');
+        s+=lab(cx,cy+34*sc,L.wx-(N?186:161),cy+(N?86:98),'smooth','philtrum (rank 4–5)','s');
         s+=lab(cx+12*sc,cy+42*sc,cx+(N?88:96),cy+88,'thin upper-lip','vermilion','s')}
       s+=`<text x="${L.wx}" y="${L.wy+L.wr+18}" class="t-xs t-mid">${m>.5?'≥2 of 3 features for the FAS facial criterion':'schematic face'}</text></g>`}
     /* facts panel */
@@ -3817,7 +3817,7 @@ inits.history=()=>{
     if(f4>.05)s+=`<text x="${N?24:286}" y="${N?362:232}" class="t-xs" style="opacity:${f1(f4)}">not a DSM-IV criterion:</text>`;
     if(f5>.05){s+=`<text x="${N?24:36}" y="${N?396:262}" class="t-xs" style="fill:var(--bad);opacity:${f1(f5)}">dropped in DSM-5: very low prevalence, low discrimination, poor fit</text>`;
       /* severity bar */
-      const sx=N?16:330,sy=N?266:244,sw=N?368:378;[['mild 2–3','var(--thi-fill)'],['moderate 4–5','var(--brand)'],['severe 6+','var(--accent)']].forEach(([l,c],i)=>{s+=`<rect x="${f1(sx+i*sw/3)}" y="${sy}" width="${f1(sw/3-3)}" height="18" rx="5" style="fill:${c};opacity:${f1(f5)}"/><text x="${f1(sx+i*sw/3+sw/6)}" y="${sy+12.5}" class="t-xs t-mid" style="fill:${i?'#fff':'var(--ink)'};font-weight:600;opacity:${f1(f5)}">${l}</text>`});
+      const sx=N?16:24,sy=N?266:222,sw=N?368:684;[['mild 2–3','var(--gaba-fill)'],['moderate 4–5','var(--brand)'],['severe 6+','var(--accent)']].forEach(([l,c],i)=>{s+=`<rect x="${f1(sx+i*sw/3)}" y="${sy}" width="${f1(sw/3-3)}" height="18" rx="5" style="fill:${c};opacity:${f1(f5)}"/><text x="${f1(sx+i*sw/3+sw/6)}" y="${sy+12.5}" class="t-xs t-mid" style="fill:#fff;font-weight:600;opacity:${f1(f5)}">${l}</text>`});
       s+=`<text x="${sx}" y="${sy-6}" class="t-sm" style="opacity:${f1(f5)}">SEVERITY BY CRITERIA COUNT</text>`}
     /* chips */
     CR.forEach(([id,lab,g,in5])=>{const p0=P0[id],p1=P1[id],e=ease(a),x=lerp(p0[0],p1[0],e),y=lerp(p0[1],p1[1],e),w=p0[2];
@@ -3831,15 +3831,15 @@ inits.history=()=>{
     /* ICD-11 overlay */
     if(icd>0){const F=[['Impaired control','over onset, level, circumstances or stopping; sometimes craving'],['Increasing priority','drinking takes precedence over other parts of life'],['Physiological features','tolerance, withdrawal, or use to prevent or relieve withdrawal']];
       const o=f1(icd);s+=`<rect x="${N?8:16}" y="${N?40:34}" width="${N?384:692}" height="${N?432:300}" rx="12" style="fill:var(--panel);opacity:${f1(icd*.93)}"/>`;
-      s+=`<text x="${N?16:24}" y="${N?60:56}" class="t-sm" style="fill:var(--brand);opacity:${o}">ICD-11 ALCOHOL DEPENDENCE · AT LEAST 2 OF 3 ESSENTIAL FEATURES</text>`;
-      F.forEach(([h,d],i)=>{const x=N?16:24+i*228,y=N?72+i*84:70,w=N?368:216,hh=N?72:96;
+      s+=N?`<text x="16" y="58" class="t-sm" style="fill:var(--brand);opacity:${o}">ICD-11 ALCOHOL DEPENDENCE</text><text x="16" y="72" class="t-sm" style="fill:var(--brand);opacity:${o}">AT LEAST 2 OF 3 ESSENTIAL FEATURES</text>`:`<text x="24" y="56" class="t-sm" style="fill:var(--brand);opacity:${o}">ICD-11 ALCOHOL DEPENDENCE · AT LEAST 2 OF 3 ESSENTIAL FEATURES</text>`;
+      F.forEach(([h,d],i)=>{const x=N?16:24+i*228,y=N?84+i*84:70,w=N?368:216,hh=N?72:96;
         s+=`<rect x="${x}" y="${y}" width="${w}" height="${hh}" rx="10" style="fill:var(--brand-soft);opacity:${o}"/><text x="${x+12}" y="${y+22}" class="t-lbl" style="fill:var(--brand);opacity:${o}">${h}</text>`;
         s+=hiWrap(d,N?52:32).map((l,j)=>`<text x="${x+12}" y="${y+40+j*14}" class="t-xs" style="fill:var(--ink);opacity:${o}">${l}</text>`).join('')});
-      const by=N?336:196;
+      const by=N?346:196;
       s+=`<rect x="${N?16:24}" y="${by}" width="${N?368:336}" height="${N?56:74}" rx="10" style="fill:var(--dx-soft);opacity:${o}"/><text x="${N?28:36}" y="${by+22}" class="t-lbl" style="fill:var(--dx);opacity:${o}">Harmful pattern of use of alcohol</text>`;
       s+=hiWrap('a separate diagnosis; it added harm to others',N?52:44).map((l,j)=>`<text x="${N?28:36}" y="${by+40+j*14}" class="t-xs" style="fill:var(--ink);opacity:${o}">${l}</text>`).join('');
-      s+=`<rect x="${N?16:372}" y="${N?400:by}" width="${N?368:336}" height="${N?56:74}" rx="10" style="fill:var(--panel-2);opacity:${o}"/><text x="${N?28:384}" y="${(N?400:by)+22}" class="t-lbl" style="opacity:${o}">Hazardous alcohol use</text>`;
-      s+=`<text x="${N?28:384}" y="${(N?400:by)+40}" class="t-xs" style="fill:var(--ink);opacity:${o}">listed separately: a health risk factor, not a disorder</text>`}
+      s+=`<rect x="${N?16:372}" y="${N?410:by}" width="${N?368:336}" height="${N?56:74}" rx="10" style="fill:var(--panel-2);opacity:${o}"/><text x="${N?28:384}" y="${(N?410:by)+22}" class="t-lbl" style="opacity:${o}">Hazardous alcohol use</text>`;
+      s+=`<text x="${N?28:384}" y="${(N?410:by)+40}" class="t-xs" style="fill:var(--ink);opacity:${o}">listed separately: a health risk factor, not a disorder</text>`}
     dsv.innerHTML=s}
   const DXN=[
     {k:'DSM-IV · 1994',t:'Two diagnoses, and the "orphans"',

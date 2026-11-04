@@ -150,7 +150,7 @@ inits.history=()=>{
     if(f4>.05)s+=`<text x="${N?24:286}" y="${N?362:232}" class="t-xs" style="opacity:${f1(f4)}">not a DSM-IV criterion:</text>`;
     if(f5>.05){s+=`<text x="${N?24:36}" y="${N?396:262}" class="t-xs" style="fill:var(--bad);opacity:${f1(f5)}">dropped in DSM-5: very low prevalence, low discrimination, poor fit</text>`;
       /* severity bar */
-      const sx=N?16:330,sy=N?266:244,sw=N?368:378;[['mild 2–3','var(--thi-fill)'],['moderate 4–5','var(--brand)'],['severe 6+','var(--accent)']].forEach(([l,c],i)=>{s+=`<rect x="${f1(sx+i*sw/3)}" y="${sy}" width="${f1(sw/3-3)}" height="18" rx="5" style="fill:${c};opacity:${f1(f5)}"/><text x="${f1(sx+i*sw/3+sw/6)}" y="${sy+12.5}" class="t-xs t-mid" style="fill:${i?'#fff':'var(--ink)'};font-weight:600;opacity:${f1(f5)}">${l}</text>`});
+      const sx=N?16:24,sy=N?266:222,sw=N?368:684;[['mild 2–3','var(--gaba-fill)'],['moderate 4–5','var(--brand)'],['severe 6+','var(--accent)']].forEach(([l,c],i)=>{s+=`<rect x="${f1(sx+i*sw/3)}" y="${sy}" width="${f1(sw/3-3)}" height="18" rx="5" style="fill:${c};opacity:${f1(f5)}"/><text x="${f1(sx+i*sw/3+sw/6)}" y="${sy+12.5}" class="t-xs t-mid" style="fill:#fff;font-weight:600;opacity:${f1(f5)}">${l}</text>`});
       s+=`<text x="${sx}" y="${sy-6}" class="t-sm" style="opacity:${f1(f5)}">SEVERITY BY CRITERIA COUNT</text>`}
     /* chips */
     CR.forEach(([id,lab,g,in5])=>{const p0=P0[id],p1=P1[id],e=ease(a),x=lerp(p0[0],p1[0],e),y=lerp(p0[1],p1[1],e),w=p0[2];
@@ -164,15 +164,15 @@ inits.history=()=>{
     /* ICD-11 overlay */
     if(icd>0){const F=[['Impaired control','over onset, level, circumstances or stopping; sometimes craving'],['Increasing priority','drinking takes precedence over other parts of life'],['Physiological features','tolerance, withdrawal, or use to prevent or relieve withdrawal']];
       const o=f1(icd);s+=`<rect x="${N?8:16}" y="${N?40:34}" width="${N?384:692}" height="${N?432:300}" rx="12" style="fill:var(--panel);opacity:${f1(icd*.93)}"/>`;
-      s+=`<text x="${N?16:24}" y="${N?60:56}" class="t-sm" style="fill:var(--brand);opacity:${o}">ICD-11 ALCOHOL DEPENDENCE · AT LEAST 2 OF 3 ESSENTIAL FEATURES</text>`;
-      F.forEach(([h,d],i)=>{const x=N?16:24+i*228,y=N?72+i*84:70,w=N?368:216,hh=N?72:96;
+      s+=N?`<text x="16" y="58" class="t-sm" style="fill:var(--brand);opacity:${o}">ICD-11 ALCOHOL DEPENDENCE</text><text x="16" y="72" class="t-sm" style="fill:var(--brand);opacity:${o}">AT LEAST 2 OF 3 ESSENTIAL FEATURES</text>`:`<text x="24" y="56" class="t-sm" style="fill:var(--brand);opacity:${o}">ICD-11 ALCOHOL DEPENDENCE · AT LEAST 2 OF 3 ESSENTIAL FEATURES</text>`;
+      F.forEach(([h,d],i)=>{const x=N?16:24+i*228,y=N?84+i*84:70,w=N?368:216,hh=N?72:96;
         s+=`<rect x="${x}" y="${y}" width="${w}" height="${hh}" rx="10" style="fill:var(--brand-soft);opacity:${o}"/><text x="${x+12}" y="${y+22}" class="t-lbl" style="fill:var(--brand);opacity:${o}">${h}</text>`;
         s+=hiWrap(d,N?52:32).map((l,j)=>`<text x="${x+12}" y="${y+40+j*14}" class="t-xs" style="fill:var(--ink);opacity:${o}">${l}</text>`).join('')});
-      const by=N?336:196;
+      const by=N?346:196;
       s+=`<rect x="${N?16:24}" y="${by}" width="${N?368:336}" height="${N?56:74}" rx="10" style="fill:var(--dx-soft);opacity:${o}"/><text x="${N?28:36}" y="${by+22}" class="t-lbl" style="fill:var(--dx);opacity:${o}">Harmful pattern of use of alcohol</text>`;
       s+=hiWrap('a separate diagnosis; it added harm to others',N?52:44).map((l,j)=>`<text x="${N?28:36}" y="${by+40+j*14}" class="t-xs" style="fill:var(--ink);opacity:${o}">${l}</text>`).join('');
-      s+=`<rect x="${N?16:372}" y="${N?400:by}" width="${N?368:336}" height="${N?56:74}" rx="10" style="fill:var(--panel-2);opacity:${o}"/><text x="${N?28:384}" y="${(N?400:by)+22}" class="t-lbl" style="opacity:${o}">Hazardous alcohol use</text>`;
-      s+=`<text x="${N?28:384}" y="${(N?400:by)+40}" class="t-xs" style="fill:var(--ink);opacity:${o}">listed separately: a health risk factor, not a disorder</text>`}
+      s+=`<rect x="${N?16:372}" y="${N?410:by}" width="${N?368:336}" height="${N?56:74}" rx="10" style="fill:var(--panel-2);opacity:${o}"/><text x="${N?28:384}" y="${(N?410:by)+22}" class="t-lbl" style="opacity:${o}">Hazardous alcohol use</text>`;
+      s+=`<text x="${N?28:384}" y="${(N?410:by)+40}" class="t-xs" style="fill:var(--ink);opacity:${o}">listed separately: a health risk factor, not a disorder</text>`}
     dsv.innerHTML=s}
   const DXN=[
     {k:'DSM-IV · 1994',t:'Two diagnoses, and the "orphans"',

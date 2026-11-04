@@ -110,7 +110,7 @@ inits.wernicke=()=>{
   /* ---- Caine checklist ---- */
   const cs=$('#weCaineSvg'),CK={diet:false,eye:false,cbl:false,mind:false,he:false};
   const TILES=[['diet','Dietary','deficiency'],['eye','Eye','signs'],['cbl','Cerebellar','dysfunction'],['mind','Mental state','or memory']];
-  function drawC(){const N=vb(cs,'720 260','400 400');let s='';const n=['diet','eye','cbl','mind'].filter(k=>CK[k]).length,tri=['eye','cbl','mind'].filter(k=>CK[k]).length;
+  function drawC(){const N=vb(cs,'720 230','400 330');let s='';const n=['diet','eye','cbl','mind'].filter(k=>CK[k]).length,tri=['eye','cbl','mind'].filter(k=>CK[k]).length;
     const tw=N?176:150,th=N?62:70,gap=N?12:20,x0=N?18:40,y0=N?40:50;
     const pos=i=>N?[x0+(i%2)*(tw+gap),y0+Math.floor(i/2)*(th+gap)]:[x0+i*(tw+gap),y0];
     /* triad bracket over tiles 2-4 (wide) */
