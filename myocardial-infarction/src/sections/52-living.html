@@ -1,5 +1,64 @@
-<!-- ================= 5.2 LIVING AFTER A HEART ATTACK (stub, replaced by its builder) ================= -->
+<!-- ================= 5.2 LIVING AFTER A HEART ATTACK ================= -->
+<style>
+#m-living svg .t-xs{font-size:11px}#m-living svg .t-sm{font-size:12px}
+#m-living svg[data-mode="n"] .t-xs{font-size:12.5px}#m-living svg[data-mode="n"] .t-sm{font-size:13px}
+#m-living .card>.tag,#m-living .card>.ev{align-self:flex-start}
+#m-living .lv-q{font-style:italic}
+#m-living .lv-check{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+#m-living .lv-check fieldset{margin:0;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+#m-living .lv-check legend{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--rec);padding:0 6px}
+#m-living .lv-check label{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.4;cursor:pointer}
+#m-living .lv-check input{width:18px;height:18px;margin:2px 0 0;flex:none;accent-color:var(--rec)}
+#m-living .lv-check label.done span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--line)}
+#m-living .lv-check .src{font-size:12.5px;color:var(--muted)}
+#m-living .lv-prog{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+#m-living .lv-prog .bar{flex:1;min-width:160px;height:10px}
+#m-living .lv-prog .bar i{background:var(--rec)}
+</style>
 <section class="mod" id="m-living" data-mod="living" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Recovery &amp; living</p><h2>Living after a heart attack</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">The year after a heart attack (myocardial infarction, MI) brings going home, getting active again, travel, intimacy, work and a lot of feelings. Scroll through a first-year calendar, see how common low mood and worry are, and keep your own recovery checklist.</p></div>
+  <p class="callnow" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvSvg" viewBox="0 0 720 450" style="min-width:560px" role="img" aria-label="A first-year calendar after a heart attack, with the first month stretched out. A playhead moves from going home through the 30-day readmission window, a flight at two weeks in a small trial, the start of rehabilitation, the three-month mark and return to work at one year; a tray holds milestones with no fixed date (driving and sex) that light up when discussed. Below, lines show how common depression, anxiety and post-traumatic stress are after a heart attack, and an icon array of 100 people shows the share with depression at the current point."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">Play</button><label class="stage-cap tl" for="lvT">First year <input type="range" id="lvT" min="0" max="1" step="0.001" value="0.01"></label></div>
+      <div class="readout" id="lvRead"></div>
+      <p class="stage-cap">Schematic calendar: the first month is stretched. Milestone dates come from studies, not rules: readmission [[Dharmarajan2013]], the flight trial [[Roby2002]], rehab start [[Ritchey2020]], work [[Smedegaard2017]]. The mood lines are pooled prevalence from different studies, not the same people followed over time [[Chong2025]]. Population figures, not predictions for one person.</p>
+    </div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Feelings after a heart attack: how common, and why they matter</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Condition</th><th>How common after MI</th><th>Linked outcome</th></tr></thead>
+    <tbody>
+      <tr><th>Major depression (structured interview)</th><td>19.8% (8 studies, 10,785 people); depressive symptoms 31.1% with BDI ≥10, 15.5% with HADS ≥8 [[Thombs2006]]</td><td>All-cause mortality OR 2.25, cardiac mortality OR 2.71, cardiac events OR 1.59 over about 16 months [[Meijer2011]]</td></tr>
+      <tr><th>DSM-diagnosed depression by time</th><td>19.46% when assessed within 3 months; 14.87% after 3 months [[Chong2025]]</td><td>After adjusting for disease severity, the excess risk shrank by about a quarter (HR 1.32 for death before adjustment) [[Meijer2013]]</td></tr>
+      <tr><th>Anxiety</th><td>11.96% DSM-diagnosed (7 studies) [[Chong2025]]</td><td>Adverse outcomes OR 1.36; new cardiac events OR 1.71 [[Roest2010]]</td></tr>
+      <tr><th>Post-traumatic stress (PTSD) caused by the event</th><td>12% overall: 16% on screening questionnaires, 4% on clinical interview [[Edmondson2012]]</td><td>About double the risk of recurrent cardiac events or death (RR 2.00) [[Edmondson2012]]</td></tr>
+      <tr><th>Partners (HAT trial)</th><td>15% of spouses depressed and 19% anxious, unchanged over 2 years [[Thomas2011HAT]]</td><td>Patients: 25% depressed, 21% anxious, also unchanged [[Thomas2011HAT]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout"><b>In plain words:</b> feeling low, worried or on edge after a heart attack is common. These are health problems, not weakness, and they can be treated. [[Thombs2006,Edmondson2012]] In 2014 the American Heart Association recommended that depression be treated as a risk factor for poorer outcomes after an acute coronary syndrome. [[Lichtman2014]]</p>
+
+  <h3 class="sub">My recovery checklist</h3>
+  <p class="prose">A personal list to talk through with your care team. Ticks are saved only in this browser, on this device. It is a prompt for questions, not a care plan.</p>
+  <div class="lv-prog"><span class="kicker" id="lvCount">0 of 0 ticked</span><div class="bar" aria-hidden="true"><i id="lvBar"></i></div><button class="btn ghost" id="lvReset" type="button">Clear my ticks</button></div>
+  <div class="lv-check" id="lvCheck"></div>
+  <p class="callnow" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+
+  <h3 class="sub">Recovery, one topic at a time</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rec">Depression</span><h4>Why low mood matters</h4><p>About 1 in 5 people have major depression after a heart attack, and it goes with higher mortality, partly explained by how severe the heart disease is. [[Thombs2006,Meijer2011,Meijer2013]] An AHA science advisory recommends screening for depressive symptoms in coronary heart disease. [[Lichtman2008]] A systematic review found no trial showing that screening itself improves outcomes. [[Thombs2008]]</p><p>Treatment helps mood: sertraline (SADHART) and cognitive behavioural therapy (ENRICHD) improved depression, but neither has been shown to improve cardiac survival. [[Glassman2002,Berkman2003]]</p></div>
+    <div class="card"><span class="tag rec">Family &amp; carers</span><h4>Partners feel it too</h4><p>In the HAT trial, 15% of spouses were depressed and 19% anxious at entry, and this did not change over 2 years. [[Thomas2011HAT]] In young patients (VIRGO), 21.2% had low perceived social support, which went with worse mental health, quality of life and depressive symptoms at 12 months. [[Bucholz2014]] The family-based, nurse-coordinated EUROACTION programme improved diet and blood pressure control. [[Wood2008EUROACTION]]</p><p>Partners and families are often anxious or low too. Their wellbeing matters and support is available. [[Thomas2011HAT]]</p></div>
+    <div class="card"><span class="tag rec">Women</span><h4>Women's recovery</h4><p>VIRGO followed 3,572 people aged 18–55 after a heart attack (67.1% women). [[Smolderen2015]] Young women more often had a lifetime history of depression (48% vs 24%) and depressive symptoms on admission (39% vs 22%). [[Smolderen2015]] Their health status stayed lower than men's at 1 and 12 months [[Dreyer2015]], and they had more coronary-related and non-cardiac hospital stays in the first year. [[Sawano2023]] At 12 months, 85% of young women and 89% of young men were back at work, a gap that disappeared after adjustment. [[Dreyer2016RTW]]</p></div>
+    <div class="card"><span class="tag rec">Work</span><h4>Going back to work</h4><p>Across 43 studies, 81.1% returned to work after a coronary event; return was lower with less education, a weaker heart pump, manual work and heavy physical workload. [[Kai2022]] In Denmark, 91.1% of working-age people were back within a year of a first MI, but 24.2% of them had left work a year after returning; depression (OR 1.77) predicted leaving. [[Smedegaard2017]]</p></div>
+    <div class="card"><span class="tag rec">Driving</span><h4>Driving: check the rules where you live</h4><p>Whether and when you can drive again depends on where you live, the kind of licence you hold (a car, or a bus or lorry) and the treatment you had. This guide does not quote any country's rules: check your local licensing rules and ask your team what applies to you. UK audits found that written driving advice was often missing from discharge summaries, and targeted teaching improved it. [[Bharaj2021,Dyson2025]]</p></div>
+    <div class="card"><span class="tag rec">Travel</span><h4>Flying</h4><p>In a randomised trial of 38 people who flew commercially 2 weeks after a heart attack, there was 1 major end point (a brief, symptom-free ischaemic episode on a heart monitor), and supplemental oxygen made no difference to minor events. The authors concluded that neither oxygen nor a medical escort was needed, provided people did not overexert themselves around the flight. <span class="ev early">Early evidence</span> [[Roby2002]]</p></div>
+    <div class="card"><span class="tag rec">Intimacy</span><h4>Sex after a heart attack</h4><p>Sexual activity carries a brief rise in relative risk of MI (RR 2.70), but the absolute increase is small: 2–3 MIs per 10,000 person-years for one extra hour a week. Each extra weekly session of habitual exercise cut the triggering risk by about 45%. [[Dahabreh2011]] An AHA and ESC nursing consensus recommends routine assessment and sexual counselling for patients and partners, noting that erectile dysfunction is about twice as common in men with cardiovascular disease. [[Steinke2013]]</p><p>The nitroglycerin label states: <span class="lv-q">"Do not use NITROSTAT in patients who are taking PDE-5 Inhibitors, such as avanafil, sildenafil, tadalafil, vardenafil hydrochloride. Concomitant use can cause severe hypotension, syncope, or myocardial ischemia."</span> [[FDA-Nitrostat]]</p></div>
+    <div class="card"><span class="tag rec">Habits</span><h4>Smoking and everyday habits</h4><p>Stopping smoking after a coronary diagnosis was linked to a 36% lower risk of death (RR 0.64) compared with continuing. [[Critchley2003]] In EUROASPIRE V, at least 6 months after their event, 19% of coronary patients still smoked, 38% were obese and 66% were active for less than 30 minutes 5 times a week. [[Kotseva2019]] Rehab helps with all of these: see <a href="#rehab" data-go="rehab">Cardiac rehabilitation</a>.</p></div>
+    <div class="card"><span class="tag rec">Memory</span><h4>Memory and thinking</h4><p>In 7,888 adults aged 50 and over followed for a median of 12 years, a new coronary event was followed by faster decline in global cognition, verbal memory and orientation over the years after it, with no sudden drop just after the event. <span class="ev early">Early evidence</span> [[Xie2019]]</p></div>
+  </div>
 </section>

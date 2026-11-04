@@ -1,5 +1,68 @@
-<!-- ================= 5.3 NURSING CARE (stub, replaced by its builder) ================= -->
+<!-- ================= 5.3 NURSING CARE ================= -->
+<style>
+#m-nursing svg .t-xs{font-size:11px}#m-nursing svg .t-sm{font-size:12px}
+#m-nursing svg[data-mode="n"] .t-xs{font-size:12.5px}#m-nursing svg[data-mode="n"] .t-sm{font-size:13px}
+#m-nursing .card>.tag,#m-nursing .card>.ev{align-self:flex-start}
+#m-nursing .nu-qt{font-style:italic}
+#m-nursing .nu-flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+#m-nursing .nu-flip{text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:16px;cursor:pointer;display:flex;flex-direction:column;gap:8px;min-height:190px;transition:background .2s,border-color .2s}
+@media (max-width:700px){#m-nursing .nu-flip{min-height:0}}
+#m-nursing .nu-flip:hover{border-color:var(--rec)}
+#m-nursing .nu-flip small{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#m-nursing .nu-flip b.big{font-family:var(--display);font-weight:800;font-size:20px;line-height:1.15}
+#m-nursing .nu-flip .bk{display:none;font-size:14.5px;line-height:1.45}
+#m-nursing .nu-flip[aria-pressed="true"]{background:var(--rec-soft);border-color:var(--rec)}
+#m-nursing .nu-flip[aria-pressed="true"] .bk{display:block}
+#m-nursing .nu-flip[aria-pressed="true"] .fr{display:none}
+#m-nursing .nu-flip .nu-side{display:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;font-size:14.5px;line-height:1.4}
+#m-nursing .nu-flip[aria-pressed="true"] .nu-side{display:grid}
+#m-nursing .nu-flip .nu-side i{display:block;font:600 10.5px var(--mono);font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--rec);margin-bottom:2px}
+#m-nursing p.nu-p{max-width:70ch}
+#m-nursing .nu-sort{display:flex;flex-direction:column;gap:10px}
+#m-nursing .nu-item{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+#m-nursing .nu-item p.f{font-weight:700}
+#m-nursing .nu-item .ctrls{gap:6px}
+#m-nursing .nu-item .fb{font-size:14.5px;border-radius:10px;padding:8px 12px}
+#m-nursing .nu-item .fb.ok{background:var(--good-soft)} #m-nursing .nu-item .fb.no{background:var(--bad-soft)}
+#m-nursing .nu-quiz{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+#m-nursing .qcard .q{font-size:18.5px}
+#m-nursing .qcard .kicker{color:var(--rec)}
+</style>
 <section class="mod" id="m-nursing" data-mod="nursing" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Recovery &amp; living</p><h2>Nursing care</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Nurses are with a person having a heart attack (myocardial infarction, MI) from the first ECG to the discharge talk. Follow one patient's journey and the evidence behind each nursing priority, then practise with an access-site flip set, a bleeding sorter and six priority questions.</p></div>
+  <p class="callnow" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+  <div class="stepper" id="nuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 460" style="min-width:560px" role="img" aria-label="A patient's journey through four rooms: the emergency department, the cath lab, the coronary care unit or ward, and home. As the patient moves, an instrument panel changes: a 10-minute clock and an ECG being written, a pulse oximeter with the oxygen trial results, ticagrelor blood levels with and without morphine, radial and femoral access bleeding rates, a scrolling heart monitor with bleeding checks, and the risk after stopping antiplatelet medicines; a checklist of nursing priorities ticks itself off for each stage."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">Play</button><label class="stage-cap tl" for="nuT">Patient journey <input type="range" id="nuT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="nuRead"></div>
+      <p class="stage-cap">Schematic journey. Curve shapes are drawn for illustration; the numbers on them are published trial and registry figures [[Yiadom2022,Hofmann2017,Stub2015,Kubica2016,Valgimigli2015MATRIX,Mehta2009APEX,Mehran2013]]. Local protocols decide care; this is not a protocol.</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Wrist or groin? An access-site flip set</h3>
+  <p class="nu-p">PCI reaches the heart through an artery at the wrist (radial) or in the groin (femoral). Tap a card to flip it and compare the two. The 2023 ESC guideline lists <span class="nu-qt">"Radial artery approach as default vascular access"</span> among strategies to reduce bleeding with PCI. [[Byrne2023ESC]]</p>
+  <div class="nu-flips" id="nuFlips"></div>
+
+  <h3 class="sub">Bruise or bleed? A recognition sorter</h3>
+  <p class="teach"><b>Teaching tool</b>Each finding comes from a study of patients after catheterisation or PCI. Sort it as common and expected (teach, record, keep watching) or as something to report promptly. Real escalation follows local protocols and the clinical picture, never a sorter.</p>
+  <div class="readout" id="nuSortScore"></div>
+  <div class="nu-sort" id="nuSort"></div>
+
+  <h3 class="sub">Priority questions, NCLEX style</h3>
+  <p class="prose">Six scenarios. Choose the best nursing action; each answer explains the evidence. Doses and label wording are quoted as published, not as instructions.</p>
+  <div class="readout" id="nuQuizScore"></div>
+  <div class="nu-quiz" id="nuQuiz"></div>
+
+  <h3 class="sub">Teaching before discharge</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rec">GTN</span><h4>Nitroglycerin, as the label states</h4><p>The sublingual nitroglycerin label: <span class="nu-qt">"Administer one tablet under the tongue or in the buccal pouch at the first sign of an acute anginal attack … One additional tablet may be administered every 5 minutes until relief is obtained. No more than three tablets are recommended within a 15-minute period. If the pain persists after a total of 3 tablets in a 15-minute period, or if the pain is different than is typically experienced, seek prompt medical attention."</span> [[FDA-Nitrostat]]</p><p>It also says to take it <span class="nu-qt">"at rest, preferably in the sitting position"</span>, to keep tablets <span class="nu-qt">"in the original glass container"</span> tightly capped, and never with PDE-5 inhibitors such as sildenafil or tadalafil. [[FDA-Nitrostat]]</p></div>
+    <div class="card"><span class="tag rec">DAPT</span><h4>Dual antiplatelet adherence</h4><p>The ticagrelor label's boxed warning: <span class="nu-qt">"If possible, manage bleeding without discontinuing BRILINTA. Stopping BRILINTA increases the risk of subsequent cardiovascular events."</span> Breathlessness affected about 14–21% of patients in the trials, usually mild to moderate. [[FDA-Brilinta]]</p><p>In PARIS, unplanned disruption raised the risk of major events (HR 1.50), highest in the first 7 days (HR 7.04); stopping under a doctor's guidance did not (HR 0.63). [[Mehran2013]] In PREMIER, 13.6% had stopped by 30 days, with 11-month mortality 7.5% vs 0.7%. [[Spertus2006]]</p></div>
+    <div class="card"><span class="tag rec">Discharge</span><h4>A discharge checklist that works</h4><ul><li>Medicines: names, purpose, a plan to fill every prescription; counselling was linked to filling them. [[Jackevicius2008]]</li><li>Rehab referral: people who stopped antiplatelets early were less often referred or given medicine instructions. [[Spertus2006]]</li><li>Early follow-up: two-thirds of 30-day readmissions happen within 15 days. [[Dharmarajan2013]]</li><li>Mood and smoking: depression screening is advised by the AHA; quitting is linked to a 36% lower risk of death. [[Lichtman2008,Critchley2003]]</li><li>Driving: written advice was often missing in UK audits; check local licensing rules. [[Bharaj2021,Dyson2025]]</li></ul><p>Discharge programmes with many components that support self-care cut 30-day readmission (RR 0.82). [[Leppin2014]]</p></div>
+    <div class="card"><span class="tag rec">Nurse-led</span><h4>Nurse-led prevention clinics</h4><p>In a Scottish trial of 1,173 people with coronary heart disease, nurse-led clinics in general practice improved six of eight quality-of-life domains and cut hospital admissions (OR 0.64) at 1 year. [[Campbell1998]] At 4 years, deaths were 14.5% vs 18.9% (HR 0.75). [[Murchie2003]] The nurse-coordinated, family-based EUROACTION programme improved diet, blood pressure and statin prescribing. [[Wood2008EUROACTION]]</p></div>
+  </div>
+  <p>Related: <a href="#antithrombotic" data-go="antithrombotic">Antiplatelets &amp; anticoagulants</a>, <a href="#rehab" data-go="rehab">Cardiac rehabilitation</a> and <a href="#living" data-go="living">Living after a heart attack</a>.</p>
 </section>
