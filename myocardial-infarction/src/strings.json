@@ -1,0 +1,10 @@
+{
+ "foot.not_advice": "<b>It is not medical advice.</b> It cannot diagnose, and nothing here should start, stop or change a medicine or a care plan without your own care team. ECG criteria, troponin algorithms, the HEART, TIMI and GRACE scores and the risk calculators are for learning, never for self-triage or for deciding whether to seek care. Doses, aspirin wording, CPR steps and guideline statements are quoted as published in labels and guidelines, never as instructions, and survival and mortality figures are population statistics. If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU). Please check the original sources, which are listed in full in the <a href=\"#sources\" data-go=\"sources\">Sources</a> module.",
+ "quiz.answer_is": "The answer is {l}.",
+ "shell.disclaimer": "The Heart Attack Companion is an educational synthesis of published literature for study and understanding. It does not replace a doctor, nurse, pharmacist, paramedic or other clinician. ECG criteria, troponin algorithms, the HEART, TIMI and GRACE scores and the risk calculators are teaching aids, never for self-triage or for deciding whether to seek care, and doses, aspirin wording, CPR steps and guideline statements are quoted as published, never as instructions. Survival and mortality figures are population statistics, not predictions for one person. <span class=\"crisisline\">If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span>",
+ "shell.home": "Heart Attack Companion home",
+ "shell.note": "An animated, cited guide for students, people who have had a heart attack, and their families and caregivers. Educational only, not medical advice. Your place is saved on this device.",
+ "shell.skip": "Skip to the module",
+ "shell.tagline": "MI, ECG & troponin",
+ "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). Marked <span class=\"tag warn\">check</span> (not cited anywhere in the guide): {chk}."
+}

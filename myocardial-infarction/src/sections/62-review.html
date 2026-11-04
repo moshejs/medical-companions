@@ -1,0 +1,71 @@
+<!-- ================= 6.2 FLASHCARDS & MNEMONICS ================= -->
+<section class="mod" id="m-review" data-mod="review" hidden>
+<style>
+#m-review .rv-lab{margin-top:14px}
+#m-review .mn .card p{margin:6px 0 0}
+#m-review .mn .card .tag{align-self:flex-start}
+#m-review .crisis{margin:14px 0}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Flashcards &amp; mnemonics</h2>
+    <p class="lede">Flashcards on heart attack (myocardial infarction, MI): how common it is, plaque and clot, time is muscle, risk factors, symptoms, the ECG, troponin, risk scores, the first minutes, reperfusion, blood thinners, complications, medicines after MI, rehab, living well, nursing care and history. Tap a card or press Space to flip it; arrow keys move through the deck. Filter by part, or shuffle.</p></div>
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="%t:cards.label%">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">%t:nav.prev%</button><button class="btn primary" id="fcFlip">%t:cards.flip%</button><button class="btn" id="fcNext">%t:nav.next%</button><button class="btn ghost" id="fcShuf">%t:cards.shuffle%</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <h3 class="sub">%t:cards.mnemonics%</h3>
+  <div class="prose"><p>Cards tagged <b>memory aid</b> are short phrases written for this guide to hold a published fact in mind; they are not official groupings from the ESC, ACC/AHA or a drug label. Cards tagged <b>score acronym</b> or <b>official staging</b> use the published names. None replaces the source. Doses, time targets and label wording are quoted as published, not as instructions.</p></div>
+  <div class="mn" id="mnList"></div>
+  <h3 class="sub">Mnemonic in motion: ten, one-twenty, ten, thirty</h3>
+  <p class="prose">For ST-elevation MI (STEMI), the 2023 ESC guideline sets a chain of time targets: an ECG within 10 minutes of first medical contact, primary PCI if it can be done within 120 minutes of the ECG diagnosis, otherwise clot-dissolving drugs within 10 minutes of diagnosis, and a door-in to door-out time of 30 minutes or less when a patient is transferred [[Byrne2023ESC]]. Play the animation to follow one blocked artery through each target, with the animal and trial data that explain why minutes matter. More detail is in <button class="btn ghost" style="padding:2px 9px" data-go="reperfusion">Reperfusion</button> and <button class="btn ghost" style="padding:2px 9px" data-go="call">The first minutes</button>.</p>
+  <div class="stepper" id="rvSteps"></div>
+  <div class="lab rv-lab">
+    <div class="stage"><div class="scroll"><svg id="rvSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Animated walk through the STEMI time targets. A coronary artery blocked by a clot sits above a scrolling ECG with ST elevation. A clock counts the minutes while a list lights the targets in turn: ECG within 10 minutes, primary PCI within 120 minutes of diagnosis, during which a balloon and stent reopen the artery and the ST segment settles, or fibrinolysis within 10 minutes, during which drug dots dissolve the clot, then a door-in to door-out time of 30 minutes. Bar charts show how much at-risk muscle died with longer occlusion in dogs and how many lives fibrinolysis saved per 1000 by hour."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rvPlay">Play</button><label class="stage-cap tl" for="rvT">Minutes <input type="range" id="rvT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap">Schematic, not to scale. "Ten, one-twenty, ten, thirty" is a memory aid, not ESC wording. These are targets for health systems, quoted as published: they are not a test for deciding whether to call for help. [[Byrne2023ESC,Reimer1977,Boersma1996]]</p></div>
+    <aside class="note" id="rvNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout prose"><p>These cards are for learning. ECG criteria, troponin algorithms and risk scores are teaching tools, never for self-triage or for deciding whether to seek care. Survival and mortality figures are population statistics from large groups, not predictions for any one person. Do not stop or change heart medicines without talking to the team who prescribed them [[FDA-Brilinta,Mehran2013]].</p></div>
+</section>
+
+<!-- ================= 6.3 QUIZ ================= -->
+<section class="mod" id="m-quiz" data-mod="quiz" hidden>
+<style>#m-quiz .crisis{margin:0 0 14px}</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Quiz</h2>
+    <p class="lede">Multiple-choice questions on heart attack with cited explanations: burden and the universal definition, plaque and ischaemia, risk factors, symptoms, ECG criteria, troponin pathways, HEART, TIMI and GRACE, the differential, CPR, PCI and fibrinolysis, antiplatelets and anticoagulants, shock and complications, LDL lowering, rehab, recovery, nursing and history. Clinical-reasoning items for nursing and medical students are mixed in. The mixed quiz draws 20 at random; or choose a part.</p></div>
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
+</section>
+
+<!-- ================= 6.4 GLOSSARY ================= -->
+<section class="mod" id="m-glossary" data-mod="glossary" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Glossary</h2>
+    <p class="lede">A searchable glossary of heart attack terms, from apoB and the thin-cap fibroatheroma to the 99th-percentile troponin limit, Sgarbossa criteria, door-to-balloon time, DAPT, PRECISE-DAPT, SCAI shock stages, Lp(a), cardiac rehabilitation and patent haemostasis. Type to filter; the arrow on each entry jumps to the module where the term matters most.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="Search terms, e.g. troponin, STEMI, DAPT" aria-label="%t:glossary.search%">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
+</section>
+
+<!-- ================= 6.5 SOURCES ================= -->
+<section class="mod" id="m-sources" data-mod="sources" hidden>
+<style>
+#m-sources .srcs .tag.good{text-transform:none;letter-spacing:.02em}
+#m-sources #srcStats{margin:8px 0 0}
+#m-sources .srcs .tag{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:left}
+#m-sources #srcFilter .btn{white-space:normal;text-align:left}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Sources</h2>
+    <p class="lede">Every reference behind the Heart Attack Companion: journal articles, Cochrane and other systematic reviews, guidelines, drug labels and trial registrations. The small numbers throughout the app point here; filter by research area or search.</p></div>
+  <div class="callout prose"><p>Eight research passes ran in parallel, one per area: epidemiology, burden, types and history; atherosclerosis, plaque rupture, thrombosis, ischaemia and risk factors; presentation, ECG, troponin, risk scores and the differential diagnosis; the first minutes, emergency services and reperfusion; antithrombotic therapy; complications, cardiogenic shock, prognosis and research; secondary prevention medicines and LDL lowering; and cardiac rehabilitation, living after a heart attack and nursing care. Before inclusion each source was checked, where possible, against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA, and the green tag on an entry names the service that confirmed it. Works found by more than one pass appear once, with any extra keys listed beside them.</p>
+    <p>Entries marked <span class="tag warn">check</span> are pages with no PMID or DOI, or works that could not be confirmed. They are not cited for any fact in this guide.</p>
+    <p id="srcStats"></p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="%t:sources.placeholder%" aria-label="%t:sources.search%">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
+</section>

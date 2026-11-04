@@ -1,0 +1,75 @@
+<!-- ================= 4.2 LOWERING LDL CHOLESTEROL ================= -->
+<style>
+#m-lipids .card>.tag,#m-lipids .card>.ev{align-self:flex-start}
+#m-lipids .ldq{font-style:italic}
+#m-lipids .ldin{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:flex-end}
+#m-lipids .ldin label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700}
+#m-lipids .ldin input[type=number]{font:inherit;font-weight:400;width:9em;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+#m-lipids .ldin .chk{flex-direction:row;align-items:center;gap:8px;font-weight:600}
+#m-lipids .ldin .chk input{width:18px;height:18px;margin:0;accent-color:var(--rx)}
+#m-lipids .ldout{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+#m-lipids .ldout .card{gap:4px}
+#m-lipids .ldout .big-num{color:var(--rx);font-size:34px}
+#m-lipids .ldsteps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;max-width:75ch}
+#m-lipids .tbl table{min-width:720px}
+</style>
+<section class="mod" id="m-lipids" data-mod="lipids" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Medicines &amp; revascularisation</p><h2>Lowering LDL cholesterol</h2>
+    <p class="lede">LDL cholesterol (“bad” cholesterol) helps build the plaque that tears in a heart attack (myocardial infarction, MI). In large trials, the further LDL fell, the fewer heart attacks and strokes followed. Watch the trials land on that line, and one person's LDL step down as medicines are added.</p></div>
+  <div class="stepper" id="ldSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ldSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Left: a chart of relative reduction in major vascular events against LDL cholesterol reduction in mmol/L, with the Cholesterol Treatment Trialists' line of about 22% per mmol/L drawing in and dots appearing for PROVE IT, IMPROVE-IT, FOURIER, CLEAR Outcomes and a marker for ODYSSEY OUTCOMES. Right: four bars showing one illustrative person's LDL falling from 3.6 mmol/L as a high-intensity statin, ezetimibe and a PCSK9 antibody are added, against the ESC goal line of 1.4 mmol/L."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ldPlay">Play</button><label class="stage-cap tl" for="ldT">Evidence <input type="range" id="ldT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Trial dots: LDL difference between arms (converted at 1 mmol/L = 38.67 mg/dL; FOURIER as 59% of its 92 mg/dL baseline) against 1 − hazard ratio. The bars are one illustrative person using the average percentages cited; real responses vary. Population statistics, not predictions. [[CTT2010,Cannon2004PROVEIT,Cannon2015IMPROVEIT,Sabatine2017FOURIER,Schwartz2018ODYSSEY,Nissen2023CLEAR]]</p>
+    </div>
+    <aside class="note" id="ldNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">LDL goals explained: enter a baseline LDL</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>This shows how the published goals and thresholds work out for a given starting LDL. It is not a treatment plan: risk category, the medicines already taken, side effects and the person's own choices all matter, and the plan is made with the care team.</p>
+  <div class="stage">
+    <div class="ldin">
+      <label for="ldBase">LDL cholesterol before treatment <input type="number" id="ldBase" min="0.5" max="12" step="0.1" value="3.6" inputmode="decimal"></label>
+      <div class="ctrls" role="group" aria-label="Units"><span class="kicker">Units</span><button class="btn" data-ldu="mmol" aria-pressed="true">mmol/L</button><button class="btn" data-ldu="mg" aria-pressed="false">mg/dL</button></div>
+      <label class="chk" for="ldRec"><input type="checkbox" id="ldRec"> A second vascular event within 2 years despite maximal therapy</label>
+    </div>
+    <div class="scroll"><svg id="ldTgt" viewBox="0 0 720 210" style="min-width:560px" role="img" aria-label="A horizontal LDL ruler showing the entered baseline, where a high-intensity statin, ezetimibe and a PCSK9 antibody would bring it on average, the ESC goal (the lower of 1.4 mmol/L and half the baseline) and the US thresholds of 70 and 55 mg/dL."></svg></div>
+    <div class="ldout" id="ldOut" aria-live="polite"></div>
+  </div>
+  <h3 class="sub">The stepwise options, as published</h3>
+  <ol class="ldsteps">
+    <li><b>Statin first.</b> 2018 AHA/ACC: <span class="ldq">“In patients with clinical ASCVD, reduce low-density lipoprotein cholesterol (LDL-C) with high-intensity statin therapy or maximally tolerated statin therapy.”</span> High intensity means a daily dose that lowers LDL by about 50% or more: atorvastatin 40–80 mg or rosuvastatin 20 (40) mg. [[Grundy2019ACC]]</li>
+    <li><b>Check and add.</b> ESC/EAS recommends <span class="ldq">“reassessment of LDL-C 4–6 weeks after treatment initiation or intensification, with further escalation when the goal has not been achieved”</span> (as summarised in a 2026 review). [[Sabouret2026G]] 2018 AHA/ACC: <span class="ldq">“it is reasonable to add ezetimibe to maximally tolerated statin therapy when the LDL-C level remains ≥70 mg/dL”</span>. [[Grundy2019ACC]]</li>
+    <li><b>Then a PCSK9 inhibitor.</b> ESC 2023 ACS guideline: <span class="ldq">“if LDL-C targets are not reached within 4–6 weeks despite maximally tolerated statin therapy and ezetimibe, the addition of a PCSK9i is recommended”</span> (as quoted in a 2026 review). [[Byrne2023ESC,Goel2026]]</li>
+    <li><b>Or combine early.</b> The 2025 ESC/EAS focused update supports <span class="ldq">“intensive combination therapy during the index hospitalization when statin monotherapy is predictably insufficient”</span> (per review). [[Mach2025ESC,Sabouret2026G]] <span class="ev early">Early evidence</span> No outcome trial was found that tests upfront combination after ACS against the stepwise approach.</li>
+    <li><b>US thresholds after ACS.</b> The 2025 ACC/AHA ACS guideline recommends nonstatin therapy (ezetimibe, PCSK9 inhibitor, inclisiran or bempedoic acid) on maximally tolerated statin when LDL is ≥70 mg/dL, and says it <span class="ldq">“may be reasonable if LDL-C ≥55 mg/dL”</span> (as summarised in two 2026 papers). [[Rao2025ACC,Wong2026JACCAdv,Goel2026]] The 2026 ACC/AHA dyslipidemia guideline restores goals: <span class="ldq">“In secondary prevention, patients at very high risk should achieve LDL-C below 55 mg/dL and non-HDL-C below 85 mg/dL”</span>, and below 70 mg/dL for other ASCVD patients (per review). [[Blumenthal2026ACC,Sabouret2026G]]</li>
+  </ol>
+
+  <h3 class="sub">The LDL-lowering trials at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Comparison</th><th>LDL reached</th><th>Main result</th></tr></thead>
+    <tbody>
+      <tr><th>PROVE IT–TIMI 22</th><td>4162 people within 10 days of ACS</td><td>Atorvastatin 80 mg vs pravastatin 40 mg</td><td>62 vs 95 mg/dL (1.60 vs 2.46 mmol/L)</td><td>22.4% vs 26.3% at 2 years (16% hazard reduction) [[Cannon2004PROVEIT]]</td></tr>
+      <tr><th>IMPROVE-IT</th><td>18,144 people within 10 days of ACS</td><td>Simvastatin + ezetimibe vs simvastatin</td><td>53.7 vs 69.5 mg/dL (1.4 vs 1.8 mmol/L)</td><td>32.7% vs 34.7% at 7 years (HR 0.936) [[Cannon2015IMPROVEIT]]</td></tr>
+      <tr><th>FOURIER</th><td>27,564 people with ASCVD on a statin</td><td>Evolocumab vs placebo</td><td>median 92 → 30 mg/dL (−59%)</td><td>9.8% vs 11.3%, median 2.2 years (HR 0.85) [[Sabatine2017FOURIER]]</td></tr>
+      <tr><th>ODYSSEY OUTCOMES</th><td>18,924 people 1–12 months after ACS</td><td>Alirocumab vs placebo</td><td>dosed to a 25–50 mg/dL target</td><td>9.5% vs 11.1%, median 2.8 years (HR 0.85); deaths 3.5% vs 4.1% [[Schwartz2018ODYSSEY]]</td></tr>
+      <tr><th>CLEAR Outcomes</th><td>13,970 statin-intolerant people</td><td>Bempedoic acid vs placebo</td><td>29.2 mg/dL lower than placebo at 6 months</td><td>11.7% vs 13.3% (HR 0.87) [[Nissen2023CLEAR]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Closer looks</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Lp(a)</span><h4>Lipoprotein(a): inherited, and hard to treat</h4>
+      <p>Lp(a) levels are more than 90% set by genes, and high Lp(a) affects about 1.4 billion people; it is linked to heart disease even when LDL is very low. The EAS panel recommends measuring it at least once in adults. [[Kronenberg2022]] The 2019 ACC/AHA guideline counts Lp(a) ≥50 mg/dL (≥125 nmol/L) as a risk-enhancing factor. [[Arnett2019ACC]]</p>
+      <p>Lp(a)HORIZON's topline result (September 2026): pelacarsen lowered Lp(a) but did not reduce the primary cardiovascular end point; full data are awaited. [[Sabouret2026]] <span class="ev early">Early evidence</span> OCEAN(a)-Outcomes (olpasiran) is due around 2028. [[NCT05581303]]</p></div>
+    <div class="card"><span class="tag rx">Bempedoic acid</span><h4>For people who cannot take a statin</h4>
+      <p>In CLEAR Outcomes, bempedoic acid lowered LDL by 21.1 percentage points more than placebo and cut major events (11.7% vs 13.3%) and MI (3.7% vs 4.8%), with no significant effect on death. Gout (3.1% vs 2.1%) and gallstones (2.2% vs 1.2%) were more common. [[Nissen2023CLEAR]] The Nexletol label is for adults <span class="ldq">“who are unable to take recommended statin therapy (including those not taking a statin)”</span>. [[FDA-Nexletol]]</p></div>
+    <div class="card"><span class="tag rx">Inclisiran</span><h4>A twice-yearly injection</h4>
+      <p>Inclisiran lowered LDL by about half (52.3% and 49.9% at day 510 in ORION-10 and -11). [[Ray2020ORION]] The label gives 284 mg <span class="ldq">“as a single subcutaneous injection initially, again at 3 months, and then every 6 months”</span>, <span class="ldq">“administered by a healthcare professional”</span>, and its indication is LDL lowering, without a cardiovascular-event claim. [[FDA-Leqvio]] A 2026 review says it awaits outcome trials. [[Sabouret2026G]] <span class="ev early">Early evidence</span></p></div>
+    <div class="card"><span class="tag rx">Muscle aches</span><h4>Most aches on statins are not from the statin</h4>
+      <p>In 19 blinded trials (123,940 people), muscle pain or weakness was reported by 27.1% on a statin and 26.6% on placebo. Statins added 11 reports per 1000 person-years in year 1 only, so more than 90% of muscle reports on statins were not caused by the statin. [[CTT2022Muscle]] If aches happen, talk with the care team before stopping. <span class="ev est">Established</span></p></div>
+  </div>
+  <p class="prose">The other medicines after a heart attack are on <a href="#secondary" data-go="secondary">Medicines after a heart attack</a>; why LDL builds plaque in the first place is in <a href="#plaque" data-go="plaque">Plaque, rupture &amp; clot</a>.</p>
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+</section>

@@ -1,0 +1,93 @@
+<!-- ================= 2.2 THE ECG: STEMI, NSTEMI & TERRITORIES ================= -->
+<style>
+#m-ecg .card>.ev,#m-ecg .card>.tag{align-self:flex-start}
+#m-ecg .ec-seg{display:flex;flex-wrap:wrap;gap:6px}
+#m-ecg .ec-box{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;min-width:0}
+#m-ecg .calc .chk{flex-direction:row;align-items:flex-start;gap:8px;font-weight:600}
+#m-ecg .calc .chk input{margin-top:3px}
+#m-ecg .ec-out{display:flex;flex-direction:column;gap:10px}
+#m-ecg .tbl table{min-width:560px}
+#m-ecg .stage-cap b{color:var(--ink)}
+#m-ecg .ec-halo{paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round}
+</style>
+<section class="mod" id="m-ecg" data-mod="ecg" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>The ECG: STEMI, NSTEMI &amp; territories</h2>
+    <p class="lede">The 12-lead electrocardiogram (ECG) is a tracing of the heart's electrical activity seen from twelve directions. When a coronary artery closes, the leads facing that wall change in a typical order. Pick a wall, then press Play to watch one heart attack (myocardial infarction, MI) evolve on paper.</p></div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU). The ECG is recorded by the ambulance crew or the hospital; nothing on this page can be used to check yourself.</span></p>
+
+  <div class="ctrls" role="group" aria-label="Which wall of the heart">
+    <span class="kicker">Wall</span>
+    <button class="btn" data-ecter="ant" aria-pressed="true">Anterior · V1–V4</button>
+    <button class="btn" data-ecter="inf" aria-pressed="false">Inferior · II, III, aVF</button>
+    <button class="btn" data-ecter="lat" aria-pressed="false">Lateral · I, aVL, V5–V6</button>
+    <button class="btn ghost" id="ecReperf" aria-pressed="false">Artery reopened (reperfusion)</button>
+  </div>
+  <div class="stepper" id="ecSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ecSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A 12-lead ECG in four columns and three rows. The leads facing the chosen wall are outlined and change over time: tall peaked hyperacute T waves, then ST elevation, then Q waves, then inverted T waves. Below, one of those leads is drawn large with the ST elevation at the J point measured in millimetres. On the right, a heart shows a clot in the artery that supplies that wall, and the wall turning ischaemic and then necrotic."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ecPlay">Play</button><label class="stage-cap tl" for="ecT">Time since the artery closed <input type="range" id="ecT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="ecRead"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> One illustrative heart attack. The order of the changes is from UDMI4; the time axis has no units because the timing differs from person to person. Leads outside the chosen wall are drawn normal: reciprocal changes are not shown. The wall-to-artery pairings are a common teaching convention, drawn here as a labelled diagram. [[Thygesen2018UDMI4C]]</p>
+    </div>
+    <aside class="note" id="ecNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Which leads look at which wall</h3>
+  <div class="prose">
+    <p>Each lead views the heart from one direction, so a group of neighbouring ("contiguous") leads looks at one wall. The usual teaching convention pairs the inferior leads (II, III, aVF) with the right coronary artery, sometimes the circumflex; the anterior leads (V1–V4) with the left anterior descending artery; and the lateral leads (I, aVL, V5, V6) with the circumflex or diagonal branches. Treat this as a rule of thumb: coronary anatomy varies, and the culprit artery is confirmed at angiography.</p>
+    <p>Some walls are poorly seen by the standard 12 leads. For the back (posterior) wall, the 2023 ESC guideline says ST depression in V1–V3 and/or ST elevation in V7–V9 is "highly suggestive of posterior coronary artery occlusion". [[Byrne2023ESC]] For the right ventricle, UDMI4 treats ST elevation of at least 0.5 mm in the right-sided leads V3R/V4R (at least 1 mm in men under 30) as supportive, and notes that its absence does not exclude right ventricular infarction. [[Thygesen2018UDMI4C]] Among 200 people with an inferior MI, 54% had ST elevation in V4R; the sign detected right ventricular infarction with 88% sensitivity and 78% specificity. [[Zehender1993]]</p>
+  </div>
+
+  <h3 class="sub">STEMI criteria explainer: does this ST elevation meet the published threshold?</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>This explainer shows how the ST-elevation thresholds in the Fourth Universal Definition of Myocardial Infarction (UDMI4) depend on the lead, age and sex. It is not a way to read a real ECG and must never be used for self-triage or to decide whether to seek care. Real ECG interpretation weighs the whole tracing, symptoms, old ECGs and repeat recordings.</p>
+  <div class="calc" id="ecCalc">
+    <label for="ecGrp">Lead group
+      <select id="ecGrp">
+        <option value="oth">Leads other than V2–V3 (e.g. II, III, aVF)</option>
+        <option value="v23">V2–V3</option>
+        <option value="post">Posterior leads V7–V9</option>
+        <option value="rv">Right-sided leads V3R/V4R</option>
+      </select></label>
+    <div class="ec-box"><span>Sex</span><div class="ec-seg" role="group" aria-label="Sex"><button class="btn" data-ecsex="m" aria-pressed="true">Man</button><button class="btn" data-ecsex="f" aria-pressed="false">Woman</button></div></div>
+    <label for="ecAge"><span>Age: <span id="ecAgeV">55</span> years</span><input type="range" id="ecAge" min="18" max="90" step="1" value="55"></label>
+    <label for="ecMm"><span>ST elevation at the J point: <span id="ecMmV">1.25</span> mm</span><input type="range" id="ecMm" min="0" max="4" step="0.25" value="1.25"></label>
+    <label class="chk" for="ecContig"><input type="checkbox" id="ecContig" checked><span>Seen in two contiguous leads</span></label>
+    <label class="chk" for="ecNew"><input type="checkbox" id="ecNew" checked><span>New, or presumed new</span></label>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ecCrit" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Two beats on ECG paper with a calibration pulse. A dashed line marks the published ST-elevation threshold for the chosen lead group, age and sex, and a marker shows the ST elevation at the J point. On the right, a ladder compares the threshold in each lead group with the current ST elevation."></svg></div>
+      <p class="stage-cap">Thresholds as published in UDMI4 (Table 2): new or presumed new J-point elevation in two contiguous leads, ≥1 mm in leads other than V2–V3; in V2–V3 ≥2 mm in men aged 40 or over, ≥2.5 mm in men under 40 and ≥1.5 mm in women of any age; V7–V9 0.5 mm (≥1 mm in men under 40); V3R/V4R ≥0.5 mm (≥1 mm in men under 30). 1 mm = one small square at standard calibration (10 mm = 1 mV). [[Thygesen2018UDMI4C]]</p>
+    </div>
+    <div class="ec-out">
+      <div class="verdict maybe" id="ecVerdict" aria-live="polite"></div>
+      <aside class="note" id="ecCritNote"></aside>
+    </div>
+  </div>
+
+  <h3 class="sub">Other ischaemic patterns in UDMI4</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Finding</th><th>As published</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><th>ST depression</th><td>New horizontal or downsloping ST depression ≥0.5 mm in two contiguous leads. [[Thygesen2018UDMI4C]]</td><td>In a JAMA review, ST depression was the most useful ECG finding for acute coronary syndrome (specificity 95%, likelihood ratio 5.3). [[Fanaroff2015]]</td></tr>
+      <tr><th>T inversion</th><td>T inversion &gt;1 mm in two contiguous leads with a prominent R wave or R/S ratio &gt;1. [[Thygesen2018UDMI4C]]</td><td>Q waves with inverted T waves in the same lead group raise the likelihood of a prior MI. [[Thygesen2018UDMI4C]]</td></tr>
+      <tr><th>Widespread ST depression with ST elevation in aVR</th><td>ST depression ≥1 mm in six leads with ST elevation in aVR suggests multivessel or left main disease (UDMI4); the ESC adds ST elevation in aVR and/or V1. [[Thygesen2018UDMI4C,Byrne2023ESC]]</td><td>A warning pattern for a large area at risk, even without classic ST elevation.</td></tr>
+      <tr><th>Hyperacute T waves</th><td>Increased amplitude and prominent symmetrical T waves in at least two contiguous leads may come before ST elevation. [[Thygesen2018UDMI4C]]</td><td>The earliest change can be easy to miss; repeat ECGs catch evolution.</td></tr>
+      <tr><th>Pathological Q waves</th><td>New Q waves indicate necrosis that starts minutes to hours after the insult; prior-MI Q waves are most specific in several leads or lead groups, or when longer than 0.04 s. [[Thygesen2018UDMI4C]]</td><td>A footprint of dead muscle that can last; it helps date an infarct.</td></tr>
+      <tr><th>de Winter pattern</th><td>Upsloping precordial ST depression &gt;1 mm at the J point is linked to LAD occlusion. [[deWinter2008,Thygesen2018UDMI4C]]</td><td>An occlusion without classic ST elevation.</td></tr>
+      <tr><th>de Zwaan–Wellens pattern</th><td>Precordial ST-T changes marking a critical stenosis high in the LAD: seen in 18% of 145 patients admitted with unstable angina; 12 of 16 not operated on (75%) had an extensive anterior MI within weeks. [[deZwaan1982]]</td><td>A high-risk warning sign, often between episodes of pain.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">STEMI, NSTEMI and the limits of the ECG</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Target</span><h4>An ECG within 10 minutes</h4><p>The 2023 ESC guideline says the 12-lead ECG should be "obtained immediately upon FMC [first medical contact] and interpreted ... within 10 min", and repeated as needed, especially if symptoms wane. Ambulance staff should record one as soon as possible and interpret or transmit it. UDMI4 sets the same 10-minute target. [[Byrne2023ESC,Thygesen2018UDMI4C]]</p><p>In 676 emergency department patients with STEMI at 10 US sites, the median door-to-ECG time was 7 minutes, but 37.9% waited longer than 10; those who waited were more often women and less often reported chest pain. [[Yiadom2022]] See <a href="#nursing" data-go="nursing">Nursing care</a>.</p></div>
+    <div class="card"><span class="tag dx">Classification</span><h4>STEMI or NSTE-ACS: a working diagnosis</h4><p>The ESC classifies the working diagnosis of acute coronary syndrome as STEMI or non-ST-elevation ACS using the clinical information available, including the ECG. [[Byrne2023ESC]] A normal ECG does not rule a heart attack out: the ECG may be normal in more than one-third of patients with NSTE-ACS, which is why <a href="#troponin" data-go="troponin">troponin</a> testing follows. [[Byrne2023ESC]]</p></div>
+    <div class="card"><span class="tag dx">Posterior MI</span><h4>The wall the 12 leads miss</h4><p>The back wall is seen "in the mirror" by V1–V3. The ESC calls ST depression in V1–V3 and/or ST elevation in V7–V9 "highly suggestive of posterior coronary artery occlusion". UDMI4 recommends a 0.5 mm ST-elevation cut-off in V7–V9 (≥1 mm in men under 40). [[Byrne2023ESC,Thygesen2018UDMI4C]]</p></div>
+    <div class="card"><span class="tag dx">LBBB &amp; paced rhythm</span><h4>When ST elevation cannot be judged: Sgarbossa</h4><p>The ESC says bundle branch block or a paced rhythm "precludes an accurate assessment" of ST elevation; with high clinical suspicion these patients are managed like a clear STEMI. [[Byrne2023ESC]] UDMI4 says ST elevation ≥1 mm concordant with the QRS may indicate ischaemia in LBBB. [[Thygesen2018UDMI4C]]</p><ul><li>Sgarbossa (GUSTO-1, 131 of 26,003 patients with LBBB, 0.5%): concordant ST elevation ≥1 mm, ST depression ≥1 mm in V1–V3, discordant ST elevation ≥5 mm. [[Sgarbossa1996]]</li><li>Smith's modification swaps the ≥5 mm rule for an ST/S ratio ≤ −0.25 and needs one criterion: sensitivity 91% vs 52%, specificity 90% vs 98% in derivation; 80% vs 49% and 99% vs 100% in validation. [[Smith2012,Meyers2015]]</li></ul></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Occlusion MI (OMI): beyond the millimetres</h4><p><span class="ev est">Established</span> In a meta-analysis of 40,777 people with NSTEMI, 25.5% had a totally occluded culprit artery, mostly inferolateral (40% right coronary, 33% circumflex), with higher short-term mortality (RR 1.67). [[Khan2017]]</p><p>In 808 patients, STEMI criteria were 41% sensitive and 94% specific for acute occlusion; blinded reading for predefined OMI findings was 86% sensitive and 91% specific. [[Meyers2021OMI]] In DIFOCCULT, reviewers reclassified 28.2% of the NSTEMI group as acute occlusion, with higher mortality. [[Aslanger2020]] ST depression maximal in V1–V4 was 97% specific for OMI. [[Meyers2021STD]]</p><p><span class="ev hyp">Hypothesis</span> Replacing STEMI/NSTEMI with occlusion vs non-occlusion MI has not been adopted by any guideline as of November 2026. [[Meyers2021OMI,Byrne2023ESC]]</p></div>
+    <div class="card"><span class="tag dx">Reperfusion</span><h4>When the artery reopens</h4><p>UDMI4 says reperfusion usually brings a large, prompt fall in ST elevation. [[Thygesen2018UDMI4C]] Try the <b>Artery reopened</b> button above, then see <a href="#reperfusion" data-go="reperfusion">Reperfusion: PCI &amp; clot-busting drugs</a>.</p></div>
+  </div>
+</section>
