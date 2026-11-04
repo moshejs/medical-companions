@@ -1,5 +1,62 @@
-<!-- ================= 4.3 STENTS OR BYPASS? REVASCULARISATION CHOICES (stub, replaced by its builder) ================= -->
+<!-- ================= 4.3 STENTS OR BYPASS? REVASCULARISATION CHOICES ================= -->
+<style>
+#m-cabg .card>.ev,#m-cabg .card>.tag{align-self:flex-start}
+#m-cabg .tbl table{min-width:680px}
+#m-cabg .cbF{display:flex;flex-wrap:wrap;gap:8px}
+#m-cabg .cbBoard{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+#m-cabg .cbBoard .card ul{gap:6px}
+#m-cabg .cbBoard .empty{color:var(--muted);font-size:15px}
+#m-cabg .cbSum{font:500 13px var(--mono);color:var(--muted)}
+</style>
 <section class="mod" id="m-cabg" data-mod="cabg" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Medicines &amp; revascularisation</p><h2>Stents or bypass? Revascularisation choices</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Narrowed coronary arteries can be opened from the inside with a balloon and stent (percutaneous coronary intervention, PCI) or bypassed with a graft in heart surgery (coronary artery bypass grafting, CABG). Step from one blocked artery to three, to the left main, to diabetes, and watch what the trials found.</p></div>
+
+  <div class="stepper" id="cbSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="cbSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Two hearts side by side with the same narrowed arteries. On the left, stents expand inside each narrowing (PCI); on the right, bypass grafts grow from the aorta and the internal mammary artery to the arteries beyond the narrowings (CABG). Outcome bars from the key trial for each scenario grow beside them: primary PCI versus fibrinolysis, SYNTAX, EXCEL and NOBLE, FREEDOM, the mammary-artery graft series, and CABG timing after MI."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cbPlay">Play</button><label class="stage-cap tl" for="cbT">Scenario <input type="range" id="cbT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="readout" id="cbRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> Lesions and grafts are placed to show the idea, not a real angiogram. Bars are the published percentages from each trial; each trial measured its own endpoint over its own follow-up, so compare the two arms within a row, not rows with each other. Most of these trials enrolled people with stable disease, not people in the middle of a heart attack. These are population statistics. [[Thuijs2019SYNTAXES,Head2018]]</p>
+    </div>
+    <aside class="note" id="cbNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The trials at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Result, as published</th><th>Keep in mind</th></tr></thead>
+    <tbody>
+      <tr><th>SYNTAX (1 year) [[Serruys2009SYNTAX]]</th><td>1,800 people with three-vessel or left main disease</td><td>Major adverse cardiac or cerebrovascular events (MACCE) 17.8% PCI vs 12.4% CABG, mainly repeat revascularisation (13.5% vs 5.9%)</td><td>Stroke higher with CABG: 2.2% vs 0.6%</td></tr>
+      <tr><th>SYNTAX (10 years) [[Thuijs2019SYNTAXES]]</th><td>Same patients; acute MI excluded</td><td>All-cause death 28% vs 24% (HR 1.19, 95% CI 0.99–1.43); three-vessel 28% vs 21% (HR 1.42); left main 27% vs 28%</td><td>The difference was in three-vessel disease</td></tr>
+      <tr class="hl"><th>FREEDOM [[Farkouh2012FREEDOM]]</th><td>1,900 people with diabetes; 83% three-vessel disease</td><td>5-year death, MI or stroke 26.6% PCI vs 18.7% CABG (P = 0.005)</td><td>Stroke higher with CABG: 5.2% vs 2.4%</td></tr>
+      <tr><th>EXCEL [[Stone2019EXCEL]]</th><td>1,905 people with left main disease of low or intermediate complexity</td><td>5-year death, stroke or MI 22.0% vs 19.2% (difference 2.8 points, 95% CI −0.9 to 6.5)</td><td>All-cause death 13.0% vs 9.9%</td></tr>
+      <tr><th>NOBLE [[Holm2020NOBLE]]</th><td>1,201 people with left main disease</td><td>5-year MACCE 28% PCI vs 19% CABG (HR 1.58)</td><td>All-cause mortality 9% vs 9%</td></tr>
+      <tr><th>Left main meta-analysis [[Sabatine2021]]</th><td>4,394 people from SYNTAX, PRECOMBAT, NOBLE and EXCEL</td><td>5-year death 11.2% vs 10.2% (HR 1.10, 95% CI 0.91–1.32)</td><td>Spontaneous MI (6.2% vs 2.6%) and repeat revascularisation (18.3% vs 10.7%) more common after PCI</td></tr>
+      <tr><th>Pooled 11 trials [[Head2018]]</th><td>11,518 people without acute MI</td><td>5-year mortality 11.2% PCI vs 9.2% CABG (HR 1.20); with multivessel disease and diabetes 15.5% vs 10.0% (HR 1.48)</td><td>Left main: 10.7% vs 10.5%</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">The heart team: which evidence speaks to which factor?</h3>
+  <p class="prose">Even the big trials disagree in places: for left main disease, EXCEL found no significant difference in its composite while NOBLE favoured CABG. [[Stone2019EXCEL,Holm2020NOBLE]] That is one reason the choice is made by a heart team with the patient. Switch on the factors in a teaching case and see which of the trials on this page studied them, and what they found. Factors the trials here did not test are shown as gaps.</p>
+  <div class="cbF" role="group" aria-label="Factors in the case">
+    <button class="btn" data-cbf="acute" aria-pressed="false">Heart attack happening now</button>
+    <button class="btn" data-cbf="complex" aria-pressed="true">Three-vessel disease</button>
+    <button class="btn" data-cbf="lm" aria-pressed="false">Left main disease</button>
+    <button class="btn" data-cbf="dm" aria-pressed="false">Diabetes</button>
+    <button class="btn" data-cbf="lv" aria-pressed="false">Weak heart muscle (low LV function)</button>
+    <button class="btn" data-cbf="risk" aria-pressed="false">Older age or high surgical risk</button>
+  </div>
+  <p class="cbSum" id="cbSum" aria-live="polite"></p>
+  <div class="cbBoard" id="cbBoard"></div>
+  <p class="teach"><b>Teaching tool</b>This board shows which trials studied which factor and what they reported. It is not a decision aid and gives no recommendation for any person: real choices weigh anatomy, other illnesses, the patient's wishes and evidence beyond this page.</p>
+
+  <div class="cards">
+    <div class="card"><span class="tag accent">Stable disease is different</span><h4>ISCHEMIA: not a heart attack</h4><p>ISCHEMIA enrolled 5,179 people with stable coronary disease and moderate or severe ischaemia. An initial invasive strategy did not reduce ischaemic events or death over a median 3.2 years compared with medicines first: 5-year event rates 16.4% vs 18.2%, and deaths 145 vs 144. Early events were higher with the invasive strategy (5.3% vs 3.4% at 6 months), largely from procedure-related MI. [[Maron2020ISCHEMIA]] It studied stable patients, so its result does not apply to STEMI or high-risk NSTE-ACS, where trials show benefit from timely reperfusion or invasive care. [[Maron2020ISCHEMIA,Keeley2003,FRISCII1999]]</p></div>
+    <div class="card"><span class="tag rx">After surgery</span><h4>Recovery after bypass</h4><p>In New York State, in-hospital mortality was lower the later CABG was done after an acute MI: 11.8% within 6 hours, 9.5% at 6 hours to 1 day and 2.8% after 1 day; the authors suggested that "waiting in some may be warranted" (observational data). [[Lee2001CABGtiming]] Cardiac rehabilitation reaches people after bypass far more often than after an MI without a procedure: 55.3% vs 7.1% of eligible US Medicare patients. [[Ritchey2020]] See <a href="#rehab" data-go="rehab">Cardiac rehabilitation</a>.</p></div>
+    <div class="card"><span class="tag warn">Labels, as published</span><h4>Blood thinners and surgery</h4><p>The BRILINTA (ticagrelor) boxed warning states: "Do not start BRILINTA in patients undergoing urgent coronary artery bypass graft surgery (CABG)." [[FDA-Brilinta]] The Plavix (clopidogrel) label states: "Discontinue 5 days prior to elective surgery that has a major risk of bleeding." [[FDA-Plavix]] The Effient (prasugrel) label states: "When possible, discontinue Effient at least 7 days prior to any surgery"; CABG-related TIMI major or minor bleeding was 14.1% with prasugrel vs 4.5% with clopidogrel. [[FDA-Effient]] These are quoted, not instructions: never stop these medicines without the prescribing team. More in <a href="#antithrombotic" data-go="antithrombotic">Antiplatelets &amp; anticoagulants</a>.</p></div>
+    <div class="card"><span class="tag good">Grafts</span><h4>One mammary graft or two?</h4><p>A graft from the internal mammary (internal thoracic) artery to the LAD is the graft linked to long-term survival: patients with vein grafts only had 1.61 times the risk of death over 10 years. [[Loop1986]] Adding a second mammary graft did not help further in ART: 10-year death 20.3% with two vs 21.2% with one (HR 0.96). [[Taggart2019ART]]</p></div>
+    <div class="card"><span class="tag brand">Emergencies</span><h4>When surgery is urgent</h4><p>ESC 2023: "Emergency coronary artery bypass grafting (CABG) surgery should be considered for patients" in whom PCI is not feasible or has failed (sentence quoted in part). [[Byrne2023ESC]] In the SHOCK trial, people with cardiogenic shock in the early revascularisation group had angioplasty in 55% and CABG in 38%. [[Hochman2001SHOCK1y]] More in <a href="#complications" data-go="complications">Complications &amp; cardiogenic shock</a>.</p></div>
+    <div class="card"><span class="tag accent">Several arteries during a heart attack</span><h4>Fixing the other narrowings</h4><p>In COMPLETE (4,041 people with STEMI and multivessel disease after successful culprit PCI), complete revascularisation reduced cardiovascular death or MI at a median 3 years (7.8% vs 10.5%; HR 0.74), whether the other PCI was during or after the hospital stay. [[Mehta2019COMPLETE]] In cardiogenic shock the opposite held: culprit-only PCI first (CULPRIT-SHOCK). [[Thiele2017CULPRIT]] How the artery is first reopened is in <a href="#reperfusion" data-go="reperfusion">Reperfusion</a>.</p></div>
+  </div>
 </section>

@@ -1,5 +1,97 @@
-<!-- ================= 3.4 COMPLICATIONS & CARDIOGENIC SHOCK (stub, replaced by its builder) ================= -->
+<!-- ================= 3.4 COMPLICATIONS & CARDIOGENIC SHOCK ================= -->
+<style>
+#m-complications .card>.ev,#m-complications .card>.tag{align-self:flex-start}
+#m-complications .tbl table{min-width:640px}
+#m-complications .readout span{white-space:normal}
+#m-complications .coSite{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-complications .coTr{display:flex;flex-wrap:wrap;gap:8px}
+#m-complications .num{font:600 13px var(--mono);white-space:nowrap}
+</style>
 <section class="mod" id="m-complications" data-mod="complications" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Emergency treatment</p><h2>Complications &amp; cardiogenic shock</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">What can go wrong in the hours, days and weeks after a heart attack (myocardial infarction, MI): dangerous rhythms, heart block, shock, tears in the heart wall, clots, pericarditis and heart failure. Scrub through the first 90 days, then see what the shock trials found.</p></div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+
+  <div class="coSite" role="group" aria-label="Infarct site">
+    <span class="kicker">Infarct site</span>
+    <button class="btn" data-cosite="ant" aria-pressed="true">Anterior (LAD blocked)</button>
+    <button class="btn" data-cosite="inf" aria-pressed="false">Inferior (RCA blocked)</button>
+  </div>
+  <div class="stepper" id="coSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A heart with an infarct in the chosen territory, a rhythm strip below it, and nine timeline rows on a logarithmic scale from 1 hour to 90 days. As time passes, each complication's window fills in with its published incidence, and numbered markers light up on the heart where it happens: VT or VF, cardiogenic shock, heart block, atrial fibrillation, mechanical rupture, LV thrombus or aneurysm, early pericarditis, heart failure and sudden death risk."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="coPlay">Play</button><label class="stage-cap tl" for="coT">Time after MI <input type="range" id="coT" min="0" max="1" step="0.001" value="0.12"></label></div>
+      <div class="readout" id="coRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> Time runs on a log scale. Where a cited study gives a window (VT/VF within 48 hours, AF before day 2, days 3–30 and after day 30, ruptures "most commonly within the first week", heart block's excess risk within 30 days), the band follows it. Other bands are drawn only to place the event; they are not measured. Percentages come from different cohorts and eras and are population statistics, not anyone's personal risk. ◆ marks a complication the cited studies link to the chosen infarct site. [[Mehta2009APEX,Jabre2011Community,Gong2021,Gang2012]]</p>
+    </div>
+    <aside class="note" id="coNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Complications at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Complication</th><th>How often (population statistics)</th><th>When</th><th>What it means for outcome</th><th>Clue in the cited studies</th></tr></thead>
+    <tbody>
+      <tr><th>Sustained VT or VF</th><td>5.7% of STEMI patients having primary PCI (APEX-AMI); primary VF in about 4% across 21 cohorts [[Mehta2009APEX,Gheeraert2006]]</td><td>64% before the end of catheterisation, 90% within 48 hours of symptom onset [[Mehta2009APEX]]</td><td>90-day mortality 23.2% vs 3.6% without; late VT/VF 33.3% [[Mehta2009APEX]]</td><td>Linked to ST elevation and early arrival: abrupt occlusion [[Gheeraert2006]]</td></tr>
+      <tr><th>Atrial fibrillation</th><td>6–21% in acute MI; 19% by 5 years in Olmsted County [[Schmitt2009AF,Jabre2011Community]]</td><td>30% of cases within 2 days, 16% on days 3–30, 54% after day 30 [[Jabre2011Community]]</td><td>Higher mortality (OR 1.46) and stroke, even when it was transient [[Jabre2011Meta,Schmitt2009AF]]</td><td>Older age, heart failure, low LV function [[Schmitt2009AF]]</td></tr>
+      <tr><th>High-degree AV block</th><td>3.2% in the primary PCI era, 6.9% in the fibrinolytic era; complete heart block 2.2% of US STEMI admissions [[Gang2012,Meine2005,Harikrishnan2015]]</td><td>Excess mortality confined to the first 30 days [[Gang2012]]</td><td>In-hospital mortality 20.4% vs 8.7% with complete heart block [[Harikrishnan2015]]</td><td>Inferior MI, right coronary artery occlusion [[Meine2005,Gang2012]]</td></tr>
+      <tr><th>Right ventricular infarction</th><td>V4R ST elevation in 54% of 200 inferior MIs [[Zehender1993]]</td><td>With acute inferior MI</td><td>In-hospital mortality 31% vs 6% [[Zehender1993]]</td><td>ST elevation in V4R: sensitivity 88%, specificity 78% [[Zehender1993]]</td></tr>
+      <tr class="hl"><th>Cardiogenic shock</th><td>Up to 10% right after acute MI; 7.9% of US STEMI (2003–2010) [[Samsky2021,Kolte2014]]</td><td>Median onset 5.6 hours after infarction in the SHOCK trial [[Hochman1999SHOCK]]</td><td>About 40% die by 30 days, approaching 50% at 1 year [[Samsky2021]]</td><td>Most infarcts in the SHOCK trial were anterior [[Hochman1999SHOCK]]</td></tr>
+      <tr><th>Mechanical rupture (papillary muscle, septum, free wall)</th><td>0.27% of STEMI and 0.06% of NSTEMI admissions [[Elbadawi2019]]</td><td>Most often within the first week [[Gong2021]]</td><td>In-hospital mortality 42.4% after STEMI [[Elbadawi2019]]</td><td>Often presents as shock or acute pulmonary oedema; echo first [[Gong2021]]</td></tr>
+      <tr><th>LV thrombus</th><td>Up to 15% of STEMI, up to 25% of anterior MI, with optimal imaging [[McCarthy2018LVT]]</td><td>Not given in the cited sources</td><td>Risk of embolism: anticoagulation once found [[McCarthy2018LVT]]</td><td>Cardiac MRI more sensitive than echo [[Levine2022LVT]]</td></tr>
+      <tr><th>Early pericarditis</th><td>1.2% of STEMI (Israel, 2000–2013), down 35% [[Lador2018]]</td><td>Early after MI</td><td>Survival at 30 days, 1 and 5 years did not differ [[Lador2018]]</td><td>Longer time to reperfusion, larger infarcts [[Lador2018]]</td></tr>
+      <tr><th>Heart failure</th><td>23.1% within 30 days (1990s, Framingham); about 35% over 7.6 years (Olmsted County) [[Velagaleti2008,Gerber2016]]</td><td>Early or delayed; delayed onset carried higher risk [[Gerber2016]]</td><td>Adjusted HR for death 2.49 [[Gerber2016]]</td><td>More people survive the MI and live on with a weakened heart [[Velagaleti2008]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Cardiogenic shock: when the pump cannot keep up</h3>
+  <p class="prose">Cardiogenic shock is end-organ hypoperfusion caused by heart failure, often with failure of several organs at once. [[vanDiepen2017]] In the US it affects 40,000 to 50,000 people a year and is the leading cause of in-hospital death after acute MI. [[Samsky2021]] The SCAI scheme stages it from A to E. [[Baran2019SCAI]]</p>
+  <div class="stepper" id="coShSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coShSvg" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="Cardiogenic shock staged from SCAI A to E. A small heart sends blood to the kidneys and other organs; the flow arrows thin and the organs fade as the stage worsens. Three schematic gauges, pump output, pressure and organ blood flow, fall. Organ blood flow holds up in stage B and falls from stage C, when hypoperfusion is present. From stage C a stent reopens the blocked artery."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="coShPlay">Play</button><label class="stage-cap tl" for="coShT">SCAI stage <input type="range" id="coShT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> Needles show direction only: no measured values and no diagnostic thresholds. Stage names as published by SCAI. [[Baran2019SCAI]]</p>
+    </div>
+    <aside class="note" id="coShNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The shock trials board</h3>
+  <p class="prose">Five randomised trials shaped how shock after MI is treated. Pick one to see its arms side by side, per 100 people. Outcomes are as published; each trial measured a different endpoint at a different time, so compare within a trial, not across. These are population statistics.</p>
+  <div class="coTr" role="group" aria-label="Shock trial">
+    <button class="btn" data-cotr="shock" aria-pressed="true">SHOCK (1999)</button>
+    <button class="btn" data-cotr="iabp" aria-pressed="false">IABP-SHOCK II (2012)</button>
+    <button class="btn" data-cotr="culprit" aria-pressed="false">CULPRIT-SHOCK (2017)</button>
+    <button class="btn" data-cotr="ecls" aria-pressed="false">ECLS-SHOCK (2023)</button>
+    <button class="btn" data-cotr="danger" aria-pressed="false">DanGer Shock (2024)</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coTrSvg" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="Five shock trials as paired bars, the tested strategy against its comparator, for each trial's primary outcome. The selected trial is highlighted and shown as two arrays of 100 people. For the SHOCK trial a survival chart adds 30 days, 6 months, 1 year and 6 years."></svg></div>
+      <div class="legend"><span><i style="background:var(--brand)"></i>tested strategy</span><span><i style="background:var(--muted)"></i>comparator</span></div>
+    </div>
+    <aside class="note" id="coTrNote" aria-live="polite"></aside>
+  </div>
+  <p class="callout">Taken together: early revascularisation (SHOCK) and culprit-only PCI (CULPRIT-SHOCK) improved survival. Routine balloon pumps and routine ECLS did not. The microaxial pump lowered 180-day death in a selected STEMI shock population, at the cost of more complications. <span class="ev est">Established</span> Who benefits from mechanical support is still unresolved. [[Hochman2006SHOCKlong,Thiele2017CULPRIT,Thiele2012IABP,Thiele2023ECLS,Moller2024DanGer]] For how arteries are reopened, see <a href="#reperfusion" data-go="reperfusion">Reperfusion</a>.</p>
+
+  <h3 class="sub">Sudden death risk and the defibrillator gap</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coIcdSvg" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="A timeline of the first two years after MI. A tall bar shows the sudden-death rate in the first month in VALIANT, falling to a short bar after two years. Below it, bands show when the trials tested defibrillators: DINAMIT and IRIS in the first weeks, the wearable defibrillator in VEST up to 90 days, the period when ICDs are not implanted, and the PROFID EHRA trial from 3 months."></svg></div>
+      <div class="ctrls"><button class="btn" id="coEf" aria-pressed="false">Show LVEF ≤30%</button></div>
+      <p class="stage-cap">Bars are published rates; the dashed line between them is drawn, not measured. Month scale is stretched at the start. [[Solomon2005VALIANT]]</p>
+    </div>
+    <aside class="note" id="coIcdNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="cards">
+    <div class="card"><span class="tag brand">Defibrillators</span><h4>Why an ICD is not fitted straight away</h4><p>In VALIANT, sudden death or resuscitated arrest was most likely in the first 30 days: 1.4% a month, and 2.3% a month with LVEF of 30% or less. [[Solomon2005VALIANT]] Yet two trials of early implantable cardioverter-defibrillators (ICDs), DINAMIT (6–40 days) and IRIS (5–31 days), found no fall in overall mortality: arrhythmic deaths fell but other deaths rose. [[Hohnloser2004DINAMIT,Steinbeck2009IRIS]] Later, in people with a prior MI and LVEF of 0.30 or less, MADIT-II showed lower mortality with an ICD (14.2% vs 19.8%; HR 0.69). [[Moss2002MADIT]]</p></div>
+    <div class="card"><span class="tag brand">Wearable defibrillator</span><h4>VEST: bridging the gap</h4><p>The VEST authors note that ICDs are contraindicated until 40 to 90 days after MI. In 2,302 people with LVEF of 35% or less, a wearable defibrillator did not significantly lower arrhythmic death at 90 days (1.6% vs 2.4%). All-cause death was 3.1% vs 4.9%, a secondary outcome. Median wear time was 18 hours a day, and only 12 of the 48 people in the device group who died were wearing it. [[Olgin2018VEST]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Is the ICD benefit shrinking?</h4><p>In 32,214 people with LVEF of 35% or less after MI (observational data), the mortality reduction linked to primary-prevention ICDs fell from HR 0.54 (1995–2004) to 0.89, not significant, in 2015–2020. [[SepehriShamloo2026]] The randomised PROFID EHRA trial is testing optimal medical therapy without an ICD against therapy with one, with estimated primary completion in November 2027. [[Dagres2026PROFID,NCT05665608]]</p></div>
+    <div class="card"><span class="tag good">Long-term outlook</span><h4>Survival has improved</h4><p>In Sweden (105,674 people with STEMI), 1-year mortality fell from 22.1% in 1995 to 14.1% in 2014, as primary PCI rose from 4.5% to 78.0% and statin use from 14.1% to 93.6%. Gains levelled off from about 2008. [[Szummer2017STEMI]] In Framingham, 5-year mortality after a first MI fell from 41.1% (1970s) to 17.3% (1990s). [[Velagaleti2008]] These are population statistics: they cannot predict what will happen to one person.</p></div>
+    <div class="card"><span class="tag warn">After discharge</span><h4>Events and readmission</h4><p>Among 97,254 Swedish MI survivors, 18.3% had a non-fatal MI, non-fatal stroke or cardiovascular death in the first year, and 20.0% of those event-free at 1 year had one in the next 36 months. Heart failure and no revascularisation raised that risk. [[Jernberg2015]] In US Medicare, 19.9% were readmitted within 30 days, at a median of 10 days, and only 10.0% of readmissions were for another MI. [[Dharmarajan2013]] Recovery support is covered in <a href="#rehab" data-go="rehab">Cardiac rehabilitation</a>.</p></div>
+    <div class="card"><span class="tag accent">Heart failure</span><h4>Living longer, with a weaker heart</h4><p>As more people survive the MI itself, more live on with heart failure: in Framingham, 5-year heart-failure incidence rose from 27.6% to 31.9% while mortality fell. [[Velagaleti2008]] In Olmsted County, 5-year survival with post-MI heart failure improved from 54% to 61%, against 82% without it (2001–2010). [[Gerber2016]] Medicines that protect the heart are in <a href="#secondary" data-go="secondary">Medicines after a heart attack</a>.</p></div>
+  </div>
+  <p class="teach"><b>Teaching tool</b>The timelines, stages and trial numbers on this page explain how complications are studied and treated in hospital. They are not a way to judge symptoms at home or to decide whether to seek care.</p>
 </section>
