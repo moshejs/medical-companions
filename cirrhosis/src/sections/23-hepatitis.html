@@ -1,5 +1,74 @@
-<!-- ================= 2.3 VIRAL HEPATITIS B & C (stub, replaced by its builder) ================= -->
+<!-- ================= 2.3 VIRAL HEPATITIS B & C ================= -->
+<style>
+#m-hepatitis .he-urgent{border:1px solid var(--bile);background:var(--accent-soft);border-radius:var(--r);padding:12px 16px;max-width:none}
+#m-hepatitis .he-urgent b{color:var(--accent)}
+#m-hepatitis .card>.tag,#m-hepatitis .card>.ev{align-self:flex-start}
+#m-hepatitis .card svg{width:100%;height:auto;display:block;max-width:320px}
+#m-hepatitis .he-pick{display:flex;flex-wrap:wrap;gap:8px}
+#m-hepatitis .he-q{font-style:italic}
+</style>
 <section class="mod" id="m-hepatitis" data-mod="hepatitis" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Causes</p><h2>Viral hepatitis B &amp; C</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Two blood-borne viruses that scar the liver slowly over decades. Hepatitis B can be prevented by a vaccine and kept quiet with tablets, and the scar can then recede. Hepatitis C can now be cured with a short course of tablets. Follow both side by side.</p></div>
+  <div class="stepper" id="heSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="heSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Two lanes, hepatitis B above and hepatitis C below, each with a liver circled by virus particles. Hepatitis B: global numbers and the care cascade, chronic infection by age at infection, cirrhosis risk rising with viral load in REVEAL-HBV while the liver scars, then antiviral tablets that clear the particles while the scar recedes in 71 of 96 people. Hepatitis C: global numbers, a 30-year timeline through fibrosis stages F0 to F4, then a cure with direct-acting antivirals, ten-year outcomes with and without cure, and a magnifier showing that liver cancer checks continue."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hePlay">Play</button><label class="stage-cap tl" for="heT">Story <input type="range" id="heT" min="0" max="1" step="0.001" value="0.12"></label></div>
+      <div class="readout" id="heRead"></div>
+      <p class="stage-cap">Livers, particles and the fibrosis path are schematic. Bars and counts are published figures. Risks and survival figures are population statistics from cohorts and trials. They do not predict what will happen to any one person. [[Polaris2023HBV,Polaris2022HCV,Iloeje2006,Marcellin2013,Poynard1997,vanderMeer2012]]</p>
+    </div>
+    <aside class="note" id="heNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Cure rates, then and now</h3>
+  <div class="prose"><p>Hepatitis C treatment used to rely on injected interferon. Pick a row to see how many people in 100 were cured in each published trial. The first row is not a treatment: it shows how many people clear the virus on their own after a new infection.</p></div>
+  <div class="he-pick" role="group" aria-label="Choose a published cure rate">
+    <button class="btn" data-cure="0" aria-pressed="false">No treatment</button>
+    <button class="btn" data-cure="1" aria-pressed="false">2013, with peginterferon</button>
+    <button class="btn" data-cure="2" aria-pressed="true">ASTRAL-1</button>
+    <button class="btn" data-cure="3" aria-pressed="false">EXPEDITION-1 (cirrhosis)</button>
+    <button class="btn" data-cure="4" aria-pressed="false">ASTRAL-4 (decompensated)</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="heCure" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="An array of 100 person icons fills in to show how many people in 100 were cured in the chosen trial, beside bars comparing spontaneous clearance (26%), sofosbuvir with peginterferon and ribavirin in 2013 (90%), ASTRAL-1 (99%), EXPEDITION-1 in compensated cirrhosis (99%) and ASTRAL-4 in decompensated cirrhosis with ribavirin (94%)."></svg></div>
+      <p class="stage-cap">Each figure comes from a different trial population, so the rows are not a head-to-head comparison. [[Micallef2006,Lawitz2013,Feld2015ASTRAL1,Forns2017EXPEDITION1,Curry2015ASTRAL4]]</p>
+    </div>
+    <aside class="note" id="heCureNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the labels say</h3>
+  <div class="prose"><p>US prescribing information, quoted as published. This is not dosing advice: treatment choices are made with a liver team. [[FDA-Baraclude,FDA-Viread,FDA-Vemlidy,FDA-Epclusa,FDA-Mavyret]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Medicine</th><th>Virus</th><th>Label statement (as published)</th><th>Boxed warning</th></tr></thead>
+    <tbody>
+      <tr><td><b>Entecavir</b> (Baraclude)</td><td>B</td><td>0.5 mg once daily for nucleoside-naïve adults (16 years and over) with compensated liver disease; 1 mg once daily for decompensated liver disease; on an empty stomach [[FDA-Baraclude]]</td><td rowspan="3">Stopping anti-hepatitis B therapy can cause severe acute exacerbations of hepatitis B; close monitoring for at least several months after stopping [[FDA-Baraclude,FDA-Viread,FDA-Vemlidy]]</td></tr>
+      <tr><td><b>Tenofovir disoproxil fumarate</b> (Viread)</td><td>B</td><td>One 300 mg tablet once daily for adults and children weighing at least 35 kg; kidney function tests before and during use [[FDA-Viread]]</td></tr>
+      <tr><td><b>Tenofovir alafenamide</b> (Vemlidy)</td><td>B</td><td>25 mg once daily with food; not recommended in decompensated (Child–Pugh B or C) hepatic impairment [[FDA-Vemlidy]]</td></tr>
+      <tr><td><b>Sofosbuvir–velpatasvir</b> (Epclusa)</td><td>C</td><td>Sofosbuvir 400 mg/velpatasvir 100 mg once daily: 12 weeks without cirrhosis or with compensated (Child–Pugh A) cirrhosis; with ribavirin for 12 weeks in decompensated (Child–Pugh B and C) cirrhosis [[FDA-Epclusa]]</td><td rowspan="2">Hepatitis B reactivation in people with both viruses. Test everyone for current or prior hepatitis B (HBsAg and anti-HBc) before starting; some cases caused fulminant hepatitis, liver failure and death [[FDA-Epclusa,FDA-Mavyret,FDA-HarvoniD]]</td></tr>
+      <tr><td><b>Glecaprevir–pibrentasvir</b> (Mavyret)</td><td>C</td><td>Glecaprevir 300 mg/pibrentasvir 120 mg daily, as three tablets with food: 8 weeks for treatment-naïve people without cirrhosis or with compensated cirrhosis; indicated only without cirrhosis or with compensated (Child–Pugh A) cirrhosis [[FDA-Mavyret]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>AASLD 2018 lists entecavir, tenofovir DF, tenofovir alafenamide and peginterferon as preferred hepatitis B therapies, with no preference between entecavir and tenofovir. For decompensated hepatitis B cirrhosis it states that people should be referred for transplant consideration while antiviral therapy is started, that therapy is indefinite, and that peginterferon is contraindicated [[Terrault2018AASLD]]. AASLD-IDSA 2023 hepatitis C guidance stresses universal screening and widens access to simplified, minimal-monitoring treatment [[Bhattacharya2023HCV]].</p></div>
+
+  <h3 class="sub">Prevention, hepatitis D and safety</h3>
+  <div class="cards">
+    <div class="card"><span class="tag liver">Vaccine</span><h4>A vaccine that prevents a cancer</h4>
+      <svg id="heTw" viewBox="0 0 300 116" role="img" aria-label="Bars: childhood liver cancer per 100,000 children aged 6 to 14 per year in Taiwan, 0.70 in 1981–86, 0.57 in 1986–90 and 0.36 in 1990–94."></svg>
+      <p>Taiwan began universal hepatitis B vaccination in July 1984. Liver cancer in children aged 6–14 fell from 0.70 to 0.36 per 100,000 a year [[Chang1997NEJM]]. After 20 years, people vaccinated at birth had a relative risk of liver cancer of 0.31 against unvaccinated birth cohorts. Risk stayed higher with fewer than three doses [[Chang2009JNCI]].</p></div>
+    <div class="card"><span class="tag liver">Mother to baby</span><h4>Protecting newborns</h4>
+      <p>In a trial of 200 HBeAg-positive mothers with high viral load, tenofovir DF from 30–32 weeks of pregnancy lowered transmission to the baby from 18% to 5%. All babies also had immunoprophylaxis [[Pan2016NEJM]]. Worldwide, 85% of infants get three vaccine doses, but only 46% get a timely birth dose, and only 3% of mothers with a high viral load receive antivirals to prevent transmission [[Polaris2023HBV]].</p></div>
+    <div class="card"><span class="tag liver">Hepatitis D</span><h4>Delta: the most aggressive</h4>
+      <p>Hepatitis D virus needs hepatitis B to complete its life cycle. EASL calls it the most aggressive hepatitis virus, with rapid progression to cirrhosis, decompensation and HCC [[EASL2023HDV]]. A meta-analysis estimated antibodies in 4.5% of HBsAg-positive people [[Stockdale2020HDV]]. Later adjusted estimates were substantially lower, so how common it is remains unresolved [[Polaris2024HDV]].</p>
+      <p>Bulevirtide (Hepcludex) won FDA accelerated approval on 22 May 2026. The label states that clinical outcome benefit has not been established, and it carries a boxed warning about flares after stopping [[FDA-Hepcludex]]. In MYR301, 45–48% had a combined response at week 48, against 2% of controls [[Wedemeyer2023MYR301]].</p></div>
+    <div class="card"><span class="tag bad">Boxed warning</span><h4>Hepatitis B can wake up during hepatitis C cure</h4>
+      <p>Epclusa, Mavyret and Harvoni carry a boxed warning about hepatitis B reactivation in people with both viruses. The labels say to test everyone for current or prior hepatitis B before starting [[FDA-Epclusa,FDA-Mavyret,FDA-HarvoniD]]. An FDA review found 29 reports of reactivation during DAA therapy between 2013 and 2016. Two people died and one needed a transplant [[BersoffMatcha2017]].</p></div>
+    <div class="card"><span class="tag accent">After cure</span><h4>Lower risk, not zero</h4>
+      <p>In Sicily, one-year HCC incidence after DAAs was 2.1% with cure versus 6.6% without in Child–Pugh A, and 7.8% versus 12.4% in Child–Pugh B [[Calvaruso2018]]. Kanwal and colleagues found no evidence that DAAs promote HCC [[Kanwal2017]]. AASLD 2023 says HCC risk stays raised for up to 10 years after SVR in hepatitis C cirrhosis, so surveillance continues indefinitely in that group [[Singal2023AASLDHCC]]. See <a href="#hcc" data-go="hcc">Liver cancer surveillance</a>.</p></div>
+    <div class="card"><span class="tag accent">Alcohol and HBV</span><h4>Other things that add up</h4>
+      <p>AASLD 2018 links more than 7 drinks a week for women, or more than 14 for men, to a higher risk of cirrhosis and HCC in hepatitis B. It calls abstinence or minimal intake "the conservative approach" [[Terrault2018AASLD]]. In hepatitis C, drinking 50 g a day or more speeds scarring [[Poynard1997]]. Scar can recede once the cause is controlled; see <a href="#fibrosis" data-go="fibrosis">From injury to scar</a>.</p></div>
+  </div>
+
+  <p class="callout he-urgent"><b>Get urgent care for:</b> vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen. Call your local emergency number or go to an emergency department.</p>
 </section>
