@@ -71,7 +71,7 @@ inits.screening=()=>{
   function panel(L,p,t){const [x,y,w,h]=L.P,N=L.nar;let s=`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
     const title=tx=>`<text x="${x+14}" y="${y+20}" class="t-sm" style="fill:var(--dx);font-weight:600">${tx}</text>`;
     if(p===0){s+=title(N?'THE SCREENING GAP · US, 2017':'THE SCREENING GAP · 13 US STATES AND DC, 2017');
-      const rows=[['Asked about alcohol at a checkup (past 2 years)',81.4],['Asked about binge-level drinking',37.8],['Binge drinkers advised to cut down or quit',20.1]],g=ramp(t,.02,.16);
+      const rows=[['Asked about alcohol at a checkup (past 2 years)',81.4],['Asked about binge-level drinking',37.8],['Binge drinkers advised to cut down or quit',20.1]],g=ramp(t,0,.06);
       rows.forEach(([lab,v],i)=>{const ry=y+(N?44:42)+i*(N?50:36),bx=x+14,bw=w-(N?84:300),lx=N?bx:x+w-276;
         if(N)s+=`<text x="${bx}" y="${ry}" class="t-xs">${lab}</text>`;else s+=`<text x="${x+w-14}" y="${ry+11}" class="t-xs t-end">${lab}</text>`;
         const by=N?ry+6:ry;s+=`<rect x="${bx}" y="${by}" width="${f1(bw)}" height="14" rx="7" style="fill:var(--panel-2)"/><rect x="${bx}" y="${by}" width="${f1(bw*v/100*g)}" height="14" rx="7" style="fill:var(--dx);opacity:${i?.6:.9}"/><text x="${f1(bx+bw+8)}" y="${by+11.5}" class="t-lbl">${f1(v*g)}%</text>`});
@@ -152,7 +152,7 @@ inits.screening=()=>{
     if(t<.2)mp=wA;else if(t<.3)mp=along([wA,wB],ramp(t,.2,.3));else if(t<.38)mp=wB;else if(t<.42)mp=along([wB,wC],ramp(t,.38,.42));else if(t<.56)mp=wC;
     else mp=along([wC,z3],ramp(t,.56,.62));
     const lab=t<.3?'':t<.42?'AUDIT-C 7':t<.56?`AUDIT ${tot}`:'AUDIT 17';
-    if(t>=.22&&t<.5){const np=t<.3?along([wA,wB],ramp(t,.22,.3)):(N?along([wB,wN],ramp(t,.3,.36)):along([wB,[L.B[0]+L.B[2]+24,wB[1]],[L.B[0]+L.B[2]+24,L.Neg[1]+L.Neg[3]/2]],ramp(t,.3,.36)));s+=token(np[0],np[1],'var(--muted)','')}
+    if(t>=.22&&t<.5){const np=t<.3?along([wA,wB],ramp(t,.22,.3)):(N?along([wB,wN],ramp(t,.28,.33)):along([wB,[L.B[0]+L.B[2]+24,wB[1]],[L.B[0]+L.B[2]+24,L.Neg[1]+L.Neg[3]/2]],ramp(t,.28,.33)));s+=token(np[0],np[1],'var(--muted)','')}
     if(t>=.8){const q=t<.86?along([wA,wB,wC],ramp(t,.8,.86)):along([wC,z4],ramp(t,.86,.9));s+=token(q[0],q[1],'var(--bad)',t>=.86&&!N?'AUDIT 23':'')}
     s+=token(mp[0],mp[1],'var(--dx)',N?'':lab);
     s+=panel(L,p,t);

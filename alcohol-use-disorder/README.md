@@ -19,7 +19,7 @@ A left rail of modules, one module per page, and SVG animations you scrub with a
 | 5 · Body, family & care | The liver: fatty liver to cirrhosis · Alcohol and the whole body: cancer, heart, brain · Families, friends and everyday life · Pregnancy and fetal alcohol spectrum disorders · Nursing care in hospital · Research frontier (evidence-labelled) |
 | 6 · Context & review | A history of alcohol use disorder · Flashcards & memory aids · Quiz · Glossary · Sources |
 
-Every research claim links to a numbered entry in the Sources module (%CITED% cited sources). Research-landscape claims carry an evidence label: *Established*, *Early evidence* or *Hypothesis*. The language is person-first ("people with alcohol use disorder", never "alcoholic"), suicide content follows safe-messaging guidance, and the help line text is on the home page and in the disclaimer.
+Every research claim links to a numbered entry in the Sources module (455 cited sources). Research-landscape claims carry an evidence label: *Established*, *Early evidence* or *Hypothesis*. The language is person-first ("people with alcohol use disorder", never "alcoholic"), suicide content follows safe-messaging guidance, and the help line text is on the home page and in the disclaimer.
 
 ## How it was made
 

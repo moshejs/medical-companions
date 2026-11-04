@@ -1197,7 +1197,7 @@ inits.screening=()=>{
   function panel(L,p,t){const [x,y,w,h]=L.P,N=L.nar;let s=`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
     const title=tx=>`<text x="${x+14}" y="${y+20}" class="t-sm" style="fill:var(--dx);font-weight:600">${tx}</text>`;
     if(p===0){s+=title(N?'THE SCREENING GAP · US, 2017':'THE SCREENING GAP · 13 US STATES AND DC, 2017');
-      const rows=[['Asked about alcohol at a checkup (past 2 years)',81.4],['Asked about binge-level drinking',37.8],['Binge drinkers advised to cut down or quit',20.1]],g=ramp(t,.02,.16);
+      const rows=[['Asked about alcohol at a checkup (past 2 years)',81.4],['Asked about binge-level drinking',37.8],['Binge drinkers advised to cut down or quit',20.1]],g=ramp(t,0,.06);
       rows.forEach(([lab,v],i)=>{const ry=y+(N?44:42)+i*(N?50:36),bx=x+14,bw=w-(N?84:300),lx=N?bx:x+w-276;
         if(N)s+=`<text x="${bx}" y="${ry}" class="t-xs">${lab}</text>`;else s+=`<text x="${x+w-14}" y="${ry+11}" class="t-xs t-end">${lab}</text>`;
         const by=N?ry+6:ry;s+=`<rect x="${bx}" y="${by}" width="${f1(bw)}" height="14" rx="7" style="fill:var(--panel-2)"/><rect x="${bx}" y="${by}" width="${f1(bw*v/100*g)}" height="14" rx="7" style="fill:var(--dx);opacity:${i?.6:.9}"/><text x="${f1(bx+bw+8)}" y="${by+11.5}" class="t-lbl">${f1(v*g)}%</text>`});
@@ -1278,7 +1278,7 @@ inits.screening=()=>{
     if(t<.2)mp=wA;else if(t<.3)mp=along([wA,wB],ramp(t,.2,.3));else if(t<.38)mp=wB;else if(t<.42)mp=along([wB,wC],ramp(t,.38,.42));else if(t<.56)mp=wC;
     else mp=along([wC,z3],ramp(t,.56,.62));
     const lab=t<.3?'':t<.42?'AUDIT-C 7':t<.56?`AUDIT ${tot}`:'AUDIT 17';
-    if(t>=.22&&t<.5){const np=t<.3?along([wA,wB],ramp(t,.22,.3)):(N?along([wB,wN],ramp(t,.3,.36)):along([wB,[L.B[0]+L.B[2]+24,wB[1]],[L.B[0]+L.B[2]+24,L.Neg[1]+L.Neg[3]/2]],ramp(t,.3,.36)));s+=token(np[0],np[1],'var(--muted)','')}
+    if(t>=.22&&t<.5){const np=t<.3?along([wA,wB],ramp(t,.22,.3)):(N?along([wB,wN],ramp(t,.28,.33)):along([wB,[L.B[0]+L.B[2]+24,wB[1]],[L.B[0]+L.B[2]+24,L.Neg[1]+L.Neg[3]/2]],ramp(t,.28,.33)));s+=token(np[0],np[1],'var(--muted)','')}
     if(t>=.8){const q=t<.86?along([wA,wB,wC],ramp(t,.8,.86)):along([wC,z4],ramp(t,.86,.9));s+=token(q[0],q[1],'var(--bad)',t>=.86&&!N?'AUDIT 23':'')}
     s+=token(mp[0],mp[1],'var(--dx)',N?'':lab);
     s+=panel(L,p,t);
@@ -1527,15 +1527,15 @@ const BM_ROWS=[
  {k:'eth',n:'Ethanol',s:'breath, blood',c:'var(--eth-fill)',lo:5/24,hi:15/24,rl:'5–15 h',lv:d=>clamp(1-d*24/10),
   st:d=>{const h=d*24,v=1.5-.15*h;return v>0?['positive: '+v.toFixed(2)+' g/L','var(--bad)']:['cleared','var(--good)']}},
  {k:'etg',n:'EtG / EtS',s:'urine',c:'var(--acet)',lo:40/24,hi:130/24,rl:'40–130 h',lv:d=>d<40/24?1:clamp(1-(d-40/24)/(130/24-40/24))*.8,
-  st:d=>d<40/24?['positive','var(--bad)']:d<130/24?['may still be positive','var(--warn)']:['usually negative','var(--good)']}},
+  st:d=>d<40/24?['positive','var(--bad)']:d<130/24?['may still be positive','var(--warn)']:['usually negative','var(--good)']},
  {k:'peth',n:'PEth',s:'whole blood',c:'var(--dx)',lo:28,hi:42,rl:'still seen in week 4',lv:d=>{const p=BM_PETH0*Math.pow(.5,d/BM_PHL);return clamp(Math.log(p/20)/Math.log(BM_PETH0/20))},
   st:d=>{const p=BM_PETH0*Math.pow(.5,d/BM_PHL);return [Math.round(p)+' ng/mL'+(p>=200?' · heavy band':p>=20?' · significant band':' · light or none band'),p>=20?'var(--warn)':'var(--good)']}},
  {k:'cdt',n:'CDT',s:'serum',c:'var(--gaba-fill)',lo:15,hi:15,rl:'half-life ~15 d',lv:d=>Math.pow(.5,d/15),
   st:d=>[Math.round(100*Math.pow(.5,d/15))+'% of the rise left','var(--warn)']},
  {k:'ggt',n:'GGT',s:'serum',c:'var(--liver)',lo:14,hi:21,rl:'2–3 weeks',lv:d=>d<14?1-d/28:clamp(.5*(1-(d-14)/7)),
-  st:d=>d<14?['may still be raised','var(--warn)']:d<21?['normalising','var(--warn)']:['usually normal','var(--good)']}},
+  st:d=>d<14?['may still be raised','var(--warn)']:d<21?['normalising','var(--warn)']:['usually normal','var(--good)']},
  {k:'mcv',n:'MCV',s:'red cell size',c:'var(--accent)',lo:60,hi:120,rl:'2–4 months',lv:d=>d<60?1-d/120:clamp(.5*(1-(d-60)/60)),
-  st:d=>d<60?['still raised','var(--warn)']:d<120?['normalising','var(--warn)']:['usually normal','var(--good)']}}];
+  st:d=>d<60?['still raised','var(--warn)']:d<120?['normalising','var(--warn)']:['usually normal','var(--good)']}];
 const BM_STEPS=[
  {from:0,at:.055,k:'Hours',t:'Ethanol itself: hours',
   txt:`Ethanol in breath, blood or urine shows only current or very recent drinking, because it is eliminated at about 0.15 g/L an hour (range 0.1–0.3). From an illustrative 1.5 g/L that is about 10 hours, anywhere from 5 to 15. People with AUD in detoxification may clear 25–35 mg/100 mL an hour, because CYP2E1 activity is raised. A blood ethanol above 1.5‰ without obvious intoxication indicates tolerance. <sup class="c" data-ref="Jones2024BiomarkerHistory,Jones2010,Niemela2016Biomarkers" title="Source 212,214,346">212,214,346</sup>`,
@@ -1586,10 +1586,10 @@ inits.biomarkers=()=>{
     const X=dd=>L.x0+(L.x1-L.x0)*bmT(dd);let s='';
     s+=`<text x="14" y="${N?24:26}" class="t-sm" style="fill:var(--dx);font-weight:600">TIME SINCE HEAVY DRINKING STOPPED</text>`;
     s+=`<text x="${N?14:704}" y="${N?50:28}" class="${N?'':'t-end'}" style="font:800 ${N?22:24}px var(--display);fill:var(--ink)">${bmFmtD(d)}</text>`;
-    BM_ROWS.forEach((r,i)=>{const y=L.top+i*L.pitch,by=N?y+20:y,on=[['eth'],['etg'],['ggt','cdt'],['peth'],['mcv'],[]][p].includes(r.k)||p===5,st=r.st(d);
+    BM_ROWS.forEach((r,i)=>{const y=L.top+i*L.pitch,by=N?y+30:y,on=[['eth'],['etg'],['ggt','cdt'],['peth'],['mcv'],[]][p].includes(r.k)||p===5,st=r.st(d);
       /* label column (wide) or label line (narrow) */
       if(N){s+=`<text x="14" y="${y+12}" class="t-lbl" style="${on?'':'fill:var(--muted)'}">${r.n} <tspan class="t-xs">${r.s}</tspan></text><text x="386" y="${y+12}" class="t-xs t-end" style="fill:${st[1]};font-weight:600">${st[0]}</text>`}
-      else{s+=`<text x="14" y="${y+4}" class="t-lbl" style="${on?'':'fill:var(--muted)'}">${r.n}</text><text x="${14+r.n.length*7.6+8}" y="${y+4}" class="t-xs">${r.s}</text><text x="14" y="${y+19}" class="t-xs" style="fill:${st[1]};font-weight:600">${st[0]}</text>`}
+      else{s+=`<text x="14" y="${y+4}" class="t-lbl" style="${on?'':'fill:var(--muted)'}">${r.n}</text><text x="${14+r.n.length*8.6+8}" y="${y+4}" class="t-xs">${r.s}</text><text x="14" y="${y+19}" class="t-xs" style="fill:${st[1]};font-weight:600">${st[0]}</text>`}
       s+=`<rect x="${L.x0}" y="${f1(by-L.bar/2+(N?0:6))}" width="${L.x1-L.x0}" height="${L.bar}" rx="5" style="fill:var(--panel-2)"/>`;
       const segs=90,yy=by-L.bar/2+(N?0:6);
       for(let k=0;k<segs;k++){const u0=k/segs,u1=(k+1)/segs,dm=BM_MAXD*Math.pow((u0+u1)/2,2),lv=r.lv(dm);if(lv<=.01)continue;
@@ -1604,7 +1604,7 @@ inits.biomarkers=()=>{
     /* axis */
     const ticks=[[.5,'12 h'],[1,'1 d'],[3,'3 d'],[7,'1 wk'],[14,'2 wk'],[28,'4 wk'],[56,'8 wk'],[120,'4 mo']];
     s+=`<line x1="${L.x0}" x2="${L.x1}" y1="${L.ax}" y2="${L.ax}" class="axis"/>`;
-    ticks.forEach(([dd,l])=>{const x=X(dd);if(N&&dd===.5)return;s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${L.ax}" y2="${L.ax+5}" class="axis"/><text x="${f1(x)}" y="${L.ax+17}" class="t-xs t-mid">${l}</text>`});
+    ticks.forEach(([dd,l])=>{const x=X(dd);if(dd===.5)return;s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${L.ax}" y2="${L.ax+5}" class="axis"/><text x="${f1(x)}" y="${L.ax+17}" class="t-xs t-mid">${l}</text>`});
     s+=`<text x="${L.x0}" y="${L.ax+17}" class="t-xs t-mid">0</text>`;
     const cx=X(d);s+=`<line x1="${f1(cx)}" x2="${f1(cx)}" y1="${L.top-(N?6:22)}" y2="${L.ax}" style="stroke:var(--ink);stroke-width:1.4;stroke-dasharray:4 3;opacity:.7"/><path d="M${f1(cx)} ${L.ax}l-6 9h12Z" style="fill:var(--ink)"/>`;
     svg.innerHTML=s}
@@ -1632,15 +1632,16 @@ inits.biomarkers=()=>{
     B.forEach(([a,b,c,l])=>{const on=v>=a&&(v<b||b===3000);s+=`<rect x="${f1(X(a))}" y="28" width="${f1(X(b)-X(a))}" height="22" style="fill:${c};opacity:${on?.8:.25}"/><text x="${f1((X(a)+X(b))/2)}" y="43" class="t-xs t-mid" style="fill:var(--ink);font-weight:${on?700:500}">${l}</text>`});
     [5,10,20,50,100,200,500,1000,2000,3000].forEach(w=>{if(N&&[10,50,500,3000].includes(w))return;s+=`<line x1="${f1(X(w))}" x2="${f1(X(w))}" y1="50" y2="55" class="axis"/><text x="${f1(X(w))}" y="66" class="t-xs t-mid">${w>=1000?w/1000+'k':w}</text>`});
     const M=[[20,'20','liver disease, any drinking',0],[80,'80','≥4 drinks/day, liver disease',1],[210,'210','Swedish “excessive”',2],[250,'250','critical care: misuse',3],[400,'400','severe misuse',4]];
-    M.forEach(([w,l,d,i])=>{const x=X(w),yy=N?80+i*13:78+(i%2)*13;s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="26" y2="${yy-8}" style="stroke:var(--ink);stroke-width:1;stroke-dasharray:2 2;opacity:.6"/>`;
+    M.forEach(([w,l,d,i])=>{const x=X(w),yy=N?80+i*13:78+(i%2)*13;s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="26" y2="${N?56:yy-8}" style="stroke:var(--ink);stroke-width:1;stroke-dasharray:2 2;opacity:.6"/>`;
       if(!N)s+=`<text x="${f1(x+(i===2?-3:3))}" y="${yy}" class="t-xs ${i===2?'t-end':''}">${l}${i===1||i===3?'':''}</text>`});
     if(N)M.forEach(([w,l,d],i)=>s+=`<text x="${x0}" y="${80+i*13}" class="t-xs">${l} ng/mL: ${d}</text>`);
     const nx=X(v);s+=`<path d="M${f1(nx)} 52l-6 10h12Z" style="fill:var(--ink)" transform="translate(0 -26) rotate(180 ${f1(nx)} 57)"/><line x1="${f1(nx)}" x2="${f1(nx)}" y1="24" y2="54" style="stroke:var(--ink);stroke-width:2.4"/>`;
     /* decay to below 20 ng/mL at the published half-lives */
-    const cy=N?160:118,ch=N?110:76,cw=x1-x0,days=v>20?BM_PHL*Math.log2(v/20):0,dlo=v>20?3.7*Math.log2(v/20):0,dhi=v>20?10.4*Math.log2(v/20):0,DM=Math.max(30,Math.ceil(dhi/10)*10),DX=dd=>x0+cw*dd/DM,PY=w=>cy+ch-ch*(Math.log(Math.max(w,5))-lo)/(Math.log(Math.max(v,25))-lo);
-    s+=`<text x="${x0}" y="${cy-8}" class="t-xs">If no further drinking: days to fall below 20 ng/mL (half-life 7.24 d; band 3.7–10.4 d)</text>`;
+    const cy=N?172:118,ch=N?98:76,cw=x1-x0,days=v>20?BM_PHL*Math.log2(v/20):0,dlo=v>20?3.7*Math.log2(v/20):0,dhi=v>20?10.4*Math.log2(v/20):0,DM=Math.max(30,Math.ceil(dhi/10)*10),DX=dd=>x0+cw*dd/DM,PY=w=>cy+ch-ch*(Math.log(Math.max(w,5))-lo)/(Math.log(Math.max(v,25))-lo);
+    s+=N?`<text x="${x0}" y="${cy-20}" class="t-xs">If no further drinking: days to fall below 20 ng/mL</text><text x="${x0}" y="${cy-8}" class="t-xs">thick: half-life 7.24 d · thin: 3.7 and 10.4 d</text>`:`<text x="${x0}" y="${cy-8}" class="t-xs">If no further drinking: days to fall below 20 ng/mL (thick line: half-life 7.24 d; thin lines: 3.7 and 10.4 d)</text>`;
     s+=`<line x1="${x0}" x2="${x1}" y1="${cy+ch}" y2="${cy+ch}" class="axis"/><line x1="${x0}" x2="${x1}" y1="${f1(PY(20))}" y2="${f1(PY(20))}" style="stroke:var(--good);stroke-dasharray:3 3"/>`;
     if(v>20){[[10.4,.25],[3.7,.25],[BM_PHL,1]].forEach(([hl,o])=>{let d='';for(let k=0;k<=60;k++){const dd=DM*k/60,w=v*Math.pow(.5,dd/hl);d+=(k?'L':'M')+f1(DX(dd))+' '+f1(PY(w))}s+=`<path d="${d}" style="fill:none;stroke:var(--dx);stroke-width:${o===1?2.4:1.4};opacity:${o===1?1:.5}"/>`});
+      s+=`<text x="${x0+4}" y="${f1(PY(v)+12)}" class="t-xs" style="fill:var(--dx)">${Math.round(v)} ng/mL</text><text x="${x1}" y="${f1(PY(20)-4)}" class="t-xs t-end" style="fill:var(--good)">20 ng/mL</text>`;
       s+=`<circle cx="${f1(DX(days))}" cy="${f1(PY(20))}" r="5" style="fill:var(--dx);stroke:var(--panel);stroke-width:2"/><text x="${f1(Math.min(DX(days)+8,x1-60))}" y="${f1(PY(20)-8)}" class="t-xs" style="fill:var(--dx);font-weight:600">≈${Math.round(days)} d</text>`}
     for(let dd=0;dd<=DM;dd+=DM>60?20:10)s+=`<text x="${f1(DX(dd))}" y="${cy+ch+13}" class="t-xs t-mid">${dd}${dd===DM?' d':''}</text>`;
     ps.innerHTML=s;
@@ -1660,7 +1661,7 @@ inits.biomarkers=()=>{
     const nx=X(r);s+=`<line x1="${f1(nx)}" x2="${f1(nx)}" y1="26" y2="60" style="stroke:var(--ink);stroke-width:2.6"/><circle cx="${f1(nx)}" cy="26" r="5" style="fill:var(--ink)"/>`;
     const notes=N?[['Withdrawal admissions: 64% had ≤1.0',X(.5)],['Alcohol-related cirrhosis: 69% had ≥2',X(3)]]:[['Most withdrawal admissions (64%) ≤1.0',X(.5)],['69% of alcohol-related cirrhosis ≥2',X(3)]];
     notes.forEach(([l,x],i)=>s+=`<text x="${f1(N?x0:x)}" y="${96+i*16}" class="t-xs ${N?'':'t-mid'}" style="fill:${i?'var(--bad)':'var(--good)'}">${l}</text>`);
-    s+=`<text x="${x0}" y="${N?140:136}" class="t-xs">Cohen 1979: ratio >2 in 70% of alcohol-related hepatitis and cirrhosis vs 4% of viral hepatitis.</text>`;
+    s+=N?`<text x="${x0}" y="136" class="t-xs">Cohen 1979: ratio >2 in 70% of alcohol-related</text><text x="${x0}" y="149" class="t-xs">hepatitis and cirrhosis vs 4% of viral hepatitis.</text>`:`<text x="${x0}" y="136" class="t-xs">Cohen 1979: ratio >2 in 70% of alcohol-related hepatitis and cirrhosis vs 4% of viral hepatitis.</text>`;
     av.innerHTML=s;
     an.innerHTML=`<div class="kicker">AST:ALT ${r.toFixed(2)}</div><h4>${r>2?'Above 2: a pattern of advanced alcohol-related liver disease':r>1?'Between 1 and 2':'1.0 or less: the usual finding in heavy drinking'}</h4>
       <p>In 1979, an AST:ALT ratio above 2 was found in 70% of patients with alcohol-related hepatitis and cirrhosis, 26% with postnecrotic cirrhosis, 8% with chronic hepatitis and 4% with viral hepatitis. Among people with AUD admitted for withdrawal, the ratio was 1.0 or less in 64% and only exceptionally 2 or more, while 69% of people with alcohol-related cirrhosis had 2 or more. <sup class="c" data-ref="Cohen1979SGOTSGPT,Nyblom2004ASTALT" title="Source 62,348">62,348</sup></p>
