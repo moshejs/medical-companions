@@ -1,0 +1,74 @@
+<!-- ================= 2.3 BLOOD AND URINE MARKERS OF DRINKING ================= -->
+<style>
+#m-biomarkers .bmq{display:flex;flex-wrap:wrap;gap:8px}
+#m-biomarkers .card{transition:opacity .25s,border-color .25s}
+#m-biomarkers .card.dim{opacity:.42}
+#m-biomarkers .card.on{border-color:var(--dx);box-shadow:0 0 0 1px var(--dx)}
+#m-biomarkers .card>.tag,#m-biomarkers .card>.ev{align-self:flex-start}
+#m-biomarkers .card .bmss{font:500 12.5px var(--mono);color:var(--dx)}
+#m-biomarkers .bmbig{font:800 40px/1 var(--display);color:var(--dx)}
+#m-biomarkers td b{white-space:nowrap}
+</style>
+<section class="mod" id="m-biomarkers" data-mod="biomarkers" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Screening &amp; diagnosis</p><h2>Blood and urine markers of drinking</h2>
+    <p class="lede">Lab tests answer a different question from a diagnosis: they can show recent or heavy drinking, but no test diagnoses alcohol use disorder. Scrub through the weeks after heavy drinking stops and watch each marker fade on its own clock.</p></div>
+  <div class="stepper" id="bmSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="bmSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A timeline from the moment heavy drinking stops to four months later, on a stretched scale so hours and months both fit. Six rows, breath and blood ethanol, urine EtG and EtS, blood PEth, serum CDT, GGT and MCV, each show a shaded signal that fades at its published rate, with a bracket for the published range. A cursor moves along the timeline and each row reports whether the marker is still positive, fading or back to normal."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="bmPlay">Play</button><label class="stage-cap tl" for="bmT">Time since drinking stopped <input type="range" id="bmT" min="0" max="1" step="0.001" value="0.055"></label></div>
+      <p class="stage-cap">Approximate, population-level windows that vary widely between people. Starting values are illustrative (ethanol 1.5 g/L, PEth 1,000 ng/mL); indirect markers are drawn as if raised at the start. The time axis is stretched (square-root scale). [[Jones2024BiomarkerHistory,Helander2009EtG,deBejczy2026PEth,Arnts2021LiverBiomarkers,Niemela2016Biomarkers]]</p>
+    </div>
+    <aside class="note" id="bmNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Which marker answers which question?</h3>
+  <p class="prose">Pick a question. The markers that can answer it light up, with their accuracy as published. Many of the figures come from studies in people with liver disease, where the review found PEth, urine EtG and hair EtG most useful. [[Arnts2021LiverBiomarkers]]</p>
+  <div class="bmq" role="group" aria-label="Clinical question" id="bmQs"></div>
+  <div class="cards" id="bmCards" style="margin-top:4px"></div>
+  <aside class="note" id="bmQNote" aria-live="polite"></aside>
+
+  <h3 class="sub">Reading a PEth value: a teaching band reader</h3>
+  <p class="callout"><b>Teaching only.</b> Cut-offs differ between studies and settings, and a single PEth value gives only an approximate estimate of how much and how recently someone drank. Self-report and PEth can disagree in both directions. Results belong in a conversation with the care team, never a quick judgment. [[Helander2019PEthDose,Hahn2016PEth]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="bmPeth" viewBox="0 0 720 210" style="min-width:560px" role="img" aria-label="A logarithmic PEth scale from 5 to 3,000 ng/mL with three proposed bands (under 20 light or none, 20 to 199 significant, 200 or more heavy) and markers for other published cut-offs, a needle at the chosen value, and below it a decay curve showing how long that value would take to fall below 20 ng/mL at published half-lives."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="bmPv">PEth value <input type="range" id="bmPv" min="0" max="1" step="0.001" value="0.62"></label></div>
+      <p class="stage-cap">Bands as proposed by Ulwelling and Smith; other cut-offs as published. Decay uses mean half-lives in AUD withdrawal treatment (7.24 days; range of individual half-lives 3.7–10.4 days in another detox study). [[Ulwelling2018PEth,Hahn2016PEth,Afshar2017PEth,Stewart2014PEth,deBejczy2026PEth,Helander2019PEthElimination]]</p>
+    </div>
+    <aside class="note" id="bmPethNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The AST:ALT ratio: a liver pattern, not a drinking test</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="bmAst" viewBox="0 0 720 150" style="min-width:560px" role="img" aria-label="A ratio scale from 0 to 4 with lines at 1 and 2 and a marker at the AST to ALT ratio set by the two sliders."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="bmAs">AST (U/L, illustrative) <input type="range" id="bmAs" min="10" max="300" step="1" value="120"></label><label class="stage-cap tl" for="bmAl">ALT (U/L, illustrative) <input type="range" id="bmAl" min="10" max="300" step="1" value="50"></label></div>
+      <p class="stage-cap">Illustrative enzyme values; the ratio is the teaching point. [[Cohen1979SGOTSGPT,Nyblom2004ASTALT]]</p>
+    </div>
+    <aside class="note" id="bmAstNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The markers at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Marker</th><th>Sample · what it reflects</th><th>Window or kinetics</th><th>Accuracy as published</th><th>Pitfalls and false positives</th></tr></thead>
+    <tbody>
+      <tr><td><b>Ethanol</b></td><td>Breath, blood · current drinking</td><td>Falls about 0.15 g/L/h (0.1–0.3); in AUD during detoxification 25–35 mg/100 mL/h [[Jones2024BiomarkerHistory,Jones2010]]</td><td>Shows only current or very recent drinking [[Jones2024BiomarkerHistory]]</td><td>Above 1.5‰ (33 mmol/L) without obvious intoxication indicates tolerance [[Niemela2016Biomarkers]]</td></tr>
+      <tr><td><b>EtG / EtS</b></td><td>Urine · recent drinking (direct metabolites)</td><td>Median 78 h (40–130 h) after heavy drinking; 1–3 days after lighter drinking [[Helander2009EtG,Hahn2016PEth]]</td><td>Liver disease: sensitivity 70–89%, specificity 93–99%. Under 40% sensitive for drinking 24–48 h earlier in trial participants [[Arnts2021LiverBiomarkers,Jatlow2014EtG]]</td><td>Trace ethanol (1–3 g) and 2.5 L of “non-alcoholic” beer gave positive results at low cut-offs; non-beverage exposure is the main barrier to clinical use [[Thierauf2009TraceEtG,Thierauf2010BeerEtG,Jatlow2010EtG]]</td></tr>
+      <tr><td><b>PEth</b></td><td>Whole blood · drinking in about the past 2–4 weeks (direct)</td><td>Half-life about 4 days (up to 12); 7.24 days mean in AUD withdrawal; detectable in week 4 [[Hahn2016PEth,deBejczy2026PEth]]</td><td>Liver disease: 73–100% / 90–96%; at 20 ng/mL 73% / 96% for any drinking in the past month [[Arnts2021LiverBiomarkers,Stewart2014PEth]]</td><td>Very high starting values (over 2,000 ng/mL) may stay positive after 30 days, so PEth alone cannot date the last drink [[Hahn2016PEth]]</td></tr>
+      <tr><td><b>CDT</b></td><td>Serum · heavy drinking over weeks</td><td>Needs at least 50–80 g a day for several weeks to rise; half-life about 15 days [[Niemela2016Biomarkers,Arnts2021LiverBiomarkers]]</td><td>63% sensitive in heavy drinkers; liver disease 40–79% / 57–99% [[Hietala2006GGTCDT,Arnts2021LiverBiomarkers]]</td><td>Lacks sensitivity for population screening; IFCC standardised the method [[Niemela2016Biomarkers,Wielders2024CDT]]</td></tr>
+      <tr><td><b>GGT</b></td><td>Serum · heavy drinking, liver stress (indirect)</td><td>Usually normal within 2–3 weeks of abstinence [[Niemela2016Biomarkers]]</td><td>58% sensitive in heavy drinkers; GGT-CDT combined 90% [[Hietala2006GGTCDT]]</td><td>Not specific: rises with liver disease from other causes and with obesity [[Niemela2016Biomarkers]]</td></tr>
+      <tr><td><b>MCV</b></td><td>Blood count · long-term heavy drinking (indirect)</td><td>Rises with intake; may take 2–4 months to normalise [[Niemela2016Biomarkers]]</td><td>45% sensitive in heavy drinkers [[Hietala2006GGTCDT]]</td><td>Traditional markers are more often raised over age 30 and with a longer drinking history [[Conigrave2003Markers]]</td></tr>
+      <tr><td><b>AST, ALT</b></td><td>Serum · liver injury (indirect)</td><td>–</td><td>47% and 50% sensitive in heavy drinkers [[Hietala2006GGTCDT]]</td><td>Consider obesity and hepatitis C; a ratio above 2 points to advanced liver disease [[Conigrave2003Markers,Nyblom2004ASTALT]]</td></tr>
+      <tr><td><b>Hair EtG</b></td><td>Scalp hair · chronic drinking over months</td><td>About 1 cm a month; a 3 cm segment ≈ 3 months [[Crunelle2014HairEtG,Arnts2021LiverBiomarkers]]</td><td>≤5 pg/mg does not contradict abstinence; ≥30 pg/mg strongly suggests chronic excessive drinking (2026 consensus; was 7 and 30 in 2016) [[Favretto2026SoHT,Pragst2017SoHT]]</td><td>Segment, growth, cosmetic or heat treatment and method all matter [[Favretto2026SoHT,Crunelle2014HairEtG]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Good to know</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Direct vs indirect</span><h4>Formed only with ethanol</h4><p>EtG, EtS, PEth and FAEE are formed only when ethanol is present. GGT, MCV and CDT are indirect: affected by age, sex, other substances and other illness, and they miss parts of the drinking timeline. [[Wurst2015Metabolites]]</p></div>
+    <div class="card"><span class="tag dx">Moderate drinking</span><h4>PEth sees what others miss</h4><p>After a week of one or two glasses of wine a day (16 or 32 g), all 21 participants had measurable PEth while CDT, AST, ALT and GGT changed little. In a 3-month randomised study, PEth was the only marker that clearly separated moderate drinking from abstinence. [[Walther2026PEth,Kechagias2015PEth]]</p></div>
+    <div class="card"><span class="tag dx">Used well</span><h4>Markers support the conversation</h4><p>Combining self-report with a highly specific biomarker raises sensitivity without losing specificity. Traditional markers also help detect complications, motivate change and monitor treatment. [[Hahn2016PEth,Conigrave2003Markers]]</p></div>
+    <div class="card"><span class="tag dx">Not for driving</span><h4>No calculation says it is safe to drive</h4><p>Blood alcohol estimates carry real uncertainty (one analysis proposed a ±21% coefficient of variation), and published models disagree. Virtually all drivers are impaired on some measures at 0.05. [[Searle2015,Posey2007Widmark,Fell2014BAC]]</p></div>
+  </div>
+  <p class="callout"><b>Safety.</b> If you or someone else may have alcohol poisoning or severe withdrawal (seizure, confusion, hallucinations), call emergency services. Stopping suddenly after long, heavy daily drinking can be dangerous: get medical help to stop safely. Next: <a href="#withdrawal" data-go="withdrawal">Alcohol withdrawal: the timeline</a>.</p>
+</section>

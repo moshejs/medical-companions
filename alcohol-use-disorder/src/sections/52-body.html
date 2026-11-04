@@ -1,0 +1,87 @@
+<!-- ================= 5.2 ALCOHOL AND THE WHOLE BODY: CANCER, HEART, BRAIN ================= -->
+<style>
+#m-body .card>.ev,#m-body .card>.tag{align-self:flex-start}
+#m-body .bdbig{font:800 34px/1 var(--display);color:var(--glu)}
+#m-body .bdpair{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end}
+#m-body .bdpair div{display:flex;flex-direction:column;gap:2px}
+#m-body .bdpair small{font:500 12px var(--mono);color:var(--muted)}
+#m-body td,#m-body th{vertical-align:top}
+#m-body td.n{font-family:var(--mono);white-space:nowrap}
+</style>
+<section class="mod" id="m-body" data-mod="body" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Body, family &amp; care</p><h2>Alcohol and the whole body: cancer, heart, brain</h2>
+    <p class="lede">Alcohol harms far more than the liver. Raise the daily amount and watch the organs light up with the relative risks reported in large studies, while an all-cause mortality curve builds beside them. Then look at why the old idea that “a little is good for the heart” has not held up.</p></div>
+  <div class="stepper" id="bdSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="bdSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A body outline whose organs glow more strongly as grams of alcohol per day rise from 0 to 100. A list beside it gives the published relative risk for cancers of the mouth and throat, oesophagus, larynx, breast, bowel and liver, atrial fibrillation, high blood pressure, cardiomyopathy, chronic pancreatitis and the brain. A step chart of all-cause mortality relative risk builds as the amount rises, with the 100 grams per week level marked."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="bdPlay">Play</button><label class="stage-cap tl" for="bdT">Grams of alcohol a day <input type="range" id="bdT" min="0" max="1" step="0.001" value="0.3"></label></div>
+      <div class="readout" id="bdRead"></div>
+      <p class="stage-cap">Relative risks are population statistics versus people who do not drink, from the studies named in each step; they are not a forecast for any one person. Cancer bands follow Bagnardi 2015 (light ≤12.5 g/day, moderate ≤50, heavy &gt;50). A “standard drink” here is the GBD’s 10 g; national definitions range from 8 to 20 g. Body map schematic. [[Bagnardi2015BJC,GBD2016Alcohol,Kalinowski2016]]</p>
+    </div>
+    <aside class="note" id="bdNote" aria-live="polite"></aside>
+  </div>
+
+  <p class="callout"><b>Alcohol is a Group 1 carcinogen.</b> In 2007 the International Agency for Research on Cancer (IARC) concluded that ethanol in alcoholic beverages is carcinogenic to humans, and added the female breast and the colorectum to the alcohol-related cancer sites. <span class="ev est">Established</span> [[Baan2007IARC,Brooks2009]] The main suspect is <b>acetaldehyde</b>, the first and most toxic product of alcohol breakdown; alcohol may also disrupt DNA methylation and retinoid metabolism, raise oxidative stress, change oestrogen regulation, and act as a solvent for tobacco carcinogens. [[Seitz2007,Rumgay2021LancetOncol]] ASCO calls alcohol “an established risk factor for several malignancies” that can be changed. [[LoConte2018ASCO]]</p>
+
+  <h3 class="sub">Cancer risk by amount</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Cancer site</th><th>Light (≤12.5 g/day)</th><th>Moderate (≤50 g/day)</th><th>Heavy (&gt;50 g/day)</th></tr></thead>
+    <tbody>
+      <tr><td>Mouth and pharynx</td><td class="n">1.13</td><td class="n">1.83</td><td class="n">5.13</td></tr>
+      <tr><td>Oesophagus (squamous cell)</td><td class="n">1.26</td><td class="n">2.23</td><td class="n">4.95</td></tr>
+      <tr><td>Larynx</td><td class="n">–</td><td class="n">1.44</td><td class="n">2.65</td></tr>
+      <tr><td>Female breast</td><td class="n">1.04</td><td class="n">1.23</td><td class="n">1.61</td></tr>
+      <tr><td>Colorectum (bowel)</td><td class="n">–</td><td class="n">1.17</td><td class="n">1.44</td></tr>
+      <tr><td>Liver</td><td class="n">–</td><td class="n">–</td><td class="n">2.07</td></tr>
+    </tbody></table></div>
+  <p class="stage-cap">Relative risk versus non-drinkers from a dose-response meta-analysis of 572 studies (486,538 cancer cases); “–” means the summary we read did not give a value for that band. Heavy drinking was also linked with cancers of the stomach (1.21), gallbladder (2.64), pancreas (1.19) and lung (1.15). [[Bagnardi2015BJC]]</p>
+  <div class="cards">
+    <div class="card"><span class="tag glu">Breast</span><h4>About 7% per 10 g a day</h4><p>In a pooled reanalysis of 53 studies (58,515 women with breast cancer), risk rose 7.1% for each extra 10 g of alcohol a day, in women who did and did not smoke. [[Hamajima2002BJC]] In the Million Women Study, each extra regular daily drink added about 11 breast cancers per 1,000 women up to age 75, and about 15 cancers in total. [[Allen2009JNCI]]</p></div>
+    <div class="card"><span class="tag glu">World burden</span><h4>741,300 cancers in 2020</h4><p>About 4.1% of new cancers worldwide in 2020 were attributable to alcohol. 46.7% came from heavy drinking (&gt;60 g/day), 39.4% from risky drinking (20–60 g/day) and 13.9% (103,100 cases) from moderate drinking (&lt;20 g/day). [[Rumgay2021LancetOncol]]</p></div>
+    <div class="card"><span class="tag eth">Flushing</span><h4>ALDH2 and the oesophagus</h4><p>About 36% of East Asians show a flushing response to alcohol, mainly from ALDH2 deficiency, which slows acetaldehyde clearance. In studies from Japan and Taiwan, people with low-activity ALDH2 who drank had odds ratios for oesophageal squamous cell cancer of 3.7 to 18.1. [[Brooks2009]] More in <a href="#" data-go="genes">genes and risk</a>.</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>After stopping</h4><p>There is some evidence that the risk of laryngeal, pharyngeal and liver cancers falls after drinking stops. [[Connor2017Addiction]]</p></div>
+  </div>
+
+  <h3 class="sub">The J-curve debate: is a little alcohol good for you?</h3>
+  <p class="prose">Older studies often drew a “J”: light drinkers seemed to die less often than non-drinkers. Switch between three ways of looking at the same question. The short answer, as the research stands: the research does not support drinking alcohol for health. [[Stockwell2016JSAD,Zhao2023JAMANO,Millwood2019]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Type of evidence">
+        <button class="btn" data-bdj="0" aria-pressed="true">Raw observational</button>
+        <button class="btn" data-bdj="1" aria-pressed="false">Abstainer bias corrected</button>
+        <button class="btn" data-bdj="2" aria-pressed="false">Genetic (Mendelian randomisation)</button>
+      </div>
+      <div class="scroll"><svg id="bdJSvg" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="A relative-risk chart against amount of alcohol. In the raw view the curve dips below 1 for light drinkers, with former drinkers counted among the non-drinkers. Corrected for abstainer bias, the dip almost disappears. In the genetic view, stroke risk rises steadily with genetically predicted intake."></svg></div>
+      <p class="stage-cap">Curve shapes are schematic; the labelled points are the published values. [[Stockwell2016JSAD,Zhao2023JAMANO,Millwood2019]]</p>
+    </div>
+    <aside class="note" id="bdJNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>What the studies found</th></tr></thead>
+    <tbody>
+      <tr><td>Lowest-risk amount (GBD 2016)</td><td>Zero (95% UI 0.0–0.8) standard drinks a week across health outcomes; only ischaemic heart disease showed a significant J shape, and all-cancer risk rose steadily. [[GBD2016Alcohol]]</td></tr>
+      <tr><td>GBD 2020</td><td>The minimum-risk level depends on age: 0 to 0.603 standard drinks a day at ages 15–39; at 40 and older a J shape in all regions, 0.114–1.87 drinks a day. 59.1% of people drinking harmful amounts were aged 15–39. [[GBD2020Alcohol]]</td></tr>
+      <tr><td>Current drinkers only (Wood 2018)</td><td>In 599,912 current drinkers, minimum all-cause mortality was at or below about 100 g a week. Compared with &gt;0–100 g, drinking &gt;100–200, &gt;200–350 and &gt;350 g a week meant about 6 months, 1–2 years and 4–5 years lower life expectancy at age 40. [[Wood2018Lancet]]</td></tr>
+      <tr><td>Women</td><td>Female drinkers had higher all-cause mortality than female lifetime non-drinkers (RR 1.22), and risk began at lower intake than for men. [[Zhao2023JAMANO]]</td></tr>
+      <tr><td>Heart (UK Biobank)</td><td>Healthier lifestyles in light drinkers explained part of the apparent benefit; genetically higher intake meant 1.3-fold hypertension and 1.4-fold coronary artery disease risk per 1-SD increase. [[Biddinger2022JAMANetwOpen]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Heart rhythm and blood pressure</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">RCT · NEJM 2020</span><h4>Abstinence and atrial fibrillation</h4><p>140 people with atrial fibrillation (AF) who drank at least 10 drinks a week were randomised to abstinence or usual drinking. The abstinence group cut from 16.8 to 2.1 drinks a week. [[Voskoboinik2020NEJM]]</p>
+      <div class="scroll"><svg id="bdAfSvg" viewBox="0 0 300 130" role="img" aria-label="AF recurrence over 6 months: 73 percent with usual drinking, 53 percent with abstinence; median time in AF 1.2 percent versus 0.5 percent."></svg></div>
+      <p>Recurrence over 6 months: 53% versus 73% (HR 0.55, 95% CI 0.36–0.84); median time in AF 0.5% versus 1.2%. [[Voskoboinik2020NEJM]]</p></div>
+    <div class="card"><span class="tag glu">Holiday heart</span><h4>Rhythm after a heavy bout</h4><p>“Holiday heart” was the 1978 name for heart rhythm disorders after heavy drinking; AF is the most common. [[Ettinger1978,Day2019Addiction]] In people with paroxysmal AF wearing alcohol sensors, one drink in the previous 4 hours doubled the odds of an episode (OR 2.02) and two or more more than tripled it (OR 3.58). [[Marcus2021AnnIntMed]]</p></div>
+    <div class="card"><span class="tag good">Blood pressure</span><h4>Cutting down lowers it</h4><p>In 36 trials, cutting drinking lowered blood pressure in people who drank more than 2 drinks a day; people drinking 6 or more a day who halved intake lowered it by 5.50/3.97 mm Hg. [[Roerecke2017LPH]] Important reductions can be expected after as little as 1 month of abstinence. [[Day2019Addiction]]</p></div>
+    <div class="card"><span class="tag glu">Heart muscle</span><h4>Alcohol-related cardiomyopathy</h4><p>Generally considered to need more than 80 g a day for over 5 years; gene variants may add a “double hit” <span class="ev early">Early evidence</span>. In people who stop drinking, recovery of heart pumping is linked with an excellent prognosis. [[Dominguez2024EHJ]]</p></div>
+  </div>
+
+  <h3 class="sub">Brain, injuries and medicines</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Dementia</span><h4>The strongest modifiable risk</h4><p>In over 1.1 million people with dementia in French hospitals, alcohol use disorders were the strongest modifiable risk factor (adjusted HR 3.34 in women, 3.36 in men); 38.9% of early-onset dementia was alcohol-related by definition. [[Schwarzinger2018LPH]] People with alcohol-related brain damage can partly recover if abstinence is maintained. [[Ridley2013AlzResTher]] See also <a href="#" data-go="wernicke">thiamine and Wernicke</a>.</p></div>
+    <div class="card"><span class="tag dx">Brain structure</span><h4>No protection from light drinking</h4><p>Over 30 years, 14–21 UK units a week went with three times the odds of right hippocampal atrophy (OR 3.4) and more than 30 units with OR 5.8, versus abstinence. [[Topiwala2017]] In UK Biobank, lower brain volumes were apparent at an average of one to two daily units. [[Daviet2022]]</p></div>
+    <div class="card"><span class="tag warn">Injuries</span><h4>Risk climbs per occasion</h4><p>For motor-vehicle crashes the odds ratio rises 1.24 per 10 g and reaches 52.0 at 120 g on one occasion; the authors state that no level of drinking is safe when driving. [[Taylor2010DAD]]</p></div>
+    <div class="card"><span class="tag bad">Danger</span><h4>Alcohol with sedatives</h4><p>The US opioid boxed warning states that use with benzodiazepines or other CNS depressants, “including alcohol, may result in profound sedation, respiratory depression, coma, and death”. [[FDA-OxyContin]] The acetaminophen label warns of severe liver damage with 3 or more drinks every day. [[FDA-Tylenol]] If someone cannot be woken, is breathing very slowly or has a seizure after drinking, <b>call emergency services</b>.</p></div>
+  </div>
+</section>
