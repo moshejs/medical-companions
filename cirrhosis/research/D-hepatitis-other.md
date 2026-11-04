@@ -97,7 +97,7 @@ Language: people with cirrhosis; alcohol-related liver disease; people who injec
 - AASLD-IDSA 2023 guidance stresses universal HCV screening and widens eligibility for simplified, minimal-monitoring treatment in adults [[Bhattacharya2023HCV]].
 - Epclusa label (sofosbuvir 400 mg/velpatasvir 100 mg once daily): 12 weeks for people without cirrhosis or with compensated cirrhosis (Child–Pugh A). People with decompensated cirrhosis (Child–Pugh B and C) take it with ribavirin for 12 weeks [[FDA-Epclusa]].
 - Mavyret label (glecaprevir 300 mg/pibrentasvir 120 mg daily, as three tablets with food): 8 weeks for treatment-naïve people without cirrhosis or with compensated cirrhosis. It is indicated only for people without cirrhosis or with compensated (Child–Pugh A) cirrhosis [[FDA-Mavyret]].
-- Epclusa, Mavyret and Harvoni carry a boxed warning about HBV reactivation in people coinfected with HCV and HBV. The labels say to test everyone for current or prior HBV (HBsAg and anti-HBc) before starting, because some cases caused fulminant hepatitis, liver failure and death [[FDA-Epclusa,FDA-Mavyret,FDA-Harvoni]].
+- Epclusa, Mavyret and Harvoni carry a boxed warning about HBV reactivation in people coinfected with HCV and HBV. The labels say to test everyone for current or prior HBV (HBsAg and anti-HBc) before starting, because some cases caused fulminant hepatitis, liver failure and death [[FDA-Epclusa,FDA-Mavyret,FDA-HarvoniD]].
 - An FDA review of its adverse event reporting system found 29 reports of HBV reactivation during DAA therapy (November 2013 to October 2016). Two people died and one needed a liver transplant [[BersoffMatcha2017]].
 
 ### hepatitis · After HCV cure: lower mortality and lower HCC, but not zero
@@ -200,7 +200,7 @@ Language: people with cirrhosis; alcohol-related liver disease; people who injec
 
 ### othercauses · Cryptogenic cirrhosis
 - In 70 people with cryptogenic cirrhosis, 73% had type 2 diabetes, obesity or both. The authors concluded that NASH (now MASH) plays an under-recognised role (Early evidence) [[Caldwell1999]].
-- Under the 2023 nomenclature, steatotic liver disease with no metabolic risk factors and no known cause is called cryptogenic steatotic liver disease [[Rinella2023MASLD]].
+- Under the 2023 nomenclature, steatotic liver disease with no metabolic risk factors and no known cause is called cryptogenic steatotic liver disease [[Rinella2023MASLDD]].
 
 ### Exam hooks
 - The younger the age at HBV infection, the more likely it becomes chronic: 90% in newborns of HBeAg-positive mothers, 25–30% in under-5s, under 5% in adults [[Terrault2018AASLD]].
@@ -426,10 +426,10 @@ Language: people with cirrhosis; alcohol-related liver disease; people who injec
 - [Hitawala2024Fontan] Hitawala AA, Gopalakrishna H, Mironova M, Livinski AA, Wright EC, Downing T, et al. Meta-analysis: Incidence of cirrhosis and hepatocellular carcinoma in patients with Fontan palliation. Aliment Pharmacol Ther. 2024;59(9):1020-1032. PMID 38497159; doi:10.1111/apt.17952. (validated: PubMed)
 - [Seol2024FALD] Seol JH, Song J, Kim SJ, Ko H, Na JY, Cho MJ, et al. Clinical predictors and noninvasive imaging in Fontan-associated liver disease: A systematic review and meta-analysis. Hepatol Commun. 2024;8(12). PMID 39774692; PMCID PMC11567714; doi:10.1097/HC9.0000000000000580. (validated: PubMed)
 - [Caldwell1999] Caldwell SH, Oelsner DH, Iezzoni JC, Hespenheide EE, Battle EH, Driscoll CJ. Cryptogenic cirrhosis: clinical characterization and risk factors for underlying disease. Hepatology. 1999;29(3):664-9. PMID 10051466; doi:10.1002/hep.510290347. (validated: PubMed)
-- [Rinella2023MASLD] Rinella ME, Lazarus JV, Ratziu V, Francque SM, Sanyal AJ, Kanwal F, et al. A multisociety Delphi consensus statement on new fatty liver disease nomenclature. J Hepatol. 2023;79(6):1542-1556. PMID 37364790; doi:10.1016/j.jhep.2023.06.003. (validated: PubMed)
+- [Rinella2023MASLDD] Rinella ME, Lazarus JV, Ratziu V, Francque SM, Sanyal AJ, Kanwal F, et al. A multisociety Delphi consensus statement on new fatty liver disease nomenclature. J Hepatol. 2023;79(6):1542-1556. PMID 37364790; doi:10.1016/j.jhep.2023.06.003. (validated: PubMed)
 - [FDA-Epclusa] Gilead Sciences, Inc. EPCLUSA (sofosbuvir and velpatasvir) tablets and oral pellets. US prescribing information (NDA208341, NDA214187). Label effective 2024-06-05; set id 7f30631a-ee3b-4cfe-866b-964df3f0a44f. (validated: openFDA)
 - [FDA-Mavyret] AbbVie Inc. MAVYRET (glecaprevir and pibrentasvir) tablets and oral pellets. US prescribing information (NDA209394, NDA215110; tablets first approved 2017-08-03). Label effective 2025-06-25; set id 7bf99777-0401-9095-8645-16c6e907fcc0. (validated: openFDA)
-- [FDA-Harvoni] Gilead Sciences, Inc. HARVONI (ledipasvir and sofosbuvir). US prescribing information (NDA205834, NDA212477). Label effective 2024-12-26; set id f4ec77e4-bae8-4db0-b3d5-bde09c5fa075. (validated: openFDA)
+- [FDA-HarvoniD] Gilead Sciences, Inc. HARVONI (ledipasvir and sofosbuvir). US prescribing information (NDA205834, NDA212477). Label effective 2024-12-26; set id f4ec77e4-bae8-4db0-b3d5-bde09c5fa075. (validated: openFDA)
 - [FDA-Baraclude] E.R. Squibb & Sons, L.L.C. BARACLUDE (entecavir). US prescribing information (NDA021797, NDA021798; first approved 2005-03-29). Label effective 2019-11-06; set id 046e61c9-9298-4b2e-b76e-b26b81fecd20. (validated: openFDA)
 - [FDA-Viread] Gilead Sciences, Inc. VIREAD (tenofovir disoproxil fumarate). US prescribing information (NDA021356, NDA022577). Label effective 2025-02-18; set id 33fd6418-fbdc-42ca-a50d-ce2a476a5418. (validated: openFDA)
 - [FDA-Vemlidy] Gilead Sciences, Inc. VEMLIDY (tenofovir alafenamide). US prescribing information (NDA208464; first approved 2016-11-10). Label effective 2025-07-14; set id 72e6b33c-0351-4070-9172-eeaa186c01d2. (validated: openFDA)
