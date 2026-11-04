@@ -18,6 +18,7 @@ Animated, cited study and patient-education guides, one disease each, on one sit
 | [ADHD Companion](adhd/README.md) (attention deficit hyperactivity disorder) | `/adhd/` | English |
 | [Autism Companion](autism/README.md) (autism spectrum disorder) | `/autism/` | English |
 | [Bipolar Companion](bipolar-disorder/README.md) (bipolar disorder and lithium therapy) | `/bipolar-disorder/` | English |
+| [AUD Companion](alcohol-use-disorder/README.md) (alcohol use disorder and alcohol withdrawal) | `/alcohol-use-disorder/` | English |
 
 The hub at `/` links to each one and carries the shared method and disclaimer. Every companion links back to it, and its structured data names the site (`isPartOf`).
 
