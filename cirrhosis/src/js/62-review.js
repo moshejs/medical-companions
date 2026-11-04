@@ -211,7 +211,7 @@ inits.review=()=>{
       [0,5,10,15].forEach(v=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${yb+44}" y2="${yb+49}" class="axis"/><text class="t-xs t-mid" x="${f1(X(v))}" y="${yb+62}">${v}</text>`});
       s+=`<line x1="${f1(X(5))}" x2="${f1(X(5))}" y1="${yb-12}" y2="${yb+44}" style="stroke:var(--good);stroke-width:1.6;stroke-dasharray:3 3"/><text class="t-xs" x="${f1(X(5)+4)}" y="${yb-16}" style="fill:var(--good)">all 1s = 5</text>`;
       s+=`<line x1="${f1(X(15))}" x2="${f1(X(15))}" y1="${yb-12}" y2="${yb+44}" style="stroke:var(--bad);stroke-width:1.6;stroke-dasharray:3 3"/><text class="t-xs t-end" x="${f1(X(15)-4)}" y="${yb-16}" style="fill:var(--bad)">all 3s = 15</text>`;
-      s+=`<text class="t-sm" x="16" y="200" style="fill:var(--ink)">each measure: 1, 2 or 3 points</text><text class="t-xs" x="16" y="220">cut-offs for each are in the scores module</text><text class="t-xs" x="16" y="238">the continuous score holds more information</text></g>`}
+      s+=`<text class="t-sm" x="16" y="200" style="fill:var(--ink)">each measure: 1, 2 or 3 points</text><text class="t-xs" x="16" y="220">example points, not the real cut-offs</text><text class="t-xs" x="16" y="238">the continuous score holds more information</text></g>`}
     /* phase 4: the class */
     const a4=vis(4);
     if(a4>0){const x0=20,x1=W-20,X=v=>x0+(x1-x0)*(v-5)/10,yb=86,mv=lerp(5,total,ease(ramp(t,.81,.88)));
