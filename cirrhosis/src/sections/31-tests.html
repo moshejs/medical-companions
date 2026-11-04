@@ -1,5 +1,78 @@
-<!-- ================= 3.1 BLOOD TESTS, SCANS & BIOPSY (stub, replaced by its builder) ================= -->
+<!-- ================= 3.1 BLOOD TESTS, SCANS & BIOPSY ================= -->
+<style>
+#m-tests .tesort{display:flex;flex-direction:column;gap:12px}
+#m-tests .tecase{font-size:16px;line-height:1.5;max-width:62ch;margin:0}
+#m-tests .tecase b{font-weight:800}
+#m-tests .tebtns{display:flex;flex-wrap:wrap;gap:8px}
+#m-tests .tebtns .btn{white-space:normal;text-align:left}
+#m-tests .teprog{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-tests .card>.tag,#m-tests .card>.ev{align-self:flex-start}
+#m-tests td.num{font-family:var(--mono);white-space:nowrap}
+</style>
 <section class="mod" id="m-tests" data-mod="tests" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Diagnosis &amp; staging</p><h2>Blood tests, scans &amp; biopsy</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">No single blood test says "cirrhosis". Read the liver panel as a pattern, add what an ultrasound shows, and see why a biopsy is now a later step rather than the first one.</p></div>
+  <div class="stepper" id="teSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="teSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A liver-panel dashboard of seven tests (ALT, AST, alkaline phosphatase, bilirubin, albumin, INR, platelets). As scarring advances in a liver drawn beside it, schematic markers move in each test's typical direction: the AST to ALT ratio rises, albumin falls, INR rises and platelets fall as an enlarging spleen holds them. Then an ultrasound fan shows a smooth liver surface turning nodular, the caudate lobe growing and fluid appearing; then a biopsy needle takes a core, beside a grid of 1000 dots with about 6 marked for major bleeding."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="tePlay">Play</button><label class="stage-cap tl" for="teT">Work-up <input type="range" id="teT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="teRead"></div>
+      <p class="stage-cap">Schematic: the markers show typical directions, not values, and the dots are not real patients. GGT is not shown because our sources did not cover how to interpret it. [[Kwo2017ACG,Williams1988ASTALT,Afdhal2008Platelets]]</p>
+    </div>
+    <aside class="note" id="teNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: what does this pattern suggest?</h3>
+  <p class="prose">Each card describes an imagined set of results, written the way a clinician might summarise them. Sort it into one of three patterns, then read why. This is practice at reading patterns, not a way to interpret your own results: those need your care team, who know the whole picture.</p>
+  <div class="lab">
+    <div class="stage tesort">
+      <p class="teprog" id="teProg"></p>
+      <p class="tecase" id="teCase"></p>
+      <div class="scroll"><svg id="teCaseSvg" viewBox="0 0 720 120" style="min-width:560px" role="img" aria-label="Seven small tiles for the liver tests in this practice case, each with an arrow up, an arrow down or a dash for the direction described."></svg></div>
+      <div class="tebtns" role="group" aria-label="Choose a pattern">
+        <button class="btn" data-teans="h" aria-pressed="false">Hepatocellular (liver-cell injury)</button>
+        <button class="btn" data-teans="c" aria-pressed="false">Cholestatic (bile-flow pattern)</button>
+        <button class="btn" data-teans="a" aria-pressed="false">Signs of advanced disease</button>
+      </div>
+      <div class="ctrls"><button class="btn ghost" id="tePrev">Previous case</button><button class="btn primary" id="teNext">Next case</button></div>
+    </div>
+    <aside class="note" id="teSortNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why a normal-looking liver panel is not the end of the story</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Silent phase</span><h4>Compensated cirrhosis has no symptoms</h4><p>Cirrhosis begins with an asymptomatic compensated phase; symptoms usually come with decompensation. Feeling well does not tell you how much scar there is. [[Gines2021Lancet]]</p></div>
+    <div class="card"><span class="tag dx">A misnomer</span><h4>"Liver function tests" mostly measure injury</h4><p>ACG calls "liver function tests" a misnomer and prefers "liver chemistries" or "liver tests". ALT and AST reflect liver-cell injury and alkaline phosphatase and bilirubin reflect bile flow; on their own they do not measure how well the liver works. [[Kwo2017ACG]]</p></div>
+    <div class="card"><span class="tag dx">Which "normal"?</span><h4>Reference ranges differ</h4><p>ACG gives a "true healthy normal" ALT of 29–33 IU/L for males and 19–25 IU/L for females and says levels above this should be assessed. For hepatitis B, AASLD 2018 recommends upper limits of 35 U/L (men) and 25 U/L (women) rather than local laboratory ranges. [[Kwo2017ACG,Terrault2018AASLD]]</p></div>
+    <div class="card"><span class="tag dx">Ratios and counts</span><h4>The clue may be a ratio or the platelets</h4><p>In chronic hepatitis B the mean AST/ALT ratio was 0.59 without cirrhosis and 1.02 with it. A platelet count below 160 ×10³/µL raised the likelihood of cirrhosis (LR 6.3). Neither depends on the enzymes being high. [[Williams1988ASTALT,Udell2012JAMA]]</p></div>
+    <div class="card"><span class="tag dx">Next step</span><h4>Scores and scans stage the scar</h4><p>FIB-4 combines age, AST, ALT and platelets, and elastography measures liver stiffness. The AASLD 2023 fatty liver guidance starts with FIB-4 and moves to elastography or ELF when FIB-4 is 1.3 or higher.<button class="btn ghost" data-go="noninvasive">Measuring scarring without a biopsy →</button> [[Rinella2023AASLD]]</p></div>
+  </div>
+
+  <h3 class="sub">Bedside and laboratory clues, ranked</h3>
+  <p class="prose">A meta-analysis of 86 studies (19,533 patients, 24% with biopsy-proven cirrhosis) asked which findings most change the odds. A likelihood ratio (LR) above 1 makes cirrhosis more likely; below 1, less likely. The clinician's overall impression was less informative than these individual findings. [[Udell2012JAMA]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Finding</th><th>LR</th><th>Effect</th></tr></thead>
+    <tbody>
+      <tr><td>Bonacini discriminant score &gt;7</td><td class="num">9.4</td><td>Raises the likelihood most [[Udell2012JAMA]]</td></tr>
+      <tr><td>Ascites on examination</td><td class="num">7.2</td><td>Raises [[Udell2012JAMA]]</td></tr>
+      <tr><td>Platelets &lt;160 ×10³/µL</td><td class="num">6.3</td><td>Raises [[Udell2012JAMA]]</td></tr>
+      <tr><td>Spider naevi</td><td class="num">4.3</td><td>Raises [[Udell2012JAMA]]</td></tr>
+      <tr><td>No hepatomegaly</td><td class="num">0.37</td><td>Lowers [[Udell2012JAMA]]</td></tr>
+      <tr><td>Platelets ≥160 ×10³/µL</td><td class="num">0.29</td><td>Lowers [[Udell2012JAMA]]</td></tr>
+      <tr><td>Lok index &lt;0.2</td><td class="num">0.09</td><td>Lowers the likelihood most [[Udell2012JAMA]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Biopsy: percutaneous and transjugular, by the numbers</h3>
+  <p class="prose">ACG says a liver biopsy may be considered when serology and imaging do not give a diagnosis, to stage a condition, or when several diagnoses are possible. The figures below are population statistics from large series; they describe groups, not what will happen to any one person. [[Kwo2017ACG]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Series</th><th>Who</th><th>What was found</th></tr></thead>
+    <tbody>
+      <tr><td>England 1998–2005</td><td>61,187 elective percutaneous biopsies</td><td>Major bleeding about 6 per 1000; deaths directly due to biopsy at most about 1 in 10,000; 7-day all-cause mortality 2 per 1000, up to 12 per 1000 when cancer was being investigated [[West2010Biopsy]]</td></tr>
+      <tr><td>HALT-C</td><td>2740 biopsies, hepatitis C with bridging fibrosis or cirrhosis</td><td>Serious adverse events 1.1%, bleeding 0.6%, no biopsy-related deaths; bleeding more frequent with platelets ≤60,000/mm³ [[Seeff2010HALTC]]</td></tr>
+      <tr><td>Italy 1973–1983</td><td>68,276 percutaneous biopsies</td><td>Death in 9 per 100,000, always from bleeding into the abdomen and only in people with cancer or cirrhosis; 61% of complications within 2 hours, 96% within 1 day [[Piccinino1986]]</td></tr>
+      <tr><td>Transjugular review</td><td>7649 procedures (used mainly with abnormal clotting or ascites)</td><td>Success 96.8%; minor complications 6.5%, major 0.56%, adult mortality 0.09% [[Kalambokis2007TJLB]]</td></tr>
+      <tr><td>Paired-lobe study</td><td>124 people with chronic hepatitis C</td><td>Right and left lobe samples differed by at least one fibrosis stage in 33.1%; in 14.5% one read as cirrhosis and the other as stage 3 [[Regev2002]]</td></tr>
+    </tbody></table></div>
+  <p class="callout">Next: <button class="btn ghost" data-go="noninvasive">FIB-4 and elastography</button> <button class="btn ghost" data-go="scores">Child–Pugh and MELD</button></p>
 </section>
