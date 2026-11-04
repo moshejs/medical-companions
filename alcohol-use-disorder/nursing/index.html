@@ -487,7 +487,17 @@ tr.gaba td,tr.gaba th{background:var(--gaba-soft)} tr.glu td,tr.glu th{backgroun
 #m-criteria .card>.tag,#m-criteria .card>.ev{align-self:flex-start}
 </style>
 
-<!-- ================= 2.3 BLOOD AND URINE MARKERS OF DRINKING (stub, replaced by its builder) ================= -->
+<!-- ================= 2.3 BLOOD AND URINE MARKERS OF DRINKING ================= -->
+<style>
+#m-biomarkers .bmq{display:flex;flex-wrap:wrap;gap:8px}
+#m-biomarkers .card{transition:opacity .25s,border-color .25s}
+#m-biomarkers .card.dim{opacity:.42}
+#m-biomarkers .card.on{border-color:var(--dx);box-shadow:0 0 0 1px var(--dx)}
+#m-biomarkers .card>.tag,#m-biomarkers .card>.ev{align-self:flex-start}
+#m-biomarkers .card .bmss{font:500 12.5px var(--mono);color:var(--dx)}
+#m-biomarkers .bmbig{font:800 40px/1 var(--display);color:var(--dx)}
+#m-biomarkers td b{white-space:nowrap}
+</style>
 
 <!-- ================= 3.1 ALCOHOL WITHDRAWAL: THE TIMELINE ================= -->
 <style>
@@ -546,6 +556,8 @@ tr.gaba td,tr.gaba th{background:var(--gaba-soft)} tr.glu td,tr.glu th{backgroun
 #m-wernicke .caine input{margin-top:3px;accent-color:var(--accent);width:18px;height:18px;flex:none}
 #m-wernicke .caine label.on{border-color:var(--accent);background:var(--accent-soft)}
 #m-wernicke .weres{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+#m-wernicke .weres p{grid-column:1/-1}
+#m-wernicke #weCaineSvg{max-width:860px;margin:0 auto}
 </style>
 
 <!-- ================= 4.1 APPROVED MEDICINES: NALTREXONE, ACAMPROSATE, DISULFIRAM ================= -->
@@ -570,6 +582,7 @@ tr.gaba td,tr.gaba th{background:var(--gaba-soft)} tr.glu td,tr.glu th{backgroun
 #m-offlabel .olTog .kicker{margin-right:4px}
 #m-offlabel .card>.tag,#m-offlabel .card>.ev{align-self:flex-start}
 #m-offlabel .olList{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:15px;max-width:80ch}
+#m-offlabel #olFiltSvg{max-width:760px}
 #m-offlabel svg[data-mode="n"] .t-xs{font-size:11px}
 #m-offlabel svg[data-mode="n"] .t-sm{font-size:12px}
 </style>
@@ -788,6 +801,6 @@ tr.gaba td,tr.gaba th{background:var(--gaba-soft)} tr.glu td,tr.glu th{backgroun
 </footer>
 </main>
 </div>
-<script src="../app.js?v=e5a2c16f01"></script>
+<script src="../app.js?v=0699ef4bbb"></script>
 </body>
 </html>

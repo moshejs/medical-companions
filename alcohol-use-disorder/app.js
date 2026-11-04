@@ -2527,7 +2527,7 @@ inits.offlabel=()=>{
       s+=`<text x="${f1(cx)}" y="${f1(yb-h-7)}" class="t-lbl t-mid">${v[i].toFixed(1)}%</text><text x="${f1(cx)}" y="${yb+16}" class="t-sm t-mid" style="fill:var(--ink)">${l}</text>`});
     s+=`<line x1="${x0}" x2="${x1}" y1="${yb}" y2="${yb}" class="axis"/>`;
     s+=`<text x="${x0}" y="${N?20:18}" class="t-sm" style="fill:var(--ink);font-weight:600">${D.t.toUpperCase()} · 12 WEEKS</text>`;
-    if(!N){s+=`<text x="590" y="70" style="font:800 24px var(--display);fill:var(--rx)">${D.nnt.split(' at ')[0]}</text><text x="590" y="88" class="t-xs">at 1,800 mg/day vs placebo</text>`;
+    if(!N){s+=`<text x="590" y="70" style="font:800 24px var(--display);fill:var(--rx)">${D.nnt.split(' at ')[0]}</text><text x="590" y="88" class="t-xs">at 1,800 mg/day</text><text x="590" y="100" class="t-xs">vs placebo</text>`;
       s+=`<text x="590" y="122" class="t-xs">Adverse-event stops</text><text x="590" y="135" class="t-xs">did not differ</text><text x="590" y="148" class="t-xs">between groups</text>`}
     else s+=`<text x="390" y="42" class="t-sm t-end" style="fill:var(--rx);font-weight:700">${D.nnt.split(' at ')[0]} at 1,800 mg/d</text>`;
     gs.innerHTML=s;
@@ -2541,8 +2541,8 @@ inits.offlabel=()=>{
 
   /* ---- baclofen dumbbells ---- */
   const bs=$('#olBacSvg');
-  function drawB(){const N=vb(bs,'720 270','400 370');let s='';
-    const x0=N?20:300,x1=N?380:690,X=u=>x0+(x1-x0)*u/100,rh=N?92:56,top=N?50:40;
+  function drawB(){const N=vb(bs,'720 270','400 390');let s='';
+    const x0=N?20:300,x1=N?380:690,X=u=>x0+(x1-x0)*u/100,rh=N?92:64,top=N?50:40;
     [0,25,50,75,100].forEach(u=>{s+=`<line x1="${f1(X(u))}" x2="${f1(X(u))}" y1="${top-10}" y2="${top+rh*3-8}" class="grid"/><text x="${f1(X(u))}" y="${top-14}" class="t-xs t-mid">${u}%</text>`});
     OL_BAC.forEach((r,i)=>{const y=top+i*rh,ly=N?y+14:y+14,dy=N?y+52:y+20;
       s+=`<text x="${N?20:16}" y="${ly}" class="t-lbl">${r.n}</text><text x="${N?20:16}" y="${ly+15}" class="t-xs">${r.s}</text>`;
@@ -2550,9 +2550,9 @@ inits.offlabel=()=>{
       s+=`<circle cx="${f1(X(r.p))}" cy="${dy}" r="7" style="fill:var(--muted)"/><circle cx="${f1(X(r.b))}" cy="${dy}" r="7" style="fill:var(--rx)"/>`;
       const close=Math.abs(r.b-r.p)<10;
       s+=`<text x="${f1(X(r.p)-(close?10:0))}" y="${dy+20}" class="t-xs ${close?'t-end':'t-mid'}">${r.p}%</text><text x="${f1(X(r.b)+(close?10:0))}" y="${dy+20}" class="t-xs ${close?'':'t-mid'}" style="fill:var(--rx);font-weight:700">${r.b}%${r.sig?'':' (n.s.)'}</text>`});
-    const y=top+3*rh-(N?4:10);
+    const y=top+3*rh+(N?14:6);
     s+=`<text x="${N?20:16}" y="${y}" class="t-lbl">Dutch RCT · 2016</text>${(N?['151 people · no difference in time to first relapse;','only 15.5% reached 150 mg']:['151 people · no difference in time to first relapse; only 15.5% reached 150 mg']).map((l,k)=>`<text x="${N?20:16}" y="${y+15+k*13}" class="t-xs">${l}</text>`).join('')}`;
-    const lx=N?220:x0,ly2=N?14:14;s+=`<circle cx="${lx}" cy="${ly2-4}" r="5" style="fill:var(--muted)"/><text x="${lx+9}" y="${ly2}" class="t-xs">placebo</text><circle cx="${lx+70}" cy="${ly2-4}" r="5" style="fill:var(--rx)"/><text x="${lx+79}" y="${ly2}" class="t-xs">baclofen</text>`;
+    const lx=N?220:16,ly2=14;s+=`<circle cx="${lx}" cy="${ly2-4}" r="5" style="fill:var(--muted)"/><text x="${lx+9}" y="${ly2}" class="t-xs">placebo</text><circle cx="${lx+70}" cy="${ly2-4}" r="5" style="fill:var(--rx)"/><text x="${lx+79}" y="${ly2}" class="t-xs">baclofen</text>`;
     bs.innerHTML=s}
   drawB();
 
@@ -3212,6 +3212,103 @@ inits.body=()=>{
   [['usual drinking',1.2,'var(--glu-fill)'],['abstinence',.5,'var(--rx)']].forEach(([n,v,c],i)=>{const y=92+i*20;a+=`<text x="92" y="${y+10}" class="t-xs t-end">${n}</text><rect x="98" y="${y}" width="${f1(110*v/1.2)}" height="12" rx="6" style="fill:${c}"/><text x="${f1(102+110*v/1.2)}" y="${y+10}" class="t-xs" style="fill:var(--ink)">${v}%</text>`});
   af.innerHTML=a;
 };
+/* =============== 5.3 Families, friends and everyday life =============== */
+const FA_STEPS=[
+ {from:0,at:.07,k:'The whole family',t:'Drinking affects everyone close',
+  txt:`Family members of people with alcohol or drug dependence were more likely than family members of people with diabetes or asthma to be diagnosed with substance use disorders, depression and trauma, with similar or higher healthcare costs. Family help comes in three kinds: helping the family member get the person into treatment, involving the family in that treatment, and supporting family members in their own right. <sup class="c" data-ref="Ray2009Family,Copello2005" title="Source 67,376">67,376</sup>`,
+  pt:`When someone drinks heavily, the people around them carry stress too. Their own health matters.`,
+  hook:`Three kinds of family intervention: engage the person, involve the family in treatment, support the family itself. <sup class="c" data-ref="Copello2005" title="Source 67">67</sup>`},
+ {from:.16,at:.25,k:'Children',t:'Children growing up with a parent\'s drinking',
+  txt:`About 7.5 million US children (10.5%) aged 17 or younger lived with at least one parent with past-year AUD (2009–2014). In 8,629 adults in the ACE study, the mean number of adverse childhood experiences was 1.4 with no parental alcohol problem, 2.6 with the father only, 3.2 with the mother only and 3.8 with both. These are retrospective reports and cannot prove cause; the authors call for joined-up adult and paediatric care. <sup class="c" data-ref="Lipari2017,Dube2001" title="Source 92,293">92,293</sup>`,
+  pt:`Children often feel the strain. It is never their fault, and support for the whole family helps.`,
+  hook:`Parental alcohol problems raised the odds of each adverse childhood experience about 2 to 13 times (ACE study). <sup class="c" data-ref="Dube2001" title="Source 92">92</sup>`},
+ {from:.33,at:.4,k:'Help for you',t:'Support in your own right',
+  txt:`Al-Anon is the most widely used help for people concerned about someone else's drinking: in a national survey of 359 newcomers and 264 members, members were more satisfied with their quality of life. When the person who drinks will not seek help, Al-Anon facilitation and coping-skills training help family members cope better. Family members improved psychologically and physically whether they had CRAFT, Al-Anon or the Johnson intervention. <sup class="c" data-ref="Timko2013,OFarrell2012,Roozen2010CRAFT" title="Source 350,401,462">350,401,462</sup>`,
+  pt:`You can get support even if your loved one is not ready. Looking after yourself is not giving up on them.`,
+  hook:`Every family approach studied improved the family member's own wellbeing. <sup class="c" data-ref="Miller1999,Roozen2010CRAFT" title="Source 329,401">329,401</sup>`},
+ {from:.5,at:.6,k:'CRAFT',t:'Community reinforcement and family training',
+  txt:`CRAFT trains a concerned family member or friend, building on the community reinforcement approach, which reduces drinking days more than usual care. It works with the person who drinks still at home and not yet seeking help. In a trial of 130 family members, engagement usually came after 4 to 6 sessions. <sup class="c" data-ref="Miller1999,Roozen2004CRA,Hunt1973" title="Source 191,329,400">191,329,400</sup>`,
+  pt:`CRAFT is training for you, the family member, in ways to make treatment more likely, without confrontation.`,
+  hook:`CRAFT engagement typically follows 4–6 sessions with the family member. <sup class="c" data-ref="Miller1999" title="Source 329">329</sup>`},
+ {from:.66,at:.8,k:'Comparing approaches',t:'Which approach gets a loved one to treatment?',
+  txt:`In the RCT of 130 concerned significant others, CRAFT engaged 64% of initially unmotivated problem drinkers in treatment, against 30% for the Johnson Institute confrontational intervention and 13% for Al-Anon facilitation. 70% of families assigned to the Johnson intervention chose not to go ahead with the confrontation. A review found CRAFT about three times as effective as Al-Anon/Nar-Anon (RR 3.25; NNT 2) and twice the Johnson intervention (RR 2.15; NNT 3). <sup class="c" data-ref="Miller1999,Roozen2010CRAFT" title="Source 329,401">329,401</sup>`,
+  pt:`Calm, practised skills got more loved ones into treatment than a surprise confrontation did.`,
+  hook:`CRAFT 64% vs Johnson 30% vs Al-Anon facilitation 13% engaged (Miller 1999). <sup class="c" data-ref="Miller1999" title="Source 329">329</sup>`},
+ {from:.86,at:.94,k:'Together in treatment',t:'Couples and family therapy',
+  txt:`Once the person enters treatment, behavioural couples therapy (BCT) is "clearly more effective" than individual treatment for abstinence and relationship functioning, including in studies with women and with gay and lesbian couples. In a meta-analysis of 12 RCTs (n = 754), BCT beat individual treatment (d = 0.54), and its advantage grew over time: frequency of use d = 0.45, consequences 0.50, relationship satisfaction 0.51. <sup class="c" data-ref="OFarrell2012,Powers2008" title="Source 350,369">350,369</sup>`,
+  pt:`When both partners take part, treatment often works better, for drinking and for the relationship.`,
+  hook:`BCT vs individual treatment: d = 0.54 (12 RCTs). <sup class="c" data-ref="Powers2008" title="Source 369">369</sup>`}
+];
+const FA_LANG={
+ home:{old:`I can't keep living with <mark>a drunk</mark>. He's <mark>an alcoholic</mark> and he <mark>relapsed</mark> again.`,neu:`I'm worried about my partner. He has <mark>alcohol use disorder</mark>, he <mark>had a recurrence of use</mark> this week, and I want us both to get support.`},
+ clinic:{old:`Patient is <mark>an alcohol abuser</mark> who <mark>relapsed</mark> after detox.`,neu:`Patient has <mark>alcohol use disorder</mark>, severe; <mark>recurrence of use</mark> after withdrawal management. Discussed medicine and follow-up.`},
+ work:{old:`We can't trust him with the team, he's <mark>an addict</mark>.`,neu:`He is <mark>a person in recovery</mark> and is getting treatment; we will support his return to work.`}};
+inits.families=()=>{
+  const svg=$('#faSvg'),rg=$('#faT');
+  function draw(t){
+    const N=vb(svg,'720 380','400 640'),p=phaseOf(FA_STEPS,t),u=ramp(t,FA_STEPS[p].from,p<5?FA_STEPS[p+1].from:1);
+    /* constellation box */
+    const O=N?{cx:200,cy:150,sc:1}:{cx:200,cy:186,sc:1.05};
+    const M=[{k:'partner',n:'partner',a:-.5,d:118,s:52},{k:'kid1',n:'child',a:.45,d:120,s:38},{k:'kid2',n:'child',a:1.05,d:112,s:34},{k:'par',n:'parent',a:Math.PI+.45,d:122,s:50},{k:'fr',n:'friend',a:Math.PI-.35,d:126,s:48}];
+    let s=`<defs>${marker('faA','var(--rx)')}</defs>`;
+    const pos=m=>[O.cx+Math.cos(m.a)*m.d*O.sc,O.cy+Math.sin(m.a)*m.d*O.sc*.92];
+    /* ripples */
+    if(p===0)for(let i=0;i<3;i++){const k=(u*1.4+i/3)%1;s+=`<circle cx="${O.cx}" cy="${O.cy}" r="${f1(30+k*140)}" style="fill:none;stroke:var(--accent);stroke-width:1.4;opacity:${f1((1-k)*.5)}"/>`}
+    M.forEach(m=>{const [x,y]=pos(m);s+=`<line x1="${O.cx}" y1="${O.cy}" x2="${f1(x)}" y2="${f1(y)}" style="stroke:var(--line);stroke-width:1.4"/>`});
+    /* CRAFT: arrow partner -> person */
+    if(p===3||p===4){const [x,y]=pos(M[0]),k=p===3?ease(ramp(u,0,.8)):1;s+=`<line x1="${f1(x)}" y1="${f1(y+20)}" x2="${f1(lerp(x,O.cx+24,k))}" y2="${f1(lerp(y+20,O.cy-4,k))}" style="stroke:var(--rx);stroke-width:2.6" marker-end="url(#faA)"/>`}
+    /* support circle around partner and the other adults */
+    if(p===2||p===3){const k=p===2?ramp(u,0,.6):1;[M[0],M[3]].forEach(m=>{const [x,y]=pos(m);s+=`<circle cx="${f1(x)}" cy="${f1(y+m.s*.5)}" r="${f1(m.s*.85*k+1)}" style="fill:var(--good-soft);stroke:var(--good);stroke-width:1.4;opacity:${f1(.9*k)}"/>`});
+      const [x,y]=pos(M[0]);s+=`<text x="${f1(x)}" y="${f1(y-12)}" class="t-xs t-mid" style="fill:var(--good);opacity:${f1(k)}">support for you</text>`}
+    /* couples therapy: a shared circle */
+    if(p===5){const [x,y]=pos(M[0]),k=ramp(u,0,.6),mx=(x+O.cx)/2,my=(y+O.cy)/2+14;s+=`<ellipse cx="${f1(mx)}" cy="${f1(my)}" rx="${f1(30+86*k)}" ry="${f1(26+44*k)}" style="fill:var(--rx-soft);stroke:var(--rx);stroke-width:1.6;opacity:${f1(.4+.5*k)}"/><text x="${f1(mx)}" y="${f1(my+60*k+18)}" class="t-xs t-mid" style="fill:var(--rx);font-weight:700;opacity:${f1(k)}">couples therapy</text>`}
+    /* people */
+    M.forEach(m=>{const [x,y]=pos(m),hl=(p===1&&m.k.startsWith('kid'))||((p===2||p===3||p===4)&&m.k==='partner')||(p===5&&m.k==='partner');
+      s+=person(x,y,m.s,hl?'var(--rx)':'var(--muted)');
+      if(p===0){const k=ramp(u,.2,.7);if(k>0)s+=`<path d="M${f1(x-8)} ${f1(y-6)}q4 -6 8 0q4 6 8 0" style="fill:none;stroke:var(--accent);stroke-width:1.4;opacity:${f1(k)}"/>`}
+      s+=`<text x="${f1(x)}" y="${f1(y+m.s+14)}" class="t-xs t-mid">${m.n}</text>`});
+    s+=person(O.cx,O.cy-30,62,'var(--ink)')+`<text x="${O.cx}" y="${O.cy+46}" class="t-xs t-mid" style="fill:var(--ink)">person with AUD</text>`;
+    if(p===4){const ok=u>.5;s+=`<text x="${O.cx}" y="${O.cy-40}" class="t-sm t-mid" style="fill:${ok?'var(--rx)':'var(--muted)'};font-weight:700">${ok?'enters treatment?':'…'}</text>`}
+    /* side panel */
+    const B=N?{x:10,y:322,w:380,h:308}:{x:410,y:14,w:300,h:352};
+    s+=`<rect x="${B.x}" y="${B.y}" width="${B.w}" height="${B.h}" rx="12" style="fill:var(--panel);stroke:var(--line)"/>`;
+    const X0=B.x+16,W=B.w-32;let y=B.y+28;
+    const hd=(a,b)=>{s+=`<text x="${X0}" y="${y}" class="t-sm" style="fill:var(--ink);font-weight:700">${a}</text>`;if(b)s+=`<text x="${X0}" y="${y+15}" class="t-xs">${b}</text>`;y+=b?36:22};
+    const bar=(lab,v,max,col,val,k)=>{s+=`<text x="${X0}" y="${y}" class="t-xs" style="fill:var(--ink)">${lab}</text>`;const w=W-56;s+=`<rect x="${X0}" y="${y+6}" width="${f1(w)}" height="16" rx="4" style="fill:var(--panel-2)"/><rect x="${X0}" y="${y+6}" width="${f1(w*v/max*k)}" height="16" rx="4" style="fill:${col}"/><text x="${X0+W}" y="${y+19}" class="t-sm t-end" style="fill:${col};font-weight:700">${val}</text>`;y+=42};
+    if(p===0){hd('Three kinds of family help','Copello 2005');
+      ['1  Help the person get into treatment','2  Join in the person\'s treatment','3  Support family members themselves'].forEach((tx,i)=>{const k=ramp(u,i*.25,i*.25+.3);s+=`<rect x="${X0}" y="${y-14}" width="${W}" height="30" rx="8" style="fill:var(--rx-soft);opacity:${f1(k)}"/><text x="${X0+10}" y="${y+5}" class="t-sm" style="fill:var(--ink);opacity:${f1(k)}">${tx}</text>`;y+=40});
+      y+=6;s+=`<text x="${X0}" y="${y}" class="t-xs">Family members had more SUD, depression</text><text x="${X0}" y="${y+15}" class="t-xs">and trauma diagnoses than families of</text><text x="${X0}" y="${y+30}" class="t-xs">people with diabetes or asthma.</text>`}
+    else if(p===1){hd('Mean adverse childhood experiences','by parental alcohol problem · ACE study');
+      [['None',1.4,'var(--muted)'],['Father only',2.6,'var(--warn)'],['Mother only',3.2,'var(--accent)'],['Both parents',3.8,'var(--accent)']].forEach((r,i)=>bar(r[0],r[1],4,r[2],r[1].toFixed(1),ease(ramp(u,i*.15,i*.15+.4))));
+      s+=`<text x="${X0}" y="${y+2}" class="t-xs">Retrospective reports: association, not proof</text><text x="${X0}" y="${y+17}" class="t-xs">of cause. 10.5% of US children lived with a</text><text x="${X0}" y="${y+32}" class="t-xs">parent with past-year AUD.</text>`}
+    else if(p===2){hd('Al-Anon family groups','national survey · Timko 2013');
+      bar('Newcomers surveyed',359,400,'var(--muted)','359',ramp(u,0,.4));bar('Members surveyed',264,400,'var(--good)','264',ramp(u,.15,.55));
+      s+=`<text x="${X0}" y="${y}" class="t-sm" style="fill:var(--good);font-weight:700">Members: more satisfied with</text><text x="${X0}" y="${y+17}" class="t-sm" style="fill:var(--good);font-weight:700">their quality of life</text>`;
+      s+=`<text x="${X0}" y="${y+44}" class="t-xs">Bars show sample sizes; the abstract</text><text x="${X0}" y="${y+59}" class="t-xs">reports the difference in words.</text>`}
+    else if(p===3){hd('Sessions with the family member','engagement usually after 4–6 · Miller 1999');
+      const n=Math.min(6,Math.floor(u*7.2));for(let i=0;i<6;i++){const cx=X0+18+i*(W-36)/5,on=i<n,band=i>=3;
+        s+=`<circle cx="${f1(cx)}" cy="${y+20}" r="15" style="fill:${on?(band?'var(--rx)':'var(--rx-soft)'):'var(--panel-2)'};stroke:${band?'var(--rx)':'var(--line)'}"/><text x="${f1(cx)}" y="${y+24}" class="t-sm t-mid" style="fill:${on&&band?'var(--on-brand)':'var(--ink)'};font-weight:700">${i+1}</text>`}
+      s+=`<path d="M${f1(X0+18+3*(W-36)/5-16)} ${y+48}h${f1(2*(W-36)/5+32)}" style="stroke:var(--rx);stroke-width:2"/><text x="${f1(X0+18+4*(W-36)/5)}" y="${y+64}" class="t-xs t-mid" style="fill:var(--rx)">usual window</text>`;
+      y+=96;s+=`<text x="${X0}" y="${y}" class="t-xs">CRAFT builds on the community</text><text x="${X0}" y="${y+15}" class="t-xs">reinforcement approach (Hunt and Azrin, 1973),</text><text x="${X0}" y="${y+30}" class="t-xs">which cut drinking days more than usual care.</text>`}
+    else if(p===4){hd('Loved ones engaged in treatment','RCT, 130 family members · Miller 1999');
+      [['CRAFT',64,'var(--rx)'],['Johnson confrontation',30,'var(--warn)'],['Al-Anon facilitation',13,'var(--muted)']].forEach((r,i)=>bar(r[0],r[1],100,r[2],r[1]+'%',ease(ramp(u,.05+i*.08,.6+i*.08))));
+      s+=`<text x="${X0}" y="${y}" class="t-xs">Review: CRAFT RR 3.25 vs Al-Anon (NNT 2),</text><text x="${X0}" y="${y+15}" class="t-xs">RR 2.15 vs Johnson (NNT 3).</text><text x="${X0}" y="${y+36}" class="t-xs" style="fill:var(--warn)">70% of Johnson families did not go</text><text x="${X0}" y="${y+51}" class="t-xs" style="fill:var(--warn)">ahead with the confrontation.</text>`}
+    else{hd('Behavioural couples therapy vs individual','meta-analysis, 12 RCTs · effect size d');
+      [['Overall',.54,'var(--rx)'],['Frequency of use (follow-up)',.45,'var(--rx)'],['Consequences (follow-up)',.5,'var(--rx)'],['Relationship satisfaction',.51,'var(--good)']].forEach((r,i)=>bar(r[0],r[1],.8,r[2],'d '+r[1].toFixed(2),ease(ramp(u,i*.12,i*.12+.45))))}
+    svg.innerHTML=s;setSt(p);$('#faNote').innerHTML=noteHTML(FA_STEPS[p]);
+  }
+  const stop=playWire(rg,$('#faPlay'),draw,30000,'Replay','families');
+  const setSt=stepWire($('#faSteps'),FA_STEPS,rg,draw,stop);
+  draw(+rg.value);
+
+  /* ---- what to say ---- */
+  let neu=true;const sel=$('#faCtx'),wb=$('#faWords'),card=$('#faLang');
+  function drawL(){const L=FA_LANG[sel.value];card.classList.toggle('old',!neu);
+    card.innerHTML=`<div class="kicker">${neu?'Person-first, non-stigmatising':'Labels that carry blame'}</div><p class="say">${neu?L.neu:L.old}</p><p class="stage-cap">${neu?'Names the condition, not the person; describes what happened and what comes next. "Long-term recovery" and "recurrence of use" carried more positive associations. <sup class="c" data-ref="Ashford2018" title="Source 21">21</sup>':'In studies, "abuser", "addict" and "alcoholic" pushed readers toward blame and punishment. <sup class="c" data-ref="Kelly2010Language,Ashford2018" title="Source 21,226">21,226</sup> Switch back to see the alternative.'}</p>`}
+  sel.addEventListener('change',drawL);
+  wb.addEventListener('click',()=>{neu=!neu;wb.setAttribute('aria-pressed',neu);wb.textContent=neu?'Person-first wording':'Stigmatising wording';drawL()});
+  drawL();
+};
 /* =============== 5.4 Pregnancy and fetal alcohol spectrum disorders =============== */
 const PG_STEPS=[
  {from:0,at:.1,k:'Weeks 0–12',t:'Early pregnancy',
@@ -3801,7 +3898,7 @@ inits.history=()=>{
       CR.forEach(([id_,_,g])=>{if(g==='ab'){P[id_]=N?[24+(ia%2)*184,74+Math.floor(ia/2)*30,cw]:[36,70+ia*32,cw];ia++}
         else if(g==='dep'){P[id_]=N?[24+(id%2)*184,212+Math.floor(id/2)*30,cw]:[286+(id%2)*212,70+Math.floor(id/2)*32,cw];id++}
         else P[id_]=N?[24,370,cw]:[286,240,cw]})}
-    else{let k=0;CR.forEach(([id_,_,g,in5])=>{if(!in5){P[id_]=N?[24,404,cw]:[36,270,cw];return}
+    else{let k=0;CR.forEach(([id_,_,g,in5])=>{if(!in5){P[id_]=N?[24,352,cw]:[36,270,cw];return}
         const order=k++;P[id_]=N?[24+(order%2)*184,74+Math.floor(order/2)*30,cw]:[36+(order%3)*218,70+Math.floor(order/3)*32,cw]})}
     return P}
   function drawDx(u){/* u: continuous state 0..2 */
@@ -3811,13 +3908,13 @@ inits.history=()=>{
     /* frames: DSM-IV two boxes fade out, DSM-5 one box fades in */
     const f4=1-ramp(a,0,.5),f5=ramp(a,.5,1)*cv;
     if(N){s+=box(16,58,368,76,'var(--dx)','DSM-IV ALCOHOL ABUSE',f4)+box(16,196,368,136,'var(--brand)','DSM-IV ALCOHOL DEPENDENCE',f4);
-      s+=box(16,58,368,190,'var(--brand)','DSM-5 ALCOHOL USE DISORDER · 2 OR MORE OF 11',f5)}
+      s+=box(16,58,368,206,'var(--brand)','DSM-5 ALCOHOL USE DISORDER · 2 OR MORE OF 11',f5)}
     else{s+=box(24,54,226,142,'var(--dx)','DSM-IV ALCOHOL ABUSE',f4)+box(274,54,434,142,'var(--brand)','DSM-IV ALCOHOL DEPENDENCE',f4);
       s+=box(24,54,684,142,'var(--brand)','DSM-5 ALCOHOL USE DISORDER · 2 OR MORE OF 11 IN 12 MONTHS',f5)}
     if(f4>.05)s+=`<text x="${N?24:286}" y="${N?362:232}" class="t-xs" style="opacity:${f1(f4)}">not a DSM-IV criterion:</text>`;
-    if(f5>.05){s+=`<text x="${N?24:36}" y="${N?396:262}" class="t-xs" style="fill:var(--bad);opacity:${f1(f5)}">dropped in DSM-5: very low prevalence, low discrimination, poor fit</text>`;
+    if(f5>.05){s+=`<text x="${N?24:36}" y="${N?344:262}" class="t-xs" style="fill:var(--bad);opacity:${f1(f5)}">${N?'dropped: low prevalence, low discrimination, poor fit':'dropped in DSM-5: very low prevalence, low discrimination, poor fit'}</text>`;
       /* severity bar */
-      const sx=N?16:24,sy=N?266:222,sw=N?368:684;[['mild 2–3','var(--gaba-fill)'],['moderate 4–5','var(--brand)'],['severe 6+','var(--accent)']].forEach(([l,c],i)=>{s+=`<rect x="${f1(sx+i*sw/3)}" y="${sy}" width="${f1(sw/3-3)}" height="18" rx="5" style="fill:${c};opacity:${f1(f5)}"/><text x="${f1(sx+i*sw/3+sw/6)}" y="${sy+12.5}" class="t-xs t-mid" style="fill:#fff;font-weight:600;opacity:${f1(f5)}">${l}</text>`});
+      const sx=N?16:24,sy=N?292:222,sw=N?368:684;[['mild 2–3','var(--gaba-fill)'],['moderate 4–5','var(--brand)'],['severe 6+','var(--accent)']].forEach(([l,c],i)=>{s+=`<rect x="${f1(sx+i*sw/3)}" y="${sy}" width="${f1(sw/3-3)}" height="18" rx="5" style="fill:${c};opacity:${f1(f5)}"/><text x="${f1(sx+i*sw/3+sw/6)}" y="${sy+12.5}" class="t-xs t-mid" style="fill:#fff;font-weight:600;opacity:${f1(f5)}">${l}</text>`});
       s+=`<text x="${sx}" y="${sy-6}" class="t-sm" style="opacity:${f1(f5)}">SEVERITY BY CRITERIA COUNT</text>`}
     /* chips */
     CR.forEach(([id,lab,g,in5])=>{const p0=P0[id],p1=P1[id],e=ease(a),x=lerp(p0[0],p1[0],e),y=lerp(p0[1],p1[1],e),w=p0[2];
@@ -4025,7 +4122,7 @@ inits.review=()=>{
     /* rows: the four numbers of the clock */
     ROWS.forEach(([n,ti,sub,a,b,c,cs],k)=>{const y=L.ry0+k*L.rdy,on=h>=a,bx=L.rx+44,bw=L.rw-44,X=v=>L.tx+L.tw*v/HMAX;
       s+=`<circle cx="${L.rx+17}" cy="${y+8}" r="17" style="fill:var(${on?cs:'--field'});stroke:var(${on?c:'--line'});stroke-width:1.8"/><text class="t-big t-mid" x="${L.rx+17}" y="${y+15}" style="fill:var(${on?c:'--muted'})">${n}</text>`;
-      s+=`<text class="t-lbl" x="${bx}" y="${y+2}" style="${on?'':'fill:var(--muted)'}">${ti}</text><text class="t-xs" x="${bx}" y="${y+17}">${sub}</text>`;
+      s+=`<text class="t-lbl" x="${bx}" y="${y+2}" style="${on?'':'fill:var(--muted)'}">${ti}</text><text class="${N?'t-xs':'t-sm'}" x="${bx}" y="${y+18}">${sub}</text>`;
       /* the window on the shared time scale */
       const by=y+28;
       s+=`<line x1="${f1(X(0))}" x2="${f1(X(HMAX))}" y1="${by+5}" y2="${by+5}" style="stroke:var(--line);stroke-width:1;stroke-dasharray:2 3"/>`;
@@ -4037,7 +4134,9 @@ inits.review=()=>{
     });
     /* the clock hand */
     const cx=L.tx+L.tw*h/HMAX;
-    s+=T.svg+`<line x1="${f1(cx)}" x2="${f1(cx)}" y1="${L.ry0-14}" y2="${L.ty}" style="stroke:var(--ink);stroke-width:1.6;stroke-dasharray:4 3"/><circle cx="${f1(cx)}" cy="${L.ty}" r="5" style="fill:var(--ink)"/>`;
+    /* drawn in pieces between the rows' labels, so it never crosses text */
+    s+=T.svg;ROWS.forEach((r,k)=>{const by=L.ry0+k*L.rdy+28;s+=`<line x1="${f1(cx)}" x2="${f1(cx)}" y1="${by-5}" y2="${k===3?L.ty:by+15}" style="stroke:var(--ink);stroke-width:1.6;stroke-dasharray:4 3"/>`});
+    s+=`<circle cx="${f1(cx)}" cy="${L.ty}" r="5" style="fill:var(--ink)"/>`;
     /* the safety line, always on screen */
     const sf=N?['After long, heavy daily drinking, stopping suddenly can be','dangerous. Get medical help to stop safely.']:['After long, heavy daily drinking, stopping suddenly can be dangerous. Get medical help to stop safely.'];
     sf.forEach((txt,k)=>{s+=`<text class="t-sm" x="${N?16:20}" y="${L.safe[0]+k*20}" style="fill:var(--bad);font-weight:700">${txt}</text>`});

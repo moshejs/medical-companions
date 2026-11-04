@@ -134,7 +134,7 @@ inits.history=()=>{
       CR.forEach(([id_,_,g])=>{if(g==='ab'){P[id_]=N?[24+(ia%2)*184,74+Math.floor(ia/2)*30,cw]:[36,70+ia*32,cw];ia++}
         else if(g==='dep'){P[id_]=N?[24+(id%2)*184,212+Math.floor(id/2)*30,cw]:[286+(id%2)*212,70+Math.floor(id/2)*32,cw];id++}
         else P[id_]=N?[24,370,cw]:[286,240,cw]})}
-    else{let k=0;CR.forEach(([id_,_,g,in5])=>{if(!in5){P[id_]=N?[24,404,cw]:[36,270,cw];return}
+    else{let k=0;CR.forEach(([id_,_,g,in5])=>{if(!in5){P[id_]=N?[24,352,cw]:[36,270,cw];return}
         const order=k++;P[id_]=N?[24+(order%2)*184,74+Math.floor(order/2)*30,cw]:[36+(order%3)*218,70+Math.floor(order/3)*32,cw]})}
     return P}
   function drawDx(u){/* u: continuous state 0..2 */
@@ -144,13 +144,13 @@ inits.history=()=>{
     /* frames: DSM-IV two boxes fade out, DSM-5 one box fades in */
     const f4=1-ramp(a,0,.5),f5=ramp(a,.5,1)*cv;
     if(N){s+=box(16,58,368,76,'var(--dx)','DSM-IV ALCOHOL ABUSE',f4)+box(16,196,368,136,'var(--brand)','DSM-IV ALCOHOL DEPENDENCE',f4);
-      s+=box(16,58,368,190,'var(--brand)','DSM-5 ALCOHOL USE DISORDER · 2 OR MORE OF 11',f5)}
+      s+=box(16,58,368,206,'var(--brand)','DSM-5 ALCOHOL USE DISORDER · 2 OR MORE OF 11',f5)}
     else{s+=box(24,54,226,142,'var(--dx)','DSM-IV ALCOHOL ABUSE',f4)+box(274,54,434,142,'var(--brand)','DSM-IV ALCOHOL DEPENDENCE',f4);
       s+=box(24,54,684,142,'var(--brand)','DSM-5 ALCOHOL USE DISORDER · 2 OR MORE OF 11 IN 12 MONTHS',f5)}
     if(f4>.05)s+=`<text x="${N?24:286}" y="${N?362:232}" class="t-xs" style="opacity:${f1(f4)}">not a DSM-IV criterion:</text>`;
-    if(f5>.05){s+=`<text x="${N?24:36}" y="${N?396:262}" class="t-xs" style="fill:var(--bad);opacity:${f1(f5)}">dropped in DSM-5: very low prevalence, low discrimination, poor fit</text>`;
+    if(f5>.05){s+=`<text x="${N?24:36}" y="${N?344:262}" class="t-xs" style="fill:var(--bad);opacity:${f1(f5)}">${N?'dropped: low prevalence, low discrimination, poor fit':'dropped in DSM-5: very low prevalence, low discrimination, poor fit'}</text>`;
       /* severity bar */
-      const sx=N?16:24,sy=N?266:222,sw=N?368:684;[['mild 2–3','var(--gaba-fill)'],['moderate 4–5','var(--brand)'],['severe 6+','var(--accent)']].forEach(([l,c],i)=>{s+=`<rect x="${f1(sx+i*sw/3)}" y="${sy}" width="${f1(sw/3-3)}" height="18" rx="5" style="fill:${c};opacity:${f1(f5)}"/><text x="${f1(sx+i*sw/3+sw/6)}" y="${sy+12.5}" class="t-xs t-mid" style="fill:#fff;font-weight:600;opacity:${f1(f5)}">${l}</text>`});
+      const sx=N?16:24,sy=N?292:222,sw=N?368:684;[['mild 2–3','var(--gaba-fill)'],['moderate 4–5','var(--brand)'],['severe 6+','var(--accent)']].forEach(([l,c],i)=>{s+=`<rect x="${f1(sx+i*sw/3)}" y="${sy}" width="${f1(sw/3-3)}" height="18" rx="5" style="fill:${c};opacity:${f1(f5)}"/><text x="${f1(sx+i*sw/3+sw/6)}" y="${sy+12.5}" class="t-xs t-mid" style="fill:#fff;font-weight:600;opacity:${f1(f5)}">${l}</text>`});
       s+=`<text x="${sx}" y="${sy-6}" class="t-sm" style="opacity:${f1(f5)}">SEVERITY BY CRITERIA COUNT</text>`}
     /* chips */
     CR.forEach(([id,lab,g,in5])=>{const p0=P0[id],p1=P1[id],e=ease(a),x=lerp(p0[0],p1[0],e),y=lerp(p0[1],p1[1],e),w=p0[2];

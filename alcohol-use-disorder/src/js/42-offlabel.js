@@ -109,7 +109,7 @@ inits.offlabel=()=>{
       s+=`<text x="${f1(cx)}" y="${f1(yb-h-7)}" class="t-lbl t-mid">${v[i].toFixed(1)}%</text><text x="${f1(cx)}" y="${yb+16}" class="t-sm t-mid" style="fill:var(--ink)">${l}</text>`});
     s+=`<line x1="${x0}" x2="${x1}" y1="${yb}" y2="${yb}" class="axis"/>`;
     s+=`<text x="${x0}" y="${N?20:18}" class="t-sm" style="fill:var(--ink);font-weight:600">${D.t.toUpperCase()} · 12 WEEKS</text>`;
-    if(!N){s+=`<text x="590" y="70" style="font:800 24px var(--display);fill:var(--rx)">${D.nnt.split(' at ')[0]}</text><text x="590" y="88" class="t-xs">at 1,800 mg/day vs placebo</text>`;
+    if(!N){s+=`<text x="590" y="70" style="font:800 24px var(--display);fill:var(--rx)">${D.nnt.split(' at ')[0]}</text><text x="590" y="88" class="t-xs">at 1,800 mg/day</text><text x="590" y="100" class="t-xs">vs placebo</text>`;
       s+=`<text x="590" y="122" class="t-xs">Adverse-event stops</text><text x="590" y="135" class="t-xs">did not differ</text><text x="590" y="148" class="t-xs">between groups</text>`}
     else s+=`<text x="390" y="42" class="t-sm t-end" style="fill:var(--rx);font-weight:700">${D.nnt.split(' at ')[0]} at 1,800 mg/d</text>`;
     gs.innerHTML=s;
@@ -123,8 +123,8 @@ inits.offlabel=()=>{
 
   /* ---- baclofen dumbbells ---- */
   const bs=$('#olBacSvg');
-  function drawB(){const N=vb(bs,'720 270','400 370');let s='';
-    const x0=N?20:300,x1=N?380:690,X=u=>x0+(x1-x0)*u/100,rh=N?92:56,top=N?50:40;
+  function drawB(){const N=vb(bs,'720 270','400 390');let s='';
+    const x0=N?20:300,x1=N?380:690,X=u=>x0+(x1-x0)*u/100,rh=N?92:64,top=N?50:40;
     [0,25,50,75,100].forEach(u=>{s+=`<line x1="${f1(X(u))}" x2="${f1(X(u))}" y1="${top-10}" y2="${top+rh*3-8}" class="grid"/><text x="${f1(X(u))}" y="${top-14}" class="t-xs t-mid">${u}%</text>`});
     OL_BAC.forEach((r,i)=>{const y=top+i*rh,ly=N?y+14:y+14,dy=N?y+52:y+20;
       s+=`<text x="${N?20:16}" y="${ly}" class="t-lbl">${r.n}</text><text x="${N?20:16}" y="${ly+15}" class="t-xs">${r.s}</text>`;
@@ -132,9 +132,9 @@ inits.offlabel=()=>{
       s+=`<circle cx="${f1(X(r.p))}" cy="${dy}" r="7" style="fill:var(--muted)"/><circle cx="${f1(X(r.b))}" cy="${dy}" r="7" style="fill:var(--rx)"/>`;
       const close=Math.abs(r.b-r.p)<10;
       s+=`<text x="${f1(X(r.p)-(close?10:0))}" y="${dy+20}" class="t-xs ${close?'t-end':'t-mid'}">${r.p}%</text><text x="${f1(X(r.b)+(close?10:0))}" y="${dy+20}" class="t-xs ${close?'':'t-mid'}" style="fill:var(--rx);font-weight:700">${r.b}%${r.sig?'':' (n.s.)'}</text>`});
-    const y=top+3*rh-(N?4:10);
+    const y=top+3*rh+(N?14:6);
     s+=`<text x="${N?20:16}" y="${y}" class="t-lbl">Dutch RCT · 2016</text>${(N?['151 people · no difference in time to first relapse;','only 15.5% reached 150 mg']:['151 people · no difference in time to first relapse; only 15.5% reached 150 mg']).map((l,k)=>`<text x="${N?20:16}" y="${y+15+k*13}" class="t-xs">${l}</text>`).join('')}`;
-    const lx=N?220:x0,ly2=N?14:14;s+=`<circle cx="${lx}" cy="${ly2-4}" r="5" style="fill:var(--muted)"/><text x="${lx+9}" y="${ly2}" class="t-xs">placebo</text><circle cx="${lx+70}" cy="${ly2-4}" r="5" style="fill:var(--rx)"/><text x="${lx+79}" y="${ly2}" class="t-xs">baclofen</text>`;
+    const lx=N?220:16,ly2=14;s+=`<circle cx="${lx}" cy="${ly2-4}" r="5" style="fill:var(--muted)"/><text x="${lx+9}" y="${ly2}" class="t-xs">placebo</text><circle cx="${lx+70}" cy="${ly2-4}" r="5" style="fill:var(--rx)"/><text x="${lx+79}" y="${ly2}" class="t-xs">baclofen</text>`;
     bs.innerHTML=s}
   drawB();
 

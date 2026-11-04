@@ -163,7 +163,7 @@ inits.review=()=>{
     /* rows: the four numbers of the clock */
     ROWS.forEach(([n,ti,sub,a,b,c,cs],k)=>{const y=L.ry0+k*L.rdy,on=h>=a,bx=L.rx+44,bw=L.rw-44,X=v=>L.tx+L.tw*v/HMAX;
       s+=`<circle cx="${L.rx+17}" cy="${y+8}" r="17" style="fill:var(${on?cs:'--field'});stroke:var(${on?c:'--line'});stroke-width:1.8"/><text class="t-big t-mid" x="${L.rx+17}" y="${y+15}" style="fill:var(${on?c:'--muted'})">${n}</text>`;
-      s+=`<text class="t-lbl" x="${bx}" y="${y+2}" style="${on?'':'fill:var(--muted)'}">${ti}</text><text class="t-xs" x="${bx}" y="${y+17}">${sub}</text>`;
+      s+=`<text class="t-lbl" x="${bx}" y="${y+2}" style="${on?'':'fill:var(--muted)'}">${ti}</text><text class="${N?'t-xs':'t-sm'}" x="${bx}" y="${y+18}">${sub}</text>`;
       /* the window on the shared time scale */
       const by=y+28;
       s+=`<line x1="${f1(X(0))}" x2="${f1(X(HMAX))}" y1="${by+5}" y2="${by+5}" style="stroke:var(--line);stroke-width:1;stroke-dasharray:2 3"/>`;
@@ -175,7 +175,9 @@ inits.review=()=>{
     });
     /* the clock hand */
     const cx=L.tx+L.tw*h/HMAX;
-    s+=T.svg+`<line x1="${f1(cx)}" x2="${f1(cx)}" y1="${L.ry0-14}" y2="${L.ty}" style="stroke:var(--ink);stroke-width:1.6;stroke-dasharray:4 3"/><circle cx="${f1(cx)}" cy="${L.ty}" r="5" style="fill:var(--ink)"/>`;
+    /* drawn in pieces between the rows' labels, so it never crosses text */
+    s+=T.svg;ROWS.forEach((r,k)=>{const by=L.ry0+k*L.rdy+28;s+=`<line x1="${f1(cx)}" x2="${f1(cx)}" y1="${by-5}" y2="${k===3?L.ty:by+15}" style="stroke:var(--ink);stroke-width:1.6;stroke-dasharray:4 3"/>`});
+    s+=`<circle cx="${f1(cx)}" cy="${L.ty}" r="5" style="fill:var(--ink)"/>`;
     /* the safety line, always on screen */
     const sf=N?['After long, heavy daily drinking, stopping suddenly can be','dangerous. Get medical help to stop safely.']:['After long, heavy daily drinking, stopping suddenly can be dangerous. Get medical help to stop safely.'];
     sf.forEach((txt,k)=>{s+=`<text class="t-sm" x="${N?16:20}" y="${L.safe[0]+k*20}" style="fill:var(--bad);font-weight:700">${txt}</text>`});

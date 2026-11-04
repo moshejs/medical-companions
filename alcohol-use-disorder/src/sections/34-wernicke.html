@@ -8,6 +8,8 @@
 #m-wernicke .caine input{margin-top:3px;accent-color:var(--accent);width:18px;height:18px;flex:none}
 #m-wernicke .caine label.on{border-color:var(--accent);background:var(--accent-soft)}
 #m-wernicke .weres{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+#m-wernicke .weres p{grid-column:1/-1}
+#m-wernicke #weCaineSvg{max-width:860px;margin:0 auto}
 </style>
 <section class="mod" id="m-wernicke" data-mod="wernicke" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Withdrawal &amp; acute care</p><h2>Thiamine, Wernicke and Korsakoff</h2>
@@ -29,7 +31,7 @@
   </div>
 
   <h3 class="sub">The Caine criteria: a teaching checklist</h3>
-  <p class="prose">The classic triad of confusion, unsteadiness (ataxia) and eye-movement problems was present in only 16% of 131 people found at autopsy to have had Wernicke encephalopathy. Caine and colleagues proposed a looser rule for people who drink heavily: any 2 of 4 signs. The EFNS 2010 guideline adopted it. Tick the signs in an imaginary case to see how the two rules differ. This is a teaching tool, not a way to diagnose anyone. [[Harper1986JNNP,Caine1997,Galvin2010EFNS]]</p>
+  <div class="prose"><p>The classic triad of confusion, unsteadiness (ataxia) and eye-movement problems was present in only 16% of 131 people found at autopsy to have had Wernicke encephalopathy. Caine and colleagues proposed a looser rule for people who drink heavily: any 2 of 4 signs. The EFNS 2010 guideline adopted it. Tick the signs in an imaginary case to see how the two rules differ. This is a teaching tool, not a way to diagnose anyone. [[Harper1986JNNP,Caine1997,Galvin2010EFNS]]</p></div>
   <div class="caine" id="weCaine">
     <label><input type="checkbox" data-wc="diet"><span><b>Dietary deficiency</b>Signs of poor nutrition or a poor diet</span></label>
     <label><input type="checkbox" data-wc="eye"><span><b>Eye signs</b>Oculomotor abnormalities, such as abnormal eye movements</span></label>
@@ -43,7 +45,7 @@
   <div class="weres" id="weCaineOut" aria-live="polite"></div>
 
   <h3 class="sub">Thiamine regimens as published</h3>
-  <p class="prose">Guidelines disagree on dose and route, and the trials do not settle it: a Cochrane review found the evidence "insufficient to guide clinicians" on dose, frequency, route or duration. Every row below is quoted as published, for study. None of it is an instruction. [[Day2013Cochrane]]</p>
+  <div class="prose"><p>Guidelines disagree on dose and route, and the trials do not settle it: a Cochrane review found the evidence "insufficient to guide clinicians" on dose, frequency, route or duration. Every row below is quoted as published, for study. None of it is an instruction. [[Day2013Cochrane]]</p></div>
   <div class="tbl"><table>
     <thead><tr><th>Source</th><th>Situation</th><th>What it says (quoted)</th></tr></thead>
     <tbody>
