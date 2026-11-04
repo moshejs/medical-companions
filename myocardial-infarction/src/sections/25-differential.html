@@ -1,5 +1,47 @@
-<!-- ================= 2.5 CHEST PAIN: HEART ATTACK OR SOMETHING ELSE? (stub, replaced by its builder) ================= -->
+<!-- ================= 2.5 CHEST PAIN: HEART ATTACK OR SOMETHING ELSE? ================= -->
+<style>
+#m-differential svg[data-mode=n] .t-xs{font-size:11px} #m-differential svg[data-mode=n] .t-sm{font-size:12.5px} #m-differential svg[data-mode=n] .t-lbl{font-size:14px}
+#m-differential svg[data-mode=w] .t-xs{font-size:10.5px}
+#m-differential .df-tests{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+#m-differential .df-test{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0;overflow-wrap:break-word}
+#m-differential .df-test h4{margin:0;font-family:var(--display);font-weight:800;font-size:18px}
+#m-differential .df-test p{font-size:14.5px}
+#m-differential .df-test .tag{align-self:flex-start}
+#m-differential .df-test.na{opacity:.6}
+#m-differential .df-test.key{border-color:var(--dx);box-shadow:inset 4px 0 0 var(--dx)}
+#m-differential .df-mx td,#m-differential .df-mx th{text-align:center;white-space:nowrap}
+#m-differential .df-mx tbody th{text-align:left} #m-differential .df-mx td{position:relative}
+#m-differential .df-mx tbody tr{cursor:pointer}
+#m-differential .df-sym{font:700 14px var(--mono)}
+#m-differential .card>.tag{align-self:flex-start}
+</style>
 <section class="mod" id="m-differential" data-mod="differential" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Chest pain: heart attack or something else?</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Several conditions can feel like a heart attack (myocardial infarction, MI), and some are just as dangerous. Step through a chest map of the main ones, what sets each apart, and which test helps, then compare the tests condition by condition.</p></div>
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU). Telling these conditions apart needs an emergency team and its tests.</span></p>
+  <div class="stepper" id="dfSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="dfSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A schematic chest with lungs, heart, coronary arteries, aorta and the sac around the heart. Each step lights up one alternative to a heart attack: a tear running down the aorta, a clot travelling to a lung artery, fluid in the inflamed heart sac, the left ventricle ballooning at its tip in takotsubo, a bleed inside the wall of a coronary artery in SCAD, and open arteries with injured muscle in MINOCA. A panel lists the distinguishing features, the key test and the study figures for each."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dfPlay">Play</button><label class="stage-cap tl" for="dfT">Condition <input type="range" id="dfT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <p class="stage-cap">Schematic anatomy, not to scale. Percentages are population statistics from the named registries and reviews. Tension pneumothorax and oesophageal causes are not covered here because our sources for this page do not describe them. [[Pope2000,Hagan2000,Wells2000,Imazio2015,Templin2015,Saw2019,Pasupathy2015]]</p>
+    </div>
+    <aside class="note" id="dfNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Which test helps?</h3>
+  <p class="teach"><b>Teaching tool, not for triage</b>These are the published findings for each test, gathered to show how emergency teams reason. A test that is "often normal" in a condition can never reassure on its own, and none of this replaces calling for help.</p>
+  <div class="ctrls" role="group" aria-label="Choose a condition" id="dfCond"></div>
+  <div class="df-tests" id="dfTests" aria-live="polite"></div>
+  <div class="legend"><span><b class="df-sym">●</b> central to the diagnosis</span><span><b class="df-sym">◐</b> supports it</span><span><b class="df-sym">△</b> often normal or misleading</span><span><b class="df-sym">–</b> not covered by this page's sources</span></div>
+  <div class="tbl"><table class="df-mx" id="dfMx"></table></div>
+
+  <h3 class="sub">More to know</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Takotsubo · InterTAK</span><h4>"Broken heart syndrome"</h4><p>In the InterTAK registry of 1750 patients, 89.8% were women (mean age 66.8). Physical triggers (36.0%) were more common than emotional ones (27.7%), and 28.5% had no evident trigger. Compared with matched people with acute coronary syndrome, neurological or psychiatric disorders were more common (55.8% vs 25.7%) and ejection fraction lower (40.7% vs 51.5%), while severe in-hospital complications were similarly frequent. Over long-term follow-up, major cardiac and cerebrovascular events ran at 9.9% and death at 5.6% per patient-year. [[Templin2015]]</p><p>The InterTAK consensus estimates takotsubo at about 1–3% of everyone, and 5–6% of women, presenting with suspected STEMI. [[Ghadri2018]] Under the universal definition it is classed as another cause of myocardial injury, not as MI. [[Domienik2021UDMI4]]</p></div>
+    <div class="card"><span class="tag dx">SCAD</span><h4>A tear inside a heart artery, often in younger women</h4><p>The AHA describes spontaneous coronary artery dissection (SCAD) as an important cause of acute coronary syndrome, MI and sudden death, particularly in young women and people with few conventional risk factors, linked to pregnancy, stress triggers and fibromuscular dysplasia. [[Hayes2018]] In the Canadian cohort of 750 patients, mean age was 51.8, 88.5% were women and 33.9% had no cardiac risk factors; emotional stress was reported by 50.3%, and fibromuscular dysplasia was found in 31.1%. 84.3% were treated without a procedure, and 30-day major events occurred in 8.8%. [[Saw2019]]</p></div>
+    <div class="card"><span class="tag dx">MINOCA</span><h4>A heart attack with open arteries</h4><p>MI with no obstructive coronary arteries (MINOCA) was found in 6% of patients with MI in a systematic review (median age 55, 40% women), with 12-month mortality of 4.7% vs 6.7% in MI with obstructive disease. [[Pasupathy2015]] The AHA treats it as a working diagnosis with many causes that each need evaluation. [[TamisHolland2019MINOCA]] UDMI4 puts it at 6–8% of MI, more often in women and in NSTEMI. [[Thygesen2018UDMI4C]]</p></div>
+    <div class="card"><span class="tag dx">Not the heart</span><h4>Most chest pain is something else</h4><p>Among 10,689 US emergency patients with possible cardiac ischaemia, 55% had noncardiac problems, 21% other cardiac problems and 17% acute cardiac ischaemia. [[Pope2000]] In a JAMA review, about 10% of people with acute chest pain finally had an acute coronary syndrome, and history, examination and ECG alone neither confirmed nor excluded it. [[Fanaroff2015]] That is why the tests on <a href="#ecg" data-go="ecg">the ECG</a> and <a href="#troponin" data-go="troponin">troponin</a> pages matter.</p></div>
+    <div class="card"><span class="tag dx">Raised troponin, no MI</span><h4>Injury is not always infarction</h4><p>The 2023 ESC guideline lists myocarditis, sepsis, takotsubo cardiomyopathy and heart valve disease among causes of myocardial injury, and states that a single raised value alone is not MI. UDMI4 adds heart failure and kidney disease. [[Byrne2023ESC,Thygesen2018UDMI4C]]</p></div>
+  </div>
 </section>
