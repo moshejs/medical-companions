@@ -1,5 +1,74 @@
-<!-- ================= 4.3 TALKING THERAPIES AND MUTUAL HELP (stub, replaced by its builder) ================= -->
+<!-- ================= 4.3 TALKING THERAPIES AND MUTUAL HELP ================= -->
+<style>
+#m-therapy .rpbtns .btn{font-size:13.5px}
+#m-therapy svg .t-xs{font-size:10.5px}
+#m-therapy svg .t-sm{font-size:12px}
+#m-therapy svg[data-mode=n] .t-xs{font-size:11.5px}
+#m-therapy svg[data-mode=n] .t-sm{font-size:13px}
+#m-therapy .tbl table{min-width:640px}
+#m-therapy .tbl td,#m-therapy .tbl th{vertical-align:top}
+#m-therapy .card>.ev,#m-therapy .card>.tag{align-self:flex-start}
+#m-therapy .rpsteps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+#m-therapy .rpsteps li::marker{font-weight:700;color:var(--rx)}
+</style>
 <section class="mod" id="m-therapy" data-mod="therapy" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Treatment &amp; recovery</p><h2>Talking therapies and mutual help</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Five tools, from a short talk with a nurse or doctor to a circle of chairs in a community hall. Press Play or step through each one: the scene shows how it works, the panel beside or below it shows what the trials measured.</p></div>
+  <div class="stepper" id="thSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="thSvg" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="Five tools in turn. Brief intervention: a weekly alcohol bar shrinks by 20 grams. Motivational interviewing: a balance tips from reasons to keep drinking toward reasons to change. CBT and relapse prevention: a pulse runs from trigger to thought to urge and is met by a coping skill. Contingency management: a 12-week grid of urine tests fills with reward tokens for negative results. Mutual help: chairs in a circle fill with people and connecting lines. Beside each, a small forest plot of the published effect sizes."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="thPlay">Play</button><label class="stage-cap tl" for="thT">Tools <input type="range" id="thT" min="0" max="1" step="0.001" value="0.12"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The scenes show how each approach works, not one person's treatment. Effect sizes on the right are group results from the trials and reviews named, with 95% confidence intervals where the source gives them. [[Kaner2018Cochrane,Schwenker2023,Ray2020CBT,McDonell2017,Kelly2020Cochrane]]</p>
+    </div>
+    <aside class="note" id="thNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="callout"><p><b>Safety first.</b> Talking therapies can start at any point, but if someone has been drinking heavily every day for a long time, stopping suddenly can be dangerous (seizures, delirium tremens). Get medical help to stop safely: see <a href="#withdrawal" data-go="withdrawal">the withdrawal timeline</a> and <a href="#detox" data-go="detox">managing withdrawal</a>.</p></div>
+
+  <h3 class="sub">Relapse-prevention chain: how CBT maps a high-risk moment</h3>
+  <p class="prose">Marlatt and Gordon's relapse-prevention model links high-risk situations, coping, self-efficacy, outcome expectancies and the "abstinence violation effect", with hidden antecedents such as lifestyle imbalance and urges. Pick a situation and switch the coping response on or off to see which way the published chain runs. This is a teaching diagram, not a treatment plan: a therapist works out a person's own high-risk situations with them. [[Larimer1999,Witkiewitz2004RP]]</p>
+  <div class="ctrls rpbtns" role="group" aria-label="High-risk situation">
+    <span class="kicker">Situation</span>
+    <button class="btn" data-rp="stress" aria-pressed="true">A stressful day</button>
+    <button class="btn" data-rp="party" aria-pressed="false">A party where others drink</button>
+    <button class="btn" data-rp="low" aria-pressed="false">Feeling low or lonely</button>
+    <button class="btn" data-rp="imb" aria-pressed="false">Life out of balance</button>
+    <button class="btn" data-rp="lapse" aria-pressed="false">One drink after weeks without</button>
+  </div>
+  <div class="ctrls"><button class="btn" id="thCope" aria-pressed="true">Coping response: used</button></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="thRp" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="The relapse-prevention chain: a high-risk situation leads either to a coping response, rising self-efficacy and lower risk, or to no coping response, falling self-efficacy and positive expectations of drinking, a lapse, the abstinence violation effect and higher risk. Treatment steps are attached as badges."></svg></div>
+      <p class="stage-cap">Diagram after the Marlatt model as summarised by Larimer, Palmer and Marlatt (1999). The later "dynamic" version treats relapse as many interacting influences rather than a fixed chain. [[Larimer1999,Witkiewitz2004RP]]</p>
+    </div>
+    <aside class="note" id="thRpNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The approaches side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Approach</th><th>Usual goal</th><th>Format</th><th>Evidence</th><th>Key trial or review</th></tr></thead>
+    <tbody>
+      <tr><th>Brief intervention</th><td>Drink less; for risky drinking, not dependence</td><td>One or a few short talks in primary care, emergency care or a hospital ward</td><td><span class="ev est">Established</span> about 20 g/week less at 1 year; unproven in dependence or very heavy drinking</td><td>Cochrane 2018, 69 RCTs; Saitz 2010 [[Kaner2018Cochrane,Saitz2010,USPSTF2018Alcohol]]</td></tr>
+      <tr><th>Motivational interviewing / MET</th><td>Build a person's own reasons and readiness to change</td><td>Conversations, one to one; MET was a 12-week manualised arm in Project MATCH</td><td><span class="ev est">Established</span> small to moderate effect right after, fading by long-term follow-up</td><td>Cochrane 2023, 93 studies; Project MATCH; UKATT [[Schwenker2023,ProjectMATCH1997,UKATT2005]]</td></tr>
+      <tr><th>CBT and relapse prevention</th><td>Coping skills for high-risk situations; plan for lapses</td><td>Weekly sessions, one to one or group; also computer or app versions</td><td><span class="ev est">Established</span> beats minimal treatment; equal to other specific therapies; best combined with medicine</td><td>Magill 2019; Ray 2020 (30 RCTs); Irvin 1999 [[Magill2019,Ray2020CBT,Irvin1999]]</td></tr>
+      <tr><th>Mindfulness-based relapse prevention</th><td>Notice urges without acting on them</td><td>8 weekly group sessions in aftercare</td><td><span class="ev early">Early evidence</span> fewer heavy-drinking days than usual care at 12 months in one RCT</td><td>Bowen 2014, n = 286 [[Bowen2014]]</td></tr>
+      <tr><th>Community reinforcement / contingency management</th><td>Make a life without heavy drinking more rewarding</td><td>CRA: skills and activities; CM: prizes or vouchers for verified alcohol-negative tests</td><td><span class="ev est">Established</span> CRA reduces drinking days; CM effects fade after rewards stop</td><td>Roozen 2004; Prendergast 2006; McDonell 2017 [[Roozen2004CRA,Prendergast2006,McDonell2017]]</td></tr>
+      <tr><th>Behavioural couples therapy / network therapy</th><td>Change the relationship and social network around drinking</td><td>The person and partner, or a supportive network, in sessions</td><td><span class="ev est">Established</span> BCT beat individual treatment (d = 0.54); network therapy equal to MET</td><td>Powers 2008; UKATT; Network Support II [[Powers2008,UKATT2005,Litt2016]]</td></tr>
+      <tr><th>Twelve-step facilitation / AA</th><td>Usually abstinence, through active AA involvement</td><td>Manualised sessions that link people to free community meetings</td><td><span class="ev est">Established</span> more 12-month continuous abstinence than CBT and others (RR 1.21; high certainty)</td><td>Cochrane 2020, 27 studies [[Kelly2020Cochrane]]</td></tr>
+      <tr><th>SMART Recovery, LifeRing, Women for Sobriety</th><td>Abstinence or the member's own goal</td><td>Free peer meetings, in person or online</td><td><span class="ev early">Early evidence</span> deeper involvement went with outcomes like 12-step groups; no RCTs</td><td>Peer Alternatives for Addiction study, n = 647 [[Zemore2018]]</td></tr>
+      <tr><th>Digital programmes</th><td>Drink less; support after treatment</td><td>Websites and apps, alone or with human support</td><td><span class="ev est">Established</span> about 23 g/week less; human support adds benefit</td><td>Cochrane 2017; Riper 2018 IPD; A-CHESS [[Kaner2017Digital,Riper2018IPD,Gustafson2014]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Evidence labels summarise the cited reviews. "Established" does not mean the approach works for everyone: in Project MATCH, CBT, MET and TSF gave similar results, so fit and preference matter. [[ProjectMATCH1997]]</p>
+
+  <h3 class="sub">Goals, combinations and special situations</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Goal</span><h4>Drinking less, or not at all</h4><p>Among very-high-risk drinkers in the US population, dropping one, two or three WHO risk levels went with lower odds of alcohol dependence 3 years later (adjusted ORs 0.27, 0.17 and 0.07), and with less liver disease, depression and anxiety. After the COMBINE trial, 85.5% of people who had cut down by at least one level still had that reduction a year later. [[Hasin2017WHO,Knox2018Liver,Knox2019Depression,Witkiewitz2019WHO]]</p><p>In people with AUD, cutting below heavy drinking went with lower mortality (OR 0.61 for substantial reduction, 0.35 for abstinence): both goals help, stopping helps most. These are observational links in people who drank heavily; they do not show that any amount of drinking is good for health or set a "safe" level. [[Roerecke2013Reduction]]</p></div>
+    <div class="card"><span class="tag rx">Definition</span><h4>Recovery does not have to mean abstinence</h4><p>The 2022 NIAAA research definition of recovery is remission from DSM-5 AUD plus cessation of heavy drinking, with weight on functioning and quality of life. In a 10-year follow-up of Project MATCH participants, high functioning at 3 years predicted the best psychological functioning at 10 years, whatever the drinking level. <span class="ev early">Early evidence</span> [[Hagman2022,Witkiewitz2021Nonabstinent]] See <a href="#recovery" data-go="recovery">course and recovery</a>.</p></div>
+    <div class="card"><span class="tag rx">Combine</span><h4>Medicine and therapy together</h4><p>Across 30 RCTs, CBT combined with medication did better than usual care (Hedges g 0.18–0.28); the authors recommend medication plus CBT or another evidence-based therapy. In COMBINE, percent days abstinent during treatment was 80.6 with naltrexone plus medical management, 79.2 with the combined behavioural intervention, 77.1 with both and 75.1 with placebo; therapy alone with no pills or medical visits did worse (66.6). [[Ray2020CBT,Anton2006COMBINE]] See <a href="#medicines" data-go="medicines">approved medicines</a>.</p></div>
+    <div class="card"><span class="tag warn">Limits</span><h4>What brief advice cannot do</h4><p>Of 16 primary-care trials, 14 excluded some or all people with dependence or very heavy drinking, and the two that included them showed no effect. Brief interventions did not raise the use of specialist services. On hospital wards they cut drinking at 6 and 9 months, not at a year, but deaths were fewer at 6 months (RR 0.42) and 1 year (RR 0.60). [[Saitz2010,McQueen2011]]</p></div>
+    <div class="card"><span class="tag rx">Co-occurring</span><h4>Depression and PTSD</h4><p>AUD often comes with depression and other conditions (NESARC-III odds ratios 1.2–6.4). Combined CBT and MI gave small gains for drinking (g = 0.17) and depression (g = 0.27). In 165 people with alcohol dependence and PTSD, prolonged exposure therapy did not make drinking worse; all groups cut drinking days by about 61–70%. [[Grant2015NESARC,Riper2014Depression,Foa2013]] If you are in crisis or thinking about suicide, contact a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</p></div>
+    <div class="card"><span class="tag rx">Digital</span><h4>Apps and websites</h4><p>Personalised digital programmes cut drinking by about 23 g/week compared with minimal help. Internet programmes with a human guide beat fully automated ones, and adults over 55 responded better. After residential treatment, the A-CHESS app cut risky drinking days over 12 months (1.39 vs 2.75). [[Kaner2017Digital,Riper2018IPD,Gustafson2014]]</p></div>
+  </div>
 </section>

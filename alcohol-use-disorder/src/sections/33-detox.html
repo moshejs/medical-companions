@@ -1,5 +1,93 @@
-<!-- ================= 3.3 MANAGING WITHDRAWAL SAFELY (stub, replaced by its builder) ================= -->
+<!-- ================= 3.3 MANAGING WITHDRAWAL SAFELY ================= -->
+<style>
+#m-detox .card>.ev,#m-detox .card>.tag{align-self:flex-start}
+#m-detox .tbl table{min-width:640px}
+#m-detox .tbl td q{quotes:"\201C" "\201D"}
+#m-detox .mods-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-detox .readout b{font-weight:700}
+</style>
 <section class="mod" id="m-detox" data-mod="detox" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Withdrawal &amp; acute care</p><h2>Managing withdrawal safely</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">How the ASAM 2020 guideline walks from risk assessment to a setting, to medicines, to thiamine and fluids, and then on to treatment for the alcohol use disorder itself. Pick a person below and follow their token along the path.</p></div>
+
+  <div class="safety"><b>Safety</b>Stopping suddenly after long, heavy daily drinking can be dangerous: it can cause seizures or delirium tremens. Get medical help to stop safely. Everything on this page describes what guidelines and labels say, for study. None of it is a plan for any one person. [[ASAM2020Withdrawal,Mirijello2015]]</div>
+
+  <div class="ctrls" role="group" aria-label="Choose an example person">
+    <span class="kicker">Example person</span>
+    <button class="btn" data-dxs="mild" aria-pressed="true">Mild, low risk</button>
+    <button class="btn" data-dxs="mod" aria-pressed="false">Moderate, no complications</button>
+    <button class="btn" data-dxs="sev" aria-pressed="false">Severe, or past seizure or DT</button>
+    <button class="btn" data-dxs="del" aria-pressed="false">Delirium or resistant withdrawal</button>
+  </div>
+  <div class="ctrls mods-row" role="group" aria-label="Add a circumstance">
+    <span class="kicker">Also</span>
+    <button class="btn" id="dxLiver" aria-pressed="false">Significant liver disease</button>
+    <button class="btn" id="dxPreg" aria-pressed="false">Pregnant</button>
+  </div>
+  <div class="stepper" id="dxSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="dxSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A five-stage decision path from the ASAM 2020 guideline: assess risk, choose a setting, choose medicines, give thiamine, fluids and electrolytes, then link to treatment for alcohol use disorder. A token for the chosen example person moves from stage to stage and lights the option the guideline points to, with a CIWA-Ar severity strip below showing the ASAM bands under 10, 10 to 18, and 19 or more."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxPlay">Play</button><label class="stage-cap tl" for="dxT">Path <input type="range" id="dxT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="readout" id="dxRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> An example person, not a plan for anyone: real decisions weigh many more factors, and ASAM says severity classification "is ultimately up to the judgment of clinicians". Example CIWA-Ar scores are made up to fall inside each band. [[ASAM2020Withdrawal]]</p>
+    </div>
+    <aside class="note" id="dxNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="callout"><p><b>Withdrawal management is a start, not the treatment.</b> ASAM 2020 says withdrawal management on its own "is not an effective treatment for alcohol use disorder" and should be used as a way into treatment, with AUD medicines started when thinking is clear enough and a "warm handoff" to treatment providers. Next: <a href="#medicines" data-go="medicines">approved medicines</a>, <a href="#therapy" data-go="therapy">talking therapies and mutual help</a> and <a href="#recovery" data-go="recovery">recovery</a>. [[ASAM2020Withdrawal]]</p></div>
+
+  <h3 class="sub">Benzodiazepines compared: longer- and shorter-acting</h3>
+  <p class="prose">ASAM 2020 found no benzodiazepine more effective than another, but prefers longer-acting agents for their longer action, and asks for an agent with less liver metabolism in significant liver disease. Saitz's review explains why duration matters: long-acting agents give a smoother course with less rebound, while short-acting agents carry more risk of rebound symptoms, including late seizures. [[ASAM2020Withdrawal,Saitz1998AHRW]]</p>
+  <div class="ctrls" role="group" aria-label="Which agent to draw">
+    <button class="btn" data-dxb="long" aria-pressed="false">Longer-acting</button>
+    <button class="btn" data-dxb="short" aria-pressed="false">Shorter-acting</button>
+    <button class="btn" data-dxb="both" aria-pressed="true">Both</button>
+    <button class="btn" id="dxAcc" aria-pressed="false">Older adult or liver disease</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="dxBz" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Schematic drug-level curves over three days of repeated doses. A longer-acting agent builds a smooth plateau; a shorter-acting agent rises and falls with each dose, dipping into a band where withdrawal symptoms can return between doses. With the older adult or liver disease toggle, the longer-acting curve keeps climbing into an over-sedation band."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxBzPlay">Play</button><label class="stage-cap tl" for="dxBzT">Hours <input type="range" id="dxBzT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The shapes show the published idea (smooth versus peaks and troughs; accumulation). They are not pharmacokinetic data and carry no doses or half-lives. [[Saitz1998AHRW,ASAM2020Withdrawal]]</p>
+    </div>
+    <aside class="note" id="dxBzNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Medicine</th><th>What the US label says (quoted, not instructions)</th><th>Where it appears in guidelines and trials</th></tr></thead>
+    <tbody>
+      <tr><th>Diazepam (Valium)</th><td>In acute alcohol withdrawal it "may be useful in the symptomatic relief of acute agitation, tremor, impending or acute delirium tremens and hallucinosis". Usual adult dose as printed: "10 mg, 3 or 4 times during the first 24 hours, reducing to 5 mg, 3 or 4 times daily as needed". [[FDA-Valium]]</td><td>ASAM prefers diazepam or chlordiazepoxide for front loading in severe withdrawal (CIWA-Ar ≥19). [[ASAM2020Withdrawal]]</td></tr>
+      <tr><th>Chlordiazepoxide</th><td>Indicated for "withdrawal symptoms of acute alcoholism" (the label's older wording). Suggested starting dose as printed: "50 to 100 mg, to be followed by repeated doses as needed until agitation is controlled up to 300 mg per day". [[FDA-Chlordiazepoxide]]</td><td>The drug in ASAM's sample regimens and in the Saitz 1994 symptom-triggered trial. [[ASAM2020Withdrawal,Saitz1994]]</td></tr>
+      <tr><th>Oxazepam</th><td>"15 to 30 mg, 3 or 4 times daily" for acute inebriation, tremulousness or anxiety on withdrawal (label wording). [[FDA-Oxazepam]]</td><td>The drug in the Daeppen 2002 symptom-triggered trial. [[Daeppen2002]]</td></tr>
+      <tr><th>Lorazepam (injection)</th><td>Labelled for status epilepticus and preanaesthetic use only: alcohol withdrawal is not a labelled indication. [[FDA-LorazepamInj]]</td><td>Guidelines still use IV lorazepam. After an alcohol-related seizure, IV lorazepam 2 mg cut recurrent seizures within 6 hours from 24% to 3% in an emergency-department trial. [[ASAM2020Withdrawal,DOnofrio1999NEJM]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="safety"><b>Never with opioids or alcohol</b>Every benzodiazepine label checked (Valium, chlordiazepoxide, oxazepam) carries a boxed warning that use with opioids "may result in profound sedation, respiratory depression, coma, and death". ASAM asks that patients and caregivers be taught the danger of combining benzodiazepines with alcohol or other sedatives, not to drive for the first few days, and to reduce the dose if drowsy. And alcohol itself is never a treatment: "Oral or intravenous alcohol should not be used for the prevention or treatment of alcohol withdrawal". [[FDA-Valium,FDA-Chlordiazepoxide,FDA-Oxazepam,ASAM2020Withdrawal]]</div>
+
+  <h3 class="sub">What the trials show</h3>
+  <div class="ctrls" role="group" aria-label="Choose a comparison">
+    <button class="btn" data-dxf="ms" aria-pressed="true">Benzodiazepines vs control (Mayo-Smith 1997)</button>
+    <button class="btn" data-dxf="st" aria-pressed="false">Symptom-triggered vs fixed schedule</button>
+    <button class="btn" data-dxf="more" aria-pressed="false">Seizure and ICU trials</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="dxFx" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bar charts of published trial results that grow when a comparison is chosen: cases of seizures and delirium prevented per 100 patients with benzodiazepines, the hours and milligrams used with symptom-triggered versus fixed-schedule dosing, and recurrent seizure and ICU admission rates in emergency-department trials."></svg></div>
+      <p class="stage-cap" id="dxFxCap"></p>
+    </div>
+    <aside class="note" id="dxFxNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Other medicines and harder cases</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Mild to moderate</span><h4>Carbamazepine and gabapentin</h4><p>ASAM 2020: appropriate for mild withdrawal; for moderate withdrawal, benzodiazepines come first and these are alternatives. Gabapentin is a favourable choice when it will also be used for ongoing AUD treatment. In one trial of 100 outpatients, high-dose gabapentin was statistically better than lorazepam on CIWA-Ar but clinically similar, with less drinking during and just after withdrawal. The 2010 Cochrane review of all anticonvulsants did not find enough evidence to support them overall. [[ASAM2020Withdrawal,Myrick2009,Minozzi2010Cochrane]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Phenobarbital</h4><p>ASAM: only for clinicians experienced with it, "given its narrow therapeutic window", and given by vein only in highly supervised settings such as the ICU. In one emergency trial, a single dose added to a lorazepam protocol cut ICU admissions from 25% to 8%; an ED meta-analysis of 8 studies found no significant difference from benzodiazepines (ICU admission RR 0.92). An ICU meta-analysis of 16 non-randomised studies found ICU stays 0.60 days shorter, with very low certainty. [[ASAM2020Withdrawal,Rosenson2013,Lee2024AEM,Rizwan2026]]</p></div>
+    <div class="card"><span class="tag warn">Adjuncts only</span><h4>Medicines that mask, not prevent</h4><p>Clonidine, dexmedetomidine and beta-blockers can calm a racing heart and blood pressure, but ASAM says they "should not be used alone" to prevent or treat seizures or delirium. Antipsychotics are adjuncts only for hallucinations or delirium not controlled by benzodiazepines; used alone in delirium they carried a relative risk of death of 6.6 against sedative-hypnotics. Phenytoin is not used unless there is a separate seizure disorder. [[ASAM2020Withdrawal,MayoSmith2004Delirium]]</p></div>
+    <div class="card"><span class="tag accent">ICU</span><h4>Resistant withdrawal</h4><p>ASAM: resistant withdrawal "is not well defined"; reviews used symptoms uncontrolled despite more than 150–200 mg diazepam or 30–40 mg lorazepam in the first 3–4 hours (quoted, not instructions). Phenobarbital may be added with close monitoring, propofol used if a person already needs a ventilator, and dexmedetomidine used in the ICU. In one ICU before-and-after study, escalating benzodiazepines plus phenobarbital went with fewer people on ventilators (47% to 22%). [[ASAM2020Withdrawal,Gold2007CCM]]</p></div>
+    <div class="card"><span class="tag accent">Delirium tremens</span><h4>Care in delirium</h4><p>Close nursing observation, often in an ICU; continuous one-to-one observation for agitated, disoriented people; immediate IV access; restraints "only when required to prevent injuries"; and a sedation target of "light somnolence". Very large benzodiazepine doses may be needed. In a case-control study, restraint use was associated with death (OR 5.8): an association, not proof of cause. See <a href="#nursing" data-go="nursing">nursing care</a>. [[ASAM2020Withdrawal,Khan2008AEM]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>With modern care, most people survive</h4><p>Reported death rates in delirium tremens range from about 1% or less with early detection and appropriate treatment, through 1–5%, to about 5% in older series. In a meta-analysis of delirium trials, no deaths were reported in 217 patients treated with benzodiazepines or barbiturates. These are group statistics, not a promise for any one person. [[Jesse2017,Mirijello2015,Saitz1998AHRW,MayoSmith2004Delirium]]</p></div>
+  </div>
+
+  <div class="crisis"><b>Get help</b><span>If you or someone else may have alcohol poisoning or severe withdrawal (seizure, confusion, hallucinations), call emergency services. For help with drinking in the US, SAMHSA's National Helpline is free and confidential: 1-800-662-4357. If you are in crisis or thinking about suicide, contact a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></div>
+  <p class="stage-cap">See also: <a href="#withdrawal" data-go="withdrawal">the withdrawal timeline</a>, <a href="#ciwa" data-go="ciwa">scoring with CIWA-Ar</a> and <a href="#wernicke" data-go="wernicke">thiamine and Wernicke encephalopathy</a>.</p>
 </section>

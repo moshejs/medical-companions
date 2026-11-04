@@ -1,5 +1,94 @@
-<!-- ================= 5.5 NURSING CARE IN HOSPITAL (stub, replaced by its builder) ================= -->
+<!-- ================= 5.5 NURSING CARE IN HOSPITAL ================= -->
+<style>
+#m-nursing .nu-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+#m-nursing .nu-stats .card .big-num{font-size:34px}
+#m-nursing .nu-quiz{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+@media (max-width:420px){#m-nursing .nu-quiz{grid-template-columns:minmax(0,1fr)}}
+#m-nursing .nu-q .scen{font-size:15px}
+#m-nursing .nu-q .opt{font-size:14.5px;width:100%}
+#m-nursing .nu-q .opt[aria-pressed="true"]{background:var(--panel-2)}
+#m-nursing .nu-q .opt.right{border-color:var(--good);background:var(--good-soft)}
+#m-nursing .nu-q .opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+#m-nursing .nu-q .expl{font-size:14px}
+#m-nursing .nu-swap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:6px 10px;align-items:center;font-size:14.5px}
+#m-nursing .nu-swap s{color:var(--bad);text-decoration-thickness:1.5px}
+#m-nursing .nu-swap b{color:var(--good)}
+#m-nursing .tbl table{min-width:640px}
+#m-nursing .tbl td:last-child{white-space:normal}
+</style>
 <section class="mod" id="m-nursing" data-mod="nursing" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Body, family &amp; care</p><h2>Nursing care in hospital</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Many people on a medical or surgical ward drink heavily, and a hospital stay is a chance to find withdrawal early, keep people safe and start treatment. Follow one illustrative 72-hour admission, then try the priority questions.</p></div>
+
+  <div class="nu-stats">
+    <div class="card"><span class="kicker">UK inpatients, harmful use</span><span class="big-num">19.76%</span><p>About 1 in 5 inpatients in a meta-analysis of 124 studies (1,657,614 patients); GRADE quality very low. [[Roberts2019]]</p></div>
+    <div class="card"><span class="kicker">UK inpatients, dependence</span><span class="big-num">10.25%</span><p>About 1 in 10. Age and type of ward explained most of the variation between studies. [[Roberts2019]]</p></div>
+    <div class="card"><span class="kicker">Medically ill inpatients</span><span class="big-num">&gt;40%</span><p>The PAWSS validation paper puts AUD prevalence among hospitalised medically ill patients above 40%, with complicated withdrawal in up to 20% of cases. [[Maldonado2015]]</p></div>
+  </div>
+
+  <p class="safety"><b>Get medical help to stop safely</b>After long, heavy daily drinking, stopping suddenly can cause seizures or delirium tremens. This page describes published hospital protocols for teaching. It is not a set of instructions, and its scores and quiz are not self-tests. [[ASAM2020Withdrawal]]</p>
+
+  <h3 class="sub">A 72-hour admission, hour by hour</h3>
+  <div class="stepper" id="nuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="An illustrative 72-hour hospital admission. On the left, a nurse walks to the bedside of a patient at each check while a checklist ticks off: AUDIT-C and PAWSS screening, CIWA-Ar and vital signs, thiamine, electrolytes, fall and seizure precautions, a CAM delirium screen, an addiction consult and discharge linkage. On the right, an illustrative CIWA-Ar score rises into the moderate band and falls again, with check dots every two hours at first and further apart once the score has stayed below 10, symptom-triggered doses marked below it, and the published time windows for seizures, hallucinations and delirium tremens."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">Play</button><label class="stage-cap tl" for="nuT">Hours <input type="range" id="nuT" min="0" max="1" step="0.001" value="0.006"></label></div>
+      <div class="readout" id="nuRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative person with no seizure and no delirium; the CIWA-Ar line is drawn, not measured, and doses are shown as marks, not amounts. Intervals, bands and time windows are as published by ASAM 2020 and Mirijello 2015. Last drink assumed at hour 0. [[ASAM2020Withdrawal,Mirijello2015]]</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Monitoring and red flags, as published</h3>
+  <div class="prose"><p>What ASAM's 2020 guideline asks nursing teams to watch during inpatient withdrawal, with the warning signs named in the sources. This is a teaching summary of published recommendations; local protocols govern real care. See also <a href="#ciwa" data-go="ciwa">CIWA-Ar: scoring withdrawal</a> and <a href="#detox" data-go="detox">Managing withdrawal safely</a>.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Area</th><th>As published</th><th>Red flags named in the sources</th></tr></thead>
+    <tbody>
+      <tr><th>Withdrawal severity</th><td>Moderate to severe withdrawal, or anyone needing medication: "re-assess every 1–4 hours for 24 hours, as clinically indicated." Once stable ("e.g., CIWA-Ar score &lt; 10 for 24 hours"), monitoring "can be extended to every 4–8 hours for 24 hours" (V.1). [[ASAM2020Withdrawal]]</td><td>Example ASAM bands: mild &lt;10, moderate 10–18, severe ≥19. Complicated: ≥19 with seizure or signs of delirium. Classification "is ultimately up to the judgment of clinicians". [[ASAM2020Withdrawal]]</td></tr>
+      <tr><th>Mild, low-risk withdrawal</th><td>May be "observed for up to 36 hours, after which more severe withdrawal is unlikely to develop." [[ASAM2020Withdrawal]]</td><td>Rising scores or new risk factors move a person back to closer monitoring.</td></tr>
+      <tr><th>Whole person</th><td>Vital signs, hydration, orientation, sleep and emotional status "including suicidal thoughts" (V.2). [[ASAM2020Withdrawal]]</td><td>Suicidal thoughts: AUD is associated with suicide attempt (OR 3.13). [[Darvishi2015]]</td></tr>
+      <tr><th>On withdrawal medicine</th><td>Monitor "for signs of over-sedation and respiratory depression" (V.3). Symptom-triggered dosing is "the preferred benzodiazepine dosing method" in inpatients (V.23). [[ASAM2020Withdrawal]]</td><td>Over-sedation; slowed breathing. Opioids or other sedatives on the chart: the opioid boxed warning names alcohol among the CNS depressants that may cause "profound sedation, respiratory depression, coma, and death". [[ASAM2020Withdrawal,FDA-OxyContin]]</td></tr>
+      <tr><th>After a seizure</th><td>Admit where close monitoring is available and "re-assess every 1-2 hours for 6–24 hours"; watch for delirium and the need for IV fluids (VI.2). [[ASAM2020Withdrawal]]</td><td>A second seizure "generally happens within 6 hours of the first". Phenytoin should not be used unless there is a separate seizure disorder. [[Saitz1998AHRW,ASAM2020Withdrawal]]</td></tr>
+      <tr><th>Delirium</th><td>CIWA-Ar is not recommended in delirium because it relies on patient report; use CAM-ICU, DDS, RASS or MINDS (VI.9). Close nursing observation, often in ICU, and continuous one-to-one observation for agitated, disoriented patients (VI.7–8). [[ASAM2020Withdrawal]]</td><td>Acute, fluctuating inattention with disorganised thinking or altered consciousness (CAM). In one case-control study, hyperthermia in the first 24 h (OR 6.1) and restraint use (OR 5.8) were associated with death in delirium tremens: association, not cause. [[Inouye1990,Khan2008AEM]]</td></tr>
+      <tr><th>Restraint</th><td>"Should only be used when required to prevent injuries due to agitation or violence, and in compliance with state laws" (VI.12). [[ASAM2020Withdrawal]]</td><td>See the delirium row.</td></tr>
+      <tr><th>Fluids, electrolytes, nutrition</th><td>Fluid intake and output and serum electrolytes as indicated (VII.15). Magnesium for hypomagnesaemia, arrhythmias, electrolyte disturbances or past withdrawal seizures (V.9); phosphorus if below 1 mg/dL (V.10). [[ASAM2020Withdrawal]]</td><td>Low potassium that does not correct often reflects low magnesium (renal potassium wasting). Lower potassium and platelets predicted delirium tremens in a meta-analysis. [[Elisaf2002,Goodson2014]]</td></tr>
+      <tr><th>Thiamine</th><td>Thiamine "should be provided to prevent Wernicke encephalopathy"; "Typical dosing is 100 mg IV/IM per day for 3–5 days" (V.7, quoted, not an instruction). [[ASAM2020Withdrawal]]</td><td>Confusion, unsteadiness or eye-movement problems: Caine criteria need 2 of 4 signs. See <a href="#wernicke" data-go="wernicke">Thiamine, Wernicke and Korsakoff</a>. [[Caine1997]]</td></tr>
+      <tr><th>Safety and comfort</th><td>Assess "risk for fall/syncope" (V.6). Frequent reassurance, re-orientation, "an evenly lit, quiet room", and "hope and the expectation of recovery" (V.5). [[ASAM2020Withdrawal]]</td><td>In 505 older adults admitted with a fall-related fracture, PEth showed hazardous drinking in 13%. [[Rogmark2026]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Priority questions</h3>
+  <div class="prose"><p>Exam-style scenarios about the illustrative ward. Pick the answer the published guidance supports; each explanation gives the source. These are teaching questions, not advice for any real patient.</p></div>
+  <div class="ctrls"><span class="readout" id="nuScore"></span><button class="btn ghost" id="nuReset">Reset questions</button></div>
+  <div class="nu-quiz" id="nuQuiz"></div>
+
+  <h3 class="sub">Starting treatment before discharge</h3>
+  <div class="prose"><p>ASAM 2020: "When feasible, alcohol use disorder (AUD) treatment should be initiated concurrently with alcohol withdrawal management as cognitive status permits." [[ASAM2020Withdrawal]] Pick a study to see what happened when hospitals did this. Every study here is observational or before-and-after; there is no large randomised trial yet. [[Wei2015,Wakeman2017,Lambert2025]]</p></div>
+  <div class="ctrls" role="group" aria-label="Choose a study">
+    <button class="btn" data-nul="wei" aria-pressed="true">Discharge protocol (Wei 2015)</button>
+    <button class="btn" data-nul="lam" aria-pressed="false">Addiction consult (Lambert 2025)</button>
+    <button class="btn" data-nul="gap" aria-pressed="false">How often it happens</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuLink" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bar chart of published results on starting medicine for alcohol use disorder in hospital, changing with the selected study."></svg></div>
+      <p class="stage-cap" id="nuLinkCap"></p>
+    </div>
+    <aside class="note" id="nuLinkNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Words, attitudes and special groups</h3>
+  <div class="cards">
+    <div class="card"><span class="tag good">Communication</span><h4>Stigma-free language changes judgements</h4>
+      <div class="nu-swap"><s>alcoholic</s><span>→</span><b>person with alcohol use disorder</b><s>substance abuser</s><span>→</span><b>person with a substance use disorder</b></div>
+      <p>In a randomised study of 516 clinicians, a vignette about "a substance abuser" drew more agreement that the person was to blame and should be punished than one about a person "having a substance use disorder". [[Kelly2010Language]]</p></div>
+    <div class="card"><span class="tag warn">Attitudes</span><h4>Negative attitudes worsen care</h4><p>A review of 28 studies found health professionals generally held negative attitudes towards patients with substance use disorders. Those professionals were "less involved", more task-oriented and less empathic, and patients' empowerment and outcomes suffered. Public stigma towards AUD "remains comparatively high". [[vanBoekel2013,Kilian2021]]</p></div>
+    <div class="card"><span class="tag good">Hope</span><h4>Recovery is common</h4><p>AUD is a treatable medical condition, not a moral failing. In a US survey, 9.1% of adults said they once had an alcohol or drug problem and no longer do: a group statistic, not a promise for any one person. ASAM asks that patients be offered "hope and the expectation of recovery". [[Kelly2017Recovery,ASAM2020Withdrawal]]</p></div>
+    <div class="card"><span class="tag accent">Older adults</span><h4>Medicines that interact</h4><p>Among US drinkers aged 65 and over, 77.8% used a prescription medicine that interacts with alcohol. Older age was linked to a lower chance of AUD medicine being started in hospital. [[Breslow2015,Anderson2026,Bernstein2026]]</p></div>
+    <div class="card"><span class="tag accent">Mental health</span><h4>Ask about mood and suicidal thoughts</h4><p>AUD is associated with major depression (OR 2.42) and anxiety disorders (OR 2.11), suicidal ideation (OR 1.86) and suicide attempt (OR 3.13): population statistics. ASAM's monitoring list includes "suicidal thoughts". [[Lai2015,Darvishi2015,ASAM2020Withdrawal]]</p></div>
+    <div class="card"><span class="tag bad">Sedatives</span><h4>Opioids, benzodiazepines and alcohol</h4><p>Both the opioid and the benzodiazepine boxed warnings name combined use with CNS depressants, including alcohol, as a cause of respiratory depression and death. Alcohol was co-involved in 14.7% of US opioid overdose deaths in 2017. [[FDA-OxyContin,FDA-Xanax,Tori2020]]</p></div>
+  </div>
+
+  <p class="crisis" role="note"><b>Need help now?</b><span>If you or someone else may have alcohol poisoning or severe withdrawal (seizure, confusion, hallucinations), call emergency services. For help with drinking in the US, SAMHSA's National Helpline is free and confidential: 1-800-662-4357. If you are in crisis or thinking about suicide, contact a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></p>
 </section>

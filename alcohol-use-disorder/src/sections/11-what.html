@@ -1,5 +1,118 @@
-<!-- ================= 1.1 WHAT ALCOHOL USE DISORDER IS (stub, replaced by its builder) ================= -->
+<!-- ================= 1.1 WHAT ALCOHOL USE DISORDER IS ================= -->
+<style>
+#m-what .card>.tag,#m-what .card>.ev{align-self:flex-start}
+#m-what .chips .tag{text-transform:none;letter-spacing:0;font:600 12.5px/1.25 var(--body);white-space:normal;padding:6px 9px}
+#m-what .chips .tag b{font:600 11px var(--mono);margin-left:4px}
+#m-what .lang{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px 14px;margin:0;padding:0;list-style:none;font-size:14.5px}
+#m-what .lang li{display:contents}
+#m-what .lang s{color:var(--bad);text-decoration-thickness:1.5px}
+#m-what .lang span{color:var(--good);font-weight:700}
+#m-what .tbl table{min-width:560px}
+#m-what .whbtns .btn{font-size:13.5px}
+</style>
 <section class="mod" id="m-what" data-mod="what" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding AUD</p><h2>What alcohol use disorder is</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Alcohol use disorder (AUD) is a medical condition defined by heavy alcohol use that a person finds hard to control, kept up despite harm. It is common, it is treatable, and most people who have it never receive treatment. Press Play to fill 100 US adults from the national survey. [[Carvalho2019Lancet,Grant2015NESARC]]</p></div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A strip shows the spectrum of drinking, from no drinking through lower-risk and hazardous or binge drinking to mild, moderate and severe alcohol use disorder. Below it, 100 person icons stand for 100 US adults: they fill to show that 72.7% drank in the past year, 13.9% had alcohol use disorder in the past 12 months (7.3% mild, 3.2% moderate, 3.4% severe), 29.1% at some point in life, and finally rings mark the 19.8% of people with lifetime alcohol use disorder who ever sought treatment or help."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Step <input type="range" id="whT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="whRead"></div>
+      <p class="stage-cap"><b>Each figure is 1 in 100 US adults</b>, rounded to whole people; the exact survey percentages are in the panel. NESARC-III, 36,309 adults interviewed face to face, 2012–2013, DSM-5 criteria. Population statistics, not a prediction for anyone. [[Grant2015NESARC,Grant2017JAMAPsych]]</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who is affected</h3>
+  <p class="prose">AUD can begin or continue at any age and in any group, but the survey numbers are not even. Pick a view. Group figures describe populations, never a single person. [[Grant2015NESARC]]</p>
+  <div class="ctrls whbtns" role="group" aria-label="Who is affected: choose a view" id="whWhoBtns">
+    <button class="btn" data-who="sex" aria-pressed="true">By sex</button>
+    <button class="btn" data-who="age" aria-pressed="false">By age</button>
+    <button class="btn" data-who="grp" aria-pressed="false">By group</button>
+    <button class="btn" data-who="trend" aria-pressed="false">Over time</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whWho" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Horizontal bars of alcohol use disorder prevalence for the chosen view: by sex, by age band, by group, or over time."></svg></div>
+      <p class="stage-cap" id="whWhoCap"></p>
+    </div>
+    <aside class="note" id="whWhoNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How much harm alcohol causes</h3>
+  <p class="prose">Burden studies count the harm from all alcohol use, not only from the disorder. Different modelling groups give different totals for similar years: always read a figure with its source. [[GBD2016Alcohol,Shield2020,Shield2025]]</p>
+  <div class="ctrls whbtns" role="group" aria-label="Burden comparator: choose a measure" id="whBurBtns">
+    <button class="btn" data-bur="world" aria-pressed="true">Deaths worldwide</button>
+    <button class="btn" data-bur="young" aria-pressed="false">Ages 15–49</button>
+    <button class="btn" data-bur="us" aria-pressed="false">US deaths</button>
+    <button class="btn" data-bur="life" aria-pressed="false">Life expectancy</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whBur" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bars comparing alcohol's burden for the chosen measure: global alcohol-attributable deaths from four models, the share of deaths at ages 15 to 49, US deaths from excessive drinking, or the life-expectancy gap and cause-specific mortality ratios for people treated or hospitalised for alcohol use disorder."></svg></div>
+      <p class="stage-cap" id="whBurCap"></p>
+    </div>
+    <aside class="note" id="whBurNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>The most common substance use disorder</h4><p>GBD 2016 counted 100.4 million people with AUD worldwide, more than any other substance use disorder, and attributed 99.2 million DALYs (4.2% of all DALYs) to alcohol use. [[GBD2016AlcDrug]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>The leading risk factor at ages 15–49</h4><p>Globally alcohol was the 7th leading risk factor for deaths and DALYs in 2016, and the leading one at ages 15–49, causing 12.2% of male and 3.8% of female deaths in that age group. [[GBD2016Alcohol]]</p></div>
+    <div class="card"><span class="tag warn">Not for health</span><h4>No level was best for health</h4><p>GBD 2016 found the level of drinking that minimised harm across health outcomes was zero standard drinks a week. GBD 2020 put the minimum-risk level at 0–0.6 drinks a day for people aged 15–39. The research does not support drinking for health, and neither study supports starting to drink. [[GBD2016Alcohol,GBD2020Alcohol]]</p></div>
+    <div class="card"><span class="tag">Trend</span><h4>More drinking, fewer deaths per drinker?</h4><p>Adult consumption worldwide rose from 5.9 L of pure alcohol a year in 1990 to 6.5 L in 2017 [[Manthey2019Lancet]]. A WHO-funded model found alcohol-attributable deaths fell 31.0% from 2000 to 2019, with the burden falling hardest on Eastern Europe, Central and Southern Sub-Saharan Africa, and young people. [[Shield2025]]</p></div>
+  </div>
+
+  <h3 class="sub">A medical condition, and the words we use</h3>
+  <div class="split2">
+    <div class="card"><span class="tag brand">Medical, not moral</span><h4>AUD is a treatable medical condition, not a moral failing</h4>
+      <p>A Lancet review defines AUD by compulsive heavy alcohol use and loss of control over intake, and notes that effective, cost-effective psychosocial and drug treatments exist [[Carvalho2019Lancet]]. Drug dependence has been compared with other chronic illnesses such as diabetes, hypertension and asthma, which have similar adherence and relapse rates and benefit from long-term care. [[McLellan2000]]</p>
+      <p>Recovery is common at population level: in a US probability survey, 9.1% of adults said they used to have an alcohol or drug problem and no longer do. That is a group figure, not a promise for any one person. [[Kelly2017Recovery]]</p></div>
+    <div class="card"><span class="tag brand">Person-first language</span><h4>Why this guide says "a person with AUD"</h4>
+      <p>In a randomised study of 516 mental health clinicians, a vignette calling someone "a substance abuser" made readers more likely to judge the person personally culpable and to favour punishment than "having a substance use disorder" [[Kelly2010Language]]. In 1,288 people, "alcoholic", "addict" and "substance abuser" carried strongly negative associations. [[Ashford2018]]</p>
+      <ul class="lang" aria-label="Words to avoid and words used instead">
+        <li><s>alcoholic</s><span>a person with alcohol use disorder</span></li>
+        <li><s>substance abuser</s><span>has a substance use disorder</span></li>
+        <li><s>addict</s><span>a person in recovery</span></li>
+      </ul>
+      <p class="stage-cap">"Alcoholism" is the older, lay name. "Alcohol abuse" appears here only as the historical DSM-IV diagnosis: see <a href="#history" data-go="history">the history module</a>.</p></div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Stigma is higher for AUD</h4><p>Population studies show people with alcohol dependence are held more responsible for their condition than people with other mental disorders, and face more social rejection and structural discrimination [[Schomerus2011]]. A 2010–2020 update of 16 studies found the wish for social distance stayed consistently higher for AUD. [[Kilian2021]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Why people do not seek treatment</h4><p>Of 1,008 European primary-care patients with AUD, 810 had no treatment. Of those who gave a reason, 55.3% named lack of problem awareness, 28.6% stigma or shame, 22.8% barriers to care and 20.9% wanting to cope alone [[Probst2015]]. In NESARC, people with AUD who perceived more stigma were less likely to use alcohol services (OR 0.37). [[Keyes2010]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Medicines are rarely used</h4><p>In NSDUH 2019 only 10.9% of adults in alcohol treatment received a medicine for AUD, against 40.9% of adults in opioid treatment who received a medicine for opioid use disorder [[Bensley2025]]. In a US retail study, fewer than 9% of patients who needed AUD treatment received a single prescription for an approved medicine. [[KranzlerSoyka2018]] See <a href="#medicines" data-go="medicines">Approved medicines</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Conditions that often come with AUD</h3>
+  <p class="prose">AUD often travels with other conditions, so a good assessment looks at both. Adjusted odds ratios (AOR) for 12-month AUD in NESARC-III; a value above 1 means the two occur together more often than chance. [[Grant2015NESARC]]</p>
+  <div class="chips" aria-label="Adjusted odds ratios for conditions occurring with 12-month AUD">
+    <span class="tag accent">Any drug use disorder <b>AOR 3.3</b></span>
+    <span class="tag accent">Severe AUD with any drug use disorder <b>AOR 5.3</b></span>
+    <span class="tag eth">Nicotine use disorder <b>AOR 2.5</b></span>
+    <span class="tag dx">Borderline personality disorder <b>AOR 1.9</b></span>
+    <span class="tag dx">Antisocial personality disorder <b>AOR 1.6</b></span>
+    <span class="tag gaba">Bipolar I <b>AOR 1.4</b></span>
+    <span class="tag gaba">Major depression <b>AOR 1.2</b> (1.4 in severe AUD)</span>
+    <span class="tag">PTSD, generalised anxiety <b>AOR 1.0, n.s.</b></span>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>Depression and anxiety</h4><p>Pooling 22 population surveys (1990–2014), AUD was associated with major depression (OR 2.42) and any anxiety disorder (OR 2.11), more strongly for dependence than for abuse. These pooled odds ratios are higher than NESARC-III's because most surveys adjusted less. [[Lai2015,Grant2015NESARC]]</p></div>
+    <div class="card"><h4>Other conditions</h4><p>AUD was the most common substance use disorder in clinical samples of people with bipolar disorder, at 42% [[Hunt2016]]. In treatment populations for substance use disorders, 23.1% met criteria for ADHD [[vanEmmerikvanOortmerssen2012]]. In US veterans with lifetime PTSD, the adjusted OR for AUD was 2.1. [[Smith2016PTSD]]</p></div>
+    <div class="card"><h4>AUD and suicide</h4><p>In longitudinal studies, AUD was associated with higher suicide mortality (pooled OR 2.68 in males, 2.39 in females); the authors conclude that treating AUD belongs in suicide prevention [[Lange2024]]. In Nordic registers, people hospitalised with AUD died by suicide at 9.3–35.9 times the general-population rate. [[Westman2015]]</p>
+      <p class="crisis" role="note"><b>Need help now?</b><span>If you are in crisis or thinking about suicide, contact a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></p></div>
+  </div>
+
+  <h3 class="sub">The treatment gap in numbers</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Population</th><th>Received treatment or help</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>US, lifetime AUD (NESARC-III)</th><td>19.8% ever sought treatment or help</td><td>[[Grant2015NESARC]]</td></tr>
+      <tr><th>US, 12-month AUD (NESARC-III)</th><td>7.7%; by severity 2.7% mild, 4.9% moderate, 21.3% severe</td><td>[[Grant2015NESARC]]</td></tr>
+      <tr><th>US adults needing alcohol treatment, 2015</th><td>8.3% of 15.8 million received specialty treatment</td><td>[[KranzlerSoyka2018]]</td></tr>
+      <tr><th>Worldwide, 32 studies</th><td>17.3% received any treatment (about 1 in 6)</td><td>[[Mekonen2021]]</td></tr>
+      <tr><th>Low and lower-middle-income countries</th><td>9.3%</td><td>[[Mekonen2021]]</td></tr>
+      <tr><th>European primary care, 6 countries (alcohol dependence 8.7%)</th><td>22.3% of those affected were treated</td><td>[[Rehm2015BMCFam]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><p><b>Exam hooks.</b> NESARC-III DSM-5 AUD: 13.9% in the past 12 months, 29.1% lifetime; 12-month prevalence peaks at 18–29 (26.7%) and is lowest at 65+ (2.3%); mean age at onset 26.2 years. Severity thresholds (mild 2–3, moderate 4–5, severe 6+ of 11 criteria) are practised in <a href="#criteria" data-go="criteria">Diagnosis: DSM-5-TR criteria</a>. About 90% of excessive drinkers do not meet dependence criteria. [[Grant2015NESARC,Hasin2013,Esser2014PCD]]</p></div>
+  <p class="safety"><b>Safety</b>Stopping suddenly after long, heavy daily drinking can be dangerous (seizures, delirium tremens): get medical help to stop safely. [[ASAM2020Withdrawal,Mirijello2015]] Alcohol poisoning is an emergency: call emergency services. Mixing alcohol with opioids, benzodiazepines or other sedatives is dangerous: together they can slow or stop breathing. [[FDA-Valium,ASAM2020Withdrawal]] See <a href="#withdrawal" data-go="withdrawal">Alcohol withdrawal</a>.</p>
 </section>

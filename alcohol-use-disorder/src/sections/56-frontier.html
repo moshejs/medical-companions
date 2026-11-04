@@ -1,5 +1,71 @@
-<!-- ================= 5.6 RESEARCH FRONTIER: GLP-1, PSILOCYBIN AND BEYOND (stub, replaced by its builder) ================= -->
+<!-- ================= 5.6 RESEARCH FRONTIER: GLP-1, PSILOCYBIN AND BEYOND ================= -->
+<style>
+#m-frontier .fr-flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+@media (max-width:420px){#m-frontier .fr-flips{grid-template-columns:minmax(0,1fr)}}
+#m-frontier .fr-flip{perspective:1200px;min-height:300px}
+#m-frontier .fr-in{position:relative;height:100%;min-height:300px;transition:transform .6s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d}
+#m-frontier .fr-flip.on .fr-in{transform:rotateY(180deg)}
+#m-frontier .fr-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:9px;overflow:auto}
+#m-frontier .fr-back{transform:rotateY(180deg);background:var(--panel-2)}
+#m-frontier .fr-face .hl{font:800 21px/1.18 var(--display);margin:0}
+#m-frontier .fr-face dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;font-size:14px}
+#m-frontier .fr-face dt{font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+#m-frontier .fr-face dd{margin:0}
+#m-frontier .fr-face .btn{align-self:flex-start;margin-top:auto}
+#m-frontier .card>.ev{align-self:flex-start}
+#m-frontier .tbl table{min-width:640px}
+@media (prefers-reduced-motion:reduce){#m-frontier .fr-in{transition:none}}
+</style>
 <section class="mod" id="m-frontier" data-mod="frontier" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Body, family &amp; care</p><h2>Research frontier: GLP-1, psilocybin and beyond</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Treatments under study for alcohol use disorder, where each one stands, and how to read the trials behind the headlines. None of these is a recommendation, and none is approved for AUD.</p></div>
+
+  <p class="callout"><b>Evidence labels used here.</b> <span class="ev est">Established</span> consistent findings across several good studies. <span class="ev early">Early evidence</span> a few small or short trials, or observational data that cannot rule out confounding. <span class="ev hyp">Hypothesis</span> a proposed idea, or a signal that later trials did not confirm. For the medicines that <i>are</i> approved, see <a href="#medicines" data-go="medicines">Approved medicines</a>; for off-label ones, <a href="#offlabel" data-go="offlabel">Other medicines</a>.</p>
+
+  <h3 class="sub">The pipeline board, 2013 to 2026</h3>
+  <div class="stepper" id="frSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="frSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A pipeline board with five stages: lab and animal, observational, early randomised trials (phase 2), phase 3 and approved for AUD. As the year moves from 2013 to 2026, cards for GLP-1 receptor agonists, psilocybin, ketamine, deep TMS, mifepristone, OPRM1-guided naltrexone and alcohol-associated hepatitis drugs slide to the highest stage their evidence has reached, each with its latest study, its size and its evidence label. The approved column stays empty."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="frPlay">Play</button><label class="stage-cap tl" for="frT">Year <input type="range" id="frT" min="0" max="1" step="0.001" value="1"></label></div>
+      <div class="readout" id="frRead"></div>
+      <p class="stage-cap"><b>How to read it.</b> A card sits at the highest stage its human evidence has reached by that year; filled dots mark stages with published or registered studies. A card in a later column is not "better": a phase 2 trial can be negative, and a registered phase 3 trial has no results yet. Registry status as of 4 November 2026. [[NCT07218354,NCT07428538]]</p>
+    </div>
+    <aside class="note" id="frNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Read the trial: headline versus what was measured</h3>
+  <div class="prose"><p>Each card's front is an <b>invented headline-style claim</b>, written for this exercise and not quoted from any outlet. Flip it to see the design, size, length and endpoint of the study behind it.</p></div>
+  <div class="fr-flips" id="frFlips"></div>
+
+  <h3 class="sub">Policy research: price, availability and labels</h3>
+  <div class="prose"><p>Some of the strongest evidence for reducing alcohol harm is about populations, not pills. "Alcohol: No Ordinary Commodity" concludes that the most effective policies are taxes that reduce affordability and limits on availability. [[Babor2022]] Move the price slider to see simple elasticity arithmetic, then compare Scotland's minimum unit price.</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="frPol" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Left: Scotland's minimum unit pricing was associated with a 13.4% fall in deaths wholly attributable to alcohol, with its confidence interval, and a non-significant 4.1% fall in hospitalisations. Right: bars showing the change in consumption implied by published mean price elasticities for beer, wine, spirits and heavy drinking at the chosen price rise."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="frPr">Price rise <input type="range" id="frPr" min="0" max="1" step="0.01" value="0.33"></label></div>
+      <p class="stage-cap" id="frPolCap"></p>
+    </div>
+    <aside class="note" id="frPolNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">More of the frontier</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established, small effect</span><h4>Digital CBT</h4><p>A meta-analysis of 65 randomised trials found a small effect on consumption when digitally delivered cognitive behavioural interventions were used on their own against minimal control (g = 0.27). A single RCT of the A-CHESS recovery app (n = 349) found fewer risky drinking days over 12 months (1.39 vs 2.75). [[Kiluk2026,Gustafson2014]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Gene-matched ondansetron</h4><p>In an 11-week RCT (n = 283 European Americans), certain HTR3A/HTR3B and SLC6A4 genotype combinations predicted response to ondansetron. This awaits independent replication. [[Johnson2013]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Brain stimulation and craving</h4><p>A meta-analysis of 20 sham-controlled RCTs of non-invasive brain stimulation found a small fall in craving (SMD −0.211); by type, only transcranial direct current stimulation reached significance. [[Kim2025NIBS]]</p></div>
+    <div class="card"><span class="tag accent">What research does not support</span><h4>Drinking for health</h4><p>Research does not support drinking for health. In a 2023 meta-analysis of 107 cohort studies that corrected for biases such as counting former drinkers as abstainers, occasional and low-volume drinkers had no significant reduction in all-cause mortality compared with lifetime non-drinkers. GBD 2016 found that the level of drinking that minimised health loss was zero. [[Zhao2023JAMANO,GBD2016Alcohol]]</p></div>
+  </div>
+
+  <h3 class="sub">Registered trials to watch</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>What it tests</th><th>Size and endpoint</th><th>Status (4 Nov 2026)</th></tr></thead>
+    <tbody>
+      <tr><th>CSP #2041 · NCT07218354</th><td>Semaglutide vs placebo, phase 3, US veterans with AUD</td><td>Estimated n = 622; a two-level fall in WHO risk drinking level</td><td>Recruiting; started 28 July 2026; primary completion estimated 2029 [[NCT07218354]]</td></tr>
+      <tr><th>STAR · NCT06015893</th><td>Semaglutide vs placebo, phase 2 (NIDA)</td><td>n = 63; drinks per week</td><td>Active, not recruiting; primary completion estimated March 2027 [[NCT06015893]]</td></tr>
+      <tr><th>AHFIRM · NCT04563026</th><td>Larsucosterol 30 or 90 mg vs placebo in alcohol-associated hepatitis, phase 2b</td><td>n = 307; 90-day mortality or transplant</td><td>Completed 2023; no results posted, no peer-reviewed paper indexed [[NCT04563026]]</td></tr>
+      <tr><th>RE-AHFIRM · NCT07428538</th><td>Larsucosterol 30 mg vs placebo, phase 3</td><td>Estimated n = 350; transplant-free survival to day 90</td><td>Recruiting since January 2026 [[NCT07428538]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">None of the registered semaglutide or larsucosterol trials above has posted results. [[NCT07218354,NCT06015893,NCT04563026,NCT07428538]]</p>
 </section>

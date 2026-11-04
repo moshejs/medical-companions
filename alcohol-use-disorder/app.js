@@ -478,6 +478,2519 @@ inits.home=()=>{
     rg.setAttribute('aria-valuetext',`${P.t}: ${P.sub}`)}
   playWire(rg,$('#heroPlay'),draw,14000,'Replay','home');draw(+rg.value);
 };
+/* =============== 1.1 What alcohol use disorder is =============== */
+/* NESARC-III (Grant 2015) and NESARC (Grant 2017) figures, % of US adults. Icon counts are those
+   percentages rounded to whole people out of 100 with the largest-remainder rule, so the three
+   severity groups add up to the rounded total: 12-month 7.3/3.2/3.4 -> 7/3/4 (14); lifetime
+   8.6/6.6/13.9 -> 9/6/14 (29). */
+const WH_NUM={drank:72.7,m12:{mild:7.3,mod:3.2,sev:3.4,all:13.9},life:{mild:8.6,mod:6.6,sev:13.9,all:29.1},
+  ic12:{mild:7,mod:3,sev:4},icLife:{mild:9,mod:6,sev:14},trLife:19.8,tr12:7.7,trWorld:17.3,trLow:9.3};
+const WH_COL={none:'var(--line)',drank:'var(--eth-fill)',drankLine:'var(--eth-fill)',aud:'var(--brand)',mild:'var(--thi-fill)',mod:'var(--brand)',sev:'var(--accent)',tr:'var(--rx)'};
+function whWrap(s,n){const w=s.split(' '),L=[];let c='';w.forEach(x=>{if((c+' '+x).trim().length>n&&c){L.push(c);c=x}else c=(c+' '+x).trim()});if(c)L.push(c);return L}
+
+inits.what=()=>{
+  const svg=$('#whSvg'),rg=$('#whT'),note=$('#whNote'),rd=$('#whRead');
+  const STEPS=[
+    {from:0,at:.1,k:'Step 1 · The spectrum',t:'A spectrum, not a switch',
+     txt:`Drinking runs along a spectrum. The USPSTF uses "unhealthy alcohol use" for everything from risky drinking to alcohol use disorder <sup class="c" data-ref="USPSTF2018Alcohol" title="Source 470">470</sup>. In 2012–2013, 72.7% of US adults drank alcohol in the past year <sup class="c" data-ref="Grant2017JAMAPsych" title="Source 148">148</sup>. Binge drinking in US federal surveys means 5 or more drinks (males) or 4 or more (females) on one occasion <sup class="c" data-ref="KranzlerSoyka2018" title="Source 261">261</sup>. Most people who drink heavily do not have dependence: in NSDUH 2009–2011, 10.2% of excessive drinkers met DSM-IV dependence criteria and about 90% did not <sup class="c" data-ref="Esser2014PCD" title="Source 102">102</sup>. "Lower risk" is not "no risk": GBD 2016 found the level that minimised harm was zero drinks a week. <sup class="c" data-ref="GBD2016Alcohol" title="Source 137">137</sup>`,
+     pt:`Drinking is not simply "fine" or "a disorder". Most people who sometimes drink too much do not have AUD, but heavy drinking still carries risk.`,
+     hook:`Unhealthy alcohol use (USPSTF) covers the whole spectrum, from risky drinking to AUD. About 90% of excessive drinkers do not meet dependence criteria. <sup class="c" data-ref="USPSTF2018Alcohol,Esser2014PCD" title="Source 102,470">102,470</sup>`},
+    {from:.2,at:.3,k:'Step 2 · Past 12 months',t:'About 1 in 7 US adults',
+     txt:`NESARC-III interviewed 36,309 US adults face to face in 2012–2013. Under DSM-5 criteria, <b>13.9%</b> had AUD in the past 12 months: 17.6% of men and 10.4% of women <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>. AUD is diagnosed when at least 2 of 11 criteria occur within 12 months: see <a href="#criteria" data-go="criteria">Diagnosis</a> <sup class="c" data-ref="APA2022" title="Source 16">16</sup>. In the same survey 12-month drug use disorder was 3.9%, so AUD is the more common disorder. <sup class="c" data-ref="Grant2016DUD" title="Source 147">147</sup>`,
+     pt:`In a given year, about 1 in 7 US adults has alcohol use disorder. It is one of the most common health conditions there is.`,
+     hook:`NESARC-III 12-month DSM-5 AUD: 13.9% of US adults. Mean age at onset 26.2 years. <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>`},
+    {from:.4,at:.5,k:'Step 3 · Severity',t:'Mild, moderate, severe',
+     txt:`Severity counts the criteria met: mild 2–3, moderate 4–5, severe 6 or more <sup class="c" data-ref="Hasin2013" title="Source 169">169</sup>. Of the 13.9%, <b>7.3%</b> of adults had mild, <b>3.2%</b> moderate and <b>3.4%</b> severe AUD. Severe 12-month AUD was 4.5% in men and 2.3% in women, it was most common at the lowest income level, and disability rose with severity <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>. Mean age at onset fell as severity rose: 30.1 years for mild, 25.9 for moderate and 23.9 for severe AUD. <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>`,
+     pt:`Mild AUD is the most common kind: about half of the people with AUD in a year. The more criteria a person meets, the more the condition tends to disrupt daily life.`,
+     hook:`Severity by criterion count: mild 2–3, moderate 4–5, severe 6 or more of 11. Practise it with the counter in <a href="#criteria" data-go="criteria">Diagnosis</a>. <sup class="c" data-ref="Hasin2013" title="Source 169">169</sup>`},
+    {from:.6,at:.7,k:'Step 4 · Lifetime',t:'About 3 in 10, at some point in life',
+     txt:`Counting everyone who has ever met the criteria, <b>29.1%</b> of US adults had lifetime AUD: 8.6% mild, 6.6% moderate and 13.9% severe. Lifetime AUD was 36.0% in men and 37.0% at ages 18–29 <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>. Lifetime figures include people whose AUD is in the past. Recovery is common at population level: 9.1% of US adults say they used to have an alcohol or drug problem and no longer do. These are group figures, not a promise for one person. <sup class="c" data-ref="Kelly2017Recovery" title="Source 230">230</sup>`,
+     pt:`Over a lifetime, about 3 in 10 US adults meet the criteria at some point. That count includes many people who are no longer affected.`,
+     hook:`12-month 13.9% vs lifetime 29.1% (NESARC-III). Severe AUD: 3.4% in the past 12 months but 13.9% lifetime. <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>`},
+    {from:.8,at:.93,k:'Step 5 · The treatment gap',t:'Most never receive treatment',
+     txt:`Only <b>19.8%</b> of people with lifetime AUD, and <b>7.7%</b> with 12-month AUD, had ever sought treatment or help. Treatment seeking rose with severity: 2.7% (mild), 4.9% (moderate), 21.3% (severe) <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>. Worldwide, a meta-analysis of 32 articles found 17.3% of people with AUD received any treatment, and 9.3% in low and lower-middle-income countries <sup class="c" data-ref="Mekonen2021" title="Source 328">328</sup>. The NESARC-III authors call DSM-5 AUD "highly prevalent, highly comorbid, disabling" and say it "often goes untreated". <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>`,
+     pt:`Most people with alcohol use disorder never get help, even though treatments that work exist. <sup class="c" data-ref="Carvalho2019Lancet" title="Source 56">56</sup>`,
+     hook:`Treatment gap: 19.8% of lifetime and 7.7% of 12-month AUD ever treated (NESARC-III); about 1 in 6 (17.3%) worldwide. <sup class="c" data-ref="Grant2015NESARC,Mekonen2021" title="Source 146,328">146,328</sup>`}];
+  const SEG=[{n:'No drinking',s:'',c:'var(--panel-2)'},{n:'Lower risk',s:'not no risk',c:'var(--eth-soft)'},{n:'Hazardous / binge',s:'≥5 (m) / ≥4 (f) drinks',c:'var(--eth-fill)'},
+    {n:'AUD mild',s:'2–3 criteria',c:WH_COL.mild},{n:'AUD moderate',s:'4–5 criteria',c:WH_COL.mod},{n:'AUD severe',s:'6+ criteria',c:WH_COL.sev}];
+  let setSt=()=>{};
+  /* state for a time t */
+  function state(t){const p=phaseOf(STEPS,t);
+    const drank=ramp(t,0,.09)*(1-ramp(t,.6,.66));            /* past-year drinkers layer: fades for lifetime */
+    const fill12=ramp(t,.2,.3),split=ramp(t,.4,.46),life=ramp(t,.6,.7),gap=ramp(t,.8,.9);
+    const n=k=>Math.round(lerp(WH_NUM.ic12[k],WH_NUM.icLife[k],life));
+    const cnt={sev:n('sev'),mod:n('mod'),mild:n('mild')};const tot=cnt.sev+cnt.mod+cnt.mild;
+    const shown=Math.round(tot*fill12);
+    const pct=lerp(WH_NUM.m12.all*fill12,WH_NUM.life.all,life);
+    const sv=k=>lerp(WH_NUM.m12[k],WH_NUM.life[k],life)*split;
+    return {p,drank,fill12,split,life,gap,cnt,tot,shown,pct,sev:sv('sev'),mod:sv('mod'),mild:sv('mild'),trN:Math.round(tot*WH_NUM.trLife/100)}}
+  function draw(t){const S=state(t),N=vb(svg,'720 420','400 '+(S.gap>0?750:640));let s='';
+    /* ---- spectrum strip ---- */
+    const hiSeg=S.p===0?Math.min(5,Math.floor(ramp(t,0,.17)*6)):-1;
+    const segBox=(i)=>{if(!N){const w=(720-48)/6;return [24+i*w,26,w-4,30]}const w=(400-32)/3;return [16+(i%3)*w,i<3?30:90,w-4,28]};
+    s+=`<text x="${N?16:24}" y="${N?18:16}" class="t-sm" style="fill:var(--brand)">THE SPECTRUM OF DRINKING</text>`;
+    if(N)s+=`<text x="16" y="84" class="t-sm" style="fill:var(--brand)">ALCOHOL USE DISORDER (DSM-5)</text>`;
+    SEG.forEach((g,i)=>{const [x,y,w,h]=segBox(i),aud=i>=3,on=aud?(S.p>=1):(S.p===0&&i<=hiSeg),cur=S.p===0&&i===hiSeg;
+      const op=S.p===0?(i<=hiSeg?1:.35):(aud?1:.35);
+      s+=`<rect x="${f1(x)}" y="${y}" width="${f1(w)}" height="${h}" rx="7" style="fill:${g.c};opacity:${f1(op)};stroke:${cur?'var(--ink)':'none'};stroke-width:1.6"/>`;
+      const dark=i>=4;s+=`<text x="${f1(x+w/2)}" y="${y+h/2+4}" class="t-xs t-mid" style="fill:${dark?'#fff':'var(--ink)'};font-weight:600;opacity:${f1(Math.max(op,.6))}">${N&&aud?g.n.replace('AUD ',''):g.n}</text>`;
+      if(g.s)s+=`<text x="${f1(x+w/2)}" y="${y+h+12}" class="t-xs t-mid" style="opacity:${f1(on?1:.6)}">${g.s}</text>`});
+    if(!N)s+=`<path d="M${f1(24+3*112)} 72h${f1(3*112-4)}" style="stroke:var(--brand);stroke-width:2"/><text x="${f1(24+4.5*112)}" y="84" class="t-xs t-mid" style="fill:var(--brand)">alcohol use disorder: 2 or more of 11 criteria in 12 months</text>`;
+    /* ---- icon array: 100 adults ---- */
+    const IA=N?{x0:47,y0:150,dx:34,dy:30,s:25}:{x0:38,y0:112,dx:26,dy:28,s:22};
+    const order=[];/* severe first, then moderate, then mild: contiguous blocks read best */
+    for(let i=0;i<S.cnt.sev;i++)order.push('sev');for(let i=0;i<S.cnt.mod;i++)order.push('mod');for(let i=0;i<S.cnt.mild;i++)order.push('mild');
+    const trEvery=S.tot/Math.max(1,S.trN);
+    for(let i=0;i<100;i++){const c=i%10,r=Math.floor(i/10),x=IA.x0+c*IA.dx,y=IA.y0+r*IA.dy;let fill=WH_COL.none,op=1,ring=false;
+      if(i<S.shown){fill=S.split>0?WH_COL[order[i]]:WH_COL.aud;if(S.split>0&&S.split<1)fill=S.split>.5?WH_COL[order[i]]:WH_COL.aud;
+        if(S.gap>0){const k=Math.floor(i/trEvery);ring=Math.floor((i)%trEvery)===0&&k<Math.round(S.trN*S.gap);op=ring?1:lerp(1,.45,S.gap)}}
+      else if(i<Math.round(WH_NUM.drank*S.drank)){fill=WH_COL.drank}
+      s+=person(x,y,IA.s,fill,{op:fill===WH_COL.drank?op*.6:op});
+      if(i>=S.shown&&i<Math.round(WH_NUM.drank*S.drank))s+=`<circle cx="${x}" cy="${f1(y+IA.s*.17)}" r="${f1(IA.s*.17)}" style="fill:none;stroke:${WH_COL.drankLine};stroke-width:.9;opacity:.8"/>`;
+      if(ring)s+=`<circle cx="${x}" cy="${f1(y+IA.s*.55)}" r="${f1(IA.s*.62)}" style="fill:none;stroke:${WH_COL.tr};stroke-width:2.2"/>`}
+    const iaB=IA.y0+10*IA.dy;
+    /* legend under the icon array */
+    const lg=[];if(S.drank>.05)lg.push([WH_COL.drank,'drank in the past year']);
+    if(S.shown>0&&S.split<.5)lg.push([WH_COL.aud,'alcohol use disorder']);
+    if(S.split>=.5)lg.push([WH_COL.mild,'mild'],[WH_COL.mod,'moderate'],[WH_COL.sev,'severe']);
+    if(S.gap>.05)lg.push(['ring','ever sought treatment or help']);
+    let lx=N?16:24,ly=iaB+(N?4:2);
+    lg.forEach(([c,l])=>{const w=l.length*5.6+22;if(lx+w>(N?390:300)&&lx>(N?16:24)){lx=N?16:24;ly+=14}
+      s+=c==='ring'?`<circle cx="${lx+6}" cy="${ly}" r="5.5" style="fill:none;stroke:${WH_COL.tr};stroke-width:2"/>`:`<rect x="${lx}" y="${ly-5}" width="12" height="10" rx="3" style="fill:${c};stroke:${c===WH_COL.drank?WH_COL.drankLine:'none'};stroke-width:.8"/>`;
+      s+=`<text x="${lx+17}" y="${ly+3.5}" class="t-xs">${l}</text>`;lx+=w});
+    /* ---- right panel (wide) / bottom panel (narrow): the numbers ---- */
+    const P=N?{x:16,y:iaB+36,w:368}:{x:340,y:112,w:356};
+    const big=S.p===0?WH_NUM.drank*S.drank:S.pct;
+    const bigLab=S.p===0?'of US adults drank in the past year':S.life>.5?'of US adults: AUD at some point in life':'of US adults: AUD in the past 12 months';
+    const bigCol=S.p===0?'var(--eth)':'var(--brand)';
+    s+=`<text x="${P.x}" y="${P.y+(N?30:40)}" class="t-big" style="font-size:${N?40:50}px;fill:${bigCol}">${f1(big)}%</text>`;
+    s+=`<text x="${P.x+(N?118:150)}" y="${P.y+(N?16:22)}" class="t-lbl">${bigLab.split(':')[0]}${bigLab.includes(':')?':':''}</text>`;
+    if(bigLab.includes(':'))s+=`<text x="${P.x+(N?118:150)}" y="${P.y+(N?32:40)}" class="t-sm">${bigLab.split(': ')[1]}</text>`;
+    s+=`<text x="${P.x+(N?118:150)}" y="${P.y+(N?46:56)}" class="t-xs">${S.p===0?'NESARC 2012–2013':'NESARC-III, DSM-5'}</text>`;
+    /* severity bars */
+    const bx=P.x+(N?84:96),bw=P.w-(N?84:96)-48,sc=v=>bw*v/16;let by=P.y+(N?66:86);
+    if(S.split>0){s+=`<text x="${P.x}" y="${by-8}" class="t-sm" style="opacity:${f1(S.split)}">BY SEVERITY · ${S.life>.5?'LIFETIME':'PAST 12 MONTHS'}</text>`;
+      [['mild','Mild 2–3'],['mod','Moderate 4–5'],['sev','Severe 6+']].forEach(([k,l],i)=>{const y=by+i*24,v=S[k];
+        s+=`<text x="${P.x}" y="${y+12}" class="t-xs" style="opacity:${f1(S.split)}">${l}</text><rect x="${bx}" y="${y+2}" width="${f1(bw)}" height="13" rx="4" style="fill:var(--panel-2);opacity:${f1(S.split)}"/><rect x="${bx}" y="${y+2}" width="${f1(sc(v))}" height="13" rx="4" style="fill:${WH_COL[k]}"/><text x="${f1(bx+sc(v)+6)}" y="${y+12.5}" class="t-xs" style="fill:var(--ink);opacity:${f1(S.split)}">${f1(v)}%</text>`});
+      by+=3*24+18}
+    else if(S.p===0){/* step 1: drinkers vs dependence among excessive drinkers */
+      const a=ramp(t,.03,.09);s+=`<text x="${P.x}" y="${by-8}" class="t-sm" style="opacity:${f1(a)}">AMONG EXCESSIVE DRINKERS (NSDUH 2009–2011)</text>`;
+      const W=P.w-10;s+=`<rect x="${P.x}" y="${by}" width="${f1(W)}" height="18" rx="5" style="fill:var(--eth-soft);opacity:${f1(a)}"/><rect x="${P.x}" y="${by}" width="${f1(W*.102*a)}" height="18" rx="5" style="fill:var(--brand)"/>`;
+      s+=`<text x="${f1(P.x+W*.102+6)}" y="${by+13}" class="t-xs" style="fill:var(--ink);opacity:${f1(a)}">10.2% met dependence criteria · about 90% did not</text>`;by+=46}
+    /* treatment-gap bars */
+    if(S.gap>0){const g=S.gap;s+=`<text x="${P.x}" y="${by-8}" class="t-sm" style="fill:var(--rx);opacity:${f1(g)}">EVER SOUGHT TREATMENT OR HELP</text>`;
+      [['US, lifetime AUD',WH_NUM.trLife],['US, 12-month AUD',WH_NUM.tr12],['Worldwide (32 studies)',WH_NUM.trWorld],['Low/lower-middle income',WH_NUM.trLow]].forEach(([l,v],i)=>{const y=by+i*22,W=bw;
+        s+=`<text x="${P.x}" y="${y+11}" class="t-xs" style="opacity:${f1(g)}">${N?l.replace('Low/lower-middle income','Lower-income'):l}</text>`;
+        const x0=P.x+(N?118:132),ww=P.w-(N?118:132)-46;s+=`<rect x="${x0}" y="${y+1}" width="${f1(ww)}" height="12" rx="4" style="fill:var(--panel-2);opacity:${f1(g)}"/><rect x="${x0}" y="${y+1}" width="${f1(ww*v/100*g)}" height="12" rx="4" style="fill:var(--rx)"/><text x="${f1(x0+ww*v/100*g+5)}" y="${y+11}" class="t-xs" style="fill:var(--ink);opacity:${f1(g)}">${f1(v*g)}%</text>`});
+      by+=4*22+8}
+    if(!N&&S.p===4){s+=`<text x="${P.x}" y="${Math.min(by+10,404)}" class="t-xs">Ringed: ${S.trN} of the ${S.tot} figures, about 19.8% of lifetime AUD.</text>`}
+    if(!N&&S.p>=1&&S.p<=2){s+=`<text x="${P.x}" y="${by+8}" class="t-xs">12-month drug use disorder in the same survey: 3.9%</text>`}
+    svg.innerHTML=s;
+    const P0=STEPS[S.p];note.innerHTML=noteHTML(P0);setSt(S.p);
+    rd.innerHTML=S.p===0?`<span>Past-year drinking <b>72.7%</b></span><span>Excessive drinkers with dependence <b>10.2%</b></span>`:
+      `<span>AUD <b>${f1(S.pct)}%</b> ${S.life>.5?'lifetime':'12-month'}</span>`+(S.split>0?`<span>mild <b>${f1(S.mild)}</b> · moderate <b>${f1(S.mod)}</b> · severe <b>${f1(S.sev)}</b></span>`:'')+(S.gap>0?`<span>ever treated <b>19.8%</b> lifetime · <b>7.7%</b> 12-month</span>`:'');
+  }
+  const stop=playWire(rg,$('#whPlay'),draw,16000,'Replay','what');
+  setSt=stepWire($('#whSteps'),STEPS,rg,draw,stop);
+  draw(+rg.value);
+
+  /* ---------- who is affected ---------- */
+  const wsv=$('#whWho');let who='sex',whoK=1,whoStop=null;
+  const WHO={
+    sex:{title:'12-MONTH AUD BY SEX · NESARC-III',max:20,ser:[['any AUD','var(--brand)'],['severe AUD','var(--accent)']],
+      rows:[['Men',[17.6,4.5]],['Women',[10.4,2.3]]],
+      cap:`NESARC-III, 2012–2013, % of US adults. Lifetime AUD was 36.0% in men. <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>`,
+      note:{k:'Who is affected · sex',t:'The gap between men and women is closing',
+        txt:`In NESARC-III, 12-month AUD was 17.6% in men and 10.4% in women, and severe AUD 4.5% and 2.3% <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>. Across 68 studies of birth cohorts from 1891 to 2001, the male-to-female ratio for problematic alcohol use fell from 3.0 in cohorts born in the early 1900s to 1.2 in those born in the late 1900s, most clearly among young adults <sup class="c" data-ref="Slade2016" title="Source 435">435</sup>. In the US, alcohol-related deaths rose 12.5% a year in men and 14.7% a year in women from 2018 to 2020. <sup class="c" data-ref="Karaye2023" title="Source 222">222</sup>`,
+        pt:`Men still have AUD more often, but women are catching up, especially among younger people.`,
+        hook:`Male:female ratio for problem drinking: 3.0 (born early 1900s) to 1.2 (born late 1900s). <sup class="c" data-ref="Slade2016" title="Source 435">435</sup>`}},
+    age:{title:'12-MONTH AUD BY AGE · NESARC-III',max:30,ser:[['any AUD','var(--brand)']],
+      rows:[['18–29',[26.7]],['30–44',[16.2]],['45–64',[10.0]],['65 and older',[2.3]]],
+      cap:`NESARC-III, 2012–2013, % of US adults in each age band. Lifetime AUD was 37.0% at ages 18–29. <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>`,
+      note:{k:'Who is affected · age',t:'Highest in young adults, rising in older adults',
+        txt:`12-month AUD was 26.7% at ages 18–29 and 2.3% at 65 and older; mean age at onset was 26.2 years <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>. Among US adults aged 50 and older, AUD rose 23.3% in relative terms from 2005/2006 to 2013/2014 <sup class="c" data-ref="Han2017Older" title="Source 161">161</sup>, and AUD prevalence and mortality over age 70 rose from 2000 to 2021 <sup class="c" data-ref="Danpanichkul2025Older" title="Source 75">75</sup>. Among US 8th, 10th and 12th graders, frequent binge drinking declined from 1991 to 2015. <sup class="c" data-ref="Jang2017" title="Source 197">197</sup>`,
+        pt:`AUD is most common in people in their twenties, but it can start or continue at any age.`,
+        hook:`12-month AUD peaks at 18–29 (26.7%) and is lowest at 65+ (2.3%). <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>`}},
+    grp:{title:'AUD BY GROUP · NESARC-III',max:50,ser:[['12-month','var(--brand)'],['lifetime','var(--thi-fill)']],
+      rows:[['White',[14.0,32.6]],['Native American',[19.2,43.4]],['Never married',[25.0,35.5]],['Previously married',[11.4,27.1]]],
+      cap:`NESARC-III, 2012–2013, % within each group. Group figures describe populations, not individuals. <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>`,
+      note:{k:'Who is affected · groups',t:'Unequal by group and income',
+        txt:`12-month and lifetime AUD were 14.0% and 32.6% among white respondents and 19.2% and 43.4% among Native American respondents; 25.0% and 35.5% among never-married adults and 11.4% and 27.1% among previously married adults. Severe AUD was most common at the lowest income level <sup class="c" data-ref="Grant2015NESARC" title="Source 146">146</sup>. Binge drinking was most common at family incomes of $75,000 or more, but dependence was most common under $25,000. <sup class="c" data-ref="Esser2014PCD" title="Source 102">102</sup>`,
+        pt:`Some groups carry more of the burden than others. These are averages for groups: they say nothing about any one person.`,
+        hook:`Binge drinking peaks at higher incomes, dependence at lower incomes (NSDUH 2009–2011). <sup class="c" data-ref="Esser2014PCD" title="Source 102">102</sup>`}},
+    trend:{title:'US TRENDS · TWO SURVEYS, TWO METHODS',max:16,ser:[['earlier','var(--muted)'],['later','var(--brand)']],
+      rows:[['DSM-IV AUD, 2001–02 → 2012–13',[8.5,12.7]],['NSDUH men, 2021 → 2024',[13.3,12.6]],['NSDUH women, 2021 → 2024',[9.7,8.2]]],
+      cap:`NESARC (in-person interview) and NSDUH (self-administered) use different methods: compare within a row, not between rows. <sup class="c" data-ref="Grant2017JAMAPsych,Han2026NSDUH" title="Source 148,163">148,163</sup>`,
+      note:{k:'Who is affected · over time',t:'Up, then flat or slightly down',
+        txt:`From 2001–2002 to 2012–2013, DSM-IV AUD rose from 8.5% to 12.7% of US adults (a relative rise of 49.4%), and high-risk drinking from 9.7% to 12.6%; the rises were greatest among women, older adults, racial and ethnic minorities and people with lower education and income <sup class="c" data-ref="Grant2017JAMAPsych" title="Source 148">148</sup>. In NSDUH 2021–2024 (DSM-5), past-year AUD went from 13.3% to 12.6% in men and from 9.7% to 8.2% in women, and the authors describe moderate-to-severe AUD as stable or declining. <sup class="c" data-ref="Han2026NSDUH" title="Source 163">163</sup>`,
+        pt:`US drinking problems rose in the 2000s and have been level or slightly lower since 2021. Deaths are a different story: see the next section.`,
+        hook:`DSM-IV AUD rose 49.4% in relative terms between NESARC waves (8.5% to 12.7%). <sup class="c" data-ref="Grant2017JAMAPsych" title="Source 148">148</sup>`}}};
+  function drawWho(k){const N=vb(wsv,'720 300','400 420'),D=WHO[who];let s='';
+    const L=N?{x0:16,lw:0,bx:16,bw:300,top:58,rowH:D.ser.length>1?78:62,lab:true}:{x0:24,lw:220,bx:252,bw:400,top:62,rowH:D.ser.length>1?(D.rows.length>3?54:70):52};
+    s+=`<text x="${L.x0}" y="22" class="t-sm" style="fill:var(--brand)">${D.title}</text>`;
+    /* legend */
+    let lx=L.x0;D.ser.forEach(([n,c])=>{s+=`<rect x="${lx}" y="32" width="12" height="10" rx="3" style="fill:${c}"/><text x="${lx+17}" y="41" class="t-xs">${n}</text>`;lx+=n.length*5.8+36});
+    /* grid */
+    const X=v=>L.bx+L.bw*v/D.max;const gy0=L.top-6,gy1=L.top+D.rows.length*L.rowH-10;
+    for(let v=0;v<=D.max;v+=D.max>=30?10:D.max>=20?5:4){s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${gy0}" y2="${gy1}" class="${v?'grid':'axis'}"/><text x="${f1(X(v))}" y="${gy1+14}" class="t-xs t-mid">${v}%</text>`}
+    D.rows.forEach(([lab,vals],i)=>{const y=L.top+i*L.rowH;
+      if(N)s+=`<text x="${L.x0}" y="${y+4}" class="t-lbl" style="font-size:12px">${lab}</text>`;
+      else s+=`<text x="${L.x0+L.lw-8}" y="${y+(vals.length>1?18:14)}" class="t-lbl t-end" style="font-size:12.5px">${lab}</text>`;
+      vals.forEach((v,j)=>{const by=y+(N?10:0)+j*(N?22:20),h=N?16:15,w=L.bw*v/D.max*k,c=D.ser[j][1];
+        s+=`<rect x="${L.bx}" y="${by}" width="${f1(Math.max(0,w))}" height="${h}" rx="4" style="fill:${c}"/><text x="${f1(L.bx+w+6)}" y="${by+h-3.5}" class="t-xs" style="fill:var(--ink);font-weight:600">${f1(v*k)}%</text>`})});
+    wsv.innerHTML=s;
+    $('#whWhoCap').innerHTML=D.cap;$('#whWhoNote').innerHTML=noteHTML(D.note)}
+  function setWho(k){who=k;$$('#whWhoBtns [data-who]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.who===k));
+    whoStop&&whoStop();whoStop=animate(650,p=>drawWho(ease(p)),()=>{whoStop=null})}
+  $('#whWhoBtns').addEventListener('click',e=>{const b=e.target.closest('[data-who]');if(b)setWho(b.dataset.who)});
+  drawWho(1);
+
+  /* ---------- burden comparator ---------- */
+  const bsv=$('#whBur');let bur='world',burStop=null;
+  const BUR={
+    world:{title:'ALCOHOL-ATTRIBUTABLE DEATHS WORLDWIDE, MILLIONS',max:3.5,unit:'M',dec:2,
+      rows:[['GBD 2016 · year 2016',2.8,'var(--brand)'],['WHO model · 2016',3.0,'var(--gold)'],['WHO model · 2019',2.6,'var(--gold)'],['GBD 2020 · year 2020',1.78,'var(--brand)']],
+      cap:`Totals differ because the models and risk curves differ, not because deaths fell that fast. <sup class="c" data-ref="GBD2016Alcohol,Shield2020,Shield2025,GBD2020Alcohol" title="Source 137,139,430,431">137,139,430,431</sup>`,
+      note:{k:'Burden · the world',t:'Millions of deaths a year, by any model',
+        txt:`GBD 2016 attributed 2.8 million deaths in 2016 to alcohol use <sup class="c" data-ref="GBD2016Alcohol" title="Source 137">137</sup>. The WHO comparative risk model gave 3.0 million for 2016, 5.3% of all deaths, with 52.4% of alcohol-attributable deaths in people under 60 and 17.7% of all injury deaths caused by alcohol <sup class="c" data-ref="Shield2020" title="Source 430">430</sup>; its update gave 2.6 million (4.7%) for 2019 <sup class="c" data-ref="Shield2025" title="Source 431">431</sup>. GBD 2020 estimated 1.78 million for 2020, and 1.34 billion people drinking harmful amounts. <sup class="c" data-ref="GBD2020Alcohol" title="Source 139">139</sup>`,
+        pt:`Alcohol causes millions of deaths every year around the world. Experts disagree on the exact number, not on the scale.`,
+        hook:`Pair every global figure with its model: GBD 2016 2.8 M (2016); WHO model 3.0 M (2016), 2.6 M (2019); GBD 2020 1.78 M (2020).`}},
+    young:{title:'SHARE OF DEATHS ATTRIBUTABLE TO ALCOHOL, AGES 15–49 (GBD 2016)',max:14,unit:'%',dec:1,
+      rows:[['Men · deaths',12.2,'var(--accent)'],['Women · deaths',3.8,'var(--accent)'],['Men · DALYs',8.9,'var(--brand)'],['Women · DALYs',2.3,'var(--brand)']],
+      cap:`At ages 15–49 alcohol was the leading risk factor for death worldwide in 2016. <sup class="c" data-ref="GBD2016Alcohol" title="Source 137">137</sup>`,
+      note:{k:'Burden · young and middle-aged adults',t:'The leading risk factor at ages 15–49',
+        txt:`In 2016, alcohol caused 12.2% of male and 3.8% of female deaths at ages 15–49, and 8.9% and 2.3% of DALYs. The leading attributable causes of death in this age group were tuberculosis (1.4% of total deaths), road injuries (1.2%) and self-harm (1.1%). At ages 50 and older, cancers made up 27.1% of alcohol-attributable female deaths and 18.9% of male deaths. <sup class="c" data-ref="GBD2016Alcohol" title="Source 137">137</sup>`,
+        pt:`For people aged 15 to 49, nothing else on the list of risk factors caused as many deaths as alcohol.`,
+        hook:`GBD 2016: alcohol = 7th leading risk factor overall, 1st at ages 15–49 (12.2% of male deaths). <sup class="c" data-ref="GBD2016Alcohol" title="Source 137">137</sup>`}},
+    us:{title:'US DEATHS FROM EXCESSIVE DRINKING, PER YEAR (CDC)',max:200000,unit:'',dec:0,
+      rows:[['2016–2017, all',137927,'var(--muted)'],['2020–2021, all',178307,'var(--accent)'],['2020–2021, chronic causes',117245,'var(--liver)'],['2020–2021, acute causes',61063,'var(--gold)']],
+      cap:`About 488 deaths a day in 2020–2021. Among adults aged 20–64 in 2015–2019, about 1 in 8 deaths. <sup class="c" data-ref="Esser2024MMWR,Esser2022JNO" title="Source 103,104">103,104</sup>`,
+      note:{k:'Burden · the United States',t:'Up 29.3% in four years',
+        txt:`Average annual deaths from excessive drinking rose from 137,927 in 2016–2017 to 178,307 in 2020–2021, and the age-standardised rate from 38.1 to 47.6 per 100,000. Deaths among women rose 34.7% and among men 26.8%. Leading chronic causes were alcohol-associated liver disease (48,972 a year) and heart disease and stroke (37,317); leading acute causes were alcohol poisonings (21,806) and motor-vehicle crashes (15,055) <sup class="c" data-ref="Esser2024MMWR" title="Source 104">104</sup>. Among adults aged 20–49, about 1 in 5 deaths (20.3%) were attributable to excessive drinking. <sup class="c" data-ref="Esser2022JNO" title="Source 103">103</sup>`,
+        pt:`In the US, excessive drinking causes about 1 in 8 deaths between ages 20 and 64. Alcohol poisoning is an emergency: call emergency services.`,
+        hook:`CDC: 178,307 US deaths a year from excessive drinking in 2020–2021, about 488 a day. <sup class="c" data-ref="Esser2024MMWR" title="Source 104">104</sup>`}},
+    life:{title:'MEN TREATED FOR AUD: STANDARDISED MORTALITY RATIO AT 10 YEARS',max:20,unit:'×',dec:1,
+      rows:[['Mental disorders',18.0,'var(--dx)'],['Liver cirrhosis',14.8,'var(--liver)'],['Injury',6.6,'var(--gold)'],['Cancer, cardiovascular (about)',2,'var(--muted)']],
+      cap:`Meta-analysis of 17 cohorts (28,087 patients). SMR 1 = the general-population rate. Ratios were higher still in women, from fewer studies. <sup class="c" data-ref="Roerecke2014" title="Source 397">397</sup>`,
+      note:{k:'Burden · a shorter life',t:'24–28 years of life lost',
+        txt:`In Nordic registers (1987–2006), people hospitalised with AUD lived 24–28 years less than the general population, an average life expectancy of 47–53 years in men and 50–58 in women, with all-cause mortality 3.0–5.2 times higher <sup class="c" data-ref="Westman2015" title="Source 494">494</sup>. Among people treated for AUD, men died of liver cirrhosis at 14.8 times and of mental disorders at 18.0 times the expected rate after 10 years. <sup class="c" data-ref="Roerecke2014" title="Source 397">397</sup> These are population statistics from people hospitalised or treated, not a prediction for anyone.`,
+        pt:`On average, people treated in hospital for AUD have died decades earlier than others. Treatment and stopping or cutting down can change a person's own path.`,
+        hook:`Nordic registers: life expectancy 24–28 years shorter after hospitalisation for AUD. <sup class="c" data-ref="Westman2015" title="Source 494">494</sup>`}}};
+  const fmtB=(v,D)=>D.unit==='M'?f1(v)+(v===1.78?'':'')+' M':D.unit==='%'?f1(v)+'%':D.unit==='×'?f1(v)+'×':Math.round(v).toLocaleString('en-US');
+  function drawBur(k){const N=vb(bsv,'720 300','400 400'),D=BUR[bur];let s='';
+    const L=N?{x0:16,bx:16,bw:290,top:46,rowH:72}:{x0:24,bx:270,bw:360,top:50,rowH:54};
+    s+=N?whWrap(D.title,46).map((l,i)=>`<text x="16" y="${20+i*13}" class="t-sm" style="fill:var(--brand)">${l}</text>`).join(''):`<text x="24" y="22" class="t-sm" style="fill:var(--brand)">${D.title}</text>`;
+    const X=v=>L.bx+L.bw*v/D.max;
+    D.rows.forEach(([lab,v,c],i)=>{const y=L.top+i*L.rowH+(N?10:0);
+      if(N)s+=`<text x="16" y="${y+10}" class="t-lbl" style="font-size:12px">${lab}</text>`;else s+=`<text x="${L.bx-10}" y="${y+18}" class="t-lbl t-end" style="font-size:12.5px">${lab}</text>`;
+      const by=y+(N?18:4),w=L.bw*v/D.max*k;
+      s+=`<rect x="${L.bx}" y="${by}" width="${f1(L.bw)}" height="20" rx="5" style="fill:var(--panel-2)"/><rect x="${L.bx}" y="${by}" width="${f1(w)}" height="20" rx="5" style="fill:${c}"/>`;
+      const v2=D.unit==='M'?(Math.round(v*k*100)/100):v*k;s+=`<text x="${f1(L.bx+w+7)}" y="${by+14.5}" class="t-xs" style="fill:var(--ink);font-weight:600">${D.unit==='M'?(Math.round(v2*100)/100).toFixed(v===1.78?2:1)+' M':fmtB(v2,D)}</text>`;
+      if(bur==='life'&&!N)s+=`<line x1="${f1(X(1))}" x2="${f1(X(1))}" y1="${by-3}" y2="${by+23}" style="stroke:var(--ink);stroke-width:1.2;stroke-dasharray:2 2"/>`});
+    if(bur==='life'){const yy=L.top+4*L.rowH+(N?12:4);s+=`<text x="${N?16:L.bx}" y="${yy}" class="t-xs">${N?'':'dashed line: SMR 1, the general-population rate · '}Nordic registers: life expectancy 24–28 years shorter</text>`}
+    if(bur==='us'){const yy=L.top+4*L.rowH+(N?12:4);s+=`<text x="${N?16:L.bx}" y="${yy}" class="t-xs">≈ 488 deaths a day in 2020–2021 · +29.3% vs 2016–2017</text>`}
+    bsv.innerHTML=s;$('#whBurCap').innerHTML=D.cap;$('#whBurNote').innerHTML=noteHTML(D.note)}
+  function setBur(k){bur=k;$$('#whBurBtns [data-bur]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.bur===k));
+    burStop&&burStop();burStop=animate(700,p=>drawBur(ease(p)),()=>{burStop=null})}
+  $('#whBurBtns').addEventListener('click',e=>{const b=e.target.closest('[data-bur]');if(b)setBur(b.dataset.bur)});
+  drawBur(1);
+  const prevR=redraws.what;redraws.what=()=>{prevR&&prevR();drawWho(1);drawBur(1)};
+};
+/* =============== 1.2 Standard drinks, blood alcohol & metabolism =============== */
+/* One illustrative evening: four 14 g drinks at hours 0, 1, 2 and 3. Every model value comes from the
+   research pass (cited in the stage caption); the absorption speeds are ours, chosen so the peak after
+   each drink lands inside the published 10-60 minute window. */
+const DR_H=12;
+const DR_DOSES=[[0,14],[1,14],[2,14],[3,14]];
+const DR_PERSON={m:{kg:70,r:.68,n:'man, 70 kg'},f:{kg:60,r:.55,n:'woman, 60 kg'}};
+const DR_FOOD=[{ka:4,beta:.0125,n:'empty stomach'},{ka:1.5,beta:.0175,n:'after a meal'}];
+/* effect ladder: Abrahao 2017 thresholds in mM, converted to g/dL by the research team */
+const DR_BANDS=[
+ {from:.03,to:.055,col:'var(--gaba-fill)',label:'≈0.03 effects distinguishable'},
+ {from:.055,to:.08,col:'var(--thi-fill)',label:'≈0.055 anxiolytic, euphoric'},
+ {from:.08,to:.23,col:'var(--eth-fill)',label:'≈0.08 slowed reactions → sedation'},
+ {from:.23,to:.6,col:'var(--glu-fill)',label:'>0.23 coma, breathing stops'}];
+const DR_STEPS=[
+ {from:0,at:.02,k:'Hour 0 · the first drink',t:'Grams, not glasses',
+  txt:`This evening is four US standard drinks of about 14 g of ethanol each, one an hour. <sup class="c" data-ref="KranzlerSoyka2018" title="Source 261">261</sup> Ethanol is absorbed quickly from the gut: peak blood alcohol after a dose usually comes 10–60 minutes later. <sup class="c" data-ref="Jones2019WIREs" title="Source 213">213</sup> How fast depends on the drinking pattern, the drink's strength and, most of all, whether the person has eaten. <sup class="c" data-ref="Norberg2003" title="Source 347">347</sup> Press <b>After a meal</b> to compare.`,
+  pt:`A drink is counted by the grams of pure alcohol in it. From the stomach it reaches the blood within minutes.`,
+  hook:`US standard drink = 0.6 oz ethanol (≈14 g): 12 oz beer 5%, 5 oz wine 12%, 1.5 oz spirits 40%. GBD and the WHO AUDIT use 10 g. <sup class="c" data-ref="KranzlerSoyka2018,GBD2016Alcohol" title="Source 137,261">137,261</sup>`},
+ {from:.05,at:.2,k:'Hours 0.5–3 · rising',t:'Absorption outpaces the liver',
+  txt:`Ethanol spreads through total body water: it has low lipid solubility and does not bind to plasma proteins. <sup class="c" data-ref="Norberg2003" title="Source 347">347</sup> Its average volume of distribution is about 0.70 L/kg in men and 0.60 L/kg in women; estimate formulas often use fixed Widmark factors of 0.68 and 0.55. <sup class="c" data-ref="Jones2019WIREs,Terpstra2020" title="Source 213,454">213,454</sup> Each new drink arrives faster than the liver can clear it, so the curve climbs in steps. Switch to <b>Woman, 60 kg</b>: the same grams in less body water give a higher curve. <sup class="c" data-ref="Frezza1990" title="Source 132">132</sup>`,
+  pt:`The alcohol spreads into the water in the body. Less body water means a higher level from the same drinks.`,
+  hook:`BAC ≈ grams ÷ (r × body weight). r ≈ 0.68 men, 0.55 women (Widmark). <sup class="c" data-ref="Terpstra2020" title="Source 454">454</sup>`},
+ {from:.27,at:.305,k:'About hour 3.5 · the peak',t:'The peak, and what the brain feels',
+  txt:`Effects follow blood level, but not exactly. Abrahao 2017 gives thresholds in millimolar: effects reliably distinguishable at about 6 mM (≈0.03 g/dL), anxiolytic and euphoric effects at about 12 mM (≈0.055), slowed reactions, poor coordination and impaired thinking around legal intoxication, 18 mM (≈0.08). Up to 50 mM (≈0.23) sedation escalates; above it, strong sedation and respiratory depression can lead to coma or death. <sup class="c" data-ref="Abrahao2017" title="Source 1">1</sup> Severity also depends on how fast alcohol is taken, tolerance and other conditions. <sup class="c" data-ref="Parmar2026StatPearls" title="Source 355">355</sup>`,
+  pt:`The higher the level, the more the brain slows. At very high levels breathing can stop: that is alcohol poisoning, an emergency.`,
+  hook:`100 mg/100 mL (0.1%) ≈ 22 mM ethanol. <sup class="c" data-ref="Edenberg2007" title="Source 96">96</sup>`},
+ {from:.36,at:.47,k:'Hours 4–9 · falling',t:'A straight-line fall: zero-order elimination',
+  txt:`Once absorption ends, BAC falls by about the same amount every hour. The rate-limiting step is cytosolic alcohol dehydrogenase (ADH), whose Km is so low (2–10 mg/100 mL) that it is saturated after the first few drinks: zero-order kinetics describe the fall above about 20 mg/100 mL. <sup class="c" data-ref="Jones2010" title="Source 212">212</sup> Typical rates are 10–15 mg/100 mL per hour fasting and 15–20 after food; 15 is a good average for moderate drinkers. <sup class="c" data-ref="Jones2010" title="Source 212">212</sup> Average liver capacity is about 7 g of ethanol an hour. <sup class="c" data-ref="Cederbaum2012" title="Source 59">59</sup>`,
+  pt:`The liver works at a fixed top speed, roughly one drink an hour. Coffee, a cold shower or sleep do not change that; only time does.`,
+  hook:`<b>Zero-order</b>: BAC falls by a constant amount per hour (≈0.015 g/dL/h), not a constant fraction. ADH is saturated. <sup class="c" data-ref="Jones2010" title="Source 212">212</sup>`},
+ {from:.55,at:.6,k:'Inside a liver cell',t:'Ethanol → acetaldehyde → acetate',
+  txt:`ADH, with help from CYP2E1 and catalase, oxidises ethanol to acetaldehyde; mitochondrial ALDH2 then oxidises acetaldehyde to acetate. Both steps reduce NAD<sup>+</sup> to NADH. <sup class="c" data-ref="Zakhari2006,Cederbaum2012" title="Source 59,512">59,512</sup> The NADH surplus stimulates fatty-acid synthesis and opposes fat burning, which promotes fatty liver, and raises lactate. <sup class="c" data-ref="Lieber2004Fatty" title="Source 290">290</sup> Acetaldehyde, the first and most toxic metabolite, is a mutagen that damages DNA and the main focus of research into how alcohol causes cancer. <sup class="c" data-ref="Seitz2007,Brooks2009" title="Source 50,425">50,425</sup> Normally most is cleared at once, so blood acetaldehyde stays low: the small middle pool. <sup class="c" data-ref="Cederbaum2012" title="Source 59">59</sup> See <a href="#liver" data-go="liver">The liver</a>.`,
+  pt:`The liver turns alcohol into acetaldehyde, a harmful substance linked to cancer, and then into harmless acetate. The process also pushes the liver to store fat.`,
+  hook:`Acetaldehyde causes the <b>flush</b> (when ALDH2 is slow) and is a <b>carcinogen</b>; NADH excess → fatty liver. <sup class="c" data-ref="Brooks2009,Lieber2004Fatty" title="Source 50,290">50,290</sup>`},
+ {from:.75,at:.88,k:'Hours 9–12 · the tail',t:'Back to zero, eventually',
+  txt:`Below about 20 mg/100 mL ADH is no longer saturated and the line curves into the axis. <sup class="c" data-ref="Jones2010" title="Source 212">212</sup> 92–98% of ethanol is oxidised; only 2–10% leaves unchanged in breath, urine and sweat, and 0.1–0.2% becomes ethyl glucuronide and ethyl sulfate, the basis of the urine tests in <a href="#biomarkers" data-go="biomarkers">Blood and urine markers</a>. <sup class="c" data-ref="Jones2019WIREs" title="Source 213">213</sup> People who drink heavily clear faster, 25–35 mg/100 mL per hour, because CYP2E1 is induced, which also brings cross-tolerance to other drugs and more toxic paracetamol metabolites. <sup class="c" data-ref="Jones2010,Lieber2004MEOS" title="Source 212,291">212,291</sup>`,
+  pt:`It can take many hours to clear an evening's drinks, often past the next morning.`,
+  hook:`Chronic drinking induces CYP2E1 (MEOS): faster clearance, cross-tolerance, more toxic acetaminophen metabolites. Acute drinking <b>inhibits</b> other drugs' metabolism. <sup class="c" data-ref="Lieber2004MEOS" title="Source 291">291</sup>`}
+];
+
+/* BAC function sampled once per scenario, then looked up */
+function drTable(doses,kg,r,beta,ka,H,step){const f=bacSeries({doses,kg,r,beta,ka}),n=Math.round(H/step),a=new Float64Array(n+1);for(let i=0;i<=n;i++)a[i]=f(i*step);
+  return h=>{const u=clamp(h,0,H)/step,i=Math.floor(u),j=Math.min(n,i+1);return lerp(a[i],a[j],u-i)}}
+
+inits.drinks=()=>{
+  const svg=$('#drSvg'),rg=$('#drT');let sx='m',fd=0;const cache={};
+  const scen=()=>{const k=sx+fd;if(!cache[k]){const P=DR_PERSON[sx],F=DR_FOOD[fd];const f=drTable(DR_DOSES,P.kg,P.r,F.beta,F.ka,DR_H,1/30);
+      let pk=0,ph=0,zero=null;for(let h=0;h<=DR_H;h+=1/30){const v=f(h);if(v>pk){pk=v;ph=h}if(h>3.2&&zero==null&&v<=0)zero=h}
+      cache[k]={f,P,F,pk,ph,zero,vd:P.r*P.kg*10}}return cache[k]};
+  const gut=(h,ka)=>DR_DOSES.reduce((s,[t0,g])=>s+(h>=t0?g*Math.exp(-ka*(h-t0)):0),0);
+  const given=h=>DR_DOSES.reduce((s,[t0,g])=>s+(h>=t0?g:0),0);
+  /* fixed scatter positions for ethanol marks in the blood */
+  const R=rng(77),BL=[];for(let i=0;i<40;i++){const head=i%7===0;BL.push(head?[(R()*2-1)*13,14+R()*20]:[(R()*2-1)*36,78+R()*140])}
+  const SG=[];for(let i=0;i<14;i++)SG.push([8+R()*20,140+R()*20]);
+  let setSt=()=>{};
+  function draw(t){
+    const N=vb(svg,'720 372','400 600'),S=scen(),h=t*DR_H,b=S.f(h),gG=gut(h,S.F.ka),gv=given(h),elim=Math.max(0,gv-gG-b*S.vd);
+    const db=(S.f(Math.min(DR_H,h+.05))-S.f(Math.max(0,h-.05)))/.1;
+    let s=`<defs>${marker('drA','var(--muted)')}</defs>`;
+    /* ---- body ---- */
+    const bx=N?72:116,by=N?18:28,bs=N?.84:1.28;
+    const body=bodymap(bx,by,bs,{hl:{stomach:clamp(gG/20),liver:b>.002?.55+.45*clamp(b/.1):0,brain:clamp(b/.12)},col:{stomach:'var(--eth-fill)',liver:'var(--liver)',brain:'var(--gaba-fill)'}});
+    s+=body.svg;const A=body.at,P=(a,c)=>[bx+a*bs,by+c*bs];
+    /* drinks travelling down: each dose shows for 0.3 h */
+    DR_DOSES.forEach(([t0])=>{const u=(h-t0)/.3;if(u<0||u>1)return;
+      for(let k=0;k<4;k++){const v=clamp(u*1.2-k*.07),p=v<.35?[lerp(A.mouth[0],A.oeso[0],v/.35),lerp(A.mouth[1],A.oeso[1],v/.35)]:[lerp(A.oeso[0],A.stomach[0],(v-.35)/.65),lerp(A.oeso[1],A.stomach[1],(v-.35)/.65)];
+        s+=mol(p[0],p[1],'eth',{r:N?3.6:4.4})}});
+    /* in the stomach and gut */
+    for(let i=0;i<Math.round(clamp(gG/3,0,14));i++){const q=P(SG[i][0],SG[i][1]);s+=mol(q[0],q[1],'eth',{r:N?2.6:3})}
+    /* in the blood: count follows BAC */
+    for(let i=0;i<Math.round(clamp(b/.004,0,40));i++){const q=P(BL[i][0],BL[i][1]);s+=mol(q[0],q[1],'eth',{r:N?2.2:2.6,op:.8})}
+    /* labels */
+    const lab=(k,txt,side)=>{const [x,y]=A[k],lx=side>0?bx+(N?52:80):bx-(N?52:80);s+=`<line x1="${f1(x)}" y1="${f1(y)}" x2="${f1(lx+(side>0?-3:3))}" y2="${f1(y)}" style="stroke:var(--muted);stroke-width:.8"/><text x="${f1(lx)}" y="${f1(y+3.5)}" class="t-xs${side>0?'':' t-end'}">${txt}</text>`};
+    lab('stomach','stomach, gut',1);lab('liver','liver',-1);lab('brain','brain',-1);
+    if(!N)s+=`<text x="${bx}" y="${by+bs*250+6}" class="t-xs t-mid">amber marks: ethanol (schematic)</text>`;
+    /* ---- BAC curve ---- */
+    const cx=N?44:262,cy=N?262:28,cw=N?344:438,ch=N?210:182,Y1=.26;
+    const C=curve(cx,cy,cw,ch,S.f,{x0:0,x1:DR_H,y0:0,y1:Y1,upto:h,fill:true,dot:true,bands:DR_BANDS});
+    s+=C.svg;
+    for(let v=0;v<=12;v+=2)s+=`<text x="${f1(C.X(v))}" y="${cy+ch+13}" class="t-xs t-mid">${v}</text>`;
+    s+=`<text x="${cx+cw}" y="${cy+ch+26}" class="t-xs t-end">hours since the first drink</text>`;
+    [.05,.1,.15,.2,.25].forEach(v=>s+=`<text x="${cx-5}" y="${f1(C.Y(v)+3)}" class="t-xs t-end">${v?v.toFixed(2):'0'}</text>`);
+    s+=`<text x="${cx}" y="${cy-8}" class="t-sm" style="fill:var(--eth)">BLOOD ALCOHOL, g/dL · ${S.P.n}, ${S.F.n}</text>`;
+    DR_DOSES.forEach(([t0])=>{const x=C.X(t0);s+=`<path d="M${f1(x)} ${cy+ch}v-7" style="stroke:var(--eth);stroke-width:2"/>`+(h>=t0?`<circle cx="${f1(x)}" cy="${cy+ch-10}" r="2.6" style="fill:var(--eth)"/>`:'')});
+    /* slope guide: the straight zero-order line */
+    if(h>S.ph+.6&&b>.02){const h0=S.ph+.5,v0=S.f(h0),h1=Math.min(h,h0+(v0-.02)/S.F.beta);
+      s+=`<line x1="${f1(C.X(h0))}" y1="${f1(C.Y(v0))}" x2="${f1(C.X(h1))}" y2="${f1(C.Y(v0-S.F.beta*(h1-h0)))}" style="stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 4;opacity:.7"/>`;
+      const mx=C.X((h0+h1)/2),my=C.Y(v0-S.F.beta*(h1-h0)/2);
+      s+=`<text x="${f1(mx+6)}" y="${f1(my+16)}" class="t-xs" style="fill:var(--ink)">−${S.F.beta.toFixed(4).replace(/0$/,'')} g/dL every hour</text>`}
+    /* ---- liver cell inset ---- */
+    const lx=N?132:262,ly=N?18:242,lw=N?260:438,lh=N?206:118;
+    s+=`<rect x="${lx}" y="${ly}" width="${lw}" height="${lh}" rx="14" style="fill:var(--cell);stroke:var(--liver);stroke-width:1.4"/>`;
+    s+=`<text x="${lx+12}" y="${ly+17}" class="t-sm" style="fill:var(--liver)">INSIDE A LIVER CELL</text>`;
+    const act=b>.002,sat=b>.02,acet=act?.12+.12*clamp(b/.1):0;
+    const pw=pathway(lx+(N?6:40),ly+(N?52:22),lw-(N?12:80),{eth:clamp(b/.13),acet,ace:act?.35+.25*clamp(b/.1):clamp(.35-(h-(S.zero||DR_H))*.2,0,.35),nadh:act?(sat?.9:.5):0});
+    s+=pw.svg;
+    if(act){const e=pw.at.eth,c=pw.at.acet,a=pw.at.ace;for(let k=0;k<3;k++){const u=((h*3.2)+k/3)%1;
+        s+=mol(lerp(e[0]+24,c[0]-26,u),e[1]+(N?14:13),'eth',{r:2.6})+mol(lerp(c[0]+24,a[0]-26,(u+.5)%1),c[1]+(N?14:13),'acet',{r:2.4})}}
+    const st=!act?(gv?'ADH idle: no ethanol left':'waiting for the first drink'):(db>.002&&!sat)?'absorbing: ethanol reaching the liver':sat?'ADH saturated: same speed at any BAC':'below ≈0.02 g/dL: ADH no longer saturated';
+    s+=`<text x="${lx+lw-12}" y="${ly+17}" class="t-xs t-end" style="fill:var(--ink)">${N?'':st}</text>`;
+    if(N)s+=`<text x="${lx+lw/2}" y="${ly+lh-10}" class="t-xs t-mid" style="fill:var(--ink)">${st}</text>`;
+    svg.innerHTML=s;
+    const ph=phaseOf(DR_STEPS,t);setSt(ph);$('#drNote').innerHTML=noteHTML(DR_STEPS[ph]);
+    $('#drRead').innerHTML=`<span>hour <b>${f1(h)}</b></span><span>BAC <b>${b.toFixed(3)}</b> g/dL (teaching value)</span><span>${db>.002?'<b>rising</b>':b>.001?'falling <b>'+(-db).toFixed(3)+'</b> g/dL/h':'<b>—</b>'}</span><span>drunk <b>${gv}</b> g · in gut <b>${f1(gG)}</b> g · cleared <b>${f1(elim)}</b> g</span><span>peak <b>${S.pk.toFixed(3)}</b> at ${f1(S.ph)} h · zero ${S.zero?'at <b>'+f1(S.zero)+' h</b>':'<b>not yet by 12 h</b>'}</span>`;
+  }
+  const stop=playWire(rg,$('#drPlay'),draw,22000,'Replay','drinks');
+  setSt=stepWire($('#drSteps'),DR_STEPS,rg,draw,stop);
+  $$('[data-drsx]').forEach(b=>b.addEventListener('click',()=>{sx=b.dataset.drsx;$$('[data-drsx]').forEach(x=>x.setAttribute('aria-pressed',x===b));draw(+rg.value)}));
+  $$('[data-drfd]').forEach(b=>b.addEventListener('click',()=>{fd=+b.dataset.drfd;$$('[data-drfd]').forEach(x=>x.setAttribute('aria-pressed',x===b));draw(+rg.value)}));
+  draw(+rg.value);
+
+  /* ---- standard-drink converter ---- */
+  const cv=$('#drConv'),vol=$('#drVol'),abv=$('#drAbv');
+  function conv(){const N=vb(cv,'720 236','400 360'),V=+vol.value,A=+abv.value,g=V*A/100*.789;
+    $('#drVolV').textContent=`${V} mL (${f1(V/29.57)} US fl oz)`;$('#drAbvV').textContent=`${A}%`;
+    let s='';const bwx=N?24:30,bwy=N?30:40,bw=N?64:84,bh=N?110:150;
+    s+=beaker(bwx,bwy,bw,bh,V/1000,{label:`${V} mL at ${A}%`,ticks:4});
+    s+=`<text x="${bwx+bw+4}" y="${bwy+2}" class="t-xs">1 L</text>`;
+    const gx=N?120:150;
+    s+=`<text x="${gx}" y="${bwy+24}" class="t-big" style="font-size:${N?30:36}px;fill:var(--eth)">${f1(g)} g</text><text x="${gx}" y="${bwy+42}" class="t-xs">of pure ethanol = ${V} × ${A}/100 × 0.789</text>`;
+    const rows=[[14,'US standard drinks (14 g)'],[10,'standard drinks of 10 g'],[8,'UK units (8 g)']],cap=N?16:24,ix=N?24:330,iy0=N?178:28,sp=N?22:15.5,iw=N?13:10,ihh=N?20:16,rowH=N?60:70;
+    rows.forEach(([gr,nm],ri)=>{const n=g/gr,y=iy0+ri*rowH+(N?0:4);
+      s+=`<text x="${ix}" y="${y}" class="t-lbl">${n<10?n.toFixed(1):Math.round(n)} <tspan class="t-sm" style="font-weight:500">${nm}</tspan></text>`;
+      const full=Math.min(cap,Math.ceil(n-.02));for(let i=0;i<full;i++){const lv=i<Math.floor(n+.02)?1:n-Math.floor(n);s+=beaker(ix+i*sp,y+12,iw,ihh,lv,{ticks:1})}
+      if(n>cap)s+=`<text x="${ix+cap*sp+2}" y="${y+28}" class="t-xs">+${Math.ceil(n-cap)} more</text>`});
+    cv.innerHTML=s;
+    $('#drConvNote').innerHTML=noteHTML({k:'The same grams, three ways of counting',t:`${f1(g)} g of ethanol`,
+      txt:`That is ${f1(g/14)} US standard drinks, ${f1(g/10)} drinks of 10 g or ${f1(g/8)} UK units. Strength matters as much as size: a large 250 mL glass of 13% wine holds almost two US drinks (25.6 g). Because the WHO AUDIT assumes a 10 g drink, the US drink is 40% larger and the USAUDIT adapts its questions to it. <sup class="c" data-ref="HigginsBiddle2018USAUDIT" title="Source 179">179</sup>`,
+      pt:`Count grams, not glasses. A pint of strong beer or a big glass of wine is often more than one "drink".`,
+      hook:`grams = mL × ABV% ÷ 100 × 0.789. National standard drinks range from 8 to 20 g; the modal one is 10 g. <sup class="c" data-ref="Kalinowski2016" title="Source 217">217</sup>`});
+  }
+  [vol,abv].forEach(e=>e.addEventListener('input',conv));
+  $$('[data-drp]').forEach(b=>b.addEventListener('click',()=>{const [v,a]=b.dataset.drp.split(',');vol.value=v;abv.value=a;conv()}));
+  conv();
+
+  /* ---- teaching BAC calculator ---- */
+  const cs=$('#drCalc'),cN=$('#drcN'),cH=$('#drcH'),cW=$('#drcW'),cG=$('#drcG'),cR=$('#drcR'),cB=$('#drcB');
+  function calc(){const N=vb(cs,'720 300','400 340'),n=+cN.value,H=+cH.value,kg=+cW.value,gr=+cG.value,r=+cR.value,beta=+cB.value;
+    $('#drcNV').textContent=n;$('#drcHV').textContent=H+' h';$('#drcWV').textContent=kg+' kg';
+    const doses=[];for(let i=0;i<n;i++)doses.push([n>1?i*H/(n-1):0,gr]);
+    const HM=16,f=drTable(doses,kg,r,beta,6,HM,1/10);let pk=0,ph=0,zero=null;for(let h=0;h<=HM+1e-9;h+=.1){const v=f(h);if(v>pk){pk=v;ph=h}if(h>H&&zero==null&&v<=0)zero=h}
+    const top=Math.min(.6,Math.max(.1,Math.ceil(pk*1.3/.05)*.05));
+    const x0=N?44:62,y0=N?36:30,w=N?344:630,hh=N?240:220;
+    const C=curve(x0,y0,w,hh,f,{x0:0,x1:HM,y0:0,y1:top,fill:false,dot:false,bands:DR_BANDS.map(b=>Object.assign({},b,{label:N&&b.from<.05?'':b.label}))});
+    let band='';for(let i=0;i<=80;i++){const hv=HM*i/80;band+=(i?'L':'M')+f1(C.X(hv))+' '+f1(C.Y(f(hv)*1.21))}for(let i=80;i>=0;i--){const hv=HM*i/80;band+='L'+f1(C.X(hv))+' '+f1(C.Y(f(hv)*.79))}
+    let s=C.svg+`<path d="${band}Z" style="fill:var(--eth-fill);opacity:.22"/>`+curve(x0,y0,w,hh,f,{x0:0,x1:HM,y0:0,y1:top,col:'var(--eth)'}).svg.replace(/<rect[^>]*var\(--field\)[^>]*\/>/,'').replace(/<line[^>]*class="axis"\/>/g,'');
+    for(let v=0;v<=HM;v+=2)s+=`<text x="${f1(C.X(v))}" y="${y0+hh+13}" class="t-xs t-mid">${v}</text>`;
+    s+=`<text x="${x0+w}" y="${y0+hh+26}" class="t-xs t-end">hours since the first drink</text>`;
+    const tk=top<=.15?.025:top<=.3?.05:.1;for(let v=0;v<=top+1e-9;v+=tk)s+=`<text x="${x0-5}" y="${f1(C.Y(v)+3)}" class="t-xs t-end">${v?v.toFixed(tk<.05?3:2):'0'}</text>`;
+    doses.forEach(([t0])=>s+=`<path d="M${f1(C.X(t0))} ${y0+hh}v-7" style="stroke:var(--eth);stroke-width:2"/>`);
+    s+=`<text x="${x0}" y="${y0-10}" class="t-sm" style="fill:var(--warn)">TEACHING CURVE · not a measurement · not a guide to driving</text>`;
+    cs.innerHTML=s;
+    const tot=n*gr,poison=pk*1.21>.23;
+    $('#drCalcNote').innerHTML=noteHTML({k:`${n} × ${gr} g = ${tot} g ethanol · ${kg} kg · r ${r} · β ${beta}`,t:`Textbook peak ≈ ${pk.toFixed(3)} g/dL`,
+      txt:`On this model the peak comes about ${f1(ph)} h after the first drink and the curve reaches zero ${zero?'after about <b>'+f1(zero)+' h</b>':'<b>after more than 16 h</b>'}. With the ±21% band the peak could be ${(pk*.79).toFixed(3)}–${(pk*1.21).toFixed(3)} g/dL, and real bodies vary more. <sup class="c" data-ref="Searle2015,Posey2007Widmark" title="Source 368,423">368,423</sup> Only time lowers BAC: the liver clears about 7 g an hour on average. <sup class="c" data-ref="Cederbaum2012" title="Source 59">59</sup>${poison?` <b>The upper edge of this curve crosses ≈0.23 g/dL, the level above which published research describes strong sedation and respiratory depression that can lead to coma or death.</b> <sup class="c" data-ref="Abrahao2017" title="Source 1">1</sup> In real life, someone who cannot be woken or is breathing slowly needs emergency services now. <sup class="c" data-ref="Kanny2015" title="Source 221">221</sup>`:''}`,
+      pt:`This shows the shape of the curve: up while drinks are absorbed, then down by a fixed amount each hour. It cannot tell you or anyone else whether it is safe to drive or to keep drinking.`,
+      hook:`Widmark: C = A ÷ (r × W) − β × t. Halving β (a slow eliminator) roughly doubles the time to zero. <sup class="c" data-ref="Terpstra2020,Jones2010" title="Source 212,454">212,454</sup>`});
+  }
+  [cN,cH,cW].forEach(e=>e.addEventListener('input',calc));[cG,cR,cB].forEach(e=>e.addEventListener('change',calc));
+  calc();
+  const prevR=redraws.drinks;redraws.drinks=()=>{prevR&&prevR();conv();calc()};
+};
+/* =============== 1.3 Alcohol and the brain: reward, adaptation, craving =============== */
+const BR_PH=[{a:0,b:.14,n:'before',w:'before drinking'},{a:.14,b:.36,n:'drink',w:'first drinks'},{a:.36,b:.64,n:'months',w:'months of heavy drinking'},{a:.64,b:.82,n:'stops',w:'drinking stops'},{a:.82,b:1,n:'again',w:'repeated withdrawals'}];
+const BR_STEPS=[
+ {from:0,at:.06,k:'Before drinking',t:'A brain in balance',
+  txt:`Two signals keep neurons in check. GABA acting on GABA-A receptors opens a chloride channel and calms the cell (blue). Glutamate acting on NMDA receptors lets in positive ions and excites it (red). Ethanol acts on the brain from the low millimolar range up to about 100 mM: early stimulant effects are followed by depressant ones. <sup class="c" data-ref="Abrahao2017" title="Source 1">1</sup>`,
+  pt:`The brain has a brake (GABA) and an accelerator (glutamate). Normally they balance.`,
+  hook:`GABA-A = ligand-gated Cl<sup>−</sup> channel (inhibitory). NMDA = glutamate-gated cation channel (excitatory).`},
+ {from:.14,at:.26,k:'A drink',t:'Brake on, accelerator off',
+  txt:`Specific GABA-A receptor subtypes respond to ethanol at social-drinking doses, and ethanol also raises GABA transmission indirectly, through neuroactive steroids and more presynaptic GABA release. <sup class="c" data-ref="Kumar2009" title="Source 264">264</sup> At the same time it blocks NMDA receptors: in hippocampal neurons 50 mM ethanol cut NMDA current by 61%, against 18% for kainate and 15% for quisqualate currents, and the potency of different alcohols at this tracked how intoxicating they are. <sup class="c" data-ref="Lovinger1989" title="Source 300">300</sup> Alcohol also releases dopamine in the nucleus accumbens <sup class="c" data-ref="Boileau2003" title="Source 43">43</sup> and the brain's own opioids in the nucleus accumbens and orbitofrontal cortex <sup class="c" data-ref="Mitchell2012" title="Source 333">333</sup>: the glowing reward area.`,
+  pt:`Alcohol presses the brake and eases off the accelerator, so the brain slows. It also triggers the brain's reward chemicals.`,
+  hook:`Acute ethanol: <b>potentiates GABA-A</b>, <b>inhibits NMDA</b> (61% at 50 mM), releases dopamine and endogenous opioids. <sup class="c" data-ref="Kumar2009,Lovinger1989,Boileau2003,Mitchell2012" title="Source 43,264,300,333">43,264,300,333</sup>`},
+ {from:.36,at:.55,k:'Months of heavy drinking',t:'The brain pushes back: tolerance',
+  txt:`With alcohol nearly always present, the brain adapts. GABA-A α1 subunits are pulled into the cell and reduced in the cortex, while α4 rises (after 14 days of chronic ethanol in animals). <sup class="c" data-ref="Kumar2009" title="Source 264">264</sup> NMDA receptors are up-regulated. <sup class="c" data-ref="TsaiCoyle1998" title="Source 466">466</sup> Fewer brakes and more accelerators bring the beam back to level <i>while alcohol is there</i>: the same amount has less effect. That is tolerance. <span class="ev est">Established</span> The reward glow fades too: people with alcohol dependence had lower striatal D2 receptor availability than controls. <sup class="c" data-ref="Volkow1996" title="Source 480">480</sup>`,
+  pt:`The brain rebuilds itself to work normally with alcohol in it. It now needs alcohol to feel balanced.`,
+  hook:`Chronic: GABA-A α1 ↓ (internalised), α4 ↑, NMDA receptors ↑ = tolerance and dependence. <sup class="c" data-ref="Kumar2009,TsaiCoyle1998" title="Source 264,466">264,466</sup>`},
+ {from:.64,at:.74,k:'Drinking stops suddenly',t:'Unopposed excitation: withdrawal',
+  txt:`Take the alcohol away and the adapted brain is left with too few brakes and too many accelerators. Abrupt withdrawal produces a hyperexcitable state that leads to seizures, delirium tremens and excitotoxic neuronal death. <span class="ev est">Established</span> <sup class="c" data-ref="TsaiCoyle1998" title="Source 466">466</sup> Stress systems join in: more noradrenaline and dynorphin, less neuropeptide Y. <sup class="c" data-ref="Koob2014" title="Source 254">254</sup> This is why stopping after long, heavy daily drinking should be done with medical help. See <a href="#withdrawal" data-go="withdrawal">the withdrawal timeline</a> and <a href="#detox" data-go="detox">managing withdrawal safely</a>.`,
+  pt:`Without alcohol the brain races: shaking, sweating, anxiety, and sometimes seizures or confusion. Get medical help to stop safely.`,
+  hook:`Withdrawal = NMDA up-regulation + GABA-A down-regulation unmasked → seizures, delirium tremens, excitotoxic neuronal death. <sup class="c" data-ref="TsaiCoyle1998" title="Source 466">466</sup>`},
+ {from:.82,at:.92,k:'Repeated withdrawals',t:'Kindling: each episode can be worse',
+  txt:`Withdrawal severity can increase after repeated withdrawal episodes. Kindling may also contribute to relapse risk and alcohol-related cognitive impairment. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Becker1998" title="Source 34">34</sup> The bars show the idea, not measured sizes. Some brain changes do recover with sustained abstinence: in 58 men scanned repeatedly, fluid spaces shrank over the first weeks without alcohol. <sup class="c" data-ref="Pfefferbaum1995,Zahr2017" title="Source 361,511">361,511</sup>`,
+  pt:`Each time a person goes through withdrawal without help, the next one may be harder. That is another reason to get medical support.`,
+  hook:`Kindling (Becker 1998): repeated withdrawals → withdrawal severity can increase with each episode; may add to relapse risk and cognitive impairment. <sup class="c" data-ref="Becker1998" title="Source 34">34</sup>`}
+];
+const BR_CY=[
+ {from:0,at:.12,k:'Stage 1 of 3 · basal ganglia',t:'Binge / intoxication',
+  txt:`The rewarding effects of alcohol, incentive salience (alcohol cues gaining pull) and drug-seeking habits involve dopamine and opioid peptides in the basal ganglia. <sup class="c" data-ref="KoobVolkow2016" title="Source 256">256</sup>`,
+  early:`Early on, drinking is driven mainly by the reward itself: positive reinforcement.`,
+  late:`Later, the "high" is smaller (tolerance and lower D2 availability <sup class="c" data-ref="Volkow1996" title="Source 480">480</sup>) and habit carries more weight: in heavy drinkers, alcohol cues activate the dorsal striatum more. <span class="ev early">Early evidence</span> <sup class="c" data-ref="VollstadtKlein2010" title="Source 481">481</sup>`,
+  pt:`Drinking feels rewarding, and the brain learns to notice alcohol and the places, people and moods linked to it.`,
+  hook:`Binge/intoxication = basal ganglia (nucleus accumbens, dorsal striatum); dopamine + opioid peptides. <sup class="c" data-ref="KoobVolkow2016" title="Source 256">256</sup>`},
+ {from:1/3,at:.45,k:'Stage 2 of 3 · extended amygdala',t:'Withdrawal / negative affect',
+  txt:`As the effect wears off, the dopamine reward component weakens and stress transmitters, corticotropin-releasing factor (CRF) and dynorphin, are recruited in the extended amygdala: a reward deficit plus a stress surfeit. <sup class="c" data-ref="KoobVolkow2016" title="Source 256">256</sup> In animals, acute withdrawal from dependence raises reward thresholds, increases anxiety-like behaviour and raises CRF in the central amygdala. <sup class="c" data-ref="Koob2014" title="Source 254">254</sup>`,
+  early:`Early on this dip is small and passes.`,
+  late:`Later the dip is deep, and drinking comes to relieve it: negative reinforcement. <span class="ev early">Early evidence, mainly from animal models</span> <sup class="c" data-ref="Koob2014" title="Source 254">254</sup>`,
+  pt:`After drinking the person feels low, irritable or anxious, and alcohol starts to be used to make that feeling go away.`,
+  hook:`Withdrawal/negative affect = extended amygdala; CRF and dynorphin ↑, dopamine ↓. Drinking for relief = <b>negative reinforcement</b>. <sup class="c" data-ref="KoobVolkow2016,Koob2014" title="Source 254,256">254,256</sup>`},
+ {from:2/3,at:.8,k:'Stage 3 of 3 · prefrontal cortex and insula',t:'Preoccupation / anticipation',
+  txt:`Craving and weaker executive control involve dysregulated glutamate projections from the prefrontal cortex and insula to the basal ganglia and extended amygdala. <sup class="c" data-ref="KoobVolkow2016" title="Source 256">256</sup> This is the link to acamprosate's glutamate hypothesis and to the talking therapies: see <a href="#therapy" data-go="therapy">Talking therapies</a>.`,
+  early:`Early on, the brakes of the prefrontal cortex still work well.`,
+  late:`Later, the allostasis model says the reward set point itself has shifted, which would explain lasting vulnerability to relapse after drinking stops. <span class="ev hyp">Hypothesis</span> <sup class="c" data-ref="KoobLeMoal2001" title="Source 255">255</sup>`,
+  pt:`Thoughts keep turning to drinking, and it gets harder to stop a plan once it starts. This is a change in brain circuits, not a lack of willpower.`,
+  hook:`Preoccupation/anticipation = prefrontal cortex + insula; glutamate; craving and executive dysfunction. <sup class="c" data-ref="KoobVolkow2016" title="Source 256">256</sup>`}
+];
+
+inits.brain=()=>{
+  const svg=$('#brSvg'),rg=$('#brT');let setSt=()=>{};
+  function st(t){const p1=ramp(t,.14,.22),c=ramp(t,.38,.6),s=ramp(t,.64,.7),eth=p1*(1-s);
+    const ng=Math.round(lerp(4,1,c)),nn=Math.round(lerp(3,6,c));
+    let kind=0,ep=-1;if(t>=.82){const u=(t-.82)/.18;ep=Math.min(2,Math.floor(u*3));kind=Math.sin(Math.PI*clamp(u*3-ep))*(.6+.2*ep)}
+    const sp=t<.82?s*clamp(1-ramp(t,.76,.82)*.6):kind;
+    const I=ng/4*(1+eth*1.4),E=nn/3*(1-eth*.55)*(1+sp*.4);
+    return {eth,ng,nn,c,s,sp,ep,kind,I,E,tilt:clamp((E-I)/1.2,-1,1),cl:clamp(.2+eth*.7*(ng/4)+.15*(ng/4)),ca:clamp(.2*(nn/3)*(1-eth*.8)+sp*.75),gl:.35+sp*.4}}
+  function draw(t){
+    const N=vb(svg,'720 390','400 610'),S=st(t);
+    let s=`<defs>${marker('brA','var(--muted)')}</defs>`;
+    /* synapse */
+    const sx=N?200:200,sy=N?150:170,sc=N?2:2.15;
+    s+=synapse(sx,sy,sc,{gaba:S.ng,nmda:S.nn,gt:.45,gl:S.gl,eth:S.eth,cl:S.cl,ca:S.ca,spark:S.sp,block:S.eth,seed:3+Math.floor(t*40)});
+    s+=`<text x="${sx}" y="${f1(sy-66*sc-6)}" class="t-xs t-mid">presynaptic neuron</text>`;
+    s+=`<text x="${sx}" y="${f1(sy+40*sc+32)}" class="t-xs t-mid">postsynaptic neuron</text>`;
+    s+=`<text x="${f1(sx-32*sc)}" y="${f1(sy+40*sc+15)}" class="t-sm t-mid" style="fill:var(--gaba)">GABA-A × ${S.ng}</text>`;
+    s+=`<text x="${f1(sx+38*sc)}" y="${f1(sy+40*sc+15)}" class="t-sm t-mid" style="fill:var(--glu)">NMDA × ${S.nn}</text>`;
+    if(S.eth>.05)s+=`<text x="${f1(sx-62*sc-4)}" y="${f1(sy+4)}" class="t-xs t-end" style="fill:var(--eth)">◆ ethanol</text>`;
+    if(S.sp>.2)s+=`<text x="${sx}" y="${f1(sy+40*sc+48)}" class="t-sm t-mid" style="fill:var(--glu);font-weight:700">over-excitation</text>`;
+    /* balance */
+    const bx=N?200:556,byy=N?348:84,bw=N?200:220;
+    const B=balance(bx,byy,bw,{tilt:S.tilt,ln:Math.round(clamp(S.I*2,0,6)),rn:Math.round(clamp(S.E*2,0,6)),lsub:'calming',rsub:'exciting'});
+    s+=B.svg;
+    const verdict=S.tilt<-.3?'tipped to calm: intoxication':S.tilt>.4?'tipped to excitation: withdrawal':S.c>.5?'level again, but only with alcohol':'balanced';
+    s+=`<text x="${bx}" y="${byy-30}" class="t-lbl t-mid" style="fill:${S.tilt>.4?'var(--glu)':S.tilt<-.3?'var(--gaba)':'var(--ink)'}">${verdict}</text>`;
+    /* small brain: reward and stress areas */
+    const rx=N?200:556,ry=N?482:262,rs=N?.78:.86;
+    const rew=S.eth*(1-S.c*.55),neg=Math.max(S.s*(t<.82?1:.7),S.kind);
+    const Br=brain(rx,ry,rs,{hl:{stri:rew,amyg:neg}});s+=Br.svg;
+    if(rew>.1)for(let i=0;i<Math.round(rew*6);i++){const a=i*1.1+t*30;s+=mol(Br.at.stri[0]+Math.cos(a)*16,Br.at.stri[1]+Math.sin(a)*10,'da',{r:2.4})}
+    s+=`<text x="${rx}" y="${f1(ry+62*rs+14)}" class="t-xs t-mid">${rew>.1?'reward area (striatum): dopamine'+(S.c>.5?', blunted':''):neg>.1?'stress area (extended amygdala) active':'reward and stress areas'}</text>`;
+    /* kindling bars */
+    if(t>=.8){const kx=N?14:636,ky=N?520:330,kw=N?90:78;s+=`<text x="${kx+kw}" y="${ky-48}" class="t-xs t-end" style="fill:var(--glu)">severity (schematic)</text>`;
+      for(let i=0;i<3;i++){const hh=(14+i*10)*(S.ep>=i?1:.25),x=kx+i*(kw/3);s+=`<rect x="${f1(x)}" y="${f1(ky-hh)}" width="${f1(kw/3-8)}" height="${f1(hh)}" rx="3" style="fill:var(--glu-fill);opacity:${S.ep>=i?.9:.25}"/><text x="${f1(x+(kw/3-8)/2)}" y="${ky+12}" class="t-xs t-mid">${i+1}</text>`}}
+    /* timeline */
+    const tx0=N?20:30,tx1=N?380:700,ty=N?586:368;
+    BR_PH.forEach((p,i)=>{const a=lerp(tx0,tx1,p.a),b=lerp(tx0,tx1,p.b),on=t>=p.a&&t<p.b+(i===4?.01:0);
+      s+=`<rect x="${f1(a+1)}" y="${ty-6}" width="${f1(b-a-2)}" height="6" rx="3" style="fill:${['var(--panel-2)','var(--eth-fill)','var(--eth)','var(--glu-fill)','var(--glu)'][i]};opacity:${on?1:.45}"/><text x="${f1((a+b)/2)}" y="${ty+12}" class="t-xs t-mid" style="${on?'fill:var(--ink);font-weight:700':''}">${N?p.n:p.w}</text>`});
+    s+=`<circle cx="${f1(lerp(tx0,tx1,t))}" cy="${ty-3}" r="5" style="fill:var(--ink);stroke:var(--panel);stroke-width:2"/>`;
+    svg.innerHTML=s;
+    const ph=phaseOf(BR_STEPS,t);setSt(ph);$('#brNote').innerHTML=noteHTML(BR_STEPS[ph]);
+    $('#brRead').innerHTML=`<span>phase <b>${BR_PH.find(p=>t>=p.a&&t<=p.b).w}</b></span><span>ethanol <b>${S.eth>.05?'present':'none'}</b></span><span>GABA-A drawn <b>${S.ng}</b> · NMDA drawn <b>${S.nn}</b></span><span>beam <b>${S.tilt<-.3?'calm side down':S.tilt>.4?'excitation side down':'about level'}</b></span>`;
+  }
+  const stop=playWire(rg,$('#brPlay'),draw,20000,'Replay','brain');
+  setSt=stepWire($('#brSteps'),BR_STEPS,rg,draw,stop);draw(+rg.value);
+
+  /* ---- the addiction cycle ---- */
+  const cy=$('#brCy'),cr=$('#brCyT');let mode='early',setC=()=>{};
+  const NAMES=[['Binge /','intoxication'],['Withdrawal /','negative affect'],['Preoccupation /','anticipation']],KEYS=['stri','amyg','pfc'],COLS=['var(--stri)','var(--amyg)','var(--pfc)'];
+  /* reward level over one cycle: rises in the binge, dips in withdrawal; later the dip deepens and the baseline sinks */
+  const lvl=(u,m)=>{const L=m==='late';const up=bump(u,0,1/3)*(L?.35:.8),dn=bump(u,1/3,2/3)*(L?.85:.25),base=L?-ramp(u,1/3,.6)*.45:0;return up-dn+base-(L?0:0)};
+  function drawC(t){
+    const N=vb(cy,'720 350','400 640'),L=mode==='late',stg=Math.min(2,Math.floor(t*3));
+    let s='';const cx=N?200:222,cc=N?160:172,R=N?112:108;
+    const arc=(a0,a1,r)=>{const p=a=>[cx+r*Math.sin(a),cc-r*Math.cos(a)];const [x0,y0]=p(a0),[x1,y1]=p(a1);return `M${f1(x0)} ${f1(y0)}A${r} ${r} 0 0 1 ${f1(x1)} ${f1(y1)}`};
+    for(let i=0;i<3;i++){const a0=i*2*Math.PI/3+.05,a1=(i+1)*2*Math.PI/3-.05,big=(L?i===1:i===0),on=i===stg;
+      s+=`<path d="${arc(a0,a1,R)}" style="fill:none;stroke:${COLS[i]};stroke-width:${big?22:12};opacity:${on?.95:.35};stroke-linecap:round"/>`;
+      const am=(a0+a1)/2,lr=R+(N?0:0),lx=cx+(R+(big?26:20))*Math.sin(am),ly=cc-(R+(big?26:20))*Math.cos(am);
+      const anc=Math.sin(am)>.3?'':Math.sin(am)<-.3?' t-end':' t-mid';
+      const ix=N?cx+(R-34)*Math.sin(am):lx,iy=N?cc-(R-34)*Math.cos(am):ly;
+      s+=`<text x="${f1(ix)}" y="${f1(iy-2)}" class="t-lbl${N?' t-mid':anc}" style="fill:${on?'var(--ink)':'var(--muted)'};font-size:${N?11:13}px">${NAMES[i][0]}</text><text x="${f1(ix)}" y="${f1(iy+12)}" class="t-sm${N?' t-mid':anc}">${NAMES[i][1]}</text>`}
+    /* travelling marker */
+    const am=t*2*Math.PI,mx=cx+R*Math.sin(am),my=cc-R*Math.cos(am);
+    s+=`<circle cx="${f1(mx)}" cy="${f1(my)}" r="9" style="fill:var(--ink);stroke:var(--panel);stroke-width:3"/>`;
+    if(!N){s+=`<text x="${cx}" y="${cc-6}" class="t-big t-mid" style="font-size:15px">${L?'negative':'positive'}</text><text x="${cx}" y="${cc+12}" class="t-big t-mid" style="font-size:15px">reinforcement</text><text x="${cx}" y="${cc+30}" class="t-xs t-mid">${L?'drinking for relief':'drinking for reward'}</text>`}
+    else s+=`<text x="${cx}" y="${cc+4}" class="t-xs t-mid">${L?'negative':'positive'} reinforcement</text>`;
+    /* brain */
+    const bx=N?200:560,by=N?402:118,bs=N?1.25:1.4,hl={};KEYS.forEach((k,i)=>hl[k]=i===stg?1:.12);
+    const BB=brain(bx,by,bs,{hl});s+=BB.svg;const RG=['Basal ganglia (striatum)','Extended amygdala','Prefrontal cortex'][stg],ap=BB.at[KEYS[stg]];
+    s+=`<line x1="${f1(ap[0])}" y1="${f1(ap[1])}" x2="${f1(ap[0])}" y2="${f1(by-62*bs)}" style="stroke:${COLS[stg]};stroke-width:1.2"/><text x="${f1(ap[0])}" y="${f1(by-62*bs-5)}" class="t-lbl t-mid" style="fill:${COLS[stg]}">${RG}</text>`;
+    s+=`<text x="${bx}" y="${f1(by+62*bs+22)}" class="t-xs t-mid">${['dopamine, opioid peptides','CRF, dynorphin ↑ · dopamine ↓','glutamate projections'][stg]}</text>`;
+    /* set-point chart */
+    const gx0=N?40:420,gx1=N?380:700,gy=N?572:312,gh=N?34:26;
+    s+=`<text x="${gx0}" y="${gy-gh-10}" class="t-xs" style="fill:var(--muted)">REWARD / MOOD LEVEL (allostasis model, schematic)</text>`;
+    s+=`<line x1="${gx0}" x2="${gx1}" y1="${gy}" y2="${gy}" style="stroke:var(--muted);stroke-dasharray:3 4"/><text x="${gx1}" y="${gy-4}" class="t-xs t-end">original set point</text>`;
+    s+=`<path d="${pathFn(u=>.5+lvl(u*t,mode)/2,gx0,gx0+(gx1-gx0)*t,gy+gh,gy-gh,90)}" style="fill:none;stroke:${COLS[stg]};stroke-width:2.6"/>`;
+    for(let i=1;i<3;i++){const x=lerp(gx0,gx1,i/3);s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${gy-gh}" y2="${gy+gh}" class="grid"/>`}
+    cy.innerHTML=s;
+    const P=BR_CY[stg];setC(stg);
+    $('#brCyNote').innerHTML=noteHTML({k:P.k,t:P.t,txt:P.txt+' <b>'+(L?'Later:':'Early:')+'</b> '+(L?P.late:P.early),pt:P.pt,hook:P.hook});
+  }
+  const stopC=playWire(cr,$('#brCyPlay'),drawC,15000,'Replay','brain');
+  setC=stepWire($('#brCySteps'),BR_CY,cr,drawC,stopC);
+  $$('[data-brcy]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.brcy;$$('[data-brcy]').forEach(x=>x.setAttribute('aria-pressed',x===b));drawC(+cr.value)}));
+  drawC(+cr.value);
+};
+/* =============== 2.1 Screening: AUDIT, AUDIT-C & brief intervention =============== */
+/* WHO AUDIT zones as published (Babor & Robaina 2016) */
+const SC_ZONES=[
+ {n:'Zone I',lo:0,hi:7,what:'abstinence or lower-risk drinking',sw:'lower risk',sa:'Feedback',act:'Feedback',col:'var(--good)',soft:'var(--good-soft)'},
+ {n:'Zone II',lo:8,hi:15,what:'hazardous use',sw:'hazardous use',sa:'Brief intervention',act:'Brief intervention',col:'var(--warn)',soft:'var(--warn-soft)'},
+ {n:'Zone III',lo:16,hi:19,what:'harmful use',sw:'harmful use',sa:'BI, monitoring, diagnostic evaluation',act:'Brief intervention, monitoring, diagnostic evaluation',col:'var(--accent)',soft:'var(--accent-soft)'},
+ {n:'Zone IV',lo:20,hi:40,what:'possible dependence',sw:'possible dependence',sa:'Referral to specialist treatment',act:'Referral to specialist treatment',col:'var(--bad)',soft:'var(--bad-soft)'}];
+const scZone=v=>v>=20?3:v>=16?2:v>=8?1:0;
+/* the illustrative person's item scores (made up for teaching; items 9 and 10 score 0, 2 or 4) */
+const SC_DEMO=[3,2,2,1,2,0,2,1,2,2];
+const SC_STEPS=[
+ {from:0,at:.08,k:'Step 1 · Ask everyone',t:'Ask everyone',
+  txt:`The USPSTF recommends screening adults 18 and over in primary care, including pregnant women, for unhealthy alcohol use: a spectrum from risky drinking to alcohol use disorder. Asking is not yet routine enough: in 2017 survey data from 13 US states and DC, 81.4% of adults had been asked about alcohol at a checkup, but only 37.8% about binge-level drinking, and only 20.1% of current binge drinkers were advised to cut down or quit. <sup class="c" data-ref="USPSTF2018Alcohol,McKnightEily2020MMWR" title="Source 324,470">324,470</sup>`,
+  pt:`Doctors and nurses ask everyone about alcohol because problems are common and easy to miss. Being asked is routine, not an accusation.`,
+  hook:`USPSTF 2018: screen adults 18+ (including pregnancy) and give brief counselling = grade B; adolescents 12–17 = I statement.`},
+ {from:.2,at:.34,k:'Step 2 · Pre-screen',t:'Single question or AUDIT-C',
+  txt:`A quick first screen sorts people. The NIAAA single question asks how many times in the past year a person had 5 (men) or 4 (women) or more drinks in a day; 1 or more is positive (sensitivity 81.8%, specificity 79.3% for unhealthy use). The AUDIT-C is the first three AUDIT items, 0–12, positive at ≥4 in men and ≥3 in women. Our illustrative person scores 7 and goes on; another person screens negative and gets feedback. <sup class="c" data-ref="Smith2009JGIM,Bradley2007AUDITC" title="Source 47,437">47,437</sup>`,
+  pt:`One or three short questions decide whether a longer conversation is worth having.`,
+  hook:`AUDIT-C maximum is 12. Positive: ≥4 men (0.86 / 0.89), ≥3 women (0.73 / 0.91) in primary care.`},
+ {from:.4,at:.56,k:'Step 3 · Full AUDIT',t:'The 10-item AUDIT and its zones',
+  txt:`The AUDIT came from a six-country WHO project. Its 10 items cover consumption (1–3), dependence symptoms (4–6) and harms (7–10), each scored 0–4, for a total of 0–40. WHO zones: 0–7 Zone I, 8–15 Zone II, 16–19 Zone III, 20–40 Zone IV. Watch the needle cross the zones as the items add up: this person totals 17, Zone III. The zones themselves rest on little validation. <sup class="c" data-ref="Saunders1993AUDIT,HigginsBiddle2018USAUDIT,Babor2016AUDITZones" title="Source 28,179,413">28,179,413</sup>`,
+  pt:`The score is a guide to how much help to offer. It is not a diagnosis.`,
+  hook:`AUDIT: 10 items, 0–40; ≥8 flags hazardous or harmful use. Zones 0–7 / 8–15 / 16–19 / 20–40.`},
+ {from:.6,at:.72,k:'Step 4 · Brief intervention',t:'A short, structured conversation',
+  txt:`For Zones II and III the WHO response is a brief intervention: usually feedback, information on the harms of drinking and the benefits of cutting down, advice, and a personal plan, in five or fewer sessions totalling under an hour. In 69 Cochrane trials, people drank on average about 20 g a week less after one year (95% CI −28 to −12) from a baseline of 244 g a week; the USPSTF review found −1.6 drinks a week and lower odds of exceeding limits (OR 0.60). <sup class="c" data-ref="Kaner2018Cochrane,OConnor2018JAMA,Babor2016AUDITZones" title="Source 28,220,349">28,220,349</sup>`,
+  pt:`A short talk with a health worker helps many people drink less, on average. It is a group result, not a promise for any one person.`,
+  hook:`Brief intervention: about −20 g/week at 1 year (Cochrane) or −1.6 drinks/week (USPSTF review); ≤5 sessions, &lt;60 minutes in total.`},
+ {from:.8,at:.96,k:'Step 5 · Referral to treatment',t:'Zone IV and the weakest link',
+  txt:`A second illustrative person totals 23, Zone IV: possible dependence, so the published response is referral for diagnostic evaluation and specialist treatment. A high score or any dependence symptom means an assessment is needed, not that AUD is present. Referral is the weakest link of SBIRT: across 9 trials, brief interventions did not increase the use of specialty alcohol services (RR 1.08, 95% CI 0.92–1.28). <sup class="c" data-ref="Babor2016AUDITZones,HigginsBiddle2018USAUDIT,Babor2007SBIRT,Glass2015Referral" title="Source 27,28,141,179">27,28,141,179</sup>`,
+  pt:`A high score means "let's look more closely together". Getting from a referral to actual care is where many people are lost.`,
+  hook:`SBIRT = Screening, Brief Intervention, Referral to Treatment. Brief intervention does not reliably raise specialty-care uptake.`}];
+/* AUDIT items: stems shortened, answer options and points as published (Saunders 1993) */
+const SC_FREQ=['Never','Less than monthly','Monthly','Weekly','Daily or almost daily'];
+const SC_YN=[['No',0],['Yes, but not in the last year',2],['Yes, during the last year',4]];
+const SC_ITEMS=[
+ {d:'Consumption',q:'How often do you have a drink containing alcohol?',o:['Never','Monthly or less','2–4 times a month','2–3 times a week','4 or more times a week']},
+ {q:'How many drinks containing alcohol on a typical day when drinking?',o:['1 or 2','3 or 4','5 or 6','7 to 9','10 or more']},
+ {q:'How often six or more drinks on one occasion?',o:SC_FREQ},
+ {d:'Dependence symptoms',q:'In the last year, how often unable to stop drinking once started?',o:SC_FREQ},
+ {q:'In the last year, how often failed to do what was normally expected because of drinking?',o:SC_FREQ},
+ {q:'In the last year, how often needed a first drink in the morning to get going after heavy drinking?',o:SC_FREQ},
+ {d:'Harms',q:'In the last year, how often a feeling of guilt or remorse after drinking?',o:SC_FREQ},
+ {q:'In the last year, how often unable to remember the night before because of drinking?',o:SC_FREQ},
+ {q:'Have you or someone else been injured because of your drinking?',yn:true},
+ {q:'Has a relative, friend, doctor or other health worker been concerned about your drinking or suggested cutting down?',yn:true}];
+/* screening tools: sensitivity / specificity as published, each against its own reference standard */
+const SC_TOOLS=[
+ {id:'acm',n:'AUDIT-C ≥4 (men)',se:.86,sp:.89,tgt:'alcohol misuse, primary care',c:'<sup class="c" data-ref="Bradley2007AUDITC" title="Source 47">47</sup>'},
+ {id:'acw',n:'AUDIT-C ≥3 (women)',se:.73,sp:.91,tgt:'alcohol misuse, primary care',c:'<sup class="c" data-ref="Bradley2007AUDITC" title="Source 47">47</sup>'},
+ {id:'sq',n:'Single question',se:.818,sp:.793,tgt:'unhealthy alcohol use, primary care',c:'<sup class="c" data-ref="Smith2009JGIM" title="Source 437">437</sup>'},
+ {id:'sqa',n:'Single question for AUD',se:.879,sp:.668,tgt:'current alcohol use disorder, primary care',c:'<sup class="c" data-ref="Smith2009JGIM" title="Source 437">437</sup>'},
+ {id:'cage',n:'CAGE ≥2',se:.71,sp:.90,tgt:'abuse or dependence, medical, surgical and psychiatric settings',c:'<sup class="c" data-ref="Dhalla2007CAGE" title="Source 86">86</sup>'},
+ {id:'crafft',n:'CRAFFT ≥2 (age 14–18)',se:.76,sp:.94,tgt:'any alcohol or drug problem, adolescent clinic',c:'<sup class="c" data-ref="Knight2002CRAFFT" title="Source 248">248</sup>'},
+ {id:'preg',n:'AUDIT-C ≥3 (pregnancy)',se:.96,sp:.71,tgt:'alcohol use disorder in pregnancy',c:'<sup class="c" data-ref="Burns2010Pregnancy" title="Source 52">52</sup>'}];
+
+inits.screening=()=>{
+  const svg=$('#scSvg'),rg=$('#scT'),note=$('#scNote');
+  const box=(x,y,w,h,t1,t2,on,col)=>`<rect x="${f1(x)}" y="${f1(y)}" width="${f1(w)}" height="${f1(h)}" rx="10" style="fill:${on?'var(--dx-soft)':'var(--panel)'};stroke:${on?(col||'var(--dx)'):'var(--line)'};stroke-width:${on?2:1.2}"/><text x="${f1(x+w/2)}" y="${f1(y+h/2-3)}" class="t-lbl t-mid">${t1}</text><text x="${f1(x+w/2)}" y="${f1(y+h/2+12)}" class="t-xs t-mid">${t2}</text>`;
+  const arrow=(x0,y0,x1,y1,lab,on,ly)=>`<line x1="${f1(x0)}" y1="${f1(y0)}" x2="${f1(x1)}" y2="${f1(y1)}" class="arrow" style="${on?'stroke:var(--dx);stroke-width:2.2':''}" marker-end="url(#scA)"/>${lab?`<text x="${f1((x0+x1)/2)}" y="${f1(ly==null?(y0+y1)/2-5:ly)}" class="t-xs t-mid" style="${on?'fill:var(--dx)':''}">${lab}</text>`:''}`;
+  const token=(x,y,col,lab)=>`<circle cx="${f1(x)}" cy="${f1(y)}" r="16" style="fill:var(--panel);stroke:${col};stroke-width:2.2"/>${person(x,y-11,22,col)}${lab?`<text x="${f1(x)}" y="${f1(y-21)}" class="t-xs t-mid" style="fill:${col};font-weight:600">${lab}</text>`:''}`;
+  const along=(P,u)=>{/* position along a polyline of waypoints, u in 0..1 */
+    const L=[];let tot=0;for(let i=1;i<P.length;i++){const d=Math.hypot(P[i][0]-P[i-1][0],P[i][1]-P[i-1][1]);L.push(d);tot+=d}
+    let s=clamp(u)*tot;for(let i=0;i<L.length;i++){if(s<=L[i]||i===L.length-1){const k=L[i]?clamp(s/L[i]):0;return [lerp(P[i][0],P[i+1][0],k),lerp(P[i][1],P[i+1][1],k)]}s-=L[i]}return P[P.length-1]};
+  function layout(N){
+    if(N)return {A:[14,10,372,40],B:[14,66,226,46],Neg:[258,66,128,46],C:[14,128,226,46],Z:[0,1,2,3].map(i=>[14,190+i*40,372,34]),P:[14,358,372,194],nar:true};
+    return {A:[10,54,108,56],B:[134,54,136,56],Neg:[134,140,136,50],C:[318,54,104,56],Z:[0,1,2,3].map(i=>[444,14+i*47,264,40]),P:[14,214,692,156],nar:false}}
+  const ctr=r=>[r[0]+r[2]/2,r[1]+r[3]/2];
+  /* where a token waits at a node: above it on wide stages, at its left end on phones; at a zone's right end */
+  const way=(r,N)=>N?[r[0]+22,r[1]+r[3]/2]:[r[0]+r[2]/2,r[1]-18],wayZ=(r,N)=>N?[r[0]+24,r[1]+r[3]/2]:[r[0]+r[2]-22,r[1]+r[3]/2];
+  /* the lower panel, one view per step */
+  function panel(L,p,t){const [x,y,w,h]=L.P,N=L.nar;let s=`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
+    const title=tx=>`<text x="${x+14}" y="${y+20}" class="t-sm" style="fill:var(--dx);font-weight:600">${tx}</text>`;
+    if(p===0){s+=title(N?'THE SCREENING GAP · US, 2017':'THE SCREENING GAP · 13 US STATES AND DC, 2017');
+      const rows=[['Asked about alcohol at a checkup (past 2 years)',81.4],['Asked about binge-level drinking',37.8],['Binge drinkers advised to cut down or quit',20.1]],g=ramp(t,.02,.16);
+      rows.forEach(([lab,v],i)=>{const ry=y+(N?44:42)+i*(N?50:36),bx=x+14,bw=w-(N?84:300),lx=N?bx:x+w-276;
+        if(N)s+=`<text x="${bx}" y="${ry}" class="t-xs">${lab}</text>`;else s+=`<text x="${x+w-14}" y="${ry+11}" class="t-xs t-end">${lab}</text>`;
+        const by=N?ry+6:ry;s+=`<rect x="${bx}" y="${by}" width="${f1(bw)}" height="14" rx="7" style="fill:var(--panel-2)"/><rect x="${bx}" y="${by}" width="${f1(bw*v/100*g)}" height="14" rx="7" style="fill:var(--dx);opacity:${i?.6:.9}"/><text x="${f1(bx+bw+8)}" y="${by+11.5}" class="t-lbl">${f1(v*g)}%</text>`});
+      s+=`<text x="${x+14}" y="${y+h-10}" class="t-xs">${N?'Age-standardised survey estimates.':'Age-standardised survey estimates; BRFSS 2017.'}</text>`}
+    else if(p===1){s+=title('PRE-SCREEN');
+      const hx=N?x+14:x+14,hy=y+40,cw=N?w-28:w/2-28;
+      s+=`<text x="${hx}" y="${hy}" class="t-lbl">Single question (NIAAA)</text>`;
+      const q=N?['“How many times in the past year have you had','5 (men) / 4 (women) or more drinks in a day?”']:['“How many times in the past year have you had','5 (men) / 4 (women) or more drinks in a day?”'];
+      q.forEach((l,i)=>s+=`<text x="${hx}" y="${hy+17+i*13}" class="t-xs">${l}</text>`);
+      s+=`<text x="${hx}" y="${hy+52}" class="t-xs" style="fill:var(--dx);font-weight:600">1 or more = positive · sens 81.8% · spec 79.3%</text>`;
+      const ax=N?x+14:x+w/2+10,ay=N?y+110:y+40,aw=N?w-28:w/2-34,v=7*ramp(t,.22,.32),X=k=>ax+aw*k/12;
+      s+=`<text x="${ax}" y="${ay}" class="t-lbl">AUDIT-C (items 1–3), 0–12</text>`;
+      for(let k=0;k<12;k++)s+=`<rect x="${f1(X(k)+1)}" y="${ay+14}" width="${f1(aw/12-2)}" height="16" rx="3" style="fill:${k<v?'var(--dx)':'var(--panel-2)'};opacity:${k<v?.85:1}"/>`;
+      for(let k=0;k<=12;k+=3)s+=`<text x="${f1(X(k))}" y="${ay+44}" class="t-xs t-mid">${k}</text>`;
+      [[3,'women ≥3'],[4,'men ≥4']].forEach(([c,l],i)=>s+=`<line x1="${f1(X(c))}" x2="${f1(X(c))}" y1="${ay+10}" y2="${ay+34}" style="stroke:var(--ink);stroke-width:1.6;stroke-dasharray:3 2"/><text x="${f1(X(c)+(i?4:-4))}" y="${ay+58}" class="t-xs ${i?'':'t-end'}" style="fill:var(--ink)">${l}</text>`);
+      s+=`<text x="${ax}" y="${ay+76}" class="t-xs" style="fill:var(--dx);font-weight:600">This person: ${Math.round(v)} / 12${v>=6.9?' → positive, go on to the full AUDIT':''}</text>`}
+    else if(p===2){s+=title('FULL AUDIT · ITEM BY ITEM');
+      const k=ramp(t,.42,.56)*10,tot=SC_DEMO.reduce((a,b,i)=>a+(i<Math.floor(k)?b:0),0)+(Math.floor(k)<10?SC_DEMO[Math.floor(k)]*(k-Math.floor(k)):0);
+      const bx=x+14,bw=N?(w-28)/10:300/10,by=y+38,bh=46;
+      SC_DEMO.forEach((v,i)=>{const cx=bx+i*bw,fl=clamp(k-i),dom=i<3?'var(--dx)':i<6?'var(--accent)':'var(--warn)';
+        s+=`<rect x="${f1(cx+2)}" y="${by}" width="${f1(bw-4)}" height="${bh}" rx="4" style="fill:var(--panel);stroke:var(--line)"/>`;
+        if(fl>0)s+=`<rect x="${f1(cx+2)}" y="${f1(by+bh-bh*v/4*fl)}" width="${f1(bw-4)}" height="${f1(bh*v/4*fl)}" rx="4" style="fill:${dom};opacity:.75"/>`;
+        s+=`<text x="${f1(cx+bw/2)}" y="${by+bh+13}" class="t-xs t-mid">${i+1}</text>`;
+        if(fl>=1)s+=`<text x="${f1(cx+bw/2)}" y="${by-4}" class="t-xs t-mid" style="fill:var(--ink)">${v}</text>`});
+      [[0,3,'consumption','var(--dx)'],[3,6,'dependence','var(--accent)'],[6,10,'harms','var(--warn)']].forEach(([a,b,l,c])=>s+=`<text x="${f1(bx+(a+b)/2*bw)}" y="${by+bh+27}" class="t-xs t-mid" style="fill:${c}">${l}</text>`);
+      const zx=N?x+14:x+352,zy=N?y+132:y+52,zw=N?w-28:w-372,Z=v=>zx+zw*v/40;
+      SC_ZONES.forEach((z,i)=>{s+=`<rect x="${f1(Z(z.lo))}" y="${zy}" width="${f1(Z(z.hi+(i<3?1:0))-Z(z.lo))}" height="18" style="fill:${z.col};opacity:${scZone(tot)===i?.85:.28}"/><text x="${f1((Z(z.lo)+Z(Math.min(z.hi+1,40)))/2)}" y="${zy+32}" class="t-xs t-mid" style="fill:${z.col}">${N&&i===0?'I':N?['I','II','III','IV'][i]:z.n}</text>`});
+      [0,8,16,20,40].forEach(v=>s+=`<text x="${f1(Z(v))}" y="${zy-5}" class="t-xs t-mid">${v}</text>`);
+      const nx=Z(tot);s+=`<path d="M${f1(nx)} ${zy+20}l-6 10h12Z" style="fill:var(--ink)"/>`;
+      s+=`<text x="${zx}" y="${zy+(N?50:62)}" class="t-lbl">Total ${Math.round(tot)} / 40 · ${SC_ZONES[scZone(tot)].n}: ${SC_ZONES[scZone(tot)].what}</text>`}
+    else if(p===3){s+=title('BRIEF INTERVENTION · WHAT IT USUALLY CONTAINS');
+      const parts=['Feedback','Harms and benefits','Advice','A personal plan'],g=ramp(t,.6,.7);
+      parts.forEach((pp,i)=>{const on=g*4>i,cx=N?x+14+(i%2)*((w-28)/2):x+14+i*140,cy=N?y+34+Math.floor(i/2)*30:y+34,cw=N?(w-28)/2-8:130;
+        s+=`<rect x="${f1(cx)}" y="${cy}" width="${f1(cw)}" height="24" rx="12" style="fill:${on?'var(--dx-soft)':'var(--panel)'};stroke:${on?'var(--dx)':'var(--line)'}"/><text x="${f1(cx+cw/2)}" y="${cy+16}" class="t-xs t-mid" style="fill:${on?'var(--dx)':'var(--muted)'};font-weight:600">${pp}</text>`});
+      const bx=N?x+14:x+14,by=N?y+108:y+84,bw=N?w-100:w-420,G=v=>bw*v/260,e=ramp(t,.62,.7);
+      s+=`<text x="${bx}" y="${by-6}" class="t-xs">Grams of ethanol a week, trial averages (Cochrane, 1 year)</text>`;
+      s+=`<rect x="${bx}" y="${by}" width="${f1(G(244))}" height="16" rx="4" style="fill:var(--muted);opacity:.45"/><text x="${f1(bx+G(244)+6)}" y="${by+12}" class="t-xs" style="fill:var(--ink)">244 g baseline</text>`;
+      const after=244-20*e;s+=`<rect x="${bx}" y="${by+24}" width="${f1(G(after))}" height="16" rx="4" style="fill:var(--dx);opacity:.8"/><text x="${f1(bx+G(after)+6)}" y="${by+36}" class="t-xs" style="fill:var(--dx);font-weight:600">−${Math.round(20*e)} g</text>`;
+      s+=`<line x1="${f1(bx+G(244-28))}" x2="${f1(bx+G(244-12))}" y1="${by+48}" y2="${by+48}" style="stroke:var(--dx);stroke-width:2"/><text x="${f1(bx+G(244-20))}" y="${by+60}" class="t-xs t-mid">95% CI −28 to −12</text>`;
+      if(!N){const rx=x+w-300;[['−1.6 drinks / week','USPSTF review, 6–12 months'],['OR 0.60','exceeding recommended limits'],['OR 2.26','reported abstinence in pregnancy']].forEach(([a,b],i)=>{s+=`<text x="${rx}" y="${y+92+i*24}" class="t-lbl" style="fill:var(--dx);opacity:${f1(ramp(t,.68+i*.02,.74+i*.02))}">${a}</text><text x="${rx+128}" y="${y+92+i*24}" class="t-xs" style="opacity:${f1(ramp(t,.68+i*.02,.74+i*.02))}">${b}</text>`})}
+      else s+=`<text x="${x+14}" y="${y+h-12}" class="t-xs" style="fill:var(--dx)">USPSTF review: −1.6 drinks/week; OR 0.60 over limits</text>`}
+    else {s+=title(N?'REFERRAL · SPECIALTY CARE USE':'REFERRAL · DO BRIEF INTERVENTIONS INCREASE SPECIALTY CARE USE?');
+      const fx=x+(N?24:60),fw=w-(N?48:120),fy=y+(N?78:70),R=v=>fx+fw*(Math.log(v)-Math.log(.5))/(Math.log(2)-Math.log(.5)),g=ramp(t,.84,.94);
+      s+=`<line x1="${fx}" x2="${fx+fw}" y1="${fy+26}" y2="${fy+26}" class="axis"/>`;
+      [.5,1,2].forEach(v=>s+=`<line x1="${f1(R(v))}" x2="${f1(R(v))}" y1="${fy+22}" y2="${fy+30}" class="axis"/><text x="${f1(R(v))}" y="${fy+42}" class="t-xs t-mid">${v}</text>`);
+      s+=`<line x1="${f1(R(1))}" x2="${f1(R(1))}" y1="${fy-22}" y2="${fy+26}" style="stroke:var(--ink);stroke-dasharray:3 3"/>`;
+      s+=`<text x="${f1(R(.5)+4)}" y="${fy-26}" class="t-xs">fewer referrals used</text><text x="${f1(R(2)-4)}" y="${fy-26}" class="t-xs t-end">more used</text>`;
+      if(g>0){s+=`<line x1="${f1(R(1.08)+(R(.92)-R(1.08))*g)}" x2="${f1(R(1.08)+(R(1.28)-R(1.08))*g)}" y1="${fy}" y2="${fy}" style="stroke:var(--dx);stroke-width:2.4"/><rect x="${f1(R(1.08)-6)}" y="${fy-6}" width="12" height="12" style="fill:var(--dx)"/>`;
+        s+=`<text x="${f1(R(1.08))}" y="${fy-12}" class="t-xs t-mid" style="fill:var(--dx);font-weight:600">RR 1.08 (0.92–1.28)</text>`}
+      s+=`<text x="${x+14}" y="${y+h-(N?30:12)}" class="t-xs">${N?'9 RCTs: the interval crosses 1, so no':'9 RCTs pooled: the interval crosses 1, so no evidence that brief intervention increases specialty-care use.'}</text>`;
+      if(N)s+=`<text x="${x+14}" y="${y+h-16}" class="t-xs">evidence of more specialty-care use.</text>`}
+    return s}
+  function draw(t){const N=vb(svg,'720 380','400 560'),L=layout(N),p=phaseOf(SC_STEPS,t);setSt(p);note.innerHTML=noteHTML(SC_STEPS[p]);
+    let s=`<defs>${marker('scA','var(--muted)')}</defs>`;
+    const A=ctr(L.A),B=ctr(L.B),Ng=ctr(L.Neg),C=ctr(L.C),Zc=L.Z.map(ctr);
+    /* score of the main token */
+    const k=ramp(t,.42,.56)*10,tot=SC_DEMO.reduce((a,b,i)=>a+(i<Math.floor(k)?b:0),0);
+    const zMain=t>=.56?2:-1,z2=t>=.88?3:-1;
+    /* nodes and arrows */
+    s+=box(...L.A,N?'Everyone 18+ in primary care':'Everyone 18+',N?'everyone is asked about alcohol':'all are asked',p===0);
+    s+=box(...L.B,'Pre-screen',N?'single question or AUDIT-C':'single Q or AUDIT-C',p===1);
+    s+=box(...L.Neg,'Negative','feedback, rescreen',t>=.28&&t<.4);
+    s+=box(...L.C,'Full AUDIT','10 items, 0–40',p===2||(t>=.8&&t<.9));
+    if(N){s+=arrow(A[0],L.A[1]+L.A[3],A[0],L.B[1]-2,'',p<=1);s+=arrow(L.B[0]+L.B[2],B[1],L.Neg[0]-2,Ng[1],'',t>=.28&&t<.4);
+      s+=arrow(B[0]-60,L.B[1]+L.B[3],B[0]-60,L.C[1]-2,'',p===1||p===2);s+=`<text x="${f1(B[0]-54)}" y="${L.C[1]-5}" class="t-xs">positive</text>`;
+      s+=arrow(C[0],L.C[1]+L.C[3],C[0],L.Z[0][1]-2,'',p>=2)}
+    else{s+=arrow(L.A[0]+L.A[2],A[1],L.B[0]-2,B[1],'',p<=1);s+=arrow(B[0],L.B[1]+L.B[3],B[0],L.Neg[1]-2,'',t>=.28&&t<.4);s+=`<text x="${f1(B[0]-6)}" y="${L.B[1]+L.B[3]+20}" class="t-xs t-end">negative</text>`;
+      s+=arrow(L.B[0]+L.B[2],B[1],L.C[0]-2,C[1],'positive',p===1||p===2,B[1]+16);
+      Zc.forEach((z,i)=>s+=arrow(L.C[0]+L.C[2],C[1],L.Z[i][0]-2,z[1],'',(zMain===i&&t<.8)||z2===i))}
+    /* zone boxes */
+    SC_ZONES.forEach((z,i)=>{const [zx,zy,zw,zh]=L.Z[i],on=(zMain===i&&t<.8)||z2===i;
+      s+=`<rect x="${zx}" y="${zy}" width="${zw}" height="${zh}" rx="8" style="fill:${on?z.soft:'var(--panel)'};stroke:${z.col};stroke-width:${on?2.2:1};opacity:${on?1:.85}"/>`;
+      s+=`<rect x="${zx}" y="${zy}" width="6" height="${zh}" rx="3" style="fill:${z.col}"/>`;
+      s+=`<text x="${zx+(N?48:14)}" y="${zy+(N?14:16)}" class="t-lbl" style="font-size:12px;fill:${z.col}">${z.n} · ${z.lo}–${z.hi} · ${z.sw}</text>`;
+      s+=`<text x="${zx+(N?48:14)}" y="${zy+(N?28:31)}" class="t-xs" style="${on?'fill:var(--ink);font-weight:600':''}">${z.sa}</text>`});
+    /* tokens: the main person, a person who screens negative, and a second person who scores in Zone IV */
+    const wA=way(L.A,N),wB=way(L.B,N),wN=way(L.Neg,N),wC=way(L.C,N),z3=wayZ(L.Z[2],N),z4=wayZ(L.Z[3],N);let mp;
+    if(t<.2)mp=wA;else if(t<.3)mp=along([wA,wB],ramp(t,.2,.3));else if(t<.38)mp=wB;else if(t<.42)mp=along([wB,wC],ramp(t,.38,.42));else if(t<.56)mp=wC;
+    else mp=along([wC,z3],ramp(t,.56,.62));
+    const lab=t<.3?'':t<.42?'AUDIT-C 7':t<.56?`AUDIT ${tot}`:'AUDIT 17';
+    if(t>=.22&&t<.5){const np=t<.3?along([wA,wB],ramp(t,.22,.3)):(N?along([wB,wN],ramp(t,.3,.36)):along([wB,[L.B[0]+L.B[2]+24,wB[1]],[L.B[0]+L.B[2]+24,L.Neg[1]+L.Neg[3]/2]],ramp(t,.3,.36)));s+=token(np[0],np[1],'var(--muted)','')}
+    if(t>=.8){const q=t<.86?along([wA,wB,wC],ramp(t,.8,.86)):along([wC,z4],ramp(t,.86,.9));s+=token(q[0],q[1],'var(--bad)',t>=.86&&!N?'AUDIT 23':'')}
+    s+=token(mp[0],mp[1],'var(--dx)',N?'':lab);
+    s+=panel(L,p,t);
+    svg.innerHTML=s}
+  const stop=playWire(rg,$('#scPlay'),draw,26000,'Replay','screening');
+  const setSt=stepWire($('#scSteps'),SC_STEPS,rg,draw,stop);
+  draw(+rg.value);
+
+  /* ---------- AUDIT teaching calculator ---------- */
+  const qb=$('#scQ'),cs=$('#scCalcSvg'),cn=$('#scCalcNote');let sex=store.get('sc:sex','m');
+  qb.innerHTML=SC_ITEMS.map((it,i)=>{const opts=it.yn?SC_YN:it.o.map((o,j)=>[o,j]);
+    return `${it.d?`<p class="scdom">${it.d} · items ${i+1}–${i===0?3:i===3?6:10}</p>`:''}<label for="scI${i}"><span>${i+1}. ${it.q}</span><select id="scI${i}" data-sci="${i}">${opts.map(([o,v])=>`<option value="${v}">${o} (${v})</option>`).join('')}</select></label>`}).join('');
+  function calc(){const v=SC_ITEMS.map((_,i)=>+$('#scI'+i).value),tot=v.reduce((a,b)=>a+b,0),ac=v[0]+v[1]+v[2],z=scZone(tot),Z=SC_ZONES[z],cut=sex==='m'?4:3,pos=ac>=cut,dep=v[3]+v[4]+v[5]>0;
+    const N=vb(cs,'720 150','400 150');const x0=N?16:30,x1=N?384:690,X=s=>lerp(x0,x1,s/40);let s='';
+    s+=`<text x="${x0}" y="16" class="t-sm" style="fill:var(--dx);font-weight:600">AUDIT TOTAL ${tot} / 40</text>`;
+    SC_ZONES.forEach((zz,i)=>{const a=X(zz.lo),b=X(i<3?zz.hi+1:40);s+=`<rect x="${f1(a)}" y="26" width="${f1(b-a)}" height="22" style="fill:${zz.col};opacity:${i===z?.85:.25}"/><text x="${f1((a+b)/2)}" y="62" class="t-xs t-mid" style="fill:${zz.col};font-weight:${i===z?700:500}">${N?['I','II','III','IV'][i]:zz.n}</text>`});
+    [0,8,16,20,40].forEach(v=>s+=`<text x="${f1(X(v))}" y="${N?76:76}" class="t-xs t-mid">${v}</text>`);
+    s+=`<path d="M${f1(X(tot))} 50l-6 9h12Z" style="fill:var(--ink)"/><line x1="${f1(X(tot))}" x2="${f1(X(tot))}" y1="22" y2="50" style="stroke:var(--ink);stroke-width:2"/>`;
+    const ay=N?112:104,aw=N?(x1-x0):(x1-x0)*.5,A=s2=>x0+aw*s2/12;
+    s+=`<text x="${x0}" y="${ay-8}" class="t-sm" style="fill:var(--dx);font-weight:600">AUDIT-C ${ac} / 12 · ${pos?'positive':'negative'} at ≥${cut}</text>`;
+    for(let k=0;k<12;k++)s+=`<rect x="${f1(A(k)+1)}" y="${ay}" width="${f1(aw/12-2)}" height="14" rx="3" style="fill:${k<ac?'var(--dx)':'var(--panel-2)'}"/>`;
+    s+=`<line x1="${f1(A(cut))}" x2="${f1(A(cut))}" y1="${ay-4}" y2="${ay+18}" style="stroke:var(--ink);stroke-width:1.8;stroke-dasharray:3 2"/><text x="${f1(A(cut))}" y="${ay+30}" class="t-xs t-mid" style="fill:var(--ink)">${sex==='m'?'men ≥4':'women ≥3'}</text>`;
+    if(!N){const dx=x0+aw+30;[['Consumption (1–3)',ac,12],['Dependence (4–6)',v[3]+v[4]+v[5],12],['Harms (7–10)',v[6]+v[7]+v[8]+v[9],16]].forEach(([l,val,mx],i)=>{const yy=ay-8+i*18;s+=`<text x="${dx}" y="${yy+8}" class="t-xs">${l}</text><rect x="${dx+124}" y="${yy}" width="120" height="9" rx="4.5" style="fill:var(--panel-2)"/><rect x="${dx+124}" y="${yy}" width="${f1(120*val/mx)}" height="9" rx="4.5" style="fill:var(--dx);opacity:.75"/><text x="${dx+252}" y="${yy+8}" class="t-xs">${val}/${mx}</text>`})}
+    cs.innerHTML=s;
+    cn.innerHTML=`<div class="kicker">Teaching result · not a diagnosis</div><div class="scread"><span class="scbig">${tot}</span><b style="color:${Z.col}">${Z.n} (${Z.lo}–${Z.hi}): ${Z.what}</b></div>
+      <p><b>Published zone response:</b> ${Z.act.toLowerCase()}. ${z>=2?'Validation of the zones is limited: in 625 primary care patients the Zone III and IV cut-offs were 100% specific but very insensitive (men 0.16 and 0.06). ':''}<sup class="c" data-ref="Babor2016AUDITZones" title="Source 28">28</sup></p>
+      <p><b>AUDIT-C ${ac}/12</b> is ${pos?'positive':'negative'} at the ${sex==='m'?'men’s ≥4':'women’s ≥3'} cut-off. Higher AUDIT-C scores mean a higher probability of dependence, but even a positive screen leaves wide uncertainty and needs a diagnostic assessment. <sup class="c" data-ref="Bradley2007AUDITC,Rubinsky2010AUDITZones" title="Source 47,405">47,405</sup></p>
+      ${dep||tot>=20?`<div class="verdict maybe">${dep?'A dependence item (4–6) is endorsed':'The total is 20 or more'}: in practice this signals that a diagnostic assessment is needed. It does not mean alcohol use disorder is present. <sup class="c" data-ref="HigginsBiddle2018USAUDIT" title="Source 179">179</sup></div>`:''}
+      <div class="pt"><b>In plain words</b>A screening score only says “let's talk more”. If you are worried about your drinking or someone else's, talk with a health professional. <sup class="c" data-ref="HigginsBiddle2018USAUDIT" title="Source 179">179</sup></div>
+      <div class="hook"><b>Exam hook</b>Each item scores 0–4 (items 9 and 10 only 0, 2 or 4), total 0–40. The AUDIT assumes a 10 g drink; the US drink is 14 g. <sup class="c" data-ref="Saunders1993AUDIT,HigginsBiddle2018USAUDIT" title="Source 179,413">179,413</sup></div>`}
+  const setSex=v=>{sex=v;store.set('sc:sex',v);$$('[data-scsex]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.scsex===v));calc()};
+  $$('[data-scsex]').forEach(b=>b.addEventListener('click',()=>setSex(b.dataset.scsex)));
+  qb.addEventListener('change',calc);
+  $('#scReset').addEventListener('click',()=>{SC_ITEMS.forEach((_,i)=>$('#scI'+i).selectedIndex=0);calc()});
+  setSex(sex==='f'?'f':'m');
+
+  /* ---------- icon array comparator ---------- */
+  const ic=$('#scIcon'),pv=$('#scPrev'),inote=$('#scIconNote');let tool=store.get('sc:tool','acm');if(!SC_TOOLS.some(x=>x.id===tool))tool='acm';
+  $('#scTools').innerHTML='<span class="kicker">Tool</span>'+SC_TOOLS.map(x=>`<button class="btn" data-sctool="${x.id}" aria-pressed="${x.id===tool}">${x.n}</button>`).join('');
+  let stopI=null,shown=null;
+  function counts(T,prev){const pos=Math.round(prev*100),tp=Math.round(pos*T.se),fp=Math.round((100-pos)*(1-T.sp));return {pos,tp,fn:pos-tp,fp,tn:100-pos-fp}}
+  function drawI(c,T){const N=vb(ic,'720 330','400 600');let s='';
+    const cols=10,gw=N?36:30,gh=N?36:30,gx=N?20:24,gy=N?36:30;
+    s+=`<text x="${gx}" y="${gy-12}" class="t-sm" style="fill:var(--dx);font-weight:600">${T.n.toUpperCase()} · 100 PEOPLE</text>`;
+    for(let i=0;i<100;i++){const r=Math.floor(i/cols),cc=i%cols,x=gx+cc*gw+gw/2,y=gy+r*gh+3;
+      const has=i<c.pos,tp=has&&i<c.tp,fp=!has&&i<c.pos+c.fp;
+      const col=tp?'var(--dx)':has?'var(--dx)':fp?'var(--warn)':'var(--muted)';
+      if(has&&!tp)s+=`<circle cx="${f1(x)}" cy="${f1(y+12)}" r="${f1(gw*.42)}" style="fill:none;stroke:var(--dx);stroke-width:1.6;stroke-dasharray:3 2"/>`;
+      s+=person(x,y,gh*.78,col,{op:tp||fp?1:has?.35:.28})}
+    const lx=N?20:gx+cols*gw+28,ly=N?gy+10*gh+18:gy+4,P=c.tp+c.fp,ppv=P?c.tp/P:0,nn=c.fn+c.tn,npv=nn?c.tn/nn:0;
+    const rows=[['var(--dx)',1,'True positives',c.tp,'have it, flagged'],['var(--dx)',.35,'Missed (false negatives)',c.fn,'have it, not flagged'],['var(--warn)',1,'False positives',c.fp,'flagged, do not have it'],['var(--muted)',.28,'True negatives',c.tn,'correctly not flagged']];
+    rows.forEach(([col,op,l,v,sub],i)=>{const yy=N?ly+Math.floor(i/2)*44:ly+i*42,xx=N?lx+(i%2)*186:lx;
+      s+=person(xx+8,yy,20,col,{op})+`<text x="${xx+26}" y="${yy+9}" class="t-lbl" style="font-size:12px">${l}: ${v}</text><text x="${xx+26}" y="${yy+22}" class="t-xs">${sub}</text>`});
+    const py=N?ly+104:ly+186;
+    s+=`<text x="${lx}" y="${py}" class="t-lbl">Of ${P} flagged, ${c.tp} have the condition</text><text x="${lx}" y="${py+16}" class="t-xs">positive predictive value ${Math.round(ppv*100)}%</text>`;
+    s+=`<text x="${lx}" y="${py+38}" class="t-lbl">Of ${nn} not flagged, ${c.tn} do not</text><text x="${lx}" y="${py+54}" class="t-xs">negative predictive value ${Math.round(npv*100)}%</text>`;
+    ic.innerHTML=s}
+  function drawIcon(animateIt){const T=SC_TOOLS.find(x=>x.id===tool),prev=+pv.value,c=counts(T,prev);
+    if(stopI){stopI();stopI=null}
+    const from=shown||c;
+    if(animateIt&&shown){stopI=animate(500,p=>{const e=ease(p),m={};['pos','tp','fp'].forEach(k=>m[k]=Math.round(lerp(from[k],c[k],e)));m.fn=m.pos-m.tp;m.tn=100-m.pos-m.fp;drawI(m,T)},()=>{stopI=null;drawI(c,T)})}
+    drawI(c,T);shown=c;
+    const P=c.tp+c.fp,ppv=P?Math.round(c.tp/P*100):0;
+    inote.innerHTML=`<div class="kicker">${T.n} · prevalence ${Math.round(prev*100)}%</div><h4>${c.tp} found, ${c.fn} missed, ${c.fp} false alarms</h4>
+      <p>Sensitivity ${Math.round(T.se*1000)/10}% and specificity ${Math.round(T.sp*1000)/10}% for ${T.tgt}. ${T.c} With ${c.pos} of 100 people affected, ${ppv}% of positive screens are true positives. Lower the prevalence and watch the false alarms outnumber the true positives: that is why a positive screen leads to a conversation and an assessment, never straight to a label.</p>
+      <div class="pt"><b>In plain words</b>Even a good screening question flags some people who do not have a problem and misses some who do. A positive result means “let's talk more”. <sup class="c" data-ref="HigginsBiddle2018USAUDIT" title="Source 179">179</sup></div>
+      <div class="hook"><b>Exam hook</b>${T.id==='cage'?'CAGE asks about problems, not amounts, so it misses less severe risky drinking; AUDIT-C outperformed an augmented CAGE in primary care. <sup class="c" data-ref="Dhalla2007CAGE,Bradley2007AUDITC" title="Source 47,86">47,86</sup>':'In adults, brief screening instruments commonly had sensitivity and specificity between 0.70 and 0.85. <sup class="c" data-ref="OConnor2018JAMA" title="Source 349">349</sup>'}</div>`}
+  $('#scTools').addEventListener('click',e=>{const b=e.target.closest('[data-sctool]');if(!b)return;tool=b.dataset.sctool;store.set('sc:tool',tool);$$('[data-sctool]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.sctool===tool));drawIcon(true)});
+  pv.addEventListener('input',()=>drawIcon(false));
+  drawIcon(false);
+  {const prevR=redraws.screening;redraws.screening=()=>{prevR&&prevR();calc();shown=null;drawIcon(false)}}
+};
+/* =============== 3.1 Alcohol withdrawal: the timeline =============== */
+const WD_H=120; /* the scrubber runs 0-120 h after the last drink */
+const WD_STEPS=[
+ {from:0,at:.025,k:'Hours 0–6',t:'The last drink',
+  txt:`Over months of heavy, regular drinking the brain adapts to alcohol's depressant effect. When a person who is physically dependent stops or cuts down, that effect is suddenly reversed and the brain is left over-excited: that is withdrawal. Its most severe results are seizure, delirium and death. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup> In the first hours the blood alcohol level is still falling and signs may not have begun; ASAM lists a positive blood alcohol level alongside withdrawal signs as a factor that may raise risk. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`,
+  pt:`If your body has got used to alcohol and you stop suddenly, your brain can be over-excited for a few days. This is called withdrawal. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`,
+  hook:`Withdrawal signs can appear while the blood alcohol level is still positive, and ASAM counts that combination as a possible added risk. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`},
+ {from:.05,at:.09,k:'6–24 h',t:'Minor withdrawal',
+  txt:`ASAM 2020: symptoms usually begin 6–24 h after stopping or cutting down. Early features are anxiety, sleep disturbance, loss of appetite, vivid dreams, headache and nausea, with tachycardia, brisk reflexes, sweating, raised blood pressure and hyperthermia. Mirijello's stage I (6–12 h) also lists tremor and fast breathing. <sup class="c" data-ref="ASAM2020Withdrawal,Mirijello2015" title="Source 20,332">20,332</sup> Up to 50% of people with alcohol use disorder have withdrawal symptoms, and only a minority need medical treatment. Mild to moderate withdrawal often settles within 2–7 days. <sup class="c" data-ref="Mirijello2015" title="Source 332">332</sup>`,
+  pt:`Early signs are shaking hands, sweating, a fast heartbeat, feeling anxious or sick, and poor sleep. They usually start 6 to 24 hours after the last drink. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`,
+  hook:`Minor withdrawal: onset 6–24 h. DSM-5 needs ≥2 of 8 signs; a pulse &gt;100 bpm counts as autonomic hyperactivity. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`},
+ {from:.1,at:.14,k:'12–48 h',t:'Hallucinosis',
+  txt:`Hallucinations develop within 12–24 h and usually resolve within 24–48 h, unless signs of delirium appear (ASAM 2020). Alcoholic hallucinosis means visual, tactile or auditory hallucinations without clouding of consciousness: the person stays oriented, which is what separates it from delirium tremens. <sup class="c" data-ref="ASAM2020Withdrawal,Saitz1998AHRW" title="Source 20,410">20,410</sup>`,
+  pt:`Some people see, hear or feel things that are not there, while still knowing where they are and what day it is. It is frightening, and it needs medical care.`,
+  hook:`Hallucinosis = hallucinations with a clear sensorium at 12–24 h. Delirium tremens = hallucinations <i>with</i> confusion, later. <sup class="c" data-ref="Saitz1998AHRW,ASAM2020Withdrawal" title="Source 20,410">20,410</sup>`},
+ {from:.18,at:.2,k:'8–48 h · peak ≈24 h',t:'Seizures',
+  txt:`Withdrawal seizures may begin as early as 8 h after the last drink, continue for up to 48 h and peak at about 24 h (ASAM 2020); more than 90% appear within 48 h. <sup class="c" data-ref="ASAM2020Withdrawal,Jesse2017" title="Source 20,203">20,203</sup> About 10% of people with withdrawal symptoms have them: generalised tonic-clonic seizures with little or no postictal period. More than half of those affected have repeated seizures, a second one "generally happens within 6 hours of the first", and in up to 5% they progress to status epilepticus. <sup class="c" data-ref="Mirijello2015,Jesse2017,Saitz1998AHRW" title="Source 203,332,410">203,332,410</sup> In an emergency-department trial after a witnessed alcohol-related seizure, a further seizure within 6 h occurred in 3% given IV lorazepam and 24% given placebo. <sup class="c" data-ref="DOnofrio1999NEJM" title="Source 90">90</sup> ASAM adds that a mild, low-risk patient can be watched for up to 36 h, "after which more severe withdrawal is unlikely to develop". <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`,
+  pt:`A seizure can come without much shaking or sweating first. A seizure is an emergency: call emergency services. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`,
+  hook:`Seizures come <b>early</b>: window 8–48 h, peak ≈24 h. Phenytoin is not used for withdrawal seizures. <sup class="c" data-ref="ASAM2020Withdrawal,Hillbom2003" title="Source 20,180">20,180</sup>`},
+ {from:.4,at:.5,k:'48–96 h',t:'Delirium tremens',
+  txt:`Delirium tremens (alcohol withdrawal delirium) is a disturbance of attention and awareness that develops over hours to days and fluctuates, with disorientation, usually severe agitation, tachycardia, high blood pressure and fever. <sup class="c" data-ref="ASAM2020Withdrawal,Saitz1998AHRW" title="Source 20,410">20,410</sup> Its onset is published differently: 48–72 h after the last drink (Mirijello 2015; Jesse 2017) or 72–96 h (ASAM 2020, initial-assessment section), and it "could begin up to 10 days later". <sup class="c" data-ref="Mirijello2015,Jesse2017,ASAM2020Withdrawal" title="Source 20,203,332">20,203,332</sup> It occurs in about 5% of patients with withdrawal syndrome, often as the result of no treatment or undertreatment. <sup class="c" data-ref="Mirijello2015" title="Source 332">332</sup>`,
+  pt:`Delirium tremens ("DTs") means severe confusion, seeing or hearing things, fever and a racing heart, usually two to four days after the last drink. It is a medical emergency. <sup class="c" data-ref="Saitz1998AHRW,Mirijello2015" title="Source 332,410">332,410</sup>`,
+  hook:`DTs come <b>late</b>: 48–96 h (48–72 h Mirijello and Jesse; 72–96 h ASAM). Fluctuating attention plus autonomic overactivity. <sup class="c" data-ref="Mirijello2015,Jesse2017,ASAM2020Withdrawal" title="Source 20,203,332">20,203,332</sup>`},
+ {from:.75,at:.92,k:'Days 4–5 and after',t:'Settling, or a long delirium',
+  txt:`Delirium tremens normally lasts 5–7 days (Mirijello), up to 3–4 days (Saitz), or as long as 2 weeks (Jesse). <sup class="c" data-ref="Mirijello2015,Saitz1998AHRW,Jesse2017" title="Source 203,332,410">203,332,410</sup> Deaths range from about 1% or less with early detection and appropriate treatment (Jesse 2017), through 1–5% (Mirijello 2015), to about 5% in the historical series quoted by Saitz 1998 and 6.6% in a 1987–2003 Spanish hospital cohort. In controlled trials, no deaths were reported in 217 patients treated with benzodiazepines or barbiturates. These are group statistics from different eras and settings. <sup class="c" data-ref="Jesse2017,Mirijello2015,Saitz1998AHRW,Monte2010,MayoSmith2004Delirium" title="Source 203,322,332,334,410">203,322,332,334,410</sup> If delirium lasts longer than 72 h, ASAM advises looking for drug-induced delirium or withdrawal from another GABAergic agent. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`,
+  pt:`With modern hospital care, most people with DTs survive. This is a group statistic, not a promise for any one person. Getting through withdrawal is a first step; ongoing treatment is what helps recovery last. <sup class="c" data-ref="Jesse2017,MayoSmith2004Delirium,ASAM2020Withdrawal" title="Source 20,203,322">20,203,322</sup>`,
+  hook:`Antipsychotics alone raise the risk of death in DT (RR 6.6 against sedative-hypnotics). <sup class="c" data-ref="MayoSmith2004Delirium" title="Source 322">322</sup>`}
+];
+const WD_K_STEPS=[
+ {from:0,at:.1,k:'Episode 1',t:'One withdrawal',
+  txt:`Kindling is a process in which a repeated weak stimulus that at first causes no behavioural effect comes to cause effects such as seizures. Clinical and experimental evidence supports a kindling mechanism in alcohol withdrawal. <sup class="c" data-ref="Becker1998" title="Source 34">34</sup> <span class="ev est">Established in animal models</span> <span class="ev early">Early evidence in humans</span>`,
+  pt:`Each time withdrawal happens, the brain may become a little more easily over-excited the next time.`},
+ {from:.25,at:.45,k:'Episodes 2–6',t:'Again and again',
+  txt:`In animal studies, NMDA glutamate-receptor sensitivity and the severity of withdrawal seizures both increase with the number of past withdrawal episodes. <sup class="c" data-ref="Becker1998" title="Source 34">34</sup> <span class="ev est">Established in animal models</span>`,
+  hook:`Kindling: NMDA sensitivity and seizure severity rise with each withdrawal in animal models. <sup class="c" data-ref="Becker1998" title="Source 34">34</sup>`},
+ {from:.55,at:.75,k:'Brown 1988',t:'In people',
+  txt:`Brown 1988 compared 25 men with withdrawal seizures and 25 without: 12 of 25 (48%) with seizures had 5 or more previous detoxifications, against 3 of 25 (12%) without. The authors found no link with drinking history. <sup class="c" data-ref="Brown1988Kindling" title="Source 51">51</sup> In a family study, people with a history of delirium tremens or convulsions reported more withdrawal episodes (28.2 vs 15.9). <sup class="c" data-ref="Schuckit1995" title="Source 419">419</sup> ASAM 2020 lists "numerous prior withdrawal episodes" as a risk factor for complicated withdrawal. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup> <span class="ev early">Early evidence in humans</span>`,
+  hook:`Brown 1988: 48% of people with withdrawal seizures had ≥5 prior detoxifications vs 12% without. <sup class="c" data-ref="Brown1988Kindling" title="Source 51">51</sup>`},
+ {from:.85,at:.95,k:'An open question',t:'Can early treatment help?',
+  txt:`Some experimental evidence suggests that treating early withdrawal may delay later kindled seizures; in humans this remains a hypothesis. <sup class="c" data-ref="Becker1998" title="Source 34">34</sup> <span class="ev hyp">Hypothesis</span> In a trial of 136 outpatients, among people with two or more past medicated withdrawals, those treated with carbamazepine drank less than 1 drink a day afterwards, against about 5 a day on lorazepam (P=.033); lorazepam showed rebound symptoms. <sup class="c" data-ref="Malcolm2002" title="Source 306">306</sup> <span class="ev early">Early evidence</span>`,
+  pt:`Every withdrawal is worth taking seriously. Get medical help to stop safely, each time. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`}
+];
+/* PAWSS items as named in the AAST 2022 summary (concomitant substances split in two, as in the published scale) */
+const WD_PAWS_GATE='Any alcohol in the last 30 days, or a positive blood alcohol level on admission';
+const WD_PAWS_HX=['Previous episodes of alcohol withdrawal','Previous alcohol withdrawal seizures','Previous delirium tremens','Previous alcohol rehabilitation treatment','Previous blackouts','Concomitant use of other CNS depressants','Concomitant use of illicit substances','Recent intoxication'];
+const WD_PAWS_CL=['Elevated blood alcohol level on admission','Evidence of increased autonomic activity'];
+
+inits.withdrawal=()=>{
+  /* ---------- main timeline ---------- */
+  const svg=$('#wdSvg'),rg=$('#wdT');let src='both';
+  const sig=h=>{const dtOn=src==='asam'?[74,88]:[52,66];
+    const tremor=ramp(h,6,16)*(1-.3*ramp(h,104,120)),sweat=ramp(h,8,20),hallu=ramp(h,12,18)*(1-ramp(h,40,48)),
+      seize=bump(h,22,26.5),conf=ramp(h,dtOn[0],dtOn[1]),
+      hr=Math.round(78+28*ramp(h,6,24)+10*bump(h,20,30)+24*conf-12*ramp(h,100,120));
+    return {tremor,sweat,hallu,seize,conf,hr}};
+  function hallGlyph(x,y,s,v){if(v<=0)return '';let g='';[[-.5,-.05],[.52,0],[.48,.62],[-.5,.66]].forEach(([dx,dy],i)=>{const cx=x+dx*s,cy=y+dy*s,o=v*(.55+.45*Math.sin(i*1.7));
+      g+=`<path d="M${f1(cx-6)} ${f1(cy)}q3 -4 6 0t6 0" style="fill:none;stroke:var(--dx);stroke-width:1.6;stroke-linecap:round;opacity:${f1(o)}"/><circle cx="${f1(cx)}" cy="${f1(cy-6)}" r="1.8" style="fill:var(--dx);opacity:${f1(o)}"/>`});return g}
+  function dial(cx,cy,r,h){const A=v=>-Math.PI/2+2*Math.PI*v/WD_H,P=(v,rr)=>[cx+rr*Math.cos(A(v)),cy+rr*Math.sin(A(v))];
+    let s=`<circle cx="${cx}" cy="${cy}" r="${r}" style="fill:none;stroke:var(--panel-2);stroke-width:10"/>`;
+    if(h>0){const p0=P(0,r),p1=P(Math.min(h,WD_H-.01),r),big=h>WD_H/2?1:0;s+=`<path d="M${f1(p0[0])} ${f1(p0[1])}A${r} ${r} 0 ${big} 1 ${f1(p1[0])} ${f1(p1[1])}" style="fill:none;stroke:var(--accent);stroke-width:10;stroke-linecap:round;opacity:.85"/>`}
+    [0,24,48,72,96].forEach(v=>{const a=P(v,r-9),b=P(v,r+9),l=P(v,r+19);s+=`<line x1="${f1(a[0])}" y1="${f1(a[1])}" x2="${f1(b[0])}" y2="${f1(b[1])}" style="stroke:var(--muted);stroke-width:1.4"/><text x="${f1(l[0])}" y="${f1(l[1]+3.5)}" class="t-xs t-mid">${v===0?'0 · 120 h':v+' h'}</text>`});
+    const k=P(h,r);s+=`<circle cx="${f1(k[0])}" cy="${f1(k[1])}" r="6.5" style="fill:var(--panel);stroke:var(--accent);stroke-width:2.6"/>`;
+    return s}
+  function draw(t){
+    const N=vb(svg,'720 388','400 612'),h=t*WD_H,S=sig(h);
+    const L=N?{px:[8,8,392,244],dc:[102,124],dr:72,ps:70,rx:212,big:58,sub:76,pulseY:112,pw:[212,384],signY:156,tx:[22,382],rows:{mi:282,ha:346,se:416,dt:484},axY:556,dayY:588,ob:[258,546]}
+           :{px:[10,10,250,378],dc:[135,112],dr:78,ps:80,rx:24,big:230,sub:247,pulseY:274,pw:[24,236],signY:312,tx:[292,704],rows:{mi:54,ha:112,se:178,dt:246},axY:330,dayY:362,ob:[30,322]};
+    let s=`<defs>${marker('wdA','var(--muted)')}<pattern id="wdHatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" style="fill:var(--bad);opacity:.35"/><line x1="0" y1="0" x2="0" y2="6" style="stroke:var(--bad);stroke-width:3"/></pattern></defs>`;
+    /* ----- person panel ----- */
+    s+=`<rect x="${L.px[0]}" y="${L.px[1]}" width="${L.px[2]-L.px[0]}" height="${L.px[3]-L.px[1]}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
+    const [cx,cy]=L.dc;s+=dial(cx,cy,L.dr,h);
+    const py=cy-L.ps*.5,jit=S.tremor*1.2*Math.sin(h*9);
+    s+=person(cx+jit*.4,py,L.ps,'var(--muted)');
+    s+=symptoms(cx,py,L.ps,{tremor:S.tremor,sweat:S.sweat,conf:S.conf,seize:S.seize});
+    s+=hallGlyph(cx,py,L.ps,S.hallu*(1-S.conf*.6));
+    const day=Math.min(5,Math.floor(h/24)+1);
+    s+=`<text x="${L.rx}" y="${L.big}" style="font:800 30px var(--display);fill:var(--ink)">${Math.round(h)} h</text>`;
+    s+=`<text x="${L.rx}" y="${L.sub}" class="t-sm">day ${day} after the last drink</text>`;
+    /* pulse readout (schematic) with the DSM-5 >100 bpm line */
+    const [p0,p1]=L.pw,PX=v=>p0+(p1-p0)*clamp((v-60)/(160-60)),pY=L.pulseY,hot=S.hr>100;
+    s+=`<text x="${p0}" y="${pY-8}" class="t-xs">pulse (schematic)</text><text x="${p1}" y="${pY-8}" class="t-xs t-end" style="fill:${hot?'var(--bad)':'var(--ink)'};font-weight:700">♥ ${S.hr} bpm</text>`;
+    s+=`<rect x="${p0}" y="${pY}" width="${p1-p0}" height="8" rx="4" style="fill:var(--panel-2)"/><rect x="${p0}" y="${pY}" width="${f1(PX(S.hr)-p0)}" height="8" rx="4" style="fill:${hot?'var(--glu-fill)':'var(--gaba-fill)'}"/>`;
+    s+=`<line x1="${f1(PX(100))}" x2="${f1(PX(100))}" y1="${pY-3}" y2="${pY+11}" style="stroke:var(--ink);stroke-width:1.4"/><text x="${f1(PX(100))}" y="${pY+22}" class="t-xs t-mid">&gt;100: a DSM-5 sign</text>`;
+    /* signs now */
+    const now=[];if(h<5)now.push('no signs yet');
+    if(S.tremor>.3)now.push('tremor');if(S.sweat>.3)now.push('sweating');if(h>=6&&h<60&&S.conf<.3)now.push('anxiety, poor sleep, nausea');
+    if(S.hallu>.3&&S.conf<.3)now.push('hallucinations, still oriented');if(S.seize>.15)now.push('seizure risk at its peak');
+    if(S.conf>.3)now.push('confusion, agitation, fever');if(hot)now.push('fast pulse');
+    const lines=[];let ln='';now.forEach(w=>{const tr=ln?ln+' · '+w:w;if(tr.length>(N?29:38)){lines.push(ln);ln=w}else ln=tr});if(ln)lines.push(ln);
+    s+=`<text x="${L.rx}" y="${L.signY}" class="t-xs" style="font-weight:600">SIGNS DRAWN NOW</text>`;
+    lines.slice(0,N?5:4).forEach((l,i)=>s+=`<text x="${L.rx}" y="${L.signY+15+i*13}" class="t-xs" style="fill:var(--ink)">${l}</text>`);
+    /* ----- timeline ----- */
+    const [x0,x1]=L.tx,X=v=>x0+(x1-x0)*v/WD_H,R=L.rows,on=(a,b)=>h>=a&&h<=b;
+    const tl=tline(x0,L.axY,x1-x0,{min:0,max:WD_H,step:12,fmt:v=>v%24===0?v+' h':''});s+=tl.svg;
+    for(let d=0;d<5;d++)s+=`<text x="${f1(X(d*24+12))}" y="${L.dayY}" class="t-xs t-mid" style="${day===d+1?'fill:var(--accent);font-weight:700':''}">day ${d+1}</text>`;
+    for(let v=24;v<WD_H;v+=24)s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${L.ob[0]}" y2="${L.axY}" class="grid"/>`;
+    const lab=(y,name,det,act,col)=>`<text x="${x0}" y="${y-13}" class="t-lbl" style="${act?`fill:${col}`:''}">${name}</text><text x="${x1}" y="${y-13}" class="t-xs t-end">${det}</text>`;
+    const bar=(a,b,y,col,act,o={})=>`<rect x="${f1(X(a))}" y="${f1(y-(o.h||14)/2)}" width="${f1(X(b)-X(a))}" height="${o.h||14}" rx="${o.sq?2:7}" style="fill:${o.fill||col};opacity:${f1((act?.95:.35)*(o.op||1))};stroke:${col};stroke-width:${act?1.6:0}"/>`;
+    const brk=(a,b,y,txt)=>`<path d="M${f1(X(a))} ${y+14}v5H${f1(X(b))}v-5" style="fill:none;stroke:var(--muted);stroke-width:1"/><text x="${f1((X(a)+X(b))/2)}" y="${y+30}" class="t-xs t-mid">${txt}</text>`;
+    /* minor withdrawal: onset 6-24 h (ASAM), early withdrawal to 48 h (Jesse) */
+    let act=on(6,48);s+=lab(R.mi,'Minor withdrawal',N?'onset 6–24 h':'onset 6–24 h (ASAM) · to 48 h (Jesse)',act,'var(--warn)')+bar(6,48,R.mi,'var(--warn)',act)+bar(6,24,R.mi,'var(--warn)',act&&h<=24,{h:6,op:.9,fill:'var(--panel)'})+brk(6,24,R.mi,'onset');
+    act=on(12,48);s+=lab(R.ha,'Hallucinosis',N?'onset 12–24 h':'onset 12–24 h, gone by 24–48 h (ASAM)',act,'var(--dx)')+bar(12,48,R.ha,'var(--dx)',act)+bar(12,24,R.ha,'var(--dx)',act&&h<=24,{h:6,op:.9,fill:'var(--panel)'})+brk(12,24,R.ha,'onset');
+    /* seizures: 8-48 h, peak about 24 h (ASAM); 6-48 h (Jesse, Hillbom) */
+    act=on(8,48);s+=lab(R.se-10,'Seizures',N?'8–48 h, peak ≈24 h':'ASAM 8–48 h · dashed: Jesse, Hillbom 6–48 h',act,'var(--glu)');
+    const sb=R.se+10,sp=(v)=>v<=24?Math.sin(Math.PI/2*ramp(v,8,24)):Math.cos(Math.PI/2*ramp(v,24,48));let d=`M${f1(X(8))} ${sb}`;for(let v=8;v<=48;v+=1)d+=`L${f1(X(v))} ${f1(sb-24*sp(v))}`;
+    s+=`<path d="${d}Z" style="fill:var(--glu-fill);opacity:${act?.8:.3};stroke:var(--glu);stroke-width:${act?1.4:0}"/><line x1="${f1(X(6))}" x2="${f1(X(48))}" y1="${sb+5}" y2="${sb+5}" style="stroke:var(--glu);stroke-width:2;stroke-dasharray:3 3;opacity:.7"/>`;
+    s+=`<text x="${f1(X(24))}" y="${sb+18}" class="t-xs t-mid">peak ≈24 h</text>`;
+    /* delirium tremens: two published onset windows, and a long tail */
+    const mOn=src!=='asam',aOn=src!=='mir';act=h>=48;
+    s+=lab(R.dt,'Delirium tremens',N?'onset by source':'onset 48–72 h (Mirijello) or 72–96 h (ASAM)',act,'var(--bad)');
+    s+=bar(48,WD_H,R.dt+10,'var(--bad)',act&&h>=72,{h:5,op:.45});
+    if(mOn)s+=bar(48,72,R.dt,'var(--bad)',on(48,72),{sq:1});
+    if(aOn)s+=`<rect x="${f1(X(72))}" y="${R.dt-7}" width="${f1(X(96)-X(72))}" height="14" rx="2" style="fill:url(#wdHatch);opacity:${on(72,96)?1:.45};stroke:var(--bad);stroke-width:${on(72,96)?1.6:.6}"/>`;
+    if(mOn)s+=`<text x="${f1((X(48)+X(72))/2)}" y="${R.dt+28}" class="t-xs t-mid">Mirijello</text>`;
+    if(aOn)s+=`<text x="${f1((X(72)+X(96))/2)}" y="${R.dt+28}" class="t-xs t-mid">ASAM</text>`;
+    s+=`<text x="${f1(X(WD_H))}" y="${R.dt+28}" class="t-xs t-end">lasts days →</text>`;
+    /* ASAM: low-risk observation to 36 h */
+    const ob=X(36);s+=`<line x1="${f1(ob)}" x2="${f1(ob)}" y1="${L.ob[0]}" y2="${L.ob[1]}" style="stroke:var(--good);stroke-width:1.4;stroke-dasharray:4 3"/><text x="${f1(ob+4)}" y="${L.ob[1]-4}" class="t-xs" style="fill:var(--good)">36 h: low-risk watch (ASAM)</text>`;
+    /* playhead */
+    const hx=X(h);s+=`<line x1="${f1(hx)}" x2="${f1(hx)}" y1="${L.ob[0]-8}" y2="${L.axY}" style="stroke:var(--ink);stroke-width:1.6"/><path d="M${f1(hx-6)} ${L.ob[0]-14}h12l-6 8Z" style="fill:var(--ink)"/>`;
+    svg.innerHTML=s;
+    const p=phaseOf(WD_STEPS,t);setSt(p);
+    const open=[];if(on(6,48))open.push('minor withdrawal');if(on(12,48))open.push('hallucinosis');if(on(8,48))open.push('seizures');if((mOn&&on(48,72))||(aOn&&on(72,96)))open.push('DT onset');else if(h>72)open.push('DT may continue');
+    rg.setAttribute('aria-valuetext',`${Math.round(h)} hours after the last drink: ${WD_STEPS[p].t}`);
+    $('#wdRead').innerHTML=`<span>hours <b>${Math.round(h)}</b></span><span>day <b>${day}</b></span><span>windows open <b>${open.length?open.join(', '):'none yet'}</b></span>`;
+    $('#wdNote').innerHTML=noteHTML(WD_STEPS[p]);
+  }
+  const stop=playWire(rg,$('#wdPlay'),draw,26000,'Replay','withdrawal');
+  const setSt=stepWire($('#wdSteps'),WD_STEPS,rg,draw,stop);
+  $$('[data-wsrc]').forEach(b=>b.addEventListener('click',()=>{src=b.dataset.wsrc;$$('[data-wsrc]').forEach(x=>x.setAttribute('aria-pressed',x===b));draw(+rg.value)}));
+  draw(+rg.value);
+
+  /* ---------- kindling ---------- */
+  const ks=$('#wdKSvg'),kr=$('#wdKT');
+  function kdraw(t){
+    const N=vb(ks,'720 320','400 600'),G=i=>clamp((t-.02-i*.08)/.07),nE=Math.max(1,[0,1,2,3,4,5].filter(i=>G(i)>.5).length),bars=ramp(t,.55,.75);
+    const L=N?{c:[18,20,382,262],th:130,syn:[200,346],ss:1.15,bx:[150,370],by:[482,520],bt:462,hs:.82}
+             :{c:[14,16,420,300],th:140,syn:[570,100],ss:1.15,bx:[560,700],by:[226,266],bt:206,hs:1};
+    const [cx0,cy0,cx1,cy1]=L.c,base=cy1-34,sp=(cx1-cx0-40)/6;
+    let s=`<rect x="${cx0}" y="${cy0}" width="${cx1-cx0}" height="${cy1-cy0}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
+    s+=`<text x="${cx0+12}" y="${cy0+20}" class="t-sm">WITHDRAWAL SEVERITY, EPISODE BY EPISODE (SCHEMATIC)</text>`;
+    s+=`<line x1="${cx0+12}" x2="${cx1-12}" y1="${base}" y2="${base}" class="axis"/>`;
+    s+=`<line x1="${cx0+12}" x2="${cx1-12}" y1="${L.th}" y2="${L.th}" style="stroke:var(--bad);stroke-width:1.4;stroke-dasharray:5 4"/><text x="${cx0+14}" y="${L.th-6}" class="t-xs" style="fill:var(--bad)">seizure threshold (schematic)</text>`;
+    for(let i=0;i<6;i++){const g=G(i),x=cx0+32+sp*i+sp/2,hh=(40+i*30)*L.hs*ease(g),w=sp*.42;
+      s+=`<text x="${f1(x)}" y="${base+16}" class="t-xs t-mid" style="${i<nE?'fill:var(--ink)':''}">${i+1}</text>`;
+      if(g<=0)continue;
+      const top=base-hh,over=top<L.th;
+      s+=`<path d="M${f1(x-w)} ${base}C${f1(x-w*.4)} ${base} ${f1(x-w*.35)} ${f1(top)} ${f1(x)} ${f1(top)}S${f1(x+w*.4)} ${base} ${f1(x+w)} ${base}Z" style="fill:${over?'var(--glu-fill)':'var(--warn)'};opacity:.75"/>`;
+      if(over&&g>.9)for(let k=0;k<5;k++){const a=-Math.PI/2+(k-2)*.45;s+=`<line x1="${f1(x+Math.cos(a)*6)}" y1="${f1(top-4+Math.sin(a)*6)}" x2="${f1(x+Math.cos(a)*15)}" y2="${f1(top-4+Math.sin(a)*15)}" style="stroke:var(--bad);stroke-width:1.6;stroke-linecap:round"/>`}}
+    s+=`<text x="${f1((cx0+cx1)/2)}" y="${base+30}" class="t-xs t-mid">withdrawal episode number</text>`;
+    /* synapse: NMDA receptors up with repeated withdrawals (animal data) */
+    const [sx,sy]=L.syn;
+    s+=synapse(sx,sy,L.ss,{gaba:3,nmda:Math.min(6,1+nE),gl:.3+nE*.1,ca:.2+nE*.12,spark:clamp((nE-1)/5),seed:7});
+    s+=`<text x="${sx}" y="${f1(sy+L.ss*56)}" class="t-xs t-mid">NMDA receptors: ${Math.min(6,1+nE)} drawn (animal studies)</text>`;
+    s+=`<text x="${sx}" y="${f1(sy+L.ss*56+13)}" class="t-xs t-mid">blue GABA-A · red NMDA</text>`;
+    /* Brown 1988 bars */
+    const [b0,b1]=L.bx;s+=`<text x="${N?cx0+4:b0-130}" y="${L.bt}" class="t-sm">BROWN 1988: ≥5 PRIOR DETOXES</text>`;
+    [[48,'with seizures','var(--glu-fill)'],[12,'without','var(--gaba-fill)']].forEach(([v,nm,col],i)=>{const y=L.by[i],w=(b1-b0)*v/100*bars;
+      s+=`<text x="${b0-8}" y="${y+10}" class="t-xs t-end">${nm}</text><rect x="${b0}" y="${y}" width="${b1-b0}" height="14" rx="4" style="fill:var(--panel-2)"/>`;
+      if(w>0)s+=`<rect x="${b0}" y="${y}" width="${f1(w)}" height="14" rx="4" style="fill:${col}"/>`;
+      s+=`<text x="${f1(b0+Math.max(w,0)+6)}" y="${y+11}" class="t-xs" style="fill:var(--ink);font-weight:700">${bars>0?Math.round(v*bars)+'%':''}</text>`});
+    s+=`<text x="${N?cx0+4:b0-130}" y="${L.by[1]+32}" class="t-xs">25 men with vs 25 without withdrawal seizures</text>`;
+    ks.innerHTML=s;
+    const p=phaseOf(WD_K_STEPS,t);setK(p);
+    kr.setAttribute('aria-valuetext',`Episode ${nE}: ${WD_K_STEPS[p].t}`);
+    $('#wdKNote').innerHTML=noteHTML(WD_K_STEPS[p]);
+  }
+  const kstop=playWire(kr,$('#wdKPlay'),kdraw,16000,'Replay','withdrawal');
+  const setK=stepWire($('#wdKSteps'),WD_K_STEPS,kr,kdraw,kstop);
+  kdraw(+kr.value);
+
+  /* ---------- PAWSS teaching checklist ---------- */
+  const box=(id,txt,cls)=>`<label class="${cls||''}"><input type="checkbox" id="${id}"><span>${txt}</span></label>`;
+  $('#wdPawsGate').insertAdjacentHTML('beforeend',box('wdPg',WD_PAWS_GATE,'gate'));
+  $('#wdPawsHx').insertAdjacentHTML('beforeend',WD_PAWS_HX.map((t,i)=>box('wdPh'+i,t)).join(''));
+  $('#wdPawsCl').insertAdjacentHTML('beforeend',WD_PAWS_CL.map((t,i)=>box('wdPc'+i,t)).join(''));
+  const pv=$('#wdPawsSvg'),out=$('#wdPawsOut');
+  function paws(){
+    const gate=$('#wdPg').checked,items=$$('#wdPawsHx input,#wdPawsCl input'),n=items.filter(x=>x.checked).length,score=gate?n:0;
+    items.forEach(x=>x.closest('label').classList.toggle('off',!gate));
+    let s=gauge(160,150,120,score,10,{bands:[{to:4,col:'var(--good)'},{to:10,col:'var(--bad)'}],big:true,label:gate?'teaching score / 10':'threshold question not ticked'});
+    /* tick at the published threshold of 4 */
+    const a=Math.PI*(1-.4),r0=94,r1=130;s+=`<line x1="${f1(160+r0*Math.cos(a))}" y1="${f1(150-r0*Math.sin(a))}" x2="${f1(160+r1*Math.cos(a))}" y2="${f1(150-r1*Math.sin(a))}" style="stroke:var(--ink);stroke-width:2"/><text x="${f1(160+(r1+8)*Math.cos(a)-4)}" y="${f1(150-(r1+8)*Math.sin(a))}" class="t-xs t-end" style="fill:var(--ink)">4</text>`;
+    pv.innerHTML=s;
+    let v;
+    if(!gate)v=`<div class="verdict maybe">The scale opens with the threshold question: alcohol in the last 30 days, or a positive blood alcohol level on admission. Tick it to score the items. PAWSS can be used before any withdrawal signs appear. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup></div>`;
+    else if(score>=4)v=`<div class="verdict no">Teaching result: ${score} of 10. A score of 4 or more is the published threshold for <b>higher risk of complicated withdrawal</b> (seizures, delirium tremens). <sup class="c" data-ref="Maldonado2014,Maldonado2015" title="Source 307,308">307,308</sup></div>`;
+    else v=`<div class="verdict maybe">Teaching result: ${score} of 10, below the published threshold of 4. In the validation study the negative predictive value at this cut-off was 99.5%, but in a community detox unit the cut-off of 4 did not perform well, and a low score never means withdrawal is safe without help. <sup class="c" data-ref="Maldonado2015,Crepeault2025" title="Source 70,308">70,308</sup></div>`;
+    v+=`<p style="font-size:14.5px">Why it matters: ASAM 2020 says withdrawal can usually be managed safely outside hospital when risk factors are limited or mitigated, aiming for the least intensive level of care that is safe and effective. A higher predicted risk is a reason for closer medical supervision. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup> Any score here is a teaching example, not a reading of anyone's own risk.</p>`;
+    out.innerHTML=v;
+  }
+  $$('#m-withdrawal .wd-list input').forEach(x=>x.addEventListener('change',paws));
+  paws();
+};
+/* =============== 3.3 Managing withdrawal safely =============== */
+/* word-wrap for SVG labels: splits text into lines of at most n characters */
+function dxWrap(s,n){const w=[];String(s).split(' ').forEach(x=>{if(x.length>n&&x.includes('-')){const i=x.indexOf('-');w.push(x.slice(0,i+1),x.slice(i+1))}else w.push(x)});const L=[];let c='';w.forEach(x=>{if(!c)c=x;else if((c+(c.endsWith('-')?'':' ')+x).length<=n)c+=(c.endsWith('-')?'':' ')+x;else{L.push(c);c=x}});if(c)L.push(c);return L}
+const DX_COLS=[
+ {k:'assess',h:'1 · Assess risk',opts:[{id:'hx',t:'Past seizure or delirium tremens'},{id:'paws',t:'PAWSS risk score'},{id:'ciwa',t:'CIWA-Ar severity now'},{id:'ill',t:'Illness, mood and support'}]},
+ {k:'set',h:'2 · Setting',opts:[{id:'l1',t:'Ambulatory (Level 1-WM)',d:'CIWA-Ar <10 appropriate'},{id:'l2',t:'Extended on-site monitoring (Level 2-WM)',d:'CIWA-Ar <18 appropriate'},{id:'inp',t:'Inpatient',d:'severe, complicated, pregnancy'},{id:'icu',t:'Intensive care',d:'delirium, resistant withdrawal'}]},
+ {k:'med',h:'3 · Medicines',opts:[{id:'cg',t:'Carbamazepine or gabapentin',d:'mild; moderate alternative'},{id:'bst',t:'Benzodiazepine, symptom-triggered',d:'preferred inpatient method'},{id:'bfl',t:'Benzodiazepine front loading',d:'CIWA-Ar ≥19'},{id:'icu',t:'ICU agents: phenobarbital, propofol, dexmedetomidine',d:'experienced clinicians only'}]},
+ {k:'adj',h:'4 · Adjuncts',opts:[{id:'thi',t:'Thiamine (vitamin B1)'},{id:'flu',t:'Fluids'},{id:'ele',t:'Electrolytes: magnesium, phosphate'}]},
+ {k:'next',h:'5 · Next steps',opts:[{id:'rx',t:'AUD medicines',d:'start when thinking is clear'},{id:'tt',t:'Therapy and mutual help',d:'MI, CBT, AA, SMART'},{id:'wh',t:'Warm handoff',d:'to treatment providers'}]}
+];
+const DX_NAMES={mild:'Mild, low risk',mod:'Moderate, no complications',sev:'Severe, or past seizure or DT',del:'Delirium or resistant withdrawal'};
+/* the route an example person takes, from the ASAM 2020 recommendations quoted in the notes */
+function dxRoute(sc,liver,preg){
+  const R={sc,liver,preg,assess:{},set:'',setAlt:[],med:'',medAlt:[],adj:{},ciwa:null};
+  const A={
+    mild:{hx:['none',0],paws:['under 4: lower risk',0],ciwa:['example 6: mild',0],ill:['none; support at home',0]},
+    mod:{hx:['none',0],paws:['under 4: lower risk',0],ciwa:['example 14: moderate',1],ill:['none; can attend daily',0]},
+    sev:{hx:['past withdrawal seizure',1],paws:['4 or more: high risk',1],ciwa:['example 24: severe',1],ill:['medical illness',1]},
+    del:{hx:['past delirium tremens',1],paws:['4 or more: high risk',1],ciwa:['not used in delirium: RASS, CAM-ICU',1],ill:['acute illness',1]}}[sc];
+  R.assess=Object.assign({},A);
+  if(preg)R.assess.ill=['pregnant: obstetric consult',1];
+  R.ciwa={mild:6,mod:14,sev:24,del:null}[sc];
+  R.set={mild:'l1',mod:'l2',sev:'inp',del:'icu'}[sc];
+  if(sc==='mod')R.setAlt=['l1','inp'];
+  if(preg&&(sc==='mild'||sc==='mod')){R.set='inp';R.setAlt=[]}
+  R.med={mild:'cg',mod:'bst',sev:'bfl',del:'icu'}[sc];
+  if(sc==='mod')R.medAlt=['cg'];
+  if(sc==='del')R.medAlt=['bfl'];
+  if(preg&&R.med==='cg'){R.med='bst';R.medAlt=[]}
+  if(preg&&sc==='mod')R.medAlt=[];
+  const amb=R.set==='l1'||R.set==='l2';
+  R.adj={thi:amb?'oral, as published':'IV or IM preferred',flu:amb?'non-caffeinated drinks':R.set==='icu'?'immediate IV access':'intake and output',
+    ele:sc==='sev'?'magnesium: past seizures':sc==='del'?'watch sodium, acidosis':'check, correct if low'};
+  return R}
+const DX_STEPS=[
+ {from:0,at:.09,k:'Step 1 · Assess',t:'Assess the risk'},
+ {from:.2,at:.29,k:'Step 2 · Setting',t:'Choose a setting'},
+ {from:.4,at:.49,k:'Step 3 · Medicines',t:'Choose medicines'},
+ {from:.6,at:.69,k:'Step 4 · Adjuncts',t:'Thiamine, fluids, electrolytes'},
+ {from:.8,at:.92,k:'Step 5 · Next',t:'Link to AUD treatment'}];
+function dxNote(i,R){const S=DX_STEPS[i],sc=R.sc,o={k:S.k+' · '+DX_NAMES[sc]+(R.liver?' · liver disease':'')+(R.preg?' · pregnant':''),t:S.t};
+  if(i===0){
+    o.t='Who is at risk of complicated withdrawal?';
+    o.txt=`ASAM 2020 lists the risk factors: past withdrawal delirium or seizure, many prior withdrawals, medical or surgical illness (especially traumatic brain injury), age over 65, long heavy drinking, a seizure in this episode, marked autonomic overactivity, and dependence on benzodiazepines or barbiturates. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup> The PAWSS can be used before any signs appear: at 4 or more it had a sensitivity of 93.1% and specificity of 99.5% in medically ill inpatients, but performed poorly in a community detox unit where severe withdrawal was common. <sup class="c" data-ref="Maldonado2015,Crepeault2025" title="Source 70,308">70,308</sup> CIWA-Ar measures how severe withdrawal is now (ASAM bands: under 10, 10–18, 19 or more); ASAM says it "should not be used as a diagnostic tool". Suicide risk is assessed at intake. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup> `+
+      {mild:'This example person has none of the risk factors, and an example CIWA-Ar of 6 sits in the mild band.',
+       mod:'This example person has no complicating factors, but an example CIWA-Ar of 14 is in the moderate band.',
+       sev:'This example person had a seizure in a past withdrawal, scores high on PAWSS, and an example CIWA-Ar of 24 is in the severe band.',
+       del:'This example person is delirious. CIWA-Ar relies on what the person reports, so ASAM does not recommend it in delirium: CAM-ICU, RASS or similar tools are used instead. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>'}[sc]+
+      (R.preg?' Pregnancy changes the setting: see step 2.':'');
+    o.pt='Before deciding where and how, the team asks: has this person had seizures or DTs before, how strong are the symptoms now, are they ill in other ways, and is someone at home to help?';
+    o.hook='The strongest predictor of DT or seizures is a past DT or seizure (OR 2.58 and 2.8). Low platelets and low potassium also predict DT. <sup class="c" data-ref="Goodson2014" title="Source 143">143</sup>'}
+  if(i===1){
+    o.t={l1:'Ambulatory care with daily check-ins',l2:'Ambulatory, with extended on-site monitoring',inp:'An inpatient bed',icu:'Intensive care'}[R.set];
+    o.txt=`ASAM 2020: withdrawal can usually be managed safely as an outpatient when risk factors are limited, aiming for the least intensive setting that is safe and effective. Its placement table rates outpatient care (Level 1-WM) appropriate for mild withdrawal (CIWA-Ar under 10), uncertain for moderate (10–18) and inappropriate for severe or complicated (19 or more); extended on-site monitoring (Level 2-WM) is appropriate below 18. Outpatients check in daily for up to 5 days. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup> `+
+      {l1:'Transfer to more intensive care if agitation or tremor persist despite several doses, vomiting, hallucinations, confusion, a seizure, over-sedation, a return to drinking, fainting or unstable vital signs. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>',
+       l2:'For moderate withdrawal without complications, on-site monitoring is appropriate; plain outpatient care is "neutral or uncertain", and drinking more than 8 standard drinks a day is also flagged as uncertain. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>',
+       inp:R.preg?'ASAM: consider inpatient care for every pregnant patient who needs withdrawal management, offer it at CIWA-Ar 10 or more, and consult an obstetrician. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>':'Severe or complicated withdrawal is inappropriate for outpatient care. After a withdrawal seizure, ASAM asks for a closely monitored setting with reassessment every 1–2 hours for 6–24 hours. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>',
+       icu:'Delirium tremens should be managed in an ICU or a ward with vital-sign monitoring: untreated or late-recognised, it can be fatal through arrhythmia, respiratory arrest, sepsis, electrolyte disturbance or prolonged seizures. <sup class="c" data-ref="Mainerova2015" title="Source 304">304</sup>'}[R.set];
+    o.pt='Most people can be helped to withdraw safely at home or at a clinic with daily check-ins. Some need a hospital bed, and a few need intensive care. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>';
+    o.hook='Emergency-department discharge to outpatient care needs all of: mild (or uncomplicated moderate) withdrawal, not intoxicated, no past seizures or delirium in withdrawal, no significant comorbidity, able to attend follow-up. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>'}
+  if(i===2){
+    o.t={cg:'Carbamazepine or gabapentin',bst:'A benzodiazepine, symptom-triggered',bfl:'Benzodiazepine front loading',icu:'Specialist ICU medicines'}[R.med];
+    o.txt=`Benzodiazepines are first line because they reduce both seizures and delirium (Mayo-Smith 1997: 7.7 fewer seizures and 4.9 fewer cases of delirium per 100 patients). <sup class="c" data-ref="MayoSmith1997" title="Source 321">321</sup> `+
+      {cg:'For mild withdrawal, ASAM rates carbamazepine or gabapentin appropriate. In outpatient care, it also asks that benzodiazepine supplies be kept to the minimum, with these two as alternatives. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>',
+       bst:(R.preg?'In pregnancy, ASAM names benzodiazepines and barbiturates the medicines of choice, judging the risks of severe withdrawal greater than the small first-trimester risks. ':'For moderate withdrawal, benzodiazepines come first, with carbamazepine or gabapentin as alternatives. ')+'Inpatient symptom-triggered treatment "is the preferred benzodiazepine dosing method". ASAM\'s sample regimen, quoted as published and not an instruction: chlordiazepoxide "25-100 mg PO q4-6h when CIWA-Ar ≥ 10. Additional doses PRN". <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>',
+       bfl:'For severe withdrawal (CIWA-Ar 19 or more) ASAM recommends front loading, preferring diazepam or chlordiazepoxide. Its sample, quoted as published and not an instruction: chlordiazepoxide "50-100 mg PO q1-2h until CIWA-Ar < 10". <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>',
+       icu:'In delirium, very large benzodiazepine doses may be needed. For resistant withdrawal ASAM allows phenobarbital (only by clinicians experienced with it, "given its narrow therapeutic window"), propofol in people who already need a ventilator, and dexmedetomidine in the ICU. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>'}[R.med]+
+      (R.liver?' <b>Liver disease:</b> ASAM asks for an agent with less hepatic metabolism, warns of accumulation in older adults and in liver disease, and rules out valproic acid. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>':'');
+    o.pt='Benzodiazepines calm the over-excited brain and lower the chance of seizures and DTs. "Symptom-triggered" means a dose is given only when the checklist score shows it is needed.';
+    o.hook='Symptom-triggered dosing used less drug for a shorter time with similar safety (Saitz 1994: 100 vs 425 mg chlordiazepoxide; 9 vs 68 hours). <sup class="c" data-ref="Saitz1994" title="Source 409">409</sup>'}
+  if(i===3){
+    const amb=R.set==='l1'||R.set==='l2';
+    o.t='Protect the brain, correct the body';
+    o.txt=(amb?'In ambulatory care, ASAM says oral thiamine can be offered: "Typical dosing is 100 mg PO per day for 3-5 days" (quoted as published). Patients drink non-caffeinated fluids, and a daily multivitamin may help. ':'In inpatient care, ASAM prefers IV or IM thiamine, typically "100 mg IV/IM per day for 3-5 days" (quoted as published), and says thiamine and glucose may be given "in any order or concurrently". ')+
+      `Magnesium is given for low magnesium, arrhythmias, electrolyte disturbances or past withdrawal seizures; phosphorus is supplemented below 1 mg/dL. Emergency patients get a blood count and a metabolic panel including liver enzymes and magnesium, without delaying withdrawal treatment for the results. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup> `+
+      (R.sc==='del'?'People given repeated high IV doses of lorazepam or diazepam are watched for low sodium and metabolic acidosis. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup> ':'')+
+      'The full thiamine story is in <a href="#wernicke" data-go="wernicke">Thiamine, Wernicke and Korsakoff</a>.';
+    o.pt='Vitamin B1 (thiamine) protects the brain. Fluids and salts such as magnesium are checked and topped up when they are low.';
+    o.hook='Magnesium given only as a treatment for withdrawal itself "has no supporting evidence": it is for low levels and specific problems. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>'}
+  if(i===4){
+    o.t='A way into treatment';
+    o.txt='ASAM 2020: withdrawal management alone "is not an effective treatment for alcohol use disorder". The withdrawal period is used to engage the person in treatment, including starting an AUD medicine when thinking allows, and a "warm handoff" to treatment providers. Gabapentin is a favourable withdrawal choice when the clinician also plans to use it for ongoing AUD treatment. The word "withdrawal management" has replaced the older "detoxification". <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup> See <a href="#medicines" data-go="medicines">approved medicines</a> and <a href="#therapy" data-go="therapy">talking therapies</a>.';
+    o.pt='Getting through withdrawal is a first step. Ongoing treatment for alcohol use disorder is what helps recovery last. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>';
+    o.hook='Repeated withdrawals may "kindle" worse ones: in Brown 1988, 48% of people with withdrawal seizures had 5 or more prior detoxifications, against 12% without seizures. <sup class="c" data-ref="Brown1988Kindling" title="Source 51">51</sup>'}
+  return o}
+
+inits.detox=()=>{
+  const svg=$('#dxSvg'),rg=$('#dxT');let sc='mild',liver=false,preg=false,setSt=()=>{};
+  /* layout of the five stages: wide = columns, narrow = rows */
+  function layout(N,R){const cols=[];
+    if(!N){DX_COLS.forEach((C,c)=>{const x=12+c*142,w=130;let y=48;const boxes=C.opts.map(op=>{const tl=dxWrap(op.t,18),vl=dxWrap(dxVal(C,op,R),20);const h=12+tl.length*12.5+vl.length*11.5+5;const b={op,x,y,w,h,tl,vl};y+=h+7;return b});cols.push({C,x,w,hy:32,boxes,bot:y})});
+      const mb=Math.max(...cols.map(c=>c.bot));return {cols,W:720,H:Math.round(mb+92),strip:{x0:56,x1:680,y:mb+40}}}
+    let y=26;DX_COLS.forEach((C,c)=>{const n=C.opts.length,w=(376-(n-1)*5)/n;const hy=y+10;const boxes=C.opts.map((op,i)=>{const tl=dxWrap(op.t,Math.floor((w-8)/5.9)),vl=dxWrap(dxVal(C,op,R),Math.floor((w-8)/5.25));return {op,x:12+i*(w+5),y:y+18,w,tl,vl}});
+      const h=Math.max(...boxes.map(b=>10+b.tl.length*11.5+b.vl.length*10.5+5));boxes.forEach(b=>b.h=h);cols.push({C,x:12,w:376,hy,boxes,bot:y+18+h});y+=18+h+16});
+    return {cols,W:400,H:Math.round(y+96),strip:{x0:30,x1:370,y:y+40}}}
+  function dxVal(C,op,R){if(C.k==='assess')return R.assess[op.id][0];if(C.k==='adj')return R.adj[op.id];if(C.k==='med'&&R.liver&&op.id===R.med&&op.id!=='cg')return op.d+'; liver: less hepatic metabolism';return op.d||''}
+  function state(C,op,R){if(C.k==='assess')return R.assess[op.id][1]?'risk':'ok';if(C.k==='adj'||C.k==='next')return 'on';
+    const ch=C.k==='set'?R.set:R.med,al=C.k==='set'?R.setAlt:R.medAlt;return op.id===ch?'on':al.includes(op.id)?'alt':'off'}
+  function draw(t){
+    const R=dxRoute(sc,liver,preg),N=NARROW(),L=layout(N,R);vb(svg,'720 '+L.H,'400 '+L.H);
+    const pos=clamp((t-.06)/.86)*4,ph=phaseOf(DX_STEPS,t);let s=`<defs>${marker('dxA','var(--accent)')}</defs>`;
+    /* path points: the chosen box in each stage */
+    const P=L.cols.map((col,c)=>{let b;if(c===0||c===3||c===4){const a=col.boxes[0],z=col.boxes[col.boxes.length-1];return N?[(a.x+z.x+z.w)/2,a.y-4]:[a.x-1,(a.y+z.y+z.h)/2]}
+      b=col.boxes.find(bb=>state(col.C,bb.op,R)==='on');return N?[b.x+b.w/2,b.y-4]:[b.x-1,b.y+b.h/2]});
+    /* stage headers */
+    L.cols.forEach((col,c)=>{const reached=pos>=c-.5;s+=`<text x="${f1(N?col.x:col.x+col.w/2)}" y="${f1(col.hy)}" class="t-sm${N?'':' t-mid'}" style="fill:${reached?'var(--accent)':'var(--muted)'};font-weight:600">${col.C.h.toUpperCase()}</text>`});
+    /* path behind the boxes */
+    let dd='';P.forEach((p,i)=>{dd+=(i?'L':'M')+f1(p[0])+' '+f1(p[1])});
+    s+=`<path d="${dd}" style="fill:none;stroke:var(--line);stroke-width:2;stroke-dasharray:4 5"/>`;
+    const seg=Math.min(3,Math.floor(pos)),fr=ease(clamp(pos-seg)),tok=[lerp(P[seg][0],P[seg+1][0],fr),lerp(P[seg][1],P[seg+1][1],fr)];
+    let dn='M'+f1(P[0][0])+' '+f1(P[0][1]);for(let i=1;i<=seg;i++)dn+='L'+f1(P[i][0])+' '+f1(P[i][1]);dn+='L'+f1(tok[0])+' '+f1(tok[1]);
+    s+=`<path d="${dn}" style="fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:.75"/>`;
+    /* boxes */
+    L.cols.forEach((col,c)=>{const reached=pos>=c-.45;col.boxes.forEach(b=>{const st=state(col.C,b.op,R);
+      let fill='var(--panel-2)',stroke='var(--line)',sw=1,op=.9,dash='';
+      if(reached){if(st==='on'){fill='var(--accent-soft)';stroke='var(--accent)';sw=2.2;op=1}
+        else if(st==='alt'){fill='var(--panel)';stroke='var(--accent)';sw=1.4;dash='4 3';op=1}
+        else if(st==='risk'){fill='var(--bad-soft)';stroke='var(--bad)';sw=1.6;op=1}
+        else if(st==='ok'){fill='var(--good-soft)';stroke='var(--good)';sw=1.2;op=1}
+        else op=.5}
+      s+=`<rect x="${f1(b.x)}" y="${f1(b.y)}" width="${f1(b.w)}" height="${f1(b.h)}" rx="8" style="fill:${fill};stroke:${stroke};stroke-width:${sw};opacity:${op}${dash?';stroke-dasharray:'+dash:''}"/>`;
+      const tx=b.x+(N?5:7);let ty=b.y+(N?13:15);
+      b.tl.forEach(l=>{s+=`<text x="${f1(tx)}" y="${f1(ty)}" style="font:700 ${N?10:11}px var(--body);fill:var(--ink);opacity:${reached||st!=='off'?1:.75}">${l}</text>`;ty+=N?11.5:12.5});
+      ty+=1;const vc=!reached?'var(--muted)':st==='risk'?'var(--bad)':st==='ok'?'var(--good)':st==='on'?'var(--accent)':'var(--muted)';
+      b.vl.forEach(l=>{s+=`<text x="${f1(tx)}" y="${f1(ty)}" class="t-xs" style="fill:${vc}${N?';font-size:9px':''}">${l}</text>`;ty+=N?10.5:11.5});
+      if(reached&&st==='on'&&(col.C.k==='set'||col.C.k==='med'))s+=`<circle cx="${f1(b.x+b.w-9)}" cy="${f1(b.y+9)}" r="4" style="fill:var(--accent)"/>`;
+      if(reached&&st==='alt')s+=`<text x="${f1(b.x+b.w-5)}" y="${f1(b.y+b.h-5)}" class="t-xs t-end" style="fill:var(--accent)">alt.</text>`;
+})});
+    /* token: a person in a circle */
+    s+=`<circle cx="${f1(tok[0])}" cy="${f1(tok[1])}" r="9.5" style="fill:var(--ember);stroke:var(--panel);stroke-width:2"/>`+person(tok[0],tok[1]-6,12,'var(--panel)');
+    /* CIWA-Ar strip */
+    const S=L.strip,mx=30,X=v=>lerp(S.x0,S.x1,v/mx),y=S.y;
+    s+=`<text x="${S.x0}" y="${f1(y-30)}" class="t-sm" style="font-weight:600">CIWA-Ar BANDS (ASAM 2020)${N?'':' · scale to 30 of a possible 67 · ▼ = an example score, not a real patient'}</text>`;
+    [[0,10,'var(--good)','mild <10'],[10,19,'var(--warn)','moderate 10–18'],[19,30,'var(--bad)','severe ≥19']].forEach(([a,b2,c,l])=>{s+=`<rect x="${f1(X(a))}" y="${f1(y-12)}" width="${f1(X(b2)-X(a)-1)}" height="16" rx="3" style="fill:${c};opacity:.2"/><text x="${f1((X(a)+X(b2))/2)}" y="${f1(y)}" class="t-xs t-mid" style="fill:${c}">${l}</text>`});
+    [0,10,19,30].forEach(v=>s+=`<text x="${f1(X(v))}" y="${f1(y+18)}" class="t-xs t-mid">${v}</text>`);
+    if(R.ciwa!=null){const v=R.ciwa*ease(ramp(t,0,.1)),xm=X(v);s+=`<path d="M${f1(xm)} ${f1(y-14)}l-6 -9h12Z" style="fill:var(--ink)"/><text x="${f1(xm)}" y="${f1(y+32)}" class="t-xs t-mid" style="fill:var(--ink)">example ${Math.round(v)}</text>`}
+    else s+=`<text x="${f1((S.x0+S.x1)/2)}" y="${f1(y+34)}" class="t-xs t-mid" style="fill:var(--bad)">${N?'delirium: CIWA-Ar not used; RASS or CAM-ICU':'In delirium CIWA-Ar is not recommended: RASS or CAM-ICU are used instead (ASAM VI.9)'}</text>`;
+    svg.innerHTML=s;setSt(ph);
+    const nm=(k,id)=>DX_COLS.find(C=>C.k===k).opts.find(o=>o.id===id).t;
+    $('#dxRead').innerHTML=`<span>person <b>${DX_NAMES[sc]}${liver?' + liver disease':''}${preg?' + pregnant':''}</b></span><span>setting <b>${nm('set',R.set)}</b></span><span>medicine <b>${nm('med',R.med)}</b></span><span>thiamine <b>${R.adj.thi}</b></span>`;
+    $('#dxNote').innerHTML=noteHTML(dxNote(ph,R));
+  }
+  const stop=playWire(rg,$('#dxPlay'),draw,16000,'Replay','detox');
+  setSt=stepWire($('#dxSteps'),DX_STEPS,rg,draw,stop);
+  $$('[data-dxs]').forEach(b=>b.addEventListener('click',()=>{stop();sc=b.dataset.dxs;$$('[data-dxs]').forEach(x=>x.setAttribute('aria-pressed',x===b));draw(+rg.value)}));
+  $('#dxLiver').addEventListener('click',()=>{liver=!liver;$('#dxLiver').setAttribute('aria-pressed',liver);draw(+rg.value)});
+  $('#dxPreg').addEventListener('click',()=>{preg=!preg;$('#dxPreg').setAttribute('aria-pressed',preg);draw(+rg.value)});
+  draw(+rg.value);
+
+  /* ---- longer- vs shorter-acting: schematic levels over 72 hours ---- */
+  const bz=$('#dxBz'),br=$('#dxBzT');let mode='both',acc=false;
+  const DOSES=[0,8,16,24,32,40];
+  function lev(k,h){const ka=1.6;let c=0;DOSES.forEach(d=>{if(h>=d){const u=h-d;c+=ka/(ka-k)*(Math.exp(-k*u)-Math.exp(-ka*u))}});return c}
+  /* normalise each agent to a schematic peak under normal clearance */
+  const pk=(k)=>{let m=0;for(let h=0;h<=48;h+=.25)m=Math.max(m,lev(k,h));return m};
+  const KL=.035,KS=.26,NL=.62/pk(KL),NS=.74/pk(KS);
+  const fL=h=>NL*lev(acc?KL*.3:KL,h),fS=h=>NS*lev(acc?KS*.7:KS,h);
+  function drawB(t){const N=vb(bz,'720 300','400 346');const H=t*72;
+    const x0=N?40:58,x1=N?384:700,y0=N?52:40,y1=N?292:230,X=h=>lerp(x0,x1,h/72),Y=v=>lerp(y1,y0,clamp(v,0,1.05)/1.05);
+    let s=`<rect x="${x0}" y="${f1(Y(.3))}" width="${x1-x0}" height="${f1(y1-Y(.3))}" style="fill:var(--glu-soft);opacity:.8"/><rect x="${x0}" y="${y0}" width="${x1-x0}" height="${f1(Y(.86)-y0)}" style="fill:var(--gaba-soft);opacity:.9"/>`;
+    s+=`<text x="${x1-6}" y="${f1(y0+13)}" class="t-xs t-end" style="fill:var(--gaba)">too much: over-sedation</text><rect x="${x0}" y="${y1+34}" width="10" height="9" style="fill:var(--glu-soft);stroke:var(--glu);stroke-width:.8"/><text x="${x0+15}" y="${y1+42}" class="t-xs" style="fill:var(--glu)">too little: withdrawal symptoms can return</text>`;
+    s+=`<line x1="${x0}" x2="${x1}" y1="${y1}" y2="${y1}" class="axis"/><line x1="${x0}" x2="${x0}" y1="${y0}" y2="${y1}" class="axis"/>`;
+    [0,12,24,36,48,60,72].forEach(h=>s+=`<text x="${f1(X(h))}" y="${y1+14}" class="t-xs t-mid">${h}</text>`);
+    s+=`<text x="${x1}" y="${y1+28}" class="t-xs t-end">hours after the first dose (schematic)</text><text x="${x0-6}" y="${f1(Y(.55))}" class="t-xs t-end" transform="rotate(-90 ${x0-10} ${f1(Y(.55))})">drug effect</text>`;
+    DOSES.forEach(d=>{s+=`<path d="M${f1(X(d))} ${y1+2}l-4 7h8Z" style="fill:var(--rx);opacity:${H>=d?1:.3}"/>`});
+    s+=`<text x="${f1(X(20))}" y="${N?y0-26:y0-12}" class="t-xs t-mid" style="fill:var(--rx)">▲ doses, then the taper ends at 40 h</text>`;
+    const line=(f,col,lab,dash)=>{if(H<=0)return '';const d=pathFn(u=>f(u*H)/1.05,x0,X(H),y1,y0,220);const e=f(H);
+      return `<path d="${d}" style="fill:none;stroke:${col};stroke-width:2.8;stroke-linejoin:round${dash?';stroke-dasharray:'+dash:''}"/><circle cx="${f1(X(H))}" cy="${f1(Y(e))}" r="5" style="fill:${col};stroke:var(--panel);stroke-width:2"/>`};
+    if(mode!=='short')s+=line(fL,'var(--rx)');
+    if(mode!=='long'){s+=line(fS,'var(--accent)','',acc?'':'');
+      /* mark dips into the symptom band */
+      for(let h=4;h<=Math.min(H,72);h+=.5){const v=fS(h),p=fS(h-.5),n=fS(h+.5);if(v<.3&&v<=p&&v<=n)s+=`<circle cx="${f1(X(h))}" cy="${f1(Y(v))}" r="6.5" style="fill:none;stroke:var(--glu);stroke-width:1.8"/>`}}
+    if(mode!=='long'&&!acc&&H>=54)s+=`<text x="${x1}" y="${f1(Y(.3)-6)}" class="t-xs t-end" style="fill:var(--accent)">${N?'short: rebound':'shorter-acting: rebound'}</text>`;
+    if(mode!=='short'&&H>=54)s+=`<text x="${x1}" y="${f1(Y(fL(54))-10)}" class="t-xs t-end" style="fill:var(--rx)">${N?'long: tapers itself':'longer-acting: tapers itself'}</text>`;
+    if(acc&&mode!=='short'&&H>=30)s+=`<text x="${x0+6}" y="${f1(y0+13)}" class="t-xs" style="fill:var(--gaba)">both accumulate</text>`;
+    s+=`<g transform="translate(${x0} ${N?18:14})"><line x1="0" x2="18" y1="0" y2="0" style="stroke:var(--rx);stroke-width:3"/><text x="24" y="3.5" class="t-xs">longer-acting</text><line x1="${N?110:120}" x2="${N?128:138}" y1="0" y2="0" style="stroke:var(--accent);stroke-width:3"/><text x="${N?134:144}" y="3.5" class="t-xs">shorter-acting</text>${N?'':'<circle cx="262" cy="0" r="5" style="fill:none;stroke:var(--glu);stroke-width:1.6"/><text x="272" y="3.5" class="t-xs">dip into the symptom band</text>'}</g>`;
+    bz.innerHTML=s;
+    const late=H>=44;
+    $('#dxBzNote').innerHTML=noteHTML({k:`Hour ${Math.round(H)} · ${acc?'older adult or liver disease':'usual clearance'}`,t:acc?'When the drug piles up':late?'After the last dose':'During dosing',
+      txt:acc?'ASAM 2020 warns that very large benzodiazepine doses can accumulate in older adults and in people with liver disease, causing over-sedation and slowed breathing, and asks for an agent with less hepatic metabolism in significant liver disease. Here both schematic curves clear more slowly, and the longer-acting one climbs into the over-sedation band. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>':
+        late?'Once doses stop, a longer-acting agent fades gradually: it "tapers itself", giving a smoother course with less rebound. A shorter-acting agent falls quickly, and Saitz describes more risk of rebound symptoms with short-acting agents, including late seizures. ASAM\'s sample fixed-schedule regimen tapers the daily dose "by 25-50% per day over 3-5 days" (quoted, not an instruction). <sup class="c" data-ref="Saitz1998AHRW,ASAM2020Withdrawal" title="Source 20,410">20,410</sup>':
+        'With repeated doses, a longer-acting agent builds to an even level. A shorter-acting agent peaks and dips with every dose, and between doses the effect can sink low enough for symptoms to return (circled). ASAM still finds no benzodiazepine more effective than another: duration and liver handling, not strength, guide the choice. <sup class="c" data-ref="ASAM2020Withdrawal,Saitz1998AHRW" title="Source 20,410">20,410</sup>',
+      pt:acc?'In an older person or someone whose liver works poorly, the medicine can build up and make them too sleepy. Teams watch for this closely.':'A longer-acting medicine is like a slow dimmer; a shorter-acting one switches on and off. The slow one gives a steadier ride.',
+      hook:'ASAM prefers longer-acting benzodiazepines (diazepam, chlordiazepoxide for front loading); in significant liver disease, an agent with less hepatic metabolism. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>'});
+  }
+  playWire(br,$('#dxBzPlay'),drawB,9000,'Replay','detox');
+  $$('[data-dxb]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.dxb;$$('[data-dxb]').forEach(x=>x.setAttribute('aria-pressed',x===b));drawB(+br.value)}));
+  $('#dxAcc').addEventListener('click',()=>{acc=!acc;$('#dxAcc').setAttribute('aria-pressed',acc);drawB(+br.value)});
+  drawB(+br.value);
+
+  /* ---- trial results as bars ---- */
+  const fx=$('#dxFx');let fset='ms',stopF=null;
+  const FX={
+   ms:{t:'Benzodiazepines prevent seizures and delirium',unit:'fewer cases per 100 patients',max:14,
+     rows:[{l:'Seizures',v:7.7,lo:3.5,hi:12,txt:'7.7 (95% CI 3.5–12.0)'},{l:'Delirium',v:4.9,lo:.7,hi:9,txt:'4.9 (95% CI 0.7–9.0)'}],
+     cap:'Mayo-Smith 1997 ASAM meta-analysis: benzodiazepines against control. The 2010 Cochrane review found benzodiazepines protected against seizures against placebo (RR 0.16, 95% CI 0.04–0.69). <sup class="c" data-ref="MayoSmith1997,Amato2010Cochrane" title="Source 8,321">8,321</sup>'},
+   st:{t:'Symptom-triggered vs fixed schedule',pairs:true,
+     rows:[{l:'Saitz 1994: hours of treatment (median)',a:9,b:68,u:'h'},{l:'Saitz 1994: chlordiazepoxide (mg)',a:100,b:425,u:'mg'},{l:'Daeppen 2002: hours (mean)',a:20.0,b:62.7,u:'h'},{l:'Daeppen 2002: oxazepam (mg, mean)',a:37.5,b:231.4,u:'mg'},{l:'Daeppen 2002: people given any drug',a:39,b:100,u:'%'}],
+     la:'symptom-triggered',lb:'fixed schedule',
+     cap:'Two double-blind trials. Saitz 1994 (101 inpatients, history of seizures excluded): no difference in severity, seizures or DT. Daeppen 2002 (117 patients): one seizure in the symptom-triggered group; comfort did not differ. <sup class="c" data-ref="Saitz1994,Daeppen2002" title="Source 73,409">73,409</sup>'},
+   more:{t:'Seizure, ICU and ventilator outcomes',pairs:true,
+     rows:[{l:'Recurrent seizure in 6 h: IV lorazepam vs placebo (RCT)',a:3,b:24,u:'%'},{l:'ICU admission: phenobarbital + protocol vs placebo + protocol (RCT)',a:8,b:25,u:'%'},{l:'On a ventilator: after vs before an ICU guideline (before-after)',a:22,b:47,u:'%'},{l:'On a ventilator: phenobarbital vs CIWA-Ar protocol (retrospective)',a:2,b:23,u:'%'}],
+     la:'first-named group',lb:'comparison',
+     cap:'D\'Onofrio 1999 (186 ED patients after an alcohol-related seizure), Rosenson 2013 (102 ED patients), Gold 2007 (95 ICU patients), Tidwell 2018 (retrospective ICU cohort). Only the first two are randomised; an ED meta-analysis found no significant phenobarbital benefit for ICU admission (RR 0.92). <sup class="c" data-ref="DOnofrio1999NEJM,Rosenson2013,Gold2007CCM,Tidwell2018,Lee2024AEM" title="Source 90,142,280,402,461">90,142,280,402,461</sup>'}};
+  function drawF(p){const N=vb(fx,'720 300','400 '+(fset==='ms'?300:fset==='st'?470:420));const F=FX[fset];let s='';
+    s+=`<text x="${N?12:20}" y="22" class="t-lbl">${F.t}</text>`;
+    if(!F.pairs){const x0=N?20:150,x1=N?380:690,X=v=>lerp(x0,x1,v/F.max);
+      F.rows.forEach((r,i)=>{const y=N?70+i*96:70+i*84;const v=r.v*ease(p);
+        s+=`<text x="${N?x0:x0-12}" y="${N?y-10:y+20}" class="t-lbl${N?'':' t-end'}">${r.l}</text>`;
+        s+=`<rect x="${x0}" y="${y}" width="${f1(X(v)-x0)}" height="30" rx="5" style="fill:var(--rx);opacity:.85"/>`;
+        if(p>.9){s+=`<line x1="${f1(X(r.lo))}" x2="${f1(X(r.hi))}" y1="${y+15}" y2="${y+15}" style="stroke:var(--ink);stroke-width:1.6"/><line x1="${f1(X(r.lo))}" x2="${f1(X(r.lo))}" y1="${y+8}" y2="${y+22}" style="stroke:var(--ink);stroke-width:1.6"/><line x1="${f1(X(r.hi))}" x2="${f1(X(r.hi))}" y1="${y+8}" y2="${y+22}" style="stroke:var(--ink);stroke-width:1.6"/>`}
+        s+=`<text x="${N?x0:f1(X(r.hi)+10)}" y="${N?y+48:y+19}" class="t-sm" style="fill:var(--ink)">${f1(v)} ${N?'':' · '}${N?'':r.txt.replace(/^[0-9.]+ /,'')}</text>`});
+      const ya=N?260:250;[0,2,4,6,8,10,12,14].forEach(v=>s+=`<text x="${f1(X(v))}" y="${ya}" class="t-xs t-mid">${v}</text>`);
+      s+=`<line x1="${x0}" x2="${x1}" y1="${ya-12}" y2="${ya-12}" class="axis"/><text x="${x1}" y="${ya+16}" class="t-xs t-end">${F.unit} · whiskers = 95% CI</text>`}
+    else{const x0=N?14:300,x1=N?380:690;
+      F.rows.forEach((r,i)=>{const y=N?58+i*(fset==='st'?80:86):50+i*(fset==='st'?46:56),m=Math.max(r.a,r.b),X=v=>lerp(x0,x1-(N?40:60),v/m);
+        const lab=dxWrap(r.l,N?56:46);lab.forEach((l,j)=>s+=`<text x="${N?x0:x0-12}" y="${f1(N?y-6-(lab.length-1-j)*11:y+10+j*11)}" class="t-xs${N?'':' t-end'}" style="fill:var(--ink)">${l}</text>`);
+        const a=r.a*ease(p),b=r.b*ease(p);
+        s+=`<rect x="${x0}" y="${y}" width="${f1(Math.max(1,X(a)-x0))}" height="15" rx="3" style="fill:var(--rx)"/><text x="${f1(X(a)+5)}" y="${y+11.5}" class="t-xs" style="fill:var(--ink)">${f1(a).replace('.0','')} ${r.u}</text>`;
+        s+=`<rect x="${x0}" y="${y+18}" width="${f1(Math.max(1,X(b)-x0))}" height="15" rx="3" style="fill:var(--muted);opacity:.7"/><text x="${f1(X(b)+5)}" y="${y+29.5}" class="t-xs" style="fill:var(--ink)">${f1(b).replace('.0','')} ${r.u}</text>`});
+      const ly=N?(fset==='st'?455:405):(fset==='st'?286:282);
+      s+=`<rect x="${N?14:x0}" y="${ly-9}" width="12" height="10" rx="2" style="fill:var(--rx)"/><text x="${N?30:x0+16}" y="${ly}" class="t-xs">${F.la}</text><rect x="${N?170:x0+170}" y="${ly-9}" width="12" height="10" rx="2" style="fill:var(--muted);opacity:.7"/><text x="${N?186:x0+186}" y="${ly}" class="t-xs">${F.lb}</text>`}
+    fx.innerHTML=s}
+  const FXN={ms:{k:'Mayo-Smith 1997 · meta-analysis',t:'Why benzodiazepines come first',txt:'Benzodiazepines reduced delirium by 4.9 cases per 100 patients (P=.04) and seizures by 7.7 per 100 (P=.003). Beta-blockers, clonidine and carbamazepine eased symptoms, but the evidence was inadequate for their effect on seizures and delirium. Phenothiazines eased symptoms but were less effective than benzodiazepines at preventing delirium and seizures. Within the first 2 days, reviews describe benzodiazepines reducing seizures by up to 84%. <sup class="c" data-ref="MayoSmith1997,Jesse2017,Mirijello2015" title="Source 203,321,332">203,321,332</sup>',
+      pt:'For every 100 people treated, about 8 fewer had a seizure and about 5 fewer had delirium than without these medicines.',hook:'Benzodiazepines are the only first-line class that reduces both seizures and delirium; other agents only mask symptoms. <sup class="c" data-ref="MayoSmith1997,ASAM2020Withdrawal" title="Source 20,321">20,321</sup>'},
+    st:{k:'Two randomised trials',t:'Give it when it is needed',txt:'Dosing by the CIWA-Ar score meant far less medicine for a far shorter time, with no difference in severity, seizures or DT in Saitz 1994; in Daeppen 2002, only 39% of the symptom-triggered group needed any oxazepam at all. A 1997 meta-analysis found that individualising therapy with withdrawal scales gives significantly less medication and shorter treatment. Symptom-triggered dosing needs a patient who has recently been drinking and can talk: in one hospital audit only 48% of patients on a CIWA-Ar protocol met both conditions. <sup class="c" data-ref="Saitz1994,Daeppen2002,MayoSmith1997,Hecksel2008" title="Source 73,171,321,409">73,171,321,409</sup>',
+      pt:'Instead of a fixed dose every few hours, the nurse checks the symptoms and gives medicine only when the score is high enough.',hook:'Saitz 1994: 100 vs 425 mg chlordiazepoxide, 9 vs 68 hours. ASAM: symptom-triggered is "the preferred benzodiazepine dosing method" in inpatients. <sup class="c" data-ref="Saitz1994,ASAM2020Withdrawal" title="Source 20,409">20,409</sup>'},
+    more:{k:'Emergency department and ICU',t:'After a seizure, and in the ICU',txt:'After a witnessed alcohol-related seizure, IV lorazepam cut recurrent seizures in 6 hours to 3/100 against 21/86 on placebo, and admissions from 42% to 29%. In the ICU, a guideline of escalating benzodiazepine doses plus phenobarbital went with fewer people needing ventilation, and a retrospective phenobarbital protocol with shorter ICU stays (2.4 vs 4.4 days). Before-after and retrospective studies can mislead, and an ICU meta-analysis rated the evidence for phenobarbital pathways very low certainty. <sup class="c" data-ref="DOnofrio1999NEJM,Gold2007CCM,Tidwell2018,Rizwan2026" title="Source 90,142,392,461">90,142,392,461</sup> <span class="ev early">Early evidence</span>',
+      pt:'A medicine given right after a seizure greatly lowers the chance of a second one. In intensive care, teams are still studying which plan works best.',hook:'After an alcohol withdrawal seizure: benzodiazepines prevent recurrence; phenytoin does not. <sup class="c" data-ref="DOnofrio1999NEJM,Hillbom2003,ASAM2020Withdrawal" title="Source 20,90,180">20,90,180</sup>'}};
+  function setF(k){fset=k;$$('[data-dxf]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.dxf===k));$('#dxFxCap').innerHTML=FX[k].cap;$('#dxFxNote').innerHTML=noteHTML(FXN[k]);if(stopF)stopF();stopF=animate(900,drawF,()=>{stopF=null});setTimeout(()=>{if(stopF&&fset===k){stopF();stopF=null;drawF(1)}},1600)}
+  $$('[data-dxf]').forEach(b=>b.addEventListener('click',()=>setF(b.dataset.dxf)));
+  $('#dxFxCap').innerHTML=FX.ms.cap;$('#dxFxNote').innerHTML=noteHTML(FXN.ms);drawF(1);
+  const prevR=redraws.detox;redraws.detox=()=>{prevR&&prevR();drawF(1)};
+};
+/* =============== 4.1 Approved medicines: naltrexone, acamprosate, disulfiram =============== */
+function meWrap(s,n){const L=[];let c='';s.split(' ').forEach(w=>{const nx=c?c+' '+w:w;if(nx.length>n&&c){L.push(c);c=w}else c=nx});if(c)L.push(c);return L}
+const ME_STEPS=[
+ {from:0,at:.08,k:'Naltrexone · 1 of 2',t:'A drink releases the brain’s own opioids',
+  txt:`PET imaging shows that drinking releases endogenous opioids (endorphins) in the nucleus accumbens and orbitofrontal cortex; in heavy drinkers the orbitofrontal change tracked problem drinking and the subjective "high". Alcohol also releases dopamine in the ventral striatum. Together these suggest why an opioid blocker could help. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Mitchell2012,Boileau2003" title="Source 43,333">43,333</sup>`,
+  pt:`Part of why alcohol feels rewarding is that it makes the brain release its own opioid-like chemicals, which switch on the reward system.`,
+  hook:`Alcohol → endogenous opioids → mu-opioid receptors → dopamine in the nucleus accumbens: the reward loop naltrexone targets.`},
+ {from:.15,at:.27,k:'Naltrexone · 2 of 2',t:'Naltrexone sits on the receptors',
+  txt:`Naltrexone is a pure opioid receptor antagonist. The label says its mechanism in AUD "is not understood", though preclinical data point to the endogenous opioid system. It "is not aversive therapy": drinking on it causes no disulfiram-like reaction. The oral label states "A dose of 50 mg once daily is recommended for most patients"; the injection is 380 mg every 4 weeks, given by a healthcare provider. <sup class="c" data-ref="FDA-Naltrexone,FDA-Vivitrol" title="Source 117,123">117,123</sup>`,
+  pt:`Naltrexone fills the parking spots the brain’s opioids would use, so a drink gives less of a reward signal. It does not make a person sick if they drink.`,
+  hook:`Naltrexone blocks opioids: check for opioid use first. The labels advise 7–10 opioid-free days before starting, to avoid precipitated withdrawal. <sup class="c" data-ref="FDA-Naltrexone,FDA-Vivitrol" title="Source 117,123">117,123</sup>`},
+ {from:.34,at:.40,k:'Acamprosate · 1 of 2',t:'After heavy drinking stops: an over-excited brain',
+  txt:`Chronic alcohol is thought to upset the balance between neuronal excitation and inhibition. With tolerance, NMDA glutamate receptors are up-regulated; when alcohol stops abruptly, this hyperexcitable state can lead to seizures and delirium tremens. <span class="ev est">Established</span> Get medical help to stop safely. The acamprosate label is clear that it "does not eliminate or diminish withdrawal symptoms". <sup class="c" data-ref="FDA-Campral,TsaiCoyle1998" title="Source 113,466">113,466</sup>`,
+  pt:`After months of heavy drinking the brain’s accelerator is turned up. When alcohol stops it can race, which is why stopping after heavy daily drinking needs medical help.`,
+  hook:`Withdrawal hyperexcitability: NMDA up-regulation after chronic alcohol. Acamprosate is not a withdrawal treatment.`},
+ {from:.49,at:.60,k:'Acamprosate · 2 of 2',t:'Acamprosate: rebalancing, as a hypothesis',
+  txt:`The label calls the mechanism "not completely understood": animal studies suggest acamprosate acts on glutamate and GABA systems, which leads to the hypothesis that it restores the balance. <span class="ev hyp">Hypothesis</span> Its indication is "maintenance of abstinence from alcohol in patients with alcohol dependence who are abstinent at treatment initiation", at two 333 mg tablets three times daily as published. <sup class="c" data-ref="FDA-Campral,KranzlerSoyka2018" title="Source 113,261">113,261</sup>`,
+  pt:`Acamprosate helps people who have already stopped drinking stay stopped. It is cleared by the kidneys, not the liver, and it is taken three times a day.`,
+  hook:`Acamprosate is excreted unchanged by the kidneys: label dose cut at CrCl 30–50 mL/min, contraindicated at ≤30. <sup class="c" data-ref="FDA-Campral" title="Source 113">113</sup>`},
+ {from:.66,at:.73,k:'Disulfiram · 1 of 2',t:'Disulfiram blocks the second enzyme',
+  txt:`Alcohol is broken down to acetaldehyde, then to acetate by aldehyde dehydrogenase (ALDH). Disulfiram blocks that second step: after drinking on it, blood acetaldehyde can be 5–10 times higher than with the same alcohol alone. Its boxed warning: it "should never be administered to a patient when he is in a state of alcohol intoxication, or without his full knowledge". <sup class="c" data-ref="FDA-Antabuse,KranzlerSoyka2018" title="Source 112,261">112,261</sup>`,
+  pt:`Disulfiram does not lower craving. It works as a deterrent: drinking while taking it makes a person very ill, so taking it must always be the person’s own informed choice.`,
+  hook:`Disulfiram inhibits ALDH → acetaldehyde builds 5–10-fold. Boxed warning: never during intoxication or without full knowledge. <sup class="c" data-ref="FDA-Antabuse" title="Source 112">112</sup>`},
+ {from:.81,at:.96,k:'Disulfiram · 2 of 2',t:'Acetaldehyde builds: the reaction',
+  txt:`The label lists flushing, throbbing headache, breathing difficulty, nausea, heavy vomiting, sweating, chest pain, palpitations, tachycardia, hypotension, fainting, vertigo, blurred vision and confusion. Severe reactions can include cardiovascular collapse, arrhythmias, heart attack, convulsions and death: a severe reaction is an emergency, so call emergency services. A reaction can happen up to 14 days after the last dose, including from hidden alcohol in sauces, vinegars, cough mixtures, aftershave lotions and back rubs. <sup class="c" data-ref="FDA-Antabuse" title="Source 112">112</sup>`,
+  pt:`For up to two weeks after the last tablet, even hidden alcohol in food, cough syrup or skin lotions can set off a reaction.`,
+  hook:`Disulfiram-alcohol reactions: up to 14 days after the last dose; mild from a blood alcohol of 5–10 mg/100 mL, fully developed at 50 mg/100 mL (label). Tolerance does not develop. <sup class="c" data-ref="FDA-Antabuse" title="Source 112">112</sup>`}
+];
+const ME_PH=[
+ {name:'Naltrexone',appr:['1984 · ReVia, oral tablets','2006 · Vivitrol, monthly injection'],
+  pts:['Opioid antagonist: blocks opioid painkillers, cough and antidiarrhoeal medicines','7–10 opioid-free days before starting','After it stops, a smaller opioid dose than before can cause overdose','No boxed warning now (liver warning removed in 2013)']},
+ {name:'Acamprosate',appr:['2004 · Campral, delayed-release tablets'],
+  pts:['For people already abstinent when it starts','Excreted unchanged by the kidneys','CrCl 30–50 mL/min: lower starting dose; ≤30: contraindicated','Does not treat withdrawal; watch for low mood or suicidal thoughts']},
+ {name:'Disulfiram',appr:['1951 · Antabuse (earliest Drugs@FDA record)'],
+  pts:['Boxed warning: never during intoxication or without the person’s full knowledge','Not until at least 12 h without alcohol','Reactions up to 14 days after the last dose','Hidden alcohol: sauces, vinegars, cough mixtures, aftershave']}
+];
+const ME_KV=[
+ `<div class="kv"><div><dt>First US approval</dt><dd>ReVia (oral naltrexone) 20 Nov 1984, with an efficacy supplement on 30 Dec 1994; Vivitrol (extended-release injection) 13 Apr 2006. <sup class="c" data-ref="DrugsFDA-AUD" title="Source 91">91</sup></dd></div><div><dt>Label points</dt><dd>Contraindicated with current opioid painkillers, current opioid dependence (including methadone or buprenorphine maintenance) or acute opioid withdrawal. Trying to overcome the blockade with large opioid doses can cause fatal overdose, and prescribers are told to discuss naloxone or nalmefene. The current labels carry no boxed warning; an earlier hepatotoxicity boxed warning was removed in 2013. <sup class="c" data-ref="FDA-Naltrexone,FDA-Vivitrol,Thompson2024JHEP" title="Source 117,123,457">117,123,457</sup></dd></div></div>`,
+ `<div class="kv"><div><dt>First US approval</dt><dd>Campral 29 Jul 2004. In 2001 it was already used in many other countries but not yet approved in the US. <sup class="c" data-ref="DrugsFDA-AUD,KranzlerVanKirk2001" title="Source 91,262">91,262</sup></dd></div><div><dt>Label points</dt><dd>Moderate renal impairment (creatinine clearance 30–50 mL/min): a starting dose of one 333 mg tablet three times daily; contraindicated at ≤30 mL/min. Suicidal events were uncommon but more frequent than on placebo (1.4% vs 0.5% in studies of 6 months or less), and the label asks families and caregivers to watch for and report depression or suicidal thinking. <sup class="c" data-ref="FDA-Campral" title="Source 113">113</sup></dd></div></div>`,
+ `<div class="kv"><div><dt>First US approval</dt><dd>Antabuse 28 Aug 1951, the earliest Drugs@FDA record; one review dates the first approval to 1949. <sup class="c" data-ref="DrugsFDA-AUD,KranzlerSoyka2018" title="Source 91,261">91,261</sup></dd></div><div><dt>Label points</dt><dd>Boxed warning: never during intoxication or without the person’s full knowledge, and the physician should tell relatives this. Contraindicated with recent metronidazole, paraldehyde, alcohol or alcohol-containing preparations, severe heart disease, psychoses, or thiuram allergy. Hepatitis, sometimes fulminant, has been reported. <sup class="c" data-ref="FDA-Antabuse" title="Source 112">112</sup></dd></div></div>`
+];
+/* scene 1: the reward synapse, in a 458 x 356 local box */
+function meSceneN(t){
+  const rA=ramp(t,0,.06),c=ramp(t,.16,.28),rr=rng(7),X=[110,170,230,290,350],ord=[2,0,4,1,3];
+  let s=`<text x="14" y="24" class="t-sm">REWARD SYNAPSE · SCHEMATIC</text>`;
+  s+=mol(216,20,'opi',{r:4.5})+`<text x="224" y="23.5" class="t-xs">endorphin</text>`;
+  s+=`<rect x="290" y="15" width="14" height="10" rx="3" style="fill:var(--rx)"/><text x="309" y="23.5" class="t-xs">naltrexone</text>`;
+  s+=mol(388,20,'da',{r:4})+`<text x="396" y="23.5" class="t-xs">dopamine</text>`;
+  s+=beaker(20,56,30,40,.55*rA+.05,{label:'a drink',ticks:3});
+  s+=`<path d="M58 78H112" class="arrow" marker-end="url(#meA)"/>`;
+  s+=`<path d="M120 44H340V86C340 114 300 120 230 120S120 114 120 86Z" style="fill:var(--cell);stroke:var(--brain-line);stroke-width:1.6"/>`;
+  s+=`<text x="230" y="62" class="t-xs t-mid">opioid-releasing nerve ending</text>`;
+  for(let i=0;i<5;i++)s+=`<circle cx="${150+i*40}" cy="92" r="8" style="fill:none;stroke:var(--stri);stroke-width:1.2"/><circle cx="${150+i*40}" cy="92" r="3" style="fill:var(--stri);opacity:${f1(1-rA*.6)}"/>`;
+  s+=`<path d="M40 208Q230 198 420 208V262H40Z" style="fill:var(--cell);stroke:var(--brain-line);stroke-width:1.6"/>`;
+  s+=`<text x="230" y="254" class="t-xs t-mid">dopamine-releasing cell · mu-opioid receptors</text>`;
+  let bound=0;
+  X.forEach((x,i)=>{const cap=clamp(c*5-ord.indexOf(i));let on=false;
+    if(rA>0){const p=(t*14+i*.29)%1,q=p*1.6;let ex=x,ey,op=rA;
+      if(q<1){ey=lerp(122,194,ease(q))}
+      else if(cap>=.95){const b=clamp((q-1)/.6);ey=194-b*64;ex=x+(i%2?1:-1)*b*26;op=rA*(1-b)}
+      else{ey=194;on=true}
+      s+=mol(ex,ey,'opi',{r:5,op:f1(op)})}
+    if(on)bound++;
+    s+=`<path d="M${x-11} 190V202Q${x-11} 212 ${x} 212Q${x+11} 212 ${x+11} 202V190" style="fill:${on?'var(--stri)':'none'};fill-opacity:.35;stroke:var(--stri);stroke-width:3;stroke-linecap:round"/>`;
+    if(cap>0){const y=lerp(140,196,ease(cap));s+=`<rect x="${x-9}" y="${f1(y-6)}" width="18" height="12" rx="3" style="fill:var(--rx)"/>`}});
+  const m=rA*(1-.7*c);
+  const nd=Math.round(20*m);
+  for(let i=0;i<20;i++){const bx=rr(),by=rr();if(i<nd)s+=mol(50+((bx+t*2.5)%1)*370,276+by*40,'da',{r:3.6})}
+  s+=`<text x="14" y="344" class="t-xs">dopamine → reward signal (nucleus accumbens)</text>`;
+  if(c>0)s+=`<g style="opacity:${f1(c)}">${pill(404,150,40,{txt:'NTX',ang:-18})}</g>`;
+  if(c>.55)s+=`<text x="230" y="236" class="t-xs t-mid" style="fill:var(--rx)">receptors occupied: endorphins bounce off</text>`;
+  else if(rA>.5)s+=`<text x="230" y="236" class="t-xs t-mid" style="fill:var(--stri)">endorphins land on the receptors</text>`;
+  return {svg:s,m}}
+/* scene 2: the over-excited synapse and the balance */
+function meSceneA(t){
+  const s1=ramp(t,.34,.38),u=ramp(t,.49,.60),fl=Math.floor(t*300)%9,tilt=lerp(.85,0,u)*s1;
+  let s=`<text x="14" y="24" class="t-sm">AFTER LONG, HEAVY DRINKING STOPS · SCHEMATIC</text>`;
+  s+=synapse(150,192,2.1,{gaba:2,nmda:6,gt:lerp(.3,.6,u),gl:.2+lerp(.8,.25,u)*s1,cl:lerp(.25,.6,u),ca:lerp(1,.3,u)*s1,spark:lerp(1,.06,u)*s1,seed:11+fl});
+  s+=`<text x="92" y="310" class="t-xs t-mid" style="fill:var(--gaba)">GABA-A · calming</text><text x="212" y="310" class="t-xs t-mid" style="fill:var(--glu)">NMDA · exciting</text>`;
+  s+=`<text x="150" y="330" class="t-xs t-mid">more NMDA receptors after chronic alcohol</text>`;
+  const B=balance(370,96,104,{tilt,ln:2,rn:Math.round(lerp(5,2,u)),lsub:'inhibition',rsub:'excitation'});s+=B.svg;
+  s+=`<text x="370" y="192" class="t-xs t-mid" style="fill:${u>.5?'var(--good)':'var(--glu)'};font-weight:700">${u>.5?'closer to':'excitation outweighs'}</text><text x="370" y="205" class="t-xs t-mid" style="fill:${u>.5?'var(--good)':'var(--glu)'};font-weight:700">${u>.5?'balance':'inhibition'}</text>`;
+  if(u>0){s+=`<g style="opacity:${f1(u)}">${pill(370,236,38,{round:true,txt:'ACA'})}`;
+    s+=`<text x="370" y="276" class="t-xs t-mid">acamprosate may act on</text><text x="370" y="289" class="t-xs t-mid">glutamate and GABA</text>`;
+    s+=`<rect x="330" y="298" width="80" height="16" rx="4" style="fill:var(--rx-soft)"/><text x="370" y="309.5" class="t-xs t-mid" style="fill:var(--rx);font-weight:700">HYPOTHESIS</text></g>`}
+  return {svg:s,m:tilt}}
+/* scene 3: the blocked pathway and the acetaldehyde pool */
+function meSceneD(t){
+  const b=ramp(t,.66,.73),aL=ramp(t,.75,.95),lv=lerp(.1,.85,aL);
+  let s=`<text x="14" y="24" class="t-sm">ALCOHOL BREAKDOWN · SCHEMATIC</text>`;
+  s+=pathway(14,40,430,{eth:.55,acet:lerp(.12,1,aL),ace:lerp(.75,.12,b),block:b}).svg;
+  if(b>.3)s+=`<text x="338" y="86" class="t-xs t-mid" style="fill:var(--bad);font-weight:700">blocked by disulfiram</text>`;
+  s+=tank(36,150,96,150,lv,{col:'var(--acet)',label:'acetaldehyde in blood'});
+  [ [.1,'1×'],[.5,'5×'],[1,'10×'] ].forEach(([v,l])=>{const y=150+150*(1-v);s+=`<line x1="132" x2="140" y1="${f1(y)}" y2="${f1(y)}" class="axis"/><text x="144" y="${f1(y+3)}" class="t-xs">${l}</text>`});
+  s+=`<path d="M168 150V225" style="stroke:var(--acet);stroke-width:2.4"/><text x="174" y="190" class="t-xs" style="fill:var(--acet)">5–10×</text><text x="174" y="202" class="t-xs">(label)</text>`;
+  const fl=ramp(t,.80,.9),px=244,py=150;
+  if(fl>0)s+=`<circle cx="${px}" cy="${f1(py+19)}" r="${f1(22+fl*6)}" style="fill:var(--glu-fill);opacity:${f1(.15+fl*.3)}"/>`;
+  s+=person(px,py,110,'var(--skin)');
+  s+=symptoms(px,py,110,{sweat:fl,tremor:0});
+  const SY=['flushing','throbbing headache','nausea, vomiting','sweating','breathing difficulty','palpitations','chest pain','low blood pressure'];
+  SY.forEach((y,i)=>{const a=ramp(aL,(i+.5)/9,(i+1.2)/9);if(a>0)s+=`<text x="${f1(300+(1-a)*10)}" y="${158+i*17}" class="t-xs" style="opacity:${f1(a)};fill:var(--ink)">• ${y}</text>`});
+  if(aL>.92)['Severe reactions can be','life-threatening: call','emergency services.'].forEach((l,i)=>{s+=`<text x="196" y="${302+i*13}" class="t-xs" style="fill:var(--bad);font-weight:700">${l}</text>`});
+  return {svg:s,m:lv}}
+function mePanel(x,y,w,h,ph,m,t,N){const P=ME_PH[ph],n=Math.floor((w-34)/(N?6.6:5.75)),ns=Math.floor((w-24)/(N?7.2:6.7));
+  let s=`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" style="fill:var(--panel);stroke:var(--line)"/>`;let yy=y+32;
+  s+=`<text x="${x+12}" y="${yy}" style="font:800 24px var(--display);fill:var(--rx)">${P.name}</text>`;
+  yy+=20;s+=`<text x="${x+12}" y="${yy}" class="t-xs">FIRST US APPROVAL · DRUGS@FDA</text>`;
+  P.appr.forEach(a=>meWrap(a,ns).forEach((l,k)=>{yy+=15;s+=`<text x="${x+12+(k?10:0)}" y="${yy}" class="t-sm" style="fill:var(--ink)">${l}</text>`}));
+  yy+=24;s+=`<text x="${x+12}" y="${yy}" class="t-xs">LABEL POINTS</text>`;yy+=2;
+  P.pts.forEach((p,i)=>{const hot=ph===2&&i===0;meWrap(p,n).forEach((l,k)=>{yy+=13;s+=`${k?'':`<text x="${x+12}" y="${yy}" class="t-xs" style="fill:${hot?'var(--bad)':'var(--rx)'}">•</text>`}<text x="${x+22}" y="${yy}" class="t-xs" style="fill:${hot?'var(--bad)':'var(--ink)'}">${l}</text>`});yy+=3});
+  const my=y+h-44,bx=x+12,bw=w-24;
+  if(ph===0){s+=`<text x="${bx}" y="${my}" class="t-xs">REWARD / CRAVING PULL · SCHEMATIC</text><rect x="${bx}" y="${my+8}" width="${bw}" height="12" rx="6" style="fill:var(--panel-2)"/><rect x="${bx}" y="${my+8}" width="${f1(bw*m)}" height="12" rx="6" style="fill:var(--stri)"/>`;
+    s+=`<text x="${bx}" y="${my+34}" class="t-xs" style="fill:var(--ink)">${t<.16?(m>.5?'a drink switches the reward system on':'before the drink'):'naltrexone dims the reward signal'}</text>`}
+  else if(ph===1){const cx=bx+bw/2;s+=`<text x="${bx}" y="${my}" class="t-xs">EXCITATION ↔ INHIBITION · SCHEMATIC</text><rect x="${bx}" y="${my+8}" width="${bw}" height="12" rx="6" style="fill:var(--panel-2)"/><rect x="${f1(cx)}" y="${my+8}" width="${f1(bw/2*m)}" height="12" rx="3" style="fill:var(--glu-fill)"/><line x1="${f1(cx)}" x2="${f1(cx)}" y1="${my+4}" y2="${my+24}" style="stroke:var(--ink);stroke-width:1.5"/>`;
+    s+=`<text x="${bx}" y="${my+34}" class="t-xs" style="fill:var(--gaba)">GABA</text><text x="${bx+bw}" y="${my+34}" class="t-xs t-end" style="fill:var(--glu)">glutamate</text>`}
+  else{s+=`<text x="${bx}" y="${my}" class="t-xs">ACETALDEHYDE VS ALCOHOL ALONE</text><rect x="${bx}" y="${my+8}" width="${bw}" height="12" rx="6" style="fill:var(--panel-2)"/><rect x="${f1(bx+bw*.5)}" y="${my+8}" width="${f1(bw*.5)}" height="12" rx="0" style="fill:var(--acet);opacity:.2"/><rect x="${bx}" y="${my+8}" width="${f1(bw*m)}" height="12" rx="6" style="fill:var(--acet)"/>`;
+    s+=`<text x="${bx}" y="${my+34}" class="t-xs">1×</text><text x="${f1(bx+bw*.5)}" y="${my+34}" class="t-xs t-mid">5×</text><text x="${bx+bw}" y="${my+34}" class="t-xs t-end">10×</text>`}
+  return s}
+const ME_NNT={j:{lab:'Jonas 2014 · 122 trials and 1 cohort, 22,803 people',any:{aca:[12,'8–26'],ntx:[20,'11–500']},heavy:{aca:null,ntx:[12,'8–26']}},
+ m:{lab:'McPheeters 2023 · 118 trials, 20,976 people',any:{aca:[11,'1–32'],ntx:[18,'4–32']},heavy:{aca:null,ntx:[11,'5–41']}}};
+const ME_COMB=[ ['CBI only, no pills, no MM',66.6,0],['Placebo pills + MM',75.1,0],['Naltrexone + CBI + MM',77.1,0],['CBI + MM + placebo pills',79.2,0],['Naltrexone + MM',80.6,1] ];
+const ME_TL=[ [1951,['Antabuse','(disulfiram)'],0],[1984,['ReVia','(oral naltrexone)'],1],[1994,['ReVia efficacy','supplement'],0],[2004,['Campral','(acamprosate)'],1],[2006,['Vivitrol (injectable','naltrexone)'],2],[2013,['Liver boxed warning','removed (naltrexone)'],3] ];
+inits.medicines=()=>{
+  /* ---- main scrubber ---- */
+  const svg=$('#meSvg'),rg=$('#meT');
+  function draw(t){
+    const N=vb(svg,'720 380','400 608'),ph=t<.34?0:t<.66?1:2;
+    const sc=ph===0?meSceneN(t):ph===1?meSceneA(t):meSceneD(t);
+    let s=`<defs>${marker('meA','var(--muted)')}</defs>`;
+    s+=`<rect x="12" y="12" width="${N?376:458}" height="${N?292:356}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
+    s+=`<g class="meSc" transform="translate(12 12) scale(${N?(376/458).toFixed(4):1})">${sc.svg}</g>`;
+    s+=N?mePanel(12,316,376,280,ph,sc.m,t,1):mePanel(484,12,224,356,ph,sc.m,t);
+    svg.innerHTML=s;
+    const p=phaseOf(ME_STEPS,t);setSt(p);
+    $('#meNote').innerHTML=noteHTML(ME_STEPS[p])+ME_KV[ph];
+  }
+  const stop=playWire(rg,$('#mePlay'),draw,32000,'Replay','medicines');
+  const setSt=stepWire($('#meSteps'),ME_STEPS,rg,draw,stop);
+  draw(+rg.value);
+
+  /* ---- NNT comparator ---- */
+  const ns=$('#meNntSvg');let src='j',out='any',stopN=null;
+  function drawN(p){const N=vb(ns,'720 300','400 610'),D=ME_NNT[src][out];let s='';
+    [ ['aca','Acamprosate'],['ntx','Oral naltrexone 50 mg/day'] ].forEach(([k,name],gi)=>{
+      const ox=N?14:20+gi*360,oy=N?14+gi*300:14,v=D[k],gx=ox,gy=oy+80,sp=N?19:19;
+      s+=`<text x="${ox}" y="${oy+16}" class="t-lbl">${name}</text>`;
+      if(v)s+=`<text x="${ox}" y="${oy+50}" style="font:800 30px var(--display);fill:var(--rx)">NNT ${v[0]}</text><text x="${ox+(String(v[0]).length>1?118:100)}" y="${oy+50}" class="t-xs">95% CI ${v[1]}</text>`;
+      else s+=`<text x="${ox}" y="${oy+48}" style="font:800 22px var(--display);fill:var(--muted)">No NNT reported</text>`;
+      s+=`<text x="${ox}" y="${oy+70}" class="t-xs">${out==='any'?'to prevent one return to any drinking':'to prevent one return to heavy drinking'}</text>`;
+      const hi=v?Math.round(100/v[0]):0,shown=Math.round(hi*p);
+      for(let i=0;i<100;i++){const r=Math.floor(i/10),c=i%10,on=i<shown;s+=person(gx+c*sp+4,gy+r*sp,15,on?'var(--rx)':'var(--brain-line)',{op:on?1:.35})}
+      const tx=gx+10*sp+16,tw=N?(400-tx-10):(330-10*sp-16),nc=Math.floor(tw/(N?6.6:5.75));
+      let ty=gy+14;
+      if(v){s+=`<text x="${tx}" y="${ty+8}" style="font:800 26px var(--display);fill:var(--rx)">≈ ${hi}</text>`;ty+=26;
+        meWrap(`in 100 treated avoid ${out==='any'?'any drinking':'heavy drinking'} who would not have on placebo`,nc).forEach(l=>{s+=`<text x="${tx}" y="${ty}" class="t-xs" style="fill:var(--ink)">${l}</text>`;ty+=12});
+        ty+=6;meWrap(`Grey: the rest. Many of them also do well, on medicine or placebo.`,nc).forEach(l=>{s+=`<text x="${tx}" y="${ty}" class="t-xs">${l}</text>`;ty+=12})}
+      else meWrap('The Cochrane review found acamprosate did not significantly reduce heavy drinking.',nc).forEach(l=>{s+=`<text x="${tx}" y="${ty}" class="t-xs" style="fill:var(--ink)">${l}</text>`;ty+=12});
+    });
+    if(!N)s+=`<line x1="360" x2="360" y1="20" y2="290" style="stroke:var(--line)"/>`;
+    ns.innerHTML=s;
+    const L=ME_NNT[src].lab,a=ME_NNT[src][out].aca,n=ME_NNT[src][out].ntx;
+    $('#meNntNote').innerHTML=noteHTML({k:L,t:out==='any'?'Preventing a return to any drinking':'Preventing a return to heavy drinking',
+      txt:(out==='any'?`Acamprosate NNT ${a[0]} (95% CI ${a[1]}) vs oral naltrexone NNT ${n[0]} (${n[1]}): a lower NNT means more people helped per 100 treated. In direct comparisons the two did not differ significantly for any drinking or heavy drinking. ${src==='m'?'<sup class="c" data-ref="Jonas2014JAMA,McPheeters2023JAMA" title="Source 209,326">209,326</sup>':'<sup class="c" data-ref="Jonas2014JAMA" title="Source 209">209</sup>'}`
+        :`Oral naltrexone NNT ${n[0]} (95% CI ${n[1]}). Acamprosate has no NNT for this outcome: the Cochrane review found it did not significantly reduce heavy drinking. ${src==='m'?'<sup class="c" data-ref="McPheeters2023JAMA,Rosner2010Acamprosate" title="Source 326,403">326,403</sup>':'<sup class="c" data-ref="Jonas2014JAMA,Rosner2010Acamprosate" title="Source 209,403">209,403</sup>'}`)+` A wide interval, such as 11–500, means the true effect could be much smaller than the central estimate.`,
+      pt:`Out of every 100 people who take the medicine, a handful avoid going back to drinking who otherwise would not have. That is a real effect for a common, serious condition, and these medicines work best alongside counselling or support. <sup class="c" data-ref="McPheeters2023JAMA" title="Source 326">326</sup>`,
+      hook:`Jonas 2014 NNTs: acamprosate 12 (any drinking); oral naltrexone 20 (any) and 12 (heavy). Acamprosate best supports abstinence; naltrexone best reduces heavy drinking and craving. <sup class="c" data-ref="Jonas2014JAMA,Maisel2013" title="Source 209,305">209,305</sup>`})
+      +`<div class="kv"><div><dt>Harms</dt><dd>Naltrexone: one extra trial withdrawal for adverse events per 48 treated; nausea RR 1.73. Acamprosate: adverse-event withdrawals not significantly increased; diarrhoea RR 1.58. <sup class="c" data-ref="Jonas2014JAMA,McPheeters2023JAMA" title="Source 209,326">209,326</sup></dd></div></div>`;
+  }
+  function redrawN(){stopN&&stopN();stopN=animate(900,drawN,()=>{stopN=null})}
+  $$('[data-mesrc]').forEach(b=>b.addEventListener('click',()=>{src=b.dataset.mesrc;$$('[data-mesrc]').forEach(x=>x.setAttribute('aria-pressed',x===b));redrawN()}));
+  $$('[data-meout]').forEach(b=>b.addEventListener('click',()=>{out=b.dataset.meout;$$('[data-meout]').forEach(x=>x.setAttribute('aria-pressed',x===b));redrawN()}));
+  drawN(1);
+
+  /* ---- situation highlighter ---- */
+  const SITN={liver:'Liver disease: acamprosate is not metabolised by the liver; disulfiram is contraindicated (ACG); naltrexone is used in compensated but avoided in decompensated cirrhosis (ACG). <sup class="c" data-ref="Jophlin2024ACG,FDA-Campral" title="Source 113,215">113,215</sup>',
+    kidney:'Kidney disease: acamprosate is cleared by the kidneys, so its label lowers the dose and contraindicates it at creatinine clearance ≤30 mL/min. <sup class="c" data-ref="FDA-Campral" title="Source 113">113</sup>',
+    opioid:'Opioid use: naltrexone blocks opioids and is contraindicated with current opioid use or dependence, including methadone or buprenorphine. <sup class="c" data-ref="FDA-Naltrexone" title="Source 117">117</sup>',
+    abst:'Goal of abstinence: acamprosate’s label is for people already abstinent; disulfiram needs at least 12 hours without alcohol and the person’s full knowledge. <sup class="c" data-ref="FDA-Campral,FDA-Antabuse" title="Source 112,113">112,113</sup>',
+    reduce:'Goal of cutting down: naltrexone has the clearest effect on heavy drinking; acamprosate did not significantly reduce it. <sup class="c" data-ref="Rosner2010Naltrexone,Rosner2010Acamprosate" title="Source 403,404">403,404</sup>'};
+  $$('[data-mesit]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.mesit,on=b.getAttribute('aria-pressed')!=='true';
+    $$('[data-mesit]').forEach(x=>x.setAttribute('aria-pressed',on&&x===b));
+    $$('#m-medicines tr[data-sit]').forEach(r=>r.classList.toggle('hl',on&&r.dataset.sit===k));
+    $('#meSitNote').innerHTML=on?SITN[k]:'Pick a situation to highlight its row.'}));
+
+  /* ---- COMBINE bars ---- */
+  const cs=$('#meCombSvg');
+  function drawC(p){const N=vb(cs,'720 250','400 330');let s='';
+    const x0=N?14:250,x1=N?340:650,X=v=>x0+(x1-x0)*v/100,rh=N?58:40,top=N?24:30;
+    [0,25,50,75,100].forEach(v=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${top-8}" y2="${top+rh*5}" class="grid"/><text x="${f1(X(v))}" y="${top+rh*5+14}" class="t-xs t-mid">${v}%</text>`});
+    ME_COMB.forEach(([l,v,hi],i)=>{const y=top+i*rh,by=N?y+18:y+6,w=(X(v)-x0)*ease(p);
+      s+=`<text x="${N?x0:x0-10}" y="${N?y+12:y+18}" class="t-sm${N?'':' t-end'}" style="fill:var(--ink)">${l}</text>`;
+      s+=`<rect x="${x0}" y="${by}" width="${f1(w)}" height="${N?18:16}" rx="4" style="fill:${hi?'var(--rx)':i===0?'var(--muted)':'var(--rx-soft)'};stroke:var(--rx);stroke-width:${hi?0:1}"/>`;
+      s+=`<text x="${f1(x0+w+6)}" y="${by+(N?13:12)}" class="t-sm" style="fill:var(--ink);font-weight:600">${(v*ease(p)).toFixed(1)}</text>`});
+    s+=`<text x="${N?x0:x0}" y="${top-14}" class="t-xs">PERCENT DAYS ABSTINENT DURING 16 WEEKS</text>`;
+    cs.innerHTML=s}
+  drawC(1);
+  let cDone=false;const prevShow=onShow.medicines;onShow.medicines=()=>{prevShow&&prevShow();if(!cDone){cDone=true;animate(1100,drawC)}};
+
+  /* ---- underuse ---- */
+  const us=$('#meUseSvg');
+  function drawU(){const N=vb(us,'720 200','400 220');let s='';const cols=N?20:25,sp=N?18.5:20,ox=N?16:24,oy=N?16:20;
+    for(let i=0;i<100;i++){const r=Math.floor(i/cols),c=i%cols;s+=person(ox+c*sp+6,oy+r*(sp+6),16,i<8?'var(--rx)':'var(--brain-line)',{op:i<8?1:.35})}
+    const ty=N?oy+5*(sp+6)+26:oy+4*(sp+6)+30;
+    s+=`<text x="${ox}" y="${ty}" style="font:800 22px var(--display);fill:var(--rx)">fewer than 9 in 100</text>`;
+    meWrap('people likely to benefit are prescribed an AUD medicine',N?46:90).forEach((l,k)=>{s+=`<text x="${ox}" y="${ty+18+k*13}" class="t-sm" style="fill:var(--ink)">${l}</text>`});
+    us.innerHTML=s}
+  drawU();
+
+  /* ---- approval timeline ---- */
+  const ts=$('#meTlSvg');
+  function drawT(){const N=vb(ts,'720 160','400 260');let s='';
+    if(N){s+=`<line x1="40" x2="40" y1="16" y2="244" style="stroke:var(--rx);stroke-width:2"/>`;
+      ME_TL.forEach(([yr,l],i)=>{const y=30+i*40;s+=`<circle cx="40" cy="${y}" r="6" style="fill:${i===5?'var(--panel)':'var(--rx)'};stroke:var(--rx);stroke-width:2"/><text x="56" y="${y+4}" class="t-lbl">${yr}</text><text x="100" y="${y+4}" class="t-sm" style="fill:var(--ink)">${l.join(' ')}</text>`})}
+    else{const T=tline(40,80,640,{min:1945,max:2020,step:5,fmt:v=>v%10?'':v});s+=T.svg;
+      ME_TL.forEach(([yr,l,lv],i)=>{const x=T.X(yr),up=lv%2===0,yb=up?(lv?20:40):(lv?140:110),anc=i===5?' t-end':' t-mid',tx=i===5?x+40:x;
+        s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="80" y2="${up?yb+16:yb-14}" style="stroke:var(--rx);stroke-width:1"/><circle cx="${f1(x)}" cy="80" r="5" style="fill:${i===5?'var(--panel)':'var(--rx)'};stroke:var(--rx);stroke-width:2"/>`;
+        s+=`<text x="${f1(tx)}" y="${up?yb-4:yb}" class="t-sm${anc}" style="fill:var(--ink);font-weight:600">${yr} · ${l[0]}</text><text x="${f1(tx)}" y="${up?yb+9:yb+13}" class="t-xs${anc}">${l[1]}</text>`})}
+    ts.innerHTML=s}
+  drawT();
+  const prevR=redraws.medicines;redraws.medicines=()=>{prevR&&prevR();drawN(1);drawC(1);drawU();drawT()};
+};
+/* =============== 4.3 Talking therapies and mutual help =============== */
+const TH_STEPS=[
+ {from:0,at:.1,k:'Tool 1 · primary care, emergency care, wards',t:'Brief intervention',
+  txt:`A nurse or doctor asks about drinking, gives personal feedback and advice, often in 5–15 minutes. In the 2018 Cochrane review (69 RCTs, 33,642 participants), people who had a brief intervention drank 20 g/week less at one year than people with minimal or no intervention (95% CI −28 to −12; moderate-quality evidence). Mean baseline intake was 244 g/week, so the cut is about 8%. Longer counselling added little. The USPSTF recommends screening adults 18 or older, including pregnant women, and offering brief behavioural counselling for risky drinking (B). <sup class="c" data-ref="Kaner2018Cochrane,USPSTF2018Alcohol" title="Source 220,470">220,470</sup>`,
+  pt:`A short, respectful talk about drinking helps many people drink a bit less on average. It is a starting point, not the whole treatment.`,
+  hook:`Brief intervention: −20 g/week at 1 year (Cochrane 2018). Not proven for dependence or very heavy drinking. <sup class="c" data-ref="Saitz2010" title="Source 411">411</sup>`},
+ {from:.2,at:.31,k:'Tool 2 · a way of talking',t:'Motivational interviewing',
+  txt:`Motivational interviewing (MI) helps a person voice their own reasons for change instead of being told. Picture a balance: the reasons to keep things as they are on one side, the reasons to change on the other. In the 2023 Cochrane review (93 studies, 22,776 participants), MI beat no intervention right after treatment (SMD 0.48, 95% CI 0.07–0.89; low certainty), less at short-term follow-up (0.20) and not clearly at long-term follow-up (0.12, −0.00 to 0.25). It did no better than other active treatments. Motivational enhancement therapy (MET), a manualised version, did as well as CBT and twelve-step facilitation in Project MATCH. <sup class="c" data-ref="Schwenker2023,ProjectMATCH1997" title="Source 373,421">373,421</sup>`,
+  pt:`Change sticks better when the reasons are yours. MI is a conversation that helps you hear them.`,
+  hook:`MI effect: largest right after, fading later (SMD 0.48 → 0.20 → 0.12). At 3 years in MATCH, readiness to change and self-efficacy best predicted outcome. <sup class="c" data-ref="Schwenker2023,ProjectMATCH1998" title="Source 375,421">375,421</sup>`},
+ {from:.4,at:.52,k:'Tool 3 · skills for risky moments',t:'CBT and relapse prevention',
+  txt:`Cognitive behavioural therapy (CBT) maps the chain from a high-risk situation to a thought ("a drink would help"), an urge and a choice, and practises a coping response at each link. Marlatt's relapse-prevention model adds planning for lapses and building self-efficacy. A meta-analysis of 26 studies (9,504 participants) found relapse prevention effective, especially for alcohol and with medicine. CBT beat minimal treatment but not other specific therapies; combined with medicine it beat usual care (g 0.18–0.28). <sup class="c" data-ref="Larimer1999,Irvin1999,Magill2019,Ray2020CBT" title="Source 194,274,303,378">194,274,303,378</sup>`,
+  pt:`CBT is practice for the hard moments: spot your triggers, notice the thought, and have a plan ready.`,
+  hook:`Relapse prevention = high-risk situations, coping, self-efficacy, outcome expectancies and the abstinence violation effect. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup>`},
+ {from:.6,at:.73,k:'Tool 4 · rewards for verified change',t:'Contingency management',
+  txt:`Contingency management (CM) gives a reward, often a prize draw, for each test that shows no recent drinking. In an RCT of 79 outpatients with alcohol dependence and serious mental illness, 12 weeks of prize draws for urine ethyl glucuronide below 150 ng/mL (tested three times a week) made a negative sample 3.1 times more likely (95% CI 2.2–4.5), about 1.5 extra weeks of abstinence. Across substances CM has a mean effect of d = 0.42, larger for opiates and cocaine, and effects fade once rewards stop. The related community reinforcement approach reduces drinking days more than usual care. <sup class="c" data-ref="McDonell2017,Prendergast2006,Roozen2004CRA" title="Source 323,371,400">323,371,400</sup>`,
+  pt:`Each alcohol-free test earns a small reward. It makes progress visible, week by week.`,
+  hook:`EtG-based CM: alcohol-negative sample 3.1× more likely (McDonell 2017). CM effects fade after rewards stop. <sup class="c" data-ref="McDonell2017,Prendergast2006" title="Source 323,371">323,371</sup>`},
+ {from:.8,at:.9,k:'Tool 5 · community and peers',t:'Mutual help: AA, TSF and SMART',
+  txt:`Twelve-step facilitation (TSF) is a manualised therapy that links people to Alcoholics Anonymous. In the 2020 Cochrane review (27 studies, 10,565 participants), manualised AA/TSF gave more continuous abstinence at 12 months than other treatments such as CBT (RR 1.21, 95% CI 1.03–1.42; high certainty), and probably large healthcare savings. AA seems to work mainly through people: changes in social networks and confidence to stay abstinent in social settings explained 43–67% of its effect. Deeper involvement in SMART Recovery, LifeRing or Women for Sobriety went with outcomes no different from 12-step groups. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Kelly2020Cochrane,Kelly2012AAMech,Zemore2018" title="Source 228,234,513">228,234,513</sup>`,
+  pt:`Groups connect you with people who support change. AA is free and in most communities; SMART, LifeRing and Women for Sobriety are other choices.`,
+  hook:`Cochrane 2020: AA/TSF RR 1.21 (1.03–1.42) for 12-month continuous abstinence vs CBT and others; high certainty. <sup class="c" data-ref="Kelly2020Cochrane" title="Source 234">234</sup>`}
+];
+/* forest-style plot: rows {lab, v, lo, hi, col}; rev 0..1 reveals the rows in turn */
+function thForest(x,y,w,rows,o){const mn=o.min,mx=o.max,pw=w-60,X=v=>x+pw*(clamp(v,mn,mx)-mn)/(mx-mn),rh=o.rh||40,rev=o.rev==null?1:o.rev;
+  let s=`<text x="${f1(x)}" y="${f1(y)}" class="t-sm" style="fill:var(--ink);font-weight:600">${o.title}</text>`;
+  const y0=y+14,yb=y0+rows.length*rh;
+  if(o.ref!=null)s+=`<line x1="${f1(X(o.ref))}" x2="${f1(X(o.ref))}" y1="${f1(y0)}" y2="${f1(yb)}" style="stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3"/>`;
+  s+=`<line x1="${f1(x)}" x2="${f1(x+pw)}" y1="${f1(yb)}" y2="${f1(yb)}" class="axis"/>`;
+  (o.ticks||[]).forEach(v=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${f1(yb)}" y2="${f1(yb+4)}" class="axis"/><text x="${f1(X(v))}" y="${f1(yb+15)}" class="t-xs t-mid">${v}</text>`});
+  if(o.unit)s+=`<text x="${f1(x+w)}" y="${f1(yb+28)}" class="t-xs t-end">${o.unit}</text>`;
+  if(o.left)s+=`<text x="${f1(x)}" y="${f1(yb+28)}" class="t-xs">${o.left}</text>`;
+  rows.forEach((r,i)=>{const a=clamp((rev*rows.length-i)*1.4);if(a<=0)return;const ry=y0+i*rh+rh*.62,c=r.col||'var(--rx)';
+    s+=`<g style="opacity:${f1(a)}"><text x="${f1(x)}" y="${f1(y0+i*rh+12)}" class="t-sm" style="fill:var(--ink)">${r.lab}</text>`;
+    if(r.bar){s+=`<rect x="${f1(X(o.ref||0))}" y="${f1(ry-5)}" width="${f1(Math.max(1,(X(r.v)-X(o.ref||0))*a))}" height="10" rx="3" style="fill:${c};opacity:.8"/>`}
+    else{if(r.lo!=null){const l=X(lerp(r.v,r.lo,a)),h=X(lerp(r.v,r.hi,a));s+=`<line x1="${f1(l)}" x2="${f1(h)}" y1="${f1(ry)}" y2="${f1(ry)}" style="stroke:${c};stroke-width:2"/><line x1="${f1(l)}" x2="${f1(l)}" y1="${f1(ry-4)}" y2="${f1(ry+4)}" style="stroke:${c};stroke-width:1.6"/><line x1="${f1(h)}" x2="${f1(h)}" y1="${f1(ry-4)}" y2="${f1(ry+4)}" style="stroke:${c};stroke-width:1.6"/>`}
+      if(r.lo2!=null)s+=`<rect x="${f1(X(r.lo2))}" y="${f1(ry-4)}" width="${f1(X(r.hi2)-X(r.lo2))}" height="8" rx="4" style="fill:${c};opacity:.45"/>`;
+      if(r.v!=null&&r.lo2==null)s+=`<rect x="${f1(X(r.v)-5)}" y="${f1(ry-5)}" width="10" height="10" style="fill:${c}" transform="rotate(45 ${f1(X(r.v))} ${f1(ry)})"/>`}
+    s+=`<text x="${f1(x+w)}" y="${f1(ry+4)}" class="t-sm t-end" style="fill:${c};font-weight:700">${r.val}</text></g>`});
+  return s}
+/* the five scenes, drawn in a 440 × 290 box */
+function thScene(p,u,rr){let s='';const g='var(--rx)',ink='var(--ink)';
+  s+=`<rect x="0" y="0" width="440" height="290" rx="14" style="fill:var(--field);stroke:var(--line)"/>`;
+  if(p===0){/* clinician and person at a table, feedback bubble, weekly grams bar */
+    s+=`<rect x="120" y="120" width="200" height="8" rx="4" style="fill:var(--panel-2);stroke:var(--line)"/>`;
+    s+=person(150,48,72,g)+person(290,48,72,'var(--muted)');
+    s+=`<text x="150" y="140" class="t-xs t-mid">nurse or doctor</text><text x="290" y="140" class="t-xs t-mid">person</text>`;
+    const ph=u<.3?0:u<.6?1:2,bub=['Asks about drinking (AUDIT-C)','Personal feedback','Advice and a plan'][ph];
+    const bw=Math.max(150,bub.length*6.6+24);
+    s+=`<rect x="${f1(220-bw/2)}" y="14" width="${f1(bw)}" height="26" rx="13" style="fill:var(--panel);stroke:${g};stroke-width:1.4"/><text x="220" y="31" class="t-sm t-mid" style="fill:${ink}">${bub}</text>`;
+    s+=`<path d="M170 40L182 58" style="stroke:${g};stroke-width:1.4"/>`;
+    const X=v=>40+v*360/260,base=244,now=lerp(244,224,ease(ramp(u,.35,.85)));
+    s+=`<text x="40" y="172" class="t-sm" style="fill:${ink}">Average weekly alcohol in the trials (grams)</text>`;
+    s+=`<rect x="40" y="182" width="${f1(X(base)-40)}" height="22" rx="4" style="fill:var(--eth-fill);opacity:.35"/><text x="${f1(X(base)-6)}" y="198" class="t-xs t-end" style="fill:${ink}">baseline 244 g</text>`;
+    s+=`<rect x="40" y="214" width="${f1(X(now)-40)}" height="22" rx="4" style="fill:var(--eth-fill);opacity:.8"/><text x="${f1(X(now)-6)}" y="230" class="t-xs t-end" style="fill:${ink}">${Math.round(now)} g</text>`;
+    if(u>.4)s+=`<rect x="${f1(X(now))}" y="214" width="${f1(X(base)-X(now))}" height="22" style="fill:none;stroke:var(--good);stroke-width:1.4;stroke-dasharray:3 2"/><text x="${f1(X(base)+6)}" y="230" class="t-sm" style="fill:var(--good)">−${Math.round(base-now)}</text>`;
+    [0,100,200].forEach(v=>s+=`<text x="${f1(X(v))}" y="254" class="t-xs t-mid">${v}</text>`);
+    s+=`<text x="40" y="276" class="t-xs">group means, 1 year after; drawn to scale</text>`}
+  else if(p===1){/* decisional balance tips toward change */
+    const k=ease(ramp(u,.15,.85)),tilt=lerp(.7,-.7,k),ln=Math.round(lerp(1,5,k)),rn=Math.round(lerp(5,2,k));
+    const B=balance(220,98,250,{tilt,left:'reasons to change',right:'reasons to keep drinking',lcol:'var(--rx)',rcol:'var(--eth-fill)',ln,rn});s+=B.svg;
+    s+=`<text x="220" y="30" class="t-lbl t-mid">${k<.45?'"It is not that bad yet"':k<.75?'"Part of me wants things to change"':'"I want my health and sleep back"'}</text>`;
+    s+=`<text x="220" y="48" class="t-xs t-mid">illustrative change talk, in the person's own words</text>`;
+    const items=[['health','sleep','family','money','energy'],['relaxing','habit','friends']];
+    s+=`<text x="20" y="232" class="t-sm" style="fill:var(--rx)">${items[0].slice(0,ln).join(' · ')}</text><text x="420" y="232" class="t-sm t-end" style="fill:var(--eth)">${items[1].slice(0,Math.min(3,rn)).join(' · ')}</text>`;
+    s+=`<text x="220" y="270" class="t-xs t-mid">The clinician listens and reflects; the person does the weighing.</text>`}
+  else if(p===2){/* trigger → thought → urge → coping skill */
+    const N=[['High-risk','situation'],['Thought','"a drink would help"'],['Urge or','craving'],['Coping','response']],P=[[72,62],[220,62],[368,62],[368,158]];
+    const pos=clamp(u*1.25)*3;
+    P.forEach(([x,y],i)=>{const on=pos>=i-.05,c=i===3?'var(--good)':i===0?'var(--accent)':'var(--dx)';
+      s+=`<rect x="${x-65}" y="${y-28}" width="130" height="56" rx="10" style="fill:${on?'var(--panel)':'var(--panel-2)'};stroke:${on?c:'var(--line)'};stroke-width:${on?2:1}"/>`;
+      s+=`<text x="${x}" y="${y-5}" class="t-lbl t-mid" style="font-size:12.5px">${N[i][0]}</text><text x="${x}" y="${y+12}" class="t-xs t-mid">${N[i][1]}</text>`});
+    s+=`<line x1="137" x2="153" y1="62" y2="62" class="arrow" marker-end="url(#thA)"/><line x1="285" x2="301" y1="62" y2="62" class="arrow" marker-end="url(#thA)"/><line x1="368" x2="368" y1="92" y2="126" class="arrow" marker-end="url(#thA)"/>`;
+    if(pos<3){const si=Math.min(2,Math.floor(pos)),f=pos-si,A=P[si],B=P[si+1];s+=`<circle cx="${f1(lerp(A[0],B[0],f))}" cy="${f1(lerp(A[1],B[1],f))}" r="6" style="fill:var(--accent)"/>`}
+    const k=ramp(u,.8,1);
+    s+=`<g style="opacity:${f1(k)}"><line x1="304" x2="270" y1="158" y2="158" style="stroke:var(--good);stroke-width:1.6" marker-end="url(#thA)"/><rect x="128" y="134" width="136" height="48" rx="10" style="fill:var(--good-soft);stroke:var(--good)"/><text x="196" y="155" class="t-lbl t-mid" style="fill:var(--good);font-size:12.5px">self-efficacy grows</text><text x="196" y="171" class="t-xs t-mid">lapse risk falls</text></g>`;
+    s+=`<path d="M330 92Q310 206 120 206" style="fill:none;stroke:var(--muted);stroke-width:1.4;stroke-dasharray:4 3"/><text x="20" y="226" class="t-xs">no coping response: lapse risk rises</text>`;
+    s+=`<text x="20" y="258" class="t-sm" style="fill:${ink}">Practised in sessions: spot triggers, challenge the thought,</text><text x="20" y="274" class="t-sm" style="fill:${ink}">ride out the urge, plan for a lapse.</text>`}
+  else if(p===3){/* 12 weeks × 3 EtG tests; tokens for negatives */
+    const n=Math.round(clamp(u*1.1)*36);let tok=0;
+    s+=`<text x="20" y="26" class="t-sm" style="fill:${ink}">12 weeks · urine EtG test 3 times a week</text>`;
+    for(let w=0;w<12;w++){s+=`<text x="${f1(46+w*31+13)}" y="46" class="t-xs t-mid">${w+1}</text>`;
+      for(let d=0;d<3;d++){const i=w*3+d,cx=46+w*31+13,cy=64+d*30,neg=rr[i]<lerp(.45,.88,w/11);
+        s+=`<rect x="${f1(cx-12)}" y="${f1(cy-12)}" width="24" height="24" rx="5" style="fill:var(--panel);stroke:var(--line)"/>`;
+        if(i<n){if(neg){tok++;const drop=i===n-1?(1-clamp((u*1.1*36-i)))*10:0;s+=`<circle cx="${f1(cx)}" cy="${f1(cy-drop)}" r="8.5" style="fill:var(--gold-soft);stroke:var(--gold);stroke-width:1.6"/><text x="${f1(cx)}" y="${f1(cy-drop+3)}" class="t-xs t-mid" style="fill:var(--gold);font-weight:700">★</text>`}
+          else s+=`<path d="M${f1(cx-5)} ${f1(cy-5)}L${f1(cx+5)} ${f1(cy+5)}M${f1(cx+5)} ${f1(cy-5)}L${f1(cx-5)} ${f1(cy+5)}" style="stroke:var(--muted);stroke-width:1.6"/>`}}}
+    s+=`<text x="20" y="66" class="t-xs">Mon</text><text x="20" y="96" class="t-xs">Wed</text><text x="20" y="126" class="t-xs">Fri</text>`;
+    s+=`<circle cx="40" cy="168" r="8" style="fill:var(--gold-soft);stroke:var(--gold);stroke-width:1.6"/><text x="54" y="172" class="t-xs">negative (EtG &lt; 150 ng/mL): a prize draw</text><path d="M36 182l8 8M44 182l-8 8" style="stroke:var(--muted);stroke-width:1.6"/><text x="54" y="190" class="t-xs">positive: no draw</text>`;
+    s+=`<text x="20" y="226" style="font:800 30px var(--display);fill:var(--gold)">${tok}</text><text x="${tok>9?62:50}" y="226" class="t-sm" style="fill:${ink}">prize draws earned so far (illustrative)</text>`;
+    s+=`<text x="20" y="252" class="t-xs">Pattern drawn for teaching: the trial reported odds,</text><text x="20" y="266" class="t-xs">not one person's grid.</text>`}
+  else{/* circle of chairs fills; network lines */
+    const cx=220,cy=136,R=92,n=9,k=clamp(u*1.15),arrived=Math.round(k*n);
+    s+=`<circle cx="${cx}" cy="${cy}" r="${R+26}" style="fill:none;stroke:var(--line);stroke-dasharray:2 5"/>`;
+    const P=[];for(let i=0;i<n;i++){const a=Math.PI/2+i*2*Math.PI/n;P.push([cx+R*Math.cos(a),cy+R*Math.sin(a)])}
+    const net=ramp(u,.45,1);
+    for(let i=0;i<n;i++)for(let j=i+1;j<n;j++){if(i>=arrived||j>=arrived)continue;if((i*3+j*5)%4!==0&&i!==0)continue;s+=`<line x1="${f1(P[i][0])}" y1="${f1(P[i][1])}" x2="${f1(P[j][0])}" y2="${f1(P[j][1])}" style="stroke:var(--rx);stroke-width:1.2;opacity:${f1(net*.6)}"/>`}
+    P.forEach(([x,y],i)=>{s+=`<rect x="${f1(x-13)}" y="${f1(y+2)}" width="26" height="8" rx="3" style="fill:var(--panel-2);stroke:var(--brain-line)"/>`;
+      if(i<arrived)s+=person(x,y-24,30,i===0?'var(--rx)':'var(--muted)')});
+    s+=`<text x="${cx}" y="${cy-4}" class="t-lbl t-mid">a meeting</text><text x="${cx}" y="${cy+12}" class="t-xs t-mid">free, peer-led</text>`;
+    s+=`<text x="${f1(P[0][0])}" y="${f1(P[0][1]+26)}" class="t-xs t-mid" style="fill:var(--rx)">newcomer</text>`;
+    s+=`<text x="18" y="26" class="t-sm" style="fill:${ink}">AA / TSF</text><text x="18" y="42" class="t-xs">twelve steps</text><text x="422" y="26" class="t-sm t-end" style="fill:${ink}">SMART · LifeRing · WfS</text><text x="422" y="42" class="t-xs t-end">secular alternatives</text>`;
+    s+=`<text x="220" y="276" class="t-xs t-mid" style="opacity:${f1(net)}">lines = new ties with people who support not drinking</text>`}
+  return s}
+function thPanel(p,u){const rev=ramp(u,.1,.9);
+  if(p===0)return o=>thForest(o.x,o.y,o.w,[{lab:'Brief vs minimal or none, 1 year',v:-20,lo:-28,hi:-12,val:'−20 g/wk'},{lab:'Extended vs brief, 1 year',v:2,lo:-42,hi:45,val:'+2 g/wk',col:'var(--muted)'}],{title:'Cochrane 2018 · grams per week',min:-50,max:50,ref:0,ticks:[-50,-25,0,25,50],left:'← less drinking',unit:'95% CI',rev});
+  if(p===1)return o=>thForest(o.x,o.y,o.w,[{lab:'MI vs none: right after',v:.48,lo:.07,hi:.89,val:'0.48'},{lab:'MI vs none: short-term',v:.2,val:'0.20'},{lab:'MI vs none: long-term',v:.12,lo:0,hi:.25,val:'0.12',col:'var(--muted)'}],{title:'Cochrane 2023 · effect size (SMD)',min:-.2,max:1,ref:0,ticks:[0,.5,1],left:'0 = no difference',unit:'95% CI where given',rev});
+  if(p===2)return o=>thForest(o.x,o.y,o.w,[{lab:'Naltrexone + medical mgmt',v:80.6,bar:1,val:'80.6'},{lab:'CBI + medical mgmt + placebo',v:79.2,bar:1,val:'79.2'},{lab:'Naltrexone + CBI + MM',v:77.1,bar:1,val:'77.1'},{lab:'Placebo + medical mgmt',v:75.1,bar:1,val:'75.1',col:'var(--muted)'},{lab:'CBI alone, no pills or MM',v:66.6,bar:1,val:'66.6',col:'var(--accent)'}],{title:'COMBINE · % days abstinent in treatment',min:0,max:100,ref:0,ticks:[0,50,100],unit:'group means',rh:36,rev});
+  if(p===3)return o=>thForest(o.x,o.y,o.w,[{lab:'CM: alcohol-negative EtG sample',v:3.1,lo:2.2,hi:4.5,val:'3.1×'},{lab:'CM across substances (mean d)',v:.42,bar:1,val:'d 0.42',col:'var(--muted)'}],{title:'Contingency management',min:0,max:5,ref:0,ticks:[0,1,2,3,4,5],unit:'times more likely · 95% CI',rev});
+  return o=>thForest(o.x,o.y,o.w,[{lab:'Continuous abstinence, 12 mo (RR)',v:1.21,lo:1.03,hi:1.42,val:'RR 1.21'},{lab:'% days abstinent, 12 mo (MD/100)',v:1+3.03/100,lo:1-4.36/100,hi:1+10.43/100,val:'+3.0',col:'var(--muted)'},{lab:'% days abstinent, 24 mo (MD/100)',v:1+12.91/100,val:'+12.9'},{lab:'% days abstinent, 36 mo (MD/100)',v:1+6.64/100,val:'+6.6'}],{title:'Cochrane 2020 · AA/TSF vs other treatment',min:.8,max:1.6,ref:1,ticks:[.8,1,1.2,1.4,1.6],left:'1 = no difference',unit:'MD shown as 1 + points/100',rh:36,rev})}
+const TH_NOTE=['Moderate-quality evidence; most trials in general practice (55%) or emergency care (39%). <sup class="c" data-ref="Kaner2018Cochrane" title="Source 220">220</sup>','Low certainty right after; MI was no better than other active treatments. <sup class="c" data-ref="Schwenker2023" title="Source 421">421</sup>','During 16 weeks of treatment; MM = medical management, CBI = combined behavioural intervention. <sup class="c" data-ref="Anton2006COMBINE" title="Source 11">11</sup>','RCT of 79 outpatients with serious mental illness; meta-analysis d across substance use disorders. <sup class="c" data-ref="McDonell2017,Prendergast2006" title="Source 323,371">323,371</sup>','RR: high certainty; % days abstinent at 24 and 36 months: low certainty. <sup class="c" data-ref="Kelly2020Cochrane" title="Source 234">234</sup>'];
+inits.therapy=()=>{
+  const svg=$('#thSvg'),rg=$('#thT'),RR=(()=>{const r=rng(43);return Array.from({length:36},()=>r())})();
+  function draw(t){
+    const N=vb(svg,'720 270','400 500');const p=phaseOf(TH_STEPS,t),u=ramp(t,TH_STEPS[p].from,p<4?TH_STEPS[p+1].from:1);
+    let s=`<defs>${marker('thA','var(--muted)')}</defs>`;
+    if(N){s+=`<g transform="translate(10 6) scale(${f1(380/440)})">${thScene(p,u,RR)}</g>`;
+      const ph=[150,186,258,150,214][p];svg.setAttribute('viewBox','0 0 400 '+(270+ph));
+      s+=`<rect x="10" y="264" width="380" height="${ph}" rx="12" style="fill:var(--panel);stroke:var(--line)"/>`;
+      s+=thPanel(p,u)({x:24,y:288,w:352});}
+    else{s+=`<g transform="translate(10 10) scale(.86)">${thScene(p,u,RR)}</g>`;
+      s+=`<rect x="398" y="10" width="312" height="250" rx="12" style="fill:var(--panel);stroke:var(--line)"/>`;
+      s+=thPanel(p,u)({x:412,y:34,w:284})}
+    svg.innerHTML=s;setSt(p);
+    $('#thNote').innerHTML=noteHTML(TH_STEPS[p])+`<p class="stage-cap">${TH_NOTE[p]}</p>`;
+  }
+  const stop=playWire(rg,$('#thPlay'),draw,30000,'Replay','therapy');
+  const setSt=stepWire($('#thSteps'),TH_STEPS,rg,draw,stop);
+  draw(+rg.value);
+
+  /* ---- relapse-prevention chain ---- */
+  const RP={
+   stress:{n:'A stressful day',type:'high-risk situation',start:'hrs',ex:'After a hard shift, the usual way home passes the shop where they used to buy alcohol.'},
+   party:{n:'A party where others drink',type:'high-risk situation (social)',start:'hrs',ex:'Friends are drinking and someone hands them a glass.'},
+   low:{n:'Feeling low or lonely',type:'high-risk situation (mood)',start:'hrs',ex:'An evening alone, feeling low, with nothing planned.'},
+   imb:{n:'Life out of balance',type:'hidden antecedent: lifestyle imbalance',start:'imb',ex:'Weeks of obligations and no rest or enjoyment, so urges build before any one situation.'},
+   lapse:{n:'One drink after weeks without',type:'a lapse',start:'lapse',ex:'After weeks without alcohol, they have one drink at a wedding.'}};
+  let rp='stress',cope=true,pulse=1,stopP=null;
+  const rs=$('#thRp');
+  function drawRP(){
+    const N=vb(rs,'720 340','400 600'),R=RP[rp],C=cope&&R.start!=='lapse';
+    /* nodes: id -> [x,y,label1,label2,kind] */
+    const Wd={imb:[80,50,'Lifestyle imbalance','urges and cravings','pre'],hrs:[80,170,'High-risk situation',R.start==='hrs'?R.n.toLowerCase():'urges meet a cue','risk'],
+      cope:[250,90,'Coping response','used','good'],se1:[420,90,'Self-efficacy rises','','good'],low:[610,90,'Lower relapse','risk','good'],
+      nocope:[250,250,'No coping response','','bad'],se2:[420,250,'Self-efficacy falls','"a drink would help"','bad'],lapse:[610,250,'Lapse','a single use','bad'],ave:[420,318,'Abstinence violation','effect','bad'],hi:[250,318,'Higher relapse','risk','bad'],
+      ref:[610,170,'Reframe the lapse','back on track','good']};
+    const Nn={imb:[200,28],hrs:[200,110],cope:[100,200],se1:[100,290],low:[100,380],nocope:[300,200],se2:[300,290],lapse:[300,380],ave:[108,470],hi:[108,560],ref:[300,470]};
+    const P=k=>N?Nn[k]:Wd[k].slice(0,2);
+    let path=[];
+    if(R.start==='imb')path.push('imb');
+    if(R.start!=='lapse'){path.push('hrs');path=path.concat(C?['cope','se1','low']:['nocope','se2','lapse',cope?'ref':'ave'].concat(cope?[]:['hi']))}
+    else path=['lapse',cope?'ref':'ave'].concat(cope?[]:['hi']);
+    const show=new Set(path);
+    let s=`<defs>${marker('thB','var(--muted)')}${marker('thG','var(--good)')}${marker('thR','var(--bad)')}</defs>`;
+    const E=[['imb','hrs'],['hrs','cope'],['cope','se1'],['se1','low'],['hrs','nocope'],['nocope','se2'],['se2','lapse'],['lapse','ave'],['ave','hi'],['lapse','ref']];
+    const bw=N?172:152,bh=40;
+    E.forEach(([a,b])=>{const on=show.has(a)&&show.has(b)&&path.indexOf(b)===path.indexOf(a)+1,[x1,y1]=P(a),[x2,y2]=P(b);
+      const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L,kx=Math.min(Math.abs(ux)>.001?(bw/2)/Math.abs(ux):1e9,Math.abs(uy)>.001?(bh/2)/Math.abs(uy):1e9)+4;
+      const ax=x1+ux*kx,ay=y1+uy*kx,bx=x2-ux*(kx+2),by=y2-uy*(kx+2),col=on?(['cope','se1','low','ref'].includes(b)?'var(--good)':'var(--bad)'):'var(--line)';
+      s+=`<line x1="${f1(ax)}" y1="${f1(ay)}" x2="${f1(bx)}" y2="${f1(by)}" style="stroke:${col};stroke-width:${on?2.2:1.2};${on?'':'stroke-dasharray:3 4'}" ${on?`marker-end="url(#${col==='var(--good)'?'thG':'thR'})"`:''}/>`});
+    Object.keys(Wd).forEach(k=>{const [x,y]=P(k),d=Wd[k],on=show.has(k),c=d[4]==='good'?'var(--good)':d[4]==='bad'?'var(--bad)':d[4]==='pre'?'var(--dx)':'var(--accent)';
+      const l2=k==='cope'?(C?'used':'—'):d[3];
+      s+=`<g style="opacity:${on?1:.28}"><rect x="${f1(x-bw/2)}" y="${f1(y-bh/2)}" width="${bw}" height="${bh}" rx="9" style="fill:${on?'var(--panel)':'var(--panel-2)'};stroke:${on?c:'var(--line)'};stroke-width:${on?2:1}"/>`;
+      s+=`<text x="${f1(x)}" y="${f1(y-3)}" class="t-sm t-mid" style="fill:var(--ink);font-weight:600">${d[2]}</text>${l2?`<text x="${f1(x)}" y="${f1(y+11)}" class="t-xs t-mid">${l2}</text>`:''}</g>`});
+    /* travelling pulse along the chosen path */
+    const segs=path.length-1,pp=clamp(pulse)*segs,si=Math.min(segs-1,Math.floor(pp));
+    if(segs>0){const [x1,y1]=P(path[si]),[x2,y2]=P(path[si+1]),f=pp-si;s+=`<circle cx="${f1(lerp(x1,x2,f))}" cy="${f1(lerp(y1,y2,f))}" r="6" style="fill:var(--rx);stroke:var(--panel);stroke-width:2"/>`}
+    rs.innerHTML=s;
+    const steps=R.start==='lapse'?
+      (cope?[`Plan for lapses ahead of time, so a slip is expected and has a response. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup>`,`Reframe the lapse: a mistake in a specific situation, something to learn from, not proof of failure. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup>`,`Look at what led up to it and strengthen coping for that situation. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup>`]
+            :[`Without a plan, the abstinence violation effect can follow: guilt and the sense that "I have blown it". <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup>`,`That view of the lapse raises the chance that one drink becomes a full relapse. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup>`,`Switch the coping response back on to see the reframing path.`])
+      :C?[R.start==='imb'?`Notice lifestyle imbalance and the urges it builds: hidden antecedents, not only the moment itself. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup>`:`Identify the high-risk situation in advance. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup>`,`Practise a coping response for it in sessions. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup>`,`Each success builds self-efficacy, which lowers the chance of a lapse. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup>`]
+         :[`No coping response is ready, so self-efficacy drops. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup>`,`Positive expectations of drinking ("a drink would help") pull towards a lapse. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup>`,`A lapse can then be reframed with a plan, or turn into the abstinence violation effect.`];
+    $('#thRpNote').innerHTML=`<div class="kicker">${R.type}</div><h4>${R.n}</h4><p>${R.ex} <i>(illustrative example)</i></p><ol class="rpsteps">${steps.map(x=>`<li>${x}</li>`).join('')}</ol><div class="pt"><b>In plain words</b>${cope?'Having a plan ready turns a risky moment into practice.':'A slip does not erase progress. Relapse-prevention therapy plans for lapses and for getting back on track.'} <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup></div><div class="hook"><b>Exam hook</b>Abstinence violation effect: the guilt and loss of control after a lapse that make full relapse more likely; CBT reframes it. <sup class="c" data-ref="Larimer1999" title="Source 274">274</sup></div><p class="stage-cap">Teaching only, not a self-help plan or a substitute for care.</p>`;
+  }
+  function run(){if(stopP)stopP();pulse=0;stopP=animate(1600,q=>{pulse=q;drawRP()},()=>{stopP=null})}
+  $$('[data-rp]').forEach(b=>b.addEventListener('click',()=>{rp=b.dataset.rp;$$('[data-rp]').forEach(x=>x.setAttribute('aria-pressed',x===b));run()}));
+  const cb=$('#thCope');cb.addEventListener('click',()=>{cope=!cope;cb.setAttribute('aria-pressed',cope);cb.textContent=cope?'Coping response: used':'Coping response: not used';run()});
+  const prevH=onHide.therapy;onHide.therapy=()=>{prevH&&prevH();if(stopP)stopP();stopP=null};
+  const prevR=redraws.therapy;redraws.therapy=()=>{prevR&&prevR();drawRP()};
+  drawRP();
+};
+/* =============== 5.1 The liver: fatty liver to cirrhosis =============== */
+const LV_STEPS=[
+ {from:0,at:.05,k:'Start',t:'A healthy liver',
+  txt:`The liver clears most of the alcohol a person drinks. Alcohol-associated liver disease (the AASLD’s term; older papers say “alcoholic liver disease”) is described as the most prevalent type of chronic liver disease worldwide. It is a spectrum: fatty liver, alcohol-associated hepatitis, and cirrhosis with its complications. <sup class="c" data-ref="Crabb2020AASLD,Seitz2018NRDP,Singal2018ACG" title="Source 69,426,433">69,426,433</sup>`,
+  pt:`Liver damage from alcohol happens in stages: first fat builds up, then the liver can become inflamed, then scarred.`},
+ {from:.12,at:.25,k:'Stage 1 · about 90%',t:'Fatty liver (steatosis)',
+  txt:`Most people who drink more than 40 g of alcohol a day develop fatty liver; the ACG puts steatosis at about 90% of people who drink heavily, and it may appear within 2 weeks of heavy, regular drinking. It resolves rapidly after complete abstinence. <sup class="c" data-ref="Seitz2018NRDP,Singal2018ACG" title="Source 426,433">426,433</sup> “Pure” fatty liver is not harmless: of 88 people followed for a median 10.5 years, 9 developed cirrhosis and 7 more fibrosis, and 8 of those 9 were still drinking more than 40 units a week. <sup class="c" data-ref="Teli1995Lancet" title="Source 453">453</sup>`,
+  pt:`Fat in the liver from alcohol often clears up quickly once a person stops drinking.`,
+  hook:`Steatosis in ~90% of people who drink heavily; reversible with abstinence.`},
+ {from:.35,at:.47,k:'Stage 2 · about one-third',t:'Steatohepatitis',
+  txt:`With continued heavy drinking, about one-third of people with steatosis show inflammation on biopsy: alcohol-associated steatohepatitis. Mechanisms include fat build-up, oxidative stress, toxicity from acetaldehyde (alcohol’s first breakdown product) and inflammation driven by cytokines and chemokines <span class="ev est">Established</span>. A sudden severe flare is alcohol-associated hepatitis, with jaundice and high short-term mortality (see below). <sup class="c" data-ref="Singal2018ACG,Seitz2018NRDP" title="Source 426,433">426,433</sup>`,
+  pt:`The liver becomes inflamed, like a wound that keeps being reopened. Many people feel nothing at this stage.`,
+  hook:`AST:ALT above 2 suggests advanced alcohol-related liver disease, not heavy drinking itself. <sup class="c" data-ref="Cohen1979SGOTSGPT,Nyblom2004ASTALT" title="Source 62,348">62,348</sup>`},
+ {from:.55,at:.66,k:'Stage 3 · 20–40% of those with steatohepatitis',t:'Fibrosis',
+  txt:`Among people with steatohepatitis on biopsy, 20–40% develop fibrosis: strands of scar tissue laid down between liver cells. Genetic, epigenetic and other factors explain much of the person-to-person variation <span class="ev est">Established</span>; obesity for 10 years or more roughly doubles the risk of cirrhosis, and women have a higher risk than men at the same intake. <sup class="c" data-ref="Singal2018ACG,Seitz2018NRDP,Rehm2010Cirrhosis" title="Source 380,426,433">380,426,433</sup>`,
+  pt:`Scar tissue starts to form. Two people who drink the same amount can have very different livers.`,
+  hook:`Steatohepatitis → fibrosis in 20–40% and cirrhosis in 8–20% (ACG).`},
+ {from:.75,at:.92,k:'Stage 4 · 8–20% of those with steatohepatitis',t:'Cirrhosis',
+  txt:`Among people with steatohepatitis, 8–20% develop cirrhosis: the liver is shrunken and nodular, with bands of scar around regenerating nodules. In a biopsy cohort, liver-related mortality at 5 years was 13% in early or compensated disease and 43% once decompensated (population statistics). Abstinence predicted survival in both groups. <sup class="c" data-ref="Singal2018ACG,Lackner2017JHep" title="Source 266,433">266,433</sup> Switch on “Stops drinking” to see the group survival data.`,
+  pt:`Cirrhosis is heavy scarring. Even then, people who stop drinking live longer as a group.`,
+  hook:`Abstinence in alcohol-related cirrhosis: survival difference becomes significant from 1.5 years (HR about 0.5–0.6). <sup class="c" data-ref="Xie2014HepatolRes" title="Source 508">508</sup>`}
+];
+const LV_ABS=[
+ `<b>Stopped at this stage:</b> fatty liver resolves rapidly after complete abstinence. <sup class="c" data-ref="Singal2018ACG" title="Source 433">433</sup>`,
+ `<b>Stopped at this stage:</b> fatty liver resolves rapidly after complete abstinence. <sup class="c" data-ref="Singal2018ACG" title="Source 433">433</sup>`,
+ `<b>Stopped at this stage:</b> abstinence is the most effective way to prevent progression and the best treatment for every stage. <sup class="c" data-ref="Singal2018ACG,Seitz2018NRDP" title="Source 426,433">426,433</sup>`,
+ `<b>Stopped at this stage:</b> in a meta-analysis of 7 cohorts (1,235 people with alcohol-related cirrhosis), abstinence improved survival, significant from 1.5 years (HR 0.51, 95% CI 0.33–0.81). <sup class="c" data-ref="Xie2014HepatolRes" title="Source 508">508</sup>`,
+ `<b>Stopped at this stage:</b> in 633 people with decompensated alcohol-related cirrhosis who stopped drinking, 31.1% reached “recompensation” (33.8% cumulative at 5 years); stopping within 1 month roughly doubled the chance <span class="ev early">Early evidence</span>. No recompensated person who stayed abstinent died of liver causes during follow-up. <sup class="c" data-ref="Hofer2026JHep" title="Source 184">184</sup>`
+];
+inits.liver=()=>{
+  const svg=$('#lvSvg'),rg=$('#lvT'),ab=$('#lvAbst'),rd=$('#lvRead'),note=$('#lvNote');
+  let abst=false;
+  const stageOf=t=>t<.12?0:t<.35?ramp(t,.12,.3):t<.55?1+ramp(t,.35,.5):t<.75?2+ramp(t,.55,.7):3+ramp(t,.75,.9);
+  /* rank order of the 100 people, shuffled once so each stage is scattered across the array */
+  const R=rng(41),ord=[...Array(100).keys()];for(let i=99;i>0;i--){const j=Math.floor(R()*(i+1));[ord[i],ord[j]]=[ord[j],ord[i]]}
+  const rank=[];ord.forEach((p,r)=>rank[p]=r);
+  const NM=['Healthy','Fatty liver','Steatohepatitis','Fibrosis','Cirrhosis'];
+  const COL=['var(--muted)','var(--fat)','var(--glu-fill)','var(--fib)','var(--liver)'];
+  function icon(r,st){/* returns [colour, opacity, outline] for the person ranked r */
+    const fat=Math.round(90*ramp(st,0,1)),ash=Math.round(30*ramp(st,1,2)),fS=Math.round(6*ramp(st,2,3)),fR=Math.round(12*ramp(st,2,3)),cS=Math.round(2*ramp(st,3,4)),cR=Math.round(6*ramp(st,3,4));
+    if(r<cS)return [4,1];if(r<cR)return [4,.45];if(r<fS)return [3,1];if(r<fR)return [3,.45];if(r<ash)return [2,1];if(r<fat)return [1,1];return [0,.35]}
+  function people(L,st,ph){let s='';const cleared=abst&&ph<=1;
+    for(let p=0;p<100;p++){const c=p%10,rw=Math.floor(p/10),x=L.gx+c*L.gs,y=L.gy+rw*L.gr;let [k,op]=icon(rank[p],st);
+      if(cleared&&k===1){s+=`<g style="opacity:.9">${person(x,y,L.ps,'none')}</g><circle cx="${f1(x)}" cy="${f1(y+L.ps*.6)}" r="${f1(L.ps*.42)}" style="fill:none;stroke:var(--fat);stroke-width:1.2"/>`;continue}
+      s+=person(x,y,L.ps,COL[k],{op:k===0?.3:op})}
+    const items=[[1,'Fatty liver','≈90 of 100'],[2,'Steatohepatitis','≈30 (one-third)'],[3,'Fibrosis','20–40% of those'],[4,'Cirrhosis','8–20% of those']];
+    items.forEach(([k,n,v],i)=>{const x=L.lx+(i%2)*L.lw,y=L.ly+Math.floor(i/2)*30,on=st>=k-1+.05;
+      s+=`<rect x="${x}" y="${y-9}" width="10" height="10" rx="2" style="fill:${COL[k]};opacity:${on?1:.3}"/><text x="${x+16}" y="${y}" class="t-xs" style="${on?'fill:var(--ink);font-weight:600':''}">${n}</text><text x="${x+16}" y="${y+12}" class="t-xs">${v}</text>`});
+    if(cleared)s+=`<text x="${L.gx-8}" y="${L.fy}" class="t-xs" style="fill:var(--good)">rings: fat cleared after stopping</text>`;
+    else s+=`<text x="${L.gx-8}" y="${L.fy}" class="t-xs">faint icons: the upper end of a published range</text>`;
+    return s}
+  function absChart(L){/* Xie 2014 hazard ratios for death, abstinence vs continued drinking, and Hofer 2026 recompensation */
+    const HR=[[.5,.48,0],[1,.58,0],[1.5,.51,1],[2,.55,1],[3,.54,1],[4,.60,1],[5,.63,1]];
+    const x0=L.cx,x1=L.cx+L.cw,y0=L.cy,h=L.ch,X=v=>lerp(x0,x1,v/5),Y=v=>y0+h-h*v/1.2;let s='';
+    s+=`<text x="${x0-26}" y="${y0-12}" class="t-sm">DEATH, STOPPED vs KEPT DRINKING (HR)</text>`;
+    s+=`<rect x="${x0}" y="${y0}" width="${x1-x0}" height="${h}" style="fill:var(--field)"/>`;
+    [0,.5,1].forEach(v=>s+=`<line x1="${x0}" x2="${x1}" y1="${f1(Y(v))}" y2="${f1(Y(v))}" class="${v===1?'axis':'grid'}"/><text x="${x0-5}" y="${f1(Y(v)+3)}" class="t-xs t-end">${v}</text>`);
+    s+=`<text x="${x1}" y="${f1(Y(1)-4)}" class="t-xs t-end">1 = no difference</text>`;
+    HR.forEach(([yr,v,sig],i)=>{const px=X(yr),py=Y(v);if(i)s+=`<line x1="${f1(X(HR[i-1][0]))}" y1="${f1(Y(HR[i-1][1]))}" x2="${f1(px)}" y2="${f1(py)}" style="stroke:var(--brand);stroke-width:1.6"/>`;
+      s+=`<circle cx="${f1(px)}" cy="${f1(py)}" r="4" style="fill:${sig?'var(--brand)':'var(--panel)'};stroke:var(--brand);stroke-width:1.6"/>`;
+      if(yr===.5||yr===1.5||yr===5)s+=`<text x="${f1(px)}" y="${f1(py+15)}" class="t-xs t-mid">${v.toFixed(2)}</text>`});
+    [0,1,2,3,4,5].forEach(v=>s+=`<text x="${f1(X(v))}" y="${y0+h+12}" class="t-xs t-mid">${v}${v===5?' y':''}</text>`);
+    s+=`<text x="${x0}" y="${y0+h+26}" class="t-xs">open dots: not significant · Xie 2014</text>`;
+    /* recompensation bars */
+    const by=L.by,bw=L.bw,REC=[[1,12.3],[2,23.4],[5,33.8]];
+    s+=`<text x="${x0-26}" y="${by-12}" class="t-sm">RECOMPENSATION AFTER STOPPING</text>`;
+    REC.forEach(([yr,v],i)=>{const y=by+i*20;s+=`<text x="${x0-4}" y="${y+9}" class="t-xs t-end">${yr} y</text><rect x="${x0}" y="${y}" width="${f1(bw)}" height="11" rx="5.5" style="fill:var(--panel-2)"/><rect x="${x0}" y="${y}" width="${f1(bw*v/100)}" height="11" rx="5.5" style="fill:var(--good)"/><text x="${f1(x0+bw*v/100+6)}" y="${y+9}" class="t-xs" style="fill:var(--ink)">${v}%</text>`});
+    s+=`<text x="${x0}" y="${by+70}" class="t-xs">decompensated cirrhosis, n=633 · Hofer 2026</text>`;
+    return s}
+  function draw(t){
+    const N=vb(svg,'720 380','400 680'),ph=phaseOf(LV_STEPS,t),st=stageOf(t);setSt(ph);
+    const L=N?{tx:16,ty:30,lx0:200,ly0:150,ls:1.42,trx:20,trw:360,try:268,px:10,py:296,pw:380,ph:374,gx:44,gy:330,gs:35,gr:25,ps:20,lx:24,ly:594,lw:190,fy:662,cx:56,cw:300,cy:338,ch:120,by:530,bw:200}
+             :{tx:24,ty:34,lx0:200,ly0:172,ls:1.75,trx:30,trw:330,try:318,px:384,py:14,pw:324,ph:352,gx:414,gy:42,gs:30,gr:24,ps:18,lx:402,ly:300,lw:156,fy:356,cx:430,cw:260,cy:46,ch:130,by:262,bw:200};
+    let shown=st;const stop=abst&&ph<=1;if(stop)shown=Math.min(st,.08);
+    let s=`<defs>${marker('lvA','var(--muted)')}</defs>`;
+    s+=`<text x="${L.tx}" y="${L.ty}" style="font:800 ${N?20:22}px var(--display);fill:var(--ink)">${stop&&st>.05?'Fat clearing':NM[ph]}</text>`;
+    s+=`<text x="${L.tx}" y="${L.ty+18}" class="t-sm">${abst?'after stopping drinking':'with continued heavy drinking'}</text>`;
+    s+=liver(L.lx0,L.ly0,L.ls,{stage:shown,seed:7}).svg;
+    if(abst&&ph>=2){const y=L.try-(N?24:26);s+=`<rect x="${L.lx0-120}" y="${y-14}" width="240" height="20" rx="10" style="fill:var(--good-soft)"/><text x="${L.lx0}" y="${y}" class="t-xs t-mid" style="fill:var(--good)">${ph>=4?'scar remains; group survival improves':ph===3?'stopping: survival improves from 1.5 y':'stopping halts the injury'}</text>`}
+    /* stage track */
+    const sw=L.trw/5;
+    for(let i=0;i<5;i++){const x=L.trx+i*sw,fill=clamp(st-i+1,0,1);
+      s+=`<rect x="${f1(x)}" y="${L.try}" width="${f1(sw-3)}" height="10" rx="5" style="fill:var(--panel-2)"/>`;
+      if(i===0||st>i-1)s+=`<rect x="${f1(x)}" y="${L.try}" width="${f1((sw-3)*(i===0?1:fill))}" height="10" rx="5" style="fill:${COL[i]};opacity:${i===0?.4:.95}"/>`;
+      const lb=i===2?['Steato-','hepatitis']:i===1?['Fatty','liver']:[NM[i]],sty=ph===i?'fill:var(--ink);font-weight:700':'';lb.forEach((w,j)=>s+=`<text x="${f1(x+(sw-3)/2)}" y="${L.try+24+j*11}" class="t-xs t-mid" style="${sty}">${w}</text>`)}
+    const mx=L.trx+Math.min(st+.5,4.5)*sw;s+=`<path d="M${f1(mx-6)} ${L.try-12}L${f1(mx+6)} ${L.try-12}L${f1(mx)} ${L.try-3}Z" style="fill:var(--ink)"/>`;
+    /* right (or lower) panel */
+    s+=`<rect x="${L.px}" y="${L.py}" width="${L.pw}" height="${L.ph}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
+    if(abst&&ph>=3)s+=absChart(L);
+    else{s+=`<text x="${L.gx-8}" y="${L.gy-12}" class="t-sm">100 PEOPLE WHO DRINK HEAVILY</text>`;s+=people(L,st,ph)}
+    svg.innerHTML=s;
+    rd.innerHTML=`<span>Stage <b>${NM[ph]}</b></span><span>Drawn as <b>${stop?'cleared':abst?'after stopping':'continuing'}</b></span><span>Liver glyph <b>${Math.round(shown/4*100)}%</b> of the way to cirrhosis</span>`;
+    const P=LV_STEPS[ph];note.innerHTML=noteHTML(P)+(abst?`<p class="callout">${LV_ABS[ph]}</p>`:'');
+  }
+  const stop=playWire(rg,$('#lvPlay'),draw,22000,'Replay','liver');
+  const setSt=stepWire($('#lvSteps'),LV_STEPS,rg,draw,stop);
+  ab.addEventListener('click',()=>{abst=!abst;ab.setAttribute('aria-pressed',abst);draw(+rg.value)});
+  draw(+rg.value);
+
+  /* ---------- Maddrey / MELD / Lille teaching calculator ---------- */
+  const cs=$('#lvCalcSvg'),cn=$('#lvCalcNote'),I=id=>$('#'+id);
+  function calc(){
+    const N=vb(cs,'720 210','400 330');
+    const pt=parseFloat(I('lvPt').value),ct=parseFloat(I('lvCtl').value),b0=parseFloat(I('lvBil').value),um=I('lvUnit').value==='um';
+    const ok=isFinite(pt)&&isFinite(ct)&&isFinite(b0)&&b0>=0;
+    const bil=ok?(um?b0/17.1:b0):0,df=ok?4.6*(pt-ct)+bil:NaN;
+    const meld=parseFloat(I('lvMeld').value),hasM=isFinite(meld),li=I('lvLille').value;
+    const sev=ok&&df>=32,max=100;
+    let s='';const gx=N?110:130,gy=N?120:150,gr=N?84:100;
+    s+=gauge(gx,gy,gr,ok?clamp(df,0,max):0,max,{bands:[{to:32,col:'var(--brand-soft)'},{to:max,col:'var(--liver)'}]});
+    s+=`<text x="${gx}" y="${gy-gr*.34}" class="t-big t-mid" style="font-size:${N?28:32}px;fill:${sev?'var(--liver)':'var(--ink)'}">${ok?f1(df):'–'}</text>`;
+    s+=`<text x="${gx}" y="${gy+18}" class="t-sm t-mid">Maddrey DF</text>`;
+    const A=Math.PI*(1-32/max),tx=gx+(gr+8)*Math.cos(A),ty=gy-(gr+8)*Math.sin(A);
+    s+=`<line x1="${f1(gx+(gr-26)*Math.cos(A))}" y1="${f1(gy-(gr-26)*Math.sin(A))}" x2="${f1(tx)}" y2="${f1(ty)}" style="stroke:var(--ink);stroke-width:1.6;stroke-dasharray:3 2"/><text x="${f1(tx-4)}" y="${f1(ty-4)}" class="t-xs t-end" style="fill:var(--ink)">32</text>`;
+    /* Lille survival bars */
+    const bx=N?40:300,by=N?196:44,bw=N?300:360;
+    s+=`<text x="${bx}" y="${by}" class="t-sm">6-MONTH SURVIVAL BY DAY-7 LILLE (LOUVET 2007)</text>`;
+    [['r','Lille below 0.45 (response)',85],['n','Lille 0.45 or higher (nonresponse)',25]].forEach(([k,lab,v],i)=>{const y=by+18+i*44,on=li===k,dim=li&&!on;
+      s+=`<text x="${bx}" y="${y}" class="t-xs" style="${on?'fill:var(--ink);font-weight:700':''}">${lab}</text><rect x="${bx}" y="${y+6}" width="${bw}" height="14" rx="7" style="fill:var(--panel-2)"/><rect x="${bx}" y="${y+6}" width="${f1(bw*v/100)}" height="14" rx="7" style="fill:${k==='r'?'var(--brand)':'var(--liver)'};opacity:${dim?.3:1}"/><text x="${f1(bx+bw*v/100+6)}" y="${y+17}" class="t-xs" style="fill:var(--ink)">${v}%</text>`});
+    if(hasM){const y=by+112,on=meld>20;s+=`<text x="${bx}" y="${y}" class="t-xs" style="fill:var(--ink)">MELD entered: <tspan style="font-weight:700">${Math.round(meld)}</tspan> · published flag for severe AH: above 20</text>`;
+      const mw=bw,X=v=>bx+mw*clamp((v-6)/34);s+=`<line x1="${bx}" x2="${bx+mw}" y1="${y+14}" y2="${y+14}" style="stroke:var(--panel-2);stroke-width:8;stroke-linecap:round"/><line x1="${f1(X(20))}" x2="${f1(X(20))}" y1="${y+6}" y2="${y+22}" style="stroke:var(--ink);stroke-dasharray:2 2"/><circle cx="${f1(X(meld))}" cy="${y+14}" r="6" style="fill:${on?'var(--liver)':'var(--brand)'}"/>`}
+    cs.innerHTML=s;
+    let h=`<div class="kicker">Teaching result</div><h4>${ok?'Maddrey DF '+f1(df):'Enter all three values'}</h4>`;
+    if(ok){h+=`<p>4.6 × (${f1(pt)} − ${f1(ct)}) + ${f1(bil)}${um?` (${f1(b0)} µmol/L ÷ 17.1)`:''} = <b>${f1(df)}</b>. <sup class="c" data-ref="Carithers1989" title="Source 55">55</sup></p>`;
+      h+=`<div class="verdict ${sev?'no':'maybe'}">${sev?'At or above 32: the range trials have called severe alcohol-associated hepatitis.':'Below 32: below the published severe threshold.'}</div>`;
+      h+=`<p>${sev?'Published data: a Maddrey score of 32 or more predicts about 20–50% mortality over 30 days (a population statistic). <sup class="c" data-ref="Singal2018ACG" title="Source 433">433</sup>':'The ACG wording for severe AH is a Maddrey score above 32 or a MELD above 20. <sup class="c" data-ref="Singal2018ACG" title="Source 433">433</sup>'}</p>`}
+    if(hasM)h+=`<p>MELD ${Math.round(meld)} is ${meld>20?'above':'not above'} the published flag of 20; in a Mayo cohort MELD predicted 30-day mortality at least as well as Maddrey (c-statistic 0.83 vs 0.74). <sup class="c" data-ref="Singal2018ACG,Dunn2005MELD" title="Source 93,433">93,433</sup></p>`;
+    if(li==='n')h+=`<p>Lille ≥0.45 at day 7 is “nonresponse”: 25% 6-month survival versus 85% in responders. People not responding had about 30% 6-month survival historically; highly selected people have had early transplantation (see the trial cards). <sup class="c" data-ref="Louvet2007Lille,Mathurin2011NEJM" title="Source 299,319">299,319</sup></p>`;
+    else if(li==='r')h+=`<p>Lille below 0.45 counts as response, with 85% 6-month survival in the 2007 cohort. <sup class="c" data-ref="Louvet2007Lille" title="Source 299">299</sup></p>`;
+    h+=`<div class="hook"><b>Exam hook</b>Maddrey DF = 4.6 × (PT − control) + bilirubin (mg/dL); ≥32 = severe AH. Lille ≥0.45 at day 7 = nonresponse. <sup class="c" data-ref="Carithers1989,Louvet2007Lille" title="Source 55,299">55,299</sup></div>`;
+    h+=`<p class="stage-cap">Not for interpreting anyone’s own results.</p>`;
+    cn.innerHTML=h}
+  ['lvPt','lvCtl','lvBil','lvMeld'].forEach(id=>I(id).addEventListener('input',calc));
+  ['lvUnit','lvLille'].forEach(id=>I(id).addEventListener('change',()=>{if(id==='lvUnit'){const v=parseFloat(I('lvBil').value);if(isFinite(v))I('lvBil').value=I('lvUnit').value==='um'?Math.round(v*17.1):f1(v/17.1)}calc()}));
+  const ex=(pt,ct,b,m,l)=>{I('lvPt').value=pt;I('lvCtl').value=ct;I('lvUnit').value='mg';I('lvBil').value=b;I('lvMeld').value=m;I('lvLille').value=l;calc()};
+  I('lvEx1').addEventListener('click',()=>ex(14,12,3,'',''));
+  I('lvEx2').addEventListener('click',()=>ex(24,12,14,26,'n'));
+  calc();
+
+  /* ---------- STOPAH bars ---------- */
+  const ss=$('#lvStopSvg');const ARM=[['placebo',17],['prednisolone',14],['pentoxifylline',19],['both',13]];let q='';
+  ARM.forEach(([n,v],i)=>{const y=10+i*26;q+=`<text x="96" y="${y+11}" class="t-xs t-end">${n}</text><rect x="102" y="${y}" width="160" height="14" rx="7" style="fill:var(--panel-2)"/><rect x="102" y="${y}" width="${f1(160*v/25)}" height="14" rx="7" style="fill:${i===1||i===3?'var(--rx)':'var(--liver)'}"/><text x="${f1(106+160*v/25)}" y="${y+11}" class="t-xs" style="fill:var(--ink)">${v}%</text>`});
+  q+=`<text x="102" y="116" class="t-xs">28-day mortality (axis to 25%)</text>`;ss.innerHTML=q;
+};
+/* =============== 5.2 Alcohol and the whole body: cancer, heart, brain =============== */
+const BD_STEPS=[
+ {from:0,at:0,k:'0 g a day',t:'No alcohol',
+  txt:`Across all health outcomes together, the Global Burden of Disease 2016 study found that the level of drinking that minimised harm was zero (95% UI 0.0–0.8) standard drinks a week, with a standard drink defined as 10 g of alcohol. Alcohol was the leading risk factor for death and disability at ages 15–49. <sup class="c" data-ref="GBD2016Alcohol" title="Source 137">137</sup>`,
+  pt:`Research does not support drinking alcohol to improve your health.`,
+  hook:`GBD 2016: harm minimised at zero drinks a week. <sup class="c" data-ref="GBD2016Alcohol" title="Source 137">137</sup>`},
+ {from:.02,at:.08,k:'Light · up to 12.5 g a day',t:'Light drinking',
+  txt:`Even in the light band (up to 12.5 g a day, about one 10 g standard drink), cancer risks are above those of non-drinkers: breast 1.04 (95% CI 1.01–1.07), mouth and pharynx 1.13, oesophageal squamous cell 1.26. <sup class="c" data-ref="Bagnardi2015BJC" title="Source 30">30</sup> Drinking up to 10 g a day accounted for an estimated 41,300 cancers worldwide in 2020. <sup class="c" data-ref="Rumgay2021LancetOncol" title="Source 406">406</sup>`,
+  pt:`Alcohol causes at least seven kinds of cancer, including breast and bowel cancer, and the risk starts at low amounts.`,
+  hook:`IARC Group 1. Seven sites: mouth, pharynx, larynx, oesophagus, liver, colorectum, female breast. <sup class="c" data-ref="Baan2007IARC,Bagnardi2015BJC" title="Source 26,30">26,30</sup>`},
+ {from:.135,at:.3,k:'Moderate · up to 50 g a day',t:'Moderate band',
+  txt:`In 599,912 current drinkers, all-cause mortality was lowest at or below about 100 g a week (the dashed line), and each extra 100 g a week went with more stroke (HR 1.14), heart failure (1.09) and fatal hypertensive disease (1.24). <sup class="c" data-ref="Wood2018Lancet" title="Source 505">505</sup> Atrial fibrillation risk rises about 8% per drink a day (12 g drinks); hypertension risk rises almost linearly. <sup class="c" data-ref="Larsson2014JACC,Cecchini2024Hypertension" title="Source 58,275">58,275</sup>`,
+  pt:`Risks to the heart and blood vessels climb steadily with each extra drink, not just at heavy amounts.`,
+  hook:`Wood 2018: lowest all-cause mortality at ≤100 g a week in current drinkers; &gt;350 g a week ≈ 4–5 years less life expectancy at 40. <sup class="c" data-ref="Wood2018Lancet" title="Source 505">505</sup>`},
+ {from:.505,at:.62,k:'Heavy · over 50 g a day',t:'Heavy drinking',
+  txt:`Above 50 g a day the cancer risks jump: mouth and pharynx 5.13, oesophagus 4.95, larynx 2.65, liver 2.07, breast 1.61, bowel 1.44. <sup class="c" data-ref="Bagnardi2015BJC" title="Source 30">30</sup> Heavy drinking (more than 4 drinks a day) was linked with bleeding strokes: intracerebral haemorrhage RR 1.67, subarachnoid haemorrhage 1.82. <sup class="c" data-ref="Larsson2016BMCMed" title="Source 276">276</sup> In the 2023 meta-analysis, 45–64 g a day meant all-cause RR 1.19 and 65 g or more RR 1.35. <sup class="c" data-ref="Zhao2023JAMANO" title="Source 516">516</sup>`,
+  pt:`At heavy amounts, the chance of mouth and throat cancer is about five times that of people who do not drink.`,
+  hook:`Breast cancer risk rises about 7% per 10 g a day. <sup class="c" data-ref="Hamajima2002BJC" title="Source 160">160</sup>`},
+ {from:.8,at:.95,k:'Very heavy · 80–100 g a day',t:'Very heavy drinking',
+  txt:`Chronic pancreatitis risk rises steadily, to RR 6.29 (95% CI 3.04–13.02) at 100 g a day. <sup class="c" data-ref="Samokhvalov2015EBioMed" title="Source 412">412</sup> Alcohol-related cardiomyopathy is generally considered to need more than 80 g a day for over 5 years. <sup class="c" data-ref="Dominguez2024EHJ" title="Source 89">89</sup> Alcohol use disorders were the strongest modifiable risk factor for dementia (adjusted HR about 3.3). <sup class="c" data-ref="Schwarzinger2018LPH" title="Source 420">420</sup> Cutting down helps: halving intake from 6 or more drinks a day lowered blood pressure by 5.50/3.97 mm Hg. <sup class="c" data-ref="Roerecke2017LPH" title="Source 398">398</sup>`,
+  pt:`Very heavy drinking can harm the pancreas, the heart muscle and memory. Many of these harms improve when a person stops; get medical help to stop safely after long, heavy daily drinking.`,
+  hook:`Alcohol use disorder: strongest modifiable dementia risk factor (HR ~3.3). <sup class="c" data-ref="Schwarzinger2018LPH" title="Source 420">420</sup>`}
+];
+inits.body=()=>{
+  const svg=$('#bdSvg'),rg=$('#bdT'),rd=$('#bdRead'),note=$('#bdNote');
+  const band=g=>g<=0?-1:g<=12.5?0:g<=50?1:2,BN=['light','moderate','heavy'];
+  const rrB=(g,a)=>{const b=band(g);return b<0?1:a[b]};
+  const AFP=[1,1.08,1.17,1.26,1.36,1.47];
+  const afRR=g=>{const d=g/12;if(d>=5)return 1.47;const i=Math.floor(d);return lerp(AFP[i],AFP[i+1],d-i)};
+  const ROWS=[
+   {n:'Mouth & throat cancer',o:'mouth',c:'can',f:g=>{const v=rrB(g,[1.13,1.83,5.13]);return [v,'RR '+v.toFixed(2)]}},
+   {n:'Oesophageal cancer',o:'oeso',c:'can',f:g=>{const v=rrB(g,[1.26,2.23,4.95]);return [v,'RR '+v.toFixed(2)]}},
+   {n:'Larynx cancer',o:'mouth',c:'can',f:g=>{const v=rrB(g,[null,1.44,2.65]);return v==null?[1,'not given']:[v,'RR '+v.toFixed(2)]}},
+   {n:'Breast cancer',o:'breast',c:'can',f:g=>{const v=rrB(g,[1.04,1.23,1.61]);return [v,'RR '+v.toFixed(2)]}},
+   {n:'Bowel cancer',o:'bowel',c:'can',f:g=>{const v=rrB(g,[null,1.17,1.44]);return v==null?[1,'not given']:[v,'RR '+v.toFixed(2)]}},
+   {n:'Liver cancer',o:'liver',c:'can',f:g=>{const v=rrB(g,[null,null,2.07]);return v==null?[1,'not given']:[v,'RR '+v.toFixed(2)]}},
+   {n:'Atrial fibrillation',o:'heart',c:'hrt',f:g=>g<=0?[1,'RR 1']:[afRR(g),'RR '+afRR(g).toFixed(2)+(g/12>=5?'+':'')]},
+   {n:'High blood pressure',o:'heart',c:'hrt',f:g=>g<24?[1,'vs 12 g: —']:g<36?[1.11,'RR 1.11 vs 12 g']:g<48?[1.22,'RR 1.22 vs 12 g']:[1.33,'RR 1.33+ vs 12 g']},
+   {n:'Cardiomyopathy',o:'heart',c:'hrt',f:g=>g>80?[2,'>80 g/d for >5 y']:[1,'—']},
+   {n:'Chronic pancreatitis',o:'panc',c:'pan',f:g=>g>=95?[6.29,'RR 6.29 at 100 g']:g>0?[1+g/40,'rises with intake']:[1,'—']},
+   {n:'Brain volume',o:'brain',c:'brn',f:g=>g>0?[1+Math.min(1.5,g/40),'lower with intake']:[1,'—']}
+  ];
+  const CC={can:'var(--glu-fill)',hrt:'var(--ember)',pan:'var(--eth-fill)',brn:'var(--dx)'};
+  /* all-cause mortality RR vs lifetime non-drinkers (Zhao 2023), as steps over g/day */
+  const ZH=[[0,1.3,.96,0],[1.3,24,.93,0],[24,44,1.05,0],[44,64,1.19,1],[64,100,1.35,1]];
+  const zRR=g=>{if(g<=0)return 1;for(const z of ZH)if(g<=z[1])return z[2];return 1.35};
+  const life=gw=>gw<=0?'—':gw<=100?'reference (>0–100 g)':gw<=200?'≈6 months less':gw<=350?'≈1–2 years less':'≈4–5 years less';
+  function draw(t){
+    const N=vb(svg,'720 380','400 600'),ph=phaseOf(BD_STEPS,t),g=t*100;setSt(ph);
+    const L=N?{bx:70,by:16,bs:1.0,rx:150,ry:26,rh:21.5,rv:392,cx:56,cy:312,cw:320,ch:170,lx:56,ly:540}
+             :{bx:112,by:20,bs:1.38,rx:240,ry:36,rh:26.5,rv:468,cx:512,cy:56,cw:190,ch:190,lx:500,ly:300};
+    const hl={},col={};
+    const vals=ROWS.map(r=>{const [v,txt]=r.f(g),gl=clamp((v-1)/1.6);if(!hl[r.o]||gl>hl[r.o]){hl[r.o]=gl;col[r.o]=CC[r.c]}return [v,txt,gl]});
+    if(band(g)===2){hl.stomach=.12;col.stomach=CC.can}
+    let s=bodymap(L.bx,L.by,L.bs,{hl,col}).svg;
+    /* list of organs */
+    s+=`<text x="${L.rx}" y="${L.ry-14}" class="t-sm">${band(g)<0?'NO ALCOHOL':'CANCER BAND: '+BN[band(g)].toUpperCase()}</text>`;
+    ROWS.forEach((r,i)=>{const y=L.ry+i*L.rh+6,[v,txt,gl]=vals[i],on=gl>.02;
+      if(i===6||i===9)s+=`<line x1="${L.rx}" x2="${L.rv}" y1="${f1(y-L.rh*.62)}" y2="${f1(y-L.rh*.62)}" class="grid"/>`;
+      s+=`<circle cx="${L.rx+5}" cy="${f1(y-4)}" r="${f1(3+gl*3)}" style="fill:${CC[r.c]};opacity:${f1(on?.5+gl*.5:.25)}"/>`;
+      s+=`<text x="${L.rx+16}" y="${f1(y)}" class="t-xs" style="${on?'fill:var(--ink)':''}">${r.n}</text>`;
+      s+=`<text x="${L.rv}" y="${f1(y)}" class="t-xs t-end" style="${on?'fill:var(--ink);font-weight:700':''}">${txt}</text>`;
+      /* leader from the body map organ to the row, only when lit */
+      if(gl>.25&&!N){const o=bodymap(L.bx,L.by,L.bs,{}).at[r.o];s+=`<line x1="${f1(o[0])}" y1="${f1(o[1])}" x2="${L.rx-2}" y2="${f1(y-4)}" style="stroke:${CC[r.c]};stroke-width:.8;opacity:${f1(gl*.6)}"/>`}});
+    /* all-cause curve */
+    const X=v=>L.cx+L.cw*v/100,Y=v=>L.cy+L.ch-L.ch*(v-.8)/.65;
+    s+=`<text x="${L.cx-30}" y="${L.cy-16}" class="t-sm">ALL-CAUSE MORTALITY, RR</text>`;
+    s+=`<rect x="${L.cx}" y="${L.cy}" width="${L.cw}" height="${L.ch}" style="fill:var(--field)"/>`;
+    [.9,1,1.2,1.4].forEach(v=>s+=`<line x1="${L.cx}" x2="${L.cx+L.cw}" y1="${f1(Y(v))}" y2="${f1(Y(v))}" class="${v===1?'axis':'grid'}"/><text x="${L.cx-4}" y="${f1(Y(v)+3)}" class="t-xs t-end">${v.toFixed(1)}</text>`);
+    [0,25,50,75,100].forEach(v=>s+=`<text x="${f1(X(v))}" y="${L.cy+L.ch+13}" class="t-xs t-mid">${v}</text>`);
+    s+=`<text x="${L.cx+L.cw}" y="${L.cy+L.ch+26}" class="t-xs t-end">g a day</text>`;
+    const wx=X(100/7);s+=`<line x1="${f1(wx)}" x2="${f1(wx)}" y1="${L.cy}" y2="${L.cy+L.ch}" style="stroke:var(--brand);stroke-width:1.4;stroke-dasharray:4 3"/><text x="${f1(wx+4)}" y="${L.cy+11}" class="t-xs" style="fill:var(--brand)">100 g/week</text>`;
+    s+=`<circle cx="${f1(X(0))}" cy="${f1(Y(1))}" r="3.5" style="fill:var(--muted)"/>`;
+    let d='';ZH.forEach(([a,b,v])=>{if(g<=a)return;const e=Math.min(g,b);d+=`M${f1(X(a))} ${f1(Y(v))}H${f1(X(e))}`});
+    if(d)s+=`<path d="${d}" style="stroke:var(--glu);stroke-width:3;stroke-linecap:round;fill:none"/>`;
+    ZH.forEach(([a,b,v,sig])=>{if(g>a+(b-a)*.4)s+=`<text x="${f1(X((a+b)/2))}" y="${f1(Y(v)-6)}" class="t-xs t-mid" style="fill:var(--ink)">${v.toFixed(2)}${sig?'':'*'}</text>`});
+    const zr=zRR(g);s+=`<circle cx="${f1(X(g))}" cy="${f1(Y(zr))}" r="5" style="fill:var(--glu);stroke:var(--panel);stroke-width:2"/>`;
+    s+=`<text x="${L.lx}" y="${L.ly}" class="t-xs">* not significant · vs lifetime non-drinkers · Zhao 2023</text>`;
+    s+=`<text x="${L.lx}" y="${L.ly+18}" class="t-sm">LIFE EXPECTANCY AT 40 (WOOD 2018)</text><text x="${L.lx}" y="${L.ly+36}" class="t-lbl" style="fill:${g*7>100?'var(--glu)':'var(--ink)'}">${life(g*7)}</text>`;
+    if(!N)s+=`<text x="${L.lx}" y="${L.ly+52}" class="t-xs">at ${Math.round(g*7)} g a week, vs &gt;0–100 g</text>`;
+    svg.innerHTML=s;
+    rd.innerHTML=`<span>Intake <b>${Math.round(g)} g/day</b></span><span>≈ <b>${f1(g/10)}</b> standard drinks of 10 g</span><span><b>${Math.round(g*7)} g</b> a week</span><span>Cancer band <b>${band(g)<0?'none':BN[band(g)]}</b></span>`;
+    note.innerHTML=noteHTML(BD_STEPS[ph]);
+  }
+  const stop=playWire(rg,$('#bdPlay'),draw,20000,'Replay','body');
+  const setSt=stepWire($('#bdSteps'),BD_STEPS,rg,draw,stop);
+  draw(+rg.value);
+
+  /* ---------- J-curve debate ---------- */
+  const js=$('#bdJSvg'),jn=$('#bdJNote'),JB=$$('[data-bdj]');
+  /* curves over u in [0,1] (schematic intake), y = relative risk; the labelled points are the published values */
+  const sm=(P,u)=>{for(let i=1;i<P.length;i++)if(u<=P[i][0]){const a=P[i-1],b=P[i],k=ease(ramp(u,a[0],b[0]));return lerp(a[1],b[1],k)}return P[P.length-1][1]};
+  const JC=[
+   [[0,1],[.2,.86],[.42,1],[.7,1.19],[1,1.35]],
+   [[0,1],[.2,.97],[.45,1.05],[.7,1.19],[1,1.35]],
+   [[0,1],[1,1.58]]];
+  const JN=[
+   {k:'Position A · observational',t:'The classic J-curve',txt:`Without adjustment, 87 cohort studies reproduced the J: low-volume drinkers had an all-cause mortality RR of 0.86 versus “non-drinkers”. <sup class="c" data-ref="Stockwell2016JSAD" title="Source 443">443</sup> But that reference group mixed lifetime abstainers with <b>former drinkers</b>, many of whom stopped because they were already ill, and whose mortality was raised (RR 1.22). Light drinkers also tend to have healthier lifestyles. <sup class="c" data-ref="Stockwell2016JSAD,Biddinger2022JAMANetwOpen" title="Source 39,443">39,443</sup>`,
+    pt:`Comparing light drinkers with a group that includes people who quit because they were sick makes light drinking look healthier than it is.`,hook:`“Abstainer bias” (sick quitters) explains much of the J-curve. <sup class="c" data-ref="Stockwell2016JSAD" title="Source 443">443</sup>`},
+   {k:'Position B · corrected',t:'The dip almost disappears',txt:`After adjusting for abstainer bias, the low-volume RR was 0.97 (0.88–1.07): no mortality benefit. <span class="ev est">Established</span> for the bias; benefit itself unproven. <sup class="c" data-ref="Stockwell2016JSAD" title="Source 443">443</sup> In the 2023 update (107 cohorts, 4.8 million people), low-volume drinking was RR 0.93 (not significant) versus lifetime non-drinkers, rising to 1.19 at 45–64 g a day and 1.35 at 65 g or more. An apparent protective link with coronary death disappeared in younger cohorts and higher-quality studies. <sup class="c" data-ref="Zhao2023JAMANO,Zhao2017JSAD" title="Source 514,516">514,516</sup>`,
+    pt:`When the comparison is fair, light drinking does not lower the risk of dying.`,hook:`Adjusted RR for low-volume drinkers 0.97 (no benefit). <sup class="c" data-ref="Stockwell2016JSAD" title="Source 443">443</sup>`},
+   {k:'Position B · genetics',t:'Mendelian randomisation',txt:`Gene variants that make drinking unpleasant (ALDH2, ADH1B) act like a natural experiment. In the China Kadoorie Biobank (512,715 adults), self-reported drinking showed a U shape for stroke, but genotype-predicted intake did not: stroke risk rose steadily, RR 1.27 for ischaemic stroke and 1.58 for intracerebral haemorrhage per 280 g a week, with no significant effect on heart attack (0.96). The authors call the protective effect “largely non-causal”. <span class="ev est">Established</span> <sup class="c" data-ref="Millwood2019" title="Source 330">330</sup> In Europeans, ADH1B carriers drank 17.2% less and had lower odds of coronary heart disease (OR 0.90). <sup class="c" data-ref="Holmes2014BMJ" title="Source 185">185</sup> Non-linear analyses in UK Biobank suggest little added cardiovascular risk at light intake and exponential rises at heavier intake <span class="ev early">Early evidence</span>. <sup class="c" data-ref="Biddinger2022JAMANetwOpen" title="Source 39">39</sup>`,
+    pt:`Studies that use genes as a fair coin toss find that more alcohol means more stroke, with no protective dip.`,hook:`Mendelian randomisation (ALDH2/ADH1B): no protective U shape for stroke. <sup class="c" data-ref="Millwood2019" title="Source 330">330</sup>`}];
+  let jm=0,jFrom=0,jK=1,jStop=null;
+  function drawJ(){
+    const N=vb(js,'720 320','400 420');
+    const x0=N?52:80,x1=N?386:520,y0=N?40:34,h=N?260:230,X=u=>lerp(x0,x1,u),Y=v=>y0+h-h*(v-.75)/.95;
+    const f=u=>lerp(sm(JC[jFrom],u),sm(JC[jm],u),jK);
+    let s=`<rect x="${x0}" y="${y0}" width="${x1-x0}" height="${h}" style="fill:var(--field)"/>`;
+    [.8,1,1.2,1.4,1.6].forEach(v=>s+=`<line x1="${x0}" x2="${x1}" y1="${f1(Y(v))}" y2="${f1(Y(v))}" class="${v===1?'axis':'grid'}"/><text x="${x0-5}" y="${f1(Y(v)+3)}" class="t-xs t-end">${v.toFixed(1)}</text>`);
+    s+=`<text x="${x0}" y="${y0-12}" class="t-sm">${jm===2?'STROKE RISK (RR)':'ALL-CAUSE MORTALITY (RR)'}</text>`;
+    const xl=jm===2?['0','genetically predicted intake →','280 g/wk']:['none','low','moderate','heavy'];
+    if(jm===2){s+=`<text x="${x0}" y="${y0+h+14}" class="t-xs">0</text><text x="${(x0+x1)/2}" y="${y0+h+14}" class="t-xs t-mid">genetically predicted intake</text><text x="${x1}" y="${y0+h+14}" class="t-xs t-end">280 g a week</text>`}
+    else xl.forEach((w,i)=>s+=`<text x="${f1(X([0,.2,.55,.95][i]))}" y="${y0+h+14}" class="t-xs t-mid">${w}</text>`);
+    if(jm===2){/* self-reported U shape (dashed, schematic) and the two genetic lines */
+      s+=`<path d="${pathFn(u=>(sm([[0,1],[.3,.88],[.6,1.02],[1,1.3]],u)-.75)/.95,x0,x1,y0+h,y0)}" style="fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:5 4;opacity:${f1(jK)}"/>`;
+      s+=`<text x="${f1(X(.32))}" y="${f1(Y(.86)+14)}" class="t-xs t-mid">self-reported: U shape</text>`;
+      const isch=u=>lerp(1,1.27,u);s+=`<path d="M${X(0)} ${f1(Y(1))}L${X(1)} ${f1(Y(lerp(1,1.27,jK)))}" style="stroke:var(--gaba);stroke-width:2.6;stroke-linecap:round"/><text x="${X(1)-4}" y="${f1(Y(lerp(1,1.27,jK))+14)}" class="t-xs t-end" style="fill:var(--gaba)">ischaemic stroke 1.27</text>`;
+      s+=`<path d="M${X(0)} ${f1(Y(1))}L${X(1)} ${f1(Y(lerp(1,1.58,jK)))}" style="stroke:var(--glu);stroke-width:2.6;stroke-linecap:round"/><text x="${X(1)-4}" y="${f1(Y(lerp(1,1.58,jK))-8)}" class="t-xs t-end" style="fill:var(--glu)">brain bleed (ICH) 1.58</text>`;
+      s+=`<text x="${f1(X(.5))}" y="${f1(Y(.96)+4)}" class="t-xs t-mid">heart attack: 0.96, not significant</text>`;
+    }else{
+      s+=`<path d="${pathFn(u=>(f(u)-.75)/.95,x0,x1,y0+h,y0)}" style="fill:none;stroke:var(--glu);stroke-width:3;stroke-linecap:round"/>`;
+      const lv=f(.2);s+=`<circle cx="${f1(X(.2))}" cy="${f1(Y(lv))}" r="5" style="fill:var(--glu);stroke:var(--panel);stroke-width:2"/><text x="${f1(X(.2))}" y="${f1(Y(lv)+20)}" class="t-lbl t-mid">${lv.toFixed(2)}</text>`;
+      s+=`<text x="${f1(X(.95))}" y="${f1(Y(f(.95))-10)}" class="t-xs t-end" style="fill:var(--ink)">1.35 at ≥65 g/day</text>`}
+    /* the reference group */
+    const rx=N?52:560,ry=N?y0+h+34:60,rw=N?334:148;
+    if(!N||true){s+=`<text x="${rx}" y="${ry}" class="t-sm">${jm===2?'GROUPS SET BY GENES':'THE “NON-DRINKER” GROUP'}</text>`;
+      if(jm===2){s+=`<text x="${rx}" y="${ry+20}" class="t-xs">ALDH2 / ADH1B variants decide</text><text x="${rx}" y="${ry+33}" class="t-xs">who drinks less, like a</text><text x="${rx}" y="${ry+46}" class="t-xs">natural randomised trial</text>`;
+        for(let i=0;i<12;i++)s+=person(rx+8+(i%6)*(N?22:22),ry+(N?58:62)+Math.floor(i/6)*26,18,i%3===0?'var(--gaba-fill)':'var(--muted)',{op:i%3===0?1:.45})}
+      else{const fd=jm===0?1-jK*0:0;
+        for(let i=0;i<12;i++){const former=i>=8,show=!former||jm===0;s+=person(rx+8+(i%6)*22,ry+14+Math.floor(i/6)*26,18,former?'var(--accent)':'var(--muted)',{op:show?(former?1:.6):.12})}
+        s+=`<rect x="${rx}" y="${ry+70}" width="10" height="10" rx="2" style="fill:var(--muted);opacity:.6"/><text x="${rx+16}" y="${ry+79}" class="t-xs">lifetime non-drinkers</text>`;
+        s+=`<rect x="${rx}" y="${ry+88}" width="10" height="10" rx="2" style="fill:var(--accent);opacity:${jm===0?1:.25}"/><text x="${rx+16}" y="${ry+97}" class="t-xs">former drinkers (RR 1.22)</text>`;
+        s+=`<text x="${rx}" y="${ry+118}" class="t-xs" style="fill:${jm===0?'var(--accent)':'var(--good)'}">${jm===0?'mixed in: reference looks sicker':'removed: a fair reference'}</text>`}}
+    js.innerHTML=s;
+    jn.innerHTML=noteHTML(JN[jm]);
+  }
+  function setJ(m){if(m===jm&&jK===1)return;if(jStop)jStop();jFrom=jK<1?jm:jm;jFrom=jm;jm=m;jK=0;JB.forEach(b=>b.setAttribute('aria-pressed',+b.dataset.bdj===m));jStop=animate(700,p=>{jK=ease(p);drawJ()},()=>{jStop=null;jK=1;drawJ()})}
+  JB.forEach(b=>b.addEventListener('click',()=>setJ(+b.dataset.bdj)));
+  onHide.body=(prev=>()=>{prev&&prev();if(jStop){jStop();jStop=null;jK=1}})(onHide.body);
+  const prevR=redraws.body;redraws.body=()=>{prevR&&prevR();drawJ()};
+  drawJ();
+
+  /* ---------- AF trial bars ---------- */
+  const af=$('#bdAfSvg');let a='';
+  a+=`<text x="0" y="12" class="t-xs">AF RECURRENCE BY 6 MONTHS</text>`;
+  [['usual drinking',73,'var(--glu-fill)'],['abstinence',53,'var(--rx)']].forEach(([n,v,c],i)=>{const y=22+i*22;a+=`<text x="92" y="${y+10}" class="t-xs t-end">${n}</text><rect x="98" y="${y}" width="170" height="13" rx="6.5" style="fill:var(--panel-2)"/><rect x="98" y="${y}" width="${f1(170*v/100)}" height="13" rx="6.5" style="fill:${c}"/><text x="${f1(102+170*v/100)}" y="${y+10}" class="t-xs" style="fill:var(--ink)">${v}%</text>`});
+  a+=`<text x="0" y="84" class="t-xs">MEDIAN TIME IN AF</text>`;
+  [['usual drinking',1.2,'var(--glu-fill)'],['abstinence',.5,'var(--rx)']].forEach(([n,v,c],i)=>{const y=92+i*20;a+=`<text x="92" y="${y+10}" class="t-xs t-end">${n}</text><rect x="98" y="${y}" width="${f1(110*v/1.2)}" height="12" rx="6" style="fill:${c}"/><text x="${f1(102+110*v/1.2)}" y="${y+10}" class="t-xs" style="fill:var(--ink)">${v}%</text>`});
+  af.innerHTML=a;
+};
+/* =============== 5.4 Pregnancy and fetal alcohol spectrum disorders =============== */
+const PG_STEPS=[
+ {from:0,at:.1,k:'Weeks 0–12',t:'Early pregnancy',
+  txt:`The CDC states that there is no known safe amount of alcohol in pregnancy; drinking can cause FASD and might increase the risk of miscarriage and stillbirth. <sup class="c" data-ref="Gosdin2022MMWR" title="Source 144">144</sup> In a meta-analysis of 24 studies (231,808 pregnant women), alcohol exposure was linked with higher miscarriage risk (OR 1.19, 95% CI 1.12–1.28); at up to 5 drinks a week, each extra weekly drink added about 6%. <sup class="c" data-ref="Sundermann2019ACER" title="Source 448">448</sup>`,
+  pt:`No amount of alcohol is known to be safe in pregnancy, at any stage. If you are pregnant or planning a pregnancy, plan with your care team.`,
+  hook:`No known safe amount and no safe time to drink in pregnancy. <sup class="c" data-ref="Gosdin2022MMWR,Williams2015AAP" title="Source 144,497">144,497</sup>`},
+ {from:.3,at:.45,k:'Weeks 13–27',t:'No safe trimester',
+  txt:`The AAP clinical report states that no amount of alcohol should be considered safe, there is no safe trimester, all forms (beer, wine, liquor) pose similar risk, and binge drinking poses dose-related risk. <sup class="c" data-ref="Williams2015AAP" title="Source 497">497</sup> In the US in 2018–2020, 13.5% of pregnant adults reported current drinking and 5.2% binge drinking; frequent mental distress and having no usual provider were linked with more drinking. <sup class="c" data-ref="Gosdin2022MMWR" title="Source 144">144</sup>`,
+  pt:`Stopping at any point in pregnancy helps. Support for mental health and good access to care make stopping easier.`},
+ {from:.6,at:.72,k:'Weeks 28–40',t:'A lifelong effect, fully preventable',
+  txt:`Prenatal alcohol exposure is the leading preventable cause of birth defects and of intellectual and neurodevelopmental disabilities. The neurocognitive and behavioural effects are lifelong, and they are completely preventable when no alcohol is used in pregnancy. <sup class="c" data-ref="Williams2015AAP" title="Source 497">497</sup> The brain is highlighted throughout the timeline because the AAP finds no safe trimester. <sup class="c" data-ref="Williams2015AAP" title="Source 497">497</sup>`,
+  pt:`Alcohol can affect how a baby’s brain develops, and these effects can last for life.`,
+  hook:`Prenatal alcohol = leading preventable cause of birth defects and neurodevelopmental disabilities (AAP). <sup class="c" data-ref="Williams2015AAP" title="Source 497">497</sup>`},
+ {from:.82,at:.9,k:'After birth',t:'FAS facial features',
+  txt:`The 2016 criteria for fetal alcohol syndrome need at least 2 of 3 facial features (short palpebral fissures at or below the 10th centile, a thin upper-lip vermilion and a smooth philtrum, rank 4 or 5 on a racially normed guide), plus growth deficiency, deficient brain growth or abnormal brain structure or function, and neurobehavioural impairment. FAS can be diagnosed with or without documented exposure. <sup class="c" data-ref="Hoyme2016Pediatrics" title="Source 187">187</sup>`,
+  pt:`Doctors look for a pattern: small eye openings, a smooth groove under the nose and a thin upper lip, together with growth and development checks.`,
+  hook:`FAS face: short palpebral fissures, smooth philtrum, thin upper-lip vermilion (≥2 of 3). <sup class="c" data-ref="Hoyme2016Pediatrics" title="Source 187">187</sup>`},
+ {from:.96,at:1,k:'Childhood and beyond',t:'Support changes outcomes',
+  txt:`FASD rarely comes alone: 428 co-occurring conditions have been described. In 415 people with FAS or fetal alcohol effects, diagnosis at a younger age and a stable, nurturing home raised the odds of avoiding adverse outcomes 2- to 4-fold. <sup class="c" data-ref="Popova2016Lancet,Streissguth2004JDBP" title="Source 366,446">366,446</sup> Early recognition and therapy improve outcomes. <sup class="c" data-ref="Williams2015AAP" title="Source 497">497</sup>`,
+  pt:`Children affected by alcohol before birth do better when they are diagnosed early and grow up with steady support.`,
+  hook:`FASD categories (IOM): FAS, partial FAS, ARND, ARBD. <sup class="c" data-ref="Hoyme2016Pediatrics" title="Source 187">187</sup>`}
+];
+inits.pregnancy=()=>{
+  const svg=$('#pgSvg'),rg=$('#pgT'),rd=$('#pgRead'),note=$('#pgNote');
+  const wk=t=>40*ramp(t,0,.8);
+  function fetus(cx,cy,k,br){/* curled schematic fetus, k = size 0..1, br = brain highlight 0..1 */
+    const s=lerp(.28,1,k);let g=`<g transform="translate(${f1(cx)} ${f1(cy)}) scale(${f1(s)})">`;
+    g+=`<path d="M-6 -30C26 -34 48 -10 44 18C40 44 14 58 -12 52C-30 48 -40 34 -36 18C-32 6 -20 0 -10 6" style="fill:var(--skin);stroke:var(--brain-line);stroke-width:${f1(1.6/s)}"/>`;
+    g+=`<circle cx="-14" cy="-26" r="26" style="fill:var(--skin);stroke:var(--brain-line);stroke-width:${f1(1.6/s)}"/>`;
+    g+=`<path d="M-30 -32C-26 -46 -6 -50 4 -38C6 -28 -4 -20 -16 -22C-24 -22 -30 -26 -30 -32Z" style="fill:var(--dx);opacity:${f1(.25+br*.55)}"/>`;
+    g+=`<path d="M10 10C4 18 6 28 14 32M26 24C20 34 26 44 34 42" style="fill:none;stroke:var(--brain-line);stroke-width:${f1(1.4/s)};stroke-linecap:round"/>`;
+    g+=`<circle cx="-26" cy="-18" r="2" style="fill:var(--brain-line)"/>`;
+    return g+'</g>'}
+  function face(cx,cy,sc,m,N){/* schematic child face; m 0 typical .. 1 the FAS facial pattern */
+    let g=`<g transform="translate(${f1(cx)} ${f1(cy)}) scale(${f1(sc)})">`;
+    g+=`<ellipse cx="0" cy="0" rx="62" ry="76" style="fill:var(--skin);stroke:var(--brain-line);stroke-width:1.6"/>`;
+    g+=`<path d="M-58 -30C-50 -80 50 -80 58 -30C40 -56 -40 -56 -58 -30Z" style="fill:var(--brain-line);opacity:.5"/>`;
+    const ew=lerp(16,11,m);/* palpebral fissure length */
+    [-1,1].forEach(d=>{const ex=d*24;g+=`<path d="M${f1(ex-ew)} -8Q${f1(ex)} -17 ${f1(ex+ew)} -8Q${f1(ex)} 0 ${f1(ex-ew)} -8Z" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.4"/><circle cx="${f1(ex)}" cy="-8" r="3.6" style="fill:var(--ink)"/>`;
+      if(m>.05)g+=`<path d="M${ex-16} 4H${ex+16}" style="stroke:var(--muted);stroke-width:.8;stroke-dasharray:2 2;opacity:${f1(m)}"/>`});
+    g+=`<path d="M-4 0Q-8 18 -8 22Q0 27 8 22Q8 18 4 0" style="fill:none;stroke:var(--brain-line);stroke-width:1.3"/>`;
+    /* philtrum: two ridges that fade away */
+    g+=`<path d="M-5 28V40M5 28V40" style="stroke:var(--brain-line);stroke-width:1.4;opacity:${f1(1-m)}"/>`;
+    /* upper lip vermilion thins */
+    const lt=lerp(6,1.6,m);
+    g+=`<path d="M-18 44Q-8 ${f1(44-lt)} 0 ${f1(44-lt*.4)}Q8 ${f1(44-lt)} 18 44Q0 ${f1(44+1)} -18 44Z" style="fill:var(--glu-fill);opacity:.8"/><path d="M-16 45Q0 54 16 45" style="fill:var(--glu-fill);opacity:.6;stroke:none"/>`;
+    return g+'</g>'}
+  function draw(t){
+    const N=vb(svg,'720 380','400 640'),ph=phaseOf(PG_STEPS,t),w=wk(t),born=ramp(t,.8,.86);setSt(ph);
+    const L=N?{tx0:24,tx1:376,ty:52,wx:200,wy:232,wr:104,fx:200,fy:236,fs:1.25,px:12,py:372,pw:376,ph:256}
+             :{tx0:30,tx1:690,ty:52,wx:190,wy:228,wr:118,fx:190,fy:230,fs:1.35,px:372,py:96,pw:336,ph:270};
+    let s='';
+    /* timeline */
+    const X=v=>lerp(L.tx0,L.tx1,v/40),TR=[[0,13,'1st trimester'],[13,27,'2nd trimester'],[27,40,'3rd trimester']];
+    TR.forEach(([a,b,n],i)=>{const on=w>=a&&(w<b||(i===2&&w>=40));s+=`<rect x="${f1(X(a))}" y="${L.ty}" width="${f1(X(b)-X(a)-2)}" height="12" rx="6" style="fill:${on?'var(--brand)':'var(--panel-2)'};opacity:${on?.85:1}"/><text x="${f1((X(a)+X(b))/2)}" y="${L.ty+27}" class="t-xs t-mid" style="${on?'fill:var(--ink);font-weight:700':''}">${N?['1st','2nd','3rd'][i]:n}</text>`});
+    [0,10,20,30,40].forEach(v=>s+=`<text x="${f1(X(v))}" y="${L.ty-6}" class="t-xs t-mid">${v}</text>`);
+    s+=`<text x="${L.tx1}" y="${L.ty-18}" class="t-xs t-end">weeks</text>`;
+    const nx=X(Math.min(w,40));s+=`<path d="M${f1(nx-6)} ${L.ty-2}L${f1(nx+6)} ${L.ty-2}L${f1(nx)} ${L.ty+8}Z" style="fill:var(--ink)"/>`;
+    /* the guidance band across the whole timeline */
+    const bw=(L.tx1-L.tx0)*clamp(ramp(t,0,.3)+.08);
+    s+=`<rect x="${L.tx0}" y="${L.ty-46}" width="${f1(bw)}" height="18" rx="9" style="fill:var(--accent-soft)"/>`;
+    if(bw>200)s+=`<text x="${L.tx0+10}" y="${L.ty-33}" class="t-xs" style="fill:var(--accent);font-weight:700">${N?'no known safe amount · no safe trimester':'no known safe amount · no safe trimester · all drinks similar risk'}</text>`;
+    /* womb and fetus, cross-fading to the face after birth */
+    const op=1-born;
+    if(op>0){s+=`<g style="opacity:${f1(op)}"><circle cx="${L.wx}" cy="${L.wy}" r="${L.wr}" style="fill:var(--liver-soft);stroke:var(--liver);stroke-width:2"/><circle cx="${L.wx}" cy="${L.wy}" r="${L.wr-8}" style="fill:var(--panel);opacity:.55"/>`;
+      s+=`<path d="M${L.wx+L.wr*.55} ${L.wy-L.wr*.62}C${L.wx+L.wr*.8} ${L.wy-L.wr*.4} ${L.wx+L.wr*.78} ${L.wy-L.wr*.1} ${L.wx+L.wr*.62} ${L.wy+L.wr*.05}" style="fill:none;stroke:var(--liver);stroke-width:9;stroke-linecap:round;opacity:.5"/>`;
+      s+=`<text x="${L.wx+L.wr*.7}" y="${L.wy-L.wr*.7}" class="t-xs">placenta</text>`;
+      s+=fetus(L.fx,L.fy,ramp(w,4,40),.5+.5*Math.sin(t*40)**2);
+      s+=`<text x="${L.wx}" y="${L.wy+L.wr+18}" class="t-xs t-mid" style="fill:var(--dx)">brain developing throughout (highlighted)</text></g>`}
+    if(born>0){const m=ramp(t,.84,.94),sc=N?1.15:1.3;s+=`<g style="opacity:${f1(born)}">`+face(L.wx,L.wy+6,sc,m,N);
+      const lab=(x1,y1,x2,y2,a,b,anc)=>`<line x1="${f1(x1)}" y1="${f1(y1)}" x2="${f1(x2)}" y2="${f1(y2)}" style="stroke:var(--muted);stroke-width:.9"/><text x="${f1(x2+(anc==='e'?-3:3))}" y="${f1(y2-2)}" class="t-xs${anc==='e'?' t-end':''}" style="fill:var(--ink)">${a}</text><text x="${f1(x2+(anc==='e'?-3:3))}" y="${f1(y2+10)}" class="t-xs${anc==='e'?' t-end':''}">${b}</text>`;
+      if(m>.3){const cx=L.wx,cy=L.wy+6;
+        s+=lab(cx+24*sc,cy-8*sc,cx+(N?90:120),cy-70,'short palpebral','fissures (≤10th centile)','s');
+        s+=lab(cx,cy+34*sc,cx-(N?84:110),cy+70,'smooth','philtrum (rank 4–5)','e');
+        s+=lab(cx+12*sc,cy+42*sc,cx+(N?86:112),cy+82,'thin upper-lip','vermilion','s')}
+      s+=`<text x="${L.wx}" y="${L.wy+L.wr+18}" class="t-xs t-mid">${m>.5?'≥2 of 3 features for the FAS facial criterion':'schematic face'}</text></g>`}
+    /* facts panel */
+    s+=`<rect x="${L.px}" y="${L.py}" width="${L.pw}" height="${L.ph}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
+    const P=[[`OR 1.19`,'miscarriage risk with alcohol','exposure (24 studies)','+6% per extra weekly drink','(at up to 5 drinks a week)'],
+             [`13.5%`,'of pregnant US adults reported','current drinking, 2018–2020','5.2% reported binge drinking','global estimate: 9.8%'],
+             [`Leading`,'preventable cause of birth','defects and neurodevelopmental','disabilities; effects lifelong,','and completely preventable'],
+             [`≥2 of 3`,'facial features, plus growth,','brain growth or structure, and','neurobehavioural impairment','(Hoyme 2016)'],
+             [`2–4×`,'better odds of avoiding adverse','outcomes with earlier diagnosis','and a stable, nurturing home','(Streissguth 2004)']][ph];
+    const SRC=['Sundermann 2019','Gosdin 2022 · Popova 2017','AAP · Williams 2015','Hoyme 2016','Streissguth 2004'][ph];
+    const k=ph===0?1:ramp(t,PG_STEPS[ph].from,PG_STEPS[ph].from+.06);
+    s+=`<text x="${L.px+18}" y="${L.py+26}" class="t-sm">${PG_STEPS[ph].k.toUpperCase()}</text>`;
+    s+=`<text x="${L.px+18}" y="${L.py+(N?70:74)}" style="font:800 ${N?36:40}px var(--display);fill:${ph>=4?'var(--good)':'var(--accent)'};opacity:${f1(.3+.7*k)}">${P[0]}</text>`;
+    P.slice(1).forEach((ln,i)=>s+=`<text x="${L.px+18}" y="${L.py+(N?100:108)+i*(N?20:22)}" class="t-lbl" style="font-weight:${i<2?700:400};opacity:${f1(.3+.7*k)}">${ln}</text>`);
+    s+=`<text x="${L.px+18}" y="${L.py+L.ph-16}" class="t-xs">${SRC}</text>`;
+    svg.innerHTML=s;
+    rd.innerHTML=born>.5?`<span>Stage <b>after birth</b></span><span>Facial pattern drawn <b>${Math.round(ramp(t,.84,.94)*100)}%</b></span>`:`<span>Week <b>${Math.round(w)}</b> of 40</span><span>Trimester <b>${w<13?1:w<27?2:3}</b></span><span>Safe amount known: <b>none</b></span>`;
+    note.innerHTML=noteHTML(PG_STEPS[ph]);
+  }
+  const stop=playWire(rg,$('#pgPlay'),draw,22000,'Replay','pregnancy');
+  const setSt=stepWire($('#pgSteps'),PG_STEPS,rg,draw,stop);
+  draw(+rg.value);
+
+  /* ---------- prevalence icon array (per 1,000) ---------- */
+  const ps=$('#pgPrevSvg'),pn=$('#pgPrevNote'),PB=$$('[data-pgp]');
+  const PV=[
+   {lo:7.7,hi:7.7,lab:'7.7 per 1,000',k:'Lange 2017 · global',t:'Global FASD prevalence',txt:`The estimated global prevalence of FASD among children and youth is 7.7 per 1,000 (95% CI 4.9–11.7). <sup class="c" data-ref="Lange2017JAMAPediatr" title="Source 272">272</sup>`,pt:`About 8 in every 1,000 children and young people worldwide are estimated to have FASD.`},
+   {lo:19.8,hi:19.8,lab:'19.8 per 1,000',k:'Lange 2017 · Europe',t:'Highest regional estimate',txt:`The WHO European Region had the highest estimate, 19.8 per 1,000. <sup class="c" data-ref="Lange2017JAMAPediatr" title="Source 272">272</sup>`,pt:`In Europe the estimate is about 2 in every 100 children.`},
+   {lo:11.3,hi:50,lab:'11.3–50.0 per 1,000',k:'May 2018 · US first-graders',t:'Four US communities',txt:`Among 6,639 first-graders assessed in 4 US communities (2010–2016), conservative FASD prevalence ranged from 11.3 to 50.0 per 1,000 (1.1% to 5.0%); weighted estimates were 31.1 to 98.5 per 1,000. <sup class="c" data-ref="May2018JAMA" title="Source 320">320</sup>`,pt:`In these US communities, between about 1 and 5 in every 100 six-year-olds had FASD by the conservative count.`,hook:`Global FASD prevalence 7.7/1,000; US first-graders 1.1–5.0%. <sup class="c" data-ref="Lange2017JAMAPediatr,May2018JAMA" title="Source 272,320">272,320</sup>`},
+   {lo:1.46,hi:1.46,lab:'14.6 per 10,000',k:'Popova 2017 · FAS',t:'FAS, the most severe form',txt:`The global prevalence of fetal alcohol syndrome was estimated at 14.6 per 10,000; about one in every 67 women who drank during pregnancy would have a child with FAS, about 119,000 children a year worldwide. <sup class="c" data-ref="Popova2017LancetGH" title="Source 367">367</sup>`,pt:`The full syndrome is much rarer than the wider spectrum: about 1.5 in every 1,000 people.`}];
+  let pv=0,pFrom=0,pK=1,pStop=null;
+  function drawP(){const N=vb(ps,'720 300','400 520');
+    const cols=N?25:50,rows=1000/cols,gap=N?14.4:13.4,r=N?4.6:4.4,x0=N?20:22,y0=N?60:52;
+    const cur=PV[pv],prev=PV[pFrom],lo=lerp(prev.lo,cur.lo,pK),hi=lerp(prev.hi,cur.hi,pK);
+    let s=`<text x="${x0}" y="${N?22:22}" class="t-sm">1,000 CHILDREN</text><text x="${x0}" y="${N?44:40}" style="font:800 ${N?18:20}px var(--display);fill:var(--accent)">${cur.lab}</text>`;
+    for(let i=0;i<1000;i++){const c=i%cols,rw=Math.floor(i/cols),x=x0+c*gap+gap/2,y=y0+rw*gap+gap/2,solid=i<Math.round(lo),range=!solid&&i<Math.round(hi);
+      s+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="${r}" style="fill:${solid?'var(--accent)':range?'var(--ember)':'var(--panel-2)'};opacity:${range?.4:1}"/>`}
+    ps.innerHTML=s;pn.innerHTML=noteHTML(cur)}
+  function setP(m){if(m===pv)return;if(pStop)pStop();pFrom=pv;pv=m;pK=0;PB.forEach(b=>b.setAttribute('aria-pressed',+b.dataset.pgp===m));pStop=animate(600,p=>{pK=ease(p);drawP()},()=>{pStop=null;pK=1;drawP()})}
+  PB.forEach(b=>b.addEventListener('click',()=>setP(+b.dataset.pgp)));
+  const prevR=redraws.pregnancy;redraws.pregnancy=()=>{prevR&&prevR();drawP()};
+  drawP();
+};
+/* =============== 5.5 Nursing care in hospital =============== */
+/* One illustrative 72-hour admission. The CIWA-Ar line is drawn (knots below), not measured;
+   intervals, bands and windows are the published ones, cited in the notes. */
+const NU_H=72;
+const NU_CIWA=[[0,5],[4,7],[8,11],[12,14],[18,16],[22,14],[26,11],[29,9],[34,7],[42,5],[54,3.5],[72,2]];
+function nuPL(k,x){if(x<=k[0][0])return k[0][1];for(let i=1;i<k.length;i++)if(x<=k[i][0]){const a=k[i-1],b=k[i];return a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0])}return k[k.length-1][1]}
+/* checks: every 2 h while scores are moderate or medicine is given (ASAM: 1-4 h for 24 h), every 4 h until
+   the score has been < 10 for 24 h, then every 6 h (ASAM: 4-8 h) */
+const NU_CHECKS=(()=>{const c=[];for(let h=0;h<=28;h+=2)c.push(h);for(let h=32;h<=52;h+=4)c.push(h);for(let h=58;h<=70;h+=6)c.push(h);return c})();
+/* symptom-triggered doses: ASAM's sample regimen gives a dose "when CIWA-Ar >= 10", no more often than every 4 h here */
+const NU_DOSES=(()=>{const d=[];let last=-9;NU_CHECKS.forEach(h=>{if(nuPL(NU_CIWA,h)>=10&&h-last>=4){d.push(h);last=h}});return d})();
+const NU_LIST=[
+ [0.5,'AUDIT-C + PAWSS screen'],
+ [1,'CIWA-Ar, vitals, mood'],
+ [2,'Thiamine (+ glucose, any order)'],
+ [3,'Bloods: Mg, K, phosphate'],
+ [4,'Falls & seizure precautions'],
+ [36,'CAM delirium screen'],
+ [48,'Addiction consult, AUD medicine'],
+ [68,'Discharge: follow-up linked']];
+const NU_STEPS=[
+ {from:0,at:.5/NU_H,k:'Hour 0 · admission',t:'Screening on admission',
+  txt:`In a UK meta-analysis, 19.76% of inpatients had harmful alcohol use and 10.25% alcohol dependence (GRADE: very low quality). <sup class="c" data-ref="Roberts2019" title="Source 394">394</sup> The three AUDIT-C consumption questions detected heavy drinking with an AUROC of 0.891 in their first validation. <sup class="c" data-ref="Bush1998AUDITC" title="Source 53">53</sup> The 10-item <b>PAWSS</b> then estimates who is at risk of <i>complicated</i> withdrawal: at a cut-off of 4 it had a sensitivity of 93.1% and a specificity of 99.5% in 403 medical and surgical inpatients, and ASAM 2020 says it "can be used for predicting risk" in the medically ill. <sup class="c" data-ref="Maldonado2015,ASAM2020Withdrawal" title="Source 20,308">20,308</sup> A Cochrane review notes that simply asking about drinking "may also have a positive impact". <sup class="c" data-ref="McQueen2011" title="Source 327">327</sup> These are teaching tools here, not self-tests: see <a href="#screening" data-go="screening">AUDIT and AUDIT-C</a>.`,
+  pt:`Being asked about drinking is a normal part of hospital care. The answers help the team keep you safe if withdrawal starts.`,
+  hook:`PAWSS predicts (before symptoms; a score of 4 or more flags high risk). CIWA-Ar measures (once withdrawal has started). <sup class="c" data-ref="Maldonado2015,Sullivan1989CIWA" title="Source 308,447">308,447</sup>`},
+ {from:1.5/NU_H,at:2.5/NU_H,k:'Hours 1–4 · first hours',t:'Thiamine, glucose and the first bloods',
+  txt:`ASAM 2020 states that thiamine "should be provided to prevent Wernicke encephalopathy", IV or IM for people with poor nutrition or severe complications: "Typical dosing is 100 mg IV/IM per day for 3–5 days" (quoted as published, not an instruction). On glucose, ASAM says the two "can be administered thiamine and glucose in any order or concurrently", so glucose is not delayed. That differs from the older teaching, still in the EFNS 2010 guideline, of thiamine before any carbohydrate. <sup class="c" data-ref="ASAM2020Withdrawal,Galvin2010EFNS,Sechi2007" title="Source 20,134,424">20,134,424</sup> ASAM gives magnesium for hypomagnesaemia, arrhythmias, electrolyte disturbances or past withdrawal seizures, and phosphorus below 1 mg/dL. Low potassium in AUD often comes with low magnesium. <sup class="c" data-ref="ASAM2020Withdrawal,Elisaf2002" title="Source 20,100">20,100</sup>`,
+  pt:`Vitamin B1 (thiamine) protects the brain in people who drink heavily. A low blood sugar is treated straight away.`,
+  hook:`Old rule: "thiamine before glucose". ASAM 2020: any order or together; never delay glucose. EFNS 2010 still says thiamine first: a real guideline difference.`},
+ {from:5/NU_H,at:14/NU_H,k:'Hours 4–28 · active withdrawal',t:'CIWA-Ar every 1–4 hours',
+  txt:`The CIWA-Ar has 10 items (nine scored 0–7, one 0–4; maximum 67). <sup class="c" data-ref="Sullivan1989CIWA,Mirijello2015" title="Source 332,447">332,447</sup> For moderate to severe withdrawal or anyone on medicine, ASAM 2020 says "re-assess every 1–4 hours for 24 hours, as clinically indicated"; its example bands are mild &lt;10, moderate 10–18 and severe ≥19. Symptom-triggered dosing is "the preferred benzodiazepine dosing method" in hospital; in ASAM's sample regimen a dose follows "when CIWA-Ar ≥ 10". Watch for over-sedation and respiratory depression. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup> In a double-blind RCT (n = 101), symptom-triggered chlordiazepoxide cut median treatment from 68 h to 9 h and total dose from 425 mg to 100 mg, with no difference in severity, seizures or delirium tremens. <sup class="c" data-ref="Saitz1994" title="Source 409">409</sup> The score is not a diagnosis: fever, some medicines and communication problems can raise it. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`,
+  pt:`Nurses check the shakes, sweating, anxiety and other signs often, every 1 to 4 hours at first, and give medicine when the score calls for it.`,
+  hook:`Saitz 1994: symptom-triggered vs fixed schedule, 9 h vs 68 h and 100 mg vs 425 mg, with no rise in seizures or DTs. <sup class="c" data-ref="Saitz1994" title="Source 409">409</sup>`},
+ {from:18/NU_H,at:24/NU_H,k:'Hours 8–48 · seizure window',t:'Seizure and fall precautions',
+  txt:`ASAM 2020: withdrawal seizures may begin as early as 8 h after the last drink, can continue for up to 48 h and peak at about 24 h; hallucinations develop within 12–24 h and usually resolve within 24–48 h unless delirium appears. A second seizure "generally happens within 6 hours of the first". After a seizure ASAM says to "re-assess every 1-2 hours for 6–24 hours". Supportive care includes safety protocols, "e.g., assess risk for fall/syncope". <sup class="c" data-ref="ASAM2020Withdrawal,Saitz1998AHRW" title="Source 20,410">20,410</sup> People with mild, low-risk withdrawal "may be observed for up to 36 hours, after which more severe withdrawal is unlikely to develop". <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`,
+  pt:`The first two days carry the highest seizure risk. This is why stopping heavy daily drinking should happen with medical help.`,
+  hook:`Seizures: from 8 h, peak about 24 h, up to 48 h (ASAM 2020). A second one usually comes within 6 h of the first. <sup class="c" data-ref="ASAM2020Withdrawal,Saitz1998AHRW" title="Source 20,410">20,410</sup>`},
+ {from:32/NU_H,at:44/NU_H,k:'Hours 36–72 · delirium watch',t:'Screening for delirium (CAM)',
+  txt:`The Confusion Assessment Method takes under 5 minutes: (1) acute onset and fluctuating course and (2) inattention, plus (3) disorganised thinking or (4) altered consciousness. <sup class="c" data-ref="Inouye1990" title="Source 193">193</sup> ASAM does not recommend CIWA-Ar in delirium, because it relies on what the patient reports. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup> When delirium tremens begins differs between sources: 48–72 h after the last drink in Mirijello's stage table, 72–96 h in ASAM's initial-assessment section (shaded on the strip). <sup class="c" data-ref="Mirijello2015,ASAM2020Withdrawal" title="Source 20,332">20,332</sup> Non-drug care as published: frequent reassurance, re-orientation, "an evenly lit, quiet room". Restraints only "when required to prevent injuries". <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup> Confusion can also be Wernicke encephalopathy: see <a href="#wernicke" data-go="wernicke">module 3.4</a>.`,
+  pt:`New confusion that comes and goes is a warning sign. A calm, quiet, evenly lit room and simple reminders of the day and place help.`,
+  hook:`CAM = 1 + 2 + (3 or 4). DT onset: 48–72 h (Mirijello 2015) vs 72–96 h (ASAM 2020). <sup class="c" data-ref="Inouye1990,Mirijello2015,ASAM2020Withdrawal" title="Source 20,193,332">20,193,332</sup>`},
+ {from:50/NU_H,at:66/NU_H,k:'Hours 48–72 · before discharge',t:'Starting treatment and linking onward',
+  txt:`ASAM 2020: "When feasible, alcohol use disorder (AUD) treatment should be initiated concurrently with alcohol withdrawal management as cognitive status permits", with medicine offered or a link to services and recovery support. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup> After a discharge-planning protocol in San Francisco, AUD medicine at discharge rose from 0% to 64% and 30-day readmission fell from 23.4% to 8.2% (before-and-after design). <sup class="c" data-ref="Wei2015" title="Source 493">493</sup> Yet in 12 hospitals only 19.8% of withdrawal admissions started medicine. <sup class="c" data-ref="Bernstein2026" title="Source 37">37</sup> For injectable naltrexone the label states people "should be opioid-free before starting VIVITROL" (7–10 days) and warns of a "potentially fatal overdose" risk from lost opioid tolerance. <sup class="c" data-ref="FDA-Vivitrol" title="Source 123">123</sup> See <a href="#medicines" data-go="medicines">Approved medicines</a>.`,
+  pt:`Hospital is a good place to start treatment. Leaving with a medicine and a follow-up plan was linked to fewer trips back to hospital.`,
+  hook:`Wei 2015: AUD medicine 0% → 64%; 30-day readmission 23.4% → 8.2%. Naltrexone needs 7–10 opioid-free days first. <sup class="c" data-ref="Wei2015,FDA-Vivitrol" title="Source 123,493">123,493</sup>`}
+];
+const NU_Q=[
+ {s:`On admission, a woman says she drinks heavily every day. She has no symptoms yet (CIWA-Ar 4) and her PAWSS score is 5. Which statement fits the published tools?`,
+  o:[`A low CIWA-Ar means withdrawal monitoring can stop`,`PAWSS ≥4 flags high risk of complicated withdrawal, so closer monitoring is planned`,`PAWSS is a diagnostic test for alcohol use disorder`,`She should be discharged to stop drinking at home`],a:1,
+  e:`PAWSS predicts risk before symptoms appear; at a cut-off of 4 it had 93.1% sensitivity and 99.5% specificity in medically ill inpatients. CIWA-Ar measures withdrawal once it has started, so a low early score does not rule out later severe withdrawal. <sup class="c" data-ref="Maldonado2015,ASAM2020Withdrawal" title="Source 20,308">20,308</sup>`},
+ {s:`At 36 hours a man has a coarse tremor and says he sees insects on the wall. He knows where he is and what day it is. CIWA-Ar is 17. What do the published guidelines support?`,
+  o:[`Restrain him to prevent a fall`,`Reassess with CIWA-Ar every 1–4 hours and give symptom-triggered medicine per protocol`,`Stop all monitoring: hallucinations always resolve`,`Record it as delirium tremens`],a:1,
+  e:`17 is in ASAM's moderate band (10–18). Hallucinations usually develop within 12–24 h and resolve within 24–48 h unless delirium appears; he is oriented, so this is not delirium. ASAM prefers symptom-triggered dosing and reassessment every 1–4 h. Restraints are only for preventing injury. <sup class="c" data-ref="ASAM2020Withdrawal" title="Source 20">20</sup>`},
+ {s:`At hour 20 a patient has a witnessed generalised seizure and is now drowsy but breathing. Which plan matches ASAM 2020?`,
+  o:[`Return to 4–8-hourly checks once awake`,`Start long-term phenytoin`,`Close monitoring, reassessing every 1–2 hours for 6–24 hours, and watch for delirium`,`Discharge once fully awake`],a:2,
+  e:`ASAM: after a withdrawal seizure, admit where close monitoring is available and "re-assess every 1-2 hours for 6–24 hours", watching for delirium and the need for IV fluids. Phenytoin should not be used unless there is a separate seizure disorder. A second seizure generally comes within 6 hours of the first. <sup class="c" data-ref="ASAM2020Withdrawal,Saitz1998AHRW" title="Source 20,410">20,410</sup>`},
+ {s:`A patient's blood glucose is low. Thiamine has not been given yet. What does ASAM 2020 say?`,
+  o:[`Withhold glucose until thiamine has been given`,`Give thiamine and glucose in any order or together, without delaying glucose`,`Thiamine is only needed if the patient is confused`,`Give oral sugar and skip thiamine`],a:1,
+  e:`ASAM 2020: thiamine and glucose "in any order or concurrently"; glucose should not be delayed. A review of 19 papers found no evidence above case-report level for the older "thiamine first" rule, which EFNS 2010 still recommends. <sup class="c" data-ref="ASAM2020Withdrawal,Schabelman2012,Galvin2010EFNS" title="Source 20,134,415">20,134,415</sup>`},
+ {s:`On day 3 a patient becomes newly confused: attention drifts, it fluctuates over hours and his thinking is disorganised. What fits the guidance?`,
+  o:[`Rely on CIWA-Ar to track it`,`Assess with a delirium tool such as CAM, increase observation, and consider causes including Wernicke encephalopathy`,`Assume it is normal at day 3`,`Apply restraints first`],a:1,
+  e:`CAM: acute fluctuating course plus inattention plus disorganised thinking. ASAM does not recommend CIWA-Ar in delirium and asks for close observation, often in ICU. Caine criteria for Wernicke need 2 of 4 signs, one of them an altered mental state. <sup class="c" data-ref="Inouye1990,ASAM2020Withdrawal,Caine1997" title="Source 20,54,193">20,54,193</sup>`},
+ {s:`Before discharge a patient wants to start injectable naltrexone. He has been taking oxycodone for a fracture. What does the label say?`,
+  o:[`Start it today; opioids do not matter`,`He should be opioid-free for 7–10 days first, and lost tolerance raises overdose risk later`,`AUD medicine cannot be started in hospital`,`Naltrexone treats opioid pain`],a:1,
+  e:`The Vivitrol label: patients "should be opioid-free before starting VIVITROL" (a minimum of 7–10 days) to avoid severe precipitated withdrawal, and afterwards are "vulnerable to potentially fatal overdose". ASAM supports starting AUD treatment in hospital when feasible, so another medicine or a planned start may be discussed. <sup class="c" data-ref="FDA-Vivitrol,ASAM2020Withdrawal" title="Source 20,123">20,123</sup>`}
+];
+const NU_LINK={
+ wei:{t:'Discharge-planning protocol',cap:`San Francisco General Hospital, before and after a resident-led protocol for patients admitted with alcohol dependence. Before-and-after design: other changes over time could explain part of it. <sup class="c" data-ref="Wei2015" title="Source 493">493</sup>`,
+  bars:[{l:'AUD medicine at discharge',a:0,b:64,la:'before',lb:'after'},{l:'30-day readmission',a:23.4,b:8.2,la:'before',lb:'after'},{l:'30-day ED visit',a:18.8,b:6.1,la:'before',lb:'after',ns:'p = 0.056'}],
+  note:{k:'Wei 2015 · pre-post',t:'Medicine before discharge',txt:`AUD medicine rose from 0% to 64% (p &lt; 0.001); all-cause 30-day readmission fell from 23.4% to 8.2% (p = 0.042); ED visits fell from 18.8% to 6.1% (p = 0.056, not significant). In a separate quasi-experimental study of 399 inpatients, an addiction consult team gave +12.7 vs +5.6 days of abstinence at 30 days. <sup class="c" data-ref="Wei2015,Wakeman2017" title="Source 486,493">486,493</sup>`,pt:`When the hospital started medicine and booked follow-up, fewer people came back within a month.`,hook:`Wei 2015: readmission 23.4% → 8.2%.`}},
+ lam:{t:'Addiction consultation',cap:`19,697 admissions for substance use disorder, 2019–2023. Observational: people who saw the consult team may differ in other ways. <sup class="c" data-ref="Lambert2025" title="Source 271">271</sup>`,
+  bars:[{l:'AUD medicine during the stay',a:6.0,b:33.4,la:'no consult',lb:'consult'}],
+  extra:[`Discharge prescription for AUD medicine: RR 9.48 (95% CI 8.05–11.16)`,`30-day readmission with a consult: aRR 0.82 (0.75–0.89)`,`Newly started AUD medicine: aRR 0.78 for readmission`],
+  note:{k:'Lambert 2025 · retrospective',t:'A consult team changes prescribing',txt:`With an addiction consultation, 33.4% received AUD medicine during the stay against 6.0% without, and the discharge prescription rate was 9.48 times higher. Consultation was associated with lower 30-day readmission (aRR 0.82); for AUD, discharge medicine (aRR 0.84) and newly started medicine (aRR 0.78) were too. <sup class="c" data-ref="Lambert2025" title="Source 271">271</sup>`,pt:`A specialist team on the ward made it far more likely that people left with treatment.`,hook:`Consult → AUD medicine in hospital 33.4% vs 6.0%.`}},
+ gap:{t:'How often medicine is started',cap:`Three recent US studies. The range across 12 hospitals was 5.1–43.2%. <sup class="c" data-ref="Anderson2026,Bernstein2026,Lebin2026" title="Source 10,37,278">10,37,278</sup>`,
+  bars:[{l:'VA AUD hospitalisations (2022–23)',b:30.8,lb:'started ≤7 days'},{l:'12 hospitals, withdrawal stays',b:19.8,lb:'started',rng:[5.1,43.2]},{l:'ED, age ≥55, AUDIT-C positive',b:3,lb:'medicine prescribed'}],
+  note:{k:'Anderson 2026 · Bernstein 2026 · Lebin 2026',t:'The treatment gap',txt:`In 29,041 VA hospitalisations for AUD, medicine was started in hospital or within 7 days in 30.8% (naltrexone 57.9% of starts, acamprosate 16.5%, injectable naltrexone 13.9%); age ≥65, frailty and ICU stays made starting less likely, an addiction consult more likely. Across 12 hospitals, 19.8% of withdrawal stays started medicine (5.1–43.2%). In emergency departments, older adults screening positive were prescribed AUD medicine in only 3% of encounters. <sup class="c" data-ref="Anderson2026,Bernstein2026,Lebin2026" title="Source 10,37,278">10,37,278</sup>`,pt:`Most people admitted with alcohol problems still leave hospital without a medicine for AUD.`,hook:`Starting AUD medicine varies 5–43% between hospitals. <sup class="c" data-ref="Bernstein2026" title="Source 37">37</sup>`}}
+};
+inits.nursing=()=>{
+  const svg=$('#nuSvg'),rg=$('#nuT');let setSt=()=>{};
+  function draw(t){
+    const N=vb(svg,'720 380','400 560'),h=t*NU_H,sc=nuPL(NU_CIWA,h);
+    const L=N?{sx:10,sy:20,lx:206,ly:34,lw:186,x0:44,x1:388,c0:252,c1:392,iv:240,dz:410,rk:428,rh:18,ax:498,axl:532,ft:552}
+             :{sx:16,sy:22,lx:20,ly:196,lw:206,x0:262,x1:704,c0:44,c1:206,iv:34,dz:222,rk:240,rh:20,ax:318,axl:348,ft:372};
+    const X=v=>lerp(L.x0,L.x1,v/NU_H),Y=v=>lerp(L.c1,L.c0,v/25);
+    let s=`<defs>${marker('nuA','var(--muted)')}</defs>`;
+    /* ---- ward scene ---- */
+    const bx=L.sx+(N?60:70),by=L.sy+(N?120:118);
+    s+=`<text x="${L.sx}" y="${L.sy}" class="t-sm" style="fill:var(--brand)">${N?'THE WARD':'THE WARD · BAY 4'}</text>`;
+    s+=`<text x="${L.sx+(N?180:204)}" y="${L.sy}" class="t-big t-end" style="font-size:15px">Hour ${Math.floor(h)}</text>`;
+    /* nurse station */
+    s+=`<rect x="${L.sx}" y="${by-34}" width="34" height="34" rx="4" style="fill:var(--panel-2);stroke:var(--line)"/><text x="${L.sx+17}" y="${by+12}" class="t-xs t-mid">station</text>`;
+    /* bed and patient */
+    s+=`<rect x="${bx}" y="${by-8}" width="${N?112:124}" height="12" rx="4" style="fill:var(--panel-2);stroke:var(--brain-line)"/><rect x="${bx+(N?96:108)}" y="${by-40}" width="8" height="44" rx="3" style="fill:var(--panel-2);stroke:var(--brain-line)"/><line x1="${bx+6}" y1="${by+4}" x2="${bx+6}" y2="${by+14}" style="stroke:var(--brain-line);stroke-width:2"/><line x1="${bx+(N?106:118)}" y1="${by+4}" x2="${bx+(N?106:118)}" y2="${by+14}" style="stroke:var(--brain-line);stroke-width:2"/>`;
+    const px=bx+(N?64:72),py=by-62,ps=56,trem=clamp((sc-5)/11),sw=clamp((sc-8)/8);
+    s+=person(px,py,ps,'var(--muted)')+symptoms(px,py,ps,{tremor:trem,sweat:sw});
+    /* drip with thiamine from hour 2, while it runs */
+    if(h>=2){const dx=bx+(N?20:24),on=h<2+20;s+=`<line x1="${dx}" y1="${py-14}" x2="${dx}" y2="${by-8}" style="stroke:var(--brain-line);stroke-width:1.4"/><rect x="${dx-9}" y="${py-14}" width="18" height="24" rx="4" style="fill:${on?'var(--thi-soft)':'var(--panel)'};stroke:var(--thi)"/><text x="${dx}" y="${py+2}" class="t-xs t-mid" style="fill:var(--thi)">B1</text>`;
+      if(on)s+=`<path d="M${dx} ${py+12}Q${dx+16} ${py+30} ${px-8} ${py+34}" style="fill:none;stroke:var(--thi-fill);stroke-width:1.2;stroke-dasharray:2 3"/>`}
+    /* nurse: at the bedside within 0.6 h of a check, otherwise at the station */
+    let near=0;NU_CHECKS.forEach(c=>{const d=h-c;if(d>=-.6&&d<=.9)near=Math.max(near,d<0?1-(-d/.6):d<.5?1:1-(d-.5)/.4)});
+    const nx=lerp(L.sx+17,bx-8,ease(clamp(near))),ny=by-58;
+    s+=person(nx,ny,54,'var(--rx)');
+    if(near>.8){s+=`<rect x="${nx-30}" y="${ny-20}" width="60" height="15" rx="7.5" style="fill:var(--panel);stroke:var(--rx)"/><text x="${nx}" y="${ny-9}" class="t-xs t-mid" style="fill:var(--rx)">CIWA ${Math.round(sc)}</text>`}
+    /* room light: calm, evenly lit (V.5) once withdrawal is moderate */
+    s+=`<text x="${L.sx}" y="${by+30}" class="t-xs">${sc>=10?'quiet, evenly lit room':h>=34?'reorient: day, place, plan':'routine observations'}</text>`;
+    /* ---- checklist ---- */
+    s+=`<text x="${L.lx}" y="${L.ly-10}" class="t-sm">CHECKLIST</text>`;
+    let curI=-1;NU_LIST.forEach((it,i)=>{if(h>=it[0])curI=i});
+    NU_LIST.forEach((it,i)=>{const y=L.ly+i*21,done=h>=it[0],cur=i===curI&&h-it[0]<(i<5?2:8);
+      if(cur)s+=`<rect x="${L.lx-4}" y="${y-2}" width="${L.lw}" height="19" rx="5" style="fill:var(--brand-soft)"/>`;
+      s+=`<rect x="${L.lx}" y="${y+1}" width="13" height="13" rx="3" style="fill:${done?'var(--good)':'var(--panel)'};stroke:${done?'var(--good)':'var(--line)'};stroke-width:1.4"/>`;
+      if(done)s+=`<path d="M${L.lx+3} ${y+7.5}l3 3l5 -6" style="fill:none;stroke:var(--panel);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"/>`;
+      s+=`<text x="${L.lx+19}" y="${y+11}" class="t-xs" style="fill:${done?'var(--ink)':'var(--muted)'}">${it[1]}</text>`});
+    /* ---- CIWA-Ar chart ---- */
+    const bands=[[0,10,'var(--good)','mild <10'],[10,19,'var(--warn)','moderate 10–18'],[19,25,'var(--bad)','severe ≥19']];
+    bands.forEach(b=>{s+=`<rect x="${L.x0}" y="${f1(Y(b[1]))}" width="${L.x1-L.x0}" height="${f1(Y(b[0])-Y(b[1]))}" style="fill:${b[2]};opacity:.09"/><text x="${L.x1-4}" y="${f1(Y(b[1])+11)}" class="t-xs t-end" style="fill:${b[2]}">${b[3]}</text>`});
+    [0,10,19,25].forEach(v=>s+=`<line x1="${L.x0}" x2="${L.x1}" y1="${f1(Y(v))}" y2="${f1(Y(v))}" class="${v?'grid':'axis'}"/><text x="${L.x0-5}" y="${f1(Y(v)+3)}" class="t-xs t-end">${v}</text>`);
+    s+=`<text x="${L.x0}" y="${L.c0-(N?24:20)}" class="t-sm" style="fill:var(--accent)">${N?'CIWA-Ar (illustrative) · ASAM bands':'CIWA-Ar SCORE (illustrative) · ASAM 2020 example bands'}</text>`;
+    /* interval brackets */
+    const IV=[[0,28,N?'every 1–4 h (here 2-hourly)':'re-assess every 1–4 h (here 2-hourly)'],[28,52,N?'<10: keep 1–4 h for 24 h':'score <10: keep 1–4 h until 24 h stable'],[52,72,N?'4–8 h':'then every 4–8 h']];
+    IV.forEach(([a,b,l],i)=>{if(h<a)return;const xb=X(Math.min(b,h));s+=`<path d="M${f1(X(a)+1)} ${L.iv+4}V${L.iv}H${f1(xb-1)}V${L.iv+4}" style="fill:none;stroke:var(--rx);stroke-width:1.2"/>`;
+      if(h>=a+(i?6:4))s+=`<text x="${f1(X(a)+3)}" y="${L.iv-3}" class="t-xs" style="fill:var(--rx)">${l}</text>`});
+    /* the line up to now */
+    s+=`<path d="${pathFn(u=>nuPL(NU_CIWA,u*h)/25,L.x0,X(h),L.c1,L.c0,Math.max(4,Math.round(h*2)))}" style="fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linejoin:round"/>`;
+    NU_CHECKS.forEach(c=>{if(c>h)return;const v=nuPL(NU_CIWA,c);s+=`<circle cx="${f1(X(c))}" cy="${f1(Y(v))}" r="3.4" style="fill:var(--panel);stroke:var(--rx);stroke-width:1.6"/>`});
+    s+=`<circle cx="${f1(X(h))}" cy="${f1(Y(sc))}" r="5" style="fill:var(--accent);stroke:var(--panel);stroke-width:2"/>`;
+    /* doses row */
+    s+=`<text x="${L.x0-5}" y="${L.dz+4}" class="t-xs t-end">dose</text>`;
+    NU_DOSES.forEach(d=>{if(d<=h)s+=pill(X(d),L.dz,14,{ang:-20,col:'var(--rx)'})});
+    if(h>=8)s+=`<text x="${f1(X(NU_DOSES[NU_DOSES.length-1])+12)}" y="${L.dz+4}" class="t-xs">${N?'symptom-triggered, when ≥10':'symptom-triggered: a dose when CIWA-Ar ≥10 (ASAM sample)'}</text>`;
+    /* risk windows (hours after the last drink) */
+    const RK=[{a:8,b:48,pk:24,l:'seizures 8–48 h, peak ~24 h',c:'var(--bad)',src:'ASAM'},{a:12,b:48,b0:24,l:'hallucinations 12–24 h, settle by 24–48 h',c:'var(--dx)'},{a:48,b:72,l:N?'DT 48–72 h (Mirijello)':'delirium tremens 48–72 h (Mirijello)',c:'var(--accent)',more:N?'ASAM: 72–96 →':'72–96 h in ASAM →'}];
+    RK.forEach((r,i)=>{const y=L.rk+i*L.rh,on=h>=r.a,x0=X(r.a),x1=X(r.b),act=h>=r.a&&h<=(r.b0||r.b);
+      if(r.b0){s+=`<rect x="${f1(x0)}" y="${y}" width="${f1(X(r.b0)-x0)}" height="${L.rh-5}" rx="4" style="fill:${r.c};opacity:${on?.32:.1}"/><rect x="${f1(X(r.b0))}" y="${y}" width="${f1(x1-X(r.b0))}" height="${L.rh-5}" rx="4" style="fill:${r.c};opacity:${on?.12:.05}"/>`}
+      else s+=`<rect x="${f1(x0)}" y="${y}" width="${f1(x1-x0)}" height="${L.rh-5}" rx="4" style="fill:${r.c};opacity:${on?.28:.1}"/>`;
+      if(r.pk)s+=`<line x1="${f1(X(r.pk))}" x2="${f1(X(r.pk))}" y1="${y}" y2="${y+L.rh-5}" style="stroke:${r.c};stroke-width:2"/>`;
+      s+=`<text x="${f1(r.more?x0-4:x0+4)}" y="${y+L.rh-9}" class="t-xs${r.more?' t-end':''}" style="fill:${act?'var(--ink)':'var(--muted)'};font-weight:${act?700:500}">${r.l}</text>`;
+      if(r.more)s+=`<text x="${f1(x0+4)}" y="${y+L.rh-9}" class="t-xs" style="fill:var(--accent)">${r.more}</text>`});
+    /* axis and playhead */
+    const tl=tline(L.x0,L.ax,L.x1-L.x0,{min:0,max:72,step:12,fmt:v=>v});s+=tl.svg;
+    s+=`<text x="${L.x1}" y="${L.axl}" class="t-xs t-end">${N?'hours (last drink at hour 0)':'hours since admission (last drink assumed at hour 0)'}</text>`;
+    s+=`<line x1="${f1(X(h))}" x2="${f1(X(h))}" y1="${L.c0-6}" y2="${L.ax}" style="stroke:var(--ink);stroke-width:1.2;opacity:.35"/>`;
+    s+=`<text x="${N?L.x0-34:L.lx}" y="${L.ft}" class="t-xs" style="fill:var(--warn)">SCHEMATIC · one illustrative admission, not a protocol</text>`;
+    svg.innerHTML=s;
+    const ph=phaseOf(NU_STEPS,t);setSt(ph);
+    const nC=NU_CHECKS.filter(c=>c<=h).length,nD=NU_DOSES.filter(d=>d<=h).length,band=sc<10?'mild (<10)':sc<19?'moderate (10–18)':'severe (≥19)';
+    $('#nuRead').innerHTML=`<span>hour <b>${f1(h)}</b></span><span>CIWA-Ar <b>${Math.round(sc)}</b> · ${band}</span><span>checks so far <b>${nC}</b></span><span>symptom-triggered doses <b>${nD}</b></span><span>checklist <b>${NU_LIST.filter(i=>h>=i[0]).length}/${NU_LIST.length}</b></span>`;
+    $('#nuNote').innerHTML=noteHTML(NU_STEPS[ph]);
+  }
+  const stop=playWire(rg,$('#nuPlay'),draw,24000,'Replay','nursing');
+  setSt=stepWire($('#nuSteps'),NU_STEPS,rg,draw,stop);
+  draw(+rg.value);
+
+  /* ---- priority questions ---- */
+  const qz=$('#nuQuiz'),first={};
+  function score(){const n=Object.keys(first).length,r=Object.values(first).filter(Boolean).length;$('#nuScore').innerHTML=`<span>answered <b>${n}/${NU_Q.length}</b></span><span>right first time <b>${r}</b></span>`}
+  function build(){qz.innerHTML=NU_Q.map((q,i)=>`<div class="card nu-q" data-q="${i}"><span class="kicker">Question ${i+1} of ${NU_Q.length}</span><p class="scen">${q.s}</p><div class="opts">${q.o.map((o,j)=>`<button class="opt" data-nuo="${i}:${j}" aria-pressed="false"><span class="l">${'ABCD'[j]}</span><span>${o}</span></button>`).join('')}</div><div class="expl" hidden></div></div>`).join('');score()}
+  qz.addEventListener('click',e=>{const b=e.target.closest('[data-nuo]');if(!b)return;const [i,j]=b.dataset.nuo.split(':').map(Number),q=NU_Q[i],card=b.closest('.nu-q');
+    if(!(i in first))first[i]=j===q.a;
+    $$('[data-nuo]',card).forEach((x,k)=>{x.setAttribute('aria-pressed',k===j);x.classList.toggle('right',k===q.a);x.classList.toggle('wrong',k===j&&j!==q.a)});
+    const ex=$('.expl',card);ex.hidden=false;ex.innerHTML=`<b>${j===q.a?'Right.':'Not quite: the best answer is '+'ABCD'[q.a]+'.'}</b> ${q.e}`;score()});
+  $('#nuReset').addEventListener('click',()=>{Object.keys(first).forEach(k=>delete first[k]);build()});
+  build();
+
+  /* ---- starting treatment chart ---- */
+  const ls=$('#nuLink');let view='wei',cancel=null;
+  function drawL(p){const N=vb(ls,'720 300','400 440'),V=NU_LINK[view];let s='';
+    const x0=N?20:250,x1=N?380:700,W=x1-x0,P=v=>x0+W*v/100;
+    s+=`<text x="${N?20:20}" y="24" class="t-sm" style="fill:var(--brand)">${V.t.toUpperCase()}</text>`;
+    if(!N)[0,25,50,75,100].forEach(v=>s+=`<line x1="${f1(P(v))}" x2="${f1(P(v))}" y1="40" y2="${40+V.bars.length*72}" class="grid"/><text x="${f1(P(v))}" y="${52+V.bars.length*72}" class="t-xs t-mid">${v}%</text>`);
+    V.bars.forEach((b,i)=>{const y=N?54+i*96:50+i*72,lab=N?y:y+20;
+      s+=`<text x="${N?20:20}" y="${N?y-6:lab}" class="t-lbl"${N?'':' style="font-size:12.5px"'}>${b.l}</text>`;
+      const by=N?y+4:y+4,rows=b.a!=null?[[b.a,b.la,'var(--muted)'],[b.b,b.lb,'var(--rx)']]:[[b.b,b.lb,'var(--rx)']];
+      rows.forEach(([v,lab2,c],k)=>{const yy=by+k*24,w=W*v/100*ease(p);
+        s+=`<rect x="${x0}" y="${yy}" width="${f1(Math.max(1.5,w))}" height="16" rx="4" style="fill:${c};opacity:${k||rows.length===1?.85:.45}"/>`;
+        s+=`<text x="${f1(x0+Math.max(1.5,w)+6)}" y="${yy+12}" class="t-xs" style="fill:var(--ink)">${lab2} ${(v*p).toFixed(v%1?1:0)}%</text>`});
+      if(b.rng){const yy=by+8;s+=`<line x1="${f1(P(b.rng[0]))}" x2="${f1(P(b.rng[1]))}" y1="${yy}" y2="${yy}" style="stroke:var(--ink);stroke-width:1.4;opacity:${p}"/><line x1="${f1(P(b.rng[0]))}" x2="${f1(P(b.rng[0]))}" y1="${yy-5}" y2="${yy+5}" style="stroke:var(--ink);stroke-width:1.4;opacity:${p}"/><line x1="${f1(P(b.rng[1]))}" x2="${f1(P(b.rng[1]))}" y1="${yy-5}" y2="${yy+5}" style="stroke:var(--ink);stroke-width:1.4;opacity:${p}"/>`;
+        if(p>.9)s+=`<text x="${f1(P(b.rng[1])+6)}" y="${yy-6}" class="t-xs">range ${b.rng[0]}–${b.rng[1]}% by hospital</text>`}
+      if(b.ns&&p>.9)s+=`<text x="${x1}" y="${N?y-6:lab}" class="t-xs t-end" style="fill:var(--warn)">${b.ns}, not significant</text>`});
+    if(V.extra){const y0=(N?54:50)+V.bars.length*(N?96:72)+(N?6:22);V.extra.forEach((e,i)=>{s+=`<text x="20" y="${y0+i*20}" class="t-xs" style="fill:var(--ink);opacity:${f1(clamp(p*1.4-i*.2))}">• ${e}</text>`})}
+    ls.innerHTML=s;$('#nuLinkCap').innerHTML=V.cap;$('#nuLinkNote').innerHTML=noteHTML(V.note)}
+  function showL(){if(cancel)cancel();cancel=animate(700,drawL,()=>{cancel=null})}
+  $$('[data-nul]').forEach(b=>b.addEventListener('click',()=>{view=b.dataset.nul;$$('[data-nul]').forEach(x=>x.setAttribute('aria-pressed',x===b));showL()}));
+  drawL(1);
+  const pr=redraws.nursing;redraws.nursing=()=>{pr&&pr();drawL(1)};
+};
+/* =============== 5.6 Research frontier: GLP-1, psilocybin and beyond =============== */
+/* Pipeline board: each card sits at the highest stage its evidence has reached by the year on the
+   slider. Event years are publication or registry dates from the research pass; card text is short,
+   the cited detail is in the note panel. */
+const FR_Y0=2013,FR_Y1=2026.9,frY=y=>(y-FR_Y0)/(FR_Y1-FR_Y0);
+const FR_ST=['Lab & animal','Observational','Phase 2 RCTs','Phase 3','Approved for AUD'],FR_STN=['Lab','Obs.','Phase 2','Phase 3','Approved'];
+const FR_IT=[
+ {n:'GLP-1 receptor agonists',ev:'early',e:[
+  {y:2022.7,st:2,c:'RCT n=127',m:'2022 exenatide RCT, n=127: heavy drinking days not reduced'},
+  {y:2024.4,st:1,m:'2024 cohort of 83,825 with obesity: 50–56% fewer AUD diagnoses'},
+  {y:2024.9,st:1,m:'2025 Sweden, 227,866 with AUD: semaglutide aHR 0.64'},
+  {y:2025.1,st:2,c:'RCT n=48',m:'2025 semaglutide RCT, n=48, 9 weeks: less lab drinking'},
+  {y:2026.25,st:2,c:'RCT n=108',m:'2026 RCT, n=108 with obesity: heavy drinking days −13.7 pts'},
+  {y:2026.57,st:3,c:'ph 3 n≈622',m:'July 2026: VA phase 3 (n≈622) starts recruiting'}]},
+ {n:'Psilocybin + therapy',ev:'early',e:[
+  {y:2022.6,st:2,c:'RCT n=95',m:'2022 RCT, n=95: heavy drinking days 9.7% vs 23.6%'},
+  {y:2026.2,st:2,c:'OLE n=59',m:'2026 open-label extension: the extra benefit faded after month 1'},
+  {y:2026.45,st:2,c:'meta N=202',m:'2026 meta-analysis of 6 trials: evidence "mixed"'}]},
+ {n:'Ketamine + therapy',ev:'early',e:[
+  {y:2020,st:2,c:'pilot n=40',m:'2020 pilot RCT, n=40: more abstinence over 21 days'},
+  {y:2022.05,st:2,c:'RCT n=96',m:'2022 KARE, n=96: +10.1% days abstinent at 6 months'}]},
+ {n:'Deep TMS',ev:'early',e:[
+  {y:2022.3,st:2,c:'RCT n=51',m:'2022 sham-controlled RCT, n=51: heavy drinking days 2.9% vs 10.6%'},
+  {y:2025.4,st:2,c:'meta 20 RCTs',m:'2025 meta of 20 stimulation RCTs: small fall in craving'}]},
+ {n:'Mifepristone',ev:'early',e:[
+  {y:2015.5,st:0,c:'rats',m:'2015 dependent rats drank less'},
+  {y:2015.65,st:2,c:'RCT n=56',m:'2015 RCT, n=56, 1 week: less craving and drinking'},
+  {y:2023.5,st:2,c:'lab n=32',m:'2023 lab study, n=32: stress craving down, drinking unchanged'}]},
+ {n:'OPRM1-guided naltrexone',ev:'hyp',stall:2015.3,e:[
+  {y:2013,st:2,c:'secondary',m:'2008 COMBINE secondary analysis: an Asp40 signal'},
+  {y:2015.3,st:2,c:'RCT n=221 ✕',m:'2015 genotype-stratified RCT, n=221: no interaction'},
+  {y:2020.4,st:2,c:'meta 7 RCTs ✕',m:'2020 meta of 7 RCTs: not significant after correction'}]},
+ {n:'Alcohol hepatitis drugs',ev:'early',e:[
+  {y:2020.1,st:2,c:'open n=18',m:'2020 IL-22 agonist F-652, open-label, n=18 (no control)'},
+  {y:2023.7,st:2,c:'ph 2b n=307',m:'2023 larsucosterol phase 2b, n=307: completed, no results posted'},
+  {y:2026.08,st:3,c:'ph 3 n≈350',m:'Jan 2026: larsucosterol phase 3 recruiting (n≈350)'}]}
+];
+const FR_STEPS=[
+ {from:0,at:frY(2013.6),k:'2013 · the starting line',t:'How to read the board',
+  txt:`Treatments move from lab and animal work, through observational studies and small randomised trials (phase 2), to large confirmatory trials (phase 3) and, only then, approval. In 2013 one idea was already on the board: in COMBINE, people with an OPRM1 Asp40 allele who received medical management had fewer heavy drinking days on naltrexone than on placebo (P = .04), a secondary analysis. <span class="ev hyp">Hypothesis</span> <sup class="c" data-ref="Anton2008OPRM1" title="Source 12">12</sup> GLP-1 receptor agonists are not approved for AUD in the US. <sup class="c" data-ref="Klausen2026Lancet,Wang2024" title="Source 247,490">247,490</sup>`,
+  pt:`A treatment has to pass several kinds of study before it is shown to work. Being "under study" is not the same as working.`,
+  hook:`Secondary (post hoc) analyses generate hypotheses; prospective trials test them.`},
+ {from:frY(2015.2),at:frY(2015.8),k:'2015',t:'One signal fades, another appears',
+  txt:`The prospective genotype-stratified RCT (n = 221, naltrexone 50 mg) found no genotype × treatment interaction (P = .32); the authors called using Asn40Asp as a biomarker "premature". A 2020 meta-analysis of seven RCTs found only a nominal effect on drinks per day that did not survive correction. <span class="ev hyp">Hypothesis; not supported</span> <sup class="c" data-ref="Oslin2015JAMAPsych,Hartwell2020" title="Source 168,353">168,353</sup> The same year, mifepristone (a glucocorticoid receptor antagonist) reduced drinking in dependent rats and, at 600 mg daily for 1 week, reduced cued craving and drinking in 56 people. <span class="ev early">Early evidence</span> <sup class="c" data-ref="Vendruscolo2015" title="Source 477">477</sup>`,
+  pt:`An early clue that a gene test could pick who benefits from naltrexone did not hold up in a proper trial.`,
+  hook:`OPRM1 Asn40Asp: post hoc signal (COMBINE), negative prospective RCT (Oslin 2015). Not ready for clinical use. <sup class="c" data-ref="Anton2008OPRM1,Oslin2015JAMAPsych" title="Source 12,353">12,353</sup>`},
+ {from:frY(2019.8),at:frY(2022.2),k:'2020–2022',t:'Ketamine, brain stimulation, a liver drug',
+  txt:`A pilot RCT (n = 40) of one ketamine infusion during motivational enhancement therapy increased abstinence over 21 days compared with midazolam. In KARE (n = 96, severe AUD), three weekly ketamine infusions gave 10.1% more days abstinent at 6 months (95% CI 1.1–19.0), with no difference in relapse rate. <sup class="c" data-ref="Dakwar2020,Grabski2022" title="Source 74,145">74,145</sup> Deep TMS to medial prefrontal and anterior cingulate cortex (n = 51) cut heavy drinking days to 2.9% vs 10.6% with sham. <sup class="c" data-ref="Harel2022" title="Source 164">164</sup> For alcohol-associated hepatitis, the IL-22 agonist F-652 lowered MELD in an open-label study of 18 people with no control group. <sup class="c" data-ref="Arab2020" title="Source 17">17</sup> <span class="ev early">Early evidence</span>`,
+  pt:`Small trials of ketamine and magnetic brain stimulation showed some benefit. They need bigger trials before anyone can say they work.`,
+  hook:`KARE: ketamine +10.1% days abstinent at 6 months but no difference in relapse rate. <sup class="c" data-ref="Grabski2022" title="Source 145">145</sup>`},
+ {from:frY(2022.5),at:frY(2023.8),k:'2022–2023',t:'Psilocybin, exenatide, larsucosterol',
+  txt:`Psilocybin with psychotherapy vs active placebo (diphenhydramine), n = 95: heavy drinking days over 32 weeks were 9.7% vs 23.6% (mean difference 13.9%, 95% CI 3.0–24.7), with no serious adverse events on psilocybin. The trial excluded people with major psychiatric and drug use disorders, which limits how far it applies. <sup class="c" data-ref="Bogenschutz2022" title="Source 42">42</sup> Exenatide (n = 127, 26 weeks) did <i>not</i> reduce heavy drinking days, though it reduced ventral-striatal cue reactivity. <sup class="c" data-ref="Klausen2022Exenatide" title="Source 246">246</sup> Mifepristone reduced stress craving but not drinking in a lab study (N = 32). <sup class="c" data-ref="HaassKoffler2023" title="Source 155">155</sup> Larsucosterol's phase 2b trial (n = 307) completed in 2023 with no results posted. <sup class="c" data-ref="NCT04563026" title="Source 341">341</sup>`,
+  pt:`One careful trial found people given psilocybin with therapy had fewer heavy drinking days. A similar-looking diabetes drug, exenatide, did not help in its trial.`,
+  hook:`Bogenschutz 2022: heavy drinking days 9.7% vs 23.6% over 32 weeks; n = 95. <sup class="c" data-ref="Bogenschutz2022" title="Source 42">42</sup>`},
+ {from:frY(2024.2),at:frY(2025.3),k:'2024–2025',t:'GLP-1: the observational signal',
+  txt:`In electronic records of 83,825 people with obesity, semaglutide was associated with a 50–56% lower risk of new and recurrent AUD diagnoses over 12 months, replicated in 598,803 people with type 2 diabetes. In a Swedish within-person cohort of 227,866 people with AUD, periods on semaglutide (aHR 0.64) and liraglutide (aHR 0.72) had fewer AUD hospitalisations. <sup class="c" data-ref="Wang2024,Lahteenvuo2025" title="Source 269,490">269,490</sup> The first semaglutide RCT (n = 48, 9 weeks, low doses) reduced laboratory drinking and drinks per drinking day, but not drinking days. <sup class="c" data-ref="Hendershot2025Semaglutide" title="Source 176">176</sup> Observational data cannot rule out confounding. <span class="ev early">Early evidence</span>`,
+  pt:`People who happened to be prescribed these weight-loss and diabetes medicines had fewer alcohol problems on record. That is a clue, not proof.`,
+  hook:`Cohort associations (aHR 0.64) generate the question; only RCTs answer it. <sup class="c" data-ref="Lahteenvuo2025" title="Source 269">269</sup>`},
+ {from:frY(2025.9),at:frY(2026.75),k:'2026',t:'A positive RCT, and phase 3 begins',
+  txt:`Semaglutide 2.4 mg weekly for 26 weeks vs placebo (n = 108, moderate to severe AUD with obesity, plus CBT): heavy drinking days fell 41.1 vs 26.4 percentage points, a difference of −13.7 (95% CI −22.0 to −5.4), with more gastrointestinal side effects. <sup class="c" data-ref="Klausen2026Lancet" title="Source 247">247</sup> Oral semaglutide (n = 50) missed its craving endpoint but reduced heavy drinking days. <sup class="c" data-ref="Schacht2026" title="Source 416">416</sup> A VA phase 3 trial (estimated n = 622) started on 28 July 2026, and NIDA's phase 2 STAR trial (n = 63) is due to complete in 2027. <sup class="c" data-ref="NCT07218354,NCT06015893" title="Source 342,343">342,343</sup> Psilocybin's benefit faded after an open-label dose, and a 2026 meta-analysis calls the evidence "mixed". <sup class="c" data-ref="Pagni2026,Florineth2026" title="Source 130,354">130,354</sup> Larsucosterol entered phase 3 in January 2026. <sup class="c" data-ref="NCT07428538" title="Source 344">344</sup>`,
+  pt:`The best trial so far found semaglutide helped people with AUD and obesity drink heavily on fewer days. Bigger trials are now under way. None of these is approved for AUD yet.`,
+  hook:`Klausen 2026: heavy drinking days −13.7 percentage points vs placebo, in people with obesity. Does it work without obesity? Unknown. <sup class="c" data-ref="Klausen2026Lancet" title="Source 247">247</sup>`}
+];
+const FR_FLIP=[
+ {h:`"Weight-loss jab halves alcohol problems"`,d:'Observational cohort (electronic health records)',n:'83,825 people with obesity',l:'12 months',ep:'New or recurrent AUD diagnoses in the records',r:'50–56% lower risk with semaglutide vs other anti-obesity medicines',cv:'Not randomised: people prescribed semaglutide may differ in other ways. Cannot show cause.',c:'<sup class="c" data-ref="Wang2024" title="Source 490">490</sup>'},
+ {h:`"Ozempic-type drug proven to treat alcohol use disorder"`,d:'Double-blind RCT',n:'108, all with obesity, plus CBT',l:'26 weeks',ep:'Heavy drinking days',r:'−41.1 vs −26.4 percentage points; difference −13.7',cv:'Only people with obesity; short; more gastrointestinal side effects. Phase 3 pending.',c:'<sup class="c" data-ref="Klausen2026Lancet,NCT07218354" title="Source 247,343">247,343</sup>'},
+ {h:`"Diabetes drug fails for alcohol"`,d:'Placebo-controlled RCT of exenatide (not semaglutide)',n:'127 treatment-seeking adults, plus CBT',l:'26 weeks',ep:'Heavy drinking days',r:'No reduction; less cue reactivity in the ventral striatum; exploratory benefit with BMI >30',cv:'One drug in the class. Oral semaglutide later missed a craving endpoint but cut heavy drinking days.',c:'<sup class="c" data-ref="Klausen2022Exenatide,Schacht2026" title="Source 246,416">246,416</sup>'},
+ {h:`"Psilocybin cures alcohol use disorder"`,d:'Double-blind RCT vs active placebo (diphenhydramine)',n:'95 adults aged 25–65',l:'32 weeks',ep:'Percentage of heavy drinking days',r:'9.7% vs 23.6% (difference 13.9%)',cv:'Excluded major psychiatric and drug use disorders; blinding is hard; later benefit faded and a meta-analysis calls the evidence "mixed". Nobody was "cured".',c:'<sup class="c" data-ref="Bogenschutz2022,Pagni2026,Florineth2026" title="Source 42,130,354">42,130,354</sup>'},
+ {h:`"Ketamine keeps people sober"`,d:'Phase 2 RCT (KARE), 2×2 with therapy or education',n:'96 with severe AUD',l:'6 months',ep:'Days abstinent; relapse',r:'10.1% more days abstinent (95% CI 1.1–19.0)',cv:'No difference in relapse rate. Infusions given in a research setting.',c:'<sup class="c" data-ref="Grabski2022" title="Source 145">145</sup>'},
+ {h:`"A gene test shows who naltrexone will help"`,d:'Secondary analysis (COMBINE), then a prospective RCT and a meta-analysis',n:'221 in the prospective RCT; 7 RCTs pooled',l:'Trial periods',ep:'Heavy drinking days by OPRM1 genotype',r:'Prospective RCT: no interaction (P = .32); meta-analysis: not significant after correction',cv:'The original signal was post hoc. The authors called the biomarker "premature".',c:'<sup class="c" data-ref="Anton2008OPRM1,Oslin2015JAMAPsych,Hartwell2020" title="Source 12,168,353">12,168,353</sup>'}
+];
+inits.frontier=()=>{
+  const svg=$('#frSvg'),rg=$('#frT');let setSt=()=>{};
+  const EVC={early:'var(--warn)',hyp:'var(--rx)',est:'var(--good)'},EVL={early:'Early evidence',hyp:'Hypothesis',est:'Established'};
+  function draw(t){
+    const N=vb(svg,'720 440','400 614'),yr=lerp(FR_Y0,FR_Y1,t);
+    const L=N?{sx:i=>40+i*80,cw:74,ch:22,r0:66,rh:76,hy:50,ft:604}:{sx:i=>250+i*102.5,cw:96,ch:26,r0:64,rh:50,hy:48,ft:432};
+    let s='';
+    s+=`<text x="${N?12:16}" y="22" class="t-sm" style="fill:var(--brand)">${N?'PIPELINE · not recommendations':'TREATMENTS UNDER STUDY FOR AUD · not recommendations'}</text>`;
+    s+=`<text x="${N?388:704}" y="${N?26:28}" class="t-big t-end" style="font-size:${N?22:26}px">${Math.floor(yr)}</text>`;
+    /* column headers and the approved column */
+    FR_ST.forEach((st,i)=>{const x=L.sx(i);s+=`<text x="${f1(x)}" y="${L.hy}" class="t-xs t-mid" style="fill:${i===4?'var(--good)':'var(--ink)'};font-weight:700">${N?FR_STN[i]:st}</text>`;
+      if(i===4)s+=`<rect x="${f1(x-L.cw/2-2)}" y="${L.hy+6}" width="${L.cw+4}" height="${L.rh*FR_IT.length-4}" rx="8" style="fill:var(--good-soft);opacity:.5;stroke:var(--good);stroke-dasharray:3 4"/>`});
+    const xa=L.sx(4);s+=`<text x="${f1(xa)}" y="${f1(L.hy+(N?11:22))}" class="t-xs t-mid" style="fill:var(--good)">none yet</text>`;
+    let onBoard=0,latest=null;
+    FR_IT.forEach((it,ri)=>{const y=L.r0+ri*L.rh,ty=N?y+30:y+18,past=it.e.filter(e=>e.y<=yr);
+      s+=`<text x="${N?12:16}" y="${N?y+12:y+16}" class="t-lbl"${N?' style="font-size:12.5px"':''}>${it.n}</text>`;
+      s+=`<text x="${N?316:16}" y="${N?y+12:y+31}" class="t-xs${N?' t-end':''}" style="fill:${EVC[it.ev]};font-weight:700">${EVL[it.ev]}${it.stall&&yr>=it.stall?(N?' ✕':' · not supported'):''}</text>`;
+      s+=`<line x1="${f1(L.sx(0))}" x2="${f1(L.sx(4))}" y1="${ty}" y2="${ty}" style="stroke:var(--line);stroke-width:2"/>`;
+      FR_ST.forEach((_,i)=>{const has=past.some(e=>e.st===i);s+=`<circle cx="${f1(L.sx(i))}" cy="${ty}" r="4" style="fill:${has?EVC[it.ev]:'var(--panel)'};stroke:${has?EVC[it.ev]:'var(--line)'};stroke-width:1.4"/>`});
+      if(!past.length){s+=`<text x="${f1(L.sx(0))}" y="${N?y+62:y+44}" class="t-xs" style="opacity:.7">${N?'':''}not yet on the board in ${Math.floor(yr)}</text>`;return}
+      onBoard++;
+      /* stage reached, with a short slide when it changes */
+      let st=-1,from=-1,when=0,lab='';past.forEach(e=>{if(e.c)lab=e.c;if(e.st>st){from=st;st=e.st;when=e.y}});
+      const k=ease(clamp((yr-when)/.45)),x=from<0?L.sx(st):lerp(L.sx(from),L.sx(st),k),op=from<0?clamp((yr-when)/.3):1;
+      const stalled=it.stall&&yr>=it.stall,col=EVC[it.ev];
+      s+=`<g style="opacity:${f1(.25+.75*op)}"><rect x="${f1(x-L.cw/2)}" y="${f1(ty-L.ch/2)}" width="${L.cw}" height="${L.ch}" rx="7" style="fill:var(--panel);stroke:${stalled?'var(--bad)':col};stroke-width:1.8${stalled?';stroke-dasharray:4 3':''}"/>`;
+      s+=`<text x="${f1(x)}" y="${f1(ty+3.5)}" class="t-xs t-mid" style="fill:var(--ink);font-weight:700">${lab}</text></g>`;
+      const last=past[past.length-1];if(!latest||last.y>latest.y)latest=Object.assign({n:it.n},last);
+      const fresh=yr-last.y<1;
+      s+=`<text x="${f1(N?12:L.sx(0)-L.cw/2)}" y="${N?y+62:y+44}" class="t-xs" style="fill:${fresh?'var(--ink)':'var(--muted)'}">${last.m}</text>`});
+    s+=`<text x="${N?12:16}" y="${L.ft}" class="t-xs" style="fill:var(--warn)">Card = highest stage reached. A later column is not a better result.</text>`;
+    svg.innerHTML=s;
+    const ph=phaseOf(FR_STEPS,t);setSt(ph);
+    $('#frRead').innerHTML=`<span>year <b>${yr.toFixed(1)}</b></span><span>on the board <b>${onBoard}/${FR_IT.length}</b></span><span>in phase 3 <b>${FR_IT.filter(it=>it.e.some(e=>e.y<=yr&&e.st===3)).length}</b></span><span>approved for AUD <b>0</b></span>${latest?`<span>latest: <b>${latest.n}</b></span>`:''}`;
+    $('#frNote').innerHTML=noteHTML(FR_STEPS[ph]);
+  }
+  const stop=playWire(rg,$('#frPlay'),draw,26000,'Replay','frontier');
+  setSt=stepWire($('#frSteps'),FR_STEPS,rg,draw,stop);
+  draw(+rg.value);
+
+  /* ---- read the trial ---- */
+  const fl=$('#frFlips');
+  fl.innerHTML=FR_FLIP.map((c,i)=>`<div class="fr-flip" data-fr="${i}"><div class="fr-in">
+    <div class="fr-face"><span class="kicker">Invented headline · card ${i+1}</span><p class="hl">${c.h}</p><p>What would you want to know before believing it?</p><button class="btn" data-frf="${i}" aria-pressed="false">Show what was measured</button></div>
+    <div class="fr-face fr-back" aria-hidden="true"><span class="kicker">What the study measured</span><dl><dt>Design</dt><dd>${c.d}</dd><dt>n</dt><dd>${c.n}</dd><dt>Length</dt><dd>${c.l}</dd><dt>Endpoint</dt><dd>${c.ep}</dd><dt>Result</dt><dd>${c.r}</dd><dt>Caveat</dt><dd>${c.cv} ${c.c}</dd></dl><button class="btn" data-frb="${i}" aria-pressed="true" tabindex="-1">Back to the headline</button></div></div></div>`).join('');
+  function flip(i,on){const w=$(`[data-fr="${i}"]`,fl);w.classList.toggle('on',on);const f=$$('.fr-face',w);f[0].setAttribute('aria-hidden',on);f[1].setAttribute('aria-hidden',!on);
+    $(`[data-frf="${i}"]`,fl).setAttribute('aria-pressed',on);$(`[data-frf="${i}"]`,fl).tabIndex=on?-1:0;$(`[data-frb="${i}"]`,fl).tabIndex=on?0:-1}
+  fl.addEventListener('click',e=>{const a=e.target.closest('[data-frf]'),b=e.target.closest('[data-frb]');if(a)flip(+a.dataset.frf,true);else if(b)flip(+b.dataset.frb,false)});
+
+  /* ---- policy chart ---- */
+  const ps=$('#frPol'),pr=$('#frPr');
+  const EL=[['beer',-.46],['wine',-.69],['spirits',-.80],['heavy drinking',-.28]];
+  function drawP(){const N=vb(ps,'720 330','400 600'),pc=Math.round(+pr.value*30);let s='';
+    /* left: observed changes */
+    const A=N?{x0:20,x1:380,y0:40}:{x0:20,x1:340,y0:40},sc=v=>A.x0+130+(A.x1-A.x0-140)*(-v/20);
+    s+=`<text x="${A.x0}" y="24" class="t-sm" style="fill:var(--brand)">${N?'OBSERVED POLICY EFFECTS':'OBSERVED POLICY EFFECTS (% change)'}</text>`;
+    const OB=[{l:'Scotland MUP:',l2:'deaths wholly due to alcohol',v:-13.4,ci:[-18.4,-8.3]},{l:'Scotland MUP:',l2:'hospitalisations',v:-4.1,ns:1},{l:'Yukon warning',l2:'labels: sales per capita',v:-6.31}];
+    [0,-5,-10,-15,-20].forEach(v=>s+=`<line x1="${f1(sc(v))}" x2="${f1(sc(v))}" y1="${A.y0}" y2="${A.y0+OB.length*56}" class="${v?'grid':'axis'}"/><text x="${f1(sc(v))}" y="${A.y0+OB.length*56+14}" class="t-xs t-mid">${v}%</text>`);
+    OB.forEach((o,i)=>{const y=A.y0+10+i*56;s+=`<text x="${A.x0}" y="${y+10}" class="t-xs" style="fill:var(--ink);font-weight:700">${o.l}</text><text x="${A.x0}" y="${y+23}" class="t-xs">${o.l2}</text>`;
+      s+=`<rect x="${f1(sc(o.v))}" y="${y+2}" width="${f1(sc(0)-sc(o.v))}" height="18" rx="4" style="fill:${o.ns?'var(--muted)':'var(--brand)'};opacity:${o.ns?.45:.8}"/>`;
+      if(o.ci)s+=`<line x1="${f1(sc(o.ci[0]))}" x2="${f1(sc(o.ci[1]))}" y1="${y+11}" y2="${y+11}" style="stroke:var(--ink);stroke-width:1.5"/><line x1="${f1(sc(o.ci[0]))}" x2="${f1(sc(o.ci[0]))}" y1="${y+5}" y2="${y+17}" style="stroke:var(--ink);stroke-width:1.5"/><line x1="${f1(sc(o.ci[1]))}" x2="${f1(sc(o.ci[1]))}" y1="${y+5}" y2="${y+17}" style="stroke:var(--ink);stroke-width:1.5"/>`;
+      s+=`<text x="${f1(sc(0))}" y="${y+34}" class="t-xs" style="fill:var(--ink)">${o.v}%${o.ns?' (not significant)':o.ci?' (95% CI −18.4 to −8.3)':''}</text>`});
+    /* right: elasticity arithmetic */
+    const B=N?{x0:20,x1:380,y0:270}:{x0:390,x1:704,y0:40},bx=v=>B.x0+100+(B.x1-B.x0-110)*(-v/30);
+    s+=`<text x="${B.x0}" y="${B.y0-16}" class="t-sm" style="fill:var(--accent)">${N?`IF PRICES ROSE ${pc}%: ARITHMETIC`:`IF PRICES ROSE ${pc}%: ELASTICITY ARITHMETIC`}</text>`;
+    [0,-10,-20,-30].forEach(v=>s+=`<line x1="${f1(bx(v))}" x2="${f1(bx(v))}" y1="${B.y0}" y2="${B.y0+EL.length*44}" class="${v?'grid':'axis'}"/><text x="${f1(bx(v))}" y="${B.y0+EL.length*44+14}" class="t-xs t-mid">${v}%</text>`);
+    EL.forEach(([n,e],i)=>{const y=B.y0+10+i*44,v=e*pc;s+=`<text x="${B.x0}" y="${y+12}" class="t-xs" style="fill:var(--ink);font-weight:700">${n}</text><text x="${B.x0}" y="${y+25}" class="t-xs">elasticity ${e.toFixed(2)}</text>`;
+      s+=`<rect x="${f1(bx(v))}" y="${y+2}" width="${f1(Math.max(1,bx(0)-bx(v)))}" height="16" rx="4" style="fill:var(--accent);opacity:.75"/><text x="${f1(bx(v)+5)}" y="${y+14}" class="t-xs" style="fill:var(--ink)">${v.toFixed(1)}%</text>`});
+    s+=`<text x="${B.x0}" y="${B.y0+EL.length*44+32}" class="t-xs" style="fill:var(--warn)">${N?'simple mean elasticities × price: not a forecast':'simple mean elasticity × price change: a sketch, not a forecast'}</text>`;
+    ps.innerHTML=s;
+    $('#frPolCap').innerHTML=`Left: Scotland's minimum unit price (£0.50 per unit, from 1 May 2018) compared with England, and alcohol sales during Yukon's warning-label study. Right: mean price elasticities from a meta-analysis of 1,003 estimates, multiplied by a ${pc}% price rise; real responses are not this simple. <sup class="c" data-ref="Wyper2023,Zhao2020Labels,Wagenaar2009" title="Source 484,507,515">484,507,515</sup>`;
+    $('#frPolNote').innerHTML=noteHTML({k:'Population policy',t:pc<8?'Price is a lever':'Bigger price rises, bigger cuts',txt:`Scotland's minimum unit pricing was associated with a 13.4% fall (95% CI −18.4 to −8.3) in deaths wholly attributable to alcohol and a non-significant 4.1% fall in such hospitalisations, driven by chronic conditions, especially alcohol-related liver disease, and largest in the four most deprived deciles. <sup class="c" data-ref="Wyper2023" title="Source 507">507</sup> A synthesis of 40 evaluation reports found no strong evidence of population-level harm, but some qualitative evidence that financially vulnerable people with alcohol dependence fared worse. <sup class="c" data-ref="Patterson2023" title="Source 357">357</sup> Raising excise taxes cost less than I$100 per healthy life year gained in a global model. <sup class="c" data-ref="Chisholm2018" title="Source 61">61</sup>`,
+      pt:`When alcohol costs more, people drink less, and fewer die of alcohol-related illness. People with dependence may need extra support when prices rise.`,
+      hook:`Scotland MUP: deaths wholly attributable to alcohol −13.4%. Mean price elasticity: beer −0.46, wine −0.69, spirits −0.80. <sup class="c" data-ref="Wyper2023,Wagenaar2009" title="Source 484,507">484,507</sup>`});
+  }
+  pr.addEventListener('input',drawP);drawP();
+  const prv=redraws.frontier;redraws.frontier=()=>{prv&&prv();drawP()};
+};
+/* =============== 6.1 A history of alcohol use disorder =============== */
+/* The timeline is piecewise linear: 1780-1930 takes the first 36% of its length, 1930-2025 the rest. */
+const HI_Y0=1780,HI_YB=1930,HI_Y1=2025,HI_F=.36;
+const hiU=y=>y<=HI_YB?HI_F*(y-HI_Y0)/(HI_YB-HI_Y0):HI_F+(1-HI_F)*(y-HI_YB)/(HI_Y1-HI_YB);
+const hiYr=u=>u<=HI_F?HI_Y0+(HI_YB-HI_Y0)*u/HI_F:HI_YB+(HI_Y1-HI_YB)*(u-HI_F)/(1-HI_F);
+/* tracks: 0 ideas & diagnosis, 1 mutual help & policy, 2 medicines */
+const HI_TR=[['Ideas & diagnosis','var(--brand)'],['Help & policy','var(--dx)'],['Medicines','var(--rx)']];
+const HI_EV=[
+ {y:1784,tr:0,l:'Rush: an aversion remedy; loss of control'},{y:1849,tr:0,l:'Huss: "alcoholismus chronicus"'},
+ {y:1933,tr:1,l:'US Prohibition repealed'},{y:1935,tr:1,l:'Alcoholics Anonymous founded, Akron'},
+ {y:1948,tr:2,l:'Hald & Jacobsen: the disulfiram reaction'},{y:1951,tr:2,l:'Disulfiram: first FDA approval for AUD'},
+ {y:1952,tr:0,l:'DSM-I published'},{y:1960,tr:0,l:'Jellinek: the disease concept'},{y:1976,tr:0,l:'Edwards & Gross: dependence syndrome'},
+ {y:1980,tr:0,l:'DSM-III: abuse and dependence'},{y:1987,tr:0,l:'DSM-III-R'},{y:1989,tr:2,l:'Acamprosate approved in Europe'},
+ {y:1994,tr:0,l:'DSM-IV: abuse and dependence kept'},{y:1994.4,tr:2,l:'Naltrexone FDA-approved for alcohol'},
+ {y:2004,tr:2,l:'Acamprosate approved in the US'},{y:2006,tr:2,l:'Extended-release naltrexone'},
+ {y:2013,tr:0,l:'DSM-5: one alcohol use disorder'},{y:2013.4,tr:2,l:'Nalmefene approved in Europe'},{y:2018,tr:2,l:'Baclofen approved in France'},
+ {y:2019,tr:0,l:'ICD-11 published'},{y:2022,tr:0,l:'DSM-5-TR'}];
+/* "what we called it": the banner name from a given year */
+const HI_NAME=[{y:1780,n:'a disease of habitual heavy drinking',s:'Rush: loss of control over alcohol'},{y:1849,n:'alcoholismus chronicus',s:'Huss: the medical consequences of chronic heavy drinking'},
+ {y:1952,n:'“alcoholism”',s:'the older, lay name: a disease of loss of control (Jellinek)'},{y:1976,n:'alcohol dependence syndrome',s:'Edwards & Gross: a syndrome not defined by consequences'},
+ {y:1980,n:'alcohol abuse | alcohol dependence',s:'DSM-III to DSM-IV: two separate diagnoses'},{y:2013,n:'alcohol use disorder',s:'DSM-5: one disorder, mild to severe'},
+ {y:2019,n:'alcohol use disorder',s:'ICD-11 instead: alcohol dependence and harmful pattern of use'}];
+const HI_ERA=[{a:1780,b:1840,n:'Rush'},{a:1840,b:1880,n:'Huss'},{a:1880,b:1934.5,n:'Temperance'},{a:1934.5,b:1952,n:'Mutual help'},{a:1952,b:1980,n:'Disease concept'},{a:1980,b:2013,n:'Abuse / dependence'},{a:2013,b:2025,n:'AUD'}];
+function hiWrap(s,n){const w=s.split(' '),L=[];let c='';w.forEach(x=>{if((c+' '+x).trim().length>n&&c){L.push(c);c=x}else c=(c+' '+x).trim()});if(c)L.push(c);return L}
+/* small emblems, about 80 x 80 centred on (x,y): no drinks, no bottles */
+function hiEmblem(k,x,y,s=1){let g=`<g transform="translate(${f1(x)} ${f1(y)}) scale(${s})">`;
+  const ln='stroke:var(--ink);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round';
+  if(k==='quill')g+=`<path d="M-22 30L18 -30C26 -36 32 -30 26 -22L-14 34Z" style="fill:var(--brand-soft);stroke:var(--brand);stroke-width:2"/><path d="M-22 30L24 -26" style="${ln}"/><path d="M-30 36H8" style="${ln}"/><rect x="10" y="22" width="18" height="14" rx="3" style="fill:var(--ink)"/>`;
+  else if(k==='book')g+=`<path d="M0 -20C-12 -28 -28 -28 -36 -24V28C-28 24 -12 24 0 32C12 24 28 24 36 28V-24C28 -28 12 -28 0 -20Z" style="fill:var(--panel-2);stroke:var(--brand);stroke-width:2"/><path d="M0 -20V32" style="${ln}"/>`+[-12,-4,4,12].map(v=>`<path d="M-28 ${v}H-8M8 ${v}H28" style="stroke:var(--muted);stroke-width:1.4"/>`).join('');
+  else if(k==='gavel')g+=`<rect x="-30" y="-26" width="34" height="18" rx="4" transform="rotate(-30)" style="fill:var(--dx-soft);stroke:var(--dx);stroke-width:2"/><path d="M-2 -6L26 26" style="stroke:var(--dx);stroke-width:5;stroke-linecap:round"/><rect x="-34" y="28" width="44" height="8" rx="3" style="fill:var(--dx)"/>`;
+  else if(k==='circle'){for(let i=0;i<6;i++){const a=i/6*2*Math.PI-Math.PI/2;g+=person(26*Math.cos(a),26*Math.sin(a)-10,20,'var(--dx)')}g+=`<circle cx="0" cy="0" r="9" style="fill:none;stroke:var(--dx);stroke-width:1.5;stroke-dasharray:2 3"/>`}
+  else if(k==='pill')g+=pill(-8,-4,46,{ang:-30})+pill(18,20,22,{round:true});
+  else if(k==='two')g+=`<rect x="-38" y="-24" width="34" height="48" rx="6" style="fill:var(--dx-soft);stroke:var(--dx);stroke-width:2"/><rect x="4" y="-24" width="34" height="48" rx="6" style="fill:var(--brand-soft);stroke:var(--brand);stroke-width:2"/><text x="-21" y="4" class="t-xs t-mid" style="fill:var(--dx);font-weight:600">abuse</text><text x="21" y="4" class="t-xs t-mid" style="fill:var(--brand);font-weight:600">dep.</text>`;
+  else if(k==='one')g+=`<rect x="-38" y="-24" width="76" height="48" rx="8" style="fill:var(--brand-soft);stroke:var(--brand);stroke-width:2"/><text x="0" y="0" class="t-lbl t-mid" style="fill:var(--brand)">AUD</text><text x="0" y="14" class="t-xs t-mid">2+ of 11</text>`;
+  return g+'</g>'}
+
+inits.history=()=>{
+  const svg=$('#hiSvg'),rg=$('#hiT'),note=$('#hiNote');let setSt=()=>{};
+  const T=hiU;
+  const STEPS=[
+   {from:0,at:T(1784),y0:1780,y1:1840,em:['quill'],k:'1784 · Philadelphia',t:'Benjamin Rush: a disease, not a vice',
+    txt:`In 1784 the Pennsylvania physician Benjamin Rush proposed an aversion remedy for problem drinking, and near the end of the 18th century he described loss of control over alcohol <sup class="c" data-ref="Witkiewitz2019" title="Source 500">500</sup>. He described habitual heavy drinking as a disease caused by alcohol itself <sup class="c" data-ref="Tabakoff2013" title="Source 449">449</sup>, and ran a public health education campaign on the hazards of distilled spirits, listing more than a dozen alcohol-related health problems. <sup class="c" data-ref="Katcher1993" title="Source 223">223</sup>`,
+    pt:`More than 200 years ago, a doctor argued that heavy drinking that a person cannot control is an illness, not a lack of willpower.`,
+    hook:`Rush (1784): loss of control over alcohol, an early disease concept. <sup class="c" data-ref="Witkiewitz2019,Tabakoff2013" title="Source 449,500">449,500</sup>`},
+   {from:T(1840),at:T(1852),y0:1840,y1:1880,em:['book'],k:'1849 · Sweden',t:'Magnus Huss names the condition',
+    txt:`The Swedish physician Magnus Huss introduced the term from which the older, lay name "alcoholism" comes (cited as Huss 1849) <sup class="c" data-ref="Tabakoff2013" title="Source 449">449</sup>. He described "alcoholismus chronicus", emphasising the medical consequences of chronic heavy drinking: damage to the body, rather than the behaviour itself. <sup class="c" data-ref="Martin2014" title="Source 315">315</sup>`,
+    pt:`Huss gave the condition a medical name and focused on the harm heavy drinking does to the body.`,
+    hook:`Huss 1849: "alcoholismus chronicus", defined by medical consequences. <sup class="c" data-ref="Tabakoff2013,Martin2014" title="Source 315,449">315,449</sup>`},
+   {from:T(1880),at:T(1931),y0:1880,y1:1934.5,em:['gavel'],k:'1800s – 1933 · United States',t:'Temperance and Prohibition',
+    txt:`From the 1800s to the early 1900s the temperance movement laid groundwork for later mutual-help organisations <sup class="c" data-ref="Witkiewitz2019" title="Source 500">500</sup>. US National Prohibition (the Eighteenth Amendment and the Volstead Act, which defined "intoxicating" as 0.5% alcohol by volume or more) came out of a century-long temperance campaign. Repeal became possible in 1933, mainly because the Great Depression changed the economic context. <span class="ev hyp">Disputed</span> Blocker argues Prohibition did lower consumption: after repeal, yearly intake was about 1.2 US gallons per person, less than half the pre-Prohibition level. <sup class="c" data-ref="Blocker2006" title="Source 40">40</sup>`,
+    pt:`For a time the US tried banning alcohol. Historians still argue about how well it worked.`,
+    hook:`Repeal of US Prohibition: 1933. Volstead Act threshold: 0.5% ABV. <sup class="c" data-ref="Blocker2006" title="Source 40">40</sup>`},
+   {from:T(1934.5),at:T(1950),y0:1934.5,y1:1952,em:['circle','pill'],k:'1935 – 1951',t:'Mutual help and the first medicine',
+    txt:`Alcoholics Anonymous dates its founding to 10 June 1935, the sobriety date of co-founder Dr Bob Smith, after he met Bill Wilson in Akron, Ohio; by 2010 AA reported some 2 million members in more than 160 countries <sup class="c" data-ref="Gross2010AA" title="Source 151">151</sup>. In 1948 Hald and Jacobsen reported in the Lancet a drug that sensitises the body to alcohol: disulfiram <sup class="c" data-ref="Hald1948" title="Source 159">159</sup>. In 1951 disulfiram (Antabuse) became the first medicine approved by the FDA for AUD; Drugs@FDA dates it 28 August 1951. <sup class="c" data-ref="Witkiewitz2019,FDA-DrugsFDA-AUD" title="Source 115,500">115,500</sup>`,
+    pt:`People with drinking problems began helping each other in groups, and the first medicine for AUD arrived.`,
+    hook:`Disulfiram: Hald & Jacobsen 1948, FDA approval 1951. AA: 1935, Akron. <sup class="c" data-ref="Hald1948,Witkiewitz2019,Gross2010AA" title="Source 151,159,500">151,159,500</sup>`},
+   {from:T(1952),at:T(1972),y0:1952,y1:1980,em:['book'],k:'1952 – 1976',t:'A disease concept, then a syndrome',
+    txt:`The first DSM was published in 1952 <sup class="c" data-ref="Tabakoff2013" title="Source 449">449</sup>. In 1960 E. M. Jellinek's "The Disease Concept of Alcoholism" codified problem drinking as a disease of loss of control over drinking <sup class="c" data-ref="Tabakoff2013,Kelly2019Jellinek" title="Source 233,449">233,449</sup>. In 1976 Griffith Edwards and Milton Gross described the "alcohol dependence syndrome" in the BMJ, a syndrome not defined by its consequences <sup class="c" data-ref="Edwards1976,Martin2014" title="Source 97,315">97,315</sup>, and were the first to use the word "salience" for this purpose <sup class="c" data-ref="Tabakoff2013" title="Source 449">449</sup>. Their syndrome shaped international classification and underpins brief interventions. <sup class="c" data-ref="Li2007ADS,Stockwell2015" title="Source 286,442">286,442</sup>`,
+    pt:`Doctors began to describe a pattern: drinking becomes a priority, and the body adapts. That pattern is what "dependence" means.`,
+    hook:`Edwards & Gross 1976: alcohol dependence syndrome. Elements were taken into DSM-IV and ICD-10. <sup class="c" data-ref="Edwards1976,Li2007ADS" title="Source 97,286">97,286</sup>`},
+   {from:T(1980),at:T(2000),y0:1980,y1:2013,em:['two','pill'],k:'1980 – 2012',t:'Two diagnoses: abuse and dependence',
+    txt:`DSM-III (1980) described two separate disorders, substance dependence and substance abuse; DSM-III-R (1987) kept an abuse diagnosis defined partly by consequences <sup class="c" data-ref="Martin2014" title="Source 315">315</sup>. DSM-IV (1994) kept them separate, and its hierarchy created "diagnostic orphans": people with two dependence criteria and no abuse criteria received no diagnosis <sup class="c" data-ref="Hasin2013" title="Source 169">169</sup>. Medicines followed: acamprosate in Europe in 1989, naltrexone FDA-approved for alcohol dependence in 1994, acamprosate in the US in 2004 and extended-release naltrexone in 2006. <sup class="c" data-ref="Witkiewitz2019,FDA-DrugsFDA-AUD" title="Source 115,500">115,500</sup>`,
+    pt:`For about 30 years there were two labels, a milder "abuse" and a more serious "dependence". Some people with real problems fitted neither.`,
+    hook:`FDA approvals for AUD: disulfiram 1951, naltrexone 1994, acamprosate 2004, extended-release naltrexone 2006. <sup class="c" data-ref="Witkiewitz2019,FDA-DrugsFDA-AUD" title="Source 115,500">115,500</sup>`},
+   {from:T(2013),at:T(2022.5),y0:2013,y1:2025,em:['one'],k:'2013 – today',t:'One disorder, from mild to severe',
+    txt:`DSM-5 (2013) combined abuse and dependence into a single "alcohol use disorder", on consistent findings from more than 200,000 study participants; it dropped legal problems as a criterion and added craving. AUD needs 2 or more of 11 criteria: mild 2–3, moderate 4–5, severe 6 or more <sup class="c" data-ref="APA2013,Hasin2013" title="Source 15,169">15,169</sup>. ICD-11 was formally published in May 2019, keeping alcohol dependence separate from a harmful pattern of use <sup class="c" data-ref="Saunders2019ICD11" title="Source 414">414</sup>, and DSM-5-TR followed in 2022 <sup class="c" data-ref="APA2022" title="Source 16">16</sup>. Nalmefene was approved in Europe in 2013 and baclofen in France in 2018; in the US, three medicines are FDA-approved for AUD. <sup class="c" data-ref="Witkiewitz2019" title="Source 500">500</sup>`,
+    pt:`Today AUD is one condition with degrees, from mild to severe, and it is treatable.`,
+    hook:`DSM-5: merged abuse + dependence, legal problems out, craving in, threshold ≥2 of 11. <sup class="c" data-ref="Hasin2013" title="Source 169">169</sup>`}];
+  const EMB=STEPS.map(s=>s.em);
+  function nameAt(y){let i=0;HI_NAME.forEach((n,k)=>{if(y>=n.y)i=k});return i}
+  function draw(t){const N=vb(svg,'720 420','400 720'),yr=hiYr(t),p=phaseOf(STEPS,t),S=STEPS[p];let s='';
+    /* ---- banner: what we called it ---- */
+    const ni=nameAt(yr),nm=HI_NAME[ni],since=yr-nm.y,fade=clamp(since/4),prev=ni>0?HI_NAME[ni-1]:null;
+    const bw=N?368:672,bx=N?16:24;
+    s+=`<rect x="${bx}" y="10" width="${bw}" height="${N?92:66}" rx="12" style="fill:var(--brand-soft)"/>`;
+    s+=`<text x="${bx+14}" y="28" class="t-sm" style="fill:var(--brand)">WHAT WE CALLED IT</text>`;
+    s+=`<text x="${bx+bw-14}" y="${N?34:52}" class="t-big t-end" style="font-size:${N?24:30}px;fill:var(--brand)">${Math.round(yr)}</text>`;
+    const nameLines=n=>N?(n.includes('|')?n.split(' | ').map((x,i)=>i?'| '+x:x):hiWrap(n,24)):[n];
+    const putName=(n,op,dy)=>nameLines(n.n).map((l,i)=>`<text x="${bx+14}" y="${f1((N?56:54)+i*22+dy)}" class="t-big" style="font-size:${N?20:24}px;opacity:${f1(op)}">${l}</text>`).join('');
+    if(prev&&fade<1&&prev.n!==nm.n)s+=putName(prev,1-fade,-6*fade);
+    s+=putName(nm,prev&&prev.n!==nm.n?fade:1,prev&&prev.n!==nm.n?6*(1-fade):0);
+    const subY=N?(nameLines(nm.n).length>1?92:76):70;
+    s+=`<text x="${bx+14}" y="${subY}" class="t-xs" style="opacity:${f1(Math.max(.4,fade))}">${nm.s}</text>`;
+    /* ---- era detail ---- */
+    const D=N?{y:116,ex:52,ey:166,es:.8,tx:104,tw:36,ty:132}:{y:88,ex:76,ey:150,es:1,tx:150,tw:76,ty:110};
+    S.em.forEach((k,i)=>{s+=hiEmblem(k,D.ex+(S.em.length>1?(i?20:-14):0),D.ey+(S.em.length>1?(i?22:-14):0),D.es*(S.em.length>1?.68:1))});
+    s+=hiWrap(S.t,N?28:60).map((l,i)=>`<text x="${D.tx}" y="${D.ty+i*20}" class="t-big" style="font-size:${N?16:19}px">${l}</text>`).join('');
+    const tl=hiWrap(S.t,N?28:60).length;s+=`<text x="${D.tx}" y="${D.ty+tl*20-2}" class="t-sm">${S.k}</text>`;
+    const evs=HI_EV.filter(e=>e.y>=S.y0&&e.y<S.y1);let ly=D.ty+tl*20+18;
+    evs.slice(0,N?5:5).forEach(e=>{const on=yr>=e.y-.2,c=HI_TR[e.tr][1];
+      s+=`<circle cx="${D.tx+4}" cy="${ly-4}" r="4" style="fill:${on?c:'none'};stroke:${c};stroke-width:1.5"/><text x="${D.tx+14}" y="${ly}" class="t-xs" style="fill:${on?'var(--ink)':'var(--muted)'};opacity:${on?1:.55};font-weight:${on?600:400}">${Math.floor(e.y)} · ${e.l}</text>`;ly+=N?15:14});
+    /* ---- timeline ---- */
+    if(!N){const x0=130,x1=696,X=y=>lerp(x0,x1,hiU(y)),ty=[262,288,314],ay=338,xm=X(yr);
+      HI_TR.forEach(([n,c],i)=>{s+=`<text x="24" y="${ty[i]+3.5}" class="t-xs" style="fill:${c};font-weight:600">${n}</text><line x1="${x0}" x2="${x1}" y1="${ty[i]}" y2="${ty[i]}" style="stroke:var(--line);stroke-width:1"/>`});
+      /* scale break */
+      s+=`<rect x="${f1(X(HI_YB)-3)}" y="${ay-6}" width="6" height="12" style="fill:var(--panel)"/><path d="M${f1(X(HI_YB)-5)} ${ay+6}l4 -12M${f1(X(HI_YB)+1)} ${ay+6}l4 -12" style="stroke:var(--muted);stroke-width:1.2"/>`;
+      s+=`<line x1="${x0}" x2="${x1}" y1="${ay}" y2="${ay}" class="axis" style="stroke:var(--muted)"/>`;
+      [1780,1800,1850,1900,1930,1950,1975,2000,2025].forEach(y=>{s+=`<line x1="${f1(X(y))}" x2="${f1(X(y))}" y1="${ay-3}" y2="${ay+3}" style="stroke:var(--muted)"/><text x="${f1(X(y))}" y="${ay+15}" class="t-xs t-mid">${y}</text>`});
+      HI_ERA.forEach((e,i)=>{const a=X(e.a),b=X(e.b),on=i===p;s+=`<rect x="${f1(a+1)}" y="${ay+22}" width="${f1(b-a-2)}" height="18" rx="4" style="fill:${on?'var(--brand)':'var(--panel-2)'}"/><text x="${f1((a+b)/2)}" y="${ay+34.5}" class="t-xs t-mid" style="fill:${on?'var(--on-brand)':'var(--muted)'};font-weight:600">${e.n}</text>`});
+      s+=`<rect x="${f1(X(1880))}" y="${ty[1]-5}" width="${f1(X(1933)-X(1880))}" height="10" rx="5" style="fill:var(--dx);opacity:.12"/><text x="${f1(X(1933)-4)}" y="${ty[1]-8}" class="t-xs t-end" style="fill:var(--dx)">temperance → Prohibition repealed 1933</text>`;
+      HI_EV.forEach(e=>{const x=X(e.y),y=ty[e.tr],c=HI_TR[e.tr][1],on=yr>=e.y-.2,cur=e.y>=S.y0&&e.y<S.y1;
+        s+=`<circle cx="${f1(x)}" cy="${y}" r="${cur?5.5:4}" style="fill:${on?c:'var(--panel)'};stroke:${c};stroke-width:1.6"/>`});
+      s+=`<line x1="${f1(xm)}" x2="${f1(xm)}" y1="246" y2="${ay}" style="stroke:var(--ink);stroke-width:1.6"/><path d="M${f1(xm)} ${ay-1}l-6 -9h12Z" style="fill:var(--ink)"/>`;
+      s+=`<text x="${f1(clamp(xm,150,676))}" y="242" class="t-xs t-mid" style="fill:var(--ink);font-weight:600">${Math.round(yr)}</text>`}
+    else{const y0=300,y1=700,Y=y=>lerp(y0,y1,hiU(y)),ax=70,tx=[86,100,114],ym=Y(yr);
+      HI_TR.forEach(([n,c],i)=>{s+=`<circle cx="${16+i*124}" cy="${y0-28}" r="4" style="fill:${c}"/><text x="${24+i*124}" y="${y0-24.5}" class="t-xs" style="fill:${c};font-weight:600">${n}</text>`;
+        s+=`<line x1="${tx[i]}" x2="${tx[i]}" y1="${y0}" y2="${y1}" style="stroke:var(--line)"/>`});
+      s+=`<line x1="${ax}" x2="${ax}" y1="${y0}" y2="${y1}" style="stroke:var(--muted)"/>`;
+      s+=`<path d="M${ax-6} ${f1(Y(HI_YB)+3)}l12 -4M${ax-6} ${f1(Y(HI_YB)+7)}l12 -4" style="stroke:var(--muted);stroke-width:1.2"/>`;
+      [1780,1850,1900,1930,1950,1975,2000,2025].forEach(y=>{s+=`<line x1="${ax-3}" x2="${ax+3}" y1="${f1(Y(y))}" y2="${f1(Y(y))}" style="stroke:var(--muted)"/><text x="${ax-7}" y="${f1(Y(y)+3.5)}" class="t-xs t-end">${y}</text>`});
+      HI_ERA.forEach((e,i)=>{const a=Y(e.a),b=Y(e.b),on=i===p;s+=`<rect x="128" y="${f1(a+1)}" width="5" height="${f1(b-a-2)}" rx="2" style="fill:${on?'var(--brand)':'var(--line)'}"/><text x="142" y="${f1((a+b)/2+3.5)}" class="t-xs" style="fill:${on?'var(--ink)':'var(--muted)'};font-weight:${on?700:500}">${e.n}</text>`});
+      HI_EV.forEach(e=>{const y=Y(e.y),x=tx[e.tr],c=HI_TR[e.tr][1],on=yr>=e.y-.2,cur=e.y>=S.y0&&e.y<S.y1;s+=`<circle cx="${x}" cy="${f1(y)}" r="${cur?4.5:3.2}" style="fill:${on?c:'var(--panel)'};stroke:${c};stroke-width:1.4"/>`});
+      s+=`<line x1="${ax-4}" x2="390" y1="${f1(ym)}" y2="${f1(ym)}" style="stroke:var(--ink);stroke-width:1.3;stroke-dasharray:3 3"/><path d="M${ax-1} ${f1(ym)}l-8 -5v10Z" style="fill:var(--ink)"/><text x="388" y="${f1(ym-4)}" class="t-xs t-end" style="fill:var(--ink);font-weight:600">${Math.round(yr)}</text>`}
+    svg.innerHTML=s;note.innerHTML=noteHTML(S);setSt(p);
+    rg.setAttribute('aria-valuetext',`${Math.round(yr)}: ${S.t}`)}
+  const stop=playWire(rg,$('#hiPlay'),draw,22000,'Replay','history');
+  const setA=stepWire($('#hiSteps'),STEPS,rg,draw,stop);
+  setSt=i=>{setA(i);rg.setAttribute('aria-valuetext',`${Math.round(hiYr(+rg.value))}: ${STEPS[i].t}`)};
+  /* jump chips */
+  const YR=[1784,1849,1933,1935,1948,1951,1960,1976,1980,1994,2004,2006,2013,2019,2022];
+  const yc=$('#hiYears');yc.innerHTML=YR.map(y=>`<button class="tag" data-hy="${y}">${y}</button>`).join('');
+  yc.addEventListener('click',e=>{const b=e.target.closest('[data-hy]');if(!b)return;stop();const v=clamp(hiU(+b.dataset.hy)+.002);rg.value=v;draw(v)});
+  draw(+rg.value);
+
+  /* ---------- how the diagnosis changed ---------- */
+  const dsv=$('#hiDx');let dxS=0,dxStop=null;
+  /* g4: 'ab' abuse, 'dep' dependence, null not a criterion; in5: false = dropped in DSM-5 */
+  const CR=[['role','Role obligations failed','ab',true],['haz','Hazardous situations','ab',true],['legal','Legal problems','ab',false],['soc','Despite social problems','ab',true],
+    ['tol','Tolerance','dep',true],['wd','Withdrawal','dep',true],['more','More / longer than intended','dep',true],['cut','Failed efforts to cut down','dep',true],
+    ['time','Much time spent','dep',true],['give','Activities given up','dep',true],['cont','Despite physical/psych. harm','dep',true],['crave','Craving',null,true]];
+  function lay(state,N){/* returns {id:[x,y,w]} plus box frames */
+    const P={},cw=N?176:200,ch=N?24:24;
+    if(state===0){let ia=0,id=0;
+      CR.forEach(([id_,_,g])=>{if(g==='ab'){P[id_]=N?[24+(ia%2)*184,74+Math.floor(ia/2)*30,cw]:[36,70+ia*32,cw];ia++}
+        else if(g==='dep'){P[id_]=N?[24+(id%2)*184,212+Math.floor(id/2)*30,cw]:[286+(id%2)*212,70+Math.floor(id/2)*32,cw];id++}
+        else P[id_]=N?[24,370,cw]:[286,240,cw]})}
+    else{let k=0;CR.forEach(([id_,_,g,in5])=>{if(!in5){P[id_]=N?[24,404,cw]:[36,270,cw];return}
+        const order=k++;P[id_]=N?[24+(order%2)*184,74+Math.floor(order/2)*30,cw]:[36+(order%3)*218,70+Math.floor(order/3)*32,cw]})}
+    return P}
+  function drawDx(u){/* u: continuous state 0..2 */
+    const N=vb(dsv,'720 340','400 480');let s='';s+=`<defs>${marker('hiDxA','var(--muted)')}</defs>`;
+    const a=Math.min(1,u),P0=lay(0,N),P1=lay(1,N),icd=ramp(u,1,2),cv=1-icd*.85;
+    const box=(x,y,w,h,c,lab,op)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" style="fill:none;stroke:${c};stroke-width:1.8;opacity:${f1(op)}"/><text x="${x+10}" y="${y-6}" class="t-sm" style="fill:${c};opacity:${f1(op)}">${lab}</text>`;
+    /* frames: DSM-IV two boxes fade out, DSM-5 one box fades in */
+    const f4=1-ramp(a,0,.5),f5=ramp(a,.5,1)*cv;
+    if(N){s+=box(16,58,368,76,'var(--dx)','DSM-IV ALCOHOL ABUSE',f4)+box(16,196,368,136,'var(--brand)','DSM-IV ALCOHOL DEPENDENCE',f4);
+      s+=box(16,58,368,190,'var(--brand)','DSM-5 ALCOHOL USE DISORDER · 2 OR MORE OF 11',f5)}
+    else{s+=box(24,54,226,142,'var(--dx)','DSM-IV ALCOHOL ABUSE',f4)+box(274,54,434,142,'var(--brand)','DSM-IV ALCOHOL DEPENDENCE',f4);
+      s+=box(24,54,684,142,'var(--brand)','DSM-5 ALCOHOL USE DISORDER · 2 OR MORE OF 11 IN 12 MONTHS',f5)}
+    if(f4>.05)s+=`<text x="${N?24:286}" y="${N?362:232}" class="t-xs" style="opacity:${f1(f4)}">not a DSM-IV criterion:</text>`;
+    if(f5>.05){s+=`<text x="${N?24:36}" y="${N?396:262}" class="t-xs" style="fill:var(--bad);opacity:${f1(f5)}">dropped in DSM-5: very low prevalence, low discrimination, poor fit</text>`;
+      /* severity bar */
+      const sx=N?16:330,sy=N?266:244,sw=N?368:378;[['mild 2–3','var(--thi-fill)'],['moderate 4–5','var(--brand)'],['severe 6+','var(--accent)']].forEach(([l,c],i)=>{s+=`<rect x="${f1(sx+i*sw/3)}" y="${sy}" width="${f1(sw/3-3)}" height="18" rx="5" style="fill:${c};opacity:${f1(f5)}"/><text x="${f1(sx+i*sw/3+sw/6)}" y="${sy+12.5}" class="t-xs t-mid" style="fill:${i?'#fff':'var(--ink)'};font-weight:600;opacity:${f1(f5)}">${l}</text>`});
+      s+=`<text x="${sx}" y="${sy-6}" class="t-sm" style="opacity:${f1(f5)}">SEVERITY BY CRITERIA COUNT</text>`}
+    /* chips */
+    CR.forEach(([id,lab,g,in5])=>{const p0=P0[id],p1=P1[id],e=ease(a),x=lerp(p0[0],p1[0],e),y=lerp(p0[1],p1[1],e),w=p0[2];
+      const dropped=!in5&&a>.5,added=id==='crave'&&a>.5,absent=id==='crave'&&a<=.5;
+      const col=dropped?'var(--bad)':added?'var(--good)':absent?'var(--muted)':g==='ab'&&a<.5?'var(--dx)':'var(--brand)';
+      s+=`<g style="opacity:${f1(cv)}"><rect x="${f1(x)}" y="${f1(y)}" width="${w}" height="24" rx="12" style="fill:${dropped||absent?'var(--panel)':'var(--panel-2)'};stroke:${col};stroke-width:${added||dropped?2:1.2};${absent?'stroke-dasharray:3 3;':''}"/>`;
+      s+=`<text x="${f1(x+12)}" y="${f1(y+16)}" style="font:600 ${N?11:11.5}px var(--body);fill:${dropped?'var(--bad)':absent?'var(--muted)':'var(--ink)'}${dropped?';text-decoration:line-through':''}">${lab}</text>`;
+      if(added)s+=`<text x="${f1(x+w-10)}" y="${f1(y+16)}" class="t-xs t-end" style="fill:var(--good);font-weight:700">ADDED</text>`;
+      if(dropped)s+=`<text x="${f1(x+w-10)}" y="${f1(y+16)}" class="t-xs t-end" style="fill:var(--bad);font-weight:700">DROPPED</text>`;
+      s+='</g>'});
+    /* ICD-11 overlay */
+    if(icd>0){const F=[['Impaired control','over onset, level, circumstances or stopping; sometimes craving'],['Increasing priority','drinking takes precedence over other parts of life'],['Physiological features','tolerance, withdrawal, or use to prevent or relieve withdrawal']];
+      const o=f1(icd);s+=`<rect x="${N?8:16}" y="${N?40:34}" width="${N?384:692}" height="${N?432:300}" rx="12" style="fill:var(--panel);opacity:${f1(icd*.93)}"/>`;
+      s+=`<text x="${N?16:24}" y="${N?60:56}" class="t-sm" style="fill:var(--brand);opacity:${o}">ICD-11 ALCOHOL DEPENDENCE · AT LEAST 2 OF 3 ESSENTIAL FEATURES</text>`;
+      F.forEach(([h,d],i)=>{const x=N?16:24+i*228,y=N?72+i*84:70,w=N?368:216,hh=N?72:96;
+        s+=`<rect x="${x}" y="${y}" width="${w}" height="${hh}" rx="10" style="fill:var(--brand-soft);opacity:${o}"/><text x="${x+12}" y="${y+22}" class="t-lbl" style="fill:var(--brand);opacity:${o}">${h}</text>`;
+        s+=hiWrap(d,N?52:32).map((l,j)=>`<text x="${x+12}" y="${y+40+j*14}" class="t-xs" style="fill:var(--ink);opacity:${o}">${l}</text>`).join('')});
+      const by=N?336:196;
+      s+=`<rect x="${N?16:24}" y="${by}" width="${N?368:336}" height="${N?56:74}" rx="10" style="fill:var(--dx-soft);opacity:${o}"/><text x="${N?28:36}" y="${by+22}" class="t-lbl" style="fill:var(--dx);opacity:${o}">Harmful pattern of use of alcohol</text>`;
+      s+=hiWrap('a separate diagnosis; it added harm to others',N?52:44).map((l,j)=>`<text x="${N?28:36}" y="${by+40+j*14}" class="t-xs" style="fill:var(--ink);opacity:${o}">${l}</text>`).join('');
+      s+=`<rect x="${N?16:372}" y="${N?400:by}" width="${N?368:336}" height="${N?56:74}" rx="10" style="fill:var(--panel-2);opacity:${o}"/><text x="${N?28:384}" y="${(N?400:by)+22}" class="t-lbl" style="opacity:${o}">Hazardous alcohol use</text>`;
+      s+=`<text x="${N?28:384}" y="${(N?400:by)+40}" class="t-xs" style="fill:var(--ink);opacity:${o}">listed separately: a health risk factor, not a disorder</text>`}
+    dsv.innerHTML=s}
+  const DXN=[
+    {k:'DSM-IV · 1994',t:'Two diagnoses, and the "orphans"',
+     txt:`DSM-IV kept separate alcohol abuse and alcohol dependence. Its hierarchy created "diagnostic orphans": people with two dependence criteria and no abuse criteria received no diagnosis at all <sup class="c" data-ref="Hasin2013,Peer2013DSM5" title="Source 169,360">169,360</sup>. Yet factor analyses showed the abuse and dependence criteria formed one factor or two highly correlated factors, and NESARC data suggested a continuum of severity rather than two distinct entities. <sup class="c" data-ref="Hasin2013,Li2007ADS" title="Source 169,286">169,286</sup>`,
+     pt:`The old system had two boxes. Some people with real problems fell between them and got no diagnosis.`,
+     hook:`DSM-IV diagnostic orphan: 2 dependence criteria, 0 abuse criteria = no diagnosis. <sup class="c" data-ref="Hasin2013" title="Source 169">169</sup>`},
+    {k:'DSM-5 · 2013',t:'One disorder: legal problems out, craving in',
+     txt:`DSM-5 merged the two into alcohol use disorder, based on more than 200,000 study participants. Legal problems were dropped for very low prevalence, low discrimination and poor fit; craving was added, its psychometric benefit equivocal, because it may become a biological treatment target. The 2-criterion threshold gave the best agreement with DSM-IV abuse plus dependence <sup class="c" data-ref="Hasin2013" title="Source 169">169</sup>. DSM-IV dependence agreed best with DSM-5 AUD at 4 or more criteria, so trials in dependence apply best to moderate-to-severe AUD <sup class="c" data-ref="Compton2013Crosswalk" title="Source 64">64</sup>. One review counts 2048 qualifying symptom combinations, so two people with AUD can share few symptoms. <sup class="c" data-ref="Witkiewitz2019" title="Source 500">500</sup>`,
+     pt:`Now there is one condition, rated mild, moderate or severe by how many of 11 signs a person has. Wanting a drink very strongly (craving) became one of them.`,
+     hook:`DSM-5 AUD: ≥2 of 11 in 12 months. Out: legal problems. In: craving. DSM-IV dependence ≈ DSM-5 moderate (≥4). <sup class="c" data-ref="Hasin2013,Compton2013Crosswalk" title="Source 64,169">64,169</sup> Try the counter in <a href="#criteria" data-go="criteria">Diagnosis</a>.`},
+    {k:'ICD-11 · 2019',t:'Dependence and harmful use, still separate',
+     txt:`ICD-11 condenses the six ICD-10 dependence criteria into three essential features, and at least two are needed for alcohol dependence. Harmful pattern of use added harm to others, though endorsement was very low and its validity is questionable <sup class="c" data-ref="Degenhardt2019ICD11" title="Source 84">84</sup>. ICD-11 agreed closely with ICD-10 and DSM-IV, and agreement with DSM-5 was good for dependence vs severe AUD but poor for harmful use vs mild AUD <sup class="c" data-ref="Degenhardt2019ICD11" title="Source 84">84</sup>. Hazardous alcohol use is listed separately as a health risk factor. <sup class="c" data-ref="Saunders2019ICD11" title="Source 414">414</sup>`,
+     pt:`The WHO's system still uses the word "dependence". It and DSM-5 will label some people differently, especially at the mild end.`,
+     hook:`ICD-11 alcohol dependence: 2 of 3 features (impaired control, increasing priority, physiological features). <sup class="c" data-ref="Degenhardt2019ICD11" title="Source 84">84</sup>`}];
+  function setDx(k){const from=dxS;dxS=k;$$('#hiDxBtns [data-dx]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.dx===k));
+    $('#hiDxNote').innerHTML=noteHTML(DXN[k]);dxStop&&dxStop();dxStop=animate(900,p=>drawDx(lerp(from,k,ease(p))),()=>{dxStop=null})}
+  $('#hiDxBtns').addEventListener('click',e=>{const b=e.target.closest('[data-dx]');if(b)setDx(+b.dataset.dx)});
+  drawDx(0);$('#hiDxNote').innerHTML=noteHTML(DXN[0]);
+  const prevR=redraws.history;redraws.history=()=>{prevR&&prevR();drawDx(dxS)};
+};
 
 /* =============== boot =============== */
 const h0=location.hash.slice(1);

@@ -1,5 +1,60 @@
-<!-- ================= 1.4 GENES, FAMILY &amp; RISK (stub, replaced by its builder) ================= -->
+<!-- ================= 1.4 GENES, FAMILY & RISK ================= -->
+<style>
+#m-genes .card>.ev,#m-genes .card>.tag{align-self:flex-start}
+#m-genes .tbl table{min-width:540px}
+#m-genes .gtog{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px}
+#m-genes .gtog button{text-align:left;display:flex;flex-direction:column;gap:4px;border-radius:12px;padding:10px 12px;font-weight:400}
+#m-genes .gtog button b{font-size:14px}
+#m-genes .gtog button small{font-size:12.5px;color:var(--muted)}
+#m-genes .gtog button[aria-pressed="true"] small{color:inherit;opacity:.85}
+#m-genes .gtog .ev{align-self:flex-start}
+</style>
 <section class="mod" id="m-genes" data-mod="genes" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding AUD</p><h2>Genes, family &amp; risk</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">About half of the risk for alcohol use disorder is inherited, yet no gene decides it and no test can predict it. Follow one family from population risk to twin studies, two well-known alcohol-metabolising variants and the newest genome scans.</p></div>
+  <div class="stepper" id="geSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="geSvg" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="Six scenes in sequence: a three-generation family tree beside a bar for lifetime AUD among US adults; affected relatives shaded with adoption-study odds ratios for biological and adoptive relatives; a stacked bar splitting AUD liability into about 49% heritability, 10% shared environment and the remainder; two liver cells in which an acetaldehyde pool fills much faster when ALDH2 is slow, with a flushing face; a sketched Manhattan plot whose genome-wide hits grow from 18 to 29 to 110 as studies get larger; and bars comparing twin heritability with SNP heritability and polygenic-score prediction."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gePlay">Play</button><label class="stage-cap tl" for="geT">Story <input type="range" id="geT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The family is invented; shading follows standard pedigree symbols (filled = alcohol use disorder, half = another substance use disorder). Bars use the published figures named in the note. The Manhattan plot is a sketch: only the count of hits and the ADH1B label come from the studies. [[Kranzler2019,Zhou2020NatNeurosci,Zhou2023NatMed,Walters2018]]</p>
+    </div>
+    <aside class="note" id="geNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Two metabolism variants, side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Variant</th><th>What it does</th><th>Who carries it</th><th>Link with drinking and harm</th></tr></thead>
+    <tbody>
+      <tr><th>ADH1B*2 (rs1229984)</th><td>Encodes a β subunit with a 70- to 80-fold higher turnover than β1: ethanol becomes acetaldehyde faster. [[Edenberg2007]]</td><td>Moderate frequency among people of Jewish descent, where it is linked to less binge drinking. ADH1B*3 is found mainly in people of African descent. [[Edenberg2007]]</td><td>Protective against alcohol dependence in East Asian, European and African populations [[Edenberg2007]]; allelic OR 2.06 for the slower Arg allele in a meta-analysis of 9,638 cases. [[Li2011ADH1B]] Genome-wide significant in European (rs1229984) and African (rs2066702) ancestry. [[Walters2018]]</td></tr>
+      <tr class="glu"><th>ALDH2*2 (504Lys)</th><td>Dominant negative: greatly reduces ALDH2 activity in heterozygotes (more than 100-fold lower) and abolishes it in homozygotes. [[Li2009ALDH2,Brooks2009]]</td><td>Essentially absent outside East Asia; highest in Southeast China. [[Li2009ALDH2]] Inactive ALDH2 in 15–40% of East Asian populations [[Cederbaum2012]]; at least 540 million people worldwide, about 8%. [[Brooks2009]]</td><td>Flushing, nausea and a fast heart rate after drinking; 5- to 20-fold higher blood acetaldehyde. Homozygotes are "virtual abstainers". [[Cederbaum2012,Brooks2009]] Oesophageal cancer: OR 3.19 for heterozygotes who drink, 0.36 for homozygotes. [[Lewis2005]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><p><b>If your face turns red when you drink</b>, your body may be slow to clear acetaldehyde, and drinking then raises the risk of cancer of the food pipe even more. [[Brooks2009,Lewis2005]] A flushing questionnaire identified ALDH2 deficiency in Japanese men with 90% sensitivity and 88% specificity. [[Brooks2009]] Protection is not fixed: the share of Japanese people with alcohol dependence who were ALDH2 heterozygotes rose from 3% in 1979 to 13% in 1992, as drinking rose. [[Brooks2009]]</p></div>
+
+  <h3 class="sub">Genes and environment: a liability-threshold sketch</h3>
+  <div class="prose"><p>A classic way to picture a complex condition: everyone has some liability, spread along a bell curve, and the condition appears in people whose liability passes a threshold. Each influence below shifts the curve. The shifts are schematic, not risk estimates. Switch them on and off.</p></div>
+  <div class="gtog" role="group" aria-label="Influences on liability">
+    <button class="btn" data-gef="fam" aria-pressed="false"><b>Family history of AUD</b><small>Adoptees: OR 1.46 with an affected biological parent, 1.94 with a biological sibling, 1.40 with an adoptive parent.</small><span class="ev est">Established</span></button>
+    <button class="btn" data-gef="early" aria-pressed="false"><b>First drink before age 14</b><small>HR 1.78 for lifetime dependence vs starting at 21 or later. Cause or marker is unresolved.</small><span class="ev early">Association established</span></button>
+    <button class="btn" data-gef="stress" aria-pressed="false"><b>Stress and trauma</b><small>Veterans with lifetime PTSD: adjusted OR 2.1 for AUD. In the general NESARC-III sample, no adjusted link with 12-month PTSD.</small><span class="ev early">Early evidence, mixed</span></button>
+    <button class="btn" data-gef="price" aria-pressed="false"><b>Cheap, easy-to-get alcohol</b><small>Higher prices and taxes go with less drinking; restricting outlets and hours prevents harm.</small><span class="ev est">Established</span></button>
+    <button class="btn" data-gef="flush" aria-pressed="false"><b>Carrying ALDH2*2 or ADH1B*2</b><small>Each protects against alcohol dependence in Asian samples, independently of the other.</small><span class="ev est">Established</span></button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="geLiab" viewBox="0 0 720 260" style="min-width:0" role="img" aria-label="A bell-shaped liability curve with a fixed threshold line. Each switched-on influence moves the curve: family history, early drinking, stress and cheap alcohol move it towards the threshold, the protective variants move it away. The shaded tail above the threshold grows or shrinks."></svg></div>
+      <p class="stage-cap">Schematic. Sources: [[Kendler2015Adoption,Hingson2006,GrantDawson1997,Smith2016PTSD,Grant2015NESARC,Wagenaar2009,Popova2009,Luczak2006]]</p>
+    </div>
+    <aside class="note" id="geLiabNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the genome scans add, and what they cannot do</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Heavy drinking is not the whole story</h4><p>In 274,424 Million Veteran Program participants, 18 loci were found: 5 shared by AUDIT-C and AUD, 8 for AUDIT-C only and 5 for AUD only. Heavy drinking is a key risk factor for AUD but not a sufficient cause. [[Kranzler2019]] AUD genetics only partly overlap with drinking-amount genetics. [[Walters2018]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Shared roots with other conditions</h4><p>Problematic alcohol use correlated genetically with 138 phenotypes; among psychiatric disorders, depression had the highest correlation (rg 0.39), and cognitive traits correlated negatively. [[Zhou2020NatNeurosci]] AUD also correlates genetically with schizophrenia, ADHD and cigarette and cannabis use. [[Walters2018]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>More ancestries, better scores</h4><p>The 2023 meta-analysis of 1,079,947 people (903,147 European, 122,571 African, 38,962 Latin American, 13,551 East Asian, 1,716 South Asian ancestry) found 110 variants with similar architecture across ancestries; cross-ancestry polygenic scores beat single-ancestry ones. [[Zhou2023NatMed]]</p></div>
+    <div class="card"><span class="tag bad">Cannot diagnose</span><h4>Polygenic scores</h4><p>Combined scores explained about 2.5–3.5% of the variance in AUD and added only slightly beyond age, sex and ancestry: "modest, at best" for finding people at higher risk. [[Barr2020]] A genetic test or risk score cannot tell anyone whether they have, or will get, alcohol use disorder.</p></div>
+  </div>
+  <div class="callout"><p><b>Risk is not destiny.</b> About half of the risk comes from genes, but family environment and life events matter too, and genetic and environmental risk add up. [[Verhulst2015,Kendler2015Adoption]] Families are not to blame for a relative's AUD. Alcohol use disorder is treatable: see <a href="#medicines" data-go="medicines">medicines</a>, <a href="#therapy" data-go="therapy">talking therapies</a> and <a href="#families" data-go="families">support for families</a>.</p></div>
 </section>

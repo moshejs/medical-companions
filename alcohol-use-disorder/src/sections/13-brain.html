@@ -1,5 +1,66 @@
-<!-- ================= 1.3 ALCOHOL AND THE BRAIN: REWARD, ADAPTATION, CRAVING (stub, replaced by its builder) ================= -->
+<!-- ================= 1.3 ALCOHOL AND THE BRAIN: REWARD, ADAPTATION, CRAVING ================= -->
+<style>
+#m-brain .card>.ev,#m-brain .card>.tag{align-self:flex-start}
+#m-brain .tbl table{min-width:520px}
+#m-brain .card a.btn{align-self:flex-start;text-decoration:none;color:inherit;font-size:13px;padding:6px 12px}
+</style>
 <section class="mod" id="m-brain" data-mod="brain" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding AUD</p><h2>Alcohol and the brain: reward, adaptation, craving</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Alcohol tips the brain's balance between calming GABA and exciting glutamate. With months of heavy drinking the brain pushes back, and when the alcohol suddenly goes, the push-back is left unopposed. Scrub through one synapse, then around the addiction cycle.</p></div>
+  <div class="stepper" id="brSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="brSvg" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="A synapse with calming GABA-A receptors on the left and exciting NMDA glutamate receptors on the right. Ethanol first boosts chloride flow through GABA-A receptors and plugs NMDA channels, tipping a balance beam towards calm. Over months of heavy drinking GABA-A receptors thin out and NMDA receptors multiply, so the beam levels again while alcohol is present. When drinking stops, excitation is unopposed: sparks fill the cell and the beam tips hard towards glutamate. A small brain shows the reward area lighting up with each drink."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brPlay">Play</button><label class="stage-cap tl" for="brT">Time <input type="range" id="brT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="brRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> Receptor numbers, dots and the beam's angle show direction of change, not measured amounts. The directions come from reviews of animal and human studies: GABA-A α1 internalised and reduced, α4 increased, NMDA receptors up-regulated with tolerance. [[Kumar2009,TsaiCoyle1998]]</p>
+    </div>
+    <aside class="note" id="brNote" aria-live="polite"></aside>
+  </div>
+  <div class="safety"><b>Stopping safely</b>Stopping suddenly after long, heavy daily drinking can be dangerous: the hyperexcitable state can bring seizures and delirium tremens. [[TsaiCoyle1998]] Get medical help to stop safely. See <a href="#withdrawal" data-go="withdrawal">Alcohol withdrawal: the timeline</a>. If someone has a seizure, confusion or hallucinations, call emergency services.</div>
+
+  <h3 class="sub">What chronic alcohol does to the GABA-A receptor</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Subunit</th><th>Change with chronic ethanol</th><th>Where / how</th></tr></thead>
+    <tbody>
+      <tr class="gaba"><th>α1</th><td>Internalised into clathrin-coated vesicles: less at the cell surface and in synapses</td><td>Cerebral cortex, where α1 is the most abundant subunit</td></tr>
+      <tr><th>α4, β2, β3</th><td>More expressed (α4 after 14 days of chronic ethanol)</td><td>Cerebral cortex; α4 also hypothalamus</td></tr>
+      <tr><th>α6</th><td>Up</td><td>Cerebellum</td></tr>
+      <tr class="gaba"><th>α1</th><td>Down</td><td>Cerebellum</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Source: Kumar 2009 review. These changes in function, expression, trafficking and location contribute to tolerance, dependence and withdrawal hyperexcitability. <span class="ev est">Established</span> [[Kumar2009]]</p>
+
+  <h3 class="sub">The addiction cycle: three stages, three brain systems</h3>
+  <div class="ctrls" role="group" aria-label="Stage of the disorder">
+    <span class="kicker">View</span>
+    <button class="btn" data-brcy="early" aria-pressed="true">Early: drinking for reward</button>
+    <button class="btn" data-brcy="late" aria-pressed="false">Later: drinking for relief</button>
+  </div>
+  <div class="stepper" id="brCySteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="brCy" viewBox="0 0 720 350" style="min-width:560px" role="img" aria-label="A three-part ring, binge and intoxication, withdrawal and negative affect, and preoccupation and anticipation, with a marker travelling around it. Beside it a side-view brain lights the basal ganglia, the extended amygdala or the prefrontal cortex for the current stage. A small chart shows a reward set point that stays level early on and drifts lower with each cycle later, the allostasis hypothesis."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brCyPlay">Play</button><label class="stage-cap tl" for="brCyT">Around the cycle <input type="range" id="brCyT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Framework: Koob and Volkow 2016. [[KoobVolkow2016]] The set-point chart illustrates the allostasis model of Koob and Le Moal, a <span class="ev hyp">Hypothesis</span>, and is not measured data. [[KoobLeMoal2001]]</p>
+    </div>
+    <aside class="note" id="brCyNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How medicines aim at these circuits</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Approved in the US</span><h4>Naltrexone: blocking the opioid "reward"</h4><p>Drinking releases the brain's own opioids in the nucleus accumbens and orbitofrontal cortex; in heavy drinkers the orbitofrontal change tracked the subjective "high", which suggests a mechanism for opioid antagonists. <span class="ev early">Early evidence</span> [[Mitchell2012]] Naltrexone is a pure opioid receptor antagonist; the label says its mechanism in AUD "is not understood". [[FDA-Naltrexone]]</p><a class="btn" href="#medicines" data-go="medicines">Approved medicines →</a></div>
+    <div class="card"><span class="tag rx">Approved in the US</span><h4>Acamprosate: the glutamate side</h4><p>The label says chronic alcohol is thought to upset the balance between excitation and inhibition, and animal studies suggest acamprosate acts on glutamate and GABA systems: the <span class="ev hyp">Hypothesis</span> is that it restores the balance. [[FDA-Campral]] Reviews describe it as modulating glutamate transmission. [[KranzlerSoyka2018]]</p><a class="btn" href="#medicines" data-go="medicines">Approved medicines →</a></div>
+    <div class="card"><span class="tag">Not approved for AUD in the US</span><h4>Topiramate and baclofen</h4><p>Topiramate is thought to reduce alcohol's reinforcing effects by boosting GABA and inhibiting glutamate pathways. <span class="ev hyp">Hypothesis</span> [[Johnson2007Topiramate]] Baclofen is a GABA-B receptor agonist approved in the US for spasticity. [[KranzlerSoyka2018]]</p><a class="btn" href="#offlabel" data-go="offlabel">Other medicines →</a></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>The stress system: CRF</h4><p>In animals, a history of dependence leaves CRF1 receptors in the amygdala up-regulated for the long term, and CRF antagonists block excessive drinking and stress-induced relapse-like seeking. This is not established in humans. [[HeiligKoob2007,Koob2014]]</p><a class="btn" href="#frontier" data-go="frontier">Research frontier →</a></div>
+  </div>
+
+  <h3 class="sub">More of what imaging shows</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Dopamine release, then fewer D2 receptors</h4><p>On PET, alcohol released dopamine in the human ventral striatum and nucleus accumbens, the first such human report. [[Boileau2003]] In 10 people with alcohol dependence, striatal D2 receptor availability was lower than in 17 controls (2.1 against 2.7) and did not correlate with days since the last drink. [[Volkow1996]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>From choice to habit</h4><p>Everitt and Robbins propose a shift from voluntary use to habit and compulsion: from prefrontal to striatal control, and from ventral to dorsal striatum, with animal support. [[EverittRobbins2005]] In humans, heavy drinkers showed more dorsal-striatum cue activation, which tracked obsessive-compulsive craving. <span class="ev early">Early evidence</span> [[VollstadtKlein2010]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Some brain changes recover</h4><p>MRI shows white-matter loss and damage to some grey-matter structures in AUD; some changes are permanent and some reverse with abstinence. [[Zahr2017]] In 58 men scanned repeatedly, fluid spaces shrank between about day 12 and day 32 of abstinence, and white matter fell further in those who went back to drinking. [[Pfefferbaum1995]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Even moderate amounts show up</h4><p>In 36,678 UK Biobank adults, going from one to two daily units was "equivalent to the effect of aging 2 years" on brain volume. [[Daviet2022]] In Whitehall II, more than 30 units a week carried an odds ratio of 5.8 for hippocampal atrophy, and light drinking was not protective. [[Topiwala2017]]</p></div>
+  </div>
+  <div class="callout"><p>These are brain changes, not a lack of willpower: over time, drinking can shift from seeking a good feeling to escaping a bad one. [[KoobVolkow2016,Koob2014]] Alcohol use disorder is a treatable medical condition, and many people recover: about 9.1% of US adults report having resolved an alcohol or drug problem (a population figure, not a promise for any one person). [[Kelly2017Recovery]]</p></div>
 </section>

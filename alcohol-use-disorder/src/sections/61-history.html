@@ -1,5 +1,73 @@
-<!-- ================= 6.1 A HISTORY OF ALCOHOL USE DISORDER (stub, replaced by its builder) ================= -->
+<!-- ================= 6.1 A HISTORY OF ALCOHOL USE DISORDER ================= -->
+<style>
+#m-history .card>.tag,#m-history .card>.ev{align-self:flex-start}
+#m-history .tbl table{min-width:560px}
+#m-history .tbl td:first-child{font:600 13px var(--mono);white-space:nowrap}
+#m-history #hiYears{margin-top:-6px}
+</style>
 <section class="mod" id="m-history" data-mod="history" hidden>
   <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>A history of alcohol use disorder</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">For more than 200 years, doctors have described problem drinking as a health condition. Walk the timeline from Benjamin Rush to DSM-5 and ICD-11, and watch the name for the condition change as the ideas behind it changed. [[Witkiewitz2019,Tabakoff2013]]</p></div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A timeline from 1780 to 2025, with the years after 1930 drawn wider. A marker walks through seven eras: Benjamin Rush in 1784, Magnus Huss in 1849, temperance and the repeal of US Prohibition in 1933, Alcoholics Anonymous in 1935 and disulfiram in 1948 and 1951, the disease concept and the alcohol dependence syndrome from 1952 to 1976, separate abuse and dependence diagnoses from 1980 with naltrexone in 1994, and the single alcohol use disorder of DSM-5 in 2013 with ICD-11 in 2019. A banner at the top shows the name used for the condition in each era. Three tracks mark ideas and diagnosis, mutual help and policy, and medicines."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="chips" id="hiYears" aria-label="Jump to a year"></div>
+      <p class="stage-cap">The scale changes at 1930 so the crowded 20th and 21st centuries have room. Dates as given by the cited histories and by Drugs@FDA; US Prohibition is shown only by its 1933 repeal, the date the sources give. [[Witkiewitz2019,Tabakoff2013,Blocker2006,FDA-DrugsFDA-AUD]]</p>
+    </div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How the diagnosis changed</h3>
+  <p class="prose">DSM-IV (1994) had two alcohol diagnoses, abuse and dependence. DSM-5 (2013) merged them into one alcohol use disorder, dropped legal problems and added craving. ICD-11 (2019) kept dependence separate from a harmful pattern of use. Switch between them and watch the criteria move. [[Hasin2013,Saunders2019ICD11]]</p>
+  <div class="ctrls" role="group" aria-label="Choose a classification" id="hiDxBtns">
+    <button class="btn" data-dx="0" aria-pressed="true">DSM-IV (1994): abuse + dependence</button>
+    <button class="btn" data-dx="1" aria-pressed="false">DSM-5 (2013): one AUD</button>
+    <button class="btn" data-dx="2" aria-pressed="false">ICD-11 (2019)</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiDx" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="Criteria cards move between layouts: in DSM-IV, four abuse criteria including legal problems sit in one box and seven dependence criteria in another, with craving outside; in DSM-5, eleven criteria sit in one alcohol use disorder box, legal problems move out as dropped and craving moves in as added; in ICD-11, three essential features of alcohol dependence appear beside a separate harmful pattern of use."></svg></div>
+      <p class="stage-cap">Criteria paraphrased and shortened. DSM-IV grouping as described in the DSM-5 work group's rationale; DSM-5-TR wording in APA 2022. [[Hasin2013,APA2022,Degenhardt2019ICD11]]</p>
+    </div>
+    <aside class="note" id="hiDxNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Milestones at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Year</th><th>What happened</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>1784</td><td>Benjamin Rush proposes an aversion remedy for problem drinking, and describes loss of control over alcohol</td><td>[[Witkiewitz2019]]</td></tr>
+      <tr><td>1849</td><td>Magnus Huss, in Sweden, describes "alcoholismus chronicus", emphasising the medical consequences of chronic heavy drinking</td><td>[[Tabakoff2013,Martin2014]]</td></tr>
+      <tr><td>1933</td><td>US National Prohibition is repealed, mainly because the Great Depression changed the economic context</td><td>[[Blocker2006]]</td></tr>
+      <tr><td>1935</td><td>Alcoholics Anonymous dates its founding to 10 June, in Akron, Ohio</td><td>[[Gross2010AA]]</td></tr>
+      <tr><td>1948</td><td>Hald and Jacobsen report in the Lancet a drug that sensitises the body to alcohol: disulfiram</td><td>[[Hald1948]]</td></tr>
+      <tr><td>1951</td><td>Disulfiram (Antabuse) becomes the first FDA-approved medicine for AUD (Drugs@FDA: 28 August 1951)</td><td>[[Witkiewitz2019,FDA-DrugsFDA-AUD]]</td></tr>
+      <tr><td>1952</td><td>The first DSM is published</td><td>[[Tabakoff2013]]</td></tr>
+      <tr><td>1960</td><td>E. M. Jellinek's "The Disease Concept of Alcoholism"</td><td>[[Tabakoff2013,Kelly2019Jellinek]]</td></tr>
+      <tr><td>1976</td><td>Edwards and Gross describe the "alcohol dependence syndrome" in the BMJ</td><td>[[Edwards1976]]</td></tr>
+      <tr><td>1980</td><td>DSM-III describes two separate disorders, substance dependence and substance abuse</td><td>[[Martin2014]]</td></tr>
+      <tr><td>1987</td><td>DSM-III-R keeps an abuse diagnosis defined partly by consequences</td><td>[[Martin2014]]</td></tr>
+      <tr><td>1989</td><td>Acamprosate first approved for alcohol dependence, in Europe</td><td>[[Witkiewitz2019]]</td></tr>
+      <tr><td>1994</td><td>DSM-IV keeps separate abuse and dependence; naltrexone FDA-approved for alcohol dependence (efficacy supplement 30 December 1994)</td><td>[[Hasin2013,Witkiewitz2019,FDA-DrugsFDA-AUD]]</td></tr>
+      <tr><td>2004</td><td>Acamprosate (Campral) approved in the US (29 July 2004)</td><td>[[FDA-DrugsFDA-AUD]]</td></tr>
+      <tr><td>2006</td><td>Extended-release injectable naltrexone (Vivitrol) approved (13 April 2006)</td><td>[[Witkiewitz2019,FDA-DrugsFDA-AUD]]</td></tr>
+      <tr><td>2013</td><td>DSM-5 merges abuse and dependence into one alcohol use disorder; nalmefene approved in Europe</td><td>[[APA2013,Hasin2013,Witkiewitz2019]]</td></tr>
+      <tr><td>2018</td><td>Baclofen approved for AUD in France</td><td>[[Witkiewitz2019]]</td></tr>
+      <tr><td>2019</td><td>ICD-11 formally published (May): alcohol dependence, harmful pattern of use, and hazardous use as a risk factor</td><td>[[Saunders2019ICD11]]</td></tr>
+      <tr><td>2022</td><td>DSM-5-TR published</td><td>[[APA2022]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Stigma and language over time</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">1780s onwards</span><h4>From vice to disease</h4><p>Rush described habitual heavy drinking as a disease caused by alcohol itself, and ran a public health campaign on the hazards of distilled spirits that listed more than a dozen alcohol-related health problems [[Tabakoff2013,Katcher1993]]. Jellinek's 1960 book codified problem drinking as a disease of loss of control over drinking. [[Tabakoff2013,Kelly2019Jellinek]]</p></div>
+    <div class="card"><span class="tag brand">Names</span><h4>Why the old names were retired</h4><p>"Alcoholism", Huss's term in its Latin form, survives as the older, lay name [[Tabakoff2013]]. "Alcohol abuse" was a DSM-IV diagnosis, retired in 2013 [[Hasin2013]]. Words still carry blame: clinicians who read "a substance abuser" rather than "having a substance use disorder" were more likely to judge the person culpable and to favour punishment. [[Kelly2010Language]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Stigma has not gone away</h4><p>People with alcohol dependence are held more responsible for their condition than people with other mental disorders [[Schomerus2011]], and a 2010–2020 review found the public's wish for social distance from people with AUD stayed consistently higher [[Kilian2021]]. Stigma is one reason the treatment gap is so wide. [[Carvalho2019Lancet,Probst2015]]</p></div>
+    <div class="card"><span class="tag">Mutual help</span><h4>From temperance to AA</h4><p>The temperance movement of the 1800s and early 1900s laid groundwork for later mutual-help organisations [[Witkiewitz2019]]. By 2010, AA reported some 2 million members in more than 160 countries. [[Gross2010AA]] See <a href="#therapy" data-go="therapy">Talking therapies and mutual help</a>.</p></div>
+    <div class="card"><span class="ev hyp">Disputed</span><h4>Did Prohibition "work"?</h4><p>Blocker argues the usual verdict of failure rests on a weak historical base: Prohibition did lower consumption, and after repeal yearly intake was about 1.2 US gallons per person, less than half the pre-Prohibition level. The Volstead Act defined "intoxicating" as 0.5% alcohol by volume or more. Historians still dispute it. [[Blocker2006]]</p></div>
+    <div class="card"><span class="ev hyp">Debated</span><h4>One disorder or two?</h4><p>DSM-5 merged abuse and dependence on data from more than 200,000 participants [[Hasin2013]]. ICD-11 keeps dependence separate from harmful use [[Saunders2019ICD11]]. Stockwell argues DSM-5 mixes dependence with its consequences, departing from Edwards and Gross, whose syndrome shaped international classifications and underpins brief interventions. [[Stockwell2015]]</p></div>
+  </div>
+  <div class="callout"><p><b>Exam hooks.</b> Edwards &amp; Gross 1976: the alcohol dependence syndrome. Disulfiram: Hald &amp; Jacobsen 1948, FDA 1951. FDA approvals for AUD: naltrexone 1994, acamprosate 2004, extended-release naltrexone 2006; today three medicines are FDA-approved for AUD. DSM-5 (2013): merged abuse and dependence, dropped legal problems, added craving, threshold 2 or more of 11. [[Edwards1976,Hald1948,Witkiewitz2019,FDA-DrugsFDA-AUD,Hasin2013]] Practise the criteria in <a href="#criteria" data-go="criteria">Diagnosis</a>.</p></div>
 </section>

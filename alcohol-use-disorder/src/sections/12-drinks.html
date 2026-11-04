@@ -1,5 +1,107 @@
-<!-- ================= 1.2 STANDARD DRINKS, BLOOD ALCOHOL &amp; METABOLISM (stub, replaced by its builder) ================= -->
+<!-- ================= 1.2 STANDARD DRINKS, BLOOD ALCOHOL & METABOLISM ================= -->
+<style>
+#m-drinks .warnbox{border:2px solid var(--bad);background:var(--bad-soft);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:8px;max-width:78ch}
+#m-drinks .warnbox h4{margin:0;font-family:var(--display);font-weight:800;font-size:20px;color:var(--bad)}
+#m-drinks .warnbox ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:3px}
+#m-drinks .calc input[type=range]{min-width:0}
+#m-drinks .calc .val{font:600 13px var(--mono);color:var(--ink)}
+#m-drinks .outrow{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:flex-end}
+#m-drinks .outrow div{display:flex;flex-direction:column;gap:2px}
+#m-drinks .outrow small{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-drinks .big-num.sm{font-size:30px}
+#m-drinks .tbl table{min-width:560px}
+#m-drinks .presets{display:flex;flex-wrap:wrap;gap:6px}
+#m-drinks .lab.even{grid-template-columns:minmax(0,1fr)}
+#m-drinks .presets .btn{font-size:13px;padding:6px 11px}
+</style>
 <section class="mod" id="m-drinks" data-mod="drinks" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding AUD</p><h2>Standard drinks, blood alcohol &amp; metabolism</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">What a "drink" means in grams of ethanol, how blood alcohol rises and then falls in a straight line, and what the liver makes from it. Scrub twelve hours of one illustrative evening, then try the teaching calculators.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Scenario">
+    <span class="kicker">Person</span>
+    <button class="btn" data-drsx="m" aria-pressed="true">Man, 70 kg</button>
+    <button class="btn" data-drsx="f" aria-pressed="false">Woman, 60 kg</button>
+    <span class="kicker">Stomach</span>
+    <button class="btn" data-drfd="0" aria-pressed="true">Empty stomach</button>
+    <button class="btn" data-drfd="1" aria-pressed="false">After a meal</button>
+  </div>
+  <div class="stepper" id="drSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="drSvg" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="Twelve hours after four drinks of 14 grams of ethanol taken over three hours: amber ethanol marks travel from the mouth to the stomach, into the blood and to the liver; a blood alcohol curve rises while drinks are absorbed, then falls in a straight zero-order line; a liver-cell inset shows ethanol turned into acetaldehyde by ADH and into acetate by ALDH, with an NADH bar that fills while the liver works."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="drPlay">Play</button><label class="stage-cap tl" for="drT">Hours <input type="range" id="drT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="drRead"></div>
+      <p class="stage-cap"><b>Schematic teaching curve, not a prediction.</b> One-compartment Widmark-style model: r 0.68 (men) or 0.55 (women) [[Terpstra2020]]; elimination 0.0125 g/dL per hour on an empty stomach and 0.0175 after a meal, the midpoints of the published 10–15 and 15–20 mg/100 mL per hour [[Jones2010]]. The absorption speeds are chosen by us so the peak after each drink falls within the published 10–60 minutes [[Jones2019WIREs]]. Effect bands are the millimolar thresholds of Abrahao 2017, converted to g/dL by the research team (1 mM ≈ 4.6 mg/dL). [[Abrahao2017,Edenberg2007]]</p>
+    </div>
+    <aside class="note" id="drNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="crisis"><b>Emergency</b><span>If you or someone else may have alcohol poisoning or severe withdrawal (seizure, confusion, hallucinations), call emergency services. For help with drinking in the US, SAMHSA's National Helpline is free and confidential: 1-800-662-4357. If you are in crisis or thinking about suicide, contact a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</span></div>
+
+  <h3 class="sub">How many standard drinks is it?</h3>
+  <div class="prose"><p>A "standard drink" is a fixed amount of pure ethanol, not a glass. Of 75 national governments examined, 37 had a definition: most often 10 g, ranging from 8 to 20 g. [[Kalinowski2016]] The US standard drink is 0.6 oz of ethanol, for example 12 oz of 5% beer, 5 oz of 12% wine or 1.5 oz of 40% spirits; 0.6 fl oz is about 14 g (the research team's arithmetic: 0.6 × 29.57 mL × 0.789 g/mL). [[KranzlerSoyka2018]] GBD and the WHO AUDIT assume 10 g. [[GBD2016Alcohol,HigginsBiddle2018USAUDIT]] The UK counts in 8 g units (the Cochrane brief-intervention review gives 244 g a week as 30.5 UK units). [[Kaner2018Cochrane]] The sum is always the same: <b>volume (mL) × ABV ÷ 100 × 0.789 g/mL = grams of ethanol</b>.</p></div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="presets" role="group" aria-label="Example drinks">
+        <button class="btn" data-drp="355,5">12 oz beer, 5%</button>
+        <button class="btn" data-drp="568,5">Pint, 5%</button>
+        <button class="btn" data-drp="148,12">5 oz wine, 12%</button>
+        <button class="btn" data-drp="250,13">Large wine, 13%</button>
+        <button class="btn" data-drp="44,40">1.5 oz spirits, 40%</button>
+        <button class="btn" data-drp="750,13">Bottle of wine, 13%</button>
+      </div>
+      <div class="calc">
+        <label for="drVol">Volume: <span class="val" id="drVolV"></span><input type="range" id="drVol" min="20" max="1000" step="1" value="355"></label>
+        <label for="drAbv">Strength (ABV): <span class="val" id="drAbvV"></span><input type="range" id="drAbv" min="0.5" max="45" step="0.5" value="5"></label>
+      </div>
+      <div class="scroll"><svg id="drConv" viewBox="0 0 720 230" style="min-width:0" role="img" aria-label="A measuring beaker filled to the chosen volume, the grams of ethanol it holds, and three rows of small beakers showing the same amount as US 14 g drinks, 10 g standard drinks and UK 8 g units."></svg></div>
+    </div>
+    <aside class="note" id="drConvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Binge, heavy and high-intensity drinking: the published definitions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Term</th><th>Definition as published</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>US standard drink</th><td>0.6 oz of ethanol: 12 oz of 5% beer, 5 oz of 12% wine or 1.5 oz of 40% spirits.</td><td>[[KranzlerSoyka2018]]</td></tr>
+      <tr><th>Binge drinking (NIAAA)</th><td>A pattern that brings blood alcohol to about 0.08 g%: 5 or more drinks for men or 4 or more for women. An NIAAA task force recommended adding "within about 2 hours"; in one comparison, the older measure without a time limit predicted negative consequences at least as well.</td><td>[[Corbin2014]]</td></tr>
+      <tr><th>Binge drinking (NSDUH surveys)</th><td>5 or more standard drinks for males, or 4 or more for females, on the same occasion.</td><td>[[KranzlerSoyka2018]]</td></tr>
+      <tr><th>Heavy alcohol use (NSDUH surveys)</th><td>Binge drinking on 5 or more days in the past month.</td><td>[[KranzlerSoyka2018]]</td></tr>
+      <tr><th>High-intensity drinking</th><td>8 or more drinks for women, 10 or more for men: two or more times the binge thresholds.</td><td>[[Patrick2023HID]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>In 2016, 26.2% of US adults reported at least one binge-drinking day in the past month and 6.6% reported heavy alcohol use. [[KranzlerSoyka2018]] These are population statistics. Most people who drink heavily do not have alcohol dependence: in NSDUH 2009–2011, 10.5% of binge drinkers met DSM-IV dependence criteria. [[Esser2014PCD]] That is not reassurance. Binge drinking still accounted for 76.7% of the US cost of excessive drinking in 2010. [[Sacks2015]] For how alcohol use disorder itself is defined, see <a href="#criteria" data-go="criteria">Diagnosis: DSM-5-TR criteria</a>.</p></div>
+
+  <h3 class="sub">A teaching blood alcohol calculator</h3>
+  <div class="warnbox" role="note">
+    <h4>This calculator cannot tell anyone whether it is safe to drive or to drink</h4>
+    <p>It draws a textbook curve from published average values. Real people differ: elimination rates vary about four-fold between healthy people [[Edenberg2007]], five published Widmark-type models give different answers for the same evening [[Posey2007Widmark]], and one proposed error band is ±21% (others argue the error must be worked out case by case) [[Searle2015]]. It is not for working out your own level, and no number here means "fine". Fatal-crash risk rises steadily with BAC in every age and sex group [[Zador2000]], and a 2014 review found virtually all drivers impaired on at least some driving measures at 0.05. [[Fell2014BAC]]</p>
+    <p><b>Alcohol poisoning is an emergency: call emergency services.</b> Signs progress from poor judgement, slurred speech, poor coordination and vomiting to stupor, coma and death. [[Kanny2015]] Call if someone cannot be woken, is breathing slowly or irregularly, or has a seizure. [[Kanny2015,Abrahao2017]] Do not leave them alone; cold can contribute (hypothermia was a contributing cause in 6.0% of US alcohol poisoning deaths). [[Kanny2015]] Mixing alcohol with opioids, benzodiazepines or other sedatives is dangerous. [[Tori2020]]</p>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="calc">
+        <label for="drcG">Grams of ethanol per drink <select id="drcG"><option value="14">14 g (US standard drink)</option><option value="10">10 g (WHO / GBD)</option><option value="8">8 g (UK unit)</option><option value="20">20 g (largest national definition)</option></select></label>
+        <label for="drcN">Number of drinks: <span class="val" id="drcNV"></span><input type="range" id="drcN" min="1" max="12" step="1" value="3"></label>
+        <label for="drcH">Spread over (hours): <span class="val" id="drcHV"></span><input type="range" id="drcH" min="0" max="6" step="0.5" value="2"></label>
+        <label for="drcW">Body weight (kg): <span class="val" id="drcWV"></span><input type="range" id="drcW" min="40" max="140" step="1" value="70"></label>
+        <label for="drcR">Distribution factor r <select id="drcR"><option value="0.68">0.68 (fixed value for men)</option><option value="0.55">0.55 (fixed value for women)</option><option value="0.70">0.70 (average Vd, men)</option><option value="0.60">0.60 (average Vd, women)</option></select></label>
+        <label for="drcB">Elimination rate <select id="drcB"><option value="0.015">0.015 g/dL/h (average, moderate drinkers)</option><option value="0.0125">0.010–0.015, empty stomach (mid)</option><option value="0.0175">0.015–0.020, after food (mid)</option><option value="0.019">0.019 (average, apprehended drivers)</option><option value="0.030">0.025–0.035, detoxification (mid)</option></select></label>
+      </div>
+      <div class="scroll"><svg id="drCalc" viewBox="0 0 720 300" style="min-width:0" role="img" aria-label="A teaching blood alcohol curve drawn from the chosen inputs over 16 hours, with a shaded band of plus or minus 21 percent, and the published effect thresholds as faint horizontal bands."></svg></div>
+      <p class="stage-cap">r values: fixed Widmark factors 0.68 and 0.55 [[Terpstra2020]]; average volume of distribution 0.70 and 0.60 L/kg [[Jones2019WIREs]]. Elimination rates from a forensic evidence review [[Jones2010]]. Absorption: about 30 minutes per drink, as in Terpstra's fixed 0.5 h. Shaded band: ±21%. [[Searle2015]]</p>
+    </div>
+    <aside class="note" id="drCalcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What changes the curve, and what does not</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Food in the stomach</h4><p>Ten men drank 0.80 g/kg once fasting and once straight after breakfast. Peak BAC was 104 mg/dL fasting and 67 mg/dL fed; the 0–6 h area under the curve was 398 against 241 mg/dL·h, and the dose was cleared about 2 h sooner after the meal. [[Jones1994Food]] Eating lowers the peak; it does not make heavy drinking safe.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Body water and sex</h4><p>Ethanol does not bind to plasma proteins and spreads in total body water [[Norberg2003]]: about 55–60% of body weight in non-obese men and 50–55% in women [[Jones2019WIREs]]. After the same amount, women reach higher BACs than men even allowing for body size. [[Frezza1990]]</p></div>
+    <div class="card"><span class="tag warn">Debated</span><h4>First-pass metabolism in the stomach</h4><p>Some alcohol is oxidised by gastric ADH before it reaches the blood. In women without alcohol dependence, first-pass metabolism was 23% and gastric ADH activity 59% of men's; in women with alcohol dependence it was "virtually abolished". [[Frezza1990]] How much this matters overall is debated; body water is the better-established factor. [[Cederbaum2012,Norberg2003]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Heavy drinking speeds clearance</h4><p>CYP2E1 is inducible, so people who drink heavily clear ethanol faster [[Norberg2003]]: 25–35 mg/100 mL per hour during detoxification against about 15 in moderate drinkers. [[Jones2010]] In 20 people admitted for detoxification, blood ethanol on arrival was 238–489 mg/dL. Tolerance does not remove danger. [[Jones1992Detox]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Acetaldehyde: the toxic step</h4><p>Acetaldehyde is a mutagen and an animal carcinogen that damages DNA; saliva holds 10–20 times more than blood because mouth bacteria make it. [[Brooks2009]] About 3.6% of cancers worldwide derive from chronic drinking. [[Seitz2007]] See <a href="#genes" data-go="genes">Genes, family &amp; risk</a> for the flushing variant, and <a href="#body" data-go="body">the whole body</a> for cancer risk.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>No amount is good for health</h4><p>GBD 2016 found the level that minimised harm across health outcomes was zero standard drinks a week. [[GBD2016Alcohol]] After bias adjustment, low-volume drinkers had no lower all-cause mortality than lifetime non-drinkers (RR 0.93). [[Zhao2023JAMANO]] Genetic evidence calls the apparent stroke protection "largely non-causal". [[Millwood2019]] The research does not support drinking for health.</p></div>
+  </div>
 </section>
