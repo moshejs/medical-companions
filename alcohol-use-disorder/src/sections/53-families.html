@@ -1,5 +1,59 @@
-<!-- ================= 5.3 FAMILIES, FRIENDS AND EVERYDAY LIFE (stub, replaced by its builder) ================= -->
+<!-- ================= 5.3 FAMILIES, FRIENDS AND EVERYDAY LIFE ================= -->
+<style>
+#m-families svg .t-xs{font-size:10.5px}
+#m-families svg .t-sm{font-size:12px}
+#m-families svg[data-mode=n] .t-xs{font-size:11.5px}
+#m-families svg[data-mode=n] .t-sm{font-size:13px}
+#m-families .card>.ev,#m-families .card>.tag{align-self:flex-start}
+#m-families .langcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+#m-families .langcard .say{font-size:18px;line-height:1.5;margin:0}
+#m-families .langcard mark{background:var(--rx-soft);color:var(--ink);border-radius:4px;padding:0 3px}
+#m-families .langcard.old mark{background:var(--bad-soft)}
+#m-families .help{border:1px solid var(--accent);background:var(--accent-soft);border-radius:var(--r);padding:14px 16px;font-weight:700;max-width:80ch}
+#m-families .tbl table{min-width:520px}
+</style>
 <section class="mod" id="m-families" data-mod="families" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Body, family &amp; care</p><h2>Families, friends and everyday life</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Alcohol use disorder touches everyone close to a person. Families are never to blame for someone else's drinking, and they can get help for themselves and learn ways that make it more likely a loved one starts treatment.</p></div>
+  <div class="stepper" id="faSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="faSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A family drawn as people around a person with alcohol use disorder: a partner, two children, a parent and a friend. Ripples spread from the centre, the children's adverse childhood experience counts appear as bars, support circles form around the partner, CRAFT sessions count from 1 to 6, and engagement bars rise for CRAFT (64%), the Johnson confrontation (30%) and Al-Anon facilitation (13%). Finally the person and partner sit together in couples therapy."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="faPlay">Play</button><label class="stage-cap tl" for="faT">Steps <input type="range" id="faT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative family. Bars show group results from the studies named, not what will happen in any family. [[Dube2001,Miller1999,Powers2008]]</p>
+    </div>
+    <aside class="note" id="faNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What to say: words that reduce blame</h3>
+  <p class="prose">In a randomised study of 516 mental health clinicians, people who read about "a substance abuser" were more likely to see the person as personally to blame and to favour punishment than people who read about someone "having a substance use disorder". In 1,288 people, "substance abuser", "addict" and "alcoholic" carried strongly negative associations, while "long-term recovery" and "medication-assisted recovery" carried positive ones. [[Kelly2010Language,Ashford2018]]</p>
+  <div class="ctrls">
+    <label class="kicker" for="faCtx">Setting</label>
+    <select id="faCtx" class="btn"><option value="home">At home</option><option value="clinic">In a clinic note</option><option value="work">At work</option></select>
+    <button class="btn" id="faWords" aria-pressed="true">Person-first wording</button>
+  </div>
+  <div class="langcard" id="faLang" aria-live="polite"></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Instead of</th><th>Try</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>an alcoholic</td><td>a person with alcohol use disorder</td><td>"Alcoholic" carried strongly negative associations [[Ashford2018]]</td></tr>
+      <tr><td>a substance abuser, an alcohol abuser</td><td>a person with a substance use disorder</td><td>"Abuser" made clinicians favour punishment [[Kelly2010Language]]</td></tr>
+      <tr><td>an addict</td><td>a person in recovery; a person in long-term recovery</td><td>"Long-term recovery" carried positive associations [[Ashford2018]]</td></tr>
+      <tr><td>relapsed</td><td>had a recurrence of use</td><td>"Recurrence of use" was more positive than "relapse" [[Ashford2018]]</td></tr>
+      <tr><td>a drunk</td><td>a person who drinks heavily</td><td>Describes behaviour, not identity</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">"Alcohol abuse" survives only as the historical DSM-IV term. Stigma matters: people with lifetime AUD who perceived more stigma were less likely to use alcohol services (OR 0.37), and public stigma toward AUD remains comparatively high. [[Keyes2010,Kilian2021,Schomerus2011]]</p>
+
+  <h3 class="sub">Everyday life: practical points</h3>
+  <div class="help" role="note">If you or someone else may have alcohol poisoning or severe withdrawal (seizure, confusion, hallucinations), call emergency services. For help with drinking in the US, SAMHSA's National Helpline is free and confidential: 1-800-662-4357. If you are in crisis or thinking about suicide, contact a crisis line (in the US call or text 988; in the UK and Ireland Samaritans 116 123).</div>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Safety plan</span><h4>Emergencies at home</h4><ul><li>Alcohol poisoning is an emergency: call emergency services. In the US an average of 2,221 people aged 15 or older died of alcohol poisoning each year in 2010–2012, about six a day. [[Kanny2015]]</li><li>Mixing alcohol with opioids, benzodiazepines or other sedatives is dangerous: the labels warn of "profound sedation, respiratory depression, coma, and death". Alcohol was involved in 14.7% of US opioid overdose deaths in 2017. [[FDA-OxyContin,FDA-Xanax,Tori2020]]</li><li>Stopping suddenly after long, heavy daily drinking can cause seizures or delirium tremens: get medical help to stop safely. See <a href="#withdrawal" data-go="withdrawal">withdrawal</a>.</li></ul></div>
+    <div class="card"><span class="tag warn">Driving</span><h4>No calculator can say it is safe to drive</h4><p>Even at a blood alcohol concentration of 0.05, virtually all drivers are impaired on at least some driving measures. Lowering the legal limit to 0.05 or lower went with an 11.1% fall in fatal alcohol-related crashes, and ignition interlocks cut re-arrests while fitted. ASAM advises people treated with benzodiazepines for withdrawal not to drive for the first few days. [[Fell2014BAC,Fell2017,Elder2011,ASAM2020Withdrawal]]</p></div>
+    <div class="card"><span class="tag rx">Social life</span><h4>Holidays and pressure to drink</h4><p>Who is around matters. In Network Support II, treatment that built a network with more non-drinkers gave more days abstinent than packaged CBT, and AA works partly by reducing pro-drinking ties. "Holiday heart", named in 1978, is a heart rhythm disorder after a bout of heavy drinking. [[Litt2016,Kelly2011AANetwork,Ettinger1978]]</p></div>
+    <div class="card"><span class="tag rx">Work</span><h4>Testing and trace exposure</h4><p>Some workplaces test urine for ethyl glucuronide (EtG). Incidental exposure to 1 g or 3 g of ethanol produced EtG values many workplace laboratories would call positive, so a single result needs context. [[Thierauf2009TraceEtG]] See <a href="#biomarkers" data-go="biomarkers">blood and urine markers</a>.</p></div>
+    <div class="card"><span class="tag good">For families</span><h4>Al-Anon and Alateen</h4><p>Al-Anon is the most widely used help for people concerned about someone else's drinking; in a national survey, members were more satisfied with their quality of life than newcomers. Al-Anon also runs Alateen for younger family members; our research pass found no outcome studies of Alateen. [[Timko2013]]</p></div>
+    <div class="card"><span class="tag good">Children</span><h4>Support the whole family</h4><p>About 7.5 million US children (10.5%) lived with a parent with past-year AUD in 2009–2014. Their stress is real and support helps; adult and paediatric care work best joined up. For pregnancy, plan with your care team: see <a href="#pregnancy" data-go="pregnancy">pregnancy and FASD</a>. [[Lipari2017,Dube2001]]</p></div>
+    <div class="card"><span class="tag accent">Suicide risk</span><h4>Ask, and know where to turn</h4><p>AUD is associated with suicide attempts (OR 3.13) and death by suicide (OR 2.59) in population studies. If you are worried, ask directly and help the person contact a crisis line: in the US call or text 988; in the UK and Ireland Samaritans 116 123. [[Darvishi2015]]</p></div>
+  </div>
 </section>

@@ -55,7 +55,7 @@ inits.drinks=()=>{
   const SG=[];for(let i=0;i<14;i++)SG.push([8+R()*20,140+R()*20]);
   let setSt=()=>{};
   function draw(t){
-    const N=vb(svg,'720 372','400 600'),S=scen(),h=t*DR_H,b=S.f(h),gG=gut(h,S.F.ka),gv=given(h),elim=Math.max(0,gv-gG-b*S.vd);
+    const N=vb(svg,'720 372','400 510'),S=scen(),h=t*DR_H,b=S.f(h),gG=gut(h,S.F.ka),gv=given(h),elim=Math.max(0,gv-gG-b*S.vd);
     const db=(S.f(Math.min(DR_H,h+.05))-S.f(Math.max(0,h-.05)))/.1;
     let s=`<defs>${marker('drA','var(--muted)')}</defs>`;
     /* ---- body ---- */
@@ -72,11 +72,11 @@ inits.drinks=()=>{
     for(let i=0;i<Math.round(clamp(b/.004,0,40));i++){const q=P(BL[i][0],BL[i][1]);s+=mol(q[0],q[1],'eth',{r:N?2.2:2.6,op:.8})}
     /* labels */
     const lab=(k,txt,side)=>{const [x,y]=A[k],lx=side>0?bx+(N?52:80):bx-(N?52:80);s+=`<line x1="${f1(x)}" y1="${f1(y)}" x2="${f1(lx+(side>0?-3:3))}" y2="${f1(y)}" style="stroke:var(--muted);stroke-width:.8"/><text x="${f1(lx)}" y="${f1(y+3.5)}" class="t-xs${side>0?'':' t-end'}">${txt}</text>`};
-    lab('stomach','stomach, gut',1);lab('liver','liver',-1);lab('brain','brain',-1);
+    if(!N){lab('stomach','stomach, gut',1);lab('liver','liver',-1);lab('brain','brain',-1)}
     if(!N)s+=`<text x="${bx}" y="${by+bs*250+6}" class="t-xs t-mid">amber marks: ethanol (schematic)</text>`;
     /* ---- BAC curve ---- */
     const cx=N?44:262,cy=N?262:28,cw=N?344:438,ch=N?210:182,Y1=.26;
-    const C=curve(cx,cy,cw,ch,S.f,{x0:0,x1:DR_H,y0:0,y1:Y1,upto:h,fill:true,dot:true,bands:DR_BANDS});
+    const C=curve(cx,cy,cw,ch,S.f,{x0:0,x1:DR_H,y0:0,y1:Y1,upto:h,fill:true,dot:true,bands:N?DR_BANDS.map((b,i)=>Object.assign({},b,{label:['≈0.03','≈0.055','≈0.08 impaired','>0.23 coma risk'][i]})):DR_BANDS});
     s+=C.svg;
     for(let v=0;v<=12;v+=2)s+=`<text x="${f1(C.X(v))}" y="${cy+ch+13}" class="t-xs t-mid">${v}</text>`;
     s+=`<text x="${cx+cw}" y="${cy+ch+26}" class="t-xs t-end">hours since the first drink</text>`;
@@ -87,7 +87,7 @@ inits.drinks=()=>{
     if(h>S.ph+.6&&b>.02){const h0=S.ph+.5,v0=S.f(h0),h1=Math.min(h,h0+(v0-.02)/S.F.beta);
       s+=`<line x1="${f1(C.X(h0))}" y1="${f1(C.Y(v0))}" x2="${f1(C.X(h1))}" y2="${f1(C.Y(v0-S.F.beta*(h1-h0)))}" style="stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 4;opacity:.7"/>`;
       const mx=C.X((h0+h1)/2),my=C.Y(v0-S.F.beta*(h1-h0)/2);
-      s+=`<text x="${f1(mx+6)}" y="${f1(my+16)}" class="t-xs" style="fill:var(--ink)">−${S.F.beta.toFixed(4).replace(/0$/,'')} g/dL every hour</text>`}
+      s+=`<text x="${f1(mx+6)}" y="${f1(my+16)}" class="t-xs" style="fill:var(--ink)">−${S.F.beta.toFixed(4).replace(/0$/,'')}${N?'/h':' g/dL every hour'}</text>`}
     /* ---- liver cell inset ---- */
     const lx=N?132:262,ly=N?18:242,lw=N?260:438,lh=N?206:118;
     s+=`<rect x="${lx}" y="${ly}" width="${lw}" height="${lh}" rx="14" style="fill:var(--cell);stroke:var(--liver);stroke-width:1.4"/>`;

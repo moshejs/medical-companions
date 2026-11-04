@@ -68,8 +68,8 @@ inits.liver=()=>{
     s+=`<text x="${x0}" y="${by+70}" class="t-xs">decompensated cirrhosis, n=633 · Hofer 2026</text>`;
     return s}
   function draw(t){
-    const N=vb(svg,'720 380','400 680'),ph=phaseOf(LV_STEPS,t),st=stageOf(t);setSt(ph);
-    const L=N?{tx:16,ty:30,lx0:200,ly0:150,ls:1.42,trx:20,trw:360,try:268,px:10,py:296,pw:380,ph:374,gx:44,gy:330,gs:35,gr:25,ps:20,lx:24,ly:594,lw:190,fy:662,cx:56,cw:300,cy:338,ch:120,by:530,bw:200}
+    const N=vb(svg,'720 380','400 696'),ph=phaseOf(LV_STEPS,t),st=stageOf(t);setSt(ph);
+    const L=N?{tx:16,ty:30,lx0:200,ly0:150,ls:1.42,trx:20,trw:360,try:268,px:10,py:312,pw:380,ph:374,gx:44,gy:346,gs:35,gr:25,ps:20,lx:24,ly:610,lw:190,fy:676,cx:56,cw:300,cy:354,ch:120,by:546,bw:200}
              :{tx:24,ty:34,lx0:200,ly0:172,ls:1.75,trx:30,trw:330,try:318,px:384,py:14,pw:324,ph:352,gx:414,gy:42,gs:30,gr:24,ps:18,lx:402,ly:300,lw:156,fy:356,cx:430,cw:260,cy:46,ch:130,by:262,bw:200};
     let shown=st;const stop=abst&&ph<=1;if(stop)shown=Math.min(st,.08);
     let s=`<defs>${marker('lvA','var(--muted)')}</defs>`;

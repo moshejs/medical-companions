@@ -5,7 +5,7 @@
    8.6/6.6/13.9 -> 9/6/14 (29). */
 const WH_NUM={drank:72.7,m12:{mild:7.3,mod:3.2,sev:3.4,all:13.9},life:{mild:8.6,mod:6.6,sev:13.9,all:29.1},
   ic12:{mild:7,mod:3,sev:4},icLife:{mild:9,mod:6,sev:14},trLife:19.8,tr12:7.7,trWorld:17.3,trLow:9.3};
-const WH_COL={none:'var(--line)',drank:'var(--eth-fill)',drankLine:'var(--eth-fill)',aud:'var(--brand)',mild:'var(--thi-fill)',mod:'var(--brand)',sev:'var(--accent)',tr:'var(--rx)'};
+const WH_COL={none:'var(--line)',drank:'var(--eth-fill)',drankLine:'var(--eth-fill)',aud:'var(--brand)',mild:'var(--gaba-fill)',mod:'var(--brand)',sev:'var(--accent)',tr:'var(--rx)'};
 function whWrap(s,n){const w=s.split(' '),L=[];let c='';w.forEach(x=>{if((c+' '+x).trim().length>n&&c){L.push(c);c=x}else c=(c+' '+x).trim()});if(c)L.push(c);return L}
 
 inits.what=()=>{
@@ -100,7 +100,7 @@ inits.what=()=>{
     /* treatment-gap bars */
     if(S.gap>0){const g=S.gap;s+=`<text x="${P.x}" y="${by-8}" class="t-sm" style="fill:var(--rx);opacity:${f1(g)}">EVER SOUGHT TREATMENT OR HELP</text>`;
       [['US, lifetime AUD',WH_NUM.trLife],['US, 12-month AUD',WH_NUM.tr12],['Worldwide (32 studies)',WH_NUM.trWorld],['Low/lower-middle income',WH_NUM.trLow]].forEach(([l,v],i)=>{const y=by+i*22,W=bw;
-        s+=`<text x="${P.x}" y="${y+11}" class="t-xs" style="opacity:${f1(g)}">${N?l.replace('Low/lower-middle income','Lower-income'):l}</text>`;
+        s+=`<text x="${P.x}" y="${y+11}" class="t-xs" style="opacity:${f1(g)}">${N?l.replace('Low/lower-middle income','Lower-income').replace(' (32 studies)',''):l}</text>`;
         const x0=P.x+(N?118:132),ww=P.w-(N?118:132)-46;s+=`<rect x="${x0}" y="${y+1}" width="${f1(ww)}" height="12" rx="4" style="fill:var(--panel-2);opacity:${f1(g)}"/><rect x="${x0}" y="${y+1}" width="${f1(ww*v/100*g)}" height="12" rx="4" style="fill:var(--rx)"/><text x="${f1(x0+ww*v/100*g+5)}" y="${y+11}" class="t-xs" style="fill:var(--ink);opacity:${f1(g)}">${f1(v*g)}%</text>`});
       by+=4*22+8}
     if(!N&&S.p===4){s+=`<text x="${P.x}" y="${Math.min(by+10,404)}" class="t-xs">Ringed: ${S.trN} of the ${S.tot} figures, about 19.8% of lifetime AUD.</text>`}
@@ -145,7 +145,7 @@ inits.what=()=>{
         txt:`From 2001–2002 to 2012–2013, DSM-IV AUD rose from 8.5% to 12.7% of US adults (a relative rise of 49.4%), and high-risk drinking from 9.7% to 12.6%; the rises were greatest among women, older adults, racial and ethnic minorities and people with lower education and income [[Grant2017JAMAPsych]]. In NSDUH 2021–2024 (DSM-5), past-year AUD went from 13.3% to 12.6% in men and from 9.7% to 8.2% in women, and the authors describe moderate-to-severe AUD as stable or declining. [[Han2026NSDUH]]`,
         pt:`US drinking problems rose in the 2000s and have been level or slightly lower since 2021. Deaths are a different story: see the next section.`,
         hook:`DSM-IV AUD rose 49.4% in relative terms between NESARC waves (8.5% to 12.7%). [[Grant2017JAMAPsych]]`}}};
-  function drawWho(k){const N=vb(wsv,'720 300','400 420'),D=WHO[who];let s='';
+  function drawWho(k){const D=WHO[who],nr=D.rows.length,ns=D.ser.length,N=vb(wsv,'720 '+(62+nr*(ns>1?(nr>3?54:70):52)+20),'400 '+(58+nr*(ns>1?78:62)+24));let s='';
     const L=N?{x0:16,lw:0,bx:16,bw:300,top:58,rowH:D.ser.length>1?78:62,lab:true}:{x0:24,lw:220,bx:252,bw:400,top:62,rowH:D.ser.length>1?(D.rows.length>3?54:70):52};
     s+=`<text x="${L.x0}" y="22" class="t-sm" style="fill:var(--brand)">${D.title}</text>`;
     /* legend */

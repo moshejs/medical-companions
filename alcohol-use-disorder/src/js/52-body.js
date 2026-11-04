@@ -103,7 +103,7 @@ inits.body=()=>{
     pt:`Studies that use genes as a fair coin toss find that more alcohol means more stroke, with no protective dip.`,hook:`Mendelian randomisation (ALDH2/ADH1B): no protective U shape for stroke. [[Millwood2019]]`}];
   let jm=0,jFrom=0,jK=1,jStop=null;
   function drawJ(){
-    const N=vb(js,'720 320','400 420');
+    const N=vb(js,'720 320','400 460');
     const x0=N?52:80,x1=N?386:520,y0=N?40:34,h=N?260:230,X=u=>lerp(x0,x1,u),Y=v=>y0+h-h*(v-.75)/.95;
     const f=u=>lerp(sm(JC[jFrom],u),sm(JC[jm],u),jK);
     let s=`<rect x="${x0}" y="${y0}" width="${x1-x0}" height="${h}" style="fill:var(--field)"/>`;
@@ -124,14 +124,14 @@ inits.body=()=>{
       s+=`<text x="${f1(X(.95))}" y="${f1(Y(f(.95))-10)}" class="t-xs t-end" style="fill:var(--ink)">1.35 at ≥65 g/day</text>`}
     /* the reference group */
     const rx=N?52:560,ry=N?y0+h+34:60,rw=N?334:148;
-    if(!N||true){s+=`<text x="${rx}" y="${ry}" class="t-sm">${jm===2?'GROUPS SET BY GENES':'THE “NON-DRINKER” GROUP'}</text>`;
+    {s+=`<text x="${rx}" y="${ry}" class="t-sm">${jm===2?'GROUPS SET BY GENES':'THE “NON-DRINKER” GROUP'}</text>`;
       if(jm===2){s+=`<text x="${rx}" y="${ry+20}" class="t-xs">ALDH2 / ADH1B variants decide</text><text x="${rx}" y="${ry+33}" class="t-xs">who drinks less, like a</text><text x="${rx}" y="${ry+46}" class="t-xs">natural randomised trial</text>`;
         for(let i=0;i<12;i++)s+=person(rx+8+(i%6)*(N?22:22),ry+(N?58:62)+Math.floor(i/6)*26,18,i%3===0?'var(--gaba-fill)':'var(--muted)',{op:i%3===0?1:.45})}
       else{const fd=jm===0?1-jK*0:0;
         for(let i=0;i<12;i++){const former=i>=8,show=!former||jm===0;s+=person(rx+8+(i%6)*22,ry+14+Math.floor(i/6)*26,18,former?'var(--accent)':'var(--muted)',{op:show?(former?1:.6):.12})}
         s+=`<rect x="${rx}" y="${ry+70}" width="10" height="10" rx="2" style="fill:var(--muted);opacity:.6"/><text x="${rx+16}" y="${ry+79}" class="t-xs">lifetime non-drinkers</text>`;
-        s+=`<rect x="${rx}" y="${ry+88}" width="10" height="10" rx="2" style="fill:var(--accent);opacity:${jm===0?1:.25}"/><text x="${rx+16}" y="${ry+97}" class="t-xs">former drinkers (RR 1.22)</text>`;
-        s+=`<text x="${rx}" y="${ry+118}" class="t-xs" style="fill:${jm===0?'var(--accent)':'var(--good)'}">${jm===0?'mixed in: reference looks sicker':'removed: a fair reference'}</text>`}}
+        s+=`<rect x="${rx}" y="${ry+88}" width="10" height="10" rx="2" style="fill:var(--accent);opacity:${jm===0?1:.25}"/><text x="${rx+16}" y="${ry+97}" class="t-xs">former drinkers, RR 1.22</text>`;
+        const ln=jm===0?['mixed in: the reference','group looks sicker']:['removed: a fair','reference group'];ln.forEach((w,i)=>s+=`<text x="${rx}" y="${ry+118+i*12}" class="t-xs" style="fill:${jm===0?'var(--accent)':'var(--good)'}">${w}</text>`)}}
     js.innerHTML=s;
     jn.innerHTML=noteHTML(JN[jm]);
   }

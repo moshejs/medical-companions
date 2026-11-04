@@ -543,7 +543,7 @@ tr.gaba td,tr.gaba th{background:var(--gaba-soft)} tr.glu td,tr.glu th{backgroun
       <div id="ciOut" aria-live="polite"></div>
     </div>
   </div>
-  <p class="stage-cap">Item list and ranges from the Mirijello 2015 table (modified from Sullivan 1989). Only the tremor and orientation anchors are quoted here; the full scale gives a written anchor for each step of every item. Bands: ASAM 2020, which adds that classification "is ultimately up to the judgment of clinicians". <sup class="c" data-ref="Mirijello2015,Sullivan1989CIWA,ASAM2020Withdrawal" title="Source 20,332,447">20,332,447</sup></p>
+  <p class="stage-cap">Item list and ranges from the Mirijello 2015 table (modified from Sullivan 1989). Only the tremor and orientation anchors are quoted here; see the published scale for the other items' anchors. Bands: ASAM 2020, which adds that classification "is ultimately up to the judgment of clinicians". <sup class="c" data-ref="Mirijello2015,Sullivan1989CIWA,ASAM2020Withdrawal" title="Source 20,332,447">20,332,447</sup></p>
 
   <div class="tbl"><table>
     <thead><tr><th>Source</th><th>Mild</th><th>Moderate</th><th>Severe</th><th>Note</th></tr></thead>
@@ -559,7 +559,7 @@ tr.gaba td,tr.gaba th{background:var(--gaba-soft)} tr.glu td,tr.glu th{backgroun
   <div class="stepper" id="ciSteps"></div>
   <div class="lab">
     <div class="stage">
-      <div class="scroll"><svg id="ciSvg" viewBox="0 0 720 370" style="min-width:560px" role="img" aria-label="Two lanes share the same schematic CIWA-Ar curve over 72 hours. In the symptom-triggered lane, a tablet appears only when an hourly score reaches the protocol threshold, and treatment stops after about 9 hours. In the fixed-schedule lane, tablets appear at set times whatever the score, until about 68 hours. Counters build to the Saitz 1994 medians: 100 versus 425 mg of chlordiazepoxide, 9 versus 68 hours."></svg></div>
+      <div class="scroll"><svg id="ciSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Two lanes share the same schematic CIWA-Ar curve over 72 hours. In the symptom-triggered lane, a tablet appears only when an hourly score reaches the protocol threshold, and treatment stops after about 9 hours. In the fixed-schedule lane, tablets appear at set times whatever the score, until about 68 hours. Counters build to the Saitz 1994 medians: 100 versus 425 mg of chlordiazepoxide, 9 versus 68 hours."></svg></div>
       <div class="ctrls"><button class="btn primary" id="ciPlay">Play</button><label class="stage-cap tl" for="ciT">Hours <input type="range" id="ciT" min="0" max="1" step="0.001" value="0.02"></label></div>
       <div class="readout" id="ciRead"></div>
       <p class="stage-cap"><b>Schematic.</b> The score curve, tablet times and sizes are drawn, not trial data; tablets are abstract and carry no dose. The final counters are the published Saitz 1994 medians for the whole course (101 inpatients, people with past seizures excluded); in-between values are scaled to them. The scrubber runs 72 h so that the 68 h fixed-schedule median fits. <sup class="c" data-ref="Saitz1994" title="Source 409">409</sup></p>
@@ -623,7 +623,15 @@ tr.gaba td,tr.gaba th{background:var(--gaba-soft)} tr.glu td,tr.glu th{backgroun
 #m-medicines svg[data-mode="n"] .meSc .t-xs{font-size:11.5px}
 </style>
 
-<!-- ================= 4.2 OTHER MEDICINES: TOPIRAMATE, GABAPENTIN, BACLOFEN AND MORE (stub, replaced by its builder) ================= -->
+<!-- ================= 4.2 OTHER MEDICINES: TOPIRAMATE, GABAPENTIN, BACLOFEN AND MORE ================= -->
+<style>
+#m-offlabel .olTog{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-offlabel .olTog .kicker{margin-right:4px}
+#m-offlabel .card>.tag,#m-offlabel .card>.ev{align-self:flex-start}
+#m-offlabel .olList{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:15px;max-width:80ch}
+#m-offlabel svg[data-mode="n"] .t-xs{font-size:11px}
+#m-offlabel svg[data-mode="n"] .t-sm{font-size:12px}
+</style>
 
 <!-- ================= 4.3 TALKING THERAPIES AND MUTUAL HELP ================= -->
 <style>
@@ -676,7 +684,20 @@ tr.gaba td,tr.gaba th{background:var(--gaba-soft)} tr.glu td,tr.glu th{backgroun
 #m-body td.n{font-family:var(--mono);white-space:nowrap}
 </style>
 
-<!-- ================= 5.3 FAMILIES, FRIENDS AND EVERYDAY LIFE (stub, replaced by its builder) ================= -->
+<!-- ================= 5.3 FAMILIES, FRIENDS AND EVERYDAY LIFE ================= -->
+<style>
+#m-families svg .t-xs{font-size:10.5px}
+#m-families svg .t-sm{font-size:12px}
+#m-families svg[data-mode=n] .t-xs{font-size:11.5px}
+#m-families svg[data-mode=n] .t-sm{font-size:13px}
+#m-families .card>.ev,#m-families .card>.tag{align-self:flex-start}
+#m-families .langcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+#m-families .langcard .say{font-size:18px;line-height:1.5;margin:0}
+#m-families .langcard mark{background:var(--rx-soft);color:var(--ink);border-radius:4px;padding:0 3px}
+#m-families .langcard.old mark{background:var(--bad-soft)}
+#m-families .help{border:1px solid var(--accent);background:var(--accent-soft);border-radius:var(--r);padding:14px 16px;font-weight:700;max-width:80ch}
+#m-families .tbl table{min-width:520px}
+</style>
 
 <!-- ================= 5.4 PREGNANCY AND FETAL ALCOHOL SPECTRUM DISORDERS ================= -->
 <style>
@@ -732,13 +753,16 @@ tr.gaba td,tr.gaba th{background:var(--gaba-soft)} tr.glu td,tr.glu th{backgroun
 #m-history #hiYears{margin-top:-6px}
 </style>
 
-<!-- ================= review (stub) ================= -->
+<!-- ================= 6.2 FLASHCARDS & MEMORY AIDS ================= -->
 
-<!-- ================= quiz (stub) ================= -->
 
-<!-- ================= glossary (stub) ================= -->
+<!-- ================= 6.3 QUIZ ================= -->
 
-<!-- ================= sources (stub) ================= -->
+
+<!-- ================= 6.4 GLOSSARY ================= -->
+
+
+<!-- ================= 6.5 SOURCES ================= -->
 
 <footer class="sitefoot">
   <p><b>AUD Companion</b> is an educational synthesis of the published literature on alcohol use disorder and alcohol withdrawal, made for health-science, medical and nursing courses and for people with alcohol use disorder, their families and friends.</p>
@@ -748,6 +772,6 @@ tr.gaba td,tr.gaba th{background:var(--gaba-soft)} tr.glu td,tr.glu th{backgroun
 </footer>
 </main>
 </div>
-<script src="../app.js?v=30219acf26"></script>
+<script src="../app.js?v=85350958e6"></script>
 </body>
 </html>

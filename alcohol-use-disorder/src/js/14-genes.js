@@ -45,7 +45,7 @@ inits.genes=()=>{
   for(let i=1;i<110;i++)HIT.push([Math.floor(R()*22),.05+R()*.9,7.6+R()*4.5*(R()<.3?1.6:1)]);
   function hits(t){if(t<GE_STUDY[0].a)return 0;if(t<GE_STUDY[1].a)return 18;if(t<GE_STUDY[2].a)return 29;return Math.round(lerp(29,110,ramp(t,GE_STUDY[2].a,.84)))}
   function draw(t){
-    const N=vb(svg,'720 390','400 620');let s=`<defs>${marker('pedArrow','var(--ink)')}</defs>`;
+    const N=vb(svg,'720 390','400 580');let s=`<defs>${marker('pedArrow','var(--ink)')}</defs>`;
     if(t<.42){
       /* ---- pedigree ---- */
       const dx=N?-20:0,P=(x,y)=>[x+dx,N?y*.86+6:y];const a2=ramp(t,.12,.18);
@@ -62,12 +62,12 @@ inits.genes=()=>{
       s+=`<text x="${bx}" y="${y-12}" class="t-sm" style="fill:var(--brand)">US ADULTS WITH AUD (NESARC-III)</text>`;
       s+=hb(y+4,'lifetime',.291,'var(--brand)','29.1%')+hb(y+36,'past 12 months',.139,'var(--brand)','13.9%');
       y+=N?90:104;
-      if(t>=.12){const g=ramp(t,.12,.2),X=v=>bx+bw*v/2.5;s+=`<text x="${bx}" y="${y-8}" class="t-sm" style="fill:var(--ember)">ADOPTEES: ODDS RATIO FOR AUD IF A RELATIVE HAS AUD</text>`;
+      if(t>=.12){const g=ramp(t,.12,.2),X=v=>bx+bw*v/2.5;s+=`<text x="${bx}" y="${y-8}" class="t-sm" style="fill:var(--ember)">ADOPTEES: ODDS RATIO FOR AUD</text>`;
         [['biological parent',1.46],['biological sibling',1.94],['adoptive parent',1.40]].forEach(([l,v],i)=>{const yy=y+6+i*(N?22:26);s+=`<text x="${bx}" y="${yy+10}" class="t-xs">${l}</text><rect x="${f1(X(0)+(N?110:120))}" y="${yy}" width="${f1((X(v)-X(0))*(N?.65:.6)*g)}" height="12" rx="3" style="fill:${i===2?'var(--thi-fill)':'var(--ember)'}"/><text x="${f1(X(0)+(N?110:120)+(X(v)-X(0))*(N?.65:.6)*g+5)}" y="${yy+10}" class="t-sm" style="fill:var(--ink)">${g>.95?v.toFixed(2):''}</text>`});
         const x1=X(0)+(N?110:120)+(X(1)-X(0))*(N?.65:.6);s+=`<line x1="${f1(x1)}" x2="${f1(x1)}" y1="${y}" y2="${y+(N?70:82)}" style="stroke:var(--ink);stroke-dasharray:3 3"/><text x="${f1(x1)}" y="${y+(N?80:94)}" class="t-xs t-mid">OR 1 = no difference</text>`}
       y+=N?100:126;
       if(t>=.26){const g=ramp(t,.26,.33),parts=[[.49,'var(--brand)','genes 49%'],[.10,'var(--thi-fill)','shared env. 10%'],[.41,'var(--panel-2)','unique env. (rest)']];let x=bx;
-        s+=`<text x="${bx}" y="${y-8}" class="t-sm" style="fill:var(--brand)">WHERE VARIATION IN RISK COMES FROM (TWINS + ADOPTEES)</text>`;
+        s+=`<text x="${bx}" y="${y-8}" class="t-sm" style="fill:var(--brand)">SOURCES OF VARIATION IN RISK</text>`;
         parts.forEach(([v,c,l],i)=>{const w=bw*v*g;s+=`<rect x="${f1(x)}" y="${y}" width="${f1(Math.max(0,w-2))}" height="22" rx="4" style="fill:${c};stroke:var(--line)"/>`;if(g>.9)s+=`<text x="${f1(x+3)}" y="${y+36+(i===1?12:0)}" class="t-xs" style="fill:var(--ink)">${l}</text>`;x+=w})}
     }else if(t<.62){
       /* ---- acetaldehyde pools ---- */
@@ -76,7 +76,7 @@ inits.genes=()=>{
       rows.forEach((r,i)=>{const y=N?40+i*190:40+i*150,x=N?14:40,w=N?280:430;
         s+=`<text x="${x}" y="${y}" class="t-sm" style="fill:${i?'var(--glu)':'var(--gaba)'}">${r.n}</text>`;
         s+=pathway(x,y+8,w,{eth,acet:r.ac,ace:r.ace,block:r.bl}).svg;
-        const fx=N?352:540,fy=y+34;s+=geFace(fx,fy,N?24:30,i?clamp(r.ac*1.1):0)+`<text x="${fx}" y="${fy+(N?40:48)}" class="t-xs t-mid">${i?(r.ac>.5?'flushing, nausea, fast heart':'…'):'no flush'}</text>`});
+        const fx=N?352:540,fy=y+34;s+=geFace(fx,fy,N?24:30,i?clamp(r.ac*1.1):0)+`<text x="${fx}" y="${fy+(N?40:48)}" class="t-xs t-mid">${i?(r.ac>.5?(N?'flushing':'flushing, nausea, fast heart'):'…'):'no flush'}</text>`});
       if(!N)s+=`<text x="${640}" y="${200}" class="t-sm t-mid" style="fill:var(--glu)">blood</text><text x="640" y="216" class="t-sm t-mid" style="fill:var(--glu)">acetaldehyde</text><text x="640" y="238" class="t-big t-mid" style="fill:var(--glu)">5–20×</text>`;
       const L=['About 36% of East Asians flush after drinking; ≥540 million people (≈8%) are ALDH2-deficient.','Oesophageal cancer vs *1/*1: OR 3.19 for *1/*2 (who can drink), 0.36 for *2/*2 (who rarely drink).'];
       const ly=N?440:338;
@@ -89,10 +89,10 @@ inits.genes=()=>{
       BG.forEach(([c,p,v])=>s+=`<circle cx="${f1(X(c,p))}" cy="${f1(Y(v))}" r="1.6" style="fill:${c%2?'var(--gaba-fill)':'var(--brain-line)'};opacity:.6"/>`);
       HIT.slice(0,n).forEach(([c,p,v],i)=>{for(let k=0;k<5;k++){const vv=v*(1-k*.18);s+=`<circle cx="${f1(X(c,p)+(k%2?1.5:-1.5)*k*.4)}" cy="${f1(Y(vv))}" r="${i?2.2:2.6}" style="fill:${i?'var(--ember)':'var(--glu)'}"/>`}});
       if(n){const [c,p,v]=HIT[0];s+=`<text x="${f1(X(c,p)+6)}" y="${f1(Y(v)+4)}" class="t-lbl" style="fill:var(--glu)">ADH1B</text>`}
-      const th=Y(7.3);s+=`<line x1="${x0}" x2="${x1}" y1="${f1(th)}" y2="${f1(th)}" style="stroke:var(--bad);stroke-dasharray:5 4"/><text x="${x1}" y="${f1(th-4)}" class="t-xs t-end" style="fill:var(--bad)">genome-wide significance</text>`;
+      const th=Y(7.3);s+=`<line x1="${x0}" x2="${x1}" y1="${f1(th)}" y2="${f1(th)}" style="stroke:var(--bad);stroke-dasharray:5 4"/><rect x="${x0+2}" y="${f1(th-14)}" width="112" height="12" rx="3" style="fill:var(--panel);opacity:.85"/><text x="${x0+4}" y="${f1(th-4)}" class="t-xs" style="fill:var(--bad)">genome-wide significance</text>`;
       for(let c=0;c<22;c+=N?3:1)s+=`<text x="${f1(X(c,.5))}" y="${y1+12}" class="t-xs t-mid">${c+1}</text>`;
       s+=`<text x="${x1}" y="${y1+25}" class="t-xs t-end">chromosome</text><text x="${x0-6}" y="${y0-8}" class="t-xs">−log10 p (sketch)</text>`;
-      s+=`<text x="${x0+8}" y="${y0+16}" class="t-big" style="fill:var(--ember)">${n} ${n===18?'loci':'variants'}</text>`;
+      s+=`<text x="${x1}" y="${y0-8}" class="t-big t-end" style="fill:var(--ember)">${n} ${n===18?'loci':'variants'}</text>`;
       const by=N?350:272;
       if(t<.85){GE_STUDY.forEach((S,i)=>{const on=t>=S.a&&(i===2||t<GE_STUDY[i+1].a),w=N?112:200,bx=(N?14:56)+i*(w+(N?10:24));
           s+=`<rect x="${bx}" y="${by}" width="${w}" height="${N?78:70}" rx="10" style="fill:${on?'var(--brand-soft)':'var(--panel-2)'};stroke:${on?'var(--brand)':'var(--line)'}"/><text x="${bx+10}" y="${by+22}" class="t-lbl">${S.y}</text><text x="${bx+10}" y="${by+40}" class="t-xs">n = ${S.n}</text><text x="${bx+10}" y="${by+58}" class="t-sm" style="fill:var(--ember)">${S.h} ${i?'variants':'loci'}</text>`})}
@@ -123,7 +123,7 @@ inits.genes=()=>{
     const act=Object.keys(on).filter(k=>on[k]);
     $('#geLiabNote').innerHTML=noteHTML({k:act.length?act.length+' influence'+(act.length>1?'s':'')+' on':'Nothing switched on',
       t:m>.05?'The curve moves towards the threshold':m<-.05?'The curve moves away from the threshold':'The starting curve',
-      txt:(act.length?act.map(k=>`<b>${GE_F[k].n}:</b> ${GE_F[k].txt}`).join(' '):'Switch on an influence to see it shift the curve. Most people at higher liability still never cross the threshold, and many who do cross it recover.')+' The size of each shift here is drawn, not measured.',
+      txt:(act.length?act.map(k=>`<b>${GE_F[k].n}:</b> ${GE_F[k].txt}`).join(' '):'Switch on an influence to see it shift the curve.')+' The size of each shift here is drawn, not measured.',
       pt:`Genes and life add together. None of these makes alcohol use disorder certain, and none makes anyone immune.`,
       hook:`Liability-threshold model: many small genetic and environmental influences sum; the disorder appears past a threshold. Genetic and environmental risk act additively. [[Kendler2015Adoption]]`});
   }

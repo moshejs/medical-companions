@@ -213,7 +213,7 @@ inits.screening=()=>{
   function drawIcon(animateIt){const T=SC_TOOLS.find(x=>x.id===tool),prev=+pv.value,c=counts(T,prev);
     if(stopI){stopI();stopI=null}
     const from=shown||c;
-    if(animateIt&&shown){stopI=animate(500,p=>{const e=ease(p),m={};['pos','tp','fp'].forEach(k=>m[k]=Math.round(lerp(from[k],c[k],e)));m.fn=m.pos-m.tp;m.tn=100-m.pos-m.fp;drawI(m,T)},()=>{stopI=null;drawI(c,T)})}
+    if(animateIt&&shown){stopI=crAnim(500,p=>{const e=ease(p),m={};['pos','tp','fp'].forEach(k=>m[k]=Math.round(lerp(from[k],c[k],e)));m.fn=m.pos-m.tp;m.tn=100-m.pos-m.fp;drawI(m,T)},()=>{stopI=null;drawI(c,T)})}
     drawI(c,T);shown=c;
     const P=c.tp+c.fp,ppv=P?Math.round(c.tp/P*100):0;
     inote.innerHTML=`<div class="kicker">${T.n} · prevalence ${Math.round(prev*100)}%</div><h4>${c.tp} found, ${c.fn} missed, ${c.fp} false alarms</h4>

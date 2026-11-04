@@ -68,7 +68,7 @@ inits.history=()=>{
     hook:`DSM-5: merged abuse + dependence, legal problems out, craving in, threshold ≥2 of 11. [[Hasin2013]]`}];
   const EMB=STEPS.map(s=>s.em);
   function nameAt(y){let i=0;HI_NAME.forEach((n,k)=>{if(y>=n.y)i=k});return i}
-  function draw(t){const N=vb(svg,'720 380','400 720'),yr=hiYr(t),p=phaseOf(STEPS,t),S=STEPS[p];let s='';
+  function draw(t){const N=vb(svg,'720 380','400 770'),yr=hiYr(t),p=phaseOf(STEPS,t),S=STEPS[p];let s='';
     /* ---- banner: what we called it ---- */
     const ni=nameAt(yr),nm=HI_NAME[ni],since=yr-nm.y,fade=clamp(since/4),prev=ni>0?HI_NAME[ni-1]:null;
     const bw=N?368:672,bx=N?16:24;
@@ -87,8 +87,8 @@ inits.history=()=>{
     s+=hiWrap(S.t,N?28:60).map((l,i)=>`<text x="${D.tx}" y="${D.ty+i*20}" class="t-big" style="font-size:${N?16:19}px">${l}</text>`).join('');
     const tl=hiWrap(S.t,N?28:60).length;s+=`<text x="${D.tx}" y="${D.ty+tl*20-2}" class="t-sm">${S.k}</text>`;
     const evs=HI_EV.filter(e=>e.y>=S.y0&&e.y<S.y1);let ly=D.ty+tl*20+18;
-    evs.slice(0,N?5:5).forEach(e=>{const on=yr>=e.y-.2,c=HI_TR[e.tr][1];
-      s+=`<circle cx="${D.tx+4}" cy="${ly-4}" r="4" style="fill:${on?c:'none'};stroke:${c};stroke-width:1.5"/><text x="${D.tx+14}" y="${ly}" class="t-xs" style="fill:${on?'var(--ink)':'var(--muted)'};opacity:${on?1:.55};font-weight:${on?600:400}">${Math.floor(e.y)} · ${e.l}</text>`;ly+=N?15:14});
+    const ly0=ly;evs.forEach((e,i)=>{const on=yr>=e.y-.2,c=HI_TR[e.tr][1],ex=D.tx+(!N&&i>=4?280:0),ey=N?ly0+i*15:ly0+(i%4)*14;
+      s+=`<circle cx="${ex+4}" cy="${ey-4}" r="4" style="fill:${on?c:'none'};stroke:${c};stroke-width:1.5"/><text x="${ex+14}" y="${ey}" class="t-xs" style="fill:${on?'var(--ink)':'var(--muted)'};opacity:${on?1:.55};font-weight:${on?600:400}">${Math.floor(e.y)} · ${e.l}</text>`});
     /* ---- timeline ---- */
     if(!N){const x0=130,x1=696,X=y=>lerp(x0,x1,hiU(y)),ty=[236,262,288],ay=312,xm=X(yr);
       HI_TR.forEach(([n,c],i)=>{s+=`<text x="24" y="${ty[i]+3.5}" class="t-xs" style="fill:${c};font-weight:600">${n}</text><line x1="${x0}" x2="${x1}" y1="${ty[i]}" y2="${ty[i]}" style="stroke:var(--line);stroke-width:1"/>`});
@@ -102,7 +102,7 @@ inits.history=()=>{
         s+=`<circle cx="${f1(x)}" cy="${y}" r="${cur?5.5:4}" style="fill:${on?c:'var(--panel)'};stroke:${c};stroke-width:1.6"/>`});
       s+=`<line x1="${f1(xm)}" x2="${f1(xm)}" y1="220" y2="${ay}" style="stroke:var(--ink);stroke-width:1.6"/><path d="M${f1(xm)} ${ay-1}l-6 -9h12Z" style="fill:var(--ink)"/>`;
       s+=`<text x="${f1(clamp(xm,150,676))}" y="216" class="t-xs t-mid" style="fill:var(--ink);font-weight:600">${Math.round(yr)}</text>`}
-    else{const y0=300,y1=700,Y=y=>lerp(y0,y1,hiU(y)),ax=70,tx=[86,100,114],ym=Y(yr);
+    else{const y0=346,y1=746,Y=y=>lerp(y0,y1,hiU(y)),ax=70,tx=[86,100,114],ym=Y(yr);
       HI_TR.forEach(([n,c],i)=>{s+=`<circle cx="${16+i*124}" cy="${y0-28}" r="4" style="fill:${c}"/><text x="${24+i*124}" y="${y0-24.5}" class="t-xs" style="fill:${c};font-weight:600">${n}</text>`;
         s+=`<line x1="${tx[i]}" x2="${tx[i]}" y1="${y0}" y2="${y1}" style="stroke:var(--line)"/>`});
       s+=`<line x1="${ax}" x2="${ax}" y1="${y0}" y2="${y1}" style="stroke:var(--muted)"/>`;

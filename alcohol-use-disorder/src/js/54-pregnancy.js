@@ -48,7 +48,7 @@ inits.pregnancy=()=>{
   function draw(t){
     const N=vb(svg,'720 380','400 640'),ph=phaseOf(PG_STEPS,t),w=wk(t),born=ramp(t,.8,.86);setSt(ph);
     const L=N?{tx0:24,tx1:376,ty:52,wx:200,wy:232,wr:104,fx:200,fy:236,fs:1.25,px:12,py:372,pw:376,ph:256}
-             :{tx0:30,tx1:690,ty:52,wx:190,wy:228,wr:118,fx:190,fy:230,fs:1.35,px:372,py:96,pw:336,ph:270};
+             :{tx0:30,tx1:690,ty:52,wx:175,wy:228,wr:118,fx:175,fy:230,fs:1.35,px:392,py:96,pw:316,ph:270};
     let s='';
     /* timeline */
     const X=v=>lerp(L.tx0,L.tx1,v/40),TR=[[0,13,'1st trimester'],[13,27,'2nd trimester'],[27,40,'3rd trimester']];
@@ -67,12 +67,12 @@ inits.pregnancy=()=>{
       s+=`<text x="${L.wx+L.wr*.7}" y="${L.wy-L.wr*.7}" class="t-xs">placenta</text>`;
       s+=fetus(L.fx,L.fy,ramp(w,4,40),.5+.5*Math.sin(t*40)**2);
       s+=`<text x="${L.wx}" y="${L.wy+L.wr+18}" class="t-xs t-mid" style="fill:var(--dx)">brain developing throughout (highlighted)</text></g>`}
-    if(born>0){const m=ramp(t,.84,.94),sc=N?1.15:1.3;s+=`<g style="opacity:${f1(born)}">`+face(L.wx,L.wy+6,sc,m,N);
+    if(born>0){const m=ramp(t,.84,.94),sc=N?1.15:1.1;s+=`<g style="opacity:${f1(born)}">`+face(L.wx,L.wy+6,sc,m,N);
       const lab=(x1,y1,x2,y2,a,b,anc)=>`<line x1="${f1(x1)}" y1="${f1(y1)}" x2="${f1(x2)}" y2="${f1(y2)}" style="stroke:var(--muted);stroke-width:.9"/><text x="${f1(x2+(anc==='e'?-3:3))}" y="${f1(y2-2)}" class="t-xs${anc==='e'?' t-end':''}" style="fill:var(--ink)">${a}</text><text x="${f1(x2+(anc==='e'?-3:3))}" y="${f1(y2+10)}" class="t-xs${anc==='e'?' t-end':''}">${b}</text>`;
       if(m>.3){const cx=L.wx,cy=L.wy+6;
-        s+=lab(cx+24*sc,cy-8*sc,cx+(N?90:120),cy-70,'short palpebral','fissures (≤10th centile)','s');
-        s+=lab(cx,cy+34*sc,cx-(N?84:110),cy+70,'smooth','philtrum (rank 4–5)','e');
-        s+=lab(cx+12*sc,cy+42*sc,cx+(N?86:112),cy+82,'thin upper-lip','vermilion','s')}
+        s+=lab(cx+24*sc,cy-8*sc,cx+(N?88:96),cy-74,'short palpebral','fissures (≤10th)','s');
+        s+=lab(cx,cy+34*sc,L.wx-(N?186:161),cy+98,'smooth','philtrum (rank 4–5)','s');
+        s+=lab(cx+12*sc,cy+42*sc,cx+(N?88:96),cy+88,'thin upper-lip','vermilion','s')}
       s+=`<text x="${L.wx}" y="${L.wy+L.wr+18}" class="t-xs t-mid">${m>.5?'≥2 of 3 features for the FAS facial criterion':'schematic face'}</text></g>`}
     /* facts panel */
     s+=`<rect x="${L.px}" y="${L.py}" width="${L.pw}" height="${L.ph}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;

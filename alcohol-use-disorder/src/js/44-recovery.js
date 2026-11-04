@@ -83,14 +83,14 @@ inits.recovery=()=>{
       if(st===-1)s+=`<circle cx="${f1(gx)}" cy="${f1(gy+L.ps*.55)}" r="${f1(L.ps*.62)}" style="fill:none;stroke:var(--accent);stroke-width:1.4;stroke-dasharray:2 2"/>`});
     /* live counts */
     s+=`<text x="${L.bx}" y="${L.by}" class="t-sm" style="fill:var(--ink);font-weight:600">Of 100 people, now (illustrative timing)</text>`;
-    RC_CAT.forEach((c,i)=>{const yy=L.by+12+i*28,bw=L.bw-172,w=bw*cnt[i]/100;
+    RC_CAT.forEach((c,i)=>{const lo=N?192:172,yy=L.by+12+i*28,bw=L.bw-lo,w=bw*cnt[i]/100;
       s+=`<text x="${L.bx}" y="${yy+13}" class="t-xs" style="fill:var(--ink)">${c.n}</text>`;
-      s+=`<rect x="${L.bx+172}" y="${yy+3}" width="${f1(bw)}" height="14" rx="4" style="fill:var(--panel-2)"/><rect x="${L.bx+172}" y="${yy+3}" width="${f1(Math.max(0,w))}" height="14" rx="4" style="fill:${c.c}"/>`;
-      s+=`<text x="${f1(L.bx+176+Math.max(w,0))}" y="${yy+14}" class="t-xs" style="fill:var(--ink);font-weight:700">${cnt[i]}${i===0&&back?` (${back} returned)`:''}</text>`});
+      s+=`<rect x="${L.bx+lo}" y="${yy+3}" width="${f1(bw)}" height="14" rx="4" style="fill:var(--panel-2)"/><rect x="${L.bx+lo}" y="${yy+3}" width="${f1(Math.max(0,w))}" height="14" rx="4" style="fill:${c.c}"/>`;
+      s+=`<text x="${f1(L.bx+lo+4+Math.max(w,0))}" y="${yy+14}" class="t-xs" style="fill:var(--ink);font-weight:700">${cnt[i]}${i===0&&back?` (${back} returned)`:''}</text>`});
     if(ph>=3)s+=`<text x="${L.bx}" y="${L.by+166}" class="t-xs" style="fill:var(--muted)">NESARC snapshot: 25.0 · 27.3 · 11.8 · 17.7 · 18.2%</text>`;
     /* recovery capital curve */
     const C=curve(L.qx,L.qy+18,L.qw,90,rcQoL,{x0:0,x1:20,upto:Math.max(.05,y),col:'var(--good)',fill:true,dot:true});s+=C.svg;
-    s+=`<text x="${L.qx}" y="${L.qy}" class="t-sm" style="fill:var(--ink);font-weight:600">Quality of life</text><text x="${L.qx}" y="${L.qy+13}" class="t-xs">and recovery capital: shape only</text>`;
+    s+=`<text x="${L.qx}" y="${L.qy}" class="t-sm" style="fill:var(--ink);font-weight:600">Quality of life</text><text x="${L.qx}" y="${L.qy+13}" class="t-xs">${N?'shape only':'and recovery capital: shape only'}</text>`;
     s+=`<text x="${L.qx}" y="${L.qy+122}" class="t-xs">0</text><text x="${f1(C.X(6))}" y="${L.qy+122}" class="t-xs t-mid">6</text><text x="${L.qx+L.qw}" y="${L.qy+122}" class="t-xs t-end">20</text><text x="${f1(L.qx+L.qw/2)}" y="${L.qy+136}" class="t-xs t-mid">years since resolving</text>`;
     if(y>.4&&y<4)s+=`<text x="${f1(C.X(1)+6)}" y="${f1(C.Y(rcQoL(1))+16)}" class="t-xs" style="fill:var(--accent)">first-year dip</text>`;
     /* attempts strip */
@@ -113,7 +113,7 @@ inits.recovery=()=>{
   const bez=(a,b,c,d,u)=>{const v=1-u;return [v*v*v*a[0]+3*v*v*u*b[0]+3*v*u*u*c[0]+u*u*u*d[0],v*v*v*a[1]+3*v*v*u*b[1]+3*v*u*u*c[1]+u*u*u*d[1]]};
   function drawRD(t){
     const N=vb(rs,'720 300','400 620'),ph=phaseOf(RD_STEPS,t);
-    const R=N?(u=>[200+70*Math.sin(u*Math.PI*2.4),lerp(40,590,u)]):(u=>[lerp(30,690,u),150+55*Math.sin(u*Math.PI*2.4)]);
+    const R=N?(u=>[200+70*Math.sin(u*Math.PI*2.4),lerp(40,590,u)]):(u=>[lerp(40,680,u),116+48*Math.sin(u*Math.PI*2.4)]);
     const off=(u,d)=>{const a=R(u),b=R(Math.min(1,u+.002)),dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy)||1;return [a[0]-dy/l*d,a[1]+dx/l*d]};
     let s=`<defs>${marker('rdA','var(--muted)')}</defs>`;
     let d='';for(let i=0;i<=160;i++){const p=R(i/160);d+=(i?'L':'M')+f1(p[0])+' '+f1(p[1])}
@@ -122,16 +122,17 @@ inits.recovery=()=>{
     const hb=R(.3),uL=.42,lp=off(uL,N?-48:46),rj=R(.5),aj=R(.8);
     s+=`<g style="opacity:${ph>=1?1:.35}"><path d="M${f1(hb[0])} ${f1(hb[1]-(N?0:30))}l-10 -18h20Z" transform="${N?`translate(46 0)`:''}" style="fill:var(--warn-soft);stroke:var(--warn);stroke-width:1.4"/><text x="${f1(hb[0]+(N?46:0))}" y="${f1(hb[1]-(N?24:54))}" class="t-xs t-mid" style="fill:var(--warn);font-weight:700">high-risk bend</text></g>`;
     /* detour (AVE) and reframe paths from the lapse spot */
-    const A1=N?[[lp[0]-90,lp[1]+40],[lp[0]-120,aj[1]-40]]:[[lp[0]+40,lp[1]+150],[aj[0]-80,aj[1]+150]];
-    const B1=N?[[lp[0]+10,lp[1]+30],[rj[0]-50,rj[1]-20]]:[[lp[0]+30,lp[1]+30],[rj[0]-20,rj[1]+40]];
+    const A1=N?[[lp[0]+130,lp[1]+70],[aj[0]+170,aj[1]-50]]:[[lp[0]+30,lp[1]+100],[aj[0]-60,aj[1]+130]];
+    const B1=N?[[lp[0]-10,lp[1]+30],[rj[0]+40,rj[1]-24]]:[[lp[0]+30,lp[1]+30],[rj[0]-20,rj[1]+40]];
     const pathOf=(c)=>{let q='';for(let i=0;i<=60;i++){const p=bez(lp,c[0],c[1],c===A1?aj:rj,i/60);q+=(i?'L':'M')+f1(p[0])+' '+f1(p[1])}return q};
     const showB=ph>=3;
     s+=`<path d="${pathOf(A1)}" style="fill:none;stroke:var(--bad);stroke-width:2;stroke-dasharray:5 4;opacity:${showB?.85:0}"/>`;
     s+=`<path d="${pathOf(B1)}" style="fill:none;stroke:var(--good);stroke-width:2.6;opacity:${showB?1:0}"/>`;
     if(showB){const ma=bez(lp,A1[0],A1[1],aj,.5),mb=bez(lp,B1[0],B1[1],rj,.55);
-      s+=`<text x="${f1(ma[0]+(N?-6:0))}" y="${f1(ma[1]+(N?0:16))}" class="t-sm ${N?'t-end':'t-mid'}" style="fill:var(--bad);font-weight:600">abstinence violation effect</text><text x="${f1(ma[0]+(N?-6:0))}" y="${f1(ma[1]+(N?14:30))}" class="t-xs ${N?'t-end':'t-mid'}">"I have blown it" → longer detour</text>`;
-      s+=`<text x="${f1(mb[0]+(N?14:12))}" y="${f1(mb[1]+(N?4:4))}" class="t-sm" style="fill:var(--good);font-weight:600">reframe</text>`}
-    if(ph>=2){s+=`<circle cx="${f1(lp[0])}" cy="${f1(lp[1])}" r="9" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.6"/><text x="${f1(lp[0]+(N?-14:0))}" y="${f1(lp[1]+(N?4:-14))}" class="t-sm ${N?'t-end':'t-mid'}" style="fill:var(--accent);font-weight:700">lapse</text>`}
+      if(N)s+=`<text x="392" y="${f1(aj[1]+30)}" class="t-sm t-end" style="fill:var(--bad);font-weight:600">abstinence violation</text><text x="392" y="${f1(aj[1]+46)}" class="t-xs t-end">effect: longer detour</text>`;
+      else s+=`<text x="${f1(ma[0])}" y="${f1(ma[1]+16)}" class="t-sm t-mid" style="fill:var(--bad);font-weight:600">abstinence violation effect</text><text x="${f1(ma[0])}" y="${f1(ma[1]+30)}" class="t-xs t-mid">"I have blown it" → longer detour</text>`;
+      s+=`<text x="${f1(mb[0]+(N?-14:12))}" y="${f1(mb[1]+4)}" class="t-sm${N?' t-end':''}" style="fill:var(--good);font-weight:600">reframe</text>`}
+    if(ph>=2){s+=`<circle cx="${f1(lp[0])}" cy="${f1(lp[1])}" r="9" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.6"/><text x="${f1(lp[0]+(N?14:-14))}" y="${f1(lp[1]+4)}" class="t-sm ${N?'':'t-end'}" style="fill:var(--accent);font-weight:700">lapse</text>`}
     /* traveller */
     let tp,ghost=null;
     if(t<.4)tp=R(lerp(0,uL,t/.4));
@@ -141,7 +142,7 @@ inits.recovery=()=>{
     else{tp=R(lerp(.5,1,ramp(t,.7,1)));if(t<.95)ghost=bez(lp,A1[0],A1[1],aj,ramp(t,.5,.95))}
     if(ghost)s+=`<g style="opacity:.45">${person(ghost[0],ghost[1]-26,24,'var(--bad)')}</g>`;
     s+=person(tp[0],tp[1]-30,28,'var(--rx)');
-    const st=R(0),en=R(1);s+=`<text x="${f1(st[0]+(N?40:0))}" y="${f1(st[1]+(N?0:34))}" class="t-xs ${N?'':'t-mid'}">start of change</text><text x="${f1(en[0]+(N?-40:0))}" y="${f1(en[1]+(N?0:34))}" class="t-xs ${N?'t-end':'t-mid'}">further on</text>`;
+    const st=R(0),en=R(1);s+=`<text x="${N?f1(st[0]+40):14}" y="${f1(st[1]+(N?0:34))}" class="t-xs">start of change</text><text x="${N?f1(en[0]-40):706}" y="${f1(en[1]+(N?0:34))}" class="t-xs t-end">further on</text>`;
     rs.innerHTML=s;setRd(ph);$('#rdNote').innerHTML=noteHTML(RD_STEPS[ph]);
   }
   const stopR=playWire(rr,$('#rdPlay'),drawRD,16000,'%t:player.replay%','recovery');
@@ -152,8 +153,8 @@ inits.recovery=()=>{
   const ls=$('#rcLv');let lv=2;
   $('#rcLvBtns').innerHTML=`<span class="kicker">Level</span>`+RC_LV.map((l,i)=>`<button class="btn" data-lv="${i}" aria-pressed="${i===lv}">${l.s}</button>`).join('');
   function drawLv(){
-    const N=vb(ls,'720 230','400 300'),W=N?380:690,H=N?250:190;
-    const Lr=ladder(N?10:15,N?20:16,W,H,RC_LV.map(l=>N?'':l.s),{at:lv,col:'var(--rx)',done:true});let s=Lr.svg;
+    const N=vb(ls,'720 230','400 300'),W=N?380:690,H=N?222:162;
+    const Lr=ladder(N?10:15,N?48:46,W,H,RC_LV.map(l=>N?'':l.s),{at:lv,col:'var(--rx)',done:true});let s=Lr.svg;
     if(N)RC_LV.forEach((l,i)=>{const [x,y]=Lr.top(i);s+=`<text x="${f1(x-1.5)}" y="${f1(y+16)}" class="t-xs t-mid" style="fill:${i===lv?'var(--on-brand)':'var(--ink)'}">${i+1}</text>`});
     const [tx,ty]=Lr.top(lv);s+=person(tx-1.5,ty-(N?34:40),N?30:34,'var(--ink)');
     s+=`<text x="${N?10:15}" y="${N?290:222}" class="t-xs">less intensive</text><text x="${N?390:705}" y="${N?290:222}" class="t-xs t-end">more intensive, more medical care →</text>`;
