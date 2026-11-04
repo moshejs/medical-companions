@@ -1,5 +1,97 @@
-<!-- ================= 3.2 REPERFUSION: PCI & CLOT-BUSTING DRUGS (stub, replaced by its builder) ================= -->
+<!-- ================= 3.2 REPERFUSION: PCI & CLOT-BUSTING DRUGS ================= -->
+<style>
+#m-reperfusion .card>.tag{align-self:flex-start}
+#m-reperfusion .quote{font-style:italic}
+#m-reperfusion .tbl table{min-width:620px}
+#m-reperfusion .calc{align-items:end}
+#m-reperfusion .calc .chk{flex-direction:row;align-items:center;gap:8px}
+#m-reperfusion #rpVerdict{margin:0}
+</style>
 <section class="mod" id="m-reperfusion" data-mod="reperfusion" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Emergency treatment</p><h2>Reperfusion: PCI &amp; clot-busting drugs</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">A blocked coronary artery can be reopened with a balloon and stent (primary percutaneous coronary intervention, PCI) or with a clot-dissolving drug (fibrinolysis). Race the two strategies from a hospital without a cath lab, and see why the clock decides between them.</p></div>
+
+  <p class="callnow" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+
+  <div class="calc" role="group" aria-label="Race settings">
+    <label for="rpDist">Ambulance transfer to the PCI centre
+      <select id="rpDist"><option value="30">30 minutes (near)</option><option value="60" selected>60 minutes</option><option value="100">100 minutes (far)</option></select></label>
+    <label class="chk" for="rpFail"><input type="checkbox" id="rpFail"> Fibrinolysis fails (rescue PCI)</label>
+  </div>
+  <p class="verdict maybe" id="rpVerdict" aria-live="polite"></p>
+  <div class="stepper" id="rpSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rpSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A map with a hospital without PCI on the left and a PCI centre on the right. Two patients are diagnosed with STEMI at the same moment. One ambulance leaves within 30 minutes for primary PCI, where a balloon inflates and a stent opens the artery; the other patient gets a clot-dissolving drug within 10 minutes, the clot shrinks, and they are transferred for angiography later. Two clocks count minutes since the ECG diagnosis against the 120-minute target."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rpPlay">Play</button><label class="stage-cap tl" for="rpT">Minutes since diagnosis <input type="range" id="rpT" min="0" max="1" step="0.001" value="0.02"></label></div>
+      <div class="readout" id="rpRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> Travel times are what you choose above; the 15 minutes from arrival to an open artery and the pace at which the clot dissolves are drawn, not measured. The targets are ESC 2023 wording: PCI within 120 minutes of the ECG-based diagnosis, fibrinolysis started within 10 minutes, door-in to door-out of 30 minutes or less, angiography 2–24 hours after fibrinolysis. [[Byrne2023ESC]]</p>
+    </div>
+    <aside class="note" id="rpNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Time targets, as published</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Interval</th><th>Target as published</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>First medical contact to ECG</th><td><span class="quote">"an ECG should be performed within 10 min of FMC"</span></td><td>ESC 2023 [[Byrne2023ESC]]</td></tr>
+      <tr><th>Diagnosis to PCI</th><td>Primary PCI preferred <span class="quote">"provided it can be performed in a timely manner (i.e. within 120 min of the ECG-based diagnosis"</span>; <span class="quote">"If PPCI is not feasible within 120 min, patients should undergo immediate fibrinolysis"</span></td><td>ESC 2023 [[Byrne2023ESC]]</td></tr>
+      <tr><th>Diagnosis to fibrinolysis</th><td><span class="quote">"The goal is to start fibrinolytic therapy within 10 min of the STEMI diagnosis."</span></td><td>ESC 2023 [[Byrne2023ESC]]</td></tr>
+      <tr><th>Door-in to door-out (transfer hospital)</th><td><span class="quote">"a door-in to door-out time of ≤30 min is recommended to expedite reperfusion therapy"</span></td><td>ESC 2023 [[Byrne2023ESC]]</td></tr>
+      <tr><th>After fibrinolysis</th><td><span class="quote">"routine early angiography (i.e. within 2–24 h) is recommended"</span>; <span class="quote">"rescue PCI is indicated if fibrinolysis fails"</span></td><td>ESC 2023 [[Byrne2023ESC]]</td></tr>
+      <tr><th>Time window</th><td>Reperfusion applies <span class="quote">"provided the patient has presented within 12 h of symptom onset"</span></td><td>ESC 2023 [[Byrne2023ESC]]</td></tr>
+      <tr><th>Door-to-balloon (US, before 2025)</th><td>90 minutes or less, which became a national performance measure</td><td>as reported in [[Menees2013,Bradley2006]]</td></tr>
+      <tr><th>UK audit benchmarks (MINAP)</th><td>Call-to-balloon under 90 minutes for primary PCI; door-to-needle under 30 minutes for fibrinolysis</td><td>[[Quinn2014]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">The 2025 ACC/AHA/ACEP/NAEMSP/SCAI guideline replaces the earlier US STEMI and NSTE-ACS guidelines; its recommendation wording is not quoted here. [[Rao2025ACC]]</p>
+  <p class="teach"><b>Teaching tool</b>These targets describe how hospital systems are organised and audited. They are never a way to decide whether, or how fast, to seek care. If in doubt, call.</p>
+
+  <h3 class="sub">PCI or fibrinolysis: 23 trials compared</h3>
+  <div class="chainbtns ctrls" role="group" aria-label="Outcome to show" id="rpKo">
+    <button class="btn" data-ko="0" aria-pressed="true">Short-term death</button>
+    <button class="btn" data-ko="1" aria-pressed="false">Non-fatal reinfarction</button>
+    <button class="btn" data-ko="2" aria-pressed="false">Stroke</button>
+    <button class="btn" data-ko="3" aria-pressed="false">Combined endpoint</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rpIcons" viewBox="0 0 720 280" style="min-width:560px" role="img" aria-label="Two arrays of 100 people, one treated with primary angioplasty and one with fibrinolysis, with the people who had the chosen outcome highlighted, from a meta-analysis of 23 randomised trials."></svg></div>
+      <p class="stage-cap">Out of 100 people in each group, rounded percentages from a meta-analysis of 23 randomised trials (7739 patients). Population statistics. [[Keeley2003]]</p>
+    </div>
+    <aside class="note" id="rpKoNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What does delay cost?</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rpDelay" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Left: adjusted in-hospital mortality rises from 3.0% at a door-to-balloon time of 30 minutes to 8.4% at 180 minutes, with a dot at the chosen time. Right: lives saved per 1000 treated with fibrinolysis fall from 65 in the first hour after symptom onset to 26 to 37 in later hours."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="rpD2B">Door-to-balloon time <input type="range" id="rpD2B" min="30" max="180" step="1" value="90"></label></div>
+      <p class="stage-cap">Left: points published for 43,801 US patients (2005–2006), joined by a smooth line that is drawn, not measured. [[Rathore2009]] Right: 22 fibrinolysis trials, 50,246 patients. [[Boersma1996]] Population statistics; association, not proof that each minute causes the difference.</p>
+    </div>
+    <aside class="note" id="rpDelayNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How PCI is done, and what the trials changed</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Wrist, not groin</span><h4>Radial access (MATRIX)</h4>
+      <p>In 8404 patients with ACS, going in through the wrist (radial) rather than the groin (femoral) reduced net adverse clinical events (9.8% vs 11.7%), major bleeding (1.6% vs 2.3%) and all-cause death (1.6% vs 2.2%). [[Valgimigli2015MATRIX]] RIVAL found no difference in its primary outcome but fewer large haematomas with radial access. [[Jolly2011RIVAL]] ESC 2023 lists <span class="quote">"Radial artery approach as default vascular access"</span> among ways to reduce PCI bleeding. [[Byrne2023ESC]]</p></div>
+    <div class="card"><span class="tag rx">More than one narrowing</span><h4>Complete revascularisation (COMPLETE)</h4>
+      <p>In 4041 STEMI patients with disease in several arteries, also treating the non-culprit narrowings after a successful culprit PCI reduced cardiovascular death or MI at a median of 3 years (7.8% vs 10.5%; HR 0.74). The benefit was similar whether the extra PCI was done during or after the hospital stay. [[Mehta2019COMPLETE]] MULTISTARS AMI favoured doing it immediately rather than staged. [[Stahli2023MULTISTARS]] Choices between stents and bypass are in <a href="#cabg" data-go="cabg">Stents or bypass?</a></p></div>
+    <div class="card"><span class="tag bad">Except in shock</span><h4>Culprit artery only first (CULPRIT-SHOCK)</h4>
+      <p>In 706 patients with MI, cardiogenic shock and multivessel disease, treating only the culprit lesion lowered 30-day death or kidney-replacement therapy (45.9% vs 55.4%) compared with immediate multivessel PCI. [[Thiele2017CULPRIT]] ESC 2023: <span class="quote">"Early revascularization with either PCI or CABG is recommended for patients with AMI complicated by CS"</span>. [[Byrne2023ESC]] More in <a href="#complications" data-go="complications">Complications &amp; cardiogenic shock</a>.</p></div>
+    <div class="card"><span class="tag accent">NSTEMI timing</span><h4>Early, immediate, or later?</h4>
+      <p>ESC 2023 defines an early invasive strategy as <span class="quote">"routine invasive angiography (and PCI if needed) within 24 h of presentation"</span> and says it <span class="quote">"should be considered when any high-risk features are present"</span>, including <span class="quote">"A GRACE risk score &gt;140"</span>. [[Byrne2023ESC]] TIMACS and VERDICT found no overall benefit from earlier angiography, but benefit in the highest-risk patients (GRACE &gt;140 in VERDICT, HR 0.81). [[Mehta2009TIMACS,Kofoed2018VERDICT]] A 17-trial meta-analysis found no mortality difference but less recurrent ischaemia. [[Kite2022]] See <a href="#scores" data-go="scores">Risk scores</a>.</p></div>
+    <div class="card"><span class="tag warn">A paradox</span><h4>Faster door-to-balloon, flat mortality?</h4>
+      <p>US median door-to-balloon time fell from 96 minutes (2005) to 64 minutes (2010), and the share treated within 90 minutes rose from 44.2% to 91.4%. [[Krumholz2011D2B]] Yet in-hospital mortality in a registry of 96,738 primary PCIs did not change (4.8% vs 4.7%). [[Menees2013]] At the individual level, each 10 minutes saved still went with lower odds of death (adjusted OR 0.92); the treated population had grown by 55% and changed. [[Nallamothu2015]] The current view: total ischaemic time, including delay before hospital, matters more than the in-hospital segment alone. [[Menees2013,Nallamothu2015]]</p></div>
+    <div class="card"><span class="tag warn">Did not help</span><h4>Routine clot suction (TOTAL, TASTE)</h4>
+      <p>Routinely sucking out the clot before stenting did not reduce cardiovascular death, MI, shock or severe heart failure at 180 days in 10,732 patients (6.9% vs 7.0%), and stroke within 30 days was higher (0.7% vs 0.3%). [[Jolly2015TOTAL]] TASTE found 30-day death of 2.8% vs 3.0%. [[Frobert2013TASTE]]</p></div>
+    <div class="card"><span class="tag accent">Late arrivals</span><h4>After 12 hours</h4>
+      <p>In BRAVE-2 (365 patients 12–48 hours after onset, without ongoing symptoms), an invasive strategy reduced final infarct size (median 8.0% vs 13.0% of the left ventricle). [[Schomig2005BRAVE2]] In OAT, routine PCI of a still-blocked artery 3–28 days after MI in stable patients did not reduce death, reinfarction or severe heart failure at 4 years (17.2% vs 15.6%). [[Hochman2006OAT]]</p></div>
+    <div class="card"><span class="tag rx">Pharmaco-invasive</span><h4>Drug first, then the cath lab (STREAM)</h4>
+      <p>In 1892 patients seen within 3 hours who could not get primary PCI within 1 hour, prehospital tenecteplase followed by angiography gave a 30-day composite of 12.4% vs 14.3% with primary PCI. 36.3% needed emergency angiography because the drug failed. Intracranial bleeding was 1.0% vs 0.2%, and 0.5% vs 0.3% after the dose was halved for people aged 75 and over. [[Armstrong2013STREAM]]</p></div>
+    <div class="card"><span class="tag good">Not a heart attack</span><h4>Stable disease is different (ISCHEMIA)</h4>
+      <p>In 5179 people with stable coronary disease, an initial invasive strategy did not reduce ischaemic events or death over a median 3.2 years (5-year event rates 16.4% vs 18.2%). This applies to stable patients, not to STEMI or high-risk NSTE-ACS, where timely reperfusion helps. [[Maron2020ISCHEMIA,Keeley2003,FRISCII1999]]</p></div>
+  </div>
+  <div class="prose"><p>Medicines given alongside reperfusion, such as aspirin, P2Y12 inhibitors and heparin, are in <a href="#antithrombotic" data-go="antithrombotic">Antiplatelets &amp; anticoagulants</a>. Why every hour matters to the muscle itself is in <a href="#ischaemia" data-go="ischaemia">Ischaemia: time is muscle</a>.</p></div>
 </section>
