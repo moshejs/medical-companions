@@ -1,5 +1,109 @@
-<!-- ================= 5.1 CARDIOGENIC, HYPOVOLAEMIC, OBSTRUCTIVE & ANAPHYLACTIC SHOCK (stub, replaced by its builder) ================= -->
+<!-- ================= 5.1 CARDIOGENIC, HYPOVOLAEMIC, OBSTRUCTIVE & ANAPHYLACTIC SHOCK ================= -->
+<style>
+#m-othershock .tbl table{min-width:600px}
+#m-othershock .card>.ev,#m-othershock .card>.tag{align-self:flex-start}
+#m-othershock .os-ctrls .btn{font-size:13px}
+#m-othershock .ico-cap{font-size:14.5px;max-width:72ch}
+</style>
 <section class="mod" id="m-othershock" data-mod="othershock" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Special situations &amp; recovery</p><h2>Cardiogenic, hypovolaemic, obstructive &amp; anaphylactic shock</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Not all shock is septic. A failing heart, heavy bleeding, a blocked circulation or a severe allergic reaction can each starve the organs of oxygen, and each is treated differently. Pick a type and scrub from cause to treatment, with the trials and guideline wording behind each step.</p></div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>Shock of any kind is an emergency. If someone has signs of a severe allergic reaction, heavy bleeding or collapse, or an infection with confusion, very fast breathing, cold, mottled or bluish skin or little or no urine, call your local emergency number or go to an emergency department now. An adrenaline auto-injector is used straight away in a severe allergic reaction, and emergency help is still called [[Pumphrey2000,FDA-EpiPen]].</span></p>
+
+  <h3 class="sub">Four kinds of shock, from cause to treatment</h3>
+  <div class="ctrls os-ctrls" role="group" aria-label="Choose a type of shock">
+    <button class="btn" data-os="cardio" aria-pressed="true">Cardiogenic</button>
+    <button class="btn" data-os="hypo" aria-pressed="false">Hypovolaemic &amp; haemorrhagic</button>
+    <button class="btn" data-os="obstr" aria-pressed="false">Obstructive</button>
+    <button class="btn" data-os="anaph" aria-pressed="false">Anaphylactic</button>
+  </div>
+  <div class="stepper" id="osSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="osSvg" viewBox="0 0 720 400" role="img" aria-label="Left, a schematic circulation of pump, pipes and tank with a blood pressure dial; right, a close-up of what goes wrong. Cardiogenic: a clot blocks a coronary artery, the heart muscle dims, the pump weakens and the SCAI stage climbs, then a stent opens the artery. Hypovolaemic: a wound bleeds, the tank drains, and a clock shows the minutes since injury with the tranexamic acid timing results. Obstructive: fluid fills the sac round the heart and squeezes it, air and a clot are shown as other blockages, then a needle drains the fluid. Anaphylactic: a trigger makes mast cells release histamine, the vessels widen and leak, then adrenaline is injected into the thigh and the vessels tighten, with a reminder that symptoms can return hours later."></svg>
+      <div class="ctrls"><button class="btn primary" id="osPlay">Play</button><label class="stage-cap tl" for="osT">Course <input type="range" id="osT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="readout" id="osRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The circuit is the pump, pipes and tank model from <a href="#shock" data-go="shock">Shock and haemodynamics</a> [[Perera2010RUSH,Standl2018]]. Doses, timings and trial results in the notes are quoted as published, never as instructions.</p>
+    </div>
+    <aside class="note" id="osNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Cardiogenic shock: stages and trials</h3>
+  <div class="prose">
+    <p>Cardiogenic shock affects 40,000–50,000 people a year in the US and is the leading cause of in-hospital death after a heart attack. Thirty-day mortality is about 40% and 1-year mortality approaches 50% [[Samsky2021]]. These are population figures and do not predict what will happen to any one person. The main US consensus document is the 2017 American Heart Association scientific statement [[vanDiepen2017]].</p>
+    <p>The 2019 SCAI scheme grades cardiogenic shock from A to E: "at risk", "beginning", "classic", "deteriorating" and "extremis". Hypoperfusion separates stage B from C, and stage D means the first treatments have not restored stability after at least 30 minutes [[Baran2019SCAI]]. In 10,004 cardiac intensive care patients at the Mayo Clinic, unadjusted hospital mortality rose with each stage [[Jentzer2019SCAI]].</p>
+  </div>
+  <div class="stage">
+    <svg id="osScai" viewBox="0 0 720 220" role="img" aria-label="Bar chart of SCAI shock stages A to E in 10,004 cardiac intensive care patients: the share of patients in each stage was 46.0%, 30.0%, 15.7%, 7.3% and 1.0%, and unadjusted hospital mortality was 3.0%, 7.1%, 12.4%, 40.4% and 67.0%."></svg>
+    <p class="stage-cap">Jentzer 2019, Mayo Clinic cardiac ICU, unadjusted hospital mortality by SCAI stage [[Jentzer2019SCAI,Baran2019SCAI]].</p>
+  </div>
+
+  <h3 class="sub">Cardiogenic shock trials, as 100 people</h3>
+  <div class="ctrls os-ctrls" role="group" aria-label="Choose a cardiogenic shock trial">
+    <button class="btn" data-ot="shock" aria-pressed="true">SHOCK 1999</button>
+    <button class="btn" data-ot="iabp" aria-pressed="false">IABP-SHOCK II</button>
+    <button class="btn" data-ot="culprit" aria-pressed="false">CULPRIT-SHOCK</button>
+    <button class="btn" data-ot="ecls" aria-pressed="false">ECLS-SHOCK</button>
+    <button class="btn" data-ot="danger" aria-pressed="false">DanGer Shock</button>
+  </div>
+  <div class="stage">
+    <svg id="osIco" viewBox="0 0 720 290" role="img" aria-label="Two icon arrays of 100 people each compare the outcome in the treatment group with the comparison group of the chosen cardiogenic shock trial."></svg>
+    <p class="ico-cap" id="osIcoCap"></p>
+  </div>
+
+  <h3 class="sub">Hypovolaemic and haemorrhagic shock</h3>
+  <div class="prose">
+    <p>ATLS teaches four classes of hypovolaemic shock by estimated blood loss, with matching heart rate, blood pressure and mental status [[Mutschler2014ATLS,Mutschler2013SI]]. Real patients rarely fit them: in 36,504 trauma patients only 9.3% could be placed in a class using heart rate, systolic pressure and the Glasgow Coma Scale together, and no relevant tachycardia was seen in any blood-pressure group [[Mutschler2013ATLS]]. In a survey of 383 European ATLS instructors, only 10.9% called the classes a "good guide" for fluids and blood products [[Mutschler2014ATLS]].</p>
+    <p>The same group proposed classes by base deficit (16,305 patients): from class I (≤2 mmol/L) to class IV (&gt;10 mmol/L), mortality rose from 7.4% to 51.5% and massive transfusion from 5% to 52% [[Mutschler2013BD]]. Severe burns bring an inflammatory response and a distributive shock that can lead to multiple organ failure [[Jeschke2020Burns]].</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>What was compared</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>CRASH-2 (2010)</th><td>20,211 adult trauma patients with or at risk of significant bleeding</td><td>Tranexamic acid, as published 1 g over 10 min then 1 g over 8 h, within 8 h of injury, vs placebo</td><td>All-cause death 14.5% vs 16.0% (RR 0.91); death from bleeding 4.9% vs 5.7% [[CRASH2-2010]]</td></tr>
+      <tr><th>CRASH-2 timing</th><td>The same trial, by time to treatment</td><td>Death from bleeding</td><td>≤1 h: 5.3% vs 7.7% (RR 0.68); 1–3 h: 4.8% vs 6.1% (RR 0.79); &gt;3 h: 4.4% vs 3.1% (RR 1.44, possible harm) [[CRASH2-2011]]</td></tr>
+      <tr><th>Gayet-Ageron 2018</th><td>40,138 patients from CRASH-2 and WOMAN</td><td>Delay to antifibrinolytic treatment</td><td>Immediate treatment improved survival from bleeding by more than 70% (OR 1.72); the benefit fell by 10% for every 15 min of delay until 3 h, then vanished. 63% of bleeding deaths happened within 12 h [[GayetAgeron2018]]</td></tr>
+      <tr><th>PROPPR (2015)</th><td>680 severely injured patients predicted to need massive transfusion</td><td>Plasma:platelets:red cells 1:1:1 vs 1:1:2</td><td>24-h mortality 12.7% vs 17.0% (P=0.12), 30-day 22.4% vs 26.1% (P=0.26); death from exsanguination by 24 h 9.2% vs 14.6%; haemostasis 86% vs 78% [[Holcomb2015PROPPR]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Obstructive shock</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">ESC 2015</span><h4>Cardiac tamponade</h4><p>ESC 2015 defines tamponade as "a life-threatening, slow or rapid compression of the heart due to the pericardial accumulation of fluid". Listed signs include tachycardia, hypotension, pulsus paradoxus (an inspiratory fall in systolic pressure of more than 10 mmHg), raised jugular venous pressure and muffled heart sounds [[Adler2015ESC]]. Echocardiography is "the single most useful diagnostic tool", and drainage, "preferably by needle pericardiocentesis", should not be delayed in unstable patients [[Adler2015ESC]].</p></div>
+    <div class="card"><span class="tag accent">Not the textbook picture</span><h4>Beck's triad is uncommon</h4><p>The classic triad of low pressure, raised neck veins and muffled heart sounds "does not appear commonly"; breathlessness is the most frequently reported symptom. Diastolic right-ventricular collapse on echo is specific, and a plethoric, non-collapsing inferior vena cava is sensitive. Positive-pressure ventilation and sedation can lower cardiac output in tamponade [[Alerhand2022]].</p></div>
+    <div class="card"><span class="tag warn">Ventilation</span><h4>Tension pneumothorax</h4><p>In a review of 183 case reports and 5 cohorts, hypoxia was reported in 50.0% of people breathing on their own and 91.8% of ventilated people. With assisted ventilation, the adjusted odds of hypotension were 12.6 times and of cardiac arrest 17.7 times higher, and 70.4% of ventilated patients who became hypotensive or arrested did so within minutes [[Roberts2015TPTX]].</p></div>
+    <div class="card"><span class="tag dx">ESC 2019</span><h4>High-risk pulmonary embolism</h4><p>ESC 2019 defines high-risk PE as cardiac arrest, obstructive shock (systolic pressure below 90 mmHg, or vasopressors needed to reach 90, with end-organ hypoperfusion) or persistent hypotension [[Konstantinides2020ESC]]. In ICOPER, the 4.5% with massive PE had 90-day mortality of 52.4% vs 14.7% [[Kucher2006ICOPER]]. ESC 2019: "Primary reperfusion treatment, in most cases systemic thrombolysis, is the treatment of choice", and its Table 10 lists rtPA as 100 mg over 2 h (quoted as published) [[Konstantinides2020ESC]].</p></div>
+    <div class="card"><span class="tag accent">Controversy</span><h4>Thrombolysis below high risk</h4><p>In 16 trials (2115 patients), thrombolysis lowered all-cause mortality (2.17% vs 3.89%) but raised major bleeding (9.24% vs 3.42%) and intracranial haemorrhage (1.46% vs 0.19%) [[Chatterjee2014]]. In PEITHO's normotensive intermediate-risk patients, tenecteplase cut death or collapse at 7 days (2.6% vs 5.6%) but raised stroke (2.4% vs 0.2%) [[Meyer2014PEITHO]]. ESC 2019 does not recommend routine full-dose thrombolysis here [[Konstantinides2020ESC]].</p></div>
+  </div>
+
+  <h3 class="sub">Anaphylaxis: adrenaline as the guidelines and label print it</h3>
+  <div class="prose">
+    <p>Anaphylactic shock is massive histamine-mediated vasodilation and maldistribution, a distributive shock [[Standl2018]]. The World Allergy Organization (WAO) 2020 criteria call anaphylaxis highly likely with acute skin or mucosal involvement plus breathing trouble, low blood pressure, organ dysfunction or severe gut symptoms; or with acute low blood pressure, bronchospasm or throat involvement after exposure to a known or probable allergen, even without skin features [[Cardona2020WAO]]. Criteria like these are "an aid to diagnosis", not a definition [[Cardona2020WAO,Sampson2006]].</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Intramuscular adrenaline (epinephrine), quoted as published</th><th>Repeat</th></tr></thead>
+    <tbody>
+      <tr><th>WAO 2020</th><td>0.01 mg/kg to a maximum of 0.5 mg, as 1 mg/mL (1:1000). By age: 0.15 mg at 1–5 years, 0.3 mg at 6–12 years, 0.5 mg for teenagers and adults [[Cardona2020WAO]]</td><td>Every 5–15 min if symptoms are refractory [[Cardona2020WAO]]</td></tr>
+      <tr><th>Resuscitation Council UK 2021</th><td>500 micrograms for adults and children over 12 (300 micrograms if small or prepubertal); 300 micrograms at 6–12 years; 150 micrograms at 6 months–6 years; 100–150 micrograms under 6 months [[Dodd2021RCUK]]</td><td>About every 5 min if there is no improvement; expert help for a low-dose IV infusion if breathing or circulation problems persist after 2 doses [[Dodd2021RCUK]]</td></tr>
+      <tr><th>US EpiPen label</th><td>0.3 mg IM or SC into the anterolateral thigh for patients ≥30 kg; the auto-injector is "not a substitute for immediate medical care" [[FDA-EpiPen]]</td><td>More than two sequential doses only under direct medical supervision [[FDA-EpiPen]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Doses as printed in the guidelines and the label, for study. A person's own prescription and the advice of their care team always come first. RCUK 2021 no longer routinely recommends corticosteroids for emergency treatment and recommends against antihistamines for acute management [[Dodd2021RCUK]].</p>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Minutes count</span><h4>How fast it can turn</h4><p>In UK fatal reactions, the median time to respiratory or cardiac arrest was 5 min for medicines, 15 min for venom and 30 min for food, and adrenaline had been given before the arrest in only 14% [[Pumphrey2000]]. In England and Wales (1992–2012), anaphylaxis admissions rose 615% while the fatality rate stayed at 0.047 per 100,000 a year [[Turner2015Anaph]].</p></div>
+    <div class="card"><span class="tag warn">A second wave</span><h4>Biphasic reactions</h4><p>Biphasic reactions come back after the first has resolved, without new exposure. In a meta-analysis (4114 patients) their median onset was 11 h (range 0.2–72 h), and they were more likely with low blood pressure at the start (OR 2.18) or an unknown trigger (OR 1.72) [[Lee2015Biphasic]]. RCUK 2021 puts them at about 5% of cases and links giving adrenaline more than 30 min after onset with more of them (OR 3.39) [[Dodd2021RCUK]]. Antihistamines and glucocorticoids do not reliably prevent them [[Shaker2020]].</p></div>
+    <div class="card"><span class="tag rx">RCUK 2021</span><h4>How long to watch</h4><p>RCUK 2021 suggests risk-stratified observation: fast-track discharge 2 h after resolution in selected low-risk patients, at least 6 h for others, and at least 12 h after higher-risk reactions. One third of biphasic reactions in the European registry came more than 12 h after the first symptoms [[Dodd2021RCUK]].</p></div>
+  </div>
+  <p class="gentle"><b>In plain words</b>A severe allergic reaction can become life-threatening within minutes. An adrenaline auto-injector is used straight away, and then you still call for emergency help [[Pumphrey2000,FDA-EpiPen]]. Symptoms can come back hours later, so people are usually watched in hospital for a while after treatment [[Lee2015Biphasic,Dodd2021RCUK]].</p>
+
+  <h3 class="sub">Other shock states</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Toxin-mediated</span><h4>Toxic shock syndrome</h4><p>Toxic shock syndrome is an acute, toxin-mediated illness caused by toxin-producing <i>Staphylococcus aureus</i> or group A streptococcus, whose toxins act as superantigens and set off a "cytokine avalanche" [[Lappin2009]]. Specific treatment includes source control and antibiotics that suppress toxin production, such as clindamycin or linezolid [[Lappin2009]]. Standl 2018 quotes an incidence of about 0.5 per 100,000 and mortality of 2–11% [[Standl2018]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Anti-toxin add-ons</h4><p>In 1079 invasive group A streptococcal infections, adding clindamycin went with in-hospital mortality of 6.5% vs 11.0% (aOR 0.44; observational) [[Babiker2021]]. Linezolid appeared non-inferior to clindamycin in a target-trial emulation (1095 patients) [[Babiker2025]]. In streptococcal toxic shock treated with clindamycin, IVIG went with mortality falling from 33.7% to 15.7% (1 RCT and 4 non-randomised studies) [[Parks2018IVIG]].</p></div>
+    <div class="card"><span class="tag warn">Necrotising infection</span><h4>LRINEC cannot rule it out</h4><p>The LRINEC score combines white count, haemoglobin, sodium, glucose, creatinine and CRP; a cut-off of 6 gave a PPV of 92.0% in derivation [[Wong2004LRINEC]]. In a meta-analysis (5982 patients), LRINEC ≥6 had a sensitivity of only 68.2%, and the authors conclude it "should not be used to rule-out" necrotising soft-tissue infection. Fever (46.0%) and hypotension (21.0%) were also insensitive; CT reached 88.5% sensitivity [[Fernando2019NSTI]].</p></div>
+    <div class="card"><span class="tag dx">Spinal cord injury</span><h4>Neurogenic shock</h4><p>A distributive shock after spinal cord injury from an imbalance of sympathetic and parasympathetic control, classically low pressure with a slow heart rate [[Ruiz2018,Standl2018]]. In TARN data, a systolic pressure below 100 mmHg with a heart rate below 80/min at arrival was seen in 19.3% of cervical, 7% of thoracic and 3% of lumbar cord injuries [[Guly2008]]. Reported incidence varies widely with the definition, 29% after cervical injury in one series [[Ruiz2018]].</p></div>
+    <div class="card"><span class="tag brand">Adrenal crisis</span><h4>When cortisol runs out</h4><p>In 423 educated patients with chronic adrenal insufficiency followed for 2 years, there were 8.3 crises and 0.5 crisis-related deaths per 100 patient-years. Gastrointestinal infection, fever and emotional stress each triggered about 20% [[Hahner2015]].</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Septic cardiomyopathy and mixed shock</h4><p>Shock can combine processes, for example tension pneumothorax plus bleeding after trauma [[Cecconi2014ESICM,Standl2018]]. In septic shock, global left-ventricular hypokinesia was found in 60% of 67 ventilated patients, usually reversible and not linked to a worse prognosis [[VieillardBaron2008]]. Definitions compete and its effect on prognosis "remains to be demonstrated" [[Beesley2018]]; whether it is an adaptive response is a hypothesis [[Hollenberg2021]].</p></div>
+  </div>
+  <p class="callout">Survival figures here describe large groups of people, not any one person. In SOAP II, dopamine went with higher 28-day mortality than noradrenaline (norepinephrine) in the 280 patients with cardiogenic shock (P=0.03) [[DeBacker2010SOAPII]]. Septic shock treatment continues in <a href="#pressors" data-go="pressors">Vasopressors &amp; steroids</a>; shock in babies and children in <a href="#children" data-go="children">Sepsis in babies and children</a>.</p>
 </section>

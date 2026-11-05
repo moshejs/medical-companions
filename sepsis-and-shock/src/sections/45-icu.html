@@ -1,5 +1,95 @@
-<!-- ================= 4.5 ORGAN SUPPORT IN INTENSIVE CARE (stub, replaced by its builder) ================= -->
+<!-- ================= 4.5 ORGAN SUPPORT IN INTENSIVE CARE ================= -->
+<style>
+#m-icu .card>.ev,#m-icu .card>.tag{align-self:flex-start}
+#m-icu .tbl{overflow-x:auto}
+#m-icu .tbl table{min-width:560px}
+#m-icu .ic-pick{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+#m-icu .ic-pick .btn{font-size:13px;padding:6px 10px}
+#m-icu .ic-pick .btn[aria-pressed="true"]{border-color:var(--brand);background:var(--brand-soft)}
+#m-icu .ic-grp{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:100%;margin-top:4px}
+#m-icu #icTrSvg{width:100%;height:auto;display:block}
+#m-icu .ic-tr{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+#m-icu .ic-tr .verdict{margin-top:8px}
+</style>
 <section class="mod" id="m-icu" data-mod="icu" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Organ support in intensive care</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">While antibiotics and source control deal with the infection, intensive care keeps failing organs going until they recover. Step through the organ support panel: lungs, oxygen, kidneys, blood, gut, brain and family, each with the trial that shaped today's practice.</p></div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>Sepsis is a medical emergency. If someone with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
+
+  <p class="callout">Sepsis is common in intensive care. In the ICON audit of 10,069 ICU patients, 29.5% had sepsis during their stay; ICU mortality among them was 25.8% and hospital mortality 35.3%, varying from 19.3% in Oceania to 47.2% in Africa (hospital). [[Sakr2018ICON]] On one day in 2017 (EPIC III, 15,202 patients in 88 countries), 54% of ICU patients had suspected or proven infection and 70% were on an antibiotic. [[Vincent2020EPICIII]] These are population figures: they cannot predict what will happen to one person.</p>
+
+  <div class="stepper" id="icSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="icSvg" viewBox="0 0 720 400" role="img" aria-label="An organ support panel around a person in an intensive care bed. Seven panels surround the body: lungs and ventilation, oxygen, kidneys, brain and sedation, blood (glucose, haemoglobin and clot prevention), gut (feeding and stomach protection) and family. As each step plays, its organ glows, the lungs breathe with small tidal volumes, and two bars grow inside the panel comparing the arms of the key trial: for example 31.0% versus 39.8% mortality with 6 versus 12 mL/kg breaths in ARDSNet, and 16.0% versus 32.8% with prone positioning in PROSEVA. Most other panels show trials where the two bars come out almost equal."></svg>
+      <div class="ctrls"><button class="btn primary" id="icPlay">Play</button><label class="stage-cap tl" for="icT">Organ support panel <input type="range" id="icT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <div class="readout" id="icRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Schematic.</b> The bars are the published results of each named trial, drawn to a scale chosen per panel; the person is illustrative. Targets such as 6 mL/kg predicted body weight, a plateau pressure of 30 cmH2O, an insulin start at 180 mg/dL and a haemoglobin trigger of 70 g/L are quoted from the trials and SSC 2021 as published, not as instructions. [[ARDSNet2000,Evans2021SSC]]</p>
+    </div>
+    <aside class="note" id="icNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Breathing support</h3>
+  <div class="prose"><p>SSC 2021 makes a set of recommendations for sepsis-induced acute respiratory distress syndrome (ARDS). These trials shaped them. [[Evans2021SSC]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Trial or guideline</th><th>What was found or recommended</th></tr></thead>
+    <tbody>
+      <tr><th>Breath size</th><td>ARDSNet 2000 (861 patients)</td><td>6 mL/kg predicted body weight with plateau pressure ≤30 cmH2O vs 12 mL/kg: mortality 31.0% vs 39.8% (P = 0.007), ventilator-free days 12 vs 10. [[ARDSNet2000]] SSC 2021 recommends 6 mL/kg over &gt;10 mL/kg (strong, high quality) and an upper plateau pressure goal of 30 cmH2O in severe ARDS (strong); it suggests higher PEEP in moderate-severe ARDS, and low tidal volume even without ARDS (weak). [[Evans2021SSC]]</td></tr>
+      <tr><th>Lying face down</th><td>PROSEVA 2013 (466, PaO2:FiO2 &lt;150)</td><td>Prone sessions of at least 16 h: 28-day mortality 16.0% vs 32.8% (HR 0.39), 90-day 23.6% vs 41.0%. [[Guerin2013PROSEVA]] SSC 2021 recommends prone ventilation for more than 12 h a day in moderate-severe ARDS (strong). [[Evans2021SSC]]</td></tr>
+      <tr><th>Paralysing drugs</th><td>ACURASYS 2010 (340); ROSE 2019 (1,006)</td><td>ACURASYS: 48 h of cisatracurium improved adjusted 90-day survival (HR 0.68), though crude mortality (31.6% vs 40.7%) did not differ significantly. [[Papazian2010ACURASYS]] ROSE: no benefit from early continuous blockade with deep sedation (42.5% vs 42.8%); stopped for futility. [[Moss2019ROSE]] SSC 2021 suggests intermittent boluses over continuous infusion (weak). [[Evans2021SSC]]</td></tr>
+      <tr><th>Before a breathing tube</th><td>SSC 2021</td><td>High-flow nasal oxygen is suggested over non-invasive ventilation for sepsis-induced hypoxaemic respiratory failure (weak). [[Evans2021SSC]]</td></tr>
+      <tr><th>Fluid in the lungs</th><td>FACTT 2006 (1,000)</td><td>A conservative strategy kept 7-day fluid balance at −136 mL vs +6,992 mL, with more ventilator-free days (14.6 vs 12.1) and no significant change in 60-day mortality (25.5% vs 28.4%). [[Wiedemann2006FACTT]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Oxygen: enough, not more</h4><p>SSC 2021 found insufficient evidence to recommend conservative oxygen targets (generally PaO2 55–70 mmHg or SpO2 88–92%). [[Evans2021SSC]] Three trials since then found no mortality difference: ICU-ROX (180-day 35.7% vs 34.5%), HOT-ICU (PaO2 60 vs 90 mmHg, 42.9% vs 42.4%) and UK-ROX, in 16,500 ventilated adults, where an SpO2 target of 90% cut oxygen exposure by 29% with 90-day mortality 35.4% vs 34.9%. [[Mackle2020ICUROX,Schjorring2021HOTICU,Martin2025UKROX]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>ECMO: a heart-lung machine</h4><p>SSC 2021 suggests veno-venous ECMO for sepsis-induced severe ARDS when conventional ventilation fails, in experienced centres (weak, low quality). [[Evans2021SSC]] In EOLIA (249 patients), 60-day mortality was 35% with early ECMO vs 46% with conventional care (RR 0.76, 95% CI 0.55–1.04; P = 0.09), and 28% of controls crossed over to ECMO. [[Combes2018EOLIA]] For septic cardiomyopathy, a retrospective cohort reported 90-day survival of 60% with VA-ECMO vs 25% in controls; unmeasured confounding cannot be excluded. [[Brechot2020VAECMO]]</p></div>
+  </div>
+
+  <h3 class="sub">Kidney support: when to start dialysis</h3>
+  <div class="prose"><p>KDIGO defines acute kidney injury (AKI) as a creatinine rise of ≥0.3 mg/dL within 48 h, creatinine ≥1.5 times baseline within 7 days, or urine output below 0.5 mL/kg/hour for 6 hours. [[Kellum2013KDIGO]] Starting kidney replacement therapy (dialysis or haemofiltration) early, before there is an urgent reason, has not saved lives in three trials. <span class="ev est">Established</span> SSC 2021 suggests against it for AKI without a definitive indication, and accepts continuous or intermittent methods when it is needed (weak). [[Evans2021SSC]] See the hourly urine chart in <a href="#nursing" data-go="nursing">nursing care</a>.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Early</th><th>Delayed or standard</th><th>Also found</th></tr></thead>
+    <tbody>
+      <tr><th>AKIKI 2016</th><td>620 with KDIGO stage 3 AKI on ventilation and/or catecholamines</td><td>48.5% (60 days)</td><td>49.7%</td><td>49% of the delayed group never needed dialysis; catheter bloodstream infections 10% vs 5%. [[Gaudry2016AKIKI]]</td></tr>
+      <tr><th>IDEAL-ICU 2018</th><td>488 with early septic shock and RIFLE-failure AKI</td><td>58% (90 days)</td><td>54%</td><td>38% of the delayed group never received dialysis; stopped for futility. [[Barbar2018IDEAL]]</td></tr>
+      <tr><th>STARRT-AKI 2020</th><td>2,927 critically ill adults</td><td>43.9% (90 days)</td><td>43.7%</td><td>More dialysis dependence among survivors (10.4% vs 6.0%) and more adverse events (23.0% vs 16.5%) with the accelerated start. [[Bagshaw2020STARRT]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Glucose, transfusion, clots, stomach and feeding</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Area</th><th>SSC 2021, as published</th><th>Key trial</th></tr></thead>
+    <tbody>
+      <tr><th>Blood glucose</th><td>Insulin starting at glucose ≥180 mg/dL (10 mmol/L), typical target 144–180 mg/dL (8–10 mmol/L) (strong). [[Evans2021SSC]]</td><td>NICE-SUGAR (6,104): a tight target of 81–108 mg/dL raised 90-day mortality vs ≤180 mg/dL (27.5% vs 24.9%; OR 1.14), with severe hypoglycaemia in 6.8% vs 0.5%. [[Finfer2009NICESUGAR]]</td></tr>
+      <tr><th>Red-cell transfusion</th><td>Restrictive strategy (strong), which "typically includes a haemoglobin concentration transfusion trigger of 70 g/L", not guided by haemoglobin alone. [[Evans2021SSC]]</td><td>TRISS (998 with septic shock): Hb ≤7 vs ≤9 g/dL gave similar 90-day mortality (43.0% vs 45.0%) with fewer units (median 1 vs 4). [[Holst2014TRISS]]</td></tr>
+      <tr><th>Clot prevention</th><td>Drug prophylaxis against venous thromboembolism unless contraindicated, low-molecular-weight heparin over unfractionated heparin (strong); adding mechanical prophylaxis suggested against. [[Evans2021SSC]]</td><td>PROTECT (3,764): dalteparin vs unfractionated heparin, similar deep vein clots (5.1% vs 5.8%), fewer pulmonary emboli (1.3% vs 2.3%). [[Cook2011PROTECT]]</td></tr>
+      <tr><th>Stomach protection</th><td>Stress ulcer prophylaxis suggested for those with risk factors for GI bleeding (weak). [[Evans2021SSC]]</td><td>SUP-ICU: pantoprazole did not change 90-day mortality (31.1% vs 30.4%); bleeding 2.5% vs 4.2%. [[Krag2018SUPICU]] REVISE: bleeding 1.0% vs 3.5% (HR 0.30), mortality 29.1% vs 30.9% (not significant). [[Cook2024REVISE]] PEPTIC: 18.3% vs 17.5% hospital mortality with PPIs vs H2 blockers (P = .054). [[Young2020PEPTIC]]</td></tr>
+      <tr><th>Feeding</th><td>Early enteral nutrition (within 72 h) suggested for those who can be fed enterally (weak, very low quality). [[Evans2021SSC]]</td><td>NUTRIREA-2: enteral vs parenteral, 28-day mortality 37% vs 35%, more vomiting and bowel ischaemia with enteral. [[Reignier2018NUTRIREA2]] NUTRIREA-3: low vs standard calories in week one, 41.3% vs 42.8%, slightly faster readiness for discharge. [[Reignier2023NUTRIREA3]]</td></tr>
+      <tr><th>Fever</th><td></td><td>HEAT (700): IV acetaminophen (paracetamol) 1 g every 6 h vs placebo did not change ICU-free days (23 vs 22) or 90-day mortality (15.9% vs 16.6%). [[Young2015HEAT]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Sedation, delirium and getting moving</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Wake up and breathe</h4><p>In the ABC trial (336 ventilated patients), pairing a daily sedation interruption with a spontaneous breathing trial gave more days breathing unassisted (14.7 vs 11.6), a shorter ICU stay (median 9.1 vs 12.9 days) and lower one-year mortality (HR 0.68; number needed to treat 7.4). [[Girard2008ABC]]</p></div>
+    <div class="card"><span class="tag rx">Sedatives</span><h4>Which sedative?</h4><p>SPICE III (4,000): early dexmedetomidine gave the same 90-day mortality as usual care (29.1% vs 29.1%), with more slow heart rate and low blood pressure. [[Shehabi2019SPICE3]] MENDS2 (422 with sepsis): dexmedetomidine vs propofol, the same days alive without delirium or coma (10.7 vs 10.8) and 90-day mortality (38% vs 39%). [[Hughes2021MENDS2]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>The ABCDEF bundle</h4><p>Early physical and occupational therapy during sedation breaks raised return to independent function at discharge (59% vs 35%) and shortened delirium (median 2 vs 4 days). [[Schweickert2009Mobility]] In the ICU Liberation Collaborative (15,226 adults, observational), complete ABCDEF bundle performance went with lower hospital death within 7 days (aHR 0.32), less delirium, fewer restraints and fewer ICU readmissions. [[Pun2019ABCDEF]] The SCCM PADIS guideline (pain, agitation, delirium, immobility, sleep) issued 37 recommendations, with ICU survivors on the panel. [[Devlin2018PADIS]]</p></div>
+  </div>
+
+  <h3 class="sub">What did the trial show? Explore the evidence</h3>
+  <p class="prose">Pick a trial. Each grid shows 100 people per arm, rounded to the nearest whole person, coloured for the main outcome. Most ICU trials in sepsis end up close to even, which is why many treatments were dropped.</p>
+  <div class="ic-tr">
+    <div class="ic-pick" id="icPick" role="group" aria-label="Choose a trial"></div>
+    <svg id="icTrSvg" viewBox="0 0 720 250" role="img" aria-label="Two icon arrays of 100 people, one for each arm of the chosen trial."></svg>
+    <div id="icTrNote" aria-live="polite"></div>
+  </div>
+  <p class="stage-cap">Outcomes and percentages as published in each trial; mortality figures are population statistics from trial participants. [[ARDSNet2000,Guerin2013PROSEVA,Combes2018EOLIA,Martin2025UKROX,Bagshaw2020STARRT,Gaudry2016AKIKI,Finfer2009NICESUGAR,Holst2014TRISS,Cook2024REVISE,Reignier2023NUTRIREA3,Shehabi2019SPICE3,Young2015HEAT]]</p>
+
+  <h3 class="sub">Goals of care and families</h3>
+  <div class="prose"><p>SSC 2021 recommends discussing goals of care and prognosis with patients and families (Best Practice Statement), early (within 72 h) rather than late (weak recommendation). It recommends integrating palliative care principles where appropriate, but suggests against routine formal palliative care consultation for everyone, in favour of clinician judgement. [[Evans2021SSC]] For families of patients dying in 22 French ICUs, a proactive end-of-life conference plus a bereavement brochure lowered PTSD-related symptoms at 90 days (45% vs 69%), anxiety and depression; families spent more of the longer conference talking (14 vs 5 minutes). [[Lautrette2007Brochure]] SSC 2021 also suggests written and verbal sepsis education before discharge, noting that almost 40% of survivors are rehospitalised within 3 months. [[Evans2021SSC]] Recovery is covered in <a href="#after" data-go="after">after sepsis</a>.</p></div>
+
+  <h3 class="sub">In plain words</h3>
+  <div class="gentle"><b>For patients and families</b>In intensive care, a breathing machine gives small, gentle breaths to protect the lungs, and some people are turned onto their front to help oxygen get in. [[ARDSNet2000,Guerin2013PROSEVA]] Kidneys often recover on their own, so dialysis is not started early unless there is a clear need. [[Gaudry2016AKIKI,Bagshaw2020STARRT]] Staff keep sedation light, wake people each day and get them moving as early as they can, because this helps people walk and look after themselves sooner. [[Girard2008ABC,Schweickert2009Mobility]] Expect regular, honest talks with the team about what is happening and what matters most to your loved one. [[Evans2021SSC,Lautrette2007Brochure]] The numbers here come from studies of large groups and cannot tell anyone what will happen to one person. [[Sakr2018ICON]]</div>
 </section>

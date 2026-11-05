@@ -1,5 +1,93 @@
-<!-- ================= 2.1 WHO IS AT RISK (stub, replaced by its builder) ================= -->
+<!-- ================= 2.1 WHO IS AT RISK ================= -->
+<style>
+#m-risk .tbl table{min-width:560px}
+#m-risk .card>.ev,#m-risk .card>.tag{align-self:flex-start}
+#m-risk .rk-ctrls .btn{font-size:13px}
+#m-risk .rkout{font-size:15px;line-height:1.5;max-width:72ch}
+</style>
 <section class="mod" id="m-risk" data-mod="risk" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Who is at risk &amp; recognising it</p><h2>Who is at risk</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Any infection can lead to sepsis [[Singer2016Sepsis3]]. Some people carry a higher chance: babies and young children, older adults, people with long-term illness, cancer or weakened immunity, people who are pregnant or have just given birth, and people in recent contact with healthcare. See how the numbers shift with age, and what the studies mean by "higher risk".</p></div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>Sepsis is a medical emergency. If someone with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
+  <p class="gentle"><b>No one is to blame</b>A risk factor is a pattern seen across large groups of people, not a judgement about anyone. Most risk factors here, such as age, a long-term illness, cancer treatment or giving birth, are not choices, and a person with none of them can still get sepsis. Knowing who is at higher risk simply helps families and care teams think of sepsis sooner.</p>
+
+  <h3 class="sub">Age: the youngest and the oldest</h3>
+  <div class="prose"><p>Worldwide, sepsis incidence peaks in early childhood and again among older adults [[Rudd2020GBD]]. Scrub through four views of the same pattern, each from a named study population.</p></div>
+  <div class="stepper" id="rkSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="rkSvg" viewBox="0 0 720 360" role="img" aria-label="An icon array of 100 people. First, 12 in 100 people in the US population are aged 65 or over. Then, among 100 people with sepsis, 65 are aged 65 or over. Next, 100 sepsis cases worldwide in 2017 are split by age: about 42 in children under 5, 10 at ages 5 to 19, and 48 in adults. Finally the icons give way to bars: severe sepsis in about 0.2 per 1,000 US children against 26.2 per 1,000 people over 85, and neonatal sepsis in about 28 per 1,000 live births."></svg>
+      <div class="ctrls"><button class="btn primary" id="rkPlay">Play</button><label class="stage-cap tl" for="rkT">View <input type="range" id="rkT" min="0" max="1" step="0.001" value="0.15"></label></div>
+      <p class="stage-cap">Icons are rounded to whole people. Each view comes from a different study population and year, named in the note; mortality and incidence figures are population statistics, not predictions for any one person.</p>
+    </div>
+    <aside class="note" id="rkNote" aria-live="polite"></aside>
+  </div>
+  <p class="callout">Age also shapes outcome. In US data from 1995, mortality from severe sepsis rose from 10% in children to 38.4% in people over 85 [[Angus2001CCM]], and age independently predicted death (OR 2.26) [[Martin2006Age]]. Babies and children have their own signs and scores: see <a href="#children" data-go="children">Sepsis in babies and children</a>.</p>
+
+  <h3 class="sub">Long-term conditions and frailty</h3>
+  <div class="prose"><p>In the community-based REGARDS cohort (30,239 US adults followed over time), several conditions present at the start predicted later sepsis, and risk rose with the number of chronic conditions [[Wang2012Chronic]]. Choose a bar to see what its number means.</p></div>
+  <div class="ctrls rk-ctrls" role="group" aria-label="Choose a condition">
+    <button class="btn" data-hr="0" aria-pressed="true">Chronic lung disease</button>
+    <button class="btn" data-hr="1" aria-pressed="false">Peripheral artery disease</button>
+    <button class="btn" data-hr="2" aria-pressed="false">Steroid medicines</button>
+    <button class="btn" data-hr="3" aria-pressed="false">Chronic kidney disease</button>
+    <button class="btn" data-hr="4" aria-pressed="false">Heart attack</button>
+    <button class="btn" data-hr="5" aria-pressed="false">Diabetes</button>
+    <button class="btn" data-hr="6" aria-pressed="false">Stroke</button>
+    <button class="btn" data-hr="7" aria-pressed="false">Deep vein thrombosis</button>
+    <button class="btn" data-hr="8" aria-pressed="false">Frailty</button>
+  </div>
+  <div class="stage">
+    <svg id="rkHr" viewBox="0 0 720 330" role="img" aria-label="A bar chart of adjusted hazard ratios from the REGARDS cohort, measured from a line at 1, which means the same rate as people without the condition: chronic lung disease 2.43, peripheral artery disease 2.16, oral or injected steroids 2.10 for infection, chronic kidney disease 1.99, previous heart attack 1.79, diabetes 1.78, stroke 1.67, deep vein thrombosis 1.63 and frailty 1.44."></svg>
+    <p class="rkout" id="rkHrOut" aria-live="polite"></p>
+    <p class="stage-cap">Adjusted hazard ratios from REGARDS: chronic conditions [[Wang2012Chronic]], frailty [[Mahalingam2019Frailty]], steroids (risk of infection) [[Chaudhary2017Steroids]].</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Cancer</span><h4>A history of cancer</h4><p>People with a history of cancer had sepsis incidence of 1,465 per 100,000 a year, a relative risk of 9.77 compared with people without cancer, and cancer independently predicted death from sepsis (adjusted OR 1.98) [[Danai2006Cancer]].</p></div>
+    <div class="card"><span class="tag accent">Chemotherapy</span><h4>Febrile neutropenia</h4><p>In adults hospitalised with it, in-hospital mortality was 2.6% with no major comorbidity, 10.3% with one and at least 21.4% with more than one [[Kuderer2006FN]]. ASCO/IDSA endorse giving the first antibiotic dose within 1 hour of triage (quoted as published) [[Taplitz2018FN]].</p></div>
+    <div class="card"><span class="tag accent">Liver</span><h4>Cirrhosis</h4><p>In cirrhosis (advanced scarring of the liver), infection raised mortality about four-fold (pooled OR 3.75); about 30% died within a month of infection and another 30% by a year [[Arvaniti2010Gastro]]. Among adults with sepsis, cirrhosis went with higher 30-day mortality (OR 3.59) [[Fay2020Exposures]].</p></div>
+    <div class="card"><span class="tag accent">Frailty</span><h4>More than one thing at once</h4><p>Frailty (at least two of weakness, exhaustion and low physical activity) was present in 19.9% of REGARDS participants and went with higher sepsis risk (adjusted HR 1.44) and higher 30-day case fatality (adjusted OR 1.62) [[Mahalingam2019Frailty]]. In intensive care, cancer, advanced heart failure and cirrhosis were among the independent risk factors for in-hospital death [[Sakr2018ICON]].</p></div>
+  </div>
+
+  <h3 class="sub">Weakened immunity</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Medicines</span><h4>Steroids</h4><p>Baseline oral or injected steroid use (2.24% of REGARDS) went with a higher risk of infection (adjusted HR 2.10) and, once infected, higher odds of sepsis (adjusted OR 2.11) [[Chaudhary2017Steroids]]. Among adults with sepsis, immunosuppression went with higher 30-day mortality (OR 2.52) [[Fay2020Exposures]].</p></div>
+    <div class="card"><span class="tag dx">No working spleen</span><h4>After splenectomy</h4><p>In 19,680 people after removal of the spleen (median follow-up 6.9 years), infection occurred in 3.2% and death in 1.4%. The highest rates were in thalassaemia major (8.2% infection, 5.1% death) and sickle-cell anaemia (7.3%, 4.8%) [[Bisharat2001Splenectomy]].</p></div>
+    <div class="card"><span class="tag warn">Vague signs</span><h4>It may not look like the list</h4><p>In a Thai emergency cohort, patients with none of the "SEPSIS" warning-sign symptoms more often had underlying immunosuppression (24.6% vs 8.3%), which suggests immunosuppressed people may present vaguely [[Wattanapaiboon2020SEPSIS]]. Warning-sign lists are reminders, not tests: see <a href="#recognise" data-go="recognise">Recognising sepsis</a>.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Preventing infection in neutropenia</h4><p>In afebrile neutropenic patients after chemotherapy, antibiotic prophylaxis reduced all-cause mortality (RR 0.66) across 109 trials, mostly in blood cancers [[GafterGvili2012Prophylaxis]]. More in <a href="#prevention" data-go="prevention">Preventing sepsis</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Pregnancy and after birth</h3>
+  <div class="prose"><p>Sepsis caused 10.7% of maternal deaths worldwide in 2003–2009, about 261,000 deaths, the third direct cause after haemorrhage and hypertensive disorders [[Say2014Causes]]. In the WHO GLOSS study (713 facilities, 52 countries), 70.4 hospitalised women per 1,000 live births had a maternal infection [[GLOSS2020]]. In the UK, severe maternal sepsis affected 4.7 per 10,000 maternities; 19.5% developed septic shock, and the authors estimate about 50 women with life-threatening sepsis for each maternal sepsis death [[Acosta2014UK]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Factor (UK, 2011–2012)</th><th>Adjusted odds ratio for severe maternal sepsis</th></tr></thead>
+    <tbody>
+      <tr><th>Febrile illness or antibiotics in the previous 2 weeks</th><td>12.07</td></tr>
+      <tr><th>Caesarean birth after labour had started</th><td>8.06</td></tr>
+      <tr><th>Caesarean birth before labour</th><td>3.83</td></tr>
+      <tr><th>Operative vaginal birth</th><td>2.49</td></tr>
+      <tr><th>Black or other minority ethnic group</th><td>1.82</td></tr>
+      <tr><th>First birth (primiparity)</th><td>1.60</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">All rows from Acosta 2014 [[Acosta2014UK]]. Group A streptococcal infection went with progression to septic shock (aOR 4.84), and for half of the women with it, less than 2 hours passed between the first systemic sign and a diagnosis of severe sepsis [[Acosta2014UK]]. Normal pregnancy raises heart rate and lowers blood pressure, which can hide early sepsis [[SomaPillay2016]]: see <a href="#maternal" data-go="maternal">Sepsis in pregnancy and after birth</a>.</p>
+
+  <h3 class="sub">Healthcare contact, surgery and hospital-onset sepsis</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rec">Most starts at home</span><h4>But often after care</h4><p>In a CDC-led review of 1,078 adults, 90.3% had community-onset sepsis, yet 60.7% had recent healthcare exposure, including 24.1% with an outpatient visit in the prior 7 days. 41.5% had received treatment such as antimicrobials, chemotherapy, wound care, dialysis or surgery in the prior 30 days [[Fay2020Exposures]].</p></div>
+    <div class="card"><span class="tag rec">Frequent care</span><h4>Chronic conditions and recent care</h4><p>In a CDC chart review in 4 New York hospitals (246 adults, 79 children), 72% had a healthcare factor in the prior 30 days or a chronic condition needing frequent care, and pneumonia was the commonest infection leading to sepsis [[Novosad2016MMWR]].</p></div>
+    <div class="card"><span class="tag warn">In hospital</span><h4>Hospital-onset sepsis</h4><p>Sepsis that began in hospital made up 12.1% of cases in 136 US hospitals (about 1 in 200 hospitalisations). These patients had more comorbidities and higher SOFA scores, and in-hospital mortality was 33% vs 17% for community-onset sepsis (adjusted OR 2.1) [[Rhee2019HospOnset]].</p></div>
+  </div>
+
+  <h3 class="sub">Unequal risk</h3>
+  <div class="prose">
+    <p>US Black patients had a 67% higher age- and sex-standardised severe-sepsis rate than white patients (9.4 vs 5.6 per 1,000) and 80% higher standardised mortality [[Mayr2010Race]]. The gap came from both a higher infection rate and a higher risk of organ dysfunction once infected, which shrank after adjustment for comorbidity, poverty and hospital [[Mayr2010Race]]. In 6 US states, Black residents still had higher incidence after adjustment for regional poverty (adjusted rate ratio 1.44) [[Barnato2008Race]]. From 1979 to 2000, sepsis was more common in men (RR 1.28) and in non-white people (RR 1.90) [[Martin2003NEJM]].</p>
+    <p>Higher neighbourhood socioeconomic status went with fewer serious-infection hospitalisations (11.7 vs 15.6 per 1,000 person-years) but not with sepsis among people already in hospital with infection, so the gap seems to work mainly through infection risk [[Donnelly2018nSES]]. The community-based REGARDS cohort found the opposite direction for race, a reminder that findings depend on study design and case definition [[Wang2012Chronic,Mayr2010Race]]. Tobacco use, alcohol use, lower education and lower income were also associated with sepsis in REGARDS [[Wang2012Chronic]].</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Why the gaps exist</h4><p>Higher infection rates, higher organ-dysfunction risk, the hospital where care happens and neighbourhood infection risk have all been shown to contribute [[Mayr2010Race,Barnato2008Race,Donnelly2018nSES]]. That structural causes drive much of this, rather than anything about individuals, is likely but still a hypothesis.</p></div>
+    <div class="card"><span class="tag brand">Worldwide</span><h4>Where you live</h4><p>In 2017, 85.0% of sepsis cases (41.5 million) occurred in countries with a low, low-middle or middle Socio-demographic Index, and the burden was highest in sub-Saharan Africa, Oceania and South, East and Southeast Asia [[Rudd2020GBD]].</p></div>
+  </div>
+  <p class="callout">These figures describe groups of people and cannot predict what will happen to any one person. Outcomes have improved: in Australian and New Zealand intensive care units, severe-sepsis mortality fell from 35.0% in 2000 to 18.4% in 2012, and was below 5% in patients without comorbidities or older age [[Kaukonen2014JAMA]]. How to spot sepsis continues in <a href="#recognise" data-go="recognise">Recognising sepsis</a>, and how to lower risk in <a href="#prevention" data-go="prevention">Preventing sepsis</a>.</p>
 </section>

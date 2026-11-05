@@ -1,5 +1,109 @@
-<!-- ================= 5.4 AFTER SEPSIS: RECOVERY & FAMILIES (stub, replaced by its builder) ================= -->
+<!-- ================= 5.4 AFTER SEPSIS: RECOVERY & FAMILIES ================= -->
+<style>
+#m-after .card>.ev,#m-after .card>.tag{align-self:flex-start}
+#m-after svg[data-mode=n] .t-xs{font-size:10.5px}
+#m-after .tbl table{min-width:560px}
+#m-after .afq{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px}
+#m-after .afq label{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 11px;cursor:pointer}
+#m-after .afq input{width:18px;height:18px;margin-top:1px;accent-color:var(--rec);flex:none}
+#m-after .afq label:has(input:checked){border-color:var(--rec);background:var(--rec-soft)}
+#m-after .afout{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+#m-after .afout .card{gap:4px}
+#m-after .afout .card h4{margin:0}
+#m-after ul.afssc{max-width:78ch}
+#m-after ul.afssc li{margin-bottom:6px}
+</style>
 <section class="mod" id="m-after" data-mod="after" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Special situations &amp; recovery</p><h2>After sepsis: recovery &amp; families</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Leaving hospital is not the end of sepsis for many people. Follow the year after discharge across body, thinking and mood, see how often people go back into hospital or back to work, and find what is known to help survivors, families and the bereaved.</p></div>
+
+  <p class="gentle"><b>For survivors and families</b>Many people get better after sepsis, but recovery can take months, and it is common to feel tired, weak, forgetful or low for a while. These after-effects have a name, post-sepsis syndrome, and having them is not a sign of weakness or failure. [[Prescott2018Recovery,Mostel2019PSS]] The figures on this page come from large groups of people in studies. They describe populations and cannot predict what will happen to you or to someone you love.</p>
+
+  <div class="stepper" id="afSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="afSvg" viewBox="0 0 720 470" role="img" aria-label="The year after leaving hospital. A person walks along a path from discharge to one year and beyond, past milestones at one month, three months, six months and one year. Below, three panels fill in as the months pass: body and daily life (the share readmitted to hospital, rising to about 4 in 10 by 3 months, and the share of previously employed survivors back at work, rising to about half by 6 to 12 months), thinking (the share with marked cognitive impairment, 40% at 3 months and 34% at 12 months after critical illness) and mood (anxiety, depression and post-traumatic stress symptoms, each affecting roughly a quarter to two fifths of intensive care survivors). At one year, a row of 100 figures shows the review estimate for people discharged after sepsis: about half recover, one sixth live with severe lasting problems and one third die during the year."></svg>
+      <div class="ctrls"><button class="btn primary" id="afPlay">Play</button><label class="stage-cap tl" for="afT">Months after discharge <input type="range" id="afT" min="0" max="1" step="0.001" value="0.015"></label></div>
+      <p class="stage-cap">Lines join published time points from different studies (dots); they are not one group followed over time. Readmission is from sepsis survivors; thinking, mood and work figures are from intensive care survivors in general, many of whom had sepsis. Mood figures given as ranges (1–6 and 7–12 months; 12–14 months) are drawn at the middle of the range. All are population statistics. [[ShankarHari2020Rehospitalisation,Prescott2015Readmission,McPeake2019RTW,Pandharipande2013BRAINICU,Nikayin2016Anxiety,Rabiee2016Depression,Parker2015PTSD,Prescott2018Recovery]]</p>
+    </div>
+    <aside class="note" id="afNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Post-sepsis syndrome and PICS</h3>
+  <p>"Post-sepsis syndrome" describes a cluster of long-term effects after sepsis: problems with thinking, functional disability, psychological problems and worsening of other medical conditions, with a higher risk of death and a poorer quality of life. It is an established clinical concept, though its mechanisms are still being worked out. [[Mostel2019PSS]] A wider term, post-intensive care syndrome (PICS), was agreed at a 2010 Society of Critical Care Medicine conference for new or worsening problems in physical, cognitive or mental health that arise after critical illness and persist beyond the hospital stay. The term applies to the survivor or to a family member (PICS-F). [[Needham2012PICS]]</p>
+  <p>Each year more than 19 million people worldwide develop sepsis and about 14 million survive to leave hospital. Among people discharged after sepsis, a review estimated that about half recover, one third die during the following year and one sixth have severe persistent impairments. [[Prescott2018Recovery]] A systematic review found excess deaths continuing up to 2 years and beyond, and warned that 28-day mortality alone can mislead. [[Winters2010LongTerm]]</p>
+  <div class="cards">
+    <div class="card"><span class="tag rec">Body</span><h4>Weakness and daily tasks</h4><p>ICU-acquired weakness is damage to nerves and muscles, in the limbs and the breathing muscles, caused by critical illness. It reduces long-term physical function and quality of life. [[Vanhorebeek2020ICUAW]] Survivors of sepsis gain on average 1 to 2 new functional limitations, such as being unable to bathe or dress without help. [[Prescott2018Recovery]] In older Americans with no limitations beforehand, the mean was 1.57 new limitations after severe sepsis vs 0.48 after other hospital stays. [[Iwashyna2010Cognitive]]</p></div>
+    <div class="card"><span class="tag dx">Thinking</span><h4>Memory and concentration</h4><p>Moderate to severe cognitive impairment rose about 3-fold after severe sepsis in older adults, from 6.1% to 16.7%, while it did not change after other hospital stays. [[Prescott2018Recovery,Iwashyna2010Cognitive]] After respiratory failure or shock, 40% of adults scored like people with moderate traumatic brain injury at 3 months, and 26% like people with mild Alzheimer's disease. Longer delirium in hospital went with worse scores. [[Pandharipande2013BRAINICU]]</p></div>
+    <div class="card"><span class="tag accent">Mind and sleep</span><h4>Worry, low mood, nightmares</h4><p>The review reports anxiety in 32%, depression in 29% and post-traumatic stress disorder (PTSD) in 44% of sepsis survivors. [[Prescott2018Recovery]] PTSD figures depend on the threshold used: across ICU survivors they were 25% at 1–6 months with a stricter cut-off (Impact of Event Scale ≥35) and 44% with a looser one (≥20). [[Parker2015PTSD]] Abnormal sleep is common, and most studies show it improves over time. [[Altman2017Sleep]] These problems can be treated: tell your doctor or nurse.</p></div>
+    <div class="card"><span class="tag brand">Family</span><h4>PICS-F</h4><p>Relatives can develop anxiety, acute stress, post-traumatic stress, depression and complicated grief. This happens to parents of newborns and children as well as to families of adults, and may last more than 4 years. [[Davidson2012PICSF]] See "For families, and for the bereaved" below.</p></div>
+  </div>
+
+  <h3 class="sub">Back into hospital, heart health and late deaths</h3>
+  <p>In a meta-analysis of 56 studies, rehospitalisation after sepsis averaged 9.3% by 7 days, 21.4% by 30 days and 39.0% by 1 year, and infection was the most common reason. [[ShankarHari2020Rehospitalisation]] Among 2,617 older US adults surviving severe sepsis, 42.7% were readmitted within 90 days. Compared with matched survivors of other illnesses, the clear excesses were readmission for sepsis (6.4% vs 2.8%) and acute kidney failure (3.3% vs 1.2%); heart failure readmissions were common (5.5%) but not more frequent than in the comparison group (7.8%). [[Prescott2015Readmission]] Many readmissions are for conditions that might be treated outside hospital: 41.6% by an expanded definition. [[Prescott2015Readmission]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Outcome after sepsis</th><th>Finding (population statistics)</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td>Late death, older US adults</td><td>22.1% absolute increase in deaths from 31 days to 2 years vs matched adults not in hospital; 10.4% vs non-sepsis infection admissions. More than 1 in 5 survivors has a late death not explained by health before sepsis. [[Prescott2016LateMortality]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><td>Deaths after ICU discharge, England</td><td>Of 94,748 adult survivors, 15% had died by 1 year, then 6% to 8% per year over the following 5 years. [[ShankarHari2019LateMortality]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><td>Deaths after ICU discharge, Germany</td><td>13.7% at 6 months and 18.2% at 12 months in the SMOOTH trial cohort (mean age 61.6). [[Schmidt2016SMOOTH]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><td>Heart attack, stroke, heart failure</td><td>Adjusted hazard ratios 1.77, 1.67 and 1.65 vs people without sepsis; the excess may persist at least 5 years. Certainty low to very low. [[Kosyakovsky2021CV]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td>Why late harm happens</td><td>Whether it is caused by sepsis itself or by poor health before it is not settled; persistent inflammation, immune dysfunction and residual organ damage are proposed. [[Prescott2016LateMortality,Kosyakovsky2021CV]]</td><td><span class="ev hyp">Hypothesis</span></td></tr>
+    </tbody></table></div>
+  <p>The review's suggested focus after discharge has three parts: find new physical, mental and cognitive problems and refer for treatment; review and adjust long-term medicines; and look for treatable conditions that often lead to readmission, such as infection, heart failure, kidney failure and aspiration. For people whose health was poor or falling before sepsis, it notes that focusing on relief of symptoms may be appropriate. [[Prescott2018Recovery]]</p>
+
+  <h3 class="sub">Going back to work</h3>
+  <p>After critical illness, about a third of previously employed survivors were back at work at 3 months (33%) and just over half at 6 and 12 months (55% and 56%). Going back to work went with better quality of life and fewer depressive symptoms, and caregivers too reported reduced hours and lost earnings. [[McPeake2019RTW]] In a Norwegian national registry of 12,260 working-age adults employed before a sepsis admission, 58.6% were working at 6 months, 67.5% at 1 year and 63.4% at 2 years. Sustained return was less likely after ICU-treated sepsis (HR 0.56), and it did not improve over the decade studied. [[Skei2023RTW]] Screening survivors and families for financial and social needs is a best practice statement in the Surviving Sepsis Campaign 2021 guideline. [[Evans2021SSC]]</p>
+
+  <h3 class="sub">What helps recovery: the trials</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Approach</th><th>What was found</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td>ICU diary, written by staff and family, given 1 month after discharge</td><td>New PTSD at 3 months 5% vs 13% (352 randomised). [[Jones2010Diaries]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td>30-day nurse navigator (IMPACTS, 691 high-risk patients)</td><td>Death or readmission by 30 days 28.7% vs 33.3% (adjusted OR 0.80). [[Taylor2022IMPACTS]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td>12-month primary care case management (SMOOTH, 291 survivors)</td><td>No improvement in mental health-related quality of life at 6 months, the primary outcome. [[Schmidt2016SMOOTH]]</td><td><span class="ev est">Established</span> no benefit on this outcome</td></tr>
+      <tr><td>ICU follow-up services (Cochrane, 5 studies, 1,707 people)</td><td>Probably little or no difference to 12-month mortality (RR 0.96); may make little or no difference to quality of life or PTSD. [[SchofieldRobinson2018Cochrane]]</td><td><span class="ev early">Early evidence</span> low to moderate certainty</td></tr>
+      <tr><td>Rehabilitation referral within 90 days</td><td>Linked with lower 10-year mortality (aHR 0.94) in an observational study of about 30,000 survivors. [[Prescott2018Recovery]]</td><td><span class="ev early">Early evidence</span> observational</td></tr>
+      <tr><td>Follow-up clinics and peer support groups</td><td>Teams setting them up were helped by motivated leaders and by sharing survivors' stories with managers; barriers were access, funding and low awareness. [[Haines2019Thrive]]</td><td><span class="ev early">Early evidence</span></td></tr>
+    </tbody></table></div>
+  <p>So follow-up programmes are not yet proven: the one positive trial was a short, targeted transition programme, and the "dose" and the right group are unclear. [[Schmidt2016SMOOTH,SchofieldRobinson2018Cochrane,Taylor2022IMPACTS]]</p>
+
+  <h3 class="sub">What the Surviving Sepsis Campaign 2021 says</h3>
+  <p>Quoted or summarised as published, with the strength of each statement. These describe what the guideline asks of health services; they are not instructions to readers. [[Evans2021SSC]]</p>
+  <ul class="afssc">
+    <li><b>Goals of care</b> (best practice statement): "we recommend discussing goals of care and prognosis with patients and families over no such discussion", and (weak) addressing them early, within 72 h. [[Evans2021SSC]]</li>
+    <li><b>Peer support</b> (weak, very low quality): "For adult survivors of sepsis or septic shock and their families, we suggest referral to peer support groups over no such referral". [[Evans2021SSC]]</li>
+    <li><b>Social and economic needs</b> (best practice statement): screen patients and families for housing, nutritional, financial and spiritual support, and refer where available. [[Evans2021SSC]]</li>
+    <li><b>Information</b>: written and verbal sepsis education, including post-ICU and post-sepsis syndrome, before discharge and at follow-up (weak); shared decision-making in discharge planning, medicine reconciliation at ICU and hospital discharge, and a discharge summary that covers the ICU stay, sepsis, treatments and common impairments (best practice statements). [[Evans2021SSC]]</li>
+    <li><b>Follow-up and rehabilitation</b>: assessment and follow-up for physical, cognitive and emotional problems (best practice statement); referral to a post-critical illness follow-up programme if available (weak); and for survivors ventilated for more than 48 h or in ICU for more than 72 h, referral to a post-hospital rehabilitation programme (weak, very low quality). There is insufficient evidence to recommend early over routine follow-up. [[Evans2021SSC]]</li>
+  </ul>
+
+  <h3 class="sub">Questions for your follow-up</h3>
+  <p class="gentle"><b>A list to take with you</b>Tick anything you or your relative have noticed since leaving hospital, and this builds a list of questions to bring to a GP, nurse or follow-up clinic. It is not an assessment and it does not say whether anything is wrong. Nothing you tick is stored or sent anywhere.</p>
+  <div class="afq" id="afQ" role="group" aria-label="Things noticed since leaving hospital">
+    <label for="afQ0"><input type="checkbox" id="afQ0" data-afq="0"> Tired, weak, or struggling with stairs, washing or dressing</label>
+    <label for="afQ1"><input type="checkbox" id="afQ1" data-afq="1"> Forgetful, or finding it hard to concentrate</label>
+    <label for="afQ2"><input type="checkbox" id="afQ2" data-afq="2"> Worried, low, or having nightmares or flashbacks</label>
+    <label for="afQ3"><input type="checkbox" id="afQ3" data-afq="3"> Sleeping badly</label>
+    <label for="afQ4"><input type="checkbox" id="afQ4" data-afq="4"> Unsure about new or changed medicines</label>
+    <label for="afQ5"><input type="checkbox" id="afQ5" data-afq="5"> Worried about work, money or housing</label>
+    <label for="afQ6"><input type="checkbox" id="afQ6" data-afq="6"> A family member is struggling too</label>
+    <label for="afQ7"><input type="checkbox" id="afQ7" data-afq="7"> Wanting to understand what happened in hospital</label>
+  </div>
+  <div class="afout" id="afOut" aria-live="polite"></div>
+
+  <h3 class="sub">For families, and for the bereaved</h3>
+  <p class="gentle"><b>You matter too</b>Families feel it too. Many relatives have stress, anxiety or sadness after a loved one's time in intensive care, whether the person survived or died, and support is available. [[Azoulay2005Family,Davidson2012PICSF]] Feeling this way is a common response to a frightening time, not a failing.</p>
+  <p>Ninety days after a relative's ICU stay, 33.1% of family members had post-traumatic stress symptoms at a level linked with moderate to major PTSD risk. The share was higher when information had felt incomplete (48.4%), when the relative died in ICU (50%) and among relatives who had shared end-of-life decisions (81.8%). [[Azoulay2005Family]] How staff communicate with families and include them in care and decisions may affect how families fare later; proposed supports include visits after discharge, support groups and clinics. [[Davidson2012PICSF]]</p>
+  <p>For families of patients dying in ICU, a French randomised trial of a planned end-of-life conference with the care team plus a bereavement brochure found fewer PTSD-related symptoms at 90 days (45% vs 69%), less anxiety (45% vs 67%) and less depression (29% vs 56%). [[Lautrette2007Brochure]] The Surviving Sepsis Campaign suggests peer support groups for survivors and their families. [[Evans2021SSC]] Sepsis charities such as the <a href="https://sepsistrust.org" target="_blank" rel="noopener">UK Sepsis Trust</a> and <a href="https://www.sepsis.org" target="_blank" rel="noopener">Sepsis Alliance</a> offer information and support for survivors and the bereaved.</p>
+  <div class="cards">
+    <div class="card"><span class="tag rec">If someone you love is in ICU</span><h4>Things families have found helpful</h4><ul>
+      <li>Ask the team for regular updates, and say if information feels incomplete. [[Azoulay2005Family]]</li>
+      <li>Ask whether the unit keeps an ICU diary you can write in. [[Jones2010Diaries]]</li>
+      <li>Ask about goals of care and what the team expects, and who can help with decisions. [[Evans2021SSC]]</li></ul></div>
+    <div class="card"><span class="tag rec">After a death</span><h4>Grief after sepsis</h4><p>Complicated grief is recognised as part of PICS-F. You can ask for a meeting with the team to talk through what happened, and ask about bereavement support. In the French trial, a planned conference and a bereavement brochure lowered later distress. [[Davidson2012PICSF,Lautrette2007Brochure]]</p></div>
+    <div class="card"><span class="tag rec">Children</span><h4>After childhood sepsis</h4><p>Children recover over months too, and parents can develop PICS-F. Outcomes in children are covered in <a href="#children" data-go="children">Sepsis in babies and children</a>. [[Zimmerman2020LAPSE,Davidson2012PICSF]]</p></div>
+  </div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>Sepsis is a medical emergency. If someone with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis? After sepsis, new infections are the most common reason for going back into hospital. [[ShankarHari2020Rehospitalisation]]</span></p>
 </section>

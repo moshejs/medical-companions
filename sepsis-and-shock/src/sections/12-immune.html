@@ -1,5 +1,94 @@
-<!-- ================= 1.2 INFECTION TO DYSREGULATED HOST RESPONSE (stub, replaced by its builder) ================= -->
+<!-- ================= 1.2 INFECTION TO DYSREGULATED HOST RESPONSE ================= -->
+<style>
+#m-immune svg[data-mode=n] .t-xs{font-size:11px}
+#m-immune svg[data-mode=n] .t-sm{font-size:12px}
+#m-immune .card>.tag,#m-immune .card>.ev{align-self:flex-start}
+#m-immune .tbl table{min-width:640px}
+#m-immune .chips button.tag{border:1px solid transparent;cursor:pointer;text-transform:none;letter-spacing:0;font:700 13px var(--body);padding:7px 11px}
+#m-immune .chips button.tag:hover{border-color:var(--brand)}
+#m-immune .chips button.tag[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+#m-immune #imModel{max-width:72ch;font-size:14.5px}
+</style>
 <section class="mod" id="m-immune" data-mod="immune" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding sepsis &amp; shock</p><h2>Infection to dysregulated host response</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">In sepsis the harm comes from the body's own response, not only from the germ. [[Singer2016Sepsis3]] Scrub through the cascade: sensors spot the invader, cytokines and complement sound the alarm, neutrophils throw out sticky traps, the response spreads through the body, and then, often at the same time, the immune system wears out.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Which model of the immune response to draw">
+    <span class="kicker">Timeline model</span>
+    <button class="btn" data-im="now" aria-pressed="true">Current view: both at once</button>
+    <button class="btn" data-im="old" aria-pressed="false">Classic view: SIRS, then CARS</button>
+  </div>
+  <div class="stepper" id="imSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="imSvg" viewBox="0 0 720 380" role="img" aria-label="A patch of infected tissue above a small blood vessel, beside a two-curve timeline of inflammation and immune suppression. In six phases: bacteria multiply and shed endotoxin; a macrophage's toll-like receptors bind the fragments and, in a close-up, the signal reaches NF-kappa-B in the nucleus, which switches on TNF, IL-1 and IL-6; cytokine particles and complement spread; neutrophils roll along the vessel wall, squeeze out and throw net-like traps around the bacteria while microclots form; the response spreads and the vessel leaks; finally lymphocytes break apart, the macrophage loses its antigen-presenting markers and new germs appear. On the timeline, a cursor moves along a pro-inflammatory curve and an immune-suppression curve, which rise together in the current view, or one after the other in the classic view."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="imPlay">Play</button><label class="stage-cap tl" for="imT">Phase <input type="range" id="imT" min="0" max="1" step="0.001" value="0.07"></label></div>
+      <div class="readout" id="imRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The curves show shape, not measured levels, and real patients vary widely. The order of events follows the reviews and studies cited in each step. [[Hotchkiss2016NRDP,Hotchkiss2013NRI]]</p>
+    </div>
+    <aside class="note" id="imNote" aria-live="polite"></aside>
+  </div>
+  <p id="imModel" class="callout"></p>
+
+  <h3 class="sub">Sensors and signals</h3>
+  <div class="prose"><p>Pathogen-associated molecular patterns (PAMPs, molecules found on microbes) and damage-associated molecular patterns (DAMPs, molecules released from injured host cells) are detected by many sensors working in parallel: complement, toll-like receptors (TLRs), NOD-like and RIG-like receptors, mannose-binding lectin and scavenger receptors. At least ten human TLRs are known, and they often work in pairs. [[Hotchkiss2016NRDP]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Signal</th><th>Comes from</th><th>Sensed by, and what follows</th></tr></thead>
+    <tbody>
+      <tr class="fever"><th>Lipopolysaccharide (LPS, endotoxin)</th><td>Outer membrane of Gram-negative bacteria</td><td>TLR4. Mice with <i>Tlr4</i> mutations do not respond to endotoxin but are highly susceptible to Gram-negative infection. <span class="ev est">Established</span> [[Poltorak1998]]</td></tr>
+      <tr class="fever"><th>Lipoteichoic acid, peptidoglycan</th><td>Gram-positive bacteria</td><td>TLR2, which then activates NF-κB; TLR1 and TLR4 did not respond in the same experiment. [[Schwandner1999]]</td></tr>
+      <tr><th>The signal inside the cell</th><td>Any sensor</td><td>MAP kinase, JAK and STAT activation and NF-κB moving into the nucleus, switching on "early activation genes" including TNF, IL-1, IL-12, IL-18 and type I interferons. [[Hotchkiss2016NRDP]]</td></tr>
+      <tr><th>NLRP3 inflammasome</th><td>Pathogen and damage signals inside the cell</td><td>Caspase-1 matures IL-1β, IL-18 and gasdermin D, leading to pyroptosis (inflammatory cell death). Too much is linked to hyperinflammation and immunothrombosis, too little to poor clearance of germs. <span class="ev early">Early evidence</span> [[Neumann2026NLRP3]]</td></tr>
+      <tr><th>Mitochondrial DAMPs</th><td>Injured tissue: formyl peptides and mitochondrial DNA (mitochondria descend from bacteria)</td><td>Formyl peptide receptor-1 and TLR9 on neutrophils, causing a sepsis-like state. [[Zhang2010mtDAMPs]]</td></tr>
+      <tr><th>HMGB1</th><td>Macrophages, late (more than 8 hours after stimulation)</td><td>A late mediator: in mice, serum levels rose from 8 to 32 hours after endotoxin, and anti-HMGB1 antibody given late still reduced deaths. [[Wang1999HMGB1]]</td></tr>
+      <tr><th>Extracellular histones</th><td>Dying cells and NETs</td><td>Damage endothelium and are lethal in mice; activated protein C cleaves them. [[Xu2009Histones]]</td></tr>
+      <tr><th>Complement C5a</th><td>Complement activation, as soon as PAMPs and DAMPs appear</td><td>A potent chemoattractant for neutrophils, monocytes and macrophages. Too much can paralyse phagocytes, "the dark side of C5a". <span class="ev early">Early evidence</span> [[Hotchkiss2016NRDP,Ward2004C5a]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">The cytokine storm is real, but brief</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Volunteers</span><h4>A pulse of TNF</h4><p>In 13 healthy men given intravenous <i>E. coli</i> endotoxin (4 ng/kg), plasma TNF peaked 90 to 180 minutes later at 240 ± 70 pg/mL, against 35 ± 5 pg/mL after saline: "a brief pulse". Ibuprofen did not stop the TNF rise but greatly reduced symptoms. [[Michie1988]]</p></div>
+    <div class="card"><span class="tag accent">Animal model</span><h4>Timing is everything</h4><p>Baboons given anti-TNF antibody 2 hours before a lethal <i>E. coli</i> infusion were completely protected against shock, organ dysfunction and death. Given 1 hour before, it protected against shock but not organ failure. [[Tracey1987]]</p></div>
+    <div class="card"><span class="tag dx">Pneumonia cohort</span><h4>Both arms of the response, together</h4><p>In 1,886 people admitted with pneumonia (GenIMS), TNF, IL-6 and IL-10 were raised in 82%, peaked at presentation and stayed raised for over a week. The highest risk of death came with high pro-inflammatory IL-6 <i>and</i> high anti-inflammatory IL-10 (hazard ratio 20.5). [[Kellum2007GenIMS]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Not SIRS then CARS</h4><p>In mouse sepsis, pro-inflammatory (IL-6, TNF, IL-1β) and anti-inflammatory mediators (soluble TNF receptors, IL-10, IL-1 receptor antagonist) rose at the same time in animals that died early. This challenges the older model of an inflammatory phase followed by an anti-inflammatory phase. [[Osuchowski2006]]</p></div>
+  </div>
+
+  <h3 class="sub">Neutrophils, NETs and immunothrombosis</h3>
+  <div class="prose">
+    <p>Neutrophil extracellular traps (NETs) are fibres of chromatin and granule proteins released by activated neutrophils. They bind Gram-positive and Gram-negative bacteria, degrade virulence factors and kill bacteria. [[Brinkmann2004]] Platelet TLR4 senses TLR4 ligands in the blood and makes platelets bind to neutrophils, triggering NETs; plasma from people with severe sepsis did the same, and the NETs trapped bacteria mainly in liver sinusoids and lung capillaries. [[Clark2007NETs]]</p>
+    <p>The same defence harms the host. NETs bind TLRs and drive inflammation, and activated monocytes express tissue factor and phosphatidylserine, which start the clotting cascades: "thromboinflammation". [[Iba2023DIC]] Sepsis produces a hypercoagulable state with microvascular clots, fibrin deposits, NETs and endothelial injury. [[Hotchkiss2016NRDP]] What this does to vessels and organs: <a href="#endothelium" data-go="endothelium">Vessels, clotting &amp; failing organs</a>.</p>
+  </div>
+
+  <h3 class="sub">The second half: an exhausted immune system</h3>
+  <div class="prose"><p>Sepsis is now described as sustained excessive inflammation together with immune suppression that fails to return to balance. [[vanderPoll2017]] As more patients survive the early phase, sepsis has become more of a chronic critical illness, with prolonged inflammation, immune suppression, organ injury and muscle wasting. [[Hotchkiss2016NRDP]]</p></div>
+  <div class="stage">
+    <div class="scroll"><svg id="imSupSvg" viewBox="0 0 720 270" role="img" aria-label="Three small charts of immune exhaustion. Lymphocyte counts in 335 adults with bacteraemia: survivors rose from 0.7 to 1.1 thousand per microlitre between sepsis onset and day 4, non-survivors only from 0.6 to 0.7. Monocyte HLA-DR in 93 people with septic shock on days 3 to 4: 43% positive monocytes in survivors, 18% in non-survivors, against a 30% line below which death was more likely. Cytokines secreted by stimulated spleen cells from 40 people who died of sepsis, as a share of controls: TNF 7.8%, interferon-gamma 2.7%, IL-6 9.9% and IL-10 9.2%."></svg></div>
+    <p class="stage-cap">Sources: [[Drewry2014,Monneret2006,Boomer2011]]. The lymphocyte lines join two measured time points; nothing between them was measured.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag">Cell death</span><h4>Lymphocytes disappear</h4><p>In 20 patients who died of sepsis, at least focal apoptosis was seen in 56.3% of spleens and 47.1% of colons, and 15 of 19 had marked lymphocytopenia; active caspase-3 staining was markedly higher than in non-septic patients. [[Hotchkiss1999]] Lymphocyte apoptosis is directly immunosuppressive, and persistent lymphopenia predicts death. [[Hotchkiss2016NRDP]] Severe persistent lymphopenia on day 4 was linked to more secondary infections. [[Drewry2014]]</p></div>
+    <div class="card"><span class="tag">Antigen presentation</span><h4>HLA-DR falls</h4><p>Antigen-presenting cells lose HLA-DR, the molecule they need to show antigens to T cells, and failure of monocytes to recover it predicts poor outcome. [[Hotchkiss2016NRDP]] In septic shock, monocyte HLA-DR below 30% on days 3–4 independently predicted death (adjusted OR 6.48). [[Monneret2006]]</p></div>
+    <div class="card"><span class="tag">Checkpoints</span><h4>T cells switched off</h4><p>T cells raise PD-1 and stromal cells raise PD-L1, expanding regulatory and anergic (unresponsive) T cells; myeloid-derived suppressor cells also increase. [[Hotchkiss2016NRDP]] Septic monocytes make less TNF, IL-1α, IL-6 and IL-12 when stimulated but keep releasing IL-10, resembling "endotoxin tolerance". [[Hotchkiss2013NRI]]</p></div>
+    <div class="card"><span class="tag">Reactivation</span><h4>Old viruses wake up</h4><p>Decreased interferon-γ production by natural killer cells often comes before cytomegalovirus reactivation in protracted sepsis. [[Hotchkiss2013NRI]] Spleens from people who died of sepsis secreted generally less than 10% of control cytokine levels and showed extensive loss of CD4, CD8 and HLA-DR cells. [[Boomer2011]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>PICS</h4><p>Persistent inflammation, immunosuppression and catabolism syndrome is a later state with high CRP, neutrophilia and immature myeloid cells, thought to be driven by DAMPs from injured tissue such as mitochondrial DNA, histones and HMGB1. [[Hotchkiss2016NRDP]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Treat the phase, not the label</h4><p>Biomarker-guided immunotherapy timed to the immune phase has been proposed. [[Hotchkiss2013NRI]] Trials of precision immunotherapy are covered in <a href="#frontier" data-go="frontier">Research frontier</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Why calming the storm did not work</h3>
+  <div class="prose"><p>More than 100 randomised trials have tested whether modulating the septic response improves survival. "With one short-lived exception" (drotrecogin alfa), none produced a new treatment. [[Marshall2014]] Pick a trial to see what happened. Each pair of dots is 28-day mortality (14-day for HA-1A) in one trial, a population statistic.</p></div>
+  <div class="chips" id="imTrChips" role="group" aria-label="Choose a trial"></div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="imTrSvg" viewBox="0 0 720 340" role="img" aria-label="A dot chart of eleven sepsis trials. For each, a grey dot marks mortality with placebo or sham and a coloured dot mortality with the drug, joined by a line. Mortality was higher with the drug for TNFR:Fc at its highest dose (53% vs 30%), the nitric oxide synthase inhibitor 546C88 (59% vs 49%), eritoran (28.1% vs 26.9%), HA-1A in Gram-negative bacteraemia with shock (33% vs 32%), PROWESS-SHOCK (26.4% vs 24.2%), EUPHRATES (37.7% vs 34.5%) and antithrombin (38.9% vs 38.7%); lower with IL-1 receptor antagonist (33.1% vs 36.4%), thrombomodulin (26.8% vs 29.4%) and thymosin alpha 1 (23.4% vs 24.1%), none significantly; and lower in PROWESS (24.7% vs 30.8%), the one positive result, which was not confirmed."></svg></div>
+    </div>
+    <aside class="note" id="imTrNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Lessons</span><h4>Why the trials failed</h4><p>The response is complex and redundant, the same trigger can do good and harm, and trials enrolled unselected patients. Proposed fixes are large epidemiological studies and stratifying patients to target those likely to benefit. [[Marshall2014,Angus2012Drotrecogin]]</p></div>
+    <div class="card"><span class="tag accent">Lessons</span><h4>Animals are not patients</h4><p>Animals in classic models die of shock within 72 hours, while many patients die later, with opportunistic infections and low monocyte HLA-DR. [[Docke1997]]</p></div>
+    <div class="card"><span class="tag">Guideline</span><h4>Endotoxin removal</h4><p>The Surviving Sepsis Campaign 2021 "suggest[s] against using polymyxin B haemoperfusion" (weak recommendation, low-quality evidence). [[Evans2021SSC]] <span class="ev early">Early evidence</span> Tigris (2026), in 157 people with a narrower band of endotoxin activity, reported 28-day mortality of 39% vs 45% and a posterior probability of benefit of 95.3% in an open-label Bayesian design; the guideline predates it. [[Neyra2026Tigris]]</p></div>
+  </div>
+
+  <div class="pt" role="note"><b>In plain words</b>Immune cells carry sensors that spot pieces of germs, like a smoke alarm spotting smoke. In sepsis the alarm rings far too loud and spreads through the whole body, harming the body's own tissues. Strangely, the immune system can be overactive and worn out at the same time, and later some people's defences are so tired that new infections take hold more easily. Many medicines that calmed inflammation in animals did not help people with sepsis, which is why researchers now test treatments matched to each person's immune state. [[Hotchkiss2016NRDP,Hotchkiss2013NRI,Boomer2011,Marshall2014]]</div>
 </section>

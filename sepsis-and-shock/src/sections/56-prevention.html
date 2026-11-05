@@ -1,5 +1,87 @@
-<!-- ================= 5.6 PREVENTING SEPSIS (stub, replaced by its builder) ================= -->
+<!-- ================= 5.6 PREVENTING SEPSIS ================= -->
+<style>
+#m-prevention .card>.ev,#m-prevention .card>.tag{align-self:flex-start}
+#m-prevention svg[data-mode=n] .t-xs{font-size:10.5px}
+#m-prevention .tbl table{min-width:600px}
+#m-prevention ol.pvfive{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;list-style:none;padding:0;margin:0}
+#m-prevention ol.pvfive li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14.5px}
+#m-prevention ol.pvfive li b{display:block;font:700 22px/1 var(--display);color:var(--rec);margin-bottom:4px}
+</style>
 <section class="mod" id="m-prevention" data-mod="prevention" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Special situations &amp; recovery</p><h2>Preventing sepsis</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Every case of sepsis starts with an infection, so each infection prevented is a case of sepsis that cannot happen. Add the barriers one at a time (clean hands, safer lines and catheters, vaccines, care around birth, and knowing the signs) and see the published before-and-after numbers for each.</p></div>
+
+  <div class="stepper" id="pvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="pvSvg" viewBox="0 0 720 424" role="img" aria-label="A chain from germs to infection to sepsis. Germs stream from the left towards an infection and on to sepsis. With each step a new barrier is added across the stream (clean hands, line and catheter bundles, childhood vaccines, adult and pregnancy vaccines, prevention around birth), and fewer germs get through to cause infection; a last barrier, knowing the signs, sits between infection and sepsis. Below the chain, bars show the published numbers for that barrier, such as hospital infection prevalence falling from 16.9% to 9.9% with a hand hygiene campaign, or invasive pneumococcal disease in children under 2 falling from 188 to 59 per 100,000 after the conjugate vaccine."></svg>
+      <div class="ctrls"><button class="btn primary" id="pvPlay">Play</button><label class="stage-cap tl" for="pvT">Barriers <input type="range" id="pvT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <p class="stage-cap">The stream of germs is schematic: the share each barrier stops is not to scale. The bars are the published figures for each barrier, from different studies, places and years, each with its own scale.</p>
+    </div>
+    <aside class="note" id="pvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why prevention matters</h3>
+  <p>The Global Burden of Disease study estimated 48.9 million sepsis cases and 11.0 million sepsis-related deaths worldwide in 2017, 19.7% of all deaths, with the highest burden in sub-Saharan Africa, Oceania and South, East and Southeast Asia. Age-standardised incidence fell 37.0% and mortality 52.8% between 1990 and 2017. [[Rudd2020GBD]] Because sepsis is the body's harmful response to an infection, preventing infections, and stopping them spreading, prevents sepsis. [[Singer2016Sepsis3]]</p>
+
+  <h3 class="sub">Clean hands</h3>
+  <p>In a Geneva teaching hospital, a hospital-wide campaign centred on alcohol hand rub at the bedside raised hand hygiene compliance from 48% to 66% (1994–1997). Healthcare-associated infection fell from 16.9% to 9.9% of patients, MRSA transmission from 2.16 to 0.93 episodes per 10,000 patient-days, and hand rub use rose from 3.5 to 15.4 L per 1,000 patient-days. [[Pittet2000HandHygiene]] WHO's "My five moments for hand hygiene" sets out when health workers clean their hands during care, to interrupt transmission. It was developed with a user-centred design approach. [[Sax2007FiveMoments]]</p>
+  <ol class="pvfive" aria-label="WHO five moments for hand hygiene">
+    <li><b>1</b>Before touching a patient</li>
+    <li><b>2</b>Before a clean or aseptic procedure</li>
+    <li><b>3</b>After a risk of body fluid exposure</li>
+    <li><b>4</b>After touching a patient</li>
+    <li><b>5</b>After touching a patient's surroundings</li>
+  </ol>
+  <p class="stage-cap">The five moments as named in WHO's framework. [[Sax2007FiveMoments]] At home, clean hands also stop germs spreading. [[Pittet2000HandHygiene]]</p>
+
+  <h3 class="sub">Safer lines and catheters</h3>
+  <p>Devices that enter the body can carry germs in. In 103 Michigan ICUs, an evidence-based central-line intervention cut catheter-related bloodstream infections from a mean of 7.7 to 1.4 per 1,000 catheter-days at 16–18 months (incidence-rate ratio 0.34). [[Pronovost2006CLABSI]] A US national programme for urinary catheters (926 units) lowered catheter-associated urinary infection on non-ICU wards from 2.28 to 1.54 per 1,000 catheter-days and catheter use from 20.1% to 18.8%; ICU rates were largely unchanged. [[Saint2016CAUTI]] Nursing care of lines and catheters is covered in <a href="#nursing" data-go="nursing">Nursing care</a>.</p>
+
+  <h3 class="sub">Vaccines</h3>
+  <p>Vaccines against pneumococcus, Hib, meningococcus, flu, COVID-19 and RSV prevent many of the infections that can lead to sepsis. [[Whitney2003PCV7,Adams1993Hib,Ladhani2020MenB,Papi2023RSV]] Several also protect people who were not vaccinated, by reducing spread (herd protection). [[Whitney2003PCV7,Ramsay2003MenC]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Vaccine</th><th>Group</th><th>Published result</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td>Hib conjugate</td><td>US children under 5</td><td>Hib disease fell 71% (37 to 11 per 100,000, 1989–1991); <i>H. influenzae</i> meningitis fell 82% (1985–1991). [[Adams1993Hib]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><td>PCV7 (pneumococcal conjugate)</td><td>US children under 2, and adults through herd effect</td><td>Invasive pneumococcal disease fell 69% in under-2s (188.0 to 59.0 per 100,000); in adults 65 and over it fell 18% (60.1 to 49.5). [[Whitney2003PCV7]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><td>PCV13 (CAPiTA)</td><td>84,496 adults 65 and over</td><td>Efficacy 75.0% against vaccine-type invasive disease and 45.6% against vaccine-type pneumonia; no efficacy against pneumonia from any cause (5.1%). [[Bonten2015CAPiTA]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><td>Pneumococcal polysaccharide</td><td>Adults (Cochrane)</td><td>Protected against invasive disease (OR 0.26); did not protect against all-cause pneumonia in high-income countries or clearly reduce all-cause mortality. [[Moberley2013Cochrane]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><td>MenC conjugate</td><td>Children in England</td><td>Efficacy 94% in vaccinated children; attack rates fell 67% in unvaccinated children in catch-up age groups. [[Ramsay2003MenC]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><td>MenACWY</td><td>UK teenagers, 13–18</td><td>Introduced in 2015 in response to a rapidly spreading hypervirulent MenW clone. [[Campbell2015MenW]]</td><td><span class="ev est">Established</span> programme</td></tr>
+      <tr><td>4CMenB (MenB)</td><td>UK infants, 2 and 4 months</td><td>Two-dose effectiveness 82.9% (wide CI 24.1–95.2); over 3 years 63 cases observed vs 253 expected, about 277 cases prevented. [[Parikh2016MenB,Ladhani2020MenB]]</td><td><span class="ev est">Established</span> population impact</td></tr>
+      <tr><td>Influenza</td><td>Everyone 6 months and over</td><td>ACIP recommends routine annual vaccination without contraindications, and for adults 65 and over preferentially high-dose, recombinant or adjuvanted vaccine (2024–25, as published). [[Grohskopf2024ACIP]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><td>COVID-19 (BNT162b2)</td><td>43,548 people 16 and over</td><td>95% effective against laboratory-confirmed COVID-19; 9 of 10 severe cases after dose 1 were in the placebo group. [[Polack2020BNT162b2]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><td>RSV vaccines</td><td>Adults 60 and over</td><td>RSVPreF3 OA: 82.6% against RSV lower respiratory disease, 94.1% against severe disease; RSVpreF: 66.7% (2 or more signs) and 85.7% (3 or more signs). [[Papi2023RSV,Walsh2023RSV]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><td>RSV in pregnancy and infancy</td><td>Infants</td><td>Maternal RSVpreF: 81.8% against severe infant RSV illness within 90 days. Nirsevimab: 74.5% against medically attended infection; hospitalisation 0.3% vs 1.5% in HARMONIE. [[Kampmann2023MATISSE,Hammitt2022MELODY,Drysdale2023HARMONIE]]</td><td><span class="ev est">Established</span></td></tr>
+    </tbody></table></div>
+  <p>Recommendations differ by country and change over time. In the US, ACIP recommended PCV20 alone, or PCV15 followed by PPSV23, for all adults 65 and over and for adults 19–64 with certain risk conditions (2022), and in 2024 added PCV21 as an option. [[Kobayashi2022ACIP,Kobayashi2024PCV21]] Your own vaccination service can say which vaccines are offered where you live.</p>
+
+  <h3 class="sub">Around birth</h3>
+  <p>As US intrapartum antibiotic prophylaxis for group B streptococcus expanded, early-onset GBS disease in newborns fell 65%, from 1.7 to 0.6 per 1,000 live births (1993–1998). [[Schrag2000GBS]] In A-PLUS, a single oral dose of azithromycin in labour lowered maternal sepsis or death from 2.4% to 1.6%, without changing neonatal sepsis. [[Tita2023APLUS]] One dose of antibiotic after operative vaginal birth lowered infection from 19% to 11% (ANODE). [[Knight2019ANODE]] More in <a href="#maternal" data-go="maternal">Sepsis in pregnancy and after birth</a>.</p>
+
+  <h3 class="sub">People at higher risk</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Chemotherapy</span><h4>Neutropenia</h4><p><span class="ev est">Established</span> In afebrile neutropenic patients after chemotherapy, mostly with blood cancers, antibiotic prophylaxis reduced all-cause mortality (RR 0.66; NNT 34) across 109 trials. [[GafterGvili2012Prophylaxis]] ASCO/IDSA (2018) endorse giving people with febrile neutropenia the first dose of empirical antibacterial therapy within 1 hour of triage, quoted as published. [[Taplitz2018FN]] The MASCC risk index (a score of 21 or more) identifies lower-risk febrile neutropenia. [[Klastersky2000MASCC]]</p></div>
+    <div class="card"><span class="tag rx">No working spleen</span><h4>Asplenia</h4><p>In a review of 19,680 people after splenectomy, infection occurred in 3.2% and death in 1.4% over a median 6.9 years, highest in thalassaemia major (8.2%) and sickle-cell anaemia (7.3%). [[Bisharat2001Splenectomy]] People having chemotherapy, and people without a working spleen, should know who to call straight away if they get a fever. [[Taplitz2018FN,Bisharat2001Splenectomy]]</p></div>
+    <div class="card"><span class="tag dx">Older adults</span><h4>Urine tests without symptoms</h4><p>Asymptomatic bacteriuria in older women is transient, often clears by itself, is not linked to illness or death, and should not be treated. [[Mody2014UTI]] IDSA (2019) recommends screening for and treating it only in pregnancy or before invasive urological procedures; unnecessary treatment drives antimicrobial resistance. [[Nicolle2019ASB]] Diagnosing a symptomatic UTI needs symptoms such as fever, new urgency, painful urination or flank pain, plus laboratory evidence. [[Mody2014UTI]]</p></div>
+  </div>
+
+  <h3 class="sub">Knowing the signs: meningococcal disease in children</h3>
+  <p>In 448 UK children with meningococcal disease, most had only non-specific symptoms for the first 4–6 hours, but many were close to death by 24 hours. The classic signs (a haemorrhagic rash, neck stiffness, impaired consciousness) appeared late, at a median of 13–22 hours. Earlier sepsis signs (leg pains, cold hands and feet, abnormal skin colour) appeared in 72%, at a median of 8 hours. Only 51% were sent to hospital after the first consultation. [[Thompson2006Meningococcal]] Drag through the first day:</p>
+  <div class="stage">
+    <svg id="pvMgSvg" viewBox="0 0 720 270" role="img" aria-label="The first 24 hours of meningococcal disease in children, from a UK study of 448 children. A child figure sits beside a timeline. From 0 to about 4 to 6 hours there are only non-specific symptoms. Around a median of 8 hours, early sepsis signs appear: leg pains, cold hands and feet, and abnormal skin colour, shown as the hands and feet turning pale blue and the skin mottling. The classic signs (rash, neck stiffness, confusion) appear late, at a median of 13 to 22 hours, and median hospital admission was at 19 hours. By 24 hours many children were close to death."></svg>
+    <div class="ctrls"><button class="btn primary" id="pvMgPlay">Play</button><label class="stage-cap tl" for="pvMgT">Hours since first symptoms <input type="range" id="pvMgT" min="0" max="1" step="0.001" value="0.12"></label></div>
+    <p class="stage-cap" id="pvMgCap" aria-live="polite"></p>
+    <p class="stage-cap">Medians from one study; timing in a single child varies, and some children become ill faster. Not a tool for deciding whether to seek care. [[Thompson2006Meningococcal]]</p>
+  </div>
+
+  <h3 class="sub">Awareness and equity</h3>
+  <p>In a 2009 telephone survey of 6,021 people, on average 88% in Italy, Spain, the UK, France and the US had never heard the word "sepsis" (in Germany, 53% knew it). [[Rubulotta2009Awareness]] In a 2023 Australian poll of 3,352 parents, 61.6% had heard of sepsis, but only 27.8% of those thought they could recognise it in their child, and 37.3% would consider calling an ambulance. [[Peters2023Awareness]] After WHO's "STOP SEPSIS!" maternal sepsis campaign for health workers in 46 countries, the share who had never heard of maternal sepsis fell by 63.4%. [[Brizuela2020STOPSEPSIS]]</p>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>Do awareness campaigns save lives?</h4><p>The evidence so far is mostly surveys of knowledge and before-and-after recognition of campaigns; no outcome trials were found. [[Rubulotta2009Awareness,Peters2023Awareness,Brizuela2020STOPSEPSIS]]</p></div>
+    <div class="card"><span class="tag rec">In plain words</span><h4>Ask: could this be sepsis?</h4><p>Knowing the word helps. If someone with an infection gets much worse, asking "could this be sepsis?" puts the question on the table. See <a href="#recognise" data-go="recognise">Recognising sepsis</a>.</p></div>
+  </div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>Sepsis is a medical emergency. If someone with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
 </section>

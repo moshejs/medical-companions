@@ -1,5 +1,106 @@
-<!-- ================= 1.3 VESSELS, CLOTTING & FAILING ORGANS (stub, replaced by its builder) ================= -->
+<!-- ================= 1.3 VESSELS, CLOTTING & FAILING ORGANS ================= -->
+<style>
+#m-endothelium svg[data-mode=n] .t-xs{font-size:11px}
+#m-endothelium svg[data-mode=n] .t-sm{font-size:12px}
+#m-endothelium .card>.tag,#m-endothelium .card>.ev{align-self:flex-start}
+#m-endothelium .tbl table{min-width:640px}
+#m-endothelium .calc input[type=number]{width:100%}
+#m-endothelium .enout{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+#m-endothelium .enout .card{gap:6px}
+#m-endothelium .enout .big-num{font-size:34px}
+#m-endothelium .enout small{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+</style>
 <section class="mod" id="m-endothelium" data-mod="endothelium" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding sepsis &amp; shock</p><h2>Vessels, clotting &amp; failing organs</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Sepsis affects almost every job the inner lining of the blood vessels does: vessel tone, the barrier, inflammation and clotting. Endothelial dysfunction is thought to be the key step from sepsis to organ failure. [[Ince2016Endothelium]] Scrub from a healthy lining to leak, microclots, stalled capillaries and failing organs, and back to recovery.</p></div>
+
+  <div class="stepper" id="enSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="enSvg" viewBox="0 0 720 400" role="img" aria-label="A small blood vessel in long section, a capillary bed, a lactate tube and six organ systems, in seven phases. The vessel's lining carries a fringe of glycocalyx, which thins and disappears; gaps open between the lining cells, fluid drops leak into the tissue, which swells, and the vessel widens as it relaxes; dark microclots with platelets stick to the wall; in the capillary bed, capillaries block one by one until about half carry no blood, while the lactate tube rises; the lungs, kidneys, brain, heart, liver and clotting system dim and are labelled failing; in the last phase the lining, the capillaries and the organs recover."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="enPlay">Play</button><label class="stage-cap tl" for="enT">Phase <input type="range" id="enT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="enRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The capillary bed shows the published direction of change (perfused small vessels 48% in severe sepsis vs 90% in volunteers) with five capillaries, not to scale; the lactate tube carries no numbers. [[DeBacker2002]] The order of organs is drawn, not measured.</p>
+    </div>
+    <aside class="note" id="enNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The glycocalyx and the leak</h3>
+  <div class="cards">
+    <div class="card"><span class="tag">Structure</span><h4>A gel on the inside of every vessel</h4><p>The glycocalyx is about 0.5–5.0 μm thick in humans, made of proteoglycans (syndecan-1 is the most studied), glycosaminoglycans (over half heparan sulfate) and plasma proteins. It controls permeability and tone, prevents microvascular thrombosis and regulates white-cell adhesion. [[Uchimido2019]]</p></div>
+    <div class="card"><span class="tag accent">Shedding</span><h4>Enzymes strip it off</h4><p>Metalloproteinases, heparanase and hyaluronidase, activated by reactive oxygen species, TNF-α and IL-1β, shed the glycocalyx, causing leaky vessels, unregulated vasodilation, microthrombi and more leukocyte adhesion. In volunteers given low-dose endotoxin, sublingual glycocalyx thickness fell from 0.60 to 0.30 μm. [[Uchimido2019]]</p></div>
+    <div class="card"><span class="tag dx">Marker</span><h4>Syndecan-1 in the blood</h4><p>In a meta-analysis of 2,318 patients, baseline syndecan-1 (a shed glycocalyx protein) was higher in people who died (SMD 0.53), in septic shock (SMD 0.81) and in acute kidney injury (SMD 0.48). [[Sun2022SDC1]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Can fluids make it worse?</h4><p>Over-aggressive fluid therapy may worsen glycocalyx degradation, while plasma and albumin may lessen it. These effects are not yet well understood. [[Uchimido2019]] The fluid trials are in <a href="#fluids" data-go="fluids">Fluids</a>.</p></div>
+  </div>
+  <div class="prose">
+    <p>Pro-inflammatory proteases make endothelial cells internalise VE-cadherin and lose their tight junctions. Leaky capillaries lose large amounts of protein and plasma into the tissues, causing oedema. [[Hotchkiss2016NRDP]] At the same time, diffuse vasodilation throughout the microcirculation causes distributive shock, in which blood pressure may not recover with fluids alone. [[Hotchkiss2016NRDP]]</p>
+    <p>Vasodilatory shock (vasoplegia, failure of the vessels to constrict) is classically attributed to nitric oxide, activation of ATP-sensitive potassium channels in vascular smooth muscle and relative vasopressin deficiency. <span class="ev est">Established</span> [[Landry2001]] Upregulation of inducible nitric oxide synthase may link inflammation to cardiovascular collapse. [[Hotchkiss2016NRDP]] Yet blocking nitric oxide does not help: the non-selective inhibitor 546C88 raised blood pressure but increased mortality (59% vs 49%). [[Lopez2004NOS]] How pressure, flow and tone fit together: <a href="#shock" data-go="shock">Shock and haemodynamics</a>.</p>
+  </div>
+
+  <h3 class="sub">When the smallest vessels stop flowing</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Under the tongue</span><h4>Half the small vessels</h4><p>Filming the tiny vessels under the tongue in 50 people with severe sepsis, perfused small vessels (&lt; 20 μm) were 48% vs 90% in healthy volunteers, and changes were worse in people who died. Topical acetylcholine fully reversed them. [[DeBacker2002]]</p></div>
+    <div class="card"><span class="tag dx">Over time</span><h4>Survivors recover their flow</h4><p>In 46 people with septic shock filmed daily, perfused small vessels were similar at onset (65.0% vs 58.4%) and improved only in survivors. People who later died of multiple organ failure still had fewer perfused vessels after shock resolved (57.4% vs 79.3%), despite similar blood pressure. [[Sakr2004]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Cells that cannot use oxygen</h4><p>Cytopathic hypoxia is reduced oxygen use from an acquired defect in cellular respiration rather than poor delivery, perhaps through nitric oxide, peroxynitrite and NAD+ depletion. [[Fink2002]] In muscle biopsies from 28 people with sepsis, ATP was lower in those who died, and complex I activity fell as noradrenaline needs rose. [[Brealey2002]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Kidney injury without low flow</h4><p>A "unified theory" proposes that inflammation, microvascular dysfunction and a mostly adaptive, mitochondria-driven tubular-cell response explain septic acute kidney injury, which can occur with normal or even increased renal blood flow. [[Gomez2014]]</p></div>
+  </div>
+  <div class="prose">
+    <p><b>Lactate is not only a sign of low oxygen.</b> Lactate above 2 mmol/L is part of the Sepsis-3 septic-shock criteria. [[Singer2016Sepsis3]] But in 14 people with septic shock, muscle lactate exceeded arterial lactate by a mean 1.98 mmol/L, and ouabain, which blocks the Na⁺/K⁺ pump, stopped that excess production; the lactate-to-pyruvate ratio was unchanged. [[Levy2005Lactate]] This fits the idea that adrenaline-driven aerobic glycolysis in muscle, not only hypoperfusion, raises lactate. [[James1999Lactate]] A 2014 review concluded that sepsis-associated hyperlactataemia is better explained by stress-driven glycolysis than by tissue hypoxia alone, and may even be adaptive, yet it remains a strong independent predictor of death. [[GarciaAlvarez2014]] The lactate test itself: <a href="#tests" data-go="tests">Lactate, cultures, procalcitonin &amp; tests</a>.</p>
+  </div>
+
+  <h3 class="sub">Clotting: from sepsis-induced coagulopathy to DIC</h3>
+  <div class="prose">
+    <p>Severe sepsis is almost always accompanied by systemic activation of coagulation. Tissue factor on activated monocytes and endothelial cells starts thrombin generation and tissue factor pathway inhibitor does not keep up; the protein C system is impaired by cytokines; and clot breakdown is blocked, mainly by raised plasminogen activator inhibitor-1. More fibrin and less clearance means microvascular clots, tissue ischaemia and organ dysfunction. [[Levi2017Coag]] Antithrombin, activated protein C and endothelial heparan sulfate all fall. [[Hotchkiss2016NRDP]] Because clotting factors are used up, the same patient can have clots and bleeding. [[Levi2017Coag]]</p>
+    <p>Two published scores describe this. The ISTH overt DIC score (2001) captures late, decompensated disease; sepsis-induced coagulopathy (SIC), adopted by the ISTH in 2019, aims to detect an earlier, compensated stage. [[Taylor2001DIC,Iba2017SIC,Iba2019SIC,Iba2023DIC]] Antithrombin activity is reduced in SIC and DIC but usually maintained in thrombotic microangiopathies (TTP, aHUS), which helps tell them apart. [[Iba2023DIC]]</p>
+  </div>
+  <div class="teach" role="note"><b>Teaching tool</b>These scores are quoted as published so students can see how they are built. They are not for diagnosing anyone or deciding on treatment, and laboratory results must be read by the clinical team.</div>
+  <div class="calc" id="enCalc">
+    <label for="enPlt">Platelet count (×10⁹/L)<input type="number" id="enPlt" min="0" max="1000" step="1" value="120"></label>
+    <label for="enInr">PT-INR (for SIC)<input type="number" id="enInr" min="0.5" max="10" step="0.05" value="1.3"></label>
+    <label for="enSofa">"Total SOFA" for SIC (respiratory + cardiovascular + hepatic + renal, capped at 2)
+      <select id="enSofa"><option value="0">0</option><option value="1">1</option><option value="2" selected>2 or more</option></select></label>
+    <label for="enPt">PT prolongation, seconds (for DIC)<input type="number" id="enPt" min="0" max="60" step="0.5" value="2"></label>
+    <label for="enFib">Fibrin-related marker (e.g. D-dimer, FDP)
+      <select id="enFib"><option value="0">not increased</option><option value="2" selected>moderate increase</option><option value="3">strong increase</option></select></label>
+    <label for="enFbg">Fibrinogen (g/L)<input type="number" id="enFbg" min="0" max="10" step="0.1" value="2.5"></label>
+  </div>
+  <div class="enout" id="enOut"></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Score (as tabulated)</th><th>Items and points</th><th>Threshold</th></tr></thead>
+    <tbody>
+      <tr><th>SIC (Iba 2017; derived in 1,498 Japanese patients)</th><td>PT-INR: ≤ 1.2 = 0, &gt; 1.2 = 1, &gt; 1.4 = 2 · platelets: ≥ 150 = 0, &lt; 150 = 1, &lt; 100 × 10⁹/L = 2 · "total SOFA" (four organ items, capped at 2): 0, 1 or 2</td><td>Total ≥ 4 and PT plus platelet points &gt; 2. 28-day mortality 38.4% with SIC vs 26.5% without. [[Iba2017SIC]]</td></tr>
+      <tr><th>ISTH overt DIC (Taylor 2001)</th><td>Platelets: &lt; 50 = 2, 50 to &lt; 100 = 1 · fibrin-related marker: strong increase = 3, moderate = 2 · PT prolongation: ≥ 6 s = 2, 3 to &lt; 6 s = 1 · fibrinogen &lt; 1 g/L = 1</td><td>Total ≥ 5 is compatible with overt DIC. [[Taylor2001DIC,Iba2023DIC]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Definition, one Sepsis-3 cohort of 296 people</th><th>Prevalence</th><th>28-day mortality</th></tr></thead>
+    <tbody>
+      <tr><th>Overt DIC (ISTH)</th><td>22.6%</td><td>55.2%</td></tr>
+      <tr><th>Modified JAAM DIC</th><td>43.2%</td><td>47.7%</td></tr>
+      <tr><th>SIC</th><td>56.1%</td><td>44.0%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">As summarised by Iba 2023; how common "DIC" looks depends on the definition. Population statistics. [[Iba2023DIC]]</p>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Rare, severe</span><h4>Purpura fulminans</h4><p>Haemorrhagic skin infarction from DIC and clots in the small skin vessels, linked to depletion of protein C. Meningococcal sepsis is the commonest cause, then pneumococcal sepsis in adults. Mortality is over 50%, and amputation or skin grafting is often needed. [[Betrosian2006]]</p></div>
+    <div class="card"><span class="tag accent">Trials</span><h4>Anticoagulants have not helped</h4><p>High-dose antithrombin (38.9% vs 38.7% mortality, more bleeding with heparin), recombinant thrombomodulin (26.8% vs 29.4%, P = .32) and activated protein C all failed in broad sepsis populations, partly, reviewers suggest, because many patients were not coagulopathic. No anticoagulant is established for sepsis-associated coagulopathy outside trials. [[Warren2001KyberSept,Vincent2019SCARLET,Ranieri2012PROWESSSHOCK,Iba2023DIC]]</p></div>
+    <div class="card"><span class="tag">Platelets</span><h4>Low platelets, more bleeding</h4><p>In 329 ICU patients, 41.3% had platelets below 150 × 10⁹/L (crude OR 5.0 for ICU death). Bleeding occurred in 4.1% without thrombocytopenia, 21.4% at 101–149 and 52.6% below 100 × 10⁹/L; a fall to half the admission count or less carried OR 6.0 for death. [[Vanderschueren2000]]</p></div>
+  </div>
+
+  <h3 class="sub">Organ by organ</h3>
+  <div class="prose"><p>SOFA scores six organ systems, each from 0 (no dysfunction) to 4 (failure), for a total of 0–24. [[Vincent1996SOFA,GiamarellosBourboulis2026ImmunoSep]] In the first multicentre SOFA study, total SOFA rose during the stay in 44% of non-survivors vs 20% of survivors. [[Vincent1998SOFA]] Sepsis-3 counts an acute rise of 2 points or more as organ dysfunction. [[Singer2016Sepsis3]] Mechanisms include immune suppression, mitochondrial dysfunction, altered cell death, organ-to-organ crosstalk and microcirculatory failure. [[Lelubre2018]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>System</th><th>What happens</th><th>Numbers (population statistics)</th></tr></thead>
+    <tbody>
+      <tr><th>Lungs</th><td>Acute respiratory distress syndrome (ARDS), graded by PaO2/FiO2 (Berlin 2012): mild 200–300, moderate 100–200, severe ≤ 100 mm Hg. A hyperinflammatory subphenotype has more sepsis and higher mortality. <span class="ev early">Early evidence</span> [[ARDS2012Berlin,Calfee2014]]</td><td>Mortality 27%, 32% and 45% by severity. ARDS was 10.4% of ICU admissions in LUNG SAFE and was recognised in only 51.3% of mild cases. [[ARDS2012Berlin,Bellani2016LUNGSAFE]]</td></tr>
+      <tr><th>Kidneys</th><td>Sepsis-associated acute kidney injury, one of the commonest organ injuries in sepsis, adding to short- and long-term harm. [[Poston2019]]</td><td>Acute renal failure in 5.7% of 29,269 ICU patients; septic shock was the commonest contributor (47.5%); hospital mortality 60.3%. [[Uchino2005]]</td></tr>
+      <tr><th>Brain</th><td>Sepsis-associated encephalopathy: diffuse brain dysfunction from infection elsewhere, from mild delirium to deep coma. [[Gofton2012]]</td><td>Up to 70% of people with severe systemic infection. [[Gofton2012]] Mortality rose as the Glasgow Coma Score fell: 16% at 15, 20% at 13–14, 50% at 9–12, 63% at 3–8 (50 people). [[Eidelman1996]]</td></tr>
+      <tr><th>Heart and circulation</th><td>"Profound but reversible myocardial depression": low ejection fraction with dilated ventricles, even when cardiac index is normal or high. [[Parker1984]]</td><td>10 of 20 people with septic shock had EF below 0.40; survivors' EF and volumes returned to normal in about 10 days. [[Parker1984]]</td></tr>
+      <tr><th>Liver</th><td>The liver defends (clearing bacteria, making acute-phase proteins) and is injured (hypoxic hepatitis, cholestasis, drug toxicity). [[Strnad2017]]</td><td>Early hepatic dysfunction in 10.9% of 38,036 ICU admissions; hospital mortality 30.4% vs 16.4%, OR 1.86, higher than any other organ dysfunction. [[Kramer2007]]</td></tr>
+      <tr><th>Clotting</th><td>Consumption of platelets and clotting factors, microclots, SIC and DIC (above). [[Levi2017Coag]]</td><td>Platelets &lt; 150 × 10⁹/L in 41.3% of ICU patients. [[Vanderschueren2000]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="pt" role="note"><b>In plain words</b>The inside of blood vessels has a thin, gel-like lining. Sepsis strips it away, so vessels leak fluid into the tissues and swelling builds up. Blood can clot in small vessels while clotting factors are used up, which can cause both clots and bleeding. The tiniest vessels can stop flowing well even when blood pressure looks normal, and organs such as the lungs, kidneys and brain start to struggle. In people who recover, flow improves and the heart usually recovers within about 10 days. Confusion or drowsiness during an infection needs urgent medical attention. [[Uchimido2019,Levi2017Coag,Sakr2004,Parker1984,Gofton2012]]</div>
+  <p class="crisis" role="note"><b>Call now</b><span>Sepsis is a medical emergency. If someone with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
 </section>

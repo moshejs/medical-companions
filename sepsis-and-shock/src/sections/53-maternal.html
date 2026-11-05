@@ -1,5 +1,120 @@
-<!-- ================= 5.3 SEPSIS IN PREGNANCY AND AFTER BIRTH (stub, replaced by its builder) ================= -->
+<!-- ================= 5.3 SEPSIS IN PREGNANCY AND AFTER BIRTH ================= -->
+<style>
+#m-maternal td.num{font-family:var(--mono);white-space:nowrap}
+#m-maternal .card>.tag,#m-maternal .card>.ev{align-self:flex-start}
+#m-maternal .mtpick{display:flex;flex-wrap:wrap;gap:8px}
+#m-maternal .mtq{margin:0;padding-left:1.2em;max-width:78ch}
+#m-maternal .mtq li{margin:.3em 0}
+</style>
 <section class="mod" id="m-maternal" data-mod="maternal" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Special situations &amp; recovery</p><h2>Sepsis in pregnancy and after birth</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Pregnancy changes the heart rate, breathing and blood pressure, so the early signs of sepsis can hide in plain sight. See why, how often maternal sepsis happens worldwide, how fast group A streptococcus can move, and which trials have prevented infection around birth.</p></div>
+  <p class="callnow"><b>Call now</b><span>Sepsis is a medical emergency. If someone who is pregnant, has recently given birth or has had a miscarriage or abortion becomes very unwell, with or without a fever (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
+  <p class="prose">The WHO 2017 consensus definition: "Maternal sepsis is a life-threatening condition defined as organ dysfunction resulting from infection during pregnancy, child-birth, post-abortion, or post-partum period". [[Bonet2017Maternal]]</p>
+
+  <h3 class="sub">Why pregnancy can hide sepsis</h3>
+  <div class="stepper" id="mtSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="mtSvg" viewBox="0 0 720 380" role="img" aria-label="Five tracks show how normal pregnancy shifts the body's baseline: heart rate up 10 to 20 beats per minute, breathing (minute ventilation) up 40 to 50 percent, blood pressure lower in the first and second trimesters, vascular resistance down 25 to 30 percent and cardiac output up about 40 percent. Then ember arrows show early sepsis pushing heart rate, breathing and blood pressure the same way, so the signs overlap. Next, blood test shifts appear: plasma volume up 50 percent, lower haemoglobin, platelets of 100 to 150 in some women, and bicarbonate of 18 to 22. Then two grids of 100 dots show the published accuracy of the MEOWS warning chart. Finally a timeline shows that for half of women with group A streptococcal infection less than 2 hours passed from the first sign to severe sepsis, and for three quarters less than 9 hours."></svg>
+      <div class="ctrls"><button class="btn primary" id="mtPlay">Play</button><label class="stage-cap tl" for="mtT">Story <input type="range" id="mtT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap">Bar lengths are schematic; the changes and percentages are as published. [[SomaPillay2016,Singh2012MEOWS,Acosta2014UK]]</p>
+    </div>
+    <aside class="note" id="mtNote" aria-live="polite"></aside>
+  </div>
+  <p class="prose">SMFM 2023 recommends that clinicians consider sepsis in pregnant or postpartum patients with otherwise unexplained end-organ damage and a suspected or confirmed infection "regardless of the presence of fever" (GRADE 1C). [[SMFM2023Sepsis]]</p>
+
+  <h3 class="sub">How common it is</h3>
+  <div class="stepper" id="mbSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="mbSvg" viewBox="0 0 720 300" role="img" aria-label="Three scenes. First, bars of the share of maternal deaths worldwide by cause: haemorrhage 27.1 percent, hypertensive disorders 14.0 percent and sepsis 10.7 percent. Second, a grid of 1,000 dots standing for live births, with 70 lit for women in hospital with a maternal infection and 11 of those darker for infection-related death or near-miss. Third, one dark figure for a maternal sepsis death in the UK surrounded by 50 lighter figures for women with life-threatening sepsis illness."></svg>
+      <div class="ctrls"><button class="btn primary" id="mbPlay">Play</button><label class="stage-cap tl" for="mbT">Burden <input type="range" id="mbT" min="0" max="1" step="0.001" value="0.15"></label></div>
+      <p class="stage-cap">Population figures from the studies named; they say nothing about any one pregnancy. [[Say2014Causes,GLOSS2020,Acosta2014UK]]</p>
+    </div>
+    <aside class="note" id="mbNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag rec">UK</span><h4>The leading direct cause, 2006–08</h4><p>In the UK confidential enquiry for 2006–08, sepsis became "the most common cause of Direct maternal death". The sepsis mortality rate rose from 0.85 to 1.13 per 100,000 maternities, particularly from community-acquired group A streptococcal disease, and care was substandard in 70% of Direct deaths. [[Cantwell2011CMACE]]</p></div>
+    <div class="card"><span class="tag rec">US</span><h4>Rare, but rising</h4><p>Among about 45 million US delivery hospitalisations (1998–2008), sepsis complicated 1 in 3,333 deliveries, severe sepsis 1 in 10,823 and sepsis-related death 1 in 105,263, and severe sepsis and deaths were increasing. In Michigan, sepsis caused 15% of pregnancy-related deaths, with delays in antibiotics in 73% of reviewed cases. [[Bauer2013Delivery,Bauer2015Michigan]]</p></div>
+    <div class="card"><span class="tag rec">Worldwide</span><h4>Gaps in basic care</h4><p>In GLOSS, only 63.9% of women had a complete set of vital signs recorded, and 70.2% received antimicrobials on the day infection was suspected or diagnosed. Infection-related deaths made up more than half of in-hospital maternal deaths. [[GLOSS2020]]</p></div>
+    <div class="card"><span class="tag rec">Global</span><h4>Among all sepsis</h4><p>In the Global Burden of Disease 2017 analysis, maternal disorders were the leading non-communicable cause of sepsis cases (5.7 million cases). A 2025 review says maternal sepsis rates are increasing. [[Rudd2020GBD,Yahya2025Maternal]]</p></div>
+  </div>
+
+  <h3 class="sub">Where infections start, and who is at higher risk</h3>
+  <div class="split2">
+    <div>
+      <p class="prose">In GLOSS's pregnancy-related infections (1,456 women), the genital tract (51.2%) and urinary tract (36.5%) were the commonest sources. E. coli caused 87.3% of identified urinary infections, and 13.1% of women did not get antibiotics on the day infection was suspected. [[RibeiroDoValle2024GLOSS]]</p>
+      <p class="prose">In the UK case-control study (2011–12; 365 cases), severe maternal sepsis occurred in 4.7 per 10,000 maternities; 19.5% developed septic shock and 1.4% (5 women) died. Genital tract infection (31.0%) and E. coli (21.1%) were the commonest source and organism, and the median time from delivery to sepsis was 3 days. [[Acosta2014UK]]</p>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>Risk factor (UKOSS 2011–12)</th><th>Adjusted OR</th></tr></thead>
+      <tbody>
+        <tr><td>Febrile illness or antibiotics in the previous 2 weeks</td><td class="num">12.07</td></tr>
+        <tr><td>Caesarean after labour had started</td><td class="num">8.06</td></tr>
+        <tr><td>Pre-labour caesarean</td><td class="num">3.83</td></tr>
+        <tr><td>Operative vaginal delivery</td><td class="num">2.49</td></tr>
+        <tr><td>Black or other minority ethnicity</td><td class="num">1.82</td></tr>
+        <tr><td>First birth (primiparity)</td><td class="num">1.60</td></tr>
+      </tbody></table><p class="stage-cap">Associations in one national study, not causes, and not blame. [[Acosta2014UK]]</p></div>
+  </div>
+
+  <h3 class="sub">Group A streptococcus</h3>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Incidence</span><h4>About 20-fold higher after birth</h4><p>In US surveillance (2007–09), postpartum women had invasive group A streptococcus (GAS) at 0.56 per 1,000 woman-years, against 0.019 in non-pregnant women; the authors describe a roughly 20-fold higher incidence of GAS and GBS. [[Deutscher2011Strep]]</p></div>
+    <div class="card"><span class="tag bad">Speed</span><h4>Hours, not days</h4><p>In UKOSS, GAS infection was associated with progression to septic shock (aOR 4.84, 2.17–10.78), and for half of women with GAS less than 2 hours passed between the first sign of a systemic inflammatory response and severe sepsis. The authors conclude that such signs, "particularly with confirmed or suspected group A streptococcal infection, should be regarded as an obstetric emergency". [[Acosta2014UK]]</p></div>
+    <div class="card"><span class="tag bad">Still today</span><h4>Not only a historical disease</h4><p>GAS puerperal sepsis remains an important cause of maternal and infant death worldwide, including in countries with modern antibiotics and intensive care. <button class="btn ghost" data-go="history">From Semmelweis →</button> [[Hamilton2013GAS]]</p></div>
+  </div>
+
+  <h3 class="sub">Warning charts and scores</h3>
+  <p class="teach"><b>Teaching only</b>Obstetric warning charts are tools for staff watching for deterioration in hospital. They are not for checking yourself at home, and no single score is enough on its own. If you are worried, seek help. [[Chimwaza2025EWS,SMFM2023Sepsis]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Tool</th><th>Study</th><th>Accuracy as published</th></tr></thead>
+    <tbody>
+      <tr><td><b>MEOWS</b> (modified early obstetric warning system)</td><td>676 consecutive obstetric admissions; recommended for all obstetric inpatients by the UK 2003–05 enquiry</td><td>Sensitivity 89%, specificity 79%, PPV 39%, NPV 98% for morbidity [[Singh2012MEOWS]]</td></tr>
+      <tr><td><b>Maternal Early Warning Criteria</b></td><td>US National Partnership for Maternal Safety proposal</td><td>Abnormal parameters that should prompt urgent bedside review by a clinician able to escalate care [[Mhyre2014MEWC]]</td></tr>
+      <tr><td><b>Sepsis in Obstetrics Score</b> (S.O.S., maximum 28)</td><td>Derived in 850 ED patients; validated in 425 pregnant or postpartum women with suspected infection</td><td>Derivation, ≥6: sensitivity 88.9%, specificity 95.2%, PPV 16.7%, NPV 99.9% for ICU admission. Validation: AUC 0.85, ≥6 sensitivity 64%, specificity 88%, NPV 98.6%; only 5.6% of high scorers got antibiotics within 1 h [[Albright2014SOS,Albright2017SOS]]</td></tr>
+      <tr><td><b>Six obstetric scores</b></td><td>364 women with chorioamnionitis</td><td>Sensitivities 40–100%, specificities 4–97% for severe sepsis; every PPV below 15% [[Edwards2015MOEWS]]</td></tr>
+      <tr><td><b>21 early warning systems</b></td><td>GLOSS secondary analysis, 2,560 women in 46 countries</td><td>Obstetric- and sepsis-specific scores did better than general ones, but "no score demonstrated enough diagnostic accuracy to be used alone to identify sepsis" [[Chimwaza2025EWS]]</td></tr>
+    </tbody></table></div>
+  <p class="prose">In that GLOSS analysis, the NICE risk stratification tool, the modified shock index, maternity SIRS and Early Maternal Infection Prompts were highly sensitive (88.1–97.5%), while qSOFA in pregnancy and obstetrically modified SOFA were highly specific (90.4–100%). The SOMANZ 2023 position statement abandoned qSOFA for diagnosing sepsis in pregnancy, and SMFM 2023 recommends that institutions develop their own detection protocols, "avoiding the use of a single screening tool alone" (GRADE 1B). [[Chimwaza2025EWS,Bowyer2025SOMANZ,SMFM2023Sepsis]]</p>
+
+  <h3 class="sub">Treatment statements, as published</h3>
+  <p class="prose">These are guideline statements quoted from SMFM 2023, not instructions. [[SMFM2023Sepsis]]</p>
+  <ul class="mtq">
+    <li>Sepsis and septic shock in pregnancy are medical emergencies, and treatment and resuscitation should begin immediately (best practice). [[SMFM2023Sepsis]]</li>
+    <li>Obtain a serum lactate in pregnant or postpartum patients with suspected sepsis (GRADE 1B), and cultures, including blood, before antimicrobials "as long as there are no substantial delays in timely administration of antibiotics" (best practice). [[SMFM2023Sepsis]]</li>
+    <li>Empiric broad-spectrum antimicrobials in septic shock or a high likelihood of sepsis, "ideally within 1 hour of recognition" (GRADE 1C). [[SMFM2023Sepsis]]</li>
+    <li>Early IV balanced crystalloid, 1 to 2 L within the first 3 hours, in sepsis with hypotension or suspected hypoperfusion (GRADE 1C): a smaller fixed volume than the SSC adult suggestion of 30 mL/kg. [[SMFM2023Sepsis,Evans2021SSC]]</li>
+    <li>Norepinephrine (noradrenaline) as the first-line vasopressor (GRADE 1C), and pharmacologic VTE prophylaxis in septic shock (GRADE 1B). [[SMFM2023Sepsis]]</li>
+    <li>If a uterine source is suspected or confirmed, "prompt delivery or evacuation of uterine contents to achieve source control, regardless of gestational age" (GRADE 1C). [[SMFM2023Sepsis]]</li>
+  </ul>
+  <p class="prose">In the S.O.S. derivation cohort, a score of 6 or more was also independently associated with fetal tachycardia. SOMANZ 2017 was the first Australian and New Zealand guideline for sepsis in pregnancy and after birth, covering obstetric considerations for anaesthesia and intensive care. [[Albright2014SOS,Bowyer2017SOMANZ]]</p>
+
+  <h3 class="sub">Preventing infection around birth: the trials</h3>
+  <div class="mtpick" id="mvPick" role="group" aria-label="Choose a trial">
+    <button class="btn" data-mv="anode" aria-pressed="true">ANODE: after assisted birth</button>
+    <button class="btn" data-mv="csoap" aria-pressed="false">C/SOAP: caesarean</button>
+    <button class="btn" data-mv="aplus" aria-pressed="false">A-PLUS: in labour</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="mvSvg" viewBox="0 0 720 260" role="img" aria-label="Two dot grids compare infection in the two arms of the chosen trial. ANODE: 19 of 100 women with confirmed or suspected infection without the antibiotic dose against 11 of 100 with one IV dose of amoxicillin-clavulanate. C/SOAP: 12.0 against 6.1 of 100 with azithromycin added. A-PLUS: 24 against 16 of 1,000 with maternal sepsis or death after a single oral dose of azithromycin."></svg>
+    </div>
+    <aside class="note" id="mvNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Group B streptococcus</h4><p>Without intrapartum antibiotic prophylaxis, about 50% of GBS-colonised women pass the bacteria to their newborns, and 1–2% of those newborns develop early-onset GBS disease. ACOG (2020) recommends universal GBS screening at 36 0/7 to 37 6/7 weeks and intrapartum prophylaxis for a positive culture unless a prelabour caesarean is done with intact membranes, as published. [[ACOG2020GBS]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>What prophylaxis achieved</h4><p>As US intrapartum prophylaxis expanded, early-onset GBS disease fell 65%, from 1.7 to 0.6 per 1,000 live births (1993–1998), preventing an estimated 3,900 early-onset infections and 200 newborn deaths in 1998. ACOG notes 4 or more hours of prophylaxis is more effective, but obstetric care should not be delayed only to reach 4 hours. <button class="btn ghost" data-go="children">Newborn sepsis →</button> [[Schrag2000GBS,ACOG2020GBS]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Awareness among health workers</h4><p>After WHO's "STOP SEPSIS!" maternal awareness campaign for health workers in 46 countries, the share who had never heard of maternal sepsis fell by 63.4% (before-and-after surveys). [[Brizuela2020STOPSEPSIS]]</p></div>
+  </div>
+
+  <p class="gentle"><b>After maternal sepsis</b>SMFM 2023 recommends ongoing comprehensive support for pregnant and postpartum sepsis survivors and their families (best practice). Recovery can take time, and many people find it helps to talk it through with their care team. <button class="btn ghost" data-go="after">After sepsis: recovery &amp; families →</button> [[SMFM2023Sepsis]]</p>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rec">Unresolved</span><h4>Which warning score?</h4><p>Scores vary widely in thresholds and accuracy, SOMANZ dropped qSOFA, and SMFM advises against relying on any single tool: there is no validated universal tool. [[Edwards2015MOEWS,Chimwaza2025EWS,Bowyer2025SOMANZ,SMFM2023Sepsis]]</p></div>
+    <div class="card"><span class="tag rec">Debated</span><h4>How much fluid?</h4><p>SMFM proposes 1–2 L in pregnancy, while SSC 2021's 30 mL/kg for adults is a weak suggestion on observational evidence. <button class="btn ghost" data-go="fluids">Fluids →</button> [[SMFM2023Sepsis,Evans2021SSC]]</p></div>
+  </div>
+  <p class="callout">Before this: <button class="btn ghost" data-go="children">Sepsis in babies and children</button> · Next: <button class="btn ghost" data-go="after">After sepsis</button> · Warning signs: <button class="btn ghost" data-go="recognise">Recognising sepsis</button></p>
 </section>

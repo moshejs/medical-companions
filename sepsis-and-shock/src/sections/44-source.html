@@ -1,5 +1,117 @@
-<!-- ================= 4.4 SOURCE CONTROL & ANTIMICROBIAL STEWARDSHIP (stub, replaced by its builder) ================= -->
+<!-- ================= 4.4 SOURCE CONTROL & ANTIMICROBIAL STEWARDSHIP ================= -->
+<style>
+#m-source .card>.ev,#m-source .card>.tag{align-self:flex-start}
+#m-source .tbl{overflow-x:auto}
+#m-source .tbl table{min-width:560px}
+#m-source .sc-map{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:16px;align-items:start}
+@media (max-width:860px){#m-source .sc-map{grid-template-columns:minmax(0,1fr)}}
+#m-source #scMapSvg{width:100%;height:auto;display:block}
+#m-source .sc-btns{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+#m-source .sc-btns .btn{font-size:13px;padding:6px 11px}
+#m-source .sc-btns .btn[aria-pressed="true"]{border-color:var(--brand);background:var(--brand-soft)}
+#m-source .sc-site{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px}
+#m-source .sc-site h4{margin:0 0 6px}
+#m-source .sc-site ul{margin:6px 0 0;padding-left:18px}
+#m-source .sc-site li{margin:3px 0}
+</style>
 <section class="mod" id="m-source" data-mod="source" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Source control &amp; antimicrobial stewardship</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Antibiotics alone cannot clear a pocket of pus, a blocked infected kidney or an infected line. Follow one illustrative patient from the first hour to the last dose: find the source, take cultures, start broad antibiotics, drain the source, then narrow and stop as soon as it is safe.</p></div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>Sepsis is a medical emergency. If someone with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
+
+  <p class="callout">The Surviving Sepsis Campaign (SSC) 2021 asks teams to rapidly identify or exclude an anatomical source of infection that needs emergent source control, and to carry out any needed intervention "as soon as medically and logistically practical" (Best Practice Statement). [[Evans2021SSC]] It also suggests daily assessment for de-escalation, shorter rather than longer courses once the source is controlled, and procalcitonin plus clinical judgement to decide when to stop. [[Evans2021SSC]]</p>
+
+  <div class="stepper" id="scSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="scSvg" viewBox="0 0 720 400" role="img" aria-label="An animated timeline for one illustrative patient with a blocked, infected kidney. On the left a body shows the infected kidney glowing and bacteria multiplying. Two sets of blood culture bottles are drawn, then a broad-spectrum antibiotic starts and a grid of organism groups lights up to show what it covers, with MRSA and Candida cover shown dashed as risk-based choices. A tube is placed to drain the kidney and the bacteria fall. On day 2 the culture bottles turn positive for a gram-negative organism and the antibiotic is narrowed so only that group stays covered, then given as a prolonged infusion. At the bottom a day-by-day bar shows the course, and an illustrative procalcitonin curve falls until it is 80% below its peak, the published stop rule, and the course ends at day 7."></svg>
+      <div class="ctrls"><button class="btn primary" id="scPlay">Play</button><label class="stage-cap tl" for="scT">Time since sepsis was recognised <input type="range" id="scT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="scRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Illustrative patient, schematic.</b> The organism, the bacteria count and the procalcitonin curve are invented to show the sequence. Timings and rules are quoted as published: antimicrobials ideally within 1 h for possible septic shock (SSC 2021) [[Evans2021SSC]]; the SAPS procalcitonin stop rule of a fall of 80% or more from peak, or 0.5 μg/L or lower [[deJong2016SAPS]]; 7 days noninferior to 14 for bloodstream infection in BALANCE [[Daneman2025BALANCE]]. They are teaching facts, not instructions.</p>
+    </div>
+    <aside class="note" id="scNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Where sepsis starts</h3>
+  <div class="prose"><p>Which source is commonest depends on who is counted. In the European SOAP study of adult ICU patients, the lungs were the source in 68% and the abdomen in 22%. [[Vincent2006SOAP]] In BALANCE, a trial of bloodstream infections, the urinary tract led (42.2%), followed by the abdomen, lungs, lines and skin. [[Daneman2025BALANCE]] In US discharge data, respiratory sources were commoner in men (36% vs 29%) and genitourinary sources in women (35% vs 27%). [[Esper2006Disparities]] Pick a source to see what "source control" means there.</p></div>
+  <div class="sc-map">
+    <div>
+      <div class="sc-btns" id="scSet" role="group" aria-label="Which study population"></div>
+      <svg id="scMapSvg" viewBox="0 0 360 300" role="img" aria-label="A body map with five sources of sepsis: lungs, abdomen, urinary tract, skin and soft tissue, and an intravenous line. Bars beside the body show how often each was the source in the chosen study."></svg>
+      <div class="sc-btns" id="scSites" role="group" aria-label="Choose a source of infection"></div>
+    </div>
+    <div class="sc-site" id="scSite" aria-live="polite"></div>
+  </div>
+  <p class="stage-cap">Percentages are from different populations and are not directly comparable: SOAP counted ICU patients with sepsis [[Vincent2006SOAP]]; BALANCE counted adults with bloodstream infection and excluded <i>S. aureus</i> [[Daneman2025BALANCE]]. In a Spanish cohort of 3,663 ICU patients, 32% needed source control, mostly for abdominal, urinary and soft-tissue infections. [[Martinez2017Source]]</p>
+
+  <h3 class="sub">Source control: how fast?</h3>
+  <div class="prose"><p>SSC 2021 found that smaller studies suggest source control within 6–12 hours is advantageous, with survival generally lower beyond that point, and it prefers the least invasive option that works (a needle drain before an open operation, for example). Surgery is considered when other approaches are inadequate or cannot be done in time, or when the diagnosis stays uncertain after imaging. [[Evans2021SSC]] All the timing evidence is observational. <span class="ev early">Early evidence</span></p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Setting</th><th>Earlier</th><th>Later</th><th>What was found</th></tr></thead>
+    <tbody>
+      <tr><th>Necrotising soft tissue infection (meta-analysis, 6,051 patients)</th><td>19% mortality (surgery ≤6 h)</td><td>32% (&gt;6 h)</td><td>OR 0.43 for surgery within 6 h; within 12 h also better than after 12 h (OR 0.41). Overall mortality 21.1%. [[Nawijn2020NSTI]]</td></tr>
+      <tr><th>German ICUs, MEDUSA (422 with source control)</th><td>26.7% (≤6 h after organ dysfunction)</td><td>42.9% (&gt;6 h)</td><td>28-day mortality; median time to surgical source control 3 h. [[Bloos2014Source]]</td></tr>
+      <tr><th>Gut perforation with septic shock (154, one Japanese centre)</th><td colspan="2">Survival 0% when surgery started more than 6 h after admission</td><td>Time to surgery was the main factor in 60-day survival. [[Azuhata2014Perforation]]</td></tr>
+      <tr><th>Spanish ICUs (1,173 with source control)</th><td>26.8% (≤12 h)</td><td>27.6% (&gt;12 h)</td><td>No link between timing beyond 12 h and mortality (p = 0.789); source control overall went with lower adjusted hospital mortality (OR 0.809). [[Martinez2017Source]]</td></tr>
+      <tr><th>Sepsis with a ureteral stone (1,712 US inpatients)</th><td>8.82% (decompressed)</td><td>19.2% (not decompressed)</td><td>Stent or nephrostomy in 78%; adjusted OR 2.6 for death without it. [[Borofsky2013Decompression]]</td></tr>
+      <tr><th>Necrotising fasciitis (89, Singapore)</th><td colspan="2">Only a surgical delay of more than 24 h was linked to higher mortality (relative risk 9.4)</td><td>Only 13 were diagnosed at admission; 70.8% had diabetes. [[Wong2003NecFasc]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Lines</span><h4>Infected intravascular devices</h4><p>SSC 2021 recommends prompt removal of intravascular access devices that are a possible source, after other vascular access has been established (Best Practice Statement). [[Evans2021SSC]] IDSA 2009 lists when long-term catheters should come out: severe sepsis, suppurative thrombophlebitis, endocarditis, bacteraemia persisting beyond 72 h of active therapy, or <i>S. aureus</i>, <i>P. aeruginosa</i>, fungi or mycobacteria (A-II). Short-term catheters should be removed for gram-negative bacilli, <i>S. aureus</i>, enterococci, fungi and mycobacteria (A-II). [[Mermel2009IDSA]]</p></div>
+    <div class="card"><span class="tag rx">Bile ducts</span><h4>Acute cholangitis</h4><p>Tokyo Guidelines 2018: mild cases usually settle with antibiotics; moderate cases are indicated for early endoscopic or percutaneous biliary drainage; severe cases need drainage "as soon as possible" once breathing and circulation have been stabilised. [[Miura2018TG18]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Why the timing debate is open</h4><p>The 6-hour signal comes from MEDUSA, a perforation series and the soft-tissue meta-analysis [[Bloos2014Source,Azuhata2014Perforation,Nawijn2020NSTI]], while the Spanish cohort found no link beyond 12 hours [[Martinez2017Source]]. There is no randomised trial, so SSC settles on "as soon as medically and logistically practical". [[Evans2021SSC]]</p></div>
+  </div>
+
+  <h3 class="sub">The first antibiotic: fast, and broad enough</h3>
+  <div class="prose">
+    <p>SSC 2021 recommends antimicrobials immediately, ideally within 1 hour of recognition, for adults with possible septic shock or a high likelihood of sepsis (strong recommendation). For possible sepsis without shock it suggests a time-limited course of rapid investigation and, if concern persists, antimicrobials within 3 hours (weak recommendation). [[Evans2021SSC]] In 2,154 people with septic shock, effective antimicrobials in the first hour of hypotension went with 79.9% survival to discharge, and each hour of delay over the next 6 hours with an average fall of 7.6%. [[Kumar2006Delay]] More on timing is in <a href="#firsthour" data-go="firsthour">the first hour</a>.</p>
+    <p>Breadth is a balance. In 17,430 adults with culture-positive community-onset sepsis, 67.0% got cover for resistant organisms, but those organisms were uncommon (MRSA 11.7%, ceftriaxone-resistant gram-negatives 13.1%, VRE 2.1%, ESBL 0.8%). Both inadequate (OR 1.19) and unnecessarily broad (OR 1.22) empirical therapy were linked to higher in-hospital mortality. [[Rhee2020Broad]] <span class="ev early">Early evidence</span></p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>SSC 2021, as published</th><th>Evidence behind it</th></tr></thead>
+    <tbody>
+      <tr><th>Cover MRSA?</th><td>Recommended at high MRSA risk (Best Practice Statement); suggested against at low risk (weak).</td><td>MRSA incidence ranges from about 2% in Western Europe to 10% in North America. Risk factors listed include prior MRSA, recent IV antibiotics, recurrent skin infections or chronic wounds, invasive devices, haemodialysis and recent admissions. [[Evans2021SSC]]</td></tr>
+      <tr><th>Two gram-negative drugs?</th><td>Suggested when the risk of multidrug-resistant organisms is high; suggested against when it is low, and once susceptibilities are known (weak, very low quality).</td><td>A Cochrane review of 69 trials found no mortality benefit from adding an aminoglycoside to a beta-lactam (RR 0.97), and much less nephrotoxicity with one drug (RR 0.30). [[Evans2021SSC,Paul2014Cochrane]]</td></tr>
+      <tr><th>Antifungal?</th><td>Suggested at high risk of fungal infection, against at low risk (weak).</td><td>EMPIRICUS: empirical micafungin did not improve 28-day survival free of invasive fungal infection (68% vs 60.2%; HR 1.35, 95% CI 0.87–2.08), though it cut new invasive fungal infections (3% vs 12%). [[Evans2021SSC,Timsit2016EMPIRICUS]]</td></tr>
+      <tr><th>Not sepsis after all?</th><td>Keep looking for other diagnoses and stop empirical antimicrobials if another cause is shown or strongly suspected (Best Practice Statement).</td><td>[[Evans2021SSC]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">How long? Shorter courses and procalcitonin</h3>
+  <div class="prose"><p>Once the source is controlled, trial after trial has found shorter courses as good as longer ones. SSC 2021 suggests shorter rather than longer therapy with adequate source control, and procalcitonin plus clinical evaluation to decide when to stop where the right duration is unclear (both weak recommendations). It suggests against using procalcitonin to decide when to start. [[Evans2021SSC]] <span class="ev est">Established</span></p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Shorter</th><th>Longer</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>BALANCE 2025</th><td>3,608 with bloodstream infection, 74 hospitals</td><td>7 days: 14.5%</td><td>14 days: 16.1%</td><td>90-day mortality; met the 4-point noninferiority margin. Excluded <i>S. aureus</i>, severe immunosuppression and foci needing long therapy. [[Daneman2025BALANCE]]</td></tr>
+      <tr><th>STOP-IT 2015</th><td>518 with complicated intra-abdominal infection and source control</td><td>About 4 days: 21.8%</td><td>Up to 10 days: 22.3%</td><td>Surgical-site infection, recurrence or death; median duration 4 vs 8 days. [[Sawyer2015STOPIT]]</td></tr>
+      <tr><th>Chastre 2003</th><td>401 with ventilator-associated pneumonia</td><td>8 days: 18.8%</td><td>15 days: 17.2%</td><td>28-day mortality similar; more antibiotic-free days (13.1 vs 8.7); Pseudomonas-type organisms recurred more after 8 days (40.6% vs 25.4%). [[Chastre2003VAP]]</td></tr>
+      <tr><th>SAPS 2016</th><td>1,546 ICU patients</td><td>Procalcitonin-guided: 20%</td><td>Standard: 25%</td><td>28-day mortality; median antibiotics 5 vs 7 days. Stop rule: a fall of 80% or more from peak, or 0.5 μg/L or lower. [[deJong2016SAPS]]</td></tr>
+      <tr><th>ADAPT-Sepsis 2025</th><td>2,760 adults in 41 UK ICUs</td><td>Daily procalcitonin: 9.8 days</td><td>Standard: 10.7 days</td><td>Mean antibiotic days; 28-day mortality noninferior (20.9% vs 19.4%). [[Dark2025ADAPT]]</td></tr>
+      <tr><th>PRORATA 2010</th><td>621 ICU patients</td><td>14.3 antibiotic-free days</td><td>11.6</td><td>Day-28 mortality 21.2% vs 20.4%, noninferior. [[Bouadma2010PRORATA]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>De-escalation: safe, useful, or both?</h4><p>SSC 2021 suggests daily assessment for de-escalation over fixed durations without daily review (weak). [[Evans2021SSC]] A systematic review found a pooled mortality RR of 0.68 with de-escalation, but warns this may only reflect that it happens in patients who are already improving. [[Tabah2016Deescalation]] The only randomised trial (116 patients) found longer ICU stay and more superinfections (27% vs 11%) with de-escalation, and similar mortality. [[Leone2014Deescalation]] Status: unresolved.</p></div>
+    <div class="card"><span class="tag dx">Stewardship goals</span><h4>What a stewardship team checks</h4><p>A meta-analysis of 145 studies linked guideline-adherent empirical therapy with a 35% relative reduction in mortality (RR 0.65) and de-escalation with 56% (RR 0.44), though evidence quality was generally low. [[Schuts2016Stewardship]] The WHO AWaRe classification sorts antibiotics into Access, Watch and Reserve groups as a simple "traffic light"; in a 56-country survey of children, Access use ranged from 7.8% to 61.2% of prescriptions. [[Hsia2019AWaRe]]</p></div>
+  </div>
+
+  <h3 class="sub">Dosing: how the drug is given</h3>
+  <div class="prose"><p>Beta-lactams such as piperacillin-tazobactam and meropenem can be given as a short bolus or as a slow (prolonged or continuous) infusion. SSC 2021 suggests prolonged infusion for maintenance, after an initial bolus, over conventional bolus infusion (weak, moderate quality), and asks for dosing by pharmacokinetic principles: augmented renal clearance, AKI, low albumin, kidney replacement therapy and ECMO all change antibiotic levels. [[Evans2021SSC]]</p></div>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>BLING III (2024)</h4><p>7,031 critically ill adults on piperacillin-tazobactam or meropenem in 104 ICUs. 90-day mortality was 24.9% with continuous infusion vs 26.8% with intermittent infusion (OR 0.91, 95% CI 0.81–1.01; P = .08), just missing significance. Clinical cure was higher (55.7% vs 50.0%). [[Dulhunty2024BLING3]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>The 2024 meta-analysis</h4><p>18 trials, 9,108 adults with sepsis: prolonged infusion was linked to lower 90-day mortality (RR 0.86, 95% credible interval 0.72–0.98; high certainty), a 99.1% probability of benefit, lower ICU mortality (RR 0.84) and more clinical cure (RR 1.16). [[AbdulAziz2024Infusion]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Measuring drug levels (TARGET)</h4><p>In 249 patients on continuous piperacillin-tazobactam, daily level-guided dosing reached target concentrations more often (37.3% vs 14.6%) but did not lower mean SOFA score (7.9 vs 8.2) or 28-day mortality significantly (21.6% vs 25.8%). [[Hagel2022TARGET]] SSC notes that drug-level monitoring is not widely available. [[Evans2021SSC]]</p></div>
+  </div>
+
+  <h3 class="sub">Resistance: why stewardship matters to everyone</h3>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Global burden</span><h4>More than a million deaths a year</h4><p>An estimated 4.95 million deaths in 2019 were associated with bacterial antimicrobial resistance, 1.27 million directly attributable to it. Six pathogens led (<i>E. coli</i>, <i>S. aureus</i>, <i>K. pneumoniae</i>, <i>S. pneumoniae</i>, <i>A. baumannii</i>, <i>P. aeruginosa</i>), and the attributable death rate was highest in western sub-Saharan Africa. [[Murray2022GRAM]]</p></div>
+    <div class="card"><span class="tag bad">Forecast</span><h4>Towards 2050</h4><p>The GBD 2021 analysis counted 1.14 million attributable deaths in 2021 and forecasts 1.91 million attributable and 8.22 million associated deaths in 2050. AMR deaths fell by more than half in children under 5 since 1990 but rose by over 80% in adults aged 70 and over; MRSA-attributable deaths rose from 57,200 to 130,000. A "better care" scenario could avert 92.0 million deaths from 2025 to 2050. [[Naghavi2024GRAM]]</p></div>
+    <div class="card"><span class="tag accent">Side effect</span><h4>C. difficile</h4><p>IDSA/SHEA describe <i>C. difficile</i> as the most commonly identified cause of healthcare-associated infection in US adults. [[McDonald2018CDI]] In a community meta-analysis the odds were highest after clindamycin (OR 16.80), then cephalosporins, monobactams and carbapenems (5.68) and fluoroquinolones (5.50), against penicillins (2.71), macrolides (2.65) and tetracyclines (0.92, no effect). [[Brown2013CDI]]</p></div>
+  </div>
+
+  <h3 class="sub">In plain words</h3>
+  <div class="gentle"><b>For patients and families</b>Sepsis often has a "source", such as an abscess (a pocket of pus), a blocked infected kidney or bile duct, an infected line or dead tissue. Doctors drain or remove it as soon as it is safe. [[Evans2021SSC]] With some fast-spreading infections under the skin, an operation within hours can make a big difference. [[Nawijn2020NSTI]] Antibiotics start fast; later the team switches to the narrowest drug that works and stops as soon as it is safe, because shorter courses often work just as well with fewer side effects. [[Evans2021SSC,Daneman2025BALANCE,Sawyer2015STOPIT]] The percentages on this page come from studies of large groups and cannot say what will happen to one person.</div>
 </section>

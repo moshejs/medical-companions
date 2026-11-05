@@ -1,5 +1,114 @@
-<!-- ================= 3.2 LACTATE, CULTURES, PROCALCITONIN & TESTS (stub, replaced by its builder) ================= -->
+<!-- ================= 3.2 LACTATE, CULTURES, PROCALCITONIN & TESTS ================= -->
+<style>
+#m-tests .tsrow{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:flex-end}
+#m-tests .tsrow label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;min-width:0;flex:1 1 220px}
+#m-tests .tsrow label.tschk{flex-direction:row;align-items:center;gap:8px;font-weight:600}
+#m-tests .tsrow input[type=range]{width:100%}
+#m-tests td.num{font-family:var(--mono);white-space:nowrap}
+#m-tests .card>.tag,#m-tests .card>.ev{align-self:flex-start}
+#m-tests .tsfig{font:600 14px/1.5 var(--mono);overflow-wrap:anywhere}
+</style>
 <section class="mod" id="m-tests" data-mod="tests" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Definitions &amp; tests</p><h2>Lactate, cultures, procalcitonin &amp; tests</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">No single blood test diagnoses sepsis. Lactate shows how stressed the body's cells are, blood cultures try to catch the germ, and procalcitonin helps decide when antibiotics can stop. Follow why lactate rises, how cultures are taken and read, and what the trials found, all quoted as published.</p></div>
+  <p class="callnow"><b>Call now</b><span>Sepsis is a medical emergency. If someone with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
+
+  <h3 class="sub">Why lactate rises</h3>
+  <div class="stepper" id="tsSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="tsSvg" viewBox="0 0 720 400" role="img" aria-label="A schematic muscle cell under a small blood vessel. Glucose dots enter the cell and are split into pyruvate. With enough oxygen most pyruvate goes to a mitochondrion; only a little leaves as lactate, and a lactate tube on the right stays low. When blood flow and oxygen fall, more pyruvate turns into lactate and the tube fills above 2 millimoles per litre. Then oxygen returns but adrenaline reaches a sodium-potassium pump on the cell, glycolysis speeds up, and lactate stays high even with oxygen. Next, three bars show published in-hospital mortality for lactate bands of 0 to 2.5, 2.5 to 4 and 4 or more. Finally a curve shows an illustrative lactate falling over 8 hours beside a 20 percent per 2 hours target line."></svg>
+      <div class="ctrls"><button class="btn primary" id="tsPlay">Play</button><label class="stage-cap tl" for="tsT">Story <input type="range" id="tsT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="readout" id="tsRead"></div>
+      <p class="stage-cap">Schematic: the cell, the dots and the falling curve are drawings, not measurements. Thresholds and trial figures are quoted as published. [[Cecconi2014ESICM,Levy2005Lactate,Shapiro2005Lactate,Jansen2010Lactate]]</p>
+    </div>
+    <aside class="note" id="tsNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: what a lactate number means, as published</h3>
+  <p class="teach"><b>A teaching tool, not a diagnosis</b>A lactate result is read by the clinical team together with the person, their history and their other results. SSC 2021 says lactate "should be interpreted considering the clinical context and other causes of elevated lactate". Never use this to decide whether to seek care: if someone with an infection seems very unwell, get emergency help now. [[Evans2021SSC]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="tsrow">
+        <label for="tlV">Blood lactate (mmol/L): <output id="tlOut">3.0</output><input type="range" id="tlV" min="0.5" max="10" step="0.1" value="3"></label>
+        <label class="tschk" for="tlVaso"><input type="checkbox" id="tlVaso"> Needs a vasopressor to keep MAP at 65 mm Hg or more, after adequate fluids</label>
+      </div>
+      <svg id="tlSvg" viewBox="0 0 720 170" role="img" aria-label="Two lactate rulers from 0 to 10 millimoles per litre. The upper ruler is shaded at the published thresholds: 2, the Sepsis-3 septic shock lactate criterion, and 4, the Hour-1 bundle fluid trigger. The lower ruler shows the in-hospital mortality reported by Shapiro 2005 for lactate of 0 to 2.5 (4.9 percent), 2.5 to 4 (9.0 percent) and 4 or more (28.4 percent). A marker shows the chosen value on both."></svg>
+    </div>
+    <aside class="note" id="tlNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Steering treatment by lactate or by capillary refill</h3>
+  <p class="prose">SSC 2021 suggests guiding resuscitation to decrease serum lactate when it is raised, rather than not using lactate (weak recommendation, low-quality evidence). It also suggests using capillary refill time (how fast colour returns after pressing a fingertip) to guide resuscitation in septic shock "as an adjunct to other measures of perfusion" (weak, low quality). [[Evans2021SSC]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Compared</th><th>Result as published</th></tr></thead>
+    <tbody>
+      <tr><td><b>LACTATE</b> (Jansen 2010)</td><td>348 ICU patients, lactate ≥3.0 mEq/L</td><td>Lowering lactate by 20% or more every 2 h for 8 h, against usual care</td><td>Hospital mortality 33.9% vs 43.5% (P = 0.067); adjusted HR 0.61 (0.43–0.87). The lactate group got more fluids and vasodilators, but lactate levels did not differ between groups. [[Jansen2010Lactate]]</td></tr>
+      <tr><td><b>Jones 2010</b></td><td>300 ED patients</td><td>Lactate clearance of at least 10%, against ScvO₂ of at least 70%</td><td>In-hospital mortality 17% vs 23%: noninferior. [[Jones2010LactateClearance]]</td></tr>
+      <tr><td><b>ANDROMEDA-SHOCK</b> (2019)</td><td>424 adults with septic shock, 28 ICUs, 5 countries</td><td>8 h targeting normal capillary refill, against targeting lactate</td><td>28-day mortality 34.9% vs 43.4%; HR 0.75 (0.55–1.02; P = .06), not significant. Less organ dysfunction at 72 h (mean SOFA 5.6 vs 6.6). [[Hernandez2019ANDROMEDA]]</td></tr>
+      <tr><td><b>ANDROMEDA-SHOCK-2</b> (2025) <span class="ev early">Early evidence</span></td><td>1,501 patients within 4 h of septic shock, 86 centres, 19 countries</td><td>A personalised capillary refill protocol, against usual care</td><td>Hierarchical outcome favoured the protocol (win ratio 1.16, 1.02–1.33; P = .04), mainly through shorter vital support: wins for death 19.1% vs 17.8%, for duration of support 26.4% vs 21.1%. [[Hernandez2025ANDROMEDA2]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Blood cultures: catching the germ</h3>
+  <div class="stepper" id="tcSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="tcSvg" viewBox="0 0 720 330" role="img" aria-label="Five scenes about blood cultures. First, four culture bottles fill one by one with bars showing that one set finds 73.1 percent of bloodstream infections, two sets 89.7, three 98.2 and four 99.8 percent. Second, two grids of 100 dots: 31 positive when cultures were drawn before antibiotics, 19 when redrawn after. Third, skin bacteria slip into a bottle as a contaminant, with a scale showing contamination rates from 1 to more than 10 percent and the traditional 3 percent target. Fourth, a probability scale from 2 percent bacteraemia in cellulitis to 69 percent in septic shock, with likelihood ratio bars for fever, white count and shaking chills. Fifth, timeline bars show organism identification 22.3 hours after Gram stain with standard processing against 1.3 hours with rapid PCR."></svg>
+      <div class="ctrls"><button class="btn primary" id="tcPlay">Play</button><label class="stage-cap tl" for="tcT">Cultures <input type="range" id="tcT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap">Schematic bottles and dots. Percentages, likelihood ratios and hours as published. [[Lee2007Cultures,Cheng2019Cultures,Sautter2024Contamination,Coburn2012Bacteremia,Banerjee2015rmPCR]]</p>
+    </div>
+    <aside class="note" id="tcNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Guideline</span><h4>Cultures first, if quick</h4><p>SSC 2021 restates its 2016 best-practice statement: routine cultures, including blood, are taken before antimicrobials "if it results in no substantial delay in the start of antimicrobials (i.e. &lt; 45 min)". SMFM 2023 says the same for pregnancy, as long as antibiotics are not substantially delayed. [[Evans2021SSC,SMFM2023Sepsis]]</p></div>
+    <div class="card"><span class="tag dx">Source</span><h4>Cultures from the likely source</h4><p>The IDSA/ASM 2024 microbiology guide lists the best specimens, volumes and transport for blood, respiratory, urine, cerebrospinal fluid, intra-abdominal and skin samples. After antibiotics, adding other cultures found a pathogen in 67.6% of people whose earlier blood cultures were positive. [[Miller2024IDSAMicro,Cheng2019Cultures]]</p></div>
+    <div class="card"><span class="tag dx">Imaging</span><h4>Looking for a source to drain</h4><p>SSC 2021 recommends "rapidly identifying or excluding a specific anatomical diagnosis of infection that requires emergent source control", such as an abscess, a perforated or ischaemic bowel, cholangitis, an obstructed kidney or necrotising soft tissue infection. In practice this usually means imaging. <button class="btn ghost" data-go="source">Source control →</button> [[Evans2021SSC]]</p></div>
+    <div class="card"><span class="tag dx">False alarms</span><h4>Why contamination matters</h4><p>A false-positive culture can lead to unnecessary antibiotics, higher costs and a delay in finding the true cause. Chlorhexidine skin preparation, diversion devices, sterile technique, phlebotomy teams and education together cut contamination by about 40–60%. [[Sautter2024Contamination,Doern2019Contamination]]</p></div>
+  </div>
+
+  <h3 class="sub">Procalcitonin: when can antibiotics stop?</h3>
+  <p class="prose">Procalcitonin (PCT) is a blood protein that SSC 2021 describes as "undetectable in healthy states, but rises rapidly in response to pro-inflammatory stimuli, especially bacterial infections". In a meta-analysis of 30 studies (3,244 critically ill patients) it separated sepsis from non-infectious inflammation with sensitivity 0.77, specificity 0.79 and AUROC 0.85, though the studies varied a great deal (I² = 96%). Against CRP in hospitalised patients, PCT had higher sensitivity (88% vs 75%) and specificity (81% vs 67%). [[Evans2021SSC,Wacker2013PCT,Simon2004PCTCRP]]</p>
+  <p class="prose">SSC 2021 "suggest[s] against using procalcitonin plus clinical evaluation to decide when to start antimicrobials" (weak, very low quality). Where source control is adequate and the right duration is unclear, it suggests "using procalcitonin AND clinical evaluation to decide when to discontinue antimicrobials" (weak, low quality). [[Evans2021SSC]]</p>
+  <div class="lab">
+    <div class="stage">
+      <svg id="tpSvg" viewBox="0 0 720 260" role="img" aria-label="A procalcitonin curve for an illustrative patient over 10 days on a logarithmic scale. It peaks on day 1 and then falls. A dashed line marks 80 percent below the peak and another marks 0.5 micrograms per litre, the two parts of the stop rule used in the SAPS trial. A dot follows the curve as the slider moves, and the readout says when the published stop rule would first be met."></svg>
+      <div class="ctrls"><button class="btn primary" id="tpPlay">Play</button><label class="stage-cap tl" for="tpT">Day <input type="range" id="tpT" min="0" max="1" step="0.001" value="0.3"></label></div>
+      <div class="readout" id="tpRead"></div>
+      <p class="stage-cap">An illustrative patient, not trial data. The stop rule is SAPS's as published: a fall of 80% or more from peak, or a level of 0.5 μg/L or lower. [[deJong2016SAPS]]</p>
+    </div>
+    <aside class="note" id="tpNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial or review</th><th>Who</th><th>Antibiotic exposure</th><th>Mortality</th></tr></thead>
+    <tbody>
+      <tr><td><b>PRORATA</b> (2010)</td><td>621 ICU patients; PCT to start and stop</td><td class="num">14.3 vs 11.6 antibiotic-free days by day 28</td><td>Day 28: 21.2% vs 20.4%, noninferior [[Bouadma2010PRORATA]]</td></tr>
+      <tr><td><b>SAPS</b> (2016)</td><td>1,546 ICU patients, 15 Dutch hospitals</td><td class="num">Median 5 vs 7 days</td><td>28-day 20% vs 25% (difference 5.4%, 1.2–9.5); 1-year per protocol 36% vs 43% [[deJong2016SAPS]]</td></tr>
+      <tr><td><b>ProACT</b> (2018)</td><td>1,656 ED patients with suspected lower respiratory infection, 14 US hospitals</td><td class="num">4.2 vs 4.3 days: no fall</td><td>Not reported in the figures used here [[Huang2018ProACT]]</td></tr>
+      <tr><td><b>ICU meta-analysis</b> (2018)</td><td>11 trials, 4,482 ICU patients</td><td class="num">9.3 vs 10.4 days</td><td>30-day 21.1% vs 23.7% (adjusted OR 0.89, 0.8–0.99) [[Wirz2018PCTICU]]</td></tr>
+      <tr><td><b>Respiratory meta-analysis</b> (2018)</td><td>26 trials, 6,708 patients</td><td class="num">5.7 vs 8.1 days</td><td>30-day 9% vs 10% (adjusted OR 0.83, 0.70–0.99); side effects 16% vs 22% [[Schuetz2018PCTMeta]]</td></tr>
+      <tr><td><b>ADAPT-Sepsis</b> (2025)</td><td>2,760 adults, 41 UK ICUs</td><td class="num">PCT: mean 9.8 vs 10.7 days</td><td>28-day 20.9% vs 19.4%, noninferior; a CRP-guided protocol did not shorten antibiotics [[Dark2025ADAPT]]</td></tr>
+    </tbody></table></div>
+  <p class="prose">The US FDA approved procalcitonin for guiding antibiotic therapy in acute respiratory infections in February 2017. [[Schuetz2018PCTMeta]]</p>
+
+  <h3 class="sub">CRP, white count and fever</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">White count</span><h4>A weak test on its own</h4><p>Isolated leukocytosis (a raised white cell count) has a likelihood ratio below 1.7 for bacteraemia, so on its own it says little about whether germs are in the blood. [[Coburn2012Bacteremia]]</p></div>
+    <div class="card"><span class="tag dx">Fever</span><h4>Chills say more than a temperature</h4><p>A temperature of 38 °C or more had a likelihood ratio of only 1.9 for bacteraemia. Shaking chills were more informative (likelihood ratio 4.7). [[Coburn2012Bacteremia]]</p></div>
+    <div class="card"><span class="tag dx">CRP</span><h4>Less specific than PCT</h4><p>CRP (C-reactive protein) was less sensitive and less specific than PCT for bacterial infection in hospitalised patients, and in ADAPT-Sepsis a CRP-guided stopping protocol did not shorten antibiotic courses (difference 0.09 days, −0.60 to 0.79). [[Simon2004PCTCRP,Dark2025ADAPT]]</p></div>
+  </div>
+
+  <h3 class="sub">Rapid molecular tests</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Hours, not a day</h4><p>In a randomised trial of 617 patients with positive blood culture bottles, rapid multiplex PCR named the organism 1.3 h after the Gram stain, against 22.3 h with standard processing. Fewer contaminants were treated (25% control, 11% PCR, 8% PCR with stewardship), but mortality, length of stay and cost did not differ. [[Banerjee2015rmPCR]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Faster helps with stewardship</h4><p>Across 31 studies (5,920 patients with bloodstream infection), molecular rapid testing was linked to lower mortality (OR 0.66, 0.54–0.80; NNT 20). The benefit was significant only with an antimicrobial stewardship programme (OR 0.64), not without one (OR 0.72, 0.46–1.12). Time to effective therapy fell by 5.03 h. [[Timbrook2017mRDT]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Testing whole blood for yeast</h4><p>T2 magnetic resonance testing for candidaemia directly from whole blood (1,801 patients) was 91.1% sensitive and 99.4% specific per assay, with species named in a mean 4.4 h against 2–5 days for culture. [[Mylonakis2015T2]]</p></div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Debated</span><h4>Lactate or capillary refill?</h4><p>ANDROMEDA-SHOCK did not reach significance on mortality, and ANDROMEDA-SHOCK-2's win-ratio benefit for a personalised capillary refill protocol came from less vital support rather than fewer deaths. Early evidence favours capillary refill as an adjunct. [[Hernandez2019ANDROMEDA,Hernandez2025ANDROMEDA2]]</p></div>
+    <div class="card"><span class="tag dx">Debated</span><h4>PCT: safety or survival?</h4><p>SAPS and the ICU meta-analysis reported lower mortality; PRORATA and ADAPT-Sepsis showed noninferior mortality with shorter courses; ProACT showed no fall in antibiotic use in US EDs. PCT safely shortens ICU courses; a mortality benefit is uncertain. [[deJong2016SAPS,Wirz2018PCTICU,Bouadma2010PRORATA,Dark2025ADAPT,Huang2018ProACT]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Is high lactate adaptive?</h4><p>A 2014 review suggested sepsis-associated hyperlactataemia may even be an adaptive survival response, while remaining a strong independent predictor of death. [[GarciaAlvarez2014]]</p></div>
+  </div>
+  <p class="callout">Before this: <button class="btn ghost" data-go="definitions">Definitions &amp; scores</button> · Next: <button class="btn ghost" data-go="firsthour">The first hour: bundle &amp; antibiotics</button> · Shorter courses: <button class="btn ghost" data-go="source">Source control &amp; stewardship</button></p>
 </section>

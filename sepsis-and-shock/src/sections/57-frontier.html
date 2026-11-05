@@ -1,5 +1,128 @@
-<!-- ================= 5.7 RESEARCH FRONTIER (stub, replaced by its builder) ================= -->
+<!-- ================= 5.7 RESEARCH FRONTIER ================= -->
+<style>
+#m-frontier svg[data-mode=n] .t-xs{font-size:10px}
+#m-frontier .card>.ev,#m-frontier .card>.tag{align-self:flex-start}
+#m-frontier .ftfil{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-frontier .ftfil select{font:inherit;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%}
+#m-frontier .ftlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+#m-frontier .ftlist .card .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-frontier .ftlist .card .st{font:500 12.5px var(--mono);color:var(--muted);margin:0}
+#m-frontier .ftcount{font:500 13px var(--mono);color:var(--muted)}
+#m-frontier .tbl table{min-width:600px}
+</style>
 <section class="mod" id="m-frontier" data-mod="frontier" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Special situations &amp; recovery</p><h2>Research frontier</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">For thirty years, drugs that calmed the immune storm in animals failed in people with sepsis. Walk the timeline from the "graveyard" of failed trials to today's lab bench: phenotypes and endotypes, immunotherapy matched to a patient's immune state, vitamin C, rapid diagnostics and AI alerts, each with an evidence label you can filter by.</p></div>
+
+  <div class="stepper" id="ftSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="ftSvg" viewBox="0 0 720 440" role="img" aria-label="A timeline from 1990 to 2026. A cursor sweeps through the years. Above the axis is the lab bench: flasks for approaches with a signal worth testing, such as interferon gamma and GM-CSF guided by monocyte HLA-DR, anakinra in macrophage activation-like syndrome, sepsis phenotypes and endotypes, rapid molecular diagnostics, the TREWS alert and the ImmunoSep trial. Below the axis is the graveyard: tombstones for trials that did not help or caused harm, such as anti-endotoxin antibodies, anti-TNF drugs, drotrecogin alfa (Xigris, approved in 2001 and withdrawn in 2011), eritoran, polymyxin B haemoperfusion in EUPHRATES, and high-dose vitamin C in LOVIT. Each icon is coloured by its evidence label, and the filters below can dim everything except one label or one area."></svg>
+      <div class="ctrls"><button class="btn primary" id="ftPlay">Play</button><label class="stage-cap tl" for="ftT">Year <input type="range" id="ftT" min="0" max="1" step="0.001" value="0.25"></label></div>
+      <div class="legend"><span><i style="background:var(--good)"></i>Established</span><span><i style="background:var(--warn)"></i>Early evidence</span><span><i style="background:var(--rx)"></i>Hypothesis</span><span><i style="background:var(--bad)"></i>red outline: harm signal</span></div>
+      <p class="stage-cap">Placed by publication year; the time axis is stretched after 2012, where most of the work is. In the graveyard, "Established" means it is established that the approach did not help (or harmed) in the trials shown, not that it works. Not a ranking of how promising each idea is.</p>
+    </div>
+    <aside class="note" id="ftNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Filter the bench and the graveyard</h3>
+  <div class="ftfil">
+    <div class="ftfil" role="group" aria-label="Evidence label">
+      <span class="kicker">Evidence</span>
+      <button class="btn" data-ftev="all" aria-pressed="true">All</button>
+      <button class="btn" data-ftev="est" aria-pressed="false">Established</button>
+      <button class="btn" data-ftev="early" aria-pressed="false">Early evidence</button>
+      <button class="btn" data-ftev="hyp" aria-pressed="false">Hypothesis</button>
+    </div>
+    <label class="ftfil" for="ftCat"><span class="kicker">Area</span>
+      <select id="ftCat">
+        <option value="all">All areas</option>
+        <option value="block">Blocking inflammation or endotoxin</option>
+        <option value="coag">Clotting pathway drugs</option>
+        <option value="adj">Vitamin C and other adjuncts</option>
+        <option value="endo">Phenotypes and endotypes</option>
+        <option value="immuno">Precision immunotherapy</option>
+        <option value="dx">Rapid diagnostics and AI</option>
+      </select></label>
+    <label class="ftfil" for="ftSide"><input type="checkbox" id="ftSide"> Only the graveyard (did not help or harmed)</label>
+  </div>
+  <p class="ftcount" id="ftCount" aria-live="polite"></p>
+  <div class="ftlist" id="ftList"></div>
+
+  <h3 class="sub">Why so many trials failed</h3>
+  <p>More than 100 randomised trials have tested whether modulating the septic response improves survival, and "with one short-lived exception" (drotrecogin alfa) none produced a new treatment. [[Marshall2014]] Explanations offered are that the response is complex and redundant, the same pathway can do good and harm, and trials enrolled unselected patients; the proposed fix is to stratify patients and target those likely to benefit. [[Marshall2014,Angus2012Drotrecogin]] Animal models may also mislead: animals in classic models die of shock within 72 hours, while many patients die later, with opportunistic infections and low monocyte HLA-DR, a sign of immune exhaustion. [[Docke1997]] See <a href="#immune" data-go="immune">Infection to dysregulated host response</a> for the biology.</p>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Drotrecogin alfa: the drug that came and went</h4><p>PROWESS (2001, 1,690 people): 28-day mortality 24.7% vs 30.8%, with more serious bleeding (3.5% vs 2.0%). [[Bernard2001PROWESS]] Approved after that single trial, which was stopped early for efficacy, it was withdrawn worldwide in 2011 when PROWESS-SHOCK (1,697 people) found 26.4% vs 24.2%. [[MedLett2011Xigris,Angus2012Drotrecogin,Ranieri2012PROWESSSHOCK]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Harm, not just failure</h4><p>An anti-TNF fusion protein raised 28-day mortality with dose, from 30% on placebo to 53% at the highest dose. [[Fisher1996TNFR]] A non-selective nitric oxide synthase inhibitor raised blood pressure but increased mortality (59% vs 49%). [[Lopez2004NOS]] In LOVIT, IV vitamin C increased death or persistent organ dysfunction (RR 1.21). [[Lamontagne2022LOVIT]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Subgroups that did not hold up</h4><p>HA-1A looked strongly positive in Gram-negative bacteraemia (30% vs 49% mortality) but not overall, and the confirmatory CHESS trial found no benefit. [[Ziegler1991HA1A,McCloskey1994CHESS]] A p55 anti-TNF subgroup signal (23% vs 36%, P = .07) was not confirmed. [[Abraham1997p55]] Post hoc subgroups generate hypotheses; they need a new trial.</p></div>
+  </div>
+
+  <h3 class="sub">Not one disease: phenotypes and endotypes</h3>
+  <p><span class="ev early">Early evidence</span> Clustering 29 routine variables in 20,189 people with Sepsis-3 sepsis gave four clinical phenotypes with very different 28-day mortality. In simulations, changing the phenotype mix of an early goal-directed therapy trial swung its result from a more than 33% chance of benefit to a more than 60% chance of harm. [[Seymour2019Phenotypes]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Phenotype</th><th>Share</th><th>Main features</th><th>28-day mortality</th></tr></thead>
+    <tbody>
+      <tr><td>α</td><td>33%</td><td>least vasopressor use</td><td>5%</td></tr>
+      <tr><td>β</td><td>27%</td><td>older, more chronic illness and kidney dysfunction</td><td>13%</td></tr>
+      <tr><td>γ</td><td>27%</td><td>more inflammation and lung dysfunction</td><td>24%</td></tr>
+      <tr><td>δ</td><td>13%</td><td>more liver dysfunction and septic shock</td><td>40%</td></tr>
+    </tbody></table></div>
+  <p class="stage-cap">Population statistics from one derivation study. [[Seymour2019Phenotypes]]</p>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>SRS endotypes</h4><p>White-cell gene expression in pneumonia sepsis defined SRS1 (immunosuppressed: endotoxin tolerance, T-cell exhaustion, HLA class II loss) and SRS2; SRS1 had higher 14-day mortality (HR 2.4), and a 7-gene set classifies patients. [[Davenport2016]] Post hoc, hydrocortisone was linked to higher mortality in SRS2 in the VANISH trial (OR 7.9; interaction P = 0.02). [[Antcliffe2019]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>MARS endotypes</h4><p>Mars1 to Mars4: Mars1 had the worst outcome (39% 28-day mortality) and was the only endotype consistently linked with death across cohorts. [[Scicluna2017]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>MALS</h4><p>Macrophage activation-like syndrome was found in 3.7–4.3% of more than 5,000 people with infection and SIRS; ferritin above 4,420 ng/mL carried about 66–67% 28-day mortality. [[Kyriazopoulou2017MALS]]</p></div>
+  </div>
+
+  <h3 class="sub">Precision immunotherapy</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Approach</th><th>Who</th><th>What was found</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td>Anakinra (IL-1 receptor antagonist)</td><td>Features of macrophage activation (5.6% of an earlier trial)</td><td>28-day survival 65.4% vs 35.3% (HR 0.28), post hoc. [[Shakoory2016]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td>Interferon-γ</td><td>Low monocyte HLA-DR</td><td>Restored HLA-DR and TNF production; sepsis cleared in 8 of 9, uncontrolled. [[Docke1997]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td>GM-CSF</td><td>mHLA-DR below 8,000 antibodies per cell (38 people)</td><td>mHLA-DR normalised in 19 of 19 vs 3 of 19; ventilation 148 vs 207 h. [[Meisel2009]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td>IL-7 (CYT107)</td><td>Septic shock with severe lymphopenia (27 people)</td><td>3- to 4-fold rise in lymphocyte counts, without worse inflammation. [[Francois2018IRIS7]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td>Anti-PD-1 (nivolumab)</td><td>Lymphopenia (31 people, phase 1b)</td><td>No cytokine storm or unexpected safety findings; a safety study, not an efficacy trial. [[Hotchkiss2019Nivolumab]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td>PROVIDE</td><td>MALS (ferritin) or immunoparalysis (HLA-DR), 240 people</td><td>SOFA improving by day 7 in 42.9% with matched immunotherapy vs 10.0% with placebo. [[Leventogiannis2022PROVIDE]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td>ImmunoSep (2026, phase 2)</td><td>Anakinra for MALS, interferon-γ for immunoparalysis; 276 analysed</td><td>SOFA fall of at least 1.4 points by day 9 in 35.1% vs 17.9%; 28-day mortality not significantly different; more anaemia with anakinra and haemorrhage with interferon-γ. [[GiamarellosBourboulis2026ImmunoSep,Kotsaki2022ImmunoSep]]</td><td><span class="ev early">Early evidence</span></td></tr>
+    </tbody></table></div>
+  <p>No immunostimulant has yet shown a mortality benefit in a phase 3 trial. [[GiamarellosBourboulis2026ImmunoSep]] The Surviving Sepsis Campaign 2021 suggests against IV immunoglobulins for adults with sepsis or septic shock (weak recommendation, low-quality evidence). [[Evans2021SSC]]</p>
+
+  <h3 class="sub">Vitamin C: enthusiasm, then harm</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>CITRIS-ALI (2019)</td><td>167 with sepsis and ARDS</td><td>No difference in change in modified SOFA, CRP or thrombomodulin. [[Fowler2019CITRISALI]]</td></tr>
+      <tr><td>VITAMINS (2020)</td><td>216 with septic shock; vitamin C, hydrocortisone and thiamine vs hydrocortisone</td><td>Same time alive and off vasopressors to day 7; 90-day mortality 28.6% vs 24.5%. [[Fujii2020VITAMINS]]</td></tr>
+      <tr><td>VICTAS (2021)</td><td>501, stopped early for administrative reasons</td><td>Ventilator- and vasopressor-free days 25 vs 26; 30-day mortality 22% vs 24%. [[Sevransky2021VICTAS]]</td></tr>
+      <tr class="fail"><td>LOVIT (2022)</td><td>872 on vasopressors</td><td>Death or persistent organ dysfunction 44.5% vs 38.5% (RR 1.21): a harm signal. [[Lamontagne2022LOVIT]]</td></tr>
+    </tbody></table></div>
+  <p>The Surviving Sepsis Campaign 2021: "we suggest against using IV vitamin C" for adults with sepsis or septic shock (weak recommendation, low-quality evidence), quoted as published. [[Evans2021SSC]] Other adjuncts are mixed: angiotensin II raised blood pressure (MAP response 69.9% vs 23.4%) without a significant mortality difference, a single-centre esmolol trial reported a large mortality signal, and the multicentre landiolol trial was stopped for possible harm. [[Khanna2017ATHOS3,Morelli2013Esmolol,Whitehouse2023STRESSL]]</p>
+
+  <h3 class="sub">Faster answers: rapid diagnostics and AI alerts</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Tool</th><th>What was found</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td>Rapid multiplex PCR on positive blood cultures (RCT, 617 people)</td><td>Organism identified 1.3 h after Gram stain vs 22.3 h; less treatment of contaminants; no difference in mortality, stay or cost. [[Banerjee2015rmPCR]]</td><td><span class="ev est">Established</span> faster identification</td></tr>
+      <tr><td>Molecular rapid tests, meta-analysis (31 studies, 5,920 people)</td><td>Lower mortality (OR 0.66; NNT 20) and effective therapy 5.03 h sooner, but only with an antimicrobial stewardship programme (OR 0.64), not without (OR 0.72; CI crosses 1). [[Timbrook2017mRDT]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td>T2 magnetic resonance for candidaemia (1,801 people)</td><td>Sensitivity 91.1%, specificity 99.4%; species in 4.4 h vs 2–5 days for culture. [[Mylonakis2015T2]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td>Procalcitonin-guided stopping (ADAPT-Sepsis, 2,760 adults)</td><td>Antibiotics 9.8 vs 10.7 days with noninferior mortality; CRP-guided stopping did not shorten courses. [[Dark2025ADAPT]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr class="fail"><td>Epic Sepsis Model (38,455 hospitalisations)</td><td>External AUC 0.63; missed 67% of sepsis cases while alerting on 18% of all patients. [[Wong2021Epic]]</td><td><span class="ev est">Established</span> poor external performance</td></tr>
+      <tr><td>TREWS (5 hospitals, 590,736 patients monitored)</td><td>Identified 82% of sepsis cases; confirming an alert within 3 h was linked with antibiotics ordered 1.85 h sooner and a 3.3% absolute lower in-hospital mortality, in a non-randomised comparison. [[Henry2022TREWS,Adams2022TREWS]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td>Sepsis ImmunoScore</td><td>Described as the first FDA-authorised AI sepsis tool; external AUC 0.81. [[Bhargava2024]]</td><td><span class="ev early">Early evidence</span></td></tr>
+    </tbody></table></div>
+  <p>Randomised evidence on AI sepsis alerts is still limited. [[Wong2021Epic,Adams2022TREWS]] Tests are covered in <a href="#tests" data-go="tests">Lactate, cultures, procalcitonin &amp; tests</a>.</p>
+
+  <h3 class="sub">Reading research news</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">How to read a headline</span><h4>Questions worth asking</h4><ul>
+      <li><b>Which outcome?</b> A better SOFA score or immune marker is not the same as more people surviving: ImmunoSep met its SOFA end point without a significant mortality difference. [[GiamarellosBourboulis2026ImmunoSep]]</li>
+      <li><b>Subgroup or whole trial?</b> Anakinra's signal came from 43 people in a reanalysis. [[Shakoory2016]]</li>
+      <li><b>Confirmed?</b> PROWESS was positive; PROWESS-SHOCK was not. [[Bernard2001PROWESS,Ranieri2012PROWESSSHOCK]]</li>
+      <li><b>Randomised?</b> The TREWS mortality result is observational. [[Adams2022TREWS]]</li></ul></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Endotoxin removal, again</h4><p>EUPHRATES found no benefit from polymyxin B haemoperfusion, and SSC 2021 suggests against it. Tigris (2026, 157 people, open label, Bayesian) in a narrower endotoxin band reported a 95.3% posterior probability of benefit at 28 days; the guideline position predates it. [[Dellinger2018EUPHRATES,Evans2021SSC,Neyra2026Tigris]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Is shutdown protective?</h4><p>Low muscle ATP tracked with death in sepsis, yet others frame tubular-cell and mitochondrial changes as an adaptive, hibernation-like response. [[Brealey2002,Gomez2014]]</p></div>
+  </div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>None of the research on this page changes what to do in an emergency. Sepsis is a medical emergency. If someone with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
 </section>

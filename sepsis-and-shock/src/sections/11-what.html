@@ -1,5 +1,105 @@
-<!-- ================= 1.1 WHAT SEPSIS IS (stub, replaced by its builder) ================= -->
+<!-- ================= 1.1 WHAT SEPSIS IS ================= -->
+<style>
+#m-what svg[data-mode=n] .t-xs{font-size:11px}
+#m-what svg[data-mode=n] .t-sm{font-size:12px}
+#m-what .keys{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+#m-what .keys .card{gap:6px}
+#m-what .keys .big-num{font-size:34px;overflow-wrap:anywhere}
+#m-what .keys small{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-what .keys p{font-size:14px}
+#m-what .card>.tag,#m-what .card>.ev{align-self:flex-start}
+#m-what .tbl table{min-width:620px}
+</style>
 <section class="mod" id="m-what" data-mod="what" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding sepsis &amp; shock</p><h2>What sepsis is</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Sepsis is life-threatening organ dysfunction caused by a dysregulated host response to infection: the infection starts it, but the body's own reaction is what injures the organs. Septic shock is a more severe part of sepsis, identified by low blood pressure that needs a vasopressor and a raised lactate despite fluids. [[Singer2016Sepsis3]] Scrub from an infection to septic shock, then see how many people it touches worldwide.</p></div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>Sepsis is a medical emergency. If someone with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
+
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 380" role="img" aria-label="Nested regions show that septic shock lies inside sepsis, and sepsis inside infection. A marker for one patient moves inward in five phases: an infection at one site; the host response spreads; organ dysfunction appears, meaning a rise in the SOFA score of 2 points or more, which is sepsis; a vasopressor is needed to hold mean arterial pressure at 65 mm Hg or more and lactate is above 2 mmol/L despite fluids, which is septic shock; and, in survivors, the patient moves back out. Beside it a checklist of the Sepsis-3 criteria lights up one by one, and six organ systems scored by SOFA dim as they fail and relight as they recover."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Phase <input type="range" id="whT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="whRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> The criteria are quoted from Sepsis-3; the timing between phases and the organ order are drawn, not measured. Real illness can move faster, slower or skip phases. [[Singer2016Sepsis3]]</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Key numbers</h3>
+  <div class="keys">
+    <div class="card"><small>New cases worldwide, 2017</small><span class="big-num">48.9 million</span><p>Estimated incident cases (95% uncertainty interval 38.9–62.9 million). [[Rudd2020GBD]]</p></div>
+    <div class="card"><small>Sepsis-related deaths, 2017</small><span class="big-num">11.0 million</span><p>19.7% of all deaths worldwide: about 1 in 5. [[Rudd2020GBD]]</p></div>
+    <div class="card"><small>Children under 5</small><span class="big-num">20.3 million</span><p>Cases in 2017. More than half of all cases were in children, many of them newborns. [[Rudd2020GBD]]</p></div>
+    <div class="card"><small>Where</small><span class="big-num">85%</span><p>Of 2017 cases occurred in countries with a low, low-middle or middle Socio-demographic Index. [[Rudd2020GBD]]</p></div>
+    <div class="card"><small>US adult admissions</small><span class="big-num">6%</span><p>Sepsis was present in 6.0% of adult admissions in 409 hospitals (electronic health records, 2014). [[Rhee2017JAMA]]</p></div>
+    <div class="card"><small>Septic shock</small><span class="big-num">&gt;40%</span><p>Hospital mortality with the Sepsis-3 septic-shock criteria, a population statistic from the derivation data. [[Singer2016Sepsis3,ShankarHari2016Shock]]</p></div>
+  </div>
+
+  <h3 class="sub">How many people, and where</h3>
+  <div class="stepper" id="whBSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whBSvg" viewBox="0 0 720 360" role="img" aria-label="Five scenes of the Global Burden of Disease estimates for sepsis. First, 49 person icons, each about one million people, fill for the 48.9 million cases in 2017: about 20 children under 5, 5 people aged 5 to 19 and 24 adults. Second, 11 icons for the 11.0 million sepsis-related deaths: about 3 children under 5, under half a million people aged 5 to 19, and 8 adults. Third, a grid of 100 dots in which 20 light up: sepsis was related to 19.7% of all deaths worldwide. Fourth, 85 of 100 dots light up for the share of cases in low and middle Socio-demographic Index countries. Fifth, paired bars show cases falling from 60.2 to 48.9 million and deaths from 15.7 to 11.0 million between 1990 and 2017."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whBPlay">Play</button><label class="stage-cap tl" for="whBT">Scene <input type="range" id="whBT" min="0" max="1" step="0.001" value="0.15"></label></div>
+      <p class="stage-cap">Global Burden of Disease 2017 model estimates, drawn to scale within each scene; icons are rounded to the nearest million. [[Rudd2020GBD]]</p>
+    </div>
+    <aside class="note" id="whBNote" aria-live="polite"></aside>
+  </div>
+  <div class="prose">
+    <p>These are model estimates, and other methods give lower figures. A 2020 meta-analysis of mostly administrative hospital data pooled 189 hospital-treated sepsis cases per 100,000 person-years (95% CI 133–267), about 50% lower than the GBD model, with 26.7% dying; ICU-treated sepsis was 58 per 100,000, with 41.9% dying before discharge. [[FleischmannStruzek2020ICM]] Population data are missing for most low- and middle-income countries, so the true global number is still debated. [[FleischmannStruzek2020ICM,Fleischmann2016AJRCCM]]</p>
+    <p>Where every adult started on intravenous antibiotics was reviewed (Sweden), incidence was 780 per 100,000 a year by Sepsis-3, higher than most earlier estimates. [[Mellhammar2016Sweden]] A CDC-authored viewpoint states that sepsis contributes to about 1.7 million adult hospitalisations in the US each year and more than a third of all hospital deaths. [[Prescott2023CoreElements]] In a record review of 568 adults who died in hospital or went to hospice, sepsis was present in 52.8% and was the immediate cause of death in 34.9%. [[Rhee2019Mortality]]</p>
+  </div>
+
+  <h3 class="sub">Sepsis, septic shock and the words around them</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Term</th><th>What it means (as published)</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><th>Infection</th><td>Germs invading and multiplying in the body.</td><td>An infection alone is not sepsis. Sepsis begins when the response to it injures organs. [[Singer2016Sepsis3]]</td></tr>
+      <tr class="fever"><th>Sepsis (Sepsis-3, 2016)</th><td>"Life-threatening organ dysfunction caused by a dysregulated host response to infection", identified as an acute rise in the SOFA score of 2 points or more.</td><td>Linked to in-hospital mortality above 10%. [[Singer2016Sepsis3]]</td></tr>
+      <tr class="lactate"><th>Septic shock</th><td>Sepsis needing a vasopressor to keep mean arterial pressure at 65 mm Hg or more, with lactate above 2 mmol/L (18 mg/dL), despite adequate fluids.</td><td>Hospital mortality above 40% in the derivation data (42.3%; 95% CI 41.2–43.3%). [[Singer2016Sepsis3,ShankarHari2016Shock]]</td></tr>
+      <tr><th>Severe sepsis</th><td>The older term for sepsis with organ dysfunction.</td><td>Dropped by Sepsis-3 as redundant. Older studies quoted below still use it. [[Singer2016Sepsis3]]</td></tr>
+      <tr><th>SIRS (1991/1992)</th><td>Systemic inflammatory response syndrome: 2 or more of 4 simple signs (temperature, heart rate, breathing rate, white cell count).</td><td>Because most infected patients meet them, sepsis and infection became confused. [[Bone1992SIRS,Vincent2022Concept]]</td></tr>
+      <tr><th>qSOFA</th><td>A bedside prompt from Sepsis-3: breathing rate 22/min or more, altered mentation, systolic blood pressure 100 mm Hg or less.</td><td>Predicted in-hospital death outside the ICU (AUROC 0.81). A prompt, not a definition. [[Singer2016Sepsis3,Seymour2016qSOFA]]</td></tr>
+      <tr><th>Phoenix criteria (2024)</th><td>Children: a Phoenix Sepsis Score of at least 2 in a child with suspected infection.</td><td>Replaced the 2005 SIRS-based paediatric criteria. [[Schlapbach2024Phoenix]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">How the definitions changed, with teaching qSOFA and SOFA calculators: <a href="#definitions" data-go="definitions">Definitions &amp; scores: SIRS to Sepsis-3</a>. Why the response becomes harmful: <a href="#immune" data-go="immune">Infection to dysregulated host response</a>.</p>
+
+  <h3 class="sub">Which infections, which germs</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Underlying cause</span><h4>The chest leads</h4><p>Lower respiratory infection was the most common underlying cause of sepsis-related death in every year from 1990 to 2017 (1.8 million deaths in 2017). In children under 5 the commonest causes of sepsis were diarrhoeal diseases (27.9%), neonatal disorders (25.7%) and lower respiratory infections (16.5%). [[Rudd2020GBD]]</p></div>
+    <div class="card"><span class="tag accent">Not only infections</span><h4>Injury and chronic disease</h4><p>A third of 2017 cases (15.8 million; 32.6%) occurred in people whose underlying cause was an injury or a non-communicable disease. Maternal disorders were the leading non-communicable cause (5.7 million cases), road injury the leading injury. [[Rudd2020GBD]]</p></div>
+    <div class="card"><span class="tag dx">Where it starts</span><h4>Usually outside hospital</h4><p>In a CDC-led review of 1,078 adults, 90.3% had community-onset sepsis, although 60.7% had healthcare contact beforehand. [[Fay2020Exposures]] Hospital-onset sepsis was 12.1% of cases in 136 US hospitals, with 33% in-hospital mortality vs 17% for community-onset. [[Rhee2019HospOnset]] In ICUs the lung (68%) and abdomen (22%) are the main sources. [[Vincent2006SOAP]]</p></div>
+    <div class="card"><span class="tag">Bacteria</span><h4>Five pathogens, half the deaths</h4><p>In GBD 2019, 7.7 million deaths were associated with 33 bacterial pathogens, 56.2% of all sepsis-related deaths. <i>Staphylococcus aureus</i>, <i>Escherichia coli</i>, <i>Streptococcus pneumoniae</i>, <i>Klebsiella pneumoniae</i> and <i>Pseudomonas aeruginosa</i> caused 54.9% of them. [[Ikuta2022Pathogens]] An estimated 1.27 million deaths in 2019 were attributable to bacterial antimicrobial resistance. [[Murray2022GRAM]]</p></div>
+    <div class="card"><span class="tag warn">Culture-negative</span><h4>Often no germ is found</h4><p>41.5% of severe-sepsis patients in a Singapore ICU and 47.1% of US severe-sepsis admissions (2000–2010) were culture-negative. Their outcome differed by study: lower mortality in Singapore (35.9% vs 44.0%), higher in the US data (34.6% vs 22.7%). [[Phua2013CultureNeg,Gupta2016CultureNeg]]</p></div>
+    <div class="card"><span class="tag">Intensive care</span><h4>A large share of the ICU</h4><p>Sepsis affected 37.4% of adult ICU patients in 24 European countries (SOAP, 2002) and occurred in 29.5% during their ICU stay worldwide (ICON, 2012), with hospital mortality ranging from 19.3% in Oceania to 47.2% in Africa. [[Vincent2006SOAP,Sakr2018ICON]] In 2017, 54% of 15,202 ICU patients had suspected or proven infection. [[Vincent2020EPICIII]]</p></div>
+  </div>
+
+  <h3 class="sub">How often is it fatal?</h3>
+  <div class="gentle" role="note"><b>About these numbers</b>Every figure here describes a large group of people in a named study. None of them predicts what will happen to one person, and many people survive sepsis and septic shock.</div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study population</th><th>Sepsis</th><th>Septic shock</th></tr></thead>
+    <tbody>
+      <tr><th>US Premier hospitals, 2010–2016 (2.57 million cases)</th><td>5.6% without organ dysfunction; 14.9% "severe sepsis"</td><td>34.2% [[Paoli2018Costs]]</td></tr>
+      <tr><th>Meta-analysis of 170 studies, 2009–2019</th><td>24.4% at 30 days; 32.2% at 90 days</td><td>34.7% at 30 days; 38.5% at 90 days [[Bauer2020Mortality]]</td></tr>
+      <tr><th>Europe and North America, 71 studies</th><td>(not reported)</td><td>10.4% of ICU admissions; hospital mortality 39.0% [[Vincent2019Shock]]</td></tr>
+      <tr><th>Sepsis-3 systematic review, 44 studies</th><td>(not reported)</td><td>Crude mortality 46.5% [[ShankarHari2016Shock]]</td></tr>
+      <tr><th>Children, Phoenix criteria (higher vs lower-resource settings)</th><td>7.1% vs 28.5%</td><td>10.8% vs 33.5% [[Schlapbach2024Phoenix]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p>Mortality has fallen. In Australian and New Zealand ICUs, severe-sepsis mortality fell from 35.0% in 2000 to 18.4% in 2012, and in patients without other illnesses or older age it was below 5%. [[Kaukonen2014JAMA]] In the usual-care arms of 36 trials, 28-day mortality fell from 46.9% (1991–1995) to 29% (2006–2009). [[Stevenson2014Trends]] Globally, age-standardised sepsis mortality fell by 52.8% between 1990 and 2017. [[Rudd2020GBD]]</p>
+    <p>Sepsis is also costly. Septicaemia was the most expensive condition treated in US hospitals in 2017: $38.2 billion, 8.8% of aggregate hospital costs. [[Liang2020HCUP]] Average cost per case rose with severity, from $16,324 (sepsis without organ dysfunction) to $38,298 (septic shock). [[Paoli2018Costs]]</p>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Controversy</span><h4>How many people really get sepsis?</h4><p>The GBD model gives 48.9 million cases a year, about twice an earlier extrapolation of 31.5 million from high-income hospital data. A hospital-treated meta-analysis gives about 50% lower incidence than the model. Status: unresolved, because surveillance is lacking in most of the world. [[Rudd2020GBD,Fleischmann2016AJRCCM,FleischmannStruzek2020ICM]]</p></div>
+    <div class="card"><span class="tag accent">Controversy</span><h4>Is sepsis becoming more common?</h4><p>US claims data showed incidence rising 10.3% a year from 2009 to 2014; clinical criteria in health records showed it stable (+0.6% a year). Four claims methods applied to the same data varied 3.5-fold. The apparent rise is at least partly coding and awareness. [[Rhee2017JAMA,Gaieski2013Benchmark]]</p></div>
+    <div class="card"><span class="tag accent">Controversy</span><h4>How many deaths are preventable?</h4><p>Reviewers found suboptimal care (most often delayed antibiotics) in 22.7% of sepsis-associated hospital deaths, but judged only 3.7% definitely or moderately likely preventable and another 8.3% possibly preventable. Many people who died had serious illnesses such as cancer, heart disease or dementia. [[Rhee2019Mortality]]</p></div>
+  </div>
+
+  <div class="pt" role="note"><b>In plain words</b>Sepsis is when the body's fight against an infection starts to harm its own organs. Any infection can lead to it, often a chest, urine, skin or gut infection that starts at home. It is common: worldwide, about 49 million people got sepsis in 2017, and it was linked to about 1 in 5 deaths. Babies, young children and older adults are most often affected. Survival has improved over time, and many people recover. [[Singer2016Sepsis3,Rudd2020GBD,Fay2020Exposures,Kaukonen2014JAMA]]</div>
 </section>
