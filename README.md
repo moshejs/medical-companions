@@ -21,6 +21,7 @@ Animated, cited study and patient-education guides, one disease each, on one sit
 | [AUD Companion](alcohol-use-disorder/README.md) (alcohol use disorder and alcohol withdrawal) | `/alcohol-use-disorder/` | English |
 | [Heart Attack Companion](myocardial-infarction/README.md) (myocardial infarction, acute coronary syndromes and recovery) | `/myocardial-infarction/` | English |
 | [Cirrhosis Companion](cirrhosis/README.md) (cirrhosis of the liver and its complications) | `/cirrhosis/` | English |
+| [Sepsis Companion](sepsis-and-shock/README.md) (sepsis, septic shock and the other types of shock) | `/sepsis-and-shock/` | English |
 
 The hub at `/` links to each one and carries the shared method and disclaimer. Every companion links back to it, and its structured data names the site (`isPartOf`).
 
