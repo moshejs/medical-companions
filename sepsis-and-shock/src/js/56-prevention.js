@@ -95,6 +95,9 @@ inits.prevention=()=>{
   const ms=$('#pvMgSvg'),mr=$('#pvMgT');
   function mg(v){const nr=vb(ms,'720 270','400 470'),h=v*24;let s='';
     const B=body(nr?60:76,nr?16:22,nr?.62:.82,{id:'pvMgB',cold:ramp(h,6.5,9.5),mottle:ramp(h,8,11)*.7});s+=B.svg;
+    if(nr){const c=ramp(h,6.5,9.5);s+=T(130,40,'What the drawing shows','t-sm','fill:var(--ink);font-weight:700')+T(130,58,h<6?'no clear warning signs yet':'early sepsis signs:','t-xs','fill:var(--ink)');
+      if(h>=6)s+=`<g style="opacity:${f1(c)}">`+T(140,74,'cold, pale-blue hands and feet','t-xs','fill:var(--warn)')+T(140,88,'abnormal skin colour (mottling)','t-xs','fill:var(--warn)')+T(140,102,'leg pains (not drawn)','t-xs','fill:var(--warn)')+'</g>';
+      s+=T(130,124,h<13?'no rash yet':'classic signs may appear now','t-xs',h<13?'':'fill:var(--bad);font-weight:700')}
     const x0=nr?20:170,x1=nr?384:700,ty=nr?430:236,X=hh=>x0+(x1-x0)*hh/24;
     s+=`<line x1="${x0}" x2="${x1}" y1="${ty}" y2="${ty}" class="axis"/>`;
     [0,4,8,12,16,20,24].forEach(k=>{s+=`<line x1="${f1(X(k))}" x2="${f1(X(k))}" y1="${ty-3}" y2="${ty+3}" class="axis"/><text x="${f1(X(k))}" y="${ty+15}" class="t-xs t-mid">${k} h</text>`});
@@ -107,7 +110,7 @@ inits.prevention=()=>{
     s+=`<line x1="${f1(X(h))}" x2="${f1(X(h))}" y1="${ty-14}" y2="${ty+6}" style="stroke:var(--ink);stroke-width:2"/>`+T(X(h),ty-18,Math.round(h)+' h','t-xs t-mid','fill:var(--ink);font-weight:700');
     ms.innerHTML=s;
     const cur=PV_MG.filter(m=>h>=m.h0).pop();
-    $('#pvMgCap').textContent=h<8?'Early on, meningococcal disease can look like any minor illness.':h<13?'Leg pains, cold hands and feet and abnormal skin colour often come hours before any rash: do not wait for a rash.':'The classic signs come late. '+cur.t+': '+cur.d+'.'}
+    $('#pvMgCap').textContent=h<8?'Early on, meningococcal disease can look like any minor illness.':h<13?'Leg pains, cold hands and feet and abnormal skin colour often come hours before any rash: do not wait for a rash.':'Do not wait for a rash. Now: '+cur.t.toLowerCase()+' ('+cur.d+').'}
   playWire(mr,$('#pvMgPlay'),mg,16000,'Replay','prevention');
   mg(+mr.value);
 };

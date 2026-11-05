@@ -21,7 +21,7 @@ const CH_STEPS=[
   txt:`Most children had only non-specific symptoms in the first 4–6 hours but were close to death by 24 hours. The window between the early sepsis signs (about 8 h) and admission (about 19 h) is where recognition can be earlier. [[Thompson2006Meningococcal]]`,
   pt:`Spotting the early signs gives doctors hours that matter. You do not need to be sure it is sepsis to ask for help.`,
   hook:`Early signs at ~8 h, admission at ~19 h: an 11-hour window for earlier recognition.`}];
-const CH_CHIPS=[{h:0,s:'Non-specific symptoms'},{h:8,s:'Leg pain'},{h:8,s:'Cold hands and feet'},{h:8,s:'Abnormal skin colour'},{h:13,s:'Haemorrhagic rash'},{h:13,s:'Stiff neck (meningism)'},{h:13,s:'Drowsy, hard to wake'},{h:19,s:'Admitted to hospital'}];
+const CH_CHIPS=[{h:0,s:'Non-specific symptoms'},{h:8,s:'Leg pain'},{h:8,s:'Cold hands and feet'},{h:8,s:'Abnormal skin colour'},{h:13,s:'Haemorrhagic rash'},{h:13,s:'Stiff neck'},{h:13,s:'Drowsy, hard to wake'},{h:19,s:'Admitted to hospital'}];
 /* Phoenix Sepsis Score (DeWitt 2024 table) */
 const CH_MAP=[[17,30],[25,38],[31,43],[32,44],[36,48],[38,51]];
 function chPhoenix(o){const r=o.resp,vas=o.vaso,lac=o.lac>=11?2:o.lac>=5?1:0,M=CH_MAP[o.age],mp=o.map<M[0]?2:o.map<=M[1]?1:0,cv=vas+lac+mp;
@@ -32,7 +32,7 @@ inits.children=()=>{
   const svg=$('#chSvg'),rg=$('#chT');
   function draw(t){
     const N=vb(svg,'720 380','400 600'),p=phaseOf(CH_STEPS,t),st=CH_STEPS[p],h=t*24;
-    const L=N?{bx:110,by:52,bs:.78,cx:220,cy:62,cw:168,ax0:24,ax1:376,ay:540}:{bx:140,by:48,bs:.98,cx:300,cy:50,cw:190,ax0:300,ax1:690,ay:318};
+    const L=N?{bx:110,by:52,bs:.78,cx:210,cy:62,cw:160,ax0:24,ax1:376,ay:540}:{bx:140,by:48,bs:.98,cx:300,cy:50,cw:200,ax0:300,ax1:690,ay:318};
     let s=`<text x="${N?16:20}" y="26" class="t-big" style="fill:${p>=1?'var(--rec)':'var(--ink)'}">${st.h}</text>`;
     const cold=ramp(h,6,9),mot=ramp(h,7,10)*.85;
     const B=body(L.bx,L.by,L.bs,{id:'chB',cold,mottle:mot});s+=B.svg;
@@ -40,10 +40,10 @@ inits.children=()=>{
     const lp=ramp(h,6.5,8.5);if(lp>0)[0,40*bs].forEach(dx=>{s+=`<path d="M${f1(k[0]+dx-8)} ${f1(k[1]-18)}l6 5l-6 5l6 5l-6 5" style="fill:none;stroke:var(--accent);stroke-width:2;opacity:${f1(lp)}"/>`});
     const rs=ramp(h,13,18);if(rs>0){const rr=rng(31);for(let i=0;i<Math.round(rs*22);i++){const x=L.bx+(rr()-.5)*60*bs,y=L.by+(60+rr()*180)*bs;s+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(1.6+rr()*1.6)}" style="fill:var(--clot)"/>`}}
     const dz=ramp(h,14,18);if(dz>0)s+=`<text x="${f1(hd[0]+22*bs)}" y="${f1(hd[1]-18*bs)}" class="t-big" style="fill:var(--dx);opacity:${f1(dz)}">z</text><text x="${f1(hd[0]+34*bs)}" y="${f1(hd[1]-30*bs)}" class="t-sm" style="fill:var(--dx);opacity:${f1(dz)}">z</text>`;
-    if(h>=19){const op=ramp(h,19,20),hx=N?L.ax1-30:L.ax1-40,hy=N?L.cy+10:L.cy+232;s+=`<g style="opacity:${f1(op)}"><rect x="${hx-16}" y="${hy-16}" width="32" height="32" rx="6" style="fill:var(--panel);stroke:var(--bad);stroke-width:1.6"/><path d="M${hx} ${hy-9}v18M${hx-9} ${hy}h18" style="stroke:var(--bad);stroke-width:4"/></g>`}
+    if(h>=19){const op=ramp(h,19,20),hx=L.cx+L.cw+14,hy=L.cy+7*(N?26:27)+11;s+=`<g style="opacity:${f1(op)}"><rect x="${hx-10}" y="${hy-10}" width="20" height="20" rx="4" style="fill:var(--panel);stroke:var(--bad);stroke-width:1.4"/><path d="M${hx} ${hy-6}v12M${hx-6} ${hy}h12" style="stroke:var(--bad);stroke-width:3"/></g>`}
     /* chips */
     CH_CHIPS.forEach((c,i)=>{const on=h>=c.h,y=L.cy+i*(N?26:27),op=c.h===0?(h<7?1:.4):ramp(h,c.h-.6,c.h);
-      s+=`<rect x="${L.cx}" y="${y}" width="${L.cw}" height="22" rx="11" style="fill:${on?(c.h===13?'var(--bad-soft)':c.h===8?'var(--accent-soft)':'var(--panel)'):'var(--panel)'};stroke:${on?'var(--line)':'var(--line)'};opacity:${f1(.25+.75*op)}"/><text x="${L.cx+10}" y="${y+15}" class="t-xs" style="fill:var(--ink);opacity:${f1(.3+.7*op)}">${c.s}</text>`});
+      s+=`<rect x="${L.cx}" y="${y}" width="${L.cw}" height="22" rx="11" style="fill:${on?(c.h===13?'var(--bad-soft)':c.h===8?'var(--accent-soft)':'var(--panel)'):'var(--panel)'};stroke:${on?'var(--line)':'var(--line)'};opacity:${f1(.25+.75*op)}"/><text x="${L.cx+8}" y="${y+15}" class="t-sm" style="fill:var(--ink);opacity:${f1(.3+.7*op)}">${c.s}</text>`});
     /* timeline */
     const X=v=>L.ax0+(L.ax1-L.ax0)*v/24;
     s+=`<rect x="${f1(X(0))}" y="${L.ay-26}" width="${f1(X(6)-X(0))}" height="12" rx="3" style="fill:var(--panel-2)"/><text x="${f1(X(0))}" y="${L.ay-32}" class="t-xs">non-specific</text>`;

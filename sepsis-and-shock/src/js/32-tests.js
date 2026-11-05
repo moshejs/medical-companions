@@ -34,7 +34,7 @@ function tsLac(t,p,lp){if(p<=2)return 1+3.6*ease(ramp(t,.22,.36))-1*ease(ramp(t,
   if(p===3){const v=[1.5,3.2,5.5],k=lp*3,i=Math.min(2,Math.floor(k)),fr=k-i;return lerp(i?v[i-1]:3.6,v[i],ease(clamp(fr*3)))}
   return TS_CLRf(clamp(lp*1.15)*8)}
 /* the schematic cell: capillary on top, cell in the middle, blood strip below */
-function tsCell(P,S,t,lac){const X=f=>P.x+P.w*f,cy0=P.y+8,ch=34,mt=P.y+56,mb=P.y+P.h-42;
+function tsCell(P,S,t,lac,N){const X=f=>P.x+P.w*f,cy0=P.y+8,ch=34,mt=P.y+56,mb=P.y+P.h-42;
   let s=`<rect x="${P.x}" y="${cy0}" width="${P.w}" height="${ch}" rx="15" style="fill:var(--blood-soft);stroke:var(--wall);stroke-width:2"/>`;
   const nrc=Math.round(3+9*S.o2);
   for(let i=0;i<nrc;i++){const u=((t*5)+i/12)%1,x=P.x+10+u*(P.w-20),y=cy0+ch/2+Math.sin(i*2.1)*6;
@@ -56,7 +56,7 @@ function tsCell(P,S,t,lac){const X=f=>P.x+P.w*f,cy0=P.y+8,ch=34,mt=P.y+56,mb=P.y
   s+=`<circle cx="${f1(Py[0])}" cy="${f1(Py[1])}" r="8" style="fill:var(--gold-soft);stroke:var(--gold);stroke-width:1.4"/><text x="${f1(Py[0])}" y="${f1(Py[1]+22)}" class="t-xs t-mid" style="fill:var(--ink)">pyruvate</text>`;
   const mrx=P.w*.12;s+=`<ellipse cx="${f1(Mi[0])}" cy="${f1(Mi[1])}" rx="${f1(mrx)}" ry="22" style="fill:var(--rx-soft);stroke:var(--rx);stroke-width:1.6;opacity:${f1(.45+.55*S.o2)}"/>`;
   let cr=`M${f1(Mi[0]-mrx*.8)} ${f1(Mi[1])}`;for(let k=1;k<=8;k++)cr+=`L${f1(Mi[0]-mrx*.8+mrx*1.6*k/8)} ${f1(Mi[1]+(k%2?-12:12))}`;
-  s+=`<path d="${cr}" style="fill:none;stroke:var(--rx);stroke-width:1.2;opacity:${f1(.45+.55*S.o2)}"/><text x="${f1(Mi[0])}" y="${f1(Mi[1]+36)}" class="t-xs t-mid" style="fill:var(--rx)">mitochondrion: uses oxygen</text>`;
+  s+=`<path d="${cr}" style="fill:none;stroke:var(--rx);stroke-width:1.2;opacity:${f1(.45+.55*S.o2)}"/><text x="${f1(Mi[0])}" y="${f1(Mi[1]+36)}" class="t-xs t-mid" style="fill:var(--rx)">${N?'uses oxygen':'mitochondrion: uses oxygen'}</text>`;
   s+=`<text x="${f1(L0[0]+8)}" y="${f1(L0[1]-12)}" class="t-xs" style="fill:var(--lactate);font-weight:700">→ lactate</text>`;
   /* oxygen diffusing to the mitochondrion */
   const no=Math.round(6*S.o2);for(let i=0;i<no;i++){const u=((t*6)+i/6)%1,a=[X(.5+.07*i),cy0+ch],x=lerp(a[0],Mi[0],u),y=lerp(a[1],Mi[1],u);
@@ -87,7 +87,7 @@ inits.tests=()=>{
   function draw(t){const N=vb(svg,'720 400','400 470'),p=phaseOf(TS_STEPS,t),st=TS_STEPS[p],nx=p<4?TS_STEPS[p+1].from:1.0001,lp=ramp(t,st.from,nx),S=tsState(t),lac=tsLac(t,p,lp);
     const L=N?{P:{x:12,y:12,w:286,h:262},M:{x:318,y:40,w:20,h:206},K:{x:12,y:294,w:376,h:168}}:{P:{x:12,y:12,w:440,h:262},M:{x:478,y:34,w:26,h:222},K:{x:12,y:286,w:696,h:106}};
     let s=`<defs>${marker('tsAr','var(--muted)')}${marker('tsAr2','var(--accent)')}</defs>`;
-    s+=tsCell(L.P,S,t,lac);
+    s+=`<g style="opacity:${f1(1-.5*ramp(t,.58,.62))}">`+tsCell(L.P,S,t,lac,N)+`</g>`;
     const M=L.M;s+=lactateMeter(M.x,M.y,M.w,M.h,lac,10,{bands:TS_BANDS,val:true,unit:N?'':'mmol/L',label:N?'mmol/L':'blood lactate'});
     if(!N){const Y=v=>M.y+M.h-M.h*v/10,tx=M.x+M.w+42;
       [[2,'2: Sepsis-3 shock criterion','(with a vasopressor, after fluids)'],[4,'4: Hour-1 bundle fluid trigger','(with hypotension or alone)']].forEach(([v,a,b])=>{

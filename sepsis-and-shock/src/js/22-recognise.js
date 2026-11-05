@@ -83,11 +83,11 @@ inits.recognise=()=>{
       s+=`<path d="M${f1(hd[0]+22*hs)} ${f1(hd[1]-28*hs)}c6 -6 12 0 6 6s-12 0 -6 -12" style="fill:none;stroke:var(--accent);stroke-width:1.6;opacity:${f1(lp)}"/>`}
     if(si===1){s+=thermometer(L.bx+62*hs,L.by+10,60*hs,.45+.5*lp,{w:8,label:'fever'});
       [-1,1].forEach(d=>{const ax=B.at.arm[0]+(d>0?96*hs:0)+d*10,ay=B.at.arm[1];for(let k=0;k<3;k++)s+=`<path d="M${f1(ax+d*k*6)} ${f1(ay-14)}q${f1(d*4)} 7 0 14q${f1(-d*4)} 7 0 14" style="fill:none;stroke:var(--accent);stroke-width:1.5;opacity:${f1(lp*(1-k*.25))}"/>`})}
-    if(si===2){const dx=bl[0]+44*hs,dy=bl[1];s+=`<path d="M${f1(dx)} ${f1(dy-14)}C${f1(dx+9)} ${f1(dy-2)} ${f1(dx+9)} ${f1(dy+8)} ${f1(dx)} ${f1(dy+8)}C${f1(dx-9)} ${f1(dy+8)} ${f1(dx-9)} ${f1(dy-2)} ${f1(dx)} ${f1(dy-14)}Z" style="fill:none;stroke:var(--fluid);stroke-width:2;stroke-dasharray:3 3"/><line x1="${f1(dx-11)}" y1="${f1(dy+10)}" x2="${f1(dx+11)}" y2="${f1(dy-16)}" style="stroke:var(--bad);stroke-width:2.4;opacity:${f1(lp)}"/>`;
-      s+=clock(dx+(N?72:6),dy-(N?6:70),20,lp*1440,{full:1440,col:'var(--accent)',label:'hours pass'})}
+    if(si===2){const dx=L.bx+(N?84:92)*hs,dy=bl[1]+10;s+=`<path d="M${f1(dx)} ${f1(dy-14)}C${f1(dx+9)} ${f1(dy-2)} ${f1(dx+9)} ${f1(dy+8)} ${f1(dx)} ${f1(dy+8)}C${f1(dx-9)} ${f1(dy+8)} ${f1(dx-9)} ${f1(dy-2)} ${f1(dx)} ${f1(dy-14)}Z" style="fill:none;stroke:var(--fluid);stroke-width:2;stroke-dasharray:3 3"/><line x1="${f1(dx-11)}" y1="${f1(dy+10)}" x2="${f1(dx+11)}" y2="${f1(dy-16)}" style="stroke:var(--bad);stroke-width:2.4;opacity:${f1(lp)}"/><text x="${f1(dx)}" y="${f1(dy+26)}" class="t-xs t-mid">no urine</text>`;
+      s+=clock(dx,dy-62,20,lp*1440,{full:1440,col:'var(--accent)',label:'hours pass'})}
     if(si===3){s+=organ('lung',lu[0],lu[1],30*hs,{glow:lp});const ph=(t*30)%1;
       for(let k=0;k<3;k++){const u=(ph+k/3)%1;s+=`<path d="M${f1(hd[0]+16*hs+u*40)} ${f1(hd[1]+8-6)}q6 6 0 12" style="fill:none;stroke:var(--dx);stroke-width:2;opacity:${f1(lp*(1-u))}"/>`}}
-    if(si===4){const bx=hd[0]+20*hs,by=hd[1]-58*hs,bw=N?150:170;s+=`<g style="opacity:${f1(lp)}"><rect x="${f1(bx)}" y="${f1(by-26)}" width="${bw}" height="34" rx="12" style="fill:var(--panel);stroke:var(--accent);stroke-width:1.6"/><path d="M${f1(bx+14)} ${f1(by+8)}l-6 12l16 -12" style="fill:var(--panel);stroke:var(--accent);stroke-width:1.6"/><text x="${f1(bx+bw/2)}" y="${f1(by-5)}" class="t-sm t-mid" style="fill:var(--ink)">I feel like I'm going to die</text></g>`}
+    if(si===4){const bx=hd[0]+24*hs,by=hd[1]-10,bw=124;s+=`<g style="opacity:${f1(lp)}"><rect x="${f1(bx)}" y="${f1(by-30)}" width="${bw}" height="42" rx="12" style="fill:var(--panel);stroke:var(--accent);stroke-width:1.6"/><path d="M${f1(bx+4)} ${f1(by+4)}l-12 10l18 -4" style="fill:var(--panel);stroke:var(--accent);stroke-width:1.6"/><text x="${f1(bx+bw/2)}" y="${f1(by-13)}" class="t-sm t-mid" style="fill:var(--ink)">I feel like I'm</text><text x="${f1(bx+bw/2)}" y="${f1(by+2)}" class="t-sm t-mid" style="fill:var(--ink)">going to die</text></g>`}
     if(si===5)s+=`<text x="${f1(B.at.knee[0]+70*hs)}" y="${f1(B.at.knee[1])}" class="t-xs" style="opacity:${f1(lp)}">mottled, cold</text>`;
     /* the letters and how often each was reported */
     const X0=L.rx,bw=L.rw-150,sc=v=>bw*v/60;
@@ -114,7 +114,7 @@ inits.recognise=()=>{
   const PCOL=['var(--panel)','var(--warn-soft)','var(--accent-soft)','var(--bad-soft)'];
   function draw2(t){
     const N=vb(svg2,'720 380','400 560'),p=phaseOf(RC_STEPS2,t),st=RC_STEPS2[p],hr=clamp(t*10,0,8);
-    const L=N?{lx:10,cx:112,cw:56,ry:36,rh:34,gx:40,gy:290,gw:340,gh:220}:{lx:16,cx:138,cw:116,ry:34,rh:30,gx:60,gy:236,gw:620,gh:124};
+    const L=N?{lx:10,cx:112,cw:56,ry:36,rh:34,gx:40,gy:290,gw:340,gh:220}:{lx:16,cx:136,cw:110,ry:34,rh:30,gx:60,gy:236,gw:620,gh:124};
     let s=`<text x="${L.lx}" y="${L.ry-14}" class="t-xs">invented example · all on air</text>`;
     RC_OBS.forEach((o,j)=>{const x=L.cx+j*(L.cw+4),vis=ramp(hr,o.h-.6,o.h);
       s+=`<text x="${f1(x+L.cw/2)}" y="${L.ry-2}" class="t-xs t-mid" style="fill:${vis>0?'var(--ink)':'var(--muted)'}">h${o.h}</text>`;

@@ -120,7 +120,7 @@ inits.pressors=()=>{
     Object.values(tg).forEach((to,j)=>{for(let i=0;i<6;i++){const u=clamp(travel*1.4-i*.08);if(u<=0||u>=1&&bind>.9)continue;const k=ease(u);
       const x=lerp(P.out[0],to[0],k),y=lerp(P.out[1],to[1],k)+Math.sin(k*Math.PI*2+i+j)*8*(1-k);s+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="3.2" style="fill:${D.col};opacity:${f1(.9-.4*k)}"/>`}});
     /* bars */
-    const [bx,by,bw]=L.b,bars=[['vessel tone',.2+.7*vt,'var(--wall)'],['heart squeeze',.45+.45*hs,'var(--organ)']];if(D.kd)bars.push(['water kept (V2)',.1+.7*eff,'var(--fluid)']);
+    const [bx,by,bw]=L.b,bars=[['vessel tone',.2+.7*vt,'var(--rx)'],['heart squeeze',.45+.45*hs,'var(--organ)']];if(D.kd)bars.push(['water kept (V2)',.1+.7*eff,'var(--fluid)']);
     bars.forEach(([l,v,c],i)=>{const y=by+i*28;s+=`<text x="${bx}" y="${y}" class="t-sm">${l}</text><rect x="${bx}" y="${y+4}" width="${bw}" height="11" rx="3" style="fill:var(--panel-2)"/><rect x="${bx}" y="${y+4}" width="${f1(bw*clamp(v))}" height="11" rx="3" style="fill:${c}"/>`});
     const bp=30+(D.bp?38*eff:0);
     s+=gauge(L.g[0],L.g[1],L.g[2],bp,100,{ticks:false,label:'blood pressure (schematic)'});
@@ -144,16 +144,16 @@ inits.pressors=()=>{
     const x0=N?20:40,x1=N?380:680,X=v=>x0+(x1-x0)*v,ry=N?110:112;
     let s=`<text x="${N?14:20}" y="${N?20:24}" class="t-lbl">${ph+1} · ${PR_ESTEPS[ph].t}</text>`;
     /* SSC vasopressin band */
-    s+=`<rect x="${f1(X(.25))}" y="${ry-16}" width="${f1(X(.5)-X(.25))}" height="16" rx="3" style="fill:var(--rx-soft)"/><text x="${f1((X(.25)+X(.5))/2)}" y="${ry-5}" class="t-xs t-mid" style="fill:var(--rx);font-weight:700">${N?'SSC vaso':'SSC 2021: vasopressin usually started'}</text>`;
+    s+=`<rect x="${f1(X(.25))}" y="${ry-38}" width="${f1(X(.5)-X(.25))}" height="16" rx="3" style="fill:var(--rx-soft)"/><text x="${f1((X(.25)+X(.5))/2)}" y="${ry-27}" class="t-xs t-mid" style="fill:var(--rx);font-weight:700">${N?'SSC vaso':'SSC 2021: vasopressin usually started'}</text>`;
     s+=`<line x1="${x0}" x2="${x1}" y1="${ry}" y2="${ry}" style="stroke:var(--ink);stroke-width:2"/>`;
     for(let v=0;v<=1.0001;v+=.1){const xx=X(v);s+=`<line x1="${f1(xx)}" x2="${f1(xx)}" y1="${ry}" y2="${ry+6}" style="stroke:var(--ink)"/>`;if(Math.round(v*10)%2===0)s+=`<text x="${f1(xx)}" y="${ry+18}" class="t-xs t-mid">${v.toFixed(1)}</text>`}
     s+=`<text x="${x1}" y="${ry+30}" class="t-xs t-end">noradrenaline (or equivalent), µg/kg/min</text>`;
     /* flags */
     const flag=(v,y,lab,col)=>`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${y+3}" y2="${ry}" style="stroke:${col};stroke-width:1.3;stroke-dasharray:3 2"/><text x="${f1(X(v))}" y="${y}" class="t-xs t-mid" style="fill:${col};font-weight:700">${lab}</text>`;
-    s+=flag(.1,N?46:50,N?'VASSPR low':'VASSPR low (0.1)','var(--dx)')+flag(.4,N?46:50,N?'VASSPR high':'VASSPR high (0.4)','var(--dx)')+flag(.2,N?64:68,N?'ATHOS-3':'ATHOS-3 entry (>0.2)','var(--brand)');
+    s+=flag(.1,N?42:46,N?'VASSPR low':'VASSPR low (0.1)','var(--dx)')+flag(.4,N?42:46,N?'VASSPR high':'VASSPR high (0.4)','var(--dx)')+flag(.2,N?60:64,N?'ATHOS-3':'ATHOS-3 entry (>0.2)','var(--brand)');
     s+=`<line x1="${f1(X(.25))}" x2="${f1(X(.25))}" y1="${ry}" y2="${ry+40}" style="stroke:var(--accent);stroke-width:1.3;stroke-dasharray:3 2"/><text x="${f1(X(.25)+4)}" y="${ry+44}" class="t-xs" style="fill:var(--accent);font-weight:700">${N?'steroids ≥0.25, ≥4 h':'SSC 2021 steroid remark: ≥0.25 for ≥4 h'}</text>`;
     /* the moving marker */
-    const mx=X(d);s+=`<path d="M${f1(mx)} ${ry-2}l-7 -12h14z" style="fill:var(--ink)"/><text x="${f1(mx)}" y="${ry-18}" class="t-sm t-mid" style="fill:var(--ink);font-weight:700">${d.toFixed(2)}</text>`;
+    const mx=X(d);s+=`<path d="M${f1(mx)} ${ry-2}l-7 -12h14z" style="fill:var(--ink)"/><text x="${f1(mx+9)}" y="${ry-6}" class="t-sm" style="fill:var(--ink);font-weight:700">${d.toFixed(2)}</text>`;
     /* lanes */
     const ly0=N?190:184,lh=N?52:27;
     LANES.forEach(([n,dd,st],i)=>{const on=ph>=st,cur=ph===st,y=ly0+i*lh;
@@ -163,7 +163,7 @@ inits.pressors=()=>{
     /* the 4-hour clock in step 4 */
     if(ph===3){const cx=N?330:640,cy=N?ly0+2*lh-6:ly0+2*lh-6;s+=clock(cx,cy,N?20:22,hrs*60,{full:240,col:'var(--accent)',label:hrs>=3.99?'4 h reached':Math.floor(hrs*60)+' min'})}
     es.innerHTML=s;
-    erd.innerHTML=`<span>Illustrative dose <b>${d.toFixed(2)} µg/kg/min</b></span><span>Agents <b>${LANES.filter(l=>ph>=l[2]).length}</b> of 5 lanes lit</span>${ph===3?`<span>Time at dose <b>${hrs.toFixed(1)} h</b></span>`:''}`;
+    erd.innerHTML=`<span>Illustrative dose <b>${d.toFixed(2)} µg/kg/min</b></span><span>Lanes lit <b>${LANES.filter(l=>ph>=l[2]).length} of 5</b></span>${ph===3?`<span>Time at dose <b>${hrs.toFixed(1)} h</b></span>`:''}`;
     en.innerHTML=noteHTML(PR_ESTEPS[ph]);setE(ph);
   }
   const stopE=playWire(er,$('#prEPlay'),drawE,24000,'Replay','pressors');
@@ -219,7 +219,7 @@ inits.pressors=()=>{
     const wrap=(txt,n)=>{const out=[''];txt.split(' ').forEach(w=>{const c=out[out.length-1];if(c&&(c+' '+w).length>n)out.push(w);else out[out.length-1]=c?c+' '+w:w});return out};
     let s=`<text x="${N?16:20}" y="${N?40:62}" class="t-big" style="font-size:${N?32:40}px;fill:var(--rx)">${D.big}</text>`;
     wrap(D.u,N?56:26).forEach((l,i)=>{s+=`<text x="${N?16:20}" y="${(N?60:86)+i*15}" class="t-sm" style="fill:var(--ink)">${l}</text>`});
-    const I=icons(N?20:220,N?92:30,{n:100,cols:N?20:25,k:D.k,size:N?12:16,gap:N?5:4,col:'var(--rx)',base:'var(--line)',shape:'dot'});s+=I.svg;
+    const I=icons(N?20:220,N?92:30,{n:100,cols:N?20:25,k:D.k,size:N?12:15,gap:N?5:4,col:'var(--rx)',base:'var(--line)',shape:'dot'});s+=I.svg;
     ps.innerHTML=s;pc.innerHTML=D.cap;
     ps.setAttribute('aria-label',`An array of 100 dots with ${D.k} highlighted: ${D.big} ${D.u}.`)}
   $$('#m-pressors [data-pv]').forEach(b=>b.addEventListener('click',()=>{pv=b.dataset.pv;$$('#m-pressors [data-pv]').forEach(x=>x.setAttribute('aria-pressed',x===b));drawP()}));

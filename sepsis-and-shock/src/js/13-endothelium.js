@@ -37,10 +37,10 @@ const EN_PH=[
 const EN_ORG=[['lung','lungs',.64],['kidney','kidneys',.66],['brain','brain',.67],['heart','heart',.69],['liver','liver',.72],['coag','clotting',.5]];
 inits.endothelium=()=>{
   const svg=$('#enSvg'),rg=$('#enT');let setSt=()=>{};
-  function draw(t){const N=vb(svg,'720 400','400 640'),p=phaseOf(EN_PH,t),P=EN_PH[p],rec=ramp(t,.85,.98);
-    const L=N?{v:[16,62,368,118],c:[16,206,262,128],m:[318,206,24,128],o:{x:[72,200,328],y:[392,486],s:36},st:[16,598,368]}
+  function draw(t){const N=vb(svg,'720 400','400 600'),p=phaseOf(EN_PH,t),P=EN_PH[p],rec=ramp(t,.85,.98);
+    const L=N?{v:[16,62,368,118],c:[16,206,262,128],m:[318,206,24,128],o:{x:[72,200,328],y:[392,486],s:36},st:[16,566,368]}
              :{v:[16,62,440,128],c:[16,224,300,120],m:[352,224,24,120],o:{x:[548,660],y:[90,180,270],s:40},st:[16,374,688]};
-    const shed=ramp(t,.14,.26)*(1-rec*.75),leak=ramp(t,.28,.38)*(1-rec*.85),dil=ramp(t,.3,.4)*(1-rec),clots=ramp(t,.42,.52)*(1-rec*.9),cells=ramp(t,.14,.3)*(1-rec*.8);
+    const shed=ramp(t,.14,.26)*(1-rec*.75),leak=ramp(t,.28,.38)*(1-rec*.85),dil=ramp(t,.3,.4)*(1-rec),clots=.66*ramp(t,.42,.52)*(1-rec*.9),cells=ramp(t,.14,.3)*(1-rec*.8);
     const perf=1-.6*ramp(t,.5,.62)+.55*rec,lac=.18+.6*ramp(t,.52,.68)-.5*rec;
     let s=EN_T(N?16:20,26,P.t,'t-big')+EN_T(N?16:20,43,P.k,'t-sm');
     /* the vessel */
@@ -49,7 +49,7 @@ inits.endothelium=()=>{
     if(shed<.5)s+=`<path d="M${f1(vx+vw*.3)} ${f1(vy+8)}L${f1(vx+vw*.33)} ${f1(V.at.top+2)}" style="stroke:var(--muted);stroke-width:1.2"/>`+EN_TH(vx+vw*.3,vy+8,'glycocalyx','t-xs t-mid','var(--glyco)');
     if(p===1)s+=EN_TH(vx+vw*.5,V.at.cy+4,'enzymes shed the glycocalyx','t-xs t-mid','var(--accent)');
     if(leak>.3)s+=EN_TH(vx+vw*.24,vy+vh-4,'fluid and protein leak out','t-xs t-mid','var(--fluid)')+(dil>.4?EN_TH(vx+vw*.62,V.at.cy+4,'vessel relaxes (NO)','t-xs t-mid','var(--ink)'):'');
-    if(clots>.4)s+=EN_TH(vx+vw*.72,vy+vh-4,'microclots + platelets','t-xs t-mid','var(--clot)');
+    if(clots>.3)s+=EN_TH(vx+vw*.72,vy+vh-4,'microclots + platelets','t-xs t-mid','var(--clot)');
     /* capillary bed and lactate */
     const [cx,cy,cw,ch]=L.c,C=capbed(cx,cy,cw,ch,{perf:clamp(perf),ph:t*8,seed:3});s+=C.svg;
     s+=EN_T(cx,cy-6,`capillary bed · ${C.n} of 5 perfused (schematic)`,'t-xs','fill:var(--ink);font-weight:600');

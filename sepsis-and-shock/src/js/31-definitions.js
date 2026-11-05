@@ -65,16 +65,16 @@ inits.definitions=()=>{
       chips.forEach((c,i)=>{const cw=N?84:110,cx0=N?P.x+12+i*(cw+6):P.x+P.w-4*(cw+8)+i*(cw+8),cy0=P.y+14;
         s+=`<rect x="${cx0}" y="${cy0}" width="${cw}" height="24" rx="12" style="fill:var(--panel);stroke:var(--dx);opacity:${f1(p===1?.6:ramp(lp,.1,.4))}"/><text x="${cx0+cw/2}" y="${cy0+16}" class="t-xs t-mid" style="fill:var(--ink)">${c}</text>`});
       s+=`<text x="${N?P.x+12:P.x+P.w-4*118}" y="${P.y+54}" class="t-xs">SIRS: any 2 of 4</text>`;
-      if(p===1){const L=['P','I','R','O'],W2=['Predisposition','Infection','Response','Organ dysfunction'];L.forEach((c,i)=>{const px=N?P.x+P.w-70:P.x+P.w-150,py=P.y+(N?80:72)+i*(N?30:30);
+      if(p===1){const L=['P','I','R','O'],W2=['Predisposition','Infection','Response','Organ dysfunction'];L.forEach((c,i)=>{const px=N?P.x+P.w-130:P.x+30,py=P.y+(N?80:70)+i*28;
         s+=`<g style="opacity:${f1(ramp(lp,i*.15,i*.15+.3))}"><text x="${px}" y="${py+14}" class="t-big" style="fill:var(--rx)">${c}</text><text x="${px+18}" y="${py+13}" class="t-xs">${W2[i]}</text></g>`});
-        s+=`<text x="${N?P.x+P.w-70:P.x+P.w-150}" y="${P.y+(N?208:200)}" class="t-xs" style="fill:var(--rx)">PIRO: a hypothesis</text>`}}
+        s+=`<text x="${N?P.x+P.w-130:P.x+30}" y="${P.y+(N?200:190)}" class="t-xs" style="fill:var(--rx)">PIRO: a hypothesis</text>`}}
     if(p===2){/* the SIRS gate */
-      const gx=N?cx:P.x+P.w*.55,gy=N?P.y+70:P.y+30,gh=N?200:150;
+      const gx=N?cx:P.x+P.w*.55,gy=N?P.y+70:P.y+30,gh=N?300:P.h-90;
       s+=`<rect x="${gx-8}" y="${gy}" width="16" height="${gh}" rx="4" style="fill:var(--dx)"/><text x="${gx}" y="${gy-8}" class="t-sm t-mid" style="fill:var(--ink);font-weight:600">≥2 SIRS?</text>`;
-      for(let i=0;i<8;i++){const miss=i===5,x0=N?P.x+30:P.x+40,yy=gy+14+i*(gh-20)/8;
+      for(let i=0;i<8;i++){const miss=i===5,x0=N?P.x+30:P.x+40,yy=gy+6+i*(gh-10)/8;
         let x=lerp(x0,gx+(N?120:200),ramp(lp,i*.05,.6+i*.05)),y=yy;
-        if(miss&&x>gx-30){x=gx-30;y=yy+(gh-yy+gy+40)*ramp(lp,.5,.9)}
-        s+=person(x,y-4,18,miss?'var(--muted)':'var(--dx)')}
+        if(miss&&x>gx-30){x=gx-30;y=lerp(yy,gy+gh+4,ramp(lp,.55,.9))}
+        s+=person(x,y,Math.min(18,(gh-10)/8-3),miss?'var(--muted)':'var(--dx)')}
       s+=`<text x="${N?P.x+16:P.x+40}" y="${P.y+P.h-20}" class="t-sm" style="fill:var(--ink)">1 in 8 (12.1%) with infection and organ failure were SIRS-negative</text>`}
     if(p===3||p===4){/* nested sets */
       const ex=N?cx:P.x+P.w*.4,ey=N?P.y+190:P.y+P.h/2,R=N?170:150,sc=p===3?ease(lp):1;
@@ -84,12 +84,12 @@ inits.definitions=()=>{
       s+=`<ellipse cx="${ex}" cy="${f1(ey+R*.34)}" rx="${f1(R*.34)}" ry="${f1(R*.22)}" style="fill:${p===4?'var(--bad-soft)':'var(--panel)'};stroke:var(--bad);stroke-width:${p===4?2.2:1.4};opacity:${f1(so)}"/><text x="${ex}" y="${f1(ey+R*.36)}" class="t-sm t-mid" style="fill:var(--bad);font-weight:600;opacity:${f1(so)}">Septic shock</text>`;
       if(p===3){const bx=N?P.x+P.w-150:P.x+P.w-190,by=N?P.y+P.h-70:P.y+40;s+=dfBox(bx,by,N?140:160,44,'Severe sepsis',{sub:'dropped as redundant',x:ramp(lp,.7,1)>0,op:1})}
       if(p===4){const qx=N?P.x+20:P.x+P.w-230,qy=N?P.y+P.h-120:P.y+40;
-        s+=`<g style="opacity:${f1(lp)}">`+pump(qx,qy,90,70,{v:lp,txt:'MAP ≥65',on:true,col:'var(--rx)'})+`<text x="${qx+45}" y="${qy+86}" class="t-xs t-mid">vasopressor needed</text>`;
+        s+=`<g style="opacity:${f1(lp)}">`+pump(qx,qy,90,70,{v:lp,txt:'MAP ≥65',on:true,col:'var(--rx)'}).svg+`<text x="${qx+45}" y="${qy+86}" class="t-xs t-mid">vasopressor needed</text>`;
         s+=lactateMeter(qx+(N?280:150),qy-6,20,90,2+lp*2,8,{bands:[{from:2,to:8,col:'var(--lactate)',label:'&gt;2'}],val:true,unit:'mmol/L'})+`<text x="${qx+(N?240:120)}" y="${qy+118}" class="t-xs">despite adequate fluids</text></g>`}}
     if(p===5){/* Phoenix */
       const bx=N?P.x+90:P.x+150,by=N?P.y+24:P.y+20,bs=N?.85:.9;
       const B=body(bx,by,bs,{id:'dfB',organs:true,fail:{brain:.0,lung:.0,heart:0}});s+=B.svg;
-      const sys=[['Respiratory','0–3',B.at.lung],['Cardiovascular','0–6',B.at.heart],['Coagulation','0–2',B.at.liver],['Neurological','0–2',B.at.brain]];
+      const sys=[['Respiratory','0–3',B.at.lung],['Cardiovascular','0–6',B.at.heart],['Coagulation','0–2',B.at.arm],['Neurological','0–2',B.at.brain]];
       sys.forEach((q,i)=>{const op=ramp(lp,i*.15,i*.15+.3),tx=N?P.x+200:P.x+330,ty=(N?P.y+60:P.y+50)+i*(N?62:50);
         s+=`<g style="opacity:${f1(op)}"><circle cx="${f1(q[2][0])}" cy="${f1(q[2][1])}" r="14" style="fill:var(--dx);opacity:.22"/><path d="M${f1(q[2][0]+14)} ${f1(q[2][1])}L${tx-8} ${ty-4}" style="stroke:var(--dx);stroke-width:1;stroke-dasharray:3 3;fill:none"/><text x="${tx}" y="${ty}" class="t-lbl">${q[0]}</text><text x="${tx}" y="${ty+14}" class="t-xs">${q[1]} points</text></g>`});
       s+=`<text x="${N?P.x+16:P.x+330}" y="${N?P.y+P.h-24:P.y+P.h-30}" class="t-sm" style="fill:var(--ink);opacity:${f1(ramp(lp,.6,.9))}">suspected infection + score ≥2 = sepsis</text>`}

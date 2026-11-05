@@ -85,7 +85,7 @@ inits.after=()=>{
     s+=`<line x1="${rx0}" x2="${rx1}" y1="${ry}" y2="${ry}" style="stroke:var(--panel-2);stroke-width:10;stroke-linecap:round"/>`;
     s+=`<line x1="${rx0}" x2="${f1(RX(M))}" y1="${ry}" y2="${ry}" style="stroke:var(--rec-soft);stroke-width:10;stroke-linecap:round"/>`;
     AF_MS.forEach(([m,l])=>{const on=M>=m;s+=`<circle cx="${f1(RX(m))}" cy="${ry}" r="4.5" style="fill:${on?'var(--rec)':'var(--panel)'};stroke:var(--rec);stroke-width:1.6"/>`+(nr&&m===1?'':T(RX(m),ry+19,l,'t-xs t-mid',on?'fill:var(--ink)':''))});
-    s+=T(rx1,ry+19,M>12.5?'years 2 to 5 →':'','t-xs t-end','fill:var(--rec);font-weight:700');
+    s+=T(rx1,ry+32,M>12.5?'years 2 to 5 →':'','t-xs t-end','fill:var(--rec);font-weight:700');
     const bob=Math.abs(Math.sin(M*9))*1.6;
     s+=person(RX(M),ry-33-bob,26,'var(--rec)');
     /* three domains */
