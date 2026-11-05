@@ -128,16 +128,16 @@ function osDetail(ty,t,ph){let s='';const T=(x,y,txt,cls='t-xs',st='')=>`<text x
     /* time to arrest in fatal reactions (Pumphrey 2000), then the observation clock */
     if(bi<1){const X=v=>24+232*v/30;s+=`<g style="opacity:${f1(1-bi)}">`+T(20,18,'median time to arrest, fatal reactions','t-xs','fill:var(--ink);font-weight:600')+tline(24,40,232,{min:0,max:30,step:5,fmt:v=>v}).svg;
       [[5,'medicines'],[15,'venom'],[30,'food']].forEach((m,i)=>{const on=tr>i*.3;s+=`<circle cx="${f1(X(m[0]))}" cy="40" r="5" style="fill:${on?'var(--bad)':'var(--panel-2)'};stroke:var(--panel);stroke-width:1.5"/>`+T(X(m[0]),31,m[1],'t-xs t-mid',on?'fill:var(--ink);font-weight:600':'')});s+=T(256,70,'minutes','t-xs t-end')+`</g>`}
-    if(bi>0){const X=v=>24+232*v/24;s+=`<g style="opacity:${f1(bi)}">`+T(20,18,'hours after the reaction settles','t-xs','fill:var(--ink);font-weight:600')+tline(24,40,232,{min:0,max:24,step:6,fmt:v=>v+' h'}).svg;
+    if(bi>0){const X=v=>24+232*v/24;s+=`<g style="opacity:${f1(bi)}">`+T(20,12,'hours after the reaction settles','t-xs','fill:var(--ink);font-weight:600')+tline(24,40,232,{min:0,max:24,step:6,fmt:v=>v+' h'}).svg;
       [[2,'2'],[6,'6'],[12,'12']].forEach(m=>{s+=`<rect x="${f1(X(m[0])-1.5)}" y="30" width="3" height="20" style="fill:var(--rx)"/>`});
-      s+=`<path d="M${f1(X(11))} 26l-5 -8h10z" style="fill:var(--warn)"/>`+T(X(11)+8,22,'median 2nd wave 11 h','t-xs','fill:var(--warn);font-weight:600')+T(24,72,'RCUK observation: 2 h, ≥6 h or ≥12 h','t-xs','fill:var(--rx)')+`</g>`}
+      s+=`<path d="M${f1(X(11))} 26l-5 -8h10z" style="fill:var(--warn)"/>`+T(24,70,'▲ median second wave: 11 h','t-xs','fill:var(--warn);font-weight:600')+T(24,82,'RCUK observation: 2 h, ≥6 h or ≥12 h','t-xs','fill:var(--rx)')+`</g>`}
     /* a cell releasing histamine */
     const cx=64,cy=128;s+=`<circle cx="${cx}" cy="${cy}" r="30" style="fill:var(--cell);stroke:var(--immune);stroke-width:1.6"/><circle cx="${cx-4}" cy="${cy+2}" r="10" style="fill:var(--immune);opacity:.75"/>`;
     const rr=rng(14);for(let i=0;i<14;i++){const a=rr()*Math.PI*2,d0=14+rr()*12,d=d0+hs*(14+rr()*22)*(1-ad*.6);s+=`<circle cx="${f1(cx+Math.cos(a)*d)}" cy="${f1(cy+Math.sin(a)*d)}" r="2.2" style="fill:var(--fever);opacity:${f1(1-ad*.7)}"/>`}
     s+=T(cx,cy+46,hs>.3?'histamine released':'immune cell','t-xs t-mid','fill:var(--ink)');
     const V=vessel(134,92,138,72,{ph,dilate:.9*hs*(1-ad),leak:.8*hs*(1-ad),seed:4});s+=V.svg+T(203,86,'small blood vessel','t-xs t-mid','fill:var(--ink)');
     if(ad>.02){s+=`<g style="opacity:${f1(ad)}"><rect x="20" y="196" width="150" height="52" rx="24" style="fill:var(--skin);stroke:var(--line)"/>`+T(95,262,'outer thigh','t-xs t-mid');
-      s+=`<g transform="rotate(-62 142 198)"><rect x="132" y="150" width="22" height="58" rx="6" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.6"/><rect x="138" y="206" width="10" height="8" rx="2" style="fill:var(--accent)"/></g>`;
+      s+=`<rect x="122" y="146" width="20" height="44" rx="6" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.6"/><rect x="127" y="189" width="10" height="8" rx="2" style="fill:var(--accent)"/>`;
       s+=T(176,214,'adrenaline','t-sm','fill:var(--accent);font-weight:700')+T(176,227,'IM, into the','t-xs')+T(176,238,'anterolateral thigh','t-xs')+`</g>`}}
   return s}
 /* cardiogenic shock trials, outcome per 100 people in each arm (rounded) */

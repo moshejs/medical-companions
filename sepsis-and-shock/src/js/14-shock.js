@@ -41,7 +41,7 @@ function shCircuit(x,y,w,h,o={}){
   sv+=`<text x="${f1(bx+bw*.56)}" y="${f1(by-6)}" class="t-xs t-mid" style="fill:var(--ink);font-weight:600">PIPES · vessels</text>`;
   if(leak>.02)for(let i=0;i<6;i++){const kk=(ph*1.4+i*.19)%1,dx=bx+bw*(.2+.12*i),dy=by+bh+4+kk*h*.05;
     sv+=`<path d="M${f1(dx)} ${f1(dy-3)}C${f1(dx+2.4)} ${f1(dy)} ${f1(dx+1.8)} ${f1(dy+2.6)} ${f1(dx)} ${f1(dy+2.6)}C${f1(dx-1.8)} ${f1(dy+2.6)} ${f1(dx-2.4)} ${f1(dy)} ${f1(dx)} ${f1(dy-3)}Z" style="fill:var(--fluid);opacity:${f1(leak*(1-kk*.7))}"/>`}
-  if(leak>.3)sv+=`<text x="${f1(bx-6)}" y="${f1(by+bh+h*.06)}" class="t-xs t-end" style="fill:var(--fluid);font-weight:600;opacity:${f1(ramp(leak,.3,.6))}">fluid leaks into tissue</text>`;
+  if(leak>.3)sv+=`<text x="${f1(bx-6)}" y="${f1(by+bh+h*.06)}" class="t-xs t-end" style="fill:var(--fluid);font-weight:600;opacity:${f1(ramp(leak,.3,.6))}">fluid leaks out</text>`;
   /* blood lost from the tank */
   if(bleed>.02){for(let i=0;i<3;i++){const kk=(ph*1.2+i/3)%1,dx=tx+tw*(.22+i*.08),dy=ty+th+3+kk*h*.09;
       sv+=`<circle cx="${f1(dx)}" cy="${f1(dy)}" r="${f1(2.6*k+.6)}" style="fill:var(--oxy);opacity:${f1(bleed*(1-kk*.6))}"/>`}
