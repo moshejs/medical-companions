@@ -1,0 +1,142 @@
+<!-- ================= 1.4 SHOCK AND HAEMODYNAMICS ================= -->
+<style>
+#m-shock .tbl table{min-width:640px}
+#m-shock .card>.ev,#m-shock .card>.tag{align-self:flex-start}
+#m-shock .shwarn{border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 12px 12px 0;padding:10px 14px;font-size:15px;max-width:72ch}
+#m-shock .shwarn b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:2px}
+#m-shock .shbox{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){#m-shock .shbox{grid-template-columns:minmax(0,1fr)}}
+#m-shock .shbox .calc{grid-template-columns:minmax(0,1fr)}
+#m-shock .rng{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+#m-shock .rng output{font:700 15px var(--mono);color:var(--ink)}
+#m-shock .calc input[type=range]{width:100%}
+#m-shock .presets{display:flex;flex-wrap:wrap;gap:6px}
+#m-shock .presets .btn{font-size:13px}
+#m-shock .bp3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:520px){#m-shock .bp3{grid-template-columns:minmax(0,1fr)}}
+#m-shock .shout{font-size:15px;line-height:1.5}
+#m-shock .shout b{font-family:var(--mono)}
+#m-shock .fq-ctrls .btn{font-size:13px}
+</style>
+<section class="mod" id="m-shock" data-mod="shock" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding sepsis &amp; shock</p><h2>Shock and haemodynamics</h2>
+    <p class="lede">Shock means the organs are not getting enough oxygen from the blood, and the blood pressure can still look normal at first. Think of the circulation as a pump, a set of pipes and a tank of blood: scrub through the four ways it can fail, then build a blood pressure yourself from heart rate, stroke volume and vessel tone.</p></div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>Sepsis is a medical emergency. If someone with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
+
+  <h3 class="sub">What shock is, and what it is not</h3>
+  <div class="prose">
+    <p>The European Society of Intensive Care Medicine (ESICM) task force defines circulatory shock as "a life-threatening, generalized form of acute circulatory failure associated with inadequate oxygen utilization by the cells". The cells run short of oxygen (dysoxia), and blood lactate rises [[Cecconi2014ESICM]].</p>
+    <p>Shock does not require low blood pressure. Hypotension (a systolic pressure below 90 mmHg, a mean arterial pressure below 65 mmHg, or a fall of 40 mmHg or more from baseline) is common, but ESICM states it "should not be required to define shock" [[Cecconi2014ESICM]]. Lactate is "typically &gt;2 mEq/L (or mmol/L) in shock states", and in septic shock levels above 1.5 mmol/L are associated with higher mortality [[Cecconi2014ESICM]]. Lactate and how it is measured are covered in <a href="#tests" data-go="tests">Lactate, cultures and tests</a>.</p>
+  </div>
+
+  <h3 class="sub">Pump, pipes and tank: the four ways the circulation fails</h3>
+  <div class="prose"><p>Weil and Shubin proposed a reclassification of shock "with special reference to distributive defects" in 1971, the origin of the four-class scheme still taught <span class="ev est">Established</span> [[Weil1971]]. ESICM describes three low-flow states (hypovolaemic, cardiogenic and obstructive) and one hyperkinetic state (distributive), and notes that shock can be a combination [[Cecconi2014ESICM]]. Pick a step or press Play.</p></div>
+  <div class="stepper" id="shSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="shSvg" viewBox="0 0 720 390" role="img" aria-label="A schematic circulation drawn as a pump (the heart), pipes (the arteries and a capillary bed) and a tank (the blood volume), with red cells moving round the loop, a blood pressure dial, a flow bar and three windows on perfusion: the skin, the kidneys and the brain. The scrubber walks through six scenes: normal circulation; distributive shock, where the pipes widen and leak while flow stays high; cardiogenic shock, where the pump weakens; hypovolaemic shock, where the tank drains; obstructive shock, where fluid around the heart squeezes it; and mixed septic shock, where wide leaky pipes and a tired pump combine. In each failing scene the dial falls, the skin mottles and the kidneys and brain dim."></svg>
+      <div class="ctrls"><button class="btn primary" id="shPlay">Play</button><label class="stage-cap tl" for="shT">Scene <input type="range" id="shT" min="0" max="1" step="0.001" value="0.09"></label></div>
+      <div class="readout" id="shRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The dial, the flow bar and the windows show a direction of change, not measurements. Pump, tank and pipes are the parts the RUSH bedside ultrasound exam looks at [[Perera2010RUSH]]; the low-flow and hyperkinetic patterns follow ESICM [[Cecconi2014ESICM]] and the organ systems follow Standl 2018 [[Standl2018]].</p>
+    </div>
+    <aside class="note" id="shNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The four types at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Type</th><th>What fails</th><th>Examples</th><th>Flow pattern</th><th>Treatment principle, as published</th></tr></thead>
+    <tbody>
+      <tr><th>Distributive</th><td>The vessels: "relative hypovolemia" from pathological redistribution of the blood volume [[Standl2018]]</td><td>Septic, anaphylactic or anaphylactoid, and neurogenic shock [[Standl2018]]</td><td>Hyperkinetic: cardiac output usually normal or high [[Cecconi2014ESICM,Vincent2008CO]]</td><td>Vasoconstrictors plus fluid (Standl 2018) [[Standl2018]]</td></tr>
+      <tr><th>Cardiogenic</th><td>The heart (the pump) [[Standl2018]]</td><td>After a heart attack (acute myocardial infarction), in up to 10% of people [[Samsky2021]]</td><td>Low flow from primary pump failure; cardiac index &lt;1.8 L/min/m² without support plus SBP &lt;90 mmHg [[Standl2018]]</td><td>After a heart attack, immediate revascularisation is the only treatment supported by randomised trials [[Samsky2021]]</td></tr>
+      <tr><th>Hypovolaemic</th><td>The blood and fluid compartment (the tank) [[Standl2018]]</td><td>Bleeding with or without injury; plasma loss from vomiting and diarrhoea (such as cholera), hyperthermia or large burns [[Standl2018]]</td><td>Low flow [[Cecconi2014ESICM]]</td><td>Fluid replacement with balanced crystalloids (Standl 2018) [[Standl2018]]</td></tr>
+      <tr><th>Obstructive</th><td>A blockage of the circulation [[Standl2018]]</td><td>Vena cava compression, tension pneumothorax, pericardial tamponade; pulmonary embolism, mediastinal mass [[Standl2018]]</td><td>Low flow [[Cecconi2014ESICM]]</td><td>"Shall be treated with an immediate life-saving intervention" (Standl 2018) [[Standl2018]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">The treatment column describes published statements, not instructions. Each non-septic type, with its trials and guideline wording, is in <a href="#othershock" data-go="othershock">Cardiogenic, hypovolaemic, obstructive &amp; anaphylactic shock</a>; the treatment of septic shock is in <a href="#fluids" data-go="fluids">Fluids</a> and <a href="#pressors" data-go="pressors">Vasopressors &amp; steroids</a>.</p>
+
+  <h3 class="sub">How often each type is seen</h3>
+  <div class="ctrls fq-ctrls" role="group" aria-label="Choose a data source">
+    <button class="btn" data-fq="soap" aria-pressed="true">SOAP II (ICU, 1679 patients)</button>
+    <button class="btn" data-fq="pub" aria-pressed="false">Standl 2018: published figures</button>
+    <button class="btn" data-fq="calc" aria-pressed="false">Standl 2018: authors' calculation</button>
+  </div>
+  <div class="stage">
+    <svg id="shFq" viewBox="0 0 720 220" role="img" aria-label="A bar chart of the share of each shock type. In the SOAP II trial of 1679 intensive care patients with shock, 62% had septic shock, 17% cardiogenic and 16% hypovolaemic shock. Buttons switch to the shares tabulated by Standl 2018."></svg>
+    <p class="stage-cap" id="shFqCap"></p>
+  </div>
+
+  <h3 class="sub">Build a blood pressure</h3>
+  <div class="prose">
+    <p>Cardiac output (the blood the heart pumps in a minute) is stroke volume times heart rate [[Vincent2008CO]]. In sepsis it is usually normal or high even when the heart muscle is depressed, because a fast heart rate and low vascular tone reduce afterload; Vincent compares this to a tired cyclist keeping up speed on a smooth downhill road [[Vincent2008CO]]. Fluids raise stroke volume through the Frank–Starling mechanism, "like adding a tailwind to the cyclist" [[Vincent2008CO]].</p>
+  </div>
+  <div class="shbox">
+    <div class="stage">
+      <svg id="shLab" viewBox="0 0 400 270" role="img" aria-label="A heart pumps into a pipe whose width shows vessel tone. A dial shows blood pressure as a percentage of the starting value, and two bars show cardiac output in litres per minute and oxygen delivery as a percentage of the start. Moving the sliders resizes the heart, narrows or widens the pipe and moves the dial and bars."></svg>
+      <p class="shout" id="shLabOut" aria-live="polite"></p>
+    </div>
+    <div class="calc">
+      <p class="shwarn"><b>Teaching model</b>This sandbox multiplies flow by resistance (pressure ≈ cardiac output × vessel tone), a simple hydraulic picture, not a clinical formula. Pressure and oxygen delivery are shown relative to the starting values, assuming the blood's oxygen content stays the same. The sources here give no validated normal values for resistance or oxygen delivery, so none are shown.</p>
+      <label for="shHr"><span class="rng">Heart rate <output id="shHrO">75 /min</output></span><input type="range" id="shHr" min="40" max="180" step="1" value="75"></label>
+      <label for="shSv"><span class="rng">Stroke volume <output id="shSvO">70 mL</output></span><input type="range" id="shSv" min="20" max="120" step="1" value="70"></label>
+      <label for="shTone"><span class="rng">Vessel tone (resistance) <output id="shToneO">×1.00</output></span><input type="range" id="shTone" min="0.4" max="1.8" step="0.01" value="1"></label>
+      <div class="presets" role="group" aria-label="Try a scenario">
+        <button class="btn" data-pre="start" aria-pressed="true">Start</button>
+        <button class="btn" data-pre="tone" aria-pressed="false">Low tone</button>
+        <button class="btn" data-pre="tonehr" aria-pressed="false">Low tone + fast heart</button>
+        <button class="btn" data-pre="sv" aria-pressed="false">Small stroke volume</button>
+        <button class="btn" data-pre="svhr" aria-pressed="false">Small stroke volume + fast heart</button>
+      </div>
+    </div>
+  </div>
+  <p class="stage-cap">Try "Low tone" and then "Low tone + fast heart": a faster heart lifts output and claws back some pressure, but not all of it. That is the pattern of high-output septic shock, where the pressure can stay low despite a normal or high cardiac output [[Vincent2008CO,Cecconi2014ESICM]]. In septic shock, some people have a left ventricular ejection fraction close to 40% despite a cardiac index above 3 L/min/m² [[Cecconi2014ESICM]].</p>
+
+  <h3 class="sub">Three windows on perfusion</h3>
+  <div class="prose"><p>ESICM names three bedside "windows" for checking whether tissues are getting enough blood: the skin, the kidneys and the brain [[Cecconi2014ESICM]].</p></div>
+  <div class="cards">
+    <div class="card"><span class="ev mottle">Skin</span><h4>Cutaneous perfusion</h4><p>Signs that suggest impaired microcirculation include mottled skin, acrocyanosis (bluish fingers and toes), slow capillary refill and a larger temperature gap between the core and the toes [[Cecconi2014ESICM]].</p></div>
+    <div class="card"><span class="tag dx">Kidneys</span><h4>Urine output</h4><p>Falling urine output is the kidney window [[Cecconi2014ESICM]]. Kidney support in intensive care is covered in <a href="#icu" data-go="icu">Organ support in intensive care</a>.</p></div>
+    <div class="card"><span class="tag brand">Brain</span><h4>Mental status</h4><p>New confusion or unusual sleepiness is the brain window [[Cecconi2014ESICM]].</p></div>
+    <div class="card"><span class="tag rx">In the blood</span><h4>Venous oxygen and CO<sub>2</sub></h4><p>A low central venous oxygen saturation (ScvO<sub>2</sub>) suggests oxygen transport is inadequate, but normal or high values cannot rule out local hypoperfusion. A venous-to-arterial CO<sub>2</sub> gap above 6 mmHg suggests too little tissue blood flow even when ScvO<sub>2</sub> is above 70% [[Cecconi2014ESICM]].</p></div>
+  </div>
+  <p class="gentle"><b>In plain words</b>Warning signs that organs are short of blood include cold or blotchy (mottled) skin, passing little urine, and confusion or unusual sleepiness [[Cecconi2014ESICM]].</p>
+
+  <h3 class="sub">Bedside numbers: mean arterial pressure and the shock index</h3>
+  <div class="prose"><p>The traditional estimate of mean arterial pressure (MAP) is the diastolic pressure plus one third of the pulse pressure. In 1878 people, a factor of 0.412 correlated better with target-organ damage than the traditional one third [[Papaioannou2016]]. The shock index, introduced by Allgöwer and Burri in 1967, is heart rate divided by systolic pressure [[Allgower1967]].</p></div>
+  <div class="shbox">
+    <div class="calc">
+      <p class="shwarn"><b>Teaching tool</b>This shows how the formulas work. It is not for self-triage, for diagnosis or for deciding whether to seek care: heart rate and pressure often look normal in early, compensated shock [[Koch2019SI]]. If you are worried about someone, call your local emergency number.</p>
+      <div class="bp3">
+        <label for="shSbp">Systolic (mmHg)<input type="number" id="shSbp" min="40" max="250" step="1" value="120"></label>
+        <label for="shDbp">Diastolic (mmHg)<input type="number" id="shDbp" min="20" max="150" step="1" value="80"></label>
+        <label for="shHrB">Heart rate (/min)<input type="number" id="shHrB" min="20" max="250" step="1" value="80"></label>
+      </div>
+      <div class="verdict maybe" id="shCalcV" aria-live="polite"></div>
+      <p class="shout" id="shCalcOut"></p>
+    </div>
+    <div class="stage"><svg id="shSi" viewBox="0 0 400 150" role="img" aria-label="A shock index scale from 0.3 to 1.8 with the usual normal range of 0.5 to 0.7 shaded, a mark at 1.0 above which a higher risk of death has been widely reported, and the four trauma groups of Mutschler 2013. A marker shows the calculated shock index."></svg>
+      <p class="stage-cap">Bands as published: usual normal range 0.5–0.7, some evidence accepts up to 0.9, and values approaching 1.0 indicate worsening haemodynamics [[Koch2019SI,Rady1994]]. Above 1.0 "has been widely found to predict increased risk of mortality" [[Koch2019SI]]. Trauma groups: Mutschler 2013 [[Mutschler2013SI]].</p>
+    </div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who</th><th>What the shock index showed</th></tr></thead>
+    <tbody>
+      <tr><th>Rady 1994</th><td>275 emergency department adults whose vital signs looked stable</td><td>An SI above 0.9 (41 patients) went with more immediate-priority triage, hospital admission and intensive care than an SI below 0.9 [[Rady1994]]</td></tr>
+      <tr><th>Berger 2013</th><td>2524 emergency patients screened for sepsis</td><td>SI ≥0.7 was the most sensitive screen for lactate ≥4 mmol/L (sensitivity 0.83, negative predictive value 0.95, the same as SIRS); SI ≥1.0 was the most specific (0.81) [[Berger2013SI,Koch2019SI]]</td></tr>
+      <tr><th>Al Jalbout 2019</th><td>About 526 million weighted US emergency visits, 2005–2010</td><td>Positive likelihood ratios for inpatient death were 1.54 above 0.7, 2.59 above 0.9 and 5.67 above 1.3: only the highest cut-off was strongly informative [[AlJalbout2019]]</td></tr>
+      <tr><th>Mutschler 2013</th><td>21,853 trauma patients (TraumaRegister DGU)</td><td>From the lowest group (&lt;0.6) to the highest (≥1.4), mortality rose from 10.9% to 39.8% and mean blood units transfused from 1.0 to 21.4 [[Mutschler2013SI]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Koch 2019 cautions that antihypertensives and beta-agonists can confound heart rate and blood pressure [[Koch2019SI]]. There is no single agreed threshold, so the shock index is best read as a trend and a teaching tool [[AlJalbout2019,Koch2019SI]].</p>
+
+  <h3 class="sub">How intensive care teams assess a circulation in shock</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">ESICM 2014</span><h4>Fluid challenge</h4><p>ESICM states that a cardiac output rise of at least 10–15% defines a positive response to fluid. It recommends a fluid challenge when fluids are given, unless hypovolaemia is obvious, and prefers dynamic over static predictors of fluid responsiveness [[Cecconi2014ESICM]]. More in <a href="#fluids" data-go="fluids">Fluids</a>.</p></div>
+    <div class="card"><span class="tag rx">ESICM 2014</span><h4>A pressure target</h4><p>ESICM recommends initially targeting a MAP of 65 mmHg or more and individualising the target, and suggests tolerating lower pressure in uncontrolled bleeding without severe head injury. These are quoted as published, not as instructions [[Cecconi2014ESICM]].</p></div>
+    <div class="card"><span class="tag dx">Measuring flow</span><h4>Cardiac output and echo</h4><p>ESICM does not recommend routine cardiac output measurement when shock responds to initial therapy, but recommends it when shock does not respond, and recommends against routine pulmonary artery catheters. It calls echocardiography the best bedside method for repeatedly assessing cardiac function [[Cecconi2014ESICM]].</p></div>
+    <div class="card"><span class="tag dx">RUSH</span><h4>Ultrasound in shock</h4><p>The RUSH exam (Rapid Ultrasound in SHock) is a stepwise bedside ultrasound algorithm that checks the pump, the tank and the pipes to identify the type of shock [[Perera2010RUSH]]. ESICM adds that echocardiography helps choose treatment and judge the response [[Cecconi2014ESICM]].</p></div>
+    <div class="card"><span class="tag accent">History</span><h4>Early goal-directed therapy</h4><p>In Rivers 2001 (263 adults), a protocol adjusting preload, afterload and contractility "to balance oxygen delivery with oxygen demand" reported in-hospital mortality of 30.5% vs 46.5% [[Rivers2001EGDT]]. The later PRISM meta-analysis of three trials (3723 patients) found no benefit over usual care: 90-day mortality 24.9% vs 25.4% [[PRISM2017]].</p></div>
+    <div class="card"><span class="tag brand">Sepsis-3</span><h4>Septic shock, defined</h4><p>Sepsis-3 identifies septic shock by "a vasopressor requirement to maintain a mean arterial pressure of 65 mm Hg or greater and serum lactate level greater than 2 mmol/L (&gt;18 mg/dL) in the absence of hypovolemia" [[Singer2016Sepsis3]]. In the derivation data, that combination carried a hospital mortality of 42.3% [[ShankarHari2016Shock]]. See <a href="#definitions" data-go="definitions">Definitions &amp; scores</a>.</p></div>
+  </div>
+  <p class="callout">Mortality figures on this page describe large groups of people and cannot predict what will happen to any one person. Septic shock case-fatality is reported "in the range of 40–50 %, reaching as high as 80 %" [[Cecconi2014ESICM]], yet many people survive, and the heart muscle that weakens in septic shock often recovers over days [[Parker1984]]. The non-septic shock states continue in <a href="#othershock" data-go="othershock">module 5.1</a>.</p>
+</section>

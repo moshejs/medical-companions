@@ -1,0 +1,152 @@
+<!-- ================= 4.3 VASOPRESSORS & STEROIDS ================= -->
+<style>
+#m-pressors .card>.ev,#m-pressors .card>.tag{align-self:flex-start}
+#m-pressors .tbl table{min-width:560px}
+#m-pressors .dr-ctrls .btn,#m-pressors .pv-ctrls .btn{font-size:13px}
+#m-pressors .mapc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:18px;align-items:start}
+@media (max-width:900px){#m-pressors .mapc{grid-template-columns:minmax(0,1fr)}}
+#m-pressors .mapc .calc{grid-template-columns:minmax(0,1fr)}
+#m-pressors .mapc .rng{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+#m-pressors .mapc .rng output{font:700 15px var(--mono);color:var(--ink)}
+#m-pressors .mapout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#m-pressors .mapout div{background:var(--panel-2);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+#m-pressors .mapout b{font:900 30px/1 var(--display);color:var(--rx)}
+#m-pressors .mapout small{font:500 12px var(--mono);color:var(--muted)}
+#m-pressors .pv-cap,#m-pressors .st-cap{font-size:14.5px;max-width:78ch}
+#m-pressors #prSt,#m-pressors #prPer{max-width:880px}
+#m-pressors .legend i.a{background:var(--rx)} #m-pressors .legend i.b{background:var(--muted)}
+</style>
+<section class="mod" id="m-pressors" data-mod="pressors" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Vasopressors &amp; steroids</h2>
+    <p class="lede">When fluid alone does not bring the blood pressure back, intensive care teams add medicines that tighten the blood vessels or help the heart squeeze. See how each drug works, how the guideline orders them, what blood-pressure target the trials support, and what hydrocortisone adds.</p></div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>Sepsis is a medical emergency. If someone with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
+
+  <div class="prose"><p>Vasopressors are part of the definition of septic shock: Sepsis-3 identifies it by "a vasopressor requirement to maintain a mean arterial pressure of 65 mm Hg or greater and serum lactate level greater than 2 mmol/L" after fluids [[Singer2016Sepsis3]]. Vasoplegia, the failure of vessels to constrict, is classically attributed to nitric oxide, ATP-sensitive potassium channels in vascular smooth muscle and relative vasopressin deficiency [[Landry2001]]. Blocking nitric oxide production does not help: a nitric oxide synthase inhibitor raised blood pressure but increased mortality (59% vs 49%) [[Lopez2004NOS]]. Doses on this page are quoted from labels and guidelines as published. They are not instructions.</p></div>
+
+  <h3 class="sub">How each drug raises the pressure</h3>
+  <div class="prose"><p>Choose a drug, then play the infusion. The lit targets are the actions the cited label or guideline gives it: tightening the vessels, helping the heart squeeze, or, for vasopressin, holding on to water in the kidney.</p></div>
+  <div class="ctrls dr-ctrls" role="group" aria-label="Choose a drug">
+    <button class="btn" data-dr="na" aria-pressed="true">Noradrenaline</button>
+    <button class="btn" data-dr="vp" aria-pressed="false">Vasopressin</button>
+    <button class="btn" data-dr="adr" aria-pressed="false">Adrenaline</button>
+    <button class="btn" data-dr="at2" aria-pressed="false">Angiotensin II</button>
+    <button class="btn" data-dr="dob" aria-pressed="false">Dobutamine</button>
+  </div>
+  <div class="stepper" id="prRSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="prRec" viewBox="0 0 720 340" role="img" aria-label="A syringe pump infuses the chosen drug. Drug particles travel to a widened, relaxed blood vessel, to the heart and to the kidneys. Where the cited source gives the drug that action, receptor sites on the target light up: the vessel narrows as its muscle tightens, the heart beats more strongly, or the kidney holds on to water. Two bars show vessel tone and heart squeeze, and a schematic dial shows blood pressure rising."></svg>
+      <div class="ctrls"><button class="btn primary" id="prRPlay">Play</button><label class="stage-cap tl" for="prRT">Infusion <input type="range" id="prRT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="prRRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Schematic.</b> Sizes, speeds and the dial are illustrative, not doses or measurements. Receptor names are shown only where the label states them: α- and β-adrenergic for noradrenaline [[FDA-Levophed]], V1 and V2 for vasopressin [[FDA-Vasostrict]].</p>
+    </div>
+    <aside class="note" id="prRNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The order of agents in the guideline</h3>
+  <div class="prose"><p>Scrub an illustrative patient whose noradrenaline need keeps rising. The ruler marks the dose thresholds that appear in the guideline remarks and trials, in µg/kg/min of noradrenaline or its equivalent.</p></div>
+  <p class="teach"><b>Teaching tool</b>This lays out published statements and trial entry criteria side by side. It is not a protocol and not a guide to treating anyone: these decisions belong to the intensive care team.</p>
+  <div class="stepper" id="prESteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="prEsc" viewBox="0 0 720 330" role="img" aria-label="A horizontal ruler of noradrenaline dose with a marker that moves right as an illustrative patient's need rises. Marks show the VASSPR start thresholds of 0.1 and 0.4, the ATHOS-3 entry level above 0.2, the SSC 2021 remark that vasopressin is usually started at 0.25 to 0.5, and the SSC 2021 steroid remark of 0.25 or more for at least 4 hours. Lanes below light up for noradrenaline, vasopressin, hydrocortisone, adrenaline or angiotensin II, and an inotrope as each step is reached."></svg>
+      <div class="ctrls"><button class="btn primary" id="prEPlay">Play</button><label class="stage-cap tl" for="prET">Rising need <input type="range" id="prET" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="prERead" aria-live="off"></div>
+      <p class="stage-cap">Thresholds as published: SSC 2021 remarks [[Evans2021SSC]], VASSPR [[Peltan2026VASSPR]], ATHOS-3 [[Khanna2017ATHOS3]]. The SSC 2026 vasopressin and steroid remarks could not be read, so these marks are attributed to 2021 only.</p>
+    </div>
+    <aside class="note" id="prENote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What blood-pressure target? MAP and the trials</h3>
+  <div class="prose"><p>Mean arterial pressure (MAP) is the average pressure driving blood into the organs. SSC 2021 explains that organ perfusion falls below a MAP threshold "usually understood to be approximately 60 mm Hg" [[Evans2021SSC]]. Step through the trials that tested higher and lower targets.</p></div>
+  <div class="stepper" id="prMSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="prMap" viewBox="0 0 720 320" role="img" aria-label="A blood-pressure dial from 0 to 120 mm Hg with shaded target zones. The needle moves to 65 for the Sepsis-3 definition and the SSC target, sweeps between the 65 to 70 and 80 to 85 zones of SEPSISPAM, then settles in the 60 to 65 zone of the 65 trial for people aged 65 or older. Bars beside it compare the death rates of each trial's two groups."></svg>
+      <div class="ctrls"><button class="btn primary" id="prMPlay">Play</button><label class="stage-cap tl" for="prMT">Trials <input type="range" id="prMT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="prMRead" aria-live="off"></div>
+      <p class="stage-cap">Zones are the targets as published [[Singer2016Sepsis3,Evans2021SSC,Prescott2026SSC,Asfar2014SEPSISPAM,Lamontagne2020SIXTYFIVE]]. Bars are population death rates from each trial.</p>
+    </div>
+    <aside class="note" id="prMNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How MAP is worked out</h3>
+  <div class="mapc">
+    <div class="calc">
+      <p class="teach"><b>Teaching tool</b>This shows the arithmetic behind a MAP reading. It is not for checking your own blood pressure or for deciding whether to seek care.</p>
+      <label for="prSbp"><span class="rng">Systolic (top number) <output id="prSbpO">110 mm Hg</output></span><input type="range" id="prSbp" min="60" max="200" step="1" value="110"></label>
+      <label for="prDbp"><span class="rng">Diastolic (bottom number) <output id="prDbpO">60 mm Hg</output></span><input type="range" id="prDbp" min="30" max="120" step="1" value="60"></label>
+      <div class="mapout" aria-live="polite" id="prMapOut"></div>
+    </div>
+    <div class="prose"><p>The traditional estimate is diastolic pressure plus one third of the pulse pressure (systolic minus diastolic). In 1878 people, a factor of 0.412 (MAP = DBP + 0.412 × PP) correlated better with target-organ damage than the traditional one-third [[Papaioannou2016]]. The ESICM consensus notes that shock does not require hypotension, which it gives as SBP &lt;90, MAP &lt;65 or a fall of ≥40 mm Hg from baseline [[Cecconi2014ESICM]].</p></div>
+  </div>
+
+  <h3 class="sub">Hydrocortisone: four trials side by side</h3>
+  <div class="prose"><p>SSC 2021, recommendation 58: "For adults with septic shock and an ongoing requirement for vasopressor therapy we suggest using IV corticosteroids" (weak, moderate quality) [[Evans2021SSC]]. SSC 2026 still suggests them (conditional, low certainty) [[Prescott2026SSC]]. The trials behind that suggestion point in different directions.</p></div>
+  <div class="ctrls"><button class="btn primary" id="prStPlay">Replay the chart</button></div>
+  <div class="stage">
+    <svg id="prSt" viewBox="0 0 720 230" role="img" aria-label="A dot chart of four hydrocortisone trials, death rates from 0 to 70 percent."></svg>
+    <div class="legend"><span><i class="a"></i>steroid group</span><span><i class="b"></i>placebo group</span></div>
+    <p class="st-cap">Annane 2002 shows corticotropin non-responders at 28 days [[Annane2002JAMA]]; CORTICUS all patients at 28 days [[Sprung2008CORTICUS]]; ADRENAL and APROCCHSS at 90 days [[Venkatesh2018ADRENAL,Annane2018APROCCHSS]]. Population figures, not predictions.</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Regimen as tested</th><th>What it found</th></tr></thead>
+    <tbody>
+      <tr><th>Annane 2002 (300)</th><td>Hydrocortisone 50 mg IV every 6 h plus fludrocortisone 50 µg daily for 7 days</td><td>In corticotropin non-responders, 28-day mortality 53% versus 63% (HR 0.67; 95% CI 0.47 to 0.95) [[Annane2002JAMA]].</td></tr>
+      <tr><th>CORTICUS 2008 (499)</th><td>Hydrocortisone 50 mg IV every 6 h for 5 days, then a taper</td><td>28-day mortality 34.3% versus 31.5% (P=0.51); 39.2% versus 36.1% in non-responders. Shock reversed faster, with more superinfections [[Sprung2008CORTICUS]].</td></tr>
+      <tr><th>ADRENAL 2018 (3800, ventilated)</th><td>Hydrocortisone 200 mg/day by continuous infusion</td><td>90-day mortality 27.9% versus 28.8% (OR 0.95). Median shock duration 3 versus 4 days; fewer transfused (37.0% vs 41.7%) [[Venkatesh2018ADRENAL]].</td></tr>
+      <tr class="hl"><th>APROCCHSS 2018 (1241)</th><td>Hydrocortisone plus fludrocortisone</td><td>90-day mortality 43.0% versus 49.1% (RR 0.88; 95% CI 0.78 to 0.99). Vasopressor-free days 17 versus 15; more hyperglycaemia. Lower at ICU and hospital discharge and day 180, but not at day 28 (33.7% vs 38.9%) [[Annane2018APROCCHSS]].</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><span class="tag rx">SSC 2021 remark</span><h4>The usual regimen, as published</h4><p>"The typical corticosteroid used in adults with septic shock is IV hydrocortisone at a dose of 200 mg/day given as 50 mg intravenously every 6 h or as a continuous infusion. It is suggested that this is commenced at a dose of norepinephrine or epinephrine ≥ 0.25 mcg/kg/min at least 4 h after initiation" [[Evans2021SSC]]. The Solu-Cortef label gives no septic-shock-specific dose: the regimens come from trials and guidelines [[FDA-SoluCortef]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Faster shock reversal</h4><p>Cochrane 2019 (61 trials, 12,192 people): corticosteroids probably slightly reduce 28-day mortality (RR 0.91; moderate certainty), and increase muscle weakness (RR 1.21) and hypernatraemia, without clearly more superinfection [[Annane2019Cochrane]]. A 2018 meta-analysis found higher shock reversal at day 7 (RR 1.26, high certainty), with more hypernatraemia and hyperglycaemia [[Rochwerg2018CCM]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Dose and fludrocortisone</h4><p>A 2024 dose-response meta-analysis (45 RCTs) found short-term mortality RR 0.93 and an optimum near 260 mg/day of hydrocortisone or equivalent [[Pitre2024CCE]]. Whether fludrocortisone matters, and the best dose, timing and threshold, remain unresolved [[Evans2021SSC]]. The SCCM/ESICM 2024 update recommends against high-dose, short-duration corticosteroids for septic shock [[Chaudhuri2024SCCM]].</p></div>
+  </div>
+
+  <h3 class="sub">Starting in an arm vein: how safe is it?</h3>
+  <div class="prose"><p>SSC 2021 (kept in 2026): "we suggest starting vasopressors peripherally to restore MAP rather than delaying initiation until a central venous access is secured" (weak, very low quality). The 2021 remark: give them "only for a short period of time and in a vein in or proximal to the antecubital fossa" [[Evans2021SSC,Prescott2026SSC]].</p></div>
+  <div class="ctrls pv-ctrls" role="group" aria-label="Choose a study">
+    <button class="btn" data-pv="cg" aria-pressed="true">Extravasation: one ICU</button>
+    <button class="btn" data-pv="tian" aria-pressed="false">Extravasation: pooled</button>
+    <button class="btn" data-pv="yerke" aria-pressed="false">Never needed a central line</button>
+    <button class="btn" data-pv="lou" aria-pressed="false">Where injuries happened</button>
+  </div>
+  <div class="stage">
+    <svg id="prPer" viewBox="0 0 720 210" role="img" aria-label="An array of 100 dots; the highlighted dots show the share of peripheral vasopressor infusions or patients with the chosen outcome."></svg>
+    <p class="pv-cap" id="prPerCap"></p>
+  </div>
+
+  <h3 class="sub">Each agent: guideline, trials and label</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">First line</span><h4>Noradrenaline (norepinephrine)</h4><p>SSC 2021: "we recommend using norepinephrine as the first-line agent over other vasopressors" (strong) [[Evans2021SSC]]. SSC 2026 recommends it over dopamine, epinephrine or selepressin (strong) and suggests it over vasopressin or angiotensin II (conditional) [[Prescott2026SSC]]. Where it is unavailable, "epinephrine or dopamine can be used as an alternative", with attention to arrhythmia risk [[Evans2021SSC]].</p></div>
+    <div class="card"><span class="tag bad">Not first line</span><h4>Dopamine</h4><p>SOAP II (1679 with shock): 28-day mortality 52.5% with dopamine versus 48.5% with norepinephrine (P=0.10), arrhythmias 24.1% versus 12.4%, and excess deaths in cardiogenic shock [[DeBacker2010SOAPII]]. Pooled, norepinephrine beat dopamine for mortality (RR 0.89) [[Avni2015PLoSOne]]. "Renal-dose" dopamine did not protect the kidneys [[Bellomo2000ANZICS]].</p></div>
+    <div class="card"><span class="tag rx">Second agent</span><h4>Vasopressin</h4><p>SSC 2021 suggests "adding vasopressin instead of escalating the dose of norepinephrine" (weak, moderate) [[Evans2021SSC]]. VASST (778): 28-day mortality 35.4% versus 39.3% (P=0.26) [[Russell2008VASST]]. VANISH (409): less RRT (25.4% vs 35.3%) [[Gordon2016VANISH]]. Pooled (1453): no mortality effect, more digital ischaemia, fewer arrhythmias [[Nagendran2019IPD]]. SSC suggests against terlipressin [[Evans2021SSC,Prescott2026SSC]].</p></div>
+    <div class="card"><span class="tag rx">Third agent</span><h4>Adrenaline (epinephrine)</h4><p>For inadequate MAP "despite norepinephrine and vasopressin, we suggest adding epinephrine" (SSC 2021, weak, low; kept in 2026) [[Evans2021SSC,Prescott2026SSC]]. CATS (330): epinephrine alone versus norepinephrine plus dobutamine, 28-day mortality 40% versus 34% (RR 0.86, not significant) [[Annane2007CATS]]. In CAT, 12.9% were withdrawn for transient metabolic effects [[Myburgh2008CAT]].</p></div>
+    <div class="card"><span class="tag accent">Add-on</span><h4>Angiotensin II</h4><p>ATHOS-3 (321 on more than 0.2 µg/kg/min norepinephrine): MAP response at 3 h 69.9% versus 23.4%; 28-day mortality 46% versus 54% (HR 0.78; P=0.12) [[Khanna2017ATHOS3]]. The label warns of thromboembolic events (12.9% vs 5.1%) and says to use VTE prophylaxis. At entry, 97% were on norepinephrine and 67% on vasopressin [[FDA-Giapreza]].</p></div>
+    <div class="card"><span class="tag dx">Weak heart</span><h4>Inotropes</h4><p>For cardiac dysfunction with persistent hypoperfusion "despite adequate volume status and arterial blood pressure, we suggest either adding dobutamine to norepinephrine or using epinephrine alone" (SSC 2021, weak, low) [[Evans2021SSC]]. SSC 2026 suggests inotropes over none, added to vasopressors, and both versions suggest against levosimendan [[Prescott2026SSC,Evans2021SSC]]. LeoPARDS found no SOFA benefit and more tachyarrhythmia with levosimendan [[Gordon2016LeoPARDS]].</p></div>
+  </div>
+
+  <h3 class="sub">Label wording, as published</h3>
+  <p class="teach"><b>Quoted, not instructions</b>These are the US prescribing labels' words, shown so students can see where the numbers come from. Doses for any patient are set by their own care team.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Drug (label)</th><th>Indication</th><th>Dosing text</th><th>Selected warnings</th></tr></thead>
+    <tbody>
+      <tr><th>Levophed (norepinephrine)</th><td>"to raise blood pressure in adult patients with severe, acute hypotension"</td><td>"After an initial dosage of 8 to 12 mcg per minute via intravenous infusion, assess patient response and adjust dosage to maintain desired hemodynamic effect… Typical maintenance intravenous dosage is 2 to 4 mcg per minute." Address hypovolaemia before starting.</td><td>Tissue ischaemia; necrosis with extravasation (the label describes infiltration with "5 to 10 mg of phentolamine mesylate in 10 to 15 mL of 0.9% Sodium Chloride"); hypotension after abrupt stopping; arrhythmias [[FDA-Levophed]].</td></tr>
+      <tr><th>Vasostrict (vasopressin)</th><td>"to increase blood pressure in adults with vasodilatory shock who remain hypotensive despite fluids and catecholamines"</td><td>For septic shock: "start with a dose of 0.01 units/minute… titrate up by 0.005 units/minute at 10- to 15-minute intervals. The maximum dose… for septic shock 0.07 units/minute." Tapered once target pressure has held for 8 hours without catecholamines.</td><td>Literature-reported mesenteric ischaemia, distal limb ischaemia, atrial fibrillation, bradycardia [[FDA-Vasostrict]].</td></tr>
+      <tr><th>Giapreza (angiotensin II)</th><td>"increases blood pressure in adults with septic or other distributive shock"</td><td>Start "at 20 nanograms (ng)/kg/min", titrate "as frequently as every 5 minutes by increments of up to 15 ng/kg/min"; maximum 80 ng/kg/min in the first 3 hours and 40 ng/kg/min for maintenance.</td><td>Thromboembolic events 12.9% versus 5.1% with placebo, mostly deep vein thrombosis; use concurrent VTE prophylaxis [[FDA-Giapreza]].</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">What is still argued</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Open</span><h4>When to add vasopressin</h4><p>The SSC 2021 practice remark is 0.25–0.5 µg/kg/min of norepinephrine [[Evans2021SSC]]. VASSPR (3959 patients) found no mortality difference between start thresholds of 0.1 and 0.4 (31.8% vs 33.0%) [[Peltan2026VASSPR]]. In one cohort, odds of death rose 20.7% for every 10 µg/min of norepinephrine-equivalent at vasopressin start (association only) [[Sacha2022CCM]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Several pressors at once</h4><p>TRICYCLE (79 patients, phase II) started angiotensin II, vasopressin and norepinephrine early together: fewer tachyarrhythmias (15.6% vs 68.6%) and similar mortality, not powered for it [[Kalamar2026TRICYCLE]]. Methylene blue within 24 h shortened time to vasopressor discontinuation (69 vs 94 h) in a 91-patient trial [[IbarraEstrada2023MB]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Steroids plus vasopressin</h4><p>In a post hoc VASST analysis, patients also given corticosteroids had lower mortality with vasopressin than norepinephrine (35.9% vs 44.7%), and corticosteroids raised plasma vasopressin levels [[Russell2009VASSTsteroid]].</p></div>
+    <div class="card"><span class="tag accent">Debated</span><h4>Individual MAP targets</h4><p>Lower targets in older adults appear at least as safe [[Lamontagne2020SIXTYFIVE,Angriman2025NEJMEvid]], while people with chronic hypertension needed less RRT at the higher SEPSISPAM target [[Asfar2014SEPSISPAM]]. ESICM recommends individualising the target [[Cecconi2014ESICM]].</p></div>
+  </div>
+
+  <div class="pt" style="max-width:78ch"><b>In plain words</b>If fluid alone does not raise blood pressure enough, doctors use medicines that tighten blood vessels. The usual first choice is noradrenaline (norepinephrine), and others can be added [[Evans2021SSC,FDA-Levophed]]. These medicines are usually given in intensive care with close monitoring, and sometimes they are started in an arm vein so treatment is not delayed [[Evans2021SSC,Tian2020EMA]]. Doctors usually aim for an average blood pressure (the "MAP") of about 65; for older adults, slightly lower may be fine [[Evans2021SSC,Lamontagne2020SIXTYFIVE,Prescott2026SSC]]. Some people also get a steroid called hydrocortisone, which can help blood pressure recover sooner, though its effect on survival is small and still debated [[Venkatesh2018ADRENAL,Annane2018APROCCHSS]].</div>
+  <p class="callout">The numbers on this page describe large groups of people in trials, not what will happen to any one person. Fluids come first: see <a href="#fluids" data-go="fluids">Fluids</a>. Treating the infection itself continues in <a href="#source" data-go="source">Source control &amp; antimicrobial stewardship</a>.</p>
+</section>

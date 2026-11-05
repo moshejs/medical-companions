@@ -1,0 +1,137 @@
+<!-- ================= 5.2 SEPSIS IN BABIES AND CHILDREN ================= -->
+<style>
+#m-children .chres{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px}
+#m-children .chres div{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--panel);min-width:0}
+#m-children .chres b{display:block;font:700 28px/1.05 var(--display);color:var(--rec)}
+#m-children .chres small{font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+#m-children .chchk{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+#m-children .chchk label{display:flex;gap:8px;align-items:center;font-size:14px;font-weight:700}
+#m-children .chchk input{width:18px;height:18px;margin:0;accent-color:var(--rec);flex:none}
+#m-children fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0;min-width:0;display:flex;flex-direction:column;gap:10px}
+#m-children legend{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--rec);padding:0 6px}
+#m-children .chtog{display:flex;flex-wrap:wrap;gap:6px}
+#m-children .chtog button[aria-pressed="true"]{background:var(--rec);border-color:var(--rec);color:var(--on-brand)}
+#m-children td.num{font-family:var(--mono);white-space:nowrap}
+#m-children .card>.tag,#m-children .card>.ev{align-self:flex-start}
+#m-children p.prose{display:block}
+</style>
+<section class="mod" id="m-children" data-mod="children" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Special situations &amp; recovery</p><h2>Sepsis in babies and children</h2>
+    <p class="lede">Children are not small adults. Their normal pulse and breathing rates change with age, newborns have their own patterns of infection, and since 2024 children have their own sepsis definition, the Phoenix criteria. This module covers the signs parents notice, newborn sepsis, the Phoenix score, and why fluid boluses can do harm in some settings.</p></div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>Sepsis is a medical emergency. If a child or baby with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
+
+  <h3 class="sub">How big the problem is</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rec">Worldwide</span><h4>About half of all sepsis is in children</h4><p>"Half of the 50 million people affected by sepsis globally every year are neonates and children younger than 19 years." The Global Burden of Disease study counted 20.3 million cases in children under 5 in 2017, and 2.9 million sepsis-related deaths at that age. [[Watson2024Burden,Rudd2020GBD]]</p></div>
+    <div class="card"><span class="tag rec">Newborns</span><h4>The highest rate of any age</h4><p>A 2021 meta-analysis (2,797,879 live births, 14 countries) estimated neonatal sepsis at 2,824 per 100,000 live births, with 17.6% dying; early-onset sepsis had higher incidence and mortality than late-onset. [[Fleischmann2021Neonatal]]</p></div>
+    <div class="card"><span class="tag rec">Children</span><h4>Rates in older children</h4><p>A 2018 review estimated 48 sepsis cases per 100,000 child-years, with mortality of 1–5% for sepsis and 9–20% for severe sepsis. Extrapolated worldwide, about 1.2 million paediatric and 3.0 million neonatal cases a year. [[FleischmannStruzek2018Paeds]]</p></div>
+    <div class="card"><span class="tag rec">Causes</span><h4>What tips children into sepsis</h4><p>Among children under 5 in 2017, the commonest underlying causes were diarrhoeal diseases (27.9% of cases), neonatal disorders (25.7%) and lower respiratory infections (16.5%). [[Rudd2020GBD]]</p></div>
+  </div>
+  <p class="stage-cap">Mortality figures here and below describe large groups of children in the studies named. They cannot predict what will happen to any one child.</p>
+
+  <h3 class="sub">Signs parents notice: the first 24 hours</h3>
+  <p class="prose">The clearest timeline of how sepsis shows itself in children comes from 448 UK children with meningococcal disease. The animation follows that sequence hour by hour. [[Thompson2006Meningococcal]]</p>
+  <div class="stepper" id="chSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="chSvg" viewBox="0 0 720 380" role="img" aria-label="A child figure and a 24-hour timeline. In the first 4 to 6 hours the child looks like they have an ordinary illness. Around 8 hours (the median) the early sepsis signs appear: the hands and feet turn cold and pale blue, the skin becomes blotchy and zigzag marks show leg pain. Between 13 and 22 hours the classic late signs follow: a rash of dark spots, a stiff neck and drowsiness shown by Z letters. A marker at 19 hours shows the median time of hospital admission, and a note shows that only 51 percent were sent to hospital after the first consultation."></svg>
+      <div class="ctrls"><button class="btn primary" id="chPlay">Play</button><label class="stage-cap tl" for="chT">Hours <input type="range" id="chT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="chRead"></div>
+      <p class="stage-cap">Schematic child. Timings are medians from Thompson 2006 (448 children with meningococcal disease). [[Thompson2006Meningococcal]]</p>
+    </div>
+    <aside class="note" id="chNote" aria-live="polite"></aside>
+  </div>
+  <p class="gentle"><b>You know your child best</b>If your child seems much more unwell than with a usual illness, or is getting worse fast, seek help urgently and say what has changed. Do not wait for a rash: in the meningococcal study, leg pain, cold hands and feet and abnormal skin colour came hours before it. [[Thompson2006Meningococcal]] In an Australian poll, only 27.8% of sepsis-aware parents thought they could recognise sepsis in their child, so it is normal to feel unsure; asking "could this be sepsis?" is always reasonable. [[Peters2023Awareness]]</p>
+
+  <h3 class="sub">Newborns: early-onset and late-onset sepsis</h3>
+  <p class="prose">Neonatal sepsis may come from infection in the womb, from the mother's bacteria during birth, or from the hospital or community afterwards. How it shows depends on the timing of exposure, the amount of bacteria, the baby's immune status and the germ. [[Shane2017Neonatal]]</p>
+  <div class="stage">
+    <svg id="chNeo" viewBox="0 0 720 260" role="img" aria-label="A timeline from birth. The first 72 hours are early-onset sepsis: in a US cohort of 217,480 newborns, 1.08 per 1,000 live births, mostly E. coli (36.6 percent) and group B streptococcus (30.2 percent), rising to 18.47 per 1,000 at 22 to 28 weeks' gestation. After 3 days is late-onset sepsis: among very low birth weight babies surviving beyond 3 days, 21 percent had culture-proven late-onset sepsis, 48 percent of it coagulase-negative staphylococci."></svg>
+    <p class="stage-cap">Early-onset sepsis as defined in NICHD surveillance (pathogen in blood or CSF within 72 hours of birth). [[Stoll2020EOS,Stoll2002LOS]]</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag rec">Early onset</span><h4>Who it affects</h4><p>In 217,480 newborns at 18 NICHD centres (2015–2017), early-onset sepsis was 1.08 per 1,000 live births and 18.47 per 1,000 at 22–28 weeks' gestation. 93.6% showed signs of illness within 72 hours. 29.0% of infected preterm infants died; no term infants died. [[Stoll2020EOS]]</p></div>
+    <div class="card"><span class="tag rec">Late onset</span><h4>Very small babies in hospital</h4><p>Late-onset sepsis occurs "after 3 days of age". Among 6,215 very low birth weight infants, 21% had culture-proven late-onset sepsis, 48% of it coagulase-negative staphylococci. Mortality was 18% in infected and 7% in uninfected infants. [[Stoll2002LOS]]</p></div>
+    <div class="card"><span class="tag rec">Group B strep</span><h4>Screening and antibiotics in labour</h4><p>About half of colonised mothers pass group B streptococcus (GBS) to their babies; without antibiotics in labour, 1–2% of those babies develop early-onset GBS disease. ACOG recommends universal GBS screening at 36 0/7–37 6/7 weeks. The AAP calls antibiotic prophylaxis in labour "the only currently available effective strategy" against early-onset GBS disease; there is no effective prevention of late-onset disease. [[ACOG2020GBS,Puopolo2019GBS]]</p></div>
+    <div class="card"><span class="tag rec">Changing germs</span><h4>E. coli and GBS</h4><p>In US surveillance (2005–2014), early-onset GBS fell from 0.27 to 0.22 per 1,000 live births while E. coli stayed stable (0.21 to 0.18); 11% of cases died. In the NICHD cohort, 53.3% of GBS cases were in babies whose mothers had screened negative. [[Schrag2016EOS,Stoll2020EOS]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>The Kaiser early-onset sepsis calculator</h4><p>Built from 608,014 births, the calculator combines maternal risk (intrapartum temperature, duration of membrane rupture, antibiotics given more than 4 hours before delivery) with the baby's condition. At Kaiser Permanente, blood cultures fell from 14.5% to 4.9% of newborns and early antibiotics from 5.0% to 2.6%, with no change in adverse outcomes. Across 13 studies, antibiotic use was 56% of the previous level; safety evidence was "limited". [[Puopolo2011EOS,Escobar2014EOS,Kuzniewicz2017EOS,Achten2019EOS]]</p></div>
+    <div class="card"><span class="tag rec">Tests</span><h4>No single test decides</h4><p>The AAP notes that laboratory tests "alone are neither sensitive nor specific enough to guide EOS management decisions" in babies born at 35 weeks or later. [[Puopolo2018AAP]]</p></div>
+  </div>
+
+  <h3 class="sub">From IPSCC 2005 to the Phoenix criteria 2024</h3>
+  <p class="prose">The 2005 International Pediatric Sepsis Consensus Conference adapted the adult SIRS-based definitions for children, with age-specific cut-offs for vital signs and lab tests. Paediatric SIRS required that the temperature or white-count criterion be met. These were expert-opinion definitions, and the Phoenix task force later described the SIRS criteria as having "poor predictive properties". [[Goldstein2005Paeds,Schlapbach2024Phoenix]] Organ-dysfunction scores did better: in 2,594 Australian and New Zealand PICU admissions with infection, adjusted AUROC was 0.829 for age-adapted SOFA against 0.710 for SIRS, and a paediatric SOFA (pSOFA) reached AUC 0.94 in 8,711 PICU encounters. [[Schlapbach2018SOFAchildren,Matics2017pSOFA]]</p>
+  <p class="prose">The SCCM Pediatric Sepsis Definition Task Force (35 experts, 6 continents) then built the Phoenix criteria from an international survey, a systematic review, a modified Delphi process and a new score derived from more than 3 million electronic health record encounters in 10 health systems in the USA, Colombia, Bangladesh, China and Kenya. [[Schlapbach2024Phoenix,SanchezPinto2024Phoenix]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Term</th><th>Phoenix definition (children under 18)</th><th>In-hospital mortality, higher / lower-resource settings</th></tr></thead>
+    <tbody>
+      <tr><td><b>Sepsis</b></td><td>Suspected infection with a Phoenix Sepsis Score of 2 or more, which "indicates potentially life-threatening dysfunction of the respiratory, cardiovascular, coagulation, and/or neurological systems"</td><td class="num">7.1% / 28.5%</td></tr>
+      <tr><td><b>Septic shock</b></td><td>Sepsis with at least 1 cardiovascular point: severe hypotension for age, blood lactate above 5 mmol/L, or need for vasoactive medication</td><td class="num">10.8% / 33.5%</td></tr>
+    </tbody></table></div>
+  <p class="stage-cap">Mortality is a population statistic: more than 8 times that of children with suspected infection who did not meet the criteria. [[Schlapbach2024Phoenix]]</p>
+
+  <h3 class="sub">Try it: the Phoenix Sepsis Score</h3>
+  <p class="teach"><b>A teaching tool, not for self-triage</b>This shows the published Phoenix points so you can see how the four systems add up. Most items need blood tests and intensive-care measurements. It is never a way for parents or carers to judge whether a child is ill, and must not be used to decide whether to seek care: a child who seems very unwell needs urgent medical help. The criteria were designed to identify sepsis, not to screen for early sepsis. [[Schlapbach2024Phoenix]]</p>
+  <div class="lab">
+    <div class="stage">
+      <fieldset><legend>Respiratory, 0–3</legend>
+        <div class="calc"><label for="chResp">Oxygenation<select id="chResp">
+          <option value="0">0 · PaO₂:FiO₂ ≥400 or SpO₂:FiO₂ ≥292</option>
+          <option value="1">1 · PaO₂:FiO₂ &lt;400 or SpO₂:FiO₂ &lt;292 on any respiratory support</option>
+          <option value="2">2 · PaO₂:FiO₂ &lt;200 or SpO₂:FiO₂ &lt;220 with invasive ventilation</option>
+          <option value="3">3 · PaO₂:FiO₂ &lt;100 or SpO₂:FiO₂ &lt;148 with invasive ventilation</option></select></label></div>
+      </fieldset>
+      <fieldset><legend>Cardiovascular, 0–6</legend>
+        <div class="calc">
+          <label for="chVaso">Vasoactive medications<select id="chVaso"><option value="0">None</option><option value="1">1 medication</option><option value="2">2 or more</option></select></label>
+          <label for="chLac">Lactate (mmol/L)<input type="number" id="chLac" min="0" max="30" step="0.1" value="1.5" inputmode="decimal"></label>
+          <label for="chAge">Age<select id="chAge"><option value="0">Under 1 month</option><option value="1">1–11 months</option><option value="2">1 to under 2 years</option><option value="3" selected>2 to under 5 years</option><option value="4">5 to under 12 years</option><option value="5">12–17 years</option></select></label>
+          <label for="chMap">Mean arterial pressure (mmHg)<input type="number" id="chMap" min="5" max="150" step="1" value="62" inputmode="numeric"></label>
+        </div>
+      </fieldset>
+      <fieldset><legend>Coagulation, 0–2 (1 each, maximum 2)</legend>
+        <div class="chchk"><label for="chPlt"><input type="checkbox" id="chPlt"> Platelets &lt;100 ×10³/µL</label><label for="chInr"><input type="checkbox" id="chInr"> INR &gt;1.3</label><label for="chDd"><input type="checkbox" id="chDd"> D-dimer &gt;2 mg/L FEU</label><label for="chFib"><input type="checkbox" id="chFib"> Fibrinogen &lt;100 mg/dL</label></div>
+      </fieldset>
+      <fieldset><legend>Neurological, 0–2</legend>
+        <div class="chchk"><label for="chGcs"><input type="checkbox" id="chGcs"> Glasgow Coma Scale ≤10 (1)</label><label for="chPup"><input type="checkbox" id="chPup"> Both pupils fixed (2)</label></div>
+      </fieldset>
+      <div class="chres" id="chRes"></div>
+      <div class="ctrls"><button class="btn" id="chEx">Load an example</button><button class="btn ghost" id="chReset">Reset</button></div>
+    </div>
+    <aside class="note" id="chPnote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <caption class="sr">Phoenix age-adjusted mean arterial pressure thresholds</caption>
+    <thead><tr><th>Age (months, not adjusted for prematurity)</th><th>MAP for 1 point (mmHg)</th><th>MAP for 2 points (mmHg)</th></tr></thead>
+    <tbody>
+      <tr><td>Under 1 month</td><td class="num">17–30</td><td class="num">&lt;17</td></tr>
+      <tr><td>1–11 months</td><td class="num">25–38</td><td class="num">&lt;25</td></tr>
+      <tr><td>1 to under 2 years</td><td class="num">31–43</td><td class="num">&lt;31</td></tr>
+      <tr><td>2 to under 5 years</td><td class="num">32–44</td><td class="num">&lt;32</td></tr>
+      <tr><td>5 to under 12 years</td><td class="num">36–48</td><td class="num">&lt;36</td></tr>
+      <tr><td>12–17 years</td><td class="num">38–51</td><td class="num">&lt;38</td></tr>
+    </tbody></table></div>
+  <p class="prose">Cardiovascular points are the sum of three parts: vasoactive medications (1 for one, 2 for two or more), lactate (1 for 5–10.9 mmol/L, 2 for 11 or more) and age-adjusted MAP (1 or 2). SpO₂:FiO₂ is valid only when SpO₂ is 97% or below. Missing data count as zero, and the vasoactive medications counted are any systemic dose of dobutamine, dopamine, adrenaline (epinephrine), milrinone, noradrenaline (norepinephrine) or vasopressin. A research-only Phoenix-8 adds endocrine, immunologic, renal and hepatic systems. [[DeWitt2024phoenix]]</p>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>How well it performs</h4><p>Across development and external validation (AUROC 0.71–0.92), Phoenix had higher positive predictive value, and higher or similar sensitivity, compared with the 2005 IPSCC criteria. In a US nine-centre PICU dataset (25,680 encounters), 28% of Phoenix-positive children were IPSCC-negative, and they had higher mortality than IPSCC-positive, Phoenix-negative children (4.7% vs 1.7%). [[SanchezPinto2024Phoenix,SanchezPinto2025Validation]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Open questions</h4><p>Phoenix was built on retrospective health-record data and needs lab tests that are not always available. Prospective validation is ongoing. [[SanchezPinto2024Phoenix,Schlapbach2024Phoenix]]</p></div>
+    <div class="card"><span class="tag rec">Guidance</span><h4>Paediatric Surviving Sepsis Campaign 2020</h4><p>The panel (49 experts) suggests "implementing systematic screening for timely recognition of septic shock and other sepsis-associated organ dysfunction" in acutely unwell children (weak recommendation, very low quality evidence). As published, it recommends antimicrobials "within 1 h of recognition" in septic shock (strong) and "within 3 h of recognition" in sepsis-associated organ dysfunction without shock (weak). [[Weiss2020SSCchildren]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Paediatric early warning scores</h4><p>In the EPOCH cluster trial (21 hospitals, 144,539 discharges), a bedside paediatric early warning system did not change all-cause mortality (adjusted OR 1.01) but reduced significant deterioration events (0.50 vs 0.84 per 1,000 patient-days). PEWS have "a limited evidence base". [[Parshuram2018EPOCH,Chapman2019PEWS]]</p></div>
+  </div>
+
+  <h3 class="sub">Fluids: why more is not always better (FEAST)</h3>
+  <p class="prose">For years, rapid fluid boluses were standard for children in shock. The FEAST trial tested this in 3,141 African children with severe febrile illness and impaired perfusion, in hospitals without intensive care: a 20–40 mL/kg bolus of 5% albumin, a saline bolus, or no bolus. Boluses increased deaths. [[Maitland2011FEAST]]</p>
+  <div class="stage">
+    <div class="chtog" id="chFtog" role="group" aria-label="Choose a time point"><button class="btn" data-ft="0" aria-pressed="true">At 48 hours</button><button class="btn" data-ft="1" aria-pressed="false">At 4 weeks</button></div>
+    <svg id="chFeast" viewBox="0 0 720 220" role="img" aria-label="Bar chart of mortality in the FEAST trial. At 48 hours: albumin bolus 10.6 percent, saline bolus 10.5 percent, no bolus 7.3 percent. At 4 weeks: 12.2, 12.0 and 8.7 percent."></svg>
+    <p class="stage-cap">FEAST, stratum A. Relative risk of death at 48 hours for any bolus versus no bolus 1.45 (95% CI 1.13–1.86). [[Maitland2011FEAST]]</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Consistent across groups</h4><p>The harm was consistent across subgroups for shock severity, malaria, coma, sepsis, acidosis and severe anaemia. Bolus volumes that seem safe in well-resourced intensive care units increased deaths in children in African hospitals without intensive care: fluid harm depends on context. [[Maitland2011FEAST,Andrews2017Zambia]]</p></div>
+    <div class="card"><span class="tag rec">Adults too</span><h4>A similar signal in Zambia</h4><p>In 212 Zambian adults with sepsis and hypotension, an early resuscitation protocol with more fluid (median 3.5 L vs 2.0 L in 6 hours) increased in-hospital mortality, 48.1% versus 33.0%. [[Andrews2017Zambia]] See <button class="btn ghost" data-go="fluids">Fluids</button>.</p></div>
+    <div class="card"><span class="tag rec">Which fluid</span><h4>Balanced fluid or saline</h4><p>In children, the PRoMPT BOLUS trial (8,482 analysed, 47 emergency departments) found no difference in major adverse kidney events at 30 days (3.4% balanced vs 3.0% saline); hyperchloraemia was less common with balanced fluid. [[Balamuth2026PRoMPT]]</p></div>
+  </div>
+
+  <h3 class="sub">After childhood sepsis</h3>
+  <p class="prose">In the Life After Pediatric Sepsis Evaluation (389 children with community-acquired septic shock in 12 US PICUs), 50% of survivors had not regained their baseline health-related quality of life at 1 month, and 35% at 12 months. [[Zimmerman2020LAPSE]] After meningococcal group B disease, 36% of UK child survivors had one or more physical, cognitive or psychological deficits, against 15% of controls. [[Viner2012MOSAIC]] See <button class="btn ghost" data-go="after">After sepsis: recovery &amp; families</button>.</p>
+</section>
