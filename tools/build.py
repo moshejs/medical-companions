@@ -192,6 +192,10 @@ def stamp(m):
     data["publisher"] = {"@type": "Organization", "@id": SITE + "/#org", "name": CFG.get("name", "Medical Companions"), "url": SITE + "/",
                          **({"parentOrganization": {"@type": "Organization", **CFG["publisher"]}} if CFG.get("publisher") else {})}
     if isinstance(data.get("isPartOf"), dict): data["isPartOf"]["@id"] = SITE + "/#site"
+    # the named human editor (site.json "editor"): accountable for what is published, and
+    # not a medical reviewer; reviewedBy stays reserved for a credentialed clinician
+    if CFG.get("editor"):
+        data["editor"] = {"@type": "Person", "@id": SITE + "/about/#editor", "name": CFG["editor"]["name"], "url": SITE + "/about/"}
     data["inLanguage"] = LANG
     if REVIEWER:
         data["reviewedBy"] = {"@type": "Person", "name": REVIEWER["name"],

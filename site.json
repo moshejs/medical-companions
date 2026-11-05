@@ -1,6 +1,10 @@
 {
   "site": "https://www.medcompanions.org",
   "name": "Medical Companions",
+  "editor": {
+    "name": "Moshe Malka",
+    "role": "Founder and editor"
+  },
   "publisher": {
     "name": "Quentin.Code",
     "url": "https://quentin.software"

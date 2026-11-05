@@ -86,6 +86,44 @@ if not card.exists() or card.stat().st_mtime < max(card_src.stat().st_mtime, (RO
 (ROOT / "404.html").write_text((ROOT / "hub" / "404.html").read_text(encoding="utf-8").replace("%SITE%", SITE)
                               .replace("</head>", i18n.ANALYTICS + "</head>", 1), encoding="utf-8")
 
+# 2b. the site's own pages, about/ and privacy/: hub/_page-head.html wraps hub/<name>.html
+ED = CFG.get("editor") or {}
+ORG = {"@type": "Organization", "@id": f"{SITE}/#org", "name": CFG["name"], "url": f"{SITE}/",
+       "email": "hello@medcompanions.org",
+       **({"founder": {"@id": f"{SITE}/about/#editor"}} if ED else {}),
+       **({"parentOrganization": {"@type": "Organization", **CFG["publisher"]}} if CFG.get("publisher") else {})}
+EDITOR = ({"@type": "Person", "@id": f"{SITE}/about/#editor", "name": ED["name"], "jobTitle": ED.get("role", "Editor"),
+           "worksFor": {"@id": f"{SITE}/#org"}, "url": f"{SITE}/about/"} if ED else None)
+SITE_PAGES = {
+    "about": ("About Medical Companions: who edits them and how AI makes them",
+              "Who is responsible for Medical Companions, how AI researches and writes each cited guide, "
+              "what has not been clinically reviewed yet, and how to read the evidence labels.", "AboutPage"),
+    "privacy": ("Privacy · Medical Companions",
+                "No accounts, cookies or ads. What Medical Companions keeps on your device, what it counts, "
+                "and which services see your visit.", "WebPage"),
+}
+head = (ROOT / "hub" / "_page-head.html").read_text(encoding="utf-8")
+for name, (title, desc, kind) in SITE_PAGES.items():
+    page = {"@type": kind, "@id": f"{SITE}/{name}/", "url": f"{SITE}/{name}/", "name": title, "description": desc,
+            "inLanguage": "en", "isPartOf": {"@id": f"{SITE}/#site"}, "publisher": {"@id": f"{SITE}/#org"},
+            "dateModified": last_modified(f"hub/{name}.html")}
+    if kind == "AboutPage": page["about"] = {"@id": f"{SITE}/#org"}
+    ld = json.dumps({"@context": "https://schema.org", "@graph": [page, ORG] + ([EDITOR] if EDITOR else [])},
+                    ensure_ascii=False, separators=(",", ":"))
+    h = head
+    for k, v in {"%TITLE%": html.escape(title), "%DESC%": html.escape(desc), "%PATH%": name, "%LD%": ld,
+                 "%CUR_about%": ' aria-current="page"' if name == "about" else "",
+                 "%CUR_privacy%": ' aria-current="page"' if name == "privacy" else ""}.items():
+        h = h.replace(k, v)
+    body = (ROOT / "hub" / f"{name}.html").read_text(encoding="utf-8")
+    foot = ('</main>\n<footer><span>Medical Companions · educational only, not medical advice</span>'
+            '<span><a href="%SITE%/about/">About</a> · <a href="%SITE%/privacy/">Privacy</a></span>'
+            '<span>Built by <a href="https://quentin.software">Quentin.Code</a></span></footer>\n</div>\n</body>\n</html>\n')
+    out = (h + body + foot).replace("%SITE%", SITE).replace("</head>", i18n.ANALYTICS + "</head>", 1)
+    (ROOT / name).mkdir(exist_ok=True)
+    (ROOT / name / "index.html").write_text(out, encoding="utf-8")
+    print(f"wrote {name}/index.html")
+
 # 3. sitemap and robots: every built page of every companion that may be indexed
 def pages(c, lang):
     """The built pages of companion C in LANG: (url, path), first page first."""
@@ -98,6 +136,7 @@ def pages(c, lang):
     return found
 
 rows = [f"  <url>\n    <loc>{SITE}/</loc>\n    <lastmod>{last_modified('hub')}</lastmod>\n    <priority>1.0</priority>\n  </url>"]
+rows += [f"  <url>\n    <loc>{SITE}/{n}/</loc>\n    <lastmod>{last_modified(f'hub/{n}.html')}</lastmod>\n    <priority>0.5</priority>\n  </url>" for n in SITE_PAGES]
 for c in CFG["companions"]:
     mod = last_modified(c["slug"] + "/src")
     for lang in c["langs"]:
