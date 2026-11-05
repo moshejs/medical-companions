@@ -98,8 +98,8 @@ EDITOR = ({"@type": "Person", "@id": f"{SITE}/about/#editor", "name": ED["name"]
            "worksFor": {"@id": f"{SITE}/#org"}, "url": f"{SITE}/about/"} if ED else None)
 SITE_PAGES = {
     "about": ("About Medical Companions: who edits them and how AI makes them",
-              "Who is responsible for Medical Companions, how AI researches and writes each cited guide, "
-              "what has not been clinically reviewed yet, and how to read the evidence labels.", "AboutPage"),
+              "Who runs Medical Companions, how AI researches and writes each cited guide, "
+              "what is not yet clinically reviewed, and how to read the labels.", "AboutPage"),
     "privacy": ("Privacy · Medical Companions",
                 "No accounts, cookies or ads. What Medical Companions keeps on your device, what it counts, "
                 "and which services see your visit.", "WebPage"),
@@ -153,6 +153,23 @@ for c in CFG["companions"]:
     '<?xml version="1.0" encoding="UTF-8"?>\n'
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
     + "\n".join(rows) + "\n</urlset>\n", encoding="utf-8")
+# llms.txt (llmstxt.org): a plain index of the guides for AI tools; optional, ignored by Google Search
+def _llms():
+    out = [f"# {CFG['name']}", "",
+           "> Animated, cited study and patient-education guides, one disease each. Researched and written "
+           "with AI from published sources (every source checked against PubMed, Europe PMC, Crossref, "
+           "ClinicalTrials.gov or the drug label), edited by a named person, and not yet clinically reviewed. "
+           "Educational only, not medical advice.", "",
+           f"- [About: who is responsible and how the guides are made]({SITE}/about/)",
+           f"- [Privacy]({SITE}/privacy/)", "", "## Guides", ""]
+    for c in CFG["companions"]:
+        name = c.get("name", {}).get("en", c["slug"])
+        out.append(f"- [{name}]({url(c['slug'])}): sources at {url(c['slug'])}sources/")
+        for l in hub_langs(c["slug"]):
+            if l != i18n.SOURCE:
+                out.append(f"  - {i18n.lang(l)['english']}: {url(c['slug'], l)}")
+    return "\n".join(out) + "\n"
+(ROOT / "llms.txt").write_text(_llms(), encoding="utf-8")
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
 print(f"wrote sitemap.xml ({len(rows)} pages) and robots.txt")
 
