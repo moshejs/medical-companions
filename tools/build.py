@@ -62,7 +62,8 @@ site to another domain is a one-line change there and a rebuild.
 
 The MedicalWebPage structured data gets datePublished (site.json), dateModified (the
 last commit to the companion's src/, or today when src/ has uncommitted changes), the
-publisher (site.json), inLanguage, and, once site.json names one, the reviewer
+publisher (one "Medical Companions" Organization, @id <site>/#org, whose
+parentOrganization is the publisher in site.json), the WebSite @id <site>/#site, inLanguage, and, once site.json names one, the reviewer
 (reviewedBy, lastReviewed), who is then also named in the footer (the string
 review.line). Google Fonts stylesheets are loaded without blocking the
 first paint; the fallback fonts in each --display/--body stack show until they arrive.
@@ -186,7 +187,11 @@ def stamp(m):
     if data.get("@type") != "MedicalWebPage": return m.group(0)
     if comp.get("published"): data["datePublished"] = comp["published"]
     data["dateModified"] = last_modified(COMP.name)
-    if CFG.get("publisher"): data["publisher"] = {"@type": "Organization", **CFG["publisher"]}
+    # one "Medical Companions" Organization (@id shared with the hub's graph), run by the
+    # publisher named in site.json; the WebSite is referenced by the same @id the hub uses
+    data["publisher"] = {"@type": "Organization", "@id": SITE + "/#org", "name": CFG.get("name", "Medical Companions"), "url": SITE + "/",
+                         **({"parentOrganization": {"@type": "Organization", **CFG["publisher"]}} if CFG.get("publisher") else {})}
+    if isinstance(data.get("isPartOf"), dict): data["isPartOf"]["@id"] = SITE + "/#site"
     data["inLanguage"] = LANG
     if REVIEWER:
         data["reviewedBy"] = {"@type": "Person", "name": REVIEWER["name"],

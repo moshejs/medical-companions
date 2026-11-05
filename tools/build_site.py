@@ -150,3 +150,10 @@ for c in CFG["companions"]:
     (d / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
     (d / ".nojekyll").write_text("", encoding="utf-8")
     print(f"wrote redirects/{stem}/ -> {url(c['slug'])}")
+
+# 5. no built page may ship an unfilled placeholder (hub/ is the template: /hub/ redirects to /)
+left = [str(f.relative_to(ROOT)) for f in ROOT.rglob("*.html")
+        if "%SITE%" in f.read_text(encoding="utf-8") and f.relative_to(ROOT).parts[0] not in ("hub", "redirects")
+        and "src" not in f.relative_to(ROOT).parts and not f.relative_to(ROOT).parts[0].startswith(".")]
+if left:
+    sys.exit("unfilled %SITE% in: " + ", ".join(sorted(left)[:20]))
