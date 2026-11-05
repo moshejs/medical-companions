@@ -5,10 +5,10 @@
 
 %HOST% in the HTML becomes the site address from site.json without its scheme.
 """
-import json, pathlib, subprocess, sys, tempfile
+import json, os, pathlib, subprocess, sys, tempfile
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+CHROME = os.environ.get("CHROME", "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
 src, out = pathlib.Path(sys.argv[1]).resolve(), pathlib.Path(sys.argv[2]).resolve()
 host = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))["site"].split("://", 1)[1].rstrip("/")
 tmp = pathlib.Path(tempfile.mkdtemp()) / "card.html"
