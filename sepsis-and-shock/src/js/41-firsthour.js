@@ -2,10 +2,10 @@
 /* the five Hour-1 elements; m = the schematic minute each one starts on the clock (illustrative, not a standard) */
 const FH_EL=[
  {m:8,n:'Lactate',q:'"measure lactate level and remeasure lactate level if initial lactate is >2 mmol/L"'},
- {m:15,n:'Blood cultures',q:'"obtain blood cultures before administering antibiotics"'},
+ {m:15,n:'Cultures',q:'"obtain blood cultures before administering antibiotics"'},
  {m:24,n:'Antibiotics',q:'"administer broad-spectrum antibiotics"'},
  {m:31,n:'Fluids',q:'"begin rapid administration of 30 mL/kg crystalloid for hypotension or lactate ≥4 mmol/L"'},
- {m:44,n:'Vasopressor',q:'"apply vasopressor if hypotension is present during or after fluid resuscitation to maintain a mean arterial pressure ≥65 mmHg"'}];
+ {m:44,n:'Pressor',q:'"apply vasopressor if hypotension is present during or after fluid resuscitation to maintain a mean arterial pressure ≥65 mmHg"'}];
 const FH_STEPS=[
  {from:0,at:.03,k:'Minute 0 · time zero',t:'Sepsis is recognised',
   txt:`SSC 2021: "Sepsis and septic shock are medical emergencies, and we recommend that treatment and resuscitation begin immediately" (best practice statement). The SSC 2018 bundle update introduced the "Hour-1 bundle", whose five elements are meant to be started within the first hour. The 2018 paper is paywalled, so its wording here comes from a verbatim listing in an open-access compliance study. [[Evans2021SSC,Levy2018Bundle,Wang2021Hour1]]`,
@@ -61,7 +61,7 @@ inits.firsthour=()=>{
   const svg=$('#fhSvg'),rg=$('#fhT');
   function tile(k,B,min,N){const E=FH_EL[k],e=ramp(min,E.m,E.m+5),run=ramp(min,E.m,60),on=e>0,cx=B.x+B.w/2;
     let s=`<rect x="${f1(B.x)}" y="${f1(B.y)}" width="${f1(B.w)}" height="${f1(B.h)}" rx="10" style="fill:${on?'var(--rx-soft)':'var(--panel)'};stroke:${on?'var(--rx)':'var(--line)'};stroke-width:${on?1.6:1}"/>`;
-    s+=`<text x="${f1(B.x+8)}" y="${f1(B.y+16)}" class="t-lbl" style="font-size:12px;fill:${on?'var(--rx)':'var(--muted)'}">${k+1} · ${E.n}</text>`;
+    s+=`<text x="${f1(B.x+8)}" y="${f1(B.y+16)}" class="t-lbl" style="font-size:11.5px;fill:${on?'var(--rx)':'var(--muted)'}">${k+1} · ${E.n}</text>`;
     s+=`<g style="opacity:${f1(.35+.65*e)}">`;const iy=B.y+26,ih=B.h-52;
     if(k===0){const v=4.4*e;s+=lactateMeter(cx-8,iy+14,16,ih-34,v,10,{bands:[{from:0,to:2,col:'var(--good)'},{from:2,to:10,col:'var(--warn)'}],val:e>0,label:''});
       if(min>E.m+6)s+=`<text x="${f1(cx)}" y="${f1(B.y+B.h-22)}" class="t-xs t-mid" style="fill:var(--ink)">&gt;2: remeasure</text>`}

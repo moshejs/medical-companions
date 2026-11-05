@@ -52,18 +52,18 @@ const MV_D={
 inits.maternal=()=>{
   /* ---- 1. why pregnancy hides sepsis ---- */
   const svg=$('#mtSvg'),rg=$('#mtT');
-  function tracks(B,t,p,lp,N){let s='';const lw=N?0:186,x0=B.x+12+lw,x1=N?B.x+B.w-12:B.x+(p===2?470:B.w*.66),cx=(x0+x1)/2,hw=(x1-x0)/2,rh=N?52:44,y0=B.y+(N?28:30);
+  function tracks(B,t,p,lp,N){let s='';const lw=N?0:186,x0=B.x+12+lw,x1=N?B.x+B.w-12:B.x+(p===2?470:B.w*.66),cx=(x0+x1)/2,hw=(x1-x0)/2,rh=N?54:46,y0=B.y+(N?28:30);
     s+=`<text x="${f1(cx)}" y="${B.y+16}" class="t-xs t-mid" style="fill:var(--ink)">not pregnant</text>`;
     s+=`<line x1="${f1(cx)}" x2="${f1(cx)}" y1="${B.y+20}" y2="${f1(y0+MT_TR.length*rh-12)}" style="stroke:var(--ink);stroke-dasharray:3 3;opacity:.5"/>`;
     MT_TR.forEach((T,i)=>{const y=y0+i*rh+(N?14:0),g=ease(ramp(t,.02+i*.03,.1+i*.03)),bl=hw*T.l*g,be=cx+T.d*bl;
       s+=N?`<text x="${x0}" y="${y-6}" class="t-xs" style="fill:var(--ink);font-weight:600">${T.n}</text>`:`<text x="${x0-10}" y="${y+12}" class="t-sm t-end" style="fill:var(--ink)">${T.n}</text>`;
       s+=`<rect x="${f1(x0)}" y="${y+2}" width="${f1(x1-x0)}" height="14" rx="7" style="fill:var(--panel-2)"/>`;
       s+=`<rect x="${f1(Math.min(cx,be))}" y="${y+2}" width="${f1(bl)}" height="14" rx="4" style="fill:var(--rec);opacity:.8"/>`;
-      s+=`<text x="${f1(T.d>0?be+6:be-6)}" y="${y+13}" class="t-xs${T.d>0?'':' t-end'}" style="fill:var(--rec);font-weight:700;opacity:${f1(g)}">${T.v}</text>`;
+      s+=`<text x="${f1(T.d>0?be+6:cx+6)}" y="${y+13}" class="t-xs" style="fill:var(--rec);font-weight:700;opacity:${f1(g)}">${T.v}</text>`;
       if(T.s&&p>=1){const a=ease(ramp(t,.22+i*.03,.3+i*.03)),ae=be+T.d*hw*.42*a,yy=y+(N?26:28);
         s+=`<rect x="${f1(Math.min(cx,ae))}" y="${y+2}" width="${f1(Math.abs(ae-cx))}" height="14" rx="4" style="fill:var(--accent);opacity:${f1(.14*a)}"/>`;
         s+=`<path d="M${f1(cx)} ${yy}H${f1(ae)}" style="stroke:var(--accent);stroke-width:2.4;opacity:${f1(a)}" marker-end="url(#mtAr)"/>`;
-        s+=`<text x="${f1(T.d>0?cx+4:cx-4)}" y="${yy-3}" class="t-xs${T.d>0?'':' t-end'}" style="fill:var(--accent);font-weight:700;opacity:${f1(a)}">early sepsis: ${T.s}</text>`}});
+        s+=`<text x="${f1(T.d>0?ae+8:ae-8)}" y="${yy+3}" class="t-xs${T.d>0?'':' t-end'}" style="fill:var(--accent);font-weight:700;opacity:${f1(a)}">sepsis: ${T.s}</text>`}});
     return s}
   function draw(t){const N=vb(svg,'720 380','400 620'),p=phaseOf(MT_STEPS,t),st=MT_STEPS[p],nx=p<4?MT_STEPS[p+1].from:1.0001,lp=ramp(t,st.from,nx);
     const B=N?{x:12,y:12,w:376,h:446}:{x:12,y:12,w:696,h:262},K=N?{x:12,y:468,w:376,h:142}:{x:12,y:282,w:696,h:90};
@@ -132,12 +132,12 @@ inits.maternal=()=>{
 
   /* ---- 3. prevention trials ---- */
   const vs=$('#mvSvg'),pick=$('#mvPick');let mv='anode',mvA=null;
-  function drawV(u){const D=MV_D[mv],N=vb(vs,'720 260','400 470'),big=D.per===1000;
+  function drawV(u){const D=MV_D[mv],N=vb(vs,'720 290','400 490'),big=D.per===1000;
     const sz=big?(N?5.4:4.6):(N?13:14),gp=big?(N?2.6:2):(N?3:4),cols=big?40:10,gw=cols*(sz+gp);let s='';
-    [D.a,D.b].forEach(([lab,v],j)=>{const x=N?12+(376-gw)/2:(j?380:40)+(320-gw)/2,y=N?56+j*214:64,k=Math.round(v*ease(clamp(u*1.4-j*.3)));
+    [D.a,D.b].forEach(([lab,v],j)=>{const x=N?12+(376-gw)/2:(j?380:40)+(320-gw)/2,y=N?76+j*214:84,k=Math.round(v*ease(clamp(u*1.4-j*.3)));
       s+=`<text x="${N?12:j?380:40}" y="${y-36}" class="t-lbl" style="fill:${j?'var(--rec)':'var(--muted)'}">${v}${big?' per 1,000':' per 100'}</text><text x="${N?12:j?380:40}" y="${y-20}" class="t-xs">${lab}</text>`;
       s+=icons(x,y,{n:D.per,cols,k,size:sz,gap:gp,col:j?'var(--rec)':'var(--bad)',shape:'dot'}).svg});
-    s+=`<text x="${N?12:40}" y="${N?32:20}" class="t-xs" style="fill:var(--ink);font-weight:700">${D.n}: ${D.out}</text>`;
+    s+=`<text x="${N?12:40}" y="16" class="t-xs" style="fill:var(--ink);font-weight:700">${D.n}: ${D.out}</text>`;
     vs.innerHTML=s;
     $('#mvNote').innerHTML=`<div class="kicker">${D.n} · randomised trial</div><h4>${D.out[0].toUpperCase()+D.out.slice(1)}: ${D.a[1]} vs ${D.b[1]} ${big?'per 1,000':'per 100'}</h4>
       <p>${D.w}. ${D.more} ${D.rr}. Interventions and doses are quoted as published, not as advice. ${D.src}</p>

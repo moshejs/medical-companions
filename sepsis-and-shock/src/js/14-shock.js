@@ -186,7 +186,7 @@ inits.shock=()=>{
     s+=organ('heart',60,92,hs,{});
     s+=`<text x="60" y="${f1(92+hs*.5+16)}" class="t-xs t-mid">${S} mL × ${H}/min</text>`;
     s+=gauge(318,104,52,clamp(map,0,2)*100,200,{ticks:false,bands:[{to:70,col:'var(--bad)'},{to:90,col:'var(--warn)'},{to:200,col:'var(--good)'}]});
-    s+=`<text x="318" y="${f1(104-52*.34)}" class="t-big t-mid">${Math.round(map*100)}%</text><text x="318" y="122" class="t-xs t-mid">of the start</text>`;
+    s+=`<text x="318" y="128" class="t-big t-mid">${Math.round(map*100)}%</text><text x="318" y="142" class="t-xs t-mid">of the start</text>`;
     const bar=(y,lbl,val,max,txt,col)=>`<text x="12" y="${y}" class="t-sm" style="fill:var(--ink)">${lbl}</text><text x="388" y="${y}" class="t-sm t-end" style="fill:var(--ink);font-weight:700">${txt}</text><rect x="12" y="${y+6}" width="376" height="12" rx="4" style="fill:var(--panel-2)"/><rect x="12" y="${y+6}" width="${f1(376*clamp(val/max))}" height="12" rx="4" style="fill:${col};opacity:.85"/>`;
     s+=bar(186,'flow (cardiac output)',co,16,co.toFixed(1)+' L/min','var(--rx)');
     s+=bar(232,'oxygen delivery (relative)',rel,3,Math.round(rel*100)+'%','var(--oxy)');
@@ -200,13 +200,13 @@ inits.shock=()=>{
   /* ---------- bedside numbers: MAP and shock index ---------- */
   const sb=$('#shSbp'),db=$('#shDbp'),hb=$('#shHrB'),cv=$('#shCalcV'),co=$('#shCalcOut'),si=$('#shSi');
   function drawSi(v){const X=x=>20+360*(clamp(x,.3,1.8)-.3)/1.5;let s='';
-    s+=`<rect x="20" y="40" width="360" height="20" rx="5" style="fill:var(--panel-2)"/>`;
-    s+=`<rect x="${f1(X(.5))}" y="40" width="${f1(X(.7)-X(.5))}" height="20" style="fill:var(--good);opacity:.55"/><rect x="${f1(X(.7))}" y="40" width="${f1(X(.9)-X(.7))}" height="20" style="fill:var(--warn);opacity:.3"/><rect x="${f1(X(1))}" y="40" width="${f1(X(1.8)-X(1))}" height="20" rx="5" style="fill:var(--bad);opacity:.25"/>`;
-    s+=`<text x="${f1((X(.5)+X(.7))/2)}" y="32" class="t-xs t-mid" style="fill:var(--ink)">0.5–0.7 usual</text><text x="${f1(X(1.35))}" y="32" class="t-xs t-mid" style="fill:var(--ink)">&gt;1.0 higher mortality</text>`;
-    [.3,.6,1,1.4,1.8].forEach(q=>{s+=`<line x1="${f1(X(q))}" x2="${f1(X(q))}" y1="60" y2="66" class="axis"/><text x="${f1(X(q))}" y="78" class="t-xs t-mid">${q}</text>`});
-    s+=`<text x="20" y="104" class="t-xs">trauma (Mutschler 2013):</text>`;
-    [[.3,.6,'10.9%'],[.6,1,''],[1,1.4,''],[1.4,1.8,'39.8%']].forEach((g,j)=>{s+=`<rect x="${f1(X(g[0])+1)}" y="110" width="${f1(X(g[1])-X(g[0])-2)}" height="8" rx="3" style="fill:var(--bad);opacity:${f1(.12+j*.2)}"/>`;if(g[2])s+=`<text x="${f1((X(g[0])+X(g[1]))/2)}" y="134" class="t-xs t-mid" style="fill:var(--ink)">${g[2]} died</text>`});
-    if(v!=null){const mx=X(v);s+=`<path d="M${f1(mx)} 36l-6 -9h12z" style="fill:var(--ink)"/><line x1="${f1(mx)}" x2="${f1(mx)}" y1="38" y2="62" style="stroke:var(--ink);stroke-width:2.4"/><text x="${f1(clamp(mx,40,360))}" y="${v>1.15?14:14}" class="t-sm t-mid" style="fill:var(--ink);font-weight:700">SI ${v.toFixed(2)}</text>`}
+    s+=`<rect x="20" y="34" width="360" height="20" rx="5" style="fill:var(--panel-2)"/>`;
+    s+=`<rect x="${f1(X(.5))}" y="34" width="${f1(X(.7)-X(.5))}" height="20" style="fill:var(--good);opacity:.55"/><rect x="${f1(X(.7))}" y="34" width="${f1(X(.9)-X(.7))}" height="20" style="fill:var(--warn);opacity:.3"/><rect x="${f1(X(1))}" y="34" width="${f1(X(1.8)-X(1))}" height="20" rx="5" style="fill:var(--bad);opacity:.25"/>`;
+    [.3,.6,1,1.4,1.8].forEach(q=>{s+=`<line x1="${f1(X(q))}" x2="${f1(X(q))}" y1="54" y2="60" class="axis"/><text x="${f1(X(q))}" y="70" class="t-xs t-mid">${q}</text>`});
+    s+=`<text x="${f1((X(.5)+X(.7))/2)}" y="86" class="t-xs t-mid" style="fill:var(--good)">0.5–0.7 usual</text><text x="${f1(X(1.35))}" y="86" class="t-xs t-mid" style="fill:var(--bad)">&gt;1.0 higher mortality</text>`;
+    s+=`<text x="20" y="106" class="t-xs">trauma groups (Mutschler 2013):</text>`;
+    [[.3,.6,'10.9%'],[.6,1,''],[1,1.4,''],[1.4,1.8,'39.8%']].forEach((g,j)=>{s+=`<rect x="${f1(X(g[0])+1)}" y="112" width="${f1(X(g[1])-X(g[0])-2)}" height="8" rx="3" style="fill:var(--bad);opacity:${f1(.12+j*.2)}"/>`;if(g[2])s+=`<text x="${f1((X(g[0])+X(g[1]))/2)}" y="136" class="t-xs t-mid" style="fill:var(--ink)">${g[2]} died</text>`});
+    if(v!=null){const mx=X(v);s+=`<path d="M${f1(mx)} 32l-6 -9h12z" style="fill:var(--ink)"/><line x1="${f1(mx)}" x2="${f1(mx)}" y1="32" y2="56" style="stroke:var(--ink);stroke-width:2.4"/><text x="${f1(clamp(mx,40,360))}" y="16" class="t-sm t-mid" style="fill:var(--ink);font-weight:700">SI ${v.toFixed(2)}</text>`}
     si.innerHTML=s}
   function calc(){const S=+sb.value,D=+db.value,H=+hb.value;
     if(!(S>0&&D>0&&H>0)||D>=S){cv.className='verdict no';cv.textContent='Enter a systolic pressure higher than the diastolic, and a heart rate.';co.innerHTML='';drawSi(null);return}

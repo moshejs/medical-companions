@@ -26,7 +26,7 @@ const SRC_STEPS=[
   hook:`Both too-narrow (OR 1.19) and unnecessarily broad (OR 1.22) empirical therapy were linked to higher mortality. [[Rhee2020Broad]]`},
  {from:.55,at:.62,k:'Day 2–3',t:'De-escalate to the narrowest drug that works',
   txt:`SSC 2021 suggests daily assessment for de-escalation (weak), and suggests against two gram-negative drugs once the pathogen and susceptibilities are known. [[Evans2021SSC]] Observational pooled data link de-escalation with lower mortality (RR 0.68), possibly because it happens in people who are already improving; the one RCT found more superinfections and longer ICU stays. [[Tabah2016Deescalation,Leone2014Deescalation]] <span class="ev early">Early evidence</span>`,
-  pt:`The strong, broad antibiotic is swapped for a more targeted one. This protects the person's gut germs and helps keep antibiotics working for everyone.`,
+  pt:`The strong, broad antibiotic is swapped for a more targeted one. Using antibiotics only when needed helps keep them working for everyone.`,
   hook:`Double gram-negative cover is for high MDR risk only and stops once susceptibilities are known (SSC 2021). [[Evans2021SSC]]`},
  {from:.68,at:.74,k:'Day 2–5',t:'Dose it well: prolonged infusion',
   txt:`SSC 2021 suggests prolonged beta-lactam infusion for maintenance after an initial bolus (weak, moderate quality). [[Evans2021SSC]] BLING III (7,031 adults): 90-day mortality 24.9% continuous vs 26.8% intermittent (OR 0.91, P = .08), with more clinical cure. [[Dulhunty2024BLING3]] A 2024 meta-analysis of 18 trials found RR 0.86 for 90-day mortality (high certainty). [[AbdulAziz2024Infusion]]`,

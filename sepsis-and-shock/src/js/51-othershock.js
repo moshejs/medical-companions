@@ -86,9 +86,9 @@ function osDetail(ty,t,ph){let s='';const T=(x,y,txt,cls='t-xs',st='')=>`<text x
     const art='M116 46C100 78 112 116 168 168';
     s+=`<path d="${art}" style="fill:none;stroke:var(--wall);stroke-width:8;stroke-linecap:round"/><path d="${art}" style="fill:none;stroke:var(--oxy);stroke-width:4.5;stroke-linecap:round;opacity:${f1(1-.6*clot)}"/>`;
     if(clot>.02)s+=`<path d="${smoothPath(blobPts(5+4*clot,9,.25,6).map(p=>[p[0]+107,p[1]+86]))}" style="fill:var(--clot);opacity:${f1(clot)}"/>`;
-    if(st>.02){s+=`<path d="M16 250C40 200 70 140 100 100L108 88" style="fill:none;stroke:var(--device);stroke-width:2;opacity:${f1(st)}"/>`;
+    if(st>.02){s+=`<path d="M276 6C220 14 150 44 112 84" style="fill:none;stroke:var(--device);stroke-width:2;opacity:${f1(st)}"/>`;
       let z='M101 80';for(let i=0;i<6;i++)z+=`L${f1(i%2?104:110)} ${f1(80+i*3.4)}`;s+=`<path d="${z}" style="fill:none;stroke:var(--device);stroke-width:2.2;opacity:${f1(st)}"/>`;
-      s+=T(16,240,'catheter + stent (PCI)','t-xs',`fill:var(--ink);font-weight:600;opacity:${f1(st)}`)}
+      s+=T(276,196,'catheter + stent (PCI)','t-xs t-end',`fill:var(--ink);font-weight:600;opacity:${f1(st)}`)}
     s+=T(132,40,'coronary artery','t-xs','fill:var(--ink)');
     if(clot>.2)s+=T(40,80,'clot','t-xs',`fill:var(--clot);font-weight:600;opacity:${f1(clot)}`);
     if(dmg>.3)s+=T(196,150,'muscle short','t-xs',`fill:var(--ink);opacity:${f1(dmg)}`)+T(196,161,'of oxygen','t-xs',`fill:var(--ink);opacity:${f1(dmg)}`);
@@ -103,6 +103,12 @@ function osDetail(ty,t,ph){let s='';const T=(x,y,txt,cls='t-xs',st='')=>`<text x
     for(let i=0;i<4;i++){const k=(ph*1.4+i/4)%1;s+=`<circle cx="${f1(86+i*3)}" cy="${f1(76+k*50)}" r="3" style="fill:var(--oxy);opacity:${f1(bl*(1-k*.7))}"/>`}
     s+=clock(222,64,38,min,{full:180,col:'var(--rx)',marks:[{min:60,col:'var(--good)',label:'1 h'},{min:180,col:'var(--bad)',label:'3 h'}]})+T(222,122,'time since injury','t-xs t-mid','fill:var(--ink)');
     if(tr>.02){s+=`<g style="opacity:${f1(tr)}">`+ivBag(40,128,.62,{fill:1-ramp(t,.82,1)*.5,col:'var(--oxy)',label:'blood',ph}).svg+ivBag(84,128,.62,{fill:1-ramp(t,.82,1)*.6,col:'var(--rx)',label:'TXA',ph:ph+.4}).svg+`</g>`}
+    /* step 3: what the registry groupings showed */
+    const gv=ramp(t,.5,.56)*(1-ramp(t,.7,.75));if(gv>0){s+=`<g style="opacity:${f1(gv)}">`;
+      [['trauma deaths by shock index','SI <0.6',10.9,'SI ≥1.4',39.8,152],['by base-deficit class','class I',7.4,'class IV',51.5,206]].forEach(r=>{const y=r[5];
+        s+=T(16,y,r[0],'t-xs','fill:var(--ink);font-weight:600');
+        [[r[1],r[2]],[r[3],r[4]]].forEach((q,j)=>{const yy=y+8+j*18,w=180*q[1]/60;s+=T(66,yy+11,q[0],'t-xs t-end','fill:var(--ink)')+`<rect x="72" y="${yy}" width="${f1(w)}" height="13" rx="3" style="fill:var(--bad);opacity:${j?.85:.45}"/>`+T(78+w,yy+11,q[1]+'%','t-xs','fill:var(--ink);font-weight:700')})});
+      s+=`</g>`}
     /* CRASH-2 timing: relative risk of death from bleeding */
     const rv=ramp(t,.62,.75);if(rv>0){const X=v=>140+120*(v-.5)/1.1;s+=`<g style="opacity:${f1(rv)}">`+T(130,152,'CRASH-2: RR, death from bleeding','t-xs','fill:var(--ink);font-weight:600');
       [['≤1 h',.68],['1–3 h',.79],['&gt;3 h',1.44]].forEach((r,i)=>{const y=162+i*24,x1=X(1),x2=X(r[1]);s+=T(126,y+12,r[0],'t-xs t-end','fill:var(--ink)')+`<rect x="${f1(Math.min(x1,x2))}" y="${y}" width="${f1(Math.abs(x2-x1))}" height="14" rx="3" style="fill:${r[1]<1?'var(--good)':'var(--bad)'};opacity:.8"/>`+T(Math.max(x1,x2)+4,y+11,String(r[1]),'t-xs','fill:var(--ink);font-weight:700')});
