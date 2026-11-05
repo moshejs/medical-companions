@@ -12,7 +12,7 @@
   "description": "Tick the 18 DSM-5-TR ADHD symptoms in a teaching calculator, see the 6 or 5 threshold by age, onset before 12, and how the criteria changed since DSM-IV."
  },
  "differential": {
-  "title": "ADHD look-alikes: anxiety, autism, bipolar, sleep and co-occurrence",
+  "title": "ADHD look-alikes: anxiety, autism, bipolar and sleep",
   "description": "How clinicians tell ADHD from anxiety, depression, bipolar disorder, autism, sleep apnoea, seizures and trauma, and how often they occur together."
  },
  "dopamine": {
@@ -20,7 +20,7 @@
   "description": "How dopamine and noradrenaline work in ADHD: an animated synapse with DAT and NET, the prefrontal inverted U, delay discounting and the PET evidence."
  },
  "frontiers": {
-  "title": "ADHD research frontiers: centanafadine, devices, neurofeedback, genes",
+  "title": "ADHD research: centanafadine, devices, neurofeedback",
   "description": "New ADHD treatments by evidence stage: centanafadine, solriamfetol, EndeavorRx, trigeminal nerve stimulation, neurofeedback, polygenic scores and debates."
  },
  "genes": {
@@ -68,7 +68,7 @@
   "description": "How Concerta, Vyvanse, Adderall XR, bead capsules and evening Jornay PM rise and fade over a school day, with label onset, Tmax, duration and doses."
  },
  "review": {
-  "title": "ADHD flashcards and mnemonics: DSM-5-TR, medicines and NICE monitoring",
+  "title": "ADHD flashcards and mnemonics: DSM-5-TR, medicines, NICE",
   "description": "86 cited ADHD flashcards by part, ten memory aids and an animated DSM-5-TR checklist: 18 symptoms, the 6 or 5 threshold, onset before 12, two settings."
  },
  "risk": {
@@ -80,11 +80,11 @@
   "description": "ADHD medicine side effects compared with placebo, growth and blood pressure over years, heart, psychosis and tic risks, and stimulant misuse, cited."
  },
  "scales": {
-  "title": "ADHD rating scales: ASRS, Vanderbilt, SNAP-IV and how assessment works",
+  "title": "ADHD rating scales: ASRS, Vanderbilt, SNAP-IV, assessment",
   "description": "ASRS, Vanderbilt, SNAP-IV, DIVA-5 and QbTest compared, a 1,000-person icon array showing why screeners give false positives, and the full ADHD assessment."
  },
  "signs": {
-  "title": "ADHD symptoms by age: preschool, school, teens, adults and parents",
+  "title": "ADHD symptoms by age: preschool to adulthood",
   "description": "How ADHD looks from age 3 to 60, outwardly and from the inside: inattention persists, hyperactivity fades. Plus a DSM-5-TR teaching tool on impairment."
  },
  "sources": {
@@ -100,7 +100,7 @@
   "description": "CBT for ADHD in adults: the Safren trial session by session, plus mindfulness, coaching, neurofeedback, diets and exercise ranked by blinded evidence."
  },
  "what": {
-  "title": "What is ADHD? How common it is in children and adults, who is missed",
+  "title": "What is ADHD? How common it is in children and adults",
   "description": "ADHD affects about 5 in 100 children worldwide and many adults. Animated prevalence, boy-girl ratios, persistence to age 25 and US diagnosis versus treatment."
  },
  "women": {

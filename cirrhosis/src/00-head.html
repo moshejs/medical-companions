@@ -6,13 +6,13 @@
 <!--META-->
 <meta name="description" content="Cirrhosis in animations: how scar forms, its causes, FIB-4 and elastography, Child–Pugh and MELD, varices, ascites, hepatic encephalopathy, transplant. Cited.">
 <meta name="keywords" content="cirrhosis, liver cirrhosis, cirrhosis of the liver, hepatic cirrhosis, compensated cirrhosis, decompensated cirrhosis, end-stage liver disease, chronic liver disease, liver fibrosis, liver scarring, hepatic stellate cells, regenerative nodules, fibrosis regression, METAVIR, alcohol-related liver disease, alcohol-associated hepatitis, MASLD, MASH, NAFLD, NASH, fatty liver disease, MetALD, hepatitis B, hepatitis C, haemochromatosis, Wilson disease, alpha-1 antitrypsin deficiency, autoimmune hepatitis, primary biliary cholangitis, primary sclerosing cholangitis, liver function tests, ALT, AST, bilirubin, albumin, INR, platelets, FIB-4, FIB-4 calculator, elastography, FibroScan, liver stiffness, Baveno VII, Child-Pugh score, Child-Pugh calculator, MELD score, MELD calculator, MELD-Na, MELD 3.0, portal hypertension, HVPG, CSPH, oesophageal varices, variceal bleeding, beta-blockers, carvedilol, band ligation, TIPS, ascites, paracentesis, albumin, spironolactone, spontaneous bacterial peritonitis, SBP, hepatorenal syndrome, HRS-AKI, terlipressin, hepatic encephalopathy, West Haven criteria, asterixis, ammonia, lactulose, rifaximin, hepatocellular carcinoma, HCC surveillance, liver cancer, BCLC, liver transplant, sarcopenia, late evening snack, paracetamol and cirrhosis, acute-on-chronic liver failure, ACLF, nursing care cirrhosis, NCLEX, patient education, study guide, palliative care liver disease, שחמת הכבד">
-<title>Cirrhosis Companion: Cirrhosis, MELD and hepatic encephalopathy explained</title>
+<title>Cirrhosis explained: MELD and hepatic encephalopathy</title>
 <link rel="canonical" href="%SITE%/cirrhosis/">
 <meta name="author" content="Cirrhosis Companion">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cirrhosis Companion">
-<meta property="og:title" content="Cirrhosis Companion: Cirrhosis, MELD and hepatic encephalopathy explained">
+<meta property="og:title" content="Cirrhosis explained: MELD and hepatic encephalopathy">
 <meta property="og:description" content="Cirrhosis explained with animations you can scrub: what the liver does, how injury becomes scar and nodules, the causes (alcohol-related liver disease, MASLD, hepatitis B and C, genetic and autoimmune), blood tests, FIB-4 and elastography, Child–Pugh and MELD scores, portal hypertension and varices, ascites and kidney injury, hepatic encephalopathy, liver cancer surveillance, transplant, nutrition and medicine safety, nursing care and living with cirrhosis. Cited throughout. Educational only, not medical advice.">
 <meta property="og:url" content="%SITE%/cirrhosis/">
 <meta property="og:image" content="%SITE%/cirrhosis/share-card.png">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="Cirrhosis Companion: an animated, cited guide to cirrhosis, its scores and its complications">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cirrhosis Companion: Cirrhosis, MELD and hepatic encephalopathy explained">
+<meta name="twitter:title" content="Cirrhosis explained: MELD and hepatic encephalopathy">
 <meta name="twitter:description" content="Cirrhosis explained with animations you can scrub: what the liver does, how injury becomes scar and nodules, the causes (alcohol-related liver disease, MASLD, hepatitis B and C, genetic and autoimmune), blood tests, FIB-4 and elastography, Child–Pugh and MELD scores, portal hypertension and varices, ascites and kidney injury, hepatic encephalopathy, liver cancer surveillance, transplant, nutrition and medicine safety, nursing care and living with cirrhosis. Cited throughout. Educational only, not medical advice.">
 <meta name="twitter:image" content="%SITE%/cirrhosis/share-card.png">
 <meta name="theme-color" content="#0b5670" media="(prefers-color-scheme: light)">
@@ -121,7 +121,7 @@ svg :focus-visible{outline:2px solid var(--brand);outline-offset:1px}
   padding:10px 16px;border-radius:0 0 10px 0;font-weight:700;text-decoration:none}
 .skip:focus{left:0}
 @media (forced-colors:active){ .btn,.navbtn,.opt,.nu-q{border:1px solid ButtonText} }
-h1,h2,h3,h4{text-wrap:balance}
+h1,h2,h3,h4,.nsh{text-wrap:balance}
 sup.c{font:600 10px var(--mono);color:var(--brand);cursor:pointer;margin-left:1px;white-space:nowrap}
 sup.c:hover{text-decoration:underline}
 
@@ -176,7 +176,7 @@ main{min-width:0;padding:0 max(16px,env(safe-area-inset-right,0px)) 40px max(16p
 /* ---------- type ---------- */
 .eyebrow{font:600 12px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.13em;color:var(--brand);margin:0}
 h1{font-family:var(--display);font-weight:700;font-size:clamp(40px,6vw,80px);overflow-wrap:anywhere;line-height:1.02;letter-spacing:-.015em;margin:0}
-h2{font-family:var(--display);font-weight:700;font-size:clamp(29px,4.2vw,46px);line-height:1.06;letter-spacing:-.02em;margin:0}
+h2,.nsh{font-family:var(--display);font-weight:700;font-size:clamp(29px,4.2vw,46px);line-height:1.06;letter-spacing:-.02em;margin:0}
 /* a module's own page makes its heading the h1 (tools/build.py); it keeps the h2 size */
 h1.mh{font-size:clamp(29px,4.2vw,46px);line-height:1.06;letter-spacing:-.02em}
 h3.sub{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:-.01em;margin:8px 0 0}
@@ -360,6 +360,26 @@ tr.liver td,tr.liver th{background:var(--liver-soft)} tr.portal td,tr.portal th{
 .crisis b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--bad);white-space:nowrap;padding-top:3px}
 @media (max-width:600px){.crisis{flex-direction:column;gap:2px}}
 .disclaimer .crisisline{display:block;margin-top:4px;font-weight:700}
+/* the crawler outline's title in <noscript> is not a heading (it came before the h1); it looks like one */
+[dir=rtl] .nsh{letter-spacing:0;line-height:1.12}
+/* labels no smaller than 12px */
+.brand .sm,.navgroup h3,.navbtn .n,.themebtn,.langbtn,.disclaimer b,.tag,.note .kicker,.kicker,.kv dt,.hook b:first-child,.pt b:first-child,
+thead th,.pager small,.stepper button b,.fc .face small,.srcs .key,.unit li .n,.teach b:first-child,.safety b:first-child,.crisis b:first-child,
+.callnow b:first-child,.banner b:first-child{font-size:12px}
+/* tap targets of at least 44px. A footer link grows its hit area with padding that takes no room in the line.
+   On a phone the chips keep their look: the visible pill is the padding box (its outline an inset shadow)
+   and a transparent border above and below makes the target 44px tall; the bar's own padding shrinks to match */
+.sitefoot a{padding-block:14px}
+@media (max-width:900px){
+  .side{padding-block:4px}
+  .brand{min-height:44px}
+  .navbtn{border:0;border-block:6px solid transparent;padding:7px 11px;background-clip:padding-box;box-shadow:inset 0 0 0 1px var(--line)}
+  .themebtn,.langbtn{border:0;border-block:8px solid transparent;padding:7px 11px;background-clip:padding-box;box-shadow:inset 0 0 0 1px var(--line)}
+}
+@media (max-width:900px) and (forced-colors:active){
+  .side{padding-block:10px}
+  .navbtn,.themebtn,.langbtn{border:1px solid ButtonText;padding:6px 10px}
+}
 </style>
 </head>
 <body>

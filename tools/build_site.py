@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Build the whole site from site.json.
 
-    python3 tools/build_site.py
+    python3 tools/build_site.py                 (--no-prerender: skip step 6, e.g. without Chrome)
 
+0. self-hosts the fonts the parts name (tools/fonts.py): fonts/ and fonts/fonts.json
 1. builds every companion in every language it lists (tools/build.py): a first page,
    a page per module and the shared app.js
 2. writes the hub, index.html, from hub/index.html (%SITE% and %CITED:slug% filled in,
@@ -19,10 +20,13 @@
    to that module's page). Copy each folder's contents over
    the old repository's site so its links keep working.
 
+6. prerenders the text the module scripts draw into empty containers into each built
+   page (tools/prerender.py, headless Chrome), so it is readable without JavaScript.
+
 Change "site" in site.json to move the site to another address, then run this again.
 """
 import datetime, html, json, pathlib, re, subprocess, sys
-import i18n
+import fonts, i18n
 
 ROOT, CFG, SITE = i18n.ROOT, i18n.CFG, i18n.SITE
 TODAY = datetime.date.today().isoformat()
@@ -34,6 +38,9 @@ def last_modified(path):
     return git("log", "-1", "--format=%cs", "--", path) or TODAY
 
 url = lambda slug, lang="en": i18n.lang_url(slug, lang)
+
+# 0. fonts: fetch any Google Fonts stylesheet the parts name that fonts/ does not hold yet
+fonts.sync()
 
 # 1. companions
 cited = {}
@@ -74,9 +81,7 @@ hub = re.sub(r"%LANGS:([a-z0-9-]+)%", lambda m: hub_links(m.group(1)), hub)
 hub = re.sub(r"%LANGNAMES:([a-z0-9-]+)%", lambda m: " · ".join(i18n.lang(l)["name"] for l in hub_langs(m.group(1))), hub)
 leftover = re.findall(r"%(?:SITE|CITED:[^%]*|LANGS:[^%]*|LANGNAMES:[^%]*)%", hub)
 if leftover: sys.exit(f"hub has unfilled placeholders: {leftover}")
-hub = re.sub(r'<link rel="stylesheet" href="(https://fonts\.googleapis\.com/[^"]+)">',
-             lambda m: f'<link rel="preload" as="style" href="{m.group(1)}" onload="this.onload=null;this.rel=\'stylesheet\'">'
-                       f'<noscript><link rel="stylesheet" href="{m.group(1)}"></noscript>', hub)  # same as tools/build.py
+hub = fonts.page_fonts(hub, preload=[(fonts.first_family(hub, "body"), 400), (fonts.first_family(hub, "display"), fonts.h1_weight(hub))])  # as tools/build.py
 hub = hub.replace("</head>", i18n.ANALYTICS + "</head>", 1)
 (ROOT / "index.html").write_text(hub, encoding="utf-8")
 print("wrote index.html (hub)")
@@ -96,8 +101,8 @@ EDITOR = ({"@type": "Person", "@id": f"{SITE}/about/#editor", "name": ED["name"]
            "worksFor": {"@id": f"{SITE}/#org"}, "url": f"{SITE}/about/"} if ED else None)
 SITE_PAGES = {
     "about": ("About Medical Companions: who edits them and how AI makes them",
-              "Who is responsible for Medical Companions, how AI researches and writes each cited guide, "
-              "what has not been clinically reviewed yet, and how to read the evidence labels.", "AboutPage"),
+              "Who runs Medical Companions, how AI researches and writes each cited guide, "
+              "what is not yet clinically reviewed, and how to read the labels.", "AboutPage"),
     "privacy": ("Privacy · Medical Companions",
                 "No accounts, cookies or ads. What Medical Companions keeps on your device, what it counts, "
                 "and which services see your visit.", "WebPage"),
@@ -151,6 +156,23 @@ for c in CFG["companions"]:
     '<?xml version="1.0" encoding="UTF-8"?>\n'
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
     + "\n".join(rows) + "\n</urlset>\n", encoding="utf-8")
+# llms.txt (llmstxt.org): a plain index of the guides for AI tools; optional, ignored by Google Search
+def _llms():
+    out = [f"# {CFG['name']}", "",
+           "> Animated, cited study and patient-education guides, one disease each. Researched and written "
+           "with AI from published sources (every source checked against PubMed, Europe PMC, Crossref, "
+           "ClinicalTrials.gov or the drug label), edited by a named person, and not yet clinically reviewed. "
+           "Educational only, not medical advice.", "",
+           f"- [About: who is responsible and how the guides are made]({SITE}/about/)",
+           f"- [Privacy]({SITE}/privacy/)", "", "## Guides", ""]
+    for c in CFG["companions"]:
+        name = c.get("name", {}).get("en", c["slug"])
+        out.append(f"- [{name}]({url(c['slug'])}): sources at {url(c['slug'])}sources/")
+        for l in hub_langs(c["slug"]):
+            if l != i18n.SOURCE:
+                out.append(f"  - {i18n.lang(l)['english']}: {url(c['slug'], l)}")
+    return "\n".join(out) + "\n"
+(ROOT / "llms.txt").write_text(_llms(), encoding="utf-8")
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
 print(f"wrote sitemap.xml ({len(rows)} pages) and robots.txt")
 
@@ -196,3 +218,11 @@ left = [str(f.relative_to(ROOT)) for f in ROOT.rglob("*.html")
         and "src" not in f.relative_to(ROOT).parts and not f.relative_to(ROOT).parts[0].startswith(".")]
 if left:
     sys.exit("unfilled %SITE% in: " + ", ".join(sorted(left)[:20]))
+
+# 6. the text each module's script draws into empty containers, written into its page for
+# readers and crawlers without JavaScript (tools/prerender.py; needs Chrome)
+if "--no-prerender" in sys.argv[1:]:
+    print("prerender: skipped (--no-prerender)")
+else:
+    r = subprocess.run([sys.executable, str(ROOT / "tools" / "prerender.py")])
+    if r.returncode: sys.exit("prerender failed (run with --no-prerender to skip it)")

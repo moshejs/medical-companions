@@ -8,19 +8,19 @@
   "description": "Scrub a mood chart through hypomania (4+ days), mania (1+ week), mixed features and depression (2+ weeks), and sort symptoms by pole. DSM-5-TR, cited."
  },
  "genes": {
-  "title": "Bipolar disorder genes and family risk: twins, GWAS and heritability",
+  "title": "Bipolar disorder genes and family risk: twins and GWAS",
   "description": "Bipolar disorder family risk from 0.48% to 43% for an identical twin, heritability, 64 to 298 GWAS loci and why no DNA test can diagnose it."
  },
  "brain": {
-  "title": "Bipolar disorder, sleep and the body clock: what brain research shows",
+  "title": "Bipolar disorder, sleep and the body clock: brain research",
   "description": "How lost sleep and routine can feed mania, what ENIGMA brain scans and dopamine show, why no scan can diagnose, and the kindling debate."
  },
  "criteria": {
-  "title": "DSM-5-TR bipolar criteria: mania, hypomania and depression explained",
+  "title": "DSM-5-TR bipolar criteria: mania, hypomania, depression",
   "description": "Manic, hypomanic and major depressive episode criteria assembled step by step, with DIGFAST and a teaching criteria counter. Cited, not a self-test."
  },
  "types": {
-  "title": "Bipolar I vs bipolar II vs cyclothymia: types, rules and specifiers",
+  "title": "Bipolar I vs bipolar II vs cyclothymia: types, specifiers",
   "description": "Watch three life charts meet the rules for bipolar I, bipolar II and cyclothymia, overlay rapid cycling and other specifiers, and compare DSM-5-TR and ICD-11."
  },
  "screening": {
@@ -28,7 +28,7 @@
   "description": "Follow 1,000 people through the MDQ or HCL-32 to see true and false positives and predictive value, plus the YMRS and how mood charts aid diagnosis."
  },
  "differential": {
-  "title": "Bipolar or something else? Depression, borderline PD, ADHD, substances",
+  "title": "Bipolar or something else? Depression, BPD, ADHD",
   "description": "How bipolar II differs from unipolar depression, borderline personality disorder, ADHD and substance-induced states, with clues and medical mimics."
  },
  "lithium": {
@@ -36,7 +36,7 @@
   "description": "Lithium for bipolar disorder: inositol, GSK-3 and neuroprotection ideas, then relapse, BALANCE, mania and suicide trial data as a forest plot, with sources."
  },
  "levels": {
-  "title": "Lithium levels explained: target ranges, toxicity and interactions",
+  "title": "Lithium levels: target ranges, toxicity and interactions",
   "description": "Lithium blood levels: 12-hour trough, steady state, published target ranges, toxicity signs, kidney and drug interactions, and NICE monitoring schedules."
  },
  "stabilisers": {
@@ -44,39 +44,39 @@
   "description": "Lamotrigine titration and rash warning from the label, valproate pregnancy risks from EURAP, and the three mood stabilisers compared side by side."
  },
  "antipsychotics": {
-  "title": "Antipsychotics for bipolar disorder: mania, depression, side effects",
+  "title": "Antipsychotics for bipolar disorder: uses and side effects",
   "description": "Antimanic efficacy from Cipriani 2011, the five approved bipolar depression options with NNTs, NICE metabolic monitoring and side effects compared."
  },
  "depression": {
-  "title": "Treating bipolar depression: antidepressants, switch risk, guidelines",
+  "title": "Treating bipolar depression: antidepressants, switch risk",
   "description": "STEP-BD results, ISBD antidepressant advice, the CANMAT 2018 first-line ladder, switch risk with and without a mood stabiliser, ECT, ketamine and light."
  },
  "therapy": {
-  "title": "Bipolar disorder therapy: psychoeducation, FFT, IPSRT and CBT compared",
+  "title": "Bipolar disorder therapy: psychoeducation, FFT, IPSRT, CBT",
   "description": "How talking therapies help bipolar disorder: group psychoeducation and STEP-BD results animated, family therapy, IPSRT routines and CBT compared, cited."
  },
  "crisis": {
-  "title": "Bipolar disorder and suicide risk: when risk rises and a safety plan",
+  "title": "Bipolar disorder and suicide risk: a safety plan",
   "description": "When suicide risk is higher in bipolar disorder, what protects, and a private printable safety plan. Crisis lines: 988 in the US, Samaritans 116 123."
  },
  "pregnancy": {
-  "title": "Bipolar disorder in pregnancy: postpartum relapse risk and medicines",
+  "title": "Bipolar disorder in pregnancy: postpartum risk, medicines",
   "description": "Relapse risk in pregnancy and after birth, postpartum psychosis, and lithium, valproate and lamotrigine malformation risks per 1,000 births, all cited."
  },
  "course": {
-  "title": "Bipolar disorder course: relapse, recovery and comorbid conditions",
+  "title": "Bipolar disorder course: relapse, recovery, comorbidity",
   "description": "A 10-year life chart of recurrence, recovery and residual symptoms, what maintenance treatment changes, and anxiety, alcohol, ADHD and heart risk."
  },
  "living": {
-  "title": "Bipolar disorder self-care: sleep, early warning signs and mood chart",
+  "title": "Bipolar disorder self-care: sleep, warning signs, mood chart",
   "description": "Sleep loss, early warning signs and relapse-prevention plans in bipolar disorder, an animated 8-week mood chart, and a free mood tracker you can keep."
  },
  "families": {
-  "title": "Bipolar disorder and families: family-focused therapy, carers, work",
+  "title": "Bipolar disorder and families: FFT, carers and work",
   "description": "Family-focused therapy and expressed emotion explained, with 2-year relapse results, 12 cards on what helps carers, and notes on children, school and work."
  },
  "nursing": {
-  "title": "Bipolar nursing care: acute mania, lithium teaching and monitoring",
+  "title": "Bipolar nursing care: acute mania and lithium monitoring",
   "description": "Nursing care in bipolar disorder: an animated acute mania day, lithium teaching cards, NICE monitoring schedules and six NCLEX-style priority questions."
  },
  "frontier": {
@@ -84,15 +84,15 @@
   "description": "Where ketamine, light therapy, lithium-response tests, phone monitoring and new antipsychotics stand, with registered trials and evidence labels."
  },
  "history": {
-  "title": "History of bipolar disorder: from folie circulaire to lithium and GWAS",
+  "title": "History of bipolar disorder: folie circulaire to lithium",
   "description": "Timeline from Aretaeus, Falret and Kraepelin to Cade's lithium, Angst and Perris, DSM-III to DSM-5-TR and ICD-11, and genome studies, with name changes."
  },
  "review": {
-  "title": "Bipolar disorder flashcards and mnemonics: criteria, lithium, care",
+  "title": "Bipolar disorder flashcards and mnemonics",
   "description": "88 cited flashcards on bipolar disorder by part, ten memory aids and an animated DIGFAST guide to the DSM-5-TR manic and hypomanic episode rules."
  },
  "quiz": {
-  "title": "Bipolar disorder quiz: 94 cited questions on diagnosis and treatment",
+  "title": "Bipolar disorder quiz: 94 cited questions",
   "description": "Multiple-choice quiz on bipolar disorder with cited answers: DSM-5-TR criteria, MDQ screening, lithium levels and toxicity, medicines, therapy and nursing."
  },
  "glossary": {
