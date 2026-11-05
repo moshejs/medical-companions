@@ -37,7 +37,7 @@ inits.risk=()=>{
   /* ---------- main: icon arrays and rates ---------- */
   const svg=$('#rkSvg'),rg=$('#rkT'),note=$('#rkNote');let setSt=()=>{};
   const CAT=[['aged 65+','var(--accent)'],['under 5','var(--brand)'],['5–19','var(--gold)'],['20 or older','var(--dx)']];
-  function draw(t){const N=vb(svg,'720 360','400 640'),p=phaseOf(RK_STEPS,t),S=RK_STEPS[p],u=ramp(t,S.from,S.from+.2),e=ease(u);
+  function draw(t){const N=vb(svg,'720 360','400 530'),p=phaseOf(RK_STEPS,t),S=RK_STEPS[p],u=ramp(t,S.from,S.from+.2),e=ease(u);
     const L=N?{gx:60,gy:70,sz:22,gp:6,rx:16,ry:400,bx:16,bw:300,by:90}:{gx:36,gy:66,sz:18,gp:7,rx:330,ry:96,bx:230,bw:420,by:110};
     let s=`<text x="16" y="26" class="t-big">${S.t}</text><text x="16" y="42" class="t-sm">${['US population (Martin 2006)','US sepsis cases (Martin 2006)','world sepsis cases, 2017 (GBD)','rates per 1,000 (Angus 2001; Fleischmann 2021)'][p]}</text>`;
     /* the 100-icon grid: colour by view */
@@ -76,9 +76,9 @@ inits.risk=()=>{
 
   /* ---------- REGARDS hazard ratios ---------- */
   const hs=$('#rkHr'),ho=$('#rkHrOut');let sel=0;
-  function drawHr(){const N=vb(hs,'720 330','400 470');let s='';
-    const lx=N?12:16,bx=N?12:230,bw=N?330:420,rh=N?50:32,y0=N?40:30,X=v=>bx+bw*(v-1)/1.6;
-    s+=`<text x="${f1(X(1))}" y="${y0-14}" class="t-xs t-mid" style="fill:var(--ink)">1 = same rate</text>`;
+  function drawHr(){const N=vb(hs,'720 330','400 490');let s='';
+    const lx=N?12:16,bx=N?12:230,bw=N?330:420,rh=N?44:32,y0=N?34:30,X=v=>bx+bw*(v-1)/1.6;
+    s+=`<text x="${f1(X(1))}" y="${y0-(N?20:14)}" class="t-xs${N?'':' t-mid'}" style="fill:var(--ink)">1 = same rate</text>`;
     RK_HR.forEach((r,i)=>{const y=y0+i*rh+(N?14:0),on=i===sel,w=X(r[1])-X(1);
       s+=`<text x="${N?lx:bx-10}" y="${f1(N?y-4:y+14)}" class="t-sm${N?'':' t-end'}" style="fill:var(--ink);${on?'font-weight:700':''}">${r[0]}${r[2]==='infection'?' (infection)':''}</text>`;
       s+=`<rect x="${f1(X(1))}" y="${y}" width="${f1(w)}" height="18" rx="4" style="fill:${on?'var(--accent)':'var(--dx)'};opacity:${on?.95:.55}"/>`;

@@ -89,7 +89,7 @@ function osDetail(ty,t,ph){let s='';const T=(x,y,txt,cls='t-xs',st='')=>`<text x
     if(st>.02){s+=`<path d="M276 6C220 14 150 44 112 84" style="fill:none;stroke:var(--device);stroke-width:2;opacity:${f1(st)}"/>`;
       let z='M101 80';for(let i=0;i<6;i++)z+=`L${f1(i%2?104:110)} ${f1(80+i*3.4)}`;s+=`<path d="${z}" style="fill:none;stroke:var(--device);stroke-width:2.2;opacity:${f1(st)}"/>`;
       s+=T(276,196,'catheter + stent (PCI)','t-xs t-end',`fill:var(--ink);font-weight:600;opacity:${f1(st)}`)}
-    s+=T(132,40,'coronary artery','t-xs','fill:var(--ink)');
+    s+=T(16,34,'coronary artery','t-xs','fill:var(--ink)')+`<path d="M70 38L104 50" style="stroke:var(--muted);stroke-width:1"/>`;
     if(clot>.2)s+=T(40,80,'clot','t-xs',`fill:var(--clot);font-weight:600;opacity:${f1(clot)}`);
     if(dmg>.3)s+=T(196,150,'muscle short','t-xs',`fill:var(--ink);opacity:${f1(dmg)}`)+T(196,161,'of oxygen','t-xs',`fill:var(--ink);opacity:${f1(dmg)}`);
     /* SCAI stage strip */
@@ -135,7 +135,7 @@ function osDetail(ty,t,ph){let s='';const T=(x,y,txt,cls='t-xs',st='')=>`<text x
     const cx=64,cy=128;s+=`<circle cx="${cx}" cy="${cy}" r="30" style="fill:var(--cell);stroke:var(--immune);stroke-width:1.6"/><circle cx="${cx-4}" cy="${cy+2}" r="10" style="fill:var(--immune);opacity:.75"/>`;
     const rr=rng(14);for(let i=0;i<14;i++){const a=rr()*Math.PI*2,d0=14+rr()*12,d=d0+hs*(14+rr()*22)*(1-ad*.6);s+=`<circle cx="${f1(cx+Math.cos(a)*d)}" cy="${f1(cy+Math.sin(a)*d)}" r="2.2" style="fill:var(--fever);opacity:${f1(1-ad*.7)}"/>`}
     s+=T(cx,cy+46,hs>.3?'histamine released':'immune cell','t-xs t-mid','fill:var(--ink)');
-    const V=vessel(134,92,138,72,{ph,dilate:.9*hs*(1-ad),leak:.8*hs*(1-ad),seed:4});s+=V.svg+T(203,86,'small blood vessel','t-xs t-mid','fill:var(--ink)');
+    const V=vessel(134,92,138,72,{ph,dilate:.9*hs*(1-ad),leak:.8*hs*(1-ad),seed:4});s+=V.svg+T(203,177,'small blood vessel','t-xs t-mid','fill:var(--ink)');
     if(ad>.02){s+=`<g style="opacity:${f1(ad)}"><rect x="20" y="196" width="150" height="52" rx="24" style="fill:var(--skin);stroke:var(--line)"/>`+T(95,262,'outer thigh','t-xs t-mid');
       s+=`<rect x="122" y="146" width="20" height="44" rx="6" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.6"/><rect x="127" y="189" width="10" height="8" rx="2" style="fill:var(--accent)"/>`;
       s+=T(176,214,'adrenaline','t-sm','fill:var(--accent);font-weight:700')+T(176,227,'IM, into the','t-xs')+T(176,238,'anterolateral thigh','t-xs')+`</g>`}}
@@ -195,8 +195,8 @@ inits.othershock=()=>{
 
   /* ---------- trial icon arrays ---------- */
   const ic=$('#osIco'),icCap=$('#osIcoCap');let icK='shock',icStop=null;
-  function drawIco(p){const N=vb(ic,'720 290','400 560'),D=OS_ICO[icK],sz=14,gp=4;
-    const A=N?{ax:110,ay:56,bx:110,by:320}:{ax:70,ay:64,bx:420,by:64};let s='';
+  function drawIco(p){const N=vb(ic,'720 290','400 670'),D=OS_ICO[icK],sz=N?20:14,gp=N?5:4;
+    const A=N?{ax:70,ay:56,bx:70,by:384}:{ax:70,ay:64,bx:420,by:64};let s='';
     [[D.a,A.ax,A.ay,'var(--rx)'],[D.b,A.bx,A.by,'var(--muted)']].forEach(([arm,x,y,c])=>{const k=Math.round(arm[1]*p);
       s+=`<text x="${x}" y="${y-30}" class="t-sm" style="fill:var(--ink);font-weight:700">${arm[0]}</text><text x="${x}" y="${y-14}" class="t-xs">${k} in 100 ${D.ev}</text>`;
       s+=icons(x,y,{n:100,cols:10,k,size:sz,gap:gp,col:'var(--bad)',base:c==='var(--rx)'?'var(--rx-soft)':'var(--panel-2)'}).svg});
