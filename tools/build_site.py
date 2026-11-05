@@ -115,8 +115,8 @@ SITE_PAGES = {
               "Who runs Medical Companions, how AI researches and writes each cited guide, "
               "what is not yet clinically reviewed, and how to read the labels.", "AboutPage"),
     "privacy": ("Privacy · Medical Companions",
-                "No accounts, cookies or ads. What Medical Companions keeps on your device, what it counts, "
-                "and which services see your visit.", "WebPage"),
+                "No accounts or ads. What Medical Companions keeps on your device, what it measures with "
+                "Vercel and Google Analytics, which cookies are set, and which services see your visit.", "WebPage"),
 }
 head = (ROOT / "hub" / "_page-head.html").read_text(encoding="utf-8")
 for name, (title, desc, kind) in SITE_PAGES.items():
