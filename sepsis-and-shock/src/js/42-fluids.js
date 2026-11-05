@@ -106,7 +106,7 @@ inits.fluids=()=>{
     const back=ease(ramp(t,.58,.62)),aB=ease(ramp(t,.22,.32)),bB=ease(ramp(t,.42,.52)),leg=ease(ramp(t,.62,.67))*(1-ease(ramp(t,.73,.77)));
     const pA=A0+BOL*aB*(1-back)+PLR*leg,pB=B0+BOL*bB*(1-back)+PLR*leg;
     return {pA,pB,leg,showB:ramp(t,.38,.42),bag:t<.58?(t<.4?1-aB:1-bB):1,bagOn:t>=.18&&t<.6,
-      dA:SV(pA)/SV(A0)-1,dB:SV(pB)/SV(B0)-1,auc:ramp(t,.82,.92),plrOn:t>=.6&&t<.8}}
+      dA:SV(pA)/SV(A0)-1,dB:SV(pB)/SV(B0)-1,auc:ramp(t,.8,.86),plrOn:t>=.6&&t<.8}}
   function draw(t){
     const N=vb(svg,'720 340','400 530'),S=st(t),ph=phaseOf(FL_SSTEPS,t);
     const C=N?{x:52,y:54,w:326,h:220}:{x:62,y:56,w:330,h:250};
@@ -129,7 +129,7 @@ inits.fluids=()=>{
     /* right panel: patient on a bed, drip bag, leg raise */
     const R=N?{x:20,y:318,w:360}:{x:420,y:56,w:280};
     const auc=S.auc;
-    if(auc<1){const op=1-auc,bx=R.x+20,by=R.y+(N?92:118),bw=R.w-40,hd=bx+22;let g=`<g style="opacity:${f1(op)}">`;
+    if(auc<.5){const op=1-auc*2,bx=R.x+20,by=R.y+(N?92:118),bw=R.w-40,hd=bx+22;let g=`<g style="opacity:${f1(op)}">`;
       g+=`<rect x="${bx}" y="${by}" width="${bw}" height="10" rx="4" style="fill:var(--panel-2);stroke:var(--line)"/><line x1="${bx+8}" x2="${bx+8}" y1="${by+10}" y2="${by+32}" class="axis"/><line x1="${bx+bw-8}" x2="${bx+bw-8}" y1="${by+10}" y2="${by+32}" class="axis"/>`;
       /* person: head, torso flat, legs pivot at the hip */
       const hip=[bx+bw*.5,by-6],ang=-S.leg*40*Math.PI/180,L=Math.min(110,bw*.34),foot=[hip[0]+L*Math.cos(ang),hip[1]+L*Math.sin(ang)];

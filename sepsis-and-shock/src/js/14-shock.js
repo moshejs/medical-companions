@@ -126,8 +126,8 @@ inits.shock=()=>{
   function param(t){const i=Math.min(5,Math.floor(t*6)),u=t*6-i;
     const k=i===0?0:i===5?ease(ramp(u,0,.3)):ease(ramp(u,0,.3))*(1-ease(ramp(u,.86,1)));
     return {i,k,P:shMix(SH_N,SH_STEPS[i].st,k)}}
-  function draw(t){const N=vb(svg,'720 390','400 630'),{i,k,P}=param(t),S=SH_STEPS[i];
-    const L=N?{hx:14,hy:24,cx:10,cy:52,cw:380,ch:270,gx:96,gy:408,gr:46,fx:190,fy:360,fw:196,wx:10,wy:464,ww:380,px:12,py:600,pw:376}
+  function draw(t){const N=vb(svg,'720 390','400 620'),{i,k,P}=param(t),S=SH_STEPS[i];
+    const L=N?{hx:14,hy:24,cx:10,cy:52,cw:380,ch:270,gx:96,gy:408,gr:46,fx:190,fy:360,fw:196,wx:10,wy:480,ww:380,px:12,py:582,pw:376}
              :{hx:16,hy:26,cx:10,cy:46,cw:450,ch:290,gx:590,gy:110,gr:54,fx:486,fy:166,fw:216,wx:474,wy:250,ww:236,px:16,py:352,pw:688};
     let s=`<text x="${L.hx}" y="${L.hy}" class="t-big" style="fill:${i?'var(--brand)':'var(--ink)'}">${S.t}</text><text x="${L.hx}" y="${L.hy+16}" class="t-sm">${S.sub}</text>`;
     s+=shCircuit(L.cx,L.cy,L.cw,L.ch,{...P,obsKind:S.kind,ph:t*30,beat:t*110*P.hr,fail:S.fail,fv:k,id:'shM'}).svg;

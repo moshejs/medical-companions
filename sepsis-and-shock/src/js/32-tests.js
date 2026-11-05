@@ -195,8 +195,8 @@ inits.tests=()=>{
         s+=`<rect x="${f1(x-14)}" y="${by}" width="28" height="${bh}" rx="3" style="fill:var(--panel-2)"/><rect x="${f1(x-14)}" y="${f1(by+bh-hv)}" width="28" height="${f1(hv)}" rx="3" style="fill:var(--dx);opacity:${i===1?1:.65}"/>`;
         s+=`<text x="${f1(x)}" y="${f1(by-4)}" class="t-xs t-mid" style="fill:var(--ink);font-weight:700;opacity:${f1(f)}">${DET[i]}%</text>`}
       s+=`<text x="${N?B.x+8:x0-60}" y="${B.y+B.h-6}" class="t-xs">bars: cumulative share of bloodstream infections detected (Lee 2007)</text>`}
-    else if(p===1){const K=[31,19],labs=['drawn before antimicrobials','redrawn a median 70 min after'],sz=N?13:14,gp=N?3:4,gw=10*(sz+gp);
-      for(let k=0;k<2;k++){const x=N?cx-gw/2:B.x+80+k*330,y=N?B.y+30+k*190:B.y+44,kk=Math.round(K[k]*ease(ramp(lp,.05+k*.3,.35+k*.3)));
+    else if(p===1){const K=[31,19],labs=['drawn before antimicrobials','redrawn a median 70 min after'],sz=N?11:14,gp=N?3:4,gw=10*(sz+gp);
+      for(let k=0;k<2;k++){const x=N?cx-gw/2:B.x+80+k*330,y=N?B.y+34+k*196:B.y+44,kk=Math.round(K[k]*ease(ramp(lp,.05+k*.3,.35+k*.3)));
         s+=`<text x="${x}" y="${y-22}" class="t-lbl" style="fill:${k?'var(--rx)':'var(--dx)'}">${K[k]===31?'31.4':'19.4'}% positive</text><text x="${x}" y="${y-8}" class="t-xs">${labs[k]}</text>`;
         s+=icons(x,y,{n:100,cols:10,k:kk,size:sz,gap:gp,col:k?'var(--rx)':'var(--dx)',shape:'dot'}).svg}}
     else if(p===2){const sx=N?B.x+12:B.x+20,sy=B.y+20,sw=N?B.w-24:300,sh=110;
