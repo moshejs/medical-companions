@@ -1,0 +1,32 @@
+<!-- ================= 1.3 AMYLOID ================= -->
+<section class="mod" id="m-amyloid" data-mod="amyloid" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Amyloid, animated</h2>
+    <p class="lede">Amyloid beta is a small fragment cut out of a larger protein, APP, that sits in the neuron's membrane. Whether the fragment gets made depends on which enzyme cuts first. Pick a pathway and press play.</p></div>
+  <div class="ctrls" role="group" aria-label="Which enzyme cuts first">
+    <span class="kicker">First cut</span>
+    <button class="btn" id="amAlpha" aria-pressed="false">Alpha-secretase: no amyloid</button>
+    <button class="btn" id="amBeta" aria-pressed="true">Beta-secretase: amyloid made</button>
+    <span class="kicker" style="margin-left:6px">Genetics</span>
+    <button class="btn" id="amFad" aria-pressed="false">Familial mutation</button>
+    <button class="btn" id="amProt" aria-pressed="false">Protective A673T</button>
+  </div>
+  <div class="stepper" id="amSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="amSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="APP is cut by two enzymes in turn. With alpha-secretase first, no amyloid beta is made. With beta-secretase first, amyloid beta is released."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="amPlay">Play</button><label class="stage-cap tl" for="amT">Timeline <input type="range" id="amT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap" id="amCap">Schematic, not to scale.</p></div>
+    <aside class="note" id="amNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">From one fragment to a plaque</h3>
+  <p class="prose" id="amAggLede"></p>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="amAgg" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="Amyloid beta monomers join into oligomers, protofibrils and fibrils, which deposit as a plaque surrounded by damaged neurites and microglia."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="amAggPlay">Play</button><label class="stage-cap tl" for="amAggT">Years <input type="range" id="amAggT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap">Schematic. Real aggregation takes years and happens in three dimensions.</p></div>
+    <aside class="note" id="amAggNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How strong is the amyloid case?</h3>
+  <div class="cards" id="amCards"></div>
+</section>

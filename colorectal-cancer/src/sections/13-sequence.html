@@ -1,0 +1,126 @@
+<!-- ================= 1.3 FROM POLYP TO CANCER ================= -->
+<style>
+#m-sequence .card>.ev,#m-sequence .card>.tag{align-self:flex-start}
+#m-sequence .sqbar{display:flex;height:34px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+#m-sequence .sqbar span{display:flex;align-items:center;justify-content:center;font:600 12px var(--mono);color:#fff;min-width:0;overflow:hidden;white-space:nowrap}
+#m-sequence .sqlegend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;margin-top:8px}
+#m-sequence .sqlegend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+#m-sequence .sqcombo{font-size:14.5px;background:var(--panel-2);border-radius:10px;padding:10px 12px}
+#m-sequence .sqcombo b{font-weight:700}
+#m-sequence .cms h4 small{display:block;font:600 11px var(--mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:2px}
+#m-sequence .cms .pc{font:800 30px/1 var(--display);color:var(--tumour)}
+</style>
+<section class="mod" id="m-sequence" data-mod="sequence" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>From polyp to cancer</h2>
+    <p class="lede">Most colorectal cancers grow out of a polyp over many years, picking up gene changes one after another. Scrub through two decades of one schematic lesion, switch between the conventional and the serrated pathway, and between chromosomal and microsatellite instability.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Pathway">
+    <span class="kicker">Pathway</span>
+    <button class="btn" data-sqpw="conv" aria-pressed="true">Conventional adenoma</button>
+    <button class="btn" data-sqpw="serr" aria-pressed="false">Serrated (BRAF, CIMP)</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Genomic instability">
+    <span class="kicker">Instability</span>
+    <button class="btn" data-sqin="cin" aria-pressed="true">CIN: chromosomal</button>
+    <button class="btn" data-sqin="msi" aria-pressed="false">MSI: microsatellite</button>
+  </div>
+  <div class="stepper" id="sqSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="sqSvg" viewBox="0 0 720 460" style="min-width:560px" role="img" aria-label="A section of bowel wall in which a lesion grows over about 22 schematic years: an aberrant crypt, a small adenoma, a large adenoma, high-grade dysplasia, then an invasive carcinoma that breaks through the muscularis mucosae and finally sheds cells into a vessel towards the liver. Beside it, gene badges light up in order (APC, KRAS, 18q/SMAD4, 17p/TP53, or BRAF, CIMP and MLH1 on the serrated pathway) with bars for how often each change is found at each stage, a chromosome panel that shows losses under chromosomal instability or a growing mutation count under microsatellite instability, and a timeline with the published 17-year and under-2-year intervals."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sqPlay">Play</button><label class="stage-cap tl" for="sqT">Years (schematic) <input type="range" id="sqT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="sqRead"></div>
+      <div class="sqcombo" id="sqCombo"></div>
+      <p class="stage-cap" id="sqCap"></p>
+    </div>
+    <aside class="note" id="sqNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How fast does a large polyp become cancer?</h3>
+  <p class="prose">Two kinds of evidence. Before colonoscopy was routine, a Mayo Clinic series followed 226 people whose polyps of 10 mm or more were left in place. Much later, German screening data from 840,149 colonoscopies were used to estimate how often an advanced adenoma turns into cancer each year. Pick an age and sex for the German estimate, then press Play. [[Stryker1987,Brenner2007]]</p>
+  <div class="ctrls" role="group" aria-label="Age at which the advanced adenoma is present">
+    <span class="kicker">Age</span>
+    <button class="btn" data-sqage="55" aria-pressed="true">55</button>
+    <button class="btn" data-sqage="80" aria-pressed="false">80</button>
+    <span class="kicker" style="margin-left:10px">Sex</span>
+    <button class="btn" data-sqsex="w" aria-pressed="true">Women</button>
+    <button class="btn" data-sqsex="m" aria-pressed="false">Men</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="sqRisk" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A chart of cumulative cancer risk against years. A solid line grows through the Mayo Clinic points for untreated polyps of 10 mm or more: 2.5% at 5 years, 8% at 10 years and 24% at 20 years. A dashed line reaches the German projected 10-year risk for a person with an advanced adenoma, about 25% at age 55 and 40 to 43% at age 80."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sqRiskPlay">Play</button><label class="stage-cap tl" for="sqRiskT">Years of follow-up <input type="range" id="sqRiskT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Circles are published values; lines between them are drawn straight, not measured. The two sources studied different people in different eras. Population figures, not a prediction for anyone. [[Stryker1987,Brenner2007]]</p>
+    </div>
+    <aside class="note" id="sqRiskNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How common are polyps?</h3>
+  <p class="prose">Pooled from 18 studies of average-risk North Americans. Press a button to light up each group among 1,000 people screened. These pooled estimates come from different sets of studies, so the groups do not add up neatly. [[Heitman2009]]</p>
+  <div class="ctrls" role="group" aria-label="Group to highlight">
+    <button class="btn" data-sqprev="any" aria-pressed="true">Any adenoma: 302</button>
+    <button class="btn" data-sqprev="adv" aria-pressed="false">Advanced adenoma: 57</button>
+    <button class="btn" data-sqprev="ca" aria-pressed="false">Cancer: 3</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="sqPrev" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="1,000 dots, one per person screened, with the chosen group highlighted: 302 with any adenoma, 57 with an advanced adenoma, or 3 with colorectal cancer."></svg></div>
+    <p class="stage-cap" id="sqPrevCap"></p>
+  </div>
+  <div class="callout"><p><b>Why removing polyps works.</b> In the National Polyp Study, removing adenomas lowered colorectal cancer incidence by 76–90% compared with three reference groups (1,418 patients, mean 5.9 years). Long-term follow-up found colorectal cancer mortality of 0.47 (95% CI 0.26–0.80) compared with that expected from SEER, a 53% reduction. Reviews class the evidence for the adenoma–carcinoma sequence as epidemiological, clinicopathological and genetic. [[Winawer1993,Zauber2012,Leslie2002]]</p></div>
+
+  <h3 class="sub">Three kinds of genomic instability</h3>
+  <p class="prose">Colorectal cancers break their genomes in at least three ways. Chromosomal instability (CIN), the commonest, means whole chromosomes and arms are gained and lost. Microsatellite instability (MSI) means the DNA "spell-checker", mismatch repair, has failed. The CpG island methylator phenotype (CIMP) means many gene promoters are silenced by methylation. Cancer cells without MSI gained or lost chromosomes at rates above 10⁻² per chromosome per generation. [[Pino2010,Lengauer1997,Toyota1999]]</p>
+  <div class="stage">
+    <p class="kicker">MSI is found in about 15% of colorectal cancers [[Boland2010,Vilar2010]]</p>
+    <div class="sqbar" role="img" aria-label="Bar: about 3% Lynch syndrome, about 12% sporadic MSI from MLH1 methylation, about 85% microsatellite stable">
+      <span style="width:3%;background:var(--lymph)" title="Lynch syndrome about 3%"></span>
+      <span style="width:12%;background:var(--accent)">12%</span>
+      <span style="width:85%;background:var(--muted)">85% microsatellite stable</span>
+    </div>
+    <div class="sqlegend"><span><i style="background:var(--lymph)"></i>About 3%: Lynch syndrome (inherited mismatch-repair fault)</span><span><i style="background:var(--accent)"></i>About 12%: sporadic, MLH1 silenced by promoter methylation in CIMP tumours</span><span><i style="background:var(--muted)"></i>The rest: microsatellite stable</span></div>
+    <p class="stage-cap">In unselected people with colorectal cancer, Lynch syndrome was found in 2.8% (95% CI 2.1–3.8%), about 1 in 35. See <a href="#genes" data-go="genes">Lynch syndrome &amp; FAP</a>. [[Hampel2008]]</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>TCGA 2012 (276 tumours)</th><th>Non-hypermutated (84%)</th><th>Hypermutated (16%)</th></tr></thead>
+    <tbody>
+      <tr><th>Mutations</th><td>Median 58 non-silent mutations</td><td>More than 12 per 10⁶ bases; median 728 in total</td></tr>
+      <tr><th>Usual cause</th><td>Chromosomal instability: 18p/q (with SMAD4) lost in 66%, 17p/q (with TP53) in 56% of tumours</td><td>Three-quarters MSI-high, usually MLH1 silencing; one-quarter somatic mismatch-repair or POLE mutations</td></tr>
+      <tr><th>Copy number</th><td>Many changes</td><td>Near-diploid, far fewer changes; enriched for CIMP and BRAF V600E</td></tr>
+      <tr><th>APC mutated</th><td>81%</td><td>51%</td></tr>
+      <tr><th>TP53 mutated</th><td>60%</td><td>20%</td></tr>
+      <tr><th>Other</th><td>KRAS, NRAS or BRAF 55%; PIK3CA 15%; TGF-β pathway 27%</td><td>TGF-β pathway 87%; ACVR2A, TGFBR2, MSH3, MSH6 frequent targets</td></tr>
+      <tr><th>Wnt pathway</th><td colspan="2">Deregulated in 93% overall (93% and 97%). Excluding hypermutated cancers, colon and rectal cancers looked genomically alike.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Source: [[TCGA2012]]. Mismatch-repair-deficient tumours carried a mean 1,782 somatic mutations against 73 in proficient tumours, and responded to PD-1 blockade: see <a href="#biomarkers" data-go="biomarkers">Tumour biomarkers</a>. [[Le2015]]</p>
+
+  <h3 class="sub">Four consensus molecular subtypes</h3>
+  <p class="prose">Six gene-expression classifications converged on four consensus molecular subtypes (CMS). No subtype is defined by a single mutation, and no genetic change is limited to one subtype. [[Guinney2015]]</p>
+  <div class="sqbar" role="img" aria-label="Bar: CMS1 14%, CMS2 37%, CMS3 13%, CMS4 23%, mixed 13%">
+    <span style="width:14%;background:var(--accent)">14%</span><span style="width:37%;background:var(--rx)">CMS2 37%</span><span style="width:13%;background:var(--gold)">13%</span><span style="width:23%;background:var(--tumour)">CMS4 23%</span><span style="width:13%;background:var(--muted)">13%</span>
+  </div>
+  <div class="cards cms">
+    <div class="card"><span class="pc">14%</span><h4><small>CMS1</small>MSI immune</h4><p>Hypermutated, MSI, strong immune activation; few copy-number changes, widespread hypermethylation, enriched for BRAF; more often right-sided, in women, and of higher grade. Very poor survival after relapse. [[Guinney2015]]</p></div>
+    <div class="card"><span class="pc">37%</span><h4><small>CMS2</small>Canonical</h4><p>Epithelial, with marked WNT and MYC activation; high CIN, more oncogene gains and tumour-suppressor losses; mainly left-sided. Better survival after relapse. [[Guinney2015]]</p></div>
+    <div class="card"><span class="pc">13%</span><h4><small>CMS3</small>Metabolic</h4><p>Epithelial, with metabolic dysregulation; fewer copy-number changes, nearly 30% hypermutated, more CIMP, and KRAS mutations over-represented. [[Guinney2015]]</p></div>
+    <div class="card"><span class="pc">23%</span><h4><small>CMS4</small>Mesenchymal</h4><p>TGF-β activation, stromal invasion and angiogenesis. Worse overall and relapse-free survival after adjusting for MSI, BRAF and KRAS. The remaining 13% are mixed: possibly transitional, or a sign of heterogeneity within the tumour. [[Guinney2015]]</p></div>
+  </div>
+
+  <h3 class="sub">Microbes in the mix</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established association</span><h4>Fusobacterium nucleatum</h4><p>Its sequences were enriched in colorectal carcinomas against matched normal tissue in two 2012 studies, and tumour Fusobacterium went with lymph-node metastasis. In a cohort of 1,069, a high tumour load went with higher colorectal-cancer mortality (HR 1.58) and with MSI-high (Early evidence). It persists in distant metastases, and metronidazole slowed tumour growth in mice. Cause or passenger is unproven. [[Kostic2012,Castellarin2012,Mima2016,Bullman2017]]</p></div>
+    <div class="card"><span class="ev est">Established mechanism</span><h4>Colibactin from pks+ E. coli</h4><p>Commensal E. coli with the pks island make colibactin, which breaks DNA. Five months of exposure left a distinct mutational signature in human intestinal organoids; the same signature appeared in a subset of cancer genomes, mainly colorectal, and in 5.0% of 2,208 colorectal cancers. 5.3% of APC driver mutations matched the colibactin motif. [[Nougayrede2006,PleguezuelosManzano2020,DziubanskaKusibab2020]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Colibactin and early-onset cancer</h4><p>In 981 colorectal cancer genomes from 11 countries, colibactin signatures were 3.3 times more common in people diagnosed before 40 than after 70, and were imprinted early in tumour development. The authors suggest early-life exposure may contribute to rising early-onset cancer; causation in humans is unproven. [[DiazGay2025]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Biofilms and inflammation</h4><p>People with FAP had patchy colonic biofilms of E. coli and Bacteroides fragilis with colibactin and B. fragilis toxin genes; co-colonised mice developed tumours faster. In colitis-prone mice, pks+ E. coli promoted invasive carcinoma. [[Dejea2018,Arthur2012]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Microbes as markers</h4><p>Reviews propose the microbiota as screening, prognostic or predictive biomarkers, and "polymorphic microbiomes" have been proposed as an enabling characteristic of cancer. Neither is in clinical use. [[Wong2019,Hanahan2022]]</p></div>
+  </div>
+
+  <h3 class="sub">Where the evidence disagrees</h3>
+  <div class="cards">
+    <div class="card"><span class="tag tumour">Controversy</span><h4>How often does colorectal cancer reach the liver?</h4><p>A figure of about 50% is often quoted, but population registries give lower numbers: synchronous liver metastases in 14.5% (Burgundy) and about 17.7% (Germany); liver metastases at any time in 24.7% (Germany) and 26.5% within 5 years (Stockholm). The 5-year metachronous rate rose with stage: 3.7% (I), 13.3% (II), 30.4% (III). Figures depend on population, follow-up and imaging era. [[Manfredi2006,Hackl2014,Engstrand2018]]</p></div>
+    <div class="card"><span class="tag tumour">Controversy</span><h4>Late or early spread?</h4><p>Comparative lesion sequencing suggests about 17 years from a large benign tumour to an advanced cancer, and under 2 years more to a metastatic clone. Other modelling suggests that in 17 of 21 patients, cells seeded metastases while the primary was still under 0.01 cm³, and a "Big Bang" model holds that tumours grow as one early expansion. All are model-based (Early evidence) and may describe different tumours. [[Jones2008,Hu2019,Sottoriva2015]]</p></div>
+    <div class="card"><span class="tag tumour">Controversy</span><h4>What share of cancers is serrated?</h4><p>Estimates run from at least 15% to about 35% (one estimate splits colorectal cancer into roughly 60% conventional, 35% serrated and 5% Lynch). No study has followed individual serrated lesions over time, so all are indirect. Post-colonoscopy cancers may arise from serrated polyps even more often. [[IJspeert2015,Bettington2017,Snover2011]]</p></div>
+    <div class="card"><span class="tag tumour">Controversy</span><h4>Is CMS ready for the clinic?</h4><p>The subtypes carry prognosis, but no single mutation defines them, and using them to choose treatment remains investigational. A "multi-gene, multi-drug" model combining tumour, stroma and immune subtypes is a hypothesis. [[Guinney2015,Dienstmann2017]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Hallmarks, in brief</h4><p>Cancer is described by hallmark capabilities: sustained growth signals, evading growth suppressors, resisting cell death, replicative immortality, angiogenesis, and invasion and metastasis, enabled by genome instability and inflammation. A 2022 update proposed phenotypic plasticity, epigenetic reprogramming and microbiomes as additions (provisional). [[Hanahan2011,Hanahan2022]]</p></div>
+  </div>
+</section>

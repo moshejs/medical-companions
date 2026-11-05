@@ -1,0 +1,99 @@
+<!-- ================= 4.3 ENDING TB: TARGETS & RESEARCH ================= -->
+<style>
+#m-frontier .grp{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-frontier #reSvg .t-xs,#m-frontier #reFund .t-xs{font-size:10.5px}
+#m-frontier svg[data-mode=n] .t-xs{font-size:12.5px}
+#m-frontier svg[data-mode=n] .t-sm{font-size:13px}
+#m-frontier .rb{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+#m-frontier .rb .card[hidden]{display:none}
+#m-frontier .rb .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-frontier .rb .nct{font:600 11px var(--mono);color:var(--muted)}
+#m-frontier .card>.tag,#m-frontier .card>.ev{align-self:flex-start}
+#m-frontier .cnt{font:600 12px var(--mono);color:var(--muted)}
+#m-frontier .tbl table{min-width:560px}
+#m-frontier #reFund{max-width:820px}
+</style>
+<section class="mod" id="m-frontier" data-mod="frontier" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Prevention &amp; control</p><h2>Ending TB: targets &amp; research</h2>
+    <p class="lede">In 2014 every WHO Member State signed up to cut TB deaths by 95% by 2035. Scrub from 2015 to 2035 to see the targets against what has happened so far, then browse the research that could close the gap, each item labelled by how strong its evidence is. [[WHO-GTR2025]]</p></div>
+
+  <div class="grp" role="group" aria-label="Measure">
+    <span class="kicker">Measure</span>
+    <button class="btn" data-rem="inc" aria-pressed="true">Incidence rate</button>
+    <button class="btn" data-rem="death" aria-pressed="false">Deaths</button>
+    <button class="btn" data-rem="cost" aria-pressed="false">Catastrophic costs</button>
+  </div>
+  <div class="stepper" id="reSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="reSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A chart from 2015 to 2035. A stepped target line falls through the End TB milestones for 2020, 2025, 2030 and 2035. The actual global trajectory from the WHO Global Tuberculosis Report 2025 is drawn up to 2024 and stays far above the target line, with milestone markers showing which were missed. For catastrophic costs, the target is zero households, against survey estimates of about half."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rePlay">Play</button><label class="stage-cap tl" for="reT">Year <input type="range" id="reT" min="0" max="1" step="0.001" value="0.46"></label></div>
+      <div class="readout" id="reRead"></div>
+      <p class="stage-cap" id="reCap"></p>
+    </div>
+    <aside class="note" id="reNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The targets as set</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Indicator (vs 2015)</th><th>2020 milestone</th><th>2025 milestone</th><th>2030 (SDG)</th><th>2035 target</th><th>Reached by 2024</th></tr></thead>
+    <tbody>
+      <tr><th>TB incidence rate</th><td>−20%</td><td>−50%</td><td>−80%</td><td>−90%</td><td>−12.3%</td></tr>
+      <tr><th>TB deaths</th><td>−35%</td><td>−75%</td><td>−90%</td><td>−95%</td><td>−29%</td></tr>
+      <tr><th>Households facing catastrophic costs</th><td colspan="4">None (costs above 20% of annual household income or expenditure)</td><td>47% in national surveys</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sources: [[WHO-GTR2025,Floyd2018]]. 101 countries passed the 2020 incidence milestone and 65 the 2020 mortality milestone; South Africa is estimated to have reached the 2025 incidence milestone. [[WHO-GTR2025]] These are population statistics for the world as a whole.</p>
+
+  <h3 class="sub">The research pipeline</h3>
+  <div class="prose"><p>As of August 2025, 29 drugs for TB disease were in clinical trials (8 in 2015), and almost 100 diagnostic products were in development. [[WHO-GTR2025]] Reviewers describe the drug pipeline as more advanced than at any time since rifampicin. [[Marais2027Microbe]] Filter the routes by evidence label and by kind of research. Vaccines have their own board in <a href="#bcg" data-go="bcg">BCG &amp; new vaccines</a>.</p></div>
+  <div class="grp" role="group" aria-label="Filter by evidence">
+    <span class="kicker">Evidence</span>
+    <button class="btn" data-ref="all" aria-pressed="true">All</button>
+    <button class="btn" data-ref="est" aria-pressed="false">Established</button>
+    <button class="btn" data-ref="early" aria-pressed="false">Early evidence</button>
+    <button class="btn" data-ref="hyp" aria-pressed="false">Hypothesis</button>
+  </div>
+  <div class="grp" role="group" aria-label="Filter by kind of research">
+    <span class="kicker">Route</span>
+    <button class="btn" data-rek="all" aria-pressed="true">All</button>
+    <button class="btn" data-rek="drug" aria-pressed="false">New drugs</button>
+    <button class="btn" data-rek="reg" aria-pressed="false">Regimens</button>
+    <button class="btn" data-rek="dx" aria-pressed="false">Diagnostics</button>
+    <button class="btn" data-rek="pop" aria-pressed="false">Finding &amp; preventing</button>
+    <button class="btn" data-rek="hdt" aria-pressed="false">Host-directed</button>
+    <span class="cnt" id="reCount" aria-live="polite"></span>
+  </div>
+  <div class="rb" id="reBoard">
+    <div class="card" data-ev="early" data-k="drug"><div class="meta"><span class="ev early">Early evidence</span><span class="tag rx">New drug</span><span class="nct">NCT03557281</span></div><h4>Ganfeborole</h4><p>A first-in-class benzoxaborole that blocks the bacterium's leucyl-tRNA synthetase. In a 14-day phase 2a trial in 75 men, 5, 15 and 30 mg doses gave numerical falls in sputum bacterial counts, 1 mg did not, and all adverse events were grade 1–2. [[Diacon2024]]</p></div>
+    <div class="card" data-ev="early" data-k="drug"><div class="meta"><span class="ev early">Early evidence</span><span class="tag rx">New drug</span><span class="nct">NCT07209761</span></div><h4>Quabodepistat</h4><p>With delamanid and bedaquiline it lowered sputum log10 CFU/mL by a mean 2.73 over 14 days, similar to standard HRZE (−2.71), in a small study. [[Dawson2025]] A phase 3 trial of 4-month regimens for rifampicin-resistant TB (QUANTUM-TB, planned 532) began recruiting in October 2025. [[NCT07209761]]</p></div>
+    <div class="card" data-ev="early" data-k="drug"><div class="meta"><span class="ev early">Early evidence</span><span class="tag rx">New drug</span></div><h4>BTZ-043</h4><p>A benzothiazinone that blocks DprE1, a cell-wall enzyme. Safe in healthy volunteers at 125–500 mg; in people with TB, 1,000 mg cleared bacteria twofold faster than 250 mg over the first 2 days. [[Lutchmun2025,Koele2025]]</p></div>
+    <div class="card" data-ev="early" data-k="drug"><div class="meta"><span class="ev early">Early evidence</span><span class="tag rx">New drug</span></div><h4>Sutezolid</h4><p>A next-generation oxazolidinone, a cousin of linezolid. Added to bedaquiline, delamanid and moxifloxacin, it steepened the culture time-to-positivity slope by 16.7% at the 1,200 mg exposure, and no neuropathy was reported. [[Heinrich2025]]</p></div>
+    <div class="card" data-ev="early" data-k="drug"><div class="meta"><span class="ev early">Early evidence</span><span class="tag rx">New drug</span><span class="nct">NCT06058299</span></div><h4>Sorfequiline (TBAJ-876)</h4><p>A second-generation diarylquinoline. In a first-in-human study, placebo-corrected QTcF changes ranged from −11.4 to +2.4 ms without dose dependency, suggesting less QT effect than bedaquiline. [[Darpo2026]] NC-009 compares three doses with pretomanid and linezolid against BPaL and HRZE to choose a phase 3 dose. [[Olugbosi2026]]</p></div>
+    <div class="card" data-ev="est" data-k="reg"><div class="meta"><span class="ev est">Established</span><span class="tag rx">Treatment shortening</span><span class="nct">NCT03474198</span></div><h4>TRUNCATE-TB</h4><p>A strategy starting with 8 weeks of bedaquiline-linezolid (plus isoniazid, pyrazinamide, ethambutol) was non-inferior to 6 months of standard treatment at week 96 (5.8% vs 3.9%), with a mean 85 days of treatment against 180. The high-dose rifampicin-linezolid strategy did not meet non-inferiority. Established for this strategy only. [[Paton2023]]</p></div>
+    <div class="card" data-ev="early" data-k="reg"><div class="meta"><span class="ev early">Early evidence</span><span class="tag bad">Terminated</span><span class="nct">NCT05971602</span></div><h4>PAN-TB</h4><p>A Gates MRI trial of 2–4-month regimens with bedaquiline, quabodepistat and sutezolid plus delamanid or pretomanid. It was terminated: its data did not support a regimen treating TB in 3 months or less. [[NCT05971602]]</p></div>
+    <div class="card" data-ev="early" data-k="reg"><div class="meta"><span class="ev early">Early evidence</span><span class="tag rx">Platform trial</span><span class="nct">NCT06114628</span></div><h4>UNITE4TB · PARADIGM4TB</h4><p>An EU-funded phase 2B/C platform testing 11 initial combinations, including BTZ-043 and ganfeborole, against standard 2HRZE/4HR; planned 2,500 participants, recruiting. [[NCT06114628]]</p></div>
+    <div class="card" data-ev="early" data-k="reg"><div class="meta"><span class="ev early">Early evidence</span><span class="tag rx">4-month regimens</span><span class="nct">NCT05766267</span></div><h4>CRUSH-TB (TBTC Study 38)</h4><p>Compares two 4-month bedaquiline-moxifloxacin-pyrazinamide regimens (with rifabutin or delamanid) against 6-month HRZE in 288 people aged 12 or over. [[Kurbatova2025]] Related trials: RAD-TB (NCT06192160) tests linezolid, TBI-223 or sutezolid on a bedaquiline-pretomanid backbone [[Harrison2025]], and panTB-HM (NCT05686356) adds N-acetylcysteine to sutezolid regimens, with lung function as an endpoint. [[Mudzengi2026]]</p></div>
+    <div class="card" data-ev="early" data-k="dx"><div class="meta"><span class="ev early">Early evidence</span><span class="tag accent">Diagnostics</span></div><h4>Tongue swabs instead of sputum</h4><p>Tongue-swab Xpert Ultra in Kampala: sensitivity 77.8%, specificity 100% against sputum. [[Andama2022]] Across 20 studies, oral-swab sensitivity was 36–91% in adults and 5–42% in children. [[Church2024]] MiniDock MTB reached 85.7% on sputum swabs and 79.6% on tongue swabs, with specificity above 97.5%, meeting WHO near-point-of-care targets (≥85% on sputum, ≥75% on non-sputum samples, ≥98% specificity). [[Yerlikaya2026]]</p></div>
+    <div class="card" data-ev="early" data-k="dx"><div class="meta"><span class="ev early">Early evidence</span><span class="tag accent">Diagnostics</span></div><h4>Next-generation urine LAM</h4><p>FujiLAM in people with HIV (13 studies, 5,819 people): pooled sensitivity 63% and specificity 90%. Sensitivity rose to 76% at CD4 ≤100 cells/µL and fell to 42% above 200. [[Taye2025]] Current urine LAM is covered in <a href="#diagnose" data-go="diagnose">Diagnosing TB disease</a>.</p></div>
+    <div class="card" data-ev="early" data-k="dx"><div class="meta"><span class="ev early">Early evidence</span><span class="tag accent">Diagnostics</span></div><h4>Computer-aided chest X-ray reading</h4><p>Five commercial programs reading 23,954 chest X-rays in Dhaka all outperformed radiologists (AUC 84.9–90.8%); only qXR and CAD4TB met WHO's triage target of ≥90% sensitivity and ≥70% specificity. All halved the Xpert tests needed but did worse in people over 60 and people with previous TB. [[Qin2021]]</p></div>
+    <div class="card" data-ev="early" data-k="dx"><div class="meta"><span class="ev early">Early evidence</span><span class="tag accent">Diagnostics</span></div><h4>Near-point-of-care tests</h4><p>In August 2025, 14 near-point-of-care molecular tests were awaiting WHO assessment, and WHO updated its target product profiles for detection (2024) and screening tests (2025). [[WHO-GTR2025]] In India, Uganda and Vietnam, tongue-swab Truenat MTB Ultima (77.9%) and MiniDock MTB (85.7%) were both more sensitive than sputum smear microscopy. [[Steadman2025]]</p></div>
+    <div class="card" data-ev="est" data-k="pop"><div class="meta"><span class="ev est">Established</span><span class="tag vax">Active case finding</span></div><h4>ACT3: screen everyone, every year</h4><p>In Ca Mau, Vietnam, 3 years of annual sputum Xpert screening of everyone aged 15 or over, regardless of symptoms, lowered pulmonary TB prevalence in year 4 to 126 against 226 per 100,000 (prevalence ratio 0.56). TB infection in children did not differ. Established in that setting. [[Marks2019]] Prevalence surveys keep finding confirmed TB without symptoms. [[Zenner2027]]</p></div>
+    <div class="card" data-ev="est" data-k="pop"><div class="meta"><span class="ev est">Established</span><span class="tag vax">Nutrition</span></div><h4>RATIONS: food as prevention</h4><p>In Jharkhand, India, household contacts given monthly food rations had TB incidence of 0.78 against 1.27 per 100 person-years (adjusted IRR 0.61): about 30 households supported per case prevented. Established in that setting. [[Bhargava2023Lancet]] WHO now lists food assistance for contacts in food-insecure settings among preventive approaches. [[WHO-GTR2025]]</p></div>
+    <div class="card" data-ev="hyp" data-k="pop"><div class="meta"><span class="ev hyp">Hypothesis</span><span class="tag vax">Model projection</span></div><h4>What RATIONS would cost</h4><p>Modelling estimated US$289 per DALY averted from the health-care perspective, averting 38% of TB episodes and 58% of TB deaths among contacts over 2 years. [[Sinha2026]]</p></div>
+    <div class="card" data-ev="hyp" data-k="hdt"><div class="meta"><span class="ev hyp">Hypothesis</span><span class="tag warn">Host-directed</span></div><h4>Host-directed therapies</h4><p>These aim to limit inflammation that damages the lungs. None tested in humans has yet sped up sputum culture conversion, although some reduced biomarkers of lung damage. [[Shaku2026]] In a phase 2 trial of 200 patients, CC-11050 and everolimus improved lung function (FEV1) at day 180 by about 6.3–6.6 points; auranofin and vitamin D did not, and one auranofin recipient had life-threatening thrombocytopenia. [[Wallis2021]]</p></div>
+  </div>
+
+  <h3 class="sub">Money, promises and costs</h3>
+  <div class="stage">
+    <div class="scroll"><svg id="reFund" viewBox="0 0 720 170" role="img" aria-label="Two bars comparing funding available with UN targets for 2027: US$5.9 billion available for TB services in 2024 against a US$22 billion a year target (27%), and US$1.2 billion for TB research in 2023 against US$5 billion (24%)."></svg></div>
+    <p class="stage-cap">Funding for services in low- and middle-income countries has stagnated since 2020. [[WHO-GTR2025,Zenner2027]]</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag vax">UN 2023</span><h4>High-level meeting targets for 2027</h4><p>At least 90% of people with TB diagnosed and treated; 100% of people diagnosed tested first with a WHO-recommended rapid test; 90% coverage of preventive treatment (about 45 million people in 2023–2027); and 100% access to a health and social benefits package. [[WHO-GTR2025]] In 2024, 5.3 million people received preventive treatment and rapid-test coverage reached 54%. [[WHO-GTR2025]]</p></div>
+    <div class="card"><span class="tag warn">Funding</span><h4>The gap, and the cuts</h4><p>Member States committed US$22 billion a year for services and US$5 billion a year for research by 2027. Research funding reached US$1.2 billion in 2023: 35% to drugs, 19% to vaccines, 14% to diagnostics. The US NIH gave 34% of it; cuts announced in 2025 put at least 20 TB trials in South Africa at risk. <span class="ev hyp">Hypothesis</span> Modelling cited by WHO warns long-term donor cuts could cause up to 2 million extra deaths in 2025–2035. [[WHO-GTR2025]]</p></div>
+    <div class="card"><span class="tag bad">Costs</span><h4>Free treatment is not free to live through</h4><p>Even where treatment is free, a TB episode cost households a mean US$1,253, much of it lost income, across 135 countries; an estimated 54.9% of affected households faced catastrophic costs, 75.2% in the poorest fifth. [[Portnoy2023]] Social protection now covers 52% of people, up from 43% in 2015. [[WHO-GTR2025]] See <a href="#living" data-go="living">Living with TB</a>.</p></div>
+    <div class="card"><span class="tag rx">Treatment</span><h4>Shorter regimens are already here</h4><p>People starting 6-month MDR/RR-TB regimens rose from 1,744 in 2022 to 34,256 in 2024. [[WHO-GTR2025]] Treatment success was 88% for drug-susceptible and 71% for drug-resistant TB in the latest cohorts. [[WHO-GTR2025]] See <a href="#drtb" data-go="drtb">Treating drug-resistant TB</a> and <a href="#regimen" data-go="regimen">Treating TB disease</a>.</p></div>
+  </div>
+  <p class="callout">TB is curable, treatment is free in most programmes, and TB is a notifiable disease. Anyone with a cough for more than 2 weeks, fever, night sweats or weight loss should see a clinician.</p>
+</section>

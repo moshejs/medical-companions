@@ -1,0 +1,120 @@
+<!-- ================= 5.1 LIVING WITH GOUT ================= -->
+<section class="mod" id="m-living" data-mod="living" hidden>
+  <style>
+    #m-living .lv-str{font:600 10.5px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+    #m-living .lv-str.c{color:var(--warn)} #m-living .lv-str.s{color:var(--good)} #m-living .lv-str.n{color:var(--muted)}
+    #m-living .lv-num{font:800 26px/1.1 var(--display);color:var(--sea);display:block}
+    #m-living .card h4 .ev{vertical-align:middle;margin-left:6px}
+  </style>
+  <div class="mhead"><p class="eyebrow">Part 5 · Living, care &amp; the future</p><h2>Living with gout</h2>
+    <p class="lede">Food matters a little and the urate-lowering medicine matters most, so living with gout is mostly a plan, a few blood tests and a flare kit. Press play to walk a first year on treatment, and use the toggles to drop real-life events into it. Everything here is what studies and guidelines report, not advice for any one person.</p></div>
+  <div class="ctrls" role="group" aria-label="Add a life event to the year">
+    <span class="kicker">Add to this year</span>
+    <button class="btn" id="lvFlare" aria-pressed="false">A flare at home</button>
+    <button class="btn" id="lvMeal" aria-pressed="false">A celebration meal</button>
+    <button class="btn" id="lvBp" aria-pressed="false">A new blood-pressure pill</button>
+    <button class="btn" id="lvSurg" aria-pressed="false">Planned surgery</button>
+    <button class="btn" id="lvPreg" aria-pressed="false">Planning a pregnancy</button>
+  </div>
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lvSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A first year on urate-lowering treatment: a ring of twelve months with urate checks, the flare-prophylaxis window and life events"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">Play</button><label class="stage-cap tl" for="lvT">Through the year <input type="range" id="lvT" min="0" max="1" step="0.002" value="0.03"></label></div>
+      <p class="stage-cap" id="lvCap">Schematic year. Intervals follow published guidance, not any one clinic.</p></div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How far each change moves urate</h3>
+  <div class="ctrls" role="group" aria-label="Chart options">
+    <button class="btn" id="lvMed" aria-pressed="true">Compare with allopurinol</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="lvDiet" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="Bars of how much diet, weight and alcohol changes moved serum urate in mg/dL, next to starting or raising allopurinol"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="lvDPlay">Play</button><label class="stage-cap tl" for="lvDR">Grow bars <input type="range" id="lvDR" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="stage-cap">Average changes in different groups, study designs and lengths of time, so they are not a menu that adds up. The coffee figure is cross-sectional, not a trial. µmol/L in brackets. [[Juraschek2016,Stamp2013,Juraschek2011,Choi2007NHANES,FitzGerald2020,Major2018]]</p>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>The gap to target is usually bigger than diet</h4><p>ACR 2020 sets a serum urate below 6 mg/dL [360 µmol/L] for everyone on urate-lowering therapy. [[FitzGerald2020]] In the only DASH trial in people with gout, urate started at 8.1 mg/dL [482 µmol/L] and the result was inconclusive. [[Juraschek2021]] In 30 people already on treatment, detailed dietary teaching raised knowledge scores but did not change urate at 6 months. [[Holland2015]] In the DIRECT weight-loss trial urate fell by about 0.81 mg/dL [48 µmol/L] at 6 months and 0.30 mg/dL [18 µmol/L] at 2 years, whichever diet people followed. [[Yokose2020]]</p></div>
+    <div class="card"><h4>Weight, more than single foods</h4><p>A mean 5 kg weight loss lowered urate by 1.1 mg/dL, and a BMI rise of more than 5% carried 60% higher odds of a recurrent flare, a fall of more than 5% 40% lower odds. The first month after bariatric surgery may bring a short-lived rise in flares. [[FitzGerald2020]] In a review of 10 weight-loss studies, 6 of 8 showed fewer flares, at low certainty. [[Nielsen2017]] In US men, being overweight, alcohol, a low DASH score and diuretics together accounted for 77% of new gout, and in men with obesity weight came first. [[McCormick2020]]</p></div>
+  </div>
+
+  <h3 class="sub">Genes or diet?</h3>
+  <div class="stage">
+    <div class="scroll"><svg id="lvGenes" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A grid of 100 squares, each one percent of the variation in serum urate: 23.9 squares for common genetic variation and less than a third of one square for any diet score"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="lvGPlay">Replay</button></div>
+    <p class="stage-cap">16,760 US adults of European ancestry in 5 cohorts. Each diet score explained 0.3% or less of the variation in serum urate; common genome-wide variation explained 23.9%. [[Major2018]] That is a different question from what causes new gout, where weight and diuretics matter a lot. [[McCormick2020]]</p>
+  </div>
+  <div class="callout"><p><b>Gout is not a diet failure.</b> ACR 2020 treats diet and other medicines as areas for shared decision-making, and its panel aimed to give guidance "without implying any patient-blaming", because gout has strong genetic determinants. [[FitzGerald2020]] In interviews and surveys, people with gout describe shame and the belief that it is self-inflicted, and both get in the way of treatment. [[Lindsay2011,Spencer2012]]</p></div>
+
+  <h3 class="sub">What raises the risk, and what sets off a flare</h3>
+  <div class="ctrls" role="group" aria-label="Which question">
+    <span class="kicker">Show</span>
+    <button class="btn" data-lvr="trig" aria-pressed="true">Flares in people with gout</button>
+    <button class="btn" data-lvr="new" aria-pressed="false">Getting gout in the first place</button>
+    <button class="btn" id="lvCI" aria-pressed="true">Show 95% CI</button>
+  </div>
+  <div class="stage">
+    <div class="ctrls"><button class="btn primary" id="lvRPlay">Replay</button></div>
+    <div class="scroll"><svg id="lvRisk" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Odds ratios and relative risks for flare triggers and for new gout on a log scale"></svg></div>
+    <p class="stage-cap" id="lvRCap"></p>
+  </div>
+
+  <h3 class="sub">What ACR 2020 recommends</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Recommendation</th><th>Strength</th><th>Certainty of evidence</th></tr></thead>
+    <tbody>
+      <tr><th>Limit alcohol</th><td><span class="lv-str c">Conditional</span></td><td>Low</td></tr>
+      <tr><th>Limit purine intake</th><td><span class="lv-str c">Conditional</span></td><td>Low</td></tr>
+      <tr><th>Limit high-fructose corn syrup</th><td><span class="lv-str c">Conditional</span></td><td>Very low</td></tr>
+      <tr><th>A weight-loss programme if overweight or obese (none named)</th><td><span class="lv-str c">Conditional</span></td><td>Very low</td></tr>
+      <tr><th>Do not add vitamin C supplements</th><td><span class="lv-str c">Conditional, against</span></td><td>Low</td></tr>
+      <tr><th>Switch hydrochlorothiazide to another antihypertensive when feasible</th><td><span class="lv-str c">Conditional</span></td><td>Very low</td></tr>
+      <tr><th>Choose losartan preferentially when feasible</th><td><span class="lv-str c">Conditional</span></td><td>Very low</td></tr>
+      <tr><th>Do not stop low-dose aspirin taken for an appropriate reason</th><td><span class="lv-str c">Conditional</span></td><td>Very low</td></tr>
+      <tr><th>Do not add or switch to fenofibrate</th><td><span class="lv-str c">Conditional</span></td><td>Very low</td></tr>
+      <tr><th>Cherries, dairy protein</th><td><span class="lv-str n">No recommendation</span></td><td>Low or very low</td></tr>
+      <tr><th>Treat flares with colchicine, an NSAID or a glucocorticoid; low-dose over high-dose colchicine</th><td><span class="lv-str s">Strong</span></td><td>Not restated here (see 2.2 and 3.2)</td></tr>
+      <tr><th>Anti-inflammatory prophylaxis for 3–6 months when urate-lowering therapy starts</th><td><span class="lv-str s">Strong</span></td><td>Not restated here (see 2.2 and 3.2)</td></tr>
+    </tbody></table></div>
+  <p class="stage-cap">The lifestyle recommendations apply "regardless of disease activity", and gout flare was the only critical outcome considered for them. Any switch of another medicine should happen only when the urate and gout benefit outweighs the risk of changing. [[FitzGerald2020]] EULAR 2016 adds encouraging low-fat dairy and regular exercise, avoiding sugar-sweetened drinks, heavy meals and excessive meat and seafood, and teaching people to self-medicate at the first warning symptoms of a flare. [[Richette2017]]</p>
+
+  <h3 class="sub">Flares, hospital, pregnancy, work</h3>
+  <div class="cards">
+    <div class="card"><h4>A flare plan: "medication-in-pocket"</h4><p>The ACR 2020 patient panel asked for an at-home strategy for people who recognise their early flare signs. ACR strongly recommends colchicine, an NSAID or a glucocorticoid as first-line flare treatment, and conditionally recommends ice as an add-on. [[FitzGerald2020]] The US colchicine label gives 1.2 mg at the first sign of a flare and 0.6 mg one hour later, at most 1.8 mg in that hour. [[FDA-Colcrys]] The allopurinol label says to keep taking allopurinol during a flare. [[FDA-Allopurinol]]</p>
+      <div class="pt"><b>In plain words</b>Agree a plan with your clinician before the next flare. Keep the medicine at home, start at the first twinge, and keep taking the daily urate pill.</div></div>
+    <div class="card"><h4>Hospital and surgery</h4><p><span class="lv-num">RR 10.2</span>In a population cohort of 429 people with gout, the flare rate rose about tenfold in hospital, and an in-hospital flare lengthened the stay by 1.8 days. [[Zleik2018]] After surgery, 31 of 70 people with gout flared, a mean 3.7 days after the operation; the big toe was involved in only 13%. Taking allopurinol carried OR 0.15 and a preoperative urate ≥ 9 mg/dL OR 3.77. [[Jeong2019]] In an older series, almost all postoperative flares came with fever, and many people had tests for unexplained fever first. [[Craig1995]]</p></div>
+    <div class="card"><h4>Predicting an inpatient flare</h4><p>The GOUT-36 rule counts four things before admission: no flare prophylaxis, no urate-lowering therapy, a tophus, and a urate above 0.36 mmol/L [6 mg/dL] in the past year. It had 75% sensitivity and 67% specificity; 80% of very-high-risk patients flared against 11% of low-risk patients. [[Jatuworapruk2022Rheum]] Regular urate-lowering therapy before admission went with a 10% shorter stay in 36,047 admissions. [[Jatuworapruk2022IJRD]]</p></div>
+    <div class="card"><h4>Pregnancy and breastfeeding</h4><p>Gout is uncommon in younger women: 0.6 per 1000 person-years under 45, against 2.5 at 75 or older. [[Hak2010]] BSR 2023 says colchicine "may be considered during pregnancy" (1B) and may be used in breastfeeding (2C), based on 550 exposed pregnancies with no rise in malformations or miscarriage. [[Schreiber2023,Indraratna2018]] It advises NSAIDs only intermittently, weaning from 26 weeks and stopping by 30. [[Schreiber2023]] The allopurinol label notes possible fetal harm in animal data and advises against breastfeeding on it; febuxostat has insufficient human pregnancy data. [[FDA-Allopurinol,FDA-Uloric]]</p></div>
+    <div class="card"><h4>Work, shoes and exercise</h4><p>Among about 300,000 US employees, people with gout had 4.56 more health-related absence days a year. [[Kleinman2007]] Adding an athletic shoe to podiatry did not reduce foot pain at 6 months, though fit and comfort scores improved. [[Frecklington2019ART]] People with gout describe comfort first, knowing what to buy, and tophi and flares limiting shoe choice. [[Frecklington2019JFAR]] In interviews, uncertainty about whether exercise could set off flares held people back, "particularly in the absence of gout-specific advice". [[Stewart2026]]</p></div>
+    <div class="card"><h4>Water, cherries, milk <span class="ev early">Early evidence</span></h4><p>No trial of drinking more fluid in gout was found; the allopurinol label's urine output of at least 2 litres a day is there to prevent stones. [[FDA-Allopurinol]] Cherries over 2 days went with fewer flares (OR 0.65) in a case-crossover study, with no randomised trial behind it. [[Zhang2012Cherry]] Milk lowered urate acutely by about 10% in a crossover trial, and enriched skim milk powder reduced flares in a 3-month trial. [[Dalbeth2010Milk,Dalbeth2012]] Sugar-sweetened drinks raised gout risk; diet soft drinks did not. [[Choi2008BMJ]]</p></div>
+  </div>
+
+  <h3 class="sub">Monitoring and the clinic visit</h3>
+  <div class="split2">
+    <div class="card"><h4>The monitoring checklist in the guidelines and labels</h4>
+      <ul>
+        <li>Target serum urate <b>below 6 mg/dL [360 µmol/L]</b> on urate-lowering therapy (ACR 2020, strong); EULAR 2016 suggests below 5 mg/dL [300 µmol/L] in severe gout. [[FitzGerald2020,Richette2017]]</li>
+        <li>Urate checked <b>every 2–5 weeks</b> while the dose is being raised and after each dose change, with titration taking "weeks to months, not years". [[FitzGerald2020]]</li>
+        <li>Once at target, <b>every 6 months</b> (ACR 2012), partly as a check on adherence. [[Khanna2012P1]]</li>
+        <li>Before allopurinol, the label lists urate, a full blood count, a chemistry panel, liver tests and kidney function. Before febuxostat, a liver panel. [[FDA-Allopurinol,FDA-Uloric]]</li>
+        <li>Urate-lowering therapy continued indefinitely (ACR 2020, conditional): only 13% (27 of 211) stayed flare-free for 5 years after stopping, even with urate under 7 mg/dL. [[FitzGerald2020]]</li>
+        <li>A normal urate during a flare does not rule gout out: 14% of people in a flare had 6 mg/dL or less. [[Schlesinger2009]]</li>
+      </ul></div>
+    <div class="card"><h4>Questions people bring to a visit</h4>
+      <p>Plain-words prompts built from what the guidelines say should be discussed. They start a conversation with a clinician; they are not a script and not advice.</p>
+      <ul>
+        <li>What is my urate today, and how far is it from below 6 mg/dL?</li>
+        <li>When is the next dose step and the next blood test?</li>
+        <li>What is my flare plan, and do I keep my daily pill during a flare?</li>
+        <li>How long should I stay on flare prophylaxis?</li>
+        <li>Do any of my other medicines raise urate, and is there an alternative?</li>
+        <li>What should happen if I need an operation or a hospital stay?</li>
+        <li>Should my kidneys, blood pressure or heart be checked too?</li>
+      </ul>
+      <div class="pt"><b>In plain words</b>Two numbers do most of the work: your urate on the last test, and how many flares you had since the visit before.</div></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>ACR 2020 lifestyle advice is all <b>conditional</b>: limit alcohol, purines and high-fructose corn syrup, lose weight if overweight, no vitamin C. <b>Do not stop low-dose aspirin</b>; switch hydrochlorothiazide where feasible; prefer <b>losartan</b>. Diet explains <b>≤ 0.3%</b> of urate variance, genetics <b>23.9%</b>. Hospital raises flare rates about <b>tenfold</b>.</div>
+    <div class="pt"><b>In plain words</b>Gout is not your fault: much of it comes from the genes and kidneys you were born with. Food and drink matter a little, and the daily urate medicine matters most. Flares in the first months mean crystals are dissolving, not that the pill has failed. Keep a flare plan, and tell any hospital team that you have gout.</div>
+  </div>
+</section>

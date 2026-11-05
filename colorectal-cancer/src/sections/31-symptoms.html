@@ -1,0 +1,90 @@
+<!-- ================= 3.1 SYMPTOMS & RED FLAGS ================= -->
+<style>
+#m-symptoms .chips .btn{font-size:13px;padding:7px 11px}
+#m-symptoms .card>.ev,#m-symptoms .card>.tag{align-self:flex-start}
+#m-symptoms .tbl table{min-width:620px}
+#m-symptoms #syEo{max-width:900px;margin:0 auto}
+#m-symptoms td.num{font-family:var(--mono);font-size:13.5px;white-space:nowrap}
+</style>
+<section class="mod" id="m-symptoms" data-mod="symptoms" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Diagnosis &amp; staging</p><h2>Symptoms &amp; red flags</h2>
+    <p class="lede">Most bowel cancers are found after symptoms start, and most of those symptoms are first taken to a family doctor. Pick a symptom to see how often it turns out to be cancer in primary care, then follow the path from a first visit to a stool test, a colonoscopy and staging scans.</p></div>
+
+  <h3 class="sub">How often is a symptom cancer?</h3>
+  <div class="chips" role="group" aria-label="Symptom">
+    <span class="kicker">Symptom</span>
+    <button class="btn" data-sy-sym="bleed" aria-pressed="true">Rectal bleeding</button>
+    <button class="btn" data-sy-sym="habit" aria-pressed="false">Change in bowel habit</button>
+    <button class="btn" data-sy-sym="pain" aria-pressed="false">Abdominal pain</button>
+    <button class="btn" data-sy-sym="weight" aria-pressed="false">Weight loss</button>
+    <button class="btn" data-sy-sym="anaemia" aria-pressed="false">Anaemia</button>
+    <button class="btn" data-sy-sym="exam" aria-pressed="false">Abnormal rectal exam</button>
+    <button class="btn" data-sy-sym="fob" aria-pressed="false">Positive occult blood test</button>
+  </div>
+  <div class="chips" role="group" aria-label="Tumour side">
+    <span class="kicker">Where is the tumour?</span>
+    <button class="btn" data-sy-side="right" aria-pressed="false">Right (proximal) colon</button>
+    <button class="btn" data-sy-side="left" aria-pressed="false">Left (distal) colon</button>
+    <button class="btn" data-sy-side="rectal" aria-pressed="false">Rectum</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="syBody" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A body outline with the large bowel drawn inside. The chosen symptom is marked on the body. Beside it, bars show the published positive predictive values for that symptom in primary care, and a grid of 1,000 dots lights up the number who would have colorectal cancer at the headline value."></svg></div>
+      <p class="stage-cap"><b>Positive predictive value (PPV):</b> of the people who see a family doctor with this feature, the share found to have colorectal cancer. Values depend on age, sex and setting; each bar names its study. The dot grid is the headline value drawn as people per 1,000. [[Hamilton2005,Hamilton2009,Jones2007,Astin2011,Hamilton2008]]</p>
+    </div>
+    <aside class="note" id="syBodyNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">From symptom to diagnosis</h3>
+  <div class="chips" role="group" aria-label="FIT threshold">
+    <span class="kicker">FIT threshold (NICE FIT study)</span>
+    <button class="btn" data-sy-fit="2" aria-pressed="false">2 µg Hb/g</button>
+    <button class="btn" data-sy-fit="10" aria-pressed="true">10 µg Hb/g</button>
+    <button class="btn" data-sy-fit="150" aria-pressed="false">150 µg Hb/g</button>
+  </div>
+  <div class="stepper" id="sySteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="sySvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A pathway of four stations: a symptom in primary care, a FIT stool test, colonoscopy with biopsy, and CT and MRI staging. A marker travels along it. At the FIT station, 1,000 referred people are drawn as dots, with those testing positive outlined and those with cancer filled. At colonoscopy a scope travels the bowel to a tumour. At staging, CT and pelvic MRI panels show their accuracy. A last scene compares the routes to diagnosis in England and one-year survival for each."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="syPlay">Play</button><label class="stage-cap tl" for="syT">Pathway <input type="range" id="syT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="syRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> Real pathways differ between countries. FIT counts per 1,000 are derived from the published prevalence (3.3%), positivity and sensitivity of the NICE FIT study, so they differ slightly from the published PPVs. Survival by route is a population statistic. [[DSouza2021Gut,EllissBrookes2012]]</p>
+    </div>
+    <aside class="note" id="syNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Under 50: red flags and delay</h3>
+  <div class="chips" role="group" aria-label="Number of red flags">
+    <span class="kicker">Red flags present</span>
+    <button class="btn" data-sy-rf="1" aria-pressed="true">1</button>
+    <button class="btn" data-sy-rf="2" aria-pressed="false">2</button>
+    <button class="btn" data-sy-rf="3" aria-pressed="false">3 or more</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="syEo" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="Three panels about colorectal cancer before age 50: how often each presenting feature occurs, how many months pass from symptom to diagnosis, and how the odds of early-onset cancer rise with the number of red flags."></svg></div>
+    <p class="stage-cap" id="syEoCap"></p>
+  </div>
+  <div class="prose">
+    <p>Younger patients are more likely than older ones to present with visible blood (41% vs 26% in one comparison cited by the ACS), iron-deficiency anaemia and abdominal pain, and their time to diagnosis is about 40% longer, partly because the symptoms are taken for commoner conditions. [[Siegel2026CRC]] In a US case-control study of 5,075 people with early-onset cancer, four red flags in the 3 months to 2 years before diagnosis were linked to the cancer: abdominal pain, rectal bleeding, diarrhoea and iron-deficiency anaemia. [[Fritz2023]] In people under 50 in the NICE FIT study, 1.5% (16 of 1,103) had colorectal cancer, FIT sensitivity at 10 µg/g was 81.3%, and the NPV stayed above 99.5% at every cut-off. [[DSouza2021CD]]</p>
+  </div>
+
+  <h3 class="sub">What else could it be?</h3>
+  <p class="prose">Only conditions with a cited link to these symptoms are listed. A table cannot diagnose anyone; persistent or unexplained symptoms need a clinician.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Condition</th><th>Overlap with colorectal cancer symptoms</th><th>What the sources say</th></tr></thead>
+    <tbody>
+      <tr><th>Haemorrhoids (piles)</th><td>Rectal bleeding</td><td>Rectal bleeding is frequently caused by haemorrhoids, especially in younger people. The ACPGBI/BSG guideline suggests flexible sigmoidoscopy for persistent anorectal bleeding even when fHb is below 10 µg Hb/g (weak recommendation). [[Monahan2022]]</td></tr>
+      <tr><th>Irritable bowel syndrome</th><td>Change in bowel habit, abdominal pain</td><td>These symptoms may be due to IBS in younger people. Misdiagnosis as commoner conditions is one reason time to diagnosis is about 40% longer under 50. [[Monahan2022,Siegel2026CRC]]</td></tr>
+      <tr><th>Inflammatory bowel disease</th><td>Not a mimic here but a risk factor</td><td>Ulcerative colitis (HR 1.66) and Crohn's disease (HR 1.40) raise the risk of colorectal cancer in Scandinavian cohorts; the excess in ulcerative colitis has fallen over time. See <a href="#risk" data-go="risk">Risk factors</a>. [[Olen2020UC,Olen2020CD]]</td></tr>
+      <tr><th>Iron-deficiency anaemia</th><td>Tiredness, low haemoglobin</td><td>A low FIT result is less reassuring with iron-deficiency anaemia: FIT sensitivity was 80.0% in IDA vs 89.0% with other symptoms, and missed cancers were right-sided. The guideline suggests FIT to inform urgency in IDA. <span class="ev early">Early evidence</span> [[Monahan2022]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Where the evidence is debated</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Debate</span><h4>Which FIT threshold?</h4><p>UK guidance uses ≥10 µg Hb/g. Moving to 20 µg/g would miss fewer than one extra cancer per 1,000 tested at 2% prevalence. A UK service evaluation of 13,361 FITs found cancer in 0.1% below 4 µg/g, 0.6% at 4–9.9, 3.3% at 10–99.9 and 20.7% at 100 or more; at 10–19.9 µg/g the rate (1.4%) was below NICE's 3% PPV threshold for urgent referral. [[Monahan2022,PinVieito2022,Bailey2021]]</p></div>
+    <div class="card"><span class="tag warn">Debate</span><h4>Does waiting longer worsen survival?</h4><p>In a Danish primary-care cohort, 3-year mortality fell with diagnostic intervals up to 5 weeks and then rose, because the sickest people are diagnosed fastest. A review across cancers found more evidence of harm from delay for colorectal cancer than for many other sites, but the studies were heterogeneous <span class="ev early">Early evidence</span>. [[Torring2011,Neal2015]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Emergencies cost lives</h4><p>In England, 1997–2012, 24.3% of 286,591 colorectal cancer operations were emergencies, with 30-day mortality of 13.3% against 3.4% for planned surgery. After bowel screening began in 2006, the share of eligible people needing emergency surgery fell from 23.4% to 14.9%. [[Askari2017]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Who presents as an emergency?</h4><p>Across six high-income countries, emergency presenters had substantially higher 12-month mortality, and emergency presentation was more likely at older age and advanced stage. Rectal cancer had the lowest share (12.1% on average). In England, female sex, age over 79, deprivation and Black African/Caribbean ethnicity predicted emergency surgery. [[McPhail2022,Askari2017]]</p></div>
+  </div>
+</section>

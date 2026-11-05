@@ -1,0 +1,153 @@
+<!-- ================= 4.3 NURSING CARE ================= -->
+<style>
+#m-nursing .nu-scope{background:var(--sky-soft);border-radius:var(--r);padding:12px 16px;font-size:15px;max-width:none;display:flex;gap:10px;align-items:flex-start}
+#m-nursing .nu-scope b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--sky);white-space:nowrap;padding-top:3px}
+@media (max-width:600px){#m-nursing .nu-scope{flex-direction:column;gap:2px}}
+#m-nursing .nu-jump{display:flex;flex-wrap:wrap;gap:8px}
+#m-nursing .nu-part{display:flex;flex-direction:column;gap:18px;border-top:1px solid var(--line);padding-top:24px;scroll-margin-top:90px}
+#m-nursing .nu-part>h3.sub{margin-top:0}
+#m-nursing h4.nu-h{font-family:var(--display);font-weight:800;font-size:21px;line-height:1.15;margin:6px 0 0}
+#m-nursing .nu-tool{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:14px;min-width:0}
+#m-nursing .nu-item{display:flex;flex-direction:column;gap:6px}
+#m-nursing .nu-item>span{font-weight:700;font-size:14.5px}
+#m-nursing .nu-opts{display:flex;flex-wrap:wrap;gap:6px}
+#m-nursing .nu-opts .btn{font-size:13px;font-weight:600;padding:7px 11px;text-align:left;line-height:1.25}
+#m-nursing .nu-opts .btn b{font-family:var(--mono);font-weight:600;margin-right:4px}
+#m-nursing .nu-out{border-radius:10px;background:var(--panel-2);padding:12px 14px;font-size:15px;display:flex;flex-direction:column;gap:6px}
+#m-nursing .nu-out .big{font:800 30px/1 var(--display)}
+#m-nursing .nu-teach{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warn)}
+#m-nursing .nu-checks{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:14.5px}
+#m-nursing .nu-entry{background:var(--field);border:1px dashed var(--line);border-radius:10px;padding:12px 14px;font-size:14.5px;display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
+#m-nursing .nu-entry dt{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-nursing .nu-entry dd{margin:0 0 4px}
+#m-nursing .nu-entry .flag{background:var(--bad-soft);color:var(--bad);border-radius:8px;padding:6px 9px;font-size:14px}
+#m-nursing .nu-bars{display:flex;flex-direction:column;gap:7px;font-size:13.5px}
+#m-nursing .nu-bars div{display:grid;grid-template-columns:minmax(0,8.5em) minmax(0,1fr) auto;gap:8px;align-items:center}
+#m-nursing .nu-bars i{display:block;height:10px;border-radius:99px;background:var(--rose)}
+#m-nursing .nu-bars s{display:block;height:10px;border-radius:99px;background:var(--panel-2);text-decoration:none;overflow:hidden}
+#m-nursing .nu-bars b{font:600 12px var(--mono);text-align:right;white-space:nowrap;min-width:3.4em}
+#m-nursing .nu-gaps{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+#m-nursing #nuFourSvg,#m-nursing #nuPainSvg,#m-nursing #nuAbcSvg{max-width:620px;margin:0 auto}
+#m-nursing .card ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+</style>
+<section class="mod" id="m-nursing" data-mod="nursing" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Living, caring, preventing</p><h2>Nursing care</h2>
+    <p class="lede">Four parts of nursing care for a person living with dementia: assessment, giving the medicines, communication and care approaches, and documentation and safety. Each part has an animation or a tool to try, and each claim links to its source.</p></div>
+  <p class="nu-scope" role="note"><b>Scope</b><span>This module describes what guidelines, drug labels and published studies say. It is not a care plan. It does not replace local protocols, your scope of practice, or the prescriber. Where the sources say no dementia-specific evidence exists, the module says so instead of filling the gap.</span></p>
+  <div class="nu-jump" role="group" aria-label="Jump to a part">
+    <button class="btn" data-nu-jump="nuP1">1 · Assessment</button>
+    <button class="btn" data-nu-jump="nuP2">2 · Giving the medicines</button>
+    <button class="btn" data-nu-jump="nuP3">3 · Communication and care</button>
+    <button class="btn" data-nu-jump="nuP4">4 · Documentation and safety</button>
+  </div>
+
+  <!-- ---------- 1 ASSESSMENT ---------- -->
+  <div class="nu-part" id="nuP1">
+    <h3 class="sub">1 · Assessment</h3>
+    <h4 class="nu-h">Delirium on top of dementia, hour by hour</h4>
+    <p class="prose">Dementia changes over months and years. Delirium changes over hours and comes and goes. When the two overlap, the sudden change can hide inside the slow one. Press play to watch two weeks pass.</p>
+    <div class="ctrls" role="group" aria-label="Delirium display options">
+      <span class="kicker">Delirium type</span>
+      <button class="btn" id="nuDlHyper" aria-pressed="true">Hyperactive</button>
+      <button class="btn" id="nuDlHypo" aria-pressed="false">Hypoactive</button>
+      <span class="kicker" style="margin-left:6px">Overlay</span>
+      <button class="btn" id="nuDlChecks" aria-pressed="true">Once-a-day 10:00 checks</button>
+    </div>
+    <div class="stepper" id="nuDlSteps"></div>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="nuDlSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Over fourteen days, a slowly drifting dementia baseline is interrupted by a delirium episode that starts within hours, dips most at night and recovers by day, with once-a-day morning checks landing on the clearer hours."></svg></div>
+        <div class="ctrls"><button class="btn primary" id="nuDlPlay">Play</button><label class="stage-cap tl" for="nuDlT">Days <input type="range" id="nuDlT" min="0" max="1" step="0.001" value="0.06"></label></div>
+        <p class="stage-cap" id="nuDlCap">Teaching tool: a schematic curve, not data from any patient.</p></div>
+      <aside class="note" id="nuDlNote" aria-live="polite"></aside>
+    </div>
+
+    <h4 class="nu-h">The 4AT, scored</h4>
+    <div class="lab even">
+      <div class="nu-tool" id="nuFour" role="group" aria-label="4AT items">
+        <p class="nu-teach">Teaching tool, not a clinical record</p>
+      </div>
+      <div class="stage">
+        <svg id="nuFourSvg" viewBox="0 0 520 150" role="img" aria-label="A 0 to 12 scale with bands for 0, 1 to 3 and 4 or more, and a marker at the current 4AT total."></svg>
+        <div class="nu-out" id="nuFourOut" aria-live="polite"></div>
+        <p style="font-size:14.5px">Accuracy: a 2021 meta-analysis (17 studies, 3,702 observations) found pooled sensitivity and specificity of 0.88 each. [[Tieges2021]] In 785 acute medical patients aged 70 or over, the 4AT had sensitivity 76% and specificity 94%, while the CAM used in routine conditions had 40% and 100%. [[Shenkin2019]]</p>
+      </div>
+    </div>
+    <div class="callout"><span class="ev early">Guidelines differ</span> NICE CG103 (2023 update) names the 4AT when indicators of delirium are present, and the CAM-ICU or ICDSC in critical care. [[NICE2023CG103]] NICE NG97 (2018) suggests the long CAM or the Observational Scale of Level of Arousal for inpatients with cognitive impairment of unknown cause, says instruments alone should not separate delirium from delirium on dementia, and says that when the two cannot be told apart, delirium is treated first. [[NICE2018NG97]] A 2012 review found only 9 studies, with 50 participants who had delirium on dementia, validating any delirium tool in people with dementia. [[Morandi2012]]</div>
+
+    <h4 class="nu-h">PAINAD: pain when the person cannot say</h4>
+    <div class="lab even">
+      <div class="nu-tool" id="nuPain" role="group" aria-label="PAINAD items">
+        <p class="nu-teach">Teaching tool, not a clinical record</p>
+      </div>
+      <div class="stage">
+        <div class="scroll"><svg id="nuPainSvg" viewBox="0 0 520 330" role="img" aria-label="A face that changes with the facial expression score, a 0 to 10 PAINAD scale with the commonly reproduced bands, and two bars showing that people with advanced dementia received one third of the opioid given to cognitively intact people after hip fracture."></svg></div>
+        <div class="nu-out" id="nuPainOut" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <h4 class="nu-h">The rest of the assessment</h4>
+    <div class="cards" id="nuAssessCards"></div>
+  </div>
+
+  <!-- ---------- 2 MEDICINES ---------- -->
+  <div class="nu-part" id="nuP2">
+    <h3 class="sub">2 · Giving the medicines</h3>
+    <p class="prose">Some checks before a dose are the same every time. Others depend on the situation. Pick a situation to see what the labels and guidance describe, then press play.</p>
+    <div class="ctrls" role="group" aria-label="Situation" id="nuMedBtns"></div>
+    <div class="stepper" id="nuMedSteps"></div>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="nuMedSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="An animation of the checks before a dose in the chosen situation."></svg></div>
+        <div class="ctrls" id="nuMedCtrls"><button class="btn primary" id="nuMedPlay">Play</button><label class="stage-cap tl" for="nuMedT">Timeline <input type="range" id="nuMedT" min="0" max="1" step="0.001" value="0.05"></label></div>
+        <div class="ctrls" id="nuPatchErrRow" hidden><span class="kicker">Patch error</span><button class="btn" id="nuPatchErr" aria-pressed="false">Old patch left on</button></div>
+        <p class="stage-cap" id="nuMedCap">Schematic, not to scale.</p></div>
+      <aside class="note" id="nuMedNote" aria-live="polite"></aside>
+    </div>
+
+    <h4 class="nu-h">Antipsychotic reduction programmes</h4>
+    <p class="prose">Antipsychotics used for distress in dementia carry an increased risk of death, and programmes in the UK and the US set out to cut their use. The bars show the published figures.</p>
+    <div class="stage">
+      <div class="scroll"><svg id="nuApSvg" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Paired bars: deaths with atypical antipsychotics versus placebo, survival at 36 months in the DART-AD withdrawal trial, antipsychotic use after staff training in person-centred care, and US long-stay nursing home antipsychotic use in 2011 and 2019."></svg></div>
+      <div class="ctrls"><button class="btn" id="nuApReplay">Replay bars</button></div>
+    </div>
+    <div class="cards" id="nuApCards"></div>
+  </div>
+
+  <!-- ---------- 3 COMMUNICATION ---------- -->
+  <div class="nu-part" id="nuP3">
+    <h3 class="sub">3 · Communication and care approaches</h3>
+    <p class="prose">What do the reviews find for the best-known approaches? The animation puts the Cochrane findings side by side, then shows two studies of how staff talk and organise care.</p>
+    <div class="stepper" id="nuCoSteps"></div>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="nuCoSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Effect sizes from reviews of cognitive stimulation, reminiscence, music, reality orientation and validation therapy appear one by one on a shared scale, followed by the elderspeak study and the CADRES person-centred care trial."></svg></div>
+        <div class="ctrls"><button class="btn primary" id="nuCoPlay">Play</button><label class="stage-cap tl" for="nuCoT">Timeline <input type="range" id="nuCoT" min="0" max="1" step="0.001" value="0.05"></label></div>
+        <p class="stage-cap">Effect sizes as reported, with the sign turned so that right always means benefit. Different outcomes, so compare with care.</p></div>
+      <aside class="note" id="nuCoNote" aria-live="polite"></aside>
+    </div>
+    <div class="cards" id="nuCoCards"></div>
+  </div>
+
+  <!-- ---------- 4 DOCUMENTATION ---------- -->
+  <div class="nu-part" id="nuP4">
+    <h3 class="sub">4 · Documentation and safety</h3>
+    <h4 class="nu-h">Build an ABC chart entry</h4>
+    <p class="prose">An ABC chart records the Antecedent (what came just before), the Behaviour (described as seen and heard) and the Consequence (what happened next). Over many entries, a pattern can point to a need. Choose one of each to assemble a worked entry. The example is fictional.</p>
+    <div class="lab even">
+      <div class="nu-tool" id="nuAbc" role="group" aria-label="ABC chart choices"></div>
+      <div class="stage">
+        <div class="scroll"><svg id="nuAbcSvg" viewBox="0 0 520 230" role="img" aria-label="Three linked boxes, antecedent, behaviour and consequence, with a loop back from consequence to antecedent showing that patterns across entries suggest a need to test."></svg></div>
+        <dl class="nu-entry" id="nuAbcEntry" aria-live="polite"></dl>
+      </div>
+    </div>
+    <p class="callout">A Cochrane review of 18 trials found that programmes built on functional analysis, of which ABC recording is the basis, reduced how often challenging behaviour happened and improved caregivers' reactions after the intervention, but not at follow-up. The analysis part could not be separated from the rest of each programme. No study was found that validates the ABC chart itself as a nursing documentation tool in dementia. [[MonizCook2012]]</p>
+
+    <h4 class="nu-h">Capacity, best interests and surrogates</h4>
+    <div class="split2" id="nuCap"></div>
+
+    <h4 class="nu-h">Abuse, mouth care, feeding and quality measures</h4>
+    <div class="cards" id="nuSafeCards"></div>
+    <div class="tbl"><table id="nuFeedTbl"></table></div>
+
+    <h4 class="nu-h">Gaps the sources name</h4>
+    <div class="callout"><ul class="nu-gaps" id="nuGaps"></ul></div>
+  </div>
+</section>

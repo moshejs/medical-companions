@@ -1,0 +1,73 @@
+<!-- ================= 5.4 NURSING & HEALTHCARE VISITS ================= -->
+<style>
+#m-nursing .nuf{display:flex;flex-direction:column;gap:8px}
+#m-nursing .nuf .row{display:grid;grid-template-columns:minmax(0,130px) minmax(0,1fr);gap:8px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+#m-nursing .nuf .row b{font-size:15px}
+#m-nursing .nuf .row small{display:block;color:var(--muted);font-size:12.5px;line-height:1.35}
+#m-nursing .nuf .opts3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+#m-nursing .nuf .opts3 button{text-align:left;border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:6px 8px;font-size:12.5px;line-height:1.3;cursor:pointer;min-width:0}
+#m-nursing .nuf .opts3 button b{display:block;font:600 11px var(--mono)}
+#m-nursing .nuf .opts3 button[aria-pressed="true"]{border-color:var(--brand);background:var(--brand-soft)}
+@media (max-width:600px){#m-nursing .nuf .row{grid-template-columns:minmax(0,1fr)}}
+#m-nursing .card>.ev,#m-nursing .card>.tag{align-self:flex-start}
+#m-nursing .card ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:14.5px}
+#m-nursing .tbl table{min-width:620px}
+</style>
+<section class="mod" id="m-nursing" data-mod="nursing" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Living &amp; lifespan</p><h2>Nursing &amp; healthcare visits</h2>
+    <p class="lede">A blood test, from the first phone call to going home. Compare usual care with an autism-adapted visit: the same steps, a very different stress curve. Written for nurses, students and the people they care for.</p></div>
+  <div class="ctrls" role="group" aria-label="Care model">
+    <span class="kicker">Care</span>
+    <button class="btn" data-nuc="usual" aria-pressed="true">Usual care</button>
+    <button class="btn" data-nuc="adapt" aria-pressed="false">Autism-adapted care</button>
+  </div>
+  <div class="stepper" id="nuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A visit pathway of seven stations: before the visit, arrival, waiting, assessment, blood test, recovery and discharge. A patient token moves along it. Chips show either the barriers met in usual care or the nursing actions of adapted care. A face and a stress dial show the patient's state, and two curves compare stress across the visit in usual and adapted care."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">Play</button><label class="stage-cap tl" for="nuT">Visit <input type="range" id="nuT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <div class="readout" id="nuRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative patient. The shape of the curves is drawn to show the idea; the percentages in the notes are published values from the cited studies.</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Pain when words are few: an observational walkthrough</h3>
+  <div class="prose"><p>Autistic children do feel and show pain: during venepuncture, 21 autistic children aged 3–7 showed a strong facial pain reaction, larger than non-autistic children's, and parents' global reports matched observed pain less well. [[Nader2004]] Observers judged pain from facial activity. [[Messmer2008]] Observational tools help. Below, the five categories of the FLACC scale (Face, Legs, Activity, Cry, Consolability), each scored 0–2, paraphrased from the published tool. [[Merkel1997]] The revised r-FLACC lets parents add the person's own pain behaviours; in 52 children with cognitive impairment, inter-rater ICCs were 0.76–0.90 and scores fell from 6.1 to 1.9 after analgesia. [[Malviya2006]]</p></div>
+  <p class="teach"><b>Teaching tool</b>Practise the logic here; in practice use your organisation's approved tool, observe against the person's usual behaviour, and act on clinical judgement and local policy, not on a score alone.</p>
+  <div class="lab even">
+    <div class="nuf" id="nuFlacc"></div>
+    <div class="stage">
+      <div class="scroll"><svg id="nuPain" viewBox="0 0 400 300" role="img" aria-label="A 0 to 10 FLACC score bar with the selected total, a face whose expression follows the score, and reference marks for the r-FLACC study means before and after analgesia."></svg></div>
+      <div class="ctrls" role="group" aria-label="The person's own pain behaviours (r-FLACC)"><span class="kicker">Parent adds (r-FLACC)</span>
+        <button class="btn" data-nui="hum" aria-pressed="false">Hums one tune, louder</button>
+        <button class="btn" data-nui="still" aria-pressed="false">Goes very still</button>
+        <button class="btn" data-nui="rock" aria-pressed="false">Rocks faster than usual</button>
+      </div>
+      <div class="ctrls"><button class="btn" id="nuReset">Reset to 0</button></div>
+      <p class="stage-cap" id="nuPainCap"></p>
+    </div>
+  </div>
+  <p class="callout">Another tool, the Non-communicating Children's Pain Checklist–Revised, was tested in 71 children aged 3–18 with severe cognitive impairment; a score of 7 or more suggested pain (sensitivity 84%, specificity up to 77%). [[Breau2002]]</p>
+
+  <h3 class="sub">On the ward: a checklist</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Area</th><th>What to do</th><th>Why (evidence)</th></tr></thead>
+    <tbody>
+      <tr><th>Assessment &amp; documentation</th><td>Read and update the hospital passport or accommodations report: communication, sensory needs, allergies, risks, needed adjustments, what upsets and what settles. Ask the family what the person's usual behaviour looks like, and record pain with an observational tool.</td><td>A review of 60 UK passports found wide variation; some omitted allergies, risk assessment or reasonable adjustments. [[Northway2017]] The AASPIRE toolkit's accommodations report was read by 97% of providers. [[Nicolaidis2016]] Global parent report alone may miss pain. [[Nader2004]]</td></tr>
+      <tr><th>Medicines</th><td>Ask how the person usually takes medicines: liquid or tablet, which drink, what time, from whom. Keep routines where safe. Plan premedication for procedures with the prescriber and family.</td><td>Perioperative reviews describe disguising bitter medicine in a favourite drink, and premedication with alpha-2 agonists (clonidine, dexmedetomidine), midazolam or ketamine. [[Taghizadeh2015]] Autistic children more often had non-standard premedication types and routes, with similar complications, pain and recovery times. [[Arnold2015]]</td></tr>
+      <tr><th>Restrictive practice</th><td>Prevention first: the adaptations in the animation aim to make restraint unnecessary. If any restrictive intervention is considered, follow your organisation's policy and national guidance, involve the family, and debrief afterwards.</td><td>In one US paediatric ED, physical restraint was used for 14.1% of autistic patients needing psychiatric consultation against 6.0% of non-autistic ones (adjusted OR 2.28). [[McGaughey2026]] In another, autism was independently linked to restraint (adjusted OR 7.25). [[Rolison2026]] Whether the gap grows with age is untested. <span class="ev hyp">Hypothesis</span> [[Hira2026]]</td></tr>
+      <tr><th>Training</th><td>Complete role-appropriate autism training; in England this is the Oliver McGowan Mandatory Training. Know where your organisation's autism guidance is.</td><td>The Oliver McGowan programme is NHS England's standardised training on learning disability and autism; a Tier 1 pilot improved health students' confidence in communicating with autistic people. [[Bashir2026]] 39.5% of 304 UK GPs had never had formal autism training. [[Unigwe2017]] Reviews call for staff training and a guideline at every institution. [[Taghizadeh2015]]</td></tr>
+      <tr><th>Communication</th><td>One instruction at a time, concrete words, time to answer; offer writing, pictures or typing; say before you touch.</td><td>Autistic adults named slow processing and providers unwilling to allow written communication as barriers. [[Nicolaidis2015]] Communication, sensory sensitivities and planning difficulties are the key barriers to physical care. [[Mason2019Barriers]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="cards">
+    <div class="card"><span class="tag bad">Crisis</span><h4>Meltdown: de-escalation steps</h4><ol><li>Treat it as overload, not defiance: autistic adults describe meltdowns as being overwhelmed by sensory, information and social-emotional load. [[Lewis2023Meltdown]]</li><li>Lower the load: fewer people, less noise and light, offer a quieter space. [[MacLennan2023]]</li><li>Fewer words, calm voice, no demands such as eye contact. [[Phung2021]]</li><li>Give room and time; many people try to get away or be alone to avoid harm. [[Lewis2023Meltdown]]</li><li>Ask the family what helps; then plan to prevent the next one. [[Taghizadeh2015]]</li></ol></div>
+    <div class="card"><span class="tag accent">Communication</span><h4>Adapting how you talk</h4><p>"Respect the way I need to communicate with you": autistic adults asked for written communication, time to process and providers who do not make wrong assumptions. [[Nicolaidis2015]] In an international survey, 72% of autistic adults found it hard to decide whether symptoms warranted a visit and 53% found it hard to communicate with the doctor. [[Doherty2022]] For people who speak little, offer their own AAC: see <a href="#therapies" data-go="therapies">Communication, AAC &amp; therapies</a>.</p></div>
+    <div class="card"><span class="tag good">Going home</span><h4>Discharge teaching</h4><p>Give the plan in writing, with pictures if helpful: what happened, what to watch for, medicines, who to call and when. Update the passport with what worked today, so the next visit starts there. [[Northway2017,Nicolaidis2016]] Emergency-department passports were rated helpful and good for communication by staff and families. [[Heifetz2018]]</p></div>
+    <div class="card"><span class="tag warn">Emergency</span><h4>The emergency department</h4><p>13% of ED visits by autistic children were for a psychiatric problem against 2% in other children (OR 9.13). [[Kalb2012ED]] Autistic adolescents used the ED four times as often. [[Liu2017ED]] In autistic adults, 15% of ED visits were psychiatric against 4.2%. [[Vohra2016]] A crisis-prevention model (START) was followed by fewer hospitalisations and ED visits (pre/post, no control). [[Kalb2019START]]</p></div>
+    <div class="card"><span class="tag accent">Theatre</span><h4>Anaesthesia and sedation</h4><p>The anaesthesia literature on autism is mostly case reports; knowing each patient's behaviour and reducing stress are the main recommendations. [[Vlassakova2016]] A five-session TEACCH-based programme increased compliance with a dental assessment in children and adults. [[Orellana2014]] A social-script iPad app before imaging was linked to fewer externalised behaviours (effect size 0.56). [[Johnson2014iPad]]</p></div>
+    <div class="card"><span class="tag brand">Families</span><h4>Families as experts</h4><p>Parents are their child's experts on what agitates and settles them; perioperative reviews recommend talking with them before the day. [[Taghizadeh2015]] With adults, agree how information is shared with family, and remember that adults make their own decisions. The AAP frames care as shared decision-making with families. [[Hyman2020]]</p></div>
+  </div>
+</section>

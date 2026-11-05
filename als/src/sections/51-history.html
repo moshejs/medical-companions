@@ -1,0 +1,28 @@
+<!-- ================= 5.1 HISTORY & PEOPLE ================= -->
+<section class="mod" id="m-history" data-mod="history" hidden>
+<style>
+#m-history #hiYears .tag{min-height:40px;padding:8px 10px}
+#m-history #hiYears .tag[aria-pressed="true"]{border-color:var(--steel);background:var(--steel-soft);color:var(--ink)}
+#m-history .hi-names{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 5 · Context &amp; review</p><h2>History &amp; people</h2>
+    <p class="lede">ALS was described in Paris in the 19th century, became known to the public through a baseball player in 1939, and was explained at the level of genes and proteins mostly after 1993. Press Play to run the playhead from 1850 to today, or jump between eras. The scene redraws itself as each era arrives.</p></div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="hiSvg" viewBox="0 0 720 584" style="min-width:560px" role="img" aria-label="Timeline of ALS history from 1850 to 2026 in five lanes (clinic, people, genes, criteria, drugs), with a drawn scene of each era above it: a Paris lecture hall, a baseball stadium, a DNA helix, protein clumps in a neuron, an ice bucket and drug approvals"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.012"></label></div>
+      <div class="readout" id="hiRead"></div>
+      <p class="stage-cap">The scenes are drawings, not portraits. Every caption in them repeats a milestone listed below, with its sources in the note panel. The axis is compressed before 1935 and again from 1935 to 1990, so the crowded recent decades stay readable.</p></div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Every milestone</h3>
+  <p class="prose">The dots on the timeline are also listed here as buttons, so each can be reached with the keyboard or a switch and read in order.</p>
+  <div class="chips" id="hiYears" role="group" aria-label="Jump to a milestone"></div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Charcot named ALS: <i>amyotrophic</i> (muscle wasting, lower motor neuron) and <i>lateral sclerosis</i> (hardening of the lateral columns, upper motor neuron). [[Kumar2011]] Five dates: <b>1874</b> the name · <b>1993</b> SOD1 · <b>2006</b> TDP-43 · <b>2011</b> C9orf72 · <b>2023</b> tofersen. [[Rosen1993,Neumann2006,DeJesusHernandez2011,Renton2011,DrugsFDA]]</div>
+    <div class="pt"><b>In plain words</b>ALS was named in France about 150 years ago. For a century doctors could describe it but knew little about its causes. Most of what is known about the genes and proteins involved was found in the last 30 years, and in 2023 a medicine aimed at one gene, for SOD1-ALS, was approved in the US.</div>
+  </div>
+  <div class="cards" id="hiCards"></div>
+</section>

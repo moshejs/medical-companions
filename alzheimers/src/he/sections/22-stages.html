@@ -1,0 +1,58 @@
+<!-- ================= 2.2 STAGES ================= -->
+<style>
+#m-stages .card>.ev{align-self:flex-start}
+#m-stages .vcard svg{width:100%;max-width:150px;height:auto;display:block}
+#m-stages .vcard .vhead{display:flex;gap:12px;align-items:center}
+#m-stages .vcard .vhead svg{flex:none;width:96px}
+</style>
+<section class="mod" id="m-stages" data-mod="stages" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 2 · מהלך ואבחון</p><h2>שלבים ותסמינים</h2>
+    <p class="lede">מחלת אלצהיימר לוקחת יכולות בסדר די קבוע, מהמשימות התובעניות ביותר ועד הבסיסיות ביותר. לחצו על הפעלה, או בחרו שלב, וראו אילו יכולות יומיומיות נשמרות ואילו אובדות.</p></div>
+  <div class="stepper" id="stSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="stSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="היכולות היומיומיות של אדם, מעבודה תובענית ועד בליעה, דועכות בסדר הקבוע של סולם FAST בזמן שסמן ההתקדמות נע מהיעדר תסמינים ועד דמנציה קשה; מעליהן מוצגים טווחי CDR, סכום התיבות של CDR ו־MMSE המתאימים."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stPlay">הפעלה</button><label class="stage-cap tl" for="stT">מהלך <input type="range" id="stT" min="0" max="1" step="0.002" value="0.07"></label></div>
+      <p class="stage-cap">סכמטי. השלבים מצוירים ברוחב שווה, לא לפי משך הזמן. טווחי השנים למעלה לקוחים ממודל אחד (Vermunt 2019, אדם עם אלצהיימר טרום־קליני בגיל 70). משכי הזמן הממוצעים ש־Reisberg ייחס לכל שלב FAST מצוטטים רבות, אבל לא ניתן היה לאמת אותם מול המאמר מ־1988 (לא מאומת), ולכן הם אינם מוצגים. CDR ו־MMSE מותאמים ל־FAST רק בקירוב: הסולמות נבנו בנפרד.</p></div>
+    <aside class="note" id="stNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">אחרי אבחנה של MCI: מי מתקדם?</h3>
+  <p class="prose">ירידה קוגניטיבית קלה (MCI) פירושה שהחשיבה ירדה יותר מהצפוי לגיל, בעוד שחיי היומיום עדיין עצמאיים. זהו מצב של סיכון, לא גזר דין. למטה עוקבים במשך חמש שנים אחרי שתי קבוצות של 100 אנשים עם MCI.</p>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="stCoh" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="שתי קבוצות של 100 אנשים עם ירידה קוגניטיבית קלה, אחת ממרפאות מומחים ואחת מהקהילה, במעקב של חמש שנים; הדמויות מתמלאות כשאנשים מתקדמים לדמנציה, מהר יותר בקבוצת המרפאות, ורוב האנשים בשתי הקבוצות לא התקדמו עד השנה החמישית."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stCohPlay">הפעלה</button><label class="stage-cap tl" for="stCohT">שנים <input type="range" id="stCohT" min="0" max="1" step="0.002" value="0.4"></label></div>
+      <p class="stage-cap">המחשה. דמות חלולה: עדיין ללא דמנציה. דמות מלאה: התקדמות לדמנציה. כל שיעור שנתי שפורסם מוחל מדי שנה על מי שעדיין לא התקדם, וזו הפשטה: הסיכון האמיתי שונה מאדם לאדם.</p></div>
+    <aside class="note" id="stCohNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">לא תמיד הזיכרון קודם</h3>
+  <p class="prose">מחלת אלצהיימר טיפוסית מתחילה בזיכרון, כי הסבכים הראשונים נוצרים באונה הרקתית המדיאלית. אצל חלק מהאנשים המחלה מתחילה דווקא בראייה, בשפה או בתכנון. הצורות הלא טיפוסיות האלה שכיחות הרבה יותר כשהמחלה מתחילה לפני גיל 65. <span>[[GraffRadford2021]]</span></p>
+  <div class="cards" id="stVar"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="stShare" viewBox="0 0 720 240" style="min-width:560px" role="img" aria-label="שתי רשתות של 100 אנשים עם אלצהיימר: לכאחד מכל שלושה עם הופעה מוקדמת יש הסתמנות לא טיפוסית, לעומת כשישה מכל 100 עם הופעה מאוחרת; אחר כך פסים מראים שמקרים לא טיפוסיים אובחנו בטעות הרבה יותר."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stSharePlay">הפעלה</button><label class="stage-cap tl" for="stShareT">חשיפה <input type="range" id="stShareT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">כל ריבוע הוא אדם אחד מתוך 100. "כשליש" מצויר כ־33.</p></div>
+    <aside class="note" id="stShareNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">מעבר לזיכרון: מצב רוח והתנהגות</h3>
+  <div class="ctrls" role="group" aria-label="איזה מחקר להציג">
+    <span class="kicker">מחקר</span>
+    <button class="btn" id="stNpsZ" aria-pressed="true">אלצהיימר, 48 מחקרים</button>
+    <button class="btn" id="stNpsL" aria-pressed="false">מחקר אוכלוסייה, כל סוגי הדמנציה</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="stNps" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="פסים אופקיים גדלים ומראים כמה שכיח כל תסמין נוירו־פסיכיאטרי; בראש הרשימה אדישות, דיכאון ותוקפנות."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stNpsPlay">הפעלה</button><label class="stage-cap tl" for="stNpsT">בנייה <input type="range" id="stNpsT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="stNpsCap">שכיחות משוקללת באלצהיימר, שאלון NPI. המחקרים היו שונים מאוד זה מזה.</p></div>
+    <aside class="note" id="stNpsNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">כמה זמן, ואיך המחלה מסתיימת</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">מבוסס</span><h4>ההישרדות נמדדת בשנים</h4><p>אנשים בני 65 ומעלה חיים בממוצע 4 עד 8 שנים אחרי אבחנה של דמנציה של אלצהיימר, וחלקם חיים עד 20 שנה. בין המחקרים, ההישרדות החציונית מתחילת המחלה הייתה 3.3 עד 11.7 שנים, לרוב 7 עד 10. [[AA2025Facts,Todd2013]]</p></div>
+    <div class="card"><span class="ev est">מבוסס</span><h4>הגיל באבחנה משפיע יותר מכול</h4><p>ההישרדות החציונית הייתה 8.3 שנים באבחנה בגיל 65 ו־3.4 שנים בגיל 90, ללא הבדל מובהק בין גברים לנשים. בין המחקרים, הגיל ניבא תמותה באופן עקבי; מין זכר ניבא אותה באופן פחות עקבי. [[Brookmeyer2002,Todd2013]]</p></div>
+    <div class="card"><span class="ev est">מבוסס</span><h4>דלקת ריאות היא האירוע האחרון השכיח ביותר</h4><p>דלקת ריאות היא סיבת המוות הישירה המזוהה בשכיחות הגבוהה ביותר, ובעיות בליעה עלולות להוביל לשאיפה (אספירציה). בסדרת נתיחות אחת, סיבות נשימתיות היו אחראיות ל־55.5% ממקרי המוות באלצהיימר. [[AA2025Facts,Brunnstrom2009]]</p></div>
+    <div class="card"><h4>דמנציה מתקדמת במוסדות סיעודיים</h4><p>במחקר CASCADE, שכלל 323 דיירים עם דמנציה מתקדמת, 54.8% נפטרו במהלך 18 חודשים. בעיות אכילה היו אצל 85.8%, ודלקת ריאות אצל 41.1%. על תכנון וטיפול בסוף החיים, ראו <a href="#living" data-go="living">לחיות עם דמנציה ולטפל</a>. [[Mitchell2009NEJM]]</p></div>
+  </div>
+</section>

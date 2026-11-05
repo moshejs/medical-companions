@@ -1,0 +1,57 @@
+<!-- ================= 1.3 ALPHA-SYNUCLEIN AND LEWY BODIES ================= -->
+<section class="mod" id="m-synuclein" data-mod="synuclein" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Alpha-synuclein and Lewy bodies</h2>
+    <p class="lede">Alpha-synuclein is a small protein that normally sits at nerve endings and helps synaptic vesicles release their messenger. In Parkinson's it folds the wrong way, sticks together and ends up in Lewy bodies. Press play to follow one nerve ending, then change the genes to see what more protein, or weaker clearance, does.</p></div>
+  <div class="ctrls" role="group" aria-label="Genetic changes">
+    <span class="kicker">SNCA copies</span>
+    <button class="btn" id="snCp2" aria-pressed="true">Two copies: usual</button>
+    <button class="btn" id="snCp3" aria-pressed="false">Duplication: three</button>
+    <button class="btn" id="snCp4" aria-pressed="false">Triplication: four</button>
+    <span class="kicker" style="margin-left:6px">Clearance</span>
+    <button class="btn" id="snGba" aria-pressed="false">GBA1 variant: less GCase</button>
+  </div>
+  <div class="stepper" id="snSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="snSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="The SNCA gene on chromosome 4 makes a 140-residue protein with three regions. At a nerve ending, alpha-synuclein coils onto synaptic vesicles. Some molecules misfold into sheets, clump into oligomers and fibrils, form a Lewy body in the cell body and Lewy neurites along the axon, pass as seeds to a neighbouring neuron, and pile up when lysosomes with less GCase clear them poorly."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="snPlay">Play</button><label class="stage-cap tl" for="snT">Timeline <input type="range" id="snT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap" id="snCap">Schematic, not to scale.</p></div>
+    <aside class="note" id="snNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">From one molecule to a Lewy body</h3>
+  <p class="prose" id="snAggLede"></p>
+  <div class="ctrls" role="group" aria-label="Which assembly to inject">
+    <span class="kicker">Strain injected in rats</span>
+    <button class="btn" id="snStF" aria-pressed="true">Fibrils</button>
+    <button class="btn" id="snStR" aria-pressed="false">Ribbons</button>
+    <button class="btn" id="snStO" aria-pressed="false">Oligomers</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="snAgg" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="An aggregation ladder: a helical monomer on a membrane, a misfolded sheet, small oligomers, fibrils, a round Lewy body with a pale halo, and a thread-like Lewy neurite along a nerve fibre."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="snAggPlay">Play</button><label class="stage-cap tl" for="snAggT">Years <input type="range" id="snAggT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap" id="snAggCap">Schematic. In people this takes years and happens in three dimensions.</p></div>
+    <aside class="note" id="snAggNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Does it start in the gut?</h3>
+  <div class="prose"><p>One idea is that synuclein pathology can begin in the nerves of the gut and climb the vagus nerve to the brainstem. If so, cutting the vagus, or removing the appendix, might lower the risk. Large registry studies have tested this, with mixed results. Filled dots are results whose 95% confidence interval excludes no effect.</p></div>
+  <div class="ctrls" role="group" aria-label="Which operation to show">
+    <span class="kicker">Show</span>
+    <button class="btn" id="snGuAll" aria-pressed="true">All studies</button>
+    <button class="btn" id="snGuVag" aria-pressed="false">Vagotomy</button>
+    <button class="btn" id="snGuApp" aria-pressed="false">Appendectomy</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="snGut" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A forest plot of hazard and risk ratios for Parkinson's after vagotomy or appendectomy. Most confidence intervals cross 1. Truncal vagotomy with long follow-up and appendectomy in one Swedish registry fall below 1; a meta-analysis of appendectomy sits at 1.02."></svg></div>
+      <div class="legend"><span><i style="background:var(--sage)"></i>vagotomy</span><span><i style="background:var(--sky)"></i>appendectomy</span><span>● interval excludes 1 · ○ interval crosses 1</span></div>
+      <p class="stage-cap" id="snGutCap"></p></div>
+    <aside class="note" id="snGutNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How strong is the synuclein case?</h3>
+  <div class="cards" id="snCards"></div>
+
+  <h3 class="sub">Other pieces of the puzzle</h3>
+  <div class="prose"><p>Synuclein is not the only thread. Toxins that poison mitochondria, recessive genes for mitochondrial quality control, and iron all point at the same vulnerable neurons. The genes are in <a href="#genes" data-go="genes">Genes and inheritance</a> and the trials that target these steps in <a href="#cure" data-go="cure">Toward a cure</a>.</p></div>
+  <div class="cards" id="snMech"></div>
+</section>

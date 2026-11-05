@@ -1,0 +1,126 @@
+<!-- ================= 2.3 DOSING, SAFETY, INTERACTIONS ================= -->
+<section class="mod" id="m-coldose" data-mod="coldose" hidden>
+  <style>
+    #m-coldose .cd-who{border:1px solid var(--crocus);background:var(--crocus-soft);border-radius:var(--r);padding:12px 16px;font-size:15px;max-width:78ch}
+    #m-coldose .cd-who b{color:var(--crocus)}
+    #m-coldose .cd-pulse{animation:cdPulse 1.5s ease-in-out infinite}
+    @keyframes cdPulse{0%,100%{opacity:.15}50%{opacity:.6}}
+    #m-coldose .lab.cd-wide{grid-template-columns:minmax(0,1fr)}
+    #m-coldose .cd-org svg{max-width:340px;margin:0 auto}
+    /* narrow draws its own 400-wide body map, so let it use the whole stage */
+    @media (max-width:820px){ #m-coldose .cd-org svg{max-width:none} }
+    #m-coldose .cd-num{font:800 26px/1.1 var(--display);color:var(--crocus);display:block}
+    #m-coldose .tl output{font:600 13px var(--mono);color:var(--ink);min-width:58px}
+  </style>
+  <div class="mhead"><p class="eyebrow">חלק 2 · קולכיצין</p><h2>מינון, בטיחות ואינטראקציות</h2>
+    <p class="lede">קולכיצין פועל במינונים נמוכים, אבל טווח הבטיחות שלו צר, וכמה תרופות נפוצות עלולות להעלות את רמתו בדם פי כמה. בחרו תרופה בעלת אינטראקציה ולחצו על הפעלה כדי לראות עשרה ימים של מתן יומי, ואחר כך עיינו בטווחי המינון שפורסמו, באיברים שמנוטרים ובמה שההנחיות אומרות על כליות, הריון ושימוש לכל החיים.</p></div>
+  <p class="cd-who" role="note"><b>המינון של כל אדם נקבע על ידי הרופא המטפל בו.</b> מודול זה מדווח מה פרסמו הנחיות EULAR 2016, עדכון EULAR/PReS משנת 2024 והעלון האמריקאי לתרופה (COLCRYS). זהו עזר ללימוד, ולא מדריך למינון. [[Ozen2016,Ozen2025,FDA-Colcrys]]</p>
+
+  <h3 class="sub">1 · חלון החשיפה</h3>
+  <div class="ctrls" role="group" aria-label="תרופה או מצב בעלי אינטראקציה שנוספו ביום 3">
+    <span class="kicker">נוסף ביום 3</span>
+    <button class="btn" data-cd="none" aria-pressed="false">שום דבר</button>
+    <button class="btn" data-cd="clari" aria-pressed="true">קלריתרומיצין (clarithromycin)</button>
+    <button class="btn" data-cd="keto" aria-pressed="false">קטוקונזול / איטרקונזול (ketoconazole / itraconazole)</button>
+    <button class="btn" data-cd="rito" aria-pressed="false">ריטונביר (ritonavir)</button>
+    <button class="btn" data-cd="cyclo" aria-pressed="false">ציקלוספורין (cyclosporine)</button>
+    <button class="btn" data-cd="vera" aria-pressed="false">ורפמיל (verapamil)</button>
+    <button class="btn" data-cd="dilt" aria-pressed="false">דילטיאזם (diltiazem)</button>
+    <button class="btn" data-cd="azi" aria-pressed="false">אזיתרומיצין (azithromycin)</button>
+    <button class="btn" data-cd="grape" aria-pressed="false">מיץ אשכוליות</button>
+    <button class="btn" data-cd="renal" aria-pressed="false">ירידה חמורה בתפקוד הכליות</button>
+  </div>
+  <div class="ctrls"><button class="btn" id="cdCap" aria-pressed="false">החלת תקרת המינון של העלון ל־FMF</button></div>
+  <div class="stepper" id="cdSteps"></div>
+  <div class="lab cd-wide">
+    <div class="stage"><div class="scroll"><svg id="cdSvg" viewBox="0 0 720 372" style="min-width:560px" role="img" aria-label="תרשים סכמטי של החשיפה לקולכיצין בדם לאורך עשרה ימים של מתן יומי, עם תרופה בעלת אינטראקציה שנוספה ביום 3"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cdPlay">הפעלה</button><label class="stage-cap tl" for="cdT">ימים <input type="range" id="cdT" min="0" max="1" step="0.001" value="1"></label></div>
+      <div class="readout" id="cdRead"></div>
+      <div class="legend"><span><i style="background:var(--crocus)"></i>חשיפה, מודגמת במינון 1.8 mg/day</span><span><i style="background:var(--muted)"></i>מקווקו: ללא אינטראקציה</span><span><i style="background:var(--good-soft)"></i>טווח רגיל</span><span><i style="background:var(--bad)"></i>אזור סיכון לרעילות</span></div>
+      <p class="stage-cap">סכמטי. גובה העקומות לקוח ממחקרי ה־AUC של מנה בודדת (0.6 mg) במתנדבים בריאים שמופיעים בעלון, מותאם למתן פעם ביום עם זמן מחצית חיים של כ־29 שעות; העיכוב מדומה כשילוב של ספיגה גבוהה יותר ופינוי איטי יותר. 29 השעות האלה נמצאות בתוך הטווח של העלון במתן חוזר, 26.6–31.2 שעות, אבל זמני מחצית החיים שפורסמו נעים מכ־7 שעות ועד כ־58 שעות, בהתאם למערך המחקר, ולכן עם ערכים אחרים העקומה הייתה שטוחה או תלולה יותר. [[FDA-Colcrys,Ferron1996,BenChetrit2018Textbook]] גבולות האזורים הם להמחשה בלבד: אין קו חד בין רמות בטוחות לרמות רעילות. 1.8 mg/day הוא פשוט ערך בתוך הטווח של העלון למבוגרים עם FMF, שנבחר לצורך האיור.</p></div>
+    <aside class="note" id="cdNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>תרופה או מזון שנוספו</th><th>הקבוצה בעלון</th><th>שינוי ממוצע ב־AUC של קולכיצין (מנה בודדת של 0.6 mg)</th><th>תקרת FMF בעלון כשאין חלופה</th></tr></thead>
+    <tbody>
+      <tr><th>קלריתרומיצין</th><td>מעכב חזק של CYP3A4</td><td>+282%</td><td>0.6 mg/day</td></tr>
+      <tr><th>קטוקונזול (איטרקונזול מופיע לצידו)</th><td>מעכב חזק של CYP3A4</td><td>+212% (קטוקונזול)</td><td>0.6 mg/day</td></tr>
+      <tr><th>ריטונביר (ורוב מעכבי הפרוטאז)</th><td>מעכב חזק של CYP3A4</td><td>+296%</td><td>0.6 mg/day</td></tr>
+      <tr><th>ציקלוספורין</th><td>מעכב P-gp</td><td>+259%</td><td>0.6 mg/day</td></tr>
+      <tr><th>ורפמיל</th><td>מעכב בינוני של CYP3A4</td><td>+103%</td><td>1.2 mg/day</td></tr>
+      <tr><th>דילטיאזם</th><td>מעכב בינוני של CYP3A4</td><td>+93%</td><td>1.2 mg/day</td></tr>
+      <tr><th>אזיתרומיצין</th><td>לא מופיע ברשימות התקרה שאנו מצטטים</td><td>+57%</td><td>לא מופיעה במקורות שלנו</td></tr>
+      <tr><th>מיץ אשכוליות</th><td>מעכב בינוני של CYP3A4</td><td>אין שינוי ממוצע משמעותי במחקר של העלון עצמו (Cmax ו־AUC השתנו כל אחד בפחות מ־3%)</td><td>1.2 mg/day; העלון מורה למטופלים להימנע ממנו</td></tr>
+      <tr class="hl"><th>סטטינים (statins), פיברטים (fibrates)</th><td>רעילות נוספת לשריר</td><td>לא כומת במקורות שלנו</td><td>אזהרה: מיופתיה ורבדומיוליזיס</td></tr>
+    </tbody></table></div>
+  <p class="stage-cap">מקורות: מחקרי האינטראקציה ורשימות התאמת המינון שבעלון האמריקאי; התקרות חלות גם בתוך 14 יום מנטילת התרופה בעלת האינטראקציה. [[FDA-Colcrys,Terkeltaub2011]]</p>
+  <div class="cards">
+    <div class="card"><h4>מחקר הקלריתרומיצין</h4><p><span class="cd-num">10.2% לעומת 3.6%</span>במחקר רטרוספקטיבי מתו 9 מתוך 88 מטופלים (10.2%) שקיבלו קלריתרומיצין וקולכיצין בו־זמנית, לעומת 1 מתוך 28 (3.6%) שקיבלו אותן בזו אחר זו. פגיעה בתפקוד הכליות בנקודת ההתחלה, חפיפה ארוכה יותר ופנציטופניה ניבאו תמותה. [[Hung2005]]</p><p>אזיתרומיצין העלה את החשיפה לקולכיצין הרבה פחות, וסקירות מציעות אותו כמקרוליד הבטוח יותר. [[Terkeltaub2011,BenChetrit2018Textbook]]</p></div>
+    <div class="card"><h4>סטטינים ופיברטים</h4><p>החשש כאן הוא לשריר: גם קולכיצין וגם קבוצות התרופות האלה יכולים, כל אחד בנפרד, לפגוע בו. העלון מדווח על מיופתיה ורבדומיוליזיס כשאחד מהם נוסף למשטר טיפול יציב של האחר, ומציין שניטור CK לא בהכרח ימנע מיופתיה חמורה. [[FDA-Colcrys]]</p><p>סקירה אחת מציעה שייתכן שעדיפים פרווסטטין (pravastatin) או רוסובסטטין (rosuvastatin) על פני סטטינים שמפורקים על ידי CYP3A4; ובכל זאת, מיופתיה דווחה גם עם פרווסטטין. [[Slobodnick2018,BenChetrit2018Textbook]]</p></div>
+    <div class="card"><h4>אשכוליות: סתירה בתוך העלון</h4><p>שני צדי הסתירה נמצאים באותו מסמך. העלון מונה את מיץ האשכוליות בטבלת המעכבים הבינוניים של CYP3A4, מחיל עליו את תקרת ה־FMF של 1.2 mg/day ומורה למטופלים להימנע ממנו. אבל מחקר האינטראקציה של העלון עצמו (240 mL פעמיים ביום במשך 4 ימים) מצא ש־Cmax ו־AUC הממוצעים השתנו כל אחד בפחות מ־3%, כלומר ללא שינוי משמעותי. אף אחד מהמקורות שאנו מצטטים אינו מיישב את הסתירה; ייתכן שההשפעה משתנה בין מוצרים ובין אנשים. [[FDA-Colcrys,Leung2015]]</p></div>
+  </div>
+
+  <h3 class="sub">2 · מינונים שפורסמו לפי גיל</h3>
+  <div class="stage">
+    <div class="ctrls"><label class="stage-cap tl" for="cdAge">גיל (שנים) <input type="range" id="cdAge" min="1" max="70" step="1" value="8"><output id="cdAgeOut" for="cdAge">8</output></label></div>
+    <div class="scroll"><svg id="cdAgeSvg" viewBox="0 0 720 226" style="min-width:560px" role="img" aria-label="טווחי המינון של קולכיצין שפורסמו, לגיל שנבחר"></svg></div>
+    <div class="readout" id="cdAgeRead"></div>
+    <p class="stage-cap">העמודות מציגות טווחים שפורסמו, לא מינון לאדם כלשהו; המינון של אדם נקבע על ידי הרופא המטפל בו. סגול כהה: מינון ההתחלה לפי EULAR 2016. סגול בהיר: מרווח להעלאות הדרגתיות עד המקסימום שפורסם (קו אדום). ההנחיות נותנות את המקסימום ל"ילדים" ול"מבוגרים" בלי לציין גיל מעבר, ולכן <b>גיל 18 הוא הנחה של האפליקציה הזו</b>, ולא נתון מההנחיות.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>מה מפרסמת EULAR</h4><ul><li>להתחיל קולכיצין ברגע שנקבעת אבחנה קלינית. [[Ozen2016,Ozen2017]]</li><li>מינוני התחלה: ≤0.5 mg/day מתחת לגיל 5, 0.5–1.0 mg/day בגיל 5–10, 1.0–1.5 mg/day מעל גיל 10 ובמבוגרים. [[Ozen2016,Ozen2017]]</li><li>מקסימום 2 mg/day בילדים ו־3 mg/day במבוגרים; עדכון 2024 שומר על שתי התקרות. [[Ozen2017,Ozen2025,Cush2025]]</li><li>אפשר להשתמש במינוני התחלה גבוהים יותר כשפעילות המחלה גבוהה, בהומוזיגוטיות ל־M694V, או כשיש סיבוכים כמו עמילואידוזיס. [[Ozen2016,Ozen2017]]</li>
+      <li>המקסימום מפורסם ל"ילדים" ול"מבוגרים"; אף מקור שאנו מצטטים אינו מציין באיזה גיל עוברים מקבוצה אחת לשנייה. [[Ozen2016,Ozen2017,Ozen2025]]</li></ul></div>
+    <div class="card"><h4>מנה אחת או מנות מחולקות?</h4><p>גם EULAR 2016 וגם עדכון 2024 מתירים מנה יומית אחת או מנות מחולקות, לפי הסבילות וההיענות לטיפול. חלוקה עשויה להקל על תופעות לוואי במערכת העיכול; מנה אחת ביום עשויה לעזור להיענות. [[Ozen2016,Ozen2025,Ozen2017]]</p><p>בניסוי אקראי של 24 שבועות (79 ילדים השלימו אותו), מתן פעם ביום לא היה נחות ממתן פעמיים ביום מבחינת התקפים, CRP, ESR ו־SAA. שלשול היה מעט שכיח יותר במתן פעם ביום. [[Polat2016]]</p></div>
+    <div class="card"><h4>העלאות הדרגתיות והעלון</h4><p>אם התקפים או דלקת תת־קלינית נמשכים אצל מטופל שמקפיד על הטיפול, המינון מועלה בהדרגה: בצעדים של 0.5 mg/day לפי EULAR 2016, בצעדים של 0.25 או 0.5 mg לפי קונצנזוס גרמני, ובתוספות של 0.3 mg/day לפי העלון האמריקאי. CRP או SAA נבדקים לפחות כל 3 חודשים בתקופת ההעלאה. [[Ozen2016,RheumNow2025,Ehlers2023,FDA-Colcrys,Ozen2017]]</p><p>טווחי FMF בעלון האמריקאי: 0.3–1.8 mg/day בגיל 4–6, 0.9–1.8 בגיל 6–12, 1.2–2.4 מעל גיל 12 ובמבוגרים. קונצנזוס ילדים משנת 2007 קבע את התקרה על 2.5 mg/day. [[FDA-Colcrys,Ehlers2023,Kallinich2007]]</p><p>מחקר במצב יציב (steady state) בגילים 2 עד מתחת ל־16 מצא חשיפה דומה בגדול לקולכיצין בילדים ובמבוגרים במינוני ההתחלה הרגילים, למרות המינונים הגבוהים יותר לכל ק״ג (mg/kg) בילדים צעירים; החשיפה הייתה גבוהה בכ־25% בקבוצת הגיל 4 עד מתחת ל־6. [[Berkun2012]]</p></div>
+  </div>
+
+  <h3 class="sub">3 · רעילות וניטור</h3>
+  <div class="lab even">
+    <div class="stage cd-org">
+      <div class="ctrls" role="group" aria-label="איבר">
+        <button class="btn" data-org="gut" aria-pressed="true">מערכת העיכול</button>
+        <button class="btn" data-org="muscle" aria-pressed="false">שרירים</button>
+        <button class="btn" data-org="nerves" aria-pressed="false">עצבים</button>
+        <button class="btn" data-org="marrow" aria-pressed="false">מח עצם</button>
+        <button class="btn" data-org="liver" aria-pressed="false">כבד</button>
+        <button class="btn" data-org="kidney" aria-pressed="false">כליות</button>
+      </div>
+      <svg id="cdOrgSvg" viewBox="0 0 360 430" role="img" aria-label="מפת גוף של האיברים שנפגעים ברעילות קולכיצין; לחצו על איבר"></svg>
+      <p class="stage-cap">לחצו על איבר או על כפתור. מפת גוף סכמטית.</p>
+    </div>
+    <aside class="note" id="cdOrgNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="callout"><p><b>טווח צר, מנת יתר מסוכנת.</b> לקולכיצין יש אינדקס טיפולי צר, בלי קו ברור בין מינונים לא רעילים, רעילים וקטלניים. מנת יתר עלולה להיות קטלנית: ההרעלה מתקדמת במשך ימים מתסמינים במערכת העיכול ואיבוד נוזלים לכשל של איברים רבים. עדכון 2024 מבקש שכל מנת יתר, מכוונת או בשוגג, תוערך בקפידה, והעלון ממליץ להרחיק את הטבליות מהישג ידם של ילדים. [[Finkelstein2010,Leung2015,FDA-Colcrys,Cush2025]]</p></div>
+    <div class="callout"><p><b>מה נבדק, ובאיזו תדירות.</b> EULAR 2016: הערכה של התגובה, הרעילות וההיענות כל 6 חודשים (לעיתים קרובות יותר בשנה הראשונה או כשסמני הדלקת מוגברים, ופעם בשנה לאחר התייצבות), עם SAA ו/או CRP, ספירת דם, אנזימי כבד, תפקודי כליות, CPK ובדיקת שתן כללית. עדכון 2024 מבקש ניטור סדיר, בתדירות גבוהה יותר בעת האבחנה וכשהמחלה אינה בשליטה, בלי מרווח זמן קבוע. [[Ozen2016,Ozen2025,RheumNow2025]]</p></div>
+  </div>
+
+  <h3 class="sub">4 · כליות וכבד</h3>
+  <div class="lab even">
+    <div class="stage">
+      <div class="ctrls"><label class="stage-cap tl" for="cdCr">CrCl <input type="range" id="cdCr" min="5" max="120" step="1" value="90"><output id="cdCrOut" for="cdCr">90</output></label><button class="btn" id="cdDial" aria-pressed="false">בדיאליזה</button></div>
+      <div class="scroll"><svg id="cdRenSvg" viewBox="0 0 460 200" style="min-width:320px" role="img" aria-label="מד פינוי קריאטינין עם קטגוריות תפקוד הכליות של העלון"></svg></div>
+      <p class="stage-cap">פינוי קריאטינין (CrCl) ב־mL/min. הקטגוריות לפי פרק ה־FMF בעלון האמריקאי.</p>
+    </div>
+    <aside class="note" id="cdRenNote" aria-live="polite"></aside>
+  </div>
+  <div class="card"><h4>פגיעה בתפקוד הכבד</h4><p>במחלת כבד כרונית הפינוי עשוי להיות נמוך בהרבה וזמן מחצית החיים ארוך יותר, עם שונות רבה בין מטופלים. העלון (FMF) ממליץ על ניטור צמוד בפגיעה קלה עד בינונית ועל שקילת הפחתת מינון במחלה חמורה; אין נתונים פרמקוקינטיים ל־Child-Pugh C. בדיווח אחד זמן מחצית החיים היה ארוך פי 2–3 באי־ספיקת כליות חמורה, ופי 10 בערך באי־ספיקת כליות בשילוב שחמת (cirrhosis). [[FDA-Colcrys,BenChetrit2018Textbook]]</p></div>
+
+  <h3 class="sub">5 · הריון, הנקה, פוריות</h3>
+  <div class="cards">
+    <div class="card"><h4>הריון <span class="ev est">מבוסס</span></h4><p>EULAR 2016: אין להפסיק קולכיצין בתקופת ההתעברות, ההריון או ההנקה, ודיקור מי שפיר אינו מוצדק בגללו. עדכון 2024 שומר על שתי הנקודות. [[Ozen2016,Ozen2017,Cush2025]]</p><ul><li>179 הריונות FMF שנחשפו לקולכיצין לעומת 197 הריונות FMF ללא טיפול ו־312 הריונות של נשים בריאות: אין הבדל בהפלות מוקדמות או מאוחרות או במומים. [[BenChetrit2010]]</li><li>238 הריונות שנחשפו (87% FMF): מומים מרכזיים 4.5% לעומת 3.9% בקבוצת הביקורת (P = 0.648), ללא חריגות ציטוגנטיות. [[DiavCitrin2010]]</li><li>מטה־אנליזה משנת 2018: ללא עלייה בהפלות או במומים מרכזיים. [[Indraratna2018]]</li></ul></div>
+    <div class="card"><h4>הנקה</h4><p>רמות הפלזמה בעובר מדווחות בכ־15% מרמות האם; הרמות בחלב האם דומות לרמות בסרום של האם. [[FDA-Colcrys]]</p><p>אצל 4 אמהות מניקות עם FMF, הרמות בחלב (1.9–8.6 ng/mL) עקבו אחרי הרמות בסרום; החוקרים העריכו שהכמות שהתינוק מקבל קטנה ושההנקה בטוחה. העלון מעריך את חשיפת התינוק בפחות מ־10% מהמינון של האם המותאם למשקל, וקורא לזהירות. [[BenChetrit1996,FDA-Colcrys]]</p></div>
+    <div class="card"><h4>פוריות הגבר</h4><p>EULAR 2016: גברים בדרך כלל אינם צריכים להפסיק קולכיצין לפני התעברות; רק אזוספרמיה נדירה ומוכחת שקשורה לקולכיצין עשויה להצדיק הפחתת מינון זמנית. [[Ozen2016,Ozen2017]]</p><p>אצל חלק מהגברים עם FMF ואזוספרמיה, ביופסיה מהאשך הראתה <b>עמילואידוזיס</b>, כך שייתכן שהמחלה, ולא התרופה, היא הגורם. העלון מתאר אי־פוריות גברית הקשורה לתרופה כנדירה והפיכה. [[BenChetrit1998ARD,HaimovKochman1998,FDA-Colcrys]]</p></div>
+  </div>
+
+  <h3 class="sub">6 · עמידות, היענות, שימוש לכל החיים</h3>
+  <div class="cards">
+    <div class="card"><h4>עמידות ואי־סבילות</h4><p><span class="cd-num">5–10%</span>סקירה אחת מדווחת על היעדר תגובה ב־5–10%; אחרת מעריכה עד 5%, ועוד 2–5% שאינם סובלים את התרופה; שלישית מציינת 5–15% ומעירה שהערך העליון עשוי להיות מנופח בגלל מנות שהוחמצו. [[BenChetrit2018Textbook,Ozen2017,BenChetrit2009]]</p><p>EULAR 2016: ≥1 התקף בחודש לאחר ≥6 חודשים במינון המרבי הנסבל עשוי להעיד על עמידות. קונצנזוס משנת 2021: ≥1 התקף בחודש במשך 3 חודשים, או דלקת מתמשכת בבדיקות המעבדה, לאחר בדיקת ההיענות. עדכון 2024: טיפול מוסף, כשחוסמי IL-1 נתמכים בראיות הטובות ביותר; הקולכיצין בדרך כלל ממשיך. [[Ozen2016,Ozen2021,Ozen2025,Ehlers2023]]</p></div>
+    <div class="card"><h4>היענות לטיפול</h4><p><span class="cd-num">13%</span>מתוך 38 מטופלים במרפאה בישראל מימשו כל מרשם במשך שנה; 8% לא מימשו אף מרשם. [[BenChetrit2009]]</p><ul><li>324 ילדים בטורקיה (סולם MASIF): 72.8% עם היענות נמוכה. [[ErdemTorun2026]]</li><li>104 מבוגרים בטורקיה (MMAS-8): היענות נמוכה 28.8%, בינונית 45.2%, גבוהה 26.0%. [[Bolek2026]]</li></ul><p>ההנחיות מחייבות לשלול החמצת מנות לפני שמגדירים מישהו כעמיד. [[Ozen2017,Ehlers2023]]</p></div>
+    <div class="card"><h4>לכל החיים, וכלל 5 השנים</h4><p>הטיפול ב־FMF הוא לכל החיים, וההיענות לטיפול היא אבן הפינה של עקרונות 2024. [[Ozen2017,Ozen2025,Cush2025]]</p><p>EULAR 2016 התירה <i>לשקול</i> הפחתת מינון רק לאחר יותר מ־5 שנים ללא התקפים ועם חלבוני שלב חריף תקינים, לאחר התייעצות עם מומחה ועם המשך ניטור. מאמר מערכת משנת 2025 מזהיר שגיל מבוגר יותר או נשיאת וריאנט אחד לא אמורים להוביל אוטומטית להפחתת מינון. [[Ozen2016,Ozen2017,GulBenChetrit2025]]</p></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>לבחינה</b>רעילות קולכיצין = <b>קודם מערכת העיכול</b> (עד 20% בתחילת הטיפול), אחר כך <b>שריר + עצב</b> (מיונוירופתיה, CK גבוה, בדרך כלל עם פגיעה בתפקוד הכליות), ולעיתים נדירות <b>מח העצם</b>. הסכנה עולה עם <b>מעכבי CYP3A4/P-gp</b> ועם <b>CrCl נמוך</b>.</div>
+    <div class="pt"><b>במילים פשוטות</b>קולכיצין בטוח לרוב האנשים במינונים הרגילים, אבל כמה אנטיביוטיקות, תרופות נגד פטריות, תרופות ל־HIV ותרופות לב עלולות לגרום לו להצטבר בגוף. לכן מרשמים חדשים נבדקים מולו, ולכן העלון אומר להרחיק את הטבליות מהישג ידם של ילדים.</div>
+  </div>
+</section>

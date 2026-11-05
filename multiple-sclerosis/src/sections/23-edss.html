@@ -1,0 +1,80 @@
+<!-- ================= 2.3 MEASURING DISABILITY: EDSS ================= -->
+<style>
+#m-edss .edfs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 18px}
+@media (max-width:700px){#m-edss .edfs{grid-template-columns:minmax(0,1fr)}}
+#m-edss .edfs label{display:flex;gap:8px;align-items:center;font-size:14px}
+#m-edss .edfs input{width:18px;height:18px;margin:0;accent-color:var(--orange)}
+#m-edss .edwalk{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700}
+#m-edss .edwalk select{font:inherit;font-weight:400;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%}
+#m-edss .edbig{font:800 40px/1 var(--display);color:var(--orange)}
+#m-edss .card>.ev,#m-edss .card>.tag{align-self:flex-start}
+</style>
+<section class="mod" id="m-edss" data-mod="edss" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · The course</p><h2>Measuring disability: EDSS</h2>
+    <p class="lede">The Expanded Disability Status Scale runs from 0 (normal exam) to 10 in half-steps. Climb the staircase to see what each step means, try a teaching calculator, and see when worsening counts as confirmed.</p></div>
+  <div class="stepper" id="edSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="edSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="An EDSS staircase from 0 to 10 in half-steps is climbed one step at a time; beside it a figure walks a 500-metre track that shortens from step 4.0, then walks with one aid and two aids, then uses a wheelchair, then is in bed, beside a list of the eight functional systems and a schematic bar for examination signs, which increase from 1.0 to 3.5 while the person remains fully ambulatory."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="edPlay">Play</button><label class="stage-cap tl" for="edT">EDSS step <input type="range" id="edT" min="0" max="1" step="0.001" value="0.175"></label></div>
+      <div class="readout" id="edRead"></div>
+      <p class="stage-cap">Walking and care anchors from 4.0 upward as published. For 1.0–3.5 only the published general description is shown (increasing signs in the functional systems, fully ambulatory); the exact grade rules for each half-step are not reproduced here. Figures are schematic. [[Kurtzke1983,Das2019,Confavreux2000]]</p>
+    </div>
+    <aside class="note" id="edNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: a teaching calculator</h3>
+  <p class="callout"><b>A teaching tool, not a clinical score.</b> A real EDSS comes from a full neurological examination by a trained examiner, who grades each functional system and applies Kurtzke's detailed rules. This simplified version does not reproduce those rules: it uses only the published walking and care anchors, and places any examination findings with full walking in the 1.0–3.5 range. Even trained raters disagree: reported inter-rater kappa is 0.32–0.76 for the total score and 0.23–0.58 for individual functional systems. [[MeyerMoock2014]]</p>
+  <div class="lab">
+    <div class="stage">
+      <p class="kicker">Functional systems with signs on examination (tick any; simplified, no grades)</p>
+      <div class="edfs" id="edFs"></div>
+      <label class="edwalk" for="edWalk">How far can the person walk?
+        <select id="edWalk">
+          <option value="0">Fully ambulatory (no walking limit)</option>
+          <option value="4">About 500 m without aid or rest</option>
+          <option value="4.5">About 300 m</option>
+          <option value="5">About 200 m</option>
+          <option value="5.5">About 100 m</option>
+          <option value="6">About 100 m with one aid (one-sided help)</option>
+          <option value="6.5">About 20 m with two aids (help on both sides)</option>
+          <option value="7">5 m or less with aid; uses a wheelchair, wheels self, transfers alone</option>
+          <option value="7.5">A few steps only; may need help to transfer</option>
+          <option value="8">Mostly in bed or chair; keeps effective use of the arms</option>
+          <option value="8.5">In bed much of the day</option>
+          <option value="9">In bed; can communicate and eat</option>
+          <option value="9.5">Totally dependent; cannot communicate effectively or eat/swallow</option>
+        </select></label>
+      <div class="scroll"><svg id="edCalcSvg" viewBox="0 0 720 96" style="min-width:560px" role="img" aria-label="A 0 to 10 EDSS ruler with a marker at the step, or a bracket over the 1.0 to 3.5 range, that the teaching calculator gives."></svg></div>
+      <div class="ctrls"><button class="btn" id="edCalcShow">Show this step on the staircase</button><button class="btn ghost" id="edCalcReset">Reset</button></div>
+    </div>
+    <aside class="note" id="edCalcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">When does worsening count? Confirmed disability progression</h3>
+  <p class="prose">In trials, confirmed disability accumulation is typically an EDSS rise of at least 1.0 point from a baseline of 5.5 or less, or at least 0.5 point from a baseline above 5.5, that is still there at a visit 12 or 24 weeks later. Composite definitions add a 20% or greater worsening on the timed 25-foot walk or the 9-hole peg test. Watch one person's visits below: a short-lived rise and a lasting one. [[Kappos2020]]</p>
+  <div class="ctrls" role="group" aria-label="Baseline EDSS"><span class="kicker">Baseline</span>
+    <button class="btn" data-cdb="3" aria-pressed="true">EDSS 3.0 (needs +1.0)</button>
+    <button class="btn" data-cdb="6" aria-pressed="false">EDSS 6.0 (needs +0.5)</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Confirmation period"><span class="kicker">Confirmed after</span>
+    <button class="btn" data-cdc="12" aria-pressed="true">12 weeks</button>
+    <button class="btn" data-cdc="24" aria-pressed="false">24 weeks</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="edCdp" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="One person's EDSS at visits every 12 weeks over two years: a first rise above the threshold that later falls back, and a second rise that lasts; each rise is marked confirmed or not confirmed depending on the chosen 12- or 24-week rule, beside bars showing how many confirmed events were still present 5 years later in MSBase."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="edCdpPlay">Play</button><label class="stage-cap tl" for="edCdpT">Weeks <input type="range" id="edCdpT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap">Schematic visits for one illustrative person. The bars are published MSBase figures. [[Kalincik2015]]</p>
+    </div>
+    <aside class="note" id="edCdpNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Beyond EDSS: other measures</h3>
+  <div class="cards">
+    <div class="card"><span class="tag orange">MSFC</span><h4>MS Functional Composite</h4><p>Built in 1999 from three timed tests: the Timed 25-Foot Walk (legs), the 9-Hole Peg Test (arms) and the PASAT (cognition), combined as a z-score. Change over one year predicted later change in EDSS, which suggests it is more sensitive to change. Its main limitations are learning effects and the z-score scoring. [[Cutter1999,MeyerMoock2014]]</p></div>
+    <div class="card"><span class="tag orange">T25FW · 9HPT</span><h4>Timed walk and peg test</h4><p>The Timed 25-Foot Walk and the 9-Hole Peg Test are used alone too. In trial composites, a 20% or greater worsening on either counts toward confirmed disability progression. Walking speed is also how fampridine response was measured: 35% timed-walk responders vs 8% on placebo. [[Kappos2020,Goodman2009]]</p></div>
+    <div class="card"><span class="tag orange">SDMT</span><h4>Symbol Digit Modalities Test</h4><p>Measures processing speed. A change of about 4 points or 10% has been proposed as clinically meaningful. It is brief, reliable and sensitive enough to monitor cognition, including during acute disease activity. [[Benedict2017,Benedict2020]]</p></div>
+    <div class="card"><span class="tag orange">Limitations</span><h4>Why EDSS is criticised</h4><p>It is ordinal, not a ruler: the lower range rests on the examination, 4–6 depends heavily on walking, and above 6 it measures handicap. Variability between raters is greatest at 1.0–3.5. Across 48 progression definitions in MSBase, concordance was only 17.3%, and 11–34% of progression events regressed within 5 years. [[MeyerMoock2014,Kalincik2015]]</p></div>
+  </div>
+</section>

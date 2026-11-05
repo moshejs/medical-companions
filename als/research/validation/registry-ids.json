@@ -1,0 +1,306 @@
+{
+ "nct": {
+  "NCT03127514": {
+   "title": "AMX0035 in Patients With Amyotrophic Lateral Sclerosis (ALS)",
+   "acr": "CENTAUR",
+   "status": "COMPLETED",
+   "upd": "2024-05-16"
+  },
+  "NCT04414345": {
+   "title": "HEALEY ALS Platform Trial - Regimen C CNM-Au8",
+   "acr": null,
+   "status": "COMPLETED",
+   "upd": "2023-07-25"
+  },
+  "NCT04436497": {
+   "title": "HEALEY ALS Platform Trial - Regimen A Zilucoplan",
+   "acr": null,
+   "status": "COMPLETED",
+   "upd": "2023-07-25"
+  },
+  "NCT04436510": {
+   "title": "HEALEY ALS Platform Trial - Regimen B Verdiperstat",
+   "acr": null,
+   "status": "COMPLETED",
+   "upd": "2023-06-12"
+  },
+  "NCT04569084": {
+   "title": "Efficacy and Safety Study of Oral Edaravone Administered in Subjects With ALS",
+   "acr": null,
+   "status": "TERMINATED",
+   "upd": "2026-07-20"
+  },
+  "NCT04615923": {
+   "title": "HEALEY ALS Platform Trial - Regimen D Pridopidine",
+   "acr": null,
+   "status": "COMPLETED",
+   "upd": "2023-08-23"
+  },
+  "NCT04856982": {
+   "title": "Study to Learn If Tofersen (BIIB067) Can Delay ALS Symptoms and About Its Safety in Adults With a SOD1 Gene Mutation Who Have Not Yet Developed ALS Symptoms",
+   "acr": "ATLAS",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "upd": "2026-10-20"
+  },
+  "NCT05021536": {
+   "title": "Phase III Trial of AMX0035 for Amyotrophic Lateral Sclerosis Treatment",
+   "acr": "Phoenix",
+   "status": "UNKNOWN",
+   "upd": "2024-08-14"
+  },
+  "NCT05136885": {
+   "title": "HEALEY ALS Platform Trial - Regimen E SLS-005 - Trehalose",
+   "acr": null,
+   "status": "COMPLETED",
+   "upd": "2025-05-14"
+  },
+  "NCT05178810": {
+   "title": "Study to Investigate the Efficacy and Safety of FAB122 (Daily Oral Edaravone) in Patients With Amyotrophic Lateral Sclerosis",
+   "acr": "ADORE",
+   "status": "COMPLETED",
+   "upd": "2025-03-18"
+  },
+  "NCT06280079": {
+   "title": "Ultra-high-caloric, Fatty Diet in ALS",
+   "acr": "LIPCAL-ALS II",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "upd": "2026-10-13"
+  },
+  "NCT00317616": {
+   "title": "The Pre-symptomatic Familial Amyotrophic Lateral Sclerosis (Pre-fALS) Study",
+   "acr": "Pre-fALS",
+   "status": "RECRUITING",
+   "upd": "2026-03-20"
+  },
+  "NCT02588677": {
+   "title": "Masitinib in Combination With Riluzole for the Treatment of Patients Suffering From Amyotrophic Lateral Sclerosis (ALS)",
+   "acr": null,
+   "status": "COMPLETED",
+   "upd": "2023-09-29"
+  },
+  "NCT02623699": {
+   "title": "An Efficacy, Safety, Tolerability, Pharmacokinetics and Pharmacodynamics Study of BIIB067 (Tofersen) in Adults With Inherited Amyotrophic Lateral Sclerosis (ALS)",
+   "acr": "VALOR (Part C)",
+   "status": "COMPLETED",
+   "upd": "2023-07-28"
+  },
+  "NCT02943850": {
+   "title": "CNS10-NPC-GDNF for the Treatment of ALS",
+   "acr": null,
+   "status": "COMPLETED",
+   "upd": "2020-07-15"
+  },
+  "NCT03070119": {
+   "title": "Long-Term Evaluation of BIIB067 (Tofersen)",
+   "acr": null,
+   "status": "COMPLETED",
+   "upd": "2025-08-29"
+  },
+  "NCT03127267": {
+   "title": "Efficacy and Safety of Masitinib Versus Placebo in the Treatment of ALS Patients",
+   "acr": null,
+   "status": "RECRUITING",
+   "upd": "2025-09-12"
+  },
+  "NCT03280056": {
+   "title": "Safety and Efficacy of Repeated Administrations of NurOwn\u00ae in ALS Patients",
+   "acr": null,
+   "status": "COMPLETED",
+   "upd": "2024-02-29"
+  },
+  "NCT03548311": {
+   "title": "Clinical Trial of Ultra-high Dose Methylcobalamin for ALS",
+   "acr": "JETALS",
+   "status": "COMPLETED",
+   "upd": "2025-03-26"
+  },
+  "NCT03626012": {
+   "title": "A Study to Assess the Safety, Tolerability, and Pharmacokinetics of BIIB078 in Adults With C9ORF72-Associated Amyotrophic Lateral Sclerosis",
+   "acr": null,
+   "status": "COMPLETED",
+   "upd": "2022-01-14"
+  },
+  "NCT03800524": {
+   "title": "Safety and Efficacy of TUDCA as add-on Treatment in Patients Affected by ALS",
+   "acr": "TUDCA-ALS",
+   "status": "UNKNOWN",
+   "upd": "2023-07-10"
+  },
+  "NCT04057898": {
+   "title": "Evaluation of MN-166 (Ibudilast) for 12 Months Followed by an Open-label Extension for 6 Months in Patients With ALS",
+   "acr": "COMBAT-ALS",
+   "status": "ACTIVE_NOT_RECRUITING",
+   "upd": "2026-03-06"
+  },
+  "NCT04098406": {
+   "title": "Therapeutic Nanocatalysis to Slow Disease Progression of Amyotrophic Lateral Sclerosis (ALS)",
+   "acr": "RESCUE-ALS",
+   "status": "COMPLETED",
+   "upd": "2024-07-03"
+  },
+  "NCT04297683": {
+   "title": "HEALEY ALS Platform Trial - Master Protocol",
+   "acr": null,
+   "status": "ACTIVE_NOT_RECRUITING",
+   "upd": "2026-07-21"
+  },
+  "NCT04302870": {
+   "title": "Motor Neurone Disease - Systematic Multi-Arm Adaptive Randomised Trial",
+   "acr": "MND-SMART",
+   "status": "RECRUITING",
+   "upd": "2026-03-04"
+  },
+  "NCT04494256": {
+   "title": "A Study to Assess the Safety, Tolerability, and Effect on Disease Progression of BIIB105 in Participants With Amyotrophic Lateral Sclerosis (ALS) and Participants With the ALS Ataxin-2 (ATXN2) Genetic Mutation",
+   "acr": "ALSpire",
+   "status": "TERMINATED",
+   "upd": "2025-10-09"
+  },
+  "NCT04768972": {
+   "title": "FUSION: A Study to Evaluate the Efficacy, Safety, Pharmacokinetics and Pharmacodynamics of ION363 in Amyotrophic Lateral Sclerosis Participants With Fused in Sarcoma Mutations (FUS-ALS)",
+   "acr": null,
+   "status": "ACTIVE_NOT_RECRUITING",
+   "upd": "2026-07-21"
+  },
+  "NCT04931862": {
+   "title": "Study of WVE-004 in Patients With C9orf72-associated Amyotrophic Lateral Sclerosis (ALS) or Frontotemporal Dementia (FTD)",
+   "acr": "FOCUS-C9",
+   "status": "TERMINATED",
+   "upd": "2023-10-23"
+  },
+  "NCT05163886": {
+   "title": "Study of Safety, Tolerability, and Biological Activity of LAM-002A in C9ORF72-Associated Amyotrophic Lateral Sclerosis",
+   "acr": null,
+   "status": "COMPLETED",
+   "upd": "2026-09-29"
+  },
+  "NCT05237284": {
+   "title": "Phase 2 Study for SAR443820 in Participants With Amyotrophic Lateral Sclerosis (ALS)",
+   "acr": "HIMALAYA",
+   "status": "TERMINATED",
+   "upd": "2025-03-21"
+  },
+  "NCT05633459": {
+   "title": "A Study Evaluating the Safety and Tolerability of QRL-201 in ALS",
+   "acr": null,
+   "status": "ACTIVE_NOT_RECRUITING",
+   "upd": "2026-05-15"
+  },
+  "NCT05740813": {
+   "title": "HEALEY ALS Platform Trial - Regimen F ABBV-CLS-7262",
+   "acr": null,
+   "status": "COMPLETED",
+   "upd": "2025-11-14"
+  },
+  "NCT05842941": {
+   "title": "HEALEY ALS Platform Trial - Regimen G DNL343",
+   "acr": null,
+   "status": "COMPLETED",
+   "upd": "2026-01-28"
+  },
+  "NCT06008249": {
+   "title": "Platform Trial to Assess the Efficacy of Multiple Drugs in Amyotrophic Lateral Sclerosis (ALS)",
+   "acr": null,
+   "status": "TERMINATED",
+   "upd": "2026-05-13"
+  },
+  "NCT06100276": {
+   "title": "Safety, Tolerability, and Exploratory Efficacy Study of Intrathecally Administered Gene Therapy AMT-162 in Adult Participants With SOD1 Amyotrophic Lateral Sclerosis (SOD1-ALS)",
+   "acr": null,
+   "status": "ACTIVE_NOT_RECRUITING",
+   "upd": "2025-10-22"
+  },
+  "NCT06215755": {
+   "title": "A Study of VRG50635 in Participants With Amyotrophic Lateral Sclerosis (ALS)",
+   "acr": null,
+   "status": "TERMINATED",
+   "upd": "2025-12-15"
+  },
+  "NCT06392126": {
+   "title": "Personalized Antisense Oligonucleotide Therapy for A Single Participant With CHCHD10 ALS",
+   "acr": null,
+   "status": "ACTIVE_NOT_RECRUITING",
+   "upd": "2026-07-13"
+  },
+  "NCT06973629": {
+   "title": "Efficacy and Safety of MSC-NTF (NurOwn) in Participants With Early Symptomatic ALS and Moderate Disease Presentation in ALS (ENDURANCE STUDY)",
+   "acr": null,
+   "status": "NOT_YET_RECRUITING",
+   "upd": "2025-05-22"
+  },
+  "NCT07174492": {
+   "title": "Efficacy and Safety of Masitinib in Combination With SoC Versus Placebo in the Treatment of ALS Patients",
+   "acr": null,
+   "status": "NOT_YET_RECRUITING",
+   "upd": "2025-10-03"
+  },
+  "NCT07287397": {
+   "title": "Study is to Assess the Safety and Tolerability of VTx-002 in Participants With ALS",
+   "acr": "ALS",
+   "status": "RECRUITING",
+   "upd": "2026-10-16"
+  },
+  "NCT07322003": {
+   "title": "Pridopidine Phase 3 Study to Evaluate Efficacy and Safety in ALS",
+   "acr": "PREVAiLS",
+   "status": "RECRUITING",
+   "upd": "2026-10-06"
+  },
+  "NCT07410806": {
+   "title": "HEALEY ALS Platform Trial - Regimen I NUZ-001",
+   "acr": null,
+   "status": "ACTIVE_NOT_RECRUITING",
+   "upd": "2026-07-20"
+  },
+  "NCT07862959": {
+   "title": "Early Access Program for Ulefnersen in Children, Adolescents and Adults With FUS-associated Amyotrophic Lateral Sclerosis (FUS-ALS)",
+   "acr": null,
+   "status": "AVAILABLE",
+   "upd": "2026-10-07"
+  }
+ },
+ "setid": {
+  "0ce2c1c4-2a40-485c-b7cb-96a9b85d9d11": {
+   "ok": true,
+   "name": [
+    "RADICAVA ORS"
+   ]
+  },
+  "3f35d6e0-3450-4abc-a0da-cc7b277e7c6e": {
+   "ok": true,
+   "name": [
+    "Xeomin"
+   ]
+  },
+  "484e0918-3442-49dc-8ccf-177f1f3ee9f3": {
+   "ok": true,
+   "name": [
+    "NUEDEXTA"
+   ]
+  },
+  "75d68f19-4208-109e-e053-2991aa0ac857": {
+   "ok": true,
+   "name": [
+    "TIGLUTIK"
+   ]
+  },
+  "81356b45-1cb7-4eef-88ea-e44cc18b47c5": {
+   "ok": true,
+   "name": [
+    "QALSODY"
+   ]
+  },
+  "d200bd44-9856-4104-a29e-a4cca3db6737": {
+   "ok": true,
+   "name": [
+    "Cuvposa"
+   ]
+  },
+  "dd432c13-389e-46b3-8891-0cf1a58800ff": {
+   "ok": true,
+   "name": [
+    "Riluzole"
+   ]
+  }
+ }
+}

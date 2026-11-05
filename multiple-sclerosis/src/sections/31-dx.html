@@ -1,0 +1,159 @@
+<!-- ================= 3.1 McDONALD CRITERIA CALCULATOR ================= -->
+<section class="mod" id="m-dx" data-mod="dx" hidden>
+<style>
+#m-dx .dx-bar{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
+#m-dx .dx-seg{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-dx .dx-seg .btn{font-size:13.5px;padding:7px 12px}
+#m-dx .dx-side{display:flex;flex-direction:column;gap:14px;min-width:0}
+#m-dx fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px 12px;margin:0;display:flex;flex-direction:column;gap:8px;min-width:0;background:var(--panel)}
+#m-dx fieldset[disabled]{opacity:.55}
+#m-dx legend{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 4px}
+#m-dx .dx-ck{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.35;cursor:pointer;overflow-wrap:anywhere}
+#m-dx .dx-ck input{margin:2px 0 0;accent-color:var(--brand);flex:none;width:17px;height:17px}
+#m-dx .dx-def{font-size:13px;color:var(--muted);line-height:1.45}
+#m-dx .dx-num{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:14.5px}
+#m-dx .dx-num input{width:6.5em;font:inherit;padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:var(--field);color:var(--ink)}
+#m-dx .dx-num output{font:600 12px var(--mono);color:var(--muted)}
+#m-dx .dx-sites .btn{font-size:13px;padding:6px 11px}
+#m-dx .dx-det{border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;background:var(--panel-2)}
+#m-dx .dx-det select{font:inherit;padding:5px 8px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%}
+#m-dx .dx-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;font-size:14px}
+#m-dx .dx-sp{display:inline-flex;align-items:center;gap:6px}
+#m-dx .dx-sp button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--panel);font-weight:800;font-size:17px;line-height:1;cursor:pointer}
+#m-dx .dx-sp button:disabled{opacity:.35;cursor:default}
+#m-dx .dx-sp output{min-width:2.2ch;text-align:center;font:600 15px var(--mono)}
+#m-dx [data-site]{cursor:pointer;outline:none}
+#m-dx [data-site] .dx-hl{fill:transparent;stroke:transparent;stroke-width:2}
+#m-dx [data-site]:hover .dx-hl{stroke:var(--mri-gm);stroke-dasharray:4 3}
+#m-dx [data-site]:focus-visible .dx-hl{stroke:var(--pulse);stroke-width:3;stroke-dasharray:none}
+#m-dx .verdict{display:flex;flex-direction:column;gap:6px;border:1px solid currentColor;transition:background .3s}
+#m-dx .verdict strong{font-family:var(--display);font-size:21px;line-height:1.15}
+#m-dx .verdict span{font-weight:500;color:var(--ink);font-size:14.5px;line-height:1.45}
+#m-dx .verdict .kicker{color:inherit}
+#m-dx .verdict .dx-w{border-left:3px solid var(--warn);padding-left:9px;font-size:13.5px}
+#m-dx .dx-io{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px;align-items:start}
+#m-dx .dx-tr{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+#m-dx .dx-tr .card.on{border-color:var(--brand);box-shadow:0 0 0 2px var(--brand-soft)}
+#m-dx .dx-tr ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+#m-dx .dx-tr li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:6px;font-size:14px;line-height:1.4}
+#m-dx .dx-tr li i{font-style:normal;font:700 13px var(--mono);text-align:center;border-radius:6px;padding:1px 0;height:20px}
+#m-dx .dx-tr li i.ok{background:var(--good-soft);color:var(--good)}
+#m-dx .dx-tr li i.no{background:var(--bad-soft);color:var(--bad)}
+#m-dx .dx-tr li i.warn{background:var(--warn-soft);color:var(--warn)}
+#m-dx .dx-tr li i.sk{background:var(--panel-2);color:var(--muted)}
+#m-dx .dx-pill{display:inline-block;font:700 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px}
+#m-dx .dx-pill.yes{background:var(--good-soft);color:var(--good)} #m-dx .dx-pill.no{background:var(--bad-soft);color:var(--bad)} #m-dx .dx-pill.maybe{background:var(--warn-soft);color:var(--warn)}
+#m-dx .dx-bars{display:grid;grid-template-columns:minmax(64px,auto) minmax(0,1fr) 48px;gap:4px 8px;align-items:center;font:500 11.5px var(--mono);color:var(--muted)}
+#m-dx .dx-bars i{display:block;height:9px;border-radius:5px;background:var(--panel-2);overflow:hidden}
+#m-dx .dx-bars i b{display:block;height:100%;border-radius:5px}
+#m-dx .dx-bars .h{grid-column:1/-1;color:var(--ink);font:600 12px var(--body);margin-top:4px}
+#m-dx .legend i.ring{height:10px;width:10px;border-radius:50%;background:none;border:2px solid var(--gd)}
+#m-dx .legend i.dash{height:10px;width:10px;border-radius:50%;background:none;border:2px dashed var(--pulse)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Diagnosis</p><h2>McDonald criteria calculator</h2>
+    <p class="lede">Place MS-type lesions on a schematic brain, spinal cord and optic nerves, add CSF and other results, then watch the 2017 or 2024 McDonald criteria build a verdict step by step.</p></div>
+
+  <p class="callout"><b>A learning aid, not a diagnosis.</b> It applies the published rules to the boxes you tick. It cannot diagnose anyone. The last step, "no better explanation", always needs a clinician's judgement after a full workup, so a positive result here reads "criteria met (if no better explanation)". Rules: Thompson et al., <i>Lancet Neurol</i> 2018;17(2):162-173 [[Thompson2018]] and Montalban et al., <i>Lancet Neurol</i> 2025;24(10):850-865 [[Montalban2025]]. The 2024 paper was paywalled to our research, so its Figures 2 and 3 were read from the official IACCTMS slide deck that reproduces them.</p>
+
+  <div class="dx-bar">
+    <div class="dx-seg" role="group" aria-label="Criteria version"><span class="kicker">Criteria</span>
+      <button class="btn" data-ver="2017" aria-pressed="false">2017</button>
+      <button class="btn" data-ver="2024" aria-pressed="true">2024</button></div>
+    <div class="dx-seg" role="group" aria-label="Preset cases"><span class="kicker">Load a case</span>
+      <button class="btn" data-dxp="on">Optic neuritis + brain lesions</button>
+      <button class="btn" data-dxp="pp">Primary progressive</button>
+      <button class="btn" data-dxp="ris">Radiologically isolated (RIS)</button>
+      <button class="btn" data-dxp="mig">Migraine, white spots</button>
+      <button class="btn ghost" data-dxp="clr">Clear</button></div>
+  </div>
+
+  <div class="stepper" id="dxSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="dxSvg" viewBox="0 0 720 414" style="min-width:560px" role="img" aria-label="Schematic MRI of the brain, spinal cord and optic nerves with clickable lesion sites, beside four criteria steps that light up in turn and end in a verdict"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxPlay">Play</button><label class="stage-cap tl" for="dxT">Steps <input type="range" id="dxT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="ctrls dx-sites" role="group" aria-label="Lesion sites: press to place or remove lesions" id="dxSiteBtns"></div>
+      <div class="dx-det" id="dxDet">
+        <label class="dx-num" for="dxSel"><span class="kicker">Lesion details for</span><select id="dxSel"></select></label>
+        <div id="dxDetRows"></div>
+      </div>
+      <div class="legend"><span><i class="ring"></i>gold ring: enhances with gadolinium (Gd+)</span><span><i class="dash"></i>dashed ring: new on the follow-up scan</span><span><i style="background:var(--mri-bg);width:3px;height:12px"></i>dark line through a lesion: central vein sign</span><span><i style="background:var(--mri-bg);height:10px;width:10px;border-radius:50%;border:2px solid var(--mri-gm)"></i>dark edge: paramagnetic rim</span></div>
+      <p class="stage-cap">Schematic composite, not to scale and not a real scan. Abbreviations in the steps: PV periventricular, JC cortical/juxtacortical, IT infratentorial, SC spinal cord, ON optic nerve, WM white matter. Deep white-matter lesions are drawn because many people have them, but they are not a DIS site.</p>
+    </div>
+    <div class="dx-side">
+      <aside class="note" id="dxNote" aria-live="polite"></aside>
+    </div>
+  </div>
+
+  <h3 class="sub">Everything else the criteria ask about</h3>
+  <div class="dx-io">
+    <fieldset><legend>Clinical picture</legend>
+      <div class="dx-seg" role="group" aria-label="Presentation">
+        <button class="btn" data-pres="attack" aria-pressed="true">Typical attack (CIS or relapse)</button>
+        <button class="btn" data-pres="prog" aria-pressed="false">Progressive from onset</button>
+        <button class="btn" data-pres="incid" aria-pressed="false">Incidental MRI or non-specific symptoms</button>
+      </div>
+      <fieldset id="dxAttFs"><legend>Attacks</legend>
+        <div class="dx-seg" role="group" aria-label="Number of attacks"><span class="kicker">Attacks</span>
+          <button class="btn" data-att="1" aria-pressed="true">1</button><button class="btn" data-att="2" aria-pressed="false">2 or more</button></div>
+        <div class="dx-seg" role="group" aria-label="Objective clinical evidence"><span class="kicker">Objective clinical evidence of</span>
+          <button class="btn" data-obj="1" aria-pressed="true">1 lesion</button><button class="btn" data-obj="2" aria-pressed="false">2 or more lesions</button></div>
+        <label class="dx-ck"><input type="checkbox" id="dxHist"><span>Clear-cut historical evidence of an earlier attack in a different place (2017 table, row 2; 2024 counts it as clinical dissemination in space)</span></label>
+        <label class="dx-ck"><input type="checkbox" id="dxClin2"><span>A later attack implicated a different CNS site (clinical dissemination in space)</span></label>
+        <p class="dx-def">An attack means symptoms with corroborating objective findings, lasting at least 24 hours, without fever or infection [[Solomon2026]]. Accepting attacks without objective evidence was a leading cause of misdiagnosis [[Solomon2016]].</p>
+      </fieldset>
+      <label class="dx-ck"><input type="checkbox" id="dxProg"><span>At least 12 months of disability progression from onset, independent of relapses</span></label>
+    </fieldset>
+
+    <fieldset><legend>Cerebrospinal fluid</legend>
+      <label class="dx-ck"><input type="checkbox" id="dxOcb"><span>2 or more CSF-restricted oligoclonal bands (OCB)</span></label>
+      <label class="dx-num" for="dxKflc">κ-FLC index <input type="number" id="dxKflc" min="0" max="200" step="0.1" placeholder="not done" inputmode="decimal"><output id="dxKflcO"></output></label>
+      <p class="dx-def">κ-FLC index = (CSF κ-FLC ÷ serum κ-FLC) ÷ (CSF albumin ÷ serum albumin). Positive CSF in 2024 means OCB or an index ≥6.1; each laboratory should verify that cut-off [[Deisenhammer2025,Konen2026]]. The 2017 criteria use OCB only [[Thompson2018]].</p>
+    </fieldset>
+
+    <fieldset><legend>Optic nerve evidence (2024)</legend>
+      <label class="dx-num" for="dxRnfl">OCT inter-eye difference, pRNFL (μm) <input type="number" id="dxRnfl" min="0" max="80" step="1" placeholder="—" inputmode="decimal"></label>
+      <label class="dx-num" for="dxGcipl">OCT inter-eye difference, GCIPL (μm) <input type="number" id="dxGcipl" min="0" max="80" step="1" placeholder="—" inputmode="decimal"></label>
+      <label class="dx-ck"><input type="checkbox" id="dxVep"><span>Abnormal full-field VEP: P100 delayed or a significant difference between the eyes</span></label>
+      <p class="dx-def">With rigorous quality control, an inter-eye difference of ≥6 μm in peripapillary RNFL or ≥4 μm in GCIPL supports optic nerve involvement; an MRI optic nerve lesion also counts (place it on the map). Any of these needs no better explanation for the optic nerve finding [[Saidha2025,IACCTMS2025Slides]]. <span id="dxOnO"></span></p>
+    </fieldset>
+
+    <fieldset><legend>Susceptibility MRI (2024)</legend>
+      <p id="dxCvsO" aria-live="polite" style="font-size:14.5px"></p>
+      <p class="dx-def">Set "with central vein sign" and "with paramagnetic rim" per site in the lesion details above. <b>Select-6:</b> at least 6 white-matter lesions with a central vein or, if fewer than 10 white-matter lesions are seen, more CVS-positive than CVS-negative lesions. <b>PRL:</b> at least 1 paramagnetic rim lesion [[Montalban2025,Solomon2026,Samara2025]]. The official slide deck is internally inconsistent here: one slide applies the majority rule below 6 lesions and another below 10. The published figure says fewer than 10, which this calculator uses [[IACCTMS2025Slides]].</p>
+    </fieldset>
+
+    <fieldset><legend>The person</legend>
+      <div class="dx-seg" role="group" aria-label="Age"><span class="kicker">Age</span>
+        <button class="btn" data-age="u12" aria-pressed="false">Under 12</button><button class="btn" data-age="u18" aria-pressed="false">12–17</button><button class="btn" data-age="adult" aria-pressed="true">18–49</button><button class="btn" data-age="o50" aria-pressed="false">50 or older</button></div>
+      <label class="dx-ck"><input type="checkbox" id="dxVasc"><span>Significant vascular risk (high blood pressure, smoking, diabetes, high lipids), known vascular disease, or a headache disorder such as migraine</span></label>
+      <label class="dx-ck"><input type="checkbox" id="dxAdem"><span>A child whose first event was ADEM (acute disseminated encephalomyelitis)</span></label>
+    </fieldset>
+
+    <fieldset><legend>Step 4 · No better explanation</legend>
+      <label class="dx-ck"><input type="checkbox" id="dxBetter"><span>A better explanation is present, or the workup has not excluded one</span></label>
+      <p class="dx-def">"No better explanation" means the presentation is typical of MS and nothing clinical or paraclinical suggests another diagnosis, or the workup for those diagnoses is negative [[Solomon2026]]. A calculator cannot decide this. See <a href="#ddx" data-go="ddx">The differential</a>.</p>
+    </fieldset>
+  </div>
+
+  <h3 class="sub">The same case under 2017 and 2024</h3>
+  <div class="prose"><p>Both rule sets run on every change. The highlighted card is the version the map is showing. Apart from some people with primary progressive MS who lack several spinal cord lesions, everyone who meets 2017 also meets 2024, and a diagnosis made under older criteria is not changed by the revision [[Solomon2026]].</p></div>
+  <div class="dx-tr" id="dxTrace"></div>
+  <p class="stage-cap">2024 dissemination in time follows the paper's Figure 3 footnote: "one or more new T2 lesions or one or more gadolinium-positive lesions or a clinical attack" [[Montalban2025]]. The companion glossary reads it more strictly, as new T2 lesions over time or enhancing and non-enhancing lesions together on one scan, as in 2017 [[Solomon2026]]. The sources do not settle this; the verdict tells you when the stricter reading would change the answer.</p>
+
+  <h3 class="sub">How well the criteria and tests perform</h3>
+  <div class="cards" id="dxPerf"></div>
+
+  <h3 class="sub">Where experts disagree</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Debated</span><h4>Diagnosing without dissemination in time</h4><p>2024 allows a diagnosis on 4–5 sites alone, or with a central vein sign, to speed diagnosis [[Montalban2025,VanDerWalt2026]]. Real-world cohorts found many more diagnoses, specificity of 57.8% against 2017 at follow-up, and low 2017–2024 agreement in one cohort (κ=0.112) [[Brownlee2026,Hamdy2025]]. The London authors note that their "specificity" counts 2017-negative CIS and RIS as false positives. No long-term prospective validation yet.</p></div>
+    <div class="card"><span class="tag warn">Unresolved</span><h4>Calling RIS multiple sclerosis</h4><p>About 51% of people with RIS develop clinical symptoms within 10 years [[Rocca2024,IACCTMS2025Slides]], and OCB (HR 5.09) and κ-FLC ≥6.1 (HR 2.79) predict it [[Fissolo2025]]. Critics point to overdiagnosis, the consequences of treatment and labelling, and gaps in implementation [[Konen2026,Samara2025,Brownlee2026]]. Letters raising concerns were published with an authors' reply [[Montalban2026Reply]].</p></div>
+    <div class="card"><span class="tag warn">Varies by centre</span><h4>The optic nerve as a fifth site</h4><p>Adding it raised sensitivity without losing specificity by VEP in one cohort [[VidalJordana2021]] and gave similar accuracy across MRI, OCT and VEP in another [[VidalJordana2024]]. Other cohorts found lower specificity, and asymptomatic optic nerve findings in non-optic-neuritis CIS added no patients [[Filippi2018,Brownlee2018]]. OCT and VEP thresholds depend on quality control, centre and device [[Saidha2025]].</p></div>
+    <div class="card"><span class="tag warn">Threshold choice</span><h4>Central vein sign and κ-FLC cut-offs</h4><p>Earlier work used a 40% lesion rule; Select-3 was sensitive but not specific, and 2024 adopted Select-6 [[Cagol2024,Toljan2024,Montalban2025]]. Published κ-FLC cut-offs range from 2.4 to 20; 6.1 is a weighted mean, and κ-FLC and OCB disagree in about 10%–13% of cases [[Deisenhammer2025,IACCTMS2025Slides]].</p></div>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b><b>2017:</b> DIS = 2 of 4 areas (PV, cortical/JC, IT, cord); DIT = enhancing + non-enhancing together, or a new lesion, or a second attack; CSF OCB can stand in for DIT; symptomatic lesions count except in the optic nerve; PPMS = 1 year of progression + 2 of 3 (brain, ≥2 cord, OCB). <b>2024:</b> optic nerve is the 5th site; DIS + positive CSF (OCB or κ-FLC ≥6.1) is enough; one site needs (CSF or DIT) and (CVS or PRL); 4–5 sites alone only after an attack or progression; RIS can qualify with ≥2 sites + CSF, CVS or DIT. [[Thompson2018,Montalban2025]]</div>
+    <div class="pt"><b>In plain words</b>To diagnose MS, doctors look for damage in more than one part of the nervous system, signs that it happened at more than one time (or a spinal fluid test that stands in for that), and then make sure nothing else explains it better. The 2024 rules add new scan and eye tests that can make the answer faster, but the final check still belongs to a person.</div>
+  </div>
+</section>

@@ -1,0 +1,86 @@
+<!-- ================= 2.3 RATING SCALES & ASSESSMENT ================= -->
+<style>
+#m-scales .scbanner{background:var(--gold-soft);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14.5px;max-width:none}
+#m-scales .scbanner b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warn);display:block;margin-bottom:3px}
+#m-scales .scq{display:flex;flex-direction:column;gap:7px;padding:10px 0;border-top:1px solid var(--line)}
+#m-scales .scq:first-child{border-top:0;padding-top:0}
+#m-scales .scq p{font-size:15px}
+#m-scales .scd{display:inline-block;font:500 11px var(--mono);color:var(--dx);background:var(--dx-soft);border-radius:5px;padding:2px 6px;margin-left:4px}
+#m-scales .scf{display:flex;flex-wrap:wrap;gap:6px}
+#m-scales .scf .btn{font-size:13px;padding:6px 11px}
+#m-scales .card>.tag,#m-scales .card>.ev{align-self:flex-start}
+</style>
+<section class="mod" id="m-scales" data-mod="scales" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Recognising &amp; diagnosing</p><h2>Rating scales &amp; assessment</h2>
+    <p class="lede">Questionnaires such as the ASRS, Vanderbilt, SNAP-IV and Conners collect information quickly, but none of them diagnoses ADHD. Follow one person through a full assessment, see what a screener does, and watch why a positive screen is often a false alarm.</p></div>
+  <div class="stepper" id="scSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="scSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A person walks along six stations of an ADHD assessment: screening questionnaire, clinical interview, childhood history, reports from school and other settings, rule-out checks, and the clinician's decision. An assessment file below fills with one sheet of evidence per station."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="scPlay">Play</button><label class="stage-cap tl" for="scT">Assessment <input type="range" id="scT" min="0" max="1" step="0.001" value="0.07"></label></div>
+      <p class="stage-cap">Schematic pathway; the order and the tools vary between services and countries. [[Wolraich2019,Faraone2021,Posner2020]]</p>
+    </div>
+    <aside class="note" id="scNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How a screener works: a walkthrough</h3>
+  <p class="scbanner"><b>Illustrative questions, not a test</b>These six questions were written for this guide to show how a frequency-based screener is built; each one is tied to a DSM-5-TR symptom. They are not the ASRS wording, have no validated scoring, and give no result. If you are worried about ADHD, talk to a doctor; online quizzes cannot tell you whether you have it. [[APA2022DSM,Faraone2021]]</p>
+  <div class="lab">
+    <div class="stage" id="scWalk"></div>
+    <aside class="note" id="scWalkOut" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why a positive screen is often a false alarm</h3>
+  <p class="prose">Pick a scale and a setting. Each figure is one of 1,000 people. The test's published sensitivity and specificity split them into true and false positives and negatives; press <b>Sort into groups</b> to gather them. Move the prevalence down and watch the share of true positives fall.</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label for="scTest">Scale or test<select id="scTest"></select></label>
+        <label for="scSet">Setting (prevalence)<select id="scSet"></select></label>
+      </div>
+      <div class="scroll"><svg id="scPv" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="An icon array of 1,000 people coloured as true positives, false negatives, false positives and true negatives; when sorted they gather into groups, and a bar shows the share of positive results that are true (the positive predictive value)."></svg></div>
+      <div class="ctrls"><button class="btn" id="scSortBtn" aria-pressed="false">Sort into groups</button>
+        <label class="stage-cap tl" for="scPrev">Prevalence <input type="range" id="scPrev" min="0" max="1" step="0.001" value="0.24"></label>
+        <label class="stage-cap tl" for="scSort">Sort <input type="range" id="scSort" min="0" max="1" step="0.01" value="0"></label></div>
+      <div class="readout" id="scPvRead"></div>
+      <p class="stage-cap">Accuracy figures are published; PPV and NPV here are calculated from them. Real accuracy changes with the setting: ASRS-5 specificity was 96.0% in population data but 74.0% in a clinic sample. Prevalence sources: [[Simon2009,Kessler2006,Salari2023,vanEmmerikvanOortmerssen2012,Ustun2017]]</p>
+    </div>
+    <aside class="note" id="scPvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who is asked changes the answer</h3>
+  <div class="ctrls" role="group" aria-label="Definition used"><span class="kicker">Definition</span>
+    <button class="btn" data-scr="count" aria-pressed="true">DSM symptom criteria</button>
+    <button class="btn" data-scr="sd" aria-pressed="false">+2 SD cut-off</button></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="scInf" viewBox="0 0 720 200" style="min-width:560px" role="img" aria-label="Bars comparing how often ADHD persisted into young adulthood by self-report and by parent report, under two definitions."></svg></div>
+      <p class="stage-cap">Hyperactive children followed to age 19–25. [[Barkley2002]]</p></div>
+    <aside class="note"><div class="kicker">Informants</div><h4>Ask more than one person</h4><p>Young adults reported far fewer symptoms than their parents did. In the MTA follow-up, persistence was also higher with parent reports than self-reports, and with interviews than with rating scales; combining parent and self-report gave 60% symptom persistence and 41% symptom-plus-impairment persistence. [[Barkley2002,Sibley2017Persistence]]</p>
+      <div class="pt"><b>In plain words</b>People often under-rate their own symptoms, so a clinician asks someone who knows them well too.</div>
+      <div class="hook"><b>Exam hook</b>Late-onset adult cases need care: about 95% of people who first screened positive in adulthood were excluded on full repeated assessment, most often because symptoms occurred only with heavy substance use. [[Sibley2018LateOnset]]</div></aside>
+  </div>
+
+  <h3 class="sub">The main scales and tests</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Tool</th><th>Who it is for · who fills it in</th><th>What it is</th><th>Published accuracy and reliability</th></tr></thead>
+    <tbody>
+      <tr><th>ASRS v1.1 screener</th><td>Adults · self-report</td><td>6 questions chosen from the 18-item ASRS symptom checklist (DSM-IV Criterion A)</td><td>Sensitivity 68.7%, specificity 99.5%, accuracy 97.9% (validation sample); AUC 0.90 in 668 health-plan members; test-retest ICC 0.75 in primary care [[Kessler2005,Kessler2007ASRS,Silverstein2018]]</td></tr>
+      <tr><th>ASRS 18-item checklist</th><td>Adults · self or rater</td><td>All 18 DSM-IV symptoms</td><td>Sensitivity 56.3%, specificity 98.3%; Cronbach's alpha 0.88–0.89 [[Kessler2005,Adler2006]]</td></tr>
+      <tr><th>ASRS-5</th><td>Adults · self-report</td><td>6 questions for DSM-5, built by machine learning (RiskSLIM)</td><td>Population data: sensitivity 91.4%, specificity 96.0%, AUC 0.94. Clinic: 91.9%, 74.0%, AUC 0.83 [[Ustun2017]]</td></tr>
+      <tr><th>Vanderbilt parent (VADPRS)</th><td>Children · parent</td><td>DSM-based symptoms plus oppositional/conduct and anxiety/depression screens</td><td>Alpha 0.91–0.94; community: sensitivity 0.80, specificity 0.75, PPV 0.19, NPV 0.98 [[Wolraich2003,Bard2013Parent]]</td></tr>
+      <tr><th>Vanderbilt teacher (VADTRS)</th><td>Children · teacher</td><td>35 items</td><td>KR20 0.85–0.94; sensitivity 0.69, specificity 0.84, PPV 0.32, NPV 0.96 [[Wolraich2013Teacher]]</td></tr>
+      <tr><th>SNAP-IV</th><td>Children · parent and teacher</td><td>DSM symptoms, two ADHD factors plus ODD</td><td>Parent item-mean &gt;1.2: likelihood ratio &gt;10 for concern; &gt;1.8: LR &gt;3 for diagnosis. High sensitivity, low specificity in referred children: best as a screening and outcome tool. Scores differed by sex and poverty [[Bussing2008,Hall2020SNAP]]</td></tr>
+      <tr><th>Conners 3 (parent short form)</th><td>Children · parent</td><td>Short symptom scale</td><td>Supported identifying ADHD against a structured interview in clinic-referred children aged 6–11 (ROC) [[Gomez2021Conners]]</td></tr>
+      <tr><th>DIVA 2.0 / DIVA-5</th><td>Adults · clinician interview</td><td>Semi-structured interview covering childhood and adulthood</td><td>DIVA 2.0: 100% agreement with CAADID (n = 40). DIVA-5 (Korean): sensitivity 91.3%, specificity 93.6% [[RamosQuiroga2019,Hong2020DIVA5]]</td></tr>
+      <tr><th>Continuous performance tests</th><td>Computer task</td><td>Sustained-attention task</td><td>Sensitivity 0.75, specificity 0.71; AUC "barely acceptable" [[Arrondo2024]]</td></tr>
+      <tr><th>QbTest</th><td>Computer task</td><td>Computerised attention and activity test</td><td>Sensitivity 0.78, specificity 0.70, AUC 0.72; not for stand-alone use [[Bellato2024QbTest]]</td></tr>
+      <tr><th>EEG theta/beta ratio</th><td>Children · EEG</td><td>Brain-wave ratio</td><td>Effect sizes 0.62–0.75 with high heterogeneity; not a reliable diagnostic measure [[Arns2013]]</td></tr>
+    </tbody></table></div>
+
+  <div class="cards">
+    <div class="card"><span class="tag dx">Norms</span><h4>Scales normed on boys</h4><p>Most rating-scale norms come from male or mixed samples, which may disadvantage girls. The female ADHD consensus recommends female norms where they exist and more weight on collateral information. [[Young2020Females]] More in <a href="#women" data-go="women">girls, women &amp; late diagnosis</a>.</p></div>
+    <div class="card"><span class="tag dx">Feigning</span><h4>Symptoms can be over-reported</h4><p>In college students most self-report questionnaires were insensitive to feigned ADHD; failing 3 or more symptom validity tests was the most useful sign. The AAP notes some adolescents may feign symptoms to obtain stimulants. [[Musso2014,Wolraich2019]]</p></div>
+    <div class="card"><span class="tag dx">Parents vs teachers</span><h4>Different views, both valid</h4><p>In 6,659 children aged 4–17, parents rated symptoms as more severe than teachers did, and agreement on inattention was weak. Each informant adds valid information. [[Narad2015]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>No biomarker yet</h4><p>Neuropsychological and imaging differences between groups are small and overlap with other conditions, so they are not useful for diagnosis. [[Faraone2021]] Look-alikes to check are covered in <a href="#differential" data-go="differential">look-alikes &amp; co-occurring conditions</a>.</p></div>
+  </div>
+</section>

@@ -1,0 +1,78 @@
+{
+  "what": {
+    "title": "What is ALS? Amyotrophic lateral sclerosis explained",
+    "description": "ALS is a disease of the motor neurons that carry movement from brain to muscle. Who gets it, how often, the ways it starts and spreads, and its forms."
+  },
+  "neurons": {
+    "title": "Upper vs lower motor neuron signs in ALS, animated",
+    "description": "ALS damages both upper and lower motor neurons. See what each loss does: spasticity and brisk reflexes, or weakness, wasting and fasciculations, and EMG."
+  },
+  "tdp43": {
+    "title": "TDP-43 in ALS: how the protein goes wrong, animated",
+    "description": "In most ALS, the protein TDP-43 leaves the nucleus and clumps. Watch it happen, and see what is lost, from STMN2 splicing to axon repair. SOD1 and FUS too."
+  },
+  "genes": {
+    "title": "ALS genetics: C9orf72, SOD1, FUS and genetic testing",
+    "description": "Is ALS inherited? The C9orf72 repeat, SOD1 and other genes, penetrance by age, the familial share, and what the 2023 US testing guideline says."
+  },
+  "dx": {
+    "title": "ALS diagnosis: Gold Coast and El Escorial criteria calculator",
+    "description": "No single test diagnoses ALS. Try the Gold Coast, revised El Escorial and Awaji criteria on example findings, and see how EMG, MRI and NfL fit in."
+  },
+  "ddx": {
+    "title": "ALS mimics: the differential diagnosis",
+    "description": "Conditions that can look like ALS, from multifocal motor neuropathy to Kennedy disease and cervical myelopathy, and the signs and tests that tell them apart."
+  },
+  "course": {
+    "title": "ALSFRS-R score and ALS progression rate calculator",
+    "description": "Score the 12 ALSFRS-R items, work out the progression rate, and see how ALS usually changes over months, with King's stages and the ENCALS model."
+  },
+  "drugs": {
+    "title": "ALS drugs: riluzole, edaravone and Relyvrio",
+    "description": "What riluzole and edaravone target, what their trials found, and why Relyvrio (AMX0035) was withdrawn. Labels, effect sizes and approvals since 1995."
+  },
+  "tofersen": {
+    "title": "Tofersen (Qalsody) for SOD1-ALS, explained",
+    "description": "Tofersen is an antisense drug that lowers SOD1. How it works, what the VALOR trial and its extension showed, who it is for, and its side effects."
+  },
+  "breathing": {
+    "title": "Breathing in ALS: FVC, SNIP and when NIV is offered",
+    "description": "How ALS weakens breathing, the tests used to follow it, and the published triggers for non-invasive ventilation (BiPAP), side by side across guidelines."
+  },
+  "nutrition": {
+    "title": "ALS swallowing and feeding tubes: when PEG is discussed",
+    "description": "Why weight matters in ALS, how swallowing changes, and when guidelines discuss a gastrostomy (PEG, RIG), with the ProGas results and diet trials."
+  },
+  "living": {
+    "title": "Living with ALS: communication, cognition and end of life",
+    "description": "Voice banking, eye-gaze and brain-computer interfaces, thinking and behaviour changes, mood, planning ahead, caregiving and what is known about end of life."
+  },
+  "nursing": {
+    "title": "ALS nursing care: assessment, medicines and teaching",
+    "description": "Nursing care in ALS as published: breathing and swallowing assessment, giving riluzole and tofersen, NIV and gastrostomy teaching, and documentation."
+  },
+  "cure": {
+    "title": "Is there a cure for ALS? Research routes and evidence",
+    "description": "No treatment cures ALS yet. Gene silencing, antisense drugs, cell therapy and platform trials, each with its evidence label and current trial status."
+  },
+  "history": {
+    "title": "History of ALS: Charcot to tofersen",
+    "description": "ALS was named by Charcot in the 1870s. Lou Gehrig, the first genes, TDP-43, the Ice Bucket Challenge and the first drugs, milestone by milestone."
+  },
+  "review": {
+    "title": "ALS flashcards and mnemonics",
+    "description": "Flashcards and mnemonics on amyotrophic lateral sclerosis by topic: the disease, diagnosis and course, treatment and care, living with ALS, history."
+  },
+  "quiz": {
+    "title": "ALS quiz, with explanations",
+    "description": "Test yourself on ALS: motor neurons, TDP-43 and genes, criteria, ALSFRS-R, drugs and tofersen, breathing and nutrition. Every answer is explained."
+  },
+  "glossary": {
+    "title": "ALS glossary: terms explained",
+    "description": "Plain definitions of the terms in ALS care and research, from fasciculation and TDP-43 to FVC, NIV and antisense. Searchable, each linked to its module."
+  },
+  "sources": {
+    "title": "Sources and references | ALS Companion",
+    "description": "Every reference behind ALS Companion: journal articles, guidelines, drug labels, regulatory documents and trial registrations, searchable by topic."
+  }
+}

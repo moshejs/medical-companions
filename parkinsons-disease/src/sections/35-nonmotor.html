@@ -1,0 +1,53 @@
+<!-- ================= 3.5 BEYOND MOVEMENT ================= -->
+<section class="mod" id="m-nonmotor" data-mod="nonmotor" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Beyond movement</h2>
+    <p class="lede">Parkinson's affects much more than movement: mood, thinking, sleep, blood pressure, swallowing, the bladder and pain. Press play to travel round the body map, or pick a domain, to see how common each problem is. Then follow the published approach to hallucinations, and what trials found symptom by symptom. This page reports guidelines and trials. It is not advice for any person.</p></div>
+
+  <div class="stepper" id="nmSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="nmSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A body map of non-motor symptom domains in Parkinson's: mood, psychosis and cognition in the head, sleep beside it, swallowing and saliva at the throat, blood pressure at the heart, bladder and bowel in the abdomen, and pain and fatigue in the legs. For the selected domain, bars show how common each problem is, with confidence intervals where published, labelled as prevalence at one time, over years of follow-up, among 20-year survivors, when asked or on testing."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nmPlay">Play</button><label class="stage-cap tl" for="nmT">Domains <input type="range" id="nmT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap" id="nmCap">Click a point on the body or a step to choose a domain. The figure is schematic; every bar is a published figure.</p></div>
+    <aside class="note" id="nmNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Hallucinations and delusions: the published approach</h3>
+  <p class="prose">NICE NG71 and the 2019 MDS evidence review set out a sequence: ask and look for causes, leave well-tolerated symptoms alone, reduce the medicines that may have triggered them, and only then add a medicine for psychosis. Impulse-control problems, which are more common on dopamine agonists, are covered in <a href="#drugs" data-go="drugs">The other medicines</a>.</p>
+  <div class="stepper" id="nmPsSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="nmPs" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Animated flow: ask and look for a cause; watch if well tolerated; reduce the Parkinson's medicines that may have triggered the symptoms, with specialist advice; then treat. A panel of Parkinson's medicines shows the ones the sources link to hallucinations being lowered, with meters for hallucinations and movement. An evidence board gives the MDS 2019 and NICE positions on clozapine, pimavanserin, quetiapine and olanzapine, and a final box lists drugs to avoid: haloperidol and typical antipsychotics, olanzapine, metoclopramide and prochlorperazine."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nmPsPlay">Play</button><label class="stage-cap tl" for="nmPsT">Approach <input type="range" id="nmPsT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">Schematic. Which medicine is lowered, and by how much, is a specialist decision; the bar levels and meters are illustrative, not doses.</p></div>
+    <aside class="note" id="nmPsNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the trials found, symptom by symptom</h3>
+  <p class="prose">A summary of the evidence, with the 2019 MDS ratings where they exist. It is not a treatment plan; any dose mentioned is a trial dose, reported as published.</p>
+  <div class="ctrls" role="group" aria-label="Which symptom to show">
+    <button class="btn" data-nmo="0" aria-pressed="true">Dementia</button>
+    <button class="btn" data-nmo="1" aria-pressed="false">Depression</button>
+    <button class="btn" data-nmo="2" aria-pressed="false">Blood pressure: medicines</button>
+    <button class="btn" data-nmo="3" aria-pressed="false">Blood pressure: other measures</button>
+    <button class="btn" data-nmo="4" aria-pressed="false">Dream enactment</button>
+    <button class="btn" data-nmo="5" aria-pressed="false">Drooling</button>
+    <button class="btn" data-nmo="6" aria-pressed="false">All MDS ratings</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="nmOpt" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Animated chart of the trial results and guideline positions for the chosen non-motor symptom."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nmOptPlay">Play</button><label class="stage-cap tl" for="nmOptT">Reveal <input type="range" id="nmOptT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="nmOptCap"></p></div>
+    <aside class="note" id="nmOptNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What drives quality of life</h3>
+  <p class="prose">Two studies asked what makes life with Parkinson's better or worse. Both point away from the movement score alone.</p>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="nmQol" viewBox="0 0 720 220" style="min-width:560px" role="img" aria-label="Animated bars: in the Global Parkinson's Disease Survey, disease stage and medication explained 17.3% of the variation in quality of life, rising to 59.7% with other factors, of which depression was the strongest. In a second study, the Non-Motor Symptoms Scale correlated with quality of life at 0.70 against 0.58 for a motor score."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nmQolPlay">Play</button><label class="stage-cap tl" for="nmQolT">Grow bars <input type="range" id="nmQolT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Variance explained and rank correlations as published. Bars start at zero.</p></div>
+    <aside class="note" id="nmQolNote"></aside>
+  </div>
+
+  <h3 class="sub">Reading the evidence</h3>
+  <div class="cards" id="nmCards"></div>
+</section>

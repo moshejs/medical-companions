@@ -1,0 +1,44 @@
+<!-- ================= 3.3 BEYOND MEMORY ================= -->
+<section class="mod" id="m-bpsd" data-mod="bpsd" hidden>
+<style>
+#m-bpsd .card .ev{align-self:flex-start}
+#m-bpsd .callout b{font-weight:700}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Beyond memory</h2>
+    <p class="lede">Agitation, low mood, apathy, suspicion and poor sleep are common in dementia. Published guidance starts with looking for the cause. Press play to follow one behaviour through the DICE approach.</p></div>
+  <div class="stepper" id="bpSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="bpSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A person living with dementia calls out and pushes away. The view widens to show possible causes: pain, infection, noise, boredom, an unmet need and a rushed approach. Each cause is matched with a non-drug response, and the result is evaluated, looping back if it did not help."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="bpPlay">Play</button><label class="stage-cap tl" for="bpT">Timeline <input type="range" id="bpT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">Illustration of a published clinical-reasoning approach. No large trial has tested DICE itself.</p></div>
+    <aside class="note" id="bpNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Antipsychotics: the risk in 1,000 people</h3>
+  <p class="prose">Antipsychotic medicines carry a boxed warning for older people with dementia. The figures below come from the class wording in current US labels, a meta-analysis, and a large study of US veterans.</p>
+  <div class="stepper" id="bpRkSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="bpRisk" viewBox="0 0 720 470" style="min-width:560px" role="img" aria-label="Two grids of 1,000 people with dementia followed for about 10 weeks. On placebo about 26 die; on an antipsychotic about 45 die. Below, the number of people treated for 180 days for one extra death with four antipsychotics, then the CATIE-AD benefit and stopping rates."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="bpRkPlay">Play</button><label class="stage-cap tl" for="bpRkT">Timeline <input type="range" id="bpRkT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap">Each dot is one person. Large filled dots are deaths. Rates from label class wording; counts per 1,000 are arithmetic from those rates.</p></div>
+    <aside class="note" id="bpRkNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The other published options and their evidence</h3>
+  <p class="prose">What trials and regulators found for the other medicines studied for these symptoms. This is a summary of evidence, not a treatment plan. The only dose mentioned is a published caveat about one trial.</p>
+  <div class="ctrls" role="group" aria-label="Which option to show">
+    <button class="btn" data-bpo="0" aria-pressed="true">Brexpiprazole</button>
+    <button class="btn" data-bpo="1" aria-pressed="false">Citalopram</button>
+    <button class="btn" data-bpo="2" aria-pressed="false">Sleep medicines</button>
+    <button class="btn" data-bpo="3" aria-pressed="false">Pimavanserin</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="bpOpt" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="Animated chart of the trial results for the selected medicine."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="bpOptPlay">Play</button><label class="stage-cap tl" for="bpOptT">Reveal <input type="range" id="bpOptT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="bpOptCap"></p></div>
+    <aside class="note" id="bpOptNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Medicines that can make thinking worse</h3>
+  <div class="cards" id="bpCards"></div>
+</section>

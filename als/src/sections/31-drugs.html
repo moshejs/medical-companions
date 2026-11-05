@@ -1,0 +1,132 @@
+<!-- ================= 3.1 RILUZOLE, EDARAVONE AND OTHERS ================= -->
+<section class="mod" id="m-drugs" data-mod="drugs" hidden>
+<style>
+#m-drugs .btn{min-height:44px}
+#m-drugs .drrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-drugs .num{font:800 28px/1.05 var(--display);letter-spacing:-.01em}
+#m-drugs .num small{font:600 12px var(--mono);color:var(--muted);letter-spacing:.04em;margin-left:4px}
+#m-drugs .card .tags{display:flex;flex-wrap:wrap;gap:6px}
+#m-drugs .chips button.tag{border:1px solid transparent;cursor:pointer;text-transform:none;letter-spacing:0;font:500 12.5px var(--body);white-space:normal;text-align:left;min-height:40px;padding:6px 10px}
+#m-drugs .chips button.tag[aria-pressed="true"]{border-color:var(--treat);background:var(--treat-soft);color:var(--treat)}
+#m-drugs .chips button.tag b{font:600 11px var(--mono);margin-right:6px}
+#m-drugs .legend b{font:600 12px var(--mono);color:var(--ink);margin-right:3px}
+#m-drugs .legend svg.glyph{display:inline-block;width:18px!important;height:18px!important;min-width:0;vertical-align:middle;margin-right:5px}
+#m-drugs td small{color:var(--muted)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment &amp; care</p><h2>Riluzole, edaravone and others</h2>
+    <p class="lede">The drugs approved to slow ALS act on steps that are thought to injure motor neurons, but none stops the disease. Play the synapse to see two of those steps, then lay a drug over it. Below are three decades of approvals and withdrawals, the published label details and what each trial found.</p></div>
+
+  <div class="drrow" role="group" aria-label="Drug overlay">
+    <span class="kicker">Drug overlay</span><span class="drrow" id="drDrug"></span>
+  </div>
+  <div class="stepper" id="drSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="drSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Animated glutamate synapse onto a motor neuron: glutamate builds up when the astrocyte clears it poorly, calcium floods in, mitochondria release free radicals, and an optional overlay shows where riluzole or edaravone is thought to act"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="drPlay">Play</button><label class="stage-cap tl" for="drT">Timeline <input type="range" id="drT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap" id="drCap">Schematic, not to scale. The gauges show direction only, not measured amounts.</p></div>
+    <aside class="note" id="drNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Approved, refused, withdrawn: 1995 to 2026</h3>
+  <p class="prose">Scrub the year. Each mark is one regulator's decision or one trial result; the panel names it and gives the source. Letters inside the marks name the drug.</p>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="drTlSvg" viewBox="0 0 720 352" style="min-width:560px" role="img" aria-label="Timeline from 1995 to 2026 with lanes for the FDA, the EMA, Health Canada, Japan and trial results, marking approvals, refusals and withdrawals of ALS drugs as a cursor moves through the years"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="drTlPlay">Play</button><label class="stage-cap tl" for="drTlT">Year <input type="range" id="drTlT" min="0" max="1" step="0.0001" value="0.02"></label></div>
+      <div class="ctrls"><button class="btn" id="drTlPrev">← Earlier event</button><button class="btn" id="drTlNext">Later event →</button></div>
+      <div class="legend" id="drTlLegend"></div>
+      <p class="stage-cap">The axis is stretched after 2015 so the crowded recent years stay readable. Dates are as published by each regulator; where a date could not be checked at the regulator it is left out.</p></div>
+    <aside class="note" id="drTlNote" aria-live="polite"></aside>
+  </div>
+  <p class="prose">Every event, in order (each button moves the timeline there):</p>
+  <div class="chips" id="drTlChips" role="group" aria-label="Jump to an event"></div>
+
+  <h3 class="sub">What the labels say</h3>
+  <p class="prose">Published guidance, quoted as written. This is a summary for study, not instructions for any person's treatment.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Drug</th><th>Route and published dose</th><th>Monitoring and warnings</th><th>Common adverse effects (drug vs placebo)</th></tr></thead>
+    <tbody>
+      <tr><th>Riluzole<br><small>tablet; oral suspension; (oral film, now discontinued in the US)</small></th>
+        <td>50 mg by mouth twice daily, at least 1 hour before or 2 hours after a meal. [[FDA_RiluzoleLabel]] The suspension is 5 mg/mL (50 mg = 10 mL twice daily), by mouth or PEG tube. [[FDA_TiglutikLabel]]</td>
+        <td>Liver tests: the US and EU schedules differ (see the chart below). US: not recommended above 5 × ULN; stopped if there is liver dysfunction such as raised bilirubin. EU: stopped if ALT reaches 5 × ULN; contraindicated in hepatic disease or with baseline transaminases above 3 × ULN. [[FDA_RiluzoleLabel,EMA_Rilutek]] Warnings: severe neutropenia in the first 2 months, so febrile illness is reported; interstitial lung disease; acute pancreatitis. [[FDA_RiluzoleLabel]] The EU adds a chest X-ray for dry cough or breathlessness. [[EMA_Rilutek]]</td>
+        <td>Asthenia 19% vs 12%, nausea 16% vs 11%, decreased lung function 10% vs 9%. About 50% had at least one ALT above ULN, 8% above 3 × ULN and 2% above 5 × ULN, peaking within 3 months. [[FDA_RiluzoleLabel]]</td></tr>
+      <tr><th>Edaravone<br><small>IV infusion or oral suspension (ORS)</small></th>
+        <td>IV 60 mg over 60 minutes, or ORS 105 mg (5 mL) by mouth or feeding tube in the morning after an overnight fast, no food for 1 hour after. Cycle 1: daily for 14 days, then 14 days off. Later cycles: 10 of 14 days, then 14 days off. [[FDA_RadicavaLabel]]</td>
+        <td>Hypersensitivity and anaphylaxis. Both forms contain sodium bisulfite, which can cause allergic-type reactions, more often in people with asthma. [[FDA_RadicavaLabel]]</td>
+        <td>Contusion 15% vs 9%, gait disturbance 13% vs 9%, headache 10% vs 6%, dermatitis 8% vs 5%, eczema 7% vs 4%. [[FDA_RadicavaLabel]]</td></tr>
+      <tr><th>Sodium phenylbutyrate-taurursodiol (AMX0035)<br><small>withdrawn from the US and Canada in 2024</small></th>
+        <td>In CENTAUR: 3 g sodium phenylbutyrate + 1 g taurursodiol once daily for 3 weeks, then twice daily. [[Paganoni2020]]</td>
+        <td>No longer marketed; existing users were moved to a free-drug programme. [[Amylyx2024]]</td>
+        <td>Mainly gastrointestinal in CENTAUR. [[Paganoni2020]]</td></tr>
+      <tr><th>Tofersen<br><small>intrathecal, SOD1-ALS only</small></th>
+        <td colspan="3">100 mg by lumbar puncture: three loading doses 14 days apart, then every 28 days. [[FDA2023Qalsody]] Its trial, safety and approval are in <a href="#tofersen" data-go="tofersen">Tofersen, gene-targeted</a>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="prose">Pregnancy: the US riluzole label says it may cause fetal harm based on animal data, and the EU contraindicates it in pregnancy and breast-feeding. [[FDA_RiluzoleLabel,EMA_Rilutek]] Edaravone caused developmental effects in rats and rabbits, and there are no human data. [[FDA_RadicavaLabel]]</p>
+
+  <h3 class="sub">Riluzole liver tests: US label vs EU SmPC</h3>
+  <div class="stage"><div class="scroll"><svg id="drAltSvg" viewBox="0 0 720 160" style="min-width:560px" role="img" aria-label="Chart of the first year of riluzole liver tests: the US label asks for monthly tests for 3 months and then periodic tests, the EU summary asks for monthly tests for 3 months, then every 3 months until month 12, then periodic tests"></svg></div>
+    <p class="stage-cap">Each dot is a liver (ALT) test as the label describes it. "Periodically" is the labels' own word; neither gives an interval. [[FDA_RiluzoleLabel,EMA_Rilutek]]</p></div>
+
+  <h3 class="sub">What the trials found, in absolute numbers</h3>
+  <div class="cards">
+    <div class="card"><div class="tags"><span class="tag treat">Riluzole</span><span class="ev est">Established</span></div>
+      <h4>About 2 to 3 more months of median survival</h4>
+      <p class="num">HR 0.84<small>95% CI 0.698 to 0.997</small></p>
+      <p>Cochrane 2012, four trials (974 on riluzole, 503 on placebo), tracheostomy-free survival on 100 mg/day. One-year survival 49% on placebo vs 58% on riluzole; median survival 11.8 vs 14.8 months. [[Miller2012Cochrane]]</p>
+      <p>No benefit on muscle strength. The EU label says there is no evidence of effect on motor function, lung function or strength, and none in late-stage ALS. [[Miller2012Cochrane,EMA_Rilutek]]</p></div>
+    <div class="card"><div class="tags"><span class="tag treat">Riluzole</span><span class="tag warn">Controversy</span></div>
+      <h4>Real-world studies claim much more</h4>
+      <p class="num">6 to 19<small>months, in 8 of 15 studies</small></p>
+      <p>Andrews 2020 reviewed 15 population studies; 8 reported median survival 6 to 19 months longer in people treated with riluzole. [[Andrews2020]]</p>
+      <p>These are not randomised. People who are offered and keep taking a drug differ from those who are not (confounding by indication), and time before treatment starts can be counted in the treated group's favour (immortal-time bias). The trial figure of 2 to 3 months remains the reference. [[Miller2012Cochrane,Andrews2020]]</p></div>
+    <div class="card"><div class="tags"><span class="tag treat">Edaravone</span><span class="tag bad">Negative</span></div>
+      <h4>First phase 3 (MCI186-16): no difference</h4>
+      <p class="num">0.65<small>points, p = 0.411</small></p>
+      <p>ALSFRS-R change over 24 weeks: −5.70 on edaravone (n = 100) vs −6.35 on placebo (n = 99). [[Abe2014]]</p>
+      <p>A post hoc search found a subgroup (vital capacity at least 80%, every ALSFRS-R item at least 2, onset within 2 years) where the difference was larger. That subgroup became the entry criteria for the next trial. [[EdaravoneALS16Group2017]]</p></div>
+    <div class="card"><div class="tags"><span class="tag treat">Edaravone</span><span class="ev early">Selected group only</span></div>
+      <h4>MCI186-19: positive in the post hoc–selected group</h4>
+      <p class="num">2.49<small>points, 95% CI 0.99 to 3.98</small></p>
+      <p>137 people randomised (69 vs 68), chosen to match the subgroup above. ALSFRS-R change at 24 weeks −5.01 vs −7.50, about a third less decline. More than 90% were also taking riluzole. [[MCI186Group2017,FDA_RadicavaLabel]]</p>
+      <p>The authors saw "no indication" of benefit outside these criteria. [[MCI186Group2017]] In grade 3 disease (MCI186-18) there was no benefit. [[EdaravoneALS18Group2017]]</p></div>
+    <div class="card"><div class="tags"><span class="tag treat">Edaravone</span><span class="tag bad">Not confirmed</span></div>
+      <h4>Later studies found no added benefit</h4>
+      <ul><li>Germany, 116 vs 116 matched people: −0.91 vs −0.85 points/month (P = 0.37); survival also no different. [[Witzel2022]]</li>
+        <li>Oral FAB122 (ADORE, 313 people): −11.2 vs −10.8 at 48 weeks, primary not met. [[CTgov_ADORE]]</li>
+        <li>Daily oral vs on/off dosing (384 people): stopped for futility. [[CTgov_MT1186A02]]</li></ul>
+      <p>The EU application was withdrawn in 2019, and EAN 2024 recommends against IV or oral edaravone outside a clinical trial. [[EMA2019Radicava,VanDamme2024EAN]]</p></div>
+    <div class="card"><div class="tags"><span class="tag treat">AMX0035</span><span class="tag bad">Phase 3 negative</span></div>
+      <h4>CENTAUR positive, PHOENIX negative</h4>
+      <p class="num">0.42<small>points/month, 95% CI 0.03 to 0.81</small></p>
+      <p>CENTAUR (phase 2, 137 people): ALSFRS-R slope −1.24 vs −1.66 points/month over 24 weeks (P = 0.03); strength, breathing and survival outcomes did not differ. [[Paganoni2020]] An open-label survival follow-up reported 25.0 vs 18.5 months (HR 0.56), comparing early with later starting. [[Paganoni2021]]</p>
+      <p>PHOENIX (phase 3, 664 people, 48 weeks) missed its primary endpoint (p = 0.667) and every secondary endpoint. Withdrawal began on 4 April 2024, about 19 months after US approval. [[Amylyx2024]]</p></div>
+    <div class="card"><div class="tags"><span class="tag">Masitinib</span><span class="tag bad">Refused in the EU</span></div>
+      <h4>A narrowed population</h4>
+      <p class="num">3.4<small>points, 95% CI 0.65 to 6.13</small></p>
+      <p>In 394 people on riluzole, 4.5 mg/kg/day gave this ALSFRS-R difference only in the prespecified "normal progressor" group; there was no effect in the broader cohort, and serious adverse events were 31% vs 18%. [[Mora2020]] EMA refused it twice, citing inspection findings and methods. [[EMA_Masitinib]]</p></div>
+    <div class="card"><div class="tags"><span class="tag">Methylcobalamin</span><span class="ev early">Japan only</span></div>
+      <h4>Ultra-high-dose vitamin B12 injections</h4>
+      <p class="num">1.97<small>points, 95% CI 0.44 to 3.50</small></p>
+      <p>JETALS: 130 people within 1 year of onset, 50 mg intramuscular twice weekly for 16 weeks; ALSFRS-R −2.66 vs −4.63. [[Oki2022]] Backed for ALS by the Japanese committee in August 2024; no FDA or EMA approval was found. [[PMDA2024Rozebalamin]]</p></div>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Riluzole (FDA 1995): HR 0.84, about 2 to 3 months of median survival. Edaravone: 2.49 ALSFRS-R points over 24 weeks, only in a post hoc–selected early group; not authorised in the EU. AMX0035: approved on phase 2 (CENTAUR), withdrawn in 2024 when phase 3 (PHOENIX) failed. [[Miller2012Cochrane,MCI186Group2017,Amylyx2024]]</div>
+    <div class="pt"><b>In plain words</b>The approved drugs slow ALS a little; none stops it. Riluzole adds a few months on average. Other drugs looked promising in one trial and then did not hold up in the next, bigger one.</div>
+  </div>
+
+  <h3 class="sub">What the guidelines say</h3>
+  <div class="prose">
+    <p>EAN 2024: "Offer lifelong riluzole to all people with ALS at diagnosis" (strong), with dose reduction and then stopping considered if adverse events persist. It recommends against edaravone outside a clinical trial, did not recommend AMX0035 outside trials before phase 3 data (it was written before PHOENIX), and recommends offering tofersen first-line in progressive SOD1-ALS. [[VanDamme2024EAN]]</p>
+    <p>Earlier: AAN 2009 says riluzole should be offered to slow progression (Level A), and EFNS 2012 advises starting it as early as possible. [[Miller2009AAN,Andersen2012EFNS]]</p>
+  </div>
+
+  <h3 class="sub">Phase 3 trials that were negative</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Agent (rationale)</th><th>Trial</th><th>Design and size</th><th>Result</th></tr></thead>
+    <tbody id="drNeg"></tbody>
+  </table></div>
+  <p class="prose">Ceftriaxone looked positive in stage 2 (0.51 points/month, p = 0.04) and then failed in stage 3, an example of an early result that did not replicate. [[Cudkowicz2014]] The lithium signal in UNC13A carriers was exploratory and led to a new trial, not to approval. [[vanEijk2017]]</p>
+
+  <p class="callout">Some drugs treat symptoms rather than slowing ALS. Dextromethorphan-quinidine (approved by the FDA for pseudobulbar affect in 2010) improved the CNS-LS score by 3.3 points more than dextromethorphan alone over 28 days. [[Brooks2004,DrugsFDA]] Symptom care is in <a href="#living" data-go="living">Living with ALS</a> and <a href="#breathing" data-go="breathing">Breathing and NIV</a>.</p>
+</section>

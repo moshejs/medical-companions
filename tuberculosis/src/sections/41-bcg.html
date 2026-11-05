@@ -1,0 +1,92 @@
+<!-- ================= 4.1 BCG & NEW VACCINES ================= -->
+<style>
+#m-bcg .grp{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-bcg #bcSvg .t-xs,#m-bcg #bcPipe .t-xs{font-size:10.5px}
+#m-bcg svg[data-mode=n] .t-xs{font-size:12.5px}
+#m-bcg svg[data-mode=n] .t-sm{font-size:13px}
+#m-bcg .vx{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+#m-bcg .vx .card[hidden]{display:none}
+#m-bcg .vx .card .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-bcg .card>.tag,#m-bcg .card>.ev{align-self:flex-start}
+#m-bcg .cnt{font:600 12px var(--mono);color:var(--muted)}
+#m-bcg #bcPipe{max-width:820px}
+</style>
+<section class="mod" id="m-bcg" data-mod="bcg" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Prevention &amp; control</p><h2>BCG &amp; new vaccines</h2>
+    <p class="lede">BCG, first given to a baby in 1921, is still the only licensed TB vaccine. Follow one injection from bleb to scar, then see what the trials say it protects against, and for whom. [[Lange2022]]</p></div>
+
+  <div class="grp" role="group" aria-label="Who is vaccinated">
+    <span class="kicker">Show evidence for</span>
+    <button class="btn" data-bcp="inf" aria-pressed="true">Infants &amp; children</button>
+    <button class="btn" data-bcp="adu" aria-pressed="false">Adolescents &amp; adults</button>
+    <button class="btn" id="bcLat" aria-pressed="false">Order trials by latitude</button>
+  </div>
+  <div class="stepper" id="bcSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="bcSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Left: a cross-section of skin after a BCG injection. A needle places a bleb of live attenuated bacteria in the dermis; immune cells gather into a raised papule, the centre breaks down into a small ulcer, and it heals to a flat scar. Labels show how often local reactions were reported. Right: a forest plot of relative risks from BCG trials, on a log scale, building row by row: strong protection against meningeal and miliary TB in infants, weaker and variable protection against lung TB, little or none in older people, the UK MRC and Chingleput trials, protection against infection and progression, and the pooled estimate."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="bcPlay">Play</button><label class="stage-cap tl" for="bcT">From injection to evidence <input type="range" id="bcT" min="0" max="1" step="0.001" value="0.82"></label></div>
+      <div class="readout" id="bcRead"></div>
+      <p class="stage-cap"><b>Skin: schematic, not to scale.</b> The sources here give how often reactions occur, not a week-by-week timetable, so the stages are not dated. <b>Forest plot:</b> relative risk of TB in vaccinated against unvaccinated people; left of 1 means protection. Rows are pooled subgroups or single trials as published. [[Mangtani2014,Abubakar2013,Roy2014,Colditz1994]]</p>
+    </div>
+    <aside class="note" id="bcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How much BCG prevents</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Outcome</th><th>Who</th><th>Protection (1 − RR)</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Meningeal and miliary TB</th><td>Infants</td><td>90% (RR 0.1; 95% CI 0.01–0.77)</td><td>[[Mangtani2014]]</td></tr>
+      <tr><th>TB meningitis / disseminated TB</th><td>Newborns and infants</td><td>64% / 78%</td><td>[[Colditz1995]]</td></tr>
+      <tr><th>Pulmonary TB</th><td>Infants</td><td>59% (RR 0.41; 0.29–0.58)</td><td>[[Mangtani2014]]</td></tr>
+      <tr><th>Pulmonary TB</th><td>Older people</td><td>Not shown (RR 0.81–0.88, CIs cross 1)</td><td>[[Mangtani2014]]</td></tr>
+      <tr><th>Infection (IGRA)</th><td>Exposed children</td><td>19–27%</td><td>[[Roy2014]]</td></tr>
+      <tr><th>Progression once infected</th><td>Exposed children</td><td>58% (RR 0.42)</td><td>[[Roy2014]]</td></tr>
+      <tr><th>Cases prevented, 2002 birth cohort</th><td>100.5 million infant doses</td><td>29,729 meningitis cases (1 per 3,435 vaccinations) and 11,486 miliary cases (1 per 9,314) in the first 5 years</td><td>[[Trunz2006]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">These are population figures from trials and models, not a promise for one child. BCG protects against pulmonary and extrapulmonary TB for up to 10 years and wanes; five studies found measurable protection at least 15 years on. [[Abubakar2013]] BCG strain was not associated with efficacy in the trial meta-regression. [[Mangtani2014,Abubakar2013]]</p>
+
+  <h3 class="sub">The vaccine pipeline</h3>
+  <div class="prose"><p>As of August 2025, 18 TB vaccine candidates were in clinical trials, up from 15 in 2024: four in phase 1, eight in phase 2 and six in phase 3. [[WHO-GTR2025]] Several results in 2025–2026 were negative. That is normal in vaccine research, and it is why a phase 3 trial is the test that counts. Filter the board by evidence label or by who the vaccine is for.</p></div>
+  <div class="stage">
+    <div class="scroll"><svg id="bcPipe" viewBox="0 0 720 120" role="img" aria-label="Stacked bars of TB vaccine candidates in clinical trials: 15 in 2024, and 18 in August 2025, split into 4 in phase 1, 8 in phase 2 and 6 in phase 3."></svg></div>
+  </div>
+  <div class="grp" role="group" aria-label="Filter by evidence">
+    <span class="kicker">Evidence</span>
+    <button class="btn" data-bcf="all" aria-pressed="true">All</button>
+    <button class="btn" data-bcf="est" aria-pressed="false">Established</button>
+    <button class="btn" data-bcf="early" aria-pressed="false">Early evidence</button>
+    <button class="btn" data-bcf="hyp" aria-pressed="false">Hypothesis</button>
+  </div>
+  <div class="grp" role="group" aria-label="Filter by who it is for">
+    <span class="kicker">For</span>
+    <button class="btn" data-bcw="all" aria-pressed="true">Everyone</button>
+    <button class="btn" data-bcw="inf" aria-pressed="false">Infants</button>
+    <button class="btn" data-bcw="adu" aria-pressed="false">Adolescents &amp; adults</button>
+    <span class="cnt" id="bcCount" aria-live="polite"></span>
+  </div>
+  <div class="vx" id="bcBoard">
+    <div class="card" data-ev="est" data-who="inf"><div class="meta"><span class="ev est">Established</span><span class="tag vax">Licensed · infants</span></div><h4>BCG</h4><p>Live attenuated <i>M. bovis</i>, given to more people than any other vaccine. Strong, lasting protection against miliary and meningeal TB in children; weaker against pulmonary TB, especially in adults. [[Lange2022]] WHO's GTR 2025 states BCG is recommended in national childhood immunisation programmes, in line with a country's TB epidemiology. [[WHO-GTR2025]]</p></div>
+    <div class="card" data-ev="early" data-who="adu"><div class="meta"><span class="ev early">Early evidence</span><span class="tag vax">Phase 3 · adolescents &amp; adults</span></div><h4>M72/AS01E</h4><p>A protein-adjuvant subunit vaccine. In a phase 2b trial in 3,575 IGRA-positive, HIV-negative adults in Kenya, South Africa and Zambia, 13 of 1,626 vaccinated against 26 of 1,663 placebo recipients developed confirmed pulmonary TB: efficacy 49.7% at 36 months (95% CI 2.1–74.2). [[Tait2019]] A phase 3 trial (NCT06062238) began in March 2024 with a planned 20,080 people in five countries; primary completion is listed for April 2028. [[NCT06062238]] A standalone trial in IGRA-negative people would need about 134,800 participants. [[Dagnew2026]]</p></div>
+    <div class="card" data-ev="early" data-who="inf adu"><div class="meta"><span class="ev early">Early evidence</span><span class="tag vax">Phase 3 · infants</span></div><h4>MTBVAC</h4><p>A live-attenuated <i>M. tuberculosis</i> vaccine, described as the leading candidate to replace BCG in infants (expert opinion). [[Vashishtha2026]] In 99 South African infants the chosen dose was less reactogenic and more immunogenic than BCG. [[Tameris2025]] An infant efficacy trial against BCG (NCT04975178, planned 7,120) is recruiting, and an adolescent and adult trial (NCT06272812, planned 5,500) is active. [[NCT04975178,NCT06272812]]</p></div>
+    <div class="card" data-ev="early" data-who="inf adu"><div class="meta"><span class="ev early">Early evidence</span><span class="tag bad">Negative result</span></div><h4>VPM1002 (recombinant BCG)</h4><p>In 6,940 newborns, QFT conversion was 5.3% against 4.3% with BCG (HR 1.23): not non-inferior; the trial stopped early in October 2024. [[Nduba2026]] In PreVenTB (India, 12,717 household contacts), efficacy against all TB was 21.4% (−8.9% to 43.2%), not significant. A post hoc analysis suggested 64.6% in children aged 6–14 (hypothesis-generating only). [[Singh2026BMJ]]</p></div>
+    <div class="card" data-ev="early" data-who="adu"><div class="meta"><span class="ev early">Early evidence</span><span class="tag bad">Negative result</span></div><h4>Immuvac (MIP)</h4><p>An inactivated whole-cell vaccine. In PreVenTB, TB developed in 2.09% with Immuvac against 2.13% with placebo; the authors concluded it was not efficacious against microbiologically confirmed TB. [[Singh2026BMJ]]</p></div>
+    <div class="card" data-ev="early" data-who="adu"><div class="meta"><span class="ev early">Early evidence</span><span class="tag bad">Not confirmed</span></div><h4>BCG revaccination</h4><p>In 2018, revaccinating 990 QFT-negative adolescents did not prevent initial QFT conversion, but sustained conversion was 6.7% against 11.6% with placebo (efficacy 45.4%). [[Nemes2018]] The larger phase 2b BCG REVAX trial (NCT04152161, 1,836 adolescents) found no effect: HR 1.04, efficacy −3.8%. [[Schmidt2025]] A phase 3 trial in Indian contacts (NCT05330884) is listed as suspended. [[NCT05330884]]</p></div>
+    <div class="card" data-ev="early" data-who="adu"><div class="meta"><span class="ev early">Early evidence</span><span class="tag bad">Negative result</span></div><h4>H4:IC31</h4><p>Tested alongside BCG revaccination in the same 2018 trial: efficacy against initial QFT conversion 9.4% (P=0.63) and against sustained conversion 30.5% (P=0.16), neither significant. [[Nemes2018]]</p></div>
+    <div class="card" data-ev="early" data-who="adu inf"><div class="meta"><span class="ev early">Early evidence</span><span class="tag vax">Other platforms</span></div><h4>GamTBvac, viral vectors, whole-cell vaccines</h4><p>GamTBvac is among the six phase 3 candidates. Other platforms include viral vectors such as ChAdOx1.85A and inactivated whole-cell vaccines such as DAR-901 and RUTI. [[daCosta2027]] Investment remains "risky and inadequate", held back by unclear demand and too little committed procurement. [[vanRiet2026]]</p></div>
+    <div class="card" data-ev="early" data-who="inf"><div class="meta"><span class="ev early">Early evidence</span><span class="tag vax">Beyond TB</span></div><h4>Non-specific effects of BCG</h4><p>BCG roughly doubled monocyte TNF and IL-1β responses to unrelated pathogens for at least 3 months ("trained immunity"). [[Kleinnijenhuis2012]] In low-birth-weight infants, a meta-analysis of three trials showed 38% lower neonatal mortality (MRR 0.62); the single Guinea-Bissau trial alone was not significant. [[BieringSorensen2017]]</p></div>
+    <div class="card" data-ev="hyp" data-who="adu inf"><div class="meta"><span class="ev hyp">Hypothesis</span><span class="tag vax">Model projection</span></div><h4>What a new vaccine could do</h4><p>For 2028–2050 in low- and middle-income countries, an adolescent/adult vaccine was projected to spare 22.9 million households catastrophic costs, an infant vaccine 3.7 million; the poorest two income quintiles would account for 56% of cases averted. [[Portnoy2023BMJGH]] WHO states the 2035 End TB targets need a breakthrough such as a new vaccine. [[WHO-GTR2025]] See <a href="#frontier" data-go="frontier">Ending TB: targets &amp; research</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Good to know</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Tests</span><h4>BCG and the skin test</h4><p>BCG can make a tuberculin skin test positive. After BCG in infancy, 8.5% had a TST of 10 mm or more from BCG, but only 1% when tested 10 or more years later; after BCG given past the first birthday, 41.8% did, and 21.2% still did after 10 years. [[Farhat2006]] IGRAs use ESAT-6 and CFP-10, which are missing from every BCG strain, so they are barely affected (QFT specificity 96% after BCG, 99% without). [[Harboe1996,Pai2008]] More in <a href="#tests" data-go="tests">TB infection tests</a>.</p></div>
+    <div class="card"><span class="tag warn">Safety</span><h4>Adverse effects</h4><p>In 2,435 French children followed for 12 months, 17.8% had an adverse event, mostly redness or induration; abscess 2.5%, ulceration 0.9%, lymphadenitis 0.1%. Reactions were frequent but rarely severe, and less likely when BCG was given before age 1. [[Dommergues2009]] As a live vaccine, BCG can spread in people with weak immunity. [[Lange2022]] In infants with HIV, surveillance found disseminated BCG disease in 992 per 100,000 vaccinated (95% CI 567–1,495); in one hospital series all 8 children with disseminated disease were immunodeficient and 75% died. [[Hesseling2009BWHO,Hesseling2006CID]]</p></div>
+    <div class="card"><span class="tag vax">Policy</span><h4>WHO position paper, 2018</h4><p>The February 2018 position paper replaced the 2004 paper and the 2007 guidance for infants at risk of HIV. It revises guidance on immunising children with HIV, re-emphasises the birth dose, and includes recommendations for leprosy prevention. [[WHO2018BCG]] Low-incidence countries such as Sweden have ended general BCG vaccination and offer it to infants at higher risk. [[Kaufmann2026]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Intravenous BCG in macaques</h4><p>Given into a vein instead of the skin, BCG induced far more T cells in the lungs and airways of rhesus macaques; 9 of 10 were highly protected against challenge 6 months later, and 6 had no detectable infection. [[Darrah2020]] In SIV-infected macaques, 9 of 12 vaccinated animals were protected. [[Larson2023]] These are animal data (early evidence in animals); nothing here shows the same in people.</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Why does BCG work less well near the equator?</h4><p>Latitude and study validity explained 66% of the variation between trials. [[Colditz1994]] Failing to exclude people already sensitised to mycobacteria explained most of the rest. [[Abubakar2013]] A leading idea is that environmental mycobacteria, commoner in warm climates, mask or block BCG's effect, but the mechanism is unproven. [[Fine1995,Mangtani2014]]</p></div>
+    <div class="card"><span class="tag brand">History</span><h4>Calmette and Guérin</h4><p>From 1908, Albert Calmette and Camille Guérin subcultured a bovine strain about 230 times over 11 years until it no longer caused progressive TB in animals. On 18 July 1921 the first human dose was given by mouth to a newborn in Paris whose mother had died of TB. [[Luca2013]] Read more in <a href="#history" data-go="history">History &amp; people</a>.</p></div>
+  </div>
+  <p class="callout">TB is a notifiable disease. A BCG scar does not rule TB out: anyone with a cough for more than 2 weeks, fever, night sweats or weight loss should see a clinician.</p>
+</section>

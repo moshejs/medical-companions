@@ -1,0 +1,91 @@
+<!-- ================= 3.3 TUMOUR BIOMARKERS ================= -->
+<style>
+#m-biomarkers .bmtg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px 18px}
+@media (max-width:700px){#m-biomarkers .bmtg{grid-template-columns:minmax(0,1fr)}}
+#m-biomarkers .bmrow{display:flex;flex-direction:column;gap:6px;min-width:0}
+#m-biomarkers .bmrow .btns{display:flex;flex-wrap:wrap;gap:6px}
+#m-biomarkers .bmrow .btn{padding:7px 11px;font-size:13.5px}
+#m-biomarkers .bmrow small{font-size:12.5px;color:var(--muted);line-height:1.4}
+#m-biomarkers .bmdrug{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+#m-biomarkers .bmdrug li{display:grid;grid-template-columns:minmax(0,1fr);gap:3px;border-top:1px solid var(--line);padding-top:9px;font-size:14.5px}
+#m-biomarkers .bmdrug li:first-child{border-top:0;padding-top:0}
+#m-biomarkers .bmdrug .hd{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-weight:700}
+#m-biomarkers .bmlink{background:none;border:0;padding:0;color:var(--brand);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer}
+#m-biomarkers .card>.tag,#m-biomarkers .card>.ev{align-self:flex-start}
+</style>
+<section class="mod" id="m-biomarkers" data-mod="biomarkers" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Diagnosis &amp; staging</p><h2>Tumour biomarkers</h2>
+    <p class="lede">Two cancers at the same stage can behave differently and respond to different drugs. A handful of tumour tests, on mismatch repair, RAS, BRAF and HER2, plus where in the bowel the cancer began, decide which medicines are likely to work.</p></div>
+
+  <h3 class="sub">Decision tree: what each result opens or closes</h3>
+  <p class="callout"><b>A teaching map for metastatic colorectal cancer</b>, following the published order: MSI-H/dMMR goes to checkpoint inhibitors, BRAF V600E to encorafenib–cetuximab-based therapy, left-sided RAS wild-type to chemotherapy plus anti-EGFR, others to chemotherapy plus anti-VEGF; HER2, KRAS G12C and NTRK guide later lines. Real choices are made by a multidisciplinary team with the person. [[Morris2023,Elez2025,FDA-Tukysa,FDA-Lumakras,FDA-Vitrakvi]]</p>
+  <div class="bmtg" id="bmToggles">
+    <div class="bmrow" role="group" aria-label="Mismatch repair status"><span class="kicker">Mismatch repair</span><div class="btns"><button class="btn" data-bm="mmr" data-v="p" aria-pressed="true">pMMR / MSS</button><button class="btn" data-bm="mmr" data-v="d" aria-pressed="false">dMMR / MSI-H</button></div><small>About 15% of all CRC; about 15% in stage II–III trials but only 3.5–5% in metastatic disease. [[Boland2010,Sargent2010,Koopman2009,Venderbosch2014]]</small></div>
+    <div class="bmrow" role="group" aria-label="RAS status"><span class="kicker">RAS (KRAS, NRAS exons 2–4)</span><div class="btns"><button class="btn" data-bm="ras" data-v="wt" aria-pressed="true">Wild-type</button><button class="btn" data-bm="ras" data-v="mut" aria-pressed="false">Mutant</button></div><small>KRAS exon 2 in 42–43% of mCRC; 17% of the rest carry another RAS mutation, so roughly half are RAS-mutant. [[Amado2008,Karapetis2008,Douillard2013]]</small></div>
+    <div class="bmrow" role="group" aria-label="KRAS G12C"><span class="kicker">KRAS G12C (a RAS mutation)</span><div class="btns"><button class="btn" data-bm="g12c" data-v="no" aria-pressed="true">Not G12C</button><button class="btn" data-bm="g12c" data-v="yes" aria-pressed="false">G12C</button></div><small>About 3–4% of metastatic CRC. [[Fakih2023]]</small></div>
+    <div class="bmrow" role="group" aria-label="BRAF V600E"><span class="kicker">BRAF V600E</span><div class="btns"><button class="btn" data-bm="braf" data-v="wt" aria-pressed="true">Wild-type</button><button class="btn" data-bm="braf" data-v="v600e" aria-pressed="false">V600E</button></div><small>About 8% of advanced CRC (8.2% in 3,063 patients), 14% of stage II–III. [[Sepulveda2017,Venderbosch2014]]</small></div>
+    <div class="bmrow" role="group" aria-label="HER2"><span class="kicker">HER2</span><div class="btns"><button class="btn" data-bm="her2" data-v="neg" aria-pressed="true">Not amplified</button><button class="btn" data-bm="her2" data-v="pos" aria-pressed="false">HER2-positive</button></div><small>5% of KRAS exon 2 wild-type mCRC in HERACLES screening. [[SartoreBianchi2016]]</small></div>
+    <div class="bmrow" role="group" aria-label="Primary tumour side"><span class="kicker">Where the cancer began</span><div class="btns"><button class="btn" data-bm="side" data-v="left" aria-pressed="true">Left side / rectum</button><button class="btn" data-bm="side" data-v="right" aria-pressed="false">Right side</button></div><small>Right: caecum to transverse colon. Left: splenic flexure to rectum. [[Tejpar2017]]</small></div>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="bmSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A decision tree. From the tested tumour, a mismatch-repair branch leads dMMR tumours to immunotherapy. pMMR tumours go to a RAS branch: RAS-mutant tumours go to a KRAS G12C branch, leading to a G12C inhibitor plus anti-EGFR, or to chemotherapy with or without anti-VEGF and no anti-EGFR. RAS wild-type tumours go to a BRAF branch: V600E leads to a BRAF inhibitor plus anti-EGFR; wild-type goes to a sidedness branch, left to chemotherapy plus anti-EGFR, right to chemotherapy plus anti-VEGF. A parallel HER2 test leads to HER2-targeted therapy. The path for the chosen results lights up."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="bmTreePlay">Trace the path</button><button class="btn ghost" id="bmTreeReset">Reset results</button></div>
+      <p class="stage-cap">Simplified; drug detail in <button class="bmlink" data-go="metastatic">Metastatic disease</button>. Labels quoted as published, not treatment advice.</p>
+    </div>
+    <aside class="note" id="bmNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Universal tumour testing: from biopsy to a Lynch answer</h3>
+  <div class="prose"><p>ACG 2015: "All newly diagnosed colorectal cancers (CRCs) should be evaluated for mismatch repair deficiency." Testing every tumour found every Lynch carrier in a 10,206-person analysis (sensitivity 100%), where family-history criteria missed some (87.8%). Follow one tumour through the lab and choose which result it gives. [[Syngal2015,Moreira2012,Sepulveda2017]]</p></div>
+  <div class="ctrls" role="group" aria-label="Example tumour"><span class="kicker">Example tumour</span>
+    <button class="btn" data-bmcase="a" aria-pressed="true">MLH1 lost, BRAF V600E</button>
+    <button class="btn" data-bmcase="b" aria-pressed="false">MLH1 lost, BRAF wild-type</button>
+    <button class="btn" data-bmcase="c" aria-pressed="false">MSH2 lost</button>
+    <button class="btn" data-bmcase="d" aria-pressed="false">All retained</button>
+  </div>
+  <div class="stepper" id="bmSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="bmIhc" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Four slides cut from one tumour are stained for the mismatch-repair proteins MLH1, PMS2, MSH2 and MSH6. Nuclei that keep the protein turn brown; in a deficient tumour the tumour nuclei of the lost proteins stay blue while surrounding normal cells turn brown. A flow chart below follows the result: MLH1 loss leads to BRAF V600E or MLH1 promoter-methylation testing, which points either to a sporadic cancer or to genetic counselling and germline Lynch syndrome testing; MSH2 or MSH6 loss goes straight to germline testing; retained staining means mismatch repair is proficient."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="bmPlay">Play</button><label class="stage-cap tl" for="bmT">Lab steps <input type="range" id="bmT" min="0" max="1" step="0.001" value="0.55"></label></div>
+      <div class="legend"><span><i style="background:var(--liver)"></i>brown nucleus: protein present</span><span><i style="background:var(--goblet)"></i>blue nucleus only: protein lost</span></div>
+      <p class="stage-cap">Schematic slides, not real micrographs. [[Luchini2019,Sepulveda2017,Syngal2015]]</p>
+    </div>
+    <aside class="note" id="bmIhcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How common is mismatch-repair deficiency?</h3>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="bmFreq" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Horizontal bars: dMMR in 26% of right-sided colon cancers, 3% of left-sided and 1% of rectal cancers in QUASAR; about 15% of all colorectal cancers and of stage II–III trial cohorts; 3.5% to 5% of metastatic cancers."></svg></div>
+      <p class="stage-cap">Different cohorts and methods; read each bar on its own. [[Hutchins2011,Boland2010,Sargent2010,Koopman2009,Venderbosch2014]]</p>
+    </div>
+    <div class="prose">
+      <p><b>Why the drop in metastatic disease?</b> dMMR tumours are less likely to have spread to nodes (OR 0.33) or distant organs (OR 0.49), independent of depth, so they are common in stage II and rare in stage IV. [[Gryfe2000]]</p>
+      <p><b>Prognosis.</b> In stage II–III, MSI-H tumours had better survival (meta-analysis HR 0.65), and in QUASAR recurrence was half as common (11% vs 26%). In metastatic disease the picture flips: dMMR went with worse survival (HR 1.35), apparently driven by co-existing BRAF mutation. [[Popat2005,Hutchins2011,Venderbosch2014]]</p>
+      <p><b>Prediction.</b> In pooled randomised data, fluorouracil alone helped pMMR but not dMMR stage II–III colon cancer, and stage II dMMR patients given it did worse than with surgery alone (HR 2.95); QUASAR did not confirm a predictive effect. In metastatic dMMR disease, first-line pembrolizumab doubled median progression-free survival to 16.5 months vs 8.2 with chemotherapy. [[Sargent2010,Ribic2003,Hutchins2011,Andre2020]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">The tests and what each one changes</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Test</th><th>How</th><th>What it changes</th><th>How often positive</th></tr></thead>
+    <tbody>
+      <tr><th>MMR / MSI</th><td>IHC for MLH1, MSH2, MSH6, PMS2 first; PCR of five microsatellite markers (at least BAT-25 and BAT-26) second. [[Luchini2019]]</td><td>Lynch screening for the family; stage II prognosis and no fluorouracil alone; immunotherapy in metastatic disease. [[Sepulveda2017,Baxter2022,Andre2020]]</td><td>~15% overall; 3.5–5% metastatic. [[Boland2010,Venderbosch2014]]</td></tr>
+      <tr><th>Extended RAS</th><td>KRAS and NRAS codons 12, 13, 59, 61, 117, 146 (exons 2–4); assays detecting ≥5% mutant allele; metastatic tissue preferred. [[Sepulveda2017]]</td><td>RAS-mutant tumours do not benefit from cetuximab or panitumumab; the labels exclude them. [[Douillard2013,FDA-Erbitux,FDA-Vectibix]]</td><td>KRAS exon 2 ~43%; plus 17% of the remainder. [[Amado2008,Douillard2013]]</td></tr>
+      <tr><th>BRAF V600E</th><td>Mutation testing, tissue or plasma per the encorafenib label. [[FDA-Braftovi]]</td><td>Poor prognosis (OS HR 1.91); opens encorafenib plus cetuximab-based therapy; in MLH1-lost tumours favours sporadic cancer. [[Venderbosch2014,Kopetz2019,Sepulveda2017]]</td><td>~8% advanced; ~14% stage II–III. [[Sepulveda2017]]</td></tr>
+      <tr><th>HER2</th><td>IHC plus ISH with CRC-specific criteria. [[SartoreBianchi2016]]</td><td>HER2-targeted therapy in later lines; trastuzumab deruxtecan responses only in HER2-positive tumours (45.3%). [[FDA-Tukysa,Yoshino2023]]</td><td>5% of KRAS exon 2 wild-type. [[SartoreBianchi2016]]</td></tr>
+      <tr><th>KRAS G12C</th><td>Part of RAS mutation testing.</td><td>G12C inhibitor plus anti-EGFR after chemotherapy: sotorasib–panitumumab PFS 5.6 vs 2.2 months. [[Fakih2023,FDA-Lumakras]]</td><td>3–4% of mCRC. [[Fakih2023]]</td></tr>
+      <tr><th>ALK, ROS1, NTRK fusions</th><td>Pan-Trk IHC screen: 100% specific, 87.9% sensitive. [[Solomon2020]]</td><td>Tumour-agnostic TRK inhibitors; fusion-positive tumours resisted anti-EGFR. [[FDA-Vitrakvi,Pietrantonio2017]]</td><td>0.2–2.4% together; older, right-sided, RAS wild-type, MSI-H. [[Pietrantonio2017]]</td></tr>
+      <tr><th>PIK3CA, PTEN</th><td>—</td><td>No recommendation for testing outside trials. [[Sepulveda2017]]</td><td>PIK3CA 10–18%. [[Sepulveda2017]]</td></tr>
+      <tr><th>ctDNA</th><td>Tumour DNA in blood.</td><td>Finds actionable mutations in advanced cancer; after surgery it predicts relapse, but routine use for residual disease is not yet recommended (ESMO 2022) <span class="ev early">Early evidence</span>. <button class="bmlink" data-go="cure">More in Toward a cure</button>. [[Pascual2022,Tie2022]]</td><td>Detected in 88.5% of stage I–III before surgery. [[Reinert2019]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="cards">
+    <div class="card"><span class="tag">Sidedness</span><h4>Left and right are different diseases</h4><p>Right-sided cancers are more often MSI-high, BRAF-mutant and mucinous; left-sided more often chromosomally unstable. Across 66 studies (1.4 million patients), a left-sided primary carried a lower risk of death (HR 0.82). Anti-EGFR plus chemotherapy helped left-sided RAS wild-type tumours (OS HR 0.75) but not right-sided (HR 1.12); this predictive signal comes from retrospective subgroup analyses <span class="ev est">Established</span> for prognosis. [[Missiaglia2014,Petrelli2017,Arnold2017]]</p></div>
+    <div class="card"><span class="tag tumour">RAS</span><h4>Why RAS closes the anti-EGFR door</h4><p>Cetuximab and panitumumab are antibodies against the EGF receptor. In the trials that defined their use, panitumumab's benefit was confined to wild-type KRAS (PFS HR 0.45 vs 0.99), and cetuximab gave 9.5 vs 4.8 months median OS only in wild-type tumours. Mutations beyond KRAS exon 2 predicted the same lack of benefit, hence extended RAS testing. [[Amado2008,Karapetis2008,Douillard2013]]</p></div>
+    <div class="card"><span class="tag">Lynch syndrome</span><h4>A test for the tumour, an answer for the family</h4><p>About 3% of new colorectal cancers are caused by an inherited MMR mutation. Relatives who inherit it have about a 45% risk of colorectal cancer by age 70, which is why EGAPP recommended offering testing to everyone with newly diagnosed CRC. <button class="bmlink" data-go="genes">Lynch syndrome &amp; FAP</button>. [[EGAPP2009]]</p></div>
+  </div>
+</section>

@@ -1,0 +1,97 @@
+<!-- ================= 4.1 HOW THE DRUGS WORK ================= -->
+<section class="mod" id="m-dmt" data-mod="dmt" hidden>
+<style>
+#m-dmt .dm-pick{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-dmt .dm-pick .btn{font-size:13.5px;padding:7px 12px}
+#m-dmt .dm-legal{max-width:none;font-size:15px}
+#m-dmt .dm-side{display:flex;flex-direction:column;gap:14px}
+#m-dmt .dm-side .readout{border-top:1px solid var(--line);padding-top:8px}
+#m-dmt .dm-card{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line);padding-top:14px}
+#m-dmt .dm-agents{font:500 12.5px/1.4 var(--mono);color:var(--muted);margin-top:-6px}
+#m-dmt .dm-card .kv dd{font-size:14.5px}
+#m-dmt .dm-card .kv dd .tag{margin-right:6px}
+#m-dmt .dm-toggles{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+#m-dmt .dm-key{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px}
+#m-dmt .dm-key li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;align-items:start;color:var(--muted);transition:color .2s}
+#m-dmt .dm-key li b{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);font:600 11px var(--mono);color:var(--muted)}
+#m-dmt .dm-key li.on{color:var(--ink)}
+#m-dmt .dm-key li.on b{border-color:var(--rx);color:var(--rx)}
+#m-dmt .dm-filt{display:flex;flex-direction:column;gap:8px}
+#m-dmt .dm-filt>div{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-dmt .dm-filt .btn{font-size:13px;padding:6px 11px}
+#m-dmt .tbl table{min-width:900px;font-size:13.5px;table-layout:fixed}
+#m-dmt .tbl thead th:nth-child(1){width:17%} #m-dmt .tbl thead th:nth-child(2){width:11%} #m-dmt .tbl thead th:nth-child(3){width:9%}
+#m-dmt .tbl thead th:nth-child(4){width:12%} #m-dmt .tbl thead th:nth-child(5){width:11%} #m-dmt .tbl thead th:nth-child(6){width:15%}
+#m-dmt .tbl td,#m-dmt .tbl th{overflow-wrap:break-word}
+#m-dmt .tbl td,#m-dmt .tbl th{padding:9px 11px}
+#m-dmt .tbl tbody th{font-size:14px}
+#m-dmt .tbl tbody th .tag{margin-top:5px;display:inline-flex}
+#m-dmt .dm-sort{background:none;border:0;padding:0;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit;cursor:pointer;display:inline-flex;gap:4px;align-items:center}
+#m-dmt .dm-sort{text-decoration:underline;text-underline-offset:3px}
+#m-dmt .dm-sort:hover{color:var(--ink)}
+#m-dmt th[aria-sort="ascending"] .dm-sort,#m-dmt th[aria-sort="descending"] .dm-sort{color:var(--rx)}
+#m-dmt .dm-date{white-space:nowrap}
+#m-dmt .card>.ev{align-self:flex-start}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>How the drugs work</h2>
+    <p class="lede">Each MS disease-modifying therapy blocks a different step of the immune attack: holding cells in lymph nodes, stopping them entering the brain, or removing them. Pick a drug class to watch where it acts, then compare continuous and pulsed treatment over two years.</p></div>
+  <p class="callout dm-legal"><b>Published label and trial information only.</b> Doses below are quoted from the US labels or trial reports so the mechanisms make sense. They are not instructions. Which medicine suits a particular person is a decision for that person and their MS team.</p>
+
+  <div class="dm-pick" id="dmPick" role="group" aria-label="Choose a drug class"></div>
+  <div class="stepper" id="dmSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dmSvg" viewBox="0 0 720 500" style="min-width:560px" role="img" aria-label="A pathway map from lymph node to bloodstream to blood-brain barrier to a CNS lesion: T and B cells travel along it, then the chosen drug arrives and acts at its own step, for example holding cells in the node, blocking docking at the barrier, or destroying B cells, while meters show cells leaving the node, cells in the blood and cells reaching the CNS."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dmPlay">Play</button><label class="stage-cap tl" for="dmT">Timeline <input type="range" id="dmT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Schematic, not to scale. The number of moving cells and the three meters are illustrative, not measured effect sizes. Orange cells marked T are T cells; violet cells marked B are B cells; teal shapes are the drug.</p></div>
+    <aside class="note dm-side"><div id="dmNote" aria-live="polite"></div><div id="dmCard"></div></aside>
+  </div>
+  <div class="prose"><p>The untreated pathway, step by step, is in <a href="#immune" data-go="immune">1.3 The immune attack</a>. Choosing between these medicines is covered in <a href="#ladder" data-go="ladder">4.2 The DMT ladder</a>, and their monitoring in <a href="#safety" data-go="safety">4.3 Safety &amp; monitoring</a>.</p></div>
+
+  <h3 class="sub">Continuous or pulsed: lymphocyte counts over 24 months</h3>
+  <p class="prose">Continuous therapies work only while they are being given. Pulsed immune reconstitution therapies are given as two short yearly courses: they knock lymphocyte counts down, and the immune system then rebuilds itself. Drag through two years and watch the four patterns side by side. Numbered dots mark the published timing anchors the curves pass through.</p>
+  <div class="dm-toggles" role="group" aria-label="Stopping scenarios">
+    <span class="kicker">What if</span>
+    <button class="btn" id="dlStop" aria-pressed="false">Stop the S1P modulator at month 12</button>
+    <button class="btn" id="dlLast" aria-pressed="false">Last anti-CD20 infusion at month 6</button>
+  </div>
+  <div class="stepper" id="dlSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dlSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="Four stacked lanes of lymphocyte counts over 24 months: anti-CD20 keeps B cells depleted with infusions every 6 months; an S1P modulator keeps blood lymphocytes low while it is taken and they recover when it stops; cladribine and alemtuzumab each knock counts down after a course at month 0 and month 12, then counts rebuild, with alemtuzumab B cells overshooting and CD4 T cells recovering slowly."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dlPlay">Play</button><label class="stage-cap tl" for="dlT">Month <input type="range" id="dlT" min="0" max="24" step="0.05" value="0"></label></div>
+      <p class="stage-cap">Schematic curves. Heights are relative to each person's starting count and are not to scale, except the alemtuzumab B-cell overshoot. Timings pass through the published anchors listed below. The S1P lane has no published count anchors in our sources, so it is drawn entirely schematically.</p>
+      <ol class="dm-key" id="dlKey"></ol></div>
+    <aside class="note" id="dlNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">All the disease-modifying therapies at a glance</h3>
+  <p class="prose">Filter by route or efficacy tier, and sort by any underlined column. Relapse-rate effects are the published headline results of each pivotal trial, against the comparator named. Trials with different comparators cannot be compared directly.</p>
+  <div class="dm-filt">
+    <div role="group" aria-label="Filter by route"><span class="kicker">Route</span>
+      <button class="btn" data-rt="all" aria-pressed="true">All</button>
+      <button class="btn" data-rt="oral" aria-pressed="false">By mouth</button>
+      <button class="btn" data-rt="inj" aria-pressed="false">Injection</button>
+      <button class="btn" data-rt="iv" aria-pressed="false">IV infusion</button></div>
+    <div role="group" aria-label="Filter by efficacy tier"><span class="kicker">Tier</span>
+      <button class="btn" data-ti="all" aria-pressed="true">All</button>
+      <button class="btn" data-ti="mod" aria-pressed="false">Moderate</button>
+      <button class="btn" data-ti="mid" aria-pressed="false">Moderate to higher</button>
+      <button class="btn" data-ti="high" aria-pressed="false">Higher</button>
+      <button class="btn" data-ti="na" aria-pressed="false">Not approved or historic</button></div>
+  </div>
+  <p class="readout" id="dmCount" aria-live="polite"></p>
+  <div class="tbl" id="dmTbl"></div>
+  <p class="stage-cap">Efficacy tiers are this guide's grouping, built from the AAN 2018 statement on higher-efficacy drugs and the Cochrane 2024 network meta-analysis; they are not an official ranking. Drugs that neither source rates are placed by class and by their head-to-head trials. [[RaeGrant2018,GonzalezLorenzo2024]] ARR = annualised relapse rate. SC = under the skin; IM = into muscle; IV = into a vein.</p>
+
+  <h3 class="sub">What is still debated</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Debated</span><h4>Why does anti-CD20 work?</h4><p>One view: through B cells presenting antigen and making cytokines, not antibody, because the benefit arrives before immunoglobulin falls and oligoclonal bands persist. The other gives antibody and complement a role in at least some lesions. Both may operate. [[Reich2018,Comi2021,Li2015,Breij2008,Lucchinetti2000]]</p></div>
+    <div class="card"><span class="ev early">Regulators differ</span><h4>Tolebrutinib</h4><p>The EU authorised it in June 2026 for SPMS without relapses in the last 2 years; the FDA issued a complete response letter in December 2025. Both looked at the same HERCULES data, which carry a liver-enzyme signal. [[EMACenrifki2026,Sanofi2025,Fox2025]]</p></div>
+    <div class="card"><span class="ev early">Off-label</span><h4>Rituximab</h4><p>RIFUND-MS found it superior to dimethyl fumarate, yet it remains unapproved for MS in the US and EU, and AAN 2018 mentions it only in PML counselling. [[Svenningsson2022,RaeGrant2018]]</p></div>
+    <div class="card"><span class="ev early">Mixed</span><h4>Relapses fall, but disability?</h4><p>CARE-MS I and ULTIMATE showed no significant disability benefit over their comparators; CARE-MS II, OPERA and ASCLEPIOS did. Cochrane rates the cladribine disability evidence as low certainty and possibly null, despite the CLARITY hazard ratio of 0.67. [[Cohen2012,Steinman2022,Coles2012,Hauser2017,Hauser2020Ofatumumab,Celani2026,Giovannoni2010]]</p></div>
+  </div>
+
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>Disease-modifying therapies act on the immune attack, not on damage that is already done. They differ in where they act: some keep immune cells inside the lymph nodes, one stops them climbing into the brain, and some remove whole groups of immune cells for a while.</div>
+    <div class="hook"><b>Exam hook</b>Match drug to step. S1P modulators: node exit (sequestration, reverses on stopping). Natalizumab: VLA-4 docking on VCAM-1 at the barrier. Anti-CD20: B-cell lysis that spares CD20-negative plasma cells. Cladribine and alemtuzumab (CD52): pulsed immune reconstitution. Teriflunomide: DHODH. BTK inhibitors: B cells and microglia behind the barrier. [[GilenyaLabel2026,TyrukoLabel2025,Greenfield2018,LemtradaLabel2025,AubagioLabel2026,Kramer2023]]</div>
+  </div>
+</section>

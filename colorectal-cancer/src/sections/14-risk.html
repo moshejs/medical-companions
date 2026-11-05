@@ -1,0 +1,100 @@
+<!-- ================= 1.4 RISK FACTORS &amp; PREVENTION ================= -->
+<style>
+#m-risk .tbl table{min-width:560px}
+#m-risk .card>.ev,#m-risk .card>.tag{align-self:flex-start}
+#m-risk .rk-res{display:flex;flex-direction:column;gap:10px}
+#m-risk .rk-res .big-num{font-size:34px}
+#m-risk .rk-res p{margin:0}
+#m-risk .rk-pick{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;font-weight:700}
+#m-risk .rk-pick select{font:inherit;font-weight:400;padding:6px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%;min-width:0}
+#m-risk .calc input[type=number]{width:100%}
+#m-risk .rk-kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+#m-risk .rk-kpi div{background:var(--panel-2);border-radius:10px;padding:10px 12px;font-size:14px}
+#m-risk .rk-kpi b{display:block;font:800 22px/1.1 var(--display);color:var(--tumour)}
+</style>
+<section class="mod" id="m-risk" data-mod="risk" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Risk factors &amp; prevention</h2>
+    <p class="lede">Age, family, colitis, diet, alcohol, smoking, weight, activity and aspirin, each drawn with its published relative risk and confidence interval. Switch to absolute risk to see what each one means for 1,000 people.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Scale">
+    <span class="kicker">Scale</span>
+    <button class="btn" data-rkm="rel" aria-pressed="true">Relative risk (forest plot)</button>
+    <button class="btn" data-rkm="abs" aria-pressed="false">Absolute risk per 1,000 people</button>
+  </div>
+  <div class="stepper" id="rkSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rkSvg" viewBox="0 0 720 500" style="min-width:560px" role="img" aria-label="A forest plot builds row by row. Factors that raise colorectal cancer risk (family history, ulcerative colitis, Crohn's disease, processed and red meat, alcohol, smoking, obesity, diabetes) sit to the right of the line of no effect; factors linked to lower risk (physical activity, fibre, whole grains, dairy, calcium, aspirin) sit to the left. Each row shows the pooled relative risk as a square and its 95% confidence interval as a line. In absolute mode the scale becomes lifetime risk and a 1,000-person icon array shows the extra or fewer cases."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rkPlay">Play</button><label class="stage-cap tl" for="rkT">Factors <input type="range" id="rkT" min="0" max="1" step="0.001" value="0.25"></label></div>
+      <div class="rk-pick"><label for="rkPick">Focus on</label><select id="rkPick"><option value="-1">the newest row (follows the animation)</option></select></div>
+      <div class="readout" id="rkRead"></div>
+      <p class="stage-cap"><b>How to read it.</b> Squares are pooled relative risks (RR) or hazard ratios from meta-analyses, cohorts or trials; lines are 95% confidence intervals; the log scale makes halving and doubling equal distances. Each row comes from a different study, with its own comparison (for example "per 50 g a day"), so rows are not directly comparable. Absolute mode multiplies one baseline, a 3.42% lifetime risk from age 50 without screening in a US microsimulation, by each RR: a rough illustration for one factor at a time, not a personal prediction. [[Meester2015JAMA]]</p>
+    </div>
+    <aside class="note" id="rkNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Age comes first</h3>
+  <div class="rk-kpi">
+    <div><b>65–74</b>the ages at which colorectal cancer is most often diagnosed in the US [[USPSTF2021]]</div>
+    <div><b>10.5%</b>of new US cases occur before 50 [[USPSTF2021]]</div>
+    <div><b>11% → 20%</b>share of US cases diagnosed before 55, 1995 to 2019 [[Siegel2023CRC]]</div>
+    <div><b>9.6%</b>of all new cancers worldwide in 2022; third most common site [[Bray2024]]</div>
+  </div>
+  <div class="prose"><p>Incidence in people younger than 55 has risen 1–2% a year since the mid-1990s, while overall incidence fell 1% a year in 2011–2019. <span class="ev est">Established</span> [[Siegel2023CRC]] Ageing, high-income diets, obesity, physical inactivity and smoking are named as the main drivers of the burden. [[Dekker2019]]</p></div>
+
+  <h3 class="sub">Family history calculator</h3>
+  <div class="prose"><p>For people whose relatives had colorectal cancer but no known inherited syndrome. Pick the family pattern; the result shows the pooled relative risk, the absolute risk from the same meta-analyses, and what two guidelines say about starting screening. These are population averages, not a personal risk assessment.</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label for="rkFdr">First-degree relatives with colorectal cancer (parent, sibling, child)
+          <select id="rkFdr"><option value="0">None</option><option value="1" selected>One</option><option value="2">Two</option><option value="3">Three or more, across two or more generations</option></select></label>
+        <label for="rkFage">Youngest affected relative's age at diagnosis
+          <select id="rkFage"><option value="40">Under 45</option><option value="47">45–49</option><option value="55" selected>50–59</option><option value="65">60 or older</option></select></label>
+        <label for="rkFexact">Exact age at diagnosis, if known
+          <input type="number" id="rkFexact" min="20" max="95" step="1" value="55"></label>
+      </div>
+      <div class="scroll"><svg id="rkFhSvg" viewBox="0 0 720 230" style="min-width:0" role="img" aria-label="Bars compare the absolute risk of colorectal cancer for a 50-year-old with no family history, one or more affected relatives, and two or more affected relatives, with the chosen pattern highlighted."></svg></div>
+      <p class="stage-cap">Bars: Butterworth 2006 life-table risk for a 50-year-old (1.8% → 3.4% → 6.9%), with 95% intervals. Second line: Roos 2019 cumulative risk to age 85 in Western Europe. [[Butterworth2006,Roos2019]]</p>
+    </div>
+    <aside class="note rk-res" id="rkFhOut" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Colitis: a risk that is falling</h3>
+  <div class="cards">
+    <div class="card"><span class="tag tumour">Ulcerative colitis</span><h4>HR 1.66, and dropping</h4><p>In 96,447 people with ulcerative colitis in Denmark and Sweden (1969–2017), colorectal cancer occurred at 1.29 vs 0.82 per 1,000 person-years: HR 1.66 (1.57–1.76). In 2013–2017 the HR was 1.38, about 1 extra case per 1,058 patients over 5 years. Even after adjusting for stage, the risk of dying of the cancer was higher (HR 1.54). [[Olen2020UC]]</p></div>
+    <div class="card"><span class="tag tumour">Crohn's disease</span><h4>HR 1.40, concentrated in some groups</h4><p>In 47,035 people with Crohn's disease, incident colorectal cancer was 0.82 vs 0.64 per 1,000 person-years (adjusted HR 1.40; 1.27–1.53). The excess was confined to Crohn's diagnosed before 40, colon-only disease, or primary sclerosing cholangitis. [[Olen2020CD]]</p></div>
+    <div class="card"><span class="tag">Older estimate</span><h4>2%, 8%, 18%</h4><p>A 2001 meta-analysis of 116 studies put the cumulative risk in ulcerative colitis at 2% after 10 years, 8% after 20 and 18% after 30 years of colitis. Newer population data show a much smaller excess. [[Eaden2001,Olen2020UC]]</p></div>
+  </div>
+
+  <h3 class="sub">How much could be prevented?</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Second only to lung cancer</h4><p>In US adults aged 30 and older in 2019, 40.0% of cancers were attributable to modifiable risk factors. For colorectal cancer that meant 78,440 attributable cases and 25,800 attributable deaths, the largest number of attributable deaths after lung cancer. [[Islami2024]] In the 2014 analysis it had the second-highest number of attributable cases (76,910) and deaths (28,290). [[Islami2018]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Meat: Group 1 and Group 2A</h4><p>The IARC Monograph 114 classified processed meat as carcinogenic to humans (Group 1) and red meat as probably carcinogenic (Group 2A). [[Bouvard2015]] In prospective studies, processed meat raised risk by about 18% per 50 g a day and fresh red meat by about 17% per 100 g a day. [[Chan2011]] The WCRF/AICR update found 12% per 100 g a day of red and processed meat. [[Vieira2017]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Dose matters</h4><p>Alcohol: RR 1.07 at 10 g a day, 1.38 at 50 g and 1.82 at 100 g of ethanol. [[Fedirko2011]] Smoking: significant only after 30 years, stronger for rectal cancer; RR 1.51 for 60 more pack-years. [[Botteri2008,Liang2009]] Body fat: RR 1.06 per 5 kg/m² of BMI, stronger in men. [[Abar2018]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Diabetes plus family history</h4><p>In Sweden, diabetes diagnosed before 50 was linked to a 1.9-fold risk of colorectal cancer before 50; combined with a family history, 6.9-fold (4.1–12). [[AliKhan2020]]</p></div>
+  </div>
+
+  <h3 class="sub">Prevention trials</h3>
+  <div class="prose"><p>Observational studies show associations. Randomised trials test whether taking something actually lowers risk, and several did not.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial or analysis</th><th>Who and what</th><th>Result</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><th>Aspirin trials, 20-year follow-up</th><td>14,033 people in four trials, mean 6 years of aspirin</td><td>Colon cancer incidence HR 0.76 (0.60–0.96), mortality HR 0.65; no effect on rectal cancer overall; doses above 75 mg gave no extra benefit [[Rothwell2010]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><th>Aspirin, adenoma prevention</th><td>1,121 people with prior adenomas</td><td>Any adenoma: 47% placebo, 38% with 81 mg, 45% with 325 mg (RR 0.81 for 81 mg) [[Baron2003]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><th>ASPREE</th><td>19,114 people aged 70 or older, aspirin 100 mg a day, median 4.7 years</td><td>Cancer death 3.1% vs 2.3% (HR 1.31); all-cause death HR 1.14; more stage 4 cancer at diagnosis (HR 1.22) [[McNeil2018,McNeil2021]]</td><td><span class="ev early">Early evidence</span> of harm in older people</td></tr>
+      <tr><th>VITAL</th><td>25,871 people, vitamin D3 2000 IU a day, median 5.3 years</td><td>No reduction in invasive cancer (HR 0.96) or colorectal cancer (HR 1.09; 0.73–1.62) [[Manson2019]]</td><td><span class="ev est">Established</span> null</td></tr>
+      <tr><th>Calcium Polyp Prevention</th><td>930 people with prior adenomas, calcium 1200 mg a day</td><td>Adenoma recurrence 31% vs 38%, adjusted RR 0.81 (0.67–0.99) [[Baron1999]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Vitamin D / calcium, 2015</th><td>2,259 people, 3–5 years</td><td>No significant effect: vitamin D RR 0.99, calcium RR 0.95, both RR 0.93 [[Baron2015]]</td><td><span class="ev est">Established</span> null</td></tr>
+      <tr><th>CAPP2 (Lynch syndrome)</th><td>861 carriers, aspirin 600 mg a day for about 2 years</td><td>Colorectal cancer 9% vs 13% at 10 years, HR 0.65: see <a href="#genes" data-go="genes">Lynch syndrome &amp; FAP</a> [[Burn2020]]</td><td><span class="ev est">Established</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><p>The US Preventive Services Task Force gave a B recommendation in 2016 for low-dose aspirin to prevent cardiovascular disease and colorectal cancer in adults 50–59 with a 10-year cardiovascular risk of 10% or more, low bleeding risk and willingness to take it for 10 years or more. [[BibbinsDomingo2016]] In 2022 it recast aspirin as a cardiovascular decision only: an individual decision at 40–59 (C) and against starting at 60 or older (D). [[USPSTF2022Aspirin]] Bleeding is the main harm. [[Cuzick2015]]</p></div>
+
+  <h3 class="sub">Where the evidence disagrees</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Controversy</span><h4>How big is the family-history risk?</h4><p>Older meta-analyses give about 2.2 for one first-degree relative. Pooling only cohorts gives 1.37 (CI 0.76–2.46), and after 55 the PLCO trial found HR 1.23. Recall bias in case-control studies may inflate older figures. Guidelines differ as a result. [[Johns2001,Butterworth2006,Roos2019,Schoen2015]]</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Aspirin depends on age</h4><p>Long-term trial follow-up shows benefit after 5 or more years, mostly in the proximal colon (incidence HR 0.35). In people 70 and older, ASPREE showed no benefit and more advanced cancer. [[Rothwell2010,McNeil2021]]</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Calcium and vitamin D</h4><p>Observational data favour calcium (RR 0.92 per 300 mg a day), but randomised trials of vitamin D and calcium were null, apart from one modestly positive calcium trial. [[Keum2014,Baron2015,Manson2019,Baron1999]]</p></div>
+  </div>
+</section>

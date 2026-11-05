@@ -1,0 +1,57 @@
+<!-- ================= 4.4 TOWARD A CURE ================= -->
+<section class="mod" id="m-cure" data-mod="cure" hidden>
+<style>
+#m-cure .cu-routes{display:flex;flex-wrap:wrap;gap:6px}
+#m-cure .cu-routes .btn{font-size:13.5px;padding:7px 12px}
+#m-cure .cu-nums{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+#m-cure .cu-num{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+#m-cure .cu-num b{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.05;color:var(--sky)}
+#m-cure .cu-num span{font-size:14px}
+#m-cure .cu-close{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--sky);border-radius:var(--r);padding:16px 18px;font-size:17px}
+#m-cure .cu-close b{font-family:var(--display);font-weight:800;font-size:21px;display:block;margin-bottom:4px}
+#m-cure td .ev{display:inline-block}
+#m-cure .card .ev{align-self:flex-start}
+</style>
+  <div class="mhead"><p class="eyebrow">חלק 4 · חיים, טיפול ומניעה</p><h2>לקראת ריפוי</h2>
+    <p class="lede">חוקרים מנסים לקטוע את המחלה בכל שלב, מהחיתוך הראשון של החלבון ועד אובדן הסינפסות. בחרו דרך טיפול כדי להוריד מחסום במטרה שלה, וראו מה מצאו הראיות הטובות ביותר. לכל דרך יש תווית ראיות, והכישלונות מוצגים בבירור בדיוק כמו ההצלחות.</p></div>
+
+  <h3 class="sub">היכן אפשר להתערב?</h3>
+  <div class="cu-routes" role="group" aria-label="בחירת דרך טיפול" id="cuRoutes"></div>
+  <div class="stepper" id="cuSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="חלקיקים זורמים לאורך מסלול המחלה: מעיבוד APP, דרך הצטברות עמילואיד, התפשטות טאו, מיקרוגליה ודלקת, ועד אובדן סינפסות. דרך הטיפול שנבחרה מורידה מחסום במטרה שלה, והזרימה שמעבר לו מראה אם לפי הראיות הטובות ביותר מניסויים המחלה הואטה, הטיפול נכשל או שהמצב החמיר."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuPlay">הפעלה</button><label class="stage-cap tl" for="cuT">ציר זמן <input type="range" id="cuT" min="0" max="1" step="0.002" value="0.7"></label></div>
+      <p class="stage-cap" id="cuCap">סכמטי, לא בקנה מידה. הזרימה שמעבר למחסום היא המחשה של תוצאת הניסוי, לא מדידה.</p></div>
+    <aside class="note" id="cuNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>דרך טיפול</th><th>מטרה</th><th>ראיות</th><th>התוצאה הטובה ביותר עד כה</th></tr></thead>
+    <tbody id="cuTbl"></tbody></table></div>
+
+  <h3 class="sub">ניסויי מניעה: טיפול לפני התסמינים</h3>
+  <p class="prose">הניסויים האלה נותנים תרופה לאנשים שיש להם עמילואיד או גן שגורם למחלה, אבל עדיין אין להם תסמינים. ציר הזמן נמשך מהתוצאות הראשונות ועד האחרונות הצפויות; נקודות מלאות הן תוצאות שפורסמו, ונקודות חלולות הן מועדי סיום משוערים ממרשם הניסויים.</p>
+  <div class="stepper" id="cuPvSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="cuPv" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="ציר זמן מ־2022 עד 2033. סמן עובר על שישה ניסויי מניעה בזה אחר זה: A4 ו־API Colombia דיווחו שאין תועלת, שלב ההמשך של DIAN-TU דיווח על עיכוב אפשרי שעדיין לא אושש, ו־TRAILBLAZER-ALZ 3, AHEAD 3-45 ו־PrevenTRON עדיין פעילים, עם מועדי סיום משוערים ב־2027, ב־2028 וב־2032."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cuPvPlay">הפעלה</button><label class="stage-cap tl" for="cuPvT">שנים <input type="range" id="cuPvT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">התאריכים הם שנות הפרסום של התוצאות, ולניסויים שעדיין פעילים, הערכות ממרשם הניסויים.</p></div>
+    <aside class="note" id="cuPvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">צנרת הפיתוח של 2025 במספרים</h3>
+  <div class="cu-nums" id="cuNums"></div>
+  <div class="ctrls" role="group" aria-label="שנת הסקירה"><span class="kicker">חלקו של כל סוג תרופה בצנרת</span>
+    <button class="btn" id="cuY25" aria-pressed="true">2025</button><button class="btn" id="cuY26" aria-pressed="false">2026</button></div>
+  <div class="stage"><div class="scroll"><svg id="cuPipe" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="תרשימי עמודות של צנרת פיתוח התרופות לאלצהיימר: שיעור התרופות לפי סוג ב־2025 או ב־2026, מספר הניסויים והתרופות לפי שלב ב־2025, ומספר התרופות לפי מנגנון ב־2025."></svg></div>
+    <p class="stage-cap" id="cuPipeCap">ספירות מהסקירות השנתיות של צנרת הפיתוח ב־clinicaltrials.gov.</p></div>
+
+  <h3 class="sub">שאלות פתוחות</h3>
+  <div class="cards" id="cuOpen"></div>
+
+  <h3 class="sub">מה בודקים הניסויים הבאים</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>שאלה</th><th>ניסויים</th><th>צפוי</th></tr></thead>
+    <tbody id="cuNext"></tbody></table></div>
+
+  <div class="cu-close"><b>אף טיפול אינו מרפא היום את מחלת אלצהיימר.</b>הנוגדנים המאושרים שמפנים עמילואיד מאטים במידה מתונה את ההידרדרות במחלה מוקדמת; הם אינם עוצרים אותה ואינם משיבים את מה שאבד, ועדיין לא הוכח שתרופה כלשהי מונעת תסמינים אצל אנשים שאין להם תסמינים. ריפוי יחייב לעצור את הניוון העצבי, ואולי גם להשיב תפקוד שאבד. [[vanDyck2023,Sims2023,Bateman2025,Tariot2026]]</div>
+</section>

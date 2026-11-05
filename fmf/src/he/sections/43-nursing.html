@@ -1,0 +1,92 @@
+<style>
+#m-nursing .nu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+#m-nursing .nu-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 15px;display:flex;flex-direction:column;gap:7px;min-width:0}
+#m-nursing .nu-card h5{margin:0;font:700 15px var(--body)}
+#m-nursing .nu-card p,#m-nursing .nu-card li{font-size:14px}
+#m-nursing .nu-card ul{margin:0;padding-left:17px;display:flex;flex-direction:column;gap:4px}
+#m-nursing .nu-q{width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;display:flex;flex-direction:column;gap:5px;min-width:0}
+#m-nursing .nu-q[aria-expanded="true"]{border-color:var(--sea);background:var(--sea-soft)}
+#m-nursing .nu-q b{font-size:15px;line-height:1.3}
+#m-nursing .nu-q .myth{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--terra)}
+#m-nursing .nu-ans{border-left:3px solid var(--sea);padding:8px 0 8px 13px;display:flex;flex-direction:column;gap:9px;font-size:15px}
+#m-nursing .nu-check{display:flex;flex-direction:column;gap:7px}
+#m-nursing .nu-check label{display:flex;gap:10px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 13px;cursor:pointer;font-size:14.5px;min-width:0}
+#m-nursing .nu-check input{margin-top:3px;flex:none;accent-color:var(--sea)}
+#m-nursing .nu-note{background:var(--panel-2);border-radius:10px;padding:12px 14px;font-size:14.5px;white-space:pre-wrap;font-family:var(--mono);line-height:1.5;overflow-wrap:anywhere}
+#m-nursing .nu-scope{background:var(--gold-soft);border-radius:10px;padding:11px 14px;font-size:14.5px;display:flex;gap:9px;align-items:flex-start}
+#m-nursing .nu-scope b{font:600 10.5px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--warn);white-space:nowrap;padding-top:2px}
+@media (max-width:600px){#m-nursing .nu-scope{flex-direction:column;gap:3px}}
+</style>
+<!-- ================= 4.3 NURSING CARE ================= -->
+<section class="mod" id="m-nursing" data-mod="nursing" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 4 · טיפול והעתיד</p><h2>טיפול סיעודי</h2>
+    <p class="lede">מה מתארות ההנחיות שפורסמו לגבי ארבעת הדברים שאחות או אח עושים עם אדם בהתקף: להעריך, לתת את התרופות בבטחה, להדריך ולתעד. כל נתון כאן מצוטט מהספרות, לא מנוהלי עבודה מקומיים.</p></div>
+
+  <div class="nu-scope"><b>היקף</b><span>המודול מתאר את מה שאומרים הנחיות, עלוני תרופות ומחקרים שפורסמו. הוא אינו תוכנית טיפול, והוא אינו מחליף את הנהלים של השירות שלכם, את תחום הסמכות המקצועית שלכם או את הגורם הרושם. במקומות שבהם הספרות אינה נותנת תשובה, המודול אומר זאת ואינו ממלא את החסר.</span></div>
+
+  <h3 class="sub">1 · הערכה סיעודית בזמן התקף</h3>
+  <p class="prose" id="nuAssessLede"></p>
+  <div class="ctrls" id="nuSites" role="group" aria-label="מה להעריך"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="ממצאי הערכה ומדדים לאורך התקף"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">הפעלה</button><label class="stage-cap tl" for="nuT">שעות <input type="range" id="nuT" min="0" max="1" step="0.002" value="0.12"></label>
+        <button class="btn" id="nuFlag" aria-pressed="false">הצגת מה שאינו התקף טיפוסי</button></div>
+      <div class="readout" id="nuRead"></div>
+      <p class="stage-cap"><b>להמחשה.</b> עקומות המדדים עוקבות אחר תיאורים שפורסמו של מהלך ההתקף בזמן; אף מחקר לא פרסם תרשים שעה אחר שעה. הממצאים והספים מגובים במקורות.</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+  <h3 class="sub">מדידת פעילות המחלה</h3>
+  <div class="nu-grid" id="nuTools"></div>
+
+  <h3 class="sub">2 · מתן התרופות</h3>
+  <p class="prose" id="nuMedLede"></p>
+  <div class="ctrls" id="nuScen" role="group" aria-label="מצב"></div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="nuMedSvg" viewBox="0 0 560 400" style="min-width:420px" role="img" aria-label="בדיקות לפני מתן מנת קולכיצין"></svg></div>
+      <p class="stage-cap" id="nuMedCap"></p>
+    </div>
+    <aside class="note" id="nuMedNote" aria-live="polite"></aside>
+  </div>
+  <h3 class="sub">חוסמי IL-1 בהזרקה</h3>
+  <div class="lab even">
+    <div class="stage">
+      <svg id="nuInjSvg" viewBox="0 0 420 320" role="img" aria-label="אתרי הזרקה תת־עורית והחלפה ביניהם"></svg>
+      <div class="ctrls"><button class="btn primary" id="nuInjPlay">מעבר בין האתרים</button></div>
+      <p class="stage-cap">האתרים המוצגים הם אלה שהעלונים מציינים להזרקה תת־עורית. החלפת אתר ההזרקה היא נוהג מקובל בהזרקות תת־עוריות חוזרות.</p>
+    </div>
+    <aside class="note" id="nuInjNote" aria-live="polite"></aside>
+  </div>
+  <div class="nu-grid" id="nuBio"></div>
+
+  <h3 class="sub">3 · הדרכת מטופל, ומה שמובן לא נכון</h3>
+  <p class="prose" id="nuTeachLede"></p>
+  <div class="split2">
+    <div class="nu-check" id="nuMyths"></div>
+    <aside class="note" id="nuMythNote" aria-live="polite"></aside>
+  </div>
+  <div class="nu-grid" id="nuTeachCards"></div>
+
+  <h3 class="sub">4 · מה נכנס לתיעוד</h3>
+  <p class="prose" id="nuDocLede"></p>
+  <div class="split2">
+    <div>
+      <div class="nu-check" id="nuDocFields"></div>
+      <div class="ctrls" style="margin-top:10px"><button class="btn" id="nuDocAll">סימון הכול</button><button class="btn ghost" id="nuDocNone">ניקוי</button></div>
+    </div>
+    <div class="stage">
+      <p class="kicker">רישום שנבנה ממה שסימנתם</p>
+      <div class="nu-note" id="nuDocOut"></div>
+      <p class="stage-cap">דוגמה מעובדת של הפריטים שההנחיות מונות. השירות שלכם קובע את המבנה.</p>
+    </div>
+  </div>
+  <h3 class="sub">שנת המעקב</h3>
+  <div class="stage">
+    <div class="scroll"><svg id="nuMonSvg" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="מה נבדק ובאיזו תדירות"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="nuMonPlay">הפעלה</button><label class="stage-cap tl" for="nuMonT">חודשים <input type="range" id="nuMonT" min="0" max="1" step="0.004" value="1"></label></div>
+    <p class="stage-cap" id="nuMonCap"></p>
+  </div>
+  <div class="nu-grid" id="nuDocCards"></div>
+</section>

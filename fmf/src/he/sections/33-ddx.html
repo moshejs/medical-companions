@@ -1,0 +1,46 @@
+<!-- ================= 3.3 THE DIFFERENTIAL ================= -->
+<section class="mod" id="m-ddx" data-mod="ddx" hidden>
+<style>
+#m-ddx .dd-pick{display:flex;flex-wrap:wrap;gap:6px}
+#m-ddx .dd-pick .btn{font-size:13px;padding:6px 11px}
+#m-ddx .dd-out{min-height:64px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+#m-ddx .dd-out b.big{font-family:var(--display);font-size:19px;line-height:1.2}
+#m-ddx td,#m-ddx th{overflow-wrap:break-word;hyphens:auto}
+#m-ddx tbody th{min-width:150px}
+#m-ddx table{min-width:760px}
+#m-ddx tbody tr{cursor:pointer}
+#m-ddx tbody tr:hover td,#m-ddx tbody tr:hover th{background:var(--panel-2)}
+#m-ddx tbody tr.hl:hover td,#m-ddx tbody tr.hl:hover th{background:var(--terra-soft)}
+</style>
+  <div class="mhead"><p class="eyebrow">חלק 3 · סיבוכים ואבחון</p><h2>האבחנה המבדלת</h2>
+    <p class="lede">לחום חוזר עם כאבים יש סיבות רבות. הקצב הוא לעתים קרובות הרמז הראשון: כמה זמן נמשך כל התקף, באיזו סדירות הוא חוזר והאם הוא חולף מעצמו. לחצו על הפעלה כדי לעבור על פני 60 ימים, ואז לחצו על מחלה כדי לראות איך מבדילים אותה.</p></div>
+  <p class="callout">בין הקדחות התורשתיות החוזרות, <b>משך ההתקף הוא המשתנה היחיד שמבחין ביניהן הכי טוב</b>: FCAS פחות מיממה,‏ FMF‏ 1 עד 3 ימים,‏ PFAPA‏ 3 עד 6 ימים,‏ MKD‏ 3 עד 7 ימים,‏ TRAPS‏ 7 ימים או יותר. משכי ההתקף של FMF,‏ PFAPA,‏ MKD ו־TRAPS מצוטטים בטבלה שלמטה; הנתון של FCAS הוא ידע מקובל בהוראה, ואינו נשען על מקור שנבדק כאן. [[Gattorno2019,Thomas1999,Favier2016,Lachmann2017]]</p>
+  <div class="ctrls" role="group" aria-label="מחלה">
+    <span class="kicker">בחרו מחלה</span>
+    <div class="dd-pick" id="ddPick"></div>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddSvg" viewBox="0 0 720 420" style="min-width:500px" role="img" aria-label="דפוסי התקפים אופייניים של עשרה מצבים לאורך 60 ימים"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ddPlay">הפעלה</button><label class="stage-cap tl" for="ddT">יום <input type="range" id="ddT" min="0" max="1" step="0.001" value="0.3"></label></div>
+      <div class="readout" id="ddRead"></div>
+      <div class="legend"><span><i style="background:var(--terra)"></i>התקף עם חום</span><span><i style="background:var(--warn)"></i>כיבים</span><span><i style="background:var(--muted)"></i>בדרך כלל ללא חום</span><span><i style="background:var(--sea)"></i>פעילות כרונית</span><span><i style="background:var(--bad)"></i>מתקדם, כירורגי</span></div>
+      <p class="stage-cap">חלון סכמטי של 60 ימים. <b>משכי</b> ההתקפים לפי המקורות שבטבלה; <b>המרווחים</b> ביניהם להמחשה בלבד. התווית בצד ימין מציינת אם הקצב בשורה מצוטט ("מצוטט") או לקוח מידע מקובל בהוראה שאינו נשען על מקור שנבדק ("הוראה").</p></div>
+    <aside class="note" id="ddNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">חום + כאב בטן: נקודות הכרעה</h3>
+  <p class="prose">בחרו רמז מתוך הסיפור. השורות המתאימות יידלקו באנימציה שלמעלה, והתיבה שלמטה תציין את הבדיקה שמבדילה ביניהן.</p>
+  <div class="ctrls" role="group" aria-label="רמזים" id="ddClues"></div>
+  <div class="dd-out" id="ddClueOut" aria-live="polite"></div>
+  <div class="split2">
+    <div class="hook"><b>לבחינה</b>חום + כאב בטן, ארבע שאלות: <b>האם זה חולף מעצמו בתוך 1 עד 3 ימים?</b> (FMF). <b>האם הכאב מחמיר ועובר לרביע הימני התחתון?</b> (דלקת תוספתן, גם ב־FMF). <b>האם יש חום בכלל?</b> (בפורפיריה בדרך כלל אין). <b>מה הקצב?</b> FMF לא סדיר, PFAPA כמו שעון בערך כל 4 שבועות, TRAPS שבוע או יותר, מחלת סטיל קפיצות חום יומיות. ואחר כך: הפריטין לא משתנה ב־FMF, וגבוה מאוד במחלת סטיל. [[Lidar2008,Anderson2005,Thomas1999,Korkmaz2002,Yamaguchi1992]]</div>
+    <div class="pt"><b>במילים פשוטות</b>מחלות רבות גורמות לחום ולכאבי בטן. רופאים מבדילים ביניהן בעיקר לפי כמה זמן נמשך כל התקף, כמה פעמים הוא חוזר, מה עוד קורה באותו זמן, וכמה בדיקות ממוקדות. התקף FMF חולף מעצמו בתוך כמה ימים; דלקת תוספתן ממשיכה להחמיר.</div>
+  </div>
+
+  <h3 class="sub">ההשוואה המלאה</h3>
+  <p class="prose">לחצו על כל שורה כדי להציג אותה בלוח ההערות שלמעלה.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>מחלה</th><th>גן / תורשה</th><th>משך התקף אופייני</th><th>מאפיינים מבחינים עיקריים</th><th>בדיקה מבחינה</th></tr></thead>
+    <tbody id="ddTbl"></tbody>
+  </table></div>
+</section>

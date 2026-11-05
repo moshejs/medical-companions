@@ -1,0 +1,26 @@
+<!-- ================= 1.3 MECHANISM ================= -->
+<section class="mod" id="m-mech" data-mod="mech" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 1 · המחלה</p><h2>פירין, בהנפשה</h2>
+    <p class="lede">פירין הוא חלבון שומר בתוך נויטרופילים ומונוציטים. הוא אינו מחפש חיידקים ישירות. הוא עוקב אחרי מתג תאי שנקרא RhoA, ונדלק כשהמתג הזה משתתק. וריאנטים של FMF הופכים את השומר לעצבני. בחרו גנוטיפ וגירוי, ואז לחצו על הפעלה.</p></div>
+  <div class="ctrls" role="group" aria-label="גנוטיפ">
+    <span class="kicker">גנוטיפ</span>
+    <button class="btn" id="mxNorm" aria-pressed="true">פירין תקין</button>
+    <button class="btn" id="mxMut" aria-pressed="false">M694V/M694V</button>
+    <span class="kicker" style="margin-left:8px">גירוי</span>
+    <button class="btn" id="mxMinor" aria-pressed="true">ירידה קטנה יומיומית</button>
+    <button class="btn" id="mxPath" aria-pressed="false">פתוגן מכבה את RhoA</button>
+  </div>
+  <div class="stepper" id="mxSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="mxSvg" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="הנפשה של אינפלמזום הפירין"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mxPlay">הפעלה</button><label class="stage-cap tl" for="mxT">ציר זמן <input type="range" id="mxT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap" id="mxCap">סכמטי, לא בקנה מידה.</p></div>
+    <aside class="note" id="mxNote" aria-live="polite"></aside>
+  </div>
+  <h3 class="sub">טבלת תוצאות</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>ירידה קטנה יומיומית ב־RhoA</th><th>פתוגן מכבה את RhoA</th></tr></thead>
+    <tbody id="mxGrid"></tbody>
+  </table></div>
+  <div class="cards" id="mxCards"></div>
+</section>

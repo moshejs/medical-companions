@@ -1,0 +1,20 @@
+{
+ "_note": "The research passes for this companion are not in the repository, so tools/compile_sources.py skips it and the committed sources.json is the record. The settings below are the ones it was compiled with.",
+ "areas": {
+  "A": "Epidemiology, attacks & history",
+  "B": "Genetics & diagnosis",
+  "C": "Mechanism",
+  "D": "Colchicine",
+  "E": "Amyloidosis, treatment & living",
+  "F": "Research & cure",
+  "G": "Nursing care"
+ },
+ "aliases": {
+  "Henes2022F": "Henes2022",
+  "IlarisPI": "IlarisPIG",
+  "PRINTO2016": "PRINTO2016G"
+ },
+ "validated_tag": false,
+ "match": "legacy",
+ "url": "balanced"
+}

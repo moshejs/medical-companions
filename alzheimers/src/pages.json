@@ -1,0 +1,90 @@
+{
+  "what": {
+    "title": "What is Alzheimer's disease? Dementia vs Alzheimer's",
+    "description": "Dementia is a pattern of decline that several diseases can cause, and Alzheimer's is the most common. Who it affects and how the odds change with age, animated."
+  },
+  "brain": {
+    "title": "How Alzheimer's spreads in the brain: Braak and Thal stages",
+    "description": "Tau tangles and amyloid plaques spread through the brain in a fixed order, but not the same order. Step through the Braak tangle stages, then compare amyloid."
+  },
+  "amyloid": {
+    "title": "Amyloid beta and plaques in Alzheimer's, animated",
+    "description": "How amyloid beta is cut from APP, why the enzyme that cuts first decides whether it is made, how it builds into a plaque, and the debate about the amyloid idea."
+  },
+  "tau": {
+    "title": "Tau and neurofibrillary tangles in Alzheimer's",
+    "description": "Tau holds the tracks inside a nerve fibre together. In Alzheimer's it collects too much phosphate, lets go and folds into tangles that spread. Animated."
+  },
+  "glia": {
+    "title": "Microglia, inflammation and synapse loss in Alzheimer's",
+    "description": "Synapses are lost early in Alzheimer's, and the brain's own immune cells help remove them. Microglia, inflammation, pruning and the link to memory loss."
+  },
+  "genes": {
+    "title": "Alzheimer's genes: APOE4, PSEN1, APP and Down syndrome",
+    "description": "Most Alzheimer's is not inherited in a simple way. APOE shifts the odds; rare genes such as PSEN1 and APP all but guarantee it, as does an extra chromosome 21."
+  },
+  "cascade": {
+    "title": "The Alzheimer's biomarker cascade: 20 years before symptoms",
+    "description": "Alzheimer's changes the brain long before anyone notices. Biomarkers turn abnormal in order: amyloid, then tau and nerve-cell damage, then thinking."
+  },
+  "stages": {
+    "title": "Stages and symptoms of Alzheimer's, from MCI to severe",
+    "description": "Alzheimer's takes away abilities in a fairly fixed order, from the hardest tasks to the most basic. Which everyday abilities are kept and lost at each stage."
+  },
+  "dx": {
+    "title": "Alzheimer's diagnosis: blood tests, PET, spinal fluid, MoCA",
+    "description": "How Alzheimer's is diagnosed, layer by layer: the criteria, amyloid and tau PET, spinal fluid, p-tau217 blood tests and screening tools such as the MoCA."
+  },
+  "ddx": {
+    "title": "Alzheimer's or something else? The differential diagnosis",
+    "description": "Not every memory problem is Alzheimer's. Delirium, vascular, Lewy body, frontotemporal and reversible causes, told apart by how they start and what comes first."
+  },
+  "synapse": {
+    "title": "Cholinesterase inhibitors and memantine for Alzheimer's",
+    "description": "How donepezil, rivastigmine, galantamine and memantine act at the synapse, animated, and what the trials say the benefit of each really is."
+  },
+  "antibody": {
+    "title": "Lecanemab and donanemab: anti-amyloid antibodies over time",
+    "description": "Lecanemab and donanemab clear amyloid plaque. Follow the trials month by month: plaque falls fast, ARIA shows up early, and the benefit is slow and modest."
+  },
+  "bpsd": {
+    "title": "Agitation, mood, psychosis and sleep in dementia (BPSD)",
+    "description": "Agitation, low mood, apathy, suspicion and poor sleep are common in dementia. The DICE approach to finding the cause first, and the cautions on antipsychotics."
+  },
+  "prevent": {
+    "title": "Lowering dementia risk: the 14 modifiable risk factors",
+    "description": "The 2024 Lancet Commission linked 14 risk factors that could be changed to dementia worldwide. The evidence behind each one, the caveats, and what trials show."
+  },
+  "living": {
+    "title": "Living with dementia: a guide for caregivers and families",
+    "description": "For people living with dementia and those beside them: the years after a diagnosis, planning, driving, home safety, end of life, and what helps family carers."
+  },
+  "nursing": {
+    "title": "Nursing care in dementia: assessment, medicines, communication",
+    "description": "Nursing a person with dementia: assessment such as the 4AT and PAINAD, giving the medicines, communication and care approaches, documentation and safety."
+  },
+  "cure": {
+    "title": "Toward a cure for Alzheimer's: the pipeline and the trials",
+    "description": "Researchers are trying to interrupt Alzheimer's at every step. The drug pipeline, prevention trials and the evidence for each route, failures shown plainly."
+  },
+  "history": {
+    "title": "History of Alzheimer's disease, from Auguste Deter to today",
+    "description": "From Auguste Deter in a Frankfurt asylum in 1901 to the anti-amyloid antibodies approved in 2023 and 2024: the milestones and the people, era by era."
+  },
+  "review": {
+    "title": "Alzheimer's disease flashcards and mnemonics",
+    "description": "Flashcards and mnemonics on Alzheimer's disease by topic: the disease, course and diagnosis, treatment, and living and caring. Flip, filter by part or shuffle."
+  },
+  "quiz": {
+    "title": "Alzheimer's disease quiz, with explanations",
+    "description": "Test yourself on Alzheimer's disease: pathology, diagnosis, drugs, prevention and care. Every answer comes with an explanation. Take a mixed quiz or a part."
+  },
+  "glossary": {
+    "title": "Alzheimer's disease glossary: every term explained",
+    "description": "Plain definitions of the terms in Alzheimer's care and research, from APOE and ARIA to p-tau217 and TREM2. Searchable, each linked to the module it belongs to."
+  },
+  "sources": {
+    "title": "Sources and references | Alzheimer's Companion",
+    "description": "Every reference behind Alzheimer's Companion: journal articles, guidelines, drug labels and trial registrations, searchable and filtered by topic."
+  }
+}

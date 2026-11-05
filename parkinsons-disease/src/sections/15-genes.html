@@ -1,0 +1,121 @@
+<!-- ================= 1.5 GENES AND INHERITANCE ================= -->
+<section class="mod" id="m-genes" data-mod="genes" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Genes and inheritance</h2>
+    <p class="lede">Most Parkinson's is not inherited in a simple way. About 15% of people with Parkinson's have a family history, and 5–10% have a single-gene form. [[Deng2018]] A few gene changes raise the chance a lot, many common ones raise it a little, and most people who carry even the strongest of them never develop the disease.</p></div>
+
+  <h3 class="sub">How much of Parkinson's is genetic?</h3>
+  <div class="prose"><p>Press play to meet the seven genes now counted as causes, see how many people with Parkinson's carry one, then the common variants that only shift the odds, and finally how many carriers actually become ill.</p></div>
+  <div class="stepper" id="geSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="geArch" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Four scenes. First, seven gene tiles appear on a timeline from 1997 to 2011: SNCA, PRKN, DJ-1, PINK1, LRRK2, GBA1 and VPS35, each marked dominant, recessive or risk factor, with bars for the share of people with Parkinson's who have a family history, a single-gene form or a positive gene test. Then odds-ratio bars on a log scale for GBA1 variants, a family history, a polygenic score and two common variants. Last, two grids of 100 carriers of LRRK2 G2019S or GBA1 variants showing how many develop Parkinson's by about age 80 in different studies."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gePlay">Play</button><label class="stage-cap tl" for="geT">Timeline <input type="range" id="geT" min="0" max="1" step="0.002" value="0.24"></label></div>
+      <p class="stage-cap">Odds ratios are on a log scale. Grid squares are rounded to whole people; each grid shows several studies' estimates layered on top of each other.</p></div>
+    <aside class="note" id="geNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Seven genes, three patterns</h3>
+  <div class="prose"><p>Rare variants in more than 20 genes have been reported to cause Parkinson's, most of them highly penetrant and often with early or atypical onset. [[Blauwendraat2020]] Seven have been formally adjudicated as causal contributors. [[Cook2024]] In genetic forms, Lewy bodies may be absent even when the illness looks typical, so they are not required for the diagnosis. [[Schneider2017]] See <a href="#synuclein" data-go="synuclein">Alpha-synuclein and Lewy bodies</a>.</p></div>
+  <div class="cards">
+    <div class="card"><div class="chips"><span class="tag rose">Dominant</span><span class="tag warn">Reduced penetrance</span></div><h4>LRRK2 (PARK8)</h4><p>Found in 2004 by two groups; one named the protein "dardarin", from the Basque word for tremor. [[PaisanRuiz2004,Zimprich2004]] Six mutations meet the consortium's criteria for proven pathogenicity; G2019S is by far the commonest (391 unrelated carriers). [[Healy2008]] G2019S and R1441C raise the enzyme's kinase activity, which points to a gain of function. [[West2005]]</p><p>The illness was "more benign" than idiopathic Parkinson's in one comparison: dyskinesia after 5 years in 11% versus 25%, cognitive impairment in 23% versus 70%. [[Healy2008]] Lewy bodies were found in 17 of 37 autopsied cases. [[Kalia2015]]</p></div>
+    <div class="card"><div class="chips"><span class="tag warn">Risk factor</span><span class="tag">Two copies: Gaucher disease</span></div><h4>GBA1</h4><p>GBA1 makes glucocerebrosidase, a lysosomal enzyme. Two disease-causing variants cause Gaucher disease; one variant raises the risk of Parkinson's with reduced penetrance. [[Sidransky2009,Rossi2025]] Newer numbering adds 39 amino acids: N409S was N370S, L483P was L444P, E365K was E326K. [[Rossi2025]]</p><p>"Severe" variants carried more risk than "mild" ones in Ashkenazi Parkinson's (odds ratio 10.3 versus 2.2), and earlier onset (mean 53.1 versus 58.1 years). [[GanOr2015]] Carriers had a higher risk of dementia (hazard ratio 3.16) and death (1.85). [[Cilia2016]]</p></div>
+    <div class="card"><div class="chips"><span class="tag rose">Dominant</span><span class="tag">Gene dose</span></div><h4>SNCA</h4><p>The first Parkinson's gene: A53T, found in 1997 in an Italian kindred and three Greek families. [[Polymeropoulos1997]] A30P followed in 1998, and E46K in a Spanish family with dementia and hallucinations. [[Kruger1998,Zarranz2004]] Extra whole copies of the gene also cause it, and more copies mean earlier onset (see below). [[Singleton2003,ChartierHarlin2004,Book2018]]</p></div>
+    <div class="card"><div class="chips"><span class="tag sky">Recessive</span><span class="tag">Early onset</span></div><h4>PRKN (parkin)</h4><p>Identified in 1998 as the cause of autosomal recessive juvenile parkinsonism. [[Kitada1998]] In 2000 parkin mutations were found in 49% of early-onset families with unaffected parents, in 77% of isolated cases starting at 20 or younger but only 3% starting after 30. [[Lucking2000]] Carriers started younger (32 versus 42 years), more often had dystonia at onset, responded well to levodopa and developed dyskinesia. [[Lucking2000]]</p></div>
+    <div class="card"><div class="chips"><span class="tag sky">Recessive</span></div><h4>PINK1 (PARK6)</h4><p>Homozygous mutations in this mitochondrial kinase were found in three consanguineous families in 2004: the first direct genetic link between mitochondria and Parkinson's. [[Valente2004]] Across more than 1,100 people with two PRKN, PINK1 or DJ-1 variants, median onset was about 30, the illness was clinically typical with an excellent treatment response, and cognitive decline was relatively uncommon. [[Kasten2018]]</p></div>
+    <div class="card"><div class="chips"><span class="tag sky">Recessive</span></div><h4>DJ-1 (PARK7)</h4><p>Linked in 2003 to autosomal recessive early-onset parkinsonism. DJ-1 is implicated in the response to oxidative stress, and its loss leads to neurodegeneration. [[Bonifati2003]] It is very rare: one positive result among 2,699 Israeli patients tested. [[Anis2025]]</p></div>
+    <div class="card"><div class="chips"><span class="tag rose">Dominant</span><span class="tag warn">High, incomplete penetrance</span></div><h4>VPS35</h4><p>D620N was found by exome sequencing in a Swiss family with tremor-predominant, levodopa-responsive Parkinson's (mean onset 50.6), then in three more families, and not in 3,309 controls. [[VilarinoGuell2011]] An Austrian family with 16 affected members (mean onset 53) carried the same variant. VPS35 is part of the retromer complex. [[Zimprich2011VPS35]]</p></div>
+  </div>
+
+  <h3 class="sub">SNCA: the dose of one gene</h3>
+  <div class="prose"><p>Most people have two copies of SNCA, one on each chromosome 4. A duplication on one chromosome makes three copies; a triplication, or a duplication on both, makes four. Pick a dose.</p></div>
+  <div class="ctrls" role="group" aria-label="SNCA copies">
+    <span class="kicker">SNCA copies</span>
+    <button class="btn" id="geD2" aria-pressed="false">2 (usual)</button>
+    <button class="btn" id="geD3" aria-pressed="true">3 (duplication)</button>
+    <button class="btn" id="geD4" aria-pressed="false">4 (triplication)</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="geDose" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="Two copies of chromosome 4 with the SNCA gene marked, and an age line from 20 to 80 showing the mean age at onset with one standard deviation: about 47 with three copies of SNCA and about 35 with four."></svg></div>
+      <p class="stage-cap">Mean ± 1 standard deviation from a meta-analysis of 59 families. The chromosome is schematic.</p></div>
+    <aside class="note" id="geDoseNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Dominant and recessive, in a Punnett square</h3>
+  <div class="prose"><p>LRRK2 shows the dominant pattern: one changed copy is enough. Parkin (PRKN) shows the recessive pattern: both copies must be changed. Choose a family, play it, then turn on the penetrance layer to see why "inheriting the variant" and "getting Parkinson's" are not the same thing.</p></div>
+  <div class="ctrls" role="group" aria-label="Family">
+    <span class="kicker">Family</span>
+    <button class="btn" id="gePDom" aria-pressed="true">LRRK2: dominant</button>
+    <button class="btn" id="gePRec" aria-pressed="false">PRKN: recessive</button>
+    <button class="btn" id="gePLay" aria-pressed="false">Penetrance layer</button>
+  </div>
+  <div class="stepper" id="gePSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="gePun" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Punnett square. Each parent's two gene copies split into egg or sperm cells and combine into four equally likely children. In the LRRK2 family two of the four boxes carry the variant; in the PRKN family one box has two variants, two are carriers and one has neither. The penetrance layer shades the share of carriers who develop Parkinson's."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gePPlay">Play</button><label class="stage-cap tl" for="gePT">Timeline <input type="range" id="gePT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="readout" id="gePRead"></p>
+      <p class="stage-cap">Each box is an equally likely outcome for every pregnancy; the fractions are counted from the square itself. The penetrance shading uses published estimates for LRRK2 G2019S.</p></div>
+    <aside class="note" id="gePNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Penetrance: how many carriers develop Parkinson's, by age</h3>
+  <div class="prose"><p>Penetrance is the share of carriers who develop the disease by a given age. Drag the age, switch genes, and show the disagreement: the estimates depend heavily on how the families were found.</p></div>
+  <div class="ctrls" role="group" aria-label="Gene and display">
+    <span class="kicker">Gene</span>
+    <button class="btn" id="geGL" aria-pressed="true">LRRK2 G2019S</button>
+    <button class="btn" id="geGG" aria-pressed="false">GBA1</button>
+    <button class="btn" id="geDis" aria-pressed="false">Show the disagreement</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="gePen" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A chart of the percentage of carriers with Parkinson's against age from 30 to 90, with one line or point per published study, and a moving age marker. For LRRK2 G2019S, family-based estimates reach 74 to 80% by 79 while kin-cohort estimates are 26% and 42.5% at 80. For GBA1, estimates at 80 to 85 range from about 8% to 30%, against about 2% in non-carriers."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gePenPlay">Play</button><label class="stage-cap tl" for="geAge">Age <input type="range" id="geAge" min="0" max="1" step="0.002" value="0.83"></label></div>
+      <p class="stage-cap">Only published points are plotted; lines join a study's own points. The panel shows each study's latest estimate at or below the chosen age.</p></div>
+    <aside class="note" id="gePenNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="callout"><p><b>Why the estimates disagree.</b> Published G2019S penetrance ranges from 24% to 100%, because studies differ in ascertainment (families with many affected members versus unselected relatives), age, sex, ancestry and modifiers. [[Marder2015,Healy2008,Lee2017LRRK2]] GBA1 estimates differ about threefold for the same reason. [[Anheim2012,Balestrino2020,Rana2013,Alcalay2014]]</p></div>
+    <div class="callout"><p><b>What they agree on.</b> Risk rises with age, and penetrance is incomplete for both genes: LRRK2 about 25–80% by 79–80, GBA1 about 8–30% by 80. [[Healy2008,Marder2015,Lee2017LRRK2,Anheim2012,Alcalay2014]] In the Ashkenazi kin-cohort, women carriers had a higher estimate than men (29% versus 22%). [[Marder2015]]</p></div>
+  </div>
+
+  <h3 class="sub">Who carries what: founder populations</h3>
+  <div class="prose"><p>Some variants are far more common in particular ancestries, because they trace back to a shared founder. Pick a population to see the share of people with Parkinson's who carry LRRK2 or GBA1 variants.</p></div>
+  <div class="ctrls" role="group" aria-label="Population" id="gePopBtns"><span class="kicker">Population</span></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="gePop" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Bar charts of the share of people with Parkinson's carrying LRRK2 G2019S or GBA1 variants in the chosen population: European countries, Ashkenazi Jewish, North African Arab, the Israeli national testing study of 2025 with a diagram of patients carrying both genes, or international testing programmes."></svg></div>
+      <p class="readout" id="gePopRead"></p>
+      <p class="stage-cap">Shares are of people with Parkinson's, not of the whole population. Studies used different tests and counted differently.</p></div>
+    <aside class="note" id="gePopNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Odds ratio is not lifetime risk</h3>
+  <div class="prose"><p>In a 16-centre study, people carrying any GBA1 variant had about five times the odds of Parkinson's (odds ratio 5.43). [[Sidransky2009]] That sounds close to destiny, but it is a ratio. In Ashkenazi Gaucher families, Parkinson's by 80 was 2.1% in non-carriers and 7.7% in heterozygous parents. [[Alcalay2014]] Switch the carrier estimate to see the spread.</p></div>
+  <div class="ctrls" role="group" aria-label="Carrier estimate">
+    <span class="kicker">Carrier estimate</span>
+    <button class="btn" id="geOrA" aria-pressed="true">Gaucher families</button>
+    <button class="btn" id="geOrB" aria-pressed="false">Relatives of unselected patients</button>
+    <button class="btn" id="geOrC" aria-pressed="false">Familial Parkinson's</button>
+  </div>
+  <div class="lab even">
+    <div class="stage"><div class="scroll"><svg id="geOr" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Two grids of 100 people at about age 80. Left, people without a GBA1 variant: about 2 have Parkinson's. Right, GBA1 carriers: about 8, 19 or 30 have Parkinson's depending on which study is chosen."></svg></div>
+      <p class="stage-cap">The non-carrier grid comes from the Gaucher-family study; the other two carrier estimates come from different studies, so those comparisons cross studies.</p></div>
+    <aside class="note" id="geOrNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Common variants and polygenic scores</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>GWAS: 90 signals</h4><p>The 2019 meta-analysis tested 7.8 million variants in 37,688 cases, 18,618 "proxy cases" (people with an affected first-degree relative) and 1.4 million controls, all of European ancestry. It found 90 independent risk signals in 78 genomic regions, 38 of them new. [[Nalls2019]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Heritability</h4><p>Common variation accounts for about 22% of Parkinson's liability (0.18–0.26), slightly below an earlier estimate of 0.27. The 90 variants explain 16–36% of the heritable risk, depending on the assumed prevalence. [[Nalls2019,Blauwendraat2020]]</p></div>
+    <div class="card"><span class="ev early">Research use</span><h4>Polygenic scores</h4><p>People in the top quarter of a polygenic score had higher odds than those in the bottom quarter: 3.74 in one cohort and 6.25 in a validation cohort. Prediction reached an area under the curve near 0.69; reviews summarise 0.65–0.69, a modest ability to tell people apart. [[Nalls2019,Blauwendraat2020]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Family history</h4><p>In a meta-analysis, a first-degree relative with Parkinson's gave an odds ratio of 3.23 (2.65–3.93) and any affected relative 4.45 (3.39–5.83), the strongest risk factors examined. [[Noyce2012]] See <a href="#risk" data-go="risk">Risk and protection</a>.</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Common variants in known genes</h4><p>A common SNCA promoter allele (REP1, 263 bp) raised the odds 1.43-fold without changing age at onset. [[Maraganore2006]] GBA1 E326K (E365K) raised them 1.99-fold in 15 studies. [[Huang2018]] The association of T408M is inconsistent across studies; no pooled figure was checked for this guide. [[Rossi2025]]</p></div>
+    <div class="card"><span class="tag warn">Gap</span><h4>Mostly European data</h4><p>Most risk variants were found in people of European ancestry, and relatively little is known about Parkinson's genetics in other populations. [[Blauwendraat2020,Nalls2019]] LRRK2 G2019S, for example, was found in fewer than 0.1% of 4,172 Asian patients. [[Healy2008]]</p></div>
+  </div>
+
+  <h3 class="sub">What a genetic test means</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Large studies</span><h4>What testing finds</h4><p>ROPAD found a Parkinson's-relevant result in 14.8% of 12,580 patients from 16 countries; PD GENEration in 13% of 8,301 North American participants. Most positives were GBA1 risk variants. [[Westenberger2024,Cook2024]] Counting matters: PD GENEration reported GBA1 in 7.7% as "reportable" but 10.1% as "disease-relevant". [[Cook2024]]</p></div>
+    <div class="card"><span class="ev est">Large studies</span><h4>Who tests positive</h4><p>In ROPAD the yield was 19.9% with onset at 50 or younger, 19.5% with a family history and 26.9% with both; it fell 3% for each later year of onset, and women were 22% more likely to test positive. [[Westenberger2024]] In PD GENEration it was 23.9% with Ashkenazi Jewish, Basque or North African Berber ancestry and 9.1% with no risk factor. [[Cook2024]]</p></div>
+    <div class="card"><span class="ev early">Preprint</span><h4>Criteria miss most carriers</h4><p>A pooled analysis of 25,063 patients found that an onset threshold of 50 or younger captured only 23–32% of carriers in the population cohorts, and adding family history barely helped. Its authors, and the ROPAD authors, argue for broader testing in the gene-targeted trial era. [[Balck2025,Westenberger2024]]</p></div>
+    <div class="card"><span class="tag warn">No proven therapy</span><h4>Testing has not changed standard care</h4><p>A 2023 MDS-published review notes "no proven gene-targeted therapies, but clinical trials are underway". [[Pal2023]] In 2026 the largest LRRK2 kinase-inhibitor trial and a GBA1 enzyme-activator trial reported no slowing. [[NeurologyLive2026,MJFF2026]] See <a href="#cure" data-go="cure">Toward a cure</a>.</p></div>
+    <div class="card"><span class="tag sage">Counselling</span><h4>How results were given</h4><p>In PD GENEration every participant received results in a genetic-counselling session with a neurologist or certified genetic counsellor, and people with two GBA1 variants were referred to Gaucher centres. [[Cook2024]] Early consortium and Israeli authors urged caution in counselling and questioned screening people without symptoms until penetrance is better defined and prevention exists. [[Healy2008,OrrUrtreger2007]]</p></div>
+    <div class="card"><span class="tag warn">Open questions</span><h4>No final guideline yet</h4><p>No final MDS consensus on clinical genetic testing was found. The 2023 review lists open questions: testing without medical actionability, whether testing should vary by ethnicity, long-term outcomes of testing people without symptoms, and cost. [[Pal2023]] Many people with Parkinson's do not know their genetic status, which hampers trial enrolment. [[Cook2024,Cook2021]]</p></div>
+  </div>
+</section>

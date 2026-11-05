@@ -1,0 +1,100 @@
+<!-- ================= 2.3 DIAGNOSIS AND THE MDS CRITERIA ================= -->
+<section class="mod" id="m-dx" data-mod="dx" hidden>
+<style>
+#m-dx .card>.ev{align-self:flex-start}
+#m-dx .teach{display:inline-block;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warn);background:var(--warn-soft);border-radius:6px;padding:4px 8px;margin-right:6px}
+#m-dx .dxc-form{display:flex;flex-direction:column;gap:12px}
+#m-dx fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px 12px;margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+#m-dx legend{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 4px}
+#m-dx .dxc-ck{display:flex;gap:9px;align-items:flex-start;font-size:14px;line-height:1.38;cursor:pointer;overflow-wrap:anywhere}
+#m-dx .dxc-ck input{margin:2px 0 0;accent-color:var(--rose);flex:none;width:17px;height:17px}
+#m-dx .dxc-ck b{display:block;font-size:14.5px}
+#m-dx .dxc-ck .q{color:var(--muted)}
+#m-dx .dxc-ck .tag{margin:3px 0 0;font-size:10px;padding:3px 6px}
+#m-dx .dxc-def{font-size:13px;color:var(--muted);line-height:1.45}
+#m-dx .dxc-mini{position:sticky;top:8px;z-index:3;border-radius:10px;padding:8px 12px;font:600 13px var(--mono);background:var(--panel-2);border:1px solid var(--line);display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center}
+#m-dx .dxc-mini.yes{background:var(--good-soft);border-color:var(--good)}
+#m-dx .dxc-mini.no{background:var(--bad-soft);border-color:var(--bad)}
+@media (max-width:900px){#m-dx .dxc-mini{top:62px}}
+#m-dx .dxc-out{border-radius:10px;padding:12px 14px;font-size:15px;border:1px solid var(--line);background:var(--panel-2);display:flex;flex-direction:column;gap:6px;transition:background .3s,border-color .3s}
+#m-dx .dxc-out.yes{background:var(--good-soft);border-color:var(--good)}
+#m-dx .dxc-out.no{background:var(--bad-soft);border-color:var(--bad)}
+#m-dx .dxc-out.na{background:var(--warn-soft);border-color:var(--warn)}
+#m-dx .dxc-out strong{font-family:var(--display);font-size:22px;line-height:1.15}
+#m-dx .presets{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-dx .presets .btn{font-size:13px;padding:6px 11px}
+#m-dx .calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+#m-dx .calc label{display:flex;flex-direction:column;gap:4px;font:600 12px var(--mono);color:var(--muted);letter-spacing:.04em}
+#m-dx .calc output{font:700 20px var(--body);color:var(--ink)}
+#m-dx .calc .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+@media (min-width:1361px){#m-dx .dxc-res{position:sticky;top:16px}}
+#m-dx .verdict{border-radius:10px;padding:9px 11px;background:var(--panel-2);font-size:14.5px}
+#m-dx .verdict b:first-child{display:block;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 2 · Course and diagnosis</p><h2>Diagnosis and the MDS criteria</h2>
+    <p class="lede">There is still no single test for Parkinson's. The diagnosis is clinical: a specialist confirms parkinsonism, looks for anything that points elsewhere, and weighs the warning signs against the supportive ones. Tick the features below, or load an example, and the 2015 MDS criteria give their verdict. Then see what a scan or a synuclein test adds.</p></div>
+
+  <p class="callout">The MDS clinical diagnostic criteria were built for research, but may serve as a general guide in clinical practice. [[Fox2025,Marsili2018]] NICE guidance in the UK, which predates them, still bases diagnosis on the UK Brain Bank criteria and advises referring people with suspected Parkinson's "quickly and untreated" to a specialist. [[NICE2017]] This calculator is a teaching tool, not a diagnosis.</p>
+  <div class="presets" role="group" aria-label="Example cases" id="dxcPre"><span class="kicker">Load an example</span></div>
+  <div class="lab even">
+    <div class="stage dxc-form" id="dxcForm">
+      <div class="dxc-mini" id="dxcMini" aria-hidden="true"></div>
+    </div>
+    <div class="stage dxc-res">
+      <div class="dxc-out" id="dxcOut" aria-live="polite"></div>
+      <svg id="dxcScale" viewBox="0 0 400 250" role="img" aria-label="A balance scale: red flags load the left pan and supportive criteria the right. Clinically probable needs each red flag counterbalanced by a supportive criterion, with no more than two red flags; clinically established needs no red flags and at least two supportive criteria. An absolute exclusion or missing parkinsonism stops the scale."></svg>
+      <div class="ctrls" role="group" aria-label="Validation against"><span class="kicker">How well it works</span>
+        <button class="btn" id="dxcVex" aria-pressed="true">Against experts (2018)</button>
+        <button class="btn" id="dxcVau" aria-pressed="false">Against autopsy (2023)</button></div>
+      <svg id="dxcVal" viewBox="0 0 400 262" role="img" aria-label="Bars of published validation figures for the MDS criteria and the UK Brain Bank criteria, against expert diagnosis or against autopsy."></svg>
+      <p class="stage-cap" id="dxcValCap"></p>
+    </div>
+  </div>
+
+  <h3 class="sub">Walk the case through the four steps</h3>
+  <p class="prose">The same case, one gate at a time. The marker stops at the first gate it fails.</p>
+  <div class="stepper" id="dxcSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxcFlow" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="Four gates in a row: parkinsonism, absolute exclusions, red flags, and counterbalancing by supportive criteria, ending in clinically established or clinically probable Parkinson's disease. A marker carries the current case through the gates and drops out at the first one it fails."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxcPlay">Play</button><label class="stage-cap tl" for="dxcT">Steps <input type="range" id="dxcT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="stage-cap">The steps and rules follow the 2015 MDS criteria. [[Postuma2015,Marsili2018]] Change the ticks above and replay.</p></div>
+    <aside class="note" id="dxcNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What a positive scan or synuclein test really means</h3>
+  <p class="prose"><span><span class="teach">Teaching tool</span>Pick a test (its sensitivity and specificity) and how likely the condition is before testing. The grid sorts 1,000 people by their true status and their result. The arithmetic is exact; whether the inputs fit any one person is not.</span></p>
+  <div class="stage">
+    <div class="presets" role="group" aria-label="Test presets" id="dxpTests"><span class="kicker">Test</span></div>
+    <div class="presets" role="group" aria-label="Pre-test probability presets" id="dxpSets"><span class="kicker">Setting</span></div>
+    <div class="calc">
+      <label for="dxpSens"><span class="row"><span>Sensitivity</span><output id="dxpSensV">88%</output></span><input type="range" id="dxpSens" min="50" max="100" step="1" value="88"></label>
+      <label for="dxpSpec"><span class="row"><span>Specificity</span><output id="dxpSpecV">96%</output></span><input type="range" id="dxpSpec" min="50" max="100" step="1" value="96"></label>
+      <label for="dxpPre"><span class="row"><span>Pre-test probability</span><output id="dxpPreV">42%</output></span><input type="range" id="dxpPre" min="1" max="95" step="1" value="42"></label>
+    </div>
+    <p class="stage-cap" id="dxpCap"></p>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxpGrid" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="A grid of 1,000 people fills in three steps: everyone tested, then who truly has the condition, then who tests positive, separating true positives, false negatives, false positives and true negatives, with the resulting predictive values."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxpPlay">Play</button><label class="stage-cap tl" for="dxpT">Reveal <input type="range" id="dxpT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Filled circle: true positive. Ring: false negative. Square: false positive. Small dot: true negative. Teaching tool, not a diagnostic calculator.</p></div>
+    <aside class="note" id="dxpNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The test toolbox</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">FDA approved</span><h4>DaT-SPECT (ioflupane)</h4><p>Approved in 2011, with suspected dementia with Lewy bodies added in 2022, as "an adjunct to other diagnostic evaluations". It shows loss of dopamine terminals, but PD, MSA and PSP all have that, and the scan "was not designed to distinguish among the conditions". It changed management in 54% and the diagnosis in 31% of people with suspected parkinsonism. NICE suggests considering it for tremor when essential tremor cannot be told from parkinsonism clinically. [[FDA-DaTscan,Bega2021,NICE2017]]</p></div>
+    <div class="card"><span class="ev early">Debated</span><h4>When the scan is normal (SWEDD)</h4><p>In the ELLDOPA trial, 19 of 142 imaged people with clinically diagnosed early PD (about 13%) had no dopaminergic deficit. Under MDS 2015 a normal scan is an absolute exclusion, so they cannot count as PD. In PPMI, synuclein SAA was positive in 9% of these people against 4% of controls. Some experts object that early scans can be of low quality. [[Fahn2004,Marsili2018,Siderowf2023]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Cardiac MIBG</h4><p>Against other neurodegenerative parkinsonism, the delayed heart-to-mediastinum ratio gave 89.7% sensitivity and 82.6% specificity; in early PD, 94.1% and 80.2%. Cardiac sympathetic denervation on MIBG is one of the MDS supportive criteria, alongside smell loss, but no autopsy series in a 2025 review reported it, a sign of limited availability. [[Orimo2012,Postuma2015,Fox2025]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>MRI signs</h4><ul><li>Loss of the nigrosome-1 "swallow tail": sensitivity 0.94, specificity 0.90, but only against healthy adults. [[Chau2020]]</li><li>Hummingbird sign for PSP: specificity 99.5%, sensitivity only 51.6%. [[Mueller2018]]</li><li>Hot-cross-bun sign and putaminal diffusivity (90% sensitivity, 93% specificity against PD) are MRI markers in the 2022 MSA criteria. [[Wenning2022]]</li><li>NICE advises against structural MRI to diagnose PD itself. [[NICE2017]]</li></ul></div>
+    <div class="card"><span class="ev early">Research use</span><h4>Synuclein seed amplification (SAA)</h4><p>In PPMI spinal fluid, SAA found PD with 87.7% sensitivity and 96.3% specificity against controls. Positivity was 98.6% in sporadic PD with smell loss, 78.3% without it, and 67.5% in LRRK2 PD. The FDA has endorsed it for enriching clinical trials, which is not a diagnostic approval; access is "mostly limited to research studies". [[Siderowf2023,Stephenson2026,Fox2025]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Skin biopsy</h4><p>Phosphorylated synuclein in skin was found in 92.7% of PD, 98.2% of MSA, 96.0% of DLB, 100% of pure autonomic failure and 3.3% of controls. The authors say it still needs validation "in unselected clinical populations". The commercial test is not FDA-approved as a diagnostic for PD. [[Gibbons2024,Hospitalist2024]]</p></div>
+    <div class="card"><span class="ev est">Advised against</span><h4>Levodopa and apomorphine challenges</h4><p>Sensitivity for established PD was 0.86 for apomorphine, 0.75 for an acute levodopa test and 0.91 for chronic levodopa therapy. The review concluded that the acute tests add nothing to chronic treatment and cause adverse events, and NICE advises against them. [[Clarke2000,NICE2017]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>How often the clinical diagnosis is right</h4><p>In 100 brains of people diagnosed with PD by neurologists in 1992, only 76 had PD. A meta-analysis put the accuracy of clinical diagnosis at 80.6%, and it had not improved over 25 years. In a London community study, at least 15% of people with a PD diagnosis did not meet strict criteria. [[Hughes1992,Rizzo2016,Schrag2002]]</p></div>
+  </div>
+
+  <h3 class="sub">Should Parkinson's be defined by biology?</h3>
+  <p class="prose">In 2024 two groups proposed research definitions built on the synuclein test, and the Movement Disorder Society answered with a statement of caution. Pick a person to see how each framework would describe them. <span class="ev early">Disputed</span></p>
+  <div class="ctrls" role="group" aria-label="Choose a person" id="dxbProf"><span class="kicker">Person</span></div>
+  <div class="cards" id="dxbCrit" aria-live="polite"></div>
+  <div class="hook"><b>Exam hook</b>MDS 2015: parkinsonism first (bradykinesia plus rest tremor and/or rigidity), then 9 absolute exclusions, then 10 red flags counterbalanced by 4 supportive criteria. Established = no red flags and at least 2 supportive criteria. A normal DaT scan is an absolute exclusion; a clear and dramatic levodopa response and levodopa-induced dyskinesia are supportive. [[Postuma2015,Marsili2018]]</div>
+</section>

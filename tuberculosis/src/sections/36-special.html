@@ -1,0 +1,70 @@
+<!-- ================= 3.6 TB WITH HIV, IN CHILDREN & PREGNANCY ================= -->
+<style>
+#m-special .card>.ev,#m-special .card>.tag{align-self:flex-start}
+#m-special .hv-tbm{border:1px solid var(--warn);background:var(--warn-soft);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:8px;max-width:80ch}
+#m-special .hv-tbm h4{margin:0;font-family:var(--display);font-weight:800;font-size:20px}
+</style>
+<section class="mod" id="m-special" data-mod="special" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>TB with HIV, in children &amp; pregnancy</h2>
+    <p class="lede">For people with HIV, the timing of HIV treatment during TB treatment changes survival. Follow one illustrative person from HIV infection to TB disease and through the first months of treatment, then see what the trials found. Below: why the youngest children get the sickest, and TB care in pregnancy and diabetes.</p></div>
+  <div class="ctrls" role="group" aria-label="When ART starts">
+    <span class="kicker">ART</span>
+    <button class="btn" data-art="early" aria-pressed="true">Early: within 2 weeks</button>
+    <button class="btn" data-art="late" aria-pressed="false">Deferred: week 8</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="CD4 group">
+    <span class="kicker">CD4</span>
+    <button class="btn" data-cd="low" aria-pressed="true">Below 50 cells/µL</button>
+    <button class="btn" data-cd="all" aria-pressed="false">All levels studied</button>
+  </div>
+  <div class="stepper" id="hvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hvSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Top: over years of untreated HIV, a schematic CD4 line falls while TB risk rises, until TB disease is diagnosed. Middle: weeks from starting TB treatment, with antiretroviral therapy starting at week 2, week 8 or after TB treatment, and a shaded TB-IRIS window after ART starts. Right: bars from the SAPIT, CAMELIA and STRIDE trials showing fewer deaths with earlier ART, and more TB-IRIS."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hvPlay">Play</button><label class="stage-cap tl" for="hvT">Time <input type="range" id="hvT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="readout" id="hvRead"></div>
+      <p class="stage-cap"><b>Schematic person, published trial numbers.</b> The CD4 and risk curves and the IRIS window are drawn shapes. Bars are trial results in each trial's own unit (per 100 person-years or %), so compare within a trial. They describe groups of people, not any one person. [[AbdoolKarim2010,AbdoolKarim2011,Blanc2011,Havlir2011,Namale2015]]</p>
+    </div>
+    <aside class="note" id="hvNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="hv-tbm"><span class="tag warn">The exception</span><h4>TB meningitis: early ART did not help</h4>
+    <p>In a Vietnamese trial of 253 people with HIV-associated TB meningitis, immediate ART did not reduce 9-month mortality (HR 1.12) and caused more grade 4 adverse events (102 vs 87) [[Torok2011]]. WHO therefore allows a delay of 4–8 weeks when there are signs of meningitis [[WHO-Mod4-2025]]. The trial was small and from before dolutegravir, so the question is not closed. For people with drug-resistant TB on second-line drugs, WHO recommends ART as early as possible, within the first 8 weeks [[WHO-Mod4-2025]].</p></div>
+
+  <h3 class="sub">Children: age changes everything</h3>
+  <div class="ctrls" role="group" aria-label="Age band">
+    <span class="kicker">Age at infection</span>
+    <button class="btn" data-ag="0" aria-pressed="true">Under 1</button>
+    <button class="btn" data-ag="1" aria-pressed="false">1–2</button>
+    <button class="btn" data-ag="2" aria-pressed="false">2–5</button>
+    <button class="btn" data-ag="3" aria-pressed="false">5–10</button>
+    <button class="btn" data-ag="4" aria-pressed="false">Over 10</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Era">
+    <span class="kicker">Deaths</span>
+    <button class="btn" data-era="pre" aria-pressed="true">Before treatment existed</button>
+    <button class="btn" data-era="rx" aria-pressed="false">With treatment</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="hvKid" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="An age ribbon from birth to 15 years shows the pre-chemotherapy pattern: infection before age 2 often led to serious disease, between 2 and 10 it rarely did, and after 10 it led to adult-type disease. Icon arrays of 100 children show 19 developing TB within 2 years among exposed, infection-test-positive under-5s without preventive treatment, and deaths before and after treatment existed."></svg></div>
+      <p class="stage-cap">Marais 2004 is described in words because its age-band percentages were not available to this guide; the icon arrays use the figures that were. [[Marais2004,Martinez2020Lancet,Jenkins2017]]</p></div>
+    <aside class="note" id="hvKidNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Pregnancy, drugs and other conditions</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Pregnancy and after birth</span><h4>Risk peaks after delivery</h4><p>An estimated 216 500 pregnant women had TB disease worldwide in 2011 [[Sugarman2014]]. In UK primary care, TB rates rose postpartum (adjusted IRR 1.95), not significantly during pregnancy (1.29) [[Zenner2012]]. In Sweden, rates were 9, 12 and 17 per 100 000 person-years outside pregnancy, during pregnancy and postpartum, with the excess concentrated in women from high-incidence countries [[Jonsson2020]].</p></div>
+    <div class="card"><span class="kicker">Why treat</span><h4>TB in pregnancy affects two people</h4><p>TB disease in pregnancy was associated with maternal morbidity (OR 2.8), anaemia (3.9), preterm birth (1.7), low birth weight (1.7), birth asphyxia (4.6) and perinatal death (4.2) [[Sobhy2017]]. TB in pregnancy can be treated, and treating it protects both mother and baby [[Sobhy2017,WHO-Mod4-2025]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Preventive treatment in pregnancy: TB APPRISE</h4><p>In 956 pregnant women with HIV on ART, starting isoniazid preventive therapy in pregnancy was noninferior to waiting until 12 weeks postpartum for maternal toxicity (15.1% vs 15.2%), but adverse pregnancy outcomes were more common with antepartum isoniazid (23.6% vs 17.0%) [[Gupta2019NEJM]]. WHO still lists pregnant women among people with HIV for whom TPT is strongly recommended [[WHO-Mod1-2024]].</p></div>
+    <div class="card"><span class="tag rx">Drugs, as published</span><h4>What applies in pregnancy and breastfeeding</h4><ul>
+      <li>BPaLM is not recommended in pregnancy or breastfeeding (limited pretomanid data); WHO's 6-month BDLLfxC covers pregnant and breastfeeding women [[WHO-Mod4-2025]].</li>
+      <li>The 4-month rifapentine–moxifloxacin regimen is not for pregnancy [[WHO-Mod4-2025]].</li>
+      <li>The rifampin label: use in the last weeks of pregnancy can cause postnatal bleeding in mother and infant, for which vitamin K may be indicated [[FDA-Rifampin]].</li>
+      <li>There is no absolute contraindication to breastfeeding during TB treatment, and a parent should not usually be separated from their newborn [[Maugans2023]].</li></ul></div>
+    <div class="card"><span class="tag rx">Interactions</span><h4>Rifamycins and HIV medicines</h4><p>Dolutegravir is given twice daily with rifampicin: the label says so for INSTI-naive adults [[FDA-Tivicay]]. In INSPIRING, twice-daily dolutegravir with rifampicin-based TB treatment gave 75% viral suppression at 48 weeks, with TB-IRIS uncommon [[Dooley2020CID]]. With weekly rifapentine–isoniazid (3HP), DOLPHIN found no dose change was needed [[Dooley2020LancetHIV]]. Rifamycins can also weaken hormonal contraception [[FDA-Rifampin,Maugans2023]].</p></div>
+    <div class="card"><span class="kicker">Diabetes</span><h4>About three times the risk</h4><p>Diabetes was associated with a roughly threefold risk of TB disease (RR 3.11) [[Jeon2008]]. During treatment it was linked to failure or death (RR 1.69), death (adjusted RR 4.95 in 4 studies) and relapse (RR 3.89), but not to drug-resistant recurrence [[Baker2011]]. Keeping blood sugar under control helps TB treatment work [[Baker2011]].</p></div>
+    <div class="card"><span class="kicker">Children's medicines</span><h4>Formulations made for children</h4><p>WHO encourages dispersible fixed-dose combinations (HRZ 50/75/150 mg and HR 50/75 mg) for children up to 25 kg, and describes dispersible or small-strength bedaquiline (20 mg), delamanid (25 mg) and ethionamide (125 mg) for drug-resistant TB [[WHO-Mod5-2022]]. SHINE showed 4 months is enough for children with non-severe TB [[Turkova2022]]. Treatment success for drug-susceptible TB in children aged 0–14 was 92% (2023 cohort) [[WHO-GTR2025]].</p></div>
+    <div class="card"><span class="kicker">The child gap</span><h4>Most child deaths are in children never treated</h4><p>An estimated 239 000 children died of TB in 2015, 80% under 5, and more than 96% were not receiving TB treatment [[Dodd2017]]. WHO estimated 174 000 TB deaths in children under 15 in 2024 [[WHO-GTR2025]]. For MDR/RR-TB, 72.0% of 23 369 children and adolescents were treated successfully [[GarciaPrats2025]].</p></div>
+  </div>
+  <div class="callout"><p><b>In plain words.</b> If you have HIV and TB, HIV medicines usually start within two weeks of TB medicines, and this saves lives [[WHO-Mod4-2025,Blanc2011]]. Young children who live with someone with TB should be checked quickly [[Martinez2020Lancet,Marais2004]]. TB during pregnancy can be treated, and you can usually keep breastfeeding [[Sobhy2017,Maugans2023]]. TB is a notifiable disease; anyone with a long cough, fever, night sweats or weight loss should see a clinician.</p></div>
+</section>

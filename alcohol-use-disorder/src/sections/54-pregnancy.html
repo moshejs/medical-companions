@@ -1,0 +1,72 @@
+<!-- ================= 5.4 PREGNANCY AND FETAL ALCOHOL SPECTRUM DISORDERS ================= -->
+<style>
+#m-pregnancy .card>.ev,#m-pregnancy .card>.tag{align-self:flex-start}
+#m-pregnancy blockquote{margin:0;padding:14px 18px;border-left:4px solid var(--brand);background:var(--brand-soft);border-radius:0 var(--r) var(--r) 0;font:700 21px/1.35 var(--display);max-width:60ch}
+#m-pregnancy blockquote cite{display:block;margin-top:6px;font:500 12.5px var(--mono);color:var(--muted);font-style:normal}
+#m-pregnancy td,#m-pregnancy th{vertical-align:top}
+</style>
+<section class="mod" id="m-pregnancy" data-mod="pregnancy" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Body, family &amp; care</p><h2>Pregnancy and fetal alcohol spectrum disorders</h2>
+    <p class="lede">Alcohol in pregnancy can affect a developing baby at any stage. Scrub through the 40 weeks to see what the research and guidance say, the facial features doctors look for in fetal alcohol syndrome, and why early diagnosis and steady support matter. This page is about information and support, not blame: anyone who is pregnant and finding it hard to stop drinking deserves care, and it is never too late to get it.</p></div>
+  <div class="stepper" id="pgSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="pgSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A 40-week pregnancy timeline with three trimesters, under a band reading no known safe amount and no safe trimester. A schematic fetus grows in the womb as the weeks pass, with the developing brain highlighted throughout. After birth, a schematic child's face shows the three facial features used in the FAS criteria: short eye openings, a smooth philtrum and a thin upper lip."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="pgPlay">Play</button><label class="stage-cap tl" for="pgT">Weeks of pregnancy <input type="range" id="pgT" min="0" max="1" step="0.001" value="0.12"></label></div>
+      <div class="readout" id="pgRead"></div>
+      <p class="stage-cap">Schematic, not to scale; trimester boundaries are drawn approximately. Prevalence and risk figures are population statistics. [[Williams2015AAP,Hoyme2016Pediatrics]]</p>
+    </div>
+    <aside class="note" id="pgNote" aria-live="polite"></aside>
+  </div>
+
+  <blockquote>“There is no known safe amount of alcohol consumption during pregnancy.”<cite>CDC, MMWR 2022 [[Gosdin2022MMWR]]</cite></blockquote>
+  <p class="prose">The American Academy of Pediatrics adds that there is no safe trimester, that beer, wine and liquor pose similar risk, and that alcohol-related birth defects and developmental disabilities are completely preventable when no alcohol is used in pregnancy. [[Williams2015AAP]] If you are pregnant or planning a pregnancy, plan with your care team; it is never too late to get support.</p>
+
+  <h3 class="sub">How common is FASD?</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Prevalence estimate">
+        <button class="btn" data-pgp="0" aria-pressed="true">Global, children and youth</button>
+        <button class="btn" data-pgp="1" aria-pressed="false">WHO European Region</button>
+        <button class="btn" data-pgp="2" aria-pressed="false">4 US communities</button>
+        <button class="btn" data-pgp="3" aria-pressed="false">FAS only, global</button>
+      </div>
+      <div class="scroll"><svg id="pgPrevSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="An array of 1,000 dots in which the number affected by FASD in the chosen estimate is filled in: 7.7 globally, 19.8 in the WHO European Region, 11.3 to 50 among US first-graders, and about 1.5 for fetal alcohol syndrome alone."></svg></div>
+      <p class="stage-cap">Each dot is one child; filled dots are the estimate, faint ones the top of a range. Population statistics. [[Lange2017JAMAPediatr,May2018JAMA,Popova2017LancetGH]]</p>
+    </div>
+    <aside class="note" id="pgPrevNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Diagnosing FASD: the 2016 clinical guidelines</h3>
+  <p class="prose">FASD is the umbrella term for the range of effects of prenatal alcohol exposure; fetal alcohol syndrome (FAS) was first described in 1973. [[Williams2015AAP]] The 2016 guidelines draw on the evaluation of more than 10,000 children. [[Hoyme2016Pediatrics]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Category (Institute of Medicine)</th><th>What the 2016 criteria require</th></tr></thead>
+    <tbody>
+      <tr><td>Fetal alcohol syndrome (FAS)</td><td>≥2 of 3 facial features: short palpebral fissures (≤10th centile), thin vermilion border of the upper lip, smooth philtrum (rank 4 or 5 on a racially normed lip/philtrum guide); plus growth deficiency (height and/or weight ≤10th centile), deficient brain growth or abnormal brain structure or function (for example head circumference ≤10th percentile), and neurobehavioural impairment. Can be diagnosed with or without documented exposure. [[Hoyme2016Pediatrics]]</td></tr>
+      <tr><td>Partial FAS (PFAS)</td><td>With documented prenatal exposure: the facial pattern plus neurobehavioural impairment. [[Hoyme2016Pediatrics]]</td></tr>
+      <tr><td>Alcohol-related neurodevelopmental disorder (ARND)</td><td>One of the four Institute of Medicine categories. [[Hoyme2016Pediatrics]]</td></tr>
+      <tr><td>Alcohol-related birth defects (ARBD)</td><td>One of the four Institute of Medicine categories. [[Hoyme2016Pediatrics]]</td></tr>
+    </tbody></table></div>
+  <p class="prose">FASD rarely comes alone: a meta-analysis found 428 co-occurring conditions across 18 of 22 ICD-10 chapters, with conduct disorder, language disorders, chronic middle-ear fluid and sensory problems each in 50–91% of people with FAS. [[Popova2016Lancet]] In 9,719 children aged 9–10, any reported prenatal exposure was linked with more attention problems and impulsiveness <span class="ev early">Early evidence</span> for low-level exposure; these were retrospective parental reports. [[Lees2020AJP]]</p>
+
+  <h3 class="sub">Support in pregnancy</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Screening</span><h4>Asking is routine</h4><p>The USPSTF recommends screening adults 18 and older for unhealthy alcohol use in primary care, including pregnant women, with brief counselling for risky drinking (B recommendation). [[USPSTF2018Alcohol]] In pregnancy, counselling increased reported abstinence (OR 2.26). [[OConnor2018JAMA]] AUDIT-C at 3 or more had 96% sensitivity for alcohol use disorder in pregnancy. [[Burns2010Pregnancy]] See <a href="#" data-go="screening">screening</a>.</p></div>
+    <div class="card"><span class="tag accent">Withdrawal</span><h4>Stopping safely</h4><p>Stopping suddenly after long, heavy daily drinking can be dangerous: <b>get medical help to stop safely</b>. ASAM 2020 says to consider inpatient care for every pregnant patient who needs withdrawal management, offer it at CIWA-Ar ≥10, and consult an obstetrician (quoted as published, not as instructions). [[ASAM2020Withdrawal]] See <a href="#" data-go="detox">managing withdrawal</a>.</p></div>
+    <div class="card"><span class="tag rx">Medicines</span><h4>Plan with the care team</h4><p>The oral naltrexone label says to use it in pregnancy only if the potential benefit justifies the potential risk; there are no adequate human studies. [[FDA-Naltrexone]] Medicine choices in pregnancy are made with the care team.</p></div>
+    <div class="card"><span class="tag good">Access</span><h4>Care, not blame</h4><p>In US data for 2018–2020, 13.5% of pregnant adults reported current drinking and 5.2% binge drinking. Those with frequent mental distress were 2.3 times as likely to drink, and those without a usual provider 1.7 times: access to care and mental health support are the levers. [[Gosdin2022MMWR]] Worldwide, an estimated 9.8% of pregnancies involve alcohol use. [[Popova2017LancetGH]]</p></div>
+    <div class="card"><span class="tag good">Children</span><h4>Early diagnosis, steady homes</h4><p>In 415 people with FAS or fetal alcohol effects, being diagnosed younger and growing up in a stable, nurturing home raised the odds of avoiding adverse life outcomes 2- to 4-fold. [[Streissguth2004JDBP]] Early recognition and therapy improve outcomes. [[Williams2015AAP]]</p></div>
+    <div class="card"><span class="tag">Help</span><h4>Where to start</h4><p>For help with drinking in the US, SAMHSA’s National Helpline is free and confidential: 1-800-662-4357. Families can find support in <a href="#" data-go="families">families, friends and everyday life</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Breastfeeding</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Point</th><th>As published</th></tr></thead>
+    <tbody>
+      <tr><td>Timing (LactMed)</td><td>With casual alcohol use (such as one glass of wine or beer), LactMed states it is best to wait 2 to 2.5 hours per drink before nursing. [[LactMed-Alcohol]]</td></tr>
+      <tr><td>Milk levels</td><td>Breast milk alcohol levels closely follow blood levels and peak 30 to 60 minutes after a drink; food delays the peak. [[LactMed-Alcohol]]</td></tr>
+      <tr><td>Effects on feeding</td><td>Nursing after 1 or 2 drinks can reduce the infant’s milk intake by 20–23% and cause agitation and poor sleep; 5 or more drinks can reduce let-down. [[LactMed-Alcohol]]</td></tr>
+      <tr><td>Dose to the infant</td><td>About 5–6% of the weight-adjusted maternal dose; newborns metabolise alcohol at about half the adult rate. [[Haastrup2014BCPT]]</td></tr>
+      <tr><td>Where sources differ</td><td>A 2014 review judged occasional drinking not convincingly shown to harm nursing infants; LactMed advises the waiting time above. Both agree heavy use is a concern, and long-term effects of daily heavy drinking while breastfeeding are unclear. [[Haastrup2014BCPT,LactMed-Alcohol]]</td></tr>
+    </tbody></table></div>
+</section>

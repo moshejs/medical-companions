@@ -1,0 +1,68 @@
+<!-- ================= 1.4 Genes & risk factors ================= -->
+<section class="mod" id="m-risk" data-mod="risk" hidden>
+<style>
+#m-risk .card .ev{align-self:flex-start}
+#m-risk .rkrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-risk .rkrow .btn{font-size:13px;padding:6px 11px}
+#m-risk .callout b{font-family:var(--display)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Genes &amp; risk factors</h2>
+    <p class="lede">What raises the risk of MS, and by how much: HLA genes, Epstein-Barr virus, vitamin D, smoking and teenage obesity on one odds-ratio scale, with family risk shown as real percentages.</p></div>
+  <div class="stepper" id="rkSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="rkSvg" viewBox="0 0 720 512" style="min-width:560px" role="img" aria-label="A risk chart on a logarithmic odds-ratio scale whose bars grow group by group: genes and family, Epstein-Barr virus, sun and vitamin D, then habits and body size. Each bar starts at 1 (no change in risk), runs right for factors that raise risk and left for factors that lower it, and carries its estimate and 95% confidence interval in text."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rkPlay">Play</button><label class="stage-cap tl" for="rkT">Timeline <input type="range" id="rkT" min="0" max="1" step="0.002" value="0.2"></label></div>
+      <p class="stage-cap">Log scale: equal steps mean equal multiples of risk. Whiskers are 95% confidence intervals; a paler bar with a dashed outline marks early evidence. Measures differ (odds ratio, relative risk, hazard ratio) and come from different populations, so compare each bar with 1, not bars with each other.</p></div>
+    <aside class="note" id="rkNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Family risk: relative versus absolute</h3>
+  <p class="prose">"Seven times the risk" sounds alarming. Switch to absolute risk to see what it means for a sibling or a child, using the age-adjusted Swedish registry figures.</p>
+  <div class="rkrow" role="group" aria-label="Risk scale"><span class="kicker">Show</span>
+    <button class="btn" id="rfRel" aria-pressed="true">Relative risk</button><button class="btn" id="rfAbs" aria-pressed="false">Absolute risk</button></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="rfSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Bars for relatives of a person with MS. In relative mode they show how many times the population risk each relative has; in absolute mode they show the percentage who develop MS, with a grid of 1,000 people filling in for the selected relative."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rfPlay">Play</button><label class="stage-cap tl" for="rfT">Timeline <input type="range" id="rfT" min="0" max="1" step="0.002" value="1"></label></div>
+      <div class="rkrow" role="group" aria-label="Relative shown in the 1,000-person grid" id="rfPick"></div>
+      <p class="stage-cap">Relative risks and age-adjusted absolute risks from the Swedish population registry; general-population lifetime risk and twin concordance from Danish and Canadian studies. Different studies, so the numbers are not exactly comparable.</p></div>
+    <aside class="note" id="rfNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout"><p><b>There is no genetic test for MS.</b> No genetic test is used to diagnose MS or to predict who will develop it; genetic testing for MS is used only in research, and a person can carry many risk variants and never develop MS. [[MSIF2022]] Polygenic scores separate groups (AUC 0.73–0.80) [[Shams2023]], but a prediction review judged them "unlikely to ever" be clinically helpful for an individual, though useful for choosing people for prevention trials. [[Hone2021]]</p></div>
+
+  <h3 class="sub">Genes and environment multiply</h3>
+  <p class="prose">Risk factors do not simply add. Pick a combination, or play the chart to see what happens when smoking meets the two HLA risk factors (carrying DRB1*15 and lacking A*02).</p>
+  <div class="rkrow" role="group" aria-label="Combination"><span class="kicker">Smoker</span><button class="btn" id="ixSm" aria-pressed="true">Yes</button>
+    <span class="kicker" style="margin-left:8px">HLA risk genotype</span><button class="btn" id="ixHla" aria-pressed="true">Yes</button></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ixSvg" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Odds ratios for combinations of smoking and HLA risk genes on a log scale, rising from 1 for neither, 1.4 for smoking alone and 4.9 for the genes alone to 13.5 for both, beside a marker at 6.9 for what simple multiplication would predict; below, adolescent obesity with HLA genes at 16.2, obesity with infectious mononucleosis at 14.7, and passive smoke exposure with HLA genes at 7.7."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ixPlay">Play</button><label class="stage-cap tl" for="ixT">Timeline <input type="range" id="ixT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Each odds ratio compares the group with people who have neither factor, in Swedish case-control studies.</p></div>
+    <aside class="note" id="ixNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">EBV comes first: the military cohort</h3>
+  <p class="prose">Bjornevik and colleagues followed more than 10 million young adults on US military duty, using blood samples stored over years. Step through one person's timeline.</p>
+  <div class="stepper" id="ebSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ebSvg" viewBox="0 0 720 372" style="min-width:560px" role="img" aria-label="A timeline in years around Epstein-Barr virus infection: stored blood samples are EBV-negative, then the person seroconverts; serum neurofilament light, a marker of nerve-fibre damage, stays level in future cases and controls until after seroconversion and then rises only in future cases, with MS onset a median of 7.5 years after infection; cytomegalovirus infection does not raise the risk."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ebPlay">Play</button><label class="stage-cap tl" for="ebT">Timeline <input type="range" id="ebT" min="0" max="1" step="0.002" value="0.3"></label></div>
+      <p class="stage-cap">The neurofilament curves are schematic; only their order is from the study (level before and at seroconversion, rising after it in future cases). Onset is drawn at the reported median of 7.5 years.</p></div>
+    <aside class="note" id="ebNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Vitamin D: a live controversy</h3>
+  <p class="prose">Low vitamin D is linked to MS risk in several kinds of study. Trials of high-dose vitamin D in people who already have MS or a first episode give a more mixed picture. Compare the two bodies of evidence.</p>
+  <div class="rkrow" role="group" aria-label="Evidence shown"><button class="btn" id="vdObs" aria-pressed="true">Observational &amp; genetic</button><button class="btn" id="vdTr" aria-pressed="false">Randomised trials</button></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="vdSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A forest plot of vitamin D evidence on a log scale. The observational and genetic view shows lower MS risk with higher vitamin D and higher risk with genetically lower vitamin D. The trials view shows D-Lay MS reducing disease activity mainly on MRI but not relapses, SOLAR missing its primary endpoint while reducing new lesions, and CHOLINE missing its primary endpoint."></svg></div>
+      <p class="stage-cap">Dots are estimates, lines 95% confidence intervals. A line crossing 1 is compatible with no effect. Units differ between rows.</p></div>
+    <aside class="note" id="vdNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Can MS be prevented?</h3>
+  <p class="prose">No intervention has been proven to prevent MS in the general population. The only randomised evidence of delaying a first clinical event comes from people with radiologically isolated syndrome (RIS): MS-like lesions found by chance on MRI, with no symptoms. [[Okuda2023,LebrunFrenay2023TERIS]]</p>
+  <div class="cards" id="rkPrev"></div>
+
+  <h3 class="sub">Who, where and when</h3>
+  <div class="cards" id="rkWho"></div>
+</section>

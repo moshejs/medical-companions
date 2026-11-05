@@ -1,0 +1,73 @@
+<!-- ================= 3.1 CHOLINESTERASE INHIBITORS AND MEMANTINE ================= -->
+<section class="mod" id="m-synapse" data-mod="synapse" hidden>
+<style>
+#m-synapse .card .ev{align-self:flex-start}
+#m-synapse .lab+.lab{margin-top:4px}
+#m-synapse .tbl td small{color:var(--muted)}
+#m-synapse .ctrls .kicker{margin-right:2px}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Cholinesterase inhibitors and memantine</h2>
+    <p class="lede">The older Alzheimer's drugs act on the synapse, the gap where one neuron signals the next. Watch one cholinergic signal from start to finish, then switch to Alzheimer's or to a drug and play it again.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Condition shown in the synapse">
+    <span class="kicker">Show</span>
+    <button class="btn" data-sy="healthy" aria-pressed="true">Healthy</button>
+    <button class="btn" data-sy="ad" aria-pressed="false">Alzheimer's, untreated</button>
+    <button class="btn" data-sy="don" aria-pressed="false">Donepezil</button>
+    <button class="btn" data-sy="riv" aria-pressed="false">Rivastigmine</button>
+    <button class="btn" data-sy="gal" aria-pressed="false">Galantamine</button>
+  </div>
+  <div class="stepper" id="sySteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="sySvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A cholinergic synapse: acetylcholine is made in the nerve terminal, released into the cleft, binds receptors, is broken down by acetylcholinesterase and butyrylcholinesterase, and its choline is recycled. A chart beside it tracks how much acetylcholine is in the cleft for the chosen condition against a healthy synapse."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="syPlay">Play</button><label class="stage-cap tl" for="syT">Timeline <input type="range" id="syT" min="0" max="1" step="0.002" value="0.07"></label></div>
+      <p class="stage-cap" id="syCap">Schematic, not to scale. The chart counts the molecules in the drawing; it is not measured data.</p></div>
+    <aside class="note" id="syNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Memantine at the NMDA receptor</h3>
+  <p class="prose">Memantine works on a different system: the NMDA receptor, a calcium channel opened by the transmitter glutamate. The idea behind it is to quiet a constant low-level leak through the channel while still letting a real signal through.</p>
+  <div class="ctrls" role="group" aria-label="Which blocker to show">
+    <span class="kicker">Blocker</span>
+    <button class="btn" id="syNmMem" aria-pressed="true">Memantine: low affinity, fast off</button>
+    <button class="btn" id="syNmTight" aria-pressed="false">Thought experiment: a tight blocker</button>
+  </div>
+  <div class="stepper" id="syNmSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="syNm" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="An NMDA receptor channel in the membrane. At rest magnesium plugs it; a normal signal expels magnesium and lets a burst of calcium in; in Alzheimer's a tonic glutamate leak lets calcium trickle in; memantine plugs the open channel against the leak and leaves when a strong signal arrives. Two traces show membrane voltage and calcium entry over time."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="syNmPlay">Play</button><label class="stage-cap tl" for="syNmT">Timeline <input type="range" id="syNmT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">Schematic. The channel has four subunits in reality; two are drawn. Traces are illustrative, not recordings.</p></div>
+    <aside class="note" id="syNmNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How big is the benefit?</h3>
+  <p class="prose">Average effects from Cochrane reviews and trials, drawn on the full length of each rating scale so you can see how much of the scale they cover. Then the side effects the labels list, and what happened when people stopped.</p>
+  <div class="ctrls" role="group" aria-label="Which comparison to show">
+    <button class="btn" data-syb="0" aria-pressed="true">Effect on the full scale</button>
+    <button class="btn" data-syb="1" aria-pressed="false">Side effects (labels)</button>
+    <button class="btn" data-syb="2" aria-pressed="false">Stopping: DOMINO</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="syBen" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Animated comparison of published effect sizes, side-effect rates and the DOMINO stopping trial for cholinesterase inhibitors and memantine."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="syBenPlay">Play</button><label class="stage-cap tl" for="syBenT">Reveal <input type="range" id="syBenT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="syBenCap">Average differences from drug versus placebo. Bars start at zero on each scale.</p></div>
+    <aside class="note" id="syBenNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Published label information</h3>
+  <p class="prose">What the US prescribing information (FDA labels) says about starting and raising doses. This is reported as published, for study. It is not dosing advice for any person; dosing is decided with a prescriber.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Medicine</th><th>Labelled stage</th><th>Label titration (as published)</th><th>Label notes</th></tr></thead>
+    <tbody>
+      <tr><th>Donepezil</th><td>Mild, moderate and severe</td><td>5 mg once daily in the evening; 10 mg only after 4 to 6 weeks on 5 mg. The 23 mg dose (moderate to severe only) only after at least 3 months on 10 mg. [[FDAAricept2021]]</td><td>Half-life about 70 hours; steady state within 15 days. Severe-stage indication added 13 Oct 2006. [[FDAAricept2021,DrugsFDA2026]]</td></tr>
+      <tr><th>Rivastigmine capsules</th><td>Mild to moderate</td><td>1.5 mg twice daily with meals, rising through 3, 4.5 and 6 mg twice daily, at least 2 weeks per step; maximum 12 mg/day. [[FDARivastigmineCaps2022]]</td><td>If doses are missed for more than 3 days, the label says to restart at the lowest dose. [[FDARivastigmineCaps2022,FDAExelonPatch2024]]</td></tr>
+      <tr><th>Rivastigmine patch</th><td>Mild, moderate and severe</td><td>4.6 mg/24 h, then 9.5 mg/24 h after at least 4 weeks (the minimum effective dose), then up to 13.3 mg/24 h after at least another 4 weeks. [[FDAExelonPatch2024]]</td><td>One patch at a time, replaced every 24 hours; do not reuse a site within 14 days. Medication errors, mostly extra patches left on, caused hospitalisation and rarely death. [[FDAExelonPatch2024]]</td></tr>
+      <tr><th>Galantamine ER</th><td>Mild to moderate</td><td>8 mg/day with food, 16 mg/day after at least 4 weeks, optionally 24 mg/day after another 4 weeks. [[FDAGalantamineER2025]]</td><td>Maximum 16 mg/day in moderate hepatic or renal impairment. Not recommended in MCI: 13 deaths versus 1 in two 2-year MCI trials (the label notes the placebo death rate was unusually low). [[FDAGalantamineER2025,Loy2006]]</td></tr>
+      <tr><th>Memantine IR</th><td>Moderate to severe</td><td>5 mg once daily, rising in weekly 5 mg steps to 20 mg/day (10 mg twice daily). [[FDAMemantineIR2023]]</td><td>Target 5 mg twice daily in severe renal impairment. [[FDAMemantineIR2023]]</td></tr>
+      <tr><th>Memantine ER</th><td>Moderate to severe</td><td>7 mg once daily, rising in weekly 7 mg steps to 28 mg once daily. [[FDAMemantineER2026]]</td><td>14 mg in severe renal impairment; half-life about 60 to 80 hours. [[FDAMemantineER2026]]</td></tr>
+      <tr><th>Memantine ER + donepezil</th><td>Moderate to severe</td><td>For people already stable on donepezil 10 mg. [[FDANamzaric2026]]</td><td>Approved on bioequivalence with the two drugs taken separately. [[FDANamzaric2026]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Reading the evidence</h3>
+  <div class="cards" id="syCards"></div>
+</section>

@@ -1,0 +1,62 @@
+<!-- ================= 5.1 SYMPTOMS & REHABILITATION ================= -->
+<section class="mod" id="m-symptoms" data-mod="symptoms" hidden>
+<style>
+#m-symptoms .syhot{cursor:pointer;outline:none}
+#m-symptoms .syhot rect,#m-symptoms .syhot circle{fill:transparent;stroke:none}
+#m-symptoms .syhot:focus-visible rect,#m-symptoms .syhot:focus-visible circle{stroke:var(--brand);stroke-width:2}
+#m-symptoms .syhot:hover rect{stroke:var(--line);stroke-width:1}
+#m-symptoms .sy-g ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:7px;font-size:15px}
+#m-symptoms .sy-g li .ev,#m-symptoms .sy-g li .tag{margin-right:4px;vertical-align:1px}
+#m-symptoms .sy-help{border-left:3px solid var(--bad);background:var(--bad-soft);border-radius:0 10px 10px 0;padding:10px 12px;font-size:15px}
+#m-symptoms .sy-help b{color:var(--bad)}
+#m-symptoms .card .ev{align-self:flex-start}
+#m-symptoms #sySteps{grid-template-columns:repeat(auto-fit,minmax(96px,1fr))}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 5 · Living with MS</p><h2>Symptoms &amp; rehabilitation</h2>
+    <p class="lede">Twelve common MS symptoms on one body map, each with how often it occurs and what published guidance lists for it, drug and non-drug, with an evidence label. Press play for a tour, or pick a symptom.</p></div>
+  <div class="ctrls" role="group" aria-label="Which options to list">
+    <span class="kicker">Show options</span>
+    <button class="btn" data-syf="all" aria-pressed="true">Drug and non-drug</button>
+    <button class="btn" data-syf="nd" aria-pressed="false">Non-drug only</button>
+    <button class="btn" data-syf="dr" aria-pressed="false">Drug only</button>
+  </div>
+  <div class="stepper" id="sySteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="sySvg" viewBox="0 0 720 450" style="min-width:560px" role="img" aria-label="A body map with the brain, optic nerves and spinal cord drawn inside. Twelve labelled symptom points light up in turn, and a bar chart beside the body fills with the published share of people with MS who have each symptom."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="syPlay">Play</button><label class="stage-cap tl" for="syT">Tour <input type="range" id="syT" min="0" max="1" step="0.002" value="0.0375"></label></div>
+      <p class="stage-cap">Schematic body. Each symptom point is a button: click it, or tab to it and press Enter. The steps above do the same. Prevalence comes from different studies with different definitions, so the bars are not directly comparable.</p></div>
+    <aside class="note" id="syNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Fatigue: a day, three drugs and two non-drug options</h3>
+  <p class="prose">Fatigue is the symptom with the clearest controversy. A 2021 trial found three commonly used drugs no better than placebo, while the 2022 NICE guideline still lists drug options. The day curve at the top is a schematic of an idea, not measured data.</p>
+  <div class="stepper" id="syFSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="syFat" viewBox="0 0 720 470" style="min-width:560px" role="img" aria-label="Three panels. A schematic energy curve over one day for activity in one long burst versus activity split with rests. Bars of fatigue scores in the TRIUMPHANT-MS trial for placebo, amantadine, modafinil and methylphenidate. Effect sizes with confidence intervals for exercise and cognitive behavioural therapy."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="syFPlay">Play</button><label class="stage-cap tl" for="syFT">Timeline <input type="range" id="syFT" min="0" max="1" step="0.002" value="0.3"></label></div>
+      <p class="stage-cap">Top: schematic, no measured values. Middle: MFIS fatigue scores (0–84, higher means more fatigue) from TRIUMPHANT-MS. Bottom: standardised mean differences; left of zero means less fatigue than control. [[Nourbakhsh2021,Heine2015,vandenAkker2016]]</p></div>
+    <aside class="note" id="syFNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Walking: the fampridine race</h3>
+  <p class="prose">Fampridine (dalfampridine, prolonged-release 4-aminopyridine) is the only medicine in these sources licensed to improve walking. The trials counted "timed-walk responders", people whose walking speed improved consistently, then measured how much faster those responders walked.</p>
+  <div class="ctrls" role="group" aria-label="Which trial">
+    <span class="kicker">Trial</span>
+    <button class="btn" data-syr="0" aria-pressed="true">MS-F203 (2009)</button>
+    <button class="btn" data-syr="1" aria-pressed="false">MS-F204 (2010)</button>
+  </div>
+  <div class="stepper" id="syRSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="syRace" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Two grids of 100 people show how many were timed-walk responders on fampridine and on placebo. Then three walkers race over a 25-foot walk: a responder before treatment, the same responder on fampridine about 25 percent faster, and the average placebo improvement."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="syRPlay">Play</button><label class="stage-cap tl" for="syRT">Timeline <input type="range" id="syRT" min="0" max="1" step="0.002" value="0.25"></label></div>
+      <p class="stage-cap">Grids are the published percentages drawn per 100 people. The race uses the published speed gains; the finishing-time difference is arithmetic from them, and the walkers are schematic. [[Goodman2009,Goodman2010]]</p></div>
+    <aside class="note" id="syRNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Rehabilitation and exercise</h3>
+  <div class="cards" id="syCards"></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Fampridine is a potassium-channel blocker that improves walking speed in responders (35% and 42.9% vs 8% and 9.3% on placebo); a history of seizure is a contraindication. For the bladder, the UK consensus checks for infection and measures the residual volume after voiding before treatment. [[Goodman2009,Goodman2010,AmpyraLabel2026,FDAdalfampridine,Fowler2009]]</div>
+    <div class="pt"><b>In plain words</b>Many MS symptoms can be eased even when the disease itself cannot be undone. Exercise and rehabilitation have the most consistent evidence, and some symptoms have specific medicines. A worsening that comes with heat or an infection is not always a new relapse: <a href="#relapse" data-go="relapse">see relapse versus pseudo-relapse</a>.</div>
+  </div>
+</section>

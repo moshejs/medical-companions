@@ -1,0 +1,78 @@
+<!-- ================= 4.1 EXERCISE & PHYSIOTHERAPY ================= -->
+<style>
+#m-physio .phfilters,#m-physio .phtypes{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-physio .phtrials{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+#m-physio .phtrial{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+#m-physio .phtrial h4{margin:0;font-family:var(--display);font-weight:400;font-size:19px;line-height:1.18}
+#m-physio .phtrial dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;font-size:14px}
+#m-physio .phtrial dt{font:600 10px/1.6 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-physio .phtrial dd{margin:0}
+#m-physio .phtrial .chips{gap:5px}
+#m-physio .phcount{font:500 13px var(--mono);color:var(--muted)}
+#m-physio .phsafe{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+#m-physio .phq{display:flex;flex-direction:column;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px;min-width:0}
+#m-physio .phq>button{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;text-align:left;background:none;border:0;padding:0;cursor:pointer;font-family:var(--display);font-size:19px;line-height:1.2;color:var(--ink)}
+#m-physio .phq>button::after{content:"+";font:600 18px var(--mono);color:var(--rx);flex:none}
+#m-physio .phq>button[aria-pressed="true"]::after{content:"\2212"}
+#m-physio .phq .ans{font-size:14.5px;display:flex;flex-direction:column;gap:6px}
+#m-physio .phq .ans .tag{align-self:flex-start}
+#m-physio .phforest{max-width:860px}
+#m-physio .card>.ev,#m-physio .card>.tag{align-self:flex-start}
+</style>
+<section class="mod" id="m-physio" data-mod="physio" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Exercise &amp; physiotherapy</h2>
+    <p class="lede">Exercise with a physiotherapist who understands hypermobility is the main treatment for hypermobile EDS and hypermobility spectrum disorder. Watch a published 16-week strengthening programme build week by week, compare paced and boom-bust activity, and see what the trials actually found.</p></div>
+  <p class="banner"><b>A teaching picture, not a prescription</b>Programmes in trials were supervised and adjusted to each person. Almost every trial enrolled people with hEDS or HSD, so results should not be carried over to the rarer genetic types without care, and exercise plans should be made with a clinician. [[Malfait2017,Castori2017,Engelbert2017]]</p>
+  <div class="stepper" id="phSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="phSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A hypermobile joint with lax ligaments: as the weeks of a 16-week programme pass, the muscles around it thicken, the joint wobbles less, and strength and control gauges rise. Beside it, weekly bars show the published load of the high-load arm of a shoulder trial (three familiarisation weeks at 50, 70 and 90 percent of the 10-repetition maximum, then 3 sets of 10, then 4 sets of 8, then a taper), and a schematic chart compares activity and pain under a paced pattern, with one flare and an adjustment, or a boom-bust pattern."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="phPlay">Play</button><label class="stage-cap tl" for="phT">Week <input type="range" id="phT" min="0" max="1" step="0.001" value="0.09"></label></div>
+      <div class="ctrls" role="group" aria-label="Activity pattern in the lower chart"><span class="kicker">Lower chart</span>
+        <button class="btn" data-phm="paced" aria-pressed="true">Paced</button>
+        <button class="btn" data-phm="boom" aria-pressed="false">Boom-bust</button></div>
+      <div class="readout" id="phRead"></div>
+      <p class="stage-cap">Load bars: the HEAVY arm of the Danish shoulder trial, as published. The joint, the gauges, the stage names and the activity and pain lines are schematic, not trial data. [[Liaghat2022BJSM]]</p>
+    </div>
+    <aside class="note" id="phNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Significant is not the same as meaningful</h3>
+  <div class="prose"><p>In the 100-person shoulder trial, the WOSI score (0–2100, lower is better) favoured high-load training at 16 weeks. The whole confidence interval sat below zero, so the result was statistically significant. But the minimal important difference is 252 points, and the average gap (−174.5) was smaller than that. At one year the gap had shrunk and its interval crossed zero. [[Liaghat2022BJSM,Liaghat2024BJSM]]</p></div>
+  <div class="stage phforest">
+    <div class="scroll"><svg id="phForest" viewBox="0 0 720 170" style="min-width:560px" role="img" aria-label="Two horizontal confidence intervals on a WOSI scale from minus 400 to plus 150: at 16 weeks the mean difference is minus 174.5 with an interval from minus 341.4 to minus 7.7, wholly left of zero but with its mean right of the minus 252 minimal important difference line; at one year minus 92.9 with an interval from minus 257.4 to plus 71.5, crossing zero."></svg></div>
+    <p class="stage-cap">Between-group differences, HEAVY minus LIGHT; negative favours HEAVY. [[Liaghat2022BJSM,Liaghat2024BJSM]]</p>
+  </div>
+
+  <h3 class="sub">What the trials tested</h3>
+  <div class="prose"><p>The evidence base is small. A 2021 systematic review of 11 exercise studies found only 3 small controlled trials showing benefit over a control, all in one body area and all in women, with no long-term follow-up; improvement over time was consistent, but superiority over comparators was "weak". Attrition ran from 0% to 44%. Filter the cards by the outcome you care about. [[Palmer2021]]</p></div>
+  <div class="phfilters" role="group" aria-label="Filter trials by outcome"><span class="kicker">Outcome</span>
+    <button class="btn" data-phf="all" aria-pressed="true">All</button>
+    <button class="btn" data-phf="pain" aria-pressed="false">Pain</button>
+    <button class="btn" data-phf="fn" aria-pressed="false">Function</button>
+    <button class="btn" data-phf="prop" aria-pressed="false">Proprioception &amp; balance</button>
+    <button class="btn" data-phf="str" aria-pressed="false">Strength &amp; fitness</button>
+    <span class="phcount" id="phCount" aria-live="polite"></span></div>
+  <div class="phtrials" id="phTrials"></div>
+
+  <h3 class="sub">"Is it safe to…?" What the published statements say</h3>
+  <div class="prose"><p>Choose a type, then open a question. Each answer quotes or summarises a consensus statement, review or trial, and says so when the sources found for this guide say nothing. Advice differs sharply by type: vascular EDS limits come from the fragility of arteries and organs, not from loose joints. [[Byers2017,Germain2007]]</p></div>
+  <div class="phtypes" role="group" aria-label="EDS type"><span class="kicker">Type</span>
+    <button class="btn" data-phty="h" aria-pressed="true">hEDS / HSD</button>
+    <button class="btn" data-phty="c" aria-pressed="false">Classical EDS</button>
+    <button class="btn" data-phty="v" aria-pressed="false">Vascular EDS</button></div>
+  <div class="phsafe" id="phSafe"></div>
+
+  <h3 class="sub">Beyond exercise: supports and therapies</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>Splints and hand orthoses</h4><p>In 169 adults with HSD or hEDS and hand symptoms, a progressive wrist-stabilising exercise programme and wearing a hand orthosis during chosen activities gave the same results at 12 weeks. A 14-person study of finger orthoses found faster timed hand tasks, but the authors call the evidence inconclusive. No trial of finger "ring" splints was found. [[Susanne2025,Jensen2021Orth]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Compression garments</h4><p>In a 36-person RCT, garments worn alongside 12 physiotherapy sessions improved dynamic balance more than physiotherapy alone (effect size 0.93), but pain fell equally in both groups. Uncontrolled cohorts report less pain (most painful joint 71.5 to 45.7 mm on a VAS over 2 years), open to placebo and selection bias. [[Benistan2024,Benistan2023,Boulu2025]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Foot orthoses and insoles</h4><p>Custom foot orthoses in 36 adults with EDS improved foot pain, foot function and fatigue over 3 months, with no control group. In 53 children with leg pain, custom orthotics cut pain by a mean 27/100 at 1 month. No orthosis had been tested in an RCT in children by 2018. [[ReinaBueno2020,Maarj2023,Peterson2018]]</p></div>
+    <div class="card"><span class="tag">No trial found</span><h4>Hydrotherapy and braces for the neck</h4><p>No trial of hydrotherapy in hEDS or HSD was found. For POTS, the heart rhythm consensus advises starting exercise in non-upright forms such as rowing, a recumbent bike or swimming. For upper cervical instability, experts say a neck brace helps some highly irritable patients, while noting "no published guidelines" on neck braces. [[Sheldon2015,Russek2022UCI]]</p></div>
+    <div class="card"><span class="tag rx">Occupational therapy</span><h4>Work, home and school</h4><p>OT guidance for EDS with POTS covers equipment, orthoses, energy conservation and pacing, sleep hygiene and routines: a descriptive paper, not a trial. Patients and clinicians rank OT support "to maintain independence at work and home" as a priority. In the Bendy Study, a physiotherapist and an OT visited each child's school together. [[Levine2022OT,Bennett2022,Bale2019]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>CBT-based pain management</h4><p>A UK programme (8 days over 6 weeks, 87 people) improved self-efficacy, catastrophising, mood and pain at 1 month; by 5 months scores had drifted back, though most stayed better. An online 8-week programme was feasible, with a moderate effect on worst pain (d 0.63). The most helpful psychological approaches ran alongside physiotherapy. [[Rahman2014,Chew2025,Clark2024Psych]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Breathing muscle training</h4><p>Inspiratory muscle strength was below 80% of predicted in 77% of 104 women with hEDS. In a 6-week RCT (20 per group), training raised the 6-minute walk from 455 to 515 m. [[Reychler2019]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Pacing</h4><p>Activity pacing is recommended by patients and clinicians and was a prioritised behaviour-change technique, but no trial has tested pacing alone in hEDS or HSD. Fear of movement is common: 93% of 42 people with JHS/EDS-HT scored above the Tampa cut-off. [[Bennett2022,Celletti2013]]</p></div>
+  </div>
+  <p class="callout">Pain, fatigue and POTS have their own modules: see <a href="#pain" data-go="pain">Pain &amp; fatigue</a>, <a href="#autonomic" data-go="autonomic">POTS &amp; the autonomic link</a> and, for the medicines, <a href="#meds" data-go="meds">Medicines</a>. The Beighton score is a teaching tool; only a clinician can diagnose hEDS or HSD. [[Castori2017]]</p>
+</section>

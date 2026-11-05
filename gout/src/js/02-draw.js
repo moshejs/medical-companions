@@ -1,0 +1,5 @@
+/* a neutrophil glyph: multi-lobed nucleus */
+function neutro(x,y,r=11,o=1,extra=''){return `<g transform="translate(${f1(x)} ${f1(y)})" style="opacity:${(+o).toFixed(2)}" ${extra}><circle r="${r}" style="fill:var(--neut);stroke:var(--crocus);stroke-width:1.4"/><circle cx="${-r*.3}" cy="${-r*.18}" r="${r*.27}" style="fill:var(--nuc)"/><circle cx="${r*.28}" cy="${r*.2}" r="${r*.27}" style="fill:var(--nuc)"/><circle cx="${r*.2}" cy="${-r*.33}" r="${r*.23}" style="fill:var(--nuc)"/></g>`}
+/* a monosodium urate crystal: a thin needle (ice-cyan); CPP crystals are short rhomboids (green) */
+function needle(x,y,len=16,ang=0,o=1,col='var(--xtal)'){const r=ang*Math.PI/180,dx=Math.cos(r)*len/2,dy=Math.sin(r)*len/2;return `<line x1="${f1(x-dx)}" y1="${f1(y-dy)}" x2="${f1(x+dx)}" y2="${f1(y+dy)}" style="stroke:${col};stroke-width:2.2;stroke-linecap:round;opacity:${(+o).toFixed(2)}"/>`}
+function rhomb(x,y,s=7,ang=0,o=1,col='var(--cppd)'){return `<rect x="${f1(-s/2)}" y="${f1(-s*.35)}" width="${f1(s)}" height="${f1(s*.7)}" transform="translate(${f1(x)} ${f1(y)}) rotate(${ang}) skewX(-20)" style="fill:none;stroke:${col};stroke-width:1.8;opacity:${(+o).toFixed(2)}"/>`}
