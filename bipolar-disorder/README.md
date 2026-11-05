@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module (456 cited 
 
 ## How it was made
 
-Eight research passes, one per area: (A) epidemiology, presentation, burden and history; (B) genetics, family risk and environment; (C) circadian rhythm, brain networks and how lithium works; (D) DSM-5-TR and ICD-11 diagnosis, types, specifiers, screening and the differential; (E) lithium evidence, pharmacokinetics, monitoring, toxicity and interactions; (F) anticonvulsants, antipsychotics, antidepressants, ECT and guidelines; (G) psychological care, suicide safety, living well, families and nursing; (H) course, comorbidity, pregnancy and special groups, and research toward better treatment. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. Facts the passes could not check against a source (finer DSM-5-TR specifier wording behind the paywalled manual, the ICD-11 browser) are marked unverified in the pass files and never used on the site. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (538 entries, each recording which service confirmed it), and the modules were written against them.
+Eight research passes, one per area: (A) epidemiology, presentation, burden and history; (B) genetics, family risk and environment; (C) circadian rhythm, brain networks and how lithium works; (D) DSM-5-TR and ICD-11 diagnosis, types, specifiers, screening and the differential; (E) lithium evidence, pharmacokinetics, monitoring, toxicity and interactions; (F) anticonvulsants, antipsychotics, antidepressants, ECT and guidelines; (G) psychological care, suicide safety, living well, families and nursing; (H) course, comorbidity, pregnancy and special groups, and research toward better treatment. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. Facts the passes could not check against a source (finer DSM-5-TR specifier wording behind the paywalled manual, the ICD-11 browser) are marked unverified in the pass files and never used on the site. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (538 entries, each recording which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,7 +31,7 @@ Eight research passes, one per area: (A) epidemiology, presentation, burden and 
 python3 tools/build_site.py                                   # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py bipolar-disorder                       # just this one; fails on an unknown citation key
 python3 tools/smoke.py bipolar-disorder/index.html all        # headless-Chrome check: no JS errors, no empty animations
-python3 bipolar-disorder/src/compile_sources.py               # rebuild sources.json from research/
+python3 tools/compile_sources.py bipolar-disorder             # rebuild sources.json from research/
 python3 tools/share_card.py bipolar-disorder/src/share-card.html bipolar-disorder/share-card.png
 ```
 

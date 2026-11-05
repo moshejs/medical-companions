@@ -33,19 +33,22 @@ site.json            the site address, the languages table, and the companions (
 hub/index.html       the hub page source (hub/share-card.html renders its share image, hub/404.html the not-found page)
 tools/               build tools shared by every companion; tools/i18n/<lang>.json holds the UI strings they share
 <companion>/src/     a companion's parts: head and styles, shell, sections, js, sources.json, pages.json, strings.json
-                     (<lang>/ for a translation: he/)
+                     (<lang>/ for a translation: he/); sources.config.json and source-corrections.json feed sources.json
+<companion>/research/   the research passes (<LETTER>-<area>.md) that sources.json is compiled from
 <companion>/index.html, <companion>/<module>/index.html, <companion>/app.js   built pages and their shared script
                      (<companion>/<lang>/… for a translation; committed, so the repo is the site)
 index.html, 404.html, share-card.png, sitemap.xml, robots.txt   built from hub/ and site.json
 ```
 
-Each companion keeps its own look (palette, fonts, icon) and its own `compile_sources.py`, since those are content. Everything that turns parts into a page is shared.
+Each companion keeps its own look (palette, fonts, icon), since that is content, and its research areas as data in `src/sources.config.json`. Everything that turns parts into a page, or research passes into `sources.json`, is shared.
 
 Both companions' git histories were carried over from `moshejs/alzheimers-companion` and `moshejs/fmf-companion`. Each arrived in a commit titled "Bring in …", whose second parent is the old repository's history (`git log <that commit>^2`); those older commits use the old paths, without the `alzheimers/` or `fmf/` prefix.
 
 ## Building
 
 ```bash
+python3 tools/compile_sources.py gout               # research/*.md -> gout/src/sources.json (--all for every companion)
+python3 tools/compile_sources.py --check --all      # writes nothing; exit 1 if a sources.json is out of date
 python3 tools/build_site.py                         # every companion and language, the hub, sitemap.xml, robots.txt, redirects/
 python3 tools/build.py fmf                          # one companion (add --lang he for a translation)
 python3 tools/smoke.py fmf/index.html all           # headless-Chrome check of every module page
@@ -54,6 +57,12 @@ python3 tools/make_artifact.py alzheimers --lang he # the Claude artifact copy o
 ```
 
 `%SITE%` in any part is replaced with `site` from `site.json`, so moving the site to its own domain is a one-line change there and a rebuild.
+
+### Sources
+
+`sources.json` is compiled, not edited. `tools/compile_sources.py <slug>` reads every research pass `research/<LETTER>-*.md` whose letter is one of the companion's `areas` in `src/sources.config.json` (so `U-*.md` update notes and `RESEARCH-FORMAT.md` are not read), merges their **Sources** sections (same work under one key, cited from several areas, becomes one entry; a key reused for a different work is renamed key + area letter; different keys for one work are merged by PMID, DOI, drug-label set ID, trial ID or title), applies `src/source-corrections.json`, and writes `src/sources.json` sorted by key. Each source line ends `(validated: <service>)`; a line without it is marked unverified. `tools/build_site.py` runs it for every companion before it builds (a few seconds; the file is rewritten only when it changes); `tools/build.py` reads only `sources.json`, so run the compiler yourself before building a single companion. Commit `sources.json` with the passes or corrections that changed it.
+
+`sources.config.json` holds the area letters and names and, when needed, `aliases` (works no identifier shows are one, such as a drug label cited under two keys). The first companions (FMF, ALS, Alzheimer's, gout, myasthenia gravis, Parkinson's) also carry `validated_tag`, `match`, `url` or `doi_link`, which reproduce how they were compiled before the rules settled; the docstring of `tools/compile_sources.py` explains each, and a new companion leaves them out. The FMF and Alzheimer's research passes are not in this repository, so the compiler skips those two and their committed `sources.json` is the record.
 
 ## Search
 
@@ -75,6 +84,7 @@ What the build takes care of, so a change doesn't undo it:
 ### Adding a companion
 
 1. Put its parts in `<slug>/src/`, using `%SITE%/<slug>/` for its own address in the metadata.
+   Put its research passes in `<slug>/research/` (format: any companion's `research/RESEARCH-FORMAT.md`), write `<slug>/src/sources.config.json` with just its `areas` (copy one from another companion), and run `python3 tools/compile_sources.py <slug>` to make `src/sources.json`.
 2. Add it to `site.json` and give it a card in `hub/index.html` (`%CITED:<slug>%` fills in its cited-source count).
 3. Link the others from its footer, run `tools/build_site.py`, then `tools/smoke.py <slug>/index.html all`.
 

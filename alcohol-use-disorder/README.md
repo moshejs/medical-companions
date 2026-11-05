@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module (455 cited 
 
 ## How it was made
 
-Eight research passes, one per area: (A) epidemiology, drinking patterns, burden and history; (B) alcohol in the body and brain: metabolism, neurobiology and genetics; (C) screening, diagnosis and biomarkers; (D) alcohol withdrawal: the syndrome, CIWA-Ar, management and Wernicke; (E) medicines for AUD, approved and off-label; (F) psychosocial treatment, mutual help, course and recovery; (G) medical harms: liver, cancer, heart, brain, pregnancy and FASD; (H) nursing, harm reduction, special groups and the research frontier. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. Facts the passes could not check against a source were dropped or marked unverified in the pass files and are never used on the site. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (519 entries, each recording which service confirmed it), and the modules were written against them.
+Eight research passes, one per area: (A) epidemiology, drinking patterns, burden and history; (B) alcohol in the body and brain: metabolism, neurobiology and genetics; (C) screening, diagnosis and biomarkers; (D) alcohol withdrawal: the syndrome, CIWA-Ar, management and Wernicke; (E) medicines for AUD, approved and off-label; (F) psychosocial treatment, mutual help, course and recovery; (G) medical harms: liver, cancer, heart, brain, pregnancy and FASD; (H) nursing, harm reduction, special groups and the research frontier. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. Facts the passes could not check against a source were dropped or marked unverified in the pass files and are never used on the site. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (519 entries, each recording which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,7 +31,7 @@ Eight research passes, one per area: (A) epidemiology, drinking patterns, burden
 python3 tools/build_site.py                                       # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py alcohol-use-disorder                       # just this one; fails on an unknown citation key
 python3 tools/smoke.py alcohol-use-disorder/index.html all        # headless-Chrome check: no JS errors, no empty animations
-python3 alcohol-use-disorder/src/compile_sources.py               # rebuild sources.json from research/
+python3 tools/compile_sources.py alcohol-use-disorder             # rebuild sources.json from research/
 python3 tools/share_card.py alcohol-use-disorder/src/share-card.html alcohol-use-disorder/share-card.png
 ```
 

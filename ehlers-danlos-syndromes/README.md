@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module. Research-l
 
 ## How it was made
 
-Eight research passes, run in parallel, one per area: (A) epidemiology, history and the classification; (B) genetics, collagen biology and the 13 types; (C) mechanisms in tissue, joints, skin, pain and fatigue; (D) diagnosis, criteria, differential and assessment tools; (E) physiotherapy, exercise and psychological care; (F) medicines, surgery and anaesthesia; (G) course, comorbidity and outcomes; (H) living, family, nursing and research toward better care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA before it went in. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
+Eight research passes, run in parallel, one per area: (A) epidemiology, history and the classification; (B) genetics, collagen biology and the 13 types; (C) mechanisms in tissue, joints, skin, pain and fatigue; (D) diagnosis, criteria, differential and assessment tools; (E) physiotherapy, exercise and psychological care; (F) medicines, surgery and anaesthesia; (G) course, comorbidity and outcomes; (H) living, family, nursing and research toward better care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA before it went in. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,7 +31,7 @@ Eight research passes, run in parallel, one per area: (A) epidemiology, history 
 python3 tools/build_site.py                                          # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py ehlers-danlos-syndromes                       # just this one; fails on an unknown citation key
 python3 tools/smoke.py ehlers-danlos-syndromes/index.html all        # headless-Chrome check: no JS errors, no empty animations
-python3 ehlers-danlos-syndromes/src/compile_sources.py               # rebuild sources.json from research/
+python3 tools/compile_sources.py ehlers-danlos-syndromes             # rebuild sources.json from research/
 python3 tools/share_card.py ehlers-danlos-syndromes/src/share-card.html ehlers-danlos-syndromes/share-card.png
 ```
 

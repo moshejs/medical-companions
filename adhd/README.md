@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module. Research-l
 
 ## How it was made
 
-Eight research passes, one per area: (A) epidemiology, presentation across the lifespan and history; (B) causes: genetics and environmental risk; (C) neurobiology: brain networks, catecholamines and how the medicines act; (D) diagnosis: criteria, rating scales, assessment and differential; (E) pharmacological treatment: stimulants and non-stimulants; (F) behavioural, psychological, school and combined treatment; (G) course, comorbidity, outcomes and research toward better treatment; (H) living, family, school and work, and nursing care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. The NICE NG87 web page and the ICD-11 browser entry are listed as unverified and never cited; NICE recommendations are cited to the guideline's validated PubMed/Bookshelf record, and ICD-11 facts to the peer-reviewed papers that reproduce them. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
+Eight research passes, one per area: (A) epidemiology, presentation across the lifespan and history; (B) causes: genetics and environmental risk; (C) neurobiology: brain networks, catecholamines and how the medicines act; (D) diagnosis: criteria, rating scales, assessment and differential; (E) pharmacological treatment: stimulants and non-stimulants; (F) behavioural, psychological, school and combined treatment; (G) course, comorbidity, outcomes and research toward better treatment; (H) living, family, school and work, and nursing care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. The NICE NG87 web page and the ICD-11 browser entry are listed as unverified and never cited; NICE recommendations are cited to the guideline's validated PubMed/Bookshelf record, and ICD-11 facts to the peer-reviewed papers that reproduce them. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,7 +31,7 @@ Eight research passes, one per area: (A) epidemiology, presentation across the l
 python3 tools/build_site.py                          # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py adhd                          # just this one; fails on an unknown citation key
 python3 tools/smoke.py adhd/index.html all           # headless-Chrome check: no JS errors, no empty animations
-python3 adhd/src/compile_sources.py                  # rebuild sources.json from research/
+python3 tools/compile_sources.py adhd                # rebuild sources.json from research/
 python3 tools/share_card.py adhd/src/share-card.html adhd/share-card.png
 ```
 

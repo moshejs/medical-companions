@@ -37,8 +37,11 @@ python3 tools/make_artifact.py fmf        # derives the Claude artifact copy
 
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
-`compile_sources.py` rebuilds `sources.json` from the research files; `source-corrections.json`
-is applied afterwards, so validated fixes survive a regeneration.
+`sources.json` was compiled from the research passes by the shared `tools/compile_sources.py`,
+with `source-corrections.json` applied afterwards so validated fixes survive a regeneration.
+The passes are not in this repository, so the compiler skips FMF and the committed
+`sources.json` is the record; `src/sources.config.json` keeps the areas and settings it was
+compiled with.
 
 - `00-head.html` holds all CSS (theme tokens for light and dark).
 - Animations have two layouts. `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement rather than a shrunken one.

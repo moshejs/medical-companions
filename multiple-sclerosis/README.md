@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module. Research-l
 
 ## How it was made
 
-Eight research passes, run in parallel, one per area: (A) epidemiology, clinical course and history; (B) genetics and risk factors; (C) mechanism and pathology; (D) diagnosis, the McDonald criteria and the differential; (E) disease-modifying therapies; (F) relapses, symptoms and living with MS; (G) research toward a cure; (H) nursing care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA before it went in. The pass files are in [`research/`](research/); `src/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
+Eight research passes, run in parallel, one per area: (A) epidemiology, clinical course and history; (B) genetics and risk factors; (C) mechanism and pathology; (D) diagnosis, the McDonald criteria and the differential; (E) disease-modifying therapies; (F) relapses, symptoms and living with MS; (G) research toward a cure; (H) nursing care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA before it went in. The pass files are in [`research/`](research/); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,7 +31,7 @@ Eight research passes, run in parallel, one per area: (A) epidemiology, clinical
 python3 tools/build_site.py                                   # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py multiple-sclerosis                     # just this one; fails on an unknown citation key
 python3 tools/smoke.py multiple-sclerosis/index.html all      # headless-Chrome check: no JS errors, no empty animations
-python3 multiple-sclerosis/src/compile_sources.py multiple-sclerosis/research   # rebuild sources.json from the passes
+python3 tools/compile_sources.py multiple-sclerosis                             # rebuild sources.json from the passes
 ```
 
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).

@@ -49,4 +49,4 @@ Other languages work the same way; see Translations in the root README.
 When an English part changes, change its Hebrew copy too, then run `python3 tools/check_lang.py alzheimers he`:
 it fails if a translation's code, element structure, citations or numbers differ from the English.
 
-`compile_sources.py` rebuilds `sources.json` from the research files; `source-corrections.json`, when present, is applied afterwards so validated fixes survive a regeneration.
+`sources.json` was compiled from the research passes by the shared `tools/compile_sources.py`, with `source-corrections.json` applied afterwards so validated fixes survive a regeneration. The passes are not in this repository, so the compiler skips Alzheimer's and the committed `sources.json` is the record (a new source is added to it by hand, as `research/U-2026-10-30.md` describes); `src/sources.config.json` keeps the areas and settings it was compiled with.

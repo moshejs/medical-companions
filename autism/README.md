@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module. Research-l
 
 ## How it was made
 
-Eight research passes, one per area: (A) epidemiology, identity, language and history; (B) genetics, causes and risk factors, and what does not cause autism; (C) neuroscience, brain development and sensory processing; (D) early signs, screening, DSM-5-TR/ICD-11 criteria and assessment; (E) supports and non-pharmacological interventions, including the ABA debate; (F) medication, unproven treatments and research; (G) co-occurring conditions, physical health, course and outcomes; (H) family, school, work, adulthood and nursing. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. A few entries that no listed service indexes (NICE web guidelines, ONS releases, FDA Federal Register notices, ASHA position statements, a UK statute) are listed as unverified and never cited. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
+Eight research passes, one per area: (A) epidemiology, identity, language and history; (B) genetics, causes and risk factors, and what does not cause autism; (C) neuroscience, brain development and sensory processing; (D) early signs, screening, DSM-5-TR/ICD-11 criteria and assessment; (E) supports and non-pharmacological interventions, including the ABA debate; (F) medication, unproven treatments and research; (G) co-occurring conditions, physical health, course and outcomes; (H) family, school, work, adulthood and nursing. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. A few entries that no listed service indexes (NICE web guidelines, ONS releases, FDA Federal Register notices, ASHA position statements, a UK statute) are listed as unverified and never cited. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,7 +31,7 @@ Eight research passes, one per area: (A) epidemiology, identity, language and hi
 python3 tools/build_site.py                          # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py autism                        # just this one; fails on an unknown citation key
 python3 tools/smoke.py autism/index.html all         # headless-Chrome check: no JS errors, no empty animations
-python3 autism/src/compile_sources.py                # rebuild sources.json from research/
+python3 tools/compile_sources.py autism              # rebuild sources.json from research/
 python3 tools/share_card.py autism/src/share-card.html autism/share-card.png
 ```
 

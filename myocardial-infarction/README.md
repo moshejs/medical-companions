@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module (437 cited 
 
 ## How it was made
 
-Eight research passes, one per area: (A) epidemiology, definitions and history; (B) atherosclerosis, plaque rupture, thrombosis, ischaemia and risk factors; (C) presentation, the ECG, troponin and risk scores; (D) the first minutes, reperfusion and time targets; (E) antithrombotic therapy; (F) complications, cardiogenic shock, prognosis and research toward better treatment; (G) secondary prevention and lipids; (H) cardiac rehabilitation, living after a heart attack and nursing care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. Facts the passes could not check against a source (the UK driving rules, the ECG lead-to-territory map, CPR rate and depth wording, parts of the 2025 US guideline) are marked unverified in the pass files and never used on the site; the territory map is shown as a labelled teaching convention, and the page tells readers to learn CPR on a certified course. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (495 entries, each recording which service confirmed it), and the modules were written against them.
+Eight research passes, one per area: (A) epidemiology, definitions and history; (B) atherosclerosis, plaque rupture, thrombosis, ischaemia and risk factors; (C) presentation, the ECG, troponin and risk scores; (D) the first minutes, reperfusion and time targets; (E) antithrombotic therapy; (F) complications, cardiogenic shock, prognosis and research toward better treatment; (G) secondary prevention and lipids; (H) cardiac rehabilitation, living after a heart attack and nursing care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. Facts the passes could not check against a source (the UK driving rules, the ECG lead-to-territory map, CPR rate and depth wording, parts of the 2025 US guideline) are marked unverified in the pass files and never used on the site; the territory map is shown as a labelled teaching convention, and the page tells readers to learn CPR on a certified course. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (495 entries, each recording which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,7 +31,7 @@ Eight research passes, one per area: (A) epidemiology, definitions and history; 
 python3 tools/build_site.py                                        # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py myocardial-infarction                       # just this one; fails on an unknown citation key
 python3 tools/smoke.py myocardial-infarction/index.html all        # headless-Chrome check: no JS errors, no empty animations
-python3 myocardial-infarction/src/compile_sources.py               # rebuild sources.json from research/
+python3 tools/compile_sources.py myocardial-infarction             # rebuild sources.json from research/
 python3 tools/share_card.py myocardial-infarction/src/share-card.html myocardial-infarction/share-card.png
 ```
 

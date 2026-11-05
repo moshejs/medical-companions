@@ -1,0 +1,21 @@
+{
+ "areas": {
+  "A": "Epidemiology, risk factors & history",
+  "B": "Diagnosis, classification & imaging",
+  "C": "Urate biology & crystal inflammation",
+  "D": "Treating a flare & colchicine",
+  "E": "Urate-lowering therapy & treat-to-target",
+  "F": "Kidney & cardiovascular links",
+  "G": "Living with gout & nursing care",
+  "H": "Research & toward a cure"
+ },
+ "aliases": {
+  "FDA-UloricF": "FDA-Uloric",
+  "FDA-UloricG": "FDA-Uloric",
+  "FDA-KrystexxaH": "FDA-Krystexxa",
+  "FDA-KrystexxaG": "FDA-Krystexxa"
+ },
+ "validated_tag": false,
+ "match": "legacy-gout",
+ "doi_link": "raw"
+}
