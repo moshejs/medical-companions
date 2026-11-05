@@ -14,7 +14,7 @@ function shCircuit(x,y,w,h,o={}){
   const g=k=>o[k]==null?{pump:1,tone:.5,tank:.75,flow:1,perf:1}[k]||0:o[k];
   const pump=g('pump'),tone=g('tone'),tank=clamp(g('tank')),flow=g('flow'),perf=g('perf'),leak=clamp(g('leak')),bleed=clamp(g('bleed')),obs=clamp(g('obs')),dim=clamp(g('dim'));
   const kind=o.obsKind||'tamp',ph=o.ph||0,beat=o.beat||0,id=o.id||'shc',fail=o.fail||[],fv=o.fv==null?1:o.fv,k=Math.min(1.1,w/430);
-  const s=Math.min(w*.26,h*.4),Px=x+w*.2,Py=y+h*.36;
+  const s=Math.min(w*.21,h*.33),Px=x+w*.2,Py=y+h*.36;
   const bx=x+w*.62,by=y+h*.17,bw=w*.34,bh=h*.48;
   const tx=x+w*.05,ty=y+h*.64,tw=w*.3,th=h*.22;
   const A=[[Px+s*.18,Py-s*.34],[Px+s*.18,y+h*.06],[bx+bw*.12,y+h*.06],[bx+bw*.12,by+6]];
@@ -39,9 +39,9 @@ function shCircuit(x,y,w,h,o={}){
   /* the capillary bed (from the kit), with fluid leaking out as the lining fails */
   sv+=capbed(bx,by,bw,bh,{perf,ph:ph*.6,seed:7}).svg;
   sv+=`<text x="${f1(bx+bw*.56)}" y="${f1(by-6)}" class="t-xs t-mid" style="fill:var(--ink);font-weight:600">PIPES · vessels</text>`;
-  if(leak>.02)for(let i=0;i<6;i++){const kk=(ph*1.4+i*.19)%1,dx=bx+bw*(.2+.12*i),dy=by+bh+4+kk*h*.08;
+  if(leak>.02)for(let i=0;i<6;i++){const kk=(ph*1.4+i*.19)%1,dx=bx+bw*(.2+.12*i),dy=by+bh+4+kk*h*.05;
     sv+=`<path d="M${f1(dx)} ${f1(dy-3)}C${f1(dx+2.4)} ${f1(dy)} ${f1(dx+1.8)} ${f1(dy+2.6)} ${f1(dx)} ${f1(dy+2.6)}C${f1(dx-1.8)} ${f1(dy+2.6)} ${f1(dx-2.4)} ${f1(dy)} ${f1(dx)} ${f1(dy-3)}Z" style="fill:var(--fluid);opacity:${f1(leak*(1-kk*.7))}"/>`}
-  if(leak>.3)sv+=`<text x="${f1(bx+bw/2)}" y="${f1(by+bh+h*.15)}" class="t-xs t-mid" style="fill:var(--fluid);font-weight:600;opacity:${f1(ramp(leak,.3,.6))}">fluid leaks into tissue</text>`;
+  if(leak>.3)sv+=`<text x="${f1(bx-6)}" y="${f1(by+bh+h*.06)}" class="t-xs t-end" style="fill:var(--fluid);font-weight:600;opacity:${f1(ramp(leak,.3,.6))}">fluid leaks into tissue</text>`;
   /* blood lost from the tank */
   if(bleed>.02){for(let i=0;i<3;i++){const kk=(ph*1.2+i/3)%1,dx=tx+tw*(.22+i*.08),dy=ty+th+3+kk*h*.09;
       sv+=`<circle cx="${f1(dx)}" cy="${f1(dy)}" r="${f1(2.6*k+.6)}" style="fill:var(--oxy);opacity:${f1(bleed*(1-kk*.6))}"/>`}
@@ -66,9 +66,9 @@ function shWindows(x,y,w,v){const c=w/3;let s='';
   const sx=x+c*.5-22,sy=y;
   s+=`<rect x="${f1(sx)}" y="${f1(sy)}" width="44" height="34" rx="8" style="fill:var(--skin);stroke:var(--line)"/>`;
   [[10,9,6],[28,8,5],[20,22,7],[35,24,4.5],[8,25,4]].forEach((b,i)=>{s+=`<path d="${smoothPath(blobPts(b[2],7,.3,i+3).map(p=>[p[0]+sx+b[0],p[1]+sy+b[1]]))}" style="fill:var(--mottle);opacity:${f1(clamp(v.skin)*.85)}"/>`});
-  s+=`<text x="${f1(x+c*.5)}" y="${f1(y+50)}" class="t-xs t-mid" style="fill:var(--ink)">skin</text>`;
-  s+=organ('kidney',x+c*1.5,y+16,34,{fail:v.kid})+`<text x="${f1(x+c*1.5)}" y="${f1(y+50)}" class="t-xs t-mid" style="fill:var(--ink)">kidneys · urine</text>`;
-  s+=organ('brain',x+c*2.5,y+16,34,{fail:v.brain})+`<text x="${f1(x+c*2.5)}" y="${f1(y+50)}" class="t-xs t-mid" style="fill:var(--ink)">brain · alertness</text>`;
+  s+=`<text x="${f1(x+c*.5)}" y="${f1(y+50)}" class="t-xs t-mid" style="fill:var(--ink)">skin</text><text x="${f1(x+c*.5)}" y="${f1(y+61)}" class="t-xs t-mid">mottling</text>`;
+  s+=organ('kidney',x+c*1.5,y+16,34,{fail:v.kid})+`<text x="${f1(x+c*1.5)}" y="${f1(y+50)}" class="t-xs t-mid" style="fill:var(--ink)">kidneys</text><text x="${f1(x+c*1.5)}" y="${f1(y+61)}" class="t-xs t-mid">urine</text>`;
+  s+=organ('brain',x+c*2.5,y+16,34,{fail:v.brain})+`<text x="${f1(x+c*2.5)}" y="${f1(y+50)}" class="t-xs t-mid" style="fill:var(--ink)">brain</text><text x="${f1(x+c*2.5)}" y="${f1(y+61)}" class="t-xs t-mid">alertness</text>`;
   return s}
 const SH_N={pump:1,tone:.5,tank:.75,flow:1,perf:1,leak:0,bleed:0,obs:0,dim:0,map:1,co:1,skin:0,kid:0,brain:0,hr:1};
 const SH_STEPS=[

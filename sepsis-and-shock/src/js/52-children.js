@@ -31,8 +31,8 @@ inits.children=()=>{
   /* ---------- 1. the first 24 hours ---------- */
   const svg=$('#chSvg'),rg=$('#chT');
   function draw(t){
-    const N=vb(svg,'720 380','400 600'),p=phaseOf(CH_STEPS,t),st=CH_STEPS[p],h=t*24;
-    const L=N?{bx:110,by:52,bs:.78,cx:210,cy:62,cw:160,ax0:24,ax1:376,ay:540}:{bx:140,by:48,bs:.98,cx:300,cy:50,cw:200,ax0:300,ax1:690,ay:318};
+    const N=vb(svg,'720 380','400 400'),p=phaseOf(CH_STEPS,t),st=CH_STEPS[p],h=t*24;
+    const L=N?{bx:110,by:52,bs:.78,cx:210,cy:62,cw:160,ax0:24,ax1:376,ay:360}:{bx:140,by:48,bs:.98,cx:300,cy:50,cw:200,ax0:300,ax1:690,ay:318};
     let s=`<text x="${N?16:20}" y="26" class="t-big" style="fill:${p>=1?'var(--rec)':'var(--ink)'}">${st.h}</text>`;
     const cold=ramp(h,6,9),mot=ramp(h,7,10)*.85;
     const B=body(L.bx,L.by,L.bs,{id:'chB',cold,mottle:mot});s+=B.svg;

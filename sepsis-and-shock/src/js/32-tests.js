@@ -129,12 +129,12 @@ inits.tests=()=>{
     [[0,2,'var(--good-soft)'],[2,4,'var(--warn-soft)'],[4,10,'var(--bad-soft)']].forEach(([a,b,c])=>{s+=`<rect x="${f1(X(a))}" y="${y1-10}" width="${f1(X(b)-X(a))}" height="20" style="fill:${c}"/>`});
     for(let k=0;k<=10;k++)s+=`<line x1="${f1(X(k))}" x2="${f1(X(k))}" y1="${y1+10}" y2="${y1+14}" class="axis"/><text x="${f1(X(k))}" y="${y1+24}" class="t-xs t-mid">${k}</text>`;
     s+=`<text x="${x1}" y="${y1+36}" class="t-xs t-end">mmol/L</text>`;
-    [[2,N?'2: Sepsis-3':'2: Sepsis-3 septic shock criterion'],[4,N?'4: Hour-1 fluids':'4: Hour-1 bundle fluid trigger']].forEach(([k,l],i)=>{const yy=N?y1-16-i*12:y1-16-i*14;
-      s+=`<line x1="${f1(X(k))}" x2="${f1(X(k))}" y1="${yy+2}" y2="${y1+10}" style="stroke:var(--ink);stroke-width:1.4"/><text x="${f1(X(k)+4)}" y="${yy}" class="t-xs" style="fill:var(--ink)">${l}</text>`});
+    [[2,N?'2: Sepsis-3':'2: Sepsis-3 septic shock criterion'],[4,N?'4: Hour-1 fluids':'4: Hour-1 bundle fluid trigger']].forEach(([k,l],i)=>{const yy=y1-16;
+      s+=`<line x1="${f1(X(k))}" x2="${f1(X(k))}" y1="${yy-8}" y2="${y1+10}" style="stroke:var(--ink);stroke-width:1.4"/><text x="${f1(i?X(k)+4:X(k)-4)}" y="${yy}" class="t-xs${i?'':' t-end'}" style="fill:var(--ink)">${l}</text>`});
     const zi=v<2.5?0:v<4?1:2;
     TS_SHAP.forEach(([lab,m],i)=>{const a=[0,2.5,4][i],b=[2.5,4,10][i],on=i===zi;
       s+=`<rect x="${f1(X(a)+1)}" y="${y2-10}" width="${f1(X(b)-X(a)-2)}" height="22" rx="4" style="fill:${['var(--good-soft)','var(--warn-soft)','var(--bad-soft)'][i]};stroke:${on?'var(--ink)':'var(--line)'};stroke-width:${on?2:1}"/>`;
-      const w=X(b)-X(a);s+=`<text x="${f1((X(a)+X(b))/2)}" y="${y2+4}" class="t-xs t-mid" style="fill:var(--ink);font-weight:${on?700:500}">${w<60?m+'%':m+'% died'}</text>`});
+      const w=X(b)-X(a);s+=`<text x="${f1((X(a)+X(b))/2)}" y="${y2+4}" class="t-xs t-mid" style="fill:var(--ink);font-weight:${on?700:500}">${w<60?m.toFixed(1)+'%':m.toFixed(1)+'% died'}</text>`});
     s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${y1-12}" y2="${y2+14}" style="stroke:var(--lactate);stroke-width:2.4"/><path d="M${f1(X(v)-6)} ${y2+22}L${f1(X(v)+6)} ${y2+22}L${f1(X(v))} ${y2+14}Z" style="fill:var(--lactate)"/>`;
     ls.innerHTML=s;
     const shock=v>2&&vs;
@@ -197,7 +197,7 @@ inits.tests=()=>{
       s+=`<text x="${N?B.x+8:x0-60}" y="${B.y+B.h-6}" class="t-xs">bars: cumulative share of bloodstream infections detected (Lee 2007)</text>`}
     else if(p===1){const K=[31,19],labs=['drawn before antimicrobials','redrawn a median 70 min after'],sz=N?13:14,gp=N?3:4,gw=10*(sz+gp);
       for(let k=0;k<2;k++){const x=N?cx-gw/2:B.x+80+k*330,y=N?B.y+30+k*190:B.y+44,kk=Math.round(K[k]*ease(ramp(lp,.05+k*.3,.35+k*.3)));
-        s+=`<text x="${x}" y="${y-12}" class="t-lbl" style="fill:${k?'var(--rx)':'var(--dx)'}">${K[k]===31?'31.4':'19.4'}% positive</text><text x="${x+gw}" y="${y-12}" class="t-xs t-end">${labs[k]}</text>`;
+        s+=`<text x="${x}" y="${y-22}" class="t-lbl" style="fill:${k?'var(--rx)':'var(--dx)'}">${K[k]===31?'31.4':'19.4'}% positive</text><text x="${x}" y="${y-8}" class="t-xs">${labs[k]}</text>`;
         s+=icons(x,y,{n:100,cols:10,k:kk,size:sz,gap:gp,col:k?'var(--rx)':'var(--dx)',shape:'dot'}).svg}}
     else if(p===2){const sx=N?B.x+12:B.x+20,sy=B.y+20,sw=N?B.w-24:300,sh=110;
       s+=`<rect x="${sx}" y="${sy}" width="${sw}" height="30" rx="6" style="fill:var(--skin)"/><text x="${sx+6}" y="${sy+19}" class="t-xs" style="fill:var(--ink)">skin</text>`;

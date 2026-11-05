@@ -108,7 +108,9 @@ inits.nursing=()=>{
     s+=`<text x="${lx}" y="${ly-4}" class="t-xs t-mid">NEWS2</text><text x="${lx}" y="${ly+16}" class="t-big t-mid" style="fill:${band[1]}">${sc}</text><text x="${lx}" y="${ly+30}" class="t-xs t-mid" style="fill:${band[1]};font-weight:700">${band[0]}</text>`;
     /* the first-hour clock from the escalation call, and the action list */
     const mins=clamp((h-14)*60,0,60),[kx,ky]=L.ck;
-    s+=clock(kx,ky,L.cr,mins,{h0:14,col:'var(--rx)',label:h>=14?`${Math.round(mins)} min since the call`:'first hour (from the call)',marks:h>=14?[{min:10,col:'var(--pathogen)',label:'cultures'},{min:30,col:'var(--rx)',label:'abx'}]:[]});
+    s+=clock(kx,ky,L.cr,mins,{h0:14,col:'var(--rx)',marks:h>=14?[{min:10,col:'var(--pathogen)'},{min:30,col:'var(--rx)'}]:[]});
+    s+=`<text x="${kx}" y="${ky+L.cr+16}" class="t-xs t-mid">${h>=14?Math.round(mins)+' min since the call':'first hour, from the call'}</text>`;
+    if(h>=14)s+=`<circle cx="${kx-44}" cy="${ky+L.cr+27}" r="3.5" style="fill:var(--pathogen)"/><text x="${kx-38}" y="${ky+L.cr+30}" class="t-xs">cultures</text><circle cx="${kx+12}" cy="${ky+L.cr+27}" r="3.5" style="fill:var(--rx)"/><text x="${kx+18}" y="${ky+L.cr+30}" class="t-xs">antibiotic</text>`;
     s+=`<text x="${L.dx}" y="${L.dy-12}" class="t-sm" style="fill:var(--rec)">ACTIONS</text>`;
     NR_DO.forEach(([lab,at],i)=>{const y=L.dy+i*L.dh,done=h>=at-.001;
       s+=`<rect x="${L.dx}" y="${y-11}" width="15" height="15" rx="4" style="fill:${done?'var(--rec)':'var(--panel)'};stroke:var(--rec);stroke-width:1.4"/>`;
@@ -132,16 +134,16 @@ inits.nursing=()=>{
     else if(r<.5&&hr>=6){st=1;txt='Stage 1 range: below 0.5 mL/kg/h for 6–12 hours'}
     else if(r<.5){st=0;txt='Below 0.5 mL/kg/h, but for less than 6 hours: KDIGO counts it from 6 hours'}
     else{st=-1;txt='At or above 0.5 mL/kg/h: does not meet the KDIGO urine criterion'}
-    const X=v=>30+360*clamp(v/1.5,0,1),col=st>=1?'var(--bad)':st===0?'var(--warn)':'var(--good)';
-    let s=`<text x="30" y="22" class="t-sm">URINE OUTPUT · mL/kg/h (average)</text><rect x="30" y="44" width="360" height="34" rx="6" style="fill:var(--panel-2)"/>`;
+    const UN=vb(us,'420 190','330 200'),UW=UN?270:360,X=v=>30+UW*clamp(v/1.5,0,1),col=st>=1?'var(--bad)':st===0?'var(--warn)':'var(--good)';
+    let s=`<text x="30" y="22" class="t-sm">URINE OUTPUT · mL/kg/h (average)</text><rect x="30" y="44" width="${UW}" height="34" rx="6" style="fill:var(--panel-2)"/>`;
     s+=`<rect x="30" y="44" width="${f1(X(r)-30)}" height="34" rx="6" style="fill:${col};opacity:.75"/>`;
     [[.3,'0.3'],[.5,'0.5'],[1,'1.0'],[1.5,'1.5+']].forEach(([v,l])=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="38" y2="84" style="stroke:${v<=.5?'var(--bad)':'var(--line)'};stroke-width:${v<=.5?1.6:1};stroke-dasharray:${v<=.5?'4 3':'none'}"/><text x="${f1(X(v))}" y="98" class="t-xs t-mid">${l}</text>`});
-    s+=`<text x="${f1(Math.min(X(r)+6,330))}" y="66" class="t-lbl" style="fill:var(--ink)">${r.toFixed(2)}</text>`;
-    s+=`<text x="30" y="124" class="t-xs">${ml} mL ÷ ${w} kg ÷ ${hr} h</text><text x="30" y="146" class="t-lbl" style="fill:${col};font-size:12.5px">${st>=1?'KDIGO '+txt:txt}</text>`;
-    s+=`<text x="30" y="172" class="t-xs">Thresholds as published by KDIGO; drawn range 0–1.5</text>`;
+    s+=`<text x="${f1(Math.min(X(r)+6,UW-30))}" y="66" class="t-lbl" style="fill:var(--ink)">${r.toFixed(2)}</text>`;
+    s+=`<text x="30" y="124" class="t-xs">${ml} mL ÷ ${w} kg ÷ ${hr} h</text><text x="30" y="146" class="t-lbl" style="fill:${col};font-size:12.5px">${st>=1?'KDIGO '+txt.split(': ')[0]:txt.split(': ')[0]}</text><text x="30" y="162" class="t-xs" style="fill:var(--ink)">${txt.split(': ')[1]||''}</text>`;
+    s+=`<text x="30" y="186" class="t-xs">KDIGO thresholds as published; drawn 0–1.5</text>`;
     us.innerHTML=s;us.setAttribute('aria-label',`Urine output ${r.toFixed(2)} mL per kg per hour over ${hr} hours. ${txt}.`);
     uo.innerHTML=`<span>Rate <b>${r.toFixed(2)} mL/kg/h</b></span><span>${st>=1?'<b>KDIGO stage '+st+'</b> urine range':'<b>Not a KDIGO urine stage</b>'}</span><span>Teaching only [[Kellum2013KDIGO]]</span>`}
-  [uw,um,uh].forEach(el=>el.addEventListener('input',uoDraw));uoDraw();
+  [uw,um,uh].forEach(el=>el.addEventListener('input',uoDraw));uoDraw();{const pr=redraws.nursing;redraws.nursing=()=>{pr&&pr();uoDraw()}}
 
   /* ---------- exam-style scenarios ---------- */
   const qc=$('#nrQ'),ans={};let qi=0;

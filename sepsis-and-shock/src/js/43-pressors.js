@@ -87,7 +87,7 @@ const PR_ST=[
  {n:'APROCCHSS 2018',o:'death, 90 d',a:['hydro + fludro','43.0'],b:['placebo',49.1],e:'RR 0.88 (0.78 to 0.99)',v:'fewer deaths',good:1}
 ];
 const PR_PV={
- cg:{k:2,big:'2%',u:'of 783 peripheral infusions extravasated',cap:`In one medical ICU (734 patients, 783 peripheral infusions, mean 49 h), extravasation occurred in 2% (19 patients), with no tissue injury after treatment; 13% eventually needed central access [[CardenasGarcia2015JHM]].`},
+ cg:{k:2,big:'2%',u:'extravasation in one ICU (19 patients, 783 infusions)',cap:`In one medical ICU (734 patients, 783 peripheral infusions, mean 49 h), extravasation occurred in 2% (19 patients), with no tissue injury after treatment; 13% eventually needed central access [[CardenasGarcia2015JHM]].`},
  tian:{k:3,big:'3.4%',u:'of peripheral infusions extravasated (pooled; shown as 3 in 100)',cap:`A 2020 systematic review (7 studies, 1382 patients) found extravasation in 3.4% (95% CI 2.5% to 4.7%) of peripheral infusions, with no reported tissue necrosis or limb ischaemia [[Tian2020EMA]].`},
  yerke:{k:52,big:'51.6%',u:'of first exposures never needed a central line',cap:`In 635 patients given peripheral norepinephrine under a protocol, 51.6% of first exposures never needed a central line. Extravasation occurred in 35 patients (75.8 events per 1000 infusion-days), and no patient needed surgery [[Yerke2024Chest]].`},
  lou:{k:85,big:'85.3%',u:'of injury events were further out than the elbow or knee crease',cap:`Of 204 published local tissue injury events from peripheral vasopressors, 85.3% occurred at sites distal to the antecubital or popliteal fossa [[Loubani2015JCC]]. That is why the SSC remark specifies a vein "in or proximal to the antecubital fossa" [[Evans2021SSC]].`}
