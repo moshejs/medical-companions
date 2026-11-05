@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the whole site from site.json.
 
-    python3 tools/build_site.py
+    python3 tools/build_site.py                 (--no-prerender: skip step 6, e.g. without Chrome)
 
 0. self-hosts the fonts the parts name (tools/fonts.py): fonts/ and fonts/fonts.json
 1. builds every companion in every language it lists (tools/build.py): a first page,
@@ -19,6 +19,9 @@
    send visitors, and search engines, to the new one (an old #module link goes straight
    to that module's page). Copy each folder's contents over
    the old repository's site so its links keep working.
+
+6. prerenders the text the module scripts draw into empty containers into each built
+   page (tools/prerender.py, headless Chrome), so it is readable without JavaScript.
 
 Change "site" in site.json to move the site to another address, then run this again.
 """
@@ -215,3 +218,11 @@ left = [str(f.relative_to(ROOT)) for f in ROOT.rglob("*.html")
         and "src" not in f.relative_to(ROOT).parts and not f.relative_to(ROOT).parts[0].startswith(".")]
 if left:
     sys.exit("unfilled %SITE% in: " + ", ".join(sorted(left)[:20]))
+
+# 6. the text each module's script draws into empty containers, written into its page for
+# readers and crawlers without JavaScript (tools/prerender.py; needs Chrome)
+if "--no-prerender" in sys.argv[1:]:
+    print("prerender: skipped (--no-prerender)")
+else:
+    r = subprocess.run([sys.executable, str(ROOT / "tools" / "prerender.py")])
+    if r.returncode: sys.exit("prerender failed (run with --no-prerender to skip it)")
