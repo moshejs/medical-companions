@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module (455 cited 
 
 ## How it was made
 
-Eight research passes, one per area: (A) epidemiology, drinking patterns, burden and history; (B) alcohol in the body and brain: metabolism, neurobiology and genetics; (C) screening, diagnosis and biomarkers; (D) alcohol withdrawal: the syndrome, CIWA-Ar, management and Wernicke; (E) medicines for AUD, approved and off-label; (F) psychosocial treatment, mutual help, course and recovery; (G) medical harms: liver, cancer, heart, brain, pregnancy and FASD; (H) nursing, harm reduction, special groups and the research frontier. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. Facts the passes could not check against a source were dropped or marked unverified in the pass files and are never used on the site. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (519 entries, each recording which service confirmed it), and the modules were written against them.
+Eight research passes, one per area: (A) epidemiology, drinking patterns, burden and history; (B) alcohol in the body and brain: metabolism, neurobiology and genetics; (C) screening, diagnosis and biomarkers; (D) alcohol withdrawal: the syndrome, CIWA-Ar, management and Wernicke; (E) medicines for AUD, approved and off-label; (F) psychosocial treatment, mutual help, course and recovery; (G) medical harms: liver, cancer, heart, brain, pregnancy and FASD; (H) nursing, harm reduction, special groups and the research frontier. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. Facts the passes could not check against a source were dropped or marked unverified in the pass files and are never used on the site. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (519 entries, each recording which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,14 +31,14 @@ Eight research passes, one per area: (A) epidemiology, drinking patterns, burden
 python3 tools/build_site.py                                       # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py alcohol-use-disorder                       # just this one; fails on an unknown citation key
 python3 tools/smoke.py alcohol-use-disorder/index.html all        # headless-Chrome check: no JS errors, no empty animations
-python3 alcohol-use-disorder/src/compile_sources.py               # rebuild sources.json from research/
+python3 tools/compile_sources.py alcohol-use-disorder             # rebuild sources.json from research/
 python3 tools/share_card.py alcohol-use-disorder/src/share-card.html alcohol-use-disorder/share-card.png
 ```
 
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Deep olive carries the interface; plum marks screening and diagnosis, ember withdrawal and acute care (also the safety callouts), and teal treatment and recovery. In the drawings, blue is GABA (inhibition), ember-red glutamate (excitation), amber ethanol and acetaldehyde, brown-red the liver and yellow-green thiamine. No drawing shows a drink as attractive. Fonts: Alegreya, Mulish and DM Mono. The icon is a liver lobe with a rising recovery line.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`synapse`, `balance`, `brain`, `liver`, `pathway`, `curve`, `bacSeries`, `bodymap`, `person`, `symptoms`, `mol`, `tank`, `gauge`, `beaker`, `pill`, `ladder`, `tline`, `ped`, `marker`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`synapse`, `balance`, `brain`, `liver`, `pathway`, `curve`, `bacSeries`, `bodymap`, `person`, `symptoms`, `mol`, `tank`, `gauge`, `beaker`, `pill`, `ladder`, `tline`, `ped`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys is in `strings.json`.

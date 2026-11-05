@@ -1,6 +1,6 @@
 # Research pass format
 
-One file per research area: `<LETTER>-<area-slug>.md` (for example `C-mechanisms-joints-pain.md`). `ehlers-danlos-syndromes/src/compile_sources.py` reads every `[A-H]-*.md` here and merges the **Sources** sections into `ehlers-danlos-syndromes/src/sources.json`, so the layout below is a contract, not a suggestion. The colorectal cancer, MS, gout, ALS and Parkinson's passes use the same format.
+One file per research area: `<LETTER>-<area-slug>.md` (for example `C-mechanisms-joints-pain.md`). `tools/compile_sources.py ehlers-danlos-syndromes` reads every `[A-H]-*.md` here and merges the **Sources** sections into `ehlers-danlos-syndromes/src/sources.json`, so the layout below is a contract, not a suggestion. The colorectal cancer, MS, gout, ALS and Parkinson's passes use the same format.
 
 ```markdown
 # <LETTER> · <Area title>

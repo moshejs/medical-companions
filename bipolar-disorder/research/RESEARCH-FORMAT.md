@@ -1,6 +1,6 @@
 # Research pass format
 
-One file per research area: `<LETTER>-<area-slug>.md` (for example `C-mechanism.md`). `bipolar-disorder/src/compile_sources.py` reads every `[A-H]-*.md` here and merges the **Sources** sections into `bipolar-disorder/src/sources.json`, so the layout below is a contract, not a suggestion. The MS, gout, ALS and Parkinson's passes use the same format.
+One file per research area: `<LETTER>-<area-slug>.md` (for example `C-mechanism.md`). `tools/compile_sources.py bipolar-disorder` reads every `[A-H]-*.md` here and merges the **Sources** sections into `bipolar-disorder/src/sources.json`, so the layout below is a contract, not a suggestion. The MS, gout, ALS and Parkinson's passes use the same format.
 
 ```markdown
 # <LETTER> · <Area title>

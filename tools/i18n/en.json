@@ -48,7 +48,7 @@
   "shell.skip": "Skip to content",
   "sources.all": "All",
   "sources.also": " · also ",
-  "sources.check": "check",
+  "sources.check": "not matched in a research database",
   "sources.count": "{n} of {total} sources",
   "sources.placeholder": "Search author, title, journal, year",
   "sources.search": "Search sources",

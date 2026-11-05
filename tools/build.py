@@ -5,7 +5,15 @@ Usage: build.py COMPANION [--lang CODE] [--single] [--out PATH] [--draft]
 
 COMPANION is a folder at the repo root (alzheimers, fmf). Parts come from
 COMPANION/src: 00-head.html, 10-shell.html, sections/*.html (sorted), 90-foot.html,
-js/*.js (sorted). Sources come from COMPANION/src/sources.json. The companion's first
+js/*.js. Sources come from COMPANION/src/sources.json.
+
+The script is one runtime shared by every companion and language, tools/core/*.js, and the
+companion's own js/*.js, all in file-name order: 00-core.js (shared: opens the <script>,
+helpers, the storage wrapper), 01-config.js (the companion's PREFIX for its localStorage and
+sessionStorage keys, MODS and GROUPS), 02-draw.js (the companion's drawing kit, optional),
+03-router.js (shared: routing, nav, pager, theme, the player), the module scripts, and
+99-boot.js (shared: shows the first module and closes the <script>). A companion keeps no
+copy of a shared part; the build stops if it does. The companion's first
 page is COMPANION/index.html, or COMPANION/<lang>/index.html for another language (its code in
 lower case: de, ja, pt-br).
 
@@ -15,7 +23,7 @@ index.html with only its own section (the shell, nav and footer stay), its headi
 the h1, and its own title, description, canonical, hreflang pair, Open Graph tags and
 structured data (with a breadcrumb). Every page loads one script, app.js beside the
 first page, as app.js?v=<its hash> so a deploy never pairs new pages with an old cached
-script. The router in js/00-core.js reads <body data-page data-root>, and sends an old
+script. The router in tools/core/03-router.js reads <body data-page data-root>, and sends an old
 #module link to that module's page.
 
 Titles and descriptions come from src/pages.json (src/<lang>/pages.json for another
@@ -24,7 +32,7 @@ and "description". A module missing there gets "<its nav title> | <companion nam
 the first sentences of its lede that fit in 160 characters.
 
 A translated page is indexed only when it is complete and reviewed. Complete: none of its
-parts falls back to English (shell, footer, core script, its section, its module script,
+parts falls back to English (shell, footer, js/01-config.js, its section, its module script,
 meta.html) and no UI string it uses does. Reviewed: the companion names a reviewer for the
 language in site.json (or lists the language in "indexed_without_review"). Any other page
 is marked noindex and left out of the hreflang pairs, so unfinished or unreviewed
@@ -33,18 +41,19 @@ module may be indexed, plus x-default for English) replace <!--HREFLANG--> in 00
 
 With --single, the one-page build: every module in one page with the script inline,
 switched by #hash (tools/make_artifact.py uses it). --out PATH puts the page (or, without
---single, the first page) there. A translation whose core script predates page routing
-is built that way too, with a warning.
+--single, the first page) there.
 
 Languages come from the "languages" table in site.json (see tools/i18n.py). With --lang
 CODE, each part is taken from src/CODE/<same path> when that file exists (otherwise the
-English part is used and listed as untranslated), and the metadata block between
+English part is used and listed as untranslated; the shared runtime has no translations,
+since its words are %t: strings, and js/02-draw.js falls back without a listing, since a
+drawing kit is code: give the language its own copy if the kit draws words), and the metadata block between
 <!--META--> markers in 00-head.html is replaced by src/CODE/meta.html. The page gets
 lang="CODE", and dir="rtl" when the table says the language is right to left; only then
 is src/CODE/rtl.css appended to the styles (or, until the language has its own, another
 right-to-left language's rtl.css from the same companion). The language's script faces
 are added after the companion's own in --display and --body, with their Google Fonts
-stylesheet, unless the language's own CSS or meta.html already does that (Hebrew does),
+stylesheet (self-hosted like the rest), unless the language's own CSS or meta.html already does that (Hebrew does),
 and its extra CSS from the table follows (word-break:auto-phrase for Japanese).
 
 %t:key% in any part is a UI string, filled from the strings files (tools/i18n.py says
@@ -62,13 +71,16 @@ site to another domain is a one-line change there and a rebuild.
 
 The MedicalWebPage structured data gets datePublished (site.json), dateModified (the
 last commit to the companion's src/, or today when src/ has uncommitted changes), the
-publisher (site.json), inLanguage, and, once site.json names one, the reviewer
+publisher (one "Medical Companions" Organization, @id <site>/#org, whose
+parentOrganization is the publisher in site.json), the WebSite @id <site>/#site, inLanguage, and, once site.json names one, the reviewer
 (reviewedBy, lastReviewed), who is then also named in the footer (the string
-review.line). Google Fonts stylesheets are loaded without blocking the
-first paint; the fallback fonts in each --display/--body stack show until they arrive.
+review.line). Fonts are self-hosted (tools/fonts.py): each Google Fonts stylesheet
+link becomes inline @font-face rules for the files in /fonts/, the body and h1 faces are
+preloaded, and a metric-matched local fallback shows until they arrive, so the swap does
+not move the page.
 """
 import datetime, hashlib, html as H, json, re, subprocess, sys, pathlib
-import i18n
+import fonts, i18n
 
 ROOT, CFG, SITE = i18n.ROOT, i18n.CFG, i18n.SITE
 
@@ -98,12 +110,13 @@ if LANG not in LANGS: print(f"warning: {LANG} is not in {COMP.name}'s langs in s
 STR = i18n.Strings(COMP.name, LANG)
 
 untranslated = []
+QUIET = {"00-head.html", "js/02-draw.js"}  # parts whose fallback to English is not listed
 def read(p):
     text = None
     if LANG != "en" and p.is_relative_to(SRC) and p.name != "sources.json":
         alt = SRC / LANG / p.relative_to(SRC)
         if alt.exists(): text = alt.read_text(encoding="utf-8")
-        elif p.name != "00-head.html": untranslated.append(str(p.relative_to(SRC)))
+        elif p.relative_to(SRC).as_posix() not in QUIET: untranslated.append(str(p.relative_to(SRC)))
     if text is None: text = p.read_text(encoding="utf-8")
     if p.suffix in (".html", ".js"): text = i18n.fill(text, p.suffix[1:], STR, str(p.relative_to(ROOT)))
     return text
@@ -172,21 +185,36 @@ mail = i18n.CONTACT_EMAIL
 contact = STR.get("foot.contact").format(email=f'<a href="mailto:{mail}">{mail}</a>')
 foot = foot.replace("</footer>", f'  <p class="contact">{contact}</p>\n</footer>', 1)
 parts.append(foot)
+# the shared runtime (tools/core/) and the companion's own scripts, in file-name order
+CORE = sorted((ROOT / "tools" / "core").glob("*.js"))
 js_files = sorted((SRC / "js").glob("*.js"))
-js = [read(p) for p in js_files]
+dup = sorted({p.name for p in js_files} & {p.name for p in CORE})
+if dup: sys.exit(f"{COMP.name}/src/js has its own copy of the shared runtime ({', '.join(dup)}); delete it: tools/core/ holds the one copy")
+if not (SRC / "js" / "01-config.js").exists(): sys.exit(f"{COMP.name}/src/js/01-config.js is missing (PREFIX, MODS and GROUPS)")
+js = [read(p) for p in sorted(CORE + js_files, key=lambda p: p.name)]
 src_js = "const SOURCES=" + json.dumps(sources, ensure_ascii=False) + ";\n"
-# the sources array goes right after the core helpers (first js part); <!--JS--> marks
+# the sources array goes right after the shared helpers (first js part); <!--JS--> marks
 # where the script starts, so the page build can move it out to app.js
 html = "".join(parts) + "<!--JS-->" + js[0] + src_js + "".join(js[1:])
 html = html.replace("%SITE%", SITE)
 html = html.replace("</head>", i18n.ANALYTICS + "</head>", 1)
+# the author is the named human editor (site.json "editor"), not the companion's name
+if CFG.get("editor"): html = re.sub(r'<meta name="author" content="[^"]*">', lambda _: f'<meta name="author" content="{H.escape(CFG["editor"]["name"], quote=True)}">', html)
 
 def stamp(m):
     data = json.loads(m.group(1))
     if data.get("@type") != "MedicalWebPage": return m.group(0)
     if comp.get("published"): data["datePublished"] = comp["published"]
     data["dateModified"] = last_modified(COMP.name)
-    if CFG.get("publisher"): data["publisher"] = {"@type": "Organization", **CFG["publisher"]}
+    # one "Medical Companions" Organization (@id shared with the hub's graph), run by the
+    # publisher named in site.json; the WebSite is referenced by the same @id the hub uses
+    data["publisher"] = {"@type": "Organization", "@id": SITE + "/#org", "name": CFG.get("name", "Medical Companions"), "url": SITE + "/",
+                         **({"parentOrganization": {"@type": "Organization", **CFG["publisher"]}} if CFG.get("publisher") else {})}
+    if isinstance(data.get("isPartOf"), dict): data["isPartOf"]["@id"] = SITE + "/#site"
+    # the named human editor (site.json "editor"): accountable for what is published, and
+    # not a medical reviewer; reviewedBy stays reserved for a credentialed clinician
+    if CFG.get("editor"):
+        data["editor"] = {"@type": "Person", "@id": SITE + "/about/#editor", "name": CFG["editor"]["name"], "url": SITE + "/about/"}
     data["inLanguage"] = LANG
     if REVIEWER:
         data["reviewedBy"] = {"@type": "Person", "name": REVIEWER["name"],
@@ -195,12 +223,20 @@ def stamp(m):
     return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "</script>"
 html = re.sub(r'<script type="application/ld\+json">(.*?)</script>', stamp, html, flags=re.S)
 
-def async_fonts(m):
-    href = m.group(1)
-    return (f'<link rel="preload" as="style" href="{href}" onload="this.onload=null;this.rel=\'stylesheet\'">'
-            f'<noscript><link rel="stylesheet" href="{href}"></noscript>')
-html = re.sub(r'<link rel="stylesheet" href="(https://fonts\.googleapis\.com/[^"]+)">', async_fonts, html)
+# self-hosted fonts (tools/fonts.py): the Google Fonts links become @font-face rules for
+# /fonts/, with metric-matched fallbacks; preload the body face and the h1 face, in the
+# page's own script (a Hebrew page's Hebrew faces)
+if LINFO["fonts"].get("body"):
+    pre = [(LINFO["fonts"]["body"][0], 400), (LINFO["fonts"]["display"][0], fonts.h1_weight(html))]
+    subset = LINFO["fonts"].get("subset", "latin")
+else:
+    pre = [(fonts.first_family(html, "body"), 400), (fonts.first_family(html, "display"), fonts.h1_weight(html))]
+    subset = "latin"
+html = fonts.page_fonts(html, base=(SITE + "/fonts/") if SINGLE else "/fonts/", preload=pre, subset=subset)
 
+# the sources page in this language, from the site root (module pages sit one level down)
+SRC_PAGE = HOME_LANG_URL[len(SITE):] + "sources/#"
+html = html.replace("</head>", "<style>sup.c a{color:inherit;text-decoration:inherit}</style>\n</head>", 1)
 used, missing = set(), set()
 def cite(m):
     keys = [k.strip() for k in m.group(1).split(",") if k.strip()]
@@ -212,7 +248,10 @@ def cite(m):
     if not nums: return ""
     keys = list(dict.fromkeys(canon[k] for k in keys if k in order))
     label = ",".join(str(n) for n in sorted(set(nums)))
-    return f'<sup class="c" data-ref="{",".join(keys)}" title="Source {label}">{label}</sup>'
+    # a real link to the source's entry, so the reference is reachable without the script;
+    # with it, the click handler in tools/core/03-router.js still takes over (it calls preventDefault)
+    href = ("#" if SINGLE else SRC_PAGE) + "src-" + keys[0]
+    return f'<sup class="c" data-ref="{",".join(keys)}" title="Source {label}"><a href="{href}">{label}</a></sup>'
 
 # each key must contain a letter, so nested numeric arrays such as [[250,288]]
 # in module JS are never mistaken for citations
@@ -246,9 +285,6 @@ def report(first):
         else: print(f"review ({LANG}): no reviewer named in site.json, so every page is noindex")
 
 page_html, js_html = html.split("<!--JS-->")
-if not SINGLE and "dataset.page" not in js_html:
-    print(f"warning: {LANG} js/00-core.js has no page routing; built as one page", file=sys.stderr)
-    SINGLE = True
 if SINGLE:
     indexable = lambda l, mid: True
     html = page_html.replace("<!--HREFLANG-->\n", hreflang_links(None), 1) + js_html
@@ -261,15 +297,15 @@ if SINGLE:
 BASE = OUT.parent
 head_html, body_html = page_html.split("<body>", 1)
 m = re.fullmatch(r"\s*<script>\n?(.*)</script>\s*</body>\s*</html>\s*", js_html, re.S)
-if not m: sys.exit("the js parts must open with <script> (00-core.js) and end with </script></body></html> (99-boot.js)")
+if not m: sys.exit("the script must open with <script> (tools/core/00-core.js) and end with </script></body></html> (tools/core/99-boot.js)")
 app_js = m.group(1)
 
-# modules, in nav order, from MODS in the core script: {id:'x',t:'Title',g:1,n:'1.1',d:'...'}
+# modules, in nav order, from MODS in js/01-config.js: {id:'x',t:'Title',g:1,n:'1.1',d:'...'}
 mods_js = re.search(r"\bconst MODS=\[(.*?)\];", app_js, re.S)
 unjs = lambda s: re.sub(r"\\(.)", r"\1", s)
 MODS = [(i, unjs(t)) for i, t in re.findall(r"\{id:'([a-z0-9]+)',t:'((?:\\.|[^'\\])*)'", mods_js.group(1) if mods_js else "")]
 mod_ids = [i for i, _ in MODS]
-if not mod_ids or mod_ids[0] != "home": sys.exit("could not read MODS (starting with home) from js/00-core.js")
+if not mod_ids or mod_ids[0] != "home": sys.exit("could not read MODS (starting with home) from js/01-config.js")
 
 def mod_sections(body):
     """(start, end, id) of each top-level <section data-mod> in BODY."""
@@ -291,7 +327,7 @@ if set(secs) != set(mod_ids):
 
 # which source files make each module, to tell whether a translation is complete
 def part_of(mid):
-    files = {"10-shell.html", "90-foot.html", "js/00-core.js"}
+    files = {"10-shell.html", "90-foot.html", "js/01-config.js"}
     for p in section_files:
         if f'data-mod="{mid}"' in p.read_text(encoding="utf-8"): files.add(f"sections/{p.name}")
     for p in js_files:
@@ -346,8 +382,12 @@ def page_head(mid, nav, title, desc, url):
     # under the reader, and with a short static part (most of a module is drawn by the
     # script), the footer would start on screen and then drop away; so it also takes at
     # least a screen. Both count as layout shift. Without JavaScript it is simply shown.
-    h = h.replace("</head>", "<style>body[data-page] [data-mod][hidden]{display:block!important;visibility:hidden;min-height:100vh}</style>"
-                  "<noscript><style>body[data-page] [data-mod][hidden]{visibility:visible}</style></noscript>\n</head>", 1)
+    # The home page's unit list (#homeUnits) is filled by the script too: until then it
+    # holds a screen, so the cards and footer below it start off screen instead of
+    # dropping away from under the reader.
+    h = h.replace("</head>", "<style>body[data-page] [data-mod][hidden]{display:block!important;visibility:hidden;min-height:100vh}"
+                  "body[data-page] #homeUnits:empty{min-height:100vh}</style>"
+                  "<noscript><style>body[data-page] [data-mod][hidden]{visibility:visible}body[data-page] #homeUnits:empty{min-height:0}</style></noscript>\n</head>", 1)
     if mid == "home": return h
     e = lambda s: H.escape(s, quote=True)
     h = re.sub(r"<title>.*?</title>", lambda _: f"<title>{e(title)}</title>", h, count=1, flags=re.S)
@@ -365,11 +405,40 @@ def page_head(mid, nav, title, desc, url):
         if data.get("@type") != "MedicalWebPage": return m.group(0)
         site = data.get("isPartOf", {})
         data.update(name=title, headline=title, url=url, description=desc)
+        cites = citations(body_html[secs[mid][0]:secs[mid][1]]) if mid != "sources" else []
+        if cites: data["citation"] = cites
         crumbs = [(site.get("name"), site.get("url")), (NAME, HOME_URL), (nav, url)]
         data["breadcrumb"] = {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": n + 1, "name": c[0], "item": c[1]} for n, c in enumerate(c for c in crumbs if c[0] and c[1])]}
         return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "</script>"
     return re.sub(r'<script type="application/ld\+json">(.*?)</script>', ld, h, flags=re.S)
+
+def source_items():
+    """The sources list as static HTML, as 52-review.js renders it (less the area tags),
+    so the references are in the page itself; the script re-renders it with filters."""
+    e = lambda t: H.escape(t, quote=True)
+    out = []
+    for i, s in enumerate(sources):
+        aka = (STR.get("sources.also") + ", ".join(e(a) for a in s["aliases"])) if s.get("aliases") else ""
+        link = f'<a href="{e(s["link"])}" target="_blank" rel="noopener">{e(s["link"])}</a>' if s.get("link") else ""
+        note = f'<span class="srcnote">{e(s["note"])}</span>' if s.get("note") else ""
+        flag = f'<span class="mods"><span class="tag warn">{e(STR.get("sources.check"))}</span></span>' if s.get("unverified") else ""
+        out.append(f'<li id="src-{e(s["key"])}" value="{i + 1}"><span class="key">[{i + 1}] {e(s["key"])}{aka}</span>'
+                   f'<span>{e(s["text"])}</span>{link}{note}{flag}</li>')
+    return "".join(out)
+
+BY_KEY = {s["key"]: s for s in sources}
+def citations(section):
+    """schema.org citation entries for the sources cited in SECTION, in first-cited order."""
+    keys = dict.fromkeys(k for refs in re.findall(r'<sup class="c" data-ref="([^"]+)"', section) for k in refs.split(","))
+    out = []
+    for k in keys:
+        s = BY_KEY.get(k)
+        if not s: continue
+        c = {"@type": "CreativeWork", "name": re.sub(r"\s*\([^()]*\b(?:read|validated|unverified|opened|abstract)\b[^()]*\)\s*$", "", s["text"], flags=re.I)}
+        if s.get("link"): c["url"] = s["link"]
+        out.append(c)
+    return out
 
 def page_body(mid):
     up = "" if mid == "home" else "../"
@@ -385,6 +454,8 @@ def page_body(mid):
         new = re.sub(r"<h2>(.*?)</h2>", r'<h1 class="mh">\1</h1>', new, count=1, flags=re.S)
         # the crawler outline keeps its list of modules; its questions belong to the first page
         b = re.sub(r'(<noscript id="nsOutline">.*?</ul>).*?(\s*</section>\s*</noscript>)', r"\1\2", b, count=1, flags=re.S)
+    if mid == "sources":
+        new = new.replace('<ol class="srcs" id="srcList"></ol>', f'<ol class="srcs" id="srcList">{source_items()}</ol>', 1)
     b = b.replace(sec, new, 1)
     if mid != "home":
         # links relative to the first page: a language link goes to this module in that language

@@ -1,0 +1,125 @@
+# Build, check and publish the site.
+#
+# The repository holds sources only. This workflow builds them (tools/build_site.py,
+# including the Chrome prerender), checks the result (tools/check_site.py and the smoke
+# tests), and pushes the built tree to a deploy branch that Vercel serves:
+#   main            -> branch `site`          (Vercel production branch)
+#   pull request N  -> branch `preview/pr-N`  (a Vercel preview; the URL is commented on the PR)
+# Vercel skips every branch without the `.built` marker (vercel.json ignoreCommand), so
+# sources are never deployed as they are. Nothing is published if any check fails.
+name: site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: site-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  VERCEL_PREVIEW_HOST: medical-companions-git-preview-pr-{n}-quentin-code.vercel.app
+
+jobs:
+  build:
+    if: github.event_name != 'pull_request' || github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # sitemap lastmod dates come from git history
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Chrome
+        run: |
+          # Ubuntu's AppArmor blocks Chrome's sandbox for unprivileged users on runners
+          printf '#!/bin/sh\nexec google-chrome --no-sandbox "$@"\n' > "$RUNNER_TEMP/chrome"
+          chmod +x "$RUNNER_TEMP/chrome"
+          echo "CHROME=$RUNNER_TEMP/chrome" >> "$GITHUB_ENV"
+          google-chrome --version
+
+      - name: Build
+        run: python3 tools/build_site.py
+
+      - name: Check
+        run: python3 tools/check_site.py
+
+      - name: Smoke tests
+        run: |
+          # every companion's first page in every language, four at a time
+          python3 - > "$RUNNER_TEMP/firsts" <<'EOF'
+          import json, pathlib
+          cfg = json.load(open("site.json"))
+          for c in cfg["companions"]:
+              for lang in c["langs"]:
+                  p = pathlib.Path(c["slug"]) / ("" if lang == "en" else lang) / "index.html"
+                  if p.exists(): print(p)
+          EOF
+          mkdir -p "$RUNNER_TEMP/smoke"
+          < "$RUNNER_TEMP/firsts" xargs -P 4 -I{} sh -c \
+            'out="$RUNNER_TEMP/smoke/$(echo {} | tr / _).txt"; python3 tools/smoke.py {} all > "$out" 2>&1 || echo {} >> "$RUNNER_TEMP/smoke-failed"'
+          if [ -s "$RUNNER_TEMP/smoke-failed" ]; then
+            for f in $(cat "$RUNNER_TEMP/smoke-failed"); do
+              echo "::group::smoke failed: $f"; grep -v '^OK' "$RUNNER_TEMP/smoke/$(echo $f | tr / _).txt"; echo "::endgroup::"
+            done
+            exit 1
+          fi
+          echo "smoke: $(wc -l < "$RUNNER_TEMP/firsts") builds passed"
+
+      - name: Publish
+        id: publish
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then
+            target="preview/pr-${{ github.event.pull_request.number }}"
+            src="${{ github.event.pull_request.head.sha }}"
+          elif [ "$GITHUB_REF" = refs/heads/main ]; then
+            target=site; src="$GITHUB_SHA"
+          else
+            echo "not main and not a pull request: built and checked, not published"; exit 0
+          fi
+          # the deploy tree: everything the build left, generated files included
+          sed -i '/^# >>> generated/,/^# <<< generated/d' .gitignore
+          rm -rf .github
+          echo "$src" > .built
+          export GIT_INDEX_FILE="$RUNNER_TEMP/deploy.index"
+          git add -A
+          tree=$(git write-tree)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          parent=""
+          if git fetch -q origin "refs/heads/$target" 2>/dev/null; then parent="-p FETCH_HEAD"; fi
+          commit=$(git commit-tree "$tree" $parent -m "Build of ${src::7} ($GITHUB_EVENT_NAME)")
+          git push -f origin "$commit:refs/heads/$target"
+          echo "target=$target" >> "$GITHUB_OUTPUT"
+
+      - name: Comment the preview URL
+        if: github.event_name == 'pull_request' && steps.publish.outputs.target != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          N: ${{ github.event.pull_request.number }}
+        run: |
+          url="https://${VERCEL_PREVIEW_HOST/\{n\}/$N}/"
+          body="<!-- site-preview -->Built, checked and smoke-tested at ${{ github.event.pull_request.head.sha }} (merged with main). Preview (ready a minute or two after this comment): $url"
+          id=$(gh api "repos/$GITHUB_REPOSITORY/issues/$N/comments" --jq '[.[] | select(.body | startswith("<!-- site-preview -->"))][0].id // empty')
+          if [ -n "$id" ]; then gh api -X PATCH "repos/$GITHUB_REPOSITORY/issues/comments/$id" -f body="$body" > /dev/null
+          else gh pr comment "$N" --body "$body"; fi
+
+  cleanup:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete the preview branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/preview/pr-${{ github.event.pull_request.number }}" || true

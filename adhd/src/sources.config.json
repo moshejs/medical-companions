@@ -1,0 +1,12 @@
+{
+ "areas": {
+  "A": "Epidemiology, presentation across the lifespan & history",
+  "B": "Causes: genetics & environmental risk",
+  "C": "Neurobiology: brain networks, catecholamines & how the medicines act",
+  "D": "Diagnosis: criteria, rating scales, assessment & differential",
+  "E": "Pharmacological treatment: stimulants and non-stimulants",
+  "F": "Non-pharmacological treatment: behavioural, psychological, school & combined",
+  "G": "Course, comorbidity, outcomes & research toward better treatment",
+  "H": "Living, family, school/work & nursing"
+ }
+}

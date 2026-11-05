@@ -1,0 +1,12 @@
+{
+ "areas": {
+  "A": "Epidemiology, burden, types & history",
+  "B": "Atherosclerosis, plaque rupture, thrombosis, ischaemia & risk factors",
+  "C": "Presentation, ECG, troponin, risk scores & differential diagnosis",
+  "D": "First minutes, emergency services & reperfusion (PCI, fibrinolysis, CABG)",
+  "E": "Antithrombotic therapy in acute coronary syndromes",
+  "F": "Complications, cardiogenic shock, prognosis & research toward better treatment",
+  "G": "Secondary prevention medicines and LDL lowering",
+  "H": "Cardiac rehabilitation, living after a heart attack & nursing care"
+ }
+}

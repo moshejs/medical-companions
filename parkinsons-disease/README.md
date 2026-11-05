@@ -24,7 +24,7 @@ Every research claim links to a numbered entry in the Sources module. Research-l
 
 ## How it was made
 
-Nine research passes, in `research/` (`A-` to `I-`, format in `research/RESEARCH-FORMAT.md`): epidemiology, course, risk and history; pathology and the circuit; genetics; diagnosis and the differential; levodopa and the other medicines; DBS and device-aided therapy; non-motor symptoms, living and caregiving; nursing care; research toward a cure. Each returned cited facts and checked its own PMIDs and DOIs. Their reference lists were merged into `src/sources.json` by `src/compile_sources.py`, every PMID and DOI was then checked again against PubMed and Crossref and every other link opened (`src/source-corrections.json` records the result), and the modules were written against them.
+Nine research passes, in `research/` (`A-` to `I-`, format in `research/RESEARCH-FORMAT.md`): epidemiology, course, risk and history; pathology and the circuit; genetics; diagnosis and the differential; levodopa and the other medicines; DBS and device-aided therapy; non-motor symptoms, living and caregiving; nursing care; research toward a cure. Each returned cited facts and checked its own PMIDs and DOIs. Their reference lists were merged into `src/sources.json` by `tools/compile_sources.py`, every PMID and DOI was then checked again against PubMed and Crossref and every other link opened (`src/source-corrections.json` records the result), and the modules were written against them.
 
 ## Building
 
@@ -32,14 +32,14 @@ Nine research passes, in `research/` (`A-` to `I-`, format in `research/RESEARCH
 python3 tools/build_site.py                                  # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py parkinsons-disease                    # just this one; fails on an unknown citation key
 python3 tools/smoke.py parkinsons-disease/index.html all     # headless-Chrome check: no JS errors, no empty animations
-python3 parkinsons-disease/src/compile_sources.py parkinsons-disease/research   # rebuild sources.json from the passes
+python3 tools/compile_sources.py parkinsons-disease                             # rebuild sources.json from the passes
 python3 tools/share_card.py parkinsons-disease/src/share-card.html parkinsons-disease/share-card.png
 ```
 
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `src/00-head.html` holds all CSS (theme tokens for light and dark). The token names match the Alzheimer's Companion so the same styles and drawing kit work; here `--amber` is dopamine, `--rose` is alpha-synuclein and `--sky` is treatment.
-- `src/js/00-core.js` has the shared helpers and the drawing kit (`neuron`, `lewyBody`, `lewyNeurite`, `syn`, `vesicle`, `playWire`, `stepWire`, `noteHTML`, routing).
+- `src/js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `src/js/02-draw.js` has the drawing kit (`neuron`, `lewyBody`, `lewyNeurite`, `syn`, `vesicle`).
 - `src/sections/*.html` and `src/js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - `src/pages.json` gives each module page its search title and description; `src/strings.json` holds this companion's interface strings (the rest come from `tools/i18n/`).
 

@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module. Research-l
 
 ## How it was made
 
-Eight research passes, one per area: (A) epidemiology, global burden and history; (B) transmission, risk factors and host susceptibility; (C) microbiology, immunology and pathogenesis; (D) clinical presentation and diagnosis; (E) treatment of drug-susceptible TB disease and TB infection; (F) drug-resistant TB, comorbidity and outcomes; (G) living with TB, infection control and nursing; (H) vaccines, the End TB Strategy and research. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA before it went in. The WHO Global Tuberculosis Report 2025 has no record in those services, so it was checked against its WHO IRIS record (hdl:10665/383364, ISBN 9789240116924) and is marked that way in `src/source-corrections.json`. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
+Eight research passes, one per area: (A) epidemiology, global burden and history; (B) transmission, risk factors and host susceptibility; (C) microbiology, immunology and pathogenesis; (D) clinical presentation and diagnosis; (E) treatment of drug-susceptible TB disease and TB infection; (F) drug-resistant TB, comorbidity and outcomes; (G) living with TB, infection control and nursing; (H) vaccines, the End TB Strategy and research. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA before it went in. The WHO Global Tuberculosis Report 2025 has no record in those services, so it was checked against its WHO IRIS record (hdl:10665/383364, ISBN 9789240116924) and is marked that way in `src/source-corrections.json`. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,14 +31,14 @@ Eight research passes, one per area: (A) epidemiology, global burden and history
 python3 tools/build_site.py                                # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py tuberculosis                        # just this one; fails on an unknown citation key
 python3 tools/smoke.py tuberculosis/index.html all         # headless-Chrome check: no JS errors, no empty animations
-python3 tuberculosis/src/compile_sources.py                # rebuild sources.json from research/
+python3 tools/compile_sources.py tuberculosis              # rebuild sources.json from research/
 python3 tools/share_card.py tuberculosis/src/share-card.html tuberculosis/share-card.png
 ```
 
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Rust carries the interface and slate blue (the methylene-blue counterstain of a Ziehl–Neelsen smear) is the accent and marks diagnosis. The bacillus is carbol-fuchsin magenta, as it stains; treatment is green, prevention and vaccines violet, and each first-line drug has its own chip colour (rifampicin orange, after the colour it gives body fluids). Fonts: Zilla Slab, Atkinson Hyperlegible and Space Mono.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`bacillus`, `clump`, `droplet`, `macrophage`, `tcell`, `granuloma`, `alveolus`, `lung`, `person`, `pill`, `blister`, `forearm`, `sputum`, `marker`, `blob`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`bacillus`, `clump`, `droplet`, `macrophage`, `tcell`, `granuloma`, `alveolus`, `lung`, `person`, `pill`, `blister`, `forearm`, `sputum`, `blob`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys is in `strings.json`.

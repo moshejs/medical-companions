@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module. Research-l
 
 ## How it was made
 
-Eight research passes, run in parallel, one per area: (A) epidemiology, history and the classification; (B) genetics, collagen biology and the 13 types; (C) mechanisms in tissue, joints, skin, pain and fatigue; (D) diagnosis, criteria, differential and assessment tools; (E) physiotherapy, exercise and psychological care; (F) medicines, surgery and anaesthesia; (G) course, comorbidity and outcomes; (H) living, family, nursing and research toward better care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA before it went in. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
+Eight research passes, run in parallel, one per area: (A) epidemiology, history and the classification; (B) genetics, collagen biology and the 13 types; (C) mechanisms in tissue, joints, skin, pain and fatigue; (D) diagnosis, criteria, differential and assessment tools; (E) physiotherapy, exercise and psychological care; (F) medicines, surgery and anaesthesia; (G) course, comorbidity and outcomes; (H) living, family, nursing and research toward better care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA before it went in. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,14 +31,14 @@ Eight research passes, run in parallel, one per area: (A) epidemiology, history 
 python3 tools/build_site.py                                          # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py ehlers-danlos-syndromes                       # just this one; fails on an unknown citation key
 python3 tools/smoke.py ehlers-danlos-syndromes/index.html all        # headless-Chrome check: no JS errors, no empty animations
-python3 ehlers-danlos-syndromes/src/compile_sources.py               # rebuild sources.json from research/
+python3 tools/compile_sources.py ehlers-danlos-syndromes             # rebuild sources.json from research/
 python3 tools/share_card.py ehlers-danlos-syndromes/src/share-card.html ehlers-danlos-syndromes/share-card.png
 ```
 
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Zebra graphite and white carry the interface, with jade as the accent (the zebra is the EDS community symbol); cobalt marks diagnosis, crimson marks the body systems and is kept for vascular EDS and red flags. The three collagen chains are jade, graphite and amber, a pathogenic variant is orange. Fonts: DM Serif Display, Atkinson Hyperlegible and Roboto Mono.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`chain`, `helix`, `fibril`, `joint`, `limb`, `skin`, `artery`, `pulse`, `tilt`, `zebra`, `person`, `ped`, `marker`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`chain`, `helix`, `fibril`, `joint`, `limb`, `skin`, `artery`, `pulse`, `tilt`, `zebra`, `person`, `ped`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys is in `strings.json`.

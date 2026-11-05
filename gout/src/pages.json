@@ -4,7 +4,7 @@
   "description": "Gout is a disease of urate crystals: how common it is by survey, records and model, the A–D stages, and which joints it hits first."
  },
  "urate": {
-  "title": "Where uric acid comes from: purines, xanthine oxidase, kidney and gut",
+  "title": "Where uric acid comes from: purines and xanthine oxidase",
   "description": "How purines become urate, why humans lack uricase, how URAT1, GLUT9 and ABCG2 handle urate, and why most gout is under-excretion."
  },
  "crystals": {
@@ -32,7 +32,7 @@
   "description": "Allopurinol and febuxostat make less urate, probenecid and URAT1 drugs excrete more, pegloticase breaks it down. Animated pathway, half-lives, approvals."
  },
  "t2t": {
-  "title": "Treat to target in gout: allopurinol titration and flare prophylaxis",
+  "title": "Treat to target in gout: allopurinol titration",
   "description": "Start low, raise allopurinol every few weeks until urate is below 6 mg/dL, and cover early flares. A two-year simulator with Doherty 2018 trial data."
  },
  "ultsafety": {

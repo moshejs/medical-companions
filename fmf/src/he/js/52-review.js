@@ -287,7 +287,7 @@ inits.glossary=()=>{
 };
 
 /* =============== 5.5 sources =============== */
-const AREAN={A:'אפידמיולוגיה, התקפים והיסטוריה',B:'גנטיקה ואבחון',C:'מנגנון',D:'קולכיצין',E:'עמילואידוזיס, טיפול וחיים עם המחלה',F:'מחקר וריפוי'};
+const AREAN={A:'אפידמיולוגיה, התקפים והיסטוריה',B:'גנטיקה ואבחון',C:'מנגנון',D:'קולכיצין',E:'עמילואידוזיס, טיפול וחיים עם המחלה',F:'מחקר וריפוי',G:'טיפול סיעודי'};
 inits.sources=()=>{
   let area='all';const inp=$('#srcSearch');
   $('#srcFilter').innerHTML=[['all','%t:sources.all%']].concat(Object.entries(AREAN)).map(([k,l])=>`<button class="btn" data-sa="${k}" aria-pressed="${k==='all'}">${l}</button>`).join('');
