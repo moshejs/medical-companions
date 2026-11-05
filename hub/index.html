@@ -25,7 +25,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,700;1,6..72,400;1,6..72,500&display=swap">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
-{"@type":"WebSite","@id":"%SITE%/#site","name":"Medical Companions","url":"%SITE%/","inLanguage":["en","he"],"publisher":{"@type":"Organization","name":"Quentin.Code","url":"https://quentin.software"}},
+{"@type":"WebSite","@id":"%SITE%/#site","name":"Medical Companions","url":"%SITE%/","inLanguage":["en","he"],"publisher":{"@id":"%SITE%/#org"}},
+{"@type":"Organization","@id":"%SITE%/#org","name":"Medical Companions","url":"%SITE%/","parentOrganization":{"@type":"Organization","name":"Quentin.Code","url":"https://quentin.software"}},
 {"@type":"CollectionPage","name":"Medical Companions","url":"%SITE%/","isPartOf":{"@id":"%SITE%/#site"},"description":"Animated, cited study and patient-education guides, one disease each. Educational only, not medical advice.","hasPart":[
 {"@type":"MedicalWebPage","name":"Alzheimer's Companion","url":"%SITE%/alzheimers/","about":{"@type":"MedicalCondition","name":"Alzheimer's disease"}},
 {"@type":"MedicalWebPage","name":"FMF Companion","url":"%SITE%/fmf/","about":{"@type":"MedicalCondition","name":"Familial Mediterranean Fever"}},
