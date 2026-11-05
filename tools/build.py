@@ -44,7 +44,7 @@ lang="CODE", and dir="rtl" when the table says the language is right to left; on
 is src/CODE/rtl.css appended to the styles (or, until the language has its own, another
 right-to-left language's rtl.css from the same companion). The language's script faces
 are added after the companion's own in --display and --body, with their Google Fonts
-stylesheet, unless the language's own CSS or meta.html already does that (Hebrew does),
+stylesheet (self-hosted like the rest), unless the language's own CSS or meta.html already does that (Hebrew does),
 and its extra CSS from the table follows (word-break:auto-phrase for Japanese).
 
 %t:key% in any part is a UI string, filled from the strings files (tools/i18n.py says
@@ -65,11 +65,13 @@ last commit to the companion's src/, or today when src/ has uncommitted changes)
 publisher (one "Medical Companions" Organization, @id <site>/#org, whose
 parentOrganization is the publisher in site.json), the WebSite @id <site>/#site, inLanguage, and, once site.json names one, the reviewer
 (reviewedBy, lastReviewed), who is then also named in the footer (the string
-review.line). Google Fonts stylesheets are loaded without blocking the
-first paint; the fallback fonts in each --display/--body stack show until they arrive.
+review.line). Fonts are self-hosted (tools/fonts.py): each Google Fonts stylesheet
+link becomes inline @font-face rules for the files in /fonts/, the body and h1 faces are
+preloaded, and a metric-matched local fallback shows until they arrive, so the swap does
+not move the page.
 """
 import datetime, hashlib, html as H, json, re, subprocess, sys, pathlib
-import i18n
+import fonts, i18n
 
 ROOT, CFG, SITE = i18n.ROOT, i18n.CFG, i18n.SITE
 
@@ -204,11 +206,16 @@ def stamp(m):
     return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "</script>"
 html = re.sub(r'<script type="application/ld\+json">(.*?)</script>', stamp, html, flags=re.S)
 
-def async_fonts(m):
-    href = m.group(1)
-    return (f'<link rel="preload" as="style" href="{href}" onload="this.onload=null;this.rel=\'stylesheet\'">'
-            f'<noscript><link rel="stylesheet" href="{href}"></noscript>')
-html = re.sub(r'<link rel="stylesheet" href="(https://fonts\.googleapis\.com/[^"]+)">', async_fonts, html)
+# self-hosted fonts (tools/fonts.py): the Google Fonts links become @font-face rules for
+# /fonts/, with metric-matched fallbacks; preload the body face and the h1 face, in the
+# page's own script (a Hebrew page's Hebrew faces)
+if LINFO["fonts"].get("body"):
+    pre = [(LINFO["fonts"]["body"][0], 400), (LINFO["fonts"]["display"][0], fonts.h1_weight(html))]
+    subset = LINFO["fonts"].get("subset", "latin")
+else:
+    pre = [(fonts.first_family(html, "body"), 400), (fonts.first_family(html, "display"), fonts.h1_weight(html))]
+    subset = "latin"
+html = fonts.page_fonts(html, base=(SITE + "/fonts/") if SINGLE else "/fonts/", preload=pre, subset=subset)
 
 # the sources page in this language, from the site root (module pages sit one level down)
 SRC_PAGE = HOME_LANG_URL[len(SITE):] + "sources/#"
@@ -361,8 +368,12 @@ def page_head(mid, nav, title, desc, url):
     # under the reader, and with a short static part (most of a module is drawn by the
     # script), the footer would start on screen and then drop away; so it also takes at
     # least a screen. Both count as layout shift. Without JavaScript it is simply shown.
-    h = h.replace("</head>", "<style>body[data-page] [data-mod][hidden]{display:block!important;visibility:hidden;min-height:100vh}</style>"
-                  "<noscript><style>body[data-page] [data-mod][hidden]{visibility:visible}</style></noscript>\n</head>", 1)
+    # The home page's unit list (#homeUnits) is filled by the script too: until then it
+    # holds a screen, so the cards and footer below it start off screen instead of
+    # dropping away from under the reader.
+    h = h.replace("</head>", "<style>body[data-page] [data-mod][hidden]{display:block!important;visibility:hidden;min-height:100vh}"
+                  "body[data-page] #homeUnits:empty{min-height:100vh}</style>"
+                  "<noscript><style>body[data-page] [data-mod][hidden]{visibility:visible}body[data-page] #homeUnits:empty{min-height:0}</style></noscript>\n</head>", 1)
     if mid == "home": return h
     e = lambda s: H.escape(s, quote=True)
     h = re.sub(r"<title>.*?</title>", lambda _: f"<title>{e(title)}</title>", h, count=1, flags=re.S)

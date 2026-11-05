@@ -3,6 +3,7 @@
 
     python3 tools/build_site.py
 
+0. self-hosts the fonts the parts name (tools/fonts.py): fonts/ and fonts/fonts.json
 1. builds every companion in every language it lists (tools/build.py): a first page,
    a page per module and the shared app.js
 2. writes the hub, index.html, from hub/index.html (%SITE% and %CITED:slug% filled in,
@@ -22,7 +23,7 @@
 Change "site" in site.json to move the site to another address, then run this again.
 """
 import datetime, html, json, pathlib, re, subprocess, sys
-import i18n
+import fonts, i18n
 
 ROOT, CFG, SITE = i18n.ROOT, i18n.CFG, i18n.SITE
 TODAY = datetime.date.today().isoformat()
@@ -34,6 +35,9 @@ def last_modified(path):
     return git("log", "-1", "--format=%cs", "--", path) or TODAY
 
 url = lambda slug, lang="en": i18n.lang_url(slug, lang)
+
+# 0. fonts: fetch any Google Fonts stylesheet the parts name that fonts/ does not hold yet
+fonts.sync()
 
 # 1. companions
 cited = {}
@@ -74,9 +78,7 @@ hub = re.sub(r"%LANGS:([a-z0-9-]+)%", lambda m: hub_links(m.group(1)), hub)
 hub = re.sub(r"%LANGNAMES:([a-z0-9-]+)%", lambda m: " · ".join(i18n.lang(l)["name"] for l in hub_langs(m.group(1))), hub)
 leftover = re.findall(r"%(?:SITE|CITED:[^%]*|LANGS:[^%]*|LANGNAMES:[^%]*)%", hub)
 if leftover: sys.exit(f"hub has unfilled placeholders: {leftover}")
-hub = re.sub(r'<link rel="stylesheet" href="(https://fonts\.googleapis\.com/[^"]+)">',
-             lambda m: f'<link rel="preload" as="style" href="{m.group(1)}" onload="this.onload=null;this.rel=\'stylesheet\'">'
-                       f'<noscript><link rel="stylesheet" href="{m.group(1)}"></noscript>', hub)  # same as tools/build.py
+hub = fonts.page_fonts(hub, preload=[(fonts.first_family(hub, "body"), 400), (fonts.first_family(hub, "display"), fonts.h1_weight(hub))])  # as tools/build.py
 hub = hub.replace("</head>", i18n.ANALYTICS + "</head>", 1)
 (ROOT / "index.html").write_text(hub, encoding="utf-8")
 print("wrote index.html (hub)")
