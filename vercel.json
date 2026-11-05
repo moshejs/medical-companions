@@ -8,7 +8,12 @@
       "statusCode": 301
     },
     {
-      "source": "/hub/:path*",
+      "source": "/hub/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hub/(.*)",
       "destination": "/",
       "statusCode": 301
     }
