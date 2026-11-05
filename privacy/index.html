@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Privacy · Medical Companions</title>
-<meta name="description" content="No accounts, cookies or ads. What Medical Companions keeps on your device, what it counts, and which services see your visit.">
+<meta name="description" content="No accounts or ads. What Medical Companions keeps on your device, what it measures with Vercel and Google Analytics, which cookies are set, and which services see your visit.">
 <link rel="canonical" href="https://www.medcompanions.org/privacy/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Medical Companions">
 <meta property="og:title" content="Privacy · Medical Companions">
-<meta property="og:description" content="No accounts, cookies or ads. What Medical Companions keeps on your device, what it counts, and which services see your visit.">
+<meta property="og:description" content="No accounts or ads. What Medical Companions keeps on your device, what it measures with Vercel and Google Analytics, which cookies are set, and which services see your visit.">
 <meta property="og:url" content="https://www.medcompanions.org/privacy/">
 <meta property="og:image" content="https://www.medcompanions.org/share-card.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -40,7 +40,7 @@ dl{margin:0}dt{font-weight:700;margin-top:14px}dd{margin:2px 0 0;color:var(--ink
 footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:15px;display:flex;flex-wrap:wrap;gap:6px 20px}
 footer a{color:var(--muted);padding-block:13px} /* a 44px tap target that takes no room in the line */
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.medcompanions.org/privacy/","url":"https://www.medcompanions.org/privacy/","name":"Privacy · Medical Companions","description":"No accounts, cookies or ads. What Medical Companions keeps on your device, what it counts, and which services see your visit.","inLanguage":"en","isPartOf":{"@id":"https://www.medcompanions.org/#site"},"publisher":{"@id":"https://www.medcompanions.org/#org"},"dateModified":"2026-11-04"},{"@type":"Organization","@id":"https://www.medcompanions.org/#org","name":"Medical Companions","url":"https://www.medcompanions.org/","email":"hello@medcompanions.org","founder":{"@id":"https://www.medcompanions.org/about/#editor"},"parentOrganization":{"@type":"Organization","name":"Quentin.Code","url":"https://quentin.software"}},{"@type":"Person","@id":"https://www.medcompanions.org/about/#editor","name":"Moshe Malka","jobTitle":"Founder and editor","worksFor":{"@id":"https://www.medcompanions.org/#org"},"url":"https://www.medcompanions.org/about/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.medcompanions.org/privacy/","url":"https://www.medcompanions.org/privacy/","name":"Privacy · Medical Companions","description":"No accounts or ads. What Medical Companions keeps on your device, what it measures with Vercel and Google Analytics, which cookies are set, and which services see your visit.","inLanguage":"en","isPartOf":{"@id":"https://www.medcompanions.org/#site"},"publisher":{"@id":"https://www.medcompanions.org/#org"},"dateModified":"2026-11-05"},{"@type":"Organization","@id":"https://www.medcompanions.org/#org","name":"Medical Companions","url":"https://www.medcompanions.org/","email":"hello@medcompanions.org","founder":{"@id":"https://www.medcompanions.org/about/#editor"},"parentOrganization":{"@type":"Organization","name":"Quentin.Code","url":"https://quentin.software"}},{"@type":"Person","@id":"https://www.medcompanions.org/about/#editor","name":"Moshe Malka","jobTitle":"Founder and editor","worksFor":{"@id":"https://www.medcompanions.org/#org"},"url":"https://www.medcompanions.org/about/"}]}</script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <!-- Google Analytics 4 (Consent Mode v2). Skipped on localhost, *.local, file:// and Vercel previews. -->
@@ -80,7 +80,7 @@ footer a{color:var(--muted);padding-block:13px} /* a 44px tap target that takes 
 </header>
 <main>
 <h1>Privacy</h1>
-<p class="lede">Short version: no accounts, no cookies, no ads and no tracking across sites. Your place in a guide is kept on your own device, and we count page visits without identifying you.</p>
+<p class="lede">Short version: no accounts and no ads. Your place in a guide is kept on your own device. We measure how the guides are used with Vercel Web Analytics and Google Analytics. Google Analytics sets cookies, except for visitors in the UK, the EU, the European Economic Area and Switzerland.</p>
 
 <h2>What stays on your device</h2>
 <p>Each guide remembers a few things in your browser's local storage so you can pick up where you left off: the module you were on, whether you chose the light or dark theme, which tab you last opened in some modules, and, on the home page, which "I'm here because…" option you chose. These are stored under names that start with the guide's short name (for example <code>fmfc:</code>) or <code>mc:</code>.</p>
@@ -88,11 +88,19 @@ footer a{color:var(--muted);padding-block:13px} /* a 44px tap target that takes 
 
 <h2>What we count</h2>
 <p>We use <a href="https://vercel.com/docs/analytics/privacy-policy">Vercel Web Analytics</a> to count page views. It does not use cookies, and it does not identify you or follow you to other sites. We see totals, such as how many people opened a guide, which country they were in and what kind of device they used.</p>
+<p>We also use <a href="https://policies.google.com/technologies/partner-sites">Google Analytics</a> to understand which guides and modules people read and how they move through them. It works differently depending on where you are:</p>
+<ul>
+  <li><strong>In the UK, the EU, the European Economic Area and Switzerland</strong>, Google Analytics stores nothing on your device. Your browser still tells Google that a page was viewed, without a cookie or an identifier that links your visits together.</li>
+  <li><strong>Everywhere else</strong>, Google Analytics sets two cookies, <code>_ga</code> and <code>_ga_Z5BS957R33</code>. They hold a random identifier, so Google can tell a returning browser from a new one. They don't contain your name, email address or anything you type into the site.</li>
+</ul>
+<p>Google receives your IP address and browser details with each page view and handles them under <a href="https://policies.google.com/privacy">Google's privacy policy</a>. We see reports, not individual people. You can block Google Analytics with the <a href="https://tools.google.com/dlpage/gaoptout">Google Analytics opt-out add-on</a>, with your browser's tracking protection or a content blocker, or by deleting this site's cookies. The guides work the same with it blocked.</p>
 
 <h2>Who else is involved</h2>
 <dl>
   <dt>Vercel (hosting)</dt>
   <dd>The site is served by Vercel. Like any web host, its servers receive your IP address and browser details to deliver each page and keep the service secure. See <a href="https://vercel.com/legal/privacy-policy">Vercel's privacy policy</a>.</dd>
+  <dt>Google (analytics)</dt>
+  <dd>Google Analytics runs as described under "What we count". The script is loaded from Google's servers, so Google sees each page view.</dd>
   <dt>Typefaces</dt>
   <dd>The typefaces are open-licence fonts served from this site, by Vercel like the pages, so your browser does not ask Google Fonts or any other font service for them.</dd>
   <dt>Links to sources</dt>
@@ -103,12 +111,12 @@ footer a{color:var(--muted);padding-block:13px} /* a 44px tap target that takes 
 <p>If you write to <a href="mailto:hello@medcompanions.org">hello@medcompanions.org</a>, we use your message and address only to reply and to fix what you report. We don't add you to a mailing list or share your message.</p>
 
 <h2>Children</h2>
-<p>The guides are educational and collect nothing that identifies anyone, children included.</p>
+<p>The guides are educational. They don't ask anyone, children included, for a name, an email address or any other contact details.</p>
 
 <h2>Changes and questions</h2>
 <p>If this changes, this page will say so, with a new date. Questions: <a href="mailto:hello@medcompanions.org">hello@medcompanions.org</a>.</p>
 
-<p class="updated">Last updated 4 November 2026.</p>
+<p class="updated">Last updated 5 November 2026.</p>
 </main>
 <footer><span>Medical Companions · educational only, not medical advice</span><span><a href="https://www.medcompanions.org/about/">About</a> · <a href="https://www.medcompanions.org/privacy/">Privacy</a></span><span>Built by <a href="https://quentin.software">Quentin.Code</a></span></footer>
 </div>
