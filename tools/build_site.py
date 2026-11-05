@@ -3,6 +3,9 @@
 
     python3 tools/build_site.py                 (--no-prerender: skip step 6, e.g. without Chrome)
 
+S. recompiles each companion's src/sources.json from its research passes
+   (tools/compile_sources.py; written only when it changes), so a pass or a correction
+   reaches the pages. Companions whose passes are not in the repo are left as committed.
 0. self-hosts the fonts the parts name (tools/fonts.py): fonts/ and fonts/fonts.json
 1. builds every companion in every language it lists (tools/build.py): a first page,
    a page per module and the shared app.js
@@ -38,6 +41,14 @@ def last_modified(path):
     return git("log", "-1", "--format=%cs", "--", path) or TODAY
 
 url = lambda slug, lang="en": i18n.lang_url(slug, lang)
+
+# S. sources: kept apart from the build steps below, which only read sources.json
+def compile_all_sources():
+    import compile_sources
+    for slug in compile_sources.companions():
+        if compile_sources.run(slug, quiet=True) == "written":
+            print(f"compiled {slug}/src/sources.json (changed: commit it with the research passes)")
+compile_all_sources()
 
 # 0. fonts: fetch any Google Fonts stylesheet the parts name that fonts/ does not hold yet
 fonts.sync()

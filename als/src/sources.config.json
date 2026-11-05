@@ -1,0 +1,27 @@
+{
+ "areas": {
+  "A": "Epidemiology, course & history",
+  "B": "Mechanism",
+  "C": "Genetics",
+  "D": "Diagnosis",
+  "E": "Drugs",
+  "F": "Breathing & nutrition",
+  "G": "Living & end of life",
+  "H": "Nursing care",
+  "I": "Research & cure"
+ },
+ "aliases": {
+  "NICE2016G": "NICE2016",
+  "FDA2023QalsodyI": "FDA2023Qalsody",
+  "FDA2023QalsodyH": "FDA2023Qalsody",
+  "FDA_RadicavaLabel": "FDA2026Radicava",
+  "FDAEdaravoneLabel": "FDA2026Radicava",
+  "FDA_RiluzoleLabel": "FDA2026Riluzole",
+  "FDA_TiglutikLabel": "FDA2026Tiglutik",
+  "FDARiluzoleLabel": "FDA2026Tiglutik",
+  "FDA_NuedextaLabel": "FDA2025Nuedexta",
+  "EMA2024QalsodyI": "EMA2024Qalsody"
+ },
+ "validated_tag": false,
+ "match": "legacy"
+}

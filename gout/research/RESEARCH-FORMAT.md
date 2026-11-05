@@ -1,6 +1,6 @@
 # Research pass format
 
-One file per research area: `<LETTER>-<area-slug>.md` (for example `C-mechanism.md`). `gout/src/compile_sources.py` reads every `[A-H]-*.md` here and merges the **Sources** sections into `gout/src/sources.json`, so the layout below is a contract, not a suggestion. This is the same format the FMF and Alzheimer's passes used; their pass files were not committed, and their output survives as `fmf/src/sources.json` and `alzheimers/src/sources.json`.
+One file per research area: `<LETTER>-<area-slug>.md` (for example `C-mechanism.md`). `tools/compile_sources.py gout` reads every `[A-H]-*.md` here and merges the **Sources** sections into `gout/src/sources.json`, so the layout below is a contract, not a suggestion. This is the same format the FMF and Alzheimer's passes used; their pass files were not committed, and their output survives as `fmf/src/sources.json` and `alzheimers/src/sources.json`.
 
 ```markdown
 # <LETTER> · <Area title>

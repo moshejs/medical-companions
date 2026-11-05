@@ -8,7 +8,7 @@ journal entries were compared field by field with PubMed esummary, Crossref and 
 'Brown RH Jr', a PubMed title that carries the committee name, supplement volume labels)
 except Goetz2000, whose DOI link was cut at a semicolon.
 
-    python3 als/research/validation/make_corrections.py && python3 als/src/compile_sources.py als/research
+    python3 als/research/validation/make_corrections.py && python3 tools/compile_sources.py als
 
 It first recompiles sources.json without corrections, so it always starts from the research files.
 """
@@ -17,7 +17,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 SRC = HERE.parent.parent / "src"
 import subprocess, sys
 (SRC / "source-corrections.json").write_text("{}\n", encoding="utf-8")
-subprocess.run([sys.executable, str(SRC / "compile_sources.py"), str(HERE.parent)], check=True, capture_output=True)
+subprocess.run([sys.executable, str(SRC.parent.parent / "tools" / "compile_sources.py"), "als"], check=True, capture_output=True)
 d = {s["key"]: s for s in json.loads((SRC / "sources.json").read_text(encoding="utf-8"))}
 ids = json.loads((HERE / "registry-ids.json").read_text(encoding="utf-8"))
 corr = {"_README": [

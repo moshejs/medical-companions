@@ -32,28 +32,54 @@ The hub at `/` links to each one and carries the shared method and disclaimer. E
 site.json            the site address, the languages table, and the companions (names, languages, reviewers, old addresses)
 hub/index.html       the hub page source (hub/share-card.html renders its share image, hub/404.html the not-found page)
 tools/               build tools shared by every companion; tools/i18n/<lang>.json holds the UI strings they share
+tools/core/          the script runtime every companion shares (helpers, routing, nav, theme, the player, boot)
 <companion>/src/     a companion's parts: head and styles, shell, sections, js, sources.json, pages.json, strings.json
-                     (<lang>/ for a translation: he/)
+                     (<lang>/ for a translation: he/); sources.config.json and source-corrections.json feed sources.json
+<companion>/research/   the research passes (<LETTER>-<area>.md) that sources.json is compiled from
 <companion>/index.html, <companion>/<module>/index.html, <companion>/app.js   built pages and their shared script
                      (<companion>/<lang>/… for a translation; committed, so the repo is the site)
 index.html, 404.html, share-card.png, sitemap.xml, robots.txt   built from hub/ and site.json
 ```
 
-Each companion keeps its own look (palette, fonts, icon) and its own `compile_sources.py`, since those are content. Everything that turns parts into a page is shared.
+Each companion keeps its own look (palette, fonts, icon), since that is content, and its research areas as data in `src/sources.config.json`. Everything that turns parts into a page, or research passes into `sources.json`, is shared.
 
 Both companions' git histories were carried over from `moshejs/alzheimers-companion` and `moshejs/fmf-companion`. Each arrived in a commit titled "Bring in …", whose second parent is the old repository's history (`git log <that commit>^2`); those older commits use the old paths, without the `alzheimers/` or `fmf/` prefix.
+
+### The script
+
+Every page runs one script, built from the shared runtime in `tools/core/` and the companion's own `src/js/*.js`, concatenated in file-name order inside one `<script>` and one closure, so every part sees the others' names:
+
+| File | Whose | What it holds |
+|---|---|---|
+| `tools/core/00-core.js` | shared | opens the script; `$`, `$$`, `store` (localStorage under the companion's `PREFIX`), `rng`, `lerp`, `clamp`, `ramp`, `ease`, `bump`, `f1`, `animate`, `pathFn`, `marker` |
+| `<companion>/src/js/01-config.js` | companion | `PREFIX` (its storage key prefix, such as `'fmfc:'`), `MODS` (the modules in nav order: `{id,t,g,n,d}`; the build reads it too) and `GROUPS` (each group's name and colour classes) |
+| `<companion>/src/js/02-draw.js` | companion, optional | its drawing kit: the glyphs its modules share (gout's `needle()` and `rhomb()`, the ALS `bodyMap()` ...) |
+| `tools/core/03-router.js` | shared | module pages and `#module` routing, the nav, the home page's unit list, the pager, the cite click handler, the skip link, the language link, the theme button, narrow mode (`NARROW`, `vb`), the aria-live guard, the player (`playWire`, `stepWire`, `phaseOf`, `noteHTML`) |
+| `<companion>/src/js/05-*.js` … | companion | one module each: `inits.<id>=()=>{…}` |
+| `tools/core/99-boot.js` | shared | shows the first module and closes the script |
+
+`SOURCES` (from `sources.json`) follows `00-core.js`. A fix to the runtime goes in `tools/core/` once and reaches every companion and language at the next build; a companion keeps no copy of a shared file (the build stops if it finds one). The runtime's words are `%t:` UI strings, so a translation needs only its own `src/<lang>/js/01-config.js` for the module and group names; a drawing kit falls back to English without being listed as untranslated, so a kit that draws words needs its own `src/<lang>/js/02-draw.js`.
 
 ## Building
 
 ```bash
+python3 tools/compile_sources.py gout               # research/*.md -> gout/src/sources.json (--all for every companion)
+python3 tools/compile_sources.py --check --all      # writes nothing; exit 1 if a sources.json is out of date
 python3 tools/build_site.py                         # every companion and language, the hub, sitemap.xml, robots.txt, redirects/
 python3 tools/build.py fmf                          # one companion (add --lang he for a translation)
 python3 tools/smoke.py fmf/index.html all           # headless-Chrome check of every module page
+python3 tools/check_site.py                         # JSON-LD, placeholders, sitemap, internal links of the built site
 python3 tools/check_lang.py alzheimers he           # a translation must match the English in code, citations and numbers
 python3 tools/make_artifact.py alzheimers --lang he # the Claude artifact copy of a page
 ```
 
 `%SITE%` in any part is replaced with `site` from `site.json`, so moving the site to its own domain is a one-line change there and a rebuild.
+
+### Sources
+
+`sources.json` is compiled, not edited. `tools/compile_sources.py <slug>` reads every research pass `research/<LETTER>-*.md` whose letter is one of the companion's `areas` in `src/sources.config.json` (so `U-*.md` update notes and `RESEARCH-FORMAT.md` are not read), merges their **Sources** sections (same work under one key, cited from several areas, becomes one entry; a key reused for a different work is renamed key + area letter; different keys for one work are merged by PMID, DOI, drug-label set ID, trial ID or title), applies `src/source-corrections.json`, and writes `src/sources.json` sorted by key. Each source line ends `(validated: <service>)`; a line without it is marked unverified. `tools/build_site.py` runs it for every companion before it builds (a few seconds; the file is rewritten only when it changes); `tools/build.py` reads only `sources.json`, so run the compiler yourself before building a single companion. Commit `sources.json` with the passes or corrections that changed it.
+
+`sources.config.json` holds the area letters and names and, when needed, `aliases` (works no identifier shows are one, such as a drug label cited under two keys). The first companions (FMF, ALS, Alzheimer's, gout, myasthenia gravis, Parkinson's) also carry `validated_tag`, `match`, `url` or `doi_link`, which reproduce how they were compiled before the rules settled; the docstring of `tools/compile_sources.py` explains each, and a new companion leaves them out. The FMF and Alzheimer's research passes are not in this repository, so the compiler skips those two and their committed `sources.json` is the record.
 
 ## Search
 
@@ -74,7 +100,8 @@ What the build takes care of, so a change doesn't undo it:
 
 ### Adding a companion
 
-1. Put its parts in `<slug>/src/`, using `%SITE%/<slug>/` for its own address in the metadata.
+1. Put its parts in `<slug>/src/`, using `%SITE%/<slug>/` for its own address in the metadata. Its script is only its config and content: `js/01-config.js` (a `PREFIX` no other companion uses, `MODS`, `GROUPS`), `js/02-draw.js` if it has a drawing kit, and one `js/*.js` per module; the runtime comes from `tools/core/` (see [The script](#the-script)).
+   Put its research passes in `<slug>/research/` (format: any companion's `research/RESEARCH-FORMAT.md`), write `<slug>/src/sources.config.json` with just its `areas` (copy one from another companion), and run `python3 tools/compile_sources.py <slug>` to make `src/sources.json`.
 2. Add it to `site.json` and give it a card in `hub/index.html` (`%CITED:<slug>%` fills in its cited-source count).
 3. Link the others from its footer, run `tools/build_site.py`, then `tools/smoke.py <slug>/index.html all`.
 
@@ -88,7 +115,7 @@ English is the source. Every other language is built from the same parts, and no
 
 **Review gate.** Machine translation of medical text is not published unreviewed. A translated page is indexed only when it is complete and its language has a named reviewer:
 
-- complete: none of its parts (shell, footer, core script, its section, its module script, `meta.html`) falls back to English, and neither does any UI string it uses
+- complete: none of its parts (shell, footer, `js/01-config.js`, its section, its module script, `meta.html`) falls back to English, and neither does any UI string it uses
 - reviewed: `reviewers.<lang>.name` is filled in. The page's `MedicalWebPage` structured data then carries `reviewedBy` and `lastReviewed`, and its footer names the reviewer, so the structured data matches what the page shows
 
 Any other page is still built, so it can be read and reviewed at its address, but it is `noindex`, has no `hreflang` links, is not linked from the others' `hreflang`, and is left out of `sitemap.xml`. Every build reports per language what is untranslated, which strings are missing and the review status. Hebrew was published before review was tracked, so each companion lists it in `indexed_without_review`; remove it from there once a Hebrew reviewer is named. No other language should be added to that list. Every page's structured data carries `inLanguage`.
@@ -100,14 +127,23 @@ Any other page is still built, so it can be read and reviewed at its address, bu
 **Adding a language to a companion**
 
 1. Add the language to the table in `site.json` if it is not there, then to the companion's `langs`, with an empty reviewer.
-2. Translate `tools/i18n/<lang>.json` (if no companion has the language yet), then `<companion>/src/<lang>/meta.html`, `strings.json`, `pages.json`, `10-shell.html`, `90-foot.html`, and the sections and `js/` files. A file that is missing falls back to English.
+2. Translate `tools/i18n/<lang>.json` (if no companion has the language yet), then `<companion>/src/<lang>/meta.html`, `strings.json`, `pages.json`, `10-shell.html`, `90-foot.html`, and the sections and `js/` files (`js/01-config.js` holds the module and group names; the shared runtime in `tools/core/` needs no translation). A file that is missing falls back to English.
 3. Run `python3 tools/check_lang.py <companion> <lang>`. It compares each translated part with its English part: the code and element structure must match exactly, and so must the citations and the numbers, so a translation cannot drop a citation or change a dose. It checks the strings files the same way, and lists text that still looks like English.
 4. Run `tools/build_site.py`, then `tools/smoke.py <companion>/<lang>/index.html all`. Until step 5 every page in the language is `noindex`.
 5. When the language's named medical reviewer has signed off, fill in `reviewers.<lang>` in `site.json` and rebuild. The finished pages join the sitemap and the `hreflang` sets.
 
 ## Hosting
 
-The repo root is the site. Vercel serves it at https://www.medcompanions.org (`site` in `site.json`) with no build step (`vercel.json`); `.nojekyll` is kept so any static host, GitHub Pages included, can serve it as is.
+The repository holds sources only: built pages (`index.html`, `app.js`, `sitemap.xml`, `llms.txt`, `robots.txt`, `404.html`) are listed in `.gitignore` and never committed. Build locally to look at your work; CI builds what is deployed.
+
+`.github/workflows/site.yml` runs on every pull request and every push to `main`: it builds the whole site (with the Chrome prerender), runs `tools/check_site.py` and the smoke tests for every companion and language, and only if all pass pushes the built tree to a deploy branch:
+
+| Source | Deploy branch | Served as |
+|---|---|---|
+| `main` | `site` | production, https://www.medcompanions.org (`site` in `site.json`) |
+| pull request N | `preview/pr-N` | a Vercel preview; the workflow comments its URL on the PR, and deletes the branch when the PR closes |
+
+Vercel's production branch is `site`. `vercel.json`'s `ignoreCommand` skips any branch without the `.built` marker the workflow writes, so Vercel never deploys raw sources. A red `site` check means nothing was published. To redeploy production without a change, run the workflow by hand on `main` (Actions → site → Run workflow).
 
 ### Old addresses
 

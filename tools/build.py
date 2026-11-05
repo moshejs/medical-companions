@@ -5,7 +5,15 @@ Usage: build.py COMPANION [--lang CODE] [--single] [--out PATH] [--draft]
 
 COMPANION is a folder at the repo root (alzheimers, fmf). Parts come from
 COMPANION/src: 00-head.html, 10-shell.html, sections/*.html (sorted), 90-foot.html,
-js/*.js (sorted). Sources come from COMPANION/src/sources.json. The companion's first
+js/*.js. Sources come from COMPANION/src/sources.json.
+
+The script is one runtime shared by every companion and language, tools/core/*.js, and the
+companion's own js/*.js, all in file-name order: 00-core.js (shared: opens the <script>,
+helpers, the storage wrapper), 01-config.js (the companion's PREFIX for its localStorage and
+sessionStorage keys, MODS and GROUPS), 02-draw.js (the companion's drawing kit, optional),
+03-router.js (shared: routing, nav, pager, theme, the player), the module scripts, and
+99-boot.js (shared: shows the first module and closes the <script>). A companion keeps no
+copy of a shared part; the build stops if it does. The companion's first
 page is COMPANION/index.html, or COMPANION/<lang>/index.html for another language (its code in
 lower case: de, ja, pt-br).
 
@@ -15,7 +23,7 @@ index.html with only its own section (the shell, nav and footer stay), its headi
 the h1, and its own title, description, canonical, hreflang pair, Open Graph tags and
 structured data (with a breadcrumb). Every page loads one script, app.js beside the
 first page, as app.js?v=<its hash> so a deploy never pairs new pages with an old cached
-script. The router in js/00-core.js reads <body data-page data-root>, and sends an old
+script. The router in tools/core/03-router.js reads <body data-page data-root>, and sends an old
 #module link to that module's page.
 
 Titles and descriptions come from src/pages.json (src/<lang>/pages.json for another
@@ -24,7 +32,7 @@ and "description". A module missing there gets "<its nav title> | <companion nam
 the first sentences of its lede that fit in 160 characters.
 
 A translated page is indexed only when it is complete and reviewed. Complete: none of its
-parts falls back to English (shell, footer, core script, its section, its module script,
+parts falls back to English (shell, footer, js/01-config.js, its section, its module script,
 meta.html) and no UI string it uses does. Reviewed: the companion names a reviewer for the
 language in site.json (or lists the language in "indexed_without_review"). Any other page
 is marked noindex and left out of the hreflang pairs, so unfinished or unreviewed
@@ -33,12 +41,13 @@ module may be indexed, plus x-default for English) replace <!--HREFLANG--> in 00
 
 With --single, the one-page build: every module in one page with the script inline,
 switched by #hash (tools/make_artifact.py uses it). --out PATH puts the page (or, without
---single, the first page) there. A translation whose core script predates page routing
-is built that way too, with a warning.
+--single, the first page) there.
 
 Languages come from the "languages" table in site.json (see tools/i18n.py). With --lang
 CODE, each part is taken from src/CODE/<same path> when that file exists (otherwise the
-English part is used and listed as untranslated), and the metadata block between
+English part is used and listed as untranslated; the shared runtime has no translations,
+since its words are %t: strings, and js/02-draw.js falls back without a listing, since a
+drawing kit is code: give the language its own copy if the kit draws words), and the metadata block between
 <!--META--> markers in 00-head.html is replaced by src/CODE/meta.html. The page gets
 lang="CODE", and dir="rtl" when the table says the language is right to left; only then
 is src/CODE/rtl.css appended to the styles (or, until the language has its own, another
@@ -101,12 +110,13 @@ if LANG not in LANGS: print(f"warning: {LANG} is not in {COMP.name}'s langs in s
 STR = i18n.Strings(COMP.name, LANG)
 
 untranslated = []
+QUIET = {"00-head.html", "js/02-draw.js"}  # parts whose fallback to English is not listed
 def read(p):
     text = None
     if LANG != "en" and p.is_relative_to(SRC) and p.name != "sources.json":
         alt = SRC / LANG / p.relative_to(SRC)
         if alt.exists(): text = alt.read_text(encoding="utf-8")
-        elif p.name != "00-head.html": untranslated.append(str(p.relative_to(SRC)))
+        elif p.relative_to(SRC).as_posix() not in QUIET: untranslated.append(str(p.relative_to(SRC)))
     if text is None: text = p.read_text(encoding="utf-8")
     if p.suffix in (".html", ".js"): text = i18n.fill(text, p.suffix[1:], STR, str(p.relative_to(ROOT)))
     return text
@@ -175,10 +185,15 @@ mail = i18n.CONTACT_EMAIL
 contact = STR.get("foot.contact").format(email=f'<a href="mailto:{mail}">{mail}</a>')
 foot = foot.replace("</footer>", f'  <p class="contact">{contact}</p>\n</footer>', 1)
 parts.append(foot)
+# the shared runtime (tools/core/) and the companion's own scripts, in file-name order
+CORE = sorted((ROOT / "tools" / "core").glob("*.js"))
 js_files = sorted((SRC / "js").glob("*.js"))
-js = [read(p) for p in js_files]
+dup = sorted({p.name for p in js_files} & {p.name for p in CORE})
+if dup: sys.exit(f"{COMP.name}/src/js has its own copy of the shared runtime ({', '.join(dup)}); delete it: tools/core/ holds the one copy")
+if not (SRC / "js" / "01-config.js").exists(): sys.exit(f"{COMP.name}/src/js/01-config.js is missing (PREFIX, MODS and GROUPS)")
+js = [read(p) for p in sorted(CORE + js_files, key=lambda p: p.name)]
 src_js = "const SOURCES=" + json.dumps(sources, ensure_ascii=False) + ";\n"
-# the sources array goes right after the core helpers (first js part); <!--JS--> marks
+# the sources array goes right after the shared helpers (first js part); <!--JS--> marks
 # where the script starts, so the page build can move it out to app.js
 html = "".join(parts) + "<!--JS-->" + js[0] + src_js + "".join(js[1:])
 html = html.replace("%SITE%", SITE)
@@ -234,7 +249,7 @@ def cite(m):
     keys = list(dict.fromkeys(canon[k] for k in keys if k in order))
     label = ",".join(str(n) for n in sorted(set(nums)))
     # a real link to the source's entry, so the reference is reachable without the script;
-    # with it, the click handler in 00-core.js still takes over (it calls preventDefault)
+    # with it, the click handler in tools/core/03-router.js still takes over (it calls preventDefault)
     href = ("#" if SINGLE else SRC_PAGE) + "src-" + keys[0]
     return f'<sup class="c" data-ref="{",".join(keys)}" title="Source {label}"><a href="{href}">{label}</a></sup>'
 
@@ -270,9 +285,6 @@ def report(first):
         else: print(f"review ({LANG}): no reviewer named in site.json, so every page is noindex")
 
 page_html, js_html = html.split("<!--JS-->")
-if not SINGLE and "dataset.page" not in js_html:
-    print(f"warning: {LANG} js/00-core.js has no page routing; built as one page", file=sys.stderr)
-    SINGLE = True
 if SINGLE:
     indexable = lambda l, mid: True
     html = page_html.replace("<!--HREFLANG-->\n", hreflang_links(None), 1) + js_html
@@ -285,15 +297,15 @@ if SINGLE:
 BASE = OUT.parent
 head_html, body_html = page_html.split("<body>", 1)
 m = re.fullmatch(r"\s*<script>\n?(.*)</script>\s*</body>\s*</html>\s*", js_html, re.S)
-if not m: sys.exit("the js parts must open with <script> (00-core.js) and end with </script></body></html> (99-boot.js)")
+if not m: sys.exit("the script must open with <script> (tools/core/00-core.js) and end with </script></body></html> (tools/core/99-boot.js)")
 app_js = m.group(1)
 
-# modules, in nav order, from MODS in the core script: {id:'x',t:'Title',g:1,n:'1.1',d:'...'}
+# modules, in nav order, from MODS in js/01-config.js: {id:'x',t:'Title',g:1,n:'1.1',d:'...'}
 mods_js = re.search(r"\bconst MODS=\[(.*?)\];", app_js, re.S)
 unjs = lambda s: re.sub(r"\\(.)", r"\1", s)
 MODS = [(i, unjs(t)) for i, t in re.findall(r"\{id:'([a-z0-9]+)',t:'((?:\\.|[^'\\])*)'", mods_js.group(1) if mods_js else "")]
 mod_ids = [i for i, _ in MODS]
-if not mod_ids or mod_ids[0] != "home": sys.exit("could not read MODS (starting with home) from js/00-core.js")
+if not mod_ids or mod_ids[0] != "home": sys.exit("could not read MODS (starting with home) from js/01-config.js")
 
 def mod_sections(body):
     """(start, end, id) of each top-level <section data-mod> in BODY."""
@@ -315,7 +327,7 @@ if set(secs) != set(mod_ids):
 
 # which source files make each module, to tell whether a translation is complete
 def part_of(mid):
-    files = {"10-shell.html", "90-foot.html", "js/00-core.js"}
+    files = {"10-shell.html", "90-foot.html", "js/01-config.js"}
     for p in section_files:
         if f'data-mod="{mid}"' in p.read_text(encoding="utf-8"): files.add(f"sections/{p.name}")
     for p in js_files:

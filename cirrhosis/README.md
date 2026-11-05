@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module (461 cited 
 
 ## How it was made
 
-Eight research passes, one per area: (A) epidemiology, burden, natural history and history; (B) liver biology, fibrosis and regression; (C) alcohol-related liver disease and MASLD; (D) viral hepatitis and the other causes; (E) diagnosis, staging scores and liver cancer surveillance; (F) portal hypertension, varices, ascites, SBP and kidney injury; (G) hepatic encephalopathy, nutrition, medicine safety and transplant; (H) living with cirrhosis, nursing and palliative care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. Facts the passes could not check against a source (the per-item Child–Pugh point thresholds, some guideline wording behind paywalls) are marked unverified in the pass files and never used on the site, so Child–Pugh is shown with its published class ranges and no points calculator. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (519 entries, each recording which service confirmed it), and the modules were written against them.
+Eight research passes, one per area: (A) epidemiology, burden, natural history and history; (B) liver biology, fibrosis and regression; (C) alcohol-related liver disease and MASLD; (D) viral hepatitis and the other causes; (E) diagnosis, staging scores and liver cancer surveillance; (F) portal hypertension, varices, ascites, SBP and kidney injury; (G) hepatic encephalopathy, nutrition, medicine safety and transplant; (H) living with cirrhosis, nursing and palliative care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. Facts the passes could not check against a source (the per-item Child–Pugh point thresholds, some guideline wording behind paywalls) are marked unverified in the pass files and never used on the site, so Child–Pugh is shown with its published class ranges and no points calculator. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (519 entries, each recording which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,14 +31,14 @@ Eight research passes, one per area: (A) epidemiology, burden, natural history a
 python3 tools/build_site.py                                   # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py cirrhosis                              # just this one; fails on an unknown citation key
 python3 tools/smoke.py cirrhosis/index.html all               # headless-Chrome check: no JS errors, no empty animations
-python3 cirrhosis/src/compile_sources.py                      # rebuild sources.json from research/
+python3 tools/compile_sources.py cirrhosis                    # rebuild sources.json from research/
 python3 tools/share_card.py cirrhosis/src/share-card.html cirrhosis/share-card.png
 ```
 
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Deep petrol-cyan, the colour of the portal vein, carries the interface; bile gold marks jaundice and bilirubin, warm red-brown the healthy liver, pale grey-cream scar, with tokens for ammonia and ascites. Fonts: Gelasio, Karla and Courier Prime.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`liver`, `lobule`, `hepatocyte`, `stellate`, `collagen`, `nodule`, `portalMap`, `abdomen`, `gauge`, `nh3`, `brain`, `kidney`, `person`, `pill`, `curve`, `ladder`, `tline`, `ped`, `marker`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`liver`, `lobule`, `hepatocyte`, `stellate`, `collagen`, `nodule`, `portalMap`, `abdomen`, `gauge`, `nh3`, `brain`, `kidney`, `person`, `pill`, `curve`, `ladder`, `tline`, `ped`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys is in `strings.json`.

@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module. Research-l
 
 ## How it was made
 
-Eight research passes, run in parallel, one per area: (A) epidemiology, symptoms and history; (B) risk factors, prevention and hereditary syndromes; (C) biology and the adenoma–carcinoma sequence; (D) screening and colonoscopy; (E) diagnosis, staging and biomarkers; (F) treatment of localised colon and rectal cancer; (G) metastatic disease and research toward a cure; (H) living, survivorship and nursing. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA before it went in. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
+Eight research passes, run in parallel, one per area: (A) epidemiology, symptoms and history; (B) risk factors, prevention and hereditary syndromes; (C) biology and the adenoma–carcinoma sequence; (D) screening and colonoscopy; (E) diagnosis, staging and biomarkers; (F) treatment of localised colon and rectal cancer; (G) metastatic disease and research toward a cure; (H) living, survivorship and nursing. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA before it went in. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,14 +31,14 @@ Eight research passes, run in parallel, one per area: (A) epidemiology, symptoms
 python3 tools/build_site.py                                    # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py colorectal-cancer                       # just this one; fails on an unknown citation key
 python3 tools/smoke.py colorectal-cancer/index.html all        # headless-Chrome check: no JS errors, no empty animations
-python3 colorectal-cancer/src/compile_sources.py               # rebuild sources.json from research/
+python3 tools/compile_sources.py colorectal-cancer             # rebuild sources.json from research/
 python3 tools/share_card.py colorectal-cancer/src/share-card.html colorectal-cancer/share-card.png
 ```
 
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Mulberry carries the interface and colorectal-awareness navy is the accent; healthy mucosa is pink, crypt stem cells green, polyps amber, carcinoma crimson, lymph and spread violet, treatment teal. Fonts: Literata, Atkinson Hyperlegible and Red Hat Mono.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`crypt`, `polyp`, `wall`, `colon`, `node`, `liver`, `scope`, `person`, `ped`, `tube`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`crypt`, `polyp`, `wall`, `colon`, `node`, `liver`, `scope`, `person`, `ped`, `tube`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys is in `strings.json`.

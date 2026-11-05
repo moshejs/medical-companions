@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module. Research-l
 
 ## How it was made
 
-Eight research passes, one per area: (A) epidemiology, presentation across the lifespan and history; (B) causes: genetics and environmental risk; (C) neurobiology: brain networks, catecholamines and how the medicines act; (D) diagnosis: criteria, rating scales, assessment and differential; (E) pharmacological treatment: stimulants and non-stimulants; (F) behavioural, psychological, school and combined treatment; (G) course, comorbidity, outcomes and research toward better treatment; (H) living, family, school and work, and nursing care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. The NICE NG87 web page and the ICD-11 browser entry are listed as unverified and never cited; NICE recommendations are cited to the guideline's validated PubMed/Bookshelf record, and ICD-11 facts to the peer-reviewed papers that reproduce them. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
+Eight research passes, one per area: (A) epidemiology, presentation across the lifespan and history; (B) causes: genetics and environmental risk; (C) neurobiology: brain networks, catecholamines and how the medicines act; (D) diagnosis: criteria, rating scales, assessment and differential; (E) pharmacological treatment: stimulants and non-stimulants; (F) behavioural, psychological, school and combined treatment; (G) course, comorbidity, outcomes and research toward better treatment; (H) living, family, school and work, and nursing care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in. The NICE NG87 web page and the ICD-11 browser entry are listed as unverified and never cited; NICE recommendations are cited to the guideline's validated PubMed/Bookshelf record, and ICD-11 facts to the peer-reviewed papers that reproduce them. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,14 +31,14 @@ Eight research passes, one per area: (A) epidemiology, presentation across the l
 python3 tools/build_site.py                          # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py adhd                          # just this one; fails on an unknown citation key
 python3 tools/smoke.py adhd/index.html all           # headless-Chrome check: no JS errors, no empty animations
-python3 adhd/src/compile_sources.py                  # rebuild sources.json from research/
+python3 tools/compile_sources.py adhd                # rebuild sources.json from research/
 python3 tools/share_card.py adhd/src/share-card.html adhd/share-card.png
 ```
 
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Raspberry pink carries the interface and deep teal is the accent and the colour of medicines. Part colours: the condition coral-orange, diagnosis indigo, medication deep teal, behavioural and psychological care leaf green. In the drawings dopamine is amber, noradrenaline periwinkle and the transporters teal. Fonts: Space Grotesk, Atkinson Hyperlegible and Fira Code.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`brain`, `synapse`, `person`, `ped`, `desk`, `axes`, `trace`, `wave`, `pill`, `bubble`, `clock`, `marker`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`brain`, `synapse`, `person`, `ped`, `desk`, `axes`, `trace`, `wave`, `pill`, `bubble`, `clock`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys is in `strings.json`.

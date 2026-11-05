@@ -1,0 +1,165 @@
+/* ---- drawing kit for this subject ----
+   All colours come from CSS tokens, so they follow the theme. Every function returns an SVG string
+   (or an object with .svg) to concatenate into an <svg>'s innerHTML. Everything here is schematic:
+   no glyph encodes a measured value unless the caller passes one in.
+   Mood is a number v from -1 (severe depression) through 0 (euthymia, steady mood) to +1 (severe
+   mania). The kit's default band edges are EU=.15 (|v| below it is the steady band) and HYPO=.5
+   (elevated mood between .15 and .5 is drawn in the hypomania band, above .5 in the mania band).
+   They are drawing conventions, not clinical cut-offs: DSM-5-TR separates hypomania from mania by
+   duration and impairment, not by height, and a builder must say so where it matters.
+   moodSeries(knots)          a smooth mood course from knots [[u,v],...] (u 0..1 along the timeline,
+                              v -1..1), Catmull-Rom between knots, clamped to -1..1. Returns f(u) with
+                              f.pole(u) -> 'up' | 'eu' | 'down' (using the default band edges).
+   lifechart(x,y,w,h,f,o)     a life chart (mood chart) in the box: the mania, hypomania, steady and
+                              depression bands, a dashed midline, and f drawn as a line coloured by pole
+                              with a soft fill between the line and the midline (gold above, slate-blue
+                              below). o: {upto (draw to this u, default 1), id (unique prefix for its
+                              clipPaths: REQUIRED when two charts share an svg), labels (true: band names at
+                              the left), mixed ([[u0,u1],...] shaded mauve as mixed features), dot (true),
+                              eu, hypo (band edges), lw (line width, 2.6), ghost (true: thin, faint, no fill;
+                              for a comparison course)}. Returns {svg, at(u)->[x,y], Y(v)->y, X(u)->x}.
+   brain(x,y,s,o)             a side-view brain, front to the LEFT, centred on (x,y); s = scale (1 = 160
+                              wide, about 120 tall with the brainstem). o: {hl:{pfc,acc,amyg,hippo,scn,stri:
+                              0..1 glow}, labels (true: region names with leader lines)}. scn is the
+                              suprachiasmatic nucleus (body clock) in the hypothalamus; stri the striatum.
+                              Returns {svg, at:{pfc,acc,amyg,hippo,scn,stri: [x,y]}}.
+   synapse(x,y,s,o)           a synapse: presynaptic bouton above, the cleft, a postsynaptic membrane with
+                              receptors below. o: {n (0..1 transmitter released), tx (colour of the dots,
+                              var(--nt) = dopamine), label, block (0..1 receptors blocked, as by an
+                              antipsychotic), seed}.
+   person(x,y,s,fill,o)       a person pictogram for icon arrays (s = height), fill a CSS colour; o.op.
+   clock24(cx,cy,r,o)         a 24-hour dial, midnight at the top: the sleep arc from o.sleep [bed, wake]
+                              in clock hours (default [23,7]) in --night, the waking arc in --day, hour
+                              ticks with 0/6/12/18 labels, and an optional hand at o.h (hour). o.label
+                              (text under it), o.small (no hour labels). Returns {svg, P(h,rr)->[x,y]}.
+   sleepbar(x,y,w,h,o)        a horizontal 24-hour bar from noon to noon with the sleep block shaded:
+                              o.sleep [bed, wake] in clock hours, o.broken (0..1: gaps of waking in the
+                              night), o.label (left text), o.hours (true: "7 h" at the right). Returns
+                              {svg, X(hour)->x}.
+   ion(x,y,kind,o)            an ion: kind 'li' (lithium, Li+, --li) or 'na' (sodium, Na+, --na); o.r
+                              (radius, 8), o.op, o.txt (false: no symbol).
+   pill(x,y,s,o)              a tablet centred at (x,y), s = length; o: {ang (degrees), col (var(--rx)),
+                              txt (a short label printed on it, e.g. 'Li'), round (true: a round tablet)}.
+   kidney(x,y,s,o)            a kidney with one nephron sketched inside, centred on (x,y); s = scale
+                              (1 = about 90 wide, 120 tall). o: {hl (0..1: the proximal tubule glows, where
+                              lithium and sodium are reabsorbed together), flow (0..1: urine output
+                              arrow strength), label}. Returns {svg, at:{glom,prox,distal,out}}.
+   ladder(x,y,w,h,steps,o)    rising stairs from bottom-left, one step per label (a treatment ladder, a
+                              titration, a safety plan). o: {at (index highlighted), col (var(--rx)), done
+                              (steps before at drawn as done)}. Returns {svg, top(i)->[x,y]}.
+   tline(x,y,w,o)             a horizontal time axis: o {min, max, step, fmt(v)->label, label, big (ticks
+                              above)}. Returns {svg, X(v)->x}.
+   ped(x,y,sex,aff,o)         a pedigree symbol: sex 'm' square, 'f' circle; aff 0 unaffected, 1 affected
+                              (bipolar disorder), .5 half shaded (another mood disorder, e.g. depression);
+                              o: {dead, proband, r}. Needs marker('pedArrow') in <defs> for a proband.
+   marker(id,color)           an arrowhead <marker> for <defs>. */
+const EU=.15,HYPO=.5;
+function moodSeries(K){const k=K.slice().sort((a,b)=>a[0]-b[0]);
+  const f=u=>{if(u<=k[0][0])return k[0][1];if(u>=k[k.length-1][0])return k[k.length-1][1];
+    let i=0;while(i<k.length-2&&u>k[i+1][0])i++;
+    const p0=k[Math.max(0,i-1)],p1=k[i],p2=k[i+1],p3=k[Math.min(k.length-1,i+2)],t=(u-p1[0])/(p2[0]-p1[0]||1);
+    const m1=(p2[1]-p0[1])/((p2[0]-p0[0])||1)*(p2[0]-p1[0]),m2=(p3[1]-p1[1])/((p3[0]-p1[0])||1)*(p2[0]-p1[0]);
+    const t2=t*t,t3=t2*t;return clamp((2*t3-3*t2+1)*p1[1]+(t3-2*t2+t)*m1+(-2*t3+3*t2)*p2[1]+(t3-t2)*m2,-1,1)};
+  f.pole=u=>{const v=f(u);return v>EU?'up':v<-EU?'down':'eu'};return f}
+let _lc=0;
+function lifechart(x,y,w,h,f,o={}){const up=o.upto==null?1:clamp(o.upto),eu=o.eu||EU,hy=o.hypo||HYPO,id=o.id||('lc'+(++_lc)),lw=o.lw||2.6;
+  const Y=v=>y+h*(1-v)/2,X=u=>x+w*u,at=u=>[X(u),Y(f(u))];let s='',lab='';
+  if(!o.ghost){
+    s+=`<rect x="${f1(x)}" y="${f1(Y(1))}" width="${f1(w)}" height="${f1(Y(hy)-Y(1))}" style="fill:var(--up-soft)"/>`;
+    s+=`<rect x="${f1(x)}" y="${f1(Y(hy))}" width="${f1(w)}" height="${f1(Y(eu)-Y(hy))}" style="fill:var(--up-soft);opacity:.5"/>`;
+    s+=`<rect x="${f1(x)}" y="${f1(Y(eu))}" width="${f1(w)}" height="${f1(Y(-eu)-Y(eu))}" style="fill:var(--eu-soft)"/>`;
+    s+=`<rect x="${f1(x)}" y="${f1(Y(-eu))}" width="${f1(w)}" height="${f1(Y(-1)-Y(-eu))}" style="fill:var(--down-soft)"/>`;
+    (o.mixed||[]).forEach(([a,b])=>{s+=`<rect x="${f1(X(a))}" y="${f1(y)}" width="${f1(X(b)-X(a))}" height="${f1(h)}" style="fill:var(--mixed-fill);opacity:.22"/><text x="${f1((X(a)+X(b))/2)}" y="${f1(y+h-6)}" class="t-xs t-mid" style="fill:var(--mixed)">mixed</text>`});
+    s+=`<line x1="${f1(x)}" x2="${f1(x+w)}" y1="${f1(Y(0))}" y2="${f1(Y(0))}" style="stroke:var(--eu);stroke-width:1.2;stroke-dasharray:2 4;stroke-linecap:round"/>`;
+    if(o.labels){const L=[[1,'mania','var(--up)'],[hy,'hypomania','var(--up)'],[eu,'steady (euthymia)','var(--eu)'],[-eu,'depression','var(--down)']];
+      L.forEach(([v,t,c])=>{lab+=`<text x="${f1(x+6)}" y="${f1(Y(v)+12)}" class="t-xs" style="fill:${c};paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round">${t}</text>`})}}
+  if(up>0){const N=Math.max(2,Math.round(180*up));let d='';for(let i=0;i<=N;i++){const p=at(up*i/N);d+=(i?'L':'M')+f1(p[0])+' '+f1(p[1])}
+    if(o.ghost)return {svg:s+`<path d="${d}" style="fill:none;stroke:var(--muted);stroke-width:1.4;opacity:.55;stroke-dasharray:5 4"/>`,at,Y,X};
+    const area=`${d}L${f1(X(up))} ${f1(Y(0))}L${f1(x)} ${f1(Y(0))}Z`,yE=Y(eu),yD=Y(-eu);
+    s+=`<defs><clipPath id="${id}u"><rect x="${f1(x)}" y="${f1(y-6)}" width="${f1(w)}" height="${f1(yE-y+6)}"/></clipPath><clipPath id="${id}e"><rect x="${f1(x)}" y="${f1(yE)}" width="${f1(w)}" height="${f1(yD-yE)}"/></clipPath><clipPath id="${id}d"><rect x="${f1(x)}" y="${f1(yD)}" width="${f1(w)}" height="${f1(y+h-yD+6)}"/></clipPath></defs>`;
+    s+=`<path d="${area}" clip-path="url(#${id}u)" style="fill:var(--up-fill);opacity:.3"/><path d="${area}" clip-path="url(#${id}d)" style="fill:var(--down-fill);opacity:.3"/>`;
+    [['u','var(--up-fill)'],['e','var(--eu)'],['d','var(--down-fill)']].forEach(([k,c])=>{s+=`<path d="${d}" clip-path="url(#${id}${k})" style="fill:none;stroke:${c};stroke-width:${lw};stroke-linejoin:round;stroke-linecap:round"/>`});
+    if(o.dot){const p=at(up),pl=f.pole?f.pole(up):'eu',c=pl==='up'?'var(--up-fill)':pl==='down'?'var(--down-fill)':'var(--eu)';s+=`<circle cx="${f1(p[0])}" cy="${f1(p[1])}" r="5.5" style="fill:${c};stroke:var(--panel);stroke-width:2"/>`}}
+  return {svg:s+lab,at,Y,X}}
+function brain(x,y,s=1,o={}){const hl=o.hl||{},P=(a,b)=>[x+a*s,y+b*s];
+  const A={pfc:P(-50,-16),acc:P(-18,-14),stri:P(-12,4),scn:P(-26,16),amyg:P(-6,24),hippo:P(14,22)};
+  const COL={pfc:'var(--pfc)',acc:'var(--pfc)',stri:'var(--nt)',scn:'var(--day)',amyg:'var(--amyg)',hippo:'var(--hippo)'};
+  const NM={pfc:'Prefrontal cortex',acc:'Anterior cingulate',stri:'Striatum',scn:'Body clock (SCN)',amyg:'Amygdala',hippo:'Hippocampus'};
+  const sw=v=>f1(v/s);
+  let g=`<g transform="translate(${f1(x)} ${f1(y)}) scale(${s})">`;
+  g+=`<path d="M22 34C26 44 26 54 30 62L40 62C36 52 36 42 34 32Z" style="fill:var(--brain);stroke:var(--brain-line);stroke-width:${sw(1.4)}"/>`;
+  g+=`<ellipse cx="50" cy="36" rx="20" ry="12" style="fill:var(--brain);stroke:var(--brain-line);stroke-width:${sw(1.4)}"/>`;
+  g+=`<path d="M-72 6C-80 -20 -62 -48 -30 -54C-8 -60 20 -58 42 -48C66 -38 80 -16 76 6C74 22 62 30 48 30C40 40 24 42 14 36C2 44 -20 44 -32 36C-50 38 -68 28 -72 6Z" style="fill:var(--brain);stroke:var(--brain-line);stroke-width:${sw(1.6)}"/>`;
+  ['M-58 -24C-46 -34 -34 -30 -26 -40','M-20 -44C-6 -36 6 -46 20 -40','M28 -36C40 -26 54 -32 62 -18','M-62 4C-50 -4 -40 6 -30 -2','M40 -10C50 0 62 -6 70 6','M-4 -22C8 -14 20 -24 32 -14'].forEach(d=>{g+=`<path d="${d}" style="fill:none;stroke:var(--brain-line);stroke-width:${sw(1.1)};opacity:.55;stroke-linecap:round"/>`});
+  g+='</g>';
+  for(const k of Object.keys(A)){const v=clamp(hl[k]||0),[cx,cy]=A[k],r=(k==='pfc'?17:k==='scn'||k==='amyg'?7:10)*s;
+    if(v>0)g+=`<circle cx="${f1(cx)}" cy="${f1(cy)}" r="${f1(r*(1+v*.8))}" style="fill:${COL[k]};opacity:${f1(.1+v*.25)}"/>`;
+    if(v>0||o.labels)g+=`<circle cx="${f1(cx)}" cy="${f1(cy)}" r="${f1(r*.55)}" style="fill:${COL[k]};opacity:${f1(.35+v*.6)}"/>`}
+  if(o.labels){const L={pfc:[-40,-74],acc:[-4,-74],stri:[40,-66],scn:[-60,62],amyg:[-10,70],hippo:[44,62]};
+    for(const k of Object.keys(A)){const [cx,cy]=A[k],lx=x+L[k][0]*s,ly=y+L[k][1]*s,dn=ly>cy;
+      g+=`<line x1="${f1(cx)}" y1="${f1(cy)}" x2="${f1(lx)}" y2="${f1(ly+(dn?-10:4))}" style="stroke:var(--muted);stroke-width:.8"/><text x="${f1(lx)}" y="${f1(ly)}" class="t-xs t-mid">${NM[k]}</text>`}}
+  return {svg:g,at:A}}
+function synapse(x,y,s=1,o={}){const rr=rng(o.seed||11),n=clamp(o.n==null?.5:o.n),tx=o.tx||'var(--nt)',bl=clamp(o.block||0);
+  let g=`<g transform="translate(${f1(x)} ${f1(y)}) scale(${s})">`;
+  g+=`<path d="M-34 -60V-26C-34 -8 -20 0 0 0S34 -8 34 -26V-60" style="fill:var(--cell);stroke:var(--brain-line);stroke-width:1.6"/>`;
+  for(let i=0;i<5;i++){const vx=-18+i*9,vy=-26+(i%2)*8;g+=`<circle cx="${vx}" cy="${vy}" r="5" style="fill:none;stroke:${tx};stroke-width:1.2"/><circle cx="${vx}" cy="${vy}" r="2" style="fill:${tx}"/>`}
+  g+=`<path d="M-44 14Q0 6 44 14V30H-44Z" style="fill:var(--cell);stroke:var(--brain-line);stroke-width:1.6"/>`;
+  for(let i=0;i<5;i++){const rx=-28+i*14;g+=`<path d="M${rx-4} 13V8M${rx+4} 13V8" style="stroke:${i/5<bl?'var(--muted)':'var(--rx)'};stroke-width:2.4;stroke-linecap:round"/>`;if(i/5<bl)g+=`<rect x="${rx-5}" y="3" width="10" height="5" rx="2" style="fill:var(--muted)"/>`}
+  const k=Math.round(n*14);for(let i=0;i<k;i++){const px=(rr()-.5)*52,py=-1+rr()*8;g+=`<circle cx="${f1(px)}" cy="${f1(py)}" r="1.9" style="fill:${tx}"/>`}
+  if(o.label)g+=`<text x="0" y="46" class="t-xs t-mid">${o.label}</text>`;
+  return g+'</g>'}
+function person(x,y,s=14,fill='var(--muted)',o={}){const r=s*.17;return `<g transform="translate(${f1(x)} ${f1(y)})" style="opacity:${o.op==null?1:o.op}"><circle cx="0" cy="${f1(r)}" r="${f1(r)}" style="fill:${fill}"/><path d="M${f1(-s*.26)} ${f1(s)}V${f1(s*.6)}Q${f1(-s*.26)} ${f1(s*.4)} 0 ${f1(s*.4)}Q${f1(s*.26)} ${f1(s*.4)} ${f1(s*.26)} ${f1(s*.6)}V${f1(s)}Z" style="fill:${fill}"/></g>`}
+function clock24(cx,cy,r,o={}){const [b,w]=o.sleep||[23,7],P=(h,rr=r)=>{const a=(h/24)*2*Math.PI-Math.PI/2;return [cx+rr*Math.cos(a),cy+rr*Math.sin(a)]};
+  const arc=(h0,h1,rr)=>{let d=(h1-h0+24)%24;if(d===0)d=24;const p0=P(h0,rr),p1=P(h0+d,rr);return `M${f1(p0[0])} ${f1(p0[1])}A${f1(rr)} ${f1(rr)} 0 ${d>12?1:0} 1 ${f1(p1[0])} ${f1(p1[1])}`};
+  const rw=r*.24,rm=r-rw/2;let s=`<circle cx="${f1(cx)}" cy="${f1(cy)}" r="${f1(r)}" style="fill:var(--panel);stroke:var(--line);stroke-width:1.2"/>`;
+  s+=`<path d="${arc(w,b,rm)}" style="fill:none;stroke:var(--day);stroke-width:${f1(rw)};opacity:.7"/><path d="${arc(b,w,rm)}" style="fill:none;stroke:var(--night);stroke-width:${f1(rw)}"/>`;
+  for(let h=0;h<24;h++){const a=P(h,r-rw-2),c=P(h,r-rw-(h%6?4:7));s+=`<line x1="${f1(a[0])}" y1="${f1(a[1])}" x2="${f1(c[0])}" y2="${f1(c[1])}" class="axis"/>`}
+  if(!o.small)[0,6,12,18].forEach(h=>{const p=P(h,r-rw-15);s+=`<text x="${f1(p[0])}" y="${f1(p[1]+3.5)}" class="t-xs t-mid">${String(h).padStart(2,'0')}</text>`});
+  if(o.h!=null){const p=P(o.h,r-rw-3);s+=`<line x1="${f1(cx)}" y1="${f1(cy)}" x2="${f1(p[0])}" y2="${f1(p[1])}" style="stroke:var(--ink);stroke-width:2;stroke-linecap:round"/><circle cx="${f1(cx)}" cy="${f1(cy)}" r="3" style="fill:var(--ink)"/>`}
+  if(o.label)s+=`<text x="${f1(cx)}" y="${f1(cy+r+15)}" class="t-xs t-mid">${o.label}</text>`;
+  return {svg:s,P}}
+function sleepbar(x,y,w,h,o={}){const [b,wk]=o.sleep||[23,7],X=hr=>x+w*(((hr-12)%24+24)%24)/24,dur=((wk-b)%24+24)%24;
+  let s=`<rect x="${f1(x)}" y="${f1(y)}" width="${f1(w)}" height="${f1(h)}" rx="${f1(h/2)}" style="fill:var(--day);opacity:.55"/>`;
+  const x0=X(b),x1=x0+w*dur/24;s+=`<rect x="${f1(x0)}" y="${f1(y)}" width="${f1(Math.max(0,x1-x0))}" height="${f1(h)}" rx="${f1(Math.min(h/2,(x1-x0)/2))}" style="fill:var(--night)"/>`;
+  const br=clamp(o.broken||0);if(br>0){const n=Math.round(1+br*4),rr=rng(7);for(let i=0;i<n;i++){const gx=lerp(x0+6,x1-6,(i+.5)/n+(rr()-.5)*.08);s+=`<rect x="${f1(gx-1.5-br*2)}" y="${f1(y+1)}" width="${f1(3+br*4)}" height="${f1(h-2)}" style="fill:var(--day)"/>`}}
+  [12,18,0,6].forEach(hr=>{const tx=X(hr);s+=`<line x1="${f1(tx)}" x2="${f1(tx)}" y1="${f1(y+h)}" y2="${f1(y+h+3)}" class="axis"/>`});
+  if(o.label)s+=`<text x="${f1(x-6)}" y="${f1(y+h/2+3.5)}" class="t-xs t-end">${o.label}</text>`;
+  if(o.hours)s+=`<text x="${f1(x+w+6)}" y="${f1(y+h/2+3.5)}" class="t-xs">${(Math.round(dur*(1-br*.25)*2)/2)} h</text>`;
+  return {svg:s,X}}
+function ion(x,y,kind='li',o={}){const r=o.r||8,c=kind==='na'?'var(--na)':'var(--li)';
+  return `<g style="opacity:${o.op==null?1:o.op}"><circle cx="${f1(x)}" cy="${f1(y)}" r="${r}" style="fill:${c};opacity:.9"/>${o.txt===false?'':`<text x="${f1(x)}" y="${f1(y+r*.36)}" class="t-mid" style="font:700 ${f1(r*.95)}px var(--mono);fill:var(--panel)">${kind==='na'?'Na':'Li'}</text>`}</g>`}
+function pill(x,y,s=30,o={}){const col=o.col||'var(--rx)',r=s*.22;let g=`<g transform="translate(${f1(x)} ${f1(y)}) rotate(${f1(o.ang||0)})">`;
+  if(o.round)g+=`<circle r="${f1(s/2)}" style="fill:var(--pill);stroke:${col};stroke-width:1.6"/><line x1="${f1(-s*.3)}" x2="${f1(s*.3)}" y1="0" y2="0" style="stroke:${col};stroke-width:1.2;opacity:.6"/>`;
+  else g+=`<rect x="${f1(-s/2)}" y="${f1(-r)}" width="${f1(s)}" height="${f1(2*r)}" rx="${f1(r)}" style="fill:var(--pill);stroke:${col};stroke-width:1.6"/><path d="M0 ${f1(-r)}V${f1(r)}H${f1(s/2-r)}A${f1(r)} ${f1(r)} 0 0 0 ${f1(s/2-r)} ${f1(-r)}Z" style="fill:${col};opacity:.75"/>`;
+  if(o.txt)g+=`<text x="${o.round?0:f1(-s/4)}" y="${f1(r*.42)}" class="t-mid" style="font:700 ${f1(r*1.05)}px var(--mono);fill:var(--ink)">${o.txt}</text>`;
+  return g+'</g>'}
+function kidney(x,y,s=1,o={}){const hl=clamp(o.hl||0),fl=clamp(o.flow==null?.5:o.flow),P=(a,b)=>[x+a*s,y+b*s];
+  const A={glom:P(-12,-26),prox:P(-2,-6),distal:P(14,-30),out:P(30,40)};
+  let g=`<g transform="translate(${f1(x)} ${f1(y)}) scale(${s})">`;
+  g+=`<path d="M-6 -58C-34 -60 -46 -30 -44 0C-42 34 -24 60 4 58C22 57 30 44 26 30C22 18 14 12 14 0C14 -12 24 -18 26 -30C30 -48 14 -57 -6 -58Z" style="fill:var(--kid-soft);stroke:var(--kid);stroke-width:${f1(1.8/s)}"/>`;
+  g+=`<path d="M22 28C30 32 34 40 32 54" style="fill:none;stroke:var(--kid);stroke-width:${f1(3/s)};stroke-linecap:round"/>`;
+  g+=`<circle cx="-12" cy="-26" r="7" style="fill:none;stroke:var(--kid);stroke-width:${f1(1.4/s)}"/><path d="M-15 -27c2-3 4 3 6 0s4 3 5 0" style="fill:none;stroke:var(--kid);stroke-width:${f1(1/s)}"/>`;
+  if(hl>0)g+=`<path d="M-6 -22C2 -18 6 -12 0 -4C-6 4 -2 12 6 14" style="fill:none;stroke:var(--li);stroke-width:${f1(9/s)};opacity:${f1(.15+hl*.35)};stroke-linecap:round"/>`;
+  g+=`<path d="M-6 -22C2 -18 6 -12 0 -4C-6 4 -2 12 6 14C12 16 12 6 10 -6C8 -18 10 -26 14 -30" style="fill:none;stroke:var(--kid);stroke-width:${f1(1.6/s)};stroke-linecap:round"/>`;
+  g+=`<path d="M14 -30C20 -34 22 -24 18 -14C14 -2 20 12 24 22" style="fill:none;stroke:var(--kid);stroke-width:${f1(1.6/s)};stroke-dasharray:${f1(3/s)} ${f1(2/s)}"/>`;
+  g+='</g>';
+  if(fl>0){const p=A.out;g+=`<path d="M${f1(p[0])} ${f1(p[1]+6*s)}v${f1((10+fl*16)*s)}" style="stroke:var(--na);stroke-width:${f1(1.4+fl*2.4)};stroke-linecap:round;opacity:${f1(.4+fl*.5)}"/>`}
+  if(o.label)g+=`<text x="${f1(x)}" y="${f1(y+74*s)}" class="t-xs t-mid">${o.label}</text>`;
+  return {svg:g,at:A}}
+function ladder(x,y,w,h,steps,o={}){const n=steps.length,sw=w/n,sh=h/n,at=o.at==null?-1:o.at,col=o.col||'var(--rx)';let s='';
+  const top=i=>[x+sw*(i+.5),y+h-sh*(i+1)];
+  steps.forEach((t,i)=>{const sx=x+sw*i,sy=y+h-sh*(i+1),on=i===at,done=o.done&&i<at;
+    s+=`<rect x="${f1(sx)}" y="${f1(sy)}" width="${f1(sw-3)}" height="${f1(sh*(i+1))}" rx="6" style="fill:${on?col:done?'var(--rx-soft)':'var(--panel-2)'};stroke:${on?col:'var(--line)'};stroke-width:1.2;opacity:${on||done?1:.9}"/>`;
+    s+=`<text x="${f1(sx+(sw-3)/2)}" y="${f1(sy+16)}" class="t-xs t-mid" style="fill:${on?'var(--on-brand)':'var(--ink)'}">${t}</text>`});
+  return {svg:s,top}}
+function tline(x,y,w,o={}){const mn=o.min||0,mx=o.max==null?1:o.max,st=o.step||(mx-mn)/5,fmt=o.fmt||(v=>v),X=v=>x+w*(v-mn)/(mx-mn);
+  let s=`<line x1="${f1(x)}" x2="${f1(x+w)}" y1="${f1(y)}" y2="${f1(y)}" class="axis"/>`;
+  for(let v=mn;v<=mx+1e-9;v+=st){const xx=X(v);s+=`<line x1="${f1(xx)}" x2="${f1(xx)}" y1="${f1(y-4)}" y2="${f1(y+4)}" class="axis"/><text x="${f1(xx)}" y="${f1(o.big?y-8:y+16)}" class="t-xs t-mid">${fmt(v)}</text>`}
+  if(o.label)s+=`<text x="${f1(x+w)}" y="${f1(o.big?y+16:y+30)}" class="t-xs t-end">${o.label}</text>`;
+  return {svg:s,X}}
+function ped(x,y,sex='m',aff=0,o={}){const r=o.r||11;let g='';const sh=sex==='m'?`<rect x="${f1(x-r)}" y="${f1(y-r)}" width="${2*r}" height="${2*r}" rx="1.5"`:`<circle cx="${f1(x)}" cy="${f1(y)}" r="${r}"`;
+  g+=`${sh} style="fill:${aff>=1?'var(--brand)':'var(--panel)'};stroke:var(--ink);stroke-width:1.5"/>`;
+  if(aff>0&&aff<1){const cid='pc'+Math.round(x)+'_'+Math.round(y);g+=`<clipPath id="${cid}"><rect x="${f1(x-r)}" y="${f1(y-r)}" width="${r}" height="${2*r}"/></clipPath>${sh} clip-path="url(#${cid})" style="fill:var(--down-fill);stroke:none;opacity:.85"/>${sh} style="fill:none;stroke:var(--ink);stroke-width:1.5"/>`}
+  if(o.dead)g+=`<line x1="${f1(x-r*1.3)}" y1="${f1(y+r*1.3)}" x2="${f1(x+r*1.3)}" y2="${f1(y-r*1.3)}" style="stroke:var(--ink);stroke-width:1.4"/>`;
+  if(o.proband)g+=`<path d="M${f1(x-r*2.2)} ${f1(y+r*1.9)}L${f1(x-r*1.15)} ${f1(y+r*.95)}" style="stroke:var(--ink);stroke-width:1.6" marker-end="url(#pedArrow)"/>`;
+  return g}
