@@ -49,6 +49,7 @@ Both companions' git histories were carried over from `moshejs/alzheimers-compan
 python3 tools/build_site.py                         # every companion and language, the hub, sitemap.xml, robots.txt, redirects/
 python3 tools/build.py fmf                          # one companion (add --lang he for a translation)
 python3 tools/smoke.py fmf/index.html all           # headless-Chrome check of every module page
+python3 tools/check_site.py                         # JSON-LD, placeholders, sitemap, internal links of the built site
 python3 tools/check_lang.py alzheimers he           # a translation must match the English in code, citations and numbers
 python3 tools/make_artifact.py alzheimers --lang he # the Claude artifact copy of a page
 ```
@@ -107,7 +108,16 @@ Any other page is still built, so it can be read and reviewed at its address, bu
 
 ## Hosting
 
-The repo root is the site. Vercel serves it at https://www.medcompanions.org (`site` in `site.json`) with no build step (`vercel.json`); `.nojekyll` is kept so any static host, GitHub Pages included, can serve it as is.
+The repository holds sources only: built pages (`index.html`, `app.js`, `sitemap.xml`, `llms.txt`, `robots.txt`, `404.html`) are listed in `.gitignore` and never committed. Build locally to look at your work; CI builds what is deployed.
+
+`.github/workflows/site.yml` runs on every pull request and every push to `main`: it builds the whole site (with the Chrome prerender), runs `tools/check_site.py` and the smoke tests for every companion and language, and only if all pass pushes the built tree to a deploy branch:
+
+| Source | Deploy branch | Served as |
+|---|---|---|
+| `main` | `site` | production, https://www.medcompanions.org (`site` in `site.json`) |
+| pull request N | `preview/pr-N` | a Vercel preview; the workflow comments its URL on the PR, and deletes the branch when the PR closes |
+
+Vercel's production branch is `site`. `vercel.json`'s `ignoreCommand` skips any branch without the `.built` marker the workflow writes, so Vercel never deploys raw sources. A red `site` check means nothing was published. To redeploy production without a change, run the workflow by hand on `main` (Actions → site → Run workflow).
 
 ### Old addresses
 

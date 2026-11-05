@@ -10,9 +10,9 @@ Each module is loaded from its own page, <folder>/<module>/index.html, and must 
 that module; 'all' means every module page beside it. A one-page build (build.py
 --single) has no module pages, so there each module is loaded as BUILT_HTML#module.
 """
-import json, re, subprocess, sys, tempfile, pathlib
+import json, os, re, subprocess, sys, tempfile, pathlib
 
-CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+CHROME = os.environ.get("CHROME", "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
 html = pathlib.Path(sys.argv[1]).resolve()
 mods = sys.argv[2:]
 src = html.read_text(encoding="utf-8")
