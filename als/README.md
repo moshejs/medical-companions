@@ -24,7 +24,7 @@ Every research claim links to a numbered entry in the Sources module. Research-l
 
 1. **Dossier.** The plan (module list, the archetype each module reuses, animation specs, seed figures, shared citation keys) is `dossiers/als.json` in the private research repository, seeded from the topic's validated catalogue row.
 2. **Nine research passes**, one per area, in [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md): A epidemiology, phenotypes, course and history · B mechanism and pathology · C genetics · D diagnosis, criteria and differential · E drugs · F breathing, nutrition and symptom care · G living, communication and end of life · H nursing care · I research toward a cure. Each pass checked its own sources against PubMed, Crossref, Europe PMC and ClinicalTrials.gov, and the files are in [`research/`](research/).
-3. **Sources.** `src/compile_sources.py research` merges the passes' source lists into `src/sources.json`, then applies `src/source-corrections.json`. The corrections come from a second, whole-list validation on 2026-10-20 ([`research/validation/`](research/validation/)): every PMID against PubMed esummary, every DOI against Crossref, PMCIDs against Europe PMC, all 43 trial IDs against the ClinicalTrials.gov v2 API, US labels against openFDA by set ID, and the EMA and NICE pages opened.
+3. **Sources.** `tools/compile_sources.py als` merges the passes' source lists into `src/sources.json`, then applies `src/source-corrections.json`. The corrections come from a second, whole-list validation on 2026-10-20 ([`research/validation/`](research/validation/)): every PMID against PubMed esummary, every DOI against Crossref, PMCIDs against Europe PMC, all 43 trial IDs against the ClinicalTrials.gov v2 API, US labels against openFDA by set ID, and the EMA and NICE pages opened.
 4. **Modules** were written against the research files by builders following [`research/BUILDER-BRIEF.md`](research/BUILDER-BRIEF.md).
 
 ## Building
@@ -33,7 +33,7 @@ Every research claim links to a numbered entry in the Sources module. Research-l
 python3 tools/build_site.py                  # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py als                   # just this one; fails on an unknown citation key
 python3 tools/smoke.py als/index.html all    # headless-Chrome check of every module page
-python3 als/src/compile_sources.py als/research          # rebuild sources.json from the research files
+python3 tools/compile_sources.py als                     # rebuild sources.json from the research files
 python3 als/research/validation/make_corrections.py      # regenerate the corrections, then run compile_sources again
 python3 tools/share_card.py als/src/share-card.html als/share-card.png
 ```

@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module. Research-l
 
 ## How it was made
 
-Eight research passes, one per area: (A) epidemiology, global burden and history; (B) transmission, risk factors and host susceptibility; (C) microbiology, immunology and pathogenesis; (D) clinical presentation and diagnosis; (E) treatment of drug-susceptible TB disease and TB infection; (F) drug-resistant TB, comorbidity and outcomes; (G) living with TB, infection control and nursing; (H) vaccines, the End TB Strategy and research. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA before it went in. The WHO Global Tuberculosis Report 2025 has no record in those services, so it was checked against its WHO IRIS record (hdl:10665/383364, ISBN 9789240116924) and is marked that way in `src/source-corrections.json`. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
+Eight research passes, one per area: (A) epidemiology, global burden and history; (B) transmission, risk factors and host susceptibility; (C) microbiology, immunology and pathogenesis; (D) clinical presentation and diagnosis; (E) treatment of drug-susceptible TB disease and TB infection; (F) drug-resistant TB, comorbidity and outcomes; (G) living with TB, infection control and nursing; (H) vaccines, the End TB Strategy and research. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA before it went in. The WHO Global Tuberculosis Report 2025 has no record in those services, so it was checked against its WHO IRIS record (hdl:10665/383364, ISBN 9789240116924) and is marked that way in `src/source-corrections.json`. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,7 +31,7 @@ Eight research passes, one per area: (A) epidemiology, global burden and history
 python3 tools/build_site.py                                # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py tuberculosis                        # just this one; fails on an unknown citation key
 python3 tools/smoke.py tuberculosis/index.html all         # headless-Chrome check: no JS errors, no empty animations
-python3 tuberculosis/src/compile_sources.py                # rebuild sources.json from research/
+python3 tools/compile_sources.py tuberculosis              # rebuild sources.json from research/
 python3 tools/share_card.py tuberculosis/src/share-card.html tuberculosis/share-card.png
 ```
 

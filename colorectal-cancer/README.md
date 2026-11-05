@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module. Research-l
 
 ## How it was made
 
-Eight research passes, run in parallel, one per area: (A) epidemiology, symptoms and history; (B) risk factors, prevention and hereditary syndromes; (C) biology and the adenoma–carcinoma sequence; (D) screening and colonoscopy; (E) diagnosis, staging and biomarkers; (F) treatment of localised colon and rectal cancer; (G) metastatic disease and research toward a cure; (H) living, survivorship and nursing. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA before it went in. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
+Eight research passes, run in parallel, one per area: (A) epidemiology, symptoms and history; (B) risk factors, prevention and hereditary syndromes; (C) biology and the adenoma–carcinoma sequence; (D) screening and colonoscopy; (E) diagnosis, staging and biomarkers; (F) treatment of localised colon and rectal cancer; (G) metastatic disease and research toward a cure; (H) living, survivorship and nursing. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA before it went in. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,7 +31,7 @@ Eight research passes, run in parallel, one per area: (A) epidemiology, symptoms
 python3 tools/build_site.py                                    # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py colorectal-cancer                       # just this one; fails on an unknown citation key
 python3 tools/smoke.py colorectal-cancer/index.html all        # headless-Chrome check: no JS errors, no empty animations
-python3 colorectal-cancer/src/compile_sources.py               # rebuild sources.json from research/
+python3 tools/compile_sources.py colorectal-cancer             # rebuild sources.json from research/
 python3 tools/share_card.py colorectal-cancer/src/share-card.html colorectal-cancer/share-card.png
 ```
 

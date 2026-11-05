@@ -1,6 +1,6 @@
 # Research pass format
 
-One file per research area: `<LETTER>-<area-slug>.md` (for example `C-mechanism.md`). `tuberculosis/src/compile_sources.py` reads every `[A-H]-*.md` here and merges the **Sources** sections into `tuberculosis/src/sources.json`, so the layout below is a contract, not a suggestion. The colorectal cancer, MS, gout, ALS and Parkinson's passes use the same format.
+One file per research area: `<LETTER>-<area-slug>.md` (for example `C-mechanism.md`). `tools/compile_sources.py tuberculosis` reads every `[A-H]-*.md` here and merges the **Sources** sections into `tuberculosis/src/sources.json`, so the layout below is a contract, not a suggestion. The colorectal cancer, MS, gout, ALS and Parkinson's passes use the same format.
 
 ```markdown
 # <LETTER> · <Area title>

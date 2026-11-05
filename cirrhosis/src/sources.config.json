@@ -1,0 +1,12 @@
+{
+ "areas": {
+  "A": "Epidemiology, burden, natural history & history",
+  "B": "Liver biology, fibrosis mechanisms & regression",
+  "C": "Causes I: alcohol-related liver disease & MASLD",
+  "D": "Causes II: viral hepatitis & other causes",
+  "E": "Diagnosis, staging scores & liver cancer surveillance",
+  "F": "Portal hypertension, varices & bleeding, ascites, SBP & kidney injury",
+  "G": "Hepatic encephalopathy, nutrition & sarcopenia, medicine safety & liver transplant",
+  "H": "Living with cirrhosis, nursing care, palliative care & self-management"
+ }
+}

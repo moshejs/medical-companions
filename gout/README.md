@@ -38,12 +38,12 @@ Eight research passes, one per area, each returned cited facts with every source
 - G: living with gout and nursing care
 - H: research toward a cure
 
-They are in `research/`, with the format in `research/RESEARCH-FORMAT.md`. `src/compile_sources.py` merges their Sources sections into `src/sources.json`, and the modules were written against them.
+They are in `research/`, with the format in `research/RESEARCH-FORMAT.md`. `tools/compile_sources.py` merges their Sources sections into `src/sources.json`, and the modules were written against them.
 
 ## Building
 
 ```bash
-python3 gout/src/compile_sources.py            # research/*.md → src/sources.json (then source-corrections.json)
+python3 tools/compile_sources.py gout          # research/*.md → src/sources.json (then source-corrections.json)
 python3 tools/build.py gout                    # writes gout/index.html, gout/<module>/index.html and gout/app.js
 python3 tools/smoke.py gout/index.html all     # headless-Chrome check of every module page
 python3 tools/share_card.py gout/src/share-card.html gout/share-card.png
