@@ -20,7 +20,7 @@
     "description": "Which genes raise the chance of Parkinson's, how often carriers develop it by age, why it is commoner in Ashkenazi and Berber families, and what a test means."
   },
   "prodrome": {
-    "title": "Early signs before Parkinson's: dream enactment, smell, constipation",
+    "title": "Early signs before Parkinson's: dream enactment and smell",
     "description": "The prodromal years: loss of smell, constipation and REM sleep behaviour disorder can come years before the tremor. The research criteria, as a calculator."
   },
   "stages": {
@@ -48,7 +48,7 @@
     "description": "Dopamine agonists, MAO-B and COMT inhibitors, amantadine and newer drugs: how each works, what trials show, and side effects such as impulse control."
   },
   "dbs": {
-    "title": "Deep brain stimulation for Parkinson's: how it works, who it helps",
+    "title": "Deep brain stimulation for Parkinson's: who it helps",
     "description": "Electrodes in the subthalamic nucleus or globus pallidus, the stimulation field, adaptive DBS, who is a candidate and what the trials found. Animated."
   },
   "nonmotor": {
@@ -56,7 +56,7 @@
     "description": "Depression, hallucinations, dementia, sleep, low blood pressure on standing and more: how common they are and what guidelines say helps."
   },
   "risk": {
-    "title": "Parkinson's risk factors: pesticides, head injury, coffee, exercise",
+    "title": "Parkinson's risk factors: pesticides, head injury, coffee",
     "description": "What raises and what is linked to lower Parkinson's risk, with the size of each effect, the caveats about cause, and what prevention trials found."
   },
   "living": {
