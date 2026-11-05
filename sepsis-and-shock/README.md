@@ -19,7 +19,7 @@ A left rail of modules, one module per page, and SVG animations you scrub with a
 | 5 · Special situations & recovery | Cardiogenic, hypovolaemic, obstructive & anaphylactic shock · Sepsis in babies and children (Phoenix Sepsis Score teaching calculator) · Sepsis in pregnancy and after birth · After sepsis: recovery & families · Nursing care (urine-output teaching calculator) · Preventing sepsis · Research frontier (evidence-labelled) |
 | 6 · Context & review | History & people · Flashcards & mnemonics · Quiz · Glossary · Sources |
 
-Every research claim links to a numbered entry in the Sources module. Research-landscape claims carry an evidence label: *Established*, *Early evidence* or *Hypothesis*. The call-now box is on the home page, in the disclaimer and on every clinical module; the recovery module is written for survivors and the bereaved as well as for students. The follow-up question list in "After sepsis" keeps nothing the reader ticks.
+Every research claim links to a numbered entry in the Sources module (521 cited sources). Research-landscape claims carry an evidence label: *Established*, *Early evidence* or *Hypothesis*. The call-now box is on the home page, in the disclaimer and on every clinical module; the recovery module is written for survivors and the bereaved as well as for students. The follow-up question list in "After sepsis" keeps nothing the reader ticks.
 
 ## How it was made
 
