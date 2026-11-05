@@ -210,6 +210,9 @@ def async_fonts(m):
             f'<noscript><link rel="stylesheet" href="{href}"></noscript>')
 html = re.sub(r'<link rel="stylesheet" href="(https://fonts\.googleapis\.com/[^"]+)">', async_fonts, html)
 
+# the sources page in this language, from the site root (module pages sit one level down)
+SRC_PAGE = HOME_LANG_URL[len(SITE):] + "sources/#"
+html = html.replace("</head>", "<style>sup.c a{color:inherit;text-decoration:inherit}</style>\n</head>", 1)
 used, missing = set(), set()
 def cite(m):
     keys = [k.strip() for k in m.group(1).split(",") if k.strip()]
@@ -221,7 +224,10 @@ def cite(m):
     if not nums: return ""
     keys = list(dict.fromkeys(canon[k] for k in keys if k in order))
     label = ",".join(str(n) for n in sorted(set(nums)))
-    return f'<sup class="c" data-ref="{",".join(keys)}" title="Source {label}">{label}</sup>'
+    # a real link to the source's entry, so the reference is reachable without the script;
+    # with it, the click handler in 00-core.js still takes over (it calls preventDefault)
+    href = ("#" if SINGLE else SRC_PAGE) + "src-" + keys[0]
+    return f'<sup class="c" data-ref="{",".join(keys)}" title="Source {label}"><a href="{href}">{label}</a></sup>'
 
 # each key must contain a letter, so nested numeric arrays such as [[250,288]]
 # in module JS are never mistaken for citations
@@ -374,11 +380,40 @@ def page_head(mid, nav, title, desc, url):
         if data.get("@type") != "MedicalWebPage": return m.group(0)
         site = data.get("isPartOf", {})
         data.update(name=title, headline=title, url=url, description=desc)
+        cites = citations(body_html[secs[mid][0]:secs[mid][1]]) if mid != "sources" else []
+        if cites: data["citation"] = cites
         crumbs = [(site.get("name"), site.get("url")), (NAME, HOME_URL), (nav, url)]
         data["breadcrumb"] = {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": n + 1, "name": c[0], "item": c[1]} for n, c in enumerate(c for c in crumbs if c[0] and c[1])]}
         return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "</script>"
     return re.sub(r'<script type="application/ld\+json">(.*?)</script>', ld, h, flags=re.S)
+
+def source_items():
+    """The sources list as static HTML, as 52-review.js renders it (less the area tags),
+    so the references are in the page itself; the script re-renders it with filters."""
+    e = lambda t: H.escape(t, quote=True)
+    out = []
+    for i, s in enumerate(sources):
+        aka = (STR.get("sources.also") + ", ".join(e(a) for a in s["aliases"])) if s.get("aliases") else ""
+        link = f'<a href="{e(s["link"])}" target="_blank" rel="noopener">{e(s["link"])}</a>' if s.get("link") else ""
+        note = f'<span class="srcnote">{e(s["note"])}</span>' if s.get("note") else ""
+        flag = f'<span class="mods"><span class="tag warn">{e(STR.get("sources.check"))}</span></span>' if s.get("unverified") else ""
+        out.append(f'<li id="src-{e(s["key"])}" value="{i + 1}"><span class="key">[{i + 1}] {e(s["key"])}{aka}</span>'
+                   f'<span>{e(s["text"])}</span>{link}{note}{flag}</li>')
+    return "".join(out)
+
+BY_KEY = {s["key"]: s for s in sources}
+def citations(section):
+    """schema.org citation entries for the sources cited in SECTION, in first-cited order."""
+    keys = dict.fromkeys(k for refs in re.findall(r'<sup class="c" data-ref="([^"]+)"', section) for k in refs.split(","))
+    out = []
+    for k in keys:
+        s = BY_KEY.get(k)
+        if not s: continue
+        c = {"@type": "CreativeWork", "name": re.sub(r"\s*\([^()]*\b(?:read|validated|unverified|opened|abstract)\b[^()]*\)\s*$", "", s["text"], flags=re.I)}
+        if s.get("link"): c["url"] = s["link"]
+        out.append(c)
+    return out
 
 def page_body(mid):
     up = "" if mid == "home" else "../"
@@ -394,6 +429,8 @@ def page_body(mid):
         new = re.sub(r"<h2>(.*?)</h2>", r'<h1 class="mh">\1</h1>', new, count=1, flags=re.S)
         # the crawler outline keeps its list of modules; its questions belong to the first page
         b = re.sub(r'(<noscript id="nsOutline">.*?</ul>).*?(\s*</section>\s*</noscript>)', r"\1\2", b, count=1, flags=re.S)
+    if mid == "sources":
+        new = new.replace('<ol class="srcs" id="srcList"></ol>', f'<ol class="srcs" id="srcList">{source_items()}</ol>', 1)
     b = b.replace(sec, new, 1)
     if mid != "home":
         # links relative to the first page: a language link goes to this module in that language
