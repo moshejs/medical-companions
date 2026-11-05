@@ -63,7 +63,7 @@ inits.maternal=()=>{
       if(T.s&&p>=1){const a=ease(ramp(t,.22+i*.03,.3+i*.03)),ae=be+T.d*hw*.42*a,yy=y+(N?26:28);
         s+=`<rect x="${f1(Math.min(cx,ae))}" y="${y+2}" width="${f1(Math.abs(ae-cx))}" height="14" rx="4" style="fill:var(--accent);opacity:${f1(.14*a)}"/>`;
         s+=`<path d="M${f1(cx)} ${yy}H${f1(ae)}" style="stroke:var(--accent);stroke-width:2.4;opacity:${f1(a)}" marker-end="url(#mtAr)"/>`;
-        s+=`<text x="${f1(T.d>0?ae+8:ae-8)}" y="${yy+3}" class="t-xs${T.d>0?'':' t-end'}" style="fill:var(--accent);font-weight:700;opacity:${f1(a)}">sepsis: ${T.s}</text>`}});
+        s+=`<text x="${f1(N?(T.d>0?cx+4:cx-4):(T.d>0?ae+8:ae-8))}" y="${N?yy+12:yy+3}" class="t-xs${T.d>0?'':' t-end'}" style="fill:var(--accent);font-weight:700;opacity:${f1(a)}">sepsis: ${T.s}</text>`}});
     return s}
   function draw(t){const N=vb(svg,'720 380','400 620'),p=phaseOf(MT_STEPS,t),st=MT_STEPS[p],nx=p<4?MT_STEPS[p+1].from:1.0001,lp=ramp(t,st.from,nx);
     const B=N?{x:12,y:12,w:376,h:446}:{x:12,y:12,w:696,h:262},K=N?{x:12,y:468,w:376,h:142}:{x:12,y:282,w:696,h:90};
