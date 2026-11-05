@@ -12,15 +12,15 @@
   "description": "Animated sensory day: hyper- and hypo-reactivity, overload, meltdown versus shutdown, stimming, hyperacusis rates and which supports have trial evidence."
  },
  "genes": {
-  "title": "Autism genetics: heritability, twin studies, risk genes and testing",
+  "title": "Autism genetics: heritability, twins, risk genes, testing",
   "description": "How genes shape autism: twin studies and 80% heritability, common and de novo variants, 16p11.2, fragile X, sibling recurrence and genetic test yields."
  },
  "risk": {
-  "title": "Autism risk factors and myths: what does and does not cause autism",
+  "title": "Autism risk factors and myths: what does not cause autism",
   "description": "Prenatal risk factors on a forest plot with absolute risks, why vaccines and parenting do not cause autism, and paracetamol in pregnancy explained."
  },
  "brain": {
-  "title": "The autistic brain in development: synapses, pruning and hypotheses",
+  "title": "The autistic brain in development: synapses and pruning",
   "description": "Brain growth from pregnancy to age 4, synapse pruning, infant MRI findings, E/I balance and other hypotheses with evidence labels. No scan diagnoses autism."
  },
  "milestones": {
@@ -32,15 +32,15 @@
   "description": "Follow 1,000 toddlers through M-CHAT-R/F screening and try a PPV calculator: why a positive screen is not a diagnosis. Teaching tools only. Cited."
  },
  "criteria": {
-  "title": "DSM-5-TR and ICD-11 autism criteria, support levels and 6A02 codes",
+  "title": "DSM-5-TR and ICD-11 autism criteria and support levels",
   "description": "Interactive walk-through of DSM-5-TR autism criteria A–E, support levels 1–3, specifiers and ICD-11 6A02.0–.5, plus how the names changed since 1980."
  },
  "assessment": {
-  "title": "Autism diagnostic assessment: ADOS-2, ADI-R, waits and differentials",
+  "title": "Autism diagnostic assessment: ADOS-2, ADI-R and waits",
   "description": "How autism is assessed in children and adults: the team, ADOS-2 and ADI-R accuracy, waiting times, median age at diagnosis and look-alike conditions."
  },
  "cooccur": {
-  "title": "Autism co-occurring conditions: ADHD, anxiety, depression, epilepsy",
+  "title": "Autism co-occurring conditions: ADHD, anxiety, epilepsy",
   "description": "How often autistic people also have ADHD, anxiety, depression, OCD, epilepsy or intellectual disability, when each tends to appear, and the AuDHD overlap."
  },
  "supports": {
@@ -48,7 +48,7 @@
   "description": "How strong is the evidence for early autism supports? Watch Project AIM effects shrink under stricter filters and follow the PACT trial for six years."
  },
  "aba": {
-  "title": "ABA therapy for autism: history, evidence and the autistic critique",
+  "title": "ABA therapy for autism: history, evidence and critique",
   "description": "Sixty years of behavioural approaches, from Lovaas and EIBI to NDBIs, with proponents' and autistic critics' arguments and a functional assessment ABC analyser."
  },
  "therapies": {
@@ -56,15 +56,15 @@
   "description": "AAC does not stop speech: PECS phases, speech-generating devices and a comparator of speech, OT, social skills, adapted CBT and music therapy, with evidence."
  },
  "meds": {
-  "title": "Autism medication: risperidone, aripiprazole, ADHD drugs, melatonin",
+  "title": "Autism medication: risperidone, aripiprazole, melatonin",
   "description": "No medicine treats autism itself. What risperidone and aripiprazole do for severe irritability, their side effects, and ADHD and sleep medicines."
  },
  "unproven": {
-  "title": "Unproven autism treatments: secretin, chelation, diets and stem cells",
+  "title": "Unproven autism treatments: secretin, chelation, diets",
   "description": "How secretin, chelation, hyperbaric oxygen, special diets and stem-cell clinics rose and fell, why vaccines do not cause autism, and how to judge claims."
  },
  "frontier": {
-  "title": "Autism research: oxytocin, bumetanide, leucovorin and new diagnostics",
+  "title": "Autism research: oxytocin, bumetanide, leucovorin",
   "description": "Autism trials 2010–2026 with evidence labels: failed drugs, early leads such as leucovorin, FDA-cleared diagnostic aids and what autistic people want studied."
  },
  "school": {
@@ -76,7 +76,7 @@
   "description": "Follow an autistic life from 16 to 75: the services cliff, work and study, masking and burnout, late diagnosis and ageing, with a workplace adjustments tool."
  },
  "health": {
-  "title": "Autism physical health: epilepsy, sleep, gut, safety and mortality",
+  "title": "Autism physical health: epilepsy, sleep, gut and safety",
   "description": "Epilepsy, sleep and melatonin, gut and feeding problems, teeth, weight, wandering and drowning in autism, and mortality and suicide data handled with care."
  },
  "nursing": {

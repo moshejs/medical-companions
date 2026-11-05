@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Medical Companions: animated, cited guides to 17 conditions</title>
-<meta name="description" content="Free animated, cited guides to Alzheimer's, Parkinson's, MS, ALS, myasthenia gravis, gout, FMF, bowel cancer, EDS, TB, BPD and ADHD. Not medical advice.">
+<meta name="description" content="Free animated, cited guides to 17 conditions, from Alzheimer's, MS and gout to heart attack, cirrhosis, TB, autism and ADHD. Not medical advice.">
 <link rel="canonical" href="%SITE%/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta property="og:type" content="website">
@@ -101,11 +101,13 @@ a{color:inherit;text-underline-offset:.18em;text-decoration-thickness:1px}
 
 /* welcome */
 .welcome{padding-block:44px 8px}
-.brand{display:inline-flex;align-items:center;gap:10px;font:700 17px var(--display);letter-spacing:.005em;text-decoration:none}
+.brand{display:inline-flex;align-items:center;min-height:44px;gap:10px;font:700 17px var(--display);letter-spacing:.005em;text-decoration:none}
 .brand .cup{width:30px;height:30px}
 h1{font:500 clamp(46px,7.6vw,92px)/.98 var(--display);letter-spacing:-.025em;margin:46px 0 0;text-wrap:balance}
 h1 .soft{display:block;font-style:italic;font-weight:400;color:var(--muted);font-size:.56em;letter-spacing:-.01em;line-height:1.15;margin-top:.28em}
 .lede{font-size:clamp(18px,1.9vw,21px);max-width:58ch;margin:26px 0 0;color:var(--ink)}
+.browse{margin:14px 0 0}
+.browse a{display:inline-flex;align-items:center;gap:.3em;min-height:44px;font-weight:700;color:var(--accent);text-decoration-thickness:1.5px}
 
 /* who are you here for */
 .here{margin:40px 0 0;padding:0;border:0;min-width:0}
@@ -151,13 +153,13 @@ h1 .soft{display:block;font-style:italic;font-weight:400;color:var(--muted);font
 .inside li::marker{color:var(--c)}
 .facts{margin:14px 0 0;font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:14px}
-.start{display:inline-flex;align-items:center;gap:4px;padding:9px 16px;border-radius:999px;background:var(--c);color:var(--panel);font-weight:700;font-size:15.5px;text-decoration:none;
+.start{display:inline-flex;align-items:center;min-height:44px;gap:4px;padding:9px 16px;border-radius:999px;background:var(--c);color:var(--panel);font-weight:700;font-size:15.5px;text-decoration:none;
   transition:filter .2s var(--ease)}
 .start:hover{filter:brightness(1.08)}
 .start.swap{animation:swap .5s var(--ease)}
 @keyframes swap{from{filter:blur(5px);opacity:.25;transform:translateY(4px)}to{filter:none;opacity:1;transform:none}}
 .langs{display:inline-flex;gap:14px;font-size:15px}
-.langs a{color:var(--c);font-weight:700}
+.langs a{color:var(--c);font-weight:700;display:inline-flex;align-items:center;min-height:44px}
 .langs a:first-child{display:none} /* "Open the guide" already goes there */
 
 /* how they're made */
@@ -166,6 +168,7 @@ h1 .soft{display:block;font-style:italic;font-weight:400;color:var(--muted);font
 .how h3{font:700 17px var(--body);margin:0 0 4px}
 .how p{margin:0;color:var(--muted);font-size:16px}
 footer{margin-top:56px;padding-block:22px max(36px,env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);font-size:14.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer a{padding-block:13px} /* a 44px tap target that takes no room in the line */
 @media (max-width:560px){
   .book{grid-template-columns:84px minmax(0,1fr);gap:16px;padding:16px}
   .emblem{width:46px;height:46px;margin-left:8px}
@@ -182,8 +185,9 @@ footer{margin-top:56px;padding-block:22px max(36px,env(safe-area-inset-bottom,0p
 <body>
 <header class="welcome wrap">
   <a class="brand" href="%SITE%/"><svg class="cup" viewBox="0 0 48 48" aria-hidden="true"><path d="M17 6c-2 2.5 2 4.5 0 7M24 4c-2 2.5 2 4.5 0 7M31 6c-2 2.5 2 4.5 0 7" fill="none" stroke="var(--steam)" stroke-width="2" stroke-linecap="round"/><path d="M9 17h28v6c0 8-6 14-14 14S9 31 9 23z" fill="var(--cup)"/><path d="M37 20h2.5a4.5 4.5 0 0 1 0 9H36" fill="none" stroke="var(--cup)" stroke-width="3" stroke-linecap="round"/><path d="M4 40h38" stroke="var(--cup)" stroke-width="3" stroke-linecap="round"/></svg>Medical Companions</a>
-  <h1>Pull up a chair.<span class="soft">Let's understand it together, one disease at a time.</span></h1>
+  <h1>Animated, cited guides to 17 conditions<span class="soft">Pull up a chair. Let's understand it together, one disease at a time.</span></h1>
   <p class="lede">Free guides for health-science students, for people living with a disease, and for the families who care for them. Each one shows how the disease works in animations you can scrub, and every claim links to its source.</p>
+  <p class="browse"><a href="#guides">Browse the guides<span aria-hidden="true"> ↓</span></a></p>
 
   <fieldset class="here" id="here" hidden>
     <legend>I'm here because…</legend>
@@ -198,7 +202,7 @@ footer{margin-top:56px;padding-block:22px max(36px,env(safe-area-inset-bottom,0p
   <p class="note"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="var(--accent)" stroke-width="1.9"/><path d="M12 10.5v6" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="7.4" r="1.4" fill="var(--accent)"/></svg><span><b>Not medical advice.</b> These are educational summaries of the published research. They cannot diagnose anyone, and nothing in them should change a treatment without your own clinician.</span></p>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="guides">
   <section class="shelf" aria-labelledby="brain">
     <h2 id="brain">The brain and nerves</h2>
     <p>Five guides to diseases of the brain, nerves and muscles, from the first changes in a cell to daily life years later.</p>

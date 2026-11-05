@@ -6,6 +6,7 @@
 <title>%TITLE%</title>
 <meta name="description" content="%DESC%">
 <link rel="canonical" href="%SITE%/%PATH%/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Medical Companions">
 <meta property="og:title" content="%TITLE%">
@@ -37,7 +38,7 @@ a{color:var(--accent);text-underline-offset:3px}
 dl{margin:0}dt{font-weight:700;margin-top:14px}dd{margin:2px 0 0;color:var(--ink)}
 .updated{color:var(--muted);font-size:15px}
 footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:15px;display:flex;flex-wrap:wrap;gap:6px 20px}
-footer a{color:var(--muted)}
+footer a{color:var(--muted);padding-block:13px} /* a 44px tap target that takes no room in the line */
 </style>
 <script type="application/ld+json">%LD%</script>
 </head>

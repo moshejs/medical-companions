@@ -95,7 +95,7 @@ svg :focus-visible{outline:2px solid var(--sea);outline-offset:1px}
   padding:10px 16px;border-radius:0 0 10px 0;font-weight:700;text-decoration:none}
 .skip:focus{left:0}
 @media (forced-colors:active){ .btn,.navbtn,.opt,.nu-q{border:1px solid ButtonText} }
-h1,h2,h3,h4{text-wrap:balance}
+h1,h2,h3,h4,.nsh{text-wrap:balance}
 sup.c{font:600 10px var(--mono);color:var(--sea);cursor:pointer;margin-left:1px;white-space:nowrap}
 sup.c:hover{text-decoration:underline}
 
@@ -155,7 +155,7 @@ main{min-width:0;padding:0 max(16px,env(safe-area-inset-right,0px)) 40px max(16p
 .eyebrow{font:600 12px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.13em;color:var(--sea);margin:0}
 .c-dz .eyebrow{color:var(--terra)} .c-colch .eyebrow{color:var(--crocus)}
 h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,6vw,80px);overflow-wrap:anywhere;line-height:.98;letter-spacing:-.025em;margin:0}
-h2{font-family:var(--display);font-weight:800;font-size:clamp(29px,4.2vw,46px);line-height:1.06;letter-spacing:-.02em;margin:0}
+h2,.nsh{font-family:var(--display);font-weight:800;font-size:clamp(29px,4.2vw,46px);line-height:1.06;letter-spacing:-.02em;margin:0}
 /* a module's own page makes its heading the h1 (tools/build.py); it keeps the h2 size */
 h1.mh{font-size:clamp(29px,4.2vw,46px);line-height:1.06;letter-spacing:-.02em}
 h3.sub{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:-.01em;margin:8px 0 0}
@@ -301,6 +301,26 @@ tr.hl td,tr.hl th{background:var(--terra-soft)}
 
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
+/* the crawler outline's title in <noscript> is not a heading (it came before the h1); it looks like one */
+[dir=rtl] .nsh{letter-spacing:0;line-height:1.12}
+/* labels no smaller than 12px */
+.brand .sm,.navgroup h3,.navbtn .n,.themebtn,.langbtn,.disclaimer b,.tag,.note .kicker,.kicker,.kv dt,.hook b:first-child,.pt b:first-child,
+thead th,.pager small,.stepper button b,.fc .face small,.srcs .key,.unit li .n,.teach b:first-child,.safety b:first-child,.crisis b:first-child,
+.callnow b:first-child,.banner b:first-child{font-size:12px}
+/* tap targets of at least 44px. A footer link grows its hit area with padding that takes no room in the line.
+   On a phone the chips keep their look: the visible pill is the padding box (its outline an inset shadow)
+   and a transparent border above and below makes the target 44px tall; the bar's own padding shrinks to match */
+.sitefoot a{padding-block:14px}
+@media (max-width:900px){
+  .side{padding-block:4px}
+  .brand{min-height:44px}
+  .navbtn{border:0;border-block:6px solid transparent;padding:7px 11px;background-clip:padding-box;box-shadow:inset 0 0 0 1px var(--line)}
+  .themebtn,.langbtn{border:0;border-block:8px solid transparent;padding:7px 11px;background-clip:padding-box;box-shadow:inset 0 0 0 1px var(--line)}
+}
+@media (max-width:900px) and (forced-colors:active){
+  .side{padding-block:10px}
+  .navbtn,.themebtn,.langbtn{border:1px solid ButtonText;padding:6px 10px}
 }
 </style>
 </head>

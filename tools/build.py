@@ -183,6 +183,8 @@ src_js = "const SOURCES=" + json.dumps(sources, ensure_ascii=False) + ";\n"
 html = "".join(parts) + "<!--JS-->" + js[0] + src_js + "".join(js[1:])
 html = html.replace("%SITE%", SITE)
 html = html.replace("</head>", i18n.ANALYTICS + "</head>", 1)
+# the author is the named human editor (site.json "editor"), not the companion's name
+if CFG.get("editor"): html = re.sub(r'<meta name="author" content="[^"]*">', lambda _: f'<meta name="author" content="{H.escape(CFG["editor"]["name"], quote=True)}">', html)
 
 def stamp(m):
     data = json.loads(m.group(1))
