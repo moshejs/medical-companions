@@ -43,6 +43,34 @@ footer a{color:var(--muted);padding-block:13px} /* a 44px tap target that takes 
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.medcompanions.org/privacy/","url":"https://www.medcompanions.org/privacy/","name":"Privacy · Medical Companions","description":"No accounts, cookies or ads. What Medical Companions keeps on your device, what it counts, and which services see your visit.","inLanguage":"en","isPartOf":{"@id":"https://www.medcompanions.org/#site"},"publisher":{"@id":"https://www.medcompanions.org/#org"},"dateModified":"2026-11-04"},{"@type":"Organization","@id":"https://www.medcompanions.org/#org","name":"Medical Companions","url":"https://www.medcompanions.org/","email":"hello@medcompanions.org","founder":{"@id":"https://www.medcompanions.org/about/#editor"},"parentOrganization":{"@type":"Organization","name":"Quentin.Code","url":"https://quentin.software"}},{"@type":"Person","@id":"https://www.medcompanions.org/about/#editor","name":"Moshe Malka","jobTitle":"Founder and editor","worksFor":{"@id":"https://www.medcompanions.org/#org"},"url":"https://www.medcompanions.org/about/"}]}</script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
+<!-- Google Analytics 4 (Consent Mode v2). Skipped on localhost, *.local, file:// and Vercel previews. -->
+<script>
+(function () {
+  var h = location.hostname;
+  if (!h || h === 'localhost' || h === '127.0.0.1' || /\.local$/.test(h) ||
+      h.indexOf('-git-') !== -1 || /-[a-z0-9]{9}-[a-z0-9-]+\.vercel\.app$/.test(h)) return;
+  var GA_ID = 'G-Z5BS957R33';
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    wait_for_update: 500
+  });
+  gtag('consent', 'default', {
+    ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted',
+    analytics_storage: 'granted'
+  });
+  gtag('js', new Date());
+  gtag('config', GA_ID);
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+  document.head.appendChild(s);
+})();
+</script>
 </head>
 <body>
 <div class="wrap">

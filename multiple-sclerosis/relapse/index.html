@@ -348,6 +348,34 @@ thead th,.pager small,.stepper button b,.fc .face small,.srcs .key,.unit li .n,.
 </style>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
+<!-- Google Analytics 4 (Consent Mode v2). Skipped on localhost, *.local, file:// and Vercel previews. -->
+<script>
+(function () {
+  var h = location.hostname;
+  if (!h || h === 'localhost' || h === '127.0.0.1' || /\.local$/.test(h) ||
+      h.indexOf('-git-') !== -1 || /-[a-z0-9]{9}-[a-z0-9-]+\.vercel\.app$/.test(h)) return;
+  var GA_ID = 'G-Z5BS957R33';
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    wait_for_update: 500
+  });
+  gtag('consent', 'default', {
+    ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted',
+    analytics_storage: 'granted'
+  });
+  gtag('js', new Date());
+  gtag('config', GA_ID);
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+  document.head.appendChild(s);
+})();
+</script>
 <style>sup.c a{color:inherit;text-decoration:inherit}</style>
 <style>body[data-page] [data-mod][hidden]{display:block!important;visibility:hidden;min-height:100vh}body[data-page] #homeUnits:empty{min-height:100vh}</style><noscript><style>body[data-page] [data-mod][hidden]{visibility:visible}body[data-page] #homeUnits:empty{min-height:0}</style></noscript>
 </head>

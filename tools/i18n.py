@@ -28,7 +28,7 @@ names parameters: {a} and {b} in the value become ${expr} (only inside a templat
 In a script a value is placed in the string as written, with the string's own quote
 escaped; in HTML it is placed as written (so it may carry tags), with " escaped inside a tag.
 """
-import json, pathlib, re
+import json, os, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CFG = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
@@ -42,6 +42,40 @@ CONTACT_EMAIL = "hello@medcompanions.org"
 # deployment serves at /_vercel/insights/script.js once Web Analytics is on for the project.
 ANALYTICS = ('<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>\n'
              '<script defer src="/_vercel/insights/script.js"></script>\n')
+
+# Google Analytics 4 (Consent Mode v2), added after Vercel's script on every page. The script
+# skips localhost, *.local, file:// (so tools/prerender.py and tools/smoke.py send nothing) and
+# Vercel preview hosts, so only the production site reports.
+GA_ID = os.environ.get("NEXT_PUBLIC_GA_ID") or "G-Z5BS957R33"
+ANALYTICS += """<!-- Google Analytics 4 (Consent Mode v2). Skipped on localhost, *.local, file:// and Vercel previews. -->
+<script>
+(function () {
+  var h = location.hostname;
+  if (!h || h === 'localhost' || h === '127.0.0.1' || /\\.local$/.test(h) ||
+      h.indexOf('-git-') !== -1 || /-[a-z0-9]{9}-[a-z0-9-]+\\.vercel\\.app$/.test(h)) return;
+  var GA_ID = '%GA_ID%';
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+    wait_for_update: 500
+  });
+  gtag('consent', 'default', {
+    ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted',
+    analytics_storage: 'granted'
+  });
+  gtag('js', new Date());
+  gtag('config', GA_ID);
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+  document.head.appendChild(s);
+})();
+</script>
+""".replace("%GA_ID%", GA_ID)
 LANGS = CFG["languages"]
 SOURCE = "en"
 
