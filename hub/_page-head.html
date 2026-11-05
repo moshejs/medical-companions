@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>%TITLE%</title>
+<meta name="description" content="%DESC%">
+<link rel="canonical" href="%SITE%/%PATH%/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Medical Companions">
+<meta property="og:title" content="%TITLE%">
+<meta property="og:description" content="%DESC%">
+<meta property="og:url" content="%SITE%/%PATH%/">
+<meta property="og:image" content="%SITE%/share-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#f6eee1;--panel:#fffaf1;--ink:#2b221c;--muted:#6a5a4e;--line:#e3d5c0;--accent:#9a4a1f;color-scheme:light}
+@media (prefers-color-scheme: dark){:root{--bg:#1c1814;--panel:#28211b;--ink:#f2e9dd;--muted:#bcac9a;--line:#3b3229;--accent:#f0a36e;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:44rem;margin:0 auto;padding:28px 22px 64px}
+.top{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.top a{color:var(--ink);font-weight:700;text-decoration:none;padding:10px 0;display:inline-block}
+.top nav{display:flex;flex-wrap:wrap;gap:0 20px}
+.top nav a{font-weight:600;color:var(--muted)}
+.top nav a[aria-current]{color:var(--ink)}
+h1{font:700 clamp(34px,6vw,50px)/1.08 Georgia,"Times New Roman",serif;margin:0 0 14px;letter-spacing:-.01em}
+.lede{font-size:20px;color:var(--muted);margin:0 0 30px}
+h2{font:700 26px/1.2 Georgia,"Times New Roman",serif;margin:42px 0 10px}
+h3{font-size:18px;margin:24px 0 4px}
+p,li{margin:0 0 14px}
+ul{padding-left:1.2em}
+a{color:var(--accent);text-underline-offset:3px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:18px 0}
+.card p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:14px;font-weight:700;padding:1px 9px;border-radius:999px;border:1px solid var(--line);background:var(--panel);white-space:nowrap}
+dl{margin:0}dt{font-weight:700;margin-top:14px}dd{margin:2px 0 0;color:var(--ink)}
+.updated{color:var(--muted);font-size:15px}
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:15px;display:flex;flex-wrap:wrap;gap:6px 20px}
+footer a{color:var(--muted)}
+</style>
+<script type="application/ld+json">%LD%</script>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a href="%SITE%/">Medical Companions</a>
+  <nav aria-label="Site"><a href="%SITE%/">All guides</a><a href="%SITE%/about/"%CUR_about%>About</a><a href="%SITE%/privacy/"%CUR_privacy%>Privacy</a></nav>
+</header>
+<main>
