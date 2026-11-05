@@ -76,8 +76,8 @@ const PR_MSTEPS=[
 const PR_MBARS=[
  {rows:[['vasopressor + lactate >2 after fluids',42.3]],cap:'hospital mortality, Sepsis-3 derivation'},
  {txt:['strong recommendation','moderate quality of evidence','~60 mm Hg: perfusion threshold']},
- {rows:[['80–85 mm Hg, day 28',36.6],['65–70 mm Hg, day 28',34.0],['80–85 mm Hg, day 90',43.8],['65–70 mm Hg, day 90',42.3]],cap:'SEPSISPAM mortality'},
- {rows:[['60–65 mm Hg, day 90',41.0],['usual care, day 90',43.8]],cap:'65 trial mortality',extra:'vasopressors: median 33 vs 38 h'},
+ {rows:[['80–85 mm Hg, day 28',36.6,'var(--accent)'],['65–70 mm Hg, day 28',34.0,'var(--rx)'],['80–85 mm Hg, day 90',43.8,'var(--accent)'],['65–70 mm Hg, day 90',42.3,'var(--rx)']],cap:'SEPSISPAM mortality'},
+ {rows:[['60–65 mm Hg, day 90',41.0,'var(--rx)'],['usual care, day 90',43.8,'var(--muted)']],cap:'65 trial mortality',extra:'vasopressors: median 33 vs 38 h'},
  {txt:['RR 0.93 (95% CrI 0.76 to 1.07)','87% probability lower is better','low certainty']}
 ];
 const PR_ST=[
@@ -178,7 +178,7 @@ inits.pressors=()=>{
     if(ph===3)return lerp(65,62.5,ease(ramp(t,.6,.68)));
     return S.needle};
   function drawM(t){
-    const N=vb(ms,'720 320','400 480'),ph=phaseOf(PR_MSTEPS,t),S=PR_MSTEPS[ph],v=NEED(t);
+    const N=vb(ms,'720 320','400 440'),ph=phaseOf(PR_MSTEPS,t),S=PR_MSTEPS[ph],v=NEED(t);
     const G=N?{x:200,y:206,r:150}:{x:200,y:236,r:162};
     let s=`<text x="${N?14:20}" y="${N?20:24}" class="t-lbl">${ph+1} · ${S.t}</text>`;
     /* zones: cumulative bands for the gauge */
@@ -188,7 +188,7 @@ inits.pressors=()=>{
     /* right panel */
     const B=PR_MBARS[ph],bx=N?20:420,by=N?262:70,bw=N?300:220;
     if(B.rows){s+=`<text x="${bx}" y="${by}" class="t-sm" style="fill:var(--ink)">${B.cap}</text>`;
-      B.rows.forEach(([l,val],i)=>{const y=by+18+i*(N?38:44),w=bw*val/60;s+=`<text x="${bx}" y="${y}" class="t-xs">${l}</text><rect x="${bx}" y="${y+5}" width="${bw}" height="14" rx="3" style="fill:var(--panel-2)"/><rect x="${bx}" y="${y+5}" width="${f1(w*ease(ramp(t,S.from,S.from+.06)))}" height="14" rx="3" style="fill:${i%2?'var(--muted)':'var(--rx)'}"/><text x="${f1(bx+bw+6)}" y="${y+16}" class="t-sm" style="fill:var(--ink);font-weight:700">${val.toFixed(1)}%</text>`});
+      B.rows.forEach(([l,val,bc],i)=>{const y=by+18+i*(N?38:44),w=bw*val/60;s+=`<text x="${bx}" y="${y}" class="t-xs">${l}</text><rect x="${bx}" y="${y+5}" width="${bw}" height="14" rx="3" style="fill:var(--panel-2)"/><rect x="${bx}" y="${y+5}" width="${f1(w*ease(ramp(t,S.from,S.from+.06)))}" height="14" rx="3" style="fill:${bc||'var(--rx)'}"/><text x="${f1(bx+bw+6)}" y="${y+16}" class="t-sm" style="fill:var(--ink);font-weight:700">${val.toFixed(1)}%</text>`});
       if(B.extra)s+=`<text x="${bx}" y="${by+18+B.rows.length*(N?38:44)+4}" class="t-xs" style="fill:var(--ink)">${B.extra}</text>`;
       s+=`<text x="${bx}" y="${by+18+B.rows.length*(N?38:44)+(B.extra?20:4)}" class="t-xs">scale 0–60%</text>`}
     else B.txt.forEach((l,i)=>{s+=`<text x="${bx}" y="${by+22+i*(N?30:34)}" class="${i?'t-sm':'t-big'}" style="fill:var(--ink)">${l}</text>`});

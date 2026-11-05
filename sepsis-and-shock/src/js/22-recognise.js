@@ -71,8 +71,8 @@ inits.recognise=()=>{
   /* ---------- 1. the SEPSIS signs ---------- */
   const svg=$('#rcSvg'),rg=$('#rcT');
   function draw(t){
-    const N=vb(svg,'720 380','400 600'),p=phaseOf(RC_STEPS,t),st=RC_STEPS[p],nx=p<RC_STEPS.length-1?RC_STEPS[p+1].from:1.0001,lp=ease(ramp(t,st.from,st.from+(nx-st.from)*.45)),si=p-1;
-    const L=N?{bx:200,by:66,bs:.78,th:{x:150,y:72},rx:16,ry:318,rw:368,rh:34,ix:24,iy:546}:{bx:170,by:62,bs:1.05,th:{x:96,y:80},rx:356,ry:44,rw:346,rh:40,ix:372,iy:302};
+    const N=vb(svg,'720 380','400 630'),p=phaseOf(RC_STEPS,t),st=RC_STEPS[p],nx=p<RC_STEPS.length-1?RC_STEPS[p+1].from:1.0001,lp=ease(ramp(t,st.from,st.from+(nx-st.from)*.45)),si=p-1;
+    const L=N?{bx:200,by:66,bs:.78,th:{x:150,y:72},rx:16,ry:318,rw:368,rh:34,ix:24,iy:566}:{bx:170,by:62,bs:1.05,th:{x:96,y:80},rx:356,ry:44,rw:346,rh:40,ix:372,iy:302};
     let s='';
     const shiv=si===1?Math.sin(t*900)*2.4*lp:0;
     const B=body(L.bx+shiv,L.by,L.bs,{id:'rcB',infect:{site:'lung',v:p===0?.4+.6*lp:.35},mottle:si===5?lp:0,cold:si===5?lp:0});
@@ -114,7 +114,7 @@ inits.recognise=()=>{
   const PCOL=['var(--panel)','var(--warn-soft)','var(--accent-soft)','var(--bad-soft)'];
   function draw2(t){
     const N=vb(svg2,'720 380','400 560'),p=phaseOf(RC_STEPS2,t),st=RC_STEPS2[p],hr=clamp(t*10,0,8);
-    const L=N?{lx:10,cx:112,cw:56,ry:36,rh:34,gx:40,gy:290,gw:340,gh:220}:{lx:16,cx:136,cw:110,ry:34,rh:30,gx:60,gy:236,gw:620,gh:124};
+    const L=N?{lx:10,cx:108,cw:52,ry:36,rh:34,gx:40,gy:290,gw:340,gh:220}:{lx:16,cx:136,cw:110,ry:34,rh:30,gx:60,gy:236,gw:620,gh:124};
     let s=`<text x="${L.lx}" y="${L.ry-14}" class="t-xs">invented example · all on air</text>`;
     RC_OBS.forEach((o,j)=>{const x=L.cx+j*(L.cw+4),vis=ramp(hr,o.h-.6,o.h);
       s+=`<text x="${f1(x+L.cw/2)}" y="${L.ry-2}" class="t-xs t-mid" style="fill:${vis>0?'var(--ink)':'var(--muted)'}">h${o.h}</text>`;

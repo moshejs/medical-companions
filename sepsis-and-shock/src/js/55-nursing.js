@@ -22,7 +22,7 @@ const NR_HK=[[0,8],[.12,12],[.25,14],[.37,14.17],[.5,14.5],[.62,15],[.75,16],[.8
 const nrHour=t=>{const k=NR_HK;if(t<=0)return 8;for(let i=1;i<k.length;i++)if(t<=k[i][0]){const a=k[i-1],b=k[i];return a[1]+(b[1]-a[1])*(t-a[0])/(b[0]-a[0])}return 18.5};
 const nrClk=h=>{const H=Math.floor(h),M=Math.round((h-H)*60);return String(M===60?H+1:H).padStart(2,'0')+':'+String(M===60?0:M).padStart(2,'0')};
 const NR_LOOP=['Observe','Score','Escalate','Act','Reassess'];
-const NR_DO=[['Blood cultures × 2',14.17],['Antibiotic started',14.5],['Vasopressor: vein at or above elbow',15],['Site checked, BP every 2–5 min',15.2],['Hourly urine, fluid balance',16]];
+const NR_DO=[['Blood cultures × 2',14.17],['Antibiotic started',14.5],['Vasopressor, vein at/above elbow',15],['Site checked, BP every 2–5 min',15.2],['Hourly urine, fluid balance',16]];
 const NR_STEPS=[
  {from:0,at:.03,loop:0,k:'08:00 · observations',t:'Observe: a baseline set',
   txt:`A full set of observations is taken and scored. Early warning scores were built for this: the original NEWS predicted death within 24 hours with an AUROC of 0.894, better than 33 other scores tested. [[Smith2013NEWS]] SSC 2021 recommends sepsis screening of acutely ill, high-risk patients as part of a hospital programme (strong). [[Evans2021SSC]]`,
@@ -78,8 +78,8 @@ const NR_Q=[
 inits.nursing=()=>{
   const svg=$('#nrSvg'),rg=$('#nrT'),note=$('#nrNote'),rd=$('#nrRead');let setSt=()=>{};
   function draw(t){
-    const N=vb(svg,'720 400','400 640'),h=nrHour(t),p=phaseOf(NR_STEPS,t),S=NR_STEPS[p];
-    const L=N?{tx:14,ty:22,cx0:10,lw:84,cw:58,ry:76,rh:27,lc:[112,418],lr:60,nr:23,ck:[316,402],cr:40,dx:14,dy:500,dh:24}
+    const N=vb(svg,'720 400','400 668'),h=nrHour(t),p=phaseOf(NR_STEPS,t),S=NR_STEPS[p];
+    const L=N?{tx:14,ty:22,cx0:10,lw:84,cw:58,ry:76,rh:27,lc:[112,418],lr:60,nr:23,ck:[316,402],cr:40,dx:14,dy:540,dh:25}
              :{tx:20,ty:24,cx0:20,lw:92,cw:46,ry:78,rh:30,lc:[540,138],lr:76,nr:27,ck:[420,312],cr:38,dx:480,dy:262,dh:26};
     let s=`<defs>${marker('nrA','var(--muted)')}</defs>`;
     s+=`<text x="${L.tx}" y="${L.ty}" class="t-big">${p+1} · ${S.t}</text><text x="${L.tx}" y="${L.ty+16}" class="t-sm">${nrClk(h)} · illustrative ward patient</text>`;
@@ -102,19 +102,18 @@ inits.nursing=()=>{
     const[lx,ly]=L.lc;s+=`<circle cx="${lx}" cy="${ly}" r="${L.lr}" style="fill:none;stroke:var(--line);stroke-width:2;stroke-dasharray:4 5"/>`;
     const ang=i=>-Math.PI/2+i*2*Math.PI/5,np=i=>[lx+Math.cos(ang(i))*L.lr,ly+Math.sin(ang(i))*L.lr];
     const li=S.loop,prev=p>0?NR_STEPS[p-1].loop:0,mu=ease(ramp(t,S.from,S.from+.05)),ma=lerp(ang(prev),ang(li)+(li<prev?2*Math.PI:0),mu);
+    s+=`<circle cx="${f1(lx+Math.cos(ma)*L.lr)}" cy="${f1(ly+Math.sin(ma)*L.lr)}" r="5" style="fill:var(--accent);stroke:var(--panel);stroke-width:1.5"/>`;
     NR_LOOP.forEach((n,i)=>{const[x,y]=np(i),on=i===li;
       s+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="${L.nr}" style="fill:${on?'var(--rec)':'var(--panel)'};stroke:${on?'var(--rec)':'var(--muted)'};stroke-width:1.6"/><text x="${f1(x)}" y="${f1(y+3)}" class="t-xs t-mid" style="fill:${on?'var(--bg)':'var(--ink)'};font-weight:700;font-size:${N?8.5:9.5}px">${n}</text>`});
-    s+=`<circle cx="${f1(lx+Math.cos(ma)*L.lr)}" cy="${f1(ly+Math.sin(ma)*L.lr)}" r="5" style="fill:var(--accent);stroke:var(--panel);stroke-width:1.5"/>`;
     s+=`<text x="${lx}" y="${ly-4}" class="t-xs t-mid">NEWS2</text><text x="${lx}" y="${ly+16}" class="t-big t-mid" style="fill:${band[1]}">${sc}</text><text x="${lx}" y="${ly+30}" class="t-xs t-mid" style="fill:${band[1]};font-weight:700">${band[0]}</text>`;
     /* the first-hour clock from the escalation call, and the action list */
     const mins=clamp((h-14)*60,0,60),[kx,ky]=L.ck;
-    s+=clock(kx,ky,L.cr,mins,{h0:14,col:'var(--rx)',label:h>=14?`${Math.round(mins)} min since the call`:'first hour (from the call)',marks:h>=14?[{min:10,col:'var(--pathogen)'},{min:30,col:'var(--rx)'}]:[]});
-    if(h>=14)s+=`<text x="${kx}" y="${ky-L.cr-8}" class="t-xs t-mid" style="fill:var(--ink)">dots: cultures, antibiotic</text>`;
+    s+=clock(kx,ky,L.cr,mins,{h0:14,col:'var(--rx)',label:h>=14?`${Math.round(mins)} min since the call`:'first hour (from the call)',marks:h>=14?[{min:10,col:'var(--pathogen)',label:'cultures'},{min:30,col:'var(--rx)',label:'abx'}]:[]});
     s+=`<text x="${L.dx}" y="${L.dy-12}" class="t-sm" style="fill:var(--rec)">ACTIONS</text>`;
     NR_DO.forEach(([lab,at],i)=>{const y=L.dy+i*L.dh,done=h>=at-.001;
       s+=`<rect x="${L.dx}" y="${y-11}" width="15" height="15" rx="4" style="fill:${done?'var(--rec)':'var(--panel)'};stroke:var(--rec);stroke-width:1.4"/>`;
       if(done)s+=`<path d="M${L.dx+3.5} ${y-4}l3.5 3.5l5 -7" style="fill:none;stroke:var(--panel);stroke-width:2;stroke-linecap:round"/>`;
-      s+=`<text x="${L.dx+22}" y="${y+1}" class="t-xs" style="fill:var(--ink);font-weight:${done?700:500};font-size:10.5px">${lab}</text><text x="${(N?386:706)}" y="${y+1}" class="t-xs t-end">${nrClk(at)}</text>`});
+      s+=`<text x="${L.dx+22}" y="${y+1}" class="t-xs">${nrClk(at)}</text><text x="${L.dx+58}" y="${y+1}" class="t-xs" style="fill:var(--ink);font-weight:${done?700:500};font-size:10.5px">${lab}</text>`});
     svg.innerHTML=s;
     rd.innerHTML=`<span>Time <b>${nrClk(h)}</b></span><span>Latest NEWS2 <b>${sc}</b> (${band[0]})</span><span>Loop <b>${NR_LOOP[li]}</b></span>`;
     note.innerHTML=noteHTML(S);setSt(p);

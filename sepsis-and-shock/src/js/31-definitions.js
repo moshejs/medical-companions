@@ -65,9 +65,9 @@ inits.definitions=()=>{
       chips.forEach((c,i)=>{const cw=N?84:110,cx0=N?P.x+12+i*(cw+6):P.x+P.w-4*(cw+8)+i*(cw+8),cy0=P.y+14;
         s+=`<rect x="${cx0}" y="${cy0}" width="${cw}" height="24" rx="12" style="fill:var(--panel);stroke:var(--dx);opacity:${f1(p===1?.6:ramp(lp,.1,.4))}"/><text x="${cx0+cw/2}" y="${cy0+16}" class="t-xs t-mid" style="fill:var(--ink)">${c}</text>`});
       s+=`<text x="${N?P.x+12:P.x+P.w-4*118}" y="${P.y+54}" class="t-xs">SIRS: any 2 of 4</text>`;
-      if(p===1){const L=['P','I','R','O'],W2=['Predisposition','Infection','Response','Organ dysfunction'];L.forEach((c,i)=>{const px=N?P.x+P.w-130:P.x+30,py=P.y+(N?80:70)+i*28;
+      if(p===1){const L=['P','I','R','O'],W2=['Predisposition','Infection','Response','Organ dysfunction'];L.forEach((c,i)=>{const px=N?P.x+12+(i%2)*180:P.x+30,py=N?P.y+64+Math.floor(i/2)*26:P.y+70+i*28;
         s+=`<g style="opacity:${f1(ramp(lp,i*.15,i*.15+.3))}"><text x="${px}" y="${py+14}" class="t-big" style="fill:var(--rx)">${c}</text><text x="${px+18}" y="${py+13}" class="t-xs">${W2[i]}</text></g>`});
-        s+=`<text x="${N?P.x+P.w-130:P.x+30}" y="${P.y+(N?200:190)}" class="t-xs" style="fill:var(--rx)">PIRO: a hypothesis</text>`}}
+        s+=`<text x="${N?P.x+12:P.x+30}" y="${P.y+(N?130:190)}" class="t-xs" style="fill:var(--rx)">PIRO: a hypothesis</text>`}}
     if(p===2){/* the SIRS gate */
       const gx=N?cx:P.x+P.w*.55,gy=N?P.y+70:P.y+30,gh=N?300:P.h-90;
       s+=`<rect x="${gx-8}" y="${gy}" width="16" height="${gh}" rx="4" style="fill:var(--dx)"/><text x="${gx}" y="${gy-8}" class="t-sm t-mid" style="fill:var(--ink);font-weight:600">≥2 SIRS?</text>`;
@@ -75,7 +75,7 @@ inits.definitions=()=>{
         let x=lerp(x0,gx+(N?120:200),ramp(lp,i*.05,.6+i*.05)),y=yy;
         if(miss&&x>gx-30){x=gx-30;y=lerp(yy,gy+gh+4,ramp(lp,.55,.9))}
         s+=person(x,y,Math.min(18,(gh-10)/8-3),miss?'var(--muted)':'var(--dx)')}
-      s+=`<text x="${N?P.x+16:P.x+40}" y="${P.y+P.h-20}" class="t-sm" style="fill:var(--ink)">1 in 8 (12.1%) with infection and organ failure were SIRS-negative</text>`}
+      s+=N?`<text x="${P.x+16}" y="${P.y+P.h-34}" class="t-sm" style="fill:var(--ink)">1 in 8 (12.1%) with infection and</text><text x="${P.x+16}" y="${P.y+P.h-18}" class="t-sm" style="fill:var(--ink)">organ failure were SIRS-negative</text>`:`<text x="${P.x+40}" y="${P.y+P.h-20}" class="t-sm" style="fill:var(--ink)">1 in 8 (12.1%) with infection and organ failure were SIRS-negative</text>`}
     if(p===3||p===4){/* nested sets */
       const ex=N?cx:P.x+P.w*.4,ey=N?P.y+190:P.y+P.h/2,R=N?170:150,sc=p===3?ease(lp):1;
       s+=`<ellipse cx="${ex}" cy="${ey}" rx="${f1(R*sc)}" ry="${f1(R*.78*sc)}" style="fill:var(--panel);stroke:var(--muted);stroke-width:1.4"/><text x="${ex}" y="${f1(ey-R*.78*sc+20)}" class="t-lbl t-mid">Infection</text>`;
