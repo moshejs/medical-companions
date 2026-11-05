@@ -38,7 +38,7 @@ python3 tools/share_card.py alcohol-use-disorder/src/share-card.html alcohol-use
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Deep olive carries the interface; plum marks screening and diagnosis, ember withdrawal and acute care (also the safety callouts), and teal treatment and recovery. In the drawings, blue is GABA (inhibition), ember-red glutamate (excitation), amber ethanol and acetaldehyde, brown-red the liver and yellow-green thiamine. No drawing shows a drink as attractive. Fonts: Alegreya, Mulish and DM Mono. The icon is a liver lobe with a rising recovery line.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`synapse`, `balance`, `brain`, `liver`, `pathway`, `curve`, `bacSeries`, `bodymap`, `person`, `symptoms`, `mol`, `tank`, `gauge`, `beaker`, `pill`, `ladder`, `tline`, `ped`, `marker`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`synapse`, `balance`, `brain`, `liver`, `pathway`, `curve`, `bacSeries`, `bodymap`, `person`, `symptoms`, `mol`, `tank`, `gauge`, `beaker`, `pill`, `ladder`, `tline`, `ped`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys is in `strings.json`.

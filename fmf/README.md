@@ -45,7 +45,7 @@ compiled with.
 
 - `00-head.html` holds all CSS (theme tokens for light and dark).
 - Animations have two layouts. `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement rather than a shrunken one.
-- `sections/*.html` and `js/*.js` hold one module each; `js/00-core.js` has the shared helpers (`playWire`, `stepWire`, `noteHTML`, routing).
+- `sections/*.html` and `js/*.js` hold one module each; `js/01-config.js` has the storage prefix, `MODS` and `GROUPS`, and `js/02-draw.js` the neutrophil glyph; the shared runtime (`playWire`, `stepWire`, `noteHTML`, routing) is `tools/core/`.
 - Citations are written as `[[Key]]` and become numbered links at build time.
 
 No build dependencies beyond Python 3. External resources: Google Fonts only.

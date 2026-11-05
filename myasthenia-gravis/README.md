@@ -37,7 +37,7 @@ python3 tools/share_card.py myasthenia-gravis/src/share-card.html myasthenia-gra
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `src/00-head.html` holds all CSS (theme tokens for light and dark) and the metadata. Nerve blue is the signal, receptor green the healthy junction, antibody rose the disease, complement red the attack, indigo the treatment, gold acetylcholine.
-- `src/js/00-core.js` has the shared helpers, routing and the junction drawing kit (`achDot`, `vesicle`, `achr`, `igg`, `eyelid`), so every module draws the junction the same way.
+- `src/js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `src/js/02-draw.js` has the junction drawing kit (`achDot`, `vesicle`, `achr`, `igg`, `eyelid`), so every module draws the junction the same way.
 - `src/sections/*.html` and `src/js/*.js` hold one module each. Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table.
 - Citations are written as `[[Key]]` and become numbered links at build time.
 - `src/source-corrections.json` is applied by `tools/compile_sources.py` after the merge, so validated fixes survive a regeneration.

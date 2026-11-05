@@ -38,7 +38,7 @@ python3 tools/share_card.py borderline-personality-disorder/src/share-card.html 
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Dusky lavender-violet carries the interface and sea green is the accent: it means calm, skills and therapy. Rose means emotional intensity and distress, dusky blue diagnosis and assessment, amber medication and safety. No colour stands for a "good" or "bad" person. Fonts: Playfair Display, Source Sans 3 and Overpass Mono.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`moodF`, `wave`, `thermo`, `brain`, `synapse`, `person`, `bond`, `bubble`, `ladder`, `pill`, `tline`, `ped`, `marker`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`moodF`, `wave`, `thermo`, `brain`, `synapse`, `person`, `bond`, `bubble`, `ladder`, `pill`, `tline`, `ped`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys is in `strings.json`.
