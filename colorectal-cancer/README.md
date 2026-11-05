@@ -38,7 +38,7 @@ python3 tools/share_card.py colorectal-cancer/src/share-card.html colorectal-can
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Mulberry carries the interface and colorectal-awareness navy is the accent; healthy mucosa is pink, crypt stem cells green, polyps amber, carcinoma crimson, lymph and spread violet, treatment teal. Fonts: Literata, Atkinson Hyperlegible and Red Hat Mono.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`crypt`, `polyp`, `wall`, `colon`, `node`, `liver`, `scope`, `person`, `ped`, `tube`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`crypt`, `polyp`, `wall`, `colon`, `node`, `liver`, `scope`, `person`, `ped`, `tube`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys is in `strings.json`.

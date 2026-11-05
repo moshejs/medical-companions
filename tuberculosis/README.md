@@ -38,7 +38,7 @@ python3 tools/share_card.py tuberculosis/src/share-card.html tuberculosis/share-
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Rust carries the interface and slate blue (the methylene-blue counterstain of a Ziehl–Neelsen smear) is the accent and marks diagnosis. The bacillus is carbol-fuchsin magenta, as it stains; treatment is green, prevention and vaccines violet, and each first-line drug has its own chip colour (rifampicin orange, after the colour it gives body fluids). Fonts: Zilla Slab, Atkinson Hyperlegible and Space Mono.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`bacillus`, `clump`, `droplet`, `macrophage`, `tcell`, `granuloma`, `alveolus`, `lung`, `person`, `pill`, `blister`, `forearm`, `sputum`, `marker`, `blob`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`bacillus`, `clump`, `droplet`, `macrophage`, `tcell`, `granuloma`, `alveolus`, `lung`, `person`, `pill`, `blister`, `forearm`, `sputum`, `blob`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys is in `strings.json`.

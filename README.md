@@ -32,6 +32,7 @@ The hub at `/` links to each one and carries the shared method and disclaimer. E
 site.json            the site address, the languages table, and the companions (names, languages, reviewers, old addresses)
 hub/index.html       the hub page source (hub/share-card.html renders its share image, hub/404.html the not-found page)
 tools/               build tools shared by every companion; tools/i18n/<lang>.json holds the UI strings they share
+tools/core/          the script runtime every companion shares (helpers, routing, nav, theme, the player, boot)
 <companion>/src/     a companion's parts: head and styles, shell, sections, js, sources.json, pages.json, strings.json
                      (<lang>/ for a translation: he/)
 <companion>/index.html, <companion>/<module>/index.html, <companion>/app.js   built pages and their shared script
@@ -42,6 +43,21 @@ index.html, 404.html, share-card.png, sitemap.xml, robots.txt   built from hub/ 
 Each companion keeps its own look (palette, fonts, icon) and its own `compile_sources.py`, since those are content. Everything that turns parts into a page is shared.
 
 Both companions' git histories were carried over from `moshejs/alzheimers-companion` and `moshejs/fmf-companion`. Each arrived in a commit titled "Bring in …", whose second parent is the old repository's history (`git log <that commit>^2`); those older commits use the old paths, without the `alzheimers/` or `fmf/` prefix.
+
+### The script
+
+Every page runs one script, built from the shared runtime in `tools/core/` and the companion's own `src/js/*.js`, concatenated in file-name order inside one `<script>` and one closure, so every part sees the others' names:
+
+| File | Whose | What it holds |
+|---|---|---|
+| `tools/core/00-core.js` | shared | opens the script; `$`, `$$`, `store` (localStorage under the companion's `PREFIX`), `rng`, `lerp`, `clamp`, `ramp`, `ease`, `bump`, `f1`, `animate`, `pathFn`, `marker` |
+| `<companion>/src/js/01-config.js` | companion | `PREFIX` (its storage key prefix, such as `'fmfc:'`), `MODS` (the modules in nav order: `{id,t,g,n,d}`; the build reads it too) and `GROUPS` (each group's name and colour classes) |
+| `<companion>/src/js/02-draw.js` | companion, optional | its drawing kit: the glyphs its modules share (gout's `needle()` and `rhomb()`, the ALS `bodyMap()` ...) |
+| `tools/core/03-router.js` | shared | module pages and `#module` routing, the nav, the home page's unit list, the pager, the cite click handler, the skip link, the language link, the theme button, narrow mode (`NARROW`, `vb`), the aria-live guard, the player (`playWire`, `stepWire`, `phaseOf`, `noteHTML`) |
+| `<companion>/src/js/05-*.js` … | companion | one module each: `inits.<id>=()=>{…}` |
+| `tools/core/99-boot.js` | shared | shows the first module and closes the script |
+
+`SOURCES` (from `sources.json`) follows `00-core.js`. A fix to the runtime goes in `tools/core/` once and reaches every companion and language at the next build; a companion keeps no copy of a shared file (the build stops if it finds one). The runtime's words are `%t:` UI strings, so a translation needs only its own `src/<lang>/js/01-config.js` for the module and group names; a drawing kit falls back to English without being listed as untranslated, so a kit that draws words needs its own `src/<lang>/js/02-draw.js`.
 
 ## Building
 
@@ -74,7 +90,7 @@ What the build takes care of, so a change doesn't undo it:
 
 ### Adding a companion
 
-1. Put its parts in `<slug>/src/`, using `%SITE%/<slug>/` for its own address in the metadata.
+1. Put its parts in `<slug>/src/`, using `%SITE%/<slug>/` for its own address in the metadata. Its script is only its config and content: `js/01-config.js` (a `PREFIX` no other companion uses, `MODS`, `GROUPS`), `js/02-draw.js` if it has a drawing kit, and one `js/*.js` per module; the runtime comes from `tools/core/` (see [The script](#the-script)).
 2. Add it to `site.json` and give it a card in `hub/index.html` (`%CITED:<slug>%` fills in its cited-source count).
 3. Link the others from its footer, run `tools/build_site.py`, then `tools/smoke.py <slug>/index.html all`.
 
@@ -88,7 +104,7 @@ English is the source. Every other language is built from the same parts, and no
 
 **Review gate.** Machine translation of medical text is not published unreviewed. A translated page is indexed only when it is complete and its language has a named reviewer:
 
-- complete: none of its parts (shell, footer, core script, its section, its module script, `meta.html`) falls back to English, and neither does any UI string it uses
+- complete: none of its parts (shell, footer, `js/01-config.js`, its section, its module script, `meta.html`) falls back to English, and neither does any UI string it uses
 - reviewed: `reviewers.<lang>.name` is filled in. The page's `MedicalWebPage` structured data then carries `reviewedBy` and `lastReviewed`, and its footer names the reviewer, so the structured data matches what the page shows
 
 Any other page is still built, so it can be read and reviewed at its address, but it is `noindex`, has no `hreflang` links, is not linked from the others' `hreflang`, and is left out of `sitemap.xml`. Every build reports per language what is untranslated, which strings are missing and the review status. Hebrew was published before review was tracked, so each companion lists it in `indexed_without_review`; remove it from there once a Hebrew reviewer is named. No other language should be added to that list. Every page's structured data carries `inLanguage`.
@@ -100,7 +116,7 @@ Any other page is still built, so it can be read and reviewed at its address, bu
 **Adding a language to a companion**
 
 1. Add the language to the table in `site.json` if it is not there, then to the companion's `langs`, with an empty reviewer.
-2. Translate `tools/i18n/<lang>.json` (if no companion has the language yet), then `<companion>/src/<lang>/meta.html`, `strings.json`, `pages.json`, `10-shell.html`, `90-foot.html`, and the sections and `js/` files. A file that is missing falls back to English.
+2. Translate `tools/i18n/<lang>.json` (if no companion has the language yet), then `<companion>/src/<lang>/meta.html`, `strings.json`, `pages.json`, `10-shell.html`, `90-foot.html`, and the sections and `js/` files (`js/01-config.js` holds the module and group names; the shared runtime in `tools/core/` needs no translation). A file that is missing falls back to English.
 3. Run `python3 tools/check_lang.py <companion> <lang>`. It compares each translated part with its English part: the code and element structure must match exactly, and so must the citations and the numbers, so a translation cannot drop a citation or change a dose. It checks the strings files the same way, and lists text that still looks like English.
 4. Run `tools/build_site.py`, then `tools/smoke.py <companion>/<lang>/index.html all`. Until step 5 every page in the language is `noindex`.
 5. When the language's named medical reviewer has signed off, fill in `reviewers.<lang>` in `site.json` and rebuild. The finished pages join the sitemap and the `hreflang` sets.

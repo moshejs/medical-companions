@@ -39,7 +39,7 @@ python3 tools/share_card.py als/src/share-card.html als/share-card.png
 ```
 
 - `src/00-head.html` holds the CSS, with theme tokens for light and dark: steel blue for the interface and the healthy pathway, violet for the upper motor neuron, ochre for the lower motor neuron, brick red for pathology, green for treatment, sky blue for breathing and wheat for nutrition. Every colour also has a text label.
-- `src/js/00-core.js` has the shared helpers, the drawing kit (`umn`, `lmn`, `fibre`, `tdp`, `bodyMap`) and, in `UI`, every interface string the core writes.
+- `src/js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `src/js/02-draw.js` has the drawing kit (`umn`, `lmn`, `fibre`, `tdp`, `bodyMap`) and, in `UI`, the interface strings the module scripts write.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 
 ## Ready for translation

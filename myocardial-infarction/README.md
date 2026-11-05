@@ -38,7 +38,7 @@ python3 tools/share_card.py myocardial-infarction/src/share-card.html myocardial
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Cardinal red carries the interface and the heart muscle; navy marks the coronary arteries and the ECG, with tokens for clot, plaque, oxygenated and starved muscle. The call-now box (`.crisis`, alias `.callnow`) and the teaching notice (`.teach`) are shared across modules. Fonts: Archivo, Figtree and Sometype Mono.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`heart`, `artery`, `xsec`, `platelet`, `ecgGrid`, `ecgBeat`, `ecgTrace`, `tropCurve`, `clock`, `bodymap`, `stent`, `icons`, `curve`, `tline`, `gauge`, `ladder`, `pill`, `person`, `marker`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`heart`, `artery`, `xsec`, `platelet`, `ecgGrid`, `ecgBeat`, `ecgTrace`, `tropCurve`, `clock`, `bodymap`, `stent`, `icons`, `curve`, `tline`, `gauge`, `ladder`, `pill`, `person`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys is in `strings.json`.

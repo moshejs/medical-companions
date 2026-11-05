@@ -38,7 +38,7 @@ python3 tools/share_card.py cirrhosis/src/share-card.html cirrhosis/share-card.p
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Deep petrol-cyan, the colour of the portal vein, carries the interface; bile gold marks jaundice and bilirubin, warm red-brown the healthy liver, pale grey-cream scar, with tokens for ammonia and ascites. Fonts: Gelasio, Karla and Courier Prime.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`liver`, `lobule`, `hepatocyte`, `stellate`, `collagen`, `nodule`, `portalMap`, `abdomen`, `gauge`, `nh3`, `brain`, `kidney`, `person`, `pill`, `curve`, `ladder`, `tline`, `ped`, `marker`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`liver`, `lobule`, `hepatocyte`, `stellate`, `collagen`, `nodule`, `portalMap`, `abdomen`, `gauge`, `nh3`, `brain`, `kidney`, `person`, `pill`, `curve`, `ladder`, `tline`, `ped`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys is in `strings.json`.

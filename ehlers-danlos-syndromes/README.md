@@ -38,7 +38,7 @@ python3 tools/share_card.py ehlers-danlos-syndromes/src/share-card.html ehlers-d
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Zebra graphite and white carry the interface, with jade as the accent (the zebra is the EDS community symbol); cobalt marks diagnosis, crimson marks the body systems and is kept for vascular EDS and red flags. The three collagen chains are jade, graphite and amber, a pathogenic variant is orange. Fonts: DM Serif Display, Atkinson Hyperlegible and Roboto Mono.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`chain`, `helix`, `fibril`, `joint`, `limb`, `skin`, `artery`, `pulse`, `tilt`, `zebra`, `person`, `ped`, `marker`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`chain`, `helix`, `fibril`, `joint`, `limb`, `skin`, `artery`, `pulse`, `tilt`, `zebra`, `person`, `ped`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys is in `strings.json`.

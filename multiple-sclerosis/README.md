@@ -37,7 +37,7 @@ python3 multiple-sclerosis/src/compile_sources.py multiple-sclerosis/research   
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Indigo carries the interface and MS-awareness orange is the accent; myelin is gold, the immune attack magenta, treatment teal.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`fiber`, `tcell`, `bcell`, `plasma`, `mac`, `oligo`, `ab`, `lesion`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`fiber`, `tcell`, `bcell`, `plasma`, `mac`, `oligo`, `ab`, `lesion`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys, and its two extra keys, are in `strings.json`.
