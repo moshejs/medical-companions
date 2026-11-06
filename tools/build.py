@@ -184,6 +184,12 @@ if REVIEWER:
 mail = i18n.CONTACT_EMAIL
 contact = STR.get("foot.contact").format(email=f'<a href="mailto:{mail}">{mail}</a>')
 foot = foot.replace("</footer>", f'  <p class="contact">{contact}</p>\n</footer>', 1)
+# the visible "last updated" date: the same date as dateModified in the structured data
+UPDATED = last_modified(COMP.name)
+_y, _m, _d = (int(x) for x in UPDATED.split("-"))
+_when = STR.get("foot.date").format(d=_d, month=STR.get("foot.months").split(",")[_m - 1], y=_y)
+updated = STR.get("foot.updated").format(date=f'<time datetime="{UPDATED}">{_when}</time>')
+foot = foot.replace("</footer>", f'  <p class="updated">{updated}</p>\n</footer>', 1)
 parts.append(foot)
 # the shared runtime (tools/core/) and the companion's own scripts, in file-name order
 CORE = sorted((ROOT / "tools" / "core").glob("*.js"))
@@ -198,6 +204,7 @@ src_js = "const SOURCES=" + json.dumps(sources, ensure_ascii=False) + ";\n"
 html = "".join(parts) + "<!--JS-->" + js[0] + src_js + "".join(js[1:])
 html = html.replace("%SITE%", SITE)
 html = html.replace("</head>", i18n.ANALYTICS + "</head>", 1)
+if not SINGLE: html = i18n.head_icons(html)  # a single-file copy has no site root to link to
 # the author is the named human editor (site.json "editor"), not the companion's name
 if CFG.get("editor"): html = re.sub(r'<meta name="author" content="[^"]*">', lambda _: f'<meta name="author" content="{H.escape(CFG["editor"]["name"], quote=True)}">', html)
 
@@ -205,7 +212,7 @@ def stamp(m):
     data = json.loads(m.group(1))
     if data.get("@type") != "MedicalWebPage": return m.group(0)
     if comp.get("published"): data["datePublished"] = comp["published"]
-    data["dateModified"] = last_modified(COMP.name)
+    data["dateModified"] = UPDATED
     # one "Medical Companions" Organization (@id shared with the hub's graph), run by the
     # publisher named in site.json; the WebSite is referenced by the same @id the hub uses
     data["publisher"] = {"@type": "Organization", "@id": SITE + "/#org", "name": CFG.get("name", "Medical Companions"), "url": SITE + "/",
@@ -216,6 +223,12 @@ def stamp(m):
     if CFG.get("editor"):
         data["editor"] = {"@type": "Person", "@id": SITE + "/about/#editor", "name": CFG["editor"]["name"], "url": SITE + "/about/"}
     data["inLanguage"] = LANG
+    # the first page's trail (Medical Companions > this companion); module pages extend it
+    site = data.get("isPartOf") if isinstance(data.get("isPartOf"), dict) else {}
+    if "breadcrumb" not in data and data.get("name") and data.get("url"):
+        crumbs = [(site.get("name") or CFG.get("name"), SITE + "/"), (data["name"], data["url"])]
+        data["breadcrumb"] = {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": n + 1, "name": c[0], "item": c[1]} for n, c in enumerate(crumbs)]}
     if REVIEWER:
         data["reviewedBy"] = {"@type": "Person", "name": REVIEWER["name"],
                               **({"description": REVIEWER["credentials"]} if REVIEWER.get("credentials") else {})}
