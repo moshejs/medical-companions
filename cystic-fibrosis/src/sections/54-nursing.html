@@ -1,5 +1,83 @@
-<!-- ================= 5.4 NURSING CARE (stub, replaced by its builder) ================= -->
+<!-- ================= 5.4 NURSING CARE ================= -->
+<style>
+#m-nursing .nu-check{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
+#m-nursing .nu-check button{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:start;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 13px;cursor:pointer;font:inherit;color:var(--ink);font-size:14.5px;line-height:1.4}
+#m-nursing .nu-check button::before{content:"";width:18px;height:18px;border-radius:5px;border:2px solid var(--muted);margin-top:1px;box-sizing:border-box}
+#m-nursing .nu-check button[aria-pressed="true"]{border-color:var(--rec);background:var(--rec-soft)}
+#m-nursing .nu-check button[aria-pressed="true"]::before{background:var(--rec);border-color:var(--rec);box-shadow:inset 0 0 0 3px var(--rec-soft)}
+#m-nursing .nu-check b{display:block;font-size:12px;font-family:var(--mono);color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+#m-nursing .nu-prog{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+#m-nursing .nu-prog .bar{flex:1;min-width:160px}
+#m-nursing .nu-prog .bar i{background:var(--rec)}
+#m-nursing .nu-prog span{font:600 13px var(--mono);color:var(--muted)}
+#m-nursing .card>.tag,#m-nursing .card>.ev{align-self:flex-start}
+#m-nursing .card .myth{font-weight:700;color:var(--bad)}
+#m-nursing .tbl table{min-width:560px}
+</style>
 <section class="mod" id="m-nursing" data-mod="nursing" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living &amp; care</p><h2>Nursing care</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Nurses deliver much of CF care: on the ward during an exacerbation, in clinic, at school and at home. Follow one admission for a pulmonary exacerbation day by day, then work through the checklist.</p></div>
+
+  <div class="stepper" id="nuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A 14-day admission line above a single hospital room with a door sign, sink, bed and patient, an IV pole connected to a port under the collarbone, a meal tray with an enzyme capsule and a glucose meter. Six steps light up different parts of the room: admission checks, infection control with a nurse in gown and gloves and a masked patient, IV antibiotics with a schematic aminoglycoside level curve and its sampling times, airway clearance with a lung-function line rising over the days, a day of meals and snacks with enzyme capsules and glucose checks, and discharge with home IV and teaching."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">Play</button><label class="stage-cap tl" for="nuT">Admission <input type="range" id="nuT" min="0" max="1" step="0.001" value="0.07"></label></div>
+      <div class="readout" id="nuRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The room, the drug-level curve, the lung-function line and the meal times are drawings, not measurements or a protocol. The sampling times are those of one randomised PK study [[Prayle2016]]; the STOP2 gains and the recovery figure are trial and registry averages [[Goss2021STOP2,Sanders2010]]. Precautions are quoted as summarised from the CFF guideline [[Haggie2020,Saiman2014IPC,Stoudemire2019IPC]]; enzyme wording is from the label [[FDA-Creon]]; ototoxicity figures [[Harruff2021Ototox]]; port figures [[Royle2008]].</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The admission checklist</h3>
+  <div class="prose"><p>Tick items as you review them. Each one is a published standard or finding, not a local protocol; wards follow their own policies.</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>A study aid that summarises sources; it is not a care plan and does not replace local policy or clinical judgement.</p>
+  <div class="nu-prog"><div class="bar"><i id="nuBar"></i></div><span id="nuCount" aria-live="polite"></span><button class="btn ghost" id="nuReset">Clear all</button></div>
+  <div class="nu-check" id="nuCheck" role="group" aria-label="Admission checklist">
+    <button data-nuck="1" aria-pressed="false"><span><b>Timing</b>Urgent admissions within 24 h, non-urgent within 7 days (ECFS) [[Conway2014ECFS]]</span></button>
+    <button data-nuck="2" aria-pressed="false"><span><b>Room</b>Own room, bathroom and toilet; no contact with other people with CF in waiting areas [[Conway2014ECFS]]</span></button>
+    <button data-nuck="3" aria-pressed="false"><span><b>Hands</b>Hand hygiene before and after all patient contact, regardless of gloves; no artificial fingernails [[Haggie2020,Saiman2014IPC]]</span></button>
+    <button data-nuck="4" aria-pressed="false"><span><b>Precautions</b>Contact precautions (gown and gloves on room entry) for MRSA, B. cepacia complex, MDR P. aeruginosa, S. maltophilia [[Haggie2020,Saiman2014IPC]]</span></button>
+    <button data-nuck="5" aria-pressed="false"><span><b>Procedures</b>Gown and gloves for chest physiotherapy, sputum sampling and spirometry [[Haggie2020,Saiman2014IPC]]</span></button>
+    <button data-nuck="6" aria-pressed="false"><span><b>Glucose</b>Fasting and 2-h post-meal glucose for the first 48 h of IV antibiotics or steroids [[Moran2010CFRD]]</span></button>
+    <button data-nuck="7" aria-pressed="false"><span><b>Aminoglycoside</b>Levels as the unit's protocol sets; one PK study sampled at 1 h and 3.5–5 h [[Prayle2016]]</span></button>
+    <button data-nuck="8" aria-pressed="false"><span><b>Kidneys</b>Know the AKI risk factors: recent aminoglycoside, long course, low albumin, co-trimoxazole [[Downes2015AKI]]</span></button>
+    <button data-nuck="9" aria-pressed="false"><span><b>Hearing</b>Ototoxicity monitoring: audiometric change is common after IV tobramycin [[Harruff2021Ototox,Garinis2021Ototox]]</span></button>
+    <button data-nuck="10" aria-pressed="false"><span><b>Port</b>Watch for occlusion, infection and leakage, the commonest TIVAD complications [[Royle2008]]</span></button>
+    <button data-nuck="11" aria-pressed="false"><span><b>Enzymes</b>With meals and snacks (about half the meal dose for snacks); swallowed whole [[FDA-Creon]]</span></button>
+    <button data-nuck="12" aria-pressed="false"><span><b>Calories</b>Very high-calorie diet, usually 120–150% of the usual intake for age [[Moran2010CFRD]]</span></button>
+    <button data-nuck="13" aria-pressed="false"><span><b>Airway clearance</b>Led by the specialist CF physiotherapist, with exercise [[Conway2014ECFS]]</span></button>
+    <button data-nuck="14" aria-pressed="false"><span><b>Mood</b>PHQ-9 and GAD-7 yearly from age 12; ask about mood after modulator starts [[Quittner2016ICMH,FDA-Trikafta]]</span></button>
+    <button data-nuck="15" aria-pressed="false"><span><b>Going home</b>Home IV only with trained outreach-nurse supervision; link with primary care [[Conway2014ECFS]]</span></button>
+  </div>
+
+  <h3 class="sub">Common misunderstandings and teaching points</h3>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Misunderstanding</span><h4>"Gloves replace hand washing"</h4><p>Hand hygiene applies before and after every patient contact, regardless of glove use [[Haggie2020,Saiman2014IPC]]. In a survey across 25 centres, inpatient nurses had generally lower knowledge scores and adherence to selected practices than other groups [[Saiman2022Barriers]].</p></div>
+    <div class="card"><span class="tag bad">Misunderstanding</span><h4>"Two people with CF can share a bay if both are well"</h4><p>ECFS standards say people with CF should not share rooms, bathrooms or toilets in hospital, or be in contact in clinic, ward, pharmacy or radiology waiting areas [[Conway2014ECFS]].</p></div>
+    <div class="card"><span class="tag bad">Misunderstanding</span><h4>"Enzymes are only for big meals"</h4><p>The Creon label plans for about three meals plus two or three snacks, with snacks at about half the meal dose; capsules are swallowed whole, not crushed or chewed [[FDA-Creon]].</p></div>
+    <div class="card"><span class="tag bad">Misunderstanding</span><h4>"Diabetes means cutting calories"</h4><p>People with CFRD keep the high-calorie, high-salt, high-fat CF diet; calorie restriction is almost never appropriate [[Moran2010CFRD,Ode2022ISPAD]]. CFRD is treated with insulin [[Moran2010CFRD]].</p></div>
+    <div class="card"><span class="tag warn">Teaching point</span><h4>Once-daily is not weaker</h4><p>Once-daily and thrice-daily IV aminoglycosides were equally effective, and once-daily probably caused less nephrotoxicity in children <span class="ev est">Established</span> [[Bhatt2019Cochrane,Smyth2005TOPIC]]. Evening dosing raised a urinary kidney-injury marker more than morning dosing [[Prayle2016]].</p></div>
+    <div class="card"><span class="tag warn">Teaching point</span><h4>Hearing loss can be silent</h4><p>Reported tobramycin ototoxicity rates range from 0 to 56%, depending on how hearing is measured [[Harruff2021Ototox]]. In children given IV aminoglycosides, extended high-frequency audiometry found ototoxicity in 24% [[AlMalky2015]].</p></div>
+    <div class="card"><span class="tag warn">Teaching point</span><h4>Ports last, but fail in known ways</h4><p>165 ports in 109 people had a median survival of 1441 days and 0.58 complications per 1000 catheter-days: occlusion (33 devices), infection (23) and leakage (16) [[Royle2008]]. At an Irish centre, 14 candidaemia cases were associated with lower FEV1 and more exacerbations [[McCarthy2018TIVAD]].</p></div>
+    <div class="card"><span class="tag warn">Teaching point</span><h4>Modulators have not ended exacerbations</h4><p>ECFS 2024: monitoring and treating airway infection, inflammation and exacerbations "remains important" despite modulators [[Burgel2024Standards]].</p></div>
+  </div>
+
+  <h3 class="sub">The CF nurse specialist</h3>
+  <div class="split2">
+    <div class="prose">
+      <p>The ECFS framework lists the core team as consultants, clinical nurse specialist, microbiologist, physiotherapist, dietitian, pharmacist, clinical psychologist, social worker and clinical geneticist [[Conway2014ECFS]]. The nurse specialist provides education, advocacy and psychosocial support at key moments: the screening result and diagnosis, the first admission and IV course, a second diagnosis such as CFRD, transition, reproductive and pre- and postnatal care, and transplant and end of life [[Conway2014ECFS]].</p>
+      <p>Routine visits for stable disease are every 2–3 months, with an annual review that includes a full medical, dietetic, physiotherapy and psychosocial review and surveillance blood tests [[Conway2014ECFS]]. Glucose tolerance testing starts at age 10 and bone density at 8–10 [[Turck2016Nutrition]]. The CFF palliative-care guideline recommends screening for unmet palliative-care needs with the IPOS every year from age 12 [[Kavalieratos2021Palliative]].</p>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>Centre size</th><th>Paediatric (WTE)</th><th>Adult (WTE)</th></tr></thead>
+      <tbody>
+        <tr><th>50 patients</th><td>2</td><td>–</td></tr>
+        <tr><th>100 patients</th><td>–</td><td>2</td></tr>
+        <tr><th>150 patients</th><td>3</td><td>3</td></tr>
+        <tr><th>≥250 patients</th><td>4</td><td>5</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <p class="stage-cap">Recommended specialist-nurse staffing in whole-time equivalents, as published by ECFS [[Conway2014ECFS]]. At a UK adult centre, a 2-year improvement project raised the share of people offered an end-of-life discussion from 10% to 85%, and deaths in the preferred place from 7% to 85% [[Cathcart2020]].</p>
 </section>
