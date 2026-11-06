@@ -19,11 +19,11 @@ A left rail of modules, one module per page, and SVG animations you scrub with a
 | 5 · Living & care | Advanced lung disease & transplant · Living with CF · Fertility, pregnancy & parenthood · Nursing care · Research frontier (evidence-labelled) |
 | 6 · Context & review | History & people · Flashcards & mnemonics · Quiz · Glossary · Sources |
 
-Every research claim links to a numbered entry in the Sources module (%CITED% cited sources). Research-landscape claims carry an evidence label: *Established*, *Early evidence* or *Hypothesis*.
+Every research claim links to a numbered entry in the Sources module (485 cited sources). Research-landscape claims carry an evidence label: *Established*, *Early evidence* or *Hypothesis*.
 
 ## How it was made
 
-Eight research passes, one per area: (A) epidemiology, survival, presentation and history; (B) the CFTR gene, inheritance, variant classes and genotype; (C) CFTR physiology and the lungs; (D) the digestive system, other organs and nutrition; (E) newborn screening, diagnosis and monitoring; (F) CFTR modulators and the research frontier; (G) airway clearance, infection and transplant; (H) living with CF, fertility, pregnancy and nursing care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in; anything that could not be checked was dropped. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (%LISTED% entries, each recording which service confirmed it), and the modules were written against them.
+Eight research passes, one per area: (A) epidemiology, survival, presentation and history; (B) the CFTR gene, inheritance, variant classes and genotype; (C) CFTR physiology and the lungs; (D) the digestive system, other organs and nutrition; (E) newborn screening, diagnosis and monitoring; (F) CFTR modulators and the research frontier; (G) airway clearance, infection and transplant; (H) living with CF, fertility, pregnancy and nursing care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in; anything that could not be checked was dropped. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (520 entries, each recording which service confirmed it), and the modules were written against them.
 
 ## Building
 
