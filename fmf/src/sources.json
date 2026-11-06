@@ -363,6 +363,15 @@
   "unverified": false
  },
  {
+  "key": "Chung2016",
+  "text": "Chung LK, Park YH, Zheng Y, et al., Bliska JB. The Yersinia virulence factor YopM hijacks host kinases to inhibit type III effector-triggered activation of the pyrin inflammasome. Cell Host & Microbe. 2016. PMID: 27569559. DOI: 10.1016/j.chom.2016.07.018",
+  "link": "https://doi.org/10.1016/j.chom.2016.07.018",
+  "areas": [
+   "C"
+  ],
+  "unverified": false
+ },
+ {
   "key": "Coll2015",
   "text": "Coll RC, Robertson AAB, Chae JJ, et al. A small-molecule inhibitor of the NLRP3 inflammasome for the treatment of inflammatory diseases. Nat Med. 2015;21(3):248-255. PMID 25686105.",
   "link": "https://pubmed.ncbi.nlm.nih.gov/25686105/",
@@ -1100,6 +1109,15 @@
   "link": "https://doi.org/10.1542/peds.2006-1434",
   "areas": [
    "D"
+  ],
+  "unverified": false
+ },
+ {
+  "key": "Kanneganti2018",
+  "text": "Kanneganti A, Malireddi RKS, Saavedra PHV, et al., Lamkanfi M. GSDMD is critical for autoinflammatory pathology in a mouse model of familial Mediterranean fever. Journal of Experimental Medicine. 2018. PMID: 29793924. DOI: 10.1084/jem.20172060",
+  "link": "https://doi.org/10.1084/jem.20172060",
+  "areas": [
+   "C"
   ],
   "unverified": false
  },
@@ -2082,6 +2100,15 @@
   "unverified": false
  },
  {
+  "key": "Ratner2016",
+  "text": "Ratner D, Orning MP, Proulx MK, et al., Lien E. The Yersinia pestis effector YopM inhibits pyrin inflammasome activation. PLoS Pathogens. 2016. PMID: 27911947. DOI: 10.1371/journal.ppat.1006035",
+  "link": "https://doi.org/10.1371/journal.ppat.1006035",
+  "areas": [
+   "C"
+  ],
+  "unverified": false
+ },
+ {
   "key": "Reimann1948",
   "text": "Reimann HA. Periodic disease; a probable syndrome including periodic fever, benign paroxysmal peritonitis, cyclic neutropenia and intermittent arthralgia. JAMA. 1948;136:239-244. PMID 18920089; doi:10.1001/jama.1948.02890210023004",
   "link": "https://doi.org/10.1001/jama.1948.02890210023004",
@@ -2357,6 +2384,15 @@
   "link": "https://doi.org/10.1136/annrheumdis-2012-202580",
   "areas": [
    "B"
+  ],
+  "unverified": false
+ },
+ {
+  "key": "Stoler2020",
+  "text": "Stoler I, Freytag J, Orak B, et al., Kallinich T. Gene-dose effect of MEFV gain-of-function mutations determines ex vivo neutrophil activation in familial Mediterranean fever. Frontiers in Immunology. 2020. PMID: 32655537. DOI: 10.3389/fimmu.2020.00716",
+  "link": "https://doi.org/10.3389/fimmu.2020.00716",
+  "areas": [
+   "C"
   ],
   "unverified": false
  },
@@ -2669,6 +2705,15 @@
   "areas": [
    "D",
    "E"
+  ],
+  "unverified": false
+ },
+ {
+  "key": "Yu2006",
+  "text": "Yu JW, Wu J, Zhang Z, et al., Alnemri ES. Cryopyrin and pyrin activate caspase-1, but not NF-kappaB, via ASC oligomerization. Cell Death & Differentiation. 2006. PMID: 16037825. DOI: 10.1038/sj.cdd.4401734",
+  "link": "https://doi.org/10.1038/sj.cdd.4401734",
+  "areas": [
+   "C"
   ],
   "unverified": false
  },
