@@ -86,6 +86,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Andersen1938",
+  "text": "Andersen DH. Cystic fibrosis of the pancreas and its relation to celiac disease. Am J Dis Child. 1938;56(2):344. doi:10.1001/archpedi.1938.01980140114013. Not indexed in PubMed; Crossref gives the start page only.",
+  "link": "https://doi.org/10.1001/archpedi.1938.01980140114013",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "Crossref"
+ },
+ {
+  "key": "Andersen1946",
+  "text": "Andersen DH. Celiac syndrome: V. Genetics of cystic fibrosis of the pancreas with a consideration of etiology. Am J Dis Child. 1946;72(1):62. doi:10.1001/archpedi.1946.02020300069004. Crossref lists Andersen as the only author; Trouvé 2024 attributes the work to Andersen and Hodges.",
+  "link": "https://doi.org/10.1001/archpedi.1946.02020300069004",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "Crossref"
+ },
+ {
   "key": "Anderson1991",
   "text": "Anderson MP, Gregory RJ, Thompson S, Souza DW, Paul S, Mulligan RC, et al. Demonstration that CFTR is a chloride channel by alteration of its anion selectivity. Science. 1991;253(5016):202-5. PMID 1712984; doi:10.1126/science.1712984.",
   "link": "https://doi.org/10.1126/science.1712984",
@@ -147,6 +167,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "BalfourLynn2022",
+  "text": "Balfour-Lynn IM, King JA. CFTR modulator therapies - Effect on life expectancy in people with cystic fibrosis. Paediatr Respir Rev. 2022;42:3-8. PMID 32565113; PMCID PMC7255286; doi:10.1016/j.prrv.2020.05.002.",
+  "link": "https://doi.org/10.1016/j.prrv.2020.05.002",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Bar2026",
+  "text": "Bar L, Darrah RJ, Vaidyanathan S. Analysis of the Genome Aggregation Database (gnomAD) reveals a global burden of cystic fibrosis and the need for improved diagnosis and care. EBioMedicine. 2026;124:106145. PMID 41633103; PMCID PMC12887769; doi:10.1016/j.ebiom.2026.106145.",
+  "link": "https://doi.org/10.1016/j.ebiom.2026.106145",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Barben2017Europe",
   "text": "Barben J, Castellani C, Dankert-Roelse J, Gartner S, Kashirskaya N, Linnane B, et al. The expansion and performance of national newborn screening programmes for cystic fibrosis in Europe. J Cyst Fibros. 2017;16(2):207-213. PMID 28043799; doi:10.1016/j.jcf.2016.12.012.",
   "link": "https://doi.org/10.1016/j.jcf.2016.12.012",
@@ -195,6 +235,7 @@
   "text": "Bell SC, Mall MA, Gutierrez H, Macek M, Madge S, Davies JC, et al. The future of cystic fibrosis care: a global perspective. Lancet Respir Med. 2020;8(1):65-124. PMID 31570318; PMCID PMC8862661; doi:10.1016/s2213-2600(19)30337-6. Full text read (PMC).",
   "link": "https://doi.org/10.1016/s2213-2600(19)30337-6",
   "areas": [
+   "A",
    "B",
    "F"
   ],
@@ -226,6 +267,7 @@
   "text": "Bessonova L, Volkova N, Higgins M, Bengtsson L, Tian S, Simard C, et al. Data from the US and UK cystic fibrosis registries support disease modification by CFTR modulation with ivacaftor. Thorax. 2018;73(8):731-740. PMID 29748252; PMCID PMC6204955; doi:10.1136/thoraxjnl-2017-210394.",
   "link": "https://doi.org/10.1136/thoraxjnl-2017-210394",
   "areas": [
+   "A",
    "F"
   ],
   "unverified": false,
@@ -360,6 +402,7 @@
   "text": "Bower JK, Volkova N, Ahluwalia N, Sahota G, Xuan F, Chin A, et al. Real-world safety and effectiveness of elexacaftor/tezacaftor/ivacaftor in people with cystic fibrosis: Interim results of a long-term registry-based study. J Cyst Fibros. 2023;22(4):730-737. PMID 36963986; doi:10.1016/j.jcf.2023.03.002.",
   "link": "https://doi.org/10.1016/j.jcf.2023.03.002",
   "areas": [
+   "A",
    "C",
    "F"
   ],
@@ -418,11 +461,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Burgel2015ERJ",
+  "text": "Burgel PR, Bellis G, Olesen HV, Viviani L, Zolin A, Blasi F, et al. Future trends in cystic fibrosis demography in 34 European countries. Eur Respir J. 2015;46(1):133-41. PMID 25792639; doi:10.1183/09031936.00196314.",
+  "link": "https://doi.org/10.1183/09031936.00196314",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Burgel2021Advanced",
   "text": "Burgel PR, Durieu I, Chiron R, Ramel S, Danner-Boucher I, Prevotat A, et al. Rapid Improvement after Starting Elexacaftor-Tezacaftor-Ivacaftor in Patients with Cystic Fibrosis and Advanced Pulmonary Disease. Am J Respir Crit Care Med. 2021;204(1):64-73. PMID 33600738; doi:10.1164/rccm.202011-4153oc.",
   "link": "https://doi.org/10.1164/rccm.202011-4153oc",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Burgel2023Chest",
+  "text": "Burgel PR, Burnet E, Regard L, Martin C. The Changing Epidemiology of Cystic Fibrosis: The Implications for Adult Care. Chest. 2023;163(1):89-99. PMID 35850286; doi:10.1016/j.chest.2022.07.004.",
+  "link": "https://doi.org/10.1016/j.chest.2022.07.004",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -458,11 +521,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Busch1990",
+  "text": "Busch R. On the history of cystic fibrosis. Acta Univ Carol Med (Praha). 1990;36(1-4):13-5. PMID 2130674.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/2130674/",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Button2012",
   "text": "Button B, Cai LH, Ehre C, Kesimer M, Hill DB, Sheehan JK, et al. A periciliary brush promotes the lung health by separating the mucus layer from airway epithelia. Science. 2012;337(6097):937-41. PMID 22923574; PMCID PMC3633213; doi:10.1126/science.1223012.",
   "link": "https://doi.org/10.1126/science.1223012",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Buu2016",
+  "text": "Buu MC, Sanders LM, Mayo JA, Milla CE, Wise PH. Assessing Differences in Mortality Rates and Risk Factors Between Hispanic and Non-Hispanic Patients With Cystic Fibrosis in California. Chest. 2016;149(2):380-389. PMID 26086984; PMCID PMC5831377; doi:10.1378/chest.14-2189.",
+  "link": "https://doi.org/10.1378/chest.14-2189",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -680,6 +763,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Corey1988",
+  "text": "Corey M, McLaughlin FJ, Williams M, Levison H. A comparison of survival, growth, and pulmonary function in patients with cystic fibrosis in Boston and Toronto. J Clin Epidemiol. 1988;41(6):583-91. PMID 3260274; doi:10.1016/0895-4356(88)90063-7.",
+  "link": "https://doi.org/10.1016/0895-4356(88)90063-7",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Coriati2023",
+  "text": "Coriati A, Ma X, Sykes J, Stanojevic S, Ruseckaite R, Lemonnier L, et al. Beyond borders: cystic fibrosis survival between Australia, Canada, France and New Zealand. Thorax. 2023;78(3):242-248. PMID 36109163; doi:10.1136/thorax-2022-219086.",
+  "link": "https://doi.org/10.1136/thorax-2022-219086",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Corvol2015",
   "text": "Corvol H, Blackman SM, Boëlle PY, Gallins PJ, Pace RG, Stonebraker JR, et al. Genome-wide association meta-analysis identifies five modifier loci of lung disease severity in cystic fibrosis. Nat Commun. 2015;6:8382. PMID 26417704; PMCID PMC4589222; doi:10.1038/ncomms9382.",
   "link": "https://doi.org/10.1038/ncomms9382",
@@ -694,7 +797,18 @@
   "text": "Crossley JR, Elliott RB, Smith PA. Dried-blood spot screening for cystic fibrosis in the newborn. Lancet. 1979;1(8114):472-4. PMID 85057; doi:10.1016/s0140-6736(79)90825-0.",
   "link": "https://doi.org/10.1016/s0140-6736(79)90825-0",
   "areas": [
+   "A",
    "E"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Crystal1994",
+  "text": "Crystal RG, McElvaney NG, Rosenfeld MA, Chu CS, Mastrangeli A, Hay JG, et al. Administration of an adenovirus containing the human CFTR cDNA to the respiratory tract of individuals with cystic fibrosis. Nat Genet. 1994;8(1):42-51. PMID 7527271; doi:10.1038/ng0994-42.",
+  "link": "https://doi.org/10.1038/ng0994-42",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -788,6 +902,16 @@
   "link": "https://doi.org/10.1164/rccm.202008-3177oc",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Davis2006",
+  "text": "Davis PB. Cystic fibrosis since 1938. Am J Respir Crit Care Med. 2006;173(5):475-82. PMID 16126935; doi:10.1164/rccm.200505-840OE.",
+  "link": "https://doi.org/10.1164/rccm.200505-840oe",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -941,7 +1065,18 @@
   "text": "di Sant'Agnese PA, Darling RC, Perera GA, Shea E. Abnormal electrolyte composition of sweat in cystic fibrosis of the pancreas; clinical significance and relationship to the disease. Pediatrics. 1953;12(5):549-63. PMID 13111855. No DOI listed in PubMed.",
   "link": "https://pubmed.ncbi.nlm.nih.gov/13111855/",
   "areas": [
+   "A",
    "E"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Dodge2007",
+  "text": "Dodge JA, Lewis PA, Stanton M, Wilsher J. Cystic fibrosis mortality and survival in the UK: 1947-2003. Eur Respir J. 2007;29(3):522-6. PMID 17182652; doi:10.1183/09031936.00099506.",
+  "link": "https://doi.org/10.1183/09031936.00099506",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -998,6 +1133,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Drumm1990",
+  "text": "Drumm ML, Pope HA, Cliff WH, Rommens JM, Marvin SA, Tsui LC, et al. Correction of the cystic fibrosis defect in vitro by retrovirus-mediated gene transfer. Cell. 1990;62(6):1227-33. PMID 1698126; doi:10.1016/0092-8674(90)90398-x.",
+  "link": "https://doi.org/10.1016/0092-8674(90)90398-x",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Durmowicz2013SwCl",
   "text": "Durmowicz AG, Witzmann KA, Rosebraugh CJ, Chowdhury BA. Change in sweat chloride as a clinical end point in cystic fibrosis clinical trials: the ivacaftor experience. Chest. 2013;143(1):14-18. PMID 23276841; doi:10.1378/chest.12-1430.",
   "link": "https://doi.org/10.1378/chest.12-1430",
@@ -1043,6 +1188,7 @@
   "text": "Elborn JS. Cystic fibrosis. Lancet. 2016;388(10059):2519-2531. PMID 27140670; doi:10.1016/S0140-6736(16)00576-6.",
   "link": "https://doi.org/10.1016/s0140-6736(16)00576-6",
   "areas": [
+   "A",
    "C"
   ],
   "unverified": false,
@@ -1104,6 +1250,7 @@
   "text": "Farrell PM, Kosorok MR, Laxova A, Shen G, Koscik RE, Bruns WT, et al. Nutritional benefits of neonatal screening for cystic fibrosis. Wisconsin Cystic Fibrosis Neonatal Screening Study Group. N Engl J Med. 1997;337(14):963-9. PMID 9395429; doi:10.1056/NEJM199710023371403.",
   "link": "https://doi.org/10.1056/nejm199710023371403",
   "areas": [
+   "A",
    "E"
   ],
   "unverified": false,
@@ -1114,6 +1261,7 @@
   "text": "Farrell PM, Kosorok MR, Rock MJ, Laxova A, Zeng L, Lai HC, et al. Early diagnosis of cystic fibrosis through neonatal screening prevents severe malnutrition and improves long-term growth. Wisconsin Cystic Fibrosis Neonatal Screening Study Group. Pediatrics. 2001;107(1):1-13. PMID 11134427; doi:10.1542/peds.107.1.1.",
   "link": "https://doi.org/10.1542/peds.107.1.1",
   "areas": [
+   "A",
    "E"
   ],
   "unverified": false,
@@ -1150,6 +1298,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Farrell2008EU",
+  "text": "Farrell PM. The prevalence of cystic fibrosis in the European Union. J Cyst Fibros. 2008;7(5):450-3. PMID 18442953; doi:10.1016/j.jcf.2008.03.007.",
+  "link": "https://doi.org/10.1016/j.jcf.2008.03.007",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Farrell2009Radiology",
   "text": "Farrell PM, Collins J, Broderick LS, Rock MJ, Li Z, Kosorok MR, et al. Association between mucoid Pseudomonas infection and bronchiectasis in children with cystic fibrosis. Radiology. 2009;252(2):534-43. PMID 19703887; PMCID PMC2753783; doi:10.1148/radiol.2522081882.",
   "link": "https://doi.org/10.1148/radiol.2522081882",
@@ -1164,6 +1322,7 @@
   "text": "Farrell PM, White TB, Ren CL, Hempstead SE, Accurso F, Derichs N, et al. Diagnosis of Cystic Fibrosis: Consensus Guidelines from the Cystic Fibrosis Foundation. J Pediatr. 2017;181S:S4-S15.e1. PMID 28129811; doi:10.1016/j.jpeds.2016.09.064.",
   "link": "https://doi.org/10.1016/j.jpeds.2016.09.064",
   "areas": [
+   "A",
    "B",
    "E"
   ],
@@ -1289,6 +1448,7 @@
   "text": "Vertex Pharmaceuticals. TRIKAFTA (elexacaftor, tezacaftor and ivacaftor; ivacaftor) prescribing information, NDA212273/NDA217660, effective 2026-06-22, set id f354423a-85c2-41c3-a9db-0f3aee135d8d.",
   "link": "",
   "areas": [
+   "A",
    "B",
    "F",
    "H"
@@ -1302,6 +1462,16 @@
   "link": "",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA2026CFApprovals",
+  "text": "US Food and Drug Administration. Drugs@FDA approval records (original ORIG approvals, status AP, and approved efficacy supplements) for PULMOZYME BLA103532, TOBI NDA050753, KALYDECO NDA203188, ORKAMBI NDA206038, SYMDEKO NDA210491, TRIKAFTA NDA212273 and NDA217660, and ALYFTREK NDA218730. Queried 2026-11-06 at api.fda.gov/drug/drugsfda.json.",
+  "link": "",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "openFDA"
@@ -1332,6 +1502,16 @@
   "link": "https://doi.org/10.1126/science.ade2216",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "FitzSimmons1993",
+  "text": "FitzSimmons SC. The changing epidemiology of cystic fibrosis. J Pediatr. 1993;122(1):1-9. PMID 8419592; doi:10.1016/s0022-3476(05)83478-x.",
+  "link": "https://doi.org/10.1016/s0022-3476(05)83478-x",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1430,6 +1610,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Friedman2025",
+  "text": "Friedman JM. Cystic fibrosis: Correction of a fatal disease. Proc Natl Acad Sci U S A. 2025;122(37):e2519780122. PMID 40932259; PMCID PMC12452940; doi:10.1073/pnas.2519780122.",
+  "link": "https://doi.org/10.1073/pnas.2519780122",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Frost2025Ageing",
   "text": "Frost FJ, Peckham DG, Felton IC, Snowball JE, Gray RD, Jones AM, et al. Managing an ageing cystic fibrosis population: challenges and priorities. Eur Respir Rev. 2025;34(176):240261. PMID 40368426; PMCID PMC12076158; doi:10.1183/16000617.0261-2024.",
   "link": "https://doi.org/10.1183/16000617.0261-2024",
@@ -1444,6 +1634,7 @@
   "text": "Fuchs HJ, Borowitz DS, Christiansen DH, Morris EM, Nash ML, Ramsey BW, et al. Effect of aerosolized recombinant human DNase on exacerbations of respiratory symptoms and on pulmonary function in patients with cystic fibrosis. The Pulmozyme Study Group. N Engl J Med. 1994;331(10):637-42. PMID 7503821; doi:10.1056/NEJM199409083311003.",
   "link": "https://doi.org/10.1056/nejm199409083311003",
   "areas": [
+   "A",
    "C",
    "G"
   ],
@@ -1535,6 +1726,7 @@
   "text": "Gibson LE, Cooke RE. A test for concentration of electrolytes in sweat in cystic fibrosis of the pancreas utilizing pilocarpine by iontophoresis. Pediatrics. 1959;23(3):545-9. PMID 13633369; doi:10.1542/peds.23.3.545 (DOI from Europe PMC).",
   "link": "https://doi.org/10.1542/peds.23.3.545",
   "areas": [
+   "A",
    "E"
   ],
   "unverified": false,
@@ -1736,10 +1928,21 @@
   "validated": "PubMed"
  },
  {
+  "key": "Grover2026",
+  "text": "Grover P, Jain R, Kaur G, Ranjan N, Singh B. Cystic Fibrosis Mortality Trends 1999-2024-A CDC Wonder Study. Adv Respir Med. 2026;94(4):47. PMID 42496256; PMCID PMC13397906; doi:10.3390/arm94040047.",
+  "link": "https://doi.org/10.3390/arm94040047",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Guo2022Access",
   "text": "Guo J, Garratt A, Hill A. Worldwide rates of diagnosis and effective treatment for cystic fibrosis. J Cyst Fibros. 2022;21(3):456-462. PMID 35125294; doi:10.1016/j.jcf.2022.01.009.",
   "link": "https://doi.org/10.1016/j.jcf.2022.01.009",
   "areas": [
+   "A",
    "F"
   ],
   "unverified": false,
@@ -1770,6 +1973,7 @@
   "text": "Hadfield PJ, Rowe-Jones JM, Mackay IS. The prevalence of nasal polyps in adults with cystic fibrosis. Clin Otolaryngol Allied Sci. 2000;25(1):19-22. PMID 10764232; doi:10.1046/j.1365-2273.2000.00241.x.",
   "link": "https://doi.org/10.1046/j.1365-2273.2000.00241.x",
   "areas": [
+   "A",
    "C"
   ],
   "unverified": false,
@@ -1810,6 +2014,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Hamosh1998",
+  "text": "Hamosh A, FitzSimmons SC, Macek M Jr, Knowles MR, Rosenstein BJ, Cutting GR. Comparison of the clinical manifestations of cystic fibrosis in black and white patients. J Pediatr. 1998;132(2):255-9. PMID 9506637; doi:10.1016/s0022-3476(98)70441-x.",
+  "link": "https://doi.org/10.1016/s0022-3476(98)70441-x",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Hansen2024Adherence",
   "text": "Hansen CME, Breukelman AJ, van den Bemt PMLA, Zwitserloot AM, van Dijk L, van Boven JFM. Medication adherence to CFTR modulators in patients with cystic fibrosis: a systematic review. Eur Respir Rev. 2024;33(173):240060. PMID 39142708; PMCID PMC11322823; doi:10.1183/16000617.0060-2024.",
   "link": "https://doi.org/10.1183/16000617.0060-2024",
@@ -1828,6 +2042,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "HarnessBrumley2014",
+  "text": "Harness-Brumley CL, Elliott AC, Rosenbluth DB, Raghavan D, Jain R. Gender differences in outcomes of patients with cystic fibrosis. J Womens Health (Larchmt). 2014;23(12):1012-20. PMID 25495366; PMCID PMC4442553; doi:10.1089/jwh.2014.4985.",
+  "link": "https://doi.org/10.1089/jwh.2014.4985",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Harruff2021Ototox",
@@ -1864,6 +2088,7 @@
   "text": "Heijerman HGM, McKone EF, Downey DG, Van Braeckel E, Rowe SM, Tullis E, et al. Efficacy and safety of the elexacaftor plus tezacaftor plus ivacaftor combination regimen in people with cystic fibrosis homozygous for the F508del mutation: a double-blind, randomised, phase 3 trial. Lancet. 2019;394(10212):1940-1948. PMID 31679946; PMCID PMC7571408; doi:10.1016/S0140-6736(19)32597-8.",
   "link": "https://doi.org/10.1016/s0140-6736(19)32597-8",
   "areas": [
+   "A",
    "E",
    "F",
    "H"
@@ -2057,6 +2282,7 @@
   "text": "Kaltsas A. Cystic Fibrosis and Male Infertility: From Genetics to Future Perspectives in Assisted Reproductive Technologies. Genes (Basel). 2025;16(9):994. PMID 41009940; PMCID PMC12469938; doi:10.3390/genes16090994. Full text read on Europe PMC.",
   "link": "https://doi.org/10.3390/genes16090994",
   "areas": [
+   "A",
    "D"
   ],
   "unverified": false,
@@ -2098,6 +2324,7 @@
   "text": "Keating D, Marigowda G, Burr L, Daines C, Mall MA, McKone EF, et al. VX-445-Tezacaftor-Ivacaftor in Patients with Cystic Fibrosis and One or Two Phe508del Alleles. N Engl J Med. 2018;379(17):1612-1620. PMID 30334692; PMCID PMC6289290; doi:10.1056/nejmoa1807120.",
   "link": "https://doi.org/10.1056/nejmoa1807120",
   "areas": [
+   "A",
    "F"
   ],
   "unverified": false,
@@ -2108,6 +2335,7 @@
   "text": "Keating C, Yonker LM, Vermeulen F, Prais D, Linnemann RW, Trimble A, et al. Vanzacaftor-tezacaftor-deutivacaftor versus elexacaftor-tezacaftor-ivacaftor in individuals with cystic fibrosis aged 12 years and older (SKYLINE Trials VX20-121-102 and VX20-121-103): results from two randomised, active-controlled, phase 3 trials. Lancet Respir Med. 2025;13(3):256-271. PMID 39756424; PMCID PMC12184100; doi:10.1016/S2213-2600(24)00411-9. Full text read in PMC.",
   "link": "https://doi.org/10.1016/s2213-2600(24)00411-9",
   "areas": [
+   "A",
    "E",
    "F"
   ],
@@ -2135,10 +2363,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Keogh2018",
+  "text": "Keogh RH, Szczesniak R, Taylor-Robinson D, Bilton D. Up-to-date and projected estimates of survival for people with cystic fibrosis using baseline characteristics: A longitudinal study using UK patient registry data. J Cyst Fibros. 2018;17(2):218-227. PMID 29311001; PMCID PMC5885983; doi:10.1016/j.jcf.2017.11.019.",
+  "link": "https://doi.org/10.1016/j.jcf.2017.11.019",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Keogh2018Guide",
+  "text": "Keogh RH, Stanojevic S. A guide to interpreting estimated median age of survival in cystic fibrosis patient registry reports. J Cyst Fibros. 2018;17(2):213-217. PMID 29398488; PMCID PMC5885986; doi:10.1016/j.jcf.2017.11.014.",
+  "link": "https://doi.org/10.1016/j.jcf.2017.11.014",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kerem1989",
   "text": "Kerem B, Rommens JM, Buchanan JA, Markiewicz D, Cox TK, Chakravarti A, et al. Identification of the cystic fibrosis gene: genetic analysis. Science. 1989;245(4922):1073-1080. PMID 2570460; doi:10.1126/science.2570460.",
   "link": "https://doi.org/10.1126/science.2570460",
   "areas": [
+   "A",
    "B",
    "C",
    "E"
@@ -2219,10 +2468,21 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Knapp2016",
+  "text": "Knapp EA, Fink AK, Goss CH, Sewall A, Ostrenga J, Dowd C, et al. The Cystic Fibrosis Foundation Patient Registry. Design and Methods of a National Observational Disease Registry. Ann Am Thorac Soc. 2016;13(7):1173-9. PMID 27078236; doi:10.1513/AnnalsATS.201511-781OC.",
+  "link": "https://doi.org/10.1513/annalsats.201511-781oc",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Knowles1981",
   "text": "Knowles M, Gatzy J, Boucher R. Increased bioelectric potential difference across respiratory epithelia in cystic fibrosis. N Engl J Med. 1981;305(25):1489-95. PMID 7300874; doi:10.1056/NEJM198112173052502.",
   "link": "https://doi.org/10.1056/nejm198112173052502",
   "areas": [
+   "A",
    "E"
   ],
   "unverified": false,
@@ -2307,10 +2567,21 @@
   "text": "Kristidis P, Bozon D, Corey M, Markiewicz D, Rommens J, Tsui LC, et al. Genetic determination of exocrine pancreatic function in cystic fibrosis. Am J Hum Genet. 1992;50(6):1178-1184. PMID 1376016; PMCID PMC1682557.",
   "link": "https://pubmed.ncbi.nlm.nih.gov/1376016/",
   "areas": [
+   "A",
    "D"
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Labonte2018",
+  "text": "Labonte ML. The Mist Tent: An Analysis of Therapeutic Change in the History of Cystic Fibrosis Care. Bull Hist Med. 2018;92(4):634-663. PMID 30613046; doi:10.1353/bhm.2018.0074.",
+  "link": "https://doi.org/10.1353/bhm.2018.0074",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Lahiri2016",
@@ -2441,7 +2712,18 @@
   "text": "Lopez A, Daly C, Vega-Hernandez G, MacGregor G, Rubin JL. Elexacaftor/tezacaftor/ivacaftor projected survival and long-term health outcomes in people with cystic fibrosis homozygous for F508del. J Cyst Fibros. 2023;22(4):607-614. PMID 36849331; doi:10.1016/j.jcf.2023.02.004.",
   "link": "https://doi.org/10.1016/j.jcf.2023.02.004",
   "areas": [
+   "A",
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "MacKenzie2014",
+  "text": "MacKenzie T, Gifford AH, Sabadosa KA, Quinton HB, Knapp EA, Goss CH, et al. Longevity of patients with cystic fibrosis in 2000 to 2010 and beyond: survival analysis of the Cystic Fibrosis Foundation patient registry. Ann Intern Med. 2014;161(4):233-41. PMID 25133359; PMCID PMC4687404; doi:10.7326/M13-0636.",
+  "link": "https://doi.org/10.7326/m13-0636",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2531,6 +2813,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Martin2016Deaths",
+  "text": "Martin C, Hamard C, Kanaan R, Boussaud V, Grenet D, Abély M, et al. Causes of death in French cystic fibrosis patients: The need for improvement in transplantation referral strategies! J Cyst Fibros. 2016;15(2):204-12. PMID 26391389; doi:10.1016/j.jcf.2015.09.002.",
+  "link": "https://doi.org/10.1016/j.jcf.2015.09.002",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Mastella2000",
   "text": "Mastella G, Rainisio M, Harms HK, Hodson ME, Koch C, Navarro J, et al. Allergic bronchopulmonary aspergillosis in cystic fibrosis. A European epidemiological study. Epidemiologic Registry of Cystic Fibrosis. Eur Respir J. 2000;16(3):464-71. PMID 11028661; doi:10.1034/j.1399-3003.2000.016003464.x.",
   "link": "https://doi.org/10.1034/j.1399-3003.2000.016003464.x",
@@ -2578,6 +2870,16 @@
    "F",
    "G",
    "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "McBennett2022",
+  "text": "McBennett KA, Davis PB, Konstan MW. Increasing life expectancy in cystic fibrosis: Advances and challenges. Pediatr Pulmonol. 2022;57 Suppl 1(Suppl 1):S5-S12. PMID 34672432; PMCID PMC9004282; doi:10.1002/ppul.25733.",
+  "link": "https://doi.org/10.1002/ppul.25733",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2653,6 +2955,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "McGuire2026",
+  "text": "McGuire F, Collins A, Elsammak M, O'Loughlin M, O'Grady L, McDaid J, et al. Cystic fibrosis newborn screening in a high prevalence population - Ten years' experience in Ireland. Respir Med. 2026;251:108582. PMID 41386562; doi:10.1016/j.rmed.2025.108582.",
+  "link": "https://doi.org/10.1016/j.rmed.2025.108582",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "McIlwaine2013HFCWO",
   "text": "McIlwaine MP, Alarie N, Davidson GF, Lands LC, Ratjen F, Milner R, et al. Long-term multicentre randomised controlled study of high frequency chest wall oscillation versus positive expiratory pressure mask in cystic fibrosis. Thorax. 2013;68(8):746-51. PMID 23407019; doi:10.1136/thoraxjnl-2012-202915.",
   "link": "https://doi.org/10.1136/thoraxjnl-2012-202915",
@@ -2723,10 +3035,21 @@
   "validated": "PubMed"
  },
  {
+  "key": "Merlo2026",
+  "text": "Merlo CA, Romdhani H, DerSarkissian M, Muthukumar A, McGarry LJ, Lou Y, et al. Clinical Outcomes in Concurrent Cohorts of Elexacaftor/Tezacaftor/Ivacaftor (ELX/TEZ/IVA)-Treated versus ELX/TEZ/IVA-Ineligible Individuals with Cystic Fibrosis in the US during COVID-19. Pulm Ther. 2026;12(2):599-615. PMID 42143660; PMCID PMC13287179; doi:10.1007/s41030-026-00363-0.",
+  "link": "https://doi.org/10.1007/s41030-026-00363-0",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Middleton2019ETI",
   "text": "Middleton PG, Mall MA, Dřevínek P, Lands LC, McKone EF, Polineni D, et al. Elexacaftor-Tezacaftor-Ivacaftor for Cystic Fibrosis with a Single Phe508del Allele. N Engl J Med. 2019;381(19):1809-1819. PMID 31697873; PMCID PMC7282384; doi:10.1056/nejmoa1908639.",
   "link": "https://doi.org/10.1056/nejmoa1908639",
   "areas": [
+   "A",
    "B",
    "C",
    "E",
@@ -2751,6 +3074,7 @@
   "text": "Milla CE, Billings J, Moran A. Diabetes is associated with dramatically decreased survival in female but not male subjects with cystic fibrosis. Diabetes Care. 2005;28(9):2141-2144. PMID 16123480; doi:10.2337/diacare.28.9.2141.",
   "link": "https://doi.org/10.2337/diacare.28.9.2141",
   "areas": [
+   "A",
    "D"
   ],
   "unverified": false,
@@ -3034,6 +3358,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "OConnor2003",
+  "text": "O'Connor GT, Quinton HB, Kneeland T, Kahn R, Lever T, Maddock J, et al. Median household income and mortality rate in cystic fibrosis. Pediatrics. 2003;111(4 Pt 1):e333-9. PMID 12671148; doi:10.1542/peds.111.4.e333.",
+  "link": "https://doi.org/10.1542/peds.111.4.e333",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Ode2022ISPAD",
   "text": "Ode KL, Ballman M, Battezzati A, Brennan A, Chan CL, Hameed S, et al. ISPAD Clinical Practice Consensus Guidelines 2022: Management of cystic fibrosis-related diabetes in children and adolescents. Pediatr Diabetes. 2022;23(8):1212-1228. PMID 36537525; PMCID PMC10108242; doi:10.1111/pedi.13453. Full text read on Europe PMC.",
   "link": "https://doi.org/10.1111/pedi.13453",
@@ -3074,6 +3408,16 @@
   "link": "https://doi.org/10.1542/peds.2014-2081",
   "areas": [
    "E"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Orenti2026",
+  "text": "Orenti A, Boeck K, Kerem E, Burgel PR, Zolin A, Bakkeheim E, et al. Clinical characteristics and outcomes in the adult cystic fibrosis population in Europe from 2014 to 2024: analysis of the European Cystic Fibrosis Society Patient Registry. Lancet Respir Med. 2026;14(9):797-808. PMID 42235564; doi:10.1016/S2213-2600(26)00149-9.",
+  "link": "https://doi.org/10.1016/s2213-2600(26)00149-9",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3234,7 +3578,18 @@
   "text": "Quinton PM. Chloride impermeability in cystic fibrosis. Nature. 1983;301(5899):421-2. PMID 6823316; doi:10.1038/301421a0.",
   "link": "https://doi.org/10.1038/301421a0",
   "areas": [
+   "A",
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Quinton1999",
+  "text": "Quinton PM. Physiological basis of cystic fibrosis: a historical perspective. Physiol Rev. 1999;79(1 Suppl):S3-S22. PMID 9922374; doi:10.1152/physrev.1999.79.1.S3.",
+  "link": "https://doi.org/10.1152/physrev.1999.79.1.s3",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3354,6 +3709,7 @@
   "text": "Ramsey BW, Pepe MS, Quan JM, Otto KL, Montgomery AB, Williams-Warren J, et al. Intermittent administration of inhaled tobramycin in patients with cystic fibrosis. Cystic Fibrosis Inhaled Tobramycin Study Group. N Engl J Med. 1999;340(1):23-30. PMID 9878641; doi:10.1056/NEJM199901073400104.",
   "link": "https://doi.org/10.1056/nejm199901073400104",
   "areas": [
+   "A",
    "G"
   ],
   "unverified": false,
@@ -3364,6 +3720,7 @@
   "text": "Ramsey BW, Davies J, McElvaney NG, Tullis E, Bell SC, Dřevínek P, et al. A CFTR potentiator in patients with cystic fibrosis and the G551D mutation. N Engl J Med. 2011;365(18):1663-1672. PMID 22047557; PMCID PMC3230303; doi:10.1056/nejmoa1105185.",
   "link": "https://doi.org/10.1056/nejmoa1105185",
   "areas": [
+   "A",
    "B",
    "C",
    "E",
@@ -3407,6 +3764,7 @@
   "text": "Ratjen F, Bell SC, Rowe SM, Goss CH, Quittner AL, Bush A. Cystic fibrosis. Nat Rev Dis Primers. 2015;1:15010. PMID 27189798; PMCID PMC7041544; doi:10.1038/nrdp.2015.10.",
   "link": "https://doi.org/10.1038/nrdp.2015.10",
   "areas": [
+   "A",
    "C"
   ],
   "unverified": false,
@@ -3474,10 +3832,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Rho2018",
+  "text": "Rho J, Ahn C, Gao A, Sawicki GS, Keller A, Jain R. Disparities in Mortality of Hispanic Patients with Cystic Fibrosis in the United States. A National and Regional Cohort Study. Am J Respir Crit Care Med. 2018;198(8):1055-1063. PMID 29742360; PMCID PMC6221571; doi:10.1164/rccm.201711-2357OC.",
+  "link": "https://doi.org/10.1164/rccm.201711-2357oc",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Rich1990",
+  "text": "Rich DP, Anderson MP, Gregory RJ, Cheng SH, Paul S, Jefferson DM, et al. Expression of cystic fibrosis transmembrane conductance regulator corrects defective chloride channel regulation in cystic fibrosis airway epithelial cells. Nature. 1990;347(6291):358-63. PMID 1699126; doi:10.1038/347358a0.",
+  "link": "https://doi.org/10.1038/347358a0",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Riordan1989",
   "text": "Riordan JR, Rommens JM, Kerem B, Alon N, Rozmahel R, Grzelczak Z, et al. Identification of the cystic fibrosis gene: cloning and characterization of complementary DNA. Science. 1989;245(4922):1066-1073. PMID 2475911; doi:10.1126/science.2475911.",
   "link": "https://doi.org/10.1126/science.2475911",
   "areas": [
+   "A",
    "B",
    "C",
    "E"
@@ -3500,6 +3879,7 @@
   "text": "Rock MJ, Levy H, Zaleski C, Farrell PM. Factors accounting for a missed diagnosis of cystic fibrosis after newborn screening. Pediatr Pulmonol. 2011;46(12):1166-74. PMID 22081556; PMCID PMC4469987; doi:10.1002/ppul.21509.",
   "link": "https://doi.org/10.1002/ppul.21509",
   "areas": [
+   "A",
    "E"
   ],
   "unverified": false,
@@ -3530,10 +3910,21 @@
   "text": "Rommens JM, Iannuzzi MC, Kerem B, Drumm ML, Melmer G, Dean M, et al. Identification of the cystic fibrosis gene: chromosome walking and jumping. Science. 1989;245(4922):1059-1065. PMID 2772657; doi:10.1126/science.2772657.",
   "link": "https://doi.org/10.1126/science.2772657",
   "areas": [
+   "A",
    "B"
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Rosenfeld1997",
+  "text": "Rosenfeld M, Davis R, FitzSimmons S, Pepe M, Ramsey B. Gender gap in cystic fibrosis mortality. Am J Epidemiol. 1997;145(9):794-803. PMID 9143209; doi:10.1093/oxfordjournals.aje.a009172.",
+  "link": "https://doi.org/10.1093/oxfordjournals.aje.a009172",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Rosenfeld2001",
@@ -3734,6 +4125,7 @@
   "text": "Sathe M, Houwen R. Meconium ileus in Cystic Fibrosis. J Cyst Fibros. 2017;16 Suppl 2:S32-S39. PMID 28986020; doi:10.1016/j.jcf.2017.06.007.",
   "link": "https://doi.org/10.1016/j.jcf.2017.06.007",
   "areas": [
+   "A",
    "D"
   ],
   "unverified": false,
@@ -3745,6 +4137,16 @@
   "link": "https://doi.org/10.1016/j.jcf.2008.09.007",
   "areas": [
    "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Schechter2001",
+  "text": "Schechter MS, Shelton BJ, Margolis PA, Fitzsimmons SC. The association of socioeconomic status with outcomes in cystic fibrosis patients in the United States. Am J Respir Crit Care Med. 2001;163(6):1331-7. PMID 11371397; doi:10.1164/ajrccm.163.6.9912100.",
+  "link": "https://doi.org/10.1164/ajrccm.163.6.9912100",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3764,6 +4166,7 @@
   "text": "Schlüter DK, Southern KW, Dryden C, Diggle P, Taylor-Robinson D. Impact of newborn screening on outcomes and social inequalities in cystic fibrosis: a UK CF registry-based study. Thorax. 2020;75(2):123-131. PMID 31771956; PMCID PMC7029232; doi:10.1136/thoraxjnl-2019-213179.",
   "link": "https://doi.org/10.1136/thoraxjnl-2019-213179",
   "areas": [
+   "A",
    "E"
   ],
   "unverified": false,
@@ -3825,6 +4228,16 @@
   "link": "https://doi.org/10.1016/j.ajog.2010.08.033",
   "areas": [
    "E"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Scotet2020",
+  "text": "Scotet V, L'Hostis C, Férec C. The Changing Epidemiology of Cystic Fibrosis: Incidence, Survival and Impact of the CFTR Gene Discovery. Genes (Basel). 2020;11(6):589. PMID 32466381; PMCID PMC7348877; doi:10.3390/genes11060589.",
+  "link": "https://doi.org/10.3390/genes11060589",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3921,14 +4334,15 @@
  },
  {
   "key": "Shteinberg2021",
-  "text": "Shteinberg M, Haq IJ, Polineni D, Davies JC. Cystic fibrosis. Lancet. 2021;397(10290):2195-2211. PMID 34090606; doi:10.1016/s0140-6736(20)32542-3.",
+  "text": "Shteinberg M, Haq IJ, Polineni D, Davies JC. Cystic fibrosis. Lancet. 2021;397(10290):2195-2211. PMID 34090606; doi:10.1016/S0140-6736(20)32542-3.",
   "link": "https://doi.org/10.1016/s0140-6736(20)32542-3",
   "areas": [
+   "A",
    "B",
    "C"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed"
  },
  {
   "key": "Shteinberg2021Fertility",
@@ -3965,6 +4379,7 @@
   "text": "Singh VK, Schwarzenberg SJ. Pancreatic insufficiency in Cystic Fibrosis. J Cyst Fibros. 2017;16 Suppl 2:S70-S78. PMID 28986019; doi:10.1016/j.jcf.2017.06.011.",
   "link": "https://doi.org/10.1016/j.jcf.2017.06.011",
   "areas": [
+   "A",
    "D"
   ],
   "unverified": false,
@@ -4010,6 +4425,16 @@
   "link": "https://doi.org/10.1016/s0140-6736(05)17906-9",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Snouwaert1992",
+  "text": "Snouwaert JN, Brigman KK, Latour AM, Malouf NN, Boucher RC, Smithies O, et al. An animal model for cystic fibrosis made by gene targeting. Science. 1992;257(5073):1083-8. PMID 1380723; doi:10.1126/science.257.5073.1083.",
+  "link": "https://doi.org/10.1126/science.257.5073.1083",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4139,11 +4564,41 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Stanojevic2021",
+  "text": "Stanojevic S, Vukovojac K, Sykes J, Ratjen F, Tullis E, Stephenson AL. Projecting the impact of delayed access to elexacaftor/tezacaftor/ivacaftor for people with Cystic Fibrosis. J Cyst Fibros. 2021;20(2):243-249. PMID 32855088; doi:10.1016/j.jcf.2020.07.017.",
+  "link": "https://doi.org/10.1016/j.jcf.2020.07.017",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Stanojevic2022",
   "text": "Stanojevic S, Kaminsky DA, Miller MR, Thompson B, Aliverti A, Barjaktarevic I, et al. ERS/ATS technical standard on interpretive strategies for routine lung function tests. Eur Respir J. 2022;60(1):2101499. PMID 34949706; doi:10.1183/13993003.01499-2021. Abstract only.",
   "link": "https://doi.org/10.1183/13993003.01499-2021",
   "areas": [
    "E"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Stephenson2015ERJ",
+  "text": "Stephenson AL, Tom M, Berthiaume Y, Singer LG, Aaron SD, Whitmore GA, et al. A contemporary survival analysis of individuals with cystic fibrosis: a cohort study. Eur Respir J. 2015;45(3):670-9. PMID 25395034; doi:10.1183/09031936.00119714.",
+  "link": "https://doi.org/10.1183/09031936.00119714",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Stephenson2017",
+  "text": "Stephenson AL, Sykes J, Stanojevic S, Quon BS, Marshall BC, Petren K, et al. Survival Comparison of Patients With Cystic Fibrosis in Canada and the United States: A Population-Based Cohort Study. Ann Intern Med. 2017;166(8):537-546. PMID 28288488; PMCID PMC5467971; doi:10.7326/M16-0858.",
+  "link": "https://doi.org/10.7326/m16-0858",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4333,6 +4788,7 @@
   "text": "Taylor-Cousar JL, Munck A, McKone EF, van der Ent CK, Moeller A, Simard C, et al. Tezacaftor-Ivacaftor in Patients with Cystic Fibrosis Homozygous for Phe508del. N Engl J Med. 2017;377(21):2013-2023. PMID 29099344; doi:10.1056/nejmoa1709846.",
   "link": "https://doi.org/10.1056/nejmoa1709846",
   "areas": [
+   "A",
    "F"
   ],
   "unverified": false,
@@ -4354,6 +4810,7 @@
   "text": "Taylor-Cousar JL, Robinson PD, Shteinberg M, Downey DG. CFTR modulator therapy: transforming the landscape of clinical care in cystic fibrosis. Lancet. 2023;402(10408):1171-1184. PMID 37699418; doi:10.1016/s0140-6736(23)01609-4.",
   "link": "https://doi.org/10.1016/s0140-6736(23)01609-4",
   "areas": [
+   "A",
    "F"
   ],
   "unverified": false,
@@ -4380,6 +4837,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "TaylorRobinson2013",
+  "text": "Taylor-Robinson DC, Smyth RL, Diggle PJ, Whitehead M. The effect of social deprivation on clinical outcomes and the use of treatments in the UK cystic fibrosis population: a longitudinal study. Lancet Respir Med. 2013;1(2):121-8. PMID 24429092; PMCID PMC3878382; doi:10.1016/S2213-2600(13)70002-X.",
+  "link": "https://doi.org/10.1016/s2213-2600(13)70002-x",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "ThauvinRobinet2009",
   "text": "Thauvin-Robinet C, Munck A, Huet F, Génin E, Bellis G, Gautier E, et al. The very low penetrance of cystic fibrosis for the R117H mutation: a reappraisal for genetic counselling and newborn screening. J Med Genet. 2009;46(11):752-758. PMID 19880712; doi:10.1136/jmg.2009.067215.",
   "link": "https://doi.org/10.1136/jmg.2009.067215",
@@ -4395,6 +4862,26 @@
   "link": "https://doi.org/10.1001/archpediatrics.2011.136",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Trouve2024",
+  "text": "Trouvé P, Saint Pierre A, Férec C. Cystic Fibrosis: A Journey through Time and Hope. Int J Mol Sci. 2024;25(17):9599. PMID 39273547; PMCID PMC11394767; doi:10.3390/ijms25179599.",
+  "link": "https://doi.org/10.3390/ijms25179599",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Tsui1985",
+  "text": "Tsui LC, Buchwald M, Barker D, Braman JC, Knowlton R, Schumm JW, et al. Cystic fibrosis locus defined by a genetically linked polymorphic DNA marker. Science. 1985;230(4729):1054-7. PMID 2997931; doi:10.1126/science.2997931.",
+  "link": "https://doi.org/10.1126/science.2997931",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4476,6 +4963,7 @@
   "text": "Van Goor F, Hadida S, Grootenhuis PD, Burton B, Cao D, Neuberger T, et al. Rescue of CF airway epithelial cell function in vitro by a CFTR potentiator, VX-770. Proc Natl Acad Sci U S A. 2009;106(44):18825-18830. PMID 19846789; PMCID PMC2773991; doi:10.1073/pnas.0904709106.",
   "link": "https://doi.org/10.1073/pnas.0904709106",
   "areas": [
+   "A",
    "F"
   ],
   "unverified": false,
@@ -4552,10 +5040,21 @@
   "validated": "PubMed"
  },
  {
+  "key": "Volkova2020",
+  "text": "Volkova N, Moy K, Evans J, Campbell D, Tian S, Simard C, et al. Disease progression in patients with cystic fibrosis treated with ivacaftor: Data from national US and UK registries. J Cyst Fibros. 2020;19(1):68-79. PMID 31196670; doi:10.1016/j.jcf.2019.05.015.",
+  "link": "https://doi.org/10.1016/j.jcf.2019.05.015",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Wainwright2015TRAFFIC",
   "text": "Wainwright CE, Elborn JS, Ramsey BW, Marigowda G, Huang X, Cipolli M, et al. Lumacaftor-Ivacaftor in Patients with Cystic Fibrosis Homozygous for Phe508del CFTR. N Engl J Med. 2015;373(3):220-231. PMID 25981758; PMCID PMC4764353; doi:10.1056/nejmoa1409547.",
   "link": "https://doi.org/10.1056/nejmoa1409547",
   "areas": [
+   "A",
    "F"
   ],
   "unverified": false,
@@ -4760,11 +5259,22 @@
   "text": "Yu J, Chen Z, Ni Y, Li Z. CFTR mutations in men with congenital bilateral absence of the vas deferens (CBAVD): a systemic review and meta-analysis. Hum Reprod. 2012;27(1):25-35. PMID 22081250; doi:10.1093/humrep/der377.",
   "link": "https://doi.org/10.1093/humrep/der377",
   "areas": [
+   "A",
    "B",
    "D"
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Zabner1993",
+  "text": "Zabner J, Couture LA, Gregory RJ, Graham SM, Smith AE, Welsh MJ. Adenovirus-mediated gene transfer transiently corrects the chloride transport defect in nasal epithelia of patients with cystic fibrosis. Cell. 1993;75(2):207-16. PMID 7691415; doi:10.1016/0092-8674(93)80063-k.",
+  "link": "https://doi.org/10.1016/0092-8674(93)80063-k",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Zemanick2017",
