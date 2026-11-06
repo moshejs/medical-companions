@@ -25,7 +25,7 @@ const FR_TH={
      pt:`About 1 in 10 people with CF have variants that put an early "stop" in the CFTR recipe, so modulators have nothing to work on [[Kerem2014Ataluren]].`},
     {t:'From the blood',txt:`In the scene the drug arrives from below, the blood side of the cell. ELX-02 is a subcutaneous eukaryotic ribosome-selective glycoside, tested with and without ivacaftor in adults with at least one G542X allele [[NCT04135495]].`},
     {t:'Reading past the stop',txt:`The aim is to make the ribosome read past the premature stop and finish the protein. Ataluren was tested in a phase 3 trial in 238 people with nonsense-mutation CF [[Kerem2014Ataluren]].`},
-    {t:'Little or no full-length CFTR',txt:`Ataluren failed in that trial: relative ppFEV1 change −2.5% vs −5.5% on placebo (p=0.12), and raised creatinine in 15% vs under 1% [[Kerem2014Ataluren]].`},
+    {t:'The phase 3 result',txt:`Ataluren failed in that trial: relative ppFEV1 change −2.5% vs −5.5% on placebo (p=0.12), and raised creatinine in 15% vs under 1% [[Kerem2014Ataluren]].`},
     {t:'Two failed phase 3 trials',txt:`The confirmatory ACT CF trial (279 people not taking inhaled aminoglycosides) found no difference: ppFEV1 0.6 points (95% CI −1.3 to 2.5; p=0.54). The authors concluded "Development of a nonsense-mutation CF therapy remains elusive" <span class="ev est">Established: negative</span> [[Konstan2020ACTCF]]. The ELX-02 trial (17 enrolled) completed in 2022 with no results posted <span class="ev hyp">Hypothesis</span> [[NCT04135495]].`,
      hook:`Ataluren (read-through) failed two phase 3 trials, so nonsense variants remain an unmet need [[Kerem2014Ataluren,Konstan2020ACTCF]].`}]},
  edit:{n:'Gene editing',ev:['early','Early evidence (lab)'],acts:'DNA in the nucleus',route:'lab dish only',big:'25%',cap:['F508del alleles corrected','patient airway cells, in vitro'],res:.85,
@@ -82,8 +82,8 @@ inits.frontier=()=>{
     const L=N?{x0:10,x1:270,ix0:280,ix1:390,top:44,mem:140,bot:372,nx:78,ny:300,nrx:50,nry:36,rx:200,ry:236,sl:150,en:236,px:10,py:396,pw:380,ph:196}
              :{x0:14,x1:400,ix0:410,ix1:550,top:44,mem:150,bot:362,nx:112,ny:292,nrx:62,nry:42,rx:290,ry:236,sl:230,en:340,px:566,py:44,pw:146,ph:318};
     const mucY=L.mem-30,aslY=L.mem-14;let s=`<defs>${marker('frA','var(--muted)',6)}</defs>`;
-    s+=`<text x="${L.x0}" y="22" class="t-big">${T.n}: ${S.t.toLowerCase()===S.t?S.t:S.t.charAt(0).toLowerCase()+S.t.slice(1)}</text>`;
-    s+=`<text x="${L.x0}" y="38" class="t-sm">step ${p+1} of 5 · ${FR_STEPS[p].t.toLowerCase()}</text>`;
+    s+=`<text x="${L.x0}" y="22" class="t-big">${S.t}</text>`;
+    s+=`<text x="${L.x0}" y="38" class="t-sm">${T.n} · step ${p+1} of 5: ${FR_STEPS[p].t.toLowerCase()}</text>`;
     /* lumen, mucus, liquid layer */
     s+=`<rect x="${L.x0}" y="${L.top}" width="${L.ix1-L.x0}" height="${L.mem-L.top}" rx="8" style="fill:var(--field)"/>`;
     s+=`<rect x="${L.x0}" y="${mucY-8}" width="${L.ix1-L.x0}" height="16" rx="4" style="fill:var(--mucus);opacity:.75"/><rect x="${L.x0}" y="${aslY-6}" width="${L.ix1-L.x0}" height="13" style="fill:var(--water-soft)"/>`;

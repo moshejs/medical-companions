@@ -193,23 +193,24 @@ inits.organs=()=>{
   function chart(B,N){const c=sel;let g=tx(B.x,B.y+10,ORG[c].t,'t-big','font-size:15px;fill:var(--ink)');const y=B.y+30,bw=B.w-60;
     if(c==='sweat'){const s1=N?.92:1;[[0,'CFTR working','salt taken back'],[1,'CF','salt stays in sweat']].forEach(([cf,a,b],i)=>{const cx=B.x+B.w*(i?.72:.25),py=y+30;
         g+=sweatGland(cx,py,s1,{cf,ph:.35,labels:i===0}).svg+tx(cx,py-18,a,'t-sm t-mid',bold)+tx(cx,py+160*s1+14,b,'t-xs t-mid',cf?'fill:var(--bad);font-weight:600':'fill:var(--good);font-weight:600')})}
-    else if(c==='sinus'){g+=tx(B.x,y+8,'adults with nasal polyps on endoscopy (n = 211)','t-xs',ink);const I=icons(B.x,y+18,{n:100,cols:20,k:37,size:N?11:12,gap:3,col:'var(--brand)',shape:'dot'});g+=I.svg+tx(B.x,y+18+I.h+14,'37 in 100','t-sm',bold);
-      const y2=y+I.h+60;g+=tx(B.x,y2-14,'median Lund-Mackay sinus CT score','t-xs',ink)+hbar(B.x,y2,bw,5.8,8,'var(--muted)','before elexacaftor/tezacaftor/ivacaftor','5.8')+hbar(B.x,y2+32,bw,3.3,8,'var(--rx)','after 1 year (n = 64)','3.3')}
-    else if(c==='hear'){g+=tx(B.x,y+8,'children given IV aminoglycosides (n = 63)','t-xs',ink);const I=icons(B.x,y+20,{n:63,cols:9,k:15,size:N?16:18,gap:5,col:'var(--brand)'});g+=I.svg;
-      const tx0=B.x+9*((N?16:18)+5)+14;g+=`<text x="${f1(tx0)}" y="${f1(y+60)}" class="t-big" style="font-size:30px;fill:var(--brand)">24%</text>`+tx(tx0,y+78,'15 of 63 had ototoxicity','t-xs',bold)+tx(tx0,y+92,'on extended high-frequency','t-xs',ink)+tx(tx0,y+105,'audiometry','t-xs',ink)+tx(tx0,y+124,'11 of the 15 had had','t-xs',ink)+tx(tx0,y+137,'at least 10 courses','t-xs',ink)}
+    else if(c==='sinus'){g+=tx(B.x,y+8,'adults with nasal polyps on endoscopy (n = 211)','t-xs',ink);const I=icons(B.x,y+18,{n:100,cols:20,k:37,size:11,gap:3,col:'var(--brand)',shape:'dot'});g+=I.svg+tx(B.x,y+18+I.h+14,'37 in 100','t-sm',bold);
+      const y2=y+I.h+60;g+=tx(B.x,y2-14,'median Lund-Mackay sinus CT score','t-xs',ink)+hbar(B.x,y2+6,bw,5.8,8,'var(--muted)','before the modulator (ETI)','5.8')+hbar(B.x,y2+38,bw,3.3,8,'var(--rx)','after 1 year of ETI (n = 64)','3.3')}
+    else if(c==='hear'){g+=tx(B.x,y+8,'children given IV aminoglycosides (n = 63)','t-xs',ink);const I=icons(B.x,y+20,{n:63,cols:9,k:15,size:16,gap:5,col:'var(--brand)'});g+=I.svg;
+      const tx0=B.x+9*21+12;g+=`<text x="${f1(tx0)}" y="${f1(y+52)}" class="t-big" style="font-size:30px;fill:var(--brand)">24%</text>`+tx(tx0,y+70,'15 of 63','t-xs',bold);
+      const ty=y+20+I.h+16;g+=tx(B.x,ty,'had ototoxicity on extended high-frequency audiometry','t-xs',bold)+tx(B.x,ty+14,'11 of the 15 had had at least 10 courses','t-xs',ink)}
     else if(c==='bone'){g+=tx(B.x,y+8,'adults with CF, pooled (12 studies, 1,055 people)','t-xs',ink);
       [['osteopenia',38],['osteoporosis',23.5],['non-vertebral fracture',19.7],['vertebral fracture',14]].forEach(([l,v],i)=>{g+=hbar(B.x,y+34+i*34,bw,v,50,'var(--brand)',l,v+'%')});
-      g+=tx(B.x,y+34+4*34+4,'bone density checks from age 8–10 (ESPEN-ESPGHAN-ECFS)','t-xs')}
+      g+=tx(B.x,y+34+4*34+4,'bone density checks from age 8–10','t-xs',ink)+tx(B.x,y+34+4*34+17,'(ESPEN-ESPGHAN-ECFS guideline)','t-xs')}
     else if(c==='joint'){g+=tx(B.x,y+8,'German CF registry, 6,069 people','t-xs',ink)+hbar(B.x,y+36,bw,.7,10,'var(--muted)','under 18','0.7%')+hbar(B.x,y+70,bw,8.4,10,'var(--brand)','adults','8.4%')+tx(B.x,y+108,'4.9% overall','t-sm',bold)}
     else if(c==='kidney'){g+=tx(B.x,y+8,'people with kidney stones, %','t-xs',ink)+hbar(B.x,y+36,bw,2,35,'var(--muted)','age-matched controls (review)','1–2%',{lo:1})+hbar(B.x,y+70,bw,6.3,35,'var(--brand)','people with CF (review)','3.0–6.3%',{lo:3})+hbar(B.x,y+104,bw,32,35,'var(--bad)','lifetime, adults, one 2026 centre','32%');
       g+=tx(B.x,y+136,'the 2026 figure counts incidental imaging findings,','t-xs')+tx(B.x,y+149,'so it is not comparable with the older range','t-xs')}
-    else if(c==='male'){g+=tx(B.x,y+8,'men with CF, per 100','t-xs',ink);const I=icons(B.x,y+18,{n:100,cols:20,k:97,size:N?11:12,gap:3,col:'var(--brand)',shape:'dot'});g+=I.svg+tx(B.x,y+18+I.h+14,'up to 97–98 in 100 have CBAVD','t-sm',bold)+tx(B.x,y+18+I.h+30,'no vas deferens on either side: sperm cannot leave,','t-xs',ink)+tx(B.x,y+18+I.h+43,'but sperm production is usually intact','t-xs',ink)}
+    else if(c==='male'){g+=tx(B.x,y+8,'men with CF, per 100','t-xs',ink);const I=icons(B.x,y+18,{n:100,cols:20,k:97,size:11,gap:3,col:'var(--brand)',shape:'dot'});g+=I.svg+tx(B.x,y+18+I.h+14,'up to 97–98 in 100 have CBAVD','t-sm',bold)+tx(B.x,y+18+I.h+30,'no vas deferens on either side, so sperm','t-xs',ink)+tx(B.x,y+18+I.h+43,'cannot leave; sperm production itself','t-xs',ink)+tx(B.x,y+18+I.h+56,'is usually intact','t-xs',ink)}
     else if(c==='female'){g+=tx(B.x,y+8,'infertile among those trying to conceive, %','t-xs',ink)+hbar(B.x,y+36,bw,15,50,'var(--muted)','general population','5–15%',{lo:5})+hbar(B.x,y+70,bw,35,50,'var(--brand)','females with CF','about 35%');
       g+=tx(B.x,y+106,'causes: nutrition, thick acidic cervical mucus,','t-xs',ink)+tx(B.x,y+119,'lower ovarian reserve','t-xs',ink)}
     return g}
-  function drawBody(){const N=vb(body,'720 460','400 760');let s='';
+  function drawBody(){const N=vb(body,'720 460','400 660');let s='';
     if(N){s+=bodyFig(40,6,.86)+chart({x:16,y:410,w:368,h:330},N)}
-    else{s+=bodyFig(10,10,.98)+chart({x:420,y:20,w:286,h:420},N)}
+    else{s+=bodyFig(10,10,.98)+chart({x:412,y:20,w:298,h:420},N)}
     body.innerHTML=s;const o=ORG[sel];info.innerHTML=`<h4>${o.t}</h4><ul>${o.items.map(i=>`<li>${i}</li>`).join('')}</ul>`;
     $$('[data-org]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.org===sel))}
   $('#orBtns').addEventListener('click',e=>{const b=e.target.closest('[data-org]');if(!b)return;sel=b.dataset.org;drawBody()});

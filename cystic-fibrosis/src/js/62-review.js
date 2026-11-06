@@ -22,9 +22,7 @@ const CFRV_FC=[
  [2,`How fast did FEV1 fall before modulators?`,`About 1.12 points a year at ages 6–8 and 2.39 at ages 9–12 [[Konstan2007]]. A high baseline FEV1 was itself a risk factor for faster decline [[Konstan2007]].`],
  [2,`What is the usual order of airway pathogens?`,`S. aureus and H. influenzae in childhood, then P. aeruginosa, which turns mucoid over years (median age 13 for mucoid) [[Razvi2009,Li2005]].`],
  [2,`Is MRSA linked to survival?`,`Yes: adjusted hazard ratio for death 1.27 (US registry) [[Dasenbrook2010]].`],
- [2,`Which Burkholderia species is most dangerous?`,`B. cenocepacia: 31 of 33 initial infections became chronic, against 8 of 16 for B. multivorans, with shorter survival [[Jones2004]].`],
  [2,`How common are NTM in CF, and which species?`,`About 13% of people aged 10 or older; M. avium complex 72% and M. abscessus 16% [[Olivier2003]].`],
- [2,`How often do massive haemoptysis and pneumothorax occur?`,`About 0.87% and 0.64% of people with CF each year (1990s US registry) [[Flume2005Hemoptysis,Flume2005Pneumothorax]].`],
  [2,`What share of people with CF are pancreatic insufficient?`,`About 85% [[Singh2017PI]].`],
  [2,`Who gets pancreatitis in CF?`,`Pancreatic-sufficient people, especially with mild genotypes (HR 2.4), because it needs surviving acinar tissue [[Ooi2011Pancreatitis]].`],
  [2,`How common is meconium ileus?`,`About 1 in 5 newborns with CF (13–20%), often the first sign [[Sathe2017MI,vanderDoef2011]].`],
@@ -58,13 +56,11 @@ const CFRV_FC=[
  [4,`What did SKYLINE find?`,`Once-daily vanzacaftor–tezacaftor–deutivacaftor was non-inferior to ETI for ppFEV1 and gave lower sweat chloride [[Keating2025SKYLINE,FDA-Alyftrek]].`],
  [4,`What makes a variant "responsive" in vitro?`,`A net rise in FRT-cell chloride transport of at least 10% of normal [[FDA-Kalydeco]]. The first label expansion on in vitro data alone came in 2017 [[Durmowicz2018]].`],
  [4,`What liver monitoring do the ETI and VTD labels state?`,`A boxed warning for drug-induced liver injury and liver failure, with liver tests monthly for 6 months, every 3 months for the next 12 months, then yearly [[FDA-Trikafta,FDA-Alyftrek]].`],
- [4,`Why do drug interactions matter for modulators?`,`They are CYP3A substrates: rifampin cut ivacaftor exposure by 89%, and the label reduces the dose with strong or moderate inhibitors [[FDA-Trikafta]].`],
  [4,`Does a person's sweat chloride fall predict their FEV1 gain?`,`No. The two correlate across populations, not within an individual [[Fidler2017SwCl]].`],
  [4,`What does dornase alfa do?`,`It cleaves extracellular DNA in purulent sputum. In Fuchs 1994 once-daily use cut exacerbations by 28% and raised FEV1 by about 5.8% [[Fuchs1994Dornase]].`],
  [4,`Hypertonic saline: who benefits?`,`It cut exacerbations by 56% from age 6 [[Elkins2006HS]], but not in children under 6 in ISIS (rate ratio 0.98) [[Rosenfeld2012ISIS]].`],
  [4,`What did azithromycin do in Saiman 2003?`,`Three days a week, it lowered exacerbation risk (HR 0.65) [[Saiman2003Azithro]]. NTM must be considered first, and azithromycin stopped if NTM grows [[Floto2016NTM]].`],
  [4,`How is first P. aeruginosa treated?`,`Inhaled tobramycin for 28 days (grade A); 56 days was no better [[Mogayzel2014Pa,Ratjen2010ELITE]].`],
- [4,`How long should IV antibiotics run for an exacerbation?`,`STOP2: in early responders, 10 days was non-inferior to 14; in slow responders, 21 days was not better than 14 [[Goss2021STOP2]].`],
  [4,`Which airway clearance technique is best?`,`None has been shown superior, so the choice is individualised [[Flume2009ACT,Wilson2019ACT]]. PEP mask beat the vest on exacerbations in a 1-year trial [[McIlwaine2013HFCWO]].`],
  [4,`What enzyme ceiling does the Creon label state?`,`2,500 lipase units/kg/meal, 10,000 units/kg/day or 4,000 units/g fat/day, "without further investigation" [[FDA-Creon]].`],
  [4,`What is fibrosing colonopathy linked to?`,`Very high enzyme doses: above 50,000 units/kg/day carried a relative risk of 199.5 [[FitzSimmons1997]].`],
@@ -81,11 +77,8 @@ const CFRV_FC=[
  [5,`What predicts trouble at transition to adult care?`,`A gap longer than 3 months between the last paediatric and first adult visit predicted lower lung function [[Melton2024Transition]].`],
  [5,`Can men with CF become biological fathers?`,`Usually yes: sperm production is usually present, so sperm retrieval plus ICSI allows biological parenthood [[Kazmerski2022Family]].`],
  [5,`Why can ETI in pregnancy mislead newborn screening?`,`In-utero exposure lowers newborn IRT and can give a false-negative screen [[Patel2023IRT,Fortner2021]].`],
- [5,`What diabetes screening is advised in a CF pregnancy?`,`An OGTT at 12–16 and at 24–28 weeks if there is no known CFRD, and 6–12 weeks after birth after gestational diabetes [[Moran2010CFRD]].`],
- [5,`Once-daily or thrice-daily IV aminoglycoside?`,`Equally effective, with less kidney toxicity in children [[Bhatt2019Cochrane,Smyth2005TOPIC]].`],
  [5,`What is the single most important infection-control practice?`,`Hand hygiene, before and after all patient contact, whether or not gloves are worn [[Haggie2020,Saiman2014IPC]].`],
  [5,`Did ataluren help nonsense variants?`,`No: it failed two phase 3 trials, so nonsense variants remain an unmet need [[Kerem2014Ataluren,Konstan2020ACTCF]].`],
- [5,`What did the UK non-viral gene therapy trial find?`,`Monthly nebulised pGM169/GL67A gave a 3.7% relative ppFEV1 benefit over placebo, reflecting stabilisation (Early evidence) [[Alton2015pGM169]].`],
  /* ---- Part 6: context & history ---- */
  [6,`Who first reported abnormal sweat in CF, and when?`,`Di Sant'Agnese and colleagues, in 1953 [[DiSantAgnese1953]].`],
  [6,`What did Gibson and Cooke standardise in 1959?`,`Sweat collection by pilocarpine iontophoresis [[Gibson1959]].`],
@@ -97,6 +90,13 @@ const CFRV_FC=[
  [6,`When was Trikafta first approved in the US?`,`21 October 2019; Alyftrek followed on 20 December 2024 [[FDA2026Approvals,FDA-Alyftrek]].`],
  [6,`How old is F508del?`,`Estimates differ: over 52,000 years from 1994 haplotypes [[Morral1994]], or 4,600–4,725 years in northwestern Europe from a 2018 family study (both Hypothesis) [[Farrell2018Age]].`],
  [6,`Did carriers once have a survival advantage?`,`Unproven (Hypothesis). Cholera and typhoid ideas come from animal and cell data [[Gabriel1994,Pier1998]]; one model found tuberculosis could fit better [[Poolman2007]].`],
+ [6,`Who first described "cystic fibrosis of the pancreas"?`,`Dorothy Andersen, a Columbia University pathologist, in 1938, setting it apart from coeliac disease [[Andersen1938,Davis2006]].`],
+ [6,`What was the first CFTR modulator, and when was it approved?`,`Ivacaftor (Kalydeco), approved by the FDA on 31 January 2012 [[FDA2026CFApprovals,McBennett2022]].`],
+ [6,`How common is CF at birth in populations of European descent?`,`Traditionally quoted as 1 in 2,500; newborn-screening data now suggest 1 in 3,000 to 1 in 6,000. Ireland has Europe's highest rate, 1 in 1,353 [[Scotet2020]].`],
+ [6,`Is median age at death the same as median survival?`,`No. Median age at death describes those who died; predicted median survival applies to a baby born today [[Scotet2020,Keogh2018Guide]].`],
+ [6,`What is the CF "gender gap"?`,`In US data for 1988–1992, females aged 1–20 had a 60% higher risk of death than males [[Rosenfeld1997]].`],
+ [6,`Does income affect CF outcomes?`,`Yes: US patients on Medicaid had a 3.65-fold adjusted risk of death (registry data) [[Schechter2001]].`],
+ [6,`Why did Canada and the US differ in median survival?`,`50.9 versus 40.6 years in 2009–2013, partly linked to transplant access and insurance; population statistics [[Stephenson2017]].`],
  [6,`How did survival after meconium ileus change?`,`First-year survival rose from 55% (born 1958–1972) to 96% (born 1973–1987) [[vanderDoef2011]].`]
 ];
 /* every mnemonic here is coined for this guide */
@@ -305,6 +305,10 @@ const CFQZ_Q=[
  [6,`Trikafta was first approved in the US in:`,[`2012`,`2015`,`2019`,`2024`],2,`21 October 2019 [[FDA2026Approvals]].`],
  [6,`Quinton's 1983 sweat duct experiments showed:`,[`High chloride permeability`,`Abnormally low chloride permeability`,`Extra sweat production`,`Bacteria in sweat`],1,`[[Quinton1983]]`],
  [6,`The idea that CF carriers once had a survival advantage is:`,[`Proven`,`An unproven hypothesis`,`Disproved for every infection`,`Recorded in the drug labels`],1,`Heterozygote advantage remains unproven [[Farrell2018Age,Poolman2007]].`],
+ [6,`Who described "cystic fibrosis of the pancreas" in 1938?`,[`Dorothy Andersen`,`Paul di Sant'Agnese`,`Lap-Chee Tsui`,`Paul Quinton`],0,`Andersen set it apart from coeliac disease [[Andersen1938,Davis2006]].`],
+ [6,`The first CFTR modulator, ivacaftor, was approved by the FDA in:`,[`1998`,`2005`,`2012`,`2019`],2,`31 January 2012 [[FDA2026CFApprovals]].`],
+ [6,`Which European country has the highest CF birth rate?`,[`Finland`,`Ireland`,`Italy`,`Greece`],1,`1 in 1,353 births in Ireland, against 1 in 25,000 in Finland [[Scotet2020]].`],
+ [6,`In 2009–2013, median survival with CF in Canada compared with the US was:`,[`Lower`,`About the same`,`Higher: 50.9 versus 40.6 years`,`Not reported`],2,`Partly linked to transplant access and insurance; population statistics [[Stephenson2017]].`],
  [6,`Universal CF newborn screening began in the US in:`,[`1979`,`1989`,`2010`,`2019`],2,`And in the UK in 2007 [[McGarry2025NBS,Schluter2020]].`]
 ];
 inits.quiz=()=>{

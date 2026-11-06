@@ -1,5 +1,79 @@
-<!-- ================= 5.5 RESEARCH FRONTIER (stub, replaced by its builder) ================= -->
+<!-- ================= 5.5 RESEARCH FRONTIER ================= -->
+<style>
+#m-frontier .frtog{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-frontier .frtog .btn{font-size:13px}
+#m-frontier .frtog .lbl{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+#m-frontier .card>.ev,#m-frontier .card>.tag{align-self:flex-start}
+#m-frontier .card .nct{font:500 12px var(--mono);color:var(--muted)}
+#m-frontier .card .row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+</style>
 <section class="mod" id="m-frontier" data-mod="frontier" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living &amp; care</p><h2>Research frontier</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">About 1 in 10 people with CF have variants that modulators cannot help, and modulators do not suit everyone else. This is where research is trying to reach them: adding a working gene, sending the CFTR message, reading past a stop, editing the DNA, or working around CFTR altogether. Every entry carries an evidence label.</p></div>
+
+  <div class="prose">
+    <p>Nonsense variants cause CF in about 10% of people, and drugs that act on the CFTR protein cannot help when no protein is made [[Kerem2014Ataluren]]. A 2023 Lancet review notes that a health outcome gap has opened for people who are not eligible for modulators, cannot tolerate them, or cannot get them [[TaylorCousar2023Lancet]]. As of November 2026 no genetic therapy for CF is approved [[Alton2015pGM169,Rowe2023MRT5005,Sousa2025Prime]].</p>
+    <p class="legend"><span class="ev est">Established</span> replicated or definitive, including definitive negative results <span class="ev early">Early evidence</span> early trials or laboratory work <span class="ev hyp">Hypothesis</span> an idea, a stopped trial or an unreported one</p>
+  </div>
+
+  <div class="frtog" role="group" aria-label="Choose a therapy">
+    <span class="lbl">Therapy</span>
+    <button class="btn" data-frt="gene" aria-pressed="true">Gene addition</button>
+    <button class="btn" data-frt="mrna" aria-pressed="false">mRNA</button>
+    <button class="btn" data-frt="read" aria-pressed="false">Read-through</button>
+    <button class="btn" data-frt="edit" aria-pressed="false">Gene editing</button>
+    <button class="btn" data-frt="enac" aria-pressed="false">ENaC inhibitor</button>
+    <button class="btn" data-frt="iono" aria-pressed="false">Ionocytes &amp; organoids</button>
+  </div>
+  <div class="stepper" id="frSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="frSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="An airway cell, cut through, beside a rare ionocyte, under the mucus and liquid layer of the airway. The airway cell has a nucleus holding the CFTR gene with its variant marked, a ribosome, an empty place for CFTR in the top membrane and the sodium channel ENaC. Choose a therapy and scrub: a gene vector or mRNA nanoparticle is inhaled, crosses the mucus and reaches the nucleus or ribosome; a read-through drug arrives from the blood; an editor fixes the variant; an ENaC blocker plugs the sodium channel. A panel shows the evidence label and the best published result."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="frPlay">Play</button><label class="stage-cap tl" for="frT">Route <input type="range" id="frT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> Routes are simplified sketches of how each approach is meant to work; gene editing has so far been done only in laboratory cells [[Sousa2025Prime,Geurts2020ABE]], and no route shown here is an approved treatment.</p>
+    </div>
+    <aside class="note" id="frNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The pipeline map</h3>
+  <div class="ctrls" role="group" aria-label="Filter by evidence">
+    <button class="btn" data-frf="all" aria-pressed="true">All</button>
+    <button class="btn" data-frf="est" aria-pressed="false">Established</button>
+    <button class="btn" data-frf="early" aria-pressed="false">Early evidence</button>
+    <button class="btn" data-frf="hyp" aria-pressed="false">Hypothesis</button>
+  </div>
+  <div class="stage">
+    <svg id="frPipe" viewBox="0 0 720 420" role="img" aria-label="A pipeline map with six lanes (gene addition, mRNA, read-through, gene editing, ENaC inhibition and cell biology) and five stages from laboratory to approved. Gene addition: pGM169/GL67A completed phase 2b; 4D-710 and SP-101 recruiting in phase 1/2; BI 3720931 stopped. mRNA: MRT5005 and VX-522 completed phase 1/2. Read-through: ataluren failed phase 3; ELX-02 completed phase 2. Gene editing: base and prime editing in the laboratory. ENaC: BI 1265162 stopped in phase 2. Cell biology: ionocytes and organoids. Nothing has reached approval."></svg>
+    <p class="stage-cap">Stages and statuses from the trial reports and ClinicalTrials.gov records cited in the cards below. The filter dims programmes and hides cards outside the chosen evidence level.</p>
+  </div>
+
+  <div class="cards" id="frCards">
+    <div class="card" data-ev="early"><div class="row"><span class="tag accent">Gene addition · non-viral</span><span class="ev early">Early evidence</span></div><h4>pGM169/GL67A</h4>
+      <p>UK CF Gene Therapy Consortium, 140 people, nebulised monthly for a year: relative ppFEV1 benefit 3.7% over placebo (95% CI 0.1 to 7.3; p=0.046), reflecting stabilisation against decline; "significant, albeit modest" [[Alton2015pGM169]].</p></div>
+    <div class="card" data-ev="early"><div class="row"><span class="tag accent">Gene addition · AAV</span><span class="ev early">Early evidence</span></div><h4>4D-710</h4>
+      <p>Inhaled AAV (capsid 4D-A101) carrying a CFTR transgene, open-label phase 1/2 in adults, recruiting [[NCT05248230]].</p><p class="nct">NCT05248230</p></div>
+    <div class="card" data-ev="early"><div class="row"><span class="tag accent">Gene addition · AAV</span><span class="ev early">Early evidence</span></div><h4>SP-101</h4>
+      <p>A single inhaled dose given with doxorubicin, for adults ineligible for or intolerant of modulators; phase 1/2, recruiting [[NCT06526923]].</p><p class="nct">NCT06526923</p></div>
+    <div class="card" data-ev="hyp"><div class="row"><span class="tag accent">Gene addition · lentiviral</span><span class="ev hyp">Hypothesis</span></div><h4>BI 3720931 (Lenticlair 1)</h4>
+      <p>Inhaled lentiviral vector for adults ineligible for modulators. Terminated in 2026 for "sponsor decision" after enrolling 5 people [[NCT06515002]].</p><p class="nct">NCT06515002</p></div>
+    <div class="card" data-ev="early"><div class="row"><span class="tag">mRNA</span><span class="ev early">Early evidence</span></div><h4>MRT5005</h4>
+      <p>Inhaled CFTR mRNA in lipid nanoparticles, 42 adults: 14 febrile reactions in 10 treated people and 2 hypersensitivity reactions; FEV1 stable, no FEV1 benefit [[Rowe2023MRT5005]].</p></div>
+    <div class="card" data-ev="early"><div class="row"><span class="tag">mRNA</span><span class="ev early">Early evidence</span></div><h4>VX-522</h4>
+      <p>Inhaled mRNA for adults whose genotype does not respond to modulators. Phase 1/2 (26 enrolled) listed as completed on 9 Sep 2026, no results posted [[NCT05668741]].</p><p class="nct">NCT05668741</p></div>
+    <div class="card" data-ev="est"><div class="row"><span class="tag">Read-through</span><span class="ev est">Established: negative</span></div><h4>Ataluren</h4>
+      <p>Phase 3 (238 people): relative ppFEV1 −2.5% vs −5.5% (p=0.12), raised creatinine 15% vs under 1% [[Kerem2014Ataluren]]. ACT CF (279): difference 0.6 points (p=0.54); "Development of a nonsense-mutation CF therapy remains elusive" [[Konstan2020ACTCF]].</p></div>
+    <div class="card" data-ev="hyp"><div class="row"><span class="tag">Nonsense suppression</span><span class="ev hyp">Hypothesis</span></div><h4>ELX-02</h4>
+      <p>Subcutaneous eukaryotic ribosome-selective glycoside, with and without ivacaftor, in adults with at least one G542X allele; phase 2, 17 enrolled, completed 2022, no results posted [[NCT04135495]].</p><p class="nct">NCT04135495</p></div>
+    <div class="card" data-ev="early"><div class="row"><span class="tag mod">Gene editing · base</span><span class="ev early">Early evidence (lab)</span></div><h4>Adenine base editing</h4>
+      <p>In an organoid biobank from 664 people, about 20% carried variants base editing could theoretically correct; repair in all 4 tested samples, no off-target mutations in 2 lines [[Geurts2020ABE]].</p></div>
+    <div class="card" data-ev="early"><div class="row"><span class="tag mod">Gene editing · prime</span><span class="ev early">Early evidence (lab)</span></div><h4>Prime editing</h4>
+      <p>Corrected F508del in 58% of immortalised bronchial cells and 25% of patient airway cells, restoring over 50% of wild-type CFTR function [[Sousa2025Prime]]; also corrected L227R and N1303K in organoids and nasal cells [[Bulcaen2024Prime]].</p></div>
+    <div class="card" data-ev="early"><div class="row"><span class="tag">Around CFTR</span><span class="ev early">Early evidence: negative</span></div><h4>ENaC inhibitor BI 1265162</h4>
+      <p>A "mutation-agnostic" approach. BALANCE-CF 1 showed no relevant clinical benefit (+1.5% ppFEV1 at 200 µg twice daily vs placebo); development terminated [[Goss2022BALANCE]].</p></div>
+    <div class="card" data-ev="est hyp"><div class="row"><span class="tag rec">Cell biology</span><span class="ev est">Established discovery</span><span class="ev hyp">Hypothesis as a target</span></div><h4>Pulmonary ionocytes</h4>
+      <p>A rare FOXI1-positive cell that is the major source of CFTR transcripts in mouse and human airways; knocking out Foxi1 caused CF-like fluid and mucus changes in mice [[Montoro2018,Plasschaert2018]].</p></div>
+    <div class="card" data-ev="early"><div class="row"><span class="tag rec">Personalised testing</span><span class="ev early">Early evidence</span></div><h4>Organoid theratyping</h4>
+      <p>Forskolin-induced swelling of rectal organoids measures CFTR function, and organoid responses correlated with trial outcomes and, prospectively, with FEV1 and sweat chloride [[Dekkers2013FIS,Dekkers2016Organoids,Berkers2019Organoids]]. Still a research tool [[Dekkers2016Organoids]].</p></div>
+  </div>
+  <div class="callout"><p><b>In plain words.</b> Researchers are testing gene therapy, mRNA and gene editing for the people modulators cannot help, but none is a proven treatment yet [[Kerem2014Ataluren,Rowe2023MRT5005,Alton2015pGM169]]. Trial listings change often; a CF care team can say which studies are open.</p></div>
 </section>
