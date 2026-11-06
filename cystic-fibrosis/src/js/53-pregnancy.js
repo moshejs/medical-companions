@@ -59,7 +59,7 @@ inits.pregnancy=()=>{
      const m=ramp(u,.4,.5);s+=`<line x1="${f1(X(2019))}" x2="${f1(X(2019))}" y1="${y}" y2="${y+h}" style="stroke:var(--rx);stroke-width:1.6;stroke-dasharray:4 3;opacity:${f1(m)}"/>`+T(X(2019)-4,y+h-8,'2019: modulators for most','t-xs t-end',`fill:var(--rx);opacity:${f1(m)}`);
      const d=ease(ramp(u,.5,.8)),v=lerp(310,619,d);
      if(d>0){s+=`<path d="M${f1(X(2019))} ${f1(Y(310))}L${f1(lerp(X(2019),X(2020),d))} ${f1(Y(v))}" style="stroke:var(--brand);stroke-width:2;stroke-dasharray:4 3"/><circle cx="${f1(lerp(X(2019),X(2020),d))}" cy="${f1(Y(v))}" r="6" style="fill:var(--brand);stroke:var(--panel);stroke-width:2"/>`;
-       s+=T(X(2020)+(N?-10:10),Y(v)+(N?-6:5),Math.round(v),N?'t-big t-end':'t-big','fill:var(--brand)')}
+       if(d>.9)s+=T(X(2020)+(N?-10:10),Y(v)+(N?-6:5),619,N?'t-big t-end':'t-big','fill:var(--brand)')}
      if(u>.82)s+=T(X(2019)-8,Y(619)+4,'2020: nearly doubled','t-xs t-end',`fill:var(--ink);opacity:${f1(ramp(u,.82,.92))}`);
      const sx=N?24:550,sy=N?352:90;
      s+=`<g style="opacity:${f1(ramp(u,.2,.4))}">`+H(sx,sy,'What changed')+['Modulators approved for','most people with CF (2019)','','Reproductive-health','education: from diagnosis,','revisited every year'].map((q,j)=>T(sx,sy+20+j*15,q,'t-xs','fill:var(--ink)')).join('')+'</g>';
@@ -160,7 +160,7 @@ inits.pregnancy=()=>{
       const n=P.n,rx=N?24:300,ry=N?py+ps*3+30:70;
       s+=T(px-10,py-38,'left: you ('+ME[me].join(' ')+') · top: partner ('+PA[pa].join(' ')+')','t-xs','fill:var(--ink)');
       {s+=`<text x="${rx}" y="${ry}" class="t-sm" style="fill:var(--ink);font-weight:600">Each pregnancy</text>`;
-        [['CF',n.cf,'var(--variant)'],['carrier',n.carrier,'var(--brand)'],['neither',n.none,'var(--muted)']].forEach((q,j)=>{const y=ry+22+j*(N?26:34),w=N?200:200;
+        [['CF',n.cf,'var(--variant)'],['carrier',n.carrier,'var(--brand)'],['neither',n.none,'var(--muted)']].forEach((q,j)=>{const y=ry+22+j*(N?26:34),w=N?200:140;
           s+=`<rect x="${rx}" y="${y}" width="${w}" height="13" rx="4" style="fill:var(--panel-2)"/><rect x="${rx}" y="${y}" width="${f1(w*q[1]/4)}" height="13" rx="4" style="fill:${q[2]};opacity:.85"/><text x="${rx+w+8}" y="${y+11}" class="t-sm" style="fill:var(--ink);font-weight:700">${q[0]}: ${q[1]} in 4</text>`})}}
     else{s+=`<rect x="20" y="30" width="${N?340:520}" height="${N?140:120}" rx="12" style="fill:var(--panel-2)"/><text x="40" y="66" class="t-big">Partner not tested</text><text x="40" y="90" class="t-sm" style="fill:var(--ink)">The chance cannot be worked out yet.</text><text x="40" y="110" class="t-sm" style="fill:var(--ink)">ACOG: offer the partner testing; screening</text><text x="40" y="128" class="t-sm" style="fill:var(--ink)">can be declined.</text>`}
     ex.innerHTML=s;

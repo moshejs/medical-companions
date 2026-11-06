@@ -192,13 +192,13 @@ inits.variants=()=>{
   /* ---------- pick a variant ---------- */
   const sel=$('#vrPick'),psvg=$('#vrPickSvg'),pout=$('#vrPickOut');let cur=VR_VARS[0],pStop=null;
   sel.innerHTML=VR_VARS.map((v,i)=>`<option value="${i}">${v.id.replace(/>/g,'&gt;')}</option>`).join('');
-  function drawPick(ph){const N=vb(psvg,'720 230','400 400'),C=VR_CL[cur.cls];
-    const cx=N?200:120,cy=N?96:112,s0=N?62:70;
+  function drawPick(ph){const N=vb(psvg,'560 250','400 300'),C=VR_CL[cur.cls];
+    const cx=N?200:92,cy=N?96:116,s0=N?62:64;
     const st=cur.cls===1||cur.cls===2||cur.cls===7?(cur.cls===2?'misfold':'absent'):cur.cls===3?'closed':'open';
-    let s=cftr(cx,cy,s0,{state:st,open:st==='open'?(cur.cls===4?.35:1):0,flow:st==='open'?(cur.cls===4?.3:cur.cls===5?.6:1):0,ph,hco3:true,p:1,atp:st==='closed'?1:0,fold:0,mw:N?220:200,labels:false}).svg;
+    let s=cftr(cx,cy,s0,{state:st,open:st==='open'?(cur.cls===4?.35:1):0,flow:st==='open'?(cur.cls===4?.3:cur.cls===5?.6:1):0,ph,hco3:true,p:1,atp:st==='closed'?1:0,fold:0,mw:N?220:170,labels:false}).svg;
     s+=`<text x="${cx}" y="${cy+s0*(st==='misfold'?1.1:.9)}" class="t-sm t-mid" style="fill:var(--ink);font-weight:600">${cur.id.replace(/>/g,'&gt;')}</text>`;
-    const x0=N?30:260,x1=N?370:700,ly=N?260:110,gp=(x1-x0)/6;
-    s+=`<text x="${x0-8}" y="${ly-46}" class="t-sm" style="fill:var(--ink);font-weight:700">${cur.ct.replace(/>/g,'&gt;')}</text>`;
+    const x0=N?30:214,x1=N?370:534,ly=N?240:130,gp=(x1-x0)/6;
+    cur.ct.split('; ').forEach((ln,k,a)=>{s+=`<text x="${x0-10}" y="${ly-62-(a.length-1-k)*14}" class="t-sm" style="fill:var(--ink);font-weight:${k?500:700}">${ln.replace(/>/g,'&gt;')}</text>`});
     s+=`<line x1="${x0}" x2="${x1}" y1="${ly}" y2="${ly}" style="stroke:var(--line);stroke-width:3"/>`;
     const fail=C.st.indexOf(0)>=0?C.st.indexOf(0):C.st.indexOf(.5);
     C.st.forEach((v,j)=>{const x=x0+gp*j;s+=vrMark(x,ly,v,N?10:11);
@@ -253,7 +253,7 @@ inits.variants=()=>{
   const MC={var:'Variation in lung function, from 134 identical twins and 272 non-identical twins and siblings: genetic factors 50%, unique environmental or chance factors 36%, shared environment 14% [[Collaco2010Env]].',
     lung:'Lung-function correlation within pairs: identical (monozygotic) twins 0.82–0.91, non-identical twins and siblings 0.50–0.64; heritability estimates ranged from 0.54 to 1.0 [[Vanscoy2007]]. Identical twins share their CFTR genotype and all their other genes.',
     cfrd:'Concordance for CF-related diabetes: 0.73 in identical twin pairs against 0.18 in non-identical twins and siblings, with heritability "near one" [[Blackman2009CFRD]].'};
-  function drawMod(p){const N=vb(md,'720 210','400 300');let s='';const e=ease(clamp(p));
+  function drawMod(p){const N=vb(md,mk==='var'?'720 150':'720 210',mk==='var'?'400 190':'400 240');let s='';const e=ease(clamp(p));
     if(mk==='var'){const x0=N?12:40,w=N?376:640,y=N?70:66,P=[['genetic',50,'var(--brand)'],['unique environment and chance',36,'var(--dx)'],['shared environment',14,'var(--rec)']];
       s+=`<text x="${x0}" y="${y-22}" class="t-sm" style="fill:var(--ink);font-weight:600">what explains the differences in lung function</text>`;let x=x0;
       P.forEach(([n,v,c],j)=>{const ww=w*v/100*e;s+=`<rect x="${f1(x)}" y="${y}" width="${f1(Math.max(0,ww-2))}" height="34" rx="5" style="fill:${c};opacity:.85"/>`;

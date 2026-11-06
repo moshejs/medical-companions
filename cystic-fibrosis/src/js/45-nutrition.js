@@ -41,8 +41,8 @@ inits.nutrition=()=>{
     const d=clamp(u)*L[L.length-1];for(let i=1;i<P.length;i++)if(d<=L[i]){const k=(d-L[i-1])/((L[i]-L[i-1])||1);return [lerp(P[i-1][0],P[i][0],k),lerp(P[i-1][1],P[i][1],k),i-1,k]}
     const q=P[P.length-1];return [q[0],q[1],P.length-2,1]}
   /* layout of the gut scene */
-  function lay(N){return N?{plate:[70,96],st:[96,140,150,96],tube:[[60,300],[360,300]],th:30,vy:262,stool:[300,346,70,34],meter:[30,420,340],cap0:[70,96]}
-                          :{plate:[70,104],st:[130,130,150,104],tube:[[300,250],[560,250]],th:30,vy:206,stool:[580,232,80,36],meter:[540,74,150],cap0:[70,104]}}
+  function lay(N){return N?{plate:[70,86],st:[150,104,150,92],tube:[[60,290],[360,290]],th:30,vy:250,stool:[300,336,70,34],meter:[30,410,340]}
+                          :{plate:[70,128],st:[130,156,150,104],tube:[[300,282],[560,282]],th:30,vy:236,stool:[580,264,80,36],meter:[400,112,280]}}
   function scene(t,N,p){const G=lay(N),[sx,sy,sw,sh]=G.st,t0=G.tube[0],t1=G.tube[1];
     const enz=ramp(t,.4,.47),abs=lerp(.15,.9,ramp(t,.42,.55));let g='';
     /* the plate */
@@ -81,40 +81,44 @@ inits.nutrition=()=>{
     if(enz>0)for(let i=0;i<10;i++){const u=((i/10+t*2.4)%1+1)%1,x=lerp(t0[0]+30,t1[0],u);g+=`<circle cx="${f1(x)}" cy="${f1(t0[1]+((i%3)-1)*8)}" r="2.3" style="fill:var(--enzyme);opacity:${f1(enz)}"/>`}
     /* the meter */
     const [mx,my,mh]=G.meter;
-    if(N){const mw=mh;g+=tx(mx,my-8,'fat absorbed (schematic)','t-xs',bold)+`<rect x="${mx}" y="${my}" width="${mw}" height="14" rx="5" style="fill:var(--panel-2)"/><rect x="${mx}" y="${my}" width="${f1(mw*abs)}" height="14" rx="5" style="fill:${abs>=.85?'var(--good)':'var(--warn)'}"/>`;
+    if(true){const mw=mh;g+=tx(mx,my-8,'fat absorbed (schematic)','t-xs',bold)+`<rect x="${mx}" y="${my}" width="${mw}" height="14" rx="5" style="fill:var(--panel-2)"/><rect x="${mx}" y="${my}" width="${f1(mw*abs)}" height="14" rx="5" style="fill:${abs>=.85?'var(--good)':'var(--warn)'}"/>`;
       const x85=mx+mw*.85;g+=`<line x1="${f1(x85)}" x2="${f1(x85)}" y1="${my-4}" y2="${my+18}" style="stroke:var(--ink);stroke-width:1.4"/>`+tx(x85,my+30,'85%','t-xs t-mid',bold)+tx(mx,my+46,'CFA below 85% is one listed reason to start PERT','t-xs')}
     else{const mw=16;g+=tx(mx+mw/2,my-10,'fat absorbed','t-xs t-mid',bold)+tx(mx+mw/2,my-0,'(schematic)','t-xs t-mid')+`<rect x="${mx}" y="${my+6}" width="${mw}" height="${mh}" rx="5" style="fill:var(--panel-2)"/><rect x="${mx}" y="${f1(my+6+mh*(1-abs))}" width="${mw}" height="${f1(mh*abs)}" rx="5" style="fill:${abs>=.85?'var(--good)':'var(--warn)'}"/>`;
       const y85=my+6+mh*.15;g+=`<line x1="${mx-4}" x2="${mx+mw+4}" y1="${f1(y85)}" y2="${f1(y85)}" style="stroke:var(--ink);stroke-width:1.4"/>`+tx(mx+mw+8,y85+3,'85% CFA','t-xs',bold)+tx(mx+mw+8,y85+16,'below it: one','t-xs')+tx(mx+mw+8,y85+28,'listed reason','t-xs')+tx(mx+mw+8,y85+40,'to start PERT','t-xs')}
     void lost;void p;return g}
   /* phase 4: a log dose axis */
-  function doses(t,N){const k=ramp(t,.67,.8),x0=N?24:60,x1=N?376:660,y=N?150:150,L=v=>x0+(x1-x0)*(Math.log10(v)-2)/2,cur=Math.pow(10,2+2*k);let g='';
-    g+=`<rect x="${N?16:40}" y="${N?50:56}" width="${N?368:640}" height="26" rx="8" style="fill:var(--warn-soft)"/>`+tx(N?200:360,N?67:73,'Teaching readout of the Creon label. Not a dose calculator.','t-xs t-mid','fill:var(--warn);font-weight:700');
-    const Z=[[500,2500,'var(--good)','label start to ceiling'],[2500,6000,'var(--warn)','above the ceiling'],[6000,10000,'var(--bad)','strictures (&lt;12 y)']];
-    Z.forEach(([a,b,c,l],i)=>{g+=`<rect x="${f1(L(a))}" y="${y-18}" width="${f1(L(b)-L(a))}" height="36" style="fill:${c};opacity:.16"/>`;if(!N||i<2)g+=tx((L(a)+L(b))/2,y-24,l,'t-xs t-mid',`fill:${c};font-weight:600`)});
-    if(N)g+=tx(L(8000),y+32,'strictures','t-xs t-mid','fill:var(--bad);font-weight:600');
+  function doses(t,N){const k=ramp(t,.67,.8),x0=N?24:60,x1=N?376:660,y=N?150:128,L=v=>x0+(x1-x0)*(Math.log10(v)-2)/2,cur=Math.pow(10,2+2*k);let g='';
+    g+=`<rect x="${N?16:40}" y="${N?50:52}" width="${N?368:640}" height="24" rx="8" style="fill:var(--warn-soft)"/>`+tx(N?200:360,N?66:68,N?'Teaching readout of the label. Not a calculator.':'Teaching readout of the Creon label. Not a dose calculator.','t-xs t-mid','fill:var(--warn);font-weight:700');
+    const Z=[[500,2500,'var(--good)','label start to ceiling'],[2500,6000,'var(--warn)','above the ceiling'],[6000,10000,'var(--bad)','stricture warning (&lt;12 y)']];
+    Z.forEach(([a,b,c,l],i)=>{g+=`<rect x="${f1(L(a))}" y="${y-16}" width="${f1(L(b)-L(a))}" height="32" style="fill:${c};opacity:.18"/>`;
+      const lx=N?(i===2?16:16+i*160):x0+i*200,ly=N?y-40+(i===2?14:0):y-28;g+=`<rect x="${lx}" y="${ly-8}" width="10" height="9" style="fill:${c};opacity:.5"/>`+tx(lx+14,ly,l,'t-xs',ink)});
     g+=`<line x1="${x0}" x2="${x1}" y1="${y}" y2="${y}" class="axis"/>`;
-    [100,300,1000,3000,10000].forEach(v=>{g+=`<line x1="${f1(L(v))}" x2="${f1(L(v))}" y1="${y-4}" y2="${y+4}" class="axis"/>`+tx(L(v),y+(N?18:16),num(v),'t-xs t-mid')});
-    g+=tx(x1,y+(N?46:32),'lipase units per kg per meal (log scale)','t-xs t-end');
-    const M=[[500,'500','start, age 4 years and over'],[1000,'1,000','start, over 12 months to under 4 years'],[2500,'2,500','ceiling per meal, "without further investigation"'],[6000,'6,000','above this: colonic stricture in children under 12']];
-    M.forEach(([v,l,d],i)=>{if(cur<v)return;const xx=L(v),yy=y+(N?64:52)+i*(N?34:30);g+=`<line x1="${f1(xx)}" x2="${f1(xx)}" y1="${y}" y2="${yy-10}" style="stroke:var(--ink);stroke-width:1;stroke-dasharray:2 2"/><circle cx="${f1(xx)}" cy="${y}" r="5" style="fill:var(--ink)"/>`;
-      const right=N?xx<200:xx<520;g+=tx(xx+(right?4:-4),yy,`${l}: ${d}`,'t-xs'+(right?'':' t-end'),bold)});
-    g+=`<path d="M${f1(L(cur))} ${y-26}l-5 -8h10z" style="fill:var(--brand)"/>`;
-    const yb=N?y+214:y+178;
-    if(k>.98){g+=tx(N?16:40,yb,'Also on the label:','t-sm',bold);
-      const A=['no more than 10,000 lipase units/kg/day, or 4,000 lipase units/g fat/day','snacks: about half the meal dose; about 3 meals and 2–3 snacks a day','infants: 3,000 lipase units per 120 mL of formula or per breastfeeding'];
-      A.forEach((a,i)=>{g+=tx(N?16:40,yb+16+i*14,'· '+a,'t-xs',ink)})}
+    [100,300,1000,3000,10000].forEach(v=>{g+=`<line x1="${f1(L(v))}" x2="${f1(L(v))}" y1="${y-4}" y2="${y+4}" class="axis"/>`+tx(L(v),y+28,num(v),'t-xs t-mid')});
+    g+=tx(x1,y+42,'lipase units per kg per meal (log scale)','t-xs t-end');
+    const M=[[500,'500','start, age 4 years and over'],[1000,'1,000','start, over 12 months to under 4 years'],[2500,'2,500','ceiling per meal, "without further investigation"'],[6000,'6,000','above this: colonic stricture reported in children under 12']];
+    M.forEach(([v,l,d],i)=>{const xx=L(v),yy=y+(N?64:62)+i*(N?26:18),on=cur>=v;
+      g+=`<circle cx="${f1(xx)}" cy="${y}" r="7" style="fill:${on?'var(--ink)':'var(--panel-2)'};stroke:var(--ink)"/><text x="${f1(xx)}" y="${y+3.5}" class="t-xs t-mid" style="fill:${on?'var(--panel)':'var(--ink)'};font-weight:700">${i+1}</text>`;
+      if(!on)return;
+      if(N)g+=tx(16,yy,`${i+1} · ${l} U/kg/meal`,'t-xs',bold)+tx(16,yy+11,d,'t-xs',ink);
+      else g+=tx(x0,yy,`${i+1} · ${l} lipase units/kg/meal: ${d}`,'t-xs',bold)});
+    g+=`<path d="M${f1(L(cur))} ${y-20}l-5 -8h10z" style="fill:var(--brand)"/>`;
+    const yb=N?y+184:y+148;
+    if(k>.98){g+=tx(N?16:x0,yb,'Also on the label:','t-sm',bold);
+      const A=N?['no more than 10,000 lipase units/kg/day,','or 4,000 lipase units/g fat/day','snacks: about half the meal dose','infants: 3,000 lipase units per 120 mL','of formula or per breastfeeding']
+               :['no more than 10,000 lipase units/kg/day, or 4,000 lipase units/g fat/day','snacks: about half the meal dose; about 3 meals and 2–3 snacks a day','infants: 3,000 lipase units per 120 mL of formula or per breastfeeding'];
+      A.forEach((a,i)=>{g+=tx(N?16:x0,yb+15+i*13,(N&&(i===1||i===4)?'  ':'· ')+a,'t-xs',ink)})}
     return g}
   /* phase 5: relative risk of fibrosing colonopathy */
   function colono(t,N){const k=ramp(t,.84,.95),x0=N?20:60,w=N?280:420,y0=N?70:76,Lg=v=>Math.log10(Math.max(1,v))/Math.log10(250);let g='';
-    g+=tx(x0,y0,'adjusted relative risk, by daily dose (lipase units/kg/day)','t-sm',bold)+tx(x0,y0+13,'log scale; reference band = 1','t-xs');
+    g+=tx(x0,y0,'adjusted relative risk, by daily dose','t-sm',bold)+tx(x0,y0+13,'lipase units/kg/day; log scale; reference = 1','t-xs');
     const R=[['0–24,000 (reference)',1,'1'],['24,001–50,000',10.9,'10.9'],['over 50,000',199.5,'199.5']];
     R.forEach(([l,v,s],i)=>{const yy=y0+36+i*36,bw=Math.max(3,w*Lg(v)*k);g+=tx(x0,yy-4,l,'t-xs',ink)+`<rect x="${x0}" y="${yy}" width="${f1(w)}" height="14" rx="3" style="fill:var(--panel-2)"/><rect x="${x0}" y="${yy}" width="${f1(bw)}" height="14" rx="3" style="fill:${i===2?'var(--bad)':i===1?'var(--warn)':'var(--muted)'}"/>`+tx(x0+bw+6,yy+11,k>.98?s:'','t-sm',bold)});
     const y2=y0+(N?168:164),sc=w/60000;g+=tx(x0,y2,'mean enzyme dose, lipase units/kg/day','t-sm',bold);
     [['children with fibrosing colonopathy (29)',50046],['matched controls with CF (105)',18985]].forEach(([l,v],i)=>{const yy=y2+22+i*32;g+=tx(x0,yy-4,l,'t-xs',ink)+`<rect x="${x0}" y="${yy}" width="${f1(v*sc*k)}" height="12" rx="3" style="fill:${i?'var(--rx)':'var(--bad)'}"/>`+tx(x0+v*sc*k+6,yy+10,k>.98?num(v):'','t-xs',bold)});
-    const xl=x0+sc*10000;g+=`<line x1="${f1(xl)}" x2="${f1(xl)}" y1="${y2+10}" y2="${y2+76}" style="stroke:var(--good);stroke-width:1.6;stroke-dasharray:4 3"/>`+tx(xl+4,y2+(N?88:86),'10,000: the authors\' suggested daily ceiling','t-xs','fill:var(--good);font-weight:600');
+    const xl=x0+sc*10000;g+=[[y2+19,y2+37],[y2+51,y2+69]].map(([a,b])=>`<line x1="${f1(xl)}" x2="${f1(xl)}" y1="${a}" y2="${b}" style="stroke:var(--good);stroke-width:1.6;stroke-dasharray:3 2"/>`).join('')+tx(xl+4,y2+(N?88:86),'10,000: the authors\' suggested daily ceiling','t-xs','fill:var(--good);font-weight:600');
     return g}
-  function draw(t){const N=vb(svg,'720 384','400 600'),p=phaseOf(STEPS,t),P=STEPS[p];
-    const L=N?{tx:16,ty:26,sx:16,sy:566,sw:368}:{tx:20,ty:28,sx:20,sy:352,sw:680};
+  function draw(t){const N=vb(svg,'720 384','400 560'),p=phaseOf(STEPS,t),P=STEPS[p];
+    const L=N?{tx:16,ty:26,sx:16,sy:528,sw:368}:{tx:20,ty:28,sx:20,sy:352,sw:680};
     let s=`<text x="${L.tx}" y="${L.ty}" class="t-big">${P.t}</text><text x="${L.tx}" y="${L.ty+16}" class="t-sm">${P.sub}</text>`;
     s+=p<4?scene(t,N,p):p===4?doses(t,N):colono(t,N);
     const sw=L.sw/STRIP.length;
