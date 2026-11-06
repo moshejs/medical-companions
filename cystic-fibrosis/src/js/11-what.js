@@ -42,8 +42,8 @@ inits.what=()=>{
   const svg=$('#whSvg'),rg=$('#whT'),note=$('#whNote'),read=$('#whRead');
   let setA=()=>{};
   function draw(t){
-    const N=vb(svg,'720 392','400 660'),yr=yearOf(t),p=phaseOf(STEPS,t),P=STEPS[p],proj=ramp(t,.9,.98);
-    const L=N?{cx:44,cy:78,cw:336,ch:236,ax:20,ay:368,isz:14,igap:3,ex:20,ey:582,ew:250}
+    const N=vb(svg,'720 392','400 640'),yr=yearOf(t),p=phaseOf(STEPS,t),P=STEPS[p],proj=ramp(t,.9,.98);
+    const L=N?{cx:44,cy:78,cw:336,ch:236,ax:20,ay:368,isz:14,igap:3,ex:200,ey:436,ew:180}
              :{cx:58,cy:62,cw:378,ch:256,ax:470,ay:58,isz:15,igap:4,ex:470,ey:330,ew:228};
     let s=`<defs>${marker('whAr','var(--muted)',6)}</defs>`;
     s+=`<text x="${N?20:24}" y="30" class="t-big" style="font-size:26px">${Math.floor(yr)}</text>`;
@@ -65,7 +65,7 @@ inits.what=()=>{
       [[82.5,'82.5 y · ETI from age 12–17 (model)'],[71.6,'71.6 y · ETI, F508del homozygous (model)']].forEach(([v,l])=>{const yy=C.Y(v);
         s+=`<g style="opacity:${op}"><line x1="${f1(L.cx)}" x2="${f1(L.cx+L.cw)}" y1="${f1(yy)}" y2="${f1(yy)}" style="stroke:var(--rx);stroke-width:2;stroke-dasharray:6 4"/><text x="${L.cx+6}" y="${f1(yy-5)}" class="t-xs" style="fill:var(--rx);font-weight:600">${l}</text></g>`});
       s+=`<g style="opacity:${op}"><path d="M${f1(x0)} ${f1(C.Y(48.4)-6)}L${f1(x0)} ${f1(C.Y(71.6)+6)}" class="arrow" style="stroke:var(--rx)" marker-end="url(#whAr)"/></g>`;
-      s+=`<text x="${L.cx+L.cw-4}" y="${f1(C.Y(60))}" class="t-xs t-end" style="opacity:${op};fill:var(--rx)">projection, not data</text>`}
+      s+=`<text x="${f1(x0-8)}" y="${f1(C.Y(60))}" class="t-xs t-end" style="opacity:${op};fill:var(--rx)">projection, not data</text>`}
     /* adult share */
     const ad=yr<1969?null:yr>=2018?54.6:adultFn(yr);
     s+=`<text x="${L.ax}" y="${L.ay}" class="t-xs" style="fill:var(--ink);font-weight:600">Adults as a share of US registry patients</text>`;
@@ -77,13 +77,14 @@ inits.what=()=>{
     s+=`<text x="${L.ax}" y="${f1(L.ay+38+I.h+10)}" class="t-xs">each figure = 1% · filled = adults (18+)</text>`;
     /* Europe */
     const eu=yr<2014?null:yr>=2024?60.5:lerp(50.9,60.5,(yr-2014)/10);
-    const ey=N?L.ay+38+I.h+36:L.ey;
+    const ey=L.ey;
     s+=`<text x="${L.ex}" y="${ey}" class="t-xs" style="fill:var(--ink);font-weight:600">20 European countries</text>`;
     s+=`<rect x="${L.ex}" y="${ey+8}" width="${L.ew}" height="12" rx="6" style="fill:var(--panel-2)"/>`;
     if(eu!=null)s+=`<rect x="${L.ex}" y="${ey+8}" width="${f1(L.ew*eu/100)}" height="12" rx="6" style="fill:var(--accent)"/><line x1="${f1(L.ex+L.ew/2)}" x2="${f1(L.ex+L.ew/2)}" y1="${ey+5}" y2="${ey+23}" style="stroke:var(--ink);stroke-width:1"/>`;
-    s+=`<text x="${L.ex}" y="${ey+36}" class="t-xs">${eu==null?'registry series starts in 2014':'adults '+f1(eu)+'% (2014: 50.9%, 2024: 60.5%)'}</text>`;
+    s+=`<text x="${L.ex}" y="${ey+36}" class="t-xs">${eu==null?'registry series starts in 2014':'adults '+f1(eu)+'%'+(N?'':' (2014: 50.9%, 2024: 60.5%)')}</text>`;
+    if(N&&eu!=null)s+=`<text x="${L.ex}" y="${ey+50}" class="t-xs">2014: 50.9% · 2024: 60.5%</text>`;
     /* caveat */
-    const cy=N?ey+62:384;
+    const cy=N?L.ay+38+I.h+30:384;
     s+=`<text x="${N?20:24}" y="${cy}" class="t-sm" style="fill:var(--ink)">Population statistics: medians for whole registries, not a forecast for one person.</text>`;
     if(N)s=s.replace('Population statistics: medians for whole registries, not a forecast for one person.</text>','Population statistics: medians for whole registries,</text>'+`<text x="20" y="${cy+15}" class="t-sm" style="fill:var(--ink)">not a forecast for one person.</text>`);
     svg.innerHTML=s;
@@ -190,7 +191,7 @@ inits.what=()=>{
     /* lungs from the kit */
     s+=`<g style="opacity:${op('lungs')}">${lungs(200,170,.5,{plugs:hl('lungs')?.4+.2*opulse:.3,inflam:hl('lungs')?.4:.2,id:'whLg'}).svg}</g>`;
     /* liver (the person's right = viewer's left) */
-    s+=`<g style="opacity:${op('liver')}"><path d="M144 214C160 206 196 208 214 216C210 236 190 250 166 252C150 252 140 240 144 214Z" style="fill:#a0524f;stroke:var(--line)"/></g>`;
+    s+=`<g style="opacity:${op('liver')}"><path d="M144 214C160 206 196 208 214 216C210 236 190 250 166 252C150 252 140 240 144 214Z" style="fill:var(--duct);opacity:.85;stroke:var(--line)"/></g>`;
     /* pancreas from the kit */
     s+=`<g style="opacity:${op('panc')}">${pancreas(186,232,.42,{block:hl('panc')?.6:.3,flow:hl('panc')?.3:0,ph:opulse,islets:hl('panc')}).svg}</g>`;
     /* intestine: a coil */

@@ -1,5 +1,68 @@
-<!-- ================= 6.1 HISTORY & PEOPLE (stub, replaced by its builder) ================= -->
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<style>
+#m-history .tbl table{min-width:640px}
+#m-history .card>.ev,#m-history .card>.tag{align-self:flex-start}
+#m-history .hibar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-history .hibar .btn{font-size:13px}
+#m-history .hibar .btn i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+#m-history #hiYears{max-height:none}
+#m-history #hiYears .tag[aria-current="true"]{border-color:var(--brand);background:var(--brand-soft);color:var(--brand)}
+#m-history .hith{font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+#m-history td.hiy{font:700 14px var(--mono);white-space:nowrap}
+</style>
 <section class="mod" id="m-history" data-mod="history" hidden>
   <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">For centuries a salty-tasting child was thought to be bewitched. In under a hundred years CF went from a newly named disease of infants to a gene, a sweat test, a screening programme and medicines that act on the faulty protein itself. Scrub the timeline from 1606 to 2025, or filter it by theme.</p></div>
+
+  <div class="prose">
+    <p>References to conditions that probably reflect CF go back to the Middle Ages [[Quinton1999]]. Busch traced European folk sayings about licking a child's forehead, where a salty taste meant the child was bewitched and would soon die; he found them in 12 European countries [[Busch1990]]. The timeline starts with the first dated text and ends with the 2025 Lasker award. The axis is compressed before 1930.</p>
+  </div>
+
+  <div class="hibar" id="hiFilt" role="group" aria-label="Filter milestones by theme">
+    <span class="stage-cap">Show:</span>
+    <button class="btn" data-th="disc" aria-pressed="true"><i style="background:var(--brand)"></i>Discovery</button>
+    <button class="btn" data-th="dx" aria-pressed="true"><i style="background:var(--dx)"></i>Diagnosis &amp; screening</button>
+    <button class="btn" data-th="rx" aria-pressed="true"><i style="background:var(--rx)"></i>Treatment &amp; care</button>
+    <button class="btn" data-th="gene" aria-pressed="true"><i style="background:var(--variant)"></i>Gene &amp; modulators</button>
+  </div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A timeline of cystic fibrosis from 1606 to 2025 with a dot for each milestone, coloured by theme. A cursor moves along it; the card below shows the year, the milestone and the people involved, with a small picture of the theme, and a bar shows the US median survival age published for that time."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.0005" value="0.004"></label></div>
+      <p class="stage-cap"><b>Schematic timeline.</b> Dates and people from the research pass; each is cited in the note and the table below. The survival bar shows the latest published US median survival before that year (population statistics) [[Davis2006,McBennett2022,FitzSimmons1993,Stephenson2017,Scotet2020]].</p>
+    </div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+  <div class="chips" id="hiYears" role="group" aria-label="Jump to a milestone"></div>
+
+  <h3 class="sub">Venture philanthropy: how the modulators were found</h3>
+  <div class="split2">
+    <div class="prose">
+      <p>In 1999–2000 the CF Foundation funded Aurora Biosciences to run high-throughput screens for compounds that would correct or potentiate CFTR. A Lasker perspective calls it "the most successful example of Venture Philanthropy to date" [[Friedman2025]].</p>
+      <p>Vertex acquired Aurora in 2001. With continued Foundation funding, screening hits were found by 2003 and ivacaftor was identified by 2005 [[Friedman2025]]. In lab studies it raised chloride secretion in G551D/F508del bronchial cells about 10-fold, to about 50% of non-CF levels [[VanGoor2009VX770]].</p>
+    </div>
+    <div class="prose">
+      <p>Vertex won approval of 4 CF drugs in 7 years, and it was the first time the FDA accepted efficacy tests in primary human cells [[Friedman2025]]. By 2022, though, only 19,516 people, about 12% of the estimated number with CF worldwide, were receiving triple therapy [[Guo2022Access]].</p>
+      <p class="callout">The 2025 Lasker–DeBakey Clinical Medical Research Award went to Michael Welsh, Jesús González and Paul Negulescu for work that led to the triple combination [[Friedman2025]].</p>
+    </div>
+  </div>
+
+  <h3 class="sub">People to know</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">1938</span><h4>Dorothy Andersen</h4><p>A Columbia University pathologist who described "cystic fibrosis of the pancreas" and set it apart from coeliac disease [[Andersen1938,Davis2006]]. She found that infants who survived the newborn period often developed progressive lung disease [[Friedman2025]], and with di Sant'Agnese used sulfonamides and penicillin against lung infections from the 1940s [[Friedman2025,Trouve2024]].</p></div>
+    <div class="card"><span class="tag accent">1953</span><h4>Paul di Sant'Agnese</h4><p>Dehydrated children with CF during a New York heat wave in 1948–49 led him to study their sweat [[Friedman2025,McBennett2022]]. In 1953 his team reported the abnormal sweat electrolytes of CF [[DiSantAgnese1953]], with sweat chloride 3 to 5 times normal [[Friedman2025]].</p></div>
+    <div class="card"><span class="tag accent">1959</span><h4>Lewis Gibson and Robert Cooke</h4><p>Standardised sweat collection by pilocarpine iontophoresis, still the basis of the sweat test [[Gibson1959,Trouve2024]]. The test let doctors find milder cases, so CF was no longer seen only as a disease of mucus [[Davis2006]].</p></div>
+    <div class="card"><span class="tag brand">1983</span><h4>Paul Quinton</h4><p>Showed that the CF sweat duct is impermeable to chloride, which explains salty sweat [[Quinton1983]].</p></div>
+    <div class="card"><span class="tag bad">1989</span><h4>The gene hunters</h4><p>Three Science papers (Rommens, Riordan, Kerem and colleagues) cloned the gene on chromosome 7 and named its protein CFTR [[Rommens1989,Riordan1989,Kerem1989]]. About 70% of CF mutations were one three-base deletion, F508del [[Kerem1989]]. A 1985 DNA marker from Tsui and colleagues had already narrowed the search [[Tsui1985]].</p></div>
+    <div class="card"><span class="tag rx">2025</span><h4>Welsh, González and Negulescu</h4><p>Lasker award winners for the work that led to the triple combination [[Friedman2025]], approved by the FDA as Trikafta on 21 October 2019 [[FDA2026CFApprovals]].</p></div>
+  </div>
+
+  <h3 class="sub">Every milestone</h3>
+  <p class="stage-cap">The theme filter above also filters this table.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Year</th><th>Milestone</th><th>People</th><th>Theme</th></tr></thead>
+    <tbody id="hiTbl"></tbody>
+  </table></div>
+  <p class="stage-cap">FDA dates are original approvals in Drugs@FDA [[FDA2026CFApprovals]]. Fanconi 1936 and Farber 1945 come from a 2024 history review that cites them [[Trouve2024]]. Survival is covered in <a href="#what" data-go="what">What cystic fibrosis is</a>; modulator trials in <a href="#trials" data-go="trials">Modulator trials &amp; eligibility</a>.</p>
 </section>
