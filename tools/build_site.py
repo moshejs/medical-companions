@@ -93,14 +93,14 @@ hub = re.sub(r"%LANGNAMES:([a-z0-9-]+)%", lambda m: " · ".join(i18n.lang(l)["na
 leftover = re.findall(r"%(?:SITE|CITED:[^%]*|LANGS:[^%]*|LANGNAMES:[^%]*)%", hub)
 if leftover: sys.exit(f"hub has unfilled placeholders: {leftover}")
 hub = fonts.page_fonts(hub, preload=[(fonts.first_family(hub, "body"), 400), (fonts.first_family(hub, "display"), fonts.h1_weight(hub))])  # as tools/build.py
-hub = hub.replace("</head>", i18n.ANALYTICS + "</head>", 1)
+hub = i18n.head_icons(hub.replace("</head>", i18n.ANALYTICS + "</head>", 1))
 (ROOT / "index.html").write_text(hub, encoding="utf-8")
 print("wrote index.html (hub)")
 card, card_src = ROOT / "share-card.png", ROOT / "hub" / "share-card.html"
 if not card.exists() or card.stat().st_mtime < max(card_src.stat().st_mtime, (ROOT / "site.json").stat().st_mtime):
     subprocess.run([sys.executable, str(ROOT / "tools" / "share_card.py"), str(card_src), str(card)], check=True)
-(ROOT / "404.html").write_text((ROOT / "hub" / "404.html").read_text(encoding="utf-8").replace("%SITE%", SITE)
-                              .replace("</head>", i18n.ANALYTICS + "</head>", 1), encoding="utf-8")
+(ROOT / "404.html").write_text(i18n.head_icons((ROOT / "hub" / "404.html").read_text(encoding="utf-8").replace("%SITE%", SITE)
+                              .replace("</head>", i18n.ANALYTICS + "</head>", 1)), encoding="utf-8")
 
 # 2b. the site's own pages, about/ and privacy/: hub/_page-head.html wraps hub/<name>.html
 ED = CFG.get("editor") or {}
@@ -135,7 +135,7 @@ for name, (title, desc, kind) in SITE_PAGES.items():
     foot = ('</main>\n<footer><span>Medical Companions · educational only, not medical advice</span>'
             '<span><a href="%SITE%/about/">About</a> · <a href="%SITE%/privacy/">Privacy</a></span>'
             '<span>Built by <a href="https://quentin.software">Quentin.Code</a></span></footer>\n</div>\n</body>\n</html>\n')
-    out = (h + body + foot).replace("%SITE%", SITE).replace("</head>", i18n.ANALYTICS + "</head>", 1)
+    out = i18n.head_icons((h + body + foot).replace("%SITE%", SITE).replace("</head>", i18n.ANALYTICS + "</head>", 1))
     (ROOT / name).mkdir(exist_ok=True)
     (ROOT / name / "index.html").write_text(out, encoding="utf-8")
     print(f"wrote {name}/index.html")

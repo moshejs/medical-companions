@@ -38,6 +38,29 @@ SITE = CFG["site"].rstrip("/")
 # where readers can write; the domain has a catch-all mailbox
 CONTACT_EMAIL = "hello@medcompanions.org"
 
+# The site's icons and web app manifest (written by tools/icons.py; site.webmanifest), linked
+# from every page's head. A page that draws its own tab icon (each companion has one) keeps
+# it: /favicon.ico goes in ahead of it as the fallback, and /icon.svg is added only where a
+# page has no SVG icon. Same for apple-touch-icon (the FMF Companion has its own).
+def head_icons(page):
+    """PAGE with the shared icon and manifest links added to its head."""
+    head = page[:page.index("</head>")]
+    add = []
+    if 'href="/favicon.ico"' not in head:
+        ico = '<link rel="icon" href="/favicon.ico" sizes="32x32">\n'
+        i = head.find('<link rel="icon"')
+        if i != -1:
+            page, head = page[:i] + ico + page[i:], head[:i] + ico + head[i:]
+        else:
+            add.append(ico)
+    if 'type="image/svg+xml"' not in head and 'href="data:image/svg+xml' not in head:
+        add.append('<link rel="icon" href="/icon.svg" type="image/svg+xml">\n')
+    if 'rel="apple-touch-icon"' not in head:
+        add.append('<link rel="apple-touch-icon" href="/apple-touch-icon.png">\n')
+    if 'rel="manifest"' not in head:
+        add.append('<link rel="manifest" href="/site.webmanifest">\n')
+    return page.replace("</head>", "".join(add) + "</head>", 1)
+
 # Vercel Web Analytics for static pages: the queue stub, then Vercel's script, which the
 # deployment serves at /_vercel/insights/script.js once Web Analytics is on for the project.
 ANALYTICS = ('<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>\n'
