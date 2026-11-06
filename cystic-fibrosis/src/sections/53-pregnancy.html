@@ -1,5 +1,74 @@
-<!-- ================= 5.3 FERTILITY, PREGNANCY & PARENTHOOD (stub, replaced by its builder) ================= -->
+<!-- ================= 5.3 FERTILITY, PREGNANCY & PARENTHOOD ================= -->
+<style>
+#m-pregnancy .pg-box{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){#m-pregnancy .pg-box{grid-template-columns:minmax(0,1fr)}}
+#m-pregnancy .pg-ctl{display:flex;flex-direction:column;gap:12px}
+#m-pregnancy .pg-ctl .chips .btn{font-size:13px}
+#m-pregnancy .pg-ctl .kicker{margin:0}
+#m-pregnancy #pgExOut{font-size:15px;line-height:1.5;margin:0}
+#m-pregnancy .pg-c{display:block;margin-top:8px;color:var(--muted);font-size:14px}
+#m-pregnancy .card>.tag,#m-pregnancy .card>.ev{align-self:flex-start}
+#m-pregnancy .tbl table{min-width:620px}
+</style>
 <section class="mod" id="m-pregnancy" data-mod="pregnancy" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living &amp; care</p><h2>Fertility, pregnancy &amp; parenthood</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">CF affects fertility differently in women and men, and CFTR modulators are changing the picture fast: far more people with CF are now becoming parents. Scrub from the registry curve to the newborn screen.</p></div>
+
+  <div class="stepper" id="pgSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="pgSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Six scenes. First, a chart of US registry pregnancies: a shaded band of 200 to 310 a year from 2010 to 2019, a line marking modulator approval in 2019, and a point rising to 619 in 2020. Second, sperm swimming at a plug of cervical mucus that thins, beside an icon array in which 48% of reported pregnancies were unintended. Third, a schematic testis with the vas deferens missing, a needle retrieving sperm and a single sperm injected into an egg, with bars for infertility and ICSI fertilisation rates. Fourth, Punnett squares for a parent with CF and a partner who is not a carrier, then a partner who is a carrier. Fifth, a pregnancy timeline with glucose tolerance tests at 12 to 16 and 24 to 28 weeks, and bars for lung-function change and preterm birth. Sixth, a baby with labels for eye checks, liver tests and the newborn screen, IRT bars and the MAYFLOWERS study timeline."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="pgPlay">Play</button><label class="stage-cap tl" for="pgT">Story <input type="range" id="pgT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="readout" id="pgRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> Anatomy, mucus and the baby are drawings; the thinning of cervical mucus is drawn as a hypothesis, not a measured effect. Registry and study figures are population statistics [[Montemayor2022Pregnancy,Kazmerski2022Family,Godfrey2025Contraception,McBride2021,Jain2025MaternalOutcomes,Salvatore2026Registry,Moran2010CFRD,Patel2023IRT,Jain2022Cataracts,Kolaczkowski2025,Jain2022MAYFLOWERS,NCT04828382]].</p>
+    </div>
+    <aside class="note" id="pgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Partner testing: work out the chances</h3>
+  <div class="prose"><p>Choose your status and your partner's test result. The squares follow the autosomal recessive rule: CF needs a variant on both copies [[Deignan2020ACMG,Shteinberg2021]]. When both parents are carriers, each pregnancy has a 1 in 4 chance of CF, 2 in 4 of a carrier child and 1 in 4 of neither [[Deignan2020ACMG]].</p></div>
+  <div class="pg-box">
+    <div class="stage"><svg id="pgEx" viewBox="0 0 560 260" role="img" aria-label="A Punnett square for the chosen pair, with bars showing the chance in 4 of a child with CF, a carrier child and a child with neither variant."></svg></div>
+    <div class="pg-ctl">
+      <p class="teach" role="note"><b>Teaching tool</b>This shows Mendelian chances for two CFTR copies, not a genetic-counselling result. A genetic counsellor works from the actual variants found.</p>
+      <p class="kicker">You</p>
+      <div class="chips" role="group" aria-label="Your status"><button class="btn" data-pgme="cf" aria-pressed="true">I have CF</button><button class="btn" data-pgme="carrier" aria-pressed="false">I am a carrier</button></div>
+      <p class="kicker">Your partner</p>
+      <div class="chips" role="group" aria-label="Partner's result"><button class="btn" data-pgpa="none" aria-pressed="false">Tested: not a carrier</button><button class="btn" data-pgpa="carrier" aria-pressed="true">Tested: carrier</button><button class="btn" data-pgpa="unknown" aria-pressed="false">Not tested</button></div>
+      <p id="pgExOut" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <h3 class="sub">Paths to parenthood</h3>
+  <div class="prose"><p>These are options people with CF and their partners have used. They are listed without ranking; which, if any, fits is a personal choice, ideally made with a genetic counsellor and the CF team [[Kazmerski2022Family]].</p></div>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Counselling</span><h4>Genetic counselling</h4><p>Because CF is inherited, genetic counsellors have an important role as people with CF consider their reproductive options [[Kazmerski2022Family]]. ACOG advises offering counselling when both partners are carriers [[ACOG2017CO691]].</p></div>
+    <div class="card"><span class="tag accent">Testing in pregnancy</span><h4>Prenatal diagnosis</h4><p>Carrier screening can lead to prenatal diagnosis: one laboratory found 1 affected fetus per 25,000 carrier screens [[Strom2011]]. Couples can be tested one after the other or both at once; testing together may be preferred during pregnancy [[Deignan2020ACMG]].</p></div>
+    <div class="card"><span class="tag rx">Assisted reproduction</span><h4>Sperm retrieval, IVF and ICSI</h4><p>For males with CF, biological parenthood needs sperm retrieval followed by ICSI [[Kazmerski2022Family]]. The risk of having a child with CF must be considered when planning assisted reproduction [[Shteinberg2021Fertility]].</p></div>
+    <div class="card"><span class="tag rec">Other families</span><h4>Adoption, fostering, step-parenthood, surrogacy</h4><p>People with CF have pursued and qualified for each of these routes to parenthood [[Kazmerski2022Family]].</p></div>
+    <div class="card"><span class="tag">A choice too</span><h4>Declining testing</h4><p>ACOG states that a patient may decline any or all carrier screening [[ACOG2017CO691]].</p></div>
+  </div>
+
+  <h3 class="sub">Modulators in pregnancy and breastfeeding: what the labels say</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Pregnancy</th><th>Breastfeeding</th></tr></thead>
+    <tbody>
+      <tr class="mod"><th>Trikafta US label (8.1, 8.2)</th><td>"Limited and incomplete human data". Animal studies of each component showed no adverse developmental effects at about 2–14 times the maximum recommended human dose. Background US risk: major birth defects 2–4%, miscarriage 15–20% [[FDA-Trikafta]].</td><td>No information on elexacaftor, tezacaftor or ivacaftor in human milk; all three pass into rat milk. Benefits of breastfeeding should be weighed against the mother's clinical need and any potential infant effects [[FDA-Trikafta]].</td></tr>
+      <tr class="mod"><th>Alyftrek US label</th><td>No human pregnancy data for vanzacaftor/tezacaftor/deutivacaftor [[FDA-Alyftrek]].</td><td>"It is likely that the drug will be present in human milk" [[FDA-Alyftrek]].</td></tr>
+      <tr class="mod"><th>Ivacaftor-containing labels</th><td colspan="2">Cataracts in juvenile rats dosed from postnatal day 7 at ≥10 mg/kg/day (0.21 times the MRHD); the labels recommend baseline and follow-up eye examinations for children starting these medicines [[FDA-Trikafta,FDA-Kalydeco]].</td></tr>
+      <tr><th>Clinician survey, 45 ETI pregnancies</th><td colspan="2">5 of the 6 women who stopped ETI over fears of unknown fetal risk restarted it because of clinical decline; miscarriage rates matched the general US population [[TaylorCousar2021ETI]].</td></tr>
+      <tr><th>French pharmacovigilance, 58 pregnancies</th><td colspan="2">53 live births; major congenital anomaly prevalence 3.4% (95% CI 0.4–11.9); no cataracts in the 10 children examined [[Gautier2025]].</td></tr>
+      <tr><th>Partners of males with CF (42)</th><td colspan="2">40 continued modulators during the partner's pregnancy; first-trimester miscarriage 11.9%, no congenital anomalies reported [[TaylorCousar2024Males]].</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Quoted as published, not as advice. A 2026 scoping review concluded that ETI may improve maternal lung function and nutrition and that fetal exposure has not been clearly linked to serious adverse outcomes, with insufficient evidence on lactation and long-term effects <span class="ev early">Early evidence</span> [[Wang2026Pregnancy]]. The prospective MAYFLOWERS study (about 285 pregnancies) is active, not recruiting, with primary completion estimated for 2027-06-30 [[Jain2022MAYFLOWERS,NCT04828382]].</p>
+
+  <h3 class="sub">Planning a pregnancy</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Diabetes, as published</span><h4>Glucose tests</h4><p>The CFF/ADA guideline: women with CF planning a pregnancy or confirmed pregnant should be screened for pre-existing CFRD with a 2-h 75-g OGTT if they have not had a normal screen in the last 6 months. Women with gestational diabetes should have an OGTT 6–12 weeks after the pregnancy ends [[Moran2010CFRD]]. Published HbA1c targets are &lt;6.5% at conception and &lt;6.0% in pregnancy [[Montemayor2022Pregnancy]].</p></div>
+    <div class="card"><span class="tag dx">Risk</span><h4>Who is higher risk</h4><p>Higher-risk disease is defined as FEV1 ≤60% predicted and/or BMI ≤21 kg/m² before pregnancy; more severe disease is associated with preterm and caesarean delivery and low birthweight. A preconception BMI of at least 22 kg/m² is described as the ideal goal [[Montemayor2022Pregnancy]]. In the Italian registry, the caesarean rate was 54.9% overall and 81.2% with CFRD [[Salvatore2026Registry]].</p></div>
+    <div class="card"><span class="tag rec">Contraception</span><h4>Safe, but underused</h4><p>The CFF position paper says contraception is safe overall but underused in people with CF [[Jain2026CFFReproductive]]. In the 561-person survey, modulators did not appear to reduce the effectiveness of hormonal contraception [[Godfrey2025Contraception]].</p></div>
+    <div class="card"><span class="tag brand">Talking early</span><h4>Education from adolescence</h4><p>Men first told about CF infertility after age 20 were more likely to be "very upset" than those told before 16 [[West2022SRH]]. Testosterone deficiency is also more common in men with CF [[Yoon2019Male]]. The position paper says fertility may be improving on modulators for females but not for males [[Jain2026CFFReproductive]].</p></div>
+    <div class="card"><span class="tag rx">After the birth</span><h4>Breastfeeding and new parents</h4><p>Clinicians report that more than half of people with CF choose to breastfeed, and calorie needs in lactation are higher than the roughly 500 kcal/day extra advised without CF [[Montemayor2022Pregnancy]]. Parenting adds burden on top of CF treatments [[Shteinberg2021Fertility]]. A review suggests eye screening and considering liver tests for exposed infants [[Montemayor2022Pregnancy]].</p></div>
+  </div>
 </section>

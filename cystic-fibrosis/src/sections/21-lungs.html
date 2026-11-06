@@ -1,5 +1,127 @@
-<!-- ================= 2.1 LUNGS: MUCUS, INFECTION & BRONCHIECTASIS (stub, replaced by its builder) ================= -->
+<!-- ================= 2.1 LUNGS: MUCUS, INFECTION & BRONCHIECTASIS ================= -->
+<style>
+#m-lungs .tbl table{min-width:640px}
+#m-lungs .card>.ev,#m-lungs .card>.tag{align-self:flex-start}
+#m-lungs .lgbar{display:flex;flex-wrap:wrap;gap:6px}
+#m-lungs .lgbar .btn{font-size:13px}
+#m-lungs .lgcap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-lungs .card .big-num{font-size:34px}
+</style>
 <section class="mod" id="m-lungs" data-mod="lungs" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · How CF affects the body</p><h2>Lungs: mucus, infection &amp; bronchiectasis</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Lung disease causes most of the illness and deaths in CF. It starts with mucus that does not clear, which invites infection and a fierce neutrophil response, and over years that response widens and scars the airways (bronchiectasis). Scrub through a lifetime as the pre-modulator studies recorded it, then step round the cycle that drives it.</p></div>
+
+  <div class="prose">
+    <p>Lung disease in CF works through bronchiectasis, small-airway obstruction and progressive loss of breathing capacity [[Elborn2016,Ratjen2015]]. Failure of CFTR causes mucus retention and chronic infection, which drive airway inflammation that harms the lungs [[Elborn2016]]. Most of the figures below come from cohorts followed before highly effective CFTR modulators; the last part shows what has changed since.</p>
+  </div>
+
+  <div class="stepper" id="lgSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lgSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="Left: a front view of both lungs whose airways fill with mucus plugs, redden with inflammation, widen into bronchiectasis and gather bacteria as the age scrubber moves from birth to 40 years. Right, above: six lanes showing the usual order in which germs appear in sputum, with Staphylococcus aureus and Haemophilus influenzae early, Pseudomonas aeruginosa from infancy, its mucoid form from the teenage years, MRSA highest in adolescence and nontuberculous mycobacteria in older people, with dots at published figures. Right, below: a schematic lung-function line joining published FEV1 percent predicted values from age 6 to 22 years."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lgPlay">Play</button><label class="stage-cap tl" for="lgT">Age <input type="range" id="lgT" min="0" max="1" step="0.001" value="0.079"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> Germ lanes show the usual order of appearance [[Razvi2009,Li2005,Olivier2003]]; lane shading is not prevalence, and the dots are the published figures. The FEV1 line joins Konstan 2007 age-group baselines (88.4%, 85.3%, 78.4% at 6, 9 and 13 years) and the 13–17-year slope (−2.34 points a year) [[Konstan2007]], then the London young-adult mean slope (−1.53 a year) [[Que2006]]. Different cohorts, all before modulators: a direction, not a prediction for anyone.</p>
+    </div>
+    <aside class="note" id="lgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The vicious cycle: obstruction, infection, inflammation</h3>
+  <div class="prose"><p>Each turn of the cycle feeds the next: mucus that does not clear shelters bacteria, bacteria draw in neutrophils, and neutrophil products damage the airway wall, which then clears mucus even less well. Step round it.</p></div>
+  <div class="stepper" id="lgCySteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lgCyc" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="A ring of four stages, obstruction, infection, inflammation and airway damage, with a dot travelling from one to the next. In the middle, a cross-section of one airway: mucus builds up in the lumen, rod-shaped bacteria settle in it and wrap themselves in slime, neutrophils crowd in, and the airway wall widens and thickens. A last step marks three places where treatment can break the cycle."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lgCyPlay">Play</button><label class="stage-cap tl" for="lgCyT">Cycle <input type="range" id="lgCyT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap">Schematic. Treatments are covered in <a href="#clearance" data-go="clearance">Airway clearance &amp; inhaled therapies</a>, <a href="#infection" data-go="infection">Infection, antibiotics &amp; cross-infection</a> and <a href="#modulators" data-go="modulators">CFTR modulators</a>.</p>
+    </div>
+    <aside class="note" id="lgCyNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Early disease: what AREST CF found</h3>
+  <div class="prose"><p>The Australian Respiratory Early Surveillance Team for CF (AREST CF) followed babies diagnosed by newborn screening with chest CT and bronchoalveolar lavage (BAL) from 3 months of age. The airway changes start long before most children have symptoms.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Finding</th><th>Figure</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr class="inflamed"><th>Bronchiectasis point prevalence in 127 screened infants</th><td>29.3% at 3 months, 61.5% at 3 years; seen as young as 10 weeks</td><td>[[Sly2013]]</td></tr>
+      <tr><th>Independent risk factors for bronchiectasis</th><td>Free neutrophil elastase in BAL (OR 3.02; 95% CI 1.70–5.35), meconium ileus (OR 3.17), respiratory symptoms at testing (OR 2.27), gas trapping on expiratory CT (OR 2.05)</td><td>[[Sly2013]]</td></tr>
+      <tr><th>Elastase detected at 3 months</th><td>About 7 times the odds of bronchiectasis at 12 months and 4 times at 3 years</td><td>[[Sly2013]]</td></tr>
+      <tr><th>Earlier cohort (n = 96)</th><td>Bronchiectasis in 22%, rising with age; linked to neutrophil count, elastase and P. aeruginosa</td><td>[[Stick2009]]</td></tr>
+      <tr><th>143 children, 444 annual CTs</th><td>Once seen, bronchiectasis persisted in 74% of paired scans and grew in extent in 63%; air trapping persisted in 81%</td><td>[[Mott2012]]</td></tr>
+      <tr class="mucus"><th>46 preschool children vs 16 disease controls</th><td>More airway mucins and MUC5B/MUC5AC mucus "flakes" with or without infection; raised flakes and neutrophils even without CT changes <span class="ev early">Early evidence</span> that mucus comes first</td><td>[[Esther2019]]</td></tr>
+      <tr><th>Lung function at early school age (n = 56)</th><td>FEV0.75 8.3% lower than healthy children; pro-inflammatory pathogens in BAL in the first 2 years went with 11.3% to 15.6% lower FEV0.75</td><td>[[Ramsey2014AREST]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Inflammation was already raised (neutrophils, free elastase, IL-8) in screened infants as young as 4 weeks, including those with negative cultures for bacteria, viruses and fungi [[Khan1995]]. In the Wisconsin screening cohort, 83% of children aged 6.6–17.6 years had bronchiectasis on thin-section CT, and only mucoid P. aeruginosa correlated with its severity [[Farrell2009Radiology]].</p>
+
+  <h3 class="sub">Germs by age: the published numbers</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Organism</th><th>When and how often</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><th>Mixed "core" flora</th><td>Under 2 years, Streptococcus, Prevotella and Veillonella made up about 50% of BAL microbiota; traditional CF taxa dominated from age 6 [[Zemanick2017]]. Diversity is highest under 10 and plateaus at about 25 [[Coburn2015]]</td><td>Classic pathogens tend to dominate once present [[Coburn2015]]</td></tr>
+      <tr><th>S. aureus (MSSA)</th><td>US prevalence rose from 37.0% to 52.4% (1995–2005), highest at ages 6–17 [[Razvi2009]]</td><td>With P. aeruginosa, the most prevalent and incident CF pathogen in 2012 [[Salsgiver2016]]</td></tr>
+      <tr><th>MRSA</th><td>Rose from 0.1% to 17.2% (1995–2005), highest at ages 11–17 [[Razvi2009]]</td><td>18.3 vs 27.7 deaths per 1,000 patient-years without and with MRSA; adjusted HR 1.27 [[Dasenbrook2010]]</td></tr>
+      <tr><th>P. aeruginosa</th><td>29% of screened Wisconsin infants acquired it in the first 6 months; median acquisition 1.0 year (non-mucoid) and 13.0 years (mucoid) [[Li2005]]. 72.5% culture-positive by age 3, 97.5% with serology [[Burns2001]]. US prevalence 60.4% (1995) to 56.1% (2005) [[Razvi2009]]</td><td>FEV1/FVC decline sped up from 1.29% to 1.81% a year after acquisition [[Kosorok2001]]; in 1–5-year-olds a positive culture went with 2.6 times the 8-year risk of death (1990 registry) [[Emerson2002]]</td></tr>
+      <tr><th>Burkholderia cepacia complex</th><td>Relatively low and falling prevalence [[Razvi2009,Salsgiver2016]]; B. multivorans 56% and B. cenocepacia IIIA 15% of UK isolates [[Kenna2017]]</td><td>31 of 33 with B. cenocepacia became chronically infected vs 8 of 16 with B. multivorans; "cepacia syndrome" with both [[Jones2004]]</td></tr>
+      <tr><th>Nontuberculous mycobacteria</th><td>13.0% in 986 people aged 10 or over (M. avium complex 72%, M. abscessus 16%); older age the strongest predictor [[Olivier2003]]. 14% of those cultured in 2010–2011 [[Adjemian2014]]</td><td>Most M. abscessus comes from globally spread clones that pass between people <span class="ev early">Early evidence</span> [[Bryant2016]]</td></tr>
+      <tr><th>Aspergillus</th><td>Sensitisation 39.1% pooled; ABPA 8.9% pooled, more in adults [[Maturu2015]]</td><td>See ABPA below</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">The Leeds criteria call P. aeruginosa infection chronic when more than 50% of the previous 12 months' cultures are positive, and intermittent when 50% or fewer are [[Lee2003]]. The range of organisms is widening, which makes trends hard to read [[LiPuma2010,Gibson2003]].</p>
+
+  <h3 class="sub">Pulmonary exacerbations</h3>
+  <div class="prose">
+    <p>An exacerbation is a spell when breathing symptoms get worse, often treated with antibiotics. Exacerbations are among the most important events in the course of CF [[Goss2007]]. The "Fuchs criteria", from the 1994 dornase alfa trial, define one as antibiotic treatment plus at least 4 of 12 respiratory signs and symptoms; a later analysis found that more than a third of respiratory events met 4 or more criteria without investigators calling them exacerbations [[VanDevanter2021]]. A prospective score from symptoms and chest findings predicted exacerbations with 86% sensitivity and 86% specificity [[Rosenfeld2001]].</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag">How often</span><p class="big-num">27%</p><p>of people on placebo had at least one exacerbation needing parenteral antibiotics over 24 weeks in the dornase alfa trial (968 people), against 22% and 19% on once- and twice-daily dornase [[Fuchs1994Dornase]].</p></div>
+    <div class="card"><span class="tag bad">Recovery</span><p class="big-num">1 in 4</p><p>of 8,479 IV-treated exacerbations (US registry, 2003–2006) did not get back to 90% of the pre-exacerbation best FEV1 within 3 months. Female sex, pancreatic insufficiency, undernutrition, persistent P. aeruginosa, B. cepacia complex or MRSA, ABPA and a bigger initial FEV1 drop made this more likely [[Sanders2010]].</p></div>
+    <div class="card"><span class="tag bad">Long-term impact</span><p class="big-num">HR 4.05</p><p>for death or lung transplant over 3 years in 446 Ontario adults with more than 2 exacerbations a year versus fewer than 1 (95% CI 1.15–14.28); HR 1.55 for a 5% FEV1 decline [[deBoer2011]].</p></div>
+  </div>
+
+  <h3 class="sub">How many people: complications at a glance</h3>
+  <div class="lgbar" role="group" aria-label="Choose a figure">
+    <button class="btn" data-ic="exac" aria-pressed="true">No full recovery after an exacerbation</button>
+    <button class="btn" data-ic="hae" aria-pressed="false">Massive haemoptysis</button>
+    <button class="btn" data-ic="ptx" aria-pressed="false">Pneumothorax</button>
+    <button class="btn" data-ic="abpa" aria-pressed="false">ABPA</button>
+    <button class="btn" data-ic="ntm" aria-pressed="false">NTM</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="lgIc" viewBox="0 0 720 240" style="min-width:560px" role="img" aria-label="An array of 100 dots in which some fill in to show how many in every 100 are affected, for the figure chosen with the buttons above."></svg></div>
+    <p class="lgcap" id="lgIcCap" aria-live="polite"></p>
+  </div>
+
+  <h3 class="sub">Bleeding, air leaks, fungus and sinuses</h3>
+  <div class="cards">
+    <div class="card"><h4>Massive haemoptysis</h4><p>In US registry data for 1990–1999 (28,858 people), massive haemoptysis (coughing up a large amount of blood) had an average annual incidence of 0.87% and occurred in 4.1% overall. Mean age was 24.2 years and nearly 60% had FEV1 below 40% predicted. It was linked to S. aureus (OR 1.3) and diabetes (OR 1.1), and followed by higher 2-year mortality [[Flume2005Hemoptysis]].</p></div>
+    <div class="card"><h4>Pneumothorax</h4><p>Spontaneous pneumothorax (air leaking around a lung) had an annual incidence of 0.64% and occurred in 3.4% overall; mean age 21.9 years, and nearly 75% had FEV1 below 40%. Risk was higher with P. aeruginosa (OR 2.3), B. cepacia (OR 1.8), FEV1 below 30% (OR 1.5), ABPA (OR 1.5) and prior massive haemoptysis (OR 1.4) [[Flume2005Pneumothorax]].</p></div>
+    <div class="card"><h4>How these are managed</h4><p>CF Foundation recommendations on haemoptysis and pneumothorax were reached by Delphi expert consensus, because the data were too thin for evidence-based ones [[Flume2010]]. Both were followed by higher 2-year mortality in the registry analyses [[Flume2005Hemoptysis,Flume2005Pneumothorax]].</p></div>
+    <div class="card"><h4>ABPA</h4><p>Allergic bronchopulmonary aspergillosis is an allergic reaction to the Aspergillus mould. In the European registry (12,447 people) prevalence was 7.8%, low under 6 years and about 10% after; it rose with worse lung function and was linked to pneumothorax and massive haemoptysis [[Mastella2000]]. The US reported only 2%, probably under-diagnosis [[Geller1999]]. Its features overlap with CF lung disease itself, so a consensus conference set CF-specific criteria [[Stevens2003]].</p></div>
+    <div class="card"><h4>Sinuses and nasal polyps</h4><p>Chronic rhinosinusitis is highly prevalent in CF; CF polyps are more neutrophilic, with fewer eosinophils, than other polyps [[Hamilos2016]]. On endoscopy, 37% of 211 adults had nasal polyps [[Hadfield2000]]. One year of ETI cut the median Lund-Mackay sinus CT score from 5.8 to 3.3 [[Sheikh2023]].</p></div>
+    <div class="card"><h4>Neutrophil elastase</h4><p>Across 269 people aged 9–54, sputum elastase correlated with lower FEV1 (r = −0.35), and each 1-log rise went with a further 2.9% FEV1 decline over time [[MayerHamblett2007]]. In 35 children followed for 3 years, it was the most informative single biomarker of faster decline [[Sagel2012]].</p></div>
+  </div>
+
+  <h3 class="sub">The airway on highly effective CFTR modulators</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who</th><th>What changed in the lungs</th></tr></thead>
+    <tbody>
+      <tr class="mod"><th>STRIVE [[Ramsey2011STRIVE]]</th><td>G551D, age 12+, ivacaftor vs placebo</td><td>FEV1 +10.6 points through week 24; exacerbations 55% less likely through week 48</td></tr>
+      <tr><th>GOAL [[Rowe2014GOAL,Heltshe2015]]</th><td>151 people with G551D starting ivacaftor</td><td>FEV1 +6.7 points at 6 months, better mucociliary clearance; 29% of those P. aeruginosa-positive turned culture-negative the next year</td></tr>
+      <tr class="mod"><th>Phase 3 ETI [[Middleton2019ETI]]</th><td>F508del + minimal function, age 12+</td><td>FEV1 +14.3 points through 24 weeks; 63% lower exacerbation rate than placebo</td></tr>
+      <tr><th>PROMISE [[Nichols2022PROMISE,Nichols2023]]</th><td>487 people aged 12+ starting ETI</td><td>FEV1 +9.76 points at 6 months; sputum pathogen density fell 2–3 log₁₀ in a month, but most stayed culture-positive and PCR often still found the germs</td></tr>
+      <tr><th>Lung clearance index and MRI [[Graeber2022]]</th><td>91 adolescents and adults on ETI</td><td>LCI and MRI scores improved, including mucus plugging and wall thickening</td></tr>
+      <tr class="mod"><th>US registry [[Bower2023]]</th><td>16,116 people starting ETI (2019–2020)</td><td>Exacerbations 0.86 to 0.18 per patient a year (−79%), hospitalisations −74%, FEV1 +8.2 points in year 1 and +8.9 in year 2; positive cultures fell for every pathogen</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Population statistics, not predictions. In the registry cohort on ETI, annual death (0.47%) and lung transplant (0.16%) rates were well below the 2019 registry rates (1.65% and 1.08%) [[Bower2023]]. Pre-modulator decline rates of 1–2.4 FEV1 points a year should not be applied to people on these medicines, and the long-term effect on established bronchiectasis is unknown [[Konstan2007,Bower2023,Nichols2023]]. Even on modulators, germs already in the lungs often stay, so regular check-ups still matter [[Nichols2023]].</p>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Evidence</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>Does inflammation need infection?</th><td>Inflammation in culture-negative infants [[Khan1995]] and mucus with neutrophils without infection in preschoolers [[Esther2019]]; in newborn pigs, defective bacterial clearance came before inflammation [[Stoltz2010]].</td><td>Open: human and pig data point different ways</td></tr>
+      <tr><th>How common is ABPA?</th><td>2% (US, probably under-diagnosed) [[Geller1999]], 7.8% (Europe) [[Mastella2000]], 8.9% pooled [[Maturu2015]].</td><td>The spread reflects different criteria</td></tr>
+      <tr><th>Do modulators clear chronic infection?</th><td>Ivacaftor turned 29% of P. aeruginosa-positive people culture-negative [[Heltshe2015]]; ETI cut density 2–3 log₁₀, but most stayed infected [[Nichols2023]].</td><td><span class="ev early">Early evidence</span>; longer follow-up pending</td></tr>
+    </tbody>
+  </table></div>
 </section>

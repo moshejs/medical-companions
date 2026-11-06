@@ -1,5 +1,126 @@
-<!-- ================= 1.2 THE CFTR GENE & INHERITANCE (stub, replaced by its builder) ================= -->
+<!-- ================= 1.2 THE CFTR GENE & INHERITANCE ================= -->
+<style>
+#m-gene .tbl table{min-width:660px}
+#m-gene .card>.ev,#m-gene .card>.tag{align-self:flex-start}
+#m-gene .gn-pick{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-gene .gn-pick .kicker{min-width:74px}
+#m-gene .gn-pick .btn{font-size:13px;padding:7px 12px}
+#m-gene .gn-odds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+#m-gene .gn-odds div{background:var(--panel-2);border-radius:10px;padding:9px 10px;min-width:0}
+#m-gene .gn-odds b{font:700 27px/1.1 var(--display);display:block;color:var(--ink)}
+#m-gene .gn-odds small{font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+#m-gene .gn-odds .cf b{color:var(--variant)}
+#m-gene .gn-rollrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-gene .gn-tally{font:500 13px var(--mono);color:var(--muted)}
+#m-gene .gn-tally b{color:var(--ink)}
+#m-gene .legend i.v{background:var(--variant)} #m-gene .legend i.c{background:var(--variant);opacity:.4} #m-gene .legend i.n{background:var(--line)}
+</style>
 <section class="mod" id="m-gene" data-mod="gene" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding CF</p><h2>The CFTR gene &amp; inheritance</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Cystic fibrosis comes from changes in one gene, CFTR, and a person needs two changed copies, one from each parent, to have it [[Deignan2020ACMG]]. Zoom from a cell down to the three missing DNA letters of F508del, then work out the odds for a family yourself.</p></div>
+
+  <h3 class="sub">From a cell to three missing letters</h3>
+  <div class="prose"><p>The gene was found in 1989, in three back-to-back papers in <i>Science</i>, by positional cloning: the teams worked along chromosome 7 without knowing in advance what protein they were looking for [[Rommens1989,Riordan1989,Kerem1989]]. Pick a step or press Play to follow the same path from the outside in.</p></div>
+  <div class="stepper" id="gnSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="gnSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A zoom in five stages. A cell with its nucleus and paired chromosomes; the pair of chromosome 7 with the CFTR position at 7q31.2 marked on the long arm; the CFTR gene drawn as 27 exons on a line, whose exons are joined into a messenger RNA and then read into a protein of 1,480 amino acids; a close-up of exon 11 where three DNA letters, C T T, lift out and the chain of amino acids closes up without phenylalanine 508; and finally the CFTR protein, a working channel passing chloride and bicarbonate beside an F508del protein that misfolds and is broken down."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="gnPlay">Play</button><label class="stage-cap tl" for="gnT">Zoom <input type="range" id="gnT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="gnRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> Chromosome bands, exon sizes and the strand of DNA letters are drawn for clarity. Only the three deleted letters (c.1521_1523delCTT) are real sequence [[Farrell2018Age,Deignan2020ACMG]]; exon numbering follows current (not legacy) names.</p>
+    </div>
+    <aside class="note" id="gnNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Two copies, one from each parent</h3>
+  <div class="prose">
+    <p>CF is autosomal recessive: disease needs disease-causing variants on both copies of CFTR [[Shteinberg2021,Deignan2020ACMG]]. The ACMG technical standard states that carriers of a single pathogenic or likely pathogenic variant are expected to be asymptomatic [[Deignan2020ACMG]]. When both parents are carriers, each pregnancy has a 1 in 4 (25%) chance of a child with two variants, a 2 in 4 (50%) chance of a carrier child and a 1 in 4 (25%) chance of a child with neither [[Deignan2020ACMG,Shteinberg2021]].</p>
+    <p>Choose each parent below. The square shows the four equally likely ways the two copies can combine; the icons show what that means for 100 pregnancies on average. The other combinations follow the same Mendelian rule as the two-carrier case the sources describe.</p>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="gn-pick" role="group" aria-label="Parent 1"><span class="kicker">Parent 1</span>
+        <button class="btn" data-gnp="a:none" aria-pressed="false">No variant</button><button class="btn" data-gnp="a:car" aria-pressed="true">Carrier</button><button class="btn" data-gnp="a:cf" aria-pressed="false">Has CF</button></div>
+      <div class="gn-pick" role="group" aria-label="Parent 2"><span class="kicker">Parent 2</span>
+        <button class="btn" data-gnp="b:none" aria-pressed="false">No variant</button><button class="btn" data-gnp="b:car" aria-pressed="true">Carrier</button><button class="btn" data-gnp="b:cf" aria-pressed="false">Has CF</button></div>
+      <svg id="gnPun" viewBox="0 0 720 300" role="img" aria-label="A Punnett square for the two chosen parents, beside an icon array of 100 children coloured by how many CFTR variants each would inherit on average: two (CF), one (carrier) or none."></svg>
+      <div class="legend"><span><i class="v"></i>two variants: CF</span><span><i class="c"></i>one variant: carrier</span><span><i class="n"></i>neither</span><span>N = working copy · v = CF-causing variant</span></div>
+    </div>
+    <aside class="note" id="gnPunOut" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Chance has no memory</h3>
+  <div class="prose"><p>A 1 in 4 chance does not mean one child in every four. Each pregnancy starts fresh, with the same odds as the one before [[Deignan2020ACMG]]. Roll pregnancies for the parents chosen above and watch a real family's mix wander, while the long-run tally settles towards the square's odds.</p></div>
+  <div class="stage">
+    <div class="gn-rollrow"><button class="btn primary" id="gnRoll">Roll 4 pregnancies</button><button class="btn" id="gnRoll100">Roll 100 more</button><button class="btn ghost" id="gnRollReset">Reset</button><span class="gn-tally" id="gnTally" aria-live="polite"></span></div>
+    <svg id="gnFam" viewBox="0 0 720 150" role="img" aria-label="Four children drawn as pedigree symbols for the latest roll: filled for CF, half-shaded for a carrier, empty for neither, and a bar showing the running share of each outcome against the expected share."></svg>
+    <p class="stage-cap">A random simulation for teaching, using the odds in the square. It is not a prediction for any family.</p>
+  </div>
+
+  <p class="pt"><b>In plain words</b>Being a carrier means having one changed copy of CFTR and one working copy. It is very common, it is nobody's fault, and carriers are usually healthy [[Deignan2020ACMG,Zeng2025Hetero]]. More than 10 million people in the US are estimated to carry one pathogenic CFTR variant [[Zeng2025Hetero,Miller2020PNAS]].</p>
+
+  <h3 class="sub">How common carriers are: measured figures</h3>
+  <div class="prose">
+    <p>The figures often quoted from the ACOG carrier-screening opinion are not given here: its ancestry table could not be read for this guide, so measured figures from large US screening laboratories and a whole-genome cohort are shown instead. Panel-based figures depend on which variants the panel tests [[Gregg2021ACMG]], so a population whose CF variants are less often on the panel looks less common than it is. Ancestry labels are the ones each source used.</p>
+  </div>
+  <div class="ctrls" role="group" aria-label="Choose a data source">
+    <button class="btn" data-gnf="lab" aria-pressed="true">Screening laboratories (panels)</button>
+    <button class="btn" data-gnf="wgs" aria-pressed="false">Whole genomes (All of Us)</button>
+  </div>
+  <div class="stage">
+    <svg id="gnFreq" viewBox="0 0 720 330" role="img" aria-label="Horizontal bars of the percentage of people found to carry one CFTR variant, by ancestry group as each source named it, with a dashed line at the highest US subpopulation figure in gnomAD (about 1 in 24)."></svg>
+    <p class="stage-cap" id="gnFreqCap"></p>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Group (as named in the 2004 sources)</th><th>F508del share of CF chromosomes</th><th>CF alleles found by the 25-variant panel</th><th>Carrier couples detected</th><th>Estimated birth prevalence</th></tr></thead>
+    <tbody>
+      <tr><th>Non-Hispanic Caucasian</th><td>72.42%</td><td>88.40%</td><td>71.9%</td><td>1 in 2,500</td></tr>
+      <tr><th>Ashkenazi Jewish</th><td>31.41%</td><td>94.14%</td><td>88.6%</td><td>1 in 2,270</td></tr>
+      <tr><th>Hispanic Caucasian</th><td>54.38%</td><td>71.90%</td><td>51.7%</td><td>1 in 13,500</td></tr>
+      <tr><th>African American</th><td>44.07%</td><td>64.51%</td><td>41.6%</td><td>1 in 15,100</td></tr>
+      <tr><th>Asian American</th><td>38.95%</td><td>48.93%</td><td>23.4%</td><td>1 in 35,100</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">US data. F508del share and panel coverage: CF Foundation and consortium data compiled for the 2004 ACMG panel revision [[Watson2004ACMG]]. Couples detected and birth prevalence: Palomaki 2004, population estimates [[Palomaki2004]]. The number of couples screened to find one affected pregnancy ran from about 2,600 (Ashkenazi Jewish) and 3,200 (non-Hispanic Caucasian) to 129,600 (Asian American) [[Palomaki2004]].</p>
+
+  <h3 class="sub">Carrier screening: what the guidance says</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">2001 · first of its kind</span><h4>Universal CF screening</h4><p>On joint ACMG and ACOG recommendation, CF became the first condition for which pan-ethnic universal carrier screening by molecular methods was recommended, with a 25-variant core panel [[Deignan2020ACMG]]. In 2004 two variants were dropped, leaving the "ACMG-23" panel [[Watson2004ACMG,Deignan2020ACMG]].</p></div>
+    <div class="card"><span class="tag dx">ACMG 2021</span><h4>Ancestry-neutral, Tier 3</h4><p>The ACMG recommends that all pregnant patients and those planning a pregnancy be offered Tier 3 carrier screening (conditions with a carrier frequency of at least 1 in 200), which includes CFTR. It does not recommend offering only Tier 1 or 2, "because these do not provide equitable evaluation of all racial/ethnic groups" [[Gregg2021ACMG]].</p></div>
+    <div class="card"><span class="tag dx">ACOG 2017</span><h4>A choice, ideally before pregnancy</h4><p>ACOG states that carrier screening information should be given to every pregnant woman, ideally before pregnancy, and that a patient may decline any or all screening. A carrier should be encouraged to tell relatives, the partner should be offered testing, and if both are carriers genetic counselling should be offered [[ACOG2017CO691]].</p></div>
+    <div class="card"><span class="tag dx">Testing a couple</span><h4>One after the other, or together</h4><p>The ACMG standard says couples can be tested one after the other (usually the female partner first, the male partner only if she carries a variant) or both at once, which may be preferred during pregnancy [[Deignan2020ACMG]].</p></div>
+    <div class="card"><span class="tag warn">Limits</span><h4>A negative result is not zero</h4><p>Screening looks for many variants but not all, so a negative result lowers the chance of being a carrier without making it zero [[Gregg2021ACMG,Palomaki2004]]. Carrier screening cannot detect a new (de novo) variant in a child and does not replace newborn screening [[Gregg2021ACMG]].</p></div>
+    <div class="card"><span class="tag warn">Gaps in panels</span><h4>Who targeted panels miss</h4><p>In the US registry, Hispanic, Black and Asian people with CF were less likely than white people to have two variants identified, and more likely to carry no variant on the 23-variant panel [[Schrijver2016]]. ACMG now also allows sequencing of all coding exons with reporting of every pathogenic and likely pathogenic variant [[Deignan2020ACMG]].</p></div>
+  </div>
+
+  <h3 class="sub">A family tree after a diagnosis</h3>
+  <div class="prose"><p>A child with CF has a variant on both copies of CFTR, one from each parent [[Deignan2020ACMG]], so both parents are usually carriers, and their relatives may be too. Toggle cascade testing to see who might be offered testing when a carrier tells their family, as ACOG encourages [[ACOG2017CO691]].</p></div>
+  <div class="ctrls"><button class="btn" id="gnCascade" aria-pressed="false">Show cascade testing</button></div>
+  <div class="stage">
+    <svg id="gnPed" viewBox="0 0 720 300" role="img" aria-label="A three-generation pedigree. Squares are males and circles females. Both parents are half-shaded carriers; of their four children one is filled (has CF, the arrowed proband), two are carriers and one has neither variant. A paternal grandfather is a carrier. With cascade testing on, the father's sister and the mother's brother are ringed as relatives who may be offered testing."></svg>
+    <p class="stage-cap">An illustrative family, drawn with standard pedigree symbols. Carrier status is shown as it would be known after testing.</p>
+  </div>
+
+  <h3 class="sub">CFTR-related disorders</h3>
+  <div class="prose"><p>A CFTR-related disorder (CFTR-RD) is "a clinical entity associated with CFTR dysfunction that does not fulfil diagnostic criteria for CF". The recognised ones are congenital bilateral absence of the vas deferens (CBAVD), acute recurrent or chronic pancreatitis, and disseminated bronchiectasis [[Bombieri2011]].</p></div>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>CBAVD (male infertility)</h4><p>In 102 men with CBAVD, 19 had CFTR variants on both copies and 54 had one; 63% of those 54 had the 5T variant on the other copy [[Chillon1995]]. A meta-analysis found at least one CFTR variant in 78% of men with CBAVD (46% two, 28% one) [[Yu2012CBAVD]]. The commonest pattern is a CF-causing variant on one copy and 5T on the other [[Chillon1995]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Pancreatitis</h4><p>In 134 people with chronic pancreatitis, 13.4% carried one CFTR mutation against 5.3% of 600 controls [[Sharer1998]]. In 27 people with idiopathic pancreatitis, 37% had at least one abnormal CFTR allele [[Cohn1998]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>The 5T variant</h4><p>About 10% of the general population carries 5T, a short run of T bases in intron 9 (legacy intron 8). Opposite a severe variant, 12 or 13 TG repeats beside 5T made an abnormal phenotype far more likely than 11 (OR 34.0) [[Groman2004,Deignan2020ACMG]].</p></div>
+    <div class="card"><span class="ev early">Unresolved</span><h4>Do carriers have health effects?</h4><p>In a US claims database, 19,802 carriers had higher odds than matched controls for 57 of 59 CF-related conditions, though individual risk stayed low for most [[Miller2020PNAS]]. In the All of Us whole-genome cohort, no association reached phenome-wide significance; there were modest signals for ABPA, bronchiectasis and COPD [[Zeng2025Hetero]]. The designs differ, so the question is open.</p></div>
+  </div>
+
+  <h3 class="sub">Why is F508del so common? Founders and selection</h3>
+  <div class="cards">
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Very old: more than 52,000 years</h4><p>Microsatellite haplotypes suggested in 1994 that F508del arose more than 52,000 years ago and spread through Europe in separate expansions [[Morral1994]].</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Bronze Age spread</h4><p>A 2018 family study of 190 patients put the most recent common ancestor at 4,600 to 4,725 years ago in northwestern Europe and about 1,000 years in southeastern populations, proposing an early Bronze Age origin spread by Bell Beaker migrations [[Farrell2018Age]].</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>A carrier advantage?</h4><p>The high carrier frequency has prompted the idea that carriers once had a survival advantage. It remains unproven [[Farrell2018Age,Poolman2007]].</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis challenged</span><h4>Cholera</h4><p>Heterozygous CF mice secreted about half the normal fluid and chloride in response to cholera toxin [[Gabriel1994]], but in people, carriers secreted intestinal chloride at the same rate as non-carriers [[Hogenauer2000]].</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Typhoid and tuberculosis</h4><p><i>Salmonella typhi</i> uses CFTR to enter gut cells, and heterozygous F508del mice let 86% fewer bacteria through [[Pier1998]]. A population-genetic model found cholera and typhoid too weak to explain modern CF incidence, whereas tuberculosis from the 17th century could have been strong enough [[Poolman2007]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Founder effects</h4><p>Some regional clusters trace to one ancestral chromosome: W1282X in Ashkenazi Jewish people [[Shoshani1992]] and the CFTRdele2,3(21kb) deletion in Slavic populations [[Dork2000]].</p></div>
+  </div>
+
+  <p class="hook"><b>Exam hook</b>CFTR: chromosome 7q31.2, 27 exons, a 1,480-amino-acid ABC-family protein that works as a chloride and bicarbonate channel [[Deignan2020ACMG,LopesPacheco2019]]. Two carrier parents: 25% CF, 50% carrier, 25% neither, in every pregnancy [[Deignan2020ACMG]].</p>
+  <p class="teach" role="note"><b>Teaching tool</b>The calculator and simulation show Mendelian odds for teaching. Real counselling depends on which variants a family carries, how sensitive the test was and the family history; gene results here are a learning tool, not a diagnosis or a plan for any one person [[Castellani2008Genotype,Gregg2021ACMG]].</p>
 </section>

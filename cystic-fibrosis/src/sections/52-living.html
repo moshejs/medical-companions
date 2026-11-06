@@ -1,5 +1,85 @@
-<!-- ================= 5.2 LIVING WITH CF (stub, replaced by its builder) ================= -->
+<!-- ================= 5.2 LIVING WITH CF ================= -->
+<style>
+#m-living .lv-pick{display:flex;flex-wrap:wrap;gap:6px}
+#m-living .lv-pick .btn{font-size:13px}
+#m-living .lv-panel{display:grid;grid-template-columns:minmax(150px,220px) minmax(0,1fr);gap:18px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+@media (max-width:640px){#m-living .lv-panel{grid-template-columns:minmax(0,1fr)}}
+#m-living .lv-fig{display:flex;flex-direction:column;gap:6px;border-right:1px solid var(--line);padding-right:14px}
+@media (max-width:640px){#m-living .lv-fig{border-right:0;padding-right:0;border-bottom:1px solid var(--line);padding-bottom:12px}}
+#m-living .lv-fig .big-num{color:var(--rec)}
+#m-living .lv-fig small{color:var(--muted);font-size:13.5px}
+#m-living .lv-body{display:flex;flex-direction:column;gap:6px;min-width:0}
+#m-living .lv-body h4{margin:0;font-family:var(--display);font-weight:700;font-size:21px}
+#m-living .lv-body ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+#m-living .card>.tag,#m-living .card>.ev{align-self:flex-start}
+#m-living .tbl table{min-width:560px}
+</style>
 <section class="mod" id="m-living" data-mod="living" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living &amp; care</p><h2>Living with CF</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">CF is lived one day at a time: treatments around meals and school or work, the effort of keeping them up, and the feelings that come with a lifelong condition. Scrub through a day of treatments, then the whole life course.</p></div>
+
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Six scenes. First, a 24-hour dial sweeps one illustrative day: coloured arcs for airway clearance, three inhaled and three oral therapies light up as the hand passes them, and counters build to 108 minutes and 7 therapies. Second, the two SIMPLIFY therapies fade from the dial beside a plot of the trial's ppFEV1 differences and adverse-event bars. Third, bars compare nebuliser adherence by self-report (80%), clinician estimate (50 to 60%) and device record (36%). Fourth, a person walks along an age line through school, the move to adult care with its median 7.6-month gap, and work. Fifth, TIDES depression and anxiety bars for adolescents, adults, mothers and fathers with the annual screening recommendation. Sixth, weight change after starting ETI, digestive cancer risk and the colonoscopy screening ages."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">Play</button><label class="stage-cap tl" for="lvT">Day and life <input type="range" id="lvT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="readout" id="lvRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The day on the dial is a drawing whose totals match the Sawicki 2009 averages (mean 108 minutes, median 7 therapies, a median of 3 inhaled and 3 oral) [[Sawicki2009]]; real schedules vary from person to person. Bars are study and registry population figures [[MayerHamblett2023SIMPLIFY,Daniels2011Adherence,Quittner2014Adherence,Hansen2024Adherence,Melton2024Transition,Targett2014Employment,Jensen2024Employment,Heimbruch2026,Conway2014ECFS,Quittner2014TIDES,Quittner2016ICMH,Ostrenga2026Obesity,Maisonneuve2013,Hadjiliadis2018]].</p>
+    </div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Life stages: what changes, and who helps</h3>
+  <div class="prose"><p>Pick a stage. Each card gathers what the standards and studies say about that part of life.</p></div>
+  <div class="lv-pick" role="group" aria-label="Choose a life stage">
+    <button class="btn" data-ls="early" aria-pressed="false">Early childhood</button>
+    <button class="btn" data-ls="school" aria-pressed="true">School years</button>
+    <button class="btn" data-ls="teen" aria-pressed="false">Adolescence</button>
+    <button class="btn" data-ls="transition" aria-pressed="false">Transition</button>
+    <button class="btn" data-ls="work" aria-pressed="false">Adult life &amp; work</button>
+    <button class="btn" data-ls="family" aria-pressed="false">Family</button>
+    <button class="btn" data-ls="ageing" aria-pressed="false">Ageing</button>
+  </div>
+  <div class="lv-panel" id="lvStage" aria-live="polite"></div>
+
+  <h3 class="sub">Treatment burden and quality of life</h3>
+  <div class="prose">
+    <p>The Cystic Fibrosis Questionnaire (teen and adult version, age 14 and older) has 44 items on 12 generic and CF-specific scales, and child and parent versions exist [[Quittner2005CFQ]]. Its revised respiratory scale (CFQ-R) is the usual quality-of-life outcome in trials. In the Sawicki study, the mean CFQ-R treatment-burden score was 52.3 out of 100 (higher is better); two or more nebulised medicines, and airway clearance of 30 minutes or more, were each linked to higher perceived burden [[Sawicki2009]].</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>CFQ-R respiratory score</th><th>Points</th><th>Context</th></tr></thead>
+    <tbody>
+      <tr><th>Minimal clinically important difference, stable disease</th><td>4.0</td><td>Two tobramycin inhalation studies [[Quittner2009MCID]]</td></tr>
+      <tr><th>Minimal clinically important difference, during an exacerbation</th><td>8.5</td><td>Same studies [[Quittner2009MCID]]</td></tr>
+      <tr class="mod"><th>ETI vs placebo at 24 weeks (one F508del allele)</th><td>+20.2</td><td>Age 12 and older; the trial used 4 points as the MCID [[Middleton2019ETI]]</td></tr>
+      <tr class="mod"><th>ETI vs tezacaftor/ivacaftor at 4 weeks (F508del homozygous)</th><td>+17.4 (95% CI 11.8–23.0)</td><td>[[Heijerman2019ETI]]</td></tr>
+      <tr class="mod"><th>48 weeks after starting ETI, real-world (RISE, n=174)</th><td>+19.55</td><td>Dutch prospective cohort [[vanderHeijden2025]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Rows shaded teal are changes on a modulator. In 262 adults in a palliative-care trial (78% on modulators), the commonest symptoms were lack of energy (74%) and cough (73%), and the symptoms most linked to lower quality of life were outside the lungs: lack of energy, feeling sad and worrying [[Smirnova2024Symptoms]]. The CFF pain guideline makes 13 recommendations built on a multimodal approach [[Dellon2025Pain]].</p>
+
+  <h3 class="sub">Mental health</h3>
+  <div class="split2">
+    <div class="card"><span class="tag rec">Screening, as published</span><h4>Every year from age 12</h4>
+      <p>"The ICMH recommends annual screening for depression and anxiety with the PHQ-9 and GAD-7 for adolescents and adults with CF (ages 12–adulthood)." The committee also recommends offering annual screening to at least one primary caregiver of children aged 0–17 (PHQ-9/GAD-7, PHQ-8/GAD-7 or PHQ-2/GAD-2, depending on resources). Its 15 recommendations each had 100% consensus [[Quittner2016ICMH]].</p></div>
+    <div class="card"><span class="tag rec">Stepped care, ages 12+</span><h4>Matched to severity</h4>
+      <ul><li>Mild symptoms: education and rescreening</li><li>Moderate: CBT or interpersonal therapy (IPT)</li><li>Severe depression: psychological treatment plus antidepressants</li><li>Severe anxiety: exposure-based CBT</li></ul>
+      <p>The ICMH names citalopram, escitalopram, sertraline and fluoxetine as appropriate first-line SSRIs for most people with CF aged 12 and older who need medication, with close monitoring for drug–drug interactions [[Quittner2016ICMH]]. Children aged 7–11 are evaluated when a caregiver's scores are raised or the child has significant symptoms, and psychological interventions come first [[Quittner2016ICMH]].</p></div>
+    <div class="card"><span class="tag warn">Why it matters</span><h4>Mood, adherence and survival</h4>
+      <p>The consensus lists worse adherence among the outcomes linked to psychological symptoms [[Quittner2016ICMH]]. Among 1005 US TIDES participants, 25% screened positive for depression; the adjusted 5-year hazard ratio for death was 1.6 in adults (95% CI 1.0–2.4) and 2.0 in the severe range. These are associations in a population, not predictions for any person [[Schechter2021Depression]].</p></div>
+    <div class="card"><span class="tag mod">Modulators and mood</span><h4>What the label says</h4>
+      <p>The Trikafta label (section 5.4) warns of "Serious neuropsychiatric events, including symptoms of anxiety, depression, suicidal ideation and behavior, and sleep disturbances", which "may occur within the first three months"; it advises assessing baseline symptoms and monitoring for new or worse ones [[FDA-Trikafta]]. The Alyftrek and Kalydeco labels carry the same class warning [[FDA-Alyftrek,FDA-Kalydeco]].</p>
+      <p>A case series described 6 people with "mental fogginess" in the first 3 months of ETI <span class="ev early">Early evidence</span> [[Heo2022MentalStatus]], while a 48-week cohort found psychosocial health improved overall and anxiety unchanged, with women, people with lower lung function and those on psychotropic medicines possibly more vulnerable [[vanderHeijden2025]]. Whether modulators cause these symptoms is unresolved <span class="ev early">Early evidence</span>.</p></div>
+  </div>
+  <p class="support" role="note"><b>Support</b>If you feel foggy, sad or anxious, or have trouble sleeping after starting a CFTR modulator, tell your care team. Do not stop the medicine on your own [[FDA-Trikafta,Heo2022MentalStatus]]. If you ever feel unsafe or think about ending your life, contact your local emergency number or a crisis line now.</p>
+
+  <h3 class="sub">Everyday rules and choices</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Cross-infection</span><h4>Six feet apart</h4><p>The 2013 CFF/SHEA guideline widened the recommended distance between people with CF from 3 to 6 feet [[Haggie2020,Saiman2014IPC]]. Haggie summarises its social advice: at least 2 m apart, no in-person meetings, and no shared facilities for children with CF at the same school [[Haggie2020,Saiman2014IPC]]. In hospital, people with CF should not share rooms, bathrooms or toilets [[Conway2014ECFS]].</p></div>
+    <div class="card"><span class="tag accent">Community</span><h4>Meeting online</h4><p>Of 138 US centres with indoor in-person events, 45% allowed one person with CF to attend and 51% allowed none; outdoors, 84% allowed more than one [[Saiman2018Survey]]. Because in-person contact is discouraged, online contact is a main route to peer community [[Haggie2020,Southern2024Standards]]. Only 53% of US programmes had adopted the inpatient 6-foot rule in writing [[Stoudemire2019IPC]].</p></div>
+    <div class="card"><span class="tag rec">Exercise</span><h4>Fitness, not FEV1</h4><p>A Cochrane review (24 trials, 875 people) found that activity programmes over 6 months probably improve exercise capacity a little (peak oxygen uptake MD 1.60), and may have no effect on FEV1 or the CFQ-R respiratory score <span class="ev est">Established</span> [[Radtke2022Cochrane]]. The specialist physiotherapist leads airway clearance, exercise and inhalation therapy [[Conway2014ECFS]].</p></div>
+    <div class="card"><span class="tag dx">Travel</span><h4>Flying with CF</h4><p>In 79 adults, a pre-flight algorithm sorted people by resting and walking oxygen saturation; only 21 (27%) would have needed a hypoxia-altitude test. Like everything here it is a teaching example, not individual advice [[Akero2025AirTravel]].</p></div>
+    <div class="card"><span class="tag brand">Research priorities</span><h4>What the community asked</h4><p>The 2023 James Lind Alliance refresh drew on 1417 people with CF, family members and clinicians; in the second survey, 62% of respondents with CF were taking modulators [[Rowbotham2023]].</p></div>
+    <div class="card"><span class="tag rec">Palliative care</span><h4>From diagnosis, not just at the end</h4><p>The CFF consensus says CF teams should deliver primary palliative care "at the time of diagnosis, and throughout the disease course" [[Kavalieratos2021Palliative]]. Palliative care means extra support for comfort and quality of life, at any stage [[Kavalieratos2021Palliative]]. More in <a href="#transplant" data-go="transplant">Advanced lung disease &amp; transplant</a>.</p></div>
+  </div>
 </section>

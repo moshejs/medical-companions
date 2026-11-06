@@ -1,5 +1,96 @@
-<!-- ================= 5.1 ADVANCED LUNG DISEASE & TRANSPLANT (stub, replaced by its builder) ================= -->
+<!-- ================= 5.1 ADVANCED LUNG DISEASE & TRANSPLANT ================= -->
+<style>
+#m-transplant .tbl table{min-width:0}
+#m-transplant .card>.ev,#m-transplant .card>.tag{align-self:flex-start}
+#m-transplant .txwarn{border-left:4px solid var(--rec);background:var(--rec-soft);border-radius:0 12px 12px 0;padding:10px 14px;font-size:15px;max-width:72ch}
+#m-transplant .txwarn b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--rec);display:block;margin-bottom:2px}
+#m-transplant .txbox{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:18px;align-items:start}
+@media (max-width:900px){#m-transplant .txbox{grid-template-columns:minmax(0,1fr)}}
+#m-transplant .txbox .calc{grid-template-columns:minmax(0,1fr)}
+#m-transplant .txchk{display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0;min-width:0}
+#m-transplant .txchk legend{font-size:14px;font-weight:700;padding:0 4px}
+#m-transplant .txchk label{display:flex;gap:8px;align-items:flex-start;font-weight:400;font-size:14px;flex-direction:row}
+#m-transplant .txchk input{margin-top:3px}
+#m-transplant .rng{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+#m-transplant .rng output{font:700 15px var(--mono);color:var(--ink)}
+#m-transplant .calc input[type=range]{width:100%}
+#m-transplant #txWhy{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+#m-transplant #txIcons{max-width:860px}
+</style>
 <section class="mod" id="m-transplant" data-mod="transplant" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living &amp; care</p><h2>Advanced lung disease &amp; transplant</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">When lung function falls far, the CF Foundation wants the transplant conversation to start early and referral to happen on time. Follow a falling FEV1 line past the published thresholds to a lung transplant, see the registry survival after it, and how the modulator era has changed the numbers.</p></div>
+
+  <p class="txwarn" role="note"><b>Population statistics, quoted guidance</b>Survival figures are registry numbers for groups of people, not predictions for anyone. Referral thresholds are quoted from the CFF 2019 guideline, written before ETI; decisions are made with the CF and transplant teams.</p>
+
+  <div class="stepper" id="txSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="txSvg" viewBox="0 0 720 380" role="img" aria-label="A chart of FEV1 percent predicted over years: an illustrative line falls past dashed threshold lines at 50, 40 and 30 percent, each lighting up with what the CFF 2019 guideline says at that level, while a pair of lungs beside it shows widening airways and mucus plugs. The lungs are then replaced by clean donor lungs. The chart becomes registry survival after CF lung transplant, 2005 to 2016, in Canada and the US at 1, 3 and 5 years, and finally bars of first CF lung transplants in France falling from 13.4 to 1.8 per 1,000 per year, with US transplants down 72 percent and waitlistings down 78 percent in the ETI era."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="txPlay">Play</button><label class="stage-cap tl" for="txT">Course <input type="range" id="txT" min="0" max="1" step="0.001" value="0.12"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The FEV1 line is an illustration, not a patient's data. Thresholds [[Ramos2019Referral]]; survival, registry population statistics [[Stephenson2021Transplant]]; transplant numbers [[Merlo2025Transplant,Dhote2026Transplant]].</p>
+    </div>
+    <aside class="note" id="txNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The referral thresholds, worked through</h3>
+  <p class="txwarn" role="note"><b>A teaching tool, not a referral decision</b>It shows which of the CFF 2019 statements a set of inputs matches, as published. It does not assess anyone; referral is decided by the CF team with the person.</p>
+  <div class="txbox">
+    <div class="calc">
+      <label for="txAge">Age group<select id="txAge"><option value="adult">Adult (18 or over)</option><option value="child">Child (under 18)</option></select></label>
+      <label for="txFev"><span class="rng"><span>FEV1 % predicted</span><output id="txFevO" for="txFev">45%</output></span><input type="range" id="txFev" min="10" max="100" step="1" value="45"></label>
+      <fieldset class="txchk"><legend>Decline</legend><label><input type="checkbox" id="txRapid"> Rapid decline: &gt;20% relative fall in FEV1 in 12 months</label></fieldset>
+      <fieldset class="txchk"><legend>Prompt referral regardless of FEV1</legend>
+        <label><input type="checkbox" id="txWalk"> 6-minute walk distance &lt;400 m</label>
+        <label><input type="checkbox" id="txHypox"> Hypoxaemia</label>
+        <label><input type="checkbox" id="txHyperc"> Hypercarbia (PaCO2 &gt;50 mmHg)</label>
+        <label><input type="checkbox" id="txPH"> Pulmonary hypertension (PA systolic &gt;50 mmHg on echo, or RV dysfunction)</label></fieldset>
+      <fieldset class="txchk"><legend>Markers of shortened survival (listed for FEV1 &lt;40%)</legend>
+        <label><input type="checkbox" id="txBmi"> BMI &lt;18 (adults)</label>
+        <label><input type="checkbox" id="txExac"> More than 2 exacerbations a year needing IV antibiotics</label>
+        <label><input type="checkbox" id="txHaem"> Massive haemoptysis (&gt;240 mL) needing ICU or embolisation</label>
+        <label><input type="checkbox" id="txPtx"> Pneumothorax</label></fieldset>
+      <fieldset class="txchk"><legend>Special consideration</legend><label><input type="checkbox" id="txSpecial"> A woman (especially a younger woman), or shorter than 162 cm</label></fieldset>
+    </div>
+    <div>
+      <div class="scroll"><svg id="txLad" viewBox="0 0 720 96" role="img" aria-label="An FEV1 scale from 0 to 100 percent with the guideline's threshold marks and a pointer at the chosen FEV1."></svg></div>
+      <p class="verdict maybe" id="txOut" aria-live="polite"></p>
+      <ul id="txWhy"></ul>
+      <p class="stage-cap">All statements: CFF 2019 lung transplant referral guideline [[Ramos2019Referral]]. Built before ETI; how to time referral for partial ETI responders is unsettled [[Merlo2025Transplant]].</p>
+    </div>
+  </div>
+
+  <h3 class="sub">After FEV1 falls below 30%</h3>
+  <div class="prose"><p>Of 3,340 US adults who reached FEV1 &lt;30% predicted, median transplant-free survival was 6.6 years (95% CI 5.9 to 7.0). Each figure below is one in a hundred of that cohort (rounded) [[Ramos2017FEV30]]. These are population statistics.</p></div>
+  <div class="scroll"><svg id="txIcons" viewBox="0 0 720 150" role="img" aria-label="100 person icons: 37 died without a transplant, 29 had a transplant, 28 were alive without a transplant and 6 were lost to follow-up."></svg></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Predictor of death without transplant</th><th>Hazard ratio</th></tr></thead>
+    <tbody>
+      <tr><td>Supplemental oxygen</td><td>2.1</td></tr>
+      <tr><td>B. cepacia</td><td>1.8</td></tr>
+      <tr><td>≥1 exacerbation per year</td><td>1.7</td></tr>
+      <tr><td>BMI ≤18</td><td>1.6</td></tr>
+      <tr><td>Female sex</td><td>1.6</td></tr>
+      <tr><td>Insulin-treated CF-related diabetes</td><td>1.4</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Ramos 2017 [[Ramos2017FEV30]].</p>
+
+  <h3 class="sub">Complications of advanced lung disease</h3>
+  <div class="cards">
+    <div class="card"><span class="tag inflamed">Haemoptysis</span><h4>Massive haemoptysis</h4><p>Average annual incidence 0.87%, and 4.1% of people overall in US registry data. Nearly 60% of those affected had FEV1 &lt;40%, and it carried higher 2-year mortality [[Flume2005Hemoptysis]].</p></div>
+    <div class="card"><span class="tag warn">Pneumothorax</span><h4>Pneumothorax</h4><p>Average annual incidence 0.64% (about 1 in 167 people a year), and 3.4% overall; nearly 75% of those affected had FEV1 &lt;40%. Risk was higher with P. aeruginosa (OR 2.3), B. cepacia (OR 1.8) and FEV1 &lt;30% (OR 1.5) [[Flume2005Pneumothorax]].</p></div>
+    <div class="card"><span class="tag">How the advice was made</span><h4>Expert consensus</h4><p>The CFF haemoptysis and pneumothorax recommendations were built by Delphi expert consensus, because the evidence was insufficient for evidence-based grading [[Flume2010]].</p><span class="ev early">Consensus</span></div>
+    <div class="card"><span class="tag dx">Where you live</span><h4>US and Canada differ</h4><p>Among people with FEV1 &lt;40%, US residents had a higher risk of death without transplant than Canadians (HR 1.79) and a lower transplant rate (HR 0.66). The gaps were larger for people with Medicaid/Medicare and for non-white people [[Ramos2021ALD]]. In France, 50% of CF deaths occurred without transplant [[Ramos2019Referral]].</p></div>
+  </div>
+
+  <h3 class="sub">Palliative care, alongside everything else</h3>
+  <div class="prose"><p>Palliative care is extra support for comfort and quality of life. It can start at any age and go alongside all other CF care [[Kavalieratos2021Palliative]]. The CF Foundation's 2021 consensus guidelines recommend, as published:</p></div>
+  <div class="cards">
+    <div class="card"><span class="tag rec">From diagnosis</span><h4>Primary palliative care in usual care</h4><p>CF care teams deliver primary palliative care as part of usual CF care "at the time of diagnosis and throughout the disease course" [[Kavalieratos2021Palliative]].</p></div>
+    <div class="card"><span class="tag rec">Specialists</span><h4>When transplant is on the table</h4><p>Specialty palliative care consultation "when an individual with CF is considering or declines transplantation" [[Kavalieratos2021Palliative]].</p></div>
+    <div class="card"><span class="tag rec">Screening</span><h4>Symptoms and carers</h4><p>Screen people aged 12 and over with the Integrated Palliative Care Outcome Scale (IPOS) every year and at disease milestones, and offer at least one primary caregiver annual screening with the Brief Assessment Scale for Caregivers [[Kavalieratos2021Palliative]].</p></div>
+    <div class="card"><span class="tag rec">Planning ahead</span><h4>Advance care planning</h4><p>Goals-of-care discussions and advance care planning across the lifespan, and caregiver support from diagnosis through bereavement [[Kavalieratos2021Palliative]].</p></div>
+  </div>
+  <p class="callout">Palliative care and transplant are not opposites. The guideline places specialist palliative input exactly when transplant is being considered or declined, so the conversations about goals and the transplant work-up run side by side [[Kavalieratos2021Palliative,Ramos2019Referral]].</p>
 </section>

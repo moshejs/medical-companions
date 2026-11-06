@@ -1,5 +1,126 @@
-<!-- ================= 1.4 HOW CFTR WORKS (stub, replaced by its builder) ================= -->
+<!-- ================= 1.4 HOW CFTR WORKS ================= -->
+<style>
+#m-cftr .tbl table{min-width:620px}
+#m-cftr .card>.ev,#m-cftr .card>.tag{align-self:flex-start}
+#m-cftr .ctbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-cftr .ctbar label{display:inline-flex;gap:8px;align-items:center;font-size:14px;font-weight:600;cursor:pointer}
+#m-cftr .ctbar input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
+#m-cftr .ctcap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-cftr .ctcap b{font-family:var(--mono);font-size:13px;letter-spacing:.04em}
+</style>
 <section class="mod" id="m-cftr" data-mod="cftr" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding CF</p><h2>How CFTR works</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">CFTR is a gate for chloride and bicarbonate in the surface of cells that line the airways, gut, pancreas and sweat glands. Follow one channel through its cycle, then see what its loss does to the airway surface and why the same loss makes sweat salty.</p></div>
+
+  <div class="prose">
+    <p>When the gene was cloned in 1989, its predicted protein had two similar halves, each with a membrane-spanning domain and an ATP-binding domain, and the commonest CF variant, the loss of phenylalanine 508, sat in the middle of the first nucleotide-binding domain (NBD1) [[Riordan1989,Kerem1989]]. CFTR belongs to the ATP-binding cassette (ABC) transporter family, yet it works as an anion channel [[Csanady2019]]. Pick a step or press Play.</p>
+  </div>
+
+  <div class="stepper" id="ctSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ctSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="One CFTR channel in a cell membrane, drawn as two membrane-spanning halves around a pore, two nucleotide-binding domains below and the R domain between them. The scrubber walks through its cycle: at rest the R domain blocks the nucleotide-binding domains; the enzyme PKA adds phosphate tags to the R domain, which moves aside; two ATP molecules bind and the nucleotide-binding domains come together; the gate opens and chloride and bicarbonate ions pass out of the cell; water follows and the gate flickers as ATP is used. A last scene shows a channel that does not work and two explanations for what follows in the airway: too little surface liquid, or a surface that is too acidic."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ctPlay">Play</button><label class="stage-cap tl" for="ctT">Cycle <input type="range" id="ctT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> Domain shapes follow the cryo-EM descriptions only loosely [[Zhang2016Cell,Liu2017Cryo,Zhang2017Cell]]; conductance and the chloride to bicarbonate ratio are from Poulsen 1994 [[Poulsen1994]].</p>
+    </div>
+    <aside class="note" id="ctNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Seeing the channel: four structures</h3>
+  <div class="prose"><p>Cryo-electron microscopy (cryo-EM) caught CFTR with and without its two "go" signals. Zebrafish and human CFTR share 55% sequence identity, and 42 of 46 CF-causing missense sites are the same, so the zebrafish structures are a fair stand-in [[Zhang2016Cell]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Year</th><th>CFTR</th><th>State</th><th>Resolution</th><th>What it showed</th></tr></thead>
+    <tbody>
+      <tr><th>2016</th><td>Zebrafish</td><td>No ATP, not phosphorylated</td><td>3.7 Å</td><td>A large anion pathway lined with positive residues and a single gate near the outer surface; the R domain wedged between the NBDs, stopping them dimerising <span class="ev est">Established</span> [[Zhang2016Cell]]</td></tr>
+      <tr><th>2017</th><td>Human</td><td>Dephosphorylated, no nucleotide</td><td>3.9 Å</td><td>An R-domain helix docked in the intracellular vestibule, blocking opening, and a helix-loop transition in transmembrane helix 8 that probably underlies CFTR's channel function [[Liu2017Cryo]]</td></tr>
+      <tr><th>2017</th><td>Zebrafish</td><td>Phosphorylated, ATP-bound</td><td>3.4 Å</td><td>The R domain out of its inhibitory position and the NBDs in a "head-to-tail" dimer around ATP; the outer mouth still looked closed [[Zhang2017Cell]]</td></tr>
+      <tr class="hl"><th>2018</th><td>Human</td><td>Phosphorylated, ATP-bound</td><td>3.2 Å</td><td>Where the phosphorylated R domain goes, and why the G178R, R352Q, L927P and G970R/D variants block the shape changes needed for gating [[Zhang2018PNAS]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">The airway surface: with and without CFTR</h3>
+  <div class="prose">
+    <p>The airway is lined by a thin airway surface liquid (ASL): a mucus layer on top of a periciliary liquid layer (PCL) in which the cilia beat. In cultured human airway epithelium, active ion transport kept the PCL at about 7 µm, and the mucus layer acted as a reservoir, giving or taking liquid to hold the PCL at the best height for mucus transport [[Tarran2001JGP]]. Normal epithelium does this by blending chloride secretion with sodium absorption through the epithelial sodium channel (ENaC), steered by signals in the liquid (ATP, adenosine, proteases), not by the cilia [[Tarran2006JGP]].</p>
+    <p>Switch CFTR off and on, and tick the box to show the classic sodium-hyperabsorption model. Press Play to let the cilia run.</p>
+  </div>
+  <div class="ctbar" role="group" aria-label="Airway lining">
+    <button class="btn" data-asl="on" aria-pressed="true">With CFTR</button>
+    <button class="btn" data-asl="off" aria-pressed="false">Without CFTR</button>
+    <label for="ctHyper"><input type="checkbox" id="ctHyper"> Classic model: ENaC absorbs extra sodium</label>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="ctAsl" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A cut-through airway lining with six ciliated cells, a clear liquid layer and a yellow mucus layer on top. With CFTR, chloride and bicarbonate rise from the cells, the liquid layer is deep, the cilia stand and beat, and specks in the mucus travel along. Without CFTR, the anion flow stops, the liquid layer collapses, the cilia flatten and the thickened mucus stops moving. Sodium ions moving down into the cells show absorption through ENaC; ticking the classic-model box makes that absorption heavier when CFTR is missing."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="ctAslPlay">Play</button><label class="stage-cap tl" for="ctAslT">Cilia time <input type="range" id="ctAslT" min="0" max="1" step="0.001" value="0.2"></label></div>
+    <p class="ctcap" id="ctAslCap" aria-live="polite"></p>
+  </div>
+
+  <h3 class="sub">The sodium debate: is ENaC overactive in CF airways?</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Finding</th><th>Model</th><th>What it suggests</th></tr></thead>
+    <tbody>
+      <tr><th>CF nasal epithelium absorbed Na⁺ at a raised basal rate, and β-agonists increased Na⁺ absorption instead of causing Cl⁻ secretion [[Boucher1986]]</th><td>Human nasal tissue in Ussing chambers</td><td>The "sodium hyperabsorption" model</td></tr>
+      <tr><th>Co-expressing CFTR with ENaC turned cAMP-stimulated sodium currents into cAMP-inhibited ones [[Stutts1995]]</th><td>Expression system</td><td>CFTR normally restrains ENaC; the restraint is lost in CF</td></tr>
+      <tr><th>Mice over-expressing ENaC (βENaC mice) developed ASL depletion, concentrated mucus, slow mucus transport, plugging, goblet-cell metaplasia, neutrophilic inflammation and poor bacterial clearance [[Mall2004]]</th><td>Mouse <span class="ev est">Established</span> in the model</td><td>Raised Na⁺ absorption alone is enough to cause CF-like lung disease in mice</td></tr>
+      <tr><th>Newborn CFTR⁻/⁻ pigs lost Cl⁻ and HCO₃⁻ transport, but Na⁺ and liquid absorption were not increased and PCL depth was not reduced [[Chen2010Cell]]</th><td>Pig</td><td>The raised amiloride-sensitive voltage reflects missing chloride conductance, not extra sodium</td></tr>
+      <tr><th>In differentiated human CF bronchial cultures, amiloride cut Na⁺ absorption by similar amounts in CF and non-CF epithelia [[Itani2011]]</th><td>Primary human cultures</td><td>Sodium conductance is not increased</td></tr>
+      <tr><th>In the sweat duct, ENaC activity depends on CFTR, so losing CFTR lowers sodium absorption [[Reddy1999]]</th><td>Isolated human sweat ducts</td><td>The opposite of the airway assumption</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Status: unresolved. Both models are still cited, and many reviews now present the loss of anion (Cl⁻ and HCO₃⁻) secretion as the primary defect, with volume depletion as a consequence [[Mall2004,Chen2010Cell,Itani2011]].</p>
+
+  <h3 class="sub">Why mucus stops: brush, concentration and glands</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Liquid, not salt</h4><p>Matsui 1998 found no evidence that ASL is hypotonic or that its salt content differs in CF. CF cultures instead absorbed ASL abnormally fast, depleting the PCL and stopping mucus transport, which supports the "isotonic volume" hypothesis over the "low-salt / defensin" one [[Matsui1998]].</p></div>
+    <div class="card"><h4>A gel on a brush</h4><p>The periciliary layer is a brush of tethered mucins and mucopolysaccharides that keeps mucus out of the cilia. When the mucus layer gets more concentrated than the brush, it compresses it and clearance fails [[Button2012]].</p></div>
+    <div class="card"><h4>Mucus that is too concentrated</h4><p>Measured physically, mucins in CF sputum were hyperconcentrated and the osmotic pressure of CF sputum was substantially higher than normal, enough to compress the periciliary layer. Antibody assays underestimate CF mucin because sputum proteases cut the antibody sites [[Henderson2014]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Mucus stuck to the glands</h4><p>In newborn CF piglets, mucus strands from the submucosal glands stayed tethered to the gland ducts after cholinergic stimulation, so transport failed without PCL depletion. Blocking anion secretion in non-CF airways did the same [[Hoegger2014]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Breathing helps, viruses hurt</h4><p>Motion that mimics breathing increased ATP release, rebalanced CF ion transport and restored PCL volume in culture; respiratory syncytial virus abolished this rescue, one proposed reason viral infections tip CF airways into bacterial infection [[Tarran2005JBC]].</p></div>
+    <div class="card"><h4>Rehydrate, and clearance returns</h4><p>Inhaled 7% hypertonic saline in 24 people with CF cleared 14.0 ± 2.0% of mucus in an hour against 7.0 ± 1.5% after amiloride pretreatment, and improved FEV1 by a mean 6.62%, which fits the rehydration theory [[Donaldson2006]]. After starting ivacaftor, people with G551D-CFTR had markedly faster mucociliary clearance at 1 month, sustained at 3 [[Donaldson2018]].</p></div>
+  </div>
+
+  <h3 class="sub">Bicarbonate, pH and mucus</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Idea or finding</th><th>Evidence</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Condensed mucins must shed Ca²⁺ and H⁺ to expand up to 1,000-fold after release; HCO₃⁻ binds these cations, so without CFTR-dependent HCO₃⁻ mucins stay aggregated</th><td><span class="ev hyp">Hypothesis</span></td><td>[[Quinton2008]]</td></tr>
+      <tr><th>CF mouse gut released almost no mucus on stimulation; removing HCO₃⁻ roughly halved release in normal gut</th><td><span class="ev early">Early evidence</span></td><td>[[Garcia2009]]</td></tr>
+      <tr><th>Dense, sticky CF mouse ileal mucus normalised when secreted into about 100 mM bicarbonate</th><td><span class="ev early">Early evidence</span></td><td>[[Gustafsson2012]]</td></tr>
+      <tr><th>Newborn CF pigs: ASL more acidic and killed bacteria less well; raising pH rescued killing</th><td><span class="ev early">Early evidence</span> in pigs</td><td>[[Pezzulo2012]]</td></tr>
+      <tr><th>Unchecked proton pumping by ATP12A acidifies ASL in humans and pigs without CFTR; mouse airways have little ATP12A, which helps explain why CF mice are spared lung disease</th><td><span class="ev early">Early evidence</span></td><td>[[Shah2016]]</td></tr>
+      <tr><th>Low pH was necessary and sufficient for more viscous CF ASL in piglets and cultures; hypertonic saline or heparin largely reversed it</th><td><span class="ev early">Early evidence</span></td><td>[[Tang2016]]</td></tr>
+      <tr class="inflamed"><th>Counter-evidence: fibre-optic probes in living children found similar ASL pH with and without CF</th><td>Contested</td><td>[[Schultz2017]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Same channel, opposite job: why CF sweat is salty</h3>
+  <div class="prose">
+    <p>In 1983, microperfusion of isolated sweat ducts showed abnormally low chloride permeability in CF: as the primary sweat passes along the duct, NaCl is poorly taken back, so the final sweat stays salty <span class="ev est">Established</span> [[Quinton1983]]. In normal ducts ENaC activity rises with CFTR activity; in CF ducts the sodium conductance could not be switched on, so salt reabsorption fails through both chloride and sodium [[Reddy1999]]. In the airway, CFTR's job runs the other way: it sends chloride and bicarbonate out [[Mall2020]].</p>
+  </div>
+  <div class="ctbar" role="group" aria-label="Sweat duct and airway">
+    <button class="btn" data-sw="ok" aria-pressed="true">CFTR working</button>
+    <button class="btn" data-sw="cf" aria-pressed="false">Cystic fibrosis</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="ctSw" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Left: a sweat gland in the skin, with sweat rising up its duct. Middle: a close-up of the duct wall, where sodium and chloride move from the sweat back into the duct cells when CFTR works. Right: a close-up of an airway cell, where chloride moves out of the cell into the surface liquid. With cystic fibrosis both movements stop: salt stays in the sweat and crystals build up on the skin, and the airway surface receives no chloride."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="ctSwPlay">Play</button><label class="stage-cap tl" for="ctSwT">Sweat flow <input type="range" id="ctSwT" min="0" max="1" step="0.001" value="0.3"></label></div>
+    <p class="ctcap" id="ctSwCap" aria-live="polite"></p>
+  </div>
+  <p class="stage-cap">Schematic. Sweat-test bands and how the test is done are in <a href="#sweattest" data-go="sweattest">The sweat test &amp; genetic testing</a>.</p>
+
+  <h3 class="sub">Where CFTR is made in the airway</h3>
+  <div class="cards">
+    <div class="card"><h4>Submucosal glands</h4><p>In the human bronchus, CFTR is expressed mainly in the submucosal glands, especially the serous cells of the secretory tubules, with a subpopulation of duct cells. ΔF508 homozygotes had no detectable CFTR protein in these cells [[Engelhardt1992]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>The pulmonary ionocyte</h4><p>Single-cell RNA sequencing found a rare FOXI1-positive cell that is the main source of CFTR transcripts in mouse and human airway epithelium; knocking out Foxi1 in mice removed Cftr expression and disturbed airway fluid and mucus [[Montoro2018]]. Ionocytes co-express FOXI1, V-ATPase subunits and CFTR, and account for a major share of CFTR activity in the conducting airway [[Plasschaert2018]].</p></div>
+    <div class="card"><h4>Lessons from the CF pig</h4><p>CFTR-null newborn pigs had meconium ileus, exocrine pancreatic destruction and focal biliary cirrhosis, as newborn humans with CF do; CF mice do not show this pattern [[Rogers2008]]. At birth their lungs showed no inflammation but cleared instilled bacteria less well, and within months they developed inflammation, remodelling, mucus and infection [[Stoltz2010]].</p></div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Evidence each way</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>Is airway Na⁺ hyperabsorption primary?</th><td>Yes: raised Na⁺ absorption in CF nasal tissue, CFTR inhibition of ENaC, βENaC mice [[Boucher1986,Stutts1995,Mall2004]]. No: newborn pigs and human cultures [[Chen2010Cell,Itani2011]]; ENaC falls without CFTR in the sweat duct [[Reddy1999]].</td><td>Unresolved</td></tr>
+      <tr><th>Is the CF airway surface acidic, and does it matter?</th><td>Yes in pigs and cultures [[Pezzulo2012,Tang2016,Shah2016]]; no in living children [[Schultz2017]].</td><td><span class="ev early">Early evidence</span> in animals, not confirmed in humans</td></tr>
+      <tr><th>What comes first?</th><td>PCL depletion in cultures [[Matsui1998]], tethered gland mucus in piglets [[Hoegger2014]], failed bacterial killing at birth in pigs [[Stoltz2010]], mucus before infection in young children [[Esther2019]].</td><td>Probably several mechanisms together; none established in humans</td></tr>
+    </tbody>
+  </table></div>
 </section>

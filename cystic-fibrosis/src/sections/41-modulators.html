@@ -1,5 +1,113 @@
-<!-- ================= 4.1 CFTR MODULATORS: HOW THEY WORK (stub, replaced by its builder) ================= -->
+<!-- ================= 4.1 CFTR MODULATORS: HOW THEY WORK ================= -->
+<style>
+#m-modulators .tbl table{min-width:880px}
+#m-modulators .tbl td,#m-modulators .tbl th{vertical-align:top}
+#m-modulators .tbl td ul{margin:0;padding-left:16px;display:flex;flex-direction:column;gap:3px}
+#m-modulators .mdtog{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-modulators .mdtog .lbl{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+#m-modulators .mdtog .btn{font-size:13px}
+#m-modulators .mdcombo{background:var(--rx-soft);border-radius:12px;padding:10px 14px;font-size:15px;margin:0}
+#m-modulators .box{border-left:4px solid var(--bad);background:var(--bad-soft);border-radius:0 12px 12px 0;padding:10px 14px;font-size:15px;max-width:76ch}
+#m-modulators .box b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--bad);display:block;margin-bottom:2px}
+#m-modulators .card>.ev,#m-modulators .card>.tag{align-self:flex-start}
+#m-modulators .legend .hx{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-right:5px}
+</style>
 <section class="mod" id="m-modulators" data-mod="modulators" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>CFTR modulators: how they work</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Modulators are pills that work on the faulty CFTR protein itself, not on the mucus or the infection downstream. Follow one misfolded F508del protein as correctors refold it, the cell ships it to the surface and a potentiator props its gate open. Switch each drug class off to see what it adds.</p></div>
+
+  <div class="prose">
+    <p>There are two main kinds of modulator. <b>Correctors</b> improve folding so that more CFTR reaches the cell surface; <b>potentiators</b> increase the function of CFTR that is already there [[Liu2019Potentiator]]. Most modern regimens combine both [[FDA-Trikafta]]. Which one helps depends on the defect: a gating variant such as G551D reaches the surface but opens poorly, while F508del is mostly lost before it gets there [[VanGoor2009VX770,VanGoor2011VX809]].</p>
+  </div>
+
+  <div class="stepper" id="mdSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="mdSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="An airway cell with F508del CFTR. On the left the cell: a nucleus, the endoplasmic reticulum where three CFTR proteins fold, the Golgi and three places in the apical membrane, with the airway liquid layer above. On the right one CFTR channel in close-up and a schematic chloride dial. The scrubber walks through six steps: the protein misfolds; a type I corrector (T) docks in the TMD1 pocket; a second corrector (E) docks at another site; folded CFTR travels in vesicles to the membrane; a potentiator (I) docks at the gate and the channel opens; chloride flows and the liquid layer deepens. Toggle buttons switch each drug class off."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="mdPlay">Play</button><label class="stage-cap tl" for="mdT">Step <input type="range" id="mdT" min="0" max="1" step="0.001" value="0.07"></label></div>
+      <div class="mdtog" role="group" aria-label="Drug classes in the scene">
+        <span class="lbl">Drug classes</span>
+        <button class="btn" data-mdt="t1" aria-pressed="true">T · type I corrector (tezacaftor, lumacaftor)</button>
+        <button class="btn" data-mdt="t2" aria-pressed="true">E · second corrector (elexacaftor, vanzacaftor)</button>
+        <button class="btn" data-mdt="pot" aria-pressed="true">I · potentiator (ivacaftor, deutivacaftor)</button>
+      </div>
+      <div class="mdtog" role="group" aria-label="Approved regimen designs">
+        <span class="lbl">Regimen designs</span>
+        <button class="btn" data-mdp="k" aria-pressed="false">Kalydeco</button>
+        <button class="btn" data-mdp="o" aria-pressed="false">Orkambi · Symdeko</button>
+        <button class="btn" data-mdp="t" aria-pressed="false">Trikafta · Alyftrek</button>
+      </div>
+      <p class="mdcombo" id="mdCombo" aria-live="polite"></p>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The dial, the liquid layer and the number of channels that arrive show a direction of change for each combination, not measurements; the cited figures are in the notes. Binding sites follow the cryo-EM studies [[Fiedorczuk2022Cell,Fiedorczuk2022Science,Liu2019Potentiator]]; the labels give no site for vanzacaftor beyond "different" from tezacaftor [[FDA-Alyftrek]].</p>
+    </div>
+    <aside class="note" id="mdNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Which drug acts on which defect</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Potentiator</span><h4>Ivacaftor · deutivacaftor</h4>
+      <p>Raises the channel open probability of CFTR already at the surface [[FDA-Kalydeco]]. In cells it increased open probability for both the G551D gating variant and F508del [[VanGoor2009VX770]]. Alone, it is the treatment for gating variants: in STRIVE (G551D) ppFEV1 rose 10.6 points over placebo [[Ramsey2011STRIVE]]. Deutivacaftor is a once-daily potentiator used in Alyftrek [[Uluer2023VTD,FDA-Alyftrek]].</p></div>
+    <div class="card"><span class="tag mod">Type I corrector</span><h4>Lumacaftor · tezacaftor</h4>
+      <p>Bind a hydrophobic pocket in TMD1, linking four unstable helices <span class="ev est">Established</span> [[Fiedorczuk2022Cell]]. Combined with ivacaftor for people homozygous for F508del, the gain was modest: ppFEV1 +2.6 to 4.0 points (lumacaftor-ivacaftor) and +4.0 points (tezacaftor-ivacaftor) over placebo [[Wainwright2015TRAFFIC,TaylorCousar2017EVOLVE]].</p></div>
+    <div class="card"><span class="tag mod">Next-generation corrector</span><h4>Elexacaftor · vanzacaftor</h4>
+      <p>Bind a different site from tezacaftor, with an additive effect on processing and trafficking, as the labels state [[FDA-Trikafta,FDA-Alyftrek]]. Elexacaftor is also a co-potentiator in vitro <span class="ev early">Early evidence</span> [[Veit2021ELX]]. With tezacaftor and ivacaftor, ppFEV1 rose 14.3 points over placebo in people with one F508del allele [[Middleton2019ETI]].</p></div>
+    <div class="card"><span class="tag">Not helped</span><h4>Variants that make no protein</h4>
+      <p>Drugs that act on the protein cannot help when no protein is made, as with many nonsense variants, which cause CF in about 10% of people [[Kerem2014Ataluren]]. Approaches for them are in <a href="#frontier" data-go="frontier">Research frontier</a>.</p></div>
+  </div>
+
+  <h3 class="sub">The five approved modulators, as the US labels state</h3>
+  <div class="prose"><p>Approval dates are first US approvals from Drugs@FDA [[FDA2026Approvals]]. Ages and variant lists are from the current US labels (effective March to August 2026). Variant counts are approximate counts of the label tables, which each label calls non-exhaustive [[FDA-Kalydeco,FDA-Symdeko,FDA-Trikafta,FDA-Alyftrek]]. Doses are quoted as the labels state them, not as instructions.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Product</th><th>Design</th><th>First US approval</th><th>Youngest age on label</th><th>Who the label covers</th><th>Label dosing (quoted)</th><th>Label safety points</th></tr></thead>
+    <tbody>
+      <tr><th>Kalydeco<br><small>ivacaftor</small></th><td>Potentiator</td><td>31 Jan 2012 [[FDA2026Approvals]]; first expansion on in vitro data 17 May 2017 [[Durmowicz2018]]</td><td>1 month [[FDA-Kalydeco]]</td><td>At least one variant responsive to ivacaftor on clinical and/or in vitro data; about 97 listed [[FDA-Kalydeco]]</td><td>150 mg every 12 hours with fat-containing food from age 6; weight-based granule packets of 5.8 mg to 75 mg every 12 hours for ages 1 month to under 6 [[FDA-Kalydeco]]</td><td><ul><li>Transaminases before starting, every 3 months in the first year, then yearly; interrupt if ALT or AST &gt;5× ULN [[FDA-Kalydeco]]</li><li>Cataracts in juvenile rats at 0.1 to 0.8 times the maximum human dose [[FDA-Kalydeco]]</li></ul></td></tr>
+      <tr><th>Orkambi<br><small>lumacaftor-ivacaftor</small></th><td>Type I corrector + potentiator</td><td>2 Jul 2015 [[FDA2026Approvals]]</td><td>1 year [[FDA-Orkambi]]</td><td>Only people homozygous for F508del [[FDA-Orkambi]]</td><td>Not covered in this guide's sources</td><td><ul><li>Liver decompensation, including liver failure leading to death, in people with cirrhosis and portal hypertension [[FDA-Orkambi]]</li></ul></td></tr>
+      <tr><th>Symdeko<br><small>tezacaftor-ivacaftor</small></th><td>Type I corrector + potentiator</td><td>12 Feb 2018 [[FDA2026Approvals]]</td><td>6 years [[FDA-Symdeko]]</td><td>Homozygous F508del, or a responsive variant; about 154 listed [[FDA-Symdeko]]</td><td>Not covered in this guide's sources</td><td><ul><li>Transaminases before starting, every 3 months in the first year, then yearly; interrupt if ALT or AST &gt;5× ULN [[FDA-Symdeko]]</li></ul></td></tr>
+      <tr class="mod"><th>Trikafta<br><small>elexacaftor-tezacaftor-ivacaftor (ETI)</small></th><td>Two correctors + potentiator</td><td>21 Oct 2019; ages 6–11 on 8 Jun 2021; granules for ages 2–5 on 26 Apr 2023 [[FDA2026Approvals]]</td><td>2 years [[FDA-Trikafta]]</td><td>At least one variant "either responsive based on clinical and/or in vitro data … or results in production of CFTR protein"; more than 500 listed (about 520) [[FDA-Trikafta]]</td><td>From age 12: two tablets of elexacaftor 100 mg/tezacaftor 50 mg/ivacaftor 75 mg in the morning and one ivacaftor 150 mg tablet in the evening, about 12 hours apart, with fat-containing food; weight-based granules for ages 2 to under 6 [[FDA-Trikafta]]</td><td><ul><li><b>Boxed warning:</b> "Drug-induced liver injury and liver failure" [[FDA-Trikafta]]</li><li>Not for severe hepatic impairment (Child-Pugh C); not recommended in moderate (Child-Pugh B) [[FDA-Trikafta]]</li><li>CYP3A interactions; avoid grapefruit [[FDA-Trikafta]]</li><li>Eye examinations in children (cataracts) [[FDA-Trikafta]]</li></ul></td></tr>
+      <tr class="mod"><th>Alyftrek<br><small>vanzacaftor-tezacaftor-deutivacaftor (VTD)</small></th><td>Two correctors + potentiator, once daily</td><td>20 Dec 2024 [[FDA2026Approvals]]</td><td>6 years [[FDA-Alyftrek]]</td><td>A responsive variant; about 560 listed [[FDA-Alyftrek]]</td><td>From age 12: two tablets of vanzacaftor 10 mg/tezacaftor 50 mg/deutivacaftor 125 mg, once daily, with fat-containing food [[FDA-Alyftrek]]</td><td><ul><li><b>Boxed warning</b> for drug-induced liver injury and liver failure, based on cases seen with ETI [[FDA-Alyftrek]]</li><li>Eye examinations in children (cataracts) [[FDA-Alyftrek]]</li></ul></td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">All five labels now carry warnings for intracranial hypertension (added 09/2025) and for "Neuropsychiatric events, including suicidal thoughts and behaviors" (added 03/2026) [[FDA-Trikafta,FDA-Kalydeco,FDA-Orkambi,FDA-Symdeko,FDA-Alyftrek]]. Eligibility by genotype and age is explored in <a href="#trials" data-go="trials">Modulator trials &amp; eligibility</a>.</p>
+
+  <h3 class="sub">Liver: the boxed warning and the test schedule</h3>
+  <p class="box"><b>Boxed warning (Trikafta and Alyftrek)</b>"Drug-induced liver injury and liver failure." The Trikafta label reports cases of liver failure leading to transplantation and death, in people with and without prior liver disease [[FDA-Trikafta]]. Alyftrek carries the same boxed warning, based on cases seen with ETI [[FDA-Alyftrek]].</p>
+  <div class="ctrls" role="group" aria-label="Choose a label schedule">
+    <button class="btn" data-mdl="new" aria-pressed="true">Trikafta / Alyftrek schedule</button>
+    <button class="btn" data-mdl="old" aria-pressed="false">Kalydeco / Symdeko schedule</button>
+  </div>
+  <div class="stage">
+    <svg id="mdLft" viewBox="0 0 720 170" role="img" aria-label="A timeline of liver blood tests in the first 30 months after starting a modulator, as the labels state. Buttons switch between the Trikafta schedule (before starting, monthly for 6 months, every 3 months for the next 12 months, then yearly, with liver injury reported between month 1 and month 15 shaded) and the older Kalydeco and Symdeko schedule (before starting, every 3 months for the first year, then yearly)."></svg>
+    <p class="stage-cap" id="mdLftCap"></p>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>What the trials showed</h4>
+      <p>In Trikafta label Trial 1, transaminases rose above 8×, 5× and 3× the upper limit of normal in 1%, 2% and 8% on ETI, vs 1%, 1% and 5% on placebo; total bilirubin above 2× the upper limit of normal in 4% vs under 1% [[FDA-Trikafta]].</p>
+      <p>In SKYLINE, the same thresholds (3×, 5×, 8×) were reached in 6%, 2.5% and 1.3% on VTD, vs 3.1%, 1.2% and 0.2% on ETI [[FDA-Alyftrek]].</p></div>
+    <div class="card"><h4>After approval</h4>
+      <p>US FDA adverse event reports from late 2019 to 2022 held 452 reports of drug-induced liver injury linked to ETI, 2.1% of all its reports, with a reporting odds ratio of 2.82 and median onset at 50.5 days. Reports like these cannot give an incidence [[Shi2024DILI]].</p>
+      <p>How often severe injury happens, and why, is still unknown <span class="ev early">Early evidence</span> [[Shi2024DILI,FDA-Trikafta]].</p></div>
+  </div>
+
+  <h3 class="sub">Drug interactions: CYP3A</h3>
+  <div class="prose"><p>All three ETI components are broken down by the liver enzyme CYP3A, and ivacaftor is a sensitive substrate, so drugs that speed up or slow down CYP3A change modulator levels [[FDA-Trikafta]].</p></div>
+  <div class="ctrls" role="group" aria-label="Choose an interacting drug">
+    <button class="btn" data-mdc="ind" aria-pressed="true">Strong inducer: rifampin</button>
+    <button class="btn" data-mdc="inh" aria-pressed="false">Strong inhibitor: itraconazole</button>
+  </div>
+  <div class="stage">
+    <svg id="mdCyp" viewBox="0 0 720 190" role="img" aria-label="A bar chart of drug exposure (AUC) relative to the drug taken alone. With rifampin, ivacaftor exposure falls to about 0.11 times (an 89% fall). With itraconazole, elexacaftor exposure rises 2.8-fold and tezacaftor 4.0 to 4.5-fold."></svg>
+    <p class="stage-cap" id="mdCypCap"></p>
+  </div>
+
+  <h3 class="sub">Other label safety points</h3>
+  <div class="cards">
+    <div class="card"><span class="tag">Eyes</span><h4>Cataracts in children</h4>
+      <p>Non-congenital lens opacities have been reported in children treated with ivacaftor-containing regimens; the labels recommend baseline and follow-up eye examinations in children [[FDA-Trikafta,FDA-Alyftrek]]. In juvenile rats ivacaftor caused cataracts, not seen in older animals [[FDA-Kalydeco]].</p></div>
+    <div class="card"><span class="tag">Mood and sleep</span><h4>Neuropsychiatric events</h4>
+      <p>A class warning since 03/2026 covers anxiety, depression, suicidal ideation and behaviour, and sleep disturbance. The Trikafta label notes these "may occur within the first three months", in people with and without a prior history, and advises a baseline assessment and monitoring [[FDA-Trikafta]].</p>
+      <p>Evidence is mixed: a sponsor-funded pooled analysis found depression-related events at 3.32 vs 3.24 per 100 person-years (ETI vs placebo) [[Ramsey2024Depression]]; a UK centre saw symptoms in 7.1% of 266 adults, improving in 10 of 13 after dose reduction [[Spoletini2022MentalHealth]]; a 7-centre US study saw mental health diagnoses and medication rise after ETI [[McKinzie2026MentalHealth]]. Causality is unsettled <span class="ev early">Early evidence</span>.</p></div>
+    <div class="card"><span class="tag">Skin and muscle</span><h4>Rash and creatine phosphokinase</h4>
+      <p>Rash in Trikafta Trial 1: 10% vs 5% on placebo, more in females (16%) than males (5%); in Trial 5, 23% vs 2%. A role of hormonal contraceptives "cannot be excluded". Creatine phosphokinase above 5× the upper limit of normal: 10% vs 5% [[FDA-Trikafta]].</p></div>
+  </div>
+  <div class="callout"><p><b>In plain words.</b> These medicines can affect the liver, so blood tests are checked often, especially in the first months. Children have eye checks. Changes in mood, anxiety or sleep are worth telling the care team about early. Many other medicines, and grapefruit, change modulator levels, so the CF team and pharmacist should know about every medicine and supplement [[FDA-Trikafta]].</p></div>
 </section>

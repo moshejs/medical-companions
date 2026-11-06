@@ -1,5 +1,120 @@
-<!-- ================= 3.1 NEWBORN SCREENING & DIAGNOSIS (stub, replaced by its builder) ================= -->
+<!-- ================= 3.1 NEWBORN SCREENING & DIAGNOSIS ================= -->
+<style>
+#m-screening .nsbtns{display:flex;flex-wrap:wrap;gap:8px}
+#m-screening .nsrange{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700}
+#m-screening .nsrange output{font:600 13px var(--mono);color:var(--dx)}
+#m-screening .nsrange input{width:100%}
+#m-screening .nscrit{border:1px solid var(--line);border-left:4px solid var(--dx);border-radius:0 12px 12px 0;background:var(--panel);padding:12px 16px;max-width:78ch}
+#m-screening .nscrit p{margin:.3em 0}
+#m-screening td.num{font-family:var(--mono);white-space:nowrap}
+</style>
 <section class="mod" id="m-screening" data-mod="screening" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Screening, diagnosis &amp; monitoring</p><h2>Newborn screening &amp; diagnosis</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">A few drops of blood from a baby's heel start a chain of tests: a protein called IRT, a search for CFTR gene variants, sometimes a read of the whole gene, and then a sweat test. Most babies who screen positive do not have CF. Follow one stream of newborns through each step and see where they leave it.</p></div>
+  <div class="stepper" id="nsSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nsSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A track of six steps: blood spot, IRT, variant panel, sequencing, sweat test and outcome. Dots standing for newborns flow along it; most leave after a normal IRT, more leave when no variant or only one is found, and the rest reach the sweat test and split into CF, CRMS/CFSPID and carrier. A panel below each step shows the published numbers: IRT cutoffs, panel and sequencing sensitivities, sweat-test timing, and California's counts of 345 CF, 533 CRMS and 1617 carriers."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nsPlay">Play</button><label class="stage-cap tl" for="nsT">Steps <input type="range" id="nsT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="nsRead"></div>
+      <p class="stage-cap">Schematic: the dots are not to scale and the IRT curve is a drawing, not data. Ranges and counts come from the 2025 CF Foundation guideline and the California programme. [[McGarry2025NBS,Kharrazi2015]]</p>
+    </div>
+    <aside class="note" id="nsNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Does finding CF early help?</h3>
+  <p class="prose">The Wisconsin CF Neonatal Screening Project randomised 650,341 newborns between 1985 and 1994 to early diagnosis by screening or to standard diagnosis. Screening used IRT, with DNA testing for F508del added from 1991. [[Farrell2001,Farrell1997]] Over 13 years the screened group grew significantly better despite similar nutritional therapy, and the authors found that catch-up growth after a late diagnosis may not be possible. [[Farrell2001]]</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="nsbtns" id="nsWiBtns" role="group" aria-label="Choose a Wisconsin trial result">
+        <button class="btn" data-wi="dx97" aria-pressed="true">Age at diagnosis (1997)</button>
+        <button class="btn" data-wi="dx01" aria-pressed="false">Without meconium ileus (2001)</button>
+        <button class="btn" data-wi="head" aria-pressed="false">Head circumference</button>
+      </div>
+      <div class="scroll"><svg id="nsWiSvg" viewBox="0 0 720 170" style="min-width:560px" role="img" aria-label="Two bars compare the screened and control groups of the Wisconsin trial for the chosen result."></svg></div>
+      <p class="stage-cap" id="nsWiNote" aria-live="polite"></p>
+    </div>
+    <div class="cards">
+      <div class="card"><span class="tag good">Growth</span><h4>Established benefit</h4><p>A Cochrane review of two trials (1,124,483 neonates, 210 with CF): controls had odds ratios of 4.12 (95% CI 1.64–10.38) for weight below the 10th percentile and 4.62 (1.69–12.61) for height. <span class="ev est">Established</span> [[Southern2009Cochrane]]</p></div>
+      <div class="card"><span class="tag dx">Lungs</span><h4>Probable, confounded</h4><p>The Wisconsin trial found no pulmonary benefit by school age; after age 10, screened children had worse chest radiograph scores linked to earlier <i>P. aeruginosa</i>. [[Farrell2003AJRCCM]] In UK registry data, screening went with a higher lung function trajectory (+1.56 FEV1 percentage points, 95% CI 0.1–3.02) and later chronic <i>P. aeruginosa</i>. <span class="ev early">Early evidence</span> [[Schluter2020]]</p></div>
+      <div class="card"><span class="tag warn">Not a clean slate</span><h4>Lung disease starts early</h4><p>Of 57 Australian infants diagnosed by screening (median age 3.6 months), 84.2% had no respiratory symptoms, yet 21.1% had bacterial infection on lavage and 80.7% had an abnormal chest CT. [[Sly2009]]</p></div>
+    </div>
+  </div>
+
+  <h3 class="sub">Try it: the screening funnel</h3>
+  <p class="teach"><b>A teaching sketch, not a programme model</b>This multiplies published averages: California's CF prevalence of 1 in 6899 births and sensitivity of 92%, and the 34–77% range of positive predictive values reported by programmes with a sequencing tier. Real programmes differ in their cutoffs, panels, populations and definitions. [[Kharrazi2015,McGarry2025NBS]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label class="nsrange" for="nsBirths">Births screened <output id="nsBirthsV">100,000</output><input type="range" id="nsBirths" min="10000" max="1000000" step="10000" value="100000"></label>
+        <label for="nsSens">Sensitivity<select id="nsSens"><option value="92" selected>92% (California 2007–2012)</option><option value="90">90% (lower bound, sequencing-tier programmes)</option></select></label>
+        <label class="nsrange" for="nsPpv">Positive predictive value <output id="nsPpvV">34%</output><input type="range" id="nsPpv" min="34" max="77" step="1" value="34"></label>
+      </div>
+      <div class="scroll"><svg id="nsFunSvg" viewBox="0 0 720 250" style="min-width:560px" role="img" aria-label="A three-level funnel: newborns screened, babies referred for a sweat test, and babies found to have CF, with the numbers not CF and CF missed beside it."></svg></div>
+      <div class="verdict maybe" id="nsFunV" aria-live="polite"></div>
+    </div>
+    <aside class="note"><div class="kicker">What the sketch shows</div><p id="nsFunOut" aria-live="polite"></p><div class="pt"><b>In plain words</b>A newborn screen can miss CF. If a child has symptoms, CF should still be checked, even after a normal screen. [[Rock2011]]</div></aside>
+  </div>
+
+  <h3 class="sub">How the protocols evolved</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Protocol</th><th>How it works</th><th>What the evidence shows</th></tr></thead>
+    <tbody>
+      <tr><td><b>IRT/IRT</b></td><td>A high first IRT is followed by a second IRT</td><td>The first protocol, possible from 1979 with dried-blood-spot IRT. [[McGarry2025NBS,Crossley1979]]</td></tr>
+      <tr><td><b>IRT/DNA</b></td><td>A high IRT is followed by a CFTR variant panel on the same spot</td><td>Introduced in the early 1990s after the gene was found in 1989; lower IRT cutoffs, higher sensitivity, faster diagnosis, but a bias toward infants of European descent. The most common strategy in Europe in 2016. [[McGarry2025NBS,Riordan1989,Kerem1989,Barben2017Europe]]</td></tr>
+      <tr><td><b>IRT/DNA/SEQ</b></td><td>Infants with one variant go on to CFTR sequencing</td><td>Sensitivity generally above 90%, specificity 99–100%, PPV 34–77%. In California modelling, detection in Asian, Black and Hispanic infants rose from 17–79% to 83–100%. [[McGarry2025NBS]]</td></tr>
+      <tr><td><b>Very high IRT</b></td><td>Infants above about the 99th percentile are referred even with no variant</td><td>Found 8% of cases in Victoria (F508del only) and 5% in New York (32-variant panel); 75% of the 33 such cases in New York were in infants who were Black, Hispanic, Asian, American Indian or multiracial. [[McGarry2025NBS]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">The 2025 CF Foundation newborn screening guideline</h3>
+  <p class="prose">Seven recommendations, each with 100% committee agreement, as the guideline lists them: [[McGarry2025NBS]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>#</th><th>Recommendation</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>A floating IRT cutoff rather than a fixed one.</td></tr>
+      <tr><td class="num">2</td><td>A very-high-IRT referral strategy when the variant panel does not cover all CFTR2 CF-causing variants or does not reach ≥95% sensitivity in all ancestral groups.</td></tr>
+      <tr><td class="num">3</td><td>No limiting variant detection to F508del or the ACMG-23 panel.</td></tr>
+      <tr><td class="num">4</td><td>Screening for all CF-causing variants in CFTR2.</td></tr>
+      <tr><td class="num">5</td><td>Variant screening at least twice weekly.</td></tr>
+      <tr><td class="num">6</td><td>A CFTR sequencing tier after IRT and the variant panel.</td></tr>
+      <tr><td class="num">7</td><td>Notifying both the primary care provider and the CF specialist of abnormal results.</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Diagnostic criteria: the CF Foundation 2017 guideline</h3>
+  <div class="nscrit">
+    <p>The 2017 guideline came from 32 experts in 9 countries, with ≥80% agreement required for each statement; 27 of 28 statements were approved. [[Farrell2017Dx,Farrell2017History]] Its full text was paywalled for our research pass, so what follows is taken from its abstract and companion papers and from an open-access review that quotes it; statement numbers are not given.</p>
+    <p><b>Testing CFTR function.</b> It recommends that CF be diagnosed at all ages by testing CFTR function with a sweat chloride test, and that CFTR2 variant classifications be used to aid diagnosis. [[Farrell2017Dx]]</p>
+    <p><b>Sweat chloride bands, all ages including infants:</b> ≥60 mmol/L diagnostic of CF; 30–59 mmol/L intermediate; &lt;30 mmol/L negative (CF unlikely). [[Farrell2017Dx,DeCelieGermana2023]] The update lowered the lower edge of the intermediate band from 40 to 30 mmol/L. [[Sosnay2017Nonscreened]]</p>
+    <p><b>Screened babies.</b> Even in babies with 2 CF-causing variants found by screening, the diagnosis must be confirmed by showing CFTR dysfunction; intestinal current measurement may be used when needed. [[Farrell2017Screened]]</p>
+    <p><b>Outside screening.</b> Diagnosis rests on clinical evidence (symptoms, a family history or a positive screen) plus evidence of CFTR dysfunction: sweat chloride, CFTR genetics or CFTR physiological tests. Intermediate values on two occasions mean further CFTR testing. [[Sosnay2017Nonscreened,Farrell2008Dx]]</p>
+    <p><b>Terms.</b> CRMS and CFSPID were merged and made equivalent: "CRMS/CFSPID". [[Farrell2017Dx,Ren2017CRMS]]</p>
+  </div>
+  <p class="callout">The sweat test itself, the chloride bands as an explainer and genetic testing: <button class="btn ghost" data-go="sweattest">The sweat test &amp; genetic testing →</button></p>
+
+  <h3 class="sub">CRMS/CFSPID: a positive screen, an inconclusive answer</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Definitions</span><h4>Two names, one group</h4><p><b>CRMS</b> (CF Foundation, 2009): high IRT on screening, sweat chloride &lt;60 mmol/L, and up to 2 CFTR variants, at least 1 not clearly CF-causing. [[Borowitz2009CRMS]] <b>CFSPID</b> (ECFS): group A, normal sweat chloride and two variants, at least one of unclear consequence; group B, intermediate sweat chloride and one or no variants. [[Munck2015CFSPID]]</p></div>
+    <div class="card"><span class="tag dx">How common</span><h4>3–5 CF cases for each</h4><p>Where gene sequencing is not used there are about 3–5 cases of CF for every case of CRMS/CFSPID. [[Ren2017CRMS]] In US registry data for 2010–2012, 1540 infants met criteria for CF and 309 for CRMS (5.0 : 1.0); 40.8% of those with CRMS had been entered with a clinical diagnosis of CF. [[Ren2015Pediatrics]]</p></div>
+    <div class="card"><span class="tag good">Outlook</span><h4>Most stay healthy</h4><p>9 of 82 infants with CFSPID (11%) were diagnosed with CF within 3 years in an 8-centre study. [[Ooi2015]] A 2025 meta-analysis cites conversion in about 5–11%. [[Wyatt2025]] The 2021 ECFS guidance recommends a detailed assessment in the sixth year of life and another as a young adult. [[Barben2021]]</p></div>
+    <div class="card"><span class="tag warn">Open question</span><h4>Should screening aim to find it?</h4><p>Some programmes favour fewer CRMS/CFSPID labels, given low conversion and family distress; others want to find every child at risk. Long-term outcomes beyond early childhood are unknown. [[Wyatt2025,Barben2021,Ren2017CRMS]]</p></div>
+  </div>
+
+  <h3 class="sub">When screening misses CF</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Finding</th><th>Numbers</th></tr></thead>
+    <tbody>
+      <tr><td>US registry, 2020</td><td>3.8% of people with CF had a false-negative newborn screen and 11.8% a delayed diagnosis; Black, Hispanic and mixed-race people were over-represented. [[McGarry2023]]</td></tr>
+      <tr><td>Panels across ancestries</td><td>At least one variant detected in 87.5–97.0% of non-Hispanic White people with CF and in 41.9–93.1% of Black, Asian and Hispanic people with CF, across seven panels. [[McGarry2023]]</td></tr>
+      <tr><td>California, 2007–2021</td><td>84 false negatives among 912 infants with CF: 38 from low IRT, 46 from incomplete variant detection. Asian (OR 6.3) and Black (OR 2.5) infants were more likely to be missed. [[McGarry2024]]</td></tr>
+      <tr><td>London and South East England</td><td>4 years in, 10 screened children were missed and 6 of 34 infants with meconium ileus had a negative screen. [[Lim2014]] Low IRT has been reported in up to 18% of infants with meconium ileus in an Italian series. [[DeCelieGermana2023]]</td></tr>
+    </tbody></table></div>
+  <p class="callout">Rock and colleagues listed 14 factors that can cause a missed diagnosis, across specimen collection, IRT and variant testing, communication and sweat testing, and advised suspecting CF whenever symptoms fit, whatever the screening result. [[Rock2011]]</p>
+
+  <h3 class="sub">Before birth: carrier screening</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">ACOG</span><h4>Offer, do not impose</h4><p>ACOG Committee Opinion 691 states that information about carrier screening should be offered to every pregnant woman, ideally before pregnancy; if both partners are carriers, genetic counselling should be offered; screening can be declined. [[ACOG2017CO691]]</p></div>
+    <div class="card"><span class="tag dx">ACMG</span><h4>From 23 variants to 100</h4><p>ACMG recommended a 23-variant core panel in 2001, revised in 2004; in 2023 it replaced it with a minimum of 100 variants for more equitable detection across US ancestral groups. [[Watson2004ACMG,Deignan2023,McGarry2025NBS]]</p></div>
+    <div class="card"><span class="tag dx">Ultrasound</span><h4>Echogenic bowel</h4><p>Over 16 years in Brittany, 289 fetuses with echogenic bowel were referred for CFTR analysis; CF was found in 7.6%, and ultrasound identified 10.7% of all CF cases in the region. [[Scotet2010]]</p></div>
+  </div>
+  <p class="callout">How the CFTR gene is inherited: <button class="btn ghost" data-go="gene">The CFTR gene &amp; inheritance</button> · Next: <button class="btn ghost" data-go="sweattest">The sweat test &amp; genetic testing</button></p>
 </section>

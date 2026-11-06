@@ -1,5 +1,87 @@
-<!-- ================= 4.3 AIRWAY CLEARANCE & INHALED THERAPIES (stub, replaced by its builder) ================= -->
+<!-- ================= 4.3 AIRWAY CLEARANCE & INHALED THERAPIES ================= -->
+<style>
+#m-clearance .tbl table{min-width:680px}
+#m-clearance .card>.ev,#m-clearance .card>.tag{align-self:flex-start}
+#m-clearance .clwarn{border-left:4px solid var(--rx);background:var(--rx-soft);border-radius:0 12px 12px 0;padding:10px 14px;font-size:15px;max-width:72ch}
+#m-clearance .clwarn b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--rx);display:block;margin-bottom:2px}
+#m-clearance .clsim{display:flex;flex-direction:column;gap:10px}
+#m-clearance #clSimOut{margin:0;font-size:15px;max-width:72ch}
+#m-clearance .clsim .btnrow{display:flex;flex-wrap:wrap;gap:6px}
+#m-clearance #clSimSvg{max-width:820px}
+#m-clearance .grade{font:700 13px var(--mono);display:inline-block;min-width:22px;text-align:center;padding:2px 6px;border-radius:5px;background:var(--panel-2)}
+#m-clearance .grade.a{background:var(--good-soft);color:var(--good)} #m-clearance .grade.b{background:var(--rx-soft);color:var(--rx)}
+#m-clearance .grade.c,#m-clearance .grade.i{background:var(--warn-soft);color:var(--warn)} #m-clearance .grade.d{background:var(--bad-soft);color:var(--bad)}
+</style>
 <section class="mod" id="m-clearance" data-mod="clearance" hidden>
   <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Airway clearance &amp; inhaled therapies</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Thick mucus traps germs in the lungs, so much of daily CF care is about thinning it, cutting it and moving it out. Scrub one airway lining through five treatments and see what the trial behind each one found.</p></div>
+
+  <p class="clwarn" role="note"><b>Study material, not a care plan</b>The order in the animation is a teaching order. Trial results and label wording are quoted as published. Which treatments a person uses, and in what order, is planned with their CF team.</p>
+
+  <div class="stepper" id="clSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="clSvg" viewBox="0 0 720 380" role="img" aria-label="An airway lining cut through: airway cells with cilia at the bottom, a thin liquid layer, then thick amber mucus with bacteria and DNA strands. Five steps: a bronchodilator widens a cross-section of the airway; hypertonic saline mist draws water drops up into the liquid layer so the cilia stand and beat; dornase alfa cuts the DNA strands and the mucus lightens; an airway clearance technique sends pressure waves and lifts blobs of mucus out; an inhaled antibiotic thins out the bacteria. Beside it a panel builds the trial result for each step as bars."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="clPlay">Play</button><label class="stage-cap tl" for="clT">Treatment <input type="range" id="clT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The lining, mist and mucus show a direction of change; the bars are the published trial numbers [[Elkins2006HS,Donaldson2006,Fuchs1994Dornase,McIlwaine2013HFCWO,Ramsey1999TOBI]].</p>
+    </div>
+    <aside class="note" id="clNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How the CFF graded chronic lung medicines (2013)</h3>
+  <div class="prose"><p>The CF Foundation's chronic-medications guideline used the US Preventive Services Task Force scheme: <b>A</b> strongly recommend, <b>B</b> recommend, <b>C</b> consider for selected patients, <b>D</b> recommend against, <b>I</b> insufficient evidence. Its lung-disease bands by FEV1 % predicted were normal &gt;90%, mild 70–89%, moderate 40–69% and severe &lt;40% [[Mogayzel2013Pulm]]. The guideline predates elexacaftor–tezacaftor–ivacaftor (ETI).</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Medicine (age ≥6)</th><th>Grade, as published</th><th>Key trial result</th></tr></thead>
+    <tbody>
+      <tr><th>Dornase alfa</th><td><span class="grade a">A</span> moderate-to-severe · <span class="grade b">B</span> mild or no symptoms [[Mogayzel2013Pulm]]</td><td>Exacerbation risk −28% once daily; FEV1 +5.8% [[Fuchs1994Dornase]]</td></tr>
+      <tr><th>Hypertonic saline</th><td><span class="grade b">B</span> [[Mogayzel2013Pulm]]</td><td>Exacerbations −56% over 48 weeks [[Elkins2006HS]]</td></tr>
+      <tr><th>Inhaled tobramycin (persistent P. aeruginosa)</th><td><span class="grade a">A</span> moderate-to-severe · <span class="grade b">B</span> mild [[Mogayzel2013Pulm]]</td><td>FEV1 +10% versus −2% at week 20 [[Ramsey1999TOBI]]</td></tr>
+      <tr><th>Inhaled aztreonam (persistent P. aeruginosa)</th><td><span class="grade a">A</span> moderate-to-severe · <span class="grade b">B</span> mild [[Mogayzel2013Pulm]]</td><td>FEV1 +10.3% predicted versus placebo over 28 days [[RetschBogart2009AZLI]]</td></tr>
+      <tr><th>Chronic azithromycin</th><td><span class="grade b">B</span> with persistent P. aeruginosa · <span class="grade c">C</span> without [[Mogayzel2013Pulm]]</td><td>Exacerbation HR 0.65 [[Saiman2003Azithro]]</td></tr>
+      <tr><th>High-dose oral ibuprofen</th><td><span class="grade b">B</span> ages 6–17 with FEV1 ≥60% (target peak plasma 50–100 μg/mL) · <span class="grade i">I</span> age ≥18 [[Mogayzel2013Pulm]]</td><td>FEV1 decline −2.17 versus −3.60% per year [[Konstan1995Ibuprofen]]</td></tr>
+      <tr><th>Inhaled or chronic oral corticosteroids (no asthma or ABPA); prophylactic oral anti-staphylococcal antibiotics</th><td><span class="grade d">D</span> recommended against [[Mogayzel2013Pulm]]</td><td>—</td></tr>
+      <tr><th>Other inhaled antibiotics (carbenicillin, ceftazidime, colistin, gentamicin), chronic oral antipseudomonal antibiotics, leukotriene modifiers, N-acetylcysteine, inhaled glutathione, inhaled anticholinergics, inhaled β2-agonists</th><td><span class="grade i">I</span> insufficient evidence [[Mogayzel2013Pulm]]</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Airway clearance techniques compared: what the Cochrane reviews concluded</h3>
+  <div class="prose"><p>Airway clearance means daily breathing techniques, devices or exercise that help move mucus up and out [[Flume2009ACT]]. The CFF 2009 guideline rated the evidence for airway clearance as fair, with moderate benefit [[Flume2009ACT]]. Head-to-head, the reviews keep landing in the same place: little evidence that any one technique beats another [[Wilson2019ACT]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Comparison</th><th>Evidence base</th><th>Conclusion, as published</th></tr></thead>
+    <tbody>
+      <tr><th>Any technique versus none</th><td>12 studies, 194 participants</td><td>May increase mucus transport in the short term; no conclusions about long-term effects. The evidence predates widespread modulator use [[Warnock2023ACT]].</td></tr>
+      <tr><th>Conventional chest physiotherapy (postural drainage and percussion) versus others</th><td>21 studies, 778 participants; all very low certainty</td><td>No difference in FEV1 change or decline; most studies suggested equivalence with PEP, ACBT, oscillating PEP, autogenic drainage and exercise [[Main2023CCPT]].</td></tr>
+      <tr><th>Positive expiratory pressure (PEP)</th><td>28 studies, 788 participants</td><td>Fewer exacerbations with mask PEP used for at least a year than with other techniques (5 studies, 232 participants; moderate-to-high quality). Preference favoured PEP in all studies lasting a month or more [[McIlwaine2019PEP]].</td></tr>
+      <tr><th>PEP mask versus high-frequency chest wall oscillation (vest)</th><td>One 1-year RCT, 107 enrolled</td><td>1.14 versus 2.0 exacerbations; 220 versus 115 days to the first. No difference in lung function, quality of life or satisfaction; PEP took less time [[McIlwaine2013HFCWO]].</td></tr>
+      <tr><th>PEP versus oscillating devices</th><td>Overview of 6 Cochrane reviews</td><td>The only moderate-quality comparison: no FEV1 difference after 6 months (MD −1.43% predicted, 95% CI −5.72 to 2.87) [[Wilson2019ACT]].</td></tr>
+      <tr><th>Oscillating devices</th><td>39 studies, 1,114 participants; low or very low quality</td><td>No clear evidence that oscillation is better or worse than other physiotherapy, and no evidence that one device beats another [[Morrison2020Osc]].</td></tr>
+      <tr><th>Exercise instead of other techniques</th><td>4 RCTs, 86 participants aged 7–41; very low certainty</td><td>Too few data to say whether exercise can replace them; no adverse events during exercise sessions [[Heinz2022Exercise]].</td></tr>
+      <tr><th>Non-invasive ventilation as an adjunct</th><td>14 studies, 261 participants, all ≤3 months</td><td>Very uncertain for sputum clearance, lung function and length of stay; people felt less tired after BiPAP than after a PEP mask [[Sousa2025NIV]].</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><span class="tag rec">Exercise</span><h4>An adjunct, and good for health</h4><p>The CFF 2009 guideline recommends aerobic exercise as an adjunct to airway clearance and for overall health [[Flume2009ACT]]. Across 15 training studies (487 people), the evidence of benefit to aerobic capacity, lung function and quality of life was very low to low quality, and the authors found "no reason to actively discourage" exercise [[Radtke2017Exercise]].</p><span class="ev early">Early evidence</span></div>
+    <div class="card"><span class="tag rx">Choosing a technique</span><h4>The one you will keep doing</h4><p>The Cochrane overview advises people with CF to choose by comfort, convenience, flexibility, practicality and cost [[Wilson2019ACT]]. The CFF guideline says the prescription should be individualised [[Flume2009ACT]].</p><span class="ev est">Established</span></div>
+    <div class="card"><span class="tag mucus">Open question</span><h4>Can exercise replace airway clearance?</h4><p>Guidelines endorse exercise as an adjunct [[Flume2009ACT]], but the evidence on substitution is very low certainty, and the review names it a top research priority for people with CF [[Heinz2022Exercise]].</p><span class="ev hyp">Hypothesis</span></div>
+  </div>
+
+  <h3 class="sub">SIMPLIFY: stopping hypertonic saline or dornase alfa on ETI</h3>
+  <div class="prose"><p>Once ETI improves CFTR function, are the daily mucus inhalers still needed? SIMPLIFY ran two parallel open-label, randomised non-inferiority trials at 80 US clinics. People already on ETI who used hypertonic saline (≥3%) or dornase alfa were randomised to stop or continue it for 6 weeks. Entry needed ages 12–17 with ppFEV1 ≥70%, or 18 and over with ppFEV1 ≥60%; mean baseline ppFEV1 was 96.9%, and the non-inferiority margin was −3 points [[MayerHamblett2023SIMPLIFY]]. Pick a trial.</p></div>
+  <div class="clsim">
+    <div class="btnrow" id="clSimBtns"><button class="btn" data-sim="hs" aria-pressed="true">Hypertonic saline trial</button><button class="btn" data-sim="dn" aria-pressed="false">Dornase alfa trial</button></div>
+    <div class="scroll"><svg id="clSimSvg" viewBox="0 0 720 250" role="img" aria-label="SIMPLIFY results: bars for the 6-week change in ppFEV1 in those who stopped and those who continued, and the difference with its 95% confidence interval drawn against the minus 3 point non-inferiority margin."></svg></div>
+    <p id="clSimOut" aria-live="polite"></p>
+  </div>
+  <div class="prose">
+    <p>Lung clearance index also did not change meaningfully (hypertonic saline trial difference 0.06, 95% CI −0.31 to 0.44), and there were no treatment-related serious adverse events [[MayerHamblett2023SIMPLIFY]].</p>
+    <p class="callout">Limits, as the trial reported them: 6 weeks is short, the trial was not powered for exacerbations, and respiratory adverse events were slightly more common in those who stopped, mainly in the small adult subgroup with ppFEV1 60 to &lt;70% <span class="ev early">Early evidence for lower lung function</span> [[MayerHamblett2023SIMPLIFY]]. Any change is planned with the CF team.</p>
+  </div>
+
+  <h3 class="sub">Other mucus and anti-inflammatory treatments</h3>
+  <div class="cards">
+    <div class="card"><span class="tag mucus">Mucoactive</span><h4>Inhaled dry-powder mannitol</h4><p>Mannitol 400 mg twice daily against a 50 mg control for 26 weeks raised FEV1 by a mean 105 mL; the relative gain over control was 3.75% (P = 0.029). Exacerbations were fewer but not significantly (HR 0.74) [[Aitken2012Mannitol]]. A second trial (324 people) found +92.9 mL over control, with or without rhDNase, and 35.4% fewer people with an exacerbation (P = 0.045). Cough, haemoptysis and throat pain were common side effects [[Bilton2011Mannitol]].</p></div>
+    <div class="card"><span class="tag rx">Anti-inflammatory</span><h4>Azithromycin</h4><p>Saiman 2003 (185 people with Pseudomonas for ≥1 year) gave 250 mg (&lt;40 kg) or 500 mg (≥40 kg) three days a week for 168 days. FEV1 rose 0.094 L more than placebo and exacerbation risk fell (HR 0.65); nausea, diarrhoea and wheeze were more frequent [[Saiman2003Azithro]]. The Cochrane review found a slight FEV1 gain up to 6 months (high certainty) and a longer time to exacerbation (HR 0.61) [[Southern2024Macrolide]]. NTM must be considered before and during long-term azithromycin [[Floto2016NTM]].</p></div>
+    <div class="card"><span class="tag rx">Anti-inflammatory</span><h4>High-dose ibuprofen</h4><p>In a 4-year trial (85 people aged 5–39, FEV1 ≥60%), ibuprofen titrated to a peak plasma level of 50–100 μg/mL slowed the yearly FEV1 decline: −2.17% against −3.60% per year (P = 0.02) [[Konstan1995Ibuprofen]].</p></div>
+    <div class="card"><span class="tag bad">Recommended against</span><h4>Routine corticosteroids</h4><p>The CFF recommends against routine inhaled corticosteroids and chronic oral corticosteroids (grade D) in people aged 6 and over without asthma or ABPA [[Mogayzel2013Pulm]].</p></div>
+  </div>
 </section>

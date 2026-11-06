@@ -1,5 +1,65 @@
-<!-- ================= 2.3 SWEAT, DIABETES, BONES & FERTILITY (stub, replaced by its builder) ================= -->
+<!-- ================= 2.3 SWEAT, DIABETES, BONES & FERTILITY ================= -->
+<style>
+#m-organs .tbl table{min-width:600px}
+#m-organs .orbtns{display:flex;flex-wrap:wrap;gap:6px}
+#m-organs .orbtns .btn{font-size:13px}
+#m-organs .orbody{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){#m-organs .orbody{grid-template-columns:minmax(0,1fr)}}
+#m-organs #orInfo ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
+#m-organs #orInfo li{font-size:15px}
+</style>
 <section class="mod" id="m-organs" data-mod="organs" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · How CF affects the body</p><h2>Sweat, diabetes, bones &amp; fertility</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Beyond the lungs and gut, CFTR matters in the islets of the pancreas, the sweat glands, the sinuses, the bones, the kidneys and the reproductive tract. Start with CF-related diabetes, the commonest of these as people with CF live longer, then explore the body map.</p></div>
+
+  <h3 class="sub">CF-related diabetes over a lifetime</h3>
+  <div class="stepper" id="orSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="orSvg" viewBox="0 0 720 384" style="min-width:560px" role="img" aria-label="A six-scene animation of CF-related diabetes. On the left a pancreas with four blue insulin-making islets scars and the islets fade as an age counter runs from 0 to 45, and an insulin bar shrinks. On the right, in turn: bars of CFRD prevalence by age band from the European registry and points from the US registry rise as the age line moves; three rows show weight and BMI, FVC and FEV1 starting to fall 4, 3 and 1.25 years before diagnosis; a clock runs a 2-hour glucose test with the published diagnostic thresholds and yearly test dots from age 10; and bars show BMI change before and on insulin, and CFRD deaths per 100 patient-years falling between 1992–1997 and 2003–2008."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="orPlay">Play</button><label class="stage-cap tl" for="orT">Age &amp; scene <input type="range" id="orT" min="0" max="1" step="0.001" value="0.07"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The islets and the insulin bar show a direction of change, not measurements. Plotted figures: prevalence [[Moran2009Trends,Ode2022ISPAD]]; changes before diagnosis [[Lanng1992]]; screening and thresholds [[Moran2010CFRD]]; BMI on insulin [[Moran2009CFRDT]]; mortality [[Moran2009Trends]]. Registry figures describe populations, not any one person.</p>
+    </div>
+    <aside class="note" id="orNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">CFRD at a glance, as the guidelines state it</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>What the guideline says</th></tr></thead>
+    <tbody>
+      <tr><th>Who is screened, and how</th><td>Annual screening by age 10 in everyone with CF who does not have CFRD, with a 2-hour 75-g OGTT (ADA/CFF 2010) [[Moran2010CFRD]]; yearly OGTT at least by age 10 (ISPAD 2022) [[Ode2022ISPAD]]; glucose tolerance testing from 10 years (ESPEN-ESPGHAN-ECFS) [[Turck2016Nutrition]]</td></tr>
+      <tr><th>Why not HbA1c?</th><td>Not recommended as a screening test because it is not sensitive enough [[Moran2010CFRD]]</td></tr>
+      <tr><th>Diagnostic thresholds</th><td>2-hour OGTT glucose ≥200 mg/dL (11.1 mmol/L), fasting glucose ≥126 mg/dL (7.0 mmol/L), or HbA1c ≥6.5% [[Moran2010CFRD]]</td></tr>
+      <tr><th>During exacerbations</th><td>With IV antibiotics or systemic steroids, screen with fasting and 2-hour post-meal glucose for the first 48 hours [[Moran2010CFRD]]</td></tr>
+      <tr><th>Pregnancy</th><td>OGTT at 12–16 and 24–28 weeks for pregnant women with CF not known to have CFRD [[Moran2010CFRD,Ode2022ISPAD]]</td></tr>
+      <tr><th>Liver disease</th><td>With advanced CF liver disease, start CFRD screening at diagnosis of the liver disease, even before 10, then yearly [[Sellers2024]]</td></tr>
+      <tr><th>Treatment</th><td>Insulin; oral agents are not as effective and not recommended outside research trials. HbA1c quarterly, with a goal of &lt;7% for many, individualised [[Moran2010CFRD]]. Insulin pumps and continuous glucose monitoring where appropriate [[Ode2022ISPAD]]</td></tr>
+      <tr><th>Complications</th><td>Yearly microvascular screening from 5 years after diagnosis [[Moran2010CFRD,Ode2022ISPAD]]</td></tr>
+      <tr><th>Diet</th><td>Keep the high-calorie, high-salt, high-fat CF diet; calorie restriction is almost never appropriate [[Moran2010CFRD,Ode2022ISPAD]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p class="callout"><b>A gap that closed.</b> In Minnesota in 1987–2002, median survival was 49.5 years in males without diabetes and 47.4 with it, but 47.0 in females without diabetes and 30.7 with it [[Milla2005]]. By 2003–2008 the sex difference in CFRD mortality had disappeared, and only 2 of 61 people diagnosed in that period died; the authors credit early diagnosis and aggressive treatment [[Moran2009Trends]]. Why women fared worse is unclear <span class="ev hyp">Hypothesis</span>: the authors speculated about hormones and inflammation [[Milla2005]]. These are cohort statistics from their era, not predictions.</p>
+    <p>Up to 80% of older people with severe genotypes have CFRD; incidence is about 4–9% a year in Denmark and 2.7 cases per 100 person-years in Minnesota [[Ode2022ISPAD]]. Whether highly effective modulators change this is open: ISPAD 2022 finds too little evidence yet to change screening for people taking them [[Ode2022ISPAD]].</p>
+  </div>
+
+  <h3 class="sub">A body map: the other organs CF touches</h3>
+  <div class="prose"><p>Choose an organ. The figure lights it and draws the published numbers beside it; the notes below give the detail and the sources.</p></div>
+  <div class="orbtns" id="orBtns" role="group" aria-label="Choose an organ">
+    <button class="btn" data-org="sweat" aria-pressed="true">Sweat &amp; salt</button>
+    <button class="btn" data-org="sinus" aria-pressed="false">Sinuses</button>
+    <button class="btn" data-org="hear" aria-pressed="false">Hearing</button>
+    <button class="btn" data-org="bone" aria-pressed="false">Bones</button>
+    <button class="btn" data-org="joint" aria-pressed="false">Joints</button>
+    <button class="btn" data-org="kidney" aria-pressed="false">Kidneys</button>
+    <button class="btn" data-org="male" aria-pressed="false">Male fertility</button>
+    <button class="btn" data-org="female" aria-pressed="false">Female fertility</button>
+  </div>
+  <div class="orbody">
+    <div class="stage">
+      <div class="scroll"><svg id="orBody" viewBox="0 0 720 460" style="min-width:560px" role="img" aria-label="A front-view body outline with the sinuses, ears, spine and long bones, knees and wrists, kidneys and the reproductive tract drawn in. The chosen organ is outlined in colour, and a chart beside it shows the published figures: two sweat glands, one taking salt back and one with CF leaving it in the sweat; icon arrays for nasal polyps, hearing loss after aminoglycosides and CBAVD; and bars for bone density, arthropathy, kidney stones and female infertility."></svg></div>
+      <p class="stage-cap">Schematic body outline; organs are not to scale. Each chart uses one study's figures, named in the notes.</p>
+    </div>
+    <aside class="note" id="orInfo" aria-live="polite"></aside>
+  </div>
 </section>

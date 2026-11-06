@@ -1,5 +1,107 @@
-<!-- ================= 3.2 THE SWEAT TEST & GENETIC TESTING (stub, replaced by its builder) ================= -->
+<!-- ================= 3.2 THE SWEAT TEST & GENETIC TESTING ================= -->
+<style>
+#m-sweattest .stbtns{display:flex;flex-wrap:wrap;gap:8px}
+#m-sweattest .strange{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;max-width:560px}
+#m-sweattest .strange output{font:600 13px var(--mono);color:var(--dx)}
+#m-sweattest .strange input{width:100%}
+#m-sweattest .stchk{display:flex;gap:8px;align-items:center;font-size:14px;font-weight:700}
+#m-sweattest .stchk input{width:18px;height:18px;margin:0;accent-color:var(--dx)}
+#m-sweattest td.num{font-family:var(--mono);white-space:nowrap}
+</style>
 <section class="mod" id="m-sweattest" data-mod="sweattest" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Screening, diagnosis &amp; monitoring</p><h2>The sweat test &amp; genetic testing</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">The sweat test has been the cornerstone of CF diagnosis since 1959: make a small patch of skin sweat, collect enough of it, and measure its chloride. Genetic testing then names the CFTR variants, and CFTR2 says which of them cause CF.</p></div>
+  <div class="stepper" id="stSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="stbtns" id="stMode" role="group" aria-label="Choose a scenario">
+        <button class="btn" data-m="nocf" aria-pressed="true">Without CF</button>
+        <button class="btn" data-m="cf" aria-pressed="false">With CF</button>
+        <button class="btn" data-m="qns" aria-pressed="false">Not enough sweat</button>
+      </div>
+      <div class="scroll"><svg id="stSvg" viewBox="0 0 720 410" style="min-width:560px" role="img" aria-label="A forearm with two electrodes carries pilocarpine into the skin; a sweat gland beside it makes sweat, and in the CF scenario salt reaches the skin. A collection coil fills against a meter marked with the minimum of 15 microlitres or 75 milligrams; in the not-enough-sweat scenario it stays below the line. The sample goes to a chloride analyser, and a scale with the 2017 bands, below 30, 30 to 59 and 60 or more mmol/L, shows where the result falls."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stPlay">Play</button><label class="stage-cap tl" for="stT">Steps <input type="range" id="stT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="readout" id="stRead"></div>
+      <p class="stage-cap">Schematic, not to scale. The coil and meter fill are drawings; the minimum, the bands and the 88.0 mmol/L needle (PROMISE's mean before ETI, ages 12 and over) are published values. [[Farrell2008Dx,Farrell2017Dx,Nichols2022PROMISE]]</p>
+    </div>
+    <aside class="note" id="stNote" aria-live="polite"></aside>
+  </div>
+  <p class="callout">Why the duct keeps salt only when CFTR works: <button class="btn ghost" data-go="cftr">How CFTR works →</button></p>
+
+  <h3 class="sub">Try it: which band does a value fall in?</h3>
+  <p class="teach"><b>A teaching tool, not for diagnosis</b>Slide a sweat chloride value to see which published band it falls in, under the 2017 CF Foundation guideline and under the older 2008 bands. A real result is interpreted by a CF team together with symptoms, the screening result, genetics and test quality, and an intermediate value is repeated. [[Farrell2017Dx,DeCelieGermana2023,Farrell2008Dx]]</p>
+  <div class="lab">
+    <div class="stage">
+      <label class="strange" for="stCl">Sweat chloride <output id="stClV">45 mmol/L</output><input type="range" id="stCl" min="0" max="120" step="1" value="45"></label>
+      <div class="scroll"><svg id="stBandSvg" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="Three rows of bands: the 2017 guideline for all ages, the 2008 guideline for infants up to 6 months, and the 2008 historic bands for all ages, with a needle at the chosen value."></svg></div>
+      <div class="verdict maybe" id="stBandV" aria-live="polite"></div>
+    </div>
+    <aside class="note"><div class="kicker">What the band means</div><p id="stBandOut" aria-live="polite"></p><div class="hook"><b>Exam hook</b>The 2017 update lowered the bottom of the intermediate band from 40 to 30 mmol/L, because registries follow many people with confirmed CF whose sweat chloride is 30–40. [[Sosnay2017Nonscreened]]</div></aside>
+  </div>
+
+  <h3 class="sub">Doing the test well</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Point</th><th>As published</th></tr></thead>
+    <tbody>
+      <tr><td><b>When, in a screened newborn</b></td><td>At ≥2 weeks of age, weight &gt;2 kg and &gt;36 weeks gestation at birth, ideally bilaterally; symptomatic newborns (e.g. meconium ileus) from 48 hours if enough sweat is collected. [[Farrell2008Dx]] A 2023 review summarises CF Foundation practice as testing after a positive screen by 4 weeks of age and not before 48 hours. [[DeCelieGermana2023]]</td></tr>
+      <tr><td><b>How much sweat</b></td><td>"At least 75 mg of sweat obtained by the Gibson-Cooke method or at least 15 μL obtained by the Macroduct coil collection method". [[Farrell2008Dx]]</td></tr>
+      <tr><td><b>Quality</b></td><td>QNS rate below 5% for infants over 3 months; detect chloride down to 10 mmol/L; never pool samples from two sites. [[Farrell2008Dx]] Mean QNS in infants ≤3 months: 7.2% (±7.6), 0–40% across centres, whatever the collection method. [[LeGrys2010]]</td></tr>
+      <tr><td><b>What is measured</b></td><td>Sweat chloride is "the only analyte on which a diagnosis of CF should be based"; conductivity or osmolality "should not be used for diagnosing CF at the present time". [[Farrell2008Dx]] Conductivity is a screening test: false-positive rate 16.7% at a &gt;50 mmol/L cutoff, best cutoff 69 mmol/L. [[Domingos2015]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Genetic testing</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">CFTR2</span><h4>Which variants cause CF</h4><p>CFTR2 collected genotype and phenotype data on 39,696 people with CF. Of 159 variants with allele frequency ≥0.01%, 127 (80%) met clinical and functional criteria for causing disease. [[Sosnay2013CFTR2]] As of September 2024 it had interpreted 1167 variants and deemed 1085 CF-causing: these are expected to cause CF when in trans with another CF-causing variant. [[McGarry2025NBS]]</p></div>
+    <div class="card"><span class="tag dx">Testing</span><h4>Panels, then the whole gene</h4><p>ACMG updated its CFTR testing standard in 2020, noting that expanded panels and sequencing had become feasible. [[Deignan2020ACMG]] A laboratory that sequences but reports only a pre-set list is still running a "variant panel". Sequencing misses structural and deep intronic variants unless they are targeted. [[McGarry2025NBS]]</p></div>
+    <div class="card"><span class="tag dx">Interpretation</span><h4>Genes are evidence, not the verdict</h4><p>Two CF-causing variants in trans count as evidence of CFTR dysfunction; variants of variable or unknown consequence do not. [[Sosnay2017Genetics]] Even then, a screened baby's diagnosis is confirmed by showing CFTR dysfunction. [[Farrell2017Screened]]</p></div>
+  </div>
+
+  <h3 class="sub">Try it: reading two CFTR results</h3>
+  <p class="teach"><b>A teaching tool, not genetic advice</b>Choose the category of each variant to see what the published guidance says about that combination. Real reports are interpreted by genetics and CF teams, with genetic counselling for families. [[Sosnay2017Genetics,McGarry2025NBS]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label for="stA1">First variant<select id="stA1"><option value="cf" selected>CF-causing (CFTR2)</option><option value="vcc">Variable or unknown consequence</option><option value="ncf">Non-CF-causing (CFTR2)</option><option value="none">None found</option></select></label>
+        <label for="stA2">Second variant<select id="stA2"><option value="cf">CF-causing (CFTR2)</option><option value="vcc" selected>Variable or unknown consequence</option><option value="ncf">Non-CF-causing (CFTR2)</option><option value="none">None found</option></select></label>
+      </div>
+      <label class="stchk" for="stTrans"><input type="checkbox" id="stTrans"> Shown to be on different gene copies (in trans)</label>
+      <div class="verdict maybe" id="stGenV" aria-live="polite"></div>
+    </div>
+    <aside class="note"><div class="kicker">What the guidance says</div><p id="stGenOut" aria-live="polite"></p></aside>
+  </div>
+
+  <h3 class="sub">Other tests of CFTR function</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Test</th><th>What it shows</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td><b>Nasal potential difference</b></td><td>In 1981, NPD in 24 people with CF was more than 3 SD above controls and heterozygotes, and amiloride lowered it more. [[Knowles1981]] The CF pattern: a high baseline and a very low response to zero-chloride perfusate with isoproterenol; cutoffs differ between centres. [[Farrell2008Dx,Rowe2011]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><td><b>Intestinal current measurement</b></td><td>On rectal biopsies, validated in 130 subjects; a chloride secretory response cutoff of 34 µA/cm² separated pancreatic-sufficient CF from controls. Of 61 people with an unclear diagnosis, 6 were classed as CF and 55 as CF unlikely. [[Derichs2010]]</td><td><span class="ev est">Established</span></td></tr>
+      <tr><td><b>Rectal organoid swelling</b></td><td>Forskolin-induced swelling is strongly reduced in CF and tracks the currents in rectal biopsies, making it a candidate functional test. [[Dekkers2013FIS]]</td><td><span class="ev early">Early evidence</span></td></tr>
+    </tbody></table></div>
+  <p class="callout">The CF Foundation's review of four decades of diagnosis warns against using NPD and ICM too early, before they are validated and standardised. [[Farrell2017History]]</p>
+
+  <h3 class="sub">Sweat chloride on CFTR modulators</h3>
+  <p class="prose">Modulators lower sweat chloride, a sign the CFTR channel is working better. [[Nichols2022PROMISE]] In PROMISE, 487 people aged 12 and over starting elexacaftor–tezacaftor–ivacaftor (ETI) by prescription saw sweat chloride fall by 41.7 mmol/L (95% CI −43.8 to −39.6) at 6 months. [[Nichols2022PROMISE]]</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="stbtns" id="stPro" role="group" aria-label="Choose a PROMISE group">
+        <button class="btn" data-s="all" aria-pressed="true">Everyone</button>
+        <button class="btn" data-s="naive" aria-pressed="false">Modulator-naive</button>
+        <button class="btn" data-s="iva" aria-pressed="false">From ivacaftor</button>
+      </div>
+      <div class="scroll"><svg id="stProSvg" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="Mean sweat chloride at 0, 1 and 6 months after starting ETI in PROMISE: everyone 88.0, 49.1 and 45.7; modulator-naive 95.6, 57.3 and 53.5; switching from ivacaftor 52.6, 25.3 and 26.2 mmol/L, over the 2017 bands."></svg></div>
+      <p class="stage-cap">Group means from PROMISE, not individual results. [[Nichols2022PROMISE]]</p>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>Trial</th><th>Sweat chloride</th></tr></thead>
+      <tbody>
+        <tr><td>Ivacaftor, G551D, ages ≥12 (STRIVE)</td><td class="num">−48.1 mmol/L vs placebo, wk 48 [[Ramsey2011STRIVE]]</td></tr>
+        <tr><td>ETI, F508del/minimal function, ages ≥12</td><td class="num">−41.8 mmol/L vs placebo, wk 24 [[Middleton2019ETI]]</td></tr>
+        <tr><td>ETI, F508del homozygous</td><td class="num">−45.1 (−50.1 to −40.1) vs tez–iva, wk 4 [[Heijerman2019ETI]]</td></tr>
+        <tr><td>SKYLINE: &lt;60 mmol/L</td><td class="num">vanzacaftor triple 86% vs ETI 77% [[Keating2025SKYLINE]]</td></tr>
+        <tr><td>SKYLINE: &lt;30 mmol/L</td><td class="num">vanzacaftor triple 31% vs ETI 23% [[Keating2025SKYLINE]]</td></tr>
+      </tbody></table></div>
+  </div>
+  <p class="callout">A sweat test taken during modulator treatment no longer reflects untreated CFTR function, which complicates a diagnostic test in someone already on a modulator. <span class="ev hyp">Hypothesis</span> This is inferred from the size of the effects above; we did not find guideline advice on it. [[Nichols2022PROMISE,Keating2025SKYLINE]] More on the trials: <button class="btn ghost" data-go="trials">Modulator trials &amp; eligibility</button></p>
+  <p class="callout">Before this: <button class="btn ghost" data-go="screening">Newborn screening &amp; diagnosis</button> · Next: <button class="btn ghost" data-go="monitoring">Lung function &amp; monitoring</button></p>
 </section>
