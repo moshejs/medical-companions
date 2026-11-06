@@ -270,8 +270,8 @@ Access notes:
   - EEG δ-power partly normalised, depending on dose.
   - Exploratory developmental gains exceeded natural-history expectations. (Early evidence)
 - Phase 3 ASO trials registered in Angelman syndrome:
-  - GTX-102: NCT06617429 (n=129, active, not recruiting)
-  - obudanersen (ION582): REVEAL, NCT06914609 (n=156)
+  - GTX-102: Aspire, NCT06617429 (n=129; terminated, "Lack of efficacy"; completed 2026-10-30)
+  - obudanersen (ION582): REVEAL, NCT06914609 (n=156, active, not recruiting)
   - rugonersen: BEACON, NCT07605429 (n=165, recruiting since June 2026) [[NCT06617429,NCT06914609,NCT07605429]]
 
 ### frontier · Diagnostic aids cleared by the FDA
@@ -515,7 +515,7 @@ Access notes:
 - [NCT04182633] Arizona State University. MTT for Children With ASD Who Have Gastrointestinal Disorders. ClinicalTrials.gov NCT04182633; phase 2; active, not recruiting; 50 enrolled. (validated: ClinicalTrials.gov)
 - [NCT03408886] Arizona State University. Microbiota Transfer Therapy for Adults With Autism Spectrum Disorder (ASD) Who Have Gastrointestinal Disorders. ClinicalTrials.gov NCT03408886; phase 2; active, not recruiting; 55 enrolled. (validated: ClinicalTrials.gov)
 - [Hipp2025] Hipp JF, Bacino CA, Bird LM, Bruenig-Traebert I, Chan D, de Wit MC, et al. The UBE3A-ATS antisense oligonucleotide rugonersen in children with Angelman syndrome: a phase 1 trial. Nat Med. 2025;31(9):2936-2945. PMID 40646322; doi:10.1038/s41591-025-03784-7. (validated: PubMed)
-- [NCT06617429] Ultragenyx Pharmaceutical. Phase 3 Efficacy and Safety Study of GTX-102 in Pediatric Subjects With Angelman Syndrome. ClinicalTrials.gov NCT06617429; phase 3; active, not recruiting; 129 enrolled. (validated: ClinicalTrials.gov)
+- [NCT06617429] Ultragenyx Pharmaceutical. Phase 3 Efficacy and Safety Study of GTX-102 in Pediatric Subjects With Angelman Syndrome (AS) (Aspire). ClinicalTrials.gov NCT06617429; phase 3; terminated (why stopped: "Lack of efficacy"); primary completion 2026-07-10, study completion 2026-10-30 (actual); 129 enrolled. (validated: ClinicalTrials.gov, 2026-11-04)
 - [NCT06914609] Ionis Pharmaceuticals. REVEAL: A Phase 3 Study of Obudanersen (ION582) in Angelman Syndrome. ClinicalTrials.gov NCT06914609; phase 3; active, not recruiting; 156 enrolled. (validated: ClinicalTrials.gov)
 - [NCT07605429] OHB Pediatrics. BEACON - Phase III Clinical Study of Rugonersen in Angelman Syndrome. ClinicalTrials.gov NCT07605429; phase 3; recruiting; start 2026-06-23; target 165. (validated: ClinicalTrials.gov)
 - [FDA-DEN200069] US Food and Drug Administration. De Novo DEN200069, Cognoa ASD Diagnosis Aid (Cognoa, Inc.), decision 2021-06-02; product code QPF, "Pediatric Autism Spectrum Disorder Diagnosis Aid", class II, 21 CFR 882.1491. Retrieved via openFDA device 510k and classification endpoints 2026-10-25. (validated: openFDA)
