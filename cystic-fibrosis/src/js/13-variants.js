@@ -172,7 +172,7 @@ inits.variants=()=>{
     const P=N?{x:14,y:350}:{x:494,y:78};
     if(!N)s+=`<rect x="${P.x-8}" y="${P.y-8}" width="${W-P.x-6}" height="${B.h-2}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
     s+=`<text x="${P.x}" y="${P.y+30}" style="font:700 34px var(--display);fill:${i?'var(--brand)':'var(--good)'}">${C.n||'OK'}</text><text x="${P.x+(C.n.length>2?78:C.n?60:56)}" y="${P.y+16}" class="t-sm" style="fill:var(--ink);font-weight:600">${i?'class':'normal'}</text><text x="${P.x+(C.n.length>2?78:C.n?60:56)}" y="${P.y+30}" class="t-xs">${C.ex?'e.g. '+C.ex:''}</text>`;
-    const cy0=P.y+(N?52:56),rh=N?20:21,cx=P.x+8;
+    const cy0=P.y+(N?52:52),rh=N?20:19,cx=P.x+8;
     VR_STAGES.forEach((q,j)=>{const v=C.st[j],y=cy0+j*rh;s+=vrMark(cx,y,v)+`<text x="${cx+14}" y="${y+3.5}" class="t-xs" style="${v<0?'':'fill:var(--ink)'};${v===0?'font-weight:700;fill:var(--bad)':''}">${q}${v===.5?' (reduced)':''}</text>`});
     const gx=N?P.x+214:P.x,gy=N?P.y+60:cy0+7*rh+6;
     s+=`<text x="${gx}" y="${gy}" class="t-xs">function group</text><text x="${gx}" y="${gy+15}" class="t-sm" style="fill:var(--ink);font-weight:700">${C.grp}</text>`;
@@ -192,12 +192,12 @@ inits.variants=()=>{
   /* ---------- pick a variant ---------- */
   const sel=$('#vrPick'),psvg=$('#vrPickSvg'),pout=$('#vrPickOut');let cur=VR_VARS[0],pStop=null;
   sel.innerHTML=VR_VARS.map((v,i)=>`<option value="${i}">${v.id.replace(/>/g,'&gt;')}</option>`).join('');
-  function drawPick(ph){const N=vb(psvg,'560 250','400 300'),C=VR_CL[cur.cls];
-    const cx=N?200:92,cy=N?96:116,s0=N?62:64;
+  function drawPick(ph){const N=vb(psvg,'560 250','400 320'),C=VR_CL[cur.cls];
+    const cx=N?200:92,cy=N?80:116,s0=N?62:64;
     const st=cur.cls===1||cur.cls===2||cur.cls===7?(cur.cls===2?'misfold':'absent'):cur.cls===3?'closed':'open';
     let s=cftr(cx,cy,s0,{state:st,open:st==='open'?(cur.cls===4?.35:1):0,flow:st==='open'?(cur.cls===4?.3:cur.cls===5?.6:1):0,ph,hco3:true,p:1,atp:st==='closed'?1:0,fold:0,mw:N?220:170,labels:false}).svg;
     s+=`<text x="${cx}" y="${cy+s0*(st==='misfold'?1.1:.9)}" class="t-sm t-mid" style="fill:var(--ink);font-weight:600">${cur.id.replace(/>/g,'&gt;')}</text>`;
-    const x0=N?30:214,x1=N?370:534,ly=N?240:130,gp=(x1-x0)/6;
+    const x0=N?30:214,x1=N?370:534,ly=N?266:130,gp=(x1-x0)/6;
     cur.ct.split('; ').forEach((ln,k,a)=>{s+=`<text x="${x0-10}" y="${ly-62-(a.length-1-k)*14}" class="t-sm" style="fill:var(--ink);font-weight:${k?500:700}">${ln.replace(/>/g,'&gt;')}</text>`});
     s+=`<line x1="${x0}" x2="${x1}" y1="${ly}" y2="${ly}" style="stroke:var(--line);stroke-width:3"/>`;
     const fail=C.st.indexOf(0)>=0?C.st.indexOf(0):C.st.indexOf(.5);

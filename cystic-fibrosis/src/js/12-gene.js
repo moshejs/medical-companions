@@ -258,7 +258,7 @@ inits.gene=()=>{
     s+=ln(`M${P.fa+r} ${y2}H${P.mo-r}M${cm} ${y2}V${y3-34}M${P.kids[0]} ${y3-34}H${P.kids[3]}`);
     P.kids.forEach(x=>{s+=ln(`M${x} ${y3-34}V${y3-r}`)});
     s+=ped(P.gp[0],y1,'m',.5,{r})+ped(P.gp[1],y1,'f',0,{r})+ped(P.gp[2],y1,'m',0,{r})+ped(P.gp[3],y1,'f',0,{r});
-    s+=`<text x="${mm}" y="${y1+r+13}" class="t-xs t-mid">neither tested</text>`;
+    s+=`<text x="${mm}" y="${y1-r-7}" class="t-xs t-mid">neither tested</text>`;
     s+=ped(P.aunt,y2,'f',0,{r})+ped(P.fa,y2,'m',.5,{r})+ped(P.mo,y2,'f',.5,{r})+ped(P.unc,y2,'m',0,{r});
     s+=`<text x="${P.aunt}" y="${y2+r+13}" class="t-xs t-mid">not tested</text><text x="${P.unc}" y="${y2+r+13}" class="t-xs t-mid">not tested</text>`;
     s+=`<text x="${P.fa}" y="${y2+r+13}" class="t-xs t-mid" style="fill:var(--ink)">carrier</text><text x="${P.mo}" y="${y2+r+13}" class="t-xs t-mid" style="fill:var(--ink)">carrier</text>`;

@@ -1,5 +1,123 @@
-<!-- ================= 1.1 WHAT CYSTIC FIBROSIS IS (stub, replaced by its builder) ================= -->
+<!-- ================= 1.1 WHAT CYSTIC FIBROSIS IS ================= -->
+<style>
+#m-what .tbl table{min-width:640px}
+#m-what .card>.ev,#m-what .card>.tag{align-self:flex-start}
+#m-what .whbar{display:flex;flex-wrap:wrap;gap:6px}
+#m-what .whbar .btn{font-size:13px}
+#m-what .whcap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-what .card .big-num{font-family:var(--display);font-weight:700;font-size:34px;line-height:1}
+#m-what .whno{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start;max-width:80ch}
+#m-what .whno .verdict{font-size:22px;font-family:var(--display);padding:10px 18px}
+@media (max-width:560px){#m-what .whno{grid-template-columns:minmax(0,1fr)}#m-what .whno .verdict{justify-self:start}}
+#m-what .whbody{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:18px;align-items:start}
+@media (max-width:900px){#m-what .whbody{grid-template-columns:minmax(0,1fr)}}
+#m-what .whbody svg{max-width:420px;margin:0 auto}
+</style>
 <section class="mod" id="m-what" data-mod="what" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding CF</p><h2>What cystic fibrosis is</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Cystic fibrosis (CF) is an inherited condition in which one faulty channel protein, CFTR, leaves mucus and other secretions too thick in the lungs, pancreas and several other organs. Scrub through seven decades of survival figures, see how common CF is around the world, and tour the organs it touches.</p></div>
+
+  <div class="prose">
+    <p>CF is a monogenic, autosomal recessive disease "considered to affect at least 100 000 people worldwide" [[Shteinberg2021]]. Changes (variants) in the <i>CFTR</i> gene damage an epithelial channel that normally carries chloride and bicarbonate, so mucus is poorly hydrated and poorly cleared [[Shteinberg2021]]. Classical CF means chronic lung infection and inflammation, pancreatic exocrine insufficiency and male infertility, often with CF-related diabetes or CF liver disease alongside <span class="ev est">Established</span> [[Shteinberg2021]]. Lung disease causes "the vast majority" of illness and deaths [[Ratjen2015]].</p>
+    <p>Some variants leave part of the protein working. These can cause milder disease that is harder to diagnose and sometimes affects only one organ [[Shteinberg2021]]. CF was long described as the most common life-threatening inherited disorder of children of European descent; it is now also a disease of adults [[Scotet2020]].</p>
+  </div>
+
+  <h3 class="sub">From a childhood illness to an adult one</h3>
+  <div class="prose"><p>The line joins the published US median survival figures from 1938 to 2019; the people on the right show the share of US registry patients who were adults. Press Play or pick a step.</p></div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 392" style="min-width:560px" role="img" aria-label="A line chart of US median survival age in cystic fibrosis rising with the year: about 6 months in 1938, 4 to 5 years in 1954, 14 years in 1969, 28 in 1990, 36.8 in 2011, 47.4 in 2018 and a predicted 48.4 years in 2019. Beside it, an array of 100 people fills to show adults as a share of US registry patients: 8% in 1969, 33% in 1990 and 54.6% in 2018, with a bar for 20 European countries rising from 50.9% in 2014 to 60.5% in 2024. In the last step, two dashed lines mark modelled projections of 71.6 and 82.5 years with modulators, labelled as model projections."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Year <input type="range" id="whT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="whRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Population statistics, not a forecast for anyone.</b> Survival points: 1938 [[Davis2006]], 1954 [[McBennett2022]], 1969 and 1990 [[FitzSimmons1993]], 2011 [[Stephenson2017]], 2010–2014 window and 2019 [[McBennett2022]], 2018 [[Scotet2020]]; the line between points is drawn, not measured, and early figures used older methods. Adult share: US [[FitzSimmons1993,Scotet2020]], Europe [[Orenti2026]]. Projections are from one microsimulation model <span class="ev early">Early evidence</span> [[Lopez2023Survival]].</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How survival is measured</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Not a survival measure</span><h4>Median age at death</h4><p>Describes only the people who died in a year. It ignores everyone still alive, so it is not a survival measure [[Scotet2020]]. In 2016–2018 registry reports it ranged from 29.0 years (European registry) to 35.6 years (Australia) [[Scotet2020]].</p></div>
+    <div class="card"><span class="tag accent">What registries report</span><h4>Predicted median survival</h4><p>Applies this year's death rates at each age to an imaginary group of babies born today: the age beyond which half would be expected to live if death rates never changed [[Scotet2020,Keogh2018Guide]]. Because death rates keep falling, it tends to understate the future.</p></div>
+    <div class="card"><span class="tag rx">For people already grown up</span><h4>Conditional survival</h4><p>The expected median survival for people who have already reached a given age, such as 30 [[Keogh2018Guide]]. In UK data for F508del homozygotes, median survival was 46 (males) and 41 (females) at birth, but 52 and 49 for those who had reached 30 [[Keogh2018]].</p></div>
+    <div class="card"><span class="tag warn">Handle with care</span><h4>Why countries differ</h4><p>Registries use different methods and terms, which has confused patients and clinicians [[Keogh2018Guide]]. Including people with mild or borderline disease raises apparent survival [[McBennett2022]], and direct comparison between national registries is hard [[Stephenson2017]].</p></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Where and when</th><th>Figure (years)</th><th>What it is</th></tr></thead>
+    <tbody>
+      <tr><th>Canada vs US, 2009–2013</th><td>50.9 vs 40.6</td><td>Median survival by one standard method; adjusted risk of death 34% lower in Canada (HR 0.66). The gap was not seen for US patients with private insurance, and Canada had more transplants (10.3% vs 6.5%) [[Stephenson2017]]</td></tr>
+      <tr><th>2016–2018 registry reports</th><td>Ireland 44.4 · UK 47.3 · US 47.4 · Canada 52.1</td><td>Predicted median survival [[Scotet2020]]</td></tr>
+      <tr><th>2015–2019</th><td>France 65.9 · Canada 55.4 · New Zealand 54.8 · Australia 53.3</td><td>Median survival; adjusted risk of death higher in Canada (HR 1.85) and Australia (HR 2.08) than France [[Coriati2023]]</td></tr>
+      <tr><th>UK, F508del homozygous, 2011–2015</th><td>Males 46 · females 41</td><td>Median survival at birth; projected 65 and 56 if mortality kept falling about 2% a year [[Keogh2018]]</td></tr>
+      <tr><th>Boston vs Toronto, 1970s–80s</th><td>21 vs 30</td><td>Median survival with similar lung function; the authors suggested Toronto's high-fat diet, rather than the traditional fat restriction, might explain the gap [[Corey1988]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Every figure in this table is a population statistic from a registry or a model. None of them can say how long one person will live [[Keogh2018Guide]].</p>
+
+  <div class="prose">
+    <p><b>Who does less well.</b> In 1988–1992, US females aged 1–20 were 60% more likely to die than males (RR 1.6), even after adjustment for nutrition, lung function and other factors [[Rosenfeld1997]]. One Canadian analysis links this gap to a higher risk of death in women with CF-related diabetes [[Stephenson2015ERJ]], and US death-certificate data for 1999–2024 show equal age-adjusted rates by sex; whether the gap is closing is unresolved <span class="ev early">Early evidence</span> [[Grover2026]]. Poverty matters too: US children on Medicaid had a 3.65-fold adjusted risk of death [[Schechter2001]], and UK children from the most deprived areas had FEV1 4.12 points lower, gaps that appeared early and did not widen [[TaylorRobinson2013]]. Hispanic patients in the US had a 1.27-fold adjusted death rate [[Rho2018]].</p>
+  </div>
+
+  <h3 class="sub">How common CF is, around the world</h3>
+  <div class="prose"><p>Incidence was traditionally quoted as 1 in 2,500 births in people of European descent; newborn screening now suggests 1 in 3,000 to 1 in 6,000, matching carrier rates of 1 in 28 to 1 in 40 [[Scotet2020]]. The bars turn each "1 in N births" figure into CF births per 100,000 on a log scale, so very rare and very common populations fit on one chart. Choose a region.</p></div>
+  <div class="whbar" id="whPrevBtns" role="group" aria-label="Choose which populations to show">
+    <button class="btn" data-pv="all" aria-pressed="true">All</button>
+    <button class="btn" data-pv="europe" aria-pressed="false">Europe</button>
+    <button class="btn" data-pv="americas" aria-pressed="false">The Americas</button>
+    <button class="btn" data-pv="asia" aria-pressed="false">Asia &amp; Australasia</button>
+    <button class="btn" data-pv="founder" aria-pressed="false">Founder populations</button>
+    <button class="btn" data-pv="gnomad" aria-pressed="false">By genetic ancestry (gnomAD)</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="whPrev" viewBox="0 0 720 500" style="min-width:560px" role="img" aria-label="Horizontal bars of cystic fibrosis births per 100,000 on a log scale, from 1 in 569 births among the Ohio Amish and 1 in 1,353 in Ireland to 1 in 15,000 among US Black births and 1 in 350,000 in Japan. Buttons filter by region or switch to genetic-ancestry estimates."></svg></div>
+    <p class="stage-cap" id="whPrevCap"></p>
+  </div>
+  <div class="prose">
+    <p>About 162,428 people (range 144,606–186,620) are estimated to live with CF across 94 countries; about 105,352 (65%) are diagnosed, and estimates of undiagnosed CF in low- and middle-income countries are highly uncertain [[Guo2022Access]]. Common screening panels miss 25% to over 70% of disease-causing variants in non-European groups <span class="ev early">Early evidence</span> [[Bar2026]]. Incidence is falling in most countries studied, partly after prenatal diagnosis and carrier screening (Israel's fell about 60% over 22 years), but not everywhere: Colorado and Wisconsin saw no decline [[Scotet2020]].</p>
+  </div>
+
+  <h3 class="sub">The organs involved</h3>
+  <div class="prose"><p>CFTR works in the lining cells (epithelia) of many organs, so CF is a whole-body condition [[Elborn2016]]. Pick an organ.</p></div>
+  <div class="whbar" id="whOrgBtns" role="group" aria-label="Choose an organ"></div>
+  <div class="whbody">
+    <div class="stage">
+      <svg id="whBody" viewBox="0 0 400 470" role="img" aria-label="A body outline with the organs cystic fibrosis affects: the sinuses, lungs, liver, pancreas, intestine, sweat glands in the skin and the vas deferens. The chosen organ is highlighted and labelled."></svg>
+      <p class="stage-cap">Schematic, not to scale. Organ list from the Lancet seminar [[Elborn2016]] and the Lancet Respiratory Medicine Commission [[Bell2020Commission]].</p>
+    </div>
+    <aside class="note" id="whOrgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How CF shows itself, and how screening changed that</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Classic feature</th><th>Why it happens</th><th>How often, as published</th></tr></thead>
+    <tbody>
+      <tr><th>Salty skin and sweat</th><td>The sweat duct cannot take chloride back, so salt stays in the sweat [[Quinton1983]]</td><td>In the first comparison, sweat chloride was 3 to 5 times normal [[Friedman2025]]</td></tr>
+      <tr><th>Bowel blocked at birth (meconium ileus)</th><td>Thick, sticky first stool blocks the gut</td><td>About 20% of people with CF; often the first sign [[Sathe2017MI]]. 16% of newly diagnosed US patients in 1990 [[FitzSimmons1993]]</td></tr>
+      <tr><th>Poor weight gain, greasy stools</th><td>Pancreatic insufficiency: digestive enzymes do not reach the gut, so food is poorly absorbed [[Elborn2016,Singh2017PI]]</td><td>About 85% are pancreatic insufficient, most soon after birth [[Singh2017PI]]</td></tr>
+      <tr><th>Cough and repeated chest infections</th><td>Mucus that does not clear shelters bacteria</td><td>Lung infection was a frequent cause of death from the earliest reports [[Davis2006]]</td></tr>
+      <tr><th>Nasal polyps, blocked sinuses</th><td>Chronic rhinosinusitis [[Bell2020Commission]]</td><td>37% of 211 adults examined by nasal endoscopy [[Hadfield2000]]</td></tr>
+      <tr><th>Male infertility</th><td>The vas deferens is absent on both sides (CBAVD); sperm production is usually intact [[Kaltsas2025]]</td><td>Up to 97–98% of men with CF [[Kaltsas2025]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>Before newborn screening, diagnosis was often late. In the Wisconsin randomised trial of 650,341 newborns (1985–1994), the screened babies grew better throughout childhood, and severe malnutrition after a delayed diagnosis may not be reversible [[Farrell1997,Farrell2001]]. Compare the two groups.</p></div>
+  <div class="whbar" id="whScrBtns" role="group" aria-label="Compare age at diagnosis">
+    <button class="btn" data-sc="0" aria-pressed="true">Without screening</button>
+    <button class="btn" data-sc="1" aria-pressed="false">With newborn screening</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="whScr" viewBox="0 0 720 200" style="min-width:560px" role="img" aria-label="An age axis from birth to 80 weeks. Without screening, a marker sits at a mean age at diagnosis of 72 weeks; with newborn screening it moves to 12 weeks."></svg></div>
+    <p class="stage-cap">Mean ages at diagnosis in the Wisconsin trial [[Farrell1997]]. US registry: median age at diagnosis 7 months in 1990 [[FitzSimmons1993]], now under 1 month [[McBennett2022]].</p>
+  </div>
+  <div class="prose">
+    <p>Newborn screening rests on a 1979 finding: immunoreactive trypsin(ogen) (IRT) is raised in babies with CF and can be measured on a dried blood spot [[Crossley1979]]. It was in every US state by 2011 and UK-wide from 2007 [[Rock2011,Schluter2020]], and about 10 million newborns are screened for CF each year worldwide [[Bell2020Commission]]. A positive screen is not a diagnosis: CF Foundation guidelines recommend that the diagnosis be established by a sweat chloride test [[Farrell2017Dx]]. In UK children born 2000–2015, screening was linked to higher lung function (+1.56 FEV1 points) and later chronic <i>Pseudomonas</i>, but it did not narrow early health inequalities [[Schluter2020]]. Screening and the sweat test are covered in <a href="#screening" data-go="screening">Newborn screening &amp; diagnosis</a>.</p>
+  </div>
+
+  <h3 class="sub">Is CF contagious?</h3>
+  <div class="whno">
+    <p class="verdict yes">No.</p>
+    <div class="prose">
+      <p>CF is a genetic condition passed from parents to child; it is not an infection and cannot be caught [[Shteinberg2021,Ratjen2015]]. A child has CF only when both parents pass on a changed <i>CFTR</i> gene; when both parents are carriers, each pregnancy has a 1-in-4 chance of CF [[Shteinberg2021,Scotet2020]].</p>
+      <p>The germs that live in CF lungs, though, can pass between people with CF, which is why CF centres keep people with CF apart from each other [[McBennett2022]]. See <a href="#gene" data-go="gene">The CFTR gene &amp; inheritance</a> and <a href="#infection" data-go="infection">Infection, antibiotics &amp; cross-infection</a>.</p>
+    </div>
+  </div>
 </section>

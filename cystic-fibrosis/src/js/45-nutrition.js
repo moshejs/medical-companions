@@ -81,10 +81,8 @@ inits.nutrition=()=>{
     if(enz>0)for(let i=0;i<10;i++){const u=((i/10+t*2.4)%1+1)%1,x=lerp(t0[0]+30,t1[0],u);g+=`<circle cx="${f1(x)}" cy="${f1(t0[1]+((i%3)-1)*8)}" r="2.3" style="fill:var(--enzyme);opacity:${f1(enz)}"/>`}
     /* the meter */
     const [mx,my,mh]=G.meter;
-    if(true){const mw=mh;g+=tx(mx,my-8,'fat absorbed (schematic)','t-xs',bold)+`<rect x="${mx}" y="${my}" width="${mw}" height="14" rx="5" style="fill:var(--panel-2)"/><rect x="${mx}" y="${my}" width="${f1(mw*abs)}" height="14" rx="5" style="fill:${abs>=.85?'var(--good)':'var(--warn)'}"/>`;
+    {const mw=mh;g+=tx(mx,my-8,'fat absorbed (schematic)','t-xs',bold)+`<rect x="${mx}" y="${my}" width="${mw}" height="14" rx="5" style="fill:var(--panel-2)"/><rect x="${mx}" y="${my}" width="${f1(mw*abs)}" height="14" rx="5" style="fill:${abs>=.85?'var(--good)':'var(--warn)'}"/>`;
       const x85=mx+mw*.85;g+=`<line x1="${f1(x85)}" x2="${f1(x85)}" y1="${my-4}" y2="${my+18}" style="stroke:var(--ink);stroke-width:1.4"/>`+tx(x85,my+30,'85%','t-xs t-mid',bold)+tx(mx,my+46,'CFA below 85% is one listed reason to start PERT','t-xs')}
-    else{const mw=16;g+=tx(mx+mw/2,my-10,'fat absorbed','t-xs t-mid',bold)+tx(mx+mw/2,my-0,'(schematic)','t-xs t-mid')+`<rect x="${mx}" y="${my+6}" width="${mw}" height="${mh}" rx="5" style="fill:var(--panel-2)"/><rect x="${mx}" y="${f1(my+6+mh*(1-abs))}" width="${mw}" height="${f1(mh*abs)}" rx="5" style="fill:${abs>=.85?'var(--good)':'var(--warn)'}"/>`;
-      const y85=my+6+mh*.15;g+=`<line x1="${mx-4}" x2="${mx+mw+4}" y1="${f1(y85)}" y2="${f1(y85)}" style="stroke:var(--ink);stroke-width:1.4"/>`+tx(mx+mw+8,y85+3,'85% CFA','t-xs',bold)+tx(mx+mw+8,y85+16,'below it: one','t-xs')+tx(mx+mw+8,y85+28,'listed reason','t-xs')+tx(mx+mw+8,y85+40,'to start PERT','t-xs')}
     void lost;void p;return g}
   /* phase 4: a log dose axis */
   function doses(t,N){const k=ramp(t,.67,.8),x0=N?24:60,x1=N?376:660,y=N?150:128,L=v=>x0+(x1-x0)*(Math.log10(v)-2)/2,cur=Math.pow(10,2+2*k);let g='';
@@ -139,7 +137,7 @@ inits.nutrition=()=>{
     T.forEach(([l,d,f],i)=>{const x=N?16+(i%2)*(cw+gp):20+i*(cw+gp),y=N?14+Math.floor(i/2)*(ch+14):18;
       s+=`<rect x="${x}" y="${y}" width="${cw}" height="${ch}" rx="12" style="fill:var(--panel-2);stroke:var(--line)"/>`;
       s+=`<text x="${x+16}" y="${y+48}" class="t-big" style="font-size:40px;fill:var(--rx)">${l}</text>`+tx(x+16,y+70,'vitamin '+l,'t-xs',ink);
-      s+=`<text x="${x+16}" y="${y+(N?100:104)}" class="t-big" style="font-size:${N?17:18}px">${d}</text>`+tx(x+16,y+(N?116:122),'daily, '+V.lab,'t-xs');
+      s+=`<text x="${x+16}" y="${y+(N?100:104)}" class="t-big" style="font-size:${N?17:18}px">${d}</text>`+tx(x+16,y+(N?116:122),'per day','t-xs');
       const bh=ch-28;s+=`<rect x="${x+cw-26}" y="${y+14}" width="10" height="${bh}" rx="4" style="fill:var(--panel)"/><rect x="${x+cw-26}" y="${f1(y+14+bh*(1-f))}" width="10" height="${f1(bh*f)}" rx="4" style="fill:var(--rx);opacity:.7"/>`});
     vs.innerHTML=s;$$('[data-vit]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.vit===age))}
   $('#nuVitBtns').addEventListener('click',e=>{const b=e.target.closest('[data-vit]');if(!b)return;age=b.dataset.vit;drawVit()});
@@ -154,24 +152,24 @@ inits.nutrition=()=>{
   function ruler(x,y,w,a,b,fmtv,step){const X=v=>x+w*(v-a)/(b-a);let s=`<line x1="${x}" x2="${x+w}" y1="${y}" y2="${y}" style="stroke:var(--muted);stroke-width:2"/>`;
     for(let v=a;v<=b+1e-9;v+=step)s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${y-5}" y2="${y+5}" style="stroke:var(--muted)"/>`+tx(X(v),y+18,fmtv(v),'t-xs t-mid');
     return {s,X}}
-  function drawGrow(){const N=vb(gs,'720 240','400 330');let s='';const x=N?24:60,w=N?352:600,y=N?120:120;
-    if(gv==='child'){const R=ruler(x,y,w,0,100,v=>v+'th',10);s+=tx(x,y-82,'BMI percentile, ages 2–20','t-sm',bold);
-      s+=`<rect x="${f1(R.X(50))}" y="${y-14}" width="${f1(R.X(100)-R.X(50))}" height="28" style="fill:var(--good);opacity:.14"/>`+R.s;
-      [[10,'10th','weight-for-age at 4: better lungs above it','var(--muted)',-58],[50,'50th','CFF goal: at or above','var(--good)',-34],[70,'70th','cut-off with WHO charts','var(--rx)',-58],[85,'85th','no extra lung gain above','var(--warn)',-34]].forEach(([v,l,d,c,dy])=>{const xx=R.X(v);
-        s+=`<line x1="${f1(xx)}" x2="${f1(xx)}" y1="${y+dy+4}" y2="${y}" style="stroke:${c};stroke-width:2"/><circle cx="${f1(xx)}" cy="${y}" r="5" style="fill:${c}"/>`+tx(xx+(v>60&&N?-4:4),y+dy,`${l}: ${d}`,'t-xs'+(v>60&&N?' t-end':''),`fill:${c};font-weight:600`)});
-      s+=tx(x,y+48,'goal zone shaded; markers from three sources (notes below)','t-xs')}
-    else if(gv==='women'||gv==='men'){const goal=gv==='women'?22:23,R=ruler(x,y,w,16,32,v=>v,2);s+=tx(x,y-82,`BMI, kg/m², adult ${gv}`,'t-sm',bold);
+  function drawGrow(){const N=vb(gs,'720 210','400 250');let s='';const x=N?24:60,w=N?352:600,y=N?70:70;
+    const list=(rows,y0)=>rows.map(([c,l],i)=>`<circle cx="${x+5}" cy="${y0+i*16-3}" r="6" style="fill:${c}"/><text x="${x+5}" y="${y0+i*16}" class="t-xs t-mid" style="fill:var(--panel);font-weight:700">${i+1}</text>`+tx(x+16,y0+i*16,l,'t-xs',ink)).join('');
+    if(gv==='child'){const R=ruler(x,y,w,0,100,v=>N&&v%20?'':v+'th',10);s+=tx(x,y-44,'BMI percentile, ages 2–20','t-sm',bold);
+      s+=`<rect x="${f1(R.X(50))}" y="${y-14}" width="${f1(R.X(100)-R.X(50))}" height="28" style="fill:var(--good);opacity:.14"/>`+R.s+tx(R.X(75),y-20,'goal zone','t-xs t-mid','fill:var(--good);font-weight:600');
+      const M=[[10,'var(--muted)','10th: weight-for-age above it at 4, better lungs later'],[50,'var(--good)','50th: the CFF goal is at or above this'],[70,'var(--rx)','70th: suggested cut-off when WHO charts are used'],[85,'var(--warn)','85th: no extra lung-function gain above this']];
+      M.forEach(([v,c],i)=>{const xx=R.X(v);s+=`<circle cx="${f1(xx)}" cy="${y}" r="7" style="fill:${c}"/><text x="${f1(xx)}" y="${y+3.5}" class="t-xs t-mid" style="fill:var(--panel);font-weight:700">${i+1}</text>`});
+      s+=list(M.map(m=>[m[1],m[2]]),y+46)}
+    else if(gv==='women'||gv==='men'){const goal=gv==='women'?22:23,R=ruler(x,y,w,16,32,v=>v,2);s+=tx(x,y-44,`BMI, kg/m², adult ${gv}`,'t-sm',bold);
       s+=`<rect x="${f1(R.X(goal))}" y="${y-14}" width="${f1(R.X(32)-R.X(goal))}" height="28" style="fill:var(--good);opacity:.14"/>`+R.s;
-      s+=`<line x1="${f1(R.X(goal))}" x2="${f1(R.X(goal))}" y1="${y-40}" y2="${y}" style="stroke:var(--good);stroke-width:2"/><circle cx="${f1(R.X(goal))}" cy="${y}" r="6" style="fill:var(--good)"/>`+tx(R.X(goal)+6,y-44,`CFF goal: ${goal} or above`,'t-sm','fill:var(--good);font-weight:700');
-      s+=tx(x,y+48,'the sources used here give the goal, not an upper limit','t-xs')}
-    else{const R=ruler(x,y,w,20,28,v=>v,1);s+=tx(x,y-82,'median BMI, kg/m², UK adults (n = 40)','t-sm',bold)+R.s;
-      const a=R.X(23),b=R.X(24.6);s+=`<circle cx="${f1(a)}" cy="${y}" r="6" style="fill:var(--muted)"/><path d="M${f1(a+8)} ${y-22}H${f1(b-8)}" style="stroke:var(--rx);stroke-width:2.4" marker-end="url(#nuAr)"/><circle cx="${f1(b)}" cy="${y}" r="7" style="fill:var(--rx)"/>`;
-      s+=`<defs>${marker('nuAr','var(--rx)',6)}</defs>`+tx(a,y-30,'23.0 before','t-xs t-end',bold)+tx(b,y-30,'24.6 after ETI','t-xs',`fill:var(--rx);font-weight:700`);
+      s+=`<line x1="${f1(R.X(goal))}" x2="${f1(R.X(goal))}" y1="${y-26}" y2="${y}" style="stroke:var(--good);stroke-width:2"/><circle cx="${f1(R.X(goal))}" cy="${y}" r="6" style="fill:var(--good)"/>`+tx(R.X(goal)+6,y-24,`CFF goal: ${goal} or above`,'t-sm','fill:var(--good);font-weight:700');
+      s+=tx(x,y+46,'the sources used here give a goal, not an upper limit;','t-xs',ink)+tx(x,y+60,'overweight is covered under the modulator tab','t-xs')}
+    else{const R=ruler(x,y,w,20,28,v=>v,1);s+=tx(x,y-44,'median BMI, kg/m², UK adults (n = 40)','t-sm',bold)+R.s;
+      const a=R.X(23),b=R.X(24.6);s+=`<circle cx="${f1(a)}" cy="${y}" r="6" style="fill:var(--muted)"/><path d="M${f1(a+8)} ${y-16}H${f1(b-8)}" style="stroke:var(--rx);stroke-width:2.4" marker-end="url(#nuAr)"/><circle cx="${f1(b)}" cy="${y}" r="7" style="fill:var(--rx)"/>`;
+      s+=`<defs>${marker('nuAr','var(--rx)',6)}</defs>`+tx(a-4,y-20,'23.0 before','t-xs t-end',bold)+tx(b+4,y-20,'24.6 after ETI','t-xs',`fill:var(--rx);font-weight:700`);
       const y2=y+50,bw=N?200:260,sc=bw/2600;s+=tx(x,y2,'reported energy intake, kcal/day','t-xs',bold);
       s+=`<rect x="${x}" y="${y2+8}" width="${f1(2551*sc)}" height="11" rx="3" style="fill:var(--muted)"/>`+tx(x+2551*sc+5,y2+18,'2,551 before','t-xs',ink);
       s+=`<rect x="${x}" y="${y2+24}" width="${f1(2153*sc)}" height="11" rx="3" style="fill:var(--rx)"/>`+tx(x+2153*sc+5,y2+34,'2,153 after','t-xs',ink);
-      if(!N){const ix=x+bw+150;s+=tx(ix,y2,'overweight or obese: 13–18%','t-xs',bold)+icons(ix,y2+8,{n:20,cols:20,k:3,size:7,gap:2,col:'var(--warn)',shape:'dot'}).svg+tx(ix,y2+32,'(about 3 in 20)','t-xs')}
-      else s+=tx(x,y2+56,'overweight or obese: 13–18% of people with CF','t-xs',bold)}
+      const ix=N?x:x+bw+110,iy=N?y2+58:y2;s+=tx(ix,iy,'overweight or obese: 13–18% of people with CF','t-xs',bold)+icons(ix,iy+8,{n:20,cols:20,k:3,size:N?9:7,gap:N?3:2,col:'var(--warn)',shape:'dot'}).svg+tx(ix,iy+(N?34:32),'about 3 in 20','t-xs')}
     gs.innerHTML=s;gcap.innerHTML=GCAP[gv];$$('[data-grow]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.grow===gv))}
   $('#nuGrowBtns').addEventListener('click',e=>{const b=e.target.closest('[data-grow]');if(!b)return;gv=b.dataset.grow;drawGrow()});
   drawGrow();
