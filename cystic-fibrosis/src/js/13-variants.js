@@ -31,12 +31,12 @@ const VR_CL=[
   txt:'Ion flow through an open channel is reduced. Example: R117H (Arg117His) [[Bell2020Commission]]. Class IV and V variants keep residual function, often with preserved pancreatic function early in life [[Bell2020Commission]].',
   pt:'The gate opens, but the passage is narrow, so fewer ions get through.',
   hook:'R117H\'s effect depends on the polyT tract on the same chromosome: with 5T in cis and a CF-causing variant on the other copy it generally gives nonclassic CF [[Deignan2020ACMG,Kiesewetter1993]].'},
- {n:'V',name:'Too little',sub:'normal channels, but fewer of them',st:[.5,1,1,1,1,1,1],flow:.3,grp:'residual function',ex:'splicing and promoter changes',
+ {n:'V',name:'Too little',sub:'normal channels, but fewer of them',st:[.5,1,1,1,1,1,1],flow:.3,grp:'residual function',ex:'splicing changes',
   k:'Class V · quantity',t:'Normal protein, too little of it',
   txt:'Less normal CFTR is made, from alternative splicing, promoter or missense changes [[LopesPacheco2019,Bell2020Commission]]. Splice changes can work this way: 3849+10kbC→T creates an extra 84-base pseudo-exon with a stop codon, yet about 8% of transcripts are still spliced normally [[Highsmith1994,Deignan2020ACMG]].',
   pt:'Each channel works, but the cell makes too few of them.',
   hook:'3849+10kbC→T was first found in people with CF-like lung disease but normal sweat chloride [[Highsmith1994]].'},
- {n:'VI',name:'Unstable',sub:'delivered and working, but pulled back in',st:[1,1,1,1,1,1,0],flow:.35,grp:'residual function',ex:'rescued F508del behaves this way',
+ {n:'VI',name:'Unstable',sub:'delivered and working, but pulled back in',st:[1,1,1,1,1,1,0],flow:.35,grp:'residual function',ex:'rescued F508del',
   k:'Class VI · stability',t:'Pulled back in too fast',
   txt:'The protein is unstable at the plasma membrane, with faster endocytosis and less recycling. Corrector-rescued F508del behaves like a class VI protein [[Bell2020Commission,LopesPacheco2019]].',
   pt:'The channel arrives and works, but the cell takes it back in too quickly.',
@@ -65,9 +65,9 @@ function vrMark(x,y,v,r=7){const col=v===1?'var(--good)':v===.5?'var(--warn)':v=
   else if(v===.5)s+=`<path d="M${f1(x-r*.45)} ${f1(y)}h${f1(r*.9)}" style="stroke:var(--panel);stroke-width:2;stroke-linecap:round"/>`;
   return s}
 /* the cell scene for class index c, local progress u, phase ph, in box B */
-function vrCell(c,u,ph,B,N){const C=VR_CL[c],M=B.y+(N?26:30),sx=N?[B.x+80,B.x+190,B.x+300]:[B.x+110,B.x+225,B.x+340],cs=N?48:54;
+function vrCell(c,u,ph,B,N){const C=VR_CL[c],M=B.y+(N?26:30),sx=N?[B.x+80,B.x+190,B.x+300]:[B.x+110,B.x+225,B.x+340],cs=N?46:50;
   const nuc={x:B.x+(N?62:84),y:B.y+B.h*(N?.7:.7),rx:N?50:66,ry:N?36:46},er={x:B.x+(N?150:200),y:B.y+B.h*(N?.62:.62),w:N?96:120};
-  let s=`<text x="${f1(B.x+B.w-6)}" y="${f1(B.y+8)}" class="t-xs t-end">airway (outside)</text>`;
+  let s=`<text x="${f1(N?(sx[1]+sx[2])/2:B.x+B.w-6)}" y="${f1(B.y+8)}" class="t-xs ${N?'t-mid':'t-end'}">airway (outside)</text>`;
   s+=`<rect x="${f1(B.x)}" y="${f1(M)}" width="${f1(B.w)}" height="${f1(B.y+B.h-M)}" rx="12" style="fill:var(--cell);stroke:var(--airway);stroke-width:1.6"/>`;
   /* which slots hold a channel at the membrane, and in which state */
   const slots=sx.map((x,j)=>{if(c===1||c===2||c===7)return {x,st:'absent'};if(c===5&&j!==1)return {x,st:'absent'};
@@ -79,7 +79,7 @@ function vrCell(c,u,ph,B,N){const C=VR_CL[c],M=B.y+(N?26:30),sx=N?[B.x+80,B.x+19
     if(q.st==='absent'){s+=cftr(q.x,M,cs,{state:'absent',membrane:false}).svg;return}
     if(q.st==='endo'){s+=cftr(q.x,M,cs,{state:'absent',membrane:false}).svg;const yy=M+q.e*B.h*.34;
       s+=`<g transform="translate(0 ${f1(yy-M)})">${cftr(q.x,M,cs*.8,{state:'open',open:.6,membrane:false}).svg}</g><circle cx="${f1(q.x)}" cy="${f1(yy+cs*.08)}" r="${f1(cs*.62)}" style="fill:none;stroke:var(--membrane);stroke-width:3;opacity:${f1(ramp(q.e,.1,.4))}"/>`;
-      if(q.e>.3)s+=`<text x="${f1(q.x+cs*.7)}" y="${f1(yy+cs*.1)}" class="t-xs" style="fill:var(--ink)">pulled back in</text>`;return}
+      if(q.e>.3)s+=`<text x="${f1(N?q.x-cs*.7:q.x+cs*.7)}" y="${f1(yy+cs*.1)}" class="t-xs ${N?'t-end':''}" style="fill:var(--ink)">pulled back in</text>`;return}
     s+=cftr(q.x,M,cs,{state:q.st,open:q.st==='closed'?0:q.open,flow:q.st==='closed'?0:q.flow,ph:ph*.6+j*.31,hco3:true,p:1,atp:q.st==='closed'?1:0,membrane:false}).svg});
   if(c===3)s+=`<text x="${f1(sx[0]+cs*.4)}" y="${f1(M+cs*.62)}" class="t-xs" style="fill:var(--ink)">gate shut</text>`;
   if(c===4)s+=`<text x="${f1(sx[0]+cs*.4)}" y="${f1(M-cs*.5)}" class="t-xs" style="fill:var(--ink)">narrow pore: little flow</text>`;
@@ -94,20 +94,20 @@ function vrCell(c,u,ph,B,N){const C=VR_CL[c],M=B.y+(N?26:30),sx=N?[B.x+80,B.x+19
   /* the ER */
   for(let k=0;k<3;k++){const yy=er.y+k*11;let d='';for(let i=0;i<=20;i++){const x=er.x+er.w*i/20;d+=(i?'L':'M')+f1(x)+' '+f1(yy+Math.sin(i/20*Math.PI*3)*3)}
     s+=`<path d="${d}" style="fill:none;stroke:var(--membrane);stroke-width:5;stroke-linecap:round;opacity:.8"/>`}
-  s+=`<text x="${f1(er.x+er.w/2)}" y="${f1(er.y+44)}" class="t-xs t-mid">ER (protein made and folded)</text>`;
+  s+=`<text x="${f1(er.x+er.w/2)}" y="${f1(er.y+44)}" class="t-xs t-mid">ER: protein made, folded</text>`;
   /* mRNA from the nucleus to the ER */
   const rp=[[nuc.x+nuc.rx*.8,nuc.y-nuc.ry*.4],[er.x-10,er.y-2]];
   const nR=c===7?0:c===5?1:3;
   for(let i=0;i<nR;i++){const v=((ph*.18+i/3)%1+1)%1,p=vrAlong(rp,v);let op=Math.min(1,v*5,(1-v)*5);
     if(c===1){op*=1-ramp(v,.45,.8);if(v>.5){for(let k=0;k<3;k++)s+=`<circle cx="${f1(p[0]+k*6-6)}" cy="${f1(p[1]+(k%2)*4)}" r="1.8" style="fill:var(--dna);opacity:${f1(ramp(v,.5,.7)*(1-ramp(v,.8,1)))}"/>`}}
     s+=vrRNA(p[0],p[1],{op,stop:c===1})}
-  if(c===1)s+=`<text x="${f1((rp[0][0]+rp[1][0])/2)}" y="${f1(rp[0][1]-12)}" class="t-xs t-mid" style="fill:var(--bad)">early stop: mRNA decays</text>`;
+  if(c===1)s+=`<text x="${f1(N?rp[0][0]:(rp[0][0]+rp[1][0])/2)}" y="${f1(rp[0][1]-24)}" class="t-xs t-mid" style="fill:var(--bad)">early stop: mRNA decays</text>`;
   if(c===7)s+=`<text x="${f1((rp[0][0]+rp[1][0])/2+8)}" y="${f1(rp[0][1]-6)}" class="t-xs t-mid" style="fill:var(--bad)">no mRNA</text>`;
   /* the protein at the ER */
   const pX=er.x+er.w*.55,pY=er.y-20;
   if(c===1){s+=`<path d="M${f1(pX-16)} ${f1(pY)}l9 -5l9 5" style="fill:none;stroke:var(--cftr);stroke-width:2"/>`;[0,1,2].forEach(k=>{s+=`<circle cx="${f1(pX-16+k*9)}" cy="${f1(pY-(k%2)*5)}" r="3.4" style="fill:var(--cftr)"/>`});
     s+=`<text x="${f1(pX+8)}" y="${f1(pY-2)}" class="t-xs" style="fill:var(--ink)">stops short</text>`}
-  else if(c===2){const f=ramp(u,.05,.35),dg=ramp(u,.4,.9),pr={x:er.x+er.w+(N?30:46),y:er.y+16};
+  else if(c===2){const f=ramp(u,.05,.35),dg=ramp(u,.4,.9),pr={x:er.x+er.w+(N?34:60),y:er.y+6};
     s+=`<g style="opacity:${f1(1-dg)}">${folding(pX,pY,40,{fold:f,mis:1,seed:4})}</g>`;
     s+=`<rect x="${f1(pr.x-9)}" y="${f1(pr.y-14)}" width="18" height="28" rx="6" style="fill:var(--panel-2);stroke:var(--muted);stroke-width:1.2"/><path d="M${f1(pr.x-9)} ${f1(pr.y-5)}h18M${f1(pr.x-9)} ${f1(pr.y+5)}h18" style="stroke:var(--muted)"/><text x="${f1(pr.x)}" y="${f1(pr.y+26)}" class="t-xs t-mid">proteasome</text>`;
     for(let k=0;k<6;k++){const p=[lerp(pX,pr.x,dg)+Math.sin(k*2.1)*8*(1-dg),lerp(pY,pr.y,dg)+Math.cos(k*1.7)*8*(1-dg)];s+=`<circle cx="${f1(p[0])}" cy="${f1(p[1])}" r="2.4" style="fill:var(--misfold);opacity:${f1(dg>0?Math.min(1,dg*3)*(1-ramp(dg,.85,1)):0)}"/>`}
@@ -164,13 +164,13 @@ const VR_VARS=[
 inits.variants=()=>{
   /* ---------- main: the production line ---------- */
   const svg=$('#vrSvg'),rg=$('#vrT'),note=$('#vrNote'),rd=$('#vrRead');let setSt=()=>{};
-  function draw(t){const N=vb(svg,'720 380','400 560'),i=Math.min(7,Math.floor(t*8)),u=clamp(t*8-i),C=VR_CL[i],ph=t*40,W=N?400:720,H=N?560:380;
-    const B=N?{x:10,y:56,w:380,h:270}:{x:14,y:58,w:456,h:270};
+  function draw(t){const N=vb(svg,'720 380','400 600'),i=Math.min(7,Math.floor(t*8)),u=clamp(t*8-i),C=VR_CL[i],ph=t*40,W=N?400:720,H=N?600:380;
+    const B=N?{x:10,y:66,w:380,h:262}:{x:14,y:70,w:456,h:260};
     let s=`<text x="16" y="24" class="t-big" style="fill:${i?'var(--brand)':'var(--ink)'}">${i?'Class '+C.n+' · '+C.name:C.name}</text><text x="16" y="40" class="t-sm">${C.sub}</text>`;
     s+=vrCell(i,u,ph,B,N);
     /* the panel: numeral, checklist, function group, flow */
-    const P=N?{x:14,y:350}:{x:494,y:66};
-    if(!N)s+=`<rect x="${P.x-8}" y="${P.y-8}" width="${W-P.x-6}" height="${B.h+6}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
+    const P=N?{x:14,y:350}:{x:494,y:78};
+    if(!N)s+=`<rect x="${P.x-8}" y="${P.y-8}" width="${W-P.x-6}" height="${B.h-2}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
     s+=`<text x="${P.x}" y="${P.y+30}" style="font:700 34px var(--display);fill:${i?'var(--brand)':'var(--good)'}">${C.n||'OK'}</text><text x="${P.x+(C.n.length>2?78:C.n?60:56)}" y="${P.y+16}" class="t-sm" style="fill:var(--ink);font-weight:600">${i?'class':'normal'}</text><text x="${P.x+(C.n.length>2?78:C.n?60:56)}" y="${P.y+30}" class="t-xs">${C.ex?'e.g. '+C.ex:''}</text>`;
     const cy0=P.y+(N?52:56),rh=N?20:21,cx=P.x+8;
     VR_STAGES.forEach((q,j)=>{const v=C.st[j],y=cy0+j*rh;s+=vrMark(cx,y,v)+`<text x="${cx+14}" y="${y+3.5}" class="t-xs" style="${v<0?'':'fill:var(--ink)'};${v===0?'font-weight:700;fill:var(--bad)':''}">${q}${v===.5?' (reduced)':''}</text>`});

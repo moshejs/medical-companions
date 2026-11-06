@@ -99,7 +99,7 @@ inits.trials=()=>{
     [0,4,8,12,16].forEach(v=>{s+=`<line x1="${f1(FX(v))}" x2="${f1(FX(v))}" y1="${L.hy}" y2="${bot}" class="grid"/><text x="${f1(FX(v))}" y="${bot+13}" class="t-xs t-mid">${v}</text>`});
     [0,20,40,60].forEach(v=>{s+=`<line x1="${f1(SX(v))}" x2="${f1(SX(v))}" y1="${L.hy}" y2="${bot}" class="grid"/><text x="${f1(SX(v))}" y="${bot+13}" class="t-xs t-mid">${v?'−'+v:0}</text>`});
     const cur=P.rows;
-    TR_ROWS.forEach((r,i)=>{const g=ease(ramp(t,r.at,r.at+.08));if(t<r.at)return;
+    TR_ROWS.forEach((r,i)=>{const g=ease(ramp(t,r.at,r.at+.08));if(t<r.at){s+=`<text x="${L.lx}" y="${L.y0+L.rh*i+(N?12:14)}" class="t-sm" style="opacity:.35">${r.n} · ${r.y}</text>`;return}
       const on=cur.includes(i),op=on?1:.42,yy=L.y0+L.rh*i,by=N?yy+22:yy+6,bh=N?18:18,col=TR_COL[r.cmp];
       s+=`<g style="opacity:${op}">`;
       if(N){s+=`<text x="${L.lx}" y="${yy+12}" class="t-lbl" style="font-size:12px">${r.n} <tspan class="t-xs">${r.y} · ${r.d}</tspan></text>`;

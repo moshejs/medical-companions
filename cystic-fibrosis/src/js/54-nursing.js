@@ -31,7 +31,7 @@ function nuRoom(x,y,w,h,o={}){const hl=o.hl||[],on=k=>hl.includes(k),ph=o.ph||0,
   s+=`<rect x="${f1(ix-w*.035)}" y="${f1(iy+h*.02)}" width="${f1(w*.07)}" height="${f1(h*.13)}" rx="4" style="fill:var(--rx-soft);stroke:var(--rx)"/>`;
   if(o.drip){s+=`<path d="M${f1(ix)} ${f1(iy+h*.15)}C${f1(ix)} ${f1(Y(.4))} ${f1(px+w*.1)} ${f1(py-h*.12)} ${f1(px)} ${f1(py)}" style="fill:none;stroke:var(--rx);stroke-width:1.4;stroke-dasharray:3 3;stroke-dashoffset:${f1(-ph*80)}"/>`}
   /* bedside table: tray with enzymes and a glucose meter */
-  const tx=X(.36),ty=Y(.3);
+  const tx=X(.56),ty=Y(.44);
   s+=`<rect x="${f1(tx)}" y="${f1(ty)}" width="${f1(w*.2)}" height="${f1(h*.05)}" rx="3" style="fill:var(--panel);stroke:${lit('tray')};stroke-width:${sw('tray')}"/>`;
   s+=`<circle cx="${f1(tx+w*.06)}" cy="${f1(ty-h*.03)}" r="${f1(h*.035)}" style="fill:var(--gut);stroke:var(--line)"/>`+capsule(tx+w*.14,ty-h*.025,w*.05,{ang:-20,open:on('tray')?.3:0});
   s+=`<rect x="${f1(tx+w*.22)}" y="${f1(ty-h*.06)}" width="${f1(w*.05)}" height="${f1(h*.11)}" rx="4" style="fill:var(--panel);stroke:${lit('gluc')};stroke-width:${sw('gluc')}"/><rect x="${f1(tx+w*.23)}" y="${f1(ty-h*.045)}" width="${f1(w*.03)}" height="${f1(h*.035)}" style="fill:${on('gluc')?'var(--warn-soft)':'var(--panel-2)'}"/>`;
@@ -39,7 +39,7 @@ function nuRoom(x,y,w,h,o={}){const hl=o.hl||[],on=k=>hl.includes(k),ph=o.ph||0,
   s+=`<rect x="${f1(X(.62))}" y="${f1(Y(.16))}" width="${f1(w*.1)}" height="${f1(h*.16)}" rx="3" style="fill:var(--panel);stroke:${lit('chart')};stroke-width:${sw('chart')}"/>`;
   for(let i=0;i<3;i++)s+=`<line x1="${f1(X(.635))}" x2="${f1(X(.705))}" y1="${f1(Y(.21+i*.035))}" y2="${f1(Y(.21+i*.035))}" style="stroke:var(--line);stroke-width:1.4"/>`;
   /* a nurse in gown and gloves */
-  if(o.nurse){const nx=X(.24)+(o.nurseX||0)*w,ny=Y(.5);s+=person(nx,ny,h*.38,o.gown?'var(--accent)':'var(--muted)')+(o.gown?`<text x="${f1(nx)}" y="${f1(ny+h*.46)}" class="t-xs t-mid" style="fill:var(--accent)">gown + gloves</text>`:'')}
+  if(o.nurse){const nx=X(.3)+(o.nurseX||0)*w,ny=Y(.52);s+=person(nx,ny,h*.34,o.gown?'var(--accent)':'var(--muted)')+(o.gown?`<text x="${f1(nx)}" y="${f1(ny+h*.46)}" class="t-xs t-mid" style="fill:var(--accent)">gown + gloves</text>`:'')}
   /* labels */
   (o.labels||[]).forEach(l=>{s+=`<text x="${f1(X(l[0]))}" y="${f1(Y(l[1]))}" class="t-xs${l[3]?' '+l[3]:''}" style="fill:var(--ink);font-weight:600">${l[2]}</text>`});
   return s}
@@ -79,8 +79,8 @@ inits.nursing=()=>{
     return `<g style="opacity:${f1(op)}"><circle cx="${f1(x+5)}" cy="${f1(y+j*(o.sp||34)-4)}" r="4.5" style="fill:${o.col||'var(--rec)'}"/>`+lines.map((l,k)=>T(x+16,y+j*(o.sp||34)+k*13,l,k?'t-xs':'t-sm',k?'':'fill:var(--ink)')).join('')+'</g>'}).join('');
   const PAN=[
    (x,y,w,u,N)=>H(x,y,'On arrival')+list(x,y+26,[['Admit within 24 h if urgent','or within 7 days if not (ECFS)'],['Glucose: fasting and 2-h post-meal','for the first 48 h of IV antibiotics or steroids'],['Nurse specialist support','at the first admission and first IV course'],['Psychosocial check','how the person and family are coping']],u,{sp:N?40:44}),
-   (x,y,w,u,N)=>{let s=H(x,y,'Standard and contact precautions')+list(x,y+26,[['Hand hygiene: before and after contact','gloves or not; no artificial nails'],['Mask for the person with CF','in healthcare settings'],['Gown and gloves on room entry','under contact precautions'],['Own room, bathroom and toilet','no contact in waiting areas (ECFS)']],u,{sp:N?38:40});
-     const by=y+(N?190:196),g=ease(ramp(u,.5,.8));s+=`<g style="opacity:${f1(ramp(u,.45,.55))}">`+T(x,by,'US programmes with written policies (2019)','t-xs','fill:var(--ink);font-weight:600');
+   (x,y,w,u,N)=>{let s=H(x,y,'Standard and contact precautions')+list(x,y+26,[['Hand hygiene: before and after contact','gloves or not; no artificial nails'],['Mask for the person with CF','in healthcare settings'],['Gown and gloves on room entry','under contact precautions'],['Own room, bathroom and toilet','no contact in waiting areas (ECFS)']],u,{sp:36});
+     const by=y+(N?170:168),g=ease(ramp(u,.5,.8));s+=`<g style="opacity:${f1(ramp(u,.45,.55))}">`+T(x,by,'US programmes with written policies (2019)','t-xs','fill:var(--ink);font-weight:600');
      [['contact precautions',90],['patient masks, inpatient',85],['inpatient 6-foot rule',53]].forEach((q,j)=>{s+=bar(x,by+20+j*26,N?200:180,q[1]*g,100,j===2?'var(--warn)':'var(--accent)',q[0],Math.round(q[1]*g)+'%')});return s+'</g>'},
    (x,y,w,u,N)=>{let s=H(x,y,'Once-daily aminoglycoside: level shape (schematic)');const cx=x,cy=y+14,cw=N?240:220,ch=N?90:96;
      const f=v=>v<.04?v/.04:Math.exp(-(v-.04)*5.2);const C=curve(cx,cy,cw,ch,f,{x0:0,x1:1,y0:0,y1:1.05,upto:ease(ramp(u,.02,.35)),col:'var(--rx)',fill:true,lw:2.2});s+=C.svg;
@@ -98,7 +98,7 @@ inits.nursing=()=>{
      const ty=cy+ch+36;s+=`<g style="opacity:${f1(ramp(u,.35,.5))}">`+T(x,ty,'STOP2 early responders, mean gain:','t-xs','fill:var(--ink);font-weight:600')+T(x,ty+15,'10 days 12.8 · 14 days 13.4 points','t-xs','fill:var(--ink)')+'</g>';
      s+=`<g style="opacity:${f1(ramp(u,.6,.75))}">`+T(x,ty+36,'1 in 4 IV-treated exacerbations does not','t-xs','fill:var(--bad)')+T(x,ty+50,'return to 90% of baseline within 3 months','t-xs','fill:var(--bad)')+'</g>';
      return s},
-   (x,y,w,u,N)=>{let s=H(x,y,'A hospital day of food and enzymes (schematic)');const lw=N?340:300,ly=y+40,X=h=>x+lw*(h-7)/15;
+   (x,y,w,u,N)=>{let s=H(x,y,'A hospital day of food and enzymes (schematic)');const lw=N?340:300,ly=y+58,X=h=>x+lw*(h-7)/15;
      s+=tline(x,ly,lw,{min:7,max:22,step:N?3:3,fmt:v=>v+':00'}).svg;
      const E=[[8,'breakfast',1],[10.5,'snack',.5],[12.5,'lunch',1],[15.5,'snack',.5],[18,'dinner',1],[20.5,'snack',.5]];
      E.forEach((e,j)=>{const op=ramp(u,.03+j*.07,.1+j*.07),xx=X(e[0]);s+=`<g style="opacity:${f1(op)}">`+capsule(xx,ly-18,e[2]===1?22:13,{ang:-30})+T(xx,ly-30,e[1],'t-xs t-mid','fill:var(--ink)')+'</g>'});
@@ -113,16 +113,16 @@ inits.nursing=()=>{
      [['fewer investigations','home','var(--rec)'],['less disruption to family','home','var(--rec)'],['lower cost','home','var(--rec)'],['fatigue and mastery','worse at home','var(--warn)']].forEach((q,j)=>{s+=`<rect x="${x}" y="${ty+10+j*18}" width="10" height="10" rx="2" style="fill:${q[2]}"/>`+T(x+16,ty+19+j*18,q[0]+': '+q[1],'t-xs','fill:var(--ink)')});return s+'</g>'}];
   /* room highlights and props by step */
   const RMS=[{hl:['bed','chart','gluc'],labels:[[.62,.12,'chart']]},{hl:['door','sink'],nurse:1,gown:1,mask:1},{hl:['iv'],drip:1},{hl:['air','bed'],sit:1,drip:1},{hl:['tray','gluc'],sit:1,drip:1},{hl:['door','chart'],sit:1}];
-  function draw(t){const N=vb(svg,'720 380','400 560'),p=phaseOf(NU_STEPS,t),S=NU_STEPS[p],nx=NU_STEPS[p+1]?NU_STEPS[p+1].from:1.0001,u=clamp((t-S.from)/(nx-S.from));
+  function draw(t){const N=vb(svg,'720 380','400 600'),p=phaseOf(NU_STEPS,t),S=NU_STEPS[p],nx=NU_STEPS[p+1]?NU_STEPS[p+1].from:1.0001,u=clamp((t-S.from)/(nx-S.from));
     let s=`<defs>${marker('nuAr','var(--rec)',6)}</defs>`+T(N?16:20,26,S.t,'t-big','fill:var(--rec)')+T(N?16:20,42,S.k,'t-sm');
     /* the 14-day line */
     const lx=N?20:20,lw=N?360:300,ly=N?70:72,day=lerp(S.d0,S.d1,ease(u));
     s+=tline(lx,ly,lw,{min:0,max:14,step:N?2:2,fmt:v=>v}).svg+T(lx+lw,ly-6,'day of admission','t-xs t-end');
     s+=`<rect x="${f1(lx+lw*S.d0/14)}" y="${ly-3}" width="${f1(lw*(S.d1-S.d0)/14)}" height="6" rx="3" style="fill:var(--rec);opacity:.35"/><circle cx="${f1(lx+lw*day/14)}" cy="${ly}" r="6" style="fill:var(--rec);stroke:var(--panel);stroke-width:2"/>`;
-    const R=RMS[p],rx=N?20:20,ry=N?100:102,rw=N?360:300,rh=N?190:230;
+    const R=RMS[p],rx=N?20:20,ry=N?100:102,rw=N?360:300,rh=N?170:230;
     s+=nuRoom(rx,ry,rw,rh,{...R,ph:t*8,nurseX:R.nurse?.05*Math.sin(u*3):0,open:p===5?ramp(u,.6,.9):0});
-    s+=PAN[p](N?24:350,N?320:84,N?352:350,u,N);
-    const sx=N?16:20,sw=(N?368:680)/6,sy=N?540:360;
+    s+=PAN[p](N?24:350,N?296:84,N?352:350,u,N);
+    const sx=N?16:20,sw=(N?368:680)/6,sy=N?586:360;
     NU_STEPS.forEach((q,j)=>{s+=`<rect x="${f1(sx+j*sw+1)}" y="${sy}" width="${f1(sw-2)}" height="5" rx="2.5" style="fill:${j===p?'var(--rec)':'var(--panel-2)'}"/>`});
     s+=`<circle cx="${f1(sx+(N?368:680)*t)}" cy="${sy+2.5}" r="5" style="fill:var(--ink);stroke:var(--panel);stroke-width:2"/>`;
     svg.innerHTML=s;

@@ -4,7 +4,7 @@
    Routes are schematic. The status panel and the notes carry the cited results and their evidence labels. */
 const FR_STEPS=[{from:0,at:.1,t:'Delivery'},{from:.2,at:.3,t:'Into the cell'},{from:.4,at:.5,t:'At its target'},{from:.6,at:.7,t:'Making or fixing CFTR'},{from:.8,at:.92,t:'The evidence so far'}];
 const FR_TH={
- gene:{n:'Gene addition',ev:['early','Early evidence'],acts:'the nucleus',route:'inhaled',big:'+3.7%',cap:['relative ppFEV1 vs placebo','pGM169/GL67A, 1 year'],res:.45,
+ gene:{n:'Gene addition',ev:['early','Early evidence'],acts:'the nucleus',route:'inhaled',big:'+3.7%',cap:['relative ppFEV1 gain','vs placebo, 1 year'],res:.45,
   s:[{t:'A working CFTR gene, inhaled',txt:`Gene addition delivers a working copy of the CFTR gene into airway cells. Three kinds of carrier are in trials: a non-viral lipid complex (pGM169/GL67A), adeno-associated viruses (AAV: 4D-710 and SP-101) and a lentivirus (BI 3720931) [[Alton2015pGM169,NCT05248230,NCT06526923,NCT06515002]].`,
      pt:`The idea is to breathe in a tiny delivery package that carries a correct copy of the CFTR instructions into the airway lining [[Alton2015pGM169]].`},
     {t:'Crossing the mucus',txt:`4D-710 uses an engineered AAV capsid (4D-A101) and is in an open-label phase 1/2 trial in adults, NCT05248230 [[NCT05248230]]. SP-101 is a single inhaled dose given with doxorubicin, NCT06526923 [[NCT06526923]]. Both trials were recruiting when this guide's sources were checked.`},
@@ -20,7 +20,7 @@ const FR_TH={
     {t:'Side effects first',txt:`In the MRT5005 phase 1/2 study (42 adults), 14 febrile reactions occurred in 10 treated people, and 2 people had hypersensitivity reactions [[Rowe2023MRT5005]].`},
     {t:'No lung-function gain yet',txt:`FEV1 stayed stable, but no FEV1 benefit was seen <span class="ev early">Early evidence</span> [[Rowe2023MRT5005]]. ClinicalTrials.gov lists the VX-522 phase 1/2 trial (26 enrolled) as completed on 9 Sep 2026, with no results posted [[NCT05668741]].`,
      hook:`Inhaled CFTR mRNA (MRT5005): febrile reactions, stable FEV1, no FEV1 benefit [[Rowe2023MRT5005]].`}]},
- read:{n:'Read-through',ev:['est','Established: negative'],acts:'the ribosome',route:'bloodstream',big:'0.6',cap:['ppFEV1 points vs placebo','ACT CF: no difference'],res:.18,
+ read:{n:'Read-through',ev:['est','Established: negative'],acts:'the ribosome',route:'bloodstream',big:'0.6',cap:['ppFEV1 points vs','placebo (ACT CF, NS)'],res:.18,
   s:[{t:'For nonsense variants',txt:`Nonsense variants cause CF in about 10% of people, and because they make no protein, drugs that act on CFTR protein cannot help [[Kerem2014Ataluren]]. Read-through drugs reach the cell from the blood rather than the airway; ELX-02 is given under the skin [[NCT04135495]].`,
      pt:`About 1 in 10 people with CF have variants that put an early "stop" in the CFTR recipe, so modulators have nothing to work on [[Kerem2014Ataluren]].`},
     {t:'From the blood',txt:`In the scene the drug arrives from below, the blood side of the cell. ELX-02 is a subcutaneous eukaryotic ribosome-selective glycoside, tested with and without ivacaftor in adults with at least one G542X allele [[NCT04135495]].`},
@@ -28,7 +28,7 @@ const FR_TH={
     {t:'The phase 3 result',txt:`Ataluren failed in that trial: relative ppFEV1 change −2.5% vs −5.5% on placebo (p=0.12), and raised creatinine in 15% vs under 1% [[Kerem2014Ataluren]].`},
     {t:'Two failed phase 3 trials',txt:`The confirmatory ACT CF trial (279 people not taking inhaled aminoglycosides) found no difference: ppFEV1 0.6 points (95% CI −1.3 to 2.5; p=0.54). The authors concluded "Development of a nonsense-mutation CF therapy remains elusive" <span class="ev est">Established: negative</span> [[Konstan2020ACTCF]]. The ELX-02 trial (17 enrolled) completed in 2022 with no results posted <span class="ev hyp">Hypothesis</span> [[NCT04135495]].`,
      hook:`Ataluren (read-through) failed two phase 3 trials, so nonsense variants remain an unmet need [[Kerem2014Ataluren,Konstan2020ACTCF]].`}]},
- edit:{n:'Gene editing',ev:['early','Early evidence (lab)'],acts:'DNA in the nucleus',route:'lab dish only',big:'25%',cap:['F508del alleles corrected','patient airway cells, in vitro'],res:.85,
+ edit:{n:'Gene editing',ev:['early','Early evidence (lab)'],acts:'DNA in the nucleus',route:'lab dish only',big:'25%',cap:['F508del corrected in','patient airway cells'],res:.85,
   s:[{t:'Fix the letter itself',txt:`Gene editing aims to correct the variant in a person's own DNA. So far it has been done only in cells and organoids in the laboratory; the inhaled route in the scene is a sketch, not a treatment [[Geurts2020ABE,Sousa2025Prime,Bulcaen2024Prime]].`,
      pt:`Editing is like correcting a typo in the original recipe, so the cell makes normal CFTR on its own. It has only been done in a dish so far [[Sousa2025Prime]].`},
     {t:'Which variants could be fixed',txt:`In an organoid biobank from 664 people, about 20% carried variants that adenine base editing could theoretically correct [[Geurts2020ABE]].`},
@@ -80,7 +80,7 @@ inits.frontier=()=>{
     return ''}
   function draw(t){const N=vb(svg,'720 380','400 600'),p=phaseOf(FR_STEPS,t),T=FR_TH[th],S=T.s[p];
     const L=N?{x0:10,x1:270,ix0:280,ix1:390,top:44,mem:140,bot:372,nx:78,ny:300,nrx:50,nry:36,rx:200,ry:236,sl:150,en:236,px:10,py:396,pw:380,ph:196}
-             :{x0:14,x1:400,ix0:410,ix1:550,top:44,mem:150,bot:362,nx:112,ny:292,nrx:62,nry:42,rx:290,ry:236,sl:230,en:340,px:566,py:44,pw:146,ph:318};
+             :{x0:14,x1:392,ix0:402,ix1:536,top:44,mem:150,bot:362,nx:110,ny:292,nrx:62,nry:42,rx:285,ry:236,sl:226,en:334,px:550,py:44,pw:162,ph:318};
     const mucY=L.mem-30,aslY=L.mem-14;let s=`<defs>${marker('frA','var(--muted)',6)}</defs>`;
     s+=`<text x="${L.x0}" y="22" class="t-big">${S.t}</text>`;
     s+=`<text x="${L.x0}" y="38" class="t-sm">${T.n} · step ${p+1} of 5: ${FR_STEPS[p].t.toLowerCase()}</text>`;
@@ -171,7 +171,7 @@ inits.frontier=()=>{
       FR_LANES.forEach((ln,i)=>{const y=y0+i*lh;s+=`<line x1="${lx}" x2="${cx+5*cw}" y1="${y+lh}" y2="${y+lh}" class="grid"/><text x="${lx}" y="${y+lh/2+4}" class="t-sm" style="fill:var(--ink);font-weight:600">${ln}</text>`;
         const cnt={};FR_PROG.filter(q=>q.l===i).forEach(q=>{const k=cnt[q.c]=(cnt[q.c]||0)+1,yy=y+10+(k-1)*15,xx=cx+q.c*cw+12,on=flt==='all'||q.ev===flt;
           s+=`<g style="opacity:${on?1:.18}"><circle cx="${xx}" cy="${yy+4}" r="5" style="fill:${SC[q.s][0]}"/>${q.s==='stop'?`<path d="M${xx-3} ${yy+1}l6 6M${xx+3} ${yy+1}l-6 6" style="stroke:var(--panel);stroke-width:1.5"/>`:''}<text x="${xx+9}" y="${yy+7}" class="t-xs" style="fill:var(--ink)">${q.n}</text></g>`})});
-      const ly=y0+lh*FR_LANES.length+22;Object.keys(SC).forEach((k,i)=>{const x=cx+i*130;s+=`<circle cx="${x}" cy="${ly}" r="5" style="fill:${SC[k][0]}"/><text x="${x+9}" y="${ly+3}" class="t-xs" style="fill:var(--ink)">${SC[k][1]}</text>`})}
+      const ly=y0+lh*FR_LANES.length+22;Object.keys(SC).forEach((k,i)=>{const x=lx+i*176;s+=`<circle cx="${x}" cy="${ly}" r="5" style="fill:${SC[k][0]}"/><text x="${x+9}" y="${ly+3}" class="t-xs" style="fill:var(--ink)">${SC[k][1]}</text>`})}
     else{const x0=10,cw=76,y0=40;let y=y0;
       FR_COLS.forEach((c,i)=>{s+=`<text x="${x0+i*cw+cw/2}" y="${y0-14}" class="t-xs t-mid" style="fill:var(--ink);font-weight:600">${c.replace(' / 2b','/2b')}</text>`});
       FR_LANES.forEach((ln,i)=>{const P=FR_PROG.filter(q=>q.l===i),cnt={};P.forEach(q=>cnt[q.c]=(cnt[q.c]||0)+1);const rows=Math.max(1,...Object.values(cnt)),h=26+rows*24;
