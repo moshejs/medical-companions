@@ -23,7 +23,7 @@ Every research claim links to a numbered entry in the Sources module. Research-l
 
 ## How it was made
 
-Eight research passes, one per area: (A) epidemiology, presentation, stigma and history; (B) causes: genes, temperament, adversity and the biosocial model; (C) mechanisms: emotion dysregulation, neurobiology and mentalizing; (D) diagnosis: DSM-5-TR, ICD-11, assessment and differential; (E) psychological treatments: DBT, MBT, schema therapy, TFP, GPM and their evidence; (F) medication evidence, crisis care and suicide and self-harm safety; (G) course, outcomes and research toward better care; (H) living, families, work and school, and nursing care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label before it went in. The ICD-11 browser (icd.who.int) returned no readable content to the validation services, so it is listed as unverified and never cited; ICD-11 facts are cited to the peer-reviewed papers that reproduce the codes. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `src/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
+Eight research passes, one per area: (A) epidemiology, presentation, stigma and history; (B) causes: genes, temperament, adversity and the biosocial model; (C) mechanisms: emotion dysregulation, neurobiology and mentalizing; (D) diagnosis: DSM-5-TR, ICD-11, assessment and differential; (E) psychological treatments: DBT, MBT, schema therapy, TFP, GPM and their evidence; (F) medication evidence, crisis care and suicide and self-harm safety; (G) course, outcomes and research toward better care; (H) living, families, work and school, and nursing care. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label before it went in. The ICD-11 browser (icd.who.int) returned no readable content to the validation services, so it is listed as unverified and never cited; ICD-11 facts are cited to the peer-reviewed papers that reproduce the codes. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (each entry records which service confirmed it), and the modules were written against them.
 
 ## Building
 
@@ -31,14 +31,14 @@ Eight research passes, one per area: (A) epidemiology, presentation, stigma and 
 python3 tools/build_site.py                                                # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py borderline-personality-disorder                     # just this one; fails on an unknown citation key
 python3 tools/smoke.py borderline-personality-disorder/index.html all      # headless-Chrome check: no JS errors, no empty animations
-python3 borderline-personality-disorder/src/compile_sources.py             # rebuild sources.json from research/
+python3 tools/compile_sources.py borderline-personality-disorder           # rebuild sources.json from research/
 python3 tools/share_card.py borderline-personality-disorder/src/share-card.html borderline-personality-disorder/share-card.png
 ```
 
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `00-head.html` holds all CSS (theme tokens for light and dark). Dusky lavender-violet carries the interface and sea green is the accent: it means calm, skills and therapy. Rose means emotional intensity and distress, dusky blue diagnosis and assessment, amber medication and safety. No colour stands for a "good" or "bad" person. Fonts: Playfair Display, Source Sans 3 and Overpass Mono.
-- `js/00-core.js` has the shared helpers and this companion's drawing kit (`moodF`, `wave`, `thermo`, `brain`, `synapse`, `person`, `bond`, `bubble`, `ladder`, `pill`, `tline`, `ped`, `marker`).
+- `js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `js/02-draw.js` has this companion's drawing kit (`moodF`, `wave`, `thermo`, `brain`, `synapse`, `person`, `bond`, `bubble`, `ladder`, `pill`, `tline`, `ped`).
 - Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table, so a phone gets its own arrangement.
 - `sections/*.html` and `js/*.js` hold one module each. Citations are written as `[[Key]]` and become numbered links at build time.
 - Interface text is written as `%t:key%` (see Translations in the root README); this companion's own wording for the shared keys is in `strings.json`.

@@ -2,3 +2,19 @@
 __pycache__/
 *.pyc
 redirects/
+
+# >>> generated: tools/build_site.py writes these. CI builds them on every push and
+# deploys the result (.github/workflows/site.yml); they are never committed.
+/index.html
+/404.html
+/sitemap.xml
+/llms.txt
+/robots.txt
+/*/index.html
+/*/*/index.html
+/*/*/*/index.html
+/*/app.js
+/*/*/app.js
+!/hub/index.html
+!/hub/404.html
+# <<< generated

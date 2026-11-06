@@ -1,6 +1,10 @@
 {
   "site": "https://www.medcompanions.org",
   "name": "Medical Companions",
+  "editor": {
+    "name": "Moshe Malka",
+    "role": "Founder and editor"
+  },
   "publisher": {
     "name": "Quentin.Code",
     "url": "https://quentin.software"
@@ -470,6 +474,23 @@
         "en": "Cirrhosis Companion"
       },
       "published": "2026-11-04",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "sepsis-and-shock",
+      "name": {
+        "en": "Sepsis Companion"
+      },
+      "langs": [
+        "en"
+      ],
+      "published": "2026-11-05",
       "reviewers": {
         "en": {
           "name": "",

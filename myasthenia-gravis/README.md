@@ -30,17 +30,17 @@ Nine research passes, one per area, each returned cited facts: A epidemiology, c
 python3 tools/build_site.py                             # from the repo root: every companion, the hub and the sitemap
 python3 tools/build.py myasthenia-gravis                # just this one; fails on an unknown citation key
 python3 tools/smoke.py myasthenia-gravis/index.html all # headless-Chrome check of every module page
-python3 myasthenia-gravis/src/compile_sources.py myasthenia-gravis/research   # rebuild sources.json from the passes
+python3 tools/compile_sources.py myasthenia-gravis                            # rebuild sources.json from the passes
 python3 tools/share_card.py myasthenia-gravis/src/share-card.html myasthenia-gravis/share-card.png
 ```
 
 The build tools are shared by every companion and live in `tools/` at the repo root (see the root README).
 
 - `src/00-head.html` holds all CSS (theme tokens for light and dark) and the metadata. Nerve blue is the signal, receptor green the healthy junction, antibody rose the disease, complement red the attack, indigo the treatment, gold acetylcholine.
-- `src/js/00-core.js` has the shared helpers, routing and the junction drawing kit (`achDot`, `vesicle`, `achr`, `igg`, `eyelid`), so every module draws the junction the same way.
+- `src/js/01-config.js` has its storage prefix, `MODS` and `GROUPS`; the shared runtime (helpers, routing, the player) is `tools/core/`; `src/js/02-draw.js` has the junction drawing kit (`achDot`, `vesicle`, `achr`, `igg`, `eyelid`), so every module draws the junction the same way.
 - `src/sections/*.html` and `src/js/*.js` hold one module each. Animations have two layouts: `draw()` asks `NARROW()` and reads coordinates from the matching table.
 - Citations are written as `[[Key]]` and become numbered links at build time.
-- `src/source-corrections.json` is applied after `compile_sources.py`, so validated fixes survive a regeneration.
+- `src/source-corrections.json` is applied by `tools/compile_sources.py` after the merge, so validated fixes survive a regeneration.
 
 No build dependencies beyond Python 3. External resources: Google Fonts only.
 

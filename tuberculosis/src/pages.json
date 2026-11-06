@@ -1,10 +1,10 @@
 {
  "what": {
-  "title": "What is TB? Global numbers, TB infection vs disease, who is affected",
+  "title": "What is TB? Global numbers, infection vs disease",
   "description": "TB in 2024: 10.7 million fell ill, 1.23 million died. Scrub the cascade, regions and 2000–2024 trends, and see why 1 in 4 people may have TB infection."
  },
  "bacillus": {
-  "title": "The TB bacterium: cell wall, drug targets and why it grows so slowly",
+  "title": "The TB bacterium: cell wall, drug targets, slow growth",
   "description": "Mycobacterium tuberculosis explained: the acid-fast smear, the mycolic acid wall layer by layer, the four main drug targets, and why culture takes weeks."
  },
  "spread": {
@@ -16,7 +16,7 @@
   "description": "An animated walk-through: the blocked phagosome, the ten-day wait before T cells are primed, how a TB granuloma organises, and what TNF blockade does to it."
  },
  "spectrum": {
-  "title": "TB infection vs TB disease: how often infection becomes TB, and when",
+  "title": "TB infection vs TB disease: how often infection progresses",
   "description": "Follow 100 people with TB infection over 20 years: how many develop TB disease, how fast, how risk changes with HIV or age, and why TB is read as a spectrum."
  },
  "risk": {
@@ -40,7 +40,7 @@
   "description": "Watch rare mutants survive one drug but not four, then classify RR, MDR, pre-XDR and XDR-TB by WHO 2021 rules, with the genes and tests that detect each."
  },
  "drugs": {
-  "title": "How TB drugs work: isoniazid, rifampicin, pyrazinamide, ethambutol",
+  "title": "How TB drugs work: isoniazid, rifampicin and the RIPE four",
   "description": "Animated guide to why TB needs four drugs: which bacteria each one kills, early kill vs sterilising, drug targets, resistance and published doses."
  },
  "regimen": {
@@ -52,7 +52,7 @@
   "description": "Treating TB infection: 3HP, 1HP, 3HR, 4R and isoniazid side by side in weeks, with trial completion and liver-injury rates and a cases-prevented calculator."
  },
  "drtb": {
-  "title": "Treating drug-resistant TB: BPaLM, BPaL and the trials behind them",
+  "title": "Treating drug-resistant TB: BPaLM, BPaL and the trials",
   "description": "From 2-year injectable regimens to 6-month all-oral BPaLM: durations, hearing loss, cure rates, and Nix-TB, ZeNix, TB-PRACTECAL and endTB compared."
  },
  "safety": {
@@ -64,7 +64,7 @@
   "description": "When to start ART during TB treatment (SAPIT, CAMELIA, STRIDE), TB-IRIS, why young children get very sick, and TB care in pregnancy and diabetes."
  },
  "bcg": {
-  "title": "BCG vaccine: what it protects against, and new TB vaccines like M72",
+  "title": "BCG vaccine: what it protects against, and M72",
   "description": "How BCG works from injection to scar, a forest plot of its protection by age and latitude, side effects, and the TB vaccine pipeline: M72, MTBVAC, VPM1002."
  },
  "control": {
@@ -76,7 +76,7 @@
   "description": "End TB Strategy targets for 2020–2035 against WHO data to 2024, catastrophic costs, the funding gap, and new TB drugs, regimens and tests with evidence labels."
  },
  "living": {
-  "title": "Living with TB: treatment support, stigma, costs and life after cure",
+  "title": "Living with TB: treatment support, stigma and costs",
   "description": "Follow one person through six months of TB treatment: side effects, stigma, household costs, what support did in trials, and lung health after cure. Cited."
  },
  "nursing": {

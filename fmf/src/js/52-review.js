@@ -287,7 +287,7 @@ inits.glossary=()=>{
 };
 
 /* =============== 5.5 sources =============== */
-const AREAN={A:'Epidemiology, attacks & history',B:'Genetics & diagnosis',C:'Mechanism',D:'Colchicine',E:'Amyloidosis, treatment & living',F:'Research & cure'};
+const AREAN={A:'Epidemiology, attacks & history',B:'Genetics & diagnosis',C:'Mechanism',D:'Colchicine',E:'Amyloidosis, treatment & living',F:'Research & cure',G:'Nursing care'};
 inits.sources=()=>{
   let area='all';const inp=$('#srcSearch');
   $('#srcFilter').innerHTML=[['all','%t:sources.all%']].concat(Object.entries(AREAN)).map(([k,l])=>`<button class="btn" data-sa="${k}" aria-pressed="${k==='all'}">${l}</button>`).join('');

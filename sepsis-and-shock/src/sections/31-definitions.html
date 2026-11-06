@@ -1,0 +1,111 @@
+<!-- ================= 3.1 DEFINITIONS & SCORES: SIRS TO SEPSIS-3 ================= -->
+<style>
+#m-definitions .dfres{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px}
+#m-definitions .dfres div{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--panel);min-width:0}
+#m-definitions .dfres b{display:block;font:700 28px/1.05 var(--display);color:var(--dx)}
+#m-definitions .dfres small{font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+#m-definitions .dfchk{display:flex;gap:8px;align-items:center;font-size:14px;font-weight:700}
+#m-definitions .dfchk input{width:18px;height:18px;margin:0;accent-color:var(--dx)}
+#m-definitions .dftog{display:flex;flex-wrap:wrap;gap:6px}
+#m-definitions .dftog button[aria-pressed="true"]{background:var(--dx);border-color:var(--dx);color:var(--on-brand)}
+#m-definitions td.num{font-family:var(--mono);white-space:nowrap}
+#m-definitions .card>.tag,#m-definitions .card>.ev{align-self:flex-start}
+#m-definitions blockquote{margin:0;border-left:3px solid var(--dx);padding:4px 0 4px 14px;max-width:72ch;font-size:17px}
+#m-definitions p.prose{display:block}
+</style>
+<section class="mod" id="m-definitions" data-mod="definitions" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Definitions &amp; tests</p><h2>Definitions &amp; scores: SIRS to Sepsis-3</h2>
+    <p class="lede">What counts as sepsis has been redefined three times in 25 years. The 1991 definition looked for inflammation (SIRS); the 2016 definition, Sepsis-3, looks for organ damage, measured with the SOFA score. This module walks through the timeline and lets you try the qSOFA and SOFA scores as teaching tools.</p></div>
+
+  <blockquote>"Sepsis should be defined as life-threatening organ dysfunction caused by a dysregulated host response to infection." Sepsis-3, 2016 [[Singer2016Sepsis3]]</blockquote>
+
+  <h3 class="sub">From SIRS to Sepsis-3: the timeline</h3>
+  <div class="stepper" id="dfSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="dfSvg" viewBox="0 0 720 380" role="img" aria-label="A timeline from 1990 to 2026 lights up milestones: 1992 Sepsis-1 with SIRS, 2003 Sepsis-2, 2015 the Kaukonen study, 2016 Sepsis-3 and septic shock, 2024 the Phoenix criteria for children and 2025 SOFA-2. Below the timeline a panel changes with each milestone. For Sepsis-1 and 2, boxes rise like a staircase from infection, to sepsis (infection plus 2 or more SIRS criteria), to severe sepsis, to septic shock. For Kaukonen, 8 people with infection and organ failure walk through a SIRS gate and one in eight is missed. For Sepsis-3, nested ovals show infection containing sepsis (SOFA rise of 2 or more) containing septic shock, and the severe sepsis box is crossed out. For septic shock, a vasopressor pump and a lactate tube above 2 mmol per litre appear. For Phoenix, four organ systems light up in a child. For SOFA-2, six organ tiles are relabelled."></svg>
+      <div class="ctrls"><button class="btn primary" id="dfPlay">Play</button><label class="stage-cap tl" for="dfT">Years <input type="range" id="dfT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="dfRead"></div>
+      <p class="stage-cap">Schematic. Dates are publication years; Sepsis-1 met in 1991 and Sepsis-2 in 2001. [[Bone1992SIRS,Levy2003Sepsis2,Kaukonen2015,Singer2016Sepsis3,Schlapbach2024Phoenix,Ranzani2025SOFA2]]</p>
+    </div>
+    <aside class="note" id="dfNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">SIRS, Sepsis-1 and Sepsis-2</h3>
+  <p class="prose">The ACCP/SCCM Consensus Conference met in Northbrook in August 1991 and published in 1992. It introduced the systemic inflammatory response syndrome (SIRS) and definitions of sepsis, severe sepsis, septic shock and multiple organ dysfunction syndrome. Sepsis meant infection plus 2 or more SIRS criteria; severe sepsis added organ dysfunction; septic shock was sepsis-induced hypotension despite fluids. [[Bone1992SIRS,Kaukonen2015]] The 2001 International Sepsis Definitions Conference (29 participants, published 2003) found that "apart from expanding the list of signs and symptoms of sepsis… no evidence exists to support a change to the definitions". It proposed PIRO (predisposition, infection, response, organ dysfunction) as "a hypothesis-generating model for future research". <span class="ev hyp">Hypothesis</span> [[Levy2003Sepsis2]]</p>
+  <div class="tbl"><table>
+    <caption class="sr">SIRS criteria, positive with 2 or more</caption>
+    <thead><tr><th>SIRS criterion (2 or more = SIRS)</th><th>Threshold</th></tr></thead>
+    <tbody>
+      <tr><td><b>Temperature</b></td><td class="num">&gt;38°C or &lt;36°C</td></tr>
+      <tr><td><b>Heart rate</b></td><td class="num">&gt;90/min</td></tr>
+      <tr><td><b>Respiratory rate</b></td><td class="num">&gt;20/min or PaCO₂ &lt;32 mmHg</td></tr>
+      <tr><td><b>White cell count</b></td><td class="num">&gt;12,000/mm³, &lt;4,000/mm³ or &gt;10% bands</td></tr>
+    </tbody></table></div>
+  <p class="stage-cap">SIRS thresholds as given by Bone 1992 and tabulated by Song 2018. [[Bone1992SIRS,Song2018qSOFA]]</p>
+  <p class="prose">The weakness of SIRS showed up in a 2015 study of 1,171,797 patients in 172 Australian and New Zealand ICUs. Among 109,663 people with infection and organ failure, 12.1% were SIRS-negative: "one in eight". Each additional SIRS criterion raised the odds of death steadily (OR 1.13 per criterion), with no step at 2 criteria, the cut-off the definition relied on. [[Kaukonen2015]]</p>
+
+  <h3 class="sub">Sepsis-3 (2016)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Term</th><th>Sepsis-3 wording</th><th>Clinical criteria</th></tr></thead>
+    <tbody>
+      <tr><td><b>Sepsis</b></td><td>"Life-threatening organ dysfunction caused by a dysregulated host response to infection." [[Singer2016Sepsis3]]</td><td>An acute rise in SOFA score of 2 points or more, "associated with an in-hospital mortality greater than 10%". [[Singer2016Sepsis3]]</td></tr>
+      <tr><td><b>Septic shock</b></td><td>"A subset of sepsis in which particularly profound circulatory, cellular, and metabolic abnormalities are associated with a greater risk of mortality than with sepsis alone." [[Singer2016Sepsis3]]</td><td>"A vasopressor requirement to maintain a mean arterial pressure of 65 mm Hg or greater and serum lactate level greater than 2 mmol/L (&gt;18 mg/dL) in the absence of hypovolemia"; hospital mortality above 40%. [[Singer2016Sepsis3,ShankarHari2016Shock]]</td></tr>
+      <tr><td><b>Severe sepsis</b></td><td>Dropped as redundant. [[Singer2016Sepsis3]]</td><td>None</td></tr>
+      <tr><td><b>qSOFA</b></td><td>A bedside prompt "to consider possible sepsis", not a diagnostic criterion. [[Seymour2016qSOFA,Singer2016Sepsis3]]</td><td>1 point each: respiratory rate ≥22/min, altered mentation, systolic BP ≤100 mmHg; positive at 2 or more. [[Seymour2016qSOFA]]</td></tr>
+    </tbody></table></div>
+  <p class="prose">A 19-member SCCM/ESICM task force wrote Sepsis-3, and 31 societies endorsed it. It criticised the earlier definitions for "an excessive focus on inflammation", the "misleading model" of a continuum through severe sepsis to shock, and the "inadequate specificity and sensitivity" of SIRS. [[Singer2016Sepsis3]] The septic shock criteria came from a systematic review (44 studies, 166,479 patients, crude mortality 46.5%) and from the SSC database (28,150 patients), where needing vasopressors for a MAP of 65 mmHg or more with a lactate above 2 mmol/L after fluids carried the highest mortality of six combinations, 42.3%. These are population statistics. [[ShankarHari2016Shock]] Sepsis-3 is an adult definition; the paediatric task force noted that it "excluded children". [[Schlapbach2024Phoenix]]</p>
+
+  <h3 class="sub">Try it: qSOFA</h3>
+  <p class="teach"><b>A teaching tool, not for self-triage</b>qSOFA is shown as published in 2016 so you can see how it works. It is not a test for sepsis and must never be used to decide whether someone needs medical care. The Surviving Sepsis Campaign 2021 recommends against using it as a single screening tool. Anyone who seems very unwell with an infection needs urgent medical help, whatever any score says. [[Evans2021SSC]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc">
+        <label for="dfQrr">Respiratory rate (breaths/min)<input type="number" id="dfQrr" min="0" max="80" step="1" value="18" inputmode="numeric"></label>
+        <label for="dfQsbp">Systolic blood pressure (mmHg)<input type="number" id="dfQsbp" min="40" max="260" step="1" value="118" inputmode="numeric"></label>
+      </div>
+      <label class="dfchk" for="dfQmen"><input type="checkbox" id="dfQmen"> Altered mentation (Glasgow Coma Scale below 15)</label>
+      <div class="dfres" id="dfQres"></div>
+    </div>
+    <aside class="note" id="dfQnote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">SIRS or qSOFA? Sensitivity against specificity</h3>
+  <p class="prose">A screening tool has to catch the people who will become very ill (sensitivity) without flagging everyone else (specificity). SIRS and qSOFA sit at opposite ends. Pick a tool to see the pooled results of a 38-study meta-analysis (385,333 patients) for predicting death. [[Fernando2018]]</p>
+  <div class="stage">
+    <div class="dftog" id="dfTog" role="group" aria-label="Choose a tool"><button class="btn" data-tool="sirs" aria-pressed="true">SIRS ≥2</button><button class="btn" data-tool="qsofa" aria-pressed="false">qSOFA ≥2</button></div>
+    <svg id="dfCmp" viewBox="0 0 720 300" role="img" aria-label="Two arrays of 100 dots. The left array is 100 people who died: dots flagged by the chosen tool are filled. SIRS flags 88 of 100, qSOFA 61 of 100. The right array is 100 people who survived: flagged dots are false alarms. SIRS flags 74 of 100, qSOFA 28 of 100. Below, bars compare the 2016 derivation AUROC for in-hospital death outside the ICU (qSOFA 0.81, SOFA 0.79, SIRS 0.76) and inside the ICU (SOFA 0.74, qSOFA 0.66, SIRS 0.64)."></svg>
+    <div class="readout" id="dfCmpRead"></div>
+    <p class="stage-cap">Pooled sensitivity and specificity for mortality from Fernando 2018 (rounded to whole people). AUROC values from the Sepsis-3 derivation study. [[Fernando2018,Seymour2016qSOFA]]</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Derivation</span><h4>Why qSOFA was chosen</h4><p>In 148,907 encounters with suspected infection at 12 Pennsylvania hospitals, outside the ICU qSOFA predicted in-hospital death with AUROC 0.81, against 0.79 for SOFA and 0.76 for SIRS. A qSOFA of 2 or more meant a 3- to 14-fold increase in mortality across baseline-risk deciles. Inside the ICU, SOFA did better (0.74 vs 0.66). [[Seymour2016qSOFA]]</p></div>
+    <div class="card"><span class="tag dx">Emergency departments</span><h4>Freund 2017</h4><p>In 879 patients in 30 emergency departments, in-hospital mortality was 3% with qSOFA below 2 and 24% with qSOFA 2 or more. qSOFA's AUROC was 0.80, against 0.65 for SIRS. [[Freund2017]]</p></div>
+    <div class="card"><span class="tag dx">Intensive care</span><h4>Raith 2017</h4><p>In 184,875 adults in 182 ICUs, crude AUROC for in-hospital death was 0.753 for a SOFA rise of 2 or more, 0.607 for qSOFA and 0.589 for SIRS. 90.1% met the SOFA criterion; only 54.4% had qSOFA 2 or more. [[Raith2017]]</p></div>
+    <div class="card"><span class="tag dx">Meta-analyses</span><h4>Low sensitivity outside the ICU</h4><p>Song 2018 (146,551 patients outside the ICU) found pooled sensitivity 0.51 for qSOFA against 0.86 for SIRS, and specificity 0.83 against 0.29. Serafim 2018 found SIRS better for diagnosing sepsis and qSOFA slightly better for predicting death. [[Song2018qSOFA,Serafim2018]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Where the guideline landed</h4><p>SSC 2021: "We recommend against using qSOFA compared to SIRS, NEWS, or MEWS as a single screening tool for sepsis or septic shock" (strong recommendation, moderate-quality evidence). A positive qSOFA "should alert the clinician to the possibility of sepsis in all resource settings". [[Evans2021SSC]]</p></div>
+  </div>
+
+  <h3 class="sub">Try it: the SOFA score</h3>
+  <p class="prose">SOFA (the Sepsis-related Organ Failure Assessment, as first named) was proposed in 1996 by an ESICM working group to describe organ dysfunction. It scores six organ systems from 0 to 4, so the total runs from 0 to 24. Conventions: the worst value of each sub-score in each 24-hour period is used, parameters that match no row score zero, and delta SOFA is the change from a defined baseline. [[Vincent1996SOFA,Lambden2019SOFA]]</p>
+  <p class="teach"><b>A teaching tool, not for clinical decisions</b>The rows below are the published SOFA points, so you can see which findings move the score. Real SOFA scoring uses the worst values over 24 hours, measured by a clinical team. This page must never be used to judge how ill someone is, their prognosis or their treatment. [[Lambden2019SOFA]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="calc" id="dfSofa"></div>
+      <label for="dfBase" class="stage-cap" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">Baseline SOFA (before this illness) <input type="number" id="dfBase" min="0" max="24" step="1" value="0" inputmode="numeric" style="width:80px;font:inherit;padding:6px 8px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink)"></label>
+      <div class="dfres" id="dfSres"></div>
+      <svg id="dfSsvg" viewBox="0 0 720 120" role="img" aria-label="Six bars, one per organ system (respiratory, coagulation, liver, cardiovascular, nervous system, kidneys), each filled from 0 to 4 points as chosen in the calculator, with the total out of 24."></svg>
+      <div class="ctrls"><button class="btn" id="dfSex">Load an example</button><button class="btn ghost" id="dfSreset">Reset</button></div>
+    </div>
+    <aside class="note" id="dfSnote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">SOFA over time</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Trend</span><h4>Direction matters</h4><p>In 1,449 patients in 40 ICUs, among those who stayed at least a week, total SOFA rose in 44% of non-survivors but only 20% of survivors. [[Vincent1998SOFA]]</p></div>
+    <div class="card"><span class="tag dx">Serial scores</span><h4>Ferreira 2001</h4><p>In 352 ICU patients, over the first 96 hours mortality was at least 50% when SOFA increased, 27–35% when it was unchanged and below 27% when it decreased. An initial or highest score above 11 corresponded to mortality above 80%. These are population statistics. [[Ferreira2001SOFA]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>SOFA-2 (2025)</h4><p>Built by modified Delphi and 3.34 million ICU encounters in 9 countries, SOFA-2 keeps six systems (brain, respiratory, cardiovascular, liver, kidney, haemostasis) with revised thresholds. AUROC 0.79 against 0.77 for the original. It leaves out gut and immune dysfunction for "insufficient data and lack of content validity". [[Ranzani2025SOFA2]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>What changed in SOFA-2</h4><p>SpO₂/FiO₂ as an alternative to PaO₂/FiO₂; high-flow oxygen and CPAP count as respiratory support and ECMO is included; more vasopressors with equivalent doses plus mechanical circulatory support; kidney replacement therapy in the kidney score; delirium treatment in the brain score. Sepsis-3 is still defined with the original SOFA, and a "phased dual-scoring approach" has been suggested. [[Lobo2025SOFA2]]</p></div>
+  </div>
+  <p class="callout">Children have their own criteria. The 2024 Phoenix criteria define paediatric sepsis as suspected infection with a Phoenix Sepsis Score of 2 or more. See <button class="btn ghost" data-go="children">Sepsis in babies and children</button>. [[Schlapbach2024Phoenix]]</p>
+</section>

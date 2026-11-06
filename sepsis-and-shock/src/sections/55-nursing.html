@@ -1,0 +1,108 @@
+<!-- ================= 5.5 NURSING CARE ================= -->
+<style>
+#m-nursing .card>.ev,#m-nursing .card>.tag{align-self:flex-start}
+#m-nursing .tbl{overflow-x:auto}
+#m-nursing .tbl table{min-width:540px}
+#m-nursing .nr-uo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:16px;align-items:start}
+@media (max-width:860px){#m-nursing .nr-uo{grid-template-columns:minmax(0,1fr)}}
+#m-nursing #nrUoSvg{width:100%;height:auto;display:block}
+#m-nursing .nr-check{counter-reset:nrc;list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+#m-nursing .nr-check li{counter-increment:nrc;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 13px 11px 44px;position:relative;font-size:14.5px}
+#m-nursing .nr-check li::before{content:counter(nrc);position:absolute;left:12px;top:10px;width:22px;height:22px;border-radius:50%;background:var(--rec-soft);color:var(--rec);font:700 12px/22px var(--mono);text-align:center}
+#m-nursing .nr-check li b{display:block;font-size:15px}
+#m-nursing .qnav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+#m-nursing .qnav .bar{flex:1;min-width:120px}
+</style>
+<section class="mod" id="m-nursing" data-mod="nursing" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Special situations &amp; recovery</p><h2>Nursing care</h2>
+    <p class="lede">Nurses take the observations, raise the alarm and keep the sepsis bundle moving. Follow one illustrative ward afternoon through the observe, score, escalate, act and reassess loop, then try the urine-output chart and the exam-style scenarios.</p></div>
+
+  <p class="crisis" role="note"><b>Call now</b><span>Sepsis is a medical emergency. If someone with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
+
+  <p class="callout">SSC 2021 recommends that hospitals run a sepsis performance improvement programme, including screening of acutely ill, high-risk patients and standard operating procedures (strong recommendation); in a meta-analysis of 50 observational studies such programmes were linked to lower mortality (OR 0.66). [[Evans2021SSC]] Nurse-driven protocols are one way to run them: in one emergency department a Detect, Act, Reassess, Titrate (DART) protocol with a checklist raised compliance with all 3-hour bundle measures from 30% to 80% (single-centre quality project). [[Moore2019NurseProtocol]]</p>
+
+  <div class="stepper" id="nrSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="nrSvg" viewBox="0 0 720 400" role="img" aria-label="An afternoon on a ward for one illustrative patient with an infection. On the left an observation chart fills in at 08:00, 12:00, 14:00, 15:00 and 18:00 with breathing rate, oxygen saturation, oxygen use, systolic blood pressure, pulse, consciousness and temperature, each scored on the published NEWS2 chart, with the total score at the bottom: 0, then 5, then 13, then falling to 3. On the right a loop of five stages (observe, score, escalate, act, reassess) has a marker moving round it, and below it a checklist ticks off blood cultures, antibiotics within the hour, a peripheral vasopressor in a vein at or above the elbow crease with site checks, and hourly urine output, beside a clock counting the first hour."></svg>
+      <div class="ctrls"><button class="btn primary" id="nrPlay">Play</button><label class="stage-cap tl" for="nrT">Ward afternoon <input type="range" id="nrT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <div class="readout" id="nrRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Illustrative patient.</b> The observations are invented; each is scored with the NEWS2 chart as reproduced from the Royal College of Physicians, with 0–4 low, 5–6 medium and 7 or more high clinical risk, and a 3 in any single parameter treated as low-medium risk. [[Verma2023NEWS2]] NEWS2 here is a teaching tool, never for self-triage or for deciding whether to seek care; SSC 2021 notes that screening tools have poor predictive values. [[Evans2021SSC]]</p>
+    </div>
+    <aside class="note" id="nrNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">A nurse's sepsis checklist</h3>
+  <p class="prose">What the sources in this companion put at the bedside, in order. Each item is quoted from the named source as published; local protocols and prescribers decide.</p>
+  <ol class="nr-check">
+    <li><b>Screen and score</b>Use the hospital's screening tool for acutely ill, high-risk patients, knowing its limits: SIRS, qSOFA, SOFA, NEWS and MEWS vary widely in accuracy. [[Evans2021SSC]]</li>
+    <li><b>Escalate early</b>Rapid response teams in adults cut cardiac arrests outside the ICU by 33.8% (RR 0.66), without a clear fall in hospital mortality. [[Chan2010RRT]]</li>
+    <li><b>Cultures before antibiotics</b>If it causes no substantial delay (under 45 minutes) (SSC 2021). Two sets detect about 90% of bloodstream infections. [[Evans2021SSC,Lee2007Cultures]]</li>
+    <li><b>Paired cultures if a line is suspected</b>From the catheter and a peripheral vein, before antibiotics start and/or the catheter is removed (IDSA 2009, A-II). [[Mermel2009IDSA]]</li>
+    <li><b>Antibiotics on time</b>Ideally within 1 h for possible septic shock or a high likelihood of sepsis; within 3 h for possible sepsis without shock if concern persists (SSC 2021). [[Evans2021SSC]]</li>
+    <li><b>Lactate, fluids and pressure</b>The bundle and its targets are in <a href="#firsthour" data-go="firsthour">the first hour</a>, <a href="#fluids" data-go="fluids">fluids</a> and <a href="#pressors" data-go="pressors">vasopressors</a>.</li>
+    <li><b>Vasopressor line checks</b>Peripheral infusion "only for a short period of time and in a vein in or proximal to the antecubital fossa" (SSC 2021). [[Evans2021SSC]]</li>
+    <li><b>Hourly urine, daily balance</b>Urine below 0.5 mL/kg/hour for 6 hours meets the KDIGO definition of AKI. [[Kellum2013KDIGO]]</li>
+    <li><b>Devices out when not needed</b>Ask every day whether each catheter can come out. [[Berenholtz2004CRBSI]]</li>
+    <li><b>Delirium, skin and mobility</b>CAM-ICU screening, pressure-area care and early mobility (below). [[Ely2001CAMICU,Labeau2021DecubICUs,Schweickert2009Mobility]]</li>
+  </ol>
+
+  <h3 class="sub">Cultures and antibiotics: getting the timing right</h3>
+  <div class="prose"><p>Blood cultures taken after antibiotics find the germ much less often. In 325 emergency patients with severe sepsis, cultures before antimicrobials were positive in 31.4%; cultures a median 70 minutes after were positive in 19.4%, a sensitivity of only 52.9%. [[Cheng2019Cultures]] Contaminated cultures range from 1% to more than 10% of results, and older guidance set ≤3% as acceptable, though the evidence behind that target is debated. [[Sautter2024Contamination]] Under New York's mandated protocols, 82.5% of patients completed the 3-hour bundle within 3 hours, and each hour to antibiotics was linked to higher risk-adjusted mortality (OR 1.04 per hour). [[Seymour2017Timing]] A nurse-driven rapid response protocol halved the median time to the first antibiotic dose, from 269 to 135 minutes (32 patients, one hospital). [[Semanco2022RRTProtocol]]</p></div>
+  <div class="tbl"><table style="min-width:0">
+    <thead><tr><th>Blood culture sets in 24 h</th><th>1</th><th>2</th><th>3</th><th>4</th></tr></thead>
+    <tbody><tr><th>Bloodstream infections detected (cumulative)</th><td>73.1%</td><td>89.7%</td><td>98.2%</td><td>99.8%</td></tr></tbody>
+  </table></div>
+  <p class="stage-cap">629 single-organism bloodstream infections with three or more cultures in 24 hours. [[Lee2007Cultures]]</p>
+
+  <h3 class="sub">Fluid balance and urine output</h3>
+  <div class="prose"><p>KDIGO urine-output stages: stage 1 is below 0.5 mL/kg/h for 6–12 hours, stage 2 below 0.5 mL/kg/h for 12 hours or more, and stage 3 below 0.3 mL/kg/h for 24 hours or more, or no urine for 12 hours or more. [[Kellum2013KDIGO]] In ARDS, keeping fluid balance near even over 7 days (−136 mL vs +6,992 mL) shortened ventilation and ICU stay without more shock or dialysis, which is why daily balance is charted carefully. [[Wiedemann2006FACTT]] Try the teaching chart.</p></div>
+  <div class="nr-uo">
+    <div>
+      <div class="calc">
+        <label for="nrWt">Body weight (kg) <input type="number" id="nrWt" min="20" max="250" step="1" value="70"></label>
+        <label for="nrMl">Urine over the period (mL) <input type="number" id="nrMl" min="0" max="5000" step="5" value="180"></label>
+        <label for="nrHr">Length of the period (hours) <input type="number" id="nrHr" min="1" max="48" step="1" value="8"></label>
+      </div>
+      <p class="teach"><b>A teaching tool, not a diagnosis</b>This shows how KDIGO's published urine-output thresholds work for an average rate. KDIGO also uses creatinine, and real staging needs the whole clinical picture. It must not be used to make decisions about anyone's care; report any concern about low urine output to the clinical team.</p>
+    </div>
+    <div>
+      <svg id="nrUoSvg" viewBox="0 0 420 190" role="img" aria-label="A bar shows the urine output rate in mL per kg per hour against the KDIGO lines at 0.5 and 0.3, with the stage it would meet."></svg>
+      <p class="readout" id="nrUoOut" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <h3 class="sub">Vasopressor lines and extravasation</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Where</span><h4>Peripheral start, close to the elbow</h4><p>SSC 2021 suggests starting vasopressors peripherally rather than delaying until a central line is placed (weak), "only for a short period of time and in a vein in or proximal to the antecubital fossa". [[Evans2021SSC]] Of 325 published extravasation or tissue-injury events, 318 came from peripheral lines, and 85.3% of peripheral injuries involved a site below the antecubital or popliteal fossa. [[Loubani2015JCC]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>How often it goes wrong</h4><p>In one medical ICU, 734 patients received vasopressors peripherally 783 times for 49 ± 22 hours: extravasation occurred in 19 (2%), with no tissue injury after local phentolamine and nitroglycerin paste, and 13% later needed a central line. [[CardenasGarcia2015JHM]] A meta-analysis of 11 adult studies (16,055 patients) found a pooled 1.8% rate of local adverse events, and 3.3% in children; evidence is mostly low quality. [[Owen2021Peripheral]]</p></div>
+    <div class="card"><span class="tag bad">Label wording</span><h4>Noradrenaline (norepinephrine) label</h4><p>The Levophed label says to "Infuse LEVOPHED into a large vein", to check blood pressure every two minutes until the desired effect, then every five minutes, to reduce the infusion gradually because abrupt stopping may cause marked hypotension, and to avoid leg veins in older people or those with occlusive vascular disease. For extravasation, the area "should be infiltrated as soon as possible with 10 mL to 15 mL of saline solution containing from 5 mg to 10 mg of an adrenergic blocking agent" (quoted as published). [[FDA-Levophed]]</p></div>
+  </div>
+
+  <h3 class="sub">Preventing device infections</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Programme</th><th>Before</th><th>After</th><th>What it involved</th></tr></thead>
+    <tbody>
+      <tr><th>Johns Hopkins central-line intervention</th><td>11.3 per 1,000 catheter-days</td><td>0</td><td>Staff education, an insertion cart, asking daily whether each catheter could come out, an insertion checklist, and empowering nurses to stop insertion if guidelines were breached. [[Berenholtz2004CRBSI]]</td></tr>
+      <tr><th>Keystone ICU project (103 ICUs)</th><td>7.7 per 1,000 catheter-days</td><td>1.4 at 16–18 months</td><td>A reduction of up to 66% (IRR 0.34) across 375,757 catheter-days [[Pronovost2006CLABSI]], sustained at 1.1 per 1,000 at 34–36 months. [[Pronovost2010BMJ]]</td></tr>
+      <tr><th>Daily chlorhexidine bathing (9 units)</th><td>6.60 bloodstream infections per 1,000 patient-days</td><td>4.78</td><td>2% chlorhexidine cloths cut hospital-acquired bloodstream infections by 28% and multidrug-resistant organism acquisition by 23%. [[Climo2013CHG]]</td></tr>
+      <tr><th>US national CAUTI programme (926 units)</th><td>2.28 per 1,000 catheter-days (non-ICU)</td><td>1.54</td><td>Overall 2.40 to 2.05 (IRR 0.86); ICU rates were largely unchanged. [[Saint2016CAUTI]]</td></tr>
+      <tr><th>Urinary catheter reminders and stop orders (11 studies)</th><td colspan="2">CAUTI rates cut by 53% (rate ratio 0.47)</td><td>No significant harm from removal strategies. [[Meddings2014CAUTI]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Delirium, skin, diaries and families</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Delirium: screen every day</h4><p>CAM-ICU, used by study nurses, had sensitivities of 100% and 93% and specificities of 98% and 100% against expert diagnosis, took about 2 minutes, and found delirium in 39.5% of observations where the patient looked alert. [[Ely2001CAMICU]] Among ventilated patients, delirium was linked to higher 6-month mortality (34% vs 15%; adjusted HR 3.2). [[Ely2004Delirium]] In BRAIN-ICU, 40% had cognition at 3 months similar to moderate traumatic brain injury, and 34% still did at 12 months. [[Pandharipande2013BRAINICU]]</p></div>
+    <div class="card"><span class="tag accent">Skin</span><h4>Pressure injuries</h4><p>In DecubICUs (13,254 patients, 90 countries), pressure injury prevalence was 26.6% and ICU-acquired prevalence 16.2%, most often at the sacrum (37%) and heels (19.5%). ICU-acquired injury was linked to a Braden score below 19, a stay over 3 days, ventilation and kidney replacement therapy, and the odds of death rose with stage (stage III or worse, OR 2.8). [[Labeau2021DecubICUs]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>ICU diaries</h4><p>A diary given 1 month after discharge (352 patients) cut new PTSD at 3 months from 13% to 5%. [[Jones2010Diaries]] A larger trial (657 patients, 35 French ICUs), with diaries written by staff and family, found no significant reduction in PTSD symptoms (29.9% vs 34.3%). [[GarrousteOrgeas2019Diary]] Status: unresolved; diaries may still help survivors make sense of gaps in memory. <span class="ev hyp">Hypothesis</span></p></div>
+    <div class="card"><span class="tag rec">Families</span><h4>Talking with families</h4><p>SSC 2021 recommends discussing goals of care and prognosis with patients and families, early rather than late, and suggests written and verbal sepsis education before discharge. [[Evans2021SSC]] For families of patients dying in the ICU, a proactive conference where families spent more of the time talking (14 vs 5 minutes), plus a bereavement brochure, lowered PTSD-related symptoms (45% vs 69%). [[Lautrette2007Brochure]]</p></div>
+  </div>
+
+  <h3 class="sub">Exam-style scenarios</h3>
+  <div class="qcard" id="nrQ" aria-live="polite"></div>
+  <div class="qnav"><button class="btn" id="nrPrev">Previous</button><div class="bar" aria-hidden="true"><i id="nrBar"></i></div><span class="stage-cap" id="nrQn"></span><button class="btn primary" id="nrNext">Next</button></div>
+
+  <h3 class="sub">In plain words</h3>
+  <div class="gentle"><b>For patients and families</b>Nurses check breathing, pulse, blood pressure, temperature and alertness regularly, and add them into a score that helps them notice when someone is getting sicker. [[Verma2023NEWS2]] They measure urine every hour in intensive care, because passing very little urine can be an early sign the kidneys are struggling. [[Kellum2013KDIGO]] Medicines that raise blood pressure can damage the skin if they leak from the vein, so the drip site is checked often. [[FDA-Levophed]] Many people in intensive care become confused for a while (delirium); nurses check for it every day with a short test, and getting up and moving early helps recovery. [[Ely2001CAMICU,Schweickert2009Mobility]] If you are worried that someone is getting worse, tell the nurse straight away and ask: could this be sepsis?</div>
+</section>

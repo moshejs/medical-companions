@@ -1,0 +1,91 @@
+<!-- ================= 4.1 THE FIRST HOUR: BUNDLE & ANTIBIOTICS ================= -->
+<style>
+#m-firsthour td.num{font-family:var(--mono);white-space:nowrap}
+#m-firsthour .card>.tag,#m-firsthour .card>.ev{align-self:flex-start}
+#m-firsthour .fhq{margin:0;padding-left:1.2em;max-width:78ch}
+#m-firsthour .fhq li{margin:.3em 0}
+</style>
+<section class="mod" id="m-firsthour" data-mod="firsthour" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>The first hour: bundle &amp; antibiotics</h2>
+    <p class="lede">Sepsis is treated as an emergency because, on average, earlier antibiotics go with better survival, most clearly in septic shock. Watch the Hour-1 bundle unfold on a clock, see what the timing studies found, and follow the trials that retired early goal-directed therapy.</p></div>
+  <p class="callnow"><b>Call now</b><span>Sepsis is a medical emergency. If someone with an infection becomes very unwell (confused or very drowsy, breathing very fast, cold, mottled or bluish skin, passing little or no urine), call your local emergency number or go to an emergency department now and ask: could this be sepsis?</span></p>
+
+  <h3 class="sub">The Hour-1 bundle on a clock</h3>
+  <div class="stepper" id="fhSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="fhSvg" viewBox="0 0 720 380" role="img" aria-label="A clock face fills as the first hour after sepsis is recognised passes. Beside it, five tiles light up one after another as each element of the 2018 Hour-1 bundle starts: a lactate tube is measured, two blood culture bottles fill, an antibiotic bag starts to drip, a crystalloid fluid bag starts to run, and a vasopressor syringe pump starts while a blood pressure dial rises past a mean arterial pressure of 65. A strip below quotes each element as published."></svg>
+      <div class="ctrls"><button class="btn primary" id="fhPlay">Play</button><label class="stage-cap tl" for="fhT">Minutes <input type="range" id="fhT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="fhRead"></div>
+      <p class="stage-cap">Schematic: the order and the minute at which each element starts are illustrative. The bundle asks for all five to be started within the first hour; it does not set an order. Element wording quoted as published. [[Levy2018Bundle,Wang2021Hour1]]</p>
+    </div>
+    <aside class="note" id="fhNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What SSC 2021 says about timing, as published</h3>
+  <p class="prose">The 2018 Hour-1 bundle paper is paywalled, so the five elements above are quoted from a verbatim listing in an open-access study. The 2021 guideline then separated people with possible shock from those with possible sepsis without shock. These are guideline statements quoted as published, not instructions. [[Levy2018Bundle,Wang2021Hour1,Evans2021SSC]]</p>
+  <ul class="fhq">
+    <li>"Sepsis and septic shock are medical emergencies, and we recommend that treatment and resuscitation begin immediately" (best practice statement). [[Evans2021SSC]]</li>
+    <li>"For adults with possible septic shock or a high likelihood for sepsis, we recommend administering antimicrobials immediately, ideally within 1 h of recognition" (strong; low-quality evidence for septic shock, very low for sepsis without shock). [[Evans2021SSC]]</li>
+    <li>"For adults with possible sepsis without shock, we suggest a time-limited course of rapid investigation and if concern for infection persists, the administration of antimicrobials within 3 h from the time when sepsis was first recognised" (weak, very low quality). [[Evans2021SSC]]</li>
+    <li>For adults with a low likelihood of infection and no shock, "we suggest deferring antimicrobials while continuing to closely monitor the patient" (weak, very low quality). [[Evans2021SSC]]</li>
+    <li>For sepsis-induced hypoperfusion or septic shock, "we suggest that at least 30 mL/kg of intravenous (IV) crystalloid fluid should be given within the first 3 h of resuscitation" (weak, low quality); the guideline notes this fixed volume rests on observational evidence. <button class="btn ghost" data-go="fluids">Fluids →</button> [[Evans2021SSC]]</li>
+    <li>An initial MAP target of 65 mm Hg over higher targets in septic shock on vasopressors (strong, moderate quality); starting vasopressors peripherally rather than waiting for central access, for a short time and in a vein at or above the antecubital fossa (weak, very low quality). <button class="btn ghost" data-go="pressors">Vasopressors →</button> [[Evans2021SSC]]</li>
+    <li>ICU admission within 6 h for adults with sepsis or septic shock who need ICU care (weak, low quality), and against qSOFA "compared to SIRS, NEWS, or MEWS as a single screening tool" (strong, moderate quality). [[Evans2021SSC]]</li>
+  </ul>
+
+  <h3 class="sub">Time to antibiotics: what the studies found</h3>
+  <p class="gentle"><b>About these numbers</b>Every figure below is an average association in a large group of patients, mostly from observational studies. It cannot say what would happen to any one person, and a delay is rarely anyone's single fault: sepsis is often hard to recognise early.</p>
+  <div class="lab">
+    <div class="stage">
+      <svg id="faSvg" viewBox="0 0 720 320" role="img" aria-label="A chart of relative odds of death against hours of delay to antibiotics, from 0 to 6 hours. Four lines rise from 1: Kumar 2006 in septic shock with an odds ratio of 1.119 per hour, Peltan 2019 for 1-year mortality at 1.10 per hour, Liu 2017 at 1.09 per hour and Seymour 2017 in New York at 1.04 per hour. Each line extends the published per-hour odds ratio across the range. A marker follows the slider. Beside the chart, bars show Liu 2017's absolute increase in mortality per hour of delay: 0.3 percent for sepsis, 0.4 percent for severe sepsis and 1.8 percent for shock."></svg>
+      <div class="ctrls"><button class="btn primary" id="faPlay">Play</button><label class="stage-cap tl" for="faT">Hours of delay <input type="range" id="faT" min="0" max="1" step="0.001" value="0.5"></label></div>
+      <div class="readout" id="faRead"></div>
+      <p class="stage-cap">Each line extends one study's published per-hour odds ratio, assuming it stays constant; the studies measured time from different starting points and in different groups. Not a prediction for anyone. [[Kumar2006Delay,Peltan2019Door,Liu2017Antibiotics,Seymour2017Timing]]</p>
+    </div>
+    <aside class="note" id="faNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who</th><th>Finding as published</th></tr></thead>
+    <tbody>
+      <tr><td><b>Kumar 2006</b></td><td>2,731 adults with septic shock, 14 ICUs (retrospective)</td><td>Effective antimicrobials within 1 h of documented hypotension: 79.9% survival. "Each hour of delay in antimicrobial administration over the ensuing 6 hrs was associated with an average decrease in survival of 7.6%" (as published). Only 50% got effective therapy within 6 h; median 6 h. [[Kumar2006Delay]]</td></tr>
+      <tr><td><b>Kumar 2009</b></td><td>5,715 patients with septic shock</td><td>Survival 52.0% after appropriate and 10.3% after inappropriate initial antimicrobials (OR 9.45); inappropriate therapy in about 20%. [[Kumar2009Inappropriate]]</td></tr>
+      <tr><td><b>Ferrer 2014</b></td><td>17,990 patients, SSC database</td><td>Adjusted hospital mortality "increased steadily after 1 hour"; overall in-hospital mortality 29.7%. [[Ferrer2014Antibiotics]]</td></tr>
+      <tr><td><b>Seymour 2017</b></td><td>49,331 patients, 149 New York hospitals</td><td>OR 1.04 per hour to bundle completion and 1.04 per hour to antibiotics; time to the fluid bolus was not associated (OR 1.01). Medians: 0.95 h to antibiotics, 1.30 h to the bundle, 2.56 h to the bolus. [[Seymour2017Timing]]</td></tr>
+      <tr><td><b>Liu 2017</b></td><td>35,000 inpatients, 21 Kaiser Permanente EDs</td><td>OR 1.09 per hour from registration; absolute mortality rose 0.3% per hour in sepsis, 0.4% in severe sepsis and 1.8% in shock. Median 2.1 h. [[Liu2017Antibiotics]]</td></tr>
+      <tr><td><b>Peltan 2019</b></td><td>10,811 ED patients, 4 Utah hospitals</td><td>10% higher odds of 1-year mortality per hour from arrival (5–14%). Over 3 h vs 3 h or less: OR 1.27; over 1 h vs 1 h or less: OR 1.26 (0.98–1.62), not significant. [[Peltan2019Door]]</td></tr>
+      <tr><td><b>Im 2022</b></td><td>3,035 patients, Korean EDs</td><td>Antibiotics within 1 h linked to lower in-hospital mortality in septic shock (OR 0.66, 0.44–0.99) but not in sepsis without shock (OR 0.85, 0.64–1.15). [[Im2022Antibiotics]]</td></tr>
+      <tr><td><b>Gaieski 2010</b></td><td>261 ED patients on EGDT</td><td>Appropriate antibiotics within 1 h of triage: mortality 19.5% vs 33.2% (OR 0.30). [[Gaieski2010Antibiotics]]</td></tr>
+      <tr><td><b>Puskarich 2011</b></td><td>291 ED patients with septic shock, protocolised</td><td>No rise in mortality per hour after triage; antibiotics given only after shock was recognised: OR 2.4. [[Puskarich2011Antibiotics]]</td></tr>
+      <tr><td><b>Sterling 2015</b></td><td>Meta-analysis, 11 studies</td><td>No significant difference for antibiotics over 3 h after triage (OR 1.16, 0.92–1.46) or over 1 h after shock recognition (OR 1.46, 0.89–2.40). [[Sterling2015Meta]]</td></tr>
+      <tr><td><b>PHANTASi 2018</b></td><td>2,672 patients, Netherlands (randomised)</td><td>Ceftriaxone 2,000 mg in the ambulance a median 26 min before arrival: 28-day mortality 8% in both arms (RR 0.95, 0.74–1.24). [[Alam2018PHANTASi]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Early goal-directed therapy: one trial, then three</h3>
+  <div class="stepper" id="feSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <svg id="feSvg" viewBox="0 0 720 320" role="img" aria-label="Horizontal mortality bars for five studies, appearing one by one. Rivers 2001: 30.5 percent with early goal-directed therapy against 46.5 percent with standard therapy. ProCESS 2014: 21.0, 18.2 and 18.9 percent. ARISE 2014: 18.6 against 18.8 percent. ProMISe 2015: 29.5 against 29.2 percent. PRISM 2017, pooling the three: 24.9 against 25.4 percent."></svg>
+      <div class="ctrls"><button class="btn primary" id="fePlay">Play</button><label class="stage-cap tl" for="feT">Trials <input type="range" id="feT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap">Mortality as published; the outcome window differs by trial (in-hospital, 60-day or 90-day), so compare bars within a trial, not across trials. [[Rivers2001EGDT,ProCESS2014,ARISE2014,Mouncey2015ProMISe,PRISM2017]]</p>
+    </div>
+    <aside class="note" id="feNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">SEP-1 and mandated sepsis care</h3>
+  <p class="prose">US hospitals have reported the Medicare SEP-1 measure since October 2015. A case passes only if every qualifying element is done: lactate, blood cultures, broad-spectrum antibiotics, 30 mL/kg crystalloid, vasopressors and reassessment. [[Townsend2022SEP1,Rhee2018SEP1]]</p>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Observational</span><h4>Compliant care, lower mortality</h4><p>In Medicare data from 3,241 hospitals, SEP-1-compliant care was associated with lower 30-day mortality: 21.81% vs 27.48% in the standard match and 22.22% vs 26.28% in the stringent match. [[Townsend2022SEP1]]</p></div>
+    <div class="card"><span class="tag rx">Chart review</span><h4>No difference after adjustment</h4><p>In 851 cases at 7 US hospitals, 67% failed SEP-1. Crude mortality was higher in failures (18.4% vs 11.0%) but not after adjusting for illness severity (OR 1.36, 0.85–2.18). The commonest reason for failing was a missed 3- or 6-hour lactate (40%); antibiotic delays over 3 h were linked to death (OR 1.94) but caused only 15.1% of failures. [[Rhee2018SEP1]]</p></div>
+    <div class="card"><span class="tag rx">Position paper</span><h4>Limit it to septic shock?</h4><p>IDSA's 2021 position paper, with five endorsing societies, recommends limiting SEP-1 to septic shock, warning that it may drive antibiotic overuse and that its "time zero" definition is not evidence-based. [[Rhee2021IDSA]]</p></div>
+    <div class="card"><span class="tag rx">State mandate</span><h4>New York's regulations</h4><p>After New York's 2013 sepsis regulations, 3-hour bundle compliance rose from 53.4% to 64.7% and risk-adjusted mortality fell from 28.8% to 24.4% (91,357 hospitalisations). Against 4 control states, adjusted mortality was 3.2% (1.0–5.4%) lower than expected by the 10th quarter. [[Levy2018NewYork,Kahn2019NYMandate]]</p></div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Unresolved</span><h4>One hour for everyone?</h4><p>Cohorts show the strongest timing effect in shock and weak or no effect without it; a meta-analysis found no significant benefit at the 1-h or 3-h thresholds; IDSA argues mandated timing should be limited to septic shock. SSC 2021 now separates the two groups. [[Im2022Antibiotics,Liu2017Antibiotics,Sterling2015Meta,Rhee2021IDSA,Evans2021SSC]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Is "7.6% per hour" causal?</h4><p>The association is consistent in large cohorts, but the causal size is uncertain. Kumar's figure comes from a retrospective cohort open to confounding by indication; Puskarich found no hourly effect from triage in a protocolised cohort, and giving antibiotics in the ambulance did not change mortality in a randomised trial. [[Kumar2006Delay,Puskarich2011Antibiotics,Alam2018PHANTASi]]</p></div>
+    <div class="card"><span class="tag rx">Conflicting</span><h4>Does SEP-1 save lives?</h4><p>The evidence is observational only, and it conflicts: Medicare data favour compliance, a multicentre chart review found no difference after severity adjustment, and the New York data suggest a population-level benefit. [[Townsend2022SEP1,Rhee2018SEP1,Levy2018NewYork,Kahn2019NYMandate]]</p></div>
+  </div>
+  <p class="callout">Before this: <button class="btn ghost" data-go="tests">Lactate, cultures &amp; tests</button> · Next: <button class="btn ghost" data-go="fluids">Fluids</button> · Choosing antibiotics: <button class="btn ghost" data-go="source">Source control &amp; stewardship</button></p>
+</section>

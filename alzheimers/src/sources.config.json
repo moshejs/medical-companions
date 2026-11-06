@@ -1,0 +1,17 @@
+{
+ "_note": "The research passes for this companion are not in the repository, so tools/compile_sources.py skips it and the committed sources.json is the record. The settings below are the ones it was compiled with.",
+ "areas": {
+  "A": "Epidemiology, stages & history",
+  "B": "Pathology",
+  "C": "Genetics",
+  "D": "Diagnosis & biomarkers",
+  "E": "Symptomatic drugs & BPSD",
+  "F": "Anti-amyloid antibodies",
+  "G": "Prevention, living & caregiving",
+  "H": "Nursing care",
+  "I": "Research & cure"
+ },
+ "validated_tag": false,
+ "match": "legacy",
+ "url": "balanced"
+}
