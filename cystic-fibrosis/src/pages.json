@@ -1,1 +1,94 @@
-{}
+{
+ "gene": {
+  "title": "CFTR gene and CF inheritance: F508del, carriers and Punnett odds",
+  "description": "How the CFTR gene on chromosome 7 causes cystic fibrosis: F508del animated, a carrier Punnett calculator, measured carrier rates and CFTR-related disorders."
+ },
+ "variants": {
+  "title": "CFTR variant classes I–VII: F508del, G551D, R117H and genotype",
+  "description": "CFTR variant classes I to VII animated, a pick-a-variant explorer, minimal vs residual function, genotype and pancreatic status, modifier genes, theratyping."
+ },
+ "cftr": {
+  "title": "How CFTR works: chloride channel gating, airway liquid and salty sweat",
+  "description": "Animated CFTR gating cycle (PKA, ATP, open pore), the airway surface liquid with and without CFTR, the ENaC debate and why CF sweat is salty, with sources."
+ },
+ "lungs": {
+  "title": "CF lung disease: mucus, germs by age, exacerbations, bronchiectasis",
+  "description": "How cystic fibrosis lung disease unfolds from infancy: mucus, germs by age, the infection-inflammation cycle, FEV1 decline, exacerbations and AREST CF data."
+ },
+ "digestive": {
+  "title": "CF pancreas, gut and liver: enzymes, meconium ileus, DIOS, liver",
+  "description": "Cystic fibrosis and the gut, animated: pancreatic insufficiency in 85%, meconium ileus, DIOS vs constipation, CF liver disease and colonoscopy from 40."
+ },
+ "organs": {
+  "title": "CF-related diabetes, salty sweat, bones and fertility in CF, animated",
+  "description": "CFRD by age with the yearly OGTT from 10, plus a body map of CF bone disease, nasal polyps, kidney stones, hearing, salt loss and CBAVD in 97–98% of men."
+ },
+ "screening": {
+  "title": "CF newborn screening: IRT, DNA panels, sequencing and CRMS/CFSPID",
+  "description": "How cystic fibrosis newborn screening works: IRT, variant panels and sequencing, sweat test referral, CRMS/CFSPID and the 2017 diagnostic criteria."
+ },
+ "sweattest": {
+  "title": "CF sweat test: chloride bands, method and CFTR genetic testing",
+  "description": "How a cystic fibrosis sweat test is done, what the 30 and 60 mmol/L chloride bands mean, CFTR2 genetic testing and sweat chloride on modulators."
+ },
+ "monitoring": {
+  "title": "CF lung function: spirometry, FEV1 % predicted, LCI and annual review",
+  "description": "Spirometry in cystic fibrosis explained: FEV1, FVC and percent predicted with GLI equations, lung clearance index, CT imaging and annual review checks."
+ },
+ "modulators": {
+  "title": "CFTR modulators: how correctors and potentiators work, and safety",
+  "description": "How Trikafta, Alyftrek, Kalydeco, Orkambi and Symdeko fix CFTR: correctors, potentiators, approval dates, liver tests, cataracts and CYP3A, from the labels."
+ },
+ "trials": {
+  "title": "CFTR modulator trials and eligibility: STRIVE to SKYLINE, by genotype",
+  "description": "CF modulator trials animated: FEV1 and sweat chloride from STRIVE to SKYLINE and PROMISE, plus a teaching tool for what US labels say by genotype and age."
+ },
+ "clearance": {
+  "title": "CF airway clearance: hypertonic saline, dornase alfa and PEP, animated",
+  "description": "Cystic fibrosis airway clearance and inhaled therapies: hypertonic saline, dornase alfa, PEP and the vest, CFF grades, Cochrane reviews and SIMPLIFY."
+ },
+ "infection": {
+  "title": "CF infections: Pseudomonas, antibiotics and the 6-foot rule explained",
+  "description": "Cystic fibrosis infections: Pseudomonas eradication (ELITE), TOBI and Cayston cycles, STOP2, MRSA, Burkholderia, NTM and the 2 m infection-control rule."
+ },
+ "nutrition": {
+  "title": "CF nutrition and enzymes: PERT dosing, vitamins A D E K and BMI goals",
+  "description": "How enzyme capsules let fat be absorbed in CF, the Creon label dose ranges and fibrosing colonopathy, vitamins A, D, E, K, salt and BMI goals on modulators."
+ },
+ "transplant": {
+  "title": "CF lung transplant: referral thresholds, survival and palliative care",
+  "description": "Cystic fibrosis advanced lung disease: CFF 2019 transplant referral at FEV1 50, 40 and 30%, survival after transplant, ETI-era trends and palliative care."
+ },
+ "living": {
+  "title": "Living with cystic fibrosis: treatment burden, school, work and mood",
+  "description": "How long CF treatments take each day, adherence, school, moving to adult care, work, depression and anxiety screening and ageing, with cited figures."
+ },
+ "pregnancy": {
+  "title": "CF fertility and pregnancy: CBAVD, partner testing and modulators",
+  "description": "Female and male fertility in CF, sperm retrieval and ICSI, partner carrier testing, pregnancy outcomes on modulators, label wording and newborn checks."
+ },
+ "nursing": {
+  "title": "Cystic fibrosis nursing care: exacerbation admission day by day",
+  "description": "A CF exacerbation admission day by day: infection control, IV aminoglycoside monitoring, ports, enzymes, glucose checks, discharge and a checklist."
+ },
+ "frontier": {
+  "title": "Cystic fibrosis research frontier: gene therapy, mRNA and gene editing",
+  "description": "Evidence-labelled map of CF research for people without a modulator: gene addition, inhaled mRNA, read-through, base and prime editing, ENaC and ionocytes."
+ },
+ "review": {
+  "title": "Cystic fibrosis flashcards and mnemonics: 90 cited cards by topic",
+  "description": "Flip-card review of cystic fibrosis: CFTR genetics, variant classes, organs, sweat test, modulators, infection, nutrition and transplant, each answer cited."
+ },
+ "quiz": {
+  "title": "Cystic fibrosis quiz: 79 questions with cited explanations",
+  "description": "Test yourself on cystic fibrosis: genetics, CFTR, lungs and pancreas, newborn screening, sweat chloride, modulator trials, treatment and care, with sources."
+ },
+ "glossary": {
+  "title": "Cystic fibrosis glossary: CFTR, sweat test, modulators and more",
+  "description": "Searchable cystic fibrosis glossary: F508del, theratypes, IRT, CRMS/CFSPID, FEV1, LCI, Trikafta, dornase alfa, PERT, CFRD and CBAVD, each cited and linked."
+ },
+ "sources": {
+  "title": "Cystic fibrosis sources: every cited reference, searchable",
+  "description": "All references behind the CF Companion: trials, registry studies, reviews, CF Foundation and ECFS guidance and US drug labels, with PubMed, DOI and NCT links."
+ }
+}
