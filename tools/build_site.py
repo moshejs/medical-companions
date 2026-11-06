@@ -14,7 +14,7 @@ S. recompiles each companion's src/sources.json from its research passes
    language in the companion's "langs" whose first page may be indexed),
    its share-card.png from hub/share-card.html when either that or site.json changed,
    and 404.html from hub/404.html
-3. writes sitemap.xml and robots.txt. The sitemap lists every built page that may be
+3. writes sitemap.xml and robots.txt (the crawler policy in tools/robots.py). The sitemap lists every built page that may be
    indexed (not noindex), each with the hreflang pairs from its own head. A translation
    is noindex until it is complete and its reviewer is named in site.json (tools/build.py),
    so unreviewed pages never reach the sitemap
@@ -29,7 +29,7 @@ S. recompiles each companion's src/sources.json from its research passes
 Change "site" in site.json to move the site to another address, then run this again.
 """
 import datetime, html, json, pathlib, re, subprocess, sys
-import fonts, i18n
+import fonts, i18n, robots
 
 ROOT, CFG, SITE = i18n.ROOT, i18n.CFG, i18n.SITE
 TODAY = datetime.date.today().isoformat()
@@ -184,7 +184,7 @@ def _llms():
                 out.append(f"  - {i18n.lang(l)['english']}: {url(c['slug'], l)}")
     return "\n".join(out) + "\n"
 (ROOT / "llms.txt").write_text(_llms(), encoding="utf-8")
-(ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
+(ROOT / "robots.txt").write_text(robots.render(SITE), encoding="utf-8")  # the policy: tools/robots.py
 print(f"wrote sitemap.xml ({len(rows)} pages) and robots.txt")
 
 # 4. redirects from the old addresses. GitHub Pages cannot send a real 301, so each
