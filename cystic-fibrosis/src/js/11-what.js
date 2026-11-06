@@ -143,7 +143,7 @@ inits.what=()=>{
       s+=`<rect x="${bx}" y="${by}" width="${f1(Math.max(1,xs-bx))}" height="${bh}" rx="3" style="fill:${col}"/>`;
       if(r.hi>r.lo*1.01)s+=`<rect x="${f1(xs)}" y="${by}" width="${f1(Math.max(1,xe-xs))}" height="${bh}" rx="3" style="fill:${col};opacity:.35"/>`;
       s+=`<text x="${f1(xe+6)}" y="${by+10}" class="t-xs" style="opacity:${f1(pgrow)}">${r.lab}</text>`});
-    s+=`<text x="${N?14:bx}" y="${f1(top+R.length*rh+32)}" class="t-xs">${pmode==='gnomad'?'bars: published range (light part = uncertainty)':'per 100,000 = 100,000 ÷ N · light part of a bar = published range'}</text>`;
+    s+=`<text x="${N?14:bx}" y="${f1(top+R.length*rh+32)}" class="t-xs">${pmode==='gnomad'?'bars: published range (light part = uncertainty)':'per 100,000 = 100,000 ÷ N · light part = published range · darker = more than 1 in 2,000'}</text>`;
     pv.innerHTML=s}
   function pSet(m){pmode=m;$$('#whPrevBtns [data-pv]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.pv===m));
     pcap.innerHTML=CAPS[m];if(pstop)pstop();pgrow=0;pstop=animate(650,q=>{pgrow=ease(q);pDraw()},()=>{pstop=null})}
@@ -164,7 +164,7 @@ inits.what=()=>{
     txt:'Blocked bile ducts can lead to biliary cirrhosis [[Elborn2016]]. CF liver disease is one of the common comorbidities of classical CF [[Shteinberg2021]]. More in <a href="#digestive" data-go="digestive">Pancreas, gut &amp; liver</a>.'},
    {id:'panc',n:'Pancreas',lx:[290,236],
     t:'Pancreas: enzymes that never arrive',
-    txt:'About 85% of people with CF are pancreatic insufficient, most soon after birth [[Singh2017PI]]. Two severe variants (such as F508del or G551D) go with insufficiency; a mild variant (such as R117H) with sufficiency [[Kristidis1992]]. Untreated, it means malabsorption and poor growth [[Elborn2016,Friedman2025]]. Damage to the islets can add CF-related diabetes [[Shteinberg2021]].',
+    txt:'About 85% of people with CF are pancreatic insufficient, most soon after birth [[Singh2017PI]]. Two severe variants (such as F508del or G551D) go with insufficiency; a mild variant (such as R117H) with sufficiency [[Kristidis1992]]. Untreated, it means malabsorption and poor growth [[Elborn2016,Friedman2025]]. CF-related diabetes is a common comorbidity [[Shteinberg2021]].',
     hook:'About 85% of people with CF are pancreatic insufficient [[Singh2017PI]].'},
    {id:'gut',n:'Intestine',lx:[96,300],
     t:'Gut: meconium ileus, DIOS and prolapse',
@@ -187,7 +187,7 @@ inits.what=()=>{
     /* body outline */
     s+=`<path d="M200 22C224 22 238 40 238 64C238 86 226 100 214 106L214 118C250 124 276 136 286 160L318 300C322 316 316 326 306 326C298 326 294 318 292 310L262 196L262 300C262 330 256 360 250 380L246 456L212 456L206 352L194 352L188 456L154 456L150 380C144 360 138 330 138 300L138 196L108 310C106 318 102 326 94 326C84 326 78 316 82 300L114 160C124 136 150 124 186 118L186 106C174 100 162 86 162 64C162 40 176 22 200 22Z" style="fill:var(--skin);stroke:var(--line);stroke-width:1.5"/>`;
     /* sinuses */
-    s+=`<g style="opacity:${op('sinus')}"><ellipse cx="190" cy="62" rx="6" ry="8" style="fill:var(--mucus);stroke:var(--mucus-thick)"/><ellipse cx="210" cy="62" rx="6" ry="8" style="fill:var(--mucus);stroke:var(--mucus-thick)"/><circle cx="200" cy="78" r="4" style="fill:var(--mucus-thick)"/></g>`;
+    s+=`<g style="opacity:${op('sinus')}"><ellipse cx="195" cy="46" rx="4" ry="5" style="fill:var(--mucus);stroke:var(--mucus-thick)"/><ellipse cx="205" cy="46" rx="4" ry="5" style="fill:var(--mucus);stroke:var(--mucus-thick)"/><path d="M180 70q6 -6 12 0q-6 8 -12 0ZM208 70q6 -6 12 0q-6 8 -12 0Z" style="fill:var(--mucus);stroke:var(--mucus-thick)"/></g>`;
     /* lungs from the kit */
     s+=`<g style="opacity:${op('lungs')}">${lungs(200,170,.5,{plugs:hl('lungs')?.4+.2*opulse:.3,inflam:hl('lungs')?.4:.2,id:'whLg'}).svg}</g>`;
     /* liver (the person's right = viewer's left) */
@@ -203,7 +203,7 @@ inits.what=()=>{
     /* vas deferens */
     s+=`<g style="opacity:${op('vas')}"><path d="M186 344C178 360 182 372 194 374M214 344C222 360 218 372 206 374" style="fill:none;stroke:var(--duct);stroke-width:3;stroke-dasharray:${hl('vas')?'4 4':'0'}"/></g>`;
     /* label for the chosen organ */
-    const tgt={lungs:[226,150],sinus:[208,62],liver:[160,230],panc:[240,244],gut:[176,312],sweat:[302,288],vas:[212,366]}[org];
+    const tgt={lungs:[226,150],sinus:[214,68],liver:[160,230],panc:[240,244],gut:[176,312],sweat:[302,288],vas:[212,366]}[org];
     const [lx,ly]=O.lx,left=lx<200;
     s+=`<path d="M${lx+(left?40:-6)} ${ly-4}L${tgt[0]} ${tgt[1]}" style="stroke:var(--ink);stroke-width:1.3;fill:none" marker-end="url(#whOa)"/>`;
     s+=`<rect x="${left?lx-62:lx-4}" y="${ly-18}" width="${O.n.length*7.4+14}" height="22" rx="11" style="fill:var(--ink)"/><text x="${left?lx-55:lx+3}" y="${ly-3}" class="t-lbl" style="fill:var(--bg);font-size:12px">${O.n}</text>`;
@@ -216,7 +216,7 @@ inits.what=()=>{
 
   /* ---------------- (4) age at diagnosis, with and without screening ---------------- */
   const ssv=$('#whScr');let sc=0,spos=72,sstop=null;
-  function sDraw(){const N=vb(ssv,'720 200','400 230'),x0=N?24:40,w=N?350:640,yA=N?150:128,X=wk=>x0+w*wk/80;
+  function sDraw(){const N=vb(ssv,'720 200','360 210'),x0=N?16:40,w=N?324:640,yA=N?150:128,X=wk=>x0+w*wk/80;
     let s=`<text x="${x0}" y="24" class="t-lbl">${sc?'With newborn screening: diagnosed at a mean of 12 weeks':'Without screening: diagnosed at a mean of 72 weeks'}</text>`;
     if(N)s=`<text x="${x0}" y="22" class="t-lbl">${sc?'With newborn screening':'Without screening'}</text><text x="${x0}" y="40" class="t-sm">mean age at diagnosis: ${sc?'12':'72'} weeks</text>`;
     s+=`<rect x="${x0}" y="${yA-8}" width="${f1(X(spos)-x0)}" height="16" rx="8" style="fill:${sc?'var(--good-soft)':'var(--warn-soft)'}"/>`;

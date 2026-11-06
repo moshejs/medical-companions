@@ -1,4 +1,12 @@
 {
+ "home": {
+  "title": "Cystic fibrosis explained: CFTR, symptoms, diagnosis and modulators",
+  "description": "Cystic fibrosis in cited animations: the CFTR gene and inheritance, lungs and pancreas, newborn screening, the sweat test, CFTR modulators and living with CF."
+ },
+ "what": {
+  "title": "What is cystic fibrosis? Organs, prevalence and survival over time",
+  "description": "What cystic fibrosis is: the organs it affects, birth prevalence by country and ancestry, how screening changed diagnosis, and US survival from 1938 to 2019."
+ },
  "gene": {
   "title": "CFTR gene and CF inheritance: F508del, carriers and Punnett odds",
   "description": "How the CFTR gene on chromosome 7 causes cystic fibrosis: F508del animated, a carrier Punnett calculator, measured carrier rates and CFTR-related disorders."
@@ -74,6 +82,10 @@
  "frontier": {
   "title": "Cystic fibrosis research frontier: gene therapy, mRNA and gene editing",
   "description": "Evidence-labelled map of CF research for people without a modulator: gene addition, inhaled mRNA, read-through, base and prime editing, ENaC and ionocytes."
+ },
+ "history": {
+  "title": "History of cystic fibrosis: a timeline from 1606 to the Lasker award",
+  "description": "A cited timeline of cystic fibrosis: the salty-kiss folklore, Andersen 1938, the sweat test, the CFTR gene in 1989, newborn screening and CFTR modulators."
  },
  "review": {
   "title": "Cystic fibrosis flashcards and mnemonics: 90 cited cards by topic",
