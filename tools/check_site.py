@@ -7,10 +7,15 @@ Fails (exit 1) on:
 - a sitemap URL with no built page, listed twice, marked noindex, or whose canonical is another URL
 - an indexable page (no noindex, canonical to itself) missing from the sitemap
 - an internal link or asset that points at nothing, or a link to #id that the target page lacks
+- a robots.txt that does not say what tools/robots.py says (blocked crawlers kept out of
+  everything, answer engines and search engines let in), or that blocks a sitemap URL,
+  share-card.png, app.js or a font for an agent that should index or preview the page
 
 Usage: check_site.py [-v]
 """
 import html.parser, json, pathlib, re, sys, urllib.parse, xml.etree.ElementTree as ET
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import robots
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))["site"].rstrip("/")
@@ -122,6 +127,21 @@ for f in pages:
     rel = f.relative_to(ROOT).parent
     self_url = SITE + "/" + ("" if str(rel) == "." else str(rel).replace("\\", "/") + "/")
     if pg.canonical == self_url and self_url not in seen: err(f"sitemap: indexable page {self_url} is missing")
+
+# 3. robots.txt: the three groups, and nothing an indexing or previewing agent needs is blocked
+rb = (ROOT / "robots.txt").read_text(encoding="utf-8")
+path_of = lambda u: urllib.parse.urlsplit(u).path or "/"
+for a in robots.BLOCKED:
+    if robots.allowed(rb, a, "/"): err(f"robots: {a} is not blocked")
+readers = ["Googlebot", "Bingbot", "Applebot", "Twitterbot", "facebookexternalhit"] + robots.ANSWER_BOTS
+needed = [path_of(l) for l in locs] + ["/share-card.png", "/adhd/share-card.png", "/adhd/app.js?v=0", "/llms.txt", "/sitemap.xml"]
+needed += [f"/fonts/{f.name}" for f in sorted((ROOT / "fonts").glob("*.woff2"))[:1]]
+for a in readers:
+    for p in needed:
+        if not robots.allowed(rb, a, p): err(f"robots: {a} may not fetch {p}")
+for p in ["/adhd/src/sources.json", "/adhd/research/E-medication.md", "/tools/build.py", "/hub/index.html", "/adhd/README.md", "/site.json"]:
+    if robots.allowed(rb, "Googlebot", p): err(f"robots: internal {p} is not disallowed")
+if f"Sitemap: {SITE}/sitemap.xml" not in rb: err("robots: no Sitemap line for the sitemap")
 
 print(f"check_site: {len(pages)} pages, {sum(len(parse(f).ld) for f in pages)} JSON-LD blocks, {len(locs)} sitemap URLs")
 if errors:
