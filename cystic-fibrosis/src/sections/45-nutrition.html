@@ -1,0 +1,77 @@
+<!-- ================= 4.5 NUTRITION & ENZYMES ================= -->
+<style>
+#m-nutrition .tbl table{min-width:600px}
+#m-nutrition .card>.tag{align-self:flex-start}
+#m-nutrition .nubtns{display:flex;flex-wrap:wrap;gap:6px}
+#m-nutrition .nubtns .btn{font-size:13px}
+#m-nutrition .nuwarn{border-left:4px solid var(--warn);background:var(--warn-soft);border-radius:0 12px 12px 0;padding:10px 14px;font-size:15px;max-width:72ch}
+#m-nutrition .nuwarn b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warn);display:block;margin-bottom:2px}
+</style>
+<section class="mod" id="m-nutrition" data-mod="nutrition" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Nutrition &amp; enzymes</h2>
+    <p class="lede">Food is part of CF treatment. Follow the fat in a meal through the gut with and without an enzyme capsule, see the dose ranges the enzyme label publishes and why there is a ceiling, then the vitamins, the salt and the growth goals, which are changing in the modulator era.</p></div>
+
+  <p class="nuwarn" role="note"><b>Teaching, not dosing</b>The doses and targets on this page are quoted from labels and guidelines so that you can understand them. They are not instructions. Enzyme doses, vitamins and salt are set for each person by their CF team.</p>
+
+  <div class="stepper" id="nuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 384" style="min-width:560px" role="img" aria-label="A six-scene animation. Fat droplets from a plate travel through the stomach and the small intestine; without enzymes most reach the stool and a fat-absorbed bar stays low. An enzyme capsule is swallowed with the meal, stays closed in the acid stomach, then opens in the small intestine, releasing orange microspheres among the droplets, which break up and rise into the blood, and the bar passes an 85% mark. Then a logarithmic axis of lipase units per kilogram per meal marks the label's starting doses of 500 and 1,000, the ceiling of 2,500 and the 6,000 stricture warning; and bars show the relative risk of fibrosing colonopathy rising to 10.9 and 199.5 with higher daily doses."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">Play</button><label class="stage-cap tl" for="nuT">Scene <input type="range" id="nuT" min="0" max="1" step="0.001" value="0.07"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The droplets and the fat-absorbed bar show a direction of change, not measurements. Dosing from the Creon label [[FDA-Creon]]; the 85% fat-absorption mark from the CFF infant guideline [[Borowitz2009]]; colonopathy risk from FitzSimmons 1997 [[FitzSimmons1997]].</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Enzyme dosing as published</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Who</th><th>What the source states</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Infants, birth to 12 months</th><td>3,000 lipase units (one capsule) per 120 mL of formula or per breastfeeding</td><td>Creon label [[FDA-Creon]]</td></tr>
+      <tr><th>Infants (CFF guideline)</th><td>Start at 2,000–5,000 lipase units per feeding (usually described as 120 mL), adjusted up to no more than 2,500 lipase units/kg per feeding, with a maximum of 10,000 lipase units/kg/day</td><td>CFF infant guideline [[Borowitz2009]]</td></tr>
+      <tr><th>Over 12 months to under 4 years</th><td>Starting dose 1,000 lipase units/kg/meal</td><td>Creon label [[FDA-Creon]]</td></tr>
+      <tr><th>4 years and over</th><td>Starting dose 500 lipase units/kg/meal</td><td>Creon label [[FDA-Creon]]</td></tr>
+      <tr><th>Snacks</th><td>About half the meal dose; daily dosing should reflect about three meals plus two or three snacks</td><td>Creon label [[FDA-Creon]]</td></tr>
+      <tr><th>Ceiling (over 12 months)</th><td>Do not exceed 2,500 lipase units/kg/meal, 10,000 lipase units/kg/day, or 4,000 lipase units/g fat ingested/day "without further investigation"</td><td>Creon label [[FDA-Creon]]</td></tr>
+      <tr><th>Warnings</th><td>Doses above 6,000 lipase units/kg/meal have been associated with colonic stricture in children under 12; hyperuricaemia at high doses (enzymes contain purines); a theoretical risk of porcine virus transmission; hypersensitivity to porcine proteins</td><td>Creon label [[FDA-Creon]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p><b>Enzymes on CFTR modulators.</b> The 2020 Academy of Nutrition and Dietetics guideline found not enough evidence to reduce or stop enzymes when people start CFTR modulators; if a person stops, it advises monitoring faecal elastase, weight, gut symptoms and fat-soluble vitamins [[McDonald2021]]. In people aged 12 and over, faecal elastase did not meaningfully change after 6 months of elexacaftor/tezacaftor/ivacaftor [[Schwarzenberg2023PROMISEGI]]; in young children it rose, some above the sufficiency threshold <span class="ev early">Early evidence</span> [[Rosenfeld2018ARRIVAL,Goralski2026]]. The pancreas itself is covered in <a href="#digestive" data-go="digestive">Pancreas, gut &amp; liver</a>.</p>
+  </div>
+
+  <h3 class="sub">Fat-soluble vitamins: A, D, E and K</h3>
+  <div class="prose">
+    <p>Without enough fat absorption, the vitamins that dissolve in fat are absorbed poorly too. The CFF infant guideline recommends starting CF-specific multivitamins with at least the recommended vitamins A, D, E and K shortly after diagnosis, and checking blood levels about 2 months after starting, then yearly [[Borowitz2009]]. Many newly diagnosed infants have low levels of one or more; low vitamin E is associated with lower cognitive performance [[Borowitz2009]]. The tiles show the CFF consensus doses as the infant guideline tabulates them [[Borowitz2009]].</p>
+  </div>
+  <div class="nubtns" id="nuVitBtns" role="group" aria-label="Choose an age band">
+    <button class="btn" data-vit="inf" aria-pressed="true">Infants 0–12 months</button>
+    <button class="btn" data-vit="tod" aria-pressed="false">Ages 1–3 years</button>
+  </div>
+  <div class="stage">
+    <svg id="nuVit" viewBox="0 0 720 200" role="img" aria-label="Four tiles, one per fat-soluble vitamin, A, D, E and K, each showing the daily dose the CFF consensus table gives for the chosen age band, with a bar comparing it with the higher band. Infants 0 to 12 months: vitamin A 1,500 IU, D 400 IU, E 40 to 50 IU, K 300 to 500 micrograms. Ages 1 to 3: A 5,000 IU, D 400 to 800 IU, E 80 to 150 IU, K 300 to 500 micrograms."></svg>
+    <p class="stage-cap">CFF consensus doses as tabulated in the infant guideline, quoted for teaching [[Borowitz2009]]. The bars compare each dose with the 1–3-year band (the upper end of each range). Vitamin D: the CFF vitamin D guideline advises yearly checks, preferably at the end of winter, and treats a 25-hydroxyvitamin D of at least 30 ng/mL (75 nmol/L) as sufficient [[Tangpricha2012]]. A liposomal preparation raised vitamin D more than standard preparations over 3 months in one trial <span class="ev early">Early evidence</span> [[Nowak2022]].</p>
+  </div>
+
+  <h3 class="sub">Energy, fat and salt</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">energy</span><h4>More calories than peers</h4><p>ADA/CFF 2010: usually 120–150% of the recommended daily intake for age, because resting energy use is higher and calories are lost through malabsorption [[Moran2010CFRD]]. ISPAD 2022's table: fat 40% of energy, carbohydrate 45–50%, protein 200% of the non-CF reference intake, and unrestricted salt [[Ode2022ISPAD]].</p></div>
+    <div class="card"><span class="tag rx">modulator era</span><h4>Needs are changing</h4><p>The Academy of Nutrition and Dietetics notes that CFTR modulators may lower energy expenditure, so energy prescriptions may need reducing to avoid excess weight gain; it describes the older approach as a high-energy, high-fat "legacy diet" [[McDonald2021]].</p></div>
+    <div class="card"><span class="tag rx">salt</span><h4>Extra salt for babies</h4><p>The CFF infant guideline recommends 1/8 teaspoon of table salt a day from diagnosis, rising to 1/4 teaspoon at 6 months. One-eighth of a teaspoon holds about 12.5 mEq of sodium, and baby foods contain no added salt [[Borowitz2009]]. ESPEN-ESPGHAN-ECFS recommends sodium supplementation, guided by the urinary sodium:creatinine ratio [[Turck2016Nutrition]]. Why salt is lost: <a href="#organs" data-go="organs">Sweat, diabetes, bones &amp; fertility</a>.</p></div>
+    <div class="card"><span class="tag rx">support</span><h4>Supplements and tubes</h4><p>ESPEN-ESPGHAN-ECFS: oral nutritional supplements, then polymeric tube feeding, when growth or nutrition is impaired; not enough evidence to recommend essential fatty acids, growth hormone, appetite stimulants or probiotics routinely [[Turck2016Nutrition]]. The CFF 2016 guideline covers when to consider tube feeding and care afterwards [[Schwarzenberg2016Tube]].</p></div>
+  </div>
+
+  <h3 class="sub">Growth goals, and weight on modulators</h3>
+  <div class="prose"><p>Good nutrition early in life goes with healthier lungs later: in 3,142 US children, those whose weight-for-age at 4 was above the 50th percentile had fewer pulmonary exacerbations and hospital days by 18, and a survival advantage through childhood [[Yen2013]]. Since modulators, the problem for some people has turned around. These are population figures, not a target for any one person.</p></div>
+  <div class="nubtns" id="nuGrowBtns" role="group" aria-label="Choose a group">
+    <button class="btn" data-grow="child" aria-pressed="true">Children 2–20</button>
+    <button class="btn" data-grow="women" aria-pressed="false">Adult women</button>
+    <button class="btn" data-grow="men" aria-pressed="false">Adult men</button>
+    <button class="btn" data-grow="eti" aria-pressed="false">On elexacaftor/tezacaftor/ivacaftor</button>
+  </div>
+  <div class="stage">
+    <svg id="nuGrow" viewBox="0 0 720 210" role="img" aria-label="A ruler for the chosen group. Children: a BMI percentile ruler with the CFF goal zone at or above the 50th percentile, and marks at the 10th, 70th and 85th percentiles. Adult women and men: a BMI ruler with the goal at or above 22 or 23. On elexacaftor/tezacaftor/ivacaftor: median BMI moving from 23.0 to 24.6 while reported energy intake falls from 2,551 to 2,153 kcal a day, and overweight or obesity at 13 to 18%."></svg>
+    <p class="stage-cap" id="nuGrowCap" aria-live="polite"></p>
+  </div>
+  <div class="prose"><p>Children and adolescents with a BMI-for-age below the 50th percentile, or worrying trends, should be referred for full nutrition assessment by a registered dietitian (Academy of Nutrition and Dietetics) [[McDonald2021]]. Overweight risk is higher in older, male and pancreatic-sufficient people with milder genotypes and better lung function [[McDonald2021]].</p></div>
+</section>
