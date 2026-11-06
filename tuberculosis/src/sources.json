@@ -5231,6 +5231,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "WHO-Mod4-2026",
+  "text": "World Health Organization. WHO consolidated guidelines on tuberculosis: Module 4: treatment and care, second edition. Geneva: World Health Organization; 2026 (issued 21 Sep 2026). ISBN 978-92-4-012512-4 (electronic); WHO IRIS hdl:10665/387622; https://iris.who.int/handle/10665/387622.",
+  "link": "https://iris.who.int/handle/10665/387622",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "WHO IRIS"
+ },
+ {
   "key": "WHO-Mod5-2022",
   "text": "World Health Organization. WHO consolidated guidelines on tuberculosis: Module 5: Management of tuberculosis in children and adolescents. Geneva: World Health Organization; 2022. PMID 35404556; NCBI Bookshelf NBK579387. Text read from WHO IRIS handles 10665/352522 (guidelines) and 10665/352523 (operational handbook).",
   "link": "https://pubmed.ncbi.nlm.nih.gov/35404556/",
