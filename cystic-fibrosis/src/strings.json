@@ -1,0 +1,10 @@
+{
+ "foot.not_advice": "<b>It is not medical advice.</b> It cannot diagnose, and nothing here should start, stop or change a medicine, an airway-clearance routine, enzyme dosing or a care plan without your own CF care team. Sweat-chloride bands, the diagnostic flow, FEV1 percent predicted, genotype tables, the carrier calculator and the modulator eligibility explainer are for learning, never for diagnosis or treatment decisions. Doses, airway-clearance routines, enzyme dosing, infection-control guidance and guideline statements are quoted as published by the CF Foundation, ECFS, NICE and drug labels, never as instructions, and survival figures are registry population statistics, not predictions for any person. Please check the original sources, which are listed in full in the <a href=\"#sources\" data-go=\"sources\">Sources</a> module.",
+ "quiz.answer_is": "The answer is {l}.",
+ "shell.disclaimer": "The CF Companion is an educational synthesis of published literature for study and understanding. It does not replace a doctor, nurse, physiotherapist, dietitian, pharmacist, genetic counsellor or the rest of a CF care team. Sweat-chloride bands, FEV1 percent predicted, genotype and eligibility tables and the carrier calculator are teaching aids, never for diagnosis or treatment decisions. Doses, airway-clearance routines, enzyme dosing and infection-control guidance are quoted as published, never as instructions. Survival and life-expectancy figures are registry population statistics that are changing quickly with CFTR modulators; they are not predictions for any person.",
+ "shell.home": "CF Companion home",
+ "shell.note": "An animated, cited guide for students, people with cystic fibrosis (CF), and their families and caregivers. Educational only, not medical advice. Your place is saved on this device.",
+ "shell.skip": "Skip to the module",
+ "shell.tagline": "Genes, salt, breath",
+ "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). Marked <span class=\"tag warn\">check</span> (not cited anywhere in the guide): {chk}."
+}

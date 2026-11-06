@@ -895,6 +895,15 @@
   "note": "Registry records and statuses rechecked against the ClinicalTrials.gov v2 API on 19 Oct 2026."
  },
  {
+  "key": "CTgovAuTonomy",
+  "text": "ClinicalTrials.gov. NCT04619420, A Study of JNJ-63733657 (posdinemab) in Participants With Early Alzheimer's Disease (Autonomy; Janssen Research & Development). Results first posted 5 Nov 2026; status terminated. Registry results, not peer-reviewed. Validated: ClinicalTrials.gov, 2026-11-06.",
+  "link": "https://clinicaltrials.gov/study/NCT04619420",
+  "areas": [
+   "I"
+  ],
+  "unverified": false
+ },
+ {
   "key": "CTgovGV971",
   "text": "ClinicalTrials.gov. NCT04520412, A Study of Sodium Oligomannate (GV-971) in Participants With Mild to Moderate Alzheimer's Disease (GREEN MEMORY). Registry record accessed October 2026 (status: suspended).",
   "link": "https://clinicaltrials.gov/study/NCT04520412",
@@ -1757,6 +1766,15 @@
   ],
   "unverified": false,
   "note": "Title was shortened; now the full published title."
+ },
+ {
+  "key": "Galpern2024",
+  "text": "Galpern WR, Triana-Baltzer G, Li L, et al. Phase 1 Studies of the Anti-Tau Monoclonal Antibody JNJ-63733657 in Healthy Participants and Participants with Alzheimer's Disease. J Prev Alzheimers Dis. 2024;11(6):1592-1603. PMID 39559872. doi:10.14283/jpad.2024.163. Validated: PubMed, 2026-11-06.",
+  "link": "https://doi.org/10.14283/jpad.2024.163",
+  "areas": [
+   "I"
+  ],
+  "unverified": false
  },
  {
   "key": "Gathercole2021",

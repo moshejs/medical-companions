@@ -150,6 +150,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Andersen2026",
+  "text": "Andersen RE, Talukdar M, Sakamoto T, Exposito-Alonso D, Song JHT, Qian X, et al. Transcriptomic convergence and the female protective effect in autism. Nature. 2026 (online 2026-11-04, ahead of print). PMID 42983080; doi:10.1038/s41586-026-11236-6.",
+  "link": "https://doi.org/10.1038/s41586-026-11236-6",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Anderson2012Elopement",
   "text": "Anderson C, Law JK, Daniels A, Rice C, Mandell DS, Hagopian L, et al. Occurrence and family impact of elopement in children with autism spectrum disorders. Pediatrics. 2012;130(5):870-7. PMID 23045563; PMCID PMC4524545; doi:10.1542/peds.2012-0762.",
   "link": "https://doi.org/10.1542/peds.2012-0762",
@@ -5075,6 +5085,16 @@
   "link": "https://doi.org/10.1002/eat.24369",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sadik2026",
+  "text": "Sadik A, Lundberg M, Khandaker GM, Pardiñas AF, Lee BK, Madley-Dowd P, et al. Changes in the profile of adults diagnosed as autistic since 2010: population-based studies in the UK and Sweden. BMJ Ment Health. 2026;29(1):e302983. PMID 42977525; PMCID PMC13735358; doi:10.1136/bmjment-2026-302983.",
+  "link": "https://doi.org/10.1136/bmjment-2026-302983",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"

@@ -395,7 +395,7 @@ const RV_GL=[
  ["BCG revaccination",`A second BCG dose. The 2025 phase 2b trial in adolescents showed no protection against sustained infection [[Schmidt2025]].`,"bcg"],
  ["BDLLfxC",`A 6-month regimen of bedaquiline, delamanid, linezolid, levofloxacin and clofazimine for MDR/RR-TB, covering children and pregnancy [[WHO-Mod4-2025,Conradie2026]].`,"drtb"],
  ["Bedaquiline",`A diarylquinoline that inhibits mycobacterial ATP synthase; boxed warning for QTc prolongation [[Andries2005,FDA-Sirturo]].`,"drugs"],
- ["BPaL",`Bedaquiline, pretomanid and linezolid for 6 months, used when fluoroquinolone resistance is documented [[WHO-Mod4-2025,Conradie2020]].`,"drtb"],
+ ["BPaL",`Bedaquiline, pretomanid and linezolid for 6 months, used in non-severe pulmonary pre-XDR-TB; WHO 2026 adds clofazimine (BPaLC) when disease is severe [[WHO-Mod4-2026,Conradie2020]].`,"drtb"],
  ["BPaLM",`BPaL plus moxifloxacin, the 6-month regimen for MDR/RR-TB from age 14 [[WHO-Mod4-2025,Nyangwa2022]].`,"drtb"],
  ["Bronchiectasis",`Damaged, widened airways: one form of post-TB lung disease [[Allwood2021]].`,"living"],
  ["CAD (computer-aided detection)",`Software that scores a chest X-ray for TB; some products meet WHO triage targets [[Qin2021]].`,"diagnose"],

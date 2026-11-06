@@ -1,0 +1,80 @@
+<!-- ================= 2.2 PANCREAS, GUT & LIVER ================= -->
+<style>
+#m-digestive .tbl table{min-width:620px}
+#m-digestive .dgmap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:18px;align-items:start}
+@media (max-width:900px){#m-digestive .dgmap{grid-template-columns:minmax(0,1fr)}}
+#m-digestive #dgMap{max-width:440px;margin:0 auto}
+#m-digestive #dgMapInfo{display:flex;flex-direction:column;gap:12px}
+#m-digestive .card>.tag{align-self:flex-start}
+#m-digestive .dgbtns{display:flex;flex-wrap:wrap;gap:6px}
+#m-digestive .dgbtns .btn{font-size:13px}
+</style>
+<section class="mod" id="m-digestive" data-mod="digestive" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · How CF affects the body</p><h2>Pancreas, gut &amp; liver</h2>
+    <p class="lede">The same faulty CFTR channel that thickens airway mucus also clogs the tubes of the pancreas, the bowel and the bile ducts. Scrub through a lifetime: the pancreas from birth, meconium ileus in the newborn, DIOS and constipation, the liver, and bowel cancer screening in adulthood.</p></div>
+
+  <div class="stepper" id="dgSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="dgSvg" viewBox="0 0 720 384" style="min-width:560px" role="img" aria-label="A six-scene animation. First the pancreas, beside the curve of the gut, has its duct plugged by thick secretions, so orange enzyme granules stop short of the gut; fat droplets in the small intestine then pass to the stool instead of being absorbed, an icon array shows 85 in 100 people with CF pancreatic insufficient and a faecal elastase dial falls below 200. Then a newborn bowel swells above a plug of meconium; two colons compare DIOS, a block at the ileocaecum, with constipation through the whole colon; a liver develops plugged bile ducts, patches of focal biliary cirrhosis, nodules and an enlarged spleen while a chart of cumulative liver disease by age rises; and two age lines mark colonoscopy from 40, or 30 after a transplant, beside bars of cancer incidence ratios."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dgPlay">Play</button><label class="stage-cap tl" for="dgT">Scene <input type="range" id="dgT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The organs, plugs and droplets show a direction of change, not anatomy or measurements; the numbers in the right-hand panels are the published figures. Pancreatic status [[Singh2017PI,Somaraju2020,Borowitz2009,Green2026PROMISEPeds]]; meconium ileus [[Sathe2017MI,vanderDoef2011]]; DIOS and constipation [[Houwen2010,vanderDoef2011]]; liver [[Debray2011,Boelle2019,Sellers2024]]; cancer [[Yamada2018,Hadjiliadis2018]].</p>
+    </div>
+    <aside class="note" id="dgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Pancreatic sufficient or insufficient: the genotype decides</h3>
+  <div class="prose">
+    <p>In 538 people with CF whose pancreatic status was documented, each complete CFTR genotype was linked only with pancreatic insufficiency (PI) or only with pancreatic sufficiency (PS), never both. PS came with one or two "mild" alleles (for example R117H, R334W, R347P, A455E, P574H); PI came with two "severe" alleles (for example F508del, G542X, W1282X, G551D) [[Kristidis1992]]. The same group estimates that about 10% of CF alleles may confer sufficiency [[Kristidis1992]].</p>
+    <p>The CFF infant guideline recommends measuring pancreatic status by faecal elastase or coefficient of fat absorption in all infants with CF, and rechecking it in pancreatic-sufficient infants who lose weight or develop gut symptoms [[Borowitz2009]]. The ESPEN-ESPGHAN-ECFS guideline recommends a yearly assessment, including faecal elastase, for people who are pancreatic sufficient [[Turck2016Nutrition]]. Healthy babies, even premature ones, have faecal elastase in the adult normal range by two weeks of age [[Borowitz2009]].</p>
+    <p class="callout"><b>Pancreatitis is a disease of the sufficient pancreas</b> <span class="ev est">Established</span>. It needs surviving gland tissue, so it is a complication of PS, not PI [[Ooi2011Pancreatitis,Singh2017PI]]. Among 277 pancreatic-sufficient people, 22% had pancreatitis; people with it were diagnosed with CF later (median 14.9 vs 9.3 years) and had lower sweat chloride (74.5 vs 82.8 mmol/L) [[Ooi2011Pancreatitis]].</p>
+  </div>
+
+  <h3 class="sub">Where in the gut? A map of the complications</h3>
+  <div class="prose"><p>Switch complications on and off. Each lights its site on the map and adds a card of figures. Figures describe groups of people, not what will happen to any one person.</p></div>
+  <div class="dgbtns" id="dgMapBtns" role="group" aria-label="Choose the complications to show">
+    <button class="btn" data-dg="panc" aria-pressed="true">Pancreas</button>
+    <button class="btn" data-dg="mi" aria-pressed="false">Meconium ileus</button>
+    <button class="btn" data-dg="dios" aria-pressed="true">DIOS</button>
+    <button class="btn" data-dg="con" aria-pressed="false">Constipation</button>
+    <button class="btn" data-dg="gerd" aria-pressed="false">Reflux</button>
+    <button class="btn" data-dg="liver" aria-pressed="false">Liver</button>
+    <button class="btn" data-dg="gb" aria-pressed="false">Gallbladder</button>
+    <button class="btn" data-dg="ca" aria-pressed="false">Cancer</button>
+    <button class="btn ghost" data-dgx="all">Show all</button>
+    <button class="btn ghost" data-dgx="none">Clear</button>
+  </div>
+  <div class="dgmap">
+    <div class="stage">
+      <svg id="dgMap" viewBox="0 0 420 450" role="img" aria-label="A schematic digestive tract inside a body outline: the oesophagus, stomach, liver with the gallbladder, the pancreas inside the curve of the duodenum, the small bowel loops, the ileocaecum where the small bowel meets the colon, and the colon. The sites of the switched-on complications are outlined."></svg>
+      <p class="stage-cap">Schematic. The person's right side is on your left, as in a front view.</p>
+    </div>
+    <div id="dgMapInfo" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">DIOS or constipation?</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>DIOS</th><th>Constipation</th></tr></thead>
+    <tbody>
+      <tr><th>Definition (ESPGHAN CF Working Group)</th><td>"An acute complete or incomplete faecal obstruction in the ileocaecum" [[Houwen2010]]</td><td>Gradual faecal impaction of the total colon [[Houwen2010]]</td></tr>
+      <tr><th>How common</th><td>Lifetime about 8% of children and 16% of adults [[vanderDoef2011]]; 6.2 episodes per 1,000 patient-years in children [[Houwen2010]]</td><td>Lifetime 26–47% of children and 42% of adults [[vanderDoef2011]]; 47% of 214 children in one study [[vanderDoef2010]]</td></tr>
+      <tr><th>Who</th><td>Of 39 children: 92% pancreatic insufficient, 44% past meconium ileus, 82% a severe genotype; 20% relapsed [[Houwen2010]]</td><td>Low total fat absorption and past meconium ileus were independent risk factors; fibre and fluid intake were not [[vanderDoef2010]]</td></tr>
+      <tr><th>Treatment, as published</th><td>Rehydration plus stool softeners or gut lavage (ECFS guidance) [[Colombo2011DIOS]]; conservative treatment worked in 96% of children's episodes [[Houwen2010]]; children with past meconium ileus needed surgery more often (15% vs 2%) [[Munck2016]]</td><td>Not specified in the sources used here</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">The liver: what the 2024 guideline asks for</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">screening</span><h4>Every year, from diagnosis</h4><p>Liver blood tests (total bilirubin, AST, ALT, alkaline phosphatase, GGT, platelets) and an abdominal examination for an enlarged liver or spleen; an abdominal ultrasound at least every 2 years from age 3 (or diagnosis) until late adolescence [[Sellers2024]].</p></div>
+    <div class="card"><span class="tag brand">definitions</span><h4>Two levels of disease</h4><p><b>Advanced CF liver disease</b>: a nodular liver, advanced fibrosis (F4), multilobular cirrhosis or non-cirrhotic portal hypertension. <b>Hepatobiliary involvement</b>: milder findings such as an enlarged liver, fatty liver, focal biliary cirrhosis, persistent enzyme rises, gallstones or sclerosing cholangitis [[Sellers2024]].</p></div>
+    <div class="card"><span class="tag brand">treatment</span><h4>Ursodeoxycholic acid</h4><p>A Cochrane review of 4 trials (137 participants) found "insufficient evidence to justify its routine use" [[Cheng2017]]; earlier use did not change severe liver disease in France [[Boelle2019]], and CFF 2024 recommends against routine use to prevent advanced disease [[Sellers2024]].</p></div>
+    <div class="card"><span class="tag brand">modulators</span><h4>CFTR modulators and the liver</h4><p>CFF 2024 recommends modulators for people with hepatobiliary involvement under close monitoring, but not in decompensated advanced liver disease; trials reported transaminase rises above 3 times the upper limit of normal in about 5% of participants [[Sellers2024]].</p></div>
+    <div class="card"><span class="tag brand">cirrhosis</span><h4>Linked screening</h4><p>Children with cirrhosis: yearly liver cancer screening with ultrasound and alpha-fetoprotein. Advanced liver disease: start CFRD screening at diagnosis, even before 10. With advanced lung and liver disease, combined lung-liver transplant may be considered [[Sellers2024]].</p></div>
+  </div>
+
+  <h3 class="sub">On CFTR modulators: does the gut recover?</h3>
+  <div class="prose">
+    <p>In PROMISE-GI (438 people aged 12 and over), after 6 months of elexacaftor/tezacaftor/ivacaftor, gut symptom scores improved only slightly and faecal calprotectin fell by 66.2 µg/g, but faecal elastase and steatocrit did not meaningfully change [[Schwarzenberg2023PROMISEGI]]. In children aged 6 to under 12 there was no significant change in faecal elastase categories [[Green2026PROMISEPeds]].</p>
+    <p>Younger children may be different <span class="ev early">Early evidence</span>: with ivacaftor from 12 to under 24 months (ARRIVAL), faecal elastase-1 rose and immunoreactive trypsinogen fell [[Rosenfeld2018ARRIVAL]], and in children aged 2 and over on elexacaftor/tezacaftor/ivacaftor, rises in faecal elastase were maintained to 96 weeks, with 9 children above the sufficiency threshold [[Goralski2026]]. Enzyme decisions on modulators are covered in <a href="#nutrition" data-go="nutrition">Nutrition &amp; enzymes</a>.</p>
+  </div>
+</section>

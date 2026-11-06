@@ -27,3 +27,4 @@
 - [Heart Attack Companion](https://www.medcompanions.org/myocardial-infarction/): sources at https://www.medcompanions.org/myocardial-infarction/sources/
 - [Cirrhosis Companion](https://www.medcompanions.org/cirrhosis/): sources at https://www.medcompanions.org/cirrhosis/sources/
 - [Sepsis Companion](https://www.medcompanions.org/sepsis-and-shock/): sources at https://www.medcompanions.org/sepsis-and-shock/sources/
+- [CF Companion](https://www.medcompanions.org/cystic-fibrosis/): sources at https://www.medcompanions.org/cystic-fibrosis/sources/

@@ -61,6 +61,7 @@
   --mi:#a3122a; --mi-soft:#f8dfe2; --mi-line:#fff4f2;
   --cir:#0b5670; --cir-soft:#d8e8ed; --cir-lobe:#f4ead9; --cir-node:#b98a2e;
   --sep:#6b3519; --sep-soft:#f3e4d9; --sep-drop:#f6f3ef; --sep-fever:#e0682a;
+  --cf:#5b2760; --cf-soft:#f2e4f1; --cf-lobe:#f6f4f2; --cf-pot:#2fb3a8;
   --display:"Newsreader","Newsreader Fallback",Georgia,"Times New Roman",serif;
   --body:"Atkinson Hyperlegible","Atkinson Hyperlegible Fallback",system-ui,-apple-system,"Segoe UI",sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
@@ -88,6 +89,7 @@
     --mi:#ff7d8c; --mi-soft:#3a171c; --mi-line:#1c0b0e;
     --cir:#6cc3dc; --cir-soft:#0f303b; --cir-lobe:#0c1a20; --cir-node:#e0b35a;
     --sep:#eca57c; --sep-soft:#3b2317; --sep-drop:#15110e; --sep-fever:#f0803f;
+    --cf:#e3a8e6; --cf-soft:#3a1e3e; --cf-lobe:#161218; --cf-pot:#8fe6dc;
     color-scheme:dark;
   }
 }
@@ -138,7 +140,7 @@ h1 .soft{display:block;font-style:italic;font-weight:400;color:var(--muted);font
   border-radius:20px;box-shadow:0 1px 0 var(--line),0 10px 28px -18px rgba(70,40,15,.35);transition:box-shadow .35s var(--ease),transform .35s var(--ease)}
 .book:hover{transform:translateY(-2px);box-shadow:0 1px 0 var(--line),0 18px 36px -18px rgba(70,40,15,.42)}
 .book.alz{--c:var(--alz);--soft:var(--alz-soft)} .book.fmf{--c:var(--fmf);--soft:var(--fmf-soft)} .book.mg{--c:var(--mg);--soft:var(--mg-soft)}
-.book.gout{--c:var(--gout);--soft:var(--gout-soft)} .book.als{--c:var(--als);--soft:var(--als-soft)} .book.pd{--c:var(--pd);--soft:var(--pd-soft)} .book.ms{--c:var(--ms);--soft:var(--ms-soft)} .book.crc{--c:var(--crc);--soft:var(--crc-soft)} .book.eds{--c:var(--eds);--soft:var(--eds-soft)} .book.tb{--c:var(--tb);--soft:var(--tb-soft)} .book.bpd{--c:var(--bpd);--soft:var(--bpd-soft)} .book.adhd{--c:var(--adhd);--soft:var(--adhd-soft)} .book.aut{--c:var(--aut);--soft:var(--aut-soft)} .book.bip{--c:var(--bip);--soft:var(--bip-soft)} .book.aud{--c:var(--aud);--soft:var(--aud-soft)} .book.mi{--c:var(--mi);--soft:var(--mi-soft)} .book.cir{--c:var(--cir);--soft:var(--cir-soft)} .book.sep{--c:var(--sep);--soft:var(--sep-soft)}
+.book.gout{--c:var(--gout);--soft:var(--gout-soft)} .book.als{--c:var(--als);--soft:var(--als-soft)} .book.pd{--c:var(--pd);--soft:var(--pd-soft)} .book.ms{--c:var(--ms);--soft:var(--ms-soft)} .book.crc{--c:var(--crc);--soft:var(--crc-soft)} .book.eds{--c:var(--eds);--soft:var(--eds-soft)} .book.tb{--c:var(--tb);--soft:var(--tb-soft)} .book.bpd{--c:var(--bpd);--soft:var(--bpd-soft)} .book.adhd{--c:var(--adhd);--soft:var(--adhd-soft)} .book.aut{--c:var(--aut);--soft:var(--aut-soft)} .book.bip{--c:var(--bip);--soft:var(--bip-soft)} .book.aud{--c:var(--aud);--soft:var(--aud-soft)} .book.mi{--c:var(--mi);--soft:var(--mi-soft)} .book.cir{--c:var(--cir);--soft:var(--cir-soft)} .book.sep{--c:var(--sep);--soft:var(--sep-soft)} .book.cf{--c:var(--cf);--soft:var(--cf-soft)}
 .cover{position:relative;display:grid;place-items:center;align-self:start;aspect-ratio:3/4;border-radius:6px 12px 12px 6px;background:var(--soft);overflow:hidden}
 .cover::before{content:"";position:absolute;inset:0 auto 0 0;width:13px;background:var(--c);opacity:.9}
 .cover::after{content:"";position:absolute;right:15px;top:0;bottom:0;width:6px;background:var(--c);opacity:.22}
@@ -249,7 +251,7 @@ footer a{padding-block:13px} /* a 44px tap target that takes no room in the line
           <li>Lecanemab and donanemab over 18 months, including ARIA</li>
           <li>Lowering risk, caregiving and nursing care</li>
           </ul>
-          <p class="facts">499 cited sources · English · עברית</p>
+          <p class="facts">501 cited sources · English · עברית</p>
           <div class="actions">
             <a class="start" href="alzheimers/" data-slug="alzheimers">Open the guide<span aria-hidden="true"> →</span></a>
             <span class="langs"><a href="alzheimers/">Read in English</a><a href="alzheimers/he/" hreflang="he" lang="he">לקריאה בעברית</a></span>
@@ -285,7 +287,7 @@ footer a{padding-block:13px} /* a 44px tap target that takes no room in the line
           <li>A McDonald criteria calculator, 2017 and 2024</li>
           <li>How the disease-modifying drugs work, the treatment ladder and nursing care</li>
           </ul>
-          <p class="facts">478 cited sources · English</p>
+          <p class="facts">479 cited sources · English</p>
           <div class="actions">
             <a class="start" href="multiple-sclerosis/" data-slug="multiple-sclerosis">Open the guide<span aria-hidden="true"> →</span></a>
             <span class="langs"><a href="multiple-sclerosis/">Read in English</a></span>
@@ -321,7 +323,7 @@ footer a{padding-block:13px} /* a 44px tap target that takes no room in the line
           <li>Joints, pain, skin, POTS, the gut and vascular EDS emergencies</li>
           <li>Physiotherapy, medicines, surgery, pregnancy and nursing care</li>
           </ul>
-          <p class="facts">410 cited sources · English</p>
+          <p class="facts">412 cited sources · English</p>
           <div class="actions">
             <a class="start" href="ehlers-danlos-syndromes/" data-slug="ehlers-danlos-syndromes">Open the guide<span aria-hidden="true"> →</span></a>
             <span class="langs"><a href="ehlers-danlos-syndromes/">Read in English</a></span>
@@ -339,7 +341,7 @@ footer a{padding-block:13px} /* a 44px tap target that takes no room in the line
           <li>Xpert, culture and drug resistance, with the regimens WHO recommends</li>
           <li>Preventive treatment, BCG, living with TB and nursing care</li>
           </ul>
-          <p class="facts">481 cited sources · English</p>
+          <p class="facts">482 cited sources · English</p>
           <div class="actions">
             <a class="start" href="tuberculosis/" data-slug="tuberculosis">Open the guide<span aria-hidden="true"> →</span></a>
             <span class="langs"><a href="tuberculosis/">Read in English</a></span>
@@ -393,7 +395,7 @@ footer a{padding-block:13px} /* a 44px tap target that takes no room in the line
           <li>Supports and therapies, the ABA debate, medicines and unproven treatments</li>
           <li>School, adulthood, co-occurring conditions, health care and nursing</li>
           </ul>
-          <p class="facts">591 cited sources · English</p>
+          <p class="facts">593 cited sources · English</p>
           <div class="actions">
             <a class="start" href="autism/" data-slug="autism">Open the guide<span aria-hidden="true"> →</span></a>
             <span class="langs"><a href="autism/">Read in English</a></span>
@@ -429,7 +431,7 @@ footer a{padding-block:13px} /* a 44px tap target that takes no room in the line
           <li>The withdrawal timeline, CIWA-Ar, safe detox and thiamine</li>
           <li>Naltrexone, acamprosate, therapy, the liver, pregnancy and nursing care</li>
           </ul>
-          <p class="facts">455 cited sources · English</p>
+          <p class="facts">456 cited sources · English</p>
           <div class="actions">
             <a class="start" href="alcohol-use-disorder/" data-slug="alcohol-use-disorder">Open the guide<span aria-hidden="true"> →</span></a>
             <span class="langs"><a href="alcohol-use-disorder/">Read in English</a></span>
@@ -490,6 +492,24 @@ footer a{padding-block:13px} /* a 44px tap target that takes no room in the line
           </div>
         </div>
       </li>
+      <li class="book cf">
+        <a class="cover" href="cystic-fibrosis/" tabindex="-1" aria-hidden="true"><svg class="emblem" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--cf)"/><path d="M18.2 15.6C14.6 11.9 9.9 13.8 9.3 19.6C8.8 24.6 9.7 29.4 12.6 30.4C15.4 31.4 18.2 29.2 18.2 25.4Z" fill="var(--cf-lobe)"/><path d="M21.8 15.6C25.4 11.9 30.1 13.8 30.7 19.6C31.2 24.6 30.3 29.4 27.4 30.4C24.6 31.4 21.8 29.2 21.8 25.4Z" fill="var(--cf-lobe)"/><path d="M20 7.5V16.5M20 16.5L16.4 19.6V24.6M16.4 21.4L13.2 24.4M20 16.5L23.6 19.6V24.6M23.6 21.4L26.8 24.4" fill="none" stroke="var(--cf)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 7.5V15.2" fill="none" stroke="var(--cf-lobe)" stroke-width="2.6" stroke-linecap="round"/><path d="M20 24.2L22.7 27.4L20 30.6L17.3 27.4Z" fill="var(--cf-pot)" stroke="var(--cf-lobe)" stroke-width="1"/></svg></a>
+        <div class="page">
+          <h3><a href="cystic-fibrosis/">CF Companion</a></h3>
+          <p class="blurb">Cystic fibrosis from one faulty chloride channel to salty sweat, sticky mucus, the lungs and pancreas, newborn screening and the CFTR modulators that changed CF care.</p>
+          <ul class="inside">
+          <li>The CFTR gene, carriers, inheritance and the variant classes</li>
+          <li>How CFTR moves chloride and water, and why mucus thickens</li>
+          <li>Newborn screening, the sweat test and lung function</li>
+          <li>Modulators, airway clearance, infection, nutrition, pregnancy and nursing care</li>
+          </ul>
+          <p class="facts">485 cited sources · English</p>
+          <div class="actions">
+            <a class="start" href="cystic-fibrosis/" data-slug="cystic-fibrosis">Open the guide<span aria-hidden="true"> →</span></a>
+            <span class="langs"><a href="cystic-fibrosis/">Read in English</a></span>
+          </div>
+        </div>
+      </li>
       <li class="book als">
         <a class="cover" href="als/" tabindex="-1" aria-hidden="true"><svg class="emblem" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--als)"/><path d="M12 10l5 5v9l-5 6M28 10l-5 5v9l5 6" fill="none" stroke="var(--panel)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="3.2" fill="var(--ochre)"/></svg></a>
         <div class="page">
@@ -544,7 +564,7 @@ footer a{padding-block:13px} /* a 44px tap target that takes no room in the line
           <li>Allopurinol and febuxostat titrated to target, with flare prophylaxis</li>
           <li>The ACR/EULAR 2015 calculator, and the kidney and heart links</li>
           </ul>
-          <p class="facts">401 cited sources · English</p>
+          <p class="facts">402 cited sources · English</p>
           <div class="actions">
             <a class="start" href="gout/" data-slug="gout">Open the guide<span aria-hidden="true"> →</span></a>
             <span class="langs"><a href="gout/">Read in English</a></span>
@@ -562,7 +582,7 @@ footer a{padding-block:13px} /* a 44px tap target that takes no room in the line
           <li>Why colchicine works and why its benefit builds over months</li>
           <li>Amyloidosis, the treatment ladder and nursing care</li>
           </ul>
-          <p class="facts">264 cited sources · English · עברית</p>
+          <p class="facts">265 cited sources · English · עברית</p>
           <div class="actions">
             <a class="start" href="fmf/" data-slug="fmf">Open the guide<span aria-hidden="true"> →</span></a>
             <span class="langs"><a href="fmf/">Read in English</a><a href="fmf/he/" hreflang="he" lang="he">לקריאה בעברית</a></span>

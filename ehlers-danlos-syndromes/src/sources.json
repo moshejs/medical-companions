@@ -748,6 +748,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Carnerup2026",
+  "text": "Carnerup I, Bondesson E, Ahl E, Schouenborg AT, Jöud AS. Prevalence of generalized joint hypermobility, hypermobility spectrum disorders and Ehlers-Danlos syndrome: systematic review and meta-analysis. Rheumatol Int. 2026;46(11):306. PMID 42986321; doi:10.1007/s00296-026-06346-3.",
+  "link": "https://doi.org/10.1007/s00296-026-06346-3",
+  "areas": [
+   "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Carroll2023",
   "text": "Carroll MB. Hypermobility spectrum disorders: A review. Rheumatol Immunol Res. 2023;4(2):60-68. PMID 37637226; PMCID PMC10457547; doi:10.2478/rir-2023-0010.",
   "link": "https://doi.org/10.2478/rir-2023-0010",
@@ -3769,6 +3779,16 @@
   "areas": [
    "G",
    "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Pearson2026",
+  "text": "Pearson ML, Laraway BJ, Elias ER, Bilousova G, Haendel MA. More common than we thought: Hypermobile Ehlers-Danlos Syndrome, comorbidity burden, and long COVID risk in a national cohort. PLOS Digit Health. 2026;5(11):e0001707. PMID 42986813; doi:10.1371/journal.pdig.0001707.",
+  "link": "https://doi.org/10.1371/journal.pdig.0001707",
+  "areas": [
+   "A"
   ],
   "unverified": false,
   "validated": "PubMed"

@@ -1,0 +1,128 @@
+<!-- ================= 1.3 VARIANT CLASSES & GENOTYPE ================= -->
+<style>
+#m-variants .tbl table{min-width:680px}
+#m-variants .card>.ev,#m-variants .card>.tag{align-self:flex-start}
+#m-variants .vr-pick{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:1100px){#m-variants .vr-pick{grid-template-columns:minmax(0,1fr)}}
+#m-variants .vr-pick .calc{grid-template-columns:minmax(0,1fr)}
+#m-variants .vr-out .chips{margin-top:-2px}
+#m-variants .vr-out .tag{white-space:normal;text-align:left;display:block;max-width:100%;line-height:1.35}
+#m-variants .legend i.cf{background:var(--variant)} #m-variants .legend i.ne{background:var(--good)} #m-variants .legend i.in{background:var(--warn)}
+</style>
+<section class="mod" id="m-variants" data-mod="variants" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding CF</p><h2>Variant classes &amp; genotype</h2>
+    <p class="lede">There are more than 2,000 known changes in CFTR. Some cause CF, some cause milder problems and some are harmless [[Cutting2015,Deignan2020ACMG]]. Follow one protein down the cell's production line and see where each class of variant breaks it, then look up a variant yourself.</p></div>
+
+  <h3 class="sub">Seven ways to break one protein</h3>
+  <div class="prose"><p>The functional class system began with Welsh and Smith in 1993, who grouped CFTR mutations by how they disrupt the chloride channel [[Welsh1993]]. Most teaching uses six classes; a seventh has been proposed <span class="ev hyp">Proposed</span> [[LopesPacheco2019,DeBoeck2016]]. Pick a class or press Play.</p></div>
+  <div class="stepper" id="vrSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="vrSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A cut-through airway cell. The CFTR gene in the nucleus is copied into messenger RNA, which travels to the endoplasmic reticulum, where the protein is made and folded; vesicles carry it up to three slots in the cell membrane, where channels pass chloride and bicarbonate out. Stepping through the classes: class I mRNA carries an early stop and decays; class II protein misfolds and is broken down; class III channels sit in the membrane with the gate shut; class IV channels open but pass little; class V delivers fewer channels; class VI channels are pulled back into the cell; and proposed class VII has part of the gene deleted, so no mRNA is made. A checklist beside the cell marks the step that fails."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="vrPlay">Play</button><label class="stage-cap tl" for="vrT">Class <input type="range" id="vrT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <div class="readout" id="vrRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The flow bar shows a direction of change, not a measurement. Classes and examples follow Lopes-Pacheco 2019 and the Lancet Respiratory Medicine Commission [[LopesPacheco2019,Bell2020Commission]].</p>
+    </div>
+    <aside class="note" id="vrNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Pick a variant</h3>
+  <div class="prose"><p>Each variant below appears in this guide's sources. Its class is the one those sources give; frequencies are shares of CF chromosomes (alleles) in the population named, not shares of people.</p></div>
+  <div class="vr-pick">
+    <div class="stage">
+      <div class="calc"><label for="vrPick">Variant (legacy name)<select id="vrPick"></select></label></div>
+      <svg id="vrPickSvg" viewBox="0 0 560 250" role="img" aria-label="The chosen variant's CFTR channel drawn in its class state, and a seven-step production line (mRNA, full protein, folding, reaching the surface, opening, ion flow, staying) with the failing step marked."></svg>
+    </div>
+    <div class="note vr-out" id="vrPickOut" aria-live="polite"></div>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>This explorer explains what a variant does. It is not a diagnosis, a prognosis or an eligibility check: diagnosis rests on clinical features and CFTR function, confirmed with a sweat chloride test [[Farrell2017Dx,Castellani2008Genotype]], and drug labels list responsive variants themselves (module 4.2).</p>
+
+  <h3 class="sub">How many variants, and which cause CF</h3>
+  <div class="ctrls" role="group" aria-label="Choose a view">
+    <button class="btn" data-vrc="types" aria-pressed="true">Types of change (2,075 variants)</button>
+    <button class="btn" data-vrc="cftr2" aria-pressed="false">CFTR2 verdicts (159 common variants)</button>
+  </div>
+  <div class="stage">
+    <svg id="vrCount" viewBox="0 0 720 300" role="img" aria-label="Either bars of the share of 2,075 reported CFTR variants by type of change, or 159 dots, one per common variant evaluated by the CFTR2 project, coloured as CF-causing, neutral or indeterminate."></svg>
+    <div class="legend" id="vrCountLeg"></div>
+    <p class="stage-cap" id="vrCountCap"></p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag brand">CFTR2</span><h4>Clinical and functional evidence</h4><p>CFTR2 collected genotype and phenotype data on 39,696 people with CF in North America and Europe. A variant was called disease-causing on clinical grounds if mean sweat chloride in at least 3 carriers of it was 60 mmol/L or more; below 10% of wild-type CFTR function was used as a conservative threshold for CF features [[Sosnay2013CFTR2]].</p></div>
+    <div class="card"><span class="tag brand">ACMG 2020</span><h4>Three categories, and a caution</h4><p>The CFTR2 categories are CF-causing, varying clinical consequence and non-CF-causing; "non-CF-causing" does not rule out a CFTR-related disorder such as male infertility or pancreatitis. About 5% of variants cannot be assigned. The ACMG warns against relying on ClinVar assertions made outside CFTR2 [[Deignan2020ACMG]].</p></div>
+    <div class="card"><span class="tag brand">In practice</span><h4>Use the latest classifications</h4><p>The CF Foundation 2017 diagnosis guideline recommends using the latest CFTR2 variant classifications to help with diagnosis [[Farrell2017Dx]]. CFTR2 is updated over time, so counts differ by date: one 2019 review reports 432 annotated variants, 352 with confirmed disease liability [[LopesPacheco2019]].</p></div>
+  </div>
+
+  <h3 class="sub">Minimal function, residual function and theratypes</h3>
+  <div class="prose">
+    <p>"Minimal function" and "residual function" are genotype groups used in trials and drug labels. Lopes-Pacheco describes classes I and II as minimal function and classes IV, V and VI as residual function [[LopesPacheco2019]]; Bell and colleagues state that class I to III variants cause little or no CFTR function and a more severe phenotype, including exocrine pancreatic insufficiency [[Bell2020Commission]]. Residual-function variants can cause milder disease, sometimes affecting a single organ [[Shteinberg2021]].</p>
+    <p>A theratype is "a recently invented term used to classify disease-associated DNA variants according to the molecular-based treatment to which they respond" [[Cutting2015]]. Knowing both CFTR variants matters because some medicines work only for certain ones [[Cutting2015,FDA-Trikafta]].</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Testing drugs on cells</h4><p>Theratyping uses CFTR modulators in laboratory models to define a variant's defect and predict drug response: Fischer rat thyroid (FRT) cell lines, human bronchial and nasal epithelial cells, and rectal organoids [[Clancy2019]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>A label widened by lab data</h4><p>Ivacaftor potentiated several of 54 missense CFTR forms in FRT cells [[VanGoor2014]]. In 2017 the FDA expanded the ivacaftor label to rare variants on the basis of FRT data instead of clinical trials [[Durmowicz2018]]. The Kalydeco label calls a variant responsive on clinical response and/or FRT data showing chloride transport raised by at least 10% over baseline, as a percentage of normal [[FDA-Kalydeco]].</p></div>
+    <div class="card"><span class="tag rx">US labels</span><h4>Responsiveness lists</h4><p>The Trikafta label covers people aged 2 years and older with at least one CFTR variant responsive on clinical and/or in vitro data, or that "results in production of CFTR protein", with a non-exhaustive list [[FDA-Trikafta]]. The Alyftrek label uses the same structure for people aged 6 and older [[FDA-Alyftrek]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>417 variants in a dish</h4><p>In FRT cells, about 76% of 417 CFTR variants reached the 10%-of-wild-type threshold with vanzacaftor–tezacaftor–ivacaftor, including 50 previously non-responsive or borderline to elexacaftor–tezacaftor–ivacaftor. This is in vitro work [[Bihler2026]].</p></div>
+    <div class="card"><span class="tag warn">Caution</span><h4>The dish is not the person</h4><p>FRT data have predicted response for many missense variants, but for G970R the in vitro response did not match the clinical response to ivacaftor [[Clancy2019]].</p></div>
+  </div>
+
+  <h3 class="sub">Genotype and phenotype</h3>
+  <div class="prose"><p>Genotype predicts the pancreas well and the lungs poorly. Pancreatic status follows genotype closely [[Kerem1990NEJM,Ahmed2003Gut]], whereas for none of the genotypes it studied could the Genotype–Phenotype Consortium predict the severity or course of lung disease [[CFGPC1993]].</p></div>
+  <div class="ctrls" role="group" aria-label="Choose a study">
+    <button class="btn" data-vrpi="k90" aria-pressed="true">By F508del copies (1990)</button>
+    <button class="btn" data-vrpi="gpc" aria-pressed="false">R117H vs F508del (1993)</button>
+  </div>
+  <div class="stage">
+    <svg id="vrPI" viewBox="0 0 720 210" role="img" aria-label="Bars of the percentage of people who were pancreatic insufficient or sufficient in each genotype group of the chosen study."></svg>
+    <p class="stage-cap" id="vrPICap"></p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Feature</th><th>What the genotype tells you</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Pancreatic status</th><td>Closely. Of 742 people, more than 95% with class I, II or III variants were or became pancreatic insufficient; class IV and V variants were consistently pancreatic sufficient. Genotype matched pancreatic phenotype in all but 4 cases [[Ahmed2003Gut]].</td><td>Ahmed 2003</td></tr>
+      <tr><th>Diagnosis and sweat chloride</th><td>R117H/F508del compound heterozygotes were diagnosed later than F508del homozygotes (mean 10.2 vs 2.5 years) and had lower sweat chloride (80 vs 108 mmol/L) [[CFGPC1993]].</td><td>CFGPC 1993</td></tr>
+      <tr><th>Lung disease</th><td>Poorly. No genotype studied allowed predictions about the severity or course of lung disease [[CFGPC1993]]; modifier genes and environment explain much of it (below) [[Collaco2010Env]].</td><td>CFGPC 1993</td></tr>
+      <tr><th>Infections</th><td>Minimal-function individuals had a higher hazard of acquiring 9 of 13 respiratory organisms (HR 1.7 to 3.78) and acquired 12 of 13 at younger ages than people with a residual-function variant [[Green2010Residual]].</td><td>Green 2010</td></tr>
+      <tr><th>Pancreatitis</th><td>Among pancreatic-sufficient people with CF, genotypes with mild pancreatic-insufficiency-prevalence (PIP) scores carried more risk: 50% vs 27% cumulative risk by age 50 (HR 2.4) [[Ooi2011Pancreatitis]].</td><td>Ooi 2011</td></tr>
+      <tr><th>Survival (registry, before modulators)</th><td>In 15,651 people in the US registry (1993–2002), a "high-risk" genotype carried a relative risk of death of 2.25; median age at death was 24.2 years for high-risk and 37.6 years for low-risk genotypes. These are population statistics from before modulators, not individual predictions [[McKone2006]].</td><td>McKone 2006</td></tr>
+      <tr class="hl"><th>One person's future</th><td>A consensus states that genotype "does not accurately predict individual outcome" and does not recommend using it to predict prognosis at diagnosis [[Castellani2008Genotype]].</td><td>Castellani 2008</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout prose">
+    <p><b>R117H and the polyT tract.</b> R117H's effect depends on the polyT tract on the same chromosome (in cis). With 5T plus a CF-causing variant on the other copy it generally gives nonclassic CF; with 7T it may range from no symptoms to absence of the vas deferens, and very rarely nonclassic CF [[Deignan2020ACMG,Kiesewetter1993]]. In France only about 3.1% of an estimated 3,650 people with [R117H;T7] and F508del were known to have CF-related symptoms, and the penetrance of classical CF was estimated at 0.03% [[ThauvinRobinet2009]]. Thauvin-Robinet and colleagues argued for withdrawing R117H from screening panels; the ACMG kept it, with reflex polyT testing [[ThauvinRobinet2009,Watson2004ACMG]].</p>
+  </div>
+
+  <h3 class="sub">Modifier genes and the environment</h3>
+  <div class="prose"><p>Two people with the same CFTR genotype can have very different lungs. Twin and sibling studies show how much comes from other genes and how much from surroundings and chance.</p></div>
+  <div class="ctrls" role="group" aria-label="Choose a twin study">
+    <button class="btn" data-vrm="var" aria-pressed="true">What shapes lung function</button>
+    <button class="btn" data-vrm="lung" aria-pressed="false">Twins: lung function</button>
+    <button class="btn" data-vrm="cfrd" aria-pressed="false">Twins: CF-related diabetes</button>
+  </div>
+  <div class="stage">
+    <svg id="vrMod" viewBox="0 0 720 210" role="img" aria-label="Either a stacked bar dividing variation in lung function into genetic, unique environmental and shared environmental parts, or bars comparing identical and non-identical twins for lung function correlation or diabetes concordance."></svg>
+    <p class="stage-cap" id="vrModCap"></p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Secondhand smoke</h4><p>Smoke exposure at home (23.2% of 812 participants) was linked to a 9.8 percentile-point lower lung function, and to 22.7 points in people homozygous for the TGFB1 −509 TT genotype [[Collaco2008Smoke]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Lung modifier loci</h4><p>A genome-wide study of 1,978 F508del homozygotes found a modifier near EHF and APIP on chromosome 11p13 [[Wright2011GWAS]]. A meta-analysis of 6,365 people found five: MUC4/MUC20, SLC9A3, HLA class II, AGTR2/SLC6A14 and EHF/APIP [[Corvol2015]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Gut and diabetes</h4><p>Meconium ileus affects about 15% of newborns with CF, and identical twins were much more concordant for it than non-identical twins and siblings [[Blackman2006MI]]. Type 2 diabetes risk genes (TCF7L2, CDKAL1, CDKN2A/B, IGF2BP2) modify the age at onset of CF-related diabetes [[Cutting2015]].</p></div>
+  </div>
+  <p class="pt"><b>In plain words</b>Your genes do not decide everything. Other genes and your surroundings, like smoke exposure, also shape how CF affects the lungs [[Collaco2010Env,Collaco2008Smoke]].</p>
+
+  <h3 class="sub">Two ways to name a variant</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Legacy name</th><th>HGVS (cDNA)</th><th>HGVS (protein)</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><th>F508del (ΔF508)</th><td>c.1521_1523delCTT</td><td>p.Phe508del</td><td>The most common CF-causing variant [[Farrell2018Age,Cutting2015]]</td></tr>
+      <tr><th>R117H</th><td>c.350G&gt;A</td><td>p.Arg117His</td><td>Interpreted with the polyT tract [[Deignan2020ACMG]]</td></tr>
+      <tr><th>2789+5G&gt;A</th><td>c.2657+5G&gt;A</td><td>(intronic)</td><td>ACMG: always report [[Deignan2020ACMG]]</td></tr>
+      <tr><th>3849+10kbC&gt;T</th><td>c.3718–2477C&gt;T</td><td>(intronic)</td><td>ACMG: always report [[Deignan2020ACMG]]</td></tr>
+      <tr><th>polyT / TG in intron 8</th><td>c.1210–12T[5/7/9], c.1210–34TG[11/12/13]</td><td>(intronic)</td><td>Now numbered intron 9 [[Deignan2020ACMG,Chillon1995]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">HGVS names follow the Human Genome Variation Society recommendations (version 15.11 in the 2016 update) [[denDunnen2016]].</p>
+
+  <p class="hook"><b>Exam hook</b>Class I = no protein (nonsense, e.g. G542X). II = misfolding (F508del). III = gating (G551D). IV = conductance (R117H). V = reduced amount. VI = unstable at the membrane [[Bell2020Commission,LopesPacheco2019]]. Class I–III variants mean more than 95% pancreatic insufficient; class IV–V pancreatic sufficient [[Ahmed2003Gut]].</p>
+</section>
