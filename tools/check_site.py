@@ -7,6 +7,8 @@ Fails (exit 1) on:
 - a sitemap URL with no built page, listed twice, marked noindex, or whose canonical is another URL
 - an indexable page (no noindex, canonical to itself) missing from the sitemap
 - an internal link or asset that points at nothing, or a link to #id that the target page lacks
+- a page without the shared icons and manifest (/favicon.ico, an icon, apple-touch-icon,
+  site.webmanifest), or a missing /.well-known/security.txt
 - a robots.txt that does not say what tools/robots.py says (blocked crawlers kept out of
   everything, answer engines and search engines let in), or that blocks a sitemap URL,
   share-card.png, app.js or a font for an agent that should index or preview the page
@@ -39,12 +41,14 @@ class Page(html.parser.HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.ids, self.links, self.ld, self.canonical, self.noindex = set(), [], [], None, False
+        self.icons = set()  # (rel, href) of the page's icon and manifest links
         self._ld = None
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         if "id" in a: self.ids.add(a["id"])
         if tag == "a" and a.get("name"): self.ids.add(a["name"])
         if tag == "link" and a.get("rel") == "canonical": self.canonical = a.get("href")
+        if tag == "link" and a.get("rel") in ("icon", "apple-touch-icon", "manifest"): self.icons.add((a["rel"], a.get("href", "")))
         if tag == "meta" and a.get("name") == "robots" and "noindex" in (a.get("content") or ""): self.noindex = True
         if tag == "script" and a.get("type") == "application/ld+json": self._ld = []
         for k in ("href", "src"):
@@ -89,6 +93,10 @@ for f in pages:
     # placeholders, ignoring the page's own scripts (they hold no build placeholders, but may hold [[...]] in code)
     visible = re.sub(r"<script\b(?![^>]*ld\+json)[^>]*>.*?</script>", "", text, flags=re.S)
     for m in sorted(set(PLACEHOLDER.findall(visible)))[:5]: err(f"{rel}: unfilled placeholder {m}")
+    rels = {r for r, _ in pg.icons}
+    if ("icon", "/favicon.ico") not in pg.icons: err(f"{rel}: no /favicon.ico icon link")
+    for r in ("apple-touch-icon", "manifest"):
+        if r not in rels: err(f"{rel}: no {r} link")
     base = SITE + "/" + ("" if str(rel.parent) == "." else rel.parent.as_posix() + "/")
     for href in pg.links:
         if href.startswith(("mailto:", "tel:", "data:", "javascript:", "#")) and not href.startswith("#"): continue
@@ -106,6 +114,13 @@ for f in pages:
                 missing_ids.setdefault((target.relative_to(ROOT), u.fragment), []).append(str(rel))
 for (target, frag), srcs in sorted(missing_ids.items()):
     err(f"{srcs[0]}{' and %d more' % (len(srcs) - 1) if len(srcs) > 1 else ''}: link to #{frag} but {target} has no such id")
+
+for f in ("site.webmanifest", ".well-known/security.txt", "favicon.ico", "icon.svg", "apple-touch-icon.png",
+          "icon-192.png", "icon-512.png", "icon-maskable-512.png"):
+    if not (ROOT / f).exists(): err(f"{f} is missing")
+man = json.loads((ROOT / "site.webmanifest").read_text(encoding="utf-8")) if (ROOT / "site.webmanifest").exists() else {}
+for i in man.get("icons", []):
+    if not url_to_file(i["src"]).exists(): err(f"site.webmanifest: icon {i['src']} does not exist")
 
 # 2. sitemap
 sm = ROOT / "sitemap.xml"
