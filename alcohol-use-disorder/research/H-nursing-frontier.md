@@ -454,6 +454,7 @@ Access notes:
 - [Arab2020] Arab JP, Sehrawat TS, Simonetto DA, Verma VK, Feng D, Tang T, et al. An Open-Label, Dose-Escalation Study to Assess the Safety and Efficacy of IL-22 Agonist F-652 in Patients With Alcohol-associated Hepatitis. Hepatology. 2020;72(2):441-453. PMID 31774566; PMCID PMC7250715; doi:10.1002/hep.31046. (validated: PubMed)
 - [NCT04563026] Durect Corporation. A randomized, double-blind, placebo-controlled, phase 2b study to evaluate safety and efficacy of DUR-928 (larsucosterol) in subjects with alcoholic hepatitis (AHFIRM). ClinicalTrials.gov NCT04563026 (completed; n 307; primary completion 2023-09-06; no results posted). (validated: ClinicalTrials.gov)
 - [NCT07428538] Bausch Health Americas. RE-AHFIRM: randomized study of larsucosterol in alcohol-associated hepatitis to confirm safety and efficacy of treatment. ClinicalTrials.gov NCT07428538 (recruiting; start 2026-01-29; estimated n 350; estimated primary completion 2027-11). (validated: ClinicalTrials.gov)
+- [Santos2026] Santos GM, Coffin P, Dunham A, Hoffmann T, Walker J, Matheson T, et al. Targeted Use of Kudzu for Binge Drinking Among Adults With Alcohol Use Disorder: A Phase 2b Randomized Trial. Am J Psychiatry. 2026 (epub ahead of print, 2026-11-04):appiajp20251354. PMID 42978081; doi:10.1176/appi.ajp.20251354. (validated: PubMed)
 
 ## Provenance
 - All 78 PubMed-indexed sources were checked with E-utilities esummary (authors, title, journal, year, volume, pages, PMID, PMCID, DOI), and their abstracts were read with efetch before any number was used.

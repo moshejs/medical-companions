@@ -535,6 +535,7 @@ Language note for builders: many autistic people prefer identity-first language 
 - [Godlee2011] Godlee F, Smith J, Marcovitch H. Wakefield's article linking MMR vaccine and autism was fraudulent. BMJ. 2011;342:c7452. PMID 21209060; doi:10.1136/bmj.c7452. (validated: PubMed)
 - [Hviid2019] Hviid A, Hansen JV, Frisch M, Melbye M. Measles, Mumps, Rubella Vaccination and Autism: A Nationwide Cohort Study. Ann Intern Med. 2019;170(8):513-520. PMID 30831578; doi:10.7326/M18-2101. (validated: PubMed)
 - [Taylor2014Vaccine] Taylor LE, Swerdfeger AL, Eslick GD. Vaccines are not associated with autism: an evidence-based meta-analysis of case-control and cohort studies. Vaccine. 2014;32(29):3623-9. PMID 24814559; doi:10.1016/j.vaccine.2014.04.085. (validated: PubMed)
+- [Sadik2026] Sadik A, Lundberg M, Khandaker GM, Pardiñas AF, Lee BK, Madley-Dowd P, et al. Changes in the profile of adults diagnosed as autistic since 2010: population-based studies in the UK and Sweden. BMJ Ment Health. 2026;29(1):e302983. PMID 42977525; PMCID PMC13735358; doi:10.1136/bmjment-2026-302983. (validated: PubMed)
 
 ## Provenance
 - Validation: every PubMed source was checked with E-utilities (esearch, then efetch XML for authors, title, journal, year, volume, pages, PMID, PMCID and DOI), and its abstract was read before any number was taken from it. Crossref confirmed the five records without PubMed entries (Milton2012, Asperger1944, Chess1967, Cowie1965, APA2013/APA2022). Europe PMC confirmed the Eicher2026 preprint.
