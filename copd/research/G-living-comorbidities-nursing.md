@@ -107,7 +107,7 @@ Access notes:
 ### comorbid · Anxiety, depression and thinking
 - A critical review reported prevalence ranges of 8–80% for depression and 6–74% for anxiety in COPD, too wide to settle on a figure, because of differing tools and methods [[Yohannes2010]].
 - A meta-analysis of 8 studies (39,587 people with COPD vs 39,431 controls) found depressive symptoms in 24.6% of people with COPD vs 11.7% of controls (pooled OR 2.81, 95% CI 1.69 to 4.66) [[Zhang2011]].
-- In the FLOW cohort (1,202 with COPD, 302 controls), COPD was linked to anxiety (OR 1.85). Anxiety predicted a shorter 6-minute walk (−66.3 feet), more functional limitation (OR 2.41) and more exacerbations over time (HR 1.39) [[Eisner2010]].
+- In the FLOW cohort (1,202 with COPD, 302 controls), COPD was linked to anxiety (OR 1.85). Anxiety predicted a shorter 6-minute walk (−66.3 feet), more functional limitation (OR 2.41) and more exacerbations over time (HR 1.39) [[Eisner2010G]].
 - An ACCP workshop concluded that anxiety and depression in COPD are common, worsen disability and health-care use, are underdiagnosed, and are treated effectively in only a small proportion of patients [[Maurer2008]].
 - A Cochrane review of psychological therapy for anxiety in COPD found 3 trials of cognitive behavioural therapy (319 people) with a modest improvement in Beck Anxiety Inventory score (mean difference −4.41 points, 95% CI −8.28 to −0.53; low-quality evidence) [[Usmani2017]].
 - GOLD 2023 calls anxiety and depression important and underdiagnosed comorbidities that are associated with poor prognosis [[Agusti2023]].
@@ -133,11 +133,11 @@ Access notes:
 - A multicentre study of 251,266 admissions reached a different conclusion: in 48,898 people coded as at risk of type 2 respiratory failure, NEWS2 discriminated 24-hour mortality slightly less well than NEWS (c-statistic 0.860 vs 0.881), and for documented type 2 failure the two were similar (0.841 vs 0.862) [[Pimentel2019]].
 
 ### nursing · Controlled oxygen at the bedside
-- The BTS 2017 guideline recommends prescribing oxygen to a target saturation of 94–98% for most acutely ill patients, or 88–92% (or a patient-specific range) for those at risk of hypercapnic respiratory failure, and says best practice is to prescribe a target range for every patient on admission [[ODriscoll2017]].
-- Before blood gases are available in COPD, the guideline lists a 24% Venturi mask at 2–3 L/min, a 28% Venturi mask at 4 L/min, or nasal cannulae at 1–2 L/min, aiming for 88–92%. The target is adjusted to 94–98% if the PCO2 is normal [[ODriscoll2017]].
-- The guideline says the Venturi mask flow can be increased by up to 50% if respiratory rate is above 30 breaths per minute [[ODriscoll2017]].
-- If a patient has an oxygen alert card, the BTS guideline says initial oxygen should follow the card until blood gas results are available [[ODriscoll2017]].
-- The guideline recommends clinical assessment if saturation falls by 3% or more or below the target range. It notes that oximetry can be normal despite abnormal pH or PCO2, so blood gases are still needed [[ODriscoll2017]].
+- The BTS 2017 guideline recommends prescribing oxygen to a target saturation of 94–98% for most acutely ill patients, or 88–92% (or a patient-specific range) for those at risk of hypercapnic respiratory failure, and says best practice is to prescribe a target range for every patient on admission [[ODriscoll2017G]].
+- Before blood gases are available in COPD, the guideline lists a 24% Venturi mask at 2–3 L/min, a 28% Venturi mask at 4 L/min, or nasal cannulae at 1–2 L/min, aiming for 88–92%. The target is adjusted to 94–98% if the PCO2 is normal [[ODriscoll2017G]].
+- The guideline says the Venturi mask flow can be increased by up to 50% if respiratory rate is above 30 breaths per minute [[ODriscoll2017G]].
+- If a patient has an oxygen alert card, the BTS guideline says initial oxygen should follow the card until blood gas results are available [[ODriscoll2017G]].
+- The guideline recommends clinical assessment if saturation falls by 3% or more or below the target range. It notes that oximetry can be normal despite abnormal pH or PCO2, so blood gases are still needed [[ODriscoll2017G]].
 - In 1,216 patients with COVID-19 with paired measurements, occult hypoxaemia (SaO2 < 88% while SpO2 read 92–96%) occurred in 28.5% of Black, 30.2% of Asian and 29.8% of non-Black Hispanic patients, compared with 17.2% of White patients. SpO2 overestimated SaO2 by 1.1–1.7 percentage points in these groups [[Fawzy2022]].
 
 ### nursing · Inhaler technique teaching
@@ -176,7 +176,7 @@ Access notes:
 - Mortality rises below BMI 25 kg/m² in COPD [[Schols1998]].
 - Overlap syndrome untreated with CPAP: mortality RR 1.79 [[Marin2010]].
 - PE is found in about 16% of unexplained exacerbations [[Aleva2017]].
-- Oxygen target in hypercapnic risk: 88–92% (24% Venturi 2–3 L/min or 28% at 4 L/min) [[ODriscoll2017]]; NEWS2 scale 2 uses this range [[Echevarria2019]].
+- Oxygen target in hypercapnic risk: 88–92% (24% Venturi 2–3 L/min or 28% at 4 L/min) [[ODriscoll2017G]]; NEWS2 scale 2 uses this range [[Echevarria2019]].
 - Only 31% of patients use inhalers correctly; teach-back cuts MDI misuse to 12.5% [[Sanchis2016,Press2012]].
 - Green sputum: 84% culture-positive vs 38% for mucoid [[Stockley2000]].
 - Smoking is the main cause of home-oxygen fires [[Cooper2015]].
@@ -215,8 +215,8 @@ Access notes:
 ### nursing · Step sequence
 1. Kicker "Count" — Title: Respiratory rate. Respiratory rate is often left unrecorded in hospital, even though an abnormal rate predicts serious events [[Cretikos2008]].
 2. Kicker "Score" — Title: NEWS2 and scale 2. For confirmed hypercapnic failure, scale 2 targets 88–92%, which in one study reduced alerts by 12.6% without missing early deaths [[Echevarria2019]].
-3. Kicker "Prescribe a target" — Title: Controlled oxygen. BTS lists a 24% Venturi mask at 2–3 L/min or 28% at 4 L/min aiming for 88–92% until blood gases are back [[ODriscoll2017]].
-4. Kicker "Check the gas" — Title: Oximetry has limits. Oximetry can be normal despite abnormal pH or PCO2, and it can overestimate saturation in people with darker skin [[ODriscoll2017,Fawzy2022]].
+3. Kicker "Prescribe a target" — Title: Controlled oxygen. BTS lists a 24% Venturi mask at 2–3 L/min or 28% at 4 L/min aiming for 88–92% until blood gases are back [[ODriscoll2017G]].
+4. Kicker "Check the gas" — Title: Oximetry has limits. Oximetry can be normal despite abnormal pH or PCO2, and it can overestimate saturation in people with darker skin [[ODriscoll2017G,Fawzy2022]].
 5. Kicker "Teach back" — Title: Inhaler technique. Teach-to-goal with teach-back lowered MDI misuse from 46% to 12.5% [[Press2012]].
 6. Kicker "Go home safely" — Title: Oxygen fire safety. Smoking while on home oxygen causes burns with long hospital stays and deaths [[Murabit2012,Cooper2015]].
 
@@ -304,12 +304,12 @@ Access notes:
 - news2_scale2_alert_reduction | admission | 12.6 | % fewer alerts | [[Echevarria2019]]
 - decaf_auroc | inpatient | 0.82 | AUROC | [[Echevarria2019]]
 - news2_cstat_t2rf_risk | 24 h | 0.860 | c-statistic (NEWS 0.881) | [[Pimentel2019]]
-- spo2_target_general | acute | 94-98 | % | [[ODriscoll2017]]
-- spo2_target_hypercapnic_risk | acute | 88-92 | % | [[ODriscoll2017]]
-- venturi_24_flow | before gases | 2-3 | L/min | [[ODriscoll2017]]
-- venturi_28_flow | before gases | 4 | L/min | [[ODriscoll2017]]
-- nasal_flow_copd | before gases | 1-2 | L/min | [[ODriscoll2017]]
-- spo2_fall_review | monitoring | 3 | % fall prompting review | [[ODriscoll2017]]
+- spo2_target_general | acute | 94-98 | % | [[ODriscoll2017G]]
+- spo2_target_hypercapnic_risk | acute | 88-92 | % | [[ODriscoll2017G]]
+- venturi_24_flow | before gases | 2-3 | L/min | [[ODriscoll2017G]]
+- venturi_28_flow | before gases | 4 | L/min | [[ODriscoll2017G]]
+- nasal_flow_copd | before gases | 1-2 | L/min | [[ODriscoll2017G]]
+- spo2_fall_review | monitoring | 3 | % fall prompting review | [[ODriscoll2017G]]
 - occult_hypoxaemia_black | paired SpO2/SaO2 | 28.5 | % | [[Fawzy2022]]
 - occult_hypoxaemia_white | paired SpO2/SaO2 | 17.2 | % | [[Fawzy2022]]
 - inhaler_correct_technique | pooled 1975-2014 | 31 | % | [[Sanchis2016]]
@@ -384,7 +384,7 @@ Access notes:
 - [Collins2012] Collins PF, Stratton RJ, Elia M. Nutritional support in chronic obstructive pulmonary disease: a systematic review and meta-analysis. Am J Clin Nutr. 2012;95(6):1385-95. PMID 22513295; doi:10.3945/ajcn.111.023499. (validated: PubMed)
 - [Yohannes2010] Yohannes AM, Willgoss TG, Baldwin RC, Connolly MJ. Depression and anxiety in chronic heart failure and chronic obstructive pulmonary disease: prevalence, relevance, clinical implications and management principles. Int J Geriatr Psychiatry. 2010;25(12):1209-21. PMID 20033905; doi:10.1002/gps.2463. (validated: PubMed)
 - [Zhang2011] Zhang MW, Ho RC, Cheung MW, Fu E, Mak A. Prevalence of depressive symptoms in patients with chronic obstructive pulmonary disease: a systematic review, meta-analysis and meta-regression. Gen Hosp Psychiatry. 2011;33(3):217-23. PMID 21601717; doi:10.1016/j.genhosppsych.2011.03.009. (validated: PubMed)
-- [Eisner2010] Eisner MD, Blanc PD, Yelin EH, Katz PP, Sanchez G, Iribarren C, et al. Influence of anxiety on health outcomes in COPD. Thorax. 2010;65(3):229-34. PMID 20335292; PMCID PMC3111227; doi:10.1136/thx.2009.126201. (validated: PubMed)
+- [Eisner2010G] Eisner MD, Blanc PD, Yelin EH, Katz PP, Sanchez G, Iribarren C, et al. Influence of anxiety on health outcomes in COPD. Thorax. 2010;65(3):229-34. PMID 20335292; PMCID PMC3111227; doi:10.1136/thx.2009.126201. (validated: PubMed)
 - [Maurer2008] Maurer J, Rebbapragada V, Borson S, Goldstein R, Kunik ME, Yohannes AM, et al. Anxiety and depression in COPD: current understanding, unanswered questions, and research needs. Chest. 2008;134(4 Suppl):43S-56S. PMID 18842932; PMCID PMC2849676; doi:10.1378/chest.08-0342. (validated: PubMed)
 - [Usmani2017] Usmani ZA, Carson KV, Heslop K, Esterman AJ, De Soyza A, Smith BJ. Psychological therapies for the treatment of anxiety disorders in chronic obstructive pulmonary disease. Cochrane Database Syst Rev. 2017;3(3):CD010673. PMID 28322440; PMCID PMC6464539; doi:10.1002/14651858.CD010673.pub2. (validated: PubMed)
 - [Dodd2010] Dodd JW, Getov SV, Jones PW. Cognitive function in COPD. Eur Respir J. 2010;35(4):913-22. PMID 20356988; doi:10.1183/09031936.00125109. (validated: PubMed)
@@ -398,7 +398,7 @@ Access notes:
 - [Smith2013NEWS] Smith GB, Prytherch DR, Meredith P, Schmidt PE, Featherstone PI. The ability of the National Early Warning Score (NEWS) to discriminate patients at risk of early cardiac arrest, unanticipated intensive care unit admission, and death. Resuscitation. 2013;84(4):465-70. PMID 23295778; doi:10.1016/j.resuscitation.2012.12.016. (validated: PubMed)
 - [Echevarria2019] Echevarria C, Steer J, Bourke SC. Comparison of early warning scores in patients with COPD exacerbation: DECAF and NEWS score. Thorax. 2019;74(10):941-946. PMID 31387892; PMCID PMC6817986; doi:10.1136/thoraxjnl-2019-213470. (validated: PubMed)
 - [Pimentel2019] Pimentel MAF, Redfern OC, Gerry S, Collins GS, Malycha J, Prytherch D, et al. A comparison of the ability of the National Early Warning Score and the National Early Warning Score 2 to identify patients at risk of in-hospital mortality: A multi-centre database study. Resuscitation. 2019;134:147-156. PMID 30287355; PMCID PMC6995996; doi:10.1016/j.resuscitation.2018.09.026. (validated: PubMed)
-- [ODriscoll2017] O'Driscoll BR, Howard LS, Earis J, Mak V. British Thoracic Society Guideline for oxygen use in adults in healthcare and emergency settings. BMJ Open Respir Res. 2017;4(1):e000170. PMID 28883921; PMCID PMC5531304; doi:10.1136/bmjresp-2016-000170. (validated: PubMed; no abstract, facts from Europe PMC open full text)
+- [ODriscoll2017G] O'Driscoll BR, Howard LS, Earis J, Mak V. British Thoracic Society Guideline for oxygen use in adults in healthcare and emergency settings. BMJ Open Respir Res. 2017;4(1):e000170. PMID 28883921; PMCID PMC5531304; doi:10.1136/bmjresp-2016-000170. (validated: PubMed; no abstract, facts from Europe PMC open full text)
 - [Fawzy2022] Fawzy A, Wu TD, Wang K, Robinson ML, Farha J, Bradke A, et al. Racial and Ethnic Discrepancy in Pulse Oximetry and Delayed Identification of Treatment Eligibility Among Patients With COVID-19. JAMA Intern Med. 2022;182(7):730-738. PMID 35639368; PMCID PMC9257583; doi:10.1001/jamainternmed.2022.1906. (validated: PubMed)
 - [Sanchis2016] Sanchis J, Gich I, Pedersen S. Systematic Review of Errors in Inhaler Use: Has Patient Technique Improved Over Time? Chest. 2016;150(2):394-406. PMID 27060726; doi:10.1016/j.chest.2016.03.041. (validated: PubMed)
 - [Melani2011] Melani AS, Bonavia M, Cilenti V, Cinti C, Lodi M, Martucci P, et al. Inhaler mishandling remains common in real life and is associated with reduced disease control. Respir Med. 2011;105(6):930-8. PMID 21367593; doi:10.1016/j.rmed.2011.01.005. (validated: PubMed)

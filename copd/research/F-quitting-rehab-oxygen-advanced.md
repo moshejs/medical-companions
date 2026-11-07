@@ -211,8 +211,8 @@ Access notes:
 - A handheld fan directed at the face for 5 minutes reduced breathlessness compared with directing it at the legs (P = 0.003; 50 participants, crossover) [[Galbraith2010]].
 - In a crossover trial of 48 opioid-naive people (88% with COPD), 20 mg sustained-release oral morphine for 4 days improved breathlessness by 6.6 mm (morning) and 9.5 mm (evening) on a 100 mm scale compared with placebo. It also improved sleep [[Abernethy2003]].
   - Distressing constipation was more common with morphine (9 vs 1) [[Abernethy2003]].
-- The 2016 Cochrane review of opioids for refractory breathlessness (26 studies, 526 participants) found "some low quality evidence" of benefit from oral or parenteral opioids and no evidence supporting nebulised opioids [[Barnes2016]].
-  - Nausea or vomiting (4.73-fold), constipation (3-fold) and drowsiness (2.86-fold) were more likely with opioids [[Barnes2016]].
+- The 2016 Cochrane review of opioids for refractory breathlessness (26 studies, 526 participants) found "some low quality evidence" of benefit from oral or parenteral opioids and no evidence supporting nebulised opioids [[Barnes2016F]].
+  - Nausea or vomiting (4.73-fold), constipation (3-fold) and drowsiness (2.86-fold) were more likely with opioids [[Barnes2016F]].
 - BEAMS randomised 160 people with COPD and mMRC 3–4 breathlessness at 20 Australian centres to extended-release morphine 8 or 16 mg/day or placebo [[Ekstrom2022]].
   - Worst breathlessness after week 1 did not differ (MD −0.3 for both doses). The authors concluded the findings "do not support the use of these doses" [[Ekstrom2022]].
 - MORDYC randomised 124 people with COPD and mMRC 2–4 breathlessness after pulmonary rehabilitation to 10 mg sustained-release morphine twice daily or placebo for 4 weeks [[Verberkt2020]].
@@ -403,7 +403,7 @@ Access notes:
 - **Opioids for chronic breathlessness.**
   - Older small trials and MORDYC suggest benefit, mainly in mMRC 3–4 [[Abernethy2003,Verberkt2020]].
   - BEAMS found no benefit at 8–16 mg/day [[Ekstrom2022]].
-  - Cochrane rates the evidence low quality [[Barnes2016]].
+  - Cochrane rates the evidence low quality [[Barnes2016F]].
   - Status: contested.
 - **Augmentation therapy's clinical benefit.** RAPID's combined CT endpoint missed significance (P = 0.06) while TLC alone was significant [[Chapman2015]]. No trial has shown a mortality or exacerbation benefit [[Dirksen2009]]. Status: Early evidence for clinical outcomes.
 - **E-cigarettes in COPD.** Quit-rate evidence versus NRT is high certainty [[Lindson2024]]. But follow-up is at most 2 years, and 80% of e-cigarette quitters still vaped at 1 year [[Hajek2019]]. Long-term respiratory safety in COPD remains (Hypothesis/Early evidence).
@@ -474,7 +474,7 @@ Access notes:
 - [Higginson2014] Higginson IJ, Bausewein C, Reilly CC, Gao W, Gysels M, Dzingina M, et al. An integrated palliative and respiratory care service for patients with advanced disease and refractory breathlessness: a randomised controlled trial. Lancet Respir Med. 2014;2(12):979-87. PMID 25465642; doi:10.1016/S2213-2600(14)70226-7. (validated: PubMed, Europe PMC)
 - [Galbraith2010] Galbraith S, Fagan P, Perkins P, Lynch A, Booth S. Does the use of a handheld fan improve chronic dyspnea? A randomized, controlled, crossover trial. J Pain Symptom Manage. 2010;39(5):831-8. PMID 20471544; doi:10.1016/j.jpainsymman.2009.09.024. (validated: PubMed, Europe PMC)
 - [Abernethy2003] Abernethy AP, Currow DC, Frith P, Fazekas BS, McHugh A, Bui C. Randomised, double blind, placebo controlled crossover trial of sustained release morphine for the management of refractory dyspnoea. BMJ. 2003;327(7414):523-528. PMID 12958109; PMCID PMC192892; doi:10.1136/bmj.327.7414.523. (validated: PubMed, Europe PMC)
-- [Barnes2016] Barnes H, McDonald J, Smallwood N, Manser R. Opioids for the palliation of refractory breathlessness in adults with advanced disease and terminal illness. Cochrane Database Syst Rev. 2016;3(3):CD011008. PMID 27030166; PMCID PMC6485401; doi:10.1002/14651858.CD011008.pub2. (validated: PubMed, Europe PMC)
+- [Barnes2016F] Barnes H, McDonald J, Smallwood N, Manser R. Opioids for the palliation of refractory breathlessness in adults with advanced disease and terminal illness. Cochrane Database Syst Rev. 2016;3(3):CD011008. PMID 27030166; PMCID PMC6485401; doi:10.1002/14651858.CD011008.pub2. (validated: PubMed, Europe PMC)
 - [Ekstrom2022] Ekström M, Ferreira D, Chang S, Louw S, Johnson MJ, Eckert DJ, et al. Effect of Regular, Low-Dose, Extended-release Morphine on Chronic Breathlessness in Chronic Obstructive Pulmonary Disease: The BEAMS Randomized Clinical Trial. JAMA. 2022;328(20):2022-2032. PMID 36413230; PMCID PMC9682426; doi:10.1001/jama.2022.20206. (validated: PubMed, Europe PMC)
 - [Verberkt2020] Verberkt CA, van den Beuken-van Everdingen MHJ, Schols JMGA, Hameleers N, Wouters EFM, Janssen DJA. Effect of Sustained-Release Morphine for Refractory Breathlessness in Chronic Obstructive Pulmonary Disease on Health Status: A Randomized Clinical Trial. JAMA Intern Med. 2020;180(10):1306-1314. PMID 32804188; PMCID PMC7432282; doi:10.1001/jamainternmed.2020.3134. (validated: PubMed, Europe PMC)
 

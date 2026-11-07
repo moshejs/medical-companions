@@ -1,5 +1,171 @@
-<!-- ================= 1.1 WHAT COPD IS (stub) ================= -->
+<!-- ================= 1.1 WHAT COPD IS ================= -->
+<style>
+#m-what .whbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-what .whbar .btn{font-size:13px}
+#m-what .whbar .btn i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+#m-what .whage{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;max-width:560px}
+#m-what .whage output{font:600 13px var(--mono);color:var(--brand)}
+#m-what .card>.tag,#m-what .card>.ev{align-self:flex-start}
+#m-what .big-num small{font:600 14px var(--body);color:var(--muted);margin-left:4px}
+#m-what blockquote{margin:0;border-left:3px solid var(--brand);padding:6px 0 6px 14px;font-family:var(--display);font-size:19px;line-height:1.4;max-width:66ch}
+#m-what td.whn{font:600 13.5px var(--mono);white-space:nowrap}
+#m-what .faq h4{font-size:17px}
+</style>
 <section class="mod" id="m-what" data-mod="what" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding COPD</p><h2>What COPD is</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">COPD (chronic obstructive pulmonary disease) is a long-term lung condition in which damaged airways, damaged air sacs, or both make it hard to breathe out fully. Watch a healthy lung change into the two faces of COPD, then explore how many people live with it, by age, sex and region, and how many do not know it.</p></div>
+
+  <div class="whbar" id="whFace" role="group" aria-label="Choose which abnormality the animation shows">
+    <span class="stage-cap">Show:</span>
+    <button class="btn" data-face="both" aria-pressed="true"><i style="background:var(--brand)"></i>Both, as in many people</button>
+    <button class="btn" data-face="airway" aria-pressed="false"><i style="background:var(--inflamed)"></i>Airway disease only</button>
+    <button class="btn" data-face="emph" aria-pressed="false"><i style="background:var(--alv-edge)"></i>Emphysema only</button>
+  </div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 400" role="img" aria-label="A pair of lungs with two magnified views beside them: a small airway cut across and a cluster of air sacs. As the timeline runs, the airway wall thickens, reddens and fills with mucus, the air-sac walls break down into larger spaces, and the lungs over-inflate. A side panel lists what has changed, then draws a slow breath-out curve against a healthy one, a map of normal spirometry, PRISm and obstruction, and finally the five cause-based types of COPD."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">Play</button><label class="stage-cap tl" for="whT">Timeline <input type="range" id="whT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Schematic, not to scale: the shapes show a direction of change, not measurements. The curves carry no litres; only the 0.7 ratio and the 80% FEV1 line are published cut-offs [[Agusti2023]]. Airway and air-sac changes: [[Hogg2004Lancet,Kim2013]]</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The GOLD 2023 definition</h3>
+  <div class="split2">
+    <div class="prose">
+      <blockquote>"a heterogeneous lung condition characterized by chronic respiratory symptoms (dyspnea, cough, expectoration, and/or exacerbations) due to abnormalities of the airways (bronchitis, bronchiolitis) and/or alveoli (emphysema) that cause persistent, often progressive, airflow obstruction" [[Agusti2023]]</blockquote>
+      <p>GOLD 2023 deliberately keeps this definition apart from epidemiology, causes, risk factors and diagnostic criteria, which it discusses on their own [[Agusti2023]]. It describes COPD as the result of dynamic, cumulative and repeated gene–environment interactions over a lifetime that damage the lungs or change how they develop and age, which it calls "GETomics" [[Agusti2023]].</p>
+    </div>
+    <div class="prose">
+      <p><b>How it is confirmed.</b> Diagnosis needs a post-bronchodilator FEV1/FVC ratio below 0.7 on forced spirometry, in someone with symptoms (breathlessness, chronic cough or sputum, recurrent lower respiratory infections) and/or exposure to risk factors [[Agusti2023]]. If a single test gives a ratio between 0.60 and 0.80, GOLD 2023 advises repeating spirometry on a separate occasion [[Agusti2023]].</p>
+      <p><b>Not specific on its own.</b> Airflow obstruction that does not fully reverse also occurs in asthma and other diseases, so GOLD 2023 says clinical context and risk factors must be considered [[Agusti2023]]. The spirometry module shows the test step by step.</p>
+      <p><button class="btn" data-go="spirometry">Go to 2.1 Spirometry</button></p>
+    </div>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Term</th><th>What it means (GOLD 2023)</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><th>COPD</th><td>Chronic symptoms plus airway and/or alveolar abnormalities, with a post-bronchodilator FEV1/FVC below 0.7 [[Agusti2023]].</td><td>The ratio confirms persistent airflow obstruction; symptoms and exposures give the context [[Agusti2023]].</td></tr>
+      <tr><th>Pre-COPD</th><td>Any age, respiratory symptoms and/or structural or functional abnormalities, but a post-bronchodilator FEV1/FVC above 0.7 [[Agusti2023]].</td><td>People may or may not go on to develop COPD. There is no evidence yet on how best to treat them [[Agusti2023]].</td></tr>
+      <tr><th>PRISm</th><td>Preserved ratio impaired spirometry: FEV1/FVC ≥0.7 with FEV1 below 80% of reference after bronchodilator [[Agusti2023]].</td><td>Reported prevalence 7.1% to 20.3%. Linked to higher all-cause mortality, and it can shift to normal, obstructive or restrictive spirometry over time [[Agusti2023]].</td></tr>
+      <tr><th>Young COPD</th><td>COPD in people aged 20–50 [[Agusti2023]].</td><td>It can come from never reaching normal peak lung function, a shorter plateau, or early decline [[Agusti2023]].</td></tr>
+      <tr><th>"Mild"</th><td>GOLD 2023 recommends using "mild" only for the spirometric severity of airflow obstruction [[Agusti2023]].</td><td>It is not meant to describe the stage of the disease [[Agusti2023]].</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Two faces: airways and air sacs</h3>
+  <div class="cards">
+    <div class="card"><span class="tag inflamed">Airways</span><h4>Chronic bronchitis and bronchiolitis</h4>
+      <p>The major sites of obstruction are small airways under 2 mm across [[McDonough2011]]. Their walls thicken with inflammatory cells and laid-down connective tissue, and mucous exudate collects in the lumen [[Hogg2004Lancet]].</p>
+      <p>Chronic bronchitis comes from mucus overproduction by goblet cells. The mucus can plug small airways and make them collapse more easily [[Kim2013]]. In 1962 the ATS defined chronic bronchitis clinically: chronic cough for at least three months in at least two years [[Petty2006]].</p></div>
+    <div class="card"><span class="tag" style="background:var(--alv);color:var(--ink)">Air sacs</span><h4>Emphysema</h4>
+      <p>The 1962 ATS definition was anatomical: enlarged airspaces with loss of alveolar walls [[Petty2006]]. Centrilobular emphysema, most closely linked to smoking, starts around the respiratory bronchioles; its lesions merge to destroy large volumes of lung [[Hogg2004Lancet]].</p>
+      <p>Narrowed small airways plus a floppier emphysematous lung make the lung slow to empty [[Hogg2004Lancet]]. Laënnec described such lungs as over-inflated and failing to collapse [[Petty2006]].</p></div>
+    <div class="card"><span class="tag brand">Together</span><h4>Usually both</h4>
+      <p>A 2015 review describes COPD as small-airway obstruction (chronic obstructive bronchiolitis) plus emphysema, which together cause air trapping and breathlessness on exertion [[Barnes2015]]. The balance varies from person to person, which is one reason GOLD calls COPD heterogeneous [[Agusti2023]].</p>
+      <p><button class="btn" data-go="lungs">Go to 1.3 Inside the lungs</button></p></div>
+  </div>
+
+  <h3 class="sub">How many people have COPD</h3>
+  <div class="prose">
+    <p>In 2019 about 1 in 10 people aged 30–79 worldwide had COPD: 10.3% (95% CI 8.2–12.8) by the GOLD fixed ratio, or 391.9 million people, and 7.6% by the lower limit of normal (LLN), or 292.0 million [[Adeloye2022]]. Of the 391.9 million, 315.5 million (80.5%) lived in low- and middle-income countries [[Adeloye2022]]. These are modelled estimates for populations, not predictions for any one person.</p>
+  </div>
+  <div class="whbar" id="whMeas" role="group" aria-label="Choose a measure">
+    <span class="stage-cap">Measure:</span>
+    <button class="btn" data-meas="who" aria-pressed="true">Prevalence by WHO region</button>
+    <button class="btn" data-meas="gbd" aria-pressed="false">Age-standardised prevalence</button>
+    <button class="btn" data-meas="death" aria-pressed="false">Age-standardised deaths</button>
+    <button class="btn" data-meas="count" aria-pressed="false">People and deaths</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whMap" viewBox="0 0 720 360" role="img" aria-label="Horizontal bars comparing the published COPD figures for regions and countries with the world figure for the chosen measure."></svg></div>
+      <p class="stage-cap" id="whMapCap"></p>
+    </div>
+    <aside class="note" id="whMapNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">By age and sex</h3>
+  <div class="whbar" id="whSex" role="group" aria-label="Choose who to show">
+    <span class="stage-cap">Show:</span>
+    <button class="btn" data-sex="all" aria-pressed="true"><i style="background:var(--brand)"></i>Everyone</button>
+    <button class="btn" data-sex="men" aria-pressed="false"><i style="background:var(--dx)"></i>Men</button>
+    <button class="btn" data-sex="women" aria-pressed="false"><i style="background:var(--accent)"></i>Women</button>
+    <button class="btn" data-sex="both" aria-pressed="false">Men and women</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <label class="whage" for="whAge">Age group <output id="whAgeV">60–64 years</output><input type="range" id="whAge" min="0" max="9" step="1" value="6"></label>
+      <div class="scroll"><svg id="whAgeSvg" viewBox="0 0 720 340" role="img" aria-label="Bars of COPD prevalence for each five-year age group from 30 to 79, with 100 small figures showing how many in 100 people of the chosen age group have COPD."></svg></div>
+      <div class="readout" id="whAgeRead"></div>
+      <p class="stage-cap">Worldwide prevalence by the GOLD fixed ratio, 2019, from the published age- and sex-specific table [[Adeloye2022]]. The research pass gives men's and women's figures for six of the ten age groups; the others are left blank, not filled in. The 100 figures round the percentage to whole people.</p>
+    </div>
+    <aside class="note" id="whAgeNote" aria-live="polite"></aside>
+  </div>
+  <div class="prose">
+    <p>Worldwide, prevalence in people aged 30–79 was more than twice as high in men (14.1%) as in women (6.5%) [[Adeloye2022]]. By the LLN definition, though, it was marginally higher in women (7.4%) than men (7.1%) in low- and middle-income countries [[Adeloye2022]], and GOLD 2023 says prevalence in developed countries is now almost equal in men and women [[Agusti2023]]. At the same airflow limitation, women report more breathlessness and worse health status, and have more exacerbations [[Agusti2023]].</p>
+    <p>In the BOLD study (12 sites, 9,425 people aged 40 or over), each extra 10 years of age raised the odds of COPD by a pooled factor of 1.94 [[Buist2007]]. A modelling study projects cases among people aged 25 and over rising 23% from 2020 to 2050, to nearly 600 million, with a 47.1% rise in women against 9.4% in men [[Boers2023]].</p>
+  </div>
+
+  <h3 class="sub">Most COPD goes undiagnosed</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">44 sites, 27 countries</span><p class="big-num">81.4%</p><p>of spirometry-defined COPD had never been diagnosed, among 30,874 adults aged 40 or over [[Lamprecht2015]]. Only 26.4% had ever had a lung function test [[Lamprecht2015]].</p></div>
+    <div class="card"><span class="kicker">Range between sites</span><p class="big-num">50.0<small>to</small> 98.3%</p><p>undiagnosed, from Lexington, Kentucky to Ile-Ife, Nigeria [[Lamprecht2015]]. Underdiagnosis was more likely in men, younger people, never and current smokers, people with less education, those never given spirometry and those with milder airflow limitation [[Lamprecht2015]].</p></div>
+    <div class="card"><span class="kicker">The other direction</span><p class="big-num">30–60%</p><p>of people with a physician diagnosis of COPD do not have it, according to a review of population studies, which also put worldwide underdiagnosis at about 70% [[Diab2018]].</p></div>
+    <div class="card"><span class="kicker">Who to test</span><h4>Case finding, not screening</h4><p>GOLD 2023 does not recommend screening spirometry for people without symptoms or risk factors, but says spirometry should be considered for case finding in people with symptoms and/or risk factors, such as more than 20 pack-years, recurrent chest infections or prematurity [[Agusti2023]].</p></div>
+  </div>
+
+  <h3 class="sub">Deaths and disability</h3>
+  <div class="split2">
+    <div class="prose">
+      <p>COPD caused 3.3 million deaths and 74.4 million disability-adjusted life years in 2019 [[Safiri2022]]. Deaths rose from 2.5 million in 1990, while the age-standardised death rate (42.5 per 100,000 in 2019) fell by 41.7%: more, older people, but a lower risk at any given age [[Safiri2022]].</p>
+      <p>About 80% of COPD deaths occur in low- and middle-income countries [[Stolz2022]]. The burden is highest in middle-development settings, not the poorest or the richest: a reversed-V pattern with the sociodemographic index [[Safiri2022]]. In 2017, chronic respiratory diseases were the third leading cause of death, with COPD causing most of them [[GBDCRD2020]].</p>
+      <p class="callout">Despite this toll, the Lancet Commission counted only 780 ongoing therapeutic COPD trials, against more than 41,000 cancer treatment trials [[Stolz2022]].</p>
+    </div>
+    <div class="tbl"><table style="min-width:320px">
+      <thead><tr><th>Rank</th><th>Leading causes of age-standardised death, 1990 and 2019 [[GBD2021CausesOfDeath]]</th></tr></thead>
+      <tbody>
+        <tr><td class="whn">1</td><td>Ischaemic heart disease</td></tr>
+        <tr><td class="whn">2</td><td>Stroke</td></tr>
+        <tr class="hl"><td class="whn">3</td><td><b>COPD</b></td></tr>
+        <tr><td class="whn">4</td><td>Lower respiratory infections</td></tr>
+        <tr><td class="whn">2021</td><td>COVID-19 moved COPD to fourth place [[GBD2021CausesOfDeath]].</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <h3 class="sub">Many causes: the etiotypes</h3>
+  <div class="prose">
+    <p>GOLD 2023 proposes classifying COPD by cause ("etiotypes"), to raise awareness of COPD in people who never smoked and to push research into its mechanisms, prevention and treatment [[Agusti2023]]. The 2022 Lancet Commission proposed five types <span class="ev early">Early evidence</span>; the Commission concedes some aspects are speculative [[Stolz2022]]. The taxonomy is a proposal, not a validated classification [[Agusti2023,Stolz2022]].</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Type (Lancet Commission)</th><th>What the research pass reports</th></tr></thead>
+    <tbody>
+      <tr><th>Genetically determined</th><td>Alpha-1 antitrypsin deficiency and telomerase reverse transcriptase mutations are the only two monogenic variants clearly shown to cause COPD; about 40% of the variability in airflow limitation is attributable to genetics [[Stolz2022]].</td></tr>
+      <tr><th>Early-life events</th><td>Prematurity, low birth weight, maternal smoking, repeated infections and poor nutrition shape peak lung function in early adulthood [[Agusti2023]].</td></tr>
+      <tr><th>Infection-related</th><td>An estimated 10–42% of people with early-life pneumonia, tuberculosis or HIV develop COPD [[Stolz2022]].</td></tr>
+      <tr><th>Smoking or vaping</th><td>Current smoking raised the odds of COPD 3.2-fold in a global meta-analysis [[Adeloye2022]]; evidence on e-cigarettes in never smokers is early and unconfirmed [[Stolz2022]].</td></tr>
+      <tr><th>Environmental exposure</th><td>Household and outdoor air pollution and work exposures; non-smoking risk factors account for over 50% of the global burden, per GOLD 2023 [[Agusti2023]].</td></tr>
+    </tbody>
+  </table></div>
+  <p><button class="btn" data-go="causes">Go to 1.2 Causes &amp; risk factors</button></p>
+
+  <h3 class="sub">Questions people ask</h3>
+  <div class="cards faq">
+    <div class="card"><h4>What is COPD?</h4><p>A long-term lung condition in which damaged airways and/or air sacs make it hard to breathe out fully. It causes breathlessness, cough, phlegm and flare-ups, and the narrowing does not fully go away [[Agusti2023]].</p></div>
+    <div class="card"><h4>Can people who never smoked get it?</h4><p>Yes. Never smokers made up about a quarter of people with moderate or worse COPD in the BOLD study. Other causes include smoke from cooking fires, polluted air, dust and fumes at work, past tuberculosis and problems with lung growth early in life [[Lamprecht2011,Salvi2009,Agusti2023]].</p></div>
+    <div class="card"><h4>Is it contagious or inherited?</h4><p>It is not an infection that spreads. A small number of people inherit a strong risk, mainly alpha-1 antitrypsin deficiency, and smaller gene effects add up in others [[Agusti2023,Stoller2005]].</p></div>
+    <div class="card"><h4>Does stopping smoking still help?</h4><p>In the Lung Health Study, people who quit regained some lung function in the first year, then lost it at about half the rate of people who kept smoking. A quit-smoking programme also lowered deaths over 14.5 years [[Scanlon2000,Anthonisen2005]].</p></div>
+    <div class="card"><h4>Can it be cured?</h4><p>Lung damage that has already happened does not reverse. Some treatments, including certain medicines, oxygen for low blood oxygen and quitting smoking, have been shown to lower the risk of death in selected people [[Agusti2023,Anthonisen2005,NOTT1980]].</p></div>
+    <div class="card"><h4>What is the outlook?</h4><p>It varies a lot. In a large US study, COPD shortened life expectancy only modestly in never smokers with mild-to-moderate disease, and more in smokers with severe disease. These are group averages, not predictions for one person [[Shavelle2009]].</p></div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Unresolved</span><h4>Fixed ratio or lower limit of normal?</h4><p>The fixed ratio gives a global prevalence of 10.3%, the LLN 7.6% [[Adeloye2022]]. GOLD 2023 keeps the fixed ratio for diagnosis [[Agusti2023]]. The choice changes who is counted, especially at older ages.</p></div>
+    <div class="card"><span class="tag warn">Method</span><h4>392 million or 212 million?</h4><p>The Global Burden of Disease study counted 212.3 million prevalent cases in 2019 [[Safiri2022]], against 391.9 million in the spirometry-based estimate. They use different case definitions and methods: a meta-regression for ages 30–79 versus GBD modelling of all ages [[Adeloye2022,Safiri2022]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Pre-COPD and PRISm</h4><p>There is no trial evidence yet on how to treat people with pre-COPD or PRISm [[Agusti2023]].</p></div>
+  </div>
 </section>

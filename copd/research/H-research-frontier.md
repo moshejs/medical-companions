@@ -29,7 +29,7 @@ Access notes:
 - NOTUS (n=935) replicated the result: exacerbations 0.86 vs 1.30 per year (rate ratio 0.66, 95% CI 0.54–0.82), FEV1 +82 mL vs placebo at week 12 and +62 mL at week 52. Unlike BOREAS, NOTUS showed no significant difference in SGRQ at 52 weeks [[Bhatt2024]].
 - MATINEE (mepolizumab 100 mg every 4 weeks; eosinophils ≥300/µL; triple therapy; n=804): exacerbations 0.80 vs 1.01 per year (rate ratio 0.79, 95% CI 0.66–0.94). Median time to first exacerbation was 419 vs 321 days. Quality-of-life and symptom differences were not significant (Established) [[Sciurba2025]].
 - The earlier mepolizumab trials gave mixed results. In METREX, the eosinophilic subgroup had 1.40 vs 1.71 exacerbations per year (rate ratio 0.82; adjusted P=0.04), with no effect in the overall population (rate ratio 0.98). In METREO the 100 mg rate ratio was 0.80 (adjusted P=0.07). The effect was larger at higher screening eosinophil counts [[Pavord2017]].
-- Benralizumab, an IL-5 receptor-α cytolytic antibody, did not significantly lower the exacerbation rate at any dose in GALATHEA or TERRANOVA (eosinophils ≥220/mm³). The best rate ratio was 0.83 (100 mg, GALATHEA, P=0.05) [[Criner2019]].
+- Benralizumab, an IL-5 receptor-α cytolytic antibody, did not significantly lower the exacerbation rate at any dose in GALATHEA or TERRANOVA (eosinophils ≥220/mm³). The best rate ratio was 0.83 (100 mg, GALATHEA, P=0.05) [[Criner2019H]].
 - RESOLUTE (NCT04053634) retested benralizumab 100 mg in a narrower group: ≥2 exacerbations despite triple therapy and eosinophils ≥300/µL (n=689; completed July 2025; no results posted on ClinicalTrials.gov at the pass date) (Early evidence) [[NCT04053634]].
 - Depemokimab, a long-acting anti-IL-5 antibody, is in three phase 3 COPD trials of type 2 inflammation: ENDURA-1 (NCT06959095; ~981 planned), ENDURA-2 (NCT06961214; ~961 planned) and VIGILANT (NCT07177339; ~1,196 planned; "early" add-on initiation). All are recruiting, with the annual moderate/severe exacerbation rate as primary endpoint (Early evidence) [[NCT06959095,NCT06961214,NCT07177339]].
 - Lunsekimig is in phase 2b/3 for COPD with an eosinophilic phenotype on triple therapy: PERSEPHONE (NCT07190209) and THESEUS (NCT07190222), ~942 each, both recruiting with exacerbation-rate primary endpoints. A long-term safety study, COLOSSUS (NCT07793409; ~1,508), began in September 2026 [[NCT07190209,NCT07190222,NCT07793409]].
@@ -141,7 +141,7 @@ Where the new treatments act, from the airway surface inward (one phase per step
 5. **Kicker: Protect.** **Title: Lung and liver need different fixes.** Silencing protects the liver but does not raise AAT for the lung, while editing aims to do both [[Strnad2022Fazirsiran,Monian2026]].
 
 ### Exam hooks
-- Dupilumab (anti-IL-4Rα) and mepolizumab (anti-IL-5) have US COPD labels limited to an eosinophilic phenotype. Benralizumab failed in GALATHEA/TERRANOVA [[FDA-Dupixent,FDA-Nucala,Criner2019]].
+- Dupilumab (anti-IL-4Rα) and mepolizumab (anti-IL-5) have US COPD labels limited to an eosinophilic phenotype. Benralizumab failed in GALATHEA/TERRANOVA [[FDA-Dupixent,FDA-Nucala,Criner2019H]].
 - BOREAS and NOTUS both required blood eosinophils ≥300/µL, and the exacerbation rate ratios were 0.70 and 0.66 [[Bhatt2023,Bhatt2024]].
 - Ensifentrine is a dual PDE3/PDE4 inhibitor given by nebuliser. FDA approved it on 26 June 2024 [[FDA-Ohtuvayre,Anzueto2023]].
 - Tezepelumab blocks TSLP. COURSE missed its primary endpoint (rate ratio 0.83), and phase 3 trials EMBARK and JOURNEY are running [[Singh2025COURSE,NCT06883305]].
@@ -170,8 +170,8 @@ Where the new treatments act, from the airway surface inward (one phase per step
 - exacerbation_rate_ratio_vs_placebo | NOTUS dupilumab | 0.66 | rate ratio | [[Bhatt2024]]
 - exacerbation_rate_ratio_vs_placebo | MATINEE mepolizumab | 0.79 | rate ratio | [[Sciurba2025]]
 - exacerbation_rate_ratio_vs_placebo | METREX mepolizumab (eosinophilic) | 0.82 | rate ratio | [[Pavord2017]]
-- exacerbation_rate_ratio_vs_placebo | GALATHEA benralizumab 100 mg | 0.83 | rate ratio | [[Criner2019]]
-- exacerbation_rate_ratio_vs_placebo | TERRANOVA benralizumab 100 mg | 0.93 | rate ratio | [[Criner2019]]
+- exacerbation_rate_ratio_vs_placebo | GALATHEA benralizumab 100 mg | 0.83 | rate ratio | [[Criner2019H]]
+- exacerbation_rate_ratio_vs_placebo | TERRANOVA benralizumab 100 mg | 0.93 | rate ratio | [[Criner2019H]]
 - exacerbation_rate_ratio_vs_placebo | COURSE tezepelumab | 0.83 | rate ratio (90% CI 0.64–1.06) | [[Singh2025COURSE]]
 - exacerbation_rate_ratio_vs_placebo | itepekimab phase 2 overall | 0.81 | relative risk | [[Rabe2021]]
 - exacerbation_rate_ratio_vs_placebo | AERIFY-1 itepekimab Q2W | 0.729 | rate ratio | [[NCT04701983]]
@@ -262,7 +262,7 @@ Where the new treatments act, from the airway surface inward (one phase per step
 - [Bhatt2024] Bhatt SP, Rabe KF, Hanania NA, Vogelmeier CF, Bafadhel M, Christenson SA, et al. Dupilumab for COPD with Blood Eosinophil Evidence of Type 2 Inflammation. N Engl J Med. 2024;390(24):2274-2283. PMID 38767614; doi:10.1056/NEJMoa2401304. (validated: PubMed)
 - [Sciurba2025] Sciurba FC, Criner GJ, Christenson SA, Martinez FJ, Papi A, Roche N, et al. Mepolizumab to Prevent Exacerbations of COPD with an Eosinophilic Phenotype. N Engl J Med. 2025;392(17):1710-1720. PMID 40305712; doi:10.1056/NEJMoa2413181. (validated: PubMed)
 - [Pavord2017] Pavord ID, Chanez P, Criner GJ, Kerstjens HAM, Korn S, Lugogo N, et al. Mepolizumab for Eosinophilic Chronic Obstructive Pulmonary Disease. N Engl J Med. 2017;377(17):1613-1629. PMID 28893134; doi:10.1056/NEJMoa1708208. (validated: PubMed)
-- [Criner2019] Criner GJ, Celli BR, Brightling CE, Agusti A, Papi A, Singh D, et al. Benralizumab for the Prevention of COPD Exacerbations. N Engl J Med. 2019;381(11):1023-1034. PMID 31112385; doi:10.1056/NEJMoa1905248. (validated: PubMed)
+- [Criner2019H] Criner GJ, Celli BR, Brightling CE, Agusti A, Papi A, Singh D, et al. Benralizumab for the Prevention of COPD Exacerbations. N Engl J Med. 2019;381(11):1023-1034. PMID 31112385; doi:10.1056/NEJMoa1905248. (validated: PubMed)
 - [Lazaar2020] Lazaar AL, Miller BE, Donald AC, Keeley T, Ambery C, Russell J, et al. CXCR2 antagonist for patients with chronic obstructive pulmonary disease with chronic mucus hypersecretion: a phase 2b trial. Respir Res. 2020;21(1):149. PMID 32532258; PMCID PMC7291447; doi:10.1186/s12931-020-01401-4. (validated: PubMed)
 - [Han2022RETHINC] Han MK, Ye W, Wang D, White E, Arjomandi M, Barjaktarevic IZ, et al. Bronchodilators in Tobacco-Exposed Persons with Symptoms and Preserved Lung Function. N Engl J Med. 2022;387(13):1173-1184. PMID 36066078; PMCID PMC9741866; doi:10.1056/NEJMoa2204752. (validated: PubMed)
 - [Martinez2018] Martinez FJ, Han MK, Allinson JP, Barr RG, Boucher RC, Calverley PMA, et al. At the Root: Defining and Halting Progression of Early Chronic Obstructive Pulmonary Disease. Am J Respir Crit Care Med. 2018;197(12):1540-1551. PMID 29406779; PMCID PMC6006401; doi:10.1164/rccm.201710-2028PP. (validated: PubMed; record only, no abstract and full text not retrieved, cited for the concept only)

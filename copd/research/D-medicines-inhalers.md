@@ -28,10 +28,10 @@ Access notes:
 - Every maintenance product in this pass is labelled as not for acute symptoms. Examples: Trelegy "NOT indicated for the relief of acute bronchospasm"; Stiolto "NOT indicated to treat acute deterioration of COPD"; Daliresp "is not a bronchodilator" [[FDA-Trelegy,FDA-Stiolto,FDA-Daliresp]].
 
 ### inhalers · LAMA: tiotropium and the UPLIFT trial
-- UPLIFT randomised 5993 patients (mean post-bronchodilator FEV1 1.32 L, 48% of predicted) to tiotropium or placebo for 4 years. Other respiratory medicines were allowed, except inhaled anticholinergics [[Tashkin2008]].
-- UPLIFT's co-primary end points were the rate of decline in FEV1 before and after bronchodilator. The two arms did not differ significantly in rate of decline after day 30 [[Tashkin2008]].
-- Tiotropium kept FEV1 higher throughout UPLIFT: by 87–103 mL before bronchodilator and 47–65 mL after bronchodilator versus placebo (P<0.001). SGRQ scores were 2.3–3.3 units better at every time point [[Tashkin2008]].
-- At 4 years and 30 days, tiotropium was associated with lower risks of exacerbations, related hospitalisations and respiratory failure [[Tashkin2008]].
+- UPLIFT randomised 5993 patients (mean post-bronchodilator FEV1 1.32 L, 48% of predicted) to tiotropium or placebo for 4 years. Other respiratory medicines were allowed, except inhaled anticholinergics [[Tashkin2008D]].
+- UPLIFT's co-primary end points were the rate of decline in FEV1 before and after bronchodilator. The two arms did not differ significantly in rate of decline after day 30 [[Tashkin2008D]].
+- Tiotropium kept FEV1 higher throughout UPLIFT: by 87–103 mL before bronchodilator and 47–65 mL after bronchodilator versus placebo (P<0.001). SGRQ scores were 2.3–3.3 units better at every time point [[Tashkin2008D]].
+- At 4 years and 30 days, tiotropium was associated with lower risks of exacerbations, related hospitalisations and respiratory failure [[Tashkin2008D]].
 - Cochrane (22 studies, 23,309 participants): tiotropium versus placebo reduced the number of people with exacerbations (OR 0.78; 95% CI 0.70 to 0.87). That is a number needed to treat of 16 (95% CI 10 to 36) for 1 year, at a placebo event rate of 44% [[Karner2014]].
 - In that review there was no overall mortality difference (Peto OR 0.98; 95% CI 0.86 to 1.11). Subgroups split by device: the soft mist inhaler showed more deaths with tiotropium (Peto OR 1.47; 95% CI 1.04 to 2.08), the dry powder inhaler did not (Peto OR 0.92; 95% CI 0.80 to 1.05) [[Karner2014]].
 - TIOSPIR was designed to settle that safety signal. It randomised 17,135 patients to tiotropium Respimat 2.5 or 5 µg or HandiHaler 18 µg, with a mean follow-up of 2.3 years. Respimat 5 µg was noninferior to HandiHaler for death (HR 0.96; 95% CI 0.84 to 1.09), as was 2.5 µg (HR 1.00; 95% CI 0.87 to 1.14) [[Wise2013]].
@@ -219,7 +219,7 @@ Access notes:
 2. Kicker: One long-acting. Title: A LAMA blocks M3 receptors for 24 hours. Tiotropium blocks smooth-muscle M3 receptors, and its protective effect lasted over 24 hours in preclinical studies, which supports once-daily dosing [[FDA-SpirivaHandiHaler]].
 3. Kicker: LAMA vs LABA. Title: Tiotropium beat salmeterol on flare-ups. In POET-COPD, tiotropium delayed the first exacerbation from 145 to 187 days (HR 0.83) [[Vogelmeier2011]].
 4. Kicker: Two long-acting. Title: LABA + LAMA together. ATS 2020 strongly recommends LABA/LAMA over either alone for breathless patients, and GOLD 2023 makes it initial therapy for groups B and E [[Nici2020,Agusti2023]].
-5. Kicker: What it does not do. Title: Bronchodilators do not slow decline. In UPLIFT, tiotropium lifted FEV1 by 87–103 mL for 4 years but did not change the rate of FEV1 decline [[Tashkin2008]].
+5. Kicker: What it does not do. Title: Bronchodilators do not slow decline. In UPLIFT, tiotropium lifted FEV1 by 87–103 mL for 4 years but did not change the rate of FEV1 decline [[Tashkin2008D]].
 
 ### escalation · Step sequence
 1. Kicker: Check the count. Title: Eosinophils predict who gains from ICS. The ICS effect on exacerbations grew from 24% to 42% as eosinophils rose from 2–4% to ≥6% [[Pascoe2015]].
@@ -237,7 +237,7 @@ Access notes:
 5. Kicker: Check again. Title: Teach and re-check at every visit. Instruction from health caregivers was the only modifiable factor linked to less inhaler misuse [[Melani2011]].
 
 ### Exam hooks
-- UPLIFT: tiotropium improved FEV1, quality of life and exacerbations over 4 years but did not slow FEV1 decline [[Tashkin2008]].
+- UPLIFT: tiotropium improved FEV1, quality of life and exacerbations over 4 years but did not slow FEV1 decline [[Tashkin2008D]].
 - POET-COPD: LAMA (tiotropium) beat LABA (salmeterol) for time to first exacerbation, HR 0.83 [[Vogelmeier2011]].
 - FLAME: LABA+LAMA beat LABA+ICS on exacerbations (rate ratio 0.89), with less pneumonia (3.2% vs 4.8%) [[Wedzicha2016]].
 - TORCH: salmeterol/fluticasone missed significance for mortality (HR 0.825; P=0.052), and pneumonia was more frequent with fluticasone [[Calverley2007]].
@@ -260,13 +260,13 @@ Access notes:
 - If flare-ups keep happening, doctors may add a tablet (roflumilast), a daily antibiotic (azithromycin) or, for some people, an injection (dupilumab or mepolizumab) [[Agusti2023,FDA-Dupixent,FDA-Nucala]].
 - Most people make at least one mistake with their inhaler. Asking a nurse, pharmacist or doctor to watch you use it is one of the most useful checks [[Sanchis2016,Melani2011]].
 - Powder inhalers need a strong, fast breath in. Spray inhalers need a slow, steady breath timed with the press. Some people use a spray inhaler with a spacer [[Mahler2017,Sanchis2016,Agusti2023]].
-- None of these medicines cures COPD or stops the lungs from slowly changing. They ease breathing and lower the chance of flare-ups [[Tashkin2008]].
+- None of these medicines cures COPD or stops the lungs from slowly changing. They ease breathing and lower the chance of flare-ups [[Tashkin2008D]].
 
 ## Numbers for the animations
-- uplift_fev1_gain_prebd | year 0–4 range low | 87 | mL vs placebo | [[Tashkin2008]]
-- uplift_fev1_gain_prebd | year 0–4 range high | 103 | mL vs placebo | [[Tashkin2008]]
-- uplift_fev1_gain_postbd | year 0–4 range low | 47 | mL vs placebo | [[Tashkin2008]]
-- uplift_fev1_gain_postbd | year 0–4 range high | 65 | mL vs placebo | [[Tashkin2008]]
+- uplift_fev1_gain_prebd | year 0–4 range low | 87 | mL vs placebo | [[Tashkin2008D]]
+- uplift_fev1_gain_prebd | year 0–4 range high | 103 | mL vs placebo | [[Tashkin2008D]]
+- uplift_fev1_gain_postbd | year 0–4 range low | 47 | mL vs placebo | [[Tashkin2008D]]
+- uplift_fev1_gain_postbd | year 0–4 range high | 65 | mL vs placebo | [[Tashkin2008D]]
 - poet_days_to_first_exac_tiotropium | median-type time | 187 | days | [[Vogelmeier2011]]
 - poet_days_to_first_exac_salmeterol | median-type time | 145 | days | [[Vogelmeier2011]]
 - poet_exac_rate_tiotropium | 1 year | 0.64 | per patient-year | [[Vogelmeier2011]]
@@ -386,7 +386,7 @@ Access notes:
 
 ## Sources
 - [Agusti2023] Agustí A, Celli BR, Criner GJ, Halpin D, Anzueto A, Barnes P, et al. Global Initiative for Chronic Obstructive Lung Disease 2023 Report: GOLD Executive Summary. Am J Respir Crit Care Med. 2023;207(7):819-837. PMID 36856433; PMCID PMC10111975; doi:10.1164/rccm.202301-0106PP. Recommendation wording read from the open full text. (validated: PubMed)
-- [Tashkin2008] Tashkin DP, Celli B, Senn S, Burkhart D, Kesten S, Menjoge S, et al. A 4-year trial of tiotropium in chronic obstructive pulmonary disease. N Engl J Med. 2008;359(15):1543-1554. PMID 18836213; doi:10.1056/NEJMoa0805800. (validated: PubMed)
+- [Tashkin2008D] Tashkin DP, Celli B, Senn S, Burkhart D, Kesten S, Menjoge S, et al. A 4-year trial of tiotropium in chronic obstructive pulmonary disease. N Engl J Med. 2008;359(15):1543-1554. PMID 18836213; doi:10.1056/NEJMoa0805800. (validated: PubMed)
 - [Calverley2007] Calverley PM, Anderson JA, Celli B, Ferguson GT, Jenkins C, Jones PW, et al. Salmeterol and fluticasone propionate and survival in chronic obstructive pulmonary disease. N Engl J Med. 2007;356(8):775-789. PMID 17314337; doi:10.1056/NEJMoa063070. (validated: PubMed)
 - [Vogelmeier2011] Vogelmeier C, Hederer B, Glaab T, Schmidt H, Rutten-van Mölken MP, Beeh KM, et al. Tiotropium versus salmeterol for the prevention of exacerbations of COPD. N Engl J Med. 2011;364(12):1093-1103. PMID 21428765; doi:10.1056/NEJMoa1008378. (validated: PubMed)
 - [Wedzicha2016] Wedzicha JA, Banerji D, Chapman KR, Vestbo J, Roche N, Ayers RT, et al. Indacaterol-Glycopyrronium versus Salmeterol-Fluticasone for COPD. N Engl J Med. 2016;374(23):2222-2234. PMID 27181606; doi:10.1056/NEJMoa1516385. (validated: PubMed)
