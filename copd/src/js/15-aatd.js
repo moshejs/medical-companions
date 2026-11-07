@@ -82,9 +82,9 @@ inits.aatd=()=>{
     s+=`<text x="${Lv.st[0]}" y="${Lv.st[1]}" class="t-xs" text-anchor="${Lv.st[2]}" style="fill:var(--ink);font-weight:700">${T.st[Z?'Z':'M'][p]}</text>`;
     /* liver cell */
     s+=`<rect x="${lv.x}" y="${lv.y}" width="${lv.w}" height="${lv.h}" rx="18" style="fill:var(--tissue);stroke:var(--membrane);stroke-width:2"/><text x="${lv.x+10}" y="${lv.y+lv.h-8}" class="t-xs">${T.liver}</text>`;
-    const nuX=lv.x+40,nuY=lv.y+lv.h*.42;
-    s+=`<circle cx="${nuX}" cy="${f1(nuY)}" r="22" style="fill:var(--nucleus);stroke:var(--membrane)"/><text x="${nuX}" y="${f1(nuY-3)}" class="t-xs" text-anchor="middle" style="fill:var(--ink)">${T.gene}</text>`;
-    const g0=p===0;s+=chip(nuX,nuY+12,Z?T.lys:T.glu,{anchor:'middle',size:g0?11:10,col:Z?'var(--accent)':'var(--dx)',fill:g0?(Z?'var(--accent-soft)':'var(--dx-soft)'):'var(--panel)',tcol:'var(--ink)'});
+    const nuX=lv.x+42,nuY=lv.y+lv.h*.42;
+    s+=`<circle cx="${nuX}" cy="${f1(nuY)}" r="27" style="fill:var(--nucleus);stroke:var(--membrane)"/><text x="${nuX}" y="${f1(nuY-6)}" class="t-xs" text-anchor="middle" style="fill:var(--ink)">${T.gene}</text>`;
+    const g0=p===0;s+=chip(nuX,nuY+13,Z?T.lys:T.glu,{anchor:'middle',size:g0?11:10,col:Z?'var(--accent)':'var(--dx)',fill:g0?(Z?'var(--accent-soft)':'var(--dx-soft)'):'var(--panel)',tcol:'var(--ink)'});
     let er='';for(let i=0;i<3;i++){const yy=lv.y+22+i*24;er+=`M${lv.x+76} ${yy}q10 -8 20 0t20 0t20 0t20 0t20 0`}
     s+=`<path d="${er}" style="fill:none;stroke:var(--membrane);stroke-width:1.6"/>`;
     const prod=ramp(t,.17,.26),fill=ramp(t,.28,.4),aug=ramp(t,.85,.95);
@@ -115,7 +115,7 @@ inits.aatd=()=>{
         else s+=luNE(tx,ty,3,el*(1-u*.3))}
       if(!Z||aug>0)for(let j=0;j<(Z?2:4);j++){const u=(t*6+j/4)%1;s+=aaMol(lerp(nx-14,nx+30,u),ny-18-j*5,3.2,{op:el*.9})}
       if(Z&&smk>.3)s+=aaMol(nx+28,ny+16,3.4,{ox:true,op:smk})}
-    s+=`<text x="${ax}" y="${f1(ay+as*.5+(N?8:6))}" class="t-xs" text-anchor="middle">${T.lung}</text>`;
+    s+=`<text x="${f1(ax+as*.5)}" y="${f1(ay+as*.47)}" class="t-xs">${T.lung}</text>`;
     return s}
   function draw(t){
     const N=vb(svg,'720 420','400 680'),p=phaseOf(AA_STEPS,t),S=AA_STEPS[p];

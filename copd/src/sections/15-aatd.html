@@ -1,5 +1,111 @@
-<!-- ================= 1.5 ALPHA-1 ANTITRYPSIN DEFICIENCY (stub) ================= -->
+<!-- ================= 1.5 ALPHA-1 ANTITRYPSIN DEFICIENCY ================= -->
+<style>
+#m-aatd .aabtns{display:flex;flex-wrap:wrap;gap:8px}
+#m-aatd .aapick{display:flex;flex-wrap:wrap;gap:12px}
+#m-aatd .aapick label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700}
+#m-aatd .aapick select{font:inherit;font-weight:400;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+#m-aatd .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;counter-reset:aastep}
+#m-aatd .flow .card{position:relative;padding-top:30px}
+#m-aatd .flow .card::before{counter-increment:aastep;content:counter(aastep);position:absolute;top:10px;left:16px;font:600 11px var(--mono);color:var(--dx)}
+#m-aatd .legend i.al{width:12px;height:12px;border-radius:50%}
+</style>
 <section class="mod" id="m-aatd" data-mod="aatd" hidden>
   <div class="mhead"><p class="eyebrow">Part 1 · Understanding COPD</p><h2>Alpha-1 antitrypsin deficiency</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">The inherited form of COPD. The liver makes alpha-1 antitrypsin (AAT), a protein that travels in the blood to shield the lungs from neutrophil elastase. Follow the normal M protein and the faulty Z protein side by side, then work out what two parents can pass on and see what the augmentation trials found.</p></div>
+  <div class="stepper" id="aaSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="aaSvg" viewBox="0 0 720 420" role="img" aria-label="Two lanes, MM above and ZZ below, each with a liver cell, a blood vessel and air sacs. In the MM lane, AAT molecules leave the liver, fill the blood and meet neutrophil elastase near the air sacs, so the elastin stays intact. In the ZZ lane, Z protein links into chains inside the liver cell, few molecules reach the blood, the level bar stays under 35 per cent of normal, elastase reaches the elastin and the air sacs merge; a liver inclusion grows; finally a weekly infusion adds AAT to the blood."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="aaPlay">Play</button><label class="stage-cap tl" for="aaT">Timeline <input type="range" id="aaT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="legend"><span><i class="al" style="background:var(--dx)"></i>AAT (M protein)</span><span><i class="al" style="background:var(--accent)"></i>Z protein and polymers</span><span><i style="background:var(--inflamed)"></i>neutrophil elastase</span><span><i style="background:var(--elastin)"></i>elastin</span><span><i style="background:var(--blood)"></i>red cells</span></div>
+      <p class="stage-cap">Schematic, not to scale: molecule counts and bar lengths are illustrative. Only “15% secreted” [[Lomas1992]] and “below 35% of normal” [[FDA-ProlastinC]] set proportions in the drawing.</p></div>
+    <aside class="note" id="aaNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How common is it?</h3>
+  <div class="prose">
+    <p>Severe AATD affects about 1 in 2,000–5,000 people [[Stoller2005]]; a WHO memorandum puts it at about 1 in 2,000 to 1 in 7,000 in Europe and North America, comparable with cystic fibrosis. [[WHO1997]] It has been found in populations of all racial groups, not only white Europeans. [[deSerres2002]]</p>
+    <p>GOLD 2023 states that PiZZ is found in 0.12% of COPD patients, from 1 in 408 in Northern Europe to 1 in 1,274 in Eastern Europe [[Agusti2023]]; Greulich and colleagues put AATD as the cause of about 1% of COPD cases. [[Greulich2013]] The figures probably differ in what they count and which population was sampled. Blanco and colleagues report the Z allele in 98% of severe cases [[Blanco2017]], while the label’s 95% counts ZZ homozygotes. [[FDA-ProlastinC]]</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Region</th><th>Estimated Pi*ZZ people</th></tr></thead>
+    <tbody>
+      <tr><td>Europe</td><td>119,594</td></tr><tr><td>Americas and Caribbean</td><td>91,490</td></tr><tr><td>Asia</td><td>32,154</td></tr>
+      <tr><td>Australia</td><td>4,126</td></tr><tr><td>Africa</td><td>3,824</td></tr><tr><td>New Zealand</td><td>2,216</td></tr>
+      <tr class="hl"><td><b>Worldwide (224 cohorts, 65 countries)</b></td><td><b>253,404</b> [[Blanco2017]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Try it: what can two parents pass on?</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>Mendelian arithmetic for an autosomal co-dominant condition, as the Prolastin-C label describes AATD [[FDA-ProlastinC]]. It shows chances for each pregnancy, not a prediction for a family, and it is not for diagnosis or treatment decisions; genetic counselling and testing give real answers. Each genotype card quotes the published figures only.</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="aapick">
+        <label for="aaPa">Parent 1 <select id="aaPa"><option>MM</option><option>MS</option><option selected>MZ</option><option>SS</option><option>SZ</option><option>ZZ</option></select></label>
+        <label for="aaPb">Parent 2 <select id="aaPb"><option>MM</option><option>MS</option><option selected>MZ</option><option>SS</option><option>SZ</option><option>ZZ</option></select></label>
+      </div>
+      <div class="scroll"><svg id="aaPunSvg" viewBox="0 0 720 230" role="img" aria-label="A Punnett square: each parent's two alleles along the top and side, the four possible child genotypes in the cells, and bars giving the chance of each genotype for each child."></svg></div>
+      <div class="legend"><span><i class="al" style="background:var(--dx)"></i>M allele</span><span><i class="al" style="background:var(--mucus)"></i>S allele</span><span><i class="al" style="background:var(--accent)"></i>Z allele</span></div>
+      <p class="kicker">Possible children: choose one to read about it</p>
+      <div class="aabtns" id="aaPunList" role="group" aria-label="Child genotypes"></div>
+      <p class="kicker">Or any genotype</p>
+      <div class="aabtns" id="aaGtBtns" role="group" aria-label="All genotypes">
+        <button class="btn" data-gt="MM" aria-pressed="false">MM</button><button class="btn" data-gt="MZ" aria-pressed="false">MZ</button><button class="btn" data-gt="SZ" aria-pressed="false">SZ</button><button class="btn" data-gt="ZZ" aria-pressed="true">ZZ</button><button class="btn" data-gt="NN" aria-pressed="false">Null/null</button>
+      </div>
+    </div>
+    <aside class="note" id="aaGtCard" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Smoking changes the story</h3>
+  <div class="cards">
+    <div class="card"><span class="tag smoke">ZZ, New Zealand</span><h4>Decades earlier</h4><p>In 69 ZZ individuals followed from 1970 to 1983, mean FEV1 was 77% predicted in non-smokers and 38% in smokers. FEV1 fell by 80 mL/yr in non-smokers, 317 mL/yr in smokers and 61 mL/yr in ex-smokers. [[Janus1985]]</p></div>
+    <div class="card"><span class="tag smoke">ZZ, Sweden</span><h4>Dose–response</h4><p>In 608 PiZZ adults, adjusted FEV1 decline was 47 mL/yr in never-smokers, 41 in ex-smokers and 70 in current smokers, with a dose–response to cigarette consumption. [[Piitulainen1999]] In the NHLBI registry (1,129 adults), mean decline was 54 mL/yr and 5-year mortality 19%. [[AATDRegistry1998]]</p></div>
+    <div class="card"><span class="tag rec">Never-smokers</span><h4>Found by screening</h4><p>Never-smoking PiZZ adults found by family or population screening had an SMR of 0.70 (95% CI 0.14–2.04) [[Tanash2008]], and compared with random controls showed no clear excess risk of death (HR 1.2). Overall, PiZZ carried a 3.2-fold adjusted risk of death. [[Tanash2017]] Some never-smokers still develop progressive lung disease. [[Miravitlles2017]]</p></div>
+    <div class="card"><span class="tag">Not always basal</span><h4>Where the emphysema sits</h4><p>Of 102 PiZ people with emphysema on CT, 65 had a basal-predominant and 37 (36%) an apical-predominant pattern. [[Parr2004]]</p></div>
+  </div>
+
+  <h3 class="sub">The liver</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">Infants</span><h4>Newborn screening in Sweden</h4><p>Screening 200,000 newborns found 120 Pi Z infants; 14 had prolonged obstructive jaundice (9 with severe liver disease), and many apparently healthy Pi Z infants had abnormal liver tests at 3 and 6 months. [[Sveger1976]] Infant cholestasis usually remits by adolescence, and AATD is the commonest cause of chronic liver disease in childhood. [[WHO1997]]</p></div>
+    <div class="card"><span class="tag accent">Adults</span><h4>Fibrosis, cirrhosis and cancer</h4><p>Cirrhosis and liver carcinoma affect at least 25% of deficient adults over 50 (WHO memorandum). [[WHO1997]] Malmö autopsies linked AATD with cirrhosis (OR 7.8) and primary liver cancer (OR 20), significant only in men. [[Eriksson1986]] Liver fibrosis was not related to lung function. [[Hamesch2019]]</p></div>
+    <div class="card"><span class="tag accent">Pipeline</span><h4>Silencing Z protein</h4><p>In a 16-patient phase 2 trial, the RNAi drug fazirsiran cut liver Z-AAT by a median of 83%. <span class="ev early">Early evidence</span> [[Strnad2022Fazirsiran]] <button class="btn ghost" data-go="frontier">Research frontier</button></p></div>
+  </div>
+
+  <h3 class="sub">Testing, as published</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>A summary of published testing guidance, not a testing protocol for any person and not for diagnosis or treatment decisions.</p>
+  <div class="flow">
+    <div class="card"><h4>Who to test</h4><p>The 2003 ATS/ERS statement made a strong recommendation to test all symptomatic adults with COPD. The 2016 Alpha-1 Foundation guidance endorses testing all adults with symptomatic fixed airflow obstruction, whether labelled COPD or asthma, plus people with unexplained bronchiectasis or liver disease. [[Sandhaus2016]]</p></div>
+    <div class="card"><h4>Family</h4><p>Testing first-degree relatives is the most efficient way to find cases. [[Sandhaus2016]]</p></div>
+    <div class="card"><h4>Level and genotype</h4><p>In three European laboratories, the AAT level and genotyping were the main diagnostic steps, with isoelectric focusing (phenotyping) kept for confirmation. [[Miravitlles2010]]</p></div>
+    <div class="card"><h4>Rare alleles</h4><p>Genotyping only for S and Z can miss rare deficiency alleles; an algorithm sending low-level samples on to isoelectric focusing was tested on 50,020 samples. [[Bornhorst2007]]</p></div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Diagnostic delay</span><h4>Years from first symptoms</h4><p>In US patient surveys, the mean delay from first symptoms to diagnosis was 7.2 years in 1994 and 5.6 years in 2003, longer in women and older people. [[Stoller2005Chest]] In Germany and Italy the median delay was 6 to 7 years, and only 18–25% of surveyed physicians tested all COPD patients. [[Greulich2013]]</p></div>
+    <div class="card"><span class="tag warn">Undiagnosed</span><h4>Registries and expert centres</h4><p>The ERS statement says a large share of people with AATD remain undiagnosed, and recommends registries and management through expert centres. [[Miravitlles2017]]</p></div>
+  </div>
+
+  <h3 class="sub">Augmentation therapy: what the trials show</h3>
+  <p class="prose">Augmentation means weekly intravenous infusions of AAT purified from donated plasma. The Prolastin-C label states a dose of 60 mg/kg once weekly by intravenous infusion, notes that efficacy on exacerbations and emphysema progression “has not been demonstrated” in adequately powered randomised trials, and contraindicates the product in IgA-deficient patients with antibodies against IgA. The label version cited is dated 2009 and may be older than the current US label. [[FDA-ProlastinC]]</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="aabtns" id="aaDenBtns" role="group" aria-label="Choose a trial">
+        <button class="btn" data-dk="rapid" aria-pressed="true">RAPID</button><button class="btn" data-dk="ole" aria-pressed="false">RAPID extension</button><button class="btn" data-dk="pooled" aria-pressed="false">Pooled trials</button>
+      </div>
+      <div class="scroll"><svg id="aaDenSvg" viewBox="0 0 720 130" role="img" aria-label="Bar chart of yearly CT lung density loss in grams per litre, treatment against placebo, for the chosen trial."></svg></div>
+      <p class="stage-cap">Longer bars mean faster loss of lung tissue on CT. Lung density is a sensitive surrogate; its link to patient outcomes is inferred.</p>
+    </div>
+    <div class="note"><div class="kicker">The trial</div><p id="aaDenNote" aria-live="polite"></p></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Design</th><th>Finding</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td><b>Wewers 1987</b></td><td>21 patients, 60 mg/kg weekly</td><td>Trough serum AAT rose from 30 to 126 mg/dL; lining-fluid AAT from 0.46 to 1.89 µM; no change in lung function over 6 months. [[Wewers1987]]</td><td><span class="ev est">Established</span> biochemistry</td></tr>
+      <tr class="hl"><td><b>RAPID</b></td><td>180 non-smokers, RCT, 24 months</td><td>Combined end point missed (p=0.06); TLC density loss slower (−1.45 vs −2.19 g/L/yr; p=0.03). The authors concluded augmentation should be considered to preserve lung tissue in severe AATD emphysema. [[Chapman2015]]</td><td><span class="ev early">Early evidence</span> surrogate end point</td></tr>
+      <tr><td><b>RAPID-OLE</b></td><td>Open-label extension</td><td>Delayed starters slowed from −2.26 to −1.26 g/L/yr; lost density was not recovered. [[McElvaney2017]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td><b>EXACTLE</b></td><td>77 PiZ subjects, 2–2.5 years</td><td>Trend to less density loss (p=0.049–0.084); exacerbations no less frequent but less severe. [[Dirksen2009]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td><b>NHLBI registry</b></td><td>Non-randomised, 1,129 adults</td><td>Augmentation associated with lower mortality (RR 0.64); FEV1 declined 27 mL/yr more slowly only at FEV1 35–49%; confounding could not be excluded. [[AATDRegistry1998]]</td><td><span class="ev hyp">Hypothesis</span> observational</td></tr>
+      <tr><td><b>Cochrane 2016</b></td><td>3 trials, 283 participants</td><td>Less CT density loss (MD 0.86 g/L) but no benefit on FEV1, DLCO, quality of life or exacerbations; the authors concluded augmentation “cannot be recommended” and noted sponsors’ conflicts of interest. [[Gotzsche2016]]</td><td><span class="ev est">Established</span> for density; not for outcomes</td></tr>
+      <tr><td><b>Double dose pilot</b></td><td>120 vs 60 mg/kg weekly</td><td>Standard dosing reaches about 50% of normal troughs; doubling normalised troughs and further lowered lung elastase and elastin-breakdown markers. [[Campos2019]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><td><b>SPARTA</b></td><td>Phase 3, 345 enrolled, 60 vs 120 mg/kg vs placebo</td><td>Listed as completed in 2026, with whole-lung CT density as primary outcome; results were not in the registry record. [[NCT01983241]]</td><td><span class="ev hyp">Hypothesis</span> results pending</td></tr>
+    </tbody></table></div>
+  <p class="callout">Guidance differs: the 2016 Alpha-1 Foundation guidance says recent evidence gives strong support for augmentation in appropriate patients where it is available [[Sandhaus2016]], while the Cochrane review concluded it cannot be recommended. [[Gotzsche2016]] Treatment choices: <button class="btn ghost" data-go="advanced">Lung volume reduction, transplant &amp; palliative care</button> · <button class="btn ghost" data-go="quitting">Stopping smoking &amp; vaccines</button></p>
+  <p class="callout">Before this: <button class="btn ghost" data-go="breathless">Air trapping &amp; breathlessness</button> · Next: <button class="btn ghost" data-go="spirometry">Spirometry &amp; the FEV1/FVC ratio</button></p>
 </section>

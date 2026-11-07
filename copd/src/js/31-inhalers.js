@@ -120,17 +120,17 @@ inits.inhalers=()=>{
     if(kind==='lama')return `<path d="M${f1(x)} ${f1(y-8)}L${f1(x+8)} ${f1(y)}L${f1(x)} ${f1(y+8)}L${f1(x-8)} ${f1(y)}Z" style="fill:var(--rx);stroke:var(--ink);stroke-width:.8;opacity:${f1(op)}"/>`;
     return `<circle cx="${f1(x)}" cy="${f1(y)}" r="4" style="fill:var(--muted);opacity:${f1(op)}"/>`}
   function panel(p,t,x,y,w,N){let s='';const g=ramp(t,INH_STEPS[p].from+.02,INH_STEPS[p].from+.1),lw=N?92:100;
-    s+=`<rect x="${f1(x-10)}" y="${f1(y-22)}" width="${f1(w+20)}" height="${N?190:172}" rx="12" style="fill:var(--panel-2);opacity:.55"/>`;
+    s+=`<rect x="${f1(x-10)}" y="${f1(y-22)}" width="${f1(w+20)}" height="${N?190:180}" rx="12" style="fill:var(--panel-2);opacity:.55"/>`;
     if(p===0){s+=`<text x="${x}" y="${y}" class="t-lbl">${INH_TXT.p0t}</text>`;
-      s+=inhCI(x,y+40,w,{lw:lw,mn:0,mx:.3,est:.14,lo:.04,hi:.25,ref:0,ticks:[0,.1,.2,.3],lbl:INH_TXT.p0r,txt:'+0.14 L',col:'var(--bd)',g});
+      s+=inhCI(x,y+40,w,{lw:N?124:lw,mn:0,mx:.3,est:.14,lo:.04,hi:.25,ref:0,ticks:[0,.1,.2,.3],lbl:INH_TXT.p0r,txt:'+0.14 L',col:'var(--bd)',g});
       s+=`<text x="${x}" y="${y+100}" class="t-sm" style="fill:var(--ink)">${INH_TXT.p0d}</text>`;
       /* schematic: a relief that rises and fades between doses */
       const sx=x,sw=w,sy=y+140;s+=`<path d="${pathFn(u=>{const k=(u*4)%1;return 1-ramp(k,0,.08)*(1-ramp(k,.3,1))*.9},sx,sx+sw*ramp(t,.02,.19),sy,sy-26,80)}" style="fill:none;stroke:var(--bd);stroke-width:2"/>`;
       s+=`<line x1="${sx}" x2="${sx+sw}" y1="${sy}" y2="${sy}" class="axis"/>`}
     else if(p===1){s+=`<text x="${x}" y="${y}" class="t-lbl">${INH_TXT.p1t}</text>`;
-      s+=inhCI(x,y+40,w,{lw:lw+10,mn:.5,mx:1.2,est:.78,lo:.70,hi:.87,ref:1,ticks:[.5,1,1.2],lbl:INH_TXT.p1r,txt:'0.78',col:'var(--rx)',g});
-      s+=`<text x="${x}" y="${y+88}" class="t-sm" style="fill:var(--ink)">${INH_TXT.p1n}</text>`;
-      const bx=x,bw=w-40,by=y+112;s+=`<line x1="${bx}" x2="${bx+bw}" y1="${by}" y2="${by}" class="axis"/>`;
+      s+=inhCI(x,y+40,w,{lw:N?124:lw+10,mn:.5,mx:1.2,est:.78,lo:.70,hi:.87,ref:1,ticks:[.5,1,1.2],lbl:INH_TXT.p1r,txt:'0.78',col:'var(--rx)',g});
+      s+=`<text x="${x}" y="${y+86}" class="t-sm" style="fill:var(--ink)">${INH_TXT.p1n}</text>`;
+      const bx=x,bw=w-40,by=y+124;s+=`<line x1="${bx}" x2="${bx+bw}" y1="${by}" y2="${by}" class="axis"/>`;
       s+=`<text x="${bx}" y="${by+14}" class="t-xs">${INH_TXT.h0}</text><text x="${bx+bw}" y="${by+14}" class="t-xs t-end">${INH_TXT.h24}</text>`;
       s+=`<rect x="${bx}" y="${by-12}" width="${f1((bw+16)*g)}" height="9" rx="3" style="fill:var(--rx);opacity:.75"/>`;
       s+=`<path d="M${f1(bx+(bw+16)*g)} ${by-16}l8 8.5l-8 8.5" style="fill:none;stroke:var(--rx);stroke-width:2;opacity:${f1(g)}"/>`;
@@ -161,7 +161,7 @@ inits.inhalers=()=>{
   function draw(t){
     const N=vb(svg,'720 400','400 750'),st=S(t),p=phaseOf(INH_STEPS,t);
     const L=N?{tx:16,ty:26,cx:200,cy:236,rx:150,ry:50,dx:78,ay:418,ax:100,ar:46,lx:200,ly:396,px:24,py:566,pw:352,chipY:96}
-             :{tx:20,ty:28,cx:178,cy:252,rx:140,ry:50,dx:72,ay:118,ax:440,ar:46,lx:528,ly:56,px:370,py:244,pw:330,chipY:96};
+             :{tx:20,ty:28,cx:178,cy:252,rx:140,ry:50,dx:72,ay:118,ax:440,ar:46,lx:528,ly:56,px:370,py:236,pw:330,chipY:96};
     let s=`<defs>${marker('inhAr','var(--ink)',6)}</defs>`;
     s+=`<text x="${L.tx}" y="${L.ty}" class="t-big" style="fill:var(--rx)">${(N?INH_TXT.phN:INH_TXT.ph)[p]}</text><text x="${L.tx}" y="${L.ty+17}" class="t-sm">${(N?INH_TXT.subN:INH_TXT.sub)[p]}</text>`;
     /* the muscle cell: shorter and fatter as it contracts */

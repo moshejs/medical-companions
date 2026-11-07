@@ -35,7 +35,7 @@ const OX_TXT={
   lg:{mo:'MRC · oxygen ≥ 15 h/day: 54.8% alive at 5 y',mc:'MRC · no oxygen: 33.3% alive at 5 y',nc:'NOTT · continuous: 77.6% alive at 24 mo',nn:'NOTT · 12 h nocturnal: 59.2% alive at 24 mo',
     hn:'HOT-HMV · oxygen + home NIV',ho:'HOT-HMV · oxygen alone'},
   pct:v=>v+'%',m500:'≈ 500 days (men)',via:'NOTT points via a 2022 review',
-  lott1:'LOTT (moderate desaturation): HR 0.94',lott2:'95% CI 0.79–1.12: no clear difference',
+  lott1:'LOTT: HR 0.94 (0.79–1.12)',lott2:'moderate lows: no benefit',
   med:m=>`median ${m} mo`,
   p0:{h:'Resting, room air',b:[['severe','PaO2 ≤ 55 mm Hg (7.3 kPa) or SpO2 ≤ 88%'],['severe if','PaO2 56–59 or SpO2 89% + oedema, haematocrit ≥ 55% or P pulmonale'],['moderate','SpO2 89–93%: ATS suggests no long-term oxygen']]},
   p1:{h:'MRC 1981',c:'≥ 15 h a day, usually 2 L/min',r1:'died in 5 years: oxygen',r2:'died in 5 years: no oxygen'},
@@ -86,23 +86,23 @@ inits.oxygen=()=>{
       S[k].forEach(([mm,v],i)=>{if(mm>m+1e-6)return;g+=mk==='sq'?`<rect x="${f1(X(mm)-5)}" y="${f1(Y(v)-5)}" width="10" height="10" style="fill:${COL[k]}"/>`:`<circle cx="${f1(X(mm))}" cy="${f1(Y(v))}" r="5.5" style="fill:${COL[k]}"/>`;
         if(lbls&&i>0&&lbls[i-1])g+=lbls[i-1](X(mm),Y(v),v)});
       return g+'</g>'};
-    const up=(x,y,v)=>oxTx(x-8,y-10,T.pct(v),'t-sm',`fill:var(--ink)`,'end'),dn=(x,y,v)=>oxTx(x-8,y+18,T.pct(v),'t-sm',`fill:var(--ink)`,'end');
+    const up=(x,y,v)=>oxTx(x+8,y-10,T.pct(v),'t-sm',`fill:var(--ink)`),dn=(x,y,v)=>oxTx(x-8,y+18,T.pct(v),'t-sm',`fill:var(--ink)`,'end');
     const legend=(items)=>{let g='';items.forEach(([k,txt],i)=>{const ly=L.gy+L.gh-14-(items.length-1-i)*16;
       g+=`<line x1="${f1(L.gx+10)}" x2="${f1(L.gx+28)}" y1="${f1(ly-4)}" y2="${f1(ly-4)}" style="stroke:${COL[k]};stroke-width:3;stroke-dasharray:2 4;stroke-linecap:round"/>`+oxTx(L.gx+34,ly,txt,'t-xs','fill:var(--ink)')});return g};
     if(a5<1){let g='';const m1=60*ramp(t,.17,.31),m2=24*ramp(t,.34,.46);
       const mrcOp=p===1?1:p===2?1-ramp(t,.34,.38):p>=3?.45:0,nOp=p===2?1:p>=3?.45:0;
-      if(t>=.17){g+=line('mo',m1,mrcOp,'sq',p===1?[up]:null)+line('mc',m1,mrcOp,'sq',p===1?[dn]:null);
-        if(p===1&&m1>=16.4){const xx=X(16.4);g+=`<line x1="${f1(xx)}" x2="${f1(xx)}" y1="${f1(L.gy)}" y2="${f1(L.gy+L.gh)}" style="stroke:var(--muted);stroke-dasharray:3 3"/>`+oxTx(xx+4,L.gy+L.gh-60,T.m500,'t-xs')}}
+      if(t>=.17){g+=line('mo',m1,mrcOp,'sq',p===1?[dn]:null)+line('mc',m1,mrcOp,'sq',p===1?[dn]:null);
+        if(p===1&&m1>=16.4){const xx=X(16.4);g+=`<line x1="${f1(xx)}" x2="${f1(xx)}" y1="${f1(L.gy)}" y2="${f1(L.gy+L.gh-72)}" style="stroke:var(--muted);stroke-dasharray:3 3"/>`+oxTx(xx+4,L.gy+L.gh-76,T.m500,'t-xs')}}
       if(t>=.34){g+=line('nc',m2,nOp,'ci',p===2?[up,up]:null)+line('nn',m2,nOp,'ci',p===2?[dn,dn]:null);
         if(p===2)g+=oxTx(X(60),L.gy+14,T.via,'t-xs','fill:var(--warn)','end')}
       const it=[];if(t>=.17&&p!==2)it.push(['mo',T.lg.mo],['mc',T.lg.mc]);if(t>=.34)it.push(['nc',T.lg.nc],['nn',T.lg.nn]);g+=legend(it);
-      if(p>=3){const a=ramp(t,.51,.55),bx=X(N?24:27),bw=X(60)-bx,by=L.gy+6;
+      if(p>=3){const a=ramp(t,.51,.55),bw=168,bx=X(60)-bw,by=L.gy+6;
         g+=`<g style="opacity:${f1(a)}"><rect x="${f1(bx)}" y="${f1(by)}" width="${f1(bw)}" height="40" rx="8" style="fill:var(--panel);stroke:var(--warn);stroke-width:1.4"/>`+oxTx(bx+8,by+17,T.lott1,'t-xs','fill:var(--ink)')+oxTx(bx+8,by+32,T.lott2,'t-xs')+'</g>'}
       s+=`<g style="opacity:${f1(1-a5)}">${g}</g>`}
     if(a5>0){const m3=12*ramp(t,.86,.96);let g=line('hn',m3,1,'ci',null)+line('ho',m3,1,'ci',null);
       [['hn',4.3],['ho',1.4]].forEach(([k,md])=>{if(m3>=md){g+=`<path d="M${f1(X(0))} ${f1(Y(50))}H${f1(X(md))}V${f1(Y(0))}" style="fill:none;stroke:${COL[k]};stroke-width:1.2;stroke-dasharray:4 3"/>`+oxTx(X(md)+4,Y(k==='hn'?8:16),T.med(md),'t-xs',`fill:var(--ink)`)}});
       if(m3>=12)g+=oxTx(X(12)-8,Y(36.6)-10,T.pct(36.6),'t-sm','fill:var(--ink)','end')+oxTx(X(12)-8,Y(19.6)-10,T.pct(19.6),'t-sm','fill:var(--ink)','end');
-      const it=[['hn',T.lg.hn],['ho',T.lg.ho]];let lg='';it.forEach(([k,txt],i)=>{const ly=L.gy+16+i*16;lg+=`<line x1="${f1(X(12)-150)}" x2="${f1(X(12)-132)}" y1="${f1(ly-4)}" y2="${f1(ly-4)}" style="stroke:${COL[k]};stroke-width:3;stroke-dasharray:2 4;stroke-linecap:round"/>`+oxTx(X(12)-126,ly,txt,'t-xs','fill:var(--ink)')});
+      const it=[['hn',T.lg.hn],['ho',T.lg.ho]];let lg='';it.forEach(([k,txt],i)=>{const ly=L.gy+16+i*16;lg+=`<line x1="${f1(X(5))}" x2="${f1(X(5)+18)}" y1="${f1(ly-4)}" y2="${f1(ly-4)}" style="stroke:${COL[k]};stroke-width:3;stroke-dasharray:2 4;stroke-linecap:round"/>`+oxTx(X(5)+24,ly,txt,'t-xs','fill:var(--ink)')});
       s+=`<g style="opacity:${f1(a5)}">${g}${lg}</g>`}
     s+=oxPanel(L,t,p);
     svg.innerHTML=s;setSt(p);$('#oxNote').innerHTML=noteHTML(OX_STEPS[p]);
@@ -151,7 +151,7 @@ inits.oxygen=()=>{
   function drawElig(){const N=vb(esv,'720 150','400 190'),v=+vr.value,isP=meas==='pao2';
     const lo=isP?40:80,hi=isP?75:100,x0=N?20:40,x1=N?380:680,sx=u=>x0+(u-lo)/(hi-lo)*(x1-x0),ry=N?92:74;
     const bands=isP?[[lo,55.5,'bad'],[55.5,59.5,'warn'],[59.5,hi,'none']]:[[lo,88.5,'bad'],[88.5,89.5,'warn'],[89.5,93.5,'mod'],[93.5,hi,'none']];
-    const fill={bad:'var(--bad-soft)',warn:'var(--warn-soft)',mod:'var(--o2-soft)',none:'var(--panel-2)'},stk={bad:'var(--bad)',warn:'var(--warn)',mod:'var(--o2)',none:'var(--line)'};
+    const fill={bad:'var(--bad-soft)',warn:'var(--warn-soft)',mod:'var(--air-soft)',none:'var(--panel-2)'},stk={bad:'var(--bad)',warn:'var(--warn)',mod:'var(--air)',none:'var(--line)'};
     let g='';const R=isP?T.rulerP:T.rulerS;
     bands.forEach(([a,b,k],i)=>{g+=`<rect x="${f1(sx(a))}" y="${ry}" width="${f1(sx(b)-sx(a))}" height="24" style="fill:${fill[k]};stroke:${stk[k]};stroke-width:1"/>`;
       const cxm=(sx(a)+sx(b))/2;g+=oxTx(cxm,ry+40,R[i][0],'t-xs',`fill:${k==='none'?'var(--muted)':stk[k]}`,'middle')});
