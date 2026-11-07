@@ -240,11 +240,11 @@ inits.lookalikes=()=>{
     s+=`<path d="${pathFn(u=>(lkN(25+u*45)-1.5)/3,X(25),X(70),Y(1.5),Y(4.5),60)}" style="fill:none;stroke:var(--line);stroke-width:1.4"/><path d="${pathFn(u=>(lkL(25+u*45)-1.5)/3,X(25),X(70),Y(1.5),Y(4.5),60)}" style="fill:none;stroke:var(--line);stroke-width:1.4"/>`;
     s+=line(lkN,'var(--dx)')+line(lkL,'var(--rx)',1);
     s+=`<text x="${f1(X(26))}" y="${f1(Y(4)-7)}" class="t-xs" style="fill:var(--dx);font-weight:600">${LK_TXT.nStart}</text><text x="${f1(X(26))}" y="${f1(Y(3)-7)}" class="t-xs" style="fill:var(--rx);font-weight:600">${LK_TXT.lStart}</text>`;
-    if(a>=58){s+=`<text x="${f1(X(58))}" y="${f1(Y(lkN(58))-9)}" class="t-xs t-mid" style="fill:var(--dx);font-weight:600">${LK_TXT.nRate}</text><text x="${f1(X(58))}" y="${f1(Y(lkL(58))+17)}" class="t-xs t-mid" style="fill:var(--rx);font-weight:600">${LK_TXT.lRate}</text>`}
+    if(a>=58){s+=`<text x="${f1(X(52))}" y="${f1(Y(lkN(52))+18)}" class="t-xs t-mid" style="fill:var(--dx);font-weight:600">${LK_TXT.nRate}</text><text x="${f1(X(52))}" y="${f1(Y(lkL(52))+18)}" class="t-xs t-mid" style="fill:var(--rx);font-weight:600">${LK_TXT.lRate}</text>`}
     if(a>=42){const b0=X(42),b1=X(Math.min(52,a)),by0=Y(lkN(42))-12,by1=Y(lkN(Math.min(52,a)))-12;
       s+=`<path d="M${f1(b0)} ${f1(by0+6)}L${f1(b0)} ${f1(by0)}L${f1(b1)} ${f1(by1)}L${f1(b1)} ${f1(by1+6)}" style="fill:none;stroke:var(--warn);stroke-width:1.8"/>`;
-      if(a>=52)s+=`<text x="${f1(X(47))}" y="${f1(Y(lkN(47))-26)}" class="t-xs t-mid" style="fill:var(--warn);font-weight:600">${LK_TXT.pre}</text>`}
-    if(a>=70)s+=`<text x="${f1(X(70))}" y="${f1(Y(lkL(70))+18)}" class="t-xs t-end" style="fill:var(--ink);font-weight:600">${LK_TXT.endC}</text>`;
+      if(a>=52)s+=`<text x="${f1(X(47))}" y="${f1(Y(4)-20)}" class="t-xs t-mid" style="fill:var(--warn);font-weight:600">${LK_TXT.pre}</text>`}
+    if(a>=70)s+=`<text x="${f1(X(70)-6)}" y="${f1(Y(lkL(70))+18)}" class="t-xs t-end" style="fill:var(--ink);font-weight:600">${LK_TXT.endC}</text>`;
     s+=`<line x1="${f1(X(a))}" x2="${f1(X(a))}" y1="${C.y}" y2="${C.y+C.h}" style="stroke:var(--brand);stroke-width:1.4;stroke-dasharray:3 3"/><circle cx="${f1(X(a))}" cy="${f1(Y(lkN(a)))}" r="4.5" style="fill:var(--dx)"/><circle cx="${f1(X(a))}" cy="${f1(Y(lkL(a)))}" r="4.5" style="fill:var(--rx)"/>`;
     /* PRISm transitions */
     const Q=L.Q,H=LK_TXT.coh[coh],box=(cx,y,w,t,col)=>`<rect x="${f1(cx-w/2)}" y="${y}" width="${w}" height="32" rx="8" style="fill:var(--panel);stroke:${col};stroke-width:1.6"/><text x="${f1(cx)}" y="${y+20}" class="t-sm t-mid" style="fill:var(--ink);font-weight:600">${t}</text>`;
