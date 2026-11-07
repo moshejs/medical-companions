@@ -1,0 +1,114 @@
+{
+ "home": {
+  "title": "COPD explained: causes, spirometry, GOLD, inhalers and flare-ups",
+  "description": "COPD in cited animations: causes, small airways and emphysema, spirometry and GOLD groups, inhalers and their trials, flare-ups, oxygen and rehab."
+ },
+ "what": {
+  "title": "What is COPD? Emphysema, chronic bronchitis and how common it is",
+  "description": "What COPD is: airway disease and emphysema animated, the GOLD 2023 definition, global prevalence by region, age and sex, underdiagnosis and deaths."
+ },
+ "causes": {
+  "title": "COPD causes and risk factors: smoking, biomass smoke, work, genes",
+  "description": "What causes COPD: tobacco and biomass smoke, work dusts, air pollution, asthma and TB, lung growth trajectories and a Fletcher–Peto quit-age chart."
+ },
+ "lungs": {
+  "title": "Inside COPD lungs: small airways, mucus, inflammation, emphysema",
+  "description": "How COPD damages the lungs: small-airway inflammation, mucus and remodelling, lost bronchioles, elastase and elastin, centrilobular vs panlobular emphysema."
+ },
+ "breathless": {
+  "title": "COPD air trapping, hyperinflation and breathlessness explained",
+  "description": "Why COPD makes breathing hard: flow limitation, dynamic hyperinflation during exercise, V/Q mismatch, low oxygen and pulmonary hypertension, animated."
+ },
+ "aatd": {
+  "title": "Alpha-1 antitrypsin deficiency: Z allele, testing, augmentation",
+  "description": "Alpha-1 antitrypsin deficiency animated: SERPINA1, MM vs ZZ, liver and lungs, a Punnett explorer, who guidance says to test, and augmentation trials."
+ },
+ "spirometry": {
+  "title": "Spirometry in COPD: FEV1/FVC 0.7, LLN and GOLD grades 1 to 4",
+  "description": "One forced blow animated: FEV1, FVC and the ratio, before and after a bronchodilator, fixed 0.7 vs LLN, and a GOLD grade teaching calculator."
+ },
+ "assessment": {
+  "title": "COPD assessment: mMRC, CAT score, GOLD ABE groups, eosinophils",
+  "description": "COPD assessment as teaching tools: the mMRC scale, CAT domains, exacerbation history and GOLD 2023 groups A, B and E, blood eosinophils and BODE."
+ },
+ "lookalikes": {
+  "title": "COPD vs asthma, bronchiectasis, heart failure; CT, PRISm, pre-COPD",
+  "description": "Telling COPD from asthma, bronchiectasis and heart failure, what a CT scan shows, and PRISm and pre-COPD on the lung-function trajectory, with sources."
+ },
+ "inhalers": {
+  "title": "COPD bronchodilators: SABA, LAMA, LABA and what the trials found",
+  "description": "How bronchodilators open COPD airways: beta-2 and muscarinic receptors animated, and UPLIFT, TIOSPIR, POET-COPD, DYNAGITO and FLAME results."
+ },
+ "escalation": {
+  "title": "COPD inhaled steroids, triple therapy, eosinophils and biologics",
+  "description": "ICS in COPD by blood eosinophils, pneumonia risk, IMPACT and ETHOS, roflumilast, azithromycin, dupilumab, mepolizumab and the GOLD follow-up flow."
+ },
+ "technique": {
+  "title": "COPD inhaler technique: MDI, dry powder, soft mist and spacers",
+  "description": "Inhaler devices animated step by step: pMDI, dry-powder, soft-mist and spacer, peak inspiratory flow, the most common errors and inhaler carbon footprint."
+ },
+ "quitting": {
+  "title": "Stopping smoking with COPD: lung function, medicines and vaccines",
+  "description": "What quitting does to COPD lung-function decline (Lung Health Study), the stop-smoking medicines and their trials, e-cigarettes and the vaccines in guidance."
+ },
+ "rehab": {
+  "title": "Pulmonary rehabilitation for COPD: what it changes and for whom",
+  "description": "Pulmonary rehabilitation in COPD: exercise training against the deconditioning spiral, effects on walking distance and quality of life, and after a flare-up."
+ },
+ "oxygen": {
+  "title": "Long-term oxygen for COPD: NOTT, MRC, LOTT and home NIV",
+  "description": "Who long-term oxygen helps in COPD: NOTT, MRC and LOTT survival animated, the published thresholds as a teaching tool, fire safety and home NIV trials."
+ },
+ "flareups": {
+  "title": "COPD exacerbations: triggers, Rome severity and what follows",
+  "description": "COPD flare-ups animated: viral and bacterial triggers, the Rome severity proposal as a teaching tool, frequent exacerbators and outcomes after hospital."
+ },
+ "hospital": {
+  "title": "COPD exacerbation in hospital: steroids, antibiotics, oxygen, NIV",
+  "description": "A hospital admission for a COPD flare-up, day by day: controlled oxygen, bronchodilators, 5-day steroids (REDUCE), antibiotics, NIV, DECAF and discharge."
+ },
+ "bloodgas": {
+  "title": "COPD oxygen targets 88–92% and ABG interpretation",
+  "description": "Why too much oxygen can harm in hypercapnic COPD, the 88–92% and 94–98% targets, and an arterial blood gas teaching interpreter with the NIV thresholds."
+ },
+ "advanced": {
+  "title": "COPD lung volume reduction, valves, transplant and palliative care",
+  "description": "Advanced COPD: lung volume reduction surgery and endobronchial valves animated, NETT subgroups, lung transplant, and palliative care for breathlessness."
+ },
+ "living": {
+  "title": "Living with COPD: action plans, pursed-lip breathing, flying",
+  "description": "Living with COPD: self-management action plans, pursed-lip breathing, staying active, air travel and the hypoxic challenge test, work, sex and carers."
+ },
+ "comorbid": {
+  "title": "COPD comorbidities: heart disease, anxiety, osteoporosis, cancer",
+  "description": "The conditions that come with COPD: heart risk after a flare-up, anxiety and depression, osteoporosis, lung cancer screening, muscle loss and sleep."
+ },
+ "nursing": {
+  "title": "COPD nursing care: SpO2 targets, NEWS2 scale 2, inhaler teaching",
+  "description": "COPD nursing care: assessing a breathless patient, controlled oxygen and NEWS2 scale 2, oximeter limits, inhaler teach-back and home-oxygen fire safety."
+ },
+ "frontier": {
+  "title": "COPD research: new biologics, early COPD, lung repair, alpha-1",
+  "description": "The COPD research frontier with evidence labels: IL-33, ST2 and TSLP antibodies, ensifentrine, early COPD, lung repair and alpha-1 gene and RNA therapies."
+ },
+ "history": {
+  "title": "History of COPD: Laennec, the spirometer, Fletcher–Peto, GOLD",
+  "description": "COPD history in a timeline: Laennec's emphysema, Hutchinson's spirometer, Tiffeneau, Ciba 1959, alpha-1 in 1963, Fletcher and Peto, oxygen trials and GOLD."
+ },
+ "review": {
+  "title": "COPD flashcards and mnemonics",
+  "description": "COPD flashcards by part, with sources: causes, mechanism, spirometry and GOLD, inhalers, flare-ups, oxygen, rehab and nursing, plus memory aids."
+ },
+ "quiz": {
+  "title": "COPD quiz: questions with cited explanations",
+  "description": "A COPD quiz with cited explanations: spirometry and GOLD, inhalers and their trials, exacerbations, blood gases, oxygen, rehab and nursing care."
+ },
+ "glossary": {
+  "title": "COPD glossary: terms from FEV1 to LAMA and NIV",
+  "description": "A searchable COPD glossary: FEV1, FVC, LLN, mMRC, CAT, LAMA, LABA, ICS, eosinophils, hypercapnia, NIV, LTOT, AATD and more, each linked to its module."
+ },
+ "sources": {
+  "title": "COPD Companion sources: every reference",
+  "description": "Every reference behind the COPD Companion, each checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA, filterable by research area."
+ }
+}
