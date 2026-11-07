@@ -1,0 +1,153 @@
+<!-- ================= 2.1 SPIROMETRY & THE FEV1/FVC RATIO ================= -->
+<style>
+#m-spirometry .sp-tog{display:flex;flex-wrap:wrap;gap:6px}
+#m-spirometry .sp-out{display:flex;flex-direction:column;gap:10px}
+#m-spirometry .sp-out p{font-size:14.5px}
+#m-spirometry .sp-out .verdict{font-size:15.5px}
+#m-spirometry .sp-range{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;max-width:560px}
+#m-spirometry .sp-range output{font:600 13px var(--mono);color:var(--dx)}
+#m-spirometry .tbl table{min-width:620px}
+#m-spirometry .card>.tag,#m-spirometry .card>.ev{align-self:flex-start}
+#m-spirometry .sp-nums{display:flex;flex-wrap:wrap;gap:8px 22px}
+#m-spirometry .sp-nums div{display:flex;flex-direction:column;gap:2px;min-width:0}
+#m-spirometry .sp-nums b{font:700 26px/1 var(--display);color:var(--dx)}
+#m-spirometry .sp-nums span{font-size:13.5px;color:var(--muted);max-width:24ch}
+</style>
+<section class="mod" id="m-spirometry" data-mod="spirometry" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis &amp; assessment</p><h2>Spirometry &amp; the FEV1/FVC ratio</h2>
+    <p class="lede">COPD is confirmed by one breathing test: a forced blow into a spirometer, before and after a reliever inhaler. Watch a single blow build the two curves, switch between a healthy blow and one narrowed by COPD, then work a ratio and a GOLD grade yourself.</p></div>
+
+  <div class="stepper" id="spSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="sp-tog" id="spMode" role="group" aria-label="Which blow to show">
+        <button class="btn" data-spmode="c" aria-pressed="true">COPD example</button>
+        <button class="btn" data-spmode="h" aria-pressed="false">Healthy example</button>
+      </div>
+      <div class="scroll"><svg id="spSvg" viewBox="0 0 720 400" role="img" aria-label="A pair of lungs fills with a full breath and then empties during a forced blow. Beside it a volume–time curve rises, with FEV1 marked at one second and FVC at the plateau, and a flow–volume curve peaks and falls, then closes with a breath back in. Two more blows are overlaid, an inhaler puff is followed by a higher post-bronchodilator curve, and a scale finally places the FEV1/FVC ratio against 0.70."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="spPlay">Play</button><label class="stage-cap tl" for="spT">Timeline <input type="range" id="spT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The COPD curves are a single-exponential model drawn through the UPLIFT mean values (FEV1 1.10 L and FVC 2.63 L before bronchodilator; mean gains of 229 mL and 407 mL after it) [[Tashkin2008]]. The healthy curve uses the ATS worked example's predicted FEV1 of 4.50 L for a 40-year-old man 6 feet tall [[Bhakta2023]] with an assumed FEV1/FVC of 0.80, which is a drawing choice, not a sourced value. The repeat blows are illustrative. The flow–volume curve shows shape only; its flow axis has no numbers.</p>
+    </div>
+    <aside class="note" id="spNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The rule GOLD uses</h3>
+  <div class="prose">
+    <p>GOLD 2023 describes COPD as a heterogeneous lung condition with chronic respiratory symptoms (breathlessness, cough, sputum and/or exacerbations) caused by abnormalities of the airways and/or the air sacs, which cause persistent, often progressive, airflow obstruction [[Agusti2023]]. It says a diagnosis should be considered in anyone with breathlessness, chronic cough or sputum, recurrent lower respiratory tract infections and/or exposure to risk factors, and that a post-bronchodilator FEV1/FVC ratio below 0.7 "is needed to establish the diagnosis" [[Agusti2023]].</p>
+    <p>The test result is not enough on its own. Airflow obstruction that is not fully reversible also occurs in asthma and other diseases, so GOLD asks for the clinical context and risk factors to be weighed too [[Agusti2023]]. How COPD is told apart from its look-alikes is in <button class="btn ghost" data-go="lookalikes">Asthma, look-alikes &amp; imaging</button>.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Repeat if borderline</span><h4>A ratio between 0.60 and 0.80</h4><p>If a single post-bronchodilator ratio falls between 0.60 and 0.80, GOLD 2023 advises repeating spirometry on a separate occasion, because biological variation can move the ratio. An initial ratio below 0.6 is "very unlikely" to rise spontaneously above 0.7 [[Agusti2023]].</p></div>
+    <div class="card"><span class="tag dx">Reversibility</span><h4>Not used to guide treatment</h4><p>GOLD 2023 no longer uses the degree of reversibility to guide treatment: it varies over time in the same person, does not separate COPD from asthma and does not predict long-term response to bronchodilators or corticosteroids. The one exception: airflow limitation that disappears after bronchodilator is incompatible with COPD [[Agusti2023]].</p></div>
+    <div class="card"><span class="tag dx">Follow-up tests</span><h4>No need to stop inhalers first</h4><p>Because reversibility is not used for treatment decisions, GOLD 2023 says it is neither necessary nor advised to stop inhaled medicines before follow-up spirometry [[Agusti2023]]. For a first diagnostic test, the 2019 standard suggests withholding times (table below) [[Graham2019]].</p></div>
+  </div>
+
+  <h3 class="sub">Try it: ratio, fixed ratio or LLN, and the GOLD grade</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>This works through the published arithmetic only: the ratio, GOLD's fixed 0.70 threshold and the GOLD 2023 grade cut-offs (FEV1 ≥ 80%, 50–79%, 30–49% and &lt; 30% predicted) [[Agusti2023,Lin2025]]. It is not for diagnosis or treatment decisions. A diagnosis needs post-bronchodilator spirometry of acceptable quality, the person's symptoms and exposures, and a clinician's judgement.</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="calc">
+        <label for="spFev1">Post-bronchodilator FEV1 (litres)<input type="number" id="spFev1" min="0.2" max="8" step="0.01" value="1.33" inputmode="decimal"></label>
+        <label for="spFvc">Post-bronchodilator FVC (litres)<input type="number" id="spFvc" min="0.2" max="9" step="0.01" value="3.04" inputmode="decimal"></label>
+        <label for="spPct">FEV1, % predicted<input type="number" id="spPct" min="5" max="160" step="1" value="48" inputmode="numeric"></label>
+        <label for="spLln">LLN of FEV1/FVC from the report (optional)<input type="number" id="spLln" min="0.3" max="0.95" step="0.01" placeholder="for example 0.65" inputmode="decimal"></label>
+        <label for="spAgeIn">Age in years (optional)<input type="number" id="spAgeIn" min="18" max="100" step="1" placeholder="for example 72" inputmode="numeric"></label>
+        <label for="spSex">Sex, for the age note (optional)<select id="spSex"><option value="">Not given</option><option value="m">Male</option><option value="f">Female</option></select></label>
+      </div>
+      <div class="scroll"><svg id="spCalcSvg" viewBox="0 0 560 192" role="img" aria-label="Two scales. The upper one places the FEV1/FVC ratio against the fixed 0.70 threshold, with the 0.60 to 0.80 repeat-test window shaded and the lower limit of normal marked if one is entered. The lower one places FEV1 percent predicted in the GOLD grade bands 4, 3, 2 and 1."></svg></div>
+      <p class="stage-cap">Default values: the UPLIFT mean after bronchodilator (1.33 L and 3.04 L, derived) [[Tashkin2008]] and a percent predicted derived from UPLIFT's 39.3% before bronchodilator.</p>
+    </div>
+    <aside class="note sp-out" id="spCalcOut" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Fixed ratio or lower limit of normal?</h3>
+  <div class="prose">
+    <p>GOLD prefers the fixed ratio below 0.7 because it is simple, needs no reference values and was used in all the clinical trials behind its treatment recommendations. It also acknowledges that, compared with the lower limit of normal (LLN), the fixed ratio may underdiagnose young adults and overdiagnose the elderly, especially in mild disease [[Agusti2023]]. The LLN is the bottom 5% of a healthy reference population, so it depends on the reference equation chosen, and GOLD notes there are no longitudinal studies validating its use [[Agusti2023,Bhakta2023]].</p>
+    <p>Move the age slider to see where each error sits. The ratio of healthy people falls with age, so its LLN crosses 0.70 in mid-life [[Swanney2008]].</p>
+  </div>
+  <div class="stage">
+    <label class="sp-range" for="spAgeT">Age <output id="spAgeV">60 years</output><input type="range" id="spAgeT" min="20" max="90" step="1" value="60"></label>
+    <div class="scroll"><svg id="spAgeSvg" viewBox="0 0 720 300" role="img" aria-label="A chart of FEV1/FVC against age. A flat line marks the fixed 0.70 threshold. Two schematic falling lines for the lower limit of normal in men and women cross it at ages 42 and 48. Before the crossing, the gap between 0.70 and the LLN is the zone the fixed ratio can miss; after it, the gap is the zone the fixed ratio can over-call. Beside the chart, bars show the share of healthy older never-smokers labelled obstructed by the fixed ratio."></svg></div>
+    <p class="stage-cap" id="spAgeNote" aria-live="polite"></p>
+    <p class="stage-cap"><b>Schematic lines.</b> Only the crossing ages are data: the median age at which the LLN fell below 0.70 in healthy people was 42 years for men and 48 for women, in 40,646 adults from US, English and Dutch surveys [[Swanney2008]]. The slope of each line is a drawing choice. Bars: healthy never-smokers over 60 labelled obstructed by the fixed ratio (range across reference equations) [[Swanney2008]], and healthy, asymptomatic never-smokers in Bergen, Norway [[Hardie2002]].</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Overdiagnosis</span><h4>Healthy older never-smokers</h4><p>Over 60, the fixed ratio labelled 17–45% of healthy never-smoking men and 7–26% of women as obstructed, and applied to whole populations it gave false-positive rates of up to 60% [[Swanney2008]]. In Bergen, about 35% of 71 healthy never-smokers over 70 had a ratio below 70%, and about 50% above 80 [[Hardie2002]].</p></div>
+    <div class="card"><span class="tag dx">Outcomes</span><h4>But the fixed ratio predicts events</h4><p>In the NHLBI Pooled Cohorts (24,207 adults followed for a median 15 years; 3,925 COPD-related hospitalisations or deaths), the best-discriminating fixed threshold was 0.71 (C statistic 0.696). It was no different from 0.70 and more accurate than the GLI LLN [[Bhatt2019]]. GOLD Science Committee members cite this as showing the 0.70 ratio predicts hospitalisation and death as well as, or better than, the LLN [[Han2021,Bhatt2019]].</p></div>
+    <div class="card"><span class="tag">Status</span><h4>Unresolved</h4><p>GOLD keeps the fixed ratio for simplicity and continuity with the trials, and acknowledges the age bias [[Agusti2023]]. Researchers who favour the LLN point to the false positives in healthy older people [[Swanney2008,Hardie2002]]. Which threshold serves people better remains debated.</p></div>
+  </div>
+
+  <h3 class="sub">How a good test is done</h3>
+  <div class="prose"><p>The 2019 ATS/ERS standard sets what counts as an acceptable blow and how a session is graded. The aim is at least three acceptable FEV1 and three acceptable FVC measurements, before and after bronchodilator. The largest FEV1 and the largest FVC from all acceptable blows are reported, even if they come from different blows, and the ratio is reported to two decimal places [[Graham2019]]. Eight blows is "generally a practical upper limit" for adults, and testing should stop if FEV1 falls below 80% of its starting value during repeated attempts [[Graham2019]].</p></div>
+  <div class="split2">
+    <div class="tbl"><table>
+      <thead><tr><th>Grade</th><th>Acceptable blows and agreement (age &gt; 6) [[Graham2019]]</th></tr></thead>
+      <tbody>
+        <tr class="hl"><th>A</th><td>3 or more acceptable, within 0.150 L</td></tr>
+        <tr><th>B</th><td>2 acceptable, within 0.150 L</td></tr>
+        <tr><th>C</th><td>2 or more acceptable, within 0.200 L</td></tr>
+        <tr><th>D</th><td>2 or more acceptable, within 0.250 L</td></tr>
+        <tr><th>E</th><td>2 or more acceptable but more than 0.250 L apart, or only 1 acceptable</td></tr>
+        <tr><th>U</th><td>No acceptable blow, but at least 1 usable</td></tr>
+        <tr><th>F</th><td>None acceptable or usable</td></tr>
+      </tbody></table></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Medicine</th><th>Suggested withholding before diagnostic testing [[Graham2019]]</th></tr></thead>
+      <tbody>
+        <tr><th>Short-acting beta-agonist (SABA)</th><td>4–6 hours</td></tr>
+        <tr><th>Short-acting antimuscarinic (SAMA)</th><td>12 hours</td></tr>
+        <tr><th>Long-acting beta-agonist (LABA)</th><td>24 hours</td></tr>
+        <tr><th>Ultra-LABA (indacaterol, vilanterol, olodaterol)</th><td>36 hours</td></tr>
+        <tr><th>Long-acting antimuscarinic (LAMA)</th><td>36–48 hours</td></tr>
+        <tr><th>Inhaled corticosteroids, leukotriene modifiers</th><td>Need not be withheld</td></tr>
+      </tbody></table></div>
+  </div>
+  <p class="callout">Grades are given separately for FEV1 and for FVC. The 2019 standard leaves the bronchodilator drug, dose and route to each facility's protocol [[Graham2019]]. In a patient survey for the standard (52 countries), 31% rated being told to keep blowing when nothing more seemed to come out as a moderate or serious issue [[Graham2019]].</p>
+
+  <h3 class="sub">"Predicted" for whom? Reference equations and z-scores</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">GLI 2012</span><h4>One equation for ages 3–95</h4><p>Built from 97,759 records of healthy non-smokers aged 2.5–95 from 72 centres in 33 countries, with continuous, age-dependent LLNs. Ethnic groups differed in FEV1 and FVC but proportionally, so FEV1/FVC was "virtually independent" of ethnic group [[Quanjer2012]]. Earlier US values (NHANES III) came from 7,429 asymptomatic lifelong non-smokers aged 8–80 [[Hankinson1999]].</p></div>
+    <div class="card"><span class="tag dx">GLI Global, 2022</span><h4>Race-neutral equations</h4><p>GLI Global reanalysed 74,185 GLI records with inverse-probability weights. It fits about as well as the GLI 2012 "other" equations, with wider limits of normal [[Bowerman2023]]. A 2023 official ATS statement recommends replacing race- and ethnicity-specific equations with race-neutral averages, together with a re-evaluation of how lung-function tests are used in clinical, employment and insurance decisions, and a caution about uncertain effects [[Bhakta2023]].</p></div>
+    <div class="card"><span class="tag warn">Worked example</span><h4>Same blow, two answers</h4><p>For a 40-year-old man 6 feet tall, GLI White predicts an FEV1 of 4.50 L (5th percentile 3.56 L) and GLI African American 3.84 L (5th percentile 2.95 L). A measured FEV1 of 3.50 L is 91% predicted and above the LLN on one, but 78% predicted and below the LLN on the other [[Bhakta2023]].</p></div>
+    <div class="card"><span class="tag">What switching changed</span><h4>Obstruction steady, severity shifted</h4><p>In 8,431 people at one US centre, switching to GLI Global did not significantly change the prevalence of obstruction (Black individuals 19.9% vs 19.5%; White 23.9% vs 25.1%). Restriction in Black individuals rose from 26.8% to 37.5%, and severity increased in 22.8% of Black individuals [[Moffett2023]]. Effects on care are not yet known <span class="ev hyp">Hypothesis</span> [[Moffett2023,Bowerman2023]].</p></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>FEV1 z-score</th><th>ERS/ATS severity band, as applied by Moffett and colleagues [[Moffett2023,Stanojevic2022]]</th></tr></thead>
+    <tbody>
+      <tr><th>above −1.645</th><td>Normal</td></tr>
+      <tr><th>−1.645 to −2.5</th><td>Mild</td></tr>
+      <tr><th>−2.5 to −4.0</th><td>Moderate</td></tr>
+      <tr><th>below −4.0</th><td>Severe</td></tr>
+    </tbody></table></div>
+  <p class="callout">A z-score says how many standard deviations a result sits from the predicted value; −1.645 marks the bottom 5%, the LLN. GOLD's grades use percent predicted instead [[Agusti2023,Lin2025]].</p>
+
+  <h3 class="sub">How much does the inhaler change the blow?</h3>
+  <div class="sp-nums">
+    <div><b>+229 mL</b><span>mean FEV1 gain in UPLIFT (5,756 people) after 80 µg ipratropium then 400 µg salbutamol [[Tashkin2008]]</span></div>
+    <div><b>+407 mL</b><span>mean FVC gain in the same test [[Tashkin2008]]</span></div>
+    <div><b>0.12 L</b><span>mean FEV1 gain after 400 µg salbutamol in ECLIPSE, COPD (0.14 L in smoking and 0.08 L in non-smoking controls) [[Albert2012]]</span></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>What the studies found</th></tr></thead>
+    <tbody>
+      <tr><th>Who counts as "responsive"?</th><td>It depends on the rule. In UPLIFT, 53.9% met ≥ 12% and ≥ 200 mL, 65.6% met ≥ 15%, and 38.6% met a ≥ 10% absolute rise in FEV1 % predicted [[Tashkin2008]].</td></tr>
+      <tr><th>Does it change with severity?</th><td>In ECLIPSE the absolute FEV1 response fell with severity: GOLD II 0.16 L, III 0.10 L, IV 0.05 L [[Albert2012]].</td></tr>
+      <tr><th>Is it stable?</th><td>No. In ECLIPSE, reversibility status changed between four tests over a year, and consistently reversible patients (n = 227) did not differ in mortality, hospitalisation or exacerbations once baseline FEV1 was allowed for [[Albert2012]].</td></tr>
+      <tr><th>The current definition</th><td>The 2021–2022 ERS/ATS interpretation standard defines a positive response as a rise in FEV1 or FVC of more than 10% of the predicted value, replacing the 2005 criterion of ≥ 12% and &gt; 200 mL from baseline [[Zhao2025,Stanojevic2022]]. Expressing the change as a share of predicted, or as a z-score, avoids sex and height bias [[Graham2019]].</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">What the grade does and does not tell you</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">GOLD 1–4</span><h4>Severity of airflow obstruction</h4><p>Once the post-bronchodilator ratio is below 0.7, FEV1 % predicted sets the grade: GOLD 1 mild (≥ 80%), GOLD 2 moderate (50–79%), GOLD 3 severe (30–49%) and GOLD 4 very severe (&lt; 30%) [[Lin2025,Agusti2023]].</p></div>
+    <div class="card"><span class="tag warn">Symptoms</span><h4>FEV1 tracks symptoms loosely</h4><p>In 1,817 European primary-care patients, mean CAT scores were 16.2 (GOLD I), 16.3 (II), 19.3 (III) and 22.3 (IV); stages I and II did not differ (p = 0.88) [[Jones2011]]. In 100 rehabilitation patients, FEV1 was not associated with MRC breathlessness grade [[Bestall1999]].</p></div>
+    <div class="card"><span class="tag warn">Survival</span><h4>Breathlessness predicted better</h4><p>In 227 Japanese patients followed for 5 years, FEV1-based staging did not significantly predict survival (p = 0.08), but the level of breathlessness did (p &lt; 0.001) [[Nishimura2002]]. This is why GOLD assesses symptoms and flare-ups separately: <button class="btn ghost" data-go="assessment">Symptoms, exacerbations &amp; GOLD groups</button>.</p></div>
+  </div>
+
+  <h3 class="sub">In plain words</h3>
+  <div class="prose">
+    <p>To check for COPD, you blow out as hard and as long as you can into a machine called a spirometer, before and after a puff of reliever medicine [[Graham2019,Agusti2023]].</p>
+    <p>The test compares how much air you blow out in the first second with how much you blow out in total. If the first second is less than 70% of the total after the medicine, your airways are narrowed [[Agusti2023]].</p>
+    <p>How much you blow out in that first second, compared with someone like you, gives a grade from 1 (mild) to 4 (very severe) [[Lin2025]].</p>
+  </div>
+  <p class="callout">Before this: <button class="btn ghost" data-go="breathless">Air trapping &amp; breathlessness</button> · Next: <button class="btn ghost" data-go="assessment">Symptoms, exacerbations &amp; GOLD groups</button></p>
+</section>

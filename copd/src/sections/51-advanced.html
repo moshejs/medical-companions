@@ -1,0 +1,116 @@
+<!-- ================= 5.1 LUNG VOLUME REDUCTION, TRANSPLANT & PALLIATIVE CARE ================= -->
+<style>
+#m-advanced .av-grp{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-advanced .av-grp>span{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);min-width:11ch}
+#m-advanced .av-sel{display:flex;flex-direction:column;gap:10px}
+#m-advanced .av-out{display:flex;flex-direction:column;gap:8px}
+#m-advanced .av-out p{font-size:14.5px}
+#m-advanced .av-cap{font-size:14px;color:var(--muted);max-width:80ch}
+#m-advanced .card>.tag,#m-advanced .card>.ev{align-self:flex-start}
+#m-advanced .tbl table{min-width:720px}
+#m-advanced .av-nums{display:flex;flex-wrap:wrap;gap:10px 24px}
+#m-advanced .av-nums div{display:flex;flex-direction:column;gap:3px;min-width:0;max-width:24ch}
+#m-advanced .av-nums b{font:700 28px/1 var(--display);color:var(--rec)}
+#m-advanced .av-nums span{font-size:13.5px;color:var(--muted)}
+</style>
+<section class="mod" id="m-advanced" data-mod="advanced" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Living &amp; care</p><h2>Lung volume reduction, transplant &amp; palliative care</h2>
+    <p class="lede">When emphysema leaves the lungs over-full, removing or collapsing the worst part can give the rest room to work. Play the animation to see surgery and one-way valves, then switch collateral ventilation on to see why some valves fail. Transplant, alpha-1 augmentation and care for breathlessness follow.</p></div>
+
+  <div class="stepper" id="avSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="avSvg" viewBox="0 0 720 400" role="img" aria-label="A front view of two hyperinflated lungs with a swollen, damaged upper lobe and a flat diaphragm. First the damaged lobe is cut out in surgery and the diaphragm rises. Then the lobe returns and one-way valves are placed in its airway: air leaves on each breath out but cannot come back, the lobe collapses and the diaphragm rises; with collateral ventilation switched on, air leaks in from the next lobe and the lobe stays inflated. Then donor lungs replace the old ones, a drip shows alpha-1 augmentation for lower-zone emphysema, and finally a person sits with a handheld fan."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="avPlay">Play</button><label class="stage-cap tl" for="avT">Timeline <input type="range" id="avT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <div class="av-grp" id="avCv" role="group" aria-label="Collateral ventilation"><span>Fissure</span>
+        <button class="btn" data-cv="0" aria-pressed="true">Intact: no collateral ventilation</button>
+        <button class="btn" data-cv="1" aria-pressed="false">Collateral ventilation present</button>
+      </div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The collapsing lobe follows the mechanism described in the valve trials: collateral ventilation from neighbouring lobes "prevents lobar atelectasis" [[Davey2015]]. Trial figures from NETT [[Fishman2003]], STELVIO [[Klooster2015]], the ISHLT consensus and registry [[Leard2021,Thabut2008]], RAPID [[Chapman2015]] and the breathlessness trials [[Higginson2014,Galbraith2010]].</p>
+    </div>
+    <aside class="note" id="avNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">NETT subgroup explorer</h3>
+  <div class="prose"><p>NETT randomised 1218 people with severe emphysema, all after pulmonary rehabilitation, to lung volume reduction surgery or continued medical treatment. Overall mortality was the same in both groups (0.11 deaths per person-year), but the effect depended on where the emphysema was and how much exercise people could do [[Fishman2003]]. Choose a combination.</p></div>
+  <div class="split2">
+    <div class="av-sel">
+      <div class="av-grp" id="avDist" role="group" aria-label="Emphysema distribution"><span>Emphysema</span>
+        <button class="btn" data-d="upper" aria-pressed="true">Upper-lobe predominant</button>
+        <button class="btn" data-d="non" aria-pressed="false">Not upper-lobe</button></div>
+      <div class="av-grp" id="avEx" role="group" aria-label="Baseline exercise capacity"><span>Exercise</span>
+        <button class="btn" data-e="low" aria-pressed="true">Low capacity</button>
+        <button class="btn" data-e="high" aria-pressed="false">High capacity</button></div>
+      <div class="av-out" id="avNettOut" aria-live="polite"></div>
+    </div>
+    <div class="stage"><div class="scroll"><svg id="avNett" viewBox="0 0 560 260" role="img" aria-label="Forest plot of NETT mortality risk ratios for surgery versus medical treatment on a logarithmic scale with a line at 1: overall, overall at 5 years, upper-lobe with low exercise capacity, the same at 5 years, and non-upper-lobe with high exercise capacity. Rows matching the chosen combination are highlighted."></svg></div></div>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>This shows published subgroup results from one trial. It is not for diagnosis or treatment decisions; selection for surgery or valves is made by a specialist team.</p>
+  <div class="cards">
+    <div class="card"><span class="tag rec">NETT at 24 months</span><h4>Exercise capacity</h4><p>Exercise capacity improved by more than 10 W in 15% of the surgery group versus 3% of the medical group. A high-risk subgroup of 140 patients was identified at an interim analysis [[Fishman2003]].</p></div>
+    <div class="card"><span class="tag rec">NETT long-term</span><h4>Durable benefit</h4><p>At a median 4.3 years, intention-to-treat analysis showed an overall survival advantage for surgery (5-year risk ratio 0.86, P = 0.02); upper-lobe, low-exercise patients had a 5-year risk ratio of 0.67. The authors concluded that "Effects of LVRS are durable" [[Naunheim2006]].</p></div>
+    <div class="card"><span class="tag rec">GOLD 2023</span><h4>Who is considered</h4><p>In selected patients with heterogeneous or homogeneous emphysema and significant hyperinflation refractory to optimised care, surgical or bronchoscopic lung volume reduction "may be considered"; bullectomy is an option for a large bulla. Homogeneous means a &lt; 10% difference in destruction between the target and neighbouring lobe on quantitative CT [[Agusti2023]].</p></div>
+  </div>
+
+  <h3 class="sub">One-way endobronchial valves: the trials</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Main result (valves minus control)</th><th>Pneumothorax</th></tr></thead>
+    <tbody>
+      <tr><th>STELVIO 2015</th><td>68 randomised after excluding 16 of 84 (13 for collateral ventilation)</td><td>At 6 months: FEV1 +140 mL, FVC +347 mL, 6MWD +74 m [[Klooster2015]]</td><td>18% [[Klooster2015]]</td></tr>
+      <tr><th>BeLieVeR-HIFi 2015</th><td>50, heterogeneous emphysema, intact fissures; sham bronchoscopy control</td><td>Median FEV1 +8.77% vs +2.88% with sham (P = 0.0326) [[Davey2015]]</td><td>–</td></tr>
+      <tr><th>TRANSFORM 2017</th><td>97, heterogeneous, no collateral ventilation</td><td>FEV1 gain ≥ 12% at 3 months: 55.4% vs 6.5%. At 6 months: residual volume −700 mL, 6MWD +78.7 m, SGRQ −6.5 [[Kemp2017]]</td><td>29.2% [[Kemp2017]]</td></tr>
+      <tr class="hl"><th>LIBERATE 2018</th><td>190, Zephyr valve vs standard care (2:1)</td><td>FEV1 gain ≥ 15% at 12 months: 47.7% vs 16.8%. FEV1 +0.106 L, 6MWD +39.31 m, SGRQ −7.05, residual volume −522 mL, mMRC −0.8 [[Criner2018]]</td><td>26.6% (to day 45); 4 deaths in the valve group in that phase [[Criner2018]]</td></tr>
+      <tr><th>IMPACT 2016</th><td>93, homogeneous emphysema, no collateral ventilation on Chartis</td><td>FEV1 +13.7% vs −3.2% at 3 months (difference 17.0%) [[Valipour2016]]</td><td>25.6% [[Valipour2016]]</td></tr>
+      <tr><th>EMPROVE 2019</th><td>172, Spiration valve vs medical management</td><td>FEV1 +0.101 L at 6 months, +0.099 L at 12 months [[Criner2019]]</td><td>Serious pneumothorax 12.4%; serious thoracic events 31.0% vs 11.9% [[Criner2019]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="stage"><div class="scroll"><svg id="avPtx" viewBox="0 0 560 220" role="img" aria-label="Bar chart of pneumothorax rates in the valve groups: STELVIO 18%, TRANSFORM 29.2%, LIBERATE 26.6%, IMPACT 25.6% and serious pneumothorax in EMPROVE 12.4%."></svg></div>
+      <p class="av-cap">Pneumothorax in the valve groups, as published (EMPROVE counts serious pneumothorax only) [[Klooster2015,Kemp2017,Criner2018,Valipour2016,Criner2019]].</p></div>
+    <div class="prose">
+      <p>The FDA approved the Zephyr Endobronchial Valve System on 29 June 2018 for "adult patients with hyperinflation associated with severe emphysema in regions of the lung that have little to no collateral ventilation" [[FDA-Zephyr]], and the Spiration Valve System on 3 December 2018 for regions "that have low collateral ventilation" [[FDA-Spiration]].</p>
+      <p>Earlier valve trials had modest results because collateral ventilation from neighbouring lobes stopped the target lobe from collapsing [[Davey2015]]. Later trials selected people with intact fissures or no collateral ventilation on measurement [[Klooster2015,Kemp2017,Valipour2016]].</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Lung transplantation</h3>
+  <div class="av-nums">
+    <div><b>5.0 years</b><span>median survival after transplant for COPD, ISHLT registry 1987–2006 (9883 people) [[Thabut2008]]</span></div>
+    <div><b>6.41 vs 4.59</b><span>years: bilateral vs single lung transplant [[Thabut2008]]</span></div>
+    <div><b>BODE 7–10</b><span>"the best guideline for listing patients" (ISHLT 2021) [[Leard2021]]</span></div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag rec">ISHLT 2021 · referral</span><h4>When to talk to a transplant centre</h4><p>The consensus suggests referral with BODE 5–6 and FEV1 20–25% predicted, a BODE increase of more than 1 over 24 months, or a pulmonary artery-to-aorta diameter ratio &gt; 1 on CT [[Leard2021]].</p></div>
+    <div class="card"><span class="tag rec">ISHLT 2021 · listing</span><h4>When to list</h4><p>BODE 7–10 identifies people whose predicted survival without transplant is below the observed 6.0-year median after transplant for COPD. FEV1 &lt; 20% predicted is an additional consideration; pulmonary hypertension, chronic hypercapnia and severe exacerbations may also influence listing [[Leard2021]].</p></div>
+    <div class="card"><span class="tag warn">A caution on BODE</span><h4>It overestimated risk</h4><p>BODE is "the most familiar" model, but in US transplant candidates median survival in BODE quartile 4 was 59 months, against 37 months in the original BODE cohort [[Leard2021]]. Bilateral transplant gave little benefit over single for people aged 60 or older (HR 0.95, 95% CI 0.81–1.13) [[Thabut2008]].</p></div>
+  </div>
+  <p class="support" role="note"><b>Support</b>Being assessed for transplant, or deciding not to pursue it, is a big decision for people and their families. Questions and worries about it are a normal part of the conversation with the care team.</p>
+
+  <h3 class="sub">Alpha-1 antitrypsin augmentation</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>RAPID: slower density loss</h4><p>In 180 non-smokers with severe deficiency (serum &lt; 11 μM) and FEV1 35–70% predicted, weekly intravenous A1PI 60 mg/kg for 24 months slowed CT lung-density loss at TLC (−1.45 vs −2.19 g/L per year, P = 0.03). The combined TLC+FRC endpoint missed significance (P = 0.06) [[Chapman2015]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>RAPID-OLE: lost density stays lost</h4><p>People who switched from placebo slowed from −2.26 to −1.26 g/L per year; early starters stayed near −1.5 to −1.6 through month 48. "Lost lung density was never recovered" [[McElvaney2017]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Clinical outcomes</h4><p>EXACTLE (77 PiZ subjects) found a trend toward slower density loss and no change in exacerbation frequency [[Dirksen2009]]. No trial has shown a mortality or exacerbation benefit [[Chapman2015,Dirksen2009]]. The genetics are in <a href="#aatd" data-go="aatd">Alpha-1 antitrypsin deficiency</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Palliative care and breathlessness</h3>
+  <div class="prose">
+    <p>GOLD 2023 states: "All patients with advanced COPD should be considered for end-of-life and palliative care support to optimize symptom control and allow patients and their families to make informed choices about future management" [[Agusti2023]].</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag rec">Breathlessness service</span><h4>A combined team</h4><p>In 105 people with advanced disease and refractory breathlessness, a service combining palliative care, respiratory medicine, physiotherapy and occupational therapy improved breathlessness mastery (MD 0.58, 95% CI 0.01–1.15) [[Higginson2014]].</p><p><span class="ev early">Early evidence</span> Six-month survival was 94% (50/53) versus 75% (39/52), a safety finding the authors say "requires further investigation" [[Higginson2014]].</p></div>
+    <div class="card"><span class="tag rec">Handheld fan</span><h4>Air on the face</h4><p>A handheld fan directed at the face for 5 minutes reduced breathlessness compared with directing it at the legs (P = 0.003; 50 participants, crossover) [[Galbraith2010]].</p></div>
+    <div class="card"><span class="tag warn">Oxygen</span><h4>Not better than air without low oxygen</h4><p>In 239 people with refractory breathlessness and PaO2 &gt; 7.3 kPa, oxygen at 2 L/min gave no more relief than room air through the same concentrator (−0.9 vs −0.7 points; P = 0.504) [[Abernethy2010]].</p></div>
+  </div>
+  <h3 class="sub">Low-dose opioids: a contested question</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who and what</th><th>Result as published</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><th>Abernethy 2003</th><td>48 opioid-naive people (88% COPD), 20 mg sustained-release oral morphine for 4 days, crossover</td><td>Breathlessness −6.6 mm (morning) and −9.5 mm (evening) on a 100 mm scale vs placebo; better sleep. Distressing constipation 9 vs 1 [[Abernethy2003]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Cochrane 2016</th><td>26 studies, 526 participants</td><td>"some low quality evidence" of benefit from oral or parenteral opioids; no evidence for nebulised opioids. More nausea or vomiting (4.73-fold), constipation (3-fold) and drowsiness (2.86-fold) [[Barnes2016F]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>MORDYC 2020</th><td>124 people with COPD, mMRC 2–4, after rehabilitation; morphine 10 mg SR twice daily for 4 weeks</td><td>CAT 2.18 points better; PaCO2 unchanged (+1.19 mm Hg, P = 0.55). Worst breathlessness improved only in mMRC 3–4 (−1.33 points) [[Verberkt2020]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>BEAMS 2022</th><td>160 people with COPD, mMRC 3–4, 20 Australian centres; extended-release morphine 8 or 16 mg/day</td><td>Worst breathlessness after week 1 did not differ (MD −0.3 for both doses); findings "do not support the use of these doses" [[Ekstrom2022]]</td><td><span class="ev early">Early evidence</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="support" role="note"><b>Support</b>Talking about breathlessness, fears and future wishes is part of good care. Planning ahead and written action plans are described in <a href="#living" data-go="living">Living with COPD</a>; home oxygen and ventilation are in <a href="#oxygen" data-go="oxygen">Long-term oxygen &amp; home ventilation</a>.</p>
+</section>

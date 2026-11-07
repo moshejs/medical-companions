@@ -1,0 +1,125 @@
+<!-- ================= 4.1 FLARE-UPS (EXACERBATIONS) ================= -->
+<style>
+#m-flareups .fu-tog{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-flareups .fu-tog .kicker{margin-right:4px}
+#m-flareups .calc output{font:600 13px var(--mono);color:var(--fl)}
+#m-flareups .calc input[disabled],#m-flareups .calc select[disabled]{opacity:.45}
+#m-flareups .fu-pre{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-flareups .fu-list{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+#m-flareups .card>.tag,#m-flareups .card>.ev{align-self:flex-start}
+#m-flareups .fu-nums{display:flex;flex-wrap:wrap;gap:8px 22px}
+#m-flareups .fu-nums div{display:flex;flex-direction:column;gap:2px;min-width:0}
+#m-flareups .fu-nums b{font:700 26px/1 var(--display);color:var(--fl)}
+#m-flareups .fu-nums span{font-size:13.5px;color:var(--muted);max-width:24ch}
+#m-flareups .tbl table{min-width:640px}
+</style>
+<section class="mod" id="m-flareups" data-mod="flareups" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Flare-ups &amp; hospital</p><h2>Flare-ups (exacerbations)</h2>
+    <p class="lede">A flare-up is a spell of days when breathlessness, cough and sputum get clearly worse. Follow one through a small airway, from the cold or chest infection that sets it off to a recovery that is not always complete, then try the Rome severity grades and see what the studies found after a flare-up that needed hospital care.</p></div>
+
+  <div class="stepper" id="fuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="fuSvg" viewBox="0 0 720 400" role="img" aria-label="A small airway cut across, with viruses and bacteria arriving, beside a pair of lungs. As the timeline moves through the days of a flare-up, the airway wall swells and turns red, mucus fills the opening and the lungs over-inflate, while meters show infection, airway swelling, breathlessness and trapped air. A chart draws the symptoms rising and the peak flow falling, the day treatment started, the median recovery days, and finally either full or incomplete recovery and the start of the next flare-up."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="fuPlay">Play</button><label class="stage-cap tl" for="fuT">Timeline <input type="range" id="fuT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="fu-tog" role="group" aria-label="Recovery pattern"><span class="kicker">Recovery</span><button class="btn" data-fur="full" aria-pressed="true">Full recovery</button><button class="btn" data-fur="part" aria-pressed="false">Incomplete recovery</button></div>
+      <div class="readout" id="fuRead" aria-live="polite"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The curves and meters show a direction of change, not measurements. The marked days come from the studies: treatment start [[Wilkinson2004]], median recovery and day-35 and day-91 recovery [[Seemungal2000]], and the ≤14-day window of the Rome definition [[Agusti2023,Celli2022]].</p>
+    </div>
+    <aside class="note" id="fuNote" aria-live="polite"></aside>
+  </div>
+
+  <p class="crisis" role="note"><b>Get help</b><span>A flare-up can become an emergency. GOLD 2023 lists reasons for hospital care that include sudden worsening of breathlessness at rest, a high breathing rate, low oxygen saturation, confusion or drowsiness, and new blue lips (cyanosis) or swollen ankles. [[Agusti2023]] Anyone with these signs needs urgent medical help: in an emergency, call your local emergency number. People who have had high carbon dioxide levels before may carry an oxygen alert card for the ambulance crew. [[ODriscoll2017Summary]]</span></p>
+
+  <h3 class="sub">What counts as a flare-up</h3>
+  <div class="prose">
+    <p>GOLD 2023 adopted the Rome proposal, which defines an exacerbation of COPD as "an event characterized by dyspnea and/or cough and sputum that worsen over ≤14 days, which may be accompanied by tachypnea and/or tachycardia and is often associated with increased local and systemic inflammation caused by airway infection, pollution, or other insult to the airways". [[Agusti2023,Celli2022]]</p>
+    <p>The older definition, an "acute worsening of respiratory symptoms that results in additional therapy", graded severity afterwards by how much healthcare was used. GOLD 2023 calls that definition "highly non-specific" and the after-the-fact grading "useless to guide treatment at the point of care". Rome grades severity at the bedside instead. [[Agusti2023]]</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Rome grade</th><th>As published</th></tr></thead>
+    <tbody>
+      <tr><th>Mild</th><td>Breathlessness VAS &lt;5, breathing rate &lt;24 breaths/min, heart rate &lt;95 bpm, resting SpO2 ≥92% on air (or the usual oxygen prescription) with a change of ≤3% when known, and CRP &lt;10 mg/L if obtained. [[Jacobson2023,Celli2022]]</td></tr>
+      <tr class="fl"><th>Moderate</th><td>At least three of five: VAS ≥5, breathing rate ≥24, heart rate ≥95, resting SpO2 &lt;92% and/or a change of &gt;3%, CRP ≥10 mg/L. The blood gas may show low oxygen (PaO2 ≤8 kPa) and/or high carbon dioxide (PaCO2 &gt;6 kPa), but no acidosis. [[Jacobson2023,Celli2022]]</td></tr>
+      <tr><th>Severe</th><td>Defined by the arterial blood gas: high carbon dioxide (PaCO2 &gt;6 kPa; &gt;45 mmHg) with acidosis (pH &lt;7.35). [[Jacobson2023,Lee2023,Celli2022]] GOLD 2023 notes the gas must show "new-onset/worsening hypercapnia or acidosis", because a few people have long-standing high carbon dioxide. [[Agusti2023]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Try it: the Rome severity grades</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>This shows how the Rome proposal's published thresholds combine, so you can see how the grades work. It is not for diagnosis or treatment decisions, and it cannot tell anyone how ill they are: GOLD 2023 says Rome still needs prospective validation. [[Agusti2023]] Anyone who is much more breathless than usual needs their care team, or emergency help, whatever any score says.</p>
+  <div class="stage">
+    <div class="fu-pre" role="group" aria-label="Example values"><span class="kicker">Examples</span><button class="btn" data-fup="mild">Mild-looking</button><button class="btn" data-fup="mod">Moderate-looking</button><button class="btn" data-fup="sev">With acidosis on the gas</button></div>
+    <div class="calc" id="fuRome">
+      <label for="fuVas">Breathlessness, 0–10 VAS <output id="fuVasV">3</output><input type="range" id="fuVas" min="0" max="10" step="1" value="3"></label>
+      <label for="fuRr">Breathing rate, breaths/min<input type="number" id="fuRr" min="6" max="60" step="1" value="20"></label>
+      <label for="fuHr">Heart rate, beats/min<input type="number" id="fuHr" min="30" max="200" step="1" value="88"></label>
+      <label for="fuSat">Resting SpO2, % (air or usual oxygen)<input type="number" id="fuSat" min="60" max="100" step="1" value="93"></label>
+      <label for="fuDrop">Fall from usual SpO2<select id="fuDrop"><option value="na">Not known</option><option value="le3">3 points or less</option><option value="gt3">More than 3 points</option></select></label>
+      <label for="fuCrpOn">CRP<select id="fuCrpOn"><option value="no">Not measured</option><option value="yes">Measured</option></select></label>
+      <label for="fuCrp">CRP, mg/L<input type="number" id="fuCrp" min="0" max="400" step="1" value="8"></label>
+      <label for="fuGas">Arterial blood gas<select id="fuGas"><option value="no">Not taken</option><option value="yes">Taken</option></select></label>
+      <label for="fuCo2">PaCO2, kPa<input type="number" id="fuCo2" min="2" max="15" step="0.1" value="5.6"></label>
+      <label for="fuPh">pH<input type="number" id="fuPh" min="6.8" max="7.7" step="0.01" value="7.40"></label>
+      <label for="fuPo2">PaO2, kPa<input type="number" id="fuPo2" min="3" max="30" step="0.1" value="8.6"></label>
+    </div>
+    <div class="scroll"><svg id="fuRomeSvg" viewBox="0 0 720 270" role="img" aria-label="Five bars, one for each bedside measure in the Rome proposal, each with its published threshold marked and the entered value as a dot; bars that meet a moderate criterion are highlighted. Below, a count of criteria met and a bar of how a Korean validation study split 740 flare-ups into mild, moderate and severe."></svg></div>
+    <div class="verdict maybe" id="fuRomeV" aria-live="polite"></div>
+    <p class="stage-cap">In a Korean validation of 740 emergency visits or admissions, Rome classed 30.9% as mild, 58.6% as moderate and 10.4% as severe, and predicted ICU admission (AUROC 0.850) and need for ventilation (AUROC 0.870) better than GesEPOC 2021. [[Lee2023]] In a Swedish telehealth cohort of 125 flare-ups, Rome graded severity lower than GOLD 2022 did, and heart failure did not distort its measures. [[Jacobson2023]]</p>
+  </div>
+
+  <h3 class="sub">Look-alikes to rule out</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">GOLD 2023</span><h4>Mimic or aggravate</h4><p>Decompensated heart failure, pneumonia and pulmonary embolism may "mimic or aggravate" a flare-up. Worsening breathlessness without the classic features should prompt a search for them. [[Agusti2023]]</p></div>
+    <div class="card"><span class="tag bad">Pulmonary embolism</span><h4>16.1% of unexplained flare-ups</h4><p>Across 7 CT-angiography studies (880 patients), a clot in the lungs was found in a pooled 16.1% (95% CI 8.3–25.8%) of unexplained flare-ups; 68% of the clots were in the main, lobar or interlobar arteries. [[Aleva2017]]</p></div>
+    <div class="card"><span class="tag dx">Clues</span><h4>Pain and heart failure</h4><p>In that meta-analysis, chest pain on breathing and heart failure were more frequent in flare-ups with a clot, and signs of a chest infection were less frequent. [[Aleva2017]] More on similar conditions: <button class="btn ghost" data-go="lookalikes">Look-alikes</button></p></div>
+  </div>
+
+  <h3 class="sub">What sets a flare-up off</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who</th><th>What was found</th></tr></thead>
+    <tbody>
+      <tr><th>Papi 2006</th><td>64 people admitted with a flare-up</td><td>Virus and/or bacteria in 78%: viruses 48.4% (6.2% when stable), bacteria 54.7% (37.5% when stable). Virus plus bacteria went with worse lung function and longer stays; sputum eosinophils rose in virus-associated flare-ups. [[Papi2006]]</td></tr>
+      <tr><th>Seemungal 2001</th><td>83 London patients</td><td>64% of flare-ups followed a cold in the 18 days before. Viruses were found in 39.2% of 168 flare-ups, 58.2% of them rhinoviruses. Viral flare-ups had a longer median symptom recovery of 13 days. [[Seemungal2001]]</td></tr>
+      <tr><th>Sethi 2002</th><td>81 outpatients, molecular typing</td><td>A new strain of <i>H. influenzae</i>, <i>M. catarrhalis</i> or <i>S. pneumoniae</i> more than doubled the risk of a flare-up (33.0% vs 15.4% of visits; relative risk 2.15, 95% CI 1.83–2.53). [[Sethi2002]]</td></tr>
+      <tr><th>Bafadhel 2011</th><td>182 flare-ups, cluster analysis</td><td>Four biological types: bacterial-, viral- and eosinophil-predominant, and "pauci-inflammatory". Bacteria, viruses or sputum eosinophilia were associated with 55%, 29% and 28%. Best markers: sputum IL-1β for bacterial (AUROC 0.89), serum CXCL10 for viral (0.83), blood eosinophil % for eosinophilic (0.85). [[Bafadhel2011]]</td></tr>
+      <tr><th>GOLD 2023</th><td>Guideline statement</td><td>Air pollution increases the risk of flare-ups, hospital stays and death. [[Agusti2023]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">One flare-up predicts the next</h3>
+  <div class="lab even">
+    <div class="stage">
+      <p class="kicker">ECLIPSE, 2138 people followed for 3 years: first-year flare-ups by GOLD stage <span class="ev est">Established</span></p>
+      <div class="scroll"><svg id="fuEcSvg" viewBox="0 0 720 190" role="img" aria-label="Two bar charts by GOLD spirometry stage 2, 3 and 4: flare-ups per person in the first year (0.85, 1.34, 2.00) and the share with two or more (22, 33 and 47 per cent)."></svg></div>
+      <p class="stage-cap">"The single best predictor of exacerbations, across all GOLD stages, was a history of exacerbations." The pattern was stable over 3 years and also linked to reflux or heartburn, worse quality of life and a raised white-cell count. [[Hurst2010]]</p>
+    </div>
+    <div class="cards">
+      <div class="card"><span class="tag fl">99,574 UK patients</span><h4>A graded risk</h4><p>Around one quarter never had a flare-up in up to 10 years. Year-1 flare-ups predicted the long-term rate (HR 1.71 for one, up to 3.41 for five or more). Frequent moderate flare-ups raised the risk of death (HR 1.10 for two, up to 1.57 for five or more); a hospitalised one carried HR 1.79. [[Rothnie2018]]</p></div>
+      <div class="card"><span class="tag fl">Quality of life</span><h4>Half go unreported</h4><p>Only 51% of 190 flare-ups were reported to clinicians. People with 3–8 a year scored 14.8 points worse on the St George's Respiratory Questionnaire. [[Seemungal1998]]</p></div>
+      <div class="card"><span class="tag fl">Lung function</span><h4>Faster decline</h4><p>Over 4 years, people with frequent flare-ups lost FEV1 at −40.1 mL a year, against −32.1 mL in those with few. [[Donaldson2002]]</p></div>
+    </div>
+  </div>
+
+  <h3 class="sub">After a flare-up that needs hospital care</h3>
+  <div class="stage">
+    <div class="fu-tog" id="fuOutBtns" role="group" aria-label="Choose cohorts to show"></div>
+    <div class="scroll"><svg id="fuOutSvg" viewBox="0 0 720 280" role="img" aria-label="A chart of the share of people who had died, from 0 to 80 per cent, against time since a hospital admission for a flare-up, with the time axis stretched near the start. Each chosen cohort is drawn as published points joined by straight lines."></svg></div>
+    <ul class="fu-list" id="fuOutList" aria-live="polite"></ul>
+    <p class="stage-cap">Lines only join published time points; they are not fitted survival curves. The cohorts differ in who was included (SUPPORT took only people with high carbon dioxide), so compare shapes, not heights. These are population figures and cannot predict what happens to any one person.</p>
+  </div>
+  <div class="fu-nums">
+    <div><b>40 → 5</b><span>deaths per 10,000 per day: first week after a severe flare-up, then after 3 months [[Suissa2012]]</span></div>
+    <div><b>~5 y → &lt;4 mo</b><span>median gap: first to second severe flare-up, then 9th to 10th [[Suissa2012]]</span></div>
+    <div><b>64.2%</b><span>US Medicare: readmitted within 1 year [[Lindenauer2018]]</span></div>
+    <div><b>HR 4.13</b><span>mortality with three or more hospital-treated flare-ups, 304 Spanish men [[SolerCataluna2005]]</span></div>
+  </div>
+  <div class="prose">
+    <p>GOLD 2023 states that the long-term outlook after a hospital stay for a flare-up is poor, "with a five-year mortality rate of about 50%". [[Agusti2023]] In the Quebec cohort the risk of the next severe flare-up was three times higher after the second and 24 times higher after the tenth, compared with the first. [[Suissa2012]] In the Medicare data the daily risk of readmission halved within 28–43 days and levelled off by 46–61 days. [[Lindenauer2018]] What happens on the ward: <button class="btn ghost" data-go="hospital">Hospital treatment</button></p>
+  </div>
+
+  <h3 class="sub">Prevention, in brief</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Medicines and more</h4><p>A Lancet review lists inhaled corticosteroids, long-acting bronchodilators and their combinations as reducing flare-up frequency and severity, and calls pulmonary rehabilitation, self-management and home ventilatory support "increasingly important". [[WedzichaSeemungal2007]]</p></div>
+    <div class="card"><span class="tag rx">Guideline</span><h4>Three groups of options</h4><p>The CHEST and Canadian Thoracic Society guideline groups prevention into non-drug, inhaled and oral therapies. [[Criner2015]] The medicines in detail: <button class="btn ghost" data-go="escalation">Step-up treatment</button></p></div>
+    <div class="card"><span class="tag fl">A target</span><h4>Delay the second one</h4><p>The ECLIPSE authors say the frequent-flare-up tendency "has implications for the targeting of exacerbation-prevention strategies". [[Hurst2010]] Suissa and colleagues propose "delaying the second severe exacerbation" as a strategic target. [[Suissa2012]]</p></div>
+  </div>
+  <p class="callout">Spotting a flare-up early with a written plan: <button class="btn ghost" data-go="living">Living with COPD</button> · Next: <button class="btn ghost" data-go="hospital">Hospital treatment</button></p>
+</section>

@@ -1,0 +1,92 @@
+<!-- ================= 5.3 HEART, MOOD, BONES & OTHER CONDITIONS ================= -->
+<style>
+#m-comorbid .cm-btns{display:flex;flex-wrap:wrap;gap:6px}
+#m-comorbid .cm-btns .btn{font-size:13.5px;padding:7px 12px}
+#m-comorbid .card>.tag,#m-comorbid .card>.ev{align-self:flex-start}
+#m-comorbid .tbl table{min-width:620px}
+#m-comorbid .cm-grid{display:grid;grid-template-columns:repeat(10,minmax(0,22px));gap:4px}
+#m-comorbid .cm-grid i{display:block;aspect-ratio:1;border-radius:4px;background:var(--panel-2);border:1px solid var(--line)}
+#m-comorbid .cm-grid i.fp{background:var(--warn-soft);border-color:var(--warn)}
+#m-comorbid .cm-grid i.tp{background:var(--bad);border-color:var(--bad)}
+#m-comorbid .cm-scr{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-start}
+#m-comorbid .cm-scr .legend i.fp{background:var(--warn)} #m-comorbid .cm-scr .legend i.tp{background:var(--bad)} #m-comorbid .cm-scr .legend i.ng{background:var(--panel-2);border:1px solid var(--line)}
+</style>
+<section class="mod" id="m-comorbid" data-mod="comorbid" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Living &amp; care</p><h2>Heart, mood, bones &amp; other conditions</h2>
+    <p class="lede">COPD rarely travels alone. GOLD 2023 states that it "almost invariably" coexists with other diseases, which can mimic its symptoms and should generally be treated to usual standards [[Agusti2023]]. Follow the heart's risk through the weeks after a flare-up, then tap the body map.</p></div>
+
+  <div class="stepper" id="cmSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="cmSvg" viewBox="0 0 720 440" role="img" aria-label="A heart that beats faster as risk rises, beside a chart of cardiovascular risk on a log scale against days after an exacerbation starts. Step by step the chart adds the risk during moderate and severe exacerbations, heart attack risk in days 1 to 5, cardiovascular events in the first 30 days, stroke risk to day 49, and the return to baseline by day 90."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cmPlay">Play</button><label class="stage-cap tl" for="cmT">Timeline <input type="range" id="cmT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap"><b>Different studies, different measures.</b> Each mark is one published estimate against that study's own baseline: hazard ratios from SUMMIT [[Kunisaki2018]] and IMPACT [[Dransfield2022]], relative risks from a UK self-controlled case series [[Donaldson2010]]. They are not one curve and cannot be added together. Day positions use a square-root scale.</p>
+    </div>
+    <aside class="note" id="cmNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The body map</h3>
+  <div class="prose"><p>Choose a condition to light it up and see the prevalence or risk the research reports. Ranges are wide because studies used different tests and populations.</p></div>
+  <div class="cm-btns" id="cmBodyBtns" role="group" aria-label="Conditions"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="cmBodySvg" viewBox="0 0 520 540" role="img" aria-label="A front-view body outline with the brain, upper airway, lungs, lung blood vessels, heart, gullet and stomach, spine and thigh bones, and thigh muscles. The chosen condition lights up and a bar below shows its reported prevalence on a 0 to 100% scale."></svg></div>
+      <p class="stage-cap">Schematic body. Bars show published percentages or ranges; where the research gives only a risk ratio, no bar is drawn.</p>
+    </div>
+    <aside class="note" id="cmBodyNote" aria-live="polite"></aside>
+  </div>
+  <div class="prose"><p>In the BODE cohort (1,664 people followed for a median of 51 months), 79 comorbidities were recorded and 12 predicted death. They form the COTE index: a score of 4 or more roughly doubled the risk of death (HR 2.26–2.68) in every BODE quartile, and each point raised the risk of both COPD-related death (HR 1.13) and non-COPD death (HR 1.18) [[Divo2012]].</p></div>
+
+  <h3 class="sub">Heart medicines: what the trials found</h3>
+  <div class="prose"><p>GOLD 2023 states that cardiovascular disease in COPD should be treated per established guidelines, including selective β1-blockers when there is a clear cardiovascular indication [[Agusti2023]]. Trials that gave heart medicines to people <em>without</em> such an indication, hoping to prevent exacerbations, did not show that benefit.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Medicine</th><th>Exacerbations</th><th>Safety</th></tr></thead>
+    <tbody>
+      <tr><th>BLOCK COPD</th><td>532 people without a beta-blocker indication</td><td>Extended-release metoprolol</td><td>First exacerbation not delayed (median 202 vs 222 days; HR 1.05) [[Dransfield2019]]</td><td>More exacerbations needing admission (HR 1.91, 95% CI 1.29 to 2.83); stopped early for futility and safety [[Dransfield2019]]</td></tr>
+      <tr><th>BICS</th><td>515 people with ≥ 2 treated exacerbations in the prior year</td><td>Bisoprolol titrated up to 5 mg/day</td><td>2.03 vs 2.01 per year (adjusted IRR 0.97) [[Devereux2024]]</td><td>Serious adverse events similar (14.5% vs 14.3%) [[Devereux2024]]</td></tr>
+      <tr><th>STATCOPE</th><td>885 people without a statin indication</td><td>Simvastatin 40 mg daily</td><td>1.36 vs 1.39 per person-year; time to first 223 vs 231 days [[Criner2014]]</td><td>–</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Heart</span><h4>Hidden heart failure</h4><p>Among 405 people aged 65 or over with a GP diagnosis of COPD, 20.5% had previously unrecognised heart failure on full work-up, split almost evenly between systolic (42) and isolated diastolic (41) dysfunction [[Rutten2005]].</p></div>
+    <div class="card"><span class="tag bad">Heart</span><h4>More of every kind</h4><p>A meta-analysis of 29 datasets found higher odds of cardiovascular disease with COPD (OR 2.46), with a two- to five-fold higher risk of ischaemic heart disease, arrhythmia, heart failure, pulmonary circulation and arterial disease; hypertension (OR 1.33) and diabetes (OR 1.36) were also more common [[Chen2015]].</p></div>
+    <div class="card"><span class="tag warn">Blood clots</span><h4>The unexplained flare-up</h4><p>In 7 CT-angiography studies (880 people), pulmonary embolism was found in 16.1% of exacerbations with no clear cause. Two-thirds of the clots were in main, lobar or interlobar arteries; pleuritic chest pain and signs of heart failure were more common with PE [[Aleva2017]].</p></div>
+  </div>
+
+  <h3 class="sub">Lung cancer and screening</h3>
+  <div class="split2">
+    <div class="prose">
+      <p>COPD (GOLD 2+) was present in 50% of 602 people with lung cancer, compared with 8% of community controls matched for age, sex and pack-years (OR 11.6) [[Young2009]]. In 2,507 outpatients with COPD followed for a median of 60 months, lung cancer developed at 16.7 per 1,000 person-years; squamous cell carcinoma was the commonest type (44%), and cancer was more frequent with milder obstruction (GOLD I–II), older age, lower BMI and DLCO below 80% [[deTorres2011]].</p>
+      <p>In the US National Lung Screening Trial (53,454 high-risk people), three annual low-dose CT scans cut lung-cancer deaths by 20.0% compared with chest X-ray (247 vs 309 per 100,000 person-years) [[Aberle2011]]. In NELSON (13,195 men aged 50–74), volume CT lowered 10-year lung-cancer mortality (2.50 vs 3.30 per 1,000 person-years; rate ratio 0.76) [[deKoning2020]].</p>
+      <p>The USPSTF 2021 recommends yearly low-dose CT for adults aged 50–80 with a 20 pack-year history who smoke or quit within the past 15 years (B recommendation) [[Krist2021]]. GOLD 2023 recommends annual low-dose CT in COPD due to smoking, as in the general population, and says data are insufficient for COPD not due to smoking [[Agusti2023]].</p>
+    </div>
+    <div class="cm-scr">
+      <div><p class="kicker">100 low-dose CT screens in NLST</p><div class="cm-grid" id="cmNlst" role="img" aria-label="A grid of 100 squares: 24 are positive screens, of which 23 are false positives and 1 is a true positive; 76 are negative."></div></div>
+      <div class="legend" style="flex-direction:column;gap:8px">
+        <span><i class="tp"></i>true positive (about 1)</span>
+        <span><i class="fp"></i>false positive (about 23)</span>
+        <span><i class="ng"></i>negative (about 76)</span>
+      </div>
+      <p class="stage-cap">Rounded from NLST: 24.2% of screens were positive and 96.4% of positives were false positives [[Aberle2011]].</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Bones, muscle, weight and frailty</h3>
+  <div class="cards">
+    <div class="card"><span class="tag">Bones</span><h4>Often missed</h4><p>A systematic review found osteoporosis in 9–69% and osteopenia in 27–67% of people with COPD; no treatment trials had been done in COPD-only samples [[GraatVerboom2009]]. With bone scans plus spine X-rays, half of 255 outpatients had osteoporosis, at every GOLD stage, and most were untreated [[GraatVerboom2011]]. GOLD 2023 notes that recurrent systemic corticosteroids raise the risk and should be avoided if possible [[Agusti2023]].</p></div>
+    <div class="card"><span class="tag rec">Frailty</span><h4>Common, and often reversible</h4><p>Frailty affected 19% and pre-frailty 56% of people with COPD in 27 studies; COPD roughly doubled the odds of frailty (OR 1.97) [[Marengoni2018]]. Of 816 people referred for rehabilitation, 25.6% were frail; they had twice the odds of not completing (OR 2.20), but 61.3% of frail completers no longer met frailty criteria afterwards [[Maddocks2016]].</p></div>
+    <div class="card"><span class="tag rec">Muscle</span><h4>Limb muscles matter</h4><p>The ATS/ERS 2014 statement calls limb muscle dysfunction a key systemic consequence of COPD, linked to poorer exercise tolerance, quality of life and survival, and names exercise training as the most potent treatment [[Maltais2014]].</p></div>
+    <div class="card"><span class="tag warn">Weight</span><h4>Thin is a warning sign</h4><p>In 400 patients, low BMI independently predicted death, with mortality rising below 25 kg/m²; gaining more than 2 kg in 8 weeks predicted survival [[Schols1998]]. Supplements added 1.65 kg in undernourished patients [[Ferreira2012]] and, across 13 RCTs, 14.8 g protein and 236 kcal a day, 1.94 kg and 5.3% grip strength [[Collins2012]].</p></div>
+  </div>
+
+  <h3 class="sub">Mood, thinking, sleep and reflux</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Depression</span><h4>About twice as common</h4><p>Depressive symptoms affected 24.6% of 39,587 people with COPD vs 11.7% of controls (OR 2.81) [[Zhang2011]]. Reported ranges run from 8–80% for depression and 6–74% for anxiety, depending on tools and methods [[Yohannes2010]].</p></div>
+    <div class="card"><span class="tag rx">Anxiety</span><h4>Linked to more flare-ups</h4><p>In the FLOW cohort, COPD was linked to anxiety (OR 1.85), and anxiety predicted a shorter 6-minute walk, more functional limitation (OR 2.41) and more exacerbations (HR 1.39) [[Eisner2010G]]. Cognitive behavioural therapy modestly improved anxiety scores (Beck −4.41; low-quality evidence) [[Usmani2017]].</p></div>
+    <div class="card"><span class="tag rx">Thinking</span><h4>Low oxygen and memory</h4><p>A review concluded that cognition is only mildly impaired without hypoxaemia, that cognitive dysfunction is more common with hypoxaemia, and that it may be linked to higher mortality and disability [[Dodd2010]].</p></div>
+    <div class="card"><span class="tag dx">Sleep</span><h4>The overlap syndrome</h4><p>GOLD 2023 puts sleep apnoea at about 14% of people with COPD, with more night-time desaturation [[Agusti2023]]. In a Spanish cohort, overlap syndrome not treated with CPAP carried higher mortality (RR 1.79) and more severe exacerbations; those on CPAP had no excess risk <span class="ev early">Early evidence</span> [[Marin2010]].</p></div>
+    <div class="card"><span class="tag dx">Reflux</span><h4>Strong link, thin treatment evidence</h4><p>Reflux was linked to frequent exacerbations in ECLIPSE [[Hurst2010]] and to higher exacerbation odds (OR 5.37) in 10 observational studies [[Huang2020]]. The only RCT of a proton pump inhibitor was small: 12 of 50 on lansoprazole vs 26 of 50 had an exacerbation (low to very low certainty) [[Kikuchi2020]].</p></div>
+    <div class="card"><span class="tag fl">After a stay in hospital</span><h4>A serious marker</h4><p>Of 171 people admitted with an exacerbation, 8% died in hospital and 23% by one year (35% after ICU). Maintenance oral steroids (RR 5.07), higher PaCO2 and older age predicted death [[Groenewegen2003]].</p></div>
+  </div>
+  <p class="support" role="note"><b>Support</b>Feeling anxious or low is common with COPD; an ACCP workshop found it is underdiagnosed and treated effectively in only a small proportion of people [[Maurer2008]]. It is part of the illness, help is available, and talking therapies have been tested [[Zhang2011,Usmani2017]].</p>
+</section>

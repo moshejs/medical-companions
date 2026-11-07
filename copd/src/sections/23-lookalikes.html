@@ -1,0 +1,125 @@
+<!-- ================= 2.3 ASTHMA, LOOK-ALIKES & IMAGING ================= -->
+<style>
+#m-lookalikes .lk-tog{display:flex;flex-wrap:wrap;gap:6px}
+#m-lookalikes .lk-cmp .card{gap:6px}
+#m-lookalikes .lk-cmp .card h4{display:flex;align-items:center;gap:8px}
+#m-lookalikes .lk-cmp .card h4 i{display:inline-block;width:12px;height:12px;border-radius:3px;flex:none}
+#m-lookalikes .lk-cmp .card p.none{color:var(--muted);font-style:italic}
+#m-lookalikes .lk-range{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;max-width:560px}
+#m-lookalikes .lk-range output{font:600 13px var(--mono);color:var(--dx)}
+#m-lookalikes .tbl table{min-width:640px}
+#m-lookalikes .card>.tag,#m-lookalikes .card>.ev{align-self:flex-start}
+#m-lookalikes .lk-nums{display:flex;flex-wrap:wrap;gap:8px 22px}
+#m-lookalikes .lk-nums div{display:flex;flex-direction:column;gap:2px;min-width:0}
+#m-lookalikes .lk-nums b{font:700 26px/1 var(--display);color:var(--dx)}
+#m-lookalikes .lk-nums span{font-size:13.5px;color:var(--muted);max-width:24ch}
+</style>
+<section class="mod" id="m-lookalikes" data-mod="lookalikes" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis &amp; assessment</p><h2>Asthma, look-alikes &amp; imaging</h2>
+    <p class="lede">Breathlessness and cough are not always COPD, and a normal ratio is not always healthy lungs. Step through the in-between states and the common look-alikes, compare them feature by feature, look at what a CT scan can show, and follow lung function over a lifetime.</p></div>
+
+  <div class="stepper" id="lkSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lkSvg" viewBox="0 0 720 400" role="img" aria-label="A map of spirometry results, FEV1/FVC across and FEV1 percent predicted up, split into obstruction, normal and PRISm regions. People with PRISm move to normal or to obstruction; people with a normal ratio but symptoms are marked as pre-COPD; one asthma result moves out of the obstruction region after an inhaler while another stays inside. The scene then changes to a normal and a widened airway for bronchiectasis, a chest with an enlarged heart for heart failure, and two grids of 100 dots for under- and overdiagnosis. A side panel gives the published numbers for each step."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lkPlay">Play</button><label class="stage-cap tl" for="lkT">Timeline <input type="range" id="lkT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> Dots on the map are illustrative people, not data points; the region borders are the published cut-offs (ratio 0.70, FEV1 80% predicted) [[Agusti2023]]. Dot grids show 100 people in the published proportions [[Lamprecht2015,Sator2019]].</p>
+    </div>
+    <aside class="note" id="lkNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Compare: COPD and three look-alikes</h3>
+  <div class="prose"><p>Choose a feature to see what the sources behind this module say about each condition. Blank cells are honest gaps: the research summarised here does not cover that feature for that condition.</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>A comparison of published statements, not a diagnostic checklist. It is not for diagnosis or treatment decisions; telling these conditions apart needs a clinician, the person's history and tests.</p>
+  <div class="lk-tog" id="lkFeats" role="group" aria-label="Feature to compare"></div>
+  <div class="cards lk-cmp" id="lkCmp" aria-live="polite"></div>
+
+  <h3 class="sub">Asthma and asthma–COPD overlap</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Mislabelled</span><h4>Half had been called asthma</h4><p>In 597 primary-care patients aged 40 or over in Aberdeen and Denver, 235 met the spirometric definition of COPD. Of these, 51.5% had previously been labelled asthma only, 37.9% chronic bronchitis or emphysema, and 10.6% had no diagnosis [[Tinkelman2006]].</p></div>
+    <div class="card"><span class="tag dx">Overlap</span><h4>About a quarter of people with COPD</h4><p>A 2015 meta-analysis of 19 studies found asthma–COPD overlap in 27% of people with COPD in population studies and 28% in hospital studies. Overlap patients were younger, had higher BMI and more healthcare use, and worse quality of life [[Alshabanat2015]]. GOLD 2023 says people with COPD and asthma together should be treated as if they have asthma [[Agusti2023]].</p></div>
+    <div class="card"><span class="tag dx">Childhood</span><h4>Early lungs leave a mark</h4><p>GOLD 2023 notes that abnormal lung development in childhood can cause asthma-like symptoms, so some children labelled "asthma" may have been on a low lung-function trajectory [[Agusti2023]]. The trajectory chart below shows why that matters.</p></div>
+  </div>
+
+  <h3 class="sub">Bronchiectasis and heart failure</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">ROSE</span><h4>When COPD and bronchiectasis coexist</h4><p>The EMBARC Delphi definition needs all four: <b>R</b>adiology (bronchial dilatation in ≥ 1 segment and &gt; 1 lobe), <b>O</b>bstruction (FEV1/FVC &lt; 0.7), <b>S</b>ymptoms (at least two of cough, expectoration, breathlessness, fatigue and frequent infections) and <b>E</b>xposure (≥ 10 pack-years or other toxic agents such as biomass) [[Traversi2021]].</p></div>
+    <div class="card"><span class="tag warn">Registry</span><h4>Labels that do not fit</h4><p>Of 16,730 people in the European Bronchiectasis Registry, 4,336 carried a COPD co-diagnosis. 22.2% of them had no airflow obstruction and 31.9% lacked ≥ 10 pack-years, so only 55.4% met ROSE [[Polverino2024]]. An international consensus holds that clinically significant bronchiectasis needs both clinical and radiological criteria [[Aliberti2022]].</p></div>
+    <div class="card"><span class="tag bad">Heart failure</span><h4>One in five, unrecognised</h4><p>Of 405 people aged 65 or over with a GP diagnosis of COPD, 83 (20.5%) had previously unrecognised heart failure (42 systolic, 41 isolated diastolic), and only 244 (60.2%) actually met GOLD COPD criteria [[Rutten2005]]. A 2009 review advises echocardiography and lung function tests in people with both, with airflow obstruction shown when euvolaemic; very high or very low natriuretic peptides are informative, intermediate values are not [[Hawkins2009]].</p></div>
+  </div>
+
+  <h3 class="sub">What a CT scan can show</h3>
+  <div class="prose">
+    <p>A chest X-ray cannot confirm COPD. It may show hyperinflation (a flattened diaphragm, more air behind the breastbone), hyperlucency and rapidly tapering vessels, and it helps exclude alternatives such as fibrosis, bronchiectasis, pleural disease, kyphoscoliosis and an enlarged heart [[Agusti2023]]. GOLD 2023 recommends chest CT for people with persistent exacerbations, symptoms out of proportion to airflow limitation, severe obstruction with significant hyperinflation and gas trapping, or who meet lung cancer screening criteria [[Agusti2023]].</p>
+    <p>Choose a pattern from the Fleischner Society's CT classification [[Lynch2015]]. For centrilobular emphysema, the slider steps through its five published grades.</p>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="lk-tog" id="lkCtBtns" role="group" aria-label="CT pattern">
+        <button class="btn" data-lkct="normal" aria-pressed="true">Reference slice</button>
+        <button class="btn" data-lkct="centri" aria-pressed="false">Centrilobular</button>
+        <button class="btn" data-lkct="pan" aria-pressed="false">Panlobular</button>
+        <button class="btn" data-lkct="para" aria-pressed="false">Paraseptal</button>
+        <button class="btn" data-lkct="wall" aria-pressed="false">Airway wall thickening</button>
+        <button class="btn" data-lkct="bronch" aria-pressed="false">Bronchiectasis</button>
+        <button class="btn" data-lkct="pa" aria-pressed="false">Large pulmonary artery</button>
+      </div>
+      <div class="scroll"><svg id="lkCtSvg" viewBox="0 0 520 360" role="img" aria-label="A schematic cross-section of the chest at the level of the great vessels: two lungs with vessels and airways, the aorta and pulmonary artery between them and the spine below. The chosen pattern is drawn in: scattered air spaces that grow and merge for centrilobular emphysema, an even loss of density for panlobular, a row of air spaces under the lung edge for paraseptal, thick-walled airways, widened airways for bronchiectasis, or a pulmonary artery wider than the aorta."></svg></div>
+      <label class="lk-range" for="lkCtSev">Centrilobular grade <output id="lkCtSevV">mild</output><input type="range" id="lkCtSev" min="0" max="4" step="1" value="1"></label>
+      <p class="stage-cap"><b>Schematic, not a scan.</b> Colours are a drawing code, not CT greyscale: air spaces are pale, vessels are red dots, airways are rings. Pattern names and grades from the Fleischner Society statement [[Lynch2015]].</p>
+    </div>
+    <aside class="note" id="lkCtNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag dx">What CT adds</span><h4>More than emphysema</h4><p>On CT, emphysema extent bears on lung volume reduction and is associated with faster FEV1 decline, higher mortality and lung cancer risk. About 30% of COPD patients have bronchiectasis on CT, and CT also shows coronary calcification, pulmonary artery enlargement, bone density and muscle mass [[Agusti2023]].</p></div>
+    <div class="card"><span class="tag dx">MESA</span><h4>Emphysema in smokers with normal tests</h4><p>In 318 smokers aged 50–79 with at least 10 pack-years, 27% had emphysema on CT, and 17% of smokers with normal spirometry had emphysema. Centrilobular and panlobular emphysema came with more breathlessness, shorter walks, more hyperinflation and lower diffusing capacity [[Smith2014]].</p></div>
+    <div class="card"><span class="tag warn">PA:A ratio</span><h4>A wide pulmonary artery</h4><p>A pulmonary artery to aorta diameter ratio above 1 was associated with future severe exacerbations (OR 3.44 in the trial cohort, 2.80 in an external validation cohort), the strongest association among all variables analysed [[Wells2012]].</p></div>
+  </div>
+
+  <h3 class="sub">PRISm and pre-COPD over a lifetime</h3>
+  <div class="prose">
+    <p>GOLD 2023 defines <b>PRISm</b> (preserved ratio impaired spirometry) as a post-bronchodilator FEV1/FVC ≥ 0.7 with FEV1 below 80% of reference. Reported prevalence is 7.1–20.3%, higher in current and former smokers; it is associated with more all-cause mortality and can move to normal, obstructive or restrictive spirometry over time [[Agusti2023]]. <b>Pre-COPD</b> is GOLD's term for people of any age with respiratory symptoms and/or structural changes (such as emphysema) or functional changes (hyperinflation, reduced diffusing capacity, rapid FEV1 decline) without airflow obstruction. GOLD says they should already be considered patients, but there is no evidence yet on the best treatment [[Agusti2023]].</p>
+    <p>Move the age slider to draw two published routes to COPD, and switch cohorts to see where people with PRISm went.</p>
+  </div>
+  <div class="stage">
+    <div class="lk-tog" id="lkCoh" role="group" aria-label="PRISm cohort">
+      <button class="btn" data-lkcoh="cg" aria-pressed="true">COPDGene, 5 years</button>
+      <button class="btn" data-lkcoh="rt" aria-pressed="false">Rotterdam, 4.5 years</button>
+    </div>
+    <label class="lk-range" for="lkAge">Age <output id="lkAgeV">55 years</output><input type="range" id="lkAge" min="25" max="70" step="1" value="55"></label>
+    <div class="scroll"><svg id="lkTrajSvg" viewBox="0 0 720 320" role="img" aria-label="Left, two lines of FEV1 against age: one starts high and falls steeply after 40, the other starts low and falls slowly, and both lead to COPD; a bracket on the steep line marks a schematic pre-COPD window. Right, people with PRISm split into those who moved to normal spirometry and those who moved to COPD in the chosen cohort, with arrow widths in proportion."></svg></div>
+    <p class="stage-cap"><b>Schematic starting values.</b> The two starting levels of FEV1 are drawing choices; only the rates of decline are data: about half of the 332 people with COPD at the end of follow-up in three cohorts had a normal FEV1 before age 40 and then declined by 53 ± 21 mL a year, and the other half started low and declined by 27 ± 18 mL a year [[Lange2015]]. The pre-COPD bracket is illustrative [[Agusti2023]]. PRISm transitions: COPDGene [[Wan2018]], Rotterdam [[Wijnant2020]]; the people who stayed in PRISm or were not re-tested are not drawn.</p>
+  </div>
+  <div class="lk-nums">
+    <div><b>26% vs 7%</b><span>had COPD 22 years later, starting from FEV1 below vs at or above 80% predicted before age 40 [[Lange2015]]</span></div>
+    <div><b>8.5%</b><span>PRISm prevalence in 53,701 US adults from nine cohorts [[Wan2021]]</span></div>
+    <div><b>HR 1.50</b><span>adjusted all-cause mortality with PRISm (29.6 vs 18.0 deaths per 1,000 person-years) [[Wan2021]]</span></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who</th><th>What PRISm looked like</th></tr></thead>
+    <tbody>
+      <tr><th>COPDGene, early data</th><td>Smokers with ≥ 10 pack-years, aged 45–80</td><td>"GOLD-unclassified" smokers were 9%. They had higher BMI, disproportionately reduced TLC, more diabetes and thicker airway walls [[Wan2011]].</td></tr>
+      <tr><th>COPDGene, 5 years</th><td>Same cohort, follow-up</td><td>PRISm prevalence 12.4–12.5%. 22.2% moved to normal and 25.1% progressed to GOLD 1–4. Persistent PRISm lost FEV1 more slowly (−27.3 ± 42.1 mL/yr) than stable normal-spirometry smokers (−33.0 ± 41.7 mL/yr); incident PRISm showed accelerated decline [[Wan2018]].</td></tr>
+      <tr><th>Rotterdam Study</th><td>5,487 people, mean age 69</td><td>7.1% had PRISm. After 4.5 years, 15.7% had normal spirometry and 49.4% COPD. Adjusted mortality HR 1.6 (all-cause) and 2.8 (cardiovascular); 70.0% of those who died within a year had cardiovascular comorbidity [[Wijnant2020]].</td></tr>
+      <tr><th>Nine US cohorts</th><td>53,701 adults</td><td>8.5% had PRISm, associated with obesity (prevalence ratio 1.68) and all-cause mortality of 29.6 vs 18.0 per 1,000 person-years (adjusted HR 1.50) [[Wan2021]].</td></tr>
+    </tbody></table></div>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Symptoms, normal test</span><h4>Smokers with preserved spirometry</h4><p>In SPIROMICS (2,736 participants), 50% of current or former smokers with preserved spirometry had symptoms (CAT ≥ 10). They had more exacerbations than asymptomatic smokers (0.27 vs 0.08 per year), and 42% used bronchodilators and 23% inhaled glucocorticoids without an evidence base [[Woodruff2016]].</p></div>
+    <div class="card"><span class="tag warn">"GOLD 0"</span><h4>Not as normal as it looks</h4><p>In COPDGene, 54.1% of smokers with normal spirometry (n = 4,388) had one or more respiratory impairments, and 42.3% of 300 with CT had emphysema or airway thickening [[Regan2015]]. GOLD 2001's "at-risk" stage 0 was dropped because not all such people progressed to COPD [[Han2021]].</p></div>
+    <div class="card"><span class="tag">Words matter</span><h4>Early, mild, young</h4><p>GOLD 2023 keeps "early COPD" for the biological first steps of disease studied experimentally, "mild" for spirometric severity only, and "young COPD" for people aged 20–50 [[Agusti2023]]. Whether pre-COPD and PRISm should be treated is a research question; labelling them risks giving disease status to people who may never progress [[Han2021,Agusti2023]] <span class="ev hyp">Hypothesis</span>.</p></div>
+  </div>
+
+  <h3 class="sub">Wrong label, both ways</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Underdiagnosis</span><h4>81.4% undiagnosed</h4><p>In BOLD and other surveys (30,874 adults aged 40 or over, 27 countries), 81.4% of spirometrically defined COPD was undiagnosed [[Lamprecht2015]].</p></div>
+    <div class="card"><span class="tag warn">Overdiagnosis</span><h4>61.9% unobstructed</h4><p>In BOLD, 61.9% of 919 people reporting a doctor's diagnosis of COPD had unobstructed post-bronchodilator spirometry (55.3% by the fixed ratio), and 45.7% of these were using respiratory medicines [[Sator2019]]. A 2018 review estimates that 30–60% of people with a physician diagnosis of COPD do not have it [[Diab2018]].</p></div>
+  </div>
+
+  <h3 class="sub">In plain words</h3>
+  <div class="prose">
+    <p>Other conditions can feel like COPD, including asthma, widened airways (bronchiectasis) and heart failure, so a breathing test and sometimes a heart scan or a CT scan help sort them out [[Agusti2023,Rutten2005]].</p>
+    <p>Having a normal breathing test does not always mean your lungs are fine if you smoke or have symptoms. Doctors now talk about "pre-COPD" and "PRISm" for these in-between states [[Agusti2023]].</p>
+    <p>Many people with COPD do not know they have it, and some people told they have COPD turn out to have normal breathing tests [[Lamprecht2015,Sator2019]].</p>
+  </div>
+  <p class="callout">Before this: <button class="btn ghost" data-go="assessment">Symptoms, exacerbations &amp; GOLD groups</button> · Next: <button class="btn ghost" data-go="inhalers">Bronchodilators</button> · The inherited form: <button class="btn ghost" data-go="aatd">Alpha-1 antitrypsin deficiency</button></p>
+</section>

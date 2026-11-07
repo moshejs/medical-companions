@@ -1,0 +1,105 @@
+<!-- ================= 4.2 HOSPITAL TREATMENT ================= -->
+<style>
+#m-hospital .hs-tog{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+#m-hospital .hs-tog>div{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-hospital .hs-tbtns{display:flex;flex-wrap:wrap;gap:6px}
+#m-hospital .hs-tbtns .btn{font-size:13px;padding:7px 11px}
+#m-hospital .calc output{font:600 13px var(--mono);color:var(--fl)}
+#m-hospital .hs-chk{flex-direction:row!important;align-items:flex-start;gap:8px!important;font-weight:600!important}
+#m-hospital .hs-chk input{margin-top:3px;flex:none}
+#m-hospital .card>.tag,#m-hospital .card>.ev{align-self:flex-start}
+#m-hospital .tbl table{min-width:640px}
+#m-hospital .hs-tnote{font-size:15px;max-width:72ch}
+</style>
+<section class="mod" id="m-hospital" data-mod="hospital" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Flare-ups &amp; hospital</p><h2>Hospital treatment</h2>
+    <p class="lede">What guidelines describe for a flare-up treated in hospital, hour by hour and then day by day: controlled oxygen and a blood gas, bronchodilators, a short steroid course, antibiotics when the sputum changes, non-invasive ventilation when the blood turns acidic, and a plan for going home. Scrub the timeline, change the example, then explore the trials behind each step.</p></div>
+
+  <div class="stepper" id="hsSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hsSvg" viewBox="0 0 720 400" role="img" aria-label="A person in a hospital bed with a monitor showing example oxygen saturation, pH and carbon dioxide values, beside a timeline with seven lanes: controlled oxygen, blood gases, bronchodilators, steroid, antibiotic, non-invasive ventilation and going home. The time axis is stretched so that the first two hours and the following two weeks both fit. As the cursor moves, each treatment bar fills in, the mask changes from an oxygen mask to a ventilation mask if the blood is acidic, and the values on the monitor improve."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hsPlay">Play</button><label class="stage-cap tl" for="hsT">Timeline <input type="range" id="hsT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="hs-tog">
+        <div role="group" aria-label="Blood gas in this example"><span class="kicker">Blood gas</span><button class="btn" data-hsa="1" aria-pressed="true">Acidotic</button><button class="btn" data-hsa="0" aria-pressed="false">Not acidotic</button></div>
+        <div role="group" aria-label="Sputum in this example"><span class="kicker">Sputum</span><button class="btn" data-hsp="1" aria-pressed="true">More and purulent</button><button class="btn" data-hsp="0" aria-pressed="false">Unchanged</button></div>
+        <div role="group" aria-label="Steroid course"><span class="kicker">Steroid</span><button class="btn" data-hss="5" aria-pressed="true">5 days</button><button class="btn" data-hss="14" aria-pressed="false">14 days</button></div>
+      </div>
+      <div class="readout" id="hsRead" aria-live="polite"></div>
+      <p class="stage-cap"><b>Schematic, not a care plan.</b> The monitor values are made-up example numbers, and the day of going home varies. The lanes follow published guidance: oxygen and blood gases [[ODriscoll2017Summary]], medicines [[Agusti2023]], NIV thresholds and weaning [[Davidson2016Summary]], NIV timing [[Davies2018]], the 5- versus 14-day steroid comparison [[Leuppi2013]] and the discharge steps [[Agusti2023,Wedzicha2017]].</p>
+    </div>
+    <aside class="note" id="hsNote" aria-live="polite"></aside>
+  </div>
+
+  <p class="crisis" role="note"><b>Get help</b><span>GOLD 2023 lists reasons for hospital care: severe symptoms such as sudden worsening of breathlessness at rest, a high breathing rate, low oxygen saturation, confusion or drowsiness; acute respiratory failure; new signs such as blue lips (cyanosis) or swollen ankles; a flare-up that does not respond to first treatment; serious other illness such as heart failure or a new irregular heartbeat; and too little support at home. [[Agusti2023]] Anyone with these signs needs urgent medical help: in an emergency, call your local emergency number, and show any oxygen alert card to the ambulance crew. [[ODriscoll2017Summary]]</span></p>
+
+  <h3 class="sub">The medicines, as published</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Treatment</th><th>What the guideline says</th><th>What the trials found</th></tr></thead>
+    <tbody>
+      <tr><th>Bronchodilators</th><td>GOLD 2023: short-acting beta-agonists (SABA), with or without a short-acting antimuscarinic (SAMA), are the first bronchodilators, by inhaler with a spacer or by nebuliser; "air-driven is preferable to oxygen-driven nebulization to avoid the potential risk of increasing PaCO2". Long-acting bronchodilators continue, or start before discharge. IV methylxanthines are not recommended. [[Agusti2023]]</td><td>BTS 2017: with hypercapnic acidosis, nebulise by ultrasonic or compressed-air jet nebuliser with oxygen by nasal cannulae; ambulances using oxygen-driven nebulisers in known COPD limit them to 6 minutes. [[ODriscoll2017Summary]]</td></tr>
+      <tr class="fl"><th>Systemic steroid</th><td>GOLD 2023: "A dose of 40 mg prednisone-equivalent per day for 5 days is recommended"; longer courses "increase the risk of pneumonia and mortality", and oral prednisolone is "equally effective to intravenous administration". [[Agusti2023]] ERS/ATS 2017 conditionally recommends oral rather than IV steroid in hospital. [[Wedzicha2017]]</td><td>Cochrane (16 trials): treatment failure OR 0.48 (NNT 9); FEV1 +140 mL by 72 hours; no change in 30-day mortality; more adverse events (OR 2.33), including high blood sugar (OR 2.79). [[Walters2014]] Prednisolone 30 mg for 14 days raised post-bronchodilator FEV1 from 28.2% to 41.5% predicted, against 25.7% to 32.2% with placebo, and shortened the stay. [[Davies1999]]</td></tr>
+      <tr><th>Antibiotics</th><td>GOLD 2023: antibiotics "should be given to patients with ECOPD who have increased sputum volume and sputum purulence and most of those requiring mechanical ventilation (invasive or noninvasive)", for 5–7 days. Usual first choices: an aminopenicillin with clavulanic acid, a macrolide, a tetracycline or, in selected patients, a quinolone, by local resistance; sputum culture for frequent flare-ups, severe obstruction or ventilated patients. [[Agusti2023]]</td><td>Anthonisen 1987 defined flare-ups by more breathlessness, more sputum and more purulent sputum: success 68% with antibiotic against 55% with placebo. [[Anthonisen1987]] CRP-guided care cut reported antibiotic use from 77.4% to 57.0% (PACE) [[Butler2019]], and procalcitonin guidance from 72% to 40% in inpatients, with similar outcomes. [[Stolz2007]]</td></tr>
+      <tr class="o2"><th>Controlled oxygen</th><td>GOLD 2023: titrate "to a target saturation of 88–92%"; Venturi masks give more accurate delivery than nasal prongs. [[Agusti2023]] BTS 2017 before gases are known: "use a 24% Venturi mask at 2–3 L/min or 28% Venturi mask at 4 L/min or nasal cannulae at 1–2 L/min". [[ODriscoll2017Summary]]</td><td>Titrated oxygen before hospital: mortality 4% against 9% with high flow (RR 0.42). [[Austin2010]] More in <button class="btn ghost" data-go="bloodgas">Oxygen targets &amp; blood gases</button></td></tr>
+      <tr><th>Other care</th><td>GOLD 2023 recommends clot prevention (thromboprophylaxis) in hospital because of a raised risk of deep-vein thrombosis and pulmonary embolism, says smoking cessation should be "strongly" enforced, and does not recommend respiratory stimulants. [[Agusti2023]]</td><td>–</td></tr>
+    </tbody></table></div>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>Steroids guided by eosinophils</h4><p>CORTICO-COP (318 inpatients) gave prednisolone only on days with blood eosinophils ≥0.3 × 10⁹/L: days alive and out of hospital 8.9 against 9.3 (non-inferior), with a median of 2 against 5 steroid days. [[Sivapalan2019]] In an earlier pilot, flare-ups with eosinophils ≤2% failed treatment in 15% on prednisolone against 2% on placebo. [[Bafadhel2012]] GOLD 2023 says only that steroids "may be less efficacious" with lower eosinophils. [[Agusti2023]]</p></div>
+    <div class="card"><span class="tag warn">Open question</span><h4>Antibiotics on the ward</h4><p>In non-ICU inpatients the Cochrane estimate for current antibiotics was not significant (RR 0.65, 95% CI 0.38–1.12), while GOLD recommends them when sputum is purulent. [[Vollenweider2018,Agusti2023]]</p></div>
+    <div class="card"><span class="tag fl">ICU</span><h4>Ventilated patients</h4><p>In the one ICU trial (93 ventilated patients), ofloxacin 400 mg daily for 10 days cut in-hospital deaths from 22% to 4%. [[Nouira2001]] Cochrane: treatment failure RR 0.19. [[Vollenweider2018]]</p></div>
+  </div>
+
+  <h3 class="sub">Trial results explorer</h3>
+  <div class="stage">
+    <div class="hs-tbtns" id="hsTrBtns" role="group" aria-label="Choose a trial or review"></div>
+    <div class="scroll"><svg id="hsTrSvg" viewBox="0 0 720 230" role="img" aria-label="The chosen trial's results: either paired bars comparing the two groups for the main outcome, or a ratio plot with each estimate and its confidence interval against the no-difference line at 1."></svg></div>
+    <p class="hs-tnote" id="hsTrNote" aria-live="polite"></p>
+    <p class="stage-cap">Bars show percentages of each group as published. Ratio plots use a log scale; a point left of 1 favours the treatment. Some reviews published no confidence interval for an estimate, and those points have none.</p>
+  </div>
+
+  <h3 class="sub">Try it: the DECAF score</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>DECAF predicts death in hospital from five findings on admission. It is shown here as published so you can see how the points add up; it is not for diagnosis or treatment decisions, and it cannot predict what happens to any one person. [[Steer2012,Echevarria2016]]</p>
+  <div class="stage">
+    <div class="calc" id="hsDec">
+      <label for="hsDm">Extended MRC dyspnoea score (eMRCD)<select id="hsDm"><option value="0">Below 5a: 0 points</option><option value="1">5a: 1 point</option><option value="2">5b: 2 points</option></select></label>
+      <label class="hs-chk" for="hsDe"><input type="checkbox" id="hsDe">Eosinopenia: eosinophils &lt;0.05 × 10⁹/L (1 point)</label>
+      <label class="hs-chk" for="hsDc"><input type="checkbox" id="hsDc">Consolidation on the chest X-ray (1 point)</label>
+      <label class="hs-chk" for="hsDa"><input type="checkbox" id="hsDa">Acidaemia: pH &lt;7.30 (1 point)</label>
+      <label class="hs-chk" for="hsDf"><input type="checkbox" id="hsDf">Atrial fibrillation (1 point)</label>
+    </div>
+    <div class="scroll"><svg id="hsDecSvg" viewBox="0 0 720 200" role="img" aria-label="Bars of in-hospital mortality by DECAF score from 0 to 6 in the validation cohort, with the bar for the chosen score highlighted."></svg></div>
+    <div class="verdict maybe" id="hsDecV" aria-live="polite"></div>
+    <p class="stage-cap">Validation cohort of 1725 patients; AUROC 0.83 internally and 0.82 externally. Score 6 had only 2 patients. The authors suggest DECAF 0–1 identifies low-risk patients who may suit hospital at home or early supported discharge, and 3–6 high-risk patients for escalation planning or early palliation. [[Echevarria2016]] In the 920-patient derivation cohort, 10.4% died and AUROC was 0.86. [[Steer2012]]</p>
+  </div>
+
+  <h3 class="sub">Non-invasive ventilation in practice</h3>
+  <div class="prose"><p>NIV is breathing support given through a mask rather than a tube in the windpipe: it can help people breathe and often avoids a breathing tube. [[Osadnik2017]] GOLD 2023 calls it "the preferred initial mode of ventilation", and once patients tolerate at least 4 hours of unassisted breathing it can be stopped without weaning. [[Agusti2023]] ERS/ATS 2017 made a strong recommendation for NIV in acute or acute-on-chronic respiratory failure in COPD flare-ups. [[Wedzicha2017,Rochwerg2017]]</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>As published</th></tr></thead>
+    <tbody>
+      <tr class="co2"><th>BTS/ICS 2016, rec 25</th><td>"NIV should be started when pH &lt;7.35 and pCO2 &gt;6.5 kPa persist or develop despite optimal medical therapy" (grade A). [[Davidson2016,Davidson2016Summary]]</td></tr>
+      <tr><th>BTS/ICS 2016, rec 26</th><td>"Severe acidosis alone does not preclude a trial of NIV in an appropriate area with ready access to staff who can perform safe endotracheal intubation" (grade B). [[Davidson2016Summary]]</td></tr>
+      <tr><th>BTS/ICS 2016, recs 24 and 4</th><td>Optimal medical therapy with a target saturation of 88–92% for most flare-ups; oxygen adjusted to SaO2 88–92% in all causes of hypercapnic failure treated with NIV (grade A). [[Davidson2016Summary]]</td></tr>
+      <tr><th>BTS/ICS 2016, Box 1</th><td>Invasive ventilation for imminent respiratory arrest, severe distress, failure of or contraindication to NIV, "persisting pH &lt;7.15 or deterioration in pH despite NIV", or GCS &lt;8. [[Davidson2016Summary]]</td></tr>
+      <tr><th>BTS/ICS 2016, practice</th><td>Maximise time on NIV in the first 24 h, then taper daytime use over 2–3 days before stopping overnight; stop once pH and pCO2 have normalised (rec 31, grade B). One nurse for every 2 NIV patients, especially in the first 24 h. Document a plan for NIV failure before starting; advanced age alone should not preclude a trial (grade A). [[Davidson2016Summary]]</td></tr>
+      <tr><th>BTS Quality Standards 2018</th><td>Start NIV "within 60 min of the blood gas result associated with the clinical decision to provide NIV and within 120 min of hospital arrival" (QS4); blood gases within 2 hours of starting, and failure to improve triggers specialist review within 30 min (QS6). [[Davies2018]]</td></tr>
+      <tr><th>ERS 2022, high-flow nasal oxygen</th><td>Suggests "trialling NIV prior to use of HFNC in patients with COPD and hypercapnic ARF" (conditional). [[Oczkowski2022]] GOLD 2023 notes high-flow nasal therapy did not prevent intubation. [[Agusti2023]]</td></tr>
+    </tbody></table></div>
+  <div class="cards">
+    <div class="card"><span class="tag co2">How common</span><h4>About 1 in 5 flare-ups</h4><p>Acute hypercapnic respiratory failure complicates around 20% of COPD flare-ups; about 12% of those patients died in hospital, and 33% if the acidosis developed after admission. [[Davidson2016Summary]] A UK audit of 9716 admissions found 20% acidotic on arrival and 6% more later. [[Roberts2011]]</p></div>
+    <div class="card"><span class="tag bad">Audit gap</span><h4>Real-world NIV</h4><p>In that audit, hospital mortality was 25% on NIV and 39% when acidosis developed late, and 30% of patients with persisting respiratory acidosis did not get NIV. 55% of the 1077 NIV patients had pH &lt;7.26. [[Roberts2011]]</p></div>
+    <div class="card"><span class="tag warn">Failure risk</span><h4>Low pH, high risk</h4><p>In 1033 patients, NIV failure risk was above 70% with GCS &lt;11, APACHE II ≥29, breathing rate ≥30 and admission pH &lt;7.25; pH &lt;7.25 after 2 hours of NIV raised it above 90%. [[Confalonieri2005]] Improving acidosis and a falling breathing rate at 4 h predicted success. [[Plant2001]]</p></div>
+    <div class="card"><span class="tag dx">By acidosis</span><h4>90-day mortality</h4><p>European COPD Audit (16,016 admissions), as reported in a UK review: 9.1% when pH &gt;7.35, 16.1% at 7.25–7.35 and 28.1% below 7.25. [[Trethewey2018,Hartl2016]] Spirometry results were found for only 49.7% of admissions. [[Hartl2016]]</p></div>
+  </div>
+
+  <h3 class="sub">Going home</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rec">GOLD 2023</span><h4>Before discharge</h4><p>Good practice covers inhaler education, home support and a follow-up plan. Follow-up within one month is linked to fewer readmissions, and again at three months. Early readmission in the first 90 days is frequent; risk factors are other illnesses, previous flare-ups and admissions, and a longer stay. [[Agusti2023]]</p></div>
+    <div class="card"><span class="tag rec">Bundles</span><h4>RR 0.80 for readmission</h4><p>14 studies of COPD discharge bundles: pooled readmission RR 0.80 (95% CI 0.65–0.99), from four trials at moderate-to-high risk of bias, with no clear effect on mortality or quality of life. [[Ospina2017]] One UK team built its bundle from guidelines, expert opinion and patient consultation. [[Hopkinson2012]]</p></div>
+    <div class="card"><span class="tag rec">After high CO2</span><h4>The BTS/ICS checklist</h4><p>Early specialist review, pulmonary rehabilitation, help to stop smoking, future care planning, a warning card or ambulance alert for controlled oxygen, and consideration of home NIV. [[Davidson2016Summary]]</p></div>
+    <div class="card"><span class="tag rec">Rehabilitation</span><h4>OR 0.44 for readmission</h4><p>Cochrane (20 trials): rehabilitation after a flare-up cut readmissions (OR 0.44, 95% CI 0.21–0.91; heterogeneous) and improved SGRQ by 7.80 points. [[Puhan2016]] ERS/ATS 2017 suggests starting within 3 weeks of discharge, not during the stay [[Wedzicha2017]]; GOLD 2023 calls the effects of starting in the first 4 weeks unclear. [[Agusti2023]] <button class="btn ghost" data-go="rehab">Pulmonary rehabilitation</button></p></div>
+    <div class="card"><span class="tag rx">Home NIV</span><h4>HOT-HMV</h4><p>116 people still with PaCO2 &gt;53 mmHg 2–4 weeks after acidosis resolved: home NIV plus oxygen lengthened median time to readmission or death from 1.4 to 4.3 months (adjusted HR 0.49). [[Murphy2017]]</p></div>
+    <div class="card"><span class="tag rec">Hospital at home</span><h4>RR 0.76 for readmission</h4><p>Cochrane (8 trials, 870 patients): fewer readmissions than inpatient care; the mortality trend (RR 0.65, 0.40–1.04) was not significant. The trials excluded people with pH &lt;7.35. [[Jeppesen2012]]</p></div>
+  </div>
+  <p class="callout">Before this: <button class="btn ghost" data-go="flareups">Flare-ups (exacerbations)</button> · Next: <button class="btn ghost" data-go="bloodgas">Oxygen targets &amp; blood gases</button></p>
+</section>

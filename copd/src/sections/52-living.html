@@ -1,0 +1,117 @@
+<!-- ================= 5.2 LIVING WITH COPD ================= -->
+<style>
+#m-living .lv-tog{display:flex;flex-wrap:wrap;gap:6px}
+#m-living .lv-out{display:flex;flex-direction:column;gap:10px}
+#m-living .lv-out .verdict{font-size:15.5px}
+#m-living .lv-out p{font-size:14.5px}
+#m-living .calc output{font:600 13px var(--mono);color:var(--muted)}
+#m-living .card>.tag,#m-living .card>.ev{align-self:flex-start}
+#m-living .tbl table{min-width:640px}
+#m-living .lv-nums{display:flex;flex-wrap:wrap;gap:8px 22px}
+#m-living .lv-nums div{display:flex;flex-direction:column;gap:2px;min-width:0}
+#m-living .lv-nums b{font:700 26px/1 var(--display);color:var(--rec)}
+#m-living .lv-nums span{font-size:13.5px;color:var(--muted);max-width:22ch}
+</style>
+<section class="mod" id="m-living" data-mod="living" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Living &amp; care</p><h2>Living with COPD</h2>
+    <p class="lede">Daily life with COPD runs on a few skills: knowing your usual day, spotting a flare-up early, acting on a written plan, pacing your breathing, and planning ahead. Step through one written action plan, then try the breathing and flying tools below.</p></div>
+
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvSvg" viewBox="0 0 720 400" role="img" aria-label="A written action plan card with three coloured zones beside a figure of a person and three symptom meters for breathlessness, the amount of sputum and its colour. As the timeline plays, the symptoms rise and the plan moves from the usual-day zone to the worse-than-usual zone and the get-help zone; the person uses pursed-lip breathing and a handheld fan; finally an advance care plan sheet appears. A panel shows the key trial number for each step."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">Play</button><label class="stage-cap tl" for="lvT">Timeline <input type="range" id="lvT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The symptom meters show a direction of change, not measurements. The three zone colours are a drawing device: the research summarised here does not publish zone thresholds, and every written plan is agreed with the person's own care team. Figures from the Cochrane review [[Lenferink2017]], sputum culture [[Stockley2000]], chest-wall volumes [[Bianchi2004]], the fan trial [[Galbraith2010]], the Glasgow trial [[Bucknall2012]] and the advance care planning trial [[Houben2019]].</p>
+    </div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What the self-management trials found</h3>
+  <div class="prose"><p>A written action plan is usually one part of a wider self-management programme: education, a plan for flare-ups and contact with a case manager. The average benefit is real but modest, and not every programme helped.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who</th><th>Main result</th><th>Safety signal</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>Cochrane 2017, action plans</th><td>22 studies, 3,854 people</td><td>Quality of life better at 12 months (SGRQ −2.69 points, 95% CI −4.49 to −0.90; high-quality evidence). Fewer respiratory admissions (OR 0.69, 95% CI 0.51 to 0.94; NNT 12 at high baseline risk, 17 at low) [[Lenferink2017]]</td><td>All-cause admissions not significantly lower (OR 0.74). Exploratory: a very small excess in respiratory deaths (risk difference 0.028; very low-quality evidence) [[Lenferink2017]]</td></tr>
+      <tr><th>Cochrane 2022, all self-management</th><td>27 studies, 6,008 people</td><td>SGRQ −2.86 points (95% CI −4.87 to −0.85), below the 4-point minimal clinically important difference; fewer respiratory admissions (OR 0.75; very low-quality evidence) [[Schrijver2022]]</td><td>No excess respiratory or all-cause mortality; "unlikely to cause harm" [[Schrijver2022]]</td></tr>
+      <tr><th>Cochrane 2014</th><td>23 RCTs, 3,189 people</td><td>SGRQ −3.51 points; respiratory admissions OR 0.57; mMRC breathlessness −0.83 [[Zwerink2014]]</td><td>–</td></tr>
+      <tr><th>Glasgow (GSuST)</th><td>464 people after an admission</td><td>COPD readmission or death no different (48% vs 47%; HR 1.05). Only 42% became "successful self managers": younger, more often living with others [[Bucknall2012]]</td><td>–</td></tr>
+      <tr><th>US Veterans Affairs programme</th><td>Education, action plan, case-management calls</td><td>No fall in COPD hospitalisation (27% vs 24%) [[Fan2012]]</td><td>Stopped early: 28 deaths vs 10 (HR 3.00, 95% CI 1.46 to 6.17) [[Fan2012]]</td></tr>
+      <tr><th>Baltimore nurse-led programme</th><td>240 patients and family caregivers</td><td>No significant gain in quality of life [[Aboumatar2019]]</td><td>More COPD acute care events at 6 months (1.40 vs 0.72 per participant) [[Aboumatar2019]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">In the 2017 review, programmes that included help to stop smoking improved quality of life more (SGRQ −4.98) than those without (−1.33) [[Lenferink2017]]. The open question is design: the average benefit sits below the SGRQ minimal clinically important difference, and how a programme is built and who delivers it appear to matter [[Schrijver2022,Fan2012,Aboumatar2019]].</p>
+
+  <h3 class="sub">Breathing out slowly: pursed lips</h3>
+  <div class="prose"><p>Pursed-lip breathing is something many people with COPD start doing on their own when breathless [[Bianchi2004]]. Switch between ordinary breathing and pursed lips and play the breaths: the slower breath out lets the lungs empty further before the next breath in.</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="lv-tog" id="lvPlbTog" role="group" aria-label="Breathing pattern">
+        <button class="btn" data-lvplb="0" aria-pressed="true">Ordinary breathing</button>
+        <button class="btn" data-lvplb="1" aria-pressed="false">Pursed lips</button>
+      </div>
+      <div class="scroll"><svg id="lvPlbSvg" viewBox="0 0 720 300" role="img" aria-label="A pair of lungs that swell and shrink beside a chest-wall volume trace over several breaths. In pursed-lip mode each breath out is longer, the trace falls lower at the end of each breath out and rises higher at the end of each breath in, compared with a dashed trace of ordinary breathing."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlbPlay">Play</button><label class="stage-cap tl" for="lvPlbT">Breaths <input type="range" id="lvPlbT" min="0" max="1" step="0.002" value="0.55"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The size of the ordinary breath and the breath timings are drawn for illustration. The three changes are the measured averages in 22 people with COPD [[Bianchi2004]].</p>
+    </div>
+    <aside class="note" id="lvPlbNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag air">Breathing exercises</span><h4>Walking further, not always less breathless</h4><p>A Cochrane review (16 studies, 1,233 people) found 6-minute walk distance improved after yoga with pranayama breathing (45 m), with similar gains in single trials of pursed-lip (50 m) and diaphragmatic breathing (35 m). Effects on breathlessness and quality of life were not consistent <span class="ev est">Established</span> [[Holland2012]].</p></div>
+    <div class="card"><span class="tag air">Handheld fan</span><h4>Air across the face</h4><p>In a crossover trial in 50 people with advanced disease, a handheld fan blown across the nose and mouth for 5 minutes eased breathlessness more than the same fan aimed at the leg (P = 0.003) [[Galbraith2010]].</p></div>
+    <div class="card"><span class="tag rec">Staying active</span><h4>Moving more, living longer?</h4><p>In 2,386 people with COPD in Copenhagen, any regular activity above "very low" went with fewer COPD admissions (IRR 0.72) and lower mortality (HR 0.76) [[GarciaAymerich2006]]. Measured activity was the strongest predictor of death in 170 outpatients (C statistic 0.81 for 4-year survival) [[Waschki2011]]. These are associations: sicker people move less <span class="ev early">Early evidence</span> [[GarciaAymerich2006,Waschki2011]].</p></div>
+  </div>
+  <p class="stage-cap">Exercise training itself is covered in <a href="#rehab" data-go="rehab">Pulmonary rehabilitation</a>.</p>
+
+  <h3 class="sub">Flying and the hypoxic challenge test</h3>
+  <div class="prose">
+    <p>Aircraft cabins are pressurised to a "cabin altitude" that regulators cap at 2,438 m (8,000 ft), chosen because an average healthy person's saturation stays above 90% up to that height; above 3,048 m (10,000 ft) it falls to about 89% [[Coker2022]]. A hypoxic challenge test has the person breathe 15% oxygen, roughly the inspired oxygen at a 2,438 m cabin [[Coker2022]].</p>
+    <p>Enter readings to see which branch of two published pathways they fall into: a Norwegian pre-flight algorithm based on sea-level SpO2 and the 6-minute walk [[Edvardsen2012]], and the BTS 2022 reading of a hypoxic challenge test [[Coker2022]].</p>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>It shows how two published pathways sort readings. It is not for diagnosis or treatment decisions, and it does not say whether a person can fly: that is a decision for the person's own clinicians, who also weigh hypercapnia, other conditions and the flight itself.</p>
+  <div class="calc" id="lvFlyCalc">
+    <label for="lvFlyS">Resting SpO2 at sea level <input type="range" id="lvFlyS" min="85" max="100" step="1" value="94"><output id="lvFlySO" for="lvFlyS"></output></label>
+    <label for="lvFlyW">Lowest SpO2 on a 6-minute walk <input type="range" id="lvFlyW" min="70" max="100" step="1" value="86"><output id="lvFlyWO" for="lvFlyW"></output></label>
+    <label for="lvFlyH">Hypoxic challenge test result
+      <select id="lvFlyH">
+        <option value="0">Not done</option>
+        <option value="1">SpO2 ≥ 85% or PaO2 ≥ 6.6 kPa</option>
+        <option value="2">SpO2 &lt; 85% or PaO2 &lt; 6.6 kPa</option>
+      </select></label>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvFlySvg" viewBox="0 0 720 340" role="img" aria-label="Left, an altitude column from sea level to the 2,438 metre cabin limit and 3,048 metres, with the hypoxic challenge test's 15% oxygen set beside the cabin limit. Right, a flow chart: sea-level and walk-test saturations lead to fly without further testing, a hypoxic challenge test, or in-flight oxygen; the test result leads to oxygen not required or oxygen recommended. The branch matching the entered readings is highlighted."></svg></div>
+    </div>
+    <div class="lv-out" id="lvFlyOut" aria-live="polite"></div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag dx">BTS 2022</span><h4>Who the statement considers for testing</h4><p>People with COPD who have resting SpO2 ≤ 95%, an MRC score of 3 or more, or desaturation below 84% on a walking test, and in whom there are concerns about hypercapnia [[Coker2022]].</p></div>
+    <div class="card"><span class="tag dx">Already on oxygen</span><h4>Long-term oxygen users</h4><p>For people on long-term oxygen without hypercapnia, the statement says it "seems reasonable" to raise the flow by 2 L/min in flight, if the equipment allows [[Coker2022]]. It advises people with severe COPD to carry a copy of their management plan, specialist assessment before flying after a pneumothorax or with bullous disease, and notes COPD raises the risk of blood clots, especially after an exacerbation [[Coker2022]].</p></div>
+    <div class="card"><span class="tag warn">Limits of the test</span><h4>It predicts low oxygen, not symptoms</h4><p>In 82 people with moderate to very severe COPD, 76% fell below 6.6 kPa during simulated altitude (mean 6.3 kPa), but the value was the same in those with and without symptoms on earlier flights (6.3 vs 6.3 kPa). Those who flew with oxygen reported symptoms less often (17% vs 48%) [[Edvardsen2013]]. The Norwegian algorithm had 100% sensitivity and 80% specificity [[Edvardsen2012]].</p></div>
+  </div>
+
+  <h3 class="sub">Sex, work and the people who care</h3>
+  <div class="lv-nums">
+    <div><b>≈40%</b><span>of working-age people surveyed retired early because of COPD [[Fletcher2011]]</span></div>
+    <div><b>0.84 → 0.41</b><span>EQ-5D quality of life, mild to severe COPD [[Fletcher2011]]</span></div>
+    <div><b>75%</b><span>reported at least one other chronic condition [[Fletcher2011]]</span></div>
+    <div><b>1 of 27</b><span>caregiver studies tested an intervention [[Mansfield2016]]</span></div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag rec">Sex and intimacy</span><h4>Rarely asked about</h4><p>In 55 outpatients, men with COPD reported lower sexual quality of life than matched norms on every dimension, and women reported less frequent intimacy. Patients said they did not discuss sex with their doctor [[Kaptein2008]].</p></div>
+    <div class="card"><span class="tag rec">Work</span><h4>Early retirement</h4><p>An international survey of 2,426 people aged 45–67 with COPD in six countries found about 40% (447) of the working-age group had retired early because of COPD, at an estimated average age of about 54 [[Fletcher2011]].</p></div>
+    <div class="card"><span class="tag rec">Carers</span><h4>A thin evidence base</h4><p>A review of COPD caregiver research (2000–2014) found 27 studies: 25 descriptive, one intervention study, and only two that measured carer burden over time [[Mansfield2016]]. In a nurse-led advance care planning trial, loved ones' anxiety was lower at follow-up (p = 0.02) [[Houben2019]].</p></div>
+  </div>
+
+  <h3 class="sub">Planning ahead and palliative support</h3>
+  <div class="split2">
+    <div class="prose">
+      <p>GOLD 2023 states that all patients with advanced COPD should be considered for end-of-life and palliative care support, to optimise symptom control and allow patients and families to make informed choices [[Agusti2023]].</p>
+      <p>That support has often been missing. Compared with 50 people with inoperable lung cancer, 50 people with end-stage COPD had worse daily living and physical, social and emotional function; 90% had clinically relevant anxiety or depression (vs 52%), and none had access to specialist palliative care (vs 30%) [[Gore2000]].</p>
+      <p>One structured, nurse-led advance care planning session (1.5 hours) in 165 people with advanced COPD improved the quality of end-of-life communication with physicians and made an advance care planning discussion within 6 months more likely, without raising distress [[Houben2019]]. A South London breathlessness support service improved breathlessness mastery at 6 weeks in 105 people with refractory breathlessness [[Higginson2014]].</p>
+    </div>
+    <div class="prose">
+      <p class="support" role="note"><b>Support</b>Talking about future care can feel hard. In the trial above, a planned conversation with a trained nurse did not add distress, and it helped people and their families talk with their doctors [[Houben2019]]. Palliative care is extra support for comfort and quality of life; it is described in <a href="#advanced" data-go="advanced">Lung volume reduction, transplant &amp; palliative care</a>.</p>
+    </div>
+  </div>
+</section>
