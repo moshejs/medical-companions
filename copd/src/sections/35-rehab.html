@@ -1,5 +1,78 @@
-<!-- ================= 3.5 PULMONARY REHABILITATION (stub) ================= -->
+<!-- ================= 3.5 PULMONARY REHABILITATION ================= -->
+<style>
+#m-rehab .rh-tabs{display:flex;flex-wrap:wrap;gap:6px}
+#m-rehab .rh-cap{font-size:14px;color:var(--muted);max-width:80ch}
+#m-rehab .rh-out{display:flex;flex-direction:column;gap:8px}
+#m-rehab .rh-out p{font-size:14.5px}
+#m-rehab .rh-nums{display:flex;flex-wrap:wrap;gap:10px 24px}
+#m-rehab .rh-nums div{display:flex;flex-direction:column;gap:3px;min-width:0;max-width:24ch}
+#m-rehab .rh-nums b{font:700 28px/1 var(--display);color:var(--rx)}
+#m-rehab .rh-nums span{font-size:13.5px;color:var(--muted)}
+#m-rehab .card>.tag,#m-rehab .card>.ev{align-self:flex-start}
+#m-rehab .rh-day{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:14px;max-width:560px}
+#m-rehab .tbl table{min-width:640px}
+</style>
 <section class="mod" id="m-rehab" data-mod="rehab" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Pulmonary rehabilitation</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Pulmonary rehabilitation is a programme of exercise training, education and behaviour change, tailored after an assessment. Play the cycle to see what it is meant to interrupt and what the trials measured, then explore the effect sizes and the question of timing after a hospital stay.</p></div>
+
+  <div class="stepper" id="rhSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rhSvg" viewBox="0 0 720 400" role="img" aria-label="A circular diagram of three linked boxes, breathless, less active and weaker muscles, with a dot running round the loop and a stooped walking figure in the middle. When training begins, a training block breaks the loop, the arrows turn green and the boxes change to less breathless, walks further and fitter, and the figure walks upright. A side panel shows each step: the parts of a programme, a 12-week calendar, the measured gains, rehabilitation after a hospital stay, the risk of starting too early, and home and telerehabilitation."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rhPlay">Play</button><label class="stage-cap tl" for="rhT">Timeline <input type="range" id="rhT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The loop is a teaching picture of how breathlessness and inactivity feed each other; it is not a measured model. The numbers in the side panel come from the Cochrane reviews [[McCarthy2015,Puhan2016,Cox2021Cochrane]], the Medicare cohort [[Lindenauer2020]] and the early-rehabilitation trial [[Greening2014]].</p>
+    </div>
+    <aside class="note" id="rhNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What a programme is, and who is offered it</h3>
+  <div class="split2">
+    <div class="prose">
+      <p>The ATS/ERS 2013 statement defines pulmonary rehabilitation as "a comprehensive intervention based on a thorough patient assessment followed by patient-tailored therapies that include, but are not limited to, exercise training, education, and behavior change, designed to improve the physical and psychological condition of people with [chronic respiratory disease] and to promote the long-term adherence to health-enhancing behaviors" [[Spruit2013,Rochester2023]].</p>
+      <p>The 2023 ATS guideline makes a strong recommendation for pulmonary rehabilitation in adults with stable COPD and after hospitalisation for an exacerbation (moderate-quality evidence for both), and a strong recommendation to offer a choice of centre-based rehabilitation or telerehabilitation [[Rochester2023]]. GOLD 2023 states that people with high symptom burden and exacerbation risk (groups B and E) "should be recommended to take part in a formal PR program" [[Agusti2023]].</p>
+    </div>
+    <div class="prose">
+      <div class="rh-nums">
+        <div><b>&lt; 5%</b><span>of people with COPD who may benefit receive rehabilitation (ATS 2023) [[Rochester2023]]</span></div>
+        <div><b>1.5%</b><span>of 197,376 Medicare patients started within 90 days of a COPD admission [[Lindenauer2020]]</span></div>
+        <div><b>65 RCTs</b><span>in the 2015 Cochrane review; most programmes ran 8 or 12 weeks [[McCarthy2015]]</span></div>
+      </div>
+      <p>The Cochrane authors concluded that "additional RCTs comparing pulmonary rehabilitation and conventional care in COPD are not warranted" [[McCarthy2015]]. Exercise-only programmes and programmes with more complex add-ons did not differ significantly; hospital-based programmes showed larger CRQ effects than community ones, which the authors warn may be confounded [[McCarthy2015]].</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Effect explorer: what changed, by how much</h3>
+  <div class="prose"><p>Choose an outcome. Each row is a published mean difference or ratio with its 95% confidence interval where the source gives one. Dashed lines mark the minimal important difference that the review itself used.</p></div>
+  <div class="rh-tabs" id="rhTabs" role="group" aria-label="Outcome">
+    <button class="btn" data-o="walk" aria-pressed="true">Walking distance</button>
+    <button class="btn" data-o="sgrq" aria-pressed="false">Quality of life (SGRQ)</button>
+    <button class="btn" data-o="crq" aria-pressed="false">Breathlessness and mastery (CRQ)</button>
+    <button class="btn" data-o="hosp" aria-pressed="false">Hospital and survival</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="rhFx" viewBox="0 0 720 300" role="img" aria-label="A chart of published effect sizes for the chosen outcome, one row per comparison, each a square with a confidence-interval line, against a zero or no-effect line and, where published, a minimal-important-difference line."></svg></div>
+    <p class="rh-cap" id="rhFxCap" aria-live="polite"></p>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>These are group averages from trials and reviews, quoted as published. They are not a prediction for any one person and not for diagnosis or treatment decisions.</p>
+
+  <h3 class="sub">After a hospital stay: does timing matter?</h3>
+  <div class="prose"><p>Move the slider to choose when rehabilitation starts. The panel shows what the studies of that timing found. The early-start finding comes from a randomised trial; the after-discharge finding is an association in an observational cohort.</p></div>
+  <div class="split2">
+    <div class="stage">
+      <label class="rh-day" for="rhDay">When rehabilitation starts <input type="range" id="rhDay" min="0" max="2" step="1" value="1"></label>
+      <div class="scroll"><svg id="rhTime" viewBox="0 0 560 170" role="img" aria-label="A timeline from hospital admission through discharge to 90 days after discharge and beyond, with a marker at the chosen start time and the zone it falls in highlighted."></svg></div>
+    </div>
+    <div class="rh-out" id="rhDayOut" aria-live="polite"></div>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>This places published findings on a timeline to compare them. It is not for diagnosis or treatment decisions; when to start is decided with the care team.</p>
+
+  <h3 class="sub">Home, telehealth and keeping the gains</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Home-based</span><h4>One visit plus phone calls</h4><p>In a 166-person equivalence trial, home rehabilitation (one home visit and seven weekly physiotherapist phone calls) was non-inferior to centre-based rehabilitation for 6-minute walk distance at the end of the programme (difference +18.6 m favouring home). "Neither group maintained postrehabilitation gains at 12 months" [[Holland2017]].</p></div>
+    <div class="card"><span class="tag rx">Telerehabilitation</span><h4>Similar gains, more finish</h4><p>The 2021 Cochrane review (15 studies, 1904 participants, 99% with COPD) found probably little or no difference from centre-based rehabilitation in 6MWD (MD 0.06 m, 95% CI −10.82 to 10.94; moderate certainty). 93% completed telerehabilitation versus 70% for centre-based programmes [[Cox2021Cochrane]].</p></div>
+    <div class="card"><span class="tag warn">One equivalence trial</span><h4>Breathlessness not confirmed</h4><p>In 142 people, telerehabilitation was equivalent to centre-based rehabilitation for 6MWD (MD −6 m), but equivalence for CRQ dyspnoea could not be confirmed (MD −1 point, 95% CI −3 to 1). The authors still describe it as safe with clinically meaningful benefits [[Cox2022]]. GOLD 2023 says tele-rehabilitation "is safe and has similar benefits to those of center-based PR" [[Agusti2023]].</p></div>
+    <div class="card"><span class="tag rx">Maintenance</span><h4>After the first programme</h4><p>The 2023 ATS guideline makes a conditional recommendation for either supervised maintenance or usual care after the first programme (low-quality evidence) [[Rochester2023]]. The ATS/ERS statement highlights health behaviour change as the way to keep the benefits [[Spruit2013]].</p></div>
+  </div>
+  <p class="stage-cap">Breathing techniques and daily activity are in <a href="#living" data-go="living">Living with COPD</a>; why exertion causes breathlessness is in <a href="#breathless" data-go="breathless">Air trapping &amp; breathlessness</a>.</p>
 </section>

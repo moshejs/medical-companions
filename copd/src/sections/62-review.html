@@ -1,17 +1,71 @@
-<!-- review stubs -->
+<!-- ================= 6.2 FLASHCARDS & MNEMONICS ================= -->
 <section class="mod" id="m-review" data-mod="review" hidden>
-  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Flashcards & mnemonics</h2>
-    <p class="lede">This module is being written.</p></div>
+<style>
+#m-review .rv-lab{margin-top:14px}
+#m-review .mn .card p{margin:6px 0 0}
+#m-review .mn .card .tag{align-self:flex-start}
+#m-review #rvSvg .rv-a{font:700 15px var(--body);fill:var(--ink)}
+#m-review #rvSvg .rv-c{font:500 13.5px var(--body);fill:var(--ink)}
+#m-review #rvSvg .rv-b{font:500 12px var(--body);fill:var(--muted)}
+#m-review #rvSvg .rv-n{font:700 13px var(--mono);fill:var(--on-brand)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Flashcards &amp; mnemonics</h2>
+    <p class="lede">Flashcards on COPD, from its definition, causes and the small airways to alpha-1 antitrypsin deficiency, spirometry, the GOLD grades and ABE groups, bronchodilators, inhaled steroids and the trials behind them, inhaler technique, quitting, rehabilitation and oxygen, flare-ups, hospital care and blood gases, living with COPD, other conditions, nursing care, the research frontier and the history of the disease. Every answer carries its source. Tap a card or press Space to flip it; arrow keys move through the deck. Filter by part, or shuffle.</p></div>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="%t:cards.label%">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">%t:nav.prev%</button><button class="btn primary" id="fcFlip">%t:cards.flip%</button><button class="btn" id="fcNext">%t:nav.next%</button><button class="btn ghost" id="fcShuf">%t:cards.shuffle%</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <h3 class="sub">%t:cards.mnemonics%</h3>
+  <div class="prose"><p>Every card below is tagged <b>memory aid</b>: a short phrase written for this guide to hold a published fact in mind. None is an official grouping from GOLD, the ATS, ERS, BTS or NICE, a drug label or any guideline, and none replaces the source it points to. Doses, thresholds and oxygen targets are quoted as published, never as instructions.</p></div>
+  <div class="mn" id="mnList"></div>
+  <h3 class="sub">Mnemonic in motion: the GOLD follow-up</h3>
+  <p class="prose">At follow-up, GOLD 2023 reviews treatment by two traits, breathlessness and exacerbations, and uses the blood eosinophil count to judge whether an inhaled steroid is likely to help [[Agusti2023]]. As a memory aid, five words walk the published path: <b>double, count, triple, add, step back</b>. Play the animation to watch the maintenance stack grow and shrink while a needle moves along the eosinophil scale. More in <button class="btn ghost" style="padding:2px 9px" data-go="escalation">Inhaled steroids, triple therapy &amp; beyond</button>.</p>
+  <div class="stepper" id="rvSteps"></div>
+  <div class="lab rv-lab">
+    <div class="stage"><div class="scroll"><svg id="rvSvg" viewBox="0 0 720 380" style="min-width:300px" role="img" aria-label="Animated walk through the GOLD 2023 follow-up algorithm as the memory aid double, count, triple, add, step back. Six tiles light in turn while a panel shows the maintenance inhalers as blocks: one long-acting bronchodilator; LABA plus LAMA for persistent breathlessness; for flare-ups, a needle moving along a blood eosinophil scale with marks at 100 and 300 cells per microlitre decides whether an inhaled steroid block is added; roflumilast or a macrolide is added on top of triple therapy; and the inhaled steroid block fades as it is stepped down after pneumonia."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rvPlay">Play</button><label class="stage-cap tl" for="rvT">Step <input type="range" id="rvT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Schematic of the published GOLD 2023 follow-up algorithm, not a treatment plan; the needle positions are examples, not measurements. [[Agusti2023]]</p></div>
+    <aside class="note" id="rvNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout prose"><p>These cards are for learning, not for deciding anything about one person's care. Whether an inhaler, a tablet, oxygen or a procedure suits someone depends on their own tests, history and wishes, and only their own care team can judge that. Survival and risk figures on the cards are population statistics from registries and trials; they cannot predict what will happen to any one person.</p></div>
 </section>
+
+<!-- ================= 6.3 QUIZ ================= -->
 <section class="mod" id="m-quiz" data-mod="quiz" hidden>
   <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Quiz</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Multiple-choice questions on COPD with cited explanations: how common it is and what causes it, the small airways, emphysema and air trapping, alpha-1 antitrypsin deficiency, spirometry, GOLD grades and ABE groups, bronchodilators, inhaled steroids, triple therapy and biologics, inhaler technique, quitting, rehabilitation and oxygen, flare-ups, hospital care and blood gases, living with COPD, other conditions, nursing care, advanced therapies, the research frontier and history. The mixed quiz draws 20 at random; or choose a part.</p></div>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
 </section>
+
+<!-- ================= 6.4 GLOSSARY ================= -->
 <section class="mod" id="m-glossary" data-mod="glossary" hidden>
   <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Glossary</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">A searchable glossary of COPD terms, from FEV1, the FEV1/FVC ratio, the lower limit of normal and PRISm to LAMA, LABA, ICS and triple therapy, the mMRC, CAT and BODE scores, the Rome definition of a flare-up, hypercapnia, Venturi masks and NIV, alpha-1 antitrypsin and the Z allele, endobronchial valves and palliative care. Type to filter; the arrow on each entry jumps to the module where the term matters most.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="Search terms, e.g. FEV1, LAMA, hypercapnia" aria-label="%t:glossary.search%">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
 </section>
+
+<!-- ================= 6.5 SOURCES ================= -->
 <section class="mod" id="m-sources" data-mod="sources" hidden>
+<style>
+#m-sources .srcs .tag.good{text-transform:none;letter-spacing:.02em}
+#m-sources #srcStats{margin:8px 0 0}
+#m-sources .srcs .tag{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:left}
+#m-sources #srcFilter .btn{white-space:normal;text-align:left}
+</style>
   <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Sources</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Every reference behind the COPD Companion: journal articles, randomised trials, cohort and registry studies, systematic reviews, GOLD, ATS, ERS, BTS and other guidance, US drug and device labels and trial registrations. The small numbers throughout the app point here; filter by research area or search.</p></div>
+  <div class="callout prose"><p>Research passes ran in parallel, one per area: epidemiology, risk factors and history; mechanism, pathology and alpha-1 antitrypsin deficiency; diagnosis and assessment; medicines for stable COPD and inhalers; exacerbations and hospital care; smoking cessation, vaccines, rehabilitation, oxygen and advanced therapies; living with COPD, comorbidities and nursing care; and the research frontier. Before inclusion each source was checked, where possible, against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the regulator's label, and the green tag on an entry names the service that confirmed it. Works found by more than one pass appear once, with any extra keys listed beside them.</p>
+    <p>Entries marked <span class="tag warn">%t:sources.check%</span> are pages with no PMID or DOI, or works that could not be confirmed. They are not cited for any fact in this guide.</p>
+    <p id="srcStats"></p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="%t:sources.placeholder%" aria-label="%t:sources.search%">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
 </section>

@@ -1,5 +1,116 @@
-<!-- ================= 5.5 RESEARCH FRONTIER (stub) ================= -->
+<!-- ================= 5.5 RESEARCH FRONTIER ================= -->
+<style>
+#m-frontier .frf{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-frontier .frf .btn{font-size:13px;padding:6px 12px}
+#m-frontier .frf .lbl{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:4px;min-width:72px}
+#m-frontier .frpipe{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:1100px){#m-frontier .frpipe{grid-template-columns:minmax(0,1fr)}}
+#m-frontier .fp-dot{cursor:pointer}
+#m-frontier .fp-dot:focus-visible{outline:none}
+#m-frontier .fp-dot:focus-visible circle.ring,#m-frontier .fp-dot.sel circle.ring{stroke:var(--ink);stroke-width:2.4}
+#m-frontier .nct{font:500 12px var(--mono);color:var(--muted)}
+#m-frontier .fpd .row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-frontier .fpd dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 12px;font-size:14.5px}
+#m-frontier .fpd dt{font:600 10.5px/1.6 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+#m-frontier .fpd dd{margin:0}
+#m-frontier td .ev,#m-frontier td .tag{margin:0 4px 4px 0;display:inline-block}
+#m-frontier .reg{font:600 10px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border-radius:5px;background:var(--gold-soft);color:var(--warn);white-space:nowrap;display:inline-block}
+#m-frontier tr.fp-hl td,#m-frontier tr.fp-hl th{background:var(--brand-soft)}
+#m-frontier .fpcount{font:500 13px var(--mono);color:var(--muted)}
+#m-frontier .fpb{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--brand);cursor:pointer;text-align:left}
+#m-frontier .card>.row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+</style>
 <section class="mod" id="m-frontier" data-mod="frontier" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living &amp; care</p><h2>Research frontier</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Where COPD research is heading in November 2026: injections that block the airway's alarm signals, the first licensed type 2 biologics, a new inhaled medicine, procedures through a bronchoscope, early-life lung growth, lung repair and new routes for alpha-1 antitrypsin deficiency. Scrub through the routes, then filter the trial pipeline. Every route carries an evidence label.</p></div>
+
+  <div class="prose">
+    <p>Inhalers leave a gap. In COURSE, people already on triple inhaled therapy with at least two flare-ups in the previous year still had 2.11 moderate or severe exacerbations a year on placebo, and the newer add-on biologics target that unmet need [[Singh2025COURSE]]. Three newer drugs have US labels for COPD so far: dupilumab and mepolizumab as add-on maintenance for adults with inadequately controlled COPD and an eosinophilic phenotype, and ensifentrine for maintenance treatment in adults [[FDA-Dupixent,FDA-Nucala,FDA-Ohtuvayre]]. The eosinophil route is therefore established only for a subgroup: MATINEE notes that eosinophilic inflammation is present in 20 to 40% of patients with COPD [[Sciurba2025]].</p>
+    <p class="legend"><span class="ev est">Established</span> a licensed treatment, or a finding replicated in phase 3 trials or several large cohorts <span class="ev early">Early evidence</span> phase 2 results, one phase 3 programme not yet licensed, small sham-controlled device trials or single cohorts <span class="ev hyp">Hypothesis</span> preclinical, first-in-human or mechanistic data only [[Agusti2016]]</p>
+    <p class="legend"><span class="reg">Registry-posted</span> a result the sponsor posted on ClinicalTrials.gov with no peer-reviewed paper by the pass date: sponsor-reported, not peer-reviewed (AERIFY-1, AERIFY-2 and VX-864) [[NCT04701983,NCT04751487,NCT04474197]]</p>
+  </div>
+
+  <h3 class="sub">The routes, from the airway surface inward</h3>
+  <div class="stepper" id="frSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="frSvg" viewBox="0 0 720 400" role="img" aria-label="A route-by-route walk through COPD research. First an airway wall cut through: smoke and viruses injure the lining cells, which release the alarm signals TSLP and IL-33; these reach an immune cell, which sends IL-4/IL-13 to the lining and IL-5 to eosinophils. Antibodies then block each signal in turn, a nebulised PDE3/4 inhibitor relaxes the airway, and bronchoscopic catheters resurface the lining or cut the airway nerve. Next a lifetime lung-function chart shows the two paths into COPD, then progenitor cells returned to damaged air sacs, then the alpha-1 routes from gene to RNA to protein. A side panel gives each route's evidence label and its published trial results."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="frPlay">Play</button><label class="stage-cap tl" for="frT">Route <input type="range" id="frT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> Cells, signals and lung-function curves show where each treatment is meant to act, not measurements. Rate ratios below 1 mean fewer flare-ups than placebo; results marked * are registry-posted, not peer-reviewed [[NCT04701983,NCT04751487]].</p></div>
+    <aside class="note" id="frNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Trial pipeline explorer</h3>
+  <p class="prose">Each dot is a trial or programme from this guide's sources, placed by route and phase. Choose a dot, or a row in the table, to see its registry number, status and published result. Hollow dots have no result yet, or only a registry-posted one; crossed dots stopped or missed their main goal.</p>
+  <div class="frf" role="group" aria-label="Filter the pipeline by route">
+    <span class="lbl">Route</span>
+    <button class="btn" data-fpr="all" aria-pressed="true">All</button>
+    <button class="btn" data-fpr="alarm" aria-pressed="false">Alarmins</button>
+    <button class="btn" data-fpr="t2" aria-pressed="false">Type 2</button>
+    <button class="btn" data-fpr="pde" aria-pressed="false">PDE &amp; neutrophil</button>
+    <button class="btn" data-fpr="dev" aria-pressed="false">Procedures</button>
+    <button class="btn" data-fpr="early" aria-pressed="false">Early COPD &amp; repair</button>
+    <button class="btn" data-fpr="aatd" aria-pressed="false">Alpha-1</button>
+  </div>
+  <div class="frf" role="group" aria-label="Filter the pipeline by evidence label">
+    <span class="lbl">Evidence</span>
+    <button class="btn" data-fpe="all" aria-pressed="true">All</button>
+    <button class="btn" data-fpe="est" aria-pressed="false">Established</button>
+    <button class="btn" data-fpe="early" aria-pressed="false">Early evidence</button>
+    <button class="btn" data-fpe="hyp" aria-pressed="false">Hypothesis</button>
+    <button class="btn" data-fpe="reg" aria-pressed="false">Registry-posted</button>
+  </div>
+  <div class="frpipe">
+    <div class="stage"><svg id="fpMap" viewBox="0 0 720 420" role="group" aria-label="Pipeline map: routes in rows, development stage in columns from laboratory to licensed. Each trial is a focusable dot."></svg>
+      <p class="stage-cap">Stages and statuses from ClinicalTrials.gov records and trial reports as of the 7 November 2026 pass. <span class="fpcount" id="fpCount"></span></p></div>
+    <aside class="note fpd" id="fpDetail" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table id="fpTable"><caption class="stage-cap" style="text-align:left;padding:10px 13px">Trials in the current filter</caption>
+    <thead><tr><th scope="col">Trial</th><th scope="col">Registry</th><th scope="col">Phase</th><th scope="col">Status</th><th scope="col">Result</th><th scope="col">Label</th></tr></thead><tbody></tbody></table></div>
+
+  <h3 class="sub">How solid is each route?</h3>
+  <div class="tbl"><table>
+    <thead><tr><th scope="col">Route</th><th scope="col">Best evidence so far</th><th scope="col">Label</th><th scope="col">What is still open</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Type 2: anti-IL-4Rα and anti-IL-5</th><td>Dupilumab: rate ratio 0.70 (BOREAS) and 0.66 (NOTUS); mepolizumab 0.79 (MATINEE), all with eosinophils ≥300/µL on triple therapy; both labelled for an eosinophilic phenotype [[Bhatt2023,Bhatt2024,Sciurba2025,FDA-Dupixent,FDA-Nucala]]. Benralizumab missed in GALATHEA and TERRANOVA [[Criner2019H]].</td><td><span class="ev est">Established</span> for the eosinophilic subgroup</td><td>RESOLUTE retested benralizumab in a narrower group, with no results posted; depemokimab and lunsekimig phase 3 trials are recruiting [[NCT04053634,NCT06959095,NCT07190209]].</td></tr>
+      <tr><th scope="row">Alarmins: IL-33 and ST2</th><td>Tozorakimab: rate ratios 0.70 and 0.71 in the replicate phase 3 trials OBERON and TITANIA, with no eosinophil criterion [[Sciurba2026]]. Astegolimab pooled 0.85 [[Wedzicha2026]]. Itepekimab: one positive and one negative phase 3, both registry-posted [[NCT04701983,NCT04751487]].</td><td><span class="ev early">Early evidence</span> replicated phase 3, not yet licensed</td><td>Does current smoking blunt the effect? Itepekimab phase 2 helped former smokers only (RR 0.58 vs 1.09) [[Rabe2021]]; the IL-33 form targeted may matter [[Watz2026]].</td></tr>
+      <tr><th scope="row">Alarmins: TSLP</th><td>Tezepelumab COURSE missed its primary endpoint: rate ratio 0.83 (90% CI 0.64–1.06) [[Singh2025COURSE]].</td><td><span class="ev early">Early evidence</span></td><td>Effect rose with eosinophils (1.19, 0.66, 0.54 across strata, all CIs crossing 1); EMBARK and JOURNEY will test this [[Singh2025COURSE,NCT06883305,NCT06878261]].</td></tr>
+      <tr><th scope="row">Inhaled PDE3/4: ensifentrine</th><td>FEV1 +87 and +94 mL; exacerbation rate ratio 0.64 and 0.57 over 24 weeks; FDA approved 26 June 2024 [[Anzueto2023,FDA-Ohtuvayre]].</td><td><span class="ev est">Established</span></td><td>Symptoms and quality of life improved in ENHANCE-1 only [[Anzueto2023]].</td></tr>
+      <tr><th scope="row">Inhaled PDE4: tanimilast</th><td>No FEV1 dose-response in PIONEER; exacerbation reductions 13–28%, not significant [[Singh2020PIONEER]]. Phase 3 PILASTER and PILLAR terminated by sponsor decision, not for safety [[NCT04636801,NCT04636814]].</td><td><span class="ev early">Early evidence</span> route stalled</td><td>No phase 3 results were posted [[NCT04636801]].</td></tr>
+      <tr><th scope="row">Neutrophils: CXCR2</th><td>Danirixin did not improve symptoms, increased exacerbations and gave "an unfavorable benefit-risk profile" [[Lazaar2020]].</td><td><span class="ev early">Early evidence</span> negative</td><td>—</td></tr>
+      <tr><th scope="row">Bronchoscopic procedures</th><td>Cryospray: SGRQ −5.9 and CAT −3.4 vs sham at 12 months [[Criner2026SPRAYCB]]. Denervation: respiratory adverse events 32% vs 71% [[Slebos2019]]. Rheoplasty: uncontrolled, CAT −7.9 [[Valipour2020]].</td><td><span class="ev early">Early evidence</span></td><td>Cryospray did not lower goblet-cell density, its expected mechanism [[Orton2026]]; AIRFLOW-3 and RheSolve are awaited [[NCT03639051,NCT04677465]].</td></tr>
+      <tr><th scope="row">Early COPD and lung growth</th><td>FEV1 &lt;80% predicted before 40: COPD in 26% over 22 years vs 7% [[Lange2015]]; three Tasmanian trajectories carried 75% of COPD burden at 53 [[Bui2018]].</td><td><span class="ev est">Established</span> association · <span class="ev hyp">Hypothesis</span> as a treatment target</td><td>RETHINC: bronchodilators did not help symptomatic smokers with preserved spirometry (56.4% vs 59.0% responders) [[Han2022RETHINC]]; prevention trials not yet done [[Bui2018]].</td></tr>
+      <tr><th scope="row">Lung repair and stem cells</th><td>Retinoids (FORTE, REPAIR) and mesenchymal stem cells showed no benefit [[Roth2006,Stolk2012,Weiss2013]]. Autologous P63+ progenitor cells: DLCO +18.2% vs −17.4% in 3 controls [[Wang2024P63]].</td><td><span class="ev hyp">Hypothesis</span> · <span class="ev early">Early evidence</span> one small trial</td><td>The control group was very small and unbalanced [[Wang2024P63]].</td></tr>
+      <tr><th scope="row">Alpha-1: augmentation (A1PI)</th><td>RAPID: lung density loss at TLC −1.45 vs −2.19 g/L a year (p=0.03); the combined primary endpoint gave p=0.06 [[Chapman2015]].</td><td><span class="ev est">Established</span></td><td>SPARTA completed in July 2026 with no results posted [[NCT01983241]].</td></tr>
+      <tr><th scope="row">Alpha-1: silencing, correcting, editing</th><td>Fazirsiran cut liver Z-AAT by a median 83–93% [[Strnad2022Fazirsiran,Clark2024SEQUOIA]]; VX-864 +2.2–2.3 µM (registry-posted) [[NCT04474197]]; base editing 54–57% of alleles in one person [[Krooss2027]]; RNA editing 50% in mice [[Monian2026]].</td><td><span class="ev early">Early evidence</span> RNAi, correctors · <span class="ev hyp">Hypothesis</span> editing</td><td>Lung or liver first? Silencing does not raise AAT for the lung [[Strnad2022Fazirsiran]]; a second VX-864 trial stopped for skin disorders [[NCT05643495]].</td></tr>
+      <tr><th scope="row">Lung microbiome</th><td>Stability fell during exacerbations; bacterial and eosinophilic exacerbations tended to repeat in the same person [[Wang2016,Mayhew2018]].</td><td><span class="ev hyp">Hypothesis</span> as a treatment route</td><td>No microbiome-directed therapy has been tested in COPD yet [[Mayhew2018]].</td></tr>
+      <tr><th scope="row">Treatable traits</th><td>Meta-analysis (11 studies): better quality of life, hospitalisation OR 0.52, 1-year mortality OR 0.65 [[Sarwar2022]].</td><td><span class="ev early">Early evidence</span></td><td>Small, mixed asthma and COPD trials [[Sarwar2022]].</td></tr>
+      <tr><th scope="row">AI, CT and mucus plugs</th><td>CT neural network: C statistic 0.856 for COPD [[Gonzalez2018]]; explainable AI raised pulmonologists' accuracy by 5.4–10.4 points [[Das2023]]; AI support +15.9 points on COPD spirometry cases [[Doe2025]]; mucus plugs in ≥3 segments: adjusted HR for death 1.24 [[Diaz2023]].</td><td><span class="ev early">Early evidence</span> AI · <span class="ev est">Established</span> plug association</td><td>Mortality discrimination fell from 0.72 to 0.60 on an external cohort; the spirometry trial used simulated records [[Gonzalez2018,Doe2025]].</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Alpha-1 routes: gene, RNA, protein</h3>
+  <p class="prose">In alpha-1 antitrypsin deficiency, the Z variant of the gene makes a protein that clumps in liver cells instead of reaching the lung. Augmentation replaces the protein; the newer routes act earlier, on the gene, the message or the folding step [[Chapman2015,Strnad2022Fazirsiran,Lomas2021,Krooss2027]]. <button class="btn" data-go="aatd">Module 1.5: alpha-1</button></p>
+  <div class="stepper" id="faSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="faSvg" viewBox="0 0 720 400" role="img" aria-label="A liver cell holds the SERPINA1 gene with the Z variant, its messenger RNA and clumps of misfolded Z protein. Step by step: a base editor rewrites the gene; an RNA drug either silences the message or edits it; a corrector helps the protein fold and leave the cell; an intravenous infusion or a muscle gene therapy replaces the protein in the blood. A gauge shows alpha-1 antitrypsin in the blood reaching the lung, and a side panel gives each route's evidence label and results."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="faPlay">Play</button><label class="stage-cap tl" for="faT">Route <input type="range" id="faT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The blood gauge shows a direction of change, not a measured level. Base and RNA editing are first-in-human or animal results so far [[Krooss2027,Monian2026]].</p></div>
+    <aside class="note" id="faNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards">
+    <div class="card"><div class="row"><span class="tag rx">Alarmins</span><span class="ev early">Early evidence</span></div><h4>Do eosinophils pick the responders?</h4>
+      <p>Tezepelumab's effect grew across eosinophil strata (1.19 to 0.54), but tozorakimab and astegolimab cut exacerbations with no eosinophil criterion [[Singh2025COURSE,Sciurba2026,Papi2026]].</p></div>
+    <div class="card"><div class="row"><span class="tag rx">Alarmins</span><span class="ev early">Early evidence</span></div><h4>Does current smoking blunt anti-IL-33?</h4>
+      <p>Itepekimab phase 2 helped only former smokers; AERIFY-1 (former smokers) was positive while AERIFY-2 was not, both registry-posted. Tozorakimab worked in the combined population [[Rabe2021,NCT04701983,NCT04751487,Sciurba2026]].</p></div>
+    <div class="card"><div class="row"><span class="tag rx">Biologics</span><span class="ev early">Early evidence</span></div><h4>How big is worthwhile?</h4>
+      <p>Astegolimab's pooled 15% reduction met significance, but ARNASA alone did not; licensed type 2 biologics cut exacerbations by 20–34% [[Papi2026,Wedzicha2026,Bhatt2023,Bhatt2024,Sciurba2025]].</p></div>
+    <div class="card"><div class="row"><span class="tag dx">Early COPD</span><span class="ev hyp">Hypothesis</span></div><h4>Should pre-COPD be treated?</h4>
+      <p>Susceptible young adults developed COPD in 28% vs 8% over 10 years, but dual bronchodilators did not relieve symptoms in RETHINC [[Colak2024,Han2022RETHINC]].</p></div>
+    <div class="card"><div class="row"><span class="tag accent">Procedures</span><span class="ev early">Early evidence</span></div><h4>Can devices beat sham on hard outcomes?</h4>
+      <p>Cryospray and denervation improved symptoms or adverse-event windows, not all exacerbation endpoints [[Criner2026SPRAYCB,Slebos2019]]. AIRFLOW-3 follows up to 2028 [[NCT03639051]].</p></div>
+    <div class="card"><div class="row"><span class="tag dx">AI</span><span class="ev early">Early evidence</span></div><h4>Will AI generalise?</h4>
+      <p>CT mortality discrimination fell from 0.72 in COPDGene to 0.60 in ECLIPSE [[Gonzalez2018]]. Parametric response mapping suggests small-airway disease comes before emphysema [[Galban2012]].</p></div>
+  </div>
+  <div class="callout"><p><b>In plain words.</b> For some people who still have flare-ups on inhalers, injections called biologics can lower how often flare-ups happen; two are approved for people with high eosinophil counts [[FDA-Dupixent,FDA-Nucala]]. Newer injections that block the airway's alarm signals look promising but are not approved yet [[Sciurba2026]]. Trial listings change often; a respiratory team can say which studies are open.</p></div>
 </section>

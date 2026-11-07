@@ -1,5 +1,96 @@
-<!-- ================= 5.4 NURSING CARE (stub) ================= -->
+<!-- ================= 5.4 NURSING CARE ================= -->
+<style>
+#m-nursing .nu-check{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
+#m-nursing .nu-check button{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:start;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 13px;cursor:pointer;font:inherit;color:var(--ink);font-size:14.5px;line-height:1.4}
+#m-nursing .nu-check button::before{content:"";width:18px;height:18px;border-radius:5px;border:2px solid var(--muted);margin-top:1px;box-sizing:border-box}
+#m-nursing .nu-check button[aria-pressed="true"]{border-color:var(--rec);background:var(--rec-soft)}
+#m-nursing .nu-check button[aria-pressed="true"]::before{background:var(--rec);border-color:var(--rec);box-shadow:inset 0 0 0 3px var(--rec-soft)}
+#m-nursing .nu-check b{display:block;font-size:12px;font-family:var(--mono);color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+#m-nursing .nu-prog{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+#m-nursing .nu-prog .bar{flex:1;min-width:160px}
+#m-nursing .nu-prog .bar i{background:var(--rec)}
+#m-nursing .nu-prog span{font:600 13px var(--mono);color:var(--muted)}
+#m-nursing .nu-out{display:flex;flex-direction:column;gap:10px}
+#m-nursing .nu-out p{font-size:14.5px}
+#m-nursing .calc output{font:600 13px var(--mono);color:var(--muted)}
+#m-nursing .card>.tag,#m-nursing .card>.ev{align-self:flex-start}
+#m-nursing .tbl table{min-width:620px}
+</style>
 <section class="mod" id="m-nursing" data-mod="nursing" hidden>
   <div class="mhead"><p class="eyebrow">Part 5 · Living &amp; care</p><h2>Nursing care</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Follow a nurse assessing a breathless person with COPD on admission: count the breathing, score it on the right oxygen scale, give controlled oxygen to a target, know what the oximeter cannot tell you, teach the inhaler, and plan a safe discharge with home oxygen.</p></div>
+
+  <div class="stepper" id="nuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 420" role="img" aria-label="A person sitting up in a hospital bed beside a monitor showing breathing rate and oxygen saturation, with a nurse at the bedside. Six steps add a breath count with a one-minute dial, two oxygen saturation target bands, a controlled oxygen mask and the saturation rising into its target band, a blood gas and a chart of oximeter error by ethnic group, inhaler teaching with misuse rates, and home oxygen with a flame hazard and fire figures."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">Play</button><label class="stage-cap tl" for="nuT">Assessment <input type="range" id="nuT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="readout" id="nuRead" aria-live="off"></div>
+      <p class="stage-cap"><b>Schematic.</b> The patient's readings (breathing rate 32, SpO2 87% on air, then 90% on controlled oxygen) are made up for teaching. Oxygen targets and devices are quoted from the BTS guideline [[ODriscoll2017G]]; NEWS2 scale 2 as described by Echevarria [[Echevarria2019]]; oximeter bias [[Fawzy2022]]; inhaler teaching [[Press2012]]; burns and fires [[Murabit2012,Cooper2015]].</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Early warning scores in COPD</h3>
+  <div class="prose"><p>NEWS2 has two oxygen saturation scales; the second sets the target at 88–92% for people with hypercapnic respiratory failure [[Echevarria2019]]. Who should be scored on scale 2 is still debated: the two large studies below reached different conclusions [[Echevarria2019,Pimentel2019]]. The point bands of each scale are not reproduced here because the sources in this companion do not state them.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Population</th><th>Finding</th></tr></thead>
+    <tbody>
+      <tr><th>Smith 2013</th><td>35,585 acute medical admissions</td><td>NEWS discriminated death within 24 hours with AUROC 0.894, and cardiac arrest, unplanned ICU admission or death with 0.873, better than 33 other scores [[Smith2013NEWS]]</td></tr>
+      <tr class="hl"><th>Echevarria 2019</th><td>2,645 admissions with a COPD exacerbation</td><td>Scale 2 for everyone with COPD cut alerts by 12.6% (16.1% with oxygen scoring exempted) without missing same-day deaths; AUROC for inpatient death 0.72 vs 0.65 for NEWS. DECAF predicted inpatient death better (0.82) but does not replace repeated NEWS2 [[Echevarria2019]]</td></tr>
+      <tr><th>Pimentel 2019</th><td>251,266 admissions; 48,898 at risk of type 2 respiratory failure</td><td>NEWS2 discriminated 24-hour mortality slightly less well than NEWS in the at-risk group (c-statistic 0.860 vs 0.881); similar in documented type 2 failure (0.841 vs 0.862) [[Pimentel2019]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Oxygen target checker</h3>
+  <div class="prose"><p>Set a patient group and readings to see the BTS target range, where the reading sits, and the guideline's review triggers [[ODriscoll2017G]].</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>It restates published guideline wording for practice; it is not for diagnosis or treatment decisions, does not prescribe oxygen and does not replace a prescription, local policy or clinical judgement.</p>
+  <div class="calc" id="nuO2Calc">
+    <label for="nuGrp">Patient group
+      <select id="nuGrp">
+        <option value="0">Most acutely ill patients</option>
+        <option value="1">At risk of hypercapnic respiratory failure</option>
+        <option value="2">At risk, but PCO2 normal on blood gas</option>
+      </select></label>
+    <label for="nuDev">Oxygen device
+      <select id="nuDev">
+        <option value="0">None (air)</option>
+        <option value="1">Nasal cannulae</option>
+        <option value="2">24% Venturi mask</option>
+        <option value="3">28% Venturi mask</option>
+      </select></label>
+    <label for="nuSp">SpO2 now <input type="range" id="nuSp" min="80" max="100" step="1" value="89"><output id="nuSpO" for="nuSp"></output></label>
+    <label for="nuPr">Previous SpO2 <input type="range" id="nuPr" min="80" max="100" step="1" value="91"><output id="nuPrO" for="nuPr"></output></label>
+    <label for="nuRR">Breathing rate per minute <input type="range" id="nuRR" min="8" max="45" step="1" value="24"><output id="nuRRO" for="nuRR"></output></label>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="nuO2Svg" viewBox="0 0 720 170" role="img" aria-label="An oxygen saturation scale from 80 to 100% with the target range shaded, a marker for the previous reading, a marker for the current reading and an arrow between them."></svg></div></div>
+    <div class="nu-out" id="nuO2Out" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Inhaler teaching: teach to goal</h3>
+  <div class="prose"><p>Across 144 studies (54,354 people, 1975–2014) only 31% used their inhaler correctly, and technique had not improved in 40 years [[Sanchis2016]]. Tick each point as you review it. Device-by-device steps are in <a href="#technique" data-go="technique">Inhaler devices &amp; technique</a>.</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>A study aid that summarises sources; it is not a care plan and does not replace local policy or clinical judgement.</p>
+  <div class="nu-prog"><div class="bar"><i id="nuBar"></i></div><span id="nuCount" aria-live="polite"></span><button class="btn ghost" id="nuReset">Clear all</button></div>
+  <div class="nu-check" id="nuCheck" role="group" aria-label="Inhaler teaching checklist">
+    <button data-nuck="1" aria-pressed="false"><span><b>Do not rely on confidence</b>Most inpatients said they were confident, yet 62% misused their metered-dose inhaler before teaching [[Press2012]]</span></button>
+    <button data-nuck="2" aria-pressed="false"><span><b>Watch a demonstration</b>Observe the person using their own device; misuse is common in experienced clinic patients too [[Melani2011]]</span></button>
+    <button data-nuck="3" aria-pressed="false"><span><b>Coordination</b>Poor coordination: 45% of metered-dose inhaler users across studies [[Sanchis2016]]</span></button>
+    <button data-nuck="4" aria-pressed="false"><span><b>Speed and depth</b>Wrong speed or depth of inhalation: 44% [[Sanchis2016]]</span></button>
+    <button data-nuck="5" aria-pressed="false"><span><b>Breath-hold</b>No breath-hold after inhaling: 46% [[Sanchis2016]]</span></button>
+    <button data-nuck="6" aria-pressed="false"><span><b>Know the device</b>Critical errors: 12% metered-dose inhalers, 35% Diskus and HandiHaler, 44% Turbuhaler [[Melani2011]]</span></button>
+    <button data-nuck="7" aria-pressed="false"><span><b>Who is at risk</b>Older age, less schooling, never taught by a health professional [[Melani2011]]</span></button>
+    <button data-nuck="8" aria-pressed="false"><span><b>Teach back, repeat</b>Repeated demonstration plus teach-back until correct: misuse 12.5% vs 46% after brief instruction [[Press2012]]</span></button>
+    <button data-nuck="9" aria-pressed="false"><span><b>Why it matters</b>Misuse went with more admissions, ER visits and steroid and antibiotic courses; teaching was the only modifiable factor [[Melani2011]]</span></button>
+  </div>
+
+  <h3 class="sub">Sputum, flare-ups and going home</h3>
+  <div class="cards">
+    <div class="card"><span class="tag fl">Sputum colour</span><h4>Green means bacteria, more often</h4><p>In 121 people with an exacerbation in primary care, purulent (green) sputum grew bacteria in 84% vs 38% for mucoid sputum; green was 94.4% sensitive and 77.0% specific for a high bacterial load, and everyone with white sputum improved without antibiotics [[Stockley2000]].</p></div>
+    <div class="card"><span class="tag fl">Who flares up</span><h4>The past predicts the future</h4><p>In ECLIPSE, first-year exacerbation rates were 0.85, 1.34 and 2.00 per person for GOLD 2, 3 and 4, and the best single predictor of future exacerbations was a history of them [[Hurst2010]].</p></div>
+    <div class="card"><span class="tag bad">Home oxygen</span><h4>Fire risk</h4><p>Tobacco smoking is the greatest fire risk for people on home oxygen; any naked flame is a hazard, and the European Industrial Gases Association considers e-cigarettes unsafe with home oxygen [[Cooper2015]]. The BTS home oxygen guideline includes risk assessment of users who smoke as a key area [[Hardinge2015]].</p></div>
+    <div class="card"><span class="tag bad">Burns</span><h4>Long stays, lasting harm</h4><p>In a Canadian burn centre (1999–2008), 17 people, all with COPD, were burned while smoking on home oxygen: two needed intubation, mean stay was 42.8 days, two died, and fewer returned home [[Murabit2012]]. A US model found a national mandate for thermal fuses on oxygen tubing cost-effective <span class="ev early">Early evidence</span> [[Sheckter2024]].</p></div>
+    <div class="card"><span class="tag dx">Alert cards</span><h4>Follow the card first</h4><p>If a patient has an oxygen alert card, the BTS guideline says initial oxygen should follow the card until blood gas results are available [[ODriscoll2017G]].</p></div>
+    <div class="card"><span class="tag">Ventilation</span><h4>Non-invasive ventilation</h4><p>Ward care of people on non-invasive ventilation is not covered by this module's sources. Its use in hypercapnic exacerbations is described in <a href="#hospital" data-go="hospital">Hospital treatment</a> and <a href="#bloodgas" data-go="bloodgas">Oxygen targets &amp; blood gases</a>.</p></div>
+  </div>
 </section>

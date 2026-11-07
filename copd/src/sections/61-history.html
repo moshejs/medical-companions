@@ -1,5 +1,112 @@
-<!-- ================= 6.1 HISTORY & PEOPLE (stub) ================= -->
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<style>
+#m-history .tbl table{min-width:640px}
+#m-history .card>.ev,#m-history .card>.tag{align-self:flex-start}
+#m-history .hibar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-history .hibar .btn{font-size:13px}
+#m-history .hibar .btn i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+#m-history #hiYears .tag[aria-current="true"]{border-color:var(--brand);background:var(--brand-soft);color:var(--brand)}
+#m-history .hith{font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+#m-history td.hiy{font:700 14px var(--mono);white-space:nowrap}
+#m-history .hirange{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;max-width:560px}
+#m-history .hirange output{font:600 13px var(--mono);color:var(--brand)}
+</style>
 <section class="mod" id="m-history" data-mod="history" hidden>
   <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">For three centuries COPD was seen at autopsy as "voluminous lungs". Then came a machine to measure breath, a one-second timing, agreed names, the causes, the first treatment proven to save lives and a global strategy. Scrub the timeline from 1679 to 2023, filter it by theme, or jump straight to a year.</p></div>
+
+  <div class="prose">
+    <p>The main history review behind this timeline is Petty's 2006 "The history of COPD" [[Petty2006]]; the story of the one-second test comes from Yernault's 1997 tribute to Robert Tiffeneau [[Yernault1997]]. Laënnec's 1819 treatise and Tiffeneau and Pinelli's 1947 paper are not indexed, so their content is cited through those reviews. The axis is compressed before 1940.</p>
+  </div>
+
+  <div class="hibar" id="hiFilt" role="group" aria-label="Filter milestones by theme">
+    <span class="stage-cap">Show:</span>
+    <button class="btn" data-th="path" aria-pressed="true"><i style="background:var(--brand)"></i>Describing the lungs</button>
+    <button class="btn" data-th="meas" aria-pressed="true"><i style="background:var(--dx)"></i>Measuring breath</button>
+    <button class="btn" data-th="cause" aria-pressed="true"><i style="background:var(--fl)"></i>Causes</button>
+    <button class="btn" data-th="rx" aria-pressed="true"><i style="background:var(--rx)"></i>Treatment trials</button>
+    <button class="btn" data-th="def" aria-pressed="true"><i style="background:var(--rec)"></i>Names &amp; guidelines</button>
+  </div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSvg" viewBox="0 0 720 420" role="img" aria-label="A timeline of COPD from 1679 to 2023 with a dot for each milestone, coloured by theme. A cursor moves along it; a card below shows the year, the milestone and the people involved, with a small moving picture of the theme, and a row of chips lights up the tools and ideas available by that year."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.0005" value="0.004"></label></div>
+      <p class="stage-cap"><b>Schematic timeline.</b> Dates and people from the research pass; each is cited in the note and the table below [[Petty2006,Yernault1997]].</p>
+    </div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+  <div class="chips" id="hiYears" role="group" aria-label="Jump to a milestone"></div>
+
+  <h3 class="sub">From vital capacity to the first second</h3>
+  <div class="prose">
+    <p>John Hutchinson, a surgeon, published his spirometer in 1846 and named the volume exhaled from fully inflated lungs the "vital capacity", the capacity to live [[Hutchinson1846,Petty2002]]. His instrument measured only that volume; it took about 100 more years before airflow over time was added [[Petty2006]]. In December 1947 Tiffeneau and Pinelli in Paris described the maximal volume exhaled in the first second after a deep breath, which they called the CPUE [[Yernault1997]]. Switch between the two ways of reading the same breath.</p>
+  </div>
+  <div class="hibar" id="hiVcMode" role="group" aria-label="Choose how the breath is read">
+    <span class="stage-cap">Read the breath as:</span>
+    <button class="btn" data-vc="1846" aria-pressed="true">1846: vital capacity</button>
+    <button class="btn" data-vc="1947" aria-pressed="false">1947: volume in the first second</button>
+    <button class="btn" data-lung="obs" aria-pressed="false">Show an obstructed breath too</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <label class="hirange" for="hiVcT">Seconds into the breath out <output id="hiVcV">6.0 s</output><input type="range" id="hiVcT" min="0" max="6" step="0.05" value="6"></label>
+      <div class="scroll"><svg id="hiVc" viewBox="0 0 720 320" role="img" aria-label="A volume-against-time curve of a full breath out over six seconds. In the 1846 view only the final volume is shown, as a bar; in the 1947 view the curve is drawn with the volume reached at one second marked. An optional second, slower curve shows an obstructed breath."></svg></div>
+      <p class="stage-cap">Schematic curves without litres: shapes for teaching, not measurements. The modern test is in module 2.1.</p>
+    </div>
+    <aside class="note" id="hiVcNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag dx">1954 · 1957</span><h4>CPUE, VEMS, FEV</h4><p>A group of European experts renamed the CPUE "VEMS" on 13 February 1954, and the English term "forced expiratory volume" was adopted in 1957 [[Yernault1997]].</p></div>
+    <div class="card"><span class="tag dx">1950 · 1951</span><h4>Gaensler in the United States</h4><p>Gaensler introduced the "air velocity index" in 1950 and the "timed vital capacity" in 1951, foundations of today's FEV1 and FEV1/FVC [[Gaensler1950,Yernault1997,Petty2006]].</p></div>
+    <div class="card"><span class="tag brand">Today</span><h4>The ratio GOLD uses</h4><p>GOLD 2023 confirms COPD with a post-bronchodilator FEV1/FVC below 0.7 on forced spirometry [[Agusti2023]].</p><p><button class="btn" data-go="spirometry">Go to 2.1 Spirometry</button></p></div>
+  </div>
+
+  <h3 class="sub">Two hypotheses</h3>
+  <div class="split2">
+    <div class="card"><span class="tag" style="background:var(--warn-soft);color:var(--warn)">1960</span><h4>The "Dutch hypothesis"</h4><p>Orie emphasised inherited bronchial hyperreactivity [[Petty2006]].</p></div>
+    <div class="card"><span class="tag" style="background:var(--air-soft);color:var(--air-ink)">Britain</span><h4>The "British hypothesis"</h4><p>Emphasised repeated chest infections and air pollution [[Petty2006]]. Fletcher and Peto later found that infections and chronic mucus hypersecretion did not speed up airflow obstruction, and described them as two largely unrelated processes [[Fletcher1977]].</p></div>
+  </div>
+
+  <h3 class="sub">The trials that changed care</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Year</th><th>Trial</th><th>Who</th><th>What it found</th></tr></thead>
+    <tbody>
+      <tr><td class="hiy">1980</td><th>NOTT</th><td>203 people with low blood oxygen</td><td>Mortality was 1.94 times higher with 12-hour nocturnal oxygen than with continuous oxygen (P = 0.01) [[NOTT1980]].</td></tr>
+      <tr><td class="hiy">1981</td><th>MRC oxygen trial</th><td>87 people</td><td>19 of 42 given oxygen for at least 15 hours a day died over 5 years, against 30 of 45 controls [[MRC1981]].</td></tr>
+      <tr><td class="hiy">2000</td><th>Lung Health Study</th><td>3,926 smokers with mild to moderate obstruction</td><td>Quitting improved FEV1 by 47 mL in the first year; later decline in sustained quitters was half that of continuing smokers (31 vs 62 mL a year) [[Scanlon2000]].</td></tr>
+      <tr><td class="hiy">2003</td><th>NETT</th><td>1,218 people with severe emphysema</td><td>No overall survival benefit from lung volume reduction surgery, but lower mortality in upper-lobe emphysema with low exercise capacity (risk ratio 0.47) [[Fishman2003]].</td></tr>
+      <tr><td class="hiy">2005</td><th>Lung Health Study, 14.5 years</th><td>Same cohort</td><td>All-cause mortality 8.83 vs 10.38 per 1,000 person-years, cessation group vs usual care [[Anthonisen2005]].</td></tr>
+      <tr><td class="hiy">2016</td><th>LOTT</th><td>738 people with moderate desaturation</td><td>No difference in time to death or first hospitalisation with long-term oxygen (hazard ratio 0.94, 95% CI 0.79–1.12) [[Albert2016]].</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">In the early 1960s, oxygen was considered contraindicated in COPD and exercise was discouraged for fear of straining the right heart [[Petty2006]]. Within twenty years, NOTT and the MRC trial showed that, in people with low blood oxygen, more hours of oxygen a day went with fewer deaths [[NOTT1980,MRC1981]].</p>
+
+  <h3 class="sub">GOLD, from 2001 to 2023</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Report</th><th>What changed</th></tr></thead>
+    <tbody>
+      <tr><td class="hiy">2001</td><td>The NHLBI/WHO workshop summary, the first GOLD global strategy for diagnosis, management and prevention, with a new severity classification [[Pauwels2001,Petty2006]]. The 2006 history review, following it, defined COPD as chronic airflow obstruction that is progressive and only partly reversible [[Petty2006]].</td></tr>
+      <tr><td class="hiy">2017</td><td>Spirometric grading separated from the ABCD groups, which were now derived only from symptoms and exacerbation history [[Vogelmeier2017]].</td></tr>
+      <tr><td class="hiy">2023</td><td>A new definition and cause-based taxonomy; groups C and D merged into a single E (exacerbations) group, creating the ABE tool [[Agusti2023]].</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">People to know</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">1819</span><h4>Laënnec</h4><p>Inventor of the stethoscope. He described emphysematous lungs as hyperinflated, failing to collapse and not emptying well, often with mucus-filled bronchi: an early account of emphysema and chronic bronchitis together [[Petty2006]].</p></div>
+    <div class="card"><span class="tag dx">1846</span><h4>John Hutchinson</h4><p>A surgeon who invented the spirometer and named the "vital capacity" [[Hutchinson1846,Petty2002]].</p></div>
+    <div class="card"><span class="tag dx">1947</span><h4>Robert Tiffeneau and Pinelli</h4><p>Described the forced expiratory manoeuvre in Paris: the volume exhaled in one second after a deep breath [[Yernault1997]].</p></div>
+    <div class="card"><span class="tag" style="background:var(--fl-soft);color:var(--fl)">1954</span><h4>Doll and Hill</h4><p>Their 1954 preliminary report linked doctors' smoking habits to their mortality; the British Doctors Study ran from 1951 to 2001 in 34,439 men [[Doll1954,Doll2004]].</p></div>
+    <div class="card"><span class="tag brand">1960</span><h4>Reid</h4><p>Proposed measuring the bronchial mucous gland layer, later called the Reid index, as a diagnostic yardstick in chronic bronchitis [[Reid1960,Petty2006]].</p></div>
+    <div class="card"><span class="tag" style="background:var(--fl-soft);color:var(--fl)">1963</span><h4>Laurell and Eriksson</h4><p>In Sweden, noticed the missing α1-globulin band on serum electrophoresis, described alpha-1 antitrypsin deficiency and linked it to emphysema [[Laurell1963,Perciaccante2018]]. With Gross's 1964 papain experiments, this founded the protease–antiprotease theory [[Petty2006]].</p></div>
+    <div class="card"><span class="tag rec">1966</span><h4>Burrows, Fletcher and Briscoe</h4><p>Burrows and Fletcher presented the emphysematous and bronchial types of chronic airways obstruction seen in London and Chicago at the 9th Aspen Emphysema Conference, published in 1966; William Briscoe is believed to have first used the term COPD there [[Petty2006,Burrows1966]].</p></div>
+    <div class="card"><span class="tag" style="background:var(--fl-soft);color:var(--fl)">1977</span><h4>Fletcher and Peto</h4><p>Their study of London working men described the natural history of chronic airflow obstruction and showed the value of quitting in susceptible smokers [[Fletcher1977]]. The Lancet Commission argues their picture of COPD as a smoker's disease of fast decline is now undermined by non-smoking causes and by people who reach COPD without fast decline [[Stolz2022,Lange2015]].</p></div>
+  </div>
+
+  <h3 class="sub">Every milestone</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Year</th><th>What happened</th><th>People</th><th>Theme</th></tr></thead>
+    <tbody id="hiTbl"></tbody>
+  </table></div>
 </section>

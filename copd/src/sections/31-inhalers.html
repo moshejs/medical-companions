@@ -1,5 +1,80 @@
-<!-- ================= 3.1 BRONCHODILATORS (stub) ================= -->
+<!-- ================= 3.1 BRONCHODILATORS ================= -->
+<style>
+#m-inhalers .tbl table{min-width:680px}
+#m-inhalers .card>.ev,#m-inhalers .card>.tag{align-self:flex-start}
+#m-inhalers .trbox{display:flex;flex-direction:column;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+#m-inhalers .trbox .btnrow{display:flex;flex-wrap:wrap;gap:6px}
+#m-inhalers .trbox .t-y{font:500 11px var(--mono);opacity:.75}
+#m-inhalers #inhTrSvg{width:100%;height:auto;display:block;max-width:820px}
+#m-inhalers #inhTrOut{font-size:15px;max-width:72ch}
+#m-inhalers .studywarn{border-left:4px solid var(--rx);background:var(--rx-soft);border-radius:0 12px 12px 0;padding:10px 14px;font-size:15px;max-width:72ch}
+#m-inhalers .studywarn b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--rx);display:block;margin-bottom:2px}
+#m-inhalers .gobtns{display:flex;flex-wrap:wrap;gap:8px}
+</style>
 <section class="mod" id="m-inhalers" data-mod="inhalers" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Bronchodilators</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Bronchodilators relax the muscle wrapped around the airways. Watch one smooth-muscle cell as a reliever binds its β2 receptor and a long-acting blocker covers its M3 receptor, and see the airway open. Then compare the trials behind each class.</p></div>
+
+  <p class="studywarn" role="note"><b>Study material, not a treatment plan</b>This page reports what labels, guidelines and trials say. Which medicine a person takes is decided with their own clinician.</p>
+
+  <div class="stepper" id="inhSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="inhSvg" viewBox="0 0 720 400" role="img" aria-label="An airway smooth-muscle cell with a beta-2 receptor and an M3 receptor on its surface, beside a small airway cut across. Salbutamol binds the beta-2 receptor, a relax signal spreads, the cell lengthens and the airway lumen widens, then the effect wears off. Tiotropium covers the M3 receptor so acetylcholine can no longer bind. A results panel shows, in turn, the SABA FEV1 gain, the tiotropium exacerbation odds ratio, POET-COPD, FLAME and the UPLIFT FEV1 lines."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="inhPlay">Play</button><label class="stage-cap tl" for="inhT">Timeline <input type="range" id="inhT" min="0" max="1" step="0.002" value="0.1"></label></div>
+      <p class="stage-cap">Schematic, not to scale. The cell, molecules and airway are drawings; the inside-the-cell signals are not named because this guide's sources do not describe them. Panel numbers are the published results [[Sestini2002,Karner2014,Vogelmeier2011,Wedzicha2016,Tashkin2008D]].</p></div>
+    <aside class="note" id="inhNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The bronchodilator classes</h3>
+  <div class="prose"><p>Two receptors on airway smooth muscle explain the two families. β2-agonists stimulate the β2-adrenergic receptors that predominate in bronchial smooth muscle [[FDA-VentolinHFA]]. Muscarinic antagonists block the M3 receptor, "leading to bronchodilation" [[FDA-SpirivaHandiHaler]]. The Ventolin label notes that β2-receptors also make up 10% to 50% of the β-receptors in the human heart, which "raises the possibility that even selective beta2-agonists may have cardiac effects" [[FDA-VentolinHFA]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Class</th><th>Receptor</th><th>Example in this guide's sources</th><th>As labelled or published</th></tr></thead>
+    <tbody>
+      <tr><th>SABA (short-acting β2-agonist)</th><td>β2</td><td>Salbutamol (albuterol), Ventolin HFA</td><td>"Treatment or prevention of bronchospasm" from age 4; "2 inhalations by oral inhalation every 4 to 6 hours" [[FDA-VentolinHFA]]</td></tr>
+      <tr><th>SAMA (short-acting muscarinic antagonist)</th><td>Muscarinic</td><td>Named by GOLD 2023 with SABA</td><td>GOLD 2023: SABA "with or without short-acting anticholinergics (SAMA), are the initial bronchodilators for acute treatment" of an exacerbation [[Agusti2023]]. This guide's sources include no SAMA-specific trials.</td></tr>
+      <tr><th>LAMA (long-acting muscarinic antagonist)</th><td>M3</td><td>Tiotropium: Spiriva HandiHaler (dry powder), Spiriva Respimat (soft mist)</td><td>HandiHaler: "two inhalations of the powder contents of one SPIRIVA capsule, once-daily" and "Do not swallow SPIRIVA capsules". Respimat: "two inhalations once-daily" [[FDA-SpirivaHandiHaler,FDA-SpirivaRespimat]]</td></tr>
+      <tr><th>LABA (long-acting β2-agonist)</th><td>β2</td><td>Salmeterol (in POET-COPD), formoterol, vilanterol, olodaterol, indacaterol</td><td>Twice-daily LABA vs placebo: SGRQ −2.32 units and 18 fewer exacerbations needing hospital per 1000 over about 7 months; no significant effect on mortality [[Kew2013]]</td></tr>
+      <tr class="hl"><th>LAMA + LABA</th><td>M3 + β2</td><td>Anoro Ellipta (umeclidinium/vilanterol); Stiolto Respimat (tiotropium/olodaterol)</td><td>Anoro: "for the maintenance treatment of patients with chronic obstructive pulmonary disease" and "NOT indicated ... for the treatment of asthma". Stiolto: "long-term, once-daily maintenance treatment" [[FDA-Anoro,FDA-Stiolto]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Maintenance inhalers are not rescue inhalers. Every maintenance product in this guide's sources is labelled that way: Trelegy is "NOT indicated for the relief of acute bronchospasm" and Stiolto is "NOT indicated to treat acute deterioration of COPD" [[FDA-Trelegy,FDA-Stiolto]].</p>
+
+  <h3 class="sub">Trial explorer</h3>
+  <div class="prose"><p>Pick a trial to see its published results drawn as bars (rates in each arm) or intervals (a ratio and its confidence interval, where 1 means no difference).</p></div>
+  <div class="trbox">
+    <div class="btnrow" id="inhTrBtns" role="group" aria-label="Choose a trial"></div>
+    <div class="scroll"><svg id="inhTrSvg" viewBox="0 0 720 300" role="img" aria-label="Published results of the chosen trial"></svg></div>
+    <p class="stage-cap">Bars and intervals are the published results; a dashed line marks a ratio of 1 (no difference).</p>
+    <p id="inhTrOut" aria-live="polite"></p>
+  </div>
+
+  <h3 class="sub">What the Cochrane reviews found</h3>
+  <div class="cards">
+    <div class="card"><span class="tag air">SABA vs placebo</span><h4>A small, real lift</h4><p>13 crossover trials: post-bronchodilator FEV1 +0.14 L (95% CI 0.04 to 0.25); breathlessness scores improved (SMD 1.33). The trials were too short and small to judge long-term harms or mortality [[Sestini2002]].</p><span class="ev est">Established</span></div>
+    <div class="card"><span class="tag rx">Tiotropium vs placebo</span><h4>Fewer people with flare-ups</h4><p>22 studies, 23,309 participants: OR 0.78 (95% CI 0.70 to 0.87), a number needed to treat of 16 for 1 year at a placebo event rate of 44%. No overall mortality difference (Peto OR 0.98) [[Karner2014]].</p><span class="ev est">Established</span></div>
+    <div class="card"><span class="tag rx">LABA vs placebo</span><h4>Better quality of life</h4><p>26 RCTs, 14,939 people: SGRQ −2.32 (95% CI −3.09 to −1.54); exacerbations needing hospital OR 0.73, 18 fewer per 1000 over about 7 months; no significant effect on mortality [[Kew2013]].</p><span class="ev est">Established</span></div>
+    <div class="card"><span class="tag rx">Tiotropium vs LABA</span><h4>The LAMA edges ahead</h4><p>7 studies, 12,223 participants: fewer people with one or more exacerbations (OR 0.86; 95% CI 0.79 to 0.93) and fewer exacerbation-related hospitalisations (OR 0.87). Mortality did not differ [[Chong2012]].</p><span class="ev est">Established</span></div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards">
+    <div class="card"><span class="tag">Device safety</span><h4>The soft mist signal</h4><p>A Cochrane subgroup found more deaths with tiotropium Respimat (Peto OR 1.47; 95% CI 1.04 to 2.08) but not with HandiHaler [[Karner2014]]. TIOSPIR, 17,135 people over a mean 2.3 years, did not confirm it: Respimat 5 µg vs HandiHaler HR 0.96 for death [[Wise2013]].</p><span class="ev est">Established: not confirmed</span></div>
+    <div class="card"><span class="tag">Dual vs single</span><h4>Does LAMA+LABA cut flare-ups more than a LAMA?</h4><p>Guidelines favour dual therapy for breathlessness [[Nici2020,Agusti2023]], but in DYNAGITO the exacerbation rate ratio of 0.93 missed its 0.01 significance target [[Calverley2018]].</p><span class="ev early">Early evidence</span></div>
+    <div class="card"><span class="tag ics">LABA+LAMA or LABA+ICS?</span><h4>Two answers</h4><p>FLAME found LABA+LAMA superior [[Wedzicha2016]]; the 2023 Cochrane update found similar exacerbation odds (OR 0.91; 95% CI 0.78 to 1.06) [[Fukuda2023]]. GOLD 2023 sidesteps the comparison by preferring triple therapy, not LABA+ICS, when an ICS is indicated [[Agusti2023]].</p><span class="ev early">Debated</span></div>
+  </div>
+
+  <h3 class="sub">US approvals of the medicines named here</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Date</th><th>Product</th><th>Application</th></tr></thead>
+    <tbody>
+      <tr><td>2001-04-19</td><th>Ventolin HFA (albuterol, HFA propellant)</th><td>NDA 020983 [[FDA-VentolinHFA]]</td></tr>
+      <tr><td>2004-01-30</td><th>Spiriva HandiHaler (tiotropium dry powder)</th><td>NDA 021395, new molecular entity [[FDA-SpirivaHandiHaler]]</td></tr>
+      <tr><td>2013-12-18</td><th>Anoro Ellipta (umeclidinium/vilanterol)</th><td>NDA 203975 [[FDA-Anoro]]</td></tr>
+      <tr><td>2014-09-24</td><th>Spiriva Respimat (tiotropium soft mist)</th><td>NDA 021936 [[FDA-SpirivaRespimat]]</td></tr>
+      <tr><td>2015-05-21</td><th>Stiolto Respimat (tiotropium/olodaterol)</th><td>NDA 206756 [[FDA-Stiolto]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="prose"><p>Inhaled steroids, triple therapy and the add-on medicines are in module 3.2. How each device is used, and the breath each one needs, is in module 3.3.</p></div>
+  <div class="gobtns"><button class="btn" data-go="escalation">3.2 Inhaled steroids &amp; triple therapy</button><button class="btn" data-go="technique">3.3 Inhaler devices &amp; technique</button></div>
 </section>

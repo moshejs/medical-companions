@@ -1,5 +1,97 @@
-<!-- ================= 3.4 STOPPING SMOKING & VACCINES (stub) ================= -->
+<!-- ================= 3.4 STOPPING SMOKING & VACCINES ================= -->
+<style>
+#m-quitting .qt-tabs{display:flex;flex-wrap:wrap;gap:6px}
+#m-quitting .qt-cap{font-size:14px;color:var(--muted);max-width:80ch}
+#m-quitting .qt-nums{display:flex;flex-wrap:wrap;gap:10px 24px}
+#m-quitting .qt-nums div{display:flex;flex-direction:column;gap:3px;min-width:0;max-width:24ch}
+#m-quitting .qt-nums b{font:700 28px/1 var(--display);color:var(--rx)}
+#m-quitting .qt-nums span{font-size:13.5px;color:var(--muted)}
+#m-quitting .qt-time{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+#m-quitting .qt-time li{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--rx);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:6px;font-size:14.5px;min-width:0}
+#m-quitting .qt-time li b.when{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--rx)}
+#m-quitting .qt-time li strong{font:700 18px/1.2 var(--display)}
+#m-quitting .card>.tag,#m-quitting .card>.ev{align-self:flex-start}
+#m-quitting .qt-ro{display:flex;flex-direction:column;gap:6px}
+#m-quitting .tbl table{min-width:680px}
+</style>
 <section class="mod" id="m-quitting" data-mod="quitting" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Stopping smoking &amp; vaccines</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Stopping smoking changes the slope of lung-function loss more than any inhaler studied. Play the Lung Health Study curves, then compare the medicines that help people quit and the vaccines in guidance.</p></div>
+
+  <div class="stepper" id="qtSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="qtSvg" viewBox="0 0 720 400" role="img" aria-label="A line chart of FEV1 change over five years. A continuing-smoker line falls steadily at 62 millilitres a year; a quitter line rises by 47 millilitres in the first year and then falls at 31 millilitres a year, so the gap between them widens. A side panel shows, step by step, a person smoking, the quit, the two slopes, quit-rate bars for varenicline, long-term mortality bars and the vaccines named in guidance."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="qtPlay">Play</button><label class="stage-cap tl" for="qtT">Timeline <input type="range" id="qtT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <div class="readout" id="qtRead" aria-live="polite"></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The two lines apply the published mean rates (62 mL a year while smoking; +47 mL in the year after quitting, then 31 mL a year) to a five-year span; the shape inside the first year is not published, and individual people vary widely (SD 48–55 mL a year) [[Scanlon2000]]. Quit rates and mortality from the Lung Health Study [[Anthonisen1994,Anthonisen2005]].</p>
+    </div>
+    <aside class="note" id="qtNote" aria-live="polite"></aside>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>The millilitre readout is arithmetic on group averages from one study, not a prediction for any person, and is not for diagnosis or treatment decisions.</p>
+
+  <h3 class="sub">What was measured after quitting</h3>
+  <ol class="qt-time">
+    <li><b class="when">Week 12</b><strong>FEV1 +121.8 mL</strong><span>in continuous abstainers versus +37.9 mL in continuing smokers (P = 0.0069), in a varenicline trial in COPD. The difference was no longer significant at weeks 24 or 52 [[Tashkin2011RespirMed]].</span></li>
+    <li><b class="when">Year 1</b><strong>FEV1 +47 mL (2%)</strong><span>average gain in the year after quitting, in 3818 Lung Health Study participants [[Scanlon2000]].</span></li>
+    <li><b class="when">After year 1</b><strong>31 vs 62 mL a year</strong><span>Sustained quitters lost FEV1 at half the rate of continuing smokers, which the authors called comparable to never-smokers [[Scanlon2000]]. Lost function was not regained [[Fletcher1977]].</span></li>
+    <li><b class="when">14.5 years</b><strong>8.83 vs 10.38 deaths</strong><span>per 1000 person-years with the cessation programme versus usual care (P = 0.03), even though only 21.7% of the programme group had stopped for good [[Anthonisen2005]].</span></li>
+  </ol>
+  <div class="prose">
+    <p>In the Lung Health Study, ipratropium gave a small FEV1 benefit that disappeared when the inhaler was stopped; it "did not influence the long-term decline of FEV1". The benefit came from quitting [[Anthonisen1994]]. Respiratory symptoms did not predict who would gain: smokers with airflow obstruction benefited "despite previous heavy smoking, advanced age, poor baseline lung function, or airway hyperresponsiveness" [[Scanlon2000]].</p>
+    <p>GOLD 2023 states that "Approximately 40% of people with COPD continue to smoke despite knowing that they have the disease", and that "All patients who continue to smoke should be offered help and treatment to quit" [[Agusti2023]]. An ERS statement adds that many people with lung disease are not given specific advice or referred for intensive treatment, and so continue smoking [[JimenezRuiz2015]].</p>
+  </div>
+  <div class="qt-nums">
+    <div><b>≈40%</b><span>of people with COPD continue to smoke (GOLD 2023) [[Agusti2023]]</span></div>
+    <div><b>21.7% vs 5.4%</b><span>stopped for good by 5 years: programme vs usual care [[Anthonisen2005]]</span></div>
+    <div><b>HR 1.18</b><span>all-cause death, usual care vs programme (95% CI 1.02–1.37) [[Anthonisen2005]]</span></div>
+    <div><b>33%</b><span>of the 731 deaths were from lung cancer; 22% cardiovascular [[Anthonisen2005]]</span></div>
+  </div>
+
+  <h3 class="sub">Medicines and support: compare the trials</h3>
+  <div class="prose"><p>Pick a set of comparisons. Each row is a published risk ratio (RR) or odds ratio (OR) for stopping smoking, with its 95% confidence interval where the source gives one. A value above 1 favours the first option named; a line that crosses 1 means no clear difference.</p></div>
+  <div class="qt-tabs" id="qtTabs" role="group" aria-label="Comparison set">
+    <button class="btn" data-set="copd" aria-pressed="true">Smokers with COPD</button>
+    <button class="btn" data-set="all" aria-pressed="false">All smokers</button>
+    <button class="btn" data-set="h2h" aria-pressed="false">Head to head</button>
+    <button class="btn" data-set="eagles" aria-pressed="false">EAGLES quit rates</button>
+    <button class="btn" data-set="safety" aria-pressed="false">EAGLES safety</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="qtForest" viewBox="0 0 720 300" role="img" aria-label="A forest plot of risk ratios or odds ratios for stopping smoking, one row per comparison, on a logarithmic scale with a line at 1; or, for the safety set, bars of neuropsychiatric adverse-event rates by medicine."></svg></div>
+    <p class="qt-cap" id="qtForestCap" aria-live="polite"></p>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>These are trial and review averages, quoted as published, to compare evidence. They are not for diagnosis or treatment decisions; the choice of medicine is made with a prescriber.</p>
+
+  <div class="cards">
+    <div class="card"><span class="tag rx">Label · CHANTIX</span><h4>Varenicline dosing as published</h4><p>The Pfizer label states: start one week before the quit date, or quit between days 8 and 35; 0.5 mg once daily on days 1–3, 0.5 mg twice daily on days 4–7, then 1 mg twice daily, for a total of 12 weeks. An additional 12 weeks "is recommended for successful quitters" [[FDA-Chantix]].</p></div>
+    <div class="card"><span class="tag warn">Label · warnings</span><h4>No boxed warning now</h4><p>The current CHANTIX label (effective 2026-01-23) has no boxed warning. Warnings and Precautions list postmarketing reports of neuropsychiatric events, including mood changes, psychosis and suicidal ideation (5.1), seizures (5.2) and interaction with alcohol [[FDA-Chantix]].</p></div>
+    <div class="card"><span class="tag rx">EAGLES</span><h4>8144 smokers, 16 countries</h4><p>Varenicline 1 mg twice a day, bupropion 150 mg twice a day, nicotine patch 21 mg/day with taper, or placebo for 12 weeks, in people with and without psychiatric disorders. No varenicline–placebo or bupropion–placebo difference in moderate and severe neuropsychiatric events was statistically significant [[Anthenelli2016]].</p></div>
+    <div class="card"><span class="tag rx">Side effects</span><h4>What people reported</h4><p>Most frequent in EAGLES: nausea on varenicline (25%), insomnia on bupropion (12%), abnormal dreams on the patch (12%) and headache on placebo (10%) [[Anthenelli2016]]. Across trials, varenicline probably raised serious adverse events (RR 1.23, 95% CI 1.01–1.48) [[LivingstoneBanks2023]]; NRT can rarely cause chest pain or palpitations (OR 1.88) [[HartmannBoyce2018]].</p></div>
+  </div>
+
+  <h3 class="sub">E-cigarettes: what is known and what is not</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>More quitters than with NRT</h4><p>The 2024 Cochrane living review (88 studies, 27,235 participants) found high-certainty evidence that nicotine e-cigarettes increase quit rates compared with NRT (RR 1.59, 95% CI 1.29–1.93), which might mean four more quitters per 100 [[Lindson2024]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>One NHS trial</h4><p>In 886 adults with weekly behavioural support, 1-year validated abstinence was 18.0% with a refillable e-cigarette versus 9.9% with NRT (RR 1.83, 95% CI 1.30–2.58). Cough and phlegm fell more in the e-cigarette group; throat or mouth irritation was more common (65.3% vs 51.2%) and nausea less common (31.3% vs 37.9%) [[Hajek2019]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Long-term safety</h4><p>The review found no evidence of serious harm, but "the longest follow-up was two years and the number of studies was small" [[Lindson2024]]. Of 1-year abstainers in the NHS trial, 80% were still using e-cigarettes at 52 weeks, against 9% still using NRT [[Hajek2019]].</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Lungs of people with COPD</h4><p>Long-term respiratory safety of e-cigarettes specifically in COPD has not been settled by trials of the length needed [[Lindson2024,Hajek2019]].</p></div>
+  </div>
+
+  <h3 class="sub">Vaccines named in guidance</h3>
+  <div class="prose"><p>GOLD 2023 states that, "Depending on local guidelines, patients should be offered vaccination against influenza, pneumococcus, COVID-19, pertussis, and herpes zoster, if they have not already received these", and that people with COPD "should have COVID-19 vaccination in line with national guidelines" [[Agusti2023]]. The table gives the trial and review results as published; national schedules differ.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Vaccine</th><th>Evidence</th><th>Main result as published</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><th>Influenza (inactivated)</th><td>Cochrane 2018, 2 RCTs, 180 people with COPD</td><td>Fewer exacerbations per vaccinated person (MD −0.37, 95% CI −0.64 to −0.11; low-quality evidence) [[Kopsaftis2018]]</td><td>Benefit from fewer late exacerbations (3–4 or more weeks after vaccination); no rise in early ones; local reactions mild and transient [[Kopsaftis2018]]</td></tr>
+      <tr><th>Pneumococcal</th><td>Cochrane 2017, 12 RCTs, 2171 people with COPD</td><td>Pneumonia OR 0.62 (95% CI 0.43–0.89; NNTB 21); exacerbation OR 0.60 (95% CI 0.39–0.93; NNTB 8) [[Walters2017]]</td><td>No change in all-cause mortality (OR 1.00) or confirmed pneumococcal pneumonia [[Walters2017]]</td></tr>
+      <tr><th>PCV13 (CAPiTA)</th><td>84,496 adults aged ≥ 65</td><td>Vaccine efficacy 45.6% against first vaccine-type pneumococcal pneumonia; 75.0% against vaccine-type invasive disease [[Bonten2015CAPiTA]]</td><td>No effect on pneumonia from any cause (5.1%, 95% CI −5.1 to 14.2) [[Bonten2015CAPiTA]]</td></tr>
+      <tr class="hl"><th>RSV: Arexvy</th><td>AReSVi-006, 24,966 adults aged ≥ 60</td><td>82.6% against RSV lower respiratory tract disease (7 vs 40 cases); 94.1% against severe disease [[Papi2023RSV]]</td><td>High efficacy also in people with coexisting conditions [[Papi2023RSV]]</td></tr>
+      <tr class="hl"><th>RSV: Abrysvo</th><td>RENOIR, 34,284 adults aged ≥ 60</td><td>66.7% against illness with ≥ 2 signs or symptoms; 85.7% with ≥ 3 [[Walsh2023RSV]]</td><td>Bivalent RSVpreF vaccine [[Walsh2023RSV]]</td></tr>
+      <tr class="hl"><th>RSV: mResvia</th><td>ConquerRSV, 35,541 adults aged ≥ 60</td><td>83.7% against disease with ≥ 2 signs or symptoms; 68.4% against acute respiratory disease [[Wilson2023]]</td><td>Median follow-up 112 days [[Wilson2023]]</td></tr>
+      <tr><th>RSV: ACIP 2024</th><td>US recommendation, 26 June 2024</td><td>A single dose of any FDA-approved RSV vaccine for all adults aged ≥ 75 and for adults aged 60–74 at increased risk of severe RSV disease [[Britton2024]]</td><td>People already vaccinated "should not receive another dose" [[Britton2024]]</td></tr>
+      <tr><th>COVID-19, pertussis, herpes zoster</th><td>GOLD 2023 statement</td><td>Listed among the vaccines to offer, depending on local guidelines [[Agusti2023]]</td><td>Trial results for these in COPD are not summarised in this guide's research</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Other routes to slowing COPD are in <a href="#inhalers" data-go="inhalers">Bronchodilators</a> and <a href="#rehab" data-go="rehab">Pulmonary rehabilitation</a>.</p>
 </section>

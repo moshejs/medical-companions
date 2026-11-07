@@ -1,5 +1,130 @@
-<!-- ================= 3.2 INHALED STEROIDS, TRIPLE THERAPY & BEYOND (stub) ================= -->
+<!-- ================= 3.2 INHALED STEROIDS, TRIPLE THERAPY & BEYOND ================= -->
+<style>
+#m-escalation .tbl table{min-width:680px}
+#m-escalation .card>.ev,#m-escalation .card>.tag{align-self:flex-start}
+#m-escalation .box{display:flex;flex-direction:column;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+#m-escalation .btnrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-escalation .btnrow .kicker{margin-right:4px}
+#m-escalation .box svg{width:100%;height:auto;display:block;max-width:820px}
+#m-escalation .out{font-size:15px;max-width:72ch}
+#m-escalation .verdict{font-weight:500;font-size:15px;max-width:72ch}
+#m-escalation .studywarn{border-left:4px solid var(--rx);background:var(--rx-soft);border-radius:0 12px 12px 0;padding:10px 14px;font-size:15px;max-width:72ch}
+#m-escalation .studywarn b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--rx);display:block;margin-bottom:2px}
+#m-escalation .eosrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+#m-escalation .eosrow label{flex:1;min-width:200px;display:flex;gap:10px;align-items:center;font-weight:700;font-size:14px}
+#m-escalation #escEosVal{font:700 15px var(--mono);color:var(--ics-ink);min-width:110px}
+#m-escalation .calc select:disabled{opacity:.5}
+#m-escalation .gobtns{display:flex;flex-wrap:wrap;gap:8px}
+</style>
 <section class="mod" id="m-escalation" data-mod="escalation" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Inhaled steroids, triple therapy &amp; beyond</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">When flare-ups keep coming, the next steps depend on one blood test: the eosinophil count. Follow an inflamed airway through an inhaled steroid, its pneumonia trade-off, tablet add-ons, biologic injections and stepping down, then explore the trials yourself.</p></div>
+
+  <p class="studywarn" role="note"><b>Study material, not a treatment plan</b>Guideline wording and trial results are quoted as published. Treatment changes for a person are decided with their own clinician.</p>
+
+  <div class="stepper" id="escSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="escSvg" viewBox="0 0 720 400" role="img" aria-label="A blood vessel carries eosinophils to a small airway cut across, whose wall holds eosinophils. Inhaled steroid particles settle on the wall and the eosinophils fade; bacteria appear in nearby air sacs to show the pneumonia risk; roflumilast and azithromycin tablets appear; antibodies bind the eosinophils; finally the steroid is withdrawn. A panel shows the published results for each step: Pascoe 2015, IMPACT, pneumonia, roflumilast and azithromycin, the biologic trials and WISDOM."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="escPlay">Play</button><label class="stage-cap tl" for="escT">Timeline <input type="range" id="escT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap">Schematic, not to scale. Cells, particles and antibodies are drawings; panel numbers are the published results [[Pascoe2015,Lipson2018,Wedzicha2016,Calverley2009,Albert2011,Bhatt2023,Bhatt2024,Sciurba2025,Magnussen2014]].</p></div>
+    <aside class="note" id="escNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Blood eosinophils and the published ICS benefit</h3>
+  <div class="prose"><p>Move the slider along the blood eosinophil count. In cells/µL the chart shows the GOLD 2023 bands and the Bafadhel 2018 result; switch to percentages to see the four anchor points Pascoe 2015 published. No curve is drawn between them, because none is published here.</p></div>
+  <div class="box">
+    <div class="btnrow" id="escUnit" role="group" aria-label="Unit"><span class="kicker">Unit</span><button class="btn" data-unit="c" aria-pressed="true">cells/µL (GOLD 2023)</button><button class="btn" data-unit="p" aria-pressed="false">% of white cells (Pascoe 2015)</button></div>
+    <div class="eosrow"><label for="escEosR">Blood eosinophils <input type="range" id="escEosR" min="0" max="600" step="10" value="150"></label><span id="escEosVal" aria-hidden="true"></span></div>
+    <div class="scroll"><svg id="escEosSvg" viewBox="0 0 720 220" role="img" aria-label="Published ICS benefit by blood eosinophil count, with a marker at the chosen value"></svg></div>
+    <p class="out" id="escEosOut" aria-live="polite"></p>
+    <p class="teach" role="note"><b>Teaching tool</b>Bands and anchor points are copied from GOLD 2023, Bafadhel 2018 and Pascoe 2015 for study. It is not for diagnosis or treatment decisions. GOLD 2023 notes decisions "can be based on historical eosinophil counts", with greater variability at higher thresholds [[Agusti2023]].</p>
+  </div>
+
+  <h3 class="sub">IMPACT and ETHOS: triple therapy, explored</h3>
+  <div class="prose"><p>Two large trials compared a single triple inhaler with dual inhalers in people who exacerbate. Pick a trial and an outcome.</p></div>
+  <div class="box">
+    <div id="escTrBtns" class="btnrow" role="group" aria-label="Trial and outcome">
+      <span class="kicker">Trial</span><button class="btn" data-etr="impact" aria-pressed="true">IMPACT 2018</button><button class="btn" data-etr="ethos" aria-pressed="false">ETHOS 2020</button>
+      <span class="kicker">Outcome</span><button class="btn" data-eme="exac" aria-pressed="true">Exacerbations</button><button class="btn" data-eme="death" aria-pressed="false">Deaths</button><button class="btn" data-eme="pneu" aria-pressed="false">Pneumonia</button>
+    </div>
+    <div class="scroll"><svg id="escTrSvg" viewBox="0 0 720 300" role="img" aria-label="Published results of the chosen trial and outcome"></svg></div>
+    <p class="stage-cap">Bars are rates or percentages in each arm; intervals are ratios with 95% confidence intervals, where 1 means no difference.</p>
+    <p class="out" id="escTrOut" aria-live="polite"></p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Triple product</th><th>Contents</th><th>COPD dose, as labelled</th></tr></thead>
+    <tbody>
+      <tr><th>Trelegy Ellipta (dry powder)</th><td>fluticasone furoate / umeclidinium / vilanterol</td><td>"1 actuation of TRELEGY ELLIPTA 100/62.5/25 mcg once daily" [[FDA-Trelegy]]</td></tr>
+      <tr><th>Breztri Aerosphere (pressurised)</th><td>budesonide / glycopyrrolate / formoterol</td><td>"2 inhalations of BREZTRI AEROSPHERE 160 mcg/9 mcg/4.8 mcg twice daily"; the US label states the glycopyrrolate dose per actuation differently from ETHOS's 18 µg [[FDA-Breztri,Rabe2020]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><span class="tag ics">Open question</span><h4>Does triple therapy lower mortality?</h4><p>IMPACT (HR 0.72 vs UMEC/VI) and ETHOS (HR 0.51 vs GLY/FOR, higher budesonide dose only) both reported fewer deaths than with LAMA/LABA. Both were secondary end points with low event rates, and neither was significant versus ICS/LABA [[Lipson2020,Martinez2021]]. GOLD 2023 includes both in its figure of evidence for reduced mortality [[Agusti2023]].</p><span class="ev early">Early evidence</span></div>
+    <div class="card"><span class="tag ics">Guidelines</span><h4>When triple is recommended</h4><p>ATS 2020: "a conditional recommendation for the use of triple therapy ... over dual therapy with LABA/LAMA in patients with COPD and dyspnea or exercise intolerance who have experienced one or more exacerbations in the past year" [[Nici2020]]. GOLD 2023: with concomitant asthma, people "should be treated as if they have asthma" [[Agusti2023]].</p><span class="ev est">Established</span></div>
+  </div>
+
+  <h3 class="sub">Inhaled steroids and pneumonia</h3>
+  <div class="prose"><p>The Cochrane review of 43 studies put the extra risk of serious (hospitalised) pneumonia in absolute terms. Each dot is one of 1000 people treated; red dots are the extra cases. The review found no significant change in overall mortality with either ICS, and pneumonia deaths were too rare to judge [[Kew2014]].</p></div>
+  <div class="box">
+    <div class="btnrow" id="escPnBtns" role="group" aria-label="Inhaled steroid"><button class="btn" data-pn="flu" aria-pressed="true">Fluticasone (OR 1.78, high quality)</button><button class="btn" data-pn="bud" aria-pressed="false">Budesonide (OR 1.62, less precise)</button></div>
+    <div class="scroll"><svg id="escPnSvg" viewBox="0 0 720 320" role="img" aria-label="1000 dots with the extra serious pneumonias highlighted"></svg></div>
+    <p class="out" id="escPnOut" aria-live="polite"></p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Comparison</th><th>Pneumonia, as published</th><th>Mortality, as published</th></tr></thead>
+    <tbody>
+      <tr><th>TORCH (6112 people, 3 years)</th><td>Salmeterol/fluticasone propionate vs components vs placebo</td><td>19.6% combination, 18.3% fluticasone, 12.3% placebo [[Calverley2007]]</td><td>12.6% vs 15.2% placebo; HR 0.825 (95% CI 0.681 to 1.002; P=0.052), not significant [[Calverley2007]]</td></tr>
+      <tr><th>SUMMIT (16,485 people, raised cardiovascular risk)</th><td>Fluticasone furoate/vilanterol vs components vs placebo</td><td>5% placebo, 6% combination, 5% fluticasone furoate, 4% vilanterol: no excess [[Vestbo2016]]</td><td>HR 0.88 (95% CI 0.74 to 1.04; P=0.137); FEV1 decline 38 vs 46 mL/year, read with caution [[Vestbo2016]]</td></tr>
+      <tr><th>FLAME (3362 people)</th><td>LABA+LAMA vs LABA+ICS</td><td>3.2% vs 4.8% (P=0.02) [[Wedzicha2016]]</td><td>—</td></tr>
+      <tr><th>Pascoe 2015 (3177 people)</th><td>Adding fluticasone furoate to vilanterol</td><td>The pneumonia increase did not depend on eosinophils [[Pascoe2015]]</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">GOLD 2023 follow-up flow</h3>
+  <div class="prose"><p>GOLD 2023 bases follow-up treatment on two treatable traits, "dyspnea and occurrence of exacerbations" [[Agusti2023]]. Choose a starting point to see the published wording for the next step.</p></div>
+  <div class="box">
+    <div class="calc">
+      <label for="escFTx">Current treatment<select id="escFTx"><option value="mono">LABA or LAMA</option><option value="dual" selected>LABA + LAMA</option><option value="lics">LABA + ICS</option><option value="triple">LABA + LAMA + ICS</option></select></label>
+      <label for="escFTr">Main problem<select id="escFTr"><option value="dysp">Breathlessness</option><option value="exac" selected>Exacerbations</option></select></label>
+      <label for="escFEo">Blood eosinophils<select id="escFEo"><option value="lo">&lt;100 cells/µL</option><option value="mid" selected>100–299 cells/µL</option><option value="hi">≥300 cells/µL</option></select></label>
+    </div>
+    <div class="scroll"><svg id="escFlowSvg" viewBox="0 0 720 130" role="img" aria-label="Current treatment, main problem and the GOLD 2023 wording for the next step"></svg></div>
+    <p class="verdict maybe" id="escFlowOut" aria-live="polite"></p>
+    <p class="teach" role="note"><b>Teaching tool</b>This reproduces the GOLD 2023 follow-up wording for study. It is not for diagnosis or treatment decisions. GOLD 2023 itself notes that "Treatment escalation has not been systematically tested, and trials of de-escalation are limited to withdrawing ICS" [[Agusti2023]]. The ATS 2020 guideline makes "a conditional recommendation against the use of maintenance oral corticosteroids" [[Nici2020]].</p>
+  </div>
+
+  <h3 class="sub">Beyond inhalers: add-on medicines</h3>
+  <div class="cards">
+    <div class="card"><span class="tag rx">Roflumilast · oral PDE4 inhibitor</span><h4>Fewer exacerbations, more side effects</h4><p>The Daliresp label says roflumilast inhibits PDE4, "a major cyclic-3′,5′-adenosine monophosphate (cyclic AMP)-metabolizing enzyme in lung tissue", and that its exact mechanism "is not well defined" [[FDA-Daliresp]]. Indication: "to reduce the risk of COPD exacerbations in patients with severe COPD associated with chronic bronchitis and a history of exacerbations" [[FDA-Daliresp]]. Exacerbations 1.14 vs 1.37 per patient-year; weight −2.17 kg vs placebo [[Calverley2009]]. Label: diarrhoea 9.5% vs 2.7%, weight decreased 7.5% vs 2.1%, psychiatric adverse reactions 5.9% vs 3.3% [[FDA-Daliresp]]. REACT sat on the significance line (P=0.0529 primary, P=0.0424 sensitivity) [[Martinez2015]].</p><span class="ev est">Established</span></div>
+    <div class="card"><span class="tag rx">Azithromycin · daily macrolide</span><h4>Longer to the first flare-up</h4><p>1142 people, 250 mg daily for 1 year: median time to first exacerbation 266 vs 174 days, and an exacerbation hazard ratio of 0.73. Hearing decrements 25% vs 20%; the effect on microbial resistance "is not known". People with hearing impairment, resting tachycardia or QTc risk were excluded [[Albert2011]]. No benefit in current smokers (HR 0.99) [[Han2014]]. Cochrane: prophylactic antibiotics cut the share of people with an exacerbation from 61% to 47% (NNTB 8) [[Herath2018]]. Azithromycin has no US label indication for COPD; its use comes from trials and guidelines.</p><span class="ev est">Established</span></div>
+    <div class="card"><span class="tag ics">Dupilumab · anti-IL-4Rα</span><h4>BOREAS and NOTUS</h4><p>939 and 935 people on triple therapy with eosinophils ≥300/µL: rate ratios 0.70 and 0.66 [[Bhatt2023,Bhatt2024]]. FEV1 differences of 83 mL (BOREAS) and 82 mL (NOTUS) at week 12; SGRQ improved in BOREAS but not in NOTUS at 52 weeks [[Bhatt2023,Bhatt2024]]. FDA approval for COPD 2024-09-27; label dose "300 mg given every 2 weeks (Q2W)" [[FDA-Dupixent]].</p><span class="ev est">Established for the trial populations</span></div>
+    <div class="card"><span class="tag ics">Mepolizumab · anti-IL-5</span><h4>MATINEE</h4><p>804 people randomised (806 in the registry) on triple therapy with eosinophils ≥300/µL: 0.80 vs 1.01 exacerbations per year (rate ratio 0.79); median time to first exacerbation 419 vs 321 days. Quality-of-life differences were not significant [[Sciurba2025,NCT04133909]]. Eosinophilic inflammation is present in 20 to 40% of people with COPD, the paper says [[Sciurba2025]]. FDA approval for COPD 2025-05-22; label dose "100 mg administered subcutaneously once every 4 weeks" [[FDA-Nucala]].</p><span class="ev est">Established for the trial population</span></div>
+    <div class="card"><span class="tag air">Ensifentrine · inhaled PDE3/PDE4 inhibitor</span><h4>A nebulised newcomer</h4><p>Inhibiting both enzymes raises intracellular cAMP and/or cGMP, the Ohtuvayre label says [[FDA-Ohtuvayre]]. ENHANCE-1 and -2 (760 and 789 people): FEV1 AUC0–12h +87 and +94 mL; exacerbation rate ratios 0.64 and 0.57 over 24 weeks [[Anzueto2023]]. FDA-approved 2024-06-26; label dose "3 mg (one unit-dose ampule) twice daily ... by oral inhalation using a standard jet nebulizer with a mouthpiece" [[FDA-Ohtuvayre]].</p><span class="ev early">Early evidence: 24-week trials</span></div>
+  </div>
+
+  <h3 class="sub">Stepping inhaled steroids down</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>What it found or says, as published</th></tr></thead>
+    <tbody>
+      <tr><th>WISDOM 2014 (2485 people)</th><td>Stepwise fluticasone withdrawal over 12 weeks on tiotropium + salmeterol: first exacerbation HR 1.06 (95% CI 0.94 to 1.19), noninferior; trough FEV1 38 mL lower at week 18 and 43 mL at week 52 [[Magnussen2014]]</td></tr>
+      <tr><th>SUNSET 2018 (1053 people)</th><td>Switch from triple to indacaterol/glycopyrronium in people without frequent exacerbations: FEV1 −26 mL (95% CI −53 to 1), crossing the −50 mL bound; exacerbation rate ratio 1.08. Eosinophils ≥300/µL: more lung-function loss and exacerbation risk [[Chapman2018]]</td></tr>
+      <tr class="hl"><th>ERS 2020 guideline</th><td>Conditional: "the withdrawal of ICS in patients with COPD without a history of frequent exacerbations". Strong: "not to withdraw ICS in patients with blood eosinophil counts ≥300 eosinophils·µL-1". Strong: treatment "with one or two long-acting bronchodilators if ICS are withdrawn" [[Chalmers2020]]</td></tr>
+      <tr><th>ATS 2020 guideline</th><td>"a conditional recommendation for ICS withdrawal for patients with COPD receiving triple therapy (ICS/LABA/LAMA) if the patient has had no exacerbations in the past year" [[Nici2020]]</td></tr>
+      <tr><th>GOLD 2023</th><td>"ICS de-escalation can be considered if pneumonia or other considerable side effects develop. In case of a blood eosinophil count ≥300 cells/μl, ICS de-escalation is more likely to be associated with development of exacerbations" [[Agusti2023]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">US approvals of the medicines named here</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Date</th><th>Product</th><th>Application</th></tr></thead>
+    <tbody>
+      <tr><td>2011-02-28</td><th>Daliresp (roflumilast)</th><td>NDA 022522 [[FDA-Daliresp]]</td></tr>
+      <tr><td>2017-09-18</td><th>Trelegy Ellipta</th><td>NDA 209482 [[FDA-Trelegy]]</td></tr>
+      <tr><td>2020-07-23</td><th>Breztri Aerosphere</th><td>NDA 212122 [[FDA-Breztri]]</td></tr>
+      <tr><td>2024-06-26</td><th>Ohtuvayre (ensifentrine)</th><td>NDA 217389, new molecular entity [[FDA-Ohtuvayre]]</td></tr>
+      <tr><td>2024-09-27</td><th>Dupixent, COPD indication</th><td>BLA 761055 S-064 [[FDA-Dupixent]]</td></tr>
+      <tr><td>2025-05-22</td><th>Nucala, COPD indication</th><td>BLA 125526 S-007 [[FDA-Nucala]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="gobtns"><button class="btn" data-go="inhalers">3.1 Bronchodilators</button><button class="btn" data-go="technique">3.3 Inhaler devices &amp; technique</button><button class="btn" data-go="assessment">2.2 GOLD groups &amp; eosinophils</button></div>
 </section>

@@ -60,7 +60,7 @@ const LV_TXT={
      hook:'Pursed-lip breathing: end-expiratory volume −0.33 L, tidal volume +0.65 L [[Bianchi2004]].'}],
   /* flying widget */
   pctOut:v=>v+'%',
-  altSea:'sea level',alt8:'2,438 m (8,000 ft): cabin limit',alt8b:'healthy SaO2 stays above 90%',
+  altSea:'sea level',alt8:'2,438 m (8,000 ft)',alt8b:'cabin limit; healthy SaO2 stays above 90%',
   alt10:'3,048 m (10,000 ft)',alt10b:'healthy SaO2 about 89%',
   hct1:'Hypoxic challenge test:',hct2:'breathing 15% oxygen',hct3:'≈ air at a 2,438 m cabin',
   flowA:'Sea-level SpO2 and lowest SpO2 on a 6-minute walk',flowAs:'Norwegian pre-flight algorithm',
@@ -105,12 +105,12 @@ inits.living=()=>{
     if(p===1)s+=bar(y+46,P.v1,P.b1,'var(--bact)')+bar(y+84,P.v2,P.b2,'var(--smoke)');
     if(p===2){const n=12,sp=Math.min(20,(w-24)/n);for(let i=0;i<n;i++){const on=i===n-1&&u>.3;s+=`<circle cx="${f1(x+20+i*sp)}" cy="${f1(y+50)}" r="7" style="fill:${on?'var(--rec)':'var(--panel)'};stroke:${on?'var(--rec)':'var(--muted)'};stroke-width:1.2"/>`}
       s+=lvTx(x+12,y+82,P.l1,'t-xs','fill:var(--ink)')+lvTx(x+12,y+98,P.l2,'t-xs','fill:var(--ink)')}
-    if(p===3||p===5)s+=[P.l1,P.l2,P.l3].map((l,i)=>`<g style="opacity:${f1(ramp(u,.05+i*.15,.2+i*.15))}">`+`<circle cx="${f1(x+17)}" cy="${f1(y+46+i*24)}" r="4" style="fill:var(--rec)"/>`+lvTx(x+28,y+50+i*24,l,'t-sm','fill:var(--ink)')+'</g>').join('');
+    if(p===3||p===5)s+=[P.l1,P.l2,P.l3].map((l,i)=>`<g style="opacity:${f1(ramp(u,.02+i*.08,.1+i*.08))}">`+`<circle cx="${f1(x+17)}" cy="${f1(y+46+i*24)}" r="4" style="fill:var(--rec)"/>`+lvTx(x+28,y+50+i*24,l,'t-sm','fill:var(--ink)')+'</g>').join('');
     if(p===4)s+=bar(y+48,P.v1,P.b1,'var(--rec)')+lvTx(x+12,y+96,P.l1,'t-xs');
     return s}
   function draw(t){
-    const N=vb(svg,'720 400','400 720'),p=phaseOf(LV_STEPS,t),S=LV_STEPS[p],nx=LV_STEPS[p+1]?LV_STEPS[p+1].from:1.0001,u=clamp((t-S.from)/(nx-S.from));
-    const L=N?{tx:16,cx:16,cy:58,cw:368,wrap:52,px:96,py:560,ps:140,mx:186,my:356,mw:198,ex:16,ey:584,ew:368,sx:16,sw:368,sy:708}
+    const N=vb(svg,'720 400','400 806'),p=phaseOf(LV_STEPS,t),S=LV_STEPS[p],nx=LV_STEPS[p+1]?LV_STEPS[p+1].from:1.0001,u=clamp((t-S.from)/(nx-S.from));
+    const L=N?{tx:16,cx:16,cy:58,cw:368,wrap:52,px:200,py:640,ps:140,mx:16,my:352,mw:368,ex:16,ey:656,ew:368,sx:16,sw:368,sy:794}
              :{tx:20,cx:20,cy:62,cw:250,wrap:36,px:340,py:318,ps:150,mx:440,my:76,mw:260,ex:440,ey:208,ew:260,sx:20,sw:680,sy:372};
     const br=lvKey(BR,t),sp=lvKey(SP,t),gr=lvKey(GR,t);
     let s=lvTx(L.tx,26,S.t,'t-big','fill:var(--rec)')+lvTx(L.tx,42,S.k,'t-sm');
@@ -119,7 +119,7 @@ inits.living=()=>{
     s+=`<rect x="${L.cx}" y="${L.cy}" width="${L.cw}" height="270" rx="12" style="fill:var(--field);stroke:var(--line)"/>`+lvTx(L.cx+14,L.cy+21,LV_TXT.plan,'t-lbl');
     LV_TXT.zones.forEach((z,i)=>{const ry=L.cy+32+i*60,rh=i===3?52:54,on=i===zi,op=i===3&&p<5?.25:on?1:.5;
       s+=`<g style="opacity:${op}"><rect x="${L.cx+10}" y="${ry}" width="${L.cw-20}" height="${rh}" rx="8" style="fill:${ZC[i][1]};stroke:${on?ZC[i][0]:'var(--line)'};stroke-width:${on?2.4:1}"/><rect x="${L.cx+10}" y="${ry}" width="7" height="${rh}" rx="3" style="fill:${ZC[i][0]}"/>`;
-      s+=lvTx(L.cx+26,ry+19,z[0],'t-lbl')+wrapT(L.cx+26,ry+35,z[1],L.wrap,{cls:'t-xs',lh:12,style:'fill:var(--ink)'}).svg;
+      s+=lvTx(L.cx+26,ry+19,z[0],'t-lbl')+wrapT(L.cx+26,ry+35,z[1],i===3?L.wrap-8:L.wrap,{cls:'t-xs',lh:12,style:'fill:var(--ink)'}).svg;
       if(i===3&&p===5)s+=lvSheet(L.cx+L.cw-50,ry+8,36*ease(ramp(u,0,.4))+.01);
       s+='</g>'});
     /* the person, with props by step */
@@ -127,7 +127,7 @@ inits.living=()=>{
     s+=`<line x1="${f1(L.px-L.ps*.4)}" x2="${f1(L.px+L.ps*.45)}" y1="${L.py}" y2="${L.py}" style="stroke:var(--line);stroke-width:2"/>`;
     s+=person(L.px,L.py,L.ps,{col:'var(--brand)',lean,breath:p===3?(Math.sin(t*90)+1)/2:0});
     const hx=L.px+lean*L.ps*.18,hy=L.py-L.ps*(.9-.08*lean);
-    if(p===3){s+=lvFan(hx+L.ps*.42,hy+L.ps*.06,L.ps*.13,ph)+lvTx(hx+L.ps*.42,hy+L.ps*.36,LV_TXT.fan,'t-xs','fill:var(--air-ink)','middle')+lvTx(hx,hy-L.ps*.14,LV_TXT.lips,'t-xs','fill:var(--air-ink)','middle')}
+    if(p===3){const fx=hx+L.ps*.3,fy=hy+L.ps*.06;s+=lvFan(fx,fy,L.ps*.13,ph)+lvTx(fx+14,fy+4,LV_TXT.fan,'t-xs','fill:var(--air-ink)')+lvTx(hx-10,hy-L.ps*.14,LV_TXT.lips,'t-xs','fill:var(--air-ink)','end')}
     if(p===4){s+=lvPhone(hx-L.ps*.36,hy+L.ps*.12,L.ps*.16,ph)+lvTx(hx-L.ps*.36,hy-L.ps*.1,LV_TXT.team,'t-xs','fill:var(--rec)','middle')}
     /* symptom meters */
     [br,sp].forEach((v,i)=>{const y=L.my+i*44;s+=lvTx(L.mx,y,LV_TXT.meters[i],'t-sm','fill:var(--ink)')+`<rect x="${L.mx}" y="${y+7}" width="${L.mw}" height="12" rx="6" style="fill:var(--panel-2)"/><rect x="${L.mx}" y="${y+7}" width="${f1(L.mw*v)}" height="12" rx="6" style="fill:${v>.55?'var(--warn)':'var(--rec)'}"/>`});
@@ -153,7 +153,7 @@ inits.living=()=>{
   const vol=(m,tau)=>{const B=PB[m],b=B.ti+B.te,q=tau%b;return q<B.ti?{v:B.ee+(B.ei-B.ee)*ease(q/B.ti),inn:true}:{v:B.ee+(B.ei-B.ee)*dec((q-B.ti)/B.te),inn:false}};
   function pdraw(t){
     const N=vb(psvg,'720 300','400 520');
-    const L=N?{lx:200,ly:22,ls:150,st:212,gx:46,gy:244,gw:338,gh:170,ax:0}:{lx:118,ly:34,ls:180,st:262,gx:262,gy:30,gw:300,gh:210,ax:574};
+    const L=N?{lx:200,ly:40,ls:150,st:222,gx:46,gy:262,gw:338,gh:160,ax:0}:{lx:118,ly:44,ls:176,st:256,gx:262,gy:30,gw:300,gh:210,ax:574};
     const Y=v=>L.gy+L.gh-(v+.5)/1.55*L.gh,X=tau=>L.gx+tau/TT*L.gw,tau=t*TT,cur=vol(mode,tau),B=PB[mode];
     let s=`<defs>${marker('lvPa','var(--air)',6)}</defs>`;
     /* lungs swell with the trace */
@@ -161,7 +161,7 @@ inits.living=()=>{
     s+=lungs(L.lx,L.ly,L.ls,{breathe:fill,hyper:mode?.3-.2*fill:.45,tree:true});
     const ay=L.ly-4,dir=cur.inn?1:-1;
     for(let i=0;i<3;i++){const k=(tau*.9+i/3)%1,yy=cur.inn?ay-24+k*20:ay-4-k*(mode?30:20);s+=`<path d="M${f1(L.lx-8+i*8)} ${f1(yy)}v${f1(dir*8)}" style="stroke:var(--air);stroke-width:${mode&&!cur.inn?1.4:2.4};opacity:${f1(1-k)}" marker-end="url(#lvPa)"/>`}
-    s+=lvTx(L.lx,L.st,cur.inn?LV_TXT.plbIn:mode?LV_TXT.plbOutP:LV_TXT.plbOutO,'t-sm','fill:var(--air-ink)','middle');
+    s+=wrapT(L.lx,L.st,cur.inn?LV_TXT.plbIn:mode?LV_TXT.plbOutP:LV_TXT.plbOutO,N?50:26,{cls:'t-sm',lh:14,anchor:'middle',style:'fill:var(--air-ink)'}).svg;
     /* the trace */
     s+=axes(L.gx,L.gy,L.gw,L.gh,{xt:[],yt:[],grid:false})+lvTx(L.gx,L.gy-8,LV_TXT.plbAxis,'t-xs')+lvTx(L.gx+L.gw,L.gy+L.gh+15,LV_TXT.plbTime,'t-xs','','end');
     [[PB[0].ee,'var(--muted)'],[PB[0].ei,'var(--muted)']].forEach(q=>s+=`<line x1="${L.gx}" x2="${L.gx+L.gw}" y1="${f1(Y(q[0]))}" y2="${f1(Y(q[0]))}" class="grid"/>`);
@@ -175,7 +175,7 @@ inits.living=()=>{
       s+=`<line x1="${L.gx}" x2="${L.gx+L.gw}" y1="${f1(ee)}" y2="${f1(ee)}" style="stroke:var(--air);stroke-dasharray:2 3"/><line x1="${L.gx}" x2="${L.gx+L.gw}" y1="${f1(ei)}" y2="${f1(ei)}" style="stroke:var(--air);stroke-dasharray:2 3"/>`;
       if(N){s+=lvTx(L.gx,L.gy+L.gh+40,LV_TXT.plbRowEEV,'t-sm','fill:var(--ink)')+lvTx(L.gx,L.gy+L.gh+60,LV_TXT.plbRowEIV,'t-sm','fill:var(--ink)')+lvTx(L.gx,L.gy+L.gh+80,LV_TXT.plbRowVt,'t-sm','fill:var(--ink)')}
       else{s+=lvTx(L.ax,ee+4,LV_TXT.plbEEVv,'t-lbl','fill:var(--air-ink)')+lvTx(L.ax,ee+18,LV_TXT.plbEEV,'t-xs')+lvTx(L.ax,ei+4,LV_TXT.plbEIVv,'t-lbl','fill:var(--air-ink)')+lvTx(L.ax,ei+18,LV_TXT.plbEIV,'t-xs')+
-        lvTx(L.ax,L.gy+L.gh+2,LV_TXT.plbVt+' '+LV_TXT.plbVtv,'t-xs','fill:var(--ink)')}}
+        lvTx(L.ax,(ee+ei)/2+4,LV_TXT.plbVtv,'t-lbl','fill:var(--air-ink)')+lvTx(L.ax,(ee+ei)/2+18,LV_TXT.plbVt,'t-xs')}}
     psvg.innerHTML=s;
   }
   function setMode(m){mode=m;$$('[data-lvplb]',tog).forEach(b=>b.setAttribute('aria-pressed',+b.dataset.lvplb===m?'true':'false'));pnote.innerHTML=noteHTML(LV_TXT.plbNote[m]);pdraw(+prg.value)}
@@ -188,9 +188,9 @@ inits.living=()=>{
   const branch=(S,W)=>S>95&&W>=84?0:(S<92||(S<=95&&W<84))?2:1;
   function box(x,y,w,h,ti,sub,on,col,mx){const op=on?1:.5;
     return `<g style="opacity:${op}"><rect x="${f1(x)}" y="${f1(y)}" width="${f1(w)}" height="${f1(h)}" rx="9" style="fill:${on?col[1]:'var(--panel)'};stroke:${on?col[0]:'var(--line)'};stroke-width:${on?2.2:1}"/>`+
-      wrapT(x+10,y+18,ti,mx,{cls:'t-lbl',lh:15}).svg+wrapT(x+10,y+18+15*Math.ceil(ti.length/mx)+2,sub,Math.round(mx*1.3),{cls:'t-xs',lh:12,style:'fill:var(--ink)'}).svg+'</g>'}
+      (T1=>T1.svg+wrapT(x+10,y+18+T1.h+2,sub,Math.round(mx*1.3),{cls:'t-xs',lh:12,style:'fill:var(--ink)'}).svg)(wrapT(x+10,y+18,ti,mx,{cls:'t-lbl',lh:15}))+'</g>'}
   function fdraw(){
-    const N=vb(fsvg,'720 340','400 650'),S=+fs.value,W=+fw.value,H=+fh.value,b=branch(S,W);
+    const N=vb(fsvg,'720 340','400 660'),S=+fs.value,W=+fw.value,H=+fh.value,b=branch(S,W);
     const G=['var(--rec)','var(--rec-soft)'],A=['var(--warn)','var(--warn-soft)'];
     let s=`<defs>${marker('lvFa','var(--muted)',6)}${marker('lvFb','var(--rec)',6)}</defs>`;
     /* altitude column */
@@ -198,11 +198,11 @@ inits.living=()=>{
     s+=`<line x1="${C.x}" x2="${C.x}" y1="${C.top-10}" y2="${C.sea}" style="stroke:var(--muted);stroke-width:1.6" marker-start="url(#lvFa)"/>`;
     s+=`<line x1="${C.x-6}" x2="${C.x+6}" y1="${C.sea}" y2="${C.sea}" style="stroke:var(--muted);stroke-width:1.6"/>`+lvTx(C.lx,C.sea+4,LV_TXT.altSea,'t-sm');
     const y8=Ya(2438),y10=Ya(3048);
-    s+=`<line x1="${C.x-6}" x2="${C.x+(N?340:190)}" y1="${f1(y8)}" y2="${f1(y8)}" style="stroke:var(--warn);stroke-width:1.6;stroke-dasharray:5 3"/>`+lvTx(C.lx,y8-6,LV_TXT.alt8,'t-xs','fill:var(--ink);font-weight:600')+lvTx(C.lx,y8+12,LV_TXT.alt8b,'t-xs');
+    s+=`<line x1="${C.x-6}" x2="${C.x+(N?340:190)}" y1="${f1(y8)}" y2="${f1(y8)}" style="stroke:var(--warn);stroke-width:1.6;stroke-dasharray:5 3"/>`+lvTx(C.lx,y8-6,LV_TXT.alt8,'t-xs','fill:var(--ink);font-weight:600')+wrapT(C.lx,y8+12,LV_TXT.alt8b,N?50:21,{cls:'t-xs',lh:12}).svg;
     s+=`<line x1="${C.x-6}" x2="${C.x+6}" y1="${f1(y10)}" y2="${f1(y10)}" style="stroke:var(--muted);stroke-width:1.6"/>`+lvTx(C.lx,y10-6,LV_TXT.alt10,'t-xs','fill:var(--ink);font-weight:600')+lvTx(C.lx,y10+8,LV_TXT.alt10b,'t-xs');
     /* aircraft on the cabin line */
     const px=N?C.x+300:C.x+170;s+=`<path d="M${px-22} ${f1(y8-4)}h36l8 -4h4l-4 6h-44z M${px-6} ${f1(y8-4)}l-8 -10h6l12 10z" style="fill:var(--brand)"/>`;
-    const hy=N?y8+44:y8+62;s+=`<rect x="${C.lx-6}" y="${f1(hy-14)}" width="${N?250:176}" height="50" rx="8" style="fill:var(--dx-soft)"/>`+lvTx(C.lx+2,hy+1,LV_TXT.hct1,'t-xs','fill:var(--dx);font-weight:700')+lvTx(C.lx+2,hy+15,LV_TXT.hct2,'t-xs','fill:var(--ink)')+lvTx(C.lx+2,hy+29,LV_TXT.hct3,'t-xs','fill:var(--ink)');
+    const hy=N?y8+40:y8+64;s+=`<rect x="${C.lx-6}" y="${f1(hy-14)}" width="${N?250:176}" height="50" rx="8" style="fill:var(--dx-soft)"/>`+lvTx(C.lx+2,hy+1,LV_TXT.hct1,'t-xs','fill:var(--dx);font-weight:700')+lvTx(C.lx+2,hy+15,LV_TXT.hct2,'t-xs','fill:var(--ink)')+lvTx(C.lx+2,hy+29,LV_TXT.hct3,'t-xs','fill:var(--ink)');
     /* the flow chart */
     if(!N){const ax=250,aw=460;
       s+=`<rect x="${ax}" y="28" width="${aw}" height="46" rx="9" style="fill:var(--panel-2)"/>`+lvTx(ax+12,47,LV_TXT.flowA,'t-lbl')+lvTx(ax+12,64,LV_TXT.flowAs,'t-xs');
