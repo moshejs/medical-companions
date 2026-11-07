@@ -311,7 +311,7 @@ inits.frontier=()=>{
     if(p===3){s+=`<rect x="170" y="262" width="34" height="44" rx="6" style="fill:var(--panel);stroke:var(--rx);stroke-width:1.6"/><rect x="173" y="${f1(268+30*ramp(u,.2,.95))}" width="28" height="${f1(Math.max(0,34-30*ramp(u,.2,.95)))}" rx="4" style="fill:var(--rx-soft)"/>`;
       s+=`<path d="M187 306Q190 330 262 330" style="stroke:var(--rx);stroke-width:1.6;fill:none;opacity:${f1(S.drip)}"/><text x="187" y="346" class="t-xs t-mid" style="fill:var(--ink)">${T.iv}</text>`;
       s+=`<rect x="20" y="268" width="96" height="40" rx="10" style="fill:var(--muscle);opacity:${f1(.25+.4*S.aav)}"/><text x="68" y="324" class="t-xs t-mid" style="fill:var(--ink)">${T.aav}</text>`;
-      for(let i=0;i<4;i++){const q=(t*6+i/4)%1;s+=`<circle cx="${f1(lerp(116,262,q))}" cy="${f1(290-q*6)}" r="2" style="fill:var(--good);opacity:${f1(S.aav*.5*(1-q))}"/>`}}
+      for(let i=0;i<4;i++){const q=(t*6+i/4)%1;s+=`<circle cx="${f1(lerp(116,262,q))}" cy="${f1(lerp(310,326,q))}" r="2" style="fill:var(--good);opacity:${f1(S.aav*.5*(1-q))}"/>`}}
     if(S.both)s+=`<text x="132" y="270" class="t-xs t-mid" style="fill:var(--rec);font-weight:600">${T.needL}</text><text x="346" y="214" class="t-xs t-mid" style="fill:var(--rec);font-weight:600">${T.needG}</text>`;
     s+=`<text x="14" y="382" class="t-sm" style="fill:var(--ink)">${S.lbl}</text>`;
     s+=frPanel(L,FA_P[p],u);
