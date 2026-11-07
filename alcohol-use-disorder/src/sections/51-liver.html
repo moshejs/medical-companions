@@ -1,0 +1,91 @@
+<!-- ================= 5.1 THE LIVER: FATTY LIVER TO CIRRHOSIS ================= -->
+<style>
+#m-liver .lvcalc{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px 16px}
+#m-liver .lvcalc label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;min-width:0}
+#m-liver .lvcalc input,#m-liver .lvcalc select{font:inherit;font-weight:400;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%;min-width:0}
+#m-liver .lvout{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+#m-liver .lvout .big-num{color:var(--liver)}
+#m-liver .card>.ev,#m-liver .card>.tag{align-self:flex-start}
+#m-liver .lvbar{display:flex;flex-direction:column;gap:4px;font:500 12.5px var(--mono);color:var(--muted)}
+#m-liver .lvbar span{display:flex;align-items:center;gap:8px}
+#m-liver .lvbar i{display:inline-block;height:10px;border-radius:5px;background:var(--liver);flex:none}
+#m-liver .lvbar i.alt{background:var(--brand)}
+#m-liver td,#m-liver th{vertical-align:top}
+</style>
+<section class="mod" id="m-liver" data-mod="liver" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Body, family &amp; care</p><h2>The liver: fatty liver to cirrhosis</h2>
+    <p class="lede">Alcohol-associated liver disease runs from fat in the liver cells, through inflammation and scarring, to cirrhosis. Scrub through the stages, see how many people who drink heavily reach each one, and switch on “stops drinking” to see what changes. [[Singal2018ACG,Seitz2018NRDP]]</p></div>
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A liver changes as heavy drinking continues: fat droplets appear, then inflammation dots, then fibrosis strands, then nodules and a shrunken, bumpy outline of cirrhosis. Beside it, 100 person icons fill in to show about 90 with fatty liver, about 30 with steatohepatitis, and smaller ranges with fibrosis and cirrhosis. With the stops-drinking switch on, the fat clears at early stages, and at the cirrhosis stage a chart shows better group survival with abstinence."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">Play</button><button class="btn" id="lvAbst" aria-pressed="false">Stops drinking</button><label class="stage-cap tl" for="lvT">Heavy drinking continues <input type="range" id="lvT" min="0" max="1" step="0.001" value="0.25"></label></div>
+      <div class="readout" id="lvRead"></div>
+      <p class="stage-cap">Schematic, not to scale. Time is not drawn to a scale: the pace differs greatly between people, and genetic and other factors explain much of that variation. Icon counts are our rounding of the ACG percentages; they are population statistics, not a forecast for any one person. [[Singal2018ACG,Seitz2018NRDP]]</p>
+    </div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+
+  <p class="callout"><b>Stopping helps at every stage, and stopping safely matters.</b> Abstinence is the most effective way to prevent progression and the best treatment for all stages of alcohol-associated liver disease. [[Singal2018ACG,Seitz2018NRDP]] A person who has been drinking heavily every day should not stop suddenly alone: <b>get medical help to stop safely</b>, because withdrawal can cause seizures or confusion (see <a href="#" data-go="withdrawal">the withdrawal timeline</a>). Medicines for alcohol use disorder can be used in many people with liver disease, as set out in <a href="#" data-go="medicines">approved medicines</a>. [[Jophlin2024ACG]]</p>
+
+  <h3 class="sub">Who gets advanced disease, and why</h3>
+  <div class="cards">
+    <div class="card"><span class="tag liver">Pattern</span><h4>Daily drinking</h4><p>In a Danish cohort of 55,917 adults aged 50–64, men who drank daily had a hazard ratio for alcohol-related cirrhosis of 3.65 (95% CI 2.39–5.55) versus drinking 2–4 days a week; no cases occurred among lifetime abstainers. [[Askgaard2015JHep]] A 2023 meta-analysis found daily drinking (same amount) had a pooled RR of 1.71 in men and 1.56 in women. [[LlamosasFalcon2023]]</p></div>
+    <div class="card"><span class="tag liver">Sex</span><h4>Women at the same intake</h4><p>At the same average intake, women have a higher risk of cirrhosis than men, and the dose-response is steeper for death than for illness. [[Rehm2010Cirrhosis]]</p></div>
+    <div class="card"><span class="tag liver">Weight</span><h4>Obesity</h4><p>Obesity is one of the most important environmental risk factors for cirrhosis in people who drink heavily: being overweight for at least 10 years roughly doubles the risk. [[Singal2018ACG]]</p></div>
+    <div class="card"><span class="tag warn">Diagnosis</span><h4>Often found late</h4><p>Most people are diagnosed at advanced stages. In a biopsy cohort, half of people with clinically “early” disease already had severe fibrosis or cirrhosis, with 45% 10-year mortality versus 0% for milder fibrosis. [[Singal2018ACG,Lackner2017JHep]] An AST:ALT ratio above 2 points towards advanced alcohol-related liver disease, not heavy drinking itself. [[Cohen1979SGOTSGPT,Nyblom2004ASTALT]]</p></div>
+  </div>
+
+  <h3 class="sub">Alcohol-associated hepatitis</h3>
+  <p class="prose">Alcohol-associated hepatitis (AH; older name “alcoholic hepatitis”) is a sudden, serious flare of inflammation on top of heavy drinking. It presents with rapid onset or worsening of jaundice. [[Singal2018ACG,Crabb2020AASLD]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Feature</th><th>What the research reports</th></tr></thead>
+    <tbody>
+      <tr><td>Presentation</td><td>Rapid onset or worsening of jaundice; severe cases can progress to acute-on-chronic liver failure. [[Singal2018ACG]]</td></tr>
+      <tr><td>Short-term mortality</td><td>1-month mortality 20–50%, depending on the number of organ failures outside the liver. [[Singal2018ACG]] In a global cohort of 2,581 people in 85 centres, 20% died by 28 days and 30.9% by 90 days (population statistics). [[MoralesArraez2022]]</td></tr>
+      <tr><td>Liver blood tests</td><td>An AST:ALT ratio above 2 was found in 70% of people with alcohol-related hepatitis and cirrhosis in a 1979 series. [[Cohen1979SGOTSGPT]] Bilirubin and prothrombin time predicted death in the original 1978 trial. [[Maddrey1978]]</td></tr>
+      <tr><td>Severity scores</td><td>Severe AH: Maddrey discriminant function above 32 (ACG wording; trials used ≥32) or MELD above 20. [[Singal2018ACG,Louvet2007Lille]]</td></tr>
+      <tr><td>Steroid response</td><td>Lille score at day 7 of corticosteroids: ≥0.45 is “nonresponse” (40% of treated people; 6-month survival 25% versus 85%). [[Louvet2007Lille]]</td></tr>
+      <tr><td>Long term</td><td>Long-term mortality depends on the underlying liver disease and on abstinence. [[Singal2018ACG]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Try it: Maddrey, MELD and Lille, as published</h3>
+  <p class="callout"><b>A teaching calculator, not a clinical tool.</b> It shows how the published formula and thresholds work with made-up numbers. It is not for interpreting your own or anyone’s results: real decisions need the whole clinical picture and a hepatology team. The Maddrey formula is the one published in the 1989 methylprednisolone trial: 4.6 × (prothrombin time − control time, in seconds) + bilirubin in mg/dL (µmol/L ÷ 17.1). [[Carithers1989]] The MELD formula is not reproduced here: enter a MELD value to compare it with the published threshold. [[Kamath2001MELD,Singal2018ACG]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="lvcalc">
+        <label for="lvPt">Prothrombin time (s)<input type="number" id="lvPt" min="8" max="60" step="0.1" value="22"></label>
+        <label for="lvCtl">Control time (s)<input type="number" id="lvCtl" min="8" max="20" step="0.1" value="12"></label>
+        <label for="lvBil">Bilirubin<input type="number" id="lvBil" min="0" max="900" step="0.1" value="8"></label>
+        <label for="lvUnit">Bilirubin unit<select id="lvUnit"><option value="mg">mg/dL</option><option value="um">µmol/L</option></select></label>
+        <label for="lvMeld">MELD (if known)<input type="number" id="lvMeld" min="6" max="40" step="1" placeholder="optional"></label>
+        <label for="lvLille">Lille at day 7 of steroids<select id="lvLille"><option value="">Not yet assessed</option><option value="r">Below 0.45 (response)</option><option value="n">0.45 or higher (nonresponse)</option></select></label>
+      </div>
+      <div class="scroll"><svg id="lvCalcSvg" viewBox="0 0 720 210" style="min-width:560px" role="img" aria-label="A half-dial gauge shows the Maddrey score with the published threshold of 32 marked; beside it, bars compare 6-month survival for Lille responders and nonresponders as published."></svg></div>
+      <div class="ctrls"><button class="btn ghost" id="lvEx1">Example: mild</button><button class="btn ghost" id="lvEx2">Example: severe</button></div>
+    </div>
+    <aside class="note" id="lvCalcNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Score</th><th>Inputs</th><th>Published threshold</th><th>How well it predicts</th></tr></thead>
+    <tbody>
+      <tr><td>Maddrey discriminant function</td><td>Prothrombin time above control, bilirubin [[Carithers1989]]</td><td>&gt;32 (ACG); ≥32 in trials [[Singal2018ACG,Louvet2007Lille]]</td><td>≥32: about 20–50% 30-day mortality. [[Singal2018ACG]] Lowest accuracy in the global AH study (AUROC 0.701 for 28-day death); the authors suggested it should no longer be used for prognosis. [[MoralesArraez2022]]</td></tr>
+      <tr><td>MELD</td><td>Bilirubin, creatinine, INR (and originally the cause of liver disease) [[Kamath2001MELD]]</td><td>&gt;20 flags severe AH [[Singal2018ACG]]</td><td>3-month mortality c-statistic 0.78–0.87 in its validation cohorts. [[Kamath2001MELD]] In AH, 30-day c-statistic 0.83 versus 0.74 for Maddrey; MELD 21 gave 75% sensitivity and specificity for 90-day death. [[Dunn2005MELD]]</td></tr>
+      <tr><td>Lille model</td><td>Age, kidney function, albumin, prothrombin time, bilirubin and its change by day 7 of steroids [[Louvet2007Lille]]</td><td>≥0.45 = nonresponse (ACG: at 4–7 days) [[Louvet2007Lille,Singal2018ACG]]</td><td>AUROC 0.89 for 6-month death. [[Louvet2007Lille]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">The trials behind today’s care</h3>
+  <p class="prose">Doses below are quoted as the ACG guideline published them, not as instructions: “Prednisolone is used in a dose of 40 mg per day for a total duration of 4 weeks”, with methylprednisolone 32 mg/day by vein for people unable to take tablets. [[Singal2018ACG]]</p>
+  <div class="cards">
+    <div class="card"><span class="tag rx">1989 · RCT</span><h4>Methylprednisolone trial</h4><p>In severe AH (Maddrey &gt;32 or spontaneous encephalopathy), 28-day mortality was 35% (11/31) with placebo versus 6% (2/35) with methylprednisolone. [[Carithers1989]]</p>
+      <div class="lvbar"><span><i style="width:70px"></i>placebo 35%</span><span><i class="alt" style="width:12px"></i>methylprednisolone 6%</span></div></div>
+    <div class="card"><span class="tag rx">2015 · STOPAH</span><h4>Prednisolone or pentoxifylline</h4><p>1,103 people, 2×2 factorial. 28-day mortality: 17% placebo–placebo, 14% prednisolone, 19% pentoxifylline, 13% both. Prednisolone OR 0.72 (95% CI 0.52–1.01; P=0.06), with no benefit at 90 days or 1 year; pentoxifylline OR 1.07. Serious infections: 13% with prednisolone versus 7% without. [[Thursz2015STOPAH]]</p>
+      <div class="scroll"><svg id="lvStopSvg" viewBox="0 0 300 120" role="img" aria-label="Bars of 28-day mortality in the four STOPAH arms: 17, 14, 19 and 13 percent."></svg></div></div>
+    <div class="card"><span class="tag rx">2011 · early transplant</span><h4>French–Belgian pilot</h4><p>26 highly selected people with a first episode of severe AH not responding to treatment (median Lille 0.88): 6-month survival 77% with early transplant versus 23% in matched controls. Fewer than 2% of people admitted with severe AH were selected; 3 recipients resumed drinking at 720–1,140 days. [[Mathurin2011NEJM]]</p>
+      <div class="lvbar"><span><i class="alt" style="width:154px"></i>early transplant 77%</span><span><i style="width:46px"></i>matched controls 23%</span></div></div>
+    <div class="card"><span class="tag rx">2018 · ACCELERATE-AH</span><h4>US early-transplant consortium</h4><p>12 centres, 147 recipients, median 55 days’ abstinence before transplant: 1-year survival 94%, 3-year 84%. Any alcohol use reached 25% at 1 year and 34% at 3 years; sustained use (10% and 17%) was linked to higher mortality (HR 4.59). [[Lee2018Gastro]] Most centres still require 6 months of abstinence before evaluation, a rule the ACG calls a conflicting predictor of return to drinking. [[Singal2018ACG]]</p></div>
+  </div>
+
+  <h3 class="sub">Liver deaths are rising</h3>
+  <p class="prose">US deaths from cirrhosis rose 65% from 1999 to 2016, to 34,174 a year, and people aged 25–34 had the fastest rise from 2009 (10.5% a year), “driven entirely by alcohol related liver disease”. [[Tapper2018BMJ]] Deaths with alcohol-associated liver disease as the underlying cause rose from 24,106 in 2019 to 29,504 in 2020. [[White2022JAMA]] Worldwide, cirrhosis caused more than 1.32 million deaths in 2017. [[GBD2017Cirrhosis]] Even so, abstinence remains the best treatment at every stage, and people with cirrhosis who stop drinking live longer as a group. [[Singal2018ACG,Xie2014HepatolRes]]</p>
+</section>

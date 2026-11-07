@@ -1,0 +1,73 @@
+<!-- ================= 4.3 GOUT, KIDNEYS & HEART ================= -->
+<section class="mod" id="m-links" data-mod="links" hidden>
+  <style>
+    #m-links .lk-chips{display:flex;flex-wrap:wrap;gap:6px}
+    #m-links .lk-chips .btn{font-size:13px;padding:6px 11px}
+    #m-links .lk-num{font:800 26px/1.1 var(--display);color:var(--terra);display:block}
+    #m-links .card h4 .ev{vertical-align:middle;margin-left:6px}
+    #m-links .lk-res{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+    #m-links .lk-res.null{color:var(--muted)} #m-links .lk-res.pos{color:var(--good)} #m-links .lk-res.mix{color:var(--warn)}
+    #m-links svg .clk:hover .lk-pill{stroke-width:2.4}
+  </style>
+  <div class="mhead"><p class="eyebrow">Part 4 · Diagnosis &amp; complications</p><h2>Gout, kidneys &amp; heart</h2>
+    <p class="lede">Gout rarely travels alone: kidney disease, kidney stones, high blood pressure and heart disease are all more common in people with gout. Each link in the network carries its number, its source and a label for whether urate is shown to cause it. Press play for four scenes, or pick any link to read it.</p></div>
+  <div class="ctrls" role="group" aria-label="What each link shows">
+    <span class="kicker">Each link shows</span>
+    <button class="btn" data-lkm="assoc" aria-pressed="true">How strong the association is</button>
+    <button class="btn" data-lkm="cause" aria-pressed="false">Whether urate causes it</button>
+  </div>
+  <div class="stepper" id="lkSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lkSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A network linking serum urate, gout, chronic kidney disease, kidney stones, high blood pressure, cardiovascular disease and metabolic syndrome, with a panel of data for the current scene"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lkPlay">Play</button><label class="stage-cap tl" for="lkT">Scenes <input type="range" id="lkT" min="0" max="1" step="0.002" value="0.12"></label></div>
+      <div class="lk-chips" id="lkEdges" role="group" aria-label="Read one link"></div>
+      <div class="legend"><span><span class="ev est">Established</span> urate (or the named factor) shown to cause it</span><span><span class="ev early">Early evidence</span> consistent signals, not proven</span><span><span class="ev hyp">Hypothesis</span> association only; Mendelian randomisation or trials do not support causation</span></div>
+      <p class="stage-cap">Node positions are schematic; the numbers are not. Each link's measure comes from a different study design and population, so they cannot be compared or multiplied. [[Roughley2015,Jing2015,Kramer2003,Choi2005,Clarson2015,Cipolletta2022,Choi2007AR,Jordan2019,Li2017]]</p></div>
+    <aside class="note" id="lkNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How often gout comes with company</h3>
+  <div class="ctrls" role="group" aria-label="Which group to show">
+    <span class="kicker">Show</span>
+    <button class="btn" data-lkc="gout" aria-pressed="true">Adults with gout</button>
+    <button class="btn" data-lkc="u10" aria-pressed="false">Adults with urate ≥ 10 mg/dL</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="lkCom" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="Bars of how many US adults with gout also have high blood pressure, kidney disease, obesity, diabetes, kidney stones, heart attack, heart failure and stroke, and metabolic syndrome with and without gout"></svg></div>
+    <p class="stage-cap">US national survey data. NHANES 2007–2008 (5,707 adults, self-reported physician diagnosis): every proportion was substantially higher than in people without gout, and at a serum urate of 10 mg/dL [595 µmol/L] or more the prevalence was 3 to 33 times that at below 4 mg/dL [238 µmol/L]; kidney stones were not reported for that group. Metabolic syndrome comes from NHANES III (1988–1994), revised NCEP/ATP III definition, age- and sex-adjusted OR 3.05. [[Zhu2012,Choi2007AR]]</p>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>Comorbidity arrives sooner</h4><p>In UK primary care, 39,111 people with new gout were compared with 39,111 matched controls. Gout was linked to a Charlson comorbidity index of 5 or more at diagnosis (adjusted OR 2.51). The median time to a first new comorbidity was 43 months, against 111 months in controls. After adjusting for comorbidities, all-cause mortality was modestly higher (HR 1.13). [[Kuo2016]]</p></div>
+    <div class="card"><h4>Weight and diabetes</h4><p>In 47,150 men followed for 12 years, gout risk rose with body mass index: RR 1.95 at 25–29.9, 2.33 at 30–34.9 and 2.97 at 35 or more. Losing at least 10 lb gave RR 0.61. [[Choi2005]] A meta-analysis of 10 prospective studies found RR 1.55 per 5 BMI units. [[Aune2014]] In high-risk men, gout at baseline carried RR 1.34 for new type 2 diabetes <span class="ev early">Early evidence</span> [[Choi2008Rheum]]</p></div>
+  </div>
+
+  <h3 class="sub">Does treating help? The trials</h3>
+  <p class="prose">The associations are strong. The question trials ask is different: does lowering urate, or calming inflammation, change kidney or heart outcomes? Urate-lowering therapy treats gout. It has not been shown to protect the kidney or heart in people who do not have gout. [[Chen2020,Badve2020,Doria2020,Mackenzie2022]]</p>
+  <div class="cards">
+    <div class="card"><span class="lk-res null">Kidney · no slowing</span><h4>CKD-FIX</h4><p>363 people with stage 3–4 CKD, no gout and a high risk of progression (mean eGFR 31.7 mL/min/1.73 m², mean urate 8.2 mg/dL [≈ 488 µmol/L]) took allopurinol 100–300 mg/day or placebo for 104 weeks. eGFR fell by 3.33 vs 3.23 mL/min/1.73 m² a year, a difference of −0.10 (P = 0.85). Serious adverse events were 46% vs 44%. Enrolment stopped early, at 369 of 620 planned. [[Badve2020]]</p></div>
+    <div class="card"><span class="lk-res null">Kidney · no slowing</span><h4>PERL</h4><p>530 people with type 1 diabetes and early-to-moderate kidney disease took allopurinol or placebo for 3 years. Urate fell from 6.1 to 3.9 mg/dL [≈ 363 to 232 µmol/L] on allopurinol. Measured GFR after washout did not differ (difference 0.001 mL/min/1.73 m², P = 0.99), and albumin excretion was 40% higher with allopurinol. [[Doria2020]]</p></div>
+    <div class="card"><span class="lk-res mix">Kidney · missed its endpoint</span><h4>FEATHER</h4><p>441 Japanese people with stage 3 CKD and asymptomatic hyperuricaemia took febuxostat or placebo for 108 weeks. The eGFR slope was 0.23 vs −0.47 mL/min/1.73 m² a year, a difference of 0.70 (P = 0.1). A benefit appeared in the subgroup without proteinuria (P = 0.005), and gouty arthritis was rarer (0.91% vs 5.86%). [[Kimura2018]]</p></div>
+    <div class="card"><span class="lk-res mix">Kidney · open label</span><h4>FREED <span class="ev early">Early evidence</span></h4><p>1,070 older Japanese people with urate above 7.0 and up to 9.0 mg/dL [&gt; 416 to ≤ 535 µmol/L] and cardiovascular or kidney risk were randomised, open label. Febuxostat cut a composite endpoint (HR 0.750), driven mainly by "renal impairment" (16.2% vs 20.5%), a laboratory endpoint. [[Kojima2019]]</p></div>
+    <div class="card"><span class="lk-res null">Heart · no benefit</span><h4>ALL-HEART</h4><p>5,721 people aged 60 or over with ischaemic heart disease and no gout were randomised to allopurinol up to 600 mg/day or usual care for a mean 4.8 years. MACE was 11.0% vs 11.3% (HR 1.04, 0.89–1.21), and all-cause death 10.1% vs 10.6%. [[Mackenzie2022]]</p></div>
+    <div class="card"><span class="lk-res null">Pooled · no hard-outcome benefit</span><h4>28 trials together</h4><p>In 28 randomised trials (6,458 people, at least 6 months), urate lowering did not reduce kidney failure (RR 0.97), MACE (RR 0.93) or death (RR 1.04). It slowed the fall in GFR slope by 1.18 mL/min/1.73 m² a year and lowered systolic pressure by 3.45 mm Hg. The authors judged the evidence insufficient to lower urate to protect the kidney or heart. [[Chen2020]]</p></div>
+    <div class="card"><span class="lk-res pos">Heart · benefit</span><h4>COLCOT</h4><p>4,745 people within 30 days of a heart attack took colchicine 0.5 mg daily or placebo for a median 22.6 months. The primary endpoint fell from 7.1% to 5.5% (HR 0.77, 0.61–0.96), with stroke HR 0.26. Serious pneumonia was 0.9% vs 0.4%. [[Tardif2019]]</p></div>
+    <div class="card"><span class="lk-res pos">Heart · benefit</span><h4>LoDoCo2</h4><p>5,522 people with chronic coronary disease took colchicine 0.5 mg daily or placebo for a median 28.6 months. The primary endpoint was 6.8% vs 9.6% (HR 0.69, 0.57–0.83). Non-cardiovascular death was 0.7 vs 0.5 per 100 person-years (HR 1.51, 0.99–2.31). [[Nidorf2020]]</p></div>
+    <div class="card"><span class="lk-res null">Heart · neutral</span><h4>CLEAR SYNERGY</h4><p>7,062 people in 14 countries started colchicine or placebo soon after a heart attack and were followed for a median 3 years. The primary outcome was 9.1% vs 9.3% (HR 0.99, 0.85–1.16; P = 0.93), even though CRP fell by 1.28 mg/L at 3 months. Diarrhoea was 10.2% vs 6.6%. [[Jolly2025]]</p></div>
+    <div class="card"><span class="lk-res pos">Approved · June 2023</span><h4>LODOCO</h4><p>The FDA approved LODOCO (colchicine 0.5 mg once daily) on 16 June 2023 to reduce the risk of heart attack, stroke, coronary revascularisation and cardiovascular death in adults with established atherosclerotic disease or multiple risk factors. Its efficacy evidence is LoDoCo2. The label contraindicates it with strong CYP3A4 or P-gp inhibitors, in CrCl &lt; 15 mL/min and in severe hepatic impairment. [[FDA-Lodoco]]</p></div>
+    <div class="card"><span class="lk-res mix">Gout · observational</span><h4>Colchicine in people with gout <span class="ev early">Early evidence</span></h4><p>The colchicine heart trials enrolled people with coronary disease, not gout. [[Tardif2019,Nidorf2020,Jolly2025]] In 99,800 people starting urate-lowering therapy in UK primary care, those also given colchicine prophylaxis had fewer heart attacks and strokes within 180 days (28.8 vs 35.3 per 1000 person-years; HR 0.82). [[Cipolletta2025]] In CANTOS, canakinumab cut gout flares at every urate level without changing urate. [[Solomon2018]]</p></div>
+  </div>
+
+  <h3 class="sub">Medicines for the other conditions</h3>
+  <div class="cards">
+    <div class="card"><span class="lk-res pos">Lower urate and gout risk</span><h4>SGLT2 inhibitors <span class="ev early">Early evidence</span></h4><p>Across 62 trials in type 2 diabetes they lowered urate by about 0.63 mg/dL [−37.73 µmol/L], with the effect lost in CKD subgroups. [[Zhao2018]] New gout was less common than on GLP-1 agonists (4.9 vs 7.8 per 1000 person-years; HR 0.64), and a meta-analysis of 5 trials gave HR 0.55. [[Fralick2020,Banerjee2023]] In people who already had gout, recurrent flares fell (RR 0.66 vs DPP-4 inhibitors), and recurrent stones fell too (rate ratio 0.67). [[McCormick2023,McCormick2024]]</p></div>
+    <div class="card"><span class="lk-res pos">Lowers urate a little</span><h4>Losartan</h4><p>Among people with hypertension, losartan carried RR 0.81 for new gout and calcium-channel blockers RR 0.87, while diuretics carried 2.36, β-blockers 1.48, ACE inhibitors 1.24 and other ARBs 1.29. [[Choi2012BMJ]] In 13 people with gout, losartan 50 mg lowered urate from 538 to 491 µmol/L [≈ 9.0 to 8.3 mg/dL]; irbesartan did not. [[Wurzner2001]] ACR 2020 conditionally recommends choosing losartan when feasible. [[FitzGerald2020]]</p></div>
+    <div class="card"><span class="lk-res null">Raise gout risk</span><h4>Diuretics</h4><p>In 91,530 UK cases, the adjusted OR for gout with current use was 2.64 for loop diuretics, 1.70 for thiazides, 2.30 for thiazide-like diuretics and 4.65 for a loop plus a thiazide; potassium-sparing diuretics were neutral (1.06). [[Bruderer2014]] ACR 2020 conditionally recommends switching hydrochlorothiazide to another antihypertensive when feasible. [[FitzGerald2020]]</p></div>
+    <div class="card"><span class="lk-res mix">A safety signal</span><h4>Febuxostat and the heart</h4><p>In CARES (people with gout and cardiovascular disease), febuxostat was noninferior to allopurinol for MACE but cardiovascular death was higher (HR 1.34). [[White2018]] FAST found no excess (HR 0.85). [[Mackenzie2020]] The US label carries a boxed warning and restricts febuxostat to second line, and ACR 2020 conditionally recommends switching away from it after cardiovascular disease or a new event. [[FDA-Uloric,FitzGerald2020]]</p></div>
+  </div>
+
+  <div class="callout"><p><b>What the guidelines do with all this.</b> KDIGO 2024 says people with CKD and gout should be offered urate-lowering treatment (1C), preferring xanthine oxidase inhibitors, and suggests not lowering urate in CKD without gout just to slow the kidney's decline (2D). [[KDIGO2024]] ACR 2020 recommends against urate-lowering therapy for asymptomatic hyperuricaemia, including in people with CKD, cardiovascular disease, stones or hypertension; only 20% of people with asymptomatic urate above 9 mg/dL developed gout within 5 years. It does favour starting at a first flare when CKD stage ≥ 3, urate &gt; 9 mg/dL [535 µmol/L] or stones are present. [[FitzGerald2020]] The Hong Kong consensus asks that everyone with gout be screened for kidney disease and cardiovascular risk factors. [[Yip2023]] EULAR 2016 adjusts the allopurinol dose to kidney function. [[Richette2017]]</p></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Association is not causation. About <b>1 in 4</b> people with gout has CKD ≥ 3, and about 1 in 4 with CKD has gout. Allopurinol did <b>not</b> slow CKD in <b>CKD-FIX</b> or <b>PERL</b>, or prevent MACE in <b>ALL-HEART</b>. Urate causes only <b>gout and stones</b> convincingly. After a flare, CV event odds roughly double for 60 days (<b>OR 1.93</b>).</div>
+    <div class="pt"><b>In plain words</b>Gout often comes with kidney, blood pressure and heart problems, so checks for those are part of gout care. Doctors know these conditions are linked, but not that high urate itself harms the heart or kidneys. Lowering urate is for the gout. Some blood pressure and diabetes medicines help urate a little, and water pills can raise it, so it is worth asking before any change.</div>
+  </div>
+</section>

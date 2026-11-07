@@ -1,0 +1,123 @@
+<!-- ================= 1.2 CAUSES & RISK FACTORS ================= -->
+<style>
+#m-causes .cabar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-causes .cabar .btn{font-size:13px}
+#m-causes .cabar .btn i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+#m-causes .carange{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;max-width:560px}
+#m-causes .carange output{font:600 13px var(--mono);color:var(--brand)}
+#m-causes .card>.tag,#m-causes .card>.ev{align-self:flex-start}
+#m-causes td.can{font:600 13.5px var(--mono);white-space:nowrap}
+#m-causes #caOrBtns .btn{font-size:12.5px;padding:6px 10px}
+</style>
+<section class="mod" id="m-causes" data-mod="causes" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding COPD</p><h2>Causes &amp; risk factors</h2>
+    <p class="lede">Tobacco smoke is the biggest single cause of COPD, but not the only one: genes, how the lungs grew in childhood, smoke from cooking fires, polluted air, dust and fumes at work, and past infections all add risk. Watch each exposure pull a lifetime lung-function curve down, then compare the published risks and try the classic "stop smoking at age X" chart.</p></div>
+
+  <div class="stepper" id="caSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="caSvg" viewBox="0 0 720 400" role="img" aria-label="A pair of lungs beside a lifetime chart of lung function from birth to age 80. Step by step, genes, early-life events, tobacco smoke, household and outdoor air pollution and infections are added, each pulling the person's curve below the healthy one; the lungs redden, fill with mucus and lose air-sac walls. The last step replaces the curve with two roads to COPD: a normal start with a fast decline, and a low start with a normal decline."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="caPlay">Play</button><label class="stage-cap tl" for="caT">Timeline <input type="range" id="caT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Schematic, not to scale: the curves show a direction of change, not measured values, and the shaded band is a drawing aid, not a diagnostic cut-off. The two decline rates in the last step are the published means [[Lange2015]]. Lung growth and decline: [[Agusti2023]]</p>
+    </div>
+    <aside class="note" id="caNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Not only smoking</h3>
+  <div class="split2">
+    <div class="prose">
+      <p>Cigarette smokers have more respiratory symptoms and lung function abnormalities, a faster yearly fall in FEV1 and a higher COPD death rate than non-smokers [[Agusti2023]]. In a global meta-analysis, current smoking raised the odds of COPD 3.2-fold and ever smoking 2.3-fold [[Adeloye2022]], and in the Global Burden of Disease 2019 smoking accounted for 46.0% of the disability-adjusted life years lost to COPD [[Safiri2022]].</p>
+      <p>Yet the American Thoracic Society found that the share of COPD due to smoking ranged from 9.7% to 97.9% between studies and was below 80% in most, so a substantial share comes from other risk factors [[Eisner2010]]. An estimated 25–45% of people with COPD have never smoked [[Salvi2009]]; in the BOLD study it was 23.3% of people with moderate or worse COPD [[Lamprecht2011]].</p>
+    </div>
+    <div class="prose">
+      <p>GOLD 2023 states that in low- and middle-income countries COPD in non-smokers may account for up to 60–70% of cases, and that non-smoking risk factors account for over 50% of the global burden [[Agusti2023]]. Compared with COPD in smokers, COPD in non-smokers is more common in women and younger people, with similar or milder symptoms, more small-airway obstruction, less emphysema and a slower fall in lung function [[Agusti2023]].</p>
+      <p class="callout">Poverty and lower socioeconomic status are consistently linked with airflow obstruction and COPD, probably through pollution, crowding, poor nutrition and infections [[Agusti2023]]. The Lancet Commission expects tobacco-unrelated factors to overtake smoking as a share of COPD risk within two decades <span class="ev hyp">Hypothesis</span> [[Stolz2022]].</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Compare the published risks</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>Each odds ratio comes from a different study, population and adjustment, so they cannot be ranked against each other, added up or applied to one person. This chart is not for diagnosis or treatment decisions; it shows what the cited studies reported.</p>
+  <div class="cabar" id="caOrBtns" role="group" aria-label="Choose a risk factor to read about"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="caFor" viewBox="0 0 720 520" role="img" aria-label="A forest plot of odds ratios for COPD on a logarithmic scale from 1 to 70, one row per risk factor, each with its confidence interval where published; the chosen row is highlighted."></svg></div>
+      <p class="stage-cap">Odds ratios with 95% confidence intervals where the research pass gives them, on a log scale; 1 means no difference. The severe-asthma interval runs to 269 and is cut off at the edge. Sources in each row's note.</p>
+    </div>
+    <aside class="note" id="caForNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Share of COPD linked to an exposure</th><th>Figure</th><th>Source and setting</th></tr></thead>
+    <tbody>
+      <tr><th>Smoking</th><td class="can">46.0%</td><td>of COPD disability-adjusted life years worldwide, GBD 2019 [[Safiri2022]]</td></tr>
+      <tr><th>Ambient particulate matter</th><td class="can">20.7%</td><td>of COPD disability-adjusted life years worldwide, GBD 2019 [[Safiri2022]]</td></tr>
+      <tr><th>Work particulates, gases and fumes</th><td class="can">15.6%</td><td>of COPD disability-adjusted life years worldwide, GBD 2019 [[Safiri2022]]</td></tr>
+      <tr><th>Occupation</th><td class="can">14%</td><td>population-attributable fraction for COPD (13% for chronic bronchitis), ATS/ERS statement [[Blanc2019]]</td></tr>
+      <tr><th>Workplace exposures, US</th><td class="can">19.2% · 31.1%</td><td>of COPD overall, and among never smokers, NHANES III as cited by GOLD 2023 [[Agusti2023]]</td></tr>
+      <tr><th>Air pollution, LMICs</th><td class="can">about 50%</td><td>of the attributable risk for COPD in low- and middle-income countries, per GOLD 2023, with no apparent safe threshold [[Agusti2023]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">These shares overlap: one person can be exposed to several risks, so they do not add up to 100%.</p>
+
+  <h3 class="sub">Stop smoking at age X: the Fletcher–Peto picture</h3>
+  <div class="prose">
+    <p>Fletcher and Peto followed London working men and found that FEV1 falls gradually over life, but most non-smokers and many smokers never develop clinically significant airflow obstruction [[Fletcher1977]]. In susceptible people smoking caused irreversible obstruction; a susceptible smoker who stopped did not regain lost function, but further loss returned to the normal rate [[Fletcher1977]].</p>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool · illustrative</b>The curves are derived, not a published figure: the 4.00 L FEV1 at age 25 is an assumption made only to draw them, and the slopes are the Lung Health Study's measured average rates (62 mL a year in continuing smokers, 31 mL a year in sustained quitters, which that paper calls comparable to never smokers, and +47 mL in the first year after quitting) [[Scanlon2000]]. Real curves include growth and a plateau, and individual rates vary widely. Not for diagnosis or treatment decisions.</p>
+  <div class="lab">
+    <div class="stage">
+      <label class="carange" for="caQuit">Stops smoking at age <output id="caQuitV">45</output><input type="range" id="caQuit" min="26" max="76" step="1" value="45"></label>
+      <div class="scroll"><svg id="caFp" viewBox="0 0 720 380" role="img" aria-label="FEV1 in litres against age from 25 to 75. A slow line for never smokers or non-susceptible smokers, a steep line for a susceptible smoker who keeps smoking, and a third line that follows the steep one until the chosen quitting age, rises slightly in the first year, then runs parallel to the slow line."></svg></div>
+      <div class="readout" id="caFpRead"></div>
+    </div>
+    <aside class="note" id="caFpNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="kicker">Lung Health Study · 3,926 smokers</span><p class="big-num">31 vs 62</p><p>mL a year: later FEV1 decline in sustained quitters versus continuing smokers, after an average gain of 47 mL (2%) in the first year after quitting [[Scanlon2000]].</p></div>
+    <div class="card"><span class="kicker">14.5 years later</span><p class="big-num">8.83 vs 10.38</p><p>deaths per 1,000 person-years in the smoking-cessation group versus usual care (hazard ratio for usual care 1.18, 95% CI 1.02–1.37) [[Anthonisen2005]].</p></div>
+    <div class="card"><span class="kicker">British doctors · 50 years</span><p class="big-num">3 · 6 · 9 · 10</p><p>years of life expectancy gained by stopping at age 60, 50, 40 or 30, among men born 1900–1930; those who kept smoking died about 10 years earlier than lifelong non-smokers [[Doll2004]].</p></div>
+    <div class="card"><span class="kicker">Framingham Offspring</span><h4>Quitting helps at any age</h4><p>Smoking sped up lung function decline in both sexes, susceptibility varied widely, and quitting helped at any age, more so when earlier [[Kohansal2009]].</p></div>
+  </div>
+
+  <h3 class="sub">Two roads to COPD: lung-function trajectories</h3>
+  <div class="cabar" id="caLgMode" role="group" aria-label="Choose a cohort">
+    <span class="stage-cap">Show:</span>
+    <button class="btn" data-lg="lange" aria-pressed="true">Lange 2015: start low or fall fast</button>
+    <button class="btn" data-lg="tahs" aria-pressed="false">Tasmanian cohort: six trajectories</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="caLg" viewBox="0 0 720 360" role="img" aria-label="Either two groups of 100 people showing how many developed COPD 22 years later depending on their FEV1 before age 40, or bars for six lung-function trajectories from age 7 to 53 with their share of the cohort and their odds of COPD."></svg></div>
+      <p class="stage-cap" id="caLgCap"></p>
+    </div>
+    <aside class="note" id="caLgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Exposure by exposure</h3>
+  <div class="cards">
+    <div class="card"><span class="tag smoke">Tobacco</span><h4>Smoke, in all its forms</h4><p>GOLD 2023 also lists passive smoke, pipes, cigars, water pipes and marijuana as risk factors, and notes that smoking in pregnancy can alter fetal lung growth [[Agusti2023]]. In the Copenhagen City Heart Study (25 years), the absolute risk of COPD among continuous smokers was at least 25%, and 92% of COPD deaths occurred in people smoking at baseline [[Lokke2006]].</p><p>The Commission cites evidence that e-cigarette use in never-tobacco-smokers doubles or triples the risk of self-reported COPD, emphysema or chronic bronchitis, while stating that further studies are needed <span class="ev early">Early evidence</span> [[Stolz2022]].</p></div>
+    <div class="card"><span class="tag accent">Household air</span><h4>Cooking and heating fires</h4><p>About 3 billion people, half the world, are exposed to biomass smoke, against 1.01 billion who smoke tobacco, which suggests biomass may be the biggest COPD risk factor globally <span class="ev hyp">Hypothesis</span> [[Salvi2009]]. Solid fuel use was associated with COPD (odds ratio 2.80) and chronic bronchitis (2.32), with wood smoke during domestic work carrying the highest risk [[Kurmi2010]].</p><p>GOLD 2023 notes it is still unclear how far household air pollution, rather than other poverty-related exposures, explains this association [[Agusti2023]].</p></div>
+    <div class="card"><span class="tag air">Outdoor air</span><h4>Traffic and particles</h4><p>In UK Biobank (303,887 adults), each 5 µg/m³ more PM2.5 was associated with 83.13 mL lower FEV1 and more COPD (odds ratio 1.52) [[Doiron2019]]. GOLD 2023 says the risk is dose-dependent with no apparent safe threshold, and pollution also raises the risk of exacerbations, hospital admission and death [[Agusti2023]].</p><p>In Southern California, the share of 18-year-olds with low FEV1 was 4.9 times higher at the highest than the lowest PM2.5 exposure (7.9% vs 1.6%) [[Gauderman2004]]. As the air improved, low FEV1 at age 15 fell from 7.9% to 6.3% to 3.6% across three cohorts [[Gauderman2015]].</p></div>
+    <div class="card"><span class="tag dx">Work</span><h4>Dusts, gases and fumes</h4><p>The ATS concluded in 2010 that occupational exposures cause COPD, while outdoor pollution, secondhand smoke, biomass smoke and diet were associated with it but had not then met causation criteria [[Eisner2010]]. Occupational exposure to dust or smoke had a pooled odds ratio of 1.4 [[Adeloye2022]].</p></div>
+    <div class="card"><span class="tag rec">Early life</span><h4>Lungs that grew less</h4><p>Lungs grow until about age 20–25, earlier in females [[Agusti2023]]. GOLD 2023 lists prematurity, low birth weight, maternal smoking in pregnancy, repeated respiratory infections and poor nutrition as key determinants of peak lung function [[Agusti2023]]. In Tucson, infants in the lowest quarter of airway function at about 2 months still had FEV1 233 mL lower at age 22 [[Stern2007]].</p><p>FEV1 below 80% predicted at age 25–40 was found in 4–13% of three cohorts and went with earlier illness and higher mortality [[Agusti2017]].</p></div>
+    <div class="card"><span class="tag" style="background:var(--good-soft);color:var(--good)">Infections &amp; asthma</span><h4>TB, HIV and severe childhood asthma</h4><p>Past tuberculosis was associated with COPD (pooled odds ratio 3.05), most strongly in high-TB countries, never smokers and younger people [[Byrne2015]]. COPD prevalence among people with HIV was 10.6% [[Bigna2018]]. Children with severe asthma had a 32-fold higher adjusted risk of COPD by age 50, and 43% of that COPD group had never smoked [[Tai2014]].</p><p>GOLD 2023 cautions that abnormal lung development can cause asthma-like symptoms in children, so some may have been labelled as asthma [[Agusti2023]].</p></div>
+    <div class="card"><span class="tag rx">Genes</span><h4>Alpha-1 and many small effects</h4><p>The most important known genetic risk factor is SERPINA1 mutation causing alpha-1 antitrypsin deficiency. PiZZ is found in 0.12% of people with COPD, and from 1 in 408 people in Northern Europe to 1 in 1,274 in Eastern Europe [[Agusti2023]]. There is no increased COPD risk in MZ and SZ heterozygotes who do not smoke [[Agusti2023]].</p><p>Other variants each have small effects, but together may increase susceptibility [[Agusti2023]].</p><p><button class="btn" data-go="aatd">Go to 1.5 Alpha-1</button></p></div>
+    <div class="card"><span class="tag" style="background:var(--bad-soft);color:var(--bad)">Sex</span><h4>Are women more susceptible?</h4><p>Among people with early-onset COPD or under 20 pack-years, women had lower FEV1 (48.7% vs 55.8% predicted in the low-exposure group) and more severe disease than men, which suggests greater susceptibility to smoke, though other explanations are possible <span class="ev early">Early evidence</span> [[Sorheim2010]].</p></div>
+  </div>
+
+  <h3 class="sub">How many smokers develop COPD?</h3>
+  <div class="split2">
+    <div class="tbl"><table style="min-width:320px">
+      <thead><tr><th>Normal lung function after 25 years [[Lokke2006]]</th><th>Never smoked</th><th>Kept smoking</th></tr></thead>
+      <tbody>
+        <tr><th>Men</th><td class="can">96%</td><td class="can">59%</td></tr>
+        <tr><th>Women</th><td class="can">91%</td><td class="can">69%</td></tr>
+      </tbody>
+    </table></div>
+    <div class="prose">
+      <p>The answer depends on follow-up length and definition. An older review quoted only 15–20% of smokers developing airflow obstruction [[Petty2006]]; 25 years of follow-up in Copenhagen gave at least 25% [[Lokke2006]]; GOLD 2023 states that fewer than 50% of heavy smokers develop COPD [[Agusti2023]].</p>
+      <p>In 2019 an estimated 1.1 billion people smoked worldwide; the number of smokers fell by about 60 million between 2000 and 2018, but population growth cancelled out the benefit [[Stolz2022]].</p>
+      <p><button class="btn" data-go="quitting">Go to 3.4 Stopping smoking</button></p>
+    </div>
+  </div>
+</section>

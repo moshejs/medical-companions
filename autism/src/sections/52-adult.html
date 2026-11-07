@@ -1,0 +1,69 @@
+<!-- ================= 5.2 AUTISTIC ADULTS ================= -->
+<style>
+#m-adult .adb{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px}
+#m-adult .adb label{display:flex;gap:9px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14.5px;cursor:pointer;min-width:0}
+#m-adult .adb label:has(input:checked){border-color:var(--brand);background:var(--brand-soft)}
+#m-adult .adb input{margin-top:3px;accent-color:var(--brand);flex:none}
+#m-adult .adb small{display:block;color:var(--muted);font-size:12.5px}
+#m-adult .adout{display:flex;flex-direction:column;gap:10px}
+#m-adult .adout ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:14.5px}
+#m-adult .adout li b{display:block}
+#m-adult .card>.ev,#m-adult .card>.tag{align-self:flex-start}
+#m-adult .crisis{border:1px solid var(--bad);background:var(--bad-soft);border-radius:12px;padding:12px 14px;font-size:14.5px;max-width:80ch}
+#m-adult .crisis b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--bad);display:block;margin-bottom:3px}
+</style>
+<section class="mod" id="m-adult" data-mod="adult" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Living &amp; lifespan</p><h2>Autistic adults</h2>
+    <p class="lede">Autism does not end at 18. Follow one illustrative life from 16 to 75: the services cliff after school, work and study, home and relationships, masking and burnout, and ageing. Then switch to a life where autism is only recognised in adulthood.</p></div>
+  <div class="ctrls" role="group" aria-label="Path">
+    <span class="kicker">Path</span>
+    <button class="btn" data-adp="child" aria-pressed="true">Diagnosed in childhood</button>
+    <button class="btn" data-adp="late" aria-pressed="false">Diagnosed as an adult</button>
+  </div>
+  <div class="stepper" id="adSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="adSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A schematic lifespan from age 16 to 75 in three lanes: the level of formal services, which drops sharply at school exit; an energy line that dips into autistic burnout when masking and demands outweigh capacity, then recovers; and life events such as work, home, relationships, diagnosis and ageing. A battery shows energy at the current age and a side panel builds published percentages for the current stage."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="adPlay">Play</button><label class="stage-cap tl" for="adT">Age <input type="range" id="adT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <div class="readout" id="adRead"></div>
+      <p class="stage-cap"><b>Schematic.</b> One illustrative life per path, not a prediction for anyone. The shapes of the services and energy lines are drawn to show ideas from the cited studies; only the numbers in the side panel are published values, each from its own cohort and country.</p>
+    </div>
+    <aside class="note" id="adNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Workplace adjustments builder</h3>
+  <div class="prose"><p>Tick the barriers that apply to a job. The builder suggests adjustments that people commonly ask for, marks which ones have research behind them, and names the legal duty. It is a starting point for a conversation with an employer, not legal advice.</p></div>
+  <div class="calc">
+    <label for="adLaw">Where is the job?
+      <select id="adLaw"><option value="uk">Great Britain (Equality Act 2010)</option><option value="us">United States (ADA)</option><option value="other">Elsewhere</option></select></label>
+    <label for="adDisc">Has the person told the employer they are autistic?
+      <select id="adDisc"><option value="no">Not yet / undecided</option><option value="yes">Yes</option></select></label>
+  </div>
+  <div class="adb" id="adBar">
+    <label><input type="checkbox" data-adb="interview" checked><span>Job interviews<small>Fast questions, eye contact, small talk</small></span></label>
+    <label><input type="checkbox" data-adb="noise" checked><span>Open-plan noise and light<small>Phones, chatter, bright lighting</small></span></label>
+    <label><input type="checkbox" data-adb="rules"><span>Unwritten rules<small>Expectations nobody says out loud</small></span></label>
+    <label><input type="checkbox" data-adb="rota"><span>Changing rotas and tasks<small>Shifts or duties change at short notice</small></span></label>
+    <label><input type="checkbox" data-adb="verbal"><span>Spoken instructions<small>Long verbal briefings, nothing written</small></span></label>
+    <label><input type="checkbox" data-adb="social"><span>Meetings and social events<small>Expected to join, no agenda</small></span></label>
+  </div>
+  <div class="lab even">
+    <div class="note adout" id="adOut" aria-live="polite"></div>
+    <div class="stage"><div class="scroll"><svg id="adPlan" viewBox="0 0 400 240" role="img" aria-label="A bar for each ticked barrier showing how many suggested adjustments have research support and how many are common requests without trials."></svg></div>
+      <p class="stage-cap">Evidence-tagged adjustments come from a scoping review of 25 workplace studies and a qualitative study of autistic clinicians; the others are common requests that have not been tested in trials. [[Khalifa2020,Smith2025Adjustments]]</p></div>
+  </div>
+
+  <h3 class="sub">Life beyond the numbers</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Identity</span><h4>What a late diagnosis can mean</h4><p>Nine adults diagnosed after 50 had been treated for anxiety and depression, had felt isolated and "alien" growing up, and saw the diagnosis as positive: a "reconfiguration of self". [[Stagg2019]] Fourteen late-diagnosed women described "pretending to be normal" and professionals missing their autism because of their gender. [[Bargiela2016]] A scoping review found strong emotions after diagnosis, unclear routes to it and few services afterwards. [[Huang2020]]</p></div>
+    <div class="card"><span class="tag good">Work</span><h4>Strengths at work, without stereotypes</h4><p>A systematic review found no strong evidence for or against a workplace "autism advantage" such as attention to detail, and warned against stereotypes that may not fit the person. [[Bury2020]] What does help: job matching and support. In the Project SEARCH plus ASD Supports trial (49 students aged 18–21), 90% had competitive jobs 3 months after graduation against 6% of controls, and 87% kept them at 12 months. <span class="ev early">Early evidence</span> [[Wehman2017]] Employment predicted higher quality of life in 370 UK autistic adults. [[Mason2018QoL]]</p></div>
+    <div class="card"><span class="tag accent">Study</span><h4>University</h4><p>Evidence on university support is thin: a review found 20 articles describing just 69 autistic students, only two of them experimental. [[Gelbar2014]] Fourteen people who had left university named late or difficult diagnosis, lack of understanding, mental health, culture shock and no proactive support; leaving often felt traumatic and shameful. [[Cage2020]]</p></div>
+    <div class="card"><span class="tag brand">Relationships</span><h4>Love, sex and parenthood</h4><p>In 229 autistic adults, 73% had relationship experience and only 7% had no wish for one; those with an autistic partner were more satisfied. [[Strunz2017]] Autistic adults had less sexual knowledge and more sexual victimisation than non-autistic adults. [[BrownLavoie2014]] Autistic mothers more often felt misunderstood by professionals and isolated, while putting their child first, and described motherhood as joyful and intensely connected. [[Pohl2020,Dugdale2021]]</p></div>
+    <div class="card"><span class="tag warn">Safety</span><h4>Victims more often than offenders</h4><p>A systematic review found autistic people do not appear over-represented in the criminal justice system. [[King2014CJS]] About 20% of US autistic youth had been stopped and questioned by police by 21 and nearly 5% arrested. [[Rava2017]] Autistic adults reported more childhood and adult victimisation than matched non-autistic adults, with no difference in perpetration. [[Weiss2018Victimization]] Only 37% of 394 police officers in England and Wales had autism training. [[Crane2016Police]]</p></div>
+    <div class="card"><span class="tag accent">Ageing</span><h4>Growing older</h4><p>In 4,685 autistic Medicare enrollees aged 65 and over, nearly all physical health conditions were more common than in matched controls, including Parkinson's disease (OR 6.1). [[Hand2020Medicare]] In adults aged 30–64, 5-year dementia prevalence was 4.04% with autism only against 0.97% in the general population (claims data). <span class="ev early">Early evidence</span> [[Vivanti2021]] Cross-sectional tests found age-related cognitive differences parallel or smaller, not larger. <span class="ev hyp">Hypothesis</span> [[Lever2016]] These are group statistics, not forecasts for any one person.</p></div>
+  </div>
+
+  <h3 class="sub">Mental health and suicide risk</h3>
+  <div class="prose"><p>Autistic adults have higher rates of anxiety, depression and suicidal thoughts, and most of the extra risk travels with co-occurring mental health conditions that can be recognised and treated. In Denmark, autistic people had a higher suicide rate (adjusted IRR 3.75), and 90.6% of those who died by suicide had at least one other diagnosis. [[Kolves2021]] In a Swedish cohort, the suicide odds ratio was 9.40 in autism without intellectual disability. [[Hirvikoski2016]] Of 374 adults newly diagnosed at a UK clinic, 66% reported lifetime suicidal thoughts, and depression was an important risk factor. [[Cassidy2014]] These are population statistics. Camouflaging and burnout are being studied as possible pathways. <span class="ev early">Early evidence</span> [[Cassidy2023Camouflaging,Raymaker2020]]</p></div>
+  <div class="crisis" role="note"><b>If you are struggling</b>If you or someone you support is in immediate danger, call your local emergency number now. If thoughts of suicide are building, tell someone you trust and contact a GP or doctor, or a crisis line in your country. Many crisis lines offer text or online chat, which some autistic people find easier than a phone call.</div>
+</section>

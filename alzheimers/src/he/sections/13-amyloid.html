@@ -1,0 +1,32 @@
+<!-- ================= 1.3 AMYLOID ================= -->
+<section class="mod" id="m-amyloid" data-mod="amyloid" hidden>
+  <div class="mhead"><p class="eyebrow">חלק 1 · המחלה</p><h2>עמילואיד, בהנפשה</h2>
+    <p class="lede">עמילואיד בטא הוא מקטע קטן שנחתך מחלבון גדול יותר, APP, היושב בקרום של הנוירון. האם המקטע ייווצר תלוי באיזה אנזים חותך ראשון. בחרו מסלול ולחצו על הפעלה.</p></div>
+  <div class="ctrls" role="group" aria-label="איזה אנזים חותך ראשון">
+    <span class="kicker">החיתוך הראשון</span>
+    <button class="btn" id="amAlpha" aria-pressed="false">אלפא־סקרטאז: אין עמילואיד</button>
+    <button class="btn" id="amBeta" aria-pressed="true">בטא־סקרטאז: נוצר עמילואיד</button>
+    <span class="kicker" style="margin-left:6px">גנטיקה</span>
+    <button class="btn" id="amFad" aria-pressed="false">מוטציה משפחתית</button>
+    <button class="btn" id="amProt" aria-pressed="false">הווריאנט המגן A673T</button>
+  </div>
+  <div class="stepper" id="amSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="amSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="APP נחתך בידי שני אנזימים, בזה אחר זה. כשאלפא־סקרטאז חותך ראשון, לא נוצר עמילואיד בטא. כשבטא־סקרטאז חותך ראשון, משתחרר עמילואיד בטא."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="amPlay">הפעלה</button><label class="stage-cap tl" for="amT">ציר זמן <input type="range" id="amT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap" id="amCap">סכמטי, לא בקנה מידה.</p></div>
+    <aside class="note" id="amNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">ממקטע אחד לרובד</h3>
+  <p class="prose" id="amAggLede"></p>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="amAgg" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="מונומרים של עמילואיד בטא מתחברים לאוליגומרים, לפרוטופיברילים ולסיבים, ששוקעים כרובד המוקף בשלוחות עצב פגועות ובמיקרוגליה."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="amAggPlay">הפעלה</button><label class="stage-cap tl" for="amAggT">שנים <input type="range" id="amAggT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap">סכמטי. הצטברות אמיתית נמשכת שנים ומתרחשת בשלושה ממדים.</p></div>
+    <aside class="note" id="amAggNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">עד כמה חזק הטיעון לטובת העמילואיד?</h3>
+  <div class="cards" id="amCards"></div>
+</section>

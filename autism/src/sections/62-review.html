@@ -1,0 +1,66 @@
+<!-- ================= 6.2 FLASHCARDS & MNEMONICS ================= -->
+<section class="mod" id="m-review" data-mod="review" hidden>
+<style>
+#m-review .rv-lab{margin-top:14px}
+#m-review .mn .card p{margin:6px 0 0}
+#m-review .mn .card .tag{align-self:flex-start}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Flashcards &amp; mnemonics</h2>
+    <p class="lede">Flashcards on autism, from prevalence, identity and the sensory world to genes, vaccines, M-CHAT-R/F, DSM-5-TR and ICD-11, the ABA debate, medicines, school, adulthood and nursing care. Tap a card or press Space to flip it; arrow keys move through the deck. Filter by part, or shuffle.</p></div>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="%t:cards.label%">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">%t:nav.prev%</button><button class="btn primary" id="fcFlip">%t:cards.flip%</button><button class="btn" id="fcNext">%t:nav.next%</button><button class="btn ghost" id="fcShuf">%t:cards.shuffle%</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <div class="callout prose"><p>A note on words: many autistic people prefer identity-first language ("autistic person"), and many families and clinicians use person-first language ("person with autism"). Surveys find no single consensus, so this guide uses both and the best rule is to ask each person [[Kenny2016,Schuck2025]]. The screening tools and criteria on these cards are teaching tools for understanding, never for diagnosing yourself or your child [[Hyman2020,Hirota2023]].</p></div>
+  <h3 class="sub">%t:cards.mnemonics%</h3>
+  <div class="prose"><p>Cards tagged <b>well known</b> are mnemonics in common use; cards tagged <b>memory aid</b> were written for this guide to hold a published fact in mind. Neither replaces the source.</p></div>
+  <div class="mn" id="mnList"></div>
+  <h3 class="sub">Mnemonic in motion: all 3 A, any 2 of 4 B</h3>
+  <p class="prose">Play the checklist to watch the DSM-5-TR rule assemble for one teaching example: all three social-communication criteria, two of the four restricted or repetitive ones, then the C, D and E gates, the support levels, and the ICD-11 6A02 codes. See the full walk-through in <a href="#criteria" data-go="criteria">DSM-5-TR &amp; ICD-11 criteria</a>.</p>
+  <div class="stepper" id="rvSteps"></div>
+  <div class="lab rv-lab">
+    <div class="stage"><div class="scroll"><svg id="rvSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Animated DSM-5-TR checklist: the three social-communication criteria A1 to A3 tick in turn, then two of the four restricted and repetitive criteria B2 and B4 tick while B1 and B3 are marked not needed, then criteria C, D and E; the lower panel then shows support levels 1 to 3 rated separately for each domain and the six ICD-11 6A02 codes on the two axes of intellectual development and functional language"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rvPlay">Play</button><label class="stage-cap tl" for="rvT">Checklist <input type="range" id="rvT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">A teaching example, not an assessment of any person. Criteria paraphrased from DSM-5-TR and ICD-11. [[APA2022,Fuentes2021ESCAP]]</p></div>
+    <aside class="note" id="rvNote" aria-live="polite"></aside>
+  </div>
+</section>
+
+<!-- ================= 6.3 QUIZ ================= -->
+<section class="mod" id="m-quiz" data-mod="quiz" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Quiz</h2>
+    <p class="lede">Multiple-choice questions on autism with cited explanations: prevalence and identity, the sensory world, genes and risk factors, the developing brain, milestones and screening, DSM-5-TR and ICD-11, supports and the ABA debate, medicines and unproven treatments, school, adulthood, health and history. The mixed quiz draws 20 at random; or choose a part.</p></div>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
+</section>
+
+<!-- ================= 6.4 GLOSSARY ================= -->
+<section class="mod" id="m-glossary" data-mod="glossary" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Glossary</h2>
+    <p class="lede">A searchable glossary of autism terms, from AAC and alexithymia to M-CHAT-R/F, NDBI, 6A02 and the services cliff. Type to filter; the arrow on each entry jumps to the module where the term matters most.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="Search terms, e.g. masking, ADOS, PECS" aria-label="%t:glossary.search%">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
+</section>
+
+<!-- ================= 6.5 SOURCES ================= -->
+<section class="mod" id="m-sources" data-mod="sources" hidden>
+<style>
+#m-sources .srcs .tag.good{text-transform:none;letter-spacing:.02em}
+#m-sources #srcStats{margin:8px 0 0}
+#m-sources .srcs .mods .tag{white-space:normal;max-width:100%;overflow-wrap:anywhere}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>Sources</h2>
+    <p class="lede">Every reference behind the Autism Companion: journal articles, guidelines, drug labels, device decisions and trial registrations. The small numbers throughout the app point here; filter by research area or search.</p></div>
+  <div class="callout prose"><p>Eight research passes ran in parallel, one per area: epidemiology, identity, language and history; genetics, causes and risk factors, including what does not cause autism; neuroscience, brain development and sensory processing; early signs, screening, DSM-5-TR and ICD-11 criteria and assessment; supports and non-drug interventions, including the ABA debate; medication, unproven treatments and research; co-occurring conditions, physical health, course and outcomes; and family, school, work, adulthood and nursing. Before inclusion each source was checked, where possible, against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA, and the green tag on an entry names the service that confirmed it. Works found by more than one pass appear once, with any extra keys listed beside them.</p>
+    <p>Entries marked <span class="tag warn">%t:sources.check%</span> are regulator pages, laws and society statements that have no PMID or DOI, or works that could not be confirmed. They are listed for completeness; treat them with extra care.</p>
+    <p id="srcStats"></p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="%t:sources.placeholder%" aria-label="%t:sources.search%">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
+</section>

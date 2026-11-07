@@ -1,0 +1,81 @@
+<!-- ================= 5.4 RESEARCH TOWARD BETTER TREATMENT ================= -->
+<style>
+#m-frontier .filt{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+#m-frontier .filt .grp{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-frontier .filt select{font:inherit;padding:7px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%}
+#m-frontier .filt label{display:flex;gap:6px;align-items:center;font-size:14px}
+#m-frontier .tbl table{min-width:680px}
+#m-frontier td.nct{font-family:var(--mono);font-size:13px;white-space:nowrap}
+#m-frontier .cmp{max-width:980px}
+#m-frontier .card .ev{align-self:flex-start}
+#m-frontier svg .t-xs{font-size:10.5px}
+#m-frontier #frSvg[data-mode=w] .t-sm{font-size:13px}
+#m-frontier svg[data-mode=n] .t-xs{font-size:11px}
+</style>
+<section class="mod" id="m-frontier" data-mod="frontier" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Recovery &amp; living</p><h2>Research toward better treatment</h2>
+    <p class="lede">Calming inflammation, lowering Lp(a), protecting heart muscle, combining pills, teaching computers to read the ECG: here is where each idea stands, which trials worked, which did not, and what is still due. Every programme carries an evidence label.</p></div>
+  <p class="teach" role="note"><b>Research, not advice</b>Most of these treatments are experimental or used only in trials. Nothing here is a reason to start, stop or change a medicine: talk to your own care team. Status checked against trial registries and papers up to 4 November 2026.</p>
+  <div class="stepper" id="frSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="frSvg" viewBox="0 0 720 500" style="min-width:560px" role="img" aria-label="A research pipeline with five stages, from idea and lab work through biomarker and early trials and large outcome trials to guidelines. Eleven programmes sit in rows: colchicine, canakinumab, ziltivekimab, Lp(a) lowering, inclisiran, protecting the muscle from reperfusion injury, cell therapy, the polypill, AI reading of the ECG, preventing heart failure after MI and defibrillator timing. As the year advances from 2015 to 2028, each programme's marker appears at its stage when a cited trial reports, with positive, neutral, biomarker-only or awaited results, and its evidence label."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="frPlay">Play</button><label class="stage-cap tl" for="frT">Year <input type="range" id="frT" min="0" max="1" step="0.001" value="0.82"></label></div>
+      <div class="readout" id="frRead"></div>
+      <p class="stage-cap">A marker appears in the year of a trial's main publication or registry completion date; markers after November 2026 are registry estimates, not results. Stages are a reading aid, not an official classification. Evidence labels follow the research pass. [[NCT05021835,NCT06118281,NCT05581303,NCT03705234,NCT05030428,NCT05665608]]</p>
+    </div>
+    <aside class="note" id="frNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Read the headline: absolute and relative</h3>
+  <p class="prose">A hazard ratio of 0.77 sounds like a 23% cut. What it means depends on how often the event happened at all. Pick a trial to see its primary result as people per 1,000.</p>
+  <div class="lab">
+    <div class="stage cmp">
+      <div class="ctrls"><label class="stage-cap" for="frCmpSel">Trial </label><select id="frCmpSel"></select></div>
+      <div class="scroll"><svg id="frCmp" viewBox="0 0 720 272" style="min-width:560px" role="img" aria-label="Two grids of 1,000 dots, the control group and the treatment group of the chosen trial, with the dots for people who had the primary outcome filled in; beside them the absolute difference per 1,000, the relative difference, and the number who would need treating for one fewer event over the trial."></svg></div>
+      <p class="stage-cap" id="frCmpCap"></p>
+      <p class="teach" role="note"><b>Teaching tool</b>Crude percentages from each trial's abstract, scaled to 1,000 people. It shows how to read a result, not what a treatment would do for you.</p>
+    </div>
+    <aside class="note" id="frCmpNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Find a trial</h3>
+  <div class="filt">
+    <div class="grp" role="group" aria-label="Evidence level"><span class="kicker">Evidence</span>
+      <button class="btn" data-fe="all" aria-pressed="true">All</button>
+      <button class="btn" data-fe="est" aria-pressed="false">Established</button>
+      <button class="btn" data-fe="early" aria-pressed="false">Early evidence</button>
+      <button class="btn" data-fe="hyp" aria-pressed="false">Hypothesis</button></div>
+    <div class="grp"><label for="frTgt" class="kicker">Target</label><select id="frTgt">
+      <option value="all">All targets</option><option value="infl">Inflammation</option><option value="lipid">Lp(a) and LDL</option>
+      <option value="muscle">Protecting or rebuilding muscle</option><option value="prev">Preventing heart failure and sudden death</option>
+      <option value="pill">Taking medicines</option><option value="dx">Diagnosis</option></select></div>
+    <label><input type="checkbox" id="frReg"> Only registered trials still running or awaiting results</label>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>What it tests</th><th>Result or status</th><th>Evidence</th><th>Registry</th></tr></thead>
+    <tbody id="frRows"></tbody>
+  </table></div>
+  <p class="stage-cap" id="frCount"></p>
+
+  <h3 class="sub">Why so many promising ideas fail</h3>
+  <div class="cards">
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Protecting muscle at reperfusion</h4><p>Remote ischaemic conditioning with an arm cuff did not reduce cardiac death or heart failure admission in 5,401 people (9.4% vs 8.6%), and cyclosporine before PCI did not help in 970 people with anterior STEMI. No drug or conditioning strategy has yet shown clinical benefit on top of timely PCI. [[Hausenloy2019CONDI2,Cung2015CIRCUS]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Rebuilding muscle with cells</h4><p>A Cochrane review of 41 trials found no change in long-term mortality with bone marrow cells after MI (RR 0.93), and LVEF differences of 2–5% judged not clinically relevant. BAMI, the largest trial, under-recruited and could not test its hypothesis. [[Fisher2015Cochrane,Mathur2020BAMI]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>A better number is not a better outcome</h4><p>Pelacarsen lowered Lp(a), but Lp(a)HORIZON's topline result showed no reduction in the primary cardiovascular endpoint; full data are awaited. [[Sabouret2026]] Olpasiran nearly abolished Lp(a) in a phase 2 trial, and its outcome trial is not due until 2028. [[ODonoghue2022,NCT05581303]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Benefit can come with a cost</h4><p>CANTOS proved that lowering inflammation without lowering lipids cuts MI, stroke or cardiovascular death (HR 0.85), but fatal infections were more common and all-cause mortality did not differ. [[Ridker2017CANTOS]] Early defibrillators cut arrhythmic deaths in DINAMIT and IRIS while other deaths rose, so total mortality did not fall. [[Hohnloser2004DINAMIT,Steinbeck2009IRIS]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Two good trials can disagree</h4><p>COLCOT found fewer ischaemic events with colchicine after MI (HR 0.77); the larger, longer CLEAR SYNERGY found none (HR 0.99). Its role early after MI is contested. [[Tardif2019COLCOT,Jolly2025]]</p></div>
+    <div class="card"><span class="tag">Tested, missed</span><h4>Preventing heart failure after MI</h4><p>Empagliflozin (EMPACT-MI), dapagliflozin (DAPA-MI) and sacubitril-valsartan (PARADISE-MI) each missed their main hard endpoint after MI; fewer first heart failure admissions with empagliflozin was a component finding only. These drugs have separate heart failure indications. [[Butler2024EMPACT,James2024DAPAMI,Pfeffer2021PARADISE]]</p></div>
+  </div>
+
+  <h3 class="sub">How to read a trial headline</h3>
+  <div class="cards">
+    <div class="card"><h4>Primary or secondary?</h4><p>VEST's wearable defibrillator did not significantly reduce arrhythmic death, its primary outcome (1.6% vs 2.4%; P=0.18). Fewer all-cause deaths (3.1% vs 4.9%) was a secondary outcome with an uncorrected P value, so it cannot rescue the trial. [[Olgin2018VEST]]</p></div>
+    <div class="card"><h4>A component is not the whole</h4><p>EMPACT-MI's composite was not reduced (HR 0.90), even though first heart failure admission, one of its parts, was (HR 0.77). [[Butler2024EMPACT]]</p></div>
+    <div class="card"><h4>Biomarker or outcome?</h4><p>Ziltivekimab cut CRP by up to 92% in a phase 2 trial. That is a blood test result; whether it prevents heart attacks is what ZEUS and ARTEMIS are for. [[Ridker2021RESCUE,NCT05021835,NCT06118281]]</p></div>
+    <div class="card"><h4>Accuracy is not benefit</h4><p>An AI ECG model found occlusion MI with 80.6% sensitivity, against 32.5% for STEMI criteria and 73.0% for expert readers, with lower specificity (93.7% vs 97.7%). No randomised trial has yet shown that AI ECG triage improves outcomes. [[Herman2024,AlZaiti2023]]</p></div>
+    <div class="card"><h4>Topline or paper?</h4><p>A press topline comes before peer review. Lp(a)HORIZON is known so far only from a commentary and news; ClinicalTrials.gov lists no posted results. [[Sabouret2026,NCT04023552]]</p></div>
+    <div class="card"><h4>Who was in it?</h4><p>LoDoCo2 tested colchicine in chronic coronary disease (HR 0.69), not in the weeks after an MI, so it answers a different question from COLCOT and CLEAR SYNERGY. [[Nidorf2020LoDoCo2,Tardif2019COLCOT,Jolly2025]]</p></div>
+  </div>
+  <p class="callout">In plain words: researchers are testing medicines that calm inflammation, lower a blood fat called Lp(a), and AI tools that read the heart tracing. Some have worked in trials and some have not. [[Tardif2019COLCOT,Jolly2025,Sabouret2026,Herman2024]]</p>
+</section>

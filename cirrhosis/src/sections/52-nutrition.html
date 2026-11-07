@@ -1,0 +1,115 @@
+<!-- ================= 5.2 NUTRITION, MUSCLE & MEDICINE SAFETY ================= -->
+<style>
+#m-nutrition .med{display:flex;flex-direction:column;gap:10px}
+#m-nutrition .med .opts3{display:flex;flex-wrap:wrap;gap:6px}
+#m-nutrition .med .opts3 .btn{font-size:13px;padding:6px 11px}
+#m-nutrition .med .fb{font-size:14px;border-radius:10px;padding:9px 11px;background:var(--panel-2)}
+#m-nutrition .med .fb.ok{background:var(--good-soft)}
+#m-nutrition .med .fb.off{background:var(--warn-soft)}
+#m-nutrition .med .fb:empty{display:none}
+#m-nutrition .vax{display:flex;flex-direction:column;gap:10px;max-width:78ch}
+#m-nutrition .vax label{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:14.5px;cursor:pointer}
+#m-nutrition .vax input{width:18px;height:18px;margin-top:2px;accent-color:var(--rx)}
+#m-nutrition .vax label b{display:block;font-size:15.5px}
+#m-nutrition p.prose{display:block}
+#m-nutrition #ntMeds{align-items:start}
+#m-nutrition .mini{max-width:520px;margin:0 auto}
+#m-nutrition .calcout{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+#m-nutrition .calcout div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+#m-nutrition .calcout .big-num{font-size:30px;color:var(--rx)}
+#m-nutrition .calcout small{color:var(--muted);font-size:13px}
+#m-nutrition .card>.ev,#m-nutrition .card>.tag{align-self:flex-start}
+#m-nutrition .lfiv{font-weight:700}
+</style>
+<section class="mod" id="m-nutrition" data-mod="nutrition" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Treatment &amp; living</p><h2>Nutrition, muscle &amp; medicine safety</h2>
+    <p class="lede">Why a night without food is a long fast for a liver with cirrhosis, how a late evening snack shortens it, why muscle matters so much, and which everyday medicines need extra care.</p></div>
+
+  <p class="callout">Cirrhosis has many causes, including MASLD, alcohol-related liver disease, viral hepatitis, and autoimmune, cholestatic and genetic diseases. [[Gines2021Lancet]] The nutrition and medicine questions on this page apply whatever the cause. Every target and dose below is quoted as published, not as advice: your own team and dietitian set yours.</p>
+
+  <div class="stepper" id="ntSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ntSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A 24-hour clock from 08:00 to 08:00 next morning beside three lanes: a healthy liver, cirrhosis without a late snack, and cirrhosis with a late evening snack. As the hand moves, each lane fills with the fuel the body is using: food, stored liver glycogen, or muscle broken down for fuel. In cirrhosis the glycogen phase is short, so muscle is used overnight and the muscle circle shrinks; the late snack shortens that stretch. The last step shows the gain in total body protein with a night-time supplement over 12 months."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ntPlay">Play</button><label class="stage-cap tl" for="ntT">Time <input type="range" id="ntT" min="0" max="1" step="0.001" value="0.07"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The meal times and the length of each fuel phase are drawn, not measured, and the muscle change in a single night is exaggerated so it can be seen. The 12-month protein numbers in the last step are trial results. [[Plank2008,Tsien2012]]</p>
+    </div>
+    <aside class="note" id="ntNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How common is muscle loss?</h3>
+  <p class="prose">Estimates depend on how sarcopenia is measured (usually CT skeletal muscle index at the third lumbar vertebra), on the cut-offs and on who was studied. AASLD 2021 gives "30%-70% of patients with end-stage liver disease"; a 2023 meta-analysis pooled 33%. [[Lai2021AASLD,Mazeaud2023]] Switch between a single waiting-list cohort and the pooled estimate.</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Choose a data set">
+        <button class="btn" data-ntds="t" aria-pressed="true">Waiting-list cohort (n = 142)</button>
+        <button class="btn" data-ntds="m" aria-pressed="false">Meta-analysis (36 studies)</button>
+      </div>
+      <div class="scroll"><svg id="ntSarc" class="mini" viewBox="0 0 400 300" style="min-width:0" role="img" aria-label="Bar chart of sarcopenia prevalence by Child–Pugh class A, B and C. In the waiting-list cohort: 10%, 34% and 54%. In the pooled meta-analysis: 33%, 36% and 46%."></svg></div>
+      <p class="stage-cap">Waiting-list cohort: Tandon 2012 (41% overall; 54% of men, 21% of women). Pooled: Mazeaud 2023, 36 studies, 8,821 people. [[Tandon2012,Mazeaud2023]]</p>
+    </div>
+    <div class="note">
+      <div class="kicker">Why the numbers differ</div>
+      <h4>Same word, different rulers</h4>
+      <p>Guideline ranges (30–70%) run higher than the pooled figure (33%) because studies use different CT measures, different cut-offs and different populations. [[Lai2021AASLD,Mazeaud2023]] In a five-centre study of 396 transplant candidates, the cut-offs that best predicted waiting-list death were a skeletal muscle index under 50 cm²/m² for men and under 39 cm²/m² for women. [[Carey2017SMI]]</p>
+      <div class="pt"><b>In plain words</b>Muscle loss is common in cirrhosis, and it becomes more common as the liver disease advances.</div>
+      <div class="hook"><b>Exam hook</b>Sarcopenia predicted waiting-list death independently of MELD (HR 2.36), and skeletal muscle index barely correlated with MELD (r = −0.07): muscle adds information the score misses. [[Tandon2012,MontanoLoza2012]]</div>
+    </div>
+  </div>
+
+  <h3 class="sub">Frailty: the Liver Frailty Index bands</h3>
+  <p class="prose">The Liver Frailty Index combines three bedside tests: grip strength, chair stands and balance. It was derived in 536 listed outpatients; for death on the waiting list within 3 months its C-statistic was 0.76, against 0.80 for MELD-Na and 0.82 for both together. [[Lai2017LFI]] Move the slider to see where a value falls in the published bands.</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="ntLfi" class="mini" viewBox="0 0 400 190" style="min-width:0" role="img" aria-label="A scale of Liver Frailty Index values from 2 to 6, divided into robust (under 3.2), prefrail (3.2 to 4.3) and frail (4.4 or more) as in AASLD 2021, with a marker for the value chosen."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="ntLfiR">LFI value <input type="range" id="ntLfiR" min="2" max="6" step="0.05" value="3.6"></label></div>
+      <p class="stage-cap" id="ntLfiOut" aria-live="polite"></p>
+    </div>
+    <div class="note">
+      <div class="kicker">Teaching tool</div>
+      <h4>Strength you can measure at the bedside</h4>
+      <p>AASLD 2021 bands: robust under 3.2, prefrail 3.2–4.3, frail 4.4 or more; some studies use 4.5. [[Lai2021AASLD,Haugen2020]] In 1,405 candidates the best cut-off was 4.4 at 3 months and 4.2 at 6 and 12 months, and adding the index raised the 3-month AUC from 0.73 (MELD-Na) to 0.79. [[Kardashian2021]] Frailty roughly doubled waiting-list mortality at any age (adjusted sHR 1.92). [[Haugen2020]] Change matters too: in 1,093 outpatients, each 0.1-unit worsening per 3 months carried an sHR of 2.04 for death or delisting. [[Lai2020DeltaLFI]]</p>
+      <p class="safety"><b>Teaching tool only</b>These bands are shown to explain the published research. They are not for diagnosis, prognosis or transplant decisions. AASLD 2021 says frailty or sarcopenia should not be used as an absolute contraindication to transplant. [[Lai2021AASLD]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">What the published per-kilogram targets mean for one example body</h3>
+  <p class="prose">Guidelines express energy and protein per kilogram. With ascites, part of the weight on the scale is fluid, so EASL 2019 and AASLD 2021 describe estimating a dry weight by subtracting 5% (mild), 10% (moderate) or 15% (severe ascites), plus 5% for swelling of both feet. [[EASL2019Nutrition,Lai2021AASLD]] This worked example applies those published numbers to a weight you choose.</p>
+  <div class="stage">
+    <div class="calc">
+      <label for="ntW">Example weight on the scale (kg)<input type="number" id="ntW" min="35" max="200" step="1" value="72"></label>
+      <label for="ntAsc">Ascites<select id="ntAsc"><option value="0">None</option><option value="5">Mild (−5%)</option><option value="10">Moderate (−10%)</option><option value="15">Severe (−15%)</option></select></label>
+      <label for="ntOed" style="flex-direction:row;align-items:center;gap:8px;padding-top:22px"><input type="checkbox" id="ntOed"> Swelling of both feet (−5%)</label>
+    </div>
+    <div class="calcout" id="ntOut" aria-live="polite"></div>
+    <p class="safety"><b>Not a prescription</b>The numbers are arithmetic on published wording: EASL 2019 says energy "should not be lower than the recommended 35 kcal/kg.BW/d (in non-obese individuals)" and protein "should not be lower than the recommended 1.2–1.5 g/kg.BW/d"; AASLD 2021 gives protein per kilogram of ideal body weight, 1.2–2.0 g/kg for critically ill adults, and lower energy figures at a BMI of 30 or more. [[EASL2019Nutrition,Lai2021AASLD]] A dietitian sets real targets.</p>
+  </div>
+
+  <h3 class="sub">Medicine safety: sort the medicines</h3>
+  <p class="prose">Most medicines "have not been adequately studied in cirrhosis", and changed drug handling often means lower doses or less frequent dosing. [[Lewis2013]] For each medicine, choose how you think the sources frame it, then read what they actually say.</p>
+  <p class="readout" id="ntMedScore" aria-live="polite"></p>
+  <div class="cards" id="ntMeds"></div>
+  <p class="stage-cap">Label and guideline wording is quoted as published. It describes what the sources say, not what any one person should take: always ask the team that knows your liver before starting, stopping or changing any medicine.</p>
+
+  <h3 class="sub">Vaccines named for chronic liver disease</h3>
+  <p class="prose">A checklist to take to an appointment. Ticks are kept only in this browser.</p>
+  <div class="vax" id="ntVax">
+    <label for="ntVa"><input type="checkbox" id="ntVa" data-ntvax="a"><span><b>Hepatitis A</b>US ACIP lists "Vaccination of persons with chronic liver disease, including but not limited to persons with hepatitis B virus (HBV) infection, hepatitis C virus (HCV) infection, cirrhosis, fatty liver disease, alcoholic liver disease, autoimmune hepatitis" (ACIP's own wording), and notes that hepatitis A is more severe in people with chronic liver disease. [[Nelson2020ACIP]]</span></label>
+    <label for="ntVb"><input type="checkbox" id="ntVb" data-ntvax="b"><span><b>Hepatitis B</b>ACIP 2022 recommends universal vaccination for adults aged 19–59. In 2018 only 33.0% of adults with chronic liver disease reported 3 or more doses, and the vaccine response is weaker in chronic liver disease. [[Weng2022ACIP]]</span></label>
+    <label for="ntVp"><input type="checkbox" id="ntVp" data-ntvax="p"><span><b>Pneumococcal</b>ACIP 2022 lists "Chronic liver disease" (and, in ACIP's wording, "Alcoholism") among the conditions for PCV20, or PCV15 followed by PPSV23, in adults aged 19–64. [[Kobayashi2022ACIP]]</span></label>
+    <p class="readout" id="ntVaxOut" aria-live="polite"></p>
+    <p class="stage-cap">US recommendations as published; other countries have their own schedules. Ask your team which other vaccines, such as the yearly flu vaccine, apply to you.</p>
+  </div>
+
+  <h3 class="sub">Good to know</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Protein restriction is no longer advised for hepatic encephalopathy</h4><p>In a randomised trial of 30 people admitted with episodic hepatic encephalopathy, a normal-protein diet gave the same outcome as a low-protein diet, and the low-protein group broke down more protein. [[Cordoba2004]] EASL 2019: "Avoid protein restriction in patients with HE"; normal to high protein intake "does not precipitate HE". AASLD 2021: 1.2–1.5 g/kg/day "is safe, does not worsen HE, and minimizes protein loss". [[EASL2019Nutrition,Lai2021AASLD]] See <a href="#encephalopathy" data-go="encephalopathy">hepatic encephalopathy</a>.</p></div>
+    <div class="card"><span class="tag rx">Salt and appetite</span><h4>Low-salt food can mean too little food</h4><p>Only 31% of 120 outpatients with ascites kept to a 2-g sodium diet, and those who did ate 20% fewer calories. AASLD 2021 suggests balancing salt restriction with palatability, and considering a less strict sodium limit in people with frailty or sarcopenia who cannot meet their nutrition targets. [[Lai2021AASLD]] EASL 2019 quotes about 80 mmol sodium a day (2 g sodium, 5 g salt) in ascites. [[EASL2019Nutrition]]</p></div>
+    <div class="card"><span class="tag rx">Exercise</span><h4>Muscle is built, not only fed</h4><p>AASLD 2021 recommends combined aerobic and resistance exercise, tailored to a frailty or sarcopenia assessment, and calls following CDC guidance of 150–300 minutes a week "reasonable". [[Lai2021AASLD]] <span class="ev early">Early evidence</span> Four small trials (81 people) found no severe adverse events with adapted activity. [[Brustia2018]]</p></div>
+    <div class="card"><span class="tag rx">In hospital</span><h4>Dietitian within 24 hours</h4><p>AASLD 2021 recommends a dietitian consultation "within 24 hours of admission" and cutting down repeated nil-by-mouth orders, for example with a pre-bedtime snack. [[Lai2021AASLD]] See <a href="#nursing" data-go="nursing">nursing care</a>.</p></div>
+    <div class="card"><span class="tag rx">Alcohol</span><h4>Treatment for alcohol use disorder is part of liver care</h4><p>Among 35,682 veterans with cirrhosis and alcohol use disorder, only 14% received treatment within 6 months; treatment was associated with less decompensation (6.5% vs 11.6%) and lower long-term mortality (51% vs 58%) in this observational study. [[Rogal2020Hepatology]] ACG 2024 recommends integrated care that combines behavioural and medicine treatment. [[Jophlin2024ACG]] See <a href="#alcohol" data-go="alcohol">alcohol-related liver disease</a>.</p></div>
+    <div class="card"><span class="tag rx">Weight loss</span><h4>When obesity and cirrhosis coexist</h4><p>EASL 2019 describes a nutrition and lifestyle programme for progressive weight loss (more than 5–10%) in obese people with cirrhosis, using a moderately reduced-calorie diet (500 to 800 kcal a day less) that keeps protein above 1.5 g/kg/day. [[EASL2019Nutrition]] Sarcopenic obesity affects 20–35% of people with cirrhosis. [[Lai2021AASLD]]</p></div>
+  </div>
+
+  <p class="crisis" role="note"><b>Urgent care</b><span>Vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen need urgent care: call your local emergency number or go to an emergency department.</span></p>
+</section>

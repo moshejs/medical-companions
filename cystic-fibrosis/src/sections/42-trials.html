@@ -1,0 +1,82 @@
+<!-- ================= 4.2 MODULATOR TRIALS & ELIGIBILITY ================= -->
+<style>
+#m-trials .tbl table{min-width:760px}
+#m-trials .tbl td,#m-trials .tbl th{vertical-align:top}
+#m-trials .trwarn{border-left:4px solid var(--rx);background:var(--rx-soft);border-radius:0 12px 12px 0;padding:10px 14px;font-size:15px;max-width:76ch}
+#m-trials .trwarn b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--rx);display:block;margin-bottom:2px}
+#m-trials .calc{max-width:640px}
+#m-trials #trOut .card h4{font-size:18px}
+#m-trials #trOut .t-d{font:500 12px var(--mono);color:var(--muted);margin:0}
+#m-trials #trOut .verdict{font-size:14px;padding:8px 12px}
+#m-trials #trOut p{margin:0}
+#m-trials .legend .sw{display:inline-block;width:12px;height:10px;border-radius:2px;vertical-align:-1px;margin-right:5px}
+</style>
+<section class="mod" id="m-trials" data-mod="trials" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Treatment</p><h2>Modulator trials &amp; eligibility</h2>
+    <p class="lede">Fifteen years of trials, one bar at a time: how much each modulator moved lung function and sweat chloride, and against what. Then a teaching tool that shows what the US labels say for a genotype and an age.</p></div>
+
+  <div class="prose">
+    <p>Two numbers recur. <b>ppFEV1</b> is the lung function test result (the volume blown out in the first second) as a percentage of the predicted value; trials report the change in percentage points against a comparator. <b>Sweat chloride</b> measures CFTR function directly in the skin. Across studies the two move together, but within a single ivacaftor study a person's fall in sweat chloride did not predict their FEV1 gain, so sweat chloride predicts response for a population, not an individual [[Fidler2017SwCl,Durmowicz2013SwCl]].</p>
+  </div>
+
+  <div class="stepper" id="trSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="trSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A bar chart that builds trial by trial. Left: ppFEV1 change in percentage points. Right: fall in sweat chloride in mmol per litre. STRIVE 2011 (ivacaftor, G551D): +10.6 and −48.1. TRAFFIC/TRANSPORT 2015 (lumacaftor-ivacaftor, F508del homozygous): +2.6 to 4.0. EVOLVE 2017 (tezacaftor-ivacaftor): +4.0. Middleton 2019 (ETI, F508del/minimal function): +14.3 and −41.8. Heijerman 2019 (ETI vs tezacaftor-ivacaftor): +10.0 and −45.1. SKYLINE 2025 (VTD vs ETI): +0.2, non-inferior, and −2.8 to −8.4. RIDGELINE 2025: lung function kept at the ETI level. PROMISE 2022 (real world): +9.76 and −41.7. Colours show the comparator: placebo, another modulator, or before versus after."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="trPlay">Play</button><label class="stage-cap tl" for="trT">Year <input type="range" id="trT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap"><b>Read the comparator.</b> A bar against placebo, a bar against another modulator and a before-and-after change in the same people are not the same kind of number, so they cannot be ranked against each other. Effects are trial averages for groups, not predictions for one person [[Fidler2017SwCl]]. STRIVE sweat chloride is through week 48; SKYLINE sweat chloride is from the Alyftrek label (Table 9) [[Ramsey2011STRIVE,FDA-Alyftrek]].</p>
+    </div>
+    <aside class="note" id="trNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Beyond the pivotal trials</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who</th><th>Design</th><th>Main results</th></tr></thead>
+    <tbody>
+      <tr><th>ENVISION</th><td>Ivacaftor, G551D, age 6–11 (52 children)</td><td>vs placebo</td><td>ppFEV1 +12.5 points through week 24; sweat chloride −53.5 mmol/L and 2.8 kg more weight gain at week 48 [[Davies2013ENVISION]]</td></tr>
+      <tr><th>KIWI</th><td>Ivacaftor, gating variants, age 2–5 (34)</td><td>Open label</td><td>Sweat chloride −46.9 mmol/L at week 24; 5 of 34 (15%) had liver tests more than 8 times the upper limit of normal, and the authors advise frequent liver monitoring in young children [[Davies2016KIWI]]</td></tr>
+      <tr><th>ARRIVAL</th><td>Ivacaftor, gating, 12 to &lt;24 months (19) and 4 to &lt;12 months (25)</td><td>Single arm</td><td>Sweat chloride −73.5 mmol/L at week 24 in toddlers; markers of pancreatic function improved [[Rosenfeld2018ARRIVAL]]. In infants, no deaths or discontinuations, supporting treatment from 4 months [[Davies2021ARRIVAL]]</td></tr>
+      <tr><th>KONDUCT</th><td>Ivacaftor, R117H, age ≥6 (69)</td><td>vs placebo</td><td>Primary endpoint not met: ppFEV1 +2.1 points (p=0.20); sweat chloride −24.0 mmol/L; adults +5.0 points, children aged 6–11 −6.3 [[Moss2015KONDUCT]]</td></tr>
+      <tr><th>EXPAND</th><td>F508del plus a residual-function variant (248)</td><td>Crossover vs placebo</td><td>ppFEV1 +6.8 points with tezacaftor-ivacaftor, +4.7 with ivacaftor alone [[Rowe2017EXPAND]]</td></tr>
+      <tr><th>PROGRESS</th><td>Lumacaftor-ivacaftor extension (1,029)</td><td>vs matched registry controls</td><td>ppFEV1 declined 1.33 points a year vs 2.29: 42% slower [[Konstan2017PROGRESS]]</td></tr>
+      <tr><th>Barry 2021</th><td>ETI, F508del plus gating or residual function</td><td>vs ivacaftor or tez-iva</td><td>ppFEV1 +3.5 points; sweat chloride −23.1 mmol/L vs active control [[Barry2021ETI]]</td></tr>
+      <tr><th>Zemanick 2021 · Mall 2022</th><td>ETI, age 6–11</td><td>Open label (66) · vs placebo (121, F/MF)</td><td>ppFEV1 +10.2 points, sweat chloride −60.9 mmol/L [[Zemanick2021ETI]]; vs placebo LCI2.5 −2.26 units, ppFEV1 +11.0 points [[Mall2022ETI]]</td></tr>
+      <tr><th>Goralski 2023 · 2026</th><td>ETI, age 2–5 (75), then extension (70)</td><td>Open label</td><td>Sweat chloride −57.9 mmol/L at week 24 [[Goralski2023ETI]]; after about 90 weeks 80.8% were below 60 mmol/L and 28.8% below 30 [[Goralski2026]]</td></tr>
+      <tr><th>ETI extensions</th><td>Age ≥12 (506) · children ≥6 (64)</td><td>Open label</td><td>Annual ppFEV1 change +0.07 points a year over 144 weeks [[Daines2023ETIOLE]]; −0.09 a year in children over 192 weeks, with 0.05 exacerbations a year [[Wainwright2025ETIOLE]]</td></tr>
+      <tr><th>445-124</th><td>ETI, 18 rare variants without F508del</td><td>vs placebo</td><td>ppFEV1 +9.2 points, sweat chloride −28.3 mmol/L, CFQ-R respiratory +19.5 [[Castellani2026RareVariants]]</td></tr>
+      <tr><th>US registry · Germany · France</th><td>ETI in practice (16,116 · 2,645 · 245 with ppFEV1 below 40)</td><td>Before vs after</td><td>Exacerbations −79% and hospitalisations −74% (US) [[Bower2023]]; ppFEV1 +11.3%, exacerbations −75.9% (Germany) [[Sutharsan2023Germany]]; ppFEV1 +15.1 points within 3 months in advanced disease (France) [[Burgel2021Advanced]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Registry figures are observational population statistics, not predictions for any person. In the US registry, the annual death rate on ETI was 0.47% against 1.65% in 2019 [[Bower2023]].</p>
+
+  <h3 class="sub">Eligibility as the US labels state it: a teaching tool</h3>
+  <p class="trwarn"><b>Teaching tool, not a treatment decision</b>This tool summarises what the current US labels say, as this guide's sources describe them. Each label's variant list is long and "non-exhaustive", the Trikafta label says eligible variants "should not be the sole determinant" for treatment and that a clinical diagnosis of CF is required [[FDA-Trikafta]]. Only a CF care team can decide on treatment.</p>
+  <div class="calc">
+    <label for="trGeno">Genotype
+      <select id="trGeno">
+        <option value="ff">F508del / F508del</option>
+        <option value="fmf" selected>F508del / minimal-function variant</option>
+        <option value="gat">A gating variant (for example G551D)</option>
+        <option value="res">A residual-function variant (for example R117H)</option>
+        <option value="rare">Other rare variants, no F508del</option>
+        <option value="non">Two nonsense variants (no protein made)</option>
+      </select></label>
+    <label for="trAgeSel">Age
+      <select id="trAgeSel">
+        <option value="lt1">Under 1 month</option>
+        <option value="m1">1 to 11 months</option>
+        <option value="y1">1 year</option>
+        <option value="y2">2 to 5 years</option>
+        <option value="y6">6 to 11 years</option>
+        <option value="y12" selected>12 years or older</option>
+      </select></label>
+  </div>
+  <div class="cards" id="trOut" aria-live="polite"></div>
+  <div class="stage">
+    <svg id="trAge" viewBox="0 0 720 230" role="img" aria-label="The youngest age on each US label: Kalydeco 1 month, Orkambi 1 year, Trikafta 2 years, Symdeko and Alyftrek 6 years. A dashed line marks the age chosen above; bars for labels that cover that age are filled."></svg>
+  </div>
+  <div class="split2">
+    <div class="callout"><p><b>About 1 in 10 have no modulator option.</b> Nonsense variants cause CF in about 10% of people, and variants that make no protein cannot be helped by drugs that act on the protein [[Kerem2014Ataluren]]. Nearly 90% of people with CF carry at least one F508del allele [[Middleton2019ETI]]; a later paper puts it at about 80%, and such estimates vary by registry [[Castellani2026RareVariants]]. Work for people without an option is in <a href="#frontier" data-go="frontier">Research frontier</a>.</p></div>
+    <div class="callout"><p><b>How variants get onto a label.</b> Every label counts a variant as responsive in vitro when chloride transport in Fischer rat thyroid cells rises by at least 10% of normal over baseline [[FDA-Kalydeco,FDA-Trikafta]]. On 17 May 2017 the FDA first expanded a label this way, for ivacaftor, without a new clinical trial [[Durmowicz2018]]. Access is another matter: in 2022 about 12% of people with CF worldwide (19,516 of 162,428) were receiving triple therapy [[Guo2022Access]].</p></div>
+  </div>
+</section>

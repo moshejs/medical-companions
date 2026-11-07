@@ -1,0 +1,12 @@
+{
+ "areas": {
+  "A": "Epidemiology, risk factors & history",
+  "B": "Mechanism, pathology & alpha-1 antitrypsin deficiency",
+  "C": "Diagnosis & assessment",
+  "D": "Medicines for stable COPD & inhalers",
+  "E": "Exacerbations & hospital care",
+  "F": "Smoking cessation, vaccines, rehabilitation, oxygen & advanced therapies",
+  "G": "Living with COPD, comorbidities & nursing care",
+  "H": "Research frontier"
+ }
+}

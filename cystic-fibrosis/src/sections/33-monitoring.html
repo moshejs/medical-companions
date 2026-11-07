@@ -1,0 +1,96 @@
+<!-- ================= 3.3 LUNG FUNCTION & MONITORING ================= -->
+<style>
+#m-monitoring .mobtns{display:flex;flex-wrap:wrap;gap:8px}
+#m-monitoring .morange{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;max-width:560px}
+#m-monitoring .morange output{font:600 13px var(--mono);color:var(--dx)}
+#m-monitoring .morange input{width:100%}
+#m-monitoring .moage{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:18px;align-items:start}
+#m-monitoring .moage ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:15px}
+@media (max-width:700px){#m-monitoring .moage{grid-template-columns:minmax(0,1fr)}}
+</style>
+<section class="mod" id="m-monitoring" data-mod="monitoring" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Screening, diagnosis &amp; monitoring</p><h2>Lung function &amp; monitoring</h2>
+    <p class="lede">CF care is a rhythm of regular checks: blowing tests of the lungs, airway cultures, scans and a yearly review of other organs. Watch one spirometry blow build FEV1, FVC and percent predicted, then see why a gentler test, the lung clearance index, spots early disease that FEV1 misses.</p></div>
+  <div class="stepper" id="moSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="moSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Lungs fill with a full breath and then empty during a forced blow. A volume–time curve rises with FEV1 marked at one second and flattens at FVC; a flow–volume curve peaks and falls. A panel then compares a measured FEV1 with a predicted value as a percentage, and finally the blow is redrawn as obstructed, with a scooped flow–volume curve over a dashed ghost of the first."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="moPlay">Play</button><label class="stage-cap tl" for="moT">Steps <input type="range" id="moT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <div class="readout" id="moRead"></div>
+      <p class="stage-cap">Schematic: the curve shapes are drawing proportions and the litres are made-up numbers for the arithmetic. Reference equations and standards: [[Quanjer2012,Graham2019,Bhakta2023]]</p>
+    </div>
+    <aside class="note" id="moNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: FEV1 percent predicted bands</h3>
+  <p class="teach"><b>A teaching tool, not an assessment</b>Severity bands quoted as published in a CF research paper: mild &gt;70% FEV1, moderate 40–69%, severe &lt;40%. [[Gee2003]] A single number says little alone: trends, symptoms, other tests and the care team's judgement matter, and bands differ between sources.</p>
+  <div class="lab">
+    <div class="stage">
+      <label class="morange" for="moFev">FEV1, % predicted <output id="moFevV2">80%</output><input type="range" id="moFev" min="10" max="130" step="1" value="80"></label>
+      <div class="scroll"><svg id="moFevSvg" viewBox="0 0 720 150" style="min-width:560px" role="img" aria-label="A scale of FEV1 percent predicted from 0 to 130 with severe, moderate and mild bands, a dashed historic marker at 30 per cent and a needle at the chosen value."></svg></div>
+      <div class="verdict maybe" id="moFevV" aria-live="polite"></div>
+      <p class="stage-cap">The 30% marker: in a Toronto cohort of 673 patients (1977–1989), FEV1 below 30% predicted was linked to a 2-year mortality above 50%, and each 10% fall doubled the 2-year risk of death (RR 2.0, 95% CI 1.9–2.2). This is a historic population statistic from before modern treatment and cannot predict what happens to any one person. [[Kerem1992]]</p>
+    </div>
+    <div class="stage">
+      <p class="kicker">Mean FEV1 decline by age group, an epidemiologic cohort <span class="ev est">Established</span></p>
+      <div class="scroll"><svg id="moKonSvg" viewBox="0 0 720 220" style="min-width:560px" role="img" aria-label="Three line segments: ages 6 to 8 starting at 88.4 per cent predicted and falling 1.12 points a year; ages 9 to 12 starting at 85.3 and falling 2.39 a year; ages 13 to 17 starting at 78.4 and falling 2.34 a year."></svg></div>
+      <p class="stage-cap">Each segment is one age group's mean baseline and yearly decline, drawn across the group's ages; groups, not people. A high baseline was itself a risk factor for faster decline. [[Konstan2007]]</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Reference equations: who counts as "predicted"?</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Equation</th><th>What it is</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><td><b>Wang and Hankinson</b></td><td>Once used in CF studies, Wang in childhood and Hankinson in adulthood</td><td>Switching between them creates a jump in percent predicted. [[Szczesniak2017]]</td></tr>
+      <tr><td><b>GLI 2012</b></td><td>Ages 3–95, 97,759 records of healthy non-smokers, with separate equations for Caucasian, African-American, North East Asian and South East Asian people and a composite "other" [[Quanjer2012]]</td><td>One equation across the whole lifespan; used in several national registry reports and allows z-scores. [[Szczesniak2017]]</td></tr>
+      <tr><td><b>GLI Global (2022)</b></td><td>Reweights the GLI data and needs no race or ethnicity input; fits like the GLI 2012 "other" equation, with wider limits of normal [[Bowerman2023]]</td><td>Recommended by the 2023 ATS statement, with a caution about uncertain effects. [[Bhakta2023]] At one US centre it raised the share of Black patients classed as restricted from 26.8% to 37.5% and lowered it in White patients from 22.6% to 18.0%. [[Moffett2023]] Its effect on CF registry trends is not yet known. <span class="ev hyp">Hypothesis</span></td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Lung clearance index: seeing early disease</h3>
+  <p class="prose">In multiple-breath washout a person breathes a tracer gas in and then washes it out with ordinary breaths; the lung clearance index (LCI) reflects how unevenly ventilation is spread. It can be done across a wider age range than spirometry and is more sensitive to early damage. A 2013 ERS/ATS consensus set its standards. [[Robinson2013]]</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="mobtns" id="moLciBtns" role="group" aria-label="Choose a study">
+        <button class="btn" data-lc="pre" aria-pressed="true">Preschool (Aurora 2011)</button>
+        <button class="btn" data-lc="age7" aria-pressed="false">Age 7–8 (Owens 2011)</button>
+      </div>
+      <div class="scroll"><svg id="moLciSvg" viewBox="0 0 720 210" style="min-width:560px" role="img" aria-label="Left, a schematic washout: tracer gas falls quickly with even ventilation and slowly with uneven ventilation. Right, bars of the share of children with an abnormal result on each test in the chosen study."></svg></div>
+      <p class="stage-cap" id="moLciNote" aria-live="polite"></p>
+    </div>
+    <div class="cards">
+      <div class="card"><span class="tag dx">Research tool</span><h4>Valuable in trials</h4><p>A CF Foundation workshop (2015) judged LCI a valuable trial outcome for preschool children and for older patients with normal FEV1, but found insufficient data to support it in routine clinical management. [[Subbarao2015]]</p></div>
+      <div class="card"><span class="tag mod">Modulators</span><h4>LCI moves when FEV1 may not</h4><p>ETI improved median LCI in children aged 6–11 from 3 months on (−1.0 for F/MF, −0.8 for F/F), with better MRI scores. [[Stahl2024]] In Danish children aged 6–17, mean LCI improved by 1.7 units at 12 months. [[Henriksen2025]] Lumacaftor–ivacaftor improved LCI (−1.6) without a significant FEV1 change. <span class="ev early">Early evidence</span> [[Graeber2021]]</p></div>
+    </div>
+  </div>
+
+  <h3 class="sub">Imaging</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">AREST CF</span><h4>Bronchiectasis starts in infancy</h4><p>In 127 infants diagnosed by screening and followed with CT and lavage, bronchiectasis rose from 29.3% at 3 months to 61.5% at 3 years. Risk factors: meconium ileus (OR 3.17), respiratory symptoms (2.27), free neutrophil elastase in lavage (3.02) and gas trapping (2.05). [[Sly2013]]</p></div>
+    <div class="card"><span class="tag dx">CT technique</span><h4>Lung volume matters</h4><p>Expiratory CT scans had poor sensitivity (0.46) for bronchiectasis in young children; lung volume during CT should be standardised. [[Mott2013]]</p></div>
+    <div class="card"><span class="tag dx">MRI</span><h4>Without radiation</h4><p>Chest MRI scores of morphology and perfusion respond to CFTR modulators and are used as radiation-free research outcomes. <span class="ev early">Early evidence</span> [[Stahl2024,Graeber2021]]</p></div>
+  </div>
+  <p class="callout">How infection and bronchiectasis develop: <button class="btn ghost" data-go="lungs">Lungs: mucus, infection &amp; bronchiectasis</button> · treating airway germs: <button class="btn ghost" data-go="infection">Infection, antibiotics &amp; cross-infection</button></p>
+
+  <h3 class="sub">Try it: what the guidelines list at each age</h3>
+  <p class="teach"><b>A study aid, not a care plan</b>Each line is a published guideline statement or recommendation. Local CF centres set their own schedules, and the European ECFS standards (2018) also cover screening, diagnosis, preventive treatment, nutrition and complications. [[Castellani2018ECFS]]</p>
+  <div class="stage">
+    <label class="morange" for="moAge">Age <output id="moAgeV">0 months</output><input type="range" id="moAge" min="0" max="80" step="1" value="0"></label>
+    <div class="moage">
+      <svg id="moAgeSvg" viewBox="0 0 360 300" role="img" aria-label="A year wheel with dots for the clinic visits a year at the chosen age: monthly in the first 6 months, every 1 to 2 months to age 1, then at least 4."></svg>
+      <ul id="moAgeList" aria-live="polite"></ul>
+    </div>
+  </div>
+
+  <h3 class="sub">The annual review, as published</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Area</th><th>What the guideline says</th></tr></thead>
+    <tbody>
+      <tr><td><b>Diabetes (CFRD)</b></td><td>Screen with a 2-hour 75 g OGTT; "Annual screening for CFRD should begin by age 10 years in all CF patients who do not have CFRD"; A1C is not recommended as a screening test. Nutrition and lung function begin to decline 6–24 months before CFRD is diagnosed. [[Moran2010CFRD]]</td></tr>
+      <tr><td><b>Nutrition and bone</b></td><td>Glucose tolerance testing from age 10, bone mineral density from 8–10, annual faecal elastase in pancreatic-sufficient patients and regular fat-soluble vitamin monitoring. [[Turck2016Nutrition]] Some studies report low bone density in 50–75% of adults with CF. [[Aris2005]]</td></tr>
+      <tr><td><b>Liver</b></td><td>Annual screening; liver disease is considered when at least two of abnormal examination, persistently abnormal liver tests and abnormal ultrasound are present. About 5–10% develop multilobular cirrhosis in the first decade. [[Debray2011]]</td></tr>
+      <tr><td><b>Airways</b></td><td>At least 4 visits a year with 4 respiratory cultures and 2 pulmonary function tests. [[Wooldridge2015]] Tracking systems raised the share meeting that target from 47.5% to 71.0% at one centre, and the share attending 4 or more times a year from 35% to 90% at another. [[Wooldridge2015,Berlinski2014]]</td></tr>
+    </tbody></table></div>
+  <p class="callout">Clinic visits about every three months let the care team check breathing, growth and germs in the airways early. [[Wooldridge2015]] Nutrition and the pancreas: <button class="btn ghost" data-go="nutrition">Nutrition &amp; enzymes</button> · diabetes and bones: <button class="btn ghost" data-go="organs">Sweat, diabetes, bones &amp; fertility</button></p>
+  <p class="callout">Before this: <button class="btn ghost" data-go="sweattest">The sweat test &amp; genetic testing</button> · Next: <button class="btn ghost" data-go="modulators">CFTR modulators: how they work</button></p>
+</section>

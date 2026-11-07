@@ -1,0 +1,90 @@
+<!-- ================= 3.6 LONG-TERM OXYGEN & HOME VENTILATION ================= -->
+<style>
+#m-oxygen .ox-tabs{display:flex;flex-wrap:wrap;gap:6px}
+#m-oxygen .ox-chk{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14.5px}
+#m-oxygen .ox-chk label{display:flex;gap:6px;align-items:center;font-weight:600}
+#m-oxygen .ox-val{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:14px;max-width:560px}
+#m-oxygen .ox-val output{font:600 14px var(--mono);color:var(--ink)}
+#m-oxygen .ox-out{display:flex;flex-direction:column;gap:8px}
+#m-oxygen .ox-out p{font-size:14.5px}
+#m-oxygen .ox-cap{font-size:14px;color:var(--muted);max-width:80ch}
+#m-oxygen .card>.tag,#m-oxygen .card>.ev{align-self:flex-start}
+#m-oxygen .tbl table{min-width:700px}
+</style>
+<section class="mod" id="m-oxygen" data-mod="oxygen" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Long-term oxygen &amp; home ventilation</h2>
+    <p class="lede">Two trials from around 1980 showed that oxygen for many hours a day helps people with COPD live longer when blood oxygen is very low at rest. Later trials showed where it does not help. Play the survival curves, then try the threshold explainer.</p></div>
+
+  <div class="stepper" id="oxSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="oxSvg" viewBox="0 0 720 400" role="img" aria-label="A survival chart over 60 months. The MRC trial lines run from 100% to 54.8% alive with oxygen and 33.3% without at 5 years; the NOTT lines run to 77.6% alive on continuous oxygen and 59.2% on 12-hour nocturnal oxygen at 24 months. A box then notes that LOTT found no difference for moderate desaturation, a panel compares 15 and 24 hours a day in REDOX, and finally the chart switches to HOT-HMV curves of time to readmission or death with and without home ventilation."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="oxPlay">Play</button><label class="stage-cap tl" for="oxT">Timeline <input type="range" id="oxT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap"><b>Only the dots are published values; the dotted lines simply join them</b>, and the shape of each curve between dots is not published. MRC 5-year figures from the trial abstract [[MRC1981]]. <b>NOTT 12- and 24-month figures are secondary-sourced</b>: the NOTT abstract gives only the 1.94 mortality ratio, and the anchor points were read from the NOTT row of a 2022 systematic review [[NOTT1980,Arif2022]]. Survival is 100 minus the published mortality. HOT-HMV medians and 12-month risks from the trial [[Murphy2017]].</p>
+    </div>
+    <aside class="note" id="oxNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Threshold explainer: the published eligibility bands</h3>
+  <div class="prose"><p>The ATS 2020 guideline recommends long-term oxygen for at least 15 hours a day in adults with COPD and <i>severe chronic resting room-air hypoxaemia</i> (strong recommendation, moderate-quality evidence) [[Jacobs2020]]. It defines severe hypoxaemia by either of two criteria, based on the NOTT and MRC entry criteria. GOLD 2023 says its criteria "remain unchanged and are described in detail in the GOLD 2023 report" [[Agusti2023]]. Choose a measurement, move the value and tick any findings to see which published band it falls in.</p></div>
+  <div class="ox-tabs" id="oxMeas" role="group" aria-label="Measurement">
+    <button class="btn" data-m="pao2" aria-pressed="true">Arterial PaO2 (mm Hg)</button>
+    <button class="btn" data-m="spo2" aria-pressed="false">Pulse oximetry SpO2 (%)</button>
+  </div>
+  <div class="split2">
+    <div class="stage">
+      <label class="ox-val" for="oxVal"><span id="oxValLbl">Resting PaO2 on room air</span> <output id="oxValOut" for="oxVal"></output><input type="range" id="oxVal" min="40" max="75" step="1" value="57"></label>
+      <div class="ox-chk" role="group" aria-label="Additional findings">
+        <label><input type="checkbox" id="oxOed"> Oedema</label>
+        <label><input type="checkbox" id="oxHct"> Haematocrit ≥ 55%</label>
+        <label><input type="checkbox" id="oxPp"> P pulmonale on ECG</label>
+      </div>
+      <div class="scroll"><svg id="oxElig" viewBox="0 0 720 150" role="img" aria-label="A ruler of the chosen measurement with the published bands coloured: severe hypoxaemia, the band that counts as severe only with oedema, haematocrit of 55% or more or P pulmonale, and for oxygen saturation the moderate band studied in LOTT. A marker shows the chosen value."></svg></div>
+    </div>
+    <div class="ox-out" id="oxEligOut" aria-live="polite"></div>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>This shows where a number sits against thresholds quoted from the ATS 2020 guideline. It is not for diagnosis or treatment decisions; prescribing is decided by the care team under national rules.</p>
+
+  <h3 class="sub">The oxygen trials</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Comparison</th><th>Result as published</th></tr></thead>
+    <tbody>
+      <tr class="o2"><th>MRC 1981</th><td>87 people under 70 with severe hypoxaemia, CO2 retention and heart failure</td><td>Oxygen ≥ 15 h/day (usually 2 L/min) vs none</td><td>45% (19/42) vs 67% (30/45) died over 5 years; in men the advantage "did not emerge until 500 days had elapsed" [[MRC1981]]. ATS summary: 5-year mortality RR 0.41 (95% CI 0.17–0.98) [[Jacobs2020]]</td></tr>
+      <tr class="o2"><th>NOTT 1980</th><td>203 people with hypoxaemic COPD, six centres</td><td>Continuous vs 12-hour nocturnal oxygen</td><td>Nocturnal-group mortality 1.94 times higher (P = 0.01), "striking" with CO2 retention [[NOTT1980]]. Mortality 22.4% vs 40.8% at 24 months (via a review) [[NOTT1980,Arif2022]]. Subgroups: PaCO2 ≥ 43 mm Hg, 21.7% vs 41.5%; pH &lt; 7.40, 16.0% vs 42.2% [[Jacobs2020]]</td></tr>
+      <tr><th>LOTT 2016</th><td>738 people with moderate desaturation (resting SpO2 89–93% or exercise-only), 42 centres</td><td>Oxygen vs none, 1–6 years</td><td>No difference in time to death or first hospitalisation (HR 0.94, 95% CI 0.79–1.12), nor in quality of life, lung function or walk distance [[Albert2016]]</td></tr>
+      <tr><th>INOX 2020</th><td>People spending ≥ 30% of the night below 90% saturation, not eligible for long-term oxygen</td><td>Nocturnal oxygen vs sham concentrator</td><td>Death or NOTT criteria at 3 years: 39.0% vs 42.0% (difference −3.0 points, 95% CI −15.1 to 9.1); stopped early at 243 of 600 planned [[Lacasse2020]]</td></tr>
+      <tr><th>REDOX 2024</th><td>241 people starting oxygen for severe resting hypoxaemia</td><td>24 vs 15 h/day (median use 24.0 vs 15.0 h)</td><td>Hospitalisation or death within 1 year: 124.7 vs 124.5 events per 100 person-years (HR 0.99, 95% CI 0.72–1.36) [[Ekstrom2024]]</td></tr>
+      <tr><th>Palliative oxygen 2010</th><td>239 people with life-limiting illness, refractory breathlessness, PaO2 &gt; 7.3 kPa</td><td>2 L/min oxygen vs room air by concentrator</td><td>No more relief: morning breathlessness −0.9 vs −0.7 points on a 0–10 scale (P = 0.504) [[Abernethy2010]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><span class="tag o2">Cochrane 2005</span><h4>Who oxygen helped</h4><p>Long-term home oxygen "improved survival in a selected group of COPD patients with severe hypoxaemia"; there was no survival benefit in mild to moderate hypoxaemia or with night-time desaturation only [[Cranston2005]]. The review writes 55 mm Hg as 8.0 kPa; ATS 2020 pairs 55 mm Hg with 7.3 kPa, the correct conversion [[Jacobs2020]].</p></div>
+    <div class="card"><span class="tag o2">ATS 2020 · other suggestions</span><h4>Moving about with oxygen</h4><p>ATS suggests ambulatory oxygen for severe exertional room-air hypoxaemia (SpO2 ≤ 88% on exertion; conditional) and portable liquid oxygen for people mobile outside the home who need continuous flow above 3 L/min on exertion (conditional, very-low-quality evidence) [[Jacobs2020]].</p></div>
+    <div class="card"><span class="tag warn">Open question</span><h4>24 hours or 15?</h4><p>Textbooks recommended 24 h/day after NOTT [[NOTT1980]], but the NOTT continuous arm averaged about 17.7 h/day [[Arif2022]], and the 24-hour advice rested on a non-randomised NOTT-versus-MRC contrast. REDOX found 24 h no better than 15 h at 1 year; it was not powered for longer-term survival [[Ekstrom2024]].</p></div>
+  </div>
+
+  <h3 class="sub">Oxygen safety at home</h3>
+  <div class="split2">
+    <div class="stage">
+      <div class="scroll"><svg id="oxSafe" viewBox="0 0 560 250" role="img" aria-label="Bar chart of safety events per 100 person-years in LOTT: trips or falls over equipment 0.90, nosebleeds 0.35, burns from liquid-oxygen frost 0.16, burns from smoking near oxygen 0.12, fires 0.08 and burns from open flame 0.04."></svg></div>
+      <p class="ox-cap">Safety events per 100 person-years in LOTT, as reported by ATS 2020 [[Jacobs2020]].</p>
+    </div>
+    <div class="prose">
+      <p>ATS 2020 makes a best-practice statement that patients and caregivers be trained in oxygen equipment and safety, "including smoking cessation, fire prevention, and tripping hazards" [[Jacobs2020]]. In LOTT, the commonest event was tripping or falling over equipment; burns came from smoking near oxygen, from open flames and from liquid-oxygen frost [[Jacobs2020]].</p>
+      <p>The BTS 2015 home oxygen guideline covers risk assessment, "particularly in the clinically challenging area of home oxygen users who smoke" [[Hardinge2015]]. Help with stopping smoking is in <a href="#quitting" data-go="quitting">Stopping smoking &amp; vaccines</a>.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">Home non-invasive ventilation (NIV)</h3>
+  <div class="prose"><p>Some people with COPD keep a high carbon dioxide level when stable. ATS 2020 defines chronic hypercapnic COPD as FEV1/FVC &lt; 0.70 with resting PaCO2 &gt; 45 mm Hg, outside an exacerbation [[Macrea2020]]. The ATS guideline discusses nocturnal NIV: a ventilator that delivers breaths through a mask during sleep [[Macrea2020]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Who</th><th>What it found or recommends</th></tr></thead>
+    <tbody>
+      <tr class="co2"><th>Köhnlein 2014</th><td>195 people, stable GOLD stage IV, PaCO2 ≥ 7 kPa (51.9 mm Hg), pH &gt; 7.35</td><td>NIV set to cut PaCO2 by ≥ 20% or below 6.5 kPa: 1-year mortality 12% (12/102) vs 33% (31/93) (HR 0.24, 95% CI 0.11–0.49); facial skin rash in 14% [[Kohnlein2014]]</td></tr>
+      <tr class="co2"><th>HOT-HMV 2017</th><td>116 people with PaCO2 &gt; 53 mm Hg 2–4 weeks after an acidotic exacerbation</td><td>Home oxygen plus NIV vs oxygen alone: median time to readmission or death 4.3 vs 1.4 months (adjusted HR 0.49, 95% CI 0.31–0.77); 12-month risk 63.4% vs 80.4%. Median settings IPAP 24, EPAP 4 cm H2O, backup rate 14/min [[Murphy2017]]</td></tr>
+      <tr><th>ATS 2020 guideline</th><td>Chronic stable hypercapnic COPD</td><td>Suggests nocturnal NIV in addition to usual care (conditional, moderate certainty) and NIV with "targeted normalization of PaCO2" (conditional, low certainty); suggests screening for obstructive sleep apnoea first; suggests not starting long-term NIV during an admission for acute-on-chronic failure, and reassessing 2–4 weeks after it resolves [[Macrea2020]]</td></tr>
+      <tr><th>ERS 2019 guideline</th><td>Stable hypercapnic COPD, and after an exacerbation needing acute NIV</td><td>Conditionally suggests long-term home NIV, with settings that target lower CO2 and fixed pressure support as first-choice mode [[Ergan2019]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Oxygen targets during a flare-up are a different question, covered in <a href="#bloodgas" data-go="bloodgas">Oxygen targets &amp; blood gases</a>; NIV in hospital is in <a href="#hospital" data-go="hospital">Hospital treatment</a>.</p>
+</section>

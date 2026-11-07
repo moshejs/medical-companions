@@ -1,0 +1,69 @@
+<!-- ================= 2.1 SYMPTOMS & WHO PRESENTS DIFFERENTLY ================= -->
+<style>
+#m-symptoms .sy-words{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+#m-symptoms .sy-word{all:unset;box-sizing:border-box;cursor:pointer;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0;overflow-wrap:break-word}
+#m-symptoms .sy-word:hover{border-color:var(--muted)}
+#m-symptoms .sy-word:focus-visible{outline:2px solid var(--dx);outline-offset:2px}
+#m-symptoms .sy-word .q{font-family:var(--display);font-weight:800;font-size:19px;line-height:1.2}
+#m-symptoms .sy-word .flip{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-symptoms .sy-word .a{display:none;font-size:14.5px;line-height:1.5}
+#m-symptoms .sy-word[aria-pressed="true"]{background:var(--dx-soft);border-color:var(--dx)}
+#m-symptoms .sy-word[aria-pressed="true"] .a{display:block}
+#m-symptoms .sy-word[aria-pressed="true"] .flip{color:var(--dx)}
+#m-symptoms .card>.tag{align-self:flex-start}
+#m-symptoms svg[data-mode=n] .t-xs{font-size:11px} #m-symptoms svg[data-mode=n] .t-sm{font-size:12.5px} #m-symptoms svg[data-mode=n] .t-lbl{font-size:14px}
+#m-symptoms svg[data-mode=w] .t-xs{font-size:10.5px} #m-symptoms svg[data-mode=w] .t-sm{font-size:12px}
+</style>
+<section class="mod" id="m-symptoms" data-mod="symptoms" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Symptoms &amp; who presents differently</h2>
+    <p class="lede">A heart attack (myocardial infarction, MI) most often feels like pressure or discomfort in the chest, but it can spread, come with other symptoms, or arrive with no chest pain at all. Watch where it is felt, then switch the lens to see what the large studies found for women, men, older people and people with diabetes.</p></div>
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+  <div class="stepper" id="sySteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="sySvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A front-view body outline. Pressure lights up in the centre of the chest, then spreads to the arms, jaw, neck, back and upper belly; chips for breathlessness, nausea, light-headedness and palpitations appear beside the head. A panel beside the body shows the study figures for each step: how often women and men had chest pain, how many had three or more extra symptoms, an array of 100 people with 33 highlighted who had no chest pain, who those people were, and how much later they arrived and how much less often they were treated."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="syPlay">Play</button><label class="stage-cap tl" for="syT">Step <input type="range" id="syT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="ctrls" role="group" aria-label="Lens: whose presentation to highlight"><span class="kicker">Lens</span>
+        <button class="btn" data-sylens="women" aria-pressed="true">Women</button>
+        <button class="btn" data-sylens="men" aria-pressed="false">Men</button>
+        <button class="btn" data-sylens="older" aria-pressed="false">Older people</button>
+        <button class="btn" data-sylens="diabetes" aria-pressed="false">Diabetes</button>
+      </div>
+      <div class="readout" id="syRead"></div>
+      <p class="stage-cap">Body regions are schematic. Percentages are population statistics from named studies (VIRGO: ages 18–55; NRMI: US registry), not the chance for any one person. [[Lichtman2018VIRGO,Ferry2019,Canto2000,Canto2012]]</p>
+    </div>
+    <aside class="note" id="syNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Chest pain means more than pain in the chest</h3>
+  <div class="prose">
+    <p>The Fourth Universal Definition of MI describes ischaemic symptoms as "various combinations of chest, upper extremity, mandibular, or epigastric discomfort during exertion or at rest", and adds that these symptoms are not specific to the heart. [[Thygesen2018UDMI4C]] The 2023 ESC guideline lists breathlessness (dyspnoea), upper-belly (epigastric) pain, and pain in the left or right arm or neck and jaw as chest pain-equivalent symptoms. [[Byrne2023ESC]] The 2021 AHA/ACC chest pain guideline's first message makes the same point: pressure, tightness or discomfort count, and so does pain in the shoulders, arms, neck, back, upper abdomen or jaw. [[Gulati2021ChestPain]]</p>
+    <p>The ESC names two red-flag patterns: "prolonged chest pain (&gt;15 min) and/or recurrent pain within 1 h". Its advice on what to do is quoted as published: "The recommended action should be to contact the EMS rather than to self-present." [[Byrne2023ESC]] What happens after the call is covered in <a href="#call" data-go="call">The first minutes</a>.</p>
+  </div>
+
+  <h3 class="sub">Words that delay care</h3>
+  <p class="callout">Some phrases, said by a worried person or heard from others, make waiting feel reasonable. Tap each one to see what the evidence says. None of this is about blame: delay has many causes, including access and how health systems respond. [[McGinn2005,Moser2006]]</p>
+  <div class="sy-words" id="syWords"></div>
+  <div class="ctrls"><button class="btn" id="syWordsAll">Show all answers</button><button class="btn ghost" id="syWordsNone">Hide all</button></div>
+  <p class="crisis" role="note"><b>Call now</b><span>If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).</span></p>
+
+  <h3 class="sub">From first symptom to arrival</h3>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="syDelay" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Horizontal bars in hours from symptom onset to hospital arrival: GRACE median 2.3 hours for STEMI and 3.0 hours for NSTEMI, median 2.0 hours in people aged 65 and over in central Massachusetts, and NRMI-2 means of 5.3 hours with chest pain and 7.9 hours without."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="syDelayPlay">Play</button><label class="stage-cap tl" for="syDelayT">Hours since symptoms began <input type="range" id="syDelayT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap">Medians and means are labelled as published; they come from different studies and years and are not directly comparable. [[Goldberg2002GRACE,Makam2016,Canto2000]]</p>
+    </div>
+    <aside class="note" id="syDelayNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">More to know</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Silent MI</span><h4>Heart attacks nobody noticed</h4><p>In Framingham, more than 25% of heart attacks were found only on routine ECGs every two years, and almost half of those had been silent. They were as likely as recognised ones to lead to death, heart failure or stroke. [[Kannel1984Unrecognized]] In ARIC, silent MI made up more than 45% of new heart attacks and was linked to higher coronary death (HR 3.06). [[Zhang2016SilentMI]] Of an estimated 805,000 US heart attacks a year, about 170,000 are silent. [[Martin2025HDSS]]</p></div>
+    <div class="card"><span class="tag dx">Delay</span><h4>Hours, not minutes</h4><p>In the ARIC communities, 49.5% of people in 2000 took 4 hours or more from symptom onset to hospital arrival, with no real change since 1987; women and Black patients had longer delays, which reflects access and systems as well as individual choices. [[McGinn2005]] A review of 42 studies found women and older people more likely to arrive later. [[Nguyen2010]] The AHA calls patient delay "the major factor limiting delivery of definitive treatment". [[Moser2006]]</p></div>
+    <div class="card"><span class="tag dx">Awareness</span><h4>Knowing to call, not knowing the signs</h4><p>In US survey data, 94.9% of adults in 2017 knew to call 9-1-1 for a heart attack, but only 50.2% knew all five common symptoms: jaw, neck or back discomfort; weakness or light-headedness; chest discomfort; arm or shoulder discomfort; and shortness of breath. [[Fang2019MMWR]]</p></div>
+    <div class="card"><span class="tag dx">In the emergency department</span><h4>When the system misses it</h4><p>In 10,689 US emergency patients with possible cardiac ischaemia, 2.1% of the 889 with acute MI were sent home by mistake. Being sent home was more likely for women under 55 (OR 6.7), nonwhite patients (OR 2.2), people whose main symptom was breathlessness (OR 2.7) and people with a normal or nondiagnostic ECG (OR 3.3). [[Pope2000]] That is why the ECG and troponin tests matter: see <a href="#ecg" data-go="ecg">the ECG</a> and <a href="#troponin" data-go="troponin">troponin</a>.</p></div>
+    <div class="card"><span class="tag dx">Without chest pain</span><h4>Which symptoms carried more risk</h4><p>In the GRACE registry, 8.4% of people with acute coronary syndrome had no chest pain; 23.8% of them were not first recognised as having one, and their hospital mortality was 13% vs 4.3%. Among them, fainting or near-fainting (OR 2.0), nausea or vomiting (OR 1.6) and breathlessness (OR 1.4) as the main symptom were linked to higher mortality. [[Brieger2004]]</p></div>
+    <div class="card"><span class="tag dx">History alone</span><h4>Symptoms cannot settle it</h4><p>In a JAMA review, about 10% of people with acute chest pain turned out to have acute coronary syndrome, and history, examination and ECG alone could neither confirm nor exclude it. Pain spreading to both arms was among the more useful features (likelihood ratio 2.6). [[Fanaroff2015]] Other causes of chest pain are in <a href="#differential" data-go="differential">heart attack or something else?</a></p></div>
+  </div>
+</section>

@@ -1,0 +1,88 @@
+<!-- ================= 1.2 THE ADHD BRAIN ================= -->
+<style>
+#m-brain .ctrls .kicker{min-width:74px}
+#m-brain .card>.ev,#m-brain .card>.tag{align-self:flex-start}
+#m-brain .tbl table{min-width:560px}
+#m-brain .readout{min-height:1.4em}
+</style>
+<section class="mod" id="m-brain" data-mod="brain" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The condition</p><h2>The ADHD brain</h2>
+    <p class="lede">What brain imaging shows about ADHD, group by group: networks that switch on and off differently during tasks, a cortex that matures about three years later, and subcortical volumes that differ only slightly on average. Scrub from age 6 to 18 and watch two group-average brains side by side.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Networks to show">
+    <span class="kicker">Networks</span>
+    <button class="btn" data-brnet="fs" aria-pressed="true">Frontostriatal loop</button>
+    <button class="btn" data-brnet="fp" aria-pressed="true">Frontoparietal (attention)</button>
+    <button class="btn" data-brnet="dmn" aria-pressed="true">Default mode</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="ENIGMA age group">
+    <span class="kicker">Volumes</span>
+    <button class="btn" data-brgrp="child" aria-pressed="true">Children (under 15)</button>
+    <button class="btn" data-brgrp="adult" aria-pressed="false">Adults (over 21)</button>
+    <button class="btn" data-brgrp="all" aria-pressed="false">Whole sample</button>
+  </div>
+  <div class="stepper" id="brSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="brSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Two group-average brains, typically developing and ADHD, change as age runs from 6 to 18 years. First, three networks trace loops: frontostriatal, frontoparietal and default mode, with arrows showing under- and over-activation in ADHD. Then cortical thickness curves rise and fall, peaking at 7.5 years in the typical group and 10.5 years in the ADHD group. Then bars show small ENIGMA subcortical effect sizes around zero, and finally two almost fully overlapping distributions."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brPlay">Play</button><label class="stage-cap tl" for="brT">Age 6 → 18 <input type="range" id="brT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <div class="readout" id="brRead"></div>
+      <p class="stage-cap"><b>Schematic, group averages.</b> Networks and brains are drawn, not scanned. The thickness curves are drawn shapes passing through the published median peak ages (the age by which half of cortical points had peaked). Bars are the published ENIGMA-ADHD effect sizes; the overlap is computed from them. [[Cortese2012,Shaw2007,Hoogman2017]]</p>
+    </div>
+    <aside class="note" id="brNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What a brain scan can and cannot tell you</h3>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Not a diagnostic test</span><h4>No brain scan diagnoses ADHD</h4><p>The World Federation of ADHD consensus states that most brain and cognitive differences between groups with and without ADHD "are typically small", do not clearly separate ADHD from other disorders, and so are not useful for diagnosis. ADHD is diagnosed by a licensed clinician who interviews the person and their family, not by rating scales alone, neuropsychological tests or brain imaging. [[Faraone2021]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Group differences, not individual ones</h4><p>All ENIGMA subcortical effects are below d = 0.2, which the Lancet seminar calls very small. Most imaging studies are cross-sectional, so they cannot show whether a difference causes ADHD or is an adaptation to it. Small samples, head motion and weak phenotyping have made many findings hard to reproduce. [[Posner2020]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Why small studies mislead</h4><p>An analysis of about 50,000 scans found that brain-behaviour associations are much smaller than assumed. At the median neuroimaging sample of about 25 people, studies are underpowered and report inflated effects; results replicate only with samples in the thousands. [[Marek2022]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Medicines do not explain the differences</h4><p>In ENIGMA, stimulant use did not change the subcortical results (all p &gt; 0.15). The consensus statement says brain differences are not caused by drug treatment. In 43 adolescents followed from 12.5 to 16.4 years, cortex thinned faster in those not taking stimulants (0.16 vs 0.03 mm a year); the authors found no sign that stimulants slowed cortical growth. [[Hoogman2017,Faraone2021,Shaw2009]]</p></div>
+    <div class="card"><span class="tag dz">Cerebellum</span><h4>Not only the front of the brain</h4><p>In an NIMH cohort of 152 children and adolescents with ADHD and 139 controls, total cerebral volume was 3.2% and cerebellar volume 3.5% smaller at the first scan, and the trajectories ran roughly parallel with age. The cerebellum is under-active during timing tasks, and a cross-disorder meta-analysis found less grey matter in cerebellar lobule IX, part of the attention networks. [[Castellanos2002,Hart2012Timing,Stoodley2014]]</p></div>
+    <div class="card"><span class="tag warn">Contested</span><h4>The EEG theta/beta ratio</h4><p>A 2006 meta-analysis reported a very large effect (3.08). A 2013 meta-analysis found 0.62 to 0.75, shrinking over the decade because the ratio rose in comparison groups; its authors concluded it "cannot be considered a reliable diagnostic measure". The FDA nonetheless authorised it as a marker. [[Snyder2006,Arns2013,Saad2018]]</p></div>
+  </div>
+
+  <h3 class="sub">Default-mode interference</h3>
+  <div class="prose"><p>The default-mode network is most active when the mind wanders. One idea is that its slow rhythm keeps breaking into focused work. Drag the task slider to make the task longer and duller, switch groups, and press Play to run two minutes of a schematic task. <span class="ev hyp">Hypothesis</span> [[SonugaBarke2007]]</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" role="group" aria-label="Group">
+        <span class="kicker">Group</span>
+        <button class="btn" data-brdg="ctl" aria-pressed="false">Comparison group</button>
+        <button class="btn" data-brdg="adhd" aria-pressed="true">ADHD (hypothesis)</button>
+      </div>
+      <label class="stage-cap tl" for="brDmD">Task: short &amp; engaging <input type="range" id="brDmD" min="0" max="1" step="0.01" value="0.55"> long &amp; low-stimulation</label>
+      <div class="scroll"><svg id="brDm" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="Two traces over two minutes of a task: default-mode activity rising and falling slowly on top, and task attention below. When default-mode activity crosses a threshold, attention dips and a lapse mark appears. Longer, duller tasks and the ADHD setting make the slow wave larger and the lapses more frequent."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brDmPlay">Play</button><label class="stage-cap tl" for="brDmT">Seconds into the task <input type="range" id="brDmT" min="0" max="1" step="0.002" value="1"></label></div>
+      <div class="readout" id="brDmRead"></div>
+      <p class="stage-cap"><b>Schematic model of a hypothesis</b>, not recorded data. Lapse counts come from the drawing, not from a study.</p>
+    </div>
+    <aside class="note">
+      <div class="kicker">Hypothesis · default-mode interference</div>
+      <h4>When the daydreaming network breaks in</h4>
+      <p>The default-mode interference hypothesis proposes that slow (below 0.1 Hz) spontaneous default-mode activity can intrude on task-focused processing, causing periodic lapses and the variable performance typical of ADHD. [[SonugaBarke2007]]</p>
+      <p><span class="ev early">Early evidence</span> In 20 adults with ADHD and 20 controls, the normal see-saw (antiphasic) relationship between the dorsal anterior cingulate and the default-mode network was weaker. In children aged 6–17, connectivity within the default-mode network is reduced, consistent with delayed maturation. [[Castellanos2008,Posner2020]]</p>
+      <p>Symptoms are worse in long, low-stimulation tasks than in engaging ones, and reaction times vary more from trial to trial (Hedges' g = 0.76 in children, 0.46 in adults). Stimulants reduced that variability (g = −0.74). [[Posner2020,Kofler2013]]</p>
+      <p><span class="ev hyp">Caution</span> A meta-analysis of 30 resting-state studies found no consistent location of over- or under-connectivity across studies. [[Cortese2021RestingState]]</p>
+      <div class="pt"><b>In plain words</b>The brain has a "daydreaming" network that should quiet down when we focus. In ADHD it may break in more often, causing short lapses of attention. [[SonugaBarke2007,Posner2020]]</div>
+    </aside>
+  </div>
+
+  <h3 class="sub">Key imaging studies at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who</th><th>Main finding</th></tr></thead>
+    <tbody>
+      <tr><th>Shaw 2007, cortical thickness</th><td>223 children with ADHD, 223 typically developing; 824 scans</td><td>Half of cortical points peaked at 10.5 vs 7.5 years; same order of maturation, most delayed in prefrontal cortex. [[Shaw2007]]</td></tr>
+      <tr><th>Shaw 2012, surface area</th><td>234 vs 231 children; 837 scans</td><td>Right prefrontal surface area peaked at 14.6 vs 12.7 years; gyrification did not differ. [[Shaw2012]]</td></tr>
+      <tr><th>ENIGMA-ADHD 2017, subcortical</th><td>1,713 with ADHD, 1,529 controls, 23 sites, ages 4–63</td><td>Amygdala, accumbens, putamen, caudate, hippocampus and intracranial volume slightly smaller (d −0.10 to −0.19); pallidum and thalamus no different; adults not significant. [[Hoogman2017]]</td></tr>
+      <tr><th>ENIGMA-ADHD 2019, cortex</th><td>2,246 with ADHD, 1,934 controls, 36 centres</td><td>Lower surface area in children (total d = −0.21), mainly frontal, cingulate and temporal; no differences in adolescents or adults. Smaller surface area went with more attention problems in 2,707 children from the general population. [[Hoogman2019]]</td></tr>
+      <tr><th>Cortese 2012, task fMRI</th><td>55 studies (39 in children)</td><td>Children: frontoparietal and ventral attention under-activation; default, ventral attention and somatomotor over-activation. Present without comorbidity or stimulant history. [[Cortese2012]]</td></tr>
+      <tr><th>Hart 2013, inhibition and attention fMRI</th><td>21 inhibition and 13 attention datasets</td><td>Less activation in right inferior frontal cortex, supplementary motor area, anterior cingulate and striato-thalamic areas (inhibition); right dorsolateral prefrontal, basal ganglia, thalamus and parietal (attention). [[Hart2013]]</td></tr>
+      <tr><th>Zametkin 1990, PET</th><td>25 never-medicated adults, 50 controls</td><td>Global glucose metabolism 8.1% lower (9.05 vs 9.85 mg/min/100 g), most in premotor and superior prefrontal cortex. [[Zametkin1990]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout prose">
+    <p><b>Exam hooks.</b> Cortical maturation in ADHD is delayed by about 3 years (half of cortical points peak at 10.5 vs 7.5 years), most in prefrontal cortex, with the normal order preserved. [[Shaw2007]] ENIGMA subcortical differences are small (d −0.10 to −0.19), largest in the amygdala and accumbens, absent in pallidum and thalamus, and not significant in adults. [[Hoogman2017]] Brain imaging cannot diagnose ADHD. [[Faraone2021,Posner2020]] Next: the chemistry of these circuits in <a href="#dopamine" data-go="dopamine">Dopamine &amp; noradrenaline</a>, and the genes behind brain size differences in <a href="#genes" data-go="genes">Genes &amp; heritability</a>.</p>
+  </div>
+</section>

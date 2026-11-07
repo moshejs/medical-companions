@@ -1,0 +1,99 @@
+<!-- ================= 1.3 INSIDE THE LUNGS ================= -->
+<style>
+#m-lungs .lubtns{display:flex;flex-wrap:wrap;gap:8px}
+#m-lungs .lurange{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;max-width:560px}
+#m-lungs .lurange output{font:600 13px var(--mono);color:var(--brand)}
+#m-lungs .legend i.dot{width:10px;height:10px;border-radius:50%;border:2px solid currentColor;background:var(--cell)}
+#m-lungs .numrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+#m-lungs .numrow div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+#m-lungs .numrow b{font:700 26px/1 var(--display);color:var(--brand)}
+</style>
+<section class="mod" id="m-lungs" data-mod="lungs" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding COPD</p><h2>Inside the lungs</h2>
+    <p class="lede">COPD damages two places: the small airways, which narrow, clog and then vanish, and the air sacs, whose walls break down in emphysema. Zoom from the whole lung into one small airway and on to the air sacs, step by step, and watch which cells do the damage.</p></div>
+  <div class="stepper" id="luSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="luSvg" viewBox="0 0 720 400" role="img" aria-label="A zoom from a whole lung into one small airway cut across, where smoke particles enter, neutrophils, macrophages and CD8 T cells crowd into the wall, a B-cell follicle forms, the wall thickens and a mucus plug fills the lumen; then a fan of terminal bronchioles in which branches drop out; then a cluster of air sacs whose elastin is cut by neutrophil elastase until the sacs merge into one large space."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="luPlay">Play</button><label class="stage-cap tl" for="luT">Timeline <input type="range" id="luT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="legend" aria-label="Cell cast">
+        <span style="color:var(--neut)"><i class="dot"></i>neutrophil</span><span style="color:var(--macro)"><i class="dot"></i>macrophage</span><span style="color:var(--co2)"><i class="dot"></i>CD8+ T cell</span><span style="color:var(--co2-ink)"><i class="dot"></i>B-cell follicle</span><span style="color:var(--mucus-ink)"><i style="background:var(--mucus)"></i>mucus, goblet cells</span><span style="color:var(--muted)"><i style="background:var(--muscle)"></i>smooth muscle</span><span style="color:var(--muted)"><i style="background:var(--elastin)"></i>elastin</span><span style="color:var(--muted)"><i style="background:var(--inflamed)"></i>neutrophil elastase</span><span style="color:var(--muted)"><i style="background:var(--smoke)"></i>smoke and oxidants</span>
+      </div>
+      <p class="stage-cap">Schematic, not to scale: the numbers of cells, branches and air sacs are illustrative, and the open-lumen and gas-exchange-surface bars are read off the drawing, not measured. The published numbers in the side column are from [[Carp1982,Koo2018,McDonough2011]].</p></div>
+    <aside class="note" id="luNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Two lesions, one disease</h3>
+  <div class="prose">
+    <p>GOLD 2023 defines COPD as “a heterogeneous lung condition” with chronic respiratory symptoms caused by abnormalities of the airways (bronchitis, bronchiolitis) and/or the alveoli (emphysema) that cause persistent, often progressive, airflow obstruction. It describes COPD as the result of gene–environment interactions over a lifetime that damage the lungs or change their normal development or ageing. [[Agusti2023]]</p>
+    <p>A 2015 Nature Reviews primer describes COPD as obstruction of the small airways (chronic obstructive bronchiolitis) plus emphysema, which together cause air trapping and breathlessness on exertion. The inflammation is usually corticosteroid resistant, and the disease involves accelerated lung ageing and abnormal repair. <span class="ev est">Established</span> [[Barnes2015]] Hogg explains the airflow limitation as a lung that takes longer to empty: narrowed small airways add resistance, and emphysema makes the lung more compliant. [[Hogg2004Lancet]]</p>
+    <p>Not every smoker develops COPD, and why some people are susceptible is not fully explained. [[Barnes2015]] In the London working-men study, most non-smokers and many smokers never developed clinically significant obstruction. [[Fletcher1977]]</p>
+  </div>
+  <div class="numrow" role="list">
+    <div role="listitem"><b>&lt;2 mm</b>small airways: the main site of obstruction [[McDonough2011]]</div>
+    <div role="listitem"><b>−40%</b>terminal bronchioles in GOLD 1, vs smokers with normal lungs [[Koo2018]]</div>
+    <div role="listitem"><b>−72 to −89%</b>terminal bronchioles in GOLD 4 lungs at transplant [[McDonough2011]]</div>
+    <div role="listitem"><b>27%</b>of MESA smokers had emphysema on CT; 17% of smokers with normal spirometry [[Smith2014]]</div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag air">Small airways</span><h4>Narrowed, then lost</h4><p>On CT, airways 2.0–2.5 mm across were fewer than in controls at GOLD 1 (P=0.001), GOLD 2 (P=0.02) and GOLD 3–4 (P&lt;0.001). In GOLD 4 lungs, the total cross-sectional area of terminal bronchioles was 81–99.7% smaller. [[McDonough2011]] Surviving small airways had thickened walls and narrowed lumens. [[Koo2018]]</p></div>
+    <div class="card"><span class="tag inflamed">Emphysema</span><h4>Walls between air sacs break down</h4><p>The Fleischner Society classes CT emphysema as centrilobular, panlobular and paraseptal, and lists airway-wall thickening, small airways disease, pulmonary arterial enlargement and bronchiectasis as further CT features. [[Lynch2015]] Comparing CT with lung morphometry, −950 HU was the only threshold whose relative area matched measured emphysema. [[Gevenois1995]]</p></div>
+    <div class="card"><span class="tag" style="background:var(--mucus-soft);color:var(--mucus-ink)">Chronic bronchitis</span><h4>Too much mucus</h4><p>Mucus overproduction by goblet cells plugs small airways, remodels the epithelium and makes airways collapse more easily. It goes with faster lung-function decline, more infections, more exacerbations and higher mortality, and most patients lie between “pure” emphysema and “pure” chronic bronchitis. [[Kim2013]]</p></div>
+    <div class="card"><span class="tag">An open puzzle</span><h4>Which comes first?</h4><p>Narrowing and loss of terminal bronchioles came before emphysematous destruction in resected lungs (P&lt;0.001). [[McDonough2011]] Small-airway thickening happens close to tissue undergoing destruction, and Hogg and Timens call the mechanism behind this pairing “a puzzle” still to be solved. <span class="ev hyp">Hypothesis</span> [[Hogg2009]]</p></div>
+  </div>
+
+  <h3 class="sub">Try it: meet the cell cast</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="lubtns" id="luCastBtns" role="group" aria-label="Choose a cell"></div>
+      <div class="scroll"><svg id="luCastSvg" viewBox="0 0 720 170" role="img" aria-label="Seven cell icons in a row: neutrophil, alveolar macrophage, CD8 T cell, a B-cell follicle, goblet cell, eosinophil and epithelial cell. The chosen cell is drawn larger inside a ring."></svg></div>
+      <p class="stage-cap">Cell icons are drawn for recognition, not to scale or with real proportions.</p>
+    </div>
+    <aside class="note" id="luCastNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: centrilobular or panlobular?</h3>
+  <p class="prose">One secondary lobule of lung, drawn as a hexagon with its respiratory bronchiole at the centre. Choose a pattern, then slide the severity to see where destruction starts and how it spreads. [[Hogg2004Lancet,Hogg2009]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="lubtns" id="luEmBtns" role="group" aria-label="Choose an emphysema pattern">
+        <button class="btn" data-em="cl" aria-pressed="true">Centrilobular</button>
+        <button class="btn" data-em="pl" aria-pressed="false">Panlobular</button>
+      </div>
+      <label class="lurange" for="luEmS">Severity drawn <output id="luEmV">50% of the scale</output><input type="range" id="luEmS" min="0" max="1" step="0.01" value="0.5"></label>
+      <div class="scroll"><svg id="luEmSvg" viewBox="0 0 720 300" role="img" aria-label="A hexagonal lobule filled with small air sacs around a central bronchiole. In the centrilobular pattern, holes open around the centre first and merge outwards as severity rises; in the panlobular pattern, every air sac across the lobule loses its wall evenly."></svg></div>
+      <p class="stage-cap">Schematic. The grade names are the Fleischner Society’s [[Lynch2015]]; matching them to slider positions is only for illustration. A third type, paraseptal emphysema (graded mild or substantial), looked like controls in MESA apart from a male predominance. [[Lynch2015,Smith2014]]</p>
+    </div>
+    <aside class="note" id="luEmNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Mucus: more than a nuisance</h3>
+  <div class="lab even">
+    <div class="stage">
+      <p class="kicker">COPDGene: airway-blocking mucus plugs on CT, 4,363 people <span class="ev est">Established</span></p>
+      <div class="scroll"><svg id="luPlugSvg" viewBox="0 0 720 190" role="img" aria-label="Bar chart: people with no mucus-plugged segments, 59.3 per cent of the cohort, had 34.0 per cent mortality; 1 to 2 segments, 21.8 per cent, had 46.7 per cent; 3 or more segments, 18.9 per cent, had 54.1 per cent."></svg></div>
+      <p class="stage-cap">After adjustment, including for FEV1 and CT emphysema, plugs in 1–2 segments carried a hazard ratio for death of 1.15, and in 3 or more segments 1.24. [[Diaz2023]]</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h4>Mucin in sputum</h4><p>In SPIROMICS, total sputum mucin was 3,166 µg/mL in smokers with severe COPD and 1,515 µg/mL in never-smoking controls; 4,194 µg/mL with two or more exacerbations a year and 2,458 µg/mL with none. MUC5B was about 3 times and MUC5AC about 10 times never-smoker levels. [[Kesimer2017]]</p></div>
+      <div class="card"><h4>Mucus and lung-function decline</h4><p>In the Copenhagen City Heart Study, mucus hypersecretion at both surveys went with an excess FEV1 decline of 22.8 mL/yr in men and 12.6 mL/yr in women, and an adjusted relative risk of COPD hospitalisation of 5.3 and 5.1. [[Vestbo1996]] In the 1946 British birth cohort, hypersecretion usually resolved after quitting. [[Allinson2016]]</p></div>
+    </div>
+  </div>
+
+  <h3 class="sub">Why the damage keeps going</h3>
+  <div class="cards">
+    <div class="card"><span class="tag smoke">Oxidants</span><h4>Oxidative stress</h4><p>Antioxidant capacity is reduced by smoking and exacerbations, and oxidative stress persists after quitting. Antioxidant strategies have so far failed in trials, and the authors argue no single “magic bullet” exists. [[Kirkham2013]]</p></div>
+    <div class="card"><span class="tag ics">Steroid resistance</span><h4>A switched-off brake</h4><p>Barnes links oxidative stress to NF-κB activation, weaker antiprotease defences, DNA damage, cellular senescence and corticosteroid resistance through inactivation of histone deacetylase 2. [[Barnes2016]] HDAC activity in peripheral lung fell step by step with GOLD stage, while IL-8 rose. [[Ito2005]]</p></div>
+    <div class="card"><span class="tag">Vessels too</span><h4>Early changes in the arteries</h4><p>Pulmonary arteries in mild COPD relaxed less and carried a T-cell infiltrate, which tracked intimal thickness. <span class="ev early">Early evidence</span> [[Peinado1999]] Some vascular changes are present even in smokers with normal lung function. [[Barbera2003]]</p></div>
+    <div class="card"><span class="tag">Not one pattern</span><h4>Eosinophils and non-smokers</h4><p>A subset of patients has eosinophilic inflammation and may respond better to corticosteroids. [[Barnes2016]] GOLD 2023 states that COPD in non-smokers shows more small-airway obstruction, less emphysema, fewer sputum neutrophils and more sputum eosinophils than COPD in smokers. [[Agusti2023]]</p></div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>What the studies show</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td><b>Does mucus drive progression?</b></td><td>Fletcher and Peto concluded that mucus hypersecretion does not make obstruction progress faster. [[Fletcher1977]] Later cohorts linked persistent hypersecretion to excess FEV1 decline and hospitalisation, and CT mucus plugs to death. [[Vestbo1996,Allinson2016,Diaz2023]]</td><td><span class="ev early">Early evidence</span> The modern view treats mucus as an active contributor.</td></tr>
+      <tr><td><b>Airway loss or emphysema first?</b></td><td>Terminal bronchiolar loss comes before emphysematous destruction, even in GOLD 1. [[McDonough2011,Koo2018]] Why they occur side by side is unexplained. [[Hogg2009]]</td><td><span class="ev est">Established</span> order; <span class="ev hyp">Hypothesis</span> cause</td></tr>
+      <tr><td><b>Is emphysema partly autoimmune?</b></td><td>Antielastin antibodies tracked severity in one study, and B-cell follicles increase with stage. [[Lee2007,Hogg2004]]</td><td><span class="ev hyp">Hypothesis</span> Not yet shown to change treatment.</td></tr>
+    </tbody></table></div>
+  <p class="callout">Before this: <button class="btn ghost" data-go="causes">Causes &amp; risk factors</button> · Next: <button class="btn ghost" data-go="breathless">Air trapping &amp; breathlessness</button> · The inherited form: <button class="btn ghost" data-go="aatd">Alpha-1 antitrypsin deficiency</button></p>
+</section>

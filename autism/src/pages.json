@@ -1,0 +1,106 @@
+{
+ "what": {
+  "title": "What is autism? Prevalence, ADDM 1 in 31 and why numbers rose",
+  "description": "How common autism is worldwide (1 in 127) and in the US (1 in 31), why diagnoses rose, the 3:1 sex ratio and age at diagnosis, animated and cited."
+ },
+ "words": {
+  "title": "Autistic person or person with autism? Double empathy and masking",
+  "description": "Identity-first vs person-first language, the double empathy problem, masking and autistic burnout, and the neurodiversity model, with cited evidence."
+ },
+ "senses": {
+  "title": "Autism and the senses: overload, meltdown, shutdown and supports",
+  "description": "Animated sensory day: hyper- and hypo-reactivity, overload, meltdown versus shutdown, stimming, hyperacusis rates and which supports have trial evidence."
+ },
+ "genes": {
+  "title": "Autism genetics: heritability, twins, risk genes, testing",
+  "description": "How genes shape autism: twin studies and 80% heritability, common and de novo variants, 16p11.2, fragile X, sibling recurrence and genetic test yields."
+ },
+ "risk": {
+  "title": "Autism risk factors and myths: what does not cause autism",
+  "description": "Prenatal risk factors on a forest plot with absolute risks, why vaccines and parenting do not cause autism, and paracetamol in pregnancy explained."
+ },
+ "brain": {
+  "title": "The autistic brain in development: synapses and pruning",
+  "description": "Brain growth from pregnancy to age 4, synapse pruning, infant MRI findings, E/I balance and other hypotheses with evidence labels. No scan diagnoses autism."
+ },
+ "milestones": {
+  "title": "Early signs of autism: milestones and red flags, 0–36 months",
+  "description": "Animated CDC 2022 milestones from birth to 3 years, early signs of autism, joint attention, loss of skills and what to do if you are worried. Cited."
+ },
+ "screening": {
+  "title": "Autism screening: M-CHAT-R/F, Q-CHAT, AQ-10 and predictive value",
+  "description": "Follow 1,000 toddlers through M-CHAT-R/F screening and try a PPV calculator: why a positive screen is not a diagnosis. Teaching tools only. Cited."
+ },
+ "criteria": {
+  "title": "DSM-5-TR and ICD-11 autism criteria and support levels",
+  "description": "Interactive walk-through of DSM-5-TR autism criteria A–E, support levels 1–3, specifiers and ICD-11 6A02.0–.5, plus how the names changed since 1980."
+ },
+ "assessment": {
+  "title": "Autism diagnostic assessment: ADOS-2, ADI-R and waits",
+  "description": "How autism is assessed in children and adults: the team, ADOS-2 and ADI-R accuracy, waiting times, median age at diagnosis and look-alike conditions."
+ },
+ "cooccur": {
+  "title": "Autism co-occurring conditions: ADHD, anxiety, epilepsy",
+  "description": "How often autistic people also have ADHD, anxiety, depression, OCD, epilepsy or intellectual disability, when each tends to appear, and the AuDHD overlap."
+ },
+ "supports": {
+  "title": "Autism early intervention evidence: Project AIM, PACT and goals",
+  "description": "How strong is the evidence for early autism supports? Watch Project AIM effects shrink under stricter filters and follow the PACT trial for six years."
+ },
+ "aba": {
+  "title": "ABA therapy for autism: history, evidence and critique",
+  "description": "Sixty years of behavioural approaches, from Lovaas and EIBI to NDBIs, with proponents' and autistic critics' arguments and a functional assessment ABC analyser."
+ },
+ "therapies": {
+  "title": "Autism communication and therapies: AAC, PECS, OT, PEERS and CBT",
+  "description": "AAC does not stop speech: PECS phases, speech-generating devices and a comparator of speech, OT, social skills, adapted CBT and music therapy, with evidence."
+ },
+ "meds": {
+  "title": "Autism medication: risperidone, aripiprazole, melatonin",
+  "description": "No medicine treats autism itself. What risperidone and aripiprazole do for severe irritability, their side effects, and ADHD and sleep medicines."
+ },
+ "unproven": {
+  "title": "Unproven autism treatments: secretin, chelation, diets",
+  "description": "How secretin, chelation, hyperbaric oxygen, special diets and stem-cell clinics rose and fell, why vaccines do not cause autism, and how to judge claims."
+ },
+ "frontier": {
+  "title": "Autism research: oxytocin, bumetanide, leucovorin",
+  "description": "Autism trials 2010–2026 with evidence labels: failed drugs, early leads such as leucovorin, FDA-cleared diagnostic aids and what autistic people want studied."
+ },
+ "school": {
+  "title": "Autism at school and home: supports, IEP, EHCP and family life",
+  "description": "An animated school day with visual schedules, TEACCH and quiet spaces, an IEP/504/EHCP navigator, and cited facts on bullying, absence and caregiver stress."
+ },
+ "adult": {
+  "title": "Autistic adults: late diagnosis, work, burnout and ageing",
+  "description": "Follow an autistic life from 16 to 75: the services cliff, work and study, masking and burnout, late diagnosis and ageing, with a workplace adjustments tool."
+ },
+ "health": {
+  "title": "Autism physical health: epilepsy, sleep, gut and safety",
+  "description": "Epilepsy, sleep and melatonin, gut and feeding problems, teeth, weight, wandering and drowning in autism, and mortality and suicide data handled with care."
+ },
+ "nursing": {
+  "title": "Autism nursing care: adapted hospital visits and pain assessment",
+  "description": "An animated blood-test visit comparing usual and autism-adapted nursing care, a FLACC pain walkthrough, hospital passports, meltdowns and restraint data."
+ },
+ "history": {
+  "title": "History of autism: Bleuler, Sukhareva, Kanner, Asperger to DSM-5",
+  "description": "An animated timeline of autism from Bleuler (1911) and Sukhareva to Kanner, Asperger, Wing, DSM-5, ICD-11 and neurodiversity, with every date cited."
+ },
+ "review": {
+  "title": "Autism flashcards and mnemonics: DSM-5-TR, M-CHAT-R/F, red flags",
+  "description": "89 cited autism flashcards and 10 memory aids, from prevalence and genetics to DSM-5-TR all-3-A, any-2-B, M-CHAT-R/F bands and red flags."
+ },
+ "quiz": {
+  "title": "Autism quiz: 97 questions with cited explanations, by part",
+  "description": "Test yourself on autism: prevalence, genes, vaccines, screening, DSM-5-TR and ICD-11, ABA, medicines, school, adulthood and history."
+ },
+ "glossary": {
+  "title": "Autism glossary: 160+ terms from AAC to the services cliff",
+  "description": "A searchable glossary of autism terms, from alexithymia, ADOS and M-CHAT-R/F to NDBI, ICD-11 6A02 and autistic burnout, each linked to its module."
+ },
+ "sources": {
+  "title": "Autism Companion sources: every validated reference",
+  "description": "Every reference behind the Autism Companion: studies, guidelines, FDA labels and trials, each checked against PubMed, Europe PMC or Crossref."
+ }
+}

@@ -1,0 +1,92 @@
+<!-- ================= 3.5 SIDE EFFECTS & MONITORING ================= -->
+<style>
+#m-safety .sfchips .btn{display:inline-flex;align-items:center;gap:7px}
+#m-safety .sfchips .btn i{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none}
+#m-safety .sfchips .btn[aria-pressed="false"]{color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px}
+#m-safety .sfchips .btn[aria-pressed="false"] i{opacity:.35}
+#m-safety .sfalt{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+#m-safety .sfalt label{display:flex;gap:10px;align-items:center;font-weight:700;font-size:14px;flex:1;min-width:220px}
+#m-safety .sfint{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+#m-safety .sfint button{font:inherit;text-align:left;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:12px;padding:10px 12px;cursor:pointer;display:flex;flex-direction:column;gap:3px;min-width:0}
+#m-safety .sfint button b{font-size:15px}
+#m-safety .sfint button small{font:500 11px/1.3 var(--mono);color:var(--muted)}
+#m-safety .sfint button[aria-pressed="true"]{background:var(--rx-soft);border-color:var(--rx)}
+#m-safety .tbl table{min-width:760px}
+</style>
+<section class="mod" id="m-safety" data-mod="safety" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Side effects &amp; monitoring</h2>
+    <p class="lede">Most people finish TB treatment without serious problems, but each drug has its own side effects, and many appear in a typical window. Scrub through six months to see which organs to watch and when, and the checks that go with each drug.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Regimen">
+    <span class="kicker">Regimen</span>
+    <button class="btn" data-sfr="std" aria-pressed="true">2HRZE/4HR</button>
+    <button class="btn" data-sfr="hpzm" aria-pressed="false">2HPMZ/2HPM</button>
+    <button class="btn" data-sfr="bpalm" aria-pressed="false">BPaLM (drug-resistant)</button>
+  </div>
+  <div class="ctrls sfchips" role="group" aria-label="Show side effects of" id="sfChips"></div>
+  <div class="stepper" id="sfSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="sfSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A body outline with organs that light up when a side effect is in its typical window: eyes, heart, liver, kidneys and bladder, joints, nerves of the hands and feet, bone marrow and tendons. Beside it a timeline of 26 weeks shows one row per side effect, with bars for the weeks each drug is taken, darker shading for the typical window, and markers for scheduled checks such as vision tests, ECGs and blood counts."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sfPlay">Play</button><label class="stage-cap tl" for="sfT">Weeks of treatment <input type="range" id="sfT" min="0" max="1" step="0.001" value="0.005"></label></div>
+      <div class="readout" id="sfRead"></div>
+      <p class="stage-cap"><b>Schematic timing.</b> Bars show when each drug is given; darker shading marks a typical window only where a source gives one (isoniazid hepatitis usually in the first 3 months; liver events in SHINE almost all in the first 8 weeks; linezolid neuropathy mainly after 28 days). Frequencies are population figures from trials and cohorts. [[FDA-Isoniazid,Turkova2022,FDA-Zyvox]]</p>
+    </div>
+    <aside class="note" id="sfNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout"><p><b>Tell the TB team straight away</b> about yellow eyes or skin, dark urine, stomach pain or loss of appetite; blurred vision or trouble telling red from green; or tingling or burning in the hands or feet. Orange-red urine, sweat and tears from rifampicin are expected and harmless. [[FDA-Rifampin,FDA-Ethambutol,FDA-Isoniazid]]</p></div>
+
+  <h3 class="sub">A raised liver test: how the ATS rule works</h3>
+  <div class="prose"><p>A teaching tool, not a decision aid. Move the ALT level and say whether there are symptoms; the tree follows the American Thoracic Society statement as published. Real decisions are made by the treating clinician, who weighs much more than one number.</p></div>
+  <div class="sfalt">
+    <label for="sfAlt">ALT, multiples of the upper limit of normal <input type="range" id="sfAlt" min="1" max="10" step="0.5" value="4"></label>
+    <button class="btn" id="sfSym" aria-pressed="false">Symptoms or jaundice</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="sfTree" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A decision tree: an ALT rise on TB treatment branches on symptoms or jaundice. With symptoms the threshold is more than 3 times the upper limit of normal; without symptoms it is more than 5 times. Above the threshold the path leads to interrupting treatment and then restarting, usually with a modified or alternative regimen."></svg></div>
+      <p class="verdict maybe" id="sfVerdict" aria-live="polite"></p>
+    </div>
+    <aside class="note" id="sfTreeNote"></aside>
+  </div>
+
+  <h3 class="sub">Rifampicin and other medicines</h3>
+  <div class="prose"><p>Rifampicin speeds up the liver and gut enzymes (CYP3A4, and also CYP2C and P-glycoprotein) that clear many other medicines. Induction is complete in about a week and wears off over roughly two weeks after rifampicin stops, so levels of other medicines fall during TB treatment and rise again afterwards. [[Niemi2003]] Pick a group to see the effect.</p></div>
+  <div class="sfint" id="sfInt" role="group" aria-label="Interaction groups"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="sfInd" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="Over 16 weeks, a band shows when rifampicin is taken. Enzyme induction rises over about a week after starting and falls over about two weeks after stopping, and the level of another medicine moves the opposite way, falling during rifampicin and recovering after it stops."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sfIndPlay">Play</button><label class="stage-cap tl" for="sfIndT">Weeks <input type="range" id="sfIndT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap">Schematic shape; only the timing of onset (about 1 week) and offset (about 2 weeks) is from the source. [[Niemi2003]]</p>
+    </div>
+    <aside class="note" id="sfIntNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Monitoring, as the labels and guidelines publish it</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Drug or regimen</th><th>Before starting</th><th>During treatment</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Rifampicin</th><td>Adults: liver enzymes, bilirubin, creatinine, blood count and platelets</td><td>Review at least monthly with specific questions about side effects; routine lab tests "generally not necessary" if baseline results are normal</td><td>US label [[FDA-Rifampin]]</td></tr>
+      <tr><th>Isoniazid</th><td>Age 35 and over: AST and ALT</td><td>Monthly interview; AST and ALT periodically from 35. Hepatitis usually in the first 3 months; daily alcohol raises the risk. Pyridoxine 25–50 mg/day listed with it</td><td>US label; ATS/CDC/ERS/IDSA [[FDA-Isoniazid,Saukkonen2025]]</td></tr>
+      <tr><th>Ethambutol</th><td>Visual acuity, each eye and both together (Snellen chart), with colour discrimination</td><td>Periodically; monthly at doses above 15 mg/kg/day</td><td>US label [[FDA-Ethambutol]]</td></tr>
+      <tr><th>Pyrazinamide</th><td>Ask about gout: contraindicated in acute gout</td><td>Stop if hyperuricaemia comes with acute gouty arthritis</td><td>US label [[FDA-Pyrazinamide]]</td></tr>
+      <tr><th>Any first-line regimen</th><td colspan="2">ALT monitoring for people who drink alcohol regularly, take other liver-toxic drugs, have viral hepatitis or other liver disease, had isoniazid hepatitis before, are pregnant or within 3 months postpartum; during TB disease treatment also people with HIV, and some experts add everyone over 35</td><td>ATS statement [[Saukkonen2006]]</td></tr>
+      <tr><th>2HPMZ/2HPM</th><td>Fluoroquinolone susceptibility testing; ECG only if clinically indicated (older age, heart disease, prolonged QT or other QT-prolonging drugs)</td><td>As for first-line drugs</td><td>ATS/CDC/ERS/IDSA [[Saukkonen2025]]</td></tr>
+      <tr><th>Bedaquiline</th><td>ECG, liver enzymes and electrolytes</td><td>ECGs; stop if significant ventricular arrhythmia or QTc above 500 ms</td><td>US label [[FDA-Sirturo]]</td></tr>
+      <tr><th>BPaL / BPaLM</th><td>ECG</td><td>ECG at 2, 12 and 24 weeks; monthly when another QT-prolonging drug such as moxifloxacin is added. WHO also lists liver tests, blood count, potassium, calcium and magnesium when QTc is prolonged, and watching for neuropathy</td><td>ATS/CDC/ERS/IDSA; WHO [[Saukkonen2025,WHO-Mod4-2025]]</td></tr>
+      <tr><th>Linezolid</th><td>Blood count</td><td>Weekly blood counts; watch for peripheral and optic neuropathy, mainly after 28 days</td><td>US label [[FDA-Zyvox]]</td></tr>
+      <tr><th>Pretomanid</th><td colspan="2">Label warnings: hepatotoxicity, myelosuppression, peripheral and optic neuropathy, QT prolongation, lactic acidosis; monitor liver tests, blood counts, visual function and ECGs</td><td>US label [[FDA-Pretomanid]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Quoted as published, for teaching. The schedule for a particular person is set by their clinician and TB programme.</p>
+
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Which first-line drug causes most trouble?</h4><p>In a Montreal cohort of 430 people, major adverse events per 100 person-months were 1.48 for pyrazinamide, 0.49 for isoniazid, 0.43 for rifampin and 0.07 for ethambutol. Risk was higher over 60 (HR 2.9), in women (2.5), people born in Asia (2.5) and people with HIV (3.8). [[Yee2003]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Liver injury rises with age</h4><p>The isoniazid label gives hepatitis rates of under 1 per 1,000 under age 20, 3 at 20–34, 12 at 35–49 and 23 at 50–64. Across studies, drug-induced liver injury during TB treatment ranged from 2% to 28%; risk factors include older age, female sex, slow acetylation, malnutrition, HIV and liver disease. [[FDA-Isoniazid,Tostmann2008]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Ethambutol and the eyes</h4><p>In a meta-analysis, visual impairment occurred in 22.5 per 1,000 people treated and was permanent in 4.3 per 1,000; at average doses of 27.5 mg/kg/day or less for 2–9 months, 19.2 and 2.3 per 1,000. Most episodes reversed after about 3 months. [[Ezer2013]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Linezolid dose matters</h4><p>In ZeNix, peripheral neuropathy was 38% with 1,200 mg for 26 weeks against 24% with 600 mg for 26 weeks, and myelosuppression 22% against 2%, with favourable outcomes of 93% and 91%. In Nix-TB, at 1,200 mg, neuropathy reached 81%. [[Conradie2022,Conradie2020]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>QT effects add up, but modestly</h4><p>In ACTG A5343, mean QTcF rose by 12.3 ms with bedaquiline, 8.6 ms with delamanid and 20.7 ms with both, with no grade 3–4 QTc events: no more than additive. [[Dooley2021LID]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Newer regimens can be gentler</h4><p>In TB-PRACTECAL, grade 3 or higher or serious adverse events occurred in 19% on 6-month BPaLM against 59% on the older standard care for drug-resistant TB. [[Nyangwa2022]] See <a href="#drtb" data-go="drtb">Treating drug-resistant TB</a>.</p></div>
+  </div>
+  <p class="callout">How the drugs work is in <a href="#drugs" data-go="drugs">How TB drugs work</a>; what nurses check and teach is in <a href="#nursing" data-go="nursing">Nursing care</a>.</p>
+</section>

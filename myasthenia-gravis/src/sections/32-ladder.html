@@ -1,0 +1,78 @@
+<!-- ================= 3.2 THE TREATMENT LADDER ================= -->
+<section class="mod" id="m-ladder" data-mod="ladder" hidden>
+<style>
+#m-ladder .latog{display:flex;flex-direction:column;gap:10px}
+#m-ladder .latog>div{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-ladder .latog .kicker{margin-right:4px;min-width:120px}
+@media (max-width:600px){#m-ladder .latog .kicker{min-width:0;width:100%}}
+#m-ladder #laEdNote{display:flex;flex-direction:column;gap:8px;max-width:none}
+#m-ladder #laEdNote h4{margin:0;font-family:var(--display);font-weight:800;font-size:19px}
+#m-ladder #laEdNote dl{margin:0;display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr);gap:6px 14px;font-size:14.5px}
+#m-ladder #laEdNote dt{font:600 10.5px/1.5 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+#m-ladder #laEdNote dd{margin:0}
+@media (max-width:600px){#m-ladder #laEdNote dl{grid-template-columns:minmax(0,1fr)} #m-ladder #laEdNote dd{margin-bottom:6px}}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>The treatment ladder</h2>
+    <p class="lede">How published MG guidance orders treatment: pyridostigmine, steroids, steroid-sparing drugs, thymectomy, rescue with IVIG or plasma exchange, rituximab and the biologics. Press play to watch one patient climb and step down, then switch antibody group or guideline.</p></div>
+  <div class="latog" id="laTog">
+    <div role="group" aria-label="Antibody group"><span class="kicker">Antibody group</span><button class="btn" data-lag="achr" aria-pressed="true">AChR</button><button class="btn" data-lag="musk" aria-pressed="false">MuSK</button><button class="btn" data-lag="sero" aria-pressed="false">Seronegative</button><button class="btn" data-lag="ocular" aria-pressed="false">Ocular only</button></div>
+    <div role="group" aria-label="Guidance edition"><span class="kicker">Guidance</span><button class="btn" data-lae="c16" aria-pressed="false">Consensus 2016</button><button class="btn" data-lae="c20" aria-pressed="true">2020 update</button><button class="btn" data-lae="de" aria-pressed="false">German 2023</button><button class="btn" data-lae="nordic" aria-pressed="false">Nordic 2024</button><button class="btn" data-lae="abn" aria-pressed="false">ABN 2025</button><button class="btn" data-lae="jp" aria-pressed="false">Japanese 2022</button></div>
+  </div>
+  <div class="stepper" id="laSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="laSvg" viewBox="0 0 720 540" style="min-width:560px" role="img" aria-label="Animated treatment ladder for myasthenia gravis. A patient token climbs from pyridostigmine through corticosteroids, steroid-sparing drugs, thymectomy, rituximab and complement or FcRn inhibitors, detours to an IVIG and plasma exchange rescue lane, reaches the treatment goal flag and steps down as treatment is tapered. Rungs that do not apply to the chosen antibody group are struck through, and a marker shows where the chosen guideline brings biologics in."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="laPlay">Play</button><label class="stage-cap tl" for="laT">Treatment course <input type="range" id="laT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="stage-cap" id="laCap">Click a rung to jump to it. Schematic: the order of rungs, not a timetable.</p></div>
+    <aside class="note" id="laNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout" id="laEdNote" aria-live="polite"></div>
+
+  <h3 class="sub">Time to effect</h3>
+  <div class="stage">
+    <div class="scroll"><svg id="laBars" viewBox="0 0 720 560" style="min-width:560px" role="img" aria-label="Bar chart on a logarithmic time axis, from one hour to three years, of how long each MG treatment took to act in the published studies: pyridostigmine within hours, the fast biologics and rescue treatments within days to two weeks, steroids within weeks, and the steroid-sparing drugs and thymectomy over months"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="laBPlay">Play</button><label class="stage-cap tl" for="laB">Grow bars <input type="range" id="laB" min="0" max="1" step="0.002" value="1"></label></div>
+    <div class="legend"><span><i style="background:var(--drug)"></i>published range, start to full effect</span><span><i style="background:var(--muted)"></i>first time point at which a trial found benefit</span></div>
+    <p class="stage-cap">Log time axis. Each bar comes from a different study design and measure, so read them as orders of magnitude, not a race. Sources: pyridostigmine [[Aquilonius1986]]; efgartigimod, zilucoplan and rozanolixizumab at week 1 in a network meta-analysis [[Zhong2024]]; tacrolimus on an electrophysiological measure [[Imai2012]]; oral and IV steroids [[SchneiderGold2005,Gilhus2024]]; IVIG and plasma exchange [[Barth2011]]; rituximab in new-onset MG [[Piehl2022]]; ciclosporin [[Tindall1987]]; thymectomy, read off the MGTX figure [[Wolfe2016]]; cyclophosphamide [[DeFeo2002]]; azathioprine [[Witte1984]]; mycophenolate [[Hehir2010]]; methotrexate [[Heckmann2011]]; the Nordic 1–6 month band [[Gilhus2024]].</p>
+  </div>
+
+  <h3 class="sub">Steroid-sparing drugs at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Drug</th><th>Key trial or series</th><th>Time to effect</th><th>Notes from labels and guidance</th></tr></thead>
+    <tbody>
+      <tr><th>Azathioprine</th><td>Palace 1998: 34 patients, 3 years; prednisolone median 0 vs 40 mg alternate days at 3 years, no difference at 1 year [[Palace1998]]</td><td>First response 4–10 months, peak about 14 months [[Witte1984]]</td><td>First-line in the German and Nordic guidance; TPMT testing, and TPMT does not replace blood counts; boxed malignancy warning; off-label in the US [[Wiendl2023,Gilhus2024,FDAImuran2025]]</td></tr>
+      <tr><th>Mycophenolate</th><td>Two 2008 RCTs negative at 12 and 36 weeks [[MuscleStudyGroup2008,Sanders2008]]</td><td>Good outcomes rose only after about 6 months [[Hehir2010]]</td><td>Trials probably too short; boxed embryofetal toxicity warning; contraindicated in pregnancy [[Hehir2010,FDACellCept2026,Sanders2016]]</td></tr>
+      <tr><th>Methotrexate</th><td>Pasnoor 2016: no steroid sparing in 50 patients; Heckmann 2011: matched azathioprine in 24 [[Pasnoor2016,Heckmann2011]]</td><td>Less prednisone at months 10 and 12 [[Heckmann2011]]</td><td>2020 update: "may be considered" when better-supported agents fail or are not tolerated [[Narayanaswami2021]]</td></tr>
+      <tr><th>Tacrolimus</th><td>Yoshikawa 2011: missed its steroid-sparing endpoint (p = 0.078) [[Yoshikawa2011]]</td><td>An excitation-contraction measure improved in 1–2 weeks [[Imai2012]]</td><td>Approved for MG in Japan; a possible early non-immune effect [[Imai2012,Wiendl2023]]</td></tr>
+      <tr><th>Ciclosporin</th><td>Tindall 1987: 20 patients, strength better at 6 months [[Tindall1987]]</td><td>Benefit at the 6-month assessment [[Tindall1987]]</td><td>RCT support, but side effects and drug interactions limit use [[Sanders2016]]</td></tr>
+      <tr><th>Cyclophosphamide</th><td>De Feo 2002: 23 patients, monthly IV; 5 came off steroids [[DeFeo2002]]</td><td>3–12 months [[DeFeo2002]]</td><td>German guideline: individual cases of highly active or refractory disease [[Wiendl2023]]</td></tr>
+    </tbody></table></div>
+
+  <div class="cards" id="laCards">
+    <div class="card"><span class="tag warn">Steroids</span><h4>Low start or high start, and the early dip</h4>
+      <p>Pascuzzi's 1984 series started prednisone at 60–80 mg a day: 80.2% reached remission or marked improvement. Seybold and Drachman built the slowly rising schedule in 1974 to avoid the early worsening seen with 60–100 mg doses. In a cross-sectional study of 590 Japanese patients, a low-dose regimen was more likely than a high-dose one to reach minimal manifestations on ≤5 mg a day (odds ratios 10.4, 2.75 and 1.86 at years 1, 2 and 3). [[Pascuzzi1984,Seybold1974,SchneiderGold2005,Imai2018]]</p>
+      <p><b>Early worsening</b> was reported in 21% to 48% of patients across older series, 42% of 55 Korean patients within 4 weeks, and 26% of 62 Japanese patients within 2 weeks. The risk factors differ by study: Bae 2006 found older age, severe bulbar symptoms and more severe disease, but not the dose per kg; Kanai 2019 found a start of 40 mg/day or more, thymoma-associated or early-onset MG, and upper-limb weakness. [[SchneiderGold2005,Bae2006,Kanai2019]]</p>
+      <p>These are published regimens quoted for study. The drug, dose and schedule for any person are set by the treating clinician.</p>
+      <div class="hook"><b>Exam hook</b>Many schedules start steroids low and increase slowly, because high starting doses can cause a <b>transient worsening</b> (21–48% in older series). [[SchneiderGold2005,Seybold1974]]</div></div>
+    <div class="card"><span class="tag">Definition</span><h4>Refractory MG</h4>
+      <p>The international consensus defines refractory MG as post-intervention status unchanged or worse after corticosteroids and at least two other immunosuppressants, used at adequate dose for adequate time, with persistent symptoms or side effects that limit function. [[Sanders2016]]</p>
+      <p>The German guideline uses "highly active" disease instead. Despite adequate therapy, any one of these counts: persistent symptoms of MGFA IIb or worse and/or at least 2 severe exacerbations needing IVIG, plasma exchange or immunoadsorption within a year of diagnosis; MGFA IIa or worse with a severe exacerbation or crisis in the past year; or MGFA IIa or worse for more than 2 years. The Nordic guidance notes that 10–20% of patients stay moderately to severely weak after at least two high-dose immunosuppressants. [[Wiendl2023,Gilhus2024]]</p></div>
+    <div class="card"><span class="tag nerve">Ocular MG</span><h4>EPITOME and the eye-only form</h4>
+      <p>EPITOME planned 88 participants but randomised only 11. Treatment failed in 100% on placebo (5) against 17% on prednisone (6), p = 0.02, and minimal manifestation status took a median of 14 weeks at an average of 15 mg a day. [[Benatar2016]]</p>
+      <p>The 2020 update makes steroids the first immunosuppressant when ptosis or double vision that has not responded to cholinesterase inhibitors is limiting, notes that low doses may suffice, and allows thymectomy for AChR+ ocular MG when immunosuppression is declined, contraindicated or ineffective. In an observational study, generalization at 2 years was 7% with prednisone against 36% without. A 2025 review says ocular MG has no agreed management criteria, and the Nordic guidance leaves it out. [[Narayanaswami2021,Kupersmith2003,Kupersmith2025,Gilhus2024]]</p></div>
+    <div class="card"><span class="tag drug">Rituximab</span><h4>RINOMAX against BeatMG</h4>
+      <p><b>RINOMAX</b> (new-onset generalized MG, 47 patients): one 500 mg dose gave minimal manifestations at 16 weeks in 71% against 29% on placebo, and rescue treatment was needed by 4% against 36%. <b>BeatMG</b> (established, mild to moderate AChR+ MG on prednisone): the steroid-sparing endpoint was met by 60% against 56%, a futility result. [[Piehl2022,Nowak2022]]</p>
+      <p>A 2025 Cochrane review found little or no steroid-sparing difference but a probable large drop in relapses needing rescue (220 vs 490 per 1,000). In MuSK MG, 58% against 16% reached the favourable outcome in a blinded review, and a meta-analysis found 82% reached minimal manifestations or better. [[Dodd2025,Hehir2017,Chayanopparat2025]]</p></div>
+    <div class="card"><span class="tag bad">Rescue</span><h4>IVIG and plasma exchange</h4>
+      <p>The consensus uses them short-term for breathing or swallowing problems, before surgery with significant bulbar weakness, or when a rapid response is needed, and calls them probably equally effective in severe generalized MG. In Barth 2011 (84 patients), 69% improved on IVIG and 65% on plasma exchange by day 14. Which acts faster is still argued: expert consensus favours plasma exchange in crisis, while Barth found no significant difference in QMG change. In MuSK MG, plasma exchange improved 93% and IVIG 61%. [[Sanders2016,Barth2011,Guptill2011]]</p>
+      <p><b>Difficulty breathing or swallowing is an emergency.</b> See <a href="#crisis" data-go="crisis">Myasthenic crisis</a>.</p></div>
+    <div class="card"><span class="tag drug">Thymectomy</span><h4>Who it is recommended for</h4>
+      <p>MGTX randomised 126 people aged 18–65 with non-thymomatous AChR+ generalized MG: over 3 years QMG averaged 6.15 against 8.99 and prednisone 44 against 60 mg alternate days. The 2020 update says thymectomy should be considered early at ages 18–50, and strongly considered at any age if immunotherapy fails. It finds no indication in MuSK, LRP4 or agrin MG. The age ceiling is debated: MGTX enrolled people up to 65, the 18–50 framing follows a post hoc analysis with no significant benefit at 50 or over (only 17 MGTX participants were that old), and late-onset cohorts disagree. [[Wolfe2016,Narayanaswami2021,Heber2026,Chen2025]]</p>
+      <p>More in <a href="#thymectomy" data-go="thymectomy">Thymectomy over the years</a>.</p></div>
+    <div class="card"><span class="tag drug">Biologics</span><h4>Complement and FcRn inhibitors</h4>
+      <p>C5 inhibitors (eculizumab, ravulizumab, zilucoplan) are labelled for AChR+ generalized MG and carry a boxed meningococcal warning. FcRn blockers lower IgG; rozanolixizumab and nipocalimab are labelled for AChR+ or MuSK+ disease, and the US efgartigimod IV label was broadened to all adult generalized MG on 8 May 2026. Where guidance places these drugs differs: see the guidance buttons above. [[FDASoliris2026,FDAUltomiris2025,FDAZilbrysq2026,FDARystiggo2026,FDAImaavy2026,FDAVyvgart2026,FDADrugsFDA2026]]</p>
+      <p>More in <a href="#biologics" data-go="biologics">Complement &amp; FcRn inhibitors</a>.</p></div>
+    <div class="card"><span class="tag good">Goal</span><h4>What "good enough" means</h4>
+      <p>The goals disagree. International: minimal manifestation status or better with no more than grade 1 side effects. Japanese: the same, on prednisolone ≤5 mg a day. German: complete disease control. Nordic: no number, but ambitious goals agreed by patient and doctor. Once goals hold for 6 months to 2 years, the consensus tapers slowly, adjusting no more often than every 3–6 months. [[Sanders2016,Murai2018,Wiendl2023,Gilhus2024]]</p>
+      <div class="pt"><b>In plain words</b>In published guidance, treatment starts with a symptom tablet, then adds drugs that calm the immune system, surgery to remove the thymus for some people, and newer targeted drugs. When things are calm, doses come down slowly.</div></div>
+  </div>
+</section>

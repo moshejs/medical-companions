@@ -1,0 +1,31 @@
+# Medical Companions
+
+> Animated, cited study and patient-education guides, one disease each. Researched and written with AI from published sources (every source checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label), edited by a named person, and not yet clinically reviewed. Educational only, not medical advice.
+
+- [About: who is responsible and how the guides are made](https://www.medcompanions.org/about/)
+- [Privacy](https://www.medcompanions.org/privacy/)
+
+## Guides
+
+- [Alzheimer's Companion](https://www.medcompanions.org/alzheimers/): sources at https://www.medcompanions.org/alzheimers/sources/
+  - Hebrew: https://www.medcompanions.org/alzheimers/he/
+- [FMF Companion](https://www.medcompanions.org/fmf/): sources at https://www.medcompanions.org/fmf/sources/
+  - Hebrew: https://www.medcompanions.org/fmf/he/
+- [Myasthenia Gravis Companion](https://www.medcompanions.org/myasthenia-gravis/): sources at https://www.medcompanions.org/myasthenia-gravis/sources/
+- [Gout Companion](https://www.medcompanions.org/gout/): sources at https://www.medcompanions.org/gout/sources/
+- [ALS Companion](https://www.medcompanions.org/als/): sources at https://www.medcompanions.org/als/sources/
+- [Parkinson's Companion](https://www.medcompanions.org/parkinsons-disease/): sources at https://www.medcompanions.org/parkinsons-disease/sources/
+- [MS Companion](https://www.medcompanions.org/multiple-sclerosis/): sources at https://www.medcompanions.org/multiple-sclerosis/sources/
+- [Colorectal Cancer Companion](https://www.medcompanions.org/colorectal-cancer/): sources at https://www.medcompanions.org/colorectal-cancer/sources/
+- [EDS Companion](https://www.medcompanions.org/ehlers-danlos-syndromes/): sources at https://www.medcompanions.org/ehlers-danlos-syndromes/sources/
+- [TB Companion](https://www.medcompanions.org/tuberculosis/): sources at https://www.medcompanions.org/tuberculosis/sources/
+- [BPD Companion](https://www.medcompanions.org/borderline-personality-disorder/): sources at https://www.medcompanions.org/borderline-personality-disorder/sources/
+- [ADHD Companion](https://www.medcompanions.org/adhd/): sources at https://www.medcompanions.org/adhd/sources/
+- [Autism Companion](https://www.medcompanions.org/autism/): sources at https://www.medcompanions.org/autism/sources/
+- [Bipolar Companion](https://www.medcompanions.org/bipolar-disorder/): sources at https://www.medcompanions.org/bipolar-disorder/sources/
+- [AUD Companion](https://www.medcompanions.org/alcohol-use-disorder/): sources at https://www.medcompanions.org/alcohol-use-disorder/sources/
+- [Heart Attack Companion](https://www.medcompanions.org/myocardial-infarction/): sources at https://www.medcompanions.org/myocardial-infarction/sources/
+- [Cirrhosis Companion](https://www.medcompanions.org/cirrhosis/): sources at https://www.medcompanions.org/cirrhosis/sources/
+- [Sepsis Companion](https://www.medcompanions.org/sepsis-and-shock/): sources at https://www.medcompanions.org/sepsis-and-shock/sources/
+- [CF Companion](https://www.medcompanions.org/cystic-fibrosis/): sources at https://www.medcompanions.org/cystic-fibrosis/sources/
+- [COPD Companion](https://www.medcompanions.org/copd/): sources at https://www.medcompanions.org/copd/sources/

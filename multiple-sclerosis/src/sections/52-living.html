@@ -1,0 +1,50 @@
+<!-- ================= 5.2 LIVING WITH MS ================= -->
+<section class="mod" id="m-living" data-mod="living" hidden>
+<style>
+#m-living .card .ev,#m-living .card .tag{align-self:flex-start}
+#m-living .lw-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 5 · Living with MS</p><h2>Living with MS</h2>
+    <p class="lede">Pregnancy, smoking, life expectancy, work, heat, diet and planning ahead in MS, as published studies report them. Press play to walk through a pregnancy and see relapse rates fall, then rise after birth.</p></div>
+  <div class="ctrls" role="group" aria-label="Compare with a modern cohort">
+    <span class="kicker">Compare PRIMS with</span>
+    <button class="btn" data-lwc="none" aria-pressed="true">PRIMS alone</button>
+    <button class="btn" data-lwc="kaiser" aria-pressed="false">Kaiser 2008–2016</button>
+    <button class="btn" data-lwc="msbase" aria-pressed="false">MSBase</button>
+    <button class="btn" id="lwBf" aria-pressed="false">Breastfeeding evidence</button>
+  </div>
+  <div class="stepper" id="lwSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lwSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A timeline from the year before pregnancy through each trimester to a year after birth. Bars show the PRIMS relapse rate falling from 0.7 a year to 0.2 in the third trimester and rising to 1.2 in the first three months after birth, then returning to the earlier rate. Optional markers add the lower rates of the Kaiser and MSBase cohorts, and a note gives the breastfeeding meta-analysis."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lwPlay">Play</button><label class="stage-cap tl" for="lwT">Through pregnancy <input type="range" id="lwT" min="0" max="1" step="0.002" value="0.2"></label></div>
+      <div class="readout" id="lwRead"></div>
+      <p class="stage-cap">Annualised relapse rate = relapses per person per year. Bars are the published values; the drawn figure is schematic. PRIMS (published 1998) predates most of today's treatments; Kaiser and MSBase are more recent cohorts with lower rates throughout. [[Confavreux1998,LangerGould2020,Hughes2014]]</p></div>
+    <aside class="note" id="lwNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout"><b>Medicines before and during pregnancy</b> are not covered here: which disease-modifying therapies need stopping, and how long before conception, is a drug-label question. See <a href="#safety" data-go="safety">Safety &amp; monitoring</a>. The UK consensus from the Association of British Neurologists covers pre-pregnancy counselling, delivery, anaesthesia and the postpartum period. [[Dobson2019]]</div>
+
+  <h3 class="sub">Smoking after diagnosis</h3>
+  <p class="prose">In the Swedish GEMS study of 728 people who smoked when they were diagnosed, each additional year of smoking after diagnosis brought conversion to secondary progressive MS (SPMS) forward by 4.7%. Press play to run both groups through the same ages.</p>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lwSmk" viewBox="0 0 720 280" style="min-width:560px" role="img" aria-label="Two lanes along an age axis from 40 to 60. People who kept smoking reach secondary progressive MS at about age 48; people who quit reach it at about age 56."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lwSPlay">Play</button><label class="stage-cap tl" for="lwST">Age <input type="range" id="lwST" min="0" max="1" step="0.002" value="0.3"></label></div>
+      <p class="stage-cap">The ages are the published approximate ages at conversion; the 40–60 window and the walking figures are for display. [[Ramanujam2015]]</p></div>
+    <aside class="note" id="lwSNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Life expectancy</h3>
+  <div class="stepper" id="lwVSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lwSurv" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Horizontal bars of median life expectancy with and without MS in Norway and Manitoba, then columns of the Norwegian standardised mortality ratio falling from 3.1 to 0.7 across three onset periods."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lwVPlay">Play</button><label class="stage-cap tl" for="lwVT">Timeline <input type="range" id="lwVT" min="0" max="1" step="0.002" value="0.2"></label></div>
+      <p class="stage-cap">Median ages from two population cohorts. A standardised mortality ratio (SMR) of 1 means the same death rate as the general population. [[Lunde2017,Marrie2015Mortality]]</p></div>
+    <aside class="note" id="lwVNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Everyday life</h3>
+  <div class="cards" id="lwCards"></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>PRIMS (1998): relapse rate 0.7 a year before pregnancy, 0.5, 0.6 and 0.2 by trimester, 1.2 in the first 3 months after birth, then back to baseline. The Kaiser cohort (2020) found no rebound above the pre-pregnancy rate. Pregnancy does not increase the risk of progression. [[Confavreux1998,LangerGould2020,NICE2022]]</div>
+    <div class="pt"><b>In plain words</b>MS touches work, family plans, holidays and later life, but it does not decide them on its own. Relapses usually quieten during pregnancy, smoking is linked with faster progression, and planning ahead, for medicines and for later life, helps.</div>
+  </div>
+</section>

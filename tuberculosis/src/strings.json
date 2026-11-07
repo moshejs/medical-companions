@@ -1,0 +1,10 @@
+{
+  "foot.not_advice": "<b>It is not medical advice.</b> It cannot diagnose, and nothing here should change a test, treatment or isolation decision without your own clinician or TB programme. TB is a notifiable disease. Criteria, regimens, doses and guideline statements are quoted as published. Please check the original sources, which are listed in full in the <a href=\"#sources\" data-go=\"sources\">Sources</a> module.",
+  "quiz.answer_is": "The answer is {l}.",
+  "shell.disclaimer": "The TB Companion is an educational synthesis of published literature for study and for patient and family understanding. It does not replace a doctor, nurse or TB programme. Regimens, doses, test cut-offs and guideline statements are reported as published, not as instructions or a diagnosis for any individual. TB is a notifiable disease, and treatment is effective and free in most public programmes; anyone with symptoms such as a lasting cough should see a clinician.",
+  "shell.home": "TB Companion home",
+  "shell.note": "An animated, cited guide to tuberculosis for students, people with TB and their families. Educational only, not medical advice. Your place is saved on this device.",
+  "shell.skip": "Skip to the module",
+  "shell.tagline": "Tuberculosis",
+  "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). {chk} are marked <span class=\"tag warn\">check</span>."
+}

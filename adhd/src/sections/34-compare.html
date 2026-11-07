@@ -1,0 +1,83 @@
+<!-- ================= 3.4 HOW WELL TREATMENTS WORK ================= -->
+<style>
+#m-compare .card>.tag,#m-compare .card>.ev{align-self:flex-start}
+#m-compare .tbl table{min-width:720px}
+#m-compare .esout{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+#m-compare .esout div{background:var(--panel-2);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+#m-compare .esout b{font:700 26px/1.1 var(--display);color:var(--rx)}
+#m-compare .esout small{font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+#m-compare .clk circle{transition:r .15s}
+#m-compare .clk:hover circle.dot,#m-compare .clk:focus circle.dot{stroke:var(--ink);stroke-width:2.4}
+</style>
+<section class="mod" id="m-compare" data-mod="compare" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Medication</p><h2>How well treatments work</h2>
+    <p class="lede">How much better than placebo is each ADHD medicine, and how often do people stop because of side effects? Watch the results of a 133-trial network meta-analysis slide in from zero, then translate an effect size into words.</p></div>
+  <div class="ctrls" role="group" aria-label="Population and rater">
+    <span class="kicker">Show</span>
+    <button class="btn" data-cpv="kid" aria-pressed="true">Children &amp; adolescents · clinician</button>
+    <button class="btn" data-cpv="kidT" aria-pressed="false">Children · teacher</button>
+    <button class="btn" data-cpv="adult" aria-pressed="false">Adults · clinician</button>
+  </div>
+  <div class="stepper" id="cpSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="cpSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="Dot-and-interval chart of standardised mean differences versus placebo from Cortese 2018. Dots slide left from zero: amphetamines furthest, then methylphenidate, then atomoxetine; in adults, modafinil stays on the placebo side. Below, a tolerability panel shows odds ratios for stopping because of side effects. Tap a dot for its numbers."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="cpPlay">Play</button><label class="stage-cap tl" for="cpT">Reveal <input type="range" id="cpT" min="0" max="1" step="0.001" value="1"></label></div>
+      <div class="readout" id="cpRead"></div>
+      <p class="stage-cap">Short-term efficacy (about 12 weeks) from 133 double-blind RCTs, 10,068 children and adolescents and 8,131 adults. Negative SMD = fewer symptoms than placebo. Only results reported in this guide's research pass are drawn; per-medicine trial counts are not shown. Population statistics, not a prediction for one person. [[Cortese2018]]</p>
+    </div>
+    <aside class="note" id="cpNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Effect-size translator</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="cpEs" viewBox="0 0 720 280" style="min-width:560px" role="img" aria-label="Two bell curves, placebo and medicine. As the effect size grows, the medicine curve slides right and the shaded overlap shrinks."></svg></div>
+      <div class="ctrls" role="group" aria-label="Preset effect sizes">
+        <button class="btn" data-cpd="0.35" aria-pressed="false">Parent training, unblinded 0.35</button>
+        <button class="btn" data-cpd="0.56" aria-pressed="false">Atomoxetine 0.56</button>
+        <button class="btn" data-cpd="0.7" aria-pressed="false">Non-stimulants (AAP) 0.7</button>
+        <button class="btn" data-cpd="0.78" aria-pressed="true">Methylphenidate 0.78</button>
+        <button class="btn" data-cpd="1.02" aria-pressed="false">Amphetamines 1.02</button>
+      </div>
+      <div class="ctrls"><label class="stage-cap tl" for="cpD">Effect size (SMD) <input type="range" id="cpD" min="0" max="1.2" step="0.01" value="0.78"></label></div>
+      <div class="esout" id="cpEsOut"></div>
+      <p class="stage-cap"><b>Formula-based, not trial data.</b> Assumes two normal distributions with equal spread. Overlap = 2Φ(−d/2); probability of superiority = Φ(d/√2); approximate NNT = 1 / (2Φ(d/√2) − 1). Presets: [[Cortese2018,Wolraich2019,Daley2014]]</p>
+    </div>
+    <aside class="note" id="cpEsNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Context: non-drug treatments and blinding</h3>
+  <p class="prose">Non-drug trials usually cannot hide which treatment a family received. Effects rated by the people closest to treatment (often parents who delivered it) are "unblinded"; those from raters unlikely to know the arm are "probably blinded". Toggle to see what survives blinding. Magnitudes are shown as positive numbers for improvement; scales and populations differ, so read them as a rough guide. [[SonugaBarke2013,Daley2014]]</p>
+  <div class="stage">
+    <div class="ctrls" role="group" aria-label="Rater"><button class="btn" data-cpb="0" aria-pressed="true">Unblinded ratings</button><button class="btn" data-cpb="1" aria-pressed="false">Probably blinded ratings</button></div>
+    <div class="scroll"><svg id="cpCtx" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Horizontal bars of effect sizes for non-drug treatments. Switching from unblinded to probably blinded ratings shrinks most bars: neurofeedback from 0.35 to 0.04, cognitive training from 0.37 to 0.20, and behavioural treatment of core ADHD symptoms to non-significant, while conduct problems hold at 0.31."></svg></div>
+    <p class="stage-cap">Dashed lines: AAP effect sizes of about 1.0 for stimulants and 0.7 for non-stimulants. [[Wolraich2019,Daley2014,SonugaBarke2013,Cortese2016,Westwood2025,Cortese2015]]</p>
+  </div>
+
+  <h3 class="sub">Medicines compared</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Medicine</th><th>Onset</th><th>Duration</th><th>US status</th><th>Main harms (label rates vs placebo)</th></tr></thead>
+    <tbody>
+      <tr><th>Methylphenidate, IR</th><td>Tmax ≈2 h</td><td>Taken 2–3 times a day</td><td>Schedule II; boxed warning for abuse, misuse and addiction</td><td>Class: blood pressure +2–4 mm Hg, heart rate +3–6 bpm; appetite and sleep effects</td></tr>
+      <tr><th>Methylphenidate, OROS</th><td>Initial max ≈1 h</td><td>Effect maintained through 12 h</td><td>Schedule II</td><td>Adults: decreased appetite 25% vs 7%, headache 22% vs 16%, insomnia 12% vs 6%</td></tr>
+      <tr><th>Lisdexamfetamine</th><td>Not significant at 1 h; significant from 2 h</td><td>2–12 h (children), 2–14 h (adults)</td><td>Schedule II</td><td>Children: decreased appetite 39% vs 4%, insomnia 22% vs 3%. Psychosis in ages 13–25: 0.21% on amphetamine vs 0.10% on methylphenidate</td></tr>
+      <tr><th>Atomoxetine</th><td>Possibly 1–2 weeks</td><td>Improves up to 24 weeks; 24-hour cover</td><td>Not controlled; boxed warning for suicidal thoughts (6+)</td><td>Children: decreased appetite 16% vs 4%, somnolence 11% vs 4%; liver injury warning</td></tr>
+      <tr><th>Viloxazine ER</th><td>From week 1 (ages 6–11)</td><td>Once daily; steady state 2 days</td><td>Boxed warning for suicidal thoughts and behaviour</td><td>Adults: insomnia 23% vs 7%, headache 17% vs 7%</td></tr>
+      <tr><th>Guanfacine ER</th><td>Weeks (titrated ≤1 mg/week)</td><td>Once daily; half-life 18 h</td><td>Not controlled; "no known potential for abuse or dependence"</td><td>Somnolence 28–51% vs 11%; hypotension 7% vs 3%; rebound hypertension if stopped abruptly</td></tr>
+      <tr><th>Clonidine ER</th><td>"As soon as week 2"</td><td>Twice daily</td><td>Not covered in this guide's label extract</td><td>Somnolence 38% (0.2 mg/day) vs 4%; rebound hypertension if stopped abruptly</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Sources: [[FDA-RitalinC,FDA-Concerta,FDA-Vyvanse,Moran2019NEJM,FDA-Strattera,Clemow2015,FDA-Qelbree,Nasser2020Children,FDA-Intuniv,FDA-ClonidineER,Jain2011]]. Formulation curves: <a href="#release" data-go="release">Formulations &amp; the daily curve</a>; non-stimulants: <a href="#nonstim" data-go="nonstim">Non-stimulant medicines</a>.</p>
+
+  <h3 class="sub">Reading the evidence</h3>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Caveat</span><h4>Most trials last weeks</h4><p>Cortese 2018 found "insufficient data" at 26 and 52 weeks, so its ranking covers short-term treatment only. In the MTA follow-up to adulthood, extended medication use was "not associated with reduction of symptom severity". On the other side, youths switched to placebo after more than 2 years of methylphenidate worsened more than those who continued (clinician-rated worsening 40.4% vs 15.9%). Status: open; periodic review is advised. [[Cortese2018,Swanson2017MTA,Matthijssen2019]]</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>How certain is the methylphenidate evidence?</h4><p><b>Position A:</b> guideline groups and the World Federation treat methylphenidate as effective, and critics of the Cochrane review reported "errors in the extraction of data". <b>Position B:</b> the Cochrane team rates all outcomes very low certainty: 191 of 212 trials were at high risk of bias, side effects can unblind trials, and treatment lasted a mean 28.8 days; the 2025 update keeps those conclusions. Both agree on a teacher-rated SMD near −0.74 to −0.82. [[Faraone2021,Banaschewski2016,Storebo2015BMJ,Storebo2023Cochrane,Storebo2025Cochrane]]</p></div>
+    <div class="card"><span class="tag accent">Response</span><h4>If one stimulant fails, the other often works</h4><p>The AAP cites MTA titration data suggesting "more than 70%" of children are methylphenidate responders, and reports that more than 90% respond to one of the stimulants if both classes are tried, with "approximately 40% responding to both" and "about 40% responding to only 1". [[Wolraich2019]]</p></div>
+    <div class="card"><span class="tag accent">Dose</span><h4>More is not always better</h4><p>In a 2026 dose-effect network meta-analysis, efficacy in children rose up to about 45 mg/day of methylphenidate, 25 mg/day of amphetamines and 4 mg/day of guanfacine, "with no evidence of additional benefit at higher doses". In adults, doses above the licensed range added little for methylphenidate (SMD −0.23) while doubling adverse-event dropouts, and nothing for amphetamines. [[Nourredine2026,Farhat2024JAMAPsych]]</p></div>
+    <div class="card"><span class="tag accent">Adults</span><h4>Self-rated vs clinician-rated</h4><p>In 113 adult RCTs, stimulants (SMD −0.39 self-rated, −0.61 clinician-rated) and atomoxetine (−0.38, −0.51) were the only interventions that reduced core symptoms on both kinds of scale; CBT, mindfulness and psychoeducation improved clinician ratings only. Medicines did not improve quality of life. An umbrella review rated adult CBT (SMD 0.53) similar to methylphenidate (0.50) on clinician ratings. [[Ostinelli2025,Gosling2025]]</p></div>
+    <div class="card"><span class="tag accent">Combined care</span><h4>The MTA trial</h4><p>In 579 children aged 7–9.9 over 14 months, carefully managed medication beat intensive behavioural treatment and community care for ADHD symptoms; combined treatment did not differ significantly from medication alone on core symptoms. See <a href="#mta" data-go="mta">The MTA study</a>. [[MTA1999]]</p></div>
+  </div>
+  <div class="callout"><p><b>In plain words.</b> ADHD medicines do not cure ADHD; they lower symptoms while they are in the body. Stimulants help most people, and if one type does not help, the other type often does. [[Faraone2021,Matthijssen2019,Wolraich2019]]</p></div>
+</section>

@@ -1,0 +1,111 @@
+<!-- ================= 2.1 DIAGNOSIS ================= -->
+<style>
+#m-dx .dx-calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+#m-dx .dx-calc label{display:flex;flex-direction:column;gap:4px;font:600 12px var(--mono);color:var(--muted);letter-spacing:.04em}
+#m-dx .dx-calc output{font:700 20px var(--body);color:var(--ink)}
+#m-dx .dx-calc .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+#m-dx .dx-pre{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-dx .dx-pre .btn{font-size:13px;padding:6px 11px;text-align:left;white-space:normal;max-width:100%}
+#m-dx .dx-pre .btn[disabled]{opacity:.45;cursor:not-allowed}
+#m-dx .dx-res{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+#m-dx .dx-res div{border-radius:10px;padding:10px 12px;background:var(--panel-2);font-size:14px;display:flex;flex-direction:column;gap:2px}
+#m-dx .dx-res b.big{font:800 26px var(--display);color:var(--ink);line-height:1.1}
+#m-dx .dx-res .pos{background:var(--ab-soft)} #m-dx .dx-res .neg{background:var(--achr-soft)}
+#m-dx .dx-res small{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-dx .dx-src{font-size:13.5px;color:var(--muted);line-height:1.45}
+#m-dx .dx-teach{display:inline-block;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warn);background:var(--warn-soft);border-radius:6px;padding:4px 8px;margin-right:6px}
+#m-dx .card>.ev{align-self:flex-start}
+#m-dx .dx-big{font:800 30px var(--display);line-height:1;color:var(--ink)}
+</style>
+<section class="mod" id="m-dx" data-mod="dx" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Diagnosis</h2>
+    <p class="lede">How myasthenia gravis is confirmed: antibody blood tests, repetitive nerve stimulation, single-fibre EMG and a chest scan for thymoma. Press play to walk the pathway, switch between ocular and generalized MG, then try the calculator.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Form of MG and trace source">
+    <span class="kicker">Form of MG</span>
+    <button class="btn" data-dxmode="g" aria-pressed="true">Generalized</button>
+    <button class="btn" data-dxmode="o" aria-pressed="false">Ocular</button>
+    <span class="kicker" style="margin-left:8px">Traces from</span>
+    <button class="btn" data-dxp="mg" aria-pressed="true">A person with MG</button>
+    <button class="btn" data-dxp="ctl" aria-pressed="false">Healthy muscle</button>
+  </div>
+  <div class="stepper" id="dxSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxSvg" viewBox="0 0 720 482" style="min-width:560px" role="img" aria-label="Animated diagnostic pathway for myasthenia gravis. A marker walks down seven steps: clinical suspicion, AChR antibody, MuSK antibody, LRP4 and clustered-AChR assays, repetitive nerve stimulation, jitter studies, and chest CT or MRI for thymoma, with a bypass from a positive antibody straight to chest imaging. Linked panels show bedside ptosis and ice-pack testing, the antibody targets, a 3 Hz train of ten muscle responses building pulse by pulse with the percent decrement from the first to the fourth and fifth, and single-fibre EMG sweeps overlaid to show jitter and blocking."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxPlay">Play</button><label class="stage-cap tl" for="dxT">Pathway <input type="range" id="dxT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap" id="dxCap">Schematic, not to scale.</p></div>
+    <aside class="note" id="dxNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>AChR antibodies are found in about 85% of generalized but only about half of ocular MG. Single-fibre EMG is the most sensitive test and a positive AChR antibody the most specific. RNS is read as abnormal with a decrement of more than 10% from the 1st to the 4th or 5th response at 2 to 5 Hz, though one review says that cut-off has never been validated. [[Rousseff2021,Yoganathan2022,AAEM2001]]</div>
+    <div class="pt"><b>In plain words</b>In the published pathways, a blood test for the antibodies comes first. If it is negative, nerve tests that measure how the muscle tires can show the problem. Reviews advise a chest scan for everyone with MG, to look at the thymus gland.</div>
+  </div>
+
+  <h3 class="sub">Before the test, after the test</h3>
+  <p class="prose"><span><span class="dx-teach">Teaching tool</span>This calculator shows how one test result changes the probability of MG. Pick a test and a form of MG to load published sensitivity and specificity, then a setting for the pre-test probability. The grid sorts 100 people like the person being tested by their true status and their result. It is arithmetic, not a diagnosis for any real person.</span></p>
+  <div class="stage">
+    <div class="dx-pre" role="group" aria-label="Form of MG for the calculator"><span class="kicker">Form of MG</span>
+      <button class="btn" data-dxmode="g" aria-pressed="true">Generalized</button>
+      <button class="btn" data-dxmode="o" aria-pressed="false">Ocular</button></div>
+    <div class="dx-pre" role="group" aria-label="Test"><span class="kicker">Test</span>
+      <button class="btn" data-dxt="achr" aria-pressed="true">AChR antibody</button>
+      <button class="btn" data-dxt="rnsd" aria-pressed="false">RNS, distal muscle</button>
+      <button class="btn" data-dxt="rnsp" aria-pressed="false">RNS, proximal muscle</button>
+      <button class="btn" data-dxt="rnsf" aria-pressed="false">RNS, facial muscle</button>
+      <button class="btn" data-dxt="sfemg" aria-pressed="false">Single-fibre EMG</button>
+      <button class="btn" data-dxt="ice" aria-pressed="false">Ice pack test</button></div>
+    <div class="dx-pre" role="group" aria-label="Setting (pre-test probability)"><span class="kicker">Setting</span>
+      <button class="btn" data-dxpre="66" aria-pressed="false">Ptosis referrals: 66%</button>
+      <button class="btn" data-dxpre="31" aria-pressed="false">Tested with SFEMG: 31%</button>
+      <button class="btn" data-dxpre="30" aria-pressed="false">Seronegative work-up: 30%</button>
+      <button class="btn" data-dxpre="5" aria-pressed="false">Low suspicion, example: 5%</button></div>
+    <div class="dx-calc">
+      <label for="dxSe"><span class="row"><span>Sensitivity</span><output id="dxSeV">85%</output></span><input type="range" id="dxSe" min="1" max="100" step="0.5" value="85"></label>
+      <label for="dxSp"><span class="row"><span>Specificity</span><output id="dxSpV">95%</output></span><input type="range" id="dxSp" min="50" max="100" step="0.5" value="95"></label>
+      <label for="dxPr"><span class="row"><span>Pre-test probability</span><output id="dxPrV">31%</output></span><input type="range" id="dxPr" min="1" max="95" step="1" value="31"></label>
+    </div>
+    <div class="dx-res" id="dxRes" aria-live="polite"></div>
+    <p class="dx-src" id="dxSrc"></p>
+    <p class="stage-cap">Settings are derived from published counts: 102 of 155 consecutive ptosis referrals had ocular MG [[Giannoccaro2020]]; 108 of 348 people tested with SFEMG had MG [[Yoganathan2022]]; 42 of 138 people tested in routine Oxford practice for seronegative MG had MG [[RodriguezCruz2015]]. The 5% setting is an example value with no source behind it.</p>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxGrid" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="A grid of 100 people fills in three steps: everyone tested, then who truly has MG, then who tests positive, sorting them into true positives, false negatives, false positives and true negatives. Bars then compare the probability of MG before the test with the probability after a positive and after a negative result."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxGridPlay">Play</button><label class="stage-cap tl" for="dxGridT">Reveal <input type="range" id="dxGridT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Filled circle: has MG, test positive. Ring: has MG, test negative. Square: no MG, test positive. Small dot: no MG, test negative. The grid rounds to whole people; the percentages are exact.</p></div>
+    <aside class="note" id="dxGridNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The antibody tests</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Antibody</th><th>Who has it</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><th>AChR, binding (RIPA)</th><td>Up to 85% of adults with generalized MG, about 50% of ocular MG. About 50% in childhood-onset MG and "nearly 100%" in thymoma-associated MG. [[Rousseff2021,Yoganathan2022]]</td><td>Specificity 95–100% in one review; others report 90–95%, with dozens of false positives in large series. In 153 validated cases, the assay was positive in about 88%. ELISA is generally less sensitive and specific than RIPA. [[Yoganathan2022,Rousseff2021,Vincent1985]]</td></tr>
+      <tr><th>AChR, modulating and blocking</th><td>In 349 people with MG: binding and modulating each about 86%, blocking 52%. Adding modulating raised the yield to 90%; blocking was never the only positive test. [[Howard1987]]</td><td>Rousseff says these add "little diagnostic value", while noting others have recently stressed them. [[Rousseff2021]]</td></tr>
+      <tr><th>Clustered AChR (cell-based assay)</th><td>66% (25 of 38) of sera negative in the standard assay in the first study; 38.1% of RIPA-negative MG in Oxford practice, with 100% specificity; about 15% in one review. [[Leite2008,RodriguezCruz2015,Rousseff2021]]</td><td>CBA-only patients had more prepubertal onset (62.5% vs 11.5%) and more ocular MG (62.5% vs 42.3%). [[RodriguezCruz2015]]</td></tr>
+      <tr><th>MuSK</th><td>70% of AChR-negative generalized MG in the discovery report; later 5–70% of AChR-negative generalized MG, about 6–8% of all MG; generally not found in purely ocular MG. [[Hoch2001,Yoganathan2022,Rousseff2021]]</td><td>Mainly IgG4. Specificity 94–100%. Thymoma only in single cases. [[Yoganathan2022,Zisimopoulou2014,Rousseff2021]]</td></tr>
+      <tr><th>LRP4</th><td>18.7% of 635 double-seronegative sera from 10 countries (7–32.7% by population); 27% of ocular double-seronegative MG. [[Zisimopoulou2014]]</td><td>Not a clean marker: present in up to 23% of ALS and up to 20% of MuSK-MG, so it is read "strictly in the clinical context". [[Rousseff2021]]</td></tr>
+      <tr><th>Double seronegative</th><td>Neither AChR nor MuSK: about 6–10% of MG. [[Yoganathan2022,Maccora2025]]</td><td>Of 80 people with this label at two Italian centres, 36% turned out to have another condition. [[Maccora2025]]</td></tr>
+      <tr><th>Striational (titin, RyR)</th><td>Titin 20–40%, RyR about 15% of MG. [[Yoganathan2022]]</td><td>Found mainly in thymoma and late-onset MG. With striational antibodies, thymoma is "very likely". [[Romi2005,Rousseff2021]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Bedside tests</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Ice pack test</h4><p>Ice over the drooping eye for 2–5 minutes; 2 mm or more of improvement counts as positive. In 155 consecutive ptosis referrals, sensitivity was 86% and specificity 79%. A systematic review of 20 studies found sensitivity from 38.5% to 100%, with no adverse effects reported. Rousseff calls the 2 mm cut-off "somewhat arbitrary", since heat changed the lid in some patients too. [[Rousseff2021,Giannoccaro2020,Proudman2023]]</p></div>
+    <div class="card"><h4>Ice, rest or heat</h4><p>Mean ptosis improvement was 2.3 mm with ice, 1.3 mm with rest and 0.33 mm with heat. In one study ice alone was 28% sensitive and 100% specific, against 73% and 97% when combined with 2 minutes of sustained upgaze. [[Yoganathan2022]]</p></div>
+    <div class="card"><h4>Sleep test</h4><p>Ptosis or eye-movement weakness resolves right after a 30-minute sleep and comes back over the next 30 seconds to 5 minutes. Its authors called it safe and "moderately sensitive, and specific", without numbers in the abstract. [[Odel1991]]</p></div>
+    <div class="card"><h4>Lid signs</h4><ul><li>Cogan's lid twitch: sensitivity 50–99% and specificity 75–100% across 7 studies. [[Pietris2023]]</li><li>Forced eyelid closure test: 94% sensitivity, 91% specificity in 48 patients. [[Apinyawasisuk2017]]</li><li>Enhanced ptosis (the curtain sign) is described clinically, but no diagnostic-accuracy study was found, so no figure is given here.</li></ul></div>
+    <div class="card"><span class="ev est">Established</span><h4>Edrophonium: why it is rarely used now</h4><p>Edrophonium (Tensilon) works within 30 seconds and lasts about 5 minutes. Serious adverse events occur in under 0.2% but include slowing of the heart to asystole, bronchospasm and seizures, and the test may worsen MuSK-MG. Since 2018 it has not been marketed in the US as a test for MG; reviews cite false positives and cardiac risk, and it has not been used in the UK in recent years. [[Rousseff2021,Yoganathan2022]]</p></div>
+    <div class="card"><h4>Edrophonium and neostigmine numbers</h4><p>A 2026 Vienna study (182 MG, 324 controls, 1991–2024) found edrophonium sensitivity 83.5% and specificity 87.7%, lower odds of a positive test in MuSK-MG, and adverse events in 11.5%, mostly mild. Intramuscular neostigmine starts in 5–15 minutes and lasts hours; one 47-patient study gave 83% sensitivity and 97% specificity. [[Keritam2026,Yoganathan2022]]</p></div>
+  </div>
+
+  <h3 class="sub">When the tests mislead</h3>
+  <div class="cards">
+    <div class="card"><h4>False-positive antibodies</h4><ul><li>Unexplained positive AChR binding results in about 5% of people with Lambert-Eaton or ALS; 2 of 22 ALS patients in the Mayo series, against 0 of 427 with other neurological disease. [[Howard1987,Mittag1980]]</li><li>Recent general anaesthesia with muscle relaxants gave false positives in the blocking and modulating assays. [[Howard1987]]</li><li>LRP4 antibodies in up to 23% of ALS. [[Rousseff2021]]</li></ul></div>
+    <div class="card"><h4>Positive, but not (yet) MG</h4><ul><li>AChR antibodies can be positive in thymoma without clinical MG; up to a third of people with thymoma develop MG. [[Rousseff2021]]</li><li>Some people have raised titres years before symptoms, found in stored blood, which may explain some apparent false positives. [[Rousseff2021]]</li><li>Two of 8 chronic mimics treated as refractory MG for years were AChR-antibody positive. [[Harrison2023]]</li></ul></div>
+    <div class="card"><h4>Misdiagnosis, in numbers</h4><p><span class="dx-big">8 of 61</span></p><p>people reviewed once single-fibre EMG became available locally had been wrongly diagnosed and treated as refractory MG, for a mean of 9 years; two had had a thymectomy. Of 80 people labelled double-seronegative MG, 36% had another diagnosis, most often a functional disorder (45%), then OPMD. [[Harrison2023,Maccora2025]]</p></div>
+    <div class="card"><h4>When every test is negative</h4><p>If all tests are negative but there is clearly fluctuating, asymmetric ptosis and double vision, ocular MG is "probable", with observation and retesting. People negative on all objective tests yet still symptomatic are unlikely to have MG; such people, undiagnosed after 2 years at a specialist clinic, may be over 10% of referrals. [[Rousseff2021]] See <a href="#ddx" data-go="ddx">The differential</a>.</p></div>
+    <div class="card"><h4>Jitter is not specific</h4><p>Increased jitter also occurs in other junction disorders, neuropathies, some myopathies and especially motor neuron disease. Botulinum toxin raises jitter even in distant muscles for 6 months or more, and Rousseff writes that cosmetic or therapeutic toxin use must be excluded. [[Rousseff2021,Sanders2022]]</p></div>
+    <div class="card"><h4>Severity is not the titre</h4><p>High jitter (over 100 µs) and a decrement over 10% go with more severe disease, while the serum AChR antibody level does not track clinical severity. [[Yoganathan2022]]</p></div>
+  </div>
+</section>

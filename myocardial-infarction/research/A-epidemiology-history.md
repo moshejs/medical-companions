@@ -1,0 +1,523 @@
+# A · Epidemiology, burden, types & history
+
+Pass date: 2026-11-04. Modules served: what, history, home.
+
+This pass covers how common heart attack (myocardial infarction, MI) is in the US and worldwide, how incidence and case fatality have changed over decades, age and sex patterns, the STEMI/NSTEMI split, registry outcome figures, the Fourth Universal Definition of MI (types 1–5, myocardial injury versus infarction), type 2 MI, MINOCA, women and younger adults, health inequalities, and a dated history from Heberden to the 2025 ACC/AHA guideline. Every survival, mortality and case-fatality figure below is a population statistic from a named cohort or registry, not a prediction for any one person.
+
+Access notes:
+- US burden figures come from the full text of the AHA 2025 Heart Disease and Stroke Statistics (Martin2025HDSS), Chapter 21 (coronary heart disease, acute coronary syndrome and angina). Most of its MI incidence numbers are AHA/NHLBI tabulations of the ARIC study (2005–2014); prevalence is NHANES 2017–2020; deaths are 2022 NVSS/CDC WONDER.
+- The Fourth Universal Definition (Thygesen2018UDMI4, Circulation version, PMID 30571511) has no abstract, and its full text was paywalled (Circulation, JACC and EHJ sites all returned HTTP 403). The definitional details (99th-percentile threshold, type 1–5 criteria, 5×/10× and 20% thresholds, takotsubo, MINOCA) were read in the open-access ESC-document summary by Domienik-Karłowicz et al. 2021 (Cardiol J, read in full via Europe PMC) and are cited to both.
+- Rao2025ACC and Byrne2023ESC are cited only for what their PubMed records show (title, year, and for Rao2025ACC the abstract's statement of which guidelines it replaces). The ACS guideline content belongs to passes C–E.
+- Gulati2021ChestPain was not cited: I could not open its full text, so I did not read the "avoid atypical" passage myself. The site's style rule (don't call women's symptoms "atypical") still applies to all copy. The VIRGO data below (Lichtman2018VIRGO) back it up: young women and men both mostly present with chest pain.
+- Every page that discusses symptoms carries the call-now box: "If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU)."
+
+## Findings
+
+### home · The US picture in one screen
+- About every 40 seconds an American has a heart attack. This is an AHA computation from ARIC incidence data [[Martin2025HDSS]].
+- Estimated annual US MI incidence is 605,000 new attacks and 200,000 recurrent attacks, 805,000 in all (AHA/NHLBI tabulation of ARIC 2005–2014) [[Martin2025HDSS]].
+- Of those 805,000 first and recurrent events, an estimated 170,000 are silent, meaning they happen without significant symptoms [[Martin2025HDSS]].
+- Counting all coronary events (first hospitalized MI or coronary heart disease (CHD) death), about 720,000 Americans a year have a new event and about 335,000 a recurrent one [[Martin2025HDSS]].
+- Average age at first MI is 65.6 years for males and 72.0 years for females [[Martin2025HDSS]].
+- About 9.3 million US adults aged ≥20 (3.2%) report ever having had a heart attack: 6.1 million males (4.5%) and 3.2 million females (2.1%) (NHANES 2017–2020) [[Martin2025HDSS]].
+- About 20.5 million US adults aged ≥20 have CHD, a prevalence of 7.1% (8.7% of males, 5.8% of females; NHANES 2017–2020) [[Martin2025HDSS]].
+- In 2022, MI was the underlying cause of 103,905 US deaths and was mentioned on 151,312 death certificates. CHD was the underlying cause of 371,506 deaths [[Martin2025HDSS]].
+- The 2022 age-adjusted MI death rate was 24.5 per 100,000: 33.3 in males and 17.2 in females [[Martin2025HDSS]].
+- CHD caused 39.5% of US cardiovascular deaths in 2022, the leading cardiovascular cause, ahead of stroke at 17.6% [[Martin2025HDSS]].
+- In 2022, 79% of CHD deaths happened out of hospital (294,458 deaths out of hospital or in emergency departments) [[Martin2025HDSS]].
+- About 35% of people who have a coronary event in a given year die of it, and about 14% of people who have an MI die of it (ARIC Community Surveillance 2005–2014) [[Martin2025HDSS]].
+- Each US MI death in 2022 cost an average of 14.6 years of life lost [[Martin2025HDSS]].
+- From 2012 to 2022 the annual CHD death rate fell 16.9%, but the number of CHD deaths stayed about the same as the population aged [[Martin2025HDSS]].
+- CHD costs averaged $52.8 billion a year in direct costs and $129.3 billion in direct plus indirect costs (2020–2021). MI ($14.3 billion) was one of the 10 most expensive conditions treated in US hospitals in 2017 [[Martin2025HDSS]].
+
+### what · Global burden of ischaemic heart disease
+- In 2021, an estimated 8.99 million deaths worldwide (95% UI 8.26–9.53 million) were due to ischaemic heart disease (IHD) (GBD 2021, 204 countries and territories) [[Martin2025HDSS]].
+- About 254.28 million people (95% UI 221.45–295.49 million) were living with IHD worldwide in 2021: 145.31 million males and 108.97 million females [[Martin2025HDSS]].
+- Age-standardised IHD death rates were highest in Central Asia, Eastern Europe, and North Africa and the Middle East, and lowest in high-income Asia Pacific (2021) [[Martin2025HDSS]].
+- IHD was the leading age-standardised cause of death worldwide in 1990, 2019 and 2021. In 2021, COVID-19 moved to second place and pushed stroke to third [[GBD2021CausesOfDeath]].
+- GBD 2019 estimated 9.14 million IHD deaths (95% UI 8.40–9.74 million), 182 million DALYs and 197 million prevalent IHD cases in 2019 [[Roth2020GBD]].
+- Global cardiovascular deaths rose from 12.1 million in 1990 to 18.6 million in 2019. Prevalent cardiovascular disease nearly doubled over the same years, from 271 million to 523 million [[Roth2020GBD]].
+- Cardiovascular burden is still rising in almost every country outside the high-income group. The age-standardised cardiovascular rate has begun to rise again in some high-income places where it had been falling [[Roth2020GBD]].
+- Global IHD prevalence estimates differ by GBD round. An analysis of GBD data to 2017 gave about 126 million people (1,655 per 100,000; about 1.72% of the world population) [[Khan2020GlobalIHD]]; GBD 2019 gave 197 million [[Roth2020GBD]]; GBD 2021 gave 254 million [[Martin2025HDSS]]. The differences come from method and data revisions between rounds, so the figures should not be read as a trend.
+- Age-standardised IHD rates have fallen in many regions, but case numbers keep rising because populations are ageing [[Khan2020GlobalIHD]].
+- More than 80% of the global burden of cardiovascular disease falls in low- and middle-income countries [[Yusuf2004INTERHEART]].
+- INTERHEART was a case-control study of 15,152 cases and 14,820 controls in 52 countries. Nine modifiable factors explained 90% of the population attributable risk of a first MI in men and 94% in women, across all regions, ages and both sexes (Established) [[Yusuf2004INTERHEART]].
+
+### what · Trends in incidence over decades
+- In Kaiser Permanente Northern California (46,086 MI hospitalizations; 18.7 million person-years), age- and sex-adjusted MI incidence went from 274 per 100,000 person-years in 1999 to 287 in 2000, then fell to 208 in 2008, a 24% relative decrease [[Yeh2010NEJM]].
+- In the same population, STEMI incidence fell from 133 to 50 per 100,000 person-years between 1999 and 2008 (P<0.001 for trend) [[Yeh2010NEJM]].
+- Thirty-day mortality was lower in 2008 than in 1999 (adjusted OR 0.76; 95% CI 0.65–0.89) [[Yeh2010NEJM]].
+- In Olmsted County, Minnesota (2,816 incident MIs, 1987–2006), 25% of incident MIs after troponin testing arrived (278 of 1,127) met troponin-only criteria [[Roger2010Olmsted]].
+- Counting troponin-only cases, Olmsted MI incidence did not change between 1987 and 2006. Counting only cases defined by CK/CK-MB, it fell by 20% [[Roger2010Olmsted]].
+- Troponin testing sharply increased NSTEMI incidence, while STEMI declined either way. NSTEMI now makes up the majority of MIs [[Roger2010Olmsted]].
+- In Olmsted, the hazard of death within 30 days was 56% lower for an MI in 2006 than in 1987 (HR 0.44; 95% CI 0.30–0.64). Long-term survival among 30-day survivors did not improve, and causes of death shifted from cardiovascular to noncardiovascular [[Roger2010Olmsted]].
+- ARIC community surveillance (4 US communities, ages 35–74, 30,985 hospitalized MI events, 1987–2008) found these average annual declines in incident MI, after age and biomarker adjustment: 4.3% in white men, 3.8% in white women, 3.4% in black women, 1.5% in black men [[Rosamond2012ARIC]].
+- In ARIC, the CHD death rate among people with no prior MI fell an average of 4.7% a year in men and 4.3% a year in women. The declines were steeper in 1997–2008 than in 1987–1996 [[Rosamond2012ARIC]].
+- ARIC age-adjusted 28-day case fatality after hospitalized MI fell 3.5% a year in white men, 3.6% in black men, 3.0% in white women and 2.6% in black women [[Rosamond2012ARIC]].
+- In ARIC, failing to adjust for the switch from cardiac enzymes to troponin would have hidden the declines in incidence, especially among black residents [[Rosamond2012ARIC]].
+- In Worcester, Massachusetts (5,383 patients, 1997–2005), STEMI incidence fell from 121 to 77 per 100,000 while NSTEMI rose slightly, from 126 to 132 per 100,000 [[McManus2011Worcester]].
+- Among Medicare beneficiaries, MI hospitalizations fell from 1,485 to 1,122 per 100,000 person-years between 2002 and 2011. The share of MIs recorded as a secondary diagnosis rose from 28% to 40% [[Martin2025HDSS]].
+- In Olmsted County (2003–2012), type 1 MI incidence fell from 202 to 84 per 100,000 persons and type 2 MI from 130 to 78 per 100,000 [[Raphael2020Type2]].
+- In England (840,175 people, 2002–2010), the age-standardised AMI mortality rate fell by about half, and event rates and 30-day case fatality each fell by about a third [[Smolina2012England]].
+- In English men, AMI event rate, case fatality and total mortality fell by an average of 4.8%, 3.6% and 8.6% a year. In women the figures were 4.5%, 4.2% and 9.1% [[Smolina2012England]].
+- Just over half of the English decline in AMI deaths came from fewer events (57% in men, 52% in women) and just under half from better 30-day survival (43% and 48%) [[Smolina2012England]].
+- The WHO MONICA Project (37 populations, 21 countries, 166,000 events, ages 35–64, from the early 1980s) found that where CHD mortality fell, falling coronary-event rates accounted for two-thirds of the decline and falling case fatality for one-third [[TunstallPedoe1999MONICA]].
+- In MONICA, official death-certificate CHD mortality fell 4.0% a year in both sexes. By MONICA's validated criteria it fell less: 2.7% a year in men and 2.1% in women [[TunstallPedoe1999MONICA]].
+- From 1980 to 2000, the US age-adjusted CHD death rate fell from 542.9 to 266.8 per 100,000 in men and from 263.3 to 134.4 in women, giving 341,745 fewer CHD deaths in 2000 (IMPACT model) [[Ford2007IMPACT]].
+- IMPACT credited about 47% of that decline to treatments and about 44% to changes in risk factors (Established) [[Ford2007IMPACT]].
+  - Treatments: secondary prevention 11%, initial treatment of AMI or unstable angina 10%, heart failure treatment 9%, revascularization for chronic angina 5%, other 12%.
+  - Risk factors: lower cholesterol 24%, lower systolic blood pressure 20%, less smoking 12%, more physical activity 5%. Rising BMI (+8%) and diabetes (+10%) pushed deaths back up.
+- The decline in US heart disease mortality slowed sharply after 2011: from 3.69% a year (2000–2011) to 0.76% a year (2011–2014) [[Sidney2016Trends]].
+- A meta-analysis of 28 studies found 35% fewer AMI hospitalizations during the COVID-19 pandemic than before it (OR 0.65; 95% CI 0.56–0.74) [[Martin2025HDSS]].
+
+### what · Case fatality and outcomes (population statistics)
+- Among US Medicare patients aged ≥65, the hospital-level 30-day risk-standardised mortality rate after AMI fell from 18.8% in 1995 to 15.8% in 2006 (OR 0.76; 95% CI 0.75–0.77) [[Krumholz2009Medicare]].
+- In more than 4 million Medicare fee-for-service beneficiaries, 30-day AMI mortality fell from 20.0% to 12.4% between 1995 and 2014 [[Martin2025HDSS]].
+- Average 30-day mortality after AMI across 2,363 US hospitals in 2018 was 13.6% (IQR 12.8%–14.3%), and was higher in rural hospitals [[Martin2025HDSS]].
+- In 2018, Medicare 30-day mortality was 17.7–17.8% after STEMI and 10.9–11.1% after NSTEMI (Medicare Advantage versus traditional Medicare) [[Martin2025HDSS]].
+- In NCDR registry data, STEMI carries higher in-hospital risks than NSTEMI: death 6.4% versus 3.4%, cardiogenic shock 4.4% versus 1.6%, bleeding 8.5% versus 5.5% [[Martin2025HDSS]].
+- Thirty-day mortality among hospitalized MI patients in the NCDR Chest Pain–MI Registry fell from 6.6% to 5.0% in Black patients and from 5.2% to 4.0% in non-Black patients (2008–2016) [[Martin2025HDSS]].
+- Among people aged ≥45, 18% of males and 23% of females die within 1 year of a first MI, and 36% of males and 47% of females within 5 years (pooled NHLBI cohorts, 1995–2012) [[Martin2025HDSS]].
+- Within 5 years of a first MI at age ≥45 (same cohorts):
+  - recurrent MI or fatal CHD: 17% of males, 21% of females
+  - heart failure: 16% of males, 22% of females
+  - stroke: 4% of males, 7% of females [[Martin2025HDSS]]
+- Median survival after a first MI at age ≥45 is 8.2 years for males and 5.5 years for females (pooled NHLBI cohorts). These are population medians from people treated in 1995–2012, not individual predictions [[Martin2025HDSS]].
+- Among Medicare patients discharged alive after AMI (2009–2014), 5.3% had a recurrent AMI within 1 year, a median of 115 days after discharge [[Martin2025HDSS]].
+- US 30-day all-cause readmission after AMI fell from 12.8% to 11.6% between 2010 and 2019 [[Martin2025HDSS]].
+- Among 61,238 Swedish patients with a first STEMI (1996–2007), estimated in-hospital mortality fell from 12.5% to 7.2%, 30-day mortality from 15.0% to 8.6%, and 1-year mortality from 21.0% to 13.3% [[Jernberg2011SWEDEHEART]].
+- Over the same period, primary PCI rose from 12% to 61% of Swedish STEMI patients, and statin use from 23% to 83% [[Jernberg2011SWEDEHEART]].
+- Across 105,674 SWEDEHEART STEMI cases (1995–2014), 1-year mortality fell from 22.1% to 14.1% and primary PCI rose from 4.5% to 78.0%. Improvement has plateaued since about 2008 [[Szummer2017STEMI]].
+- Across 205,693 SWEDEHEART NSTEMI cases (1995–2014), in-hospital invasive procedures rose from 1.9% to 73.2%. The standardised 1-year mortality ratio against the general population fell from 5.53 to 3.03 [[Szummer2018NSTEMI]].
+- In France (FAST-MI and predecessor registries; 14,423 patients, 59% STEMI), 6-month mortality after STEMI fell from 17.2% (1995) to 6.9% (2010) and 5.3% (2015). After NSTEMI it fell from 17.2% to 6.9% and then 6.3% [[Puymirat2017FASTMI]].
+- In the French registries, intended primary PCI for STEMI rose from 12% in 1995 to 76% in 2015, and mean age at STEMI fell from 66 to 63 years [[Puymirat2017FASTMI]].
+- In the multinational GRACE registry (44,372 ACS patients, 113 hospitals in 14 countries, 1999–2006), primary PCI for STEMI rose by 37 percentage points and fibrinolysis fell by 22 points. In-hospital heart failure and pulmonary oedema fell by 9 points [[Fox2007GRACE]].
+
+### what · STEMI versus NSTEMI
+- In a US study of 9 million adults hospitalized for MI (2005–2019), 72% had NSTEMI and 28% had STEMI [[Martin2025HDSS]].
+- The STEMI share depends on setting. In French registries limited to cardiac intensive care units, 59% of AMI patients had STEMI [[Puymirat2017FASTMI]]; in community cohorts, NSTEMI now makes up the majority [[Roger2010Olmsted]].
+- Falling STEMI incidence and lower death rates after NSTEMI appear to explain part of the fall in short-term case fatality [[Yeh2010NEJM]].
+
+### what · Age and sex
+- MI prevalence is higher in males than females in every age group (NHANES 2017–2020) [[Martin2025HDSS]].
+- Females have MIs at older ages than males, which is part of why they are more likely to die of MI within a few weeks [[Martin2025HDSS]].
+- In NRMI-2 (384,878 patients, 1994–1998), in-hospital mortality after MI was 16.7% for women and 11.5% for men [[Vaccarino1999NRMI]].
+  - Under age 50, women's in-hospital mortality was more than twice men's.
+  - Women's excess odds of death grew by 11.1% for every 5 years of younger age. The sex gap was no longer significant after age 74.
+- Among 322,523 MI patients who had angiography (NCDR ACTION Registry–GWTG, 2007–2014), in-hospital mortality was 3.6% for women and 2.4% for men [[Smilowitz2017ACTION]].
+  - The gap was confined to MI with obstructive coronary disease (3.9% versus 2.4%).
+  - In MINOCA there was no sex difference (1.1% versus 1.0%).
+- In US hospitalizations for AMI (2004–2015), females were less likely than males to have coronary angiography (aOR 0.92) or PCI (aOR 0.82), and had slightly higher mortality (aOR 1.03) [[Martin2025HDSS]].
+- The 2016 AHA statement notes that since 1984, annual cardiovascular disease deaths in the US have been higher in women than in men [[Mehta2016Women]].
+- In US women aged ≥25, awareness that CHD is a leading cause of death in women fell from 65% in 2009 to 44% in 2019 [[Martin2025HDSS]].
+- In Olmsted County (1987–2012), mortality after premature MI fell by 66% in females (HR 0.34; 95% CI 0.17–0.68) but did not fall significantly in males [[Martin2025HDSS]].
+
+### what · Younger adults
+- In ARIC surveillance (1995–2014), 30% of AMI hospitalizations among people aged 35–74 were aged 35–54 [[Arora2019ARICyoung]].
+  - That share grew from 27% in 1995–1999 to 32% in 2010–2014, with the biggest increase in young women.
+  - Annual AMI incidence rose in young women and fell in young men.
+- Among young AMI patients in ARIC, a history of hypertension rose from 59% to 73% and diabetes from 25% to 35% (1995–2014) [[Arora2019ARICyoung]].
+- Young women with AMI were less likely than young men to receive lipid-lowering therapy (RR 0.87) or coronary revascularization (RR 0.79). One-year all-cause mortality was similar (HR 1.10; 95% CI 0.83–1.45) [[Arora2019ARICyoung]].
+- In US hospital discharges (ages 30–54, 2001–2010), AMI hospitalization rates did not fall [[Gupta2014Young]].
+  - Women's in-hospital mortality fell from 3.3% to 2.3%.
+  - Men's fell from 2.0% to 1.8%, which was not significant.
+- US CHD mortality fell steeply in adults aged ≥65 after 2000 (−5.0% a year in women, −4.4% in men). Under age 55, it stagnated after 1990: young women saw +0.1% a year in 1990–1999 and −1% a year after 2000 [[Wilmot2015Young]].
+- Among US adults aged 18–44 hospitalized for AMI, the female share rose from 28.9% in 2007 to 33.9% in 2017 [[Martin2025HDSS]].
+- In VIRGO (2,009 women and 976 men aged 18–55, 103 US hospitals), 87.0% of women and 89.5% of men presented with chest pain, pressure, tightness or discomfort [[Lichtman2018VIRGO]].
+- In VIRGO, more women than men had three or more additional symptoms (61.9% versus 54.8%), such as epigastric symptoms, palpitations, or pain in the jaw, neck, arms or between the shoulder blades [[Lichtman2018VIRGO]].
+- Among VIRGO patients with STEMI, women were more likely than men to present without chest pain (OR 1.51; 95% CI 1.03–2.22) [[Lichtman2018VIRGO]].
+- Before the index hospitalization, 29.5% of women and 22.1% of men had already sought care for similar symptoms. 53% of those women, versus 37% of men, said the provider did not think the symptoms were heart-related [[Lichtman2018VIRGO]].
+
+### what · Silent and unrecognized MI
+- In Framingham (708 MIs among 5,127 participants), more than 25% of MIs were found only on routine biennial ECGs, and almost half of those were silent [[Kannel1984Unrecognized]].
+- Unrecognized MIs were as likely as recognized ones to lead to death, heart failure or stroke, and they made up a larger share of MIs in women and older men [[Kannel1984Unrecognized]].
+- In ARIC (9,498 participants, median 8.9 years), silent MI accounted for more than 45% of incident MIs: 3.3% of participants developed silent MI and 4.1% clinically recognized MI [[Zhang2016SilentMI]].
+- Compared with no MI, silent MI was linked to higher CHD death (HR 3.06; 95% CI 1.88–4.99), as was clinically recognized MI (HR 4.74) [[Zhang2016SilentMI]].
+- Silent MI incidence was 5.08 per 1,000 person-years in men and 2.93 in women [[Zhang2016SilentMI]].
+
+### what · Defining MI: the Fourth Universal Definition (2018)
+- MI is defined as acute myocardial injury, detected by abnormal cardiac biomarkers, in the setting of evidence of acute myocardial ischaemia [[Thygesen2018UDMI4,Domienik2021UDMI4]].
+- Myocardial injury is a cardiac troponin (cTn) value above the 99th-percentile upper reference limit (URL). It is acute when cTn values rise and/or fall; without a rise and/or fall it is chronic [[Thygesen2018UDMI4,Domienik2021UDMI4]].
+- Many conditions cause myocardial injury without MI, including anaemia, ventricular tachyarrhythmia, heart failure, kidney disease, hypotensive shock and hypoxaemia. Without clinical evidence of acute ischaemia, these are called "myocardial injury", not MI [[Domienik2021UDMI4]].
+- Type 1 MI needs a rise and/or fall of cTn with at least one value above the 99th-percentile URL, plus at least one of:
+  - symptoms of acute myocardial ischaemia
+  - new ischaemic ECG changes
+  - pathological Q waves
+  - imaging evidence of new loss of viable myocardium or new regional wall-motion abnormality in an ischaemic pattern
+  - coronary thrombus seen on angiography, intracoronary imaging or autopsy [[Thygesen2018UDMI4,Domienik2021UDMI4]]
+- Type 2 MI comes from a mismatch between oxygen supply and demand that is secondary to another illness, without acute atherothrombosis. Mechanisms include:
+  - fixed coronary atherosclerosis, coronary spasm, embolism or dissection
+  - sustained tachyarrhythmia or severe bradyarrhythmia
+  - severe hypertension or hypotension, shock
+  - respiratory failure or severe anaemia [[Domienik2021UDMI4,DeFilippis2019Type2]]
+- Type 3 MI is cardiac death with suspected MI before biomarkers can be obtained. It is rare, about 3–4% of all MIs. If autopsy finds fresh thrombus in the infarct-related artery, the MI is reclassified as type 1 [[Domienik2021UDMI4]].
+- Procedure-related MI (within 48 hours) requires, with normal baseline cTn, a rise above 5× the 99th-percentile URL after PCI (type 4a) or 10× after CABG (type 5). With elevated baseline cTn it requires a >20% rise to above the same thresholds, plus a clinical criterion. Type 4c covers restenosis after PCI [[Domienik2021UDMI4]].
+- Under the 2018 definition, takotsubo syndrome is classed as another cause of myocardial injury, not as MI [[Domienik2021UDMI4]].
+- About 35% of patients have hs-cTn above the 99th-percentile URL in post-operative blood samples after non-cardiac surgery [[Domienik2021UDMI4]].
+- The definition keeps MI for cases where ischaemia causes the injury, whether from acute atherothrombosis (type 1) or supply/demand mismatch (type 2). The best evaluation and treatment of type 2 MI and nonischaemic injury have not been established [[DeFilippis2019Type2]].
+- Among 372,310 South Australian emergency episodes with high-sensitivity troponin T (2011–2019):
+  - acute MI: 5.12%
+  - acute myocardial injury with coronary artery disease: 1.86%
+  - acute myocardial injury without coronary artery disease: 8.66%
+  - chronic myocardial injury: 14.79%
+  - no myocardial injury: 69.58% [[Chuang2021Injury]]
+
+### what · How common is type 2 MI?
+- In a Danish cohort of consecutive hospital patients tested for troponin (553 MIs, 2010–2011), 72% of MIs were type 1 and 26% type 2 [[Saaby2013Type2]].
+  - 45% of type 2 patients had no significant coronary disease, against 12% of type 1 patients.
+  - The leading triggers of type 2 MI were tachyarrhythmias, anaemia and respiratory failure.
+- In Edinburgh (2,122 consecutive patients with raised cTnI), adjudicated diagnoses were type 1 MI 55.2%, type 2 MI 20.2% and myocardial injury 24.6% [[Chapman2018Type2]].
+- Five-year all-cause death was 36.7% after type 1 MI, 62.5% after type 2 MI and 72.4% after myocardial injury [[Chapman2018Type2]].
+  - Most of the excess deaths after type 2 MI or injury were noncardiovascular.
+  - Crude major adverse cardiovascular event rates were similar (30.6% versus 32.6%).
+- In Olmsted County (2003–2012), type 2 MI incidence is now similar to type 1 [[Raphael2020Type2]].
+  - Patients with type 2 MI were older than those with type 1 (73.7 versus 68.5 years) and less often male (46% versus 63%).
+  - After a type 2 MI, a further type 2 MI was more common than a new type 1 MI (estimated 5-year rates 9.7% and 1.7%).
+- Among 21,738 US patients with type 2 MI, in-hospital mortality was 9.0% and 30-day readmission 19.1% [[Martin2025HDSS]].
+
+### what · MINOCA (MI with non-obstructive coronary arteries)
+- A meta-analytic review of 28 publications found MINOCA in 6% (95% CI 5%–7%) of MI patients. Median age was 55, and 40% were women [[Pasupathy2015]].
+- Twelve-month all-cause mortality was 4.7% in MINOCA against 6.7% in MI with obstructive coronary disease [[Pasupathy2015]].
+- On cardiac MRI, MINOCA patients showed:
+  - a typical infarct in only 24%
+  - myocarditis in 33%
+  - no significant abnormality in 26%
+- Coronary spasm was inducible in 27% and thrombophilia found in 14% [[Pasupathy2015]].
+- The AHA puts MINOCA at about 5–6% of AMI patients referred for coronary angiography [[TamisHolland2019MINOCA]].
+- In the US ACTION Registry–GWTG, 5.9% of 322,523 MI patients had MINOCA (<50% stenosis): 10.5% of women versus 3.4% of men. In-hospital mortality was 1.1% after MINOCA and 2.9% after MI with obstructive disease [[Smilowitz2017ACTION]].
+- The stenosis cut-off is written as "≤50%" in the 2018 universal definition summary [[Domienik2021UDMI4]] and as "<50%" in the ACTION analysis [[Smilowitz2017ACTION]].
+
+### what · Health inequalities
+- Lower socioeconomic position is linked to more ACS and worse outcomes (systematic review of 181 studies, mostly high-income countries) [[Martin2025HDSS]]:
+  - incidence: IRR 1.1–4.7
+  - suboptimal care: OR 1.1–10.0
+  - mortality after ACS: HR 1.1–4.13
+- Four socioeconomic measures are consistently linked to cardiovascular disease in high-income countries: income, educational attainment, employment status and neighbourhood socioeconomic factors [[Schultz2018SES]].
+- Within 1 year of a first MI at ages 45–64, 3% of White males, 5% of White females, 9% of Black males and 10% of Black females die (pooled NHLBI cohorts) [[Martin2025HDSS]].
+- Black adults with AMI (2012–2017) were less likely than White adults to have angiography (61.9% versus 73.1%) or PCI (44.6% versus 58.1%). Adults of other racial and ethnic groups fell in between (70.2% and 53.0%) [[Martin2025HDSS]].
+- Medicare MI patients at rural hospitals (2016–2018) were less likely to have cardiac catheterization than those at urban hospitals (49.7% versus 63.6%) and had higher 30-day mortality (aHR 1.10) [[Martin2025HDSS]].
+- In REGARDS, people with three or more adverse social determinants of health had a higher risk of fatal incident CHD (aHR 1.67; 95% CI 1.18–2.37) [[Martin2025HDSS]].
+- In six high-income countries (2013–2018), patients aged ≥66 from the highest-income areas had 1–3 percentage points lower 30-day mortality after STEMI or NSTEMI [[Martin2025HDSS]].
+- In ARIC (1987–2008), MI incidence fell much more slowly in black men (1.5% a year) than in white men (4.3% a year) [[Rosamond2012ARIC]].
+
+### history · From description to definition (1700s–1961)
+- William Heberden gave the first account of classic angina pectoris. Prinzmetal's report of variant angina came nearly two centuries later [[Sternbach1991Heberden]]. Heberden's account is usually dated to a 1768 lecture published in 1772 (unverified: no record of the original found in PubMed or Crossref).
+- Willem Einthoven published galvanometric recording of the human electrocardiogram in 1903 (Pflügers Archiv) [[Einthoven1903]].
+- James B. Herrick published "Clinical features of sudden obstruction of the coronary arteries" in JAMA in 1912, the clinical description of acute MI [[Herrick1912,Braunwald2012History]].
+- Harold E. B. Pardee published "An electrocardiographic sign of coronary artery obstruction" in Archives of Internal Medicine in 1920 [[Pardee1920]].
+- Braunwald divides treatment since Herrick into three phases [[Braunwald2012History]]:
+  - 1912–1961: bed rest and "expectant" care
+  - 1961–1974: the coronary care unit
+  - 1975 onward: myocardial reperfusion
+- He describes a fourth phase now emerging, aimed at reducing reperfusion injury and at regenerative medicine (Hypothesis) [[Braunwald2012History]].
+- The Framingham Heart Study examined its first volunteer in 1948. Its origins are tied to President Franklin D. Roosevelt's death in 1945 from hypertensive heart disease and stroke [[Mahmood2014Framingham]].
+- Framingham's investigators described the study's epidemiological approach in 1951 [[Dawber1951Framingham]]. Their six-year follow-up report, "Factors of risk in the development of coronary heart disease," appeared in 1961 [[Kannel1961Framingham]].
+- Desmond Julian's 1961 Lancet paper on treating cardiac arrest in acute myocardial ischaemia and infarction began the coronary care unit era [[Julian1961CCU,Braunwald2012History]].
+- Killip and Kimball reported 2 years of experience treating 250 patients with MI in a coronary care unit in 1967 [[Killip1967CCU]].
+
+### history · The reperfusion era (1977–2003)
+- In dogs, the share of the at-risk wall that died grew with time: 38% after 40 minutes of coronary occlusion, 57% at 3 hours, 71% at 6 hours, 85% at 24 hours. Cell death spread from the inner wall outward as a "wavefront", leaving salvageable muscle for at least 3 and perhaps 6 hours (animal data) [[Reimer1977]].
+- Andreas Grüntzig reported transluminal dilatation of coronary-artery stenosis in a 1978 Lancet letter [[Gruntzig1978Lancet]].
+  - His 1979 NEJM series covered 50 patients. The procedure succeeded in 32, reducing stenosis from a mean of 84% to 34% [[Gruntzig1979NEJM]].
+- In 1980, DeWood found total coronary occlusion on angiography in 87% (110/126) of patients studied within 4 hours of transmural MI, falling to 65% at 12–24 hours [[DeWood1980]].
+  - Thrombus was retrieved by Fogarty catheter in 52 of 59 patients whose angiograms suggested thrombosis.
+- GISSI (1986) randomised 11,806 patients in 176 coronary care units to intravenous streptokinase or usual care [[GISSI1986]].
+  - 21-day hospital mortality was 10.7% with streptokinase versus 13% with usual care, an 18% reduction.
+  - The benefit faded with delay: relative risk was 0.74, 0.80, 0.87 and 1.19 for treatment at 0–3, 3–6, 6–9 and 9–12 hours.
+- Sigwart and colleagues reported self-expanding coronary stents in 1987: 24 coronary stents in 19 patients [[Sigwart1987Stents]].
+- ISIS-2 (1988) randomised 17,187 patients with suspected MI to streptokinase, aspirin, both or neither. Five-week vascular mortality [[ISIS2_1988]]:
+  - streptokinase 9.2% versus placebo infusion 12.0%
+  - aspirin 9.4% versus placebo tablets 11.8%
+  - both 8.0% versus neither 13.2% (odds reduction 42%)
+- The Fibrinolytic Therapy Trialists' overview (9 trials, 58,600 patients, 1994) found about 30 fewer deaths per 1,000 patients with ST elevation or bundle-branch block treated within 6 hours, and about 20 per 1,000 for those treated at 7–12 hours [[FTT1994]].
+- In PAMI (1993; 395 patients), in-hospital mortality was 6.5% with t-PA and 2.6% with immediate angioplasty (P=0.06). In-hospital reinfarction or death was 12.0% versus 5.1% [[Grines1993PAMI]].
+- In Zwolle (1993; 142 patients), reinfarction occurred in 9 patients given streptokinase and none given immediate angioplasty. The infarct artery was open in 68% versus 91% [[Zijlstra1993]].
+- By 2003, a meta-analysis of 23 trials (7,739 patients) found primary angioplasty better than fibrinolysis [[Keeley2003]]:
+  - short-term death 7% versus 9%
+  - non-fatal reinfarction 3% versus 7%
+  - stroke 1% versus 2%
+- In Sweden, primary PCI rose from 4.5% of STEMI cases in 1995 to 78.0% in 2014, which shows how fully the primary PCI era took over in practice [[Szummer2017STEMI]].
+
+### history · Troponin and redefinition (1989–2025)
+- Katus and colleagues described an enzyme immunoassay for cardiac troponin T in 1989. Troponin T was raised in all 50 patients with transmural AMI [[Katus1989TnT]].
+- In 1991 the same group showed troponin T in serum within 3 hours of pain onset in 50% of patients, staying raised for more than 130 hours [[Katus1991TnT]].
+- In 1992, troponin T was found in 39% of patients with angina at rest [[Hamm1992TnT]].
+  - 30% of those troponin-positive patients went on to MI, against 1 of 51 troponin-negative patients.
+  - Only 1 of the 11 MIs had raised CK-MB.
+- In 1996, 42-day mortality in ACS was 3.7% when cardiac troponin I was ≥0.4 ng/mL and 1.0% below that level [[Antman1996TnI]].
+- In 2000, the joint ESC/ACC consensus redefined MI around a typical rise and gradual fall of troponin (or a faster rise and fall of CK-MB) with ischaemic symptoms, Q waves, ischaemic ECG changes or coronary intervention [[Alpert2000Redefined]].
+  - In Olmsted County, a quarter of later incident MIs met only the troponin-based criteria [[Roger2010Olmsted]].
+- The first Universal Definition (2007) introduced the five-type classification of MI [[Thygesen2007UDMI,Saaby2013Type2]]. The third (2012) and fourth (2018) definitions followed [[Thygesen2012UDMI3,Thygesen2018UDMI4]].
+- In 2009, sensitive troponin assays diagnosed AMI better than a standard assay (AUC 0.95–0.96 versus 0.90). The gap was largest within 3 hours of chest-pain onset (0.92–0.94 versus 0.76) [[Reichlin2009hsTn]].
+- In a second 2009 study, a sensitive troponin I assay (cut-off 0.04 ng/mL) on admission had 90.7% sensitivity and 90.2% specificity for AMI [[Keller2009hsTnI]].
+- In 2023 the ESC published guidelines for the management of acute coronary syndromes [[Byrne2023ESC]].
+- The 2025 ACC/AHA/ACEP/NAEMSP/SCAI ACS guideline replaces the 2013 STEMI guideline and the 2014 NSTE-ACS guideline [[Rao2025ACC]].
+- The 2017 Lancet seminar credits recent prognostic gains to better risk stratification, wider use of invasive strategies, systems for immediate revascularisation, better antithrombotic drugs and more secondary prevention such as statins [[Reed2017Lancet]].
+
+### Exam hooks
+- About 805,000 US heart attacks a year: 605,000 first and 200,000 recurrent, about one every 40 seconds. About 170,000 are silent [[Martin2025HDSS]].
+- Average age at first MI: 65.6 years (males), 72.0 years (females) [[Martin2025HDSS]].
+- IHD is the leading age-standardised cause of death worldwide: about 9 million deaths in 2021 [[GBD2021CausesOfDeath,Martin2025HDSS]].
+- UDMI4: MI = acute myocardial injury (cTn above the 99th-percentile URL with a rise and/or fall) plus clinical evidence of acute ischaemia [[Thygesen2018UDMI4,Domienik2021UDMI4]].
+- Type 1 MI is atherothrombotic. Type 2 is supply/demand mismatch without acute atherothrombosis [[DeFilippis2019Type2]].
+- Type 4a (PCI) threshold is >5× the 99th-percentile URL; type 5 (CABG) is >10×, within 48 hours [[Domienik2021UDMI4]].
+- Takotsubo is "other myocardial injury", not MI, under UDMI4 [[Domienik2021UDMI4]].
+- MINOCA makes up about 6% of MI, is more common in women (10.5% versus 3.4%), and myocarditis is a frequent MRI finding (33%) [[Pasupathy2015,Smilowitz2017ACTION]].
+- Type 2 MI makes up about 20–26% of adjudicated MIs in hospital cohorts. Its 5-year mortality is higher than type 1, mostly from noncardiovascular causes [[Saaby2013Type2,Chapman2018Type2]].
+- Troponin-era definitions raised NSTEMI counts: 25% of Olmsted MIs were troponin-only [[Roger2010Olmsted]].
+- STEMI incidence fell from 133 to 50 per 100,000 person-years (Kaiser, 1999–2008) [[Yeh2010NEJM]].
+- IMPACT: about half of the 1980–2000 US CHD death decline came from treatments (47%) and about half from risk-factor changes (44%) [[Ford2007IMPACT]].
+- DeWood 1980: 87% total occlusion within 4 hours of transmural MI, which established thrombosis as the cause [[DeWood1980]].
+- ISIS-2: streptokinase plus aspirin cut 5-week vascular mortality from 13.2% to 8.0% [[ISIS2_1988]].
+- GISSI benefit depended on time: RR 0.74 at 0–3 hours versus 1.19 at 9–12 hours [[GISSI1986]].
+- Keeley 2003: primary angioplasty beats fibrinolysis (short-term death 7% versus 9%) [[Keeley2003]].
+- Framingham began in 1948, and the "factors of risk" paper appeared in 1961 [[Mahmood2014Framingham,Kannel1961Framingham]].
+- Braunwald's eras: bed rest (1912–1961), coronary care unit (1961–1974), reperfusion (1975 onward) [[Braunwald2012History]].
+- Young women with MI: 87% have chest pain, but they report more additional symptoms and are more often told their symptoms are not cardiac [[Lichtman2018VIRGO]].
+
+### In plain words
+- If you think you or someone else is having a heart attack, call your local emergency number now (911 in the US, 999 in the UK, 112 in the EU).
+- A heart attack happens when part of the heart muscle is starved of blood and oxygen long enough to be damaged [[Thygesen2018UDMI4]].
+- In the US, someone has a heart attack about every 40 seconds [[Martin2025HDSS]].
+- About 1 in 5 heart attacks is "silent". The person may not notice it, and it is found later on a heart tracing (ECG) [[Martin2025HDSS,Kannel1984Unrecognized]].
+- Most women and most men having a heart attack feel chest pain, pressure or tightness. Women more often have extra symptoms too, like jaw, neck, arm or back pain, or an upset stomach [[Lichtman2018VIRGO]].
+- Doctors confirm a heart attack with a blood test called troponin. Troponin leaks out of damaged heart muscle [[Domienik2021UDMI4,Katus1991TnT]].
+- Not every high troponin means a heart attack. Other illnesses can also strain and damage the heart [[Domienik2021UDMI4,Chuang2021Injury]].
+- Some heart attacks happen with no badly blocked arteries. Doctors call this MINOCA and look for the cause [[Pasupathy2015]].
+- Far fewer people die after a heart attack than 30 years ago. In Sweden, deaths within a year of the most serious type fell from about 22 in 100 people to about 14 in 100 [[Szummer2017STEMI]].
+- Those survival numbers describe large groups of people. They cannot say what will happen to any one person [[Martin2025HDSS]].
+- Fast treatment saves heart muscle. In early trials, clot-busting drugs helped most when given in the first few hours [[GISSI1986,FTT1994]].
+- Heart attacks are not only an older man's problem. A growing share happens in people under 55, especially women [[Arora2019ARICyoung]].
+- Where you live and how much money you have can affect your risk and your care. Doctors and health systems are working on that gap [[Schultz2018SES,Martin2025HDSS]].
+
+## Numbers for the animations
+- us_mi_events_per_year | first | 605000 | events/yr | [[Martin2025HDSS]]
+- us_mi_events_per_year | recurrent | 200000 | events/yr | [[Martin2025HDSS]]
+- us_mi_events_per_year | silent_of_total | 170000 | events/yr | [[Martin2025HDSS]]
+- us_mi_interval | one_event | 40 | seconds | [[Martin2025HDSS]]
+- age_first_mi | male | 65.6 | years | [[Martin2025HDSS]]
+- age_first_mi | female | 72.0 | years | [[Martin2025HDSS]]
+- us_mi_prevalence | male | 4.5 | % adults ≥20 | [[Martin2025HDSS]]
+- us_mi_prevalence | female | 2.1 | % adults ≥20 | [[Martin2025HDSS]]
+- us_mi_deaths | 2022 | 103905 | deaths | [[Martin2025HDSS]]
+- us_chd_deaths_out_of_hospital | 2022 | 79 | % of CHD deaths | [[Martin2025HDSS]]
+- global_ihd_deaths | 2019 | 9.14 | million | [[Roth2020GBD]]
+- global_ihd_deaths | 2021 | 8.99 | million | [[Martin2025HDSS]]
+- global_ihd_prevalence | 2021 | 254.28 | million | [[Martin2025HDSS]]
+- global_cvd_deaths | 1990 | 12.1 | million | [[Roth2020GBD]]
+- global_cvd_deaths | 2019 | 18.6 | million | [[Roth2020GBD]]
+- kaiser_mi_incidence | 1999 | 274 | per 100,000 person-years | [[Yeh2010NEJM]]
+- kaiser_mi_incidence | 2000 | 287 | per 100,000 person-years | [[Yeh2010NEJM]]
+- kaiser_mi_incidence | 2008 | 208 | per 100,000 person-years | [[Yeh2010NEJM]]
+- kaiser_stemi_incidence | 1999 | 133 | per 100,000 person-years | [[Yeh2010NEJM]]
+- kaiser_stemi_incidence | 2008 | 50 | per 100,000 person-years | [[Yeh2010NEJM]]
+- worcester_stemi_incidence | 1997 | 121 | per 100,000 | [[McManus2011Worcester]]
+- worcester_stemi_incidence | 2005 | 77 | per 100,000 | [[McManus2011Worcester]]
+- worcester_nstemi_incidence | 1997 | 126 | per 100,000 | [[McManus2011Worcester]]
+- worcester_nstemi_incidence | 2005 | 132 | per 100,000 | [[McManus2011Worcester]]
+- olmsted_type1_mi_incidence | 2003 | 202 | per 100,000 | [[Raphael2020Type2]]
+- olmsted_type1_mi_incidence | 2012 | 84 | per 100,000 | [[Raphael2020Type2]]
+- olmsted_type2_mi_incidence | 2003 | 130 | per 100,000 | [[Raphael2020Type2]]
+- olmsted_type2_mi_incidence | 2012 | 78 | per 100,000 | [[Raphael2020Type2]]
+- us_chd_death_rate_men | 1980 | 542.9 | per 100,000 | [[Ford2007IMPACT]]
+- us_chd_death_rate_men | 2000 | 266.8 | per 100,000 | [[Ford2007IMPACT]]
+- us_chd_death_rate_women | 1980 | 263.3 | per 100,000 | [[Ford2007IMPACT]]
+- us_chd_death_rate_women | 2000 | 134.4 | per 100,000 | [[Ford2007IMPACT]]
+- impact_decline_share | treatments | 47 | % | [[Ford2007IMPACT]]
+- impact_decline_share | risk_factors | 44 | % | [[Ford2007IMPACT]]
+- medicare_30d_rsmr | 1995 | 18.8 | % | [[Krumholz2009Medicare]]
+- medicare_30d_rsmr | 2006 | 15.8 | % | [[Krumholz2009Medicare]]
+- medicare_30d_mortality | 1995 | 20.0 | % | [[Martin2025HDSS]]
+- medicare_30d_mortality | 2014 | 12.4 | % | [[Martin2025HDSS]]
+- swedeheart_stemi_1y_mortality | 1995 | 22.1 | % | [[Szummer2017STEMI]]
+- swedeheart_stemi_1y_mortality | 2014 | 14.1 | % | [[Szummer2017STEMI]]
+- swedeheart_stemi_primary_pci | 1995 | 4.5 | % of STEMI | [[Szummer2017STEMI]]
+- swedeheart_stemi_primary_pci | 2014 | 78.0 | % of STEMI | [[Szummer2017STEMI]]
+- swedeheart_stemi_inhospital_mortality | 1996 | 12.5 | % | [[Jernberg2011SWEDEHEART]]
+- swedeheart_stemi_inhospital_mortality | 2007 | 7.2 | % | [[Jernberg2011SWEDEHEART]]
+- swedeheart_nstemi_invasive | 1995 | 1.9 | % | [[Szummer2018NSTEMI]]
+- swedeheart_nstemi_invasive | 2014 | 73.2 | % | [[Szummer2018NSTEMI]]
+- fastmi_stemi_6mo_mortality | 1995 | 17.2 | % | [[Puymirat2017FASTMI]]
+- fastmi_stemi_6mo_mortality | 2010 | 6.9 | % | [[Puymirat2017FASTMI]]
+- fastmi_stemi_6mo_mortality | 2015 | 5.3 | % | [[Puymirat2017FASTMI]]
+- fastmi_nstemi_6mo_mortality | 1995 | 17.2 | % | [[Puymirat2017FASTMI]]
+- fastmi_nstemi_6mo_mortality | 2010 | 6.9 | % | [[Puymirat2017FASTMI]]
+- fastmi_nstemi_6mo_mortality | 2015 | 6.3 | % | [[Puymirat2017FASTMI]]
+- inhospital_mortality_by_type | STEMI | 6.4 | % | [[Martin2025HDSS]]
+- inhospital_mortality_by_type | NSTEMI | 3.4 | % | [[Martin2025HDSS]]
+- us_mi_type_share | NSTEMI | 72 | % of hospitalized MI 2005–2019 | [[Martin2025HDSS]]
+- us_mi_type_share | STEMI | 28 | % of hospitalized MI 2005–2019 | [[Martin2025HDSS]]
+- death_after_first_mi_male | 1y | 18 | % | [[Martin2025HDSS]]
+- death_after_first_mi_male | 5y | 36 | % | [[Martin2025HDSS]]
+- death_after_first_mi_female | 1y | 23 | % | [[Martin2025HDSS]]
+- death_after_first_mi_female | 5y | 47 | % | [[Martin2025HDSS]]
+- median_survival_after_first_mi | male | 8.2 | years | [[Martin2025HDSS]]
+- median_survival_after_first_mi | female | 5.5 | years | [[Martin2025HDSS]]
+- mi_type_share_edinburgh | type1 | 55.2 | % of raised cTnI | [[Chapman2018Type2]]
+- mi_type_share_edinburgh | type2 | 20.2 | % of raised cTnI | [[Chapman2018Type2]]
+- mi_type_share_edinburgh | injury | 24.6 | % of raised cTnI | [[Chapman2018Type2]]
+- five_year_death_by_type | type1 | 36.7 | % | [[Chapman2018Type2]]
+- five_year_death_by_type | type2 | 62.5 | % | [[Chapman2018Type2]]
+- five_year_death_by_type | injury | 72.4 | % | [[Chapman2018Type2]]
+- ed_troponin_category | acute_mi | 5.12 | % of episodes | [[Chuang2021Injury]]
+- ed_troponin_category | acute_injury_with_cad | 1.86 | % of episodes | [[Chuang2021Injury]]
+- ed_troponin_category | acute_injury_without_cad | 8.66 | % of episodes | [[Chuang2021Injury]]
+- ed_troponin_category | chronic_injury | 14.79 | % of episodes | [[Chuang2021Injury]]
+- ed_troponin_category | none | 69.58 | % of episodes | [[Chuang2021Injury]]
+- minoca_prevalence | women | 10.5 | % of MI | [[Smilowitz2017ACTION]]
+- minoca_prevalence | men | 3.4 | % of MI | [[Smilowitz2017ACTION]]
+- minoca_cmr_finding | typical_infarct | 24 | % | [[Pasupathy2015]]
+- minoca_cmr_finding | myocarditis | 33 | % | [[Pasupathy2015]]
+- minoca_cmr_finding | normal | 26 | % | [[Pasupathy2015]]
+- young_share_of_ami | 1995-1999 | 27 | % aged 35–54 | [[Arora2019ARICyoung]]
+- young_share_of_ami | 2010-2014 | 32 | % aged 35–54 | [[Arora2019ARICyoung]]
+- virgo_chest_pain | women | 87.0 | % | [[Lichtman2018VIRGO]]
+- virgo_chest_pain | men | 89.5 | % | [[Lichtman2018VIRGO]]
+- nrmi2_inhospital_mortality | women | 16.7 | % | [[Vaccarino1999NRMI]]
+- nrmi2_inhospital_mortality | men | 11.5 | % | [[Vaccarino1999NRMI]]
+- wavefront_transmural_necrosis | 40min | 38 | % of risk zone (dogs) | [[Reimer1977]]
+- wavefront_transmural_necrosis | 3h | 57 | % of risk zone (dogs) | [[Reimer1977]]
+- wavefront_transmural_necrosis | 6h | 71 | % of risk zone (dogs) | [[Reimer1977]]
+- wavefront_transmural_necrosis | 24h | 85 | % of risk zone (dogs) | [[Reimer1977]]
+- dewood_total_occlusion | 0-4h | 87 | % of patients | [[DeWood1980]]
+- dewood_total_occlusion | 12-24h | 65 | % of patients | [[DeWood1980]]
+- gissi_relative_risk_by_delay | 0-3h | 0.74 | RR | [[GISSI1986]]
+- gissi_relative_risk_by_delay | 3-6h | 0.80 | RR | [[GISSI1986]]
+- gissi_relative_risk_by_delay | 6-9h | 0.87 | RR | [[GISSI1986]]
+- gissi_relative_risk_by_delay | 9-12h | 1.19 | RR | [[GISSI1986]]
+- isis2_5wk_vascular_mortality | neither | 13.2 | % | [[ISIS2_1988]]
+- isis2_5wk_vascular_mortality | streptokinase_vs_placebo | 9.2 | % | [[ISIS2_1988]]
+- isis2_5wk_vascular_mortality | aspirin_vs_placebo | 9.4 | % | [[ISIS2_1988]]
+- isis2_5wk_vascular_mortality | both | 8.0 | % | [[ISIS2_1988]]
+- ftt_lives_saved | 0-6h | 30 | per 1000 treated | [[FTT1994]]
+- ftt_lives_saved | 7-12h | 20 | per 1000 treated | [[FTT1994]]
+- ftt_lives_saved | 13-18h | 10 | per 1000 treated (uncertain) | [[FTT1994]]
+- keeley_short_term_death | primary_PTCA | 7 | % | [[Keeley2003]]
+- keeley_short_term_death | fibrinolysis | 9 | % | [[Keeley2003]]
+- england_ami_decline_share_men | event_rate | 57 | % | [[Smolina2012England]]
+- england_ami_decline_share_men | case_fatality | 43 | % | [[Smolina2012England]]
+- hd_mortality_annual_decline | 2000-2011 | 3.69 | %/yr | [[Sidney2016Trends]]
+- hd_mortality_annual_decline | 2011-2014 | 0.76 | %/yr | [[Sidney2016Trends]]
+- history_timeline | 1903 | Einthoven ECG recording | event | [[Einthoven1903]]
+- history_timeline | 1912 | Herrick clinical description | event | [[Herrick1912]]
+- history_timeline | 1920 | Pardee ECG sign | event | [[Pardee1920]]
+- history_timeline | 1948 | Framingham first exam | event | [[Mahmood2014Framingham]]
+- history_timeline | 1961 | Julian coronary care / Framingham "factors of risk" | event | [[Julian1961CCU,Kannel1961Framingham]]
+- history_timeline | 1977 | Reimer wavefront (dogs) | event | [[Reimer1977]]
+- history_timeline | 1978 | Grüntzig coronary angioplasty letter | event | [[Gruntzig1978Lancet]]
+- history_timeline | 1980 | DeWood occlusion angiography | event | [[DeWood1980]]
+- history_timeline | 1986 | GISSI streptokinase | event | [[GISSI1986]]
+- history_timeline | 1987 | Sigwart coronary stents | event | [[Sigwart1987Stents]]
+- history_timeline | 1988 | ISIS-2 aspirin + streptokinase | event | [[ISIS2_1988]]
+- history_timeline | 1989 | Katus troponin T assay | event | [[Katus1989TnT]]
+- history_timeline | 1993 | PAMI and Zwolle primary angioplasty trials | event | [[Grines1993PAMI,Zijlstra1993]]
+- history_timeline | 2000 | ESC/ACC redefinition | event | [[Alpert2000Redefined]]
+- history_timeline | 2007 | Universal definition, 5 types | event | [[Thygesen2007UDMI]]
+- history_timeline | 2009 | Sensitive troponin assays | event | [[Reichlin2009hsTn,Keller2009hsTnI]]
+- history_timeline | 2012 | Third universal definition | event | [[Thygesen2012UDMI3]]
+- history_timeline | 2018 | Fourth universal definition | event | [[Thygesen2018UDMI4]]
+- history_timeline | 2023 | ESC ACS guideline | event | [[Byrne2023ESC]]
+- history_timeline | 2025 | ACC/AHA ACS guideline | event | [[Rao2025ACC]]
+
+## Open questions and controversies
+- Is MI incidence really falling, or is better testing hiding it? Biomarker-adjusted ARIC data show real declines [[Rosamond2012ARIC]]. In Olmsted, counting troponin-only cases left total incidence flat, while CK-MB-defined MI fell 20% [[Roger2010Olmsted]]. Status: falling STEMI is consistent across cohorts; total MI counts depend on the definition and assay.
+- Is progress stalling? Sweden's STEMI outcomes have plateaued since about 2008 [[Szummer2017STEMI]], and French NSTEMI mortality has been flat since 2010 [[Puymirat2017FASTMI]]. US heart disease mortality declines slowed after 2011 [[Sidney2016Trends]], and CHD mortality under age 55 has barely improved since 1990 [[Wilmot2015Young]]. Status: open. Proposed drivers (obesity, diabetes, ageing) are partly supported by risk-factor data [[Ford2007IMPACT,Arora2019ARICyoung]] (Early evidence).
+- How should type 2 MI be diagnosed and treated? Its criteria and management are not established [[DeFilippis2019Type2]], and frequency ranges from 20% to 26% of MIs depending on criteria and cohort [[Saaby2013Type2,Chapman2018Type2]]. Status: open. Most excess deaths after type 2 MI are noncardiovascular [[Chapman2018Type2]].
+- Do women still fare worse? Women's higher in-hospital mortality was concentrated at younger ages in NRMI-2 [[Vaccarino1999NRMI]] and limited to MI with obstructive disease in ACTION [[Smilowitz2017ACTION]]. Young women's 1-year mortality matched men's in ARIC despite less guideline therapy [[Arora2019ARICyoung]]. Status: differences in care are documented; whether outcome gaps remain after adjustment varies by cohort.
+- Global prevalence figures: 126 million [[Khan2020GlobalIHD]], 197 million [[Roth2020GBD]] or 254 million [[Martin2025HDSS]] people with IHD, depending on GBD round. Status: use the latest round (GBD 2021) and do not draw a trend line between rounds.
+- MINOCA stenosis threshold: "≤50%" [[Domienik2021UDMI4]] versus "<50%" [[Smilowitz2017ACTION]]. Status: a wording difference that matters little for teaching.
+- What comes after reperfusion? Braunwald proposes a "Phase 4" of protection against reperfusion injury and regenerative therapy (Hypothesis) [[Braunwald2012History]]. Pass F covers the research status.
+
+## Sources
+- [Thygesen2018UDMI4] Thygesen K, Alpert JS, Jaffe AS, Chaitman BR, Bax JJ, Morrow DA, et al. Fourth Universal Definition of Myocardial Infarction (2018). Circulation. 2018;138(20):e618-e651. PMID 30571511; doi:10.1161/CIR.0000000000000617. Co-published in J Am Coll Cardiol 2018;72(18):2231-2264 (PMID 30153967) and Eur Heart J 2019;40(3):237-269 (PMID 30165617). (validated: PubMed)
+- [Domienik2021UDMI4] Domienik-Karłowicz J, Kupczyńska K, Michalski B, Kapłon-Cieślicka A, Darocha S, Dobrowolski P, et al. Fourth universal definition of myocardial infarction. Selected messages from the European Society of Cardiology document and lessons learned from the new guidelines on ST-segment elevation myocardial infarction and non-ST-segment elevation-acute coronary syndrome. Cardiol J. 2021;28(2):195-201. PMID 33843035; PMCID PMC8078947; doi:10.5603/CJ.a2021.0036. (validated: PubMed)
+- [Alpert2000Redefined] Alpert JS, Thygesen K, Antman E, Bassand JP. Myocardial infarction redefined--a consensus document of The Joint European Society of Cardiology/American College of Cardiology Committee for the redefinition of myocardial infarction. J Am Coll Cardiol. 2000;36(3):959-69. PMID 10987628; doi:10.1016/s0735-1097(00)00804-4. (validated: PubMed)
+- [Thygesen2007UDMI] Thygesen K, Alpert JS, White HD, Jaffe AS, Apple FS, Galvani M, et al. Universal definition of myocardial infarction. Circulation. 2007;116(22):2634-53. PMID 17951284; doi:10.1161/CIRCULATIONAHA.107.187397. (validated: PubMed)
+- [Thygesen2012UDMI3] Thygesen K, Alpert JS, Jaffe AS, Simoons ML, Chaitman BR, White HD, et al. Third universal definition of myocardial infarction. Circulation. 2012;126(16):2020-35. PMID 22923432; doi:10.1161/CIR.0b013e31826e1058. (validated: PubMed)
+- [Martin2025HDSS] Martin SS, Aday AW, Allen NB, Almarzooq ZI, Anderson CAM, Arora P, et al. 2025 Heart Disease and Stroke Statistics: A Report of US and Global Data From the American Heart Association. Circulation. 2025;151(8):e41-e660. PMID 39866113; PMCID PMC12256702; doi:10.1161/CIR.0000000000001303. (validated: PubMed)
+- [Rao2025ACC] Rao SV, O'Donoghue ML, Ruel M, Rab T, Tamis-Holland JE, Alexander JH, et al. 2025 ACC/AHA/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines. Circulation. 2025;151(13):e771-e862. PMID 40014670; doi:10.1161/CIR.0000000000001309. Co-published in J Am Coll Cardiol 2025;85(22):2135-2237 (PMID 40013746). (validated: PubMed)
+- [Byrne2023ESC] Byrne RA, Rossello X, Coughlan JJ, Barbato E, Berry C, Chieffo A, et al. 2023 ESC Guidelines for the management of acute coronary syndromes. Eur Heart J. 2023;44(38):3720-3826. PMID 37622654; doi:10.1093/eurheartj/ehad191. (validated: PubMed)
+- [Yusuf2004INTERHEART] Yusuf S, Hawken S, Ounpuu S, Dans T, Avezum A, Lanas F, et al. Effect of potentially modifiable risk factors associated with myocardial infarction in 52 countries (the INTERHEART study): case-control study. Lancet. 2004;364(9438):937-52. PMID 15364185; doi:10.1016/S0140-6736(04)17018-9. (validated: PubMed)
+- [Keeley2003] Keeley EC, Boura JA, Grines CL. Primary angioplasty versus intravenous thrombolytic therapy for acute myocardial infarction: a quantitative review of 23 randomised trials. Lancet. 2003;361(9351):13-20. PMID 12517460; doi:10.1016/S0140-6736(03)12113-7. (validated: PubMed)
+- [ISIS2_1988] ISIS-2 (Second International Study of Infarct Survival) Collaborative Group. Randomised trial of intravenous streptokinase, oral aspirin, both, or neither among 17,187 cases of suspected acute myocardial infarction: ISIS-2. Lancet. 1988;2(8607):349-60. PMID 2899772. No DOI listed in PubMed. (validated: PubMed)
+- [GISSI1986] Gruppo Italiano per lo Studio della Streptochinasi nell'Infarto Miocardico (GISSI). Effectiveness of intravenous thrombolytic treatment in acute myocardial infarction. Lancet. 1986;1(8478):397-402. PMID 2868337. No DOI listed in PubMed. (validated: PubMed)
+- [Reimer1977] Reimer KA, Lowe JE, Rasmussen MM, Jennings RB. The wavefront phenomenon of ischemic cell death. 1. Myocardial infarct size vs duration of coronary occlusion in dogs. Circulation. 1977;56(5):786-94. PMID 912839; doi:10.1161/01.cir.56.5.786. (validated: PubMed)
+- [DeWood1980] DeWood MA, Spores J, Notske R, Mouser LT, Burroughs R, Golden MS, et al. Prevalence of total coronary occlusion during the early hours of transmural myocardial infarction. N Engl J Med. 1980;303(16):897-902. PMID 7412821; doi:10.1056/NEJM198010163031601. (validated: PubMed)
+- [Yeh2010NEJM] Yeh RW, Sidney S, Chandra M, Sorel M, Selby JV, Go AS. Population trends in the incidence and outcomes of acute myocardial infarction. N Engl J Med. 2010;362(23):2155-65. PMID 20558366; doi:10.1056/NEJMoa0908610. (validated: PubMed)
+- [Roger2010Olmsted] Roger VL, Weston SA, Gerber Y, Killian JM, Dunlay SM, Jaffe AS, et al. Trends in incidence, severity, and outcome of hospitalized myocardial infarction. Circulation. 2010;121(7):863-9. PMID 20142444; PMCID PMC2827641; doi:10.1161/CIRCULATIONAHA.109.897249. (validated: PubMed)
+- [Rosamond2012ARIC] Rosamond WD, Chambless LE, Heiss G, Mosley TH, Coresh J, Whitsel E, et al. Twenty-two-year trends in incidence of myocardial infarction, coronary heart disease mortality, and case fatality in 4 US communities, 1987-2008. Circulation. 2012;125(15):1848-57. PMID 22420957; PMCID PMC3341729; doi:10.1161/CIRCULATIONAHA.111.047480. (validated: PubMed)
+- [Ford2007IMPACT] Ford ES, Ajani UA, Croft JB, Critchley JA, Labarthe DR, Kottke TE, et al. Explaining the decrease in U.S. deaths from coronary disease, 1980-2000. N Engl J Med. 2007;356(23):2388-98. PMID 17554120; doi:10.1056/NEJMsa053935. (validated: PubMed)
+- [Krumholz2009Medicare] Krumholz HM, Wang Y, Chen J, Drye EE, Spertus JA, Ross JS, et al. Reduction in acute myocardial infarction mortality in the United States: risk-standardized mortality rates from 1995-2006. JAMA. 2009;302(7):767-73. PMID 19690309; PMCID PMC3349070; doi:10.1001/jama.2009.1178. (validated: PubMed)
+- [Jernberg2011SWEDEHEART] Jernberg T, Johanson P, Held C, Svennblad B, Lindbäck J, Wallentin L. Association between adoption of evidence-based treatment and survival for patients with ST-elevation myocardial infarction. JAMA. 2011;305(16):1677-84. PMID 21521849; doi:10.1001/jama.2011.522. (validated: PubMed)
+- [Fox2007GRACE] Fox KA, Steg PG, Eagle KA, Goodman SG, Anderson FA Jr, Granger CB, et al. Decline in rates of death and heart failure in acute coronary syndromes, 1999-2006. JAMA. 2007;297(17):1892-900. PMID 17473299; doi:10.1001/jama.297.17.1892. (validated: PubMed)
+- [McManus2011Worcester] McManus DD, Gore J, Yarzebski J, Spencer F, Lessard D, Goldberg RJ. Recent trends in the incidence, treatment, and outcomes of patients with STEMI and NSTEMI. Am J Med. 2011;124(1):40-7. PMID 21187184; PMCID PMC3011975; doi:10.1016/j.amjmed.2010.07.023. (validated: PubMed)
+- [Puymirat2017FASTMI] Puymirat E, Simon T, Cayla G, Cottin Y, Elbaz M, Coste P, et al. Acute Myocardial Infarction: Changes in Patient Characteristics, Management, and 6-Month Outcomes Over a Period of 20 Years in the FAST-MI Program (French Registry of Acute ST-Elevation or Non-ST-Elevation Myocardial Infarction) 1995 to 2015. Circulation. 2017;136(20):1908-1919. PMID 28844989; doi:10.1161/CIRCULATIONAHA.117.030798. (validated: PubMed)
+- [Szummer2017STEMI] Szummer K, Wallentin L, Lindhagen L, Alfredsson J, Erlinge D, Held C, et al. Improved outcomes in patients with ST-elevation myocardial infarction during the last 20 years are related to implementation of evidence-based treatments: experiences from the SWEDEHEART registry 1995-2014. Eur Heart J. 2017;38(41):3056-3065. PMID 29020314; PMCID PMC5837507; doi:10.1093/eurheartj/ehx515. (validated: PubMed)
+- [Szummer2018NSTEMI] Szummer K, Wallentin L, Lindhagen L, Alfredsson J, Erlinge D, Held C, et al. Relations between implementation of new treatments and improved outcomes in patients with non-ST-elevation myocardial infarction during the last 20 years: experiences from SWEDEHEART registry 1995 to 2014. Eur Heart J. 2018;39(42):3766-3776. PMID 30239671; doi:10.1093/eurheartj/ehy554. (validated: PubMed)
+- [Smolina2012England] Smolina K, Wright FL, Rayner M, Goldacre MJ. Determinants of the decline in mortality from acute myocardial infarction in England between 2002 and 2010: linked national database study. BMJ. 2012;344:d8059. PMID 22279113; PMCID PMC3266430; doi:10.1136/bmj.d8059. (validated: PubMed)
+- [Arora2019ARICyoung] Arora S, Stouffer GA, Kucharska-Newton AM, Qamar A, Vaduganathan M, Pandey A, et al. Twenty Year Trends and Sex Differences in Young Adults Hospitalized With Acute Myocardial Infarction. Circulation. 2019;139(8):1047-1056. PMID 30586725; PMCID PMC6380926; doi:10.1161/CIRCULATIONAHA.118.037137. (validated: PubMed)
+- [Pasupathy2015] Pasupathy S, Air T, Dreyer RP, Tavella R, Beltrame JF. Systematic review of patients presenting with suspected myocardial infarction and nonobstructive coronary arteries. Circulation. 2015;131(10):861-70. PMID 25587100; doi:10.1161/CIRCULATIONAHA.114.011201. (validated: PubMed)
+- [TamisHolland2019MINOCA] Tamis-Holland JE, Jneid H, Reynolds HR, Agewall S, Brilakis ES, Brown TM, et al. Contemporary Diagnosis and Management of Patients With Myocardial Infarction in the Absence of Obstructive Coronary Artery Disease: A Scientific Statement From the American Heart Association. Circulation. 2019;139(18):e891-e908. PMID 30913893; doi:10.1161/CIR.0000000000000670. (validated: PubMed)
+- [Mehta2016Women] Mehta LS, Beckie TM, DeVon HA, Grines CL, Krumholz HM, Johnson MN, et al. Acute Myocardial Infarction in Women: A Scientific Statement From the American Heart Association. Circulation. 2016;133(9):916-47. PMID 26811316; doi:10.1161/CIR.0000000000000351. (validated: PubMed)
+- [Lichtman2018VIRGO] Lichtman JH, Leifheit EC, Safdar B, Bao H, Krumholz HM, Lorenze NP, et al. Sex Differences in the Presentation and Perception of Symptoms Among Young Patients With Myocardial Infarction: Evidence from the VIRGO Study (Variation in Recovery: Role of Gender on Outcomes of Young AMI Patients). Circulation. 2018;137(8):781-790. PMID 29459463; PMCID PMC5822747; doi:10.1161/CIRCULATIONAHA.117.031650. (validated: PubMed)
+- [Saaby2013Type2] Saaby L, Poulsen TS, Hosbond S, Larsen TB, Pyndt Diederichsen AC, Hallas J, et al. Classification of myocardial infarction: frequency and features of type 2 myocardial infarction. Am J Med. 2013;126(9):789-97. PMID 23856021; doi:10.1016/j.amjmed.2013.02.029. (validated: PubMed)
+- [Raphael2020Type2] Raphael CE, Roger VL, Sandoval Y, Singh M, Bell M, Lerman A, et al. Incidence, Trends, and Outcomes of Type 2 Myocardial Infarction in a Community Cohort. Circulation. 2020;141(6):454-463. PMID 31902228; PMCID PMC8283933; doi:10.1161/CIRCULATIONAHA.119.043100. (validated: PubMed)
+- [Chapman2018Type2] Chapman AR, Shah ASV, Lee KK, Anand A, Francis O, Adamson P, et al. Long-Term Outcomes in Patients With Type 2 Myocardial Infarction and Myocardial Injury. Circulation. 2018;137(12):1236-1245. PMID 29150426; PMCID PMC5882250; doi:10.1161/CIRCULATIONAHA.117.031806. (validated: PubMed)
+- [DeFilippis2019Type2] DeFilippis AP, Chapman AR, Mills NL, de Lemos JA, Arbab-Zadeh A, Newby LK, et al. Assessment and Treatment of Patients With Type 2 Myocardial Infarction and Acute Nonischemic Myocardial Injury. Circulation. 2019;140(20):1661-1678. PMID 31416350; PMCID PMC6855329; doi:10.1161/CIRCULATIONAHA.119.040631. (validated: PubMed)
+- [Grines1993PAMI] Grines CL, Browne KF, Marco J, Rothbaum D, Stone GW, O'Keefe J, et al. A comparison of immediate angioplasty with thrombolytic therapy for acute myocardial infarction. The Primary Angioplasty in Myocardial Infarction Study Group. N Engl J Med. 1993;328(10):673-9. PMID 8433725; doi:10.1056/NEJM199303113281001. (validated: PubMed)
+- [Zijlstra1993] Zijlstra F, de Boer MJ, Hoorntje JC, Reiffers S, Reiber JH, Suryapranata H. A comparison of immediate coronary angioplasty with intravenous streptokinase in acute myocardial infarction. N Engl J Med. 1993;328(10):680-4. PMID 8433726; doi:10.1056/NEJM199303113281002. (validated: PubMed)
+- [FTT1994] Fibrinolytic Therapy Trialists' (FTT) Collaborative Group. Indications for fibrinolytic therapy in suspected acute myocardial infarction: collaborative overview of early mortality and major morbidity results from all randomised trials of more than 1000 patients. Lancet. 1994;343(8893):311-22. PMID 7905143. No DOI listed in PubMed. (validated: PubMed)
+- [TunstallPedoe1999MONICA] Tunstall-Pedoe H, Kuulasmaa K, Mähönen M, Tolonen H, Ruokokoski E, Amouyel P. Contribution of trends in survival and coronary-event rates to changes in coronary heart disease mortality: 10-year results from 37 WHO MONICA project populations. Monitoring trends and determinants in cardiovascular disease. Lancet. 1999;353(9164):1547-57. PMID 10334252; doi:10.1016/s0140-6736(99)04021-0. (validated: PubMed)
+- [Kannel1984Unrecognized] Kannel WB, Abbott RD. Incidence and prognosis of unrecognized myocardial infarction. An update on the Framingham study. N Engl J Med. 1984;311(18):1144-7. PMID 6482932; doi:10.1056/NEJM198411013111802. (validated: PubMed)
+- [Zhang2016SilentMI] Zhang ZM, Rautaharju PM, Prineas RJ, Rodriguez CJ, Loehr L, Rosamond WD, et al. Race and Sex Differences in the Incidence and Prognostic Significance of Silent Myocardial Infarction in the Atherosclerosis Risk in Communities (ARIC) Study. Circulation. 2016;133(22):2141-8. PMID 27185168; PMCID PMC4889519; doi:10.1161/CIRCULATIONAHA.115.021177. (validated: PubMed)
+- [Reichlin2009hsTn] Reichlin T, Hochholzer W, Bassetti S, Steuer S, Stelzig C, Hartwiger S, et al. Early diagnosis of myocardial infarction with sensitive cardiac troponin assays. N Engl J Med. 2009;361(9):858-67. PMID 19710484; doi:10.1056/NEJMoa0900428. (validated: PubMed)
+- [Keller2009hsTnI] Keller T, Zeller T, Peetz D, Tzikas S, Roth A, Czyz E, et al. Sensitive troponin I assay in early diagnosis of acute myocardial infarction. N Engl J Med. 2009;361(9):868-77. PMID 19710485; doi:10.1056/NEJMoa0903515. (validated: PubMed)
+- [Hamm1992TnT] Hamm CW, Ravkilde J, Gerhardt W, Jørgensen P, Peheim E, Ljungdahl L, et al. The prognostic value of serum troponin T in unstable angina. N Engl J Med. 1992;327(3):146-50. PMID 1290492; doi:10.1056/NEJM199207163270302. (validated: PubMed)
+- [Antman1996TnI] Antman EM, Tanasijevic MJ, Thompson B, Schactman M, McCabe CH, Cannon CP, et al. Cardiac-specific troponin I levels to predict the risk of mortality in patients with acute coronary syndromes. N Engl J Med. 1996;335(18):1342-9. PMID 8857017; doi:10.1056/NEJM199610313351802. (validated: PubMed)
+- [Katus1989TnT] Katus HA, Remppis A, Looser S, Hallermeier K, Scheffold T, Kübler W. Enzyme linked immuno assay of cardiac troponin T for the detection of acute myocardial infarction in patients. J Mol Cell Cardiol. 1989;21(12):1349-53. PMID 2632816; doi:10.1016/0022-2828(89)90680-9. (validated: PubMed)
+- [Katus1991TnT] Katus HA, Remppis A, Neumann FJ, Scheffold T, Diederich KW, Vinar G, et al. Diagnostic efficiency of troponin T measurements in acute myocardial infarction. Circulation. 1991;83(3):902-12. PMID 1999039; doi:10.1161/01.cir.83.3.902. (validated: PubMed)
+- [Sigwart1987Stents] Sigwart U, Puel J, Mirkovitch V, Joffre F, Kappenberger L. Intravascular stents to prevent occlusion and restenosis after transluminal angioplasty. N Engl J Med. 1987;316(12):701-6. PMID 2950322; doi:10.1056/NEJM198703193161201. (validated: PubMed)
+- [Gruntzig1979NEJM] Grüntzig AR, Senning A, Siegenthaler WE. Nonoperative dilatation of coronary-artery stenosis: percutaneous transluminal coronary angioplasty. N Engl J Med. 1979;301(2):61-8. PMID 449946; doi:10.1056/NEJM197907123010201. (validated: PubMed)
+- [Gruntzig1978Lancet] Gruntzig A. Transluminal dilatation of coronary-artery stenosis. Lancet. 1978;1(8058):263. PMID 74678; doi:10.1016/s0140-6736(78)90500-7. (validated: Europe PMC)
+- [Julian1961CCU] Julian DG. Treatment of cardiac arrest in acute myocardial ischaemia and infarction. Lancet. 1961;2(7207):840-4. PMID 14452757; doi:10.1016/s0140-6736(61)90738-3. (validated: PubMed)
+- [Killip1967CCU] Killip T 3rd, Kimball JT. Treatment of myocardial infarction in a coronary care unit. A two year experience with 250 patients. Am J Cardiol. 1967;20(4):457-64. PMID 6059183; doi:10.1016/0002-9149(67)90023-9. (validated: PubMed)
+- [Kannel1961Framingham] Kannel WB, Dawber TR, Kagan A, Revotskie N, Stokes J 3rd. Factors of risk in the development of coronary heart disease--six year follow-up experience. The Framingham Study. Ann Intern Med. 1961;55:33-50. PMID 13751193; doi:10.7326/0003-4819-55-1-33. (validated: PubMed)
+- [Dawber1951Framingham] Dawber TR, Meadors GF, Moore FE Jr. Epidemiological approaches to heart disease: the Framingham Study. Am J Public Health Nations Health. 1951;41(3):279-81. PMID 14819398; PMCID PMC1525365; doi:10.2105/ajph.41.3.279. (validated: PubMed)
+- [Mahmood2014Framingham] Mahmood SS, Levy D, Vasan RS, Wang TJ. The Framingham Heart Study and the epidemiology of cardiovascular disease: a historical perspective. Lancet. 2014;383(9921):999-1008. PMID 24084292; PMCID PMC4159698; doi:10.1016/S0140-6736(13)61752-3. (validated: PubMed)
+- [Braunwald2012History] Braunwald E. The treatment of acute myocardial infarction: the Past, the Present, and the Future. Eur Heart J Acute Cardiovasc Care. 2012;1(1):9-12. PMID 24062883; PMCID PMC3760555; doi:10.1177/2048872612438026. (validated: PubMed)
+- [Herrick1912] Herrick JB. Clinical features of sudden obstruction of the coronary arteries. JAMA. 1912;59(23):2015. doi:10.1001/jama.1912.04270120001001. Reprinted as a landmark article in JAMA 1983;250(13):1757-65 (PMID 6350634). (validated: Crossref)
+- [Pardee1920] Pardee HE. An electrocardiographic sign of coronary artery obstruction. Arch Intern Med. 1920;26(2):244. doi:10.1001/archinte.1920.00100020113007. (validated: Crossref)
+- [Einthoven1903] Einthoven W. Die galvanometrische Registrirung des menschlichen Elektrokardiogramms, zugleich eine Beurtheilung der Anwendung des Capillar-Elektrometers in der Physiologie. Pflügers Arch Gesammte Physiol Menschen Thiere. 1903;99(9-10):472-480. doi:10.1007/BF01811855. (validated: Crossref)
+- [Sternbach1991Heberden] Sternbach G. William Heberden and Myron Prinzmetal: angina pectoris. J Emerg Med. 1991;9(1-2):81-3. PMID 2045655; doi:10.1016/0736-4679(91)90543-o. (validated: PubMed)
+- [Roth2020GBD] Roth GA, Mensah GA, Johnson CO, Addolorato G, Ammirati E, Baddour LM, et al. Global Burden of Cardiovascular Diseases and Risk Factors, 1990-2019: Update From the GBD 2019 Study. J Am Coll Cardiol. 2020;76(25):2982-3021. PMID 33309175; PMCID PMC7755038; doi:10.1016/j.jacc.2020.11.010. (validated: PubMed)
+- [GBD2021CausesOfDeath] GBD 2021 Causes of Death Collaborators. Global burden of 288 causes of death and life expectancy decomposition in 204 countries and territories and 811 subnational locations, 1990-2021: a systematic analysis for the Global Burden of Disease Study 2021. Lancet. 2024;403(10440):2100-2132. PMID 38582094; PMCID PMC11126520; doi:10.1016/S0140-6736(24)00367-2. (validated: PubMed)
+- [Khan2020GlobalIHD] Khan MA, Hashim MJ, Mustafa H, Baniyas MY, Al Suwaidi SKBM, AlKatheeri R, et al. Global Epidemiology of Ischemic Heart Disease: Results from the Global Burden of Disease Study. Cureus. 2020;12(7):e9349. PMID 32742886; PMCID PMC7384703; doi:10.7759/cureus.9349. (validated: PubMed)
+- [Vaccarino1999NRMI] Vaccarino V, Parsons L, Every NR, Barron HV, Krumholz HM. Sex-based differences in early mortality after myocardial infarction. National Registry of Myocardial Infarction 2 Participants. N Engl J Med. 1999;341(4):217-25. PMID 10413733; doi:10.1056/NEJM199907223410401. (validated: PubMed)
+- [Wilmot2015Young] Wilmot KA, O'Flaherty M, Capewell S, Ford ES, Vaccarino V. Coronary Heart Disease Mortality Declines in the United States From 1979 Through 2011: Evidence for Stagnation in Young Adults, Especially Women. Circulation. 2015;132(11):997-1002. PMID 26302759; PMCID PMC4828724; doi:10.1161/CIRCULATIONAHA.115.015293. (validated: PubMed)
+- [Gupta2014Young] Gupta A, Wang Y, Spertus JA, Geda M, Lorenze N, Nkonde-Price C, et al. Trends in acute myocardial infarction in young patients and differences by sex and race, 2001 to 2010. J Am Coll Cardiol. 2014;64(4):337-45. PMID 25060366; PMCID PMC4415523; doi:10.1016/j.jacc.2014.04.054. (validated: PubMed)
+- [Smilowitz2017ACTION] Smilowitz NR, Mahajan AM, Roe MT, Hellkamp AS, Chiswell K, Gulati M, et al. Mortality of Myocardial Infarction by Sex, Age, and Obstructive Coronary Artery Disease Status in the ACTION Registry-GWTG (Acute Coronary Treatment and Intervention Outcomes Network Registry-Get With the Guidelines). Circ Cardiovasc Qual Outcomes. 2017;10(12):e003443. PMID 29246884; doi:10.1161/CIRCOUTCOMES.116.003443. (validated: PubMed)
+- [Sidney2016Trends] Sidney S, Quesenberry CP Jr, Jaffe MG, Sorel M, Nguyen-Huynh MN, Kushi LH, et al. Recent Trends in Cardiovascular Mortality in the United States and Public Health Goals. JAMA Cardiol. 2016;1(5):594-9. PMID 27438477; doi:10.1001/jamacardio.2016.1326. (validated: PubMed)
+- [Schultz2018SES] Schultz WM, Kelli HM, Lisko JC, Varghese T, Shen J, Sandesara P, et al. Socioeconomic Status and Cardiovascular Outcomes: Challenges and Interventions. Circulation. 2018;137(20):2166-2178. PMID 29760227; PMCID PMC5958918; doi:10.1161/CIRCULATIONAHA.117.029652. (validated: PubMed)
+- [Chuang2021Injury] Chuang AM, Nguyen MT, Khan E, Jones D, Horsfall M, Lehman S, et al. Troponin elevation pattern and subsequent cardiac and non-cardiac outcomes: Implementing the Fourth Universal Definition of Myocardial Infarction and high-sensitivity troponin at a population level. PLoS One. 2021;16(3):e0248289. PMID 33711079; PMCID PMC7954292; doi:10.1371/journal.pone.0248289. (validated: PubMed)
+- [Reed2017Lancet] Reed GW, Rossi JE, Cannon CP. Acute myocardial infarction. Lancet. 2017;389(10065):197-210. PMID 27502078; doi:10.1016/S0140-6736(16)30677-8. (validated: PubMed)
+
+## Provenance
+- Validation:
+  - 71 sources are cited. 67 were confirmed against PubMed esummary records, with metadata generated from them in one batch; Gruntzig1978Lancet's record was confirmed through Europe PMC after a PubMed rate-limit miss.
+  - The three pre-PubMed primary papers (Herrick1912, Pardee1920, Einthoven1903) were confirmed through Crossref (author, title, journal, year, volume, issue, start page, DOI).
+- What was read:
+  - Abstracts (PubMed efetch) for every paper that supplies a number.
+  - The full text of Martin2025HDSS (PMC HTML of PMC12256702, Chapter 21 and global sections) and Domienik2021UDMI4 (Europe PMC full-text XML).
+- Cited for title, date or existence only (no abstract): Thygesen2007UDMI, Thygesen2012UDMI3, Byrne2023ESC, Julian1961CCU, Killip1967CCU, Kannel1961Framingham, Dawber1951Framingham, Gruntzig1978Lancet, Herrick1912, Pardee1920, Einthoven1903.
+- Not accessible:
+  - Publisher full texts of Thygesen2018UDMI4 (Circulation, JACC and EHJ versions), Byrne2023ESC, Rao2025ACC, Gulati2021ChestPain and Nabel & Braunwald 2012 (NEJM): HTTP 403 or paywall.
+  - Europe PMC full-text XML for Mensah 2023 (GBD 1990–2022), Julian 1987 (history of CCUs), Braunwald 2012 and Mahmood 2014 returned server errors. PMC HTML began serving a browser check partway through, and I did not try to get around it. Those works are therefore cited only from their abstracts, or not at all (Mensah 2023, Julian 1987, Nabel 2012, Vaduganathan 2022 and Havranek 2015 were dropped).
+- Unverified: Heberden's 1768 lecture and 1772 publication dates. No catalogued record of the original exists in PubMed or Crossref, and the secondary source read (Sternbach1991Heberden) does not give the year. The fact is kept with an "(unverified)" marker in the history section.
+- Facts dropped or limited:
+  - GRACE's STEMI in-hospital death change: the abstract's figure ("18 percentage points" with a CI of −5.3 to −1.9) is internally inconsistent.
+  - Pre-CCU versus CCU in-hospital mortality: no source read gave the percentages.
+  - The exact date of Grüntzig's first human coronary angioplasty (1977): the papers read do not state it. The timeline uses the 1978 Lancet letter.
+  - Sigwart's first-implant year (1986): the source read is the 1987 NEJM report.
+- STEMI/NSTEMI shares, case-fatality and survival figures are period- and setting-specific population statistics. Use the year range and cohort in any captions.
+- Shared canonical keys used and checked: Thygesen2018UDMI4 (Circulation version), Martin2025HDSS, Rao2025ACC (Circulation version), Byrne2023ESC, Yusuf2004INTERHEART, Keeley2003, ISIS2_1988, Reimer1977. Gulati2021ChestPain and Six2008HEART were not cited (pass C territory). Wallentin2009PLATO, Wiviott2007TRITON, Mehta2019COMPLETE, Yndigegn2024REDUCE, CTT2010 and Hochman1999SHOCK were not cited either: they belong to passes D–G.
+- No key here clashes with keys in the other companions' sources.json files: I checked every PMID against those files and found no matches.

@@ -1,0 +1,59 @@
+<!-- ================= 4.2 LIVING WITH DEMENTIA AND CAREGIVING ================= -->
+<section class="mod" id="m-living" data-mod="living" hidden>
+<style>
+#m-living .lv-nums{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+#m-living .lv-num{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+#m-living .lv-num b{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.05;color:var(--sage)}
+#m-living .lv-num span{font-size:14.5px}
+#m-living .lv-num small{font-size:12.5px;color:var(--muted)}
+#m-living .lv-say{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--panel)}
+#m-living .lv-say div{padding:9px 14px;border-bottom:1px solid var(--line);font-size:15px}
+#m-living .lv-say div:nth-last-child(-n+2){border-bottom:0}
+#m-living .lv-say .h{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--panel-2)}
+#m-living .lv-say .no{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--bad)}
+#m-living .lv-say .yes{font-weight:700}
+@media (max-width:520px){#m-living .lv-say div{padding:8px 10px;font-size:14px}}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 4 · Living, caring, preventing</p><h2>Living with dementia and caregiving</h2>
+    <p class="lede">For the person living with dementia and for the people beside them. Follow the years after a diagnosis, see which plans and safety questions tend to come up at each point, and what the research says helps the family carer.</p></div>
+
+  <h3 class="sub">The caregiving years</h3>
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lvSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="A timeline from diagnosis to the end of life. A marker moves through seven points: diagnosis, planning, driving, home safety, getting lost, moving care and end of life, while a curve shows independence in daily life slowly falling and a panel shows the published figures for each point."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">Play</button><label class="stage-cap tl" for="lvT">The years <input type="range" id="lvT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="stage-cap">Schematic. The order and pace differ from person to person, and many people never meet some of these points.</p></div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The family carer</h3>
+  <div class="lv-nums" id="lvNums"></div>
+  <p id="lvDep" style="max-width:70ch"></p>
+  <div class="stepper" id="lvIvSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lvIv" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Five caregiver programmes compared one after another: REACH II lowered carer depression from 22.7 to 12.6 percent, the NYU programme delayed nursing-home placement by about 557 days, START improved carer mood for six years, respite has no demonstrated effect in a Cochrane review, and GUIDE has no published outcomes yet."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvIvPlay">Play</button><label class="stage-cap tl" for="lvIvT">Evidence <input type="range" id="lvIvT" min="0" max="1" step="0.002" value="0.12"></label></div>
+      <p class="stage-cap">Bars are drawn to scale within each row only. Each row is a different trial with a different outcome.</p></div>
+    <aside class="note" id="lvIvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Words matter</h3>
+  <div class="split2">
+    <div class="prose">
+      <p>Dementia Australia's language guidelines ask writers to put the person first. The table shows some of the swaps they suggest. [[DementiaAustralia2021]]</p>
+      <p>Stigma is common. In a global survey of almost 70,000 people, 62% of healthcare practitioners thought dementia is a normal part of ageing, 35% of carers had hidden a relative's diagnosis from at least one person, and over 85% of people living with dementia said their opinion had not been taken seriously. [[ADI2019]]</p>
+      <div class="callout"><p><b>Where sources disagree.</b> The guidelines advise against "carer burden", preferring neutral wording such as "the impact of supporting someone". Research still measures "caregiver burden", for example with the Zarit Burden Interview used in trials. This page uses "impact" in its own words and "burden" only when naming a research measure. [[DementiaAustralia2021,Lamb2018,Gathercole2021]]</p></div>
+      <div class="ctrls"><button class="btn" id="lvLangBtn" aria-pressed="false">Show the research wording</button></div>
+      <p id="lvLangOut" aria-live="polite"></p>
+    </div>
+    <div class="lv-say" aria-label="Words to avoid and suggested alternatives">
+      <div class="h">Avoid</div><div class="h">Suggested instead</div>
+      <div class="no">sufferer, victim, afflicted</div><div class="yes">person living with dementia</div>
+      <div class="no">demented, senile dementia, dementing illness</div><div class="yes">person with dementia, person with a diagnosis of dementia</div>
+      <div class="no">early onset</div><div class="yes">younger onset dementia</div>
+      <div class="no">challenging behaviours</div><div class="yes">changed behaviours, expressions of unmet need</div>
+      <div class="no">carer burden, burden of caring</div><div class="yes">impact of supporting</div>
+      <div class="no">empty shell, wanderer, "patient" outside medical settings</div><div class="yes">labels to avoid altogether</div>
+    </div>
+  </div>
+</section>

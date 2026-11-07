@@ -1,0 +1,78 @@
+<!-- ================= 3.3 THE OTHER MEDICINES ================= -->
+<section class="mod" id="m-drugs" data-mod="drugs" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>The other medicines</h2>
+    <p class="lede">Besides levodopa, other medicines copy dopamine, slow its breakdown, or act on other signals in the movement circuit. Press play to climb the treatment ladder as NICE NG71 and the 2018 MDS evidence review describe it, and watch where each class acts at the synapse. This page reports guidelines, labels and trials. It is not advice for any person.</p></div>
+
+  <div class="stepper" id="dgSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dgSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="An animated treatment ladder with six rungs: levodopa first when symptoms affect quality of life; a choice of agonist, levodopa or MAO-B inhibitor when they do not; add-ons for fluctuations (agonists, MAO-B and COMT inhibitors); other add-ons such as istradefylline and tavapadon; amantadine for dyskinesia; and pumps or deep-brain stimulation in advanced disease. Beside it a dopamine synapse shows where each class acts: levodopa in the terminal, agonists at dopamine receptors, MAO-B and COMT enzymes blocked, the adenosine A2A receptor and the NMDA glutamate channel."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dgPlay">Play</button><label class="stage-cap tl" for="dgT">Ladder <input type="range" id="dgT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap" id="dgCap">Click a rung to read it. Ladder and synapse are schematic, not to scale.</p></div>
+    <aside class="note" id="dgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How big are the effects?</h3>
+  <p class="prose">What the trials measured, drug against placebo or against another drug. Choose a measure, then play the bars. Each row is a separate trial with its own design, so compare a drug with its own comparator, not with the row above it.</p>
+  <div class="ctrls" role="group" aria-label="Which measure to show">
+    <button class="btn" data-dgb="0" aria-pressed="true">Off-time saved</button>
+    <button class="btn" data-dgb="1" aria-pressed="false">Motor and dyskinesia scores</button>
+    <button class="btn" data-dgb="2" aria-pressed="false">Side effects</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dgBen" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="Animated bar chart comparing each medicine with its comparator in its own trial, for the chosen measure: hours of off-time saved per day, points on a motor or dyskinesia scale, or the percentage of people with a side effect."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dgBenPlay">Play</button><label class="stage-cap tl" for="dgBenT">Grow bars <input type="range" id="dgBenT" min="0" max="1" step="0.002" value="1"></label></div>
+      <div class="legend"><span><i style="background:var(--sky)"></i>medicine</span><span><i style="background:var(--muted)"></i>placebo or the named comparator</span><span><i style="background:var(--sky-soft);outline:1px dashed var(--sky)"></i>only the difference was reported</span></div>
+      <p class="stage-cap" id="dgBenCap"></p></div>
+    <aside class="note" id="dgBenNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Drug by drug</h3>
+  <p class="prose">Each card gives the class, how it acts, what the trials found, the key harms with their rates, and the first US approval from Drugs@FDA. Filter by a side effect to see which medicines the sources link to it.</p>
+  <div class="ctrls" role="group" aria-label="Filter the cards by side effect">
+    <span class="kicker">Side effect</span>
+    <button class="btn" data-dgf="all" aria-pressed="true">All</button>
+    <button class="btn" data-dgf="icd" aria-pressed="false">Impulse control</button>
+    <button class="btn" data-dgf="hall" aria-pressed="false">Hallucinations</button>
+    <button class="btn" data-dgf="sleep" aria-pressed="false">Sleepiness</button>
+    <button class="btn" data-dgf="oh" aria-pressed="false">Orthostatic hypotension</button>
+  </div>
+  <p class="readout" id="dgFxOut" aria-live="polite"></p>
+  <p class="prose" id="dgFxNote"></p>
+  <div class="cards" id="dgCards"></div>
+
+  <h3 class="sub">The trials behind the first choice</h3>
+  <p class="prose">Five trials shaped how the first medicine is chosen and what can be claimed for it. Pick one to see its result.</p>
+  <div class="ctrls" role="group" aria-label="Which trial to show">
+    <button class="btn" data-dgt="0" aria-pressed="true">PD MED</button>
+    <button class="btn" data-dgt="1" aria-pressed="false">CALM-PD</button>
+    <button class="btn" data-dgt="2" aria-pressed="false">056 study</button>
+    <button class="btn" data-dgt="3" aria-pressed="false">DATATOP</button>
+    <button class="btn" data-dgt="4" aria-pressed="false">ADAGIO</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dgTr" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Animated chart of the chosen trial's main result."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dgTrPlay">Play</button><label class="stage-cap tl" for="dgTrT">Reveal <input type="range" id="dgTrT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="dgTrCap"></p></div>
+    <aside class="note" id="dgTrNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Kidneys, liver and interactions: label information</h3>
+  <p class="prose">What the US prescribing information says, reported as published for study. It is not dosing advice for any person; doses are set with a prescriber.</p>
+  <div class="callout" style="border-left-color:var(--bad)"><p class="prose" style="margin:0"><b>Never change or stop a Parkinson's medicine without a clinician.</b> NICE says antiparkinsonian medicines "should not be withdrawn abruptly or allowed to fail suddenly due to poor absorption", and advises against drug holidays, because of the risk of acute akinesia or neuroleptic malignant syndrome. Labels describe a neuroleptic malignant syndrome-like reaction after levodopa is cut or stopped, and parkinsonian crisis after amantadine is stopped abruptly; tapering a dopamine agonist produced a withdrawal syndrome in 19% of tapers in one series. [[NICE2017,LevodopaLabels2026,AmantadineLabels2026,Rabinak2010]]</p></div>
+  <div class="tbl" style="margin-top:14px"><table>
+    <thead><tr><th>Medicine</th><th>Kidneys (as published)</th><th>Liver, interactions and other label points</th></tr></thead>
+    <tbody>
+      <tr><th>Pramipexole (immediate release)</th><td>Start and maximum by creatinine clearance: above 50 mL/min, 0.125 mg three times daily up to 1.5 mg three times daily; 30 to 50, 0.125 mg twice daily up to 0.75 mg three times daily; 15 to 30, 0.125 mg once daily up to 1.5 mg once daily; below 15 or on haemodialysis, no data. [[AgonistLabels2026]]</td><td>Titrated no faster than every 5 to 7 days. Somnolence is "common" above 1.5 mg/day, and higher fixed doses added no significant benefit over 1.5 mg/day in early Parkinson's. [[AgonistLabels2026]]</td></tr>
+      <tr><th>Ropinirole (immediate release)</th><td>Maximum 18 mg/day in end-stage kidney disease on haemodialysis, against 24 mg/day otherwise. [[AgonistLabels2026]]</td><td>Starts at 0.25 mg three times daily. [[AgonistLabels2026]]</td></tr>
+      <tr><th>Amantadine, and amantadine ER (Gocovri)</th><td>Half-life about 16 to 17 hours, rising 2- to 3-fold or more below a creatinine clearance of 40 mL/min/1.73 m², and averaging 8 days on haemodialysis. Gocovri: clearance 30 to 59 starts at 68.5 mg with a maximum of 137 mg; 15 to 29 takes 68.5 mg; below 15 is contraindicated. [[AmantadineLabels2026]]</td><td>Gocovri: 137 mg at bedtime for a week, then 274 mg. Abrupt discontinuation has caused parkinsonian crisis and NMS-like reactions. A pregnancy review advises avoiding amantadine in pregnancy or when trying to conceive. [[AmantadineLabels2026,Seier2017]]</td></tr>
+      <tr><th>Rasagiline</th><td>No kidney adjustment is given in the sources read for this guide.</td><td>Maximum 0.5 mg with ciprofloxacin or other CYP1A2 inhibitors (which can double levels) and in mild hepatic impairment; not for moderate or severe impairment. Contraindicated with meperidine (pethidine), tramadol, methadone, propoxyphene and other MAO inhibitors (serotonin syndrome risk), with at least 14 days between stopping rasagiline and starting them, and with St John's wort, cyclobenzaprine and dextromethorphan. SSRIs, SNRIs and tricyclic, tetracyclic or triazolopyridine antidepressants are "not recommended". Very high-tyramine foods (over 150 mg) are to be avoided. [[EnzymeInhibitorLabels2026,FDArasagiline2026]]</td></tr>
+      <tr><th>Safinamide</th><td>Not covered in the sources read.</td><td>Contraindicated with other MAO inhibitors (including linezolid), opioids such as meperidine, methadone, propoxyphene and tramadol, SNRIs, tricyclic, tetracyclic and triazolopyridine antidepressants, cyclobenzaprine, methylphenidate, amphetamines and St John's wort. [[EnzymeInhibitorLabels2026]]</td></tr>
+      <tr><th>Selegiline</th><td>Not covered in the sources read.</td><td>With carbidopa-levodopa it may cause severe orthostatic hypotension. Carbidopa-levodopa is contraindicated with non-selective MAO inhibitors, which are stopped at least two weeks beforehand. [[LevodopaLabels2026]]</td></tr>
+      <tr><th>Opicapone</th><td>Not covered in the sources read.</td><td>50 mg once daily at bedtime, with no food for 1 hour before and at least 1 hour after. Moderate hepatic impairment: 25 mg; severe: avoid. [[EnzymeInhibitorLabels2026]]</td></tr>
+      <tr><th>Tolcapone</th><td>Not covered in the sources read.</td><td>Boxed warning for liver failure. ALT and AST at baseline and every 2 to 4 weeks for the first 6 months; stopped above twice the upper limit of normal, or if there is no substantial benefit within 3 weeks. [[EnzymeInhibitorLabels2026]]</td></tr>
+      <tr><th>Apomorphine</th><td>Not covered in the sources read.</td><td>5-HT3 antagonists such as ondansetron are contraindicated because of profound hypotension and loss of consciousness. The injection is started under medical supervision, with trimethobenzamide from 3 days beforehand. [[AgonistLabels2026]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Reading the evidence</h3>
+  <div class="cards" id="dgEv"></div>
+</section>

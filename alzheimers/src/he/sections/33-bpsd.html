@@ -1,0 +1,44 @@
+<!-- ================= 3.3 BEYOND MEMORY ================= -->
+<section class="mod" id="m-bpsd" data-mod="bpsd" hidden>
+<style>
+#m-bpsd .card .ev{align-self:flex-start}
+#m-bpsd .callout b{font-weight:700}
+</style>
+  <div class="mhead"><p class="eyebrow">חלק 3 · טיפול</p><h2>מעבר לזיכרון</h2>
+    <p class="lede">אי־שקט, מצב רוח ירוד, אדישות, חשדנות ושינה גרועה שכיחים בדמנציה. ההנחיות שפורסמו מתחילות בחיפוש הגורם. לחצו על הפעלה כדי לעקוב אחר התנהגות אחת לאורך גישת DICE.</p></div>
+  <div class="stepper" id="bpSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="bpSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="אדם החי עם דמנציה צועק ודוחף. התמונה מתרחבת ומראה גורמים אפשריים: כאב, זיהום, רעש, שעמום, צורך שלא נענה וגישה חפוזה. לכל גורם מותאם מענה שאינו תרופתי, והתוצאה מוערכת, ואם לא עזרה, חוזרים לשלב החקירה."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="bpPlay">הפעלה</button><label class="stage-cap tl" for="bpT">ציר זמן <input type="range" id="bpT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">המחשה של גישת חשיבה קלינית שפורסמה. אף ניסוי גדול לא בחן את DICE עצמה.</p></div>
+    <aside class="note" id="bpNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">תרופות אנטי־פסיכוטיות: הסיכון ב־1,000 אנשים</h3>
+  <p class="prose">על תרופות אנטי־פסיכוטיות יש אזהרה מודגשת (boxed warning) לגבי אנשים מבוגרים עם דמנציה. הנתונים שלהלן לקוחים מהנוסח הכללי לכל התרופות בקבוצה בעלונים העדכניים בארצות הברית, ממטא־אנליזה וממחקר גדול בקרב יוצאי צבא בארצות הברית.</p>
+  <div class="stepper" id="bpRkSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="bpRisk" viewBox="0 0 720 470" style="min-width:560px" role="img" aria-label="שתי רשתות של 1,000 אנשים עם דמנציה שנעקבו במשך כ־10 שבועות. בפלצבו מתו כ־26; בתרופה אנטי־פסיכוטית מתו כ־45. מתחת, מספר האנשים שטופלו במשך 180 יום לכל מקרה מוות נוסף, בארבע תרופות אנטי־פסיכוטיות, ואחר כך שיעורי התועלת וההפסקה בניסוי CATIE-AD."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="bpRkPlay">הפעלה</button><label class="stage-cap tl" for="bpRkT">ציר זמן <input type="range" id="bpRkT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap">כל נקודה היא אדם אחד. נקודות גדולות מלאות הן מקרי מוות. השיעורים לקוחים מנוסח האזהרה הכללי בעלונים; המספרים לכל 1,000 הם חשבון פשוט מהשיעורים האלה.</p></div>
+    <aside class="note" id="bpRkNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">האפשרויות האחרות שפורסמו והראיות לגביהן</h3>
+  <p class="prose">מה מצאו ניסויים ורשויות רגולציה לגבי התרופות האחרות שנבדקו לתסמינים האלה. זהו סיכום של ראיות, לא תוכנית טיפול. המינון היחיד שמוזכר הוא הסתייגות שפורסמה לגבי ניסוי אחד.</p>
+  <div class="ctrls" role="group" aria-label="איזו אפשרות להציג">
+    <button class="btn" data-bpo="0" aria-pressed="true">ברקספיפרזול</button>
+    <button class="btn" data-bpo="1" aria-pressed="false">ציטלופרם</button>
+    <button class="btn" data-bpo="2" aria-pressed="false">תרופות שינה</button>
+    <button class="btn" data-bpo="3" aria-pressed="false">פימוונסרין</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="bpOpt" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="גרף מונפש של תוצאות הניסויים בתרופה שנבחרה."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="bpOptPlay">הפעלה</button><label class="stage-cap tl" for="bpOptT">חשיפה <input type="range" id="bpOptT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap" id="bpOptCap"></p></div>
+    <aside class="note" id="bpOptNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">תרופות שעלולות להחמיר את החשיבה</h3>
+  <div class="cards" id="bpCards"></div>
+</section>

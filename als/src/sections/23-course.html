@@ -1,0 +1,127 @@
+<!-- ================= 2.3 ALSFRS-R AND THE COURSE ================= -->
+<section class="mod" id="m-course" data-mod="course" hidden>
+<style>
+#m-course .co-tg{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-course .co-tg .btn,#m-course .co-ex .btn{min-height:40px}
+#m-course .co-form{display:flex;flex-direction:column;gap:12px}
+#m-course fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px 12px;margin:0;display:flex;flex-direction:column;gap:12px;min-width:0}
+#m-course legend{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 4px}
+#m-course legend b{color:var(--ink)}
+#m-course .co-it{display:flex;flex-direction:column;gap:6px;min-width:0}
+#m-course .co-ih{display:flex;gap:8px;align-items:baseline;font-weight:700;font-size:15px;overflow-wrap:anywhere}
+#m-course .co-ih .n{font:600 11px var(--mono);color:var(--muted);min-width:22px;flex:none}
+#m-course .co-sc{display:flex;gap:6px;flex-wrap:wrap}
+#m-course .co-sc .btn{min-width:46px;min-height:42px;padding:8px 0;font:600 15px var(--mono)}
+#m-course .co-an{font-size:13.5px;color:var(--muted);line-height:1.4;margin-left:30px}
+#m-course .co-an b{color:var(--ink)}
+#m-course .co-ck{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.35;cursor:pointer}
+#m-course .co-ck input{width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:var(--steel)}
+#m-course .co-mo{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#m-course .co-mo label{flex-basis:100%}
+#m-course .co-mo input{width:84px;font:600 16px var(--mono);padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);min-height:42px}
+#m-course .co-mo .btn{min-width:44px;min-height:42px;font:700 18px var(--mono);padding:6px 0}
+#m-course .co-tot{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+#m-course .co-tot strong{font-family:var(--display);font-weight:800;font-size:40px;line-height:1}
+#m-course .co-bars{display:grid;grid-template-columns:minmax(80px,auto) minmax(0,1fr) 52px;gap:6px 10px;align-items:center;font:500 12.5px var(--mono);color:var(--muted)}
+#m-course .co-bars i{display:block;height:10px;border-radius:5px;background:var(--panel-2);overflow:hidden}
+#m-course .co-bars i b{display:block;height:100%;border-radius:5px;transition:width .4s}
+#m-course .co-bars span:last-child,#m-course .co-bars .v{color:var(--ink);text-align:right}
+#m-course .co-box{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--panel-2);display:flex;flex-direction:column;gap:7px;font-size:14.5px}
+#m-course .co-box h5{margin:0;font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#m-course .co-box .big{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.15}
+#m-course .co-box small{font-size:13px;color:var(--muted);line-height:1.45}
+#m-course .co-bands{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;font-size:13.5px}
+#m-course .co-bands div{display:flex;justify-content:space-between;gap:10px;padding:5px 8px;border-radius:7px;border:1px solid transparent}
+#m-course .co-bands div.on{border-color:var(--ink);background:var(--panel)}
+#m-course .co-bands div span:last-child{font-family:var(--mono);font-size:12.5px;text-align:right}
+#m-course .co-chips{display:flex;flex-wrap:wrap;gap:6px}
+#m-course .co-chips span{font-size:13px;border:1px solid var(--line);border-radius:8px;padding:5px 8px;background:var(--panel)}
+#m-course .co-chips span b{font-weight:700}
+#m-course .co-en{max-width:none}
+#m-course .co-en>p{max-width:70ch}
+#m-course #coItems{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:12px;align-items:start}
+#m-course .co-sum{position:sticky;top:8px;z-index:5;display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline;padding:10px 14px;border-radius:10px;background:var(--steel-soft);border:1px solid var(--steel);font:500 13px var(--mono);color:var(--muted)}
+#m-course .co-sum b{color:var(--ink);font-size:15px}
+@media (max-width:900px){#m-course .co-sum{top:62px}}
+#m-course .co-sw{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis &amp; course</p><h2>ALSFRS-R and the course</h2>
+    <p class="lede">The ALSFRS-R adds up 12 everyday abilities into one score from 48 down to 0. Press Play to follow three illustrative courses past the milestones of King's staging, then score the 12 items yourself in the calculator below.</p></div>
+
+  <div class="stepper" id="coSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="coSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Line chart of the ALSFRS-R total falling from 48 over 60 months for a slow, an intermediate and a fast course, under a strip of King's stages with markers for diagnosis, gastrostomy and non-invasive ventilation; in the last phase the lines bend and pause to show that real decline is curved and has plateaus."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="coPlay">Play</button><label class="stage-cap tl" for="coT">Timeline <input type="range" id="coT" min="0" max="1" step="0.002" value="0.03"></label></div>
+      <div class="co-tg" role="group" aria-label="Line to follow"><span class="kicker">Follow</span><span id="coTraj" class="co-tg"></span></div>
+      <div class="co-tg"><button class="btn" id="coDom" aria-pressed="false">Show domain sub-scores</button><span class="kicker">Domain order</span><span id="coOnset" class="co-tg" role="group" aria-label="Onset region for the domain split"></span></div>
+      <div class="legend" id="coLeg"></div>
+      <p class="stage-cap">The lines are arithmetic, 48 minus rate × months, using the lower quartile, median and upper quartile of ΔFS at diagnosis in a French cohort: 0.5, 1.0 and 2.0 points a month. [[Hamidou2017]] For comparison, PRO-ACT trial participants fell by 1.02 a month on average [[Atassi2014]] and a UK and Australian clinic cohort by 0.58. [[Boddy2025]] They are illustrations, not observed courses. Stage bands and event markers are mean months from onset in people who had died in a London clinic cohort: means, not medians, and other cohorts differ. [[Roche2012]] The order in which the four domains fall is schematic.</p></div>
+    <aside class="note" id="coNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">ALSFRS-R calculator</h3>
+  <p class="callout">This calculator shows how the published scale, the ΔFS formula and published cut-offs classify a set of item scores. It does not diagnose ALS and it is not a prognosis for any person. The ALSFRS-R is copyrighted and is scored with its own wording; the descriptions here are short paraphrases of each item's topic and levels, written for this guide. Each item is scored 0 to 4, so the total runs from 0 to 48, where 48 is normal function. [[Cedarbaum1999,Boddy2025,Brooks2022]]</p>
+  <div class="ctrls co-ex" role="group" aria-label="Load an example">
+    <span class="kicker">Load an example</span>
+    <button class="btn" data-coex="limb">Limb onset, 14 months</button>
+    <button class="btn" data-coex="bulb">Bulbar onset, 8 months</button>
+    <button class="btn" data-coex="late">Later course, 30 months</button>
+    <button class="btn" data-coex="full">Reset to 48</button>
+  </div>
+  <div class="lab even">
+    <div class="stage co-form">
+      <div class="co-mo"><label for="coMo"><b>Months since symptom onset</b></label>
+        <button class="btn" id="coMoDn" aria-label="One month fewer">−</button><input type="number" id="coMo" min="1" max="240" step="1" value="12" inputmode="numeric"><button class="btn" id="coMoUp" aria-label="One month more">+</button></div>
+      <label class="co-ck"><input type="checkbox" id="coGas"><span>Gastrostomy in place: item 5 is then scored as 5b, handling the tube and fastenings, instead of 5a, cutting food. [[AlChalabi2021]]</span></label>
+      <div class="co-sum" id="coSum" aria-hidden="true"></div>
+      <div id="coItems"></div>
+    </div>
+    <div class="note" id="coOut" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Prognosis: the ENCALS model</h3>
+  <p class="callout">ENCALS is a published model that sorts people into five risk groups. The figures below are medians for groups of people in the development data, as published. They describe populations, not what will happen to one person, and the model's own inputs come from a clinical assessment.</p>
+  <div class="prose co-en">
+      <p>Data came from 14 ALS centres in nine European countries, for people seen between 1992 and 2016. The endpoint combined three events, counted from symptom onset: non-invasive ventilation for more than 23 hours a day, tracheostomy, or death. Of 16 candidate predictors, eight entered the model. [[Westeneng2018]]</p>
+      <p>Tested in external data, the model separated longer from shorter times fairly well (c statistic 0.78, 95% CI 0.77-0.80) and its predictions matched observed times (calibration slope 1.01). [[Westeneng2018]]</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Predictor</th><th>Univariable HR</th><th>Reading the hazard ratio</th></tr></thead>
+        <tbody>
+          <tr><th>Bulbar onset</th><td>1.71</td><td>Above 1: endpoint sooner</td></tr>
+          <tr><th>Age at onset (per year)</th><td>1.03</td><td>Above 1: endpoint sooner</td></tr>
+          <tr><th>Definite against probable or possible ALS</th><td>1.47</td><td>Above 1: endpoint sooner</td></tr>
+          <tr><th>Diagnostic delay</th><td>0.52</td><td>Below 1: a longer delay goes with a later endpoint</td></tr>
+          <tr><th>FVC (forced vital capacity)</th><td>0.99</td><td>Below 1: higher FVC goes with a later endpoint</td></tr>
+          <tr><th>Progression rate (ΔFRS)</th><td>6.33</td><td>Above 1: faster decline, endpoint sooner</td></tr>
+          <tr><th>Frontotemporal dementia</th><td>1.34</td><td>Above 1: endpoint sooner</td></tr>
+          <tr><th>C9orf72 repeat expansion</th><td>1.45</td><td>Above 1: endpoint sooner</td></tr>
+        </tbody></table></div>
+      <p class="stage-cap">Hazard ratios as published. [[Westeneng2018]]</p>
+  </div>
+    <div class="stage">
+      <div class="scroll"><svg id="coEnSvg" viewBox="0 0 720 260" style="min-width:520px" role="img" aria-label="Horizontal bar chart of the predicted median months from onset to the composite endpoint in the five ENCALS risk groups, from 17.7 months in the very short group to 91.0 months in the very long group, with the observed medians marked for the first four groups."></svg></div>
+      <div class="ctrls"><button class="btn" id="coEnObs" aria-pressed="true">Show observed medians</button></div>
+      <p class="stage-cap">Bars: predicted medians of 17.7, 25.3, 32.2, 43.7 and 91.0 months, as given in a 2022 review. [[Feldman2022]] Marks: observed medians of 16.5, 25.2, 32.8 and 44.6 months in the first four groups. [[Westeneng2018]]</p>
+      <div class="pt"><b>In plain words</b>A model like this groups people who share similar features. Even inside one group, some people reach the endpoint much sooner and some much later than the group's middle value.</div>
+    </div>
+
+  <h3 class="sub">What the numbers mean, and their limits</h3>
+  <div class="cards">
+    <div class="card"><h4>How much change matters</h4>
+      <p>In a UK and Australian clinic cohort, the minimal important difference over about 3 months was 3.8 points on the usual summed scale (2 on an interval version); other methods gave 2.02 to 5.43. [[Boddy2025]]</p>
+      <p>90% of 65 surveyed clinicians and researchers rated a 20% slowing of decline as at least somewhat meaningful, and 93% rated a 50% slowing as very meaningful. [[CastrilloViguera2010]] In a survey of 522 people with ALS, the median minimum slowing expected from a drug was 20%. [[Meyer2026]]</p></div>
+    <div class="card"><h4>One total, or four domains?</h4>
+      <p>In an Irish register cohort, bulbar and motor subscore slopes fitted prognostic models better than the total slope, and the respiratory subscore added nothing once the other two were known. The authors argue for reporting domains. [[Rooney2017]]</p>
+      <p>The scale is analysed as if each point were equal, although its items are categories; an interval (Rasch) transformation has been proposed. [[Boddy2025]]</p></div>
+    <div class="card"><h4>Trials and clinics differ</h4>
+      <p>Pooled trial data average about 1 point a month (PRO-ACT 1.02, ±2.3). [[Atassi2014]] A clinic cohort averaged 0.58, and fast progressors were more likely to drop out of follow-up. [[Boddy2025]] Survival from onset ranged from 4 months to 11.9 years in one German cohort. [[Kollewe2008]]</p></div>
+    <div class="card"><h4>King's and MiToS measure different things</h4>
+      <p>King's counts regions involved and then the need for gastrostomy or NIV; MiToS counts domains in which independence is lost. In LiCALS trial data they agreed only fairly (weighted kappa 0.21): King's gives more detail early, MiToS late, and the authors propose using both. [[Roche2012,Chio2015MiToS,Fang2017]]</p>
+      <p>Losing at least one MiToS domain, or an ALSFRS-R fall of 6 to 9 points, over 6 months was the best cut-off for predicting death, tracheotomy or more than 23 hours a day of NIV at 12 to 18 months. [[Tramacere2015]]</p></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>ALSFRS-R: 12 items × 0-4 = 48. ΔFS = (48 − score) / months since onset; a higher ΔFS at diagnosis predicts shorter survival. King's 1-3 count regions, 4A is gastrostomy, 4B is NIV. [[Kimura2006,Labra2016,Roche2012]]</div>
+    <div class="pt"><b>In plain words</b>A 48-point score tracks everyday abilities. How quickly it falls says more about the future than any one score, and the fall is rarely a perfectly straight line.</div>
+  </div>
+  <p class="stage-cap">Related: <a href="#breathing" data-go="breathing">Breathing and NIV</a> · <a href="#nutrition" data-go="nutrition">Swallowing and feeding tubes</a> · <a href="#dx" data-go="dx">Diagnosis &amp; criteria</a></p>
+</section>

@@ -1,0 +1,59 @@
+# Training crawlers, bulk scrapers and SEO resellers: no readers come back from them.
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: GPTBot
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: FacebookBot
+User-agent: Amazonbot
+User-agent: Bytespider
+User-agent: cohere-ai
+User-agent: Diffbot
+User-agent: ImagesiftBot
+User-agent: Omgilibot
+User-agent: Timpibot
+User-agent: YouBot
+User-agent: DataForSeoBot
+User-agent: ExaSearchBot
+User-agent: SERankingBacklinksBot
+User-agent: SemrushBot
+User-agent: AhrefsBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: Barkrowler
+User-agent: BLEXBot
+User-agent: serpstatbot
+User-agent: PetalBot
+Disallow: /
+
+# Answer engines that cite and link back: allowed, minus the sources and templates.
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+Allow: /
+Disallow: /*/src/
+Disallow: /*/research/
+Disallow: /tools/
+Disallow: /hub/
+Disallow: /*.md$
+Disallow: /site.json
+
+# Search engines, link previews and everyone else: the same.
+User-agent: *
+Allow: /
+Disallow: /*/src/
+Disallow: /*/research/
+Disallow: /tools/
+Disallow: /hub/
+Disallow: /*.md$
+Disallow: /site.json
+
+Sitemap: https://www.medcompanions.org/sitemap.xml

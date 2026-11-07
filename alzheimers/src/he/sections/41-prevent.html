@@ -1,0 +1,50 @@
+<!-- ================= 4.1 LOWERING THE RISK ================= -->
+<section class="mod" id="m-prevent" data-mod="prevent" hidden>
+<style>
+#m-prevent .card .ev{align-self:flex-start}
+#m-prevent .pvfx{min-height:120px}
+#m-prevent .pvfx .callout{font-size:14.5px}
+#m-prevent .pvbtns .btn{font-size:13px;padding:6px 11px}
+#m-prevent .card svg{width:100%;height:auto;display:block}
+</style>
+  <div class="mhead"><p class="eyebrow">חלק 4 · חיים, טיפול ומניעה</p><h2>הפחתת הסיכון</h2>
+    <p class="lede">ועדת הלנסט של 2024 העריכה איזה חלק מהדמנציה בעולם קשור ל־14 גורמי סיכון שבאופן עקרוני אפשר לשנות. הפעילו את הגלגל כדי לבנות את ההערכה שלה, ואז בחרו גורם כלשהו כדי לראות את הראיות שמאחוריו ואת ההסתייגויות.</p></div>
+  <div class="stepper" id="pvSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="pvSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="גלגל של כל מקרי הדמנציה, שבו 14 פלחים צבעוניים, מקובצים לראשית החיים, אמצע החיים וגיל מבוגר, מתמלאים אחד אחד לפי השבר המיוחס באוכלוסייה של כל אחד, ומצטברים ל־45 אחוז. רשימה לצדו מציגה כל גורם ואת האחוז שלו."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="pvPlay">הפעלה</button><label class="stage-cap tl" for="pvT">ציר זמן <input type="range" id="pvT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">שברים מיוחסים באוכלוסייה מאיור 9 של הוועדה, מעוגלים למספרים שלמים. לחצו על פלח או על שורה, או השתמשו בכפתורים למטה.</p></div>
+    <aside class="note" id="pvNote" aria-live="polite"></aside>
+  </div>
+  <div class="ctrls pvbtns" role="group" aria-label="בחירת גורם סיכון כדי לראות את הראיות לגביו" id="pvBtns"></div>
+  <div class="note pvfx" id="pvFx" aria-live="polite"></div>
+
+  <h3 class="sub">מה מצאו ניסויי המניעה</h3>
+  <p class="prose">גורם סיכון שנמצא קשור לדמנציה במחקרים תצפיתיים אינו הוכחה לכך ששינוי שלו מונע דמנציה. ניסויים אקראיים בודקים זאת. הפעילו את התרשים כדי להכניס את התוצאה העיקרית של כל ניסוי; רבות מהן אפסיות או קטנות.</p>
+  <div class="stepper" id="pvTrSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="pvTr" viewBox="0 0 720 520" style="min-width:560px" role="img" aria-label="תרשים יער שמכניס את תוצאות ניסויי המניעה אחת אחת: preDIVA, ‏SPRINT MIND לדמנציה ול־MCI, ‏LIFE ו־ACTIVE כיחסי סיכונים או יחסי סיכויים, ו־FINGER, ‏US POINTER, ‏ACHIEVE בכלל המשתתפים ובתת־הקבוצה, ודיאטת MIND כהבדלים בשינוי הקוגניטיבי. רוב רווחי הסמך חוצים את קו היעדר ההשפעה."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="pvTrPlay">הפעלה</button><label class="stage-cap tl" for="pvTrT">ציר זמן <input type="range" id="pvTrT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">הנקודות הן אומדנים; הקווים הם רווחי סמך 95%. קו שחוצה את הקו המקווקו של היעדר השפעה פירושו שהתוצאה מתיישבת עם היעדר השפעה. היחידות שונות בין השורות, ולכן יש להשוות כל שורה לאפס שלה.</p></div>
+    <aside class="note" id="pvTrNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">שאלות פתוחות</h3>
+  <div class="cards" id="pvCards"></div>
+
+  <h3 class="sub">WHO 2019 וועדת הלנסט 2024</h3>
+  <p class="prose">שני הגופים שוקלים ראיות באופן שונה. ה־WHO מדרג המלצות לפי ראיות מניסויי התערבות; הוועדה ממדלת איזה חלק מהדמנציה כל גורם עשוי להסביר.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>גורם</th><th>המלצת WHO 2019 (איכות הראיות)</th><th>ועדת הלנסט 2024</th></tr></thead>
+    <tbody>
+      <tr><th>פעילות גופנית</th><td>חזקה לבעלי קוגניציה תקינה (בינונית); מותנית ל־MCI (נמוכה) [[Chowdhary2021]]</td><td>חוסר פעילות: כ־2% [[Livingston2024]]</td></tr>
+      <tr><th>עישון</th><td>הפסקת עישון: חזקה (נמוכה) [[Chowdhary2021]]</td><td>כ־2% [[Livingston2024]]</td></tr>
+      <tr><th>תזונה</th><td>תזונה בסגנון ים־תיכוני: מותנית (בינונית). תוספי ויטמין B,‏ E,‏ PUFA ותוספים מרובי רכיבים: המלצה חזקה נגד (בינונית) [[Chowdhary2021]]</td><td>אינה אחד מ־14 הגורמים [[Livingston2024]]</td></tr>
+      <tr><th>אלכוהול</th><td>הפחתת שתייה מסוכנת: מותנית (בינונית, תצפיתית) [[Chowdhary2021]]</td><td>צריכת אלכוהול מופרזת: כ־1% [[Livingston2024]]</td></tr>
+      <tr><th>לחץ דם, סוכרת</th><td>טיפול לפי הנחיות ה־WHO: חזקה. במטרה ספציפית להפחית דמנציה: מותנית (נמוכה מאוד) [[Chowdhary2021]]</td><td>יתר לחץ דם כ־2%, סוכרת כ־2% [[Livingston2024]]</td></tr>
+      <tr><th>כולסטרול</th><td>טיפול בדיסליפידמיה באמצע החיים: מותנית (נמוכה) [[Chowdhary2021]]</td><td>כולסטרול LDL גבוה: כ־7%, חדש ב־2024 [[Livingston2024]]</td></tr>
+      <tr><th>ירידה בשמיעה</th><td>אין המלצה: הראיות מניסויי התערבות אינן מספיקות [[Chowdhary2021]]</td><td>כ־7%, במקום הראשון במשותף [[Livingston2024]]</td></tr>
+      <tr><th>דיכאון, בידוד חברתי</th><td>אין המלצה: הראיות אינן מספיקות [[Chowdhary2021]]</td><td>דיכאון כ־3%, בידוד כ־5% [[Livingston2024]]</td></tr>
+      <tr><th>אימון קוגניטיבי</th><td>מותנית (נמוכה מאוד עד נמוכה) [[Chowdhary2021]]</td><td>אינו אחד מ־14 הגורמים [[Livingston2024]]</td></tr>
+    </tbody></table></div>
+</section>

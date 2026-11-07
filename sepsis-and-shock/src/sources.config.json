@@ -1,0 +1,12 @@
+{
+ "areas": {
+  "A": "Epidemiology, burden, risk factors & history",
+  "B": "Immunology, endothelium, coagulation & organ dysfunction; research frontier",
+  "C": "Haemodynamics and shock types",
+  "D": "Recognising sepsis, early warning scores & definitions",
+  "E": "Tests, biomarkers, the first hour & maternal sepsis",
+  "F": "Fluids, vasopressors, steroids & MAP targets",
+  "G": "Source control, stewardship, ICU organ support & nursing care",
+  "H": "After sepsis, survivorship, families & prevention"
+ }
+}

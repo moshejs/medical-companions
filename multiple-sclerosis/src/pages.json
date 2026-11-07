@@ -1,0 +1,86 @@
+{
+  "what": {
+    "title": "What is multiple sclerosis? Who gets MS, numbers and symptoms",
+    "description": "MS in animations: 2.8–3.1 million people worldwide, mostly women and young adults, more common far from the equator, and where the first attack strikes."
+  },
+  "myelin": {
+    "title": "Myelin and demyelination in MS, animated: saltatory conduction",
+    "description": "Watch a nerve signal jump node to node, then slow or stop as MS strips myelin. Sodium channels, remyelination, axon loss, Uhthoff heat and the delayed VEP."
+  },
+  "immune": {
+    "title": "How the immune system attacks myelin in MS, animated",
+    "description": "Step through the MS immune attack: T and B cells activated in lymph nodes, crossing the blood-brain barrier via VLA-4, myelin damage, smouldering lesions."
+  },
+  "risk": {
+    "title": "MS risk factors: HLA genes, EBV, vitamin D and smoking",
+    "description": "Is MS hereditary? HLA-DRB1*15:01, Epstein-Barr virus, vitamin D, smoking and teen obesity on one chart, with family risk as real percentages. Cited."
+  },
+  "course": {
+    "title": "MS course over time: RRMS, SPMS, PPMS, PIRA and RIS explained",
+    "description": "An animated 30-year MS timeline: relapses, residual deficits, PIRA, MRI lesions and brain volume across RRMS, SPMS and PPMS, with Lublin 2013 descriptors."
+  },
+  "relapse": {
+    "title": "MS relapse week by week: steroids, recovery and pseudo-relapse",
+    "description": "How an MS relapse unfolds over 26 weeks: gadolinium enhancement, steroid regimens, recovery time, residual deficit, and how a pseudo-relapse differs."
+  },
+  "edss": {
+    "title": "EDSS explained: the MS disability scale and confirmed progression",
+    "description": "The EDSS 0–10 scale step by step with walking anchors, a teaching calculator, and how confirmed disability progression at 12 or 24 weeks works."
+  },
+  "dx": {
+    "title": "McDonald criteria calculator (2017 and 2024) for MS diagnosis",
+    "description": "Place MRI lesions, add CSF bands, κ-FLC, OCT and central vein sign, and see the 2017 and 2024 McDonald criteria verdicts build step by step. Learning aid."
+  },
+  "ddx": {
+    "title": "MS differential diagnosis: NMOSD, MOGAD and other mimics",
+    "description": "How MS differs from NMOSD, MOGAD, small-vessel disease, migraine, B12 deficiency and more: MRI patterns, red flags and why misdiagnosis happens."
+  },
+  "dmt": {
+    "title": "How MS drugs work: DMT mechanisms, trials and approvals",
+    "description": "An animated map of where each MS disease-modifying therapy acts, from S1P modulators to natalizumab and anti-CD20, with label dosing, trials and FDA dates."
+  },
+  "ladder": {
+    "title": "MS treatment ladder: escalation vs early high-efficacy DMT",
+    "description": "How MS drugs are sequenced: step up after breakthrough or start high-efficacy early, what ECTRIMS/EAN and AAN 2018 say, and stopping after 55 (DISCOMS)."
+  },
+  "safety": {
+    "title": "Natalizumab PML risk, JCV index and MS drug monitoring",
+    "description": "Natalizumab PML risk by JCV index, prior immunosuppressants and months on drug, plus label monitoring, rebound, pregnancy wording and vaccines on MS DMTs."
+  },
+  "cure": {
+    "title": "MS cure research: BTK, remyelination, aHSCT",
+    "description": "Where MS cure research stands: BTK inhibitors (tolebrutinib), remyelination, aHSCT, EBV and CAR-T, with evidence labels and every trial result cited."
+  },
+  "symptoms": {
+    "title": "MS symptoms and treatment: fatigue, walking, bladder, spasticity",
+    "description": "A body map of 12 multiple sclerosis symptoms: how common each is, drug and non-drug options with evidence labels, and the fampridine and fatigue trials."
+  },
+  "living": {
+    "title": "Living with MS: pregnancy, smoking, life expectancy and work",
+    "description": "MS relapse rates through pregnancy (PRIMS, Kaiser), breastfeeding, smoking and progression, life expectancy, work, heat, diet, driving and care planning."
+  },
+  "nursing": {
+    "title": "MS nursing care: assessment, infusions and monitoring",
+    "description": "How nurses assess MS (T25FW, 9HPT, SDMT, FSS), run ocrelizumab infusions, monitor fingolimod first doses and DMT labs, and teach. Cited."
+  },
+  "history": {
+    "title": "History of multiple sclerosis: Charcot to McDonald 2024",
+    "description": "An animated MS timeline: d'Esté's diary, Carswell and Charcot, EAE, the first MRI, interferon and glatiramer, EBV and the 2024 McDonald criteria."
+  },
+  "review": {
+    "title": "MS flashcards & mnemonics: McDonald, EDSS, DMTs",
+    "description": "79 multiple sclerosis flashcards and 10 mnemonics, from EBV and myelin to McDonald 2024, DMT safety and pregnancy, with an animated two-places-two-times rule."
+  },
+  "quiz": {
+    "title": "Multiple sclerosis quiz: 78 questions with explanations",
+    "description": "Test yourself on MS: McDonald 2017 vs 2024, κ-FLC and OCB, EDSS, DMT mechanisms, PML risk, PRIMS, NMOSD red flags and nursing monitoring."
+  },
+  "glossary": {
+    "title": "Multiple sclerosis glossary: 130 terms explained",
+    "description": "Searchable MS glossary from κ-FLC, PIRA and Select-6 to S1P modulators, NMOSD and PML, with citations and links to the module where each term matters."
+  },
+  "sources": {
+    "title": "MS Companion sources: 510 checked references",
+    "description": "Every reference behind MS Companion, each checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA. Filter by area or search."
+  }
+}

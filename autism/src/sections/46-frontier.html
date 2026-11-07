@@ -1,0 +1,49 @@
+<!-- ================= 4.6 RESEARCH TOWARD BETTER SUPPORT ================= -->
+<style>
+#m-frontier .card>.ev{align-self:flex-start}
+#m-frontier .evkey{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:14px}
+#m-frontier .frpanel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:12px;min-width:0}
+#m-frontier .frpanel svg{width:100%;max-width:900px;height:auto;display:block}
+#m-frontier .frpri .btn{padding:6px 11px;font-size:13px}
+@media (max-width:820px){#m-frontier svg .t-xs{font-size:12px}#m-frontier svg .t-sm{font-size:12.5px}#m-frontier svg .t-lbl{font-size:14px}}
+</style>
+<section class="mod" id="m-frontier" data-mod="frontier" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Supports &amp; interventions</p><h2>Research toward better support</h2>
+    <p class="lede">Sixteen years of trials, devices and community voices on one timeline. Many medicines that looked promising in small studies failed in large ones; some supports and new diagnostic aids held up. Every item carries its evidence label.</p></div>
+
+  <div class="evkey" role="note"><span class="ev est">Established</span> large, controlled trials or consistent reviews, including firmly negative results <span class="ev early">Early evidence</span> small, open-label, single or mixed trials <span class="ev hyp">Hypothesis</span> a mechanism or idea not yet tested in autism</div>
+
+  <div class="ctrls" role="group" aria-label="Research lane shown">
+    <span class="kicker">Lane</span>
+    <button class="btn" data-fr="med" aria-pressed="true">Medicines</button>
+    <button class="btn" data-fr="dx" aria-pressed="false">Diagnostics</button>
+    <button class="btn" data-fr="sup" aria-pressed="false">Services &amp; supports</button>
+  </div>
+  <div class="stepper" id="frSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="frSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A timeline from 2010 to 2026 with one row per trial or project. As the year cursor moves, rows enter as bars, milestones appear as dots, and each row resolves with a coloured result badge: negative, mixed, early, ongoing, positive or cleared."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="frPlay">Play</button><label class="stage-cap tl" for="frT">Year <input type="range" id="frT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap"><b>Bars start at the first result in this guide's sources</b>, not at a trial's start date, and end at the latest result or registry status (read October 2026). Results are summarised; see the note for numbers. <span id="frCap"></span></p>
+    </div>
+    <aside class="note" id="frNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What people want studied, and what trials measured</h3>
+  <p class="prose">UK community consultation found a "clear disparity" between how autism research was funded and what the community prioritised: people wanted research that makes a difference to day-to-day lives. [[Pellicano2014]] A review of 7 priority-setting studies found the most common priorities were real-world impact on daily life and lifelong skill-building. [[Roche2021]] Pick a priority to see which medicine-trial outcomes connect to it.</p>
+  <div class="frpanel">
+    <div class="ctrls frpri" role="group" aria-label="Community priority" id="frPri"></div>
+    <svg id="frMatch" viewBox="0 0 720 360" role="img" aria-label="Two ranked columns. Left: priorities named by autistic adults and guardians, led by life skills and co-occurring conditions, with public acceptance named above all. Right: the primary outcomes of the medicine trials in this module, led by autism-severity and social-withdrawal scales. Lines join the few matches."></svg>
+    <p class="stage-cap" id="frMatchCap"></p>
+  </div>
+
+  <h3 class="sub">Reading the research</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Why so many drug trials fail</h4><p>Placebo responses are large: across 86 trials, 19% of participants on placebo were rated "much improved", more with caregiver ratings, flexible dosing and big multisite trials. [[Siafis2020]] A 2026 industry–academic review recommends to "measure what matters to patients and caregivers", enrich trials by mechanism, avoid diagnostic tools as efficacy endpoints and design trials that reduce placebo response. [[Pandina2026]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Leucovorin: a live controversy</h4><p>A 12-week RCT of 48 children with language impairment found better verbal communication (d=0.70). [[Frye2018]] The 2026 US label indication is cerebral folate transport deficiency with a confirmed FOLR1 variant, not autism, and rests on 46 patients in case reports. [[FDA-Wellcovorin]] After public promotion in September 2025, prescribing to US children with autism rose more than 24-fold, from 34.1 to 835.4 per 100,000 encounters a month. [[Rothman2026]] No large independent trial exists yet. [[Rossignol2021]]</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Syndrome-specific therapies</h4><p>Angelman syndrome is caused by loss of maternal UBE3A, and many affected children meet autism criteria. Antisense oligonucleotides aim to switch on the silent paternal copy. A phase 1 trial (61 children) met its safety endpoint. [[Hipp2025]] Of three phase 3 trials, one (GTX-102, 129 children) was stopped in 2026 for lack of efficacy; two continue. [[NCT06617429,NCT06914609,NCT07605429]] Whether anything similar could apply to autism in general is a hypothesis.</p></div>
+    <div class="card"><span class="tag accent">Ethics</span><h4>Consent, genetics and trust</h4><p>Spectrum 10K, a UK genetic study planning to recruit 10,000 autistic people, was postponed in 2021 after backlash from the autism community. An interview study of 22 autistic adults recorded concerns about trust, data reuse and autistic representation. [[Ellis2023]] Autistic stakeholders want priorities and trust built in from the start. [[Pellicano2014,Roche2021]]</p></div>
+    <div class="card"><span class="tag rx">Practical</span><h4>How to find a trial</h4><p>Every trial in the timeline has a public registry record on ClinicalTrials.gov, with its status, size and any posted results; for example SOARS-B is NCT01944046. [[NCT01944046]] Registry records show what a study planned to measure, and whether results were ever posted: a European arbaclofen trial completed in January 2023 with no results posted. [[NCT03682978]] A 2025 INSAR group of autistic people, clinicians and researchers recommended that autism journals require trial registration, published protocols and analysis plans. [[LaPoint2025]]</p></div>
+    <div class="card"><span class="tag accent">Diagnostics</span><h4>Aids, not stand-alone tests</h4><p>Canvas Dx gave a result in only 31.8% of children tested; when it did, sensitivity was 98.4% and specificity 78.9%. [[Megerian2022]] EarliPoint eye-tracking had 71.0% sensitivity and 80.7% specificity in all 475 children. [[Jones2023]] Both are cleared as aids for clinicians. No device or questionnaire here is for self-diagnosis: see <a href="#assessment" data-go="assessment">The diagnostic assessment</a>.</p></div>
+  </div>
+</section>

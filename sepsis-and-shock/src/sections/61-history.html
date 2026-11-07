@@ -1,0 +1,94 @@
+<!-- ================= 6.1 HISTORY & PEOPLE ================= -->
+<style>
+#m-history .card>.tag{align-self:flex-start}
+#m-history .card .yr{font:600 11px var(--mono);color:var(--muted);letter-spacing:.06em}
+#m-history #hiNow{font:500 13.5px/1.5 var(--body);color:var(--ink);min-height:3em}
+#m-history #hiNow b{font-family:var(--mono);font-size:12.5px;color:var(--brand);margin-right:4px}
+#m-history .rev{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;max-width:780px}
+#m-history .rev h4{margin:0 0 4px;font-size:14.5px}
+#m-history .rev .row{display:grid;grid-template-columns:minmax(0,13em) minmax(0,1fr) 3.6em;gap:10px;align-items:center;font-size:14px;margin:3px 0}
+#m-history .rev i{display:block;height:12px;border-radius:6px}
+#m-history .rev i.a{background:var(--rx)}
+#m-history .rev i.b{background:var(--muted)}
+#m-history .rev span.b{background:var(--panel-2);border-radius:6px;display:block}
+#m-history .rev b.v{font:700 14px var(--mono);text-align:right}
+@media (max-width:600px){#m-history .rev .row{grid-template-columns:minmax(0,1fr) 3.6em}#m-history .rev .row>span.b{grid-column:1/3;grid-row:2}}
+</style>
+<section class="mod" id="m-history" data-mod="history" hidden>
+  <div class="mhead"><p class="eyebrow">Part 6 · Context &amp; review</p><h2>History &amp; people</h2>
+    <p class="lede">From an ancient Greek word for rot to the 2025 update of the SOFA score: handwashing in a Vienna maternity clinic, carbolic acid in surgery, penicillin, the first agreed definitions, a trial that seemed to change everything and then did not, a drug that came and went, a World Health Assembly resolution and new criteria for children. Press Play, drag the year, or tap a milestone.</p></div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSvg" viewBox="0 0 720 380" style="min-width:300px" role="img" aria-label="A timeline of sepsis from antiquity to 2026 in four lanes: germs and hygiene, medicines and trials, definitions and scores, and campaigns, data and policy. A play head moves through the years; each milestone lights as it passes and appears in a card with its year, title and a small picture: the Greek word for putrefaction, Gordon and Holmes on childbed fever, Semmelweis's chlorine handwashing in 1847, Lister's antiseptic principle in 1867, Pasteur's streptococcus, Fleming's penicillium report of 1929 and penicillin as a medicine in 1940, Bone's sepsis syndrome and the 1992 SIRS definitions, the SOFA score in 1996, early goal-directed therapy and drotrecogin alfa in 2001, the Barcelona Declaration and the first Surviving Sepsis Campaign guidelines, the 2006 study of antibiotic delay, the withdrawal of drotrecogin alfa in 2011, New York's sepsis regulations and the SEP-1 measure, Sepsis-3 in 2016, the 2017 World Health Assembly resolution, the 2021 and 2026 guidelines, the 2023 hospital core elements, the Phoenix criteria for children in 2024 and SOFA-2 in 2025. The years before 1790, from 1790 to 1950 and from 1950 to 1985 are compressed. On phones the timeline runs from top to bottom."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">Play</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.17"></label></div>
+      <p id="hiNow" aria-live="polite"></p>
+      <div class="chips" id="hiYears" role="group" aria-label="Jump to a milestone"></div>
+      <p class="stage-cap">Three stretches are compressed: antiquity to 1790, 1790 to 1950, and 1950 to 1985. Pasteur's work is placed about 30 years after Semmelweis's, as the source dates it. [[Stang2022Semmelweis]] Fleming's report was published in 1929. [[Fleming1929Penicillium]]</p>
+    </div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Washing hands in Vienna, 1847</h3>
+  <p class="prose">At the Vienna General Hospital, Clinic 1 was staffed by medical students and doctors who also did autopsies, and Clinic 2 by midwives. Ignaz Semmelweis blamed "cadaverous particles" carried on hands, and in mid-May 1847 brought in chlorine handwashing. [[Stang2022Semmelweis]] Choose a period to see how many of every 100 women who gave birth in Clinic 1 died of puerperal (childbed) sepsis. Alexander Gordon in Aberdeen (1795) and Oliver Wendell Holmes in Boston (1843) had already suspected that birth attendants carried the disease. [[Stang2022Semmelweis]]</p>
+  <div class="ctrls" role="group" aria-label="Period in Clinic 1">
+    <button class="btn" data-hs="0" aria-pressed="true">1840–1846</button>
+    <button class="btn" data-hs="1" aria-pressed="false">April–May 1847</button>
+    <button class="btn" data-hs="2" aria-pressed="false">June 1847</button>
+    <button class="btn" data-hs="3" aria-pressed="false">June 1847–Feb 1849</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSem" viewBox="0 0 720 300" style="min-width:300px" role="img" aria-label="A 100-person icon array for Clinic 1 of the Vienna General Hospital. Icons fill to show deaths from puerperal sepsis per 100 women in each period: 11.3 from July 1840 to October 1846, 18.3 in April and May 1847 before handwashing, 12.2 in the month after chlorine handwashing began, and 2.0 from June 1847 to February 1849. A small bar chart beside it compares the four periods."></svg></div>
+      <p class="stage-cap">Mortality ratios as reported from the clinic's records; historical figures for one hospital, not a prediction for anyone. [[Stang2022Semmelweis]] Semmelweis delayed publishing his main work until 1861, and his ideas were poorly received in Vienna. [[Stang2022Semmelweis]]</p>
+    </div>
+    <aside class="note" id="hiSemNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">When a promising result did not hold</h3>
+  <p class="prose">Two stories from the 2000s shaped how sepsis research is done. A single-centre trial of early goal-directed therapy (EGDT) reported a large fall in deaths, and three later multicentre trials did not confirm it. [[Rivers2001EGDT,PRISM2017]] Drotrecogin alfa (activated) was approved after one trial, PROWESS, that was stopped early for efficacy; the manufacturer withdrew it worldwide in 2011 after PROWESS-SHOCK failed. [[MedLett2011Xigris,Angus2012Drotrecogin]] More than 100 randomised trials have tested ways to modulate the septic response; "with one short-lived exception" (drotrecogin alfa), none produced a new treatment. [[Marshall2014]]</p>
+  <div class="rev" id="hiRev">
+    <div><h4>Rivers 2001 · EGDT, 263 patients, one emergency department</h4>
+      <div class="row"><span>EGDT · in-hospital deaths</span><span class="b"><i class="a" style="width:30.5%"></i></span><b class="v">30.5%</b></div>
+      <div class="row"><span>Standard therapy</span><span class="b"><i class="b" style="width:46.5%"></i></span><b class="v">46.5%</b></div></div>
+    <div><h4>PRISM 2017 · ProCESS, ARISE and ProMISe pooled, 3,723 patients</h4>
+      <div class="row"><span>EGDT · 90-day deaths</span><span class="b"><i class="a" style="width:24.9%"></i></span><b class="v">24.9%</b></div>
+      <div class="row"><span>Usual care</span><span class="b"><i class="b" style="width:25.4%"></i></span><b class="v">25.4%</b></div></div>
+    <div><h4>PROWESS 2001 · drotrecogin alfa, 1,690 people</h4>
+      <div class="row"><span>Drotrecogin · 28-day deaths</span><span class="b"><i class="a" style="width:24.7%"></i></span><b class="v">24.7%</b></div>
+      <div class="row"><span>Placebo</span><span class="b"><i class="b" style="width:30.8%"></i></span><b class="v">30.8%</b></div></div>
+    <div><h4>PROWESS-SHOCK 2012 · drotrecogin alfa, 1,697 people with septic shock</h4>
+      <div class="row"><span>Drotrecogin · 28-day deaths</span><span class="b"><i class="a" style="width:26.4%"></i></span><b class="v">26.4%</b></div>
+      <div class="row"><span>Placebo</span><span class="b"><i class="b" style="width:24.2%"></i></span><b class="v">24.2%</b></div></div>
+  </div>
+  <p class="stage-cap">Trial mortality as published, population statistics from each trial. [[Rivers2001EGDT,PRISM2017,Bernard2001PROWESS,Ranieri2012PROWESSSHOCK]] In PROWESS serious bleeding was 3.5% with drotrecogin against 2.0% with placebo. [[Bernard2001PROWESS]] Today's first-hour care is in <a href="#firsthour" data-go="firsthour">The first hour</a>.</p>
+
+  <h3 class="sub">How the definitions changed</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Year</th><th>Name</th><th>What it said</th></tr></thead>
+    <tbody>
+      <tr><td>1991 · 1992</td><td>Sepsis-1 (ACCP/SCCM)</td><td>Defined SIRS, sepsis, severe sepsis, septic shock and multiple organ dysfunction syndrome. SIRS meant 2 or more of 4 simple signs: temperature, heart rate, breathing rate and white cell count. [[Bone1992SIRS]] Because most infected patients meet them, sepsis and infection became confused. [[Vincent2022Concept]]</td></tr>
+      <tr><td>2001 · 2003</td><td>Sepsis-2</td><td>An international conference of 29 participants expanded the list of signs and symptoms but found no evidence to change the 1992 definitions. [[Levy2003Sepsis2]]</td></tr>
+      <tr><td>2005</td><td>Paediatric consensus</td><td>Adapted the adult SIRS-based definitions for children. [[Goldstein2005Paeds]]</td></tr>
+      <tr><td>2016</td><td>Sepsis-3</td><td>Sepsis became "life-threatening organ dysfunction caused by a dysregulated host response to infection", shown by a SOFA rise of 2 points or more; "severe sepsis" was dropped and qSOFA introduced. [[Singer2016Sepsis3]]</td></tr>
+      <tr><td>2024</td><td>Phoenix (children)</td><td>Sepsis in a child with suspected infection is a Phoenix Sepsis Score of at least 2, built by 35 experts from 6 continents with more than 3 million electronic health record encounters. [[Schlapbach2024Phoenix]]</td></tr>
+      <tr><td>2025</td><td>SOFA-2</td><td>A revised organ score from 3.34 million ICU encounters; Sepsis-3 is still defined with the original SOFA. [[Ranzani2025SOFA2,Lobo2025SOFA2]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Try the scores as teaching calculators in <a href="#definitions" data-go="definitions">Definitions &amp; scores</a>.</p>
+
+  <h3 class="sub">People behind the ideas</h3>
+  <div class="cards">
+    <div class="card"><span class="yr">Antiquity</span><h4>Homer, Hippocrates, Aristotle, Galen</h4><p>"Sepsis" comes from the Greek word for putrefaction. Homer used it more than 2,500 years ago, and Hippocrates, Aristotle, Plutarch and Galen used it to mean decay. [[Vincent2022Concept]]</p></div>
+    <div class="card"><span class="yr">1847 · 1861</span><h4>Ignaz Semmelweis</h4><p>Brought in chlorine handwashing in Vienna's Clinic 1 in May 1847; deaths from childbed fever fell to 2.0% over the next 20 months. He published his main work only in 1861. [[Stang2022Semmelweis]]</p></div>
+    <div class="card"><span class="yr">1867</span><h4>Joseph Lister</h4><p>Published "On the Antiseptic Principle in the Practice of Surgery" in the BMJ. [[Lister1867BMJ]] Historical reviews trace sepsis thinking through Lister, Semmelweis and Fleming. [[Funk2009History]]</p></div>
+    <div class="card"><span class="yr">1870s</span><h4>Louis Pasteur</h4><p>About 30 years after Semmelweis, he grew <i>Streptococcus pyogenes</i> from the blood of a woman with puerperal sepsis: germ theory linking a named microbe to sepsis. [[Stang2022Semmelweis]]</p></div>
+    <div class="card"><span class="yr">1929 · 1940</span><h4>Alexander Fleming, Ernst Chain, Howard Florey</h4><p>Fleming reported the antibacterial action of a <i>Penicillium</i> mould; Chain, Florey and colleagues showed penicillin working as a medicine, opening the antibiotic era. [[Fleming1929Penicillium,Chain1940Penicillin]]</p></div>
+    <div class="card"><span class="yr">Late 1980s · 1992</span><h4>Roger Bone</h4><p>Introduced the term "sepsis syndrome", then led the consensus conference that defined SIRS and Sepsis-1. [[Vincent2022Concept,Bone1992SIRS]]</p></div>
+    <div class="card"><span class="yr">1996</span><h4>Jean-Louis Vincent and the ESICM group</h4><p>Published the SOFA (Sepsis-related Organ Failure Assessment) score, which scores six organ systems. [[Vincent1996SOFA]] It became the yardstick for organ dysfunction in Sepsis-3. [[Singer2016Sepsis3]]</p></div>
+    <div class="card"><span class="yr">2001</span><h4>Emanuel Rivers</h4><p>His emergency-department trial of early goal-directed therapy shaped the "early, protocolised" era; later trials found no benefit over usual care. [[Rivers2001EGDT,PRISM2017]]</p></div>
+    <div class="card"><span class="yr">2016</span><h4>Mervyn Singer, Christopher Seymour and the Sepsis-3 task force</h4><p>Redefined sepsis around organ dysfunction. Seymour's analysis showed qSOFA predicting death outside the ICU (AUROC 0.81) and SOFA doing better inside it. [[Singer2016Sepsis3,Seymour2016qSOFA]]</p></div>
+    <div class="card"><span class="yr">2017</span><h4>Konrad Reinhart and colleagues</h4><p>Described the World Health Assembly resolution that made sepsis a global health priority, covering prevention, diagnosis, management and survivors' access to rehabilitation. [[Reinhart2017WHA]]</p></div>
+    <div class="card"><span class="yr">2024</span><h4>Luregn Schlapbach and the Phoenix task force</h4><p>Replaced the 2005 SIRS-based criteria for children with the data-driven Phoenix score. In-hospital mortality with Phoenix sepsis was 7.1% in higher-resource and 28.5% in lower-resource settings (population figures). [[Schlapbach2024Phoenix]] See <a href="#children" data-go="children">Sepsis in babies and children</a>.</p></div>
+  </div>
+</section>

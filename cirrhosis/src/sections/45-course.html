@@ -1,0 +1,60 @@
+<!-- ================= 4.5 COMPENSATED TO DECOMPENSATED: THE COURSE ================= -->
+<style>
+#m-course .card>.tag,#m-course .card>.ev{align-self:flex-start}
+#m-course .tbl table{min-width:620px}
+#m-course .tbl td ul{margin:0;padding-left:18px}
+#m-course .acl{display:flex;flex-wrap:wrap;gap:6px}
+</style>
+<section class="mod" id="m-course" data-mod="course" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Complications</p><h2>Compensated to decompensated: the course</h2>
+    <p class="lede">Cirrhosis is not one state but a ladder of stages, from compensated without varices to further decompensation, with acute-on-chronic liver failure able to strike from any rung. Climb it, then switch on <b>Cause removed</b> to see the evidence for climbing back down. [[DAmico2014APT,DAmico2018JHep,deFranchis2022BavenoVII]]</p></div>
+  <p class="crisis" role="note"><b>Urgent care</b><span>Vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen need urgent care: call your local emergency number or go to an emergency department.</span></p>
+  <div class="ctrls"><button class="btn" id="coCause" aria-pressed="false">Cause removed: show recompensation</button><span class="stage-cap">Removing or suppressing the cause: SVR for hepatitis C, HBV suppression, long-term abstinence from alcohol. [[deFranchis2022BavenoVII]]</span></div>
+  <div class="stepper" id="coSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A five-rung staircase of cirrhosis stages from the D'Amico 25-year cohort: compensated without varices, compensated with varices, bleeding alone, first non-bleeding decompensation and further decompensation. A marker climbs the stairs; at each rung a 100-person icon array fills with the published 5-year mortality, 1.5%, 10%, 20%, 30% and 88%, beside the share who move on to a later stage within 5 years. A dashed line marks the drop in median survival from over 12 years to under 2 years at decompensation. In the last scene a box for acute-on-chronic liver failure lights above the stairs with 28-day mortality of 33.9% against 1.9% without it. With cause removed switched on, green arrows run back down the stairs and bars show published recompensation rates."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="coPlay">Play</button><label class="stage-cap tl" for="coT">Stage <input type="range" id="coT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap">Population statistics from cohorts, not a forecast for any one person. People do not always move up the stairs in order. [[DAmico2014APT,DAmico2018JHep]]</p>
+    </div>
+    <aside class="note" id="coNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What counts as decompensation, as Baveno VII defines it</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Stage</th><th>Baveno VII definition (as published, summarised)</th></tr></thead>
+    <tbody>
+      <tr><th>Compensated</th><td>No present or past complications. Split into two stages by the absence or presence of clinically significant portal hypertension (CSPH); people with CSPH are at higher risk of decompensation.</td></tr>
+      <tr class="hl"><th>Decompensation</th><td><ul><li>overt ascites (or pleural effusion with SAAG &gt;1.1 g/dL)</li><li>overt hepatic encephalopathy (West Haven grade II or higher)</li><li>variceal bleeding</li></ul>Jaundice alone can be a first sign; whether it counts as true decompensation needs more research.</td></tr>
+      <tr><th>Further decompensation</th><td>A stage with even higher mortality: a second portal hypertension-driven event or jaundice, recurrent bleeding, recurrent ascites (3 or more large-volume paracenteses within 1 year), recurrent encephalopathy, or SBP or HRS-AKI.</td></tr>
+      <tr><th>Recompensation</th><td>All three of: the cause removed, suppressed or cured; ascites resolved off diuretics, encephalopathy off lactulose/rifaximin and no recurrent variceal bleeding for at least 12 months; stable improvement in albumin, INR and bilirubin. Resolution of ascites on diuretics or after TIPS, without these, is not recompensation.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Source: Baveno VII consensus. [[deFranchis2022BavenoVII]] Triggers of decompensation include bacterial infections, alcohol-related hepatitis, acute hepatitis A or E, HBV flares, drug-induced liver injury, liver cancer and major surgery. [[deFranchis2022BavenoVII]] In decompensated hepatitis C cirrhosis, ascites was the most common first event (48%), then bleeding (32.5%), severe infection (14.5%) and encephalopathy (5%). [[Planas2004]]</p>
+
+  <h3 class="sub">Acute-on-chronic liver failure, in 100 people</h3>
+  <p class="prose">EASL describes ACLF as a severe form of acutely decompensated cirrhosis with organ failure and high short-term mortality, driven by an excessive inflammatory response to triggers such as infection with sepsis or severe alcohol-related hepatitis. [[EASL2023ACLF]] The CANONIC study first defined it in 1,343 people admitted with acute decompensation. [[Moreau2013CANONIC]] Choose a group to fill the 100 people; hatched figures show the upper end of a published range.</p>
+  <div class="ctrls acl" role="group" aria-label="ACLF group">
+    <button class="btn" data-acl="no" aria-pressed="false">No ACLF (CANONIC)</button>
+    <button class="btn" data-acl="yes" aria-pressed="true">ACLF at admission (CANONIC)</button>
+    <button class="btn" data-acl="g01" aria-pressed="false">Final grade: none or ACLF-1</button>
+    <button class="btn" data-acl="g23" aria-pressed="false">Final grade: ACLF-2 or ACLF-3</button>
+    <button class="btn" data-acl="glob" aria-pressed="false">Worldwide, 90 days</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coAclf" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A 100-person icon array for the selected group fills with deaths, beside a bar of how ACLF evolved in 388 people: 49.2% resolved or improved, 30.4% steady or fluctuating and 20.4% worsened."></svg></div>
+      <p class="stage-cap">Grade-by-grade CANONIC figures sit in a paywalled full text, so the grouped figures from the follow-up study are shown instead. Population statistics, not a forecast for any one person. [[Moreau2013CANONIC,Gustot2015,Mezzano2022Gut]]</p>
+    </div>
+    <aside class="note" id="coAclfNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Living through the stages</h3>
+  <div class="cards">
+    <div class="card"><span class="tag accent">What it feels like</span><h4>When decompensation comes</h4><p>The step is usually visible: a belly swelling with fluid, confusion or sleepiness, vomiting blood or passing black stools, or yellowing of the skin and eyes. [[deFranchis2022BavenoVII,Tapper2023JAMA]] For about 40% of people this is how cirrhosis is first found. [[Tapper2023JAMA]] Hospital admissions, a poorer quality of life and higher mortality follow, which is why the earlier, silent phase is the time to act. [[Gines2021Lancet]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Why stopping the cause matters</h4><p>Removing or suppressing the cause lowers portal pressure in most people and substantially reduces the risk of decompensation. Weight, diabetes and alcohol still push the disease on and need attention too. [[deFranchis2022BavenoVII]] In hepatitis C with advanced fibrosis, 10-year all-cause mortality was 8.9% after SVR against 26.0% without. [[vanderMeer2012]] Across 7 cohorts of alcohol-related cirrhosis, abstinence went with better survival from 1.5 years on (5-year HR 0.63). [[Xie2014HepatolRes]] See <a href="#hepatitis" data-go="hepatitis">hepatitis B and C</a> and <a href="#alcohol" data-go="alcohol">alcohol-related liver disease</a>.</p></div>
+    <div class="card"><span class="tag brand">Prognosis talk</span><h4>Numbers for groups, not for you</h4><p>In England, people diagnosed as outpatients had average survival of 84% at 1 year and 66% at 5 years; after an emergency liver admission, 55% and 31%. [[Ratib2014]] These are averages over 5,118 people diagnosed in 1998–2009, and an emergency admission worsened the outlook independently of stage (HR 2.78). [[Ratib2014]] A care team can say more about one person's outlook, and talking about palliative care, for symptoms and planning, can sit alongside active treatment, including transplant assessment. See <a href="#living" data-go="living">Living with cirrhosis</a> and <a href="#transplant" data-go="transplant">Liver transplant</a>.</p></div>
+    <div class="card"><span class="tag">Controversy</span><h4>Is bleeding or ascites the worse first event?</h4><p>The classic 4-stage model put variceal bleeding (about 57% 1-year mortality) above ascites (about 20%). A German cohort found ascites separated risk better, and D'Amico's later 5-stage model moved bleeding alone below first non-bleeding decompensation. The newer view now predominates. [[Zipprich2012,DAmico2006,DAmico2014APT]]</p></div>
+  </div>
+  <p class="callout">The staircase is a simplification. D'Amico's later review describes compensated, decompensated and late decompensated clinical states that people do not pass through in a fixed order, with outcomes such as bleeding, ascites, cancer and death competing to happen first. [[DAmico2018JHep]] About 1% to 4% of people with cirrhosis develop liver cancer each year: see <a href="#hcc" data-go="hcc">Liver cancer surveillance</a>. [[Tapper2023JAMA]]</p>
+</section>

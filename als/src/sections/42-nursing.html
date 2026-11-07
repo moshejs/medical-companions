@@ -1,0 +1,172 @@
+<!-- ================= 4.2 NURSING CARE ================= -->
+<style>
+#m-nursing .btn{min-height:42px}
+#m-nursing .nc-scope{background:var(--lmn-soft);border-radius:var(--r);padding:12px 16px;font-size:15px;display:flex;gap:10px;align-items:flex-start}
+#m-nursing .nc-scope b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warn);white-space:nowrap;padding-top:3px}
+@media (max-width:600px){#m-nursing .nc-scope{flex-direction:column;gap:2px}}
+#m-nursing .nc-jump{display:flex;flex-wrap:wrap;gap:8px}
+#m-nursing .nc-part{display:flex;flex-direction:column;gap:18px;border-top:1px solid var(--line);padding-top:24px;scroll-margin-top:90px}
+#m-nursing .nc-part>h3.sub{margin-top:0}
+#m-nursing h4.nc-h{font-family:var(--display);font-weight:800;font-size:21px;line-height:1.15;margin:6px 0 0}
+#m-nursing .nc-in{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 16px}
+#m-nursing .nc-sl{display:flex;flex-direction:column;gap:4px;font-size:14.5px;font-weight:700}
+#m-nursing .nc-sl output{font:600 13px var(--mono);color:var(--steel)}
+#m-nursing .nc-sl input{min-height:32px}
+#m-nursing .nc-tgs{display:flex;flex-wrap:wrap;gap:10px 18px}
+#m-nursing .nc-tg{display:flex;flex-direction:column;gap:5px;min-width:0}
+#m-nursing .nc-crit{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-size:14.5px}
+#m-nursing .nc-crit li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;align-items:start}
+#m-nursing .nc-crit .tag{min-width:7.5em;justify-content:center}
+#m-nursing .nc-sum{border-radius:10px;padding:10px 12px;font-size:15px;font-weight:700}
+#m-nursing .nc-sum.on{background:var(--bad-soft);color:var(--bad)}
+#m-nursing .nc-sum.off{background:var(--good-soft);color:var(--good)}
+#m-nursing .nc-myths{display:flex;flex-direction:column;gap:7px}
+#m-nursing .nc-q{width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;display:flex;flex-direction:column;gap:5px;min-width:0;min-height:44px}
+#m-nursing .nc-q[aria-pressed="true"]{border-color:var(--steel);background:var(--steel-soft)}
+#m-nursing .nc-q b{font-size:15px;line-height:1.3}
+#m-nursing .nc-q .myth{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--tdp)}
+#m-nursing .nc-check{display:flex;flex-direction:column;gap:7px}
+#m-nursing .nc-check label{display:flex;gap:10px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 13px;cursor:pointer;font-size:14.5px;min-width:0;min-height:44px}
+#m-nursing .nc-check input{margin-top:3px;flex:none;width:18px;height:18px;accent-color:var(--steel)}
+#m-nursing .nc-out{background:var(--panel-2);border-radius:10px;padding:12px 14px;font-size:14px;white-space:pre-wrap;font-family:var(--mono);line-height:1.55;overflow-wrap:anywhere}
+#m-nursing .nc-gap{border-left:3px solid var(--warn);padding:4px 0 4px 12px;font-size:14.5px;max-width:72ch}
+#m-nursing .nc-gap b{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warn);display:block}
+#m-nursing .card .stage-cap{margin-top:auto}
+#m-nursing #ncRespSvg,#m-nursing #ncScrSvg,#m-nursing #ncO2Svg{max-width:760px}
+</style>
+<section class="mod" id="m-nursing" data-mod="nursing" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Living &amp; the future</p><h2>Nursing care</h2>
+    <p class="lede">Four parts of nursing care for a person living with ALS: assessment, giving the medicines, teaching and communication, and documentation. Each part has an animation or a tool to try, and every figure links to its source.</p></div>
+  <p class="nc-scope" role="note"><b>Scope</b><span>This module reports what guidelines, drug labels and published studies say. It is not a care plan and not medical advice. It does not replace local protocols, your scope of practice or the prescriber. Where the research for this guide found no ALS-specific source, the module says so instead of filling the gap.</span></p>
+  <div class="nc-jump" role="group" aria-label="Jump to a part">
+    <button class="btn" data-nc-jump="ncP1">1 · Assessment</button>
+    <button class="btn" data-nc-jump="ncP2">2 · Giving the medicines</button>
+    <button class="btn" data-nc-jump="ncP3">3 · Teaching and communication</button>
+    <button class="btn" data-nc-jump="ncP4">4 · Documentation</button>
+  </div>
+
+  <!-- ---------- 1 ASSESSMENT ---------- -->
+  <div class="nc-part" id="ncP1">
+    <h3 class="sub">1 · Assessment</h3>
+    <h4 class="nc-h">A nursing assessment round</h4>
+    <p class="prose">Seven areas, taken in turn at each review. Press Play to go round the ring; each segment lights up and its published checks tick off on the list.</p>
+    <div class="stepper" id="ncSteps"></div>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="ncSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A ring of seven segments, breathing, swallowing and nutrition, skin under the mask, medicines, communication, mood and caregiver, and documentation, lights up one segment at a time while a checklist of the published checks for that segment ticks off."></svg></div>
+        <div class="ctrls"><button class="btn primary" id="ncPlay">Play</button><label class="stage-cap tl" for="ncT">Timeline <input type="range" id="ncT" min="0" max="1" step="0.002" value="0.04"></label></div>
+        <p class="stage-cap">Schematic. The order follows the research summary for this guide; services order the round their own way.</p></div>
+      <aside class="note" id="ncNote" aria-live="polite"></aside>
+    </div>
+
+    <h4 class="nc-h">Breathing measures against the NICE thresholds</h4>
+    <p class="prose" id="ncRespLede"></p>
+    <div class="lab">
+      <div class="stage">
+        <div class="nc-in">
+          <label class="nc-sl" for="ncFvc"><span id="ncFvcL"></span><output id="ncFvcO" for="ncFvc"></output><input type="range" id="ncFvc" min="10" max="120" step="1" value="72"></label>
+          <label class="nc-sl" for="ncSnip"><span id="ncSnipL"></span><output id="ncSnipO" for="ncSnip"></output><input type="range" id="ncSnip" min="10" max="120" step="1" value="60"></label>
+          <label class="nc-sl" for="ncSpo"><span id="ncSpoL"></span><output id="ncSpoO" for="ncSpo"></output><input type="range" id="ncSpo" min="85" max="100" step="1" value="96"></label>
+        </div>
+        <div class="nc-tgs">
+          <div class="nc-tg"><span class="kicker" id="ncSymK"></span><div class="ctrls" id="ncSym" role="group"></div></div>
+          <div class="nc-tg"><span class="kicker" id="ncSexK"></span><div class="ctrls" id="ncSex" role="group"></div></div>
+          <div class="nc-tg"><span class="kicker" id="ncFallK"></span><div class="ctrls" id="ncFall" role="group"></div></div>
+          <div class="nc-tg"><span class="kicker" id="ncLungK"></span><div class="ctrls" id="ncLung" role="group"></div></div>
+        </div>
+        <div class="scroll"><svg id="ncRespSvg" viewBox="0 0 720 236" style="min-width:560px" role="img" aria-label="Three gauges, FVC, SNIP and SpO2, each with the NICE NG42 threshold values marked and a marker at the value entered."></svg></div>
+        <p class="stage-cap" id="ncRespCap"></p>
+      </div>
+      <aside class="note" id="ncRespNote" aria-live="polite"></aside>
+    </div>
+
+    <h4 class="nc-h">Screening scores and their published cut-offs</h4>
+    <p class="prose" id="ncScrLede"></p>
+    <div class="lab">
+      <div class="stage">
+        <div class="ctrls" id="ncScrBtns" role="group" aria-label="Screening tool"></div>
+        <label class="nc-sl" for="ncScr"><span id="ncScrL"></span><output id="ncScrO" for="ncScr"></output><input type="range" id="ncScr" min="0" max="40" step="1" value="9"></label>
+        <div class="scroll"><svg id="ncScrSvg" viewBox="0 0 720 170" style="min-width:560px" role="img" aria-label="A score line for the chosen screening tool with its published cut-offs marked and a marker at the example score."></svg></div>
+        <p class="stage-cap" id="ncScrCap"></p>
+      </div>
+      <aside class="note" id="ncScrNote" aria-live="polite"></aside>
+    </div>
+
+    <h4 class="nc-h">How often: NICE and EAN disagree</h4>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="ncVisSvg" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="A year of multidisciplinary reviews: NICE NG42 at every 2 to 3 months and the EAN 2024 guideline at every 3 to 6 months, with the reviews lighting up as the months pass."></svg></div>
+        <div class="ctrls"><button class="btn primary" id="ncVisPlay">Play</button><label class="stage-cap tl" for="ncVisT">Months <input type="range" id="ncVisT" min="0" max="1" step="0.002" value="1"></label></div>
+        <p class="stage-cap" id="ncVisCap" aria-live="polite"></p></div>
+      <aside class="note" id="ncVisNote"></aside>
+    </div>
+    <div class="cards" id="ncAssessCards"></div>
+  </div>
+
+  <!-- ---------- 2 MEDICINES ---------- -->
+  <div class="nc-part" id="ncP2">
+    <h3 class="sub">2 · Giving the medicines</h3>
+    <p class="prose" id="ncMedLede"></p>
+    <div class="ctrls" id="ncMedBtns" role="group" aria-label="Medicine"></div>
+    <div class="stepper" id="ncMedSteps"></div>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="ncMedSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="The steps of giving the chosen medicine, as its label describes them, light up in turn, each with a small animated picture."></svg></div>
+        <div class="ctrls"><button class="btn primary" id="ncMedPlay">Play</button><label class="stage-cap tl" for="ncMedT">Steps <input type="range" id="ncMedT" min="0" max="1" step="0.002" value="0.05"></label></div>
+        <p class="stage-cap" id="ncMedCap"></p></div>
+      <aside class="note" id="ncMedNote" aria-live="polite"></aside>
+    </div>
+
+    <h4 class="nc-h">Riluzole liver tests: the US and EU labels differ</h4>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="ncLftSvg" viewBox="0 0 720 210" style="min-width:560px" role="img" aria-label="Two rows of liver-test dates over the first year of riluzole: the US label monthly for 3 months then periodically, the EU label monthly for 3 months, then every 3 months for the rest of the first year, then periodically."></svg></div>
+        <div class="ctrls"><button class="btn primary" id="ncLftPlay">Play</button><label class="stage-cap tl" for="ncLftT">Months <input type="range" id="ncLftT" min="0" max="1" step="0.002" value="1"></label></div>
+        <p class="stage-cap" id="ncLftCap" aria-live="polite"></p></div>
+      <aside class="note" id="ncLftNote"></aside>
+    </div>
+    <div class="cards" id="ncMedCards"></div>
+  </div>
+
+  <!-- ---------- 3 TEACHING ---------- -->
+  <div class="nc-part" id="ncP3">
+    <h3 class="sub">3 · Teaching and communication</h3>
+    <h4 class="nc-h">Gastrostomy care: ESPEN and ESGE move the tube differently</h4>
+    <div class="ctrls" id="ncPegBtns" role="group" aria-label="Guideline"></div>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="ncPegSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A cross-section of a gastrostomy tube through the abdominal and stomach walls; over a week the tube is turned or pushed inward on the days the chosen guideline describes."></svg></div>
+        <div class="ctrls"><button class="btn primary" id="ncPegPlay">Play</button><label class="stage-cap tl" for="ncPegT">Days <input type="range" id="ncPegT" min="0" max="1" step="0.002" value="0.02"></label></div>
+        <p class="stage-cap" id="ncPegCap"></p></div>
+      <aside class="note" id="ncPegNote" aria-live="polite"></aside>
+    </div>
+
+    <h4 class="nc-h">In hospital: oxygen with caution</h4>
+    <div class="lab">
+      <div class="stage"><div class="scroll"><svg id="ncO2Svg" viewBox="0 0 720 190" style="min-width:560px" role="img" aria-label="An oxygen saturation scale from 80 to 100 percent with two target bands: 94 to 98 percent for most acutely ill adults and 88 to 92 percent for people at risk of raised carbon dioxide, which the MND Association says is acceptable in MND."></svg></div>
+        <p class="stage-cap" id="ncO2Cap"></p></div>
+      <aside class="note" id="ncO2Note"></aside>
+    </div>
+
+    <h4 class="nc-h">Common misunderstandings</h4>
+    <p class="prose" id="ncMythLede"></p>
+    <div class="split2">
+      <div class="nc-myths" id="ncMyths" role="group" aria-label="Misunderstandings"></div>
+      <aside class="note" id="ncMythNote" aria-live="polite"></aside>
+    </div>
+    <div class="cards" id="ncTeachCards"></div>
+  </div>
+
+  <!-- ---------- 4 DOCUMENTATION ---------- -->
+  <div class="nc-part" id="ncP4">
+    <h3 class="sub">4 · Documentation</h3>
+    <p class="prose" id="ncDocLede"></p>
+    <div class="split2">
+      <div>
+        <div class="nc-check" id="ncDocFields"></div>
+        <div class="ctrls" style="margin-top:10px"><button class="btn" id="ncDocAll"></button><button class="btn" id="ncDocNone"></button></div>
+      </div>
+      <div class="stage">
+        <p class="kicker" id="ncDocK"></p>
+        <div class="nc-out" id="ncDocOut" aria-live="polite"></div>
+        <p class="stage-cap" id="ncDocCap"></p>
+      </div>
+    </div>
+    <div class="cards" id="ncDocCards"></div>
+  </div>
+</section>

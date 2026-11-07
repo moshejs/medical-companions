@@ -1,0 +1,50 @@
+<!-- ================= 4.1 LOWERING THE RISK ================= -->
+<section class="mod" id="m-prevent" data-mod="prevent" hidden>
+<style>
+#m-prevent .card .ev{align-self:flex-start}
+#m-prevent .pvfx{min-height:120px}
+#m-prevent .pvfx .callout{font-size:14.5px}
+#m-prevent .pvbtns .btn{font-size:13px;padding:6px 11px}
+#m-prevent .card svg{width:100%;height:auto;display:block}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 4 · Living, caring, preventing</p><h2>Lowering the risk</h2>
+    <p class="lede">The 2024 Lancet Commission estimated how much dementia worldwide is linked to 14 risk factors that could, in principle, be changed. Play the wheel to build up its estimate, then pick any factor to see the evidence behind it and the caveats.</p></div>
+  <div class="stepper" id="pvSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="pvSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A wheel of all dementia cases in which 14 coloured segments, grouped as early life, midlife and late life, fill in one by one with their population attributable fractions, adding up to 45 percent. A list beside it names each factor and its percentage."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="pvPlay">Play</button><label class="stage-cap tl" for="pvT">Timeline <input type="range" id="pvT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">Population attributable fractions from the Commission's Figure 9, rounded to whole numbers. Click a segment or a row, or use the buttons below.</p></div>
+    <aside class="note" id="pvNote" aria-live="polite"></aside>
+  </div>
+  <div class="ctrls pvbtns" role="group" aria-label="Pick a risk factor to see its evidence" id="pvBtns"></div>
+  <div class="note pvfx" id="pvFx" aria-live="polite"></div>
+
+  <h3 class="sub">What the prevention trials found</h3>
+  <p class="prose">A risk factor linked to dementia in observational studies is not proof that changing it prevents dementia. Randomised trials test that. Play the plot to bring in each trial's main result; many are null or small.</p>
+  <div class="stepper" id="pvTrSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="pvTr" viewBox="0 0 720 520" style="min-width:560px" role="img" aria-label="A forest plot that brings in prevention trial results one at a time: preDIVA, SPRINT MIND for dementia and for MCI, LIFE and ACTIVE as hazard or odds ratios, and FINGER, US POINTER, ACHIEVE overall and its subgroup, and the MIND diet as differences in cognitive change. Most intervals cross the no-effect line."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="pvTrPlay">Play</button><label class="stage-cap tl" for="pvTrT">Timeline <input type="range" id="pvTrT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">Dots are estimates; lines are 95% confidence intervals. A line that crosses the dashed no-effect line means the result is compatible with no effect. Units differ between rows, so compare each with its own zero.</p></div>
+    <aside class="note" id="pvTrNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards" id="pvCards"></div>
+
+  <h3 class="sub">WHO 2019 and the Lancet Commission 2024</h3>
+  <p class="prose">The two bodies weigh evidence differently. WHO grades recommendations on intervention evidence; the Commission models how much dementia each factor may account for.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Factor</th><th>WHO 2019 recommendation (evidence quality)</th><th>Lancet Commission 2024</th></tr></thead>
+    <tbody>
+      <tr><th>Physical activity</th><td>Strong for normal cognition (moderate); conditional for MCI (low) [[Chowdhary2021]]</td><td>Inactivity: about 2% [[Livingston2024]]</td></tr>
+      <tr><th>Smoking</th><td>Stop smoking: strong (low) [[Chowdhary2021]]</td><td>About 2% [[Livingston2024]]</td></tr>
+      <tr><th>Diet</th><td>Mediterranean-like diet: conditional (moderate). Vitamin B, E, PUFA and multi-complex supplements: strong recommendation against (moderate) [[Chowdhary2021]]</td><td>Not one of the 14 factors [[Livingston2024]]</td></tr>
+      <tr><th>Alcohol</th><td>Reduce hazardous drinking: conditional (moderate, observational) [[Chowdhary2021]]</td><td>Excessive alcohol: about 1% [[Livingston2024]]</td></tr>
+      <tr><th>Blood pressure, diabetes</th><td>Manage per WHO guidelines: strong. To reduce dementia specifically: conditional (very low) [[Chowdhary2021]]</td><td>Hypertension about 2%, diabetes about 2% [[Livingston2024]]</td></tr>
+      <tr><th>Cholesterol</th><td>Manage dyslipidaemia in midlife: conditional (low) [[Chowdhary2021]]</td><td>High LDL: about 7%, new in 2024 [[Livingston2024]]</td></tr>
+      <tr><th>Hearing loss</th><td>No recommendation: intervention evidence insufficient [[Chowdhary2021]]</td><td>About 7%, joint largest [[Livingston2024]]</td></tr>
+      <tr><th>Depression, social isolation</th><td>No recommendation: insufficient evidence [[Chowdhary2021]]</td><td>Depression about 3%, isolation about 5% [[Livingston2024]]</td></tr>
+      <tr><th>Cognitive training</th><td>Conditional (very low to low) [[Chowdhary2021]]</td><td>Not one of the 14 factors [[Livingston2024]]</td></tr>
+    </tbody></table></div>
+</section>

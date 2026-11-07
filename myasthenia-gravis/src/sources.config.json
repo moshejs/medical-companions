@@ -1,0 +1,14 @@
+{
+ "areas": {
+  "A": "Epidemiology, clinical picture & history",
+  "B": "Junction & immunopathology",
+  "C": "Diagnosis & differential",
+  "D": "Conventional therapy",
+  "E": "Thymus & thymectomy",
+  "F": "Biologics",
+  "G": "Crisis & drugs to avoid",
+  "H": "Nursing & living",
+  "I": "Research & cure"
+ },
+ "validated_tag": false
+}

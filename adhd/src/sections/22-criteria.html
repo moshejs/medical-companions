@@ -1,0 +1,97 @@
+<!-- ================= 2.2 DSM-5-TR CRITERIA CALCULATOR ================= -->
+<style>
+#m-criteria .crcols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media (max-width:760px){#m-criteria .crcols{grid-template-columns:minmax(0,1fr)}}
+#m-criteria fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px 12px;margin:0;min-width:0;display:flex;flex-direction:column;gap:6px;background:var(--panel)}
+#m-criteria legend{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dx);padding:0 6px}
+#m-criteria fieldset label{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;line-height:1.35;cursor:pointer}
+#m-criteria fieldset input{width:18px;height:18px;margin:1px 0 0;flex:none;accent-color:var(--dx)}
+#m-criteria fieldset label b{font:600 11px var(--mono);color:var(--muted);margin-right:3px}
+#m-criteria .crbanner{background:var(--gold-soft);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14.5px;max-width:none}
+#m-criteria .crbanner b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warn);display:block;margin-bottom:3px}
+#m-criteria .crmiss{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;font-size:14.5px}
+#m-criteria .crend{border-top:1px solid var(--line);padding-top:10px}
+#m-criteria .crtop{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end}
+#m-criteria .crtop label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700}
+#m-criteria .crtop select{font:inherit;font-weight:400;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%}
+#m-criteria #crPresetLab{font-size:13.5px;color:var(--muted)}
+#m-criteria .card>.tag{align-self:flex-start}
+</style>
+<section class="mod" id="m-criteria" data-mod="criteria" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Recognising &amp; diagnosing</p><h2>DSM-5-TR criteria calculator</h2>
+    <p class="lede">ADHD is diagnosed against a written set of criteria: count the symptoms, then check age, duration, settings, impairment and other explanations. Scrub through the editions to see how the rules reached their present form, then tick the boxes in a teaching calculator.</p></div>
+  <div class="stepper" id="crSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="crSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A timeline of diagnostic manuals from DSM-II in 1968 to DSM-5-TR in 2022. Below it, a lifespan ruler shows the age-of-onset rule moving from before 7 in DSM-IV to before 12 in DSM-5, and a 5-symptom adult threshold appearing from age 17; two rows of nine dots per domain show the threshold falling from 6 to 5 for adults; four chips change as autism stops being an exclusion, settings move from impairment to symptoms, severity specifiers are added and ICD-11 code 6A05 arrives."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="crPlay">Play</button><label class="stage-cap tl" for="crT">Edition <input type="range" id="crT" min="0" max="1" step="0.001" value="0.8"></label></div>
+      <p class="stage-cap">Schematic. Thresholds and the onset rule are drawn from DSM-IV onward; the earlier editions show only their name and how the symptoms were grouped. [[Lange2010,Epstein2013,APA2022DSM]]</p>
+    </div>
+    <aside class="note" id="crNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: a teaching calculator</h3>
+  <p class="crbanner"><b>A teaching tool, not a self-test</b>This calculator shows how the DSM-5-TR rules fit together. It cannot diagnose you or anyone else, and a "criteria met" result here does not mean ADHD. Symptoms have to occur "often", be out of keeping with developmental level, and directly harm daily life; a clinician judges that through interviews, history and reports from several settings, and checks for other explanations first. The items below are close paraphrases, not the manual's wording. [[APA2022DSM,Faraone2021]]</p>
+  <div class="ctrls" role="group" aria-label="Examples"><span class="kicker">Load an example</span>
+    <button class="btn" data-crp="kid" aria-pressed="false">8-year-old, inattentive</button>
+    <button class="btn" data-crp="teen" aria-pressed="false">14-year-old, 5 symptoms</button>
+    <button class="btn" data-crp="adult" aria-pressed="false">Adult, 5 + 5</button>
+    <button class="btn" data-crp="one" aria-pressed="false">Only at home</button>
+    <button class="btn ghost" data-crp="clear" aria-pressed="false">Clear all</button>
+  </div>
+  <p id="crPresetLab" aria-live="polite">Tick the items that apply to the person in your teaching case.</p>
+  <div id="crCalc" class="prose" style="max-width:none;gap:14px">
+    <div class="crtop">
+      <label for="crAge">Age of the person
+        <select id="crAge"><option value="u">Under 17 (threshold 6 of 9)</option><option value="o">17 and over (threshold 5 of 9)</option></select></label>
+    </div>
+    <div class="crcols">
+      <fieldset id="crA1"><legend>A1 · Inattention (9)</legend></fieldset>
+      <fieldset id="crA2"><legend>A2 · Hyperactivity-impulsivity (9)</legend></fieldset>
+    </div>
+    <fieldset id="crOther"><legend>Duration and Criteria B to E</legend></fieldset>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <p class="kicker">How close each domain is to its threshold</p>
+      <div class="scroll"><svg id="crGauge" viewBox="0 0 720 150" style="min-width:560px" role="img" aria-label="Two gauges of nine segments, one for inattention and one for hyperactivity-impulsivity, fill as items are ticked; a dashed line marks the threshold for the chosen age, and five lamps show whether duration and Criteria B to E are ticked."></svg></div>
+      <p class="stage-cap">Symptoms are not counted if they are only oppositional behaviour, defiance, hostility or failure to understand tasks. [[APA2022DSM]]</p>
+    </div>
+    <aside class="note" id="crOut" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">DSM-5-TR and ICD-11 side by side</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Feature</th><th>DSM-5-TR (2022)</th><th>ICD-11 (6A05)</th></tr></thead>
+    <tbody>
+      <tr><th>Core definition</th><td>A persistent pattern of inattention and/or hyperactivity-impulsivity that interferes with functioning or development, set out as Criteria A to E [[APA2022DSM]]</td><td>Neurodevelopmental disorders, chapter 06; moved out of the ICD-10 childhood behavioural and emotional disorders [[Posner2020,TebartzVanElst2025]]</td></tr>
+      <tr><th>Name</th><td>Attention-deficit/hyperactivity disorder [[APA2022DSM]]</td><td>Attention deficit hyperactivity disorder; replaced ICD-10 "hyperkinetic disorder" (F90) [[Posner2020,TebartzVanElst2025]]</td></tr>
+      <tr><th>Symptom count</th><td>≥6 of 9 in a domain up to age 16; ≥5 from age 17 [[APA2022DSM,Posner2020]]</td><td>"Several" symptoms; no fixed count [[Posner2020]]</td></tr>
+      <tr><th>Duration and onset</th><td>≥6 months; several symptoms before age 12 [[APA2022DSM]]</td><td>The Lancet seminar describes ICD-11 as giving no precise age of onset, duration or symptom number [[Posner2020]]</td></tr>
+      <tr><th>Settings and impairment</th><td>Several symptoms in ≥2 settings; clear interference with functioning [[APA2022DSM]]</td><td>Not compared in the sources used for this guide</td></tr>
+      <tr><th>Presentations</th><td>Combined F90.2; predominantly inattentive F90.0; predominantly hyperactive-impulsive F90.1 [[APA2022DSM]]</td><td>Combined 6A05.2; predominantly inattentive 6A05.0; predominantly hyperactive-impulsive 6A05.1 [[TebartzVanElst2025]]</td></tr>
+      <tr><th>Autism</th><td>Can be diagnosed alongside ADHD since DSM-5 [[Epstein2013]]</td><td>Not compared in the sources used for this guide</td></tr>
+      <tr><th>In use</th><td>DSM-5 2013; text revision 2022 [[Epstein2013,APA2022DSM]]</td><td>Approved May 2019; reporting from 1 January 2022 [[Reed2019ICD11]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Specifiers and related diagnoses</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Label</th><th>When it is used</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Presentation</th><td>Based on the past 6 months: combined (A1 and A2 met), predominantly inattentive (A1 only), predominantly hyperactive-impulsive (A2 only). Profiles often shift: many children first diagnosed with the combined presentation later have a predominantly inattentive one, because hyperactivity-impulsivity often wanes while inattention stays fairly stable.</td><td>[[APA2022DSM,Epstein2013,Wolraich2019]]</td></tr>
+      <tr><th>In partial remission</th><td>Full criteria were met before; fewer than full criteria for the past 6 months; symptoms still impair functioning.</td><td>[[APA2022DSM,Epstein2013]]</td></tr>
+      <tr><th>Current severity</th><td>Mild, moderate or severe, from how many symptoms exceed the threshold and how much impairment they cause. Critics note it can be scored from either, which may make it unreliable between clinicians.</td><td>[[APA2022DSM,Epstein2013]]</td></tr>
+      <tr><th>Other specified ADHD (F90.8)</th><td>Impairing ADHD-type symptoms that do not meet full criteria; the clinician records the reason.</td><td>[[APA2022DSM]]</td></tr>
+      <tr><th>Unspecified ADHD (F90.9)</th><td>Impairing ADHD-type symptoms that do not meet full criteria, without recording a reason.</td><td>[[APA2022DSM]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">What a checklist cannot see</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Who diagnoses</span><h4>A clinician, not a scale</h4><p>The World Federation of ADHD consensus states that ADHD can only be diagnosed by a licensed clinician who interviews the parent or caregiver and/or the patient. Rating scales, neuropsychological tests and brain imaging cannot diagnose it alone. [[Faraone2021]] See <a href="#scales" data-go="scales">rating scales &amp; assessment</a>.</p></div>
+    <div class="card"><span class="tag dx">History</span><h4>The whole story</h4><p>The diagnosis needs a detailed evaluation of current and past symptoms and impairment, plus family, gestational and developmental history. [[Posner2020]] The AAP asks clinicians to confirm DSM-5 criteria, document symptoms and impairment in more than one major setting from parents, teachers and other school staff, and rule out other causes. [[Wolraich2019]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>A continuum with a line drawn on it</h4><p>ADHD behaves like the extreme end of a continuum, differing from typical development by degree rather than kind. DSM-5 and ICD-11 still draw categorical thresholds, which the Lancet seminar calls "somewhat arbitrary". [[Posner2020]]</p></div>
+    <div class="card"><span class="tag dx">Look-alikes</span><h4>Criterion E matters</h4><p>Symptoms must not be better explained by another condition, such as a mood, anxiety, dissociative or personality disorder, or substance intoxication or withdrawal. [[APA2022DSM]] Many conditions overlap with ADHD or occur with it: see <a href="#differential" data-go="differential">look-alikes &amp; co-occurring conditions</a>.</p></div>
+    <div class="card"><span class="tag dx">Ability</span><h4>High IQ does not rule it out</h4><p>ADHD can be diagnosed in people with high intelligence. In a birth cohort of over 5,700 children, high-, average- and low-IQ children with ADHD did not differ in age at meeting criteria, co-occurring disorders or stimulant treatment. [[Faraone2021]]</p></div>
+    <div class="card"><span class="tag dx">Age 12</span><h4>Why the onset age moved</h4><p>Adults assessed late often cannot recall exactly when symptoms began, and some children (highly able, mainly inattentive, or in very structured settings) are not impaired until demands rise in late primary or middle school. [[Epstein2013]] Girls are among those most often missed: see <a href="#women" data-go="women">girls, women &amp; late diagnosis</a>.</p></div>
+  </div>
+</section>

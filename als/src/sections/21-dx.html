@@ -1,0 +1,162 @@
+<!-- ================= 2.1 DIAGNOSIS & CRITERIA ================= -->
+<section class="mod" id="m-dx" data-mod="dx" hidden>
+<style>
+#m-dx .dx-cols{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:1100px){#m-dx .dx-cols{grid-template-columns:minmax(0,1fr)}}
+#m-dx .dx-regs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;align-items:start}
+#m-dx fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px 12px;margin:0;display:flex;flex-direction:column;gap:8px;min-width:0;background:var(--panel)}
+#m-dx legend{font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);padding:0 4px}
+#m-dx .dx-def{font-size:13.5px;color:var(--muted);line-height:1.45;margin:0}
+#m-dx .dx-def b{color:var(--ink)}
+#m-dx .dx-tg{display:flex;gap:9px;align-items:flex-start;text-align:left;width:100%;min-height:44px;border-radius:10px;font-weight:600}
+#m-dx .dx-tg .tag{flex:none;margin-top:1px}
+#m-dx .dx-tg small{display:block;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:2px}
+#m-dx .dx-tg[aria-pressed="true"] small{color:inherit;opacity:.85}
+#m-dx .dx-tg[aria-pressed="true"] .tag{background:var(--bg)}
+#m-dx .dx-seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+#m-dx .dx-seg .btn{min-height:44px;padding:6px 8px;font-size:13px;border-radius:10px;overflow-wrap:anywhere}
+#m-dx .dx-ck{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.35;cursor:pointer;min-height:40px;padding:6px 2px;overflow-wrap:anywhere}
+#m-dx .dx-ck input{margin:1px 0 0;accent-color:var(--steel);flex:none;width:20px;height:20px}
+#m-dx .dx-ck small{display:block;color:var(--muted);font-size:12.5px}
+#m-dx .dx-side{display:flex;flex-direction:column;gap:12px;min-width:0}
+#m-dx .dx-v{border-radius:12px;padding:12px 14px;font-size:14.5px;border:1px solid var(--line);background:var(--panel-2);display:flex;flex-direction:column;gap:6px}
+#m-dx .dx-v.yes{background:var(--good-soft);border-color:var(--good)}
+#m-dx .dx-v.pend{background:var(--warn-soft);border-color:var(--warn)}
+#m-dx .dx-v strong{font-family:var(--display);font-size:20px;line-height:1.15}
+#m-dx .dx-v ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:3px}
+#m-dx .dx-v p{margin:0}
+#m-dx .dx-notes{display:flex;flex-direction:column;gap:8px}
+#m-dx .dx-notes p{font-size:13.5px;line-height:1.45;border-left:3px solid var(--warn);padding:2px 0 2px 10px;margin:0}
+#m-dx .dx-notes .tag{margin-right:6px}
+#m-dx .dx-sum{position:sticky;bottom:0;z-index:5;background:var(--panel);border:1px solid var(--steel);border-radius:12px;padding:9px 14px;font:600 13px/1.4 var(--mono);color:var(--ink);box-shadow:0 -4px 14px rgba(0,0,0,.08);margin-top:12px}
+#m-dx .dx-calc{display:flex;flex-direction:column;gap:12px}
+#m-dx details.dx-rules{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px}
+#m-dx details.dx-rules summary{cursor:pointer;font-weight:700;min-height:32px}
+#m-dx details.dx-rules .prose{margin-top:10px;max-width:80ch}
+#m-dx .dx-fp{display:flex;flex-direction:column;gap:8px}
+#m-dx .dx-fr{display:grid;grid-template-columns:150px minmax(0,1fr) 140px;gap:6px 12px;align-items:center;font-size:14px}
+@media (max-width:600px){#m-dx .dx-fr{grid-template-columns:minmax(0,1fr) auto}#m-dx .dx-fr .trk{grid-column:1 / -1;grid-row:2}}
+#m-dx .dx-fr .trk{position:relative;height:18px;background:var(--panel-2);border-radius:9px}
+#m-dx .dx-fr .trk i{position:absolute;top:0;bottom:0;left:0;border-radius:9px;opacity:.35}
+#m-dx .dx-fr .trk s{position:absolute;top:8px;height:2px;background:var(--ink)}
+#m-dx .dx-fr .trk b{position:absolute;top:3px;width:12px;height:12px;margin-left:-6px;border-radius:50%;border:2px solid var(--panel)}
+#m-dx .dx-fr .val{font:600 12.5px var(--mono);text-align:right}
+#m-dx .dx-fr .nm{font-weight:700}
+#m-dx .dx-path{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;counter-reset:dxp}
+#m-dx .dx-path>li{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 16px 54px;position:relative;display:flex;flex-direction:column;gap:8px;font-size:14.5px;counter-increment:dxp;min-width:0;overflow-wrap:break-word}
+#m-dx .dx-path>li::before{content:counter(dxp);position:absolute;left:14px;top:14px;width:28px;height:28px;border-radius:50%;background:var(--steel);color:var(--on-steel);font:700 13px/28px var(--mono);text-align:center}
+#m-dx .dx-path h4{margin:0;font-family:var(--display);font-weight:800;font-size:19px;line-height:1.2}
+#m-dx .dx-path ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:3px}
+#m-dx .dx-big{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--steel)}
+#m-dx .tbl table{min-width:900px}
+#m-dx .dx-legend .lg{display:inline-flex;align-items:center;gap:6px}
+#m-dx .dx-legend svg{width:18px;height:18px;flex:none}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis &amp; course</p><h2>Diagnosis &amp; criteria</h2>
+    <p class="lede">No single test proves ALS. The diagnosis rests on two kinds of motor neuron signs that spread over time, with other causes ruled out. Press Play to follow one composite case through three published criteria sets, then enter findings in the calculator to see how each set classifies them.</p></div>
+
+  <div class="ctrls" role="group" aria-label="Criteria view"><span class="kicker">Criteria view</span><span class="ctrls" id="dxView"></span></div>
+  <div class="stepper" id="dxSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="dxSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A body figure gains upper and lower motor neuron signs region by region over 14 months, while a ladder shows how the Gold Coast, revised El Escorial and Awaji criteria classify the findings at each point"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dxPlay">Play</button><label class="stage-cap tl" for="dxT">Months <input type="range" id="dxT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="legend dx-legend" id="dxLegend"></div>
+      <p class="stage-cap">Illustrative composite case, not a real person: the timings were chosen to show where the three rule sets differ. Schematic body map, not to scale.</p></div>
+    <aside class="note" id="dxNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Criteria calculator</h3>
+  <p class="callout">The El Escorial criteria were built for clinical trials, not for diagnosing one person, and all three sets are used to classify people for research and trial entry. The calculator shows how each published rule set classifies the findings you enter. It cannot diagnose ALS or rule it out, and it is not medical advice. [[deCarvalhoSwash2024,Vucic2021]]</p>
+  <div class="dx-calc">
+    <div class="ctrls" role="group" aria-label="Examples" id="dxEx"><span class="kicker">Load an example</span></div>
+    <div class="dx-cols">
+      <div class="dx-regs" id="dxRegs"></div>
+      <div class="dx-side">
+        <fieldset><legend>Course and exclusion</legend>
+          <label class="dx-ck"><input type="checkbox" id="dxProg"><span>Progression documented<small>Worsening or spread, by history or repeated examination</small></span></label>
+          <label class="dx-ck"><input type="checkbox" id="dxNorm"><span>Preceded by normal motor function<small>Part of Gold Coast requirement R1</small></span></label>
+          <label class="dx-ck"><input type="checkbox" id="dxExcl"><span>Other causes excluded<small>Tests chosen for the presentation: nerve conduction, EMG, MRI, blood or CSF</small></span></label>
+        </fieldset>
+        <div id="dxOut" class="dx-side"></div>
+      </div>
+    </div>
+    <div class="dx-sum" id="dxSum" aria-live="polite"></div>
+  </div>
+  <details class="dx-rules"><summary>The rules this calculator applies</summary>
+    <div class="prose">
+      <p><b>Gold Coast 2020.</b> All three are required, and the answer is ALS or not ALS, with no grades. R1: progressive motor impairment documented by history or repeated assessment, preceded by normal motor function. R2: UMN and LMN dysfunction in at least 1 body region (in the same region if only one region is involved), or LMN dysfunction in at least 2 regions. R3: investigations exclude other disease processes. UMN signs are clinical only. LMN signs in a muscle are weakness and wasting, or EMG showing both chronic neurogenic change and ongoing denervation (fibrillations, positive sharp waves or fasciculation potentials). A limb region needs 2 muscles supplied by different roots and different nerves; the bulbar and thoracic regions need 1 muscle. [[Shefner2020,Turner2022,Shrestha2026,Garnier2024]]</p>
+      <p><b>Revised El Escorial 2000.</b> Needs LMN evidence, clinical UMN evidence and progressive spread, with other causes excluded. Definite: UMN and LMN signs on clinical evidence in 3 regions. Probable: UMN and LMN signs in at least 2 regions, with some UMN signs rostral to (above) the LMN signs. Probable laboratory-supported: clinical UMN and LMN signs in only 1 region, or UMN signs alone in 1 region, plus LMN signs on EMG in at least 2 limbs. Possible: UMN and LMN signs together in 1 region, UMN signs alone in 2 or more regions, or LMN signs rostral to UMN signs. Under El Escorial EMG rules, denervation meant fibrillations or sharp waves; fasciculation potentials did not count. [[Brooks2000,CENTAURprotocol2019,Finsterer2013,deCarvalhoSwash2024]]</p>
+      <p><b>Awaji 2008.</b> EMG evidence of chronic neurogenic change counts the same as clinical LMN signs in a region, and fasciculation potentials count like fibrillations when chronic neurogenic change is present. The probable laboratory-supported category is deleted, leaving definite, probable and possible with the same region counts. [[deCarvalho2008,Finsterer2013,Vidovic2023]]</p>
+      <p><b>Where readers differ, this tool follows the quoted text and shows a note.</b> Awaji "probable" is applied as worded (signs in at least 2 regions with some UMN signs rostral), not with the stricter reading that UMN signs must be in 2 regions. Laboratory-supported uses "at least 2 limbs" from the WFN text, not "2 regions". For Gold Coast, UMN and LMN signs in two different regions are counted, because the box only requires one shared region "if only one body region is involved". [[Finsterer2013,JangBae2015,CENTAURprotocol2019,deCarvalhoSwash2024,Shefner2020]]</p>
+    </div>
+  </details>
+
+  <h3 class="sub">How well do the criteria perform?</h3>
+  <p class="prose">An individual-participant meta-analysis of 5 cohorts (Australia, China, Japan, Denmark and Europe, Italy) pooled 3007 people with suspected ALS, 2443 of whom had ALS at follow-up. The bars show pooled sensitivity and specificity with 95% confidence intervals. [[Shrestha2026]]</p>
+  <div class="split2">
+    <div class="stage"><span class="kicker">Sensitivity: people with ALS correctly classified</span><div class="dx-fp" id="dxSens"></div></div>
+    <div class="stage"><span class="kicker">Specificity: people without ALS correctly excluded</span><div class="dx-fp" id="dxSpec"></div></div>
+  </div>
+  <p class="stage-cap">Certainty for the specificity estimates was rated very low. In borderline cases (leaving out rEEC and Awaji "definite"), Gold Coast sensitivity was 0.95 against 0.82 for both older sets. Leaving out PLS raised rEEC and Awaji specificity to 0.76; Gold Coast stayed at 0.67. [[Shrestha2026]]</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who was studied</th><th>Gold Coast</th><th>Awaji</th><th>Revised El Escorial</th><th>Worth knowing</th></tr></thead>
+    <tbody>
+      <tr><th>Aggregate meta-analysis 2025 [[vonQuednow2025]]</th><td>9 studies, 9656 people, all at ALS referral centres</td><td>Sensitivity about 95%, specificity 66%, AUC 0.95</td><td>Probable or better: 54% / 94%. Possible or better: 85% / 82%</td><td>Probable or better: 59% / 94%. Possible or better: 84% / 77%</td><td>How well this applies outside referral centres is uncertain</td></tr>
+      <tr><th>Sydney 2021 [[Hannaford2021]]</th><td>506 consecutive referrals</td><td>Sensitivity 92%</td><td>90.3%</td><td>88.6%</td><td>"Possible" counted as positive. Gold Coast held up across onset site, duration and disability</td></tr>
+      <tr><th>Five European centres 2021 [[Pugdahl2021]]</th><td>404 referrals for EMG: 272 ALS, 94 mimics</td><td>Sensitivity 88.2%</td><td colspan="2">Best older set (Awaji with "possible"): 77.6%. Specificity high for all</td><td>The gain was "mainly due to" 28 people with PMA</td></tr>
+      <tr><th>Peking Union 2021 [[Shen2021]]</th><td>1185 people, 1162 with ALS</td><td>Sensitivity 96.6%</td><td>85.3%</td><td>85.1%</td><td>Only 23 people without ALS, so specificity is hard to judge [[Shrestha2026]]</td></tr>
+      <tr><th>Japan 2024 [[Otani2024]]</th><td>639 referrals: 529 ALS, 110 mimics</td><td>Sensitivity 96.8%, specificity 77.3%</td><td>89.6% / 65.5%</td><td>89.2% / 66.4%</td><td>Gold Coast false positives were mainly cervical spondylosis and parkinsonian syndromes</td></tr>
+      <tr><th>Brescia 2024 [[Ferullo2024]]</th><td>131 ALS, 104 controls, real-world</td><td>Sensitivity 93.1% first visit, 96.1% last; specificity 28.8%</td><td>77.8% / 89.3%; specificity 43.3%</td><td>71.8% / 87%; specificity 45.2%</td><td>Low specificity for all three in this cohort</td></tr>
+      <tr><th>Calgary 2022 [[Jewett2022]]</th><td>206 people with ALS</td><td>Sensitivity 96.1%</td><td>–</td><td>Definite or probable: 47.6%</td><td>Eligibility for three phase 3 trials rose from 31–45% to 95–100%</td></tr>
+      <tr><th>Dutch and Belgian registers 2022 [[deJongh2022]]</th><td>5957 people</td><td>600 (10.1%) met Gold Coast only</td><td>–</td><td>95 (1.6%) met rEEC only</td><td>Decline 0.81 against 0.84 ALSFRS-R points a month; median survival 18.7 against 17.8 months</td></tr>
+      <tr><th>Awaji meta-analysis 2012 [[Costa2012]]</th><td>8 studies, 1187 patients</td><td>–</td><td>Sensitivity 81.1%</td><td>62.2%</td><td>Awaji classified 23% (12–33%) more people as probable or definite, more so in bulbar onset</td></tr>
+      <tr><th>Awaji IPD analysis 2016 [[Geevasinga2016]]</th><td>1086 patients: 881 ALS, 205 mimics</td><td>–</td><td>0.70; updated Awaji 0.73</td><td>0.58</td><td>The "updated Awaji" restores a laboratory-supported category</td></tr>
+      <tr><th>Meta-analysis 2015 [[JangBae2015]]</th><td>9 studies, 1121 people with ALS</td><td>–</td><td colspan="2">Awaji "not always superior": it moved 20% of rEEC laboratory-supported cases down to possible</td><td>A real controversy about Awaji "probable"</td></tr>
+      <tr><th>Inter-rater study 2019 [[Johnsen2019]]</th><td>399 patients rated blind by 8 physicians</td><td>–</td><td>Sensitivity 63%</td><td>64%</td><td>Agreement was low, worst for "possible" and "probable laboratory-supported"</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Controversy</span><h4>Is Gold Coast too generous?</h4><p>Its higher sensitivity comes partly from counting progressive muscular atrophy (LMN signs only) as ALS. Specificity is lower and varies between cohorts, so mimics still need to be excluded and the diagnosis reviewed. Cervical spondylosis can be misclassified, and several authors of the pooled analysis helped write Gold Coast, a declared possible bias. [[Pugdahl2021,Shrestha2026,vonQuednow2025,Otani2024]]</p></div>
+    <div class="card"><span class="tag good">In its defence</span><h4>Trial groups barely changed</h4><p>In the Dutch and Belgian registers, people classified by Gold Coast progressed and survived much like those classified by revised El Escorial, so the wider net did not make trial populations noticeably more mixed. [[deJongh2022]]</p></div>
+    <div class="card"><span class="tag steel">For patients</span><h4>No more "possible ALS"</h4><p>The UK MND Clinical Studies Group wrote that the old terms (suspected, possible, probable) implied doubt that was "often psychologically distressing". Under Gold Coast the answer is ALS or not ALS. [[Turner2022]]</p></div>
+    <div class="card"><span class="tag steel">Why grades fell out of favour</span><h4>Categories are not prognosis</h4><p>In the Irish register, the category at diagnosis did not predict prognosis. Of 165 people first classed as possible or suspected, 67% later became trial-eligible, but 10% of the 254 who died never did. [[Traynor2000criteria]]</p></div>
+  </div>
+
+  <h3 class="sub">The diagnostic pathway</h3>
+  <p class="prose">What guidelines and reviews describe, in the order it usually happens. Real work-ups overlap, and tests follow the presentation.</p>
+  <ol class="dx-path">
+    <li><h4>Suspicion and referral</h4><p>NICE NG42 lists early isolated symptoms: loss of dexterity, falls or trips, speech or swallowing problems, tongue fasciculations, weakness, wasting, twitching, cramps or stiffness, breathing problems such as breathlessness lying flat or morning headache, and behavioural change or frontotemporal dementia. It recommends referring without delay and naming the possible diagnosis in the letter. EFNS says assessment by an experienced neurologist should happen as soon as possible. [[NICE2016,Andersen2012EFNS]]</p></li>
+    <li><h4>History and examination</h4><p>Steadily progressive, often asymmetric weakness without significant sensory symptoms, starting in a leg in about 35%, an arm in about 30% and speech or swallowing in about 30%. Widespread fasciculations, bilateral tongue wasting, the "split hand", head drop and emotional lability have a high positive predictive value (not formally validated). The examination covers all four regions for UMN and LMN signs, and looks for signs against ALS: sensory loss, eye-movement palsy, sphincter disturbance. A three-generation family tree is recommended. [[TurnerTalbot2013,Garnier2024]]</p></li>
+    <li><h4>EMG and nerve conduction</h4><p>In ALS, motor and sensory conduction is usually normal, with no conduction block. Needle EMG shows fasciculation potentials, fibrillations and positive sharp waves with large, long-duration motor units, and all four regions should be sampled. Conduction block, demyelination, prominent sensory change, or denervation in one nerve territory rather than a myotome point elsewhere. [[Garnier2024,deCarvalhoSwash2024,TurnerTalbot2013]]</p><p class="dx-def">EMG is not a stand-alone test: in one tertiary series it was "only 60% sensitive", and bulbar-onset ALS can show a normal EMG. [[TurnerTalbot2013,Turner2022]]</p></li>
+    <li><h4>MRI of brain and spine</h4><p>Used to exclude lesions of the brain and spinal cord. Some people with ALS show T2 signal along the corticospinal tracts. Brain MRI helps most with isolated swallowing problems or one-sided weakness, cervical MRI with mixed signs and nothing above the neck, and lumbar MRI with an LMN-only leg syndrome. [[Garnier2024,TurnerTalbot2013]]</p></li>
+    <li><h4>Blood tests (EFNS panel)</h4><ul><li>electrolytes, urea, creatinine; fasting glucose</li><li>AST, ALT, LDH, albumin; calcium</li><li>TSH, free T4 and free T3</li><li>full blood count; CRP; creatine kinase</li><li>serum protein electrophoresis and immunoelectrophoresis</li><li>vitamin B12 and folate</li><li>Borrelia, HIV, other viruses and syphilis if there is exposure risk</li><li>plus chest X-ray</li></ul><p class="dx-def"><span class="tag warn">Controversy</span> These lists apply the panel to everyone; Turner and Talbot argue there are "no mandatory investigations" and that tests should follow the clinical picture to avoid delay. [[Garnier2024,Andersen2012EFNS,Ghasemi2016,TurnerTalbot2013]]</p></li>
+    <li><h4>Selected cases</h4><p>Depending on the picture: GM1, anti-Hu, anti-MAG, AChR and MuSK antibodies, hexosaminidase A/B, ACE, lactate, DNA tests (SOD1, SMN, SBMA, TDP43, FUS), CSF, urine heavy metals, transcranial magnetic stimulation, or muscle or nerve biopsy. CSF matters most when an inflammatory neuropathy, primary progressive MS or a paraneoplastic disorder is suspected. [[Ghasemi2016,TurnerTalbot2013]]</p><p>In France, everyone with ALS is offered C9orf72 and SOD1 testing at diagnosis, with a wider panel for onset before 40, unusual progression or a family history. See <a href="#genes" data-go="genes">Genes</a>. [[Garnier2024]]</p></li>
+    <li><h4>Neurofilament light (NfL) <span class="ev early">Early evidence</span></h4><p>A protein released by damaged nerve fibres. Serum NfL above 62 pg/mL separated ALS from other conditions with 85.5% sensitivity and 81.8% specificity in one centre. CSF NfL at 2200 pg/mL gave 77% sensitivity and 85% specificity. On average CSF NfL was 3.35 times higher in ALS than in mimics, and serum NfL 8.15 times. [[Verde2019,Steinacker2016,Forgrave2019]]</p><p class="dx-def">NfL is also raised in stroke, MS and other neurodegenerative diseases, no clinical cut-off is agreed, and adding it did not raise the sensitivity of rEEC or Awaji. It "should not be considered in isolation". [[deCarvalhoSwash2024,Sferruzza2022,Klyk2026,Shrestha2026]]</p></li>
+    <li><h4>Giving the diagnosis, or waiting</h4><p>If Gold Coast is met with typical UMN and LMN signs, the diagnosis can be given. In early disease, or when two diagnoses remain possible, EMG is repeated at 3 or 6 months depending on how fast things change. [[Garnier2024]]</p></li>
+  </ol>
+
+  <h3 class="sub">Diagnostic delay</h3>
+  <div class="lab even">
+    <div class="stage"><span class="kicker">Months from first symptom to diagnosis</span><div class="dx-fp" id="dxDelay"></div>
+      <p class="stage-cap">Medians and means come from different designs and are not directly comparable. [[Paganoni2014,Goyal2024]]</p></div>
+    <div class="note">
+      <p>The interval from first symptom to diagnosis has stayed at about a year, roughly a third of median survival from onset. Faster disease is referred sooner, so true mimics tend to be slow. [[TurnerTalbot2013]]</p>
+      <p>In a US centre, 52% of people received another diagnosis first, and they saw 3 physicians on average; delay was longer over 60, in sporadic disease and with limb onset. In six countries, 35% had at least one prior misdiagnosis. Across 13 studies, bulbar onset was diagnosed about 4.4 months sooner than limb onset. [[Paganoni2014,Goyal2024,Saeed2026]]</p>
+      <div class="pt"><b>In plain words</b>It often takes about a year from the first weak hand or slurred word to a diagnosis. Early signs are easy to mistake for something else, and doctors need to see the pattern change over time.</div>
+    </div>
+  </div>
+
+  <h3 class="sub">Being told the diagnosis</h3>
+  <div class="cards">
+    <div class="card"><h4>Who and how (NICE NG42)</h4><p>A consultant neurologist with up-to-date MND experience gives the diagnosis, unless it is urgent. They ask how much the person wants to know and whom to involve, give oral and written information, provide a single point of contact, offer a face-to-face follow-up with a member of the multidisciplinary team within 4 weeks, inform the GP without delay, and leave time for questions such as "How long will I live?" and "Will my children get MND?" [[NICE2016]]</p></div>
+    <div class="card"><h4>The start of care</h4><p>EFNS: a consultant who knows the patient and the disease gives the news, followed by regular multidisciplinary support. Breaking the news is described as the start of treatment and an ongoing process: honest while keeping hope, without collusion with relatives, with written material that supports but never replaces a conversation. [[Andersen2012EFNS,ChioBorasio2004]]</p></div>
+    <div class="card"><h4>What people said</h4><p>In an Australian survey of 248 people, 36% were dissatisfied with how they were told. Satisfaction was higher with more time, an empathic response, realistic goals, exploring expectations and making a plan. [[Aoun2016]]</p></div>
+    <div class="card"><h4>Only when it is secure</h4><p>The Scottish register's lesson was to tell people "only when it is secure". The UK MND Clinical Studies Group adds that the clinician should know the proposed care plan. [[Davenport1996,Turner2022]]</p></div>
+    <div class="card"><h4>A second axis: thinking and behaviour</h4><p>The ALS-FTSD criteria (2017) describe the motor disease on one axis and cognition and behaviour on another: ALSci (cognitive impairment: executive or language), ALSbi (behavioural impairment: apathy, or at least 2 behavioural features), ALScbi (both), and ALS-FTD. Over 50% of people with ALS have some neuropsychological change, and screening with the ECAS or ALS-CBS is recommended. More in <a href="#living" data-go="living">Living with ALS</a>. [[Strong2017,Garnier2024]]</p></div>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Gold Coast = <b>progressive motor impairment</b> + <b>UMN and LMN signs in 1 region, or LMN signs in 2 regions</b> + <b>other causes excluded</b>. It has no grades. Revised El Escorial grades by region count: definite 3 regions, probable 2 with UMN signs rostral to LMN signs, laboratory-supported uses EMG in 2 limbs, possible 1 region. Awaji lets EMG and fasciculation potentials count, and deletes laboratory-supported. [[Shefner2020,CENTAURprotocol2019,deCarvalho2008]]</div>
+    <div class="pt"><b>In plain words</b>Doctors look for two kinds of motor nerve damage: stiffness and brisk reflexes from the brain side, and wasting and twitching from the spinal cord side. They need to see it in more than one place or getting worse over time, and they first check that nothing else explains it.</div>
+  </div>
+</section>

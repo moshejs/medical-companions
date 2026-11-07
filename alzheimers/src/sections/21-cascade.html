@@ -1,0 +1,49 @@
+<!-- ================= 2.1 CASCADE ================= -->
+<style>
+#m-cascade .ca-pick{display:flex;flex-direction:column;gap:10px}
+#m-cascade .ca-pick .ctrls .kicker{min-width:118px}
+#m-cascade .ca-two{display:flex;flex-direction:column;gap:8px}
+#m-cascade .ca-two p{font-size:15px;border-left:3px solid var(--line);padding-left:10px}
+#m-cascade .ca-two p.aa{border-left-color:var(--rose)}
+#m-cascade .ca-two p.iwg{border-left-color:var(--sky)}
+</style>
+<section class="mod" id="m-cascade" data-mod="cascade" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Course and diagnosis</p><h2>Twenty years before symptoms</h2>
+    <p class="lede">Alzheimer's changes in the brain long before anyone notices. Biomarkers turn abnormal in a broadly predictable order: amyloid, then tau and nerve-cell damage, then thinking. Play the clock, and switch between families with a dominant gene and the common late-onset form.</p></div>
+  <div class="ctrls" role="group" aria-label="Which timeline">
+    <span class="kicker">Timeline</span>
+    <button class="btn" id="caDom" aria-pressed="true">Dominantly inherited (DIAN, years)</button>
+    <button class="btn" id="caSpo" aria-pressed="false">Sporadic, late-onset (schematic)</button>
+  </div>
+  <div class="stepper" id="caSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="caSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Biomarker curves rising over decades in order: CSF amyloid, amyloid PET, CSF tau, MRI atrophy, FDG-PET hypometabolism and cognition, with a moving playhead. In the dominantly inherited view the onsets are DIAN's measured years before expected onset; in the sporadic view the curves are schematic and a lower chart shows measured amyloid positivity by age and APOE."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="caPlay">Play</button><label class="stage-cap tl" for="caT">Clock <input type="range" id="caT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="readout" id="caRead"></p>
+      <p class="stage-cap" id="caCap"></p></div>
+    <aside class="note" id="caNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Where is this person on the 2024 map?</h3>
+  <div class="prose"><p>In 2024 an Alzheimer's Association workgroup proposed two scales: a biological stage from biomarkers (A to D, by how far tau has spread on PET) and a clinical stage from symptoms (0 to 6). The International Working Group (IWG) disagreed about what to call people without symptoms. Set the biomarkers and symptoms, or pick an example. [[Jack2024,Dubois2024]]</p></div>
+  <div class="ca-pick">
+    <div class="ctrls" role="group" aria-label="Examples" id="caPre"><span class="kicker">Examples</span></div>
+    <div class="ctrls" role="group" aria-label="Amyloid, Core 1 biomarker" id="caAmy"><span class="kicker">Amyloid (Core 1)</span></div>
+    <div class="ctrls" role="group" aria-label="Tau PET" id="caTau"><span class="kicker">Tau PET</span></div>
+    <div class="ctrls" role="group" aria-label="Clinical stage" id="caCli"><span class="kicker">Symptoms</span></div>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="caMap" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="A grid of clinical stages 0 to 6 against biological stages none, A, B, C and D. The expected path runs diagonally from 1A to 4 to 6D, and a ring marks the chosen person."></svg></div>
+      <p class="stage-cap">Shaded cells: the expected diagonal from 1A to 4–6D. Hatched: no Core 1 biomarker abnormal.</p></div>
+    <aside class="note" id="caMapNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How the model and the definitions changed</h3>
+  <div class="cards">
+    <div class="card"><span class="ev hyp">Hypothetical model</span><h4>Jack 2010, revised 2013</h4><p>The 2010 model put amyloid first and neurodegeneration (CSF tau, MRI atrophy, FDG) after a variable lag, tracking symptoms. The 2013 update indexed people by time, added person-to-person variation, reordered some markers, and proposed that tau may start on its own in sporadic disease and be accelerated by amyloid. [[Jack2010,Jack2013]]</p></div>
+    <div class="card"><span class="ev est">Measured</span><h4>DIAN, and its caveats</h4><p>DIAN's numbers come from 128 mutation carriers placed on a clock set by the parent's age at onset. Longitudinal data from 217 people confirmed amyloid changes first, but disagreed with the cross-sectional timing of CSF tau by more than 10 years and showed CSF p-tau181 falling near onset. The authors warn the results may not apply to sporadic Alzheimer's. [[Bateman2012,McDade2018]]</p></div>
+    <div class="card"><span class="ev early">Definitions moved</span><h4>2011, 2018, 2024</h4><p>In 2011, diagnosis was clinical and biomarkers were not advised for routine use. In 2018, a research framework defined Alzheimer's biologically and required A+ and T+. In 2024, one abnormal Core 1 result, such as amyloid alone, is enough. [[McKhann2011,Jack2018,Jack2024]]</p></div>
+    <div class="card"><span class="ev est">Modelled</span><h4>How long each phase lasts</h4><p>Across 6 cohorts (3,268 people), someone with preclinical Alzheimer's at age 70 was estimated to spend about 10 years preclinical, 4 with MCI and 6 with dementia. Total duration ranged from 24 years starting at 60 to 15 years starting at 80. [[Vermunt2019]]</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>Amyloid is necessary for the biological label but tracks symptoms poorly; neurodegeneration tracks symptom severity, and tau stage carries prognosis. In cognitively unimpaired people, against A−T−, the hazard ratio for progressing to dementia was 1.5 for stage A, 5.6 for medial temporal tau and 39.9 for neocortical tau. [[Jack2010,Jack2024]]</div>
+</section>

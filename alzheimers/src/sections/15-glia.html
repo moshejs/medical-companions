@@ -1,0 +1,71 @@
+<!-- ================= 1.5 GLIA ================= -->
+<style>
+#m-glia .gl-tbl td:nth-child(2){white-space:nowrap;font-weight:700}
+#m-glia .gl-tbl td:last-child{white-space:nowrap}
+#m-glia .gl-tbl table{min-width:640px}
+</style>
+<section class="mod" id="m-glia" data-mod="glia" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>Microglia and the lost synapse</h2>
+    <p class="lede">Memory depends on synapses, the contact points between neurons. In Alzheimer's they are lost early, and the brain's own immune cells help remove them. Press play to watch a patch of tissue change, then try the two switches.</p></div>
+  <div class="ctrls" role="group" aria-label="Scenario">
+    <span class="kicker">Scenario</span>
+    <button class="btn" id="glTrem" aria-pressed="false">TREM2 R47H variant</button>
+    <button class="btn" id="glBlock" aria-pressed="false">Block complement (mouse experiment)</button>
+  </div>
+  <div class="stepper" id="glSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="glSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A field of 24 synapses between two dendrites. Amyloid oligomers gather, complement proteins C1q and C3 tag synapses, microglia switch from a branched resting shape to an activated shape and engulf the tagged synapses, a plaque forms and astrocytes react, and a counter shows synapses remaining."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="glPlay">Play</button><label class="stage-cap tl" for="glT">Timeline <input type="range" id="glT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="readout" id="glRead"></p>
+      <p class="stage-cap" id="glCap">Schematic, not to scale. The synapse count is illustrative; the two ticks on the bar are measured human values.</p></div>
+    <aside class="note" id="glNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Synapses track memory best</h3>
+  <div class="prose"><p>In 1991 Robert Terry's group counted synapses, plaques and tangles in the brains of 15 people with Alzheimer's and 9 controls, and compared each with how the person had scored on cognitive testing. Switch the measure on the x-axis and watch the cloud change shape. [[Terry1991]]</p></div>
+  <div class="ctrls" role="group" aria-label="Measure on the x-axis">
+    <span class="kicker">Plot cognition against</span>
+    <button class="btn" id="glXsyn" aria-pressed="true">Synapse density</button>
+    <button class="btn" id="glXpla" aria-pressed="false">Plaque count</button>
+    <button class="btn" id="glXtan" aria-pressed="false">Tangle count</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="glTerry" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="A scatter plot of cognition against synapse density, plaque count or tangle count. Synapse density lines up tightly with cognition; plaque and tangle counts form a loose cloud."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="glTPlay">Play</button><label class="stage-cap tl" for="glTT">Build <input type="range" id="glTT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Points are schematic, drawn to show the pattern, not Terry's data. The r of 0.96 is the published value.</p></div>
+    <aside class="note" id="glTNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The other cells, and the other diseases</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Astrocytes react too</h4><p>Activated microglia release IL-1α, TNF and C1q, which push astrocytes into a reactive state, named "A1" in 2017, that supports neurons less well. Such astrocytes were abundant in Alzheimer's brains. [[Liddelow2017]]</p></div>
+    <div class="card"><span class="ev early">Debated</span><h4>But "A1" and "A2" are too simple</h4><p>A 2021 consensus statement criticised binary astrocyte labels (A1 versus A2, good versus bad) as oversimplified, and recommended describing reactive astrocytes with several measures at once. [[Escartin2021]]</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Microglial genes carry risk</h4><p>TREM2 R47H raised risk about 2.9-fold. Other rare variants in microglial genes point the same way: PLCG2 P522R is protective (odds ratio 0.68), ABI3 S209F (1.43) and TREM2 R62H (1.67) raise risk. [[Jonsson2013,Sims2017]] More in <a href="#genes" data-go="genes">Genes and inheritance</a>.</p></div>
+    <div class="card"><span class="ev early">Association only</span><h4>A leaky barrier, early</h4><p>Breakdown of the blood–brain barrier in the hippocampus was found in people with early cognitive problems, whatever their amyloid and tau status. The authors propose it as an independent early marker; the study shows association, not cause. [[Nation2019]]</p></div>
+  </div>
+
+  <h3 class="sub">Most brains with Alzheimer's have something else too</h3>
+  <div class="prose"><p>Alzheimer's rarely travels alone in older brains. Each figure below comes from a different group of people, so the percentages cannot be added or compared directly.</p></div>
+  <div class="tbl gl-tbl"><table>
+    <thead><tr><th>Finding</th><th>How often</th><th>In whom</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>Pure Alzheimer's pathology, nothing else</td><td>30%</td><td>The 50 people with dementia among 141 community autopsies; more than half had several pathologies</td><td>[[Schneider2007]]</td></tr>
+      <tr><td>Alzheimer's plus infarcts (strokes)</td><td>38%</td><td>Same community autopsies; more than one diagnosis nearly tripled the odds of dementia (OR 2.8)</td><td>[[Schneider2007]]</td></tr>
+      <tr><td>Infarcts, moderate-to-severe CAA, atherosclerosis, arteriolosclerosis</td><td>each &gt;30%</td><td>Religious Orders Study / Memory and Aging Project brains; each explained 20–30% of decline when present</td><td>[[Greenberg2020]]</td></tr>
+      <tr><td>Some cerebral amyloid angiopathy (CAA: amyloid in vessel walls)</td><td>85–95%</td><td>People with Alzheimer's</td><td>[[DeTure2019,Greenberg2020]]</td></tr>
+      <tr><td>Moderate-to-severe CAA</td><td>13%</td><td>Mayo brain bank</td><td>[[Greenberg2020]]</td></tr>
+      <tr><td>LATE (TDP-43) enough to be linked to impairment</td><td>about 25%</td><td>Community autopsy brains</td><td>[[Nelson2019]]</td></tr>
+      <tr><td>Alpha-synuclein (Lewy) co-pathology</td><td>41–55%</td><td>Alzheimer's brains in 766 autopsies</td><td>[[Robinson2018]]</td></tr>
+      <tr><td>TDP-43 co-pathology</td><td>33–40%</td><td>Same 766 autopsies; linked to age and APOE ε4</td><td>[[Robinson2018]]</td></tr>
+    </tbody></table></div>
+  <div class="hook"><b>Exam hook</b>Mixed pathology is the rule in old age, not the exception. LATE (limbic TDP-43) causes an amnestic dementia that mimics Alzheimer's, staged amygdala, then hippocampus, then middle frontal gyrus. [[Schneider2007,Nelson2019]]</div>
+
+  <h3 class="sub">Sleep and the "glymphatic" system</h3>
+  <div class="cards">
+    <div class="card"><span class="ev hyp">Mostly rodent · contested</span><h4>The mouse findings</h4><p>In mice, fluid enters the brain along spaces around arteries and leaves around veins. Deleting the astrocyte water channel AQP4 cut solute clearance by about 70%. Sleep widened the space between cells by about 60% and sped amyloid clearance, and sleep restriction increased plaques. [[Iliff2012,Xie2013,Kang2009]]</p></div>
+    <div class="card"><span class="ev hyp">Contrary evidence</span><h4>Other labs disagree</h4><p>An independent group found transport in brain tissue fitted diffusion, not flow, and did not depend on AQP4. A 2024 mouse study found clearance was lower, not higher, during sleep and anaesthesia. [[Smith2017,Miao2024]]</p></div>
+    <div class="card"><span class="ev early">Small human studies</span><h4>What people show</h4><p>One night without sleep (7 people against 17 controls) slowed clearance of a tracer from most brain regions. Sleep deprivation raised spinal-fluid amyloid by 25–30%, but mainly through more production, not less clearance. [[Eide2021,Lucey2018]]</p></div>
+    <div class="card"><h4>Where this leaves it</h4><p>That sleep affects amyloid levels is better supported than any specific glymphatic mechanism in human Alzheimer's. That is a synthesis across the studies above, not any single study's conclusion. Meningeal lymphatic vessels, described in 2015, may be another drainage route; their role in humans is unknown. [[Lucey2018,Smith2017,TarasoffConway2015]]</p>
+      <div class="pt"><b>In plain words</b>Poor sleep and amyloid are linked. How the brain "washes" itself at night is still argued about, mostly from mouse studies.</div></div>
+  </div>
+</section>

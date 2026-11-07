@@ -1,0 +1,88 @@
+<!-- ================= 1.1 WHAT MYASTHENIA GRAVIS IS ================= -->
+<section class="mod" id="m-what" data-mod="what" hidden>
+<style>
+#m-what .wht-big{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;color:var(--ab)}
+#m-what .wht-grp{display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+#m-what .wht-grp h4{margin:0;font-family:var(--display);font-weight:800;font-size:19px}
+#m-what .wht-panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+#m-what .wht-panel svg{width:100%;max-width:440px;height:auto;display:block;margin:0 auto}
+#m-what .wht-det{display:flex;flex-direction:column;gap:8px;font-size:14.5px}
+#m-what .wht-det h4{margin:0;font-family:var(--display);font-weight:800;font-size:20px}
+#m-what .wht-stack{display:flex;height:22px;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+#m-what .wht-stack i{display:block;height:100%}
+#m-what .wht-normal{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+#m-what .wht-normal div{background:var(--good-soft);border-radius:10px;padding:10px 12px;font-size:14.5px}
+#m-what .wht-normal b{display:block;color:var(--good);font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>What myasthenia gravis is</h2>
+    <p class="lede">Myasthenia gravis (MG) is an autoimmune disease of the nerve-muscle junction: muscles tire with use and recover with rest. Press play to watch weakness spread from the eyes to the breathing muscles while the age-of-onset charts fill in, then switch between ocular and generalized disease and the onset groups.</p></div>
+
+  <div class="prose"><p>In MG, antibodies attack proteins on the muscle side of the neuromuscular junction: the acetylcholine receptor (AChR), muscle-specific kinase (MuSK) or related proteins. Weakness, local or general, is the main symptom. Patients are grouped by antibody, by which muscles are affected, by age at onset and by thymus pathology. [[Gilhus2019]] The nerves and the muscles themselves are healthy, which is why sensation, reflexes and pupils stay normal. [[Juel2007,MSDManual2026]]</p></div>
+
+  <div class="ctrls" role="group" aria-label="Distribution of weakness">
+    <span class="kicker">Distribution</span>
+    <button class="btn" id="whtGen" aria-pressed="true">Generalized</button>
+    <button class="btn" id="whtOc" aria-pressed="false">Ocular only</button>
+  </div>
+  <div class="ctrls" role="group" aria-label="Onset group">
+    <span class="kicker">Onset group</span>
+    <button class="btn" data-whtg="early" aria-pressed="true">Early onset</button>
+    <button class="btn" data-whtg="late" aria-pressed="false">Late onset</button>
+    <button class="btn" data-whtg="thym" aria-pressed="false">Thymoma</button>
+    <button class="btn" data-whtg="musk" aria-pressed="false">MuSK</button>
+  </div>
+  <div class="stepper" id="whtSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="whtSvg" viewBox="0 0 720 464" style="min-width:560px" role="img" aria-label="Body map: weakness spreads from the eyelids and eye muscles to the speech and swallowing muscles, the neck and limbs, then the breathing muscles, with the share of patients whose first symptom is in each region. Beside it, a schematic of age at onset by sex (women peak around 30 and 50, men rise with age) and charts showing late-onset MG rising over the decades in Japan and Italy."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whtPlay">Play</button><label class="stage-cap tl" for="whtT">Timeline <input type="range" id="whtT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <div class="wht-grp" id="whtRead"></div>
+      <p class="stage-cap">The body map is schematic. Region percentages are first symptoms in a Japanese nationwide survey, 2015-2017. [[Yoshikawa2022]] The age curves are schematic shapes drawn from a published description (women: peaks near 30 and 50; men: rising, highest at 60-89), not measured values; the sex ratios printed on them are published. [[Dresser2021]] Filled bars and dots in the trend charts are published survey values. [[Yoshikawa2022,Falso2026]]</p></div>
+    <aside class="note" id="whtNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Which antibody? The subtypes</h3>
+  <div class="prose"><p>Most people with MG have antibodies against the acetylcholine receptor. A minority have MuSK antibodies, a few have LRP4 antibodies, and some have none that standard tests find. Thymoma is not an antibody type: it overlaps the AChR group. Tap a subtype.</p></div>
+  <div class="ctrls" role="group" aria-label="Antibody subtype" id="whtSubBtns">
+    <button class="btn" data-whts="achr" aria-pressed="true">AChR</button>
+    <button class="btn" data-whts="musk" aria-pressed="false">MuSK</button>
+    <button class="btn" data-whts="lrp4" aria-pressed="false">LRP4</button>
+    <button class="btn" data-whts="sero" aria-pressed="false">Seronegative</button>
+    <button class="btn" data-whts="thym" aria-pressed="false">Thymoma</button>
+  </div>
+  <div class="split2">
+    <div class="wht-panel"><svg id="whtSub" viewBox="0 0 340 372" role="img" aria-label="100 squares, one per person with MG: about 80 AChR antibody, about 8 MuSK, the rest double seronegative with about 2 LRP4; outlines mark the 10 to 20 percent who have a thymoma, almost all within the AChR group."></svg>
+      <p class="stage-cap">Rounded to 100 people: AChR about 80% [[Dresser2021,Pevzner2012]], MuSK 7-10% [[Dresser2021]], and the remaining 12 squares double seronegative; published estimates for that group are 6-10% [[Yoganathan2022]], so rounding makes it look a little larger here. LRP4 squares are derived (18.7% of the double-seronegative group [[Zisimopoulou2014]]), so they are drawn open. Estimates vary by country and assay.</p></div>
+    <div class="wht-panel wht-det" id="whtSubNote" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">How common? The estimates disagree</h3>
+  <div class="prose"><p>Pooled studies do not agree on how common MG is. Their prevalence estimates differ by more than twofold, mostly because of how a case is defined (insurance claims, laboratory results or clinical records) and when the studies were done. [[Carr2010,Sciancalepore2025,Shelly2025]] The chart shows each estimate with its own interval, not one blended number.</p></div>
+  <div class="ctrls" role="group" aria-label="Measure">
+    <button class="btn" id="whtPrev" aria-pressed="true">Prevalence</button>
+    <button class="btn" id="whtInc" aria-pressed="false">Incidence</button>
+  </div>
+  <div class="stage"><div class="scroll"><svg id="whtEpi" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Dot plot of published pooled and review estimates of MG prevalence or incidence, each with its confidence interval or range, showing that they disagree."></svg></div>
+    <p class="stage-cap">Filled dots are published point estimates; thick bars are 95% confidence intervals; thin lines are the range of the studies pooled; pale bars are ranges quoted by reviews. Per-100,000 figures are converted to per million. [[Carr2010,Salari2021,Sciancalepore2025,Dresser2021,MedlinePlusMG2026,Shelly2025,Lotan2020]]</p></div>
+  <div class="cards" id="whtNum"></div>
+
+  <h3 class="sub">Course and prognosis, then and now</h3>
+  <div class="prose"><p>Older figures come from an era before immunotherapy and intensive care. Modern figures are lower, for conversion from eye-only to generalized disease and for deaths. The measures differ from study to study, so read each bar on its own.</p></div>
+  <div class="stage"><div class="scroll"><svg id="whtCourse" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="Left: share of ocular-onset patients who generalize, older reviews about 80 to 85 percent against 36 to 55 percent in modern cohorts, and 7 percent on prednisone. Right: mortality from 70 percent in 1934 and about 40 percent in the early 1960s to about 5 percent in the 1970s and 2.2 percent in-hospital in 2000 to 2005."></svg></div>
+    <p class="stage-cap">All values are published. Each bar or dot is a different measure from a different study, so they are not one series. [[Dresser2021,Juel2007,Hendricks2019,Kupersmith2003,Bubuioc2021,Deymeer2021,Alshekhlee2009]]</p></div>
+  <div class="cards" id="whtCourseCards"></div>
+
+  <h3 class="sub">Other autoimmune disease and family</h3>
+  <div class="cards" id="whtAuto"></div>
+
+  <h3 class="sub">The clue: what stays normal</h3>
+  <div class="wht-normal">
+    <div><b>Sensation</b>Normal. Sensory nerves are not involved. [[MSDManual2026,Estephan2022]]</div>
+    <div><b>Reflexes</b>Deep tendon reflexes are normal. [[MSDManual2026]]</div>
+    <div><b>Pupils</b>Normal, even when the lids droop and the eyes cannot move together. [[Juel2007]]</div>
+    <div><b>Pain</b>The weakness is painless. [[Juel2007]]</div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Fluctuating, fatigable weakness of eye, bulbar, limb or breathing muscles, with <b>normal sensation, reflexes and pupils</b>, points to the neuromuscular junction. Abnormal pupils point to a mimic such as botulism (dilated pupils in 37% of confirmed cases) [[Rao2021]]; lost reflexes with a dry mouth point to Lambert-Eaton syndrome [[Kesner2018,Titulaer2008]]. See <a href="#ddx" data-go="ddx">The differential</a>.</div>
+    <div class="pt"><b>In plain words</b>The nerves and muscles are healthy. The message between them is weakened, so muscles tire quickly with use and recover with rest. Feeling, reflexes and the pupils are untouched.</div>
+  </div>
+</section>

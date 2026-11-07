@@ -1,0 +1,12 @@
+{
+ "areas": {
+  "A": "Epidemiology, symptoms & history",
+  "B": "Risk, prevention & hereditary syndromes",
+  "C": "Biology & the adenoma–carcinoma sequence",
+  "D": "Screening & colonoscopy",
+  "E": "Diagnosis, staging & biomarkers",
+  "F": "Treatment of localised disease",
+  "G": "Metastatic disease & research",
+  "H": "Living, survivorship & nursing"
+ }
+}

@@ -1,0 +1,24 @@
+== Andersen1996: VOL entry 119 vs record 119 ( Pt 4)
+== Aoun2016: TITLE 0.80: record 'Receiving the news of a diagnosis of motor neuron disease: What does it take to make it better?'
+== Bedlack2016: TITLE 0.89: record 'How common are ALS plateaus and reversals?'
+== Boddy2025: AUTHOR6 entry 'McDermott CJ; PROSEC3 Study Group' not in record
+== Brooks1994: VOL entry 124 vs record 124 Suppl | TITLE 0.46: record 'El Escorial World Federation of Neurology criteria for the diagnosis of amyotrophic lateral sclerosis. Subcommittee on Motor Neuron Diseases/Amyotrophic Lateral Sclerosis of the World Federation of Neurology Research Group on Neuromuscular Diseases and the El Escorial "Clinical limits of amyotrophic lateral sclerosis" workshop contributors.'
+== Brooks2000: AUTHOR4 entry 'Munsat TL; World Federation of Neurology Research Group on Motor Neuron Diseases' not in record
+== Chau2025: AUTHOR4 entry 'Newton J; United Kingdom Motor Neuron Disease Nurses and Allied Health Professionals Consortium' not in record
+== Chio2010: AUTHOR6 entry 'Mora G; PARALS' not in record
+== Chio2011: AUTHOR5 entry 'Mora G; PARALS study group' not in record
+== Goldstein2018: PAGES entry 160 vs record 160.e1-160.e7
+== GossyeGeneReviews: YEAR entry 2015 vs record ['1993']
+== Holdom2025: AUTHOR4 entry 'van Eijk RPA' not in record
+== Hubers2015: PAGES entry 3117 vs record 3117.e1-3117.e6
+== Krivickas1997: VOL entry 152 vs record 152 Suppl 1
+== LaSpada_GeneReviews: could not parse year;vol
+== Moglia2023: AUTHOR3 entry 'Veronese S; M.N.D' not in record
+== ODriscoll2017: AUTHOR4 entry 'Mak V; British Thoracic Society Emergency Oxygen Guideline Group; BTS Emergency Oxygen Guideline Development Group' not in record
+== Pupillo2014: AUTHOR4 entry 'Beghi E; SLALOM Group' not in record
+== Roggenbuck2023: AUTHOR5 entry 'Kolb SJ; ALS Genetic Testing and Counseling Guidelines Expert Panel' not in record
+== Stavroulakis2013: AUTHOR4 entry 'McDermott CJ; ProGas Study' not in record
+== Swash2012: TITLE 0.85: record 'Why are upper motor neuron signs difficult to elicit in amyotrophic lateral sclerosis?'
+== Taylor2016: AUTHOR2 entry 'Brown RH' not in record
+== Wolfe2021ONMAP: AUTHOR5 entry 'Coleman JM 3rd; ONMAP Technical Expert Panel' not in record
+23 flagged

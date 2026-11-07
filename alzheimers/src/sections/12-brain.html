@@ -1,0 +1,62 @@
+<!-- ================= 1.2 THE BRAIN THAT FORGETS ================= -->
+<style>
+#m-brain .br-pick{display:flex;flex-direction:column;gap:12px}
+#m-brain .br-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-brain .br-row .kicker{min-width:100%}
+#m-brain .br-out{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--field)}
+#m-brain .br-res{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.05}
+#m-brain .br-scale{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.7fr) minmax(0,1fr);gap:4px}
+#m-brain .br-scale span{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.02em;text-align:center;padding:8px 2px;border-radius:7px;background:var(--panel-2);color:var(--muted);overflow-wrap:anywhere}
+#m-brain .br-scale span.on{background:var(--rose);color:var(--panel)}
+#m-brain #brAbcTbl td.on{background:var(--rose-soft);font-weight:700;outline:2px solid var(--rose);outline-offset:-2px}
+</style>
+<section class="mod" id="m-brain" data-mod="brain" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · The disease</p><h2>The brain that forgets</h2>
+    <p class="lede">Tau tangles and amyloid plaques both spread through the brain in a fixed order, but not the same order. Step through the tangle stages, then switch to amyloid and compare where each one starts.</p></div>
+  <div class="ctrls" role="group" aria-label="Which protein to map">
+    <span class="kicker">Map</span>
+    <button class="btn" id="brTau" aria-pressed="true">Tau tangles: Braak stages I–VI</button>
+    <button class="btn" id="brAmy" aria-pressed="false">Amyloid plaques: Thal phases 1–5</button>
+  </div>
+  <div class="stepper" id="brSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="brSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="Lateral and medial views of the brain shade region by region: tau tangles start in the transentorhinal cortex and spread through limbic areas to the isocortex, while amyloid starts in the neocortex and spreads down to the brainstem and cerebellum."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brPlay">Play</button><label class="stage-cap tl" for="brT">Spread <input type="range" id="brT" min="0" max="1" step="0.002" value="0.2"></label></div>
+      <p class="stage-cap" id="brCap">Schematic outlines. Deep structures are dashed. Regions outside a scheme are left unshaded; that does not mean they are spared.</p></div>
+    <aside class="note" id="brNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why memory goes first</h3>
+  <p class="prose">The first tangles form where the hippocampal memory circuit begins. Follow a signal around the loop, then watch which neurons are lost, in the order the studies report.</p>
+  <div class="stepper" id="brCiSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="brCi" viewBox="0 0 720 410" style="min-width:560px" role="img" aria-label="The hippocampal memory loop from entorhinal layer II through dentate gyrus, CA3, CA1 and subiculum loses neurons in order, starting with entorhinal layer II, then CA1, then the cholinergic basal forebrain, while an MRI panel shows the hippocampus shrinking faster in Alzheimer's than in controls."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brCiPlay">Play</button><label class="stage-cap tl" for="brCiT">Disease course <input type="range" id="brCiT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">Schematic. Dots on the loop are signals; faded dashed cells are lost neurons. The MRI shapes compound the published yearly rates, for illustration.</p></div>
+    <aside class="note" id="brCiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Scoring a brain at autopsy: the ABC score</h3>
+  <div class="prose"><p>The 2012 NIA-AA guidelines rate three things and combine them into one level of Alzheimer's neuropathologic change. Choose a rating for each and read the result. [[Montine2012,Hyman2012]]</p></div>
+  <div class="lab even">
+    <div class="stage br-pick">
+      <div class="br-row" role="group" aria-label="A: amyloid, Thal phase"><span class="kicker">A · amyloid plaques (Thal phase)</span>
+        <button class="btn" data-abc="a" data-v="0" aria-pressed="false">A0 · none</button><button class="btn" data-abc="a" data-v="1" aria-pressed="false">A1 · phase 1–2</button><button class="btn" data-abc="a" data-v="2" aria-pressed="true">A2 · phase 3</button><button class="btn" data-abc="a" data-v="3" aria-pressed="false">A3 · phase 4–5</button></div>
+      <div class="br-row" role="group" aria-label="B: tangles, Braak stage"><span class="kicker">B · tangles (Braak stage)</span>
+        <button class="btn" data-abc="b" data-v="0" aria-pressed="false">B0 · none</button><button class="btn" data-abc="b" data-v="1" aria-pressed="false">B1 · I–II</button><button class="btn" data-abc="b" data-v="2" aria-pressed="true">B2 · III–IV</button><button class="btn" data-abc="b" data-v="3" aria-pressed="false">B3 · V–VI</button></div>
+      <div class="br-row" role="group" aria-label="C: neuritic plaque density, CERAD"><span class="kicker">C · neuritic plaques (CERAD)</span>
+        <button class="btn" data-abc="c" data-v="0" aria-pressed="false">C0 · none</button><button class="btn" data-abc="c" data-v="1" aria-pressed="false">C1 · sparse</button><button class="btn" data-abc="c" data-v="2" aria-pressed="true">C2 · moderate</button><button class="btn" data-abc="c" data-v="3" aria-pressed="false">C3 · frequent</button></div>
+      <div class="br-out" id="brAbcOut" aria-live="polite"></div>
+    </div>
+    <aside class="note">
+      <div class="kicker">How the levels combine</div>
+      <h4>Not, Low, Intermediate, High</h4>
+      <p>A0 is always "Not". With B0 or B1 the level is at most "Low". "High" needs A3, B3 and C2 or C3 together. "Intermediate" or "High" is considered a sufficient explanation for dementia. [[Montine2012]]</p>
+      <p>The guidelines recognise that Alzheimer's changes can be present without cognitive impairment, and they set protocols for common co-pathologies: Lewy body disease, vascular brain injury, hippocampal sclerosis and TDP-43 inclusions. [[Hyman2012,Montine2012]]</p>
+      <div class="pt"><b>In plain words</b>After death, a pathologist scores how much amyloid, how far the tangles have spread and how many damaged plaques there are. Together they say how likely Alzheimer's explains the dementia.</div>
+      <div class="hook"><b>Exam hook</b>A = Thal (amyloid), B = Braak (tangles), C = CERAD (neuritic plaques). A0 → Not. B0–1 → at most Low. High = A3 + B3 + C2–3.</div>
+    </aside>
+  </div>
+  <div class="tbl"><table id="brAbcTbl"></table></div>
+  <p class="stage-cap">Table after Montine 2012, Table 3. B0 and B1 share a column in the original.</p>
+</section>

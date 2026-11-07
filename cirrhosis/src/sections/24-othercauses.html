@@ -1,0 +1,90 @@
+<!-- ================= 2.4 OTHER CAUSES: GENES, IMMUNITY & BILE DUCTS ================= -->
+<style>
+#m-othercauses .oc-urgent{border:1px solid var(--bile);background:var(--accent-soft);border-radius:var(--r);padding:12px 16px;max-width:none}
+#m-othercauses .oc-urgent b{color:var(--accent)}
+#m-othercauses .card>.tag,#m-othercauses .card>.ev{align-self:flex-start}
+#m-othercauses .oc-pick{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-othercauses .oc-mx table{min-width:760px;font-size:13.5px}
+#m-othercauses .oc-mx th,#m-othercauses .oc-mx td{padding:6px 8px;text-align:center;vertical-align:middle}
+#m-othercauses .oc-mx th[scope=row]{text-align:left}
+#m-othercauses .oc-mx button{font:inherit;font-weight:700;font-size:12.5px;line-height:1.2;background:none;border:1px solid transparent;border-radius:8px;padding:5px 7px;color:var(--ink);cursor:pointer;text-align:left}
+#m-othercauses .oc-mx .oc-colb{text-align:center;font-weight:600;color:var(--muted)}
+#m-othercauses .oc-mx button:hover{border-color:var(--line)}
+#m-othercauses .oc-mx button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+#m-othercauses .oc-mx tr.oc-on td,#m-othercauses .oc-mx td.oc-colon{background:var(--liver-soft)}
+#m-othercauses .oc-mx td.oc-K{color:var(--liver);font-size:17px}
+#m-othercauses .oc-mx td.oc-S{color:var(--muted);font-size:17px}
+</style>
+<section class="mod" id="m-othercauses" data-mod="othercauses" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Causes</p><h2>Other causes: genes, immunity &amp; bile ducts</h2>
+    <p class="lede">Cirrhosis has many causes beyond alcohol and fatty liver disease: iron or copper overload, a misfolded protein, the immune system turning on the liver or its bile ducts, medicines, and a heart circulation that backs up into the liver [[Gines2021Lancet]]. Step through the atlas to see where each one strikes, how it is found and how it is treated.</p></div>
+  <div class="stepper" id="ocSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ocSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A cause atlas in eight scenes beside a card naming where each cause strikes, its key test, its treatment and a key number: iron absorbed from the gut filling hepatocytes while a ferritin bar rises past 1,000 and then falls with phlebotomy; copper piling up in a hepatocyte with a broken ATP7B pump while a Kayser–Fleischer ring appears in the eye; misfolded alpha-1 antitrypsin polymers trapped inside a hepatocyte; immune cells crossing from a portal tract into the lobule in autoimmune hepatitis and calming with steroids; small bile ducts destroyed in primary biliary cholangitis as bile backs up; bile ducts becoming beaded in primary sclerosing cholangitis beside an inflamed colon; a checklist of excluded causes in drug-induced liver injury; and high venous pressure from a Fontan circulation scarring the liver over 20 years."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ocPlay">Play</button><label class="stage-cap tl" for="ocT">Atlas <input type="range" id="ocT" min="0" max="1" step="0.001" value="0.07"></label></div>
+      <p class="stage-cap">Cells, ducts and the ferritin bar are schematic. Numbers on the cards are published figures and population statistics, not predictions for one person. [[Morrison2003,Czlonkowska2018,Schneider2020PiZ,Hahn2023AIH,Tan2026PBC,Zhang2022PSCIBD,Bjornsson2013,Hitawala2024Fontan]]</p>
+    </div>
+    <aside class="note" id="ocNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Inheritance: two copies needed</h3>
+  <div class="prose"><p>Wilson disease is autosomal recessive [[Ferenci2003Leipzig]], and HFE haemochromatosis is diagnosed from raised iron indices in people with two copies of C282Y [[EASL2022HH]]. Two altered copies means one from each parent; a carrier has one copy. Choose the parents to see each child's chances.</p></div>
+  <div class="oc-pick" role="group" aria-label="Gene"><span class="kicker">Gene</span>
+    <button class="btn" data-ocg="hfe" aria-pressed="true">HFE C282Y (haemochromatosis)</button>
+    <button class="btn" data-ocg="wil" aria-pressed="false">ATP7B (Wilson disease)</button>
+  </div>
+  <div class="oc-pick" role="group" aria-label="Parents"><span class="kicker">Parents</span>
+    <button class="btn" data-ocp="cc" aria-pressed="true">Both carriers</button>
+    <button class="btn" data-ocp="ca" aria-pressed="false">Carrier × two copies</button>
+    <button class="btn" data-ocp="cn" aria-pressed="false">Carrier × no copy</button>
+    <button class="btn" data-ocp="an" aria-pressed="false">Two copies × no copy</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ocPed" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A pedigree: father as a square and mother as a circle, with four children covering the four equally likely combinations of the parents' gene copies, filled for two copies, half-filled for carriers and empty for no copy, beside the matching Punnett square."></svg></div>
+      <p class="stage-cap">Squares are males, circles females, the arrow marks the first child with two copies. The 25% chances are Mendel's rules, not figures from a study.</p>
+    </div>
+    <aside class="note" id="ocPedNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Which test points to which cause?</h3>
+  <div class="prose"><p>When liver tests are abnormal, the ACG workup for hepatocellular injury covers viral hepatitis, fatty liver disease, alcohol-related liver disease, haemochromatosis, autoimmune hepatitis, Wilson disease, alpha-1 antitrypsin deficiency and a medicine history; a raised liver alkaline phosphatase prompts testing for PBC and PSC [[Kwo2017ACG]]. Choose a cause, or a column, to see the test its sources name.</p></div>
+  <div class="tbl oc-mx"><table id="ocMx"></table></div>
+  <p class="stage-cap">● key test named in the sources · ○ supportive. Only tests named in this companion's sources are marked: an empty cell does not mean a test is unhelpful. Real work-ups are planned by a liver team. See also <a href="#tests" data-go="tests">Blood tests, scans &amp; biopsy</a>.</p>
+  <aside class="note" id="ocMxNote" aria-live="polite"></aside>
+
+  <h3 class="sub">How common are they?</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Cause</th><th>How common (as published)</th><th>Who is affected most</th></tr></thead>
+    <tbody>
+      <tr><td><b>HFE C282Y, two copies</b></td><td>0.44% (about 1 in 227) of non-Hispanic white people [[Adams2005HEIRS]]; 1 in 156 of European descent in UK Biobank [[Pilling2019BMJ]]</td><td>Far rarer in other groups: 0.11% of Native Americans, 0.014% of Black people, 0.000039% of Asian people [[Adams2005HEIRS]]. Disease far more often in men [[Allen2008NEJM]]</td></tr>
+      <tr><td><b>Wilson disease</b></td><td>About 1 in 30,000 symptomatic [[Czlonkowska2018]]; about 1 in 7,026 predicted with two pathogenic variants [[Coffey2013]]</td><td>Symptoms usually begin between ages 5 and 35 [[Czlonkowska2018]]</td></tr>
+      <tr><td><b>Alpha-1 antitrypsin Pi*Z</b></td><td>120 Pi Z in 200,000 Swedish newborns [[Sveger1976]]; up to 4% of Europeans carry Pi*MZ [[Schneider2020PiZ]]</td><td>Can show in infancy as prolonged jaundice (14 of 120) [[Sveger1976]]</td></tr>
+      <tr><td><b>Autoimmune hepatitis</b></td><td>Incidence 1.28 per 100,000 person-years; prevalence 15.65 per 100,000 [[Hahn2023AIH]]</td><td>Higher in women, adults, North America, Oceania and high latitudes [[Hahn2023AIH]]</td></tr>
+      <tr><td><b>Primary biliary cholangitis</b></td><td>Prevalence 18.1 per 100,000; incidence 1.8 per 100,000 person-years [[Tan2026PBC]]</td><td>Higher in women and at higher latitude [[Tan2026PBC]]</td></tr>
+      <tr><td><b>Primary sclerosing cholangitis</b></td><td>Incidence 0.5, prevalence 6.0 per 100,000 (Netherlands) [[Boonstra2013]]</td><td>IBD more common in men and in large-duct PSC [[Zhang2022PSCIBD]]</td></tr>
+      <tr><td><b>Drug-induced liver injury</b></td><td>19.1 per 100,000 a year in Iceland, excluding paracetamol toxicity [[Bjornsson2013]]</td><td>Per user: azathioprine 1 in 133, infliximab 1 in 148, nitrofurantoin 1 in 1,369, amoxicillin–clavulanate 1 in 2,350, diclofenac 1 in 9,480 [[Bjornsson2013]]</td></tr>
+      <tr><td><b>Fontan circulation</b></td><td>Up to 70,000 people alive worldwide [[Rychik2019Fontan]]; cirrhosis 0.97 per 100 patient-years after surgery [[Hitawala2024Fontan]]</td><td>Risk rises with time: 1.61 per 100 patient-years at 20 or more years [[Hitawala2024Fontan]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Treatment updates and open questions</h3>
+  <div class="cards">
+    <div class="card"><span class="tag bile">PBC · 2024–25</span><h4>Two new second-line drugs</h4>
+      <p>For people with an inadequate response to ursodiol: in ELATIVE, elafibranor (a PPAR α/δ agonist) gave a biochemical response in 51% versus 4% on placebo [[Kowdley2024ELATIVE]]; in RESPONSE, seladelpar (a PPAR-δ agonist) in 61.7% versus 20.0%, and the itch score fell by 3.2 versus 1.7 points [[Hirschfield2024RESPONSE]].</p>
+      <p>The FDA approved Iqirvo (elafibranor) on 10 June 2024 and Livdelzi (seladelpar) on 14 August 2024, both under accelerated approval based on ALP reduction. Both labels state that improvements in survival or prevention of decompensation "have not been demonstrated" [[FDA-Iqirvo,FDA-Livdelzi]].</p></div>
+    <div class="card"><span class="tag bile">PBC · obeticholic acid</span><h4>A drug that left the market</h4>
+      <p>Obeticholic acid met POISE's biochemical endpoint in 46–47% versus 10% [[Nevens2016POISE]]. In the confirmatory COBALT trial, clinical outcomes occurred in 28.6% versus 28.9% on placebo (HR 1.01), although unblinding and crossover confounded it; only an external-control comparison favoured the drug [[Kowdley2025COBALT]]. Drugs@FDA now lists Ocaliva as Discontinued, and its PBC authorisations were withdrawn in the EU and US [[FDA-Ocaliva,Fiorucci2026OCA]].</p></div>
+    <div class="card"><span class="tag bile">PBC · response</span><h4>Why the ALP number matters</h4>
+      <p>In the GLOBAL PBC study of 4,845 patients, 84% with ALP ≤2.0 × ULN after a year of treatment survived 10 years without transplant, against 62% above it; for bilirubin ≤1.0 × ULN, 86% against 41%. These are population figures [[Lammers2014]].</p></div>
+    <div class="card"><span class="tag nh3">Alpha-1</span><span class="ev early">Early evidence</span><h4>Silencing the faulty protein</h4>
+      <p>Fazirsiran, an RNA interference drug, lowered liver Z-AAT by a median of 83% in an open-label trial, with fibrosis regressing in 7 of 15 people [[Strnad2022Fazirsiran]]. In the placebo-controlled SEQUOIA trial, serum Z-AAT fell by 61%, 83% and 94% across doses [[Clark2024SEQUOIA]]. No phase 3 outcome data yet.</p></div>
+    <div class="card"><span class="tag accent">Wilson</span><h4>Chelators compared</h4>
+      <p>In CHELATE (53 stable adults), trientine tetrahydrochloride was non-inferior to penicillamine for maintenance therapy [[Schilsky2022CHELATE]]. With early diagnosis and treatment, the outlook is described as good [[Czlonkowska2018]].</p></div>
+    <div class="card"><span class="tag liver">Cryptogenic</span><span class="ev early">Early evidence</span><h4>When no cause is found</h4>
+      <p>In 70 people with "cryptogenic" cirrhosis, 73% had type 2 diabetes, obesity or both, suggesting that NASH (now MASH) plays an under-recognised role [[Caldwell1999]]. Under the 2023 nomenclature, steatotic liver disease with no metabolic risk factors and no known cause is called cryptogenic steatotic liver disease [[Rinella2023MASLDD]]. See <a href="#masld" data-go="masld">Fatty liver disease</a>.</p></div>
+  </div>
+
+  <p class="callout oc-urgent"><b>Get urgent care for:</b> vomiting blood, black or tarry stools, new confusion or drowsiness, or fever or belly pain with a swollen abdomen. Call your local emergency number or go to an emergency department.</p>
+</section>

@@ -1,0 +1,87 @@
+<!-- ================= 1.4 AIR TRAPPING & BREATHLESSNESS ================= -->
+<style>
+#m-breathless .brbtns{display:flex;flex-wrap:wrap;gap:8px}
+#m-breathless .brrange{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;max-width:560px}
+#m-breathless .brrange output{font:600 13px var(--mono);color:var(--brand)}
+#m-breathless .readout b{color:var(--bad)}
+</style>
+<section class="mod" id="m-breathless" data-mod="breathless" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding COPD</p><h2>Air trapping &amp; breathlessness</h2>
+    <p class="lede">Why does walking up stairs feel so hard with COPD? Narrow airways empty slowly, so when breathing speeds up, air gets trapped and each breath starts fuller than the last. Step through the chain from slow emptying to low oxygen and a strained heart, then set a breathing rate yourself and watch the trapped air build up.</p></div>
+  <div class="stepper" id="brSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="brSvg" viewBox="0 0 720 390" role="img" aria-label="Six scenes: emptying curves in which a COPD lung empties more slowly than a healthy one; an airway narrowing on each breath out while a tidal flow-volume loop meets the maximal flow envelope; a volume trace through an exercise ramp in which the end-expiratory volume climbs breath by breath towards total lung capacity while a bar shows inspiratory capacity shrinking; a breathless person with a strong brain signal beside bars of neural drive; and two lung units, one with a blocked airway and one with lost capillaries, sending poorly oxygenated blood to a heart whose right ventricle enlarges, above a scale of mean pulmonary artery pressure."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brPlay">Play</button><label class="stage-cap tl" for="brT">Timeline <input type="range" id="brT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Schematic, not to scale. The emptying curves, flow–volume loop and volume trace come from a simple drawing model, not from patient data; the neural drive values [[Jolley2009]] and the mean pulmonary artery pressure bands [[Weitzenblum2009,Chaouat2005]] are published figures.</p></div>
+    <aside class="note" id="brNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Try it: breathing rate during exercise</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>A simple model of a lung that empties at a fixed speed (a time constant), with volumes drawn as fractions of total lung capacity. Its numbers illustrate the idea of dynamic hyperinflation; they are not measurements, they are not for diagnosis or treatment decisions, and real lungs vary widely. The published figure: inspiratory capacity fell by a mean 0.37 L during cycling in 105 patients. [[ODonnell2001]]</p>
+  <div class="lab">
+    <div class="stage">
+      <div class="brbtns" id="brLung" role="group" aria-label="Choose a model lung">
+        <button class="btn" data-lung="copd" aria-pressed="true">COPD lung</button>
+        <button class="btn" data-lung="healthy" aria-pressed="false">Healthy lung</button>
+      </div>
+      <label class="brrange" for="brRR">Breathing rate <output id="brRRV">30 breaths a minute</output><input type="range" id="brRR" min="12" max="40" step="1" value="30"></label>
+      <div class="scroll"><svg id="brExSvg" viewBox="0 0 720 300" role="img" aria-label="A lung volume trace over 20 seconds at the chosen breathing rate. A dashed red staircase marks the volume at the end of each breath out, and a bar on the right splits total lung capacity into inspiratory capacity above and end-expiratory volume below. In the COPD model at fast rates the staircase climbs and the breaths hit the ceiling."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brExPlay">Play</button><label class="stage-cap tl" for="brExT">Breaths <input type="range" id="brExT" min="0" max="1" step="0.002" value="1"></label></div>
+      <div class="readout" id="brExRead" aria-live="polite"></div>
+    </div>
+    <aside class="note">
+      <div class="kicker">What to look for</div>
+      <h4>Too little time to breathe out</h4>
+      <p>At 12 breaths a minute both model lungs empty fully between breaths. Push the rate up with the COPD lung: each breath out is cut short, the red staircase climbs, and inspiratory capacity, the room left for the next breath, shrinks. Red dots mark breaths that hit the ceiling. In real patients, dyspnoea during exercise correlates with end-expiratory lung volume, and anything that lowers it should ease breathlessness. [[ODonnell2006]]</p>
+      <div class="pt"><b>In plain words</b>The faster you breathe, the less time there is to get the air out, so air builds up and the lungs get too full. [[ODonnell2001,ODonnell2006]]</div>
+      <p>Long-acting bronchodilators reduce hyperinflation at rest and during exercise in moderate to severe COPD, so tidal volume can expand further for the same effort. [[ODonnell2006]] <button class="btn ghost" data-go="inhalers">Bronchodilators</button></p>
+    </aside>
+  </div>
+
+  <h3 class="sub">Static and dynamic hyperinflation</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Finding</th><th>Study</th><th>What it showed</th></tr></thead>
+    <tbody>
+      <tr><td><b>Who hyperinflates</b></td><td>105 patients, incremental cycling</td><td>80% hyperinflated; inspiratory capacity fell by a mean 0.37 L (14% predicted). [[ODonnell2001]]</td></tr>
+      <tr><td><b>Resting IC and exercise</b></td><td>52 patients, 29 flow-limited at rest</td><td>Peak work rate and VO2 max were lower in the flow-limited group; resting IC correlated with maximum work rate (r=0.73) and VO2 max (r=0.75). [[Diaz2000]]</td></tr>
+      <tr class="hl"><td><b>IC/TLC and survival</b></td><td>689 patients, mean 34 months</td><td>183 (27%) died. Resting IC/TLC independently predicted all-cause and respiratory mortality, independent of the BODE index. [[Casanova2005]]</td></tr>
+      <tr><td><b>Four resting phenotypes</b></td><td>345 patients, mild to very severe</td><td>Preserved IC and TLC (168); high TLC with preserved IC (51); low IC without hyperinflation (52); low IC with hyperinflation (74). The last group had the highest odds of very severe mechanical constraint and exertional dyspnoea (OR 5.2). [[Berton2025]]</td></tr>
+    </tbody></table></div>
+  <div class="cards">
+    <div class="card"><span class="tag">Neural drive</span><h4>Older lungs work harder too</h4><p>In healthy people, neural drive was higher at ages 51–80 than at 18–50 (11.4% vs 8.2% of maximum). [[Jolley2009]]</p></div>
+    <div class="card"><span class="tag">Sensation</span><h4>Not one feeling</h4><p>The 2012 ATS statement distinguishes several qualitatively and mechanistically distinct breathing sensations, notes that endogenous and exogenous opioids may modulate how dyspnoea is felt, and says treatment has lagged behind understanding of the mechanisms. [[Parshall2012]]</p></div>
+  </div>
+
+  <h3 class="sub">Low oxygen: air and blood out of step</h3>
+  <div class="cards">
+    <div class="card"><span class="tag o2">V/Q mismatch</span><h4>Not a diffusion problem</h4><p>In advanced COPD, V/Q mismatch and shunt explained all the hypoxaemia at rest and on exercise. People with similar blood gases often had different V/Q patterns, so the pattern cannot be inferred from PaO2 and PaCO2. [[Wagner1977]]</p></div>
+    <div class="card"><span class="tag o2">Already in GOLD 1</span><h4>Early mismatch</h4><p>In 150 patients across GOLD 1–4, the alveolar–arterial PO2 gradient and V/Q mismatch were already clearly abnormal in GOLD 1 and rose only modestly with severity. FEV1 correlated with PaO2 (r=0.62) and PaCO2 (r=−0.59). [[RodriguezRoisin2009]]</p></div>
+    <div class="card"><span class="tag">Where it sits matters</span><h4>Apical or basal</h4><p>In alpha-1 antitrypsin deficiency, basal-predominant emphysema went with worse FEV1 (by 9.9% predicted) but better gas exchange than apical-predominant disease of the same volume. [[Parr2004]]</p></div>
+    <div class="card"><span class="tag">Thick blood</span><h4>Secondary polycythaemia</h4><p>GOLD 2023 notes that secondary polycythaemia is associated with pulmonary hypertension, venous thromboembolism and mortality. It became less common after long-term oxygen therapy, but one study found it in 8.4% of people with severe COPD on oxygen. [[Agusti2023]]</p></div>
+  </div>
+
+  <h3 class="sub">Pulmonary hypertension and cor pulmonale</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>What the research reports</th></tr></thead>
+    <tbody>
+      <tr><td><b>How high?</b></td><td>Usually mild: resting mean PAP 20–35 mmHg in stable disease, rising further during exercise, sleep and exacerbations. Fewer than 5% have severe or “disproportionate” PH (mean PAP above 40 mmHg). [[Weitzenblum2009]]</td></tr>
+      <tr><td><b>Severe PH from COPD alone?</b></td><td>Of 998 people catheterised for chronic respiratory failure, 27 had a mean PAP of 40 mmHg or more, and in only 11 (1.1%) was COPD the sole cause. That group had mild-to-moderate obstruction, severe hypoxaemia, low PaCO2, very low DLCO and shorter survival. [[Chaouat2005]]</td></tr>
+      <tr><td><b>How fast does it progress?</b></td><td>In 131 mildly to moderately hypoxaemic people catheterised twice about 6.8 years apart, mean PAP rose by 0.4 mmHg a year, and 25% developed resting PH, usually mild (20–42.5 mmHg). [[Kessler2001]]</td></tr>
+      <tr><td><b>A CT clue</b></td><td>A pulmonary artery-to-aorta diameter ratio above 1 was independently associated with future severe exacerbations (OR 3.44 in COPDGene, 2.80 in ECLIPSE). [[Wells2012]]</td></tr>
+      <tr><td><b>Treatment evidence</b></td><td>Long-term oxygen is the only treatment shown to slow the progression of PH in COPD, though pressures rarely return to normal; vasodilators are not recommended because benefit is minimal and they worsen gas exchange. [[Barbera2003]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">How fast lung function falls</h3>
+  <div class="lab even">
+    <div class="stage">
+      <div class="brbtns" id="brFevBtns" role="group" aria-label="Choose a study">
+        <button class="btn" data-fv="eclipse" aria-pressed="true">ECLIPSE</button>
+        <button class="btn" data-fv="lhs" aria-pressed="false">Lung Health Study</button>
+      </div>
+      <div class="scroll"><svg id="brFevSvg" viewBox="0 0 720 164" role="img" aria-label="Bar chart of FEV1 decline: in ECLIPSE the share of patients by yearly change; in the Lung Health Study the yearly decline in continuing smokers and sustained quitters."></svg></div>
+    </div>
+    <div class="note"><div class="kicker">Group averages</div><p id="brFevNote" aria-live="polite"></p>
+      <p>About half of people with COPD at the end of three cohorts had a normal FEV1 before age 40 followed by rapid decline (53 mL a year); the other half started low and declined at 27 mL a year. Accelerated decline is not obligatory for COPD. [[Lange2015]]</p></div>
+  </div>
+  <p class="callout">Before this: <button class="btn ghost" data-go="lungs">Inside the lungs</button> · Next: <button class="btn ghost" data-go="aatd">Alpha-1 antitrypsin deficiency</button> · Oxygen therapy: <button class="btn ghost" data-go="oxygen">Long-term oxygen &amp; home ventilation</button></p>
+</section>
