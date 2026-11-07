@@ -41,7 +41,7 @@ const OX_TXT={
   p1:{h:'MRC 1981',c:'≥ 15 h a day, usually 2 L/min',r1:'died in 5 years: oxygen',r2:'died in 5 years: no oxygen'},
   p2:{h:'NOTT 1980',a:'continuous',b:'12 h nocturnal',ha:'17.7 h',hb:'12 h',l:'mean hours a day',r:'mortality ratio 1.94'},
   p3:{h:'LOTT and INOX',band:'SpO2 89–93%',r1:'INOX death or LTOT: oxygen',r2:'INOX death or LTOT: sham',hr:'LOTT HR 0.94'},
-  p4:{h:'REDOX 2024',a:'24 h a day',b:'15 h a day',r1:'events: 24 h',r2:'events: 15 h',u:'hospitalisations or deaths per 100 person-years'},
+  p4:{h:'REDOX 2024',a:'24 h a day',b:'15 h a day',da:'24 h',db:'15 h',r1:'events: 24 h',r2:'events: 15 h',u:'hospitalisations or deaths per 100 person-years'},
   p5:{h:'Home NIV',vent:'ventilator',mask:'mask',r1:'Köhnlein 1-year deaths: NIV',r2:'Köhnlein 1-year deaths: usual care'},
   /* threshold explainer */
   lblP:'Resting PaO2 on room air',lblS:'Resting SpO2 on room air',
@@ -128,7 +128,7 @@ inits.oxygen=()=>{
       g+=oxBar(x+16,y+136,w-32,P.r1,39*a,60,'var(--o2)',T.pct(39.0))+oxBar(x+16,y+178,w-32,P.r2,42*a,60,'var(--smoke)',T.pct(42.0));
       g+=chip(cx,y+h-36,P.hr,{anchor:'middle',col:'var(--warn)',fill:'var(--warn-soft)'})}
     else if(p===4){const P=T.p4,a=ease(ramp(t,.67,.73)),r=wide?52:44;g+=oxTx(x+16,y+28,P.h,'t-big');
-      const d1=x+w*.28,d2=x+w*.72,dy=y+104;g+=oxDial(d1,dy,r,24*a,'var(--o2)',P.a.split(' ')[0]+' h')+oxDial(d2,dy,r,15*a,'var(--o2)','15 h');
+      const d1=x+w*.28,d2=x+w*.72,dy=y+104;g+=oxDial(d1,dy,r,24*a,'var(--o2)',P.da)+oxDial(d2,dy,r,15*a,'var(--o2)',P.db);
       g+=oxTx(d1,dy+r+18,P.a,'t-sm','fill:var(--ink)','middle')+oxTx(d2,dy+r+18,P.b,'t-sm','fill:var(--ink)','middle');
       g+=oxBar(x+16,y+212,w-32,P.r1,124.7*a,160,'var(--o2)','124.7')+oxBar(x+16,y+254,w-32,P.r2,124.5*a,160,'var(--smoke)','124.5');
       g+=wrapT(x+16,y+h-24,P.u,wide?52:40,{cls:'t-xs',lh:12}).svg}

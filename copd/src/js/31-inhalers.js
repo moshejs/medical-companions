@@ -93,14 +93,14 @@ function inhCI(x,y,w,o){const lw=o.lw||0,x0=x+lw+8,x1=x+w-14,X=v=>lerp(x0,x1,(v-
   if(o.est==null)s+=`<rect x="${f1(a)}" y="${f1(y-2)}" width="${f1(Math.max(1,b-a))}" height="10" rx="3" style="fill:${o.col||'var(--rx)'};opacity:${f1(.3+.7*g)}"/>`;
   else s+=`<line x1="${f1(a)}" x2="${f1(b)}" y1="${f1(y+3)}" y2="${f1(y+3)}" style="stroke:${o.col||'var(--rx)'};stroke-width:2.4"/><rect x="${f1(c-5)}" y="${f1(y-2)}" width="10" height="10" style="fill:${o.col||'var(--rx)'};opacity:${f1(.3+.7*g)}"/>`;
   if(o.lbl)s+=`<text x="${f1(x+lw)}" y="${f1(y+7)}" class="t-sm t-end" style="fill:var(--ink)">${o.lbl}</text>`;
-  if(o.txt)s+=`<text x="${f1(Math.min(b+8,x1-4))}" y="${f1(y-6)}" class="t-sm" style="fill:var(--ink);font-weight:700;opacity:${f1(ramp(g,.5,1))}"${b+8>x1-60?' text-anchor="end"':''}>${o.txt}</text>`;
+  if(o.txt)s+=`<text x="${f1(Math.min(b+8,x1-4))}" y="${f1(y-6)}" class="t-sm" style="fill:var(--ink);font-weight:700;paint-order:stroke;stroke:var(--panel);stroke-width:3;opacity:${f1(ramp(g,.5,1))}"${b+8>x1-60?' text-anchor="end"':''}>${o.txt}</text>`;
   return s}
 /* renders trial rows (shared by 3.1 and 3.2): returns {svg,h} for a 720-wide or 400-wide viewBox */
 function inhRows(rows,N,g,cols){const x=N?14:24,w=N?372:672,mxc=N?50:96,lw=N?104:130;let y=24,s='';
   rows.forEach(r=>{const W=wrapT(x,y,r.h,mxc,{cls:'t-lbl',lh:16});s+=W.svg;y+=W.h+6;
     if(r.type==='pair'){const B=inhBars(x,y,w,r.arms.map(a=>({l:a.l,v:a.v,col:cols[a.c],t:inhNum(a.v,r.d)+(r.u==='%'?'%':r.u?' '+r.u:'')})),{mx:r.mx,g,lw:N?(r.lwN||lw):(r.lw||lw),bh:16,gap:6});s+=B.svg;y+=B.h+18}
     else{const txt=r.type==='range'?`${r.lo}–${r.hi} ${r.u}`:`${inhNum(r.est)} (${inhNum(r.lo)}–${inhNum(r.hi)})`;
-      y+=16;s+=inhCI(x,y,w,{lw:0,mn:r.mn,mx:r.mx,est:r.type==='range'?null:r.est,lo:r.lo,hi:r.hi,ref:r.type==='ci'?1:null,ticks:r.ticks,txt,col:r.col||'var(--rx)',g});y+=46}});
+      y+=16;s+=inhCI(x,y,w,{lw:0,mn:r.mn,mx:r.mx,est:r.type==='range'?null:r.est,lo:r.lo,hi:r.hi,ref:r.type==='ci'?1:null,ticks:r.ticks,txt,col:r.col||'var(--rx)',g});y+=54}});
   return {svg:s,h:Math.ceil(y)}}
 const inhNum=(v,d)=>(+v).toFixed(d==null?2:d);
 inits.inhalers=()=>{

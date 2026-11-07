@@ -4,9 +4,9 @@
    lungs() breathe in time; a flow-time sketch shows the shape of the breath in (schematic, the only number is
    the 60 L/min DPI threshold); a panel shows how often that step goes wrong, as published (research pass D).
    Uses inhBars/inhRows/inhNum from 3.1 (same builder, same script scope). */
-const TQ_DEV={pmdi:{n:'Pressurised metered-dose inhaler (pMDI)',s:'pMDI',kind:'pmdi',size:70,tip:[29,27],rot:0},
+const TQ_DEV={pmdi:{n:'Pressurised metered-dose inhaler (pMDI)',s:'pMDI',kind:'pmdi',size:70,tip:[29,27],rot:0,prep:90},
  dpi:{n:'Dry powder inhaler (DPI)',s:'DPI',kind:'dpi',size:62,tip:[35,0],rot:90},
- smi:{n:'Soft mist inhaler (SMI)',s:'SMI',kind:'smi',size:66,tip:[41,0],rot:90},
+ smi:{n:'Soft mist inhaler (SMI)',s:'SMI',kind:'smi',size:66,tip:[41,0],rot:90,prep:180},
  spacer:{n:'pMDI with a spacer',s:'Spacer',kind:'spacer',size:46,tip:[61,17],rot:0}};
 const TQ_STEPS=[
  {from:0,at:.08,k:'Pick the device',t:'Match the device to the breath',
@@ -108,8 +108,8 @@ inits.technique=()=>{
     const tx=mx-2-D.tip[0],ty=my-D.tip[1],dx=lerp(tx-56,tx,ease(at)),dy=lerp(ty+16,ty,ease(at));
     let puff=0;if(p===0&&(dev==='pmdi'||dev==='smi'))puff=bump((t*12)%1,0,1)*.9;
     if(p===2){const k=ramp(t,.42,.5);puff=dev==='dpi'?bump(k,.05,1):bump(k,0,.8)}
-    s+=inhaler(dx,dy,D.size,D.kind,{puff,rot:D.rot,col:'var(--rx)'});
-    if(p===0&&dev!=='spacer')s+=wrapT(12,dy+D.size*.62+18,dev==='dpi'?TQ_TXT.load:TQ_TXT.prime,18,{cls:'t-xs',lh:12,style:'fill:var(--ink)'}).svg;
+    s+=inhaler(dx,dy,D.size,D.kind,{puff,rot:p===0&&D.prep!=null?D.prep:D.rot,col:'var(--rx)'});
+    if(p===0&&dev!=='spacer')s+=wrapT(12,dy+D.size*.62+18,dev==='dpi'?TQ_TXT.load:TQ_TXT.prime,13,{cls:'t-xs',lh:12,style:'fill:var(--ink)'}).svg;
     const lab=p===1?TQ_TXT.out:p===2?TQ_TXT.inn:p===3?TQ_TXT.hold:'';
     if(lab)s+=chip(L.lx,L.ly+L.ls*1.08+16,lab,{anchor:'middle',col:'var(--air-ink)',size:11.5});
     /* flow-time sketch */
@@ -139,7 +139,7 @@ inits.technique=()=>{
 
   /* ---- peak inspiratory flow explainer ---- */
   const psvg=$('#tqPifSvg'),prg=$('#tqPifR'),pout=$('#tqPifOut'),pval=$('#tqPifVal');
-  function drawPif(){const N=NARROW(),v=+prg.value,ok=v>=60;psvg.setAttribute('viewBox',N?'0 0 400 330':'0 0 720 210');
+  function drawPif(){const N=NARROW(),v=+prg.value,ok=v>=60;psvg.setAttribute('viewBox',N?'0 0 400 348':'0 0 720 210');
     const gx=N?200:170,gy=N?150:160,r=N?120:126;
     let s=gauge(gx,gy,r,v/120,{bands:[[0,.5,'var(--warn-soft)'],[.5,1,'var(--good-soft)']],col:'var(--ink)'});
     s+=`<text x="${gx-r}" y="${gy+18}" class="t-xs t-mid">${TQ_TXT.lo}</text><text x="${gx+r}" y="${gy+18}" class="t-xs t-mid">${TQ_TXT.hi}</text><text x="${gx}" y="${gy-r-10}" class="t-xs t-mid" style="fill:var(--warn)">60</text>`;
