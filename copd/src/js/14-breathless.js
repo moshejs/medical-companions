@@ -93,7 +93,7 @@ inits.breathless=()=>{
       const cv=(tau,cl,w,da)=>`<path d="${pathFn(x=>1-Math.exp(-x*4*u/tau),P.x,P.x+P.w*u,P.y,P.y+P.h,80)}" style="fill:none;stroke:${cl};stroke-width:${w};${da?'stroke-dasharray:5 4':''}"/>`;
       if(u>0){s+=cv(.3,'var(--muted)',1.8,true)+cv(1.1,'var(--air)',2.6,false);
         s+=`<text x="${f1(P.x+P.w*.12)}" y="${f1(P.y+P.h-8)}" class="t-xs" style="fill:var(--muted)">${BR_TXT.healthy}</text>`;
-        if(u>.5)s+=`<text x="${f1(P.x+P.w*.42)}" y="${f1(P.y+P.h*(Math.exp(-4*.4/1.1))-8)}" class="t-xs" style="fill:var(--air-ink);font-weight:700">${BR_TXT.copd}</text>`}
+        if(u>.5)s+=`<text x="${f1(P.x+P.w*.42)}" y="${f1(P.y+P.h*(1-Math.exp(-4*.42/1.1))-8)}" class="t-xs" style="fill:var(--air-ink);font-weight:700">${BR_TXT.copd}</text>`}
     }else if(p===1){
       const k=ramp(t,.17,.28),te=1-.75*k,[cx,cy,r]=L.one;
       s+=airway(cx,cy,r,{wall:.35,tether:te,collapse:out?.9*k+.15:0,ph,seed:4}).svg;
@@ -104,7 +104,6 @@ inits.breathless=()=>{
       const P={x:B.x+36,y:B.y+40,w:B.w-56,h:B.h-120},y0=P.y+P.h*.72,fh=P.h*.7,env=spiroFV(1,1,1);
       s+=`<path d="M${P.x} ${P.y}V${P.y+P.h}" class="axis"/><line x1="${P.x}" x2="${P.x+P.w}" y1="${f1(y0)}" y2="${f1(y0)}" class="axis"/>`;
       s+=`<text x="${P.x}" y="${P.y-10}" class="t-xs">${BR_TXT.flow}</text><text x="${P.x+P.w}" y="${f1(y0+14)}" class="t-xs" text-anchor="end">${BR_TXT.vol}</text>`;
-      s+=`<path d="${pathFn(u=>1-env(u)*0+0,P.x,P.x,y0,y0,2)}"/>`;
       let de='';for(let i=0;i<=100;i++){const u=i/100;de+=(i?'L':'M')+f1(P.x+u*P.w)+' '+f1(y0-env(u)*fh)}
       s+=`<path d="${de}" style="fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:5 4"/><text x="${f1(P.x+P.w*.1)}" y="${f1(P.y+2)}" class="t-xs">${BR_TXT.maxF}</text>`;
       const a=lerp(.64,.44,k),b=lerp(.84,.76,k),amp=lerp(.14,.5,k);let ex='',lim='',ins='';
