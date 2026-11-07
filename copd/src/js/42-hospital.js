@@ -13,7 +13,7 @@ const HS_STEPS=[
   txt:`GOLD 2023 lists short-acting bronchodilators first (SABA with or without SAMA), preferring air-driven to oxygen-driven nebulisers; "40 mg prednisone-equivalent per day for 5 days"; and antibiotics for 5–7 days when sputum volume and purulence increase. [[Agusti2023]] In REDUCE, 5 days of prednisone 40 mg was non-inferior to 14 days for re-exacerbation within 180 days (37.2% against 38.4%). [[Leuppi2013]] Use the sputum and steroid buttons to change the lanes.`,
   pt:`A short course of steroid tablets (often 5 days) helps the airways calm down. Antibiotics help most when phlegm increases and changes colour. [[Leuppi2013,Anthonisen1987]]`,
   hook:`Prednisone 40 mg for 5 days is as good as 14 days (REDUCE), and oral works as well as IV. [[Leuppi2013,deJong2007]]`},
- {from:.3,at:.36,k:'Check the acid',t:'pH below 7.35 with high CO2 despite treatment',ts:'Is the blood acidic?',sh:'Acid check',
+ {from:.3,at:.36,k:'Check the acid',t:'pH below 7.35 with high CO2 despite treatment',ts:'Is the blood acidic?',sh:'Acid',
   txt:`BTS/ICS 2016: "NIV should be started when pH &lt;7.35 and pCO2 &gt;6.5 kPa persist or develop despite optimal medical therapy". [[Davidson2016Summary]] BTS 2017 puts it as respiratory acidosis with PCO2 &gt;6 kPa persisting for more than 30 minutes after initial standard management. [[ODriscoll2017Summary]] Choose the not-acidotic example to see the NIV lane stay empty.`,
   pt:`If carbon dioxide builds up and the blood turns acidic despite treatment, a mask machine (NIV) can help. [[Osadnik2017]]`,
   hook:`NIV line (BTS/ICS): pH &lt;7.35 and pCO2 &gt;6.5 kPa persisting despite optimal medical therapy. [[Davidson2016Summary]]`},
@@ -91,7 +91,7 @@ function hsScene(h,o,ph){const niv=o.acid&&h>=2&&h<72,o2=!niv&&h<120,home=h>=140
   /* monitor */
   const V=o.acid?HS_V.acid:HS_V.non,pH=hsKnot(V.ph,h),co2=hsKnot(V.co2,h),sat=hsKnot(HS_V.sat,h)+(h>1?Math.sin(ph*9)*.6:0);
   g+=`<rect x="104" y="0" width="116" height="74" rx="8" style="fill:var(--panel-2);stroke:var(--line)"/><text x="110" y="14" class="t-xs">${HS_TXT.mon}</text>`;
-  [[HS_TXT.spo2,HS_TXT.pct(sat),sat<88?'var(--bad)':'var(--o2-ink)'],[HS_TXT.ph,pH.toFixed(2),pH<7.35?'var(--bad)':'var(--good)'],[HS_TXT.pco2,HS_TXT.kpa(co2),co2>6.5?'var(--bad)':co2>6?'var(--warn)':'var(--good)']].forEach((r,i)=>{
+  [[HS_TXT.spo2,HS_TXT.pct(sat),sat<88?'var(--bad)':'var(--ink)'],[HS_TXT.ph,pH.toFixed(2),pH<7.35?'var(--bad)':'var(--good)'],[HS_TXT.pco2,HS_TXT.kpa(co2),co2>6.5?'var(--bad)':co2>6?'var(--warn)':'var(--good)']].forEach((r,i)=>{
     const y=32+i*17;g+=`<text x="110" y="${y}" class="t-sm">${r[0]}</text><text x="214" y="${y}" class="t-lbl t-end" style="fill:${r[2]}">${r[1]}</text>`});
   /* oxygen outlet and NIV machine */
   g+=`<rect x="4" y="30" width="16" height="12" rx="2" style="fill:var(--o2-soft);stroke:var(--o2)"/>`;
@@ -123,15 +123,16 @@ inits.hospital=()=>{
     s+=bar(0,0,120,'var(--o2)',HS_TXT.o2);
     [0,.75].concat(o.acid?[4]:[]).forEach(g=>{const x=X(g),on=h>=g;s+=`<circle cx="${f1(x)}" cy="${L.r0+L.rs}" r="5.5" style="fill:${on?'var(--blood)':'var(--panel)'};stroke:var(--blood);stroke-width:1.6"/>`});
     s+=bar(2,0,72,'var(--bd)',HS_TXT.saba)+bar(2,72,140,'var(--bd)','',.55);
-    s+=bar(3,0,o.sd*24,'var(--ics)',HS_TXT.st(o.sd));
+    s+=bar(3,0,o.sd*24,'var(--ics)','');
     for(let k=1;k<o.sd;k++){const x=X(k*24);s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${L.r0+3*L.rs-8}" y2="${L.r0+3*L.rs+8}" style="stroke:var(--panel);stroke-width:1.2"/>`}
+    {const tx=HS_TXT.st(o.sd),yc=L.r0+3*L.rs;s+=`<rect x="${L.x0+2}" y="${yc-7}" width="${f1(tx.length*5.9+6)}" height="14" rx="4" style="fill:var(--ics)"/><text x="${L.x0+5}" y="${yc+4}" class="t-xs" style="fill:var(--ink);font-weight:600">${tx}</text>`}
     s+=o.pur?bar(4,0,120,'var(--fl)',HS_TXT.ab)+bar(4,120,168,'var(--fl)','',.4):bar(4,0,120,'var(--muted)',HS_TXT.abNo,0,true);
     s+=o.acid?bar(5,2,24,'var(--rx)',HS_TXT.niv)+bar(5,24,72,'var(--rx)','',.45):`<text x="${L.x0+5}" y="${L.r0+5*L.rs+4}" class="t-xs" style="fill:var(--muted);font-weight:600">${HS_TXT.nivNo}</text>`;
     {const yc=L.r0+6*L.rs,x=X(140),on=h>=140;s+=`<rect x="${f1(x-6)}" y="${yc-6}" width="12" height="12" transform="rotate(45 ${f1(x)} ${yc})" style="fill:${on?'var(--rec)':'var(--panel)'};stroke:var(--rec);stroke-width:1.6"/>`;
       if(p>=5)s+=`<text x="${L.x1}" y="${yc+4}" class="t-xs t-end" style="fill:var(--rec);font-weight:600">${N?HS_TXT.fuN:HS_TXT.fu}</text>`}
     /* time axis and cursor */
     const yb=L.r0+6*L.rs+14;s+=`<line x1="${L.x0}" x2="${L.x1}" y1="${yb}" y2="${yb}" class="axis"/>`;
-    HS_TXT.ticks.forEach(([v,l])=>{const x=X(v);s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${yb}" y2="${yb+4}" class="axis"/><text x="${f1(clamp(x,L.x0+4,L.x1-14))}" y="${L.tk}" class="t-xs t-mid">${l}</text>`});
+    HS_TXT.ticks.forEach(([v,l])=>{if(N&&v===2)return;const x=X(v);s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${yb}" y2="${yb+4}" class="axis"/><text x="${f1(clamp(x,L.x0+4,L.x1-14))}" y="${L.tk}" class="t-xs t-mid">${l}</text>`});
     const xc=X(h);s+=`<line x1="${f1(xc)}" x2="${f1(xc)}" y1="${L.r0-12}" y2="${yb}" style="stroke:var(--ink);stroke-width:1.6"/><text x="${f1(clamp(xc,L.x0+22,L.x1-22))}" y="${L.cl}" class="t-xs t-mid" style="fill:var(--ink);font-weight:700">${HS_TXT.when(h)}</text>`;
     /* annotations */
     let an=HS_TXT.ann[p].slice();if(p===2)an.push(o.acid?HS_TXT.annAcid:HS_TXT.annNo);if(p===3&&!o.acid)an=[HS_TXT.annNo];if(p===5&&o.sd===14)an.push(HS_TXT.ann14);
@@ -154,7 +155,7 @@ inits.hospital=()=>{
   /* ---------- trial explorer ---------- */
   const ts=$('#hsTrSvg'),tn=$('#hsTrNote'),tb=$('#hsTrBtns');let tk='reduce',stopT=null;
   tb.innerHTML=HS_TR.map(r=>`<button class="btn" data-hst="${r.id}" aria-pressed="${r.id===tk}">${r.b}</button>`).join('');
-  function trial(g){const N=vb(ts,'720 230','400 280'),D=HS_TR.find(r=>r.id===tk);let s='';
+  function trial(g){const D=HS_TR.find(r=>r.id===tk),nr=D.rows.length,N=vb(ts,`720 ${D.kind==='bars'?50+nr*40:64+nr*42}`,`400 ${D.kind==='bars'?72+nr*46:90+nr*46}`);let s='';
     let y=22;if(N){const w=wrapT(16,20,D.t,58,{cls:'t-sm',lh:14,style:'fill:var(--ink);font-weight:600'});s+=w.svg;y=20+w.h+6}
     else s+=`<text x="16" y="${y}" class="t-sm" style="fill:var(--ink);font-weight:600">${D.t}</text>`;
     if(D.kind==='bars'){const bx=N?16:250,bw=N?314:380,rh=N?46:40;

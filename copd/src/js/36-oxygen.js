@@ -36,7 +36,7 @@ const OX_TXT={
     hn:'HOT-HMV · oxygen + home NIV',ho:'HOT-HMV · oxygen alone'},
   pct:v=>v+'%',m500:'≈ 500 days (men)',via:'NOTT points via a 2022 review',
   lott1:'LOTT: HR 0.94 (0.79–1.12)',lott2:'moderate lows: no benefit',
-  med:m=>`median ${m} mo`,
+  medA:'median',medB:m=>`${m} mo`,
   p0:{h:'Resting, room air',b:[['severe','PaO2 ≤ 55 mm Hg (7.3 kPa) or SpO2 ≤ 88%'],['severe if','PaO2 56–59 or SpO2 89% + oedema, haematocrit ≥ 55% or P pulmonale'],['moderate','SpO2 89–93%: ATS suggests no long-term oxygen']]},
   p1:{h:'MRC 1981',c:'≥ 15 h a day, usually 2 L/min',r1:'died in 5 years: oxygen',r2:'died in 5 years: no oxygen'},
   p2:{h:'NOTT 1980',a:'continuous',b:'12 h nocturnal',ha:'17.7 h',hb:'12 h',l:'mean hours a day',r:'mortality ratio 1.94'},
@@ -100,8 +100,8 @@ inits.oxygen=()=>{
         g+=`<g style="opacity:${f1(a)}"><rect x="${f1(bx)}" y="${f1(by)}" width="${f1(bw)}" height="40" rx="8" style="fill:var(--panel);stroke:var(--warn);stroke-width:1.4"/>`+oxTx(bx+8,by+17,T.lott1,'t-xs','fill:var(--ink)')+oxTx(bx+8,by+32,T.lott2,'t-xs')+'</g>'}
       s+=`<g style="opacity:${f1(1-a5)}">${g}</g>`}
     if(a5>0){const m3=12*ramp(t,.86,.96);let g=line('hn',m3,1,'ci',null)+line('ho',m3,1,'ci',null);
-      [['hn',4.3],['ho',1.4]].forEach(([k,md])=>{if(m3>=md){g+=`<path d="M${f1(X(0))} ${f1(Y(50))}H${f1(X(md))}V${f1(Y(0))}" style="fill:none;stroke:${COL[k]};stroke-width:1.2;stroke-dasharray:4 3"/>`+oxTx(X(md)+4,Y(k==='hn'?8:16),T.med(md),'t-xs',`fill:var(--ink)`)}});
-      if(m3>=12)g+=oxTx(X(12)-8,Y(36.6)-10,T.pct(36.6),'t-sm','fill:var(--ink)','end')+oxTx(X(12)-8,Y(19.6)-10,T.pct(19.6),'t-sm','fill:var(--ink)','end');
+      [['hn',4.3],['ho',1.4]].forEach(([k,md])=>{if(m3>=md){g+=`<path d="M${f1(X(0))} ${f1(Y(50))}H${f1(X(md))}V${f1(Y(0))}" style="fill:none;stroke:${COL[k]};stroke-width:1.2;stroke-dasharray:4 3"/>`+oxTx(X(md)+4,Y(k==='hn'?14:30),T.medA,'t-xs',`fill:var(--ink)`)+oxTx(X(md)+4,Y(k==='hn'?14:30)+12,T.medB(md),'t-xs',`fill:var(--ink)`)}});
+      if(m3>=12)g+=oxTx(X(12)-8,Y(36.6)-10,T.pct(36.6),'t-sm','fill:var(--ink)','end')+oxTx(X(12)-8,Y(19.6)+18,T.pct(19.6),'t-sm','fill:var(--ink)','end');
       const it=[['hn',T.lg.hn],['ho',T.lg.ho]];let lg='';it.forEach(([k,txt],i)=>{const ly=L.gy+16+i*16;lg+=`<line x1="${f1(X(5))}" x2="${f1(X(5)+18)}" y1="${f1(ly-4)}" y2="${f1(ly-4)}" style="stroke:${COL[k]};stroke-width:3;stroke-dasharray:2 4;stroke-linecap:round"/>`+oxTx(X(5)+24,ly,txt,'t-xs','fill:var(--ink)')});
       s+=`<g style="opacity:${f1(a5)}">${g}${lg}</g>`}
     s+=oxPanel(L,t,p);

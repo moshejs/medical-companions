@@ -66,16 +66,16 @@ const FU_OUT=[
     pts:[[0,0],[3.6,50],[7.7,75]],li:`Quebec, 73,106 people from their first COPD hospitalisation: 50% had died by 3.6 years and 75% by 7.7 years. [[Suissa2012]]`},
   {id:'support',col:'var(--co2)',lab:'SUPPORT, admitted with high CO2',
     pts:[['h',11],[60/365,20],[180/365,33],[1,43],[2,49]],li:`SUPPORT, 1016 people admitted with PaCO2 ≥50 mmHg: 11% died in hospital, 20% by 60 days, 33% by 180 days, 43% by 1 year and 49% by 2 years. Only 26% were alive with good-to-excellent quality of life at 6 months. [[Connors1996]]`},
-  {id:'groen',col:'var(--o2)',lab:'Dutch cohort, 171 admissions',
+  {id:'groen',col:'var(--air)',lab:'Dutch cohort, 171 admissions',
     pts:[['h',8],[1,23]],li:`Dutch cohort of 171 admissions: 8% died in hospital and 23% by 1 year; 35% by 1 year for those admitted to ICU for respiratory failure. [[Groenewegen2003]]`},
-  {id:'medicare',col:'var(--rx)',lab:'US Medicare, at 1 year, by ventilation',sep:true,
+  {id:'medicare',col:'var(--gold)',lab:'US Medicare, at 1 year, by ventilation',sep:true,
     pts:[[1,24.4],[1,26.2],[1,41.8],[1,45.7]],li:`US Medicare, 2.3 million COPD hospitalisations, deaths within 1 year: 26.2% overall, 24.4% with no ventilation, 41.8% after non-invasive ventilation and 45.7% after invasive ventilation; 64.2% were readmitted within the year. [[Lindenauer2018]]`}
 ];
 const FU_KN=[[0,-6],[.17,-2],[.33,0],[.48,3],[.62,5],[.86,35],[1,40]];
 function fuDay(t){for(let i=1;i<FU_KN.length;i++){const a=FU_KN[i-1],b=FU_KN[i];if(t<=b[0])return lerp(a[1],b[1],clamp((t-a[0])/(b[0]-a[0])))}return 40}
 function fuSym(d){let v;if(d<-3)v=.18;else if(d<0)v=.18+.32*ease(ramp(d,-3,0));else if(d<2.5)v=.5+.5*ease(ramp(d,0,2.5));else v=.18+.82*Math.exp(-(d-2.5)/2.2);
   if(d>33)v=Math.max(v,.18+.5*ease(ramp(d,33,40)));return v}
-function fuPF(d,part){const r=part?.08:0;if(d<0)return 1;if(d<2)return 1-.25*ease(ramp(d,0,2));return 1-r*ramp(d,2,4.5)-(.25-r*ramp(d,2,4.5))*Math.exp(-(d-2)/1.6)}
+function fuPF(d,part){const r=part?.08:0;if(d<0)return 1;if(d<2)return 1-.25*ease(ramp(d,0,2));return 1-r-(.25-r)*Math.exp(-(d-2)/1.6)}
 function fuState(d,part){const nf=ramp(d,33,40);
   const inf=Math.max(ramp(d,-6,-3.5)*(1-ramp(d,3.7,9)),nf*.7);
   const infl=Math.max(ramp(d,-3,1)*(1-ramp(d,4,14)*(part?.7:.92)),nf*.5);
@@ -187,7 +187,7 @@ inits.flareups=()=>{
 
   /* ---------- ECLIPSE bars ---------- */
   const es=$('#fuEcSvg');
-  function ecl(){const N=vb(es,'720 210','400 380');let s='';
+  function ecl(){const N=vb(es,'720 190','400 370');let s='';
     const P=N?[{x:56,y:34,w:310,h:120},{x:56,y:224,w:310,h:120}]:[{x:56,y:34,w:290,h:130},{x:416,y:34,w:290,h:130}];
     const D=[{t:FU_TXT.ec1,v:[.85,1.34,2.00],mx:2.4,f:v=>v.toFixed(2)},{t:FU_TXT.ec2,v:[22,33,47],mx:60,f:v=>v+'%'}];
     D.forEach((g,k)=>{const Q=P[k];s+=`<text x="${Q.x}" y="${Q.y-14}" class="t-sm" style="fill:var(--ink);font-weight:600">${g.t}</text>`;
@@ -198,18 +198,18 @@ inits.flareups=()=>{
   ecl();
 
   /* ---------- outcomes after a hospitalised flare-up ---------- */
-  const os=$('#fuOutSvg'),ol=$('#fuOutList'),ob=$('#fuOutBtns'),on={suissa:true,support:true,groen:false,medicare:false};let stopO=null;
+  const os=$('#fuOutSvg'),ol=$('#fuOutList'),ob=$('#fuOutBtns'),on={suissa:true,support:true,groen:true,medicare:true};let stopO=null;
   ob.innerHTML=FU_OUT.map(c=>`<button class="btn" data-fuo="${c.id}" aria-pressed="${on[c.id]}"><span aria-hidden="true" style="display:inline-block;width:10px;height:10px;border-radius:5px;margin-right:6px;background:${c.col}"></span>${c.lab}</button>`).join('');
   function out(g){const N=vb(os,'720 280','400 300');let s='';
     const x0=N?46:60,x1=N?370:690,y0=20,y1=N?240:220,hx=x0+14,tx0=x0+(N?48:66),Y=v=>y1-(y1-y0)*v/80,TX=yr=>tx0+(x1-tx0)*Math.sqrt(yr/8);
     [0,20,40,60,80].forEach(v=>{s+=`<line x1="${x0}" x2="${x1}" y1="${f1(Y(v))}" y2="${f1(Y(v))}" class="grid"/><text x="${x0-6}" y="${f1(Y(v)+3)}" class="t-xs t-end">${v}</text>`});
     s+=`<path d="M${x0} ${y0}V${y1}H${x1}" class="axis" style="fill:none"/><text x="${x0}" y="${y0-8}" class="t-xs">${FU_TXT.outY}</text>`;
     s+=`<text x="${hx}" y="${y1+15}" class="t-xs t-mid">${N?FU_TXT.hospN:FU_TXT.hosp}</text><text x="${f1(tx0)}" y="${y1+15}" class="t-xs t-mid">0</text>`;
-    FU_TXT.ticks.forEach(([v,l])=>{s+=`<text x="${f1(TX(v))}" y="${y1+15}" class="t-xs t-mid">${l}</text>`});
+    FU_TXT.ticks.forEach(([v,l])=>{if(N&&v===.5)return;s+=`<text x="${f1(TX(v))}" y="${y1+15}" class="t-xs t-mid">${l}</text>`});
     s+=`<text x="${x1}" y="${y1+32}" class="t-xs t-end">${N?FU_TXT.outXN:FU_TXT.outX}</text>`;
-    FU_OUT.forEach(c=>{if(!on[c.id])return;const P=c.pts.map(([a,v],i)=>[(a==='h'?hx:TX(a))+(c.sep?(i-1.5)*9:0),Y(v*g)]);
+    FU_OUT.forEach(c=>{if(!on[c.id])return;const P=c.pts.map(([a,v],i)=>[(a==='h'?hx:TX(a))+(c.sep?10+i*8:0),Y(v*g)]);
       if(!c.sep)s+=`<path d="${P.map((q,i)=>(i?'L':'M')+f1(q[0])+' '+f1(q[1])).join('')}" style="fill:none;stroke:${c.col};stroke-width:2.4"/>`;
-      P.forEach((q,i)=>{s+=c.sep?`<rect x="${f1(q[0]-5)}" y="${f1(q[1]-5)}" width="10" height="10" transform="rotate(45 ${f1(q[0])} ${f1(q[1])})" style="fill:${c.col};stroke:var(--panel);stroke-width:1.5"/>`:`<circle cx="${f1(q[0])}" cy="${f1(q[1])}" r="4.5" style="fill:${c.col};stroke:var(--panel);stroke-width:1.5"/>`})});
+      P.forEach((q,i)=>{s+=c.sep?`<rect x="${f1(q[0]-4)}" y="${f1(q[1]-4)}" width="8" height="8" transform="rotate(45 ${f1(q[0])} ${f1(q[1])})" style="fill:${c.col};stroke:var(--panel);stroke-width:1.5"/>`:`<circle cx="${f1(q[0])}" cy="${f1(q[1])}" r="4.5" style="fill:${c.col};stroke:var(--panel);stroke-width:1.5"/>`})});
     os.innerHTML=s;
     ol.innerHTML=FU_OUT.filter(c=>on[c.id]).map(c=>`<li><span aria-hidden="true" style="display:inline-block;width:10px;height:10px;border-radius:5px;margin-right:6px;background:${c.col}"></span>${c.li}</li>`).join('')}
   ob.addEventListener('click',e=>{const b=e.target.closest('[data-fuo]');if(!b)return;on[b.dataset.fuo]=!on[b.dataset.fuo];b.setAttribute('aria-pressed',on[b.dataset.fuo]);

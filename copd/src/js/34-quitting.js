@@ -106,7 +106,7 @@ inits.quitting=()=>{
     if(t>=.47){const a=ramp(t,.47,.52),xg=X(5)-10,g1=Y(qit(5)),g2=Y(smk(5));
       s+=`<g style="opacity:${f1(a)}"><path d="M${f1(xg)} ${f1(g1+4)}V${f1(g2-4)}" style="stroke:var(--ink);stroke-width:1.6"/><path d="M${f1(xg-5)} ${f1(g1+4)}h10M${f1(xg-5)} ${f1(g2-4)}h10" style="stroke:var(--ink);stroke-width:1.6"/>`+
         qtTx(xg-8,Y(-95),T.gap(qit(5)-smk(5)),'t-sm','fill:var(--ink)','end')+qtTx(xg-8,Y(-95)+13,T.gapSub,'t-xs','','end')+
-        qtTx(X(5),Y(92),T.notBack,'t-xs','fill:var(--muted)','end')+'</g>'}
+        qtTx(X(5),Y(86),T.notBack,'t-xs','fill:var(--muted)','end')+'</g>'}
     s+=qtPanel(L,t,p);
     svg.innerHTML=s;
     const yc=p===0?yS:yQ,yr=f1(yc);

@@ -105,8 +105,8 @@ inits.bloodgas=()=>{
     return {mh,mt,flow,sat,co2,fw,cw}}
   function draw(t){
     const N=vb(svg,'720 400','400 710'),p=phaseOf(BG_STEPS,t),S=BG_STEPS[p],st=state(t,p);
-    const L=N?{ty:24,bx:30,bw:26,by0:300,by1:80,lx:66,vy:66,gx:290,gy:110,gr:34,ax:290,ay:206,as:104,sx:232,sw:116,sy:266,cx0:44,cx1:384,c1y:340,c1h:70,c2y:446,c2h:56,phY:562,anY:616,sy2:690}
-             :{ty:30,bx:40,bw:30,by0:330,by1:72,lx:84,vy:58,gx:300,gy:106,gr:40,ax:300,ay:214,as:120,sx:236,sw:128,sy:286,cx0:440,cx1:700,c1y:70,c1h:72,c2y:172,c2h:58,phY:282,anY:324,sy2:384};
+    const L=N?{ty:24,bx:30,bw:26,by0:300,by1:80,lx:76,vy:66,gx:290,gy:110,gr:34,ax:290,ay:206,as:104,sx:232,sw:116,sy:266,cx0:44,cx1:384,c1y:340,c1h:70,c2y:446,c2h:56,phY:562,anY:616,sy2:690}
+             :{ty:30,bx:40,bw:30,by0:330,by1:72,lx:90,vy:58,gx:300,gy:106,gr:40,ax:300,ay:200,as:116,sx:236,sw:128,sy:266,cx0:440,cx1:700,c1y:70,c1h:72,c2y:172,c2h:58,phY:282,anY:324,sy2:384};
     let s=N?wrapT(16,L.ty,S.t,36,{cls:'t-big',lh:19,style:'fill:var(--co2-ink)'}).svg:`<text x="16" y="${L.ty}" class="t-big" style="fill:var(--co2-ink)">${S.t}</text>`;
     /* SpO2 scale */
     const Ys=v=>L.by0-(L.by0-L.by1)*clamp((v-80)/20),hi=p===1?.35+.25*Math.sin(t*120):0;

@@ -99,7 +99,7 @@ function asGrid(G,o={}){const gx=G.x,gw=G.w,y1=G.top,h=G.h,gap=8,y2=y1+h+gap,hal
     s+=`<text x="${f1(gx+gw/4)}" y="${f1(y1+h/2+12)}" text-anchor="middle" style="font:700 30px var(--display);fill:var(--muted);opacity:${f1(gh)}">C</text><text x="${f1(gx+3*gw/4)}" y="${f1(y1+h/2+12)}" text-anchor="middle" style="font:700 30px var(--display);fill:var(--muted);opacity:${f1(gh)}">D</text>`;
     s+=`<text x="${f1(gx+8)}" y="${f1(y1+16)}" class="t-xs" style="opacity:${f1(gh)}">${AS_TXT.old}</text>`}
   if(o.merged)s+=`<text x="${f1(gx+gw-8)}" y="${f1(y1+16)}" class="t-xs t-end" style="opacity:${f1(o.merged)}">${AS_TXT.merged}</text>`;
-  if(o.oldCell){const ox=o.oldCell==='C'?gx:gx+gw/2;s+=`<rect x="${f1(ox+4)}" y="${f1(y1+4)}" width="${f1(gw/2-8)}" height="${f1(h-8)}" rx="8" style="fill:none;stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 3"/><text x="${f1(ox+12)}" y="${f1(y1+h-12)}" class="t-xs">${AS_TXT.oldCell[o.oldCell]}</text>`}
+  if(o.oldCell)s+=`<text x="${f1(gx+gw-10)}" y="${f1(y1+h-12)}" class="t-xs t-end" style="fill:var(--ink)">${AS_TXT.oldCell[o.oldCell]}</text>`;
   /* axis labels */
   const lw=G.lx2-G.lx;const wr=(y,t)=>wrapT(G.lx,y,t,Math.max(10,Math.floor(lw/5.8)),{cls:'t-xs',lh:12}).svg;
   s+=wr(y1+18,AS_TXT.rowE)+wr(y2+18,AS_TXT.rowAB);
@@ -182,7 +182,7 @@ inits.assessment=()=>{
   /* ABE */
   const abeSvg=$('#asAbeSvg'),abeOut=$('#asAbeOut'),inst=$('#asAbeInst'),modEl=$('#asAbeMod'),hosEl=$('#asAbeHosp'),pctEl=$('#asAbePct');
   let abeG='B',abeOld='';
-  function abeDraw(){const N=vb(abeSvg,'520 290','400 290');
+  function abeDraw(){const N=vb(abeSvg,'520 260','400 260');
     const G=asGrid(N?{x:100,w:288,top:16,h:96,lx:8,lx2:92}:{x:120,w:384,top:16,h:96,lx:12,lx2:110},{hi:abeG,oldCell:abeG==='E'?abeOld:null});
     abeSvg.innerHTML=G.svg}
   function abe(){const m=parseInt(modEl.value,10),hz=parseInt(hosEl.value,10);
@@ -204,7 +204,7 @@ inits.assessment=()=>{
       s+=`<text x="${L.lx}" y="${y+L.lab}" class="t-sm" style="fill:var(--ink)">${d.n}</text>`;
       const tot=d.v.reduce((a,b)=>a+b,0);
       d.v.forEach((v,i)=>{const w=L.bw*v/tot,k=cols[i];s+=`<rect x="${f1(x)}" y="${y}" width="${f1(w)}" height="26" style="fill:${AS_COL[k][0]};stroke:${AS_COL[k][1]};stroke-width:1"/>`;
-        if(w>26)s+=`<text x="${f1(x+w/2)}" y="${y+17}" class="t-xs t-mid" style="fill:var(--ink)">${v}%</text>`;x+=w})});
+        if(w>20)s+=`<text x="${f1(x+w/2)}" y="${y+17}" class="t-xs t-mid" style="fill:var(--ink)">${v}%</text>`;x+=w})});
     dSvg.innerHTML=s}
   /* eosinophils */
   const eSvg=$('#asEosSvg'),eIn=$('#asEos'),eOut=$('#asEosOut');
@@ -225,7 +225,7 @@ inits.assessment=()=>{
   let bodePts=null;
   function bodeDraw(){const N=vb(bSvg,'720 130','400 150'),L=N?{x:16,w:368,y:34,lg:14}:{x:20,w:680,y:34,lg:14};let s='';
     const cw=L.w/10,cols=['var(--dx)','var(--rec)','var(--warn)','var(--rx)'];
-    AS_TXT.bodeLeg.forEach((l,i)=>{const x=L.x+i*(N?94:150);s+=`<rect x="${x}" y="${L.lg-9}" width="12" height="12" rx="2" style="fill:${cols[i]}"/><text x="${x+18}" y="${L.lg+1}" class="t-xs" style="fill:var(--ink)">${l}</text>`});
+    AS_TXT.bodeLeg.forEach((l,i)=>{const x=N?[16,80,200,270][i]:L.x+i*150;s+=`<rect x="${x}" y="${L.lg-9}" width="12" height="12" rx="2" style="fill:${cols[i]}"/><text x="${x+18}" y="${L.lg+1}" class="t-xs" style="fill:var(--ink)">${l}</text>`});
     let k=0;const parts=bodePts||[0,0,0,0];
     for(let i=0;i<10;i++)s+=`<rect x="${f1(L.x+i*cw)}" y="${L.y}" width="${f1(cw-3)}" height="26" rx="4" style="fill:var(--panel-2);stroke:var(--line)"/>`;
     parts.forEach((n,ci)=>{for(let j=0;j<n;j++){s+=`<rect x="${f1(L.x+k*cw)}" y="${L.y}" width="${f1(cw-3)}" height="26" rx="4" style="fill:${cols[ci]}"/>`;k++}});
