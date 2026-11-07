@@ -215,12 +215,12 @@ inits.review=()=>{
     else{
       const inL=p===1?ease(ramp(u,.1,.4)):1;
       s+=chipG(cx(0),cy,cw,chH,T.chip.lama,'bd');
-      s+=chipG(lerp(cx(0),cx(1),inL),cy,cw,chH,T.chip.laba,'bd',inL);
+      s+=chipG(cx(1),cy-Math.round((1-inL)*18),cw,chH,T.chip.laba,'bd',inL);
       if(p===1)line=u>.6?1:0;
       if(p===2){const on=eos>=300;s+=chipG(cx(2),cy,cw,chH,T.chip.ics,'ics',on?1:.18,!on);line=on?1:0}
       if(p===3){const on=eos>=100;s+=chipG(cx(2),cy,cw,chH,T.chip.ics,'ics',on?1:.18,!on);line=on?1:0}
       if(p===4){s+=chipG(cx(2),cy,cw,chH,T.chip.ics,'ics');const a=ease(ramp(u,.08,.35)),rof=u<.55;line=rof?0:1;
-        s+=chipG(lerp(W-16-cw,cx(3),a),cy,cw,chH,rof?T.chip.rof:T.chip.mac,'rx',a)}
+        s+=chipG(cx(3),cy-Math.round((1-a)*18),cw,chH,rof?T.chip.rof:T.chip.mac,'rx',a)}
       if(p===5){const d=ease(ramp(u,.12,.42));s+=chipG(cx(2),cy+d*16,cw,chH,T.chip.ics,'ics',1-d*.75,d>.3);line=u<.45?0:1}
     }
     /* what this step means, two lines; the active one in bold */

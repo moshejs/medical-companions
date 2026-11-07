@@ -70,9 +70,9 @@ const HS_TR=[
     txt:`19 trials, 2663 people. Outpatients: 295 to 212 failures per 1000 (low-quality evidence). Inpatients on current antibiotics: not significant. ICU: 565 to 107 per 1000, and mortality Peto OR 0.21. [[Vollenweider2018]]`},
   {id:'austin',b:'Austin: titrated oxygen',t:'Mortality before and in hospital, %',kind:'bars',rows:[['high flow, all patients',9,0],['titrated, all patients',4,1],['high flow, confirmed COPD',9,0],['titrated, confirmed COPD',2,1]],
     txt:`Tasmanian cluster trial, 405 patients treated by paramedics: RR 0.42 overall and 0.22 in confirmed COPD. Titrated oxygen per protocol meant less acidosis and lower PaCO2. [[Austin2010]] A Cochrane review found it is still the only such trial; certainty was low. [[Kopsaftis2020]]`},
-  {id:'brochard',b:'Brochard 1995: NIV',t:'85 ICU patients, %',kind:'bars',rows:[['standard care: intubated',74,0],['NIV: intubated',26,1],['standard care: died in hospital',29,0],['NIV: died in hospital',9,1]],
+  {id:'brochard',b:'Brochard 1995: NIV',t:'85 ICU patients, %',kind:'bars',rows:[['standard: intubated',74,0],['NIV: intubated',26,1],['standard: died in hospital',29,0],['NIV: died in hospital',9,1]],
     txt:`NIV also cut complications from 48% to 16% and the mean stay from 35 to 23 days. [[Brochard1995]]`},
-  {id:'plant',b:'Plant 2000: ward NIV',t:'236 patients on 14 UK wards, %',kind:'bars',rows:[['standard care: treatment failure',27,0],['NIV: treatment failure',15,1],['standard care: died in hospital',20,0],['NIV: died in hospital',10,1]],
+  {id:'plant',b:'Plant 2000: ward NIV',t:'236 patients on 14 UK wards, %',kind:'bars',rows:[['standard: treatment failure',27,0],['NIV: treatment failure',15,1],['standard: died in hospital',20,0],['NIV: died in hospital',10,1]],
     txt:`Mild-to-moderate acidosis on general respiratory wards; NIV raised pH faster in the first hour and lowered the breathing rate more by 4 hours. [[Plant2000]]`},
   {id:'osadnik',b:'Cochrane: NIV',t:'NIV against usual care',kind:'forest',rows:[['Mortality',.54,.38,.76,'RR 0.54 (0.38–0.76)'],['Intubation',.36,.28,.46,'RR 0.36 (0.28–0.46)']],
     txt:`17 trials, 1264 people, moderate-quality evidence: NNT 12 for a death and 5 for an intubation; stay 3.39 days shorter; similar benefit for pH 7.30–7.35 and below 7.30, on ward or ICU; more intolerance (risk difference 0.11). [[Osadnik2017]]`},
@@ -131,7 +131,7 @@ inits.hospital=()=>{
       if(p>=5)s+=`<text x="${L.x1}" y="${yc+4}" class="t-xs t-end" style="fill:var(--rec);font-weight:600">${N?HS_TXT.fuN:HS_TXT.fu}</text>`}
     /* time axis and cursor */
     const yb=L.r0+6*L.rs+14;s+=`<line x1="${L.x0}" x2="${L.x1}" y1="${yb}" y2="${yb}" class="axis"/>`;
-    HS_TXT.ticks.forEach(([v,l])=>{const x=X(v);s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${yb}" y2="${yb+4}" class="axis"/><text x="${f1(clamp(x,L.x0+4,L.x1-10))}" y="${L.tk}" class="t-xs t-mid">${l}</text>`});
+    HS_TXT.ticks.forEach(([v,l])=>{const x=X(v);s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${yb}" y2="${yb+4}" class="axis"/><text x="${f1(clamp(x,L.x0+4,L.x1-14))}" y="${L.tk}" class="t-xs t-mid">${l}</text>`});
     const xc=X(h);s+=`<line x1="${f1(xc)}" x2="${f1(xc)}" y1="${L.r0-12}" y2="${yb}" style="stroke:var(--ink);stroke-width:1.6"/><text x="${f1(clamp(xc,L.x0+22,L.x1-22))}" y="${L.cl}" class="t-xs t-mid" style="fill:var(--ink);font-weight:700">${HS_TXT.when(h)}</text>`;
     /* annotations */
     let an=HS_TXT.ann[p].slice();if(p===2)an.push(o.acid?HS_TXT.annAcid:HS_TXT.annNo);if(p===3&&!o.acid)an=[HS_TXT.annNo];if(p===5&&o.sd===14)an.push(HS_TXT.ann14);
@@ -161,7 +161,7 @@ inits.hospital=()=>{
       D.rows.forEach((r,i)=>{const yy=y+12+i*rh,by=N?yy+14:yy,v=r[1]*g,col=r[2]?'var(--rec)':'var(--muted)';
         s+=`<text x="16" y="${N?yy+8:yy+13}" class="${N?'t-xs':'t-lbl'}"${N?' style="fill:var(--ink);font-weight:600"':''}>${r[0]}</text>`;
         s+=`<rect x="${bx}" y="${by}" width="${bw}" height="18" rx="5" style="fill:var(--panel-2)"/><rect x="${bx}" y="${by}" width="${f1(bw*v/100)}" height="18" rx="5" style="fill:${col}"/><text x="${f1(bx+bw*v/100+6)}" y="${by+14}" class="t-sm" style="fill:var(--ink);font-weight:700">${(r[1]*g).toFixed(r[1]%1?1:0)}%</text>`})}
-    else{const px0=N?30:250,px1=N?370:560,lg=Math.log,XF=v=>px0+(px1-px0)*(lg(clamp(v,.1,2))-lg(.1))/(lg(2)-lg(.1)),rh=N?46:42,n=D.rows.length,yTop=y+12,yEnd=yTop+n*rh;
+    else{const px0=N?30:250,px1=N?370:560,lg=Math.log,XF=v=>px0+(px1-px0)*(lg(clamp(v,.1,3))-lg(.1))/(lg(3)-lg(.1)),rh=N?46:42,n=D.rows.length,yTop=y+12,yEnd=yTop+n*rh;
       s+=`<line x1="${f1(XF(1))}" x2="${f1(XF(1))}" y1="${yTop}" y2="${yEnd}" style="stroke:var(--ink);stroke-width:1.2;stroke-dasharray:3 3"/>`;
       [.1,.2,.5,1,2].forEach(v=>{s+=`<text x="${f1(XF(v))}" y="${yEnd+14}" class="t-xs t-mid">${v}</text>`});
       D.rows.forEach((r,i)=>{const yy=yTop+i*rh,py=N?yy+26:yy+14,e=lerp(1,r[1],g);

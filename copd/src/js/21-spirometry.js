@@ -37,7 +37,7 @@ const SP_CURVE={
 const SP_TXT={
   vt:'Volume against time',fv:'Flow against volume',sec:'seconds',lit:'litres',
   state:{inn:'breathing in',out:'blowing out',full:'breathing back in',rest:'resting',puff:'inhaler puff'},
-  healthy:'healthy example',crit:'THE 2019 STANDARD SAYS',ratioK:'THE RATIO',
+  healthy:'healthy example',crit:'THE 2019 STANDARD SAYS',critBD:'WHAT THE TRIALS FOUND',ratioK:'THE RATIO',
   fev1:v=>`FEV1 ${v} L`,fvc:v=>`FVC ${v} L`,fev1Both:(a,b)=>`FEV1 ${a} → ${b} L`,fvcBoth:(a,b)=>`FVC ${a} → ${b} L`,
   strip:[
     'Phase 1 of 4: a maximal breath in, to the top. Then comes the blast, a complete blow out for up to 15 seconds, and a full breath back in.',
@@ -136,8 +136,8 @@ inits.spirometry=()=>{
       if(postOn&&(p===5||ps>=1))s+=`<circle cx="${f1(X(1))}" cy="${f1(Y(post.fev1))}" r="4" style="fill:var(--bd)"/>`;
       const lab=postOn&&(p===5||ps>=1)?SP_TXT.fev1Both(C0.fev1.toFixed(2),post.fev1.toFixed(2)):SP_TXT.fev1(C0.fev1.toFixed(2));
       s+=`<text x="${f1(X(1)+7)}" y="${f1(fy+15)}" class="t-sm" style="fill:var(--dx);font-weight:600">${lab}</text>`}
-    if(sec>=9.9){const lab=postOn&&(p===5||ps>=9.9)?SP_TXT.fvcBoth(C0.fvc.toFixed(2),post.fvc.toFixed(2)):SP_TXT.fvc(C0.fvc.toFixed(2));
-      s+=`<text x="${f1(VT.x+VT.w-4)}" y="${f1(Y(C0.fvc)+20)}" class="t-sm t-end" style="fill:var(--ink);font-weight:600">${lab}</text>`}
+    if(sec>=9.9){const both=postOn&&(p===5||ps>=9.9),lab=both?SP_TXT.fvcBoth(C0.fvc.toFixed(2),post.fvc.toFixed(2)):SP_TXT.fvc(C0.fvc.toFixed(2));
+      s+=`<text x="${f1(VT.x+VT.w-4)}" y="${f1(both?Y(post.fvc)-8:Y(C0.fvc)+20)}" class="t-sm t-end" style="fill:var(--ink);font-weight:600">${lab}</text>`}
     /* flow-volume */
     const FV=L.fv,zy=FV.y+FV.h*.72,eh=FV.h*.72-6,ih=FV.h*.28-6,FX=v=>FV.x+FV.w*v/ymax;
     s+=`<text x="${FV.x}" y="${FV.y-10}" class="t-lbl">${SP_TXT.fv}</text>`;
@@ -157,7 +157,7 @@ inits.spirometry=()=>{
     if(p<5){let tx=SP_TXT.strip[p];
       if(p===3){const r=M.reps[0];tx=tx((C0.fev1-r.fev1).toFixed(2),(C0.fvc-r.fvc).toFixed(2))}
       if(p===4)tx=tx[mode];
-      s+=`<text x="${ST.x+14}" y="${ST.y+20}" class="t-xs" style="fill:var(--dx);font-weight:600">${SP_TXT.crit}</text>`+wrapT(ST.x+14,ST.y+40,tx,L.cw,{cls:'t-sm',lh:16}).svg}
+      s+=`<text x="${ST.x+14}" y="${ST.y+20}" class="t-xs" style="fill:var(--dx);font-weight:600">${p===4?SP_TXT.critBD:SP_TXT.crit}</text>`+wrapT(ST.x+14,ST.y+40,tx,L.cw,{cls:'t-sm',lh:16}).svg}
     else{const B=L.bar,R=r=>B.x+B.w*(clamp(r,.3,1)-.3)/.7,fin=cp?post:C0,rv=+(fin.fev1/fin.fvc).toFixed(2),k=ease(ramp(t,.85,.93));
       s+=`<rect x="${f1(B.x)}" y="${B.y}" width="${f1(R(.7)-B.x)}" height="12" style="fill:var(--bad-soft)"/><rect x="${f1(R(.7))}" y="${B.y}" width="${f1(B.x+B.w-R(.7))}" height="12" style="fill:var(--good-soft)"/>`;
       s+=`<rect x="${f1(R(.6))}" y="${B.y-5}" width="${f1(R(.8)-R(.6))}" height="22" rx="4" style="fill:none;stroke:var(--warn);stroke-width:1.4;stroke-dasharray:4 3"/>`;
@@ -169,7 +169,7 @@ inits.spirometry=()=>{
       s+=`<path d="M${f1(nx)} ${B.y-2}l-6 -10h12z" style="fill:${mc}"/><text x="${f1(nx)}" y="${B.y-16}" class="t-lbl t-mid" style="fill:${mc}">${(lerp(1,rv,k)).toFixed(2)}</text>`;
       const RO=L.ro,lines=cp?[SP_TXT.ratioEq(post.fev1.toFixed(2),post.fvc.toFixed(2),rv.toFixed(2)),SP_TXT.below,SP_TXT.pctC,SP_TXT.gradeC]
         :[SP_TXT.ratioEq(C0.fev1.toFixed(2),C0.fvc.toFixed(2),rv.toFixed(2)),SP_TXT.above,SP_TXT.noGrade];
-      lines.forEach((l,i)=>s+=`<text x="${RO.x}" y="${RO.y+i*RO.dy}" class="${i===0||i===3?'t-lbl':'t-sm'}" style="opacity:${f1(ramp(t,.9+i*.015,.92+i*.015))};${i===3?'fill:var(--bad)':''}">${l}</text>`)}
+      lines.forEach((l,i)=>s+=`<text x="${RO.x}" y="${RO.y+i*RO.dy}" class="${i===0||i===3?'t-lbl':'t-sm'}" style="opacity:${f1(ramp(t,.88+i*.015,.9+i*.015))};${i===3?'fill:var(--bad)':''}">${l}</text>`)}
     svg.innerHTML=s;setSt(p);note.innerHTML=noteHTML(S);
   }
   const stop=playWire(rg,$('#spPlay'),draw,16000,'%t:player.replay%','spirometry');
@@ -183,7 +183,7 @@ inits.spirometry=()=>{
   const num=el=>{const v=parseFloat(el.value);return isFinite(v)?v:null};
   let cState={r:null,pct:null,lln:null};
   function spGrade(pct){return pct>=80?1:pct>=50?2:pct>=30?3:4}
-  function drawCalc(){const N=vb(cs,'560 180','400 190'),W=N?{x:16,w:368,y1:56,y2:142}:{x:20,w:520,y1:52,y2:132};
+  function drawCalc(){const N=vb(cs,'560 192','400 200'),W=N?{x:16,w:368,y1:56,y2:150}:{x:20,w:520,y1:52,y2:144};
     const {r,pct,lln}=cState;let s='';
     const R=v=>W.x+W.w*(clamp(v,.3,1)-.3)/.7,P=v=>W.x+W.w*clamp(v,0,120)/120;
     s+=`<text x="${W.x}" y="${W.y1-30}" class="t-lbl">${SP_TXT.cRatio}</text>`;
@@ -231,18 +231,18 @@ inits.spirometry=()=>{
     s+=`<line x1="${L.lg[2]}" x2="${L.lg[2]+18}" y1="18" y2="18" style="stroke:var(--ink);stroke-width:2"/><text x="${L.lg[2]+24}" y="22" class="t-xs">${SP_TXT.legFix}</text>`;
     s+=axes(L.cx,L.cy,L.cw,L.ch,{xt:[20,30,40,50,60,70,80,90].map(g=>[(g-20)/70,String(g)]),yt:[.6,.7,.8,.9].map(r=>[(r-.55)/.35,r.toFixed(2)]),xl:SP_TXT.ageAx});
     /* zones from the men's line (the earlier crossing) */
+    const zcur=`<line x1="${f1(X(a))}" x2="${f1(X(a))}" y1="${L.cy}" y2="${L.cy+L.ch}" style="stroke:var(--brand);stroke-width:1.6;stroke-dasharray:3 3"/>`;
     const zm=g=>Y(lln('m',g));
     s+=`<path d="M${f1(X(20))} ${f1(Y(.7))}L${f1(X(42))} ${f1(Y(.7))}L${f1(X(20))} ${f1(zm(20))}Z" style="fill:var(--warn-soft);opacity:.9"/>`;
     s+=`<path d="M${f1(X(42))} ${f1(Y(.7))}L${f1(X(90))} ${f1(Y(.7))}L${f1(X(90))} ${f1(zm(90))}Z" style="fill:var(--bad-soft);opacity:.9"/>`;
-    s+=`<text x="${f1(X(21))}" y="${f1(Y(.84))}" class="t-xs" style="fill:var(--warn);font-weight:600">${SP_TXT.miss}</text><path d="M${f1(X(25))} ${f1(Y(.832))}L${f1(X(30))} ${f1(Y(.712))}" style="stroke:var(--warn);stroke-width:1.2;fill:none"/>`;
-    s+=`<text x="${f1(X(89))}" y="${f1(Y(.678))}" class="t-xs t-end" style="fill:var(--bad)">${SP_TXT.over}</text>`;
+    s+=zcur;s+=`<text x="${f1(X(21))}" y="${f1(Y(.84))}" class="t-xs" style="fill:var(--warn);font-weight:600;paint-order:stroke;stroke:var(--panel);stroke-width:3px">${SP_TXT.miss}</text><path d="M${f1(X(25))} ${f1(Y(.832))}L${f1(X(30))} ${f1(Y(.712))}" style="stroke:var(--warn);stroke-width:1.2;fill:none"/>`;
+    s+=`<text x="${f1(X(89))}" y="${f1(Y(.678))}" class="t-xs t-end" style="fill:var(--bad);font-weight:600;paint-order:stroke;stroke:var(--panel);stroke-width:3px">${SP_TXT.over}</text>`;
     s+=`<line x1="${f1(X(20))}" x2="${f1(X(90))}" y1="${f1(Y(.7))}" y2="${f1(Y(.7))}" style="stroke:var(--ink);stroke-width:2"/>`;
     s+=`<line x1="${f1(X(20))}" x2="${f1(X(90))}" y1="${f1(Y(lln('m',20)))}" y2="${f1(Y(lln('m',90)))}" style="stroke:var(--dx);stroke-width:2.4"/>`;
     s+=`<line x1="${f1(X(20))}" x2="${f1(X(90))}" y1="${f1(Y(lln('f',20)))}" y2="${f1(Y(lln('f',90)))}" style="stroke:var(--rx);stroke-width:2.4;stroke-dasharray:5 3"/>`;
     s+=`<circle cx="${f1(X(42))}" cy="${f1(Y(.7))}" r="4.5" style="fill:var(--dx)"/><text x="${f1(X(42)-6)}" y="${f1(Y(.7)+18)}" class="t-xs t-end" style="fill:var(--dx);font-weight:600">${SP_TXT.cross.m}</text>`;
     s+=`<circle cx="${f1(X(48))}" cy="${f1(Y(.7))}" r="4.5" style="fill:var(--rx)"/><text x="${f1(X(48)+6)}" y="${f1(Y(.7)-22)}" class="t-xs" style="fill:var(--rx);font-weight:600">${SP_TXT.cross.f}</text>`;
-    /* age cursor */
-    s+=`<line x1="${f1(X(a))}" x2="${f1(X(a))}" y1="${L.cy}" y2="${L.cy+L.ch}" style="stroke:var(--brand);stroke-width:1.6;stroke-dasharray:3 3"/>`;
+    /* age cursor dots */
     s+=`<circle cx="${f1(X(a))}" cy="${f1(Y(lln('m',a)))}" r="4" style="fill:var(--panel);stroke:var(--dx);stroke-width:2"/><circle cx="${f1(X(a))}" cy="${f1(Y(lln('f',a)))}" r="4" style="fill:var(--panel);stroke:var(--rx);stroke-width:2"/>`;
     /* bars */
     const T=wrapT(L.bx,L.by,SP_TXT.barsT,N?50:34,{cls:'t-lbl',lh:16});s+=T.svg;

@@ -24,7 +24,7 @@ const CA_STEPS=[
   txt:'Past tuberculosis triples the odds of COPD (odds ratio 3.05) [[Byrne2015]]. COPD stayed associated with HIV after adjusting for tobacco (odds ratio 2.58) [[Bigna2018]], and the Commission estimates that 10–42% of people with early-life pneumonia, tuberculosis or HIV develop COPD [[Stolz2022]].',
   pt:'Serious lung infections, such as tuberculosis, can leave lasting damage.',
   hook:'Past TB: pooled OR 3.05, strongest in high-TB countries, never smokers and younger people [[Byrne2015]].'},
- {from:.83,at:.92,k:'Two roads',t:'Fast decline or low start',
+ {from:.83,at:.975,k:'Two roads',t:'Fast decline or low start',
   txt:'About half of the people with COPD at the end of follow-up had started with normal FEV1 and declined fast (53 ± 21 mL a year); the other half had low FEV1 in early adulthood and a normal-range decline (27 ± 18 mL a year) [[Lange2015]].',
   pt:'Some people reach COPD because their lungs wear out fast. Others start with smaller lungs and wear out at a normal pace.',
   hook:'Lange 2015: ~50% via accelerated decline, ~50% via low peak lung function [[Lange2015,Agusti2023]].'}

@@ -1,5 +1,76 @@
-<!-- ================= 3.3 INHALER DEVICES & TECHNIQUE (stub) ================= -->
+<!-- ================= 3.3 INHALER DEVICES & TECHNIQUE ================= -->
+<style>
+#m-technique .tbl table{min-width:680px}
+#m-technique .card>.ev,#m-technique .card>.tag{align-self:flex-start}
+#m-technique .box{display:flex;flex-direction:column;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+#m-technique .btnrow{display:flex;flex-wrap:wrap;gap:6px}
+#m-technique .box svg{width:100%;height:auto;display:block;max-width:820px}
+#m-technique .out{font-size:15px;max-width:72ch}
+#m-technique .studywarn{border-left:4px solid var(--rx);background:var(--rx-soft);border-radius:0 12px 12px 0;padding:10px 14px;font-size:15px;max-width:72ch}
+#m-technique .studywarn b:first-child{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--rx);display:block;margin-bottom:2px}
+#m-technique .pifrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+#m-technique .pifrow label{flex:1;min-width:200px;display:flex;gap:10px;align-items:center;font-weight:700;font-size:14px}
+#m-technique #tqPifVal{font:700 15px var(--mono);min-width:90px}
+#m-technique .gobtns{display:flex;flex-wrap:wrap;gap:8px}
+</style>
 <section class="mod" id="m-technique" data-mod="technique" hidden>
   <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Inhaler devices &amp; technique</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">An inhaler only works if the medicine reaches the lungs, and each device needs a different breath. Pick a device and play one use of it, step by step, with how often each step goes wrong in published studies.</p></div>
+
+  <p class="studywarn" role="note"><b>Study material, not instructions</b>Steps and error rates are quoted from labels and studies. Each product's own leaflet, and the person's nurse, pharmacist or doctor, give the instructions for a specific inhaler.</p>
+
+  <div class="btnrow" id="tqDev" role="group" aria-label="Choose a device"></div>
+  <div class="stepper" id="tqSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="tqSvg" viewBox="0 0 720 420" role="img" aria-label="A head in profile above a pair of lungs, with the chosen inhaler. In five steps the device is prepared away from the face, the person breathes out away from it, then breathes in through it as it releases a puff, powder or mist, holds the breath and is re-checked. A flow-time sketch shows a fast hard breath for a dry powder inhaler and a slow steady breath for the spray devices, against a dashed 60 litres per minute line. A panel shows the published error rate for each step."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="tqPlay">Play</button><label class="stage-cap tl" for="tqT">Timeline <input type="range" id="tqT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap">Schematic, not to scale. The breath shapes are drawings; the only number on the flow sketch is the 60 L/min DPI threshold [[Mahler2017]]. Error rates are pooled study results [[Sanchis2016,Melani2011]].</p></div>
+    <aside class="note" id="tqNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The devices</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Device</th><th>How the dose leaves it</th><th>As labelled or published</th></tr></thead>
+    <tbody>
+      <tr><th>Pressurised metered-dose inhaler (pMDI)</th><td>A propellant spray, released by pressing the canister</td><td>Breztri Aerosphere: "Prime ... before first time use and re-prime if not used for more than 7 days" [[FDA-Breztri]]. Ventolin HFA uses an HFA propellant [[FDA-VentolinHFA]].</td></tr>
+      <tr><th>Dry powder inhaler (DPI)</th><td>The person's own breath pulls the powder through the device's internal resistance</td><td>The powder is broken into particles smaller than 5 µm inside the device, helped by fast acceleration at the start of the breath [[Mahler2017]]. HandiHaler: "two inhalations of the powder contents of one SPIRIVA capsule, once-daily"; "Do not swallow SPIRIVA capsules" [[FDA-SpirivaHandiHaler]].</td></tr>
+      <tr><th>Soft mist inhaler (SMI)</th><td>A slow mist, released by pressing a button</td><td>Spiriva Respimat: actuate "toward the ground until an aerosol cloud is visible and then repeat the process three more times" before first use; "two inhalations once-daily" [[FDA-SpirivaRespimat]].</td></tr>
+      <tr><th>Spacer</th><td>A chamber between a pMDI and the mouth</td><td>GOLD 2023: SABA by MDI "with a spacer device if necessary, or nebulization" in flare-ups [[Agusti2023]]. This guide's sources include no spacer technique studies.</td></tr>
+      <tr><th>Nebuliser</th><td>A compressor turns liquid into a mist breathed through a mouthpiece</td><td>Ohtuvayre (ensifentrine) is only a nebuliser solution, for "a standard jet nebulizer equipped with a mouthpiece, connected to an air compressor", not to be mixed with other drugs [[FDA-Ohtuvayre]].</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Peak inspiratory flow: a slow breath or a fast one</h3>
+  <div class="prose"><p>A handheld inspiratory flow meter with an adjustable dial can mimic a DPI's resistance and check whether a person reaches an optimal peak inspiratory flow (PIF) of at least 60 L/min [[Mahler2017]]. Move the slider to see where a flow sits against that threshold.</p></div>
+  <div class="box">
+    <div class="pifrow"><label for="tqPifR">Peak inspiratory flow <input type="range" id="tqPifR" min="10" max="120" step="5" value="45"></label><span id="tqPifVal" aria-hidden="true"></span></div>
+    <div class="scroll"><svg id="tqPifSvg" viewBox="0 0 720 210" role="img" aria-label="A dial of peak inspiratory flow from 0 to 120 litres per minute with the 60 litres per minute DPI threshold marked, and the devices Mahler names"></svg></div>
+    <p class="out" id="tqPifOut" aria-live="polite"></p>
+    <p class="teach" role="note"><b>Teaching tool</b>The 60 L/min threshold and the device suggestion come from one author's review, not a guideline [[Mahler2017]]. This is not for diagnosis or treatment decisions, and it does not measure anyone's breath.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag air">How common</span><h4>Low flow is frequent</h4><p>Observational studies cited by Mahler found suboptimal PIF (&lt;60 L/min) in 19–78% of stable outpatients with COPD and 32–47% of inpatients before discharge after an exacerbation [[Mahler2017]].</p><span class="ev est">Established</span></div>
+    <div class="card"><span class="tag fl">After a flare-up</span><h4>Low flow and readmission</h4><p>In 123 people hospitalised for an exacerbation, 52% had suboptimal PIF. They had higher 90-day COPD readmission (28.1% vs 13.6%; P=0.048) and fewer median days to readmission (63.5 vs 144). PIF was the only variable predicting days to COPD readmission in a multivariable model [[Loh2017]].</p><span class="ev early">Early evidence: single centre</span></div>
+    <div class="card"><span class="tag">Why it falls</span><h4>Effort and muscle strength</h4><p>PIF depends on effort and respiratory-muscle strength, both of which can be reduced in COPD by hyperinflation, low oxygen (hypoxaemia) and muscle wasting [[Mahler2017]].</p><span class="ev est">Established</span></div>
+  </div>
+
+  <h3 class="sub">Common errors, as published</h3>
+  <div class="box">
+    <div class="btnrow" id="tqErrBtns" role="group" aria-label="Choose an error set"><button class="btn" data-err="pmdi" aria-pressed="true">pMDI errors</button><button class="btn" data-err="dpi" aria-pressed="false">DPI errors</button><button class="btn" data-err="crit" aria-pressed="false">Critical errors by device</button><button class="btn" data-err="all" aria-pressed="false">Correct overall</button></div>
+    <div class="scroll"><svg id="tqErrSvg" viewBox="0 0 720 160" role="img" aria-label="Published inhaler error rates"></svg></div>
+    <p class="out" id="tqErrOut" aria-live="polite"></p>
+  </div>
+  <p class="callout">The only modifiable factor linked to less inhaler misuse in Melani 2011 was instruction from health caregivers (P&lt;0.001) [[Melani2011]]. Nursing inhaler teaching is covered in module 5.4.</p>
+
+  <h3 class="sub">The carbon footprint of inhalers</h3>
+  <div class="prose"><p>HFC propellants used in pMDIs since the CFC phase-out do not deplete ozone but "are potent greenhouse gases" [[Janson2020]]. In 2017, 70% of inhalers sold in England were MDIs against 13% in Sweden; applying Sweden's mix to England would cut 550 kt CO2e a year [[Janson2020]].</p></div>
+  <div class="box">
+    <div class="scroll"><svg id="tqCoSvg" viewBox="0 0 720 300" role="img" aria-label="Carbon footprint bars: per patient per year 17 kg for a DPI regimen versus 439 kg for a pMDI regimen; per salbutamol inhaler 26.91 kg with HFA-134a, 2.06 kg with HFA-152a and 0.69 kg for a DPI; per puff 135, 10 and 11 grams."></svg></div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag rec">Switching</span><h4>Savings depend on brand</h4><p>In NHS England data, each 10% of MDIs switched to DPIs would save 58 kt CO2e a year. Switching to the cheapest equivalent DPIs saved £8.2M per 10% switched, whereas keeping 2017 DPI brand patterns cost £12.7M more [[Wilkinson2019]].</p><span class="ev est">Established</span></div>
+    <div class="card"><span class="tag rec">Low-carbon propellant</span><h4>HFA-152a</h4><p>Per salbutamol inhaler, HFA-152a cut the footprint by 92% versus HFA-134a [[King2026]], and was bioequivalent in pharmacokinetic and pharmacodynamic studies [[Moreira2026]].</p><span class="ev early">Early evidence: healthy-volunteer and small PD studies</span></div>
+    <div class="card"><span class="tag air">Balance</span><h4>Carbon is one factor</h4><p>Janson et al. conclude the lower carbon footprint of DPIs "should be considered alongside other factors when choosing inhalation devices" [[Janson2020]]. A person's ability to reach the needed peak flow is one of those factors [[Mahler2017]].</p><span class="ev est">Established</span></div>
+  </div>
+  <div class="gobtns"><button class="btn" data-go="inhalers">3.1 Bronchodilators</button><button class="btn" data-go="escalation">3.2 Inhaled steroids &amp; triple therapy</button><button class="btn" data-go="nursing">5.4 Nursing care</button></div>
 </section>

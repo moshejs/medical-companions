@@ -95,7 +95,7 @@ inits.rehab=()=>{
   }
   function rhPanel(L,t,p){const x=L.px,y=L.py,w=L.pw,h=L.ph,cx=x+w/2;let g=`<rect x="${f1(x)}" y="${f1(y)}" width="${f1(w)}" height="${f1(h)}" rx="14" style="fill:var(--panel-2);opacity:.55"/>`;
     if(p===0){const P=T.p0;g+=rhTx(x+16,y+28,P.h,'t-big');
-      P.c.forEach((c,i)=>{const a=ramp(t,.01+i*.03,.04+i*.03);g+=`<g style="opacity:${f1(a)}">`+chip(x+16,y+70+i*44,(i+1)+'  '+c,{col:i?'var(--rx)':'var(--dx)',fill:i?'var(--rx-soft)':'var(--dx-soft)',size:13})+'</g>'});
+      P.c.forEach((c,i)=>{const a=ramp(t,i*.02,i*.02+.02);g+=`<g style="opacity:${f1(a)}">`+chip(x+16,y+70+i*44,(i+1)+'  '+c,{col:i?'var(--rx)':'var(--dx)',fill:i?'var(--rx-soft)':'var(--dx-soft)',size:13})+'</g>'});
       g+=wrapT(x+16,y+h-42,P.l,40,{cls:'t-xs',lh:13}).svg}
     else if(p===1){const P=T.p1,n=12,gw=(w-32)/n,fill=12*ramp(t,.17,.32);g+=rhTx(x+16,y+28,P.h,'t-big');
       for(let i=0;i<n;i++){const k=clamp(fill-i);g+=`<rect x="${f1(x+16+i*gw+2)}" y="${f1(y+62)}" width="${f1(gw-4)}" height="${f1(gw-4)}" rx="4" style="fill:var(--panel);stroke:var(--rx);stroke-width:1.2"/><rect x="${f1(x+16+i*gw+2)}" y="${f1(y+62+(gw-4)*(1-k))}" width="${f1(gw-4)}" height="${f1((gw-4)*k)}" rx="4" style="fill:var(--rx);opacity:.75"/>`}
@@ -144,7 +144,7 @@ inits.rehab=()=>{
     let g='';const yb=top+rows.length*rh;
     S.ticks.forEach(u=>{g+=`<line x1="${f1(sc(u))}" x2="${f1(sc(u))}" y1="${top-6}" y2="${f1(yb)}" style="stroke:var(--line);stroke-dasharray:2 4"/>`+rhTx(sc(u),yb+16,String(u),'t-xs','','middle')});
     const zero=S.log?1:0;if(zero>=S.min&&zero<=S.max)g+=`<line x1="${f1(sc(zero))}" x2="${f1(sc(zero))}" y1="${top-6}" y2="${f1(yb)}" style="stroke:var(--muted);stroke-width:2"/>`;
-    if(S.mid!=null&&S.mid!==zero)g+=`<line x1="${f1(sc(S.mid))}" x2="${f1(sc(S.mid))}" y1="${top-6}" y2="${f1(yb)}" style="stroke:var(--warn);stroke-width:1.8;stroke-dasharray:6 4"/>`+rhTx(sc(S.mid)+4,top+2,S.midL,'t-xs','fill:var(--warn)');
+    if(S.mid!=null&&S.mid!==zero)g+=`<line x1="${f1(sc(S.mid))}" x2="${f1(sc(S.mid))}" y1="${top-6}" y2="${f1(yb)}" style="stroke:var(--warn);stroke-width:1.8;stroke-dasharray:6 4"/>`+rhTx(x1,yb+36,S.midL,'t-xs','fill:var(--warn)','end');
     rows.forEach(([l,vl,v,lo,hi],i)=>{const y=top+i*rh,ry=N?y+50:y+16;
       g+=rhTx(lx,y+(N?14:12),l,'t-lbl')+rhTx(lx,y+(N?29:27),vl,'t-xs');
       if(lo!=null)g+=`<line x1="${f1(sc(Math.max(S.min,lo)))}" x2="${f1(sc(Math.min(S.max,hi)))}" y1="${f1(ry)}" y2="${f1(ry)}" style="stroke:var(--rx);stroke-width:2.4"/>`;

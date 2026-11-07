@@ -70,14 +70,14 @@ function brTrace(P,sim,tc,o={}){const v2y=v=>P.y+P.h-(v-.3)/.7*P.h,t2x=tt=>P.x+t
   return {svg:s,cur,n:done.length}}
 inits.breathless=()=>{
   const svg=$('#brSvg'),rg=$('#brT');
-  const EX=brSim(k=>Math.min(14+k*1.8,38),true,22);
+  const EX=brSim(k=>Math.min(14+k*2.4,40),true,40);
   function lbl(x1,y1,x2,y2,txt,an='start'){return `<path d="M${f1(x1)} ${f1(y1)}L${f1(x2)} ${f1(y2)}" style="stroke:var(--muted);stroke-width:1"/><circle cx="${f1(x1)}" cy="${f1(y1)}" r="2" style="fill:var(--ink)"/><text x="${f1(x2+(an==='start'?3:an==='end'?-3:0))}" y="${f1(y2+(an==='middle'?12:4))}" class="t-xs" text-anchor="${an}" style="fill:var(--ink)">${txt}</text>`}
   function draw(t){
     const N=vb(svg,'720 390','400 626'),p=phaseOf(BR_STEPS,t),S=BR_STEPS[p];
     const L=N?{A:{x:16,y:58,w:368,h:250},B:{x:16,y:320,w:368,h:290},s1:[104,166,44],s2:[286,166,120],l1:[104,266,'middle'],l2:[286,266,'middle'],wr:20,
-               one:[200,170,54],lg:[200,58,172],per:[150,290,190],vq:{u1:110,u2:290,ay:150,cy:238,ly:276}}
+               one:[200,170,54],lg:[200,58,172],per:[130,300,170],vq:{u1:110,u2:290,ay:150,cy:238,ly:276}}
              :{A:{x:16,y:58,w:300,h:316},B:{x:332,y:58,w:372,h:316},s1:[132,146,48],s2:[132,284,110],l1:[214,146,'start'],l2:[214,284,'start'],wr:15,
-               one:[166,196,62],lg:[166,82,206],per:[130,340,230],vq:{u1:96,u2:236,ay:178,cy:286,ly:322}};
+               one:[166,196,62],lg:[166,82,206],per:[130,360,210],vq:{u1:96,u2:236,ay:178,cy:286,ly:322}};
     const A=L.A,B=L.B,ph=t*90,out=Math.sin(ph)<0;
     let s=`<text x="16" y="26" class="t-big">${S.t}</text><text x="16" y="44" class="t-sm">${S.sub}</text>`;
     s+=`<rect x="${A.x}" y="${A.y}" width="${A.w}" height="${A.h}" rx="12" style="fill:none;stroke:var(--line)"/><rect x="${B.x}" y="${B.y}" width="${B.w}" height="${B.h}" rx="12" style="fill:none;stroke:var(--line)"/>`;
@@ -92,14 +92,14 @@ inits.breathless=()=>{
       s+=axes(P.x,P.y,P.w,P.h,{xt:[[0,'0'],[.25,'1'],[.5,'2'],[.75,'3'],[1,'4']],yt:[],grid:false})+`<text x="${P.x}" y="${P.y-10}" class="t-xs">${BR_TXT.left}</text><text x="${P.x+P.w}" y="${P.y+P.h+30}" class="t-xs" text-anchor="end">${BR_TXT.secs}</text>`;
       const cv=(tau,cl,w,da)=>`<path d="${pathFn(x=>1-Math.exp(-x*4*u/tau),P.x,P.x+P.w*u,P.y,P.y+P.h,80)}" style="fill:none;stroke:${cl};stroke-width:${w};${da?'stroke-dasharray:5 4':''}"/>`;
       if(u>0){s+=cv(.3,'var(--muted)',1.8,true)+cv(1.1,'var(--air)',2.6,false);
-        s+=`<text x="${f1(P.x+P.w*.12)}" y="${f1(P.y+P.h-8)}" class="t-xs" style="fill:var(--muted)">${BR_TXT.healthy}</text>`;
+        s+=`<text x="${f1(P.x+P.w*.38)}" y="${f1(P.y+P.h-6)}" class="t-xs" style="fill:var(--muted)">${BR_TXT.healthy}</text>`;
         if(u>.5)s+=`<text x="${f1(P.x+P.w*.42)}" y="${f1(P.y+P.h*(1-Math.exp(-4*.42/1.1))-8)}" class="t-xs" style="fill:var(--air-ink);font-weight:700">${BR_TXT.copd}</text>`}
     }else if(p===1){
       const k=ramp(t,.17,.28),te=1-.75*k,[cx,cy,r]=L.one;
       s+=airway(cx,cy,r,{wall:.35,tether:te,collapse:out?.9*k+.15:0,ph,seed:4}).svg;
       s+=`<text x="${cx}" y="${A.y+20}" class="t-xs" text-anchor="middle" style="fill:var(--air-ink);font-weight:700">${out?BR_TXT.bout:BR_TXT.bin}</text>`;
-      s+=wrapT(A.x+A.w/2,cy+r*1.45+(N?18:22),BR_TXT.support,N?44:40,{cls:'t-xs',lh:12,anchor:'middle',style:'fill:var(--ink)'}).svg;
-      s+=wrapT(A.x+A.w/2,cy+r*1.45+(N?32:36),BR_TXT.closes,N?44:40,{cls:'t-xs',lh:12,anchor:'middle',style:'fill:var(--bad)'}).svg;
+      const W1=wrapT(A.x+A.w/2,cy+r*1.45+(N?18:22),BR_TXT.support,N?54:44,{cls:'t-xs',lh:12,anchor:'middle',style:'fill:var(--ink)'});
+      s+=W1.svg+wrapT(A.x+A.w/2,cy+r*1.45+(N?18:22)+W1.h+2,BR_TXT.closes,N?54:44,{cls:'t-xs',lh:12,anchor:'middle',style:'fill:var(--bad)'}).svg;
       /* flow-volume: x = volume from TLC (left) to RV (right); envelope and tidal loop */
       const P={x:B.x+36,y:B.y+40,w:B.w-56,h:B.h-120},y0=P.y+P.h*.72,fh=P.h*.7,env=spiroFV(1,1,1);
       s+=`<path d="M${P.x} ${P.y}V${P.y+P.h}" class="axis"/><line x1="${P.x}" x2="${P.x+P.w}" y1="${f1(y0)}" y2="${f1(y0)}" class="axis"/>`;
@@ -126,14 +126,14 @@ inits.breathless=()=>{
       const [px,py,ps]=L.per,k=ramp(t,.67,.75),lean=.8;
       s+=person(px,py,ps,{lean,breath:(Math.sin(ph)+1)/2*.6});
       const hx=px+lean*ps*.18,hy=py-ps*(.9-.08*lean);
-      for(let i=0;i<4;i++){const u=((t*20+i/4)%1),rr=ps*.12+u*ps*.32*k;s+=`<path d="M${f1(hx-rr*.7)} ${f1(hy-rr*.7)}A${f1(rr)} ${f1(rr)} 0 0 1 ${f1(hx+rr*.7)} ${f1(hy-rr*.7)}" style="fill:none;stroke:var(--bad);stroke-width:2;opacity:${f1((1-u)*k)}"/>`}
+      for(let i=0;i<4;i++){const u=((t*20+i/4)%1),rr=ps*.08+u*ps*.22*k;s+=`<path d="M${f1(hx-rr*.7)} ${f1(hy-rr*.7)}A${f1(rr)} ${f1(rr)} 0 0 1 ${f1(hx+rr*.7)} ${f1(hy-rr*.7)}" style="fill:none;stroke:var(--bad);stroke-width:2;opacity:${f1((1-u)*k)}"/>`}
       const chx=px+lean*ps*.14+ps*.12,chy=py-ps*.6,m=2+Math.sin(ph)*2;
       s+=`<path d="M${f1(chx+4)} ${f1(chy)}h${f1(10+m)}" style="stroke:var(--air);stroke-width:2" marker-end="url(#brAr)"/>`;
       s+=`<defs>${marker('brAr','var(--air)',6)}</defs>`;
-      s+=`<text x="${f1(hx)}" y="${f1(hy-ps*.5)}" class="t-xs" text-anchor="middle" style="fill:var(--bad);font-weight:700">${BR_TXT.signal}</text><text x="${f1(chx+18)}" y="${f1(chy+16)}" class="t-xs" style="fill:var(--air-ink);font-weight:700">${BR_TXT.chest}</text>`;
+      s+=`<text x="${f1(hx)}" y="${f1(hy-ps*.38)}" class="t-xs" text-anchor="middle" style="fill:var(--bad);font-weight:700">${BR_TXT.signal}</text><text x="${f1(chx+18)}" y="${f1(chy+16)}" class="t-xs" style="fill:var(--air-ink);font-weight:700">${BR_TXT.chest}</text>`;
       const P={x:B.x+16,y:B.y+40,w:B.w-32};
       s+=wrapT(P.x,B.y+24,BR_TXT.drive,N?56:56,{cls:'t-xs',lh:12,style:'fill:var(--ink);font-weight:700'}).svg;
-      BR_TXT.nd.forEach(([n,v],i)=>{const y=P.y+14+i*(N?52:56),w=P.w*v/30*ramp(t,.68+i*.01,.74+i*.01),cl=i===3?'var(--bad)':'var(--good)';
+      BR_TXT.nd.forEach(([n,v],i)=>{const y=P.y+14+i*(N?52:56),w=P.w*v/36*ramp(t,.68+i*.01,.74+i*.01),cl=i===3?'var(--bad)':'var(--good)';
         s+=`<text x="${P.x}" y="${y}" class="t-xs" style="fill:var(--ink)">${n}</text><rect x="${P.x}" y="${y+6}" width="${P.w}" height="18" rx="4" style="fill:var(--panel-2)"/><rect x="${P.x}" y="${y+6}" width="${f1(w)}" height="18" rx="4" style="fill:${cl}"/><text x="${f1(P.x+Math.max(w,0)+6)}" y="${y+19}" class="t-sm" style="fill:var(--ink)">${BR_TXT.pc(v)}</text>`});
     }else{
       /* V/Q: two units over one capillary */
@@ -184,11 +184,11 @@ inits.breathless=()=>{
 
   /* ---- FEV1 decline ---- */
   const fs=$('#brFevSvg'),fb=$('#brFevBtns'),fn=$('#brFevNote');let fv='eclipse';
-  function drawFev(){const D=BR_FEV[fv],n=D.rows.length,N=NARROW(),H=N?40+n*46:44+n*30;vb(fs,'720 '+H,'400 '+H);
-    let s=`<text x="16" y="22" class="t-sm" style="fill:var(--ink)">${D.ttl}</text>`;
+  function drawFev(){const D=BR_FEV[fv],n=D.rows.length,N=NARROW(),T=wrapT(16,22,D.ttl,N?52:96,{cls:'t-sm',style:'fill:var(--ink)'}),oy=T.h-15,H=(N?40+n*46:44+n*30)+oy;vb(fs,'720 '+H,'400 '+H);
+    let s=T.svg;
     D.rows.forEach(([lb,v,cl],i)=>{const w=v/D.max;
-      if(N){const y=48+i*46;s+=`<text x="16" y="${y}" class="t-xs" style="fill:var(--ink)">${lb}</text><rect x="16" y="${y+7}" width="300" height="18" rx="4" style="fill:var(--panel-2)"/><rect x="16" y="${y+7}" width="${f1(300*w)}" height="18" rx="4" style="fill:${cl}"/><text x="${f1(22+300*w)}" y="${y+21}" class="t-sm" style="fill:var(--ink)">${D.fmt(v)}</text>`}
-      else{const y=44+i*30;s+=`<text x="16" y="${y+13}" class="t-xs" style="fill:var(--ink)">${lb}</text><rect x="270" y="${y}" width="380" height="18" rx="4" style="fill:var(--panel-2)"/><rect x="270" y="${y}" width="${f1(380*w)}" height="18" rx="4" style="fill:${cl}"/><text x="${f1(276+380*w)}" y="${y+14}" class="t-sm" style="fill:var(--ink)">${D.fmt(v)}</text>`}});
+      if(N){const y=48+oy+i*46;s+=`<text x="16" y="${y}" class="t-xs" style="fill:var(--ink)">${lb}</text><rect x="16" y="${y+7}" width="250" height="18" rx="4" style="fill:var(--panel-2)"/><rect x="16" y="${y+7}" width="${f1(250*w)}" height="18" rx="4" style="fill:${cl}"/><text x="${f1(22+250*w)}" y="${y+21}" class="t-xs" style="fill:var(--ink)">${D.fmt(v)}</text>`}
+      else{const y=44+oy+i*30;s+=`<text x="16" y="${y+13}" class="t-xs" style="fill:var(--ink)">${lb}</text><rect x="270" y="${y}" width="300" height="18" rx="4" style="fill:var(--panel-2)"/><rect x="270" y="${y}" width="${f1(300*w)}" height="18" rx="4" style="fill:${cl}"/><text x="${f1(276+300*w)}" y="${y+14}" class="t-sm" style="fill:var(--ink)">${D.fmt(v)}</text>`}});
     fs.innerHTML=s;fn.innerHTML=D.note;$$('[data-fv]',fb).forEach(b=>b.setAttribute('aria-pressed',b.dataset.fv===fv))}
   fb.addEventListener('click',e=>{const b=e.target.closest('[data-fv]');if(!b)return;fv=b.dataset.fv;drawFev()});
   drawFev();

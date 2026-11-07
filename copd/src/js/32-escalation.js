@@ -49,7 +49,7 @@ const ESC_TXT={
  unitC:'cells/µL',unitP:'% of white cells',
  zones:['little or no effect','continuous gradation','strong likelihood of benefit'],
  axC:'blood eosinophils, cells/µL',axP:'blood eosinophils, % of white cells',
- baf:'Bafadhel 2018: rate ratio 0.75 from 100 cells/µL',
+ baf:'Bafadhel 2018: rate ratio 0.75 from 100 cells/µL',bafN:'rate ratio 0.75 from 100',
  valC:v=>`${v} cells/µL`,valP:v=>`${(+v).toFixed(1)}%`,
  zoneHTML:[
   `<b>Below 100 cells/µL.</b> GOLD 2023: "Adding ICS has little or no effect at a blood eosinophil count of &lt;100 cells/μl" [[Agusti2023]]. In GOLD's follow-up flow, people with exacerbations on LABA + LAMA and eosinophils &lt;100 are pointed to roflumilast or a macrolide instead [[Agusti2023]].`,
@@ -199,14 +199,14 @@ inits.escalation=()=>{
       s+=`<rect x="${f1(X(300))}" y="${y0}" width="${f1(X(600)-X(300))}" height="${y1-y0}" style="fill:var(--ics);opacity:.6"/>`;
       [[0,100],[100,300],[300,600]].forEach(([a,b],i)=>{const W2=wrapT((X(a)+X(b))/2,y0+22,ESC_TXT.zones[i],N?10:14,{cls:'t-xs',anchor:'middle',lh:12,style:'fill:var(--ink);font-weight:600'});s+=W2.svg});
       s+=`<line x1="${f1(X(100))}" x2="${f1(X(600))}" y1="${y1-14}" y2="${y1-14}" style="stroke:var(--ics-ink);stroke-width:2" marker-end="url(#escArr)"/>`;
-      s+=`<defs>${marker('escArr','var(--ics-ink)',6)}</defs><text x="${f1(X(100)+4)}" y="${y1-20}" class="t-xs" style="fill:var(--ics-ink)">${N?'0.75 from 100/µL':ESC_TXT.baf}</text>`;
+      s+=`<defs>${marker('escArr','var(--ics-ink)',6)}</defs><text x="${f1(X(100)+4)}" y="${y1-20}" class="t-xs" style="fill:var(--ics-ink);paint-order:stroke;stroke:var(--panel);stroke-width:3">${N?ESC_TXT.bafN:ESC_TXT.baf}</text>`;
       s+=axes(x0,y0,x1-x0,y1-y0,{xt:[0,100,300,600].map(c=>[c/600,String(c)]),yt:[],grid:false});
       s+=`<text x="${x1}" y="${y1+30}" class="t-xs t-end">${ESC_TXT.axC}</text>`;
       const mx=X(v);s+=`<line x1="${f1(mx)}" x2="${f1(mx)}" y1="${y0-6}" y2="${y1}" style="stroke:var(--ink);stroke-width:2"/>`+chip(clamp(mx,x0+40,x1-40),y0-16,ESC_TXT.valC(v),{anchor:'middle',col:'var(--ink)',size:11});
       const z=v<100?0:v<300?1:2;eout.innerHTML=ESC_TXT.zoneHTML[z];eval_.textContent=ESC_TXT.valC(v)}
     else{const X=c=>lerp(x0,x1,c/10),Y=r=>lerp(y1,y0+16,r/50),B=[[0,2,10],[2,4,24],[4,6,32],[6,10,42]];const z=v<2?0:v<4?1:v<6?2:3;
       B.forEach(([a,b,r],i)=>{s+=`<rect x="${f1(X(a)+2)}" y="${f1(Y(r))}" width="${f1(X(b)-X(a)-4)}" height="${f1(y1-Y(r))}" rx="3" style="fill:var(--ics);opacity:${i===z?.95:.35}"/>`;
-        s+=`<text x="${f1((X(a)+X(b))/2)}" y="${f1(Y(r)-5)}" class="t-sm t-mid" style="fill:var(--ink);font-weight:700">${r}%</text>`});
+        s+=`<text x="${f1((X(a)+X(b))/2)}" y="${f1(Y(r)-5)}" class="t-sm t-mid" style="fill:var(--ink);font-weight:700;paint-order:stroke;stroke:var(--panel);stroke-width:3">${r}%</text>`});
       s+=axes(x0,y0,x1-x0,y1-y0,{xt:[0,2,4,6,10].map(c=>[c/10,c+'%']),yt:[],grid:false});
       s+=`<text x="${x1}" y="${y1+30}" class="t-xs t-end">${ESC_TXT.axP}</text>`;
       const mx=X(v);s+=`<line x1="${f1(mx)}" x2="${f1(mx)}" y1="${y0-6}" y2="${y1}" style="stroke:var(--ink);stroke-width:2"/>`+chip(clamp(mx,x0+30,x1-30),y0-16,ESC_TXT.valP(v),{anchor:'middle',col:'var(--ink)',size:11});
@@ -248,10 +248,10 @@ inits.escalation=()=>{
     const trTxt=ESC_TXT.tr[tr]+(tr==='exac'?' · '+ESC_TXT.eosS[eo]:'');let s=`<defs>${marker('escFA','var(--muted)',7)}</defs>`;
     if(N){fsvg.setAttribute('viewBox','0 0 400 330');const bw=340,bx=30,bh=84;
       s+=box(bx,10,bw,bh,ESC_TXT.now,ESC_TXT.tx[tx],'var(--rx)',44)+box(bx,122,bw,bh,ESC_TXT.trait,trTxt,'var(--ics-ink)',44)+box(bx,234,bw,bh,ESC_TXT.next,Q.nx,kc,44);
-      s+=`<path d="M200 96V118M200 208V230" style="stroke:var(--muted);stroke-width:2" marker-end="url(#escFA)"/>`}
-    else{fsvg.setAttribute('viewBox','0 0 720 130');const bw=210,bh=110;
+      s+=`<path d="M200 96V118" style="stroke:var(--muted);stroke-width:2" marker-end="url(#escFA)"/><path d="M200 208V230" style="stroke:var(--muted);stroke-width:2" marker-end="url(#escFA)"/>`}
+    else{fsvg.setAttribute('viewBox','0 0 720 112');const bw=210,bh=92;
       s+=box(10,10,bw,bh,ESC_TXT.now,ESC_TXT.tx[tx],'var(--rx)',27)+box(255,10,bw,bh,ESC_TXT.trait,trTxt,'var(--ics-ink)',27)+box(500,10,bw,bh,ESC_TXT.next,Q.nx,kc,27);
-      s+=`<path d="M222 65H251M467 65H496" style="stroke:var(--muted);stroke-width:2" marker-end="url(#escFA)"/>`}
+      s+=`<path d="M222 56H251" style="stroke:var(--muted);stroke-width:2" marker-end="url(#escFA)"/><path d="M467 56H496" style="stroke:var(--muted);stroke-width:2" marker-end="url(#escFA)"/>`}
     fsvg.innerHTML=s;fsvg.setAttribute('aria-label',`${ESC_TXT.tx[tx]}; ${trTxt}; ${Q.nx}`);
     fout.className='verdict '+Q.k;fout.innerHTML=Q.q+(tr==='exac'&&tx==='triple'&&eo==='hi'?`<br><br>${ESC_BIO}`:'');
     fE.disabled=(tr==='dysp'||tx==='lics')}

@@ -115,8 +115,8 @@ inits.what=()=>{
       s+=axes(gx,gy,gw,gh,{xt:[[0,'0'],[1/6,'1'],[.5,'3'],[1,'6']],yt:[],grid:false,xl:WH_TXT.vtX});
       s+=`<text x="${gx}" y="${gy-8}" class="t-xs">${WH_TXT.vtY}</text>`;
       const hf=spiroVT(.8,1),cf=spiroVT(.55,1),ch=.8;
-      s+=`<path d="${pathFn(v=>1-hf(v*u),gx,gx+gw*u,gy+gh,gy,90)}" style="fill:none;stroke:var(--muted);stroke-width:2;stroke-dasharray:5 4"/>`;
-      s+=`<path d="${pathFn(v=>1-cf(v*u)*ch,gx,gx+gw*u,gy+gh,gy,90)}" style="fill:none;stroke:var(--o2);stroke-width:2.8"/>`;
+      s+=`<path d="${pathFn(v=>hf(v*u),gx,gx+gw*u,gy+gh,gy,90)}" style="fill:none;stroke:var(--muted);stroke-width:2;stroke-dasharray:5 4"/>`;
+      s+=`<path d="${pathFn(v=>cf(v*u)*ch,gx,gx+gw*u,gy+gh,gy,90)}" style="fill:none;stroke:var(--o2);stroke-width:2.8"/>`;
       const x1=gx+gw/6;s+=`<line x1="${f1(x1)}" x2="${f1(x1)}" y1="${gy}" y2="${gy+gh}" style="stroke:var(--ink);stroke-width:1;stroke-dasharray:2 3"/>`;
       if(u>=1/6){const yh=gy+gh*(1-hf(1/6)),yc=gy+gh*(1-cf(1/6)*ch);
         s+=`<circle cx="${f1(x1)}" cy="${f1(yh)}" r="4" style="fill:var(--muted)"/><circle cx="${f1(x1)}" cy="${f1(yc)}" r="4.5" style="fill:var(--o2)"/>`;
@@ -179,10 +179,10 @@ inits.what=()=>{
       s+=`<rect x="${L.bx}" y="${by}" width="${f1(Math.max(2,(X(r[1])-L.bx)*ease(g)))}" height="16" rx="4" style="fill:${c}"/>`;
       s+=`<text x="${L.vx}" y="${by+13}" class="t-sm" style="fill:var(--ink);font-weight:600">${r[1].toLocaleString('en-GB',{minimumFractionDigits:r[1]%1?1:0,maximumFractionDigits:1})}</text>`});
     const wv=M.rows.find(r=>r[2]==='w'),wx=X(wv[1]),yb=top+n*rh;
-    s+=`<line x1="${f1(wx)}" x2="${f1(wx)}" y1="${top-6}" y2="${yb}" style="stroke:var(--ink);stroke-width:1.2;stroke-dasharray:3 3"/>`;
+    M.rows.forEach((r,i)=>{const by=N?top+i*rh+18:top+i*rh+4;s+=`<line x1="${f1(wx)}" x2="${f1(wx)}" y1="${by-3}" y2="${by+19}" style="stroke:var(--ink);stroke-width:1.4;stroke-dasharray:3 2"/>`});
     s+=`<text x="${L.bx}" y="${yb+16}" class="t-xs">0</text><text x="${L.bx+L.bw}" y="${yb+16}" class="t-xs t-end">${M.max.toLocaleString('en-GB')}</text>`;
     const lg=[['w','world'],['hi','highest'],['lo','lowest']];
-    lg.forEach((k,i)=>{const lx=L.lx+i*(N?110:120);s+=`<rect x="${lx}" y="${yb+28}" width="12" height="8" rx="2" style="fill:${WH_KIND[k[0]]}"/><text x="${lx+18}" y="${yb+36}" class="t-xs">${WH_LEG[k[1]]}</text>`});
+    lg.forEach((k,i)=>{const lx=L.lx+[0,70,210][i]*(N?1:1.2);s+=`<rect x="${lx}" y="${yb+28}" width="12" height="8" rx="2" style="fill:${WH_KIND[k[0]]}"/><text x="${lx+18}" y="${yb+36}" class="t-xs">${WH_LEG[k[1]]}</text>`});
     ms.innerHTML=s;$('#whMapCap').innerHTML=M.cap;$('#whMapNote').innerHTML=noteHTML(M.note);
   }
   $('#whMeas').addEventListener('click',e=>{const b=e.target.closest('[data-meas]');if(!b)return;meas=b.dataset.meas;

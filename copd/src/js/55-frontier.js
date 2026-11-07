@@ -71,15 +71,15 @@ const FR_TXT={sc:'airway wall, cut through',lin:'mucus · lining cells (epitheli
   mus:'smooth muscle ↑',nerve:'airway nerve',tslpR:'TSLP-R',st2:'ST2',il4r:'IL-4Rα',
   lg:['TSLP','IL-33','IL-4/IL-13','IL-5','antibody drug'],
   ab1:['anti-TSLP','anti-IL-33','anti-ST2'],ab2:['anti-IL-4Rα','anti-IL-5'],
-  neb:'ensifentrine, nebulised',open:'muscle relaxes, airway opens',
-  dev1:'catheter resurfaces the lining',dev2:'catheter cuts the nerve signal',
+  neb:'ensifentrine, nebulised',open:'airway opens (FEV1 up)',
+  dev1:'lining resurfaced',dev2:'nerve signal cut',
   chT:'lung function over a lifetime (schematic)',chY:'FEV1',chX:'age, years',thr:'COPD range',b40:'age 40',
   chL:['usual path','normal start, fast decline: 53 mL a year','low start, normal decline: 27 mL a year'],
   chN:'each path led to about half of the COPD cases',
   rp:['brush cells out','culture 3–5 weeks','return them'],rpS:'damaged air sacs',
   rpR:[['bad','no benefit','Retinoids: FORTE and REPAIR'],['bad','safe, no benefit','Stem-cell (MSC) infusions'],['good','DLCO +18.2%','P63+ progenitor cells, 17 treated']],
   aH:['gene','RNA','protein','blood → lung'],aR:['base editing','RNA editing or RNAi','folding correctors','replace the protein'],
-  aEv:[['hyp'],['hyp','early'],['early'],['est']],aN:'Step through these in the alpha-1 animation below.',
+  aEv:[['hyp'],['hyp','early'],['early'],['est']],evS:{est:'Established',early:'Early',hyp:'Hypothesis'},aN:'Step through these in the alpha-1 animation below.',
   target:'target',reg:'* registry-posted, not peer-reviewed',one:'1.0 = no difference',
   step:(i,n)=>`route ${i} of ${n}`};
 const FR_EVC={est:['var(--good)','var(--good-soft)'],early:['var(--warn)','var(--warn-soft)'],hyp:['var(--rx)','var(--rx-soft)'],
@@ -190,14 +190,14 @@ inits.frontier=()=>{
     for(let i=0;i<5;i++){const x=14+((ph*.12+i/5)%1)*372;let op=.9;if(cut>0&&x>200)op*=1-cut;if(op>.05)s+=`<circle cx="${f1(x)}" cy="${f1(344+Math.sin(x/9)*2.5)}" r="3" style="fill:var(--warn);opacity:${f1(op)}"/>`}
     if(cut>0)s+=`<path d="M194 336l12 16M206 336l-12 16" style="stroke:var(--fl);stroke-width:2.4;opacity:${f1(cut)}"/>`;
     /* PDE3/4: nebulised mist */
-    if(pde>0){for(let i=0;i<22;i++){const q=(i*.137+t*3)%1,x=24+((i*53)%350),y=34+q*52;s+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="2.2" style="fill:var(--bd);opacity:${f1(pde*.8*(1-q*.5))}"/>`}
+    if(pde>0){for(let i=0;i<22;i++){const q=(i*.137+t*3)%1,x=24+((i*53)%350),y=48+q*28;s+=`<circle cx="${f1(x)}" cy="${f1(y)}" r="2.2" style="fill:var(--bd);opacity:${f1(pde*.8*(1-q*.5))}"/>`}
       s+=chip(200,56,C.neb,{col:'var(--bd)',anchor:'middle',size:11})+`<text x="384" y="331" class="t-xs t-end" style="fill:var(--bd);font-weight:600;opacity:${f1(pde)}">${C.open}</text>`}
     /* procedures: catheter */
     if(p===4){const first=u<.5,cxp=first?150+Math.sin(u*14)*40:200;
-      s+=`<path d="M${first?120:230} 30Q${f1(cxp)} 50 ${f1(cxp)} 86" style="stroke:var(--ink);stroke-width:3;fill:none;stroke-linecap:round"/><circle cx="${f1(cxp)}" cy="88" r="4" style="fill:var(--fl)"/>`;
+      s+=`<path d="M180 30Q${f1(cxp)} 50 ${f1(cxp)} 86" style="stroke:var(--ink);stroke-width:3;fill:none;stroke-linecap:round"/><circle cx="${f1(cxp)}" cy="88" r="4" style="fill:var(--fl)"/>`;
       if(first)s+=`<rect x="105" y="100" width="143" height="48" rx="6" style="fill:var(--fl-soft);opacity:${f1(abl*.8)}"/>`;
       else for(let i=0;i<3;i++){const q=(t*8+i/3)%1;s+=`<path d="M190 ${f1(100+q*230)}h20" style="stroke:var(--fl);stroke-width:2;opacity:${f1(cut*(1-q)*.9)}"/>`}
-      s+=chip(first?290:110,56,first?C.dev1:C.dev2,{col:'var(--fl)',anchor:'middle',size:11})}
+      s+=chip(320,56,first?C.dev1:C.dev2,{col:'var(--fl)',anchor:'middle',size:11})}
     /* legend */
     const lx=[14,70,132,214,262];C.lg.forEach((l,i)=>{const x=lx[i];s+=(i<4?frGl(['tslp','il33','il4','il5'][i],x+4,377,1):frY(x+4,380,12,ab,0,1))+`<text x="${x+13}" y="381" class="t-xs" style="fill:var(--ink)">${l}</text>`});
     return s}
@@ -207,14 +207,14 @@ inits.frontier=()=>{
     s+=`<text x="16" y="24" class="t-xs" style="fill:var(--ink);font-weight:600">${C.chT}</text>`;
     s+=axes(gx,gy,gw,gh,{xt:[[0,'0'],[.25,'20'],[.5,'40'],[.75,'60'],[1,'80']],yt:[],grid:false});
     s+=`<text x="${gx}" y="${gy-8}" class="t-xs">${C.chY}</text><text x="${gx+gw}" y="${gy+gh+30}" class="t-xs t-end">${C.chX}</text>`;
-    const yv=v=>gy+gh-v*gh,thr=.55;
+    const yv=v=>gy+gh-v*gh,thr=.55*.86;
     s+=`<rect x="${gx}" y="${f1(yv(thr))}" width="${gw}" height="${f1(gh*thr)}" style="fill:var(--bad-soft);opacity:.5"/><line x1="${gx}" x2="${gx+gw}" y1="${f1(yv(thr))}" y2="${f1(yv(thr))}" style="stroke:var(--bad);stroke-dasharray:4 3"/>`;
     s+=`<text x="${gx+gw-4}" y="${f1(yv(thr)+14)}" class="t-xs t-end" style="fill:var(--bad)">${C.thr}</text>`;
-    const x40=gx+gw*.5;s+=`<line x1="${x40}" x2="${x40}" y1="${gy}" y2="${gy+gh}" class="grid"/><text x="${x40+4}" y="${gy+10}" class="t-xs">${C.b40}</text>`;
-    s+=`<path d="${pathFn(q=>nf(q*80),gx,gx+gw,gy+gh,gy)}" style="fill:none;stroke:var(--muted);stroke-width:2;stroke-dasharray:5 4"/>`;
+    const x40=gx+gw*.5;s+=`<line x1="${x40}" x2="${x40}" y1="${gy}" y2="${gy+gh}" class="grid"/><text x="${x40+4}" y="${gy+gh-6}" class="t-xs">${C.b40}</text>`;
+    s+=`<path d="${pathFn(q=>.86*nf(q*80),gx,gx+gw,gy+gh,gy)}" style="fill:none;stroke:var(--muted);stroke-width:2;stroke-dasharray:5 4"/>`;
     const fr=Math.max(.002,ease(ramp(u,.05,.75)));
-    s+=`<path d="${pathFn(q=>ff(q*80*fr),gx,gx+gw*fr,gy+gh,gy,90)}" style="fill:none;stroke:var(--fl);stroke-width:2.8"/>`;
-    s+=`<path d="${pathFn(q=>lf(q*80*fr),gx,gx+gw*fr,gy+gh,gy,90)}" style="fill:none;stroke:var(--rx);stroke-width:2.8"/>`;
+    s+=`<path d="${pathFn(q=>.86*ff(q*80*fr),gx,gx+gw*fr,gy+gh,gy,90)}" style="fill:none;stroke:var(--fl);stroke-width:2.8"/>`;
+    s+=`<path d="${pathFn(q=>.86*lf(q*80*fr),gx,gx+gw*fr,gy+gh,gy,90)}" style="fill:none;stroke:var(--rx);stroke-width:2.8"/>`;
     const cols=['var(--muted)','var(--fl)','var(--rx)'];C.chL.forEach((l,i)=>{const y=296+i*18;s+=`<line x1="16" x2="38" y1="${y-3}" y2="${y-3}" style="stroke:${cols[i]};stroke-width:2.6${i?'':';stroke-dasharray:5 4'}"/><text x="44" y="${y}" class="t-xs" style="fill:var(--ink)">${l}</text>`});
     s+=`<text x="16" y="358" class="t-xs" style="opacity:${f1(ramp(u,.6,.8))}">${C.chN}</text>`;
     return s}
@@ -238,7 +238,7 @@ inits.frontier=()=>{
       if(i===3)s+=alveoli(x,124,64,{destroy:.35,cap:false,elastin:true,seed:3}).svg;
       if(i<3)s+=`<path d="M${x+38} 120h18" style="stroke:var(--muted);stroke-width:1.6" marker-end="url(#frArr)"/>`;
       s+=wrapT(x,190,C.aR[i],14,{cls:'t-xs',anchor:'middle',style:'fill:var(--ink);font-weight:600',lh:13}).svg;
-      C.aEv[i].forEach((k,j)=>{const lab=FR_EV[k],w=lab.length*6.2+12;const P=frPill(x-w/2,222+j*22,k,lab);s+=P.svg});
+      C.aEv[i].forEach((k,j)=>{const lab=C.evS[k],w=lab.length*6.2+12;const P=frPill(x-w/2,222+j*22,k,lab);s+=P.svg});
       s+='</g>'});
     s+=wrapT(200,320,C.aN,50,{cls:'t-sm',anchor:'middle',style:'fill:var(--ink)'}).svg;
     return s}
