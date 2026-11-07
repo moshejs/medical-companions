@@ -73,9 +73,9 @@ const FU_OUT=[
 ];
 const FU_KN=[[0,-6],[.17,-2],[.33,0],[.48,3],[.62,5],[.86,35],[1,40]];
 function fuDay(t){for(let i=1;i<FU_KN.length;i++){const a=FU_KN[i-1],b=FU_KN[i];if(t<=b[0])return lerp(a[1],b[1],clamp((t-a[0])/(b[0]-a[0])))}return 40}
-function fuSym(d){let v;if(d<-3)v=.18;else if(d<0)v=.18+.32*ease(ramp(d,-3,0));else if(d<1.5)v=.5+.5*ease(ramp(d,0,1.5));else v=.18+.82*Math.exp(-(d-1.5)/2.4);
+function fuSym(d){let v;if(d<-3)v=.18;else if(d<0)v=.18+.32*ease(ramp(d,-3,0));else if(d<2.5)v=.5+.5*ease(ramp(d,0,2.5));else v=.18+.82*Math.exp(-(d-2.5)/2.2);
   if(d>33)v=Math.max(v,.18+.5*ease(ramp(d,33,40)));return v}
-function fuPF(d,part){const r=part?.08:0;if(d<0)return 1;if(d<1.5)return 1-.25*ease(ramp(d,0,1.5));return 1-r*ramp(d,1.5,4)-(.25-r*ramp(d,1.5,4))*Math.exp(-(d-1.5)/1.8)}
+function fuPF(d,part){const r=part?.08:0;if(d<0)return 1;if(d<2)return 1-.25*ease(ramp(d,0,2));return 1-r*ramp(d,2,4.5)-(.25-r*ramp(d,2,4.5))*Math.exp(-(d-2)/1.6)}
 function fuState(d,part){const nf=ramp(d,33,40);
   const inf=Math.max(ramp(d,-6,-3.5)*(1-ramp(d,3.7,9)),nf*.7);
   const infl=Math.max(ramp(d,-3,1)*(1-ramp(d,4,14)*(part?.7:.92)),nf*.5);
@@ -136,8 +136,8 @@ inits.flareups=()=>{
       s+=`<rect x="${f1(xx+1)}" y="${L.sy}" width="${f1(sw-2)}" height="6" rx="3" style="fill:${on?'var(--fl)':'var(--panel-2)'}"/><text x="${f1(xx+sw/2)}" y="${L.sy-6}" class="t-xs t-mid" style="${on?'fill:var(--ink);font-weight:600':''}">${q.sh}</text>`});
     s+=`<circle cx="${f1(16+SW*t)}" cy="${L.sy+3}" r="5.5" style="fill:var(--ink);stroke:var(--panel);stroke-width:2"/>`;
     svg.innerHTML=s;
-    const si=d<-3?0:d<.2?1:d<2.5?2:d<33?(st.sym>.24?3:4):5;
-    const pv=fuPF(d,part),pi=d<0?0:d<1.5?1:pv<.985?(part&&d>6?4:2):3;
+    const si=d<-3?0:d<.2?1:d<3.2?2:d<33?(st.sym>.24?3:4):5;
+    const pv=fuPF(d,part),pi=d<0?0:d<2?1:pv<.985?(part&&d>6?4:2):3;
     rd.innerHTML=FU_TXT.read(fuNum(Math.round(d)),FU_TXT.symW[si],FU_TXT.pfW[pi]);
     $('#fuNote').innerHTML=noteHTML(S);setSt(p)}
   const stop=playWire(rg,$('#fuPlay'),draw,22000,'%t:player.replay%','flareups');

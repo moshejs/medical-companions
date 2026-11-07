@@ -31,7 +31,7 @@ const AS_STEPS=[
 ];
 const AS_EX={ratio:.52,pct:48,mmrc:2,cat:18,eos:320,modM:3,hospM:9};
 const AS_TXT={
-  rows:['Spirometry, after inhaler','GOLD grade (FEV1 % predicted)','Symptoms','Flare-ups, past 12 months','Blood eosinophils'],
+  sub:'one illustrative person, step by step',rows:['Spirometry, after inhaler','GOLD grade (FEV1 % predicted)','Symptoms','Flare-ups, past 12 months','Blood eosinophils'],
   r0:v=>`${v} < 0.70`,r1:g=>`GOLD ${g}`,r2lo:'fewer symptoms',r2hi:'more symptoms',r3a:n=>n?'1 moderate':'none yet',r3b:'1 in hospital',
   r4:v=>`${v} cells/µL`,mmrcL:'mMRC',catL:'CAT 0–40',months:'month 1 to 12',
   gridT:'GOLD 2023: groups A, B and E',
@@ -97,7 +97,7 @@ function asGrid(G,o={}){const gx=G.x,gw=G.w,y1=G.top,h=G.h,gap=8,y2=y1+h+gap,hal
   s+=big(gx+gw/2,y1+h/2+12,'E',1-gh)+big(gx+half/2,y2+h/2+12,'A',1)+big(gx+half+gap+half/2,y2+h/2+12,'B',1);
   if(gh>0){s+=`<line x1="${f1(gx+gw/2)}" x2="${f1(gx+gw/2)}" y1="${f1(y1+8)}" y2="${f1(y1+h-8)}" style="stroke:var(--muted);stroke-width:1.6;stroke-dasharray:5 4;opacity:${f1(gh)}"/>`;
     s+=`<text x="${f1(gx+gw/4)}" y="${f1(y1+h/2+12)}" text-anchor="middle" style="font:700 30px var(--display);fill:var(--muted);opacity:${f1(gh)}">C</text><text x="${f1(gx+3*gw/4)}" y="${f1(y1+h/2+12)}" text-anchor="middle" style="font:700 30px var(--display);fill:var(--muted);opacity:${f1(gh)}">D</text>`;
-    s+=`<text x="${f1(gx+gw-8)}" y="${f1(y1+16)}" class="t-xs t-end" style="opacity:${f1(gh)}">${AS_TXT.old}</text>`}
+    s+=`<text x="${f1(gx+8)}" y="${f1(y1+16)}" class="t-xs" style="opacity:${f1(gh)}">${AS_TXT.old}</text>`}
   if(o.merged)s+=`<text x="${f1(gx+gw-8)}" y="${f1(y1+16)}" class="t-xs t-end" style="opacity:${f1(o.merged)}">${AS_TXT.merged}</text>`;
   if(o.oldCell){const ox=o.oldCell==='C'?gx:gx+gw/2;s+=`<rect x="${f1(ox+4)}" y="${f1(y1+4)}" width="${f1(gw/2-8)}" height="${f1(h-8)}" rx="8" style="fill:none;stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 3"/><text x="${f1(ox+12)}" y="${f1(y1+h-12)}" class="t-xs">${AS_TXT.oldCell[o.oldCell]}</text>`}
   /* axis labels */
@@ -112,7 +112,7 @@ inits.assessment=()=>{
     const N=vb(svg,'720 400','400 664'),p=phaseOf(AS_STEPS,t),S=AS_STEPS[p];
     const L=N?{rx:16,rw:368,r0:56,rdy:66,rh:58,bx:28,bw:240,vx:380,grid:{x:104,w:280,top:430,h:86,lx:16,lx2:96},gt:410}
              :{rx:16,rw:344,r0:56,rdy:66,rh:58,bx:28,bw:212,vx:350,grid:{x:476,w:228,top:96,h:104,lx:376,lx2:466},gt:76};
-    let s='';
+    let s=`<text x="16" y="26" class="t-big" style="fill:var(--dx)">${S.t}</text><text x="16" y="42" class="t-sm">${AS_TXT.sub}</text>`;
     /* values for the example person */
     const r=lerp(1,AS_EX.ratio,ease(ramp(t,.03,.12))),pc=lerp(100,AS_EX.pct,ease(ramp(t,.19,.28))),
       mm=AS_EX.mmrc*ease(ramp(t,.35,.43)),ct=AS_EX.cat*ease(ramp(t,.35,.44)),mon=12*ramp(t,.5,.62),eo=AS_EX.eos*ease(ramp(t,.86,.95));
@@ -123,10 +123,10 @@ inits.assessment=()=>{
       const by=y+26,bx=L.bx,bw=L.bw;
       if(k===0){const R=v=>bx+bw*(clamp(v,.3,1)-.3)/.7;
         s+=`<rect x="${bx}" y="${by}" width="${f1(R(.7)-bx)}" height="10" style="fill:var(--bad-soft)"/><rect x="${f1(R(.7))}" y="${by}" width="${f1(bx+bw-R(.7))}" height="10" style="fill:var(--good-soft)"/><line x1="${f1(R(.7))}" x2="${f1(R(.7))}" y1="${by-4}" y2="${by+14}" style="stroke:var(--ink);stroke-width:1.6"/>`;
-        s+=`<text x="${f1(R(.7))}" y="${by+25}" class="t-xs t-mid">0.70</text><path d="M${f1(R(r))} ${by+11}l-5 8h10z" style="fill:var(--bad)"/>`;
+        s+=`<text x="${f1(R(.7))}" y="${by+28}" class="t-xs t-mid">0.70</text><path d="M${f1(R(r))} ${by+11}l-5 8h10z" style="fill:var(--bad)"/>`;
         if(rowOn[0]&&t>.12)s+=`<text x="${L.vx}" y="${y+40}" class="t-sm t-end" style="fill:var(--bad);font-weight:600">${AS_TXT.r0(AS_EX.ratio.toFixed(2))}</text>`}
       if(k===1){const P=v=>bx+bw*clamp(v,0,100)/100;
-        [[0,30,'var(--bad-soft)','4'],[30,50,'var(--fl-soft)','3'],[50,80,'var(--warn-soft)','2'],[80,100,'var(--good-soft)','1']].forEach(b=>s+=`<rect x="${f1(P(b[0]))}" y="${by}" width="${f1(P(b[1])-P(b[0]))}" height="10" style="fill:${b[2]};stroke:var(--panel)"/><text x="${f1((P(b[0])+P(b[1]))/2)}" y="${by+25}" class="t-xs t-mid">${b[3]}</text>`);
+        [[0,30,'var(--bad-soft)','4'],[30,50,'var(--fl-soft)','3'],[50,80,'var(--warn-soft)','2'],[80,100,'var(--good-soft)','1']].forEach(b=>s+=`<rect x="${f1(P(b[0]))}" y="${by}" width="${f1(P(b[1])-P(b[0]))}" height="10" style="fill:${b[2]};stroke:var(--panel)"/><text x="${f1((P(b[0])+P(b[1]))/2)}" y="${by+28}" class="t-xs t-mid">${b[3]}</text>`);
         s+=`<path d="M${f1(P(pc))} ${by+11}l-5 8h10z" style="fill:var(--ink)"/>`;
         if(t>=.28)s+=`<text x="${L.vx}" y="${y+40}" class="t-lbl t-end" style="fill:var(--fl)">${AS_TXT.r1(3)}</text>`}
       if(k===2){const cw=N?24:20;for(let i=0;i<5;i++){const on=i<=Math.round(mm)&&rowOn[2]>0&&t>=.34;
@@ -144,7 +144,7 @@ inits.assessment=()=>{
         if(mon>=AS_EX.hospM)s+=`<text x="${L.vx}" y="${y+48}" class="t-sm t-end" style="fill:var(--bad);font-weight:600">${AS_TXT.r3b}</text>`}
       if(k===4){const E=v=>bx+bw*clamp(v,0,500)/500;
         s+=`<rect x="${bx}" y="${by}" width="${f1(E(100)-bx)}" height="10" style="fill:var(--panel-2)"/><rect x="${f1(E(100))}" y="${by}" width="${f1(E(300)-E(100))}" height="10" style="fill:var(--ics-soft)"/><rect x="${f1(E(300))}" y="${by}" width="${f1(E(500)-E(300))}" height="10" style="fill:var(--ics)"/>`;
-        [0,100,300,500].forEach(v=>s+=`<text x="${f1(E(v))}" y="${by+25}" class="t-xs t-mid">${v}</text>`);
+        [0,100,300,500].forEach(v=>s+=`<text x="${f1(E(v))}" y="${by+28}" class="t-xs t-mid">${v}</text>`);
         s+=`<path d="M${f1(E(eo))} ${by+11}l-5 8h10z" style="fill:var(--ink)"/>`;
         if(t>=.95)s+=`<text x="${L.vx}" y="${y+40}" class="t-sm t-end" style="fill:var(--ics-ink);font-weight:600">${AS_TXT.r4(AS_EX.eos)}</text>`}
       s+='</g>'}
