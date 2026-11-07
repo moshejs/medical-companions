@@ -124,7 +124,7 @@ Call-now box (for every page built from this file): A COPD flare-up can become a
 - In a Tasmanian cluster RCT (405 patients treated by paramedics), mortality was 9% with high-flow oxygen versus 4% with titrated oxygen (RR 0.42, 95% CI 0.20–0.89) [[Austin2010]].
 - In the subgroup with spirometry-confirmed COPD, mortality was 9% versus 2% (RR 0.22, 95% CI 0.05–0.91) [[Austin2010]].
 - Patients given titrated oxygen per protocol were less likely to have respiratory acidosis (mean pH difference 0.12) or hypercapnia (mean PaCO2 difference −33.6 mmHg) [[Austin2010]].
-- The titrated arm targeted SpO2 88–92% [[Austin2010]] (unverified: target range not stated in the abstract; from the trial methods as cited in BTS 2017).
+- The titrated arm targeted SpO2 88–92% [[Austin2010]] (unverified: target range not stated in the abstract).
 - A Cochrane review found this was still the only included pre-hospital trial (214 confirmed-COPD participants): 2 deaths with titrated oxygen versus 11 with high flow (RR 0.22; NNT 14). Certainty was low [[Kopsaftis2020]].
 - BTS 2017: oxygen should be prescribed to achieve "a target saturation of 94–98% for most acutely ill patients or 88–92% or patient-specific target range for those at risk of hypercapnic respiratory failure" [[ODriscoll2017,ODriscoll2017Summary]].
 - BTS 2017, before blood gases are available in COPD: "use a 24% Venturi mask at 2–3 L/min or 28% Venturi mask at 4 L/min or nasal cannulae at 1–2 L/min". Adjust to 94–98% if PCO2 is normal (unless there is a history of NIV or IMV) and recheck gases after 30–60 min [[ODriscoll2017Summary]].
@@ -473,7 +473,7 @@ Interpreter worked examples (generated from the cited rules; label as generated)
 - [Hopkinson2012] Hopkinson NS, Englebretsen C, Cooley N, Kennie K, Lim M, Woodcock T, et al. Designing and implementing a COPD discharge care bundle. Thorax. 2012;67(1):90-92. PMID 21846790; PMCID PMC3240777; doi:10.1136/thoraxjnl-2011-200233. (validated: PubMed)
 
 ## Provenance
-- All 64 sources were validated with PubMed E-utilities esummary (authors, title, journal, year, volume, pages, DOI, PMCID). Abstracts were read via efetch for every source that has one.
+- All 66 sources were validated with PubMed E-utilities esummary (authors, title, journal, year, volume, pages, DOI, PMCID). Abstracts were read via efetch for every source that has one.
 - Open full texts read through Europe PMC: GOLD 2023 Executive Summary (PMC10111975), BTS/ICS 2016 summary (PMC4800170), BTS 2017 oxygen summary (PMC5531304), BTS NIV Quality Standards (PMC5890056), Echevarria 2016 DECAF validation (PMC4752621), Jacobson 2023 (PMC10517701), Lee 2023 (PMC10286168), Trethewey 2018 (PMC6315392), Sood 2010 (PMC2936733), Samuel 2023 (PMC10613873), Csoma 2022 (PMC9181664, consulted only, not cited).
 - Not accessible: Thorax supplements for BTS/ICS 2016 and BTS 2017 (HTTP 403; open summaries used instead), the ERS/ATS NIV guideline full text (403; wording via Trethewey2018), the Rome proposal full text (no abstract; thresholds via two open restatements and GOLD 2023), NCBI Bookshelf StatPearls (CAPTCHA; not bypassed), and the BTS website guideline PDF (over 10 MB; not downloaded).
 - Marked (unverified): the 88–92% target in the Austin 2010 titrated arm (not in the abstract), and any fixed adult PaO2 reference range (deliberately not given).
