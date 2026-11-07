@@ -180,9 +180,10 @@ inits.causes=()=>{
       const vt=N?r.d.split(' ')[0]:r.d;
       s+=`<text x="${L.vx}" y="${N?y+14:cy+4}" class="t-sm${N?' t-end':''}" style="fill:var(--ink)">${vt}</text></g>`});
     const yb=top+n*rh;
-    s+=`<line x1="${f1(X(1))}" x2="${f1(X(1))}" y1="${top-4}" y2="${yb}" style="stroke:var(--ink);stroke-width:1.2"/>`;
+    if(N)CA_OR.forEach((r,i)=>{const cy=top+i*rh+28;s+=`<line x1="${f1(X(1))}" x2="${f1(X(1))}" y1="${cy-8}" y2="${cy+8}" style="stroke:var(--ink);stroke-width:1.2"/>`});
+    else s+=`<line x1="${f1(X(1))}" x2="${f1(X(1))}" y1="${top-4}" y2="${yb}" style="stroke:var(--ink);stroke-width:1.2"/>`;
     s+=`<line x1="${L.bx}" x2="${L.bx+L.bw}" y1="${yb}" y2="${yb}" class="axis"/>`;
-    [1,2,5,10,20,50].forEach(v=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${top-4}" y2="${yb}" class="grid"/><text x="${f1(X(v))}" y="${yb+15}" class="t-xs t-mid">${v}</text>`});
+    [1,2,5,10,20,50].forEach(v=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${N?yb-6:top-4}" y2="${yb}" class="${N?'axis':'grid'}"/><text x="${f1(X(v))}" y="${yb+15}" class="t-xs t-mid">${v}</text>`});
     s+=`<text x="${L.bx+L.bw}" y="${yb+30}" class="t-xs t-end">${CA_ORT.axis}</text><text x="${L.bx}" y="${top-14}" class="t-xs">${CA_ORT.head}</text>`;
     fs.innerHTML=s;const r=CA_OR[sel];$('#caForNote').innerHTML=noteHTML({k:r.k,t:r.l,txt:r.txt,pt:r.pt,hook:CA_ORT.hook});
     $$('[data-or]',fb).forEach(b=>b.setAttribute('aria-pressed',+b.dataset.or===sel));

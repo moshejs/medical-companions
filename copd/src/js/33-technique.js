@@ -91,8 +91,8 @@ inits.technique=()=>{
   function flowFn(u){return dev==='dpi'?(u<.12?ease(u/.12)*.82:.82*Math.max(0,1-Math.pow((u-.12)/.88,1.6))):(u<.3?ease(u/.3)*.33:u<.85?.33:.33*(1-ramp(u,.85,1)))}
   function draw(t){
     const N=vb(svg,'720 420','400 770'),p=phaseOf(TQ_STEPS,t),D=TQ_DEV[dev],b=breath(t);
-    const L=N?{tx:16,ty:26,hx:262,hy:92,lx:262,ly:128,ls:180,gx:56,gy:380,gw:320,gh:130,ex:24,ey:582,ew:352}
-             :{tx:20,ty:28,hx:236,hy:92,lx:236,ly:128,ls:196,gx:410,gy:66,gw:280,gh:140,ex:400,ey:286,ew:300};
+    const L=N?{tx:16,ty:26,hx:262,hy:124,lx:262,ly:160,ls:170,gx:56,gy:404,gw:320,gh:120,ex:24,ey:604,ew:352}
+             :{tx:20,ty:28,hx:236,hy:124,lx:236,ly:160,ls:186,gx:410,gy:72,gw:280,gh:140,ex:400,ey:290,ew:300};
     let s=`<text x="${L.tx}" y="${L.ty}" class="t-big" style="fill:var(--rx)">${TQ_TXT.ph[p]}</text><text x="${L.tx}" y="${L.ty+17}" class="t-sm">${D.n}</text>`;
     /* lungs and a head in profile, facing left */
     s+=lungs(L.lx,L.ly,L.ls,{breathe:b,hyper:.25,tree:true});
@@ -109,7 +109,7 @@ inits.technique=()=>{
     let puff=0;if(p===0&&(dev==='pmdi'||dev==='smi'))puff=bump((t*12)%1,0,1)*.9;
     if(p===2){const k=ramp(t,.42,.5);puff=dev==='dpi'?bump(k,.05,1):bump(k,0,.8)}
     s+=inhaler(dx,dy,D.size,D.kind,{puff,rot:D.rot,col:'var(--rx)'});
-    if(p===0)s+=`<text x="${f1(Math.max(12,dx-D.size*.5))}" y="${f1(dy+D.size*.62+16)}" class="t-xs" style="fill:var(--ink)">${dev==='dpi'?TQ_TXT.load:(dev==='spacer'?'':TQ_TXT.prime)}</text>`;
+    if(p===0&&dev!=='spacer')s+=wrapT(12,dy+D.size*.62+18,dev==='dpi'?TQ_TXT.load:TQ_TXT.prime,18,{cls:'t-xs',lh:12,style:'fill:var(--ink)'}).svg;
     const lab=p===1?TQ_TXT.out:p===2?TQ_TXT.inn:p===3?TQ_TXT.hold:'';
     if(lab)s+=chip(L.lx,L.ly+L.ls*1.08+16,lab,{anchor:'middle',col:'var(--air-ink)',size:11.5});
     /* flow-time sketch */
@@ -119,7 +119,7 @@ inits.technique=()=>{
     s+=`<line x1="${gx}" x2="${gx+gw}" y1="${f1(Y(.5))}" y2="${f1(Y(.5))}" style="stroke:var(--warn);stroke-width:1.4;stroke-dasharray:5 4"/><text x="${gx+gw}" y="${f1(Y(.5)-5)}" class="t-xs t-end" style="fill:var(--warn)">${TQ_TXT.thrL}</text>`;
     const gk=t<.4?0:t<.6?ramp(t,.42,.58):1;
     if(gk>0)s+=`<path d="${pathFn(u=>1-flowFn(u*gk),gx,gx+gw*gk,gy,gy+gh,80)}" style="fill:none;stroke:var(--air);stroke-width:2.6"/>`;
-    s+=`<text x="${gx+8}" y="${gy+gh-8}" class="t-xs" style="fill:var(--air-ink);opacity:${f1(ramp(gk,.5,1))}">${dev==='dpi'?TQ_TXT.fast:TQ_TXT.slow} · ${TQ_TXT.shape}</text>`;
+    s+=`<text x="${gx}" y="${gy+gh+30}" class="t-xs" style="fill:var(--air-ink);opacity:${f1(ramp(gk,.5,1))}">${dev==='dpi'?TQ_TXT.fast:TQ_TXT.slow} · ${TQ_TXT.shape}</text>`;
     /* error panel */
     const ex=L.ex,ey=L.ey,ew=L.ew,key=p===4?'all4':(dev==='spacer'||dev==='smi')?'':(dev+p);
     s+=`<rect x="${ex-10}" y="${ey-22}" width="${ew+20}" height="${N?160:118}" rx="12" style="fill:var(--panel-2);opacity:.55"/>`;

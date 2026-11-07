@@ -1,5 +1,176 @@
-<!-- ================= 2.2 SYMPTOMS, EXACERBATIONS & GOLD GROUPS (stub) ================= -->
+<!-- ================= 2.2 SYMPTOMS, EXACERBATIONS & GOLD GROUPS ================= -->
+<style>
+#m-assessment .as-mm{display:flex;flex-direction:column;gap:6px}
+#m-assessment .as-mm button{display:grid;grid-template-columns:62px minmax(0,1fr);gap:10px;align-items:baseline;text-align:left;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-size:15px;line-height:1.35}
+#m-assessment .as-mm button b{font:600 12px var(--mono);color:var(--muted);letter-spacing:.04em}
+#m-assessment .as-mm button[aria-pressed="true"]{border-color:var(--dx);background:var(--dx-soft)}
+#m-assessment .as-mm button[aria-pressed="true"] b{color:var(--dx)}
+#m-assessment .as-cat{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px 18px}
+#m-assessment .as-cat label{display:flex;flex-direction:column;gap:4px;font-size:14px;min-width:0}
+#m-assessment .as-cat label b{font-size:15px}
+#m-assessment .as-cat .ends{display:flex;justify-content:space-between;gap:10px;font:500 11.5px/1.3 var(--mono);color:var(--muted)}
+#m-assessment .as-cat .ends span:last-child{text-align:right}
+#m-assessment .as-cat output{font:600 13px var(--mono);color:var(--dx)}
+#m-assessment .as-out{display:flex;flex-direction:column;gap:10px}
+#m-assessment .as-out p{font-size:14.5px}
+#m-assessment .as-out .verdict{font-size:15.5px}
+#m-assessment .as-range{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:700;max-width:560px}
+#m-assessment .as-range output{font:600 13px var(--mono);color:var(--dx)}
+#m-assessment .tbl table{min-width:620px}
+#m-assessment .card>.tag,#m-assessment .card>.ev{align-self:flex-start}
+#m-assessment .as-nums{display:flex;flex-wrap:wrap;gap:8px 22px}
+#m-assessment .as-nums div{display:flex;flex-direction:column;gap:2px;min-width:0}
+#m-assessment .as-nums b{font:700 26px/1 var(--display);color:var(--dx)}
+#m-assessment .as-nums span{font-size:13.5px;color:var(--muted);max-width:24ch}
+</style>
 <section class="mod" id="m-assessment" data-mod="assessment" hidden>
   <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis &amp; assessment</p><h2>Symptoms, exacerbations &amp; GOLD groups</h2>
-    <p class="lede">This module is being written.</p></div>
+    <p class="lede">Once spirometry has confirmed COPD, the assessment asks three more questions: how blocked are the airways, how much do symptoms weigh on daily life, and how many flare-ups were there last year? Follow one illustrative person through the GOLD steps, then try the breathlessness scale, the CAT domains, the ABE group, eosinophils and BODE yourself.</p></div>
+
+  <div class="stepper" id="asSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="asSvg" viewBox="0 0 720 400" role="img" aria-label="Five assessment rows fill in one after another for an illustrative person: the FEV1/FVC ratio falls below 0.70, a needle sets GOLD grade 3, a breathlessness scale and a CAT bar pass their thresholds, a year strip gains one moderate flare-up and one hospital admission, and a blood eosinophil needle passes 300 cells per microlitre. Beside the rows, a dot moves in the GOLD ABE grid from group B to group E, the old groups C and D are shown merging into E, and the label 3E appears."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="asPlay">Play</button><label class="stage-cap tl" for="asT">Timeline <input type="range" id="asT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap"><b>An illustrative person, not a real case.</b> The person's values (ratio 0.52, FEV1 48% predicted, mMRC 2, CAT 18, two flare-ups, eosinophils 320 cells/µL) are made up to show the rules. The thresholds are as published: GOLD grade cut-offs [[Lin2025]], symptom thresholds and ABE rules [[Cheng2023,Agusti2023]], eosinophil cut-points [[Agusti2023]].</p>
+    </div>
+    <aside class="note" id="asNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Four questions after the diagnosis</h3>
+  <div class="prose">
+    <p>After spirometry confirms COPD, GOLD 2023 lists four assessment goals: the severity of airflow limitation (the GOLD grade); the nature and size of current symptoms; previous moderate and severe exacerbations, which it calls "the best estimate of the risk of future exacerbations"; and the presence and type of other conditions (multimorbidity) [[Agusti2023]].</p>
+    <p>Since GOLD 2017, the spirometric grade and the symptom-and-flare-up group are reported separately: the groups come only from symptoms and exacerbation history [[Vogelmeier2017]]. That is because FEV1 tracks symptoms loosely (see <button class="btn ghost" data-go="spirometry">Spirometry &amp; the FEV1/FVC ratio</button>). Other conditions are covered in <button class="btn ghost" data-go="comorbid">Heart, mood, bones &amp; other conditions</button>.</p>
+  </div>
+
+  <h3 class="sub">Breathlessness: the mMRC scale</h3>
+  <div class="prose">
+    <p>The modified Medical Research Council (mMRC) scale is a five-point (0–4) self-rating of breathlessness during activity [[Lin2025,Sandberg2026]]. The person picks the single grade that fits best; there are no sub-scores [[Xiong2026]]. It descends from the original MRC scale, which ran from 1 to 5 [[Bestall1999]]. The grades below are paraphrased; the exact published wording is in <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13161153/" rel="noopener" target="_blank">Xiong and Liu 2026, Table 1 (open access)</a> [[Xiong2026]].</p>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>Pick a grade to see how GOLD uses it. This is a study aid built from published descriptions, not for diagnosis or treatment decisions.</p>
+  <div class="lab even">
+    <div class="as-mm" id="asMm" role="group" aria-label="mMRC grade, paraphrased">
+      <button data-asmm="0" aria-pressed="false"><b>Grade 0</b><span>Breathless only with strenuous exercise</span></button>
+      <button data-asmm="1" aria-pressed="false"><b>Grade 1</b><span>Short of breath when hurrying on level ground or walking up a slight hill</span></button>
+      <button data-asmm="2" aria-pressed="true"><b>Grade 2</b><span>Walks slower than people of the same age on the level because of breathlessness, or has to stop for breath when walking at their own pace on the level</span></button>
+      <button data-asmm="3" aria-pressed="false"><b>Grade 3</b><span>Stops for breath after walking about 100 metres, or after a few minutes on level ground</span></button>
+      <button data-asmm="4" aria-pressed="false"><b>Grade 4</b><span>Too breathless to leave the house, or breathless when dressing or undressing</span></button>
+    </div>
+    <aside class="note as-out" id="asMmOut" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Validity</span><h4>A simple scale that tracks disability</h4><p>In 100 rehabilitation patients graded MRC 3 (n = 32), 4 (n = 34) and 5 (n = 34), grade was significantly associated with shuttle-walk distance, SGRQ, CRQ, mood and extended activities of daily living [[Bestall1999]]. In 153 people with various respiratory diseases, the MRC scale, baseline dyspnoea index and oxygen-cost diagram correlated with one another (r = 0.48 to 0.70) with satisfactory agreement between observers [[Mahler1988]].</p></div>
+    <div class="card"><span class="tag dx">Prognosis</span><h4>Breathlessness predicted survival</h4><p>In 227 Japanese patients followed for 5 years, the level of breathlessness predicted survival (p &lt; 0.001), while FEV1-based staging did not reach significance (p = 0.08) [[Nishimura2002]].</p></div>
+  </div>
+
+  <h3 class="sub">Health status: the eight CAT domains</h3>
+  <div class="prose">
+    <p>The COPD Assessment Test (CAT) has eight items, chosen by psychometric and Rasch analysis from 21 candidates in three studies (Europe and the USA, n = 1,503); Cronbach's α was 0.88, test–retest ICC 0.8, and correlation with the SGRQ r = 0.80 [[Jones2009]]. Each item is scored 0 to 5 between two opposite statements, and the total runs from 0 to 40; higher means worse health status [[Minov2015,Jones2011]].</p>
+    <p>The CAT is a copyrighted, licensed questionnaire, so its statements are not reproduced here. The sliders below name each item's domain and paraphrase what its two ends describe. The real wording is printed in <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4397825/" rel="noopener" target="_blank">Minov and colleagues 2015, Methods (open access)</a> [[Minov2015]].</p>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>This is not the CAT and cannot replace it. It adds up eight domain scores to show how the total, the impact bands [[Minov2015]] and GOLD's threshold of 10 [[Han2013,Cheng2023]] work. Not for diagnosis or treatment decisions.</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="as-cat" id="asCat"></div>
+      <label class="as-range" for="asCatPrev">Earlier total, to compare (optional)<input type="number" id="asCatPrev" min="0" max="40" step="1" placeholder="for example 20" inputmode="numeric"></label>
+    </div>
+    <aside class="note as-out" id="asCatOut" aria-live="polite"></aside>
+  </div>
+  <div class="as-nums">
+    <div><b>2 points</b><span>minimum clinically important difference for the CAT [[Kon2014]]</span></div>
+    <div><b>−2.5</b><span>mean change after 8 weeks of pulmonary rehabilitation (n = 565) [[Kon2014]]</span></div>
+    <div><b>−3.0</b><span>mean change from discharge to 3 months after an exacerbation admission (n = 147) [[Kon2014]]</span></div>
+    <div><b>17.2 vs 21.3</b><span>mean CAT when stable vs during an exacerbation, European study [[Jones2011]]</span></div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Flare-ups</span><h4>Scores rise during an exacerbation</h4><p>In the development study, scores differed by 5 units (12% of the 40-point range) between stable patients (n = 229) and those having an exacerbation (n = 67) [[Jones2009]].</p></div>
+    <div class="card"><span class="tag rec">Rehabilitation</span><h4>Responsive to change</h4><p>After pulmonary rehabilitation (n = 64), the CAT improved by a mean −2.2 ± 5.3 (p = .002), as responsive as longer health-status questionnaires [[Jones2012]]. More in <button class="btn ghost" data-go="rehab">Pulmonary rehabilitation</button>.</p></div>
+    <div class="card"><span class="tag">CAAT</span><h4>The Chronic Airways Assessment Test</h4><p>The CAAT adapts the CAT by replacing "COPD" with "lung disease". Its items and scoring stay identical, and it is used in COPD and asthma [[Choate2026]].</p></div>
+  </div>
+
+  <h3 class="sub">Try it: the ABE group</h3>
+  <div class="prose"><p>GOLD 2023 replaced the ABCD tool with ABE. The symptom and exacerbation thresholds stayed the same, groups A and B stayed the same, and the old C and D merged into a single group E (for Exacerbations). GOLD says the practical value of the change "needs to be validated" [[Agusti2023]]. Exacerbation history counts the previous year [[Agusti2023]].</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>This applies the GOLD 2023 ABE rules as restated in a 2023 cohort analysis [[Cheng2023,Agusti2023]], using the mMRC grade or CAT total you set above. It is not for diagnosis or treatment decisions. GOLD 2026 changed the tool again; the exact 2026 thresholds were not verified from a primary GOLD source, so they are not used here [[Adesoye2026]].</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="calc">
+        <label for="asAbeInst">Symptom measure<select id="asAbeInst"><option value="cat">CAT total (from the sliders)</option><option value="mmrc">mMRC grade (from the scale)</option></select></label>
+        <label for="asAbeMod">Moderate exacerbations last year, not admitted<input type="number" id="asAbeMod" min="0" max="12" step="1" value="1" inputmode="numeric"></label>
+        <label for="asAbeHosp">Exacerbations leading to hospital admission<input type="number" id="asAbeHosp" min="0" max="12" step="1" value="0" inputmode="numeric"></label>
+        <label for="asAbePct">FEV1 % predicted, for the subgroup (optional)<input type="number" id="asAbePct" min="5" max="160" step="1" placeholder="for example 48" inputmode="numeric"></label>
+      </div>
+      <div class="scroll"><svg id="asAbeSvg" viewBox="0 0 520 290" role="img" aria-label="The GOLD ABE grid: group E across the top for people with two or more moderate exacerbations or one or more leading to hospital; groups A and B below, split by symptom level. The cell that matches the entered values is highlighted, with a dashed outline of the 2017 group C or D."></svg></div>
+    </div>
+    <aside class="note as-out" id="asAbeOut" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who ends up in which group</h3>
+  <div class="prose"><p>The split between groups depends on the population and on the symptom measure. In the UK ERICA cohort (n = 664), 57% of the people in group B by the CAAT were in group A by the mMRC [[Adesoye2026]]. In COPDGene, the mMRC and the SGRQ (used as a CAT stand-in) agreed with κ = 0.77 on the older ABCD groups [[Han2013]].</p></div>
+  <div class="stage">
+    <div class="scroll"><svg id="asDistSvg" viewBox="0 0 720 230" role="img" aria-label="Stacked bars of the share of people in groups A, B and E in four analyses: Chinese outpatients A 8.4%, B 44.8%, E 46.8%; a Taiwanese registry A 30.2%, B 46.4%, E 23.5%; the UK ERICA cohort by CAAT A 7%, B 27%, E 66%; and ERICA by mMRC A 22%, B 12%, E 66%."></svg></div>
+    <p class="stage-cap">Chinese outpatients: 210, 1,119 and 1,170 of 2,499 (percentages computed from the published counts) [[Cheng2023]]. Taiwanese registry [[Lin2025]]. ERICA by CAAT and by mMRC [[Adesoye2026]].</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>What group E meant for outcomes</th></tr></thead>
+    <tbody>
+      <tr><th>Chinese outpatients, n = 2,499</th><td>Group E had more first-year hospitalisations (adjusted OR 1.57 vs A) and higher mortality than A and B. Mortality prediction was slightly better for GOLD 2017 ABCD than for 2023 ABE [[Cheng2023]].</td></tr>
+      <tr><th>Taiwanese registry</th><td>Group E had the highest 5-year mortality (22.6%) and the highest hazards of death (HR 1.727) and of moderate-to-severe exacerbation (HR 2.127) versus A [[Lin2025]].</td></tr>
+      <tr><th>UK ERICA, n = 664</th><td>Both versions predicted hospitalised exacerbations. With CAAT: OR 3.72 for B vs A and 8.13 for E vs A. With mMRC: 2.69 and 4.05 [[Adesoye2026]].</td></tr>
+    </tbody></table></div>
+  <p class="callout">GOLD 2026 updated the ABE tool again. According to the ERICA analysis, exacerbations are now assessed separately from symptoms, and for people with no exacerbation in the past 12 months the assessment focuses on symptom burden. The exact 2026 thresholds were not seen in a primary GOLD source (unverified) [[Adesoye2026]].</p>
+
+  <h3 class="sub">Blood eosinophils</h3>
+  <div class="prose"><p>A routine blood count includes eosinophils, a type of white blood cell. GOLD 2023 uses them to judge how likely an inhaled corticosteroid (ICS) is to help: below 100 cells/µL there is little or no effect, at 300 cells/µL or more there is a strong likelihood of benefit, and between the two the effect is a continuous gradation [[Agusti2023]]. Treatment steps that follow are in <button class="btn ghost" data-go="escalation">Inhaled steroids, triple therapy &amp; beyond</button>.</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>Move the count to see the GOLD 2023 band and the IMPACT trial result nearest to it. Not for diagnosis or treatment decisions: GOLD's thresholds are pragmatic cut-points on a continuous effect [[Agusti2023,Bafadhel2018,Pascoe2019]].</p>
+  <div class="lab even">
+    <div class="stage">
+      <label class="as-range" for="asEos">Blood eosinophils <output id="asEosV">150 cells/µL</output><input type="range" id="asEos" min="0" max="600" step="10" value="150"></label>
+      <div class="scroll"><svg id="asEosSvg" viewBox="0 0 720 140" role="img" aria-label="A scale of blood eosinophils from 0 to 600 cells per microlitre in three GOLD bands, below 100, 100 to 300 and 300 or more, with IMPACT trial rate ratios marked at below 90 and at 310 or more, and a needle at the chosen count."></svg></div>
+    </div>
+    <aside class="note as-out" id="asEosOut" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag ics">IMPACT</span><h4>Triple therapy by eosinophil count</h4><p>The moderate/severe exacerbation rate ratio for triple therapy versus umeclidinium–vilanterol was 0.88 at eosinophils below 90 cells/µL and 0.56 at 310 cells/µL or more. Former smokers responded more to ICS than current smokers at any count [[Pascoe2019]].</p></div>
+    <div class="card"><span class="tag ics">Budesonide trials</span><h4>A rising curve, not a switch</h4><p>Pooling three budesonide–formoterol trials (4,528 patients, no asthma history), exacerbations rose non-linearly with eosinophil count on formoterol alone. At ≥ 0.10 × 10⁹ cells/L, adding budesonide reduced exacerbations (rate ratio 0.75) [[Bafadhel2018]].</p></div>
+    <div class="card"><span class="tag">Population</span><h4>Higher counts, more severe flare-ups</h4><p>In the Copenhagen General Population Study (7,225 with spirometric COPD), eosinophils above 0.34 × 10⁹ cells/L carried adjusted incidence rate ratios of 1.76 for severe and 1.15 for moderate exacerbations [[VedelKrogh2016]].</p></div>
+    <div class="card"><span class="tag">Practicalities</span><h4>Historical counts can be used</h4><p>GOLD 2023 allows decisions to use historical eosinophil counts, as repeatability in a large primary-care population "appears reasonable", though variability is greater at higher thresholds [[Agusti2023]]. The GOLD 2019 science committee described eosinophils as a biomarker to target ICS at people who keep having exacerbations despite bronchodilators [[Singh2019]].</p></div>
+  </div>
+
+  <h3 class="sub">Beyond FEV1: the BODE index</h3>
+  <div class="prose"><p>BODE combines Body-mass index, airflow Obstruction, Dyspnoea and Exercise capacity into a 10-point score. In its validation cohort (625 patients, 162 deaths), each 1-point rise carried a hazard ratio of 1.34 for death from any cause and 1.62 for respiratory death; its C statistic was 0.74, against 0.65 for FEV1 [[Celli2004]].</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>The point table as reproduced from Celli 2004 [[Kamath2020,Guerra2018,Celli2004]]. The index predicts outcomes in groups of people; it cannot tell any one person's future. Not for diagnosis or treatment decisions.</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="calc">
+        <label for="asBPct">FEV1, % predicted<input type="number" id="asBPct" min="5" max="160" step="1" value="48" inputmode="numeric"></label>
+        <label for="asBWalk">6-minute walk distance (metres)<input type="number" id="asBWalk" min="0" max="900" step="5" value="300" inputmode="numeric"></label>
+        <label for="asBMm">mMRC grade<select id="asBMm"><option value="0">0</option><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select></label>
+        <label for="asBBmi">Body-mass index (kg/m²)<input type="number" id="asBBmi" min="10" max="60" step="0.1" value="24" inputmode="decimal"></label>
+      </div>
+      <div class="scroll"><svg id="asBodeSvg" viewBox="0 0 720 130" role="img" aria-label="A ten-cell bar filled with BODE points, coloured by component, above four brackets for the quartiles 0 to 2, 3 to 4, 5 to 6 and 7 to 10, with the current quartile highlighted."></svg></div>
+    </div>
+    <aside class="note as-out" id="asBodeOut" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tag dx">Walking tests</span><h4>Method matters</h4><p>The ERS/ATS field walking test standard covers the 6-minute walk and the incremental and endurance shuttle walks. Results are sensitive to small changes in method, and two tests should be done for the 6-minute walk and the incremental shuttle walk [[Holland2014]].</p></div>
+    <div class="card"><span class="tag dx">6-minute walk</span><h4>A 30-metre fall matters</h4><p>In ECLIPSE (n = 2,112), walk distance fell 29.7 m more over the year before death in those who died than in survivors. A fall of more than 30 m carried a hazard ratio of 1.93 for death, so 30 m is proposed as the minimal clinically important difference [[Polkey2013]].</p></div>
+    <div class="card"><span class="tag dx">Hyperinflation</span><h4>IC/TLC</h4><p>Static hyperinflation measured as inspiratory capacity to total lung capacity predicted all-cause and respiratory mortality independently of BODE in 689 patients (183 deaths over a mean 34 months) [[Casanova2005]]. Why air gets trapped: <button class="btn ghost" data-go="breathless">Air trapping &amp; breathlessness</button>.</p></div>
+    <div class="card"><span class="tag">Other scores</span><h4>Many indices compared</h4><p>A 2018 external validation compared BODE, updated BODE, ADO, e-BODE, BODEx, DOSE, SAFE, B-AE-D and GOLD-based scores for predicting COPD mortality [[Guerra2018]]. In the original BODE cohort, 61% of deaths were from respiratory insufficiency, 14% myocardial infarction, 12% lung cancer and 13% other causes [[Celli2004]].</p></div>
+  </div>
+
+  <h3 class="sub">Finding COPD: case-finding, not screening</h3>
+  <div class="cards">
+    <div class="card"><span class="tag dx">GOLD 2023</span><h4>Test people with symptoms or risk</h4><p>Screening spirometry is "probably not indicated" in people without symptoms or significant exposure. In those with symptoms and/or risk factors (for example more than 20 pack-years, recurrent chest infections, prematurity or other early-life events), the yield is relatively high and spirometry "should be considered" [[Agusti2023]].</p></div>
+    <div class="card"><span class="tag">USPSTF 2022</span><h4>No screening without symptoms</h4><p>The US Preventive Services Task Force recommends against screening asymptomatic adults for COPD (grade D), concluding with moderate certainty that screening has no net benefit [[USPSTF2022]].</p></div>
+    <div class="card"><span class="tag warn">Underdiagnosis</span><h4>Most COPD is undiagnosed</h4><p>In BOLD and other surveys (30,874 adults at 44 sites in 27 countries), 81.4% of spirometrically defined COPD was undiagnosed, from 50.0% in Lexington, Kentucky to 98.3% in Ile-Ife, Nigeria; only 26.4% had ever had a lung function test [[Lamprecht2015]]. A 2018 review estimates about 70% of COPD worldwide is undiagnosed [[Diab2018]].</p></div>
+    <div class="card"><span class="tag warn">CAPTURE</span><h4>A case-finding questionnaire</h4><p>CAPTURE (five questions plus peak flow; low flow &lt; 350 L/min in males, &lt; 250 L/min in females) had 89.7% sensitivity and 78.1% specificity in its development study [[Martinez2017]]. In 4,325 US primary-care patients, its sensitivity was 48.2% and specificity 88.6% (AUC 0.81) [[Martinez2023]].</p></div>
+  </div>
+
+  <h3 class="sub">In plain words</h3>
+  <div class="prose">
+    <p>Your doctor or nurse asks how breathless you get (the mMRC scale, 0 to 4) or gives you an 8-question form (the CAT, 0 to 40) [[Xiong2026,Minov2015]]. A change of 2 points on the CAT is about the smallest change people notice [[Kon2014]].</p>
+    <p>Flare-ups matter: two or more in a year, or one that put you in hospital, puts you in the highest-risk group, E [[Cheng2023]].</p>
+    <p>A blood test that counts eosinophils (a type of white blood cell) helps decide whether an inhaled steroid is likely to help [[Agusti2023]].</p>
+  </div>
+  <p class="callout">Before this: <button class="btn ghost" data-go="spirometry">Spirometry &amp; the FEV1/FVC ratio</button> · Next: <button class="btn ghost" data-go="lookalikes">Asthma, look-alikes &amp; imaging</button> · What a flare-up is: <button class="btn ghost" data-go="flareups">Flare-ups (exacerbations)</button></p>
 </section>

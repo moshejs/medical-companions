@@ -243,8 +243,8 @@ inits.frontier=()=>{
     s+=wrapT(200,320,C.aN,50,{cls:'t-sm',anchor:'middle',style:'fill:var(--ink)'}).svg;
     return s}
   function draw(t){
-    const N=vb(svg,'720 400','400 740');
-    const L=N?{px:10,py:394,pw:380,ph:338}:{px:410,py:26,pw:300,ph:362};
+    const N=vb(svg,'720 400','400 762');
+    const L=N?{px:10,py:394,pw:380,ph:362}:{px:410,py:26,pw:300,ph:362};
     const p=phaseOf(FR_STEPS,t),st=FR_STEPS[p],nx=p<7?FR_STEPS[p+1].from:1.0001,u=ramp(t,st.from,nx);
     let s=`<defs>${marker('frArr','var(--muted)')}</defs>`;
     s+=p<=4?sceneWall(p,u,t):p===5?sceneLife(u):p===6?sceneRepair(u,t):sceneAatd(u,t);
@@ -268,8 +268,8 @@ inits.frontier=()=>{
     if(p===4){S.both=true;S.poly=.35;S.ser=.6}
     return S}
   function faDraw(t){
-    const N=vb(fsv,'720 400','400 740');
-    const L=N?{px:10,py:394,pw:380,ph:338}:{px:410,py:26,pw:300,ph:362};
+    const N=vb(fsv,'720 400','400 762');
+    const L=N?{px:10,py:394,pw:380,ph:362}:{px:410,py:26,pw:300,ph:362};
     const p=phaseOf(FA_STEPS,t),st=FA_STEPS[p],nx=p<4?FA_STEPS[p+1].from:1.0001,u=ramp(t,st.from,nx),S=faState(p,u),T=FA_TXT;
     let s=`<defs>${marker('faArr','var(--muted)')}</defs>`;
     /* liver cell */
@@ -334,7 +334,7 @@ inits.frontier=()=>{
       FP_COLS.forEach((c,i)=>{const x=cx0+i*cw;s+=`<rect x="${x+2}" y="${y0-30}" width="${cw-4}" height="${rh*FP_ROUTES.length+32}" rx="8" style="fill:${i===4?'var(--good-soft)':'var(--field)'}"/><text x="${x+cw/2}" y="${y0-12}" class="t-xs t-mid" style="fill:var(--ink);font-weight:600">${c}</text>`});
       FP_ROUTES.forEach((r,ri)=>{const y=y0+ri*rh;s+=`<line x1="${lx}" x2="${cx0+5*cw}" y1="${y+rh}" y2="${y+rh}" class="grid"/><text x="${lx}" y="${y+rh/2+4}" class="t-sm" style="fill:var(--ink);font-weight:600">${r.n}</text>`;
         const cnt={};FP_TRIALS.forEach((q,i)=>{if(q.r!==r.k)return;const k=cnt[q.c]=(cnt[q.c]||0)+1;s+=dot(q,i,cx0+q.c*cw+14+((k-1)%7)*13.5,y+12+Math.floor((k-1)/7)*15)})});
-      const ly=y0+rh*FP_ROUTES.length+26;s+=faLegend(12,ly,[0,150,390],[12,150,300]);map.setAttribute('viewBox',`0 0 720 ${ly+30}`)}
+      const ly=y0+rh*FP_ROUTES.length+26;s+=faLegend(12,ly,[0,190,430],[0,190,430]);map.setAttribute('viewBox',`0 0 720 ${ly+30}`)}
     else{const x0=10,cw=76,y0=40;let y=y0;
       FP_COLS.forEach((c,i)=>{s+=`<text x="${x0+i*cw+cw/2}" y="${y0-14}" class="t-xs t-mid" style="fill:var(--ink);font-weight:600">${c}</text>`});
       FP_ROUTES.forEach(r=>{const P=FP_TRIALS.map((q,i)=>[q,i]).filter(([q])=>q.r===r.k),cnt={};P.forEach(([q])=>cnt[q.c]=(cnt[q.c]||0)+1);

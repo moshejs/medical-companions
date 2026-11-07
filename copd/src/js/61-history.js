@@ -148,7 +148,7 @@ inits.history=()=>{
     HI_ERAS.forEach((e,i)=>{const a=X(i?e.from:0),b=X(i<HI_ERAS.length-1?HI_ERAS[i+1].from:1);s+=`<rect x="${f1(a+1)}" y="${ay-22}" width="${f1(Math.max(1,b-a-2))}" height="5" rx="2.5" style="fill:${i===p?'var(--brand)':'var(--panel-2)'}"/>`});
     s+=`<line x1="${ax}" x2="${ax+aw}" y1="${ay}" y2="${ay}" class="axis" style="stroke-width:2"/>`;
     [HI_POS(1850),HI_POS(1940)].forEach(u=>{const bx=X(u);s+=`<path d="M${f1(bx-5)} ${ay+6}l5 -12M${f1(bx+1)} ${ay+6}l5 -12" style="stroke:var(--muted);stroke-width:1.4"/>`});
-    (N?[1700,1800,1950,1970,1990,2020]:[1700,1750,1800,1850,1950,1960,1970,1980,1990,2000,2010,2020]).forEach(y=>{const xx=X(HI_POS(y));s+=`<line x1="${f1(xx)}" x2="${f1(xx)}" y1="${ay}" y2="${ay+5}" class="axis"/><text x="${f1(xx)}" y="${ay+18}" class="t-xs t-mid">${y}</text>`});
+    (N?[1700,1800,1950,1970,1990,2020]:[1700,1750,1800,1950,1960,1970,1980,1990,2000,2010,2020]).forEach(y=>{const xx=X(HI_POS(y));s+=`<line x1="${f1(xx)}" x2="${f1(xx)}" y1="${ay}" y2="${ay+5}" class="axis"/><text x="${f1(xx)}" y="${ay+18}" class="t-xs t-mid">${y}</text>`});
     HI_MS.forEach(m=>{const vv=on[m.th],cur=m===M,xx=X(m.u),r=cur?7:vv?4.2:2.4;
       s+=`<circle cx="${f1(xx)}" cy="${ay}" r="${r}" style="fill:${vv?HI_TH[m.th][1]:'var(--line)'};stroke:var(--panel);stroke-width:1.5;opacity:${vv?(m.u<=t+.0006?1:.55):.6}"/>`;
       if(cur)s+=`<circle cx="${f1(xx)}" cy="${ay}" r="11" style="fill:none;stroke:${col};stroke-width:1.6"/>`});
