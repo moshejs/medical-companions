@@ -141,7 +141,7 @@ inits.aatd=()=>{
     cells.forEach(([i,j,g])=>{const x=G.x+G.c*j,y=G.y+G.h*i;
       s+=`<rect x="${x}" y="${y}" width="${G.c/2}" height="${G.h}" style="fill:${AA_AL[g[0]]};opacity:.28"/><rect x="${x+G.c/2}" y="${y}" width="${G.c/2}" height="${G.h}" style="fill:${AA_AL[g[1]]};opacity:.28"/><rect x="${x}" y="${y}" width="${G.c}" height="${G.h}" style="fill:none;stroke:var(--line);stroke-width:1.5"/>`;
       s+=`<text x="${x+G.c/2}" y="${y+G.h/2+6}" class="t-big" text-anchor="middle">${g}</text>`});
-    const keys=Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]),S0=N?{x:16,y:G.y+G.h*2+44,w:300}:{x:380,y:56,w:240};
+    const keys=Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]),S0=N?{x:16,y:G.y+G.h*2+44,w:250}:{x:380,y:56,w:240};
     s+=`<text x="${S0.x}" y="${S0.y-14}" class="t-xs" style="fill:var(--ink);font-weight:700">${AA_PT.each}</text>`;
     keys.forEach((g,k)=>{const y=S0.y+k*34;s+=`<text x="${S0.x}" y="${y+14}" class="t-lbl">${g}</text><rect x="${S0.x+44}" y="${y}" width="${S0.w-44}" height="20" rx="4" style="fill:var(--panel-2)"/><rect x="${S0.x+44}" y="${y}" width="${f1((S0.w-44)*cnt[g]/4)}" height="20" rx="4" style="fill:${AA_AL[g[1]]};opacity:.75"/><text x="${S0.x+S0.w+8}" y="${y+15}" class="t-sm" style="fill:var(--ink)">${AA_PT.of4(cnt[g])} · ${AA_PT.pct(cnt[g])}</text>`});
     ps.innerHTML=s;
