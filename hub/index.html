@@ -38,7 +38,7 @@
 {"@type":"MedicalWebPage","name":"Colorectal Cancer Companion","url":"%SITE%/colorectal-cancer/","about":{"@type":"MedicalCondition","name":"Colorectal cancer"}},
 {"@type":"MedicalWebPage","name":"EDS Companion","url":"%SITE%/ehlers-danlos-syndromes/","about":{"@type":"MedicalCondition","name":"Ehlers-Danlos syndromes"}},
 {"@type":"MedicalWebPage","name":"TB Companion","url":"%SITE%/tuberculosis/","about":{"@type":"MedicalCondition","name":"Tuberculosis"}},
-{"@type":"MedicalWebPage","name":"BPD Companion","url":"%SITE%/borderline-personality-disorder/","about":{"@type":"MedicalCondition","name":"Borderline personality disorder"}},{"@type":"MedicalWebPage","name":"ADHD Companion","url":"%SITE%/adhd/","about":{"@type":"MedicalCondition","name":"Attention deficit hyperactivity disorder"}},{"@type":"MedicalWebPage","name":"Autism Companion","url":"%SITE%/autism/","about":{"@type":"MedicalCondition","name":"Autism spectrum disorder"}},{"@type":"MedicalWebPage","name":"Bipolar Companion","url":"%SITE%/bipolar-disorder/","about":{"@type":"MedicalCondition","name":"Bipolar disorder"}},{"@type":"MedicalWebPage","name":"AUD Companion","url":"%SITE%/alcohol-use-disorder/","about":{"@type":"MedicalCondition","name":"Alcohol use disorder"}},{"@type":"MedicalWebPage","name":"Heart Attack Companion","url":"%SITE%/myocardial-infarction/","about":{"@type":"MedicalCondition","name":"Myocardial infarction"}},{"@type":"MedicalWebPage","name":"Cirrhosis Companion","url":"%SITE%/cirrhosis/","about":{"@type":"MedicalCondition","name":"Cirrhosis"}}]}]}</script>
+{"@type":"MedicalWebPage","name":"BPD Companion","url":"%SITE%/borderline-personality-disorder/","about":{"@type":"MedicalCondition","name":"Borderline personality disorder"}},{"@type":"MedicalWebPage","name":"ADHD Companion","url":"%SITE%/adhd/","about":{"@type":"MedicalCondition","name":"Attention deficit hyperactivity disorder"}},{"@type":"MedicalWebPage","name":"Autism Companion","url":"%SITE%/autism/","about":{"@type":"MedicalCondition","name":"Autism spectrum disorder"}},{"@type":"MedicalWebPage","name":"Bipolar Companion","url":"%SITE%/bipolar-disorder/","about":{"@type":"MedicalCondition","name":"Bipolar disorder"}},{"@type":"MedicalWebPage","name":"AUD Companion","url":"%SITE%/alcohol-use-disorder/","about":{"@type":"MedicalCondition","name":"Alcohol use disorder"}},{"@type":"MedicalWebPage","name":"Heart Attack Companion","url":"%SITE%/myocardial-infarction/","about":{"@type":"MedicalCondition","name":"Myocardial infarction"}},{"@type":"MedicalWebPage","name":"Cirrhosis Companion","url":"%SITE%/cirrhosis/","about":{"@type":"MedicalCondition","name":"Cirrhosis"}},{"@type":"MedicalWebPage","name":"COPD Companion","url":"%SITE%/copd/","about":{"@type":"MedicalCondition","name":"Chronic obstructive pulmonary disease"}}]}]}</script>
 <style>
 :root{
   --bg:#f6eee1; --bg-2:#efe3d0; --panel:#fffaf1; --ink:#2b221c; --muted:#6a5a4e; --line:#e3d5c0;
@@ -63,6 +63,7 @@
   --cir:#0b5670; --cir-soft:#d8e8ed; --cir-lobe:#f4ead9; --cir-node:#b98a2e;
   --sep:#6b3519; --sep-soft:#f3e4d9; --sep-drop:#f6f3ef; --sep-fever:#e0682a;
   --cf:#5b2760; --cf-soft:#f2e4f1; --cf-lobe:#f6f4f2; --cf-pot:#2fb3a8;
+  --copd:#2f4a5e; --copd-soft:#e1e9ef; --copd-lobe:#f3f5f6; --copd-dot:#a3541b;
   --display:"Newsreader",Georgia,"Times New Roman",serif;
   --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
@@ -91,6 +92,7 @@
     --cir:#6cc3dc; --cir-soft:#0f303b; --cir-lobe:#0c1a20; --cir-node:#e0b35a;
     --sep:#eca57c; --sep-soft:#3b2317; --sep-drop:#15110e; --sep-fever:#f0803f;
     --cf:#e3a8e6; --cf-soft:#3a1e3e; --cf-lobe:#161218; --cf-pot:#8fe6dc;
+    --copd:#9cc0db; --copd-soft:#1d2f3d; --copd-lobe:#11161b; --copd-dot:#f0a669;
     color-scheme:dark;
   }
 }
@@ -141,7 +143,7 @@ h1 .soft{display:block;font-style:italic;font-weight:400;color:var(--muted);font
   border-radius:20px;box-shadow:0 1px 0 var(--line),0 10px 28px -18px rgba(70,40,15,.35);transition:box-shadow .35s var(--ease),transform .35s var(--ease)}
 .book:hover{transform:translateY(-2px);box-shadow:0 1px 0 var(--line),0 18px 36px -18px rgba(70,40,15,.42)}
 .book.alz{--c:var(--alz);--soft:var(--alz-soft)} .book.fmf{--c:var(--fmf);--soft:var(--fmf-soft)} .book.mg{--c:var(--mg);--soft:var(--mg-soft)}
-.book.gout{--c:var(--gout);--soft:var(--gout-soft)} .book.als{--c:var(--als);--soft:var(--als-soft)} .book.pd{--c:var(--pd);--soft:var(--pd-soft)} .book.ms{--c:var(--ms);--soft:var(--ms-soft)} .book.crc{--c:var(--crc);--soft:var(--crc-soft)} .book.eds{--c:var(--eds);--soft:var(--eds-soft)} .book.tb{--c:var(--tb);--soft:var(--tb-soft)} .book.bpd{--c:var(--bpd);--soft:var(--bpd-soft)} .book.adhd{--c:var(--adhd);--soft:var(--adhd-soft)} .book.aut{--c:var(--aut);--soft:var(--aut-soft)} .book.bip{--c:var(--bip);--soft:var(--bip-soft)} .book.aud{--c:var(--aud);--soft:var(--aud-soft)} .book.mi{--c:var(--mi);--soft:var(--mi-soft)} .book.cir{--c:var(--cir);--soft:var(--cir-soft)} .book.sep{--c:var(--sep);--soft:var(--sep-soft)} .book.cf{--c:var(--cf);--soft:var(--cf-soft)}
+.book.gout{--c:var(--gout);--soft:var(--gout-soft)} .book.als{--c:var(--als);--soft:var(--als-soft)} .book.pd{--c:var(--pd);--soft:var(--pd-soft)} .book.ms{--c:var(--ms);--soft:var(--ms-soft)} .book.crc{--c:var(--crc);--soft:var(--crc-soft)} .book.eds{--c:var(--eds);--soft:var(--eds-soft)} .book.tb{--c:var(--tb);--soft:var(--tb-soft)} .book.bpd{--c:var(--bpd);--soft:var(--bpd-soft)} .book.adhd{--c:var(--adhd);--soft:var(--adhd-soft)} .book.aut{--c:var(--aut);--soft:var(--aut-soft)} .book.bip{--c:var(--bip);--soft:var(--bip-soft)} .book.aud{--c:var(--aud);--soft:var(--aud-soft)} .book.mi{--c:var(--mi);--soft:var(--mi-soft)} .book.cir{--c:var(--cir);--soft:var(--cir-soft)} .book.sep{--c:var(--sep);--soft:var(--sep-soft)} .book.cf{--c:var(--cf);--soft:var(--cf-soft)} .book.copd{--c:var(--copd);--soft:var(--copd-soft)}
 .cover{position:relative;display:grid;place-items:center;align-self:start;aspect-ratio:3/4;border-radius:6px 12px 12px 6px;background:var(--soft);overflow:hidden}
 .cover::before{content:"";position:absolute;inset:0 auto 0 0;width:13px;background:var(--c);opacity:.9}
 .cover::after{content:"";position:absolute;right:15px;top:0;bottom:0;width:6px;background:var(--c);opacity:.22}
@@ -478,6 +480,24 @@ footer a{padding-block:13px} /* a 44px tap target that takes no room in the line
           <div class="actions">
             <a class="start" href="cystic-fibrosis/" data-slug="cystic-fibrosis">Open the guide<span aria-hidden="true"> →</span></a>
             <span class="langs">%LANGS:cystic-fibrosis%</span>
+          </div>
+        </div>
+      </li>
+      <li class="book copd">
+        <a class="cover" href="copd/" tabindex="-1" aria-hidden="true"><svg class="emblem" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--copd)"/><path d="M18 14.5C14 11.5 9.6 14 9.2 20.5C8.9 25.6 10 29.6 13 30.3C15.9 31 18 28.6 18 25Z" fill="var(--copd-lobe)"/><path d="M22 14.5C26 11.5 30.4 14 30.8 20.5C31.1 25.6 30 29.6 27 30.3C24.1 31 22 28.6 22 25Z" fill="var(--copd-lobe)"/><path d="M20 7V17M20 17L16.6 20.4M20 17L23.4 20.4" fill="none" stroke="var(--copd)" stroke-width="1.8" stroke-linecap="round"/><path d="M20 7V15.5" fill="none" stroke="var(--copd-lobe)" stroke-width="2.6" stroke-linecap="round"/><circle cx="14" cy="24.5" r="1.6" fill="var(--copd-dot)"/><circle cx="26" cy="24.5" r="1.6" fill="var(--copd-dot)"/><circle cx="15.6" cy="20" r="1.1" fill="var(--copd-dot)"/></svg></a>
+        <div class="page">
+          <h3><a href="copd/">COPD Companion</a></h3>
+          <p class="blurb">Chronic obstructive pulmonary disease, from smoke and narrowed small airways to emphysema, air trapping, spirometry, inhalers and their trials, flare-ups, oxygen and pulmonary rehabilitation.</p>
+          <ul class="inside">
+          <li>Causes, small airways, emphysema, air trapping and alpha-1 antitrypsin deficiency</li>
+          <li>Spirometry, the FEV1/FVC ratio, GOLD grades and groups, and asthma look-alikes</li>
+          <li>Bronchodilators, inhaled steroids, triple therapy, biologics and inhaler technique</li>
+          <li>Flare-ups, blood gases, oxygen, rehab, living with COPD and nursing care</li>
+          </ul>
+          <p class="facts">%CITED:copd% cited sources · %LANGNAMES:copd%</p>
+          <div class="actions">
+            <a class="start" href="copd/" data-slug="copd">Open the guide<span aria-hidden="true"> →</span></a>
+            <span class="langs">%LANGS:copd%</span>
           </div>
         </div>
       </li>

@@ -1,0 +1,10 @@
+{
+ "foot.not_advice": "<b>It is not medical advice.</b> It cannot diagnose, and nothing here should start, stop or change an inhaler, a medicine, oxygen or a care plan without your own care team. The spirometry explainer, GOLD grade and group tools, mMRC and CAT scores, the blood-gas explainer and the other calculators are for learning, never for diagnosis, self-triage or treatment decisions. Doses, oxygen targets, inhaler routines and guideline statements are quoted as published (GOLD, NICE, ATS/ERS, BTS and drug labels), never as instructions, and survival and risk figures are population statistics. If breathing becomes much worse than usual, or there is confusion, drowsiness, chest pain or blue lips, follow your action plan or seek urgent care. Please check the original sources, which are listed in full in the <a href=\"#sources\" data-go=\"sources\">Sources</a> module.",
+ "quiz.answer_is": "The answer is {l}.",
+ "shell.disclaimer": "The COPD Companion is an educational synthesis of published literature for study and understanding. It does not replace a doctor, nurse, physiotherapist, pharmacist or the rest of a respiratory team. Spirometry bands, GOLD grades and groups, mMRC and CAT scores and the blood-gas explainer are teaching aids, never for diagnosis or treatment decisions. Doses, oxygen targets and inhaler routines are quoted as published, never as instructions. Survival and risk figures are population statistics, not predictions for any person.",
+ "shell.home": "COPD Companion home",
+ "shell.note": "An animated, cited guide for students, people with COPD, and their families and caregivers. Educational only, not medical advice. Your place is saved on this device.",
+ "shell.skip": "Skip to the module",
+ "shell.tagline": "Airways, air, breath",
+ "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). Marked <span class=\"tag warn\">check</span> (not cited anywhere in the guide): {chk}."
+}
