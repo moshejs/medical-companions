@@ -51,7 +51,7 @@ const BG_TXT={
   satIn:(v,n,lo,hi)=>`${v}% is inside the ${lo}–${hi}% range that BTS 2017 gives for ${n}.`,
   satLo:(v,n,lo,hi)=>`${v}% is below the ${lo}–${hi}% range that BTS 2017 gives for ${n}.`,
   satHi:(v,n,lo,hi)=>`${v}% is above the ${lo}–${hi}% range that BTS 2017 gives for ${n}.`,
-  satRisk:' For this group BTS 2017 warns that excess oxygen raises the risk of respiratory acidosis.',
+  satRisk:' In hypercapnic respiratory failure, BTS 2017 links excess oxygen (PaO2 above 10.0 kPa) with a rising risk of respiratory acidosis.',
   satAxis:'SpO2, %',
   /* interpreter */
   steps:['Step 1 · Is the sample consistent?','Step 2 · Acidaemia or alkalaemia?','Step 3 · Is CO2 the culprit?','Step 4 · Acute or chronic?','Step 5 · Oxygen in context','Step 6 · Does it meet the NIV line?'],
@@ -68,6 +68,8 @@ const BG_TXT={
     other:`This combination does not fit the simple rules in this tool.`},
   s4:{resp:(a,c,h,r,band)=>`Expected HCO3⁻ is about ${a} mmol/L if acute and ${c} if chronic; measured ${h}. ΔH⁺/ΔPaCO2 = ${r}: ${band} [[Sood2010]]`,
     bands:['below 0.3 suggests chronic.','0.3–0.8 suggests acute-on-chronic.','above 0.8 suggests acute.'],
+    near:[' Measured HCO3⁻ is closest to the acute expectation.',' Measured HCO3⁻ lies between the two expectations.',' Measured HCO3⁻ is closest to the chronic expectation.'],
+    clash:' The two rules can disagree near their cut-offs.',
     sam:['HCO3⁻ 22–26: no metabolic compensation','HCO3⁻ above 26–35: partial compensation','HCO3⁻ above 35–42: marked compensation'],
     samT:x=>` By Samuel's bands: ${x}. [[Samuel2023]]`,
     bts:` BTS 2017 reads raised PCO2 with pH ≥7.35 and/or HCO3⁻ above 28 mmol/L as probably long-standing hypercapnia. [[ODriscoll2017Summary]]`,
@@ -89,7 +91,7 @@ const BG_TXT={
   vNo:`No published NIV threshold is met.`,
   mapX:u=>`PaCO2, ${u}`,mapY:'pH',normal:'normal',zone:'NIV zone (BTS/ICS)',zoneN:'NIV zone',acute:'acute',chronic:'chronic',p25:'pH 7.25',p15:'pH 7.15'
 };
-const BG_EX={normal:{ph:7.40,co2:40,hco:24,po2:12.0,fi:'21'},a:{ph:7.26,co2:60,hco:26,po2:7.5,fi:'21'},b:{ph:7.33,co2:60,hco:31,po2:8.2,fi:'24'},
+const BG_EX={normal:{ph:7.40,co2:40,hco:24,po2:12.0,fi:'21'},a:{ph:7.26,co2:60,hco:26,po2:7.5,fi:'21'},b:{ph:7.34,co2:60,hco:31,po2:8.2,fi:'24'},
   c:{ph:7.22,co2:80,hco:32,po2:11.2,fi:'28'},met:{ph:7.30,co2:29,hco:14,po2:13.0,fi:'21'}};
 const BG_HF={s:m=>85+14*ease(ramp(m,0,15)),c:m=>.55+.4*ease(ramp(m,5,55))},BG_TI={s:m=>85+5*ease(ramp(m,0,15)),c:m=>.55+.03*ramp(m,0,60)};
 /* an oxygen alert card */
@@ -192,7 +194,7 @@ inits.bloodgas=()=>{
     out.push(s3);
     let s4;
     if(kind==='resp'&&P>40){const a=(24+(P-40)/10).toFixed(1),c=(24+3.5*(P-40)/10).toFixed(1),r=(hm-40)/(P-40),bi=r<.3?0:r>.8?2:1;
-      s4=T.s4.resp(a,c,h,r.toFixed(2),T.s4.bands[bi]);
+      const fr=(h-(+a))/((+c)-(+a)),ni=fr<1/3?0:fr>2/3?2:1;s4=T.s4.resp(a,c,h,r.toFixed(2),T.s4.bands[bi])+T.s4.near[ni]+((ni===0&&bi!==2)||(ni===2&&bi!==0)?T.s4.clash:'');
       if(h>=22&&h<=42)s4+=T.s4.samT(T.s4.sam[h<=26?0:h<=35?1:2]);
       if(Pk>6&&(ph>=7.35||h>28))s4+=T.s4.bts}
     else if(kind==='met'){const e=1.5*h+8,kk=P>e+2?1:P<e-2?2:0;s4=T.s4.met(`${fmtP(e-2)} to ${fmtP(e+2)}`,kk)}
@@ -212,12 +214,12 @@ inits.bloodgas=()=>{
     s+=`<line x1="${f1(X(6))}" x2="${f1(X(6))}" y1="${f1(Y(7.35))}" y2="${y1}" style="stroke:var(--co2);stroke-width:1.4;stroke-dasharray:4 3"/>`;
     [[7.25,BG_TXT.p25],[7.15,BG_TXT.p15]].forEach(([q,l])=>{s+=`<line x1="${x0}" x2="${x1}" y1="${f1(Y(q))}" y2="${f1(Y(q))}" style="stroke:var(--muted);stroke-width:1;stroke-dasharray:3 4"/><text x="${x0+4}" y="${f1(Y(q)-3)}" class="t-xs">${l}</text>`});
     [[1,BG_TXT.acute],[3.5,BG_TXT.chronic]].forEach(([k,l])=>{let d='';for(let i=0;i<=40;i++){const P=40+65*i/40,H=24*P/(24+k*(P-40)/10),q=9-Math.log10(H);d+=(i?'L':'M')+f1(X(P/7.5))+' '+f1(Y(q))}
-      const Pe=105,qe=9-Math.log10(24*Pe/(24+k*(Pe-40)/10));s+=`<path d="${d}" style="fill:none;stroke:var(--co2-ink);stroke-width:1.8"/><text x="${f1(X(14)-4)}" y="${f1(Y(qe)+(k===1?-8:14))}" class="t-xs t-end" style="fill:var(--co2-ink);font-weight:600">${l}</text>`});
+      const Pe=105,qe=9-Math.log10(24*Pe/(24+k*(Pe-40)/10));s+=`<path d="${d}" style="fill:none;stroke:var(--co2-ink);stroke-width:1.8"/><text x="${f1(X(14)-4)}" y="${f1(Y(qe)+(k===1?14:-8))}" class="t-xs t-end" style="fill:var(--co2-ink);font-weight:600">${l}</text>`});
     s+=`<path d="M${x0} ${y0}V${y1}H${x1}" class="axis" style="fill:none"/>`;
     [7.0,7.1,7.2,7.3,7.4,7.5,7.6].forEach(q=>{s+=`<text x="${x0-5}" y="${f1(Y(q)+3)}" class="t-xs t-end">${q.toFixed(1)}</text>`});
     const xt=unit==='kpa'?[2,4,6,8,10,12,14].map(k=>[k,k]):[15,30,45,60,75,90,105].map(m=>[m/7.5,m]);
     xt.forEach(([k,l])=>{s+=`<text x="${f1(X(k))}" y="${y1+14}" class="t-xs t-mid">${l}</text>`});
-    s+=`<text x="${x1}" y="${y1+28}" class="t-xs t-end">${BG_TXT.mapX(unit==='kpa'?'kPa':'mmHg')}</text><text x="${x0}" y="${y0-4}" class="t-xs">${N?'':BG_TXT.mapY}</text>`;
+    s+=`<text x="${x1}" y="${y1+28}" class="t-xs t-end">${BG_TXT.mapX(unit==='kpa'?'kPa':'mmHg')}</text><text x="${x0}" y="${y0-4}" class="t-xs">${BG_TXT.mapY}</text>`;
     const px=X(v.co2/7.5),py=Y(v.ph);s+=`<circle cx="${f1(px)}" cy="${f1(py)}" r="11" style="fill:none;stroke:var(--ink);stroke-width:1.5;opacity:.5"/><circle cx="${f1(px)}" cy="${f1(py)}" r="6" style="fill:var(--ink);stroke:var(--panel);stroke-width:2"/>`;
     ms.innerHTML=s}
   function upd(){E('bgPhV').textContent=v.ph.toFixed(2);E('bgCo2V').textContent=fmtP(v.co2);E('bgHcoV').textContent=v.hco;
