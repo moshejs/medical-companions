@@ -157,7 +157,7 @@ inits.ich=()=>{
       s+=`<rect x="${f1(xa)}" y="${cy+6}" width="${f1(xb-xa)}" height="${ch}" style="fill:var(--good-soft);opacity:.75"/><path d="${(()=>{let d='';for(let i=0;i<=60;i++){const v=i*1.5;d+=(i?'L':'M')+f1(Cv.X(v))+' '+f1(Cv.Y(f(v)))}return d})()}" style="fill:none;stroke:var(--accent);stroke-width:2.6"/>`;
       s+=`<text x="${f1((xa+xb)/2)}" y="${cy+20}" class="t-xs t-mid" style="fill:var(--ink)">32 to 46</text><line x1="${f1(x7)}" x2="${f1(x7)}" y1="${cy+6}" y2="${cy+6+ch}" style="stroke:var(--bad);stroke-dasharray:3 3"/><text x="${f1(x7+4)}" y="${cy+20}" class="t-xs" style="fill:var(--ink)">over 70</text>`;
       s+=`<text x="${cx}" y="${cy+ch+20}" class="t-xs">0 mm Hg</text><text x="${cx+cw}" y="${cy+ch+20}" class="t-xs t-end">90 mm Hg. Schematic shape, odds of poor outcome</text>`}
-    bS.setAttribute('height','');
+    bS.removeAttribute('height');
     const H=T.curve?(N?yo+202:yo+144):T.forest?(N?yo+110:yo+106):(N?yo+90:yo+84);bS.setAttribute('viewBox',`0 0 ${N?400:720} ${f1(H)}`);
     bS.innerHTML=s;$('#icBpNote').innerHTML=noteHTML({k:T.k,t:T.n,txt:T.txt,hook:T.hook})}
   $('#icBpBtns').addEventListener('click',e=>{const b=e.target.closest('[data-bp]');if(!b)return;bI=+b.dataset.bp;$$('[data-bp]').forEach(x=>x.setAttribute('aria-pressed',x===b));drawBp()});drawBp();
