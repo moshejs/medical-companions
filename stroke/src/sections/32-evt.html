@@ -1,1 +1,193 @@
-<section class="mod" id="m-evt" data-mod="evt" hidden><div class="mhead"><h2>evt (stub)</h2></div></section>
+<!-- ================= 3.2 THROMBECTOMY ================= -->
+<style>
+#m-evt .btn{min-height:40px}
+#m-evt .evbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-evt .tbl table{min-width:640px}
+#m-evt .card>.ev,#m-evt .card>.tag{align-self:flex-start}
+#m-evt .card .big-num{font-size:34px}
+#m-evt .evq{font-size:15px;max-width:76ch;margin:0}
+#m-evt .note p{margin:0}
+#m-evt .evrow{cursor:pointer}
+#m-evt .evgap{margin-top:4px}
+</style>
+<section class="mod" id="m-evt" data-mod="evt" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Acute treatment</p><h2>Thrombectomy</h2>
+    <p class="lede">Endovascular thrombectomy pulls the clot out through a thin tube. Watch a stent retriever do it, explore the trials by window and by who was treated, and see what delay costs. This page reports what trials and guidelines say. It is not medical advice.</p></div>
+
+  <div class="stepper" id="evSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="evSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A stent retriever opens through a clot in an artery and pulls it back into a catheter, while the middle cerebral artery on a side view of the brain fills again and the tissue at risk turns from amber to teal."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="evPlay">%t:player.play%</button><label class="stage-cap tl" for="evT">Timeline <input type="range" id="evT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap">Schematic, not to scale. Lesion size and reperfused share are illustrative, not measured.</p>
+    </div>
+    <aside class="note" id="evNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="cards">
+    <div class="card"><span class="kicker">HERMES common OR</span><p class="big-num">2.49</p><p>Adjusted common odds ratio for reduced disability (95% CI 1.76 to 3.53), in 5 trials and 1287 people [[Goyal2016]].</p></div>
+    <div class="card"><span class="kicker">HERMES NNT, as published</span><p class="big-num">2.6</p><p>Treat 2.6 people to reduce disability by at least one mRS level for one person [[Goyal2016]].</p></div>
+    <div class="card"><span class="kicker">One hour of delay</span><p class="big-num">5.2 points</p><p>Functional independence fell by 5.2 percentage points per hour among those reperfused [[Saver2016]].</p></div>
+    <div class="card"><span class="kicker">One minute saved</span><p class="big-num">4.2 days</p><p>Modelling: 4.2 days of extra healthy life per minute (95% prediction interval 2.3 to 5.4). 20 minutes equalled about 3 months of disability-free life [[Meretoja2017]].</p></div>
+  </div>
+  <div class="pt"><b>In plain words</b>Thrombectomy is a procedure where a doctor passes a thin tube up an artery, often from the groin, and pulls out the clot. It is for clots in larger arteries [[Goyal2016,Saver2015,Balami2018]]. For every 3 or so people who have thrombectomy, about one is left with less disability [[Goyal2016]].</div>
+
+  <h3 class="sub">Trial explorer: from early window to medium vessels</h3>
+  <p class="evq">Choose a question, then a trial. Each row shows the share reaching that trial's good-outcome band, with thrombectomy (filled) and without it (hollow). Trials use different bands, so read across within a row, never between rows.</p>
+  <div class="evbar" id="evCats" role="group" aria-label="Choose a group of trials"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="evTrSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Dumbbell chart of good outcomes with and without thrombectomy, one row per trial in the chosen group."></svg></div>
+      <div class="evbar" id="evTrials" role="group" aria-label="Choose a trial"></div>
+      <p class="stage-cap"><b>Derived</b> NNTs are 1 divided by the published absolute difference. They come from this guide's research pass and are not stated by the sources [[Berkhemer2015,Jovin2015,Goyal2015,Saver2015,Campbell2015,Nogueira2018,Albers2018]]. Where a row shows only an odds ratio or a median, no proportion was recorded for this guide.</p>
+    </div>
+    <aside class="note" id="evTrNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>DAWN (6 to 24 hours) selects by clinical-core mismatch; DEFUSE 3 (6 to 16 hours) selects by perfusion mismatch [[Nogueira2018,Albers2018]].</div>
+    <div class="hook"><b>Exam hook</b>Basilar trials use mRS 0 to 3 as "good", reflecting how severe the condition is, unlike the mRS 0 to 2 used in anterior trials [[Tao2022,Jovin2022]]. Medium-vessel trials ESCAPE-MeVO and DISTAL were neutral on function [[Goyal2025,Psychogios2025]].</div>
+  </div>
+
+  <h3 class="sub">HERMES, as published</h3>
+  <p class="evq">HERMES pooled individual data from the five 2015 trials (634 with thrombectomy, 653 without). The figures are the abstract's own. Its per-category mRS distribution sits in figures that could not be verified for this guide, so it is not drawn. The worked stacked bars below use trial registry counts instead [[Goyal2016]].</p>
+  <div class="stage">
+    <div class="scroll"><svg id="evHmSvg" viewBox="0 0 720 220" style="min-width:560px" role="img" aria-label="Forest plot of HERMES common odds ratios: overall 2.49, age 80 or over 3.68, randomised after 300 minutes 1.76, not eligible for alteplase 2.43. All lie to the right of no effect."></svg></div>
+    <p class="stage-cap">Common odds ratios with 95% CI, log scale [[Goyal2016]]. No heterogeneity overall (p interaction=0.43). 90-day mortality and symptomatic haemorrhage did not differ [[Goyal2016]].</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>2015 trial</th><th>Who</th><th>Common OR</th><th>mRS 0 to 2</th><th>Safety</th><th>NNT (derived)</th></tr></thead>
+    <tbody>
+      <tr><th>MR CLEAN</th><td>Netherlands, 500 people, within 6 hours; 89.0% had alteplase, 81.5% stent retrievers</td><td>1.67 (1.21 to 2.30)</td><td>32.6% versus 19.1% [[Berkhemer2015]]</td><td>Not recorded for this guide</td><td>about 7</td></tr>
+      <tr><th>ESCAPE</th><td>316 people, up to 12 hours, small core and good collaterals; stopped early</td><td>2.6 (1.7 to 3.8)</td><td>53.0% versus 29.3% [[Goyal2015]]</td><td>Mortality 10.4% versus 19.0% (P=0.04); symptomatic haemorrhage 3.6% versus 2.7%</td><td>about 4</td></tr>
+      <tr><th>EXTEND-IA</th><td>70 people, core under 70 ml on CT perfusion; stopped early</td><td>Not recorded for this guide</td><td>71% versus 40% [[Campbell2015]]</td><td>Reperfusion at 24 hours median 100% versus 37%</td><td>about 3</td></tr>
+      <tr><th>SWIFT PRIME</th><td>196 people, within 6 hours; stopped early; 88% substantial reperfusion</td><td>Not recorded for this guide</td><td>60% versus 35% [[Saver2015]]</td><td>Mortality 9% versus 12%; symptomatic haemorrhage 0% versus 3%</td><td>4</td></tr>
+      <tr><th>REVASCAT</th><td>206 people, within 8 hours</td><td>1.7 (1.05 to 2.8), for 1-point improvement</td><td>43.7% versus 28.2% [[Jovin2015]]</td><td>Symptomatic haemorrhage 1.9% each; death 18.4% versus 15.5%</td><td>about 6.5</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Seeing the shift: full mRS bars</h3>
+  <p class="evq">A stacked bar shows every outcome, not just one cut-off. Per-category data could be verified for only two trials, both from registered results on ClinicalTrials.gov. SWIFT PRIME shows a thrombectomy trial with a clear shift. TIMELESS is a late-window tenecteplase trial shown here for contrast: almost no shift.</p>
+  <div class="evbar" role="group" aria-label="Choose a trial and a unit">
+    <button class="btn" id="evMsS" aria-pressed="true">SWIFT PRIME</button>
+    <button class="btn" id="evMsT" aria-pressed="false">TIMELESS</button>
+    <button class="btn" id="evMsP" aria-pressed="true">Percent (derived)</button>
+    <button class="btn" id="evMsC" aria-pressed="false">Counts</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="evMsSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Two stacked bars of modified Rankin scores at 90 days for the chosen trial, one for each arm, with a dashed line joining the boundary after score 2."></svg></div>
+    <p class="stage-cap">Counts from the registered results. Percentages are derived here as count over group total, and are not stated by the source [[NCT01657461,NCT03785678]].</p></div>
+    <aside class="note" id="evMsNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Delay: the curve in the early window</h3>
+  <p class="evq">HERMES timing data give three published anchors for time from onset to groin puncture. Move the slider. Between anchors the line is schematic and no figure is given.</p>
+  <div class="evbar" role="group" aria-label="Choose what the chart shows">
+    <button class="btn" id="evDlO" aria-pressed="true">Common odds ratio</button>
+    <button class="btn" id="evDlA" aria-pressed="false">Absolute difference</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="evDlSvg" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="Benefit of thrombectomy falls from 3 to 8 hours after onset, with a marker at 7 hours 18 minutes where statistical significance ends."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="evDlH">Onset to puncture <input type="range" id="evDlH" min="3" max="8" step="0.25" value="3"></label><span class="readout" id="evDlR"></span></div>
+      <p class="stage-cap">Schematic between published anchors. Dots and whiskers are the published values [[Saver2016]]. Median onset to puncture in HERMES was 238 minutes, and to reperfusion 286 [[Saver2016]].</p>
+    </div>
+    <aside class="note" id="evDlNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="tbl"><table style="min-width:0">
+      <thead><tr><th colspan="2">Per 15 minutes faster, clinical practice [[Jahan2019]]</th></tr></thead>
+      <tbody>
+        <tr><th>Independent walking</th><td>+1.14% (0.75 to 1.53)</td></tr>
+        <tr><th>Death or hospice</th><td>-0.77% (-1.07 to -0.47)</td></tr>
+        <tr><th>Symptomatic haemorrhage</th><td>-0.22% (-0.40 to -0.03)</td></tr>
+        <tr><th>The registry</th><td>6756 people, 2015 to 2016; median onset to puncture 230 minutes, door to puncture 87</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout"><p><span class="ev hyp">Hypothesis</span> <b>A tension to teach.</b> Early-window results are strongly time-dependent, yet DAWN and DEFUSE 3 show large effects late in people selected by imaging. Selection for slow progressors is the usual reconciliation, and these abstracts did not test it [[Saver2016,Nogueira2018,Albers2018]].</p></div>
+  </div>
+  <div class="pt"><b>In plain words</b>Every minute counts. Saving one minute before thrombectomy is estimated to give about 4 days of extra healthy life on average [[Meretoja2017]].</div>
+
+  <h3 class="sub">Measuring success: the TICI grade</h3>
+  <p class="evq">Angiography grades how much of the territory fills after the procedure. Pick a grade.</p>
+  <div class="evbar" id="evTiBtns" role="group" aria-label="Choose a TICI grade"></div>
+  <div class="lab even">
+    <div class="stage"><div class="scroll"><svg id="evTiSvg" viewBox="0 0 420 300" role="img" aria-label="The middle cerebral artery on a side view of the brain, with more branches filled as the TICI grade rises."></svg></div>
+    <p class="stage-cap">Schematic branch pattern, not a real angiogram.</p></div>
+    <aside class="note" id="evTiNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Bridging: tenecteplase or alteplase first, or straight to thrombectomy?</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Thrombectomy alone versus with a lytic first</th><th>Reading</th></tr></thead>
+    <tbody>
+      <tr><th>DIRECT-MT</th><td>China, 656 people</td><td>Adjusted common OR 1.07 (0.81 to 1.40). Mortality 17.7% versus 18.8% [[Yang2020]]</td><td>Noninferior within a 20% margin</td></tr>
+      <tr><th>DEVT</th><td>China, 234 of a planned 970</td><td>mRS 0 to 2, 54.3% versus 46.6% [[Zi2021]]</td><td>Noninferior; stopped early</td></tr>
+      <tr><th>SKIP</th><td>Japan, 204 people, alteplase 0.6 mg/kg</td><td>mRS 0 to 2, 59.4% versus 57.3% (P=.18). Any haemorrhage 33.7% versus 50.5% [[Suzuki2021]]</td><td>Failed noninferiority</td></tr>
+      <tr><th>MR CLEAN-NO IV</th><td>Europe, 539 people</td><td>Median mRS 3 versus 2; adjusted common OR 0.84 (0.62 to 1.15). Mortality 20.5% versus 15.8% [[LeCouffe2021]]</td><td>Neither superior nor noninferior</td></tr>
+      <tr><th>SWIFT DIRECT</th><td>Europe and Canada, 408 analysed</td><td>mRS 0 to 2, 57% versus 65% (adjusted risk difference -7.3%, -16.6 to 2.1). Reperfusion 91% versus 96% [[Fischer2022]]</td><td>Crossed the -12% margin</td></tr>
+      <tr><th>DIRECT-SAFE</th><td>Australia, New Zealand, China, Vietnam; 295 people</td><td>Functional independence 55% versus 61% [[Mitchell2022]]</td><td>Noninferiority not shown</td></tr>
+      <tr class="hl"><th>Pooled, 6 trials</th><td>2313 participants</td><td>Median mRS 3 versus 2 (adjusted common OR 0.89, 0.76 to 1.04). Any haemorrhage less without a lytic (0.82, 0.68 to 0.99) [[Majoie2023]]</td><td>Noninferiority not established</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><h4>Tenecteplase first: BRIDGE-TNK</h4><p>China, 550 people. Tenecteplase then thrombectomy gave mRS 0 to 2 of 52.9% versus 44.1% with thrombectomy alone (RR 1.20, 1.01 to 1.43; P=0.04). Symptomatic haemorrhage 8.5% versus 6.7%; mortality 22.3% versus 19.9% [[Qiu2025]].</p></div>
+    <div class="card"><h4>ESO 2023 expert consensus</h4><p>For eligible people with large-vessel occlusion within 4.5 hours, tenecteplase 0.25 mg/kg is preferable to skipping thrombolysis, even after direct admission to a thrombectomy-capable centre [[Alamowitch2023]].</p></div>
+    <div class="card"><h4>Basilar, late: ATTENTION LATE</h4><p>China, 330 people, NIHSS 10 or more, 4.5 to 24 hours: tenecteplase before thrombectomy gave no gain in functional independence (30% versus 30%; adjusted rate ratio 0.92, 0.67 to 1.25) [[Li2026JAMA]].</p></div>
+    <div class="card"><span class="ev early">Open question</span><h4>When delay or transfer differ</h4><p>Individual participant data could not establish noninferiority of skipping the lytic, and BRIDGE-TNK favours tenecteplase first. Whether this holds when delay or transfer differ is open [[Majoie2023,Qiu2025]].</p></div>
+  </div>
+
+  <h3 class="sub">Adjuncts: a lytic into the artery after thrombectomy</h3>
+  <p class="evq">After reperfusion, a small dose of lytic can be given into the artery. Two larger China trials were neutral, while CHOICE and ANGEL-TNK were positive. Doses, windows and thresholds differ, so the question remains open [[Renu2022,Huang2025,Liu2025,Miao2025]].</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Drug</th><th>Result</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>CHOICE</th><td>Spain, 121 randomised; alteplase 0.225 mg/kg</td><td>mRS 0 to 1, 59.0% versus 40.4% (adjusted risk difference 18.4%, 0.3 to 36.4) [[Renu2022]]</td><td><span class="ev early">Early evidence</span> Stopped early; authors call it preliminary</td></tr>
+      <tr><th>POST-TNK</th><td>China, 540 people, eTICI 2c to 3; tenecteplase 0.0625 mg/kg</td><td>mRS 0 to 1, 49.1% versus 44.1% (adjusted RR 1.15, 0.97 to 1.36; P=.11). Symptomatic haemorrhage 6.3% versus 4.4% [[Huang2025]]</td><td>Neutral</td></tr>
+      <tr><th>POST-UK</th><td>China, 535 people; urokinase 100,000 IU</td><td>Survival without disability 45.1% versus 40.2% (adjusted RR 1.13, 0.94 to 1.36; P=.19). Symptomatic haemorrhage 4.1% each [[Liu2025]]</td><td>Neutral</td></tr>
+      <tr><th>ANGEL-TNK</th><td>China, 256 people, 4.5 to 24 hours, eTICI 2b or more; tenecteplase 0.125 mg/kg</td><td>mRS 0 to 1, 40.5% versus 26.4% (RR 1.44, 1.06 to 1.95). None of the 7 secondary efficacy endpoints was significant [[Miao2025]]</td><td><span class="ev early">Early evidence</span> Authors call for further trials</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Around the procedure</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Blood pressure after reperfusion</th><th>Design</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>OPTIMAL-BP</th><td>South Korea, 305 eligible; systolic below 140 versus 140 to 180 mmHg for 24 hours; stopped early for safety</td><td>mRS 0 to 2, 39.4% versus 54.4% (risk difference -15.1%, -26.2 to -3.9) [[Nam2023]]</td></tr>
+      <tr><th>ENCHANTED2/MT</th><td>China, 821 randomised; below 120 versus 140 to 180 mmHg for 72 hours; stopped early</td><td>Poor outcome common OR 1.37 (1.07 to 1.76); early deterioration 1.53 (1.18 to 1.97); major disability 2.07 (1.47 to 2.93) [[Yang2022]]</td></tr>
+      <tr><th>BEST-II</th><td>US, 120 people, phase 2 futility design; below 140 or below 160 versus 180 or less</td><td>Mean utility-weighted mRS 0.51, 0.47, 0.58. Predicted success of a future trial was only 25% and 14% [[Mistry2023]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="hook"><b>Exam hook</b>ESO recommends against intensive systolic lowering below 140 mmHg in the first 24 hours after successful thrombectomy (high certainty); in OPTIMAL-BP it reduced functional independence [[Sandset2026,Nam2023]]. Each hour of delay to reperfusion: functional independence falls 5.2 percentage points [[Saver2016]].</div>
+  <div class="cards">
+    <div class="card"><h4>Anaesthesia: the data point opposite ways</h4><p><b>Observational:</b> in HERMES (797 procedures, non-randomised choice) outcomes were better without general anaesthesia (covariate-adjusted cOR 1.53, 1.14 to 2.04) [[Campbell2018GA]].</p><p><b>Randomised:</b> 7 trials, 980 participants: general anaesthesia improved recanalisation (84.6% versus 75.6%) and functional recovery (44.6% versus 36.2%; OR 1.43, 1.04 to 1.98), with no difference in haemorrhage or mortality [[CampbellD2023]]. GOLIATH also shifted towards a lower mRS with it (OR 1.91, 1.03 to 3.56) [[Simonsen2018]].</p><p>Confounding by indication is the obvious explanation, since the HERMES choice was not randomised [[Campbell2018GA,CampbellD2023]].</p></div>
+    <div class="card"><h4>Technique: aspiration or stent retriever</h4><p>ASTER (France, 381 people): successful revascularisation 85.4% with first-line contact aspiration versus 83.1% with a stent retriever (OR 1.20, 0.68 to 2.10; P=.53) [[Lapergue2017]].</p><p>COMPASS (270 people, ASPECTS over 6, within 6 hours): mRS 0 to 2, 52% versus 50%, non-inferior. Mortality 22% each [[Turk2019]].</p></div>
+    <div class="card"><h4>Complications</h4><p>A narrative review puts complications with sequelae at about 15% across RCTs: access-site problems, vasospasm, arterial perforation and dissection, device detachment, symptomatic and subarachnoid haemorrhage, new-territory embolisation, anaesthetic and contrast effects, pseudoaneurysm [[Balami2018]].</p><p>Procedural complications were 14% in ATTENTION and 11% in BAOCHE [[Tao2022,Jovin2022]]. TESLA reported subarachnoid haemorrhage in 16.2% versus 6.2% [[Yoo2024]].</p></div>
+  </div>
+
+  <h3 class="sub">What guidelines say, as far as could be read</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Statement</th><th>How it was read</th></tr></thead>
+    <tbody>
+      <tr><th>ESO-ESMINT</th><td>High quality evidence for thrombectomy plus best medical management within 6 hours; moderate quality evidence at 6 to 24 hours in patients meeting trial criteria [[Turc2023]]</td><td>Validated record</td></tr>
+      <tr><th>SVIN 2025, large core</th><td>ASPECTS 0 to 5 at 0 to 6 hours (age 18 to 80, mRS 0 to 1) class 1, level A; ASPECTS 3 to 5 at 6 to 24 hours class 1, level A; ASPECTS 0 to 2 at 6 to 24 hours "uncertain", class 2b, level B-R [[Mokin2025]]</td><td>Full text read</td></tr>
+      <tr><th>2026 AHA/ASA, large core</th><td>Within 6 hours ASPECTS 3 to 10; at 6 to 24 hours ASPECTS 3 to 5 with age under 80, NIHSS 6 or more, mRS 0 to 1 and no significant mass effect; within 6 hours ASPECTS 0 to 2 "reasonable" in selected patients; prestroke mRS 2 "reasonable" in selected patients [[Musmar2026]]</td><td>Secondary summary; no class given</td></tr>
+      <tr><th>2026 AHA/ASA, basilar</th><td>Within 24 hours with mRS 0 to 1, NIHSS 10 or more and PC-ASPECTS 6 or more; not well established for NIHSS 6 to 9 [[Musmar2026,GuidelineCentral2026]]</td><td>Secondary summary; no class given</td></tr>
+      <tr><th>2026 AHA/ASA, systems</th><td>Direct transport to the closest thrombectomy-capable hospital endorsed where rapid transfer systems are not established, where previously the nearest thrombolysis-capable facility was recommended [[GuidelineCentral2026,Chauhan2026]]</td><td>Secondary summary; no class given</td></tr>
+      <tr><th>2026 AHA/ASA, medium vessels</th><td>The guideline "expands guidance" on medium-vessel occlusion; the wording was not read, and the two large trials were neutral [[Rai2026,Goyal2025,Psychogios2025]]</td><td>Secondary summary</td></tr>
+    </tbody>
+  </table></div>
+  <p class="evq">The 2026 guideline literature closed by March 2025, so later trials such as LATE-MT are unlikely to be reflected. That is an inference from the search dates. A correction and outside proposed corrections exist, and their content was not available [[Prabhakaran2026,Yang2026,Prabhakaran2026Correction,Albers2026]].</p>
+
+  <h3 class="sub">Who can reach it</h3>
+  <div class="split2">
+    <div class="stage">
+      <svg id="evAcSvg" viewBox="0 0 400 166" role="img" aria-label="One hundred dots, about three highlighted: the median global share of large-vessel occlusions reached by thrombectomy."></svg>
+      <p class="stage-cap">Median 2.79% rounded to whole dots; IQR 0.70 to 11.74. MT-GLASS survey, 887 responses, 67 countries, 2020 to 2021 [[Asif2023]].</p>
+    </div>
+    <div class="prose">
+      <p>Access was under 1.0% in 18 countries (27%) and 0 in 7 (10%), with a 460-fold gap between the highest and lowest nonzero regions. Low-income countries were 88% lower than high-income ones [[Asif2023]].</p>
+      <p>Operators reached 16.5% and centres 20.8% of optimal availability. Access rose with a prehospital bypass protocol (OR 4.00, 1.70 to 9.42) [[Asif2023]]. Each 5% rise in rural population share had 13% lower odds of access after adjustment (OR 0.87, 0.78 to 0.96) [[Asif2026]].</p>
+      <div class="pt"><b>In plain words</b>Many people in the world cannot reach thrombectomy. In some countries it is not available at all [[Asif2023]].</div>
+    </div>
+  </div>
+</section>

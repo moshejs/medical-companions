@@ -1,1 +1,202 @@
-<section class="mod" id="m-lysis" data-mod="lysis" hidden><div class="mhead"><h2>lysis (stub)</h2></div></section>
+<!-- ================= 3.1 CLOT-DISSOLVING TREATMENT ================= -->
+<style>
+#m-lysis .btn{min-height:40px}
+#m-lysis .lybar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-lysis .tbl table{min-width:620px}
+#m-lysis .card>.ev,#m-lysis .card>.tag{align-self:flex-start}
+#m-lysis .card .big-num{font-size:34px}
+#m-lysis .lyq{font-size:15px;max-width:76ch;margin:0}
+#m-lysis .note p{margin:0}
+#m-lysis .tbl td .ev{display:inline-block;margin-top:4px}
+</style>
+<section class="mod" id="m-lysis" data-mod="lysis" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Acute treatment</p><h2>Clot-dissolving treatment</h2>
+    <p class="lede">Thrombolysis means giving a medicine that dissolves a clot. Watch it work inside an artery, move the delay slider to see what time does to the benefit, then compare alteplase with tenecteplase. This page reports what trials, labels and guidelines say. It is not medical advice.</p></div>
+
+  <div class="callout"><p><b>If you think someone is having a stroke, call your local emergency number.</b> In the data below, earlier treatment brought more benefit [[Emberson2014,Saver2013]].</p></div>
+
+  <div class="stepper" id="lySteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lySvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="An artery blocked by a clot, with a close-up of the clot below: the drug binds to fibrin, plasminogen becomes plasmin, the fibrin mesh breaks into fragments and blood flows past again."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lyPlay">%t:player.play%</button><label class="stage-cap tl" for="lyT">Timeline <input type="range" id="lyT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap">Schematic, not to scale. Timing is not real time.</p>
+    </div>
+    <aside class="note" id="lyNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="cards">
+    <div class="card"><span class="kicker">Within 3 hours</span><p class="big-num">10 in 100</p><p>Disability-free survival rose by about 10% with alteplase, in a pool of 9 trials and 6756 people [[Emberson2014]].</p></div>
+    <div class="card"><span class="kicker">From 3 to 4.5 hours</span><p class="big-num">5 in 100</p><p>The same analysis found about 5% for treatment from 3.1 to 4.5 hours [[Emberson2014]].</p></div>
+    <div class="card"><span class="kicker">The cost</span><p class="big-num">2 in 100</p><p>The early excess of fatal bleeding was about 2%, offset by the gains above [[Emberson2014]].</p></div>
+    <div class="card"><span class="kicker">One minute saved</span><p class="big-num">1.8 days</p><p>Modelling: about 1.8 days of extra healthy life on average for each minute of onset-to-treatment time saved (95% prediction interval 0.9 to 2.7) [[Meretoja2014]].</p></div>
+  </div>
+
+  <h3 class="sub">Time is benefit: scrub the delay</h3>
+  <p class="lyq">Pick a time from stroke onset to treatment. The chart shows the published odds ratio for that time band, and the people show what its absolute figures look like out of 100. These are population figures from trials. They do not predict what happens to any one person.</p>
+  <div class="lybar" role="group" aria-label="Choose the pooled analysis">
+    <button class="btn" id="lyTbE" aria-pressed="true">Emberson 2014: 9 trials</button>
+    <button class="btn" id="lyTbL" aria-pressed="false">Lees 2010: earlier pool</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lyTbSvg" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="Odds of an excellent outcome with alteplase by time band, highest with the earliest treatment and close to no effect by about six hours, beside 100 person icons showing absolute benefit and fatal bleeding for the chosen delay."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="lyTbD">Delay <input type="range" id="lyTbD" min="0" max="6.5" step="0.25" value="2"></label><span class="readout" id="lyTbR"></span></div>
+      <p class="stage-cap">Bars span each published time band and shading is its 95% CI; figures are not interpolated between bands. Icons always use Emberson 2014, rounded to whole people. mRS 0 to 1 means no symptoms or no significant disability.</p>
+    </div>
+    <aside class="note" id="lyTbNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>Out of 100 people treated within 3 hours, about 10 more recover with no real disability than if they had not had the medicine. The medicine can cause bleeding in the brain. Fatal bleeding goes up by about 2 in 100, yet more people overall come out with no real disability [[Emberson2014,Whiteley2016]].</div>
+    <div class="hook"><b>Exam hook</b>NINDS window 3 hours; ECASS III extended it to 4.5 hours [[NINDS1995,Hacke2008]]. The Emberson model puts zero effect at 6.3 hours (95% CI 5.0 to 13.8), with the lower CI first reaching 1.0 at 5.1 hours [[Emberson2014]].</div>
+  </div>
+  <div class="callout"><p><b>Where does benefit end? The two pools differ.</b> Lees 2010 saw no benefit after around 270 minutes. Emberson 2014 placed zero effect at 6.3 hours and loss of statistical confidence at 5.1 hours. Both support treatment up to 4.5 hours [[Lees2010,Emberson2014]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Real-world and system data</th><th>Who</th><th>What it found</th></tr></thead>
+    <tbody>
+      <tr><th>Get With The Guidelines-Stroke</th><td>58,353 people, 1395 US hospitals, 2003 to 2012; median onset to treatment 144 minutes</td><td>Per 15 minutes faster: in-hospital mortality OR 0.96 (0.95 to 0.98), symptomatic haemorrhage OR 0.96 (0.95 to 0.98), walking independently at discharge OR 1.04 (1.03 to 1.05), discharge home OR 1.03 (1.02 to 1.04) [[Saver2013]]</td></tr>
+      <tr><th>Modelling</th><td>Onset-to-treatment time</td><td>1.8 days per minute on average; 0.6 day at age 80 with NIHSS 20, 3.5 days at age 50 with NIHSS 20. A 15-minute reduction equalled about 1 month of disability-free life [[Meretoja2014]]</td></tr>
+      <tr><th>Mobile stroke units (BEST-MSU)</th><td>Observational alternating-week design, 1047 eligible people</td><td>Median onset to t-PA 72 versus 108 minutes; 97.1% versus 79.5% treated; mRS 0 to 1 at 90 days 55.0% versus 44.4% [[Grotta2021]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">The founding trials</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who and when</th><th>Main result</th><th>Harm</th></tr></thead>
+    <tbody>
+      <tr><th>NINDS, 1995</th><td>Within 3 hours. Part 1, 291 people; part 2, 333</td><td>Part 1: no significant difference in improvement at 24 hours. Part 2: global OR 1.7 (1.2 to 2.6) for a favourable 3-month outcome [[NINDS1995]]. In the label, mRS 0 to 1 was 38.7% with Activase versus 26.1% with placebo [[FDA-Activase]]</td><td>Symptomatic haemorrhage within 36 hours 6.4% versus 0.6%. Three-month mortality 17% versus 21% (P=0.30) [[NINDS1995]]</td></tr>
+      <tr><th>ECASS III, 2008</th><td>821 people, 3 to 4.5 hours, alteplase 0.9 mg/kg versus placebo</td><td>mRS 0 to 1 at 90 days 52.4% versus 45.2% (OR 1.34, 1.02 to 1.76) [[Hacke2008]]</td><td>Symptomatic haemorrhage 2.4% versus 0.2%. Mortality 7.7% versus 8.4% (P=0.68) [[Hacke2008]]</td></tr>
+      <tr><th>IST-3, 2012</th><td>3035 people within 6 hours, open treatment; 53% older than 80</td><td>Alive and independent at 6 months 37% versus 35% (adjusted OR 1.13, 0.95 to 1.35): missed its primary outcome. Ordinal shift significant (common OR 1.27, 1.10 to 1.47) [[Sandercock2012]]</td><td>Symptomatic haemorrhage within 7 days 7% versus 1%. Deaths by 7 days 11% versus 7%, equal at 27% by 6 months [[Sandercock2012]]</td></tr>
+      <tr><th>Cochrane, 2014</th><td>27 trials, 10,187 people, any thrombolytic</td><td>Death or dependency OR 0.85 (0.78 to 0.93) overall and OR 0.66 (0.56 to 0.79) within 3 hours [[Wardlaw2014]]</td><td>Symptomatic haemorrhage OR 3.75 (3.11 to 4.51). Early death OR 1.69 (1.44 to 1.98); within 3 hours, no increase in death (OR 0.99, 0.82 to 1.21) [[Wardlaw2014]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="stage">
+    <div class="scroll"><svg id="lyOhSvg" viewBox="0 0 720 210" style="min-width:560px" role="img" aria-label="Two stacked bars from IST-3 at 6 months on the Oxford Handicap Score. The treated group sits slightly further towards the better end, with 27 percent dead in each group."></svg></div>
+    <p class="stage-cap">IST-3 at 6 months, percentages as published [[Sandercock2012]]. This is the Oxford Handicap Score, not the modified Rankin Scale: 0 is best, then rising handicap to 5, then dead. The treated row adds up to 101 because of rounding.</p>
+  </div>
+
+  <h3 class="sub">Bleeding: the number depends on the definition</h3>
+  <p class="lyq">Pooled data from the same patients give very different headline rates, because "symptomatic" can be defined in several ways. Switch views to see the definitions, the effect of severity, and the trade-off.</p>
+  <div class="lybar" role="group" aria-label="Choose a view of bleeding risk">
+    <button class="btn" id="lyBl0" aria-pressed="true">By definition</button>
+    <button class="btn" id="lyBl1" aria-pressed="false">By stroke severity</button>
+    <button class="btn" id="lyBl2" aria-pressed="false">Gain versus harm</button>
+  </div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lyBlSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Paired bars of bleeding rates with alteplase and without it under several definitions, by stroke severity, and against the gain in good outcomes."></svg></div></div>
+    <aside class="note" id="lyBlNote" aria-live="polite"></aside>
+  </div>
+  <div class="hook"><b>Exam hook</b>Symptomatic haemorrhage after alteplase: the proportional rise is constant across delay, age and severity, while the absolute rise grows with severity [[Whiteley2016]].</div>
+
+  <h3 class="sub">Alteplase versus tenecteplase: trial explorer</h3>
+  <p class="lyq">Tenecteplase is given as one bolus. Pick a trial. Compare the two arms within a trial rather than across trials: AcT had a median age of 74 and ORIGINAL allowed NIHSS from 1, which is why good outcomes range from 36.9% to 72.7% [[Menon2022,Meng2024]].</p>
+  <div class="lybar" id="lyTnkBtns" role="group" aria-label="Choose a tenecteplase trial"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lyTnkSvg" viewBox="0 0 720 240" style="min-width:560px" role="img" aria-label="Paired bars comparing tenecteplase with alteplase on outcomes in the chosen trial."></svg></div>
+    <p class="stage-cap">Rates as reported by each trial; outcomes and definitions differ between trials.</p></div>
+    <aside class="note" id="lyTnkNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout"><p><b>A live difference of opinion.</b> ATTEST-2 authors conclude tenecteplase "should be preferred" [[Muir2024]]. The 2026 AHA/ASA guideline as summarised endorses either agent [[Musmar2026]], and a pharmacy review describes them as "equally preferred" [[HelixTalk2026]]. ESO 2023 says tenecteplase 0.25 mg/kg "can be used as a safe and effective alternative" under 4.5 hours (moderate evidence, strong recommendation), recommends against 0.40 mg/kg (low evidence, strong), and prefers tenecteplase in large-vessel occlusion under 4.5 hours (moderate evidence, strong) [[Alamowitch2023]].</p></div>
+
+  <h3 class="sub">Doses as published</h3>
+  <p class="lyq">Doses are quoted from the US labels as study material. They are not instructions.</p>
+  <div class="split2">
+    <div class="tbl"><table style="min-width:0">
+      <thead><tr><th colspan="2">Activase (alteplase), stroke [[FDA-Activase]]</th></tr></thead>
+      <tbody>
+        <tr><th>Total dose</th><td>0.9 mg/kg, not exceeding 90 mg</td></tr>
+        <tr><th>How given</th><td>10% as an initial intravenous bolus over 1 minute, the rest infused over 60 minutes</td></tr>
+        <tr><th>Label window</th><td>"as soon as possible but within 3 hours after onset of symptoms"</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tbl"><table style="min-width:0">
+      <thead><tr><th colspan="2">TNKase (tenecteplase), stroke [[FDA-TNKase]]</th></tr></thead>
+      <tbody>
+        <tr><th>How given</th><td>Single intravenous bolus over 5 seconds, maximum 25 mg</td></tr>
+        <tr><th>Under 60 kg</th><td>15 mg</td></tr>
+        <tr><th>60 to under 70 kg</th><td>17.5 mg</td></tr>
+        <tr><th>70 to under 80 kg</th><td>20 mg</td></tr>
+        <tr><th>80 to under 90 kg</th><td>22.5 mg</td></tr>
+        <tr><th>90 kg or more</th><td>25 mg</td></tr>
+        <tr><th>Label window</th><td>"as soon as possible and within 3 hours"</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Alteplase 0.9 mg/kg, maximum 90 mg, 10% bolus over 1 minute, rest over 60 minutes [[FDA-Activase]]. Tenecteplase 0.25 mg/kg, maximum 25 mg, single bolus; 0.40 mg/kg gave no reperfusion gain [[Menon2022,Campbell2020JAMA,FDA-TNKase]]. The heart attack (STEMI) maximum is 50 mg, so the two dose tables differ [[FDA-TNKase]].</div>
+    <div class="card"><h4>Other doses tested</h4><p>Low-dose alteplase in ENCHANTED (3310 people, 63% Asian): 0.6 versus 0.9 mg/kg did not meet noninferiority for death or disability (53.2% versus 51.1%; OR 1.09, 0.95 to 1.25). Major symptomatic haemorrhage was 1.0% versus 2.1% [[Anderson2016]].</p><p>FDA approval of TNKase for stroke in adults was reported on 4 March 2025, resting on AcT [[Genentech2025,FDA-TNKase]].</p></div>
+  </div>
+
+  <h3 class="sub">Windows: what labels say, what trials tested</h3>
+  <p class="lyq">Licence and guideline differ. Both US labels say within 3 hours, whereas ESO guidance and the 2026 AHA/ASA guideline as summarised work to 4.5 hours [[FDA-Activase,FDA-TNKase,Berge2021,Musmar2026]]. The TNKase label analysed the 0 to 3 hour AcT subset because the comparator is approved for 0 to 3 hours [[FDA-TNKase]].</p>
+  <div class="stage">
+    <div class="scroll"><svg id="lyWnSvg" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="Horizontal bars on a 24-hour axis: both US labels end at 3 hours, guidance as summarised at 4.5 hours, and extended-window trials run to 9 or 24 hours with imaging selection."></svg></div>
+    <p class="stage-cap">Hours from onset, or from last seen well. Sources: labels [[FDA-Activase,FDA-TNKase]]; trials [[NINDS1995,Hacke2008,Sandercock2012,Ma2019,Albers2024,Xiong2024]]; guidance [[Berge2021,Musmar2026,GuidelineCentral2026]]. Secondary sources disagree on the outer limit of extended-window thrombolysis in the 2026 guideline; those read here give 9 hours, and the original should be checked [[Musmar2026,HelixTalk2026]].</p>
+  </div>
+
+  <h3 class="sub">Beyond 4.5 hours: extended-window explorer</h3>
+  <p class="lyq">When the clock is unknown or late, brain imaging is used to look for tissue that can still be saved. WAKE-UP uses DWI-FLAIR mismatch; EXTEND uses perfusion imaging [[Thomalla2018,Ma2019]].</p>
+  <div class="lybar" id="lyExtBtns" role="group" aria-label="Choose an extended-window trial"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="lyExtSvg" viewBox="0 0 720 240" style="min-width:560px" role="img" aria-label="Paired bars comparing a thrombolytic with its comparator in the chosen extended-window trial."></svg></div>
+    <p class="stage-cap">Rates as reported by each trial. Note which good-outcome band each trial uses.</p></div>
+    <aside class="note" id="lyExtNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="callout"><p><span class="ev early">Early evidence</span> Where thrombectomy is available and used (TIMELESS), adding a late lytic did not help; where it is not (TRACE-III), it did [[Albers2024,Xiong2024,Wang2026]]. Most positive data come from China, which limits generalisation [[Albers2024,Xiong2024,Ma2026,Zhou2025]].</p></div>
+    <div class="pt"><b>In plain words</b>If you do not know when your stroke began, for example if you woke up with it, brain scans can sometimes show whether treatment could still help [[Thomalla2018,Thomalla2020]].</div>
+  </div>
+  <p class="lyq">ESO 2021 recommends alteplase for people who wake with stroke, last seen well more than 4.5 hours earlier, with DWI-FLAIR mismatch and no planned thrombectomy (high quality evidence). ESO 2023 recommends against tenecteplase in wake-up or unknown-onset stroke selected by non-contrast CT alone (low evidence, strong) [[Berge2021,Alamowitch2023]].</p>
+
+  <h3 class="sub">Eligibility and contraindications as published</h3>
+  <p class="lyq">The 2026 AHA/ASA guideline says it modifies "the approach to thrombolysis contraindications" [[Prabhakaran2026]], but its table could not be read for this guide. What follows is from the US labels and the ESO guideline. A treating team decides; this is not a checklist for anyone at home.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Contraindication in stroke</th><th>Activase label [[FDA-Activase]]</th><th>TNKase label [[FDA-TNKase]]</th></tr></thead>
+    <tbody>
+      <tr><th>Bleeding now</th><td>Current intracranial haemorrhage; subarachnoid haemorrhage; active internal bleeding</td><td>Active intracranial haemorrhage; active internal bleeding</td></tr>
+      <tr class="hl"><th>Intracranial or intraspinal surgery, serious head trauma</th><td>Within <b>3 months</b></td><td>Surgery or trauma within <b>2 months</b></td></tr>
+      <tr><th>Intracranial conditions that raise bleeding risk</th><td>Listed: some neoplasms, arteriovenous malformations, aneurysms</td><td>Listed</td></tr>
+      <tr><th>Bleeding tendency</th><td>Bleeding diathesis</td><td>Known bleeding diathesis</td></tr>
+      <tr><th>Blood pressure</th><td>Current severe uncontrolled hypertension</td><td>Current severe uncontrolled hypertension</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><h4>Raised risk to weigh</h4><p>Both labels list recent major surgery, recent gastrointestinal or genitourinary bleeding, recent trauma, and blood pressure above 175 systolic or 110 diastolic [[FDA-Activase,FDA-TNKase]].</p></div>
+    <div class="card"><h4>Clotting tests</h4><p>Without recent oral anticoagulant or heparin use, treatment can start before coagulation results. The Activase label says to discontinue if pretreatment INR is above 1.7 or aPTT is elevated [[FDA-Activase]].</p></div>
+    <div class="card"><h4>Blood pressure, ESO 2025</h4><p>Below 185/110 mmHg before the bolus. Below 180/105 mmHg during and for 24 hours after thrombolysis (low certainty). These thresholds come from early pilot studies and the NINDS protocol, not from trials testing the thresholds [[Sandset2026]].</p></div>
+    <div class="card"><h4>Where it is given</h4><p>Both labels limit stroke use to facilities with timely access to evaluation and management of intracranial haemorrhage [[FDA-Activase,FDA-TNKase]].</p></div>
+    <div class="card"><h4>Lower blood pressure targets</h4><p>ENCHANTED (2196 people): systolic 130 to 140 versus below 180 mmHg gave no difference in mRS (OR 1.01, 0.87 to 1.17). Any intracranial haemorrhage was 14.8% versus 18.7% (OR 0.75, 0.60 to 0.94) [[Anderson2019]].</p></div>
+    <div class="card"><h4>Nursing points from the labels</h4><ul><li>Monitor and control blood pressure often during and after treatment</li><li>Avoid intramuscular injections and non-essential trauma</li><li>Arterial and venous punctures only as required; avoid internal jugular and subclavian punctures</li><li>Compress an arterial puncture for at least 30 minutes [[FDA-Activase,FDA-TNKase]]</li></ul></div>
+  </div>
+
+  <h3 class="sub">Mild stroke: when a lytic did not help</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Good outcome</th><th>Harm</th></tr></thead>
+    <tbody>
+      <tr><th>PRISMS</th><td>NIHSS 0 to 5, not clearly disabling, within 3 hours; stopped early at 313 of 948</td><td>mRS 0 to 1: alteplase 78.2%, aspirin 81.5% (adjusted risk difference -1.1%, -9.4 to 7.3) [[Khatri2018]]</td><td>Symptomatic haemorrhage 3.2% versus 0 [[Khatri2018]]</td></tr>
+      <tr><th>ARAMIS</th><td>China, 760 people, within 4.5 hours, NIHSS 5 or less</td><td>Dual antiplatelet therapy noninferior to alteplase: mRS 0 to 1, 93.8% versus 91.4% (risk difference 2.3%, -1.5 to 6.2) [[Chen2023]]</td><td>Symptomatic haemorrhage 0.3% versus 0.9% [[Chen2023]]</td></tr>
+      <tr><th>TEMPO-2</th><td>886 people, NIHSS 0 to 5 with proven occlusion or perfusion abnormality, within 12 hours; stopped for futility</td><td>Return to baseline: control 75%, tenecteplase 72% (RR 0.96, 0.88 to 1.04) [[Coutts2024]]</td><td>Deaths: control 1%, tenecteplase 5% (adjusted HR 3.8, 1.4 to 10.2). Symptomatic haemorrhage under 1% versus 2% [[Coutts2024]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="callout"><p>The 2026 AHA/ASA guideline as summarised: thrombolysis should not be given for mild non-disabling symptoms, where dual antiplatelet therapy is preferred. "Non-disabling" means not impairing daily activities or return to work. Faster treatment is stated to help disabling deficits regardless of NIHSS [[GuidelineCentral2026,HelixTalk2026,Musmar2026]].</p></div>
+    <div class="pt"><b>In plain words</b>If symptoms are mild and do not get in the way of daily life, trials found a clot-buster did not help more than tablets [[Chen2023,Khatri2018]].</div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>Recent DOAC: a controversy</h4><p><b>The usual position:</b> Meinel 2023 states that international guidelines recommend avoiding thrombolysis after recent DOAC intake [[Meinel2023]].</p><p><b>The challenge:</b> in its retrospective cohort (64 centres, 33,207 people, 832 with a DOAC within 48 hours) symptomatic haemorrhage was 2.5% with a DOAC versus 4.1% without anticoagulation (adjusted OR 0.57, 0.36 to 0.92). 30.3% had reversal, 27.0% had levels measured and 42.7% had neither [[Meinel2023]]. A single-centre emulation (98 people) found 0 of 49 versus 2 of 49 [[Bucke2024]].</p><p>Both are observational, with selection bias acknowledged. Bücke and colleagues call for randomised trials [[Meinel2023,Bucke2024]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Adding another drug: opposite results</h4><p>MOST (514 people): utility-weighted mRS 5.2 with argatroban, 6.3 with eptifibatide, 6.8 with placebo. Mortality 24%, 12% and 8%. Neither reduced disability [[Adeoye2024]].</p><p>ASSET-IT (China, 832 people, non-cardioembolic, not thrombectomy candidates): tirofiban within 60 minutes after thrombolysis gave mRS 0 to 1 of 65.9% versus 54.9% (RR 1.20, 1.07 to 1.34). Symptomatic haemorrhage 1.7% versus 0 [[Tao2025]].</p><p>Different drugs, populations and countries. The 2026 guideline is summarised as not recommending argatroban or eptifibatide [[Prabhakaran2026,GuidelineCentral2026]].</p></div>
+    <div class="card"><h4>Women and older people</h4><p>In 18 studies women had 30% lower odds of receiving rt-PA (OR 0.70, 0.55 to 0.88). Among those arriving within 3 hours without contraindications, the difference was not significant (OR 0.81, 0.58 to 1.13) [[Reeves2009]].</p><p>By age: at 80 or under, mRS 0 to 1 was 39% versus 34% (OR 1.25, 1.10 to 1.42); above 80, 18% versus 13% (OR 1.56, 1.17 to 2.08). Age did not change the effect (p=0.53) [[Emberson2014]].</p></div>
+    <div class="card"><h4>Swelling of the lips and tongue</h4><p>Orolingual angioedema: 42 of 530 (7.9%) at one UK centre, 5 to 189 minutes after starting tPA. 12% of cases needed urgent advanced airway care. Prior ACE inhibitor use was the only independent predictor (OR 2.3, 1.1 to 4.7) [[Hurford2015]].</p><p><b>The rate is disputed:</b> trial and label figures are near 1% [[FDA-TNKase,Muir2024]], against 7.9% in consecutive patients with retrospective grading [[Hurford2015]].</p></div>
+    <div class="card"><h4>If a bleed happens</h4><p>An AHA/ASA statement says treatment of symptomatic haemorrhage rests on expert opinion and small case series; prompt diagnosis and early correction of the coagulopathy remain the mainstay [[Yaghi2017]]. A separate guideline covers reversal of thrombolytics in intracranial haemorrhage [[Frontera2016]].</p></div>
+  </div>
+  <div class="pt"><b>In plain words</b>A few people get swelling of the lips or tongue after the clot-buster. Staff watch for this because it can affect breathing. It is more likely in people taking ACE inhibitor blood pressure tablets [[Hurford2015]].</div>
+
+  <h3 class="sub">What the 2026 guideline changed</h3>
+  <div class="prose">
+    <p>The 2026 AHA/ASA guideline replaces the 2018 guideline and 2019 update [[Prabhakaran2026,Powers2019]]. Its stated key updates include thrombolytic choice and eligibility, thrombectomy eligibility and the approach to contraindications. Its literature search ran to December 2024, with high-impact additions to March 2025 [[Prabhakaran2026]]. So trials published later, such as OPTION, HOPE and ASSET-IT, are unlikely to be reflected. That is an inference from the search dates [[Prabhakaran2026,Ma2026,Zhou2025,Tao2025]].</p>
+    <p><b>The full text could not be read for this guide, so no class of recommendation is given.</b> Secondary sources summarise it as: tenecteplase 0.25 mg/kg up to 25 mg or alteplase within 4.5 hours; 0.4 mg/kg not recommended; no delay for CTA, MRA or perfusion imaging within 4.5 hours; imaging-selected thrombolysis for unknown onset or 4.5 to 9 hours [[Musmar2026,GuidelineCentral2026]]. Intensive systolic lowering below 140 mmHg is summarised as not improving function after thrombolysis [[Musmar2026,GuidelineCentral2026]]. Mobile stroke units are recommended where available [[GuidelineCentral2026,Chauhan2026]].</p>
+    <p>A correction has been issued, and a separate group of authors published proposed corrections in 2026. Their content was not available for this guide, so check the original before relying on any statement [[Prabhakaran2026Correction,Albers2026]]. Grotta's 2026 review frames the new directions: vascular targets for lysis versus thrombectomy, tenecteplase replacing alteplase, broader indications and ancillary drugs [[Grotta2026]].</p>
+  </div>
+</section>
