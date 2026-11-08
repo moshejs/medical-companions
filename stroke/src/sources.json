@@ -3420,6 +3420,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Gailani2015",
+  "text": "Gailani D, Bane CE, Gruber A. Factor XI and contact activation as targets for antithrombotic therapy. J Thromb Haemost. 2015;13(8):1383-1395. PMID 25976012; doi:10.1111/jth.13005.",
+  "link": "https://doi.org/10.1111/jth.13005",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Galea2017",
   "text": "Galea JP, Dulhanty L, Patel HC, UK and Ireland Subarachnoid Hemorrhage Database Collaborators. Predictors of Outcome in Aneurysmal Subarachnoid Hemorrhage Patients: Observations From a Multicenter Data Set. Stroke. 2017;48(11):2958-2963. PMID 28974630; doi:10.1161/STROKEAHA.117.017777.",
   "link": "https://doi.org/10.1161/strokeaha.117.017777",

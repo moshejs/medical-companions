@@ -240,7 +240,7 @@ const FX_READ={year:'Year shown',today:'Today: November 2026',past:'Everything d
 /* cascade steps */
 const FXC_STEPS=[
  {from:0,at:.08,k:'Outline · no drug',t:'A chain that ends in fibrin',
-  txt:'The drawing is a simplified teaching outline: a contact route through XII, XI and IX, and an injury route from tissue factor with VII, both reaching X, then thrombin, then fibrin. It is here to place the two drug targets. It is not a trial finding.',
+  txt:'The drawing is a simplified teaching outline: a contact route through XII, XI and IX, and an injury route from tissue factor with VII, both reaching X, then thrombin, then fibrin. It is here to place the two drug targets. It is not a trial finding. [[Gailani2015]]',
   pt:'Blood clots through a chain of steps. Each step switches on the next. Drugs can block the chain at different points.',
   tag:'TEACHING OUTLINE',tc:'brand',w:['Both routes reach X. X makes thrombin, thrombin makes fibrin.'],n:['Both routes reach X. X makes thrombin,','and thrombin makes fibrin.'],
   a:'Thrombin output can feed clot growth.',b:'The same output helps seal a tear.'},

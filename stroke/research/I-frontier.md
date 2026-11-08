@@ -14,6 +14,9 @@ Corrections to the commissioning list, from the fetched records:
 
 ## Findings
 
+### frontier · Coagulation background for the factor XI drawing
+- The most used anticoagulants inhibit thrombin or factor Xa, or lower prothrombin and factor X; they do not separate thrombin generation in thrombosis from that needed for haemostasis, so they raise bleeding risk. FXII starts contact activation and FXI is the zymogen of a protease in that system; in animal studies these components contribute to induced thrombosis while playing little or no role in haemostasis (Early evidence) [[Gailani2015]].
+
 ### frontier · Neuroprotection: nerinetide
 - Nerinetide is an eicosapeptide that interferes with post-synaptic density protein 95. It was given as a single 2.6 mg/kg intravenous dose, up to 270 mg, in the thrombectomy trials [[Hill2020,Hill2025]].
 - ESCAPE-NA1 (1105 people, large vessel occlusion, thrombectomy, within 12 h): mRS 0-2 at 90 days in 61.4% with nerinetide versus 59.2% with placebo (adjusted RR 1.04, 95% CI 0.96-1.14; p=0.35). (Established) [[Hill2020]]
@@ -251,6 +254,7 @@ Here `t` is the trial arm or time point, because these series compare arms rathe
 - Is intra-arterial lysis after thrombectomy useful? CHOICE and ANGEL-TNK were positive with small samples [[Renu2022,Miao2025]], while POST-TNK and POST-UK were not significant [[Huang2025,Liu2025]].
 
 ## Sources
+- [Gailani2015] Gailani D, Bane CE, Gruber A. Factor XI and contact activation as targets for antithrombotic therapy. J Thromb Haemost. 2015;13(8):1383-1395. PMID 25976012; doi:10.1111/jth.13005. (validated: Europe PMC)
 - [Hill2020] Hill MD, Goyal M, Menon BK, Nogueira RG, McTaggart RA, Demchuk AM, et al. Efficacy and safety of nerinetide for the treatment of acute ischaemic stroke (ESCAPE-NA1): a multicentre, double-blind, randomised controlled trial. Lancet. 2020;395(10227):878-887. PMID 32087818; doi:10.1016/s0140-6736(20)30258-0. (validated: Europe PMC)
 - [Hill2025] Hill MD, Goyal M, Demchuk AM, Menon BK, Field TS, Guest WC, et al. Efficacy and safety of nerinetide in acute ischaemic stroke in patients undergoing endovascular thrombectomy without previous thrombolysis (ESCAPE-NEXT): a multicentre, double-blind, randomised controlled trial. Lancet. 2025;405(10478):560-570. PMID 39955119; doi:10.1016/s0140-6736(25)00194-1. (validated: Europe PMC)
 - [Christenson2025] Christenson J, Hill MD, Swartz RH, Adams C, Benavente O, Casaubon LK, et al. Efficacy and safety of intravenous nerinetide initiated by paramedics in the field for acute cerebral ischaemia within 3 h of symptom onset (FRONTIER): a phase 2, multicentre, randomised, double-blind, placebo-controlled study. Lancet. 2025;405(10478):571-582. PMID 39955120; doi:10.1016/s0140-6736(25)00193-x. (validated: Europe PMC)
