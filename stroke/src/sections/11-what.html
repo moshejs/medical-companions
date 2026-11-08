@@ -1,1 +1,205 @@
-<section class="mod" id="m-what" data-mod="what" hidden><div class="mhead"><h2>what (stub)</h2></div></section>
+<!-- ================= 1.1 WHAT A STROKE IS ================= -->
+<style>
+#m-what .wh-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-what .wh-bar .btn,#m-what .ctrls .btn{min-height:40px}
+#m-what .wh-lab{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);flex-basis:100%}
+#m-what .wh-cap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-what .card .big-num{overflow-wrap:anywhere}
+#m-what .card>.ev{align-self:flex-start}
+#m-what td .ev,#m-what th .ev{display:inline-block}
+@media (max-width:600px){#m-what .big-num{font-size:34px}}
+</style>
+<section class="mod" id="m-what" data-mod="what" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding stroke</p><h2>What a stroke is</h2>
+    <p class="lede">A stroke happens when part of the brain loses its blood supply, or when a blood vessel in or around the brain bleeds. Brain cells then get hurt or die [[Sacco2013]]. Follow the three kinds below, then explore how common stroke is and what it leaves behind.</p></div>
+
+  <p class="crisis" role="note"><b>Emergency</b><span>If a face droops, an arm is weak or speech goes wrong, even for a short time, treat it as an emergency and call an ambulance [[Harbison2003,Ekundayo2013]]. Module 2.1 covers the signs.</span></p>
+
+  <div class="cards">
+    <div class="card"><span class="kicker">New strokes, 2021</span><span class="big-num">11.9 million</span><p>95% UI 10.7-13.2 million, worldwide [[Feigin2024]].</p></div>
+    <div class="card"><span class="kicker">Living after stroke, 2021</span><span class="big-num">93.8 million</span><p>95% UI 89.0-99.3 million [[Feigin2024]].</p></div>
+    <div class="card"><span class="kicker">Deaths, 2021</span><span class="big-num">7.3 million</span><p>10.7% of all deaths. Third among causes, after ischaemic heart disease and COVID-19 [[Feigin2024]].</p></div>
+    <div class="card"><span class="kicker">Healthy life lost, 2021</span><span class="big-num">160.5 million</span><p>Disability-adjusted life years (DALYs), 5.6% of all DALYs. Fourth among causes [[Feigin2024]].</p></div>
+    <div class="card"><span class="kicker">Lifetime risk from age 25</span><span class="big-num">About 1 in 4</span><p>24.9% worldwide in 2016 (95% UI 23.5-26.2) [[Feigin2018]].</p></div>
+    <div class="card"><span class="kicker">Largest single risk</span><span class="big-num">56.8%</span><p>Share of stroke DALYs attributed to high systolic blood pressure (42.5-68.0) [[Feigin2025]].</p></div>
+  </div>
+
+  <h3 class="sub">Blocked or burst</h3>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 450" style="min-width:560px" role="img" aria-label="A healthy artery and brain with moving blood. A clot then blocks the artery and part of the brain turns pale with a core of dead tissue. Next an artery wall tears and blood collects inside the brain, and an aneurysm bursts and blood spreads over the brain surface. A bar beneath fills as each type appears: 65.3% ischaemic, 28.8% intracerebral haemorrhage and 5.8% subarachnoid haemorrhage of new strokes worldwide in 2021."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">%t:player.play%</button><label class="stage-cap tl" for="whT">Timeline <input type="range" id="whT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> Shares are from GBD 2021, which models incident strokes [[Feigin2024]].</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The shares depend on who you count</h3>
+  <div class="prose"><p>The split is not one fixed number. It differs by income group, and it moved between two modelling rounds of the same study. Pick a population. Each mark in the grid stands for 1 in 100 strokes.</p></div>
+  <div class="wh-bar" role="group" aria-label="Population for the stroke-type shares" id="whShareBtns"></div>
+  <div class="stage">
+    <div class="scroll"><svg id="whShare" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="A bar and a grid of 100 marks showing the shares of ischaemic stroke, intracerebral haemorrhage and subarachnoid haemorrhage for the chosen population, with each share labelled."></svg></div>
+    <p class="wh-cap" id="whShareCap" aria-live="polite"></p>
+  </div>
+
+  <h3 class="sub">Burden explorer: how much stroke, where and in whom</h3>
+  <div class="prose"><p>Choose a measure, then a view. DALYs add years lost to early death and years lived with disability. All figures in this explorer are from one round, GBD 2021, as reported in the study and the World Stroke Organization (WSO) fact sheet, except where a label says otherwise [[Feigin2024,Feigin2025]].</p></div>
+  <div class="wh-bar" role="group" aria-label="Measure" id="whBurM"></div>
+  <div class="wh-bar" role="group" aria-label="View" id="whBurV"></div>
+  <div class="stage">
+    <div class="scroll"><svg id="whBur" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A chart of global stroke burden that changes with the chosen measure and view: the change since 1990 in counts and in age-standardised rates, the range across regions and countries, the share in younger people, or the split by sex."></svg></div>
+    <div class="ctrls" id="whBurCtl"><button class="btn primary" id="whBurPlay">%t:player.play%</button><label class="stage-cap tl" for="whBurT">Year <input type="range" id="whBurT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="wh-cap" id="whBurCap" aria-live="polite"></p>
+  </div>
+  <div class="hook"><b>Exam hook</b>Counts up, rates down: from 1990 to 2021 new strokes rose 70.2% while age-standardised incidence fell 21.8% [[Feigin2024]]. About 90% of the burden sits in lower-income and lower-middle-income countries (87.2% of deaths, 89.4% of DALYs) [[Feigin2025]].</div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>1990 to 2021</th><th>Absolute count</th><th>Age-standardised rate</th></tr></thead>
+    <tbody>
+      <tr><th>New strokes</th><td>+70.2% (65.9 to 74.6)</td><td>-21.8% (-23.7 to -19.8)</td></tr>
+      <tr><th>People living after stroke</th><td>+86.1% (83.0 to 89.4)</td><td>-8.5% (-9.7 to -7.3)</td></tr>
+      <tr><th>Deaths</th><td>+44.1% (32.3 to 56.0)</td><td>-39.4% (-44.0 to -34.6)</td></tr>
+      <tr><th>DALYs</th><td>+32.2% (21.7 to 42.7)</td><td>-38.7% (-43.4 to -34.0)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p>All figures in that table are from GBD 2021 [[Feigin2024]]. The fall in incidence stagnated from 2015 onwards, with some increases in southeast Asia, east Asia and Oceania, in countries with lower sociodemographic index (SDI), and in people younger than 70 [[Feigin2024]]. Age-standardised deaths fell far more in high-SDI countries (-59.4%) than in low-SDI countries (-26.5%) [[Feigin2024]].</p>
+    <p>The WSO-Lancet Neurology Commission projected deaths rising from 6.6 million in 2020 to 9.7 million in 2050, and warned that the Sustainable Development Goal 3.4 target will not be met on these trends [[Feigin2023]]. In the United States the long decline has stalled: the age-adjusted death rate rose 7.0% from 2012 to 2022 (36.9 to 39.5 per 100,000) [[Martin2025HDSS]]. An AHA/ASA statement judged hypertension control, started in the 1970s, to have had the most substantial influence on the earlier fall [[Lackland2014]].</p>
+  </div>
+
+  <h3 class="sub">Why it happens: attributable risk</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">All 23 risk factors analysed</span><span class="big-num">84.1%</span><p>Of stroke DALYs in 2021 (77.8-88.8) [[Feigin2024]].</p></div>
+    <div class="card"><h4>Three overlapping clusters</h4><p>Metabolic 68.8%, environmental 36.7%, behavioural 35.2% of stroke burden. They overlap, so they sum to more than 100% [[Feigin2025]].</p></div>
+    <div class="card"><h4>What grew most</h4><p>Attributable DALYs, 1990 to 2021: high BMI +88.2%, high ambient temperature +72.4%, high fasting plasma glucose +32.1% [[Feigin2024]]. Module 4.1 covers prevention.</p></div>
+  </div>
+
+  <h3 class="sub">Lifetime risk: 100 people</h3>
+  <div class="prose"><p>This is the chance of a first stroke from age 25 onwards. The method accounts for the competing risk of dying of something else first [[Feigin2018]]. So a low figure in a poorer region is not low danger: competing deaths shorten the time at risk [[Feigin2018]].</p></div>
+  <div class="wh-bar" role="group" aria-label="Group for lifetime risk" id="whLifeBtns"></div>
+  <div class="stage">
+    <div class="scroll"><svg id="whLife" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A grid of 100 people with some filled in to show the lifetime risk of stroke for the chosen group, with the figure written beside the grid."></svg></div>
+    <p class="wh-cap" id="whLifeCap" aria-live="polite"></p>
+  </div>
+  <p class="stage-cap">The grid is rounded to whole people. These are population figures. They cannot say what will happen to one person [[Mohan2011]].</p>
+
+  <h3 class="sub">What counts as a stroke: the clock and the tissue</h3>
+  <div class="prose"><p>The World Health Organization (WHO) wording of 1980 used a clock. The 2013 AHA/ASA statement said the classic definition is mainly clinical and does not account for advances in science and technology, and it combined clinical and tissue criteria [[Sacco2013]]. Pick a situation and compare the two rules.</p></div>
+  <div class="wh-bar" role="group" aria-label="Situation" id="whDefBtns"></div>
+  <div class="stage">
+    <div class="scroll"><svg id="whDef" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A symptom-duration bar with a 24-hour mark, a schematic brain scan, and two verdicts for the chosen situation: one from the 1980 WHO clock-based wording, the other from the 2013 tissue-based wording."></svg></div>
+    <p class="wh-cap" id="whDefCap" aria-live="polite"></p>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>This shows how two published definitions sort example situations. It is never for an individual's diagnosis, and the scan is a drawing.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Term</th><th>Wording as published</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Stroke, WHO 1971</th><td>"A sudden onset of disturbance of focal brain function due to the blockage or rupture of blood vessels"</td><td>[[Engelhardt2017]]</td></tr>
+      <tr><th>Stroke, WHO 1980</th><td>"Rapidly developing clinical signs of focal (or global) disturbance of cerebral function, lasting more than 24 hours or leading to death, with no apparent cause other than that of vascular origin"</td><td>[[Engelhardt2017]]</td></tr>
+      <tr class="hl"><th>CNS infarction, 2013</th><td>Brain, spinal cord or retinal cell death attributable to ischaemia, based on neuropathological, neuroimaging and/or clinical evidence of permanent injury</td><td>[[Sacco2013]]</td></tr>
+      <tr><th>Ischaemic stroke, 2013</th><td>"An episode of neurological dysfunction caused by focal cerebral, spinal, or retinal infarction"</td><td>[[Engelhardt2017]]</td></tr>
+      <tr><th>Silent infarction, 2013</th><td>By definition causes no known symptoms</td><td>[[Sacco2013]]</td></tr>
+      <tr><th>Intracerebral haemorrhage, 2013</th><td>"Rapidly developing clinical signs of neurological dysfunction attributable to a focal collection of blood within the brain parenchyma or ventricular system that is not caused by trauma"</td><td>[[Engelhardt2017]]</td></tr>
+      <tr><th>Subarachnoid haemorrhage, 2013</th><td>"Rapidly developing signs of neurological dysfunction and/or headache because of bleeding into the subarachnoid space, which is not caused by trauma"</td><td>[[Engelhardt2017]]</td></tr>
+      <tr><th>Stroke not otherwise specified, 2013</th><td>"An episode of acute neurological dysfunction presumed to be caused by ischemia or hemorrhage, persisting ≥ 24 hours or until death, but without sufficient evidence to be classified as one of the above"</td><td>[[Engelhardt2017]]</td></tr>
+      <tr><th>TIA, 2009</th><td>"a transient episode of neurological dysfunction caused by focal brain, spinal cord, or retinal ischemia, without acute infarction"</td><td>[[Easton2009]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">The WHO wordings and the verbatim 2013 subtype wordings are quoted through Engelhardt 2017, a secondary source. "Ischaemic" and "haemorrhage" are the UK spellings; US sources write ischemic and hemorrhage.</p>
+  <div class="hook"><b>Exam hook</b>Classic WHO: a deficit lasting more than 24 hours or leading to death, with no apparent cause other than vascular [[Engelhardt2017]]. AHA/ASA 2013: imaging or pathology evidence of infarction counts, even if symptoms are brief [[Sacco2013]]. TIA is defined by absence of acute infarction, not by a 24-hour clock [[Easton2009]].</div>
+
+  <h3 class="sub">What comes after: death, disability, a second stroke</h3>
+  <div class="prose"><p>Move through time since the stroke. Each mark appears only where a study reports a figure; the lines between marks are straight joins, not data. Cohorts differ in era, age and case mix, so read the gap between them as a warning about comparing studies [[Hankey2000,Martin2025HDSS]].</p></div>
+  <div class="wh-bar" role="group" aria-label="Outcome" id="whOutBtns"></div>
+  <div class="stage">
+    <div class="scroll"><svg id="whOut" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="A chart with time since stroke on a logarithmic axis. Marks appear as time passes, showing published figures from several cohorts for the chosen outcome: deaths, disability, or a second stroke."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="whOutPlay">%t:player.play%</button><label class="stage-cap tl" for="whOutT">Time since stroke <input type="range" id="whOutT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="wh-cap" id="whOutCap" aria-live="polite"></p>
+  </div>
+  <div class="pt"><b>In plain words</b>Many people live for years after stroke: almost 94 million people are alive today after having one [[Feigin2025]]. A second stroke is a real risk, which is why follow-up care matters. About 1 person in 9 has another stroke within a year [[Mohan2011]]. Numbers describe groups. They cannot say what will happen to one person [[Mohan2011]].</div>
+  <div class="cards">
+    <div class="card"><h4>By type, at 30 days and after</h4><p>Sweden (22,929 people): 30-day mortality 11.1% for ischaemic stroke and 30.7% for ICH. Among 30-day survivors, 5-year mortality did not differ [[Sennfalt2019]].</p></div>
+    <div class="card"><h4>ICH has not budged at one month</h4><p>One-month case fatality: median 40.4% in studies to 2008 [[vanAsch2010]]; pooled 35.5% (32.3-38.9) in studies from 2008 to 2023, with no time trend. Good function after 3-12 months: 31.2% [[Wolsink2025]].</p></div>
+    <div class="card"><h4>Falling, unevenly</h4><p>Greater Cincinnati, adjusted 5-year mortality, 1993-94 to 2015: ischaemic stroke 53% to 48.3%; ICH 64.4% to 69.2%, no significant change [[Robinson2024]]. South London: 30-day case fatality after first ischaemic stroke fell 38% from 2000 to 2015 [[Wafa2020PLoSMed]].</p></div>
+    <div class="card"><h4>SAH</h4><p>Crude incidence fell from 10.2 per 100,000 person-years in 1980 to 6.1 in 2010 [[Etminan2019]]. Case fatality fell 17% between 1973 and 2002 while mean age rose from 52 to 62 years [[Nieuwkamp2009]].</p></div>
+    <div class="card"><h4>Dementia</h4><p>About 10% had dementia before a first stroke, 10% developed it soon after a first stroke, and more than a third had it after recurrent stroke [[Pendlebury2009]].</p></div>
+    <div class="card"><h4>A second stroke is deadlier</h4><p>Perth: 30-day case fatality was 41% after first recurrence and 22% after first-ever stroke [[Hardie2004]]. Recurrence has fallen over time: pooled 5-year risk from 32% to 16.2% across studies [[Mohan2011]], and in South London from 18% (1995-1999) to 12% (2000-2005), with no improvement since [[Flach2020]].</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>Pooled recurrence: 11.1% at 1 year, 26.4% at 5 years, 39.2% at 10 years [[Mohan2011]]. ICH survival: less than half at 1 year (46%), less than a third at 5 years (29%) [[Poon2014]].</div>
+
+  <h3 class="sub">Stroke in younger people</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>GBD 2021</th><th>New strokes</th><th>Living after stroke</th><th>Deaths</th><th>DALYs</th></tr></thead>
+    <tbody>
+      <tr><th>Age 15-49</th><td>1,762,000 (about 15%)</td><td>20,319,000 (22%)</td><td>373,000 (about 5%)</td><td>21,367,000 (13%)</td></tr>
+      <tr><th>Under 70</th><td>6,307,000 (about 53%)</td><td>61,049,000 (65%)</td><td>2,409,000 (33%)</td><td>88,143,000 (55%)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>Those counts are from the WSO fact sheet. By type, 15-49 year olds make up over 12% of ischaemic strokes, about 18% of ICH and over 34% of SAH [[Feigin2025]].</p></div>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Younger and older diverge</h4><p>Across 50 studies in 20 high-income countries, every study with data showed a less favourable trend under 55 than at 55 and over (pooled relative temporal rate ratio 1.57, 1.42-1.74). Absolute trends were heterogeneous: the firm finding is divergence, not a universal rise [[Scott2022]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Oxford, 2002-2010 against 2010-2018</h4><p>2429 strokes. Incidence rose under 55 (IRR 1.67, 1.31-2.14) and fell at 55 and over (0.85, 0.78-0.92), independent of sex, severity, subtype and changes in investigation [[Li2022]].</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Why? Sources disagree</h4><p>US inpatient data point to rising traditional risk factors [[George2017]]. In Oxford the rise persisted in people without diabetes, hypertension, smoking or obesity, so its cause is unexplained [[Li2022]].</p></div>
+    <div class="card"><h4>Young does not mean spared</h4><p>Dutch cohort, age 18-50: 20-year mortality among 30-day survivors was 26.8% after ischaemic stroke and 13.7% after ICH, 3.9 times expected [[RuttenJacobs2013]]. In high-income countries, 1-year recurrence up to age 65 was unchanged after 2000 (RR 1.04, 0.78-1.39) [[Nehme2026]].</p></div>
+  </div>
+  <p class="callout">GBD rounds also disagree here: for people under 70, GBD 2019 reported incidence up 15% for 1990-2019 [[Feigin2021]], while GBD 2021 reports 4.1% for 1990-2021 [[Feigin2024]].</p>
+
+  <h3 class="sub">Sex and gender</h3>
+  <div class="cards">
+    <div class="card"><h4>Rates are higher in men</h4><p>Age-adjusted incidence per 100,000: men 160, women 125. Age-adjusted death rate: men 103, women 75 [[Feigin2025]].</p></div>
+    <div class="card"><h4>SAH is the exception</h4><p>About 51% of incident SAH occur in women [[Feigin2025]]. Pooled SAH risk ratio for women: 1.3 (0.98-1.7) [[Etminan2019]].</p></div>
+    <div class="card"><h4>Crude against adjusted</h4><p>INSTRUCT (16,957 people): crude mortality rate ratio for women 1.35 at 1 year; adjusted 0.81. Age, prestroke function, severity and atrial fibrillation explained the reversal [[Phan2017]]. In pooled trials women had higher survival (OR 0.82) and more disability (OR 1.20) [[Carcel2019]].</p></div>
+    <div class="card"><h4>Who has more strokes?</h4><p>Age-specific rates are higher in men, but women have more stroke events because they live longer [[Reeves2008]]. Globally, 47.4% of incident strokes are in females [[Feigin2024]]. In the US, females accounted for 56.6% of stroke deaths in 2022, against 47.9% globally [[Martin2025HDSS,Feigin2024]].</p></div>
+    <div class="card"><h4>Recognition</h4><p>Women are more likely to present with non-traditional symptoms and stroke mimics and can be misdiagnosed. There was no substantial difference in thrombolysis or thrombectomy outcome [[Bushnell2018]].</p></div>
+  </div>
+
+  <h3 class="sub">Unequal burden</h3>
+  <div class="prose"><p>Race in these studies is a social and recorded category, and socioeconomic adjustment changed several estimates [[Robinson2024,HowardG2011,Gardener2020]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Finding</th><th>Figures</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Income, 2019</th><td>Stroke mortality 3.6 times and DALY rate 3.7 times higher in World Bank low-income than high-income countries</td><td>[[Feigin2021]]</td></tr>
+      <tr><th>REGARDS, US</th><td>Black to White incidence rate ratio 1.51 overall; 4.02 at age 45-54 and 0.86 at 85 and over</td><td>[[HowardVJ2011]]</td></tr>
+      <tr><th>Incidence or case fatality?</th><td>The mortality gap was driven by incidence, not 30-day case fatality [[Howard2016]], while Greater Cincinnati finds a 5-year survival gap (OR 1.23) [[Robinson2024]]. They measure different time horizons.</td><td>[[Howard2016,Robinson2024]]</td></tr>
+      <tr><th>Explained by risk factors?</th><td>Traditional risk factors explained 40-45% of the excess, about half of that through systolic blood pressure. Adding socioeconomic factors explained 47-53%. About half stayed unexplained <span class="ev hyp">Hypothesis</span></td><td>[[HowardG2011]]</td></tr>
+      <tr><th>Over time</th><td>US stroke deaths fell 75% over 54 years, with virtually no reduction in the relative Black to White disparity or the Stroke Belt excess</td><td>[[Howard2024]]</td></tr>
+      <tr><th>Mexican Americans, Corpus Christi</th><td>Ischaemic stroke at 45-59: RR 2.04 against non-Hispanic White residents</td><td>[[Morgenstern2004]]</td></tr>
+      <tr><th>Northern Manhattan</th><td>The Hispanic excess (HR 1.48) was largely explained by education and insurance (HR 1.17, 0.85-1.62)</td><td>[[Gardener2020]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="pt"><b>In plain words</b>Stroke does not reach everyone equally. Where people live, how much money they have and their access to care all affect risk and recovery [[Addo2012,Howard2024]].</div>
+
+  <h3 class="sub">United States, Israel and the cost</h3>
+  <div class="split2">
+    <div class="card"><h4>United States</h4><ul>
+      <li>About 795,000 new or recurrent strokes a year: about 610,000 first and 185,000 recurrent. These, and the 87/10/3 split, trace back to 1999 Greater Cincinnati data [[Martin2025HDSS]].</li>
+      <li>9.4 million adults self-report a stroke, a prevalence of 3.3% [[Martin2025HDSS]].</li>
+      <li>165,393 deaths in 2022, about 1 in 20 US deaths; fifth among causes [[Martin2025HDSS]]. About 65% occurred outside an acute care hospital [[Martin2025HDSS]].</li>
+      <li>The 2026 AHA report exists, but its abstract states no stroke numbers and its full text could not be read, so these are from the 2025 edition [[Palaniappan2026,Martin2025HDSS]].</li>
+    </ul></div>
+    <div class="card"><h4>Israel</h4><ul>
+      <li>GBD 2021: 8000 incident strokes, 3000 deaths, 92,000 prevalent cases. Age-standardised death rate fell 67.2% from 1990 to 2021 [[Feigin2024]].</li>
+      <li>A registry-based paper states around 18,000 strokes a year [[Simaan2021]]. Registry reports count stroke or TIA in at least some cases [[Ram2019]]; the gap was not reconciled.</li>
+      <li>Age-adjusted rates were significantly higher in Arab than in Jewish people [[Ram2019]]. Overall acute treatment and outcomes were similar [[Simaan2021]].</li>
+      <li>By 2016-2017, t-PA use had stabilised at 9.2%, from 0.5% in a 2004 survey [[Ram2019,Tanne2006]].</li>
+    </ul></div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="kicker">Global cost, 2017</span><span class="big-num">US$891 billion</span><p>$315 billion in health care and $576 billion in lost income a year [[Feigin2023]]. WSO: over $890 billion, 0.66% of global GDP [[Feigin2025]].</p></div>
+    <div class="card"><span class="kicker">Europe, 32 countries, 2017</span><span class="big-num">EUR 60 billion</span><p>Health care 45%, informal care EUR 16 billion. Care cost per citizen ranged from EUR 11 in Bulgaria to EUR 140 in Finland [[LuengoFernandez2020]].</p></div>
+    <div class="card"><h4>Plans</h4><p>The Commission built its plan on four pillars: surveillance, prevention, acute care and rehabilitation [[Feigin2023]]. The European plan targets 90% or more of patients in a stroke unit by 2030 [[Norrving2018]]; in 2023, 43.5% of 52 European nations had a national stroke plan [[Christensen2026]].</p></div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Evidence</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>Is stroke in young adults truly rising?</th><td>Divergence by age is consistent [[Scott2022]], and the Oxford rise was independent of investigation changes [[Li2022]]. Absolute trends vary, and earlier work raised imaging as part of the explanation [[Scott2022,George2017]].</td><td>Divergence established; absolute rise varies</td></tr>
+      <tr><th>Are GBD figures stable?</th><td>GBD 2019: 101 million prevalent, 12.2 million incident, 9.7% SAH [[Feigin2021]]. GBD 2021: 93.8 million, 11.9 million, 5.8% [[Feigin2024]].</td><td>Differ between rounds; this page uses GBD 2021</td></tr>
+      <tr><th>What rank is stroke?</th><td>WSO: second among non-communicable disorders [[Feigin2025]]. GBD 2021: third among all causes, behind ischaemic heart disease and COVID-19 [[Feigin2024]].</td><td>Both hold for their own denominators</td></tr>
+      <tr><th>Is the US 795,000 current?</th><td>It rests on 1999 data extrapolated by NHLBI [[Martin2025HDSS]].</td><td>No fresher population estimate found</td></tr>
+      <tr><th>Does the tissue definition improve on 24 hours?</th><td>The statement argues it fits modern science [[Sacco2013]]; stroke not otherwise specified still uses 24 hours, and many epidemiological sources predate imaging [[Engelhardt2017,Aho1980]].</td><td>Definitions coexist, so counts are not fully comparable across eras</td></tr>
+    </tbody>
+  </table></div>
+</section>
