@@ -173,6 +173,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Alkhars2026",
+  "text": "Alkhars H, Lee SM, Kathuria B, Mozaffari K, Harris P, Fleisher M, et al. Modeling the Predictive Performance of the ICH Score: Stepwise Selection and Logistic Modeling of Mortality, Functional Outcomes, Placement Destination, and Length of Stay. Neurosurg Pract. 2026;7(1):e000210. PMID 41659843; PMCID PMC12875701; doi:10.1227/neuprac.0000000000000210.",
+  "link": "https://doi.org/10.1227/neuprac.0000000000000210",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "AlKhindi2010",
+  "text": "Al-Khindi T, Macdonald RL, Schweizer TA. Cognitive and functional outcome after aneurysmal subarachnoid hemorrhage. Stroke. 2010;41(8):e519-36. PMID 20595669; doi:10.1161/STROKEAHA.110.581975.",
+  "link": "https://doi.org/10.1161/strokeaha.110.581975",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Allida2023",
   "text": "Allida SM, Hsieh CF, Cox KL, Patel K, Rouncefield-Swales A, Lightbody CE, et al. Pharmacological, non-invasive brain stimulation and psychological interventions, and their combination, for treating depression after stroke. Cochrane Database Syst Rev. 2023;7:CD003437. PMID 37417452; PMCID PMC10327406; doi:10.1002/14651858.cd003437.pub5.",
   "link": "https://doi.org/10.1002/14651858.cd003437.pub5",
@@ -191,6 +211,36 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "AlSalihi2025",
+  "text": "Al-Salihi MM, Elazim AA, Al-Jebur MS, Saha R, Siddiq F, Ayyad A, et al. Effect of tranexamic acid on rebleeding, mortality, and hydrocephalus in patients with aneurysmal subarachnoid hemorrhage: A systematic review and meta-analysis. J Clin Neurosci. 2025;135:111189. PMID 40117766; doi:10.1016/j.jocn.2025.111189.",
+  "link": "https://doi.org/10.1016/j.jocn.2025.111189",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "AlShahiSalman2018",
+  "text": "Al-Shahi Salman R, Frantzias J, Lee RJ, Lyden PD, Battey TWK, Ayres AM, et al. Absolute risk and predictors of the growth of acute spontaneous intracerebral haemorrhage: a systematic review and meta-analysis of individual patient data. Lancet Neurol. 2018;17(10):885-894. PMID 30120039; PMCID PMC6143589; doi:10.1016/S1474-4422(18)30253-9.",
+  "link": "https://doi.org/10.1016/s1474-4422(18)30253-9",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "AlShahiSalman2023",
+  "text": "Al-Shahi Salman R, Stephen J, Tierney JF, Lewis SC, Newby DE, Parry-Jones AR, et al. Effects of oral anticoagulation in people with atrial fibrillation after spontaneous intracranial haemorrhage (COCROACH): prospective, individual participant data meta-analysis of randomised trials. Lancet Neurol. 2023;22(12):1140-1149. PMID 37839434; doi:10.1016/S1474-4422(23)00315-0.",
+  "link": "https://doi.org/10.1016/s1474-4422(23)00315-0",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Amarenco2006",
@@ -218,6 +268,26 @@
   "link": "https://doi.org/10.1259/0007-1285-46-552-1023",
   "areas": [
    "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "An2017",
+  "text": "An SJ, Kim TJ, Yoon BW. Epidemiology, Risk Factors, and Clinical Features of Intracerebral Hemorrhage: An Update. J Stroke. 2017;19(1):3-10. PMID 28178408; PMCID PMC5307940; doi:10.5853/jos.2016.00864.",
+  "link": "https://doi.org/10.5853/jos.2016.00864",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Anderson2013",
+  "text": "Anderson CS, Heeley E, Huang Y, Wang J, Stapf C, Delcourt C, et al. Rapid blood-pressure lowering in patients with acute intracerebral hemorrhage. N Engl J Med. 2013;368(25):2355-65. PMID 23713578; doi:10.1056/NEJMoa1214609.",
+  "link": "https://doi.org/10.1056/nejmoa1214609",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -505,6 +575,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Baharoglu2016",
+  "text": "Baharoglu MI, Cordonnier C, Al-Shahi Salman R, de Gans K, Koopman MM, Brand A, et al. Platelet transfusion versus standard care after acute stroke due to spontaneous cerebral haemorrhage associated with antiplatelet therapy (PATCH): a randomised, open-label, phase 3 trial. Lancet. 2016;387(10038):2605-2613. PMID 27178479; doi:10.1016/S0140-6736(16)30392-0.",
+  "link": "https://doi.org/10.1016/s0140-6736(16)30392-0",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Bakas2014",
   "text": "Bakas T, Clark PC, Kelly-Hayes M, King RB, Lutz BJ, Miller EL, et al. Evidence for stroke family caregiver and dyad interventions: a statement for healthcare professionals from the American Heart Association and American Stroke Association. Stroke. 2014;45(9):2836-2852. PMID 25034718; doi:10.1161/str.0000000000000033.",
   "link": "https://doi.org/10.1161/str.0000000000000033",
@@ -628,13 +708,14 @@
  },
  {
   "key": "Beck2024",
-  "text": "Beck J, Fung C, Strbian D, Bütikofer L, Z'Graggen WJ, Lang MF, et al. Decompressive craniectomy plus best medical treatment versus best medical treatment alone for spontaneous severe deep supratentorial intracerebral haemorrhage: a randomised controlled clinical trial. Lancet. 2024;403(10442):2395-2404. PMID 38761811; doi:10.1016/s0140-6736(24)00702-5.",
+  "text": "Beck J, Fung C, Strbian D, Bütikofer L, Z'Graggen WJ, Lang MF, et al. Decompressive craniectomy plus best medical treatment versus best medical treatment alone for spontaneous severe deep supratentorial intracerebral haemorrhage: a randomised controlled clinical trial. Lancet. 2024;403(10442):2395-2404. PMID 38761811; doi:10.1016/S0140-6736(24)00702-5.",
   "link": "https://doi.org/10.1016/s0140-6736(24)00702-5",
   "areas": [
+   "C",
    "I"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed"
  },
  {
   "key": "Benavente2012",
@@ -748,6 +829,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Biffi2015",
+  "text": "Biffi A, Anderson CD, Battey TW, Ayres AM, Greenberg SM, Viswanathan A, et al. Association Between Blood Pressure Control and Risk of Recurrent Intracerebral Hemorrhage. JAMA. 2015;314(9):904-12. PMID 26325559; PMCID PMC4737594; doi:10.1001/jama.2015.10082.",
+  "link": "https://doi.org/10.1001/jama.2015.10082",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Billinger2014",
@@ -931,6 +1022,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Broderick1993",
+  "text": "Broderick JP, Brott TG, Duldner JE, Tomsick T, Huster G. Volume of intracerebral hemorrhage. A powerful and easy-to-use predictor of 30-day mortality. Stroke. 1993;24(7):987-93. PMID 8322400; doi:10.1161/01.str.24.7.987.",
+  "link": "https://doi.org/10.1161/01.str.24.7.987",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Broderick2013",
   "text": "Broderick JP, Palesch YY, Demchuk AM, Yeatts SD, Khatri P, Hill MD, et al. Endovascular therapy after intravenous t-PA versus t-PA alone for stroke. N Engl J Med. 2013;368(10):893-903. PMID 23390923; PMCID PMC3651875; doi:10.1056/NEJMoa1214300.",
   "link": "https://doi.org/10.1056/nejmoa1214300",
@@ -942,13 +1043,14 @@
  },
  {
   "key": "Broderick2026",
-  "text": "Broderick JP, Naidech AM, Elm JJ, Toyoda K, Dowlatshahi D, Demchuk AM, et al. Recombinant factor VIIa versus placebo for spontaneous intracerebral haemorrhage within 2 h of symptom onset (FASTEST): a multicentre, double-blind, randomised, placebo-controlled, phase 3 trial. Lancet. 2026;407(10530):773-783. PMID 41653933; doi:10.1016/s0140-6736(26)00097-8.",
+  "text": "Broderick JP, Naidech AM, Elm JJ, Toyoda K, Dowlatshahi D, Demchuk AM, et al. Recombinant factor VIIa versus placebo for spontaneous intracerebral haemorrhage within 2 h of symptom onset (FASTEST): a multicentre, double-blind, randomised, placebo-controlled, phase 3 trial. Lancet. 2026;407(10530):773-783. PMID 41653933; PMCID PMC13005960; doi:10.1016/S0140-6736(26)00097-8.",
   "link": "https://doi.org/10.1016/s0140-6736(26)00097-8",
   "areas": [
+   "C",
    "I"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed"
  },
  {
   "key": "Brott1989",
@@ -956,6 +1058,16 @@
   "link": "https://doi.org/10.1161/01.str.20.7.864",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Brott1997",
+  "text": "Brott T, Broderick J, Kothari R, Barsan W, Tomsick T, Sauerbeck L, et al. Early hemorrhage growth in patients with intracerebral hemorrhage. Stroke. 1997;28(1):1-5. PMID 8996478; doi:10.1161/01.str.28.1.1.",
+  "link": "https://doi.org/10.1161/01.str.28.1.1",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1293,6 +1405,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Charidimou2022",
+  "text": "Charidimou A, Boulouis G, Frosch MP, Baron JC, Pasi M, Albucher JF, et al. The Boston criteria version 2.0 for cerebral amyloid angiopathy: a multicentre, retrospective, MRI-neuropathology diagnostic accuracy study. Lancet Neurol. 2022;21(8):714-725. PMID 35841910; PMCID PMC9389452; doi:10.1016/S1474-4422(22)00208-3.",
+  "link": "https://doi.org/10.1016/s1474-4422(22)00208-3",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Chauhan2026",
   "text": "Chauhan V. Anesthesia for acute ischemic stroke after the 2026 AHA/ASA guideline: a peri-thrombectomy practice framework. J Anesth. 2026. PMID 42809101; doi:10.1007/s00540-026-03908-4.",
   "link": "https://doi.org/10.1007/s00540-026-03908-4",
@@ -1308,6 +1430,16 @@
   "link": "https://doi.org/10.1161/01.str.31.6.1240",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Chen2017",
+  "text": "Chen S, Luo J, Reis C, Manaenko A, Zhang J. Hydrocephalus after Subarachnoid Hemorrhage: Pathophysiology, Diagnosis, and Treatment. Biomed Res Int. 2017;2017:8584753. PMID 28373987; PMCID PMC5360938; doi:10.1155/2017/8584753.",
+  "link": "https://doi.org/10.1155/2017/8584753",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1423,6 +1555,26 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Claassen2001",
+  "text": "Claassen J, Bernardini GL, Kreiter K, Bates J, Du YE, Copeland D, et al. Effect of cisternal and ventricular blood on risk of delayed cerebral ischemia after subarachnoid hemorrhage: the Fisher scale revisited. Stroke. 2001;32(9):2012-20. PMID 11546890; doi:10.1161/hs0901.095677.",
+  "link": "https://doi.org/10.1161/hs0901.095677",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Claassen2022",
+  "text": "Claassen J, Park S. Spontaneous subarachnoid haemorrhage. Lancet. 2022;400(10355):846-862. PMID 35985353; PMCID PMC9987649; doi:10.1016/S0140-6736(22)00938-2.",
+  "link": "https://doi.org/10.1016/s0140-6736(22)00938-2",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "ClueEspuny2025",
   "text": "Clua-Espuny JL, Panisello-Tafalla A, Lucas-Noll J, Muria-Subirats E, Forcadell-Arenas T, Carrera-Ortiz JM, et al. Stroke Risk Stratification in Incident Atrial Fibrillation: A Sex-Specific Evaluation of CHA2DS2-VA and CHA2DS2-VASc. J Cardiovasc Dev Dis. 2025;12(7). PMID 40710784; PMCID PMC12294841; doi:10.3390/jcdd12070259.",
   "link": "https://doi.org/10.3390/jcdd12070259",
@@ -1463,14 +1615,25 @@
   "validated": "PubMed"
  },
  {
+  "key": "Connolly2012",
+  "text": "Connolly ES Jr, Rabinstein AA, Carhuapoma JR, Derdeyn CP, Dion J, Higashida RT, et al. Guidelines for the management of aneurysmal subarachnoid hemorrhage: a guideline for healthcare professionals from the American Heart Association/american Stroke Association. Stroke. 2012;43(6):1711-37. PMID 22556195; doi:10.1161/STR.0b013e3182587839.",
+  "link": "https://doi.org/10.1161/str.0b013e3182587839",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Connolly2024",
-  "text": "Connolly SJ, Sharma M, Cohen AT, Demchuk AM, Członkowska A, Lindgren AG, et al. Andexanet for Factor Xa Inhibitor-Associated Acute Intracerebral Hemorrhage. N Engl J Med. 2024;390(19):1745-1755. PMID 38749032; doi:10.1056/nejmoa2313040.",
+  "text": "Connolly SJ, Sharma M, Cohen AT, Demchuk AM, Członkowska A, Lindgren AG, et al. Andexanet for Factor Xa Inhibitor-Associated Acute Intracerebral Hemorrhage. N Engl J Med. 2024;390(19):1745-1755. PMID 38749032; doi:10.1056/NEJMoa2313040.",
   "link": "https://doi.org/10.1056/nejmoa2313040",
   "areas": [
+   "C",
    "I"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed"
  },
  {
   "key": "ContinuumNIHSS2014",
@@ -1594,6 +1757,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Davis2006",
+  "text": "Davis SM, Broderick J, Hennerici M, Brun NC, Diringer MN, Mayer SA, et al. Hematoma growth is a determinant of mortality and poor outcome after intracerebral hemorrhage. Neurology. 2006;66(8):1175-81. PMID 16636233; doi:10.1212/01.wnl.0000208408.98482.99.",
+  "link": "https://doi.org/10.1212/01.wnl.0000208408.98482.99",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Dawson2021",
   "text": "Dawson J, Liu CY, Francisco GE, Cramer SC, Wolf SL, Dixit A, et al. Vagus nerve stimulation paired with rehabilitation for upper limb motor function after ischaemic stroke (VNS-REHAB): a randomised, blinded, pivotal, device trial. Lancet. 2021;397(10284):1545-1553. PMID 33894832; PMCID PMC8862193; doi:10.1016/s0140-6736(21)00475-x.",
   "link": "https://doi.org/10.1016/s0140-6736(21)00475-x",
@@ -1650,6 +1823,16 @@
   "link": "https://doi.org/10.1016/j.lanepe.2023.100782",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Demchuk2012",
+  "text": "Demchuk AM, Dowlatshahi D, Rodriguez-Luna D, Molina CA, Blas YS, Dzialowski I, et al. Prediction of haematoma growth and outcome in patients with intracerebral haemorrhage using the CT-angiography spot sign (PREDICT): a prospective observational study. Lancet Neurol. 2012;11(4):307-14. PMID 22405630; doi:10.1016/S1474-4422(12)70038-8.",
+  "link": "https://doi.org/10.1016/s1474-4422(12)70038-8",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1766,11 +1949,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "deRooij2007",
+  "text": "de Rooij NK, Linn FH, van der Plas JA, Algra A, Rinkel GJ. Incidence of subarachnoid haemorrhage: a systematic review with emphasis on region, age, gender and time trends. J Neurol Neurosurg Psychiatry. 2007;78(12):1365-72. PMID 17470467; PMCID PMC2095631; doi:10.1136/jnnp.2007.117655.",
+  "link": "https://doi.org/10.1136/jnnp.2007.117655",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Diener2019",
   "text": "Diener HC, Sacco RL, Easton JD, Granger CB, Bernstein RA, Uchiyama S, et al. Dabigatran for Prevention of Stroke after Embolic Stroke of Undetermined Source. N Engl J Med. 2019;380(20):1906-1917. PMID 31091372; doi:10.1056/NEJMoa1813959.",
   "link": "https://doi.org/10.1056/nejmoa1813959",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Dodd2021",
+  "text": "Dodd WS, Laurent D, Dumont AS, Hasan DM, Jabbour PM, Starke RM, et al. Pathophysiology of Delayed Cerebral Ischemia After Subarachnoid Hemorrhage: A Review. J Am Heart Assoc. 2021;10(15):e021845. PMID 34325514; PMCID PMC8475656; doi:10.1161/JAHA.121.021845.",
+  "link": "https://doi.org/10.1161/jaha.121.021845",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1826,11 +2029,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "DorhoutMees2007",
+  "text": "Dorhout Mees SM, Rinkel GJ, Feigin VL, Algra A, van den Bergh WM, Vermeulen M, et al. Calcium antagonists for aneurysmal subarachnoid haemorrhage. Cochrane Database Syst Rev. 2007;2007(3):CD000277. PMID 17636626; PMCID PMC7044719; doi:10.1002/14651858.CD000277.pub3.",
+  "link": "https://doi.org/10.1002/14651858.cd000277.pub3",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Doshi2026",
   "text": "Doshi SK, Kar S, Nair DG, Waggoner T, Agarwal H, Moussavian M, et al. Left Atrial Appendage Closure or Anticoagulation for Atrial Fibrillation. N Engl J Med. 2026;394(21):2083-2094. PMID 41910347; doi:10.1056/NEJMoa2517213.",
   "link": "https://doi.org/10.1056/nejmoa2517213",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Dowlatshahi2011",
+  "text": "Dowlatshahi D, Demchuk AM, Flaherty ML, Ali M, Lyden PL, Smith EE, et al. Defining hematoma expansion in intracerebral hemorrhage: relationship with patient outcomes. Neurology. 2011;76(14):1238-44. PMID 21346218; PMCID PMC3068004; doi:10.1212/WNL.0b013e3182143317.",
+  "link": "https://doi.org/10.1212/wnl.0b013e3182143317",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1854,6 +2077,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Dubosh2016",
+  "text": "Dubosh NM, Bellolio MF, Rabinstein AA, Edlow JA. Sensitivity of Early Brain Computed Tomography to Exclude Aneurysmal Subarachnoid Hemorrhage: A Systematic Review and Meta-Analysis. Stroke. 2016;47(3):750-5. PMID 26797666; doi:10.1161/STROKEAHA.115.011386.",
+  "link": "https://doi.org/10.1161/strokeaha.115.011386",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Duncan2011",
@@ -2050,6 +2283,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Endo2022",
+  "text": "Endo H, Hagihara Y, Kimura N, Takizawa K, Niizuma K, Togo O, et al. Effects of clazosentan on cerebral vasospasm-related morbidity and all-cause mortality after aneurysmal subarachnoid hemorrhage: two randomized phase 3 trials in Japanese patients. J Neurosurg. 2022;137(6):1707-1717. PMID 35364589; doi:10.3171/2022.2.JNS212914.",
+  "link": "https://doi.org/10.3171/2022.2.jns212914",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Engelhardt2017",
   "text": "Engelhardt E. Apoplexy, cerebrovascular disease, and stroke: Historical evolution of terms and definitions. Dement Neuropsychol. 2017;11(4):449-453. PMID 29354227; PMCID PMC5770005; doi:10.1590/1980-57642016dn11-040016.",
   "link": "https://doi.org/10.1590/1980-57642016dn11-040016",
@@ -2078,6 +2321,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "English2025",
+  "text": "English SW, Delaney A, Fergusson DA, Chassé M, Turgeon AF, Lauzier F, et al. Liberal or Restrictive Transfusion Strategy in Aneurysmal Subarachnoid Hemorrhage. N Engl J Med. 2025;392(11):1079-1088. PMID 39655786; doi:10.1056/NEJMoa2410962.",
+  "link": "https://doi.org/10.1056/nejmoa2410962",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Epstein2017",
@@ -2114,7 +2367,8 @@
   "text": "Etminan N, Chang HS, Hackenberg K, de Rooij NK, Vergouwen MDI, Rinkel GJE, et al. Worldwide Incidence of Aneurysmal Subarachnoid Hemorrhage According to Region, Time Period, Blood Pressure, and Smoking Prevalence in the Population: A Systematic Review and Meta-analysis. JAMA Neurol. 2019;76(5):588-597. PMID 30659573; PMCID PMC6515606; doi:10.1001/jamaneurol.2019.0006.",
   "link": "https://doi.org/10.1001/jamaneurol.2019.0006",
   "areas": [
-   "A"
+   "A",
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2156,6 +2410,36 @@
   "areas": [
    "E",
    "F"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Andexxa2025",
+  "text": "US Food and Drug Administration. Update on the Safety of Andexxa by AstraZeneca: FDA Safety Communication. Issued 2025-12-18. https://www.fda.gov/safety/medical-product-safety-information/update-safety-andexxa-astrazeneca-fda-safety-communication",
+  "link": "https://www.fda.gov/safety/medical-product-safety-information/update-safety-andexxa-astrazeneca-fda-safety-communication",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "FDA"
+ },
+ {
+  "key": "FDA-Nimodipine",
+  "text": "Nimodipine capsules, US prescribing information. Application ANDA077811. Label effective 2024-08-16.",
+  "link": "",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
+  "key": "FDA-Praxbind",
+  "text": "Praxbind (idarucizumab), US prescribing information. Application BLA761025. Label effective 2024-01-23.",
+  "link": "",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "openFDA"
@@ -2358,6 +2642,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Fisher1980",
+  "text": "Fisher CM, Kistler JP, Davis JM. Relation of cerebral vasospasm to subarachnoid hemorrhage visualized by computerized tomographic scanning. Neurosurgery. 1980;6(1):1-9. PMID 7354892; doi:10.1227/00006123-198001000-00001.",
+  "link": "https://doi.org/10.1227/00006123-198001000-00001",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Flach2020",
   "text": "Flach C, Muruet W, Wolfe CDA, Bhalla A, Douiri A. Risk and Secondary Prevention of Stroke Recurrence: A Population-Base Cohort Study. Stroke. 2020;51(8):2435-2444. PMID 32646337; PMCID PMC7382537; doi:10.1161/STROKEAHA.120.028992.",
   "link": "https://doi.org/10.1161/strokeaha.120.028992",
@@ -2373,6 +2667,26 @@
   "link": "https://doi.org/10.1161/jaha.119.013101",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Flaherty2007",
+  "text": "Flaherty ML, Kissela B, Woo D, Kleindorfer D, Alwell K, Sekar P, et al. The increasing incidence of anticoagulant-associated intracerebral hemorrhage. Neurology. 2007;68(2):116-21. PMID 17210891; doi:10.1212/01.wnl.0000250340.05202.8b.",
+  "link": "https://doi.org/10.1212/01.wnl.0000250340.05202.8b",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Flibotte2004",
+  "text": "Flibotte JJ, Hagan N, O'Donnell J, Greenberg SM, Rosand J. Warfarin, hematoma expansion, and outcome of intracerebral hemorrhage. Neurology. 2004;63(6):1059-64. PMID 15452298; doi:10.1212/01.wnl.0000138428.40673.83.",
+  "link": "https://doi.org/10.1212/01.wnl.0000138428.40673.83",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2489,6 +2803,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Frontera2006",
+  "text": "Frontera JA, Claassen J, Schmidt JM, Wartenberg KE, Temes R, Connolly ES Jr, et al. Prediction of symptomatic vasospasm after subarachnoid hemorrhage: the modified fisher scale. Neurosurgery. 2006;59(1):21-7; discussion 21-7. PMID 16823296; doi:10.1227/01.neu.0000243277.86222.6c.",
+  "link": "https://doi.org/10.1227/01.neu.0000243277.86222.6c",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Frontera2016",
   "text": "Frontera JA, Lewin JJ, Rabinstein AA, Aisiku IP, Alexandrov AW, Cook AM, et al. Guideline for Reversal of Antithrombotics in Intracranial Hemorrhage: A Statement for Healthcare Professionals from the Neurocritical Care Society and Society of Critical Care Medicine. Neurocrit Care. 2016;24(1):6-46. PMID 26714677; doi:10.1007/s12028-015-0222-x.",
   "link": "https://doi.org/10.1007/s12028-015-0222-x",
@@ -2507,6 +2831,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Galea2017",
+  "text": "Galea JP, Dulhanty L, Patel HC, UK and Ireland Subarachnoid Hemorrhage Database Collaborators. Predictors of Outcome in Aneurysmal Subarachnoid Hemorrhage Patients: Observations From a Multicenter Data Set. Stroke. 2017;48(11):2958-2963. PMID 28974630; doi:10.1161/STROKEAHA.117.017777.",
+  "link": "https://doi.org/10.1161/strokeaha.117.017777",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Galli2025",
@@ -2554,6 +2888,16 @@
   "link": "https://doi.org/10.1161/strokeaha.119.028806",
   "areas": [
    "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Gathier2018",
+  "text": "Gathier CS, van den Bergh WM, van der Jagt M, Verweij BH, Dankbaar JW, Müller MC, et al. Induced Hypertension for Delayed Cerebral Ischemia After Aneurysmal Subarachnoid Hemorrhage: A Randomized Clinical Trial. Stroke. 2018;49(1):76-83. PMID 29158449; doi:10.1161/STROKEAHA.117.017956.",
+  "link": "https://doi.org/10.1161/strokeaha.117.017956",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2614,6 +2958,16 @@
   "link": "https://doi.org/10.4997/jrcpe.2013.205",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Gillespie2025",
+  "text": "Gillespie CS, Mihaela-Vasilica A, Dhaliwal J, Lee KS, Henney AE, Veremu M, et al. Hyponatremia Incidence After Subarachnoid Hemorrhage and Association with Outcomes: Systematic Review and Meta-Analysis. World Neurosurg. 2025;195:123616. PMID 39732459; doi:10.1016/j.wneu.2024.123616.",
+  "link": "https://doi.org/10.1016/j.wneu.2024.123616",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2743,6 +3097,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Greenberg2022",
+  "text": "Greenberg SM, Ziai WC, Cordonnier C, Dowlatshahi D, Francis B, Goldstein JN, et al. 2022 Guideline for the Management of Patients With Spontaneous Intracerebral Hemorrhage: A Guideline From the American Heart Association/American Stroke Association. Stroke. 2022;53(7):e282-e361. PMID 35579034; doi:10.1161/STR.0000000000000407.",
+  "link": "https://doi.org/10.1161/str.0000000000000407",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Greer2008",
   "text": "Greer DM, Funk SE, Reaven NL, Ouzounelli M, Uman GC. Impact of fever on outcome in patients with stroke and neurologic injury: a comprehensive meta-analysis. Stroke. 2008;39(11):3029-35. PMID 18723420; doi:10.1161/STROKEAHA.108.521583.",
   "link": "https://doi.org/10.1161/strokeaha.108.521583",
@@ -2761,6 +3125,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Greving2014",
+  "text": "Greving JP, Wermer MJ, Brown RD Jr, Morita A, Juvela S, Yonekura M, et al. Development of the PHASES score for prediction of risk of rupture of intracranial aneurysms: a pooled analysis of six prospective cohort studies. Lancet Neurol. 2014;13(1):59-66. PMID 24290159; doi:10.1016/S1474-4422(13)70263-1.",
+  "link": "https://doi.org/10.1016/s1474-4422(13)70263-1",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Grotta2021",
@@ -2928,14 +3302,35 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Hanley2017",
+  "text": "Hanley DF, Lane K, McBee N, Ziai W, Tuhrim S, Lees KR, et al. Thrombolytic removal of intraventricular haemorrhage in treatment of severe stroke: results of the randomised, multicentre, multiregion, placebo-controlled CLEAR III trial. Lancet. 2017;389(10069):603-611. PMID 28081952; PMCID PMC6108339; doi:10.1016/S0140-6736(16)32410-2.",
+  "link": "https://doi.org/10.1016/s0140-6736(16)32410-2",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Hanley2019",
-  "text": "Hanley DF, Thompson RE, Rosenblum M, Yenokyan G, Lane K, McBee N, et al. Efficacy and safety of minimally invasive surgery with thrombolysis in intracerebral haemorrhage evacuation (MISTIE III): a randomised, controlled, open-label, blinded endpoint phase 3 trial. Lancet. 2019;393(10175):1021-1032. PMID 30739747; PMCID PMC6894906; doi:10.1016/s0140-6736(19)30195-3.",
+  "text": "Hanley DF, Thompson RE, Rosenblum M, Yenokyan G, Lane K, McBee N, et al. Efficacy and safety of minimally invasive surgery with thrombolysis in intracerebral haemorrhage evacuation (MISTIE III): a randomised, controlled, open-label, blinded endpoint phase 3 trial. Lancet. 2019;393(10175):1021-1032. PMID 30739747; PMCID PMC6894906; doi:10.1016/S0140-6736(19)30195-3.",
   "link": "https://doi.org/10.1016/s0140-6736(19)30195-3",
   "areas": [
+   "C",
    "I"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hannon2014",
+  "text": "Hannon MJ, Behan LA, O'Brien MM, Tormey W, Ball SG, Javadpour M, et al. Hyponatremia following mild/moderate subarachnoid hemorrhage is due to SIAD and glucocorticoid deficiency and not cerebral salt wasting. J Clin Endocrinol Metab. 2014;99(1):291-8. PMID 24248182; doi:10.1210/jc.2013-3032.",
+  "link": "https://doi.org/10.1210/jc.2013-3032",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Hao2018",
@@ -3100,6 +3495,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Heeley2015",
+  "text": "Heeley E, Anderson CS, Woodward M, Arima H, Robinson T, Stapf C, et al. Poor utility of grading scales in acute intracerebral hemorrhage: results from the INTERACT2 trial. Int J Stroke. 2015;10(7):1101-7. PMID 26044442; doi:10.1111/ijs.12518.",
+  "link": "https://doi.org/10.1111/ijs.12518",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Heiss2011",
   "text": "Heiss WD. The ischemic penumbra: correlates in imaging and implications for treatment of ischemic stroke. The Johann Jacob Wepfer award 2011. Cerebrovasc Dis. 2011;32(4):307-20. PMID 21921593; doi:10.1159/000330462.",
   "link": "https://doi.org/10.1159/000330462",
@@ -3128,6 +3533,46 @@
   ],
   "unverified": false,
   "validated": "web page fetched 2026-11-08"
+ },
+ {
+  "key": "Hellingman2007",
+  "text": "Hellingman CA, van den Bergh WM, Beijer IS, van Dijk GW, Algra A, van Gijn J, et al. Risk of rebleeding after treatment of acute hydrocephalus in patients with aneurysmal subarachnoid hemorrhage. Stroke. 2007;38(1):96-9. PMID 17122426; doi:10.1161/01.STR.0000251841.51332.1d.",
+  "link": "https://doi.org/10.1161/01.str.0000251841.51332.1d",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hemphill2001",
+  "text": "Hemphill JC 3rd, Bonovich DC, Besmertis L, Manley GT, Johnston SC. The ICH score: a simple, reliable grading scale for intracerebral hemorrhage. Stroke. 2001;32(4):891-7. PMID 11283388; doi:10.1161/01.str.32.4.891.",
+  "link": "https://doi.org/10.1161/01.str.32.4.891",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hemphill2009",
+  "text": "Hemphill JC 3rd, Farrant M, Neill TA Jr. Prospective validation of the ICH Score for 12-month functional outcome. Neurology. 2009;73(14):1088-94. PMID 19726752; PMCID PMC2764394; doi:10.1212/WNL.0b013e3181b8b332.",
+  "link": "https://doi.org/10.1212/wnl.0b013e3181b8b332",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hemphill2015",
+  "text": "Hemphill JC 3rd, Greenberg SM, Anderson CS, Becker K, Bendok BR, Cushman M, et al. Guidelines for the Management of Spontaneous Intracerebral Hemorrhage: A Guideline for Healthcare Professionals From the American Heart Association/American Stroke Association. Stroke. 2015;46(7):2032-60. PMID 26022637; doi:10.1161/STR.0000000000000069.",
+  "link": "https://doi.org/10.1161/str.0000000000000069",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Hess2017",
@@ -3190,6 +3635,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Hoh2023",
+  "text": "Hoh BL, Ko NU, Amin-Hanjani S, Chou SH-Y, Cruz-Flores S, Dangayach NS, et al. 2023 Guideline for the Management of Patients With Aneurysmal Subarachnoid Hemorrhage: A Guideline From the American Heart Association/American Stroke Association. Stroke. 2023;54(7):e314-e370. PMID 37212182; doi:10.1161/STR.0000000000000436.",
+  "link": "https://doi.org/10.1161/str.0000000000000436",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Holloway2014",
   "text": "Holloway RG, Arnold RM, Creutzfeldt CJ, Lewis EF, Lutz BJ, McCann RM, et al. Palliative and end-of-life care in stroke: a statement for healthcare professionals from the American Heart Association/American Stroke Association. Stroke. 2014;45(6):1887-916. PMID 24676781; doi:10.1161/STR.0000000000000015.",
   "link": "https://doi.org/10.1161/str.0000000000000015",
@@ -3216,6 +3671,16 @@
   "link": "https://doi.org/10.1177/2396987317705536",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hop1997",
+  "text": "Hop JW, Rinkel GJ, Algra A, van Gijn J. Case-fatality rates and functional outcome after subarachnoid hemorrhage: a systematic review. Stroke. 1997;28(3):660-4. PMID 9056628; doi:10.1161/01.str.28.3.660.",
+  "link": "https://doi.org/10.1161/01.str.28.3.660",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3301,6 +3766,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Hu2025",
+  "text": "Hu X, Ouyang M, Xu J, Liu Y, Li X, Jiang Y, et al. Surgical outcomes from haematoma evacuation for intracerebral haemorrhage in the INTERACT3 study. Lancet Reg Health West Pac. 2025;62:101669. PMID 40927652; PMCID PMC12414919; doi:10.1016/j.lanwpc.2025.101669.",
+  "link": "https://doi.org/10.1016/j.lanwpc.2025.101669",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Huang2025",
   "text": "Huang J, Yang J, Liu C, Li L, Yang D, Guo C, et al. Intra-Arterial Tenecteplase Following Endovascular Reperfusion for Large Vessel Occlusion Acute Ischemic Stroke: The POST-TNK Randomized Clinical Trial. JAMA. 2025;333(7):579-588. PMID 39804681; PMCID PMC11836761; doi:10.1001/jama.2024.23466.",
   "link": "https://doi.org/10.1001/jama.2024.23466",
@@ -3310,6 +3785,26 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Huhtakangas2015",
+  "text": "Huhtakangas J, Lehto H, Seppä K, Kivisaari R, Niemelä M, Hernesniemi J, et al. Long-Term Excess Mortality After Aneurysmal Subarachnoid Hemorrhage: Patients With Multiple Aneurysms at Risk. Stroke. 2015;46(7):1813-8. PMID 26045602; doi:10.1161/STROKEAHA.115.009288.",
+  "link": "https://doi.org/10.1161/strokeaha.115.009288",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hunt1968",
+  "text": "Hunt WE, Hess RM. Surgical risk as related to time of intervention in the repair of intracranial aneurysms. J Neurosurg. 1968;28(1):14-20. PMID 5635959; doi:10.3171/jns.1968.28.1.0014.",
+  "link": "https://doi.org/10.3171/jns.1968.28.1.0014",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Huo2023",
@@ -3594,6 +4089,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Kassell1990",
+  "text": "Kassell NF, Torner JC, Haley EC Jr, Jane JA, Adams HP, Kongable GL. The International Cooperative Study on the Timing of Aneurysm Surgery. Part 1: Overall management results. J Neurosurg. 1990;73(1):18-36. PMID 2191090; doi:10.3171/jns.1990.73.1.0018.",
+  "link": "https://doi.org/10.3171/jns.1990.73.1.0018",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kattah2009",
   "text": "Kattah JC, Talkad AV, Wang DZ, Hsieh YH, Newman-Toker DE. HINTS to diagnose stroke in the acute vestibular syndrome: three-step bedside oculomotor examination more sensitive than early MRI diffusion-weighted imaging. Stroke. 2009;40(11):3504-10. PMID 19762709; PMCID PMC4593511; doi:10.1161/STROKEAHA.109.551234.",
   "link": "https://doi.org/10.1161/strokeaha.109.551234",
@@ -3785,6 +4290,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Kothari1996",
+  "text": "Kothari RU, Brott T, Broderick JP, Barsan WG, Sauerbeck LR, Zuccarello M, et al. The ABCs of measuring intracerebral hemorrhage volumes. Stroke. 1996;27(8):1304-5. PMID 8711791; doi:10.1161/01.str.27.8.1304.",
+  "link": "https://doi.org/10.1161/01.str.27.8.1304",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kothari1999",
   "text": "Kothari RU, Pancioli A, Liu T, Brott T, Broderick J. Cincinnati Prehospital Stroke Scale: reproducibility and validity. Ann Emerg Med. 1999;33(4):373-8. PMID 10092713; doi:10.1016/s0196-0644(99)70299-4.",
   "link": "https://doi.org/10.1016/s0196-0644(99)70299-4",
@@ -3833,6 +4348,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Kuramatsu2015",
+  "text": "Kuramatsu JB, Gerner ST, Schellinger PD, Glahn J, Endres M, Sobesky J, et al. Anticoagulant reversal, blood pressure levels, and anticoagulant resumption in patients with anticoagulation-related intracerebral hemorrhage. JAMA. 2015;313(8):824-36. PMID 25710659; doi:10.1001/jama.2015.0846.",
+  "link": "https://doi.org/10.1001/jama.2015.0846",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Kuruvilla2011",
@@ -4076,6 +4601,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Larsen2013",
+  "text": "Larsen CC, Astrup J. Rebleeding after aneurysmal subarachnoid hemorrhage: a literature review. World Neurosurg. 2013;79(2):307-12. PMID 22722033; doi:10.1016/j.wneu.2012.06.023.",
+  "link": "https://doi.org/10.1016/j.wneu.2012.06.023",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Larsson2016BMCMed",
   "text": "Larsson SC, Wallin A, Wolk A, Markus HS. Differing association of alcohol consumption with different stroke types: a systematic review and meta-analysis. BMC Med. 2016;14(1):178. PMID 27881167; PMCID PMC5121939; doi:10.1186/s12916-016-0721-4..",
   "link": "https://doi.org/10.1186/s12916-016-0721-4",
@@ -4197,19 +4732,23 @@
   "validated": "PubMed"
  },
  {
-  "key": "Li2024CHANCE3",
-  "text": "Li J, Meng X, Shi FD, Jing J, Gu HQ, Jin A, et al. Colchicine in patients with acute ischaemic stroke or transient ischaemic attack (CHANCE-3): multicentre, double blind, randomised, placebo controlled trial. BMJ. 2024;385:e079061. PMID 38925803; PMCID PMC11200154; doi:10.1136/bmj-2023-079061.",
-  "link": "https://doi.org/10.1136/bmj-2023-079061",
+  "key": "Li2024",
+  "text": "Li G, Lin Y, Yang J, Anderson CS, Chen C, Liu F, et al. Intensive Ambulance-Delivered Blood-Pressure Reduction in Hyperacute Stroke. N Engl J Med. 2024;390(20):1862-1872. PMID 38752650; doi:10.1056/NEJMoa2314741.",
+  "link": "https://doi.org/10.1056/nejmoa2314741",
   "areas": [
+   "C",
    "I"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed",
+  "aliases": [
+   "Li2024INTERACT4"
+  ]
  },
  {
-  "key": "Li2024INTERACT4",
-  "text": "Li G, Lin Y, Yang J, Anderson CS, Chen C, Liu F, et al. Intensive Ambulance-Delivered Blood-Pressure Reduction in Hyperacute Stroke. N Engl J Med. 2024;390(20):1862-1872. PMID 38752650; doi:10.1056/nejmoa2314741.",
-  "link": "https://doi.org/10.1056/nejmoa2314741",
+  "key": "Li2024CHANCE3",
+  "text": "Li J, Meng X, Shi FD, Jing J, Gu HQ, Jin A, et al. Colchicine in patients with acute ischaemic stroke or transient ischaemic attack (CHANCE-3): multicentre, double blind, randomised, placebo controlled trial. BMJ. 2024;385:e079061. PMID 38925803; PMCID PMC11200154; doi:10.1136/bmj-2023-079061.",
+  "link": "https://doi.org/10.1136/bmj-2023-079061",
   "areas": [
    "I"
   ],
@@ -4323,6 +4862,26 @@
   "link": "https://doi.org/10.1016/j.jstrokecerebrovasdis.2005.08.004",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Linn1994",
+  "text": "Linn FH, Wijdicks EF, van der Graaf Y, Weerdesteyn-van Vliet FA, Bartelds AI, van Gijn J. Prospective study of sentinel headache in aneurysmal subarachnoid haemorrhage. Lancet. 1994;344(8922):590-3. PMID 7914965; doi:10.1016/s0140-6736(94)91970-4.",
+  "link": "https://doi.org/10.1016/s0140-6736(94)91970-4",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Linn2010",
+  "text": "Linn J, Halpin A, Demaerel P, Ruhland J, Giese AD, Dichgans M, et al. Prevalence of superficial siderosis in patients with cerebral amyloid angiopathy. Neurology. 2010;74(17):1346-50. PMID 20421578; PMCID PMC2875936; doi:10.1212/WNL.0b013e3181dad605.",
+  "link": "https://doi.org/10.1212/wnl.0b013e3181dad605",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4546,13 +5105,14 @@
  },
  {
   "key": "Ma2023",
-  "text": "Ma L, Hu X, Song L, Chen X, Ouyang M, Billot L, et al. The third Intensive Care Bundle with Blood Pressure Reduction in Acute Cerebral Haemorrhage Trial (INTERACT3): an international, stepped wedge cluster randomised controlled trial. Lancet. 2023;402(10395):27-40. PMID 37245517; PMCID PMC10401723; doi:10.1016/s0140-6736(23)00806-1.",
+  "text": "Ma L, Hu X, Song L, Chen X, Ouyang M, Billot L, et al. The third Intensive Care Bundle with Blood Pressure Reduction in Acute Cerebral Haemorrhage Trial (INTERACT3): an international, stepped wedge cluster randomised controlled trial. Lancet. 2023;402(10395):27-40. PMID 37245517; PMCID PMC10401723; doi:10.1016/S0140-6736(23)00806-1.",
   "link": "https://doi.org/10.1016/s0140-6736(23)00806-1",
   "areas": [
+   "C",
    "I"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed"
  },
  {
   "key": "Ma2026",
@@ -4575,6 +5135,56 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Macdonald2008",
+  "text": "Macdonald RL, Kassell NF, Mayer S, Ruefenacht D, Schmiedek P, Weidauer S, et al. Clazosentan to overcome neurological ischemia and infarction occurring after subarachnoid hemorrhage (CONSCIOUS-1): randomized, double-blind, placebo-controlled phase 2 dose-finding trial. Stroke. 2008;39(11):3015-21. PMID 18688013; doi:10.1161/STROKEAHA.108.519942.",
+  "link": "https://doi.org/10.1161/strokeaha.108.519942",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Macdonald2011",
+  "text": "Macdonald RL, Higashida RT, Keller E, Mayer SA, Molyneux A, Raabe A, et al. Clazosentan, an endothelin receptor antagonist, in patients with aneurysmal subarachnoid haemorrhage undergoing surgical clipping: a randomised, double-blind, placebo-controlled phase 3 trial (CONSCIOUS-2). Lancet Neurol. 2011;10(7):618-25. PMID 21640651; doi:10.1016/S1474-4422(11)70108-9.",
+  "link": "https://doi.org/10.1016/s1474-4422(11)70108-9",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Macdonald2012",
+  "text": "Macdonald RL, Higashida RT, Keller E, Mayer SA, Molyneux A, Raabe A, et al. Randomized trial of clazosentan in patients with aneurysmal subarachnoid hemorrhage undergoing endovascular coiling. Stroke. 2012;43(6):1463-9. PMID 22403047; doi:10.1161/STROKEAHA.111.648980.",
+  "link": "https://doi.org/10.1161/strokeaha.111.648980",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Macdonald2020",
+  "text": "Macdonald RL, Hänggi D, Ko NU, Darsaut TE, Carlson AP, Wong GK, et al. NEWTON-2 Cisternal (Nimodipine Microparticles to Enhance Recovery While Reducing Toxicity After Subarachnoid Hemorrhage): A Phase 2, Multicenter, Randomized, Open-Label Safety Study of Intracisternal EG-1962 in Aneurysmal Subarachnoid Hemorrhage. Neurosurgery. 2020;88(1):E13-E26. PMID 32985652; doi:10.1093/neuros/nyaa430.",
+  "link": "https://doi.org/10.1093/neuros/nyaa430",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Mackey2016",
+  "text": "Mackey J, Khoury JC, Alwell K, Moomaw CJ, Kissela BM, Flaherty ML, et al. Stable incidence but declining case-fatality rates of subarachnoid hemorrhage in a population. Neurology. 2016;87(21):2192-2197. PMID 27770074; PMCID PMC5123555; doi:10.1212/WNL.0000000000003353.",
+  "link": "https://doi.org/10.1212/wnl.0000000000003353",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Mackintosh2006",
   "text": "Mackintosh SF, Hill KD, Dodd KJ, Goldie PA, Culham EG. Balance score and a history of falls in hospital predict recurrent falls in the 6 months following stroke rehabilitation. Arch Phys Med Rehabil. 2006;87(12):1583-9. PMID 17141637; doi:10.1016/j.apmr.2006.09.004.",
   "link": "https://doi.org/10.1016/j.apmr.2006.09.004",
@@ -4590,6 +5200,16 @@
   "link": "https://doi.org/10.1212/wnl.0000000000208077",
   "areas": [
    "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Magid2022",
+  "text": "Magid-Bernstein J, Girard R, Polster S, Srinath A, Romanos S, Awad IA, et al. Cerebral Hemorrhage: Pathophysiology, Treatment, and Future Directions. Circ Res. 2022;130(8):1204-1229. PMID 35420918; PMCID PMC10032582; doi:10.1161/CIRCRESAHA.121.319949.",
+  "link": "https://doi.org/10.1161/circresaha.121.319949",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4740,14 +5360,25 @@
   "validated": "PubMed"
  },
  {
+  "key": "Mayer2008",
+  "text": "Mayer SA, Brun NC, Begtrup K, Broderick J, Davis S, Diringer MN, et al. Efficacy and safety of recombinant activated factor VII for acute intracerebral hemorrhage. N Engl J Med. 2008;358(20):2127-37. PMID 18480205; doi:10.1056/NEJMoa0707534.",
+  "link": "https://doi.org/10.1056/nejmoa0707534",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Mayer2025",
-  "text": "Mayer SA, Bruder N, Citerio G, Defreyne L, Dubois C, Gupta R, et al. REACT: a randomized trial to assess the efficacy and safety of clazosentan for preventing clinical deterioration due to delayed cerebral ischemia after aneurysmal subarachnoid hemorrhage. J Neurosurg. 2025;142(1):98-109. PMID 39126720; doi:10.3171/2024.4.jns232191.",
+  "text": "Mayer SA, Bruder N, Citerio G, Defreyne L, Dubois C, Gupta R, et al. REACT: a randomized trial to assess the efficacy and safety of clazosentan for preventing clinical deterioration due to delayed cerebral ischemia after aneurysmal subarachnoid hemorrhage. J Neurosurg. 2025;142(1):98-109. PMID 39126720; doi:10.3171/2024.4.JNS232191.",
   "link": "https://doi.org/10.3171/2024.4.jns232191",
   "areas": [
+   "C",
    "I"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed"
  },
  {
   "key": "McEvoy2016",
@@ -4880,6 +5511,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Mendelow2005",
+  "text": "Mendelow AD, Gregson BA, Fernandes HM, Murray GD, Teasdale GM, Hope DT, et al. Early surgery versus initial conservative treatment in patients with spontaneous supratentorial intracerebral haematomas in the International Surgical Trial in Intracerebral Haemorrhage (STICH): a randomised trial. Lancet. 2005;365(9457):387-97. PMID 15680453; doi:10.1016/S0140-6736(05)17826-X.",
+  "link": "https://doi.org/10.1016/s0140-6736(05)17826-x",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Mendelow2013",
+  "text": "Mendelow AD, Gregson BA, Rowan EN, Murray GD, Gholkar A, Mitchell PM, et al. Early surgery versus initial conservative treatment in patients with spontaneous supratentorial lobar intracerebral haematomas (STICH II): a randomised trial. Lancet. 2013;382(9890):397-408. PMID 23726393; PMCID PMC3906609; doi:10.1016/S0140-6736(13)60986-1.",
+  "link": "https://doi.org/10.1016/s0140-6736(13)60986-1",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Meng2024",
   "text": "Meng X, Li S, Dai H, Lu G, Wang W, Che F, et al. Tenecteplase vs Alteplase for Patients With Acute Ischemic Stroke: The ORIGINAL Randomized Clinical Trial. JAMA. 2024;332(17):1437-1445. PMID 39264623; PMCID PMC11393753; doi:10.1001/jama.2024.14721.",
   "link": "https://doi.org/10.1001/jama.2024.14721",
@@ -4914,13 +5565,24 @@
   "text": "Menon CS, Law ZK, Woodhouse LJ, Liu J, Mutimer C, Desborough M, et al. Effect of tranexamic acid for acute spontaneous intracerebral haemorrhage: a systematic review and individual patient data meta-analysis. J Neurol Neurosurg Psychiatry. 2026;97(9):797-807. PMID 42276775; PMCID PMC13479682; doi:10.1136/jnnp-2025-338291.",
   "link": "https://doi.org/10.1136/jnnp-2025-338291",
   "areas": [
+   "C",
    "I"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed"
  },
  {
   "key": "Meretoja2012",
+  "text": "Meretoja A, Strbian D, Putaala J, Curtze S, Haapaniemi E, Mustanoja S, et al. SMASH-U: a proposal for etiologic classification of intracerebral hemorrhage. Stroke. 2012;43(10):2592-7. PMID 22858729; doi:10.1161/STROKEAHA.112.661603.",
+  "link": "https://doi.org/10.1161/strokeaha.112.661603",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Meretoja2012D",
   "text": "Meretoja A, Strbian D, Mustanoja S, Tatlisumak T, Lindsberg PJ, Kaste M. Reducing in-hospital delay to 20 minutes in stroke thrombolysis. Neurology. 2012;79(4):306-13. PMID 22622858; doi:10.1212/WNL.0b013e31825d6011.",
   "link": "https://doi.org/10.1212/wnl.0b013e31825d6011",
   "areas": [
@@ -5103,6 +5765,36 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Molyneux2002",
+  "text": "Molyneux A, Kerr R, Stratton I, Sandercock P, Clarke M, Shrimpton J, et al. International Subarachnoid Aneurysm Trial (ISAT) of neurosurgical clipping versus endovascular coiling in 2143 patients with ruptured intracranial aneurysms: a randomised trial. Lancet. 2002;360(9342):1267-74. PMID 12414200; doi:10.1016/s0140-6736(02)11314-6.",
+  "link": "https://doi.org/10.1016/s0140-6736(02)11314-6",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Molyneux2005",
+  "text": "Molyneux AJ, Kerr RS, Yu LM, Clarke M, Sneade M, Yarnold JA, et al. International subarachnoid aneurysm trial (ISAT) of neurosurgical clipping versus endovascular coiling in 2143 patients with ruptured intracranial aneurysms: a randomised comparison of effects on survival, dependency, seizures, rebleeding, subgroups, and aneurysm occlusion. Lancet. 2005;366(9488):809-17. PMID 16139655; doi:10.1016/S0140-6736(05)67214-5.",
+  "link": "https://doi.org/10.1016/s0140-6736(05)67214-5",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Molyneux2015",
+  "text": "Molyneux AJ, Birks J, Clarke A, Sneade M, Kerr RS. The durability of endovascular coiling versus neurosurgical clipping of ruptured cerebral aneurysms: 18 year follow-up of the UK cohort of the International Subarachnoid Aneurysm Trial (ISAT). Lancet. 2015;385(9969):691-7. PMID 25465111; PMCID PMC4356153; doi:10.1016/S0140-6736(14)60975-2.",
+  "link": "https://doi.org/10.1016/s0140-6736(14)60975-2",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Monguillon2026",
   "text": "Monguillon V, Kelly PJ, O'Donoghue ML, Park JG, Bohula EA, Saver JL, et al. Efficacy and Safety of Very Low Achieved LDL Cholesterol in Patients With Previous Ischemic Stroke. Circulation. 2026;153(2):86-93. PMID 41178569; doi:10.1161/CIRCULATIONAHA.125.077549.",
   "link": "https://doi.org/10.1161/circulationaha.125.077549",
@@ -5128,6 +5820,16 @@
   "link": "https://doi.org/10.1161/circulationaha.106.176040",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Moullaali2019",
+  "text": "Moullaali TJ, Wang X, Martin RH, Shipes VB, Robinson TG, Chalmers J, et al. Blood pressure control and clinical outcomes in acute intracerebral haemorrhage: a preplanned pooled analysis of individual participant data. Lancet Neurol. 2019;18(9):857-864. PMID 31397290; doi:10.1016/S1474-4422(19)30196-6.",
+  "link": "https://doi.org/10.1016/s1474-4422(19)30196-6",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -5323,6 +6025,16 @@
   "validated": "ClinicalTrials.gov"
  },
  {
+  "key": "NCT03950076",
+  "text": "EdoxabaN foR IntraCranial Hemorrhage Survivors With Atrial Fibrillation (ENRICH-AF). ClinicalTrials.gov NCT03950076.",
+  "link": "",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
   "key": "NCT04023552",
   "text": "Assessing the Impact of Lipoprotein (a) Lowering With Pelacarsen (TQJ230) on Major Cardiovascular Events in Patients With CVD (Lp(a)HORIZON). ClinicalTrials.gov NCT04023552; completed 2026-07-16; no results posted.",
   "link": "",
@@ -5508,7 +6220,8 @@
   "text": "Nieuwkamp DJ, Setz LE, Algra A, Linn FH, de Rooij NK, Rinkel GJ. Changes in case fatality of aneurysmal subarachnoid haemorrhage over time, according to age, sex, and region: a meta-analysis. Lancet Neurol. 2009;8(7):635-42. PMID 19501022; doi:10.1016/S1474-4422(09)70126-7.",
   "link": "https://doi.org/10.1016/s1474-4422(09)70126-7",
   "areas": [
-   "A"
+   "A",
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -5607,11 +6320,31 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Nussbaum2021",
+  "text": "Nussbaum ES, Mikoff N, Paranjape GS. Cognitive deficits among patients surviving aneurysmal subarachnoid hemorrhage. A contemporary systematic review. Br J Neurosurg. 2021;35(4):384-401. PMID 33345644; doi:10.1080/02688697.2020.1859462.",
+  "link": "https://doi.org/10.1080/02688697.2020.1859462",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "ODonnell2016",
   "text": "O'Donnell MJ, Chin SL, Rangarajan S, Xavier D, Liu L, Zhang H, et al. Global and regional effects of potentially modifiable risk factors associated with acute stroke in 32 countries (INTERSTROKE): a case-control study. Lancet. 2016;388(10046):761-75. PMID 27431356; doi:10.1016/S0140-6736(16)30506-2.",
   "link": "https://doi.org/10.1016/s0140-6736(16)30506-2",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Ohkuma2001",
+  "text": "Ohkuma H, Tsurutani H, Suzuki S. Incidence and significance of early aneurysmal rebleeding before neurosurgical or neurological management. Stroke. 2001;32(5):1176-80. PMID 11340229; doi:10.1161/01.str.32.5.1176.",
+  "link": "https://doi.org/10.1161/01.str.32.5.1176",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -5767,6 +6500,26 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Passier2010",
+  "text": "Passier PE, Visser-Meily JM, van Zandvoort MJ, Post MW, Rinkel GJ, van Heugten C. Prevalence and determinants of cognitive complaints after aneurysmal subarachnoid hemorrhage. Cerebrovasc Dis. 2010;29(6):557-63. PMID 20375498; doi:10.1159/000306642.",
+  "link": "https://doi.org/10.1159/000306642",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Passier2011",
+  "text": "Passier PE, Visser-Meily JM, Rinkel GJ, Lindeman E, Post MW. Life satisfaction and return to work after aneurysmal subarachnoid hemorrhage. J Stroke Cerebrovasc Dis. 2011;20(4):324-9. PMID 20656515; doi:10.1016/j.jstrokecerebrovasdis.2010.02.001.",
+  "link": "https://doi.org/10.1016/j.jstrokecerebrovasdis.2010.02.001",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Patel2001",
   "text": "Patel M, Coshall C, Rudd AG, Wolfe CD. Natural history and effects on 2-year outcomes of urinary incontinence after stroke. Stroke. 2001;32(1):122-7. PMID 11136926; doi:10.1161/01.str.32.1.122.",
   "link": "https://doi.org/10.1161/01.str.32.1.122",
@@ -5838,6 +6591,46 @@
   "validated": "PubMed"
  },
  {
+  "key": "Perry2011",
+  "text": "Perry JJ, Stiell IG, Sivilotti ML, Bullard MJ, Emond M, Symington C, et al. Sensitivity of computed tomography performed within six hours of onset of headache for diagnosis of subarachnoid haemorrhage: prospective cohort study. BMJ. 2011;343:d4277. PMID 21768192; PMCID PMC3138338; doi:10.1136/bmj.d4277.",
+  "link": "https://doi.org/10.1136/bmj.d4277",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Perry2013",
+  "text": "Perry JJ, Stiell IG, Sivilotti ML, Bullard MJ, Hohl CM, Sutherland J, et al. Clinical decision rules to rule out subarachnoid hemorrhage for acute headache. JAMA. 2013;310(12):1248-55. PMID 24065011; doi:10.1001/jama.2013.278018.",
+  "link": "https://doi.org/10.1001/jama.2013.278018",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Perry2015",
+  "text": "Perry JJ, Alyahya B, Sivilotti ML, Bullard MJ, Émond M, Sutherland J, et al. Differentiation between traumatic tap and aneurysmal subarachnoid hemorrhage: prospective cohort study. BMJ. 2015;350:h568. PMID 25694274; PMCID PMC4353280; doi:10.1136/bmj.h568.",
+  "link": "https://doi.org/10.1136/bmj.h568",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Perry2017",
+  "text": "Perry JJ, Sivilotti MLA, Sutherland J, Hohl CM, Émond M, Calder LA, et al. Validation of the Ottawa Subarachnoid Hemorrhage Rule in patients with acute headache. CMAJ. 2017;189(45):E1379-E1385. PMID 29133539; PMCID PMC5687926; doi:10.1503/cmaj.170072.",
+  "link": "https://doi.org/10.1503/cmaj.170072",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Pexman2001",
   "text": "Pexman JH, Barber PA, Hill MD, Sevick RJ, Demchuk AM, Hudon ME, et al. Use of the Alberta Stroke Program Early CT Score (ASPECTS) for assessing CT scans in patients with acute stroke. AJNR Am J Neuroradiol. 2001;22(8):1534-42. PMID 11559501; PMCID PMC7974585.",
   "link": "https://pubmed.ncbi.nlm.nih.gov/11559501/",
@@ -5868,6 +6661,15 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "PHRI2026",
+  "text": "Population Health Research Institute. New findings call for individualized stroke prevention after brain bleed in atrial fibrillation patients. Press release, 2026. https://www.phri.ca/new-findings-call-for-individualized-stroke-prevention-after-brain-bleed-in-atrial-fibrillation-patients/ (unverified: press release on the ESC 2026 presentation; no peer-reviewed paper found in PubMed or Europe PMC)",
+  "link": "https://www.phri.ca/new-findings-call-for-individualized-stroke-prevention-after-brain-bleed-in-atrial-fibrillation-patients/",
+  "areas": [
+   "C"
+  ],
+  "unverified": true
+ },
+ {
   "key": "Piccini2025",
   "text": "Piccini JP, Patel MR, Steffel J, Ferdinand K, Van Gelder IC, Russo AM, et al. Asundexian versus Apixaban in Patients with Atrial Fibrillation. N Engl J Med. 2025;392(1):23-32. PMID 39225267; doi:10.1056/nejmoa2407105.",
   "link": "https://doi.org/10.1056/nejmoa2407105",
@@ -5876,6 +6678,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Pickard1989",
+  "text": "Pickard JD, Murray GD, Illingworth R, Shaw MD, Teasdale GM, Foy PM, et al. Effect of oral nimodipine on cerebral infarction and outcome after subarachnoid haemorrhage: British aneurysm nimodipine trial. BMJ. 1989;298(6674):636-42. PMID 2496789; PMCID PMC1835889; doi:10.1136/bmj.298.6674.636.",
+  "link": "https://doi.org/10.1136/bmj.298.6674.636",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Pisters2010",
@@ -5898,6 +6710,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Pollack2017",
+  "text": "Pollack CV Jr, Reilly PA, van Ryn J, Eikelboom JW, Glund S, Bernstein RA, et al. Idarucizumab for Dabigatran Reversal - Full Cohort Analysis. N Engl J Med. 2017;377(5):431-441. PMID 28693366; doi:10.1056/NEJMoa1707278.",
+  "link": "https://doi.org/10.1056/nejmoa1707278",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Pollock2014",
   "text": "Pollock A, Baer G, Campbell P, Choo PL, Forster A, Morris J, et al. Physical rehabilitation approaches for the recovery of function and mobility following stroke. Cochrane Database Syst Rev. 2014(4):CD001920. PMID 24756870; PMCID PMC6465059; doi:10.1002/14651858.cd001920.pub3.",
   "link": "https://doi.org/10.1002/14651858.cd001920.pub3",
@@ -5918,6 +6740,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Polmear2003",
+  "text": "Polmear A. Sentinel headaches in aneurysmal subarachnoid haemorrhage: what is the true incidence? A systematic review. Cephalalgia. 2003;23(10):935-41. PMID 14984225; doi:10.1046/j.1468-2982.2003.00596.x.",
+  "link": "https://doi.org/10.1046/j.1468-2982.2003.00596.x",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Pomeroy2018",
   "text": "Pomeroy VM, Hunter SM, Johansen-Berg H, Ward NS, Kennedy N, Chandler E, et al. Functional strength training versus movement performance therapy for upper limb motor recovery early after stroke: a RCT. None. 2018. PMID 30020591; doi:10.3310/eme05030.",
   "link": "https://doi.org/10.3310/eme05030",
@@ -5932,7 +6764,18 @@
   "text": "Poon MT, Fonville AF, Al-Shahi Salman R. Long-term prognosis after intracerebral haemorrhage: systematic review and meta-analysis. J Neurol Neurosurg Psychiatry. 2014;85(6):660-7. PMID 24262916; doi:10.1136/jnnp-2013-306476.",
   "link": "https://doi.org/10.1136/jnnp-2013-306476",
   "areas": [
-   "A"
+   "A",
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Post2021",
+  "text": "Post R, Germans MR, Tjerkstra MA, Vergouwen MDI, Jellema K, Koot RW, et al. Ultra-early tranexamic acid after subarachnoid haemorrhage (ULTRA): a randomised controlled trial. Lancet. 2021;397(10269):112-118. PMID 33357465; doi:10.1016/S0140-6736(20)32518-6.",
+  "link": "https://doi.org/10.1016/s0140-6736(20)32518-6",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -5993,13 +6836,14 @@
  },
  {
   "key": "Pradilla2024",
-  "text": "Pradilla G, Ratcliff JJ, Hall AJ, Saville BR, Allen JW, Paulon G, et al. Trial of Early Minimally Invasive Removal of Intracerebral Hemorrhage. N Engl J Med. 2024;390(14):1277-1289. PMID 38598795; doi:10.1056/nejmoa2308440.",
+  "text": "Pradilla G, Ratcliff JJ, Hall AJ, Saville BR, Allen JW, Paulon G, et al. Trial of Early Minimally Invasive Removal of Intracerebral Hemorrhage. N Engl J Med. 2024;390(14):1277-1289. PMID 38598795; doi:10.1056/NEJMoa2308440.",
   "link": "https://doi.org/10.1056/nejmoa2308440",
   "areas": [
+   "C",
    "I"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed"
  },
  {
   "key": "PROGRESS2001",
@@ -6077,6 +6921,16 @@
   "link": "https://doi.org/10.1161/strokeaha.109.557256",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Qureshi2016",
+  "text": "Qureshi AI, Palesch YY, Barsan WG, Hanley DF, Hsu CY, Martin RL, et al. Intensive Blood-Pressure Lowering in Patients with Acute Cerebral Hemorrhage. N Engl J Med. 2016;375(11):1033-43. PMID 27276234; PMCID PMC5345109; doi:10.1056/NEJMoa1603460.",
+  "link": "https://doi.org/10.1056/nejmoa1603460",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -6212,6 +7066,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Ren2026",
+  "text": "Ren X, Li Q, Chen X, Ouyang M, Delcourt C, Wang J, et al. Effects of Intensive Blood Pressure Lowering on Perihematomal Edema in Acute Intracerebral Hemorrhage: Pooled Analysis of the Four INTERACT Trials. Ann Neurol. 2026. PMID 42803522; doi:10.1002/ana.78377.",
+  "link": "https://doi.org/10.1002/ana.78377",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Renu2022",
   "text": "Renú A, Millán M, San Román L, Blasco J, Martí-Fàbregas J, Terceño M, et al. Effect of Intra-arterial Alteplase vs Placebo Following Successful Thrombectomy on Functional Outcomes in Patients With Large Vessel Occlusion Acute Ischemic Stroke: The CHOICE Randomized Clinical Trial. JAMA. 2022;327(9):826-835. PMID 35143603; PMCID PMC8832304; doi:10.1001/jama.2022.1645.",
   "link": "https://doi.org/10.1001/jama.2022.1645",
@@ -6221,6 +7085,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "RESTART2019",
+  "text": "RESTART Collaboration. Effects of antiplatelet therapy after stroke due to intracerebral haemorrhage (RESTART): a randomised, open-label trial. Lancet. 2019;393(10191):2613-2623. PMID 31128924; PMCID PMC6617509; doi:10.1016/S0140-6736(19)30840-2.",
+  "link": "https://doi.org/10.1016/s0140-6736(19)30840-2",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Retelski2017",
@@ -6258,6 +7132,16 @@
   "link": "https://doi.org/10.1161/strokeaha.110.609693",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Rinkel2011",
+  "text": "Rinkel GJ, Algra A. Long-term outcomes of patients with aneurysmal subarachnoid haemorrhage. Lancet Neurol. 2011;10(4):349-56. PMID 21435599; doi:10.1016/S1474-4422(11)70017-5.",
+  "link": "https://doi.org/10.1016/s1474-4422(11)70017-5",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -6339,6 +7223,16 @@
   "link": "https://doi.org/10.1161/strokeaha.114.006667",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Roos2003",
+  "text": "Roos YB, Rinkel GJ, Vermeulen M, Algra A, van Gijn J. Antifibrinolytic therapy for aneurysmal subarachnoid haemorrhage. Cochrane Database Syst Rev. 2003(2):CD001245. PMID 12804399; doi:10.1002/14651858.CD001245.",
+  "link": "https://doi.org/10.1002/14651858.cd001245",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -6567,13 +7461,14 @@
  },
  {
   "key": "Sandset2026",
-  "text": "Sandset EC, Palaiodimou L, Jahr SH, Ho L, Fischer U, Katsanos AH, et al. 2025 update to European Stroke Organisation (ESO) guideline on blood pressure management in acute ischaemic stroke and intracerebral haemorrhage. Eur Stroke J. 2026;11(5):aakag004. PMID 42095756; PMCID PMC13151662; doi:10.1093/esj/aakag004.",
+  "text": "Sandset EC, Palaiodimou L, Jahr SH, Ho L, Fischer U, Katsanos AH, et al. 2025 update to European Stroke Organisation (ESO) guideline on blood pressure management in acute ischaemic stroke and intracerebral haemorrhage. Eur Stroke J. 2026;11(5). PMID 42095756; PMCID PMC13151662; doi:10.1093/esj/aakag004.",
   "link": "https://doi.org/10.1093/esj/aakag004",
   "areas": [
+   "C",
    "E"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed"
  },
  {
   "key": "Sanna2014",
@@ -6757,6 +7652,16 @@
   "link": "https://doi.org/10.1117/1.jmi.8.5.052110",
   "areas": [
    "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Scott2010",
+  "text": "Scott RB, Eccles F, Molyneux AJ, Kerr RS, Rothwell PM, Carpenter K. Improved cognitive outcomes with endovascular coiling of ruptured intracranial aneurysms: neuropsychological outcomes from the International Subarachnoid Aneurysm Trial (ISAT). Stroke. 2010;41(8):1743-7. PMID 20616321; doi:10.1161/STROKEAHA.110.585240.",
+  "link": "https://doi.org/10.1161/strokeaha.110.585240",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -6973,6 +7878,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Sondag2020",
+  "text": "Sondag L, Schreuder FHBM, Boogaarts HD, Rovers MM, Vandertop WP, Dammers R, et al. Neurosurgical Intervention for Supratentorial Intracerebral Hemorrhage. Ann Neurol. 2020;88(2):239-250. PMID 32239722; PMCID PMC7497162; doi:10.1002/ana.25732.",
+  "link": "https://doi.org/10.1002/ana.25732",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Sondergaard2017",
   "text": "Søndergaard L, Kasner SE, Rhodes JF, Andersen G, Iversen HK, Nielsen-Kudsk JE, et al. Patent Foramen Ovale Closure or Antiplatelet Therapy for Cryptogenic Stroke. N Engl J Med. 2017;377(11):1033-1042. PMID 28902580; doi:10.1056/NEJMoa1707404.",
   "link": "https://doi.org/10.1056/nejmoa1707404",
@@ -7004,13 +7919,14 @@
  },
  {
   "key": "Sprigg2018",
-  "text": "Sprigg N, Flaherty K, Appleton JP, Al-Shahi Salman R, Bereczki D, Beridze M, et al. Tranexamic acid for hyperacute primary IntraCerebral Haemorrhage (TICH-2): an international randomised, placebo-controlled, phase 3 superiority trial. Lancet. 2018;391(10135):2107-2115. PMID 29778325; PMCID PMC5976950; doi:10.1016/s0140-6736(18)31033-x.",
+  "text": "Sprigg N, Flaherty K, Appleton JP, Al-Shahi Salman R, Bereczki D, Beridze M, et al. Tranexamic acid for hyperacute primary IntraCerebral Haemorrhage (TICH-2): an international randomised, placebo-controlled, phase 3 superiority trial. Lancet. 2018;391(10135):2107-2115. PMID 29778325; PMCID PMC5976950; doi:10.1016/S0140-6736(18)31033-X.",
   "link": "https://doi.org/10.1016/s0140-6736(18)31033-x",
   "areas": [
+   "C",
    "I"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed"
  },
  {
   "key": "Spyropoulou2026",
@@ -7018,6 +7934,16 @@
   "link": "https://doi.org/10.2174/011573403x388495251112044417",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Staykov2011",
+  "text": "Staykov D, Wagner I, Volbers B, Hauer EM, Doerfler A, Schwab S, et al. Natural course of perihemorrhagic edema after intracerebral hemorrhage. Stroke. 2011;42(9):2625-9. PMID 21737803; doi:10.1161/STROKEAHA.111.618611.",
+  "link": "https://doi.org/10.1161/strokeaha.111.618611",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -7041,6 +7967,36 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Steiner2016",
+  "text": "Steiner T, Poli S, Griebe M, Hüsing J, Hajda J, Freiberger A, et al. Fresh frozen plasma versus prothrombin complex concentrate in patients with intracranial haemorrhage related to vitamin K antagonists (INCH): a randomised trial. Lancet Neurol. 2016;15(6):566-73. PMID 27302126; doi:10.1016/S1474-4422(16)00110-1.",
+  "link": "https://doi.org/10.1016/s1474-4422(16)00110-1",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Steiner2025",
+  "text": "Steiner T, Purrucker JC, Aguiar de Sousa D, Apostolaki-Hansson T, Beck J, Christensen H, et al. European Stroke Organisation (ESO) and European Association of Neurosurgical Societies (EANS) guideline on stroke due to spontaneous intracerebral haemorrhage. Eur Stroke J. 2025;10(4):1007-1086. PMID 40401775; PMCID PMC12098356; doi:10.1177/23969873251340815.",
+  "link": "https://doi.org/10.1177/23969873251340815",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Stienen2018",
+  "text": "Stienen MN, Germans M, Burkhardt JK, Neidert MC, Fung C, Bervini D, et al. Predictors of In-Hospital Death After Aneurysmal Subarachnoid Hemorrhage: Analysis of a Nationwide Database (Swiss SOS [Swiss Study on Aneurysmal Subarachnoid Hemorrhage]). Stroke. 2018;49(2):333-340. PMID 29335333; doi:10.1161/STROKEAHA.117.019328.",
+  "link": "https://doi.org/10.1161/strokeaha.117.019328",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Stinear2017",
@@ -7144,6 +8100,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Switzer2024",
+  "text": "Switzer AR, Charidimou A, McCarter S, Vemuri P, Nguyen AT, Przybelski SA, et al. Boston Criteria v2.0 for Cerebral Amyloid Angiopathy Without Hemorrhage: An MRI-Neuropathologic Validation Study. Neurology. 2024;102(10):e209386. PMID 38710005; PMCID PMC11177590; doi:10.1212/WNL.0000000000209386.",
+  "link": "https://doi.org/10.1212/wnl.0000000000209386",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Synhaeve2014",
   "text": "Synhaeve NE, Arntz RM, Maaijwee NA, Rutten-Jacobs LC, Schoonderwaldt HC, Dorresteijn LD, et al. Poor long-term functional outcome after stroke among adults aged 18 to 50 years: Follow-Up of Transient Ischemic Attack and Stroke Patients and Unelucidated Risk Factor Evaluation (FUTURE) study. Stroke. 2014;45(4):1157-1160. PMID 24578210; doi:10.1161/strokeaha.113.004411.",
   "link": "https://doi.org/10.1161/strokeaha.113.004411",
@@ -7169,6 +8135,16 @@
   "link": "https://doi.org/10.3174/ajnr.a1408",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Tang2014",
+  "text": "Tang C, Zhang TS, Zhou LF. Risk factors for rebleeding of aneurysmal subarachnoid hemorrhage: a meta-analysis. PLoS One. 2014;9(6):e99536. PMID 24911172; PMCID PMC4049799; doi:10.1371/journal.pone.0099536.",
+  "link": "https://doi.org/10.1371/journal.pone.0099536",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -7230,6 +8206,16 @@
   "link": "https://doi.org/10.1212/wnl.0000000000003814",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Teasdale1988",
+  "text": "World Federation of Neurological Surgeons Committee (no authors on the PubMed record). Report of World Federation of Neurological Surgeons Committee on a Universal Subarachnoid Hemorrhage Grading Scale. J Neurosurg. 1988;68(6):985-6. PMID 3131498; doi:10.3171/jns.1988.68.6.0985.",
+  "link": "https://doi.org/10.3171/jns.1988.68.6.0985",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -7379,6 +8365,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Treggiari2023",
+  "text": "Treggiari MM, Rabinstein AA, Busl KM, Caylor MM, Citerio G, Deem S, et al. Guidelines for the Neurocritical Care Management of Aneurysmal Subarachnoid Hemorrhage. Neurocrit Care. 2023;39(1):1-28. PMID 37202712; doi:10.1007/s12028-023-01713-5.",
+  "link": "https://doi.org/10.1007/s12028-023-01713-5",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Tsivgoulis2015",
   "text": "Tsivgoulis G, Zand R, Katsanos AH, Goyal N, Uchino K, Chang J, et al. Safety of intravenous thrombolysis in stroke mimics: prospective 5-year study and comprehensive meta-analysis. Stroke. 2015;46(5):1281-7. PMID 25791717; doi:10.1161/STROKEAHA.115.009012.",
   "link": "https://doi.org/10.1161/strokeaha.115.009012",
@@ -7484,7 +8480,8 @@
   "text": "van Asch CJ, Luitse MJ, Rinkel GJ, van der Tweel I, Algra A, Klijn CJ. Incidence, case fatality, and functional outcome of intracerebral haemorrhage over time, according to age, sex, and ethnic origin: a systematic review and meta-analysis. Lancet Neurol. 2010;9(2):167-76. PMID 20056489; doi:10.1016/S1474-4422(09)70340-0.",
   "link": "https://doi.org/10.1016/s1474-4422(09)70340-0",
   "areas": [
-   "A"
+   "A",
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -7549,6 +8546,56 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Veltkamp2025",
+  "text": "Veltkamp R, Korompoki E, Harvey KH, Harvey ER, Fießler C, Malzahn U, et al. Direct oral anticoagulants versus no anticoagulation for the prevention of stroke in survivors of intracerebral haemorrhage with atrial fibrillation (PRESTIGE-AF): a multicentre, open-label, randomised, phase 3 trial. Lancet. 2025;405(10482):927-936. PMID 40023176; doi:10.1016/S0140-6736(25)00333-2.",
+  "link": "https://doi.org/10.1016/s0140-6736(25)00333-2",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Vergouwen2010",
+  "text": "Vergouwen MD, Vermeulen M, van Gijn J, Rinkel GJ, Wijdicks EF, Muizelaar JP, et al. Definition of delayed cerebral ischemia after aneurysmal subarachnoid hemorrhage as an outcome event in clinical trials and observational studies: proposal of a multidisciplinary research group. Stroke. 2010;41(10):2391-5. PMID 20798370; doi:10.1161/STROKEAHA.110.589275.",
+  "link": "https://doi.org/10.1161/strokeaha.110.589275",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Vergouwen2026",
+  "text": "Vergouwen MDI, Ramos-Pachon A, Terecoasa EO, Willett N, Cuadrado-Godia E, Gaberel T, et al. European Stroke Organisation (ESO), European Association of Neurosurgical Societies (EANS) and European Society for Minimally Invasive Neurological Therapy (ESMINT) guideline on aneurysmal subarachnoid haemorrhage. Eur Stroke J. 2026;11(5). PMID 42095754; PMCID PMC13151661; doi:10.1093/esj/aakag043.",
+  "link": "https://doi.org/10.1093/esj/aakag043",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Viarasilpa2020",
+  "text": "Viarasilpa T, Ghosh P, Gidwani S, Lantigua H, De Marchis GM, Panyavachiraporn N, et al. Prognostic Significance of Sentinel Headache Preceding Aneurysmal Subarachnoid Hemorrhage. World Neurosurg. 2020;139:e672-e676. PMID 32339738; doi:10.1016/j.wneu.2020.04.097.",
+  "link": "https://doi.org/10.1016/j.wneu.2020.04.097",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Vlak2011",
+  "text": "Vlak MH, Algra A, Brandenburg R, Rinkel GJ. Prevalence of unruptured intracranial aneurysms, with emphasis on sex, age, comorbidity, country, and time period: a systematic review and meta-analysis. Lancet Neurol. 2011;10(7):626-36. PMID 21641282; doi:10.1016/S1474-4422(11)70109-0.",
+  "link": "https://doi.org/10.1016/s1474-4422(11)70109-0",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Vloothuis2016",
@@ -7641,6 +8688,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Wang2022",
+  "text": "Wang X, Di Tanna GL, Moullaali TJ, Martin RH, Shipes VB, Robinson TG, et al. J-shape relation of blood pressure reduction and outcome in acute intracerebral hemorrhage: A pooled analysis of INTERACT2 and ATACH-II individual participant data. Int J Stroke. 2022;17(10):1129-1136. PMID 34983270; doi:10.1177/17474930211064076.",
+  "link": "https://doi.org/10.1177/17474930211064076",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Wang2023",
   "text": "Wang A, Jia B, Zhang X, Huo X, Chen J, Gui L, et al. Efficacy and Safety of Butylphthalide in Patients With Acute Ischemic Stroke: A Randomized Clinical Trial. JAMA Neurol. 2023;80(8):851-859. PMID 37358859; PMCID PMC10294018; doi:10.1001/jamaneurol.2023.1871.",
   "link": "https://doi.org/10.1001/jamaneurol.2023.1871",
@@ -7682,6 +8739,16 @@
  },
  {
   "key": "Wang2026",
+  "text": "Wang X, Phan TG, Ren X, Ma HH, Li Q, Ouyang M, et al. Systolic Blood Pressure Trajectory and Outcomes in Acute Intracerebral Hemorrhage: Pooled Analysis of the 4 INTERACT and ATACH-II Clinical Trials. Neurology. 2026;106(7):e214671. PMID 41855454; PMCID PMC13035102; doi:10.1212/WNL.0000000000214671.",
+  "link": "https://doi.org/10.1212/wnl.0000000000214671",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Wang2026E",
   "text": "Wang Z, Li J, Wang X, Yuan B, Li J, Ma Q. Tenecteplase for Acute Ischemic Stroke at 4.5 to 24 Hours: A Meta-Analysis of Randomized Controlled Trials. Stroke. 2026;57(1):50-62. PMID 41078125; PMCID PMC12721659; doi:10.1161/strokeaha.125.053256.",
   "link": "https://doi.org/10.1161/strokeaha.125.053256",
   "areas": [
@@ -7791,6 +8858,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Western2021",
+  "text": "Western E, Nordenmark TH, Sorteberg W, Karic T, Sorteberg A. Fatigue After Aneurysmal Subarachnoid Hemorrhage: Clinical Characteristics and Associated Factors in Patients With Good Outcome. Front Behav Neurosci. 2021;15:633616. PMID 34054441; PMCID PMC8149596; doi:10.3389/fnbeh.2021.633616.",
+  "link": "https://doi.org/10.3389/fnbeh.2021.633616",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Whiteley2011",
   "text": "Whiteley WN, Wardlaw JM, Dennis MS, Sandercock PA. Clinical scores for the identification of stroke and transient ischaemic attack in the emergency department: a cross-sectional study. J Neurol Neurosurg Psychiatry. 2011;82(9):1006-10. PMID 21402744; doi:10.1136/jnnp.2010.235010.",
   "link": "https://doi.org/10.1136/jnnp.2010.235010",
@@ -7816,6 +8893,16 @@
   "link": "https://doi.org/10.1056/nejmoa2101897",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Wiebers2003",
+  "text": "Wiebers DO, Whisnant JP, Huston J 3rd, Meissner I, Brown RD Jr, Piepgras DG, et al. Unruptured intracranial aneurysms: natural history, clinical outcome, and risks of surgical and endovascular treatment. Lancet. 2003;362(9378):103-10. PMID 12867109; doi:10.1016/s0140-6736(03)13860-3.",
+  "link": "https://doi.org/10.1016/s0140-6736(03)13860-3",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -7930,6 +9017,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Wolf2023",
+  "text": "Wolf S, Mielke D, Barner C, Malinova V, Kerz T, Wostrack M, et al. Effectiveness of Lumbar Cerebrospinal Fluid Drain Among Patients With Aneurysmal Subarachnoid Hemorrhage: A Randomized Clinical Trial. JAMA Neurol. 2023;80(8):833-842. PMID 37330974; PMCID PMC10277935; doi:10.1001/jamaneurol.2023.1792.",
+  "link": "https://doi.org/10.1001/jamaneurol.2023.1792",
+  "areas": [
+   "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Wolfe2011",
@@ -8108,6 +9205,16 @@
   "link": "https://doi.org/10.1007/s00117-024-01398-7",
   "areas": [
    "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Yogendrakumar2023",
+  "text": "Yogendrakumar V, Mayer SA, Steiner T, Broderick JP, Dowlatshahi D. Exploring Hematoma Expansion Shift With Recombinant Factor VIIa: A Pooled Analysis of 4 Randomized Controlled Trials. Stroke. 2023;54(12):2990-2998. PMID 37805927; doi:10.1161/STROKEAHA.123.043209.",
+  "link": "https://doi.org/10.1161/strokeaha.123.043209",
+  "areas": [
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
