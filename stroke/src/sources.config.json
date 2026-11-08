@@ -1,0 +1,13 @@
+{
+ "areas": {
+  "A": "Epidemiology, burden, presentation & history",
+  "B": "Brain blood supply, the ischaemic cascade, causes & TIA",
+  "C": "Haemorrhagic stroke: intracerebral & subarachnoid",
+  "D": "Recognition, prehospital care, imaging & the NIHSS",
+  "E": "Reperfusion: thrombolysis & thrombectomy",
+  "F": "Stroke unit care, complications & nursing",
+  "G": "Secondary prevention: risk factors, antithrombotics, AF, carotid & PFO",
+  "H": "Rehabilitation, recovery & life after stroke",
+  "I": "Research frontier"
+ }
+}
