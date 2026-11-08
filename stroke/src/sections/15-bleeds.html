@@ -1,1 +1,161 @@
-<section class="mod" id="m-bleeds" data-mod="bleeds" hidden><div class="mhead"><h2>bleeds (stub)</h2></div></section>
+<!-- ================= 1.5 BLEEDING STROKES ================= -->
+<style>
+#m-bleeds .btn{min-height:40px}
+#m-bleeds .blbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-bleeds .blgrp{display:flex;flex-direction:column;gap:6px}
+#m-bleeds .blgrp>span{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+#m-bleeds .blres{font-family:var(--display);font-weight:700;font-size:24px;line-height:1.15;margin:0}
+#m-bleeds .blnum{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--ink)}
+#m-bleeds .blform{display:flex;flex-direction:column;gap:14px}
+#m-bleeds .tl output{font-weight:700;color:var(--ink);white-space:nowrap}
+</style>
+<section class="mod" id="m-bleeds" data-mod="bleeds" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding stroke</p><h2>Bleeding strokes</h2>
+    <p class="lede">A bleeding stroke (haemorrhagic stroke, US spelling hemorrhagic) has two main forms. Blood can burst into the brain itself, or spread over its surface from a burst aneurysm. Scrub through both, then try the rules doctors use to spot them.</p></div>
+
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Intracerebral haemorrhage (ICH)</th><th>Subarachnoid haemorrhage (SAH)</th></tr></thead>
+    <tbody>
+      <tr><th>Where the blood goes</th><td>Into the brain tissue, often deep [[Magid2022]]</td><td>Into the space around the brain, in aneurysmal SAH from a burst aneurysm [[Vergouwen2026]]</td></tr>
+      <tr><th>Common causes</th><td>Hypertensive angiopathy 35%, amyloid angiopathy 20%, anticoagulation 14% of one Helsinki series [[Meretoja2012]]</td><td>Rupture of an intracranial aneurysm. Angiography finds no aneurysm in about 15% [[Vergouwen2026,Claassen2022]]</td></tr>
+      <tr><th>How often</th><td>24.6 per 100 000 person-years, pooled across 36 studies [[vanAsch2010]]</td><td>7.9 per 100 000 person-years worldwide [[Etminan2019]]</td></tr>
+      <tr><th>Who</th><td>Rises steeply with age: incidence ratio 0.10 under 45 to 9.6 over 85, against age 45 to 54 [[vanAsch2010]]</td><td>About half are under 50 and about two-thirds are women, per the ESO lay summary. The same guideline gives a median age of 52 [[Vergouwen2026]]</td></tr>
+      <tr><th>How it starts</th><td>Early growth of the bleed went with clinical deterioration [[Brott1997]]</td><td>Thunderclap headache, the only symptom in half [[Claassen2022]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Track 1: a bleed into the brain</h3>
+  <div class="stepper" id="blISteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="blISvg" viewBox="0 0 720 410" style="min-width:560px" role="img" aria-label="A slice through the brain with a bleed in the person's left deep brain. As the timeline moves, the bleed grows, swelling spreads around it, the midline is pushed across and blood enters the ventricles. Panels show how many people had growth and how oedema volume changes."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="blIPlay">%t:player.play%</button><label class="stage-cap tl" for="blIT">Timeline <input type="range" id="blIT" min="0" max="1" step="0.002" value="0.1"></label></div>
+      <div class="blbar" role="group" aria-label="How the slice is drawn">
+        <button class="btn" data-blm="plain" aria-pressed="true">Drawing</button>
+        <button class="btn" data-blm="ct" aria-pressed="false">As on CT</button>
+      </div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The bleed's size and speed are drawn, not measured. The numbers in the panels are the cited anchors. The bars move smoothly only for the eye.</p>
+    </div>
+    <aside class="note" id="blINote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Track 2: a burst aneurysm</h3>
+  <div class="stepper" id="blSSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="blSSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="A berry aneurysm at an arterial fork ruptures. Blood spreads into the fissures on a brain slice, which then shows the white pattern seen on CT. A chart compares a thunderclap headache that peaks at once with a headache that builds."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="blSPlay">%t:player.play%</button><label class="stage-cap tl" for="blST">Timeline <input type="range" id="blST" min="0" max="1" step="0.002" value="0.1"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The headache curves show a shape only, they are not measured data.</p>
+    </div>
+    <aside class="note" id="blSNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="callout"><p>A sudden headache that is the worst of your life, peaking in moments, is an emergency [[Claassen2022]]. Stroke signs of any kind: call emergency services.</p></div>
+
+  <h3 class="sub">The Ottawa SAH Rule</h3>
+  <div class="prose">
+    <p>The rule applies to alert people over 15 with a new severe nontraumatic headache that peaks within 1 hour. If any of six items is present, it says investigate [[Hoh2023,Perry2013]]. Tick items to see how it reads.</p>
+  </div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="blbar" role="group" aria-label="Ottawa SAH Rule items" id="blOtt"></div>
+      <svg id="blOttSvg" viewBox="0 0 440 150" role="img" aria-label="One hundred dots standing for 100 people without subarachnoid haemorrhage. About 15 are shaded, the share the rule would not send for investigation in the derivation study."></svg>
+      <p class="stage-cap">Teaching tool only. It shows how a published rule is scored. It is never for an individual's diagnosis or care.</p>
+    </div>
+    <aside class="note" id="blOttNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The 6-hour CT rule</h3>
+  <div class="prose">
+    <p>CT sensitivity was higher within 6 hours of onset than overall [[Perry2011]]. Move the time since the headache began, and add a new neurological deficit, to see which route the 2023 AHA/ASA guideline describes [[Hoh2023]].</p>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="blCtSvg" viewBox="0 0 720 330" role="img" aria-label="A time line from 0 to 12 hours with the 6 hour mark, above a chart of published CT sensitivity for subarachnoid haemorrhage with confidence intervals. The four studies give different figures."></svg></div>
+      <div class="ctrls"><label class="stage-cap tl" for="blCtT">Hours since onset <input type="range" id="blCtT" min="0" max="12" step="0.5" value="3"><output id="blCtO" for="blCtT">3 h</output></label></div>
+      <div class="blbar" role="group" aria-label="New neurological deficit">
+        <button class="btn" id="blCtD" aria-pressed="false">New neurological deficit</button>
+      </div>
+      <p class="stage-cap">Teaching tool only, never for an individual's diagnosis or care. Sensitivity axis starts at 85%.</p>
+    </div>
+    <aside class="note" id="blCtNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>Disagreement on the early scan</h4><p>Within 6 hours, one cohort found 100% sensitivity [[Perry2011]]. A meta-analysis gave 98.7%, with 13 missed SAH, 1.46 per 1000 [[Dubosh2016]]. A review quotes 95.5% for an implementation study of 3672 people, so SAH might be missed in 5% [[Claassen2022]]. The figures are not reconciled here. The first study's conditions were third-generation scanners read by a qualified radiologist [[Perry2011]].</p></div>
+    <div class="card"><h4>After CT</h4><p>After lumbar puncture in 1739 alert patients, fewer than 2000 x 10<sup>6</sup>/L red cells plus no xanthochromia excluded aneurysmal SAH: sensitivity 100% (74.7 to 100), specificity 91.2%, based on only 15 cases [[Perry2015]]. If CT angiography is negative or inconclusive with high concern for an aneurysm, AHA/ASA 2023 says digital subtraction angiography is indicated (Class 1, B-NR) [[Hoh2023]].</p></div>
+  </div>
+
+  <h3 class="sub">Causes of ICH: SMASH-U and where bleeds sit</h3>
+  <div class="prose">
+    <p>SMASH-U sorted 1013 consecutive ICH cases in Helsinki into six groups [[Meretoja2012]]. Pick a group. Deep bleeds point to hypertensive disease and lobar bleeds to amyloid angiopathy [[Magid2022,An2017]].</p>
+  </div>
+  <div class="blbar" role="group" aria-label="SMASH-U groups" id="blCzBtns"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="blCzSvg" viewBox="0 0 560 370" role="img" aria-label="A bar of the six SMASH-U causes of intracerebral haemorrhage with their percentages, and a brain slice showing the typical site of the chosen cause."></svg></div>
+      <p class="stage-cap"><b>Schematic.</b> Bleed sizes only hint at the cited medians. Percentage shares by exact site could not be verified, so none is given.</p>
+    </div>
+    <aside class="note" id="blCzNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>High blood pressure</h4><p>Long-standing hypertension degenerates the media and smooth muscle of the responsible small arteries. Lipohyalinosis is most often found in non-lobar ICH [[An2017]]. Bleeds occur in the putamen, caudate, thalamus, brainstem and deep cerebellar nuclei [[Magid2022]]. The most common site is the putamen [[An2017]].</p></div>
+    <div class="card"><h4>Cerebral amyloid angiopathy</h4><p>Amyloid builds up in arterial walls with loss of smooth muscle cells. It occurs mainly in lobar locations or the subarachnoid space over the cortical convexities, with microbleeds or superficial siderosis [[Magid2022]].</p></div>
+    <div class="card"><h4>Anticoagulants</h4><p>In Greater Cincinnati, anticoagulant-associated ICH rose from 5% of ICH in 1988 to 17% in 1999, as US per-capita warfarin distribution quadrupled [[Flaherty2007]]. Warfarin did not raise baseline volume, but raised the risk of expansion (OR 6.2, 1.7 to 22.9) [[Flibotte2004]].</p></div>
+    <div class="card"><h4>Other risk factors</h4><p>One review lists current smoking, excess alcohol, low cholesterol and drugs, plus older age, male sex, Asian ethnicity, chronic kidney disease and microbleeds [[An2017]].</p></div>
+  </div>
+
+  <h3 class="sub">Boston criteria version 2.0 for amyloid angiopathy</h3>
+  <div class="prose"><p>These criteria grade how sure one can be of cerebral amyloid angiopathy (CAA). Set the MRI findings below. This covers the two MRI-based levels. Definite and pathology-supported CAA need tissue [[Charidimou2022]].</p></div>
+  <div class="lab even">
+    <div class="stage blform" id="blBos"></div>
+    <aside class="note" id="blBosNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Level</th><th>What it needs [[Charidimou2022]]</th></tr></thead>
+    <tbody>
+      <tr><th>Definite</th><td>Full post-mortem: a presentation with spontaneous ICH, transient focal neurological episodes, convexity SAH or cognitive impairment or dementia; severe CAA with vasculopathy; no other diagnostic lesion.</td></tr>
+      <tr><th>Probable with supporting pathology</th><td>Clinical data plus evacuated haematoma or cortical biopsy showing some degree of CAA, and no other diagnostic lesion.</td></tr>
+      <tr class="hl"><th>Probable</th><td>Age 50 or over; spontaneous ICH, transient focal neurological episodes or cognitive impairment or dementia; at least 2 strictly lobar haemorrhagic lesions on T2*-weighted MRI (ICH, microbleed, cortical superficial siderosis or convexity SAH foci), OR 1 lobar lesion plus 1 white matter feature (severe visible perivascular spaces in the centrum semiovale, or multispot white matter hyperintensities); no deep haemorrhagic lesion; no other cause.</td></tr>
+      <tr><th>Possible</th><td>Same age and presentation, with a single strictly lobar haemorrhagic lesion OR a single white matter feature; no deep haemorrhagic lesion; no other cause. A cerebellar lesion counts as neither lobar nor deep.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p>Causes to exclude include head trauma, haemorrhagic transformation of an ischaemic stroke, arteriovenous malformation, haemorrhagic tumour and CNS vasculitis [[Charidimou2022]]. In the autopsy group, probable CAA by v2.0 had sensitivity 74.5% and specificity 95.0% (AUC 0.848), against 64.5% and 95.0% (AUC 0.798) for the earlier criteria [[Charidimou2022]].</p>
+    <p><span class="ev early">Disputed outside ICH</span> In a community and memory clinic cohort of 54, v2.0 probable CAA had sensitivity 28.6% and specificity 65.3% (AUC 0.47), and was not superior to v1.5 [[Switzer2024]].</p>
+  </div>
+  <div class="hook"><b>Exam hook</b>Probable CAA in Boston v2.0 adds white matter features, and needs age 50 or over [[Charidimou2022]]. ABC/2 estimates ICH volume: A greatest diameter, B the diameter at 90 degrees to A, C slices with haemorrhage times slice thickness [[Kothari1996]].</div>
+
+  <h3 class="sub">Grading scales for SAH</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Grade</th><th>WFNS [[Claassen2022,Teasdale1988]]</th><th>Hunt and Hess [[Claassen2022,Hunt1968]]</th><th>Modified Fisher (CT) [[Claassen2022,Frontera2006]]</th></tr></thead>
+    <tbody>
+      <tr><th>0</th><td></td><td></td><td>No SAH</td></tr>
+      <tr><th>1</th><td>GCS 15</td><td>Mild headache</td><td>Thin SAH, no IVH</td></tr>
+      <tr><th>2</th><td>GCS 13 to 14, no motor deficit</td><td>Moderate to severe headache, cranial nerve palsy, nuchal rigidity</td><td>Thin SAH, with IVH</td></tr>
+      <tr><th>3</th><td>GCS 13 to 14, with motor deficit</td><td>Lethargy or confusion, mild focal deficit</td><td>Thick SAH, no IVH</td></tr>
+      <tr><th>4</th><td>GCS 7 to 12</td><td>Stupor, hemiparesis</td><td>Thick SAH, with IVH</td></tr>
+      <tr><th>5</th><td>GCS 3 to 6</td><td>Coma, decerebrate posturing</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p>WFNS and Hunt and Hess describe how ill the person is. AHA/ASA 2023 recommends clinical scales like these to set initial severity and predict outcome (Class 1, B-NR) [[Hoh2023]]. The Fisher family describes the blood on CT, which predicts spasm. In the original Fisher work, no detected or diffuse blood was almost never followed by severe vasospasm (1 of 18), while thick clots or layers almost always were (23 of 24) [[Fisher1980]]. In 1355 placebo-arm patients, 33% developed symptomatic vasospasm, and the modified scale's crude ORs against grade 0 to 1 were 1.6, 1.6 and 2.2 for grades 2, 3 and 4 [[Frontera2006]].</p>
+  </div>
+
+  <h3 class="sub">Unruptured aneurysms</h3>
+  <div class="cards">
+    <div class="card"><span class="blnum">3.2%</span><p>Prevalence (1.9 to 5.2) in a population with no comorbidity, mean age 50, 50% men. Prevalence ratio 6.9 with polycystic kidney disease, 3.4 with a family history, 1.61 in women [[Vlak2011]].</p></div>
+    <div class="card"><span class="blnum">3.4%</span><p>Rupture at 5 years in PHASES (8382 people, 1.4% at 1 year). The range ran from 0.25% to over 15%. The predictors are region, hypertension, age, size, earlier SAH and site [[Greving2014]].</p></div>
+    <div class="card"><span class="blnum">3.6 and 2.8</span><p>Times the rupture risk in Finnish and Japanese people against North American and other European populations [[Greving2014]]. Prevalence was similar, so it points to higher rupture risk [[Vlak2011]].</p></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>ISUIA, 5-year rupture, no previous SAH [[Wiebers2003]]</th><th>Under 7 mm</th><th>7 to 12 mm</th><th>13 to 24 mm</th><th>25 mm or more</th></tr></thead>
+    <tbody>
+      <tr><th>Anterior circulation</th><td>0%</td><td>2.6%</td><td>14.5%</td><td>40%</td></tr>
+      <tr><th>Posterior circulation and posterior communicating</th><td>2.5%</td><td>14.5%</td><td>18.4%</td><td>50%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="pt"><b>In plain words</b>About 3 in 100 adults may have a small swelling on a brain artery, and most never burst [[Vlak2011,Greving2014]].</div>
+  <div class="prose">
+    <p><span class="ev early">Regions disagree</span> The primary analysis reports a 59.1% rise in SAH incidence in Japan [[Etminan2019]]. A Lancet review words the same region as a decrease of 59% [[Claassen2022]]. Another review found 22.7 per 100 000 in Japan and 19.7 in Finland [[deRooij2007]], and US incidence between 2007 and 2017 is reported as rising to 11.4 [[Hoh2023]]. Figures depend on period and method.</p>
+  </div>
+</section>

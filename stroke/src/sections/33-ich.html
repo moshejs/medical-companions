@@ -1,1 +1,136 @@
-<section class="mod" id="m-ich" data-mod="ich" hidden><div class="mhead"><h2>ich (stub)</h2></div></section>
+<!-- ================= 3.3 TREATING ICH ================= -->
+<style>
+#m-ich .btn{min-height:40px}
+#m-ich .icbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-ich .icgrp{display:flex;flex-direction:column;gap:6px}
+#m-ich .icgrp>span{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+#m-ich .icform{display:flex;flex-direction:column;gap:12px}
+#m-ich .icsl{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+#m-ich .icsl label{display:flex;gap:10px;align-items:center;font:500 13px var(--mono);color:var(--muted)}
+#m-ich .icsl label>span{flex:0 0 136px}
+#m-ich .icsl output{flex:0 0 52px;color:var(--ink);font-weight:700;text-align:right}
+#m-ich .icnum{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--ink)}
+</style>
+<section class="mod" id="m-ich" data-mod="ich" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Acute treatment</p><h2>Treating intracerebral haemorrhage</h2>
+    <p class="lede">In one large trial, several things done early and together shifted outcomes. Run the first hour of that care bundle, then explore the score, the blood pressure trials, reversal, surgery and restarting.</p></div>
+
+  <div class="split2">
+    <div class="card"><h4>AHA/ASA 2022</h4><p>Replaces the 2015 guideline. Its take-home messages cover regional systems, expansion markers, smooth blood pressure control, updated reversal, and therapies that give no benefit or harm [[Greenberg2022,Hemphill2015]]. ENRICH and SWITCH, and the FDA action on andexanet, came after it.</p></div>
+    <div class="card"><h4>ESO/EANS 2025</h4><p>37 questions and 208 studies. Strong for organised stroke units and secondary prevention with blood pressure lowering. Strong against anti-inflammatory drugs outside trials. Weak against routine rFVIIa, platelet transfusion for antiplatelet-associated ICH, prophylactic anti-seizure medicines, and general policies limiting treatment within 24 hours of onset [[Steiner2025]].</p></div>
+  </div>
+
+  <h3 class="sub">The first hour: a care bundle</h3>
+  <div class="stepper" id="icSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="icSvg" viewBox="0 0 720 410" style="min-width:560px" role="img" aria-label="A clock counts the first hour after arrival beside a brain slice with a bleed. Four strip charts show systolic pressure, INR, glucose and temperature moving into the target bands of the INTERACT3 care bundle."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="icPlay">%t:player.play%</button><label class="stage-cap tl" for="icT">Timeline <input type="range" id="icT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The target bands are the trial's. The traces are drawn to show direction: they are not patient data.</p>
+    </div>
+    <aside class="note" id="icNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The ICH score: a teaching calculator</h3>
+  <div class="prose"><p>The ICH score adds five items to a severity number [[Hemphill2001]]. Set them below. The result shown is what happened to a whole group in the 2001 study, not a forecast for anyone.</p></div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="icform" id="icScore"></div>
+      <div class="scroll"><svg id="icScSvg" viewBox="0 0 560 250" role="img" aria-label="Bars of 30-day mortality in the derivation cohort for ICH scores 0 to 5, with the chosen score highlighted and a dot block of 100 people."></svg></div>
+      <p class="stage-cap">Teaching tool only. It explains how a published scale scores its inputs. It is never for an individual's diagnosis, prognosis or treatment. Results are population figures from a small 2001 cohort.</p>
+    </div>
+    <aside class="note" id="icScNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout">
+    <p><b>A score must not set the limits of care.</b> AHA/ASA 2022 recommends a baseline severity measure at first evaluation (Class 1, B-NR), but says a score should not be the sole basis for forecasting individual prognosis or limiting life-sustaining treatment (Class 3: No Benefit, B-NR). Postponing new DNAR orders or withdrawal of support until at least the second full day of hospitalisation is reasonable (Class 2a, B-NR). Limiting other interventions because someone has DNAR status is Class 3: Harm [[Greenberg2022]].</p>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>How good is it?</h4><p>In INTERACT2 (2556 people), discrimination for 90-day poor outcome was 0.68 for the original score, and all scores had poor sensitivity and positive predictive value for death [[Heeley2015]]. In a prospective study of 243 people, the score stratified 12-month function, and many people kept improving even after 6 months [[Hemphill2009]].</p></div>
+    <div class="card"><h4>Where the figures come from</h4><p>The 2001 abstract reports scores 0 to 5 only: all 26 people at score 0 survived and all 6 at score 5 died, with mortality rising steadily (P&lt;0.005) [[Hemphill2001]]. The intermediate rates are a secondary quotation [[Alkhars2026]]. Score 6 is possible by addition, but no outcome is reported for it [[Hemphill2001]].</p></div>
+  </div>
+  <div class="pt"><b>In plain words</b>A risk score is a starting point. It should not be the only thing used to decide about someone's care [[Greenberg2022]].</div>
+
+  <h3 class="sub">Blood pressure trials explorer</h3>
+  <div class="icbar" role="group" aria-label="Blood pressure trials" id="icBpBtns"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="icBpSvg" viewBox="0 0 720 300" role="img" aria-label="A systolic pressure scale with the target range of each arm of the chosen trial, and the main outcome figures for that trial."></svg></div>
+      <p class="stage-cap">Published targets and results. Each trial used different people and different measures, so the bars cannot be compared across trials.</p>
+    </div>
+    <aside class="note" id="icBpNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>AHA/ASA 2022 [[Greenberg2022]]</th><th>ESO 2025 update [[Sandset2026]]</th></tr></thead>
+    <tbody>
+      <tr><th>Early target</th><td>SBP 150 to 220 in mild to moderate ICH: target 140, keeping 130 to 150 (2b, B-R). Start within 2 hours and reach target within 1 hour (2a, C-LD). Smooth sustained control (2a, B-NR)</td><td>Net benefit of intensive lowering remains uncertain, but expert consensus supports early reduction to under 140 in small to moderate haematomas</td></tr>
+      <tr><th>The floor</th><td>Lowering to under 130 potentially harmful (3: Harm, B-R)</td><td>Pooled data point to harm from very large early falls [[Wang2022]]</td></tr>
+      <tr><th>Before hospital</th><td>Not covered in the statements used here</td><td>Advises against routine pre-hospital lowering in suspected stroke (moderate certainty)</td></tr>
+      <tr><th>Large or surgical ICH</th><td>Not well established (2b, C-LD)</td><td>Consensus above refers to small to moderate haematomas</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p><span class="ev early">Unresolved</span> Both the floor and the speed of lowering remain open [[Greenberg2022,Sandset2026,Wang2022]]. Later pooled trajectory data also point to a pressure effect (<span class="ev early">Early evidence</span>) [[Wang2026]]. Long term, AHA/ASA 2022 recommends blood pressure control to prevent recurrence (Class 1, B-R) and calls an SBP of 130 and DBP of 80 mm Hg reasonable (2a, B-NR) [[Greenberg2022]].</p></div>
+  <div class="hook"><b>Exam hook</b>AHA/ASA 2022 calls lowering SBP below 130 in mild to moderate ICH potentially harmful [[Greenberg2022]].</div>
+
+  <h3 class="sub">Reversing blood thinners</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Drug</th><th>AHA/ASA 2022 statement [[Greenberg2022]]</th><th>Key evidence</th></tr></thead>
+    <tbody>
+      <tr><th>Any anticoagulant</th><td>Stop and reverse as soon as possible (1, C-LD)</td><td>German cohort of 1176: INR under 1.3 within 4 hours went with less enlargement, 19.8% versus 41.5%. Both that and SBP under 160 at 4 hours: 18.1% versus 44.2% [[Kuramatsu2015]]</td></tr>
+      <tr><th>Warfarin (VKA), INR 2.0 or more</th><td>Four-factor PCC over FFP (1, B-R), with IV vitamin K directly after factor replacement (1, C-LD)</td><td>INCH: INR 1.2 or lower within 3 hours in 9% with FFP and 67% with 30 IU/kg PCC. Deaths 35% versus 19%. Stopped early for safety [[Steiner2016]]</td></tr>
+      <tr><th>Warfarin, INR 1.3 to 1.9</th><td>PCC may be reasonable (2b, C-LD)</td><td></td></tr>
+      <tr><th>Dabigatran</th><td>Idarucizumab reasonable (2a, B-NR)</td><td>RE-VERSE AD, 5 g IV: median maximum reversal 100%. No control arm. Of 301 with bleeding, 98 had intracranial haemorrhage [[Pollack2017]]. US label: 5 g, as two 2.5 g vials [[FDA-Praxbind]]</td></tr>
+      <tr class="hl"><th>Factor Xa inhibitors</th><td>Andexanet reasonable (2a, B-NR). Four-factor or activated PCC may be considered (2b, B-NR). These statements predate ANNEXA-I and the FDA action.</td><td>ANNEXA-I: haemostatic efficacy 67.0% versus 53.1%, ischaemic stroke 6.5% versus 1.5%, no appreciable difference in mRS or 30-day death [[Connolly2024]]. See below.</td></tr>
+      <tr><th>Unfractionated heparin</th><td>Protamine (2a, C-LD)</td><td></td></tr>
+      <tr><th>Low molecular weight heparin</th><td>Protamine (2b, C-LD)</td><td></td></tr>
+      <tr><th>Antiplatelets</th><td>Platelet transfusion only as might be considered with aspirin and emergency neurosurgery (2b, C-LD)</td><td>PATCH: platelet transfusion raised odds of death or dependence (aOR 2.05, 1.18 to 3.56) [[Baharoglu2016]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="card"><span class="ev early" style="align-self:flex-start">Disputed, and the figures differ</span><h4>Andexanet</h4><p>Thrombotic events were 10.3% versus 5.6% in the ANNEXA-I paper [[Connolly2024]]. The FDA notice quotes 14.6% versus 6.9% through day 30, and thrombosis-related death 2.5% versus 0.9%. In December 2025 the FDA said it considers the risks to outweigh the benefits. AstraZeneca sought voluntary licence withdrawal for commercial reasons, with US sales ending 22 December 2025 [[FDA-Andexxa2025]].</p></div>
+    <div class="card"><h4>Drugs that stop bleeding</h4><p>Reducing growth has not translated into better function. FAST: rFVIIa, growth 11% versus 26%, poor outcome 29% versus 24% [[Mayer2008]]. FASTEST: mRS aOR 1.09, thromboembolic complications 15 versus 4, stopped for futility, with testing in those at greatest risk ongoing <span class="ev early">Early evidence</span> [[Broderick2026]]. Tranexamic acid: no change in 90-day function (acOR 0.93), lower day 7 mortality (0.70) and expansion (0.81) [[Menon2026,Sprigg2018]].</p></div>
+  </div>
+  <div class="pt"><b>In plain words</b>Blood thinners usually can be reversed in hospital. Tell staff what you take and when you last took it [[Greenberg2022]].</div>
+  <div class="hook"><b>Exam hook</b>Four-factor PCC beats FFP for INR correction in warfarin-related ICH [[Steiner2016]]. Platelet transfusion worsened outcome in PATCH [[Baharoglu2016]]. rFVIIa slows growth without improving function [[Mayer2008,Broderick2026]].</div>
+
+  <h3 class="sub">Surgery trials explorer</h3>
+  <div class="prose"><p>STICH, STICH II and MISTIE III were neutral on function, ENRICH was positive, driven by lobar bleeds, and SWITCH gave weak evidence. Choose a trial to see where the bleeds were, what was done and what it found. <span class="ev early">Unsettled</span> Selection and timing remain open [[Pradilla2024,Beck2024,Sondag2020]].</p></div>
+  <div class="icbar" role="group" aria-label="Surgery trials" id="icSuBtns"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="icSuSvg" viewBox="0 0 720 330" role="img" aria-label="A brain slice shows the site of the bleeds in the chosen trial and the approach used, beside bars with the trial's main outcome in each arm."></svg></div>
+      <p class="stage-cap"><b>Schematic.</b> The drawing shows the idea of each approach only. Bars are the published figures in each arm.</p>
+    </div>
+    <aside class="note" id="icSuNote" aria-live="polite"></aside>
+  </div>
+  <div class="prose">
+    <p>A meta-analysis to 2019 (21 trials, 4145 people, only 4 of highest quality) gave good outcome RR 1.40 (1.22 to 1.60) for any surgery and 1.47 (1.26 to 1.72) for minimally invasive surgery, looking better earlier (p=0.04) [[Sondag2020]]. In an INTERACT3 China secondary analysis, surgery went with lower poor outcome (OR 0.71), but this is observational [[Hu2025]].</p>
+    <p>AHA/ASA 2022: cerebellar ICH with deterioration, brainstem compression and/or hydrocephalus, or volume 15 mL or more, immediate removal (Class 1, B-NR). Large IVH with impaired consciousness, external ventricular drain (Class 1, B-NR). Minimally invasive evacuation for supratentorial bleeds over 20 to 30 mL, GCS 5 to 12, can reduce mortality (2a, B-R), with an effect on function that is uncertain (2b, B-R). Craniotomy for most is uncertain (2b, A) and lifesaving if deteriorating (2b, C-LD). Decompressive craniectomy may be considered (2b, C-LD) [[Greenberg2022]]. ENRICH and SWITCH were published after this guideline.</p>
+  </div>
+  <div class="hook"><b>Exam hook</b>Cerebellar ICH 15 mL or more, or with brainstem compression or hydrocephalus, is a Class 1 indication for surgery in AHA/ASA 2022 [[Greenberg2022]].</div>
+
+  <h3 class="sub">Restarting antithrombotics</h3>
+  <div class="prose"><p>A person with atrial fibrillation who survives a bleed faces two risks that pull opposite ways. Compare them in PRESTIGE-AF (319 people, median age 79, median follow-up 1.4 years) [[Veltkamp2025]]. <span class="ev early">Early evidence</span></p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="icReSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Paired bars from PRESTIGE-AF: first ischaemic stroke 0.83 versus 8.60 per 100 patient-years, and recurrent intracerebral haemorrhage 5.00 versus 0.82, on a beam that tilts as the bars grow."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="icRePlay">%t:player.play%</button><label class="stage-cap tl" for="icReT">Reveal <input type="range" id="icReT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Rates per 100 patient-years. For recurrent ICH the trial did not meet non-inferiority (HR 10.89, 90% CI 1.95 to 60.72). Not a recommendation for anyone.</p>
+    </div>
+    <aside class="note" id="icReNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>RESTART</th><td>537 people, median 76 days after ICH. Antiplatelet versus avoiding</td><td>Recurrent ICH 4% versus 9% (aHR 0.51, 0.25 to 1.03; p=0.060). Major occlusive events 15% versus 14% [[RESTART2019]]</td></tr>
+      <tr><th>COCROACH</th><td>4 trials, 412 people with AF</td><td>Any stroke or cardiovascular death 14% versus 22% (HR 0.68, 0.42 to 1.10). Ischaemic events 4% versus 19% (HR 0.27). Haemorrhagic events 7% versus 5% (HR 1.80, 0.77 to 4.21) [[AlShahiSalman2023]]</td></tr>
+      <tr class="hl"><th>PRESTIGE-AF</th><td>319 people with AF</td><td>First ischaemic stroke HR 0.05 (0.01 to 0.36). Recurrent ICH HR 10.89. Deaths 10% versus 13% [[Veltkamp2025]]</td></tr>
+      <tr><th>ENRICH-AF</th><td>Registered 948 participants. Edoxaban 60/30 mg daily versus no antithrombotic or antiplatelet monotherapy</td><td>Listed as complete [[NCT03950076]]. Results are awaited in peer-reviewed form, so none are given here.</td></tr>
+      <tr><th>German cohort</th><td>Observational, anticoagulant-related ICH</td><td>Resumption went with fewer ischaemic complications (5.2% versus 15.0%) and similar haemorrhagic ones (8.1% versus 6.6%) [[Kuramatsu2015]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p>AHA/ASA 2022: restart anticoagulation early with a mechanical valve or LVAD (2a, C-LD). Antiplatelet may be reasonable (2b, B-R). Anticoagulation in non-valvular AF may be considered (2b, B-NR), at about 7 to 8 weeks (2b, C-LD). Left atrial appendage closure if ineligible (2b, C-LD) [[Greenberg2022]].</p>
+    <p>Recurrence risk ran 1.3 to 7.4% a year across nine studies, higher after lobar bleeds in two of three hospital studies [[Poon2014]]. In 1145 survivors at a single centre, recurrence per 1000 person-years was 84 with inadequate versus 49 with adequate blood pressure control after lobar ICH, and 52 versus 27 after non-lobar ICH [[Biffi2015]].</p>
+  </div>
+  <div class="pt"><b>In plain words</b>Restarting a blood thinner after a bleed is a careful choice between preventing clots and risking another bleed. Trials are still settling this [[Veltkamp2025]].</div>
+</section>

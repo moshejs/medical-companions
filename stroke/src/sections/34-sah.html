@@ -1,1 +1,140 @@
-<section class="mod" id="m-sah" data-mod="sah" hidden><div class="mhead"><h2>sah (stub)</h2></div></section>
+<!-- ================= 3.4 TREATING SAH ================= -->
+<style>
+#m-sah .btn{min-height:40px}
+#m-sah .shbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-sah .shnum{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--ink)}
+</style>
+<section class="mod" id="m-sah" data-mod="sah" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Acute treatment</p><h2>Treating subarachnoid haemorrhage</h2>
+    <p class="lede">After an aneurysm bursts, each stretch of the next three weeks has its own danger. Scrub from day 0 to day 21, then compare coiling with clipping and see what the evidence says about nimodipine and life afterwards.</p></div>
+
+  <div class="split2">
+    <div class="card"><h4>AHA/ASA 2023</h4><p>Replaces the 2012 guideline [[Hoh2023,Connolly2012]]. Recommends timely transfer to higher-volume centres (Class 1, B-NR), with no numeric threshold in the recommendation [[Hoh2023]]. Neurocritical Care Society guidance appeared the same year [[Treggiari2023]].</p></div>
+    <div class="card"><h4>ESO/EANS/ESMINT 2026</h4><p>15 evidence-based recommendations and 37 expert consensus statements. High-level evidence backs only oral nimodipine, and regular coiling when both options are equally suitable in good-grade patients. Consensus: treat in a centre with at least 70 aSAH patients a year (35 in remote areas), by a physician treating at least 30 aneurysms a year [[Vergouwen2026]].</p></div>
+  </div>
+
+  <h3 class="sub">Day 0 to 21: the danger days</h3>
+  <div class="stepper" id="shSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="shSvg" viewBox="0 0 720 450" style="min-width:560px" role="img" aria-label="A timeline from day 0 to day 21 with lanes for securing the aneurysm, rebleeding, early brain injury, hydrocephalus, delayed cerebral ischaemia on days 4 to 14, hyponatraemia and nimodipine. A cursor moves through the days while a drawing shows the aneurysm being secured and an artery narrowing in spasm."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="shPlay">%t:player.play%</button><label class="stage-cap tl" for="shT">Day <input type="range" id="shT" min="0" max="1" step="0.002" value="0.01"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> Lane edges are the cited windows, not a rate curve: a day-by-day rebleeding curve could not be verified. The drawings are not to scale.</p>
+    </div>
+    <aside class="note" id="shNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>How often, by source</th><th>Figures reported</th></tr></thead>
+    <tbody>
+      <tr><th>Delayed cerebral ischaemia</th><td>About 30%, mostly days 4 to 14, peak days 6 to 10 [[Hoh2023]]. Symptoms in about 20% [[Vergouwen2026]]. DCI in 20% of 276 [[Claassen2001]]. Symptomatic vasospasm in 33% of 1355 [[Frontera2006]].</td></tr>
+      <tr><th>Hydrocephalus</th><td>About 25% [[Vergouwen2026]]. 15 to 87% in the acute stage in AHA text [[Hoh2023]]. 6 to 67% overall, about 20 to 30% in recent studies, with shunt dependence 17.4% and shunting 12.7% as quoted [[Chen2017]].</td></tr>
+      <tr><th>Hyponatraemia</th><td>Pooled incidence 37.0% (31.7 to 42.4; 52 studies, 10 512 people). Linked to vasospasm (OR 2.93) and longer stay (16.4 versus 8.0 days), not to poor outcome (OR 1.15, 0.44 to 3.02) [[Gillespie2025]].</td></tr>
+      <tr><th>Rebleeding</th><td>About 40% if untreated [[Vergouwen2026]]. In 273 people admitted within 24 hours, 13.6% rebled before arrival, 77% of episodes within 2 hours [[Ohkuma2001]].</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="card"><h4>What raises rebleeding risk</h4><p>Systolic pressure over 160 mm Hg had OR 3.1 [[Ohkuma2001]]. High SBP 1.93, Hunt-Hess III to IV 3.43, intracerebral or intraventricular haematoma 1.65, posterior circulation 2.15, size over 10 mm 1.70 [[Tang2014]]. It is among the strongest predictors of poor outcome: in-hospital death aOR 7.69 [[Stienen2018]], unfavourable discharge OR 7.41 [[Galea2017]].</p></div>
+    <div class="card"><h4>Stopping the clot breaking down?</h4><p>ULTRA (955 people, tranexamic acid up to 24 h): good outcome 60% versus 64%, rebleeding 10% versus 14% (OR 0.71, 0.48 to 1.04) [[Post2021]]. AHA text reads ULTRA as no significant reduction [[Hoh2023]]. Meta-analyses show less rebleeding with no gain in function [[Roos2003,AlSalihi2025,Vergouwen2026]]. Both guidelines agree: not routinely (AHA 3: No Benefit, A) [[Hoh2023,Vergouwen2026]].</p></div>
+  </div>
+  <div class="pt"><b>In plain words</b>Blood around the brain can cause trouble days later, so people often stay in hospital for up to two weeks and take a medicine called nimodipine [[Hoh2023,Pickard1989]].</div>
+
+  <h3 class="sub">Sealing the aneurysm: coil or clip</h3>
+  <div class="stepper" id="scSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="scSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Two aneurysms side by side. On one, a microcatheter packs a platinum coil into the sac. On the other, a metal clip closes on the neck. Bars then show ISAT results for each."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="scPlay">%t:player.play%</button><label class="stage-cap tl" for="scT">Timeline <input type="range" id="scT" min="0" max="1" step="0.002" value="0.08"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> Bars are the published ISAT figures.</p>
+    </div>
+    <aside class="note" id="scNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Who</th><th>AHA/ASA 2023 [[Hoh2023]]</th></tr></thead>
+    <tbody>
+      <tr><th>Everyone</th><td>Secure as early as feasible, preferably within 24 hours of onset (1, B-NR). Complete obliteration whenever feasible (1, B-NR)</td></tr>
+      <tr><th>Anterior circulation, good grade, equally suitable</th><td>Primary coiling over clipping for 1-year outcome (1, A). Both reasonable for long-term outcome (2a, B-R)</td></tr>
+      <tr><th>Posterior circulation, amenable</th><td>Coiling (1, B-R)</td></tr>
+      <tr><th>Under 40 years</th><td>Clipping might be preferred (2b, C-LD)</td></tr>
+      <tr><th>Over 70 years</th><td>Not well established (2b, B-R)</td></tr>
+      <tr><th>Large haematoma with depressed consciousness</th><td>Emergency evacuation (1, B-R)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p><span class="ev early">Open</span> Both guidelines favour treatment within 24 hours [[Hoh2023,Vergouwen2026]]. ESO moved from the 2013 target of within 72 hours, yet stresses that the evidence for under 24 hours is low-quality observational, and very early treatment might worsen early brain injury and DCI. No randomised trial has settled it [[Vergouwen2026]].</p>
+    <p>ESO 2026 suggests reserving stent-assisted coiling for when other options are not feasible, and flow diversion as a last line. ISAT-2 stopped early for poor enrolment [[Vergouwen2026]]. A non-randomised 24-centre comparison (n=9159) linked coiling to higher 14-day case fatality and non-superior 90-day outcome, as quoted in a review [[Claassen2022]]. AHA/ASA 2023 recommends follow-up cerebrovascular imaging after repair (1, B-NR) [[Hoh2023]].</p>
+  </div>
+  <div class="hook"><b>Exam hook</b>ISAT: 1-year death or dependence about 7% less with coiling, late rebleeding more common [[Molyneux2005]].</div>
+
+  <h3 class="sub">Nimodipine, and what else for DCI</h3>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="snSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A grid of 21 columns of six dots fills day by day to show the course used in the British aneurysm nimodipine trial, beside bars showing less cerebral infarction and poor outcome with nimodipine."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="snPlay">%t:player.play%</button><label class="stage-cap tl" for="snT">Course <input type="range" id="snT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">The 6 doses a day and the total of 126 are worked out here from "every 4 hours for 21 days". Trial regimen, not an instruction.</p>
+    </div>
+    <aside class="note" id="snNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout"><p><b>Boxed warning on the US label:</b> nimodipine capsules must not be given intravenously or by other parenteral routes, as deaths have occurred. The label's indication covers Hunt and Hess I to V [[FDA-Nimodipine]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Approach</th><th>AHA/ASA 2023 [[Hoh2023]]</th><th>Other evidence</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>Early enteral nimodipine</th><td>Class 1, A</td><td><span class="ev est">Established</span> Oral nimodipine RR 0.67 (0.55 to 0.81), results depending largely on one large trial. IV calcium antagonists are not recommended for routine use [[DorhoutMees2007]]. ESO: poor outcome OR 0.56 (0.40 to 0.76) [[Vergouwen2026]]</td></tr>
+      <tr><th>Euvolaemia</th><td>2a, B-NR (goal-directed: 2a, B-R)</td><td>Induced hypervolaemia potentially harmful (3: Harm, B-R)</td></tr>
+      <tr><th>Raising SBP for symptomatic vasospasm</th><td>2b, B-NR</td><td><span class="ev early">Low-level evidence</span> Trial stopped at 41 people: aRR for poor outcome 1.0 (0.6 to 1.8), serious adverse events RR 2.1 [[Gathier2018]]. ESO makes no evidence-based recommendation [[Vergouwen2026]]</td></tr>
+      <tr><th>Intra-arterial vasodilators, angioplasty</th><td>2b, B-NR, for severe vasospasm</td><td>ESO: three rescue therapy trials of under 70 patients each were underpowered [[Vergouwen2026]]</td></tr>
+      <tr><th>Prophylactic haemodynamic augmentation</th><td>3: Harm, B-R</td><td></td></tr>
+      <tr><th>Statins, IV magnesium</th><td>3: No Benefit, A</td><td>ESO also recommends against tirilazad, statins and magnesium sulphate [[Vergouwen2026]]</td></tr>
+      <tr><th>Clazosentan</th><td></td><td><span class="ev early">Conflicting</span> Lowers vasospasm without consistent functional gain [[Macdonald2008,Macdonald2011,Macdonald2012]]. Japanese trials: vasospasm morbidity and mortality 13.6% versus 28.8% after coiling [[Endo2022]]. REACT: deterioration from DCI 15.8% versus 17.2%, poor mRS and GOSE 24.8% versus 20.1% [[Mayer2025]]. ESO recommends against endothelin receptor antagonists [[Vergouwen2026]]</td></tr>
+      <tr><th>Lumbar drain</th><td></td><td><span class="ev early">Early evidence</span> EARLYDRAIN (287 people): unfavourable outcome 32.6% versus 44.8%, secondary infarction 28.5% versus 39.9% [[Wolf2023]]. ESO makes no recommendation until more trial data exist [[Vergouwen2026]]</td></tr>
+      <tr><th>Intrathecal nimodipine microparticles</th><td></td><td>NEWTON-2 cisternal phase 2 randomised only 6 people and was halted [[Macdonald2020]]. A review records no benefit [[Claassen2022]]</td></tr>
+      <tr><th>Liberal transfusion</th><td></td><td>742 people: unfavourable outcome 33.5% versus 37.7% (RR 0.88, 0.72 to 1.09; P=0.22) [[English2025]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>Monitoring in AHA/ASA 2023: CT angiography or perfusion (2a), transcranial Doppler (2a), continuous EEG in high grade (2a), invasive monitoring may be considered (2b) [[Hoh2023]]. <span class="ev early">Early evidence</span> DCI is now understood as multifactorial: microcirculatory dysfunction, glymphatic impairment, inflammation and neuroelectric disruption alongside vasospasm [[Dodd2021]]. In research, main outcomes are cerebral infarction and functional outcome, while vasospasm can be proof of concept only [[Vergouwen2010]].</p></div>
+  <div class="hook"><b>Exam hook</b>Oral nimodipine 60 mg every 4 hours for 21 days in BRANT; never IV from capsules [[Pickard1989,FDA-Nimodipine]]. Prophylactic hypervolaemia and augmentation are harmful [[Hoh2023]]. DCI mostly days 4 to 14, peak days 6 to 10 [[Hoh2023]].</div>
+
+  <h3 class="sub">Fluid, sodium and the ventricles</h3>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="shNaSvg" viewBox="0 0 560 170" role="img" aria-label="A bar of the causes of low sodium in 49 people after subarachnoid haemorrhage: SIAD 36, incorrect IV fluids 5, hypovolaemia 5, glucocorticoid insufficiency 4, cerebral salt wasting 0."></svg></div>
+      <p class="stage-cap">One prospective series of 100, of whom 49 developed sodium under 135 mmol/L [[Hannon2014]].</p>
+    </div>
+    <div class="note">
+      <div class="kicker">Flagged discrepancy</div>
+      <h4>36 of 49 is 73.5%, the abstract prints 71.4%</h4>
+      <p>Both figures are shown because they do not match in the source: SIAD in 36 of 49, printed as 71.4% [[Hannon2014]]. This series found no cerebral salt wasting. A review instead treats SIAD or cerebral salt wasting as causes that are hard to separate, says fluid restriction can be harmful, and focuses management on euvolaemia [[Claassen2022]].</p>
+      <p>AHA/ASA 2023: goal-directed euvolaemia (2a, B-R); mineralocorticoids reasonable for natriuresis and hyponatraemia (2a, B-R) [[Hoh2023]].</p>
+      <div class="hook"><b>Exam hook</b>Hyponatraemia after SAH is mostly SIAD in the best prospective series [[Hannon2014]].</div>
+    </div>
+  </div>
+  <div class="prose"><p>For hydrocephalus, AHA/ASA 2023 recommends urgent CSF diversion when acute and symptomatic (1, B-NR), an EVD bundle (1, B-NR) and permanent diversion when chronic and symptomatic (1, B-NR). Routine lamina terminalis fenestration is not indicated (3: No Benefit, C-LD) [[Hoh2023]]. EVD or lumbar puncture before securing did not clearly raise rebleeding: HR 1.0 (0.4 to 2.7) and 0.7 (0.1 to 6.4) [[Hellingman2007]].</p></div>
+
+  <h3 class="sub">Outcomes over time</h3>
+  <div class="shbar" role="group" aria-label="Trend to show">
+    <button class="btn" data-sht="cf" aria-pressed="true">Case fatality, Greater Cincinnati</button>
+    <button class="btn" data-sht="in" aria-pressed="false">Incidence, worldwide</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="shTrSvg" viewBox="0 0 720 300" role="img" aria-label="A slope chart joining two published points in time. Case fatality at 5, 30 and 90 days fell between 1988 and 2010, and worldwide incidence fell between 1980 and 2010."></svg></div>
+      <p class="stage-cap">Each line joins two published points only. Nothing between them is measured here.</p>
+    </div>
+    <aside class="note" id="shTrNote" aria-live="polite"></aside>
+  </div>
+  <div class="prose"><p>Other series agree on direction but differ on size. In 33 studies, case fatality ranged 8.3 to 66.7%, falling 0.8% a year, 17% over 1973 to 2002, despite mean age rising from 52 to 62 [[Nieuwkamp2009]]. An earlier review gave 32 to 67% over 1960 to 1992 [[Hop1997]]. In the 1980s International Cooperative Study of 3521 people, 26% had died at 6 months and 58% had fully recovered [[Kassell1990]]. AHA text gives prehospital mortality of 22 to 26% and US inpatient mortality of 13.7% in 2006 and 13.1% in 2018 [[Hoh2023]]. The ESO lay summary says about 40% die within 3 months and roughly one third regain independence [[Vergouwen2026]]. A Swiss registry found in-hospital mortality of 20%, or 13.9% once those with active treatment discontinued were excluded [[Stienen2018]]. In 3078 one-year survivors, 20-year excess mortality was 17%, including young people and those with good recovery [[Huhtakangas2015]].</p></div>
+
+  <h3 class="sub">After hospital: long-term issues</h3>
+  <div class="shbar" role="group" aria-label="Long-term findings" id="shLtBtns"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="shLtSvg" viewBox="0 0 720 200" role="img" aria-label="A block of 100 dots with the share affected in the chosen long-term study shaded."></svg></div>
+      <p class="stage-cap">Figures are rounded to whole numbers of 100. Each study has its own size and setting.</p></div>
+    <aside class="note" id="shLtNote" aria-live="polite"></aside>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>Hidden problems</h4><p>People who look normal at discharge may have hidden cognitive deficits that interfere with daily function [[Nussbaum2021]]. Memory, executive function and language are often affected, compounded by depression, anxiety, fatigue and sleep disturbance [[AlKhindi2010]].</p></div>
+    <div class="card"><h4>Mood</h4><p>AHA text: depression in about one-third of survivors, anxiety and post-traumatic stress disorder in about 15 to 20%, cognitive impairment in 40 to 70% [[Hoh2023]].</p></div>
+    <div class="card"><h4>Fatigue</h4><p>Among 96 good-outcome people with fatigue, it ranked in their three most disabling symptoms, described as low motivation, mental fatigue and sensitivity to stress [[Western2021]].</p></div>
+    <div class="card"><h4>What guidelines ask for</h4><p>AHA/ASA 2023: validated screening for physical, cognitive, behavioural and quality-of-life deficits before discharge (1, B-NR), depression and anxiety screening (1, B-NR), early multidisciplinary rehabilitation (1, B-NR) [[Hoh2023]]. Long-term data remain limited [[Rinkel2011]].</p></div>
+  </div>
+  <div class="pt"><b>In plain words</b>Many people who survive still feel tired or find thinking and memory harder, even when they look well. This is real, common and worth raising with the care team [[AlKhindi2010,Western2021]].</div>
+</section>
