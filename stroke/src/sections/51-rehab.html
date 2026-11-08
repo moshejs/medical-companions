@@ -1,1 +1,267 @@
-<section class="mod" id="m-rehab" data-mod="rehab" hidden><div class="mhead"><h2>rehab (stub)</h2></div></section>
+<!-- ================= 5.1 REHABILITATION & RECOVERY ================= -->
+<style>
+#m-rehab .btn{min-height:40px}
+#m-rehab .card>.ev,#m-rehab .card>.tag{align-self:flex-start}
+#m-rehab .card b.big{font-family:var(--display);font-weight:700;font-size:26px;line-height:1.1}
+#m-rehab .tbl table{min-width:640px}
+#m-rehab .rhbpanel{display:flex;flex-direction:column;gap:16px}
+#m-rehab .rhbpanel[hidden]{display:none}
+#m-rehab .rhbchart{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:12px}
+#m-rehab .rhbchart svg{width:100%;max-width:720px;height:auto;display:block}
+#rhbGl td:nth-child(3),#rhbGl td:nth-child(4){white-space:nowrap}
+#m-rehab .rhbrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-rehab .rhbrow .stage-cap{min-width:62px}
+#m-rehab .rhbsl{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:14px;font-weight:600}
+#m-rehab .rhbsl input{flex:1;min-width:170px}
+#m-rehab .rhbsl[hidden]{display:none}
+</style>
+<section class="mod" id="m-rehab" data-mod="rehab" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Recovery &amp; care</p><h2>Rehabilitation &amp; recovery</h2>
+    <p class="lede">How function comes back after a stroke, how the brain builds new routes, and what the trials say helps. Scrub the recovery curve, try the proportional recovery rule, then open the part of recovery that matters to you.</p></div>
+
+  <div class="pt"><b>In plain words</b>Most recovery happens in the first weeks and months, and it is fastest early on. Bigger strokes take longer [[Jorgensen1995]]. Getting better can continue after that with the right practice, even long after the stroke. Not everyone gains the same amount [[Ward2019,Prabhakaran2008]]. The numbers on this page describe groups of people. They are not a forecast for you.</div>
+
+  <div class="callout prose"><p><b>The current guideline is from 2026.</b> The AHA/ASA guideline by Richards and colleagues replaces the 2016 guideline. Its search ran from June to October 2025. Updates include medical comorbidities, fracture risk, fall prevention, technology-enabled rehabilitation, caregiver support, participation, and safe return to work and driving [[Richards2026,Winstein2016]]. It says rehabilitation should begin in the acute phase, and that it combines restoring function with learning new ways to do things. It is also frank: "uncertainty remains regarding the best treatment approaches, their timing, and dosing" [[Richards2026]].</p></div>
+
+  <div class="cards">
+    <div class="card"><b class="big">80% by 6 weeks</b><p>of 1197 people in Copenhagen had reached their best in daily activities, and 95% by 12.5 weeks [[Jorgensen1995]].</p></div>
+    <div class="card"><b class="big">2 weeks ahead</b><p>Neurological recovery ran about 2 weeks ahead of functional recovery on average [[Jorgensen1995]].</p></div>
+    <div class="card"><b class="big">16% to 42%</b><p>of the improvement in the first 6 to 10 weeks was explained by time alone, in 101 people with first middle cerebral artery infarcts [[Kwakkel2006]].</p></div>
+    <div class="card"><b class="big">46% with no ADL disability</b><p>among Copenhagen survivors after rehabilitation. The authors said "even the most severe cases regularly experience meaningful improvement" [[Jorgensen1995Part1]].</p></div>
+  </div>
+
+  <h3 class="sub">The recovery curve, and what the brain is doing</h3>
+  <div class="prose"><p>Choose a kind of recovery and a group, then move the timeline. Dots are published figures from the Copenhagen Stroke Study. The dashed lines between them are schematic. On the right, the same timeline drives a drawing of neurons building new routes around an injury.</p></div>
+  <div class="rhbrow" role="group" aria-label="Kind of recovery" id="rhbDom"></div>
+  <div class="rhbrow" role="group" aria-label="Group of people" id="rhbGrp"></div>
+  <div class="stepper" id="rhbSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rhbSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A curve of the share of people who have reached their best function by week after stroke, beside a drawing of neurons growing new connections around a lesion as the weeks pass."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rhbPlay">%t:player.play%</button><label class="stage-cap tl" for="rhbT">Weeks <input type="range" id="rhbT" min="0" max="1" step="0.002" value="0.217"></label></div>
+      <div class="readout" id="rhbRead"></div>
+      <p class="stage-cap"><b>Dots are published. Dashed lines and the neuron drawing are schematic.</b> Ticks on the top edge mark the week the study gives for best function in that group. Thin grey lines are the other groups. Population figures, not a prediction for any person.</p>
+    </div>
+    <aside class="note" id="rhbNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="split2">
+    <div class="card"><span class="tag warn">Open question</span><h4>When does recovery stop?</h4>
+      <p>The Copenhagen authors wrote that recovery "should not be expected after the first 5 months" [[Jorgensen1995]]. Later work reports more: language recovery continues, though less, beyond 6 months [[RELEASE2021]], and intensive therapy long after stroke brings gains in the arm and in speech [[Ward2019,Dawson2021,Breitenstein2017]].</p>
+      <p>One reading is that the apparent plateau partly reflects the therapy dose delivered as well as biology. <span class="ev hyp">Hypothesis</span> The question is unresolved.</p></div>
+    <div class="card"><span class="tag warn">Worth knowing</span><h4>Function can also slip</h4>
+      <p>In the Swedish Stroke Register (64,746 people; 35,064 followed-up survivors), dependency in daily activities rose from 16.2% at 3 months to 28.3% at 12 months [[Ullberg2015]]. So the 2026 guideline names periodic reassessment and re-engagement in therapy as important to prevent functional decline [[Richards2026]].</p>
+      <p>NICE says care and rehabilitation should continue after hospital "for as long as it continues to help them achieve their treatment goals" [[NICE-NG236]].</p></div>
+  </div>
+
+  <h3 class="sub">The proportional recovery rule, and the argument about it</h3>
+  <div class="prose"><p>In 2008, researchers noticed that many people regained about 70% of the arm movement they had lost. Is that biology, or partly arithmetic? Move the start score, then read each side of the argument.</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>This shows how a published formula behaves. It is never for an individual's prognosis. The researchers themselves disagree about what it means, and it does not fit everyone.</p>
+  <div class="rhbrow" role="group" aria-label="Side of the argument" id="rhbPrV"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rhbPrSvg" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="A plot of the proportional recovery rule, predicted change in the Fugl-Meyer arm score against the starting score, beside a panel that changes with the chosen side of the argument, including simulated dots that show how mathematical coupling can create a strong correlation."></svg></div>
+      <label class="rhbsl" for="rhbPrX">Start score on the Fugl-Meyer arm scale, 0 to 66 <input type="range" id="rhbPrX" min="0" max="66" step="1" value="26"></label>
+      <label class="rhbsl" for="rhbPrS" id="rhbPrSW" hidden>How much final scores vary (simulated) <input type="range" id="rhbPrS" min="2" max="40" step="1" value="8"></label>
+      <div class="readout" id="rhbPrRead"></div>
+      <p class="stage-cap" id="rhbPrCap"></p>
+    </div>
+    <aside class="note" id="rhbPrNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>Predicting the arm in practice: PREP2</h4><p>PREP2 (207 people recruited within 3 days) combines arm impairment, age, motor evoked potentials on TMS, and MRI lesion load or NIHSS, to predict arm function at 3 months. It was correct for 75%, and TMS was needed for one third [[Stinear2017]].</p></div>
+    <div class="card"><h4>Where the argument stands</h4><p>Three positions remain: a real mechanism in non-severe weakness [[Prabhakaran2008,Winters2015]]; a figure inflated by mathematical coupling [[Hope2019]]; valid for populations but not for one person [[Kundert2019]]. Hawe and colleagues published a further critique, "Taking Proportional Out of Stroke Recovery" [[Hawe2019]]; we could not read its content, so it is not summarised here.</p></div>
+  </div>
+
+  <h3 class="sub">Recovery, one part at a time</h3>
+  <div class="prose"><p>Each tab has the evidence in a table, then what the 2026 guideline says. COR is the class of recommendation and LOE the level of evidence, quoted as published. These are summaries of research, not instructions for one person.</p></div>
+  <div class="rhbrow" role="group" aria-label="Part of recovery" id="rhbTabs">
+    <button class="btn" data-tab="arm" aria-pressed="true">Arm &amp; hand</button>
+    <button class="btn" data-tab="walk" aria-pressed="false">Walking</button>
+    <button class="btn" data-tab="aph" aria-pressed="false">Speech &amp; aphasia</button>
+    <button class="btn" data-tab="swl" aria-pressed="false">Swallowing</button>
+    <button class="btn" data-tab="spa" aria-pressed="false">Spasticity</button>
+    <button class="btn" data-tab="vis" aria-pressed="false">Vision &amp; neglect</button>
+  </div>
+
+  <div class="rhbpanel" id="rhbP-arm">
+    <div class="pt"><b>In plain words</b>Doing the real task, again and again, is the core of arm and walking therapy [[Veerbeek2014]].</div>
+    <div class="rhbchart"><svg id="rhbC-arm" role="img" aria-label="Bars. In Copenhagen full arm function was reached by 79% with mild and 18% with severe weakness. In RATULS success at 3 months was 44% with a robot, 50% with enhanced therapy and 42% with usual care."></svg></div>
+    <div class="tbl"><table><thead><tr><th>Study</th><th>Who</th><th>Result</th></tr></thead><tbody>
+      <tr><th>Copenhagen arm</th><td>421 people</td><td>Best arm function reached by 80% within 3 weeks, 95% within 9 weeks. Mild weakness 3 and 6 weeks, severe 6 and 11 weeks [[Nakayama1994]].</td></tr>
+      <tr class="hl"><th>EXCITE</th><td>222 people, 3 to 9 months after stroke; 2 weeks of constraint therapy</td><td>Wolf Motor Function Test time fell 52% versus 26% at 12 months (difference 34%, 12% to 51%). Motor Activity Log Amount of Use 1.21 to 2.13 versus 1.15 to 1.65 [[Wolf2006]].</td></tr>
+      <tr><th>Constraint therapy, Cochrane</th><td>42 studies, 1453 participants</td><td>Arm motor function SMD 0.34 (0.12 to 0.55). Disability SMD 0.24 (-0.05 to 0.52), not significant [[Corbetta2015]]. Constraint alone has no evidence of efficacy [[Kwakkel2015]].</td></tr>
+      <tr><th>ICARE</th><td>361 people, mean 46 days after stroke</td><td>Structured task training no better than dose-equivalent or monitored usual therapy. Log WMFT change 0.82, 0.84 and 0.75 (P 0.16, 0.94, 0.15) [[Winstein2016JAMA]].</td></tr>
+      <tr><th>RATULS</th><td>770 people</td><td>ARAT success at 3 months 44% robot, 50% enhanced therapy, 42% usual care. Robot versus usual aOR 1.17 (98.3% CI 0.70 to 1.96). Enhanced versus usual aOR 1.51 (0.90 to 2.51). Neither improved function [[Rodgers2019]].</td></tr>
+      <tr><th>VA ROBOTICS</th><td>127 people, at least 6 months after stroke</td><td>Fugl-Meyer difference versus usual care 2.17 (-0.23 to 4.58) at 12 weeks, 2.88 (0.57 to 5.18) at 36 weeks, but not better than intensive comparison therapy [[Lo2010]].</td></tr>
+      <tr><th>Robots, Cochrane</th><td>Review</td><td>ADL SMD 0.31 (0.09 to 0.52), arm function SMD 0.32 (0.18 to 0.46), arm strength SMD 0.46 (0.16 to 0.77), with caution due to trial variation [[Mehrholz2018]].</td></tr>
+      <tr><th>FAST INdiCATE</th><td>288 people, 2 to 60 days after stroke</td><td>Functional strength training versus movement performance therapy: ARAT change 9.70 versus 7.90, difference 1.35 (-1.20 to 3.90; p=0.298) [[Pomeroy2018]].</td></tr>
+      <tr><th>VNS-REHAB</th><td>108 people, at least 9 months after ischaemic stroke, moderate to severe weakness, all implanted</td><td>Fugl-Meyer rose 5.0 versus 2.4 (difference 2.6, 1.0 to 4.2; p=0.0014). Meaningful response at 90 days 47% versus 24%. Funded by MicroTransponder [[Dawson2021]].</td></tr>
+      <tr><th>Mirror therapy</th><td>62 studies, 1982 participants</td><td>Motor function SMD 0.47 (0.27 to 0.67), ADL SMD 0.48 (0.30 to 0.65), with small studies and uncertain quality [[Thieme2018]].</td></tr>
+      <tr><th>Repetitive task training</th><td>33 trials, 1853 participants</td><td>Arm function SMD 0.25 (0.01 to 0.49), hand function SMD 0.25 (0.00 to 0.51), low quality, sustained up to 6 months [[French2016]].</td></tr>
+    </tbody></table></div>
+    <div class="callout prose"><p><b>2026 guideline, arm:</b> repetitive, graded practice of functional tasks including constraint therapy (COR 1, LOE A). Robotic-aided rehabilitation added to standard treatment for moderate to severe hemiparesis, to deliver more practice (2a, A). Mirror therapy (2a, B-R). Virtual reality (2a, B-R). Vagus nerve stimulation paired with high-dose task training (2b, B-R). Bobath not recommended (3: No Benefit, B-R) [[Richards2026]].</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Robots</h4><p>RATULS was negative [[Rodgers2019]] and Cochrane positive [[Mehrholz2018]]. The guideline gives COR 2a for extra practice, and says superiority of robotic therapy "has not been demonstrated" [[Richards2026]].</p></div>
+    <div class="hook"><b>Exam hook</b>EXCITE positive, ICARE and RATULS neutral [[Wolf2006,Winstein2016JAMA,Rodgers2019]].</div>
+  </div>
+
+  <div class="rhbpanel" id="rhbP-walk" hidden>
+    <div class="pt"><b>In plain words</b>Half of the people in Copenhagen walked on their own at the end of rehabilitation, up from just over a third at onset. Practising real walking, stepping and balance is the centre of the evidence [[Jorgensen1995Walking,Richards2026]].</div>
+    <div class="rhbchart"><svg id="rhbC-walk" role="img" aria-label="Two stacked bars from Copenhagen. At onset 51% could not walk, 12% walked with help, 37% walked independently. At the end of rehabilitation 21% had died, 18% could not walk, 11% walked with help, 50% walked independently."></svg></div>
+    <div class="tbl"><table><thead><tr><th>Study</th><th>Who</th><th>Result</th></tr></thead><tbody>
+      <tr><th>Copenhagen walking</th><td>804 people</td><td>Recovery of walking occurred in 95% within 11 weeks [[Jorgensen1995Walking]].</td></tr>
+      <tr><th>LEAPS</th><td>408 people, 2 months after stroke</td><td>52.0% improved functional walking at 1 year. Early locomotor training versus home exercise OR 0.83 (0.50 to 1.39); late versus home OR 1.19 (0.72 to 1.99). Multiple falls were more common with early training in those with severe impairment (P=0.02) [[Duncan2011]].</td></tr>
+      <tr><th>Treadmill, Cochrane</th><td>56 trials, 3105 participants</td><td>No increased chance of independent walking (RD 0.00, -0.02 to 0.02). Walking speed MD 0.06 m/s (0.03 to 0.09). Benefit mainly in people already walking [[Mehrholz2017]].</td></tr>
+      <tr><th>Electromechanical gait training, Cochrane</th><td>62 trials, 2440 participants</td><td>Independent walking OR 2.01 (1.51 to 2.69), speed MD 0.06 m/s (0.02 to 0.10). Eight need treatment to prevent one dependency in walking. On post hoc analysis, those not walking and in the first 3 months seem to benefit most [[Mehrholz2020]].</td></tr>
+      <tr><th>PHYS-STROKE</th><td>200 people, days 5 to 45, median NIHSS 8</td><td>Aerobic treadmill training not superior to relaxation for walking speed (0.1 m/s, 0.0 to 0.2) or Barthel (0, -5 to 5). Serious adverse events IRR 1.81 (0.97 to 3.36) [[Nave2019]].</td></tr>
+      <tr><th>Fitness training, Cochrane</th><td>75 studies, 3017 mostly ambulatory people</td><td>Disability improved with cardiorespiratory training (SMD 0.52, 0.19 to 0.84) and mixed training (SMD 0.23, 0.03 to 0.42). VO2 peak MD 3.40 mL/kg/min (2.98 to 3.83). No serious adverse events [[Saunders2020]].</td></tr>
+    </tbody></table></div>
+    <div class="callout prose"><p><b>2026 guideline, walking:</b> task-specific overground walking, stepping and balance (COR 1, LOE A). At least 4 to 8 weeks of high-dose therapy, 1 to 2 hour sessions 5 times per week (2a, B-R). Robot gait training or light to moderate treadmill training not recommended over overground training in ambulatory people (3: No Benefit, A). Bobath not recommended (3: No Benefit, B-R) [[Richards2026]].</p></div>
+    <div class="hook"><b>Exam hook</b>LEAPS: treadmill with body-weight support was no better than home exercise [[Duncan2011]].</div>
+  </div>
+
+  <div class="rhbpanel" id="rhbP-aph" hidden>
+    <div class="pt"><b>In plain words</b>Trouble finding words is called aphasia. Speech therapy helps, even long after a stroke [[Brady2016,Breitenstein2017]].</div>
+    <div class="rhbchart"><svg id="rhbC-aph" role="img" aria-label="Bars. In Copenhagen aphasia was present in 38% at admission and 18% at discharge. In a review its median frequency was 30% in acute mixed stroke and 34% in rehabilitation."></svg></div>
+    <div class="tbl"><table><thead><tr><th>Study</th><th>Who</th><th>Result</th></tr></thead><tbody>
+      <tr><th>Frequency review</th><td>Systematic review</td><td>Median 30% acute, 34% rehabilitation. Lowest in acute subarachnoid haemorrhage (9%), highest in acute ischaemic stroke arriving within 3 hours (62%). At 1 year, 2% to 12% lower than baseline [[Flowers2016]].</td></tr>
+      <tr><th>Copenhagen language</th><td>881 people</td><td>95% reached stationary language within 2 weeks (mild), 6 weeks (moderate), 10 weeks (severe) [[Pedersen1995]].</td></tr>
+      <tr><th>Speech therapy, Cochrane</th><td>57 RCTs, 3002 participants</td><td>Therapy versus none improved functional communication (SMD 0.28, 0.06 to 0.49), reading, writing and expressive language, but benefits were not evident at follow-up. High intensity or dose helped, with more dropouts [[Brady2016]].</td></tr>
+      <tr><th>RELEASE regimens</th><td>959 participants, 25 trials</td><td>Greatest gains with more than 20 to 50 hours total (18.37 WAB-AQ points, 10.58 to 26.16), tailored therapy and home practice. No comprehension gains with 20 hours or less. Exploratory [[RELEASE2022]].</td></tr>
+      <tr><th>RELEASE predictors</th><td>Individual participant data</td><td>Entering before 1 month +19.1 WAB-AQ points (13.9 to 24.4), under age 55 +15.4 (10.0 to 20.9). Recovery continued, less, beyond 6 months [[RELEASE2021]].</td></tr>
+      <tr><th>VERSE</th><td>246 randomised, from within 14 days</td><td>Early intensive therapy did not beat usual care at 12 weeks. Communication recovery 50.3% versus 52.1% (difference -1.8, -8.7 to 5.0) [[Godecke2021]].</td></tr>
+      <tr class="hl"><th>FCET2EC</th><td>156 people aged 70 or under, aphasia for at least 6 months</td><td>3 weeks of at least 10 hours per week. ANELT change 2.61 versus -0.03, Cohen's d 0.58, p=0.0004 [[Breitenstein2017]].</td></tr>
+      <tr><th>Big CACTUS</th><td>278 people, at least 4 months after stroke</td><td>Daily computerised therapy improved word finding by 16.2% more than usual care (12.7 to 19.6), but not conversation (-0.03, -0.21 to 0.14) [[Palmer2019]].</td></tr>
+    </tbody></table></div>
+    <div class="callout prose"><p><b>2026 guideline, aphasia:</b> a variety of speech and language treatment approaches (COR 1, LOE A). Supported communication training (1, B-NR). Intensive treatment (2a, B-R). Telerehabilitation when face to face is impractical (2a, A). Computerised treatment as a supplement (2b, B-R) [[Richards2026]].</p></div>
+    <div class="card"><span class="tag warn">Controversy</span><h4>Early or later intensive therapy?</h4><p>Early intensive therapy gave no gain in VERSE [[Godecke2021]], yet RELEASE links starting before 1 month to the largest gains [[RELEASE2021]]. These are not the same comparison: VERSE compares regimens in early patients, whereas RELEASE reflects natural recovery as well.</p></div>
+    <div class="hook"><b>Exam hook</b>Aphasia is about 30% acutely [[Flowers2016]]. FCET2EC showed benefit in chronic aphasia [[Breitenstein2017]]; VERSE showed no benefit of early intensive therapy [[Godecke2021]].</div>
+  </div>
+
+  <div class="rhbpanel" id="rhbP-swl" hidden>
+    <div class="pt"><b>In plain words</b>Swallowing problems are common early on and often improve. In one study, most people were back on their usual diet by 6 months, though some still had signs of difficulty when tested [[Mann1999]].</div>
+    <div class="rhbchart"><svg id="rhbC-swl" role="img" aria-label="Range bars of dysphagia incidence by how it is looked for: cursory screening 37% to 45%, clinical testing 51% to 55%, instrumental testing 64% to 78%. A second bar shows 87% of survivors back on their prestroke diet at 6 months."></svg></div>
+    <div class="tbl"><table><thead><tr><th>Study</th><th>Who</th><th>Result</th></tr></thead><tbody>
+      <tr><th>Dysphagia review</th><td>Systematic review</td><td>Incidence depends on the method (see chart). Pneumonia RR 3.17 (2.07 to 4.87) with dysphagia and 11.56 (3.36 to 39.77) with aspiration [[Martino2005]].</td></tr>
+      <tr><th>Population register</th><td>Multiethnic population</td><td>Dysphagia 44.7% at maximum deficit, alongside upper limb weakness 77.4%, urinary incontinence 48.2%, impaired cognition 43.9% [[Lawrence2001]].</td></tr>
+      <tr><th>Mann and colleagues</th><td>128 people with first stroke</td><td>Abnormal at baseline 51% clinically, 64% on videofluoroscopy. At 6 months 87% of survivors were on their prestroke diet, yet 50% still had a clinical abnormality. Videofluoroscopy in 67 showed penetration in 34 and aspiration in 17. Chest infection 20% [[Mann1999]].</td></tr>
+      <tr class="hl"><th>FOOD</th><td>Trial of timing and method of tube feeding</td><td>Early tube feeding absolute risk reduction in death 5.8% (-0.8 to 12.5). PEG versus nasogastric raised death or poor outcome by 7.8% (0.0 to 15.5, p=0.05). Data "do not support a policy of early initiation of PEG" [[Dennis2005]].</td></tr>
+      <tr><th>Swallowing therapy, Cochrane 2026</th><td>181 trials, 11,500 participants</td><td>Behavioural interventions may reduce swallowing impairment (SMD -1.17, -1.60 to -0.74, very low certainty) and chest infection or pneumonia (OR 0.45, 0.27 to 0.76, low certainty). Limited by small trials at high or unclear risk of bias [[Wilkinson2026]].</td></tr>
+    </tbody></table></div>
+    <div class="callout prose"><p><b>2026 guideline, swallowing:</b> screening as soon as possible, within 24 hours of admission and before eating, drinking or oral medication (COR 1, LOE B-R). Instrumented studies over bedside studies with suspected dysphagia (1, B-NR). Behavioural swallowing treatment (1, B-NR). Pharyngeal electrical stimulation may be considered (2b, B-R). Gastrostomy preferred to nasogastric tubes with chronic inability to swallow safely (1, B-NR) [[Richards2026]].</p></div>
+    <div class="hook"><b>Exam hook</b>PEG is not supported early [[Dennis2005]].</div>
+  </div>
+
+  <div class="rhbpanel" id="rhbP-spa" hidden>
+    <div class="pt"><b>In plain words</b>Spasticity means muscles that resist being moved. Only some people get it, and fewer find it disabling. Toxin injections can loosen a tight arm and make self-care easier, even though they do not by themselves bring back arm skill [[Wissel2013,Andringa2019]].</div>
+    <div class="rhbchart"><svg id="rhbC-spa" role="img" aria-label="Range bars of spasticity prevalence: 4% to 27% at 1 to 4 weeks, 19% to 26.7% at 1 to 3 months, 17% to 42.6% beyond 3 months, and disabling spasticity 2% to 13%."></svg></div>
+    <div class="tbl"><table><thead><tr><th>Study</th><th>Who</th><th>Result</th></tr></thead><tbody>
+      <tr><th>Epidemiology review</th><td>Review</td><td>Prevalence 4% to 42.6%, disabling 2% to 13%. Risk factors: lower Barthel, severe paresis, stroke-related pain, sensory deficits [[Wissel2013]].</td></tr>
+      <tr class="hl"><th>Toxin for the arm</th><td>40 trials, 2718 people</td><td>Robust evidence for reduced resistance to passive movement and better self-care, and robust evidence for no effect on arm-hand capacity at follow-up. Also reduced involuntary movements, pain and caregiver burden [[Andringa2019]].</td></tr>
+      <tr><th>BoNT-A versus placebo</th><td>22 studies, 1804 people, stroke or traumatic brain injury</td><td>Muscle tone SMD -0.98 at week 4 (-1.28 to -0.68), -0.67 at week 12 (-0.88 to -0.46). Adverse events RR 1.36 (0.82 to 2.27) [[Dong2017]].</td></tr>
+      <tr><th>Rehabilitation after toxin, Cochrane</th><td>3 RCTs, 91 people</td><td>At best low-level evidence for outpatient rehabilitation after toxin [[Demetrios2013]].</td></tr>
+      <tr><th>Other drugs, Cochrane</th><td>Review</td><td>Insufficient evidence that systemic antispasmodics improve function. Adverse events higher (RR 1.65, 1.12 to 2.42) [[Lindsay2016]].</td></tr>
+    </tbody></table></div>
+    <div class="callout prose"><p><b>2026 guideline, spasticity:</b> targeted botulinum toxin for arm spasticity and for leg spasticity interfering with gait (COR 1, LOE A). Instrumented guidance (1, B-R). Oral agents for generalised spasticity (2b, A). Intrathecal baclofen for severe spasticity (2a, B-R). Splints and taping not recommended for preventing wrist and finger spasticity (3: No Benefit, B-NR) [[Richards2026]].</p></div>
+    <div class="hook"><b>Exam hook</b>Botulinum toxin reduces resistance to passive movement and aids self-care, but not arm capacity [[Andringa2019]].</div>
+  </div>
+
+  <div class="rhbpanel" id="rhbP-vis" hidden>
+    <div class="pt"><b>In plain words</b>A stroke can change what you see, or make you miss things on one side without noticing. That second one is called neglect. It is common early on, and scanning practice can improve daily life even when the field of vision itself stays the same [[Esposito2021,Pollock2019]].</div>
+    <div class="rhbchart"><svg id="rhbC-vis" role="img" aria-label="Bars. Neglect was found in 38% after right and 18% after left brain damage. A stacked bar shows visual field loss at follow-up: 7.5% full recovery, 39% improvement, 52% no recovery."></svg></div>
+    <div class="tbl"><table><thead><tr><th>Study</th><th>Who</th><th>Result</th></tr></thead><tbody>
+      <tr><th>Vision In Stroke</th><td>915 people referred with suspected visual problems (a referred sample, not a population prevalence)</td><td>92% had confirmed impairment. Field loss 52%, ocular motility disorders 68%, strabismus 16%, inattention 15% [[Rowe2017]].</td></tr>
+      <tr><th>Field defects, Cochrane</th><td>Review</td><td>Scanning training improved quality of life (VFQ-25 MD 9.36, 3.10 to 15.62) but not the visual field. Prisms showed no effect on ADL, reading, falls or quality of life, with more minor adverse events such as headache [[Pollock2019]].</td></tr>
+      <tr><th>Neglect review</th><td>6324 people, 41 articles</td><td>29% overall. 53% with ecological assessment versus 24% with other tests. Falling from acute to chronic stages [[Esposito2021]].</td></tr>
+      <tr><th>Neglect, Cochrane</th><td>65 RCTs, 1951 participants</td><td>Effectiveness "remains unproven" and no approach can be supported or refuted. Body awareness interventions on persisting ADL SMD 0.61 (0.24 to 0.97), very uncertain [[Longley2021]].</td></tr>
+    </tbody></table></div>
+    <div class="callout prose"><p><b>2026 guideline, vision and neglect:</b> visual eye movement training for neglect (COR 2a, LOE A). Mirror therapy with conventional therapy (2a, B-R). Prism adaptation with shift over 10 degrees (2b, B-R). For field cuts, prisms (2a, B-R) and scanning training (2a, B-R) [[Richards2026]].</p></div>
+    <div class="split2">
+      <div class="card"><span class="tag warn">Controversy</span><h4>Prisms for field loss</h4><p>The guideline gives COR 2a [[Richards2026]]. Cochrane found low-quality evidence of no effect on most outcomes and more minor harms [[Pollock2019]].</p></div>
+      <div class="card"><span class="tag warn">Controversy</span><h4>Neglect</h4><p>The guideline gives COR 2a for visual training [[Richards2026]]. Cochrane says no approach can be supported or refuted [[Longley2021]].</p></div>
+    </div>
+    <div class="hook"><b>Exam hook</b>Neglect is about 30% [[Esposito2021]].</div>
+  </div>
+
+  <h3 class="sub">Timing: is there a window? CPASS</h3>
+  <div class="prose"><p>Animal work suggests a time-limited window of plasticity opens after stroke, with the greatest gains during it [[Murphy2009]]. The Critical Period After Stroke Study tested that in people. Play it through.</p></div>
+  <div class="stepper" id="rhbCpSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rhbCpSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Rat results by start day, then three bars of the gain in arm score at one year in the CPASS trial by when extra therapy began, largest at 2 to 3 months and smallest at 6 months or later, then a slope chart of the chronic-phase Queen Square programme."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rhbCpPlay">%t:player.play%</button><label class="stage-cap tl" for="rhbCpT">Timeline <input type="range" id="rhbCpT" min="0" max="1" step="0.002" value="0.626"></label></div>
+      <p class="stage-cap"><b>Bars are published values, whiskers the published ±.</b> The shaded hump is schematic: it draws the idea of a window, not data.</p>
+    </div>
+    <aside class="note" id="rhbCpNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Dose: how much, and how early?</h3>
+  <div class="split2">
+    <div class="rhbchart"><svg id="rhbC-avert" role="img" aria-label="Bars from AVERT. Favourable outcome at 3 months was 46% with very early, higher dose mobilisation and 50% with usual care. Mobilised within 24 hours was 92% versus 59%."></svg></div>
+    <div class="card"><h4>AVERT changed practice</h4>
+      <p>2104 people at 56 stroke units in five countries. Very early, higher dose mobilisation lowered favourable outcome: adjusted OR 0.73 (0.59 to 0.90; p=0.004). Deaths 8% versus 7%, OR 1.34 (0.93 to 1.93) [[Bernhardt2015]].</p>
+      <p>Within the trial, each extra out-of-bed session per day had OR 1.13 (1.09 to 1.18) for a favourable outcome, while more minutes per day had OR 0.94 (0.91 to 0.97). This is observational, Class III [[Bernhardt2016]].</p>
+      <div class="pt"><b>In plain words</b>In hospital, short and frequent times out of bed seem better than long sessions very early on [[Bernhardt2016]].</div></div>
+  </div>
+  <div class="callout prose"><p><b>2026 guideline:</b> a graduated mobilisation protocol commencing 24 to 48 hours after stroke onset (COR 1, LOE A). High-dose mobilisation within the first 24 hours "should not be performed" (COR 3: Harm, LOE A). After 24 hours, moderate to high-intensity exercise and task practice should be performed [[Richards2026]]. AVERT-DOSE, a phase III adaptive trial of regimens begun within 48 hours, is planned for 1300 and 1400 participants in mild and moderate stroke; only its protocol was found [[Bernhardt2023]].</p></div>
+  <div class="split2">
+    <div class="card"><span class="tag good">More helps</span><h4>The case for more time</h4><ul>
+      <li>Meta-analysis of more versus less scheduled therapy: g=0.35 (0.26 to 0.45) [[Lohse2014]].</li>
+      <li>At least 16 hours more in the first 6 months was needed for a significant ADL difference (20 studies, 2686 people) [[Kwakkel2004]].</li>
+      <li>Extra rehabilitation of the same content: SMD 0.39 (0.07 to 0.71); doubling or more SMD 0.59 (0.23 to 0.94) [[Schneider2016]].</li>
+      <li>Rehabilitation versus none: independence in ADL SMD 0.78 (0.58 to 0.97; 27 studies, 3423 participants). Evidence on dose "does not support robust conclusions" [[Pollock2014]].</li>
+      <li>NICE: "for at least 3 hours a day, on at least 5 days of the week", needs-based. If someone is unable or does not wish to, needed therapy for a minimum of 5 days per week [[NICE-NG236]].</li></ul></div>
+    <div class="card"><span class="tag warn">Not so simple</span><h4>The case for better, not just more</h4><ul>
+      <li>85 people at least 6 months after stroke got 3200, 6400, 9600 or individualised maximum repetitions over 8 weeks. Overall effects were small, with no evidence of a dose-response effect [[Lang2016]].</li>
+      <li>VECTORS (52 people): high-intensity constraint therapy early on gave less improvement at day 90 than dose-matched therapy [[Dromerick2009]].</li>
+      <li>ICARE was neutral at equal dose [[Winstein2016JAMA]].</li>
+      <li>467 physical therapy RCTs: intensive, highly repetitive, task-specific training has the strongest support in all phases, and effects are mostly limited to what was trained [[Veerbeek2014]].</li>
+      <li>Several large motor trials were neutral, which may reflect no added benefit or the difficulty of running such trials <span class="ev est">Established</span> [[Stinear2020]].</li></ul></div>
+  </div>
+
+  <h3 class="sub">Fluoxetine: a promising signal that large trials did not confirm</h3>
+  <div class="prose"><p>This is one of the clearest lessons in stroke research. A small trial raised real hope. Three large trials then asked the same question, and gave a different answer.</p></div>
+  <div class="stepper" id="rhbFlSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="rhbFlSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="FLAME bars of Fugl-Meyer improvement favouring fluoxetine, then a forest plot in which FOCUS, AFFINITY and EFFECTS all cross an odds ratio of 1, then dot charts showing less new depression and more fractures with fluoxetine."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rhbFlPlay">%t:player.play%</button><label class="stage-cap tl" for="rhbFlT">Timeline <input type="range" id="rhbFlT" min="0" max="1" step="0.002" value="0.92"></label></div>
+      <p class="stage-cap"><b>Published values.</b> Odds ratio axis is logarithmic. Bars and rows are positioned from the cited figures.</p>
+    </div>
+    <aside class="note" id="rhbFlNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table><thead><tr><th>Trial</th><th>People</th><th>mRS common OR</th><th>New depression</th><th>Fractures</th><th>Other</th></tr></thead><tbody>
+    <tr><th>FOCUS (UK)</th><td>3127, 20 mg for 6 months</td><td>0.951 (0.839 to 1.079)</td><td>13.43% vs 17.21%</td><td>2.88% vs 1.47%</td><td></td></tr>
+    <tr><th>AFFINITY (Australia, New Zealand, Vietnam)</th><td>1280</td><td>0.94 (0.76 to 1.15)</td><td></td><td>3% vs 1%</td><td>Falls 3% vs 1%, seizures 2% vs under 1%</td></tr>
+    <tr><th>EFFECTS (Sweden)</th><td>1500</td><td>0.94 (0.78 to 1.13)</td><td>7% vs 11%</td><td>4% vs 2%</td><td>Hyponatraemia 1% vs under 1%</td></tr>
+  </tbody></table></div>
+  <div class="prose"><p class="stage-cap">Fluoxetine versus placebo. Sources: FOCUS [[Dennis2019]], AFFINITY [[Hankey2020]], EFFECTS [[Lundstrom2020]]. Blank cells: not reported in the sources used here.</p></div>
+
+  <h3 class="sub">The 2026 guideline: other recommendations</h3>
+  <div class="prose"><p>Richards and colleagues, 2026, is the current AHA/ASA guideline; the 2016 guideline is now history [[Richards2026,Winstein2016]]. This table adds the organisational and everyday items to the six tabs above. Class and level are as published. They were read from a copy of the guideline with the same DOI, because the journal page could not be opened, so the journal itself is the final word on wording.</p></div>
+  <div class="tbl"><table id="rhbGl"><thead><tr><th>Area</th><th>Statement</th><th>COR</th><th>LOE</th></tr></thead><tbody>
+    <tr><th>Organisation</th><td>Organised, coordinated, interprofessional care for candidates for post-acute rehabilitation</td><td>1</td><td>A</td></tr>
+    <tr><th>Setting</th><td>Inpatient rehabilitation facility in preference to skilled nursing facility for those who qualify</td><td>1</td><td>B-NR</td></tr>
+    <tr><th>Early supported discharge</th><td>With multidisciplinary services for mild to moderate activity limitation</td><td>1</td><td>B-R</td></tr>
+    <tr><th>Family-led home rehabilitation</th><td>Early discharge with family-led home-based rehabilitation "has no impact on outcome" compared with early discharge alone</td><td>3: No Benefit</td><td>B-R</td></tr>
+    <tr><th>Mobilisation</th><td>Graduated protocol commencing 24 to 48 hours after onset</td><td>1</td><td>A</td></tr>
+    <tr><th>Mobilisation</th><td>High-dose mobilisation within the first 24 hours "should not be performed"</td><td>3: Harm</td><td>A</td></tr>
+    <tr><th>Telerehabilitation</th><td>A reasonable alternative after mild to moderate stroke when in-person access is limited or absent</td><td>2a</td><td>B-R</td></tr>
+    <tr><th>Shoulder</th><td>Clinical assessment and caregiver education</td><td>1</td><td>B-NR</td></tr>
+    <tr><th>Shoulder</th><td>Slings and positioning devices to prevent worsening subluxation</td><td>2a</td><td>B-R</td></tr>
+    <tr><th>Shoulder</th><td>Botulinum toxin for spastic shoulder muscles</td><td>2a</td><td>B-R</td></tr>
+    <tr><th>Shoulder</th><td>Overhead pulley exercises not recommended</td><td>3: Harm</td><td>C-EO</td></tr>
+    <tr><th>Falls</th><td>Formal fall prevention programme</td><td>1</td><td>B-NR</td></tr>
+    <tr><th>Falls</th><td>Balance exercises, tai chi and dual-task training</td><td>2a</td><td>B-R</td></tr>
+    <tr><th>Fatigue</th><td>CBT for fatigue and sleep</td><td>2a</td><td>B-R</td></tr>
+    <tr><th>Fatigue</th><td>Fluoxetine not recommended to treat fatigue</td><td>3: No Benefit</td><td>B-R</td></tr>
+  </tbody></table></div>
+
+  <div class="cards">
+    <div class="card"><h4>Going home early, with a team</h4><p>Early supported discharge (17 trials, 2422 participants): hospital stay about 6 days shorter (MD -5.5 days). Death or dependency OR 0.80 (0.67 to 0.95), five fewer adverse outcomes per 100. No adverse impact on mood or carer health. Benefits were greatest with a coordinated team and mild to moderate disability [[Langhorne2017]].</p></div>
+    <div class="card"><h4>Therapy at home by screen</h4><p>Home telerehabilitation versus clinic (124 people, 36 sessions): Fugl-Meyer change 7.86 versus 8.36, within the margin, so not inferior [[Cramer2019]]. Cochrane (22 trials, 1937 participants): no difference in ADL, low to moderate evidence [[Laver2020]].</p></div>
+    <div class="card"><h4>Shoulder pain</h4><p>In a population study: 10% at baseline, 21% at 4 and 12 months, 29% overall. Peak onset and severity at 4 months, after most rehabilitation stays end [[AdeyWakeling2015]].</p></div>
+    <div class="card"><h4>Bladder</h4><p>Urinary incontinence, Cochrane (20 trials, 1338 participants): insufficient evidence to guide continence care in rehabilitation [[Thomas2019]].</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>2026 AHA/ASA: mobilise from 24 to 48 hours (COR 1), no high-dose mobilisation in first 24 hours (COR 3: Harm) [[Richards2026]]. AVERT: 46% versus 50% favourable outcome [[Bernhardt2015]].</div>
+</section>
