@@ -1,1 +1,131 @@
-<section class="mod" id="m-cascade" data-mod="cascade" hidden><div class="mhead"><h2>cascade (stub)</h2></div></section>
+<!-- ================= 1.3 CORE, PENUMBRA & TIME ================= -->
+<style>
+#m-cascade .tbl table{min-width:640px}
+#m-cascade .cabar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-cascade .cabar .btn{min-height:40px}
+#m-cascade .cabar>span{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+#m-cascade .cabar label{flex:1;min-width:200px;display:flex;gap:10px;align-items:center;font:500 12px var(--mono);color:var(--muted)}
+#m-cascade .card>.ev{align-self:flex-start}
+#m-cascade .canum{font-family:var(--display);font-weight:700;font-size:30px;line-height:1.05}
+#m-cascade #caRVal{white-space:nowrap;min-width:44px;color:var(--ink)}
+#m-cascade .cacap{font-size:15px;line-height:1.5;max-width:76ch;margin:0}
+</style>
+<section class="mod" id="m-cascade" data-mod="cascade" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding stroke</p><h2>Core, penumbra &amp; time</h2>
+    <p class="lede">When an artery blocks, the centre of its territory dies quickly, while the tissue around it, the penumbra, struggles on for a while and can still recover. Run the clock, change how fast the core grows, and choose when the artery reopens.</p></div>
+
+  <div class="prose"><p>The term "ischaemic penumbra" (ischemic in US spelling) was named by Astrup and colleagues in 1981 [[Astrup1981]]. Human functional imaging supports the concept [[Heiss2000]]. This page reports what studies say about groups of people. It says nothing about any one person.</p></div>
+
+  <div class="cards">
+    <div class="card"><span class="canum">1.9 million</span><p>Neurons lost per minute in Saver's estimate for a typical large-vessel supratentorial stroke, with 14 billion synapses and 12 km of fibres [[Saver2006]].</p></div>
+    <div class="card"><span class="canum">3.6 years</span><p>Normal ageing that one hour without reperfusion equals in the same estimate [[Saver2006]].</p></div>
+    <div class="card"><span class="canum">52.3 vs 0.9 cm³</span><p>Infarct growth with poor vs good collaterals in 94 people with untreated occlusion [[Vagal2018]].</p></div>
+    <div class="card"><span class="canum">10 mL/h</span><p>The early growth rate that divides slow from fast progressors in the SELECT study [[Sarraj2021]].</p></div>
+  </div>
+
+  <h3 class="sub">The clock: core and penumbra</h3>
+  <div class="stepper" id="caSteps"></div>
+  <div class="cabar" role="group" aria-label="Choose how fast the core grows"><span>Growth</span><button class="btn" data-cap="avg" aria-pressed="true">Saver average</button><button class="btn" data-cap="fast" aria-pressed="false">Fast progressor</button><button class="btn" data-cap="slow" aria-pressed="false">Slow progressor</button></div>
+  <div class="cabar" role="group" aria-label="Choose whether and when the artery reopens"><span>Artery</span><button class="btn" data-car="off" aria-pressed="true">Stays blocked</button><button class="btn" data-car="on" aria-pressed="false">Reopens</button><label for="caR">at <input type="range" id="caR" min="0.5" max="9.5" step="0.25" value="3"><b id="caRVal">3 h</b></label></div>
+  <div class="cabar" role="group" aria-label="Choose how the slice is shown"><span>Show as</span><button class="btn" data-cam="plain" aria-pressed="true">Drawing</button><button class="btn" data-cam="dwi" aria-pressed="false">Diffusion MRI</button></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="caSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="An axial brain slice in which a dark core grows inside an amber penumbra, beside a running clock, counters of neurons, synapses and fibres lost, a chart of core volume against time and a bar showing the share of the tissue at risk that is core, penumbra or saved. If the artery reopens, the core stops growing and the remaining penumbra turns green."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="caPlay">Play</button><label class="stage-cap tl" for="caT">Hours <input type="range" id="caT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap">Average line: Saver's published 54 mL over 10 hours, assumed steady, 5.4 mL an hour [[Saver2006]]. Fast and slow lines are illustrative rates either side of the 10 mL/h cutoff (20 and 2 mL/h), not published medians [[Sarraj2021]]. Slice shapes, the fixed 54 mL at risk and the instant stop at reperfusion are schematic. Counters scale Saver's per-minute rates by volume on this page.</p></div>
+    <aside class="note" id="caNote" aria-live="polite"></aside>
+  </div>
+  <p class="cacap" id="caCap" aria-live="polite"></p>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Saver's estimate, large-vessel supratentorial stroke, no reperfusion</th><th>Per minute</th><th>Per hour</th></tr></thead>
+    <tbody>
+      <tr><th>Neurons</th><td>1.9 million</td><td>120 million</td></tr>
+      <tr><th>Synapses</th><td>14 billion</td><td>830 billion</td></tr>
+      <tr><th>Myelinated fibres</th><td>12 km</td><td>714 km</td></tr>
+      <tr><th>Equal to normal ageing of</th><td></td><td>3.6 years</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>All from Saver 2006, which assumes a final infarct of 54 mL (range 19-100), evolution over 10 hours (range 6-18) and 22 billion forebrain neurons [[Saver2006]]. The two published rates do not multiply exactly: 1.9 million × 60 is 114 million, against 120 million per hour. The counter above uses the per-minute figure, so it reads 114 million at one hour. It also runs at one steady speed. The real speed varies widely between people.</p></div>
+  <div class="split2">
+    <div class="card"><h4>Minutes as healthy life: thrombolysis</h4><p>Each minute saved was modelled as 1.8 days of healthy life (0.9-2.7), so 15 minutes equals about 1 month [[Meretoja2014]].</p></div>
+    <div class="card"><h4>Minutes as healthy life: thrombectomy</h4><p>Each minute was modelled as 4.2 days (2.3-5.4), so 20 minutes equals about 3 months [[Meretoja2017]].</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>1.9 million neurons per minute in large-vessel occlusion [[Saver2006]].</div>
+  <div class="pt"><b>In plain words</b>When an artery blocks, the centre dies fast. Around it, tissue is struggling but can still recover if blood comes back soon [[Baron2021]]. On average about 1.9 million brain cells can be lost each minute in a large stroke [[Saver2006]]. If you think someone is having a stroke, call your local emergency number.</div>
+
+  <h3 class="sub">The blood-flow ladder</h3>
+  <div class="prose"><p>Lower the flow and functions fail in order. Most numbers come from animals, so each rung names its species. Human thresholds are reported too, but they were too heterogeneous for a meta-analysis [[Bandera2006]].</p></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="caLad" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A vertical axis of cerebral blood flow from 60 to 0 millilitres per 100 grams per minute. As a marker descends, rungs from rodent and monkey studies light up one by one, while a neuron changes from healthy to stressed to dead. Side bars show the reported human ranges for penumbra and core."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="caLadPlay">Play</button><label class="stage-cap tl" for="caLadT">Lower flow <input type="range" id="caLadT" min="0" max="1" step="0.002" value="0.55"></label></div>
+      <p class="stage-cap">Rodent values are published in mL/g/min [[Hossmann1994]] and shown here in mL/100 g/min (0.55 mL/g/min = 55). They are not human cutoffs. The neuron drawing is schematic: damage also depends on how long flow stays low [[Jones1981]].</p></div>
+    <aside class="note" id="caLadNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Evidence</th><th>Species and type</th><th>What was reported</th></tr></thead>
+    <tbody>
+      <tr><th>Jones 1981</th><td>Awake monkeys, primary study</td><td>Reversible paralysis below about 23 mL/100 g/min; irreversible damage below 10-12 for 2-3 hours, or 17-18 with permanent occlusion; microscopic infarct seen at 15-30 minutes [[Jones1981]]</td></tr>
+      <tr><th>Hossmann 1994</th><td>Rodent-based review</td><td>Protein synthesis stops at 0.55 mL/g/min; anaerobic glycolysis starts at 0.35; transmitter release and energy metabolism disturbed at 0.20; anoxic depolarisation below 0.15. Penumbra redefined as tissue with preserved energy metabolism, gone after a few hours in rodents [[Hossmann1994]]</td></tr>
+      <tr><th>Bandera 2006</th><td>Human, systematic review</td><td>Penumbra 14.1-35.0 and core 4.8-8.4 mL/100 g/min; too heterogeneous for meta-analysis [[Bandera2006]]</td></tr>
+      <tr><th>Mangiardi 2023</th><td>Review</td><td>Normal flow about 50-60; at 10-20 cellular functions are interrupted with structure intact; below that, cell death follows within minutes [[Mangiardi2023]]</td></tr>
+      <tr><th>Koukalova 2024</th><td>Review</td><td>Infarct core at 5-10 mL/100 g/min, with persistent depolarisation [[Koukalova2024]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="hook"><b>Exam hook</b>Normal flow about 50-60 mL/100 g/min; below 10-20 mL/100 g/min is the injury zone [[Mangiardi2023]].</div>
+
+  <h3 class="sub">Collaterals: fast and slow progressors</h3>
+  <div class="prose"><p>Collateral vessels over the brain's surface can keep tissue alive during an occlusion [[Liebeskind2003,Mangiardi2023]]. In 94 people with untreated occlusion, time showed no correlation with infarct growth (r=-0.05), and collateral status separated them instead [[Vagal2018]].</p></div>
+  <div class="cabar" role="group" aria-label="Choose the collateral supply"><span>Collaterals</span><button class="btn" data-cac="good" aria-pressed="true">Good</button><button class="btn" data-cac="poor" aria-pressed="false">Poor</button></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="caCol" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="A side view of the brain with a clot in the middle cerebral artery. With good collaterals, many small vessels bring blood across from the neighbouring territories and the dark core stays small. With poor collaterals, few do and the core spreads through the penumbra. Bars beside it show published infarct growth, salvage and independence figures."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="caColPlay">Play</button><label class="stage-cap tl" for="caColT">Time <input type="range" id="caColT" min="0" max="1" step="0.002" value="0.7"></label></div>
+      <p class="stage-cap">Drawing schematic. Bars are published. Growth and salvage compare collateral grades [[Vagal2018]]. Independence compares growth rates, a separate classification [[Sarraj2021]].</p></div>
+    <aside class="note" id="caColNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Finding</th></tr></thead>
+    <tbody>
+      <tr><th>SELECT (slow 200, fast 85)</th><td>Slow progressors grew under 10 mL/h. Fast progressors had a higher median NIHSS (19 vs 15) and a shorter time from last known well to groin puncture (180 vs 266 minutes). Functional independence 61% vs 35%, adjusted odds ratio 2.94, and odds fell 14% for every 5 mL/h [[Sarraj2021]]</td></tr>
+      <tr><th>Vagal 2018 (94 people)</th><td>Median penumbral salvage 0 vs 5.9 cm³ for poor vs good collaterals [[Vagal2018]]</td></tr>
+      <tr><th>Lima 2010 (196 people)</th><td>Collaterals predicted good outcome, odds ratio 1.93 (1.06-3.34) [[Lima2010]]</td></tr>
+      <tr><th>Hwang 2015</th><td>With poor collaterals, favourable outcome was 59% with onset-to-puncture of 300 minutes or under vs 32% over 300 minutes, and 73% with puncture-to-reperfusion of 60 minutes or under vs 32% over 60 minutes. Time had no significant effect on outcome with good collaterals [[Hwang2015]]</td></tr>
+      <tr><th>Late-window trials</th><td>Results depend on this biology: independence 45% vs 17% in DEFUSE 3 [[Albers2018]], 49% vs 13% in DAWN [[Nogueira2018]]. Detail is in <a href="#evt" data-go="evt">Thrombectomy</a></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><p><b>How long does the penumbra last?</b> Early models gave it short hours and described it as short-lived [[Hakim1998,Hossmann1994]]. Later work shows core growth varies between people, with penumbra remaining salvageable up to and perhaps beyond 24 hours in selected people [[Baron2021]]. Collaterals largely account for the difference [[Vagal2018]]. Both statements can hold: "time is brain" is true on average, and time alone predicts poorly for one person.</p></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>SELECT slow progressors grow under 10 mL/h [[Sarraj2021]].</div>
+    <div class="pt"><b>In plain words</b>Backup blood vessels buy time. This is why two people can have very different damage after the same delay [[Vagal2018]].</div>
+  </div>
+
+  <h3 class="sub">The ischaemic cascade, inside the tissue</h3>
+  <div class="prose"><p>Dirnagl's framework orders the injury into excitotoxicity, peri-infarct depolarisations, inflammation and apoptosis, across overlapping timescales [[Dirnagl1999]]. Step through it at one synapse.</p></div>
+  <div class="stepper" id="caCSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="caCell" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A neuron beside a close-up of one synapse. As energy falls, glutamate builds up in the cleft, receptors open, and calcium, sodium and water pour into the cell. Enzymes switch on and mitochondria release calcium, the neuron swells and dies, a wave of depolarisation spreads to neighbours, and finally a capillary wall leaks as inflammatory cells arrive."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="caCPlay">Play</button><label class="stage-cap tl" for="caCT">Cascade <input type="range" id="caCT" min="0" max="1" step="0.002" value="0.32"></label></div>
+      <p class="stage-cap">Schematic, not to scale. The four bars at the bottom show order and overlap only; they carry no measured times [[Dirnagl1999]].</p></div>
+    <aside class="note" id="caCNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why blocking the cascade has been so hard</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Animal work does not predict trials</h4><p>Of 1,026 experimental treatments, the 114 that reached clinical testing were no better in animal models than the 912 that did not (31.3% vs 24.4%) [[OCollins2006]]. Targets are still under review [[Chamorro2016]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Nerinetide</h4><p>Disrupting the NMDA receptor to PSD-95 link reduced ischaemic damage in rats [[Aarts2002]]. In ESCAPE-NA1, mRS 0-2 was reached in 61.4% vs 59.2%, adjusted risk ratio 1.04 (0.96-1.14), with effect modification by alteplase [[Hill2020]].</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Splitting the NMDA signal</h4><p>Extrasynaptic GluN2B has been proposed to promote death and GluN2A to promote survival, with PSD95 and nNOS coupling as a target [[Lai2014]].</p></div>
+  </div>
+
+  <h3 class="sub">When the artery reopens</h3>
+  <div class="prose"><p>Reperfusion is the aim, and it is not perfectly clean. With over 90% reperfusion, early diffusion volume correlated with final infarct at r=0.95. With under 10% reperfusion, Tmax over 6 seconds correlated at r=0.86 [[Wheeler2013]]. In one trial imaging analysis, median final infarct volume was 54.5 mL with intra-arterial therapy vs 81.8 mL in controls [[Boers2017]]. HERMES: common odds ratio 2.49 (1.76-3.53), number needed to treat 2.6 [[Goyal2016]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Issue</th><th>What is known</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>Reperfusion injury</th><td>Defined, with no-reflow discussed [[Bai2015]]. Mechanisms include leucocyte and platelet activation, complement, hyperperfusion and barrier damage [[Pan2007]]. "No study has quantified this effect in stroke patients" [[Nour2013]]</td><td><span class="ev hyp">Size unknown</span></td></tr>
+      <tr><th>No-reflow</th><td>Incomplete microcirculatory reperfusion is proposed as a target [[Dalkara2012]]. In 33 people with complete recanalisation, one met tissue no-reflow criteria [[TerSchiphorst2021]]</td><td><span class="ev early">Debated</span></td></tr>
+      <tr><th>Futile recanalisation</th><td>The gap between reopening and recovery [[Nie2018]]</td><td><span class="ev est">Described</span></td></tr>
+      <tr><th>Haemorrhagic transformation</th><td>In one series 46.4%, symptomatic in 18.9%; poor collaterals with recanalisation carried an odds ratio of 2.666 [[Bang2011HT]]</td><td>One series</td></tr>
+      <tr><th>Barrier opening</th><td>Matrix metalloproteinases mediate a reversible early opening, then a delayed second opening at 24-72 hours. Early opening in the thrombolysis window raises haemorrhage risk. The HARM marker was found in one-third of people with ischaemic stroke [[Yang2011]]. Reviewed in [[Jiang2018]]</td><td><span class="ev est">Established</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="hook"><b>Exam hook</b>Delayed barrier opening occurs at 24-72 hours [[Yang2011]].</div>
+</section>
