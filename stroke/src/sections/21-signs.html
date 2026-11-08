@@ -1,1 +1,177 @@
-<section class="mod" id="m-signs" data-mod="signs" hidden><div class="mhead"><h2>signs (stub)</h2></div></section>
+<!-- ================= 2.1 RECOGNISING STROKE ================= -->
+<style>
+#m-signs .tbl table{min-width:640px}
+#m-signs .card>.ev,#m-signs .card>.tag{align-self:flex-start}
+#m-signs .sgbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-signs .sgbar .btn{min-height:40px}
+#m-signs .sgcap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-signs .sgcap b{font-weight:700}
+#m-signs .sgprev{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:14px;font-weight:600}
+#m-signs .sgprev input{flex:1;min-width:180px;max-width:360px}
+#m-signs .big-num{font-size:34px}
+</style>
+<section class="mod" id="m-signs" data-mod="signs" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Recognition &amp; assessment</p><h2>Recognising stroke</h2>
+    <p class="lede">Most strokes announce themselves in a few plain signs, and some do not. Step through balance, eyes, face, arm, speech and time, then test how well the published checklists perform, what they miss and what looks like a stroke but is not.</p></div>
+
+  <p class="crisis" role="note"><b>Emergency</b><span>If a face droops, an arm is weak or speech goes wrong, even for a short time, treat it as an emergency and call your local emergency number. Sudden loss of balance or a sudden change in sight can also be a stroke [[Harbison2003,Ekundayo2013,Aroor2017]].</span></p>
+
+  <div class="stepper" id="sgSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="sgSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="An animated walk through the six letters of BE-FAST. A standing figure sways off balance, half of the visual scene goes dark, one side of a face droops, one raised arm sinks and turns in, clear speech breaks up, and finally a clock runs beside a telephone calling the emergency number."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sgPlay">%t:player.play%</button><label class="stage-cap tl" for="sgT">Signs <input type="range" id="sgT" min="0" max="1" step="0.002" value="0.42"></label></div>
+      <p class="stage-cap">Schematic drawings, not a diagnostic tool. BE-FAST adds balance and eyes to the older FAST check [[Aroor2017]].</p>
+    </div>
+    <aside class="note" id="sgNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="big-num">14.1%</div><h4>No FAST sign at all</h4><p>Share of 736 people with ischaemic stroke, at one US centre, who had no FAST symptom at presentation. Adding balance and eyes cut the share not identified to 4.4% [[Aroor2017]].</p></div>
+    <div class="card"><div class="big-num">46% vs 12%</div><h4>Admitted within 3 hours</h4><p>Paramedics using FAST against primary care doctors, in a UK audit of 487 people admitted with suspected stroke (P&lt;0.01) [[Harbison2003]].</p></div>
+    <div class="card"><div class="big-num">63.7%</div><h4>Arrived by ambulance</h4><p>Of 204,591 people in US registry data. More than a third did not use emergency services, and minority groups and rural residents were less likely to [[Ekundayo2013]].</p></div>
+    <div class="card"><div class="big-num">1.9 million</div><h4>Neurons a minute</h4><p>A modelled estimate for a typical large vessel ischaemic stroke, from a final volume of 54 mL evolving over 10 hours, alongside 14 billion synapses and 12 km of myelinated fibres [[Saver2006]].</p></div>
+  </div>
+
+  <h3 class="sub">Sensitivity and specificity explorer</h3>
+  <div class="prose">
+    <p>A scale is judged on two numbers. <b>Sensitivity</b> is the share of real strokes it catches. <b>Specificity</b> is the share of non-strokes it correctly clears. The best place on this chart is the top right. Pick a question, then pick a scale. The dots on the right turn the two percentages into 100 people.</p>
+  </div>
+  <div class="sgbar" role="group" aria-label="Which question the scales answer">
+    <button class="btn" data-sgset="rec" aria-pressed="true">Stroke or not?</button>
+    <button class="btn" data-sgset="post" aria-pressed="false">Posterior stroke</button>
+    <button class="btn" data-sgset="lvo" aria-pressed="false">Large vessel occlusion?</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="sgAcc" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A chart of published scales, specificity across and sensitivity up, with numbered points, beside a block of 100 dots that shows, for the chosen scale, how many people are correctly caught, missed, falsely flagged and correctly cleared."></svg></div>
+      <div class="sgbar" id="sgPts" role="group" aria-label="Choose a scale"></div>
+      <div class="sgprev"><label for="sgPrev">Of 100 people checked, <span id="sgPrevV">70</span> truly have the condition</label><input type="range" id="sgPrev" min="5" max="95" step="1" value="70"></div>
+      <div class="sgbar" id="sgPres" role="group" aria-label="Published settings"></div>
+      <p class="stage-cap">The dot counts are calculated here from the percentages shown and the share you set. They are not study results.</p>
+    </div>
+    <aside class="note" id="sgAccNote" aria-live="polite"></aside>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>This explorer shows how published scales performed in their study populations. It is never for deciding whether one person has had a stroke. Studies differ in who was included, so points cannot be ranked against each other as if measured in one group.</p>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>CPSS items are arm, speech and face [[Kothari1999]]. ROSIER is positive above 0, on a range of -2 to +5 [[Nor2005]]. The published LVO thresholds are RACE of 5 or more and LAMS of 4 or more [[PerezDeLaOssa2014,Nazliel2008]].</div>
+    <div class="pt"><b>In plain words</b>People who arrive by ambulance tend to be scanned and treated faster than people who arrive another way [[Ekundayo2013]]. Seeing a family doctor first can make it more likely that someone reaches hospital late [[Fladt2019]].</div>
+  </div>
+
+  <h3 class="sub">What the scales ask</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Scale</th><th>Items as published</th><th>Key result</th></tr></thead>
+    <tbody>
+      <tr><th>CPSS</th><td>3 items: arm weakness, speech, facial droop. Any one abnormal</td><td>Physician judged: sensitivity 66%, specificity 87% for stroke, 88% sensitivity for anterior circulation stroke. Convenience sample of 171 people [[Kothari1999]]</td></tr>
+      <tr><th>ROSIER</th><td>7 items, -2 to +5. History: loss of consciousness, convulsive fits. Signs: face, arm or leg weakness, speech disturbance, visual field defect</td><td>Positive above 0. Pooled emergency room sensitivity 0.88 (95% CI 0.84 to 0.91), no reliable pooled specificity [[Nor2005,Zhelev2019]]</td></tr>
+      <tr><th>LAPSS</th><td>Paramedic field tool</td><td>Pooled prehospital sensitivity 0.83 (0.75 to 0.89), specificity 0.93 (0.88 to 0.96), uncertain because of risk of bias [[Zhelev2019]]</td></tr>
+      <tr><th>RACE</th><td>Facial palsy 0 to 2, arm motor 0 to 2, leg motor 0 to 2, gaze 0 to 1, aphasia or agnosia 0 to 2</td><td>5 or more: sensitivity 0.85, specificity 0.68, PPV 0.42, NPV 0.94, in 357 people in the field [[PerezDeLaOssa2014]]</td></tr>
+      <tr><th>LAMS</th><td>Facial weakness, arm strength, grip; total 0 to 5 [[Llanes2004]]</td><td>4 or more: sensitivity 0.81, specificity 0.89, in 119 people of whom 62% had persisting LVO [[Nazliel2008]]</td></tr>
+      <tr><th>VAN</th><td>Vision, aphasia and neglect, no score</td><td>Pilot of 62 code strokes with 14 LVOs: sensitivity 100%, specificity 90%. The authors call for a larger validation [[Teleb2017]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">A review table lists CPSS as "gaze, arm weakness, level of consciousness" [[Budincevic2022]]. That does not match the original scale of arm, speech and face [[Kothari1999]]; this guide uses the original.</p>
+
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>No perfect LVO scale</h4><p>An AHA evidence review of 36 studies found C statistics mostly 0.70 to 0.85 and no threshold with both high sensitivity and high specificity. A positive test gave an LVO probability of perhaps 50 to 60%; a negative test could still leave 10% or more [[Smith2018]].</p></div>
+    <div class="card"><h4>The price of missing fewer</h4><p>In 1004 people within 6 hours (32.7% with LVO), the best accuracy was 79% for NIHSS of 11 or more and RACE of 5 or more, with over 25% false negatives. Reaching 10% or fewer needed NIHSS 5, RACE 1 or CPSS severity 0, which would send nearly everyone to a thrombectomy centre [[Turc2016]].</p></div>
+    <div class="card"><h4>Field performance varies</h4><p>RACE of 5 or more reached 85% sensitivity in one comprehensive centre's series [[PerezDeLaOssa2014]]. Seven scales reached only 38 to 62% in 2007 regional stroke codes, with specificity 80 to 93%, and paramedics completed them in 78 to 88% of codes [[Nguyen2021]]. Spectrum and prevalence differ between the studies.</p></div>
+    <div class="card"><h4>What the scales share</h4><p>Across tools published 2015 to 2018, LVO sensitivity ranged 23 to 99% and specificity 24 to 97%. Tools combining cortical signs and motor function did best. Gaze deviation, aphasia and neglect were significant indicators [[Antipova2019]].</p></div>
+  </div>
+
+  <h4>Area under the curve for anterior LVO, PRESTO</h4>
+  <div class="stage">
+    <div class="scroll"><svg id="sgAuc" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bar chart of area under the curve for anterior large vessel occlusion. Clinician NIHSS 0.86, RACE 0.83, G-FAST 0.80, CG-FAST 0.80, LAMS 0.79, CPSS 0.79, PASS 0.76, C-STAT 0.75, FAST-PLUS 0.72."></svg></div>
+    <p class="stage-cap">Netherlands, 1039 FAST-positive people, 12% with anterior LVO [[Duvekot2021]]. RACE 95% CI 0.79 to 0.86; clinician NIHSS in the emergency department 0.83 to 0.89.</p>
+  </div>
+
+  <h3 class="sub">Mimics: what looks like a stroke but is not</h3>
+  <div class="prose"><p>About 3 in 10 people checked for a suspected stroke turn out to have something else. It is still right to get checked quickly [[Merino2013]]. The share and the mix depend on where you count.</p></div>
+  <div class="sgbar" role="group" aria-label="Mimic chart view">
+    <button class="btn" data-sgmim="many" aria-pressed="true">How many</button>
+    <button class="btn" data-sgmim="what" aria-pressed="false">Which conditions</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="sgMim" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bar chart of how often a suspected stroke turns out to be a mimic in different series, or, in the second view, which conditions those mimics were."></svg></div>
+    <p class="sgcap" id="sgMimCap" aria-live="polite"></p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Points towards</th><th>Features, as published</th></tr></thead>
+    <tbody>
+      <tr><th>A stroke</th><td>Exact onset time, definite focal symptoms, abnormal vascular findings, neurological signs, lateralising signs, and being able to classify the stroke clinically [[Hand2006]]</td></tr>
+      <tr><th>A mimic</th><td>Cognitive impairment and abnormal signs in other systems [[Hand2006]]. More likely in younger people, women, people without vascular risk factors, those arriving by personal vehicle and those whose symptoms began as inpatients [[Merino2013]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><h4>Treating a mimic by mistake</h4><p>Thrombolysis in mimics was 1.8% (95% CI 1.5 to 2.2) of 5581 treated people, with symptomatic haemorrhage 1.0% against 7.9% in ischaemic stroke [[Zinkstok2013]]. Pooled in 392 people: symptomatic haemorrhage 0.5%, orolingual oedema 0.3%; risk ratio against stroke 0.33 (0.14 to 0.77) [[Tsivgoulis2015]].</p></div>
+    <div class="card"><h4>Low blood sugar and seizures</h4><p>Medical mimics make up 50 to 80% of cases in most large series, and the systemic list includes hypoglycaemia and hyperglycaemia [[Buck2021]]. Hypoglycaemia or seizure at presentation went with door-to-needle times 34 minutes longer [[Kamal2017]]. A sourced percentage for hypoglycaemia alone was not found in this research pass.</p></div>
+  </div>
+
+  <h3 class="sub">Missed strokes and chameleons</h3>
+  <div class="prose"><p>A stroke chameleon is a stroke that looks like something else. Minor, transient and atypical presentations are thought most prone to delayed diagnosis <span class="ev early">Early evidence</span> [[Wallace2021]]. A meta-analysis of 23 studies (15,721 people) put emergency department sensitivity at 91.3%, so roughly 9% of cerebrovascular events are missed at first presentation, concentrated in milder, nonspecific or transient cases [[Tarnutzer2017]].</p></div>
+  <div class="stage">
+    <div class="scroll"><svg id="sgMis" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="Paired bars. Dizziness against motor findings: false negative 39.4% against 4.4%. Subarachnoid haemorrhage with normal against abnormal mental state: 23.8% against 4.2%. TIA against ischaemic stroke: false discovery 59.7% against 11.7%. Posterior against anterior strokes initially misdiagnosed: 37% against 16%."></svg></div>
+    <p class="stage-cap">Top three pairs from a meta-analysis [[Tarnutzer2017]]. Bottom pair from two US hospitals, where 103 of 465 ischaemic strokes (22%) were initially misdiagnosed, a third of them arriving within 3 hours [[Arch2016]].</p>
+  </div>
+  <p class="callout">These estimates measure different things and should not be merged. The 9% comes from accuracy studies at first presentation [[Tarnutzer2017]]. The 1.2 to 12.7% (2243 probable and 23,809 potential missed strokes among US stroke admissions) comes from treat-and-release visits in the prior 30 days [[NewmanToker2014]].</p>
+  <div class="cards">
+    <div class="card"><h4>Who is missed more</h4><p>Odds of a probable miss fell with age against 18 to 44 years (45 to 64: 0.43; 65 to 74: 0.28; 75 and over: 0.19) and were lower in men (0.75). They were higher in Black (1.18), Asian or Pacific Islander (1.29) and Hispanic (1.30) people, and in non-teaching (1.45) and low-volume (1.57) hospitals [[NewmanToker2014]].</p></div>
+    <div class="card"><h4>Younger adults</h4><p>In a registry of 57 adults aged 16 to 50, 8 (14%) were misdiagnosed and 7 of those were first sent home from the emergency department. All 8 were first seen at hospitals not certified as primary stroke centres [[Kuruvilla2011]].</p></div>
+    <div class="card"><h4>The classic posterior signs are rare</h4><p>Horner's syndrome, crossed deficits, quadrantanopia and oculomotor palsy had PPVs of 92 to 100% but sensitivity of only 1.3 to 4.0%, in 1174 MRI-confirmed infarcts. Hemiplegia was present in 53.6% of posterior and 74.9% of anterior infarcts [[Tao2012]].</p></div>
+    <div class="card"><h4>HINTS, in the right people</h4><p>In 101 high-risk people with acute vestibular syndrome: 100% sensitive, 96% specific, with first DWI falsely negative in 12% [[Kattah2009]]. Pooled over 11 studies (n=1286): sensitivity 0.97, specificity 0.81, lower than the original [[Xu2026,Kattah2009]].</p></div>
+  </div>
+
+  <h4>Women and men: the same focal signs, more nonfocal ones</h4>
+  <div class="stage">
+    <div class="scroll"><svg id="sgSex" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Dot chart comparing symptoms in women and men. Motor deficit 56% and 56%, speech 41% and 40%, generalised weakness 49% and 36%, mental status change 31% and 21%, confusion 37% and 28%, ataxia 30% and 44%, dysarthria 27% and 32%."></svg></div>
+    <p class="stage-cap">Pooled data from 21 articles [[Shajahan2023]]. Dots are labelled W for women and M for men.</p>
+  </div>
+  <p class="callout">The two main reviews disagree on some single symptoms. Dysarthria was less common in women in one (RR 0.89, 95% CI 0.82 to 0.95) [[Shajahan2023]] and more common in the other (OR 1.14, 1.04 to 1.24) [[Ali2022]]. Both agree on more nonfocal symptoms in women. The second (60 studies, n=582,844) found more headache and changes in consciousness, and overall focal symptoms did not differ (pooled OR 1.03); most studies carried possible bias [[Ali2022]].</p>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Roughly 9% of cerebrovascular events are missed at first emergency presentation, and dizziness carries a false-negative rate of 39.4% [[Tarnutzer2017]]. Posterior stroke is misdiagnosed about twice as often as anterior stroke, 37% vs 16% [[Arch2016]].</div>
+    <div class="pt"><b>In plain words</b>Women can have the same weakness and speech problems as men, and they are also more likely to have confusion or feel generally weak [[Shajahan2023]]. Young people have strokes too, and these are more likely to be missed [[Kuruvilla2011,NewmanToker2014]].</div>
+  </div>
+
+  <h3 class="sub">Why people arrive late</h3>
+  <div class="cards">
+    <div class="card"><h4>Delay has barely moved</h4><p>Over two decades, median onset-to-door times and the share arriving before 3 hours improved little, despite better door-to-needle times [[Pulvers2017]]. The AHA has described patient delay as the major factor limiting definitive treatment [[Moser2006]].</p></div>
+    <div class="card"><h4>Who you call matters</h4><p>Of 336 people with MRI-confirmed stroke in Basel, 42% arrived after more than 4.5 hours. A face-to-face family doctor visit was the main modifiable risk (adjusted OR 4.19, 95% CI 1.85 to 9.46) and ambulance transport lowered it (0.41, 0.24 to 0.71) [[Fladt2019]].</p></div>
+    <div class="card"><h4>The ambulance effect</h4><p>EMS arrival was independently associated with onset-to-door of 3 hours or less (adjusted OR 2.00), door-to-imaging of 25 minutes or less (1.89) and door-to-needle of 60 minutes or less (1.44) [[Ekundayo2013]]. Prenotified arrivals had door-to-imaging of 26 vs 31 minutes and door-to-needle of 78 vs 80 minutes [[Lin2012]].</p></div>
+    <div class="card"><h4>Campaigns: remembered, not acted on</h4><p>Of 10 campaign evaluations only 3 were controlled before-and-after studies, and public-only campaigns did little for awareness of the need for an emergency response [[Lecouturier2010Media]]. An Act FAST leaflet trial raised recall (75.7% vs 68.2%) without changing response to scenarios [[Dombrowski2015]]. In Ireland, emergency attendance rose after F.A.S.T. but the effect was not sustained [[Mellon2014]].</p></div>
+    <div class="card"><h4>Knowing is not recognising</h4><p>In a UK review, knowledge of the commonest symptoms looked good, yet fewer than half of people recognised they had had a stroke, and most contacted a general practitioner first [[Lecouturier2010Response]]. Among older adults in Ireland, slurred speech (54%) was the only established warning sign identified by more than half [[Hickey2009]].</p></div>
+  </div>
+
+  <h3 class="sub">Bringing treatment sooner: mobile units and direct transport</h3>
+  <div class="prose"><p>Two ideas try to close the gap. A mobile stroke unit brings a scanner and the drug to the person. Direct transport takes someone with a suspected large vessel occlusion straight past the nearest hospital to a thrombectomy centre. Choose one, then scrub the time.</p></div>
+  <div class="sgbar" role="group" aria-label="Which strategy">
+    <button class="btn" data-sgtr="msu" aria-pressed="true">Mobile stroke unit: BEST-MSU</button>
+    <button class="btn" data-sgtr="dt" aria-pressed="false">Direct to thrombectomy: RACECAT</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="sgTr" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="In the first view, two vehicles travel along a time axis from stroke onset: treatment is given at a median of 72 minutes with a mobile stroke unit and 108 minutes with usual ambulance care, followed by outcome bars. In the second view, an ambulance either goes to a local stroke centre first or directly to a thrombectomy centre, followed by paired bars of treatment rates and mortality."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="sgTrPlay">%t:player.play%</button><label class="stage-cap tl" for="sgTrT">Time <input type="range" id="sgTrT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="sgcap" id="sgTrCap" aria-live="polite"></p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Design</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>BEST-MSU</th><td>Alternating weeks, 1515 enrolled, 1047 eligible for t-PA</td><td>Median onset-to-t-PA 72 vs 108 min. Utility-weighted mRS 0.72 vs 0.66 (adjusted OR for a score of 0.91 or more, 2.43, 95% CI 1.75 to 3.36). mRS 0 to 1 in 55.0% vs 44.4% [[Grotta2021]]</td></tr>
+      <tr><th>B_PROUD</th><td>Berlin, nonrandomised, 1543 people</td><td>Median mRS at 3 months 1 vs 2 (common OR for worse mRS, 0.71, 0.58 to 0.86) [[Ebinger2021]]</td></tr>
+      <tr><th>PHANTOM-S</th><td>Berlin, randomised weeks</td><td>Alarm-to-treatment 15 min shorter across the catchment, 25 min when deployed. Thrombolysis 29% and 33% vs 21% [[Ebinger2014]]</td></tr>
+      <tr><th>Meta-analysis</th><td>5 studies, n=3228</td><td>Excellent outcome adjusted OR 1.64 (1.27 to 2.13). Onset-to-thrombolysis a median of 31 min shorter. No increase in mortality or symptomatic haemorrhage [[Turc2022]]</td></tr>
+      <tr class="hl"><th>RACECAT</th><td>Catalonia, nonurban, cluster-randomised, suspected LVO, 1401 people; stopped for futility</td><td>In 949 with target ischaemic stroke, median mRS 3 in both arms (adjusted common OR 1.03, 0.82 to 1.29) [[Perez2022]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Evidence each way</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>FAST or BE-FAST for the public?</th><td>BE-FAST finds more strokes [[Aroor2017]] and more posterior strokes, at the cost of specificity, 10.0% vs 39.8% [[Tanglay2024]]. Aroor's study was retrospective, only in confirmed ischaemic stroke, and could not measure specificity; its authors made any change to public education conditional on prospective validation [[Aroor2017]]. FAST campaigns themselves change behaviour little [[Lecouturier2010Media,Dombrowski2015]].</td><td>Unresolved</td></tr>
+      <tr><th>ROSIER or FAST?</th><td>Cochrane prefers ROSIER in the emergency room, in part because it was evaluated in more studies, and found CPSS consistently most sensitive in the field. Its 23 studies, 12 at high risk of selection bias, give what the authors call provisional hypotheses [[Zhelev2019]]. ROSIER specificity was 83% in its derivation team's validation [[Nor2005]] and 44% in an independent UK cohort of 356 people, which favoured the simpler FAST [[Whiteley2011]]. In UK ambulance use ROSIER was no better than FAST, and both showed poor specificity [[Fothergill2013]].</td><td>Contested</td></tr>
+      <tr><th>Bypass to a thrombectomy centre?</th><td>RACECAT found no outcome difference in nonurban Catalonia [[Perez2022]]. A model suggests drip-and-ship rarely predicts the best outcome at current times, and is sensitive to local times at both centres [[Holodinsky2018]]. ESO-ESMINT 2019 asked for further randomised trials [[Turc2019ESO]].</td><td>Results may not transfer elsewhere</td></tr>
+      <tr><th>Mobile stroke units?</th><td>Consistent benefit [[Grotta2021,Ebinger2021,Turc2022]], but BEST-MSU was an alternating-week trial and B_PROUD nonrandomised; neither was individually randomised. Cost and use outside urban systems are outside the sources read here.</td><td><span class="ev early">Early evidence</span> on generalisation</td></tr>
+    </tbody>
+  </table></div>
+</section>
