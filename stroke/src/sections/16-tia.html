@@ -1,0 +1,163 @@
+<!-- ================= 1.6 TIA ================= -->
+<style>
+#m-tia .btn{min-height:40px}
+#m-tia .tbl table{min-width:620px}
+#m-tia .tibar{display:flex;flex-wrap:wrap;gap:6px}
+#m-tia .tinum{font-family:var(--display);font-weight:700;font-size:30px;line-height:1.05}
+#m-tia .ticap{font-size:15px;line-height:1.5;max-width:76ch;margin:0}
+#m-tia .card>.ev,#m-tia .card>.tag{align-self:flex-start}
+#m-tia .tiq{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}
+#m-tia .tiq>div{display:flex;flex-direction:column;gap:6px;min-width:0}
+#m-tia .tiq h4{margin:0;font-size:15px;line-height:1.3}
+#m-tia .tiq .tibar .btn{font-weight:600}
+</style>
+<section class="mod" id="m-tia" data-mod="tia" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding stroke</p><h2>TIA: the warning stroke</h2>
+    <p class="lede">A transient ischaemic attack (TIA, often called a mini stroke; US: ischemic) passes, but the risk does not pass with it. See how the definition moved from time to tissue, how the ABCD2 score adds up and where it fails, how the risk clusters in the first days, and what fast clinics changed.</p></div>
+
+  <div class="prose"><p>This page reports what studies and guidelines say. It is not advice for any one person, and the figures describe groups of people. If you think someone is having a stroke, call your local emergency number.</p></div>
+
+  <div class="cards">
+    <div class="card"><span class="tinum">34.3%</span><p>People with a clinical TIA who had a lesion on diffusion MRI, pooled; range 9 to 67% [[Brazzelli2014]].</p></div>
+    <div class="card"><span class="tinum">5.2%</span><p>Pooled stroke risk at 7 days: 0.9% with specialist emergency treatment, 11.0% in populations without urgent treatment [[Giles2007]].</p></div>
+    <div class="card"><span class="tinum">10.3 to 2.1%</span><p>90-day stroke before and after urgent assessment and treatment in EXPRESS [[Rothwell2007]].</p></div>
+    <div class="card"><span class="tinum">23%</span><p>Of strokes had a TIA first; 17% of those the same day, 9% the day before, 43% within 7 days [[RothwellWarlow2005]].</p></div>
+  </div>
+
+  <h3 class="sub">A clot that clears: time or tissue?</h3>
+  <div class="prose"><p>The older definition drew the line at 24 hours. The 2009 AHA/ASA definition, following a 2002 proposal, draws it at tissue: a transient episode of focal brain, spinal cord or retinal ischaemia "without acute infarction" [[Easton2009,Albers2002]]. Compare three cases.</p></div>
+  <div class="tibar" role="group" aria-label="Case">
+    <button class="btn" data-tisc="tia" aria-pressed="true">Clears, clean scan</button>
+    <button class="btn" data-tisc="dwi" aria-pressed="false">Clears, infarct on scan</button>
+    <button class="btn" data-tisc="long" aria-pressed="false">Over 24 hours</button>
+  </div>
+  <div class="stepper" id="tiaSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="tiaSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="An artery blocks with a clot, a face droops, and a symptom bar grows along a timeline with marks at 1 hour and 24 hours. The clot clears and the symptoms end. A diffusion MRI slice then shows no lesion or a bright lesion, and two boxes give the label under the old time-based definition and the tissue-based definition."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="tiaPlay">Play</button><label class="stage-cap tl" for="tiaT">Timeline <input type="range" id="tiaT" min="0" max="1" step="0.002" value="0.26"></label></div>
+      <p class="stage-cap">Schematic, not to scale. The time axis is stretched, and the three cases are drawn examples, not patients.</p>
+    </div>
+    <aside class="note" id="tiaNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How the ABCD2 score adds up</h3>
+  <div class="prose"><p>ABCD2 sums five items to a score from 0 to 7 [[Johnston2007]]. Choose answers and watch the score and the published band change.</p></div>
+  <div class="callout"><p><b>Teaching tool only.</b> This shows how a published score adds up. It is never for an individual's diagnosis, prognosis or treatment. NICE says not to use scoring systems such as ABCD2 to assess risk or decide urgency after a suspected or confirmed TIA [[NICE-NG128]].</p></div>
+  <div class="tiq" id="tiaQ">
+    <div><h4>A: Age</h4><div class="tibar" role="group" aria-label="Age"><button class="btn" data-tiq="a" data-v="0" aria-pressed="true">Under 60: 0</button><button class="btn" data-tiq="a" data-v="1" aria-pressed="false">60 or over: 1</button></div></div>
+    <div><h4>B: Blood pressure</h4><div class="tibar" role="group" aria-label="Blood pressure"><button class="btn" data-tiq="b" data-v="0" aria-pressed="true">Below 140/90: 0</button><button class="btn" data-tiq="b" data-v="1" aria-pressed="false">140/90 mmHg or higher: 1</button></div></div>
+    <div><h4>C: Clinical features</h4><div class="tibar" role="group" aria-label="Clinical features"><button class="btn" data-tiq="c" data-v="0" aria-pressed="true">Neither: 0</button><button class="btn" data-tiq="c" data-v="1" aria-pressed="false">Speech, no weakness: 1</button><button class="btn" data-tiq="c" data-v="2" aria-pressed="false">One-sided weakness: 2</button></div></div>
+    <div><h4>D: Duration</h4><div class="tibar" role="group" aria-label="Duration"><button class="btn" data-tiq="d" data-v="0" aria-pressed="true">Under 10 min: 0</button><button class="btn" data-tiq="d" data-v="1" aria-pressed="false">10-59 min: 1</button><button class="btn" data-tiq="d" data-v="2" aria-pressed="false">60 min or more: 2</button></div></div>
+    <div><h4>D: Diabetes</h4><div class="tibar" role="group" aria-label="Diabetes"><button class="btn" data-tiq="e" data-v="0" aria-pressed="true">No: 0</button><button class="btn" data-tiq="e" data-v="1" aria-pressed="false">Yes: 1</button></div></div>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="tiaScore" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="A row of eight cells from 0 to 7 grouped into low, moderate and high bands, with the current score marked, beside a block of 100 dots with the dots filled for the share who had a stroke within 2 days in that band."></svg></div>
+    <p class="ticap" id="tiaRes" aria-live="polite"></p>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>Misses people who need care</h4><p>A score of 4 or more had sensitivity 86.7% and specificity 35.4% across 29 studies and 13,766 people. 20% of those under 4 had carotid stenosis over 50% or AF [[Wardlaw2015]].</p></div>
+    <div class="card"><h4>Mimics score high too</h4><p>35 to 41% of mimics and 66% of true TIAs scored 4 or more. 45% of those assessed were mimics [[Wardlaw2015]].</p></div>
+    <div class="card"><h4>Moves risk only a little</h4><p>Sensitivity 0.89, specificity 0.34, AUC 0.70. At a 5% baseline, a score over 3 adds 2.0% and a score of 3 or under lowers it by 2.9% [[Sanders2012]].</p></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>How it treats ABCD2</th></tr></thead>
+    <tbody>
+      <tr><th>AHA 2009</th><td>Considered hospitalisation reasonable within 72 hours with a score of 3 or more, and imaging within 24 hours [[Easton2009]]</td></tr>
+      <tr><th>ESO</th><td>High risk as a score of 4 or more, specialist review within 24 hours, a strong recommendation for dual antiplatelet therapy, and against prediction tools alone [[Fonseca2021]]</td></tr>
+      <tr class="hl"><th>NICE NG128 (2019)</th><td>Do not use scoring systems such as ABCD2 to assess risk or inform urgency of referral. Refer people with a suspected TIA for specialist assessment, to be seen within 24 hours of onset (1.1.5, 1.1.6) [[NICE-NG128]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Other tool</th><th>What it adds</th><th>Reported performance</th></tr></thead>
+    <tbody>
+      <tr><th>ABCD (original)</th><td>The earlier score</td><td>7-day risk 0.4% under 5, 12.1% at 5, 31.4% at 6 [[Rothwell2005]]</td></tr>
+      <tr><th>ABCD3-I</th><td>Dual TIA +2, carotid stenosis of 50% or more +2, DWI lesion +2</td><td>c statistic 0.90 at 2 days and 0.92 at 7 days; ABCD3 0.78 to 0.80 [[Merwick2010]]</td></tr>
+      <tr><th>Canadian TIA Score</th><td>7,607 people</td><td>Low 0.5% or less, medium 2.3%, high 5.9%; AUC 0.70 vs ABCD2 0.60 [[Perry2021]]</td></tr>
+      <tr><th>CT and CT angiography with MRI</th><td>Imaging in 510 people</td><td>Recurrence 7.1%; abnormal CT or CTA HR 4.0 [[Coutts2012]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="hook"><b>Exam hook</b>ABCD2 of 6-7 gave 8.1% stroke at 2 days [[Johnston2007]], yet NICE says do not use ABCD2 to decide urgency [[NICE-NG128]].</div>
+
+  <h3 class="sub">The risk clusters early</h3>
+  <div class="prose"><p>Scrub through 90 days. Dots are published figures; the time axis is stretched at the start so the first hours can be seen. The studies differ by decade, setting and treatment, which is why the lines differ so much.</p></div>
+  <div class="tibar" id="tiaSer" role="group" aria-label="Series shown">
+    <button class="btn" data-tiser="ox" aria-pressed="true">Oxford 2004</button>
+    <button class="btn" data-tiser="hr" aria-pressed="true">First hours</button>
+    <button class="btn" data-tiser="reg" aria-pressed="true">TIAregistry</button>
+    <button class="btn" data-tiser="one" aria-pressed="true">Single figures</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="tiaCur" viewBox="0 0 720 390" style="min-width:560px" role="img" aria-label="Cumulative risk of stroke after a TIA over 90 days. An older population cohort rises to 17.3 percent, a modern registry of urgently treated people rises to 3.7 percent, and a study of the first hours reaches 5.1 percent by 24 hours."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="tiaCurPlay">Play</button><label class="stage-cap tl" for="tiaCurT">Time since TIA <input type="range" id="tiaCurT" min="0" max="1" step="0.002" value="0.4"></label></div>
+    <div class="readout" id="tiaCurRead" aria-live="polite"></div>
+    <p class="stage-cap">Lines between published dots are schematic. Sources: Oxford [[Coull2004]], first hours [[Chandratheva2009]], TIAregistry [[Amarenco2016]], pooled [[Giles2007]], emergency department [[Johnston2000]].</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Who</th><th>Stroke after TIA</th></tr></thead>
+    <tbody>
+      <tr><th>Emergency department</th><td>1,707 people</td><td>10.5% at 90 days, with 91 of 180 strokes in the first 2 days; adverse events 25.1% [[Johnston2000]]</td></tr>
+      <tr><th>Timed from onset</th><td>Compared with timing from assessment</td><td>8.6% at 7 days, 12.0% at 30 days. Counted only from neurologist assessment: 1.9% and 4.4% [[Lovett2003]]</td></tr>
+      <tr><th>First hours</th><td>Risk by the hour</td><td>1.2%, 2.1%, 5.1% at 6, 12, 24 hours; 42% of 30-day strokes fell within 24 hours [[Chandratheva2009]]</td></tr>
+      <tr><th>TIAregistry.org</th><td>4,789 people, 61 sites, 21 countries, 78.4% seen within 24 hours</td><td>1.5%, 2.1%, 2.8%, 3.7%, 5.1% at 2, 7, 30, 90, 365 days [[Amarenco2016]]. At 5 years (3,847): stroke 9.5%, with 43.2% in years 2-5 [[Amarenco2018]]</td></tr>
+      <tr><th>Framingham</th><td>1948 to 2017</td><td>90-day stroke 16.7% (1948-85), 11.1%, then 5.9% (2000-17); adjusted HR 4.37 [[Lioutas2021]]</td></tr>
+      <tr><th>PERSIST meta-analysis</th><td>171,068 people</td><td>5.94 per 100 person-years in year 1, 1.80 in years 2-5, 1.72 in years 6-10; cumulative 12.5% at 5 years, 19.8% at 10 years [[Khan2025]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="pt"><b>In plain words</b>The risk of a full stroke is highest in the first days, so being seen fast matters [[Giles2007]].</div>
+
+  <h3 class="sub">What urgent assessment changed</h3>
+  <div class="prose"><p>EXPRESS, in Oxford, compared stroke rates before and after a change to urgent assessment and immediate treatment [[Rothwell2007]]. Move from the first phase to the second.</p></div>
+  <div class="stage">
+    <div class="scroll"><svg id="tiaEx" viewBox="0 0 720 280" style="min-width:560px" role="img" aria-label="Two delay bars shrink from 3 days to under 1 day for assessment and from 20 days to 1 day for first prescription, while highlighted people in a block of 100 fall from about 10 to about 2 who had a stroke at 90 days."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="tiaExPlay">Play</button><label class="stage-cap tl" for="tiaExT">Before to after <input type="range" id="tiaExT" min="0" max="1" step="0.002" value="0.1"></label></div>
+    <p class="stage-cap">A before-and-after comparison, not a randomised trial. Figures [[Rothwell2007]].</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Evidence</th><th>Model</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>EXPRESS (Oxford)</th><td>Urgent assessment, immediate prescribing. Delay to assessment 3 days to under 1 day; first prescription 20 days to 1 day</td><td>90-day stroke 10.3% (32 of 310) vs 2.1% (6 of 281), adjusted HR 0.20 (0.08 to 0.49) [[Rothwell2007]]. Fatal or disabling 16 of 310 vs 1 of 281; bed days 1,365 vs 427; saving GBP 624 per patient [[LuengoFernandez2009]]</td></tr>
+      <tr><th>SOS-TIA (Paris)</th><td>1,085 people, 53% seen within 24 hours, 74% home the same day</td><td>65% confirmed TIA or minor stroke, 13% possible. 90-day stroke 1.24% vs 5.96% predicted. Carotid revascularisation 5%, AF anticoagulated 5% [[Lavallee2007]]</td></tr>
+      <tr><th>TIAregistry.org</th><td>61 sites, 21 countries</td><td>Stenosis of 50% or more 23.2%, AF 10.4%, infarct 33.4%; stroke 3.7% at 90 days; composite 6.2% [[Amarenco2016]]</td></tr>
+      <tr><th>AHA 2023 scientific statement</th><td>Protocols with acute imaging</td><td>At least 240,000 TIAs per year in the US; 90-day risk as high as 17.8%, almost half in 2 days [[Amin2023]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="card"><h4>What NICE NG128 says</h4><ul>
+      <li>Aspirin 300 mg daily, unless contraindicated, started immediately after a suspected TIA (1.1.4, 2019) [[NICE-NG128]].</li>
+      <li>Immediate referral, seen within 24 hours of onset (1.1.5, 2019) [[NICE-NG128]].</li>
+      <li>Secondary prevention as soon as possible after diagnosis is confirmed (1.1.7) [[NICE-NG128]].</li>
+      <li>No CT unless an alternative diagnosis is suspected; consider MRI after specialist assessment, on the same day (1.2.1, 1.2.2, 2019) [[NICE-NG128]].</li>
+    </ul><p>Quoted as guidance for clinicians, not instructions for any one person.</p></div>
+    <div class="card"><h4>Why the first days of treatment matter</h4><ul>
+      <li>Aspirin, pooled 15,778 people from 12 trials: 6-week recurrent ischaemic stroke HR 0.42 (0.32 to 0.55). After TIA or minor stroke, weeks 0-2: 2 of 6,691 vs 23 of 5,726, HR 0.07 [[Rothwell2016]].</li>
+      <li>No benefit after 12 weeks, OR 0.97, in the same analysis [[Rothwell2016]].</li>
+      <li>CHANCE 8.2% vs 11.7%, HR 0.68 [[Wang2013]]. POINT 5.0% vs 6.5%, HR 0.75; major haemorrhage 0.9% vs 0.4% [[Johnston2018]]. THALES 5.5% vs 6.6%, HR 0.83 [[Johnston2020]].</li>
+      <li>Pooled, first 21 days: 5.2% vs 7.8%, HR 0.66 [[Pan2019]]. Bleeding rises with long courses, 2.42 [[Brown2021]]. See <button class="btn ghost" data-go="af">AF and antithrombotics</button></li>
+    </ul></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>EXPRESS lowered 90-day stroke from 10.3% to 2.1% [[Rothwell2007]]. Aspirin's early effect is greatest in the first 2 weeks [[Rothwell2016]].</div>
+  <div class="pt"><b>In plain words</b>Fast clinics and quick treatment cut the risk of stroke at 90 days from about 10 in 100 to about 2 in 100 in one study [[Rothwell2007]].</div>
+
+  <h3 class="sub">Mimics</h3>
+  <div class="prose"><p>Not every brief spell is a TIA. How long a spell lasts and how it behaves are two of the clues. Choose one to compare.</p></div>
+  <div class="tibar" id="tiaMiB" role="group" aria-label="Condition">
+    <button class="btn" data-timi="tia" aria-pressed="true">TIA</button>
+    <button class="btn" data-timi="aura" aria-pressed="false">Migraine aura</button>
+    <button class="btn" data-timi="seiz" aria-pressed="false">Seizure</button>
+    <button class="btn" data-timi="sync" aria-pressed="false">Syncope</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="tiaMi" viewBox="0 0 720 250" style="min-width:560px" role="img" aria-label="Typical durations on a stretched time axis from seconds to an hour: syncope seconds, seizure seconds to about 5 minutes, migraine aura 10 to 30 minutes, TIA usually under 1 hour."></svg></div>
+    <p class="ticap" id="tiaMiCap" aria-live="polite"></p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="tinum">30-50%</span><p>Of suspected TIAs have an alternative diagnosis, the NICE committee notes [[NICE-NG128]].</p></div>
+    <div class="card"><span class="tinum">22%</span><p>Mimics, with 25 different diagnoses, in 1,532 people; 75% TIA, 3% minor stroke. Up to 60% of referrals had no TIA [[Nadarajan2014]].</p></div>
+    <div class="card"><span class="tinum">45.8 · 60.0%</span><p>Misdiagnosis in clinic and inpatient settings in one study [[Sadighi2019]].</p></div>
+    <div class="card"><span class="tinum">OR 9.17</span><p>Memory loss pointed to a mimic, as did headache (OR 3.71); one-sided paresis pointed away (OR 0.35). 303 people; 18.2% were mimics [[Amort2011]].</p></div>
+  </div>
+  <div class="prose"><p>Agreement is hard even for experts: GPs were confirmed in 19% and emergency departments in 13% in one comparison [[Ferro1996]], and stroke neurologists agree poorly [[Castle2010]]. Mimics also reach acute services: 24.2% of 2,305 hyperacute stroke unit admissions [[Dawson2016]], 31% in a brain attack series [[Hand2006]]. An overview is available in [[Lui2026]]. NICE lists excluding hypoglycaemia and using ROSIER among community and emergency steps [[NICE-NG128]].</p></div>
+  <div class="callout"><p><b>Two open questions.</b> The ESO keeps a pragmatic clinical definition of under 24 hours [[Fonseca2021]], while others say the 24-hour limit should be abandoned [[Nadarajan2014]]. Early risk also spreads widely: 5.2% pooled at 7 days [[Giles2007]], 2.1% in a modern registry of urgently treated people [[Amarenco2016]], 8.0% in an older population cohort [[Coull2004]]; setting and treatment explain much of it.</p></div>
+  <div class="prose"><p>See also <button class="btn ghost" data-go="signs">Recognising a stroke</button></p></div>
+</section>

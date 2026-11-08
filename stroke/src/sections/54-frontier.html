@@ -1,0 +1,166 @@
+<!-- ================= 5.4 RESEARCH FRONTIER ================= -->
+<style>
+#m-frontier .fxfilt{display:flex;flex-direction:column;gap:8px}
+#m-frontier .fxrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-frontier .fxrow>span{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);min-width:78px}
+#m-frontier .fxrow .btn{min-height:40px}
+#m-frontier g.clk:focus{outline:none}
+#m-frontier g.clk:focus-visible rect.fxpb{stroke:var(--accent);stroke-width:3}
+#m-frontier g.clk:hover rect.fxpb{stroke:var(--muted)}
+#m-frontier .fxpn{font:700 11.5px var(--body);fill:var(--ink)}
+#m-frontier .note ul.fxcl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+#m-frontier .note ul.fxcl li{font-size:14.5px;line-height:1.45;border-top:1px solid var(--line);padding-top:8px}
+#m-frontier .note ul.fxcl li>b{display:block;margin-bottom:3px}
+#m-frontier .fxmeta{display:inline-flex;flex-wrap:wrap;gap:5px;margin-bottom:4px}
+#m-frontier .tbl table{min-width:680px}
+#m-frontier td.fxnct{font-family:var(--mono);font-size:13px;white-space:nowrap}
+#m-frontier .card>.ev,#m-frontier .card>.tag{align-self:flex-start}
+#m-frontier .big-num{font:800 30px/1.05 var(--display);color:var(--brand);margin:0}
+#m-frontier .fxlg{display:flex;flex-wrap:wrap;gap:6px 14px;font:500 12px var(--mono);color:var(--muted)}
+#m-frontier .fxlg span{display:inline-flex;align-items:center;gap:6px}
+#m-frontier .fxlg svg{width:18px;height:18px;flex:none;min-width:0}
+#m-frontier .fxlesson{font-size:15px;max-width:76ch}
+#m-frontier svg[data-mode=n] .t-xs,#m-frontier svg[data-mode=w] .t-xs{font-size:10.5px}
+</style>
+<section class="mod" id="m-frontier" data-mod="frontier" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Recovery &amp; care</p><h2>Research frontier</h2>
+    <p class="lede">Where stroke research is heading: a new class of blood thinner, drugs to protect the brain, implants that may help recovery, and new ideas for bleeds. Filter the map, pick a route, and scrub through its trials year by year. Every claim carries an evidence label.</p></div>
+
+  <p class="teach" role="note"><b>Research, not advice</b>Most of what is here is experimental or used only in trials. Nothing here is a reason to start, stop or change a treatment. Taking part in a trial is a personal choice, and a care team can explain whether a trial may fit. Trial status was read from registries on 8 November 2026 and will change.</p>
+
+  <div class="cards">
+    <div class="card"><span class="ev est">Established, one phase 3 trial</span><p class="big-num">6.2% vs 8.4%</p><p>Ischaemic stroke with asundexian versus placebo in OCEANIC-STROKE, 12,327 people, with major bleeding 1.9% versus 1.7% [[Sharma2026]].</p></div>
+    <div class="card"><span class="ev est">Established</span><p class="big-num">1.3% vs 0.4%</p><p>Stroke or systemic embolism with the same drug versus apixaban in AF. OCEANIC-AF was stopped early [[Piccini2025]].</p></div>
+    <div class="card"><span class="ev est">Established</span><p class="big-num">2.6 points</p><p>Between-group arm score difference (FMA-UE) with paired vagus nerve stimulation in VNS-REHAB, 108 people [[Dawson2021]].</p></div>
+    <div class="card"><span class="ev est">Established</span><p class="big-num">45% vs 46%</p><p>Good outcome with nerinetide versus placebo in ESCAPE-NEXT. The earlier subgroup signal was not confirmed [[Hill2020,Hill2025]].</p></div>
+  </div>
+
+  <h3 class="sub">The map of research routes</h3>
+  <div class="prose"><p>Each box is one line of research. Its counts show how many claims in this guide carry each evidence label. Use the buttons to filter, then pick a box to open that route on the timeline below.</p></div>
+  <div class="fxfilt">
+    <div class="fxrow" role="group" aria-label="Filter by stage of care"><span>Stage</span>
+      <button class="btn" data-fxs="all" aria-pressed="true">All</button>
+      <button class="btn" data-fxs="prev" aria-pressed="false">Prevention</button>
+      <button class="btn" data-fxs="acute" aria-pressed="false">Acute</button>
+      <button class="btn" data-fxs="rec" aria-pressed="false">Recovery</button>
+      <button class="btn" data-fxs="bleed" aria-pressed="false">Bleeds</button>
+      <button class="btn" data-fxs="sys" aria-pressed="false">Systems</button>
+    </div>
+    <div class="fxrow" role="group" aria-label="Filter by evidence label"><span>Evidence</span>
+      <button class="btn" data-fxe="all" aria-pressed="true">Any</button>
+      <button class="btn" data-fxe="est" aria-pressed="false">Established</button>
+      <button class="btn" data-fxe="early" aria-pressed="false">Early evidence</button>
+      <button class="btn" data-fxe="hyp" aria-pressed="false">Hypothesis</button>
+    </div>
+    <div class="fxrow" role="group" aria-label="Filter by trial status"><span>Status</span>
+      <button class="btn" data-fxw="0" aria-pressed="true">Any</button>
+      <button class="btn" data-fxw="1" aria-pressed="false">Has trials with no results yet</button>
+    </div>
+    <p class="readout" id="fxCount" aria-live="polite"></p>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="fxMap" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A map of research routes in stroke, in five columns: prevention, acute treatment, recovery, bleeding strokes and systems of care. Each box names a route and counts its Established, Early evidence and Hypothesis claims. Boxes can be selected with the keyboard."></svg></div>
+    <p class="stage-cap">Grouping is a reading aid made for this guide, not an official classification. Evidence labels: Established means the primary result of a large or adequately powered trial, a regulator decision or a high-certainty synthesis. Early evidence means phase 1 or 2 work, single, stopped-early, post hoc or uncontrolled results. Hypothesis means a mechanism or a claim awaiting a trial.</p>
+  </div>
+
+  <h3 class="sub">Route explorer: one route through time</h3>
+  <div class="prose"><p>Lanes run from idea to regulator. Slide through the years to watch a route build up, or press Play. Solid markers are published results. Hollow dashed markers are trials on a registry with no results shown, placed at the listed date. They are not results.</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="fxSvg" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="A timeline for the selected research route. Horizontal lanes for idea, smaller trials, large trials, post hoc or pooled analyses, regulators and guidelines, and registry entries with no results. Each trial is a named marker at its year, and a line shows the year selected on the slider."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="fxPlay">Play</button><label class="stage-cap tl" for="fxT">Year <input type="range" id="fxT" min="0" max="1" step="0.002" value="0.8"></label></div>
+      <div class="readout" id="fxRead"></div>
+      <div class="fxlg" id="fxLegend"></div>
+      <p class="stage-cap"><b>Reading aid.</b> Marker year is the publication year of the cited record, or the primary completion date listed on the registry. A registry entry with no date in its record sits on the "today" line. The lane is our sorting by size and design as reported in the abstract.</p>
+    </div>
+    <aside class="note" id="fxNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Factor XI versus factor X: why bleeding could be less</h3>
+  <div class="prose"><p>The comparators in these trials, apixaban and rivaroxaban, act at factor X. Factor XI inhibitors act further up the chain. The hope is a drug that prevents clots while leaving more of the body's ability to seal a tear. That hope is a <span class="ev hyp">Hypothesis</span> under test, and the trials have given more than one answer [[Jain2024,Piccini2025,Sharma2026]].</p></div>
+  <div class="stepper" id="fxcSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="fxcSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A simplified clotting chain from factor twelve through eleven and nine to ten, thrombin and fibrin, with a second entry from tissue factor and seven into factor ten. The timeline blocks factor ten, then factor eleven, and shows the idea that blocking eleven could leave the injury route open. It then shows measured bars for stroke and bleeding from two trials of asundexian, and two further programmes that have no results posted."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="fxcPlay">Play</button><label class="stage-cap tl" for="fxcT">Timeline <input type="range" id="fxcT" min="0" max="1" step="0.002" value="0.46"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The chain is a simplified teaching outline drawn for this guide, not a finding of any trial [[Gailani2015]]. Moving dots and clot sizes show the idea and encode no measured value. Only the bars are data.</p>
+    </div>
+    <aside class="note" id="fxcNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Design</th><th>Efficacy result</th><th>Bleeding result</th><th>Label</th></tr></thead>
+    <tbody>
+      <tr><th>PACIFIC-Stroke</th><td>Phase 2b, 1808 people, asundexian 10, 20 or 50 mg vs placebo</td><td>Covert infarct or ischaemic stroke at 26 weeks: 19%, 22%, 20% vs 19% [[Shoamanesh2022]]</td><td>Major or clinically relevant non-major, pooled HR 1.57 (90% CI 0.91-2.71)</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>AXIOMATIC-SSP</th><td>Phase 2, 2366 people, milvexian on dual antiplatelet therapy</td><td>Symptomatic stroke or covert infarct at 90 days: 16.8% placebo vs 15.3-16.7%, no dose-response [[Sharma2024]]</td><td>Major bleeding showed no apparent dose-response</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>OCEANIC-AF</th><td>14,810 people with AF, asundexian 50 mg vs apixaban, stopped early</td><td>Stroke or systemic embolism 1.3% vs 0.4% (HR 3.79, 95% CI 2.46-5.83) [[Piccini2025]]</td><td>Major bleeding 0.2% vs 0.7% (HR 0.32, 95% CI 0.18-0.55)</td><td><span class="ev est">Established</span></td></tr>
+      <tr><th>AZALEA-TIMI 71</th><td>1287 people with AF, abelacimab vs rivaroxaban, stopped early for the bleeding reduction</td><td>Free factor XI fell by a median 99% (150 mg) and 97% (90 mg). Stroke efficacy is not reported as a result in the abstract [[Ruff2025]]</td><td>Major or clinically relevant non-major: 3.2 and 2.6 vs 8.4 events per 100 person-years (HR 0.38 and 0.31)</td><td><span class="ev est">Established for bleeding</span></td></tr>
+      <tr class="hl"><th>OCEANIC-STROKE</th><td>12,327 people after non-cardioembolic stroke or high-risk TIA, on antiplatelets, asundexian 50 mg vs placebo</td><td>Ischaemic stroke 6.2% vs 8.4% (cause-specific HR 0.74, 95% CI 0.65-0.84; P&lt;0.001) [[Sharma2026]]</td><td>Major bleeding 1.9% vs 1.7% (cause-specific HR 1.10, 95% CI 0.85-1.44)</td><td><span class="ev est">Established, single positive phase 3</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>OCEANIC-STROKE was the first completed trial of factor XIa inhibition for prevention after non-cardioembolic stroke or TIA. Mean age was 68 and 67% were male. Index strokes were 43% large artery, 22% small vessel, 30% undetermined and 2% cardioembolic. Dual antiplatelet therapy was planned in 63% [[Sharma2026Design]]. Entry was within 72 hours of the index event, per the registry record, which lists no posted results even though the trial is published [[NCT05686070]]. Regulatory and guideline status were not established when this guide's research was done.</p></div>
+
+  <h3 class="sub">Paired vagus nerve stimulation: movement with a burst</h3>
+  <div class="prose"><p>A small implant sends a brief burst to the vagus nerve while the person does an arm task in therapy. Compare paired stimulation with the control group, then see the measured result.</p></div>
+  <div class="fxrow" role="group" aria-label="Choose the group shown"><span>Group</span>
+    <button class="btn" data-fxv="paired" aria-pressed="true">Paired stimulation</button>
+    <button class="btn" data-fxv="control" aria-pressed="false">Control stimulation</button>
+  </div>
+  <div class="stepper" id="fxvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="fxvSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A person in profile reaching for a target during therapy, with a pulse generator in the chest and a lead to the vagus nerve in the neck. A trace shows arm movements with a burst of nerve stimulation on each one. A drawing of two connected brain cells shows the connection thickening with repeats, labelled as a hypothesis. A final scene shows measured arm score gains and response rates from the VNS-REHAB trial."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="fxvPlay">Play</button><label class="stage-cap tl" for="fxvT">Therapy <input type="range" id="fxvT" min="0" max="1" step="0.002" value="0.55"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> Timing, number of repeats and the thickening connection are illustrations, not measured values, and control stimulation settings are not shown. The last step's bars are data from the trial.</p>
+    </div>
+    <aside class="note" id="fxvNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How a promising signal holds up</h3>
+  <div class="prose"><p>Pick a route to see the arms of its trials side by side. Watch for three traps: a subgroup that does not repeat, an open-label gain that vanishes against sham, and a change that does not reach a better outcome.</p></div>
+  <div class="fxrow" id="fxaBtns" role="group" aria-label="Choose a comparison"></div>
+  <div class="stage">
+    <div class="scroll"><svg id="fxaSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Paired horizontal bars comparing the treatment and control arms of the trials in the chosen research route, with each value written beside its bar."></svg></div>
+    <p class="fxlesson" id="fxaNote" aria-live="polite"></p>
+    <p class="stage-cap">Bars are the published arm values. Outcomes differ from trial to trial, so compare arms within a trial, not across trials.</p>
+  </div>
+
+  <h3 class="sub">On the registry: no results to show</h3>
+  <div class="prose"><p>These entries are shown as the registries list them. No result is implied by any row. A listed date is a plan and can move. Checked 8 November 2026.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Question</th><th>Registry status</th><th>Listed date</th><th>Size</th><th>Record</th></tr></thead>
+    <tbody>
+      <tr><th>LIBREXIA-STROKE</th><td>Milvexian vs placebo after stroke or high-risk TIA</td><td>Active, not recruiting; no results posted</td><td>Primary completion 2026-10-15</td><td>12,523 enrolled</td><td class="fxnct">NCT05702034 [[NCT05702034]]</td></tr>
+      <tr><th>LIBREXIA-AF</th><td>Milvexian vs apixaban in AF</td><td>Active, not recruiting; no results posted</td><td>Primary completion 2026-12-08</td><td>20,284 enrolled; the design paper planned 15,500 [[Jain2024]]</td><td class="fxnct">NCT05757869 [[NCT05757869]]</td></tr>
+      <tr><th>LILAC-TIMI 76</th><td>Abelacimab vs placebo in AF unsuitable for oral anticoagulation</td><td>Recruiting</td><td>Primary completion 2027-12-30</td><td>2500 estimated</td><td class="fxnct">NCT05712200 [[NCT05712200]]</td></tr>
+      <tr><th>LILAC-TIMI 76 (second record)</th><td>Abelacimab in high-risk AF, sponsored by Novartis</td><td>Not yet recruiting</td><td>Primary completion 2030-12-30</td><td>2500</td><td class="fxnct">NCT07739888 [[NCT07739888]]</td></tr>
+      <tr><th>Lp(a)HORIZON</th><td>Pelacarsen vs placebo in cardiovascular disease with high Lp(a)</td><td>Completed; no results posted. A review reports a neutral topline, full data awaited [[Sabouret2026]]</td><td>Primary completion 2026-07-16</td><td>8323</td><td class="fxnct">NCT04023552 [[NCT04023552]]</td></tr>
+      <tr><th>OCEAN(a)-Outcomes</th><td>Olpasiran and cardiovascular events</td><td>Active, not recruiting</td><td>Primary completion 2028-03-31</td><td>7297</td><td class="fxnct">NCT05581303 [[NCT05581303]]</td></tr>
+      <tr><th>ACCLAIM-Lp(a)</th><td>Lepodisiran and cardiovascular events</td><td>Active, not recruiting</td><td>Primary completion 2029-03</td><td>17,300</td><td class="fxnct">NCT06292013 [[NCT06292013]]</td></tr>
+      <tr><th>CoVasc-ICH2</th><td>Colchicine after intracerebral haemorrhage</td><td>Not yet recruiting</td><td>Primary completion 2028-07-30</td><td>1125 planned</td><td class="fxnct">NCT06587737 [[NCT06587737]]</td></tr>
+      <tr><th>Vivistim GRASP registry</th><td>Paired VNS in routine use, up to 3 years of follow-up [[Doherty2026]]</td><td>Recruiting</td><td>Primary completion 2028-12-31</td><td>1000 estimated</td><td class="fxnct">NCT05301140 [[NCT05301140]]</td></tr>
+      <tr><th>MASTERS-2</th><td>MultiStem cells, phase 3</td><td>Terminated by sponsor's decision; no results posted</td><td>Not listed in this record</td><td>206</td><td class="fxnct">NCT03545607 [[NCT03545607]]</td></tr>
+      <tr><th>CAMAROS</th><td>Maraviroc with rehabilitation, phase 2, Calgary</td><td>Unknown, last verified 2024-07; no results</td><td>Not listed in this record</td><td>120 estimated</td><td class="fxnct">NCT04789616 [[NCT04789616]]</td></tr>
+      <tr><th>MASTER</th><td>Maraviroc 300 mg twice daily for 90 days, Geneva [[Broc2026]]</td><td>Recruiting</td><td>Primary completion 2027-12</td><td>80</td><td class="fxnct">NCT07080567 [[NCT07080567]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Open arguments</h3>
+  <div class="prose"><p>Where trials disagree, both sides are shown. None of these is settled.</p></div>
+  <div class="cards">
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Will factor XI inhibition become standard after stroke?</h4><p><b>For:</b> OCEANIC-STROKE [[Sharma2026]]. <b>Caution:</b> both phase 2 trials missed their composite outcome [[Shoamanesh2022,Sharma2024]]. <b>Status:</b> LIBREXIA-STROKE has no reported result [[NCT05702034]].</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Could a factor XI drug still work in AF?</h4><p>Asundexian failed against apixaban [[Piccini2025]]. LIBREXIA-AF and LILAC have not reported [[NCT05757869,NCT05712200]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Is nerinetide real in very early treatment with reperfusion?</h4><p><b>For:</b> a post hoc pooled analysis and 1-year early-window data [[Tymianski2025,Adams2026]]. <b>Against:</b> the primary results of all three trials were neutral [[Hill2020,Hill2025,Christenson2025]]. It needs a prospective trial.</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Does remote conditioning work?</h4><p><b>For:</b> RICAMIS and SERIC-EVT [[Chen2022,Guo2026]]. <b>Against:</b> the sham-controlled Danish RESIST and SERIC-IVT [[Blauenfeldt2023,Guo2025]]. The meta-analysis found better favourable outcomes only without reperfusion [[Lam2026]], which conflicts with SERIC-EVT [[Guo2026]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Is colchicine useful after stroke?</h4><p><b>For:</b> a pooled fall in ischaemic stroke [[Fiolet2024]]. <b>Against:</b> CONVINCE missed significance and CHANCE-3 was neutral [[Kelly2024,Li2024CHANCE3]]. CHANCE-3 measured 90 days, while CONVINCE reported long-term follow-up.</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Do GLP-1 receptor agonists prevent stroke?</h4><p><b>Yes, in diabetes:</b> stroke HR 0.84 (95% CI 0.76-0.93) across 7 trials [[Kristensen2019]]. <b>No difference:</b> in a wider analysis of 21 trials [[Galli2025]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Can trials from one country be generalised?</h4><p>BAST and TASTE-2 are positive or borderline in Chinese centres [[Wang2023,Wang2026TASTE2]], and the RIC meta-analysis raises regional generalisability [[Lam2026]]. Replication elsewhere was not found when this research was done.</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Is intra-arterial lysis after thrombectomy useful?</h4><p>CHOICE and ANGEL-TNK were positive with small samples [[Renu2022,Miao2025]]. POST-TNK and POST-UK were not significant [[Huang2025,Liu2025]].</p></div>
+    <div class="card"><span class="ev est">Established, debated</span><h4>Should people be screened for AF, and how hard?</h4><p>STROKESTOP found a small net benefit [[Svennberg2021]]. LOOP did not reach significance, and its authors suggest "not all atrial fibrillation is worth screening for" [[Svendsen2021]].</p></div>
+  </div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>A drug that improves a marker or a time may still not improve function: FASTEST slowed haematoma growth without functional benefit [[Broderick2026]], AI cut door-to-groin time with no shown functional gain [[MartinezGutierrez2023]], and clazosentan reduced vasospasm without better function [[Alsakti2026]]. Open-label gains can vanish with sham control: SB623 versus ACTIsSIMA [[Steinberg2019,NCT02448641]]. Fluoxetine reduces depression but does not improve disability after stroke, and raises fracture risk [[Lundstrom2020,Legg2021]].</div>
+    <div class="pt"><b>In plain words</b>Scientists are trying to protect brain cells during a stroke. Many drugs looked good in animals but have not clearly helped people yet [[Hill2025,Christenson2025]]. Stem cell treatments have been safe in trials so far, but have not clearly improved recovery in controlled studies [[Hess2017,Houkin2024,NCT02448641]]. Early results from brain and spinal cord implants are hopeful. They come from very small groups and need bigger studies [[Baker2023,deFreitas2026]]. This guide does not recommend any treatment.</div>
+  </div>
+</section>

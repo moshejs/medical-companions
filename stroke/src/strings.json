@@ -1,0 +1,10 @@
+{
+ "foot.not_advice": "<b>It is not medical advice.</b> It cannot diagnose. If you think someone is having a stroke, call your local emergency number. Nothing here should start, stop or change a medicine, a therapy or a care plan without your own doctor or stroke team. The NIHSS, ICH score, ABCD2, CHA2DS2-VASc, ASPECTS and other scales are for learning, never for an individual's diagnosis, prognosis or treatment. Doses, thresholds and guideline statements are quoted as published by the AHA/ASA, ESO, NICE and drug labels, never as instructions, and outcome figures are population statistics, not predictions for any person. Please check the original sources, which are listed in full in the <a href=\"#sources\" data-go=\"sources\">Sources</a> module.",
+ "quiz.answer_is": "The answer is {l}.",
+ "shell.disclaimer": "The Stroke Companion is an educational synthesis of published literature for study and understanding. If you think someone is having a stroke, call your local emergency number. It does not replace a doctor, nurse, physiotherapist, occupational therapist, speech and language therapist or the rest of a stroke team. Scores such as the NIHSS, ICH score, ABCD2, CHA2DS2-VASc and ASPECTS are teaching aids, never for an individual's diagnosis, prognosis or treatment. Doses, thresholds and guideline statements are quoted as published, never as instructions. Outcomes are population statistics; they are not predictions for any person.",
+ "shell.home": "Stroke Companion home",
+ "shell.note": "An animated, cited guide for students, people who have had a stroke, and their families and carers. Educational only, not medical advice. Your place is saved on this device.",
+ "shell.skip": "Skip to the module",
+ "shell.tagline": "Time and territory",
+ "sources.stats": "{all} sources in all. {ok} were confirmed against a database before inclusion (some by more than one: {svc}). Marked <span class=\"tag warn\">check</span> (not cited anywhere in the guide): {chk}."
+}

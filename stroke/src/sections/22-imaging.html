@@ -1,0 +1,188 @@
+<!-- ================= 2.2 IMAGING & THE FIRST HOUR ================= -->
+<style>
+#m-imaging .tbl table{min-width:660px}
+#m-imaging .card>.ev,#m-imaging .card>.tag{align-self:flex-start}
+#m-imaging .imbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-imaging .imbar .btn{min-height:40px}
+#m-imaging .imcap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-imaging .imcells{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:3px}
+#m-imaging .imcells span{display:block;text-align:center;font:700 11px var(--mono);padding:6px 0;border-radius:5px;background:var(--dx-soft);color:var(--dx);overflow:hidden}
+#m-imaging .imcells span.off{background:var(--bad-soft);color:var(--bad);text-decoration:line-through}
+#m-imaging .imregs .btn{padding:8px 11px;min-width:44px}
+#m-imaging .imchk{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;font-size:14.5px}
+#m-imaging .imchk li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:8px;align-items:baseline}
+#m-imaging .imchk b{font:700 11px var(--mono);letter-spacing:.04em}
+#m-imaging .imchk .y{color:var(--good)} #m-imaging .imchk .n{color:var(--bad)}
+#m-imaging .imsl{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px 18px}
+#m-imaging .imsl label{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:700;min-width:0}
+#m-imaging .imsl label.chk{flex-direction:row;align-items:center;gap:8px;min-height:40px}
+#m-imaging .imsl input[type=checkbox]{width:20px;height:20px;accent-color:var(--dx)}
+</style>
+<section class="mod" id="m-imaging" data-mod="imaging" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Recognition &amp; assessment</p><h2>Imaging &amp; the first hour</h2>
+    <p class="lede">From the door to the needle or the groin, every scan answers one question and costs minutes. Walk the pathway with the clock running, score a teaching ASPECTS, and test core and penumbra volumes against the late-window trial criteria as they are quoted.</p></div>
+
+  <div class="stepper" id="imSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="imSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="The acute stroke pathway with a clock. A person arrives at the door, non-contrast CT separates a bleed from no bleed, a drip starts, CT angiography shows a clot in the middle cerebral artery, a perfusion map shows core and penumbra, and a stent retriever removes the clot, while a time bar passes the published benchmarks at 25, 45 and 60 minutes."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="imPlay">%t:player.play%</button><label class="stage-cap tl" for="imT">Pathway <input type="range" id="imT" min="0" max="1" step="0.002" value="0.26"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> The order and the running minutes are illustrative and vary between centres. Only the marks at 25, 45 and 60 minutes are published benchmarks [[Ekundayo2013,Lin2012,Xian2022]]. No door-to-groin benchmark appears in the sources read here.</p>
+    </div>
+    <aside class="note" id="imNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">CT or MRI: what each one sees early</h3>
+  <div class="prose"><p>CT is fast and sees blood well, but it often misses a very early infarct. A normal CT does not rule out ischaemic stroke [[Chalela2007]]. Pick a comparison.</p></div>
+  <div class="imbar" role="group" aria-label="Which comparison">
+    <button class="btn" data-imc="any" aria-pressed="true">Any acute stroke</button>
+    <button class="btn" data-imc="early" aria-pressed="false">Under 3 hours</button>
+    <button class="btn" data-imc="post" aria-pressed="false">Posterior fossa</button>
+    <button class="btn" data-imc="coch" aria-pressed="false">Cochrane pooled</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="imCm" viewBox="0 0 720 280" style="min-width:560px" role="img" aria-label="The same stroke on a CT slice, where the lesion is faint, and on a diffusion MRI slice, where it is bright, beside bars of how often each test detected the stroke in the chosen comparison."></svg></div>
+    <p class="imcap" id="imCmCap" aria-live="polite"></p>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>Blood: a draw</h4><p>For acute haemorrhage MRI and CT were equivalent (96% concordance), and MRI found far more chronic haemorrhage, mostly microbleeds [[Kidwell2004]]. MRI was similar to CT for acute intracranial haemorrhage in the Chalela series too [[Chalela2007]].</p></div>
+    <div class="card"><h4>Early signs on CT are hard</h4><p>Mean sensitivity for early infarction signs 66% (range 20 to 87%), specificity 87%, with interobserver kappa 0.14 to 0.78. Experience improved detection; knowing the symptoms did not [[Wardlaw2005]]. In 258 readers, slower reading and later CT helped [[Wardlaw2010]].</p></div>
+    <div class="card"><h4>What early signs mean</h4><p>Any early sign raised the risk of poor outcome (OR 3.11, 95% CI 2.77 to 3.49; 3468 people). Two studies found no evidence that thrombolysis in the presence of early signs worsened outcome beyond the effect of the signs themselves [[Wardlaw2005]].</p></div>
+    <div class="card"><h4>The hyperdense artery</h4><p>Pooled risk ratio for poor outcome after thrombolysis 1.56 (1.50 to 1.62) in 11,818 people, with no significant effect on symptomatic haemorrhage [[Sun2020]]. A second meta-analysis found 1.43 after reperfusion therapy but called its prognostic sensitivity and specificity poor [[Shi2022]]. Every one of 62 people who recanalised with thrombolysis had a thrombus of 8 mm or less [[Riedel2011]].</p></div>
+  </div>
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>A normal first CT scan does not rule out a stroke. CT shows bleeding well but can miss early stroke damage [[Chalela2007]].</div>
+    <div class="hook"><b>Exam hook</b>Non-contrast CT has low sensitivity for early ischaemia: 26% vs 83% for MRI for any acute stroke [[Chalela2007]], and 41.8% in the posterior fossa [[Hwang2012]].</div>
+  </div>
+
+  <h3 class="sub">ASPECTS: a clickable teaching scorer</h3>
+  <div class="prose"><p>ASPECTS divides the middle cerebral artery territory into 10 regions. Start at 10 and take off one point for each region showing early ischaemic change; 0 means diffuse involvement of the whole territory [[Barber2000,Pexman2001]]. Click or tab to a region and press Enter, or use the buttons. The regions are caudate (C), lentiform (L), internal capsule (IC), insular ribbon (I), and cortex M1 to M3, with M4 to M6 about 2 cm above them [[Pexman2001]].</p></div>
+  <div class="imbar" role="group" aria-label="Scan view and side">
+    <button class="btn" data-imam="plain" aria-pressed="true">Schematic colours</button>
+    <button class="btn" data-imam="ct" aria-pressed="false">CT greys</button>
+    <button class="btn" data-imas="L" aria-pressed="true">Person's left</button>
+    <button class="btn" data-imas="R" aria-pressed="false">Person's right</button>
+    <button class="btn" id="imAspClear">Clear all</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="imAsp" viewBox="0 0 520 340" style="min-width:480px" role="img" aria-label="Two schematic axial slices showing the 10 ASPECTS regions on one hemisphere. Each region can be selected to mark it as affected."></svg></div>
+      <div class="imbar imregs" id="imAspBtns" role="group" aria-label="Mark a region as affected"></div>
+      <p class="stage-cap">Schematic regions on drawn slices, front up, the person's left on the viewer's right. Not a reading of any real scan.</p>
+    </div>
+    <aside class="note" id="imAspNote" aria-live="polite"></aside>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>This scorer only shows how the published score adds up. It gives a number, not a prediction, and is never for an individual's diagnosis, prognosis or treatment. Real ASPECTS reading needs a real scan and a trained reader.</p>
+  <div class="cards">
+    <div class="card"><h4>Derivation</h4><p>In 156 people with anterior ischaemia treated with alteplase within 3 hours, ASPECTS correlated inversely with NIHSS (r=-0.56). Kappa was 0.71 to 0.89 when the affected hemisphere was known. Sensitivity and specificity were 0.78 and 0.96 for functional outcome, and 0.90 and 0.62 for symptomatic haemorrhage [[Barber2000]].</p></div>
+    <div class="card"><h4>The 7 line</h4><p>Dependence and death rise sharply at an ASPECTS of 7 or less, in the study populations [[Pexman2001]].</p></div>
+    <div class="card"><h4>Not a hard stop</h4><p>SELECT2 enrolled ASPECTS 3 to 5 or core of at least 50 mL: thrombectomy gave generalised OR 1.51 (95% CI 1.20 to 1.89), functional independence 20% vs 7% [[Sarraj2023]]. RESCUE-Japan LIMIT: mRS 0 to 3 in 31.0% vs 12.7%, any intracranial haemorrhage 58.0% vs 31.4% [[Yoshimura2022]].</p></div>
+  </div>
+
+  <h3 class="sub">CT angiography and collaterals</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Finding</th><th>Numbers</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Clinical scales cannot replace arterial imaging</th><td>A study of 13 scales concluded intracranial arterial imaging should be done in all people with acute ischaemic stroke within 6 hours</td><td>[[Turc2016]]</td></tr>
+      <tr><th>Clot burden score</th><td>Above 6 predicted good outcome: AUC 0.75, sensitivity 73.0, specificity 64.6, in 85 people. Higher collateral and clot burden scores (less clot) went with smaller final infarcts</td><td>[[Tan2009]]</td></tr>
+      <tr><th>Multiphase CTA</th><td>Interrater reliability κ=0.81. Predicted outcome modestly but better than single-phase CTA or perfusion CT in model comparison, in 147 people</td><td>[[Menon2015]]</td></tr>
+      <tr><th>Collaterals and recanalisation</th><td>Complete revascularisation in 14.1% with poor, 25.2% with good and 41.5% with excellent collaterals. In 222 people, revascularisation brought no observed benefit with poor collaterals</td><td>[[Bang2011]]</td></tr>
+      <tr><th>ESCAPE</th><td>Excluded a large core or poor collaterals on CT and CTA. Functional independence 53.0% vs 29.3%; mortality 10.4% vs 19.0%</td><td>[[Goyal2015]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">The mismatch explorer</h3>
+  <div class="prose">
+    <p>Perfusion imaging splits the ischaemic tissue in two. In DEFUSE 3 software output, the <b>core</b> was CBF below 30% of normal tissue, and hypoperfused tissue was a delay (Tmax) above 6 s; the difference is the <b>penumbra</b> [[Albers2018]]. Move the sliders to see which quoted late-window criteria a teaching case falls inside.</p>
+  </div>
+  <div class="imsl" id="imMmIn">
+    <label for="imCore">Core <output id="imCoreV"></output><input type="range" id="imCore" min="0" max="150" step="1" value="40"></label>
+    <label for="imPen">Penumbra <output id="imPenV"></output><input type="range" id="imPen" min="0" max="200" step="1" value="90"></label>
+    <label for="imAge">Age <output id="imAgeV"></output><input type="range" id="imAge" min="30" max="95" step="1" value="72"></label>
+    <label for="imNih">NIHSS <output id="imNihV"></output><input type="range" id="imNih" min="0" max="42" step="1" value="14"></label>
+    <label for="imHrs">Hours from last known well <output id="imHrsV"></output><input type="range" id="imHrs" min="0" max="30" step="1" value="10"></label>
+    <label class="chk" for="imOcc"><input type="checkbox" id="imOcc" checked> ICA or proximal MCA occlusion</label>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="imMm" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="An axial slice with a red core and amber penumbra sized from the sliders, beside two bars: core volume against the quoted limits of 21, 31, 51 and 70 mL, and core plus penumbra, with the mismatch ratio."></svg></div>
+      <p class="stage-cap">The slice grows with the volumes but is not to scale. Volumes are teaching inputs, not measurements.</p>
+    </div>
+    <aside class="note" id="imMmNote" aria-live="polite"></aside>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>The criteria are shortened from the trials as quoted, and real trial entry had more conditions. This never shows whether a person should or could have treatment. DAWN's numbers come from a 2026 review because the trial's full text could not be read here [[Ordonez2026,Nogueira2018]].</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Window and selection</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>DEFUSE 3</th><td>6 to 16 hours. ICA or proximal MCA occlusion, core below 70 mL, ischaemic tissue to core ratio 1.8 or more, penumbra 15 mL or more</td><td>mRS shift OR 2.77 (P&lt;0.001), functional independence 45% vs 17%, mortality 14% vs 26% (P=0.05), symptomatic haemorrhage 7% vs 4% [[Albers2018]]</td></tr>
+      <tr><th>DAWN</th><td>6 to 24 hours, mismatch of deficit and infarct by age. Age 80 or over, NIHSS 10 or more, core below 21 mL; under 80, NIHSS 10 or more, core below 31 mL, or NIHSS 20 or more, core below 51 mL, as quoted [[Ordonez2026]]</td><td>Functional independence 49% vs 13% (adjusted difference 33 points, credible interval 24 to 44). Symptomatic haemorrhage 6% vs 3%; mortality 19% vs 18% [[Nogueira2018]]</td></tr>
+      <tr><th>EXTEND-IA</th><td>Core below 70 mL plus salvageable tissue on CTP; stopped early at 70 people</td><td>Reperfusion at 24 hours median 100% vs 37%, functional independence 71% vs 40% [[Campbell2015]]</td></tr>
+      <tr class="lys"><th>EXTEND (lysis)</th><td>Thrombolysis on perfusion at 4.5 to 9 hours or on waking</td><td>mRS 0 to 1 in 35.4% vs 29.5% (adjusted RR 1.44, 1.01 to 2.06), symptomatic haemorrhage 6.2% vs 0.9% [[Ma2019]]</td></tr>
+      <tr class="lys"><th>Pooled (lysis)</th><td>4.5 to 9 hours or wake-up</td><td>Excellent outcome 36% vs 29% (adjusted OR 1.86, 1.15 to 2.99); symptomatic haemorrhage 5% vs under 1% [[Campbell2019]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Thresholds are working numbers. Relative CBF below 31% was optimal for core (AUC 0.79, 54 people), but no single threshold avoids false positives in white matter [[Campbell2011CBF]]. A Tmax between 4 and 6 s appeared optimal for penumbra in 33 people at 3 to 6 hours [[Olivot2009]]. Applying DAWN criteria to raters' visual estimates, instead of software, changed eligibility in a study reviewed in [[AlAhmed2025]].</p>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>DEFUSE 3 criteria: core below 70 mL, mismatch ratio of 1.8 or more, penumbra of 15 mL or more; 6 to 16 hours [[Albers2018]].</div>
+    <div class="pt"><b>In plain words</b>The core is tissue already lost. The penumbra is tissue short of blood that may still be saved. The scan estimates how much of each there is [[Albers2018]].</div>
+  </div>
+
+  <h3 class="sub">Unknown onset: the DWI-FLAIR mismatch</h3>
+  <div class="prose"><p>Some people wake up with a stroke, so nobody knows when it began. A lesion visible on DWI but not on FLAIR suggests onset within about 4.5 hours [[Thomalla2011]]. Scrub the hours.</p></div>
+  <div class="stage">
+    <div class="scroll"><svg id="imDf" viewBox="0 0 720 310" style="min-width:560px" role="img" aria-label="A DWI slice and a FLAIR slice of the same stroke. As the hours pass, the lesion is bright on DWI from the start and appears on FLAIR only later, ending the mismatch."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="imDfPlay">%t:player.play%</button><label class="stage-cap tl" for="imDfT">Hours <input type="range" id="imDfT" min="0" max="1" step="0.002" value="0.2"></label></div>
+    <p class="stage-cap"><b>Schematic.</b> FLAIR change is drawn as a smooth fade around the study's 4.5-hour line. In real people it is far less tidy, as the numbers below show. FLAIR is drawn in the DWI greys only to compare the two.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="big-num">62% / 78%</div><h4>How well the sign dates a stroke</h4><p>In 543 people: sensitivity 62% (95% CI 57 to 67), specificity 78% (72 to 84), PPV 83%, NPV 54%, interobserver κ 0.569 [[Thomalla2011]].</p></div>
+    <div class="card"><div class="big-num">53.3% vs 41.8%</div><h4>WAKE-UP: mRS 0 to 1</h4><p>Adjusted OR 1.61 (1.09 to 2.36), stopped early at 503 of a planned 800. Median mRS 1 vs 2. Numerically more deaths (4.1% vs 1.2%, P=0.07) and symptomatic haemorrhage (2.0% vs 0.4%, P=0.15) [[Thomalla2018]].</p></div>
+    <div class="card"><div class="big-num">47% vs 39%</div><h4>Four trials pooled</h4><p>843 people with DWI-FLAIR or perfusion mismatch: adjusted OR 1.49 (1.10 to 2.03). Death 6% vs 3%; symptomatic haemorrhage 3% vs under 1% [[Thomalla2020]].</p></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>DWI-positive and FLAIR-negative suggests onset within about 4.5 hours [[Thomalla2011,Thomalla2018]].</div>
+    <div class="pt"><b>In plain words</b>If someone wakes up with stroke symptoms, a scan may still help doctors judge whether treatment could help [[Thomalla2018]].</div>
+  </div>
+
+  <h3 class="sub">Door-to-needle: how fast it can go</h3>
+  <div class="imbar" role="group" aria-label="Which programme">
+    <button class="btn" data-imd="hel" aria-pressed="true">Helsinki</button>
+    <button class="btn" data-imd="tgt" aria-pressed="false">Target: Stroke</button>
+    <button class="btn" data-imd="mel" aria-pressed="false">Melbourne</button>
+    <button class="btn" data-imd="chc" aria-pressed="false">Christchurch</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="imDn" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bars of median door-to-needle time falling across periods in the chosen programme, with a line at 60 minutes."></svg></div>
+    <p class="imcap" id="imDnCap" aria-live="polite"></p>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>The baseline</h4><p>Only 26.6% of 25,504 people treated within 3 hours had door-to-needle of 60 minutes or less (2003 to 2009), varying by hospital from 0% to 79.2% [[Fonarow2011]].</p></div>
+    <div class="card"><h4>What it bought in hospital</h4><p>Target: Stroke phase II vs preintervention: alteplase use 11.7% vs 5.6%, in-hospital mortality 6.0% vs 10.0% (adjusted OR 0.69), bleeding 3.4% vs 5.5%, discharge home 49.6% vs 35.7% [[Xian2022]].</p></div>
+    <div class="card"><h4>One year on</h4><p>In 61,426 people, door-to-needle above 60 vs within 60 minutes: mortality 35.8% vs 32.1% (adjusted HR 1.11) [[Man2020JAMA]]. Yet Target: Stroke's own mortality benefit dissipated after adjustment at one year (HR 0.98, 0.94 to 1.02), a useful caution [[Man2020CQO]].</p></div>
+    <div class="card"><h4>Every 15 minutes</h4><p>In 58,353 people, each 15 minutes faster went with lower in-hospital mortality (OR 0.96) and more independent walking at discharge (OR 1.04) [[Saver2013]]. Each 15 minutes of delay in people having both treatments raised the odds of never returning home in a year (OR 1.12) [[Man2023]].</p></div>
+    <div class="card"><h4>The value of a minute</h4><p>Each minute saved on onset-to-treatment gave on average 1.8 days of healthy life (95% prediction interval 0.9 to 2.7), in a model [[Meretoja2014]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>AI reads the scan</h4><p>A cluster trial of 243 people: AI LVO detection with phone alerts cut door-to-groin by 11.2 minutes, with no difference in functional independence [[MartinezGutierrez2023]]. Observational data: CTA-to-team-notification 7 vs 26 minutes [[Elijovich2022]]; in England the thrombectomy rate rose faster in evaluation sites (funded through NHS England, not randomised) [[Nagaratnam2025]]. Algorithms could not be compared in a 2020 review [[Murray2020]].</p></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Time from onset</th><th>Treatment</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>Within 3 hours</th><td>Alteplase vs control, trials</td><td>Good outcome 32.9% vs 23.1% (OR 1.75, 1.35 to 2.27) [[Emberson2014]]</td></tr>
+      <tr><th>3 to 4.5 hours</th><td>Alteplase vs control</td><td>35.3% vs 30.1% (OR 1.26, 1.05 to 1.51) [[Emberson2014]]</td></tr>
+      <tr><th>Beyond 4.5 hours</th><td>Alteplase vs control</td><td>32.6% vs 30.6% (OR 1.15, 0.95 to 1.40) [[Emberson2014]]</td></tr>
+      <tr><th>3 and 6 hours</th><td>Thrombectomy</td><td>mRS shift cOR 2.79 at 3 hours and 1.98 at 6 hours, significant through 7 hours 18 minutes in the early-window trials [[Saver2016]]. Pooled across 5 trials: cOR 2.49, number needed to treat 2.6 for one level on the mRS [[Goyal2016]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Guidelines and open questions</h3>
+  <div class="prose">
+    <p>The 2026 AHA/ASA guideline replaces the 2018 guideline and its 2019 update. Its stated key updates cover thrombolytic choice and eligibility, thrombectomy eligibility, hyperglycaemia, dysphagia, paediatric stroke and thrombolysis contraindications [[Prabhakaran2026,Powers2019]]. Its full text could not be read here, so its class and level statements are not quoted from it. As reported in a 2026 review: AHA/ASA recommends thrombectomy to 16 hours (Class I) and considers it reasonable to 24 hours (Class IIa) in people meeting DAWN or DEFUSE 3 criteria [[Ordonez2026]]. ESO-ESMINT 2019 found high-quality evidence for thrombectomy with best medical care within 6 hours for LVO, and moderate-quality evidence at 6 to 24 hours for people meeting trial criteria [[Turc2019ESO]]. A recent review describes imaging strategy as evolving as eligibility expands [[Yogendrakumar2026]].</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Evidence each way</th></tr></thead>
+    <tbody>
+      <tr><th>Who should get MRI first?</th><td>Chalela argues MRI should be preferred [[Chalela2007]]. Helsinki found that added vascular or perfusion imaging doubled in-hospital delay [[Meretoja2012]]. Cochrane questions how far the DWI data generalise: sensitivity 0.99 with a CI of 0.23 to 1.00, on a narrow patient spectrum, small samples and incorporation bias [[Brazzelli2009]]. An AAN guideline, since retired, rated DWI as more useful than non-contrast CT within 12 hours (Level A) [[Schellinger2010]].</td></tr>
+      <tr><th>How low an ASPECTS?</th><td>The original score identified people unlikely to recover independently despite thrombolysis [[Barber2000]]. Recent thrombectomy trials in large core still show benefit, with low absolute rates of independence and more haemorrhage in one [[Sarraj2023,Yoshimura2022]].</td></tr>
+      <tr><th>Door-to-imaging target?</th><td>US registry analyses use 25 minutes or less [[Ekundayo2013,Lin2012]]. A survey of national guidelines found the USA and Qatar put weight on aiming for under 20 minutes [[Wijeratne2022]].</td></tr>
+    </tbody>
+  </table></div>
+</section>

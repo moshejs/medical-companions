@@ -1,0 +1,199 @@
+<!-- ================= 3.5 THE STROKE UNIT ================= -->
+<style>
+#m-unit .btn{min-height:40px}
+#m-unit .unt-toggle{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-unit .unt-bars{display:flex;flex-direction:column;gap:9px}
+#m-unit .unt-bar{display:grid;grid-template-columns:minmax(120px,210px) minmax(0,1fr) 56px;gap:10px;align-items:center;font-size:14.5px}
+#m-unit .unt-bar i{display:block;height:14px;border-radius:4px;background:var(--panel-2);overflow:hidden}
+#m-unit .unt-bar i b{display:block;height:100%;background:var(--brand)}
+#m-unit .unt-bar em{font:600 13px var(--mono);font-style:normal;text-align:right}
+#m-unit .tbl table{min-width:620px}
+@media (max-width:520px){#m-unit .unt-bar{grid-template-columns:minmax(0,1fr) 52px}#m-unit .unt-bar span{grid-column:1 / -1}}
+</style>
+<section class="mod" id="m-unit" data-mod="unit" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Acute treatment</p><h2>The stroke unit</h2>
+    <p class="lede">Clot-busting drugs and thrombectomy reach some people. Organised stroke unit care reaches everyone admitted, and its effect is large. See what it changes, what can go wrong in the first week, and which simple care and which big operation have trial evidence.</p></div>
+
+  <div class="prose">
+    <p>This page reports what trials and guidelines say. It is not advice about any one person's care. The 2026 AHA/ASA guideline replaces the 2018 guideline and its 2019 update, and covers care from before hospital through early complications and secondary prevention [[Prabhakaran2026,Powers2019]]. It names management of hyperglycaemia and dysphagia among its key updates [[Prabhakaran2026]]. Its recommendation wording was not read for this page, so no class of recommendation is quoted here.</p>
+  </div>
+
+  <h3 class="sub">Why stroke units work</h3>
+  <div class="stepper" id="untSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="untSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Three blocks of 100 person icons fill in with 2 extra survivors, 6 more people living at home and 6 more living independently with stroke unit care. Forest plots then show the four odds ratios and the odds of poor outcome by model of care."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="untPlay">%t:player.play%</button><label class="stage-cap tl" for="untT">Timeline <input type="range" id="untT" min="0" max="1" step="0.002" value="0.61"></label></div>
+      <p class="stage-cap">Numbers from Cochrane 2020 [[Langhorne2020]]. Odds below 1 favour the stroke unit.</p>
+    </div>
+    <aside class="note" id="untNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="cards">
+    <div class="card"><span class="big-num">29</span><p>trials and 5902 participants in the 2020 Cochrane review [[Langhorne2020]]</p></div>
+    <div class="card"><span class="big-num">0.77</span><p>odds ratio for poor outcome, 95% CI 0.69 to 0.87, moderate quality [[Langhorne2020]]</p></div>
+    <div class="card"><span class="big-num">10%</span><p>lower odds of death with daily physician ward rounds, in a national audit of 143,578 people (95% CI 0.82 to 0.98) [[Paley2018]]</p></div>
+    <div class="card"><span class="big-num">1332</span><p>deaths a year the audit's authors estimated could be saved in England and Wales, if the associations are causal, with at least 3 swallow-trained nurses per 10 beds and daily stroke physician rounds [[Paley2018]]</p></div>
+  </div>
+  <p class="callout">In that audit, 14.4% died within 30 days. Hospitals with more nurses trained in swallow screening had lower odds of death (P=0.004). The number of admissions and the overall weekend registered-nurse ratio were not independently associated with mortality [[Paley2018]].</p>
+
+  <h3 class="sub">The first week: what to watch for, and when</h3>
+  <div class="prose"><p>Move through days 0 to 7. Outlined bands are time points the sources publish. Hatched bands mean the sources give a rate but no timing, so nothing is drawn as a peak.</p></div>
+  <div class="stepper" id="untTlSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="untTlSvg" viewBox="0 0 720 420" style="min-width:560px" role="img" aria-label="Six lanes over days 0 to 7 after a stroke, for all complications, swallowing and pneumonia, leg clots, brain swelling, bleeding into the infarct and seizures. A cursor moves through the week. Bands show published time points, and hatched bands mark where the sources give no timing."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="untTlPlay">%t:player.play%</button><label class="stage-cap tl" for="untTlT">Day <input type="range" id="untTlT" min="0" max="1" step="0.002" value="0.17"></label></div>
+      <p class="stage-cap">Schematic lanes built from the cited time points. Not a prediction for any person.</p>
+    </div>
+    <aside class="note" id="untTlNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="split2">
+    <div class="stage">
+      <h4 style="margin:0">Complications in the first week, one stroke unit</h4>
+      <div class="unt-bars" id="untWk"></div>
+      <p class="stage-cap">312 of 489 people (63.8%) had at least one. Pressure sores 2.5% or fewer [[Indredavik2008]].</p>
+    </div>
+    <div class="stage">
+      <h4 style="margin:0">Complications are common, and some matter more</h4>
+      <div class="kv">
+        <dl class="kv"><div><dt>Recurrent stroke</dt><dd>OR 7.45 (2.83 to 20.96) for worse 90-day outcome [[Rohweder2015]]</dd></div>
+        <div><dt>Chest infection</dt><dd>OR 3.28 (1.16 to 9.29) [[Rohweder2015]]</dd></div>
+        <div><dt>Other infections, falls</dt><dd>OR 1.59 and OR 1.43: a weaker link [[Rohweder2015]]</dd></div>
+        <div><dt>Heart attack, urinary infection, pain</dt><dd>No association with 90-day outcome [[Rohweder2015]]</dd></div></dl>
+      </div>
+      <p class="stage-cap">At 3 months, 201 of 244 people (82.4%) had had one [[Indredavik2008]]. In inpatient rehabilitation, 75% had one [[Roth2001]].</p>
+    </div>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Number that disagrees</th><th>Sources</th><th>Why they differ</th></tr></thead>
+    <tbody>
+      <tr><th>Pneumonia: 10%, 12.3% and 23%</th><td>10% (87 studies) [[Westendorp2011]]; 12.3%, stroke units 8% (47 prospective cohorts) [[Badve2019]]; 23%, range 2% to 63% [[Kishore2018]]</td><td>Definitions drive the range, which is why a consensus definition was proposed [[Smith2015]]. ICU rate 28% [[Westendorp2011]].</td></tr>
+      <tr><th>Pressure sores: 21%, 2.5% or fewer, 22%</th><td>Inpatients, 2000 [[Langhorne2000]]; first week, 2008 stroke unit [[Indredavik2008]]; 12 months after severely disabling stroke [[Sackley2008]]</td><td>Different people and time frames. These are not one rate.</td></tr>
+      <tr><th>Confusion 56%, delirium 11.8% to 25%</th><td>"Confusion" in an older cohort [[Langhorne2000]]; delirium-specific studies [[Oldenbeuving2011,Shaw2019]]</td><td>Confusion and formally diagnosed delirium are not the same measure.</td></tr>
+      <tr><th>Symptomatic bleeding after alteplase: 1.7% to 7.3%</th><td>SITS-MOST 1.7% by its protocol definition at 24 h, 7.3% by the Cochrane definition at 7 days [[Wahlgren2007]]; meta-analysis 6.8% vs 1.3% and 3.7% vs 0.6% by two definitions [[Emberson2014]]</td><td>The definition changes the rate.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">The FeSS bundle: fever, sugar, swallow</h3>
+  <div class="prose">
+    <p>QASC was a single-blind cluster randomised trial in 19 acute stroke units in New South Wales, with 1696 patients analysed. Intervention units received nurse-initiated protocols for fever, hyperglycaemia and swallowing dysfunction, plus multidisciplinary team-building workshops. Control units received an abridged version of existing guidelines [[Middleton2011]].</p>
+    <p>Pick one element, then scrub through 72 hours to see how the protocol runs at the bedside.</p>
+  </div>
+  <div class="unt-toggle" role="group" aria-label="FeSS element">
+    <button class="btn" data-fess="fever" aria-pressed="true">Fever</button>
+    <button class="btn" data-fess="sugar" aria-pressed="false">Sugar</button>
+    <button class="btn" data-fess="swallow" aria-pressed="false">Swallow</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="untFsSvg" viewBox="0 0 720 410" style="min-width:560px" role="img" aria-label="Three lanes across 72 hours. An invented temperature trace crosses 37.5 degrees and an invented glucose trace crosses 10 millimoles per litre, each flagging treatment, with reading dots at least four times a day. A swallow lane shows nothing by mouth until a screen by 4 hours."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="untFsPlay">%t:player.play%</button><label class="stage-cap tl" for="untFsT">Hours <input type="range" id="untFsT" min="0" max="1" step="0.002" value="0.5"></label></div>
+      <div class="readout" id="untFsRead" aria-live="off"></div>
+      <p class="stage-cap">Thresholds and frequencies as listed by Fasugba 2023 [[Fasugba2023]]. Quoted as published, as teaching material, not a care plan.</p>
+    </div>
+    <aside class="note" id="untFsNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="stage">
+    <div class="scroll"><svg id="untQasc" viewBox="0 0 720 214" style="min-width:560px" role="img" aria-label="Two blocks of 100 person icons. In intervention units 42 of each 100 were dead or dependent at 90 days, in control units 58."></svg></div>
+    <p class="stage-cap">QASC at 90 days: mRS 2 or more, p=0.002; number needed to treat 6.4; adjusted absolute difference 15.7%, 95% CI 5.8 to 25.4 [[Middleton2011]].</p>
+  </div>
+  <div class="pt"><b>In plain words</b>Three simple things matter in the first days: checking for fever, checking blood sugar, and checking swallowing. Units that did this well had fewer people left dead or dependent [[Middleton2011]].</div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Finding</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>QASC, other 90-day measures</th><td>SF-36 physical summary better (45.6 vs 42.5, p=0.002). Mortality (4% vs 5%, p=0.36), SF-36 mental summary and Barthel index not different [[Middleton2011]].</td></tr>
+      <tr><th>QASC, median 4.1 years, 1076 people</th><td>264 (24.5%) had died. Unadjusted HR 0.79 (0.58 to 1.07, P=0.13); adjusted HR 0.77 (0.59 to 0.99, P=0.045). Significant only after adjustment [[Middleton2017]].</td></tr>
+      <tr><th>QASC Germany, before and after (771 and 679 patients)</th><td>Overall FeSS adherence 20% to 28%; antipyretic within one hour 29% to 59%; insulin within one hour 41% to 60%; swallow screen within 24 h 65% to 74% [[CassierWoidasky2024]].</td></tr>
+      <tr><th>European scale-up</th><td>A cascading facilitation model, with nurse champions as a key factor [[McInnes2024]].</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout"><b>Unresolved: why did the bundle work when single parts did not?</b> Fever trials (PAIS, PRECIOUS) and glucose trials (GIST-UK, SHINE) were neutral [[denHertog2009,deJonge2024,Gray2007,Johnston2019]], yet the bundle lowered death or dependency [[Middleton2011]]. The bundle also treated swallowing, so the effect cannot be credited to fever control alone. It changed team behaviour as well as targets <span class="ev hyp">Hypothesis</span>.</p>
+
+  <h3 class="sub">What the big acute-care trials tested</h3>
+  <div class="prose"><p>Much routine care was once assumed helpful. These trials checked. Figures are as reported, and none of this is a recommendation for a person.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Trial</th><th>Result</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><th>Aspirin within 48 h</th><td>CAST, IST, combined 40,000 people; Cochrane 2022</td><td>Net 9 fewer further strokes or deaths per 1000 (8.2% vs 9.1%, 2P=0.001): 7 fewer recurrent ischaemic strokes, about 4 fewer deaths without further stroke, about 2 more bleeds [[Chen2000]]. Number needed to treat 79 for death or dependency [[Minhas2022]].</td><td><span class="tag good">Small, real benefit</span></td></tr>
+      <tr><th>Heparin</th><td>IST</td><td>Fewer recurrent ischaemic strokes (2.9% vs 3.8%), more haemorrhagic strokes (1.2% vs 0.4%), no difference at 6 months (62.9% in both) [[IST1997]].</td><td><span class="tag bad">Offset</span></td></tr>
+      <tr><th>Lying flat for 24 h</th><td>HeadPoST, 11,093 people</td><td>No shift in 90-day disability (OR 1.01, 0.92 to 1.10). Mortality 7.3% vs 7.4%. Pneumonia and other serious events did not differ [[Anderson2017]].</td><td><span class="tag">No difference</span></td></tr>
+      <tr><th>Early blood pressure lowering</th><td>CATIS; SCAST; ENCHANTED</td><td>CATIS OR 1.00 (0.88 to 1.14) [[He2014]]. SCAST functional outcome common OR 1.17 (1.00 to 1.38), if anything suggesting harm [[Sandset2011]]. ENCHANTED, with alteplase: function OR 1.01 (0.87 to 1.17), any intracranial bleed 14.8% vs 18.7% [[Anderson2019]]. ESO grades the evidence generally low, and for reperfusion recommends "early and modest blood pressure control (avoiding blood pressure levels >180/105 mm Hg)" [[Sandset2021]].</td><td><span class="tag">Neutral overall</span></td></tr>
+      <tr><th>Tight glucose control</th><td>SHINE, 1151 people; GIST-UK</td><td>Favourable outcome 20.5% vs 21.6% (adjusted RR 0.97, 0.87 to 1.08), stopped for futility. Severe hypoglycaemia 2.6%, only with intensive treatment [[Johnston2019]]. GIST-UK stopped early and was underpowered [[Gray2007]].</td><td><span class="tag bad">No benefit, more harm</span></td></tr>
+      <tr><th>Routine paracetamol</th><td>PAIS; PRECIOUS</td><td>PAIS adjusted OR 1.20 (0.96 to 1.50); a post hoc subgroup at 37 to 39 °C looked better [[denHertog2009]]. PRECIOUS adjusted common OR 1.19 (0.96 to 1.47) [[deJonge2024]].</td><td><span class="tag">No clear benefit</span></td></tr>
+      <tr><th>Routine oxygen</th><td>SO2S, 8003 non-hypoxic adults</td><td>OR for better outcome 0.97 (0.89 to 1.05). No subgroup benefited [[Roffe2017]].</td><td><span class="tag">No benefit</span></td></tr>
+      <tr><th>Preventive antibiotics</th><td>PASS; STROKE-INF; PRECIOUS</td><td>PASS common OR 0.95 (0.82 to 1.09) [[Westendorp2015]]. STROKE-INF pneumonia 13% vs 10% [[Kalra2015]]. PRECIOUS: ceftriaxone reduced any infection (21.9% vs 33.1%), mainly urinary, with no functional benefit [[deJonge2024]].</td><td><span class="tag">No outcome benefit</span></td></tr>
+      <tr><th>Leg stockings</th><td>CLOTS 1 and 2</td><td>Thigh-length vs none: proximal DVT 10.0% vs 10.5%, more skin problems (5% vs 1%) [[Dennis2009]]. Thigh-length vs below-knee: 6.3% vs 8.8% [[Dennis2010]].</td><td><span class="tag bad">Failed vs none</span></td></tr>
+      <tr><th>Leg compression (pneumatic)</th><td>CLOTS 3, 2876 immobile people</td><td>Proximal DVT 8.5% vs 12.1%, absolute reduction 3.6% (1.4 to 5.8). Leg skin breaks 3% vs 1% [[Dennis2013]]. No difference in disability at 6 months [[Dennis2014]].</td><td><span class="tag good">Fewer clots</span></td></tr>
+      <tr><th>Feeding</th><td>FOOD</td><td>Routine oral supplements not supported (4023 people, only 8% undernourished) [[Dennis2005Oral]]. Early tube feeding: death down 5.8% (-0.8 to 12.5, p=0.09). Gastrostomy vs nasogastric: death or poor outcome up 7.8% (0.0 to 15.5, p=0.05) [[Dennis2005]].</td><td><span class="tag">No early gastrostomy</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="hook"><b>Exam hook</b>SHINE: intensive insulin gave no benefit and 2.6% severe hypoglycaemia [[Johnston2019]]. SO2S: routine oxygen in non-hypoxic people did not help [[Roffe2017]]. CLOTS: stockings failed, thigh-length beat below-knee, and pneumatic compression worked [[Dennis2009,Dennis2010,Dennis2013]]. FOOD: no routine supplements and no early gastrostomy [[Dennis2005Oral,Dennis2005]].</div>
+  <div class="pt"><b>In plain words</b>Lying flat does not help more than sitting up with your head raised [[Anderson2017]]. Extra oxygen does not help if your oxygen level is normal [[Roffe2017]]. Very tight control of blood sugar did not help, and sugar levels can drop too low [[Johnston2019]].</div>
+  <p class="callout">The review of aspirin states it may be given orally, by nasogastric tube or per rectum in people who cannot swallow [[Minhas2022,Sandercock2014]].</p>
+
+  <h3 class="sub">Malignant MCA infarct and decompressive craniectomy</h3>
+  <div class="prose"><p>Follow one very large infarct as swelling pushes the midline across, then see what removing a piece of skull does, and what the trials found. Malignant middle cerebral artery infarction is also called space-occupying infarction.</p></div>
+  <div class="stepper" id="untMcSteps"></div>
+  <div class="unt-toggle" role="group" aria-label="Brain drawing style">
+    <button class="btn" data-mcmode="plain" aria-pressed="true">Drawing</button>
+    <button class="btn" data-mcmode="ct" aria-pressed="false">CT look</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="untMcSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="An axial brain slice with a large infarct in the person's left hemisphere. The midline shifts away from the swelling. A bone flap is removed, the swollen brain bulges outward and the midline drifts back. A side panel shows warning signs, the trial window, pooled outcomes and DESTINY II."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="untMcPlay">%t:player.play%</button><label class="stage-cap tl" for="untMcT">Timeline <input type="range" id="untMcT" min="0" max="1" step="0.002" value="0.33"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The size of the shift is not a measurement.</p>
+    </div>
+    <aside class="note" id="untMcNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>People and timing</th><th>Finding</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>Pooled DECIMAL, DESTINY, HAMLET</th><td>93, age 18 to 60, within 48 h</td><td>Survival 78% vs 29%; mRS 4 or less 75% vs 24%; mRS 3 or less 43% vs 21% at 1 year [[Vahedi2007]]</td></tr>
+      <tr><th>DECIMAL</th><td>38</td><td>52.8% absolute reduction in death [[Vahedi2007DECIMAL]]</td></tr>
+      <tr><th>DESTINY</th><td>32</td><td>88% vs 47% survival at 30 days [[Juttler2007]]</td></tr>
+      <tr><th>HAMLET</th><td>64, up to 96 h</td><td>No effect on poor outcome; fewer deaths (38%, 15 to 60) [[Hofmeijer2009]]. At 3 years, 16 surgical patients and 8 controls living at home [[Geurts2013]]</td></tr>
+      <tr><th>DESTINY II</th><td>112, age 61 or older, within 48 h</td><td>Survival without severe disability 38% vs 18% (OR 2.91, 1.06 to 7.49); mortality 33% vs 70% [[Juttler2014]]</td></tr>
+      <tr><th>Individual-patient meta-analysis</th><td>488, 7 trials</td><td>Death adjusted OR 0.16 (0.10 to 0.24); mRS 3 or less adjusted OR 2.95 (1.55 to 5.60). Benefit after day 2 and in older people remains uncertain [[Reinink2021]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="card"><h4>Swelling in the back of the brain</h4>
+      <p>The AHA statement says suboccipital craniectomy with dural expansion should be performed in people who deteriorate neurologically, and that ventriculostomy should be accompanied by it to avoid upward cerebellar displacement [[Wijdicks2014]].</p>
+      <p>The evidence is observational. Across 11 studies (283 people), moderate to severe disability was 28%, mortality 20% and adverse events 23% [[Ayling2018]]. One matched study suggested preventive surgery might beat medical treatment alone in selected people <span class="ev early">Early evidence</span> [[Kim2016]].</p></div>
+    <div class="card"><h4>Goals of care</h4>
+      <p>The HAMLET authors wrote that the decision to operate should depend on the emphasis people and relatives place on survival and dependency [[Hofmeijer2009]]. Primary palliative care should be available to all people with serious or life-threatening stroke and their families, throughout the illness, says the 2014 AHA statement [[Holloway2014]]. The 2025 statement adds that needs are insufficiently addressed by current models [[Creutzfeldt2025]].</p>
+      <p>2026 neurocritical care guidance advises avoiding premature prognostication [[Mainali2026]]. Early care limitations can shape outcomes: an observational study in intracerebral haemorrhage tied an early do-not-resuscitate order to a doubled hazard of death (HR 2.17, 1.38 to 3.41) [[Zahuranec2007]]. That is not ischaemic stroke, and setting goals of care early remains the guidance [[Holloway2014]].</p></div>
+  </div>
+
+  <h3 class="sub">Early mobilisation: AVERT, negative and positive</h3>
+  <div class="prose"><p>AVERT is the trial where the main result and the dose analysis seem to pull in opposite directions. Both matter.</p></div>
+  <div class="stepper" id="untAvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="untAvSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Four scenes from AVERT: 92 percent versus 59 percent out of bed within 24 hours, favourable outcome 46 percent versus 50 percent as icon arrays, a schematic day split into few long or many short sessions with odds ratios, and a time axis marking around 24 hours."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="untAvPlay">%t:player.play%</button><label class="stage-cap tl" for="untAvT">Timeline <input type="range" id="untAvT" min="0" max="1" step="0.002" value="0.37"></label></div>
+      <p class="stage-cap">Figures from AVERT and its dose analysis [[Bernhardt2015,Bernhardt2016]], and Cochrane 2018 [[Langhorne2018]].</p>
+    </div>
+    <aside class="note" id="untAvNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout">In the AVERT database, 4% of 2104 people had a serious fall in the first year. 60% of those falls caused a fracture, and 42% of fractures were hip fractures [[Wang2025]]. Module 5.3 covers falls care.</div>
+
+  <h3 class="sub">Also in the first days</h3>
+  <div class="cards">
+    <div class="card"><h4>Bleeding into the infarct</h4><p>In ECASS II, parenchymal haematoma and symptomatic haemorrhage were tied to alteplase, but haemorrhagic infarction was not. Risk factors included alteplase, extent of hypoattenuation on CT, heart failure, older age and baseline systolic pressure [[Larrue2001]]. The AHA statement names prompt diagnosis and early correction of coagulopathy as the mainstay of treatment [[Yaghi2017]]. Classification after thrombectomy differs too: ECASS III assigned 101 of 156 bleeds unambiguously, and Heidelberg categorised 55 more [[Neuberger2017]].</p></div>
+    <div class="card"><h4>Seizures</h4><p>Risk after ischaemic stroke rose with cortical location (HR 2.09) and disability (HR 2.10) [[Bladin2000]]. The SeLECT score uses severity, large-artery cause, early seizures, cortical involvement and MCA territory. SeLECT 0 predicted 0.7% late seizures at 1 year and 1.3% at 5; SeLECT 9 predicted 63% and 83% [[Galovic2018]].</p></div>
+    <div class="card"><h4>Delirium</h4><p>25% (20 to 30) pooled across 32 papers in the first 6 weeks [[Shaw2019]]. A cohort of 527 found 11.8% in the first week [[Oldenbeuving2011]]. Delirium went with inpatient death (OR 4.71), a stay longer by 9.39 days, and discharge to an institution (OR 3.39) [[Shi2012]].</p></div>
+    <div class="card"><h4>Finding atrial fibrillation</h4><p>New AF across 50 studies: 7.7% on the admission ECG, 5.1% with in-hospital monitoring, 10.7% with Holter, 16.9% with later ambulatory methods, 23.7% after all phases [[Sposato2015]]. With implantable monitors: 12.2% at 3 months and 28.5% at 36 months [[Noubiap2021]]. Optimal duration is not established [[Haeusler2018]]. See module 4.2.</p></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Aspirin within 48 h: net 9 fewer further strokes or deaths per 1000 in hospital [[Chen2000]]. Lying flat vs head up 30 degrees for 24 h: no difference in outcome or pneumonia (HeadPoST) [[Anderson2017]].</div>
+    <div class="pt"><b>In plain words</b>If a stroke is very severe, the team should talk with you and your family about what matters most [[Holloway2014,Creutzfeldt2025]].</div>
+  </div>
+</section>
