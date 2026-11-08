@@ -1,5 +1,15 @@
 [
  {
+  "key": "Aarts2002",
+  "text": "Aarts M, Liu Y, Liu L, Besshoh S, Arundine M, Gurd JW, et al. Treatment of ischemic brain damage by perturbing NMDA receptor- PSD-95 protein interactions. Science. 2002;298(5594):846-50. PMID 12399596; doi:10.1126/science.1072873.",
+  "link": "https://doi.org/10.1126/science.1072873",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "ACAS1995",
   "text": "Executive Committee for the Asymptomatic Carotid Atherosclerosis Study. Endarterectomy for asymptomatic carotid artery stenosis. Executive Committee for the Asymptomatic Carotid Atherosclerosis Study. JAMA. 1995;273(18):1421-8. PMID 7723155.",
   "link": "https://pubmed.ncbi.nlm.nih.gov/7723155/",
@@ -15,6 +25,26 @@
   "link": "https://doi.org/10.1002/14651858.cd003863.pub2",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Adams1993",
+  "text": "Adams HP Jr, Bendixen BH, Kappelle LJ, Biller J, Love BB, Gordon DL, et al. Classification of subtype of acute ischemic stroke. Definitions for use in a multicenter clinical trial. TOAST. Trial of Org 10172 in Acute Stroke Treatment. Stroke. 1993;24(1):35-41. PMID 7678184; doi:10.1161/01.str.24.1.35.",
+  "link": "https://doi.org/10.1161/01.str.24.1.35",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Adams1998",
+  "text": "Adams RJ, McKie VC, Hsu L, Files B, Vichinsky E, Pegelow C, et al. Prevention of a first stroke by transfusions in children with sickle cell anemia and abnormal results on transcranial Doppler ultrasonography. N Engl J Med. 1998;339(1):5-11. PMID 9647873; doi:10.1056/NEJM199807023390102.",
+  "link": "https://doi.org/10.1056/nejm199807023390102",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -111,11 +141,22 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Albers2002",
+  "text": "Albers GW, Caplan LR, Easton JD, Fayad PB, Mohr JP, Saver JL, et al. Transient ischemic attack--proposal for a new definition. N Engl J Med. 2002;347(21):1713-6. PMID 12444191; doi:10.1056/NEJMsb020987.",
+  "link": "https://doi.org/10.1056/nejmsb020987",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Albers2018",
   "text": "Albers GW, Marks MP, Kemp S, Christensen S, Tsai JP, Ortega-Gutierrez S, et al. Thrombectomy for Stroke at 6 to 16 Hours with Selection by Perfusion Imaging. N Engl J Med. 2018;378(8):708-718. PMID 29364767; PMCID PMC6590673; doi:10.1056/NEJMoa1713973.",
   "link": "https://doi.org/10.1056/nejmoa1713973",
   "areas": [
    "A",
+   "B",
    "D",
    "E"
   ],
@@ -253,6 +294,36 @@
   "validated": "PubMed"
  },
  {
+  "key": "Amarenco2013",
+  "text": "Amarenco P, Bogousslavsky J, Caplan LR, Donnan GA, Wolf ME, Hennerici MG. The ASCOD phenotyping of ischemic stroke (Updated ASCO Phenotyping). Cerebrovasc Dis. 2013;36(1):1-5. PMID 23899749; doi:10.1159/000352050.",
+  "link": "https://doi.org/10.1159/000352050",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Amarenco2016",
+  "text": "Amarenco P, Lavallée PC, Labreuche J, Albers GW, Bornstein NM, Canhão P, et al. One-Year Risk of Stroke after Transient Ischemic Attack or Minor Stroke. N Engl J Med. 2016;374(16):1533-42. PMID 27096581; doi:10.1056/NEJMoa1412981.",
+  "link": "https://doi.org/10.1056/nejmoa1412981",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Amarenco2018",
+  "text": "Amarenco P, Lavallée PC, Monteiro Tavares L, Labreuche J, Albers GW, Abboud H, et al. Five-Year Risk of Stroke after TIA or Minor Ischemic Stroke. N Engl J Med. 2018;378(23):2182-2190. PMID 29766771; doi:10.1056/NEJMoa1802712.",
+  "link": "https://doi.org/10.1056/nejmoa1802712",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Amarenco2020",
   "text": "Amarenco P, Kim JS, Labreuche J, Charles H, Abtan J, Béjot Y, et al. A Comparison of Two LDL Cholesterol Targets after Ischemic Stroke. N Engl J Med. 2020;382(1):9. PMID 31738483; doi:10.1056/NEJMoa1910355.",
   "link": "https://doi.org/10.1056/nejmoa1910355",
@@ -268,6 +339,26 @@
   "link": "https://doi.org/10.1259/0007-1285-46-552-1023",
   "areas": [
    "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Amin2023",
+  "text": "Amin HP, Madsen TE, Bravata DM, Wira CR, Johnston SC, Ashcraft S, et al. Diagnosis, Workup, Risk Reduction of Transient Ischemic Attack in the Emergency Department Setting: A Scientific Statement From the American Heart Association. Stroke. 2023;54(3):e109-e121. PMID 36655570; doi:10.1161/STR.0000000000000418.",
+  "link": "https://doi.org/10.1161/str.0000000000000418",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Amort2011",
+  "text": "Amort M, Fluri F, Schäfer J, Weisskopf F, Katan M, Burow A, et al. Transient ischemic attack versus transient ischemic attack mimics: frequency, clinical characteristics and outcome. Cerebrovasc Dis. 2011;32(1):57-64. PMID 21613786; doi:10.1159/000327034.",
+  "link": "https://doi.org/10.1159/000327034",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -374,6 +465,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Arboix2009",
+  "text": "Arboix A, Martí-Vilalta JL. Lacunar stroke. Expert Rev Neurother. 2009;9(2):179-96. PMID 19210194; doi:10.1586/14737175.9.2.179.",
+  "link": "https://doi.org/10.1586/14737175.9.2.179",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Arch2016",
   "text": "Arch AE, Weisman DC, Coca S, Nystrom KV, Wira CR, Schindler JL. Missed Ischemic Stroke Diagnosis in the Emergency Department by Emergency Medicine and Neurology Services. Stroke. 2016;47(3):668-73. PMID 26846858; doi:10.1161/STROKEAHA.115.010613.",
   "link": "https://doi.org/10.1161/strokeaha.115.010613",
@@ -409,6 +510,16 @@
   "link": "https://doi.org/10.1111/joa.12273",
   "areas": [
    "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Arsava2010",
+  "text": "Arsava EM, Ballabio E, Benner T, Cole JW, Delgado-Martinez MP, Dichgans M, et al. The Causative Classification of Stroke system: an international reliability and optimization study. Neurology. 2010;75(14):1277-84. PMID 20921513; PMCID PMC3013495; doi:10.1212/WNL.0b013e3181f612ce.",
+  "link": "https://doi.org/10.1212/wnl.0b013e3181f612ce",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -478,7 +589,8 @@
   "text": "Astrup J, Siesjö BK, Symon L. Thresholds in cerebral ischemia - the ischemic penumbra. Stroke. 1981;12(6):723-5. PMID 6272455; doi:10.1161/01.str.12.6.723.",
   "link": "https://doi.org/10.1161/01.str.12.6.723",
   "areas": [
-   "A"
+   "A",
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -514,6 +626,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Attwell2001",
+  "text": "Attwell D, Laughlin SB. An energy budget for signaling in the grey matter of the brain. J Cereb Blood Flow Metab. 2001;21(10):1133-45. PMID 11598490; doi:10.1097/00004647-200110000-00001.",
+  "link": "https://doi.org/10.1097/00004647-200110000-00001",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Auger2021",
   "text": "Auger LP, Grondin M, Aubertin M, Marois A, Filiatrault J, Rochette A. Interventions used by allied health professionals in sexual rehabilitation after stroke: A systematic review. Top Stroke Rehabil. 2021;28(8):557-572. PMID 33320057; doi:10.1080/10749357.2020.1845014.",
   "link": "https://doi.org/10.1080/10749357.2020.1845014",
@@ -529,6 +651,16 @@
   "link": "https://doi.org/10.1186/s12916-019-1397-3",
   "areas": [
    "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Ay2005",
+  "text": "Ay H, Koroshetz WJ, Benner T, Vangel MG, Wu O, Schwamm LH, et al. Transient ischemic attack with infarction: a unique syndrome?. Ann Neurol. 2005;57(5):679-86. PMID 15852402; doi:10.1002/ana.20465.",
+  "link": "https://doi.org/10.1002/ana.20465",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -585,6 +717,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Bai2015",
+  "text": "Bai J, Lyden PD. Revisiting cerebral postischemic reperfusion injury: new insights in understanding reperfusion failure, hemorrhage, and edema. Int J Stroke. 2015;10(2):143-52. PMID 25598025; doi:10.1111/ijs.12434.",
+  "link": "https://doi.org/10.1111/ijs.12434",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Bakas2014",
   "text": "Bakas T, Clark PC, Kelly-Hayes M, King RB, Lutz BJ, Miller EL, et al. Evidence for stroke family caregiver and dyad interventions: a statement for healthcare professionals from the American Heart Association and American Stroke Association. Stroke. 2014;45(9):2836-2852. PMID 25034718; doi:10.1161/str.0000000000000033.",
   "link": "https://doi.org/10.1161/str.0000000000000033",
@@ -636,11 +778,51 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Bamford1991",
+  "text": "Bamford J, Sandercock P, Dennis M, Burn J, Warlow C. Classification and natural history of clinically identifiable subtypes of cerebral infarction. Lancet. 1991;337(8756):1521-6. PMID 1675378; doi:10.1016/0140-6736(91)93206-o.",
+  "link": "https://doi.org/10.1016/0140-6736(91)93206-o",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Bandera2006",
+  "text": "Bandera E, Botteri M, Minelli C, Sutton A, Abrams KR, Latronico N. Cerebral blood flow threshold of ischemic penumbra and infarct core in acute ischemic stroke: a systematic review. Stroke. 2006;37(5):1334-9. PMID 16574919; doi:10.1161/01.STR.0000217418.29609.22.",
+  "link": "https://doi.org/10.1161/01.str.0000217418.29609.22",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Banerjee2017",
+  "text": "Banerjee C, Chimowitz MI. Stroke Caused by Atherosclerosis of the Major Intracranial Arteries. Circ Res. 2017;120(3):502-513. PMID 28154100; PMCID PMC5312775; doi:10.1161/CIRCRESAHA.116.308441.",
+  "link": "https://doi.org/10.1161/circresaha.116.308441",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Bang2011",
   "text": "Bang OY, Saver JL, Kim SJ, Kim GM, Chung CS, Ovbiagele B, et al. Collateral flow predicts response to endovascular therapy for acute ischemic stroke. Stroke. 2011;42(3):693-9. PMID 21233472; PMCID PMC3051344; doi:10.1161/STROKEAHA.110.595256.",
   "link": "https://doi.org/10.1161/strokeaha.110.595256",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Bang2011HT",
+  "text": "Bang OY, Saver JL, Kim SJ, Kim GM, Chung CS, Ovbiagele B, et al. Collateral flow averts hemorrhagic transformation after endovascular therapy for acute ischemic stroke. Stroke. 2011;42(8):2235-9. PMID 21737798; doi:10.1161/STROKEAHA.110.604603.",
+  "link": "https://doi.org/10.1161/strokeaha.110.604603",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -682,6 +864,16 @@
   "link": "https://doi.org/10.1056/nejm199811123392002",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Baron2021",
+  "text": "Baron JC. The core/penumbra model: implications for acute stroke treatment and patient selection in 2021. Eur J Neurol. 2021;28(8):2794-2803. PMID 33991152; doi:10.1111/ene.14916.",
+  "link": "https://doi.org/10.1111/ene.14916",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -748,6 +940,26 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Benjamin2026MCA",
+  "text": "Benjamin R, Galuska MA. Middle Cerebral Artery Stroke. StatPearls. StatPearls Publishing; 2026. PMID 32310592.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/32310592/",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Benjamin2026PCA",
+  "text": "Benjamin R, Tadi P, Singh J. Posterior Cerebral Artery Stroke. StatPearls. StatPearls Publishing; 2026. PMID 30335329.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/30335329/",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Berge2021",
   "text": "Berge E, Whiteley W, Audebert H, De Marchis GM, Fonseca AC, Padiglioni C, et al. European Stroke Organisation (ESO) guidelines on intravenous thrombolysis for acute ischaemic stroke. Eur Stroke J. 2021;6(1):I-LXII. PMID 33817340; PMCID PMC7995316; doi:10.1177/2396987321989865.",
   "link": "https://doi.org/10.1177/2396987321989865",
@@ -799,6 +1011,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Berrada2025",
+  "text": "Berrada K, Ouali IE, Aouadi SE, Fikri M, Jiddane M, Touarsa F. When stroke hides: A case of negative diffusion MRI. Radiol Case Rep. 2025;20(10):5375-5381. PMID 40809307; PMCID PMC12344951; doi:10.1016/j.radcr.2025.07.004.",
+  "link": "https://doi.org/10.1016/j.radcr.2025.07.004",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Bi2025",
@@ -901,6 +1123,36 @@
   "validated": "PubMed"
  },
  {
+  "key": "Boers2017",
+  "text": "Boers AM, Jansen IG, Berkhemer OA, Yoo AJ, Lingsma HF, Slump CH, et al. Collateral status and tissue outcome after intra-arterial therapy for patients with acute ischemic stroke. J Cereb Blood Flow Metab. 2017;37(11):3589-3598. PMID 27864462; PMCID PMC5669341; doi:10.1177/0271678X16678874.",
+  "link": "https://doi.org/10.1177/0271678x16678874",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Bogiatzi2014",
+  "text": "Bogiatzi C, Hackam DG, McLeod AI, Spence JD. Secular trends in ischemic stroke subtypes and stroke risk factors. Stroke. 2014;45(11):3208-13. PMID 25213343; doi:10.1161/STROKEAHA.114.006536.",
+  "link": "https://doi.org/10.1161/strokeaha.114.006536",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Bogousslavsky1990",
+  "text": "Bogousslavsky J, Regli F. Anterior cerebral artery territory infarction in the Lausanne Stroke Registry. Clinical and etiologic patterns. Arch Neurol. 1990;47(2):144-50. PMID 2302085; doi:10.1001/archneur.1990.00530020040012.",
+  "link": "https://doi.org/10.1001/archneur.1990.00530020040012",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Bohula2017",
   "text": "Bohula EA, Wiviott SD, Giugliano RP, Blazing MA, Park JG, Murphy SA, et al. Prevention of Stroke with the Addition of Ezetimibe to Statin Therapy in Patients With Acute Coronary Syndrome in IMPROVE-IT (Improved Reduction of Outcomes: Vytorin Efficacy International Trial). Circulation. 2017;136(25):2440-2450. PMID 28972004; doi:10.1161/CIRCULATIONAHA.117.029095.",
   "link": "https://doi.org/10.1161/circulationaha.117.029095",
@@ -941,6 +1193,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Bos2014",
+  "text": "Bos D, Portegies ML, van der Lugt A, Bos MJ, Koudstaal PJ, Hofman A, et al. Intracranial carotid artery atherosclerosis and the risk of stroke in whites: the Rotterdam Study. JAMA Neurol. 2014;71(4):405-11. PMID 24535643; doi:10.1001/jamaneurol.2013.6223.",
+  "link": "https://doi.org/10.1001/jamaneurol.2013.6223",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "BPLTTC2021Age",
   "text": "Blood Pressure Lowering Treatment Trialists' Collaboration. Age-stratified and blood-pressure-stratified effects of blood-pressure-lowering pharmacotherapy for the prevention of cardiovascular disease and death: an individual participant-level data meta-analysis. Lancet. 2021;398(10305):1053-1064. PMID 34461040; PMCID PMC8473559; doi:10.1016/S0140-6736(21)01921-8.",
   "link": "https://doi.org/10.1016/s0140-6736(21)01921-8",
@@ -961,12 +1223,32 @@
   "validated": "PubMed"
  },
  {
+  "key": "Brachmann2016",
+  "text": "Brachmann J, Morillo CA, Sanna T, Di Lazzaro V, Diener HC, Bernstein RA, et al. Uncovering Atrial Fibrillation Beyond Short-Term Monitoring in Cryptogenic Stroke Patients: Three-Year Results From the Cryptogenic Stroke and Underlying Atrial Fibrillation Trial. Circ Arrhythm Electrophysiol. 2016;9(1):e003333. PMID 26763225; doi:10.1161/CIRCEP.115.003333.",
+  "link": "https://doi.org/10.1161/circep.115.003333",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Brady2016",
   "text": "Brady MC, Kelly H, Godwin J, Enderby P, Campbell P. Speech and language therapy for aphasia following stroke. Cochrane Database Syst Rev. 2016;2016(6):CD000425. PMID 27245310; PMCID PMC8078645; doi:10.1002/14651858.CD000425.pub4.",
   "link": "https://doi.org/10.1002/14651858.cd000425.pub4",
   "areas": [
    "F",
    "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Brandt2000",
+  "text": "Brandt T, Steinke W, Thie A, Pessin MS, Caplan LR. Posterior cerebral artery territory infarcts: clinical features, infarct topography, causes and outcome. Multicenter results and a review of the literature. Cerebrovasc Dis. 2000;10(3):170-82. PMID 10773642; doi:10.1159/000016053.",
+  "link": "https://doi.org/10.1159/000016053",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -987,6 +1269,16 @@
   "link": "https://doi.org/10.1002/14651858.cd007424.pub2",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Brazzelli2014",
+  "text": "Brazzelli M, Chappell FM, Miranda H, Shuler K, Dennis M, Sandercock PA, et al. Diffusion-weighted imaging and diagnosis of transient ischemic attack. Ann Neurol. 2014;75(1):67-76. PMID 24085376; PMCID PMC4223937; doi:10.1002/ana.24026.",
+  "link": "https://doi.org/10.1002/ana.24026",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1108,6 +1400,16 @@
   "link": "https://doi.org/10.1177/1747493020903979",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Brown2021",
+  "text": "Brown DL, Levine DA, Albright K, Kapral MK, Leung LY, Reeves MJ, et al. Benefits and Risks of Dual Versus Single Antiplatelet Therapy for Secondary Stroke Prevention: A Systematic Review for the 2021 Guideline for the Prevention of Stroke in Patients With Stroke and Transient Ischemic Attack. Stroke. 2021;52(7):e468-e479. PMID 34024115; doi:10.1161/STR.0000000000000377.",
+  "link": "https://doi.org/10.1161/str.0000000000000377",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1275,6 +1577,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Campbell2019Primer",
+  "text": "Campbell BCV, De Silva DA, Macleod MR, Coutts SB, Schwamm LH, Davis SM, et al. Ischaemic stroke. Nat Rev Dis Primers. 2019;5(1):70. PMID 31601801; doi:10.1038/s41572-019-0118-8.",
+  "link": "https://doi.org/10.1038/s41572-019-0118-8",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Campbell2020",
   "text": "Campbell P, Bain B, Furlanetto DL, Brady MC. Interventions for improving oral health in people after stroke. Cochrane Database Syst Rev. 2020;12(12):CD003864. PMID 33314046; PMCID PMC8106870; doi:10.1002/14651858.CD003864.pub3.",
   "link": "https://doi.org/10.1002/14651858.cd003864.pub3",
@@ -1310,6 +1622,16 @@
   "link": "https://doi.org/10.1161/hs1001.096194",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Caplan2004",
+  "text": "Caplan LR, Wityk RJ, Glass TA, Tapia J, Pazdera L, Chang HM, et al. New England Medical Center Posterior Circulation registry. Ann Neurol. 2004;56(3):389-98. PMID 15349866; doi:10.1002/ana.20204.",
+  "link": "https://doi.org/10.1002/ana.20204",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1375,6 +1697,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Castle2010",
+  "text": "Castle J, Mlynash M, Lee K, Caulfield AF, Wolford C, Kemp S, et al. Agreement regarding diagnosis of transient ischemic attack fairly low among stroke-trained neurologists. Stroke. 2010;41(7):1367-70. PMID 20508192; doi:10.1161/STROKEAHA.109.577650.",
+  "link": "https://doi.org/10.1161/strokeaha.109.577650",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "CDC-StrokeFacts",
   "text": "Centers for Disease Control and Prevention. Stroke Facts. https://www.cdc.gov/stroke/data-research/facts-stats/index.html (page dated 24 October 2024; fetched 2026-11-08).",
   "link": "https://www.cdc.gov/stroke/data-research/facts-stats/index.html",
@@ -1383,6 +1715,16 @@
   ],
   "unverified": false,
   "validated": "CDC website"
+ },
+ {
+  "key": "Chabriat2009",
+  "text": "Chabriat H, Joutel A, Dichgans M, Tournier-Lasserve E, Bousser MG. Cadasil. Lancet Neurol. 2009;8(7):643-53. PMID 19539236; doi:10.1016/S1474-4422(09)70127-9.",
+  "link": "https://doi.org/10.1016/s1474-4422(09)70127-9",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Chalela2007",
@@ -1400,6 +1742,26 @@
   "link": "https://doi.org/10.5694/mja2.70199",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Chamorro2016",
+  "text": "Chamorro Á, Dirnagl U, Urra X, Planas AM. Neuroprotection in acute stroke: targeting excitotoxicity, oxidative and nitrosative stress, and inflammation. Lancet Neurol. 2016;15(8):869-881. PMID 27180033; doi:10.1016/S1474-4422(16)00114-9.",
+  "link": "https://doi.org/10.1016/s1474-4422(16)00114-9",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Chandratheva2009",
+  "text": "Chandratheva A, Mehta Z, Geraghty OC, Marquardt L, Rothwell PM. Population-based study of risk and predictors of stroke in the first few hours after a TIA. Neurology. 2009;72(22):1941-7. PMID 19487652; PMCID PMC2690971; doi:10.1212/WNL.0b013e3181a826ad.",
+  "link": "https://doi.org/10.1212/wnl.0b013e3181a826ad",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1489,6 +1851,7 @@
   "text": "Chimowitz MI, Lynn MJ, Derdeyn CP, Turan TN, Fiorella D, Lane BF, et al. Stenting versus aggressive medical therapy for intracranial arterial stenosis. N Engl J Med. 2011;365(11):993-1003. PMID 21899409; PMCID PMC3552515; doi:10.1056/NEJMoa1105335.",
   "link": "https://doi.org/10.1056/nejmoa1105335",
   "areas": [
+   "B",
    "G"
   ],
   "unverified": false,
@@ -1666,6 +2029,26 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Coull2004",
+  "text": "Coull AJ, Lovett JK, Rothwell PM. Population based study of early risk of stroke after transient ischaemic attack or minor stroke: implications for public education and organisation of services. BMJ. 2004;328(7435):326. PMID 14744823; PMCID PMC338101; doi:10.1136/bmj.37991.635266.44.",
+  "link": "https://doi.org/10.1136/bmj.37991.635266.44",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Coutts2012",
+  "text": "Coutts SB, Modi J, Patel SK, Demchuk AM, Goyal M, Hill MD. CT/CT angiography and MRI findings predict recurrent stroke after transient ischemic attack and minor stroke: results of the prospective CATCH study. Stroke. 2012;43(4):1013-7. PMID 22302109; doi:10.1161/STROKEAHA.111.637421.",
+  "link": "https://doi.org/10.1161/strokeaha.111.637421",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Coutts2024",
   "text": "Coutts SB, Ankolekar S, Appireddy R, Arenillas JF, Assis Z, Bailey P, et al. Tenecteplase versus standard of care for minor ischaemic stroke with proven occlusion (TEMPO-2): a randomised, open label, phase 3 superiority trial. Lancet. 2024;403(10444):2597-2605. PMID 38768626; doi:10.1016/s0140-6736(24)00921-8.",
   "link": "https://doi.org/10.1016/s0140-6736(24)00921-8",
@@ -1681,6 +2064,16 @@
   "link": "https://doi.org/10.1177/0269215511426160",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Cox2026",
+  "text": "Cox MF, Roberts JM, Shahidehpour RK, Dornbos Iii DL, Bachstetter AD. Temporal Evolution of Brain Inflammation in the Bilateral Common Carotid Artery Stenosis Model of Chronic Cerebral Hypoperfusion. J Inflamm Res. 2026;19:574221. PMID 41737244; PMCID PMC12927764; doi:10.2147/JIR.S574221.",
+  "link": "https://doi.org/10.2147/jir.s574221",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1737,6 +2130,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Dalkara2012",
+  "text": "Dalkara T, Arsava EM. Can restoring incomplete microcirculatory reperfusion improve stroke outcome after thrombolysis?. J Cereb Blood Flow Metab. 2012;32(12):2091-9. PMID 23047270; PMCID PMC3519416; doi:10.1038/jcbfm.2012.139.",
+  "link": "https://doi.org/10.1038/jcbfm.2012.139",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Daniel2009",
   "text": "Daniel K, Wolfe CD, Busch MA, McKevitt C. What are the social consequences of stroke for working-aged adults? A systematic review. Stroke. 2009;40(6):e431-40. PMID 19390074; doi:10.1161/strokeaha.108.534487.",
   "link": "https://doi.org/10.1161/strokeaha.108.534487",
@@ -1745,6 +2148,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Das2023",
+  "text": "Das JM, Anosike K, Asuncion RMD. Locked-in Syndrome. StatPearls. StatPearls Publishing; 2023. PMID 32644452.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/32644452/",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Davies2024",
@@ -1762,6 +2175,16 @@
   "link": "https://doi.org/10.1212/01.wnl.0000208408.98482.99",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Dawson2016",
+  "text": "Dawson A, Cloud GC, Pereira AC, Moynihan BJ. Stroke mimic diagnoses presenting to a hyperacute stroke unit. Clin Med (Lond). 2016;16(5):423-426. PMID 27697802; PMCID PMC6297311; doi:10.7861/clinmedicine.16-5-423.",
+  "link": "https://doi.org/10.7861/clinmedicine.16-5-423",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1786,6 +2209,46 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "DeBaun2014",
+  "text": "DeBaun MR, Gordon M, McKinstry RC, Noetzel MJ, White DA, Sarnaik SA, et al. Controlled trial of transfusions for silent cerebral infarcts in sickle cell anemia. N Engl J Med. 2014;371(8):699-710. PMID 25140956; PMCID PMC4195437; doi:10.1056/NEJMoa1401731.",
+  "link": "https://doi.org/10.1056/nejmoa1401731",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "DeBaun2020",
+  "text": "DeBaun MR, Jordan LC, King AA, Schatz J, Vichinsky E, Fox CK, et al. American Society of Hematology 2020 guidelines for sickle cell disease: prevention, diagnosis, and treatment of cerebrovascular disease in children and adults. Blood Adv. 2020;4(8):1554-1588. PMID 32298430; PMCID PMC7189278; doi:10.1182/bloodadvances.2019001142.",
+  "link": "https://doi.org/10.1182/bloodadvances.2019001142",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Debette2009",
+  "text": "Debette S, Leys D. Cervical-artery dissections: predisposing factors, diagnosis, and outcome. Lancet Neurol. 2009;8(7):668-78. PMID 19539238; doi:10.1016/S1474-4422(09)70084-5.",
+  "link": "https://doi.org/10.1016/s1474-4422(09)70084-5",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Debette2011",
+  "text": "Debette S, Grond-Ginsbach C, Bodenant M, Kloss M, Engelter S, Metso T, et al. Differential features of carotid and vertebral artery dissections: the CADISP study. Neurology. 2011;77(12):1174-81. PMID 21900632; doi:10.1212/WNL.0b013e31822f03fc.",
+  "link": "https://doi.org/10.1212/wnl.0b013e31822f03fc",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "deDeus2026",
@@ -1959,11 +2422,32 @@
   "validated": "PubMed"
  },
  {
+  "key": "Dichgans1998",
+  "text": "Dichgans M, Mayer M, Uttner I, Brüning R, Müller-Höcker J, Rungger G, et al. The phenotypic spectrum of CADASIL: clinical findings in 102 cases. Ann Neurol. 1998;44(5):731-9. PMID 9818928; doi:10.1002/ana.410440506.",
+  "link": "https://doi.org/10.1002/ana.410440506",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Diener2019",
   "text": "Diener HC, Sacco RL, Easton JD, Granger CB, Bernstein RA, Uchiyama S, et al. Dabigatran for Prevention of Stroke after Embolic Stroke of Undetermined Source. N Engl J Med. 2019;380(20):1906-1917. PMID 31091372; doi:10.1056/NEJMoa1813959.",
   "link": "https://doi.org/10.1056/nejmoa1813959",
   "areas": [
+   "B",
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Dirnagl1999",
+  "text": "Dirnagl U, Iadecola C, Moskowitz MA. Pathobiology of ischaemic stroke: an integrated view. Trends Neurosci. 1999;22(9):391-7. PMID 10441299; doi:10.1016/s0166-2236(99)01401-0.",
+  "link": "https://doi.org/10.1016/s0166-2236(99)01401-0",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1987,6 +2471,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Dohmen2008",
+  "text": "Dohmen C, Sakowitz OW, Fabricius M, Bosche B, Reithmeier T, Ernestus RI, et al. Spreading depolarizations occur in human ischemic stroke with high incidence. Ann Neurol. 2008;63(6):720-8. PMID 18496842; doi:10.1002/ana.21390.",
+  "link": "https://doi.org/10.1002/ana.21390",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Dombrowski2013",
@@ -2059,6 +2553,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Dreier2011",
+  "text": "Dreier JP. The role of spreading depression, spreading depolarization and spreading ischemia in neurological disease. Nat Med. 2011;17(4):439-47. PMID 21475241; doi:10.1038/nm.2333.",
+  "link": "https://doi.org/10.1038/nm.2333",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Dromerick2009",
   "text": "Dromerick AW, Lang CE, Birkenmeier RL, Wagner JM, Miller JP, Videen TO, et al. Very Early Constraint-Induced Movement during Stroke Rehabilitation (VECTORS): A single-center RCT. Neurology. 2009;73(3):195-201. PMID 19458319; PMCID PMC2715572; doi:10.1212/wnl.0b013e3181ab2b27.",
   "link": "https://doi.org/10.1212/wnl.0b013e3181ab2b27",
@@ -2084,6 +2588,16 @@
   "link": "https://doi.org/10.1161/strokeaha.115.011386",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Ducros2007",
+  "text": "Ducros A, Boukobza M, Porcher R, Sarov M, Valade D, Bousser MG. The clinical and radiological spectrum of reversible cerebral vasoconstriction syndrome. A prospective series of 67 patients. Brain. 2007;130(Pt 12):3091-101. PMID 18025032; doi:10.1093/brain/awm256.",
+  "link": "https://doi.org/10.1093/brain/awm256",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2153,7 +2667,18 @@
   "text": "Easton JD, Saver JL, Albers GW, Alberts MJ, Chaturvedi S, Feldmann E, et al. Definition and evaluation of transient ischemic attack: a scientific statement for healthcare professionals from the American Heart Association/American Stroke Association Stroke Council; Council on Cardiovascular Surgery and Anesthesia; Council on Cardiovascular Radiology and Intervention; Council on Cardiovascular Nursing; and the Interdisciplinary Council on Peripheral Vascular Disease. The American Academy of Neurology affirms the value of this statement as an educational tool for neurologists. Stroke. 2009;40(6):2276-93. PMID 19423857; doi:10.1161/STROKEAHA.108.192218.",
   "link": "https://doi.org/10.1161/strokeaha.108.192218",
   "areas": [
-   "A"
+   "A",
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "EastonCarr2026",
+  "text": "Easton-Carr R, Lui F, Das JM. Lateral Medullary Syndrome (Wallenberg Syndrome). StatPearls. StatPearls Publishing; 2026. PMID 31869134.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/31869134/",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2224,7 +2749,8 @@
   "text": "Ekker MS, Boot EM, Singhal AB, Tan KS, Debette S, Tuladhar AM, et al. Epidemiology, aetiology, and management of ischaemic stroke in young adults. Lancet Neurol. 2018;17(9):790-801. PMID 30129475; doi:10.1016/S1474-4422(18)30233-3.",
   "link": "https://doi.org/10.1016/s1474-4422(18)30233-3",
   "areas": [
-   "A"
+   "A",
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2313,6 +2839,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Engelter2021",
+  "text": "Engelter ST, Traenka C, Gensicke H, Schaedelin SA, Luft AR, Simonetti BG, et al. Aspirin versus anticoagulation in cervical artery dissection (TREAT-CAD): an open-label, randomised, non-inferiority trial. Lancet Neurol. 2021;20(5):341-350. PMID 33765420; doi:10.1016/S1474-4422(21)00044-2.",
+  "link": "https://doi.org/10.1016/s1474-4422(21)00044-2",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "English2018",
   "text": "English C, Janssen H, Crowfoot G, Callister R, Dunn A, Mackie P, et al. Breaking up sitting time after stroke (BUST-stroke). Int J Stroke. 2018;13(9):921-931. PMID 30226448; doi:10.1177/1747493018801222.",
   "link": "https://doi.org/10.1177/1747493018801222",
@@ -2379,6 +2915,16 @@
   "link": "https://doi.org/10.1016/s0140-6736(15)01225-8",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Fabricius2006",
+  "text": "Fabricius M, Fuhr S, Bhatia R, Boutelle M, Hashemi P, Strong AJ, et al. Cortical spreading depression and peri-infarct depolarization in acutely injured human cerebral cortex. Brain. 2006;129(Pt 3):778-90. PMID 16364954; doi:10.1093/brain/awh716.",
+  "link": "https://doi.org/10.1093/brain/awh716",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2500,6 +3046,7 @@
   "link": "https://doi.org/10.1016/s1474-4422(21)00252-0",
   "areas": [
    "A",
+   "B",
    "H"
   ],
   "unverified": false,
@@ -2547,6 +3094,16 @@
   "areas": [
    "A",
    "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Ferro1996",
+  "text": "Ferro JM, Falcão I, Rodrigues G, Canhão P, Melo TP, Oliveira V, et al. Diagnosis of transient ischemic attack by the nonneurologist. A validation study. Stroke. 1996;27(12):2225-9. PMID 8969785; doi:10.1161/01.str.27.12.2225.",
+  "link": "https://doi.org/10.1161/01.str.27.12.2225",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2652,6 +3209,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Fisher1982",
+  "text": "Fisher CM. Lacunar strokes and infarcts: a review. Neurology. 1982;32(8):871-6. PMID 7048128; doi:10.1212/wnl.32.8.871.",
+  "link": "https://doi.org/10.1212/wnl.32.8.871",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Flach2020",
   "text": "Flach C, Muruet W, Wolfe CDA, Bhalla A, Douiri A. Risk and Secondary Prevention of Stroke Recurrence: A Population-Base Cohort Study. Stroke. 2020;51(8):2435-2444. PMID 32646337; PMCID PMC7382537; doi:10.1161/STROKEAHA.120.028992.",
   "link": "https://doi.org/10.1161/strokeaha.120.028992",
@@ -2677,6 +3244,16 @@
   "link": "https://doi.org/10.1212/01.wnl.0000250340.05202.8b",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Flaherty2013",
+  "text": "Flaherty ML, Kissela B, Khoury JC, Alwell K, Moomaw CJ, Woo D, et al. Carotid artery stenosis as a cause of stroke. Neuroepidemiology. 2013;40(1):36-41. PMID 23075828; PMCID PMC3626492; doi:10.1159/000341410.",
+  "link": "https://doi.org/10.1159/000341410",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2738,6 +3315,16 @@
   "link": "https://doi.org/10.1001/jama.2014.3203",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Fonseca2021",
+  "text": "Fonseca AC, Merwick Á, Dennis M, Ferrari J, Ferro JM, Kelly P, et al. European Stroke Organisation (ESO) guidelines on management of transient ischaemic attack. Eur Stroke J. 2021;6(2):V. PMID 34414306; PMCID PMC8370075; doi:10.1177/23969873211027003.",
+  "link": "https://doi.org/10.1177/23969873211027003",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2963,6 +3550,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Giles2007",
+  "text": "Giles MF, Rothwell PM. Risk of stroke early after transient ischaemic attack: a systematic review and meta-analysis. Lancet Neurol. 2007;6(12):1063-72. PMID 17993293; doi:10.1016/S1474-4422(07)70274-0.",
+  "link": "https://doi.org/10.1016/s1474-4422(07)70274-0",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Gillespie2025",
   "text": "Gillespie CS, Mihaela-Vasilica A, Dhaliwal J, Lee KS, Henney AE, Veremu M, et al. Hyponatremia Incidence After Subarachnoid Hemorrhage and Association with Outcomes: Systematic Review and Meta-Analysis. World Neurosurg. 2025;195:123616. PMID 39732459; doi:10.1016/j.wneu.2024.123616.",
   "link": "https://doi.org/10.1016/j.wneu.2024.123616",
@@ -2997,6 +3594,7 @@
   "text": "Gladstone DJ, Spring M, Dorian P, Panzov V, Thorpe KE, Hall J, et al. Atrial fibrillation in patients with cryptogenic stroke. N Engl J Med. 2014;370(26):2467-77. PMID 24963566; doi:10.1056/NEJMoa1311376.",
   "link": "https://doi.org/10.1056/nejmoa1311376",
   "areas": [
+   "B",
    "F"
   ],
   "unverified": false,
@@ -3023,10 +3621,21 @@
   "validated": "PubMed"
  },
  {
+  "key": "Gore2026",
+  "text": "Gore M, Bansal K, Lui F, Asuncion RMD. Lacunar Stroke. StatPearls. StatPearls Publishing; 2026. PMID 33085363.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/33085363/",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Gorelick2008",
   "text": "Gorelick PB, Wong KS, Bae HJ, Pandey DK. Large artery intracranial occlusive disease: a large worldwide burden but a relatively neglected frontier. Stroke. 2008;39(8):2396-9. PMID 18535283; doi:10.1161/STROKEAHA.107.505776.",
   "link": "https://doi.org/10.1161/strokeaha.107.505776",
   "areas": [
+   "B",
    "G"
   ],
   "unverified": false,
@@ -3050,6 +3659,7 @@
   "link": "https://doi.org/10.1016/s0140-6736(16)00163-x",
   "areas": [
    "A",
+   "B",
    "D",
    "E"
   ],
@@ -3072,6 +3682,16 @@
   "link": "https://doi.org/10.1056/nejmoa1107039",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Grau2001",
+  "text": "Grau AJ, Weimar C, Buggle F, Heinrich A, Goertler M, Neumaier S, et al. Risk factors, outcome, and treatment in subtypes of ischemic stroke: the German stroke data bank. Stroke. 2001;32(11):2559-66. PMID 11692017; doi:10.1161/hs1101.098524.",
+  "link": "https://doi.org/10.1161/hs1101.098524",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3199,6 +3819,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Hacke1996",
+  "text": "Hacke W, Schwab S, Horn M, Spranger M, De Georgia M, von Kummer R. 'Malignant' middle cerebral artery territory infarction: clinical course and prognostic signs. Arch Neurol. 1996;53(4):309-15. PMID 8929152; doi:10.1001/archneur.1996.00550040037012.",
+  "link": "https://doi.org/10.1001/archneur.1996.00550040037012",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Hacke2008",
   "text": "Hacke W, Kaste M, Bluhmki E, Brozman M, Dávalos A, Guidetti D, et al. Thrombolysis with alteplase 3 to 4.5 hours after acute ischemic stroke. N Engl J Med. 2008;359(13):1317-29. PMID 18815396; doi:10.1056/NEJMoa0804656.",
   "link": "https://doi.org/10.1056/nejmoa0804656",
@@ -3242,6 +3872,36 @@
   "validated": "PubMed"
  },
  {
+  "key": "Hagen1984",
+  "text": "Hagen PT, Scholz DG, Edwards WD. Incidence and size of patent foramen ovale during the first 10 decades of life: an autopsy study of 965 normal hearts. Mayo Clin Proc. 1984;59(1):17-20. PMID 6694427; doi:10.1016/s0025-6196(12)60336-x.",
+  "link": "https://doi.org/10.1016/s0025-6196(12)60336-x",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hajat2011",
+  "text": "Hajat C, Heuschmann PU, Coshall C, Padayachee S, Chambers J, Rudd AG, et al. Incidence of aetiological subtypes of stroke in a multi-ethnic population based study: the South London Stroke Register. J Neurol Neurosurg Psychiatry. 2011;82(5):527-33. PMID 20974649; doi:10.1136/jnnp.2010.222919.",
+  "link": "https://doi.org/10.1136/jnnp.2010.222919",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hakim1998",
+  "text": "Hakim AM. Ischemic penumbra: the therapeutic window. Neurology. 1998;51(3 Suppl 3):S44-6. PMID 9744833; doi:10.1212/wnl.51.3_suppl_3.s44.",
+  "link": "https://doi.org/10.1212/wnl.51.3_suppl_3.s44",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Halliday2004",
   "text": "Halliday A, Mansfield A, Marro J, Peto C, Peto R, Potter J, et al. Prevention of disabling and fatal strokes by successful carotid endarterectomy in patients without recent neurological symptoms: randomised controlled trial. Lancet. 2004;363(9420):1491-502. PMID 15135594; doi:10.1016/S0140-6736(04)16146-1.",
   "link": "https://doi.org/10.1016/s0140-6736(04)16146-1",
@@ -3276,6 +3936,7 @@
   "text": "Hand PJ, Kwan J, Lindley RI, Dennis MS, Wardlaw JM. Distinguishing between stroke and mimic at the bedside: the brain attack study. Stroke. 2006;37(3):769-75. PMID 16484610; doi:10.1161/01.STR.0000204041.13466.4c.",
   "link": "https://doi.org/10.1161/01.str.0000204041.13466.4c",
   "areas": [
+   "B",
    "D"
   ],
   "unverified": false,
@@ -3429,7 +4090,18 @@
   "text": "Hart RG, Diener HC, Coutts SB, Easton JD, Granger CB, O'Donnell MJ, et al. Embolic strokes of undetermined source: the case for a new clinical construct. Lancet Neurol. 2014;13(4):429-38. PMID 24646875; doi:10.1016/S1474-4422(13)70310-7.",
   "link": "https://doi.org/10.1016/s1474-4422(13)70310-7",
   "areas": [
+   "B",
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hart2017",
+  "text": "Hart RG, Catanese L, Perera KS, Ntaios G, Connolly SJ. Embolic Stroke of Undetermined Source: A Systematic Review and Clinical Update. Stroke. 2017;48(4):867-872. PMID 28265016; doi:10.1161/STROKEAHA.116.016414.",
+  "link": "https://doi.org/10.1161/strokeaha.116.016414",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3439,7 +4111,18 @@
   "text": "Hart RG, Sharma M, Mundl H, Kasner SE, Bangdiwala SI, Berkowitz SD, et al. Rivaroxaban for Stroke Prevention after Embolic Stroke of Undetermined Source. N Engl J Med. 2018;378(23):2191-2201. PMID 29766772; doi:10.1056/NEJMoa1802686.",
   "link": "https://doi.org/10.1056/nejmoa1802686",
   "areas": [
+   "B",
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hartings2017",
+  "text": "Hartings JA, Shuttleworth CW, Kirov SA, Ayata C, Hinzman JM, Foreman B, et al. The continuum of spreading depolarizations in acute cortical lesion development: Examining Leão's legacy. J Cereb Blood Flow Metab. 2017;37(5):1571-1594. PMID 27328690; PMCID PMC5435288; doi:10.1177/0271678X16654495.",
+  "link": "https://doi.org/10.1177/0271678x16654495",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3485,10 +4168,21 @@
   "validated": "PubMed"
  },
  {
+  "key": "Healey2012",
+  "text": "Healey JS, Connolly SJ, Gold MR, Israel CW, Van Gelder IC, Capucci A, et al. Subclinical atrial fibrillation and the risk of stroke. N Engl J Med. 2012;366(2):120-9. PMID 22236222; doi:10.1056/NEJMoa1105575.",
+  "link": "https://doi.org/10.1056/nejmoa1105575",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Healey2024",
   "text": "Healey JS, Lopes RD, Granger CB, Alings M, Rivard L, McIntyre WF, et al. Apixaban for Stroke Prevention in Subclinical Atrial Fibrillation. N Engl J Med. 2024;390(2):107-117. PMID 37952132; doi:10.1056/NEJMoa2310234.",
   "link": "https://doi.org/10.1056/nejmoa2310234",
   "areas": [
+   "B",
    "G"
   ],
   "unverified": false,
@@ -3500,6 +4194,26 @@
   "link": "https://doi.org/10.1111/ijs.12518",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Heinsius1998",
+  "text": "Heinsius T, Bogousslavsky J, Van Melle G. Large infarcts in the middle cerebral artery territory. Etiology and outcome patterns. Neurology. 1998;50(2):341-50. PMID 9484351; doi:10.1212/wnl.50.2.341.",
+  "link": "https://doi.org/10.1212/wnl.50.2.341",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Heiss2000",
+  "text": "Heiss WD. Ischemic penumbra: evidence from functional imaging in man. J Cereb Blood Flow Metab. 2000;20(9):1276-93. PMID 10994849; doi:10.1097/00004647-200009000-00002.",
+  "link": "https://doi.org/10.1097/00004647-200009000-00002",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3599,10 +4313,11 @@
   "text": "Hill MD, Goyal M, Menon BK, Nogueira RG, McTaggart RA, Demchuk AM, et al. Efficacy and safety of nerinetide for the treatment of acute ischaemic stroke (ESCAPE-NA1): a multicentre, double-blind, randomised controlled trial. Lancet. 2020;395(10227):878-887. PMID 32087818; doi:10.1016/s0140-6736(20)30258-0.",
   "link": "https://doi.org/10.1016/s0140-6736(20)30258-0",
   "areas": [
+   "B",
    "I"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed"
  },
  {
   "key": "Hill2025",
@@ -3620,6 +4335,16 @@
   "link": "https://doi.org/10.1161/01.str.0000177529.86868.8d",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hindenes2020",
+  "text": "Hindenes LB, Håberg AK, Johnsen LH, Mathiesen EB, Robben D, Vangberg TR. Variations in the Circle of Willis in a large population sample using 3D TOF angiography: The Tromsø Study. PLoS One. 2020;15(11):e0241373. PMID 33141840; PMCID PMC7608873; doi:10.1371/journal.pone.0241373.",
+  "link": "https://doi.org/10.1371/journal.pone.0241373",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3694,6 +4419,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Hossmann1994",
+  "text": "Hossmann KA. Viability thresholds and the penumbra of focal ischemia. Ann Neurol. 1994;36(4):557-65. PMID 7944288; doi:10.1002/ana.410360404.",
+  "link": "https://doi.org/10.1002/ana.410360404",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Houkin2024",
@@ -3838,6 +4573,36 @@
   "validated": "PubMed"
  },
  {
+  "key": "Hwang2015",
+  "text": "Hwang YH, Kang DH, Kim YW, Kim YS, Park SP, Liebeskind DS. Impact of time-to-reperfusion on outcome in patients with poor collaterals. AJNR Am J Neuroradiol. 2015;36(3):495-500. PMID 25376808; PMCID PMC8013039; doi:10.3174/ajnr.A4151.",
+  "link": "https://doi.org/10.3174/ajnr.a4151",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Iadecola2011",
+  "text": "Iadecola C, Anrather J. The immunology of stroke: from mechanisms to translation. Nat Med. 2011;17(7):796-808. PMID 21738161; PMCID PMC3137275; doi:10.1038/nm.2399.",
+  "link": "https://doi.org/10.1038/nm.2399",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Iadecola2020",
+  "text": "Iadecola C, Buckwalter MS, Anrather J. Immune responses to stroke: mechanisms, modulation, and therapeutic potential. J Clin Invest. 2020;130(6):2777-2788. PMID 32391806; PMCID PMC7260029; doi:10.1172/JCI135530.",
+  "link": "https://doi.org/10.1172/jci135530",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "IkedaSakai2022",
   "text": "Ikeda-Sakai Y, Kubo K, Wada M, Seki R, Hijikata Y, Yoshioka T, et al. Effectiveness and safety of a program for appropriate urinary catheter use in stroke care: A multicenter prospective study. J Eval Clin Pract. 2022;28(4):542-549. PMID 34628703; doi:10.1111/jep.13626.",
   "link": "https://doi.org/10.1111/jep.13626",
@@ -3898,6 +4663,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Jiang2018",
+  "text": "Jiang X, Andjelkovic AV, Zhu L, Yang T, Bennett MVL, Chen J, et al. Blood-brain barrier dysfunction and recovery after ischemic stroke. Prog Neurobiol. 2018;163-164:144-171. PMID 28987927; PMCID PMC5886838; doi:10.1016/j.pneurobio.2017.10.001.",
+  "link": "https://doi.org/10.1016/j.pneurobio.2017.10.001",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Joglar2024",
   "text": "Joglar JA, Chung MK, Armbruster AL, Benjamin EJ, Chyou JY, Cronin EM, et al. 2023 ACC/AHA/ACCP/HRS Guideline for the Diagnosis and Management of Atrial Fibrillation: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines. Circulation. 2024;149(1):e1-e156. PMID 38033089; PMCID PMC11095842; doi:10.1161/CIR.0000000000001193.",
   "link": "https://doi.org/10.1161/cir.0000000000001193",
@@ -3908,10 +4683,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Johnston2000",
+  "text": "Johnston SC, Gress DR, Browner WS, Sidney S. Short-term prognosis after emergency department diagnosis of TIA. JAMA. 2000;284(22):2901-6. PMID 11147987; doi:10.1001/jama.284.22.2901.",
+  "link": "https://doi.org/10.1001/jama.284.22.2901",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Johnston2007",
+  "text": "Johnston SC, Rothwell PM, Nguyen-Huynh MN, Giles MF, Elkins JS, Bernstein AL, et al. Validation and refinement of scores to predict very early stroke risk after transient ischaemic attack. Lancet. 2007;369(9558):283-92. PMID 17258668; doi:10.1016/S0140-6736(07)60150-0.",
+  "link": "https://doi.org/10.1016/s0140-6736(07)60150-0",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Johnston2018",
   "text": "Johnston SC, Easton JD, Farrant M, Barsan W, Conwit RA, Elm JJ, et al. Clopidogrel and Aspirin in Acute Ischemic Stroke and High-Risk TIA. N Engl J Med. 2018;379(3):215-225. PMID 29766750; PMCID PMC6193486; doi:10.1056/NEJMoa1800410.",
   "link": "https://doi.org/10.1056/nejmoa1800410",
   "areas": [
+   "B",
    "G"
   ],
   "unverified": false,
@@ -3932,7 +4728,28 @@
   "text": "Johnston SC, Amarenco P, Denison H, Evans SR, Himmelmann A, James S, et al. Ticagrelor and Aspirin or Aspirin Alone in Acute Ischemic Stroke or TIA. N Engl J Med. 2020;383(3):207-217. PMID 32668111; doi:10.1056/NEJMoa1916870.",
   "link": "https://doi.org/10.1056/nejmoa1916870",
   "areas": [
+   "B",
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Jones1981",
+  "text": "Jones TH, Morawetz RB, Crowell RM, Marcoux FW, FitzGibbon SJ, DeGirolami U, et al. Thresholds of focal cerebral ischemia in awake monkeys. J Neurosurg. 1981;54(6):773-82. PMID 7241187; doi:10.3171/jns.1981.54.6.0773.",
+  "link": "https://doi.org/10.3171/jns.1981.54.6.0773",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Jordan2018",
+  "text": "Jordan LC, Kassim AA, Donahue MJ, Juttukonda MR, Pruthi S, Davis LT, et al. Silent infarct is a risk factor for infarct recurrence in adults with sickle cell anemia. Neurology. 2018;91(8):e781-e784. PMID 30054441; PMCID PMC6107269; doi:10.1212/WNL.0000000000006047.",
+  "link": "https://doi.org/10.1212/wnl.0000000000006047",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4059,11 +4876,32 @@
   "validated": "PubMed"
  },
  {
+  "key": "Kamel2017",
+  "text": "Kamel H, Healey JS. Cardioembolic Stroke. Circ Res. 2017;120(3):514-526. PMID 28154101; PMCID PMC5312810; doi:10.1161/CIRCRESAHA.116.308407.",
+  "link": "https://doi.org/10.1161/circresaha.116.308407",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kamel2024",
   "text": "Kamel H, Longstreth WT, Tirschwell DL, Kronmal RA, Marshall RS, Broderick JP, et al. Apixaban to Prevent Recurrence After Cryptogenic Stroke in Patients With Atrial Cardiopathy: The ARCADIA Randomized Clinical Trial. JAMA. 2024;331(7):573-581. PMID 38324415; PMCID PMC10851142; doi:10.1001/jama.2023.27188.",
   "link": "https://doi.org/10.1001/jama.2023.27188",
   "areas": [
+   "B",
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kang2008",
+  "text": "Kang SY, Kim JS. Anterior cerebral artery infarction: stroke mechanism and clinical-imaging study in 100 patients. Neurology. 2008;70(24 Pt 2):2386-93. PMID 18541871; doi:10.1212/01.wnl.0000314686.94007.d0.",
+  "link": "https://doi.org/10.1212/01.wnl.0000314686.94007.d0",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4123,6 +4961,7 @@
   "text": "Kent DM, Ruthazer R, Weimar C, Mas JL, Serena J, Homma S, et al. An index to identify stroke-related vs incidental patent foramen ovale in cryptogenic stroke. Neurology. 2013;81(7):619-25. PMID 23864310; PMCID PMC3775694; doi:10.1212/WNL.0b013e3182a08d59.",
   "link": "https://doi.org/10.1212/wnl.0b013e3182a08d59",
   "areas": [
+   "B",
    "G"
   ],
   "unverified": false,
@@ -4133,6 +4972,7 @@
   "text": "Kent DM, Saver JL, Kasner SE, Nelson J, Carroll JD, Chatellier G, et al. Heterogeneity of Treatment Effects in an Analysis of Pooled Individual Patient Data From Randomized Trials of Device Closure of Patent Foramen Ovale After Stroke. JAMA. 2021;326(22):2277-2286. PMID 34905030; PMCID PMC8672231; doi:10.1001/jama.2021.20956.",
   "link": "https://doi.org/10.1001/jama.2021.20956",
   "areas": [
+   "B",
    "G"
   ],
   "unverified": false,
@@ -4154,6 +4994,16 @@
   "link": "https://doi.org/10.1161/strokeaha.107.509885",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Khan2025",
+  "text": "Khan F, Yogendrakumar V, Lun R, Ganesh A, Barber PA, Lioutas VA, et al. Long-Term Risk of Stroke After Transient Ischemic Attack or Minor Stroke: A Systematic Review and Meta-Analysis. JAMA. 2025;333(17):1508-1519. PMID 40136306; PMCID PMC11947970; doi:10.1001/jama.2025.2033.",
+  "link": "https://doi.org/10.1001/jama.2025.2033",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4195,6 +5045,26 @@
   "link": "https://doi.org/10.1056/nejmoa1212793",
   "areas": [
    "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kim2003",
+  "text": "Kim JS. Pure lateral medullary infarction: clinical-radiological correlation of 130 acute, consecutive patients. Brain. 2003;126(Pt 8):1864-72. PMID 12805095; doi:10.1093/brain/awg169.",
+  "link": "https://doi.org/10.1093/brain/awg169",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kim2014",
+  "text": "Kim BJ, Kim JS. Ischemic stroke subtype classification: an asian viewpoint. J Stroke. 2014;16(1):8-17. PMID 24741560; PMCID PMC3961817; doi:10.5853/jos.2014.16.1.8.",
+  "link": "https://doi.org/10.5853/jos.2014.16.1.8",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4290,6 +5160,26 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Kobayashi2009",
+  "text": "Kobayashi A, Wardlaw JM, Lindley RI, Lewis SC, Sandercock PA, Czlonkowska A. Oxfordshire community stroke project clinical stroke syndrome and appearances of tissue and vascular lesions on pretreatment ct in hyperacute ischemic stroke among the first 510 patients in the Third International Stroke Trial (IST-3). Stroke. 2009;40(3):743-8. PMID 19131659; doi:10.1161/STROKEAHA.108.526772.",
+  "link": "https://doi.org/10.1161/strokeaha.108.526772",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kolominsky2001",
+  "text": "Kolominsky-Rabas PL, Weber M, Gefeller O, Neundoerfer B, Heuschmann PU. Epidemiology of ischemic stroke subtypes according to TOAST criteria: incidence, recurrence, and long-term survival in ischemic stroke subtypes: a population-based study. Stroke. 2001;32(12):2735-40. PMID 11739965; doi:10.1161/hs1201.100209.",
+  "link": "https://doi.org/10.1161/hs1201.100209",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kothari1996",
   "text": "Kothari RU, Brott T, Broderick JP, Barsan WG, Sauerbeck LR, Zuccarello M, et al. The ABCs of measuring intracerebral hemorrhage volumes. Stroke. 1996;27(8):1304-5. PMID 8711791; doi:10.1161/01.str.27.8.1304.",
   "link": "https://doi.org/10.1161/01.str.27.8.1304",
@@ -4330,6 +5220,36 @@
   "validated": "PubMed"
  },
  {
+  "key": "Koukalova2024",
+  "text": "Koukalova L, Chmelova M, Amlerova Z, Vargova L. Out of the core: the impact of focal ischemia in regions beyond the penumbra. Front Cell Neurosci. 2024;18:1336886. PMID 38504666; PMCID PMC10948541; doi:10.3389/fncel.2024.1336886.",
+  "link": "https://doi.org/10.3389/fncel.2024.1336886",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "KrabbeHartkamp1998",
+  "text": "Krabbe-Hartkamp MJ, van der Grond J, de Leeuw FE, de Groot JC, Algra A, Hillen B, et al. Circle of Willis: morphologic variation on three-dimensional time-of-flight MR angiograms. Radiology. 1998;207(1):103-11. PMID 9530305; doi:10.1148/radiology.207.1.9530305.",
+  "link": "https://doi.org/10.1148/radiology.207.1.9530305",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Krishnamurthi2018",
+  "text": "Krishnamurthi RV, Barker-Collo S, Parag V, Parmar P, Witt E, Jones A, et al. Stroke Incidence by Major Pathological Type and Ischemic Subtypes in the Auckland Regional Community Stroke Studies: Changes Between 2002 and 2011. Stroke. 2018;49(1):3-10. PMID 29212738; doi:10.1161/STROKEAHA.117.019358.",
+  "link": "https://doi.org/10.1161/strokeaha.117.019358",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kristensen2019",
   "text": "Kristensen SL, Rørth R, Jhund PS, Docherty KF, Sattar N, Preiss D, et al. Cardiovascular, mortality, and kidney outcomes with GLP-1 receptor agonists in patients with type 2 diabetes: a systematic review and meta-analysis of cardiovascular outcome trials. Lancet Diabetes Endocrinol. 2019;7(10):776-785. PMID 31422062; doi:10.1016/s2213-8587(19)30249-9.",
   "link": "https://doi.org/10.1016/s2213-8587(19)30249-9",
@@ -4338,6 +5258,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Kumral2002",
+  "text": "Kumral E, Bayulkem G, Evyapan D, Yunten N. Spectrum of anterior cerebral artery territory infarction: clinical and MRI findings. Eur J Neurol. 2002;9(6):615-24. PMID 12453077; doi:10.1046/j.1468-1331.2002.00452.x.",
+  "link": "https://doi.org/10.1046/j.1468-1331.2002.00452.x",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Kundert2019",
@@ -4448,6 +5378,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Lai2014",
+  "text": "Lai TW, Zhang S, Wang YT. Excitotoxicity and stroke: identifying novel targets for neuroprotection. Prog Neurobiol. 2014;115:157-88. PMID 24361499; doi:10.1016/j.pneurobio.2013.11.006.",
+  "link": "https://doi.org/10.1016/j.pneurobio.2013.11.006",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Lam2026",
@@ -4621,6 +5561,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Laureys2005",
+  "text": "Laureys S, Pellas F, Van Eeckhout P, Ghorbel S, Schnakers C, Perrin F, et al. The locked-in syndrome : what is it like to be conscious but paralyzed and voiceless?. Prog Brain Res. 2005;150:495-511. PMID 16186044; doi:10.1016/S0079-6123(05)50034-7.",
+  "link": "https://doi.org/10.1016/s0079-6123(05)50034-7",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Lavallee2007",
+  "text": "Lavallée PC, Meseguer E, Abboud H, Cabrejo L, Olivot JM, Simon O, et al. A transient ischaemic attack clinic with round-the-clock access (SOS-TIA): feasibility and effects. Lancet Neurol. 2007;6(11):953-60. PMID 17928270; doi:10.1016/S1474-4422(07)70248-X.",
+  "link": "https://doi.org/10.1016/s1474-4422(07)70248-x",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Laver2020",
   "text": "Laver KE, Adey-Wakeling Z, Crotty M, Lannin NA, George S, Sherrington C. Telerehabilitation services for stroke. Cochrane Database Syst Rev. 2020;1:CD010255. PMID 32002991; PMCID PMC6992923; doi:10.1002/14651858.cd010255.pub3.",
   "link": "https://doi.org/10.1002/14651858.cd010255.pub3",
@@ -4639,6 +5599,26 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Lazzaro2010",
+  "text": "Lazzaro NA, Wright B, Castillo M, Fischbein NJ, Glastonbury CM, Hildenbrand PG, et al. Artery of percheron infarction: imaging patterns and clinical spectrum. AJNR Am J Neuroradiol. 2010;31(7):1283-9. PMID 20299438; PMCID PMC7965474; doi:10.3174/ajnr.A2044.",
+  "link": "https://doi.org/10.3174/ajnr.a2044",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Lechat1988",
+  "text": "Lechat P, Mas JL, Lascault G, Loron P, Theard M, Klimczac M, et al. Prevalence of patent foramen ovale in patients with stroke. N Engl J Med. 1988;318(18):1148-52. PMID 3362165; doi:10.1056/NEJM198805053181802.",
+  "link": "https://doi.org/10.1056/nejm198805053181802",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "LeCouffe2021",
@@ -4671,11 +5651,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Lee2006",
+  "text": "Lee VH, Brown RD Jr, Mandrekar JN, Mokri B. Incidence and outcome of cervical artery dissection: a population-based study. Neurology. 2006;67(10):1809-12. PMID 17130413; doi:10.1212/01.wnl.0000244486.30455.71.",
+  "link": "https://doi.org/10.1212/01.wnl.0000244486.30455.71",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Lee2018",
   "text": "Lee PH, Song JK, Kim JS, Heo R, Lee S, Kim DH, et al. Cryptogenic Stroke and High-Risk Patent Foramen Ovale: The DEFENSE-PFO Trial. J Am Coll Cardiol. 2018;71(20):2335-2342. PMID 29544871; doi:10.1016/j.jacc.2018.02.046.",
   "link": "https://doi.org/10.1016/j.jacc.2018.02.046",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Leenders1990",
+  "text": "Leenders KL, Perani D, Lammertsma AA, Heather JD, Buckingham P, Healy MJ, et al. Cerebral blood flow, blood volume and oxygen utilization. Normal values and effect of age. Brain. 1990;113 ( Pt 1):27-47. PMID 2302536; doi:10.1093/brain/113.1.27.",
+  "link": "https://doi.org/10.1093/brain/113.1.27",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4806,6 +5806,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Liebeskind2003",
+  "text": "Liebeskind DS. Collateral circulation. Stroke. 2003;34(9):2279-84. PMID 12881609; doi:10.1161/01.STR.0000086465.41263.06.",
+  "link": "https://doi.org/10.1161/01.str.0000086465.41263.06",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Lima2010",
+  "text": "Lima FO, Furie KL, Silva GS, Lev MH, Camargo EC, Singhal AB, et al. The pattern of leptomeningeal collaterals on CT angiography is a strong predictor of long-term functional outcome in stroke patients with large vessel intracranial occlusion. Stroke. 2010;41(10):2316-22. PMID 20829514; PMCID PMC4939434; doi:10.1161/STROKEAHA.110.592303.",
+  "link": "https://doi.org/10.1161/strokeaha.110.592303",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Lin2012",
   "text": "Lin CB, Peterson ED, Smith EE, Saver JL, Liang L, Xian Y, et al. Emergency medical service hospital prenotification is associated with improved evaluation and treatment of acute ischemic stroke. Circ Cardiovasc Qual Outcomes. 2012;5(4):514-22. PMID 22787065; doi:10.1161/CIRCOUTCOMES.112.965210.",
   "link": "https://doi.org/10.1161/circoutcomes.112.965210",
@@ -4882,6 +5902,16 @@
   "link": "https://doi.org/10.1212/wnl.0b013e3181dad605",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Lioutas2021",
+  "text": "Lioutas VA, Ivan CS, Himali JJ, Aparicio HJ, Leveille T, Romero JR, et al. Incidence of Transient Ischemic Attack and Association With Long-term Risk of Stroke. JAMA. 2021;325(4):373-381. PMID 33496774; PMCID PMC7838926; doi:10.1001/jama.2020.25071.",
+  "link": "https://doi.org/10.1001/jama.2020.25071",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4968,6 +5998,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Lo2025",
+  "text": "Lo BWY, Fukuda H. Advances in Ischemic Stroke Treatment: Current and Future Therapies. Neurol Ther. 2025;14(5):1783-1796. PMID 40797003; PMCID PMC12450147; doi:10.1007/s40120-025-00810-1.",
+  "link": "https://doi.org/10.1007/s40120-025-00810-1",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Lohse2014",
   "text": "Lohse KR, Lang CE, Boyd LA. Is more better? Using metadata to explore dose-response relationships in stroke rehabilitation. Stroke. 2014;45(7):2053-2058. PMID 24867924; PMCID PMC4071164; doi:10.1161/strokeaha.114.004695.",
   "link": "https://doi.org/10.1161/strokeaha.114.004695",
@@ -4988,6 +6028,26 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Lovett2003",
+  "text": "Lovett JK, Dennis MS, Sandercock PA, Bamford J, Warlow CP, Rothwell PM. Very early risk of stroke after a first transient ischemic attack. Stroke. 2003;34(8):e138-40. PMID 12855835; doi:10.1161/01.STR.0000080935.01264.91.",
+  "link": "https://doi.org/10.1161/01.str.0000080935.01264.91",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "LuengoFernandez2009",
+  "text": "Luengo-Fernandez R, Gray AM, Rothwell PM. Effect of urgent treatment for transient ischaemic attack and minor stroke on disability and hospital costs (EXPRESS study): a prospective population-based sequential comparison. Lancet Neurol. 2009;8(3):235-43. PMID 19200786; doi:10.1016/S1474-4422(09)70019-5.",
+  "link": "https://doi.org/10.1016/s1474-4422(09)70019-5",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "LuengoFernandez2013",
   "text": "Luengo-Fernandez R, Paul NL, Gray AM, Pendlebury ST, Bull LM, Welch SJ, et al. Population-based study of disability and institutionalization after transient ischemic attack and stroke: 10-year results of the Oxford Vascular Study. Stroke. 2013;44(10):2854-61. PMID 23920019; PMCID PMC4946627; doi:10.1161/STROKEAHA.113.001584.",
   "link": "https://doi.org/10.1161/strokeaha.113.001584",
@@ -5004,6 +6064,16 @@
   "link": "https://doi.org/10.1177/2396987319883160",
   "areas": [
    "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Lui2026",
+  "text": "Lui F, Vadakekut ES. Transient Ischemic Attack. StatPearls. StatPearls Publishing; 2026. PMID 29083778.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/29083778/",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -5245,6 +6315,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Malik2018",
+  "text": "Malik R, Chauhan G, Traylor M, Sargurupremraj M, Okada Y, Mishra A, et al. Multiancestry genome-wide association study of 520,000 subjects identifies 32 loci associated with stroke and stroke subtypes. Nat Genet. 2018;50(4):524-537. PMID 29531354; PMCID PMC5968830; doi:10.1038/s41588-018-0058-3.",
+  "link": "https://doi.org/10.1038/s41588-018-0058-3",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Man2020CQO",
   "text": "Man S, Xian Y, Holmes DN, Matsouaka RA, Saver JL, Smith EE, et al. Target: Stroke Was Associated With Faster Intravenous Thrombolysis and Improved One-Year Outcomes for Acute Ischemic Stroke in Medicare Beneficiaries. Circ Cardiovasc Qual Outcomes. 2020;13(12):e007150. PMID 33302714; doi:10.1161/CIRCOUTCOMES.120.007150.",
   "link": "https://doi.org/10.1161/circoutcomes.120.007150",
@@ -5275,6 +6355,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Mangiardi2023",
+  "text": "Mangiardi M, Bonura A, Iaccarino G, Alessiani M, Bravi MC, Crupi D, et al. The Pathophysiology of Collateral Circulation in Acute Ischemic Stroke. Diagnostics (Basel). 2023;13(14). PMID 37510169; PMCID PMC10378392; doi:10.3390/diagnostics13142425.",
+  "link": "https://doi.org/10.3390/diagnostics13142425",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Mann1999",
   "text": "Mann G, Hankey GJ, Cameron D. Swallowing function after stroke: prognosis and prognostic factors at 6 months. Stroke. 1999;30(4):744-748. PMID 10187872; doi:10.1161/01.str.30.4.744.",
   "link": "https://doi.org/10.1161/01.str.30.4.744",
@@ -5283,6 +6373,26 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Marini2005",
+  "text": "Marini C, De Santis F, Sacco S, Russo T, Olivieri L, Totaro R, et al. Contribution of atrial fibrillation to incidence and outcome of ischemic stroke: results from a population-based study. Stroke. 2005;36(6):1115-9. PMID 15879330; doi:10.1161/01.STR.0000166053.83476.4a.",
+  "link": "https://doi.org/10.1161/01.str.0000166053.83476.4a",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Markus2015",
+  "text": "Markus HS, Hayter E, Levi C, Feldman A, Venables G, Norris J. Antiplatelet treatment compared with anticoagulation treatment for cervical artery dissection (CADISS): a randomised trial. Lancet Neurol. 2015;14(4):361-7. PMID 25684164; doi:10.1016/S1474-4422(15)70018-9.",
+  "link": "https://doi.org/10.1016/s1474-4422(15)70018-9",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Markus2019",
@@ -5354,7 +6464,28 @@
   "text": "Mas JL, Derumeaux G, Guillon B, Massardier E, Hosseini H, Mechtouff L, et al. Patent Foramen Ovale Closure or Anticoagulation vs. Antiplatelets after Stroke. N Engl J Med. 2017;377(11):1011-1021. PMID 28902593; doi:10.1056/NEJMoa1705915.",
   "link": "https://doi.org/10.1056/nejmoa1705915",
   "areas": [
+   "B",
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "MatosCasano2026",
+  "text": "Matos Casano HA, Benjamin R, Ciofoaia GA. Anterior Cerebral Artery Stroke. StatPearls. StatPearls Publishing; 2026. PMID 30726018.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/30726018/",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Mattle2011",
+  "text": "Mattle HP, Arnold M, Lindsberg PJ, Schonewille WJ, Schroth G. Basilar artery occlusion. Lancet Neurol. 2011;10(11):1002-14. PMID 22014435; doi:10.1016/S1474-4422(11)70229-0.",
+  "link": "https://doi.org/10.1016/s1474-4422(11)70229-0",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -5439,6 +6570,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Mead2000",
+  "text": "Mead GE, Lewis SC, Wardlaw JM, Dennis MS, Warlow CP. How well does the Oxfordshire community stroke project classification predict the site and size of the infarct on brain imaging?. J Neurol Neurosurg Psychiatry. 2000;68(5):558-62. PMID 10766882; PMCID PMC1736913; doi:10.1136/jnnp.68.5.558.",
+  "link": "https://doi.org/10.1136/jnnp.68.5.558",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Mead2020",
@@ -5545,6 +6686,7 @@
   "text": "Menon BK, d'Esterre CD, Qazi EM, Almekhlafi M, Hahn L, Demchuk AM, et al. Multiphase CT Angiography: A New Tool for the Imaging Triage of Patients with Acute Ischemic Stroke. Radiology. 2015;275(2):510-20. PMID 25633505; doi:10.1148/radiol.15142256.",
   "link": "https://doi.org/10.1148/radiol.15142256",
   "areas": [
+   "B",
    "D"
   ],
   "unverified": false,
@@ -5606,6 +6748,7 @@
   "text": "Meretoja A, Keshtkaran M, Saver JL, Tatlisumak T, Parsons MW, Kaste M, et al. Stroke thrombolysis: save a minute, save a day. Stroke. 2014;45(4):1053-8. PMID 24627114; doi:10.1161/STROKEAHA.113.002910.",
   "link": "https://doi.org/10.1161/strokeaha.113.002910",
   "areas": [
+   "B",
    "D",
    "E"
   ],
@@ -5617,10 +6760,11 @@
   "text": "Meretoja A, Keshtkaran M, Tatlisumak T, Donnan GA, Churilov L. Endovascular therapy for ischemic stroke: Save a minute-save a week. Neurology. 2017;88(22):2123-2127. PMID 28455382; doi:10.1212/wnl.0000000000003981.",
   "link": "https://doi.org/10.1212/wnl.0000000000003981",
   "areas": [
+   "B",
    "E"
   ],
   "unverified": false,
-  "validated": "Europe PMC"
+  "validated": "PubMed"
  },
  {
   "key": "Meretoja2020",
@@ -5638,6 +6782,16 @@
   "link": "https://doi.org/10.1016/j.jstrokecerebrovasdis.2013.04.018",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Merwick2010",
+  "text": "Merwick A, Albers GW, Amarenco P, Arsava EM, Ay H, Calvet D, et al. Addition of brain and carotid imaging to the ABCD² score to identify patients at early risk of stroke after transient ischaemic attack: a multicentre observational study. Lancet Neurol. 2010;9(11):1060-9. PMID 20934388; doi:10.1016/S1474-4422(10)70240-4.",
+  "link": "https://doi.org/10.1016/s1474-4422(10)70240-4",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -5825,6 +6979,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Moskowitz2010",
+  "text": "Moskowitz MA, Lo EH, Iadecola C. The science of stroke: mechanisms in search of treatments. Neuron. 2010;67(2):181-98. PMID 20670828; PMCID PMC2957363; doi:10.1016/j.neuron.2010.07.002.",
+  "link": "https://doi.org/10.1016/j.neuron.2010.07.002",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Moullaali2019",
   "text": "Moullaali TJ, Wang X, Martin RH, Shipes VB, Robinson TG, Chalmers J, et al. Blood pressure control and clinical outcomes in acute intracerebral haemorrhage: a preplanned pooled analysis of individual participant data. Lancet Neurol. 2019;18(9):857-864. PMID 31397290; doi:10.1016/S1474-4422(19)30196-6.",
   "link": "https://doi.org/10.1016/s1474-4422(19)30196-6",
@@ -5905,6 +7069,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Nadarajan2014",
+  "text": "Nadarajan V, Perry RJ, Johnson J, Werring DJ. Transient ischaemic attacks: mimics and chameleons. Pract Neurol. 2014;14(1):23-31. PMID 24453269; PMCID PMC3913122; doi:10.1136/practneurol-2013-000782.",
+  "link": "https://doi.org/10.1136/practneurol-2013-000782",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Nagaratnam2025",
   "text": "Nagaratnam K, Neuhaus AA, Fensome L, Epton M, Marriott T, Woodhead Z, et al. Artificial intelligence imaging decision support for acute stroke treatment in England: a prospective observational study. Lancet Digit Health. 2025;7(12):100927. PMID 41339157; doi:10.1016/j.landig.2025.100927.",
   "link": "https://doi.org/10.1016/j.landig.2025.100927",
@@ -5953,6 +7127,36 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Navi2017",
+  "text": "Navi BB, Reiner AS, Kamel H, Iadecola C, Okin PM, Elkind MSV, et al. Risk of Arterial Thromboembolism in Patients With Cancer. J Am Coll Cardiol. 2017;70(8):926-938. PMID 28818202; PMCID PMC5667567; doi:10.1016/j.jacc.2017.06.047.",
+  "link": "https://doi.org/10.1016/j.jacc.2017.06.047",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Navi2019",
+  "text": "Navi BB, Reiner AS, Kamel H, Iadecola C, Okin PM, Tagawa ST, et al. Arterial thromboembolic events preceding the diagnosis of cancer in older persons. Blood. 2019;133(8):781-789. PMID 30578253; PMCID PMC6384185; doi:10.1182/blood-2018-06-860874.",
+  "link": "https://doi.org/10.1182/blood-2018-06-860874",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Navi2021",
+  "text": "Navi BB, Kasner SE, Elkind MSV, Cushman M, Bang OY, DeAngelis LM. Cancer and Embolic Stroke of Undetermined Source. Stroke. 2021;52(3):1121-1130. PMID 33504187; PMCID PMC7902455; doi:10.1161/STROKEAHA.120.032002.",
+  "link": "https://doi.org/10.1161/strokeaha.120.032002",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Nazliel2008",
@@ -6206,6 +7410,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "NICE-NG128",
+  "text": "National Institute for Health and Care Excellence. Stroke and transient ischaemic attack in over 16s: diagnosis and initial management. NICE guideline NG128. Published 1 May 2019, last updated 13 April 2022. https://www.nice.org.uk/guidance/ng128.",
+  "link": "https://www.nice.org.uk/guidance/ng128",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "nice.org.uk direct fetch"
+ },
+ {
   "key": "NICE-NG236",
   "text": "National Institute for Health and Care Excellence. Stroke rehabilitation in adults. NICE guideline NG236. Published 18 October 2023. https://www.nice.org.uk/guidance/ng236/chapter/Recommendations.",
   "link": "https://www.nice.org.uk/guidance/ng236/chapter/Recommendations",
@@ -6214,6 +7428,16 @@
   ],
   "unverified": false,
   "validated": "nice.org.uk page fetched 2026-11-08"
+ },
+ {
+  "key": "Nie2018",
+  "text": "Nie X, Pu Y, Zhang Z, Liu X, Duan W, Liu L. Futile Recanalization after Endovascular Therapy in Acute Ischemic Stroke. Biomed Res Int. 2018;2018:5879548. PMID 29854767; PMCID PMC5966674; doi:10.1155/2018/5879548.",
+  "link": "https://doi.org/10.1155/2018/5879548",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Nieuwkamp2009",
@@ -6263,6 +7487,7 @@
   "link": "https://doi.org/10.1056/nejmoa1706442",
   "areas": [
    "A",
+   "B",
    "D",
    "E"
   ],
@@ -6275,6 +7500,16 @@
   "link": "https://doi.org/10.1016/s1474-4422(05)70201-5",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Norrving2003",
+  "text": "Norrving B. Long-term prognosis after lacunar infarction. Lancet Neurol. 2003;2(4):238-45. PMID 12849212; doi:10.1016/s1474-4422(03)00352-1.",
+  "link": "https://doi.org/10.1016/s1474-4422(03)00352-1",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -6320,6 +7555,26 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Nour2013",
+  "text": "Nour M, Scalzo F, Liebeskind DS. Ischemia-reperfusion injury in stroke. Interv Neurol. 2013;1(3-4):185-99. PMID 25187778; PMCID PMC4031777; doi:10.1159/000353125.",
+  "link": "https://doi.org/10.1159/000353125",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Ntaios2020",
+  "text": "Ntaios G. Embolic Stroke of Undetermined Source: JACC Review Topic of the Week. J Am Coll Cardiol. 2020;75(3):333-340. PMID 31976872; doi:10.1016/j.jacc.2019.11.024.",
+  "link": "https://doi.org/10.1016/j.jacc.2019.11.024",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Nussbaum2021",
   "text": "Nussbaum ES, Mikoff N, Paranjape GS. Cognitive deficits among patients surviving aneurysmal subarachnoid hemorrhage. A contemporary systematic review. Br J Neurosurg. 2021;35(4):384-401. PMID 33345644; doi:10.1080/02688697.2020.1859462.",
   "link": "https://doi.org/10.1080/02688697.2020.1859462",
@@ -6330,11 +7585,32 @@
   "validated": "PubMed"
  },
  {
+  "key": "OCollins2006",
+  "text": "O'Collins VE, Macleod MR, Donnan GA, Horky LL, van der Worp BH, Howells DW. 1,026 experimental treatments in acute stroke. Ann Neurol. 2006;59(3):467-77. PMID 16453316; doi:10.1002/ana.20741.",
+  "link": "https://doi.org/10.1002/ana.20741",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "ODonnell2016",
   "text": "O'Donnell MJ, Chin SL, Rangarajan S, Xavier D, Liu L, Zhang H, et al. Global and regional effects of potentially modifiable risk factors associated with acute stroke in 32 countries (INTERSTROKE): a case-control study. Lancet. 2016;388(10046):761-75. PMID 27431356; doi:10.1016/S0140-6736(16)30506-2.",
   "link": "https://doi.org/10.1016/s0140-6736(16)30506-2",
   "areas": [
+   "B",
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "OheneFrempong1998",
+  "text": "Ohene-Frempong K, Weiner SJ, Sleeper LA, Miller ST, Embury S, Moohr JW, et al. Cerebrovascular accidents in sickle cell disease: rates and risk factors. Blood. 1998;91(1):288-94. PMID 9414296.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/9414296/",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -6410,6 +7686,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Opherk2004",
+  "text": "Opherk C, Peters N, Herzog J, Luedtke R, Dichgans M. Long-term prognosis and causes of death in CADASIL: a retrospective study in 411 patients. Brain. 2004;127(Pt 11):2533-9. PMID 15364702; doi:10.1093/brain/awh282.",
+  "link": "https://doi.org/10.1093/brain/awh282",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Orange2024",
   "text": "Orange C, Lanhers C, Coll G, Coste N, Dutheil F, Hauret I, et al. Determinants of Return to Work After a Stroke: A Systematic Review and Meta-analysis. Arch Phys Med Rehabil. 2024;105(2):359-368. PMID 37797913; doi:10.1016/j.apmr.2023.08.027.",
   "link": "https://doi.org/10.1016/j.apmr.2023.08.027",
@@ -6430,11 +7716,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Ornello2018",
+  "text": "Ornello R, Degan D, Tiseo C, Di Carmine C, Perciballi L, Pistoia F, et al. Distribution and Temporal Trends From 1993 to 2015 of Ischemic Stroke Subtypes: A Systematic Review and Meta-Analysis. Stroke. 2018;49(4):814-819. PMID 29535272; doi:10.1161/STROKEAHA.117.020031.",
+  "link": "https://doi.org/10.1161/strokeaha.117.020031",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Oshunbade2020",
   "text": "Oshunbade AA, Yimer WK, Valle KA, Clark D, Kamimura D, White WB, et al. Cigarette Smoking and Incident Stroke in Blacks of the Jackson Heart Study. J Am Heart Assoc. 2020;9(12):e014990. PMID 32517526; PMCID PMC7429065; doi:10.1161/JAHA.119.014990.",
   "link": "https://doi.org/10.1161/jaha.119.014990",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Overell2000",
+  "text": "Overell JR, Bone I, Lees KR. Interatrial septal abnormalities and stroke: a meta-analysis of case-control studies. Neurology. 2000;55(8):1172-9. PMID 11071496; doi:10.1212/wnl.55.8.1172.",
+  "link": "https://doi.org/10.1212/wnl.55.8.1172",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -6480,11 +7786,32 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Pan2007",
+  "text": "Pan J, Konstas AA, Bateman B, Ortolano GA, Pile-Spellman J. Reperfusion injury following cerebral ischemia: pathophysiology, MR imaging, and potential therapies. Neuroradiology. 2007;49(2):93-102. PMID 17177065; PMCID PMC1786189; doi:10.1007/s00234-006-0183-z.",
+  "link": "https://doi.org/10.1007/s00234-006-0183-z",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Pan2019",
   "text": "Pan Y, Elm JJ, Li H, Easton JD, Wang Y, Farrant M, et al. Outcomes Associated With Clopidogrel-Aspirin Use in Minor Stroke or Transient Ischemic Attack: A Pooled Analysis of Clopidogrel in High-Risk Patients With Acute Non-Disabling Cerebrovascular Events (CHANCE) and Platelet-Oriented Inhibition in New TIA and Minor Ischemic Stroke (POINT) Trials. JAMA Neurol. 2019;76(12):1466-1473. PMID 31424481; PMCID PMC6704730; doi:10.1001/jamaneurol.2019.2531.",
   "link": "https://doi.org/10.1001/jamaneurol.2019.2531",
   "areas": [
+   "B",
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Pantoni2010",
+  "text": "Pantoni L. Cerebral small vessel disease: from pathogenesis and clinical characteristics to therapeutic challenges. Lancet Neurol. 2010;9(7):689-701. PMID 20610345; doi:10.1016/S1474-4422(10)70104-6.",
+  "link": "https://doi.org/10.1016/s1474-4422(10)70104-6",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -6540,6 +7867,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Patterson1986",
+  "text": "Patterson JR, Grabois M. Locked-in syndrome: a review of 139 cases. Stroke. 1986;17(4):758-64. PMID 3738962; doi:10.1161/01.str.17.4.758.",
+  "link": "https://doi.org/10.1161/01.str.17.4.758",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Pedersen1995",
   "text": "Pedersen PM, Jørgensen HS, Nakayama H, Raaschou HO, Olsen TS. Aphasia in acute stroke: incidence, determinants, and recovery. Ann Neurol. 1995;38(4):659-666. PMID 7574464; doi:10.1002/ana.410380416.",
   "link": "https://doi.org/10.1002/ana.410380416",
@@ -6569,6 +7906,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Perera2016",
+  "text": "Perera KS, Vanassche T, Bosch J, Swaminathan B, Mundl H, Giruparajah M, et al. Global Survey of the Frequency of Atrial Fibrillation-Associated Stroke: Embolic Stroke of Undetermined Source Global Registry. Stroke. 2016;47(9):2197-202. PMID 27507860; doi:10.1161/STROKEAHA.116.013378.",
+  "link": "https://doi.org/10.1161/strokeaha.116.013378",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Perez2022",
@@ -6626,6 +7973,26 @@
   "link": "https://doi.org/10.1503/cmaj.170072",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Perry2021",
+  "text": "Perry JJ, Sivilotti MLA, Émond M, Stiell IG, Stotts G, Lee J, et al. Prospective validation of Canadian TIA Score and comparison with ABCD2 and ABCD2i for subsequent stroke risk after transient ischaemic attack: multicentre prospective cohort study. BMJ. 2021;372:n49. PMID 33541890; PMCID PMC7859838; doi:10.1136/bmj.n49.",
+  "link": "https://doi.org/10.1136/bmj.n49",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Petty1999",
+  "text": "Petty GW, Brown RD Jr, Whisnant JP, Sicks JD, O'Fallon WM, Wiebers DO. Ischemic stroke subtypes: a population-based study of incidence and risk factors. Stroke. 1999;30(12):2513-6. PMID 10582970; doi:10.1161/01.str.30.12.2513.",
+  "link": "https://doi.org/10.1161/01.str.30.12.2513",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -6690,11 +8057,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Piperata2026",
+  "text": "Piperata A, Van den Eynde J, Castagnini S, Carotenuto F, Garofalo R, Snaidero S, et al. Impact of Antegrade Selective Cerebral Perfusion Flow Ranges on Clinical and Neurological Outcomes in Aortic Arch Surgery. Interdiscip Cardiovasc Thorac Surg. 2026;41(8). PMID 42458227; PMCID PMC13431124; doi:10.1093/icvts/ivag200.",
+  "link": "https://doi.org/10.1093/icvts/ivag200",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Pisters2010",
   "text": "Pisters R, Lane DA, Nieuwlaat R, de Vos CB, Crijns HJ, Lip GY. A novel user-friendly score (HAS-BLED) to assess 1-year risk of major bleeding in patients with atrial fibrillation: the Euro Heart Survey. Chest. 2010;138(5):1093-100. PMID 20299623; doi:10.1378/chest.10-0134.",
   "link": "https://doi.org/10.1378/chest.10-0134",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Pittock2003",
+  "text": "Pittock SJ, Meldrum D, Hardiman O, Thornton J, Brennan P, Moroney JT. The Oxfordshire Community Stroke Project classification: correlation with imaging, associated complications, and prediction of outcome in acute ischemic stroke. J Stroke Cerebrovasc Dis. 2003;12(1):1-7. PMID 17903897; doi:10.1053/jscd.2003.7.",
+  "link": "https://doi.org/10.1053/jscd.2003.7",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -6886,6 +8273,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Putaala2009",
+  "text": "Putaala J, Metso AJ, Metso TM, Konkola N, Kraemer Y, Haapaniemi E, et al. Analysis of 1008 consecutive patients aged 15 to 49 with first-ever ischemic stroke: the Helsinki young stroke registry. Stroke. 2009;40(4):1195-203. PMID 19246709; doi:10.1161/STROKEAHA.108.529883.",
+  "link": "https://doi.org/10.1161/strokeaha.108.529883",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Qin2026",
   "text": "Qin Y, Li M, Li Y, Ma M, Xu J, Lu Y, et al. Brain-computer interface training for motor recovery after stroke. Cochrane Database Syst Rev. 2026;8:CD015065. PMID 42626977; doi:10.1002/14651858.cd015065.pub2.",
   "link": "https://doi.org/10.1002/14651858.cd015065.pub2",
@@ -7024,6 +8421,16 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Regenhardt2018",
+  "text": "Regenhardt RW, Das AS, Lo EH, Caplan LR. Advances in Understanding the Pathophysiology of Lacunar Stroke: A Review. JAMA Neurol. 2018;75(10):1273-1281. PMID 30167649; PMCID PMC7426021; doi:10.1001/jamaneurol.2018.1073.",
+  "link": "https://doi.org/10.1001/jamaneurol.2018.1073",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Reiff2022",
@@ -7238,6 +8645,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Rosner2023",
+  "text": "Rosner J, Reddy V, Lui F. Neuroanatomy, Circle of Willis. StatPearls. StatPearls Publishing; 2023. PMID 30521282.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/30521282/",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Rost2016",
   "text": "Rost NS, Bottle A, Lee JM, Randall M, Middleton S, Shaw L, et al. Stroke Severity Is a Crucial Predictor of Outcome: An International Prospective Validation Study. J Am Heart Assoc. 2016;5(1). PMID 26796252; PMCID PMC4859362; doi:10.1161/JAHA.115.002433.",
   "link": "https://doi.org/10.1161/jaha.115.002433",
@@ -7288,11 +8705,42 @@
   "validated": "PubMed"
  },
  {
+  "key": "Rothwell2005",
+  "text": "Rothwell PM, Giles MF, Flossmann E, Lovelock CE, Redgrave JN, Warlow CP, et al. A simple score (ABCD) to identify individuals at high early risk of stroke after transient ischaemic attack. Lancet. 2005;366(9479):29-36. PMID 15993230; doi:10.1016/S0140-6736(05)66702-5.",
+  "link": "https://doi.org/10.1016/s0140-6736(05)66702-5",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Rothwell2007",
+  "text": "Rothwell PM, Giles MF, Chandratheva A, Marquardt L, Geraghty O, Redgrave JN, et al. Effect of urgent treatment of transient ischaemic attack and minor stroke on early recurrent stroke (EXPRESS study): a prospective population-based sequential comparison. Lancet. 2007;370(9596):1432-42. PMID 17928046; doi:10.1016/S0140-6736(07)61448-2.",
+  "link": "https://doi.org/10.1016/s0140-6736(07)61448-2",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Rothwell2016",
   "text": "Rothwell PM, Algra A, Chen Z, Diener HC, Norrving B, Mehta Z. Effects of aspirin on risk and severity of early recurrent stroke after transient ischaemic attack and ischaemic stroke: time-course analysis of randomised trials. Lancet. 2016;388(10042):365-375. PMID 27209146; PMCID PMC5321490; doi:10.1016/S0140-6736(16)30468-8.",
   "link": "https://doi.org/10.1016/s0140-6736(16)30468-8",
   "areas": [
+   "B",
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "RothwellWarlow2005",
+  "text": "Rothwell PM, Warlow CP. Timing of TIAs preceding stroke: time window for prevention is very short. Neurology. 2005;64(5):817-20. PMID 15753415; doi:10.1212/01.WNL.0000152985.32732.EE.",
+  "link": "https://doi.org/10.1212/01.wnl.0000152985.32732.ee",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -7404,7 +8852,8 @@
   "text": "Sacco RL, Kasner SE, Broderick JP, Caplan LR, Connors JJ, Culebras A, et al. An updated definition of stroke for the 21st century: a statement for healthcare professionals from the American Heart Association/American Stroke Association. Stroke. 2013;44(7):2064-89. PMID 23652265; PMCID PMC11078537; doi:10.1161/STR.0b013e318296aeca.",
   "link": "https://doi.org/10.1161/str.0b013e318296aeca",
   "areas": [
-   "A"
+   "A",
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -7415,6 +8864,16 @@
   "link": "https://doi.org/10.1161/strokeaha.108.518563",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sadighi2019",
+  "text": "Sadighi A, Stanciu A, Banciu M, Abedi V, Andary NE, Holland N, et al. Rate and associated factors of transient ischemic attack misdiagnosis. eNeurologicalSci. 2019;15:100193. PMID 31193470; PMCID PMC6529772; doi:10.1016/j.ensci.2019.100193.",
+  "link": "https://doi.org/10.1016/j.ensci.2019.100193",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -7435,6 +8894,16 @@
   "link": "https://doi.org/10.1002/14651858.cd000029.pub3",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sanders2012",
+  "text": "Sanders LM, Srikanth VK, Blacker DJ, Jolley DJ, Cooper KA, Phan TG. Performance of the ABCD2 score for stroke risk post TIA: meta-analysis and probability modeling. Neurology. 2012;79(10):971-80. PMID 22700810; doi:10.1212/WNL.0b013e31825f9d02.",
+  "link": "https://doi.org/10.1212/wnl.0b013e31825f9d02",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -7475,8 +8944,19 @@
   "text": "Sanna T, Diener HC, Passman RS, Di Lazzaro V, Bernstein RA, Morillo CA, et al. Cryptogenic stroke and underlying atrial fibrillation. N Engl J Med. 2014;370(26):2478-86. PMID 24963567; doi:10.1056/NEJMoa1313600.",
   "link": "https://doi.org/10.1056/nejmoa1313600",
   "areas": [
+   "B",
    "F",
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sarraj2021",
+  "text": "Sarraj A, Hassan AE, Grotta J, Blackburn S, Day A, Abraham M, et al. Early Infarct Growth Rate Correlation With Endovascular Thrombectomy Clinical Outcomes: Analysis From the SELECT Study. Stroke. 2021;52(1):57-69. PMID 33280550; doi:10.1161/STROKEAHA.120.030912.",
+  "link": "https://doi.org/10.1161/strokeaha.120.030912",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -7548,6 +9028,7 @@
   "link": "https://doi.org/10.1161/01.str.0000196957.55928.ab",
   "areas": [
    "A",
+   "B",
    "D"
   ],
   "unverified": false,
@@ -7591,6 +9072,7 @@
   "text": "Saver JL, Carroll JD, Thaler DE, Smalling RW, MacDonald LA, Marks DS, et al. Long-Term Outcomes of Patent Foramen Ovale Closure or Medical Therapy after Stroke. N Engl J Med. 2017;377(11):1022-1032. PMID 28902590; doi:10.1056/NEJMoa1610057.",
   "link": "https://doi.org/10.1056/nejmoa1610057",
   "areas": [
+   "B",
    "G"
   ],
   "unverified": false,
@@ -7637,6 +9119,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Schmahmann2003",
+  "text": "Schmahmann JD. Vascular syndromes of the thalamus. Stroke. 2003;34(9):2264-78. PMID 12933968; doi:10.1161/01.STR.0000087786.38997.9E.",
+  "link": "https://doi.org/10.1161/01.str.0000087786.38997.9e",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Schneider2016",
   "text": "Schneider EJ, Lannin NA, Ada L, Schmidt J. Increasing the amount of usual rehabilitation improves activity after stroke: a systematic review. J Physiother. 2016;62(4):182-187. PMID 27637769; doi:10.1016/j.jphys.2016.08.006.",
   "link": "https://doi.org/10.1016/j.jphys.2016.08.006",
@@ -7645,6 +9137,26 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Schnetzer2023",
+  "text": "Schnetzer L, McCoy M, Bergmann J, Kunz A, Leis S, Trinka E. Locked-in syndrome revisited. Ther Adv Neurol Disord. 2023;16:17562864231160873. PMID 37006459; PMCID PMC10064471; doi:10.1177/17562864231160873.",
+  "link": "https://doi.org/10.1177/17562864231160873",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Schonewille2009",
+  "text": "Schonewille WJ, Wijman CA, Michel P, Rueckert CM, Weimar C, Mattle HP, et al. Treatment and outcomes of acute basilar artery occlusion in the Basilar Artery International Cooperation Study (BASICS): a prospective registry study. Lancet Neurol. 2009;8(8):724-30. PMID 19577962; doi:10.1016/S1474-4422(09)70173-5.",
+  "link": "https://doi.org/10.1016/s1474-4422(09)70173-5",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Schulz2021",
@@ -7672,6 +9184,16 @@
   "link": "https://doi.org/10.1001/jamaneurol.2022.1520",
   "areas": [
    "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Searls2012",
+  "text": "Searls DE, Pazdera L, Korbel E, Vysata O, Caplan LR. Symptoms and signs of posterior circulation ischemia in the new England medical center posterior circulation registry. Arch Neurol. 2012;69(3):346-51. PMID 22083796; doi:10.1001/archneurol.2011.2083.",
+  "link": "https://doi.org/10.1001/archneurol.2011.2083",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -7848,6 +9370,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Sims2009",
+  "text": "Sims K, Politei J, Banikazemi M, Lee P. Stroke in Fabry disease frequently occurs before diagnosis and in the absence of other clinical events: natural history data from the Fabry Registry. Stroke. 2009;40(3):788-94. PMID 19150871; doi:10.1161/STROKEAHA.108.526293.",
+  "link": "https://doi.org/10.1161/strokeaha.108.526293",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Siniscalchi2018",
   "text": "Siniscalchi A, Lochner P, Perrotta P, Rizzuto S, De Sarro G, Gallelli L. Isolated Hand Palsy in National Institutes of Health Stroke Scale (NIHSS): Is It Useful? West J Emerg Med. 2018;19(3):524-526. PMID 29760851; PMCID PMC5942020; doi:10.5811/westjem.2018.2.37654.",
   "link": "https://doi.org/10.5811/westjem.2018.2.37654",
@@ -7892,6 +9424,7 @@
   "text": "Søndergaard L, Kasner SE, Rhodes JF, Andersen G, Iversen HK, Nielsen-Kudsk JE, et al. Patent Foramen Ovale Closure or Antiplatelet Therapy for Cryptogenic Stroke. N Engl J Med. 2017;377(11):1033-1042. PMID 28902580; doi:10.1056/NEJMoa1707404.",
   "link": "https://doi.org/10.1056/nejmoa1707404",
   "areas": [
+   "B",
    "G"
   ],
   "unverified": false,
@@ -7912,6 +9445,7 @@
   "text": "Sposato LA, Cipriano LE, Saposnik G, Ruíz Vargas E, Riccio PM, Hachinski V. Diagnosis of atrial fibrillation after stroke and transient ischaemic attack: a systematic review and meta-analysis. Lancet Neurol. 2015;14(4):377-87. PMID 25748102; doi:10.1016/S1474-4422(15)70027-X.",
   "link": "https://doi.org/10.1016/s1474-4422(15)70027-x",
   "areas": [
+   "B",
    "F"
   ],
   "unverified": false,
@@ -7944,6 +9478,16 @@
   "link": "https://doi.org/10.1161/strokeaha.111.618611",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Stebner2025",
+  "text": "Stebner A, Bosshart SL, Fujiwara S, Souza R, Bento M, Ospel J. A visual journey through medium vessel occlusion strokes: From diagnosis to treatment. Interv Neuroradiol. 2025;31(2):262-273. PMID 40012538; PMCID PMC11866341; doi:10.1177/15910199251323117.",
+  "link": "https://doi.org/10.1177/15910199251323117",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -8073,6 +9617,7 @@
   "text": "Svendsen JH, Diederichsen SZ, Højberg S, Krieger DW, Graff C, Kronborg C, et al. Implantable loop recorder detection of atrial fibrillation to prevent stroke (The LOOP Study): a randomised controlled trial. Lancet. 2021;398(10310):1507-1516. PMID 34469766; doi:10.1016/S0140-6736(21)01698-6.",
   "link": "https://doi.org/10.1016/s0140-6736(21)01698-6",
   "areas": [
+   "B",
    "G",
    "I"
   ],
@@ -8211,6 +9756,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Tatu1996",
+  "text": "Tatu L, Moulin T, Bogousslavsky J, Duvernoy H. Arterial territories of human brain: brainstem and cerebellum. Neurology. 1996;47(5):1125-35. PMID 8909417; doi:10.1212/wnl.47.5.1125.",
+  "link": "https://doi.org/10.1212/wnl.47.5.1125",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Tatu1998",
+  "text": "Tatu L, Moulin T, Bogousslavsky J, Duvernoy H. Arterial territories of the human brain: cerebral hemispheres. Neurology. 1998;50(6):1699-708. PMID 9633714; doi:10.1212/wnl.50.6.1699.",
+  "link": "https://doi.org/10.1212/wnl.50.6.1699",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Teasdale1988",
   "text": "World Federation of Neurological Surgeons Committee (no authors on the PubMed record). Report of World Federation of Neurological Surgeons Committee on a Universal Subarachnoid Hemorrhage Grading Scale. J Neurosurg. 1988;68(6):985-6. PMID 3131498; doi:10.3171/jns.1988.68.6.0985.",
   "link": "https://doi.org/10.3171/jns.1988.68.6.0985",
@@ -8256,6 +9821,16 @@
   "link": "https://doi.org/10.1093/eurheartj/ehae198",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "TerSchiphorst2021",
+  "text": "Ter Schiphorst A, Charron S, Hassen WB, Provost C, Naggara O, Benzakoun J, et al. Tissue no-reflow despite full recanalization following thrombectomy for anterior circulation stroke with proximal occlusion: A clinical study. J Cereb Blood Flow Metab. 2021;41(2):253-266. PMID 32960688; PMCID PMC8370008; doi:10.1177/0271678X20954929.",
+  "link": "https://doi.org/10.1177/0271678x20954929",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -8355,6 +9930,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Traenka2017",
+  "text": "Traenka C, Dougoud D, Simonetti BG, Metso TM, Debette S, Pezzini A, et al. Cervical artery dissection in patients ≥60 years: Often painless, few mechanical triggers. Neurology. 2017;88(14):1313-1320. PMID 28258079; doi:10.1212/WNL.0000000000003788.",
+  "link": "https://doi.org/10.1212/wnl.0000000000003788",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "TraplGrundschober2025",
   "text": "Trapl-Grundschober M, Struhal W, Teuschl Y, Schulz S, Sollereder S, Osterbrink J. Medication Administration in Poststroke Dysphagia: Evaluating Swallowing Safety of Solid Dosage Forms. Stroke. 2025;56(9):2494-2502. PMID 40665903; PMCID PMC12372755; doi:10.1161/STROKEAHA.125.051237.",
   "link": "https://doi.org/10.1161/strokeaha.125.051237",
@@ -8370,6 +9955,16 @@
   "link": "https://doi.org/10.1007/s12028-023-01713-5",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Tsai2013",
+  "text": "Tsai CF, Thomas B, Sudlow CL. Epidemiology of stroke and its subtypes in Chinese vs white populations: a systematic review. Neurology. 2013;81(3):264-72. PMID 23858408; PMCID PMC3770160; doi:10.1212/WNL.0b013e31829bfde3.",
+  "link": "https://doi.org/10.1212/wnl.0b013e31829bfde3",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -8456,6 +10051,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Vagal2018",
+  "text": "Vagal A, Aviv R, Sucharew H, Reddy M, Hou Q, Michel P, et al. Collateral Clock Is More Important Than Time Clock for Tissue Fate. Stroke. 2018;49(9):2102-2107. PMID 30354992; PMCID PMC6206882; doi:10.1161/STROKEAHA.118.021484.",
+  "link": "https://doi.org/10.1161/strokeaha.118.021484",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Vahedi2007",
   "text": "Vahedi K, Hofmeijer J, Juettler E, Vicaut E, George B, Algra A, et al. Early decompressive surgery in malignant infarction of the middle cerebral artery: a pooled analysis of three randomised controlled trials. Lancet Neurol. 2007;6(3):215-22. PMID 17303527; doi:10.1016/S1474-4422(07)70036-4.",
   "link": "https://doi.org/10.1016/s1474-4422(07)70036-4",
@@ -8527,6 +10132,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "vanSeeters2015",
+  "text": "van Seeters T, Hendrikse J, Biessels GJ, Velthuis BK, Mali WP, Kappelle LJ, et al. Completeness of the circle of Willis and risk of ischemic stroke in patients without cerebrovascular disease. Neuroradiology. 2015;57(12):1247-51. PMID 26358136; PMCID PMC4648962; doi:10.1007/s00234-015-1589-2.",
+  "link": "https://doi.org/10.1007/s00234-015-1589-2",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "vanSwieten1988",
   "text": "van Swieten JC, Koudstaal PJ, Visser MC, Schouten HJ, van Gijn J. Interobserver agreement for the assessment of handicap in stroke patients. Stroke. 1988;19(5):604-7. PMID 3363593; doi:10.1161/01.str.19.5.604.",
   "link": "https://doi.org/10.1161/01.str.19.5.604",
@@ -8553,6 +10168,16 @@
   "link": "https://doi.org/10.1016/s0140-6736(25)00333-2",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Venkataraman2024",
+  "text": "Venkataraman P, Tadi P, Lui F, Lui F. Lacunar Syndromes (Archived). StatPearls. StatPearls Publishing; 2024. PMID 30480945.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/30480945/",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -8662,6 +10287,7 @@
   "text": "Wang Y, Wang Y, Zhao X, Liu L, Wang D, Wang C, et al. Clopidogrel with aspirin in acute minor stroke or transient ischemic attack. N Engl J Med. 2013;369(1):11-9. PMID 23803136; doi:10.1056/NEJMoa1215340.",
   "link": "https://doi.org/10.1056/nejmoa1215340",
   "areas": [
+   "B",
    "G"
   ],
   "unverified": false,
@@ -8808,6 +10434,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Wardlaw2013",
+  "text": "Wardlaw JM, Smith C, Dichgans M. Mechanisms of sporadic cerebral small vessel disease: insights from neuroimaging. Lancet Neurol. 2013;12(5):483-97. PMID 23602162; PMCID PMC3836247; doi:10.1016/S1474-4422(13)70060-7.",
+  "link": "https://doi.org/10.1016/s1474-4422(13)70060-7",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Wardlaw2014",
   "text": "Wardlaw JM, Murray V, Berge E, del Zoppo GJ. Thrombolysis for acute ischaemic stroke. Cochrane Database Syst Rev. 2014(7):CD000213. PMID 25072528; PMCID PMC4153726; doi:10.1002/14651858.cd000213.pub3.",
   "link": "https://doi.org/10.1002/14651858.cd000213.pub3",
@@ -8816,6 +10452,36 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Wardlaw2015",
+  "text": "Wardlaw JM, Brazzelli M, Chappell FM, Miranda H, Shuler K, Sandercock PA, et al. ABCD2 score and secondary stroke prevention: meta-analysis and effect per 1,000 patients triaged. Neurology. 2015;85(4):373-80. PMID 26136519; PMCID PMC4520819; doi:10.1212/WNL.0000000000001780.",
+  "link": "https://doi.org/10.1212/wnl.0000000000001780",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Wardlaw2019",
+  "text": "Wardlaw JM, Smith C, Dichgans M. Small vessel disease: mechanisms and clinical implications. Lancet Neurol. 2019;18(7):684-696. PMID 31097385; doi:10.1016/S1474-4422(19)30079-1.",
+  "link": "https://doi.org/10.1016/s1474-4422(19)30079-1",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Ware2016",
+  "text": "Ware RE, Davis BR, Schultz WH, Brown RC, Aygun B, Sarnaik S, et al. Hydroxycarbamide versus chronic transfusion for maintenance of transcranial doppler flow velocities in children with sickle cell anaemia-TCD With Transfusions Changing to Hydroxyurea (TWiTCH): a multicentre, open-label, phase 3, non-inferiority trial. Lancet. 2016;387(10019):661-670. PMID 26670617; PMCID PMC5724392; doi:10.1016/S0140-6736(15)01041-7.",
+  "link": "https://doi.org/10.1016/s0140-6736(15)01041-7",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Wazni2025",
@@ -8863,6 +10529,26 @@
   "link": "https://doi.org/10.3389/fnbeh.2021.633616",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Wheeler2013",
+  "text": "Wheeler HM, Mlynash M, Inoue M, Tipirneni A, Liggins J, Zaharchuk G, et al. Early diffusion-weighted imaging and perfusion-weighted imaging lesion volumes forecast final infarct size in DEFUSE 2. Stroke. 2013;44(3):681-5. PMID 23390119; PMCID PMC3625664; doi:10.1161/STROKEAHA.111.000135.",
+  "link": "https://doi.org/10.1161/strokeaha.111.000135",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "White2005",
+  "text": "White H, Boden-Albala B, Wang C, Elkind MS, Rundek T, Wright CB, et al. Ischemic stroke subtype incidence among whites, blacks, and Hispanics: the Northern Manhattan Study. Circulation. 2005;111(10):1327-31. PMID 15769776; doi:10.1161/01.CIR.0000157736.19739.D0.",
+  "link": "https://doi.org/10.1161/01.cir.0000157736.19739.d0",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -9009,6 +10695,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Wolf1991",
+  "text": "Wolf PA, Abbott RD, Kannel WB. Atrial fibrillation as an independent risk factor for stroke: the Framingham Study. Stroke. 1991;22(8):983-8. PMID 1866765; doi:10.1161/01.str.22.8.983.",
+  "link": "https://doi.org/10.1161/01.str.22.8.983",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Wolf2006",
   "text": "Wolf SL, Winstein CJ, Miller JP, Taub E, Uswatte G, Morris D, et al. Effect of constraint-induced movement therapy on upper extremity function 3 to 9 months after stroke: the EXCITE randomized clinical trial. JAMA. 2006;296(17):2095-2104. PMID 17077374; doi:10.1001/jama.296.17.2095.",
   "link": "https://doi.org/10.1001/jama.296.17.2095",
@@ -9059,6 +10755,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Woodruff2011",
+  "text": "Woodruff TM, Thundyil J, Tang SC, Sobey CG, Taylor SM, Arumugam TV. Pathophysiology, treatment, and animal and cellular models of human ischemic stroke. Mol Neurodegener. 2011;6(1):11. PMID 21266064; PMCID PMC3037909; doi:10.1186/1750-1326-6-11.",
+  "link": "https://doi.org/10.1186/1750-1326-6-11",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Wu2015",
   "text": "Wu S, Kutlubaev MA, Chun HY, Cowey E, Pollock A, Macleod MR, et al. Interventions for post-stroke fatigue. Cochrane Database Syst Rev. 2015(7):CD007030. PMID 26133313; PMCID PMC7387276; doi:10.1002/14651858.cd007030.pub3.",
   "link": "https://doi.org/10.1002/14651858.cd007030.pub3",
@@ -9094,6 +10800,16 @@
   "link": "https://doi.org/10.1161/strokeaha.121.035853",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Xing2017",
+  "text": "Xing CY, Tarumi T, Liu J, Zhang Y, Turner M, Riley J, et al. Distribution of cardiac output to the brain across the adult lifespan. J Cereb Blood Flow Metab. 2017;37(8):2848-2856. PMID 27789785; PMCID PMC5536794; doi:10.1177/0271678X16676826.",
+  "link": "https://doi.org/10.1177/0271678x16676826",
+  "areas": [
+   "B"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -9140,6 +10856,26 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Yaghi2017Cryptogenic",
+  "text": "Yaghi S, Bernstein RA, Passman R, Okin PM, Furie KL. Cryptogenic Stroke: Research and Practice. Circ Res. 2017;120(3):527-540. PMID 28154102; doi:10.1161/CIRCRESAHA.116.308447.",
+  "link": "https://doi.org/10.1161/circresaha.116.308447",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Yamamoto1999",
+  "text": "Yamamoto Y, Georgiadis AL, Chang HM, Caplan LR. Posterior cerebral artery territory infarcts in the New England Medical Center Posterior Circulation Registry. Arch Neurol. 1999;56(7):824-32. PMID 10404984; doi:10.1001/archneur.56.7.824.",
+  "link": "https://doi.org/10.1001/archneur.56.7.824",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Yan2025",
   "text": "Yan S, Zhou Y, Lansberg MG, Liebeskind DS, Yuan C, Yu H, et al. Alteplase for Posterior Circulation Ischemic Stroke at 4.5 to 24 Hours. N Engl J Med. 2025;392(13):1288-1296. PMID 40174223; doi:10.1056/nejmoa2413344.",
   "link": "https://doi.org/10.1056/nejmoa2413344",
@@ -9148,6 +10884,26 @@
   ],
   "unverified": false,
   "validated": "Europe PMC"
+ },
+ {
+  "key": "Yang2011",
+  "text": "Yang Y, Rosenberg GA. Blood-brain barrier breakdown in acute and chronic cerebrovascular disease. Stroke. 2011;42(11):3323-8. PMID 21940972; PMCID PMC3584169; doi:10.1161/STROKEAHA.110.608257.",
+  "link": "https://doi.org/10.1161/strokeaha.110.608257",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Yang2016",
+  "text": "Yang Y, Wang A, Zhao X, Wang C, Liu L, Zheng H, et al. The Oxfordshire Community Stroke Project classification system predicts clinical outcomes following intravenous thrombolysis: a prospective cohort study. Ther Clin Risk Manag. 2016;12:1049-56. PMID 27418829; PMCID PMC4935162; doi:10.2147/TCRM.S107053.",
+  "link": "https://doi.org/10.2147/tcrm.s107053",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Yang2020",
