@@ -142,7 +142,7 @@ inits.bleeds=()=>{
     if(sah>.5){const bx=L.b[0]+L.b[2]*120,by=L.b[1]+L.b[2]*300;s+=`<text x="${f1(bx)}" y="${f1(by+14)}" class="t-sm t-mid">blood in fissures and sulci</text>`}
     /* thunderclap chart */
     const [cx,cy,cw,ch]=L.c,up=ramp(t,.2,.45),X=v=>cx+cw*v,Y=v=>cy+ch-ch*v;
-    s+=`<text x="${cx}" y="22" class="t-lbl">Headache over the first hour</text><rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" style="fill:var(--field)"/><line x1="${cx}" x2="${cx+cw}" y1="${cy+ch}" y2="${cy+ch}" class="axis"/><line x1="${cx}" x2="${cx}" y1="${cy}" y2="${cy+ch}" class="axis"/>`;
+    s+=`<text x="${cx}" y="${N?cy-8:22}" class="t-lbl">Headache over the first hour</text><rect x="${cx}" y="${cy}" width="${cw}" height="${ch}" style="fill:var(--field)"/><line x1="${cx}" x2="${cx+cw}" y1="${cy+ch}" y2="${cy+ch}" class="axis"/><line x1="${cx}" x2="${cx}" y1="${cy}" y2="${cy+ch}" class="axis"/>`;
     const fT=v=>.92*(1-Math.exp(-v*90)),fO=v=>.6*Math.pow(v,.9);
     const pth=f=>{let d='';const M=60;for(let i=0;i<=M;i++){const u=up*i/M;d+=(i?'L':'M')+f1(X(u))+' '+f1(Y(f(u)))}return d};
     if(up>0){s+=`<path d="${pth(fO)}" style="fill:none;stroke:var(--muted);stroke-width:2;stroke-dasharray:6 4"/><path d="${pth(fT)}" style="fill:none;stroke:var(--artery);stroke-width:3;stroke-linecap:round"/>`;

@@ -66,7 +66,7 @@ inits.carotid=()=>{
     R.forEach((r,i)=>{const y=8+i*(NN?46:rh);s+=`<text x="${x}" y="${y+10}" class="t-sm" style="fill:var(--ink)">${r[0]}: ${r[1].toFixed(1)}</text><rect x="${x}" y="${y+15}" width="${f1(r[1]*sc)}" height="16" rx="3" style="fill:${r[2]}"/>`});
     const rx=NN?12:540,ry=NN?174:44;
     s+=`<text x="${rx}" y="${ry}" class="t-big" style="font-size:22px">NASCET ${Math.round(nas)}%</text><text x="${rx}" y="${ry+34}" class="t-big" style="font-size:22px">ECST ${Math.round(ecs)}%</text>`;
-    s+=`<text x="${rx}" y="${ry+56}" class="t-xs">${n>d?'N is wider than D here: reads as 0%':'(1 - N/D) and (1 - N/E), x 100'}</text>`;
+    s+=`<text x="${rx}" y="${ry+56}" class="t-xs">${n>d?'N wider than D: reads as 0%':'(1 - N/D) and (1 - N/E), x 100'}</text>`;
     ms.innerHTML=s;
     const b=CRT_BANDS.find(k=>nas>=k.a&&nas<k.b)||CRT_BANDS[0];
     $('#caMeasOut').innerHTML=`<b>NASCET band: ${b.l}.</b> In the pooled symptomatic trials, this band had a 5-year absolute reduction of ${b.v.toFixed(1)} percentage points in ipsilateral ischaemic stroke with surgery [[Rothwell2003]]. Population figure, not a result for anyone. Near-occlusion cannot be detected from this sum and was analysed apart.`}
