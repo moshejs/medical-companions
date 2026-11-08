@@ -1,1 +1,220 @@
-<section class="mod" id="m-nursing" data-mod="nursing" hidden><div class="mhead"><h2>nursing (stub)</h2></div></section>
+<!-- ================= 5.3 NURSING CARE ================= -->
+<style>
+#m-nursing .btn{min-height:40px}
+#m-nursing .nrs-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-nursing .tbl table{min-width:620px}
+#m-nursing .nrs-dial{display:flex;flex-direction:column;gap:10px}
+#m-nursing .nrs-bub{max-width:86%;padding:10px 14px;border-radius:14px;display:flex;flex-direction:column;gap:2px;font-size:15.5px}
+#m-nursing .nrs-bub b{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-nursing .nrs-bub.a{background:var(--panel-2);align-self:flex-start}
+#m-nursing .nrs-bub.b{background:var(--brand-soft);align-self:flex-end}
+#m-nursing .nrs-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+#m-nursing .nrs-list label{display:flex;gap:12px;align-items:flex-start;padding:10px 8px;border-radius:10px;cursor:pointer;font-size:15px}
+#m-nursing .nrs-list label:hover{background:var(--panel-2)}
+#m-nursing .nrs-list input{width:22px;height:22px;flex:none;margin:1px 0 0;accent-color:var(--brand)}
+</style>
+<section class="mod" id="m-nursing" data-mod="nursing" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Recovery and care</p><h2>Nursing care</h2>
+    <p class="lede">Nurses run the first three days of stroke care. Walk through 72 hours block by block, follow the swallow screen, count the observations after thrombolysis, and tap around the body for what the evidence says about each bedside task.</p></div>
+
+  <div class="prose">
+    <p>Protocols here are quoted as published, as teaching material for students and families. None is a care plan. The AHA replaced its 2009 nursing statement [[Summers2009]] with three updates in 2021: prehospital and acute care [[Ashcraft2021]], endovascular and ICU postinterventional care [[Rodgers2021]], and posthyperacute care up to discharge [[Green2021]]. The last notes knowledge gaps in many areas and calls for continued nurse-led research [[Green2021]]. The 2026 AHA/ASA guideline replaces the 2018 guideline and its 2019 update [[Prabhakaran2026,Powers2019]]. Full texts of those statements could not be read for this page, so no class of recommendation and no AHA observation schedule is quoted.</p>
+  </div>
+
+  <h3 class="sub">The first 72 hours, block by block</h3>
+  <div class="prose"><p>Change the three switches to see how the plan shifts for one person. Eight-hour blocks are a teaching device, not a published rota: services divide the day their own way.</p></div>
+  <div class="nrs-row" role="group" aria-label="About this person">
+    <button class="btn" data-nrstg="lys" aria-pressed="true">Thrombolysis given</button>
+    <button class="btn" data-nrstg="imm" aria-pressed="true">Cannot walk alone</button>
+    <button class="btn" data-nrstg="fail" aria-pressed="false">Failed swallow screen</button>
+  </div>
+  <div class="stepper" id="nrsSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nrsSvg" viewBox="0 0 720 470" style="min-width:560px" role="img" aria-label="Nine 8-hour blocks across 72 hours, with lanes for the swallow screen, temperature, glucose, post-thrombolysis checks, GCS and NIHSS, legs, getting out of bed, and bladder, skin and falls. A cursor moves through the three days and ticks darken as they pass."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nrsPlay">%t:player.play%</button><label class="stage-cap tl" for="nrsT">Hours <input type="range" id="nrsT" min="0" max="1" step="0.002" value="0.055"></label></div>
+      <p class="stage-cap">Hour 0 is both admission and the start of thrombolysis, for the drawing. Temperature and glucose ticks are at least four a day, spaced evenly here [[Fasugba2023]]. Out-of-bed marks are schematic.</p>
+    </div>
+    <aside class="note" id="nrsNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="cards">
+    <div class="card"><span class="big-num">4 h</span><p>FeSS wording for a swallow screen or assessment, before anything by mouth [[Fasugba2023]]</p></div>
+    <div class="card"><span class="big-num">60%</span><p>had a screen or assessment before oral intake in a 2021 Australian audit [[Fasugba2023]]</p></div>
+    <div class="card"><span class="big-num">36</span><p>assessments in 24 h on the standard post-thrombolysis schedule (derived from the published intervals) [[Anderson2025F]]</p></div>
+    <div class="card"><span class="big-num">6.4</span><p>number needed to treat with nurse-initiated FeSS protocols, for death or dependency at 90 days [[Middleton2011]]</p></div>
+  </div>
+
+  <h3 class="sub">Swallow screen first</h3>
+  <div class="prose"><p>Choose a screen result, then follow the token. This flow summarises the FeSS wording. It is a teaching diagram, not a local protocol.</p></div>
+  <div class="nrs-row" role="group" aria-label="Screen result">
+    <button class="btn" data-nrsfl="pass" aria-pressed="true">Screen passed</button>
+    <button class="btn" data-nrsfl="fail" aria-pressed="false">Screen failed</button>
+  </div>
+  <div class="stepper" id="nrsFlSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nrsFlSvg" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="A flow diagram: admission, then nothing by mouth, then a swallow screen within 4 hours. A pass leads to oral intake. A fail leads to referral to a speech pathologist and other routes for medicines. Every path ends in charting the time and the result."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nrsFlPlay">%t:player.play%</button><label class="stage-cap tl" for="nrsFlT">Steps <input type="range" id="nrsFlT" min="0" max="1" step="0.002" value="0.26"></label></div>
+      <p class="stage-cap">Wording from Fasugba 2023 [[Fasugba2023]]; aspirin routes from Cochrane [[Minhas2022,Sandercock2014]].</p>
+    </div>
+    <aside class="note" id="nrsFlNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>What was measured</th><th>Result</th><th>Design</th></tr></thead>
+    <tbody>
+      <tr><th>Formal screening protocol, 2532 cases</th><td>Adherence 78% vs 57%; pneumonia 2.4% vs 5.4%, P=0.0016 [[Hinchey2005]]</td><td>Multicentre audit</td></tr>
+      <tr class="hl"><th>Nurses trained to screen 24/7</th><td>Median time to screen 20 h to 7 h; pneumonia 11.6% to 3.8%, P=0.004 [[Palli2017]]</td><td>Before and after</td></tr>
+      <tr><th>Longest delays, 63,650 people</th><td>Screening adjusted OR 1.14 (1.03 to 1.24); speech and language assessment adjusted OR 2.01 (1.76 to 2.30) for pneumonia [[Bray2017]]</td><td>National cohort</td></tr>
+      <tr><th>12 studies, 87,824 people</th><td>Formal and early screening and assessment associated with less pneumonia; heterogeneity precluded meta-analysis [[Eltringham2018]]</td><td>Systematic review</td></tr>
+      <tr><th>Screening is not a guarantee</th><td>30 of 216 people (13.9%) developed pneumonia while nil by mouth, in a unit using GUSS [[Teuschl2018]]</td><td>Single stroke unit</td></tr>
+      <tr><th>Swallowing therapy, 181 trials</th><td>Behavioural interventions may reduce chest infection or pneumonia (OR 0.45, 0.27 to 0.76; low certainty) [[Wilkinson2026]]</td><td>Cochrane 2026</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout"><b>Crushing tablets?</b> <span class="ev early">Early evidence</span> In a FEES study of 60 people with dysphagia, all fully swallowed whole tablets were safe, while 12.1% of crushed tablets were rated unsafe. That challenges routine crushing, but the whole tablets were given with endoscopic guidance, and 20 of 174 trials were not swallowed [[TraplGrundschober2025]].</p>
+
+  <h3 class="sub">Monitoring after thrombolysis</h3>
+  <div class="prose">
+    <p>The standard schedule below is as described by the OPTIMISTmain trial. The trial compared it with a low-intensity one in 4922 clinically stable people with NIHSS under 10 within 2 h of starting thrombolysis, at 114 hospitals in 8 countries [[Anderson2025F]]. The AHA wording could not be read, so it is not shown.</p>
+  </div>
+  <div class="nrs-row" role="group" aria-label="Time axis">
+    <button class="btn" data-nrsmo="24" aria-pressed="true">Whole 24 h</button>
+    <button class="btn" data-nrsmo="4" aria-pressed="false">First 4 h</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nrsMoSvg" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="Two rows of tick marks over 24 hours: the standard schedule of checks every 15 minutes for 2 hours, every 30 minutes for 6 hours and hourly until 24 hours, and the low-intensity schedule of every 15 minutes for 2 hours, every 2 hours for 8 hours and every 4 hours until 24 hours. A third row marks when tongue and lip swelling began, 5 to 189 minutes after alteplase started."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nrsMoPlay">%t:player.play%</button><label class="stage-cap tl" for="nrsMoT">Time <input type="range" id="nrsMoT" min="0" max="1" step="0.002" value="0.34"></label></div>
+      <div class="readout" id="nrsMoRead"></div>
+      <p class="stage-cap">Schedules from OPTIMISTmain [[Anderson2025F]]. Angio-oedema timing from a UK series of 530 people [[Hurford2015]].</p>
+    </div>
+    <aside class="note">
+      <div class="kicker">OPTIMISTmain, 2025</div>
+      <h4>Fewer checks: weakly non-inferior</h4>
+      <p>mRS 2 to 6 at 90 days was 31.7% with low-intensity vs 30.9% with standard (RR 1.03, 0.92 to 1.15; p for non-inferiority 0.057). Symptomatic haemorrhage 0.2% vs 0.4%. Serious adverse events 11.1% vs 11.3% [[Anderson2025F]].</p>
+      <p>The non-inferiority margin was an RR of 1.15, which the upper confidence limit reached. The authors call this "weak evidence" and say hospitals could consider the approach according to local circumstances [[Anderson2025F]]. <span class="ev early">Early evidence</span> It applies only to stable people with NIHSS under 10.</p>
+      <div class="hook"><b>Exam hook</b>ACE inhibitor use more than doubles the odds of angio-oedema with alteplase (OR 2.3) [[Hurford2015]].</div>
+    </aside>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>The label</h4>
+      <p>"During and following Activase administration for the treatment of acute ischemic stroke, frequently monitor and control blood pressure" [[FDA-Activase]].</p>
+      <p>The label reports angioedema "during and up to 2 hours after" infusion [[FDA-Activase]].</p></div>
+    <div class="card"><h4>A disagreement on the window</h4>
+      <p>The latest onset of 189 minutes starts the clock at the start of alteplase [[Hurford2015]], while the label counts up to 2 hours after infusion [[FDA-Activase]]. The authors say angio-oedema may be delayed and occurs more often than previously reported. The angio-oedema window is one reason for caution with fewer checks.</p></div>
+  </div>
+
+  <h3 class="sub">Observations: GCS, NIHSS and what change looks like</h3>
+  <div class="prose"><p>Early decline is common: progressing stroke occurred in 18.4% in the first week of one stroke unit [[Indredavik2008]]. Pick a situation and move the slider to watch the signs appear.</p></div>
+  <div class="nrs-row" role="group" aria-label="Situation">
+    <button class="btn" data-nrsfa="hemi" aria-pressed="true">Large hemispheric infarct</button>
+    <button class="btn" data-nrsfa="cereb" aria-pressed="false">Cerebellar infarct</button>
+    <button class="btn" data-nrsfa="lysis" aria-pressed="false">During thrombolysis</button>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nrsFaSvg" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A schematic face with an alertness track and three warning signs. As the slider moves, eyelids droop and pupils change size, or lips and tongue swell, depending on the situation chosen."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nrsFaPlay">%t:player.play%</button><label class="stage-cap tl" for="nrsFaT">Change <input type="range" id="nrsFaT" min="0" max="1" step="0.002" value="0.7"></label></div>
+    </div>
+    <aside class="note" id="nrsFaNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Glasgow Coma Scale</th><th>NIH Stroke Scale</th></tr></thead>
+    <tbody>
+      <tr><th>What it was built for</th><td>Practical bedside assessment of conscious level, in general and specialist units [[Teasdale2014]]</td><td>A 15-item examination for acute stroke trials, designed in 1989 [[Brott1989]]</td></tr>
+      <tr><th>How to record it</th><td>By its three components. Keep the total for characterising groups, and do not make predictions from it alone [[Teasdale2014]]</td><td>Items add to a maximum of 42 [[Budincevic2022]]. A higher number means a more severe stroke now, not a promise about the future [[Adams1999,Kasner2006]]</td></tr>
+      <tr><th>Who can score it</th><td>Designed for general as well as specialist units [[Teasdale2014]]</td><td>Test-retest kappa 0.66 to 0.77 did not differ among a neurologist, a resident, a neurology nurse and an emergency nurse [[Brott1989]]</td></tr>
+      <tr><th>Where it trips people up</th><td>Describing a person by the total alone, which its authors advise against [[Teasdale2014]]</td><td>Facial palsy and ataxia had poor agreement, kappa below 0.40 [[Lyden1994]]</td></tr>
+      <tr><th>Use over time</th><td>Compare component with component, from the last check</td><td>Useful for early prognosis and serial assessment [[Kasner2006]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="nrs-row"><button class="btn" data-go="nihss">Open the NIHSS module</button></div>
+
+  <h3 class="sub">Around the bed: position, bladder, skin, falls</h3>
+  <div class="prose"><p>Choose a number on the figure or a button below. Each panel shows published figures. The wash on the person's left side marks one-sided weakness, as an example only.</p></div>
+  <div class="nrs-row" id="nrsBoBtns" role="group" aria-label="Bedside topic"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nrsBoSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A body outline with eight numbered points for head position, mouth care, shoulder, bladder, bowel, skin, legs and falls. Choosing one shows bars of published figures for that topic."></svg></div>
+    </div>
+    <aside class="note" id="nrsBoNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>Mobility</h4><p>The AVERT protocol had low-arousal dependent people do active sitting with assistance, 10 to 30 minutes a session. Passive sitting in a chair did not count [[Bernhardt2016]]. Module 3.5 shows the trial.</p></div>
+    <div class="card"><h4>Continence and outcome</h4><p>People with initial incontinence had higher 2-year case fatality (67% vs 20%) and institutional care (39% vs 16%) [[Patel2001]]. In Copenhagen, urinary incontinence went from 36% fully and 11% partly on admission to 8% and 11% at 6 months [[Nakayama1997]]. Catheter infection was commoner with stroke than without (6.0% vs 1.7%) [[Retelski2017]].</p></div>
+  </div>
+
+  <h3 class="sub">Talking with a person who has aphasia</h3>
+  <div class="prose">
+    <p>Aphasia was found in a median 30% of mixed acute stroke, and 62% of acute ischaemic stroke arriving within 3 h [[Flowers2016]]. It carried greater odds of in-hospital death (OR 2.7, 2.4 to 3.1) and a longer stay [[Flowers2016]]. In general acute care, people with communication problems were three times more likely to have a preventable adverse event (OR 3.00, 1.43 to 6.27) [[Bartlett2008]].</p>
+    <p>Supported Conversation training rests on revealing the competence of the person through a skilled partner. Trained volunteers scored higher than untrained on acknowledging and revealing competence [[Kagan2001]]. All 25 studies in a 2016 review reported positive changes from partner training, mostly in chronic aphasia, with more research needed in acute settings [[SimmonsMackie2016]]. The 2026 AHA/ASA rehabilitation guideline lists supported communication training (Class 1, B-NR), and the 2026 guideline supersedes earlier rehabilitation guidance [[Richards2026]].</p>
+  </div>
+  <div class="nrs-row" role="group" aria-label="Conversation example">
+    <button class="btn" data-nrsdi="off" aria-pressed="false">Without support</button>
+    <button class="btn" data-nrsdi="on" aria-pressed="true">With support</button>
+  </div>
+  <div class="split2">
+    <div class="stage">
+      <div class="nrs-dial" id="nrsDial" aria-live="polite"></div>
+      <p class="stage-cap">An invented example, written for this guide.</p>
+    </div>
+    <div class="card"><h4>Practical tips</h4>
+      <ul>
+        <li><b>Say you know they know.</b> Speak to an adult, not a patient to be managed.</li>
+        <li><b>One idea at a time.</b> Short sentences. One question, then wait.</li>
+        <li><b>Give time.</b> Silence is not a no.</li>
+        <li><b>Offer other ways to answer.</b> A pen, written key words, pictures, pointing, nods.</li>
+        <li><b>Check you got it.</b> Say it back and ask if it is right.</li>
+        <li><b>Talk to the person first,</b> not over them to family.</li>
+        <li><b>Note what works</b> in the record, so the next nurse can use it.</li>
+      </ul>
+      <p class="stage-cap">Generated for this guide from the acknowledge-and-reveal principle of Supported Conversation [[Kagan2001]]. Not quoted from a training manual, which was not read.</p></div>
+  </div>
+  <div class="pt"><b>In plain words</b>If you have trouble speaking, it does not mean you cannot think. Staff and family can learn ways to help you get your message across [[Kagan2001]].</div>
+
+  <h3 class="sub">Mood screening</h3>
+  <div class="prose"><p>Depression affected 31% (28 to 35) pooled across 61 studies, 25% between one and five years, and 23% at five years [[Hackett2014]]. Another synthesis found 29%, stable up to 10 years [[Ayerbe2013]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Tool</th><th>Sensitivity</th><th>Specificity</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><th>PHQ-9</th><td>0.86</td><td>0.79</td><td rowspan="3">None was satisfactory for case-finding alone, and PHQ-2 performed less well [[Meader2014]]</td></tr>
+      <tr><th>CES-D</th><td>0.75</td><td>0.88</td></tr>
+      <tr><th>HDRS</th><td>0.84</td><td>0.83</td></tr>
+      <tr><th>Stroke Aphasic Depression Questionnaire, Hospital version</th><td colspan="2">Only tool meeting all psychometric and utility criteria</td><td>Two tools use visual prompts for people with communication problems [[Burton2015]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="pt"><b>In plain words</b>Feeling low is common after a stroke: about 3 in 10 people. Tell someone, because it can be treated [[Hackett2014,Towfighi2017]].</div>
+
+  <h3 class="sub">Teaching checklist</h3>
+  <div class="prose"><p>A study aid built from the evidence above, for students rehearsing discharge teaching and for families. Your ticks stay in this browser only.</p></div>
+  <div class="stage">
+    <ul class="nrs-list" id="nrsTeach"></ul>
+    <div class="readout"><b id="nrsTeachRead" aria-live="polite"></b></div>
+  </div>
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>FAST stands for Face, Arm, Speech, Time. It catches most strokes but not all, and sudden symptoms still need urgent help. Call your local emergency number [[Kleindorfer2007]].</div>
+    <div class="hook"><b>Exam hook</b>FAST misses about 30.6% of haemorrhages [[Kleindorfer2007]]. Paramedics using it correctly diagnosed stroke in 144 of 183 (79%) people [[Harbison2003]].</div>
+  </div>
+
+  <h3 class="sub">Documentation: what to write down, and why</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Item</th><th>What to record</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><th>Swallow</th><td>Time of screen and result, before any oral intake or medicines</td><td>Delay carries pneumonia risk [[Bray2017,Fasugba2023]]. Mild stroke is the group most often missed [[Joundi2017]]</td></tr>
+      <tr><th>Fever and glucose</th><td>Readings at the FeSS frequency, with time to treatment</td><td>Adherence is the measure quality programmes moved [[Fasugba2023,CassierWoidasky2024]]</td></tr>
+      <tr><th>Catheter</th><td>Indication and review</td><td>Documentation was often lacking [[Cowey2012]], and appropriateness programmes reduced infection [[IkedaSakai2022]]</td></tr>
+      <tr><th>Conscious level</th><td>GCS components, not the total alone</td><td>The scale's authors advise it [[Teasdale2014]]</td></tr>
+      <tr><th>After thrombolysis</th><td>Observation times, ACE inhibitor status, any tongue or lip swelling</td><td>[[Anderson2025F,Hurford2015]]</td></tr>
+      <tr><th>Falls</th><td>Any fall in hospital or rehabilitation</td><td>They predict later falls [[Forster1995,Mackintosh2006]]</td></tr>
+      <tr><th>Mood and communication</th><td>The tool used</td><td>Standard self-report tools may not suit people with aphasia [[Burton2015]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Going home</h3>
+  <div class="cards">
+    <div class="card"><h4>COMPASS: a negative trial</h4><p>A pragmatic trial at 40 US hospitals with 6024 adults. Stroke Impact Scale-16 at 90 days was 80.6 vs 79.9, not significantly different [[Duncan2020]]. But 58% of hospitals delivered it without interruption, and 35% of patients attended a clinic visit. Whether the model or the delivery failed is unresolved [[Duncan2020]].</p></div>
+    <div class="card"><h4>Early supported discharge</h4><p>14 trials, 1957 people: stay about seven days shorter, and death or dependency OR 0.80 (0.67 to 0.97). Benefits were no longer significant at five years [[Fearon2012]].</p></div>
+    <div class="card"><h4>Carers</h4><p>18 studies of caregiver and dyad interventions: 11 with significant caregiver outcomes, most often burden, and 6 with significant survivor outcomes. Too limited for firm conclusions [[Bakas2022]]. Carers of people who fell repeatedly were more stressed (53% vs 18%) [[Forster1995]].</p></div>
+    <div class="card"><h4>Readmission</h4><p>A 2010 review found no risk-standardised model of readmission after stroke, and few characteristics consistently associated with it [[Lichtman2010]].</p></div>
+  </div>
+</section>
