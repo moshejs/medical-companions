@@ -1,0 +1,115 @@
+<!-- ================= 4.2 AF AND ANTITHROMBOTICS ================= -->
+<style>
+#m-af .tbl table{min-width:640px}
+#m-af .btn{min-height:40px}
+#m-af .afrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#m-af .aflab{font:600 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);width:100%}
+#m-af .card>.ev{align-self:flex-start}
+#m-af .afnote{font-size:15px;line-height:1.5;max-width:76ch}
+#m-af .afnum{font-family:var(--display);font-weight:700;font-size:30px;line-height:1.05}
+</style>
+<section class="mod" id="m-af" data-mod="af" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Preventing another stroke</p><h2>AF and antithrombotics</h2>
+    <p class="lede">Follow a clot from a quivering atrium to a brain artery. Then see how CHA2DS2-VASc scores risk, what warfarin and DOACs did in trials, when DOACs were started after a stroke, how the dual antiplatelet window works, and what the appendage closure trials found.</p></div>
+
+  <div class="stepper" id="afSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="afSvg" viewBox="0 0 720 468" style="min-width:560px" role="img" aria-label="A heart below a brain: the atria begin to quiver, a clot forms in the left atrial appendage, a fragment leaves through the aorta, travels up a neck artery and blocks a middle cerebral artery."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="afPlay">Play</button><label class="stage-cap tl" for="afT">Timeline <input type="range" id="afT" min="0" max="1" step="0.002" value="0.07"></label></div>
+      <p class="stage-cap">Schematic, not to scale. Heart and brain are drawn together to show the route.</p></div>
+    <aside class="note" id="afNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">CHA2DS2-VASc: how the scale scores</h3>
+  <div class="prose"><p><b>A teaching tool, never for an individual's diagnosis, prognosis or treatment.</b> Choose inputs to see how the published scale adds points, 0 to 9 [[Olesen2011]]. It was refined from the 2006 Birmingham/NICE schema and tested in 1084 Euro Heart Survey patients. Its C-statistic was modest (0.606) [[Lip2010]].</p></div>
+  <div id="afCalcBox" class="split2" style="align-items:start">
+    <div class="stage">
+      <div class="afrow" id="afItems" role="group" aria-label="Score items"></div>
+      <div class="afrow" role="group" aria-label="Age"><span class="aflab">Age</span><button class="btn" data-afa="u" aria-pressed="false">Under 65 +0</button><button class="btn" data-afa="65" aria-pressed="true">65 to 74 +1</button><button class="btn" data-afa="75" aria-pressed="false">75 or over +2</button></div>
+      <div class="afrow" role="group" aria-label="Sex"><span class="aflab">Sex</span><button class="btn" data-afs="m" aria-pressed="true">Male +0</button><button class="btn" data-afs="f" aria-pressed="false">Female +1</button></div>
+      <div class="afrow" role="group" aria-label="Which score"><span class="aflab">Score</span><button class="btn" data-afm="vasc" aria-pressed="true">CHA2DS2-VASc</button><button class="btn" data-afm="va" aria-pressed="false">CHA2DS2-VA (ESC 2024)</button></div>
+    </div>
+    <aside class="note" id="afCalcOut" aria-live="polite"></aside>
+  </div>
+  <div class="stage"><div class="scroll"><svg id="afCalc" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="Bar chart of one-year thromboembolism rate at each CHA2DS2-VASc score from 0 to 9, rising from 0.78 to 23.64 per 100 person-years, with the chosen score lit."></svg></div>
+    <p class="stage-cap">Population figures from one cohort [[Olesen2011]]. They are not a prediction for anyone.</p></div>
+  <div class="split2">
+    <div class="callout"><p><b>Rates vary between cohorts.</b> Olesen records 0.78 per 100 person-years at score 0 where Lip recorded no events, and its 1-year rates exceed its own 10-year rates at every score (9.27 vs 6.46 at score 4) [[Olesen2011,Lip2010]]. In 182 678 Swedish people with AF, C-statistics were 0.67 for CHA2DS2-VASc and 0.66 for CHADS2 [[Friberg2012]].</p></div>
+    <div class="callout"><p><b>Why drop the sex point?</b> In 229 565 Finns with new AF, female sex was linked to a 20% to 30% higher ischaemic stroke rate in 2007 to 2008, but this attenuated to non-significance by 2018 [[Teppo2024]]. In the Swedish cohort female sex was an independent predictor (HR 1.17) [[Friberg2012]].</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>CHA2DS2-VASc has two 2-point items: age 75 or over and previous thromboembolism [[Olesen2011]]. HAS-BLED, developed from Euro Heart Survey data, had a C-statistic of 0.72 for major bleeding [[Pisters2010]]. The 2023 ACC/AHA/ACCP/HRS guideline added new recommendations on risk assessment, anticoagulation and appendage occlusion [[Joglar2024]].</div>
+
+  <h3 class="sub">Warfarin and antiplatelets</h3>
+  <div class="prose"><p>A relative reduction read another way: for every 100 strokes without treatment, how many remain? This is arithmetic on the published percentage, drawn for teaching.</p></div>
+  <div class="ctrls" role="group" aria-label="Choose a treatment"><button class="btn" data-afw="w" aria-pressed="true">Warfarin</button><button class="btn" data-afw="a" aria-pressed="false">Antiplatelets</button></div>
+  <div class="stage"><div class="scroll"><svg id="afWar" viewBox="0 0 720 244" style="min-width:560px" role="img" aria-label="Two blocks of 100 dots: 100 strokes without treatment, and the strokes that remain with the chosen treatment."></svg></div>
+    <p class="afnote" id="afWarNote" aria-live="polite"></p></div>
+
+  <h3 class="sub">DOACs against warfarin</h3>
+  <div class="stage"><div class="scroll"><svg id="afFor" viewBox="0 0 720 182" style="min-width:560px" role="img" aria-label="Forest plot of DOACs against warfarin: fewer strokes, about half the intracranial bleeding, lower mortality and more gastrointestinal bleeding."></svg></div>
+    <p class="afnote" id="afForNote" aria-live="polite"></p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Comparison</th><th>Stroke or embolism, per year</th><th>Bleeding and other findings, per year</th></tr></thead>
+    <tbody>
+      <tr><th>RE-LY [[Connolly2009]]</th><td>Warfarin vs dabigatran 110 mg vs 150 mg</td><td>1.69% vs 1.53% vs 1.11%</td><td>Major bleeding 3.36% vs 2.71% vs 3.11%; haemorrhagic stroke 0.38% vs 0.12% vs 0.10%</td></tr>
+      <tr><th>ARISTOTLE [[Granger2011]]</th><td>Apixaban vs warfarin</td><td>1.27% vs 1.60% (HR 0.79)</td><td>Major bleeding 2.13% vs 3.09% (HR 0.69); death 3.52% vs 3.94% (HR 0.89)</td></tr>
+      <tr><th>ROCKET AF [[Patel2011]]</th><td>Rivaroxaban vs warfarin</td><td>1.7% vs 2.2% (HR 0.79, noninferior); intention-to-treat HR 0.88 (P=0.12 for superiority)</td><td>Intracranial haemorrhage 0.5% vs 0.7%</td></tr>
+      <tr><th>ENGAGE AF [[Giugliano2013]]</th><td>High-dose edoxaban vs warfarin</td><td>1.18% vs 1.50% (HR 0.79)</td><td>Major bleeding 2.75% vs 3.43% (HR 0.80)</td></tr>
+      <tr><th>AVERROES [[Connolly2011]]</th><td>Apixaban vs aspirin, unsuitable for warfarin</td><td>1.6% vs 3.7% (HR 0.45, 0.32 to 0.62)</td><td>Major bleeding 1.4% vs 1.2% (HR 1.13, not significant)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="hook"><b>Exam hook</b>Warfarin 64%, antiplatelets 22% stroke reduction in AF [[Hart2007]]. DOACs halve intracranial haemorrhage vs warfarin [[Ruff2014]].</div>
+
+  <h3 class="sub">When to start a DOAC after a stroke</h3>
+  <div class="prose"><p>Four randomised trials and a pooled analysis have tested how soon a DOAC can start. Move the cursor through the first two weeks to see each trial's arms.</p></div>
+  <div class="stage"><div class="scroll"><svg id="afTime" viewBox="0 0 720 290" style="min-width:560px" role="img" aria-label="Timeline of days 0 to 14 after a stroke, with an earlier and a later anticoagulant start window for ELAN, TIMING, OPTIMAS and the pooled CATALYST analysis, and each trial's composite result."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="afTimePlay">Play</button><label class="stage-cap tl" for="afTimeT">Day <input type="range" id="afTimeT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="stage-cap">ELAN's early start was within 48 hours for minor or moderate stroke and day 6 or 7 for major. Windows drawn from the published definitions; composites differ between trials.</p></div>
+  <div class="cards">
+    <div class="card"><h4>ELAN</h4><p>2013 people. Composite at 30 days 2.9% vs 4.1% (risk difference -1.18 points, -2.84 to 0.47). Symptomatic intracranial haemorrhage 0.2% in both [[Fischer2023]].</p></div>
+    <div class="card"><h4>TIMING</h4><p>888 people, registry-randomised in Sweden. Composite at 90 days 6.89% vs 8.68% (P=0.004 for noninferiority). No symptomatic intracerebral haemorrhage in either group [[Oldgren2022]].</p></div>
+    <div class="card"><h4>OPTIMAS</h4><p>3621 people in the UK. Composite at 90 days 3.3% in each group (noninferior, p=0.0003). Symptomatic intracranial haemorrhage 0.6% vs 0.7% [[Werring2024]].</p></div>
+    <div class="card"><h4>START</h4><p>200 people, response-adaptive design. No clearly superior day was identified, but the evidence favoured earlier starts in the first 2 weeks [[Warach2025]].</p></div>
+    <div class="card"><h4>CATALYST: the pooled answer</h4><p>TIMING, ELAN, OPTIMAS and START, 5441 people. Within 4 days vs day 5 or later: 30-day composite 2.1% vs 3.0% (OR 0.70, 0.50 to 0.98), recurrent ischaemic stroke 1.7% vs 2.6% (OR 0.66, 0.45 to 0.96), symptomatic intracerebral haemorrhage 0.4% in each (OR 1.02, 0.43 to 2.46) [[Dehbi2025]].</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>Early DOAC (within 4 days) is safe and reduces recurrent ischaemic stroke in pooled data [[Dehbi2025]].</div>
+
+  <h3 class="sub">The dual antiplatelet window</h3>
+  <div class="prose"><p>These trials enrolled people after a minor stroke or high-risk TIA. Aspirin itself acts early: pooling 12 trials and 15 778 people, it reduced 6-week recurrent ischaemic stroke by about 60% (HR 0.42, 0.32 to 0.55), with no benefit beyond 12 weeks in the aspirin-only comparison [[Rothwell2016]]. Adding clopidogrel widens the early gain [[Pan2019]].</p></div>
+  <div class="stage"><div class="scroll"><svg id="afDapt" viewBox="0 0 720 356" style="min-width:560px" role="img" aria-label="Two cumulative event curves over 90 days: dual antiplatelet therapy runs below aspirin alone, the gap opens in the first 21 days and then stays the same size."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="afDaptPlay">Play</button><label class="stage-cap tl" for="afDaptT">Day <input type="range" id="afDaptT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="stage-cap">Published anchors at day 21 and 90 [[Pan2019]]; the curves between them are schematic. POINT reported most events in the first week [[Johnston2018]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who and when</th><th>Regimen</th><th>Benefit</th><th>Bleeding</th></tr></thead>
+    <tbody>
+      <tr><th>CHANCE [[Wang2013]]</th><td>China; within 24 hours</td><td>Clopidogrel plus aspirin 21 days, then clopidogrel, vs aspirin</td><td>Stroke at 90 days 8.2% vs 11.7% (HR 0.68, 0.57 to 0.81)</td><td>Moderate or severe 0.3% in each</td></tr>
+      <tr><th>POINT [[Johnston2018]]</th><td>International</td><td>Clopidogrel plus aspirin 90 days vs aspirin</td><td>Major ischaemic events 5.0% vs 6.5% (HR 0.75, 0.59 to 0.95)</td><td>Major 0.9% vs 0.4% (HR 2.32, 1.10 to 4.87)</td></tr>
+      <tr class="hl"><th>Pooled [[Pan2019]]</th><td>10 051 people</td><td>CHANCE and POINT</td><td>6.5% vs 9.1% (HR 0.70, 0.61 to 0.81); first 21 days 5.2% vs 7.8% (HR 0.66); no benefit from day 22 to 90</td><td>See each trial</td></tr>
+      <tr><th>INSPIRES [[Gao2023]]</th><td>6100 people; 87.2% treated after 24 hours and within 72 hours; presumed atherosclerotic cause</td><td>Dual antiplatelet vs aspirin</td><td>New stroke 7.3% vs 9.2% (HR 0.79, 0.66 to 0.94)</td><td>Moderate-to-severe 0.9% vs 0.4% (HR 2.08, 1.07 to 4.04)</td></tr>
+      <tr><th>THALES [[Johnston2020]]</th><td>11 016 people; NIHSS 5 or less or TIA</td><td>Ticagrelor plus aspirin 30 days vs aspirin</td><td>Stroke or death 5.5% vs 6.6% (HR 0.83, 0.71 to 0.96). Disability did not differ</td><td>Severe 0.5% vs 0.1%</td></tr>
+      <tr><th>CHANCE-2 [[Wang2021]]</th><td>6412 CYP2C19 loss-of-function carriers in China</td><td>Ticagrelor vs clopidogrel, aspirin 21 days in both</td><td>Stroke at 90 days 6.0% vs 7.6% (HR 0.77, 0.64 to 0.94)</td><td>Severe or moderate 0.3% in each; any 5.3% vs 2.5%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="callout"><p><b>How long?</b> A BMJ meta-analysis of 3 trials and 10 447 people: non-fatal recurrent stroke RR 0.70 (0.61 to 0.80), about 20 fewer per 1000. Stopping within 21 days, and possibly as early as 10 days, is likely to maximise benefit and minimise harm [[Hao2018]]. Long-term dual therapy harms: in SPS3, over a mean 3.4 years, recurrent stroke HR 0.92, major haemorrhage HR 1.97 and all-cause mortality HR 1.52 [[Benavente2012]].</p></div>
+    <div class="callout"><p><b>Which regimen, for whom?</b> This remains open. CHANCE, INSPIRES and CHANCE-2 all enrolled in China, and CHANCE-2's authors limit their conclusion to Chinese carriers [[Wang2021]]. For long-term single agents: CAPRIE, clopidogrel vs aspirin, annual risk 5.32% vs 5.83% (RRR 8.7%) [[CAPRIE1996]]; PRoFESS, aspirin with dipyridamole vs clopidogrel, 9.0% vs 8.8%, neither superior, with more intracranial haemorrhage (HR 1.42) on the former [[Sacco2008]].</p></div>
+  </div>
+  <div class="pt"><b>In plain words</b>After a small stroke or TIA, the first days carry the most risk, so early treatment matters [[Rothwell2016,Johnston2018]]. Two blood-thinning tablets can help for a short time, but staying on both for years raises bleeding risk [[Pan2019,Benavente2012]].</div>
+  <div class="hook"><b>Exam hook</b>Dual antiplatelet benefit sits in the first 21 days after minor stroke or high-risk TIA [[Pan2019]]; long-term therapy in lacunar stroke raised bleeding and death [[Benavente2012]].</div>
+
+  <h3 class="sub">Closing the left atrial appendage</h3>
+  <div class="ctrls" id="afLaaBtns" role="group" aria-label="Choose a closure trial"></div>
+  <div class="stage"><div class="scroll"><svg id="afLaa" viewBox="0 0 720 290" style="min-width:560px" role="img" aria-label="A catheter carries a closure device across the left atrium and opens it at the mouth of the appendage, next to bars of the chosen trial's results."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="afLaaPlay">Play</button><label class="stage-cap tl" for="afLaaT">Device <input type="range" id="afLaaT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="stage-cap">Schematic device and access route. Each result panel has its own scale.</p>
+    <div class="afnote" id="afLaaNote" aria-live="polite"></div></div>
+  <div class="callout"><p><b>The closure trials disagree by population.</b> OPTION and CHAMPION-AF, in people who could take anticoagulants, were noninferior on efficacy with less later bleeding. CLOSURE-AF, in older people at high risk of both stroke and bleeding, failed noninferiority [[Wazni2025,Doshi2026,Landmesser2026]]. Earlier trials showed numerically more ischaemic stroke with closure [[Reddy2017]]. This question is open.</p></div>
+
+  <h3 class="sub">Device-detected AF and embolic stroke of undetermined source</h3>
+  <div class="cards">
+    <div class="card"><h4>Device-detected AF</h4><p>NOAH-AFNET 6, edoxaban vs placebo: composite HR 0.81 (0.60 to 1.08), safety HR 1.31 [[Kirchhof2023]]. ARTESiA, apixaban vs aspirin: stroke or embolism 0.78% vs 1.24% per patient-year (HR 0.63), major bleeding 1.71% vs 0.94% (HR 1.80) [[Healey2024]].</p><p>Together: ischaemic stroke RR 0.68, major bleeding RR 1.62, no reduction in death [[McIntyre2024Meta]].</p></div>
+    <div class="card"><h4>Looking for AF</h4><p>LOOP, 6004 older people: loop recording found AF in 31.8% vs 12.2% but stroke or embolism was not significantly reduced (HR 0.80, 0.61 to 1.05) [[Svendsen2021]]. CRYSTAL AF, after cryptogenic stroke: AF found in 12.4% vs 2.0% by 12 months [[Sanna2014]].</p></div>
+    <div class="card"><h4>ESUS: a prediction that failed</h4><p>ESUS was proposed in 2014, and the authors predicted anticoagulants would beat antiplatelets [[Hart2014]]. NAVIGATE ESUS: HR 1.07, more major bleeding (HR 2.72) [[Hart2018]]. RE-SPECT ESUS: HR 0.85 (0.69 to 1.03) [[Diener2019]]. ARCADIA: HR 1.00, stopped for futility [[Kamel2024]].</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>No empirical anticoagulant has beaten aspirin in ESUS: NAVIGATE, RE-SPECT, ARCADIA [[Hart2018,Diener2019,Kamel2024]].</div>
+</section>

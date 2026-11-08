@@ -1,0 +1,146 @@
+<!-- ================= 4.1 RISK FACTORS AND PREVENTION ================= -->
+<style>
+#m-prevent .tbl table{min-width:620px}
+#m-prevent .pvbar{display:flex;flex-wrap:wrap;gap:6px}
+#m-prevent .pvbar .btn{min-height:40px}
+#m-prevent .btn{min-height:40px}
+#m-prevent .card>.ev,#m-prevent .card>.tag{align-self:flex-start}
+#m-prevent .pvnum{font-family:var(--display);font-weight:700;font-size:30px;line-height:1.05}
+</style>
+<section class="mod" id="m-prevent" data-mod="prevent" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Preventing another stroke</p><h2>Risk factors and prevention</h2>
+    <p class="lede">How much of stroke is linked to things that can change? Build up the INTERSTROKE figures, switch factors on and off, and see why those percentages cannot simply be added. Then open the trials behind blood pressure and lipid treatment, and look at diabetes, smoking, diet and salt.</p></div>
+
+  <div class="prose"><p>This page reports what studies and guidelines say. It is not advice for any one person. Figures describe groups of people, not what will happen to you.</p></div>
+
+  <div class="cards">
+    <div class="card"><span class="pvnum">90.7%</span><p>Share of population attributable risk for all stroke from ten modifiable factors, INTERSTROKE [[ODonnell2016]].</p></div>
+    <div class="card"><span class="pvnum">47.9%</span><p>Hypertension alone, the largest of the ten [[ODonnell2016]].</p></div>
+    <div class="card"><span class="pvnum">11.9 million</span><p>New strokes worldwide in 2021, with 7.3 million deaths, the third leading cause of death (GBD 2021) [[Feigin2024]].</p></div>
+    <div class="card"><span class="pvnum">27%</span><p>Lower stroke risk for each 10 mm Hg fall in systolic blood pressure, RR 0.73 [[Ettehad2016]].</p></div>
+  </div>
+
+  <h3 class="sub">Ten factors, and why the bars do not add</h3>
+  <div class="stepper" id="pvSteps"></div>
+  <div class="pvbar" id="pvToggles" role="group" aria-label="Switch INTERSTROKE risk factors on or off"></div>
+  <div class="ctrls"><button class="btn" id="pvAll">Switch all ten back on</button></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="pvSvg" viewBox="0 0 720 392" style="min-width:560px" role="img" aria-label="Each INTERSTROKE risk factor adds a stepped bar. The simple sum passes 100 percent and reaches 200.9 percent, while the combined figure for all ten stays near 90 percent."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="pvPlay">Play</button><label class="stage-cap tl" for="pvT">Factors <input type="range" id="pvT" min="0" max="1" step="0.002" value="0.07"></label></div>
+      <p class="stage-cap">PAR values are INTERSTROKE's [[ODonnell2016]]. The sum and the combined teaching estimate are calculated on this page. Only the all-ten mark (90.7%, the tick on the lower bar) is a published joint figure.</p></div>
+    <aside class="note" id="pvNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Factor (all stroke)</th><th>Odds ratio (99% CI)</th><th>PAR (99% CI)</th></tr></thead>
+    <tbody>
+      <tr><th>Hypertension: history or BP of 140/90 mm Hg or higher</th><td>2.98 (2.72 to 3.28)</td><td>47.9% (45.1 to 50.6)</td></tr>
+      <tr><th>Regular physical activity</th><td>0.60 (0.52 to 0.70)</td><td>35.8% (27.7 to 44.7)</td></tr>
+      <tr><th>ApoB/ApoA1 ratio, highest vs lowest tertile</th><td>1.84 (1.65 to 2.06)</td><td>26.8% (22.2 to 31.9)</td></tr>
+      <tr><th>Diet (mAHEI), highest vs lowest tertile</th><td>0.60 (0.53 to 0.67)</td><td>23.2% (18.2 to 28.9)</td></tr>
+      <tr><th>Waist-to-hip ratio, highest vs lowest tertile</th><td>1.44 (1.27 to 1.64)</td><td>18.6% (13.3 to 25.3)</td></tr>
+      <tr><th>Psychosocial factors</th><td>2.20 (1.78 to 2.72)</td><td>17.4% (13.1 to 22.6)</td></tr>
+      <tr><th>Current smoking</th><td>1.67 (1.49 to 1.87)</td><td>12.4% (10.2 to 14.9)</td></tr>
+      <tr><th>Cardiac causes</th><td>3.17 (2.68 to 3.75)</td><td>9.1% (8.0 to 10.2)</td></tr>
+      <tr><th>Alcohol, high or heavy episodic intake vs never or former</th><td>2.09 (1.64 to 2.67)</td><td>5.8% (3.4 to 9.7, current drinker vs never or former)</td></tr>
+      <tr><th>Diabetes</th><td>1.16 (1.05 to 1.30)</td><td>3.9% (1.9 to 7.6)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p>All figures from INTERSTROKE [[ODonnell2016]]. A large odds ratio does not mean a large PAR: cardiac causes have the biggest odds ratio but a modest PAR, because PAR also depends on how common a factor is.</p>
+    <p>Hypertension was more strongly associated with intracerebral haemorrhage than with ischaemic stroke. Smoking, diabetes, apolipoproteins and cardiac causes were more strongly associated with ischaemic stroke [[ODonnell2016]].</p>
+  </div>
+
+  <h3 class="sub">A second way of counting: GBD 2021</h3>
+  <div class="prose"><p>The Global Burden of Disease study attributed 84.1% (77.8 to 88.8) of stroke disability-adjusted life years (DALYs) to the 23 risks it analysed [[Feigin2024]]. This does not contradict 90.7%. INTERSTROKE gives PAR from a case-control comparison of first strokes. GBD gives attributable DALYs from modelled exposure [[ODonnell2016,Feigin2024]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Risk, GBD 2021</th><th>Attributable share of stroke DALYs</th></tr></thead>
+    <tbody>
+      <tr><th>High systolic blood pressure</th><td>56.8% (42.5 to 68.0)</td></tr>
+      <tr><th>Ambient particulate matter</th><td>16.6% (11.5 to 20.9)</td></tr>
+      <tr><th>Smoking</th><td>13.8% (2.5 to 26.0)</td></tr>
+      <tr><th>High LDL cholesterol</th><td>13.1% (4.6 to 21.3)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>From 1990 to 2021, DALYs attributable to high BMI rose by 88.2%, high ambient temperature by 72.4%, high fasting plasma glucose by 32.1% and high systolic BP by 6.7%. GBD also reports that the fall in stroke incidence stalled from 2015, with some increases in people younger than 70 and in countries with lower socio-demographic index [[Feigin2024]].</p></div>
+
+  <h3 class="sub">Blood pressure and lipid trials</h3>
+  <div class="prose"><p>Choose a set, then choose a row to read the trial. A ratio below 1 means fewer events with the more intensive treatment.</p></div>
+  <div class="ctrls" role="group" aria-label="Choose a set of trials"><button class="btn" data-pvt="bp" aria-pressed="true">Blood pressure</button><button class="btn" data-pvt="lip" aria-pressed="false">Lipids</button></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="pvFor" viewBox="0 0 720 348" style="min-width:560px" role="img" aria-label="Forest plot of blood pressure or lipid trials: each row shows a ratio and its confidence interval, and most sit below 1."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="pvForPlay">Play</button><label class="stage-cap tl" for="pvForT">Reveal rows <input type="range" id="pvForT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Outcomes differ between rows (stroke, or a wider composite), so rows are not directly comparable. Rows given as relative risk reduction are plotted as 1 minus RRR.</p></div>
+    <aside class="note" id="pvForNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="callout"><p><b>How low for blood pressure after a stroke?</b> SPS3 and RESPECT were individually not significant at their lower targets [[Benavente2013,Kitagawa2019]]. Pooled data support below 130/80 mm Hg [[Kitagawa2019]], and ESPRIT supports below 120 mm Hg with no heterogeneity by prior stroke [[Liu2024]]. This guide found no stroke-only trial below 120 mm Hg. The question is open.</p></div>
+    <div class="callout"><p><b>How low for LDL?</b> Treat Stroke to Target supports below 70 mg/dL [[Amarenco2020]]. FOURIER observational data suggest benefit below 40 mg/dL [[Monguillon2026]]. SPARCL showed more haemorrhagic stroke with high-dose statin [[Amarenco2006]], while later data show no clear excess [[Amarenco2020,Monguillon2026]]. The question is open.</p></div>
+  </div>
+  <div class="hook"><b>Exam hook</b>A 10 mm Hg fall in systolic BP reduces stroke by about 27% [[Ettehad2016]]. PROGRESS: combination therapy reduced stroke, single-agent perindopril did not, and benefit included non-hypertensive people [[PROGRESS2001]]. SPARCL: fewer strokes overall but more haemorrhagic strokes [[Amarenco2006]].</div>
+
+  <h3 class="sub">What guidelines say, and what could be checked</h3>
+  <div class="prose"><p>The 2024 AHA/ASA primary prevention guideline replaces the 2014 version, aligns with Life's Essential 8 and adds sex-specific screening and prevention recommendations [[Bushnell2024]]. Its full text could not be read for this guide, so the classes below come from an open review of it, not from the guideline directly [[Razavi2025]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Recommendation, as summarised in the review</th><th>Class</th><th>Level of evidence</th></tr></thead>
+    <tbody>
+      <tr><th>Mediterranean diet, intermediate to high CVD risk</th><td>1</td><td>B-R</td></tr>
+      <tr><th>BP target below 130/80 mm Hg, stage 2 hypertension or stage 1 with high CVD risk</th><td>1</td><td>A</td></tr>
+      <tr><th>Statin: intermediate-risk, high-risk, type 2 diabetes and LDL-C of 190 mg/dL or higher groups</th><td>1</td><td>A</td></tr>
+      <tr><th>GLP-1 RA in type 2 diabetes, flagged as a new indication for stroke risk reduction</th><td>1</td><td>A</td></tr>
+      <tr><th>Potassium salt substitution, age 60 or over with SBP of 140 mm Hg or higher on medication or 160 mm Hg or higher without it</th><td>2a</td><td>B-R</td></tr>
+      <tr><th>PCSK9 antibody</th><td>2b</td><td>A</td></tr>
+      <tr><th>Aspirin in people without clinical CVD</th><td>2b</td><td>A</td></tr>
+      <tr><th>Low-dose colchicine after recent MI on a statin</th><td>2b</td><td>B-R</td></tr>
+      <tr><th>Omega-3 fatty acids</th><td>3 (no benefit)</td><td>A</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><p><b>After a stroke or TIA.</b> The 2021 AHA/ASA secondary prevention guideline is the reference for this group, but its text could not be read for this guide, so its target statements are not quoted here [[Kleindorfer2021]]. The trials above are the evidence that could be checked. The 2026 AHA/ASA early management guideline replaces the 2018 guideline and its 2019 update and also covers secondary prevention; only its record was available here [[Prabhakaran2026,Powers2019]].</p></div>
+  <div class="split2">
+    <div class="card"><h4>Aspirin with no previous cardiovascular disease</h4><p>13 trials, 164 225 people: the cardiovascular composite fell (HR 0.89, NNT 265) and major bleeding rose (HR 1.43, NNH 210) [[Zheng2019]]. The 2009 ATT meta-analysis found no significant net effect on stroke in primary prevention, 0.20% vs 0.21% per year [[ATT2009]].</p></div>
+    <div class="card"><h4>Aspirin after a stroke</h4><p>In secondary prevention, total stroke fell from 2.54% to 2.08% per year [[ATT2009]]. Module 4.2 covers early aspirin, dual antiplatelets and anticoagulants.</p></div>
+  </div>
+
+  <h3 class="sub">Diabetes, weight and insulin resistance</h3>
+  <div class="cards">
+    <div class="card"><h4>IRIS: pioglitazone</h4><p>3876 people with insulin resistance but no diabetes (HOMA-IR above 3.0) after stroke or TIA. Stroke or MI 9.0% vs 11.8% at 4.8 years (HR 0.76, 0.62 to 0.93). Diabetes 3.8% vs 7.7% (HR 0.48) [[Kernan2016]].</p><p>Harms: weight gain over 4.5 kg 52.2% vs 33.7%, oedema 35.6% vs 24.9%, fracture needing surgery or admission 5.1% vs 3.2%. Mortality did not differ [[Kernan2016]].</p></div>
+    <div class="card"><h4>GLP-1 receptor agonists</h4><p>8 trials, 60 080 people with type 2 diabetes: MACE HR 0.86 (0.80 to 0.93), all-cause mortality HR 0.88 (0.82 to 0.94) [[Sattar2021]].</p><p>A later meta-analysis of 11 trials and 85 373 people gives stroke HR 0.88 (0.80 to 0.96), and 0.73 after a prior stroke [[Alammari2025]].</p></div>
+    <div class="card"><h4>SELECT: semaglutide 2.4 mg weekly</h4><p>17 604 people with cardiovascular disease and BMI of 27 or more, no diabetes. Composite 6.5% vs 8.0% (HR 0.80, 0.72 to 0.90). Stopping for adverse events 16.6% vs 8.2% [[Lincoff2023SELECT]].</p></div>
+  </div>
+  <div class="callout"><p><b>Two figures for GLP-1 and stroke.</b> The guideline review quotes a 27% relative reduction (0.7% absolute) in non-fatal stroke [[Razavi2025]]; the larger meta-analysis gives 12% [[Alammari2025]]. Different trial sets and outcome definitions may explain the spread. Both are shown here rather than choosing one.</p></div>
+
+  <h3 class="sub">Smoking: one cigarette a day</h3>
+  <div class="ctrls" role="group" aria-label="Choose men or women"><button class="btn" data-pvs="m" aria-pressed="true">Men</button><button class="btn" data-pvs="f" aria-pressed="false">Women</button></div>
+  <div class="stage"><div class="scroll"><svg id="pvSmk" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A curve of stroke risk against cigarettes a day rises steeply over the first cigarette and then slowly up to twenty."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="pvSmkPlay">Play</button><label class="stage-cap tl" for="pvSmkT">Cigarettes a day <input type="range" id="pvSmkT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="stage-cap">Published anchors at 1 and 20 cigarettes a day; the curve between them is schematic [[Hackshaw2018]].</p></div>
+  <div class="split2">
+    <div class="card"><h4>Stopping after a stroke</h4><p>In the IRIS cohort, 450 of 1072 smokers (42%) quit between the event and randomisation. Five-year stroke, MI or death was 15.7% in those who quit vs 22.6% in those who continued (adjusted HR 0.66, 0.48 to 0.90). This was an observational, non-prespecified analysis [[Epstein2017]].</p></div>
+    <div class="card"><h4>Dose and past smoking</h4><p>Jackson Heart Study, 4410 Black adults: current smoking HR 2.48 (1.60 to 3.83) vs never smoking, 2.28 at 1 to 19 and 2.78 at 20 or more cigarettes a day. Past smoking HR 1.10 (0.74 to 1.64) [[Oshunbade2020]].</p></div>
+  </div>
+  <div class="pt"><b>In plain words</b>Even one cigarette a day raises stroke risk. Cutting down helps less than people expect, and stopping is the goal [[Hackshaw2018]]. People who stopped after a stroke or TIA had fewer further problems than those who kept smoking [[Epstein2017]].</div>
+
+  <h3 class="sub">Salt substitute: SSaSS</h3>
+  <div class="prose"><p>A cluster randomised trial in 600 villages in rural China, with 20 995 people (72.6% with prior stroke, 88.4% with hypertension). The substitute was 75% sodium chloride and 25% potassium chloride [[Neal2021]].</p></div>
+  <div class="stage"><div class="scroll"><svg id="pvSalt" viewBox="0 0 720 216" style="min-width:560px" role="img" aria-label="Paired bars per 1000 person-years for stroke, death and serious hyperkalaemia, comparing salt substitute with regular salt."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="pvSaltPlay">Replay</button></div>
+    <p class="stage-cap">Events per 1000 person-years [[Neal2021]].</p></div>
+  <div class="callout"><p><b>The size of the effect does not match between sources.</b> The trial reports a 14% lower stroke rate (rate ratio 0.86) [[Neal2021]]. A review of the 2024 guideline quotes a 22% relative reduction (0.34% absolute) for this trial [[Razavi2025]]. The review's source could not be traced. This guide uses the trial's own number.</p></div>
+
+  <h3 class="sub">Diet, activity and alcohol</h3>
+  <div class="cards">
+    <div class="card"><h4>PREDIMED: Mediterranean diet</h4><p>Republished in 2018 after randomisation deviations were found. 7447 people at high risk: primary composite HR 0.69 (0.53 to 0.91) with olive oil and 0.72 (0.54 to 0.95) with nuts vs reduced-fat advice. Results were similar after omitting 1588 people whose assignment departed from protocol [[Estruch2018]]. The guideline review quotes a 42% relative reduction in stroke (1.5% absolute) [[Razavi2025]].</p></div>
+    <div class="card"><h4>Physical activity</h4><p>14 cohorts, 2 639 086 people: moderate-to-vigorous activity had an L-shaped association with stroke. The greatest reduction (19%) was at 19 MET-hours a week, followed by a gradual rise. Evidence in men and for haemorrhagic stroke is limited [[Li2026]].</p></div>
+    <div class="card"><h4>Alcohol by dose</h4><p>27 prospective studies, ischaemic stroke RR: 0.90 under 1 drink a day, 0.92 at 1 to 2, 1.08 at over 2 to 4, 1.14 over 4. Heavy drinking RR 1.67 for intracerebral and 1.82 for subarachnoid haemorrhage [[Larsson2016BMCMed]].</p></div>
+  </div>
+  <div class="callout"><p><b>A real controversy: is moderate drinking protective?</b> Observational analyses show a U shape in China Kadoorie Biobank men and lower risk at low intake in cohort data [[Millwood2019,Larsson2016BMCMed]]. Genotype-predicted alcohol gave a continuously positive association with stroke (RR per 280 g a week 1.58 for intracerebral haemorrhage, 1.27 for ischaemic stroke). The authors conclude the apparent protection is largely non-causal [[Millwood2019]].</p></div>
+
+  <h3 class="sub">Sleep apnoea and lipoprotein(a)</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>SAVE: CPAP</h4><p>2717 adults with moderate-to-severe obstructive sleep apnoea and coronary or cerebrovascular disease: 17.0% vs 15.4% (HR 1.10, 0.91 to 1.32). Mean use was 3.3 hours a night. Snoring, sleepiness, quality of life and mood improved [[McEvoy2016]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Sleep SMART: pending</h4><p>Tests auto-CPAP after acute stroke or high-risk TIA [[Brown2020]]. It randomised 1892 people, below the 3062 planned [[Brown2026,Brown2020]]. The registry lists no posted results, with estimated completion in November 2026 [[NCT03812653]].</p></div>
+    <div class="card"><span class="ev est">Established association</span><h4>Lp(a) and risk</h4><p>Above 93 mg/dL vs below 10 mg/dL: adjusted ischaemic stroke HR 1.60 (1.24 to 2.05) in Copenhagen. Genetic causal risk ratios per 50 mg/dL were 1.20 and 1.27 [[Langsted2019]]. In BIOSIGNAL it was linked to large-artery stroke, most strongly under age 60 [[Arnold2021]].</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Lowering Lp(a)</h4><p>Not yet shown to help. Pelacarsen lowered Lp(a) but did not reduce the primary composite in Lp(a)HORIZON [[Sabouret2026]]. Extended analyses found no benefit (on-treatment HR 0.98, 0.85 to 1.12) [[Nissen2026]]. Whether earlier or stronger lowering would help is still being tested [[Sabouret2026]].</p></div>
+  </div>
+  <div class="pt"><b>In plain words</b>Blood pressure is the factor with the largest share. Trials also support lowering cholesterol after a stroke linked to narrowed arteries [[Amarenco2020]]. These are findings about groups. Your own targets are a matter for you and your care team.</div>
+</section>
