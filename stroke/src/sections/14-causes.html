@@ -1,1 +1,157 @@
-<section class="mod" id="m-causes" data-mod="causes" hidden><div class="mhead"><h2>causes (stub)</h2></div></section>
+<!-- ================= 1.4 CAUSES OF ISCHAEMIC STROKE ================= -->
+<style>
+#m-causes .btn{min-height:40px}
+#m-causes .tbl table{min-width:620px}
+#m-causes .csbar{display:flex;flex-wrap:wrap;gap:6px}
+#m-causes .csnum{font-family:var(--display);font-weight:700;font-size:30px;line-height:1.05}
+#m-causes .cscap{font-size:15px;line-height:1.5;max-width:76ch;margin:0}
+#m-causes .card>.ev,#m-causes .card>.tag{align-self:flex-start}
+#m-causes .csfacts{display:flex;flex-direction:column;gap:10px}
+#m-causes .csfacts h4{margin:0;font-family:var(--display);font-size:21px;line-height:1.15}
+#m-causes .csfacts p{margin:0;font-size:15px;line-height:1.5;max-width:76ch}
+#m-causes .csfacts ul{margin:0;padding-left:18px;font-size:15px;display:flex;flex-direction:column;gap:5px;max-width:76ch}
+</style>
+<section class="mod" id="m-causes" data-mod="causes" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding stroke</p><h2>Causes of ischaemic stroke</h2>
+    <p class="lede">Ischaemic (US: ischemic) stroke means an artery in the brain is blocked. The question that shapes prevention is where the blockage came from. Pick a source and follow it, then see how the shares change between populations, and why some causes stay unknown.</p></div>
+
+  <div class="prose"><p>This page reports what studies and classifications say. It is not advice for any one person, and the figures describe groups of people. If you think someone is having a stroke, call your local emergency number.</p></div>
+
+  <div class="cards">
+    <div class="card"><span class="csnum">22 · 23 · 22%</span><p>Cardioembolic, large-artery and small-artery shares, pooled over 65 population studies [[Ornello2018]].</p></div>
+    <div class="card"><span class="csnum">26%</span><p>Undetermined in the same pooled data, about one stroke in four [[Ornello2018]].</p></div>
+    <div class="card"><span class="csnum">28%</span><p>Had atrial fibrillation (AF) among 2,144 people with ischaemic stroke in 19 countries [[Perera2016]].</p></div>
+    <div class="card"><span class="csnum">15%</span><p>Caused by artery dissection among 1,008 people aged 15 to 49 in Helsinki [[Putaala2009]].</p></div>
+  </div>
+
+  <h3 class="sub">Where did the clot come from?</h3>
+  <div class="csbar" role="group" aria-label="Source of the blockage">
+    <button class="btn" data-cssrc="heart" aria-pressed="true">Heart</button>
+    <button class="btn" data-cssrc="carotid" aria-pressed="false">Neck artery plaque</button>
+    <button class="btn" data-cssrc="small" aria-pressed="false">Small vessel</button>
+  </div>
+  <div class="stepper" id="csSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="csSvg" viewBox="0 0 720 430" style="min-width:560px" role="img" aria-label="Three routes to an ischaemic stroke, chosen with the buttons. Heart: quivering atria, a clot in the appendage, and a fragment that travels up an artery to the middle cerebral artery. Neck artery: a plaque narrows the carotid and a fragment travels to the same artery. Small vessel: a tiny penetrating artery closes where it sits and leaves a small deep infarct."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="csPlay">Play</button><label class="stage-cap tl" for="csT">Timeline <input type="range" id="csT" min="0" max="1" step="0.002" value="0.1"></label></div>
+      <p class="stage-cap">Schematic, not to scale. Routes are drawn to teach the idea; shares come from the sources in the note panel.</p>
+    </div>
+    <aside class="note" id="csNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">TOAST and the other ways of sorting causes</h3>
+  <div class="prose"><p>TOAST defines five subtypes, each possible or probable. In its first test, two neurologists disagreed in one of 20 patients, with a specific diagnosis in 11 and undetermined in 9 [[Adams1993]]. The original paper's full text could not be read for this guide, so the cutoffs below come from a later review that restates them [[Kim2014]]. Other criteria are not listed here.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>TOAST subtype</th><th>What this guide can state</th></tr></thead>
+    <tbody>
+      <tr><th>Large-artery atherosclerosis</th><td>Stenosis over 50% in the corresponding artery, as restated by review [[Kim2014]]</td></tr>
+      <tr><th>Cardioembolism</th><td>One of the five subtypes [[Adams1993]]; cutoffs not recorded here</td></tr>
+      <tr><th>Small-vessel occlusion</th><td>Limited to subcortical lesions under 15 mm, as restated by review [[Kim2014]]. Low agreement, kappa 0.53 [[Kim2014]]</td></tr>
+      <tr><th>Other determined aetiology</th><td>One of the five subtypes [[Adams1993]]</td></tr>
+      <tr><th>Undetermined aetiology</th><td>Larger subcortical infarcts and embolic infarcts with under 50% stenosis land here, about 40% of this category. Agreement for unknown cause was kappa 0.40 [[Kim2014]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tbl"><table>
+    <thead><tr><th>System</th><th>What it changed</th><th>Reported result</th></tr></thead>
+    <tbody>
+      <tr><th>TOAST</th><td>Five subtypes [[Adams1993]]</td><td>Inter-observer agreement moderate, kappa 0.4 to 0.6 [[Kim2014]]</td></tr>
+      <tr><th>SSS-TOAST</th><td>Small vessel widened to 20 mm [[Kim2014]]</td><td>Undetermined reduced to 4% [[Kim2014]]</td></tr>
+      <tr><th>CCS (Causative Classification System)</th><td>Small vessel widened to 20 mm [[Kim2014]]</td><td>Kappa 0.80 to 0.81 [[Arsava2010]]</td></tr>
+      <tr><th>ASCOD</th><td>Grades five phenotypes: atherosclerosis, small-vessel disease, cardiac pathology, other cause, dissection. Grade 1 potentially causal, 2 causal link uncertain, 3 unlikely but disease present, 0 absent, 9 insufficient workup [[Amarenco2013]]</td><td>A stenosis cutoff was lowered from 70% to 50% in the update [[Amarenco2013]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Subtype shares by population</h3>
+  <div class="prose"><p>Pick a population. Bars move to its figures; the ember tick marks the pooled figure, so you can see the gap. "Not given" means the figure is not recorded in the source summary used here. Rows need not add to 100%, because each study reports its own categories.</p></div>
+  <div class="csbar" id="csPopBtns" role="group" aria-label="Population"></div>
+  <div class="stage">
+    <div class="scroll"><svg id="csPop" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="Horizontal bars of the share of ischaemic stroke by TOAST subtype for the chosen population, with a tick marking the pooled share from 65 studies."></svg></div>
+    <p class="cscap" id="csPopCap" aria-live="polite"></p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Incidence per 100,000</th><th>Cardioembolic</th><th>Large artery</th><th>Small artery or lacunar</th><th>Other points</th></tr></thead>
+    <tbody>
+      <tr><th>Erlangen [[Kolominsky2001]]</th><td>30.2</td><td>15.3</td><td>25.8</td><td>Large artery in men 23.6, in women 9.2</td></tr>
+      <tr><th>Rochester [[Petty1999]]</th><td>40</td><td>27</td><td>25</td><td>Uncertain 52, other 4</td></tr>
+      <tr><th>Northern Manhattan [[White2005]]</th><td colspan="3">All ischaemic stroke: 88 in white, 149 in Hispanic and 191 in black people</td><td>Black vs white rate ratios: intracranial 5.85, extracranial 3.18, lacunar 3.09, cardioembolic 1.58</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><p><b>A real disagreement.</b> Large-artery disease leads in pooled Asian populations at 33% (31 to 36) [[Ornello2018]], and one review calls intracranial large-artery disease the most common subtype worldwide [[Gorelick2008]]. A pooled Chinese vs white comparison found no clear evidence of different ischaemic subtypes, though intracerebral haemorrhage was 33% vs 12% [[Tsai2013]]. Annual trends differ too: cardioembolic in white populations +2.4%, large artery in Asian populations +5.7%, small artery in white populations -4.7% [[Ornello2018]].</p></div>
+  <div class="split2">
+    <div class="card"><h4>Large arteries</h4><ul>
+      <li>Autopsy prevalence of intracranial atherosclerosis was 43%, 65% and 80% with increasing age [[Banerjee2017]].</li>
+      <li>In the Rotterdam Study, calcification contributed to 75% of strokes at the intracranial carotid, 45% at the aortic arch and 25% at the extracranial carotid [[Bos2014]].</li>
+      <li>SAMMPRIS, stenting vs aggressive medical management: stroke or death 14.7% vs 5.8% at 30 days and 20.0% vs 12.2% at 1 year [[Chimowitz2011]]. See <button class="btn ghost" data-go="carotid">Carotid disease</button></li>
+    </ul></div>
+    <div class="card"><h4>Small vessels</h4><ul>
+      <li>Small vessel disease involves endothelial dysfunction and barrier leak [[Wardlaw2019,Pantoni2010]].</li>
+      <li>Lacunar infarcts are put at about a quarter [[Arboix2009]] or "nearly one-third" [[Regenhardt2018]] of ischaemic strokes.</li>
+      <li>At 5 years, 25% had died, 20% had recurrence and 30% were impaired [[Gore2026]].</li>
+    </ul></div>
+  </div>
+
+  <h3 class="sub">ESUS and cryptogenic stroke</h3>
+  <div class="prose"><p>ESUS stands for embolic stroke of undetermined source. It was proposed in 2014 for a non-lacunar infarct with no proximal stenosis and no cardioembolic source, a defined part of the cryptogenic group [[Hart2014]]. ESUS accounts for 9 to 25% of ischaemic strokes, on average 17%, with mean age 65, NIHSS 5 and recurrence of 4.5% per year [[Hart2017]]. ESUS is not a synonym for cryptogenic stroke [[Ntaios2020]].</p></div>
+  <div class="stage">
+    <div class="scroll"><svg id="csEs" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="Three trials of an anticoagulant against aspirin after embolic stroke of undetermined source, as paired dots of recurrent stroke per year. In all three the dots nearly touch: rivaroxaban 5.1 vs aspirin 4.8, dabigatran 4.1 vs 4.8, apixaban 4.4 vs 4.4."></svg></div>
+    <p class="stage-cap">Rates per year as reported. NAVIGATE ESUS bleeding: 1.8% vs 0.7%, HR 2.72 [[Hart2018]]. RE-SPECT ESUS HR 0.85 (0.69 to 1.03) [[Diener2019]]. ARCADIA HR 1.00 [[Kamel2024]].</p>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>ESUS is a non-lacunar infarct with no proximal stenosis or cardioembolic source [[Hart2014]]. The three anticoagulant ESUS trials were neutral [[Hart2018,Diener2019,Kamel2024]].</div>
+    <div class="callout"><p><b>How big is "unknown"?</b> It depends on definition and workup: about 25% [[Hart2014]], 30 to 40% [[Yaghi2017Cryptogenic]], 20 to 40% [[Sanna2014]]. Active cancer is present in 5 to 10% of ESUS [[Navi2021]].</p></div>
+  </div>
+
+  <h3 class="sub">Hunting for hidden atrial fibrillation</h3>
+  <div class="prose"><p>In the international survey, 15% had known AF, 10% new AF on the ECG and only 2% AF found with monitoring [[Perera2016]]. Longer monitoring finds more. Scrub through the 36 months of CRYSTAL AF, which compared an implantable monitor with control in 441 people [[Sanna2014,Brachmann2016]].</p></div>
+  <div class="stage">
+    <div class="scroll"><svg id="csAf" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="A rising curve of the share of people with atrial fibrillation detected by an implanted monitor over 36 months, reaching 30 percent, against a nearly flat control curve reaching 3 percent, beside a block of 100 people that fills as published time points are reached."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="csAfPlay">Play</button><label class="stage-cap tl" for="csAfT">Months of monitoring <input type="range" id="csAfT" min="0" max="1" step="0.002" value="0.34"></label></div>
+    <div class="readout" id="csAfRead" aria-live="polite"></div>
+    <p class="stage-cap">Dots are published figures [[Sanna2014,Brachmann2016]]. Lines between them are schematic.</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Compared</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>CRYSTAL AF</th><td>Implantable monitor vs control</td><td>8.9% vs 1.4% at 6 months, HR 6.4; 12.4% vs 2.0% at 12 months, HR 7.3 [[Sanna2014]]. 30.0% vs 3.0% at 36 months; median 8.4 months; 81% asymptomatic [[Brachmann2016]]</td></tr>
+      <tr><th>EMBRACE</th><td>30-day event monitor vs 24-hour Holter</td><td>AF 16.1% vs 3.2%, number needed to screen 8; episodes of at least 2.5 minutes 9.9% vs 2.5%; anticoagulation 18.6% vs 11.1% [[Gladstone2014]]</td></tr>
+      <tr><th>Sequential phases</th><td>Successive monitoring phases</td><td>New AF in 7.7%, 5.1%, 10.7% and 16.9%; overall 23.7% [[Sposato2015]]</td></tr>
+      <tr><th>LOOP</th><td>Screening with a loop recorder</td><td>AF 31.8% vs 12.2%; stroke HR 0.80 (0.61 to 1.05), not significant [[Svendsen2021]]</td></tr>
+      <tr><th>ASSERT</th><td>Subclinical atrial tachyarrhythmia</td><td>Found in 10.1%; stroke HR 2.49 [[Healey2012]]</td></tr>
+      <tr><th>ARTESIA</th><td>Apixaban vs aspirin in device-detected AF</td><td>Stroke 0.78% vs 1.24% per year, HR 0.63; major bleeding 1.71% vs 0.94%, HR 1.80 [[Healey2024]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="callout"><p><b>Finding is not yet preventing.</b> Detection clearly rises with monitoring [[Sanna2014,Gladstone2014]]. Whether screening prevents stroke is less clear: the LOOP stroke effect was not significant [[Svendsen2021]], and device-detected AF treated with apixaban traded stroke for bleeding [[Healey2024]]. See <button class="btn ghost" data-go="af">AF and antithrombotics</button></p></div>
+    <div class="hook"><b>Exam hook</b>CRYSTAL AF reached 12.4% at 12 months and 30.0% at 36 months [[Sanna2014,Brachmann2016]].</div>
+  </div>
+  <div class="pt"><b>In plain words</b>A hidden irregular heartbeat can take months of monitoring to find [[Brachmann2016]].</div>
+
+  <h3 class="sub">Stroke in younger people</h3>
+  <div class="prose"><p>Young stroke incidence is rising [[Ekker2018]]. In Helsinki (1,008 people aged 15 to 49), incidence was 10.8 per 100,000. Traditional factors were still common: dyslipidaemia 60%, smoking 44%, hypertension 39%. Silent infarcts appeared in 13% [[Putaala2009]]. Choose a cause to explore.</p></div>
+  <div class="csbar" id="csYgBtns" role="group" aria-label="Cause in younger people">
+    <button class="btn" data-csyg="diss" aria-pressed="true">Dissection</button>
+    <button class="btn" data-csyg="pfo" aria-pressed="false">Patent foramen ovale</button>
+    <button class="btn" data-csyg="sick" aria-pressed="false">Sickle cell disease</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="csYg" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="An explorer of three causes in younger people. Dissection: a tear in an artery wall, the channel narrows and a clot forms. Patent foramen ovale: a flap between the atria, with bars for each RoPE score stratum. Sickle cell disease: blood cells in an artery with a velocity bar and the STOP trial threshold of 200 centimetres per second."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="csYgPlay">Play</button><label class="stage-cap tl" for="csYgT"><span id="csYgLab">Timeline</span> <input type="range" id="csYgT" min="0" max="1" step="0.002" value="0.5"></label></div>
+    <p class="stage-cap" id="csYgCap"></p>
+  </div>
+  <div class="csfacts" id="csYgFacts" aria-live="polite"></div>
+
+  <h3 class="sub">Rarer causes</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Cause</th><th>Who and how often</th><th>Key figures</th></tr></thead>
+    <tbody>
+      <tr><th>Cancer</th><td>279,719 matched pairs [[Navi2017]]</td><td>6-month stroke 3.0% vs 1.6%, HR 1.9; lung cancer highest; resolves by 1 year [[Navi2017]]. Risk rises from 150 days before diagnosis; in the last 30 days 0.62% vs 0.11%, OR 5.63 [[Navi2019]]</td></tr>
+      <tr><th>Sickle cell disease</th><td>4,082 people in the Cooperative Study [[OheneFrempong1998]]</td><td>Stroke prevalence in sickle cell anaemia 4.01%, incidence 0.61 per 100 person-years; 2-week mortality from haemorrhagic stroke 26% [[OheneFrempong1998]]</td></tr>
+      <tr><th>CADASIL</th><td>Most common heritable cause; NOTCH3 cysteine changes [[Chabriat2009]]</td><td>In 411 people, median age at stroke 50.7 in men, 52.5 in women [[Opherk2004]]. In 102 cases: ischaemic episodes 71%, migraine 38% (aura in 87%), dementia 28% [[Dichgans1998]]</td></tr>
+      <tr><th>Fabry disease</th><td>138 people with stroke [[Sims2009]]</td><td>Age at stroke 39.0 in men, 45.7 in women; 50% and 38.3% happened before diagnosis [[Sims2009]]</td></tr>
+      <tr><th>Reversible cerebral vasoconstriction syndrome</th><td>67 cases [[Ducros2007]]</td><td>Multiple thunderclap headaches in 94% [[Ducros2007]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="pt"><b>In plain words</b>Many strokes come from clots made in the heart, blocked or narrowed arteries, or tiny vessel disease. In about one in four the cause stays unknown after tests [[Ornello2018]]. In younger people, a tear in a neck artery is one common cause [[Putaala2009]].</div>
+  <div class="prose"><p>Across all stroke types, INTERSTROKE linked 10 factors to a population-attributable risk of 90.7%, with hypertension at OR 2.98 and attributable risk 47.9% [[ODonnell2016]]. Genetic studies have found 32 loci in 520,000 subjects [[Malik2018]]. See <button class="btn ghost" data-go="prevent">Risk factors and prevention</button></p></div>
+</section>
