@@ -1,2 +1,117 @@
-<!-- STUB: replaced by its builder -->
-<section class="mod" id="m-criteria" data-mod="criteria" hidden><div class="mhead"><h2>criteria</h2><p class="lede">Being written.</p></div></section>
+<!-- ================= 2.2 DIAGNOSTIC CRITERIA ================= -->
+<style>
+#m-criteria .card>.tag,#m-criteria .card>.ev{align-self:flex-start}
+#m-criteria .tbl table{min-width:600px}
+#m-criteria .calc{grid-template-columns:minmax(0,1fr)}
+#m-criteria .calc select{min-height:40px;width:100%}
+#m-criteria .crout{display:flex;flex-direction:column;gap:10px}
+#m-criteria .crout .big-num{color:var(--dx)}
+#m-criteria .crpath{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:15px}
+#m-criteria .legend i{height:10px;width:16px;border:1.5px solid}
+</style>
+<section class="mod" id="m-criteria" data-mod="criteria" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Diagnostic criteria</h2>
+    <p class="lede">How the published case definitions for Guillain-Barré syndrome work: the NINDS criteria, the 2023 EAN/PNS criteria and the Brighton levels of diagnostic certainty. Watch a case climb the Brighton ladder, then try the teaching calculator.</p></div>
+
+  <div class="prose">
+    <p>GBS has no single confirming test, so diagnosis is clinical, supported by spinal fluid and nerve conduction studies [[Leonhard2019,vanDoorn2023]]. Criteria give that judgement a shared shape. The two oldest sets, NINDS and Brighton, were both designed to study epidemiological links between GBS and vaccination; a consensus panel judged NINDS better suited to clinicians and Brighton useful for grading certainty [[Leonhard2019]].</p>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>Criteria are for learning and for research. The ladder and calculator below show how the published grid scores its items. They are never for an individual's diagnosis, prognosis or treatment.</p>
+
+  <div class="stepper" id="crSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="crSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A case file checklist whose boxes tick one by one, beside a four-step staircase from Brighton level 4 up to level 1 on which a marker climbs as each item is met; below, a day timeline shows when lumbar puncture and nerve conduction were done in people who reached level 1 and in others, and a last scene prints how a Dutch cohort was spread across the levels."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="crPlay">%t:player.play%</button><label class="stage-cap tl" for="crT">Timeline <input type="range" id="crT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">Schematic case. The Brighton grid follows two published reproductions of the original [[LopezHernandez2022,Ghazanfar2020]]; timing from a Mexican cohort [[LopezHernandez2022]]; level shares from Dutch adults [[Fokke2014]].</p></div>
+    <aside class="note" id="crNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">NINDS and EAN/PNS side by side</h3>
+  <div class="prose"><p>The NINDS criteria were reaffirmed and their electrodiagnostic part expanded by Asbury and Cornblath in 1990 [[Asbury1990]]. The original tables could not be read for this guide, so the NINDS column gives the labelled adaptation by Leonhard and colleagues [[Leonhard2019]]. The 2023 European Academy of Neurology and Peripheral Nerve Society (EAN/PNS) guideline used that consensus for clinical diagnosis [[vanDoorn2023]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>NINDS, as adapted [[Leonhard2019]]</th><th>EAN/PNS 2023, motor-sensory or motor GBS [[vanDoorn2023]]</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>Required</th><td>Progressive bilateral weakness of arms and legs (initially only the legs may be involved); absent or decreased tendon reflexes in affected limbs at some point in the course</td><td>Progressive weakness of arms and legs (may start in the legs, or elsewhere in regional variants); tendon reflexes absent or decreased in affected limbs; progressive worsening for no more than 4 weeks</td></tr>
+      <tr><th>Clinical support</th><td>Progressive phase of days to 4 weeks (usually under 2 weeks); relative symmetry; relatively mild sensory symptoms and signs; cranial nerve involvement, especially bilateral facial palsy; autonomic dysfunction</td><td>Relative symmetry; relatively mild or absent sensory symptoms and signs; cranial nerve involvement; autonomic dysfunction; respiratory insufficiency from muscle weakness; pain; recent infection (under 6 weeks)</td></tr>
+      <tr><th>Tests that support</th><td>Added by Leonhard and colleagues, not in the original NINDS text: muscular or radicular back or limb pain; raised CSF protein (normal protein does not exclude); electrodiagnostic features of motor or sensorimotor neuropathy (normal early studies do not exclude)</td><td>Raised CSF protein with white cells usually under 5×10⁶/l; anti-GQ1b usually present in Miller Fisher syndrome; nerve conduction consistent with polyneuropathy, which may be normal in the first days</td></tr>
+      <tr><th>Timing rule</th><td>Progressive phase days to 4 weeks</td><td>No more than 4 weeks of worsening, applied only if the duration of progression is known; progression rarely exceeds 2 weeks and almost never 4 [[vanDoorn2023]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">The guideline deliberately does not endorse specific electrodiagnostic criteria for AIDP, AMAN or AMSAN, because there is no gold standard and the subtype does not currently change management [[vanDoorn2023]]. Nerve conduction is covered in <a href="#ncs" data-go="ncs">Nerve conduction studies</a>.</p>
+
+  <h3 class="sub">Brighton teaching calculator</h3>
+  <div class="prose"><p>Choose the findings for an imaginary case. The calculator applies the Brighton grid as reproduced in two secondary tables [[LopezHernandez2022,Ghazanfar2020]], says which level the items reach, and highlights that level in six published cohorts.</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>This shows how a published case definition sorts information. It is never for an individual's diagnosis, prognosis or treatment. A level describes how complete the evidence is, not how ill someone is [[Fokke2014]].</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="calc" id="crCalc">
+        <label for="crW">Limb weakness
+          <select id="crW"><option value="1">Bilateral and flaccid</option><option value="0">Not bilateral, or not flaccid</option></select></label>
+        <label for="crR">Reflexes in the weak limbs
+          <select id="crR"><option value="1">Reduced or absent</option><option value="0">Normal or brisk</option></select></label>
+        <label for="crM">Course
+          <select id="crM"><option value="1">One phase, 12 hours to 28 days to the worst point</option><option value="0">Outside that window, or more than one phase</option></select></label>
+        <label for="crA">Other diagnoses
+          <select id="crA"><option value="1">No alternative diagnosis found</option><option value="0">Another cause found</option></select></label>
+        <label for="crC">Spinal fluid (CSF)
+          <select id="crC"><option value="none">Not collected or not available</option><option value="raised" selected>Cells under 50/µl, protein raised</option><option value="normal">Cells under 50/µl, protein normal</option><option value="cells">Cells 50/µl or more</option></select></label>
+        <label for="crN">Nerve conduction
+          <select id="crN"><option value="yes" selected>Consistent with a GBS subtype</option><option value="no">Normal, or not consistent</option><option value="none">Not done</option></select></label>
+      </div>
+    </div>
+    <aside class="note crout" id="crOut" aria-live="polite"></aside>
+  </div>
+  <div class="stage">
+    <p class="kicker">The same levels in six published cohorts</p>
+    <div class="scroll"><svg id="crCoh" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Six horizontal stacked bars, one per published cohort, splitting people into Brighton levels 1 to 4 with each share printed in its segment; the level chosen in the calculator is outlined and the others are faded."></svg></div>
+    <div class="legend" aria-hidden="true"><span><i style="background:var(--dx-soft);border-color:var(--dx)"></i>L1 level 1</span><span><i style="background:var(--care-soft);border-color:var(--care)"></i>L2 level 2</span><span><i style="background:var(--accent-soft);border-color:var(--accent)"></i>L3 level 3</span><span><i style="background:var(--panel-2);border-color:var(--muted)"></i>L4 level 4</span></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Cohort</th><th>Level 1</th><th>Level 2</th><th>Level 3</th><th>Level 4</th></tr></thead>
+    <tbody>
+      <tr><th>Dutch adults, complete data (n=335) [[Fokke2014]]</th><td>61%</td><td>33%</td><td>none</td><td>6%</td></tr>
+      <tr><th>Malaysian GBS (n=84) [[Tan2020]]</th><td>67%</td><td>25%</td><td>4%</td><td>5%</td></tr>
+      <tr><th>Malaysian Miller Fisher syndrome (n=25) [[Tan2020]]</th><td>20%</td><td>56%</td><td>8%</td><td>16%</td></tr>
+      <tr><th>Single hospital, classic GBS (n=61) [[Zeng2019]]</th><td>60.66%</td><td>34.42%</td><td>4.92%</td><td>0%</td></tr>
+      <tr><th>Mexican GBS, complete data (n=173) [[LopezHernandez2022]]</th><td>54.6%</td><td>45%</td><td>not given</td><td>0.6%</td></tr>
+      <tr><th>Iranian cohort [[Boostani2019]]</th><td>41.4%</td><td>51.6%</td><td>not given</td><td>7.0%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Across all 248 Mexican patients, including those with an incomplete work-up: level 1 38%, level 2 57%, level 3 4.8% [[LopezHernandez2022]].</p>
+
+  <div class="cards">
+    <div class="card"><span class="tag dx">Children</span><h4>Cumulative sensitivity</h4><p>In 46 Dutch children with complete data, Brighton reached level 1 in 72% (95% CI 57–84), level 2 or better in 96% (85–99) and level 3 or better in 98% (88–100) [[Roodbol2017]].</p></div>
+    <div class="card"><span class="tag warn">Specificity</span><h4>A mimic can qualify</h4><p>When the "no alternative diagnosis" item was left out, 8% of children with acute flaccid myelitis met the Brighton criteria for GBS [[Helfferich2022]]. That item does real work.</p></div>
+    <div class="card"><span class="tag dx">Severity</span><h4>Level is not severity</h4><p>People at different Brighton levels did not differ in preceding events, first symptoms or outcome in the Dutch cohort, so the level reflects certainty of the data [[Fokke2014]].</p></div>
+    <div class="card"><span class="tag warn">Variants</span><h4>Who falls outside</h4><p>Brighton is designed for classic symmetric, ascending GBS and Fisher syndrome and could miss rare regional variants such as pharyngeal-cervical-brachial weakness [[Korinthenberg2020]]. Bilateral facial palsy with paraesthesias, pure sensory GBS and Bickerstaff brainstem encephalitis do not fulfil commonly used criteria [[Leonhard2019]].</p></div>
+  </div>
+
+  <h3 class="sub">The GBS Classification Group scheme</h3>
+  <div class="prose"><p>A 2014 classification splits GBS into classic and localised forms (such as pharyngeal-cervical-brachial weakness and bifacial weakness with paraesthesias), and Miller Fisher syndrome into incomplete forms (such as acute ophthalmoparesis and acute ataxic neuropathy) and a central nervous system subtype, Bickerstaff brainstem encephalitis, with criteria based on clinical features [[Wakerley2014]]. Two hospital series applied it:</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Category</th><th>103 Japanese patients [[Wakerley2016]]</th><th>61 Malaysian patients [[Hiew2017Fruste]]</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>Classic GBS</th><td>71%</td><td>67%</td></tr>
+      <tr><th>Classic Miller Fisher syndrome</th><td>17%</td><td>10%</td></tr>
+      <tr><th>Bickerstaff brainstem encephalitis</th><td>3%</td><td>not listed</td></tr>
+      <tr><th>Pharyngeal-cervical-brachial weakness</th><td>2%</td><td>5%</td></tr>
+      <tr><th>Paraparetic</th><td>not listed</td><td>7%</td></tr>
+      <tr><th>Bifacial weakness</th><td>not listed</td><td>5%</td></tr>
+      <tr><th>Overlap</th><td>not listed</td><td>5%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">"Not listed": the abstract read for this guide does not give that category. Variants are explained in <a href="#mfs" data-go="mfs">Miller Fisher &amp; other variants</a>.</p>
+
+  <div class="hook"><b>Exam hook</b>Brighton level 1 needs both CSF support (cells under 50/µl, protein raised) and nerve conduction consistent with GBS; level 3 is clinical only; level 4 needs only that no alternative diagnosis has been found [[LopezHernandez2022,Ghazanfar2020]].</div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Positions</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>Do current criteria miss variants?</th><td>Existing criteria can miss variants [[Shahrizaila2021]]; the 2014 classification tries to be more inclusive [[Wakerley2014]]; EAN/PNS used the Leonhard consensus for clinical diagnosis [[vanDoorn2023]].</td><td>No single accepted standard</td></tr>
+      <tr><th>Should preserved reflexes be in the criteria?</th><td>Yuki and colleagues argue yes [[Yuki2012JNeurol]]; EAN/PNS keeps reduced or absent reflexes as required while noting that initially normal or brisk reflexes can occur [[vanDoorn2023]].</td><td>Open</td></tr>
+      <tr><th>Can the level be read day by day?</th><td>Timing clearly shapes the level [[LopezHernandez2022]], but no day-by-day Brighton curve was found in the sources read for this guide [[Fokke2014]].</td><td>Evidence gap</td></tr>
+    </tbody>
+  </table></div>
+  <div class="pt"><b>In plain words</b>No single test proves GBS. Doctors put together the story, the examination and the test results. Checklists like Brighton help researchers say how sure they are, and a lower level does not mean a milder illness.</div>
+</section>

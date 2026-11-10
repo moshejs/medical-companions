@@ -1,2 +1,126 @@
-<!-- STUB: replaced by its builder -->
-<section class="mod" id="m-signs" data-mod="signs" hidden><div class="mhead"><h2>signs</h2><p class="lede">Being written.</p></div></section>
+<!-- ================= 2.1 SIGNS & RED FLAGS ================= -->
+<style>
+#m-signs .sgbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-signs .sgbar .kicker{margin-right:4px}
+#m-signs .sgbar .btn{min-height:40px}
+#m-signs .sgflags{display:flex;flex-wrap:wrap;gap:8px}
+#m-signs .sgflags .btn{min-height:40px;text-align:left;font-weight:600}
+#m-signs .sgcap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-signs .tbl table{min-width:560px}
+#m-signs .card>.tag{align-self:flex-start}
+</style>
+<section class="mod" id="m-signs" data-mod="signs" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Signs &amp; red flags</h2>
+    <p class="lede">What Guillain-Barré syndrome usually looks like as it unfolds, how often each feature appears, and the findings that should make anyone look for a different cause. Scrub the timeline or press Play.</p></div>
+
+  <div class="prose">
+    <p>No single sign or test proves GBS. The diagnosis rests on the pattern: weakness of both sides that worsens over days, reflexes that fade, and often tingling and pain, in a person with no better explanation [[Leonhard2019,vanDoorn2023]]. About two-thirds report an infection in the 6 weeks before, and about one-third report none of the usual events, so a missing infection does not rule GBS out [[Leonhard2019,vanDoorn2023]].</p>
+  </div>
+  <p class="crisis" role="note"><b>Emergency</b><span>Weakness that is getting worse quickly, or trouble breathing or swallowing, needs emergency care. In GBS, breathing can fail without the person feeling breathless [[Leonhard2019,vanDoorn2023]].</span></p>
+
+  <div class="stepper" id="sgSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="sgSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A front-view body in which tingling and back pain appear first, then a band of weakness rises from the feet to the legs, the arms and the face, beside a knee-jerk panel whose response shrinks to nothing and bars showing how often each feature was found at study entry; a last scene marks five red-flag sites on the body and lists features that point to another diagnosis."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sgPlay">%t:player.play%</button><label class="stage-cap tl" for="sgT">Timeline <input type="range" id="sgT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap">Schematic, not to scale. The order shown is the classic one; weakness can also start in the arms or all limbs at once [[Leonhard2019]]. Bars: International GBS Outcome Study (IGOS) at study entry [[Doets2018]].</p></div>
+    <aside class="note" id="sgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How often each feature appears, and where</h3>
+  <div class="prose"><p>IGOS enrolled people with GBS across Europe and the Americas, Asia and Bangladesh. It is a hospital cohort, not a population sample, and the same feature was much commoner in some regions than in others [[Doets2018]]. Pick a region and a time point.</p></div>
+  <div class="stage">
+    <div class="sgbar" role="group" aria-label="Region">
+      <span class="kicker">Region</span>
+      <button class="btn" data-sgr="all" aria-pressed="true">All IGOS</button>
+      <button class="btn" data-sgr="ea" aria-pressed="false">Europe &amp; Americas</button>
+      <button class="btn" data-sgr="as" aria-pressed="false">Asia</button>
+      <button class="btn" data-sgr="bd" aria-pressed="false">Bangladesh</button>
+    </div>
+    <div class="sgbar" role="group" aria-label="Time point">
+      <span class="kicker">When</span>
+      <button class="btn" data-sgw="entry" aria-pressed="true">At study entry</button>
+      <button class="btn" data-sgw="nadir" aria-pressed="false">At the worst point</button>
+    </div>
+    <div class="scroll"><svg id="sgFx" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="Horizontal bars for sensory deficits, pain, cranial nerve involvement, autonomic dysfunction and inability to walk unaided, for the chosen IGOS region and time point, with the percentage printed at the end of each bar."></svg></div>
+    <p class="sgcap" id="sgFxCap" aria-live="polite"></p>
+  </div>
+
+  <div class="cards">
+    <div class="card"><span class="tag dx">Both sides</span><h4>Weakness is bilateral</h4><p>All 494 Dutch adults had weakness of limbs on both sides. It stayed in the legs in 6% and in the arms in 1% [[Fokke2014]]. Among 67 Dutch children, 70% presented with weakness of all four limbs and 23% with weakness of the legs only [[Roodbol2017]].</p></div>
+    <div class="card"><span class="tag dx">Reflexes</span><h4>Reduced in 91% at first</h4><p>Reflexes in weak limbs were reduced at the first assessment in 91% of the Dutch adults and in all during follow-up, though 10 people (2%) kept normal reflexes in weak arms [[Fokke2014]].</p></div>
+    <div class="card"><span class="tag dx">Variant</span><h4>Pure motor in Bangladesh</h4><p>The commonest clinical variant was sensorimotor in Europe and the Americas (69%) and in Asia (43%), but pure motor in Bangladesh (69%) [[Doets2018]].</p></div>
+    <div class="card"><span class="tag dx">Antecedents</span><h4>Infection is common, not required</h4><p>About two-thirds report an infection in the 6 weeks before onset; about one-third report none of the events asked about [[Leonhard2019,vanDoorn2023]].</p></div>
+  </div>
+
+  <h3 class="sub">Pain is part of GBS</h3>
+  <div class="prose"><p>Pain is easy to overlook in a disease named for weakness. It can be muscular, radicular (from the nerve roots) or neuropathic (from damaged nerve) [[Leonhard2019]], and it occurs across the whole spectrum, including Miller Fisher syndrome, mild disease and pure motor forms [[Ruts2010Pain]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>When</th><th>People reporting pain</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>In the 2 weeks before weakness</th><td>36% of 156 followed prospectively</td><td>[[Ruts2010Pain]]</td></tr>
+      <tr class="hl"><th>Acute phase (first 3 weeks after inclusion)</th><td>66%, mostly moderate to severe</td><td>[[Ruts2010Pain]]</td></tr>
+      <tr><th>At 1 year</th><td>38%</td><td>[[Ruts2010Pain]]</td></tr>
+      <tr><th>At IGOS entry</th><td>55% overall; 58% Europe and the Americas, 12% Asia, 62% Bangladesh</td><td>[[Doets2018]]</td></tr>
+      <tr><th>Neuropathic pain, acute phase</th><td>43.7% of 32; lower skin nerve-fibre density in the lower leg went with more pain (rs = −0.51)</td><td>[[Ruts2012]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="pt"><b>In plain words</b>Many people with GBS feel pain, sometimes before any weakness. It is a real part of the illness, and it is worth telling the care team about it.</div>
+
+  <h3 class="sub">Reflexes: the people who keep them</h3>
+  <div class="prose"><p>Reduced or absent reflexes are a required feature in the criteria [[vanDoorn2023]], yet a minority of people with GBS keep normal or even brisk reflexes. In 213 people from three hospital cohorts, 23 (about 10%) kept normal or exaggerated reflexes throughout [[Yuki2012JNeurol]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Feature</th><th>Normal or brisk reflexes (n=23)</th><th>Reduced reflexes (n=190)</th></tr></thead>
+    <tbody>
+      <tr><th>Pure motor weakness</th><td>87%</td><td>47%</td></tr>
+      <tr><th>Walked 5 m unaided at the worst point</th><td>70%</td><td>33%</td></tr>
+      <tr><th>Antibodies to GM1, GM1b, GD1a or GalNAc-GD1a</th><td>74%</td><td>47%</td></tr>
+      <tr class="hl"><th>Axonal subtype (AMAN)</th><td>65%</td><td>34%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">All rows [[Yuki2012JNeurol]].</p>
+  <div class="prose"><p>In 54 Japanese patients, 7 (13%) developed brisk reflexes in early recovery, 6 of them with AMAN and all 7 with anti-GM1 antibodies [[Kuwabara1999]]. The guideline states that initial hyperreflexia does not exclude GBS, though it still makes it less likely [[vanDoorn2023]].</p></div>
+  <div class="hook"><b>Exam hook</b>Required in the NINDS criteria as adapted: progressive weakness of both arms and legs plus reduced or absent reflexes in the affected limbs [[Leonhard2019]]. Remember the exception: about 10% keep reflexes, mostly pure motor AMAN [[Yuki2012JNeurol]].</div>
+
+  <h3 class="sub">Autonomic signs</h3>
+  <div class="prose"><p>How often dysautonomia is reported depends on how it is defined and where people are studied: 25% at IGOS entry [[Doets2018]], 71 of 187 (38%) in a retrospective Mayo Clinic series [[Chakraborty2020]], and up to two-thirds in a literature review [[Zaeem2019]]. One Mexican abstract reports "51 (31%)" of 214, but 51 of 214 is 24%, so that percentage is internally inconsistent [[BazanRodriguez2023]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Feature (Mayo series, n=71 with dysautonomia)</th><th>Share</th></tr></thead>
+    <tbody>
+      <tr><th>Ileus (bowel that stops moving)</th><td>42%</td></tr>
+      <tr><th>High blood pressure</th><td>39%</td></tr>
+      <tr><th>Low blood pressure</th><td>37%</td></tr>
+      <tr><th>Fever</th><td>29%</td></tr>
+      <tr><th>Fast or slow heart rate</th><td>27%</td></tr>
+      <tr><th>Urinary retention</th><td>24%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">[[Chakraborty2020]]. In that single-centre retrospective series, mortality was 6% with dysautonomia against 2% in the whole cohort.</p>
+  <p class="callout">Autonomic care, blood pressure swings and arrhythmias are covered in <a href="#autonomic" data-go="autonomic">Autonomic storms</a>.</p>
+
+  <h3 class="sub">Children can look different</h3>
+  <div class="split2">
+    <div class="card"><h4>Under 6 years</h4><p>Young children can present with poorly localised pain, refusal to bear weight, irritability, meningism or an unsteady gait, which can delay the diagnosis [[Leonhard2019]].</p></div>
+    <div class="card"><h4>Faster to the worst point</h4><p>In 67 Dutch children (median age 5.0 years), the progressive phase lasted a median 6 days (IQR 3–8) and under 4 weeks in all [[Roodbol2017]]. Bilateral limb weakness was present at admission in 93% and at the worst point in all [[Roodbol2017]].</p></div>
+  </div>
+
+  <h3 class="sub">Red-flag sorter</h3>
+  <div class="prose"><p>Pick a finding. The panel says whether published consensus counts it as typical of GBS, possible but less typical, or a red flag that casts doubt on the diagnosis, and the body map shows where it is found. Red flags are prompts to look further, not proof that something else is going on [[AlHakem2023,Leonhard2019]].</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>This sorts findings as the cited consensus papers list them. It cannot diagnose anyone, and real assessment weighs every finding together.</p>
+  <div class="lab even">
+    <div class="stage">
+      <svg id="sgMap" viewBox="0 0 400 380" role="img" aria-label="A front-view body map with a time strip below it. The finding you pick is marked on the body, or on the time strip if it is about timing, with its verdict written beside the mark."></svg>
+      <div class="sgflags" id="sgFlags" role="group" aria-label="Findings"></div>
+    </div>
+    <aside class="note" id="sgFlagNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Positions</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>Should preserved reflexes be written into the criteria?</th><td>Yuki and colleagues argue yes [[Yuki2012JNeurol]]; EAN/PNS keeps reduced or absent reflexes as required while noting that initially normal or brisk reflexes can occur [[vanDoorn2023]].</td><td>Open</td></tr>
+      <tr><th>How common is dysautonomia?</th><td>25% at IGOS entry [[Doets2018]], 38% in one retrospective series [[Chakraborty2020]], up to two-thirds in a review [[Zaeem2019]].</td><td>Depends on definition and setting</td></tr>
+    </tbody>
+  </table></div>
+  <div class="pt"><b>In plain words</b>Doctors check reflexes because they are usually weak or missing in GBS, though a few people keep them. A fever, being unable to pass urine at the start, or numbness below a clear line on the body can point to a different problem, so these are worth mentioning.</div>
+</section>
