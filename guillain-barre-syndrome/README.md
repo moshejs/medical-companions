@@ -12,13 +12,18 @@ A left rail of modules, one module per page, and SVG animations you scrub with a
 
 | Part | Modules |
 |---|---|
-%TABLE%
+| 1 · Understanding GBS | What GBS is (incidence by age and country, IGOS outcomes by region) · Triggers *(not yet built)* · Molecular mimicry *(not yet built)* · Subtypes: AIDP &amp; AMAN (myelin versus node attack, subtype mix by cohort) · Miller Fisher &amp; other variants · The course over time (fluctuation explorer) |
+| 2 · Diagnosis | Signs &amp; red flags (red-flag sorter) · Diagnostic criteria (Brighton teaching calculator) · Lumbar puncture &amp; CSF · Nerve conduction studies (criteria teaching tool) · Look-alikes (mimic comparison explorer) |
+| 3 · Acute care | Breathing &amp; the 20/30/40 rule (EGRIS and mEGRIS teaching calculators) · IVIg · Plasma exchange (apheresis circuit, Cochrane forest plot) · Steroids, repeats &amp; relapses (A-CIDP explorer) · Autonomic storms · Intensive care &amp; pain |
+| 4 · Recovery | Prognosis: EGOS &amp; mEGOS (teaching calculator) · Rehabilitation &amp; recovery · Life after GBS |
+| 5 · Special situations &amp; care | Children &amp; pregnancy · Vaccines &amp; GBS *(not yet built)* · Nursing care (single breath count explorer) · Research frontier (complement and IgG drug targets, trial explorer, evidence-labelled) |
+| 6 · Context &amp; review | History &amp; people · Flashcards &amp; memory aids · Quiz · Glossary · Sources |
 
-Every research claim links to a numbered entry in the Sources module (%CITED% cited sources). Research-landscape claims carry an evidence label: *Established*, *Early evidence* or *Hypothesis*.
+Every research claim links to a numbered entry in the Sources module (479 cited sources). Research-landscape claims carry an evidence label: *Established*, *Early evidence* or *Hypothesis*.
 
 ## How it was made
 
-Nine research passes, one per area: (A) epidemiology, burden, presentation and history; (B) triggers, vaccines and molecular mimicry; (C) subtypes, nerve pathology and electrophysiology; (D) clinical course, diagnostic criteria, CSF and the differential; (E) immunotherapy: IVIg, plasma exchange, steroids and fluctuations; (F) respiratory failure, autonomic dysfunction, pain and intensive care; (G) prognosis, recovery, rehabilitation and long-term outcomes; (H) children, pregnancy, nursing care and living with GBS; (I) the research frontier. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in; anything that could not be checked was dropped. The full text of the 2023 EAN/PNS guideline could not be fetched, so its statements use the wording of its abstract; each pass's Provenance section says what else is second-hand. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (%LISTED% entries, each recording which service confirmed it), and the modules were written against them.
+Nine research passes, one per area: (A) epidemiology, burden, presentation and history; (B) triggers, vaccines and molecular mimicry; (C) subtypes, nerve pathology and electrophysiology; (D) clinical course, diagnostic criteria, CSF and the differential; (E) immunotherapy: IVIg, plasma exchange, steroids and fluctuations; (F) respiratory failure, autonomic dysfunction, pain and intensive care; (G) prognosis, recovery, rehabilitation and long-term outcomes; (H) children, pregnancy, nursing care and living with GBS; (I) the research frontier. Each pass returned cited facts, and every source was checked against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or the drug label (openFDA) before it went in; anything that could not be checked was dropped. The full text of the 2023 EAN/PNS guideline could not be fetched, so its statements use the wording of its abstract; each pass's Provenance section says what else is second-hand. The pass files are in [`research/`](research/) (format: [`research/RESEARCH-FORMAT.md`](research/RESEARCH-FORMAT.md)); `tools/compile_sources.py` merged their reference lists into `src/sources.json` (544 entries, each recording which service confirmed it), and the modules were written against them.
 
 ## Building
 
