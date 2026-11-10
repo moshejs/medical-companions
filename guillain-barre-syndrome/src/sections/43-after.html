@@ -1,2 +1,141 @@
-<!-- STUB: replaced by its builder -->
-<section class="mod" id="m-after" data-mod="after" hidden><div class="mhead"><h2>after</h2><p class="lede">Being written.</p></div></section>
+<!-- ================= 4.3 LIFE AFTER GBS ================= -->
+<style>
+#m-after .tbl table{min-width:640px}
+#m-after .card>.ev,#m-after .card>.tag{align-self:flex-start}
+#m-after .afbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-after .afbar .btn{min-height:40px}
+#m-after .afcap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-after .card .big-num{font-size:34px}
+#m-after #afFatSvg [data-aff]{cursor:pointer}
+</style>
+<section class="mod" id="m-after" data-mod="after" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Recovery</p><h2>Life after GBS</h2>
+    <p class="lede">Walking again is not the whole story. Pain, tiredness, mood, work and family life can change for years after Guillain-Barré syndrome, even after a good physical recovery. Walk the timeline from before the weakness to twenty years on.</p></div>
+
+  <div class="cards">
+    <div class="card"><span class="big-num">60 to 80%</span><p>report fatigue unrelated to weakness, often among their most disabling complaints [[Leonhard2019]]. A 2025 meta-analysis found a much lower 32% [[Zuluaga2025]].</p></div>
+    <div class="card"><span class="big-num">38%</span><p>still had pain 1 year after onset in a Dutch cohort of 156 people [[Ruts2010Pain]].</p></div>
+    <div class="card"><span class="big-num">63%</span><p>reported a change in work, leisure, home life or their partner's life 3 to 6 years on, including people who had physically recovered [[Bernsen1999Daily]].</p></div>
+    <div class="card"><span class="big-num">2 to 5%</span><p>have GBS again: rare, though higher than the 0.1% lifetime risk in the general population [[Leonhard2019]].</p></div>
+  </div>
+
+  <div class="stepper" id="afSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="afSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A timeline from before the weakness to ten years and more after GBS, with a walking figure moving along it. At each stop a block of 100 small figures lights up the share of people in one study with a problem: pain before weakness, pain in the acute phase, low mood at 3 months, pain at 1 year, being unable to work at 2 years, changes in daily life at 3 to 6 years, and pain or severe fatigue at about 10 years."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="afPlay">%t:player.play%</button><label class="stage-cap tl" for="afT">Timeline <input type="range" id="afT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="stage-cap">Each stop shows one study, scaled to 100 people. The studies followed different people in different ways, so the stops are not one cohort and should not be read as a single curve.</p></div>
+    <aside class="note" id="afNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Fatigue: common, real, and hard to count</h3>
+  <div class="prose"><p>Fatigue after GBS is not explained by remaining weakness. Severe fatigue was found in 80% of 113 people with past GBS, CIDP or a related neuropathy, including 81 to 86% of those with normal strength or sensation [[Merkies1999]]. In 100 people after GBS it was found in 60%, more often in women and people over 50, with no relation to disability at the worst point, the infection before GBS, or time since GBS [[Garssen2006Fatigue]]. Yet a 2025 meta-analysis pooled a much lower figure. Select a study to see who was measured.</p></div>
+  <div class="stage">
+    <div class="afbar" role="group" aria-label="Fatigue studies">
+      <button class="btn" data-aff="merkies" aria-pressed="false">Merkies 1999</button>
+      <button class="btn" data-aff="garssen" aria-pressed="true">Garssen 2006</button>
+      <button class="btn" data-aff="zul" aria-pressed="false">Zuluaga 2025</button>
+      <button class="btn" data-aff="witsch" aria-pressed="false">Witsch 2013</button>
+      <button class="btn" data-aff="drory" aria-pressed="false">Drory 2012</button>
+    </div>
+    <div class="scroll"><svg id="afFatSvg" viewBox="0 0 720 312" style="min-width:560px" role="img" aria-label="Horizontal bars for the share of people with fatigue in five studies, from 80% in an older clinic study down to 8% in lower-income countries in a 2025 meta-analysis, with a shaded band for the 60 to 80% range given in a guideline review. The selected study is highlighted."></svg></div>
+    <p class="afcap" id="afFatCap" aria-live="polite"></p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>What was found</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>Is it the nerves?</th><td>Conventional nerve conduction did not explain fatigue [[Garssen2006NCS]]; lower motor unit estimates were found in people with severe fatigue (median 125 against 258; controls 358) [[Drenthen2013]].</td><td><span class="ev hyp">Hypothesis</span></td></tr>
+      <tr><th>Is it the brain?</th><td>Central changes were suggested in a small study of 10 people [[Garssen2007Central]].</td><td><span class="ev hyp">Hypothesis</span></td></tr>
+      <tr><th>Does a drug help?</th><td>Amantadine was no better than placebo in a crossover trial of 80 people [[Garssen2006Amantadine]]; the Cochrane estimate for a good outcome was OR 0.56 (low-quality evidence) [[White2014]]. The EAN/PNS guideline does not recommend a specific treatment [[vanDoorn2023]].</td><td><span class="ev est">Established</span>: no proven drug</td></tr>
+      <tr><th>Does exercise help?</th><td>Twelve weeks of bicycle training cut self-reported fatigue by 20% (p = 0.001) [[Garssen2004Training]]; supervised exercise beat home exercise in a small RCT [[Shah2022]]. Other causes should be considered first, and graded, supervised exercise has been shown useful [[Leonhard2019]].</td><td><span class="ev early">Early evidence</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>Feeling very tired long after your strength returns is common and real. A supervised exercise plan that builds up slowly helped some people. Pushing too hard can make it worse [[Merkies1999,Garssen2004Training,Leonhard2019]].</div>
+    <div class="hook"><b>Exam hook</b>Fatigue in GBS is not explained by residual weakness; no specific drug is recommended, amantadine failed, and graded exercise is used [[Merkies1999,Garssen2006Amantadine,vanDoorn2023]].</div>
+  </div>
+
+  <h3 class="sub">Pain that lasts</h3>
+  <div class="prose">
+    <p>Pain can be tingling and burning (paraesthesia and dysaesthesia), deep back and root pain, meningism (a stiff, painful neck), muscle and joint pain, or discomfort in the gut [[Pentland1994]]. In 55 people, deep back and leg pain usually settled within 8 weeks, but dysaesthetic limb pain persisted longer in 5 to 10% [[Moulin1997]]. It happens in the pure motor form too, and lower skin nerve fibre density went with worse acute pain [[Ruts2012]]. Muscle aches and cramps persisted in 48% at 3 to 6 years, linked to remaining sensory loss rather than weakness [[Bernsen2001]]. Pain in intensive care is covered in <a href="#icu" data-go="icu">Intensive care &amp; pain</a>.</p>
+  </div>
+  <div class="stage">
+    <div class="afbar" role="group" aria-label="Cohorts shown">
+      <button class="btn" data-afp="nl" aria-pressed="true">Netherlands</button>
+      <button class="btn" data-afp="bd" aria-pressed="true">Bangladesh</button>
+    </div>
+    <div class="scroll"><svg id="afPainSvg" viewBox="0 0 720 270" style="min-width:560px" role="img" aria-label="A chart of the share of people with pain over the first year. In a Dutch cohort, 36% had pain before weakness, 66% in the acute phase and 38% at 1 year. In a Bangladeshi cohort, 71% had pain at enrolment, 38% at week 13 and 26% at week 26."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="afPainPlay">%t:player.play%</button><label class="stage-cap tl" for="afPainT">Months <input type="range" id="afPainT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="stage-cap">Straight lines join the published points of each cohort; the shape between them is not known. Netherlands: 156 people [[Ruts2010Pain]]. Bangladesh: 644 people, median age 31 [[Papri2024Pain]].</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Treatment</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><th>Gabapentin, carbamazepine</th><td>The Cochrane review found three short trials in the acute phase (277 people), with very-low-quality evidence for gabapentin and carbamazepine, not enough to support any drug [[Liu2015]]. In one three-arm trial (36 people), median day-7 pain scores were 2.0 with gabapentin, 3.0 with carbamazepine and 6.0 with placebo [[Pandey2005]].</td></tr>
+      <tr><th>Guideline wording</th><td>The EAN/PNS guideline weakly recommends gabapentinoids, tricyclic antidepressants or carbamazepine for pain [[vanDoorn2023]]; opioids may be used with care because of constipation, ileus, confusion, breathing suppression and addiction [[vanDoorn2023]].</td></tr>
+      <tr><th>Steroids</th><td>Methylprednisolone did not reduce pain [[Ruts2007Pain,Liu2015]].</td></tr>
+      <tr class="hl"><th>Pain months and years later</th><td>No randomised trial was found for the recovery phase, and the Cochrane review calls for one [[Liu2015]].</td></tr>
+    </tbody>
+  </table></div>
+  <div class="pt"><b>In plain words</b>Pain is common in GBS, and it can start before the weakness. Tell your care team about it, because medicines may help [[Ruts2010Pain,vanDoorn2023]].</div>
+
+  <h3 class="sub">Mood, fear and identity</h3>
+  <div class="cards">
+    <div class="card"><h4>Depression, mostly early</h4><p>In a Danish population study of 853 people, 21.3% had depression within 2 years, against 3.3% of the general population. The risk was highest in the first 3 months (HR 20.5), and after 2 years it matched the general population (HR 0.8) [[Levison2023Depression]].</p></div>
+    <div class="card"><h4>Still present years later</h4><p>In Melbourne, at a median of 6 years, 18% reported moderate to extreme depression, 22% anxiety and 17% stress [[Khan2010Factors]]. Psychosocial function was impaired even in people with no or mild remaining signs at 3 to 6 years [[Bernsen1997Health]], and it was still impaired at 12 months in a first-year study [[Bernsen2010Psychosocial]].</p></div>
+    <div class="card"><h4>After a long ventilation</h4><p>In 13 survivors of prolonged ventilation, quality of life matched population norms, yet 22% had post-traumatic stress symptoms [[LeGuennec2014]].</p></div>
+    <div class="card"><h4>What people describe</h4><p>Interviews named two processes, "loss, determination, and adjustment" and "the unknown"; support, knowledge and hope helped [[Bell2025]]. Two years on, some described a continuous wait for recovery [[Forsberg2015Balance]].</p></div>
+  </div>
+  <p class="support"><b>Support</b>Low mood and worry are common, especially in the first months. Asking for help with them is part of recovery, and referral to a psychologist or psychiatrist may help some people [[Levison2023Depression,Leonhard2019]].</p>
+
+  <h3 class="sub">Work, home and family</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>When</th><th>Finding</th><th>Study</th></tr></thead>
+    <tbody>
+      <tr><th>2 years</th><td>17% of those working before GBS could not work; 26% still depended on informal help, and spouses described more concern and household responsibility</td><td>Sweden [[Forsberg2005Disability,Forsberg2006Burden]]</td></tr>
+      <tr><th>3 to 6 years</th><td>38% of those with jobs had to change them, 44% altered leisure, 37% functioned less well at home, and 39% reported a change in their partner's life</td><td>Netherlands, 122 people [[Bernsen2002Work]]</td></tr>
+      <tr><th>3 to 5 years</th><td>Over 90% had more or less complete functional recovery, yet 27% made substantial changes in work, hobbies or social life</td><td>Italy, 70 people [[Bersano2006]]</td></tr>
+      <tr><th>2 to 24 years</th><td>60% of adults resumed work, 25% took a less demanding job and 15% did not return</td><td>57 severely affected people [[deJager1991]]</td></tr>
+      <tr><th>First year</th><td>72% of 86 close relatives reported one or more daily-living problems; distress was highest in the first months, and a family approach was recommended</td><td>Netherlands [[Bernsen2006Relatives]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>Returning to work involved the value of work, losing and regaining a familiar identity, and dilemmas about adaptations; low public awareness of GBS got in the way (a qualitative study of 5 people) [[Royal2009]]. Most people were satisfied with their care, but dissatisfaction centred on information and money [[Forsberg2006Burden]].</p></div>
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>Many people go back to work, though some need to change their job or how they work. GBS changes life for families too, and it is fine for relatives to ask for support [[Bernsen2002Work,deJager1991,Bernsen2006Relatives]].</div>
+    <div class="support"><b>Support</b>The GBS|CIDP Foundation International and national patient organisations offer support and education, and can connect people with others who have had GBS. Support groups may also help relatives in the first year [[Leonhard2019,Bernsen2006Relatives]].</div>
+  </div>
+
+  <h3 class="sub">What the body keeps</h3>
+  <div class="cards">
+    <div class="card"><h4>Sensation</h4><p>At 3 to 6 years, remaining sensory loss was found in the arms of 38% and the legs of 66%, and felt as moderate to severe in the arms of 27% and legs of 40% [[Bernsen2001]].</p></div>
+    <div class="card"><h4>Strength and walking</h4><p>At 10 years in 29 Swedish people, 52% had limits in walking, 38% tingling and 21% limits in the arms [[Forsberg2012Decade]]. At 3 to 6 years, 84 of 122 Dutch people had no or minor signs, 24 moderate and 14 severe [[Bernsen2001]].</p></div>
+    <div class="card"><h4>Bladder</h4><p>At a median of 6.1 years in 66 people, more than half reported getting up at night to pass urine and a third urgency and frequency; 49% said urinary symptoms interfered with daily life to some extent [[Amatya2013]].</p></div>
+    <div class="card"><h4>Even after mild GBS</h4><p>Among 50 Norwegians, 34% reported pain and 13% remaining weakness, and fatigue was raised even after mild disease [[Rekand2009]]. At a median of 6 years, pain and disability scores were worse than in controls [[Rudolph2008]].</p></div>
+    <div class="card"><h4>After childhood GBS</h4><p>At a median of 11 years, 65% had some remaining complaint: tingling 38%, unsteady walking in the dark 37%, painful hands or feet 24%, severe fatigue 22%; 26% reported a negative effect on school [[Roodbol2014Kids]]. More in <a href="#children" data-go="children">Children &amp; pregnancy</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Will it come back?</h3>
+  <div class="stage">
+    <div class="afbar" role="group" aria-label="Recurrence figures">
+      <button class="btn" data-afr="gbs" aria-pressed="true">After GBS: 2 to 5 in 100</button>
+      <button class="btn" data-afr="cal" aria-pressed="false">California cohort: 1.1%</button>
+      <button class="btn" data-afr="pop" aria-pressed="false">Anyone, lifetime: 0.1%</button>
+    </div>
+    <div class="scroll"><svg id="afRecSvg" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="A grid of 1000 dots. The chosen figure lights up: 20 to 50 dots for the 2 to 5% of people who have GBS again, 11 dots for 1.1% in a Californian cohort, or a single dot for the 0.1% lifetime risk in the general population."></svg></div>
+    <p class="afcap" id="afRecCap" aria-live="polite"></p>
+  </div>
+  <div class="prose"><p>In a Dutch series, 32 people with recurrent GBS had 81 episodes in all. They were younger than people with a single episode (mean 34.2 against 46.9 years) and more often had Miller Fisher syndrome or milder symptoms [[Kuitwaard2009JNNP]]. Later episodes resembled each person's first, though severity and the preceding infection varied [[Kuitwaard2009JNNP]]. Worsening within 2 months of treatment is a treatment-related fluctuation, not a recurrence [[Leonhard2019,Kuitwaard2009JNNP]]; see <a href="#whatnot" data-go="whatnot">Steroids, repeats &amp; relapses</a>.</p></div>
+  <p class="crisis" role="note"><b>Emergency</b><span>If weakness gets worse quickly, or breathing or swallowing becomes hard, this is an emergency and needs urgent care [[Leonhard2019]].</span></p>
+  <div class="prose"><p><b>Vaccines after GBS.</b> Prior GBS is not a strict contraindication to vaccination. Discussion with experts might help people diagnosed less than a year before a planned vaccination, or whose GBS followed the same vaccine, and the small, possibly only theoretical, risk should be weighed against the vaccine's benefit [[Leonhard2019,Hughes2005]]. In a Californian cohort, 279 people received 989 vaccines after GBS, including 405 flu doses in 107 people, with no recurrence after flu vaccination [[Baxter2012]]. None of 106 Dutch people reported recurrence after 775 flu vaccinations in all [[Kuitwaard2009JPNS]]. More in <a href="#vaccines" data-go="vaccines">Vaccines &amp; GBS</a>.</p></div>
+  <div class="hook"><b>Exam hook</b>Recurrence is 2 to 5%; it is commoner in younger people and after Miller Fisher syndrome [[Leonhard2019,Kuitwaard2009JNNP]].</div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Evidence each way</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>How common is long-term fatigue?</th><td>60 to 80% in the guideline and older cohorts [[Leonhard2019,Garssen2006Fatigue]]; 32% pooled and 8% in lower-income settings [[Zuluaga2025]]; 10 of 24 at 20 years [[Drory2012]]. Definitions and selection differ.</td><td>Unresolved</td></tr>
+      <tr><th>Do psychosocial effects last?</th><td>Danish register data show depression risk back to normal after 2 years [[Levison2023Depression]]; Dutch and Australian questionnaires found lasting impairment [[Bernsen1997Health,Khan2010Factors]].</td><td>Both may be true: they measured different things</td></tr>
+      <tr><th>How should pain be treated after the acute phase?</th><td>No convalescent-phase trial exists [[Liu2015]]; the guideline's weak recommendations rest on acute-phase evidence [[vanDoorn2023]].</td><td>Evidence gap</td></tr>
+      <tr><th>Is vaccination safe after GBS?</th><td>No recurrence after flu vaccination in two observational cohorts [[Baxter2012,Kuitwaard2009JPNS]]; guidance remains case by case [[Leonhard2019]].</td><td>Risk small; data not randomised</td></tr>
+    </tbody>
+  </table></div>
+</section>
