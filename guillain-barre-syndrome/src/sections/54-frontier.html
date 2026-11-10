@@ -1,2 +1,148 @@
-<!-- STUB: replaced by its builder -->
-<section class="mod" id="m-frontier" data-mod="frontier" hidden><div class="mhead"><h2>frontier</h2><p class="lede">Being written.</p></div></section>
+<!-- ================= 5.4 RESEARCH FRONTIER ================= -->
+<style>
+#m-frontier .tbl table{min-width:640px}
+#m-frontier .card>.ev,#m-frontier .card>.tag{align-self:flex-start}
+#m-frontier .card b.big-num{font-family:var(--display);font-weight:700;font-size:32px;line-height:1.05}
+#m-frontier .fnbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-frontier .fnbar .btn{min-height:44px}
+#m-frontier .fncap{font-size:15px;line-height:1.5;max-width:76ch;margin:0}
+#m-frontier #fxFacts .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px 18px}
+#m-frontier #fxFacts .kv dd{font-size:14.5px}
+#m-frontier .evkey{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:14.5px}
+</style>
+<section class="mod" id="m-frontier" data-mod="frontier" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Special situations &amp; care</p><h2>Research frontier</h2>
+    <p class="lede">New medicines for Guillain-Barré syndrome aim either to clear the harmful antibodies faster or to switch off complement, the protein cascade that damages the nerve. See where each one acts, explore what the trials found, and how strong each result is.</p></div>
+
+  <div class="prose">
+    <p>This module reports research, not treatment advice. Doses appear only as trial design facts. Outcome figures are group statistics from trials or cohorts and do not predict what happens to one person [[Wiegers2025,Freiha2026]]. Each research claim carries a label:</p>
+  </div>
+  <p class="evkey"><span><span class="ev est">Established</span> shown in randomised trials or settled by repeated evidence</span><span><span class="ev early">Early evidence</span> small, early, uncontrolled or not yet peer reviewed</span><span><span class="ev hyp">Hypothesis</span> a proposed explanation, not yet tested in people with GBS</span></p>
+
+  <div class="stepper" id="fnSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="fnSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A close-up of a node of Ranvier where IgG antibodies bind gangliosides and switch on a complement cascade, drawn as a column from IgG through C1q, C2, C3 and C5 to the membrane attack pore, with badges showing where imlifidase, efgartigimod, tanruprubart, empasiprubart and eculizumab are designed to act and what their trials have shown."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="fnPlay">%t:player.play%</button><label class="stage-cap tl" for="fnT">Timeline <input type="range" id="fnT" min="0" max="1" step="0.002" value="0.06"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The node close-up shows an AMAN-type attack; the cascade is simplified to the steps the drugs target [[Freiha2026,Gorson2025]].</p></div>
+    <aside class="note" id="fnNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The pipeline at a glance</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Agent</th><th>What it targets</th><th>Furthest GBS study</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><th>Eculizumab</th><td>C5, the last step before the membrane attack complex</td><td>Phase 3, Japan, 57 adults, added to IVIg</td><td><span class="ev est">Established</span> no benefit shown; the 2023 guideline does not recommend it [[Kuwabara2024,Wiegers2025]]</td></tr>
+      <tr><th>Crovalimab</th><td>C5</td><td>Phase 3 planned</td><td>Withdrawn by the sponsor before enrolment, for an internal decision not related to safety [[Freiha2026,NCT05494619]]</td></tr>
+      <tr><th>Tanruprubart (ANX005)</th><td>C1q, the first protein of the classical pathway</td><td>Phase 3, Bangladesh and Philippines, 242 enrolled, no standard care in either arm</td><td><span class="ev early">Early evidence</span> positive result reported by the company; no peer-reviewed trial paper [[Crescioli2026,Freiha2026]]</td></tr>
+      <tr><th>Empasiprubart (ARGX-117)</th><td>C2, in the classical and lectin pathways</td><td>Phase 2, about 63 adults, added to IVIg</td><td>Not yet recruiting [[NCT07821762]]</td></tr>
+      <tr><th>Imlifidase</th><td>Cuts IgG</td><td>Phase 2, one arm, 30 treated, then IVIg</td><td><span class="ev early">Early evidence</span> registry results, no control arm [[NCT03943589]]</td></tr>
+      <tr><th>Efgartigimod</th><td>FcRn, so IgG is broken down faster</td><td>Retrospective and observational series in China</td><td><span class="ev hyp">Hypothesis</span> in GBS; no randomised trial has reported [[Freiha2026]]</td></tr>
+      <tr><th>Protein A immunoadsorption</th><td>Removes IgG from plasma</td><td>Randomised trial against IVIg, 204 planned</td><td>Registered as not yet recruiting [[NCT05114941]]</td></tr>
+      <tr><th>Small-volume plasma exchange</th><td>Removes plasma by sedimentation in a blood bag</td><td>Phase 2, Bangladesh, 20 adults, one arm</td><td><span class="ev early">Early evidence</span> feasible; efficacy unknown [[Islam2018]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Trial explorer</h3>
+  <div class="prose"><p>Pick a trial. The bars show the result each trial reported for one outcome, with its group sizes. Read the panel below before comparing bars: the trials asked different questions in different people.</p></div>
+  <div class="fnbar" role="group" aria-label="Choose a trial">
+    <button class="btn" data-fx="jet" aria-pressed="true">JET-GBS · eculizumab</button>
+    <button class="btn" data-fx="ecu3" aria-pressed="false">Phase 3 · eculizumab</button>
+    <button class="btn" data-fx="anx1" aria-pressed="false">Phase 1 · ANX005</button>
+    <button class="btn" data-fx="tan3" aria-pressed="false">Phase 3 · tanruprubart</button>
+    <button class="btn" data-fx="iml" aria-pressed="false">Phase 2 · imlifidase</button>
+    <button class="btn" data-fx="efg" aria-pressed="false">Series · efgartigimod</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="fxSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Horizontal bars for the chosen trial, one per group, showing the share who reached the trial's outcome, with confidence intervals where the trial reported them."></svg></div>
+    <p class="stage-cap">Bars are drawn from the published counts and percentages. Do not compare bars across trials.</p>
+    <div class="note" id="fxFacts" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">Tanruprubart: reading a promising result carefully</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Primary result, week 8</span><b class="big-num">2.4-fold</b><p>higher odds of functional improvement with 30 mg/kg than placebo; the 75 mg/kg dose did not meet the endpoint [[Crescioli2026]].</p></div>
+    <div class="card"><span class="kicker">Walking independently</span><b class="big-num">31 days</b><p>earlier (median) with 30 mg/kg, as reported in a manufacturer-funded review based on a congress poster [[Gorson2025]].</p></div>
+    <div class="card"><span class="kicker">On a ventilator</span><b class="big-num">28 days</b><p>fewer with 30 mg/kg than placebo, from the same review [[Gorson2025]].</p></div>
+    <div class="card"><span class="kicker">Nerve damage marker</span><b class="big-num">11.2%</b><p>reduction in neurofilament light chain relative to placebo between weeks 2 and 4, company-reported [[Crescioli2025]].</p></div>
+  </div>
+  <div class="split2">
+    <div class="callout"><p><b>For.</b> A single 30 mg/kg dose improved week-8 disability and later outcomes against placebo, with separation in MRC sum score from week 1 and response kept in both AMAN and AIDP subgroups; infusion-related reactions were the commonest adverse events <span class="ev early">Early evidence</span> [[Gorson2025,Crescioli2026]].</p></div>
+    <div class="callout"><p><b>Against.</b> Neither arm received IVIg or plasma exchange, because in both countries many people get supportive care only; the full paper is unpublished, and results may not transfer to IVIg-treated populations [[Wiegers2025,Freiha2026]].</p></div>
+  </div>
+  <div class="prose">
+    <p>What happens next: after feedback from the FDA, the company began comparing trial participants with matched IGOS patients treated with IVIg or plasma exchange [[Crescioli2025,Wiegers2025]]. FORWARD, an open-label phase 3 study, gives a single 30 mg/kg dose to about 30 people aged 8 to 85 in the US, UK, Denmark, France and Spain; its main outcomes are drug levels, not recovery [[NCT07020819]]. Approval status after early 2026 was not checked for this guide [[Crescioli2026]].</p>
+  </div>
+
+  <h3 class="sub">Why did C5 fail when C1q looked better?</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Explanation</th><th>Evidence</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>Mechanism: C1q acts at the start of the classical pathway, upstream of the C5 step</th><td>Proposed in reviews [[Freiha2026,Gorson2025]]</td><td><span class="ev hyp">Hypothesis</span></td></tr>
+      <tr><th>Design: the trials enrolled different people</th><td>Bangladesh and the Philippines without IVIg, against Japan with IVIg [[Kuwabara2024,Wiegers2025]]</td><td>Unresolved; the anti-C2 add-on trial may add evidence [[NCT07821762]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">A negative trial that changed practice: the second IVIg course</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">SID-GBS, Netherlands</span><b class="big-num">OR 1.4</b><p>Adjusted common odds ratio for improvement at 4 weeks (95% CI 0.6–3.3; p=0.45) in 93 people with a poor prognosis (mEGOS 6 or more), 49 given a second 2 g/kg course and 44 placebo <span class="ev est">Established</span> [[Walgaard2021]].</p></div>
+    <div class="card"><span class="kicker">Serious adverse events, 30 days</span><b class="big-num">35% vs 16%</b><p>with the second course against placebo, including thromboembolic events; 4 people died in the second-course group [[Walgaard2021]].</p></div>
+    <div class="card"><span class="kicker">Raising IgG is not enough</span><p>A lower IgG rise after IVIg goes with a poorer outcome, but the second course raised IgG as predicted without improving outcome <span class="ev est">Established</span> [[vanTilburg2025,Walgaard2021]].</p></div>
+    <div class="card"><span class="kicker">Still open</span><p>A systematic review of 422 IVIg-unresponsive patients found no superiority of repeat IVIg or plasma exchange [[Roe2025]]; a synthesis of 10 small studies reported improvement after a second dose in 70% of studies, low-quality evidence [[Alnaeem2025]]. Switching non-responders to plasma exchange is undefined [[Wiegers2025,Roe2025]].</p></div>
+  </div>
+  <p class="callout">Re-treating a treatment-related fluctuation, getting better then worse within 8 weeks of onset, is a different question and is still recommended; about 10% of people have one [[Wiegers2025]]. More in <a href="#whatnot" data-go="whatnot">Steroids, repeats &amp; relapses</a>.</p>
+
+  <h3 class="sub">A blood marker of nerve damage: neurofilament light</h3>
+  <div class="prose"><p>Press Play to watch an axon break and its neurofilament light chain (NfL) reach the blood. Switch the strip below the chart between the published medians and the proposed cut-offs.</p></div>
+  <div class="fnbar" role="group" aria-label="Log strip shows">
+    <button class="btn" data-nf="med" aria-pressed="true">Medians at entry</button>
+    <button class="btn" data-nf="cut" aria-pressed="false">Proposed cut-offs</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="nfSvg" viewBox="0 0 720 350" style="min-width:560px" role="img" aria-label="A motor axon breaks and small protein dots leak into a blood vessel below it; a schematic chart shows serum neurofilament light rising early and falling back to the healthy range by one year; a log-scale strip marks published median levels or proposed prognostic cut-offs in picograms per millilitre."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="nfPlay">%t:player.play%</button><label class="stage-cap tl" for="nfT">Time <input type="range" id="nfT" min="0" max="1" step="0.002" value="0.4"></label></div>
+    <p class="fncap" id="nfCap" aria-live="polite"></p>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>The cut-offs were proposed for high specificity in one cohort: unable to walk above 319 pg/mL, unable to run above 248, able to run below 34 <span class="ev early">Early evidence</span>. They are not validated for any one person and never for diagnosis, prognosis or treatment decisions [[MartinAguilar2020]].</p>
+  <div class="cards">
+    <div class="card"><span class="kicker">Adds to mEGOS</span><b class="big-num">C 0.88</b><p>In 293 SID-GBS patients, a model of NfL at entry, disability score at entry and MRC sum score at week 2 predicted inability to walk at 26 weeks (95% CI 0.83–0.94). NfL did not predict respiratory failure [[Thomma2025]].</p></div>
+    <div class="card"><span class="kicker">Later NfL, later walking</span><b class="big-num">OR 2.79</b><p>High NfL at 4 weeks went with inability to walk at 26 weeks (1.72–4.90); the authors propose NfL as an intermediate trial endpoint <span class="ev hyp">Hypothesis</span> [[vanTilburg2024]].</p></div>
+    <div class="card"><span class="kicker">Albumin falls</span><b class="big-num">4.2 → 3.7</b><p>g/dL, median serum albumin before and 2 weeks after IVIg in 174 people; low albumin was associated with respiratory failure, inability to walk and weaker muscles at 6 months [[Fokkink2017]].</p></div>
+  </div>
+
+  <h3 class="sub">Better trials, better predictions: IGOS</h3>
+  <div class="prose"><p>The International GBS Outcome Study (IGOS) enrols people within 2 weeks of weakness, whatever their age, severity, variant or treatment, and stores serial samples; the registry lists 2,000 participants [[Jacobs2017,NCT01582763]]. In its first 1,000, outcomes differed by region; Bangladesh was reported separately from the rest of Asia [[Doets2018]]:</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Region</th><th>Walking unaided at 1 year</th><th>Mortality</th></tr></thead>
+    <tbody>
+      <tr><th>Asia (not Bangladesh)</th><td>91% (31 of 34)</td><td>2%</td></tr>
+      <tr><th>Europe and the Americas</th><td>83% (334 of 404)</td><td>5%</td></tr>
+      <tr><th>Bangladesh</th><td>69% (67 of 97)</td><td>17%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><h4>Scores need local tuning</h4><p>mEGOS discriminated well in every region (AUC above 0.7) but outcomes were worse than predicted in Europe and North America and better in Asia [[Doets2022mEGOS]]. In Bangladesh, EGRIS predicted ventilation in 41% when 20% were ventilated, fixed by updating the intercept [[Papri2024]].</p></div>
+    <div class="card"><h4>New trial designs</h4><p>Proposals include IGOS as an external control arm, Bayesian adaptive platform trials, and analysing the full disability scale instead of a walk or no-walk split, which loses power [[Wiegers2025]]. Unobserved confounding is the risk with external controls [[Wiegers2025,Verboon2020]].</p></div>
+    <div class="card"><h4>What the scale misses</h4><p>The GBS disability score mainly measures walking and breathing; it does not capture arm function, pain, mood or quality of life, which drives interest in patient-reported outcomes [[Wiegers2025]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Affordable care</h4><p>Lack of affordable effective treatment contributes to worse outcomes in low- and middle-income countries [[Papri2021]]. Small-volume plasma exchange removed 8 L in 15 of 20 adults; 14 of 20 improved a grade at 4 weeks, with no control arm [[Islam2018]].</p></div>
+  </div>
+
+  <h3 class="sub">Imaging and outbreaks</h3>
+  <div class="cards">
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Nerve ultrasound</h4><p>At days 2 to 3, 27 people with GBS had enlarged nerves; the vagus was enlarged (median 3.0 against 2.0 mm²), most in those with autonomic dysfunction, and stayed enlarged at 6 months when dysautonomia persisted [[Grimm2016]]. MRI and ultrasound are not routine diagnostic tests [[Freiha2026]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Zika</h4><p>In French Polynesia, 41 of 42 people with GBS (98%) had anti-Zika antibodies against 56% of hospital controls: the first evidence that Zika causes GBS [[CaoLormeau2016]]. In Colombia 66 of 68 had Zika-like symptoms first, a median 7 days before [[Parra2016]].</p></div>
+    <div class="card"><h4>SARS-CoV-2</h4><p>In the UK, GBS incidence fell from March to May 2020 and did not track COVID-19 regionally (r=0.06) [[Keddie2021]]. In IGOS, 11 of 49 early-pandemic cases had confirmed or probable infection; GBS may rarely follow it [[Luijten2021]].</p></div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Evidence each way</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>Can FcRn blockers replace IVIg?</th><td>Fast responses in Chinese series [[Bi2026,Cai2025]]; no randomised trial, and a two-centre comparison missed its primary outcome [[Zhang2025,Freiha2026]]</td><td>One US trial withdrawn; a Chinese trial not yet recruiting [[NCT05701189,NCT07806916]]</td></tr>
+      <tr><th>Should mild GBS be treated?</th><td>One IVIg course did not change 4-week disability [[Verboon2021]]; 40% had symptoms at 1 year and IVIg shortened time to full strength (28 against 56 days) [[Verboon2021]]</td><td>Open; an early-stage placebo-controlled trial is proposed [[Wiegers2025]]</td></tr>
+      <tr><th>Can NfL be a trial endpoint?</th><td>Tracks damage and adds to prognosis [[vanTilburg2024,Thomma2025]]; cost and standardisation unsolved [[Freiha2026]]</td><td>Exploratory marker in complement trials [[Mohammad2025]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="hook"><b>Exam hook</b>SID-GBS: a second IVIg course for poor prognosis gave no benefit (adjusted OR 1.4) and more serious adverse events (35% against 16%); a repeat course is still considered for a treatment-related fluctuation [[Walgaard2021,Wiegers2025]]. High early serum NfL predicts poorer walking and adds to mEGOS, but not to breathing prediction [[vanTilburg2024,Thomma2025]].</div>
+  <div class="pt"><b>In plain words</b>Giving a second full course of IVIg to people expected to do badly did not help in a trial, and it caused more side effects [[Walgaard2021]]. A blood test called neurofilament light shows how much nerve damage there is. It may one day help predict recovery, but it is not yet a routine test [[vanTilburg2024,Freiha2026]].</div>
+</section>

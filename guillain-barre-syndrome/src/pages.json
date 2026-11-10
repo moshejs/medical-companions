@@ -58,5 +58,17 @@
  "what": {
   "title": "What is Guillain-Barré syndrome? Causes, incidence and outlook",
   "description": "What Guillain-Barré syndrome is, animated: weakness that climbs after an infection, how common GBS is by age and country, and why most people recover."
+ },
+ "course": {
+  "title": "GBS course: onset, nadir, plateau and recovery timeline",
+  "description": "How Guillain-Barré syndrome unfolds: worst point within 4 weeks, the plateau, months of recovery, fluctuations and acute-onset CIDP, with cohort data."
+ },
+ "csf": {
+  "title": "Lumbar puncture in GBS: CSF protein, cells and antibodies",
+  "description": "Why CSF protein in Guillain-Barré syndrome can be normal early, how cell counts and age-adjusted limits are read, and what antibody tests add."
+ },
+ "rehab": {
+  "title": "Rehabilitation after Guillain-Barré syndrome: recovery over years",
+  "description": "Recovery after Guillain-Barré syndrome month by month: rehabilitation, exercise trials, how nerves repair, complications and gains that continue for years."
  }
 }
