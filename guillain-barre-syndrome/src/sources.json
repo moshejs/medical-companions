@@ -932,6 +932,17 @@
   "validated": "PubMed"
  },
  {
+  "key": "Davidson2017",
+  "text": "Davidson AI, Halstead SK, Goodfellow JA, Chavada G, Mallik A, Overell J, et al. Inhibition of complement in Guillain-Barré syndrome: the ICA-GBS study. J Peripher Nerv Syst. 2017;22(1):4-12. PMID 27801990; doi:10.1111/jns.12194.",
+  "link": "https://doi.org/10.1111/jns.12194",
+  "areas": [
+   "E",
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Davidson2022Falls",
   "text": "Davidson I, Parker ZJ. Falls in people post-Guillain-Barré syndrome in the United Kingdom: A national cross-sectional survey of community based adults. Health Soc Care Community. 2022;30(5):e2590-e2603. PMID 35015326; PMCID PMC9546005; doi:10.1111/hsc.13703.",
   "link": "https://doi.org/10.1111/hsc.13703",
@@ -2538,7 +2549,6 @@
   "link": "https://doi.org/10.1002/ana.21737",
   "areas": [
    "E",
-   "I",
    "G"
   ],
   "unverified": false,
@@ -2888,8 +2898,7 @@
   "text": "Luijten LWG, Doets AY, Arends S, Dimachkie MM, Gorson KC, Islam B, et al. Modified Erasmus GBS Respiratory Insufficiency Score: a simplified clinical tool to predict the risk of mechanical ventilation in Guillain-Barré syndrome. J Neurol Neurosurg Psychiatry. 2023;94(4):300-308. PMID 36428088; doi:10.1136/jnnp-2022-329937.",
   "link": "https://doi.org/10.1136/jnnp-2022-329937",
   "areas": [
-   "F",
-   "I"
+   "F"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3270,20 +3279,6 @@
   ],
   "unverified": false,
   "validated": "ClinicalTrials.gov"
- },
- {
-  "key": "NCT02029378",
-  "text": "NHS Greater Glasgow and Clyde. Inhibition of Complement Activation (Eculizumab) in Guillain-Barre Syndrome Study (ICA-GBS). ClinicalTrials.gov NCT02029378; phase 2, randomised; registry status unknown (last update 2014-09-23); results published as PMID 27801990.",
-  "link": "https://pubmed.ncbi.nlm.nih.gov/27801990/",
-  "areas": [
-   "I",
-   "E"
-  ],
-  "unverified": false,
-  "validated": "ClinicalTrials.gov",
-  "aliases": [
-   "Davidson2017"
-  ]
  },
  {
   "key": "NCT03943589",
@@ -4431,16 +4426,6 @@
   "validated": "PubMed"
  },
  {
-  "key": "SprengerSvacina2024",
-  "text": "Sprenger-Svačina A, Svačina MKR, Gao T, Zhang G, Sheikh KA. Emerging treatment landscape for Guillain-Barré Syndrome (GBS): what's new? Expert Opin Investig Drugs. 2024;33(9):881-886. PMID 38980318; PMCID PMC11424254; doi:10.1080/13543784.2024.2377323.",
-  "link": "https://doi.org/10.1080/13543784.2024.2377323",
-  "areas": [
-   "I"
-  ],
-  "unverified": false,
-  "validated": "PubMed"
- },
- {
   "key": "Statland2018",
   "text": "Statland JM, Fontaine B, Hanna MG, Johnson NE, Kissel JT, Sansone VA, et al. Review of the Diagnosis and Treatment of Periodic Paralysis. Muscle Nerve. 2018;57(4):522-530. PMID 29125635; PMCID PMC5867231; doi:10.1002/mus.26009.",
   "link": "https://doi.org/10.1002/mus.26009",
@@ -4475,8 +4460,7 @@
   "text": "Storgaard JH, Qerama E, Stouge A, Tankisi H, Harbo T, Andersen H, et al. High-frequency nerve ultrasound in Guillain-Barré syndrome. Clin Neurophysiol. 2025;179:2110985. PMID 40896929; doi:10.1016/j.clinph.2025.2110985.",
   "link": "https://doi.org/10.1016/j.clinph.2025.2110985",
   "areas": [
-   "C",
-   "I"
+   "C"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4990,16 +4974,6 @@
   "aliases": [
    "vanTilburg2025SID"
   ]
- },
- {
-  "key": "vanTilburg2025FCGR",
-  "text": "van Tilburg SJ, Koçer S, Geissler J, van Rijs W, Tio-Gillen AP, Tanck MWT, et al. Genetic variation of low-to-medium-affinity Fc-gamma receptors in Guillain-Barré syndrome. J Neurol. 2025;272(7):487. PMID 40593358; PMCID PMC12213970; doi:10.1007/s00415-025-13216-8.",
-  "link": "https://doi.org/10.1007/s00415-025-13216-8",
-  "areas": [
-   "I"
-  ],
-  "unverified": false,
-  "validated": "PubMed"
  },
  {
   "key": "Vellozzi2014AJPH",
