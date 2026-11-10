@@ -1,2 +1,140 @@
-<!-- STUB: replaced by its builder -->
-<section class="mod" id="m-ncs" data-mod="ncs" hidden><div class="mhead"><h2>ncs</h2><p class="lede">Being written.</p></div></section>
+<!-- ================= 2.4 NERVE CONDUCTION STUDIES ================= -->
+<style>
+#m-ncs .tbl table{min-width:640px}
+#m-ncs .card>.ev,#m-ncs .card>.tag{align-self:flex-start}
+#m-ncs .ncbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-ncs .ncbar .btn{min-height:40px}
+#m-ncs .ncbar .kicker{margin-right:4px}
+#m-ncs .nccalc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px 18px}
+#m-ncs .nccalc label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700;min-width:0}
+#m-ncs .nccalc output{font:600 14px var(--mono);color:var(--dx)}
+#m-ncs .nccalc input[type=range]{min-height:28px}
+#m-ncs .ncres td,#m-ncs .ncres th{font-size:14px}
+#m-ncs .ncres .on{color:var(--bad);font-weight:700}
+#m-ncs .ncres .off{color:var(--muted)}
+#m-ncs .ncsum{font-size:15px;line-height:1.5;max-width:76ch;display:flex;flex-direction:column;gap:6px}
+#m-ncs .hbar{display:inline-block;height:9px;border-radius:5px;background:var(--dx);vertical-align:middle;margin-right:8px}
+#m-ncs .hbar.r{background:var(--accent)}
+#m-ncs .card b.num{font:700 30px/1 var(--display);color:var(--dx)}
+</style>
+<section class="mod" id="m-ncs" data-mod="ncs" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Nerve conduction studies</h2>
+    <p class="lede">A nerve conduction study sends small electric pulses along a nerve and times the response. Run one on the median nerve, switch between published group values for axonal GBS and AIDP, then try two sets of criteria on the same numbers.</p></div>
+
+  <div class="prose">
+    <p>Electrodiagnostic studies are not required to diagnose Guillain-Barré syndrome, but a 2019 consensus review recommends them where possible, particularly when the presentation is atypical. Typical findings are reduced conduction velocities, reduced amplitudes, abnormal temporal dispersion and partial motor block [[Leonhard2019]]. The 2023 EAN/PNS guideline advises electrodiagnostic testing to support the diagnosis (good practice point) [[vanDoorn2023]].</p>
+    <p>In 494 Dutch people, nerve studies were compatible with a neuropathy in 99%, but only 59% met criteria for a distinct subtype [[Fokke2014]]. About one-third of people meet no subtype criteria, and there is no international consensus on which criteria to use [[Leonhard2019]].</p>
+  </div>
+
+  <div class="ncbar" role="group" aria-label="Choose the values in the traces">
+    <span class="kicker">Traces</span>
+    <button class="btn" data-ncp="aidp" aria-pressed="true">AIDP medians</button>
+    <button class="btn" data-ncp="axonal" aria-pressed="false">Axonal medians</button>
+    <button class="btn" data-ncp="rcf" aria-pressed="false">Reversible block (schematic)</button>
+  </div>
+  <div class="stepper" id="ncSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="ncSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="An arm with the median nerve running from the spinal cord to the thumb muscles, a stimulator at the wrist and at the elbow and a recording electrode on the thumb muscles, above an oscilloscope screen and a readout. The impulse travels from each stimulation site and a muscle response is drawn on the screen, with its latency, amplitude and the conduction velocity read off; the two responses are compared for block and dispersion; an F wave makes a round trip to the spinal cord; bars show sensory responses with the sural nerve spared; and a second study is overlaid on the first."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ncPlay">%t:player.play%</button><label class="stage-cap tl" for="ncT">Timeline <input type="range" id="ncT" min="0" max="1" step="0.002" value="0.1"></label></div>
+      <p class="stage-cap"><b>Schematic waveforms.</b> Latencies, amplitudes, velocities, durations and sensory amplitudes are group medians from first studies within 10 days of onset in 25 people with axonal GBS and 19 with AIDP, a small selected Korean group [[Koo2016]]; they are not one person's study. Reference limits are from one published chart, and laboratories use their own [[Chen2016NCSRef]]. The 250 mm distance, the reversible-block values and every second-study trace are chosen for the demonstration.</p>
+    </div>
+    <aside class="note" id="ncNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Two sets of criteria, one nerve</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>This explorer shows how two published rule sets score one median nerve, using cut-offs reprinted in the IGOS analysis and one reference chart [[Arends2024,Chen2016NCSRef]]. Real criteria need the feature in at least two nerves and use local limits. It is never for diagnosing or classifying any person.</p>
+  <div class="ncbar" role="group" aria-label="Load example values">
+    <span class="kicker">Examples</span>
+    <button class="btn" data-ncpre="aidp" aria-pressed="true">AIDP medians</button>
+    <button class="btn" data-ncpre="axonal" aria-pressed="false">Axonal medians</button>
+    <button class="btn" data-ncpre="block" aria-pressed="false">Block (schematic)</button>
+    <button class="btn" data-ncpre="tiny" aria-pressed="false">Tiny response (schematic)</button>
+  </div>
+  <div class="nccalc">
+    <label for="ncDml">Distal motor latency <output id="ncDmlO" for="ncDml"></output><input type="range" id="ncDml" min="2" max="10" step="0.05" value="5.7"></label>
+    <label for="ncMcv">Conduction velocity <output id="ncMcvO" for="ncMcv"></output><input type="range" id="ncMcv" min="20" max="65" step="0.1" value="43.8"></label>
+    <label for="ncAmp">Distal CMAP amplitude <output id="ncAmpO" for="ncAmp"></output><input type="range" id="ncAmp" min="0" max="8" step="0.05" value="3.5"></label>
+    <label for="ncRat">Proximal / distal amplitude <output id="ncRatO" for="ncRat"></output><input type="range" id="ncRat" min="0.1" max="1.2" step="0.01" value="0.86"></label>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="ncCalc" viewBox="0 0 720 282" style="min-width:560px" role="img" aria-label="Four scales, for distal motor latency, conduction velocity, distal amplitude and the proximal to distal amplitude ratio, each marking the reference limit, the Hadden cut-off and the Rajabally cut-off, with a dot at the value chosen above."></svg></div>
+  </div>
+  <div class="tbl ncres"><table>
+    <thead><tr><th>Feature in this nerve</th><th>Hadden</th><th>Rajabally</th></tr></thead>
+    <tbody id="ncRes"></tbody>
+  </table></div>
+  <div class="ncsum" id="ncSum" aria-live="polite"></div>
+
+  <h3 class="sub">Same studies, different answers</h3>
+  <div class="prose"><p>The IGOS team classed 1,137 studies with both rule sets. They agreed in 68.3%; in 13.6% a study was demyelinating by Hadden and axonal by Rajabally [[Arends2024]]. Using amyotrophic lateral sclerosis criteria as a marker of "pure axonal loss", red flags against it were met in 68.6% of Rajabally-axonal studies, mostly through conduction block, and in 1.8% of Hadden-axonal studies [[Arends2024]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Class, 1,137 IGOS studies</th><th>Hadden</th><th>Rajabally</th></tr></thead>
+    <tbody>
+      <tr class="demy"><th>Demyelinating</th><td><span class="hbar" style="width:57px"></span>56.6%</td><td><span class="hbar r" style="width:33px"></span>32.5%</td></tr>
+      <tr class="axonal"><th>Axonal</th><td><span class="hbar" style="width:10px"></span>9.8%</td><td><span class="hbar r" style="width:30px"></span>30.0%</td></tr>
+      <tr><th>Equivocal</th><td><span class="hbar" style="width:24px"></span>24.3%</td><td><span class="hbar r" style="width:28px"></span>28.1%</td></tr>
+      <tr><th>Inexcitable</th><td><span class="hbar" style="width:3px"></span>3.1%</td><td><span class="hbar r" style="width:3px"></span>3.1%</td></tr>
+      <tr><th>Normal</th><td><span class="hbar" style="width:6px"></span>6.3%</td><td><span class="hbar r" style="width:6px"></span>6.3%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><h4>Six sets, 21% to 72%</h4><p>Six published criteria sets applied to the same 43 people labelled between 21% and 72% of them as AIDP [[Alam1998]].</p></div>
+    <div class="card"><h4>A modified single study</h4><p>Rajabally's modified criteria on one study in 365 people gave AIDP 56.2%, axonal 35.1% and equivocal 7.7%, close to rates from serial work; existing criteria gave 71.5%, 17.5% and 9.9% [[Rajabally2015]].</p></div>
+    <div class="card"><h4>Misclassified at first study</h4><p>Against serial studies plus antibodies as the reference, first-study error was 15.3% for a statistical model, 30% for Uncini's criteria, 45% for Rajabally's and 48% for Hadden's [[Uncini2017]]. The reference itself was built by that group.</p></div>
+  </div>
+
+  <h3 class="sub">Timing: early studies and repeats</h3>
+  <div class="prose"><p>Normal studies in the first week do not exclude GBS, especially with proximal weakness, mild disease, slow progression or a variant; a repeat 2–3 weeks later can help [[Leonhard2019]]. Because the lesion often starts in the roots and spinal nerves [[Berciano2017Proximal]], late responses tend to go first. Abnormal findings in 31 people studied in the first week [[Gordon2001]]:</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Finding, first week</th><th>Share of people</th></tr></thead>
+    <tbody>
+      <tr><th>Absent H reflex</th><td><span class="hbar" style="width:97px"></span>97%</td></tr>
+      <tr><th>Abnormal F wave</th><td><span class="hbar" style="width:84px"></span>84%</td></tr>
+      <tr><th>Reduced CMAP amplitude</th><td><span class="hbar" style="width:71px"></span>71%</td></tr>
+      <tr><th>Prolonged distal latency</th><td><span class="hbar" style="width:65px"></span>65%</td></tr>
+      <tr><th>Low or absent arm SNAP</th><td><span class="hbar" style="width:61px"></span>61%</td></tr>
+      <tr><th>Temporal dispersion</th><td><span class="hbar" style="width:58px"></span>58%</td></tr>
+      <tr><th>Slowed velocity</th><td><span class="hbar" style="width:52px"></span>52%</td></tr>
+      <tr><th>Conduction block</th><td><span class="hbar" style="width:13px"></span>13%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><b class="num">58.4%</b><p>of IGOS studies done within 3 days of onset could already be classed as axonal or demyelinating by Hadden (52.1% by Rajabally), with no significant effect of timing on subtype [[Arends2026]].</p></div>
+    <div class="card"><b class="num">37.8%</b><p>changed subtype on a second study a median 24 days later (Hadden; 44.7% by Rajabally), in several opposite directions, so overall shares stayed stable [[Arends2026]].</p></div>
+    <div class="card"><b class="num">37.0%</b><p>of people with a normal or equivocal first study showed polyneuropathy on the second (Hadden); in 19.0%, both stayed normal or equivocal [[Arends2026]].</p></div>
+  </div>
+  <div class="split2">
+    <div class="card"><span class="tag warn">Debated</span><h4>Is subtyping worth it?</h4><p>Serial studies moved 24% of people in an Italian series, mostly towards axonal [[Uncini2010]], and very early studies allowed subtyping in only 3 of 15 [[Berciano2020]]. The IGOS authors conclude that early studies support the diagnosis and may be repeated if non-diagnostic, but that "electrodiagnostic subtyping offers no additional value" [[Arends2026]]. One retrospective study called serial studies unhelpful [[Ibrahim2018]].</p></div>
+    <div class="card"><h4>What the guideline does not pick</h4><p>The 2023 EAN/PNS guideline deliberately does not endorse specific electrodiagnostic criteria for AIDP, AMAN or AMSAN, because there is no gold standard and subtype does not currently change management [[vanDoorn2023]].</p></div>
+  </div>
+
+  <h3 class="sub">Sensory responses and late responses</h3>
+  <div class="cards">
+    <div class="card"><h4>Sural sparing</h4><p>An abnormal median or ulnar sensory response with a normal sural one. Against 38 mimics it was the most specific feature, but insensitive [[Derksen2014]]; the guideline gives sensitivity 16–100% and specificity 91–98% [[vanDoorn2023]]. It is not exclusive to AIDP: it appeared in 5 of 13 with AMAN or AMSAN and 7 of 20 with MFS in one series [[Umapathi2015]].</p></div>
+    <div class="card"><h4>Common is not specific</h4><p>Against the same mimics, prolonged distal latency had sensitivity 0.71 and specificity 0.74, and abnormal F waves 0.80 and 0.57, so the common abnormalities do not rule out rarer diagnoses [[Derksen2014]].</p></div>
+    <div class="card"><h4>H reflex</h4><p>Absent H reflexes have 95–100% sensitivity but 33% specificity for AIDP, and present H reflexes make GBS less likely [[vanDoorn2023]].</p></div>
+    <div class="card"><h4>A waves</h4><p>Late responses of identical shape. Present in 59% of 105 nerves within 10 days, more often in nerves that were otherwise normal, so they may come before CMAP changes; their shape did not separate AIDP from AMAN [[Veltsista2023]]. Linked to weaker strength at 6 weeks in one study [[Badry2019]].</p></div>
+    <div class="card"><h4>Sensory amplitude separates the subtypes</h4><p>In the Korean first studies, median SNAP was 18.3 against 5.3 µV and ulnar 14.0 against 1.8 µV (axonal against AIDP), while CMAP amplitude and block did not differ. An ulnar SNAP of 7.5 µV or more favoured axonal GBS in this small group, which needs validation [[Koo2016]].</p></div>
+  </div>
+
+  <h3 class="sub">Amplitude and outcome</h3>
+  <div class="split2">
+    <div class="card"><h4>The strongest predictor in 1988</h4><p>In the North American plasmapheresis study (210 people), distal CMAP amplitude was the strongest outcome predictor: a mean of 0–20% of the lower limit carried a markedly raised probability of poor outcome, which plasmapheresis still improved [[Cornblath1988]]. In 60 severely affected people, a mean CMAP under 10% of the lower limit was the strongest predictor [[Miller1988]].</p></div>
+    <div class="card"><h4>Inexcitable nerves</h4><p>In the 1990s trial cohort, 50% (6 of 12) with inexcitable nerves were dead or unable to walk unaided at 48 weeks, against 15% of everyone else [[Hadden1998]]. These are population statistics, not forecasts for one person. In IGOS, inexcitable studies appeared only after day 3 [[Arends2026]].</p></div>
+  </div>
+
+  <h3 class="sub">Ultrasound and MRI</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Test</th><th>Finding</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>Nerve ultrasound, days 2–3</th><td>All measured nerves enlarged except the sural: vagus 3.0 against 2.0 mm² in controls; cervical spinal nerves back to control size by 6 months, except in people with persistent autonomic problems [[Grimm2016]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Serial ultrasound</th><td>Median, ulnar and sural enlarged within 3 weeks and improving by 12, with no subtype difference or link to strength [[Razali2016]]; cervical roots enlarged most [[Liu2021Ultrasound]]</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>Spinal MRI with gadolinium</th><td>Cauda equina enhancement in 83% of 24 people (95% of typical cases) at a mean of day 13 [[Gorson1996]]; 92% of 24 children on first MRI [[Mulkey2010]]. Anterior-root-only enhancement strongly suggests GBS [[Byun1998]]</td><td>Sensitive, not specific [[Leonhard2019]]</td></tr>
+      <tr><th>Guideline position</th><td>Routine MRI or ultrasound is not advised for typical GBS; consider them in atypical cases. Nerve ultrasound sensitivity 47–95%, specificity 36–91%, with no objective cut-offs [[vanDoorn2023]]</td><td>EAN/PNS 2023</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="hook"><b>Exam hook</b>Earliest sensitive signs are in the late responses: absent H reflex 97%, abnormal F wave 84% in the first week [[Gordon2001]]. Sural sparing is specific (about 0.9) but insensitive (about 0.3 to 0.4) [[Derksen2014]]. Low distal CMAP (0–20% of the lower limit) predicts poor outcome [[Cornblath1988]].</div>
+  <div class="pt"><b>In plain words</b>A nerve test sends small electric pulses along a nerve and measures the response. A normal test in the first days does not rule out GBS, and it may be repeated. The label for your type can change on a later test; this does not always mean you are getting worse. An MRI scan or ultrasound can show swollen nerve roots, but these are extra tests, used mainly when the picture is unclear.</div>
+</section>
