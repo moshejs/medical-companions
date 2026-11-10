@@ -90,5 +90,21 @@
  "whatnot": {
   "title": "GBS treatment questions: steroids, second IVIg, fluctuations, A-CIDP",
   "description": "Why steroids failed in Guillain-Barré syndrome, the second IVIg trial, getting worse again after treatment, acute-onset CIDP and recurrence, animated."
+ },
+ "glossary": {
+  "title": "GBS glossary: Guillain-Barré syndrome terms from AIDP to mEGOS",
+  "description": "Searchable glossary of Guillain-Barré syndrome terms: AIDP, AMAN, anti-GQ1b, Brighton levels, EGRIS, mEGOS, IVIg, plasma exchange and more, cited."
+ },
+ "quiz": {
+  "title": "Guillain-Barré syndrome quiz: GBS questions with cited answers",
+  "description": "Multiple-choice quiz on Guillain-Barré syndrome: subtypes, diagnosis, CSF, breathing, IVIg, plasma exchange, prognosis and recovery, with cited answers."
+ },
+ "review": {
+  "title": "GBS flashcards and memory aids: Guillain-Barré syndrome review",
+  "description": "Flashcards on Guillain-Barré syndrome by part, memory aids and an animated 20/30/40 breathing rule. Every answer cited. Educational only."
+ },
+ "sources": {
+  "title": "GBS Companion sources: trials, guidelines and cohorts cited",
+  "description": "Every reference behind the GBS Companion: trials, Cochrane reviews, IGOS, the EAN/PNS guideline, drug labels and trial registrations, with validation tags."
  }
 }
