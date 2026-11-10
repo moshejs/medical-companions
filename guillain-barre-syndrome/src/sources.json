@@ -110,6 +110,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Alnaeem2025",
+  "text": "Alnaeem MM, Al-Qudimat AR, Talafha D, Alqaisi O. Assessing the impact of a second IVIG dose on patients with Guillain-Barré Syndrome: A synthesis without meta-analysis (SWiM). Qatar Med J. 2025;2025(3):88. PMID 41030879; PMCID PMC12477822; doi:10.5339/qmj.2025.88.",
+  "link": "https://doi.org/10.5339/qmj.2025.88",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Alshekhlee2008",
   "text": "Alshekhlee A, Hussain Z, Sultan B, Katirji B. Guillain-Barré syndrome: incidence and mortality rates in US hospitals. Neurology. 2008;70(18):1608-13. PMID 18443311; doi:10.1212/01.wnl.0000310983.38724.d4.",
   "link": "https://doi.org/10.1212/01.wnl.0000310983.38724.d4",
@@ -255,6 +265,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Bamford2002",
+  "text": "Bamford NS, Trojaborg W, Sherbany AA, De Vivo DC. Congenital Guillain-Barré syndrome associated with maternal inflammatory bowel disease is responsive to intravenous immunoglobulin. Eur J Paediatr Neurol. 2002;6(2):115-9. PMID 11995958; doi:10.1053/ejpn.2002.0557.",
+  "link": "https://doi.org/10.1053/ejpn.2002.0557",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Bansal2026",
+  "text": "Bansal D, Randhawa MS, Iyer R, Kesavan S, Angurana SK, Nallasamy K, et al. Axonal Versus Demyelinating Guillain-Barré Syndrome Subtypes in Critically Ill Children: Clinical and Autonomic Profiles. Pediatr Neurol. 2026;175:168-173. PMID 41389764; doi:10.1016/j.pediatrneurol.2025.11.016.",
+  "link": "https://doi.org/10.1016/j.pediatrneurol.2025.11.016",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Baudel2020",
   "text": "Baudel JL, Vigneron C, Pras-Landre V, Joffre J, Marjot F, Ait-Oufella H, et al. Transfusion-related acute lung injury (TRALI) after intravenous immunoglobulins: French multicentre study and literature review. Clin Rheumatol. 2020;39(2):541-546. PMID 31760541; doi:10.1007/s10067-019-04832-7.",
   "link": "https://doi.org/10.1007/s10067-019-04832-7",
@@ -384,7 +414,8 @@
   "text": "Bernsen RA, de Jager AE, Schmitz PI, van der Meché FG. Long-term impact on work and private life after Guillain-Barré syndrome. J Neurol Sci. 2002;201(1-2):13-17. PMID 12163188; doi:10.1016/s0022-510x(02)00158-2.",
   "link": "https://doi.org/10.1016/s0022-510x(02)00158-2",
   "areas": [
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -394,7 +425,8 @@
   "text": "Bernsen RA, de Jager AE, van der Meché FG, Suurmeijer TP. The effects of Guillain-Barré syndrome on the close relatives of patients during the first year. J Neurol Sci. 2006;244(1-2):69-75. PMID 16476450; doi:10.1016/j.jns.2006.01.002.",
   "link": "https://doi.org/10.1016/j.jns.2006.01.002",
   "areas": [
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -415,6 +447,16 @@
   "link": "https://doi.org/10.1007/s00415-005-0958-x",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Bi2026",
+  "text": "Bi Z, Ye X, Liu P, Lu M, Liu H, Chen M. Efgartigimod for Guillain-Barré syndrome: a retrospective analysis of efficacy and safety. Ther Adv Neurol Disord. 2026;19:17562864261419026. PMID 41696674; PMCID PMC12901846; doi:10.1177/17562864261419026.",
+  "link": "https://doi.org/10.1177/17562864261419026",
+  "areas": [
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -560,6 +602,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Buchwald1999",
+  "text": "Buchwald B, de Baets M, Luijckx GJ, Toyka KV. Neonatal Guillain-Barré syndrome: blocking antibodies transmitted from mother to child. Neurology. 1999;53(6):1246-53. PMID 10522880; doi:10.1212/wnl.53.6.1246.",
+  "link": "https://doi.org/10.1212/wnl.53.6.1246",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Buchwald2002",
   "text": "Buchwald B, Ahangari R, Weishaupt A, Toyka KV. Intravenous immunoglobulins neutralize blocking antibodies in Guillain-Barré syndrome. Ann Neurol. 2002;51(6):673-80. PMID 12112071; doi:10.1002/ana.10205.",
   "link": "https://doi.org/10.1002/ana.10205",
@@ -574,7 +626,8 @@
   "text": "Burns TM, Lawn ND, Low PA, Camilleri M, Wijdicks EF. Adynamic ileus in severe Guillain-Barré syndrome. Muscle Nerve. 2001;24(7):963-5. PMID 11410925; doi:10.1002/mus.1095.",
   "link": "https://doi.org/10.1002/mus.1095",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -610,11 +663,22 @@
   "validated": "PubMed"
  },
  {
+  "key": "Cai2025",
+  "text": "Cai H, Zhou F, Li T, Li Z, Luo J, Hu J, et al. Intravenous Efgartigimod or Intravenous Immunoglobulin in Guillain-Barre Syndrome: An Observational Multicenter Study. J Peripher Nerv Syst. 2025;30(4):e70072. PMID 41287201; doi:10.1111/jns.70072.",
+  "link": "https://doi.org/10.1111/jns.70072",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Campbell2022",
   "text": "Campbell CI, McGonigal R, Barrie JA, Delaere J, Bracke L, Cunningham ME, et al. Complement inhibition prevents glial nodal membrane injury in a GM1 antibody-mediated mouse model. Brain Commun. 2022;4(6):fcac306. PMID 36523267; PMCID PMC9746686; doi:10.1093/braincomms/fcac306.",
   "link": "https://doi.org/10.1093/braincomms/fcac306",
   "areas": [
-   "B"
+   "B",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -626,7 +690,8 @@
   "areas": [
    "A",
    "B",
-   "D"
+   "D",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -683,6 +748,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Cheng1998",
+  "text": "Cheng Q, Jiang GX, Fredrikson S, Link H, de Pedro-Cuesta J. Increased incidence of Guillain-Barré syndrome postpartum. Epidemiology. 1998;9(6):601-4. PMID 9799167; doi:10.1097/00001648-199811000-00006.",
+  "link": "https://doi.org/10.1097/00001648-199811000-00006",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Chevret2017",
   "text": "Chevret S, Hughes RA, Annane D. Plasma exchange for Guillain-Barré syndrome. Cochrane Database Syst Rev. 2017;2(2):CD001798. PMID 28241090; PMCID PMC6464100; doi:10.1002/14651858.CD001798.pub3.",
   "link": "https://doi.org/10.1002/14651858.cd001798.pub3",
@@ -730,7 +805,8 @@
   "text": "Cochen V, Arnulf I, Demeret S, Neulat ML, Gourlet V, Drouot X, et al. Vivid dreams, hallucinations, psychosis and REM sleep in Guillain-Barré syndrome. Brain. 2005;128(Pt 11):2535-45. PMID 16000335; doi:10.1093/brain/awh585.",
   "link": "https://doi.org/10.1093/brain/awh585",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -786,6 +862,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Crescioli2025",
+  "text": "Crescioli S, Kaplon H, Wang L, Visweswaraiah J, Kapoor V, Reichert JM. Antibodies to watch in 2025. MAbs. 2025;17(1):2443538. PMID 39711140; PMCID PMC12952251; doi:10.1080/19420862.2024.2443538.",
+  "link": "https://doi.org/10.1080/19420862.2024.2443538",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
+  "key": "Crescioli2026",
+  "text": "Crescioli S, Kaplon H, Chenoweth A, Hsu YS, Pinto K, Kapoor V, et al. Antibodies to watch in 2026. MAbs. 2026;18(1):2614669. PMID 41560619; PMCID PMC12826703; doi:10.1080/19420862.2026.2614669.",
+  "link": "https://doi.org/10.1080/19420862.2026.2614669",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "Europe PMC"
+ },
+ {
   "key": "Dalakas1998",
   "text": "Dalakas MC. Mechanism of action of intravenous immunoglobulin and therapeutic considerations in the treatment of autoimmune neurologic diseases. Neurology. 1998;51(6 Suppl 5):S2-8. PMID 9851723; doi:10.1212/wnl.51.6_suppl_5.s2.",
   "link": "https://doi.org/10.1212/wnl.51.6_suppl_5.s2",
@@ -836,11 +932,11 @@
   "validated": "PubMed"
  },
  {
-  "key": "Davidson2017",
-  "text": "Davidson AI, Halstead SK, Goodfellow JA, Chavada G, Mallik A, Overell J, et al. Inhibition of complement in Guillain-Barré syndrome: the ICA-GBS study. J Peripher Nerv Syst. 2017;22(1):4-12. PMID 27801990; doi:10.1111/jns.12194.",
-  "link": "https://doi.org/10.1111/jns.12194",
+  "key": "Davidson2022Falls",
+  "text": "Davidson I, Parker ZJ. Falls in people post-Guillain-Barré syndrome in the United Kingdom: A national cross-sectional survey of community based adults. Health Soc Care Community. 2022;30(5):e2590-e2603. PMID 35015326; PMCID PMC9546005; doi:10.1111/hsc.13703.",
+  "link": "https://doi.org/10.1111/hsc.13703",
   "areas": [
-   "E"
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -886,6 +982,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Devi2023",
+  "text": "Devi AK, Randhawa MS, Bansal A, Angurana SK, Malhi P, Nallasamy K, et al. Long-Term Neurological, Behavioral, Functional, Quality of Life, and School Performance Outcomes in Children With Guillain-Barré Syndrome Admitted to PICU. Pediatr Neurol. 2023;140:18-24. PMID 36587490; doi:10.1016/j.pediatrneurol.2022.11.002.",
+  "link": "https://doi.org/10.1016/j.pediatrneurol.2022.11.002",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Dhar2008",
   "text": "Dhar R, Stitt L, Hahn AF. The morbidity and outcome of patients with Guillain-Barré syndrome admitted to the intensive care unit. J Neurol Sci. 2008;264(1-2):121-8. PMID 17881005; doi:10.1016/j.jns.2007.08.005.",
   "link": "https://doi.org/10.1016/j.jns.2007.08.005",
@@ -926,7 +1032,8 @@
    "C",
    "D",
    "F",
-   "G"
+   "G",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -936,7 +1043,8 @@
   "text": "Doets AY, Hughes RA, Brassington R, Hadden RD, Pritchard J. Pharmacological treatment other than corticosteroids, intravenous immunoglobulin and plasma exchange for Guillain-Barré syndrome. Cochrane Database Syst Rev. 2020;1(1):CD008630. PMID 31981368; PMCID PMC6984651; doi:10.1002/14651858.CD008630.pub5.",
   "link": "https://doi.org/10.1002/14651858.cd008630.pub5",
   "areas": [
-   "E"
+   "E",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -956,7 +1064,8 @@
   "text": "Doets AY, Lingsma HF, Walgaard C, Islam B, Papri N, Davidson A, et al. Predicting Outcome in Guillain-Barré Syndrome: International Validation of the Modified Erasmus GBS Outcome Score. Neurology. 2022;98(5):e518-e532. PMID 34937789; PMCID PMC8826467; doi:10.1212/WNL.0000000000013139.",
   "link": "https://doi.org/10.1212/wnl.0000000000013139",
   "areas": [
-   "G"
+   "G",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1012,6 +1121,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "ElBayoumi2011",
+  "text": "El-Bayoumi MA, El-Refaey AM, Abdelkader AM, El-Assmy MM, Alwakeel AA, El-Tahan HM. Comparison of intravenous immunoglobulin and plasma exchange in treatment of mechanically ventilated children with Guillain Barré syndrome: a randomized study. Crit Care. 2011;15(4):R164. PMID 21745374; PMCID PMC3387601; doi:10.1186/cc10305.",
+  "link": "https://doi.org/10.1186/cc10305",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "ElMhandi2007",
   "text": "El Mhandi L, Calmels P, Camdessanché JP, Gautheron V, Féasson L. Muscle strength recovery in treated Guillain-Barré syndrome: a prospective study for the first 18 months after onset. Am J Phys Med Rehabil. 2007;86(9):716-24. PMID 17709995; doi:10.1097/PHM.0b013e31813e0b67.",
   "link": "https://doi.org/10.1097/phm.0b013e31813e0b67",
@@ -1037,6 +1156,26 @@
   "link": "https://doi.org/10.1001/jamaneurol.2018.1264",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Estrade2019",
+  "text": "Estrade S, Guiomard C, Fabry V, Baudou E, Cances C, Chaix Y, et al. Prognostic factors for the sequelae and severity of Guillain-Barré syndrome in children. Muscle Nerve. 2019;60(6):716-723. PMID 31531862; doi:10.1002/mus.26706.",
+  "link": "https://doi.org/10.1002/mus.26706",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Estublier2024",
+  "text": "Estublier B, Colineaux H, Arnaud C, Cintas P, Baudou E, Chaix Y, et al. Long-term outcomes of paediatric Guillain-Barré syndrome. Dev Med Child Neurol. 2024;66(2):176-186. PMID 37501281; doi:10.1111/dmcn.15693.",
+  "link": "https://doi.org/10.1111/dmcn.15693",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1127,7 +1266,8 @@
   "text": "Feldman JM. Cardiac arrest after succinylcholine administration in a pregnant patient recovered from Guillain-Barré syndrome. Anesthesiology. 1990;72(5):942-4. PMID 2339807; doi:10.1097/00000542-199005000-00026.",
   "link": "https://doi.org/10.1097/00000542-199005000-00026",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1200,7 +1340,8 @@
   "text": "Fokkink WR, Walgaard C, Kuitwaard K, Tio-Gillen AP, van Doorn PA, Jacobs BC. Association of Albumin Levels With Outcome in Intravenous Immunoglobulin-Treated Guillain-Barré Syndrome. JAMA Neurol. 2017;74(2):189-196. PMID 28027337; doi:10.1001/jamaneurol.2016.4480.",
   "link": "https://doi.org/10.1001/jamaneurol.2016.4480",
   "areas": [
-   "E"
+   "E",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1225,7 +1366,8 @@
   "text": "Forsberg A, Press R, Einarsson U, de Pedro-Cuesta J, Holmqvist LW. Disability and health-related quality of life in Guillain-Barré syndrome during the first two years after onset: a prospective study. Clin Rehabil. 2005;19(8):900-9. PMID 16323390; doi:10.1191/0269215505cr918oa.",
   "link": "https://doi.org/10.1191/0269215505cr918oa",
   "areas": [
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1235,7 +1377,8 @@
   "text": "Forsberg A, de Pedro-Cuesta J, Widén Holmqvist L. Use of healthcare, patient satisfaction and burden of care in Guillain-Barre syndrome. J Rehabil Med. 2006;38(4):230-6. PMID 16801205; doi:10.1080/16501970600582997.",
   "link": "https://doi.org/10.1080/16501970600582997",
   "areas": [
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1266,6 +1409,16 @@
   "link": "https://doi.org/10.1002/ana.25987",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Freiha2026",
+  "text": "Freiha J, Min YG, Osman C, Rajabally YA. Guillain-Barré Syndrome: Progress in Diagnosis, Biomarkers, Neuroimaging and Management. Immunotargets Ther. 2026;15:390161. PMID 41947943; PMCID PMC13052254; doi:10.2147/ITT.S390161.",
+  "link": "https://doi.org/10.2147/itt.s390161",
+  "areas": [
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1339,7 +1492,8 @@
   "text": "Gaber TA, Kirker SG, Jenner JR. Current practice of prophylactic anticoagulation in Guillain-Barré syndrome. Clin Rehabil. 2002;16(2):190-3. PMID 11926177; doi:10.1191/0269215502cr475oa.",
   "link": "https://doi.org/10.1191/0269215502cr475oa",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1359,7 +1513,8 @@
   "text": "Garssen MP, Bussmann JB, Schmitz PI, Zandbergen A, Welter TG, Merkies IS, et al. Physical training and fatigue, fitness, and quality of life in Guillain-Barré syndrome and CIDP. Neurology. 2004;63(12):2393-5. PMID 15623709; doi:10.1212/01.wnl.0000148589.87107.9c.",
   "link": "https://doi.org/10.1212/01.wnl.0000148589.87107.9c",
   "areas": [
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1379,7 +1534,8 @@
   "text": "Garssen MP, Van Koningsveld R, Van Doorn PA. Residual fatigue is independent of antecedent events and disease severity in Guillain-Barré syndrome. J Neurol. 2006;253(9):1143-6. PMID 16998652; doi:10.1007/s00415-006-0163-6.",
   "link": "https://doi.org/10.1007/s00415-006-0163-6",
   "areas": [
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1506,6 +1662,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Gorson2025",
+  "text": "Gorson KC. Evolving understanding of Guillain-Barré syndrome pathophysiology and the central role of the classical complement pathway in axonal injury. Front Neurol. 2025;16:1572949. PMID 40438570; PMCID PMC12117664; doi:10.3389/fneur.2025.1572949. Funded by Annexon Biosciences.",
+  "link": "https://doi.org/10.3389/fneur.2025.1572949",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "GrattanSmith1997",
   "text": "Grattan-Smith PJ, Morris JG, Johnston HM, Yiannikas C, Malik R, Russell R, et al. Clinical and neurophysiological features of tick paralysis. Brain. 1997;120 ( Pt 11):1975-87. PMID 9397015; doi:10.1093/brain/120.11.1975.",
   "link": "https://doi.org/10.1093/brain/120.11.1975",
@@ -1571,7 +1737,8 @@
   "text": "Grimm A, Décard BF, Schramm A, Pröbstel AK, Rasenack M, Axer H, et al. Ultrasound and electrophysiologic findings in patients with Guillain-Barré syndrome at disease onset and over a period of six months. Clin Neurophysiol. 2016;127(2):1657-1663. PMID 26220732; doi:10.1016/j.clinph.2015.06.032.",
   "link": "https://doi.org/10.1016/j.clinph.2015.06.032",
   "areas": [
-   "C"
+   "C",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1653,7 +1820,8 @@
   "text": "Halstead SK, Zitman FM, Humphreys PD, Greenshields K, Verschuuren JJ, Jacobs BC, et al. Eculizumab prevents anti-ganglioside antibody-mediated neuropathy in a murine model. Brain. 2008;131(Pt 5):1197-208. PMID 18184663; doi:10.1093/brain/awm316.",
   "link": "https://doi.org/10.1093/brain/awm316",
   "areas": [
-   "B"
+   "B",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1714,6 +1882,16 @@
   "link": "https://doi.org/10.1212/01.wnl.0000035640.84053.5b",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hicks2010",
+  "text": "Hicks CW, Kay B, Worley SE, Moodley M. A clinical picture of Guillain-Barré syndrome in children in the United States. J Child Neurol. 2010;25(12):1504-10. PMID 20823034; doi:10.1177/0883073810370481.",
+  "link": "https://doi.org/10.1177/0883073810370481",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1837,7 +2015,8 @@
   "link": "https://doi.org/10.1001/archneur.62.8.1194",
   "areas": [
    "F",
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed",
@@ -1861,7 +2040,8 @@
   "link": "https://doi.org/10.1002/14651858.cd002063.pub6",
   "areas": [
    "E",
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1942,7 +2122,8 @@
   "text": "Islam B, Islam Z, Rahman S, Endtz HP, Vos MC, van der Jagt M, et al. Small volume plasma exchange for Guillain-Barré syndrome in resource-limited settings: a phase II safety and feasibility study. BMJ Open. 2018;8(8):e022862. PMID 30121613; PMCID PMC6104782; doi:10.1136/bmjopen-2018-022862.",
   "link": "https://doi.org/10.1136/bmjopen-2018-022862",
   "areas": [
-   "E"
+   "E",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1983,7 +2164,18 @@
   "text": "Jacobs BC, van den Berg B, Verboon C, Chavada G, Cornblath DR, Gorson KC, et al. International Guillain-Barré Syndrome Outcome Study: protocol of a prospective observational cohort study on clinical and biological predictors of disease course and outcome in Guillain-Barré syndrome. J Peripher Nerv Syst. 2017;22(2):68-76. PMID 28406555; doi:10.1111/jns.12209.",
   "link": "https://doi.org/10.1111/jns.12209",
   "areas": [
-   "A"
+   "A",
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Jiang1996",
+  "text": "Jiang GX, de Pedro-Cuesta J, Strigård K, Olsson T, Link H. Pregnancy and Guillain-Barré syndrome: a nationwide register cohort study. Neuroepidemiology. 1996;15(4):192-200. PMID 8817501; doi:10.1159/000109907.",
+  "link": "https://doi.org/10.1159/000109907",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2019,6 +2211,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Kalita2020SBC",
+  "text": "Kalita J, Kumar M, Misra UK. Serial single breath count is a reliable tool for monitoring respiratory functions in Guillain-Barré Syndrome. J Clin Neurosci. 2020;72:50-56. PMID 31982274; doi:10.1016/j.jocn.2020.01.032.",
+  "link": "https://doi.org/10.1016/j.jocn.2020.01.032",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kalita2024",
   "text": "Kalita J, Mahajan R, Kumar M. Effect of intravenous immunoglobulin and plasmapheresis on nerve conduction parameters compared to the natural course of Guillain-Barré syndrome. J Clin Neurosci. 2024;125:76-82. PMID 38759351; doi:10.1016/j.jocn.2024.05.016.",
   "link": "https://doi.org/10.1016/j.jocn.2024.05.016",
@@ -2033,7 +2235,8 @@
   "text": "Kannan Kanikannan MA, Durga P, Venigalla NK, Kandadai RM, Jabeen SA, Borgohain R. Simple bedside predictors of mechanical ventilation in patients with Guillain-Barre syndrome. J Crit Care. 2014;29(2):219-23. PMID 24378177; doi:10.1016/j.jcrc.2013.10.026.",
   "link": "https://doi.org/10.1016/j.jcrc.2013.10.026",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2054,7 +2257,8 @@
   "link": "https://doi.org/10.1093/brain/awaa433",
   "areas": [
    "A",
-   "B"
+   "B",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2218,7 +2422,18 @@
   "text": "Korinthenberg R, Schessl J, Kirschner J, Mönting JS. Intravenously administered immunoglobulin in the treatment of childhood Guillain-Barré syndrome: a randomized trial. Pediatrics. 2005;116(1):8-14. PMID 15995024; doi:10.1542/peds.2004-1324.",
   "link": "https://doi.org/10.1542/peds.2004-1324",
   "areas": [
-   "E"
+   "E",
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Korinthenberg2007",
+  "text": "Korinthenberg R, Schessl J, Kirschner J. Clinical presentation and course of childhood Guillain-Barré syndrome: a prospective multicentre study. Neuropediatrics. 2007;38(1):10-7. PMID 17607598; doi:10.1055/s-2007-981686.",
+  "link": "https://doi.org/10.1055/s-2007-981686",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2229,6 +2444,16 @@
   "link": "https://doi.org/10.1111/jns.12411",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Korinthenberg2020Guideline",
+  "text": "Korinthenberg R, Trollmann R, Felderhoff-Müser U, Bernert G, Hackenberg A, Hufnagel M, et al. Diagnosis and treatment of Guillain-Barré Syndrome in childhood and adolescence: An evidence- and consensus-based guideline. Eur J Paediatr Neurol. 2020;25:5-16. PMID 31941581; doi:10.1016/j.ejpn.2020.01.003.",
+  "link": "https://doi.org/10.1016/j.ejpn.2020.01.003",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2254,6 +2479,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Krief2023",
+  "text": "Krief N, Gabriel R, Cauquil C, Adams D, Fargeot G, Maisonobe T, et al. Clinical features and maternal and fetal outcomes in women with Guillain-Barré syndrome in pregnancy. J Neurol. 2023;270(9):4498-4506. PMID 37294323; PMCID PMC10252168; doi:10.1007/s00415-023-11808-w.",
+  "link": "https://doi.org/10.1007/s00415-023-11808-w",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kuijf2005",
   "text": "Kuijf ML, van Doorn PA, Tio-Gillen AP, Geleijns K, Ang CW, Hooijkaas H, et al. Diagnostic value of anti-GM1 ganglioside serology and validation of the INCAT-ELISA. J Neurol Sci. 2005;239(1):37-44. PMID 16154154; doi:10.1016/j.jns.2005.07.009.",
   "link": "https://doi.org/10.1016/j.jns.2005.07.009",
@@ -2270,7 +2505,8 @@
   "areas": [
    "A",
    "E",
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed",
@@ -2302,6 +2538,7 @@
   "link": "https://doi.org/10.1002/ana.21737",
   "areas": [
    "E",
+   "I",
    "G"
   ],
   "unverified": false,
@@ -2311,11 +2548,31 @@
   ]
  },
  {
+  "key": "Kumar2026",
+  "text": "Kumar A, Saini L, Gunasekaran PK, Tiwari S, Agarwal S, Gupta R, et al. Fine Motor Outcomes in Children with Guillain-Barré Syndrome. Indian J Pediatr. 2026;93(3):282-287. PMID 41417155; doi:10.1007/s12098-025-05891-2.",
+  "link": "https://doi.org/10.1007/s12098-025-05891-2",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kumta2022",
   "text": "Kumta N, Carter A, Schuller P, Evans H, Graffunder A. Locked-in Guillain-Barré syndrome: 'my living nightmare'. Pract Neurol. 2022;22(2):126-128. PMID 34716224; doi:10.1136/practneurol-2021-003110.",
   "link": "https://doi.org/10.1136/practneurol-2021-003110",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kushner2023",
+  "text": "Kushner DS, Johnson-Greene D, Felix ER, Miller C, Cordero MK, Thomashaw SA. Predictors of discharge to home/community following inpatient-rehabilitation in a US national sample of Guillain-Barre-Syndrome patients. PLoS One. 2023;18(5):e0286296. PMID 37228065; PMCID PMC10212147; doi:10.1371/journal.pone.0286296.",
+  "link": "https://doi.org/10.1371/journal.pone.0286296",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2412,6 +2669,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Kuwabara2024",
+  "text": "Kuwabara S, Kusunoki S, Kuwahara M, Yamano Y, Nishida Y, Ishida H, et al. Efficacy and safety of eculizumab in Guillain-Barré syndrome: A phase 3, multicenter, double-blind, randomized, placebo-controlled clinical trial. J Peripher Nerv Syst. 2024;29(3):339-349. PMID 38987228; doi:10.1111/jns.12646.",
+  "link": "https://doi.org/10.1111/jns.12646",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kwong2013",
   "text": "Kwong JC, Vasa PP, Campitelli MA, Hawken S, Wilson K, Rosella LC, et al. Risk of Guillain-Barré syndrome after seasonal influenza vaccination and influenza health-care encounters: a self-controlled study. Lancet Infect Dis. 2013;13(9):769-76. PMID 23810252; doi:10.1016/S1473-3099(13)70104-X.",
   "link": "https://doi.org/10.1016/s1473-3099(13)70104-x",
@@ -2446,7 +2713,8 @@
   "text": "Lawn ND, Fletcher DD, Henderson RD, Wolter TD, Wijdicks EF. Anticipating mechanical ventilation in Guillain-Barré syndrome. Arch Neurol. 2001;58(6):893-8. PMID 11405803; doi:10.1001/archneur.58.6.893.",
   "link": "https://doi.org/10.1001/archneur.58.6.893",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2482,7 +2750,8 @@
    "D",
    "E",
    "F",
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2608,7 +2877,8 @@
   "text": "Luijten LWG, Leonhard SE, van der Eijk AA, Doets AY, Appeltshauser L, Arends S, et al. Guillain-Barré syndrome after SARS-CoV-2 infection in an international prospective cohort study. Brain. 2021;144(11):3392-3404. PMID 34553216; PMCID PMC8677532; doi:10.1093/brain/awab279.",
   "link": "https://doi.org/10.1093/brain/awab279",
   "areas": [
-   "A"
+   "A",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2618,7 +2888,8 @@
   "text": "Luijten LWG, Doets AY, Arends S, Dimachkie MM, Gorson KC, Islam B, et al. Modified Erasmus GBS Respiratory Insufficiency Score: a simplified clinical tool to predict the risk of mechanical ventilation in Guillain-Barré syndrome. J Neurol Neurosurg Psychiatry. 2023;94(4):300-308. PMID 36428088; doi:10.1136/jnnp-2022-329937.",
   "link": "https://doi.org/10.1136/jnnp-2022-329937",
   "areas": [
-   "F"
+   "F",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2629,6 +2900,16 @@
   "link": "https://doi.org/10.1038/nrneurol.2014.253",
   "areas": [
    "E"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Luo2020",
+  "text": "Luo H, Hong S, Li M, Wang L, Jiang L. Risk factors for mechanical ventilation in children with Guillain-Barré syndrome. Muscle Nerve. 2020;62(2):214-218. PMID 32367533; doi:10.1002/mus.26905.",
+  "link": "https://doi.org/10.1002/mus.26905",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2649,7 +2930,8 @@
   "link": "https://doi.org/10.1136/jnnp-2020-323899",
   "areas": [
    "D",
-   "G"
+   "G",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2660,6 +2942,16 @@
   "link": "https://doi.org/10.1016/j.jns.2010.01.005",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "MasaCalles2018",
+  "text": "Masa-Calles J, Torner N, López-Perea N, Torres de Mier MV, Fernández-Martínez B, Cabrerizo M, et al. Acute flaccid paralysis (AFP) surveillance: challenges and opportunities from 18 years' experience, Spain, 1998 to 2015. Euro Surveill. 2018;23(47):1700423. PMID 30482263; PMCID PMC6341937; doi:10.2807/1560-7917.ES.2018.23.47.1700423.",
+  "link": "https://doi.org/10.2807/1560-7917.es.2018.23.47.1700423",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2699,7 +2991,8 @@
   "text": "McGrogan A, Madle GC, Seaman HE, de Vries CS. The epidemiology of Guillain-Barré syndrome worldwide. A systematic literature review. Neuroepidemiology. 2009;32(2):150-63. PMID 19088488; doi:10.1159/000184748.",
   "link": "https://doi.org/10.1159/000184748",
   "areas": [
-   "A"
+   "A",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2781,11 +3074,32 @@
   "validated": "PubMed"
  },
  {
+  "key": "Min2024",
+  "text": "Min YG, Hong YH, Rajabally YA, Sung JJ. Timing of intravenous immunoglobulin treatment and outcome in Guillain-Barré syndrome: Is time nerve? Muscle Nerve. 2024;70(6):1215-1222. PMID 39360628; doi:10.1002/mus.28271.",
+  "link": "https://doi.org/10.1002/mus.28271",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Misawa2018",
   "text": "Misawa S, Kuwabara S, Sato Y, Yamaguchi N, Nagashima K, Katayama K, et al. Safety and efficacy of eculizumab in Guillain-Barré syndrome: a multicentre, double-blind, randomised phase 2 trial. Lancet Neurol. 2018;17(6):519-529. PMID 29685815; doi:10.1016/S1474-4422(18)30114-5.",
   "link": "https://doi.org/10.1016/s1474-4422(18)30114-5",
   "areas": [
-   "E"
+   "E",
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Mohammad2025",
+  "text": "Mohammad QD, Islam Z, Papri N, Hayat S, Jahan I, Azad KAK, et al. Results From a Phase 1 Study Evaluating the Safety, Tolerability, Pharmacokinetics, Pharmacodynamics, and Efficacy of ANX005, a C1q Inhibitor, in Patients With Guillain-Barré Syndrome. J Peripher Nerv Syst. 2025;30(1):e70009. PMID 40000167; PMCID PMC11886941; doi:10.1111/jns.70009.",
+  "link": "https://doi.org/10.1111/jns.70009",
+  "areas": [
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2817,6 +3131,7 @@
   "link": "https://doi.org/10.1212/01.wnl.0000258673.31824.61",
   "areas": [
    "E",
+   "I",
    "G"
   ],
   "unverified": false,
@@ -2947,6 +3262,120 @@
   "validated": "PubMed"
  },
  {
+  "key": "NCT01582763",
+  "text": "Erasmus Medical Center. International Guillain-Barré Syndrome Outcome Study (IGOS). ClinicalTrials.gov NCT01582763; observational; completed (primary completion 2024-09-01); enrolment 2000.",
+  "link": "",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT02029378",
+  "text": "NHS Greater Glasgow and Clyde. Inhibition of Complement Activation (Eculizumab) in Guillain-Barre Syndrome Study (ICA-GBS). ClinicalTrials.gov NCT02029378; phase 2, randomised; registry status unknown (last update 2014-09-23); results published as PMID 27801990.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/27801990/",
+  "areas": [
+   "I",
+   "E"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov",
+  "aliases": [
+   "Davidson2017"
+  ]
+ },
+ {
+  "key": "NCT03943589",
+  "text": "Hansa Biopharma AB. An Open-label, Single Arm, Multi-centre, Phase II Study Investigating Safety, Tolerability, Efficacy, Pharmacodynamics and Pharmacokinetics of Imlifidase in Patients With Guillain-Barré Syndrome, in Comparison With Matched Control Patients. ClinicalTrials.gov NCT03943589; completed 2024-02-27; enrolment 30; results posted.",
+  "link": "",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT04701164",
+  "text": "Annexon, Inc. Efficacy and Safety of ANX005 in Subjects With Guillain-Barré Syndrome. ClinicalTrials.gov NCT04701164; phase 3; completed (primary completion 2024-04-20); enrolment 242; Bangladesh and Philippines; no results posted (last update 2025-05-29).",
+  "link": "",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT04752566",
+  "text": "Alexion Pharmaceuticals, Inc. A Phase 3, Prospective, Multicenter, Double Blind, Randomized, Placebo Controlled Study to Evaluate the Efficacy and Safety of Eculizumab in Patients With Guillain-Barré Syndrome (GBS). ClinicalTrials.gov NCT04752566; completed 2022-08-03; enrolment 57; results posted.",
+  "link": "",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT05114941",
+  "text": "The First Affiliated Hospital of Zhengzhou University. Comparison of the Efficacy and Safety of Immunoadsorption and Intravenous Immunoglobulin for Guillain-Barre Syndrome (GBS-PRAISING). ClinicalTrials.gov NCT05114941; not yet recruiting (last update 2025-03-12); estimated enrolment 204.",
+  "link": "",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT05494619",
+  "text": "Hoffmann-La Roche. A Study to Evaluate the Efficacy, Safety, Pharmacokinetics, and Pharmacodynamics of Crovalimab in Participants With Guillain-Barré Syndrome (GBS). ClinicalTrials.gov NCT05494619; phase 3; withdrawn, enrolment 0.",
+  "link": "",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT05701189",
+  "text": "Chafic Karam. Evaluating Efgartigimod in Patients With Guillain-Barré Syndrome. ClinicalTrials.gov NCT05701189; phase 2; withdrawn (enrolment difficulty), enrolment 0.",
+  "link": "",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT07020819",
+  "text": "Annexon, Inc. An Open Label Clinical Study to Evaluate Tanruprubart (Also Commonly Known as ANX005) in Participants With Guillain-Barré Syndrome (FORWARD Study). ClinicalTrials.gov NCT07020819; phase 3; recruiting (last update 2026-10-26); estimated enrolment 30.",
+  "link": "",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT07806916",
+  "text": "Beijing Tiantan Hospital. Efficacy and Safety of Efgartigimod in the Treatment of Guillain-Barré Syndrome (GREAT). ClinicalTrials.gov NCT07806916; phase 2; not yet recruiting (last update 2026-09-18); estimated enrolment 110.",
+  "link": "",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT07821762",
+  "text": "argenx. A Study of Empasiprubart as Add-On Therapy to IVIg in Adult Participants With Guillain-Barré Syndrome. ClinicalTrials.gov NCT07821762; phase 2; not yet recruiting (last update 2026-10-28); estimated enrolment 63.",
+  "link": "",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
   "key": "Nedkova2021",
   "text": "Nedkova V, Gutiérrez-Gutiérrez G, Navacerrada-Barrero FJ, Berciano J, Casasnovas C. Re-evaluating the accuracy of optimized electrodiagnostic criteria in very early Guillain-Barré syndrome: a sequential study. Acta Neurol Belg. 2021;121(5):1141-1150. PMID 33599939; doi:10.1007/s13760-021-01603-7.",
   "link": "https://doi.org/10.1007/s13760-021-01603-7",
@@ -2992,6 +3421,16 @@
   "link": "https://doi.org/10.1017/cjn.2024.27",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Nguyen1999",
+  "text": "Nguyen DK, Agenarioti-Bélanger S, Vanasse M. Pain and the Guillain-Barré syndrome in children under 6 years old. J Pediatr. 1999;134(6):773-6. PMID 10356150; doi:10.1016/s0022-3476(99)70297-0.",
+  "link": "https://doi.org/10.1016/s0022-3476(99)70297-0",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3062,7 +3501,18 @@
   "text": "Ogna A, Prigent H, Lejaille M, Samb P, Sharshar T, Annane D, et al. Swallowing and swallowing-breathing interaction as predictors of intubation in Guillain-Barré syndrome. Brain Behav. 2017;7(2):e00611. PMID 28239521; PMCID PMC5318364; doi:10.1002/brb3.611.",
   "link": "https://doi.org/10.1002/brb3.611",
   "areas": [
-   "F"
+   "F",
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Okahara2024",
+  "text": "Okahara S, Bowe R, Wong P, Johnson M. Caesarean section for a primipara with Guillain-Barré syndrome under combined spinal epidural anaesthesia. BMJ Case Rep. 2024;17(6):e260285. PMID 38926128; doi:10.1136/bcr-2024-260285.",
+  "link": "https://doi.org/10.1136/bcr-2024-260285",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3112,7 +3562,18 @@
   "text": "Overell JR, Hsieh ST, Odaka M, Yuki N, Willison HJ. Treatment for Fisher syndrome, Bickerstaff's brainstem encephalitis and related disorders. Cochrane Database Syst Rev. 2007;2007(1):CD004761. PMID 17253522; PMCID PMC8407391; doi:10.1002/14651858.CD004761.pub2.",
   "link": "https://doi.org/10.1002/14651858.cd004761.pub2",
   "areas": [
-   "C"
+   "C",
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Pacheco2016",
+  "text": "Pacheco LD, Saad AF, Hankins GD, Chiosi G, Saade G. Guillain-Barré Syndrome in Pregnancy. Obstet Gynecol. 2016;128(5):1105-1110. PMID 27741183; doi:10.1097/AOG.0000000000001716.",
+  "link": "https://doi.org/10.1097/aog.0000000000001716",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3143,7 +3604,9 @@
   "link": "https://doi.org/10.1038/s41582-021-00467-y",
   "areas": [
    "A",
-   "E"
+   "E",
+   "H",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3173,7 +3636,8 @@
   "text": "Papri N, Doets AY, Luijten L, Mohammad QD, Endtz HP, Lingsma HF, et al. Prediction of respiratory failure and prolonged mechanical ventilation in Guillain-Barré syndrome: A prospective cohort study in Bangladesh. J Peripher Nerv Syst. 2024;29(4):428-440. PMID 39581760; doi:10.1111/jns.12673.",
   "link": "https://doi.org/10.1111/jns.12673",
   "areas": [
-   "F"
+   "F",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3203,7 +3667,8 @@
   "text": "Parra B, Lizarazo J, Jiménez-Arango JA, Zea-Vera AF, González-Manrique G, Vargas J, et al. Guillain-Barré Syndrome Associated with Zika Virus Infection in Colombia. N Engl J Med. 2016;375(16):1513-1523. PMID 27705091; doi:10.1056/NEJMoa1605564.",
   "link": "https://doi.org/10.1056/nejmoa1605564",
   "areas": [
-   "A"
+   "A",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3214,6 +3679,16 @@
   "link": "https://doi.org/10.1038/s41591-021-01556-7",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Patra2022",
+  "text": "Patra AK, Das M, Choudhury SS, Goswami M, Vanlalzami K. Outcome of Guillain-Barré Syndrome (GBS) During Peripartum Period: A Hospital-Based Observational Study. Ann Indian Acad Neurol. 2022;25(3):417-421. PMID 35936642; PMCID PMC9350787; doi:10.4103/aian.aian_362_22.",
+  "link": "https://doi.org/10.4103/aian.aian_362_22",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3299,6 +3774,16 @@
   "link": "https://doi.org/10.7759/cureus.16069",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Qinrong2023",
+  "text": "Qinrong H, Yuxia C, Ling L, Huayu L, Lei X, Xiaoli L, et al. Reliability and validity of prognostic indicators for Guillain-Barré syndrome in children. Dev Med Child Neurol. 2023;65(4):563-570. PMID 36175376; doi:10.1111/dmcn.15418.",
+  "link": "https://doi.org/10.1111/dmcn.15418",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3448,11 +3933,32 @@
   "validated": "PubMed"
  },
  {
+  "key": "Roe2025",
+  "text": "Roe T, Gordon A, Gourd N, Thomas C, Ward J, Osman C, et al. Immunoglobulin unresponsive Guillain-Barré syndrome: rinse or repeat? A systematic review. BMJ Neurol Open. 2025;7(1):e000907. PMID 39950094; PMCID PMC11822392; doi:10.1136/bmjno-2024-000907.",
+  "link": "https://doi.org/10.1136/bmjno-2024-000907",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Roodbol2011",
+  "text": "Roodbol J, de Wit MC, Walgaard C, de Hoog M, Catsman-Berrevoets CE, Jacobs BC. Recognizing Guillain-Barre syndrome in preschool children. Neurology. 2011;76(9):807-10. PMID 21357832; doi:10.1212/WNL.0b013e31820e7b62.",
+  "link": "https://doi.org/10.1212/wnl.0b013e31820e7b62",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Roodbol2014Kids",
   "text": "Roodbol J, de Wit MC, Aarsen FK, Catsman-Berrevoets CE, Jacobs BC. Long-term outcome of Guillain-Barré syndrome in children. J Peripher Nerv Syst. 2014;19(2):121-6. PMID 24863162; doi:10.1111/jns5.12068.",
   "link": "https://doi.org/10.1111/jns5.12068",
   "areas": [
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3462,7 +3968,8 @@
   "text": "Roodbol J, de Wit MY, van den Berg B, Kahlmann V, Drenthen J, Catsman-Berrevoets CE, et al. Diagnosis of Guillain-Barré syndrome in children and validation of the Brighton criteria. J Neurol. 2017;264(5):856-861. PMID 28251358; PMCID PMC5413522; doi:10.1007/s00415-017-8429-8.",
   "link": "https://doi.org/10.1007/s00415-017-8429-8",
   "areas": [
-   "D"
+   "D",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3472,7 +3979,8 @@
   "text": "Roodbol J, Korinthenberg R, Venema E, de Wit MY, Lingsma HF, Catsman-Berrevoets CE, et al. Predicting respiratory failure and outcome in pediatric Guillain-Barré syndrome. Eur J Paediatr Neurol. 2023;44:18-24. PMID 36931152; doi:10.1016/j.ejpn.2023.02.007.",
   "link": "https://doi.org/10.1016/j.ejpn.2023.02.007",
   "areas": [
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3492,7 +4000,8 @@
   "text": "Royal E, Reynolds FA, Houlden H. What are the experiences of adults returning to work following recovery from Guillain-Barré syndrome? An interpretative phenomenological analysis. Disabil Rehabil. 2009;31(22):1817-27. PMID 19479500; doi:10.1080/09638280902822294.",
   "link": "https://doi.org/10.1080/09638280902822294",
   "areas": [
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3571,7 +4080,8 @@
   "areas": [
    "D",
    "F",
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3596,7 +4106,18 @@
   "text": "Ryabinkina YV, Piradov MA, Gnedovskaya EV, Suponeva NA, Prokazova PR. [Venous thromboembolism in patients with Guillain-Barre syndrome]. Zh Nevrol Psikhiatr Im S S Korsakova. 2016;116(5):13-18. PMID 27240174; doi:10.17116/jnevro20161165113-18.",
   "link": "https://doi.org/10.17116/jnevro20161165113-18",
   "areas": [
-   "F"
+   "F",
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Ryan2005",
+  "text": "Ryan MM. Guillain-Barré syndrome in childhood. J Paediatr Child Health. 2005;41(5-6):237-41. PMID 15953319; doi:10.1111/j.1440-1754.2005.00602.x.",
+  "link": "https://doi.org/10.1111/j.1440-1754.2005.00602.x",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3626,7 +4147,8 @@
   "text": "Sakakibara R, Uchiyama T, Kuwabara S, Mori M, Ito T, Yamamoto T, et al. Prevalence and mechanism of bladder dysfunction in Guillain-Barré Syndrome. Neurourol Urodyn. 2009;28(5):432-7. PMID 19260087; doi:10.1002/nau.20663.",
   "link": "https://doi.org/10.1002/nau.20663",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3648,6 +4170,16 @@
   "areas": [
    "A",
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Schroder2019",
+  "text": "Schröder JB, Marian T, Muhle P, Claus I, Thomas C, Ruck T, et al. Intubation, tracheostomy, and decannulation in patients with Guillain-Barré-syndrome-does dysphagia matter? Muscle Nerve. 2019;59(2):194-200. PMID 30390307; doi:10.1002/mus.26377.",
+  "link": "https://doi.org/10.1002/mus.26377",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3678,7 +4210,8 @@
   "link": "https://doi.org/10.1159/000324710",
   "areas": [
    "A",
-   "B"
+   "B",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3787,6 +4320,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Sharma2015",
+  "text": "Sharma SR, Sharma N, Masaraf H, Singh SA. Guillain-Barré syndrome complicating pregnancy and correlation with maternal and fetal outcome in North Eastern India: A retrospective study. Ann Indian Acad Neurol. 2015;18(2):215-8. PMID 26019422; PMCID PMC4445200; doi:10.4103/0972-2327.150608.",
+  "link": "https://doi.org/10.4103/0972-2327.150608",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Sharshar2003",
   "text": "Sharshar T, Chevret S, Bourdain F, Raphaël JC. Early predictors of mechanical ventilation in Guillain-Barré syndrome. Crit Care Med. 2003;31(1):278-83. PMID 12545029; doi:10.1097/00003246-200301000-00044.",
   "link": "https://doi.org/10.1097/00003246-200301000-00044",
@@ -3858,6 +4401,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Siriwardena2022",
+  "text": "Siriwardena AN, Akanuwe JNA, Botan V, Laparidou D, Curtis F, Jackson J, et al. Patient-reported symptoms and experience following Guillain-Barré syndrome and related conditions: Questionnaire development and validation. Health Expect. 2022;25(1):223-231. PMID 34597442; PMCID PMC8849366; doi:10.1111/hex.13367.",
+  "link": "https://doi.org/10.1111/hex.13367",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Sobue1997",
   "text": "Sobue G, Li M, Terao S, Aoki S, Ichimura M, Ieda T, et al. Axonal pathology in Japanese Guillain-Barré syndrome: a study of 15 autopsied cases. Neurology. 1997;48(6):1694-700. PMID 9191789; doi:10.1212/wnl.48.6.1694.",
   "link": "https://doi.org/10.1212/wnl.48.6.1694",
@@ -3873,6 +4426,16 @@
   "link": "https://doi.org/10.1097/00001432-200310000-00002",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "SprengerSvacina2024",
+  "text": "Sprenger-Svačina A, Svačina MKR, Gao T, Zhang G, Sheikh KA. Emerging treatment landscape for Guillain-Barré Syndrome (GBS): what's new? Expert Opin Investig Drugs. 2024;33(9):881-886. PMID 38980318; PMCID PMC11424254; doi:10.1080/13543784.2024.2377323.",
+  "link": "https://doi.org/10.1080/13543784.2024.2377323",
+  "areas": [
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3912,7 +4475,8 @@
   "text": "Storgaard JH, Qerama E, Stouge A, Tankisi H, Harbo T, Andersen H, et al. High-frequency nerve ultrasound in Guillain-Barré syndrome. Clin Neurophysiol. 2025;179:2110985. PMID 40896929; doi:10.1016/j.clinph.2025.2110985.",
   "link": "https://doi.org/10.1016/j.clinph.2025.2110985",
   "areas": [
-   "C"
+   "C",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4059,6 +4623,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Taylor2024",
+  "text": "Taylor S, Czuzoj-Shulman N, Spence AR, Abenhaim HA. Maternal and newborn outcomes in pregnancies complicated by Guillain-Barré syndrome. J Perinat Med. 2024;52(8):870-877. PMID 39166984; doi:10.1515/jpm-2023-0310.",
+  "link": "https://doi.org/10.1515/jpm-2023-0310",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Terayama2024",
   "text": "Terayama A, Kuwahara M, Yoshikawa K, Yamagishi Y, Samukawa M, Yamashita S, et al. Takotsubo cardiomyopathy in Guillain-Barré syndrome. J Neurol. 2024;271(7):4067-4074. PMID 38573364; doi:10.1007/s00415-024-12295-3.",
   "link": "https://doi.org/10.1007/s00415-024-12295-3",
@@ -4114,7 +4688,8 @@
   "link": "https://doi.org/10.1136/jnnp-2025-336046",
   "areas": [
    "D",
-   "G"
+   "G",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4234,7 +4809,8 @@
   "text": "Vajsar J, Fehlings D, Stephens D. Long-term outcome in children with Guillain-Barré syndrome. J Pediatr. 2003;142(3):305-9. PMID 12640380; doi:10.1067/mpd.2003.115.",
   "link": "https://doi.org/10.1067/mpd.2003.115",
   "areas": [
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4311,6 +4887,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "vanderPijl2018",
+  "text": "van der Pijl J, Wilmshurst JM, van Dijk M, Argent A, Booth J, Zampoli M. Acute flaccid paralysis in South African children: Causes, respiratory complications and neurological outcome. J Paediatr Child Health. 2018;54(3):247-253. PMID 28960591; doi:10.1111/jpc.13709.",
+  "link": "https://doi.org/10.1111/jpc.13709",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "VandeWalle2025",
+  "text": "Van de Walle I, Bracke L, Olesen HG, van Bragt T, Cadour S, De Decker P, et al. Randomized phase I trial outcomes show safe and sustainable inhibition of classical and lectin complement pathways by empasiprubart. Nat Commun. 2025;16(1):7639. PMID 40819168; PMCID PMC12357863; doi:10.1038/s41467-025-62925-1.",
+  "link": "https://doi.org/10.1038/s41467-025-62925-1",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "vanDoorn2008",
   "text": "van Doorn PA, Ruts L, Jacobs BC. Clinical features, pathogenesis, and treatment of Guillain-Barré syndrome. Lancet Neurol. 2008;7(10):939-50. PMID 18848313; doi:10.1016/S1474-4422(08)70215-1.",
   "link": "https://doi.org/10.1016/s1474-4422(08)70215-1",
@@ -4342,7 +4938,8 @@
    "D",
    "E",
    "F",
-   "G"
+   "G",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4373,7 +4970,8 @@
   "link": "https://doi.org/10.1016/j.ebiom.2024.105072",
   "areas": [
    "D",
-   "G"
+   "G",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4384,6 +4982,7 @@
   "link": "https://doi.org/10.1002/acn3.52313",
   "areas": [
    "E",
+   "I",
    "G"
   ],
   "unverified": false,
@@ -4391,6 +4990,16 @@
   "aliases": [
    "vanTilburg2025SID"
   ]
+ },
+ {
+  "key": "vanTilburg2025FCGR",
+  "text": "van Tilburg SJ, Koçer S, Geissler J, van Rijs W, Tio-Gillen AP, Tanck MWT, et al. Genetic variation of low-to-medium-affinity Fc-gamma receptors in Guillain-Barré syndrome. J Neurol. 2025;272(7):487. PMID 40593358; PMCID PMC12213970; doi:10.1007/s00415-025-13216-8.",
+  "link": "https://doi.org/10.1007/s00415-025-13216-8",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Vellozzi2014AJPH",
@@ -4448,7 +5057,8 @@
   "link": "https://doi.org/10.1212/wnl.0000000000007719",
   "areas": [
    "A",
-   "E"
+   "E",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4458,7 +5068,8 @@
   "text": "Verboon C, van den Berg B, Cornblath DR, Venema E, Gorson KC, Lunn MP, et al. Original research: Second IVIg course in Guillain-Barré syndrome with poor prognosis: the non-randomised ISID study. J Neurol Neurosurg Psychiatry. 2020;91(2):113-121. PMID 31586949; doi:10.1136/jnnp-2019-321496.",
   "link": "https://doi.org/10.1136/jnnp-2019-321496",
   "areas": [
-   "E"
+   "E",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4468,7 +5079,8 @@
   "text": "Verboon C, Harbo T, Cornblath DR, Hughes RAC, van Doorn PA, Lunn MP, et al. Intravenous immunoglobulin treatment for mild Guillain-Barré syndrome: an international observational study. J Neurol Neurosurg Psychiatry. 2021;92(10):1080-1088. PMID 34103340; PMCID PMC8458059; doi:10.1136/jnnp-2020-325815.",
   "link": "https://doi.org/10.1136/jnnp-2020-325815",
   "areas": [
-   "E"
+   "E",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4512,7 +5124,8 @@
   "text": "Voth J, Gerstmeyer J, Meuth SG, Zu Hörste GM, Willison AG, Konen FF, et al. Real-world hospitalization and readmission trajectory after Guillain-Barré syndrome in the United States. BMC Neurol. 2026;26(1). PMID 42983686; PMCID PMC13733053; doi:10.1186/s12883-026-05499-9.",
   "link": "https://doi.org/10.1186/s12883-026-05499-9",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4616,7 +5229,8 @@
   "link": "https://doi.org/10.1016/s1474-4422(20)30494-4",
   "areas": [
    "E",
-   "G"
+   "G",
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4656,7 +5270,8 @@
   "text": "Weiss H, Rastan V, Müllges W, Wagner RF, Toyka KV. Psychotic symptoms and emotional distress in patients with Guillain-Barré syndrome. Eur Neurol. 2002;47(2):74-8. PMID 11844894; doi:10.1159/000047956.",
   "link": "https://doi.org/10.1159/000047956",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4687,6 +5302,16 @@
   "link": "https://doi.org/10.1002/14651858.cd008146.pub2",
   "areas": [
    "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Wiegers2025",
+  "text": "Wiegers EJA, Jacobs BC. New insights in the immune treatment of Guillain-Barré syndrome. Curr Opin Neurol. 2025;38(5):471-477. PMID 40748027; PMCID PMC12419018; doi:10.1097/WCO.0000000000001408.",
+  "link": "https://doi.org/10.1097/wco.0000000000001408",
+  "areas": [
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4755,11 +5380,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Wright2026",
+  "text": "Wright B, Eiffert SR, Cirincione A, Nardin J, Howard JF Jr, Traub RE. Patient Outcomes Among Medicare Beneficiaries With Guillain-Barré Syndrome. J Peripher Nerv Syst. 2026;31(1):e70094. PMID 41466101; PMCID PMC12748927; doi:10.1111/jns.70094.",
+  "link": "https://doi.org/10.1111/jns.70094",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Wu2015",
   "text": "Wu X, Li C, Zhang B, Shen D, Li T, Liu K, et al. Predictors for mechanical ventilation and short-term prognosis in patients with Guillain-Barré syndrome. Crit Care. 2015;19(1):310. PMID 26330143; PMCID PMC4557605; doi:10.1186/s13054-015-1037-z.",
   "link": "https://doi.org/10.1186/s13054-015-1037-z",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Wu2016",
+  "text": "Wu X, Shen D, Li T, Zhang B, Li C, Mao M, et al. Distinct Clinical Characteristics of Pediatric Guillain-Barré Syndrome: A Comparative Study between Children and Adults in Northeast China. PLoS One. 2016;11(3):e0151611. PMID 26974666; PMCID PMC4790924; doi:10.1371/journal.pone.0151611.",
+  "link": "https://doi.org/10.1371/journal.pone.0151611",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4779,7 +5424,8 @@
   "text": "Yakubu AO, Atafo GI, Effiong MG, Anifalaje OK, Fakiyesi T, Nwaze CE. Guillain-Barré syndrome in pregnancy: A systematic review of published case reports and case series with obstetric and neonatal outcomes. Am J Obstet Gynecol MFM. 2026;8(5):101937. PMID 41839317; doi:10.1016/j.ajogmf.2026.101937.",
   "link": "https://doi.org/10.1016/j.ajogmf.2026.101937",
   "areas": [
-   "E"
+   "E",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4993,6 +5639,16 @@
   "link": "https://doi.org/10.1016/j.expneurol.2016.05.020",
   "areas": [
    "E"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Zhang2025",
+  "text": "Zhang H, Zhai F, Su M, Zhang Y, Ma J, Zhao J, et al. Comparison of intravenous efgartigimod and intravenous immunoglobulin in patients with Guillain-Barré syndrome. Orphanet J Rare Dis. 2025;20(1):529. PMID 41121372; PMCID PMC12542069; doi:10.1186/s13023-025-04060-0.",
+  "link": "https://doi.org/10.1186/s13023-025-04060-0",
+  "areas": [
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"
