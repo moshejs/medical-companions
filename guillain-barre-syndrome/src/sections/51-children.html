@@ -1,2 +1,145 @@
-<!-- STUB: replaced by its builder -->
-<section class="mod" id="m-children" data-mod="children" hidden><div class="mhead"><h2>children</h2><p class="lede">Being written.</p></div></section>
+<!-- ================= 5.1 CHILDREN & PREGNANCY ================= -->
+<style>
+#m-children .tbl table{min-width:640px}
+#m-children .card>.ev,#m-children .card>.tag{align-self:flex-start}
+#m-children .chbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-children .chbar .btn{min-height:40px}
+#m-children .chcap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-children .ctrls .btn{min-height:40px}
+#m-children .big-num{color:var(--care)}
+</style>
+<section class="mod" id="m-children" data-mod="children" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Special situations &amp; care</p><h2>Children &amp; pregnancy</h2>
+    <p class="lede">GBS in children often starts with pain or a child who will not walk, and most children recover faster than adults. Follow one child's course day by day, see why young children are missed, compare cohorts, and look at what is known about pregnancy and the weeks after birth.</p></div>
+
+  <p class="crisis" role="note"><b>Emergency</b><span>In a child or an adult, weakness that gets worse quickly, or trouble breathing or swallowing, is an emergency and needs urgent care [[Leonhard2019]]. Not all people heading for breathing failure feel breathless, which is why breathing is measured routinely in hospital [[Leonhard2019]].</span></p>
+
+  <div class="cards">
+    <div class="card"><span class="kicker">How common</span><p class="big-num">0.34–1.34</p><p>per 100,000 children aged 0 to 15 each year, across ten studies [[McGrogan2009]]. An Australian review gives 0.8 per 100,000 and calls GBS the commonest cause of acute flaccid paralysis in childhood [[Ryan2005]].</p></div>
+    <div class="card"><span class="kicker">Rises with age</span><p class="big-num">0.62 vs 2.66</p><p>per 100,000 person-years at 0 to 9 years against 80 to 89 years in Sejvar's model; incidence rises 20% for each 10 years of age [[Sejvar2011]].</p></div>
+    <div class="card"><span class="kicker">Ventilated</span><p class="big-num">19%</p><p>of 421 children from German-speaking countries and the Netherlands needed mechanical ventilation; one died [[Roodbol2023]].</p></div>
+    <div class="card"><span class="kicker">Walking at 6 months</span><p class="big-num">94.37%</p><p>of 142 Chinese children walked independently at 6 months [[Qinrong2023]]; about 80% of adults do [[Leonhard2019]]. An indirect comparison.</p></div>
+  </div>
+
+  <h3 class="sub">A child's course, day by day</h3>
+  <div class="prose"><p>The timeline follows the medians of a prospective German-speaking multicentre study of 95 children (median age 6.2 years) [[Korinthenberg2007]]. The day axis is stretched at the start so the first weeks are visible. Pick a step or press Play.</p></div>
+  <div class="stepper" id="chdSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="chdSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A child's body outline beside a chart of weakness against days since the first symptom. Leg and back pain come first; a weakness wash climbs the body for about a week, holds, then falls as the child improves from about day 13, walks unaided by about day 27 and is usually symptom-free months later; an IVIg drip appears during treatment, and a strip of bars under the chart gives the published proportions for each step."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="chdPlay">%t:player.play%</button><label class="stage-cap tl" for="chdT">Days <input type="range" id="chdT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The curve joins published medians (worst point day 7, improvement day 13, unaided walking day 27, symptom-free day 118) [[Korinthenberg2007]]; its height has no units. One child is drawn, but the bars are proportions of groups.</p></div>
+    <aside class="note" id="chdNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How GBS shows itself in children</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Cohort</th><th>Who</th><th>What they found</th></tr></thead>
+    <tbody>
+      <tr><th>German-speaking, prospective</th><td>95 children, median 6.2 years</td><td>First symptom usually a gait disturbance or neuropathic pain; 79% had neuropathic pain, half of them severe, which the authors call a frequent therapeutic challenge [[Korinthenberg2007]]</td></tr>
+      <tr><th>Montreal, under 6</th><td>29 children over 15 years</td><td>Pain in all, on admission in 79%, mostly back and leg pain (83%); pain led to misdiagnosis in 20 of 29 (69%), and in 11 the right diagnosis took more than a week [[Nguyen1999]]</td></tr>
+      <tr><th>United States</th><td>35 children over 20 years</td><td>Paraesthesias 54%, weakness 49%, muscle pain 49%; reduced or absent reflexes in 94% [[Hicks2010]]</td></tr>
+      <tr><th>Netherlands</th><td>67 children, median 5.0 years</td><td>Weakness of all four limbs in 70%, of the legs in 23%; worsening lasted a median 6 days [[Roodbol2017]]</td></tr>
+      <tr class="hl"><th>Northeast China</th><td>750 children and adults</td><td>Children had more pain (17.2% vs 9.6%), a shorter time to the worst point (6.3 vs 7.3 days) and more bulbar weakness (22.0% vs 14.8%); overall severity was similar, and paediatric GBS peaked in July and August [[Wu2016]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Why does pain range from 17.2% to 100%? Prospective pain scoring and younger age probably explain part of the gap between the German (79%), Canadian under-6 (100%) and retrospective Chinese (17.2%) figures [[Korinthenberg2007,Nguyen1999,Wu2016]].</p>
+
+  <h3 class="sub">Why young children are missed</h3>
+  <div class="prose"><p>A preschool child may refuse to walk, limp, cry with leg pain or seem irritable. In Rotterdam, first diagnoses included myopathy, tonsillitis, meningitis, rheumatoid disorders, coxitis (hip inflammation) and discitis [[Roodbol2011]]. Across low- and middle-income settings, GBS is correctly diagnosed at admission in only about one-third of affected preschool children [[Papri2021]]. Choose an age group.</p></div>
+  <div class="chbar" role="group" aria-label="Age group">
+    <button class="btn" data-chdx="pre" aria-pressed="true">Under 6 years</button>
+    <button class="btn" data-chdx="old" aria-pressed="false">6 to 18 years</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="chdDxSvg" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="A grid of children, coloured by whether GBS was suspected first or another diagnosis was made first, beside two bars of median delays: from symptoms to a paediatrician, and from the paediatrician to suspecting GBS."></svg></div>
+    <p class="chcap" id="chdDxCap" aria-live="polite"></p>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>MRI of the nerve roots</h4><p>Enhancement of the spinal nerve roots on MRI is not specific, but it is sensitive and can support the diagnosis, especially in young children, in whom examination and nerve conduction studies can be difficult [[Leonhard2019]].</p></div>
+    <div class="card"><h4>Acute flaccid paralysis surveillance</h4><p>AFP surveillance was built for polio eradication and covers children under 15; GBS is now its predominant cause in studies from China and Bangladesh [[Papri2021]]. In Spain, 76.9% of 655 notified cases (1998 to 2015) were clinically GBS and no wild poliovirus was found [[MasaCalles2018]]; in a South African children's hospital, 99 of 119 children with AFP had GBS [[vanderPijl2018]].</p></div>
+  </div>
+
+  <h3 class="sub">Cohorts compared</h3>
+  <div class="prose"><p>Children's figures vary with where and how they were collected. Switch views.</p></div>
+  <div class="chbar" role="group" aria-label="Cohort view">
+    <button class="btn" data-chco="vent" aria-pressed="true">Breathing support</button>
+    <button class="btn" data-chco="sub" aria-pressed="false">Subtype mix</button>
+    <button class="btn" data-chco="rec" aria-pressed="false">A year of recovery</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="chdCoSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A chart that switches between ventilation rates in four paediatric cohorts, the share of demyelinating and axonal subtypes in four cohorts, and two lines of disability falling over a year in Indian children."></svg></div>
+    <p class="chcap" id="chdCoCap" aria-live="polite"></p>
+  </div>
+
+  <h3 class="sub">Who is likely to need breathing support?</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>EGRIS-Kids</h4><p>Roodbol and colleagues found the adult EGRIS inaccurate in children and built EGRIS-Kids from age, cranial nerve involvement and GBS disability score at admission: a 9-point score with predicted risk of respiratory failure from 4 to 50% (AUC 0.71) [[Roodbol2023]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>The adult EGRIS in children</h4><p>A Chinese cohort reported the adult EGRIS as helpful: median 6 in ventilated against 3 in non-ventilated children (p &lt; 0.001), with 5 or more called high risk [[Qinrong2023]]. Both studies are retrospective, and EGRIS-Kids has not yet been externally validated.</p></div>
+    <div class="card"><h4>Signs linked to ventilation</h4><ul>
+      <li>Facial or bulbar weakness (OR 7.936) and axonal type (OR 4.582), in 103 Chinese children [[Luo2020]]</li>
+      <li>Autonomic dysfunction: 39.1% of ventilated vs 8.8% of non-ventilated children (OR 70.415, 95% CI 9.265 to 535.158), unlike in adults [[Wu2016]]</li>
+      <li>Peripheral facial paralysis and dysautonomia in French children [[Estrade2019]]</li>
+      <li>Bulbar, autonomic and upper limb weakness in South Africa [[vanderPijl2018]]</li></ul></div>
+    <div class="card"><h4>Autonomic problems</h4><p>51% in the German study [[Korinthenberg2007]] and 46% of a US series, including blood pressure and pulse changes, bowel or bladder control and priapism; autonomic dysfunction, cranial nerve involvement and albuminocytological dissociation in the spinal fluid were each linked to a shorter time to the worst point [[Hicks2010]]. In critically ill Indian children, autonomic instability, especially high blood pressure, was more frequent with AIDP [[Bansal2026]].</p></div>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>These scores are described to show how published models work. They are never for one child's diagnosis, prognosis or treatment.</p>
+
+  <h3 class="sub">Treatment in children</h3>
+  <div class="prose"><p>Doses below are quoted as published in trials and guidelines. They are not instructions.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Design</th><th>What it reported</th></tr></thead>
+    <tbody>
+      <tr><th>Ten-steps guideline</th><td>International consensus</td><td>No indication to deviate from adult treatment; IVIg usually first line, as plasma exchange is available only in experienced centres and seems to cause more discomfort and complications in children [[Leonhard2019]]</td></tr>
+      <tr><th>German-language paediatric guideline</th><td>Evidence review and Delphi consensus</td><td>Few controlled paediatric studies, none at low risk of bias; IVIg for severe or persistently progressive GBS, plasma exchange where IVIg is not tolerated or not effective; corticosteroids ineffective [[Korinthenberg2020Guideline]]</td></tr>
+      <tr><th>Cochrane review</th><td>3 trials, 75 children</td><td>IVIg seemed to hasten recovery compared with supportive care (low-quality evidence) [[Hughes2014]]</td></tr>
+      <tr class="hl"><th>German paediatric trial</th><td>Randomised; children unable to walk 5 m</td><td>1 g/kg over 2 days vs 0.4 g/kg over 5 days: median 19 vs 13 days to unaided walking, not significantly different; early transient deterioration 5 of 23 vs 0 of 23 [[Korinthenberg2005]]</td></tr>
+      <tr><th>Same trial, early arm</th><td>21 children still walking</td><td>11 lost unassisted walking and 6 became bedridden, with no significant difference between IVIg and no treatment; recovery was somewhat faster after early IVIg; power was low. Severity at the worst point was the only prognostic factor [[Korinthenberg2005]]</td></tr>
+      <tr><th>EAN/PNS guideline</th><td>GRADE guideline</td><td>Evidence too thin to support a 2-day regimen, or a lower or higher dose than standard [[vanDoorn2023]]</td></tr>
+      <tr><th>Egyptian PICU trial</th><td>41 ventilated children, randomised</td><td>Plasma exchange shortened ventilation (median 11 vs 13 days with IVIg 0.4 g/kg/day for 5 days, p = 0.037); walking unaided within 4 weeks of PICU discharge was similar (95.2% vs 90%) [[ElBayoumi2011]]</td></tr>
+      <tr><th>Zipper method</th><td>Uncontrolled series</td><td>Alternating plasma exchange and IVIg in nine ventilated children, all walking unaided on day 28 <span class="ev early">Early evidence</span> [[Kesici2019]]; a modified version in four children with different neuroimmune disorders [[Nikolaus2022]]. EAN/PNS asks for a proper randomised trial first [[vanDoorn2023]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="card"><h4>Plasma exchange in children: the risks</h4><p>In 36 children (122 sessions), fast heart rate, low blood pressure and mild anaemia were most common, and three had serious complications [[Ali2024]]. In a French mixed cohort of 23 children, one child died from venous air embolism, a rare but real procedural risk [[Fleurance2025]].</p></div>
+    <div class="callout"><p><b>Two open questions.</b> Two-day or five-day IVIg? The 2-day regimen brought more early deterioration in one underpowered trial [[Korinthenberg2005]], yet some paediatric centres still use it [[Leonhard2019]]. IVIg or plasma exchange when a child is ventilated? Plasma exchange shortened ventilation by 2 days in one small trial [[ElBayoumi2011]], while guidelines favour IVIg for availability and comfort [[Leonhard2019,Korinthenberg2020Guideline]]. Both are unresolved.</p></div>
+  </div>
+
+  <h3 class="sub">Recovery and the years after</h3>
+  <div class="cards">
+    <div class="card"><h4>Back to normal function</h4><p>In 80 children with severe GBS treated in a paediatric ICU and seen a median 3.0 years later, 95% had a favourable neurological outcome, 97.5% attended school and 57.7% had satisfactory school performance; quadriparesis at admission, ventilation, tracheostomy and longer stays predicted a worse outcome [[Devi2023]].</p></div>
+    <div class="card"><h4>Mild weakness can stay</h4><p>Of 47 children followed at least 2 years, 23% had mild persisting weakness in at least one muscle group, all with perfect functional independence scores; young age and rapid progression predicted it [[Vajsar2003]]. In 110 French children, 77% were cured and 9% had sequelae, linked to an axonal form and a short time to admission [[Estrade2019]].</p></div>
+    <div class="card"><h4>What children still notice</h4><p>67% (95% CI 53 to 78) of 51 French children had sequelae at a median 6 years 4 months, mostly minor: tingling 43%, pain 35%, fatigue 31%, symptoms of depression 34% [[Estublier2024]]. In 37 people with childhood GBS (median 11 years), 65% had residual complaints, 26% a negative effect on their school career, and 2 a recurrence [[Roodbol2014Kids]].</p></div>
+    <div class="card"><h4>Scores that predict</h4><p>In 142 Chinese children, mEGOS and EGOS were judged valid predictors of 6-month outcome for those admitted within 2 weeks <span class="ev early">Early evidence</span> [[Qinrong2023]]. How long problems last is debated: function is usually normal [[Vajsar2003,Devi2023]], yet two-thirds report sequelae years later [[Estublier2024,Roodbol2014Kids]]. Both may be true; the measures differ.</p></div>
+  </div>
+  <div class="support"><b>For families</b>Most children recover well, often faster than adults, but tiredness, tingling or low mood can linger and can affect school. Those are real effects of the illness, and they are worth raising with the care team and the school [[Estublier2024,Roodbol2014Kids]].</div>
+
+  <h3 class="sub">Pregnancy and the weeks after birth</h3>
+  <div class="prose"><p>Pregnancy data are thin: two Swedish registers, one US administrative database, small hospital series and a systematic review of case reports, which over-represent severe and unusual cases. Move along the timeline to see the rate ratio for each period, with its 95% confidence interval.</p></div>
+  <div class="stepper" id="chdPgSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="chdPgSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A timeline through three trimesters, birth, the first 30 days and up to 90 days after birth, with a marker moving along it, above a forest plot of GBS rate ratios from two Swedish registers: close to 1 in pregnancy, highest in the first 30 days after birth, and smaller over 90 days."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="chdPgPlay">%t:player.play%</button><label class="stage-cap tl" for="chdPgT">Timeline <input type="range" id="chdPgT" min="0" max="1" step="0.002" value="0.27"></label></div>
+      <p class="stage-cap"><b>Schematic timeline, not to scale.</b> Rate ratios: Sweden 1978–93, age-adjusted [[Cheng1998]]; Sweden 1973–83 [[Jiang1996]]. A ratio of 1 means no change in risk.</p></div>
+    <aside class="note" id="chdPgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Mother and baby</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Who</th><th>Mother</th><th>Baby</th></tr></thead>
+    <tbody>
+      <tr><th>US National Inpatient Sample</th><td>291 births to women with GBS, 1999 to 2015</td><td>More pre-eclampsia (OR 1.69), sepsis (OR 9.30), postpartum haemorrhage (OR 1.83), transfusion (OR 4.39) and caesarean delivery (OR 2.07) [[Taylor2024]]</td><td>More often growth restricted (OR 2.50) [[Taylor2024]]</td></tr>
+      <tr><th>French multicentre series</th><td>16 women</td><td>25% needed respiratory assistance, 94% received IVIg; neurological recovery complete in all [[Krief2023]]</td><td>2 of 16 fetuses died (one with CMV, one with HELLP syndrome); of 10 children followed, Apgar normal in all, 9 developed normally [[Krief2023]]</td></tr>
+      <tr><th>Published case reports</th><td>101 cases</td><td>ICU 64%, ventilation 45%; maternal mortality 5.2%; recovery complete in 35%, partial in 59.4% [[Yakubu2026]]</td><td>Preterm birth 36%, one-third low birthweight, neonatal survival 85.6% [[Yakubu2026]]</td></tr>
+      <tr><th>Assam, India</th><td>36 peripartum women</td><td>11.1% ventilated, 1 (2.8%) died; 72.2% fully recovered at 3 months [[Patra2022]]</td><td>Preterm 35.7%, stillbirth 8.33% [[Patra2022]]</td></tr>
+      <tr><th>North East India</th><td>47 pregnant women</td><td>Mostly good outcomes; 2 needed ventilation [[Sharma2015]]</td><td>One intrauterine death, in a woman who died of respiratory failure [[Sharma2015]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">How dangerous is GBS in pregnancy? Case-report pools give 45% ventilated [[Yakubu2026]], a French series 25% [[Krief2023]], and Indian hospital series 11.1% [[Patra2022]] or 2 of 47 [[Sharma2015]]. Reporting bias probably inflates the first figure, and there is no prospective cohort. Compared with 18 non-pregnant women with GBS, the 16 French pregnant women more often had CMV infection (31% vs 11%), ICU admission (56% vs 33%) and treatment-related fluctuations (37% vs 0%) [[Krief2023]].</p>
+  <div class="split2">
+    <div class="card"><h4>Treatment in pregnancy</h4><p>Neither IVIg nor plasma exchange is contraindicated in pregnancy; as plasma exchange needs additional considerations and monitoring, IVIg might be preferred [[Leonhard2019]]. An obstetric review says treatment should follow the same principles as outside pregnancy, with clot prevention, physiotherapy, pressure care, tube feeding where needed, respiratory support and close monitoring [[Pacheco2016]]. The EAN/PNS guideline makes no pregnancy-specific treatment recommendation [[vanDoorn2023]]. Delivery and anaesthesia are covered in <a href="#nursing" data-go="nursing">Nursing care</a>.</p></div>
+    <div class="card"><h4>GBS in a newborn</h4><p>A baby born to a mother with ongoing GBS developed GBS 12 days after birth; serum from both blocked nerve-muscle transmission in animal preparations, and the blocking stopped after both recovered [[Buchwald1999]]. The authors propose that the mother's antibodies cross the placenta and target the mature, not the fetal, nerve-muscle junction, which could explain the delay <span class="ev hyp">Hypothesis</span> [[Buchwald1999]]. A single case of congenital GBS in a preterm infant improved within 48 hours of IVIg [[Bamford2002]].</p></div>
+  </div>
+
+  <div class="hook"><b>Exam hook</b>Under-6s present with pain, refusal to walk or irritability; 68% of preschool children were first misdiagnosed [[Leonhard2019,Roodbol2011]]. Autonomic dysfunction strongly predicts ventilation in children (OR 70.4 in one Chinese cohort) [[Wu2016]]. GBS risk is not raised in pregnancy but rises after delivery (rate ratio 2.93 in the first 30 days) [[Cheng1998]]; in pregnancy neither IVIg nor plasma exchange is contraindicated, and IVIg might be preferred [[Leonhard2019]].</div>
+  <div class="pt"><b>In plain words</b>Children can get GBS too, but it is rare: roughly 1 child in 100,000 each year [[McGrogan2009,Ryan2005]]. Most children recover well, and usually faster than adults [[Korinthenberg2007]]. GBS in pregnancy is uncommon; the risk seems highest in the first weeks after the baby is born. Treatment can be given during pregnancy. Most babies do well, but early birth is more common [[Cheng1998,Leonhard2019,Yakubu2026]].</div>
+</section>

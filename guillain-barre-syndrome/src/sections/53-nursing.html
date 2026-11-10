@@ -1,2 +1,130 @@
-<!-- STUB: replaced by its builder -->
-<section class="mod" id="m-nursing" data-mod="nursing" hidden><div class="mhead"><h2>nursing</h2><p class="lede">Being written.</p></div></section>
+<!-- ================= 5.3 NURSING CARE ================= -->
+<style>
+#m-nursing .tbl table{min-width:640px}
+#m-nursing .card>.ev,#m-nursing .card>.tag{align-self:flex-start}
+#m-nursing .nsbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-nursing .nsbar .btn,#m-nursing .ctrls .btn,#m-nursing .card .btn{min-height:40px}
+#m-nursing .nscap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-nursing .card .btn{align-self:flex-start}
+#m-nursing .nsans{border-top:1px solid var(--line);padding-top:9px}
+</style>
+<section class="mod" id="m-nursing" data-mod="nursing" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Special situations &amp; care</p><h2>Nursing care</h2>
+    <p class="lede">Much of what keeps a person with GBS safe happens at the bedside: repeated checks of strength, breathing, swallowing, heart rhythm, blood pressure, bladder and bowels, care of skin and legs, and talking to someone who may hear everything but cannot answer. Walk one round of checks, then try the single breath count.</p></div>
+
+  <p class="crisis" role="note"><b>Emergency</b><span>Weakness that gets worse quickly, or breathing or swallowing that becomes hard, is an emergency and needs urgent care [[Leonhard2019]]. GBS can bring on breathing failure within hours to days, and missing it can cause death or brain injury from lack of oxygen [[vanDoorn2023]].</span></p>
+
+  <div class="prose">
+    <p>The ten-steps guideline names a team of nurses, physiotherapists, rehabilitation specialists, occupational therapists, speech therapists and dietitians [[Leonhard2019]]. The research for this guide found no trial of specific nursing interventions in GBS, such as positioning, swallow screens or communication aids; the guidance here comes from guidelines, cohorts and expert consensus [[Leonhard2019,Hughes2005]]. Pick a check or press Play.</p>
+  </div>
+
+  <div class="stepper" id="nsgSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="nsgSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A person lying in bed, seen from above, with eight numbered checkpoints linked to the hand, chest, mouth, heart, belly, calf, head and feet. As each check becomes active, a monitor panel beside the bed animates it: strength dots over successive checks, lungs breathing with a count and a falling vital capacity bar, a drop of water going down the food pipe and then silently into the windpipe, an ECG that pauses after suction above a swinging blood pressure trace, a filling bladder and a gut that stops moving, a leg with a growing calf clot and a pressure mark on the heel, a nurse's words to a person who can hear followed by vivid dreams, and a path from intensive care to home that stays watched after discharge. Bars under each monitor give the published proportions."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nsgPlay">%t:player.play%</button><label class="stage-cap tl" for="nsgT">Round <input type="range" id="nsgT" min="0" max="1" step="0.001" value="0.05"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The monitor drawings show what each check looks for, not real readings. How often checks happen depends on how fast the person is worsening, autonomic involvement, the phase and the setting [[Leonhard2019]].</p></div>
+    <aside class="note" id="nsgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Breathing at the bedside: the single breath count</h3>
+  <div class="prose"><p>The person breathes in fully and counts aloud, at a steady pace, as far as one breath allows. In Kalita's study people counted at 2 per second to an audio prompt, and single breath count correlated well with spirometry in an Indian cohort [[Kalita2020SBC,KannanKanikannan2014]]. Choose where the breath runs out, then press Play to count.</p></div>
+  <div class="nsbar" role="group" aria-label="Where the breath runs out">
+    <button class="btn" data-sbt="4" aria-pressed="false">At 4</button>
+    <button class="btn" data-sbt="10" aria-pressed="false">At 10</button>
+    <button class="btn" data-sbt="14" aria-pressed="true">At 14</button>
+    <button class="btn" data-sbt="18" aria-pressed="false">At 18</button>
+    <button class="btn" data-sbt="25" aria-pressed="false">At 25</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="nsgSbSvg" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Lungs emptying as a person counts aloud on one breath, a number line from 0 to 25 with the count growing along it and markers at 5, 7, 13, 15, 19 and 20, and six published statements, each filled in when the count reached falls on its side of the threshold."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="nsgSbPlay">%t:player.play%</button><label class="stage-cap tl" for="nsgSbT">Count <input type="range" id="nsgSbT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="nscap" id="nsgSbCap" aria-live="polite"></p>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>This shows how published single breath count thresholds are defined. It is never for deciding about one person's breathing, ventilation or transfer. Sources: 5, 7 and 13 from Kalita's cohort <span class="ev early">Early evidence</span> [[Kalita2020SBC]]; 15 and 19 from the ten-steps guideline [[Leonhard2019,KannanKanikannan2014]]; under 20 from the EAN/PNS guideline [[vanDoorn2023]].</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Measure</th><th>As published</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>20/30/40 rule</th><td>Risk of respiratory failure with vital capacity below 20 ml/kg, maximal inspiratory pressure below 30 cmH2O, maximal expiratory pressure below 40 cmH2O, or a fall of more than 30% in any of these; from 114 consecutive ICU patients at one centre, 1976 to 1996</td><td>[[Lawn2001]]</td></tr>
+      <tr><th>Serial tests</th><td>No clinical feature predicted the pattern of respiratory decline, but serial pulmonary function tests picked out those at risk</td><td>[[Lawn2001]]</td></tr>
+      <tr><th>Serial vital capacity</th><td>In 5 people who needed intubation, VC fell over the 48 hours before failure, and intubation came at 15.2 ± 3.7 ml/kg; in 5 who did not, VC stayed above 40 ml/kg</td><td>[[Chevrolet1991]]</td></tr>
+      <tr><th>How often (EAN/PNS)</th><td>Good practice point: check FVC three to six times a day depending on severity, about 4-hourly while it is falling</td><td>[[vanDoorn2023]]</td></tr>
+      <tr><th>Signs of imminent failure</th><td>Breathlessness at rest or while talking, cannot count to 15 on one breath, accessory muscle use, rising breathing or heart rate, VC below 15 to 20 ml/kg or below 1 l, abnormal blood gases or oximetry</td><td>[[Leonhard2019]]</td></tr>
+      <tr><th>Why not wait for distress</th><td>Classical signs of respiratory distress appear too late to guide management; vital capacity and static pressures are the useful measures</td><td>[[Orlikowski2004]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Which bedside test should nurses use? Guideline single breath count thresholds (15 and 19) differ from cohort cut-offs (13 and 5) [[Leonhard2019,Kalita2020SBC]], and the 20/30/40 rule needs spirometry [[Lawn2001]]. No head-to-head comparison was found. The count is simple, but its thresholds are not interchangeable.</p>
+
+  <h3 class="sub">Heart, blood pressure and medicines</h3>
+  <div class="cards">
+    <div class="card"><h4>Care that can slow the heart</h4><p>Minor stimulation such as suction, intubation, mouth care or bathing can provoke severe bradycardia; some teams keep 1 mg IV atropine ready, and a pacemaker is rarely needed. This is an expert review, quoted as published, not as an instruction [[Weiss2025]]. Serious arrhythmias were often preceded by transient asystole after tracheal suction [[Winer1988]].</p></div>
+    <div class="card"><h4>Succinylcholine</h4><p>Warnings date from 1981 and 1991 [[Fergusson1981,Reilly1991]], with a fatal case after re-intubation in a tetraplegic person [[Dalman1994]]. The US label contraindicates it after extensive denervation of skeletal muscle because of severe hyperkalaemia and cardiac arrest [[FDA-Quelicin]]; an anaesthesia review advises special caution in GBS [[Radkowski2024]].</p></div>
+    <div class="card"><h4>Other cautions</h4><p>With significant dysautonomia, an ICU review favours non-hypotensive induction agents and treats antihypertensives and antiarrhythmics as risky unless truly necessary [[Weiss2025]]. Tricyclics need care in autonomic failure [[vanDoorn2023]]. In ileus, the same ICU review advises keeping potassium normal and avoiding sedatives [[Weiss2025]].</p></div>
+  </div>
+
+  <h3 class="sub">Skin, position and clots</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Who</th><th>Clots found</th><th>How they were found</th></tr></thead>
+    <tbody>
+      <tr><th>UK hospital, 1995 to 1999</th><td>73 people; 68% given prophylactic anticoagulation</td><td>5 (7%) clinical DVT, 3 with pulmonary embolism; one person on enoxaparin died of pulmonary embolism</td><td>Clinical diagnosis [[Gaber2002]]</td></tr>
+      <tr class="hl"><th>Russian ICU</th><td>65 people on low-molecular-weight heparin</td><td>DVT 52%, pulmonary embolism 15%; risks: ventilation, bed rest over 3 days, infection, central line, age over 40</td><td>Routine duplex ultrasound screening [[Ryabinkina2016]]</td></tr>
+      <tr><th>US Medicare, 2005 to 2020</th><td>16,280 beneficiaries</td><td>91% avoided DVT (9% with DVT), 96% avoided hospital-acquired pressure ulcers</td><td>Coded claims [[Wright2026]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="card"><h4>What is recommended</h4><p>Standard preventive measures used for any bed-bound person are recommended against pressure ulcers, compression neuropathy, contractures and ossification [[Leonhard2019]]. A 2005 consensus group recommended heparin and graduated pressure stockings for bed-bound adults in the acute phase, from observational data and expert opinion [[Hughes2005]].</p></div>
+    <div class="callout"><p><b>Still open.</b> There is no randomised trial of clot prevention in GBS, and the 2023 EAN/PNS guideline makes no statement on it [[vanDoorn2023]]. DVT still occurred in anticoagulated people clinically [[Gaber2002]] and on ultrasound screening [[Ryabinkina2016]].</p></div>
+  </div>
+
+  <h3 class="sub">Pain, sleep, hallucinations and mood</h3>
+  <div class="cards">
+    <div class="card"><h4>Pain is common and real</h4><p>In 156 Dutch people, pain came before weakness in 36%, was present in the acute phase in 66% and at 1 year in 38%, mostly moderate to severe [[Ruts2010Pain]]. One person's account describes very painful physiotherapy with no change in heart rate or blood pressure: monitors can miss pain [[Kumta2022]].</p></div>
+    <div class="card"><h4>Medicines for pain</h4><p>EAN/PNS weakly recommends gabapentin or carbamazepine, advises gabapentinoids or tricyclics before carbamazepine, and says opioids may be used with care for constipation, ileus, confusion, breathing suppression and addiction [[vanDoorn2023]]. Evidence is insufficient to support any single drug [[Liu2015]]; consensus urges cautious use of narcotics [[Hughes2005]].</p></div>
+    <div class="card"><h4>Dreams and hallucinations</h4><p>Of 139 people, 31% had mental status changes (16% of ICU controls). Among them, vivid dreams 19%, illusions 30%, hallucinations 60% (mainly visual) and delusions 70% (mostly paranoid); often hypnagogic, starting a median 9 days after onset and lasting a median 8 days; 16% began before ICU [[Cochen2005]]. Abnormal REM sleep reversed as they resolved <span class="ev early">Early evidence</span> for a sleep-dream mechanism [[Cochen2005]].</p></div>
+    <div class="card"><h4>Fear and low mood</h4><p>In 49 severely affected people in a neuro-ICU, anxiety (82%), depressive episodes (67%) and brief reactive psychosis (25%) were seen; psychosis was linked to severe weakness, ventilation and cranial nerve palsies [[Weiss2002]]. Top fears at admission were staying paralysed, uncertainty and intubation [[Sharshar2012]]. Early recognition matters, and a psychologist or psychiatrist may help some [[Leonhard2019]].</p></div>
+  </div>
+  <div class="support"><b>For the person in the bed</b>Pain, strange dreams and fear are part of this illness, not a sign of weakness or of losing your mind. The dreams and hallucinations usually pass [[Cochen2005]]. Saying what you feel, in any way you can, helps the team ask about it directly [[Leonhard2019,Ruts2010Pain]].</div>
+
+  <h3 class="sub">When someone cannot speak</h3>
+  <div class="prose">
+    <p>In 49 severely affected people, losing the ability to communicate was the hardest thing to cope with; 90% named contact with relatives as most helpful and 55% felt reassured by the ICU environment [[Weiss2002]]. A small 2026 qualitative study also named communication barriers among four lived-experience themes [[Susanti2026]]. Pain, hallucinations, anxiety and depression should be asked about directly, especially when communication is limited [[Leonhard2019]].</p>
+    <p>Three common misunderstandings. Choose one to see what the sources say.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>"They are paralysed, so they cannot hear us."</h4><button class="btn" data-nsmy="1" aria-pressed="false" aria-controls="nsgMy1">Show what the sources say</button><p class="nsans" id="nsgMy1" hidden>Not so. Even with complete paralysis, consciousness, vision and hearing are usually intact, so staff should mind what is said at the bedside and explain procedures [[Leonhard2019]].</p></div>
+    <div class="card"><h4>"Seeing things means they are going mad."</h4><button class="btn" data-nsmy="2" aria-pressed="false" aria-controls="nsgMy2">Show what the sources say</button><p class="nsans" id="nsgMy2" hidden>Hallucinations in GBS behave like wakeful dreams, often starting as the eyes close, and they resolve; they are linked to autonomic dysfunction, ventilation and abnormal REM sleep, and differ from ICU delirium [[Cochen2005]].</p></div>
+    <div class="card"><h4>"They have recovered, so any anaesthetic is safe."</h4><button class="btn" data-nsmy="3" aria-pressed="false" aria-controls="nsgMy3">Show what the sources say</button><p class="nsans" id="nsgMy3" hidden>A normal examination did not rule out succinylcholine-induced hyperkalaemia: one woman had a cardiac arrest within a month of recovery, and no safe interval could be recommended (single case, unconfirmed diagnosis) [[Feldman1990]].</p></div>
+  </div>
+
+  <h3 class="sub">Families and teaching</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Relatives</span><p class="big-num">72%</p><p>of 86 Dutch close relatives reported one or more problems in daily living; distress was highest in the first months, and a family approach and support groups were recommended [[Bernsen2006Relatives]].</p></div>
+    <div class="card"><span class="kicker">A long stay</span><p class="big-num">82 days</p><p>average inpatient stay in 42 Swedish people; most were satisfied, but dissatisfaction centred on information and finances, and spouses took on more at home [[Forsberg2006Burden]].</p></div>
+    <div class="card"><span class="kicker">What helps fear</span><p class="big-num">2–5%</p><p>recurrence risk. Accurate information about the relatively good chance of recovery and this low recurrence risk can help reduce fear [[Leonhard2019]].</p></div>
+    <div class="card"><span class="kicker">What people valued</span><p>In a UK survey of 291 people after GBS, positive social contact, physical activity, changes at home and immunoglobulin treatment were reported as important for recovery; information provided was one of the questionnaire's four scales [[Siriwardena2022]].</p></div>
+  </div>
+
+  <h3 class="sub">Pregnancy, delivery and anaesthesia</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>What it reported</th></tr></thead>
+    <tbody>
+      <tr><th>Ten-steps guideline</th><td>Neither IVIg nor plasma exchange is contraindicated in pregnancy; as plasma exchange needs additional considerations and monitoring, IVIg might be preferred [[Leonhard2019]]</td></tr>
+      <tr><th>Obstetric review</th><td>Treatment should follow the same principles as outside pregnancy, with clot prevention, physiotherapy, pressure ulcer prevention, enteral nutrition, respiratory support and close monitoring for respiratory and autonomic failure [[Pacheco2016]]</td></tr>
+      <tr class="hl"><th>French series, 16 women</th><td>Epidural anaesthesia in 8 (50%), general anaesthesia in 3 (19%); 10 (62%) delivered vaginally and 5 (31%) had an unscheduled caesarean [[Krief2023]]</td></tr>
+      <tr><th>Assam, 36 women</th><td>66.67% spontaneous vaginal delivery, 27.78% caesarean; the authors conclude GBS is not in itself an indication for caesarean section, and note that uterine contraction is not affected despite extensive nerve involvement [[Patra2022]]</td></tr>
+      <tr><th>Case report</th><td>Combined spinal epidural chosen over general anaesthesia for caesarean section, to avoid prolonged intubation; the woman later deteriorated and needed a second IVIg course (single case) [[Okahara2024]]</td></tr>
+      <tr><th>Case report</th><td>Cardiac arrest from succinylcholine-induced hyperkalaemia in labour, within a month of recovery from a deficit thought to be GBS (single case, unconfirmed diagnosis) [[Feldman1990]]</td></tr>
+    </tbody>
+  </table></div>
+  <p>Risk around pregnancy and outcomes for mother and baby are in <a href="#children" data-go="children">Children &amp; pregnancy</a>.</p>
+
+  <h3 class="sub">Planning for discharge</h3>
+  <div class="cards">
+    <div class="card"><h4>Before going home</h4><p>Possible long-term effects (incomplete motor and sensory recovery, fatigue, pain, psychological distress) should be considered, and a rehabilitation programme arranged with a rehabilitation specialist, physiotherapist and occupational therapist [[Leonhard2019]].</p></div>
+    <div class="card"><h4>Coming back in</h4><p>Of 2,587 US adults, 14.1% were readmitted within 90 days, 46.7% of those within 15 days; GBS itself was the main diagnosis in 46.7% of readmissions, then septicaemia (9.6%) and cardiovascular or thromboembolic conditions (6.9%) [[Voth2026]].</p></div>
+    <div class="card"><h4>Home from rehabilitation</h4><p>Of 1,304 people in US inpatient rehabilitation, 81.8% went home or to the community; gains in bed, chair and wheelchair transfers were the strongest predictor [[Kushner2023]].</p></div>
+    <div class="card"><h4>After discharge</h4><p>In a UK survey of 216 people, over a quarter did not receive community physiotherapy after hospital discharge, and age and body pain predicted falls [[Davidson2022Falls]].</p></div>
+  </div>
+
+  <div class="hook"><b>Exam hook</b>Inability to count to 15 on one breath signals imminent respiratory insufficiency [[Leonhard2019]]; 20/30/40 is VC below 20 ml/kg, MIP below 30 cmH2O, MEP below 40 cmH2O [[Lawn2001]]. Suction can trigger asystole in severe dysautonomia [[Winer1988,Weiss2025]]. A paralysed person with GBS is usually fully conscious and can hear [[Leonhard2019]]. Up to two-thirds of GBS deaths happen in the recovery phase, often after ICU discharge [[Leonhard2019]].</div>
+  <div class="pt"><b>In plain words</b>Nurses check breathing often, sometimes by asking you to count out loud on one breath [[Leonhard2019]]. Even someone who cannot move or speak can usually hear and understand everything, so talk to them and explain what you are doing [[Leonhard2019]]. Being unable to talk is often the hardest part, and visits from family help most [[Weiss2002]]. Families are affected too, and support groups can help [[Bernsen2006Relatives]].</div>
+</section>

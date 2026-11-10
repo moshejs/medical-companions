@@ -70,5 +70,25 @@
  "rehab": {
   "title": "Rehabilitation after Guillain-Barré syndrome: recovery over years",
   "description": "Recovery after Guillain-Barré syndrome month by month: rehabilitation, exercise trials, how nerves repair, complications and gains that continue for years."
+ },
+ "after": {
+  "title": "Life after Guillain-Barré syndrome: fatigue, pain, mood, work",
+  "description": "Life after Guillain-Barré syndrome: lasting fatigue and pain, mood, work and family, what the body keeps, and the small chance of GBS coming back."
+ },
+ "ddx": {
+  "title": "GBS look-alikes: differential diagnosis and acute-onset CIDP",
+  "description": "Conditions mistaken for Guillain-Barré syndrome, from cord disease and myasthenia to botulism and ticks, clues that separate them, and GBS versus A-CIDP."
+ },
+ "history": {
+  "title": "History of Guillain-Barré syndrome: Landry to IGOS",
+  "description": "The history of Guillain-Barré syndrome, animated: Landry in 1859, the 1916 spinal fluid finding, the 1976 vaccine, mimicry, landmark trials and IGOS."
+ },
+ "nursing": {
+  "title": "Guillain-Barré syndrome nursing care and bedside checks",
+  "description": "GBS nursing care: single breath count and 20/30/40, swallow, dysautonomia, clots, pain, hallucinations, talking to a paralysed person and discharge."
+ },
+ "whatnot": {
+  "title": "GBS treatment questions: steroids, second IVIg, fluctuations, A-CIDP",
+  "description": "Why steroids failed in Guillain-Barré syndrome, the second IVIg trial, getting worse again after treatment, acute-onset CIDP and recurrence, animated."
  }
 }
