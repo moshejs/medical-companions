@@ -1,2 +1,105 @@
-<!-- STUB: replaced by its builder -->
-<section class="mod" id="m-what" data-mod="what" hidden><div class="mhead"><h2>what</h2><p class="lede">Being written.</p></div></section>
+<!-- ================= 1.1 WHAT GBS IS ================= -->
+<section class="mod" id="m-what" data-mod="what" hidden>
+<style>
+#m-what .wh-tabs{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-what .wh-tabs .btn,#m-what .wh-regs .btn{min-height:40px}
+#m-what .wh-age{display:flex;gap:10px;align-items:center;flex:1;min-width:220px}
+#m-what .wh-age output{font:600 14px var(--mono);min-width:5.5em;color:var(--ink)}
+#m-what .wh-big{font-family:var(--display);font-weight:700;font-size:34px;line-height:1;color:var(--brand)}
+#m-what .wh-incnote,#m-what .wh-regnote{display:flex;flex-direction:column;gap:10px}
+#m-what .wh-incnote h4,#m-what .wh-regnote h4{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.15;margin:0}
+#m-what .card .wh-num{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--brand)}
+#m-what svg .clk:focus-visible{outline:none}
+#m-what svg .clk:focus-visible .fr{stroke:var(--brand);stroke-width:2.4}
+#m-what svg .clk:hover .fr{stroke:var(--muted)}
+#m-what .wh-regs{display:flex;flex-wrap:wrap;gap:8px}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding GBS</p><h2>What GBS is</h2>
+    <p class="lede">Guillain-Barré syndrome (GBS) is an attack by the immune system on the nerves outside the brain and spinal cord, usually after an infection. Weakness climbs over days, reaches its worst point within four weeks, and then slowly improves. [[vanDoorn2023,Leonhard2019]] Press play to follow one person's nerves through it, then explore how common it is and how outcomes differ around the world.</p></div>
+
+  <p class="crisis" role="note"><b>Emergency</b><span>Weakness that is getting worse quickly, or any trouble breathing or swallowing, needs emergency care. About 1 person in 5 with GBS develops breathing failure and needs a ventilator for a time. [[Leonhard2019,Doets2018]]</span></p>
+
+  <h3 class="sub">An attack on the peripheral nerves</h3>
+  <div class="prose"><p>The 2023 guideline of the European Academy of Neurology and the Peripheral Nerve Society (EAN/PNS) calls GBS "an acute polyradiculoneuropathy": many nerves and nerve roots go wrong at once, and quickly. [[vanDoorn2023]] It is rare, but it is the most common cause of sudden floppy (flaccid) paralysis worldwide. [[Shahrizaila2021]] Surveillance for floppy paralysis was built to find polio, and in children in China and Bangladesh it now finds GBS most often. [[Papri2021]] Step through the six stages below.</p></div>
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="whSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A body with its peripheral nerves, a magnified nerve fibre and a set of symptom bars, followed through infection, immune attack on the nerve, weakness climbing from the feet, the worst point and recovery"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">%t:player.play%</button><label class="stage-cap tl" for="whT">Timeline <input type="range" id="whT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Schematic, not to scale. The order of events follows the sources; the timing, the bars and the body shading are illustrative, not measurements. Not everyone needs breathing support: the ventilator appears to show what can happen in about 1 in 5.</p></div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>GBS is an acute, usually monophasic, immune-mediated polyradiculoneuropathy, and the commonest cause of acute flaccid paralysis worldwide. [[vanDoorn2023,Shahrizaila2021]] Maximum weakness within 24 hours, or progression beyond 4 weeks, should prompt a search for another diagnosis. [[Leonhard2019]]</div>
+    <div class="pt"><b>In plain words</b>GBS happens when the immune system attacks the nerves outside the brain and spinal cord, usually after an infection. It often starts as weakness or tingling in the legs that moves upward over days. Most people get much better, though it can take months.</div>
+  </div>
+
+  <h3 class="sub">How common is GBS?</h3>
+  <div class="prose"><p>In Western countries, a pooled analysis of 16 studies found a median of 1.11 new cases per 100,000 person-years (range 0.81 to 1.89). Incidence rose about 20% with every 10 years of age, and men were affected 1.78 times as often as women. [[Sejvar2011]] A 2024 global meta-analysis of 122 articles gave 1.12 per 100,000 person-years. [[Xu2024]] Over a whole life, the risk is about 1 in 1,000 (0.1%). [[Leonhard2019]] Move the age slider to read the published model, or switch to compare countries.</p></div>
+  <div class="ctrls wh-tabs" role="group" aria-label="Incidence view"><span class="kicker">View</span><button class="btn" id="whVAge" aria-pressed="true">By age</button><button class="btn" id="whVReg" aria-pressed="false">By country</button></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="ctrls" id="whAgeCtrls"><span class="kicker">Show</span><button class="btn" data-sx="all" aria-pressed="true">Everyone</button><button class="btn" data-sx="m" aria-pressed="false">Men</button><button class="btn" data-sx="f" aria-pressed="false">Women</button><button class="btn" id="whChina" aria-pressed="false">Add urban China, 2017</button>
+        <label class="wh-age" for="whAge"><span class="kicker">Age</span><input type="range" id="whAge" min="0" max="90" step="1" value="45"><output id="whAgeOut" for="whAge">45 years</output></label></div>
+      <div class="scroll"><svg id="whInc" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="Incidence of GBS per 100,000 person-years, either by age from a published Western model or by country from published studies"></svg></div>
+      <p class="stage-cap" id="whIncCap"></p>
+    </div>
+    <aside class="note wh-incnote" id="whIncNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <caption class="sr">Seasonal pattern of GBS, winter compared with summer</caption>
+    <thead><tr><th scope="col">Region</th><th scope="col">Winter vs summer (rate ratio)</th><th scope="col">What it means</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">All studies pooled (42 studies, 9,836 people)</th><td>1.14</td><td>14% more cases in winter, with large differences between studies [[Webb2015]]</td></tr>
+      <tr><th scope="row">Western countries</th><td>1.28</td><td>More in winter [[Webb2015]]</td></tr>
+      <tr><th scope="row">Far East</th><td>1.20</td><td>More in winter [[Webb2015]]</td></tr>
+      <tr><th scope="row">Middle East</th><td>1.12</td><td>Slightly more in winter [[Webb2015]]</td></tr>
+      <tr><th scope="row">Indian subcontinent</th><td>0.86</td><td>Fewer in winter: the pattern reverses [[Webb2015]]</td></tr>
+      <tr><th scope="row">Latin America</th><td>0.75</td><td>Fewer in winter [[Webb2015]]</td></tr>
+    </tbody></table></div>
+  <div class="prose"><p>Seasons follow the infections that come first. The winter excess was stronger after a respiratory illness (rate ratio 3.06) than after diarrhoea (1.10). [[Webb2015]] Northern China and Bangladesh see summer rises, thought to reflect more diarrhoeal illness when heat and humidity favour bacterial growth. [[Papri2021]] When UK lockdown cut the spread of infections in spring 2020, GBS cases treated with immunoglobulin fell: 56 in May 2020 against a mean of 113 in the same month of 2016 to 2019. [[Keddie2021]] In New Zealand, three years after rules cut <i>Campylobacter</i> on fresh chicken, notified campylobacteriosis fell 52% and GBS hospital admissions 13%. [[Baker2012NZ]]</p></div>
+
+  <h3 class="sub">Outcomes differ around the world</h3>
+  <div class="prose"><p>The International GBS Outcome Study (IGOS) follows people of any age and severity from 143 centres in 19 countries. [[Jacobs2017]] Its first 925 analysed participants were split into three regions. [[Doets2018]] Choose a region to bring it forward; the other two stay visible for comparison.</p></div>
+  <div class="wh-regs" id="whRegBtns" role="group" aria-label="IGOS region"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="whReg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Bar chart comparing seven outcomes of GBS in three IGOS regions: Europe and the Americas, Asia without Bangladesh, and Bangladesh"></svg></div>
+      <p class="stage-cap">Percentages of each region's participants in the first IGOS analysis, rounded as published. IGOS is not population-based, so these are not national rates. Group figures; they do not predict any one person's course. [[Doets2018]]</p></div>
+    <aside class="note wh-regnote" id="whRegNote" aria-live="polite"></aside>
+  </div>
+  <div class="prose"><p>Why is the outlook worse in Bangladesh? Younger age, axonal disease, severe weakness at the worst point, 86% without immunotherapy and scarce ventilators all travel together, and observational data cannot separate their effects. [[Doets2018,Ishaque2017]] In a Dhaka hospital cohort, 12% died; having no ventilator when one was needed was the strongest risk factor (hazard ratio 11.9). [[Ishaque2017]] Immunoglobulin there costs about US$12,000 to 16,000 and plasma exchange about US$4,500 to 5,000, so only 10 to 12% receive either. [[Papri2021]]</p></div>
+  <p class="support" role="note"><b>A note on these numbers</b>Figures like these describe large groups. They cannot tell you what will happen to you or your family member. Most people, even those who were fully paralysed or on a ventilator for a long time, recover a great deal, especially in the first year. [[Leonhard2019]]</p>
+
+  <h3 class="sub">Outbreaks</h3>
+  <div class="prose"><p>GBS usually appears one person at a time, but clusters follow epidemics of the infections that trigger it. [[Papri2021]]</p></div>
+  <div class="tbl"><table>
+    <caption class="sr">Published GBS outbreaks</caption>
+    <thead><tr><th scope="col">Where and when</th><th scope="col">Cases</th><th scope="col">Linked infection</th><th scope="col">What stood out</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Northern China, summers (studied 1991 to 1993)</th><td>Annual epidemics</td><td><i>Campylobacter jejuni</i></td><td>Rural children and young adults; the setting in which acute motor axonal neuropathy (AMAN) was named [[McKhann1993,Ho1995]]</td></tr>
+      <tr><th scope="row">French Polynesia, 2013 to 2014</th><td>42</td><td>Zika virus</td><td>A 20-fold rise in GBS; 98% had anti-Zika antibodies; 29% needed breathing support; nobody died [[CaoLormeau2016,Papri2021]]</td></tr>
+      <tr><th scope="row">Colombia, 2015 to 2016</th><td>68 (six hospitals)</td><td>Zika virus</td><td>97% had Zika-like symptoms first, a median 7 days before; half had weakness of both sides of the face [[Parra2016]]</td></tr>
+      <tr><th scope="row">Peru, May to July 2019</th><td>683</td><td><i>C. jejuni</i> evidence in one hospital series</td><td>Nearly 25 times the expected rate; 15% ventilated; case fatality 4.3% nationally [[Munayco2020,Ramos2021,ReyesVega2023]]</td></tr>
+      <tr><th scope="row">Pune, India, January to March 2025</th><td>230</td><td><i>C. jejuni</i> and norovirus</td><td>12 deaths (5.2%); water and poultry implicated [[Viswanathan2026]]</td></tr>
+    </tbody></table></div>
+  <div class="prose"><p>Across 11 locations, about 2 reported GBS cases occurred for every 10,000 Zika infections. [[MierYTeranRomero2018]] The trigger behind the Peru outbreak is debated: one Lima hospital series found recent <i>C. jejuni</i> in 65% and no recent arbovirus, while the national report questioned the link because few people reported diarrhoea and cases were spread widely. [[Ramos2021,Munayco2020]] More on triggers is in <a href="#triggers" data-go="triggers">Triggers</a>.</p></div>
+
+  <h3 class="sub">Key numbers</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">New cases</span><span class="wh-num">1.11</span><p>per 100,000 person-years, the Western median (range 0.81 to 1.89). About 100,000 people develop GBS each year worldwide. [[Sejvar2011,Willison2016]]</p></div>
+    <div class="card"><span class="kicker">Lifetime risk</span><span class="wh-num">0.1%</span><p>About 1 in 1,000 people over a lifetime. Getting GBS a second time happens to 2 to 5 in 100. [[Leonhard2019]]</p></div>
+    <div class="card"><span class="kicker">Men to women</span><span class="wh-num">1.78</span><p>The male to female rate ratio in the Western model; about 1.5 to 1 across most reports, including lower-income countries. [[Sejvar2011,Papri2021]]</p></div>
+    <div class="card"><span class="kicker">Breathing support</span><span class="wh-num">~20%</span><p>About 1 in 5 develop breathing failure and need a ventilator; 19% in IGOS. [[Leonhard2019,Doets2018]]</p></div>
+    <div class="card"><span class="kicker">Walking at 6 months</span><span class="wh-num">~80%</span><p>About 8 in 10 regain independent walking by 6 months; about 20% worldwide cannot walk unaided then. [[Leonhard2019,Papri2021]]</p></div>
+    <div class="card"><span class="kicker">Deaths</span><span class="wh-num">3–10%</span><p>Even with the best medical care; up to two-thirds of deaths happen in the recovery phase, so monitoring continues after improvement starts. [[Leonhard2019,vanDenBerg2013]]</p></div>
+    <div class="card"><span class="kicker">Lasting effects</span><span class="wh-num">60–80%</span><p>report fatigue not explained by remaining weakness, and severe pain is reported by at least one-third at 1 year. [[Leonhard2019]]</p></div>
+    <div class="card"><span class="kicker">The burden</span><span class="wh-num">$1.7 bn</span><p>Estimated yearly cost of GBS in the United States in 2004, 86% of it indirect, mostly from early deaths. [[Frenzen2008]]</p></div>
+  </div>
+
+  <h3 class="sub">Is GBS becoming more common?</h3>
+  <div class="prose"><p>This is unsettled. One systematic review found a fall between the 1980s and the 1990s, [[McGrogan2009]] another review calls Europe and North America stable across 1980 to 2000, [[Papri2021]] while the 2024 meta-analysis found a significant rise in Europe, Australia and America from 1960 to 2020. [[Xu2024]] The Global Burden of Disease study models a 6.4% rise in prevalence since 1990, from hospital and claims data. [[Bragazzi2021]] Case definitions and data sources differ, so the studies are not measuring quite the same thing.</p></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>About 20% need ventilation, about 20% cannot walk unaided at 6 months, and 3 to 10% die. [[Leonhard2019,vanDoorn2008]] In IGOS, 36% in Bangladesh had the axonal subtype, against 6% in Europe/Americas and other Asian countries. [[Doets2018]]</div>
+    <div class="pt"><b>In plain words</b>GBS is rare: about 1 or 2 people in every 100,000 each year. Men get it somewhat more often than women, and the risk rises with age, but children can get it too. Where a person lives changes the outlook, mostly because treatment and intensive care cost money that many hospitals and families do not have.</div>
+  </div>
+  <p class="callout">Next: what sets the attack off, in <a href="#triggers" data-go="triggers">Triggers</a> and <a href="#mimicry" data-go="mimicry">Molecular mimicry</a>; the timing in detail, in <a href="#course" data-go="course">The course over time</a>; and how the story was pieced together, in <a href="#history" data-go="history">History &amp; people</a>.</p>
+</section>

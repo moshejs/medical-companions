@@ -1,2 +1,148 @@
-<!-- STUB: replaced by its builder -->
-<section class="mod" id="m-plex" data-mod="plex" hidden><div class="mhead"><h2>plex</h2><p class="lede">Being written.</p></div></section>
+<!-- ================= 3.3 PLASMA EXCHANGE ================= -->
+<style>
+#m-plex .btn{min-height:40px}
+#m-plex .tbl table{min-width:620px}
+#m-plex .pxbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-plex .pxsay{font-size:15px;line-height:1.5;max-width:76ch}
+#m-plex .card>.ev{align-self:flex-start}
+#m-plex #pxForestNote h4{margin:0}
+</style>
+<section class="mod" id="m-plex" data-mod="plex" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Acute care</p><h2>Plasma exchange</h2>
+    <p class="lede">Plasma exchange (plasmapheresis) filters the liquid part of the blood out of the body, taking circulating antibodies with it. It was the first treatment proven to speed recovery from Guillain-Barré syndrome. Watch the circuit, see why it takes several sessions, and explore what the trials found.</p></div>
+
+  <div class="prose">
+    <p>Plasma exchange beat supportive care in randomised trials in the 1980s, and IVIg was later tested against it [[Chevret2017,Hughes2014]]. Today guidelines rank the two as equally effective [[vanDoorn2023]]. What follows reports guidelines and trials; it is not medical advice, and volumes are quoted as published, never as instructions. Pick a step or press Play.</p>
+  </div>
+
+  <div class="stepper" id="pxSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="pxSvg" viewBox="0 0 720 440" style="min-width:560px" role="img" aria-label="A plasma exchange circuit: blood flows from a central line in a person's neck to a spinning separator; yellow plasma carrying antibodies goes to a waste bag while red cells continue, join albumin from a replacement bag and return to the body. A chart below shows the share of a substance left in plasma falling by 63, 86 and 95 percent after one, two and three plasma volumes, then a saw-tooth course in which IgG drops at each of six exchanges on alternate days and partly rebounds between them, ending near one-fifth to one-sixth of baseline."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="pxPlay">%t:player.play%</button><label class="stage-cap tl" for="pxT">Timeline <input type="range" id="pxT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The removal curves follow a general first-order apheresis model, not GBS measurements; the size of each rebound is illustrative, and only the end level after six exchanges comes from the source [[Williams2014]].</p></div>
+    <aside class="note" id="pxNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="cards">
+    <div class="card"><span class="big-num">4 to 5</span><p>Exchanges over 1 to 2 weeks, 12 to 15 L in total, for people unable to walk unaided: a strong recommendation in the 2023 EAN/PNS guideline [[vanDoorn2023]].</p></div>
+    <div class="card"><span class="big-num">4 weeks</span><p>Plasma exchange trials started within 4 weeks of onset; the effect was most evident when it began in the first week [[vanDoorn2023,Leonhard2019]].</p></div>
+    <div class="card"><span class="big-num">0.53</span><p>Risk ratio for needing a ventilator with plasma exchange against supportive care, pooled from five trials with 623 people [[Chevret2017]].</p></div>
+    <div class="card"><span class="big-num">1.64</span><p>Risk ratio for improving one or more disability grades at 4 weeks, from the same review [[Chevret2017]].</p></div>
+  </div>
+
+  <h3 class="sub">What the guidelines say</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Statement, as published</th><th>Strength</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>Start plasma exchange as soon as possible in people unable to walk unaided, within 4 weeks of onset</th><td>Strong recommendation</td><td>2023 EAN/PNS guideline [[vanDoorn2023]]</td></tr>
+      <tr><th>Four to five exchanges over 1 to 2 weeks, 12 to 15 L in total (about 3 L per exchange), for people unable to walk unaided, bedridden or ventilated</th><td>Strong recommendation</td><td>2023 EAN/PNS guideline [[vanDoorn2023]]</td></tr>
+      <tr><th>Two exchanges for people who can walk unaided but cannot run (grade 2), within the first 2 weeks</th><td>Weak recommendation</td><td>2023 EAN/PNS guideline [[vanDoorn2023]]</td></tr>
+      <tr><th>No advice on a specific type of plasma exchange or replacement fluid</th><td>Statement</td><td>2023 EAN/PNS guideline [[vanDoorn2023]]</td></tr>
+      <tr><th>Against plasma exchange followed immediately by IVIg, compared with either alone</th><td>Strong recommendation against</td><td>2023 EAN/PNS guideline [[vanDoorn2023]]</td></tr>
+      <tr><th>200 to 250 mL plasma per kg over five sessions</th><td>Expert guideline</td><td>Ten-steps guideline, 2019 [[Leonhard2019]]</td></tr>
+      <tr><th>Plasma exchange for nonambulant adults within 4 weeks; consider it for ambulant people within 2 weeks</th><td>Practice parameter</td><td>AAN, 2003 [[Hughes2003]]</td></tr>
+      <tr><th>Strong evidence supports plasma exchange in GBS (ASFA framework)</th><td>Review</td><td>Memon and Lisak, 2026 [[Memon2026]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">The trials that proved it</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Main result</th></tr></thead>
+    <tbody>
+      <tr><th>Swedish trial, 1984</th><td>38 people with severe disease</td><td>Benefit in time to improvement, weakness and disability over the first 2 months; a cost-benefit analysis showed net savings [[Osterman1984]]</td></tr>
+      <tr><th>North American trial, 1985</th><td>245 people; 200 to 250 mL plasma/kg in five exchanges over 7 to 14 days</td><td>Improvement at 4 weeks, time to improve one grade, time to independent walking and 6-month outcome all favoured plasmapheresis, especially when started within 7 days and in those needing ventilation [[GBSStudyGroup1985,vanDoorn2023]]</td></tr>
+      <tr><th>French trial, 1987</th><td>220 people treated within 17 days; four exchanges of two plasma volumes, alternate days</td><td>Less need for ventilation, faster weaning, motor recovery and walking [[FrenchPE1987]]; median time to walk with aid 30 against 44 days [[Chevret2017]]</td></tr>
+      <tr><th>French trial, 1-year follow-up</th><td>Same cohort</td><td>Full muscle strength at 1 year in 71% against 52% of controls; severe motor disability 11% in both groups [[FrenchCooperative1992]]</td></tr>
+      <tr class="hl"><th>Cochrane review, 2017</th><td>6 trials, 649 people, against supportive care</td><td>Benefit on every functional outcome; no clear effect on death; more relapses (see the forest plot below) [[Chevret2017]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">How many exchanges?</h3>
+  <div class="prose"><p>The French Cooperative Group randomised 556 people by severity to different numbers of exchanges [[FrenchCooperative1997]]. Choose a severity group.</p></div>
+  <div class="stage">
+    <div class="pxbar" role="group" aria-label="Severity group">
+      <button class="btn" data-pxn="mild" aria-pressed="false">Mild</button>
+      <button class="btn" data-pxn="moderate" aria-pressed="true">Moderate</button>
+      <button class="btn" data-pxn="vent" aria-pressed="false">Ventilated</button>
+    </div>
+    <div class="scroll"><svg id="pxNumSvg" viewBox="0 0 720 200" style="min-width:560px" role="img" aria-label="For the chosen severity group, the two trial arms are shown as rows of plasma drops, one per exchange, beside bars for the outcomes reported, with the better result in green."></svg></div>
+    <p class="pxsay" id="pxNumNote" aria-live="polite"></p>
+    <p class="stage-cap">Medians and percentages from the trial abstract; groups as defined by the trial. Population figures, not predictions for any person.</p>
+  </div>
+
+  <h3 class="sub">What the pooled trials show</h3>
+  <div class="prose"><p>Each row is one outcome from the 2017 Cochrane review of plasma exchange against supportive care. The square is the risk ratio and the line its 95% confidence interval; a line that crosses 1 means no clear difference. Choose a row or a button.</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="pxbar" role="group" aria-label="Outcome">
+        <button class="btn" data-pxfb="0" aria-pressed="true">Improved</button>
+        <button class="btn" data-pxfb="1" aria-pressed="false">Walk with aid</button>
+        <button class="btn" data-pxfb="2" aria-pressed="false">Walk unaided</button>
+        <button class="btn" data-pxfb="3" aria-pressed="false">Ventilator</button>
+        <button class="btn" data-pxfb="4" aria-pressed="false">Full strength</button>
+        <button class="btn" data-pxfb="5" aria-pressed="false">Sequelae</button>
+        <button class="btn" data-pxfb="6" aria-pressed="false">Death</button>
+        <button class="btn" data-pxfb="7" aria-pressed="false">Relapse</button>
+      </div>
+      <div class="scroll"><svg id="pxForestSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A forest plot of eight outcomes on a log scale from 0.25 to 8: improvement, walking with aid, walking without aid and full strength at 1 year all lie to the right of 1; needing a ventilator and severe motor sequelae lie to the left; death crosses 1; relapse lies to the right with a wide interval."></svg></div>
+      <p class="stage-cap">Risk ratios from the Cochrane review [[Chevret2017]]. Below 1 means the outcome was less likely with plasma exchange, above 1 more likely.</p>
+    </div>
+    <aside class="note" id="pxForestNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>Position A: more relapses</h4><p>Relapse by the end of follow-up was more frequent with plasma exchange, RR 2.89 [[Chevret2017]].</p></div>
+    <div class="card"><h4>Position B: still a net benefit</h4><p>The interval is wide (1.05 to 7.93), and long-term outcomes such as full strength at 1 year still favoured plasma exchange [[Chevret2017]].</p></div>
+  </div>
+  <p class="callout">Status: a small absolute signal with a wide confidence interval. A relapse after initial improvement is discussed as a treatment-related fluctuation in module 3.4.</p>
+
+  <h3 class="sub">Replacement fluid and complications</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Topic</th><th>What was found</th></tr></thead>
+    <tbody>
+      <tr><th>Albumin or fresh frozen plasma</th><td>French trial (57 against 52 people): no significant efficacy difference, more incidents and complications with fresh frozen plasma; the authors recommended abandoning it [[FrenchPE1987]]. At 1 year, full recovery 77% with fresh frozen plasma and 65% with albumin, not significant (P=0.22) [[FrenchCooperative1992]]. Fibrinogen and prothrombin fell more with albumin [[vanDoorn2023]]</td></tr>
+      <tr><th>Per-session problems (general apheresis, not GBS-specific)</th><td>1,895 sessions in 185 people: at least one adverse effect in 42.5% of sessions, mostly not serious; hypotension 15.2% (asymptomatic in 95.8%), hypocalcaemia 19.6%, allergic reactions 3% and only with fresh frozen plasma; severe adverse effects in 0.3% of sessions [[Coirier2022]]</td></tr>
+      <tr><th>Infection, rhythm and clots in the trials</th><td>Cochrane (3 trials, 556 people): no increase in serious infections (RR 0.91, 95% CI 0.73 to 1.13) and no clear difference in blood pressure instability, arrhythmias or pulmonary emboli [[Chevret2017]]</td></tr>
+      <tr><th>Clots after treatment</th><td>US admissions data: odds of venous thromboembolism in the 30 days after plasma exchange for neurological disease OR 4.29 (95% CI 1.88 to 9.76), similar to IVIg [[Jin2020]]</td></tr>
+      <tr><th>The central line</th><td>Severe sepsis and catheter-related deep vein thrombosis were the pre-specified serious events in a Bangladeshi study [[Islam2018]]</td></tr>
+      <tr><th>Children</th><td>In 36 children (122 sessions), tachycardia, hypotension and mild anaemia were most common, and three had serious complications [[Ali2024]]. In a French cohort of 23 children with neuroimmune disorders, one died from venous air embolism, a rare but real procedural risk [[Fleurance2025]]</td></tr>
+      <tr><th>Death in US hospital data</th><td>Mortality was higher with plasma exchange than IVIg (3.3% against 0.45%) in 1,657 people, but those treated were older and sicker: confounded, and not evidence that plasma exchange is more dangerous [[Alshekhlee2008Immuno]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Plasma exchange or IVIg?</h3>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Plasma exchange</th><th>IVIg</th></tr></thead>
+    <tbody>
+      <tr><th>Efficacy</th><td colspan="2">No difference shown: 0.02 grade at 4 weeks in five trials with 536 people [[Hughes2014]]; the EAN/PNS guideline has no preference [[vanDoorn2023]]</td></tr>
+      <tr><th>Trial window</th><td>Within 4 weeks of onset [[vanDoorn2023]]</td><td>Within 2 weeks of onset [[vanDoorn2023]]</td></tr>
+      <tr><th>Completion</th><td>Less often completed [[Hughes2014]]</td><td>"Significantly much more likely to be completed" [[Hughes2014]]; RR for stopping 0.22 [[Zaki2023]]</td></tr>
+      <tr><th>What it needs</th><td>A large venous line, a machine and an experienced team; in children available only in experienced centres [[Islam2018,Leonhard2019]]</td><td>An infusion; usually first line, as it is easier to give and more widely available [[Leonhard2019]]</td></tr>
+      <tr><th>Direct costs, US model</th><td>Five exchanges US$4,638.16 [[Winters2011]]</td><td>Five infusions US$10,329.85 [[Winters2011]]</td></tr>
+      <tr><th>Out-of-pocket, Indian randomised study</th><td>INR 104,070 (US$2,040.5) [[Maheshwari2018]]</td><td>INR 219,247 (US$4,298) [[Maheshwari2018]]</td></tr>
+      <tr><th>Pregnancy</th><td>Not contraindicated, but needs additional monitoring [[Leonhard2019]]</td><td>Not contraindicated; might be preferred [[Leonhard2019]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Costs date quickly and vary by setting; they show relative differences only [[Winters2011,Maheshwari2018]].</p>
+
+  <h3 class="sub">Combining and sequencing</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Both, one after the other</h4><p>Plasma exchange followed by IVIg gave 0.2 grade more improvement than plasma exchange alone (95% CI -0.14 to 0.54; 249 people): not clinically significant [[Hughes2014]]. The guideline strongly recommends against it [[vanDoorn2023]]. In US practice, 6.1% of 2,325 people still received combination therapy [[Stino2024]].</p></div>
+    <div class="card"><h4>Switching after no response</h4><p>The guideline does not suggest switching to the other treatment, for lack of trial evidence, and notes that exchanging plasma right after IVIg washes out the treatment just given [[vanDoorn2023]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>The zipper method</h4><p>Alternating plasma exchange and IVIg for five cycles in nine ventilated children, uncontrolled: all nine walked unaided by day 28 [[Kesici2019]]. A modified version was used in four children after standard therapy failed [[Nikolaus2022]]. The guideline says it needs a proper randomised trial before any effect can be claimed [[vanDoorn2023]].</p></div>
+    <div class="card"><h4>Immunoadsorption</h4><p>Not recommended: one randomised trial was stopped early without significant benefit [[vanDoorn2023]].</p></div>
+  </div>
+
+  <h3 class="sub">When treatment is out of reach</h3>
+  <div class="prose">
+    <p>In Bangladesh, a full IVIg course for a 60 kg adult was estimated at US$12,000 to 16,000 and conventional plasma exchange at US$4,500 to 5,000, about 4,000 and 1,250 days of mean income [[Islam2018]]. Only 10 to 12% of people with GBS there receive either treatment [[Papri2021]]; in IGOS, 83% of 189 Bangladeshi participants were untreated, whereas 92% of 1,023 participants elsewhere received immunotherapy [[Verboon2019]].</p>
+    <p>Small-volume plasma exchange (SVPE) separates plasma by letting blood settle in a bag, then returns the cells, three to six times a day for eight days [[Islam2018]]. It was designed as an affordable alternative [[Islam2017]]. In a single-arm study of 20 adults in Dhaka, the median exchange was 140 mL/kg, there was one serious adverse event (severe sepsis) and no deaths, and the expected cost was about US$500. 14 of 20 improved a grade by 4 weeks, but without a control group this is not an efficacy result [[Islam2018]].</p>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>Position A: feasible and cheap</h4><p>SVPE was feasible and seemed safe in 20 adults <span class="ev early">Early evidence</span> [[Islam2018]].</p></div>
+    <div class="card"><h4>Position B: not yet proven</h4><p>Efficacy is unknown; the guidelines do not endorse it for general use, and the EAN/PNS panel rated the evidence very low certainty [[Leonhard2019,vanDoorn2023]].</p></div>
+  </div>
+
+  <div class="pt"><b>In plain words</b>Plasma exchange takes out the liquid part of the blood and replaces it, to remove harmful antibodies. It is usually done four or five times over 1 to 2 weeks [[vanDoorn2023,Chevret2017]]. It works about as well as IVIg, and having both one after the other has not been shown to work better [[vanDoorn2023]]. Blood pressure can drop during a session, and the team monitors this [[Coirier2022]].</div>
+  <div class="hook"><b>Exam hook</b>Plasma exchange within 4 weeks: 4 to 5 exchanges, 12 to 15 L; French 1997 (mild 2 better than 0, moderate 4 better than 2, ventilated 6 no better than 4); albumin, not fresh frozen plasma; autonomic instability a relative contraindication to discontinuous machines [[vanDoorn2023,FrenchCooperative1997,FrenchPE1987]].</div>
+  <p class="prose">See also: <a href="#ivig" data-go="ivig">IVIg</a> and <a href="#whatnot" data-go="whatnot">Steroids, repeats &amp; relapses</a>.</p>
+</section>

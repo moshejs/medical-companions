@@ -1,2 +1,127 @@
-<!-- STUB: replaced by its builder -->
-<section class="mod" id="m-whatnot" data-mod="whatnot" hidden><div class="mhead"><h2>whatnot</h2><p class="lede">Being written.</p></div></section>
+<!-- ================= 3.4 STEROIDS, REPEATS & RELAPSES ================= -->
+<style>
+#m-whatnot .btn{min-height:40px}
+#m-whatnot .tbl table{min-width:620px}
+#m-whatnot .wnbar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+#m-whatnot .wnbar .grp{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-whatnot .wnbar .grp>span{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#m-whatnot .wnsay{font-size:15px;line-height:1.5;max-width:76ch}
+#m-whatnot .card>.ev{align-self:flex-start}
+</style>
+<section class="mod" id="m-whatnot" data-mod="whatnot" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Acute care</p><h2>Steroids, repeats &amp; relapses</h2>
+    <p class="lede">What did not work in Guillain-Barré syndrome, what to make of no early improvement, and what it means when someone gets better and then worse again: a treatment-related fluctuation, acute-onset CIDP or, rarely, GBS a second time.</p></div>
+
+  <div class="prose">
+    <p>Steroid medicines help some similar nerve conditions, but they have not helped GBS in trials [[GBSSteroidTrial1993,Hughes2016]]. Treatment also does not always bring a smooth recovery. Follow six schematic courses over the first 16 weeks; the curves are drawn shapes, and only the time marks come from the studies. This is not medical advice.</p>
+  </div>
+
+  <div class="stepper" id="wnSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="wnSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A chart of weakness against weeks from onset of weakness, 0 to 16. Six schematic courses are drawn in turn: the usual course with treatment in the first week; a course with no improvement by 4 weeks; a treatment-related fluctuation, better then worse again around day 18, inside a band marking days 10 to 54, with re-treatment; a second fluctuation; an acute-onset CIDP course that worsens again after the 8-week line; and a recurrence years after full recovery shown in a separate panel."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="wnPlay">%t:player.play%</button><label class="stage-cap tl" for="wnT">Timeline <input type="range" id="wnT" min="0" max="1" step="0.002" value="0.15"></label></div>
+      <p class="stage-cap"><b>Schematic.</b> Curve shapes are illustrative. The 4- and 8-week marks, the day 10 to 54 range and the median of day 18 come from the guideline and the Dutch prospective study [[Leonhard2019,Ruts2010]].</p></div>
+    <aside class="note" id="wnNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="cards">
+    <div class="card"><span class="big-num">6 to 10%</span><p>Treatment-related fluctuations in guidelines; 9% in a prospective Dutch study and 5% in IGOS [[Leonhard2019,Ruts2010,Verboon2019]].</p></div>
+    <div class="card"><span class="big-num">Day 18</span><p>Median timing of the first fluctuation from onset of weakness (range 10 to 54); always within 8 weeks [[Ruts2010]].</p></div>
+    <div class="card"><span class="big-num">5%</span><p>People first diagnosed with GBS who turned out to have acute-onset CIDP [[Ruts2010,vanDoorn2023]].</p></div>
+    <div class="card"><span class="big-num">2 to 5%</span><p>People who have GBS again later: a recurrence [[Leonhard2019]].</p></div>
+  </div>
+
+  <h3 class="sub">Fluctuation or A-CIDP?</h3>
+  <div class="prose"><p>The Dutch prospective study proposed a simple rule for when worsening after GBS treatment should raise the question of acute-onset chronic inflammatory demyelinating polyneuropathy (A-CIDP) [[Ruts2010]]. Choose how many times someone got worse again and when the last episode came.</p></div>
+  <div class="stage">
+    <div class="wnbar">
+      <div class="grp" role="group" aria-label="Episodes of worsening"><span>Episodes</span>
+        <button class="btn" data-wne="1" aria-pressed="false">1</button>
+        <button class="btn" data-wne="2" aria-pressed="true">2</button>
+        <button class="btn" data-wne="3" aria-pressed="false">3 or more</button></div>
+      <div class="grp" role="group" aria-label="Timing of the last episode"><span>Last one</span>
+        <button class="btn" data-wnt="early" aria-pressed="true">Within 8 weeks</button>
+        <button class="btn" data-wnt="late" aria-pressed="false">After 8 weeks</button></div>
+    </div>
+    <div class="scroll"><svg id="wnRuleSvg" viewBox="0 0 720 200" style="min-width:560px" role="img" aria-label="A timeline of 16 weeks from onset with the period after 8 weeks shaded; numbered red triangles mark each episode of worsening, and a box states whether the pattern fits a treatment-related fluctuation or meets the published rule for considering A-CIDP, with the rule's sensitivity and specificity."></svg></div>
+    <p class="wnsay" id="wnRuleNote" aria-live="polite"></p>
+    <p class="stage-cap">A teaching tool that shows how a published rule sorts patterns; never for an individual's diagnosis. Sensitivity and specificity as reported in the 2023 EAN/PNS guideline [[vanDoorn2023]].</p>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Clue</th><th>What the sources report</th></tr></thead>
+    <tbody>
+      <tr><th>Timing</th><td>First GBS fluctuation always within 8 weeks; A-CIDP considered with worsening after 8 weeks [[Ruts2010]]. An earlier series proposed 9 weeks [[Ruts2005]], and the EAN/PNS table uses worsening beyond 4 weeks as a prompt, with confirmation only at 8 weeks or later [[vanDoorn2023]]</td></tr>
+      <tr><th>Severity</th><td>People with A-CIDP were less severely affected, did not need ventilation and rarely had cranial nerve involvement [[Ruts2010]]</td></tr>
+      <tr><th>Features that make A-CIDP possibly more likely</th><td>Marked sensory abnormality including sensory ataxia; no facial, bulbar or respiratory weakness; onset to nadir possibly over 2 weeks; widespread nerve enlargement on ultrasound; an early large fall in motor conduction velocity [[vanDoorn2023]]</td></tr>
+      <tr><th>Chart review</th><td>In 30 AIDP and 15 A-CIDP, A-CIDP more often had prominent sensory signs and less often autonomic involvement, facial weakness, preceding infection or ventilation; up to 16% of CIDP may present acutely [[Dionne2010]]</td></tr>
+      <tr><th>Antibodies</th><td>No IgG anti-ganglioside antibodies: sensitivity 96% but specificity only 35% for A-CIDP against GBS [[vanDoorn2023]]</td></tr>
+      <tr><th>A caution</th><td>A-CIDP should not be over-diagnosed in severely weak people with slow or no improvement; muscle wasting and denervation point to axonal GBS instead [[vanDoorn2023]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="card"><h4>How often is GBS relabelled CIDP?</h4><p>In a US claims database, 32.0% of people first coded GBS were later coded CIDP [[Stino2024]]. Prospective clinical data and guidelines give about 5% [[Ruts2010,vanDoorn2023]]. Claims coding is the less reliable of the two; that judgement is the research team's for this guide.</p></div>
+    <div class="card"><h4>Who fluctuates?</h4><p>Fluctuation rates were 6 of 72 after plasma exchange and 8 of 74 after IVIg in the Dutch trial [[Kleyweg1991]], 16 of 172 in a Dutch cohort [[Visser1998]] and 53 of 1,023 in IGOS [[Verboon2019]]. Risk did not depend on the treatment given, and those who fluctuated tended to have a protracted course [[Visser1998]].</p></div>
+  </div>
+
+  <h3 class="sub">What was tried and did not help</h3>
+  <div class="prose"><p>Each view is a forest-style plot: the square is the estimate and the line its 95% confidence interval. A line that crosses the reference (0 or 1) shows no clear difference.</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="wnbar" role="group" aria-label="Treatment">
+        <button class="btn" data-wnv="ster" aria-pressed="true">Corticosteroids</button>
+        <button class="btn" data-wnv="sid" aria-pressed="false">Second IVIg course</button>
+        <button class="btn" data-wnv="other" aria-pressed="false">Other drugs</button>
+      </div>
+      <div class="scroll"><svg id="wnTriedSvg" viewBox="0 0 720 250" style="min-width:560px" role="img" aria-label="Forest plots for the chosen treatment: for corticosteroids, three rows of mean difference in disability change, with oral steroids entirely on the side of less improvement; for a second IVIg course, three odds ratios crossing 1 and bars of serious adverse events, 35 percent against 16 percent; for other drugs, two wide intervals crossing zero."></svg></div>
+      <p class="stage-cap">From the Cochrane reviews and trials named in the note [[Hughes2016,Walgaard2021,Verboon2020,Doets2020]]. For other drugs the direction of the mean difference is shown as reported.</p>
+    </div>
+    <aside class="note"><p class="wnsay" id="wnTriedNote" aria-live="polite"></p></aside>
+  </div>
+
+  <h3 class="sub">The steroid trials</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Compared</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><th>Hughes et al., 1978</th><td>Prednisolone (21) against controls (19)</td><td>Six on prednisolone and one control had considerable disability; three relapses with prednisolone, none in controls [[Hughes1978]]</td></tr>
+      <tr><th>Steroid Trial Group, 1993</th><td>IV methylprednisolone 500 mg daily for 5 days (124) against placebo (118)</td><td>4-week difference only 0.06 grade (95% CI -0.23 to 0.36); median time to unaided walking 38 against 50 days, not significant [[GBSSteroidTrial1993]]</td></tr>
+      <tr><th>Dutch pilot, 1994</th><td>Methylprednisolone plus IVIg (25) against historical IVIg controls</td><td>76% against 53% improved a grade at 4 weeks; an uncontrolled signal that did not hold up in the later trial [[DutchGBS1994,vanKoningsveld2004]]</td></tr>
+      <tr class="hl"><th>Dutch RCT, 2004</th><td>IVIg plus IV methylprednisolone 500 mg/day for 5 days (112) against IVIg plus placebo (113)</td><td>Improved a grade or more: 68% against 56% (OR 1.68, 95% CI 0.97 to 2.88; P=0.06); after adjustment for age and entry disability OR 1.89 (1.07 to 3.35; P=0.03). The authors reported no significant difference [[vanKoningsveld2004]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="card"><h4>Position A: ineffective</h4><p>The unadjusted result was not significant, and the guideline weakly recommends against IV methylprednisolone added to IVIg [[vanKoningsveld2004,vanDoorn2023]].</p></div>
+    <div class="card"><h4>Position B: possible benefit</h4><p>The adjusted odds ratio of 1.89 suggested a possible benefit, and the authors called for further investigation [[vanKoningsveld2004]].</p></div>
+  </div>
+  <p class="callout">Status: no confirmatory trial was identified. The ten-steps guideline cites eight steroid trials and Cochrane six with outcome data, probably a counting difference [[Leonhard2019,Hughes2016]].</p>
+
+  <h3 class="sub">A second IVIg course</h3>
+  <div class="prose">
+    <p>A small rise in blood IgG after IVIg is linked to poor outcome (module 3.2), so a second dose seemed logical [[Kuitwaard2009Pharm]]. Before the SID-GBS trial, around 25% of severely affected people worldwide received one [[Walgaard2021]]. The trial included 327 people, of whom 112 had a poor prognosis; it found no benefit and more serious adverse events, and the authors concluded that a second course "should not be considered" for a poor prognosis [[Walgaard2021]].</p>
+    <p>That conclusion is about re-dosing because of a poor prognosis. Re-treating a fluctuation is a separate question, which the guideline handles on its own [[vanDoorn2023]]. Practice still varies: 39.7% of 2,325 people in a US database received repeat IVIg [[Stino2024]], one US centre re-treated 10 of 68 people between 2019 and 2025 [[Mayman2026]], and in IGOS 35% of those not improving got a second immunomodulatory treatment [[Verboon2019]].</p>
+  </div>
+
+  <h3 class="sub">Mild GBS, late arrivals and Miller Fisher syndrome</h3>
+  <div class="prose"><p>Treatment evidence comes mainly from adults with typical, severe GBS. Mild forms, variants and people who arrive late remain clinical dilemmas [[Verboon2017]]. IVIg trials started within 2 weeks and plasma exchange trials within 4 weeks; beyond that, evidence on efficacy is lacking [[Leonhard2019]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Situation</th><th>2023 EAN/PNS guideline, as published</th></tr></thead>
+    <tbody>
+      <tr><th>Still walking, within 4 weeks, with fast deterioration, ventilation risk, swallowing difficulty, autonomic disturbance or poor prognostic factors</th><td>Advises treatment [[vanDoorn2023]]</td></tr>
+      <tr><th>Grade 2 (walks unaided, cannot run) within 2 weeks, stable or slowly worsening</th><td>Suggests considering treatment, especially with arm weakness or cranial nerve involvement [[vanDoorn2023]]</td></tr>
+      <tr><th>Grade 1 and stable in the first 2 weeks; or grade 1 to 2 and stable at 2 to 4 weeks</th><td>Does not advise treatment: benefit seems unlikely, and treatment is expensive with side effects [[vanDoorn2023]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards">
+    <div class="card"><h4>Mild GBS in IGOS</h4><p>Of 188 people able to walk, IVIg (148) was not associated with lower 4-week disability than supportive care (40): adjusted OR 1.62, 95% CI 0.63 to 4.13. Time to full strength was shorter (28 against 56 days) and pain at 26 weeks less common (22% against 40%). At 1 year, 40% still had symptoms [[Verboon2021]].</p></div>
+    <div class="card"><span class="ev est">Established</span><h4>Two exchanges for mild GBS</h4><p>Plasma exchange has randomised support in mild disease: two exchanges beat none for time to motor recovery [[FrenchCooperative1997]].</p></div>
+    <div class="card"><h4>Treated anyway</h4><p>In IGOS, 75% of people with mild GBS and 76% with Miller Fisher syndrome received immunotherapy, against 97% with severe GBS [[Verboon2019]].</p></div>
+    <div class="card"><h4>Miller Fisher syndrome</h4><p>In 92 people, neither IVIg nor plasmapheresis changed outcome compared with no immune treatment, presumably because natural recovery is good [[Mori2007]]. The ten-steps guideline does not generally recommend treatment for pure Miller Fisher syndrome but advises close monitoring, as some develop limb, bulbar or breathing involvement [[Leonhard2019]].</p></div>
+  </div>
+
+  <h3 class="sub">Pregnancy</h3>
+  <div class="prose"><p>Neither IVIg nor plasma exchange is contraindicated in pregnancy; IVIg might be preferred because plasma exchange needs additional monitoring [[Leonhard2019]]. IVIg labels state that there are no human data on drug-associated risk and that immune globulins cross the placenta [[FDA-Bivigam,FDA-Asceniv]]. A 2026 review of 101 published cases, biased toward severe or unusual ones, reported ventilation in 45%, maternal mortality of 5.2% and neonatal survival of 85.6% [[Yakubu2026]].</p></div>
+
+  <div class="pt"><b>In plain words</b>Steroid medicines help some similar nerve conditions, but they have not helped GBS in trials [[GBSSteroidTrial1993,Hughes2016]]. If you get better and then worse again within a couple of months, tell your team; a repeat treatment may be considered [[Leonhard2019,vanDoorn2023]]. If you get worse after 8 weeks, doctors may check for a related long-term condition called CIDP [[vanDoorn2023]]. Getting GBS a second time is uncommon, at about 2 to 5 in 100 people [[Leonhard2019]].</div>
+  <div class="hook"><b>Exam hook</b>Steroids do not help, and oral steroids may delay recovery [[Hughes2016]]. A second IVIg course for poor prognosis: no benefit, serious adverse events 35% against 16% [[Walgaard2021]]. Fluctuation within 8 weeks (6 to 10%); A-CIDP with worsening after 8 weeks or 3 or more episodes (about 5%); recurrence 2 to 5% [[Leonhard2019,Ruts2010]].</div>
+  <p class="prose">See also: <a href="#ivig" data-go="ivig">IVIg</a>, <a href="#plex" data-go="plex">Plasma exchange</a> and <a href="#prognosis" data-go="prognosis">Prognosis: EGOS &amp; mEGOS</a>.</p>
+</section>
