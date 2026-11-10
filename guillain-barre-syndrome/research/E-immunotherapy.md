@@ -160,7 +160,7 @@ Access notes:
 - Central venous catheter risks include severe sepsis and catheter-related deep vein thrombosis, the pre-specified serious events in the Bangladeshi small-volume study [[Islam2018]]
 - Paediatric series: tachycardia, hypotension and mild anaemia were most common in 36 children (122 sessions), and three had serious complications [[Ali2024]]
 - In a French mixed cohort of 23 children, one child with one of the included neuroimmune disorders died from venous air embolism, a rare but real procedural risk [[Fleurance2025]]
-- The US Nationwide Inpatient Sample (2000–2005, 1,657 people) showed higher mortality with plasma exchange than IVIg (3.3% versus 0.45%), but those treated were older and sicker. This is confounded and is not evidence that plasma exchange is more dangerous [[Alshekhlee2008]]
+- The US Nationwide Inpatient Sample (2000–2005, 1,657 people) showed higher mortality with plasma exchange than IVIg (3.3% versus 0.45%), but those treated were older and sicker. This is confounded and is not evidence that plasma exchange is more dangerous [[Alshekhlee2008Immuno]]
 
 ### plex · Combining or sequencing treatments
 - Plasma exchange followed by IVIg: mean improvement 0.2 grade greater than plasma exchange alone (95% CI -0.14 to 0.54; 249 participants), not clinically significant but not excluding benefit [[Hughes2014]]
@@ -426,7 +426,7 @@ Access notes:
 - [Korinthenberg2005] Korinthenberg R, Schessl J, Kirschner J, Mönting JS. Intravenously administered immunoglobulin in the treatment of childhood Guillain-Barré syndrome: a randomized trial. Pediatrics. 2005;116(1):8-14. PMID 15995024; doi:10.1542/peds.2004-1324. (validated: PubMed)
 - [Jin2020] Jin PH, Shin SC, Dhamoon MS. Risk of thrombotic events after inpatient intravenous immunoglobulin or plasma exchange for neurologic disease: A case-crossover study. Muscle Nerve. 2020;62(3):327-332. PMID 32270520; doi:10.1002/mus.26884. (validated: PubMed)
 - [Stino2024] Stino AM, Reynolds EL, Watanabe M, Callaghan BC. Intravenous immunoglobulin and plasma exchange prescribing patterns for Guillain-Barre Syndrome in the United States-2001 to 2018. Muscle Nerve. 2024;70(6):1192-1199. PMID 39324188; PMCID PMC11560546; doi:10.1002/mus.28265. (validated: PubMed)
-- [Alshekhlee2008] Alshekhlee A, Hussain Z, Sultan B, Katirji B. Immunotherapy for Guillain-Barré syndrome in the US hospitals. J Clin Neuromuscul Dis. 2008;10(1):4-10. PMID 18772694; doi:10.1097/CND.0b013e318182b5ce. (validated: PubMed)
+- [Alshekhlee2008Immuno] Alshekhlee A, Hussain Z, Sultan B, Katirji B. Immunotherapy for Guillain-Barré syndrome in the US hospitals. J Clin Neuromuscul Dis. 2008;10(1):4-10. PMID 18772694; doi:10.1097/CND.0b013e318182b5ce. (validated: PubMed)
 - [Misawa2018] Misawa S, Kuwabara S, Sato Y, Yamaguchi N, Nagashima K, Katayama K, et al. Safety and efficacy of eculizumab in Guillain-Barré syndrome: a multicentre, double-blind, randomised phase 2 trial. Lancet Neurol. 2018;17(6):519-529. PMID 29685815; doi:10.1016/S1474-4422(18)30114-5. (validated: PubMed)
 - [Davidson2017] Davidson AI, Halstead SK, Goodfellow JA, Chavada G, Mallik A, Overell J, et al. Inhibition of complement in Guillain-Barré syndrome: the ICA-GBS study. J Peripher Nerv Syst. 2017;22(1):4-12. PMID 27801990; doi:10.1111/jns.12194. (validated: PubMed)
 - [Kesici2019] Kesici S, Tanyıldız M, Yetimakman F, Bayrakci B. A Novel Treatment Strategy for Severe Guillain-Barré Syndrome: Zipper Method. J Child Neurol. 2019;34(5):277-283. PMID 30696330; doi:10.1177/0883073819826225. (validated: PubMed)

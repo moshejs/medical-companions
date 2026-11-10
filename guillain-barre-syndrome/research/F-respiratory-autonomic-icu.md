@@ -185,7 +185,7 @@ Access notes:
 - Risk of death in ventilated people in India: pneumonia 4.69-fold, dysautonomia 3.14-fold, hypokalaemia 2.44-fold [[Netto2011Mortality]].
 
 ### icu · Pain: how common and what kind
-- Dutch cohort (n=156): pain in the 2 weeks before weakness 36%, acute phase 66%, 1 year 38%; mostly moderate to severe, across all variants including Miller Fisher [[Ruts2010]].
+- Dutch cohort (n=156): pain in the 2 weeks before weakness 36%, acute phase 66%, 1 year 38%; mostly moderate to severe, across all variants including Miller Fisher [[Ruts2010Pain]].
 - Canada (n=55): 89.1% had pain during the illness; 47.3% distressing or worse on admission; 74.5% needed opioids, 29.0% parenteral morphine [[Moulin1997]].
 - China (retrospective, n=252): only 34.5% acute-phase pain, showing how methods change the number [[Yao2018]]. A 1994 review gave up to 72% [[Pentland1994]].
 - Types: paraesthesiae, dysaesthesia, axial and radicular pain, meningism, myalgia, joint pain and visceral discomfort [[Pentland1994]].
@@ -235,7 +235,7 @@ Access notes:
 - Unable to lift arms at 1 week: 87% chance of MV ≥14 days [[Walgaard2017]].
 - Early tracheostomy did not lower mortality in a national cohort [[Yonezawa2020]].
 - IVIg can cause pseudohyponatraemia; low sodium has several causes [[Colls2003,Gagliardi2021]].
-- Pain is present in about two-thirds acutely and over a third at 1 year [[Ruts2010]].
+- Pain is present in about two-thirds acutely and over a third at 1 year [[Ruts2010Pain]].
 - Methylprednisolone does not treat GBS pain [[Liu2015]].
 - Gabapentinoids or tricyclics come first per EAN/PNS; opioids risk ileus [[vanDoorn2023,Burns2001]].
 - Hallucinations in GBS are tied to autonomic dysfunction and REM abnormalities [[Cochen2005]].
@@ -248,7 +248,7 @@ Access notes:
 - A planned move to intensive care is a safety step, not a sign that all hope is gone [[vanDoorn2023]].
 - GBS can also affect nerves that control heart rate, blood pressure, bowels and bladder, so these are watched closely [[Leonhard2019]].
 - The dangerous time does not always end with the worst weakness, so checks continue during recovery [[Leonhard2019]].
-- Pain is common and real, even when weakness is the main problem. Please say if you hurt [[Ruts2010]].
+- Pain is common and real, even when weakness is the main problem. Please say if you hurt [[Ruts2010Pain]].
 - Some medicines can help nerve pain, though the research is small, and steroids do not seem to help [[vanDoorn2023,Liu2015]].
 - Vivid dreams or seeing things that are not there can happen in GBS. They usually pass, and they do not mean you are losing your mind [[Cochen2005]].
 - Someone who cannot move or speak can usually still hear and understand. Talk to them, explain things, and tell them who is there [[Leonhard2019]].
@@ -333,9 +333,9 @@ Access notes:
 - hyponatraemia | SIADH, Saifudheen India | 48 | % | [[Saifudheen2011]]
 - vte | clinical DVT, UK | 7 | % | [[Gaber2002]]
 - vte | duplex DVT, Russian ICU | 52 | % | [[Ryabinkina2016]]
-- pain_course | 2 weeks before weakness | 36 | % | [[Ruts2010]]
-- pain_course | acute phase | 66 | % | [[Ruts2010]]
-- pain_course | 1 year | 38 | % | [[Ruts2010]]
+- pain_course | 2 weeks before weakness | 36 | % | [[Ruts2010Pain]]
+- pain_course | acute phase | 66 | % | [[Ruts2010Pain]]
+- pain_course | 1 year | 38 | % | [[Ruts2010Pain]]
 - pain_trial_day7_median | gabapentin | 2.0 | NRS 0-10 | [[Pandey2005]]
 - pain_trial_day7_median | carbamazepine | 3.0 | NRS 0-10 | [[Pandey2005]]
 - pain_trial_day7_median | placebo | 6.0 | NRS 0-10 | [[Pandey2005]]
@@ -448,7 +448,7 @@ Access notes:
 - [Ryabinkina2016] Ryabinkina YV, Piradov MA, Gnedovskaya EV, Suponeva NA, Prokazova PR. [Venous thromboembolism in patients with Guillain-Barre syndrome]. Zh Nevrol Psikhiatr Im S S Korsakova. 2016;116(5):13-18. PMID 27240174; doi:10.17116/jnevro20161165113-18. (validated: PubMed)
 - [Hughes2005] Hughes RA, Wijdicks EF, Benson E, Cornblath DR, Hahn AF, Meythaler JM, et al. Supportive care for patients with Guillain-Barré syndrome. Arch Neurol. 2005;62(8):1194-8. PMID 16087757; doi:10.1001/archneur.62.8.1194. (validated: PubMed)
 - [Voth2026] Voth J, Gerstmeyer J, Meuth SG, Zu Hörste GM, Willison AG, Konen FF, et al. Real-world hospitalization and readmission trajectory after Guillain-Barré syndrome in the United States. BMC Neurol. 2026;26(1). PMID 42983686; PMCID PMC13733053; doi:10.1186/s12883-026-05499-9. (validated: PubMed)
-- [Ruts2010] Ruts L, Drenthen J, Jongen JL, Hop WC, Visser GH, Jacobs BC, et al. Pain in Guillain-Barre syndrome: a long-term follow-up study. Neurology. 2010;75(16):1439-47. PMID 20861454; doi:10.1212/WNL.0b013e3181f88345. (validated: PubMed)
+- [Ruts2010Pain] Ruts L, Drenthen J, Jongen JL, Hop WC, Visser GH, Jacobs BC, et al. Pain in Guillain-Barre syndrome: a long-term follow-up study. Neurology. 2010;75(16):1439-47. PMID 20861454; doi:10.1212/WNL.0b013e3181f88345. (validated: PubMed)
 - [Ruts2012] Ruts L, van Doorn PA, Lombardi R, Haasdijk ED, Penza P, Tulen JHM, et al. Unmyelinated and myelinated skin nerve damage in Guillain-Barré syndrome: correlation with pain and recovery. Pain. 2012;153(2):399-409. PMID 22154920; doi:10.1016/j.pain.2011.10.037. (validated: PubMed)
 - [Liu2015] Liu J, Wang LN, McNicol ED. Pharmacological treatment for pain in Guillain-Barré syndrome. Cochrane Database Syst Rev. 2015;2015(4):CD009950. PMID 25855461; PMCID PMC6361619; doi:10.1002/14651858.CD009950.pub3. (validated: PubMed)
 - [Tripathi2000] Tripathi M, Kaushik S. Carbamezapine for pain management in Guillain-Barré syndrome patients in the intensive care unit. Crit Care Med. 2000;28(3):655-8. PMID 10752810; doi:10.1097/00003246-200003000-00009. (validated: PubMed)
