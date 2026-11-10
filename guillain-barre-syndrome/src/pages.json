@@ -2,5 +2,61 @@
  "home": {
   "title": "Guillain-Barré syndrome explained: an animated, cited guide",
   "description": "Guillain-Barré syndrome in animations: ascending weakness, molecular mimicry, nerve tests, breathing, IVIg, plasma exchange and recovery. Every claim cited."
+ },
+ "autonomic": {
+  "title": "GBS dysautonomia: blood pressure swings, heart rhythm and sodium",
+  "description": "How Guillain-Barré syndrome affects autonomic nerves: blood pressure swings, bradycardia after suction, ileus, bladder problems and low sodium, cited."
+ },
+ "breathing": {
+  "title": "GBS breathing failure: vital capacity, 20/30/40 rule and EGRIS",
+  "description": "Why Guillain-Barré syndrome weakens breathing, how vital capacity and the 20/30/40 rule are used, and how EGRIS and mEGRIS score ventilation risk."
+ },
+ "children": {
+  "title": "Guillain-Barré syndrome in children and pregnancy",
+  "description": "How GBS shows itself in children, why under-6s are missed, ventilation, IVIg trials and recovery, plus risk in pregnancy and after birth. Cited."
+ },
+ "criteria": {
+  "title": "GBS diagnostic criteria: Brighton levels, NINDS and EAN/PNS",
+  "description": "How Guillain-Barré syndrome is defined: NINDS and 2023 EAN/PNS criteria compared, Brighton levels of certainty, and a teaching calculator with cohort data."
+ },
+ "frontier": {
+  "title": "GBS research frontier: complement inhibitors, imlifidase and NfL",
+  "description": "Tanruprubart, eculizumab, imlifidase and efgartigimod in Guillain-Barré syndrome: what each targets, what trials found and how strong the evidence is."
+ },
+ "icu": {
+  "title": "GBS in intensive care: ventilation, tracheostomy, weaning and pain",
+  "description": "Guillain-Barré syndrome in intensive care: how long ventilation lasts, tracheostomy, weaning, complications, pain trials and communication, cited."
+ },
+ "ivig": {
+  "title": "IVIg for Guillain-Barré syndrome: dose, trials, how it works, risks",
+  "description": "IVIg in Guillain-Barré syndrome, animated: the 2 g/kg course as published, the trials against plasma exchange, proposed mechanisms and label warnings."
+ },
+ "mfs": {
+  "title": "Miller Fisher syndrome, anti-GQ1b and other GBS variants",
+  "description": "Miller Fisher syndrome: eye-movement weakness, ataxia and lost reflexes, anti-GQ1b, first-week overlap, Bickerstaff encephalitis and recovery, cited."
+ },
+ "ncs": {
+  "title": "Nerve conduction studies in GBS: latency, block and criteria",
+  "description": "How nerve conduction studies work in Guillain-Barré syndrome: latency, velocity, block, F waves, sural sparing, Hadden and Rajabally criteria, and timing."
+ },
+ "plex": {
+  "title": "Plasma exchange for Guillain-Barré syndrome: sessions, trials, risks",
+  "description": "Plasma exchange (plasmapheresis) in Guillain-Barré syndrome, animated: how antibodies are removed, how many sessions, the trials and IVIg compared."
+ },
+ "prognosis": {
+  "title": "GBS prognosis: walking again, EGOS and mEGOS explained",
+  "description": "How many people with Guillain-Barré syndrome walk again and when, the EGOS and mEGOS scores as teaching calculators, mortality and late recovery."
+ },
+ "signs": {
+  "title": "Guillain-Barré syndrome symptoms, signs and red flags",
+  "description": "How GBS symptoms unfold: tingling, pain, rising weakness, fading reflexes, face and autonomic signs, and the red flags that point to another diagnosis."
+ },
+ "subtypes": {
+  "title": "GBS subtypes: AIDP, AMAN and AMSAN explained with animation",
+  "description": "How Guillain-Barré syndrome attacks myelin (AIDP) or the axon at the node (AMAN, AMSAN), reversible conduction failure, and where each subtype is common."
+ },
+ "what": {
+  "title": "What is Guillain-Barré syndrome? Causes, incidence and outlook",
+  "description": "What Guillain-Barré syndrome is, animated: weakness that climbs after an infection, how common GBS is by age and country, and why most people recover."
  }
 }

@@ -1,2 +1,107 @@
-<!-- STUB: replaced by its builder -->
-<section class="mod" id="m-autonomic" data-mod="autonomic" hidden><div class="mhead"><h2>autonomic</h2><p class="lede">Being written.</p></div></section>
+<!-- ================= 3.5 AUTONOMIC STORMS ================= -->
+<style>
+#m-autonomic .tbl table{min-width:620px}
+#m-autonomic .card>.ev,#m-autonomic .card>.tag{align-self:flex-start}
+#m-autonomic .card b.big-num{font-size:34px}
+#m-autonomic .aubar{display:flex;flex-wrap:wrap;gap:8px}
+#m-autonomic .aubar .btn{min-height:40px}
+#m-autonomic .auout{font-size:15px;line-height:1.55;max-width:76ch}
+#m-autonomic .auout b{font-family:var(--display);font-size:18px;display:block;margin-bottom:2px}
+</style>
+<section class="mod" id="m-autonomic" data-mod="autonomic" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Acute care</p><h2>Autonomic storms</h2>
+    <p class="lede">GBS can also damage the automatic nerves that steady blood pressure, heart rate, the gut and the bladder. Scrub through one schematic day on a monitor, then explore where autonomic failure shows and what the studies counted.</p></div>
+
+  <div class="prose">
+    <p>The autonomic nervous system runs the body's background work through two sets of fibres: sympathetic ("speed up, squeeze") and parasympathetic, largely through the vagus nerve ("slow down"). In GBS both can be affected, and the problems show in the heart and blood vessels, sweating and the gut [[Zochodne1994]]. A 2019 review quotes "up to two-thirds" of people with GBS as having some autonomic dysfunction and argues that deaths from presumed autonomic causes now outnumber those from breathing failure [[Zaeem2019]]. That claim is debated, and there is no agreed definition or screening standard [[Zaeem2019,Weiss2025]].</p>
+  </div>
+
+  <div class="stepper" id="auSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="auSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A beating heart with readouts and bars for sympathetic and vagal drive beside two monitor traces over one schematic day: systolic blood pressure surges past 165 and swings by more than 85 mmHg, heart rate races past 125, then after tracheal suction the heart briefly slows and pauses, and later pressure falls below 85 with a slow heart below 48 before both settle."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="auPlay">%t:player.play%</button><label class="stage-cap tl" for="auT">One day <input type="range" id="auT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The traces are illustrative. The dashed lines are the limits reported by Pfeiffer and colleagues in 36 ventilated people with GBS: daily systolic range over 85 mmHg, mean systolic over 165 mmHg with mean heart rate over 125, bradycardia under 48 and minimum systolic under 85 [[Pfeiffer1999]].</p></div>
+    <aside class="note" id="auNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How common it is</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Mayo Clinic, 2000 to 2017</span><b class="big-num">38%</b><p>had dysautonomia (71 of 187) [[Chakraborty2020]].</p></div>
+    <div class="card"><span class="kicker">Depends on the definition</span><b class="big-num">10–50%</b><p>across studies, with 10 to 20% significant in the acute phase, in a 2025 intensive care review [[Weiss2025]].</p></div>
+    <div class="card"><span class="kicker">Heart rate over 100</span><b class="big-num">23%</b><p>of people with GBS, rising to 75% of those on a ventilator (review figure) [[Weiss2025]].</p></div>
+    <div class="card"><span class="kicker">Mortality</span><b class="big-num">6% vs 2%</b><p>with dysautonomia versus the whole Mayo cohort (P=0.02) [[Chakraborty2020]].</p></div>
+  </div>
+  <div class="prose"><p>Dysautonomia travels with severity: it was linked to weakness of all four limbs, bulbar and neck flexor weakness, and mechanical ventilation [[Chakraborty2020]]. Yet subtle changes appear even in milder illness: in 10 people who did not need intensive care, heart rate variability and baroreflex sensitivity were reduced compared with 10 matched controls <span class="ev early">Early evidence</span> [[Tan2019Autonomic]].</p></div>
+
+  <h3 class="sub">Where autonomic failure shows</h3>
+  <div class="prose"><p>Choose a body system. The chart shows how often each feature was recorded in two very different datasets: a Mayo Clinic series counting features among people with dysautonomia, and a US inpatient sample built from billing codes, which likely under-counts [[Chakraborty2020,Anandan2017]].</p></div>
+  <div class="aubar" role="group" aria-label="Body system">
+    <button class="btn" data-org="heart" aria-pressed="true">Heart rate &amp; rhythm</button>
+    <button class="btn" data-org="bp" aria-pressed="false">Blood pressure</button>
+    <button class="btn" data-org="gut" aria-pressed="false">Gut</button>
+    <button class="btn" data-org="bladder" aria-pressed="false">Bladder</button>
+    <button class="btn" data-org="temp" aria-pressed="false">Temperature</button>
+    <button class="btn" data-org="na" aria-pressed="false">Sodium &amp; brain</button>
+  </div>
+  <div class="aubar" role="group" aria-label="Dataset">
+    <button class="btn" data-ds="mayo" aria-pressed="true">Mayo Clinic series</button>
+    <button class="btn" data-ds="us" aria-pressed="false">US inpatient codes</button>
+  </div>
+  <div class="stage">
+    <div class="scroll"><svg id="auOrg" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A body outline with points on the brain, heart, blood vessels, gut, bladder and skin, beside a bar chart of how often each autonomic feature was recorded; the chosen body system and its bars are highlighted."></svg></div>
+    <p class="auout" id="auOrgOut" aria-live="polite"></p>
+  </div>
+
+  <h3 class="sub">Blood pressure swings and the heart</h3>
+  <div class="split2">
+    <div class="prose">
+      <p>Pfeiffer and colleagues compared 36 ventilated people with GBS with 11 ventilated people with myasthenia and set tolerance limits from the controls. The daily systolic range exceeded 85 mmHg in 27 of the 36. All 16 whose mean systolic pressure was above 165 mmHg also had persistent tachycardia (mean over 125 beats a minute) or were on beta-blockers; 6 of them also had bradycardia below 48 [[Pfeiffer1999]].</p>
+      <p>Except in one person, every bradycardia episode came after a day with systolic variation above 85 mmHg, so the swing worked as a warning signal [[Pfeiffer1999]]. In one carefully studied man, falls in pressure behaved like a vasodepressor reflex with a "vagotomised" heart and rises like sympathetic overactivity; failure of the baroreflex buffer may explain the speed of the swings [[Ropper1990]].</p>
+    </div>
+    <div class="prose">
+      <p>Among 100 people in an older series, 11 of 33 ventilated people had serious arrhythmias and 7 of those died; serious arrhythmias happened only in ventilated people. They were often preceded by wide swings in pulse or pressure, and by brief asystole after tracheal suction [[Winer1988]].</p>
+      <p>A 2025 intensive care review notes that minor stimulation (suction, intubation, mouth care, bathing) can provoke severe bradycardia, that some teams keep 1 mg of intravenous atropine ready, and that a pacemaker is rarely needed; this is quoted as published, not as an instruction [[Weiss2025]]. Eyeball pressure testing found vagal over-reactivity in 4 of 13 people, but it is a small, older study and not a guideline test [[Flachenecker1996]].</p>
+      <p>Other causes of low pressure or arrhythmia, such as sepsis, bleeding or pulmonary embolism, have to be excluded before blaming dysautonomia [[Weiss2025]].</p>
+    </div>
+  </div>
+  <p class="callout">The ten-steps guideline lists monitoring of the ECG, heart rate, blood pressure, and bowel and bladder function [[Leonhard2019]]. Autonomic failure also complicates the ventilator: failed extubation was associated with autonomic dysfunction (73% vs 27%) [[Nguyen2006]].</p>
+
+  <h3 class="sub">The dangerous time is not only the worst time</h3>
+  <div class="prose"><p>Cardiovascular and respiratory problems cause most deaths in GBS, and up to two-thirds of deaths occur in the recovery phase, so the guideline stresses watching people who have recently left intensive care [[Leonhard2019]]. In 527 Dutch patients, 10 of 15 deaths (67%) came after neurological improvement had begun [[vanDenBerg2013]]. The EAN/PNS guideline advises frequent, careful monitoring for late respiratory or cardiovascular complications after intensive care discharge [[vanDoorn2023]].</p></div>
+
+  <h3 class="sub">Gut and bladder</h3>
+  <div class="split2">
+    <div class="card"><h4>Ileus: autonomic or not?</h4><p>At Mayo, ileus was the commonest autonomic feature (42%) [[Chakraborty2020]]. But in an earlier Mayo series, adynamic ileus affected 17 of 114 (15%) with severe GBS, and cardiovascular dysautonomia coincided in only 5; ventilation and immobility (4) or previous abdominal surgery or rising opioid doses (8) were implicated in the rest, and medical management worked in all [[Burns2001]]. A 2025 review advises keeping potassium normal and avoiding sedatives in ileus [[Weiss2025]].</p></div>
+    <div class="card"><h4>Bladder</h4><p>Urinary dysfunction affected 27.7% of 65 consecutive patients and retention 9.2%; it was commoner in AIDP (39%) than AMAN (19%) [[Sakakibara2009]]. In an earlier series, 7 of 28 (25%) had trouble passing urine, appearing after the weakness and improving with it [[Sakakibara1997]]. Bladder or bowel trouble at the very start, or persisting throughout, is a red flag that suggests another diagnosis [[Leonhard2019]].</p></div>
+  </div>
+
+  <h3 class="sub">Sodium: low, but why?</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>Low sodium</th><th>What else it found</th></tr></thead>
+    <tbody>
+      <tr><th>New Zealand, 84 people</th><td>31% under 133 mmol/L</td><td>12 of 26 developed it during or after IVIg, pointing to pseudohyponatraemia; 6 with significant hyponatraemia died vs none of the others, confounded by age and ventilation [[Colls2003]]</td></tr>
+      <tr><th>India, 50 people, prospective</th><td>48% with SIADH</td><td>Median 8.8 days after onset; tied to bulbar weakness, ventilation and longer stay [[Saifudheen2011]]</td></tr>
+      <tr><th>US inpatients, 54,778</th><td>11.8% (vs 4.0% without GBS)</td><td>Rose from 6.9% in 2002 to 13.5% in 2011; mortality 20.5% vs 11.6%; IVIg an independent risk factor [[Rumalla2017]]. The 11.6% comparison is well above other US in-hospital figures (2.58%), so read it with caution [[Alshekhlee2008]]</td></tr>
+      <tr><th>Northern China, 455</th><td>21.5% (36.2% in severe cases)</td><td>Ventilation OR 12.871 for hyponatraemia; hyponatraemia OR 12.770 for death [[Wang2015Hyponatremia]]</td></tr>
+      <tr><th>Italy, 51</th><td>25.5%</td><td>Each 1-unit rise in baseline sodium lowered the odds of severe disability at discharge by 27%; IVIg raised the odds of hyponatraemia [[Gagliardi2021]]</td></tr>
+      <tr><th>Finland, 69</th><td>Admission level</td><td>Lower sodium linked with worse 1-year function (OR 1.37, 95% CI 1.07 to 1.76) but not with ventilation [[Sipila2017]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Status: unresolved. Proposed mechanisms are SIADH [[Saifudheen2011]], salt wasting [[Weiss2025]] and IVIg-related pseudohyponatraemia [[Colls2003,Gagliardi2021]]; a 2025 review says incidence and mechanism are still not well known [[Netto2025]]. Whether low sodium causes harm or simply marks severe illness is also open [[Wang2015Hyponatremia,Colls2003]].</p>
+
+  <h3 class="sub">Rarer storms: PRES and takotsubo</h3>
+  <div class="cards">
+    <div class="card"><h4>PRES</h4><p>Posterior reversible encephalopathy syndrome (brain swelling with headache, confusion or seizures) is reported in 7% of people with dysautonomia (review figure); extreme pressure swings are the proposed driver, and IVIg may add risk [[Weiss2025]]. It was commoner with dysautonomia at Mayo [[Chakraborty2020]]. Altered consciousness in GBS should prompt thought of low sodium or PRES [[Weiss2025]].</p></div>
+    <div class="card"><h4>PRES in children</h4><p>3 of 75 children with GBS (31 with dysautonomia) developed PRES with high blood pressure, seizures and low sodium, all ventilated; all left hospital walking after a mean of 104 days of care [[Surve2024]].</p></div>
+    <div class="card"><h4>Takotsubo</h4><p>A stress-related, usually reversible weakness of the heart muscle. In 8 Japanese cases vs 62 controls, it began a mean 6.5 days after GBS onset; those affected were older (76.5 vs 52 years), all had lower cranial nerve deficits (vs 41.9%) and 62.5% were ventilated (vs 11.3%) [[Terayama2024]]. One case mimicked a heart attack and recovered within two weeks [[Martins2010]]; a 2021 review counted 14 cases [[Puentes2021]].</p></div>
+  </div>
+
+  <h3 class="sub">Medicines that need care</h3>
+  <div class="split2">
+    <div class="card"><span class="tag tx">Warning</span><h4>Succinylcholine (suxamethonium)</h4><p>Warnings date from 1981 and 1991 [[Fergusson1981,Reilly1991]], and a fatal cardiac arrest followed its use for re-intubation in a tetraplegic person [[Dalman1994]]. Cardiac arrest from high potassium also occurred within 1 month of apparent recovery, and no safe interval could be recommended (a single case) [[Feldman1990]]. The US label contraindicates it after the acute phase of injury following extensive denervation of skeletal muscle [[FDA-Quelicin]]. An anaesthesia review advises special caution in GBS [[Radkowski2024]].</p></div>
+    <div class="card"><h4>Blood pressure and rhythm drugs</h4><p>A 2025 review: with significant dysautonomia, induction drugs that do not drop blood pressure are favoured, antihypertensives and antiarrhythmics are risky unless truly needed, and conservative management is preferred outside severe bradycardia [[Weiss2025]]. The EAN/PNS guideline notes that tricyclic antidepressants need care in autonomic failure [[vanDoorn2023]].</p></div>
+  </div>
+
+  <div class="hook"><b>Exam hook</b>A daily systolic range above 85 mmHg preceded bradycardia [[Pfeiffer1999]]. Suctioning can trigger asystole in severe dysautonomia [[Winer1988,Weiss2025]]. Up to two-thirds of deaths come in the recovery phase [[Leonhard2019,vanDenBerg2013]]. Succinylcholine risks hyperkalaemic cardiac arrest after denervation [[FDA-Quelicin,Feldman1990]]. IVIg can cause pseudohyponatraemia, so low sodium has several possible causes [[Colls2003,Gagliardi2021]].</div>
+  <div class="pt"><b>In plain words</b>GBS can also affect the nerves that control heart rate, blood pressure, bowels and bladder, so these are watched closely [[Leonhard2019]]. Readings may jump up and down for no obvious reason; that is the illness, not something you did. The risky time does not always end when weakness is at its worst, so checks continue during recovery [[Leonhard2019]].</div>
+</section>
