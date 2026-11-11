@@ -166,7 +166,7 @@ function adiposeTissue(x,y,w,h,o={}){const sz=o.size==null?.5:clamp(o.size),d=(o
     s+=adipocyte(c[0],c[1],c[2]/1.18*1.0,{size:1,kind:o.kind,inflamed:hot?.8:0,seed:3+i,ang:c[4]*360}).svg;
     if(hyp>0&&far>.25)s+=`<circle cx="${f1(c[0])}" cy="${f1(c[1])}" r="${f1(c[2]*.9)}" style="fill:var(--tx);opacity:${f1(hyp*.18*clamp((far-.25)*3))}"/>`});
   if(ves>0)s+=`<path d="${smoothPath(vP,false)}" style="fill:none;stroke:var(--vessel);stroke-width:4;stroke-linecap:round;opacity:${f1(ves*(1-hyp*.5))}"/>`;
-  if(mc>0)cells.forEach((c,i)=>{if(!(c[3]<inf))return;const n=Math.round(2+mc*5);for(let k=0;k<n;k++){const a=k/n*Math.PI*2+c[4]*6;
+  if(mc>0)cells.forEach((c,i)=>{if(!(c[3]<inf))return;const n=Math.round(1+mc*3);for(let k=0;k<n;k++){const a=k/n*Math.PI*2+c[4]*6;
     s+=macrophage(c[0]+Math.cos(a)*c[2]*.92,c[1]+Math.sin(a)*c[2]*.92,Math.max(3.5,d*.13),{seed:i*7+k,kind:'M1',op:clamp(mc*1.4)})}});
   s+='</g>';
   if(o.frame)s+=`<rect x="${f1(x)}" y="${f1(y)}" width="${f1(w)}" height="${f1(h)}" rx="10" style="fill:none;stroke:var(--line);stroke-width:1.2"/>`;
@@ -202,13 +202,14 @@ function stomach(x,y,s=1,o={}){const v=o.variant||'normal',m=o.morph==null?1:cla
     at.body=T([66,62])}
   else if(v==='bypass'){
     const pouch=[[66,24],[80,22],[84,34],[80,48],[70,52],[64,42]];
-    g+=`<g style="opacity:${f1(lerp(1,.45,m))}">`+tube(duo,10,'var(--gut)','var(--gut-line)')+shape(normal.map(p=>p[1]<50&&p[0]>60&&p[0]<90?[p[0],p[1]+m*20]:p))+'</g>';
+    g+=`<g style="opacity:${f1(lerp(1,.45,m))}">`+tube(duo,10,'var(--gut)','var(--gut-line)')+shape(normal)+'</g>';
     g+=tube(eso,9,'var(--stomach)','var(--gut-line)');
     const roux=[[74,50],[76,72],[90,98],[104,122],[108,140]];
     g+=`<g style="opacity:${f1(m)}">`+tube(roux,10,'var(--gut)','var(--gut-line)')+shape(pouch)+foodIn(pouch)+'</g>';
+    g+=`<path d="${smoothPath([[60,54],[72,56],[86,50],[96,40]].map(T),false)}" style="fill:none;stroke:var(--device);stroke-width:${f1(1.4*s)};stroke-dasharray:${f1(2*s)} ${f1(2*s)};opacity:${f1(m)}"/>`;
     at.pouch=T([74,36]);at.out=T([108,140])}
   if(o.labels){const L=(p,t,a)=>kitLabel(p[0],p[1],t,{a});
-    g+=L(T([92,-2]),'oesophagus')+(v==='bypass'?L(T([96,40]),'pouch','')+L(T([20,60]),'bypassed stomach','m')+L(T([112,150]),'Roux limb','m'):L(T([98,8]),'fundus','')+L(T([66,124]),v==='sleeve'||v==='switch'?'sleeve':'body','m'))+L(T([-4,86]),'pylorus','e')+(v==='switch'?'':L(T([-6,128]),'duodenum','e'))}
+    g+=L(T([80,-4]),'oesophagus')+(v==='bypass'?L(T([90,30]),'pouch','')+L(T([60,122]),'bypassed stomach','m')+L(T([112,150]),'Roux limb','m'):L(T([110,22]),'fundus','')+L(T([66,124]),v==='sleeve'||v==='switch'?'sleeve':'body','m'))+L(T([-4,86]),'pylorus','e')+(v==='switch'?'':L(T([-6,128]),'duodenum','e'))}
   return {svg:g,at,w:130*s,h:140*s}}
 
 function gutTract(x,y,s=1,o={}){const v=o.variant||'normal',m=o.morph==null?1:clamp(o.morph),T=_tr(x,y,s),gl=o.glow||{},dim=o.dim==null?1:1-clamp(o.dim)*.7;
