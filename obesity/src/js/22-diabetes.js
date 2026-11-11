@@ -114,12 +114,14 @@ inits.diabetes=()=>{
       :curveAxes(60,30,600,240,{x0:0,x1:15,y0:0,y1:70,xt:[0,2.8,5,10,15],xfmt:v=>v===2.8?'2.8':v,yt:[0,20,40,60],yfmt:v=>v+'%',xlabel:'years since randomisation',ylabel:'developed diabetes (cumulative)'});
     let s=ax.svg;
     s+=`<rect x="${f1(ax.X(0))}" y="30" width="${f1(ax.X(2.8)-ax.X(0))}" height="${N?300:240}" style="fill:var(--hl-soft);opacity:.5"/><text x="${f1(ax.X(1.4))}" y="44" class="t-xs t-mid" style="fill:var(--ink)">trial phase</text>`;
-    let txt=[];
+    let txt=[],labs=[];
     DB_ARMS.forEach(a=>{if(!on[a.id])return;const P1=[],P2=[];for(let i=0;i<=28;i++){const v=i/10;P1.push([v,cum(a,v)])}for(let i=0;i<=40;i++){const v=2.8+12.2*i/40;P2.push([v,cum(a,v)])}
       s+=plotLine(P1,ax.X,ax.Y,{col:a.col,upto:y,dash:a.dash}).svg+plotLine(P2,ax.X,ax.Y,{col:a.col,upto:y,lw:1.6,dash:'2 4'}).svg;
       if(y>=15)s+=`<circle cx="${f1(ax.X(15))}" cy="${f1(ax.Y(a.c15))}" r="5" style="fill:${a.col};stroke:var(--panel);stroke-width:2"/>`;
-      const v=cum(a,Math.min(y,15)),py=ax.Y(v);s+=`<circle cx="${f1(ax.X(Math.min(y,15)))}" cy="${f1(py)}" r="4" style="fill:${a.col}"/><text x="${f1(Math.min(ax.X(Math.min(y,15))+8,N?330:640))}" y="${f1(py+4)}" class="t-xs" style="fill:var(--ink);font-weight:700">${a.n} ${Math.round(v)}%</text>`;
+      const v=cum(a,Math.min(y,15)),py=ax.Y(v);s+=`<circle cx="${f1(ax.X(Math.min(y,15)))}" cy="${f1(py)}" r="4" style="fill:${a.col}"/>`;labs.push({y:py,t:`${a.n} ${Math.round(v)}%`,col:a.col});
       txt.push(`${a.n} ${Math.round(v)}%`)});
+    labs.sort((p,q)=>p.y-q.y);for(let i=1;i<labs.length;i++)labs[i].y=Math.max(labs[i].y,labs[i-1].y+15);
+    const lx=Math.min(ax.X(Math.min(y,15))+10,N?300:600);labs.forEach(l=>{s+=`<text x="${f1(lx)}" y="${f1(l.y+4)}" class="t-sm" style="fill:var(--ink);font-weight:700">${l.t}</text>`});
     dsvg.innerHTML=s;
     const ph=y<=2.8?`Trial phase, year ${f1(y)}: ${txt.join(', ')||'no arm selected'} (computed from the published incidence rates of 11.0, 7.8 and 4.8 cases per 100 person-years, assuming a constant rate). Lifestyle cut incidence by 58% and metformin by 31%; 6.9 people would need the lifestyle programme and 13.9 metformin to prevent one case over three years. [[Knowler2002DPP]]`
       :y<15?`After the trial, year ${f1(y)}: dashed lines are schematic joins to the 15-year values. All groups were then offered group lifestyle sessions, and yearly rates converged (5.9, 4.9 and 5.6 per 100 person-years); at 10 years incidence was still 34% lower with lifestyle and 18% with metformin. [[DPPRG2009]]`
