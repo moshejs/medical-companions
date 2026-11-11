@@ -532,6 +532,23 @@
           "date": ""
         }
       }
+    },
+    {
+      "slug": "guillain-barre-syndrome",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "GBS Companion"
+      },
+      "published": "2026-11-10",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
     }
   ],
   "indexnow_key": "202581197bc1993e3ed16425b36cb189"

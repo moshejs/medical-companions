@@ -1,0 +1,13 @@
+{
+ "areas": {
+  "A": "Epidemiology, burden, presentation & history",
+  "B": "Triggers, vaccines & molecular mimicry",
+  "C": "Subtypes, nerve pathology & electrophysiology",
+  "D": "Clinical course, diagnostic criteria, CSF & differential",
+  "E": "Immunotherapy: IVIg, plasma exchange, steroids & fluctuations",
+  "F": "Respiratory failure, autonomic dysfunction, pain & intensive care",
+  "G": "Prognosis, recovery, rehabilitation & long-term outcomes",
+  "H": "Children, pregnancy, nursing care & living with GBS",
+  "I": "Research frontier"
+ }
+}

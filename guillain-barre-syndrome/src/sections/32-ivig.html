@@ -1,0 +1,134 @@
+<!-- ================= 3.2 IVIG ================= -->
+<style>
+#m-ivig .btn{min-height:40px}
+#m-ivig .tbl table{min-width:620px}
+#m-ivig .ivbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-ivig .ivw{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-weight:600;font-size:14px}
+#m-ivig .ivw input[type=range]{width:min(320px,100%);accent-color:var(--rx)}
+#m-ivig .ivout{font:600 15px/1.45 var(--mono);color:var(--ink)}
+#m-ivig .ivsay{font-size:15px;line-height:1.5;max-width:76ch}
+#m-ivig .card>.ev{align-self:flex-start}
+#m-ivig #ivSafeNote h4{margin:0}
+</style>
+<section class="mod" id="m-ivig" data-mod="ivig" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Acute care</p><h2>IVIg: intravenous immunoglobulin</h2>
+    <p class="lede">IVIg is a drip of antibodies pooled from thousands of blood donors, and one of the two treatments shown to speed recovery from Guillain-Barré syndrome. Follow it from the donor pool to the nerve, see what happens to blood IgG, and how it compared with plasma exchange.</p></div>
+
+  <div class="prose">
+    <p>IVIg and plasma exchange are the two immunotherapies with trial support in GBS, and guidelines treat them as equally effective [[vanDoorn2023,Leonhard2019]]. This module reports what guidelines, trials and drug labels say. It is not medical advice, and the doses below are quoted as published, never as instructions. Pick a step or press Play.</p>
+  </div>
+
+  <div class="stepper" id="ivSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ivSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Six scenes about IVIg: donor icons light up and fill one infusion bag; five day blocks fill as the course runs to a total of 2 grams per kilogram; a node of Ranvier is attacked by antibodies and complement while a macrophage arrives; three panels show proposed actions of donor IgG, neutralising the harmful antibody, blocking complement pores and filling macrophage Fc receptors; a chart shows median serum IgG rising at week 2 and falling by week 4, higher after a second course; and bar charts compare IVIg with plasma exchange in the trials."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ivPlay">%t:player.play%</button><label class="stage-cap tl" for="ivT">Timeline <input type="range" id="ivT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> Molecule shapes are symbols. In the IgG chart, the points are published medians with interquartile ranges from the SID-GBS analysis [[vanTilburg2025]]; the straight lines only join them.</p></div>
+    <aside class="note" id="ivNote" aria-live="polite"></aside>
+  </div>
+
+  <div class="cards">
+    <div class="card"><span class="big-num">2 g/kg</span><p>The standard course in total: 0.4 g/kg a day for 5 days, as published in the 2023 EAN/PNS guideline [[vanDoorn2023]].</p></div>
+    <div class="card"><span class="big-num">2 weeks</span><p>IVIg trials started within 2 weeks of onset of weakness. Beyond that, evidence on efficacy is lacking [[Leonhard2019,vanDoorn2023]].</p></div>
+    <div class="card"><span class="big-num">0.02</span><p>Grades of disability difference between IVIg and plasma exchange at 4 weeks, pooled from five trials with 536 people: no real difference [[Hughes2014]].</p></div>
+    <div class="card"><span class="big-num">1,000+</span><p>Donors per pool, as stated on the Bivigam label [[FDA-Bivigam]].</p></div>
+  </div>
+
+  <h3 class="sub">What the guidelines say</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Statement, as published</th><th>Strength</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr class="hl"><th>Start IVIg as soon as possible in people unable to walk unaided (GBS disability score 3 or more) within the first 2 weeks from onset of weakness</th><td>Strong recommendation</td><td>2023 EAN/PNS guideline [[vanDoorn2023]]</td></tr>
+      <tr><th>Use the standard 0.4 g/kg/day for 5 days rather than 3 days, 6 days or a 2-day course of 1 g/kg/day</th><td>Weak recommendation</td><td>2023 EAN/PNS guideline [[vanDoorn2023]]</td></tr>
+      <tr><th>No preference between IVIg and plasma exchange</th><td>Statement</td><td>2023 EAN/PNS guideline [[vanDoorn2023]]</td></tr>
+      <tr><th>For people unable to walk unaided at 2 to 4 weeks, either plasma exchange or IVIg may be considered; no RCT tested IVIg in that window, so this is extrapolated from plasma exchange</th><td>Good practice point</td><td>2023 EAN/PNS guideline [[vanDoorn2023]]</td></tr>
+      <tr><th>Only one standard course for people with a poor prognosis (no second course)</th><td>Strong recommendation</td><td>2023 EAN/PNS guideline [[vanDoorn2023]]; see module 3.4</td></tr>
+      <tr><th>Start immunotherapy if a person cannot walk 10 m independently; consider it in those who can if weakness is rapidly progressive, or there is autonomic dysfunction, bulbar failure or respiratory insufficiency</th><td>Expert guideline</td><td>Ten-steps guideline, 2019 [[Leonhard2019]]</td></tr>
+      <tr><th>IVIg and plasma exchange are "equally effective"; IVIg is usually the treatment of choice because it is easier to give and more widely available</th><td>Expert guideline</td><td>Ten-steps guideline, 2019 [[Leonhard2019]]</td></tr>
+      <tr><th>IVIg for nonambulant adults "within 2 or possibly 4 weeks" of onset; effects of plasma exchange and IVIg equivalent</th><td>Practice parameter</td><td>AAN practice parameter, 2003 [[Hughes2003]]</td></tr>
+      <tr><th>Efficacy of IVIg in GBS</th><td>Level A</td><td>EFNS guideline, 2008 [[Elovaara2008]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">The regimen as arithmetic</h3>
+  <div class="prose"><p>The guideline compared four ways of giving IVIg. Choose a course and move the weight slider to see what the published grams per kilogram add up to. A course quoted in g/kg scales with body weight, which is why the totals are large [[vanDoorn2023]].</p></div>
+  <div class="stage">
+    <div class="ivbar" role="group" aria-label="IVIg course">
+      <button class="btn" data-ivr="std" aria-pressed="true">Standard, 5 days</button>
+      <button class="btn" data-ivr="low" aria-pressed="false">3 days</button>
+      <button class="btn" data-ivr="high" aria-pressed="false">6 days</button>
+      <button class="btn" data-ivr="two" aria-pressed="false">2 days, 1 g/kg</button>
+    </div>
+    <label class="ivw" for="ivW">Example body weight, kg <input type="range" id="ivW" min="20" max="120" step="1" value="70"></label>
+    <div class="scroll"><svg id="ivDoseSvg" viewBox="0 0 720 250" style="min-width:560px" role="img" aria-label="Bars for each day of the chosen IVIg course, their height showing grams per kilogram per day and their label the grams for the example weight, above a bar comparing the course total with the standard 2 grams per kilogram."></svg></div>
+    <p class="ivout" id="ivDoseOut" aria-live="polite"></p>
+    <p class="ivsay" id="ivDoseSay" aria-live="polite"></p>
+    <p class="stage-cap">Teaching arithmetic only, never a dose for any person. Doses are quoted as published in the 2023 EAN/PNS guideline and the trials it reviewed [[vanDoorn2023]].</p>
+  </div>
+
+  <h3 class="sub">The trials</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Trial</th><th>Who</th><th>Compared</th><th>Main result</th></tr></thead>
+    <tbody>
+      <tr><th>Dutch trial, 1992</th><td>150 treated; GBS under 2 weeks, unable to walk independently</td><td>IVIg 0.4 g/kg/day × 5 against five plasma exchanges</td><td>Improved a grade or more at 4 weeks: 53% IVIg, 34% plasma exchange (difference 19%, 95% CI 3 to 34%). Median time to a one-grade gain 27 against 41 days. Fewer complications and less ventilation with IVIg [[vanDerMeche1992]]</td></tr>
+      <tr><th>Plasma Exchange/Sandoglobulin trial, 1997</th><td>383 adults randomised, severe GBS, onset within 14 days</td><td>Plasma exchange, IVIg, or plasma exchange then IVIg</td><td>Mean improvement at 4 weeks 0.9, 0.8 and 1.1 grades; no difference significant, and a 0.5-grade difference between the first two was excluded [[PSGBS1997]]</td></tr>
+      <tr class="hl"><th>Cochrane review, 2014</th><td>7 trials, 623 severely affected people (IVIg against plasma exchange)</td><td>IVIg against plasma exchange</td><td>0.02 grade more improvement with IVIg (95% CI -0.20 to 0.25); adverse events not significantly different; IVIg much more likely to be completed [[Hughes2014]]</td></tr>
+      <tr><th>Meta-analysis, 2023</th><td>3 studies for discontinuation</td><td>IVIg against plasma exchange</td><td>Risk ratio for stopping treatment 0.22 with IVIg (95% CI 0.06 to 0.88); complications similar (RR 1.03) [[Zaki2023]]</td></tr>
+      <tr><th>Children: three trials</th><td>75 children</td><td>IVIg against supportive care</td><td>IVIg seemed to hasten recovery (low-quality evidence) [[Hughes2014]]</td></tr>
+      <tr><th>German paediatric trial, 2005</th><td>Children</td><td>1 g/kg × 2 days against 0.4 g/kg × 5 days</td><td>No significant difference in recovery; early transient worsening 5 of 23 against 0 of 23 with the 2-day course [[Korinthenberg2005]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">No adequate placebo-controlled IVIg trial exists in adults. Plasma exchange was already proven against supportive care, so IVIg was tested against plasma exchange, and the evidence that IVIg works is therefore indirect [[Hughes2014,vanDoorn2023]]. Neither treatment has been shown to reduce mortality [[Hughes2007]].</p>
+
+  <h3 class="sub">How it might work</h3>
+  <div class="cards">
+    <div class="card"><span class="ev est">Established</span><h4>Not settled</h4><p>A 2015 review says IVIg's mechanisms "are poorly understood", and many proposed actions come from lab or animal work rather than human tissue [[Lunemann2015,Dalakas2014]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Neutralising the antibody</h4><p>IVIg reduced the nerve-blocking activity of seven GBS sera on mouse muscle, dose-dependently; Fab fragments worked as well as whole IVIg, Fc fragments did not [[Buchwald2002]]. In vitro, IVIg's variable region bound anti-GM1 antibody [[Yuki1996]]. Dalakas states this anti-idiotype fraction "appears partially responsible" [[Dalakas2014]].</p></div>
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Complement, Fc receptors, cytokines</h4><p>Proposed actions include blocking complement binding and membrane attack complex formation, neutralising cytokines, lowering antibody production and modulating Fc-receptor-driven phagocytosis, inferred across diseases [[Dalakas1998]]. A 2022 GBS review adds faster antibody breakdown and regulatory T-cell effects [[Rajabally2022]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Sugar on the stem</h4><p>In a mouse model of antibody-mediated nerve injury, sialylated IVIg protected at a tenfold lower dose than whole IVIg, while unsialylated fractions did not help. Animal data only [[Zhang2016ExpNeurol]].</p></div>
+  </div>
+
+  <h3 class="sub">Blood levels and outcome: association or cause?</h3>
+  <div class="prose">
+    <p>In 174 Dutch people given a standard course, the rise in serum IgG at 2 weeks (ΔIgG) ranged widely, with a mean of 7.8 g/L (SD 5.6). A small rise went with slower recovery and fewer people walking unaided at 6 months, and stayed linked to poor outcome after adjustment [[Kuitwaard2009Pharm]]. A later review summarised poor outcome at 6 months as 28% in the lowest quartile of rise and 7% in the highest [[Rajabally2022]]. Quartile cut-offs differ between cohorts, partly because of differences in severity [[vanTilburg2025]].</p>
+    <p>Serum albumin also fell after IVIg (median 4.2 to 3.7 g/dL at 2 weeks), and low albumin was associated with respiratory failure and inability to walk unaided [[Fokkink2017]]. Published IgG half-lives, measured in people with immunodeficiency and not in GBS, are 30.0 days (Bivigam) and 28.5 days (Asceniv) [[FDA-Bivigam,FDA-Asceniv]].</p>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>Position A: exposure matters</h4><p>A low IgG rise is independently linked to poor outcome, suggesting that IgG exposure matters and that higher dosing might help [[Kuitwaard2009Pharm]].</p></div>
+    <div class="card"><h4>Position B: a marker of severity</h4><p>More severely affected people may break IgG down faster, so a small rise may mark severity rather than cause poor outcome <span class="ev hyp">Hypothesis</span> [[Rajabally2022]]. A second course raised IgG but did not improve outcome [[vanTilburg2025,Walgaard2021]].</p></div>
+  </div>
+  <p class="callout">Status: the association is established; dosing guided by measured IgG is untested [[vanTilburg2025]].</p>
+
+  <h3 class="sub">Risks named on the labels</h3>
+  <div class="prose"><p>Pick a part of the body or a button to read what US IVIg labels warn about. Several label risk factors for clots, such as prolonged immobilisation and central venous catheters, are common in a person immobilised by GBS; that link is drawn by the research for this guide, not by the labels [[FDA-Bivigam]].</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="ivbar" role="group" aria-label="Label warning">
+        <button class="btn" data-ivsb="0" aria-pressed="true">Blood clots</button>
+        <button class="btn" data-ivsb="1" aria-pressed="false">Kidneys</button>
+        <button class="btn" data-ivsb="2" aria-pressed="false">Head</button>
+        <button class="btn" data-ivsb="3" aria-pressed="false">Lungs</button>
+        <button class="btn" data-ivsb="4" aria-pressed="false">Red cells</button>
+        <button class="btn" data-ivsb="5" aria-pressed="false">Allergy</button>
+      </div>
+      <div class="scroll"><svg id="ivSafeSvg" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A front view of a body with six labelled points joined to the places IVIg label warnings concern: head, lungs, red cells in the arm, an allergy point at the mouth, kidneys at the lower back and a clot in the leg. The chosen point is highlighted."></svg></div>
+      <p class="stage-cap">Label text from US prescribing information for immune-globulin products, not from GBS trials.</p>
+    </div>
+    <aside class="note" id="ivSafeNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Observed in people treated</th><th>Finding</th></tr></thead>
+    <tbody>
+      <tr><th>Blood clots after treatment</th><td>US admissions 2005 to 2014: odds of venous thromboembolism in the 30 days after IVIg for neurological disease OR 3.33 (95% CI 1.34 to 8.30), and after plasma exchange OR 4.29; myocardial infarction and stroke were not associated [[Jin2020]]</td></tr>
+      <tr><th>A second course</th><td>In SID-GBS, serious adverse events in the first 30 days: 35% with a second course against 16% with placebo, including thromboembolic events [[Walgaard2021]]</td></tr>
+      <tr><th>Common reactions</th><td>At 5% or more in an immunodeficiency trial: headache, fatigue, infusion-site reaction, nausea, sinusitis, raised blood pressure, diarrhoea, dizziness and lethargy; not a GBS population at GBS doses [[FDA-Bivigam]]</td></tr>
+      <tr><th>Misleading blood tests</th><td>Passive transfer of donor antibodies can confound serological tests, so samples taken after IVIg can mislead [[FDA-GamunexC,Dalakas1998]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Is IVIg licensed for GBS in the US?</h3>
+  <div class="prose"><p>No IVIg label retrieved from the openFDA dataset lists GBS as an indication; the word "Guillain" appeared in none of the 26 immune-globulin labels checked. This is a search of a dataset, not an FDA statement, and three of the labels are 2010 to 2011 snapshots, so GBS use in the US appears to be off-label on this evidence (an inference) [[FDA-Bivigam,FDA-Asceniv,FDA-GamunexC,FDA-Privigen,FDA-GammagardLiquid]]. Gamunex-C's retrieved label lists primary humoral immunodeficiency, ITP and CIDP [[FDA-GamunexC]].</p></div>
+
+  <div class="pt"><b>In plain words</b>IVIg is a drip of antibodies from many blood donors, usually given once a day for 5 days [[vanDoorn2023,Lunemann2015]]. It helps people recover faster; it does not switch the illness off straight away [[Hughes2014]]. It can cause headache, and rarely blood clots, kidney problems or a reaction of the lining around the brain; the care team watches for these [[FDA-Bivigam]].</div>
+  <div class="hook"><b>Exam hook</b>IVIg 0.4 g/kg/day for 5 days (2 g/kg) within 2 weeks; equal to plasma exchange; boxed warning for thrombosis and renal failure; IgA deficiency with anti-IgA antibodies and a hypersensitivity history is a label contraindication [[vanDoorn2023,Hughes2014,FDA-Bivigam]].</div>
+  <p class="prose">Next: <a href="#plex" data-go="plex">Plasma exchange</a>, the other proven treatment, and <a href="#whatnot" data-go="whatnot">Steroids, repeats &amp; relapses</a> for what did not work.</p>
+</section>

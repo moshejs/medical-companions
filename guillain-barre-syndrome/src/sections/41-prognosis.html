@@ -1,0 +1,165 @@
+<!-- ================= 4.1 PROGNOSIS: EGOS & mEGOS ================= -->
+<style>
+#m-prognosis .tbl table{min-width:640px}
+#m-prognosis .card>.ev,#m-prognosis .card>.tag{align-self:flex-start}
+#m-prognosis .pgbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-prognosis .pgbar .btn{min-height:40px}
+#m-prognosis .pgcap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-prognosis .card .big-num{font-size:34px}
+#m-prognosis .calc select{min-height:40px}
+#m-prognosis .calc label[hidden]{display:none}
+</style>
+<section class="mod" id="m-prognosis" data-mod="prognosis" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Recovery</p><h2>Prognosis: who walks again, and when</h2>
+    <p class="lede">Most people with Guillain-Barré syndrome walk again, though it can take months or years. Watch two large cohorts regain walking over six months, then try the published EGOS and mEGOS scores as teaching calculators.</p></div>
+
+  <div class="cards">
+    <div class="card"><span class="big-num">8 in 10</span><p>walk on their own again by 6 months after onset [[Leonhard2019]]. About 2 in 10 cannot yet walk unaided at 6 months despite treatment [[vanDoorn2008]].</p></div>
+    <div class="card"><span class="big-num">3 to 10%</span><p>of people with GBS die, most often from heart and breathing complications, in the acute or the recovery phase [[Leonhard2019,vanDoorn2008]].</p></div>
+    <div class="card"><span class="big-num">67%</span><p>of deaths in a Dutch cohort came in the recovery phase, and only 47% happened in intensive care [[vanDenBerg2013]].</p></div>
+    <div class="card"><span class="big-num">79%</span><p>of survivors who had needed a ventilator regained independent walking in a 20-year intensive care series [[Fletcher2000]].</p></div>
+  </div>
+  <p class="callout">Every figure on this page describes a group of people in a named study. None of them predicts what will happen to one person, and recovery after GBS varies widely [[Busl2023,Leonhard2019]].</p>
+
+  <div class="stepper" id="pgSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="pgSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Two blocks of 100 small figures, one for a Dutch cohort and one for a Bangladeshi cohort. As the timeline moves from 4 weeks to 3 and 6 months, dots that stand for people not yet walking alone turn into walking figures, more slowly in Bangladesh, where most people had supportive care only. Later steps show walking at 1 year in the international IGOS cohort, and late gains in a Swedish cohort and after prolonged ventilation."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="pgPlay">%t:player.play%</button><label class="stage-cap tl" for="pgT">Timeline <input type="range" id="pgT" min="0" max="1" step="0.002" value="0.04"></label></div>
+      <p class="stage-cap">Each block is 100 people scaled from the published proportion. Movement between time points is schematic; the panels change cohort at 1 year and after.</p></div>
+    <aside class="note" id="pgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Why the two cohorts differ</h3>
+  <div class="prose">
+    <p>The Dutch cohort was used to build mEGOS, and everyone in it was treated with IVIg or plasma exchange. In the Bangladeshi cohort, 86% received supportive care only. The people were also different: median age 28 against 52 years, and preceding diarrhoea in 51% against 23% [[Papri2022mEGOS]]. Diarrhoea matters because preceding <i>Campylobacter jejuni</i> infection was linked to axonal damage, slower recovery and more disability at 1 year [[Rees1995]].</p>
+    <p>In the international IGOS cohort, the share walking unaided at 1 year was 91% in Asia outside Bangladesh, 83% in Europe and the Americas, and 69% in Bangladesh [[Doets2018]]. Money and access shape recovery too: in Colombia, lower socioeconomic status went with worse disability, and 22% had no rehabilitation during the acute episode [[AceroGarces2024]].</p>
+  </div>
+
+  <h3 class="sub">EGOS and mEGOS: how the scores add up</h3>
+  <div class="prose">
+    <p>Two Dutch scores estimate the chance of being unable to walk unaided, meaning a GBS disability score above 2 [[Papri2022mEGOS]]. <b>EGOS</b> is scored 2 weeks after hospital entry from age, diarrhoea and the GBS disability score, and predicts walking at 6 months [[vanKoningsveld2007]]. <b>mEGOS</b> swaps the disability score for the MRC sum score, so it can be used at admission or day 7, and predicts walking at 4 weeks, 3 months and 6 months [[Walgaard2011]]. The GBS disability score runs from 0 (no disability) to 6 (death); the MRC sum score from 0 (quadriplegic) to 60 (normal strength) [[vanTilburg2024]].</p>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>This shows how the published EGOS and mEGOS tables add up points. It never gives a prognosis for any person, and it must not guide anyone's treatment. The mEGOS paper shows its per-score probabilities only as a figure, so no per-score percentage is given here.</p>
+  <div class="stage">
+    <div class="pgbar" role="group" aria-label="Which score">
+      <button class="btn" data-pgs="adm" aria-pressed="true">mEGOS at admission</button>
+      <button class="btn" data-pgs="d7" aria-pressed="false">mEGOS at day 7</button>
+      <button class="btn" data-pgs="egos" aria-pressed="false">EGOS at 2 weeks</button>
+    </div>
+    <div class="calc">
+      <label for="pgAge">Age<select id="pgAge"><option value="0">40 or younger</option><option value="1" selected>41 to 60</option><option value="2">Over 60</option></select></label>
+      <label for="pgDia">Diarrhoea before GBS<select id="pgDia"><option value="0" selected>No</option><option value="1">Yes</option></select></label>
+      <label for="pgMrc">MRC sum score<select id="pgMrc"><option value="0">51 to 60</option><option value="1" selected>41 to 50</option><option value="2">31 to 40</option><option value="3">30 or less</option></select></label>
+      <label for="pgGbs" hidden>GBS disability score at 2 weeks<select id="pgGbs"><option value="1">0 or 1</option><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option><option value="5">5</option></select></label>
+    </div>
+    <div class="scroll"><svg id="pgCalcSvg" viewBox="0 0 720 196" style="min-width:560px" role="img" aria-label="A score bar from zero to the maximum of the chosen scale. Coloured blocks for age, diarrhoea and muscle strength or disability stack along it, and a marker shows the total."></svg></div>
+    <p class="pgcap" id="pgCalcCap" aria-live="polite"></p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Item</th><th>mEGOS, admission</th><th>mEGOS, day 7</th><th>EGOS, 2 weeks</th></tr></thead>
+    <tbody>
+      <tr><th>Age 40 or younger / 41 to 60 / over 60</th><td>0 / 1 / 2</td><td>0 / 1 / 2</td><td>0 / 0.5 / 1</td></tr>
+      <tr><th>Preceding diarrhoea</th><td>1</td><td>1</td><td>1 (within 4 weeks)</td></tr>
+      <tr><th>MRC sum score 51 to 60 / 41 to 50 / 31 to 40 / 0 to 30</th><td>0 / 2 / 4 / 6</td><td>0 / 3 / 6 / 9</td><td>not used</td></tr>
+      <tr><th>GBS disability score 0 or 1 / 2 / 3 / 4 / 5</th><td>not used</td><td>not used</td><td>1 / 2 / 3 / 4 / 5</td></tr>
+      <tr class="hl"><th>Range</th><td>0 to 9</td><td>0 to 12</td><td>1 to 7</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">Points as tabulated in [[Papri2022mEGOS,Busl2023]] (mEGOS) and [[Busl2023]] (EGOS).</p>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Score</th><th>Built and tested in</th><th>How well it separated outcomes</th></tr></thead>
+    <tbody>
+      <tr><th>EGOS</th><td>388 people from two trials and a pilot; validated in 374 more [[vanKoningsveld2007]]</td><td>AUC 0.85 in both sets. Predicted inability to walk at 6 months ranged from 1% at the lowest score to 83% at the highest [[vanKoningsveld2007]]</td></tr>
+      <tr><th>mEGOS</th><td>397 people; externally validated in 158 [[Walgaard2011]]</td><td>AUC 0.73 to 0.77 at admission and 0.84 to 0.87 at day 7, so a week of watching sharpens the estimate [[Walgaard2011]]</td></tr>
+      <tr><th>mEGOS in IGOS</th><td>809 people at entry and 671 at week 1, worldwide [[Doets2022mEGOS]]</td><td>AUC above 0.7 in every regional subgroup, but outcomes were worse than predicted in Europe and North America and better in Asia; a recalibrated mEGOS-Eu/NA followed [[Doets2022mEGOS]]</td></tr>
+      <tr><th>mEGOS in Bangladesh</th><td>471 at entry, 366 at week 1 [[Papri2022mEGOS]]</td><td>AUC 0.69 and 0.78 for week 4, 0.67 and 0.70 for week 26; week-4 prediction overestimated poor outcome until the intercept was updated [[Papri2022mEGOS]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>EGOS: age, diarrhoea, GBS disability score at 2 weeks; range 1 to 7. mEGOS: age, diarrhoea, MRC sum score; 0 to 9 at admission, 0 to 12 at day 7. Both predict inability to walk unaided, not death or ventilation [[vanKoningsveld2007,Walgaard2011,Busl2023]].</div>
+    <div class="pt"><b>In plain words</b>Doctors can use a score based on age, recent diarrhoea and muscle strength to estimate walking chances for groups of people. It is a guide, not a verdict [[Walgaard2011,Busl2023]].</div>
+  </div>
+  <p class="prose">The EAN/PNS guideline advises mEGOS for assessing outcome, and mEGRIS for the risk of needing ventilation [[vanDoorn2023]]. The Neurocritical Care Society rates EGOS and mEGOS moderately reliable for independent walking at 3 months and beyond, judges the disability grade at nadir alone not reliable (weak recommendation, low-quality evidence), and advises that prognosis should consider the whole clinical picture and never rest on a single variable (strong recommendation) [[Busl2023]]. In the SID-GBS trial, mEGOS of 6 or more defined a poor prognosis (112 of 327 people), and a second IVIg course did not help them; see <a href="#whatnot" data-go="whatnot">Steroids, repeats &amp; relapses</a> [[Walgaard2021]].</p>
+
+  <h3 class="sub">What goes with a harder recovery</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Factor</th><th>What the studies found</th></tr></thead>
+    <tbody>
+      <tr><th>Consistent predictors</th><td>Older age, preceding diarrhoea, more disability or weaker muscles at admission, a short interval from onset to admission, mechanical ventilation, and absent or low compound muscle action potentials [[Rajabally2012]]</td></tr>
+      <tr><th>Weaker muscles at week 1</th><td>Odds of being unable to walk at week 4, against an MRC sum score of 51 to 60: OR 3.8 for 41 to 50, 10 for 31 to 40 and 58 for 30 or less [[Papri2022mEGOS]]</td></tr>
+      <tr><th>Age and diarrhoea</th><td>OR 2.1 for age 41 to 60 and 2.8 for over 60, against 40 or younger; OR 2.1 for preceding diarrhoea [[Papri2022mEGOS]]</td></tr>
+      <tr><th>After ventilation</th><td>Only age (OR 1.99) and transfer to a specialist centre delayed by more than 2 days (OR 19.8) independently predicted poor outcome [[Fletcher2000]]</td></tr>
+      <tr><th>Not a predictor</th><td>Pain intensity at admission did not predict a poor outcome in 55 people [[Moulin1997]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Axonal does not always mean slow</h3>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>A trend, not a rule</h4><p>Across all IGOS regions, people with the axonal subtype were younger, had fewer sensory problems and showed a trend towards poorer recovery than those with the demyelinating subtype [[Doets2018]].</p></div>
+    <div class="card"><h4>Slow, then walking</h4><p>In 97 Japanese people, 14% with AMAN and 6% with AIDP could not walk alone at 6 months. Of the 6 slow AMAN recoveries, 4 walked by 1 year and the other 2 at 28 and 57 months [[Hiraga2005]].</p></div>
+    <div class="card"><h4>Two patterns with one antibody</h4><p>People with IgG anti-GM1 antibodies had more poor recoveries (5 of 19 against 0 of 22 unable to walk alone at 6 months) and also more very fast ones (9 of 19 against 4 of 22 improving at least two grades within a month) [[Kuwabara1998]].</p></div>
+  </div>
+  <p class="stage-cap">Subtype is not part of EGOS or mEGOS. The nerve mechanisms are in <a href="#subtypes" data-go="subtypes">Subtypes: AIDP &amp; AMAN</a>.</p>
+
+  <h3 class="sub">After a ventilator</h3>
+  <div class="cards">
+    <div class="card"><h4>Most walk again</h4><p>79% of ventilated survivors regained independent walking in a 20-year series, and 19% improved by at least one grade after more than a year [[Fletcher2000]]. In 76 intensive care patients, 75% walked independently at an average of 3 years, with a median of 198 days to get there [[Dhar2008]].</p></div>
+    <div class="card"><h4>Long ventilation, slower road</h4><p>Of 526 trial patients, 6% needed ventilation beyond 2 months. At 6 months 18% of them walked unaided, against 76% after shorter ventilation. Yet 58% of a long-ventilated group walked unaided at last follow-up, 31% only after more than a year [[vanDenBerg2018]].</p></div>
+    <div class="card"><h4>German centres</h4><p>In 110 ventilated people followed for a mean of 52.6 months, 53.8% reached a GBS disability score of 0 or 1, and 73.7% of survivors had no or mild disability on the Barthel Index [[Witsch2013]].</p></div>
+  </div>
+  <div class="stage">
+    <div class="pgbar" role="group" aria-label="When walking was measured">
+      <button class="btn" data-pgv="m6" aria-pressed="true">At 6 months</button>
+      <button class="btn" data-pgv="last" aria-pressed="false">At last follow-up</button>
+    </div>
+    <div class="scroll"><svg id="pgVentSvg" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="Two blocks of 100 figures. After shorter ventilation, 76 in 100 walked unaided at 6 months. After ventilation longer than 2 months, 18 in 100 walked unaided at 6 months; in a separate long-ventilated group, 58 in 100 walked unaided at the last follow-up."></svg></div>
+    <p class="pgcap" id="pgVentCap" aria-live="polite"></p>
+  </div>
+  <div class="pt"><b>In plain words</b>Needing a breathing machine is serious, but many people who needed one walk again. Recovery can keep going for years, and some people first walk again more than a year after becoming ill [[Fletcher2000,vanDenBerg2018,Hiraga2005]].</div>
+
+  <h3 class="sub">Deaths: when, where and why</h3>
+  <div class="prose"><p>Death is uncommon but real. In 527 Dutch trial and cohort patients, 2.8% died within 6 months and 3.9% of those followed for a year, at a median of 76 days after weakness began. Risk rose with age, weakness at entry, ventilation, delay before hospital entry and time to peak disability [[vanDenBerg2013]]. Because up to two-thirds of deaths come in recovery, the ten-step guideline advises watching for arrhythmias, blood pressure swings and mucus plugs after leaving intensive care [[Leonhard2019]].</p></div>
+  <div class="stage">
+    <div class="pgbar" role="group" aria-label="Mortality view">
+      <button class="btn" data-pgm="phase" aria-pressed="true">When deaths happened</button>
+      <button class="btn" data-pgm="region" aria-pressed="false">By region</button>
+      <button class="btn" data-pgm="den" aria-pressed="false">Against the population</button>
+    </div>
+    <div class="scroll"><svg id="pgMortSvg" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="Horizontal bars. The first view splits Dutch deaths by phase of illness, with most in the recovery phase; the second compares death rates in Bangladesh, Europe and the Americas, and other parts of Asia; the third compares Danish death rates after GBS with matched people from the general population."></svg></div>
+    <p class="pgcap" id="pgMortCap" aria-live="polite"></p>
+  </div>
+  <div class="hook"><b>Exam hook</b>Mortality 3 to 10%; up to two-thirds of deaths in the recovery phase; in Dhaka the lack of a ventilator when needed was the strongest risk factor (HR 11.9) [[Leonhard2019,vanDenBerg2013,Ishaque2017]].</div>
+
+  <h3 class="sub">Blood tests under study</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Marker</th><th>Finding</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>Serum neurofilament light chain (NfL)</th><td>Higher levels went with inability to walk: at 2 weeks for week-4 outcome (OR 1.74) and at 4 weeks for week-26 outcome (OR 2.79) in 281 people [[vanTilburg2024]]. A model of NfL, disability and MRC sum score reached a C-statistic of 0.88 for walking at 26 weeks; NfL did not predict breathing failure [[Thomma2025]].</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>NfL cut-offs</th><td>Median 55.49 pg/mL against 9.83 in controls, normal again by 1 year [[MartinAguilar2020]]; 85.5 pg/ml as a split in 27 people [[Altmann2020]]. A meta-analysis of nine studies linked NfL to poor long-term outcome (OR 3.74) [[Siconolfi2025]]; age-adjusted Z-score AUC 0.76 at 3 months [[Hafsteinsdottir2024]].</td><td><span class="ev early">Early evidence</span>, small cohorts</td></tr>
+      <tr><th>Rise in IgG after IVIg</th><td>A small rise at 2 weeks was independently linked to poor outcome at 6 months in 174 people [[Kuitwaard2009Pharm]]. Raising IgG with a second course did not help and brought more serious adverse events [[vanTilburg2025,Walgaard2021]].</td><td><span class="ev est">Established</span> for the second course</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">None of these markers is part of EGOS, mEGOS or guideline scoring [[Thomma2025]].</p>
+
+  <h3 class="sub">Special groups</h3>
+  <div class="cards">
+    <div class="card"><span class="tag mfs">Miller Fisher</span><h4>Usually a full recovery</h4><p>Pure Miller Fisher syndrome tends to be mild, and most people recover completely within 6 months [[Leonhard2019]]. In 50 consecutive people, recovery was usually good with no residual deficits [[Mori2001MFS]], and in 92 people IVIg and plasma exchange did not seem to change the outcome [[Mori2007]].</p></div>
+    <div class="card"><h4>Children</h4><p>In 421 children, 19% were ventilated and one died [[Roodbol2023]]. Yet in 37 people followed a median of 11 years after childhood GBS, 65% had some residual complaint [[Roodbol2014Kids]]. More in <a href="#children" data-go="children">Children &amp; pregnancy</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Hearing a prognosis</h3>
+  <div class="prose"><p>At admission, the most stressful things for 110 French adults were fear of staying paralysed, uncertainty about the course, and fear of intubation [[Sharshar2012]]. Accurate information about the fairly good chance of recovery and the low risk of recurrence can reduce fear [[Leonhard2019]]. But in interviews two years on, some people described disappointment after an overly positive early prognosis, and a long wait for recovery [[Forsberg2015Balance]].</p></div>
+  <p class="support"><b>Support</b>Waiting is hard. Talking with others who have had GBS can help, and the GBS|CIDP Foundation International and national groups can connect people [[Leonhard2019]].</p>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Evidence each way</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>Does axonal GBS worsen outcome?</th><td>A trend to poorer recovery in IGOS and predictive low motor amplitudes [[Doets2018,Rajabally2012]]; but slow recoveries usually end in walking, and very fast ones happen [[Hiraga2005,Kuwabara1998]].</td><td>Subtype not used in the scores</td></tr>
+      <tr><th>Does the score travel?</th><td>AUC above 0.7 across IGOS regions, but calibration differed by region [[Doets2022mEGOS,Papri2022mEGOS]].</td><td>Regional versions exist; low-income validation is thin</td></tr>
+      <tr><th>Can a blood test add to the score?</th><td>NfL improves models a little [[Thomma2025]]; cut-offs come from small cohorts [[MartinAguilar2020,Altmann2020]].</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>How should early prognosis be told?</th><td>Information can reduce fear [[Leonhard2019]], yet over-optimism disappointed some [[Forsberg2015Balance]].</td><td>No trial of counselling found</td></tr>
+    </tbody>
+  </table></div>
+</section>

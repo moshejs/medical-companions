@@ -1,0 +1,126 @@
+<!-- ================= 2.5 LOOK-ALIKES ================= -->
+<style>
+#m-ddx .card>.tag,#m-ddx .card>.ev{align-self:flex-start}
+#m-ddx .tbl table{min-width:560px}
+#m-ddx .ddbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-ddx .ddbar .btn{min-height:40px}
+#m-ddx .ddbar .kicker{margin-right:4px}
+#m-ddx .ddcap{font-size:15px;line-height:1.5;max-width:76ch}
+#m-ddx .ddcmp td,#m-ddx .ddcmp th{width:auto}
+#m-ddx .ddsteps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;max-width:76ch}
+#m-ddx .ddsteps b{font-weight:700}
+#m-ddx svg .clk:focus-visible rect{stroke:var(--brand);stroke-width:2.5}
+</style>
+<section class="mod" id="m-ddx" data-mod="ddx" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Diagnosis</p><h2>Look-alikes</h2>
+    <p class="lede">Conditions that can be mistaken for Guillain-Barré syndrome, sorted by where along the motor pathway they act, with the clues that tell them apart. Walk down the pathway, compare GBS with a mimic, and see how fluctuating GBS differs from acute-onset CIDP.</p></div>
+
+  <div class="prose">
+    <p>Mimics fall into two broad groups: those with symmetrical limb weakness and those with brainstem signs. Miller Fisher syndrome and pharyngeal-cervical-brachial GBS are often mistaken for brainstem stroke, botulism or myasthenia, and Bickerstaff encephalitis for Wernicke's encephalopathy [[Wakerley2015]]. Telling direct viral causes of acute flaccid paralysis apart from GBS matters for public health and to avoid inappropriate treatment [[Solomon2003]].</p>
+  </div>
+  <p class="crisis" role="note"><b>Emergency</b><span>Rapidly worsening weakness, or trouble breathing or swallowing, needs emergency care whatever the cause turns out to be [[Leonhard2019,vanDoorn2023]].</span></p>
+
+  <div class="stepper" id="ddSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="ddSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A column of seven stops along the motor pathway, from brain and brainstem through spinal cord, anterior horn cells, roots and nerves, neuromuscular junction and muscle, plus toxins, with a signal travelling down it; the highlighted stop opens a card naming the conditions found there, the clues that point to it and, for some stops, a small drawing."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="ddPlay">%t:player.play%</button><label class="stage-cap tl" for="ddT">Timeline <input type="range" id="ddT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">Schematic. Click a stop or use the step buttons. Grouping by site is a teaching device; each clue is cited in the panel.</p></div>
+    <aside class="note" id="ddNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">GBS beside a look-alike</h3>
+  <div class="prose"><p>Pick a condition to set it beside GBS. Each row shows a feature that helps tell them apart in the cited sources. A dash means the sources read for this guide do not give a comparable figure.</p></div>
+  <div class="stage">
+    <div class="ddbar" id="ddPick" role="group" aria-label="Look-alike to compare"></div>
+    <div class="tbl ddcmp"><table>
+      <thead><tr><th>Feature</th><th>GBS</th><th id="ddMimicHead">Look-alike</th></tr></thead>
+      <tbody id="ddCmp"></tbody>
+    </table></div>
+    <p class="ddcap" id="ddCmpCap" aria-live="polite"></p>
+  </div>
+
+  <h3 class="sub">Fluctuation or acute-onset CIDP?</h3>
+  <div class="prose">
+    <p>Some people get worse again after first improving with treatment, a treatment-related fluctuation. In 170 people followed prospectively, 16 (9%) had one and 8 (5%) were later diagnosed with acute-onset chronic inflammatory demyelinating polyradiculoneuropathy (A-CIDP) [[Ruts2010]]. About 5% of people first diagnosed with GBS turn out to have A-CIDP [[vanDoorn2023,Leonhard2019]]. Choose a course and scrub through the weeks.</p>
+  </div>
+  <div class="stage">
+    <div class="ddbar" role="group" aria-label="Course">
+      <span class="kicker">Course</span>
+      <button class="btn" data-ddc="gbs" aria-pressed="true">GBS with one fluctuation</button>
+      <button class="btn" data-ddc="cidp" aria-pressed="false">A-CIDP</button>
+    </div>
+    <div class="scroll"><svg id="ddFl" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A schematic disability curve over 14 weeks for the chosen course, with each new deterioration numbered, a dashed line at 8 weeks after onset, and a counter that tracks how many deteriorations have happened and whether any came after week 8."></svg></div>
+    <div class="ctrls"><button class="btn primary" id="ddFlPlay">%t:player.play%</button><label class="stage-cap tl" for="ddFlT">Weeks <input type="range" id="ddFlT" min="0" max="1" step="0.002" value="1"></label></div>
+    <p class="ddcap" id="ddFlCap" aria-live="polite"></p>
+    <p class="stage-cap">Schematic courses, not patient data. The rules are from a prospective Dutch study and the 2023 guideline [[Ruts2010,vanDoorn2023]].</p>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Prompt to consider A-CIDP</th><th>Sensitivity</th><th>Specificity</th></tr></thead>
+    <tbody>
+      <tr><th>Further worsening 8 weeks or more after onset</th><td>100%</td><td>92%</td></tr>
+      <tr><th>3 or more treatment-related fluctuations</th><td>52%</td><td>96%</td></tr>
+      <tr><th>No IgG anti-ganglioside antibodies</th><td>96%</td><td>35%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="stage-cap">All rows from the EAN/PNS guideline [[vanDoorn2023]].</p>
+  <div class="cards">
+    <div class="card"><h4>When fluctuations happen</h4><p>The first fluctuation in GBS always came within 8 weeks (median 18 days, range 10–54); 5 people (31%) had a second and none had more [[Ruts2010]]. An earlier study proposed 9 weeks with the same 3-event rule [[Ruts2005]].</p></div>
+    <div class="card"><h4>What else points to A-CIDP</h4><p>Marked sensory abnormality including sensory ataxia; no facial, bulbar or respiratory weakness; possibly more than 2 weeks from onset to nadir; widespread nerve enlargement on ultrasound; or an early large fall in motor conduction velocity [[vanDoorn2023]]. A-CIDP cannot be confirmed unless worsening continues at least 8 weeks after onset [[vanDoorn2023]].</p></div>
+    <div class="card"><h4>Do not over-diagnose</h4><p>Severely weak people who improve slowly or not at all should not be labelled A-CIDP too readily; muscle wasting and denervation point to axonal GBS instead [[vanDoorn2023]]. In a chart review, A-CIDP more often had prominent sensory signs and less often autonomic involvement, facial weakness, preceding infection or ventilation [[Dionne2010]].</p></div>
+    <div class="card"><h4>What the guideline says</h4><p>As published, in a fluctuation the guideline suggests considering re-treatment with IVIg or plasma exchange (observational evidence), and A-CIDP should be treated as CIDP [[vanDoorn2023,VandenBergh2021]]. This is a report of guidance, not advice. More in <a href="#whatnot" data-go="whatnot">Steroids, repeats &amp; relapses</a>.</p></div>
+  </div>
+
+  <h3 class="sub">How often the first diagnosis changes</h3>
+  <div class="prose"><p>No large study measuring GBS misdiagnosis directly was found. The figures below are indirect, come from different settings and measure different things, so they should not be merged.</p></div>
+  <div class="cards">
+    <div class="card"><span class="tag warn">Tertiary database</span><h4>8.5% relabelled</h4><p>12 of 141 people labelled GBS received another diagnosis during follow-up (percentage derived here) [[Tham2018]].</p></div>
+    <div class="card"><span class="tag warn">IGOS</span><h4>6% excluded</h4><p>62 of the first 1,000 were excluded for another diagnosis: A-CIDP 37, other peripheral neuropathy 8, central nervous system disorder 12, functional disorder 2, unspecified 3 [[Doets2018]].</p></div>
+    <div class="card"><span class="tag warn">Hospital coding</span><h4>Codes are unreliable</h4><p>In Italian discharge coding for 1996, GBS was not confirmed in 103 of 228; the positive predictive value was 54.8% overall and 76.4% in neurology departments [[Bogliun2002]]. In Ottawa, 152 of 392 coded cases were excluded, bundling coding errors with diagnostic error [[Bourque2019]].</p></div>
+    <div class="card"><span class="tag warn">Missed GBS</span><h4>Delays happen too</h4><p>In 119 consecutive UK patients, 27 (22.7%) had a delay of at least 5 days from first presentation, linked to at least one earlier visit (OR 10.15) and pre-existing heart or lung disease (OR 3.98) [[Bose2022]].</p></div>
+  </div>
+
+  <h3 class="sub">More look-alikes to keep in mind</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Condition</th><th>What the sources describe</th></tr></thead>
+    <tbody>
+      <tr><th>Drugs and toxins</th><td>Nitrous oxide, alcohol, vitamin B6, lead, thallium, arsenic, organophosphates, glycol, methanol, N-hexane, glue; colchicine, chloroquine, emetine, and statin-related myopathy or rhabdomyolysis [[vanDoorn2023,Leonhard2019]]</td></tr>
+      <tr><th>Immune checkpoint inhibitors</th><td>GBS and peripheral neuropathy are recognised toxicities, seemingly commoner with melanoma; severe neurological events occur in 1–3% [[Vogrig2022]]. GBS risk may rise after these agents and anti-TNF drugs [[vanDoorn2023]]</td></tr>
+      <tr><th>Diphtheria</th><td>First neuropathy symptoms 3–5 weeks after infection; all 32 severe cases had cranial nerve and autonomic involvement and sensory signs, with limb weakness increasing as cranial nerves recovered in month 2 [[Piradov2001]]</td></tr>
+      <tr><th>Lyme neuroborreliosis</th><td>Definite diagnosis needs neurological symptoms, CSF pleocytosis and Borrelia antibodies made in the CSF, so pleocytosis with radicular symptoms in an exposed person should prompt testing [[Mygland2010]]</td></tr>
+      <tr><th>HIV</th><td>In nine people with inflammatory demyelinating neuropathy and HIV (3 with GBS), mean CSF protein was 193 mg/dl and most had pleocytosis (mean 23 cells/mm³); the authors advised testing all such patients [[Cornblath1987]]</td></tr>
+      <tr><th>Vasculitic neuropathy</th><td>Sensory or sensorimotor, asymmetric or multifocal, lower-limb and distal, painful, with non-demyelinating electrodiagnosis [[Collins2010]]</td></tr>
+      <tr><th>Critical illness polyneuropathy and myopathy</th><td>Weakness and failure to wean arising during critical illness, with axonal degeneration and muscle myosin loss; diagnosed clinically, electrophysiologically and sometimes by biopsy [[Latronico2011,Stevens2009]]</td></tr>
+      <tr><th>Functional neurological disorder</th><td>Diagnosed from positive signs; validated signs had low sensitivity (8–100%) but high specificity (92–100%) in class III studies [[Daum2014,Espay2018]]</td></tr>
+      <tr><th>Wernicke's encephalopathy with beriberi neuropathy</th><td>Encephalopathy and nystagmus were the atypical clues in several mimics of Miller Fisher syndrome with GBS features [[Tham2018]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">Mimic lists depend on the setting: better laboratory access and imaging removed spinal shock and hypokalaemic periodic paralysis from the common mimics at one centre [[Tham2018]].</p>
+
+  <h3 class="sub">The published pathway, in ten steps</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>A synthesis of published guidance for study, quoted as published. It is not instructions, and it is never for an individual's diagnosis or treatment.</p>
+  <ol class="ddsteps">
+    <li><b>Suspect.</b> Rapidly progressive bilateral leg or arm weakness without central nervous system involvement or another obvious cause, plus reduced reflexes, pain or sensory symptoms; check for atypical and paediatric forms [[Leonhard2019]].</li>
+    <li><b>History.</b> Time course, illness in the previous 6 weeks, drugs and toxins, tick or outbreak exposure; search the whole body for a tick [[vanDoorn2023,Leonhard2019,Edlow2010]].</li>
+    <li><b>Red flags.</b> Sensory level, sphincter problems at onset, fever, altered consciousness; if a cord cause is possible, whole-spine MRI [[Leonhard2019,vanDoorn2023]].</li>
+    <li><b>Blood tests.</b> Complete blood count, glucose, electrolytes, kidney function and liver enzymes for everyone suspected; more tests guided by the differential [[Leonhard2019]].</li>
+    <li><b>Lumbar puncture.</b> At initial evaluation, mainly to exclude other causes; a normal protein in week 1 does not exclude GBS, and over 50 cells/µl prompts a search [[Leonhard2019,vanDoorn2023]].</li>
+    <li><b>Electrodiagnosis.</b> Not required but recommended where possible, especially in atypical cases; normal first-week studies do not exclude GBS [[Leonhard2019,vanDoorn2023]].</li>
+    <li><b>Targeted tests.</b> Anti-GQ1b in suspected Miller Fisher syndrome; MRI or ultrasound in atypical cases; treatment does not wait for antibody results [[vanDoorn2023,Leonhard2019]].</li>
+    <li><b>Safety alongside diagnosis.</b> Breathing, swallowing and autonomic risk are assessed throughout; respiratory failure can occur without breathlessness [[Leonhard2019]].</li>
+    <li><b>Treatment threshold.</b> Published guidance is to start immunotherapy if a person cannot walk 10 m independently; trials support IVIg within 2 weeks of weakness onset and plasma exchange within 4 weeks [[Leonhard2019]].</li>
+    <li><b>Reclassify.</b> Review the diagnosis if recovery does not follow the expected course; consider A-CIDP at 3 or more fluctuations or worsening beyond 8 weeks, and nodal-paranodal antibodies when response is poor [[vanDoorn2023,Ruts2010]].</li>
+  </ol>
+
+  <div class="hook"><b>Exam hook</b>Botulism descends from the cranial nerves, without fever, in a person who stays alert [[Rao2021]]. Search for a tick before settling on GBS [[Edlow2010]]. Abdominal pain, psychological features and neuropathy: think of urinary porphobilinogen [[Albers2004,Anderson2005]]. Asymmetric flaccid weakness with fever and many CSF cells suggests an anterior horn cell infection such as West Nile virus [[Sejvar2005]].</div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Question</th><th>Positions</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><th>How often is GBS wrongly diagnosed today?</th><td>No modern, purpose-designed estimate was found; available figures span 6% to 45% and measure different things [[Doets2018,Tham2018,Bogliun2002]].</td><td>Evidence gap</td></tr>
+      <tr><th>Where should the A-CIDP clock start?</th><td>9 weeks in 2005 [[Ruts2005]], 8 weeks in 2010 [[Ruts2010]]; the guideline uses worsening beyond 4 weeks as a prompt, with confirmation only at 8 weeks or later [[vanDoorn2023]].</td><td>Thresholds differ</td></tr>
+      <tr><th>Is recurrent GBS distinct from A-CIDP?</th><td>A 2024 review questions the distinction and notes that definitive criteria remain elusive [[Inan2024]].</td><td>Open</td></tr>
+    </tbody>
+  </table></div>
+  <div class="pt"><b>In plain words</b>Other illnesses can look like GBS, such as spinal cord problems, botulism, a hidden tick or low potassium. Doctors look for clues that point elsewhere. Some people with GBS get a little worse again after treatment; that can happen in GBS. If someone keeps getting worse after about 8 weeks, or worse again three or more times, doctors may look at a long-term condition called CIDP.</div>
+</section>

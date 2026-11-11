@@ -1,0 +1,99 @@
+<!-- ================= 1.6 THE COURSE OVER TIME ================= -->
+<section class="mod" id="m-course" data-mod="course" hidden>
+<style>
+#m-course .co-read{display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+#m-course .co-read p{display:flex;gap:8px;align-items:baseline}
+#m-course .co-read i{flex:none;display:inline-block;width:18px;height:0;border-top:3px solid var(--muted);transform:translateY(-3px)}
+#m-course .co-read i.nad{border-top-color:var(--rx)} #m-course .co-read i.imp{border-top:3px dashed var(--accent)} #m-course .co-read i.rec{border-top:3px dotted var(--rec)}
+#m-course .co-row{display:flex;flex-wrap:wrap;gap:8px}
+#m-course .co-row .btn{min-height:40px}
+#m-course .co-dist{display:inline-block;height:10px;border-radius:5px;background:var(--brand);vertical-align:middle;margin-right:8px}
+#m-course .card .co-num{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--brand)}
+#m-course .co-swnote,#m-course .co-flnote{display:flex;flex-direction:column;gap:10px}
+#m-course .co-swnote h4,#m-course .co-flnote h4{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.15;margin:0}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding GBS</p><h2>The course over time</h2>
+    <p class="lede">GBS rises over days, reaches its worst point within four weeks, holds on a plateau, then improves over months and sometimes years. [[Leonhard2019,vanDoorn2023]] Scrub the timeline to watch one schematic course alongside what large groups of people actually did.</p></div>
+
+  <p class="crisis" role="note"><b>Emergency</b><span>Weakness that is getting worse quickly, or any trouble breathing or swallowing, needs emergency care. About 20% of people with GBS develop breathing failure, up to 22% within the first week in hospital. [[Leonhard2019]]</span></p>
+
+  <h3 class="sub">Onset, nadir, plateau, recovery</h3>
+  <div class="prose"><p>The time axis below stretches the first 8 weeks, when most of the change happens, and squeezes the months and years after. The upper panel is one schematic course drawn through the average times of an Italian cohort of 297 people. [[Italian1996]] The lower panel shows what share of real groups had reached each milestone by each time.</p></div>
+  <div class="stepper" id="coSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="coSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A body and a nerve fibre beside two charts on a stretched time axis from day 0 to 2 years: a schematic disability curve that rises to a nadir, plateaus and falls, and three cumulative curves for the share of people who have reached their worst point, begun to improve and clinically recovered"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="coPlay">%t:player.play%</button><label class="stage-cap tl" for="coT">Time since weakness began <input type="range" id="coT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <div class="co-read" id="coRead"></div>
+      <p class="stage-cap">Upper panel: schematic, not one person's data. Markers: 1 = worst point (mean day 12), 2 = first improvement (mean day 28), 3 = clinical recovery (mean day 200), Italian cohort. [[Italian1996]] Lower panel: dots are published points; the lines joining them are schematic. "Worst point" is from 494 Dutch adults [[Fokke2014]]; the other two lines are the Italian cohort, a 1996 report, so care has changed since. [[Italian1996]] Population statistics, not predictions.</p></div>
+    <aside class="note" id="coNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Nadir in under 24 hours, or progression beyond 4 weeks, makes GBS doubtful. [[Leonhard2019]] About 80% of adults in one large cohort reached nadir within 2 weeks and 97% within 4 weeks. [[Fokke2014]]</div>
+    <div class="pt"><b>In plain words</b>GBS usually gets worse over days, and most people reach their weakest point within about 2 weeks. After that comes a flat period, then slow recovery. Recovery can go on for more than a year.</div>
+  </div>
+
+  <h3 class="sub">How weak at the worst point?</h3>
+  <div class="prose"><p>The GBS disability score runs from 0 (no disability) to 6 (death). [[vanTilburg2024]] A score above 2 means a person cannot walk independently. [[Papri2022mEGOS]] This is how 815 people in IGOS scored at their worst. [[Doets2018]]</p></div>
+  <div class="tbl"><table>
+    <caption class="sr">GBS disability score at nadir in IGOS</caption>
+    <thead><tr><th scope="col">Score at nadir</th><th scope="col">Share of 815 people</th><th scope="col">Can walk independently?</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">0</th><td><span class="co-dist" style="width:2px"></span>0.1%</td><td>Yes: no disability</td></tr>
+      <tr><th scope="row">1</th><td><span class="co-dist" style="width:6px"></span>3%</td><td>Yes</td></tr>
+      <tr><th scope="row">2</th><td><span class="co-dist" style="width:36px"></span>18%</td><td>Yes</td></tr>
+      <tr><th scope="row">3</th><td><span class="co-dist" style="width:40px"></span>20%</td><td>No</td></tr>
+      <tr><th scope="row">4</th><td><span class="co-dist" style="width:88px"></span>44%</td><td>No</td></tr>
+      <tr><th scope="row">5</th><td><span class="co-dist" style="width:30px"></span>15%</td><td>No</td></tr>
+    </tbody></table></div>
+  <div class="prose"><p>Adding scores 3 to 5 gives 643 of 815, about 79%, who could not walk independently at their worst (calculated here from the IGOS table; IGOS is not population-based). By region: 76% in Europe/Americas, 76% in Asia and 93% in Bangladesh. [[Doets2018]] Sources differ on breathing: about 20% develop respiratory failure, [[Leonhard2019]] about 25% respiratory insufficiency, [[vanDenBerg2014]] and 20 to 30% respiratory failure in severe generalised disease. [[Willison2016]]</p></div>
+
+  <h3 class="sub">What is still affected after 2 weeks, 1 year and 2 years</h3>
+  <div class="prose"><p>A Swedish study followed 42 adults (mean age 52; 21% ventilated) and examined them at fixed times. [[Forsberg2004Impairment,Forsberg2005Disability]] Choose a time point; the dashed outline keeps the 2-week value for comparison.</p></div>
+  <div class="co-row" id="coSwBtns" role="group" aria-label="Time point"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="coSw" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Bar chart of seven problems in a Swedish cohort of 42 adults with GBS, at 2 weeks, 1 year and 2 years"></svg></div>
+      <p class="stage-cap">Percentages of the 42 people at each examination. A small cohort, so each figure is a rough guide. Group figures; they do not predict any one person's course. [[Forsberg2004Impairment,Forsberg2005Disability]]</p></div>
+    <aside class="note co-swnote" id="coSwNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Getting worse again: fluctuation or CIDP?</h3>
+  <div class="prose"><p>GBS is usually monophasic: it happens once. A minority get worse again after first improving or stabilising on treatment. [[Leonhard2019]] When worsening keeps coming back, or goes on past 8 weeks, the diagnosis may be acute-onset chronic inflammatory demyelinating polyradiculoneuropathy (A-CIDP). [[vanDoorn2023]] Pick a pattern and play it.</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>These three curves are schematic shapes that illustrate the published definitions. They are not for judging anyone's own course, diagnosis or treatment.</p>
+  <div class="co-row" id="coFlBtns" role="group" aria-label="Pattern"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="coFl" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A schematic disability curve over 16 weeks with treatment markers, worsening episodes and a dashed line at 8 weeks from onset, for the chosen pattern"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="coFlPlay">%t:player.play%</button><label class="stage-cap tl" for="coFlT">Weeks <input type="range" id="coFlT" min="0" max="1" step="0.002" value="1"></label></div>
+      <p class="stage-cap">Schematic, not to scale. The 8-week line and the counts follow the published definitions; the curve shapes are illustrative.</p></div>
+    <aside class="note co-flnote" id="coFlNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Does treatment change the speed?</h3>
+  <div class="prose"><p>In trials, treatment shortened the time to recovery. Results are reported as published, not as instructions. Treatments are covered in <a href="#ivig" data-go="ivig">IVIg</a> and <a href="#plex" data-go="plex">Plasma exchange</a>.</p></div>
+  <div class="tbl"><table>
+    <caption class="sr">Trials reporting time to recovery</caption>
+    <thead><tr><th scope="col">Trial or review</th><th scope="col">People</th><th scope="col">Result</th></tr></thead>
+    <tbody>
+      <tr class="tx"><th scope="row">Plasma exchange vs none, severe GBS</th><td>220</td><td>Median time to walk with aid: 30 days with plasma exchange, 44 without [[Chevret2017]]</td></tr>
+      <tr><th scope="row">Plasma exchange vs none, mild GBS</th><td>91</td><td>Median time to the start of motor recovery: 6 days with plasma exchange, 10 without [[Chevret2017]]</td></tr>
+      <tr class="tx"><th scope="row">Dutch trial, IVIg vs plasma exchange (1992)</th><td>150</td><td>Median time to improve by one grade: 27 days with IVIg, 41 with plasma exchange [[vanDerMeche1992]]</td></tr>
+      <tr><th scope="row">Plasma exchange, IVIg or both (1997)</th><td>379 analysed</td><td>Mean improvement at 4 weeks 0.9, 0.8 and 1.1 grades; no significant difference, including time to walking unaided [[PSGBS1997]]</td></tr>
+      <tr><th scope="row">Cochrane review of IVIg within 2 weeks</th><td>536 (5 trials)</td><td>IVIg hastened recovery as much as plasma exchange in severe disease (mean difference 0.02 of a grade at 4 weeks) [[Hughes2014]]</td></tr>
+      <tr><th scope="row">Second IVIg course, poor prognosis</th><td>Poor prognosis (mEGOS 6 or more)</td><td>No better disability at 4 weeks (adjusted common OR 1.4, 95% CI 0.6 to 3.3); more serious adverse events (35% vs 16%) [[Walgaard2021]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Key numbers</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">To the worst point</span><span class="co-num">12 days</span><p>Mean time to nadir in 297 Italian people; 80% of Dutch adults by 2 weeks, 97% by 4 weeks, all by 6 weeks. [[Italian1996,Fokke2014]]</p></div>
+    <div class="card"><span class="kicker">Plateau</span><span class="co-num">4 days</span><p>Median plateau (IQR 3 to 10) in the French Polynesia outbreak, the best direct figure; plateau length is thinly reported. [[CaoLormeau2016]]</p></div>
+    <div class="card"><span class="kicker">First improvement</span><span class="co-num">28 days</span><p>Mean time in the Italian cohort; improvement had begun in 36% by 1 week and in 85% by 4 weeks. [[Italian1996]]</p></div>
+    <div class="card"><span class="kicker">Walking alone</span><span class="co-num">63 days</span><p>Median time to independent walking in IGOS, Europe/Americas; 39 days in Asia, 95 in Bangladesh. [[Doets2018]]</p></div>
+    <div class="card"><span class="kicker">Deaths after the worst point</span><span class="co-num">67%</span><p>of deaths in a Dutch cohort came in the recovery phase, 13% on the plateau and 20% while weakness was still progressing. [[vanDenBerg2013]]</p></div>
+    <div class="card"><span class="kicker">Children</span><span class="co-num">6 days</span><p>Median progressive phase in 67 Dutch children, under 4 weeks in all; a median of 8 days to nadir in 156 children in another study. [[Roodbol2017,Helfferich2022]]</p></div>
+  </div>
+  <p class="support" role="note"><b>A slow road is still a road</b>Most people recover extensively, especially in the first year, including people who were completely paralysed at their worst or needed a ventilator for a long time. Remaining problems can still improve more than 5 years after onset. [[Leonhard2019]]</p>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Up to two-thirds of deaths occur in the recovery phase, so monitoring continues after the nadir. [[Leonhard2019]] First treatment-related fluctuation within 8 weeks, median 18 days; A-CIDP with 3 or more fluctuations or worsening 8 weeks or more after onset. [[Ruts2010,vanDoorn2023]]</div>
+    <div class="pt"><b>In plain words</b>Some people get a bit worse again after treatment. This can happen in GBS and does not always mean something new. If weakness keeps getting worse after about 8 weeks, or worse again three or more times, doctors may look at a long-term condition called CIDP.</div>
+  </div>
+  <p class="callout">How doctors estimate a group's chances of walking again is in <a href="#prognosis" data-go="prognosis">Prognosis: EGOS &amp; mEGOS</a>; the work of getting there is in <a href="#rehab" data-go="rehab">Rehabilitation &amp; recovery</a>.</p>
+</section>
