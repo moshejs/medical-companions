@@ -1,572 +1,572 @@
 {
- "site": "https://www.medcompanions.org",
- "name": "Medical Companions",
- "editor": {
-  "name": "Moshe Malka",
-  "role": "Founder and editor"
- },
- "publisher": {
-  "name": "Quentin.Code",
-  "url": "https://quentin.software"
- },
- "languages": {
-  "en": {
-   "name": "English",
-   "english": "English",
-   "dir": "ltr",
-   "locale": "en",
-   "fonts": {
-    "display": [],
-    "body": [],
-    "google": "",
-    "subset": "latin"
-   }
+  "site": "https://www.medcompanions.org",
+  "name": "Medical Companions",
+  "editor": {
+    "name": "Moshe Malka",
+    "role": "Founder and editor"
   },
-  "he": {
-   "name": "עברית",
-   "english": "Hebrew",
-   "dir": "rtl",
-   "locale": "he_IL",
-   "fonts": {
-    "display": [
-     "Frank Ruhl Libre"
-    ],
-    "body": [
-     "Assistant"
-    ],
-    "google": "family=Assistant:wght@400;600;700;800&family=Frank+Ruhl+Libre:wght@500;700;900",
-    "subset": "hebrew"
-   }
+  "publisher": {
+    "name": "Quentin.Code",
+    "url": "https://quentin.software"
   },
-  "de": {
-   "name": "Deutsch",
-   "english": "German",
-   "dir": "ltr",
-   "locale": "de_DE",
-   "fonts": {
-    "display": [],
-    "body": [],
-    "google": "",
-    "subset": "latin"
-   }
-  },
-  "ja": {
-   "name": "日本語",
-   "english": "Japanese",
-   "dir": "ltr",
-   "locale": "ja_JP",
-   "fonts": {
-    "display": [
-     "Noto Serif JP"
-    ],
-    "body": [
-     "Noto Sans JP"
-    ],
-    "google": "family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@600;800",
-    "subset": "japanese"
-   },
-   "css": "body{word-break:auto-phrase;line-break:strict}"
-  },
-  "es": {
-   "name": "Español",
-   "english": "Spanish",
-   "dir": "ltr",
-   "locale": "es_ES",
-   "fonts": {
-    "display": [],
-    "body": [],
-    "google": "",
-    "subset": "latin"
-   }
-  },
-  "fr": {
-   "name": "Français",
-   "english": "French",
-   "dir": "ltr",
-   "locale": "fr_FR",
-   "fonts": {
-    "display": [],
-    "body": [],
-    "google": "",
-    "subset": "latin"
-   }
-  },
-  "ar": {
-   "name": "العربية",
-   "english": "Arabic",
-   "dir": "rtl",
-   "locale": "ar",
-   "fonts": {
-    "display": [
-     "Noto Naskh Arabic"
-    ],
-    "body": [
-     "Noto Sans Arabic"
-    ],
-    "google": "family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+Arabic:wght@400;600;700",
-    "subset": "arabic"
-   }
-  },
-  "it": {
-   "name": "Italiano",
-   "english": "Italian",
-   "dir": "ltr",
-   "locale": "it_IT",
-   "fonts": {
-    "display": [],
-    "body": [],
-    "google": "",
-    "subset": "latin"
-   }
-  },
-  "nl": {
-   "name": "Nederlands",
-   "english": "Dutch",
-   "dir": "ltr",
-   "locale": "nl_NL",
-   "fonts": {
-    "display": [],
-    "body": [],
-    "google": "",
-    "subset": "latin"
-   }
-  },
-  "pt-BR": {
-   "name": "Português (Brasil)",
-   "english": "Portuguese (Brazil)",
-   "dir": "ltr",
-   "locale": "pt_BR",
-   "fonts": {
-    "display": [],
-    "body": [],
-    "google": "",
-    "subset": "latin"
-   }
-  },
-  "ko": {
-   "name": "한국어",
-   "english": "Korean",
-   "dir": "ltr",
-   "locale": "ko_KR",
-   "fonts": {
-    "display": [
-     "Noto Serif KR"
-    ],
-    "body": [
-     "Noto Sans KR"
-    ],
-    "google": "family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@600;800",
-    "subset": "korean"
-   },
-   "css": "body{word-break:keep-all}"
-  },
-  "zh-Hans": {
-   "name": "简体中文",
-   "english": "Chinese (Simplified)",
-   "dir": "ltr",
-   "locale": "zh_CN",
-   "fonts": {
-    "display": [
-     "Noto Serif SC"
-    ],
-    "body": [
-     "Noto Sans SC"
-    ],
-    "google": "family=Noto+Sans+SC:wght@400;700&family=Noto+Serif+SC:wght@600;800",
-    "subset": "chinese-simplified"
-   }
-  }
- },
- "companions": [
-  {
-   "slug": "alzheimers",
-   "langs": [
-    "en",
-    "he"
-   ],
-   "name": {
-    "en": "Alzheimer's Companion",
-    "he": "מלווה אלצהיימר"
-   },
-   "old": "https://moshejs.github.io/alzheimers-companion",
-   "published": "2026-10-18",
-   "reviewers": {
+  "languages": {
     "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
+      "name": "English",
+      "english": "English",
+      "dir": "ltr",
+      "locale": "en",
+      "fonts": {
+        "display": [],
+        "body": [],
+        "google": "",
+        "subset": "latin"
+      }
     },
     "he": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   },
-   "indexed_without_review": [
-    "he"
-   ]
-  },
-  {
-   "slug": "fmf",
-   "langs": [
-    "en",
-    "he"
-   ],
-   "name": {
-    "en": "FMF Companion",
-    "he": "מלווה FMF"
-   },
-   "old": "https://moshejs.github.io/fmf-companion",
-   "published": "2026-10-16",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
+      "name": "עברית",
+      "english": "Hebrew",
+      "dir": "rtl",
+      "locale": "he_IL",
+      "fonts": {
+        "display": [
+          "Frank Ruhl Libre"
+        ],
+        "body": [
+          "Assistant"
+        ],
+        "google": "family=Assistant:wght@400;600;700;800&family=Frank+Ruhl+Libre:wght@500;700;900",
+        "subset": "hebrew"
+      }
     },
-    "he": {
-     "name": "",
-     "credentials": "",
-     "date": ""
+    "de": {
+      "name": "Deutsch",
+      "english": "German",
+      "dir": "ltr",
+      "locale": "de_DE",
+      "fonts": {
+        "display": [],
+        "body": [],
+        "google": "",
+        "subset": "latin"
+      }
+    },
+    "ja": {
+      "name": "日本語",
+      "english": "Japanese",
+      "dir": "ltr",
+      "locale": "ja_JP",
+      "fonts": {
+        "display": [
+          "Noto Serif JP"
+        ],
+        "body": [
+          "Noto Sans JP"
+        ],
+        "google": "family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@600;800",
+        "subset": "japanese"
+      },
+      "css": "body{word-break:auto-phrase;line-break:strict}"
+    },
+    "es": {
+      "name": "Español",
+      "english": "Spanish",
+      "dir": "ltr",
+      "locale": "es_ES",
+      "fonts": {
+        "display": [],
+        "body": [],
+        "google": "",
+        "subset": "latin"
+      }
+    },
+    "fr": {
+      "name": "Français",
+      "english": "French",
+      "dir": "ltr",
+      "locale": "fr_FR",
+      "fonts": {
+        "display": [],
+        "body": [],
+        "google": "",
+        "subset": "latin"
+      }
+    },
+    "ar": {
+      "name": "العربية",
+      "english": "Arabic",
+      "dir": "rtl",
+      "locale": "ar",
+      "fonts": {
+        "display": [
+          "Noto Naskh Arabic"
+        ],
+        "body": [
+          "Noto Sans Arabic"
+        ],
+        "google": "family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+Arabic:wght@400;600;700",
+        "subset": "arabic"
+      }
+    },
+    "it": {
+      "name": "Italiano",
+      "english": "Italian",
+      "dir": "ltr",
+      "locale": "it_IT",
+      "fonts": {
+        "display": [],
+        "body": [],
+        "google": "",
+        "subset": "latin"
+      }
+    },
+    "nl": {
+      "name": "Nederlands",
+      "english": "Dutch",
+      "dir": "ltr",
+      "locale": "nl_NL",
+      "fonts": {
+        "display": [],
+        "body": [],
+        "google": "",
+        "subset": "latin"
+      }
+    },
+    "pt-BR": {
+      "name": "Português (Brasil)",
+      "english": "Portuguese (Brazil)",
+      "dir": "ltr",
+      "locale": "pt_BR",
+      "fonts": {
+        "display": [],
+        "body": [],
+        "google": "",
+        "subset": "latin"
+      }
+    },
+    "ko": {
+      "name": "한국어",
+      "english": "Korean",
+      "dir": "ltr",
+      "locale": "ko_KR",
+      "fonts": {
+        "display": [
+          "Noto Serif KR"
+        ],
+        "body": [
+          "Noto Sans KR"
+        ],
+        "google": "family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@600;800",
+        "subset": "korean"
+      },
+      "css": "body{word-break:keep-all}"
+    },
+    "zh-Hans": {
+      "name": "简体中文",
+      "english": "Chinese (Simplified)",
+      "dir": "ltr",
+      "locale": "zh_CN",
+      "fonts": {
+        "display": [
+          "Noto Serif SC"
+        ],
+        "body": [
+          "Noto Sans SC"
+        ],
+        "google": "family=Noto+Sans+SC:wght@400;700&family=Noto+Serif+SC:wght@600;800",
+        "subset": "chinese-simplified"
+      }
     }
-   },
-   "indexed_without_review": [
-    "he"
-   ]
   },
-  {
-   "slug": "myasthenia-gravis",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "Myasthenia Gravis Companion",
-    "he": "מלווה מיאסטניה גרביס"
-   },
-   "published": "2026-10-20",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
+  "companions": [
+    {
+      "slug": "alzheimers",
+      "langs": [
+        "en",
+        "he"
+      ],
+      "name": {
+        "en": "Alzheimer's Companion",
+        "he": "מלווה אלצהיימר"
+      },
+      "old": "https://moshejs.github.io/alzheimers-companion",
+      "published": "2026-10-18",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        },
+        "he": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      },
+      "indexed_without_review": [
+        "he"
+      ]
+    },
+    {
+      "slug": "fmf",
+      "langs": [
+        "en",
+        "he"
+      ],
+      "name": {
+        "en": "FMF Companion",
+        "he": "מלווה FMF"
+      },
+      "old": "https://moshejs.github.io/fmf-companion",
+      "published": "2026-10-16",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        },
+        "he": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      },
+      "indexed_without_review": [
+        "he"
+      ]
+    },
+    {
+      "slug": "myasthenia-gravis",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Myasthenia Gravis Companion",
+        "he": "מלווה מיאסטניה גרביס"
+      },
+      "published": "2026-10-20",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "gout",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Gout Companion",
+        "he": "מלווה שיגדון"
+      },
+      "published": "2026-10-20"
+    },
+    {
+      "slug": "als",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "ALS Companion",
+        "he": "מלווה ALS"
+      },
+      "published": "2026-10-20"
+    },
+    {
+      "slug": "parkinsons-disease",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Parkinson's Companion",
+        "he": "מלווה פרקינסון"
+      },
+      "published": "2026-10-20",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "multiple-sclerosis",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "MS Companion",
+        "he": "מלווה טרשת נפוצה"
+      },
+      "published": "2026-10-20",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "colorectal-cancer",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Colorectal Cancer Companion",
+        "he": "מלווה סרטן המעי הגס"
+      },
+      "published": "2026-10-25",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "ehlers-danlos-syndromes",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "EDS Companion",
+        "he": "מלווה תסמונות אהלרס-דנלוס"
+      },
+      "published": "2026-10-29",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "tuberculosis",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "TB Companion"
+      },
+      "published": "2026-10-30",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "borderline-personality-disorder",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "BPD Companion"
+      },
+      "published": "2026-10-31",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "adhd",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "ADHD Companion"
+      },
+      "published": "2026-11-01",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "autism",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Autism Companion"
+      },
+      "published": "2026-11-02",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "bipolar-disorder",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Bipolar Companion"
+      },
+      "published": "2026-11-03",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "alcohol-use-disorder",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "AUD Companion"
+      },
+      "published": "2026-11-04",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "myocardial-infarction",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Heart Attack Companion"
+      },
+      "published": "2026-11-04",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "cirrhosis",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Cirrhosis Companion"
+      },
+      "published": "2026-11-04",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "sepsis-and-shock",
+      "name": {
+        "en": "Sepsis Companion"
+      },
+      "langs": [
+        "en"
+      ],
+      "published": "2026-11-05",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "cystic-fibrosis",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "CF Companion"
+      },
+      "published": "2026-11-04",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "stroke",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Stroke Companion"
+      },
+      "published": "2026-11-08",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "guillain-barre-syndrome",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "GBS Companion"
+      },
+      "published": "2026-11-10",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
+    },
+    {
+      "slug": "obesity",
+      "langs": [
+        "en"
+      ],
+      "name": {
+        "en": "Obesity Companion"
+      },
+      "published": "2026-11-11",
+      "reviewers": {
+        "en": {
+          "name": "",
+          "credentials": "",
+          "date": ""
+        }
+      }
     }
-   }
-  },
-  {
-   "slug": "gout",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "Gout Companion",
-    "he": "מלווה שיגדון"
-   },
-   "published": "2026-10-20"
-  },
-  {
-   "slug": "als",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "ALS Companion",
-    "he": "מלווה ALS"
-   },
-   "published": "2026-10-20"
-  },
-  {
-   "slug": "parkinsons-disease",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "Parkinson's Companion",
-    "he": "מלווה פרקינסון"
-   },
-   "published": "2026-10-20",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "multiple-sclerosis",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "MS Companion",
-    "he": "מלווה טרשת נפוצה"
-   },
-   "published": "2026-10-20",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "colorectal-cancer",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "Colorectal Cancer Companion",
-    "he": "מלווה סרטן המעי הגס"
-   },
-   "published": "2026-10-25",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "ehlers-danlos-syndromes",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "EDS Companion",
-    "he": "מלווה תסמונות אהלרס-דנלוס"
-   },
-   "published": "2026-10-29",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "tuberculosis",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "TB Companion"
-   },
-   "published": "2026-10-30",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "borderline-personality-disorder",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "BPD Companion"
-   },
-   "published": "2026-10-31",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "adhd",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "ADHD Companion"
-   },
-   "published": "2026-11-01",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "autism",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "Autism Companion"
-   },
-   "published": "2026-11-02",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "bipolar-disorder",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "Bipolar Companion"
-   },
-   "published": "2026-11-03",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "alcohol-use-disorder",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "AUD Companion"
-   },
-   "published": "2026-11-04",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "myocardial-infarction",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "Heart Attack Companion"
-   },
-   "published": "2026-11-04",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "cirrhosis",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "Cirrhosis Companion"
-   },
-   "published": "2026-11-04",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "sepsis-and-shock",
-   "name": {
-    "en": "Sepsis Companion"
-   },
-   "langs": [
-    "en"
-   ],
-   "published": "2026-11-05",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "cystic-fibrosis",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "CF Companion"
-   },
-   "published": "2026-11-04",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "stroke",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "Stroke Companion"
-   },
-   "published": "2026-11-08",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "guillain-barre-syndrome",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "GBS Companion"
-   },
-   "published": "2026-11-10",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  },
-  {
-   "slug": "obesity",
-   "langs": [
-    "en"
-   ],
-   "name": {
-    "en": "Obesity Companion"
-   },
-   "published": "2026-11-11",
-   "reviewers": {
-    "en": {
-     "name": "",
-     "credentials": "",
-     "date": ""
-    }
-   }
-  }
- ],
- "indexnow_key": "202581197bc1993e3ed16425b36cb189"
+  ],
+  "indexnow_key": "202581197bc1993e3ed16425b36cb189"
 }
