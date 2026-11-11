@@ -129,8 +129,8 @@ inits.children=()=>{
   const tsv=$('#chTeen'),trg=$('#chTeenT'),tnote=$('#chTeenNote');
   const at=(P,w)=>{if(w<=P[0][0])return P[0][1];for(let i=1;i<P.length;i++)if(w<=P[i][0])return lerp(P[i-1][1],P[i][1],(w-P[i-1][0])/(P[i][0]-P[i-1][0]));return P[P.length-1][1]};
   function drawTeen(t){
-    const N=vb(tsv,'720 320','400 560');
-    const L=N?{x:52,y:44,w:320,h:220,ax:40,ay:356,gap:180}:{x:60,y:40,w:370,h:220,ax:470,ay:70,gap:130};
+    const N=vb(tsv,'720 320','400 500');
+    const L=N?{x:52,y:44,w:296,h:220,ax:40,ay:356,gap:180}:{x:60,y:40,w:370,h:220,ax:470,ay:70,gap:130};
     const wk=75*t,ax=curveAxes(L.x,L.y,L.w,L.h,{x0:0,x1:75,y0:-20,y1:5,xt:[0,20,40,60,75],yt:[-20,-15,-10,-5,0,5],yfmt:v=>(v>0?'+':'')+v+'%',xlabel:'weeks',ylabel:'mean BMI change from baseline'});
     let g=ax.svg;const X=ax.X,Y=ax.Y;
     g+=`<rect x="${f1(X(68))}" y="${L.y}" width="${f1(X(75)-X(68))}" height="${L.h}" style="fill:var(--warn-soft);opacity:.8"/><line x1="${f1(X(68))}" x2="${f1(X(68))}" y1="${L.y}" y2="${L.y+L.h}" style="stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 3"/>`;
