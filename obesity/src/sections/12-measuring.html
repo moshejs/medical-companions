@@ -1,2 +1,80 @@
-<!-- STUB: replaced by its builder (basics) -->
-<section class="mod" id="m-measuring" data-mod="measuring" hidden><div class="mhead"><p class="eyebrow">Part 1 · Understanding obesity</p><h2>BMI, waist &amp; body fat</h2><p class="lede">BMI is a quick screening number with real limits; this module will show the classes, the waist measures and why a second measure matters.</p></div></section>
+<!-- ================= 1.2 BMI, WAIST & BODY FAT ================= -->
+<style>
+#m-measuring .msu{display:flex;flex-wrap:wrap;gap:6px}
+#m-measuring .calc{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+#m-measuring .calc input,#m-measuring .calc select{width:100%;min-height:40px}
+#m-measuring .msout{display:flex;flex-direction:column;gap:10px}
+#m-measuring .msout ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px;font-size:14.5px}
+#m-measuring .msout .row{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+#m-measuring .msout .row b{font:700 22px var(--display)}
+#m-measuring .card>.ev,#m-measuring .card>.tag{align-self:flex-start}
+</style>
+<section class="mod" id="m-measuring" data-mod="measuring" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding obesity</p><h2>BMI, waist &amp; body fat</h2>
+    <p class="lede">BMI is a quick, cheap screening number with real blind spots. Follow a point across the height and weight plane through the WHO classes, see what BMI misses, and why waist and a second measure now matter.</p></div>
+
+  <div class="stepper" id="msSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="msSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A chart with height across and weight up, shaded into bands by the WHO BMI classes at 18.5, 25, 30, 35 and 40, with optional dashed lines for the WHO 2004 Asian action points. A point moves up through the bands while its BMI is read out. A side panel changes with each step: Quetelet's formula worked through, the class table, a grid showing how many adults with excess body fat a BMI of 30 misses and the BMI that matches its diabetes risk in different ethnic groups, a waist-to-height ratio bar with its 0.5 boundary, and the Lancet Commission's rules for confirming excess body fat."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="msPlay">%t:player.play%</button><label class="stage-cap tl" for="msT">Story <input type="range" id="msT" min="0" max="1" step="0.002" value="0.08"></label>
+        <button class="btn" id="msAsian" aria-pressed="false">Asian action points</button></div>
+      <p class="stage-cap">Bands follow BMI = weight ÷ height²; the moving point is an imaginary adult. [[WHO2000TRS894,Flegal1998,WHO2004Asian]]</p>
+    </div>
+    <aside class="note" id="msNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">BMI and waist-to-height: a teaching calculator</h3>
+  <p class="teach" role="note"><b>Teaching tool</b>This works the published formulas and cut-offs for an imaginary adult. It is not a diagnosis, not a target and not advice: BMI cannot tell fat from muscle, cut-offs differ by population, and the Lancet Commission asks for a second measure before calling body fat excessive [[Okorodudu2010,Rubino2025Commission]]. For children and adolescents, BMI is read against age- and sex-specific growth charts, so this calculator does not apply [[Kuczmarski2002,Ogden2025]].</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="ctrls msu" role="group" aria-label="Units"><button class="btn" id="msMet" aria-pressed="true">Metric</button><button class="btn" id="msImp" aria-pressed="false">Imperial</button></div>
+      <div class="calc" id="msCalcMet">
+        <label for="msHcm">Height (cm)<input type="number" id="msHcm" min="100" max="230" step="0.5" value="170" inputmode="decimal"></label>
+        <label for="msWkg">Weight (kg)<input type="number" id="msWkg" min="25" max="350" step="0.5" value="78" inputmode="decimal"></label>
+        <label for="msWaist">Waist (cm, optional)<input type="number" id="msWaist" min="40" max="250" step="0.5" value="88" inputmode="decimal"></label>
+      </div>
+      <div class="calc" id="msCalcImp" hidden>
+        <label for="msHft">Height (ft)<input type="number" id="msHft" min="3" max="7" step="1" value="5" inputmode="numeric"></label>
+        <label for="msHin">and inches<input type="number" id="msHin" min="0" max="11.9" step="0.5" value="7" inputmode="decimal"></label>
+        <label for="msWlb">Weight (lb)<input type="number" id="msWlb" min="55" max="770" step="1" value="172" inputmode="decimal"></label>
+        <label for="msWaistIn">Waist (in, optional)<input type="number" id="msWaistIn" min="16" max="100" step="0.5" value="34.5" inputmode="decimal"></label>
+      </div>
+      <div class="calc"><label for="msSex">Sex, for the waist levels
+        <select id="msSex"><option value="">Not given</option><option value="f">Woman</option><option value="m">Man</option></select></label></div>
+      <div class="scroll"><svg id="msGauge" viewBox="0 0 720 190" style="min-width:560px" role="img" aria-label="Two scales. Top: BMI from 15 to 45, shaded by the WHO classes, with a marker at the calculated BMI. Bottom: waist-to-height ratio from 0.35 to 0.75 with the 0.5 boundary marked and a marker at the calculated ratio."></svg></div>
+    </div>
+    <aside class="note msout" id="msOut" aria-live="polite"></aside>
+  </div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service.</p>
+
+  <h3 class="sub">Cut-offs by population</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Measure</th><th>Cut-offs, as published</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><th>WHO adult BMI classes [[WHO2000TRS894,Flegal1998]]</th><td>Pre-obese (overweight) 25.0–29.9; class I 30.0–34.9; class II 35.0–39.9; class III ≥40.0 kg/m². Underweight below 18.5 [[NCDRisC2016]].</td><td>The international classification for surveillance and comparison.</td></tr>
+      <tr><th>WHO 2004, Asian populations [[WHO2004Asian]]</th><td>Kept the WHO cut-offs, adding "public health action points" at 23.0, 27.5, 32.5 and 37.5 kg/m².</td><td>Observed risk began to rise at BMI 22–25 across Asian populations, and high risk at 26–31, so no single Asian cut-off was set.</td></tr>
+      <tr><th>BMI with the type 2 diabetes risk of BMI 30 in White adults, England [[Caleyachetty2021Ethnicity]]</th><td>South Asian 23.9; Arab 26.6; Chinese 26.9; Black 28.1 kg/m².</td><td>1,472,819 adults, median 6.5 years. Based on diabetes risk only, with coarse ethnicity groups.</td></tr>
+      <tr><th>Waist "action levels" [[Lean1995]]</th><td>Men ≥94 cm, women ≥80 cm; and men ≥102 cm, women ≥88 cm.</td><td>Picked out BMI ≥25 or ≥30 (or a high waist-to-hip ratio) with sensitivity over 96% in Glasgow adults.</td></tr>
+      <tr><th>Waist and mortality [[Ross2020IASICCR]]</th><td>Higher all-cause mortality above 95 cm in men and 80 cm in women.</td><td>Meta-regression of 18 European studies, over 680,000 people, cited by the IAS/ICCR consensus.</td></tr>
+      <tr><th>Metabolic syndrome, harmonised 2009 [[Alberti2009Harmonizing]]</th><td>Waist cut-offs are population-specific; "national or regional cut points" in the interim.</td><td>Waist is one of five criteria, no longer obligatory.</td></tr>
+      <tr><th>Waist-to-height ratio [[Browning2010]]</th><td>0.5: "keep your waist circumference to less than half your height".</td><td>NICE and the US Department of Defense adopted "at risk" cut-offs; a fixed cut-off over-classifies shorter adults [[Nevill2023]].</td></tr>
+      <tr class="life"><th>Children, United States [[Ogden2025,Zhao2024WIC]]</th><td>Obesity: BMI-for-age ≥95th percentile on the CDC growth charts. Severe obesity: ≥120% of the 95th percentile, or BMI ≥35.</td><td>CDC charts cover ages 2 to 20 [[Kuczmarski2002]].</td></tr>
+      <tr class="life"><th>Children, WHO and international [[deOnis2007,NCDRisC2024,Cole2000IOTF]]</th><td>Obesity: BMI more than 2 SD above the WHO reference median. IOTF centile curves pass through 25 and 30 kg/m² at age 18.</td><td>At 19 years the WHO +2 SD line is BMI 29.7 for both sexes.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">How well does BMI find excess body fat?</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">Adults · 31,968 people</span><p class="big-num">0.42 · 0.97</p><p>Sensitivity and specificity of BMI ≥30 for excess body fat measured by body-composition methods. BMI "fail[s] to identify half of the people with excess BF%" [[Okorodudu2010]].</p></div>
+    <div class="card"><span class="tag brand">NHANES III · 13,601 adults</span><p class="big-num">19% vs 44%</p><p>Obesity in men by BMI against body-fat percentage (women 24.7% vs 52.3%). BMI did worst in the 25–29.9 range, in men and in older adults, and in men tracked lean mass better than fat [[RomeroCorral2008]].</p></div>
+    <div class="card"><span class="tag life">Children · 53,521 aged 4–18</span><p class="big-num">0.73 · 0.93</p><p>Pooled sensitivity and specificity; BMI cut-offs missed "over a quarter of children with excess body fat percentage" [[Javed2015]].</p></div>
+    <div class="card"><span class="tag">Populations</span><p class="big-num">r = 0.955</p><p>Correlation of W/H² with measured fat mass per height² in women (0.943 in men): "both a convenient and reliable indicator of obesity" for groups [[Garrow1985]].</p></div>
+    <div class="card"><span class="tag accent">Waist beyond BMI · 259,388 adults</span><p class="big-num">5% · 39%</p><p>Share with a high waist among people with normal BMI and with overweight. In those BMI groups, a high waist or waist-to-hip ratio meant 15–50% greater risk for most cardiovascular outcomes [[Dardari2026]].</p></div>
+    <div class="card"><span class="tag accent">EPIC · 359,387 adults</span><p class="big-num">2.05 · 1.78</p><p>Relative risk of death in the highest waist fifth (men, women) after adjusting for BMI [[Pischon2008EPIC]].</p></div>
+  </div>
+  <div class="split2">
+    <div class="card"><h4>Sarcopenic obesity</h4><p>Excess adiposity together with low skeletal muscle mass and function (ESPEN/EASO 2022). Screening uses BMI or waist plus signs of low muscle; diagnosis rests on muscle-function tests, then body composition. Stage I has no complications, stage II has complications [[Donini2022]].</p></div>
+    <div class="card"><h4>The open question</h4><p>Meta-analyses favour waist-to-height ratio over waist or BMI [[Ashwell2012,Browning2010]], but waist cut-offs remain population-specific and international harmonisation is unfinished [[Alberti2009Harmonizing,Ross2020IASICCR]]. Status: unresolved. How a clinician puts measures together is covered in <a href="#assessment" data-go="assessment">Assessment &amp; staging</a>; children in <a href="#children" data-go="children">Children &amp; adolescents</a>.</p></div>
+  </div>
+</section>

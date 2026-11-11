@@ -1,2 +1,97 @@
-<!-- STUB: replaced by its builder (basics) -->
-<section class="mod" id="m-what" data-mod="what" hidden><div class="mhead"><p class="eyebrow">Part 1 · Understanding obesity</p><h2>What obesity is</h2><p class="lede">Obesity is a chronic disease of excess body fat that can harm the body's organs and daily life; this module will show how it is defined and how common it is.</p></div></section>
+<!-- ================= 1.1 WHAT OBESITY IS ================= -->
+<style>
+#m-what .whgrp{display:flex;flex-wrap:wrap;gap:6px}
+#m-what .whcrit{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+#m-what .whcrit fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px 12px;margin:0;min-width:0;background:var(--panel)}
+#m-what .whcrit legend{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 4px}
+#m-what .whcrit label{display:flex;gap:8px;align-items:flex-start;font-size:14px;line-height:1.35;padding:4px 0;cursor:pointer}
+#m-what .whcrit input{margin-top:3px;accent-color:var(--brand);flex:none}
+#m-what .whout{display:flex;flex-direction:column;gap:10px}
+#m-what .whout .verdict{background:var(--brand-soft);color:var(--brand)}
+#m-what .whout .verdict.none{background:var(--panel-2);color:var(--ink)}
+#m-what .card .big-num{font-size:34px}
+#m-what .card>.ev,#m-what .card>.tag{align-self:flex-start}
+#m-what .calc{grid-template-columns:minmax(0,1fr)}
+#m-what .calc select{width:100%;min-height:40px}
+</style>
+<section class="mod" id="m-what" data-mod="what" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding obesity</p><h2>What obesity is</h2>
+    <p class="lede">Obesity is a chronic disease of excess body fat with many causes, now split into clinical and preclinical obesity. Watch how common it became between 1990 and 2022, then try the Lancet Commission's classification for yourself.</p></div>
+
+  <div class="stepper" id="whSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="whSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A grid of 100 figures fills, between the 1990 and 2022 estimates, with the share of the chosen group living with obesity worldwide, while a bar counts the total number of people with obesity up past one billion. Beside it, a panel changes with each step: an enlarging fat cell for excess adiposity, the BMI formula and its classes, two identical figures for preclinical and clinical obesity with organs lighting up on the clinical one, a timeline of statements calling obesity a chronic disease, and bars for the deaths attributed to high BMI."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="whPlay">%t:player.play%</button><label class="stage-cap tl" for="whT">Story <input type="range" id="whT" min="0" max="1" step="0.002" value="0.03"></label></div>
+      <div class="ctrls whgrp" role="group" aria-label="Group shown in the grid">
+        <button class="btn" data-whg="women" aria-pressed="true">Women</button>
+        <button class="btn" data-whg="men" aria-pressed="false">Men</button>
+        <button class="btn" data-whg="girls" aria-pressed="false">Girls 5–19</button>
+        <button class="btn" data-whg="boys" aria-pressed="false">Boys 5–19</button>
+      </div>
+      <p class="stage-cap">Worldwide, age-standardised prevalence for adults; 1990 and 2022 estimates only, so the fill between them is a transition, not yearly data. Population statistics. [[NCDRisC2024]]</p>
+    </div>
+    <aside class="note" id="whNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Key numbers</h3>
+  <div class="cards">
+    <div class="card"><span class="tag brand">World · 2022</span><p class="big-num">over 1 billion</p><p>People living with obesity: 504 million women, 374 million men, 65.1 million girls and 94.2 million boys aged 5–19. The total is a sum of the four groups [[NCDRisC2024]].</p></div>
+    <div class="card"><span class="tag brand">World adults · 1990 → 2022</span><p class="big-num">18.5% · 14.0%</p><p>Age-standardised obesity in women (from 8.8%) and men (from 4.8%). Obesity overtook underweight in 2003 for women and 2009 for men, yet 347 million adults still live with underweight, the "double burden" [[NCDRisC2024]].</p></div>
+    <div class="card"><span class="tag brand">World children · 5–19 years</span><p class="big-num">6.9% · 9.3%</p><p>Obesity in girls (from 1.7% in 1990) and boys (from 2.1%) in 2022. Child obesity exceeded 20% for girls in 21 countries and for boys in 35 [[NCDRisC2024]].</p></div>
+    <div class="card"><span class="tag accent">United States · 2021–2023</span><p class="big-num">40.3%</p><p>Of adults had obesity, with no significant difference between men and women; 9.4% had severe obesity (BMI ≥40) [[Emmerich2024]]. In 2011–2014, 17.0% of 2–19-year-olds had obesity [[Ogden2016Children]].</p></div>
+    <div class="card"><span class="tag hl">Burden · 2015</span><p class="big-num">4.0 million</p><p>Deaths worldwide attributed to high BMI, more than two thirds from cardiovascular disease and nearly 40% in people whose BMI was below the obesity threshold [[Afshin2017]].</p></div>
+    <div class="card"><span class="tag">Forecast · 2050</span><p class="big-num">3.8 billion</p><p>Adults forecast to have overweight or obesity if historical trends continue, over half the likely adult population (GBD 2021 reference scenario) [[GBD2021AdultBMI]].</p></div>
+  </div>
+  <p class="stage-cap">All figures describe populations, not what will happen to any one person.</p>
+
+  <h3 class="sub">US adults over six decades</h3>
+  <div class="stage">
+    <div class="scroll"><svg id="whUs" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Line chart of US adult obesity from national examination surveys: about 13 to 15% from 1960 to 1980, a sharp rise to 22.5% by 1988–94, then 30.5% in 1999–2000, 37.7% in 2013–14 and 40.3% in 2021–23. A lower line shows severe obesity (BMI 40 or more) rising from 2.9% to about 9.7%. A dashed point shows a model projection of 48.9% for 2030."></svg></div>
+    <div class="legend" aria-hidden="true"><span><i style="background:var(--brand)"></i>Obesity, BMI ≥30</span><span><i style="background:var(--accent)"></i>Severe obesity, BMI ≥40</span><span><i style="background:var(--muted)"></i>2030 projection (model)</span></div>
+    <p class="stage-cap">NHANES measured data: ages 20–74 to 1988–94 [[Flegal1998]], then ages 20 and over [[Flegal2002,Flegal2010,Ogden2014,Flegal2016,Emmerich2024]]; projection [[Ward2019NEJM]]. Points are survey periods, plotted at their midpoint.</p>
+  </div>
+  <div class="prose">
+    <p>The sharp rise came between the late 1970s and the early 1990s [[Flegal1998]]. From 2013–2014 to 2021–2023, age-adjusted adult obesity did not change significantly, while severe obesity rose from 7.7% to 9.7% [[Emmerich2024]]. A state-level model projected that 48.9% of US adults would have obesity by 2030, and that severe obesity would become the most common BMI category among women [[Ward2019NEJM]].</p>
+  </div>
+
+  <h3 class="sub">Clinical or preclinical? A teaching explorer</h3>
+  <div class="prose"><p>The Commission first asks whether excess body fat is confirmed, then whether it is already changing how organs work or limiting daily life [[Rubino2025Commission]]. Choose how adiposity was confirmed and tick any problems to see how the framework sorts an imaginary person.</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>This shows the logic of a published framework. It is not a diagnosis. The Commission's 18 adult criteria carry exact clinical definitions and require that the problem be caused by excess adiposity; the short names below summarise them [[Rubino2025Commission]].</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="calc"><label for="whConf">How was excess adiposity confirmed?
+        <select id="whConf">
+          <option value="none">Not confirmed: BMI alone, at 40 or below</option>
+          <option value="bmi1" selected>BMI plus one body measure (waist, waist-to-hip or waist-to-height)</option>
+          <option value="two">Two body measures, whatever the BMI</option>
+          <option value="dexa">Direct fat measurement, such as DEXA or bioimpedance</option>
+          <option value="b40">BMI above 40: assumed</option>
+        </select></label></div>
+      <div class="scroll"><svg id="whEx" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Two identical neutral figures labelled preclinical obesity and clinical obesity. Problems you tick light up as points on the clinical figure, and the panel matching the framework's classification is outlined."></svg></div>
+    </div>
+    <aside class="note whout" id="whOut" aria-live="polite"></aside>
+  </div>
+  <div class="whcrit" id="whCrit"></div>
+
+  <h3 class="sub">What the new framework does to the numbers</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Study</th><th>What was found</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><th>UK Biobank, 436,751 adults [[Liu2026UKB]]</th><td>Estimated obesity rose from 23.92% by BMI to 67.58% with the Commission criteria. 173,698 people with a non-obese BMI met the clinical criteria and had higher risk of type 2 diabetes (HR 3.18).</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>NHANES 1999–2018, 53,333 adults [[Xiao2026]]</th><td>Total obesity by the framework rose from 46.7% to 61.7%, clinical obesity from 34.6% to 46.6%. Clinical obesity carried higher all-cause mortality than preclinical (HR 1.46).</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>UK Biobank, 232,721 adults, 13.4 years [[Xu2025UKB]]</th><td>Against people with neither obesity nor dysfunction, the mortality HR was 2.30 for clinical obesity and 1.15 for preclinical obesity that stayed free of dysfunction.</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>US youth 5–18, NHANES 2017–2023 [[Chaudhary2026]]</th><td>8.3% preclinical and 12.5% clinical obesity; the combined 20.8% was close to the roughly 22% found by BMI percentile alone.</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th>US adults with BMI ≥35 treated in 2017–2023 [[Samuels2026]]</th><td>12.7% of surgery patients and 38.1% of medication users would have been classed as preclinical. The authors warn that using the labels for eligibility "could potentially delay intervention".</td><td><span class="ev early">Early evidence</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout">"Metabolically healthy" obesity is not risk-free: in 3.5 million UK adults, people with obesity but no diabetes, hypertension or hyperlipidaemia had more coronary heart disease (HR 1.49) and heart failure (HR 1.96) than metabolically healthy people of normal weight [[Caleyachetty2017MHO]]. The Commission's preclinical category likewise means preserved organ function with increased risk [[Rubino2025Commission]]. How organs are affected is covered in <a href="#complications" data-go="complications">Complications across the body</a>, and how a clinician assesses and stages them in <a href="#assessment" data-go="assessment">Assessment &amp; staging</a>.</p>
+
+  <h3 class="sub">Why "disease"?</h3>
+  <div class="split2">
+    <div class="card"><h4>What the label recognises</h4><p>The Commission says the causes include genetic, environmental, psychological, nutritional and metabolic factors that alter the biology maintaining fat tissue (agreement 95%) [[Rubino2025Commission]]. Supporters argue the disease label reflects biology and reduces blame, and the AMA's 2013 recognition has been linked to more access to care [[Kyle2016AMA,Bray2017WOF]]. <span class="ev est">Established</span></p></div>
+    <div class="card"><h4>The debate</h4><p>The Commission sets out the counter-argument that the label may reduce emphasis on personal responsibility, rejects it as a non-medical reason, and grounds disease status in organ dysfunction [[Rubino2025Commission]]. AACE's term "adiposity-based chronic disease" reflects a separate debate about naming and stigma [[Mechanick2017ABCD]]. Why weight bias harms care is covered in <a href="#stigma" data-go="stigma">Weight stigma &amp; bias</a>.</p></div>
+  </div>
+  <p class="support" role="note"><b>Not a failure of willpower</b>Obesity is a long-term condition shaped by genes, biology, surroundings and life circumstances [[Rubino2025Commission,Bray2017WOF]]. Weight that returns after weight loss reflects the body defending its weight, which is why it is treated as chronic; see <a href="#adaptation" data-go="adaptation">Why lost weight comes back</a> [[Sumithran2011]].</p>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service.</p>
+</section>

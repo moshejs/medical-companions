@@ -1,2 +1,66 @@
-<!-- STUB: replaced by its builder (health) -->
-<section class="mod" id="m-diabetes" data-mod="diabetes" hidden><div class="mhead"><p class="eyebrow">Part 2 · Health &amp; assessment</p><h2>Obesity &amp; type 2 diabetes</h2><p class="lede">Obesity and type 2 diabetes are closely linked; this module will show how insulin resistance builds and how weight loss can reverse it.</p></div></section>
+<!-- ================= 2.2 OBESITY & TYPE 2 DIABETES ================= -->
+<style>
+#m-diabetes .db-read{font-size:14.5px;max-width:78ch}
+#m-diabetes .db-kg{display:flex;flex-direction:column;gap:10px}
+#m-diabetes .db-kg output{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;font-size:14.5px}
+#m-diabetes .db-kg output span:last-child{flex:1;min-width:220px}
+</style>
+<section class="mod" id="m-diabetes" data-mod="diabetes" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Health &amp; assessment</p><h2>Obesity &amp; type 2 diabetes</h2>
+    <p class="lede">Type 2 diabetes is the complication most tightly bound to excess adiposity. Watch fat spill into the liver and pancreas until the insulin-making cells fall behind, then see what happened in the trials that prevented diabetes (DPP) and put it into remission (DiRECT).</p></div>
+
+  <div class="prose">
+    <p>Among 18 comorbidities pooled from 89 cohorts, type 2 diabetes had the strongest link to obesity (IRR 12.41 in women, 6.74 in men). [[Guh2009]] Even a moderate adult weight gain of 2.5 to under 10 kg went with more diabetes: 207 vs 110 cases per 100 000 person-years in women. [[Zheng2017]] Genetic studies support a causal role (OR 1.67). [[Riaz2018]]</p>
+  </div>
+
+  <div class="stepper" id="dbSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="dbSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Fat tissue, a liver and a pancreas linked by streams of fatty acids. The fat cells enlarge, the liver and pancreas fill with fat, insulin from the pancreas falls and blood glucose rises into the diabetes range; then with weight loss the organs empty and glucose falls. The scene then changes to DiRECT trial bar charts of remission over time and by kilograms lost"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="dbPlay">%t:player.play%</button><label class="stage-cap tl" for="dbT">From fat stores to remission <input type="range" id="dbT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Steps 1–3: schematic levels, no measured values. Step 4: published means from 11 people (Lim 2011). Steps 5–6: DiRECT results as published; population statistics, not a prediction for anyone.</p>
+    </div>
+    <aside class="note" id="dbNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>DPP: lifestyle (goal of at least 7% weight loss and 150 minutes of activity a week) cut diabetes incidence by 58% and metformin by 31%, over a mean 2.8 years. [[Knowler2002DPP]] DiRECT: remission 46% vs 4% at 12 months. [[Lean2018DiRECT]]</div>
+    <div class="pt"><b>In plain words</b>In a large study of people at high risk, a lifestyle programme cut the chance of getting type 2 diabetes by more than half over about three years. [[Knowler2002DPP]] Diabetes that does come can sometimes go into remission, especially early on. [[Lean2018DiRECT]]</div>
+  </div>
+
+  <h3 class="sub">Preventing diabetes: the Diabetes Prevention Program</h3>
+  <div class="prose"><p>The DPP randomised 3234 adults with raised fasting and post-load glucose (mean BMI 34.0) to placebo, metformin 850 mg twice daily, or a lifestyle programme with goals of at least 7% weight loss and at least 150 minutes of activity a week. [[Knowler2002DPP]] These are the trial's arms as published, not a prescription. Toggle the arms and drag through 15 years.</p></div>
+  <div class="stage">
+    <div class="ctrls" id="dpBtns"><button class="btn" data-arm="pl" aria-pressed="true">Placebo</button><button class="btn" data-arm="mf" aria-pressed="true">Metformin</button><button class="btn" data-arm="ls" aria-pressed="true">Lifestyle</button>
+      <label class="stage-cap tl" for="dpT">Years <input type="range" id="dpT" min="0" max="15" step="0.1" value="2.8"></label></div>
+    <div class="scroll"><svg id="dpSvg" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="Cumulative diabetes incidence curves for the placebo, metformin and lifestyle arms of the DPP over 15 years, with the trial phase shaded"></svg></div>
+    <p class="db-read" id="dpRead" aria-live="polite"></p>
+    <p class="stage-cap">Solid lines: computed from the published rates for the trial phase. Dashed lines: schematic joins to the published 15-year values (dots).</p>
+  </div>
+  <div class="stage db-kg">
+    <label class="stage-cap tl" for="dbKg">Kilograms lost in the DPP lifestyle arm <input type="range" id="dbKg" min="0" max="5" step="1" value="5"></label>
+    <output for="dbKg" id="dbKgOut" aria-live="polite"></output>
+    <p class="teach" role="note"><b>Teaching tool</b>This compounds the published 16% per kilogram, which matches the published hazard ratio of 0.42 per 5 kg. [[Hamman2006]] It describes a trial population at high risk, not a target or a forecast for anyone. Among participants who missed the year-1 weight goal, those who met the activity goal still had 44% lower incidence. [[Hamman2006]]</p>
+  </div>
+
+  <h3 class="sub">Prevention and remission trials at a glance</h3>
+  <div class="tbl"><table>
+    <caption class="sr">Diabetes prevention and remission trials</caption>
+    <thead><tr><th scope="col">Trial</th><th scope="col">Who</th><th scope="col">Result as published</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Finnish DPS</th><td>522 adults with impaired glucose tolerance, mean BMI 31</td><td>4-year diabetes incidence 11% with lifestyle counselling vs 23% in controls: 58% lower. [[Tuomilehto2001]]</td></tr>
+      <tr><th scope="row">DPP</th><td>3234 adults with raised glucose, mean BMI 34.0</td><td>11.0, 7.8 and 4.8 cases per 100 person-years (placebo, metformin, lifestyle). [[Knowler2002DPP]]</td></tr>
+      <tr><th scope="row">DPP Outcomes Study</th><td>The same people, followed on</td><td>10 years: 34% (lifestyle) and 18% (metformin) lower incidence. [[DPPRG2009]] About 21 years: HR 0.76 and 0.83; median diabetes-free survival 3.5 and 2.5 years longer. [[Knowler2025DPPOS]]</td></tr>
+      <tr><th scope="row">Look AHEAD</th><td>5145 adults with type 2 diabetes</td><td>Any remission 11.5% in year 1 and 7.3% at year 4 with intensive lifestyle vs 2.0% with support and education; only 3.5% stayed in remission for all 4 years. [[Gregg2012Remission]]</td></tr>
+      <tr class="hl"><th scope="row">DiRECT</th><td>306 adults with type 2 diabetes for under 6 years, BMI 27–45</td><td>Remission 46% vs 4% at 12 months [[Lean2018DiRECT]], 36% vs 3% at 24 months [[Lean2019DiRECT]], 13% of the extension group at 5 years. [[Lean2024DiRECT]]</td></tr>
+      <tr><th scope="row">Personal fat threshold study</th><td>20 people with type 2 diabetes and BMI under 27</td><td>Remission in 14 of 20 (70%) after a median initial loss of 6.5%. Small and uncontrolled. <span class="ev early">Early evidence</span> [[Taylor2023PFT]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><p>USPSTF (grade B): clinicians should offer or refer adults with a BMI of 30 or more to intensive, multicomponent behavioural interventions, which lowered diabetes incidence in adults with obesity and raised glucose; harms were "small to none". [[Curry2018USPSTF]] Medicines that treat obesity are in <a href="#" data-go="glp">module 3.2</a> and lifestyle programmes in <a href="#" data-go="lifestyle">module 3.1</a>.</p></div>
+  <p class="crisis" role="note"><b>Medicines</b><span>DiRECT stopped diabetes and blood-pressure medicines as part of a supervised trial protocol. Do not start, stop or change a medicine without a clinician. A programme like this is done with the care team, because diabetes and blood-pressure medicines may need to change. [[Lean2018DiRECT]]</span></p>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service before changing how they eat. [[Kessler2013BED]]</p>
+  <div class="cards">
+    <div class="card"><h4>How long does remission last?</h4><p>DiRECT remission fell from 46% at 1 year to 36% at 2 years, and only 26% of those in remission at year 2 still were at 5 years. [[Lean2018DiRECT,Lean2019DiRECT,Lean2024DiRECT]] Weight regain is biology, not a lack of effort; remission is real but needs long-term support.</p></div>
+    <div class="card"><h4>Which figure for "kept off 10 kg"?</h4><p>The 2-year paper reports remission in 64% (29 of 45, whole study) of those who kept off at least 10 kg [[Lean2019DiRECT]]; the 5-year paper reports 81% (29 of 36, intervention group). [[Lean2024DiRECT]] Same people, different denominators.</p></div>
+    <div class="card"><h4>Fewer serious problems</h4><p>Over 5 years, the original DiRECT intervention group had fewer serious adverse events than controls: 4.8 vs 10.2 per 100 patient-years. [[Lean2024DiRECT]]</p></div>
+  </div>
+</section>

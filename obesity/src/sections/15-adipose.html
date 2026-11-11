@@ -1,2 +1,86 @@
-<!-- STUB: replaced by its builder (biology) -->
-<section class="mod" id="m-adipose" data-mod="adipose" hidden><div class="mhead"><p class="eyebrow">Part 1 · Understanding obesity</p><h2>Fat tissue as an organ</h2><p class="lede">Fat tissue is an active organ that stores energy and sends signals; this module will show what changes as it grows.</p></div></section>
+<!-- ================= 1.5 FAT TISSUE AS AN ORGAN ================= -->
+<style>
+#m-adipose .ad-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-adipose .ad-row .btn{min-height:40px}
+#m-adipose .ad-row .lbl{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+#m-adipose .card .ad-num{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--accent)}
+#m-adipose .card .ev{align-self:flex-start}
+#m-adipose .ad-kn,#m-adipose .ad-tn{display:flex;flex-direction:column;gap:10px}
+#m-adipose .ad-kn h4,#m-adipose .ad-tn h4{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.15;margin:0}
+#m-adipose .ad-kn p,#m-adipose .ad-tn p{margin:0}
+#m-adipose .ad-heat{animation:adRise 1.6s ease-in-out infinite alternate}
+@keyframes adRise{from{transform:translateY(4px)}to{transform:translateY(-8px)}}
+@media (prefers-reduced-motion:reduce){#m-adipose .ad-heat{animation:none}}
+</style>
+<section class="mod" id="m-adipose" data-mod="adipose" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding obesity</p><h2>Fat tissue as an organ</h2>
+    <p class="lede">Fat tissue is not a passive store. It holds fat cells, blood vessels, nerves and immune cells, and it sends hormones and other signals around the body. [[Kershaw2004]] The Lancet Commission defines obesity as excess adiposity "with or without abnormal distribution or function of adipose tissue". [[Rubino2025Commission]] Scrub the timeline to zoom from the body into the tissue and watch what changes as it grows.</p></div>
+
+  <div class="stepper" id="adSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="adSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A standing figure and a cross-section of the abdomen showing fat under the skin and visceral fat around the organs, zooming into a sheet of fat cells that enlarge, lose oxygen and gather macrophages, with signal bars for adiponectin, leptin and inflammatory signals, and fatty acids flowing to the liver, muscle and pancreas"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="adPlay">%t:player.play%</button><label class="stage-cap tl" for="adT">From storage to spill-over <input type="range" id="adT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <p class="stage-cap">Schematic, not to scale. Signal bars show direction, not measured levels. [[Kershaw2004,Arita1999,Weisberg2003]]</p>
+    </div>
+    <aside class="note" id="adNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>Fat is an active organ that sends hormones. When fat cells get very large they can become inflamed, and fat can end up stored in places such as the liver, where it causes more trouble. [[Kershaw2004,Cinti2005,Neeland2019]]</div>
+    <div class="hook"><b>Exam hook</b>Crown-like structures are macrophages surrounding dead, enlarged fat cells; more than 90% of fat-tissue macrophages in obesity sit around dead adipocytes. [[Cinti2005]] Adiponectin is made only by fat cells, yet it is lower in obesity. [[Arita1999]]</div>
+  </div>
+
+  <h3 class="sub">White, beige and brown fat</h3>
+  <div class="prose"><p>White fat stores surplus energy. Brown and beige fat burn energy as heat through uncoupling protein 1 (UCP1). [[Becher2021,Wu2012]] Pick a type, then switch the cold on and off.</p></div>
+  <div class="ad-row" id="adKindBtns" role="group" aria-label="Type of fat"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="adKind" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="One large fat cell of the chosen type, a patch of the same tissue with heat waves when cold switches it on, and bars for how often active brown fat was detected in four studies"></svg></div>
+      <p class="stage-cap">Cells schematic. Bars: share of people with detectable brown fat activity in each study, which used different methods and groups, so they are not comparable with one another. [[Cypess2009,vanMarkenLichtenbelt2009,Saito2009]]</p></div>
+    <aside class="note ad-kn" id="adKindNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How many fat cells? A slow turnover</h3>
+  <div class="prose"><p>Carbon-14 from nuclear bomb tests, built into DNA, let researchers date human fat cells. About 10% are renewed each year at all adult ages and body sizes, yet the total number stays constant through adulthood, even after marked weight loss. [[Spalding2008]] Scrub the years to watch a population of 100 cells being replaced one by one.</p></div>
+  <div class="ad-row" id="adTurnBtns" role="group" aria-label="Weight"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="adTurn" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A grid of 100 fat cells in which old cells die and new ones take their place each year, with a counter that stays at 100 and a curve of the share of original cells still present"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="adTurnPlay">%t:player.play%</button><label class="stage-cap tl" for="adTurnT">Years <input type="range" id="adTurnT" min="0" max="20" step="0.05" value="0"></label></div>
+      <p class="stage-cap">A teaching model built on about 10% renewal per year [[Spalding2008]] and a mean fat-cell lifespan of about 10 years [[Arner2010]]; each square is illustrative, not a measured cell.</p></div>
+    <aside class="note ad-tn" id="adTurnNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">What fat tissue releases</h3>
+  <div class="tbl"><table>
+    <caption class="sr">Signals made or handled by adipose tissue</caption>
+    <thead><tr><th scope="col">Signal</th><th scope="col">What the sources show</th><th scope="col">In obesity</th></tr></thead>
+    <tbody>
+      <tr class="fat"><th scope="row">Leptin</th><td>Product of the <i>ob</i> gene; mice without it develop profound obesity and type 2 diabetes. [[Zhang1994]] More on its role in hunger in <a href="#appetite" data-go="appetite">Appetite: the gut-brain loop</a>.</td><td>Higher: 31.3 vs 7.5 ng/mL in people with and without obesity, tracking body fat (r = 0.85). [[Considine1996]]</td></tr>
+      <tr><th scope="row">Adiponectin</th><td>A protein made only by fat cells. [[Arita1999]]</td><td>Paradoxically lower in plasma, even though only fat makes it. [[Arita1999]]</td></tr>
+      <tr class="fat"><th scope="row">TNF-alpha</th><td>Neutralising it in obese rats increased insulin-stimulated glucose uptake. [[Hotamisligil1993]] Macrophages in fat make almost all of it. [[Weisberg2003]]</td><td>Induced in fat tissue in four rodent models of obesity and diabetes. [[Hotamisligil1993]]</td></tr>
+      <tr><th scope="row">Other cytokines, complement, PAI-1, renin-angiotensin proteins, resistin</th><td>Secreted by adipose tissue. [[Kershaw2004]]</td><td>Inflammatory and macrophage genes rise step by step, ahead of the rise in blood insulin (mouse models). [[Xu2003]]</td></tr>
+      <tr class="fat"><th scope="row">Sex steroids and glucocorticoids</th><td>Fat is a major site of their metabolism. [[Kershaw2004]]</td><td>Covered in <a href="#pregnancy" data-go="pregnancy">Pregnancy &amp; fertility</a>.</td></tr>
+      <tr><th scope="row">Fatty acids and glycerol</th><td>Released from stored triglyceride. [[Kahn2006]]</td><td>Released in greater amounts; with cytokines, they drive insulin resistance. [[Kahn2006]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Where fat sits, and what it does there</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Visceral vs subcutaneous</span><span class="ad-num">4.7 vs 3.0</span><p>Odds ratio for metabolic syndrome per 1-SD more visceral or subcutaneous fat, women in the Framingham cohort (4.2 vs 2.5 in men). Only visceral fat added information after BMI and waist. [[Fox2007Framingham]]</p></div>
+    <div class="card"><span class="kicker">Heritability</span><span class="ad-num">57% / 36%</span><p>Estimated heritability of subcutaneous and visceral fat in the same Framingham cohort. [[Fox2007Framingham]] Genes are covered in <a href="#causes" data-go="causes">Causes: genes &amp; environment</a>.</p></div>
+    <div class="card"><span class="kicker">Liposuction</span><span class="ad-num">~10 kg</span><p>Large-volume liposuction removed 9.1 to 10.5 kg of fat under the skin in 15 women with obesity, but did not change insulin sensitivity of muscle, liver or fat, or inflammatory markers, at 10 to 12 weeks. [[Klein2004]] Removing fat is not the same as weight loss.</p></div>
+    <div class="card"><span class="kicker">Liver fat falls first</span><span class="ad-num">12.8% → 2.9%</span><p>Liver fat in 11 people with type 2 diabetes on a 600 kcal/day research diet over 8 weeks; pancreatic fat fell from 8.0% to 6.2% and first-phase insulin secretion recovered toward normal. [[Lim2011]] A research protocol, not advice.</p></div>
+    <div class="card"><span class="kicker">Brown fat and health</span><span class="ev early">Early evidence</span><p>Across 134,529 PET-CT scans from 52,487 people, those with detectable brown fat had lower odds of type 2 diabetes, heart disease and high blood pressure, most clearly in people with overweight or obesity. Retrospective and observational. [[Becher2021]] Whether switching brown fat on can change body weight is unproven.</p></div>
+  </div>
+
+  <h3 class="sub">The personal fat threshold</h3>
+  <div class="prose"><p>Many people develop type 2 diabetes at a BMI that is not in the obesity range. In the UKPDS the median BMI at diagnosis was 28 kg/m², and one in three had a BMI under 25. [[Taylor2015PFT]] One idea to explain this is the personal fat threshold.</p></div>
+  <div class="cards">
+    <div class="card"><span class="ev hyp">Hypothesis</span><h4>Each person has their own limit</h4><p>The personal fat threshold hypothesis says each person has a level of fat beyond which type 2 diabetes becomes likely, that this level is independent of BMI. [[Taylor2015PFT]] It fits the wider picture of fat stored in the wrong places, such as the liver. [[Tchernof2013]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>A small test at "normal" BMI</h4><p>In 20 people with type 2 diabetes and BMI under 27, repeated 5% weight-loss cycles lowered BMI from 24.8 to 22.5 kg/m² and returned liver fat to normal. 14 of 20 (70%) reached remission after a median initial loss of 6.5%. Small and uncontrolled. [[Taylor2023PFT]]</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Who recovers insulin secretion</h4><p>In a DiRECT subgroup, liver fat fell from 16.0% to 3.1% after weight loss. Return of first-phase insulin secretion separated people whose diabetes went into remission from those whose did not, and responders had shorter diabetes duration (2.7 vs 3.8 years). [[Taylor2018CellMetab]] See <a href="#diabetes" data-go="diabetes">Obesity &amp; type 2 diabetes</a>.</p></div>
+  </div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service. The diets named on this page were research protocols, not advice.</p>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>About 10% of adult fat cells are replaced each year; the total number is set by the end of adolescence and does not fall with weight loss. [[Spalding2008]] Visceral fat outranks subcutaneous fat for metabolic risk. [[Fox2007Framingham]]</div>
+    <div class="pt"><b>In plain words</b>Adults keep roughly the same number of fat cells. Weight loss makes the cells smaller but does not remove them. [[Spalding2008]] This is part of why the body defends its fat stores, covered in <a href="#adaptation" data-go="adaptation">Why lost weight comes back</a>.</div>
+  </div>
+</section>

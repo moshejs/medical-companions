@@ -1,2 +1,75 @@
-<!-- STUB: replaced by its builder (health) -->
-<section class="mod" id="m-assessment" data-mod="assessment" hidden><div class="mhead"><p class="eyebrow">Part 2 · Health &amp; assessment</p><h2>Assessment &amp; staging</h2><p class="lede">A good assessment starts with permission and looks at the whole person; this module will walk through it and the Edmonton staging system.</p></div></section>
+<!-- ================= 2.3 ASSESSMENT & STAGING ================= -->
+<style>
+#m-assessment .as-checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 16px;font-size:14.5px}
+#m-assessment .as-checks label{display:flex;gap:8px;align-items:flex-start;line-height:1.35;cursor:pointer}
+#m-assessment .as-checks input{margin-top:3px;flex:none;accent-color:var(--hl)}
+#m-assessment .as-adi{display:flex;gap:8px;align-items:flex-start;font-weight:700;font-size:15px}
+#m-assessment .as-adi input{margin-top:4px;accent-color:var(--hl)}
+#m-assessment .as-out{display:flex;flex-direction:column;gap:8px;font-size:14.5px;max-width:78ch}
+</style>
+<section class="mod" id="m-assessment" data-mod="assessment" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Health &amp; assessment</p><h2>Assessment &amp; staging</h2>
+    <p class="lede">A good assessment starts by asking permission and ends with a plan made together. In between, it looks at the whole person: their story, their medicines, sleep and mood, the right measurements and tests, and how weight is actually affecting health and daily life.</p></div>
+
+  <div class="stepper" id="asSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="asSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A path of six stations, ask, history, measure, tests, stage and plan, with a scene for each: two people and a question asking permission, a weight-history curve with a checklist, a figure with a waist tape and a blood-pressure cuff beside a cuff-size table, test tubes filling, the five steps of the Edmonton staging system, and the Advise, Agree and Assist cards"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="asPlay">%t:player.play%</button><label class="stage-cap tl" for="asT">The encounter <input type="range" id="asT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <p class="stage-cap">Schematic. The weight-history curve is illustrative; cuff sizes, test lists and hazard ratios are as published.</p>
+    </div>
+    <aside class="note" id="asNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Too small a cuff overestimates blood pressure: the bladder length should be 75–100% of arm circumference and its width 37–50%. [[Muntner2019]] EOSS stage, not BMI class, separated survival in NHANES. [[Padwal2011EOSS]]</div>
+    <div class="pt"><b>In plain words</b>A good check-up asks your permission before talking about weight. It looks at your whole health, not just the number on the scale. [[Vallis2013,Rubino2025Commission]]</div>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>BMI, waist, STOP-Bang and staging tools on this page are teaching tools with population caveats. None is a diagnosis or a target on its own; a clinician puts them together with the person. [[Rubino2025Commission]] The measuring module, <a href="#" data-go="measuring">1.2</a>, explains BMI classes and waist cut-offs.</p>
+
+  <h3 class="sub">Staging with EOSS: a teaching sketch</h3>
+  <div class="prose"><p>EOSS grades comorbidity and functional status on a 5-point scale, 0 to 4, alongside BMI. [[Sharma2009EOSS,Padwal2011EOSS]] In a modified version used with cohort data, stage 0 means no risk factors or comorbidities, stage 1 mild conditions, and stages 2–3 moderate to severe conditions. [[Kuk2011EOSS]] Set each domain below; this sketch takes the most severe one.</p></div>
+  <div class="stage">
+    <div class="calc">
+      <label for="asMed">Medical: risk factors and comorbidities<select id="asMed"></select></label>
+      <label for="asPsy">Mental health<select id="asPsy"></select></label>
+      <label for="asFun">Daily function<select id="asFun"></select></label>
+    </div>
+    <div class="scroll"><svg id="asEossSvg" viewBox="0 0 720 240" style="min-width:560px" role="img" aria-label="Bars of the mortality hazard ratio by EOSS stage from NHANES, with the stage chosen in the sketch highlighted"></svg></div>
+    <div class="as-out" id="asEossOut" aria-live="polite"></div>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>A simplified sketch of the idea, not the official EOSS scoring form, and never a diagnosis or a prognosis. Weight history matters too: lower weight at age 21, lower fitness and reported dieting were each associated with being at EOSS stage 2 or 3. [[Kuk2011EOSS]]</p>
+
+  <h3 class="sub">Clinical or preclinical obesity? The Lancet Commission criteria</h3>
+  <div class="prose"><p>The 2025 Lancet Commission defines clinical obesity as a chronic, systemic illness in which excess adiposity alters organ or tissue function or limits daily activities; preclinical obesity is excess adiposity with organ function preserved. It lists 18 adult diagnostic criteria, agreed with 90–100% consensus. [[Rubino2025Commission]]</p></div>
+  <div class="stage">
+    <label class="as-adi"><input type="checkbox" id="asAdi"> Excess adiposity confirmed (BMI plus a waist measure or direct fat measurement, or BMI over 40)</label>
+    <div class="as-checks" id="asLc"></div>
+    <div class="as-out" id="asLcOut" aria-live="polite"></div>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>A checklist for learning the criteria, not a diagnosis. Each criterion needs a clinician to confirm both the problem and that excess adiposity is its cause.</p>
+
+  <h3 class="sub">Screening for sleep apnoea: STOP-Bang</h3>
+  <div class="prose"><p>STOP stands for Snoring, Tiredness, Observed apnoea and high blood Pressure; adding BMI, Age, Neck circumference and male Gender ("Bang") raised sensitivity for an AHI over 15 from 74.3% to 92.9% in surgical patients. [[Chung2008STOP]] In sleep clinics the negative predictive value for any OSA was only 46%. [[Nagappa2015]]</p></div>
+  <div class="stage">
+    <div class="as-checks" id="asSb"></div>
+    <div class="as-out" id="asSbOut" aria-live="polite"></div>
+  </div>
+
+  <h3 class="sub">What a full assessment covers</h3>
+  <div class="tbl"><table>
+    <caption class="sr">Parts of an obesity assessment, with what the sources say</caption>
+    <thead><tr><th scope="col">Part</th><th scope="col">What to look at</th><th scope="col">Source says</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Permission</th><td>Ask before discussing weight; explore readiness</td><td>The first of the modified 5As. [[Vallis2013]]</td></tr>
+      <tr><th scope="row">Medicines</th><td>Weight-gaining and weight-losing medicines</td><td>Metformin (−1.1 kg), liraglutide (−1.7 kg), topiramate (−3.8 kg) and bupropion (−1.3 kg) were linked to weight loss. [[Domecq2015]] "Knowledgeable prescribing" can help prevent and manage obesity. [[Apovian2015]]</td></tr>
+      <tr><th scope="row">Eating and mood</th><td>Binge eating, night eating, low mood</td><td>Binge eating disorder: median lifetime prevalence 1.4%; fewer than half ever treated. [[Kessler2013BED]] Obesity and depression each raise the odds of the other. [[Luppino2010]]</td></tr>
+      <tr><th scope="row">Waist</th><td>Measured routinely, with BMI</td><td>Waist was linked to higher mortality above 95 cm in men and 80 cm in women in 18 European studies. [[Ross2020IASICCR]]</td></tr>
+      <tr><th scope="row">Blood pressure</th><td>Arm circumference first, then the cuff</td><td>Most kiosk machines have one cuff, too small for most US adults; if an extra-large cuff does not fit, a validated wrist device held at heart level is an option. [[Muntner2019]]</td></tr>
+      <tr><th scope="row">Liver</th><td>FIB-4, repeated every 1–2 years with prediabetes, type 2 diabetes or 2 or more metabolic risk factors</td><td>A "true normal" ALT is 29–33 U/L in men and 19–25 U/L in women, lower than many laboratory limits. [[Rinella2023AASLD]]</td></tr>
+      <tr><th scope="row">Sleep</th><td>STOP-Bang</td><td>Score 0–2 low risk, 5–8 high risk for moderate-to-severe OSA. [[Chung2016STOPBang]]</td></tr>
+      <tr><th scope="row">Staging</th><td>EOSS or the King's criteria</td><td>King's: nine domains, each 0 (normal) to 3 (advanced disease); 84% of 144 people before bariatric surgery were at stage 2 or 3 in a domain other than BMI. [[Aasheim2011]]</td></tr>
+    </tbody>
+  </table></div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service. Help works, and many people with binge eating never get treatment. [[Kessler2013BED]]</p>
+  <p class="support" role="note"><b>Your medicines</b>Some medicines can cause weight gain. Never stop or change a medicine on your own: ask your clinician whether there is another option. [[Domecq2015]]</p>
+</section>

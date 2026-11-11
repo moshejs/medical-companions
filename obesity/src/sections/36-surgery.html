@@ -1,2 +1,148 @@
-<!-- STUB: replaced by its builder (surgery) -->
-<section class="mod" id="m-surgery" data-mod="surgery" hidden><div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Metabolic &amp; bariatric surgery</h2><p class="lede">Metabolic and bariatric surgery changes the stomach and gut, and the hormones they send; this module will animate the main operations.</p></div></section>
+<!-- ================= 3.6 METABOLIC & BARIATRIC SURGERY ================= -->
+<style>
+#m-surgery .su-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-surgery .su-row .btn{min-height:40px}
+#m-surgery .su-key{display:inline-block;width:18px;height:0;border-top:3px solid var(--muted);vertical-align:middle;margin-right:7px}
+#m-surgery .card .su-num{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--tx)}
+#m-surgery .card .ev{align-self:flex-start}
+#m-surgery .su-elig{display:flex;flex-direction:column;gap:10px}
+#m-surgery .su-elig .verdict{font-weight:500;font-size:15px}
+#m-surgery .su-elig .verdict .kicker{color:inherit}
+#m-surgery .su-elig .verdict.out{background:var(--panel-2);color:var(--ink)}
+#m-surgery .calc label.chk{flex-direction:row;align-items:center;gap:8px;font-weight:500}
+#m-surgery .calc label.chk input{width:18px;height:18px;flex:none}
+</style>
+<section class="mod" id="m-surgery" data-mod="surgery" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Metabolic &amp; bariatric surgery</h2>
+    <p class="lede">Metabolic and bariatric surgery changes the stomach and gut, and with them the hormones that tell the brain about hunger and fullness. [[leRoux2006,Karamanakos2008]] Scrub the timeline to watch a normal stomach become a sleeve, then a bypass, and see what the gut sends to the brain afterwards.</p></div>
+
+  <div class="stepper" id="suSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="suSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A front-view drawing of the stomach and gut that changes from a normal stomach into a sleeve gastrectomy and then into a Roux-en-Y gastric bypass with its pouch, Roux limb, biliary limb and join, while food moves along the route and hormone signals travel from the gut to the brain; beside it, arrows show which hormones rise or fall"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="suPlay">%t:player.play%</button><label class="stage-cap tl" for="suT">Operation and mechanism <input type="range" id="suT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <p class="stage-cap">Schematic, not to scale. Arrows show the direction of hormone changes reported in trials, not measured levels. [[leRoux2006,Karamanakos2008]] Limb lengths are those used in one trial; surgeons vary them. [[Robert2019YOMEGA]]</p>
+    </div>
+    <aside class="note" id="suNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>The two most common operations are the sleeve, where part of the stomach is removed, and the gastric bypass, where food skips most of the stomach and the first part of the gut. Both change hunger and fullness signals, not only stomach size. [[Eisenberg2022ASMBS,leRoux2006]]</div>
+    <div class="hook"><b>Exam hook</b>The gut-hormone rise after bypass did not occur after a band with equal weight loss, so restriction alone does not explain it. [[leRoux2006]]</div>
+  </div>
+
+  <h3 class="sub">Compare the operations</h3>
+  <div class="prose"><p>Pick an operation and play the food route. The list shows which parts of the gut food still passes, and which it skips. Endoscopic procedures done through the mouth, such as endoscopic sleeve gastroplasty and intragastric balloons, are covered further down.</p></div>
+  <div class="su-row" id="suPxBtns" role="group" aria-label="Operation"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="suPx" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="The gut drawn for the chosen operation, with a bolus of food moving along its route, and a list of six gut segments marked as passed by food, partly passed or bypassed"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="suPxPlay">%t:player.play%</button><label class="stage-cap tl" for="suPxT">Food route <input type="range" id="suPxT" min="0" max="1" step="0.002" value="0.3"></label></div>
+      <p class="stage-cap">Schematic. Dashed segments are bypassed by food. [[Kim2026Complications,Lupoli2017]]</p>
+    </div>
+    <aside class="note" id="suPxNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Who is offered surgery</h3>
+  <div class="prose">
+    <p>In 1991 a US NIH consensus panel said that people with severe obesity should first be considered for a non-surgical programme, and that surgery could be considered for well-informed patients with acceptable operative risk, selected by a multidisciplinary team, with lifelong medical follow-up. [[NIH1991Consensus]] Its BMI thresholds, above 40, or above 35 with comorbidities, became the standard for three decades. [[Eisenberg2022ASMBS,Arterburn2020JAMA]] In 2022 the ASMBS and IFSO replaced them. The explainer below quotes both, as published.</p>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>This explainer only shows which published statement a BMI band falls under. It is not an eligibility check, a diagnosis or a target. Real decisions weigh health, risks, preferences and much more than BMI; a JAMA review advises offering people with severe obesity a conversation about surgery, driven by informed preference. [[Arterburn2020JAMA]] In SOS, baseline glucose and insulin, not baseline BMI, predicted who benefited. [[Sjostrom2013JIM]]</p>
+  <div class="lab even">
+    <div class="stage">
+      <div class="calc">
+        <label for="suBmi">BMI band (kg/m²)
+          <select id="suBmi">
+            <option value="22">Below 25</option>
+            <option value="26">25 to 27.4</option>
+            <option value="28">27.5 to 29.9</option>
+            <option value="32" selected>30 to 34.9</option>
+            <option value="37">35 to 39.9</option>
+            <option value="42">40 or above</option>
+          </select></label>
+        <label class="chk" for="suMet"><input type="checkbox" id="suMet"> Metabolic disease or an obesity-related condition (for example type 2 diabetes)</label>
+        <label class="chk" for="suAsian"><input type="checkbox" id="suAsian"> Asian population (the statement gives separate thresholds)</label>
+      </div>
+    </div>
+    <div class="su-elig" id="suElig" aria-live="polite"></div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="kicker">Children and adolescents</span><p>ASMBS/IFSO 2022: "Appropriately selected children and adolescents should be considered" for surgery, and surgery does not harm pubertal development or linear growth, so no specific Tanner stage or bone age should be required. [[Eisenberg2022ASMBS]] The 2018 ASMBS pediatric guideline says adolescents with cognitive disabilities, treated mental illness or eating disorders "should not be denied treatment". [[Pratt2018ASMBS]] More in <a href="#children" data-go="children">Children &amp; adolescents</a>.</p></div>
+    <div class="card"><span class="kicker">Older adults</span><p>There is "no evidence to support an age limit"; surgery has been done in people over 70, with slightly higher complication rates, and frailty assessment is recommended. [[Eisenberg2022ASMBS]]</p></div>
+    <div class="card"><span class="kicker">Required weight loss before surgery</span><p>The 2022 statement finds "no data to support" insurance-mandated preoperative weight loss and calls it "discriminatory, arbitrary, and scientifically unfounded". [[Eisenberg2022ASMBS]]</p></div>
+    <div class="card"><span class="kicker">Type 2 diabetes</span><p>The 2016 Diabetes Surgery Summit, endorsed by 45 societies, set separate thresholds for type 2 diabetes, lowered by 2.5 kg/m² for Asian patients. [[Rubino2016DSS]] See <a href="#diabetes" data-go="diabetes">Obesity &amp; type 2 diabetes</a>.</p></div>
+  </div>
+
+  <h3 class="sub">Twenty years of weight change: the SOS study</h3>
+  <div class="prose"><p>The Swedish Obese Subjects (SOS) study followed 2010 people who chose surgery and 2037 matched controls who had usual care. It was prospective and matched, not randomised. [[Sjostrom2007SOS]] Most had operations rarely used today: vertical banded gastroplasty 68%, banding 19% and gastric bypass 13%. [[Sjostrom2013JIM]] Play the years and switch the lines on and off.</p></div>
+  <div class="su-row" id="suSosBtns" role="group" aria-label="Lines shown"></div>
+  <div class="stage">
+    <div class="scroll"><svg id="suSos" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="Line chart of mean weight change over 20 years in the SOS study: the surgery group falls to about minus 23% at 2 years and settles near minus 17 to 18%, controls stay within 1%, and lines by operation show gastric bypass, vertical banded gastroplasty and banding to 10 years"></svg></div>
+    <div class="ctrls"><button class="btn primary" id="suSosPlay">%t:player.play%</button><label class="stage-cap tl" for="suSosT">Years after surgery <input type="range" id="suSosT" min="0" max="1" step="0.002" value="1"></label></div>
+    <div class="readout" id="suSosRead" aria-live="polite"></div>
+    <p class="stage-cap">Dots are published means; the lines between them are smoothed and schematic. All surgery and controls to 20 years [[Sjostrom2013JIM]]; by operation to 10 years, with the maximum loss (reached at 1 to 2 years) plotted at 1.5 years. [[Sjostrom2007SOS]] Population averages, not a prediction for any person.</p>
+  </div>
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>On average, people who had surgery lost more weight and kept more of it off than people with usual care. Results vary a lot from person to person, and some weight usually comes back after the first two years. [[Sjostrom2013JIM]]</div>
+    <div class="hook"><b>Exam hook</b>SOS maximum loss at 1 to 2 years: bypass 32%, gastroplasty 25%, banding 20%; at 10 years 25%, 16% and 14%. Adjusted mortality hazard ratio 0.71. [[Sjostrom2007SOS]]</div>
+  </div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service. Weight-change figures on this page are group averages from studies, not goals.</p>
+
+  <h3 class="sub">Diabetes after surgery: STAMPEDE</h3>
+  <div class="prose"><p>STAMPEDE randomised 150 people with type 2 diabetes and BMI 27 to 43 to intensive medical therapy alone or with gastric bypass or sleeve gastrectomy. [[Schauer2017STAMPEDE]] Pick a measure.</p></div>
+  <div class="su-row" id="suStBtns" role="group" aria-label="Measure"></div>
+  <div class="stage">
+    <div class="scroll"><svg id="suSt" viewBox="0 0 720 250" style="min-width:560px" role="img" aria-label="Bar chart of STAMPEDE five-year results for intensive medical therapy, gastric bypass and sleeve gastrectomy: share reaching HbA1c of 6.0% or less, weight change, and fall in insulin use"></svg></div>
+    <p class="stage-cap">5-year results: HbA1c 6.0% or less in 5%, 29% and 23%; weight change −5%, −23% and −19%; insulin use fell by 13%, 35% and 34%. [[Schauer2017STAMPEDE]]</p>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="kicker">Rome trial, 10 years</span><span class="su-num">50% · 25% · 5.5%</span><p>Diabetes remission after biliopancreatic diversion, gastric bypass and medical therapy. Of those in remission at 2 years, 58.8% relapsed by 10 years, but all kept adequate control. [[Mingrone2021Lancet]]</p></div>
+    <div class="card"><span class="kicker">ARMMS-T2D, 4 pooled trials</span><span class="su-num">12.7% vs 0%</span><p>Remission at 12 years after surgery versus medical and lifestyle care (18.2% versus 6.2% at 7 years). [[Courcoulas2024ARMMS]]</p></div>
+    <div class="card"><span class="kicker">SOS, people without diabetes</span><span class="su-num">HR 0.17</span><p>New type 2 diabetes: 6.8 versus 28.4 per 1000 person-years after surgery versus usual care. [[Carlsson2012NEJM]]</p></div>
+    <div class="card"><span class="kicker">GATEWAY, blood pressure</span><span class="su-num">51%</span><p>of the bypass group were off all blood pressure medicines at 12 months; 83.7% versus 12.8% cut medicines by at least 30% with controlled pressure. [[Schiavon2018GATEWAY]]</p></div>
+  </div>
+  <p class="callout">Do not start, stop or change a diabetes or blood pressure medicine without a clinician. Diabetes can come back over the years after surgery, so monitoring continues. [[Mingrone2021Lancet,Courcoulas2018LABS]]</p>
+
+  <h3 class="sub">Sleeve or bypass? Two randomised trials</h3>
+  <div class="prose"><p>SLEEVEPASS (240 people, Finland) and SM-BOSS (217 people, Switzerland) randomised adults to sleeve or bypass. [[Salminen2018SLEEVEPASS,Peterli2018SMBOSS]]</p></div>
+  <div class="tbl"><table>
+    <caption class="sr">Sleeve gastrectomy versus Roux-en-Y gastric bypass in randomised trials</caption>
+    <thead><tr><th scope="col">Outcome</th><th scope="col">Sleeve</th><th scope="col">Bypass</th><th scope="col">Trial</th></tr></thead>
+    <tbody>
+      <tr class="tx"><th scope="row">Excess weight loss, 5 years (mean)</th><td>49%</td><td>57%</td><td>SLEEVEPASS; difference 8.2 points, not equivalent [[Salminen2018SLEEVEPASS]]</td></tr>
+      <tr class="tx"><th scope="row">Excess weight loss, 10 years (median)</th><td>43.5%</td><td>50.7%</td><td>SLEEVEPASS; bypass 8.4 points higher [[Salminen2022SLEEVEPASS]]</td></tr>
+      <tr><th scope="row">Excess BMI loss, 5 years</th><td>61.1%</td><td>68.3%</td><td>SM-BOSS; not significantly different [[Peterli2018SMBOSS]]</td></tr>
+      <tr><th scope="row">Reflux worsened, 5 years</th><td>31.8%</td><td>6.3%</td><td>SM-BOSS [[Peterli2018SMBOSS]]</td></tr>
+      <tr><th scope="row">Reflux remitted, 5 years</th><td>25.0%</td><td>60.4%</td><td>SM-BOSS [[Peterli2018SMBOSS]]</td></tr>
+      <tr class="hl"><th scope="row">Oesophagitis on endoscopy, 10 years</th><td>31%</td><td>7%</td><td>SLEEVEPASS [[Salminen2022SLEEVEPASS]]</td></tr>
+      <tr><th scope="row">Barrett's oesophagus, 10 years</th><td>4%</td><td>4%</td><td>SLEEVEPASS [[Salminen2022SLEEVEPASS]]</td></tr>
+      <tr><th scope="row">Type 2 diabetes remission, 10 years</th><td>26%</td><td>33%</td><td>SLEEVEPASS; not significant [[Salminen2022SLEEVEPASS]]</td></tr>
+      <tr><th scope="row">High blood pressure remission, 10 years</th><td>8%</td><td>24%</td><td>SLEEVEPASS; P = .04 [[Salminen2022SLEEVEPASS]]</td></tr>
+      <tr><th scope="row">Sleep apnoea remission, 10 years</th><td>16%</td><td>31%</td><td>SLEEVEPASS; not significant [[Salminen2022SLEEVEPASS]]</td></tr>
+      <tr><th scope="row">Reoperation or intervention</th><td>15.8% (5 y) · 15.7% (10 y)</td><td>22.1% (5 y) · 18.5% (10 y)</td><td>SM-BOSS · SLEEVEPASS [[Peterli2018SMBOSS,Salminen2022SLEEVEPASS]]</td></tr>
+    </tbody></table></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Bypass gives about 8 points more excess weight loss than sleeve at 5 and 10 years in SLEEVEPASS, and better reflux control; reflux is the signature late problem of sleeve. [[Salminen2018SLEEVEPASS,Salminen2022SLEEVEPASS]]</div>
+    <div class="pt"><b>In plain words</b>Both operations work well on average. The bypass gives a little more weight loss and less reflux; the sleeve needed fewer reoperations in SM-BOSS. The choice is made person by person with the surgical team. [[Peterli2018SMBOSS,Arterburn2020JAMA]]</div>
+  </div>
+  <p class="prose">How much Barrett's oesophagus follows a sleeve is disputed: 4% in the 10-year randomised trial, [[Salminen2022SLEEVEPASS]] but 11.6% pooled across mostly observational studies, unrelated to reflux symptoms. [[Qumseya2021]] Reflux, ulcers and other late problems are covered in <a href="#aftersurgery" data-go="aftersurgery">Life after surgery</a>.</p>
+
+  <h3 class="sub">Survival, heart disease and cancer</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">SOS, mean 10.9 years</span><span class="su-num">HR 0.71</span><p>Adjusted hazard ratio for death: 101 deaths after surgery versus 129 in controls. [[Sjostrom2007SOS]]</p></div>
+    <div class="card"><span class="kicker">Meta-analysis, 174,772 people</span><span class="su-num">+6.1 years</span><p>Longer median life expectancy with surgery: 9.3 years with diabetes and 5.1 without, in matched observational data. [[Syn2021Lancet]]</p></div>
+    <div class="card"><span class="kicker">Type 2 diabetes cohort, 8 years</span><span class="su-num">30.8% vs 47.7%</span><p>Major adverse cardiovascular events after surgery versus matched controls (adjusted HR 0.61); observational, and the authors call for randomised confirmation. [[Aminian2019JAMA]]</p></div>
+    <div class="card"><span class="kicker">SPLENDID, 10 years</span><span class="su-num">2.9% vs 4.9%</span><p>Obesity-associated cancer after surgery versus matched controls (adjusted HR 0.68). [[Aminian2022SPLENDID]] In SOS the cancer reduction was seen in women but not in men. [[Sjostrom2009LancetOncol]]</p></div>
+  </div>
+  <p class="prose">These are group statistics from cohorts, mostly not randomised. They describe averages, not a promise for any one person. The 24-year SOS life-expectancy result is in <a href="#aftersurgery" data-go="aftersurgery">Life after surgery</a>.</p>
+
+  <h3 class="sub">Endoscopic options</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Endoscopic sleeve gastroplasty</span><span class="su-num">13.6% vs 0.8%</span><p>An "endolumenal, organ-sparing" procedure done through the mouth. In MERIT (209 people with class 1 or 2 obesity), total body weight loss at 52 weeks was 13.6% with ESG plus lifestyle versus 0.8% with lifestyle alone; serious ESG-related adverse events in 2%. [[AbuDayyeh2022MERIT]]</p></div>
+    <div class="card"><span class="kicker">Intragastric balloon</span><span class="su-num">10.2% vs 3.3%</span><p>Weight loss at 6 months with an Orbera balloon plus lifestyle versus lifestyle alone; 7.6% versus 3.1% at 12 months, 6 months after removal. Nausea in 86.9%, vomiting in 75.6%, early removal in 18.8%. [[Courcoulas2017IGB]]</p></div>
+  </div>
+  <p class="prose">Endoscopic therapies give smaller weight loss, tested over shorter times, than surgery. [[AbuDayyeh2022MERIT,Courcoulas2017IGB]] Medicines are covered in <a href="#glp" data-go="glp">How GLP-1 medicines work</a>.</p>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>ASMBS/IFSO 2022: surgery recommended at BMI above 35 regardless of comorbidity; considered at 30 to 34.9 with metabolic disease; Asian threshold above 27.5. The 1991 NIH thresholds were above 40, or above 35 with comorbidities. [[Eisenberg2022ASMBS]]</div>
+    <div class="pt"><b>In plain words</b>Surgery is safe for most people, but it has risks, and it means lifelong vitamins, blood tests and follow-up. Your team will talk through what fits you. [[Mechanick2020SOARD,Parrott2017ASMBS]]</div>
+  </div>
+</section>

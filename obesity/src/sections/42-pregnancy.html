@@ -1,2 +1,79 @@
-<!-- STUB: replaced by its builder (groups) -->
-<section class="mod" id="m-pregnancy" data-mod="pregnancy" hidden><div class="mhead"><p class="eyebrow">Part 4 · Across life &amp; care</p><h2>Pregnancy &amp; fertility</h2><p class="lede">Obesity affects fertility and pregnancy, and medicines and surgery need planning; this module will set out what is published.</p></div></section>
+<!-- ================= 4.2 PREGNANCY & FERTILITY ================= -->
+<style>
+#m-pregnancy .pg-row{display:flex;flex-wrap:wrap;gap:8px}
+#m-pregnancy .pg-row .btn{min-height:40px}
+#m-pregnancy .card .pg-num{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--life)}
+</style>
+<section class="mod" id="m-pregnancy" data-mod="pregnancy" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Across life &amp; care</p><h2>Pregnancy &amp; fertility</h2>
+    <p class="lede">Most pregnancies at a higher weight go well, but some risks are more common, and medicines and surgery need planning. Scrub from before pregnancy to after the birth to see where each published risk sits. [[Poston2016,Marchi2015]]</p></div>
+
+  <div class="stepper" id="pgSteps"></div>
+  <div class="pg-row" id="pgGwgBtns" role="group" aria-label="Pre-pregnancy BMI class for the weight gain range"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="pgSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A timeline from before pregnancy through three trimesters and birth to after the birth. Ten risk lamps light as the marker reaches the stage where each risk is usually discussed, with published odds ratios, and a chart fills the IOM 2009 total gestational weight gain range for the chosen pre-pregnancy BMI class."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="pgPlay">%t:player.play%</button><label class="stage-cap tl" for="pgT">Time <input type="range" id="pgT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <p class="stage-cap">Lamp placement is schematic; the odds and risk ratios compare groups and are population statistics, not one pregnancy’s risk. [[RamlauHansen2007,Stothard2009,Poston2016,Chu2007,OBrien2003,Aune2014,Poobalan2009,Catalano2017,Heslehurst2019]] Weight gain: only the totals at term are published (IOM 2009); the straight path to them is schematic. [[Rasmussen2009IOM,Goldstein2017]]</p>
+    </div>
+    <aside class="note" id="pgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Weight gain in pregnancy, as published</h3>
+  <div class="tbl"><table>
+    <caption class="sr">IOM 2009 total gestational weight gain ranges by pre-pregnancy BMI</caption>
+    <thead><tr><th scope="col">Pre-pregnancy BMI</th><th scope="col">IOM 2009 total gain</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Under 18.5</th><td>12.5 to 18 kg</td></tr>
+      <tr><th scope="row">18.5 to 24.9</th><td>11.5 to 16 kg</td></tr>
+      <tr><th scope="row">25 to 29.9</th><td>7 to 11 kg</td></tr>
+      <tr class="life"><th scope="row">30 or more</th><td>5 to 9 kg [[Rasmussen2009IOM,Goldstein2017]]</td></tr>
+    </tbody></table></div>
+  <div class="prose">
+    <p>In a meta-analysis of 1,309,136 women, gain was below the IOM range in 23% of pregnancies and above it in 47%. Gain above the range went with more large-for-gestational-age babies (OR 1.85; absolute risk difference 4%), macrosomia (OR 1.95) and caesarean delivery (OR 1.30); gain below it with more small-for-gestational-age babies (OR 1.53) and preterm birth (OR 1.70). [[Goldstein2017]]</p>
+    <p>A pooled analysis of 196,670 women in 25 cohorts found the lowest risk with smaller gains in obesity (grade 1: 2 to under 6 kg; grade 2: a loss or gain of 0 to under 4 kg; grade 3: a gain of 0 to under 6 kg), but these ranges predicted outcomes only modestly (AUC 0.55 to 0.76), and the IOM ranges have not changed. [[Voerman2019LifeCycle]]</p>
+  </div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service. The ranges above are published population guidance, not a target for any one pregnancy; the Zepbound label advises that weight loss is not recommended during pregnancy, and the Wegovy label says weight loss offers no benefit in pregnancy. [[FDA-Zepbound,FDA-Wegovy]]</p>
+
+  <h3 class="sub">Absolute numbers help</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Stillbirth, per 10,000 pregnancies</span><span class="pg-num">40 · 48 · 59</span><p>at BMI 20, 25 and 30. Fetal death: 76, 82 and 102. [[Aune2014]]</p></div>
+    <div class="card"><span class="kicker">Any adverse outcome</span><span class="pg-num">37.2%</span><p>of 196,670 pregnancies overall, from 34.7% with underweight to 61.1% with obesity grade 3. [[Voerman2019LifeCycle]]</p></div>
+    <div class="card"><span class="kicker">Gaining above the IOM range</span><span class="pg-num">50–60%</span><p>of women with overweight or obesity; weight kept on after the birth raises later cardiometabolic risk. [[Catalano2017]]</p></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>IOM 2009 total gain for pre-pregnancy BMI 30 or more: 5 to 9 kg. Maternal obesity and neural tube defects: OR 1.87. [[Rasmussen2009IOM,Goldstein2017,Stothard2009]]</div>
+    <div class="pt"><b>In plain words</b>Pregnancy at a higher weight carries some extra risks, such as diabetes in pregnancy and high blood pressure. Regular check-ups help catch these early.</div>
+  </div>
+
+  <h3 class="sub">Planning around medicines and surgery</h3>
+  <div class="prose"><p>Choose a card. Each shows the published statement on a timeline. These are label and consensus statements, quoted as published, never instructions: do not start, stop or change a medicine without a clinician.</p></div>
+  <div class="pg-row" id="pgPlanBtns" role="group" aria-label="Planning card"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="pgPlan" viewBox="0 0 720 240" style="min-width:560px" role="img" aria-label="A timeline for the chosen card: when the Wegovy label says to stop before a planned pregnancy, backup contraception windows with Zepbound, monthly pregnancy tests with Qsymia, waiting after bariatric surgery, supplements after surgery, or risk ratios for obesity in PCOS"></svg></div>
+      <p class="stage-cap">Schematic timelines drawn from the label or consensus wording. [[FDA-Wegovy,FDA-Zepbound,FDA-Qsymia,Shawe2019ObesRev]]</p>
+    </div>
+    <aside class="note" id="pgPlanNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Zepbound can reduce oral contraceptive efficacy: the label advises a non-oral method or a barrier method for 4 weeks after starting and after each dose increase. [[FDA-Zepbound]]</div>
+    <div class="pt"><b>In plain words</b>Before pregnancy, ask your clinician about folic acid and about any weight medicines. Some weight medicines need to be stopped two months before trying to get pregnant.</div>
+  </div>
+
+  <h3 class="sub">Pregnancy after bariatric surgery</h3>
+  <div class="pg-row" id="pgOutBtns" role="group" aria-label="Study"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="pgOut" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bar charts of pregnancy outcomes after bariatric surgery: percentages from a Swedish register compared with matched controls, or odds ratios from a meta-analysis"></svg></div>
+      <p class="stage-cap">Group results from observational studies. [[Johansson2015NEJM,Akhter2019PLoSMed]]</p>
+    </div>
+    <aside class="note" id="pgOutNote" aria-live="polite"></aside>
+  </div>
+  <div class="prose"><p>The 2019 consensus also says breastfeeding can be recommended after bariatric surgery, with micronutrients monitored during lactation. Because of dumping and accuracy concerns, it advises an oral glucose tolerance test at 24 to 28 weeks only after a band; after bypass, sleeve or biliopancreatic diversion it suggests a seven-point capillary glucose profile or 1 week of continuous glucose monitoring instead. [[Shawe2019ObesRev]] Surgery itself is in <a href="#surgery" data-go="surgery">Metabolic &amp; bariatric surgery</a> and vitamins in <a href="#aftersurgery" data-go="aftersurgery">Life after surgery</a>.</p></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>After surgery: less gestational diabetes (1.9% vs 6.8%) and fewer large babies, but more small-for-gestational-age babies (15.6% vs 7.6%). Avoid retinol-form vitamin A; the consensus lists beta-carotene. [[Johansson2015NEJM,Shawe2019ObesRev]]</div>
+    <div class="pt"><b>In plain words</b>If you might become pregnant after weight-loss surgery, talk to your team about timing and contraception, and about the special vitamins you will need.</div>
+  </div>
+  <p class="callout">Medicines in detail: <a href="#glp" data-go="glp">How GLP-1 medicines work</a> and <a href="#othermeds" data-go="othermeds">Other weight-loss medicines</a>. Products sold online or “compounded” are not the same as FDA-approved medicines; reporting data show more preparation errors and contamination, though they cannot show cause. <span class="ev early">Early evidence</span> [[McCall2026Compounded]]</p>
+</section>

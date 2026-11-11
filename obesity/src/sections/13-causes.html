@@ -1,2 +1,101 @@
-<!-- STUB: replaced by its builder (causes) -->
-<section class="mod" id="m-causes" data-mod="causes" hidden><div class="mhead"><p class="eyebrow">Part 1 · Understanding obesity</p><h2>Causes: genes &amp; environment</h2><p class="lede">Body weight is shaped by many genes and by the world people live in; this module will show how genes and environment add up.</p></div></section>
+<!-- ================= 1.3 CAUSES: GENES & ENVIRONMENT ================= -->
+<style>
+#m-causes .ca-sw{display:inline-block;width:12px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+#m-causes .ca-kg{display:inline-block;height:10px;border-radius:5px;background:var(--accent);vertical-align:middle;margin-right:8px}
+#m-causes .ca-kg.down{background:var(--good)}
+#m-causes td.num{white-space:nowrap}
+#m-causes .ca-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-causes .ca-row label{display:inline-flex;gap:6px;align-items:center;font-size:14px;font-weight:600}
+#m-causes .card .ca-num{font-family:var(--display);font-weight:700;font-size:28px;line-height:1;color:var(--brand)}
+#m-causes .card .ca-num.env{color:var(--accent)}
+</style>
+<section class="mod" id="m-causes" data-mod="causes" hidden>
+  <div class="mhead"><p class="eyebrow">Part 1 · Understanding obesity</p><h2>Causes: genes &amp; environment</h2>
+    <p class="lede">Obesity is a chronic disease with many causes. An international consensus states that it results "primarily from a combination of genetic, epigenetic, and environmental factors", and that the idea of obesity as a choice is a misconception. [[Rubino2020Stigma]] Build the picture layer by layer.</p></div>
+
+  <div class="stepper" id="caSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="caSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A tower of eight layers builds up: four genetic layers (heritability, common variants, polygenic score, single genes) and four environmental layers (food, sleep, medicines, social context). Beside it a chart for each layer shows the published numbers, ending with genes and environment acting together."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="caPlay">%t:player.play%</button><label class="stage-cap tl" for="caT">Layers <input type="range" id="caT" min="0" max="1" step="0.001" value="0.13"></label></div>
+      <p class="stage-cap">Every number is a population figure from the study named in the note, not a prediction for one person. Polygenic deciles 2 to 9 (pale, dashed) are a schematic ramp: only the bottom and top deciles are drawn from the paper. The line joining published weight-gap points is schematic. [[Khera2019]] Layer heights do not show how much each cause matters.</p>
+    </div>
+    <aside class="note" id="caNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Inside a feeding trial: ultra-processed vs unprocessed food</h3>
+  <div class="prose"><p>The NIH trial behind the food layer is a model of how to test a cause. The same 20 adults spent two weeks on each diet in random order, with as much food as they wanted. [[Hall2019UPF]] Pick the order and play the four weeks.</p></div>
+  <div class="ca-row" id="caUpfOrder" role="group" aria-label="Order of the diets"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="caUpf" viewBox="0 0 720 340" style="min-width:560px" role="img" aria-label="Two charts across the 28 days of the trial: daily extra intake on ultra-processed days compared with unprocessed days, and weight change, rising 0.9 kg over the ultra-processed fortnight and falling 0.9 kg over the unprocessed fortnight."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="caUpfPlay">%t:player.play%</button><label class="stage-cap tl" for="caUpfT">Day <input type="range" id="caUpfT" min="0" max="1" step="0.002" value="0.6"></label></div>
+      <div class="ca-row"><label><input type="checkbox" id="caUpfSplit"> Split the extra by nutrient</label></div>
+      <div class="readout" id="caUpfRead"></div>
+      <p class="stage-cap">Each bar is the trial's mean difference between the diets, drawn every day; the trial did not report daily values. Weight points (+0.9 and −0.9 kg over 2 weeks) are published; the straight line between them is schematic. [[Hall2019UPF]]</p>
+    </div>
+    <aside class="note" id="caUpfNote" aria-live="polite"></aside>
+  </div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service. Nothing on this page is a calorie, diet or weight target.</p>
+
+  <h3 class="sub">Medicines that can cause weight gain</h3>
+  <div class="prose"><p>Many medicines for diabetes, depression and other chronic diseases affect weight. The Endocrine Society guideline states that, where possible, options with favourable weight profiles should be chosen; that is quoted as published, not as an instruction. [[Apovian2015]] The figures below are trial averages compared with placebo. [[Domecq2015]]</p></div>
+  <p class="crisis" role="note"><b>Medicines</b><span>These medicines treat serious conditions. Do not start, stop or change any medicine without a clinician. Weight effects can be discussed with them, and other options may exist.</span></p>
+  <div class="tbl"><table>
+    <caption class="sr">Average weight change compared with placebo in randomised trials, from a meta-analysis of 257 trials and 84,696 patients</caption>
+    <thead><tr><th scope="col">Medicine</th><th scope="col">Used for</th><th scope="col">Weight change vs placebo</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Olanzapine</th><td>Antipsychotic</td><td class="num"><span class="ca-kg" style="width:48px"></span>+2.4 kg [[Domecq2015]]</td></tr>
+      <tr><th scope="row">Gabapentin</th><td>Seizures, nerve pain</td><td class="num"><span class="ca-kg" style="width:44px"></span>+2.2 kg [[Domecq2015]]</td></tr>
+      <tr><th scope="row">Amitriptyline</th><td>Antidepressant</td><td class="num"><span class="ca-kg" style="width:36px"></span>+1.8 kg [[Domecq2015]]</td></tr>
+      <tr><th scope="row">Mirtazapine</th><td>Antidepressant</td><td class="num"><span class="ca-kg" style="width:30px"></span>+1.5 kg [[Domecq2015]]</td></tr>
+      <tr><th scope="row">Quetiapine</th><td>Antipsychotic</td><td class="num"><span class="ca-kg" style="width:22px"></span>+1.1 kg [[Domecq2015]]</td></tr>
+      <tr><th scope="row">Risperidone</th><td>Antipsychotic</td><td class="num"><span class="ca-kg" style="width:16px"></span>+0.8 kg [[Domecq2015]]</td></tr>
+      <tr class="fat"><th scope="row">Pioglitazone</th><td>Type 2 diabetes</td><td class="num"><span class="ca-kg" style="width:52px"></span>+2.6 kg [[Domecq2015]]</td></tr>
+      <tr class="fat"><th scope="row">Glyburide (glibenclamide)</th><td>Type 2 diabetes (sulfonylurea)</td><td class="num"><span class="ca-kg" style="width:52px"></span>+2.6 kg [[Domecq2015]]</td></tr>
+      <tr class="fat"><th scope="row">Glipizide</th><td>Type 2 diabetes (sulfonylurea)</td><td class="num"><span class="ca-kg" style="width:44px"></span>+2.2 kg [[Domecq2015]]</td></tr>
+      <tr class="fat"><th scope="row">Glimepiride</th><td>Type 2 diabetes (sulfonylurea)</td><td class="num"><span class="ca-kg" style="width:42px"></span>+2.1 kg [[Domecq2015]]</td></tr>
+      <tr class="fat"><th scope="row">Gliclazide</th><td>Type 2 diabetes (sulfonylurea)</td><td class="num"><span class="ca-kg" style="width:36px"></span>+1.8 kg [[Domecq2015]]</td></tr>
+      <tr><th scope="row">Metformin</th><td>Type 2 diabetes</td><td class="num"><span class="ca-kg down" style="width:22px"></span>−1.1 kg [[Domecq2015]]</td></tr>
+      <tr><th scope="row">Liraglutide</th><td>Type 2 diabetes (GLP-1 receptor agonist)</td><td class="num"><span class="ca-kg down" style="width:34px"></span>−1.7 kg [[Domecq2015]]</td></tr>
+      <tr><th scope="row">Exenatide</th><td>Type 2 diabetes (GLP-1 receptor agonist)</td><td class="num"><span class="ca-kg down" style="width:24px"></span>−1.2 kg [[Domecq2015]]</td></tr>
+    </tbody></table></div>
+  <div class="cards">
+    <div class="card"><span class="kicker">Olanzapine label</span><span class="ca-num env">5.6 kg</span><p>The US label states a mean gain of 2.6 kg in short placebo-controlled trials in adults (placebo −0.3 kg), and 5.6 kg with at least 48 weeks of use; in adolescents, 11.2 kg with at least 24 weeks. [[FDA-Zyprexa]]</p></div>
+    <div class="card"><span class="kicker">Mirtazapine label</span><span class="ca-num env">7.5%</span><p>The label states that 7.5% of adults in US controlled trials gained at least 7% of body weight (placebo 0%), and 17% reported increased appetite (placebo 2%). [[FDA-Remeron]]</p></div>
+    <div class="card"><span class="kicker">Young people on antipsychotics</span><span class="ca-num env">4.4–8.5 kg</span><p>After a median of 10.8 weeks, gains were 4.4 kg (aripiprazole) to 8.5 kg (olanzapine), against 0.2 kg in untreated young people. [[Correll2009]]</p></div>
+    <div class="card"><span class="kicker">Insulin and glucocorticoids</span><span class="ca-num env">4.0 kg</span><p>In UKPDS 33, weight gain over 10 years was greatest with insulin (4.0 kg). [[UKPDS33]] Prednisone 5 mg a day or more for over 6 months was linked to more weight gain, rising with dose. [[Huscher2009]]</p></div>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Clozapine and olanzapine cause the most weight gain of the antipsychotics (+4.45 and +4.15 kg at 10 weeks vs −0.74 kg on placebo). [[Allison1999]] Metformin and GLP-1 receptor agonists go the other way. [[Domecq2015]]</div>
+    <div class="pt"><b>In plain words</b>Some medicines, such as certain mental-health, diabetes and steroid medicines, can cause weight gain. Never stop a medicine on your own: ask your clinician if there are other options. [[Domecq2015,Apovian2015]]</div>
+  </div>
+
+  <h3 class="sub">More influences across a lifetime</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Before birth and in infancy</span><span class="ca-num env">OR 4.47</span><p>Maternal obesity before pregnancy was linked to overweight or obesity in children aged 10–18 (OR 4.47). [[Voerman2019]] Each 1 SD of faster weight gain in the first year roughly doubled the odds of childhood obesity (OR 1.97). [[Druet2012]] <span class="ev est">Established</span></p></div>
+    <div class="card"><span class="kicker">Sleep, tested</span><span class="ca-num env">−270 kcal</span><p>Two nights of short sleep lowered leptin by 18% and raised ghrelin by 28%. [[Spiegel2004]] In a randomised trial, adults who usually slept under 6.5 hours slept about 1.2 hours more and ate 270 kcal a day less than controls. [[Tasali2022]]</p></div>
+    <div class="card"><span class="kicker">Stopping smoking</span><span class="ca-num env">4.67 kg</span><p>People who quit without treatment gained 4.67 kg on average at 12 months, mostly in the first 3 months; 16% lost weight and 13% gained more than 10 kg. [[Aubin2012]] These are averages; people vary widely.</p></div>
+    <div class="card"><span class="kicker">Neighbourhood</span><span class="ca-num env">−3.38 points</span><p>In a randomised social experiment, offering 4,498 women in high-poverty housing a voucher to move to a lower-poverty area lowered the prevalence of BMI 40 or more by 3.38 percentage points. [[Ludwig2011MTO]]</p></div>
+    <div class="card"><span class="kicker">Gut microbes</span><span class="ca-num env">RR 1.21</span><p>Microbes from a twin with obesity made germ-free mice gain more fat. [[Ridaura2013]] Early-life antibiotics are linked to childhood obesity (RR 1.21), [[Shao2017]] but a placebo-controlled faecal transplant did not change insulin sensitivity or body composition. [[Yu2020FMT]] <span class="ev hyp">Hypothesis in humans</span></p></div>
+    <div class="card"><span class="kicker">Hormone conditions</span><span class="ca-num">a few kg</span><p>Across thyroid function within the normal range, weight differences were modest, a few kilograms at most. [[Fox2008Thyroid]] Cushing's syndrome, from chronic excess glucocorticoids, is rare compared with common obesity. [[Lacroix2015]]</p></div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="tbl"><table>
+    <caption class="sr">Debates about the causes of obesity</caption>
+    <thead><tr><th scope="col">Question</th><th scope="col">The positions</th><th scope="col">Status</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">More food or less movement?</th><td>Work-related energy use fell by more than 100 kcal a day since the 1960s; [[Church2011]] but doubly labelled water shows no fall in activity energy since the 1980s, [[Westerterp2008]] the rise in food energy supply is enough to explain US weight gain, [[Swinburn2009AJCN]] and lower expenditure explains only about a tenth of extra body fat across economies. [[McGrosky2025]]</td><td><span class="ev early">Early evidence</span> Most evidence favours intake as the larger driver.</td></tr>
+      <tr><th scope="row">Is there a ceiling on daily energy use?</th><td>Total energy expenditure rose with activity at low levels and then levelled off, [[Pontzer2016]] and Hadza foragers spend similar size-adjusted energy to Western adults. [[Pontzer2012]] This does not mean activity lacks health benefits.</td><td><span class="ev early">Early evidence</span></td></tr>
+      <tr><th scope="row">Energy balance or carbohydrate–insulin?</th><td>The carbohydrate–insulin model says high-glycaemic-load diets drive fat storage first; [[Ludwig2021CIM]] the energy balance model puts the brain at the centre of regulation, responding to the body and the food environment. [[Hall2022EBM]]</td><td><span class="ev hyp">Hypothesis</span> An open debate.</td></tr>
+      <tr><th scope="row">Does obesity spread through social ties?</th><td>Clustering was seen up to three degrees of separation, [[Christakis2007]] but in an observational design, shared environments and choosing similar friends cannot be fully excluded.</td><td><span class="ev hyp">Hypothesis</span> Debated</td></tr>
+      <tr><th scope="row">Thrifty or drifty genes?</th><td>Famine may have selected fat-storing genes, or risk variants may have spread by random drift. [[Speakman2008]]</td><td><span class="ev hyp">Hypothesis</span></td></tr>
+      <tr><th scope="row">How penetrant is MC4R?</th><td>5.8% in severe childhood obesity; [[Farooqi2003MC4R]] about 1 in 337 in a birth cohort, 17.76 kg heavier at 18; [[Wade2021MC4R]] yet only 1 of 9 adult carriers in UK Biobank had severe obesity. [[Khera2019]]</td><td><span class="ev est">Established</span> Penetrance varies with age and setting.</td></tr>
+    </tbody></table></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Prader-Willi syndrome: loss of paternally expressed genes at 15q11.2-q13, most often by paternal deletion (65–75%), with infant hypotonia then early hyperphagia. [[Cassidy2012]] Bardet-Biedl syndrome: a recessive ciliopathy with retinal dystrophy, obesity and extra digits. [[Forsythe2013]]</div>
+    <div class="pt"><b>In plain words</b>Where you live and how much money you have can affect weight. Weight coming back after weight loss is the body defending its weight: biology, not failure. [[Ludwig2011MTO,Rubino2020Stigma]]</div>
+  </div>
+  <p class="callout">How the hunger and fullness signals work is in <a href="#appetite" data-go="appetite">Appetite: the gut-brain loop</a>; why lost weight comes back is in <a href="#adaptation" data-go="adaptation">Why lost weight comes back</a>; and the MC4R medicine setmelanotide is in <a href="#othermeds" data-go="othermeds">Other weight-loss medicines</a>. How weight bias affects health and care is in <a href="#stigma" data-go="stigma">Weight stigma &amp; bias</a>.</p>
+</section>

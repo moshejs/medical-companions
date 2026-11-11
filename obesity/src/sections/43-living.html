@@ -1,2 +1,73 @@
-<!-- STUB: replaced by its builder (life) -->
-<section class="mod" id="m-living" data-mod="living" hidden><div class="mhead"><p class="eyebrow">Part 4 · Across life &amp; care</p><h2>Living with obesity</h2><p class="lede">Living with a chronic disease takes long-term support; this module will cover daily life, mental health and maintenance.</p></div></section>
+<!-- ================= 4.3 LIVING WITH OBESITY ================= -->
+<style>
+#m-living .lv-row{display:flex;flex-wrap:wrap;gap:8px}
+#m-living .lv-row .btn{min-height:40px}
+#m-living .lv-read{display:flex;flex-direction:column;gap:8px;font-size:14.5px;margin:0;padding:0;list-style:none}
+#m-living .lv-read li{display:flex;gap:10px;align-items:baseline}
+#m-living .lv-read li i{flex:none;display:inline-block;width:12px;height:12px;border-radius:3px;transform:translateY(1px)}
+#m-living .lv-read li.off{opacity:.45}
+#m-living .lv-dm{display:flex;flex-direction:column;gap:12px}
+#m-living .lv-dm h4{font-family:var(--display);font-weight:700;font-size:23px;line-height:1.12;margin:0}
+#m-living .lv-dm ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+#m-living .lv-dm .kicker{margin-bottom:-4px}
+#m-living .lv-bnote{display:flex;flex-direction:column;gap:10px}
+#m-living .lv-bnote h4{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.15;margin:0}
+#m-living .lv-bnote .big-num{color:var(--life)}
+#m-living .lv-sel{max-width:420px}
+</style>
+<section class="mod" id="m-living" data-mod="living" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Across life &amp; care</p><h2>Living with obesity</h2>
+    <p class="lede">Obesity is a chronic, relapsing disease, so the work does not end when a programme does. After weight loss the body pushes back for years, and ongoing support changes what happens next. [[Sumithran2011,Hall2018Maintenance]] This module follows the years after weight loss, then turns to work, travel, equipment, relationships, mood and binge eating.</p></div>
+
+  <h3 class="sub">The years after weight loss</h3>
+  <div class="prose"><p>To compare trials of different sizes, the chart shows each group's regain as a share of the weight it had lost, calculated here from the published averages. 0% means no regain; 100% would mean all of it came back; below 0% means further loss. Switch the supports on and off to see which trials stand behind each one.</p></div>
+  <div class="lv-row" id="lvLayers" role="group" aria-label="Supports shown"></div>
+  <div class="stepper" id="lvSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A chart of the share of lost weight regained over five years after weight loss, with lines for trial groups with and without ongoing contact, with medicine continued or stopped, and the National Weight Control Registry, beside a stack of supports that light up: follow-up contact, medicine continued, activity, sleep and mental-health care"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="lvPlay">%t:player.play%</button><label class="stage-cap tl" for="lvT">Months after weight loss <input type="range" id="lvT" min="0" max="1" step="0.001" value="0.03"></label></div>
+      <ul class="lv-read" id="lvRead"></ul>
+      <p class="stage-cap">End points are published group averages; the straight lines joining them to 0 are schematic. Shares calculated here: WLM 4.0 and 5.5 of 8.5 kg; STOP Regain 2.5 and 4.9 of 19.3 kg; STEP 1 extension 11.6 of 17.3 points; SURMOUNT-4 from −20.9% to −25.3% or −9.9%; NWCR 31.3 to 23.8 kg. [[Svetkey2008WLM,Wing2006STOPRegain,Wilding2022STEP1ext,Aronne2024SURMOUNT4,Thomas2014NWCR]] Different people, programmes and starting points: compare shapes, not exact heights. Population averages, not predictions for anyone.</p>
+    </div>
+    <aside class="note" id="lvNote" aria-live="polite"></aside>
+  </div>
+  <p class="support" role="note"><b>Regain is biology</b>After weight loss, hunger hormones stay changed for at least a year and appetite rises with each kilogram lost. [[Sumithran2011,Polidori2016]] Weight coming back is the disease acting, not a personal failure. More in <a href="#adaptation" data-go="adaptation">Why lost weight comes back</a>.</p>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes you distress, or you restrict, binge, purge or exercise compulsively, talk to a clinician or an eating-disorder service before changing how you eat. Some diet trials excluded people with eating disorders, so their results may not apply. Help works.</p>
+  <div class="tbl"><table>
+    <caption class="sr">Maintenance trials and registries</caption>
+    <thead><tr><th scope="col">Study</th><th scope="col">People</th><th scope="col">What happened (group averages)</th></tr></thead>
+    <tbody>
+      <tr class="life"><th scope="row">Maintenance trials, meta-analysis</th><td>45 trials, 7788 adults</td><td>Behavioural programmes targeting both diet and activity reduced regain by 1.56 kg at 12 months vs control (95% CI 0.86–2.27) [[Dombrowski2014]]</td></tr>
+      <tr><th scope="row">Structured programmes, 5-year follow-up</th><td>Pooled studies</td><td>The average person kept off more than 3 kg and more than 3% of starting weight: 2.0 kg after balanced low-energy diets, 7.1 kg after very-low-energy diets [[Anderson2001]]</td></tr>
+      <tr><th scope="row">Weight Loss Maintenance trial</th><td>1032 adults who lost a mean 8.5 kg</td><td>Regain at 30 months 4.0 kg with monthly personal contact vs 5.5 kg self-directed; 71% stayed below their entry weight [[Svetkey2008WLM]]</td></tr>
+      <tr><th scope="row">STOP Regain</th><td>314 people who lost a mean 19.3 kg</td><td>18-month regain 2.5 kg face to face, 4.7 kg online, 4.9 kg with newsletters only [[Wing2006STOPRegain]]</td></tr>
+      <tr class="tx"><th scope="row">SURMOUNT-4 (tirzepatide)</th><td>670 randomised after a 20.9% lead-in loss</td><td>Week 36 to 88: −5.5% continuing vs +14.0% after switching to placebo; 89.5% vs 16.6% kept at least 80% of the lead-in loss [[Aronne2024SURMOUNT4]]</td></tr>
+      <tr class="tx"><th scope="row">STEP 1 extension (semaglutide)</th><td>327 people; all treatment stopped at week 68</td><td>Regained two-thirds of the loss within a year; most cardiometabolic gains moved back towards baseline [[Wilding2022STEP1ext]]</td></tr>
+      <tr><th scope="row">Behavioural programmes, 5 years on</th><td>124 trials</td><td>Total:HDL cholesterol ratio 1.5 points lower and HbA1c 0.38% lower at 5 years despite regain; benefits dwindled as weight returned [[HartmannBoyce2023]]</td></tr>
+    </tbody></table></div>
+  <p class="teach" role="note"><b>Quoted, not prescribed</b>The 2013 AHA/ACC/TOS guideline recommends (A, Strong) maintenance programmes with contact at least monthly for at least 1 year that support high activity (200–300 min/wk), weighing at least weekly and a reduced-calorie diet. [[Jensen2014Guideline]] This is a guideline statement quoted as published, not a plan for any one person; frequent self-weighing showed no harm in one trial population, but that finding should not be applied to people with eating disorders. [[Wing2007STOPRegain]] Do not start, stop or change a medicine without a clinician.</p>
+
+  <h3 class="sub">Daily life, domain by domain</h3>
+  <div class="prose"><p>Living with obesity touches work, getting around, the things you sit on and wear, relationships and mood. Choose a part of life to see what the research and guidelines say.</p></div>
+  <div class="lv-row" id="lvDmBtns" role="group" aria-label="Part of life"></div>
+  <div class="card lv-dm" id="lvDm" aria-live="polite"></div>
+
+  <h3 class="sub">A binge-eating screen: what a positive result means</h3>
+  <div class="prose"><p>Binge-eating disorder (BED) had a lifetime prevalence of 3.5% in women and 2.0% in men in a US national survey; it was associated with severe obesity, and only a minority ever sought treatment. [[Hudson2007]] The 7-item Binge-Eating Disorder Screener (BEDS-7) flags possible BED for full evaluation. In its development it had 100% sensitivity and 38.7% specificity, [[Herman2016BEDS7]] so it misses almost no one but flags many people who do not have BED. Pick how common BED is in the group being screened.</p></div>
+  <div class="calc lv-sel"><label for="lvPrev">How common BED is in the group screened
+    <select id="lvPrev"><option value="0.02">2.0% (US lifetime figure, men)</option><option value="0.035" selected>3.5% (US lifetime figure, women)</option><option value="0.2">20% (a hypothetical specialist clinic)</option></select></label></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="lvBeds" viewBox="0 0 720 280" style="min-width:560px" role="img" aria-label="An array of 100 dots for 100 people screened: those with binge-eating disorder flagged by the screen, those flagged who do not have it, and those not flagged"></svg></div>
+      <p class="stage-cap">Calculated here from the published sensitivity and specificity, applied to each prevalence; lifetime figures stand in for how common BED is at one time, for illustration. [[Herman2016BEDS7,Hudson2007]] A teaching tool, not a diagnosis.</p>
+    </div>
+    <aside class="note lv-bnote" id="lvBNote" aria-live="polite"></aside>
+  </div>
+  <div class="prose"><p>BED is a treatable health condition. A meta-analysis of 81 trials (7515 people) found large effects of psychotherapy, mostly CBT, on binge episodes; medicines had small effects, and evidence quality was generally very low. [[Hilbert2019]] In 125 adults with obesity and BED, 12-month binge-eating remission was 51% with CBT and 36% with behavioural weight loss. [[Grilo2011]] The US label lists lisdexamfetamine for moderate to severe BED in adults and states it "is not indicated or recommended for weight loss"; it carries a boxed warning for abuse, misuse and addiction. [[FDA-Vyvanse]]</p></div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Maintenance trials: diet-plus-activity behavioural programmes cut regain by 1.56 kg at 12 months (45 trials). [[Dombrowski2014]] Obesity and depression run both ways: OR 1.55 for later depression, OR 1.58 for later obesity. [[Luppino2010]]</div>
+    <div class="pt"><b>In plain words</b>Keeping weight off is hard because the body pushes back, not because people are weak. Regular support, help with mood and sleep, and treatment that continues all help. Health gains can last even if some weight returns.</div>
+  </div>
+</section>

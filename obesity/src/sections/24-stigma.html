@@ -1,2 +1,93 @@
-<!-- STUB: replaced by its builder (life) -->
-<section class="mod" id="m-stigma" data-mod="stigma" hidden><div class="mhead"><p class="eyebrow">Part 2 · Health &amp; assessment</p><h2>Weight stigma &amp; bias</h2><p class="lede">Weight bias is common, including in health care, and it harms health; this module will show its effects and the language that helps.</p></div></section>
+<!-- ================= 2.4 WEIGHT STIGMA & BIAS ================= -->
+<style>
+#m-stigma .st-words{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+#m-stigma .st-fc{display:grid;text-align:left;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:0;cursor:pointer;min-width:0;overflow:hidden}
+#m-stigma .st-fc>span{grid-area:1/1;display:flex;flex-direction:column;gap:8px;padding:18px;transition:opacity .35s,transform .35s}
+#m-stigma .st-fc .st-back{opacity:0;transform:translateY(8px);background:var(--life-soft);visibility:hidden}
+#m-stigma .st-fc[aria-pressed="true"] .st-front{opacity:0;transform:translateY(-8px);visibility:hidden}
+#m-stigma .st-fc[aria-pressed="true"] .st-back{opacity:1;transform:none;visibility:visible}
+#m-stigma .st-fc small{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#m-stigma .st-fc .st-back small{color:var(--life)}
+#m-stigma .st-fc .st-say{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.2}
+#m-stigma .st-fc .st-front .st-say{text-decoration:line-through;text-decoration-thickness:1.5px;text-decoration-color:var(--bad)}
+#m-stigma .st-fc .st-why{font-size:14.5px;line-height:1.45}
+#m-stigma .st-fc .st-hint{font:500 12px var(--mono);color:var(--muted);margin-top:auto}
+#m-stigma .st-row{display:flex;flex-wrap:wrap;gap:8px}
+#m-stigma .st-row .btn{min-height:40px}
+#m-stigma .st-imgnote{display:flex;flex-direction:column;gap:10px}
+#m-stigma .st-imgnote h4{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.15;margin:0}
+#m-stigma .st-5a{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+#m-stigma .st-5a .card b.st-l{font:700 34px/1 var(--display);color:var(--hl)}
+@media (prefers-reduced-motion: reduce){#m-stigma .st-fc>span{transition:none}}
+</style>
+<section class="mod" id="m-stigma" data-mod="stigma" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Health &amp; assessment</p><h2>Weight stigma &amp; bias</h2>
+    <p class="lede">Weight stigma is the social devaluation of people because of their body weight. It is common, it reaches into health care, and it harms health; it does not motivate change. [[Rubino2020Stigma,Puhl2010AJPH]] Scrub the loop to see how it feeds itself, and where it can be broken.</p></div>
+
+  <h3 class="sub">A loop that feeds itself</h3>
+  <div class="prose"><p>The 2020 joint international consensus defines weight stigma as "social devaluation and denigration of individuals because of their excess body weight", and was unanimous that it causes physical and psychological harm and keeps people from seeking and receiving good care. [[Rubino2020Stigma]] Researchers describe a cycle: stigma acts through stress, avoided care, disordered eating, low mood and less activity, which can raise weight and worsen health, which in turn draws more stigma. <span class="ev early">Early evidence</span> [[Tomiyama2018]]</p></div>
+  <div class="stepper" id="stSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="stSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A loop diagram: weight stigma leads to stress in the body, avoiding care, disordered eating and low mood, and less activity; these lead to weight gain and worse health, which loops back to more stigma. A panel below shows survey numbers for each step."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="stPlay">%t:player.play%</button><label class="stage-cap tl" for="stT">Through the loop <input type="range" id="stT" min="0" max="1" step="0.001" value="0.06"></label></div>
+      <p class="stage-cap">Schematic. The arrows show associations reported in studies, not proven causes for any one person. Numbers: Puhl 2021 (six countries), Sabin 2012, Puhl 2013, Sutin 2015 and the 2020 consensus. [[Puhl2021SixCountries,Sabin2012,Puhl2013Language,Sutin2015,Rubino2020Stigma]]</p>
+    </div>
+    <aside class="note" id="stNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How common is weight discrimination?</h3>
+  <div class="tbl"><table>
+    <caption class="sr">Survey figures on weight stigma and discrimination</caption>
+    <thead><tr><th scope="col">Group surveyed</th><th scope="col">Finding</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Adults with obesity (consensus summary)</th><td>19–42% report weight discrimination; rates are higher at higher BMI and in women [[Rubino2020Stigma]]</td></tr>
+      <tr><th scope="row">US national sample, MIDUS 1995–96</th><td>Weight or height discrimination reported by 5% of men and 10% of women overall, but by 40% of adults with BMI 35 or more [[Puhl2008Discrimination]]</td></tr>
+      <tr><th scope="row">Women with BMI 30–35, same survey</th><td>Three times as likely as men of similar weight to report this discrimination [[Puhl2008Discrimination]]</td></tr>
+      <tr class="hl"><th scope="row">13,996 adults in weight-management programmes, six countries</th><td>56–61% had experienced weight stigma; two-thirds of these reported stigma from doctors [[Puhl2021SixCountries]]</td></tr>
+      <tr><th scope="row">US adults with overweight or obesity</th><td>About 40–50% internalise weight bias (turn it on themselves), about 20% at high levels [[Rubino2020Stigma]]</td></tr>
+      <tr><th scope="row">361 adolescents at weight-loss camps</th><td>64% reported weight-based victimisation at school; 36% had been teased or bullied for 5 years. Perpetrators included peers (92%), PE teachers or coaches (42%) and parents (37%) [[Puhl2013Bullying]]</td></tr>
+    </tbody></table></div>
+  <div class="prose"><p>Some forms of weight discrimination are more common than discrimination based on race or ethnicity. [[Tomiyama2018,Puhl2008Discrimination]] These are population survey figures; they describe groups, not any one person.</p></div>
+
+  <h3 class="sub">Words matter</h3>
+  <div class="prose"><p>People-first language says "people with obesity" rather than "obese people", so that a disease does not define a person. [[Kyle2014,Puhl2020Words]] Across 33 studies, neutral words such as "weight" or "unhealthy weight" were preferred, and "obese" and "fat" were least acceptable, especially from a clinician, though preferences vary. [[Puhl2020Words]] Tap a card to see a phrase that puts the person first, and why.</p></div>
+  <div class="st-row"><button class="btn" id="stFlipAll" aria-pressed="false">Show all alternatives</button></div>
+  <div class="st-words" id="stWords"></div>
+  <p class="support" role="note"><b>Ask the person</b>Professional guidance uses "people with obesity", but many young people and adults prefer "weight" or "healthy weight", and some prefer words from their own culture. Asking each person which words they want works best. [[Kyle2014,Puhl2020Words,Puhl2022Terms]]</p>
+
+  <h3 class="sub">Pictures matter too</h3>
+  <div class="prose"><p>In 371 online news videos about obesity, 65% of adults and 77% of young people with higher weight were shown in a negative, stigmatising way: headless images, isolated body parts, rear views, unhealthy eating and ill-fitting clothes. [[Puhl2013Headless]] Choose a framing to move the camera.</p></div>
+  <div class="st-row" id="stFrBtns" role="group" aria-label="Image framing"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="stImg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A camera frame over a park scene with a person standing on a path; the frame crops the scene to show a headless torso, an isolated body part, or the whole person in everyday life"></svg></div>
+      <p class="stage-cap">Schematic. The framings are the ones the news-video study counted. [[Puhl2013Headless]]</p>
+    </div>
+    <aside class="note st-imgnote" id="stImgNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">For clinicians and students</h3>
+  <div class="prose"><p>Implicit anti-fat bias among doctors is about as strong as in the general public, and clinician attitudes can lower the quality of care despite good intentions. [[Sabin2012,Phelan2015]] The consensus says stigma reduction should target the attitudes and behaviour of those who stigmatise, starting in health-professional training, rather than the people who experience it. [[Tomiyama2018,Rubino2020Stigma]] The modified 5As give a structure for a respectful conversation. [[Vallis2013]]</p></div>
+  <div class="st-5a">
+    <div class="card"><b class="st-l">Ask</b><p>Ask permission to discuss weight, without judgement, and explore readiness. [[Vallis2013]]</p></div>
+    <div class="card"><b class="st-l">Assess</b><p>BMI, waist and obesity stage, and the drivers and complications of excess weight. [[Vallis2013]] See <a href="#assessment" data-go="assessment">Assessment &amp; staging</a>.</p></div>
+    <div class="card"><b class="st-l">Advise</b><p>Health risks, the benefits of modest loss, the need for a long-term strategy, and treatment options. [[Vallis2013]]</p></div>
+    <div class="card"><b class="st-l">Agree</b><p>Realistic expectations and a plan the person agrees with. [[Vallis2013]]</p></div>
+    <div class="card"><b class="st-l">Assist</b><p>Barriers, resources, referral and regular follow-up. [[Vallis2013]]</p></div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="kicker">Asking first</span><h4>A brief, kind offer is welcome</h4><p>In BWeL, 1882 adults at 137 English practices: a 30-second offer of referral to a weight-management group gave 1.43 kg more loss at 12 months than 30 seconds of advice. 81% of patients found it appropriate and helpful; fewer than 1% (four people) did not. [[Aveyard2016BWeL]]</p></div>
+    <div class="card"><span class="kicker">Language</span><h4>Model non-biased words</h4><p>The AAP asks clinicians to model non-biased behaviour and language, use motivational interviewing, and address weight stigma and bullying at the visit. [[Pont2017AAP,Orr2026]]</p></div>
+    <div class="card"><span class="kicker">The room</span><h4>Equipment that fits</h4><p>The consensus says suitable infrastructure for people with obesity, including severe obesity, should be a standard requirement for accrediting medical facilities (unanimous). [[Rubino2020Stigma]] A cuff that is too small overestimates blood pressure. [[Muntner2019]] More in <a href="#nursing" data-go="nursing">Nursing care</a>.</p></div>
+    <div class="card"><span class="kicker">Media and policy</span><h4>Fair portrayals, clear rules</h4><p>The consensus calls on media for "fair, accurate, and non-stigmatizing portrayals of obesity", and for clear policies prohibiting weight-based discrimination. [[Rubino2020Stigma]]</p></div>
+  </div>
+
+  <h3 class="sub">Children and teenagers</h3>
+  <div class="prose"><p>In young people, weight stigma contributes to binge eating, social isolation, avoiding health care, less physical activity and more weight gain; it does not motivate change. <span class="ev est">Established</span> [[Pont2017AAP,PuhlLatner2007]] In a 2021 survey of 2032 young people aged 10–17, they preferred terms such as "healthy weight" and disliked "obese", "fat" and "large", which made them feel sad, ashamed and embarrassed. [[Puhl2022Terms]] With children, talk about health and habits for the whole family rather than weight; more in <a href="#children" data-go="children">Children &amp; adolescents</a>.</p></div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>Stigma is linked to disordered eating, low mood and anxiety. [[Wu2018]] If eating or weight causes you distress, or you restrict, binge or purge, talk to a clinician or an eating-disorder service. Help works.</p>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Weight discrimination is associated with about 60% higher mortality (HR 1.57 and 1.59 in two US cohorts), not explained by common risk factors. [[Sutin2015]] 19% would avoid future appointments after feeling stigmatised by their doctor. [[Puhl2013Language]]</div>
+    <div class="pt"><b>In plain words</b>Being judged for your weight is bad for health. It raises stress and keeps people away from care. You have the right to respectful words and care: "a person with obesity" or "higher weight" puts the person first.</div>
+  </div>
+</section>

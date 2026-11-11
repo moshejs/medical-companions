@@ -1,2 +1,75 @@
-<!-- STUB: replaced by its builder (health) -->
-<section class="mod" id="m-complications" data-mod="complications" hidden><div class="mhead"><p class="eyebrow">Part 2 · Health &amp; assessment</p><h2>Complications across the body</h2><p class="lede">Excess adiposity can affect almost every organ; this module will light up the body organ by organ.</p></div></section>
+<!-- ================= 2.1 COMPLICATIONS ACROSS THE BODY ================= -->
+<style>
+#m-complications .co-pick{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+#m-complications .co-pick select{font:inherit;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%;min-width:0}
+#m-complications .co-read{font-size:14.5px;max-width:78ch}
+#m-complications .co-big{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--hl)}
+</style>
+<section class="mod" id="m-complications" data-mod="complications" hidden>
+  <div class="mhead"><p class="eyebrow">Part 2 · Health &amp; assessment</p><h2>Complications across the body</h2>
+    <p class="lede">Excess adiposity touches almost every organ: the heart, liver, airway, pancreas, kidneys, joints, reproductive organs, and the risk of 13 cancers. Scrub through the body organ by organ and watch the published relative risks build beside it.</p></div>
+
+  <div class="prose">
+    <p>Across 900 000 adults in 57 prospective studies, deaths from all causes were lowest at a BMI of about 22.5–25 kg/m². Above that, each 5 kg/m² higher BMI meant about 30% higher overall mortality (HR 1.29). [[Whitlock2009PSC]] Among 3.95 million never-smokers without chronic disease at baseline, the hazard ratio was 1.45 at BMI 30–&lt;35, 1.94 at 35–&lt;40 and 2.76 at 40–&lt;60, and the excess was larger in younger people and in men. [[GBMC2016]] High BMI accounted for an estimated 4.0 million deaths worldwide in 2015, more than two-thirds of them cardiovascular. [[Afshin2017]]</p>
+    <p>Every figure on this page describes large groups of people. None of them predicts what will happen to one person, and obesity itself is a chronic disease with genetic, biological and social causes, not a failure of willpower. [[Rubino2025Commission]]</p>
+  </div>
+
+  <div class="stepper" id="coSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="coSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A neutral standing figure with its organs drawn inside. One organ system at a time lights up, from the heart and vessels to the liver, airway, pancreas and kidneys, knees and pelvis, then 13 cancer sites and the brain, while bars beside it grow to the published relative risks on a log scale"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="coPlay">%t:player.play%</button><label class="stage-cap tl" for="coT">Organ systems <input type="range" id="coT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap">Schematic body, not to scale. Bars: relative risks as published, each against its own reference group (usually normal BMI), on a log scale; IRR = incidence rate ratio, OR = odds ratio, HR = hazard ratio. Population statistics. Sources in the note panel.</p>
+    </div>
+    <aside class="note" id="coNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Of 18 comorbidities pooled from 89 cohorts, type 2 diabetes had the strongest link to obesity: IRR 12.41 in women and 6.74 in men. [[Guh2009]] Each 5 kg/m² above 25 meant about 30% higher all-cause mortality. [[Whitlock2009PSC]]</div>
+    <div class="pt"><b>In plain words</b>Living with obesity raises the chance of many other health problems, such as type 2 diabetes, high blood pressure, sleep apnoea, liver disease and knee pain. These numbers describe large groups of people, not you personally. [[Guh2009,Whitlock2009PSC]]</div>
+  </div>
+
+  <h3 class="sub">Relative risk, made visible</h3>
+  <div class="prose"><p>A relative risk of 3 sounds alarming, but what it means depends on how common the disease is to begin with. Pick a condition: each block counts the cases in a group for every 10 cases in an equal-sized reference group. The last choice is different: it shows how common fatty liver disease is, as people out of 100.</p></div>
+  <div class="stage">
+    <div class="co-pick"><label for="coIcSel"><b>Condition</b></label><select id="coIcSel"></select></div>
+    <div class="scroll"><svg id="coIcSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Blocks of dots, one block per BMI group, with filled dots counting cases for every 10 cases in the reference group"></svg></div>
+    <p class="co-read" id="coIcRead" aria-live="polite"></p>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>These blocks turn published ratios into counts so they are easier to compare. They are population statistics from the studies cited, not a forecast for anyone, and BMI groups are a screening measure, not a diagnosis.</p>
+
+  <h3 class="sub">What modest weight loss improves</h3>
+  <div class="prose"><p>In Look AHEAD, people with type 2 diabetes who lost 5 to under 10% of their weight in the first year were far more likely to improve their blood sugar, blood pressure and blood fats than people whose weight stayed stable, though LDL cholesterol did not follow. [[Wing2011DiabetesCare]] Other trials show the same direction in the liver, the bladder and sleep.</p></div>
+  <div class="stage">
+    <div class="ctrls" id="coLaBtns"><button class="btn" data-v="0" aria-pressed="true">Risk factors (Look AHEAD)</button><button class="btn" data-v="1" aria-pressed="false">Organs (other trials)</button></div>
+    <div class="scroll"><svg id="coLaSvg" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Horizontal bars for what modest weight loss improved: odds ratios for HbA1c, triglycerides, HDL and systolic blood pressure, or percentages for liver, bladder and sleep outcomes"></svg></div>
+    <p class="co-read" id="coLaRead" aria-live="polite"></p>
+  </div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service. Binge eating disorder is more common than bulimia nervosa, and fewer than half of people with it ever receive treatment. [[Kessler2013BED]]</p>
+
+  <h3 class="sub">Organ by organ</h3>
+  <div class="tbl"><table>
+    <caption class="sr">Complications of obesity by organ, with a key figure and what modest weight loss changed</caption>
+    <thead><tr><th scope="col">Organ</th><th scope="col">Key published figure</th><th scope="col">What weight change did</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Blood pressure</th><td>Excess weight accounted for 26% (men) and 28% (women) of new hypertension in Framingham. [[Wilson2002Framingham]]</td><td>Across 25 RCTs, about 1 mmHg lower systolic pressure per kg lost (−4.44 mmHg for 5.1 kg). [[Neter2003]]</td></tr>
+      <tr><th scope="row">Heart</th><td>Obesity roughly doubled heart failure risk (HR 2.12 women, 1.90 men). [[Kenchaiah2002]] Heart failure with preserved ejection fraction and BMI ≥35 behaves as a distinct phenotype, with more plasma volume and epicardial fat. [[Obokata2017]]</td><td>In LEGACY (observational), ≥10% sustained loss went with 6-fold greater odds of arrhythmia-free survival in atrial fibrillation. <span class="ev early">Early evidence</span> [[Pathak2015LEGACY]] Drug trials in heart failure are in <a href="#" data-go="medtrials">module 3.3</a>.</td></tr>
+      <tr><th scope="row">Liver</th><td>AASLD: risk assessment with FIB-4 for people with steatosis and metabolic risk factors. [[Rinella2023AASLD]]</td><td>3–5% loss improves steatosis; more than 10% is generally needed for NASH and fibrosis. [[Rinella2023AASLD]]</td></tr>
+      <tr><th scope="row">Sleep and airway</th><td>Obesity is "a strong causal factor" for sleep-disordered breathing. [[Peppard2013]]</td><td>Sleep AHEAD: 10.8 kg lost, AHI 9.7 events/h lower than control. [[Foster2009SleepAHEAD]] The Zepbound label includes moderate to severe OSA in adults with obesity. [[FDA-Zepbound]]</td></tr>
+      <tr><th scope="row">Knees</th><td>Knee OA RR 1.35 per 5 BMI units, higher in women (1.38). [[Jiang2012]]</td><td>A fall of 2 BMI units over 10 years halved the odds of symptomatic knee OA in Framingham women (OR 0.46). [[Felson1992]] IDEA: diet plus exercise, 11.4% loss, less pain than exercise alone. [[Messier2013IDEA]]</td></tr>
+      <tr><th scope="row">Kidneys</th><td>End-stage kidney disease RR 3.57 (class I) to 7.07 (BMI ≥40). [[Hsu2006]]</td><td>Microalbuminuria with reduced eGFR is a Lancet Commission criterion for clinical obesity. [[Rubino2025Commission]]</td></tr>
+      <tr><th scope="row">Bladder</th><td>Recurrent or chronic urinary incontinence is a Commission criterion. [[Rubino2025Commission]]</td><td>PRIDE: 8% loss cut weekly episodes by 47% vs 28%. [[Subak2009PRIDE]]</td></tr>
+      <tr><th scope="row">Reproduction</th><td>The 2023 PCOS guideline keeps its focus on healthy lifestyle "with awareness and consideration of weight stigma". [[Teede2024PCOS]]</td><td>See <a href="#" data-go="pregnancy">module 4.2</a> for fertility and pregnancy.</td></tr>
+      <tr><th scope="row">Cancer</th><td>An estimated 41% of uterine cancers in the UK could be attributable to excess weight, assuming causality. [[Bhaskaran2014]]</td><td>IARC judged human evidence that intentional weight loss lowers cancer risk as not yet sufficient for evaluation. <span class="ev early">Early evidence</span> [[LaubySecretan2016]]</td></tr>
+      <tr><th scope="row">Infection</th><td>COVID-19 admission risk rose 5% per kg/m² above BMI 23 in 6.9 million adults in England, more steeply under age 40. [[Gao2021COVID]]</td><td>Not studied as an outcome of weight loss in these cohorts.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Does weight loss prevent heart attacks?</h3>
+  <div class="cards">
+    <div class="card"><span class="tag bad">Randomised: no difference</span><p class="co-big">HR 0.95</p><p>Look AHEAD, 5145 adults with type 2 diabetes, median 9.6 years: intensive lifestyle (6.0% vs 3.5% weight loss at the end) did not reduce cardiovascular events (95% CI 0.83–1.09). [[LookAHEAD2013]]</p></div>
+    <div class="card"><span class="tag warn">Observational: lower risk</span><p class="co-big">HR 0.79</p><p>In the same cohort, people who lost at least 10% in year 1 had 21% fewer cardiovascular events than those with stable weight or gain, a comparison that is not randomised. <span class="ev early">Early evidence</span> [[LookAHEAD2016LDE]]</p></div>
+    <div class="card"><span class="tag hl">What the AHA says</span><p>Trials of medical weight loss have not shown fewer coronary events, while prospective studies of bariatric surgery have shown lower coronary risk. Waist size is a cardiovascular risk marker independent of BMI. [[PowellWiley2021]]</p></div>
+  </div>
+  <div class="callout"><p>Is the link to stroke causal? Observational studies show a higher ischaemic-stroke risk (RR 1.64 with obesity) [[Strazzullo2010]], but pooled Mendelian randomisation found no association (OR 1.02), while supporting causal links to type 2 diabetes (OR 1.67) and coronary artery disease (OR 1.20). [[Riaz2018]] Status: unresolved.</p></div>
+  <p class="support" role="note"><b>Mood matters too</b>Low mood and weight can affect each other in both directions. [[Luppino2010]] Genetic studies suggest higher BMI is partly causal for depression. <span class="ev early">Early evidence</span> [[Tyrrell2019]] Getting help for one can help with the other.</p>
+</section>

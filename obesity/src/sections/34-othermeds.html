@@ -1,2 +1,92 @@
-<!-- STUB: replaced by its builder (meds) -->
-<section class="mod" id="m-othermeds" data-mod="othermeds" hidden><div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Other weight-loss medicines</h2><p class="lede">Several other medicines act on appetite or fat absorption; this module will compare how they work and what trials showed.</p></div></section>
+<!-- ================= 3.4 OTHER WEIGHT-LOSS MEDICINES ================= -->
+<style>
+#m-othermeds .om-row{display:flex;flex-wrap:wrap;gap:8px}
+#m-othermeds .om-row .btn{min-height:40px}
+#m-othermeds .om-key{display:flex;flex-wrap:wrap;gap:6px 16px;font:500 12px var(--mono);color:var(--muted)}
+#m-othermeds .om-key span{display:inline-flex;align-items:center;gap:6px}
+#m-othermeds .om-key i{display:inline-block;width:12px;height:12px;border-radius:50%}
+#m-othermeds .om-key i.ap{background:var(--good)} #m-othermeds .om-key i.hm{border:2px solid var(--bad);background:var(--panel)} #m-othermeds .om-key i.tr{background:var(--warn);border-radius:2px;transform:rotate(45deg) scale(.85)}
+#m-othermeds .om-key i.dr{background:var(--rx-drug);border-radius:3px} #m-othermeds .om-key i.pl{background:var(--figure);border-radius:3px}
+#m-othermeds .card .om-num{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--tx)}
+#m-othermeds .om-bnote{display:flex;flex-direction:column;gap:10px}
+#m-othermeds td small{color:var(--muted)}
+#m-othermeds svg .t-xs{font-size:11px}
+#m-othermeds svg .t-sm{font-size:12px}
+</style>
+<section class="mod" id="m-othermeds" data-mod="othermeds" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Other weight-loss medicines</h2>
+    <p class="lede">Before the weekly incretin injections there were other medicines, and they are still prescribed: one blocks fat digestion in the gut, two act on appetite and reward in the brain, one replaces a missing signal in rare genetic obesity, and one is a daily GLP-1 injection. Step through where each acts, then compare what their trials showed.</p></div>
+
+  <div class="stepper" id="omSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="omSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Mechanism map: a brain seen from the side with an inset of the hypothalamus, a close-up panel and the digestive tract. For each medicine the close-up animates its site of action (lipases blocked in the gut, catecholamine release at a synapse, dopamine reuptake and opioid receptors, the MC4 receptor, the blood level of liraglutide), and a bar band builds the pivotal trial's average result."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="omPlay">%t:player.play%</button><label class="stage-cap tl" for="omT">Medicine <input type="range" id="omT" min="0" max="1" step="0.001" value="0.17"></label></div>
+      <p class="stage-cap">Schematic, not to scale; each step button plays that medicine's part of the timeline. Results are trial averages, not predictions: XENDOS [[Torgerson2004XENDOS]], CONQUER [[Gadde2011CONQUER]], COR-I [[Greenway2010CORI]], setmelanotide trials [[Clement2020]], SCALE as given in the Saxenda label. [[FDA-Saxenda]] Liraglutide's curve is a schematic decay with the label's 13-hour half-life, not a measured profile.</p>
+    </div>
+    <aside class="note" id="omNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Match drug to site: orlistat, gut lipases; [[FDA-Xenical]] phentermine, hypothalamic catecholamines; [[FDA-Qsymia]] naltrexone–bupropion, hypothalamus and mesolimbic reward circuit; [[FDA-Contrave]] setmelanotide, the MC4 receptor; [[FDA-Imcivree]] liraglutide, the GLP-1 receptor. [[FDA-Saxenda]]</div>
+    <div class="pt"><b>In plain words</b>These medicines work in different places, which is why their side effects differ too. None of them is a test of willpower: they act on the body's own systems for hunger, fullness and digestion.</div>
+  </div>
+
+  <h3 class="sub">How much weight, on average?</h3>
+  <div class="prose"><p>Each trial below compared a medicine with placebo, and everyone also had lifestyle support. Choose a view. The two incretin medicines from <a href="#medtrials" data-go="medtrials">the semaglutide and tirzepatide trials</a> are shown, shaded, for reference.</p></div>
+  <div class="om-row" id="omBarBtns" role="group" aria-label="What the bars show"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="omBars" viewBox="0 0 720 360" style="min-width:560px" role="img" aria-label="Bar chart comparing orlistat, phentermine–topiramate at two doses, naltrexone–bupropion and liraglutide, with semaglutide and tirzepatide for reference, as placebo-subtracted weight loss, drug and placebo means, or the share reaching at least 5% loss"></svg></div>
+      <div class="om-key"><span><i class="dr"></i>medicine</span><span><i class="pl"></i>placebo</span></div>
+      <p class="stage-cap">Trial averages, not predictions for any person. Sources: XENDOS [[Torgerson2004XENDOS]]; CONQUER [[Gadde2011CONQUER]]; COR-I [[Greenway2010CORI]]; SCALE figures from the Saxenda label [[FDA-Saxenda]] (the NEJM paper reports kilograms: 8.4 vs 2.8 kg, and 63.2% vs 27.1% reaching 5% [[PiSunyer2015SCALE]]); STEP 1 [[Wilding2021STEP1]]; SURMOUNT-1. [[Jastreboff2022SURMOUNT1]]</p>
+    </div>
+    <aside class="note om-bnote" id="omBarNote" aria-live="polite"></aside>
+  </div>
+  <p class="teach" role="note"><b>Comparing across trials</b>These trials differ in length (56 weeks to 4 years), in who took part and in how many people stopped early: only half completed COR-I, [[Greenway2010CORI]] and 52% on orlistat vs 34% on placebo completed XENDOS. [[Torgerson2004XENDOS]] Side-by-side bars are a teaching device, not a head-to-head trial. The one direct comparison here, STEP 8, found −15.8% with semaglutide vs −6.4% with liraglutide at 68 weeks. [[Rubino2022STEP8]]</p>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service. Contrave must not be used with bulimia or anorexia nervosa. [[FDA-Contrave]]</p>
+
+  <h3 class="sub">What the labels say</h3>
+  <div class="prose"><p>Quoted from the current US labels as published, not as instructions. Nobody should start, stop or change a medicine without their clinician.</p></div>
+  <div class="tbl"><table>
+    <caption class="sr">Label facts for five weight-loss medicines</caption>
+    <thead><tr><th scope="col">Medicine (brand)</th><th scope="col">Who it is for, as published</th><th scope="col">Boxed warning</th><th scope="col">Selected contraindications</th><th scope="col">Label stopping rule</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Orlistat (Xenical; Alli 60 mg over the counter)</th><td>Adults and children 12 and over with obesity, and adults with overweight plus a weight-related condition; Alli: overweight adults 18 and over [[FDA-Xenical,FDA-Alli]]</td><td>None</td><td>Chronic malabsorption syndrome; cholestasis [[FDA-Xenical]]</td><td><small>Not covered in this guide's sources; the label pairs it with a daily multivitamin taken at least 2 hours apart from the dose [[FDA-Xenical]]</small></td></tr>
+      <tr class="tx"><th scope="row">Phentermine–topiramate ER (Qsymia)</th><td>Adults and children 12 and over with obesity; adults with overweight plus a weight-related condition [[FDA-Qsymia]]</td><td>None; pregnancy is a contraindication and it is dispensed through a REMS programme [[FDA-Qsymia]]</td><td>Pregnancy, glaucoma, hyperthyroidism, MAOI use within 14 days [[FDA-Qsymia]]</td><td>Stop if less than 5% is lost after 12 weeks on 15/92 mg; the 15/92 mg dose is tapered over at least 1 week because of seizure risk [[FDA-Qsymia]]</td></tr>
+      <tr><th scope="row">Naltrexone–bupropion ER (Contrave)</th><td>Adults only [[FDA-Contrave]]</td><td>Suicidal thoughts and behaviours (bupropion) [[FDA-Contrave]]</td><td>Uncontrolled hypertension; seizure disorder; bulimia or anorexia nervosa; chronic opioid use or acute opiate withdrawal; abrupt stopping of alcohol, benzodiazepines, barbiturates or antiepileptics; MAOI use within 14 days [[FDA-Contrave]]</td><td>Stop if less than 5% is lost after 12 weeks at maintenance [[FDA-Contrave]]</td></tr>
+      <tr class="tx"><th scope="row">Setmelanotide (Imcivree)</th><td>Age 2 and over with Bardet-Biedl syndrome or genetically confirmed POMC, PCSK1 or LEPR deficiency; age 4 and over with acquired hypothalamic obesity. Not for common obesity [[FDA-Imcivree]]</td><td>None</td><td><small>Warnings: depression and suicidal ideation, sexual arousal disturbances, darkening of moles (naevi) [[FDA-Imcivree]]</small></td><td><small>Not covered in this guide's sources</small></td></tr>
+      <tr><th scope="row">Liraglutide 3.0 mg (Saxenda)</th><td>Adults, and children 12 and over with body weight above 60 kg and obesity [[FDA-Saxenda]]</td><td>Thyroid C-cell tumours in rodents; contraindicated with a personal or family history of medullary thyroid carcinoma or MEN 2 [[FDA-Saxenda]]</td><td>Personal or family history of MTC or MEN 2 [[FDA-Saxenda]]</td><td>Stop if an adult has not lost at least 4% after 16 weeks [[FDA-Saxenda]]</td></tr>
+    </tbody></table></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Stopping rules: Saxenda under 4% at 16 weeks; Contrave under 5% at 12 weeks at maintenance; Qsymia under 5% at 12 weeks on the top dose. [[FDA-Saxenda,FDA-Contrave,FDA-Qsymia]]</div>
+    <div class="pt"><b>In plain words</b>Each label sets a check-in point. If the medicine has not helped enough by then, the label says to stop it, so nobody stays on a medicine that is not working for them.</div>
+  </div>
+  <p class="callout">Guidelines weigh these options differently. The AGA's 2022 guideline suggested semaglutide 2.4 mg, liraglutide 3.0 mg, phentermine–topiramate ER and naltrexone–bupropion ER for long-term management (moderate-certainty evidence), and phentermine or diethylpropion with low certainty; it suggested <b>against</b> orlistat. [[Grunvald2022AGA]] Yet orlistat is the one medicine shown in XENDOS to cut diabetes incidence over 4 years in people with impaired glucose tolerance. [[Torgerson2004XENDOS]]</p>
+
+  <h3 class="sub">Setmelanotide: one gene, one receptor</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">POMC deficiency</span><span class="om-num">8 of 10</span><p>lost at least 10% at about 1 year in an open-label trial; "most hunger" scores fell by 27.1%. [[Clement2020]]</p></div>
+    <div class="card"><span class="kicker">LEPR deficiency</span><span class="om-num">5 of 11</span><p>lost at least 10% at about 1 year; "most hunger" scores fell by 43.7%. [[Clement2020]]</p></div>
+    <div class="card"><span class="kicker">Bardet-Biedl syndrome</span><span class="om-num">32.3%</span><p>of patients aged 12 and over reached at least 10% weight reduction at 52 weeks in a randomised trial; skin darkening (hyperpigmentation) occurred in 61%. [[Haqq2022Setmelanotide]]</p></div>
+    <div class="card"><span class="kicker">Acquired hypothalamic obesity</span><span class="om-num">−16.5%</span><p>BMI change at 52 weeks vs +3.3% on placebo in TRANSCEND (ages 4 to 66, 120 people). [[Miller2026TRANSCEND]]</p></div>
+  </div>
+  <p class="callout">Why it works only in these conditions: in POMC or LEPR deficiency the chain that normally ends at the MC4 receptor is broken upstream, so a drug that switches the receptor on directly can stand in for the missing signal. [[FDA-Imcivree]] The genetics are in <a href="#causes" data-go="causes">Causes: genes &amp; environment</a>, and the circuit in <a href="#appetite" data-go="appetite">Appetite: the gut-brain loop</a>.</p>
+
+  <h3 class="sub">Medicines that were withdrawn: a cautionary timeline</h3>
+  <div class="prose"><p>Several earlier weight-loss medicines were taken off the market when harm appeared, which is one reason today's medicines are tested in large, long safety trials. [[CDC1997Fenfluramine,James2010SCOUT]] Scrub through the decades.</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="omHist" viewBox="0 0 720 470" style="min-width:560px" role="img" aria-label="Vertical timeline from the 1940s to 2026 of weight-loss medicine approvals, harms and withdrawals (fenfluramines in 1997, rimonabant, sibutramine in 2010) and safety trials, revealed as the year advances"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="omHistPlay">%t:player.play%</button><label class="stage-cap tl" for="omHistT">Year <input type="range" id="omHistT" min="0" max="1" step="0.001" value="1"></label></div>
+      <div class="om-key"><span><i class="ap"></i>US approval</span><span><i class="hm"></i>harm found or withdrawn</span><span><i class="tr"></i>safety trial</span></div>
+      <p class="stage-cap">Rows are in date order, evenly spaced, not to scale in time. Approval dates are original US approvals from Drugs@FDA. [[FDA-DrugsAtFDA-AOM]]</p>
+    </div>
+    <aside class="note" id="omHistNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Fenfluramine and dexfenfluramine: withdrawn in 1997 for heart-valve disease. Sibutramine: withdrawn after SCOUT (more non-fatal heart attacks and strokes). Rimonabant: withdrawn in Europe for psychiatric harm. [[CDC1997Fenfluramine,James2010SCOUT,Christensen2007]]</div>
+    <div class="pt"><b>In plain words</b>Some past weight-loss medicines turned out to harm the heart or mood and were taken off the market. That history is why new ones now go through very large safety studies before and after approval.</div>
+  </div>
+  <p class="teach" role="note"><b>Medicines</b>Do not start, stop or change a medicine without a clinician. Products sold online as "compounded" GLP-1 medicines are not the same as FDA-approved ones: in the FDA's adverse event reports they had higher reporting odds of preparation errors and contamination, though reporting data cannot show cause. [[McCall2026Compounded]]</p>
+  <p class="callout">How the weekly incretin medicines work is in <a href="#glp" data-go="glp">How GLP-1 medicines work</a>; their trials are in <a href="#medtrials" data-go="medtrials">Semaglutide &amp; tirzepatide trials</a>; side effects and stopping are in <a href="#sideeffects" data-go="sideeffects">Side effects, safety &amp; stopping</a>.</p>
+</section>

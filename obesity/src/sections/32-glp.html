@@ -1,2 +1,91 @@
-<!-- STUB: replaced by its builder (glp) -->
-<section class="mod" id="m-glp" data-mod="glp" hidden><div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>How GLP-1 medicines work</h2><p class="lede">GLP-1 medicines copy a gut hormone that signals fullness; this module will show how they act on the gut, pancreas and brain.</p></div></section>
+<!-- ================= 3.2 HOW GLP-1 MEDICINES WORK ================= -->
+<style>
+#m-glp .gl-key{display:flex;flex-wrap:wrap;gap:4px 16px;font:500 12px var(--mono);color:var(--muted)}
+#m-glp .gl-key span{display:inline-flex;align-items:center;gap:5px}
+#m-glp .gl-key svg{width:16px;height:16px;flex:none}
+#m-glp .gl-row{display:flex;flex-wrap:wrap;gap:8px}
+#m-glp .gl-row .btn{min-height:40px}
+#m-glp .gl-dnote{display:flex;flex-direction:column;gap:10px}
+#m-glp .gl-dnote h4{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.15;margin:0}
+#m-glp .gl-dnote ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+#m-glp .gl-yes{font-weight:700;color:var(--tx)}
+#m-glp .gl-blk{font-weight:700;color:var(--hl)}
+#m-glp .gl-no{color:var(--muted)}
+#m-glp td .ev{margin-left:4px}
+#m-glp .card .gl-num{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--tx)}
+</style>
+<section class="mod" id="m-glp" data-mod="glp" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>How GLP-1 medicines work</h2>
+    <p class="lede">After a meal, cells in the gut release GLP-1, a hormone that helps the pancreas release insulin, slows the stomach and tells the brain that food has arrived. [[Holst2007,Drucker2018]] The body clears it within minutes. The medicines copy it, last far longer and, in tirzepatide's case, act on a second gut-hormone receptor as well. [[Kieffer1995,FDA-Wegovy,FDA-Zepbound]]</p></div>
+
+  <div class="stepper" id="glSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="glSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A brain and the gut joined by a bloodstream. GLP-1 is released from the lower small intestine after a meal and cut by the enzyme DPP-4 within minutes. A long-acting medicine then reaches receptors in the pancreas, stomach and brain. A side panel shows the enzyme at work, the effects on insulin, stomach emptying and food intake, and a chart of how long each medicine stays in the blood."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="glPlay">%t:player.play%</button><label class="stage-cap tl" for="glT">From a meal to a weekly medicine <input type="range" id="glT" min="0" max="1" step="0.001" value="0.08"></label></div>
+      <div class="gl-key" id="glKey" aria-hidden="true"></div>
+      <p class="stage-cap">Schematic, not to scale. The half-life chart is computed here from the half-lives in the US labels for one dose, ignoring absorption; it is not a measured blood level. [[FDA-Wegovy,FDA-Zepbound,FDA-Saxenda,FDA-Foundayo]] Brain sites come from rodent studies; human data are limited. [[Gabery2020,Secher2014]]</p>
+    </div>
+    <aside class="note" id="glNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>These medicines act on the brain's appetite system, so people feel full sooner and think about food less. They are not a test of willpower. [[FDA-Wegovy,FDA-Zepbound]] Natural GLP-1 lasts only minutes in the blood; medicines like semaglutide are built to last about a week. [[Kieffer1995,FDA-Wegovy]]</div>
+    <div class="hook"><b>Exam hook</b>GLP-1: 30 amino acids, made by intestinal L cells from proglucagon, inactivated by DPP-4. [[Holst2007]] Its insulin effect is glucose-dependent. [[Holst2007,Drucker2018]] Tirzepatide is a dual GIP and GLP-1 receptor agonist. [[FDA-Zepbound]]</div>
+  </div>
+
+  <h3 class="sub">Weight loss is not just nausea</h3>
+  <div class="prose">
+    <p>A common question is whether people lose weight because the medicine makes them feel sick. In STEP 1 to 3, mean weight loss on semaglutide 2.4 mg was similar in people who had gastrointestinal side effects (11.4 to 17.7%) and in people who did not (9.6 to 17.1%). Less than 1 percentage point of the extra weight loss was explained by those side effects. [[Wharton2022GItolerability]]</p>
+    <p>What changes is how much people choose to eat. In 72 adults with obesity, 20 weeks of semaglutide 2.4 mg cut the energy eaten at a free-choice lunch by 35% compared with placebo. [[Friedrichsen2021]] In a 12-week crossover trial, semaglutide 1.0 mg cut food intake across the day by 24%, reduced hunger and cravings and did not change resting metabolic rate adjusted for lean mass. [[Blundell2017]] The label says semaglutide lowers calorie intake, likely through appetite. [[FDA-Wegovy]]</p>
+  </div>
+
+  <h3 class="sub">Dose steps as printed in the US labels</h3>
+  <div class="prose"><p>Each label starts with a low dose and steps it up. Gastrointestinal side effects are most frequent during or shortly after a dose increase. [[Wharton2022GItolerability]] Choose a product and scrub through the first months to see the steps as the label prints them. Wegovy now comes as a weekly injection with a maximum of 7.2 mg and as a daily tablet, and orforglipron was approved in 2026 as Foundayo. [[FDA-Wegovy,FDA-Foundayo]]</p></div>
+  <p class="teach" role="note"><b>Quoted from the labels, not instructions</b>These schedules are reproduced from the current US prescribing information to show how the medicines are designed. They are not a plan for any person. Do not start, stop or change a medicine or a dose without a clinician.</p>
+  <div class="gl-row" id="glDrugBtns" role="group" aria-label="Product"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="glDose" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A step chart of the dose printed in the chosen US label, week by week, with optional higher steps dashed"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="glDosePlay">%t:player.play%</button><label class="stage-cap tl" for="glDoseT">Weeks from the first dose <input type="range" id="glDoseT" min="0" max="1" step="0.002" value="0.3"></label></div>
+      <p class="stage-cap">Step chart drawn from the label text; dashed steps are optional and shown at the earliest week the label allows. The vertical scale is compressed so small starting doses stay visible. Label milligrams for Foundayo are not the same numbers as the trial milligrams. [[FDA-Foundayo]]</p>
+    </div>
+    <aside class="note gl-dnote" id="glDoseNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Which receptors each medicine targets</h3>
+  <div class="prose"><p>Every medicine here acts on the GLP-1 receptor. Newer molecules add a second or third target: GIP (the other incretin), glucagon, or amylin, a hormone released with insulin. The research behind the investigational ones is in <a href="#frontier" data-go="frontier">Research frontier</a>.</p></div>
+  <div class="tbl"><table>
+    <caption class="sr">Receptors targeted by each GLP-1-based medicine</caption>
+    <thead><tr><th scope="col">Medicine</th><th scope="col">GLP-1</th><th scope="col">GIP</th><th scope="col">Glucagon</th><th scope="col">Amylin</th><th scope="col">Form and status</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Native GLP-1 (the hormone)</th><td class="gl-yes">activates</td><td class="gl-no">no</td><td class="gl-no">no</td><td class="gl-no">no</td><td>Released by gut L cells after meals; cut by DPP-4 within minutes [[Holst2007,Kieffer1995]]</td></tr>
+      <tr class="tx"><th scope="row">Liraglutide (Saxenda)</th><td class="gl-yes">activates</td><td class="gl-no">no</td><td class="gl-no">no</td><td class="gl-no">no</td><td>Daily injection; resists peptidases, half-life 13 hours <span class="ev est">Established</span> [[FDA-Saxenda]]</td></tr>
+      <tr class="tx"><th scope="row">Semaglutide (Wegovy)</th><td class="gl-yes">activates</td><td class="gl-no">no</td><td class="gl-no">no</td><td class="gl-no">no</td><td>Weekly injection, or a daily 25 mg tablet; half-life about 1 week <span class="ev est">Established</span> [[FDA-Wegovy]]</td></tr>
+      <tr class="tx"><th scope="row">Orforglipron (Foundayo)</th><td class="gl-yes">activates</td><td class="gl-no">no</td><td class="gl-no">no</td><td class="gl-no">no</td><td>Small-molecule daily tablet, with or without food; FDA-approved 1 April 2026 <span class="ev est">Established</span> [[FDA-Foundayo,Wharton2025ATTAIN1]]</td></tr>
+      <tr class="tx"><th scope="row">Tirzepatide (Zepbound)</th><td class="gl-yes">activates</td><td class="gl-yes">activates</td><td class="gl-no">no</td><td class="gl-no">no</td><td>Weekly injection; one molecule, two receptors, half-life about 5 days <span class="ev est">Established</span> [[FDA-Zepbound]]</td></tr>
+      <tr><th scope="row">Retatrutide</th><td class="gl-yes">activates</td><td class="gl-yes">activates</td><td class="gl-yes">activates</td><td class="gl-no">no</td><td>Investigational; phase 3 TRIUMPH-1 published (−25.0% at 12 mg vs −3.9% at 80 weeks) <span class="ev est">Established</span> [[Jastreboff2023Retatrutide,Jastreboff2026TRIUMPH1]]</td></tr>
+      <tr><th scope="row">Survodutide, mazdutide</th><td class="gl-yes">activates</td><td class="gl-no">no</td><td class="gl-yes">activates</td><td class="gl-no">no</td><td>Investigational glucagon/GLP-1 dual agonists; phase 3 results published <span class="ev est">Established</span> [[leRoux2026SYNCHRONIZE1,Ji2025GLORY1]]</td></tr>
+      <tr><th scope="row">Cagrilintide-semaglutide (CagriSema)</th><td class="gl-yes">activates</td><td class="gl-no">no</td><td class="gl-no">no</td><td class="gl-yes">activates</td><td>Two molecules in one weekly injection; not US-approved on 11 November 2026 <span class="ev est">Established</span> [[Garvey2025REDEFINE1]]</td></tr>
+      <tr><th scope="row">Amycretin</th><td class="gl-yes">activates</td><td class="gl-no">no</td><td class="gl-no">no</td><td class="gl-yes">activates</td><td>One molecule; tested as a weekly injection and a daily tablet <span class="ev early">Early evidence</span> [[Dahl2025Amycretin,Gasiorek2025Amycretin]]</td></tr>
+      <tr><th scope="row">Maridebart cafraglutide (MariTide)</th><td class="gl-yes">activates</td><td class="gl-blk">blocks</td><td class="gl-no">no</td><td class="gl-no">no</td><td>Antibody-peptide conjugate dosed every 4 weeks or less often <span class="ev early">Early evidence</span>; why blocking and activating GIP both lower weight is unsettled <span class="ev hyp">Hypothesis</span> [[Jastreboff2025MariTide]]</td></tr>
+    </tbody></table></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Liraglutide: daily, half-life 13 hours. [[FDA-Saxenda]] Semaglutide: weekly, more than 99% albumin-bound, half-life about 1 week, still in the blood 5 to 7 weeks after the last 2.4 mg dose. [[FDA-Wegovy]] The Wegovy label says to stop at least 2 months before a planned pregnancy because of the long half-life. [[FDA-Wegovy]]</div>
+    <div class="pt"><b>In plain words</b>All of these medicines press the same "GLP-1 button". Some newer ones press a second or third button too. That is why their names keep coming up in the news, but most of the newest ones are still being tested.</div>
+  </div>
+
+  <h3 class="sub">Key numbers</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">The incretin effect</span><span class="gl-num">72.8%</span><p>of the insulin response to oral glucose came from gut hormones in healthy controls, but only 36.0% in people with type 2 diabetes. [[Nauck1986]]</p></div>
+    <div class="card"><span class="kicker">Intact in human blood</span><span class="gl-num">19.9%</span><p>of the GLP-1 measured during an infusion was still intact in healthy people (25.0% in type 2 diabetes); the rest had been cut. [[Deacon1995]]</p></div>
+    <div class="card"><span class="kicker">Like the hormone</span><span class="gl-num">94%</span><p>sequence homology between semaglutide and human GLP-1, the label states. [[FDA-Wegovy]]</p></div>
+    <div class="card"><span class="kicker">Bound to albumin</span><span class="gl-num">&gt;99%</span><p>of semaglutide circulates bound to albumin; a fatty side chain makes this possible. [[FDA-Wegovy,Lau2015]]</p></div>
+    <div class="card"><span class="kicker">In the brain</span><span class="gl-num">10 areas</span><p>In rodents, semaglutide did not cross the blood-brain barrier but switched on cells in 10 brain areas reached through circumventricular organs such as the area postrema. [[Gabery2020]]</p></div>
+    <div class="card"><span class="kicker">Tablet rules</span><span class="gl-num">30 min</span><p>The Wegovy tablet label: taken on an empty stomach with up to 4 ounces of water, then at least 30 minutes before food, drink or other oral medicines. [[FDA-Wegovy]]</p></div>
+  </div>
+
+  <p class="crisis" role="note"><b>Urgent</b><span>Severe stomach pain that does not go away, sometimes spreading to the back, needs urgent medical review. [[FDA-Wegovy]] Side effects, warnings and what happens on stopping are in <a href="#sideeffects" data-go="sideeffects">Side effects, safety &amp; stopping</a>.</span></p>
+  <p class="callout">Never start, stop or change a dose without your clinician. All the incretin labels say not to combine them with another GLP-1 receptor agonist or another product containing the same drug. [[FDA-Wegovy,FDA-Zepbound,FDA-Saxenda,FDA-Foundayo]] Products sold online or "compounded" are not the same as FDA-approved medicines; compounded products have higher reporting rates of preparation errors and contamination in the FDA's adverse-event database, a signal that does not prove cause. <span class="ev early">Early evidence</span> [[McCall2026Compounded]]</p>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service.</p>
+  <p class="callout">What the trials found, as averages, is in <a href="#medtrials" data-go="medtrials">Semaglutide &amp; tirzepatide trials</a>. The appetite circuit these medicines act on is in <a href="#appetite" data-go="appetite">Appetite: the gut-brain loop</a>.</p>
+</section>
