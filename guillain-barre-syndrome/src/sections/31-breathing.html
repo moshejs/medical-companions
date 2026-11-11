@@ -1,0 +1,170 @@
+<!-- ================= 3.1 BREATHING & THE 20/30/40 RULE ================= -->
+<style>
+#m-breathing .tbl table{min-width:620px}
+#m-breathing .card>.ev,#m-breathing .card>.tag{align-self:flex-start}
+#m-breathing .card b.big-num{font-size:34px}
+#m-breathing .calc input[type=range]{margin-top:4px}
+#m-breathing .calc output{font:600 13px var(--mono);color:var(--muted)}
+#m-breathing .brout{font-size:15px;line-height:1.5;max-width:76ch}
+#m-breathing .brout b{font-family:var(--mono);font-size:13px;letter-spacing:.04em}
+#m-breathing .brbar{height:12px;background:var(--panel-2);border-radius:99px;overflow:hidden;max-width:520px}
+#m-breathing .brbar i{display:block;height:100%;background:var(--rx);width:0;transition:width .25s}
+</style>
+<section class="mod" id="m-breathing" data-mod="breathing" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Acute care</p><h2>Breathing &amp; the 20/30/40 rule</h2>
+    <p class="lede">GBS can weaken the muscles that move air in and out. Watch vital capacity fall before anyone feels short of breath, then try the bedside thresholds and the published risk scores used to judge who may need a ventilator.</p></div>
+
+  <p class="crisis" role="note"><b>Emergency</b><span>Weakness that worsens fast, or any trouble breathing or swallowing, needs emergency care. GBS can bring on breathing failure within hours to days, and missing it can cause death or brain injury from lack of oxygen [[vanDoorn2023]].</span></p>
+
+  <div class="prose">
+    <p>About 1 in 5 people with GBS needs mechanical ventilation (MV) at some point, and up to 22% need it in their first week in hospital, according to the international "ten steps" guideline [[Leonhard2019]]. Breathing failure can arrive without the person feeling breathless, so teams measure breathing strength routinely instead of waiting for symptoms [[Leonhard2019]]. Pick a step or press Play.</p>
+  </div>
+
+  <div class="stepper" id="brSteps"></div>
+  <div class="lab">
+    <div class="stage"><div class="scroll"><svg id="brSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A person with weakness rising from the feet, their lungs and diaphragm breathing, a single-breath count bar and a chart of vital capacity in millilitres per kilogram falling over time past lines at a 30% fall, 20, 15 and 10 millilitres per kilogram, until the person is intubated and a ventilator takes over."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="brPlay">%t:player.play%</button><label class="stage-cap tl" for="brT">Timeline <input type="range" id="brT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap"><b>Schematic, not to scale.</b> The falling curve and the single-breath count are illustrative; the threshold lines are published values [[Lawn2001,Leonhard2019,vanDoorn2023]], and 15.2 mL/kg is the mean at intubation in one series of 10 people [[Chevrolet1991]].</p></div>
+    <aside class="note" id="brNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">How often, and how fast</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Need a ventilator</span><b class="big-num">~20%</b><p>of people with GBS, the consensus figure in the ten-steps guideline [[Leonhard2019]].</p></div>
+    <div class="card"><span class="kicker">Start early</span><b class="big-num">82%</b><p>of those ventilated in the IGOS cohort started within 1 week of admission (149 of 182) [[Luijten2023]].</p></div>
+    <div class="card"><span class="kicker">From first weakness</span><b class="big-num">4 days</b><p>median time from onset of weakness to starting MV in IGOS (IQR 3 to 8, range 0 to 44) [[Luijten2023]].</p></div>
+    <div class="card"><span class="kicker">After admission</span><b class="big-num">1 day</b><p>median time from admission to intubation in a Dutch cohort (IQR 0 to 4) [[Walgaard2017]].</p></div>
+  </div>
+  <div class="prose"><p>The figure depends on who is counted. Trial cohorts enrolled people with severe disease, while the International GBS Outcome Study (IGOS) also took in mild disease and variants [[Luijten2023]].</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Cohort</th><th>Who</th><th>Ventilated</th></tr></thead>
+    <tbody>
+      <tr><th>French plasma exchange trials</th><td>722 adults not ventilated at admission; severe disease</td><td>313 (43%) [[Sharshar2003]]</td></tr>
+      <tr><th>Mayo Clinic series</th><td>Severe GBS in intensive care</td><td>"up to 30%" [[Lawn2001]]</td></tr>
+      <tr><th>Dutch pooled cohorts</th><td>552 and 526 trial patients, 6 months</td><td>27% and 28% [[Walgaard2017,vanDenBerg2018]]</td></tr>
+      <tr><th>IGOS</th><td>1,133 people, many countries, mild disease included</td><td>16% (185 of 1,133) [[Luijten2023]]</td></tr>
+      <tr><th>EGRIS validation set</th><td>1,023 IGOS participants</td><td>12% during follow-up [[Doets2022]]</td></tr>
+      <tr><th>Chinese single centre</th><td>541 people, retrospective</td><td>14.8% [[Wu2015]]</td></tr>
+      <tr><th>US inpatient database</th><td>4,954 adults, administrative codes</td><td>9.1% intubated [[Alshekhlee2008]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">Why breathing fails</h3>
+  <div class="split2">
+    <div class="prose">
+      <p>The cause is progressive weakness of both the muscles that draw air in (the diaphragm and others) and the muscles that push it out. Weak throat muscles and a poor cough then let food or saliva go the wrong way, and parts of the lung collapse (atelectasis) [[Orlikowski2004]].</p>
+      <p>Classical signs of respiratory distress appear too late to guide care. Vital capacity (VC) and the static mouth pressures are the useful measures [[Orlikowski2004]]. In 81 French people who were later intubated, mean VC was 57% of predicted at admission and 33% at intubation [[Orlikowski2006]].</p>
+    </div>
+    <div class="prose">
+      <p><b>Swallowing.</b> In 30 consecutive adults in intensive care, piecemeal swallowing and a poorly timed breathing-swallowing pattern each showed up in 19 (65.5%), yet only about half of them had an obvious swallowing problem at the bedside. The authors report swallowing impairment in over 80% early after ICU admission and suggest a systematic swallow assessment [[Ogna2017]].</p>
+      <p>In IGOS, forced vital capacity (FVC) was lower in people with facial or bulbar weakness (median 2.4 L vs 3 L), and low FVC stayed linked to MV after adjustment [[Luijten2023]]. One case report found blood bypassing the lungs' air spaces in severe autonomic failure, a reminder that not every fall in oxygen is muscle weakness <span class="ev early">Early evidence</span> [[Sykora2008]].</p>
+    </div>
+  </div>
+
+  <h3 class="sub">The bedside numbers: 20/30/40</h3>
+  <div class="prose">
+    <p>In 114 consecutive people with severe GBS in one tertiary intensive care unit (1976 to 1996), no single clinical feature predicted how breathing would decline, but serial lung function tests did. The authors' rule: risk of respiratory failure when vital capacity is under 20 mL/kg, maximal inspiratory pressure (MIP) under 30 cmH<sub>2</sub>O, maximal expiratory pressure (MEP) under 40 cmH<sub>2</sub>O, or any of the three falls by more than 30% [[Lawn2001]]. Move the sliders to see which limbs of the rule a set of values crosses.</p>
+  </div>
+  <p class="teach" role="note"><b>Teaching tool</b>This shows how a published rule reads numbers. It is not for judging any person's breathing, and it is not a substitute for a clinical team.</p>
+  <div class="stage">
+    <div class="calc" id="brRuleIn">
+      <label for="brVc">Vital capacity, mL/kg <input type="range" id="brVc" min="5" max="60" step="1" value="34"><output id="brVcO" for="brVc">34</output></label>
+      <label for="brMip">MIP, cmH₂O (as a magnitude) <input type="range" id="brMip" min="0" max="100" step="1" value="55"><output id="brMipO" for="brMip">55</output></label>
+      <label for="brMep">MEP, cmH₂O <input type="range" id="brMep" min="0" max="120" step="1" value="62"><output id="brMepO" for="brMep">62</output></label>
+      <label for="brFall">Fall from this person's first value, % <input type="range" id="brFall" min="0" max="70" step="1" value="10"><output id="brFallO" for="brFall">10</output></label>
+    </div>
+    <div class="scroll"><svg id="brRule" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="Four bars for vital capacity, maximal inspiratory pressure, maximal expiratory pressure and the percentage fall, each with its 20/30/40 threshold line and a label saying whether the value crosses it."></svg></div>
+    <p class="brout" id="brRuleOut" aria-live="polite"></p>
+  </div>
+  <p class="callout">A note on the published numbers. Lawn's rule is MIP under 30 and MEP under 40 cmH<sub>2</sub>O, and the ten-steps guideline matches it [[Lawn2001,Leonhard2019]]. The 2023 EAN/PNS guideline text reads MEP under 30 or MIP under 40, which looks like a transposition; it is unresolved in the published text [[vanDoorn2023]].</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Source</th><th>Measure</th><th>As published</th></tr></thead>
+    <tbody>
+      <tr><th>Ten-steps guideline, 2019</th><td>Signs of imminent respiratory insufficiency</td><td>Breathless at rest or while talking; cannot count to 15 in one breath; using accessory muscles; raised breathing or heart rate; VC under 15 to 20 mL/kg or under 1 L; abnormal blood gas or pulse oximetry [[Leonhard2019]]</td></tr>
+      <tr><th>Ten-steps guideline, 2019</th><td>Single breath count</td><td>A count of 19 or less predicts the need for MV [[Leonhard2019]]</td></tr>
+      <tr><th>EAN/PNS guideline, 2023</th><td>Single breath count</td><td>Under 20 (cannot count aloud from 1 to 20 in one breath) is a useful bedside tool for transfer to intensive care [[vanDoorn2023]]</td></tr>
+      <tr class="hl"><th>EAN/PNS guideline, 2023</th><td>How often FVC is checked (good practice point)</td><td>Three to six times a day depending on severity; about every 4 hours while FVC is falling [[vanDoorn2023]]</td></tr>
+      <tr><th>EAN/PNS guideline, 2023</th><td>FVC triggers</td><td>A fall over 30% below predicted baseline is a concern; over 30% in 24 hours likely means immediate ICU transfer; a 50% fall in under 24 hours likely means ventilation; consider elective ventilation at 20 mL/kg or less; at 10 mL/kg or less ventilation is almost inevitable [[vanDoorn2023]]</td></tr>
+      <tr><th>Chevrolet, 1991 (n=10)</th><td>Serial VC</td><td>In the 5 who needed intubation, VC fell over the 48 hours before failure and intubation came at 15.2 ± 3.7 mL/kg; in the 5 who did not, VC stayed above 40 mL/kg [[Chevrolet1991]]</td></tr>
+      <tr><th>Indian neuro-ICU cohort</th><td>Neck, single breath count and bulbar (NSB) score</td><td>At a cutoff of 60, sensitivity 95% and specificity 93%; single breath count correlated with spirometry [[KannanKanikannan2014]]</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>Blood gases appear in the list of signs of imminent failure, not as an early screen; VC and the static pressures are the measures advised for timing [[Leonhard2019,Orlikowski2004]]. The guideline also lists reasons for admission to intensive care: evolving respiratory distress, severe autonomic cardiovascular problems, severe swallowing difficulty or a weak cough, and rapidly progressing weakness [[Leonhard2019]].</p></div>
+
+  <h3 class="sub">Who is at risk: early predictors</h3>
+  <div class="prose"><p>A 2018 meta-analysis of 34 studies pooled the odds of needing ventilation for single bedside features. The odds ratios are large, but the intervals are wide, and the authors found that combined models (area under the curve 0.79 to 0.96) looked more reliable than any single sign [[Green2018]].</p></div>
+  <div class="stage">
+    <div class="scroll"><svg id="brForest" viewBox="0 0 720 210" style="min-width:560px" role="img" aria-label="A forest plot on a logarithmic scale: bulbar weakness odds ratio 9.0, neck weakness 6.36, autonomic instability 6.40 and facial weakness 3.74, each with its 95% confidence interval to the right of the no-effect line at 1."></svg></div>
+    <p class="stage-cap">Pooled odds ratios with 95% confidence intervals, logarithmic scale [[Green2018]]. Autonomic instability and facial weakness were not significant in the individual multivariable analyses [[Green2018]].</p>
+  </div>
+  <div class="split2">
+    <div class="tbl"><table style="min-width:0">
+      <thead><tr><th>French trials model (n=722)</th><th>Odds ratio</th></tr></thead>
+      <tbody>
+        <tr><th>Cannot cough</th><td>9.09</td></tr>
+        <tr><th>Cannot lift head</th><td>4.34</td></tr>
+        <tr><th>Cannot lift elbows</th><td>2.99</td></tr>
+        <tr><th>Cannot stand</th><td>2.53</td></tr>
+        <tr><th>Onset to admission under 7 days</th><td>2.51</td></tr>
+        <tr><th>Raised liver enzymes</th><td>2.09</td></tr>
+      </tbody>
+    </table></div>
+    <div class="prose">
+      <p>In this model, more than 85% of people with at least four of the six features needed MV. In a subgroup with VC measured (n=196), onset under 7 days before admission (OR 5.00), inability to lift the head (OR 5.00) and VC under 60% of predicted (OR 2.86) remained, and 85% with all three were ventilated [[Sharshar2003]].</p>
+      <p>The EAN/PNS guideline rates bulbar involvement, a short time from onset to admission and a low MRC sum score as high-certainty predictors; neck weakness, greater disability, low VC and low albumin as moderate-certainty [[vanDoorn2023]]. It also lists laboratory hints: raised liver tests, HSV or CMV infection, or demyelinating nerve conduction features [[vanDoorn2023]].</p>
+      <p>In a prospective cohort of 154, the chance of ventilation was under 2.5% when the peroneal proximal-to-distal CMAP ratio exceeded 55.6% and VC exceeded 81% of predicted; demyelinating GBS was commoner in those later ventilated (85% vs 51%) [[Durand2006]].</p>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="card"><span class="ev early">Early evidence</span><h4>Cortisol</h4><p>In 93 people, baseline plasma cortisol was the only independent predictor of breathing failure beyond 24 hours after adjusting for validated clinical predictors (OR 2.45 per 10 ng/mL). A research marker, not a routine test [[Strauss2009]].</p></div>
+    <div class="card"><span class="ev early">Early evidence</span><h4>Uncertainty and fear</h4><p>In 110 adults, uncertainty about the course of the illness was independently linked to later MV (23 ventilated). Subjective distress may signal deterioration [[Sharshar2012]].</p></div>
+  </div>
+
+  <h3 class="sub">EGRIS: a published risk score</h3>
+  <div class="prose"><p>The Erasmus GBS Respiratory Insufficiency Score (EGRIS) adds three items recorded at admission: days from onset of weakness to admission, facial and/or bulbar weakness, and the MRC sum score, giving 0 to 7 [[Doets2022,Leonhard2019]]. It was derived in 397 prospective Dutch patients (22% ventilated in the first week, area under the curve 0.84) and validated in 191 (14%, 0.82) [[Walgaard2010]]. The ten-steps guideline groups the scores into three bands [[Leonhard2019]].</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>This shows how EGRIS scores its inputs and quotes the published band figures for groups of people. It is never for an individual's prognosis or treatment. The per-score probabilities for scores 1 to 6 are not reproduced here.</p>
+  <div class="stage">
+    <div class="calc">
+      <label for="brEgDays">Days from onset of weakness to admission<select id="brEgDays"><option value="0">More than 7 days (0)</option><option value="1">4 to 7 days (1)</option><option value="2" selected>3 days or fewer (2)</option></select></label>
+      <label for="brEgFb">Facial and/or bulbar weakness at admission<select id="brEgFb"><option value="0" selected>Absent (0)</option><option value="1">Present (1)</option></select></label>
+      <label for="brEgMrc">MRC sum score at admission<select id="brEgMrc"><option value="0">51 to 60 (0)</option><option value="1" selected>41 to 50 (1)</option><option value="2">31 to 40 (2)</option><option value="3">21 to 30 (3)</option><option value="4">20 or less (4)</option></select></label>
+    </div>
+    <div class="scroll"><svg id="brEgSvg" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="A dial showing the EGRIS total from 0 to 7, with low, intermediate and high bands, beside a block of 100 people in which the published share for that band is highlighted."></svg></div>
+    <p class="brout" id="brEgOut" aria-live="polite"></p>
+  </div>
+  <div class="prose"><p>The full range of predicted risk is given as 1 to 91% in the derivation abstract [[Walgaard2010]] and as 1 to 90% in later papers [[Leonhard2019,Doets2022]]. Scores can drift between places and eras, as the validations show:</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Validation</th><th>Observed MV in week 1</th><th>EGRIS predicted</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><th>IGOS, full cohort (n=1,023, aged 6 and over)</th><td>10%</td><td>21%</td><td>Area under the curve 0.80 or more in every subgroup [[Doets2022]]</td></tr>
+      <tr><th>IGOS, Europe and North America</th><td>9%</td><td>21%</td><td>A recalibrated EGRIS-Europe/North America model corrected the over-prediction [[Doets2022]]</td></tr>
+      <tr><th>IGOS, Asia</th><td>17%</td><td>23%</td><td>Closer [[Doets2022]]</td></tr>
+      <tr><th>Bangladesh (n=541)</th><td>20%</td><td>41%</td><td>Area under the curve 0.81; fixed by updating the intercept [[Papri2024]]</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">mEGRIS: three muscle groups instead of twelve</h3>
+  <div class="prose"><p>The modified EGRIS (mEGRIS), built in IGOS, swaps the full MRC sum score for neck flexion and both hip flexors, and counts days to admission one by one. It scores 0 to 32, had an area under the curve of 0.84 (0.80 to 0.88), and predicts at several time points [[Luijten2023]]. The EAN/PNS guideline advises using a prognostic model at admission, names mEGRIS, and advises re-assessing risk factors regularly during the stay [[vanDoorn2023]].</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>The score below follows Table 4 of the mEGRIS paper. The paper turns scores into risks with a figure that is not reproduced here; only its own worked example is quoted. Never for an individual's care.</p>
+  <div class="stage">
+    <div class="calc">
+      <label for="brMgBul">Bulbar weakness<select id="brMgBul"><option value="0" selected>No (0)</option><option value="5">Yes (5)</option></select></label>
+      <label for="brMgDays">Days from weakness to admission<select id="brMgDays"><option value="7">0 days (7)</option><option value="6" selected>1 day (6)</option><option value="5">2 days (5)</option><option value="4">3 days (4)</option><option value="3">4 days (3)</option><option value="2">5 days (2)</option><option value="1">6 days (1)</option><option value="0">7 or more (0)</option></select></label>
+      <label for="brMgNeck">Neck flexion, MRC grade<select id="brMgNeck"><option value="10">0 (10)</option><option value="8">1 (8)</option><option value="6">2 (6)</option><option value="4">3 (4)</option><option value="2" selected>4 (2)</option><option value="0">5 (0)</option></select></label>
+      <label for="brMgHipR">Right hip flexion, MRC grade<select id="brMgHipR"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option><option value="5">5</option></select></label>
+      <label for="brMgHipL">Left hip flexion, MRC grade<select id="brMgHipL"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4" selected>4</option><option value="5">5</option></select></label>
+    </div>
+    <div class="brbar" aria-hidden="true"><i id="brMgBar"></i></div>
+    <p class="brout" id="brMgOut" aria-live="polite"></p>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards">
+    <div class="card"><h4>When to intubate</h4><p>Early pneumonia was commoner when intubation came more than 2 days after admission [[Orlikowski2006]]. A deliberately conservative blood-gas policy in one Indian cohort did not raise mortality or disability [[Kalita2016]]. Both studies are observational.</p></div>
+    <div class="card"><h4>Non-invasive ventilation</h4><p>A 2025 intensive care review considers mask ventilation inappropriate as a treatment in GBS, because of bulbar weakness and slow improvement, and keeps it for pre-oxygenation [[Weiss2025]]. A 2003 review of neurological patients in general saw an important and possibly growing role [[Rabinstein2003]].</p></div>
+    <div class="card"><h4>MIP and MEP numbers</h4><p>Lawn's 30 and 40 cmH<sub>2</sub>O versus the EAN/PNS text's apparent swap of the two [[Lawn2001,vanDoorn2023]]. Until corrected, the original series is the reference.</p></div>
+  </div>
+
+  <div class="hook"><b>Exam hook</b>20/30/40: VC under 20 mL/kg, MIP under 30 cmH<sub>2</sub>O, MEP under 40 cmH<sub>2</sub>O, or a fall over 30% [[Lawn2001]]. Breathlessness can be absent, so serial VC comes first [[Orlikowski2004,Leonhard2019]]. EGRIS 5 or more: about 65% ventilated within a week [[Leonhard2019]]. mEGRIS uses neck flexion and both hip flexors, 0 to 32 [[Luijten2023]]. Cannot cough had the highest odds ratio in the French model, 9.09 [[Sharshar2003]].</div>
+  <div class="pt"><b>In plain words</b>GBS can weaken the muscles you use to breathe, so about 1 in 5 people need a breathing machine for a while [[Leonhard2019]]. Your team may ask you to blow into a device or count aloud on one breath, often many times a day. This finds a problem before you feel short of breath [[vanDoorn2023,Leonhard2019]]. A planned move to intensive care is a safety step, not a sign that all hope is gone [[vanDoorn2023]].</div>
+</section>

@@ -64,6 +64,7 @@
   --sep:#6b3519; --sep-soft:#f3e4d9; --sep-drop:#f6f3ef; --sep-fever:#e0682a;
   --cf:#5b2760; --cf-soft:#f2e4f1; --cf-lobe:#f6f4f2; --cf-pot:#2fb3a8;
   --str:#1d3f5e; --str-soft:#dde8f1; --str-lobe:#f5f3ef; --str-dot:#d9622b;
+  --gbs:#33296e; --gbs-soft:#e7e4f6; --gbs-myelin:#ffffff; --gbs-axon:#e8d9b5; --gbs-node:#e0a23a;
   --display:"Newsreader","Newsreader Fallback",Georgia,"Times New Roman",serif;
   --body:"Atkinson Hyperlegible","Atkinson Hyperlegible Fallback",system-ui,-apple-system,"Segoe UI",sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
@@ -93,6 +94,7 @@
     --sep:#eca57c; --sep-soft:#3b2317; --sep-drop:#15110e; --sep-fever:#f0803f;
     --cf:#e3a8e6; --cf-soft:#3a1e3e; --cf-lobe:#161218; --cf-pot:#8fe6dc;
     --str:#9fc3e6; --str-soft:#172a3b; --str-lobe:#10161c; --str-dot:#ee8a55;
+    --gbs:#bcb2f7; --gbs-soft:#2a2450; --gbs-myelin:#121019; --gbs-axon:#5a4a33; --gbs-node:#e8ad4a;
     color-scheme:dark;
   }
 }
@@ -143,7 +145,7 @@ h1 .soft{display:block;font-style:italic;font-weight:400;color:var(--muted);font
   border-radius:20px;box-shadow:0 1px 0 var(--line),0 10px 28px -18px rgba(70,40,15,.35);transition:box-shadow .35s var(--ease),transform .35s var(--ease)}
 .book:hover{transform:translateY(-2px);box-shadow:0 1px 0 var(--line),0 18px 36px -18px rgba(70,40,15,.42)}
 .book.alz{--c:var(--alz);--soft:var(--alz-soft)} .book.fmf{--c:var(--fmf);--soft:var(--fmf-soft)} .book.mg{--c:var(--mg);--soft:var(--mg-soft)}
-.book.str{--c:var(--str);--soft:var(--str-soft)} .book.gout{--c:var(--gout);--soft:var(--gout-soft)} .book.als{--c:var(--als);--soft:var(--als-soft)} .book.pd{--c:var(--pd);--soft:var(--pd-soft)} .book.ms{--c:var(--ms);--soft:var(--ms-soft)} .book.crc{--c:var(--crc);--soft:var(--crc-soft)} .book.eds{--c:var(--eds);--soft:var(--eds-soft)} .book.tb{--c:var(--tb);--soft:var(--tb-soft)} .book.bpd{--c:var(--bpd);--soft:var(--bpd-soft)} .book.adhd{--c:var(--adhd);--soft:var(--adhd-soft)} .book.aut{--c:var(--aut);--soft:var(--aut-soft)} .book.bip{--c:var(--bip);--soft:var(--bip-soft)} .book.aud{--c:var(--aud);--soft:var(--aud-soft)} .book.mi{--c:var(--mi);--soft:var(--mi-soft)} .book.cir{--c:var(--cir);--soft:var(--cir-soft)} .book.sep{--c:var(--sep);--soft:var(--sep-soft)} .book.cf{--c:var(--cf);--soft:var(--cf-soft)}
+.book.str{--c:var(--str);--soft:var(--str-soft)} .book.gout{--c:var(--gout);--soft:var(--gout-soft)} .book.als{--c:var(--als);--soft:var(--als-soft)} .book.pd{--c:var(--pd);--soft:var(--pd-soft)} .book.ms{--c:var(--ms);--soft:var(--ms-soft)} .book.crc{--c:var(--crc);--soft:var(--crc-soft)} .book.eds{--c:var(--eds);--soft:var(--eds-soft)} .book.tb{--c:var(--tb);--soft:var(--tb-soft)} .book.bpd{--c:var(--bpd);--soft:var(--bpd-soft)} .book.adhd{--c:var(--adhd);--soft:var(--adhd-soft)} .book.aut{--c:var(--aut);--soft:var(--aut-soft)} .book.bip{--c:var(--bip);--soft:var(--bip-soft)} .book.aud{--c:var(--aud);--soft:var(--aud-soft)} .book.mi{--c:var(--mi);--soft:var(--mi-soft)} .book.cir{--c:var(--cir);--soft:var(--cir-soft)} .book.sep{--c:var(--sep);--soft:var(--sep-soft)} .book.cf{--c:var(--cf);--soft:var(--cf-soft)} .book.gbs{--c:var(--gbs);--soft:var(--gbs-soft)}
 .cover{position:relative;display:grid;place-items:center;align-self:start;aspect-ratio:3/4;border-radius:6px 12px 12px 6px;background:var(--soft);overflow:hidden}
 .cover::before{content:"";position:absolute;inset:0 auto 0 0;width:13px;background:var(--c);opacity:.9}
 .cover::after{content:"";position:absolute;right:15px;top:0;bottom:0;width:6px;background:var(--c);opacity:.22}
@@ -530,6 +532,24 @@ footer a{padding-block:13px} /* a 44px tap target that takes no room in the line
           <div class="actions">
             <a class="start" href="stroke/" data-slug="stroke">Open the guide<span aria-hidden="true"> →</span></a>
             <span class="langs"><a href="stroke/">Read in English</a></span>
+          </div>
+        </div>
+      </li>
+      <li class="book gbs">
+        <a class="cover" href="guillain-barre-syndrome/" tabindex="-1" aria-hidden="true"><svg class="emblem" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--gbs)"/><path d="M5 27H35" stroke="var(--gbs-axon)" stroke-width="3"/><rect x="5.5" y="22.5" width="10" height="9" rx="4.5" fill="var(--gbs-myelin)"/><rect x="24.5" y="22.5" width="10" height="9" rx="4.5" fill="var(--gbs-myelin)"/><circle cx="20" cy="27" r="2.6" fill="var(--gbs-node)"/><path d="M20 7.5V14.5M15 19.5L20 14.5L25 19.5" fill="none" stroke="var(--gbs-myelin)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="page">
+          <h3><a href="guillain-barre-syndrome/">GBS Companion</a></h3>
+          <p class="blurb">Guillain-Barré syndrome from the infection that comes first and the antibodies that attack the nerve, through the climb of weakness and intensive care, to the long way back.</p>
+          <ul class="inside">
+          <li>Molecular mimicry, AIDP, AMAN and Miller Fisher syndrome</li>
+          <li>Signs, Brighton criteria, lumbar puncture and nerve conduction studies</li>
+          <li>Breathing and the 20/30/40 rule, IVIg, plasma exchange and intensive care</li>
+          <li>EGOS and mEGOS, rehabilitation, life after GBS, children and vaccines</li>
+          </ul>
+          <p class="facts">479 cited sources · English</p>
+          <div class="actions">
+            <a class="start" href="guillain-barre-syndrome/" data-slug="guillain-barre-syndrome">Open the guide<span aria-hidden="true"> →</span></a>
+            <span class="langs"><a href="guillain-barre-syndrome/">Read in English</a></span>
           </div>
         </div>
       </li>

@@ -24,6 +24,7 @@ Animated, cited study and patient-education guides, one disease each, on one sit
 | [Sepsis Companion](sepsis-and-shock/README.md) (sepsis, septic shock and the other types of shock) | `/sepsis-and-shock/` | English |
 | [CF Companion](cystic-fibrosis/README.md) (cystic fibrosis and CFTR modulators) | `/cystic-fibrosis/` | English |
 | [Stroke Companion](stroke/README.md) (ischaemic and haemorrhagic stroke, from recognition to recovery) | `/stroke/` | English |
+| [GBS Companion](guillain-barre-syndrome/README.md) (Guillain-Barré syndrome, from the immune attack on nerves to recovery) | `/guillain-barre-syndrome/` | English |
 
 The hub at `/` links to each one and carries the shared method and disclaimer. Every companion links back to it, and its structured data names the site (`isPartOf`).
 
