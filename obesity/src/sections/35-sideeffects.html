@@ -1,2 +1,87 @@
-<!-- STUB: replaced by its builder (meds) -->
-<section class="mod" id="m-sideeffects" data-mod="sideeffects" hidden><div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Side effects, safety &amp; stopping</h2><p class="lede">Every medicine has side effects and label warnings; this module will show the common ones and what happens on stopping.</p></div></section>
+<!-- ================= 3.5 SIDE EFFECTS, SAFETY & STOPPING ================= -->
+<style>
+#m-sideeffects .se-row{display:flex;flex-wrap:wrap;gap:8px}
+#m-sideeffects .se-row .btn{min-height:40px}
+#m-sideeffects .card .se-num{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--tx)}
+#m-sideeffects .se-anote{display:flex;flex-direction:column;gap:10px}
+#m-sideeffects .se-anote h4{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.15;margin:0}
+#m-sideeffects .card .chips{margin-top:auto}
+#m-sideeffects svg .t-xs{font-size:11px}
+#m-sideeffects svg .t-sm{font-size:12px}
+</style>
+<section class="mod" id="m-sideeffects" data-mod="sideeffects" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Side effects, safety &amp; stopping</h2>
+    <p class="lede">Most side effects of the incretin medicines are in the stomach and gut, come while the dose is going up, and settle. A few rarer problems carry label warnings, and stopping the medicine usually brings weight back. Scrub through 120 weeks of one trial group to meet them in the order they tend to matter.</p></div>
+
+  <p class="crisis" role="note"><b>Urgent</b><span>Severe stomach pain that does not go away, sometimes spreading to the back, needs urgent medical review. [[FDA-Wegovy]] The Wegovy label also warns that stomach and gut reactions can be severe, and of acute kidney injury from fluid loss (volume depletion). [[FDA-Wegovy]]</span></p>
+
+  <div class="stepper" id="seSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="seSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Three stacked panels over 120 weeks: weight change through the STEP 1 extension's published points (down to −17.3% at week 68, back to −5.6% at week 120 after stopping), a schematic curve of stomach and gut symptoms that peaks during dose escalation and settles, and the label's dose steps. A spotlight panel shows the current topic: gut symptom rates, gallbladder, pancreatitis, the thyroid boxed warning, anaesthesia, lean mass and regain after stopping."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="sePlay">%t:player.play%</button><label class="stage-cap tl" for="seT">Weeks <input type="range" id="seT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="stage-cap">Weight line: the STEP 1 extension group (327 people), published at weeks 0, 68 and 120 (dots); the shape between them is schematic. [[Wilding2022STEP1ext]] Dose steps as published in the Wegovy label, quoted, not instructions. [[FDA-Wegovy]] The symptom curve is a schematic shape based on the finding that GI events were most frequent during or shortly after escalation; [[Wharton2022GItolerability]] its running totals end at the label's pooled rates. [[FDA-Wegovy]] Trial averages, not predictions for any person.</p>
+    </div>
+    <aside class="note" id="seNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>The Wegovy label says that if 2 or more consecutive weekly doses are missed, escalation restarts at a lower dose to reduce GI adverse reactions. [[FDA-Wegovy]] GI events explained less than 1 percentage point of the extra weight loss in STEP 1–3. [[Wharton2022GItolerability]]</div>
+    <div class="pt"><b>In plain words</b>The slow step-by-step start is there to let the stomach get used to the medicine. The weight loss does not come from feeling sick: people without nausea lost about as much as people with it. [[Wharton2022GItolerability]]</div>
+  </div>
+
+  <h3 class="sub">Side effects by medicine</h3>
+  <div class="prose"><p>Each medicine has its own pattern, so choose one. Rates are the share of people who reported each effect at any time in the trials, against placebo, as printed in the labels unless the note says otherwise. Mechanisms are in <a href="#othermeds" data-go="othermeds">Other weight-loss medicines</a> and <a href="#glp" data-go="glp">How GLP-1 medicines work</a>.</p></div>
+  <div class="se-row" id="seAEBtns" role="group" aria-label="Medicine"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="seAE" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="Grouped bar chart of adverse-event rates for the chosen medicine, each dose against placebo"></svg></div>
+      <p class="stage-cap">Sources: Wegovy, [[FDA-Wegovy]] Zepbound, [[FDA-Zepbound,Jastreboff2022SURMOUNT1]] Saxenda, [[FDA-Saxenda]] Qsymia [[FDA-Qsymia]] and Contrave (COR-I trial). [[Greenway2010CORI]] Trials differ in length and design, so compare within a medicine, not across them.</p>
+    </div>
+    <aside class="note se-anote" id="seAENote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Label warnings at a glance</h3>
+  <div class="prose"><p>Quoted from the current US labels as published, never as instructions. Pregnancy and fertility are covered in <a href="#pregnancy" data-go="pregnancy">Pregnancy &amp; fertility</a>.</p></div>
+  <div class="tbl"><table>
+    <caption class="sr">Boxed warnings, selected contraindications and pregnancy statements by medicine</caption>
+    <thead><tr><th scope="col">Medicine</th><th scope="col">Boxed warning</th><th scope="col">Selected contraindications and warnings</th><th scope="col">Pregnancy, as published</th></tr></thead>
+    <tbody>
+      <tr class="tx"><th scope="row">Wegovy (semaglutide)</th><td>Thyroid C-cell tumours in rodents [[FDA-Wegovy]]</td><td>Personal or family history of MTC or MEN 2; not recommended in severe gastroparesis; acute kidney injury from fluid loss; gallbladder disease; pancreatitis [[FDA-Wegovy]]</td><td>Stop when pregnancy is recognised, and at least 2 months before a planned pregnancy; breastfeeding not recommended with the tablets [[FDA-Wegovy]]</td></tr>
+      <tr><th scope="row">Zepbound (tirzepatide)</th><td>Thyroid C-cell tumours in rodents [[FDA-Zepbound]]</td><td>Personal or family history of MTC or MEN 2; may reduce the effect of oral contraceptives [[FDA-Zepbound]]</td><td>Stop when pregnancy is recognised [[FDA-Zepbound]]</td></tr>
+      <tr class="tx"><th scope="row">Saxenda (liraglutide)</th><td>Thyroid C-cell tumours in rodents [[FDA-Saxenda]]</td><td>Personal or family history of MTC or MEN 2 [[FDA-Saxenda]]</td><td>Stop when pregnancy is recognised [[FDA-Saxenda]]</td></tr>
+      <tr><th scope="row">Foundayo (orforglipron)</th><td>Same class warning; orforglipron is not active in rats or mice and did not produce tumours there [[FDA-Foundayo]]</td><td>Same class contraindications [[FDA-Foundayo]]</td><td><small>Not covered in this guide's sources</small></td></tr>
+      <tr class="tx"><th scope="row">Contrave (naltrexone–bupropion)</th><td>Suicidal thoughts and behaviours (bupropion) [[FDA-Contrave]]</td><td>Uncontrolled hypertension, seizure disorder, bulimia or anorexia nervosa, chronic opioid use; may raise blood pressure or heart rate, especially in the first 3 months [[FDA-Contrave]]</td><td>Stop when pregnancy is recognised [[FDA-Contrave]]</td></tr>
+      <tr><th scope="row">Qsymia (phentermine–topiramate)</th><td>None</td><td>Glaucoma, hyperthyroidism, MAOI use within 14 days [[FDA-Qsymia]]</td><td>Contraindicated: topiramate raises the risk of oral clefts; a negative pregnancy test before starting and monthly during treatment, through a REMS programme [[FDA-Qsymia]]</td></tr>
+      <tr class="tx"><th scope="row">Xenical (orlistat)</th><td>None</td><td>Chronic malabsorption syndrome; cholestasis [[FDA-Xenical]]</td><td>Stop when pregnancy is recognised; the label notes decades of cohort data without an increased risk of birth defects [[FDA-Xenical]]</td></tr>
+    </tbody></table></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>In 02/2026 the suicidal behaviour and ideation warning was removed from the Wegovy, Saxenda and Zepbound labels; Contrave keeps its bupropion boxed warning. [[FDA-Wegovy,FDA-Saxenda,FDA-Zepbound,FDA-Contrave]]</div>
+    <div class="pt"><b>In plain words</b>A boxed warning is the strongest caution a US label can carry. For the incretin medicines it comes from rat and mouse studies, and the label asks about family history of a rare thyroid cancer before starting. [[FDA-Wegovy]]</div>
+  </div>
+
+  <h3 class="sub">Other signals, and how strong the evidence is</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Heart rate</span><span class="se-num">+1–4</span><p>beats per minute on average with Wegovy; a peak rise of 20 or more at any visit in 26% vs 16% of adults. [[FDA-Wegovy]]</p><div class="chips"><span class="ev est">Established</span></div></div>
+    <div class="card"><span class="kicker">Low blood sugar in type 2 diabetes</span><span class="se-num">6% vs 2%</span><p>below 54 mg/dL on Wegovy vs placebo in people not on insulin. Insulin or a sulfonylurea raises the risk, and the label says their doses may need reducing. [[FDA-Wegovy]]</p><div class="chips"><span class="ev est">Established</span></div></div>
+    <div class="card"><span class="kicker">Thyroid and other cancers</span><span class="se-num">OR 1.37</span><p>for thyroid cancer (95% CI 0.82–2.31) in 48 trials: "probably little or no effect" on thyroid, pancreatic or breast cancer, though the trials were short. [[Ko2026Cancer]]</p><div class="chips"><span class="ev est">Established</span></div></div>
+    <div class="card"><span class="kicker">Sudden optic-nerve damage (NAION)</span><span class="se-num">HR 4.28–7.64</span><p>in one single-centre eye-clinic cohort on semaglutide; an observational design cannot show cause. [[Hathaway2024NAION]]</p><div class="chips"><span class="ev early">Early evidence</span></div></div>
+    <div class="card"><span class="kicker">Suicidal ideation</span><span class="se-num">HR 0.27</span><p>for new suicidal ideation with semaglutide vs other anti-obesity medicines in 240,618 health records: lower, not higher, risk. [[Wang2024Suicidal]]</p><div class="chips"><span class="ev early">Early evidence</span></div></div>
+    <div class="card"><span class="kicker">Across 21 heart outcome trials</span><span class="se-num">+63%</span><p>GI disorders and +26% gallbladder disorders with GLP-1 receptor agonists, with no difference in pancreatitis or cancers (99,599 patients). [[Galli2025]]</p><div class="chips"><span class="ev est">Established</span></div></div>
+  </div>
+
+  <h3 class="sub">Staying on, and stopping</h3>
+  <div class="prose"><p>Trials keep people on treatment; everyday life often does not. Real-world results are lower than trial averages, largely because many people stop. [[Gasoyan2025Weight]]</p></div>
+  <div class="cards">
+    <div class="card"><span class="kicker">Stopped within a year</span><span class="se-num">36.5%</span><p>of 195,915 new GLP-1 receptor agonist users in US insurance data (26.2% by 3 months); 50.3% of people with obesity but no diabetes. [[Do2024Discontinuation]]</p></div>
+    <div class="card"><span class="kicker">Why people stopped</span><span class="se-num">47.6%</span><p>cost or insurance; side effects 14.6%; shortages 11.8%; switching to a compounded product 2.4%; unsatisfactory weight loss 1.7% (288 people). [[Gasoyan2025Reasons]]</p></div>
+    <div class="card"><span class="kicker">One-year loss by persistence</span><span class="se-num">3.6 → 11.9%</span><p>for those who stopped within 3 months vs those who stayed on (6.8% if stopped at 3–12 months); 8.7% overall in 7881 adults. [[Gasoyan2025Weight]]</p></div>
+    <div class="card"><span class="kicker">After stopping a GLP-1 medicine</span><span class="se-num">5.63 kg</span><p>average regain across 18 trials (95% CI 3.52–7.73), more with longer follow-up and after semaglutide than liraglutide. [[Tzang2025Rebound]]</p></div>
+  </div>
+  <p class="callout">Restarting is common: among people who stopped, 36.3% without diabetes and 47.3% with diabetes restarted within a year, and higher income was linked to staying on treatment, which raises equity concerns. [[Rodriguez2025Discontinuation]] Withdrawal trials in detail are in <a href="#medtrials" data-go="medtrials">Semaglutide &amp; tirzepatide trials</a>, and the biology of regain in <a href="#adaptation" data-go="adaptation">Why lost weight comes back</a>.</p>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>SURMOUNT-4: after a 36-week lead-in (−20.9%), switching to placebo gave +14.0% vs −5.5% with continued tirzepatide. [[Aronne2024SURMOUNT4]] STEP 4: +6.9% vs −7.9%. [[Rubino2021STEP4]]</div>
+    <div class="pt"><b>In plain words</b>Cost is the most common reason people stop. Ask the care team about coverage before starting, and plan together what happens if the medicine has to stop. [[Gasoyan2025Reasons]]</div>
+  </div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service.</p>
+  <p class="teach" role="note"><b>Medicines</b>Do not start, stop or change a medicine or a dose without a clinician. Products sold online or "compounded" are not the same as FDA-approved medicines: compounded GLP-1 products had higher reporting odds of preparation errors, contamination and hospitalisation in FDA adverse event reports, though reporting data cannot show cause. [[McCall2026Compounded]]</p>
+</section>

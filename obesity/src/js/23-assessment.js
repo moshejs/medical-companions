@@ -45,11 +45,11 @@ inits.assessment=()=>{
   const typed=(s,u)=>s.slice(0,Math.round(s.length*clamp(u)));
   function scene(p,u,x,y,w,h,N){let s='';
     if(p===0){/* two people, one asks */
-      const a=person(x+w*.24,y+h-222,190,{size:.25}),b=person(x+w*.62,y+h-222,190,{size:.75});s+=a.svg+b.svg;
+      const py=N?y+140:y+h-222,ps=N?280:190,a=person(x+w*.24,py,ps,{size:.25}),b=person(x+w*.62,py,ps,{size:.75});s+=a.svg+b.svg;
       const q='May we talk about weight today?',r='Yes, I\'d like that.',bw=N?190:230;
       s+=bubble(x+(N?4:w*.02),y+(N?6:10),bw,44,`<text x="${f1(x+(N?14:w*.02+12))}" y="${f1(y+(N?33:37))}" class="t-lbl" style="font-size:12.5px">${typed(q,ramp(u,.05,.45))}</text>`,[x+w*.24-6,x+w*.24],'var(--hl)');
       if(u>.5)s+=bubble(x+w*(N?.42:.52),y+(N?62:66),N?178:200,44,`<text x="${f1(x+w*(N?.42:.52)+12)}" y="${f1(y+(N?89:93))}" class="t-lbl" style="font-size:12.5px">${typed(r,ramp(u,.55,.85))}</text>`,[x+w*.62-6,x+w*.62],'var(--brand)');
-      s+=`<text x="${f1(x+w/2)}" y="${f1(y+h-2)}" class="t-xs t-mid">ask first, without judgement · "not today" is an answer too</text>`}
+      s+=`<text x="${f1(x+w/2)}" y="${f1(N?py+ps+22:y+h-2)}" class="t-xs t-mid">ask first, without judgement · "not today" is an answer too</text>`}
     else if(p===1){/* weight history curve and a checklist */
       const cw=N?w:w*.55,ch=N?150:h-60,ax=curveAxes(x+30,y+20,cw-40,ch,{x0:20,x1:60,y0:0,y1:1,xt:[20,30,40,50,60],xlabel:'age (schematic)',ylabel:'weight'});
       s+=ax.svg;const P=[[20,.22],[26,.3],[31,.48],[34,.4],[38,.58],[43,.52],[47,.72],[52,.66],[57,.8]];

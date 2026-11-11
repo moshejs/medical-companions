@@ -129,7 +129,7 @@ const RV_CAP=[
  ['Odds of each gain at 1 year,','5 to <10% loss vs stable weight'],
  ['A schematic average, not a target','for any person'],
  ['Guideline contact, as published:','at least monthly for a year or more'],
- ['19 in 100 would avoid future','appointments after weight stigma']
+ ['Done kindly, most people found','a brief offer of help welcome']
 ];
 /* Look AHEAD, 5 to <10% loss vs stable weight at 1 year: odds ratios [[Wing2011DiabetesCare]] */
 const RV_OR=[['HbA1c down 0.5',3.52],['Triglycerides down 40',2.20],['HDL up 5',1.69],['Systolic BP down 5',1.56]];
@@ -179,7 +179,6 @@ inits.review=()=>{
       s+=`<rect x="${L.x}" y="${y}" width="${L.w}" height="${L.th}" rx="9" style="fill:var(${hot?'--brand-soft':'--panel'});stroke:var(${hot?'--brand':'--line'});stroke-width:${hot?1.8:1.1}"/>`;
       const cr=N?14:17,cy=y+L.th/2;
       s+=`<circle cx="${L.x+cr+6}" cy="${cy}" r="${cr}" style="fill:var(${hot||on?'--brand':'--muted'})"/>`+tx(L.x+cr+6,cy+5,'rv-n','A','','middle');
-      s+=tx(L.x+cr+14,cy+cr-1,'rv-m',String(k+1),'fill:var(--ink)');
       const x2=L.x+cr*2+18;
       s+=tx(x2,y+(N?16:22),'rv-c',w,'font-weight:700')+tx(x2,y+(N?31:40),'rv-b',d);
       s+=on?tick(L.x+L.w-18,cy,true):'';
@@ -196,7 +195,7 @@ inits.review=()=>{
     if(p===0){
       const a=ease(ramp(u,.05,.35)),b=ease(ramp(u,.5,.8));
       s+=`<g style="opacity:${f1(a)}">`+bubble(16,48,W-60,44,70,'--panel')+tx(30,75,'rv-c','"Is it all right to talk about weight today?"')+'</g>';
-      s+=`<g style="opacity:${f1(b)}">`+bubble(W-170,108,150,34,W-66,'--brand-soft')+tx(W-95,130,'rv-c','"Yes, that is OK."','font-weight:700','middle')+'</g>';
+      s+=`<g style="opacity:${f1(b)}">`+bubble(W-186,108,170,34,W-66,'--brand-soft')+tx(W-101,130,'rv-c','"Yes, that is OK."','font-weight:700','middle')+'</g>';
       const c1=person(70,128,150,{size:.25}),c2=person(W-70,128,150,{size:.75});
       s+=c1.svg+c2.svg;
       s+=tx(70,300,'rv-b','clinician','','middle')+tx(W-70,300,'rv-b','person','','middle');
@@ -208,17 +207,17 @@ inits.review=()=>{
         s+=`<rect x="16" y="${y}" width="${W-32}" height="44" rx="8" style="fill:var(${on?'--good-soft':'--panel'});stroke:var(${on?'--good':'--line'});stroke-width:${on?1.5:1}"/>`;
         s+=tick(38,y+22,on)+tx(58,y+19,'rv-c',a,'font-weight:700')+tx(58,y+36,'rv-b',b)});
     }else if(p===2){
-      s+=tx(16,52,'rv-b','Look AHEAD, adults with type 2 diabetes');
+      s+=tx(16,50,'rv-b','Look AHEAD, adults with type 2 diabetes');
       const x0=16,bx=176,bw=W-bx-50,X=v=>bx+bw*v/4,g=ease(ramp(u,.05,.7));
-      s+=`<line x1="${f1(X(1))}" x2="${f1(X(1))}" y1="66" y2="282" style="stroke:var(--muted);stroke-width:1.4;stroke-dasharray:4 3"/>`;
+      s+=`<line x1="${f1(X(1))}" x2="${f1(X(1))}" y1="72" y2="284" style="stroke:var(--muted);stroke-width:1.4;stroke-dasharray:4 3"/>`;
       s+=tx(X(1),296,'rv-b','OR 1: no change','','middle');
-      [0,2,4].forEach(v=>{s+=tx(X(v),62,'rv-b',String(v),'','middle')});
-      RV_OR.forEach(([lab,v],k)=>{const y=74+k*44,vv=lerp(1,v,g);
+      [0,2,4].forEach(v=>{s+=tx(X(v),68,'rv-b',String(v),'','middle')});
+      RV_OR.forEach(([lab,v],k)=>{const y=78+k*42,vv=lerp(1,v,g);
         s+=tx(x0,y+17,'rv-c',lab);
         s+=`<rect x="${f1(X(1))}" y="${y+4}" width="${f1(Math.max(0,X(vv)-X(1)))}" height="20" rx="4" style="fill:var(--brand);opacity:.85"/>`;
         s+=`<rect x="${f1(X(0))}" y="${y+4}" width="${f1(X(1)-X(0))}" height="20" rx="4" style="fill:var(--brand-soft)"/>`;
         s+=tx(X(vv)+6,y+19,'rv-q',vv.toFixed(2))});
-      const y5=74+4*44,l=ease(ramp(u,.7,.95));
+      const y5=78+4*42,l=ease(ramp(u,.7,.95));
       s+=`<g style="opacity:${f1(.25+.75*l)}">`+tx(x0,y5+17,'rv-c','LDL cholesterol')+tx(X(1)+8,y5+17,'rv-c','no link (P = 0.79)','font-weight:700;fill:var(--muted)')+'</g>';
     }else if(p===3){
       const x0=56,x1=W-20,y0=70,y1=262,X=m=>x0+(x1-x0)*m/48,Y=v=>y0+(y1-y0)*(-v)/10,k=ease(ramp(u,.03,.85))*48;
@@ -238,12 +237,12 @@ inits.review=()=>{
         if(m%3===0)s+=tx(X(m),ay+28,'rv-b',String(m),'','middle')}
       s+=tx(cx,ay+48,'rv-b','months of contact','','middle');
       s+=tx(16,80,'rv-c',`Contacts so far: ${n}`,'font-weight:700');
-      const box=[['Barriers','time, cost, transport'],['Resources','programmes, apps'],['Referral','dietitian, psychology']],bw2=(W-32-16)/3;
+      const box=[['Barriers','time, cost'],['Resources','programmes'],['Referral','specialists']],bw2=(W-32-16)/3;
       box.forEach(([a,b],k)=>{const x=16+k*(bw2+8),on=u>.25+k*.2;
         s+=`<rect x="${f1(x)}" y="226" width="${f1(bw2)}" height="58" rx="8" style="fill:var(${on?'--brand-soft':'--panel'});stroke:var(${on?'--brand':'--line'})"/>`;
         s+=tx(x+bw2/2,250,'rv-c',a,'font-weight:700','middle')+tx(x+bw2/2,270,'rv-b',b,'','middle')});
     }else{
-      const k=Math.round(19*ease(ramp(u,.05,.75))),sz=N?20:19,gp=N?8:7,ia=iconArray(0,0,{n:100,cols:10,size:sz,gap:gp,groups:[{k,col:'var(--bad)'}]});
+      const k=Math.round(19*ease(ramp(u,.05,.75))),sz=14,gp=6,ia=iconArray(0,0,{n:100,cols:10,size:sz,gap:gp,groups:[{k,col:'var(--bad)'}]});
       const ox=(W-ia.w)/2;
       s+=`<g transform="translate(${f1(ox)} 50)">${ia.svg}</g>`;
       s+=tx(cx,50+ia.h+22,'rv-c',`${k} of 100 would avoid future appointments`,'font-weight:700','middle');

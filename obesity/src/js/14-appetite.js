@@ -85,7 +85,7 @@ inits.appetite=()=>{
   function draw(t){
     const N=vb(svg,'720 400','400 680'),p=phaseOf(AP_STEPS,t),P=AP_STEPS[p],V=apLv(t),ph=RM?.3:(t*16)%1;
     const L=N?{hx:14,hy:24,bx:4,by:52,bs:1.3,gx:4,gy:290,gs:.98,fx:222,fy:420,fw:164,fh:84,mx:14,my:556,mw:372,r:5.2}
-             :{hx:16,hy:26,bx:262,by:20,bs:1.12,gx:14,gy:90,gs:1.06,fx:262,fy:290,fw:150,fh:80,mx:448,my:236,mw:258,r:4.8};
+             :{hx:16,hy:26,bx:262,by:20,bs:1.12,gx:14,gy:90,gs:1.06,fx:262,fy:290,fw:150,fh:80,mx:448,my:252,mw:258,r:4.8};
     let s=T(L.hx,L.hy,P.t,'t-big','font-size:18px')+T(L.hx,L.hy+16,P.k,'t-sm');
     const G=gutTract(L.gx,L.gy,L.gs,{fill:V.fill,food:V.food,glow:{stomach:V.ghr*.9,duo:V.cck,ileum:Math.max(V.glp1,V.pyy)}});
     s+=G.svg;
@@ -102,23 +102,23 @@ inits.appetite=()=>{
     s+=stream([G.at.ileum[0]+12,G.at.ileum[1]+6],tgt,[N?-10:60,N?-40:0],'pyy',7,V.pyy,(ph+.6)%1,L.r);
     /* leptin: from fat; in resistance only a share crosses into the brain */
     const fatOut=[L.fx+L.fw*.6,L.fy];
-    if(p===4){const gate=[lerp(fatOut[0],tgt[0],.78),lerp(fatOut[1],tgt[1],.78)];
+    if(p===4){const gf=N?.7:.55,gate=[lerp(fatOut[0],tgt[0],gf),lerp(fatOut[1],tgt[1],gf)];
       s+=stream(fatOut,gate,[N?30:40,-10],'leptin',10,V.leptin,(ph+.4)%1,L.r);
       s+=stream(gate,tgt,[0,0],'leptin',3,V.brainLep,(ph*1.3)%1,L.r,.8);
       const ang=Math.atan2(tgt[1]-gate[1],tgt[0]-gate[0])+Math.PI/2,dx=Math.cos(ang)*22,dy=Math.sin(ang)*22;
       s+=`<line x1="${f1(gate[0]-dx)}" y1="${f1(gate[1]-dy)}" x2="${f1(gate[0]+dx)}" y2="${f1(gate[1]+dy)}" style="stroke:var(--ink);stroke-width:3;stroke-dasharray:4 3;opacity:${f1(ramp(t,.67,.72))}"/>`;
-      s+=kitLabel(gate[0]+(N?-26:26),gate[1]+(N?-8:4),'into the brain',{a:N?'e':''})}
+      s+=kitLabel(gate[0]-26,gate[1]+4,'barrier into the brain',{a:'e'})}
     else s+=stream(fatOut,tgt,[N?30:40,-10],'leptin',9,V.leptin,(ph+.4)%1,L.r);
     if(p===5){const o=ramp(t,.86,.9);
       s+=`<g style="opacity:${f1(o)}">`+cross(fatOut[0],fatOut[1]-12)+kitLabel(fatOut[0]+14,fatOut[1]-24,'no leptin',{})+'</g>';
       if(B.at.inset){const pv=B.at.pvn;s+=`<g style="opacity:${f1(ramp(t,.88,.93))}">`+cross(pv[0]+B.at.inset[2]*.55,pv[1]-B.at.inset[2]*.25)+'</g>'}}
     /* hunger vs fullness readout near the brain */
-    const bal=V.pomc-V.agrp,bx=N?214:534,by=N?272:214;
-    s+=T(bx,by,bal>.12?'fullness winning':bal<-.12?'hunger winning':'in balance','t-sm t-mid',`font-weight:700;fill:${bal>.12?'var(--brand)':bal<-.12?'var(--accent)':'var(--muted)'}`);
+    const bal=V.pomc-V.agrp;
+    const balTxt=()=>T(L.mx+L.mw,L.my-3,bal>.12?'fullness winning':bal<-.12?'hunger winning':'in balance','t-sm t-end',`font-weight:700;fill:${bal>.12?'var(--brand)':bal<-.12?'var(--accent)':'var(--muted)'}`);
     /* meter */
     const M=L,rowH=N?18:20;
     s+=`<rect x="${M.mx-8}" y="${M.my-18}" width="${M.mw+16}" height="${AP_METER.length*rowH+44}" rx="10" style="fill:var(--panel);stroke:var(--line)"/>`;
-    s+=T(M.mx,M.my-3,'signal level (schematic)','t-xs',INK);
+    s+=T(M.mx,M.my-3,'signal level (schematic)','t-xs',INK)+balTxt();
     AP_METER.forEach((m,i)=>{const y=M.my+8+i*rowH,v=m.k==='leptin'?V.leptin:V[m.k],bw=M.mw-150;
       s+=hormoneDot(M.mx+5,y,m.k,{r:4.5})+T(M.mx+16,y+4,m.n,'t-xs',INK)+T(M.mx+60,y+4,m.src,'t-xs');
       s+=`<rect x="${M.mx+120}" y="${y-5}" width="${bw}" height="10" rx="3" style="fill:var(--panel-2)"/><rect x="${M.mx+120}" y="${y-5}" width="${f1(Math.max(1,bw*v))}" height="10" rx="3" style="fill:${HORMONE_INFO[m.k].col}"/>`});

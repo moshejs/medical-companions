@@ -147,7 +147,7 @@ inits.measuring=()=>{
     if(metric){h=num('msHcm')/100;w=num('msWkg');wa=num('msWaist')}
     else{const ft=num('msHft'),inch=num('msHin');h=((isFinite(ft)?ft:0)*12+(isFinite(inch)?inch:0))*0.0254;w=num('msWlb')*0.45359237;wa=num('msWaistIn')*2.54}
     return {h,w,wa}}
-  function gDraw(b,r){const N=vb(gauge,'720 190','400 220');const x0=N?20:40,gw=N?360:640;
+  function gDraw(b,r){const N=vb(gauge,'440 190','400 220');const x0=20,gw=N?360:400;
     const bx=v=>x0+gw*(clamp(v,15,45)-15)/30,rx=v=>x0+gw*(clamp(v,.35,.75)-.35)/.4;let s='';
     s+=T(x0,20,'BMI (kg/m²)','t-xs',INK);
     const B=[15,18.5,25,30,35,40,45];for(let i=0;i<6;i++)s+=`<rect x="${f1(bx(B[i]))}" y="30" width="${f1(bx(B[i+1])-bx(B[i])-1)}" height="22" rx="3" style="fill:var(--accent);opacity:${f1(.08+i*.08)}"/>`;

@@ -1,6 +1,6 @@
 /* =============== 3.3 Semaglutide & tirzepatide trials =============== */
 /* Main player: mean % weight change curves, trial by trial (placebo, liraglutide, semaglutide, tirzepatide,
-   head-to-head, stopping). Each series joins the published points [[F pass]]; the curve shape between them is
+   head-to-head, stopping). Each series joins the published points (research pass F); the curve shape between them is
    schematic (a saturating rise, or a saturating regain after stopping). Second: responder icon arrays. */
 const MT_STEPS=[
  {from:0,at:.12,k:'The comparison arm',t:'Placebo with lifestyle support',

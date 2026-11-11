@@ -143,7 +143,7 @@ inits.living=()=>{
     const tp=Math.round(lerp(shown[0],C.tp*100,u)),fp=Math.round(lerp(shown[1],C.fp*100,u));
     const ia=iconArray(N?62:40,N?20:14,{n:100,cols:10,size:N?24:21,gap:N?4:4,shape:'dot',groups:[{k:tp,col:'var(--hl)'},{k:fp,col:'var(--warn)'}],base:'var(--line)'});
     let s=ia.svg;
-    const tx=N?24:340,ty=N?ia.h+56:50,lh=N?24:30;
+    const tx=N?24:340,ty=N?ia.h+56:50,lh=N?28:30;
     const rows=[['var(--hl)',`${f1(C.tp*1000).replace('.0','')} per 1000`,'have BED and are flagged'],['var(--warn)',`${Math.round(C.fp*1000)} per 1000`,'are flagged but do not have BED'],['var(--line)',`${Math.round(C.tn*1000)} per 1000`,'are not flagged']];
     rows.forEach((r,i)=>{const y=ty+i*lh*1.6;s+=`<circle cx="${tx+7}" cy="${y-4}" r="7" style="fill:${r[0]}"/><text x="${tx+22}" y="${y}" class="t-lbl" style="font-size:15px">${r[1]}</text><text x="${tx+22}" y="${y+16}" class="t-sm">${r[2]}</text>`});
     const py=ty+3*lh*1.6+6;

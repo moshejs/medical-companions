@@ -153,7 +153,7 @@ inits.what=()=>{
       s+=T(cx,L.y0+24,h,'t-lbl t-mid',sel?'fill:var(--brand)':'')+T(cx,L.y0+40,N?(c===1?'organs unaffected':'organs or daily life affected'):sub,'t-xs t-mid');
       const P=person(cx,L.fy,L.fs,{size:.55,op:ok?1:.5});s+=P.svg;
       if(c===2){const k=L.fs/100;
-        if(on.some(q=>q.p==='whole'))s+=`<ellipse cx="${f1(cx)}" cy="${f1(L.fy+L.fs*.5)}" rx="${f1(L.fs*.3)}" ry="${f1(L.fs*.54)}" style="fill:none;stroke:var(--risk);stroke-width:2;stroke-dasharray:5 4"/>`;
+        if(on.some(q=>q.p==='whole'))s+=`<ellipse cx="${f1(cx)}" cy="${f1(L.fy+L.fs*.53)}" rx="${f1(L.fs*.3)}" ry="${f1(L.fs*.49)}" style="fill:none;stroke:var(--risk);stroke-width:2;stroke-dasharray:5 4"/>`;
         const seen={};on.filter(q=>q.p!=='whole').forEach(q=>{const b=POS[q.p],n=seen[q.p]=(seen[q.p]||0)+1,x2=cx+b[0]*k+(n-1)*7,y2=L.fy+b[1]*k;
           s+=`<circle cx="${f1(x2)}" cy="${f1(y2)}" r="9" style="fill:var(--risk);opacity:.22"/><circle cx="${f1(x2)}" cy="${f1(y2)}" r="4.2" style="fill:var(--risk);stroke:var(--panel);stroke-width:1.2"/>`})}
       if(sel)s+=T(cx,L.y0+L.h-12,'matches the choices','t-xs t-mid',INK)});

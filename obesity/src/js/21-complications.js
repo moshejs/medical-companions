@@ -146,20 +146,20 @@ inits.complications=()=>{
       s+=`<text x="${f1(bx+arr.w/2)}" y="${f1(by+4)}" class="t-lbl t-mid" style="font-size:12.5px">${b[0]}</text>`;
       s+=`<text x="${f1(bx+arr.w/2)}" y="${f1(by+20)}" class="t-sm t-mid" style="fill:var(--ink);font-weight:600">${c.abs?k+' of 100':k+' cases'+(i===0?' (reference)':'')}</text>`;
       s+=ia.svg;maxH=Math.max(maxH,by+30+ia.h)});
-    if(!N&&maxH>290)isvg.setAttribute('viewBox',`0 0 720 ${Math.ceil(maxH+10)}`);
+    isvg.setAttribute('viewBox',`0 0 ${N?400:720} ${Math.ceil(Math.max(150,maxH+12))}`);
     isvg.innerHTML=s;
     const big=c.b[c.b.length-1];
     read.innerHTML=c.abs?`<b>${c.n}.</b> In a meta-analysis of 151 studies, NAFLD (now MASLD) was found in 69.99% of people with overweight and 75.27% of people with obesity, shown here as people out of 100. ${c.src} This counts how common the disease is, not how many people will develop it.`
       :`<b>${c.n}.</b> Each block shows how many cases occur in a group for every 10 cases in an equal-sized group with ${c.ref}. With ${c.m} ${big[1]}, the ${big[0].toLowerCase()} group has about ${Math.round(10*big[1])}. ${c.src} A relative risk says nothing on its own about how common a disease is: if it is rare, even a large ratio means few extra cases.`;
   }
-  function runI(){stopI&&stopI();stopI=animate(1100,p=>drawI(ease(p)),()=>{stopI=null})}
+  function runI(){stopI&&stopI();drawI(0);stopI=animate(1100,p=>drawI(ease(p)),()=>{stopI=null})}
   sel.addEventListener('change',()=>{ci=+sel.value;runI()});
   drawI(1);
 
   /* ---- what modest loss improves ---- */
   const lsvg=$('#coLaSvg'),lb=$('#coLaBtns'),lread=$('#coLaRead');let lv=0,stopL=null;
   function drawL(g){
-    const N=vb(lsvg,'720 300','400 440');let s='';
+    const N=vb(lsvg,'720 312','400 440');let s='';
     if(lv===0){const x0=N?20:250,w=N?300:380,y0=N?30:34,rh=N?78:48,X=v=>x0+w*v/4;
       [0,1,2,3,4].forEach(v=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${y0}" y2="${y0+rh*5}" class="grid"/><text x="${f1(X(v))}" y="${y0+rh*5+14}" class="t-xs t-mid">${v}</text>`});
       s+=`<text x="${f1(X(4))}" y="${y0+rh*5+28}" class="t-xs t-end">odds ratio vs stable weight</text>`;
@@ -167,7 +167,7 @@ inits.complications=()=>{
         s+=`<text x="${N?x0:x0-12}" y="${ly}" class="t-lbl${N?'':' t-end'}" style="font-size:12.5px">${r.l}</text>`;
         if(r.none)s+=`<text x="${f1(X(1)+8)}" y="${by+16}" class="t-sm" style="fill:var(--ink)">no association (P = 0.79)</text><circle cx="${f1(X(1))}" cy="${by+11}" r="5" style="fill:none;stroke:var(--muted);stroke-width:2"/>`;
         else{const x1=X(r.v*e);s+=`<rect x="${f1(x0)}" y="${by}" width="${f1(Math.max(1,x1-x0))}" height="22" rx="4" style="fill:var(--good);opacity:.8"/>`;if(e>.1)s+=`<text x="${f1(x1+6)}" y="${by+16}" class="t-sm" style="fill:var(--ink);font-weight:700">OR ${r.v.toFixed(2)}</text>`}});
-      s+=`<line x1="${f1(X(1))}" x2="${f1(X(1))}" y1="${y0-6}" y2="${y0+rh*5}" style="stroke:var(--ink);stroke-width:1.5"/><text x="${f1(X(1)+4)}" y="${y0-8}" class="t-xs">1 = no better than stable weight</text>`;
+      CO_LA.forEach((r,j)=>{const by=(N?y0+j*rh+24:y0+j*rh+10);s+=`<line x1="${f1(X(1))}" x2="${f1(X(1))}" y1="${by-4}" y2="${by+26}" style="stroke:var(--ink);stroke-width:1.5"/>`});s+=`<text x="${f1(X(1)+4)}" y="${y0-8}" class="t-xs">1 = no better than stable weight</text>`;
       lread.innerHTML='Look AHEAD, 5145 adults with type 2 diabetes: compared with people whose weight stayed stable, those who lost 5 to under 10% at 1 year had higher odds of each improvement shown. The odds were even greater with 10 to 15% loss. LDL cholesterol did not track weight loss. [[Wing2011DiabetesCare]] Odds ratios from an observational analysis within the trial: they describe groups, not what one person will see.'}
     else{const x0=N?20:300,w=N?320:360,y0=N?30:30,rh=N?76:50,X=v=>x0+w*v/100;
       [0,25,50,75,100].forEach(v=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${y0}" y2="${y0+rh*5}" class="grid"/><text x="${f1(X(v))}" y="${y0+rh*5+14}" class="t-xs t-mid">${v}%</text>`});
