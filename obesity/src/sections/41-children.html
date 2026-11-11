@@ -1,0 +1,104 @@
+<!-- ================= 4.1 CHILDREN & ADOLESCENTS ================= -->
+<style>
+#m-children .ch-row{display:flex;flex-wrap:wrap;gap:8px}
+#m-children .ch-row .btn{min-height:40px}
+#m-children .card .ch-num{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--life)}
+#m-children .ch-say td:first-child{color:var(--muted)}
+#m-children .ch-say td:last-child{font-weight:600}
+</style>
+<section class="mod" id="m-children" data-mod="children" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Across life &amp; care</p><h2>Children &amp; adolescents</h2>
+    <p class="lede">In children, BMI is read against other children of the same age and sex, and care is about health and family habits, not a number. Scrub a growth chart to see where the published definitions sit and which AAP 2023 options apply as a child grows. [[Ogden2023,Orr2026,Hampl2023AAP]]</p></div>
+
+  <p class="teach" role="note"><b>Teaching tool</b>The chart below uses schematic curves to show how the lines relate. It is not the CDC chart, no BMI value can be read from it, and the child is imaginary. A child’s own chart is read with their clinician, and it is never a diagnosis or a target on its own.</p>
+
+  <div class="stepper" id="chSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="chSvg" viewBox="0 0 720 380" style="min-width:560px" role="img" aria-label="A schematic BMI-for-age chart from age 2 to 18 with curves for the 85th and 95th percentiles and 120% and 140% of the 95th percentile. One child's line rises across them as the child grows, and a panel lists the AAP 2023 options, which light up when the child's age and severity meet each published threshold."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="chPlay">%t:player.play%</button><label class="stage-cap tl" for="chT">Age <input type="range" id="chT" min="0" max="1" step="0.001" value="0.04"></label></div>
+      <p class="stage-cap">Schematic curves, not CDC data; the child’s path is invented to cross each line. Thresholds and options as published. [[Ogden2023,Orr2026,Cuda2024OMA,Hampl2023AAP]]</p>
+    </div>
+    <aside class="note" id="chNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">The definitions side by side</h3>
+  <div class="tbl"><table>
+    <caption class="sr">How weight categories are defined in children and adolescents</caption>
+    <thead><tr><th scope="col">Term</th><th scope="col">Definition, as published</th><th scope="col">Notes</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Obesity</th><td>BMI at or above the 95th percentile of BMI-for-age [[Ogden2023]]</td><td>About 21% of US adolescents have obesity. [[Kelly2024JAMA]]</td></tr>
+      <tr class="life"><th scope="row">Severe obesity, class 2</th><td>BMI at or above 120% of the 95th percentile, or BMI 35 or more [[Ogden2023,Hampl2023AAP]]</td><td>6.7% (95% CI 5.5 to 8.1) of US children aged 2 to 19 in 2017 to March 2020. [[Ogden2023]]</td></tr>
+      <tr><th scope="row">Class 3</th><td>BMI at or above 140% of the 95th percentile, or BMI 40 or more [[Ogden2023,Hampl2023AAP]]</td><td>Percentages of the 95th describe levels of severe obesity. [[Ogden2023,Hampl2023AAP]]</td></tr>
+      <tr><th scope="row">Extended CDC charts (Dec 2022)</th><td>Reach a BMI of 60 and add the 98th, 99th, 99.9th and 99.99th percentiles [[Ogden2023]]</td><td>7.7% of US children aged 2 to 19 were at or above the extended 98th; at ages 12 to 19 the two measures nearly matched (8.7% vs 8.5%). [[Ogden2023]]</td></tr>
+      <tr><th scope="row">WHO 2007 reference, ages 5 to 19</th><td>At age 19, +1 SD is a BMI of 25.4 (boys) and 25.0 (girls); +2 SD is 29.7 for both [[deOnis2007]]</td><td>Built to line up with the adult cut-offs of 25 and 30. [[deOnis2007]]</td></tr>
+    </tbody></table></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Obesity at or above the 95th percentile; class 2 at 120% of the 95th (or BMI 35); class 3 at 140% (or BMI 40). The extended charts add the 98th to 99.99th percentiles. [[Ogden2023,Hampl2023AAP]]</div>
+    <div class="pt"><b>In plain words</b>For children, doctors compare a child with others of the same age and sex instead of using the adult BMI numbers. Higher levels are described as a percentage of the 95th line.</div>
+  </div>
+
+  <h3 class="sub">Does it last into adulthood?</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Child to teenager</span><span class="ch-num">~55%</span><p>of children with obesity still have it in adolescence. [[Simmonds2016]]</p></div>
+    <div class="card"><span class="kicker">Teenager to adult</span><span class="ch-num">~80%</span><p>of adolescents with obesity still have it in adulthood, and around 70% over age 30. [[Simmonds2016]]</p></div>
+    <div class="card"><span class="kicker">The other direction</span><span class="ch-num">70%</span><p>of adults with obesity did not have obesity as children or adolescents, so focusing only on children would not remove most adult obesity. [[Simmonds2016]]</p></div>
+    <div class="card"><span class="kicker">Health now</span><span class="ch-num">Gradient</span><p>The more severe the obesity, the higher the risk of low HDL cholesterol, high blood pressure, high triglycerides and high HbA1c, most clearly in boys and young men. [[Skinner2015]]</p></div>
+  </div>
+  <div class="prose"><p>Obesity in adolescence is associated with insulin resistance, hypertension, dyslipidaemia, sleep disorders, depression and musculoskeletal problems, and with higher adult deaths from cardiovascular disease and type 2 diabetes. [[Kelly2024JAMA]] The AAP recommends checking for these at the same time: lipids, glucose and liver enzymes (ALT) from age 10 with obesity, and blood pressure at every visit from age 3 with overweight or obesity. [[Orr2026,Hampl2023AAP]] Complications are covered in <a href="#complications" data-go="complications">Complications across the body</a>.</p></div>
+
+  <h3 class="sub">A medicine trial in teenagers: STEP TEENS</h3>
+  <div class="prose"><p>The AAP allows medicines to be offered from age 12 as an addition to lifestyle treatment. [[Orr2026,Hampl2023AAP]] Play the trial: the dots are the published averages, and the straight lines between them are not the measured path.</p></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="chTeen" viewBox="0 0 720 320" style="min-width:560px" role="img" aria-label="Mean BMI change over 75 weeks in STEP TEENS: semaglutide falls to minus 16.1% at week 68 and rises to minus 13.2% at week 75 after stopping; placebo is plus 0.6% and plus 1.2%. Dot grids show 73 in 100 versus 18 in 100 who lost 5% or more."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="chTeenPlay">%t:player.play%</button><label class="stage-cap tl" for="chTeenT">Weeks <input type="range" id="chTeenT" min="0" max="1" step="0.001" value="1"></label></div>
+      <p class="stage-cap">201 adolescents aged 12 to under 18, randomised 2:1, both groups with lifestyle intervention. Trial averages, not predictions. [[Weghuber2022STEPTEENS]]</p>
+    </div>
+    <aside class="note" id="chTeenNote" aria-live="polite"></aside>
+  </div>
+  <div class="tbl"><table>
+    <caption class="sr">Adolescent medicine trials and labels</caption>
+    <thead><tr><th scope="col">Medicine</th><th scope="col">Trial result (population average)</th><th scope="col">US label, as published</th></tr></thead>
+    <tbody>
+      <tr class="tx"><th scope="row">Semaglutide (Wegovy)</th><td>BMI −16.1% vs +0.6% at 68 weeks; GI adverse events 62% vs 42%; gallstones in 5 (4%) vs none; serious adverse events 11% vs 9% [[Weghuber2022STEPTEENS]]</td><td>Indicated for “adults and pediatric patients aged 12 years and older with obesity”; paediatric patients had more cholelithiasis, cholecystitis, hypotension, rash and urticaria than adults [[FDA-Wegovy]]</td></tr>
+      <tr><th scope="row">Liraglutide 3.0 mg (Saxenda)</th><td>251 adolescents, 56 weeks: BMI SDS 0.22 lower than placebo; 5% or more BMI reduction in 43.3% vs 18.7% [[Kelly2020Liraglutide]]</td><td>Paediatric patients aged 12 and older “with body weight greater than 60 kg and obesity” [[FDA-Saxenda]]</td></tr>
+      <tr class="tx"><th scope="row">Phentermine/topiramate (Qsymia)</th><td>Ages 12 to under 17, 56 weeks: BMI 10.44 percentage points lower than placebo at the top dose, 8.11 at the mid dose [[Kelly2022PHENTPM]]</td><td>Indicated for adults and children 12 and older with obesity [[FDA-Qsymia]]</td></tr>
+      <tr><th scope="row">Tirzepatide (Zepbound)</th><td>No adolescent trial in this guide’s sources</td><td>Safety and effectiveness “have not been established in pediatric patients” [[FDA-Zepbound]]</td></tr>
+    </tbody></table></div>
+  <p class="callout">Do not start, stop or change a medicine without a clinician. How these medicines work is in <a href="#glp" data-go="glp">How GLP-1 medicines work</a>, and their side effects in <a href="#sideeffects" data-go="sideeffects">Side effects, safety &amp; stopping</a>.</p>
+
+  <h3 class="sub">Surgery in adolescents, compared</h3>
+  <div class="prose"><p>Pick a view. Bars are group averages or shares from each study.</p></div>
+  <div class="ch-row" id="chCmpBtns" role="group" aria-label="Comparison"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="chCmp" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="Bar charts comparing adolescent obesity treatments: mean BMI change by treatment type, Teen-LABS remission at 3 years, adolescents versus adults 5 years after gastric bypass, and the Swedish AMOS study"></svg></div>
+      <p class="stage-cap">Population figures from cohorts and reviews; they do not predict any one young person’s result. [[Kelly2024JAMA,Inge2016NEJM,Inge2019NEJM,Olbers2017AMOS]]</p>
+    </div>
+    <aside class="note" id="chCmpNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Teen-LABS at 5 years after bypass: diabetes remission 86% in adolescents vs 53% in adults, with similar weight change (−26% vs −29%). [[Inge2019NEJM]]</div>
+    <div class="pt"><b>In plain words</b>Surgery can help teenagers with very high weight and related health problems, often as much as it helps adults. It also means lifelong vitamins and check-ups, and some people need another operation.</div>
+  </div>
+  <p class="callout">The operations themselves are in <a href="#surgery" data-go="surgery">Metabolic &amp; bariatric surgery</a>, and lifelong follow-up in <a href="#aftersurgery" data-go="aftersurgery">Life after surgery</a>.</p>
+
+  <h3 class="sub">Talking with children and families: health, not weight</h3>
+  <div class="prose"><p>Weight stigma in young people contributes to binge eating, social isolation, avoiding health care, less physical activity and more weight gain; it does not motivate change. <span class="ev est">Established</span> [[Pont2017AAP,PuhlLatner2007]] In a survey of 361 adolescents at weight-loss camps, 64% reported weight-based victimisation at school, and the people doing it included peers (92%), PE teachers or coaches (42%) and parents (37%). [[Puhl2013Bullying]] The AAP stigma statement asks clinicians to model non-biased language, use motivational interviewing and address weight stigma and bullying at the visit. [[Pont2017AAP]]</p></div>
+  <div class="tbl"><table class="ch-say">
+    <caption class="sr">Language guidance for families and clinicians</caption>
+    <thead><tr><th scope="col">Words that hurt</th><th scope="col">What the research found</th><th scope="col">Words that help</th></tr></thead>
+    <tbody>
+      <tr><td>“obese”, “fat”, “large”</td><td>In a 2021 survey of 2032 youth aged 10 to 17, these made them feel sad, ashamed and embarrassed. [[Puhl2022Terms]]</td><td>“healthy weight”, “weight”, or the young person’s own words [[Puhl2022Terms,Puhl2020Words]]</td></tr>
+      <tr><td>“an obese child”</td><td>People-first language keeps the disease from defining the person. [[Kyle2014,Puhl2020Words]]</td><td>“a child with obesity”</td></tr>
+      <tr><td>Remarks about a body, or comparing siblings</td><td>Parents were among the perpetrators of weight-based teasing in 37% of reports. [[Puhl2013Bullying]]</td><td>Talk about habits the whole family shares; the AAP describes care as family-centred and non-stigmatising (KAS 9). [[Orr2026,Hampl2023AAP]]</td></tr>
+      <tr><td>Lecturing, warnings</td><td>The AAP recommends motivational interviewing (KAS 10). [[Orr2026,Hampl2023AAP]]</td><td>Open questions: “What would you like to change, if anything?”</td></tr>
+    </tbody></table></div>
+  <p class="support" role="note"><b>Ask, then listen</b>Preferences vary between people, so asking each child or family which words they prefer works best. [[Puhl2020Words,Puhl2022Terms]] Stigma and its effects are covered in <a href="#stigma" data-go="stigma">Weight stigma &amp; bias</a>.</p>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service. In a meta-analysis of 36 studies (2589 young people), structured, professionally run treatment with a dietary component was followed by fewer eating-disorder symptoms on average; this applies to supervised programmes, not self-directed dieting, and individual risk still needs screening. [[Jebeile2019]]</p>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>AAP 2023: no watchful waiting; IHBLT 26 hours or more over 3 to 12 months; medicines offered from 12; surgical evaluation from 13 with severe obesity. [[Orr2026,Cuda2024OMA,Hampl2023AAP]]</div>
+    <div class="pt"><b>In plain words</b>Children who are teased about weight do not become healthier. Teasing makes things harder. Families, schools and clinics can stop it.</div>
+  </div>
+</section>

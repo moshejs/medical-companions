@@ -30,3 +30,4 @@
 - [CF Companion](https://www.medcompanions.org/cystic-fibrosis/): sources at https://www.medcompanions.org/cystic-fibrosis/sources/
 - [Stroke Companion](https://www.medcompanions.org/stroke/): sources at https://www.medcompanions.org/stroke/sources/
 - [GBS Companion](https://www.medcompanions.org/guillain-barre-syndrome/): sources at https://www.medcompanions.org/guillain-barre-syndrome/sources/
+- [Obesity Companion](https://www.medcompanions.org/obesity/): sources at https://www.medcompanions.org/obesity/sources/

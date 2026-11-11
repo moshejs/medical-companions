@@ -1,0 +1,76 @@
+<!-- ================= 5.2 FLASHCARDS & MEMORY AIDS ================= -->
+<section class="mod" id="m-review" data-mod="review" hidden>
+<style>
+#m-review .rv-lab{margin-top:14px}
+#m-review .mn .card p{margin:6px 0 0}
+#m-review .mn .card .tag{align-self:flex-start}
+#m-review .mn .card .tag.good{text-transform:none;letter-spacing:.02em}
+#m-review .mn .card .tag.accent{text-transform:none;letter-spacing:.02em}
+#m-review #rvSvg .rv-a{font:700 15px var(--body);fill:var(--ink)}
+#m-review #rvSvg .rv-c{font:500 13.5px var(--body);fill:var(--ink)}
+#m-review #rvSvg .rv-b{font:500 12px var(--body);fill:var(--muted)}
+#m-review #rvSvg .rv-n{font:700 15px var(--mono);fill:var(--on-brand)}
+#m-review #rvSvg .rv-m{font:700 11px var(--mono);fill:var(--on-brand)}
+#m-review #rvSvg .rv-q{font:700 12px var(--mono);fill:var(--ink)}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 5 · Context &amp; review</p><h2>Flashcards &amp; memory aids</h2>
+    <p class="lede">Flashcards on obesity as a chronic disease: definitions and the Lancet Commission's clinical and preclinical obesity, BMI and waist, genes and environment, the gut-brain appetite loop, fat tissue, why lost weight comes back, complications, diabetes prevention and remission, assessment and staging, weight stigma, lifestyle trials, GLP-1 medicines and their trials, other medicines, side effects, surgery and life after it, children, pregnancy, living with obesity, nursing care, the research frontier and history. Every answer carries its source. Tap a card or press Space to flip it; arrow keys move through the deck. Filter by part, or shuffle.</p></div>
+  <div class="ctrls" id="fcFilter"></div>
+  <div class="fc-wrap"><div class="fc" id="fc" tabindex="0" role="button" aria-label="%t:cards.label%">
+    <div class="face front"><small id="fcTagF"></small><p id="fcFront"></p></div>
+    <div class="face back"><small id="fcTagB"></small><p id="fcBack"></p></div>
+  </div></div>
+  <div class="ctrls"><button class="btn" id="fcPrev">%t:nav.prev%</button><button class="btn primary" id="fcFlip">%t:cards.flip%</button><button class="btn" id="fcNext">%t:nav.next%</button><button class="btn ghost" id="fcShuf">%t:cards.shuffle%</button><span class="stage-cap" id="fcCount"></span></div>
+  <div class="bar"><i id="fcBar"></i></div>
+  <div class="callout prose"><p>Trial results on these cards are population averages, not predictions for any one person, and BMI, waist and staging figures are teaching tools, never a diagnosis or a target. Doses, schedules and thresholds are quoted as published, never as instructions: do not start, stop or change a medicine without a clinician. If eating or weight causes you distress, or you restrict, binge or purge, please talk to a clinician or an eating-disorder service.</p></div>
+  <h3 class="sub">%t:cards.mnemonics%</h3>
+  <div class="prose"><p>The 5As and STOP-Bang are published names, and their cards are tagged so. Every other card is a <b>memory aid written for this guide</b>: a short phrase to hold a published fact in mind. None of those is an official grouping from any guideline, drug label or patient organisation, and none replaces the source it points to.</p></div>
+  <div class="mn" id="mnList"></div>
+  <h3 class="sub">Mnemonic in motion: the 5As of obesity counselling</h3>
+  <div class="prose"><p>The 5As (Ask, Assess, Advise, Agree, Assist) are a published framework for talking about weight in a clinic, adapted for obesity by Vallis and colleagues [[Vallis2013]]. Play the animation to see each step in turn, with numbers from the trials behind it, and why the first step, asking permission, matters so much. For staging and the full assessment, see <button class="btn ghost" style="padding:2px 9px" data-go="assessment">Assessment &amp; staging</button>; for respectful words, <button class="btn ghost" style="padding:2px 9px" data-go="stigma">Weight stigma &amp; bias</button>.</p></div>
+  <div class="stepper" id="rvSteps"></div>
+  <div class="lab rv-lab">
+    <div class="stage"><div class="scroll"><svg id="rvSvg" viewBox="0 0 720 410" style="min-width:300px" role="img" aria-label="Animated walk through the 5As of obesity counselling. Five tiles light in turn. Ask: a clinician asks permission to talk about weight and the person agrees. Assess: a checklist of size, waist, obesity stage, drivers and complications ticks off. Advise: bars grow for the odds of better blood sugar, triglycerides, HDL cholesterol and blood pressure with 5 to under 10 percent weight loss in Look AHEAD, while LDL shows no link. Agree: a schematic average curve shows early loss, a plateau at about six months and gradual regain. Assist: monthly contact dots fill a one-year timeline. Last, 19 of 100 figures light to show the share of people who said they would avoid future appointments if a doctor stigmatised their weight."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="rvPlay">%t:player.play%</button><label class="stage-cap tl" for="rvT">Step <input type="range" id="rvT" min="0" max="1" step="0.002" value="0.05"></label></div>
+      <p class="stage-cap">A teaching tool that explains how a published counselling framework is built. The curve is schematic, shaped on pooled trial averages, and is not a target for anyone. [[Vallis2013,Wing2011DiabetesCare,Franz2007,Puhl2013Language]]</p></div>
+    <aside class="note" id="rvNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout prose"><p>These cards are for learning, not for deciding anything about one person's care. Obesity is a chronic disease with genetic, biological, environmental and social causes, not a failure of willpower, and weight coming back after weight loss is biology [[Rubino2020Stigma,Rubino2025Commission]].</p></div>
+</section>
+
+<!-- ================= 5.3 QUIZ ================= -->
+<section class="mod" id="m-quiz" data-mod="quiz" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Context &amp; review</p><h2>Quiz</h2>
+    <p class="lede">Multiple-choice questions on obesity with cited explanations: definitions and the Lancet Commission, BMI and waist, genes, appetite hormones and fat tissue, metabolic adaptation, complications, diabetes prevention and remission, staging, stigma, lifestyle trials, GLP-1 and other medicines, side effects, surgery and life after it, children, pregnancy, nursing care, the research frontier and history. The mixed quiz draws 20 at random; or choose a part. Trial figures are population averages, and doses and thresholds are quoted as published, never as instructions.</p></div>
+  <div class="ctrls" id="qFilter"></div>
+  <div class="bar"><i id="qBar"></i></div>
+  <div class="qcard" id="qCard" aria-live="polite"></div>
+</section>
+
+<!-- ================= 5.4 GLOSSARY ================= -->
+<section class="mod" id="m-glossary" data-mod="glossary" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Context &amp; review</p><h2>Glossary</h2>
+    <p class="lede">A searchable glossary of obesity terms, from adiposity, BMI, waist-to-height ratio and clinical obesity to leptin, ghrelin, POMC and MC4R, crown-like structures, metabolic adaptation, MASLD, EOSS, STOP-Bang, the 5As, GLP-1 receptor agonists, tirzepatide, sleeve gastrectomy, dumping, IHBLT, adjusted body weight and retatrutide. Type to filter; the arrow on each entry jumps to the module where the term matters most.</p></div>
+  <input class="search" id="glSearch" type="search" placeholder="Search terms, e.g. leptin, EOSS, sleeve" aria-label="%t:glossary.search%">
+  <p class="stage-cap" id="glCount"></p>
+  <div class="gloss" id="glList"></div>
+</section>
+
+<!-- ================= 5.5 SOURCES ================= -->
+<section class="mod" id="m-sources" data-mod="sources" hidden>
+<style>
+#m-sources .srcs .tag.good{text-transform:none;letter-spacing:.02em}
+#m-sources #srcStats{margin:8px 0 0}
+#m-sources .srcs .tag{white-space:normal;max-width:100%;overflow-wrap:anywhere;text-align:left}
+#m-sources #srcFilter .btn{white-space:normal;text-align:left}
+</style>
+  <div class="mhead"><p class="eyebrow">Part 5 · Context &amp; review</p><h2>Sources</h2>
+    <p class="lede">Every reference behind the Obesity Companion: randomised trials such as the DPP, Look AHEAD, DiRECT, STEP, SURMOUNT and SELECT, cohorts such as SOS and LABS, meta-analyses, the 2025 Lancet Commission, guidelines from the AHA/ACC/TOS, USPSTF, AGA, AAP and ASMBS/IFSO, and US drug labels. The small numbers throughout the app point here; filter by research area or search.</p></div>
+  <div class="callout prose"><p>Research passes ran in parallel, one per area: definitions, measurement, epidemiology and history; causes, genetics and environment; physiology of appetite, fat tissue and energy balance; complications and clinical assessment; lifestyle and behavioural treatment; anti-obesity medications; metabolic and bariatric surgery; children, pregnancy, stigma, living with obesity and nursing; and the research frontier. Before inclusion each source was checked, where possible, against PubMed, Europe PMC, Crossref, ClinicalTrials.gov or openFDA, and the green tag on an entry names the service that confirmed it. Works found by more than one pass appear once, with any extra keys listed beside them.</p>
+    <p>Some guideline texts could only be read in part; where a module relies on a statement reported through a secondary source, it says so. Drug labels change, so check the current label on the regulator's site. Entries marked <span class="tag warn">%t:sources.check%</span> are pages with no PMID or DOI, or works that could not be confirmed.</p>
+    <p id="srcStats"></p></div>
+  <input class="search" id="srcSearch" type="search" placeholder="%t:sources.placeholder%" aria-label="%t:sources.search%">
+  <div class="ctrls" id="srcFilter"></div>
+  <p class="stage-cap" id="srcCount"></p>
+  <ol class="srcs" id="srcList"></ol>
+</section>

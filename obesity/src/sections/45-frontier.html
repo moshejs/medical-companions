@@ -1,0 +1,161 @@
+<!-- ================= 4.5 RESEARCH FRONTIER ================= -->
+<style>
+#m-frontier .fr-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 10px}
+#m-frontier .fr-row .btn{min-height:40px}
+#m-frontier .fr-row .lbl{font:600 12px var(--mono);letter-spacing:.04em;color:var(--muted);text-transform:uppercase;margin-right:4px}
+#m-frontier .fr-chk{display:inline-flex;gap:8px;align-items:center;font-size:14px;font-weight:600;min-height:40px}
+#m-frontier .fr-chk input{width:18px;height:18px;accent-color:var(--life)}
+#m-frontier .fr-read{font-size:14.5px;margin:8px 0 0;max-width:72ch}
+#m-frontier .fr-evkey{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
+#m-frontier .fr-evkey li{display:flex;gap:10px;align-items:baseline;font-size:14.5px}
+#m-frontier .fr-evkey .ev{flex:none;min-width:96px;text-align:center}
+#m-frontier .card .fr-num{font-family:var(--display);font-weight:700;font-size:26px;line-height:1.05;color:var(--life)}
+#m-frontier .card .fr-vs{font:500 12px var(--mono);color:var(--muted)}
+#m-frontier .card .chips{margin-top:auto}
+#m-frontier .fr-rxnote{display:flex;flex-direction:column;gap:10px}
+#m-frontier .fr-rxnote h4{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.15;margin:0}
+#m-frontier .fr-rxnote ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+#m-frontier .tbl a{color:var(--life);font-weight:600}
+</style>
+<section class="mod" id="m-frontier" data-mod="frontier" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Across life &amp; care</p><h2>Research frontier</h2>
+    <p class="lede">The next medicines for obesity act on two or three hormone signals at once, come as monthly injections or daily tablets, or try to spare muscle. Scrub the pipeline to see what trials have shown so far, each result with its evidence label.</p></div>
+
+  <div class="callout"><p>Obesity is a chronic, relapsing disease. The WHO 2025 guideline states that it needs lifelong care and that medication alone cannot solve the global burden of obesity. [[Celletti2026WHO]] Most of the agents below are not approved anywhere yet. Trial results do not mean a medicine is available, or right for any one person. [[NCT05882045,NCT06858839]]</p></div>
+
+  <h3 class="sub">How to read the labels</h3>
+  <ul class="fr-evkey">
+    <li><span class="ev est">Established</span><span>At least one completed phase 3 randomised trial, or a regulatory approval, for the stated use.</span></li>
+    <li><span class="ev early">Early evidence</span><span>Phase 1 or 2 trials, single trials in small groups, or observational data.</span></li>
+    <li><span class="ev hyp">Hypothesis</span><span>A mechanism or signal not yet tested in an adequately powered human outcome trial.</span></li>
+  </ul>
+
+  <h3 class="sub">The pipeline, bar by bar</h3>
+  <div class="prose"><p>Each bar is the average weight change in one trial arm at that trial's main time point; the thin grey bar under it is the placebo group of the same trial. These are cross-trial comparisons: different people, durations and statistical estimands sit side by side, so they are not head-to-head results. Only SURMOUNT-5, STEP UP, REDEFINE 1 (its arms) and REDEFINE 5 compare agents directly. [[Moiz2026SR,Chen2026NMA]] Switch the population to see how the same medicines do in people with type 2 diabetes.</p></div>
+  <div class="fr-row" role="group" aria-label="Trial population">
+    <span class="lbl">Population</span>
+    <button class="btn" id="frPop0" aria-pressed="true">Without diabetes</button>
+    <button class="btn" id="frPop1" aria-pressed="false">With type 2 diabetes</button>
+    <button class="btn" id="frPbo" aria-pressed="true">Placebo bars</button>
+  </div>
+  <div class="stepper" id="frSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="frSvg" viewBox="0 0 720 470" style="min-width:560px" role="img" aria-label="Animated bar chart of mean percentage weight change in trials of new obesity medicines, grouped by mechanism: semaglutide and tirzepatide as yardsticks, then retatrutide, survodutide and mazdutide, CagriSema and amycretin, MariTide and semaglutide 7.2 mg, orforglipron and oral semaglutide, with placebo bars and evidence labels, and a final panel on muscle-sparing bimagrumab"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="frPlay">%t:player.play%</button><label class="stage-cap tl" for="frT">Mechanism <input type="range" id="frT" min="0" max="1" step="0.001" value="0.1"></label></div>
+      <p class="fr-read" id="frRead" aria-live="polite"></p>
+      <p class="stage-cap">Bars: mean % change in body weight, population averages from trials, mostly by treatment-policy or treatment-regimen estimand. Weeks and phase are on each row. Doses are the trial doses, not instructions; the orforglipron 36 mg trial dose corresponds to a 17.2 mg label dose. [[FDA-Foundayo]]</p>
+    </div>
+    <aside class="note" id="frNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>New medicines in testing act on two or three gut-hormone signals at once. In large trials, people lost on average about a fifth to a quarter of their body weight over about a year and a half. These are averages: some people lose much more, some much less. [[Jastreboff2026TRIUMPH1,Garvey2025REDEFINE1]]</div>
+    <div class="hook"><b>Exam hook</b>People with type 2 diabetes lose less weight on the same incretin than people without diabetes: retatrutide 12 mg −25.0% without diabetes versus −18.8% with it; CagriSema −20.4% versus −13.7%. [[Jastreboff2026TRIUMPH1,Bellido2026TRIUMPH2,Garvey2025REDEFINE1,Davies2025REDEFINE2]]</div>
+  </div>
+
+  <h3 class="sub">Which receptors does each agent use?</h3>
+  <div class="prose"><p>Switch receptors on and off to see which agents match that combination. Every agent in this pipeline acts on the GLP-1 receptor; they differ in what is added. For how GLP-1 itself works, see <a href="#glp" data-go="glp">How GLP-1 medicines work</a>.</p></div>
+  <div class="fr-row" id="frRxBtns" role="group" aria-label="Receptors">
+    <span class="lbl">Receptors</span>
+    <button class="btn" data-rx="glp" aria-pressed="true">GLP-1</button>
+    <button class="btn" data-rx="gip" aria-pressed="false">GIP</button>
+    <button class="btn" data-rx="gcg" aria-pressed="false">Glucagon</button>
+    <button class="btn" data-rx="amy" aria-pressed="false">Amylin</button>
+    <label class="fr-chk"><input type="checkbox" id="frGipBlock"> Block GIP instead of activating it</label>
+  </div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="frRxSvg" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="A cell surface with four receptors, GLP-1, GIP, glucagon and amylin; a drug molecule docks onto the receptors that are switched on, and the matching agents are listed"></svg></div>
+      <p class="stage-cap">Schematic. Receptor shapes and molecule sizes are not to scale.</p>
+    </div>
+    <aside class="note fr-rxnote" id="frRxNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Beyond weight: outcome trials</h3>
+  <div class="prose"><p>The bigger question is whether these medicines prevent the illnesses that come with clinical obesity. Some answers are in; several are years away.</p></div>
+  <div class="cards">
+    <div class="card"><span class="kicker">Heart · SELECT</span><h4>Fewer heart attacks, strokes and cardiovascular deaths</h4>
+      <p><span class="fr-num">6.5% vs 8.0%</span><br><span class="fr-vs">semaglutide 2.4 mg vs placebo, mean 39.8 months</span></p>
+      <p>17,604 people with established cardiovascular disease, BMI 27 or more and no diabetes: HR 0.80 (95% CI 0.72–0.90). Adverse events led 16.6% to stop, versus 8.2% on placebo. [[Lincoff2023SELECT]]</p>
+      <div class="chips"><span class="ev est">Established</span></div></div>
+    <div class="card"><span class="kicker">Kidney · FLOW</span><h4>Fewer major kidney events</h4>
+      <p><span class="fr-num">HR 0.76</span><br><span class="fr-vs">semaglutide 1.0 mg, median 3.4 years</span></p>
+      <p>3,533 people with type 2 diabetes and chronic kidney disease: major kidney events fell by 24%, with lower cardiovascular death (HR 0.71) and death from any cause (HR 0.80). [[Perkovic2024FLOW]] A pooled analysis with SELECT and SOUL found fewer kidney events, including in people without diabetes. [[Mann2026KidneyPooled]]</p>
+      <div class="chips"><span class="ev est">Established in diabetes</span><span class="ev early">Early without</span></div></div>
+    <div class="card"><span class="kicker">Knee · STEP 9</span><h4>Less knee osteoarthritis pain</h4>
+      <p><span class="fr-num">−41.7 vs −27.5</span><br><span class="fr-vs">WOMAC pain points (0–100), 68 weeks</span></p>
+      <p>407 people with obesity and moderate knee osteoarthritis; weight −13.7% versus −3.2%. [[Bliddal2024STEP9]] Retatrutide has since reduced knee pain in two phase 3 trials, though serious adverse events were more common than on placebo. [[Schnitzer2026TRIUMPH4]]</p>
+      <div class="chips"><span class="ev est">Established</span></div></div>
+    <div class="card"><span class="kicker">Liver · ESSENCE</span><h4>Steatohepatitis resolving</h4>
+      <p><span class="fr-num">62.9% vs 34.3%</span><br><span class="fr-vs">MASH resolved without worse fibrosis, week 72</span></p>
+      <p>800 people with biopsy-proven MASH and F2–F3 fibrosis; fibrosis improved in 36.8% versus 22.4%. [[Sanyal2025ESSENCE]] The approval for MASH is accelerated: part 2 (cirrhosis-free survival) runs to April 2029. [[FDA-Wegovy,NCT04822181]]</p>
+      <div class="chips"><span class="ev est">Established for histology</span></div></div>
+    <div class="card"><span class="kicker">Heart safety · SYNCHRONIZE-CVOT</span><h4>Safe for the heart is not the same as protective</h4>
+      <p><span class="fr-num">3.7% vs 4.1%</span><br><span class="fr-vs">survodutide vs placebo, median 22 months</span></p>
+      <p>HR 0.89 (95% CI 0.67–1.18) met non-inferiority: the drug did not raise cardiovascular risk. That is a safety result, not proof of benefit. Gastrointestinal events led about one in five on survodutide to stop. [[Bozkurt2026SYNCHRONIZECVOT]]</p>
+      <div class="chips"><span class="ev est">Established for safety</span></div></div>
+    <div class="card"><span class="kicker">Brain · evoke and evoke+</span><h4>A negative trial worth learning from</h4>
+      <p><span class="fr-num">No difference</span><br><span class="fr-vs">CDR-SB at 104 weeks, 3,808 people</span></p>
+      <p>Oral semaglutide did not slow early Alzheimer's disease, and both trials stopped for a negative outcome. [[Cummings2026Evoke]] Observational links to lower dementia risk did not hold up in a randomised trial. [[Xie2025NatMed,Cummings2026Evoke]]</p>
+      <div class="chips"><span class="ev est">Negative for treatment</span><span class="ev hyp">Prevention untested</span></div></div>
+    <div class="card"><span class="kicker">Alcohol use</span><h4>Small, positive trials</h4>
+      <p><span class="fr-num">−41.1 vs −26.4</span><br><span class="fr-vs">percentage points of heavy drinking days, 26 weeks</span></p>
+      <p>108 people with alcohol use disorder and obesity, semaglutide 2.4 mg plus cognitive behavioural therapy, single centre. [[Klausen2026Lancet]] A Swedish registry linked semaglutide with fewer alcohol-related admissions (HR 0.64). [[Lahteenvuo2025]] No GLP-1 medicine is approved for substance use. [[FDA-Wegovy,FDA-Zepbound,FDA-Foundayo]]</p>
+      <div class="chips"><span class="ev early">Early evidence</span></div></div>
+    <div class="card"><span class="kicker">Sleep apnoea</span><h4>Fewer breathing pauses</h4>
+      <p><span class="fr-num">−34.3 vs −9.9</span><br><span class="fr-vs">AHI events per hour, retatrutide 9 mg, 80 weeks</span></p>
+      <p>Tirzepatide is now labelled for moderate to severe obstructive sleep apnoea in adults with obesity. [[FDA-Zepbound]] Retatrutide and oral orforglipron have phase 3 results (orforglipron: −17.8 and −17.3 versus −4.5 and −5.3 events per hour). [[Grunstein2026RetaOSA,Malhotra2026ATTAINOSA]]</p>
+      <div class="chips"><span class="ev est">Established (tirzepatide)</span></div></div>
+  </div>
+
+  <h3 class="sub">Trials to watch</h3>
+  <div class="prose"><p>Registry status as ClinicalTrials.gov showed it on 11 November 2026. "Primary completion" is when the main data collection ends; results usually follow months later.</p></div>
+  <div class="tbl"><table>
+    <caption class="sr">Ongoing or unreported phase 3 trials of new obesity medicines</caption>
+    <thead><tr><th scope="col">Trial</th><th scope="col">Agent</th><th scope="col">Question</th><th scope="col">People</th><th scope="col">Status</th></tr></thead>
+    <tbody>
+      <tr><th scope="row"><a href="https://clinicaltrials.gov/study/NCT05556512" target="_blank" rel="noopener">SURMOUNT-MMO</a></th><td>Tirzepatide</td><td>Five-part outcome including death from any cause; first incretin outcome trial of both primary and secondary prevention</td><td>15,374</td><td>Active; primary completion October 2027 [[Lam2025SURMOUNTMMO,NCT05556512]]</td></tr>
+      <tr><th scope="row"><a href="https://clinicaltrials.gov/study/NCT05882045" target="_blank" rel="noopener">TRIUMPH-3</a></th><td>Retatrutide</td><td>Severe obesity with established cardiovascular disease</td><td>1,946</td><td>Completed April 2026; no results posted [[NCT05882045]]</td></tr>
+      <tr><th scope="row"><a href="https://clinicaltrials.gov/study/NCT06383390" target="_blank" rel="noopener">NCT06383390</a></th><td>Retatrutide</td><td>Major cardiovascular and kidney events</td><td>about 10,000</td><td>Active; primary completion February 2029 [[NCT06383390]]</td></tr>
+      <tr><th scope="row"><a href="https://clinicaltrials.gov/study/NCT05669755" target="_blank" rel="noopener">REDEFINE 3</a></th><td>CagriSema</td><td>3-point major cardiovascular events in established cardiovascular disease</td><td>7,101</td><td>Active; primary completion September 2027 [[NCT05669755]]</td></tr>
+      <tr><th scope="row"><a href="https://clinicaltrials.gov/study/NCT06131437" target="_blank" rel="noopener">NCT06131437</a></th><td>CagriSema vs tirzepatide 15 mg</td><td>Head-to-head weight change</td><td>809</td><td>Completed December 2025; no peer-reviewed results found [[NCT06131437]]</td></tr>
+      <tr><th scope="row"><a href="https://clinicaltrials.gov/study/NCT06858839" target="_blank" rel="noopener">MARITIME-1</a></th><td>MariTide</td><td>72-week weight change, obesity without diabetes</td><td>3,853</td><td>Active; primary completion January 2027 [[NCT06858839]]</td></tr>
+      <tr><th scope="row"><a href="https://clinicaltrials.gov/study/NCT07037433" target="_blank" rel="noopener">MARITIME-CV</a></th><td>MariTide</td><td>3-point major cardiovascular events</td><td>12,800</td><td>Active; primary completion June 2028 [[NCT07037433]]</td></tr>
+      <tr><th scope="row"><a href="https://clinicaltrials.gov/study/NCT06632444" target="_blank" rel="noopener">NCT06632444</a></th><td>Survodutide</td><td>MASH with F2–F3 fibrosis</td><td>1,800</td><td>Recruiting; primary completion December 2031 [[NCT06632444]]</td></tr>
+      <tr><th scope="row"><a href="https://clinicaltrials.gov/study/NCT06632457" target="_blank" rel="noopener">LIVERAGE-Cirrhosis</a></th><td>Survodutide</td><td>Liver outcomes in compensated MASH cirrhosis</td><td>1,590</td><td>Recruiting; primary completion June 2029 [[NCT06632457]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Other routes being explored</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Rare genetic and hypothalamic obesity</span><h4>Setmelanotide: repairing a broken fullness signal</h4>
+      <p>Setmelanotide activates the melanocortin-4 receptor, downstream of the leptin pathway. The label covers acquired hypothalamic obesity from age 4, and Bardet-Biedl syndrome or genetically confirmed POMC, PCSK1 or LEPR deficiency from age 2; it is not for common obesity. [[FDA-Imcivree]] At about 1 year, 80% with POMC deficiency and 45% with LEPR deficiency lost at least 10% of body weight. [[Clement2020]] In acquired hypothalamic obesity, BMI changed −16.5% versus +3.3% on placebo. [[Miller2026TRANSCEND]] More in <a href="#othermeds" data-go="othermeds">Other weight-loss medicines</a>.</p>
+      <div class="chips"><span class="ev est">Established</span></div></div>
+    <div class="card"><span class="kicker">Endoscopy · MERIT</span><h4>Endoscopic sleeve gastroplasty</h4>
+      <p>In class 1–2 obesity, total body weight loss at 52 weeks was 13.6% with the procedure plus lifestyle versus 0.8% with lifestyle alone; serious procedure-related events in 2% (3 of 131). [[AbuDayyeh2022MERIT]] For operations, see <a href="#surgery" data-go="surgery">Metabolic &amp; bariatric surgery</a>.</p>
+      <div class="chips"><span class="ev est">Established for class 1–2</span></div></div>
+    <div class="card"><span class="kicker">Devices that disappointed</span><h4>Vagal nerve blockade and duodenal resurfacing</h4>
+      <p>Vagal blockade gave 9.2% versus 6.0% weight loss with a sham device and missed both prespecified efficacy targets. [[Ikramuddin2014ReCharge]] Duodenal mucosal resurfacing, a diabetes procedure, did not change HbA1c significantly overall versus sham. [[Mingrone2022REVITA2]]</p>
+      <div class="chips"><span class="ev early">Early evidence</span></div></div>
+    <div class="card"><span class="kicker">Precision medicine</span><h4>Matching medicine to phenotype</h4>
+      <p>A Mayo Clinic group sorted adults into "hungry brain", "emotional hunger", "hungry gut" and "slow burn" phenotypes. With older medicines, phenotype-guided prescribing gave 15.9% versus 9.0% weight loss at 12 months (single centre, before modern incretins). [[Acosta2021Phenotype]]</p>
+      <div class="chips"><span class="ev early">Early evidence</span></div></div>
+  </div>
+
+  <h3 class="sub">Open questions</h3>
+  <div class="cards">
+    <div class="card"><h4>Are the newest agents better than tirzepatide?</h4><p>Cross-trial numbers favour retatrutide, but network meta-analysis intervals overlap and head-to-head trials are few; the CagriSema versus tirzepatide trial has not reported. [[Jastreboff2026TRIUMPH1,Chen2026NMA,NCT06131437]]</p><div class="chips"><span class="tag warn">Open</span></div></div>
+    <div class="card"><h4>Is more weight loss worth more side effects?</h4><p>Retatrutide 9 mg led 12% to stop for adverse events versus 5% on placebo, with dysaesthesia and hypotension as new signals; [[Bellido2026TRIUMPH2]] semaglutide 7.2 mg also raised dysaesthesia. [[Wharton2025STEPUP]] The answer depends on the person. See <a href="#sideeffects" data-go="sideeffects">Side effects, safety &amp; stopping</a>.</p><div class="chips"><span class="tag warn">Open</span></div></div>
+    <div class="card"><h4>Activate GIP or block it?</h4><p>Tirzepatide activates the GIP receptor; MariTide blocks it; both lower weight. Why both work is not settled. [[Jastreboff2022SURMOUNT1,Jastreboff2025MariTide]]</p><div class="chips"><span class="ev hyp">Hypothesis</span></div></div>
+    <div class="card"><h4>Lifelong treatment, or stepping down?</h4><p>Regain after stopping is expected biology: hunger hormones stay shifted a year after weight loss. [[Sumithran2011]] Switching to a daily tablet kept most of the loss for a year, without an arm that stayed on the injection. [[Aronne2026ATTAINMAINTAIN]] In US records, 64.8% of people without diabetes stopped a GLP-1 medicine within a year. [[Rodriguez2025Discontinuation]]</p><div class="chips"><span class="tag warn">Open</span></div></div>
+    <div class="card"><h4>Does losing muscle matter?</h4><p>An MRI sub-study of STEP UP found a non-significant fall in thigh muscle with preserved sit-to-stand performance. [[Hjelmesaeth2026STEPUPMuscle]] No outcome trial has tested whether sparing lean mass improves strength, falls or long-term health. [[Heymsfield2026Bimagrumab]]</p><div class="chips"><span class="ev hyp">Hypothesis</span></div></div>
+    <div class="card"><h4>Can health systems pay for them?</h4><p>One US lifetime model put tirzepatide at $197,023 and semaglutide at $467,676 per quality-adjusted life year. [[Hwang2025CostEffect]] ICER, as reported in a 2026 commentary, found them cost-effective but unaffordable at scale. [[Ramachandran2026ICER]] The WHO made its recommendations conditional partly for cost and equity. [[Celletti2026WHO]]</p><div class="chips"><span class="tag warn">Depends on price</span></div></div>
+  </div>
+
+  <h3 class="sub">Compounded and online products</h3>
+  <div class="prose"><p>After the US semaglutide and tirzepatide shortages ended, a 2025 secret-shopper study of 75 weight-loss clinics and medical spas found 56.0% still offering compounded GLP-1 products mixed with B vitamins, and 4 of 21 supplying pharmacies were not licensed for sterile compounding. [[DiStefano2026Compounded]] A poison-centre case series described 10-fold dosing errors with compounded semaglutide drawn up with syringes, partly from confusion between millilitres, units and milligrams. [[Lambson2023Compounded]] Compounded products are not FDA-approved medicines.</p></div>
+
+  <div class="split2">
+    <div class="callout"><p><b>Medicines.</b> Do not start, stop or change a medicine without talking to your clinician. That includes doses you read about in trials: trial doses are quoted here as published, not as instructions.</p></div>
+    <div class="callout"><p><b>If eating or weight causes distress.</b> If eating or weight causes you distress, or you restrict, binge or purge, please talk to a clinician or an eating-disorder service.</p></div>
+  </div>
+</section>

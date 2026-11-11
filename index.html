@@ -65,6 +65,7 @@
   --cf:#5b2760; --cf-soft:#f2e4f1; --cf-lobe:#f6f4f2; --cf-pot:#2fb3a8;
   --str:#1d3f5e; --str-soft:#dde8f1; --str-lobe:#f5f3ef; --str-dot:#d9622b;
   --gbs:#33296e; --gbs-soft:#e7e4f6; --gbs-myelin:#ffffff; --gbs-axon:#e8d9b5; --gbs-node:#e0a23a;
+  --ob:#00695e; --ob-soft:#ddf1ed; --ob-fat:#f6c08e; --ob-ring:#ffffff;
   --display:"Newsreader","Newsreader Fallback",Georgia,"Times New Roman",serif;
   --body:"Atkinson Hyperlegible","Atkinson Hyperlegible Fallback",system-ui,-apple-system,"Segoe UI",sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
@@ -95,6 +96,7 @@
     --cf:#e3a8e6; --cf-soft:#3a1e3e; --cf-lobe:#161218; --cf-pot:#8fe6dc;
     --str:#9fc3e6; --str-soft:#172a3b; --str-lobe:#10161c; --str-dot:#ee8a55;
     --gbs:#bcb2f7; --gbs-soft:#2a2450; --gbs-myelin:#121019; --gbs-axon:#5a4a33; --gbs-node:#e8ad4a;
+    --ob:#5fd0bd; --ob-soft:#123631; --ob-fat:#e9a774; --ob-ring:#0f1514;
     color-scheme:dark;
   }
 }
@@ -145,7 +147,7 @@ h1 .soft{display:block;font-style:italic;font-weight:400;color:var(--muted);font
   border-radius:20px;box-shadow:0 1px 0 var(--line),0 10px 28px -18px rgba(70,40,15,.35);transition:box-shadow .35s var(--ease),transform .35s var(--ease)}
 .book:hover{transform:translateY(-2px);box-shadow:0 1px 0 var(--line),0 18px 36px -18px rgba(70,40,15,.42)}
 .book.alz{--c:var(--alz);--soft:var(--alz-soft)} .book.fmf{--c:var(--fmf);--soft:var(--fmf-soft)} .book.mg{--c:var(--mg);--soft:var(--mg-soft)}
-.book.str{--c:var(--str);--soft:var(--str-soft)} .book.gout{--c:var(--gout);--soft:var(--gout-soft)} .book.als{--c:var(--als);--soft:var(--als-soft)} .book.pd{--c:var(--pd);--soft:var(--pd-soft)} .book.ms{--c:var(--ms);--soft:var(--ms-soft)} .book.crc{--c:var(--crc);--soft:var(--crc-soft)} .book.eds{--c:var(--eds);--soft:var(--eds-soft)} .book.tb{--c:var(--tb);--soft:var(--tb-soft)} .book.bpd{--c:var(--bpd);--soft:var(--bpd-soft)} .book.adhd{--c:var(--adhd);--soft:var(--adhd-soft)} .book.aut{--c:var(--aut);--soft:var(--aut-soft)} .book.bip{--c:var(--bip);--soft:var(--bip-soft)} .book.aud{--c:var(--aud);--soft:var(--aud-soft)} .book.mi{--c:var(--mi);--soft:var(--mi-soft)} .book.cir{--c:var(--cir);--soft:var(--cir-soft)} .book.sep{--c:var(--sep);--soft:var(--sep-soft)} .book.cf{--c:var(--cf);--soft:var(--cf-soft)} .book.gbs{--c:var(--gbs);--soft:var(--gbs-soft)}
+.book.str{--c:var(--str);--soft:var(--str-soft)} .book.gout{--c:var(--gout);--soft:var(--gout-soft)} .book.als{--c:var(--als);--soft:var(--als-soft)} .book.pd{--c:var(--pd);--soft:var(--pd-soft)} .book.ms{--c:var(--ms);--soft:var(--ms-soft)} .book.crc{--c:var(--crc);--soft:var(--crc-soft)} .book.eds{--c:var(--eds);--soft:var(--eds-soft)} .book.tb{--c:var(--tb);--soft:var(--tb-soft)} .book.bpd{--c:var(--bpd);--soft:var(--bpd-soft)} .book.adhd{--c:var(--adhd);--soft:var(--adhd-soft)} .book.aut{--c:var(--aut);--soft:var(--aut-soft)} .book.bip{--c:var(--bip);--soft:var(--bip-soft)} .book.aud{--c:var(--aud);--soft:var(--aud-soft)} .book.mi{--c:var(--mi);--soft:var(--mi-soft)} .book.cir{--c:var(--cir);--soft:var(--cir-soft)} .book.sep{--c:var(--sep);--soft:var(--sep-soft)} .book.cf{--c:var(--cf);--soft:var(--cf-soft)} .book.gbs{--c:var(--gbs);--soft:var(--gbs-soft)} .book.ob{--c:var(--ob);--soft:var(--ob-soft)}
 .cover{position:relative;display:grid;place-items:center;align-self:start;aspect-ratio:3/4;border-radius:6px 12px 12px 6px;background:var(--soft);overflow:hidden}
 .cover::before{content:"";position:absolute;inset:0 auto 0 0;width:13px;background:var(--c);opacity:.9}
 .cover::after{content:"";position:absolute;right:15px;top:0;bottom:0;width:6px;background:var(--c);opacity:.22}
@@ -550,6 +552,24 @@ footer a{padding-block:13px} /* a 44px tap target that takes no room in the line
           <div class="actions">
             <a class="start" href="guillain-barre-syndrome/" data-slug="guillain-barre-syndrome">Open the guide<span aria-hidden="true"> →</span></a>
             <span class="langs"><a href="guillain-barre-syndrome/">Read in English</a></span>
+          </div>
+        </div>
+      </li>
+      <li class="book ob">
+        <a class="cover" href="obesity/" tabindex="-1" aria-hidden="true"><svg class="emblem" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="var(--ob)"/><path d="M8 17.5Q20 3 32 17.5" fill="none" stroke="var(--ob-ring)" stroke-width="2.6" stroke-linecap="round"/><circle cx="20" cy="10.3" r="2.6" fill="var(--ob-fat)"/><circle cx="20" cy="25" r="9" fill="var(--ob-fat)" stroke="var(--ob-ring)" stroke-width="1.8"/><ellipse cx="26" cy="28.6" rx="2.6" ry="2" fill="var(--ob)"/></svg></a>
+        <div class="page">
+          <h3><a href="obesity/">Obesity Companion</a></h3>
+          <p class="blurb">Obesity as a chronic disease, from the gut-brain signals that set appetite and the biology that pushes lost weight back, to GLP-1 medicines, metabolic surgery and care without stigma.</p>
+          <ul class="inside">
+          <li>BMI, waist and the new clinical-obesity definition</li>
+          <li>Appetite hormones, fat tissue as an organ and why weight returns</li>
+          <li>Semaglutide, tirzepatide and the trials behind them, side effects and stopping</li>
+          <li>Bariatric surgery, children, pregnancy, nursing and the research frontier</li>
+          </ul>
+          <p class="facts">548 cited sources · English</p>
+          <div class="actions">
+            <a class="start" href="obesity/" data-slug="obesity">Open the guide<span aria-hidden="true"> →</span></a>
+            <span class="langs"><a href="obesity/">Read in English</a></span>
           </div>
         </div>
       </li>
