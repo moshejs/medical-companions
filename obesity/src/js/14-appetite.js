@@ -145,7 +145,7 @@ inits.appetite=()=>{
   const ins=h=>{let v=.06;AP_MEALS.forEach(m=>{v+=bump(h,m,m+3)*.55*(h<m+.8?1:1)});return v};
   const clock=h=>{const hh=((Math.floor(h)%24)+24)%24,mm=Math.round((h-Math.floor(h))*60);return String(hh).padStart(2,'0')+':'+String(mm===60?0:mm).padStart(2,'0')};
   function drawGh(t){
-    const N=vb(gsv,'720 320','400 440'),h=6+24*t,md=mode,showI=gins.checked;
+    const N=vb(gsv,'720 310','400 420'),h=6+24*t,md=mode,showI=gins.checked;
     const L=N?{x:46,y:58,w:338,h:290}:{x:60,y:50,w:640,h:210};
     const C=curveAxes(L.x,L.y,L.w,L.h,{x0:6,x1:30,y0:0,y1:2,xt:N?[6,12,18,24,30]:[6,9,12,15,18,21,24,27,30],yt:[0,.5,1,1.5,2],xfmt:v=>String(v%24).padStart(2,'0')+':00',yfmt:v=>v.toFixed(1)});
     let s=C.svg+T(L.x-40,L.y-34,'ghrelin, relative to the typical day\'s average (schematic)','t-xs',INK);
@@ -162,7 +162,7 @@ inits.appetite=()=>{
     const cy=C.Y(Math.min(2,nrm(f(h))));
     s+=`<line x1="${f1(C.X(h))}" x2="${f1(C.X(h))}" y1="${L.y}" y2="${L.y+L.h}" style="stroke:var(--ink);stroke-width:1;stroke-dasharray:3 3;opacity:.6"/>`+hormoneDot(C.X(h),cy,'ghrelin',{r:6});
     /* legend */
-    const lg=N?[L.x,L.y+L.h+44]:[L.x,L.y+L.h+44];
+    const lg=[L.x,L.y+L.h+38];
     s+=hormoneDot(lg[0]+5,lg[1]-4,'ghrelin',{r:5})+T(lg[0]+14,lg[1],md==='typical'?'ghrelin':md==='diet'?'ghrelin after diet (×1.24)':'ghrelin after bypass (77% lower, flat)','t-xs',INK);
     if(showI)s+=`<line x1="${f1(lg[0]+(N?0:250))}" x2="${f1(lg[0]+(N?14:264))}" y1="${lg[1]+(N?14:-4)}" y2="${lg[1]+(N?14:-4)}" style="stroke:var(--insulin);stroke-width:2;stroke-dasharray:2 3"/>`+T(lg[0]+(N?20:270),lg[1]+(N?18:0),'insulin (schematic: the reverse pattern)','t-xs',INK);
     gsv.innerHTML=s;

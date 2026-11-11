@@ -117,10 +117,10 @@ inits.assessment=()=>{
       const by=N?y+18:y+4;
       if(r.h)s+=`<rect x="${x0}" y="${by}" width="${f1(X(r.h)-x0)}" height="22" rx="4" style="fill:var(--hl);opacity:${on?.95:.35}"/><text x="${f1(X(r.h)+6)}" y="${by+16}" class="t-sm" style="fill:var(--ink);font-weight:700">${r.h===1?'1 (reference)':r.h}</text>`;
       else s+=`<text x="${x0}" y="${by+16}" class="t-sm">no separate figure published in these cohorts</text>`});
-    s+=`<line x1="${f1(X(1))}" x2="${f1(X(1))}" y1="20" y2="${N?250:200}" style="stroke:var(--ink);stroke-width:1.4"/>`;
+    rows.forEach((r,i)=>{if(!r.h)return;const by=N?24+i*58+18:26+i*44+4;s+=`<line x1="${f1(X(1))}" x2="${f1(X(1))}" y1="${by-4}" y2="${by+26}" style="stroke:var(--ink);stroke-width:1.4"/>`});
     esvg.innerHTML=s;
     const why=AS_DOM.filter((d,i)=>v[i]===st&&st>0).map(d=>d.n.toLowerCase().split(':')[0]).join(' and ');
-    eout.innerHTML=`<div class="verdict ${st<=1?'yes':st===2?'maybe':'no'}">Teaching sketch: EOSS stage ${st}${why?` (set by ${why})`:''}</div><p>${st<=1?'In the Aerobics Center cohort, stage 0/1 obesity was not associated with higher mortality than normal weight. [[Kuk2011EOSS]]':st===2?'Stage 2 carried a mortality HR of 1.57 vs stages 0–1 in NHANES [[Padwal2011EOSS]], and 1.6 vs normal weight in the Aerobics Center cohort. [[Kuk2011EOSS]]':st===3?'Stage 3 carried a mortality HR of 2.69 vs stages 0–1 in NHANES [[Padwal2011EOSS]], and 1.7 vs normal weight in the Aerobics Center cohort. [[Kuk2011EOSS]]':'Stage 4 is the most severe point of the 5-point scale. [[Padwal2011EOSS]] The cohorts here report no separate mortality figure for it.'} Population statistics, not a prognosis.</p>`;
+    eout.innerHTML=`<div class="verdict ${st<=1?'yes':'maybe'}">Teaching sketch: EOSS stage ${st}${why?` (set by ${why})`:''}</div><p>${st<=1?'In the Aerobics Center cohort, stage 0/1 obesity was not associated with higher mortality than normal weight. [[Kuk2011EOSS]]':st===2?'Stage 2 carried a mortality HR of 1.57 vs stages 0–1 in NHANES [[Padwal2011EOSS]], and 1.6 vs normal weight in the Aerobics Center cohort. [[Kuk2011EOSS]]':st===3?'Stage 3 carried a mortality HR of 2.69 vs stages 0–1 in NHANES [[Padwal2011EOSS]], and 1.7 vs normal weight in the Aerobics Center cohort. [[Kuk2011EOSS]]':'Stage 4 is the most severe point of the 5-point scale. [[Padwal2011EOSS]] The cohorts here report no separate mortality figure for it.'} Population statistics, not a prognosis.</p>`;
   }
   drawE();
 
