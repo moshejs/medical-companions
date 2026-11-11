@@ -139,27 +139,27 @@ inits.appetite=()=>{
     const d=(hh-9+24)%24;return d<=16?lerp(.42,.62,(1-Math.cos(Math.PI*d/16))/2):lerp(.62,.42,(1-Math.cos(Math.PI*(d-16)/8))/2)};
   const pre=h=>{let v=0;AP_MEALS.forEach(m=>{if(h>m-3&&h<=m)v=Math.max(v,Math.pow((h-(m-3))/3,2));else if(h>m&&h<m+1)v=Math.max(v,1-(h-m))});return v};
   const dip=h=>{let v=0;AP_MEALS.forEach(m=>{v=Math.max(v,bump(h,m+.4,m+2.6))});return v};
-  const ghT=h=>base(h)*(.9+pre(h)*.92-dip(h)*.12);
+  const ghT=h=>base(h)*(.9+pre(h)*.65-dip(h)*.12);
   let MEAN=0;for(let i=0;i<=240;i++)MEAN+=ghT(6+24*i/240);MEAN/=241;
   const gh=(h,md)=>md==='diet'?ghT(h)*1.24:md==='bypass'?MEAN*.23*(1+.04*Math.sin((h-1)/24*Math.PI*2)):ghT(h);
   const ins=h=>{let v=.06;AP_MEALS.forEach(m=>{v+=bump(h,m,m+3)*.55*(h<m+.8?1:1)});return v};
   const clock=h=>{const hh=((Math.floor(h)%24)+24)%24,mm=Math.round((h-Math.floor(h))*60);return String(hh).padStart(2,'0')+':'+String(mm===60?0:mm).padStart(2,'0')};
   function drawGh(t){
     const N=vb(gsv,'720 320','400 440'),h=6+24*t,md=mode,showI=gins.checked;
-    const L=N?{x:46,y:44,w:338,h:300}:{x:60,y:36,w:640,h:220};
-    const C=curveAxes(L.x,L.y,L.w,L.h,{x0:6,x1:30,y0:0,y1:1.6,xt:N?[6,12,18,24,30]:[6,9,12,15,18,21,24,27,30],yt:[0,.5,1,1.5],xfmt:v=>String(v%24).padStart(2,'0')+':00',yfmt:v=>v.toFixed(1),ylabel:'ghrelin, relative to the day\'s average (schematic)'});
-    let s=C.svg;
+    const L=N?{x:46,y:58,w:338,h:290}:{x:60,y:50,w:640,h:210};
+    const C=curveAxes(L.x,L.y,L.w,L.h,{x0:6,x1:30,y0:0,y1:2,xt:N?[6,12,18,24,30]:[6,9,12,15,18,21,24,27,30],yt:[0,.5,1,1.5,2],xfmt:v=>String(v%24).padStart(2,'0')+':00',yfmt:v=>v.toFixed(1)});
+    let s=C.svg+T(L.x-40,L.y-34,'ghrelin, relative to the typical day\'s average (schematic)','t-xs',INK);
     /* night band */
     s+=`<rect x="${f1(C.X(22))}" y="${L.y}" width="${f1(C.X(30)-C.X(22))}" height="${L.h}" style="fill:var(--panel-2);opacity:.6"/>`+T(C.X(26),L.y+14,'night','t-xs t-mid');
     AP_MEALS.forEach((m,i)=>{const x=C.X(m);s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${L.y}" y2="${L.y+L.h}" style="stroke:var(--accent);stroke-width:1.2;stroke-dasharray:3 3"/>`+T(x,L.y-6,['breakfast','lunch','dinner'][i],'t-xs t-mid',`fill:var(--accent);font-weight:700`)});
     const nrm=v=>v/MEAN;
-    const path=(f,a,b)=>{let q='';const n=200;for(let i=0;i<=n;i++){const hh=lerp(a,b,i/n);q+=(i?'L':'M')+f1(C.X(hh))+' '+f1(C.Y(Math.min(1.6,nrm(f(hh)))))}return q};
+    const path=(f,a,b)=>{let q='';const n=200;for(let i=0;i<=n;i++){const hh=lerp(a,b,i/n);q+=(i?'L':'M')+f1(C.X(hh))+' '+f1(C.Y(Math.min(2,nrm(f(hh)))))}return q};
     if(md!=='typical')s+=`<path d="${path(ghT,6,30)}" style="fill:none;stroke:var(--ghrelin);stroke-width:1.6;stroke-dasharray:5 4;opacity:.55"/>`+T(C.X(29.6),C.Y(nrm(ghT(29.6)))-6,'typical day','t-xs t-end');
     if(showI)s+=`<path d="${path(ins,6,30)}" style="fill:none;stroke:var(--insulin);stroke-width:2;stroke-dasharray:2 3"/>`;
     const f=hh=>gh(hh,md);
     s+=`<path d="${path(f,6,h)}L${f1(C.X(h))} ${f1(C.Y(0))}L${f1(C.X(6))} ${f1(C.Y(0))}Z" style="fill:var(--ghrelin);opacity:.14"/>`;
     s+=`<path d="${path(f,6,h)}" style="fill:none;stroke:var(--ghrelin);stroke-width:3;stroke-linejoin:round"/>`;
-    const cy=C.Y(Math.min(1.6,nrm(f(h))));
+    const cy=C.Y(Math.min(2,nrm(f(h))));
     s+=`<line x1="${f1(C.X(h))}" x2="${f1(C.X(h))}" y1="${L.y}" y2="${L.y+L.h}" style="stroke:var(--ink);stroke-width:1;stroke-dasharray:3 3;opacity:.6"/>`+hormoneDot(C.X(h),cy,'ghrelin',{r:6});
     /* legend */
     const lg=N?[L.x,L.y+L.h+44]:[L.x,L.y+L.h+44];
