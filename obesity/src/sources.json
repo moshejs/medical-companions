@@ -10,11 +10,32 @@
   "validated": "PubMed"
  },
  {
+  "key": "AbuDayyeh2015ASGE",
+  "text": "ASGE Bariatric Endoscopy Task Force and ASGE Technology Committee; Abu Dayyeh BK, Kumar N, Edmundowicz SA, Jonnalagadda S, Larsen M, et al. ASGE Bariatric Endoscopy Task Force systematic review and meta-analysis assessing the ASGE PIVI thresholds for adopting endoscopic bariatric therapies. Gastrointest Endosc. 2015;82(3):425-38.e5. PMID 26232362; doi:10.1016/j.gie.2015.03.1964.",
+  "link": "https://doi.org/10.1016/j.gie.2015.03.1964",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "AbuDayyeh2022MERIT",
   "text": "Abu Dayyeh BK, Bazerbachi F, Vargas EJ, Sharaiha RZ, Thompson CC, Thaemert BC, et al. Endoscopic sleeve gastroplasty for treatment of class 1 and 2 obesity (MERIT): a prospective, multicentre, randomised trial. Lancet. 2022;400(10350):441-451. PMID 35908555; doi:10.1016/S0140-6736(22)01280-6.",
   "link": "https://doi.org/10.1016/s0140-6736(22)01280-6",
   "areas": [
+   "G",
    "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "ACOG2021PB230",
+  "text": "American College of Obstetricians and Gynecologists. Obesity in Pregnancy: ACOG Practice Bulletin, Number 230. Obstet Gynecol. 2021;137(6):e128-e144. PMID 34011890; doi:10.1097/AOG.0000000000004395.",
+  "link": "https://doi.org/10.1097/aog.0000000000004395",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -25,6 +46,16 @@
   "link": "https://doi.org/10.1002/oby.23120",
   "areas": [
    "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Adams2007NEJM",
+  "text": "Adams TD, Gress RE, Smith SC, Halverson RC, Simper SC, Rosamond WD, et al. Long-term mortality after gastric bypass surgery. N Engl J Med. 2007;357(8):753-61. PMID 17715409; doi:10.1056/NEJMoa066603.",
+  "link": "https://doi.org/10.1056/nejmoa066603",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -84,6 +115,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Akhter2019PLoSMed",
+  "text": "Akhter Z, Rankin J, Ceulemans D, Ngongalah L, Ackroyd R, Devlieger R, et al. Pregnancy after bariatric surgery and adverse perinatal outcomes: A systematic review and meta-analysis. PLoS Med. 2019;16(8):e1002866. PMID 31386658; PMCID PMC6684044; doi:10.1371/journal.pmed.1002866.",
+  "link": "https://doi.org/10.1371/journal.pmed.1002866",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Alberti2009Harmonizing",
   "text": "Alberti KG, Eckel RH, Grundy SM, Zimmet PZ, Cleeman JI, Donato KA, et al. Harmonizing the metabolic syndrome: a joint interim statement of the International Diabetes Federation Task Force on Epidemiology and Prevention; National Heart, Lung, and Blood Institute; American Heart Association; World Heart Federation; International Atherosclerosis Society; and International Association for the Study of Obesity. Circulation. 2009;120(16):1640-5. PMID 19805654; doi:10.1161/CIRCULATIONAHA.109.192644.",
   "link": "https://doi.org/10.1161/circulationaha.109.192644",
@@ -104,11 +145,41 @@
   "validated": "PubMed"
  },
  {
+  "key": "Aminian2019JAMA",
+  "text": "Aminian A, Zajichek A, Arterburn DE, Wolski KE, Brethauer SA, Schauer PR, et al. Association of Metabolic Surgery With Major Adverse Cardiovascular Outcomes in Patients With Type 2 Diabetes and Obesity. JAMA. 2019;322(13):1271-1282. PMID 31475297; PMCID PMC6724187; doi:10.1001/jama.2019.14231.",
+  "link": "https://doi.org/10.1001/jama.2019.14231",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Aminian2022SPLENDID",
+  "text": "Aminian A, Wilson R, Al-Kurd A, Tu C, Milinovich A, Kroh M, et al. Association of Bariatric Surgery With Cancer Risk and Mortality in Adults With Obesity. JAMA. 2022;327(24):2423-2433. PMID 35657620; PMCID PMC9166218; doi:10.1001/jama.2022.9009.",
+  "link": "https://doi.org/10.1001/jama.2022.9009",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Anderson2001",
   "text": "Anderson JW, Konz EC, Frederich RC, Wood CL. Long-term weight-loss maintenance: a meta-analysis of US studies. Am J Clin Nutr. 2001;74(5):579-84. PMID 11684524; doi:10.1093/ajcn/74.5.579.",
   "link": "https://doi.org/10.1093/ajcn/74.5.579",
   "areas": [
    "E"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Angrisani2024IFSO",
+  "text": "Angrisani L, Santonicola A, Iovino P, Palma R, Kow L, Prager G, et al. IFSO Worldwide Survey 2020-2021: Current Trends for Bariatric and Metabolic Procedures. Obes Surg. 2024;34(4):1075-1085. PMID 38438667; PMCID PMC11026210; doi:10.1007/s11695-024-07118-3.",
+  "link": "https://doi.org/10.1007/s11695-024-07118-3",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -159,6 +230,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Armstrong2019AAP",
+  "text": "Armstrong SC, Bolling CF, Michalsky MP, Reichard KW. Pediatric Metabolic and Bariatric Surgery: Evidence, Barriers, and Best Practices. Pediatrics. 2019;144(6):e20193223. PMID 31656225; doi:10.1542/peds.2019-3223.",
+  "link": "https://doi.org/10.1542/peds.2019-3223",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Arner2010",
   "text": "Arner E, Westermark PO, Spalding KL, Britton T, Rydén M, Frisén J, et al. Adipocyte turnover: relevance to human adipose tissue morphology. Diabetes. 2010;59(1):105-9. PMID 19846802; PMCID PMC2797910; doi:10.2337/db09-0942.",
   "link": "https://doi.org/10.2337/db09-0942",
@@ -200,6 +281,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Arterburn2015JAMA",
+  "text": "Arterburn DE, Olsen MK, Smith VA, Livingston EH, Van Scoyoc L, Yancy WS Jr, et al. Association between bariatric surgery and long-term survival. JAMA. 2015;313(1):62-70. PMID 25562267; doi:10.1001/jama.2014.16968.",
+  "link": "https://doi.org/10.1001/jama.2014.16968",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Arterburn2020JAMA",
+  "text": "Arterburn DE, Telem DA, Kushner RF, Courcoulas AP. Benefits and Risks of Bariatric Surgery in Adults: A Review. JAMA. 2020;324(9):879-887. PMID 32870301; doi:10.1001/jama.2020.12567.",
+  "link": "https://doi.org/10.1001/jama.2020.12567",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Ashwell2012",
   "text": "Ashwell M, Gunn P, Gibson S. Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors: systematic review and meta-analysis. Obes Rev. 2012;13(3):275-86. PMID 22106927; doi:10.1111/j.1467-789X.2011.00952.x.",
   "link": "https://doi.org/10.1111/j.1467-789x.2011.00952.x",
@@ -235,6 +336,16 @@
   "link": "https://doi.org/10.1136/bmj.e4439",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Aune2014",
+  "text": "Aune D, Saugstad OD, Henriksen T, Tonstad S. Maternal body mass index and the risk of fetal death, stillbirth, and infant death: a systematic review and meta-analysis. JAMA. 2014;311(15):1536-46. PMID 24737366; doi:10.1001/jama.2014.2269.",
+  "link": "https://doi.org/10.1001/jama.2014.2269",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -350,6 +461,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Bhatti2016",
+  "text": "Bhatti JA, Nathens AB, Thiruchelvam D, Grantcharov T, Goldstein BI, Redelmeier DA. Self-harm Emergencies After Bariatric Surgery: A Population-Based Cohort Study. JAMA Surg. 2016;151(3):226-32. PMID 26444444; doi:10.1001/jamasurg.2015.3414.",
+  "link": "https://doi.org/10.1001/jamasurg.2015.3414",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Bliddal2024STEP9",
   "text": "Bliddal H, Bays H, Czernichow S, Uddén Hemmingsson J, Hjelmesæth J, Hoffmann Morville T, et al. Once-Weekly Semaglutide in Persons with Obesity and Knee Osteoarthritis. N Engl J Med. 2024;391(17):1573-1583. PMID 39476339; doi:10.1056/NEJMoa2403664.",
   "link": "https://doi.org/10.1056/nejmoa2403664",
@@ -376,6 +497,16 @@
   "link": "https://doi.org/10.1056/nejmoa1808721",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Borkgren2008",
+  "text": "Borkgren-Okonek MJ, Hart RW, Pantano JE, Rantis PC Jr, Guske PJ, Kane JM Jr, et al. Enoxaparin thromboprophylaxis in gastric bypass patients: extended duration, dose stratification, and antifactor Xa activity. Surg Obes Relat Dis. 2008;4(5):625-31. PMID 18261965; doi:10.1016/j.soard.2007.11.010.",
+  "link": "https://doi.org/10.1016/j.soard.2007.11.010",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -411,11 +542,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Brodsky2002",
+  "text": "Brodsky JB, Lemmens HJ, Brock-Utne JG, Vierra M, Saidman LJ. Morbid obesity and tracheal intubation. Anesth Analg. 2002;94(3):732-6. PMID 11867407; doi:10.1097/00000539-200203000-00047.",
+  "link": "https://doi.org/10.1097/00000539-200203000-00047",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Browning2010",
   "text": "Browning LM, Hsieh SD, Ashwell M. A systematic review of waist-to-height ratio as a screening tool for the prediction of cardiovascular disease and diabetes: 0·5 could be a suitable global boundary value. Nutr Res Rev. 2010;23(2):247-69. PMID 20819243; doi:10.1017/S0954422410000144.",
   "link": "https://doi.org/10.1017/s0954422410000144",
   "areas": [
    "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Buchwald2004JAMA",
+  "text": "Buchwald H, Avidor Y, Braunwald E, Jensen MD, Pories W, Fahrbach K, et al. Bariatric surgery: a systematic review and meta-analysis. JAMA. 2004;292(14):1724-37. PMID 15479938; doi:10.1001/jama.292.14.1724.",
+  "link": "https://doi.org/10.1001/jama.292.14.1724",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -471,6 +622,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Carlsson2012NEJM",
+  "text": "Carlsson LM, Peltonen M, Ahlin S, Anveden Å, Bouchard C, Carlsson B, et al. Bariatric surgery and prevention of type 2 diabetes in Swedish obese subjects. N Engl J Med. 2012;367(8):695-704. PMID 22913680; doi:10.1056/NEJMoa1112082.",
+  "link": "https://doi.org/10.1056/nejmoa1112082",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Carlsson2020NEJM",
+  "text": "Carlsson LMS, Sjöholm K, Jacobson P, Andersson-Assarsson JC, Svensson PA, Taube M, et al. Life Expectancy after Bariatric Surgery in the Swedish Obese Subjects Study. N Engl J Med. 2020;383(16):1535-1543. PMID 33053284; PMCID PMC7580786; doi:10.1056/NEJMoa2002449.",
+  "link": "https://doi.org/10.1056/nejmoa2002449",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Caro1996",
   "text": "Caro JF, Kolaczynski JW, Nyce MR, Ohannesian JP, Opentanova I, Goldman WH, et al. Decreased cerebrospinal-fluid/serum leptin ratio in obesity: a possible mechanism for leptin resistance. Lancet. 1996;348(9021):159-61. PMID 8684156; doi:10.1016/s0140-6736(96)03173-x.",
   "link": "https://doi.org/10.1016/s0140-6736(96)03173-x",
@@ -486,6 +657,36 @@
   "link": "https://doi.org/10.1038/gim.0b013e31822bead0",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Cassinelli2026",
+  "text": "Cassinelli EH, Kent L, Eastwood KA, Schoenaker DAJM, McKinley MC, McGowan L. Temporal trends of key preconception indicators among women in Northern Ireland, UK: an analysis of maternity healthcare data 2011-2021. Eur J Public Health. 2026;36(1):112-120. PMID 40875565; doi:10.1093/eurpub/ckaf141.",
+  "link": "https://doi.org/10.1093/eurpub/ckaf141",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Castaneda2019",
+  "text": "Castaneda D, Popov VB, Wander P, Thompson CC. Risk of Suicide and Self-harm Is Increased After Bariatric Surgery-a Systematic Review and Meta-analysis. Obes Surg. 2019;29(1):322-333. PMID 30343409; doi:10.1007/s11695-018-3493-4.",
+  "link": "https://doi.org/10.1007/s11695-018-3493-4",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Catalano2017",
+  "text": "Catalano PM, Shankar K. Obesity and pregnancy: mechanisms of short term and long term adverse consequences for mother and child. BMJ. 2017;356:j1. PMID 28179267; PMCID PMC6888512; doi:10.1136/bmj.j1.",
+  "link": "https://doi.org/10.1136/bmj.j1",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -581,6 +782,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Chu2007",
+  "text": "Chu SY, Callaghan WM, Kim SY, Schmid CH, Lau J, England LJ, et al. Maternal obesity and risk of gestational diabetes mellitus. Diabetes Care. 2007;30(8):2070-6. PMID 17416786; doi:10.2337/dc06-2559a.",
+  "link": "https://doi.org/10.2337/dc06-2559a",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Chung2008STOP",
   "text": "Chung F, Yegneswaran B, Liao P, Chung SA, Vairavanathan S, Islam S, et al. STOP questionnaire: a tool to screen patients for obstructive sleep apnea. Anesthesiology. 2008;108(5):812-21. PMID 18431116; doi:10.1097/ALN.0b013e31816d83e4.",
   "link": "https://doi.org/10.1097/aln.0b013e31816d83e4",
@@ -631,6 +842,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Clapp2024ASMBS",
+  "text": "Clapp B, Ponce J, Corbett J, Ghanem OM, Kurian M, Rogers AM, et al. American Society for Metabolic and Bariatric Surgery 2022 estimate of metabolic and bariatric procedures performed in the United States. Surg Obes Relat Dis. 2024;20(5):425-431. PMID 38448343; doi:10.1016/j.soard.2024.01.012.",
+  "link": "https://doi.org/10.1016/j.soard.2024.01.012",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Claussnitzer2015",
   "text": "Claussnitzer M, Dankel SN, Kim KH, Quon G, Meuleman W, Haugen C, et al. FTO Obesity Variant Circuitry and Adipocyte Browning in Humans. N Engl J Med. 2015;373(10):895-907. PMID 26287746; PMCID PMC4959911; doi:10.1056/NEJMoa1502214.",
   "link": "https://doi.org/10.1056/nejmoa1502214",
@@ -664,6 +885,16 @@
   "aliases": [
    "Clement2020Setmelanotide"
   ]
+ },
+ {
+  "key": "Coblijn2015",
+  "text": "Coblijn UK, Lagarde SM, de Castro SM, Kuiken SD, van Wagensveld BA. Symptomatic marginal ulcer disease after Roux-en-Y gastric bypass: incidence, risk factors and management. Obes Surg. 2015;25(5):805-11. PMID 25381115; doi:10.1007/s11695-014-1482-9.",
+  "link": "https://doi.org/10.1007/s11695-014-1482-9",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
  },
  {
   "key": "Colditz1995",
@@ -746,11 +977,61 @@
   "validated": "PubMed"
  },
  {
+  "key": "Courcoulas2013LABS",
+  "text": "Courcoulas AP, Christian NJ, Belle SH, Berk PD, Flum DR, Garcia L, et al. Weight change and health outcomes at 3 years after bariatric surgery among individuals with severe obesity. JAMA. 2013;310(22):2416-25. PMID 24189773; PMCID PMC3955952; doi:10.1001/jama.2013.280928.",
+  "link": "https://doi.org/10.1001/jama.2013.280928",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Courcoulas2017IGB",
+  "text": "Courcoulas A, Abu Dayyeh BK, Eaton L, Robinson J, Woodman G, Fusco M, et al. Intragastric balloon as an adjunct to lifestyle intervention: a randomized controlled trial. Int J Obes (Lond). 2017;41(3):427-433. PMID 28017964; doi:10.1038/ijo.2016.229.",
+  "link": "https://doi.org/10.1038/ijo.2016.229",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Courcoulas2018LABS",
+  "text": "Courcoulas AP, King WC, Belle SH, Berk P, Flum DR, Garcia L, et al. Seven-Year Weight Trajectories and Health Outcomes in the Longitudinal Assessment of Bariatric Surgery (LABS) Study. JAMA Surg. 2018;153(5):427-434. PMID 29214306; PMCID PMC6584318; doi:10.1001/jamasurg.2017.5025.",
+  "link": "https://doi.org/10.1001/jamasurg.2017.5025",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Courcoulas2024ARMMS",
+  "text": "Courcoulas AP, Patti ME, Hu B, Arterburn DE, Simonson DC, Gourash WF, et al. Long-Term Outcomes of Medical Management vs Bariatric Surgery in Type 2 Diabetes. JAMA. 2024;331(8):654-664. PMID 38411644; PMCID PMC10900968; doi:10.1001/jama.2024.0318.",
+  "link": "https://doi.org/10.1001/jama.2024.0318",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Cowley2001",
   "text": "Cowley MA, Smart JL, Rubinstein M, Cerdán MG, Diano S, Horvath TL, et al. Leptin activates anorexigenic POMC neurons through a neural network in the arcuate nucleus. Nature. 2001;411(6836):480-4. PMID 11373681; doi:10.1038/35078085.",
   "link": "https://doi.org/10.1038/35078085",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Cuda2024OMA",
+  "text": "Cuda S, O'Hara V, Censani M, Conroy R, Sweeney B, Paisley J, et al. Special considerations for the adolescent with obesity: An obesity medicine association (OMA) clinical practice statement (CPS) 2024. Obes Pillars. 2024;9:100096. PMID 38186667; PMCID PMC10770754; doi:10.1016/j.obpill.2023.100096.",
+  "link": "https://doi.org/10.1016/j.obpill.2023.100096",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -770,7 +1051,8 @@
   "text": "Cummings DE, Weigle DS, Frayo RS, Breen PA, Ma MK, Dellinger EP, et al. Plasma ghrelin levels after diet-induced weight loss or gastric bypass surgery. N Engl J Med. 2002;346(21):1623-30. PMID 12023994; doi:10.1056/NEJMoa012908.",
   "link": "https://doi.org/10.1056/nejmoa012908",
   "areas": [
-   "C"
+   "C",
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -887,11 +1169,32 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "DeLuca2024IFSO",
+  "text": "De Luca M, Shikora S, Eisenberg D, Angrisani L, Parmar C, Alqahtani A, et al. Scientific Evidence for the Updated Guidelines on Indications for Metabolic and Bariatric Surgery (IFSO/ASMBS). Obes Surg. 2024;34(11):3963-4096. PMID 39320627; PMCID PMC11541402; doi:10.1007/s11695-024-07370-7.",
+  "link": "https://doi.org/10.1007/s11695-024-07370-7",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Denison2019RCOG",
+  "text": "Denison FC, Aedla NR, Keag O, Hor K, Reynolds RM, Milne A, et al. Care of Women with Obesity in Pregnancy: Green-top Guideline No. 72. BJOG. 2019;126(3):e62-e106. PMID 30465332; doi:10.1111/1471-0528.15386. Record validated; recommendation text not read (no abstract, publisher full text blocked).",
+  "link": "https://doi.org/10.1111/1471-0528.15386",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "deOnis2007",
   "text": "de Onis M, Onyango AW, Borghi E, Siyam A, Nishida C, Siekmann J. Development of a WHO growth reference for school-aged children and adolescents. Bull World Health Organ. 2007;85(9):660-7. PMID 18026621; PMCID PMC2636412; doi:10.2471/blt.07.043497.",
   "link": "https://doi.org/10.2471/blt.07.043497",
   "areas": [
-   "A"
+   "A",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1037,7 +1340,8 @@
   "text": "Eisenberg D, Shikora SA, Aarts E, Aminian A, Angrisani L, Cohen RV, et al. 2022 American Society for Metabolic and Bariatric Surgery (ASMBS) and International Federation for the Surgery of Obesity and Metabolic Disorders (IFSO): Indications for Metabolic and Bariatric Surgery. Surg Obes Relat Dis. 2022;18(12):1345-1356. PMID 36280539; doi:10.1016/j.soard.2022.08.013.",
   "link": "https://doi.org/10.1016/j.soard.2022.08.013",
   "areas": [
-   "A"
+   "A",
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1170,6 +1474,16 @@
   "validated": "openFDA"
  },
  {
+  "key": "FDA-Lovenox",
+  "text": "Lovenox (enoxaparin sodium) injection, US prescribing information (repackager Cardinal Health 107, LLC). Label effective 2026-04-27; openFDA set_id 3d263380-4f44-4fd8-aa2a-e69702ab258f.",
+  "link": "",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "openFDA"
+ },
+ {
   "key": "FDA-Qsymia",
   "text": "Vivus LLC. QSYMIA (phentermine and topiramate extended-release) capsules. US prescribing information. openFDA drug label set_id 40dd5602-53da-45ac-bb4b-15789aba40f9, effective 2026-04-22; NDA022580.",
   "link": "",
@@ -1194,7 +1508,8 @@
   "text": "Novo Nordisk. SAXENDA (liraglutide) injection. US prescribing information. openFDA drug label set_id 3946d389-0926-4f77-a708-0acb8153b143, effective 2026-02-25; NDA206321.",
   "link": "",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "openFDA"
@@ -1218,6 +1533,7 @@
    "C",
    "D",
    "F",
+   "H",
    "I"
   ],
   "unverified": false,
@@ -1242,6 +1558,7 @@
    "C",
    "D",
    "F",
+   "H",
    "I"
   ],
   "unverified": false,
@@ -1323,6 +1640,16 @@
   "link": "https://doi.org/10.1172/jci990",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Flum2009LABS",
+  "text": "Longitudinal Assessment of Bariatric Surgery (LABS) Consortium; Flum DR, Belle SH, King WC, Wahed AS, Berk P, et al. Perioperative safety in the longitudinal assessment of bariatric surgery. N Engl J Med. 2009;361(5):445-54. PMID 19641201; PMCID PMC2854565; doi:10.1056/NEJMoa0901836.",
+  "link": "https://doi.org/10.1056/nejmoa0901836",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1631,11 +1958,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Genco2017",
+  "text": "Genco A, Soricelli E, Casella G, Maselli R, Castagneto-Gissey L, Di Lorenzo N, et al. Gastroesophageal reflux disease and Barrett's esophagus after laparoscopic sleeve gastrectomy: a possible, underestimated long-term complication. Surg Obes Relat Dis. 2017;13(4):568-574. PMID 28089434; doi:10.1016/j.soard.2016.11.029.",
+  "link": "https://doi.org/10.1016/j.soard.2016.11.029",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Gibbs1973",
   "text": "Gibbs J, Young RC, Smith GP. Cholecystokinin decreases food intake in rats. J Comp Physiol Psychol. 1973;84(3):488-95. PMID 4745816; doi:10.1037/h0034870.",
   "link": "https://doi.org/10.1037/h0034870",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Goldstein2017",
+  "text": "Goldstein RF, Abell SK, Ranasinha S, Misso M, Boyle JA, Black MH, et al. Association of Gestational Weight Gain With Maternal and Infant Outcomes: A Systematic Review and Meta-analysis. JAMA. 2017;317(21):2207-2225. PMID 28586887; PMCID PMC5815056; doi:10.1001/jama.2017.3635.",
+  "link": "https://doi.org/10.1001/jama.2017.3635",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1742,6 +2089,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Haal2021UPGRADE",
+  "text": "Haal S, Guman MSS, Boerlage TCC, Acherman YIZ, de Brauw LM, Bruin S, et al. Ursodeoxycholic acid for the prevention of symptomatic gallstone disease after bariatric surgery (UPGRADE): a multicentre, double-blind, randomised, placebo-controlled superiority trial. Lancet Gastroenterol Hepatol. 2021;6(12):993-1001. PMID 34715031; doi:10.1016/S2468-1253(21)00301-0.",
+  "link": "https://doi.org/10.1016/s2468-1253(21)00301-0",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Hall2008",
   "text": "Hall KD. What is the required energy deficit per unit weight loss? Int J Obes (Lond). 2008;32(3):573-6. PMID 17848938; PMCID PMC2376744; doi:10.1038/sj.ijo.0803720.",
   "link": "https://doi.org/10.1038/sj.ijo.0803720",
@@ -1816,6 +2173,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Hamilton2003",
+  "text": "Hamilton EC, Sims TL, Hamilton TT, Mullican MA, Jones DB, Provost DA. Clinical predictors of leak after laparoscopic Roux-en-Y gastric bypass for morbid obesity. Surg Endosc. 2003;17(5):679-84. PMID 12618940; doi:10.1007/s00464-002-8819-5.",
+  "link": "https://doi.org/10.1007/s00464-002-8819-5",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Hamman2006",
   "text": "Hamman RF, Wing RR, Edelstein SL, Lachin JM, Bray GA, Delahanty L, et al. Effect of weight loss with lifestyle intervention on risk of diabetes. Diabetes Care. 2006;29(9):2102-7. PMID 16936160; PMCID PMC1762038; doi:10.2337/dc06-0560.",
   "link": "https://doi.org/10.2337/dc06-0560",
@@ -1832,6 +2199,26 @@
   "link": "https://doi.org/10.7326/0003-4819-143-3-200508020-00006",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hampl2023AAP",
+  "text": "Hampl SE, Hassink SG, Skinner AC, Armstrong SC, Barlow SE, Bolling CF, et al. Clinical Practice Guideline for the Evaluation and Treatment of Children and Adolescents With Obesity. Pediatrics. 2023;151(2):e2022060640. PMID 36622115; doi:10.1542/peds.2022-060640. Key action statements read via Orr2026 and Cuda2024OMA (publisher full text blocked).",
+  "link": "https://doi.org/10.1542/peds.2022-060640",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Hanley2010",
+  "text": "Hanley MJ, Abernethy DR, Greenblatt DJ. Effect of obesity on the pharmacokinetics of drugs in humans. Clin Pharmacokinet. 2010;49(2):71-87. PMID 20067334; doi:10.2165/11318100-000000000-00000.",
+  "link": "https://doi.org/10.2165/11318100-000000000-00000",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -1886,6 +2273,26 @@
   "link": "https://doi.org/10.1001/jamapsychiatry.2024.4789",
   "areas": [
    "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Herman2016BEDS7",
+  "text": "Herman BK, Deal LS, DiBenedetti DB, Nelson L, Fehnel SE, Brown TM. Development of the 7-Item Binge-Eating Disorder Screener (BEDS-7). Prim Care Companion CNS Disord. 2016;18(2). PMID 27486542; PMCID PMC4956427; doi:10.4088/PCC.15m01896.",
+  "link": "https://doi.org/10.4088/pcc.15m01896",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Heslehurst2019",
+  "text": "Heslehurst N, Vieira R, Akhter Z, Bailey H, Slack E, Ngongalah L, et al. The association between maternal body mass index and child obesity: A systematic review and meta-analysis. PLoS Med. 2019;16(6):e1002817. PMID 31185012; PMCID PMC6559702; doi:10.1371/journal.pmed.1002817.",
+  "link": "https://doi.org/10.1371/journal.pmed.1002817",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2011,6 +2418,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Hudson2007",
+  "text": "Hudson JI, Hiripi E, Pope HG Jr, Kessler RC. The prevalence and correlates of eating disorders in the National Comorbidity Survey Replication. Biol Psychiatry. 2007;61(3):348-58. PMID 16815322; PMCID PMC1892232; doi:10.1016/j.biopsych.2006.03.040.",
+  "link": "https://doi.org/10.1016/j.biopsych.2006.03.040",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Hudson2017",
   "text": "Hudson JI, McElroy SL, Ferreira-Cornwell MC, Radewonuk J, Gasior M. Efficacy of Lisdexamfetamine in Adults With Moderate to Severe Binge-Eating Disorder: A Randomized Clinical Trial. JAMA Psychiatry. 2017;74(9):903-910. PMID 28700805; PMCID PMC5710231; doi:10.1001/jamapsychiatry.2017.1889.",
   "link": "https://doi.org/10.1001/jamapsychiatry.2017.1889",
@@ -2051,6 +2468,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Hyun2014",
+  "text": "Hyun S, Li X, Vermillion B, Newton C, Fall M, Kaewprag P, et al. Body mass index and pressure ulcers: improved predictability of pressure ulcers in intensive care patients. Am J Crit Care. 2014;23(6):494-500. PMID 25362673; PMCID PMC4385001; doi:10.4037/ajcc2014535.",
+  "link": "https://doi.org/10.4037/ajcc2014535",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Ibrahim2024Shortage",
   "text": "Ibrahim ARN, Orayj KM. Impact of ADA Guidelines and Medication Shortage on GLP-1 Receptor Agonists Prescribing Trends in the UK: A Time-Series Analysis with Country-Specific Insights. J Clin Med. 2024;13(20):6256. PMID 39458206; PMCID PMC11508750; doi:10.3390/jcm13206256.",
   "link": "https://doi.org/10.3390/jcm13206256",
@@ -2069,6 +2496,34 @@
   ],
   "unverified": false,
   "validated": "PubMed"
+ },
+ {
+  "key": "Inge2016NEJM",
+  "text": "Inge TH, Courcoulas AP, Jenkins TM, Michalsky MP, Helmrath MA, Brandt ML, et al. Weight Loss and Health Status 3 Years after Bariatric Surgery in Adolescents. N Engl J Med. 2016;374(2):113-23. PMID 26544725; PMCID PMC4810437; doi:10.1056/NEJMoa1506699.",
+  "link": "https://doi.org/10.1056/nejmoa1506699",
+  "areas": [
+   "G",
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed",
+  "aliases": [
+   "Inge2016TeenLABS"
+  ]
+ },
+ {
+  "key": "Inge2019NEJM",
+  "text": "Inge TH, Courcoulas AP, Jenkins TM, Michalsky MP, Brandt ML, Xanthakos SA, et al. Five-Year Outcomes of Gastric Bypass in Adolescents as Compared with Adults. N Engl J Med. 2019;380(22):2136-2145. PMID 31116917; PMCID PMC7345847; doi:10.1056/NEJMoa1813909.",
+  "link": "https://doi.org/10.1056/nejmoa1813909",
+  "areas": [
+   "G",
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed",
+  "aliases": [
+   "Inge2019TeenLABS"
+  ]
  },
  {
   "key": "Jackson1997",
@@ -2203,6 +2658,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Jebeile2019",
+  "text": "Jebeile H, Gow ML, Baur LA, Garnett SP, Paxton SJ, Lister NB. Treatment of obesity, with a dietary component, and eating disorder risk in children and adolescents: A systematic review with meta-analysis. Obes Rev. 2019;20(9):1287-1298. PMID 31131531; PMCID PMC6851692; doi:10.1111/obr.12866.",
+  "link": "https://doi.org/10.1111/obr.12866",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Jehle2014",
+  "text": "Jehle D, Doshi C, Karagianis J, Consiglio J, Jehle G. Obesity and seatbelt use: a fatal relationship. Am J Emerg Med. 2014;32(7):756-60. PMID 24816062; doi:10.1016/j.ajem.2014.01.010.",
+  "link": "https://doi.org/10.1016/j.ajem.2014.01.010",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Jensen2014Guideline",
   "text": "Jensen MD, Ryan DH, Apovian CM, Ard JD, Comuzzie AG, Donato KA, et al. 2013 AHA/ACC/TOS guideline for the management of overweight and obesity in adults: a report of the American College of Cardiology/American Heart Association Task Force on Practice Guidelines and The Obesity Society. Circulation. 2014;129(25 Suppl 2):S102-38. PMID 24222017; PMCID PMC5819889; doi:10.1161/01.cir.0000437739.71477.ee.",
   "link": "https://doi.org/10.1161/01.cir.0000437739.71477.ee",
@@ -2218,6 +2693,16 @@
   "link": "https://doi.org/10.1056/nejmoa2411528",
   "areas": [
    "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Jia2024",
+  "text": "Jia YJ, Yu HR, Hu FH, Tang W, Zhang WQ, Ge MW, et al. Body mass index and pressure injuries risk in hospitalized adult patients: A dose-response analysis. J Tissue Viability. 2024;33(3):405-411. PMID 38886143; doi:10.1016/j.jtv.2024.06.006.",
+  "link": "https://doi.org/10.1016/j.jtv.2024.06.006",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2243,11 +2728,32 @@
   "validated": "PubMed"
  },
  {
+  "key": "Johansson2015NEJM",
+  "text": "Johansson K, Cnattingius S, Näslund I, Roos N, Trolle Lagerros Y, Granath F, et al. Outcomes of pregnancy after bariatric surgery. N Engl J Med. 2015;372(9):814-24. PMID 25714159; doi:10.1056/NEJMoa1405789.",
+  "link": "https://doi.org/10.1056/nejmoa1405789",
+  "areas": [
+   "G",
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Johnston2014",
   "text": "Johnston BC, Kanters S, Bandayrel K, Wu P, Naji F, Siemieniuk RA, et al. Comparison of weight loss among named diet programs in overweight and obese adults: a meta-analysis. JAMA. 2014;312(9):923-33. PMID 25182101; doi:10.1001/jama.2014.10397.",
   "link": "https://doi.org/10.1001/jama.2014.10397",
   "areas": [
    "E"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Juvin2003",
+  "text": "Juvin P, Lavaut E, Dupont H, Lefevre P, Demetriou M, Dumoulin JL, et al. Difficult tracheal intubation is more common in obese than in lean patients. Anesth Analg. 2003;97(2):595-600. PMID 12873960; doi:10.1213/01.ANE.0000072547.75928.B0.",
+  "link": "https://doi.org/10.1213/01.ane.0000072547.75928.b0",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2273,11 +2779,52 @@
   "validated": "PubMed"
  },
  {
+  "key": "Karamanakos2008",
+  "text": "Karamanakos SN, Vagenas K, Kalfarentzos F, Alexandrides TK. Weight loss, appetite suppression, and changes in fasting and postprandial ghrelin and peptide-YY levels after Roux-en-Y gastric bypass and sleeve gastrectomy: a prospective, double blind study. Ann Surg. 2008;247(3):401-7. PMID 18376181; doi:10.1097/SLA.0b013e318156f012.",
+  "link": "https://doi.org/10.1097/sla.0b013e318156f012",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kelly2013AHA",
   "text": "Kelly AS, Barlow SE, Rao G, Inge TH, Hayman LL, Steinberger J, et al. Severe obesity in children and adolescents: identification, associated health risks, and treatment approaches: a scientific statement from the American Heart Association. Circulation. 2013;128(15):1689-712. PMID 24016455; doi:10.1161/CIR.0b013e3182a5cfb3.",
   "link": "https://doi.org/10.1161/cir.0b013e3182a5cfb3",
   "areas": [
-   "A"
+   "A",
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kelly2020Liraglutide",
+  "text": "Kelly AS, Auerbach P, Barrientos-Perez M, Gies I, Hale PM, Marcus C, et al. A Randomized, Controlled Trial of Liraglutide for Adolescents with Obesity. N Engl J Med. 2020;382(22):2117-2128. PMID 32233338; doi:10.1056/NEJMoa1916038.",
+  "link": "https://doi.org/10.1056/nejmoa1916038",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kelly2022PHENTPM",
+  "text": "Kelly AS, Bensignor MO, Hsia DS, Shoemaker AH, Shih W, Peterson C, et al. Phentermine/Topiramate for the Treatment of Adolescent Obesity. NEJM Evid. 2022;1(6):EVIDoa2200014. PMID 36968652; PMCID PMC10035585; doi:10.1056/evidoa2200014.",
+  "link": "https://doi.org/10.1056/evidoa2200014",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kelly2024JAMA",
+  "text": "Kelly AS, Armstrong SC, Michalsky MP, Fox CK. Obesity in Adolescents: A Review. JAMA. 2024;332(9):738-748. PMID 39102244; doi:10.1001/jama.2024.11809.",
+  "link": "https://doi.org/10.1001/jama.2024.11809",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2348,6 +2895,46 @@
   "link": "https://doi.org/10.1371/journal.pmed.1001116",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kim2026Complications",
+  "text": "Kim SH, Oh SJ. Early and Late Complications After Sleeve Gastrectomy and Roux-en-Y Gastric Bypass: A Narrative Review. J Metab Bariatr Surg. 2026;15(2):59-76. PMID 42689305; PMCID PMC13537890; doi:10.17476/jmbs.2026.15.2.59.",
+  "link": "https://doi.org/10.17476/jmbs.2026.15.2.59",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "King2012JAMA",
+  "text": "King WC, Chen JY, Mitchell JE, Kalarchian MA, Steffen KJ, Engel SG, et al. Prevalence of alcohol use disorders before and after bariatric surgery. JAMA. 2012;307(23):2516-25. PMID 22710289; PMCID PMC3682834; doi:10.1001/jama.2012.6147.",
+  "link": "https://doi.org/10.1001/jama.2012.6147",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "King2017SOARD",
+  "text": "King WC, Chen JY, Courcoulas AP, Dakin GF, Engel SG, Flum DR, et al. Alcohol and other substance use after bariatric surgery: prospective evidence from a U.S. multicenter cohort study. Surg Obes Relat Dis. 2017;13(8):1392-1402. PMID 28528115; PMCID PMC5568472; doi:10.1016/j.soard.2017.03.021.",
+  "link": "https://doi.org/10.1016/j.soard.2017.03.021",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "King2018JAMA",
+  "text": "King WC, Hinerman AS, Belle SH, Wahed AS, Courcoulas AP. Comparison of the Performance of Common Measures of Weight Regain After Bariatric Surgery for Association With Clinical Outcomes. JAMA. 2018;320(15):1560-1569. PMID 30326125; PMCID PMC6233795; doi:10.1001/jama.2018.14433.",
+  "link": "https://doi.org/10.1001/jama.2018.14433",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2445,6 +3032,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Kolotkin2001",
+  "text": "Kolotkin RL, Crosby RD, Kosloski KD, Williams GR. Development of a brief measure to assess quality of life in obesity. Obes Res. 2001;9(2):102-11. PMID 11316344; doi:10.1038/oby.2001.13.",
+  "link": "https://doi.org/10.1038/oby.2001.13",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Kompaniyets2021",
   "text": "Kompaniyets L, Pennington AF, Goodman AB, Rosenblum HG, Belay B, Ko JY, et al. Underlying Medical Conditions and Severe Illness Among 540,667 Adults Hospitalized With COVID-19, March 2020-March 2021. Prev Chronic Dis. 2021;18:E66. PMID 34197283; PMCID PMC8269743; doi:10.5888/pcd18.210123.",
   "link": "https://doi.org/10.5888/pcd18.210123",
@@ -2490,7 +3087,8 @@
   "text": "Kuczmarski RJ, Ogden CL, Guo SS, Grummer-Strawn LM, Flegal KM, Mei Z, et al. 2000 CDC Growth Charts for the United States: methods and development. Vital Health Stat 11. 2002;(246):1-190. PMID 12043359.",
   "link": "https://pubmed.ncbi.nlm.nih.gov/12043359/",
   "areas": [
-   "A"
+   "A",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2502,6 +3100,16 @@
   "areas": [
    "A",
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Kyle2014",
+  "text": "Kyle TK, Puhl RM. Putting people first in obesity. Obesity (Silver Spring). 2014;22(5):1211. PMID 24616446; doi:10.1002/oby.20727. One-page letter without abstract; cited only for the people-first principle named in its title.",
+  "link": "https://doi.org/10.1002/oby.20727",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2655,7 +3263,8 @@
   "text": "le Roux CW, Aylwin SJ, Batterham RL, Borg CM, Coyle F, Prasad V, et al. Gut hormone profiles following bariatric surgery favor an anorectic state, facilitate weight loss, and improve metabolic parameters. Ann Surg. 2006;243(1):108-14. PMID 16371744; PMCID PMC1449984; doi:10.1097/01.sla.0000183349.16877.84.",
   "link": "https://doi.org/10.1097/01.sla.0000183349.16877.84",
   "areas": [
-   "C"
+   "C",
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2917,11 +3526,22 @@
   "validated": "PubMed"
  },
  {
+  "key": "Lupoli2017",
+  "text": "Lupoli R, Lembo E, Saldalamacchia G, Avola CK, Angrisani L, Capaldo B. Bariatric surgery and long-term nutritional issues. World J Diabetes. 2017;8(11):464-474. PMID 29204255; PMCID PMC5700383; doi:10.4239/wjd.v8.i11.464.",
+  "link": "https://doi.org/10.4239/wjd.v8.i11.464",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Luppino2010",
   "text": "Luppino FS, de Wit LM, Bouvy PF, Stijnen T, Cuijpers P, Penninx BW, et al. Overweight, obesity, and depression: a systematic review and meta-analysis of longitudinal studies. Arch Gen Psychiatry. 2010;67(3):220-9. PMID 20194822; doi:10.1001/archgenpsychiatry.2010.2.",
   "link": "https://doi.org/10.1001/archgenpsychiatry.2010.2",
   "areas": [
-   "D"
+   "D",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -2988,11 +3608,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Marchi2015",
+  "text": "Marchi J, Berg M, Dencker A, Olander EK, Begley C. Risks associated with obesity in pregnancy, for the mother and baby: a systematic review of reviews. Obes Rev. 2015;16(8):621-38. PMID 26016557; doi:10.1111/obr.12288.",
+  "link": "https://doi.org/10.1111/obr.12288",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Markwald2013",
   "text": "Markwald RR, Melanson EL, Smith MR, Higgins J, Perreault L, Eckel RH, et al. Impact of insufficient sleep on total daily energy expenditure, food intake, and weight gain. Proc Natl Acad Sci U S A. 2013;110(14):5695-700. PMID 23479616; PMCID PMC3619301; doi:10.1073/pnas.1216951110.",
   "link": "https://doi.org/10.1073/pnas.1216951110",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Marsk2010",
+  "text": "Marsk R, Jonas E, Rasmussen F, Näslund E. Nationwide cohort study of post-gastric bypass hypoglycaemia including 5,040 patients undergoing surgery for obesity in 1986-2006 in Sweden. Diabetologia. 2010;53(11):2307-11. PMID 20495972; doi:10.1007/s00125-010-1798-5.",
+  "link": "https://doi.org/10.1007/s00125-010-1798-5",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3068,6 +3708,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Mechanick2019",
+  "text": "Mechanick JI, Apovian C, Brethauer S, Garvey WT, Joffe AM, Kim J, et al. Clinical practice guidelines for the perioperative nutrition, metabolic, and nonsurgical support of patients undergoing bariatric procedures - 2019 update: cosponsored by AACE/ACE, TOS, ASMBS, OMA, and ASA - executive summary. Endocr Pract. 2019;25(12):1346-1359. PMID 31682518; doi:10.4158/GL-2019-0406.",
+  "link": "https://doi.org/10.4158/gl-2019-0406",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Mechanick2020SOARD",
+  "text": "Mechanick JI, Apovian C, Brethauer S, Garvey WT, Joffe AM, Kim J, et al. Clinical practice guidelines for the perioperative nutrition, metabolic, and nonsurgical support of patients undergoing bariatric procedures - 2019 update: cosponsored by American Association of Clinical Endocrinologists/American College of Endocrinology, The Obesity Society, American Society for Metabolic & Bariatric Surgery, Obesity Medicine Association, and American Society of Anesthesiologists. Surg Obes Relat Dis. 2020;16(2):175-247. PMID 31917200; doi:10.1016/j.soard.2019.10.025.",
+  "link": "https://doi.org/10.1016/j.soard.2019.10.025",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Messier2005",
   "text": "Messier SP, Gutekunst DJ, Davis C, DeVita P. Weight loss reduces knee-joint loads in overweight and obese older adults with knee osteoarthritis. Arthritis Rheum. 2005;52(7):2026-32. PMID 15986358; doi:10.1002/art.21139.",
   "link": "https://doi.org/10.1002/art.21139",
@@ -3102,11 +3762,31 @@
   ]
  },
  {
+  "key": "Mingrone2021Lancet",
+  "text": "Mingrone G, Panunzi S, De Gaetano A, Guidone C, Iaconelli A, Capristo E, et al. Metabolic surgery versus conventional medical therapy in patients with type 2 diabetes: 10-year follow-up of an open-label, single-centre, randomised controlled trial. Lancet. 2021;397(10271):293-304. PMID 33485454; doi:10.1016/S0140-6736(20)32649-0.",
+  "link": "https://doi.org/10.1016/s0140-6736(20)32649-0",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Mingrone2022REVITA2",
   "text": "Mingrone G, van Baar AC, Devière J, Hopkins D, Moura E, Cercato C, et al. Safety and efficacy of hydrothermal duodenal mucosal resurfacing in patients with type 2 diabetes: the randomised, double-blind, sham-controlled, multicentre REVITA-2 feasibility trial. Gut. 2022;71(2):254-264. PMID 33597157; PMCID PMC8761999; doi:10.1136/gutjnl-2020-323608.",
   "link": "https://doi.org/10.1136/gutjnl-2020-323608",
   "areas": [
    "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Mistiaen2010",
+  "text": "Mistiaen P, van Halm-Walters M. Prevention and treatment of intertrigo in large skin folds of adults: a systematic review. BMC Nurs. 2010;9:12. PMID 20626853; PMCID PMC2918610; doi:10.1186/1472-6955-9-12.",
+  "link": "https://doi.org/10.1186/1472-6955-9-12",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3157,7 +3837,8 @@
   "text": "Muntner P, Shimbo D, Carey RM, Charleston JB, Gaillard T, Misra S, et al. Measurement of Blood Pressure in Humans: A Scientific Statement From the American Heart Association. Hypertension. 2019;73(5):e35-e66. PMID 30827125; PMCID PMC11409525; doi:10.1161/HYP.0000000000000087.",
   "link": "https://doi.org/10.1161/hyp.0000000000000087",
   "areas": [
-   "D"
+   "D",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3383,11 +4064,42 @@
   "validated": "PubMed"
  },
  {
+  "key": "Nguyen2017NatRev",
+  "text": "Nguyen NT, Varela JE. Bariatric surgery for obesity and metabolic disorders: state of the art. Nat Rev Gastroenterol Hepatol. 2017;14(3):160-169. PMID 27899816; doi:10.1038/nrgastro.2016.170.",
+  "link": "https://doi.org/10.1038/nrgastro.2016.170",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Nightingale2015",
+  "text": "Nightingale CE, Margarson MP, Shearer E, Redman JW, Lucas DN, Cousins JM, et al. Peri-operative management of the obese surgical patient 2015: Association of Anaesthetists of Great Britain and Ireland Society for Obesity and Bariatric Anaesthesia. Anaesthesia. 2015;70(7):859-76. PMID 25950621; PMCID PMC5029585; doi:10.1111/anae.13101. Tables 2, 3 and 6 and text read in Europe PMC full text.",
+  "link": "https://doi.org/10.1111/anae.13101",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "NIH1991Consensus",
   "text": "Consensus Development Conference Panel. NIH conference. Gastrointestinal surgery for severe obesity. Ann Intern Med. 1991;115(12):956-61. PMID 1952493.",
   "link": "https://pubmed.ncbi.nlm.nih.gov/1952493/",
   "areas": [
-   "A"
+   "A",
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Nisbet2006",
+  "text": "Nisbet AC. Intramuscular gluteal injections in the increasingly obese population: retrospective study. BMJ. 2006;332(7542):637-8. PMID 16524934; PMCID PMC1403201; doi:10.1136/bmj.38706.742731.47.",
+  "link": "https://doi.org/10.1136/bmj.38706.742731.47",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3408,6 +4120,16 @@
   "link": "https://doi.org/10.1161/circulationaha.116.026807",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "OBrien2003",
+  "text": "O'Brien TE, Ray JG, Chan WS. Maternal body mass index and the risk of preeclampsia: a systematic overview. Epidemiology. 2003;14(3):368-74. PMID 12859040; doi:10.1097/00001648-200305000-00020.",
+  "link": "https://doi.org/10.1097/00001648-200305000-00020",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3443,6 +4165,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Ogden2023",
+  "text": "Ogden CL, Freedman DS, Hales CM. CDC Extended BMI-for-Age Percentiles Versus Percent of the 95th Percentile. Pediatrics. 2023;152(3):e2023062285. PMID 37615069; PMCID PMC11074997; doi:10.1542/peds.2023-062285.",
+  "link": "https://doi.org/10.1542/peds.2023-062285",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Ogden2025",
   "text": "Ogden CL, Emmerich SD, Stierman B, Chen TC, Simon AE, Freedman DS, et al. Obesity Among Children and Adolescents in NHANES August 2021-August 2023: An Examination of Race/Hispanic Origin Subgroup Estimates. Pediatr Obes. 2025;20(10):e70041. PMID 40915576; PMCID PMC13114678; doi:10.1111/ijpo.70041.",
   "link": "https://doi.org/10.1111/ijpo.70041",
@@ -3458,6 +4190,27 @@
   "link": "https://doi.org/10.1038/ijo.2010.5",
   "areas": [
    "A"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Olbers2017AMOS",
+  "text": "Olbers T, Beamish AJ, Gronowitz E, Flodmark CE, Dahlgren J, Bruze G, et al. Laparoscopic Roux-en-Y gastric bypass in adolescents with severe obesity (AMOS): a prospective, 5-year, Swedish nationwide study. Lancet Diabetes Endocrinol. 2017;5(3):174-183. PMID 28065734; PMCID PMC5359414; doi:10.1016/S2213-8587(16)30424-7.",
+  "link": "https://doi.org/10.1016/s2213-8587(16)30424-7",
+  "areas": [
+   "G",
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Orr2026",
+  "text": "Orr CJ, Streetman AE, Carruyo IA, Beck AL, Queen K, Sanders T, et al. Prevalence and Predictors of Guideline Concordant Pediatric Obesity Care: A Narrative Review. Curr Obes Rep. 2026;15(1). PMID 41979860; PMCID PMC13079462; doi:10.1007/s13679-026-00712-9.",
+  "link": "https://doi.org/10.1007/s13679-026-00712-9",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3485,6 +4238,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Parrott2017ASMBS",
+  "text": "Parrott J, Frank L, Rabena R, Craggs-Dino L, Isom KA, Greiman L. American Society for Metabolic and Bariatric Surgery Integrated Health Nutritional Guidelines for the Surgical Weight Loss Patient 2016 Update: Micronutrients. Surg Obes Relat Dis. 2017;13(5):727-741. PMID 28392254; doi:10.1016/j.soard.2016.12.018.",
+  "link": "https://doi.org/10.1016/j.soard.2016.12.018",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Pasternak2024Thyroid",
   "text": "Pasternak B, Wintzell V, Hviid A, Eliasson B, Gudbjörnsdottir S, Jonasson C, et al. Glucagon-like peptide 1 receptor agonist use and risk of thyroid cancer: Scandinavian cohort study. BMJ. 2024;385:e078225. PMID 38683947; PMCID PMC11004669; doi:10.1136/bmj-2023-078225.",
   "link": "https://doi.org/10.1136/bmj-2023-078225",
@@ -3500,6 +4263,16 @@
   "link": "https://doi.org/10.1016/j.jacc.2015.03.002",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Pearl2018WBI",
+  "text": "Pearl RL, Puhl RM. Weight bias internalization and health: a systematic review. Obes Rev. 2018;19(8):1141-1163. PMID 29788533; PMCID PMC6103811; doi:10.1111/obr.12701.",
+  "link": "https://doi.org/10.1111/obr.12701",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3535,6 +4308,36 @@
   "validated": "PubMed"
  },
  {
+  "key": "Peterhansel2013",
+  "text": "Peterhänsel C, Petroff D, Klinitzke G, Kersting A, Wagner B. Risk of completed suicide after bariatric surgery: a systematic review. Obes Rev. 2013;14(5):369-82. PMID 23297762; doi:10.1111/obr.12014.",
+  "link": "https://doi.org/10.1111/obr.12014",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Peterli2018SMBOSS",
+  "text": "Peterli R, Wölnerhanssen BK, Peters T, Vetter D, Kröll D, Borbély Y, et al. Effect of Laparoscopic Sleeve Gastrectomy vs Laparoscopic Roux-en-Y Gastric Bypass on Weight Loss in Patients With Morbid Obesity: The SM-BOSS Randomized Clinical Trial. JAMA. 2018;319(3):255-265. PMID 29340679; PMCID PMC5833546; doi:10.1001/jama.2017.20897.",
+  "link": "https://doi.org/10.1001/jama.2017.20897",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Phelan2015",
+  "text": "Phelan SM, Burgess DJ, Yeazel MW, Hellerstedt WL, Griffin JM, van Ryn M. Impact of weight bias and stigma on quality of care and outcomes for patients with obesity. Obes Rev. 2015;16(4):319-26. PMID 25752756; PMCID PMC4381543; doi:10.1111/obr.12266.",
+  "link": "https://doi.org/10.1111/obr.12266",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Piercy2018",
   "text": "Piercy KL, Troiano RP, Ballard RM, Carlson SA, Fulton JE, Galuska DA, et al. The Physical Activity Guidelines for Americans. JAMA. 2018;320(19):2020-2028. PMID 30418471; PMCID PMC9582631; doi:10.1001/jama.2018.14854.",
   "link": "https://doi.org/10.1001/jama.2018.14854",
@@ -3565,12 +4368,32 @@
   "validated": "PubMed"
  },
  {
+  "key": "Poland1997",
+  "text": "Poland GA, Borrud A, Jacobson RM, McDermott K, Wollan PC, Brakke D, et al. Determination of deltoid fat pad thickness. Implications for needle length in adult immunization. JAMA. 1997;277(21):1709-11. PMID 9169899.",
+  "link": "https://pubmed.ncbi.nlm.nih.gov/9169899/",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Polidori2016",
   "text": "Polidori D, Sanghvi A, Seeley RJ, Hall KD. How Strongly Does Appetite Counter Weight Loss? Quantification of the Feedback Control of Human Energy Intake. Obesity (Silver Spring). 2016;24(11):2289-2295. PMID 27804272; PMCID PMC5108589; doi:10.1002/oby.21653.",
   "link": "https://doi.org/10.1002/oby.21653",
   "areas": [
    "C",
    "E"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Pont2017AAP",
+  "text": "Pont SJ, Puhl R, Cook SR, Slusser W. Stigma Experienced by Children and Adolescents With Obesity. Pediatrics. 2017;140(6):e20173034. PMID 29158228; doi:10.1542/peds.2017-3034.",
+  "link": "https://doi.org/10.1542/peds.2017-3034",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3606,6 +4429,26 @@
   "validated": "PubMed"
  },
  {
+  "key": "Poobalan2009",
+  "text": "Poobalan AS, Aucott LS, Gurung T, Smith WC, Bhattacharya S. Obesity as an independent risk factor for elective and emergency caesarean delivery in nulliparous women--systematic review and meta-analysis of cohort studies. Obes Rev. 2009;10(1):28-35. PMID 19021871; doi:10.1111/j.1467-789X.2008.00537.x.",
+  "link": "https://doi.org/10.1111/j.1467-789x.2008.00537.x",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Poston2016",
+  "text": "Poston L, Caleyachetty R, Cnattingius S, Corvalán C, Uauy R, Herring S, et al. Preconceptional and maternal obesity: epidemiology and health consequences. Lancet Diabetes Endocrinol. 2016;4(12):1025-1036. PMID 27743975; doi:10.1016/S2213-8587(16)30217-0.",
+  "link": "https://doi.org/10.1016/s2213-8587(16)30217-0",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "PowellWiley2021",
   "text": "Powell-Wiley TM, Poirier P, Burke LE, Després JP, Gordon-Larsen P, Lavie CJ, et al. Obesity and Cardiovascular Disease: A Scientific Statement From the American Heart Association. Circulation. 2021;143(21):e984-e1010. PMID 33882682; PMCID PMC8493650; doi:10.1161/CIR.0000000000000973.",
   "link": "https://doi.org/10.1161/cir.0000000000000973",
@@ -3616,11 +4459,131 @@
   "validated": "PubMed"
  },
  {
+  "key": "Pratt2018ASMBS",
+  "text": "Pratt JSA, Browne A, Browne NT, Bruzoni M, Cohen M, Desai A, et al. ASMBS pediatric metabolic and bariatric surgery guidelines, 2018. Surg Obes Relat Dis. 2018;14(7):882-901. PMID 30077361; PMCID PMC6097871; doi:10.1016/j.soard.2018.03.019.",
+  "link": "https://doi.org/10.1016/j.soard.2018.03.019",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Puhl2008Discrimination",
+  "text": "Puhl RM, Andreyeva T, Brownell KD. Perceptions of weight discrimination: prevalence and comparison to race and gender discrimination in America. Int J Obes (Lond). 2008;32(6):992-1000. PMID 18317471; doi:10.1038/ijo.2008.22.",
+  "link": "https://doi.org/10.1038/ijo.2008.22",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Puhl2010AJPH",
+  "text": "Puhl RM, Heuer CA. Obesity stigma: important considerations for public health. Am J Public Health. 2010;100(6):1019-28. PMID 20075322; PMCID PMC2866597; doi:10.2105/AJPH.2009.159491.",
+  "link": "https://doi.org/10.2105/ajph.2009.159491",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Puhl2013Bullying",
+  "text": "Puhl RM, Peterson JL, Luedicke J. Weight-based victimization: bullying experiences of weight loss treatment-seeking youth. Pediatrics. 2013;131(1):e1-9. PMID 23266918; doi:10.1542/peds.2012-1106.",
+  "link": "https://doi.org/10.1542/peds.2012-1106",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Puhl2013Headless",
+  "text": "Puhl RM, Peterson JL, DePierre JA, Luedicke J. Headless, hungry, and unhealthy: a video content analysis of obese persons portrayed in online news. J Health Commun. 2013;18(6):686-702. PMID 23421746; doi:10.1080/10810730.2012.743631.",
+  "link": "https://doi.org/10.1080/10810730.2012.743631",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Puhl2013Language",
+  "text": "Puhl R, Peterson JL, Luedicke J. Motivating or stigmatizing? Public perceptions of weight-related language used by health providers. Int J Obes (Lond). 2013;37(4):612-9. PMID 22777543; doi:10.1038/ijo.2012.110.",
+  "link": "https://doi.org/10.1038/ijo.2012.110",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Puhl2013Media",
+  "text": "Puhl RM, Luedicke J, Heuer CA. The stigmatizing effect of visual media portrayals of obese persons on public attitudes: does race or gender matter? J Health Commun. 2013;18(7):805-26. PMID 23577702; doi:10.1080/10810730.2012.757393.",
+  "link": "https://doi.org/10.1080/10810730.2012.757393",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Puhl2020Words",
+  "text": "Puhl RM. What words should we use to talk about weight? A systematic review of quantitative and qualitative studies examining preferences for weight-related terminology. Obes Rev. 2020;21(6):e13008. PMID 32048465; doi:10.1111/obr.13008.",
+  "link": "https://doi.org/10.1111/obr.13008",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Puhl2021SixCountries",
+  "text": "Puhl RM, Lessard LM, Himmelstein MS, Foster GD. The roles of experienced and internalized weight stigma in healthcare experiences: Perspectives of adults engaged in weight management across six countries. PLoS One. 2021;16(6):e0251566. PMID 34061867; PMCID PMC8168902; doi:10.1371/journal.pone.0251566.",
+  "link": "https://doi.org/10.1371/journal.pone.0251566",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Puhl2022Terms",
+  "text": "Puhl RM, Lessard LM, Foster GD, Cardel MI. Patient and Family Perspectives on Terms for Obesity. Pediatrics. 2022;150(6):e2022058204. PMID 36404759; doi:10.1542/peds.2022-058204.",
+  "link": "https://doi.org/10.1542/peds.2022-058204",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "PuhlLatner2007",
+  "text": "Puhl RM, Latner JD. Stigma, obesity, and the health of the nation's children. Psychol Bull. 2007;133(4):557-80. PMID 17592956; doi:10.1037/0033-2909.133.4.557.",
+  "link": "https://doi.org/10.1037/0033-2909.133.4.557",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Quek2023",
   "text": "Quek J, Chan KE, Wong ZY, Tan C, Tan B, Lim WH, et al. Global prevalence of non-alcoholic fatty liver disease and non-alcoholic steatohepatitis in the overweight and obese population: a systematic review and meta-analysis. Lancet Gastroenterol Hepatol. 2023;8(1):20-30. PMID 36400097; doi:10.1016/S2468-1253(22)00317-X.",
   "link": "https://doi.org/10.1016/s2468-1253(22)00317-x",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Qumseya2021",
+  "text": "Qumseya BJ, Qumsiyeh Y, Ponniah SA, Estores D, Yang D, Johnson-Mann CN, et al. Barrett's esophagus after sleeve gastrectomy: a systematic review and meta-analysis. Gastrointest Endosc. 2021;93(2):343-352.e2. PMID 32798535; doi:10.1016/j.gie.2020.08.008.",
+  "link": "https://doi.org/10.1016/j.gie.2020.08.008",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3641,6 +4604,16 @@
   "link": "https://doi.org/10.1093/humrep/dem035",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Rasmussen2009IOM",
+  "text": "Institute of Medicine (US) and National Research Council (US) Committee to Reexamine IOM Pregnancy Weight Guidelines; Rasmussen KM, Yaktine AL, editors. Weight Gain During Pregnancy: Reexamining the Guidelines. Washington (DC): National Academies Press; 2009. PMID 20669500; NBK32813; doi:10.17226/12584. Range values read as restated in Goldstein2017.",
+  "link": "https://doi.org/10.17226/12584",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3721,6 +4694,26 @@
   "link": "https://doi.org/10.1097/hep.0000000000000520",
   "areas": [
    "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Risstad2015JAMASurg",
+  "text": "Risstad H, Søvik TT, Engström M, Aasheim ET, Fagerland MW, Olsén MF, et al. Five-year outcomes after laparoscopic gastric bypass and laparoscopic duodenal switch in patients with body mass index of 50 to 60: a randomized clinical trial. JAMA Surg. 2015;150(4):352-61. PMID 25650964; doi:10.1001/jamasurg.2014.3579.",
+  "link": "https://doi.org/10.1001/jamasurg.2014.3579",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Robert2019YOMEGA",
+  "text": "Robert M, Espalieu P, Pelascini E, Caiazzo R, Sterkers A, Khamphommala L, et al. Efficacy and safety of one anastomosis gastric bypass versus Roux-en-Y gastric bypass for obesity (YOMEGA): a multicentre, randomised, open-label, non-inferiority trial. Lancet. 2019;393(10178):1299-1309. PMID 30851879; doi:10.1016/S0140-6736(19)30475-1.",
+  "link": "https://doi.org/10.1016/s0140-6736(19)30475-1",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3821,12 +4814,33 @@
   ]
  },
  {
+  "key": "Rousseau2016BMJ",
+  "text": "Rousseau C, Jean S, Gamache P, Lebel S, Mac-Way F, Biertho L, et al. Change in fracture risk and fracture pattern after bariatric surgery: nested case-control study. BMJ. 2016;354:i3794. PMID 27814663; PMCID PMC4964103; doi:10.1136/bmj.i3794.",
+  "link": "https://doi.org/10.1136/bmj.i3794",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Rubino2016DSS",
+  "text": "Rubino F, Nathan DM, Eckel RH, Schauer PR, Alberti KG, Zimmet PZ, et al. Metabolic Surgery in the Treatment Algorithm for Type 2 Diabetes: A Joint Statement by International Diabetes Organizations. Surg Obes Relat Dis. 2016;12(6):1144-62. PMID 27568469; doi:10.1016/j.soard.2016.05.018.",
+  "link": "https://doi.org/10.1016/j.soard.2016.05.018",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Rubino2020Stigma",
   "text": "Rubino F, Puhl RM, Cummings DE, Eckel RH, Ryan DH, Mechanick JI, et al. Joint international consensus statement for ending stigma of obesity. Nat Med. 2020;26(4):485-497. PMID 32127716; PMCID PMC7154011; doi:10.1038/s41591-020-0803-x.",
   "link": "https://doi.org/10.1038/s41591-020-0803-x",
   "areas": [
    "B",
-   "E"
+   "E",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3864,11 +4878,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Ryan2014Nature",
+  "text": "Ryan KK, Tremaroli V, Clemmensen C, Kovatcheva-Datchary P, Myronovych A, Karns R, et al. FXR is a molecular target for the effects of vertical sleeve gastrectomy. Nature. 2014;509(7499):183-8. PMID 24670636; PMCID PMC4016120; doi:10.1038/nature13135.",
+  "link": "https://doi.org/10.1038/nature13135",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Ryan2024SELECT",
   "text": "Ryan DH, Lingvay I, Deanfield J, Kahn SE, Barros E, Burguera B, et al. Long-term weight loss effects of semaglutide in obesity without diabetes in the SELECT trial. Nat Med. 2024;30(7):2049-2057. PMID 38740993; PMCID PMC11271387; doi:10.1038/s41591-024-02996-7.",
   "link": "https://doi.org/10.1038/s41591-024-02996-7",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sabin2012",
+  "text": "Sabin JA, Marini M, Nosek BA. Implicit and explicit anti-fat bias among a large sample of medical doctors by BMI, race/ethnicity and gender. PLoS One. 2012;7(11):e48448. PMID 23144885; PMCID PMC3492331; doi:10.1371/journal.pone.0048448.",
+  "link": "https://doi.org/10.1371/journal.pone.0048448",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3899,6 +4933,26 @@
   "link": "https://doi.org/10.1172/jci107258",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Salminen2018SLEEVEPASS",
+  "text": "Salminen P, Helmiö M, Ovaska J, Juuti A, Leivonen M, Peromaa-Haavisto P, et al. Effect of Laparoscopic Sleeve Gastrectomy vs Laparoscopic Roux-en-Y Gastric Bypass on Weight Loss at 5 Years Among Patients With Morbid Obesity: The SLEEVEPASS Randomized Clinical Trial. JAMA. 2018;319(3):241-254. PMID 29340676; PMCID PMC5833550; doi:10.1001/jama.2017.20313.",
+  "link": "https://doi.org/10.1001/jama.2017.20313",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Salminen2022SLEEVEPASS",
+  "text": "Salminen P, Grönroos S, Helmiö M, Hurme S, Juuti A, Juusela R, et al. Effect of Laparoscopic Sleeve Gastrectomy vs Roux-en-Y Gastric Bypass on Weight Loss, Comorbidities, and Reflux at 10 Years in Adult Patients With Obesity: The SLEEVEPASS Randomized Clinical Trial. JAMA Surg. 2022;157(8):656-666. PMID 35731535; PMCID PMC9218929; doi:10.1001/jamasurg.2022.2229.",
+  "link": "https://doi.org/10.1001/jamasurg.2022.2229",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3939,6 +4993,36 @@
   "link": "https://doi.org/10.1056/nejmoa2413258",
   "areas": [
    "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Scarpellini2020",
+  "text": "Scarpellini E, Arts J, Karamanolis G, Laurenius A, Siquini W, Suzuki H, et al. International consensus on the diagnosis and management of dumping syndrome. Nat Rev Endocrinol. 2020;16(8):448-466. PMID 32457534; PMCID PMC7351708; doi:10.1038/s41574-020-0357-5.",
+  "link": "https://doi.org/10.1038/s41574-020-0357-5",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Schauer2017STAMPEDE",
+  "text": "Schauer PR, Bhatt DL, Kirwan JP, Wolski K, Aminian A, Brethauer SA, et al. Bariatric Surgery versus Intensive Medical Therapy for Diabetes - 5-Year Outcomes. N Engl J Med. 2017;376(7):641-651. PMID 28199805; PMCID PMC5451258; doi:10.1056/NEJMoa1600869.",
+  "link": "https://doi.org/10.1056/nejmoa1600869",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Schiavon2018GATEWAY",
+  "text": "Schiavon CA, Bersch-Ferreira AC, Santucci EV, Oliveira JD, Torreglosa CR, Bueno PT, et al. Effects of Bariatric Surgery in Obese Patients With Hypertension: The GATEWAY Randomized Trial (Gastric Bypass to Treat Obese Patients With Steady Hypertension). Circulation. 2018;137(11):1132-1142. PMID 29133606; PMCID PMC5865494; doi:10.1161/CIRCULATIONAHA.117.032130.",
+  "link": "https://doi.org/10.1161/circulationaha.117.032130",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -3989,6 +5073,16 @@
   "link": "https://doi.org/10.1172/jci75276",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Service2005NEJM",
+  "text": "Service GJ, Thompson GB, Service FJ, Andrews JC, Collazo-Clavell ML, Lloyd RV. Hyperinsulinemic hypoglycemia with nesidioblastosis after gastric-bypass surgery. N Engl J Med. 2005;353(3):249-54. PMID 16034010; doi:10.1056/NEJMoa043690.",
+  "link": "https://doi.org/10.1056/nejmoa043690",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4055,11 +5149,91 @@
   "validated": "PubMed"
  },
  {
+  "key": "Shawe2019ObesRev",
+  "text": "Shawe J, Ceulemans D, Akhter Z, Neff K, Hart K, Heslehurst N, et al. Pregnancy after bariatric surgery: Consensus recommendations for periconception, antenatal and postnatal care. Obes Rev. 2019;20(11):1507-1522. PMID 31419378; PMCID PMC6852078; doi:10.1111/obr.12927.",
+  "link": "https://doi.org/10.1111/obr.12927",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Silventoinen2016",
   "text": "Silventoinen K, Jelenkovic A, Sund R, Hur YM, Yokoyama Y, Honda C, et al. Genetic and environmental effects on body mass index from infancy to the onset of adulthood: an individual-based pooled analysis of 45 twin cohorts participating in the COllaborative project of Development of Anthropometrical measures in Twins (CODATwins) study. Am J Clin Nutr. 2016;104(2):371-9. PMID 27413137; PMCID PMC4962159; doi:10.3945/ajcn.116.130252.",
   "link": "https://doi.org/10.3945/ajcn.116.130252",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Simmonds2016",
+  "text": "Simmonds M, Llewellyn A, Owen CG, Woolacott N. Predicting adult obesity from childhood obesity: a systematic review and meta-analysis. Obes Rev. 2016;17(2):95-107. PMID 26696565; doi:10.1111/obr.12334.",
+  "link": "https://doi.org/10.1111/obr.12334",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sjostrom2007SOS",
+  "text": "Sjöström L, Narbro K, Sjöström CD, Karason K, Larsson B, Wedel H, et al. Effects of bariatric surgery on mortality in Swedish obese subjects. N Engl J Med. 2007;357(8):741-52. PMID 17715408; doi:10.1056/NEJMoa066254.",
+  "link": "https://doi.org/10.1056/nejmoa066254",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sjostrom2009LancetOncol",
+  "text": "Sjöström L, Gummesson A, Sjöström CD, Narbro K, Peltonen M, Wedel H, et al. Effects of bariatric surgery on cancer incidence in obese patients in Sweden (Swedish Obese Subjects Study): a prospective, controlled intervention trial. Lancet Oncol. 2009;10(7):653-62. PMID 19556163; doi:10.1016/S1470-2045(09)70159-7.",
+  "link": "https://doi.org/10.1016/s1470-2045(09)70159-7",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sjostrom2012JAMA",
+  "text": "Sjöström L, Peltonen M, Jacobson P, Sjöström CD, Karason K, Wedel H, et al. Bariatric surgery and long-term cardiovascular events. JAMA. 2012;307(1):56-65. PMID 22215166; doi:10.1001/jama.2011.1914.",
+  "link": "https://doi.org/10.1001/jama.2011.1914",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sjostrom2013JIM",
+  "text": "Sjöström L. Review of the key results from the Swedish Obese Subjects (SOS) trial - a prospective controlled intervention study of bariatric surgery. J Intern Med. 2013;273(3):219-34. PMID 23163728; doi:10.1111/joim.12012.",
+  "link": "https://doi.org/10.1111/joim.12012",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sjostrom2014JAMA",
+  "text": "Sjöström L, Peltonen M, Jacobson P, Ahlin S, Andersson-Assarsson J, Anveden Å, et al. Association of bariatric surgery with long-term remission of type 2 diabetes and with microvascular and macrovascular complications. JAMA. 2014;311(22):2297-304. PMID 24915261; doi:10.1001/jama.2014.5988.",
+  "link": "https://doi.org/10.1001/jama.2014.5988",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Skinner2015",
+  "text": "Skinner AC, Perrin EM, Moss LA, Skelton JA. Cardiometabolic Risks and Severity of Obesity in Children and Young Adults. N Engl J Med. 2015;373(14):1307-17. PMID 26422721; doi:10.1056/NEJMoa1502821.",
+  "link": "https://doi.org/10.1056/nejmoa1502821",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4125,11 +5299,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Stenberg2016Lancet",
+  "text": "Stenberg E, Szabo E, Ågren G, Ottosson J, Marsk R, Lönroth H, et al. Closure of mesenteric defects in laparoscopic gastric bypass: a multicentre, randomised, parallel, open-label trial. Lancet. 2016;387(10026):1397-1404. PMID 26895675; doi:10.1016/S0140-6736(15)01126-5.",
+  "link": "https://doi.org/10.1016/s0140-6736(15)01126-5",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Stice2008",
   "text": "Stice E, Spoor S, Bohon C, Small DM. Relation between obesity and blunted striatal response to food is moderated by TaqIA A1 allele. Science. 2008;322(5900):449-52. PMID 18927395; PMCID PMC2681095; doi:10.1126/science.1161550.",
   "link": "https://doi.org/10.1126/science.1161550",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Stothard2009",
+  "text": "Stothard KJ, Tennant PW, Bell R, Rankin J. Maternal overweight and obesity and the risk of congenital anomalies: a systematic review and meta-analysis. JAMA. 2009;301(6):636-50. PMID 19211471; doi:10.1001/jama.2009.113.",
+  "link": "https://doi.org/10.1001/jama.2009.113",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4181,6 +5375,7 @@
   "areas": [
    "C",
    "E",
+   "H",
    "I"
   ],
   "unverified": false,
@@ -4192,6 +5387,26 @@
   "link": "https://doi.org/10.1172/jci45887",
   "areas": [
    "C"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Sutin2015",
+  "text": "Sutin AR, Stephan Y, Terracciano A. Weight Discrimination and Risk of Mortality. Psychol Sci. 2015;26(11):1803-11. PMID 26420442; PMCID PMC4636946; doi:10.1177/0956797615601103.",
+  "link": "https://doi.org/10.1177/0956797615601103",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Svensson2013SOS",
+  "text": "Svensson PA, Anveden Å, Romeo S, Peltonen M, Ahlin S, Burza MA, et al. Alcohol consumption and alcohol problems after bariatric surgery in the Swedish obese subjects study. Obesity (Silver Spring). 2013;21(12):2444-51. PMID 23520203; doi:10.1002/oby.20397.",
+  "link": "https://doi.org/10.1002/oby.20397",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4232,6 +5447,16 @@
   "link": "https://doi.org/10.1016/s0140-6736(11)60813-1",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Syn2021Lancet",
+  "text": "Syn NL, Cummings DE, Wang LZ, Lin DJ, Zhao JJ, Loh M, et al. Association of metabolic-bariatric surgery with long-term survival in adults with and without diabetes: a one-stage meta-analysis of matched cohort and prospective controlled studies with 174 772 participants. Lancet. 2021;397(10287):1830-1841. PMID 33965067; doi:10.1016/S0140-6736(21)00591-2.",
+  "link": "https://doi.org/10.1016/s0140-6736(21)00591-2",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4301,7 +5526,8 @@
   "text": "Teede HJ, Mousa A, Tay CT, Costello MF, Brennan L, Norman RJ, et al. Summary of the 2023 international evidence-based guideline for the assessment and management of polycystic ovary syndrome: an Australian perspective. Med J Aust. 2024;221(7):389-395. PMID 39223729; doi:10.5694/mja2.52432.",
   "link": "https://doi.org/10.5694/mja2.52432",
   "areas": [
-   "D"
+   "D",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4311,7 +5537,8 @@
   "text": "Thomas JG, Bond DS, Phelan S, Hill JO, Wing RR. Weight-loss maintenance for 10 years in the National Weight Control Registry. Am J Prev Med. 2014;46(1):17-23. PMID 24355667; doi:10.1016/j.amepre.2013.08.019.",
   "link": "https://doi.org/10.1016/j.amepre.2013.08.019",
   "areas": [
-   "E"
+   "E",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4337,11 +5564,31 @@
   "validated": "PubMed"
  },
  {
+  "key": "Tomiyama2018",
+  "text": "Tomiyama AJ, Carr D, Granberg EM, Major B, Robinson E, Sutin AR, et al. How and why weight stigma drives the obesity 'epidemic' and harms health. BMC Med. 2018;16(1):123. PMID 30107800; PMCID PMC6092785; doi:10.1186/s12916-018-1116-5.",
+  "link": "https://doi.org/10.1186/s12916-018-1116-5",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Torgerson2004XENDOS",
   "text": "Torgerson JS, Hauptman J, Boldrin MN, Sjöström L. XENical in the prevention of diabetes in obese subjects (XENDOS) study: a randomized study of orlistat as an adjunct to lifestyle changes for the prevention of type 2 diabetes in obese patients. Diabetes Care. 2004;27(1):155-61. PMID 14693982; doi:10.2337/diacare.27.1.155.",
   "link": "https://doi.org/10.2337/diacare.27.1.155",
   "areas": [
    "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Tremaroli2015",
+  "text": "Tremaroli V, Karlsson F, Werling M, Ståhlman M, Kovatcheva-Datchary P, Olbers T, et al. Roux-en-Y Gastric Bypass and Vertical Banded Gastroplasty Induce Long-Term Changes on the Human Gut Microbiome Contributing to Fat Mass Regulation. Cell Metab. 2015;22(2):228-38. PMID 26244932; PMCID PMC4537510; doi:10.1016/j.cmet.2015.07.009.",
+  "link": "https://doi.org/10.1016/j.cmet.2015.07.009",
+  "areas": [
+   "G"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4441,7 +5688,8 @@
   "text": "Vallis M, Piccinini-Vallis H, Sharma AM, Freedhoff Y. Clinical review: modified 5 As: minimal intervention for obesity counseling in primary care. Can Fam Physician. 2013;59(1):27-31. PMID 23341653; PMCID PMC3555649.",
   "link": "https://pubmed.ncbi.nlm.nih.gov/23341653/",
   "areas": [
-   "D"
+   "D",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4512,6 +5760,16 @@
   "link": "https://doi.org/10.1371/journal.pmed.1002744",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Voerman2019LifeCycle",
+  "text": "Voerman E, Santos S, Inskip H, Amiano P, Barros H, Charles MA, et al. Association of Gestational Weight Gain With Adverse Maternal and Infant Outcomes. JAMA. 2019;321(17):1702-1715. PMID 31063572; PMCID PMC6506886; doi:10.1001/jama.2019.3820.",
+  "link": "https://doi.org/10.1001/jama.2019.3820",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4637,6 +5895,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Wang2014",
+  "text": "Wang TF, Milligan PE, Wong CA, Deal EN, Thoelke MS, Gage BF. Efficacy and safety of high-dose thromboprophylaxis in morbidly obese inpatients. Thromb Haemost. 2014;111(1):88-93. PMID 24136071; PMCID PMC4505726; doi:10.1160/TH13-01-0042.",
+  "link": "https://doi.org/10.1160/th13-01-0042",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Wang2024Suicidal",
   "text": "Wang W, Volkow ND, Berger NA, Davis PB, Kaelber DC, Xu R. Association of semaglutide with risk of suicidal ideation in a real-world cohort. Nat Med. 2024;30(1):168-176. PMID 38182782; PMCID PMC11034947; doi:10.1038/s41591-023-02672-2.",
   "link": "https://doi.org/10.1038/s41591-023-02672-2",
@@ -4667,11 +5935,22 @@
   "validated": "PubMed"
  },
  {
+  "key": "Waters2007",
+  "text": "Waters TR. When is it safe to manually lift a patient? Am J Nurs. 2007;107(8):53-8. PMID 17667392; doi:10.1097/01.NAJ.0000282296.18688.b1.",
+  "link": "https://doi.org/10.1097/01.naj.0000282296.18688.b1",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Weghuber2022STEPTEENS",
   "text": "Weghuber D, Barrett T, Barrientos-Pérez M, Gies I, Hesse D, Jeppesen OK, et al. Once-Weekly Semaglutide in Adolescents with Obesity. N Engl J Med. 2022;387(24):2245-2257. PMID 36322838; PMCID PMC9997064; doi:10.1056/NEJMoa2208601.",
   "link": "https://doi.org/10.1056/nejmoa2208601",
   "areas": [
-   "F"
+   "F",
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
@@ -4907,6 +6186,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Wu2018",
+  "text": "Wu YK, Berry DC. Impact of weight stigma on physiological and psychological health outcomes for overweight and obese adults: A systematic review. J Adv Nurs. 2018;74(5):1030-1042. PMID 29171076; doi:10.1111/jan.13511.",
+  "link": "https://doi.org/10.1111/jan.13511",
+  "areas": [
+   "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Xiao2026",
   "text": "Xiao T, Yang L, Fan C, Dou Y, Shang J. Prevalence and comorbidity burden of clinical obesity in US adults. BMC Public Health. 2026;26(1). PMID 42056948; PMCID PMC13274020; doi:10.1186/s12889-026-27457-3.",
   "link": "https://doi.org/10.1186/s12889-026-27457-3",
@@ -4962,6 +6251,16 @@
   "link": "https://doi.org/10.1093/hmg/ddy271",
   "areas": [
    "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Yosipovitch2007",
+  "text": "Yosipovitch G, DeVore A, Dawn A. Obesity and the skin: skin physiology and skin manifestations of obesity. J Am Acad Dermatol. 2007;56(6):901-16. PMID 17504714; doi:10.1016/j.jaad.2006.12.004.",
+  "link": "https://doi.org/10.1016/j.jaad.2006.12.004",
+  "areas": [
+   "H"
   ],
   "unverified": false,
   "validated": "PubMed"
