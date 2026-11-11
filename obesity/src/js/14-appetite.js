@@ -80,6 +80,7 @@ inits.appetite=()=>{
   const cross=(x,y,r=9)=>`<circle cx="${f1(x)}" cy="${f1(y)}" r="${r}" style="fill:var(--panel);stroke:var(--risk);stroke-width:2"/><path d="M${f1(x-4)} ${f1(y-4)}l8 8m0-8l-8 8" style="stroke:var(--risk);stroke-width:2.2;stroke-linecap:round"/>`;
 
   /* ---------- the loop player ---------- */
+  $('#apKey').innerHTML=['ghrelin','cck','glp1','pyy','leptin'].map(k=>`<span><svg viewBox="0 0 14 14">${hormoneDot(7,7,k,{r:4.6})}</svg>${HORMONE_INFO[k].name}</span>`).join('');
   const svg=$('#apSvg'),rg=$('#apT');
   function draw(t){
     const N=vb(svg,'720 400','400 680'),p=phaseOf(AP_STEPS,t),P=AP_STEPS[p],V=apLv(t),ph=RM?.3:(t*16)%1;

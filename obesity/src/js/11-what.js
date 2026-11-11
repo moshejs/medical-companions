@@ -143,9 +143,9 @@ inits.what=()=>{
   const groups=[...new Set(WH_CRIT.map(c=>c.g))];
   crit.innerHTML=groups.map(g=>`<fieldset><legend>${g}</legend>${WH_CRIT.filter(c=>c.g===g).map(c=>`<label><input type="checkbox" data-whc="${c.id}"><span>${c.l}</span></label>`).join('')}</fieldset>`).join('');
   const POS={head:[0,9],neck:[0,19],lungL:[-6,30],lungR:[6,30],heart:[4,34],arm:[-17,46],belly:[0,47],liver:[-5,41],kidney:[5,48],pelvis:[0,57],knee:[-5,77],calf:[5,87],ankle:[-5,94]};
-  function exDraw(){const N=vb(ex,'720 330','400 380');const on=WH_CRIT.filter(c=>$(`[data-whc="${c.id}"]`).checked),cv=conf.value,ok=cv!=='none';
+  function exDraw(){const N=vb(ex,'600 330','400 380');const on=WH_CRIT.filter(c=>$(`[data-whc="${c.id}"]`).checked),cv=conf.value,ok=cv!=='none';
     const cls=!ok?0:on.length?2:1;
-    const L=N?{w:194,h:360,x0:6,y0:10,fs:250,fy:58,gap:0}:{w:340,h:310,x0:12,y0:10,fs:240,fy:50,gap:16};
+    const L=N?{w:194,h:360,x0:6,y0:10,fs:250,fy:58,gap:0}:{w:292,h:310,x0:6,y0:10,fs:236,fy:52,gap:10};
     let s='';
     [['Preclinical obesity','organs and daily life unaffected',1],['Clinical obesity','organ dysfunction or limits on daily life',2]].forEach(([h,sub,c],i)=>{
       const x=L.x0+i*(L.w+L.gap),cx=x+L.w/2,sel=cls===c;
@@ -157,7 +157,7 @@ inits.what=()=>{
         const seen={};on.filter(q=>q.p!=='whole').forEach(q=>{const b=POS[q.p],n=seen[q.p]=(seen[q.p]||0)+1,x2=cx+b[0]*k+(n-1)*7,y2=L.fy+b[1]*k;
           s+=`<circle cx="${f1(x2)}" cy="${f1(y2)}" r="9" style="fill:var(--risk);opacity:.22"/><circle cx="${f1(x2)}" cy="${f1(y2)}" r="4.2" style="fill:var(--risk);stroke:var(--panel);stroke-width:1.2"/>`})}
       if(sel)s+=T(cx,L.y0+L.h-12,'matches the choices','t-xs t-mid',INK)});
-    if(!ok)s+=T(N?200:360,N?372:326,'excess adiposity not confirmed: neither category applies yet','t-xs t-mid',INK);
+    if(!ok)s+=T(N?200:300,N?372:326,'excess adiposity not confirmed: neither category applies yet','t-xs t-mid',INK);
     ex.innerHTML=s;
     let h=`<div class="kicker">Commission framework, as a teaching tool</div>`;
     if(!cls)h+=`<p class="verdict none">Not classed as obesity yet</p><p>${WH_CONF.none}</p>`+(on.length?`<p>The problems ticked still deserve care in their own right; the framework only counts them as clinical obesity when excess adiposity is confirmed and is their cause [[Rubino2025Commission]].</p>`:'');

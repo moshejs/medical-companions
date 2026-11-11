@@ -33,7 +33,7 @@ const MT_FAM=[{id:'pbo',n:'Placebo',col:'var(--figure-line)'},{id:'lira',n:'Lira
 /* series: P = published points [week, % change from week 0]; ph = phase it is drawn in; g = group: main | h2h | stop */
 const MT_SER=[
  {id:'p1',f:'pbo',g:'main',ph:0,n:'Placebo, STEP 1',s:'Placebo STEP 1',P:[[0,0],[68,-2.4]],dash:'5 4'},
- {id:'p2',f:'pbo',g:'main',ph:0,n:'Placebo, SURMOUNT-1',s:'Placebo SURMOUNT-1',P:[[0,0],[72,-3.1]],dash:'5 4'},
+ {id:'p2',f:'pbo',g:'main',ph:0,n:'Placebo, SURMOUNT-1',s:'Placebo S-1',P:[[0,0],[72,-3.1]],dash:'5 4'},
  {id:'l1',f:'lira',g:'main',ph:1,n:'Liraglutide 3.0 mg (SCALE)',s:'Liraglutide 3 mg',P:[[0,0],[56,-7.4]]},
  {id:'s1',f:'sema',g:'main',ph:2,n:'Semaglutide 2.4 mg (STEP 1)',s:'Sema 2.4 mg',P:[[0,0],[68,-14.9]]},
  {id:'s7',f:'sema',g:'main',ph:2,n:'Semaglutide 7.2 mg (STEP UP)',s:'Sema 7.2 mg',P:[[0,0],[72,-18.7]],dash:'8 3'},
@@ -49,20 +49,20 @@ const MT_SER=[
  {id:'h8l',f:'lira',g:'h2h',ph:4,n:'STEP 8: liraglutide',s:'STEP 8 lira',P:[[0,0],[68,-6.4]],dash:'8 3'},
  {id:'x1',f:'sema',g:'stop',ph:5,n:'STEP 1 ext: sema, stopped wk 68',s:'Sema stopped',P:[[0,0],[68,-17.3],[120,-5.6]],stopAt:68},
  {id:'x0',f:'pbo',g:'stop',ph:5,n:'STEP 1 ext: placebo',s:'Placebo',P:[[0,0],[68,-2.0],[120,-.1]],dash:'5 4',stopAt:68},
- {id:'y1',f:'tirz',g:'stop',ph:5,n:'SURMOUNT-4: kept on tirzepatide',s:'Tirz continued',P:[[0,0],[36,-20.9],[88,-25.3]]},
+ {id:'y1',f:'tirz',g:'stop',ph:5,n:'SURMOUNT-4: stayed on tirzepatide',s:'Tirz continued',P:[[0,0],[36,-20.9],[88,-25.3]]},
  {id:'y0',f:'tirz',g:'stop',ph:5,n:'SURMOUNT-4: switched to placebo',s:'Tirz → placebo',P:[[0,0],[36,-20.9],[88,-9.9]],dash:'5 4',stopAt:36}
 ];
 /* phase windows: [start, end] of drawing for each phase */
 const MT_WIN=[[.01,.12],[.17,.28],[.33,.44],[.49,.6],[.65,.76],[.85,.97]];
 /* responder data: v[threshold] = [medicine %, comparator %] */
 const MT_RESP=[
- {n:'STEP 1',a:'Semaglutide 2.4 mg',b:'Placebo',wk:68,v:{5:[86.4,31.5],10:[69.1,12.0],15:[50.5,4.9]},c:'Wilding2021STEP1'},
- {n:'STEP 3',a:'Semaglutide 2.4 mg + intensive behavioural therapy',b:'Placebo + intensive behavioural therapy',wk:68,v:{5:[86.6,47.6],10:[75.3,27.0],15:[55.8,13.2]},c:'Wadden2021STEP3'},
- {n:'STEP 8',a:'Semaglutide 2.4 mg weekly',b:'Liraglutide 3.0 mg daily',wk:68,v:{10:[70.9,25.6],15:[55.6,12.0],20:[38.5,6.0]},c:'Rubino2022STEP8'},
- {n:'SURMOUNT-1',a:'Tirzepatide 15 mg',b:'Placebo',wk:72,v:{5:[91,35],20:[57,3]},c:'Jastreboff2022SURMOUNT1'},
- {n:'OASIS 1',a:'Oral semaglutide 50 mg',b:'Placebo',wk:68,v:{5:[85,26],10:[69,12],15:[54,6],20:[34,3]},c:'Knop2023OASIS1'},
- {n:'ATTAIN-1',a:'Orforglipron 36 mg (trial dose)',b:'Placebo',wk:72,v:{10:[54.6,12.9],15:[36.0,5.9],20:[18.4,2.8]},c:'Wharton2025ATTAIN1'},
- {n:'SCALE',a:'Liraglutide 3.0 mg',b:'Placebo',wk:56,v:{5:[63.2,27.1],10:[33.1,10.6]},c:'PiSunyer2015SCALE',note:'For 10%, SCALE reports "more than 10%".'}
+ {n:'STEP 1',a:'Semaglutide 2.4 mg',b:'Placebo',wk:68,v:{5:[86.4,31.5],10:[69.1,12.0],15:[50.5,4.9]},c:'[[Wilding2021STEP1]]'},
+ {n:'STEP 3',a:'Semaglutide 2.4 mg + intensive behavioural therapy',b:'Placebo + intensive behavioural therapy',wk:68,v:{5:[86.6,47.6],10:[75.3,27.0],15:[55.8,13.2]},c:'[[Wadden2021STEP3]]'},
+ {n:'STEP 8',a:'Semaglutide 2.4 mg weekly',b:'Liraglutide 3.0 mg daily',wk:68,v:{10:[70.9,25.6],15:[55.6,12.0],20:[38.5,6.0]},c:'[[Rubino2022STEP8]]'},
+ {n:'SURMOUNT-1',a:'Tirzepatide 15 mg',b:'Placebo',wk:72,v:{5:[91,35],20:[57,3]},c:'[[Jastreboff2022SURMOUNT1]]'},
+ {n:'OASIS 1',a:'Oral semaglutide 50 mg',b:'Placebo',wk:68,v:{5:[85,26],10:[69,12],15:[54,6],20:[34,3]},c:'[[Knop2023OASIS1]]'},
+ {n:'ATTAIN-1',a:'Orforglipron 36 mg (trial dose)',b:'Placebo',wk:72,v:{10:[54.6,12.9],15:[36.0,5.9],20:[18.4,2.8]},c:'[[Wharton2025ATTAIN1]]'},
+ {n:'SCALE',a:'Liraglutide 3.0 mg',b:'Placebo',wk:56,v:{5:[63.2,27.1],10:[33.1,10.6]},c:'[[PiSunyer2015SCALE]]',note:'For 10%, SCALE reports "more than 10%".'}
 ];
 const MT_RESP_TXT={
  'STEP 1':'1961 adults without diabetes. Half of the people on semaglutide lost at least 15% of their starting weight; most on placebo lost less than 5%. [[Wilding2021STEP1]]',
@@ -87,7 +87,7 @@ inits.medtrials=()=>{
   const svg=$('#mtSvg'),rg=$('#mtT');
   function draw(t){
     const N=vb(svg,'720 380','400 560');
-    const L=N?{x:40,w:220,y:34,h:470,gx:268,ty:524,xl:546}:{x:56,w:440,y:26,h:300,gx:506,ty:346,xl:368};
+    const L=N?{x:40,w:220,y:34,h:470,gx:268,ty:524,xl:546}:{x:56,w:420,y:26,h:300,gx:486,ty:346,xl:368};
     const p=phaseOf(MT_STEPS,t),P=MT_STEPS[p];
     const xmax=lerp(76,124,ease(ramp(t,.8,.85))),X=w=>L.x+L.w*w/xmax,Y=v=>L.y+L.h*(-v)/27;
     let s=`<rect x="${L.x}" y="${L.y}" width="${L.w}" height="${L.h}" style="fill:var(--field)"/>`;
@@ -99,7 +99,7 @@ inits.medtrials=()=>{
     const stopOn=ramp(t,.83,.88);
     if(stopOn>0){[[68,'STEP 1: all treatment stopped'],[36,'SURMOUNT-4: randomised']].forEach((m,i)=>{const x=X(m[0]);
       s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${L.y}" y2="${L.y+L.h}" style="stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 3;opacity:${f1(stopOn)}"/>`;
-      s+=`<text x="${f1(x+4)}" y="${f1(L.y+L.h-10-i*14)}" class="t-xs" style="fill:var(--ink);font-weight:700;opacity:${f1(stopOn)}">${N?m[1].split(':')[0]:m[1]}</text>`})}
+      s+=`<g style="opacity:${f1(stopOn)}">${kitLabel(x+4,L.y+L.h*(N?.52:.5)+i*14,N?m[1].split(':')[0]:m[1],{halo:'var(--field)'})}</g>`})}
     const labs=[];
     MT_SER.forEach(S=>{if(!famOn[S.f])return;if(p<S.ph)return;
       let op=1;if(S.g==='main'&&p===4)op=.16;if(S.g==='main'&&p===5)op=0;if(S.g==='h2h'&&p===5)op=0;
@@ -144,7 +144,7 @@ inits.medtrials=()=>{
       s+=ia.svg;
       s+=`<text x="${f1(bx+ia.w+14)}" y="${f1(by+ia.h/2+8)}" class="t-big" style="font-size:24px;fill:${i?'var(--muted)':'var(--tx)'};opacity:${v?1:0}">${Math.round(cur[i])}%</text>`});
     rsv.innerHTML=s;
-    rnote.innerHTML=`<div class="kicker">${R.n}</div><h4>${v?`${v[0]}% vs ${v[1]}% lost at least ${th}%`:`The ${th}% threshold is not reported here`}</h4><p>${MT_RESP_TXT[R.n]}</p>${R.note?`<p>${R.note}</p>`:''}<p>Thresholds published for this trial: ${Object.keys(R.v).map(k=>'≥'+k+'%').join(', ')}. [[${R.c}]]</p><div class="pt"><b>%t:note.plain%</b>Out of every 100 people on the medicine, this many reached the threshold; the rest lost less, and a few lost little or none.</div>`;
+    rnote.innerHTML=`<div class="kicker">${R.n}</div><h4>${v?`${v[0]}% vs ${v[1]}% lost at least ${th}%`:`The ${th}% threshold is not reported here`}</h4><p>${MT_RESP_TXT[R.n]}</p>${R.note?`<p>${R.note}</p>`:''}<p>Thresholds published for this trial: ${Object.keys(R.v).map(k=>'≥'+k+'%').join(', ')}. ${R.c}</p><div class="pt"><b>%t:note.plain%</b>Out of every 100 people on the medicine, this many reached the threshold; the rest lost less, and a few lost little or none.</div>`;
   }
   function go2(){const to=target()||[0,0],from=cur.slice();stopR&&stopR();stopR=animate(650,q=>{const e=ease(q);cur=from.map((x,i)=>lerp(x,to[i],e));drawR()},()=>{stopR=null;cur=to;drawR()})}
   tb.addEventListener('click',e=>{const b=e.target.closest('[data-mr]');if(!b)return;ri=+b.dataset.mr;$$('[data-mr]',tb).forEach(x=>x.setAttribute('aria-pressed',x===b));

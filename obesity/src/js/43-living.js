@@ -12,7 +12,7 @@ inits.living=()=>{
    {ly:'contact',lab:'STOP Regain: newsletter only',sh:'Newsletter 25%',m:18,v:25,col:'var(--tx)',dash:'6 4'},
    {ly:'med',lab:'SURMOUNT-4: tirzepatide continued',sh:'Continued −21%',m:12,v:-21,col:'var(--rx-drug)'},
    {ly:'med',lab:'SURMOUNT-4: switched to placebo',sh:'Placebo 53%',m:12,v:53,col:'var(--rx-drug)',dash:'6 4'},
-   {ly:'med',lab:'STEP 1 extension: all treatment stopped',sh:'All stopped 67%',m:12,v:67,col:'var(--hl)',dash:'2 3'},
+   {ly:'med',lab:'STEP 1 extension: all treatment stopped',sh:'Stopped 67%',m:12,v:67,col:'var(--hl)',dash:'2 3'},
    {ly:'reg',lab:'NWCR registry members (self-selected)',sh:'NWCR 24% at 5 y',m:60,v:24,col:'var(--gold)'}
   ];
   const LAYERS=[
@@ -77,9 +77,9 @@ inits.living=()=>{
       const P=[[0,0],[Sr.m,Sr.v]];
       const ln=plotLine(P,X,Y,{col:Sr.col,lw:2.6,dash:Sr.dash,upto:Math.min(mo,Sr.m)});s+=ln.svg;
       if(ln.end&&mo<Sr.m)s+=`<circle cx="${f1(ln.end[0])}" cy="${f1(ln.end[1])}" r="3.5" style="fill:${Sr.col}"/>`;
-      if(mo>=Sr.m){const e=[X(Sr.m),Y(Sr.v)];s+=`<circle cx="${f1(e[0])}" cy="${f1(e[1])}" r="5" style="fill:${Sr.dash?'var(--panel)':Sr.col};stroke:${Sr.col};stroke-width:2.4"/>`;lbls.push([e[0]+8,e[1]+3.5,Sr.sh])}
+      if(mo>=Sr.m){const e=[X(Sr.m),Y(Sr.v)];s+=`<circle cx="${f1(e[0])}" cy="${f1(e[1])}" r="5" style="fill:${Sr.dash?'var(--panel)':Sr.col};stroke:${Sr.col};stroke-width:2.4"/>`;lbls.push(Sr.m>=MX*.9?[e[0]-4,e[1]-10,Sr.sh,'e']:[e[0]+8,e[1]+3.5,Sr.sh])}
     });
-    lbls.forEach(l=>{s+=kitLabel(l[0],l[1],l[2])});
+    lbls.forEach(l=>{s+=kitLabel(l[0],l[1],l[2],{a:l[3]})});
     /* the time cursor */
     const cx=X(mo);
     s+=`<line x1="${f1(cx)}" x2="${f1(cx)}" y1="${L.y}" y2="${L.y+L.h}" style="stroke:var(--ink);stroke-width:1;stroke-dasharray:3 3;opacity:.5"/>`;
@@ -91,7 +91,7 @@ inits.living=()=>{
       const reached=t>=Ly.from,act=reached&&on[Ly.id],yy=K.y+(LAYERS.length-1-i)*(K.bh+K.g);
       const grow=ramp(t,Ly.from,Ly.from+.05);
       s+=`<g style="opacity:${act?f1(.45+.55*grow):.3}"><rect x="${K.x}" y="${yy}" width="${K.w}" height="${K.bh}" rx="9" style="fill:var(--panel-2);stroke:${act?Ly.col:'var(--line)'};stroke-width:${act?2:1}"/>`;
-      s+=`<rect x="${K.x}" y="${yy}" width="${f1(6+(K.w-6)*(act?grow:0)*.04)}" height="${K.bh}" rx="3" style="fill:${Ly.col}"/>`;
+      s+=`<rect x="${K.x}" y="${yy}" width="6" height="${K.bh}" rx="3" style="fill:${Ly.col}"/>`;
       s+=`<text x="${K.x+16}" y="${f1(yy+(N?K.bh/2+4.5:19))}" class="t-lbl">${Ly.b}</text>`;
       s+=N?`<text x="${K.x+K.w-10}" y="${f1(yy+K.bh/2+4)}" class="t-xs t-end">${Ly.ev}</text>`:`<text x="${K.x+16}" y="${f1(yy+35)}" class="t-xs">${Ly.ev}${on[Ly.id]?'':' · hidden'}</text>`;
       s+=`</g>`});
@@ -141,11 +141,11 @@ inits.living=()=>{
   function drawB(u){
     vb(bs,'720 280','400 470');const N=NARROW(),pv=+sel.value,C=counts(pv);
     const tp=Math.round(lerp(shown[0],C.tp*100,u)),fp=Math.round(lerp(shown[1],C.fp*100,u));
-    const ia=iconArray(N?62:40,N?20:26,{n:100,cols:10,size:N?24:19,gap:N?4:4,shape:'dot',groups:[{k:tp,col:'var(--hl)'},{k:fp,col:'var(--warn)'}],base:'var(--line)'});
+    const ia=iconArray(N?62:40,N?20:14,{n:100,cols:10,size:N?24:21,gap:N?4:4,shape:'dot',groups:[{k:tp,col:'var(--hl)'},{k:fp,col:'var(--warn)'}],base:'var(--line)'});
     let s=ia.svg;
-    const tx=N?24:300,ty=N?ia.h+56:44,lh=N?24:30;
+    const tx=N?24:340,ty=N?ia.h+56:50,lh=N?24:30;
     const rows=[['var(--hl)',`${f1(C.tp*1000).replace('.0','')} per 1000`,'have BED and are flagged'],['var(--warn)',`${Math.round(C.fp*1000)} per 1000`,'are flagged but do not have BED'],['var(--line)',`${Math.round(C.tn*1000)} per 1000`,'are not flagged']];
-    rows.forEach((r,i)=>{const y=ty+i*lh*1.6;s+=`<circle cx="${tx+7}" cy="${y-4}" r="7" style="fill:${r[0]}"/><text x="${tx+22}" y="${y}" class="t-lbl">${r[1]}</text><text x="${tx+22}" y="${y+15}" class="t-xs">${r[2]}</text>`});
+    rows.forEach((r,i)=>{const y=ty+i*lh*1.6;s+=`<circle cx="${tx+7}" cy="${y-4}" r="7" style="fill:${r[0]}"/><text x="${tx+22}" y="${y}" class="t-lbl" style="font-size:15px">${r[1]}</text><text x="${tx+22}" y="${y+16}" class="t-sm">${r[2]}</text>`});
     const py=ty+3*lh*1.6+6;
     s+=`<text x="${tx}" y="${py}" class="t-big" style="fill:var(--life)">${Math.round(C.ppv*100)}%</text><text x="${tx+(N?56:62)}" y="${py}" class="t-sm" style="fill:var(--ink)">of people flagged have BED</text>`;
     s+=`<text x="${tx}" y="${py+18}" class="t-xs">each dot = 1 in 100 screened (rounded)</text>`;

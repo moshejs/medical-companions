@@ -45,7 +45,7 @@ inits.assessment=()=>{
   const typed=(s,u)=>s.slice(0,Math.round(s.length*clamp(u)));
   function scene(p,u,x,y,w,h,N){let s='';
     if(p===0){/* two people, one asks */
-      const a=person(x+w*.24,y+h-210,200,{size:.25}),b=person(x+w*.62,y+h-210,200,{size:.75});s+=a.svg+b.svg;
+      const a=person(x+w*.24,y+h-222,190,{size:.25}),b=person(x+w*.62,y+h-222,190,{size:.75});s+=a.svg+b.svg;
       const q='May we talk about weight today?',r='Yes, I\'d like that.',bw=N?190:230;
       s+=bubble(x+(N?4:w*.02),y+(N?6:10),bw,44,`<text x="${f1(x+(N?14:w*.02+12))}" y="${f1(y+(N?33:37))}" class="t-lbl" style="font-size:12.5px">${typed(q,ramp(u,.05,.45))}</text>`,[x+w*.24-6,x+w*.24],'var(--hl)');
       if(u>.5)s+=bubble(x+w*(N?.42:.52),y+(N?62:66),N?178:200,44,`<text x="${f1(x+w*(N?.42:.52)+12)}" y="${f1(y+(N?89:93))}" class="t-lbl" style="font-size:12.5px">${typed(r,ramp(u,.55,.85))}</text>`,[x+w*.62-6,x+w*.62],'var(--brand)');
@@ -54,7 +54,7 @@ inits.assessment=()=>{
       const cw=N?w:w*.55,ch=N?150:h-60,ax=curveAxes(x+30,y+20,cw-40,ch,{x0:20,x1:60,y0:0,y1:1,xt:[20,30,40,50,60],xlabel:'age (schematic)',ylabel:'weight'});
       s+=ax.svg;const P=[[20,.22],[26,.3],[31,.48],[34,.4],[38,.58],[43,.52],[47,.72],[52,.66],[57,.8]];
       s+=plotLine(P,ax.X,ax.Y,{col:'var(--hl)',upto:lerp(20,57,ease(ramp(u,0,.6))),smooth:true,dot:true}).svg;
-      if(u>.35)s+=kitLabel(ax.X(34),ax.Y(.4)+16,'weight change around life events, medicines, pregnancies','m');
+      if(u>.35)s+=kitLabel(ax.X(34),ax.Y(.4)+16,'changes around life events','m');
       const lx=N?x+10:x+w*.62,ly=N?y+ch+70:y+30;
       AS_HIST.forEach((t,i)=>{const a=clamp(ramp(u,.15+.13*i,.25+.13*i));const yy=ly+i*(N?28:44);
         s+=`<g style="opacity:${f1(.25+.75*a)}"><rect x="${f1(lx)}" y="${f1(yy)}" width="20" height="20" rx="5" style="fill:${a>.9?'var(--hl)':'var(--panel)'};stroke:var(--hl);stroke-width:1.4"/>${a>.9?`<path d="M${f1(lx+5)} ${f1(yy+10)}L${f1(lx+9)} ${f1(yy+14)}L${f1(lx+15)} ${f1(yy+6)}" style="fill:none;stroke:var(--panel);stroke-width:2.2"/>`:''}<text x="${f1(lx+30)}" y="${f1(yy+15)}" class="t-lbl" style="font-size:13px">${t}</text></g>`})}
@@ -62,10 +62,10 @@ inits.assessment=()=>{
       const px=x+(N?60:w*.16),pr=person(px,y+10,N?250:h-30,{size:.6}),k=(N?250:h-30)/100;s+=pr.svg;
       const bl=pr.at.belly,ww=(14.6+7.4*.6)*k;
       s+=`<ellipse cx="${f1(bl[0])}" cy="${f1(bl[1]+3*k)}" rx="${f1(ww*.78)}" ry="${f1(2.2*k)}" style="fill:none;stroke:var(--gold);stroke-width:3;stroke-dasharray:${f1(lerp(0,200,ramp(u,0,.3)))} 400"/>`;
-      if(u>.2)s+=kitLabel(bl[0]+ww+8,bl[1]+5,'waist, a "vital sign"',{});
+      if(u>.2)s+=kitLabel(bl[0]+ww+8,bl[1]+3*k+16,'waist, a "vital sign"',{});
       const cy=pr.at.chest[1]+6*k,cx=px+(13.8+6*.6)*k;
       s+=`<rect x="${f1(cx-5*k*.9)}" y="${f1(cy)}" width="${f1(10*k*.9)}" height="${f1(9*k)}" rx="4" style="fill:var(--device);opacity:${f1(.4+.5*ramp(u,.25,.4))}"/>`;
-      if(u>.3)s+=kitLabel(cx+8*k,cy+6,'BP cuff',{});
+      if(u>.3)s+=kitLabel(cx+8*k,cy-4,'BP cuff on the upper arm',{});
       const arm=Math.round(lerp(23,50,ease(ramp(u,.35,.95)))),tx=N?x+20:x+w*.52,ty=N?y+290:y+40;
       s+=`<text x="${f1(tx)}" y="${f1(ty)}" class="t-lbl">arm circumference</text><text x="${f1(tx)}" y="${f1(ty+32)}" class="t-big" style="font-size:28px;fill:var(--hl)">${arm} cm</text>`;
       AS_CUFF.forEach((c,i)=>{const yy=ty+50+i*(N?32:38),hit=arm>=c.a&&arm<=c.b;
@@ -85,7 +85,7 @@ inits.assessment=()=>{
         const hr=i<2?'HR 1 (ref)':i===2?'HR 1.57':i===3?'HR 2.69':'';if(hr)s+=`<text x="${f1(x0+i*sw+(sw-6)/2)}" y="${f1(base+16)}" class="t-xs t-mid">${hr}</text>`}
       s+=`<text x="${f1(x+w/2)}" y="${f1(y+14)}" class="t-lbl t-mid">EOSS stage 0–4: comorbidity and function, not size</text><text x="${f1(x+w/2)}" y="${f1(y+30)}" class="t-xs t-mid">mortality vs stages 0–1, NHANES (Padwal 2011)</text>`}
     else{/* Advise, Agree, Assist and back to follow-up */
-      const L=['Advise','Agree','Assist'],D=['risks, benefits, options','expectations and plan','barriers, referrals, follow-up'],cw=N?300:190,ch=N?62:110;
+      const L=['Advise','Agree','Assist'],D=['risks, benefits, options','expectations and plan','barriers and referrals'],cw=N?300:190,ch=N?62:110;
       L.forEach((l,i)=>{const a=ease(clamp(ramp(u,.05+.18*i,.25+.18*i))),cx=N?x+(w-cw)/2:x+18+i*(cw+40),cy=N?y+20+i*(ch+26):y+60;
         s+=`<g style="opacity:${f1(.15+.85*a)}"><rect x="${f1(cx)}" y="${f1(cy)}" width="${cw}" height="${ch}" rx="14" style="fill:var(--hl-soft);stroke:var(--hl);stroke-width:1.4"/><text x="${f1(cx+16)}" y="${f1(cy+28)}" class="t-big" style="fill:var(--hl)">${l}</text><text x="${f1(cx+16)}" y="${f1(cy+50)}" class="t-sm" style="fill:var(--ink)">${D[i]}</text></g>`;
         if(i<2&&a>.9)s+=N?`<path d="M${f1(x+w/2)} ${f1(cy+ch+3)}V${f1(cy+ch+22)}" class="arrow" marker-end="url(#asArr)"/>`:`<path d="M${f1(cx+cw+4)} ${f1(cy+ch/2)}H${f1(cx+cw+34)}" class="arrow" marker-end="url(#asArr)"/>`});
