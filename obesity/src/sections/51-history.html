@@ -1,0 +1,67 @@
+<!-- ================= 5.1 HISTORY & PEOPLE ================= -->
+<style>
+#m-history .hi-read{font-size:14.5px;margin:8px 0 0;max-width:72ch}
+#m-history .hi-row{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 10px}
+#m-history .hi-row .btn{min-height:40px}
+#m-history .hi-lesson{display:flex;flex-direction:column;gap:10px}
+#m-history .hi-lesson h4{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.15;margin:0}
+#m-history .card .hi-yr{font-family:var(--display);font-weight:700;font-size:28px;line-height:1;color:var(--brand)}
+</style>
+<section class="mod" id="m-history" data-mod="history" hidden>
+  <div class="mhead"><p class="eyebrow">Part 5 · Context &amp; review</p><h2>History &amp; people</h2>
+    <p class="lede">From a Belgian statistician's index in 1832 to hormone-based medicines and a new definition of clinical obesity in 2025: scrub through two centuries of measuring, naming and treating obesity, including the medicines that had to be withdrawn.</p></div>
+
+  <h3 class="sub">A timeline, 1832 to 2026</h3>
+  <div class="prose"><p>Three lanes run side by side: how obesity was measured and named, what biology, surgery and trials revealed, and which medicines were approved or withdrawn. The time axis squeezes the years before 1990, when events were sparse, and stretches the decades since. The counters keep a running tally of US approvals and of withdrawals in the US or Europe named in this guide.</p></div>
+  <div class="stepper" id="hiSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="Timeline from 1832 to 2026 in three lanes, measuring and naming, biology and surgery, and medicines; a moving marker highlights each milestone, from Quetelet's index and Keys naming the body mass index to leptin, fen-phen's withdrawal, orlistat, GLP-1 medicines, the SELECT trial and the 2025 Lancet Commission, with running counts of approvals and withdrawals"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="hiPlay">%t:player.play%</button><label class="stage-cap tl" for="hiT">Year <input type="range" id="hiT" min="0" max="1" step="0.001" value="0.02"></label></div>
+      <p class="hi-read" id="hiRead" aria-live="polite"></p>
+      <p class="stage-cap">Axis not to scale: 1832 to 1950 and 1950 to 1990 are compressed. US approval dates are original approvals in Drugs@FDA. [[FDA-DrugsAtFDA-AOM]]</p>
+    </div>
+    <aside class="note" id="hiNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>BMI was invented to describe populations, long before anyone used it to judge one person's health. Today experts say it is a screening number, not a diagnosis. [[Eknoyan2008,Rubino2025Commission]]</div>
+    <div class="hook"><b>Exam hook</b>Quetelet (1832) described the index; Keys (1972) named it the "body mass index"; the ob gene (leptin) was cloned in 1994. [[Eknoyan2008,Keys1972,Zhang1994]]</div>
+  </div>
+
+  <h3 class="sub">Withdrawn and troubled medicines: what each one taught</h3>
+  <div class="prose"><p>Several medicines for obesity were taken off the market, or never approved, when safety problems appeared. Choose one to follow it from use to regulatory action. For today's medicines and their labels, see <a href="#othermeds" data-go="othermeds">Other weight-loss medicines</a> and <a href="#medtrials" data-go="medtrials">Semaglutide &amp; tirzepatide trials</a>.</p></div>
+  <div class="hi-row" id="hiWdBtns" role="group" aria-label="Medicine"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="hiWdSvg" viewBox="0 0 720 230" style="min-width:560px" role="img" aria-label="Four linked stages for the chosen medicine: use, warning signal, evidence and regulatory action, filled in one after another"></svg></div>
+      <p class="stage-cap">Each stage summarises the cited sources below; the arrows show the order of events, not their timing.</p>
+    </div>
+    <aside class="note hi-lesson" id="hiWdNote" aria-live="polite"></aside>
+  </div>
+  <div class="callout"><p>Some past weight-loss medicines were taken off the market when safety problems appeared. This is one reason today's medicines are studied in large safety and outcome trials: SELECT showed fewer cardiovascular events with semaglutide, [[Lincoff2023SELECT]] and SYNCHRONIZE-CVOT showed that survodutide did not raise cardiovascular risk. [[Bozkurt2026SYNCHRONIZECVOT]] See also <a href="#frontier" data-go="frontier">Research frontier</a>.</p></div>
+
+  <h3 class="sub">People behind the ideas</h3>
+  <div class="cards">
+    <div class="card"><span class="hi-yr">1832</span><h4>Adolphe Quetelet</h4><p>A Belgian statistician who, from growth studies, concluded that outside the growth spurts of infancy and puberty "the weight increases as the square of the height". He also organised the first International Statistical Congress in 1853, which began work on a uniform naming of causes of death, a forerunner of the International Classification of Diseases. [[Eknoyan2008]]</p></div>
+    <div class="card"><span class="hi-yr">1972</span><h4>Ancel Keys and colleagues</h4><p>Compared indices of relative weight in 7,424 healthy men in 12 cohorts in five countries. Weight divided by height squared correlated least with height and well with body fat, and they named it the "body mass index". [[Keys1972,Eknoyan2008]]</p></div>
+    <div class="card"><span class="hi-yr">1967</span><h4>Mason and Ito</h4><p>Described gastric bypass for obesity; today's operations are covered in <a href="#surgery" data-go="surgery">Metabolic &amp; bariatric surgery</a>. [[Mason1967]] A 1991 NIH consensus advised trying a nonsurgical programme first and offering surgery to well-informed people with acceptable operative risk, chosen by a multidisciplinary team; ASMBS and IFSO published major updates in 2022. [[NIH1991Consensus,Eisenberg2022ASMBS]]</p></div>
+    <div class="card"><span class="hi-yr">1994</span><h4>Friedman's laboratory</h4><p>Zhang and colleagues cloned the mouse obese (ob) gene and its human counterpart. Its product, leptin, was proposed as a signal from fat tissue that helps regulate the size of the body's fat store. [[Zhang1994]] More in <a href="#appetite" data-go="appetite">Appetite: the gut-brain loop</a>.</p></div>
+  </div>
+
+  <h3 class="sub">How the words changed</h3>
+  <div class="tbl"><table>
+    <caption class="sr">Statements describing obesity as a disease</caption>
+    <thead><tr><th scope="col">Year</th><th scope="col">Body</th><th scope="col">What it said</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">1948</th><td>WHO</td><td>In theory recognised obesity as a disease by adopting the International Classification of Diseases; its first special obesity consultation came only in 1997. [[James2008WHO]]</td></tr>
+      <tr><th scope="row">2013</th><td>American Medical Association</td><td>"A complex, chronic disease requiring medical attention." A later review argues this helped bring more access to care and less blame. [[Kyle2016AMA]]</td></tr>
+      <tr><th scope="row">2016–2017</th><td>AACE/ACE</td><td>Proposed "adiposity-based chronic disease", partly to avoid the stigma attached to the word "obesity". [[Mechanick2017ABCD]]</td></tr>
+      <tr><th scope="row">2017</th><td>World Obesity Federation</td><td>"A chronic relapsing progressive disease process." [[Bray2017WOF]]</td></tr>
+      <tr><th scope="row">2025</th><td>Lancet Diabetes &amp; Endocrinology Commission</td><td>Separates clinical obesity (organ dysfunction or limits on daily life due to excess adiposity) from preclinical obesity, and says BMI should be a population or screening measure, not an individual measure of health. [[Rubino2025Commission]] See <a href="#what" data-go="what">What obesity is</a>.</td></tr>
+    </tbody></table></div>
+
+  <div class="split2">
+    <div class="callout"><p><b>Medicines.</b> Do not start, stop or change any medicine without talking to your clinician.</p></div>
+    <div class="callout"><p><b>If eating or weight causes distress.</b> If eating or weight causes you distress, or you find yourself restricting food, bingeing or purging, please talk to a clinician or an eating-disorder service.</p></div>
+  </div>
+</section>

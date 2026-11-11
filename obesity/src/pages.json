@@ -1,0 +1,114 @@
+{
+ "adaptation": {
+  "title": "Why lost weight comes back: metabolic adaptation and hunger hormones",
+  "description": "Metabolic slowdown after weight loss, ghrelin, leptin and PYY changes that persist a year later, and set-point models: regain as biology, not willpower."
+ },
+ "adipose": {
+  "title": "Fat tissue as an organ: adipocytes, inflammation and visceral fat",
+  "description": "How fat cells enlarge, lose oxygen and gather macrophages, why visceral and liver fat matter, brown and beige fat, and how fat cells turn over each year."
+ },
+ "aftersurgery": {
+  "title": "Life after bariatric surgery: complications, vitamins and follow-up",
+  "description": "A timeline from day 0 to 20 years after surgery: leaks, dumping, gallstones, ulcers, vitamin deficiencies, alcohol risk, weight recurrence and survival."
+ },
+ "appetite": {
+  "title": "Appetite hormones: ghrelin, leptin, GLP-1, PYY and the hypothalamus",
+  "description": "Animated gut-brain loop: ghrelin before meals, GLP-1, PYY and CCK after, leptin from fat, POMC and AgRP neurons, MC4R and leptin resistance, cited."
+ },
+ "assessment": {
+  "title": "Obesity assessment: 5As, BP cuff size, EOSS staging and STOP-Bang",
+  "description": "A respectful obesity assessment: asking permission, history, waist and cuff size, tests, EOSS staging, Lancet clinical obesity criteria and STOP-Bang."
+ },
+ "causes": {
+  "title": "Causes of obesity: genes, FTO, MC4R, ultra-processed food and sleep",
+  "description": "How heritability, FTO, polygenic scores, MC4R and leptin genes combine with food, sleep, medicines and social context to shape weight, with cited data."
+ },
+ "children": {
+  "title": "Childhood obesity: BMI percentiles, AAP 2023 guideline and treatment",
+  "description": "How BMI-for-age percentiles define obesity in children, the AAP 2023 treatment steps, STEP TEENS and Teen-LABS results, and words that help families."
+ },
+ "complications": {
+  "title": "Complications of obesity: heart, liver, sleep apnoea and cancer risks",
+  "description": "Obesity complications organ by organ: heart, MASLD, sleep apnoea, type 2 diabetes, kidneys, knees, PCOS, 13 cancers and mood, with published relative risks."
+ },
+ "diabetes": {
+  "title": "Obesity and type 2 diabetes: DPP prevention and DiRECT remission",
+  "description": "How fat in the liver and pancreas leads to type 2 diabetes, how the DPP cut risk by 58%, and DiRECT remission rates by kilograms lost, with sources."
+ },
+ "frontier": {
+  "title": "New obesity medicines: retatrutide, CagriSema, orforglipron and more",
+  "description": "Trial weight loss for retatrutide, CagriSema, amycretin, MariTide, survodutide and oral options, with evidence labels, outcome trials and NCT links."
+ },
+ "glossary": {
+  "title": "Obesity glossary: searchable terms from adiposity to retatrutide",
+  "description": "A searchable glossary of 133 obesity terms, from BMI, leptin and MC4R to EOSS, MASLD, tirzepatide and sleeve gastrectomy, each cited and linked."
+ },
+ "glp": {
+  "title": "How GLP-1 medicines work: semaglutide, tirzepatide and dose steps",
+  "description": "Animated: GLP-1 from gut L cells, DPP-4 breakdown, insulin, stomach and brain effects, drug half-lives, and Wegovy, Zepbound and Foundayo label dose steps."
+ },
+ "history": {
+  "title": "History of obesity: from Quetelet and BMI to GLP-1 medicines",
+  "description": "Scrub a timeline from Quetelet in 1832 and Keys naming BMI to leptin, fen-phen, orlistat, semaglutide, tirzepatide and the 2025 Lancet Commission."
+ },
+ "home": {
+  "title": "Obesity explained: an animated, cited guide",
+  "description": "Obesity in animations: appetite hormones, fat tissue, why weight returns, GLP-1 medicines, metabolic surgery and care without stigma. Every claim cited."
+ },
+ "lifestyle": {
+  "title": "Diet, activity and behaviour for obesity: what the trials show",
+  "description": "DPP, Look AHEAD, DiRECT, DIETFITS and POUNDS LOST results over time, time-restricted eating, very-low-calorie diets and exercise, all as published averages."
+ },
+ "living": {
+  "title": "Living with obesity: keeping weight off, mood and daily life",
+  "description": "What trials show about regain after weight loss and the supports that slow it, plus work, travel, equipment, mood and a binge-eating screen explained."
+ },
+ "measuring": {
+  "title": "BMI, waist and body fat: BMI calculator, Asian cut-offs and WHtR",
+  "description": "How BMI is worked out, WHO classes and Asian action points, why BMI misses half of excess body fat, waist-to-height 0.5, and a teaching calculator."
+ },
+ "medtrials": {
+  "title": "Semaglutide and tirzepatide trials: STEP, SURMOUNT and SELECT results",
+  "description": "Trial-average weight change in STEP 1, SURMOUNT-1, SCALE and SURMOUNT-5, who reached 5-20% loss, regain after stopping, and SELECT heart outcomes."
+ },
+ "nursing": {
+  "title": "Nursing care in obesity: BP cuff size, airway, IM needles and dosing",
+  "description": "A hospital stay walkthrough: BP cuff sizing, safe handling, skin, ramped airway position, needle length, leak signs after surgery and body-weight descriptors."
+ },
+ "othermeds": {
+  "title": "Orlistat, Qsymia, Contrave, setmelanotide: other obesity medicines",
+  "description": "How orlistat, phentermine-topiramate, naltrexone-bupropion, setmelanotide and liraglutide act, their trial results, label warnings and withdrawn drugs."
+ },
+ "pregnancy": {
+  "title": "Obesity and pregnancy: risks, weight gain ranges and GLP-1 planning",
+  "description": "Pregnancy risks with obesity as population odds, IOM 2009 weight gain ranges, label advice on stopping GLP-1 medicines, and pregnancy after bariatric surgery."
+ },
+ "quiz": {
+  "title": "Obesity quiz: 100 questions with cited explanations",
+  "description": "100 multiple-choice questions on obesity, from genes, appetite and staging to medicines, surgery and pregnancy, each with a cited explanation."
+ },
+ "review": {
+  "title": "Obesity flashcards and memory aids: 89 cited cards and the 5As",
+  "description": "89 cited flashcards on obesity, from BMI, leptin and GLP-1 to DiRECT, STEP and surgery, plus memory aids and an animated walk through the 5As."
+ },
+ "sideeffects": {
+  "title": "GLP-1 side effects, safety warnings and stopping: what labels show",
+  "description": "Nausea and gut effects during dose escalation, gallbladder, pancreatitis, the thyroid boxed warning, anaesthesia, lean mass and weight regain after stopping."
+ },
+ "sources": {
+  "title": "Obesity Companion sources: trials, guidelines and drug labels",
+  "description": "Every reference behind the Obesity Companion: DPP, DiRECT, STEP, SURMOUNT and SELECT, cohorts, the Lancet Commission, guidelines and labels."
+ },
+ "stigma": {
+  "title": "Weight stigma and bias: how it harms health, and language that helps",
+  "description": "How weight stigma feeds a loop of stress, avoided care and worse health, with survey numbers, clinician bias, person-first language and the 5As."
+ },
+ "surgery": {
+  "title": "Bariatric surgery explained: sleeve, gastric bypass and gut hormones",
+  "description": "Animated sleeve gastrectomy and Roux-en-Y bypass, gut hormones, ASMBS/IFSO 2022 indications, SOS weight curves, STAMPEDE and sleeve vs bypass trials."
+ },
+ "what": {
+  "title": "What is obesity? Clinical vs preclinical obesity and global prevalence",
+  "description": "Obesity as a chronic disease: the 2025 Lancet Commission's clinical and preclinical obesity, BMI classes, and over 1 billion people affected worldwide."
+ }
+}

@@ -1,0 +1,82 @@
+<!-- ================= 3.7 LIFE AFTER SURGERY ================= -->
+<style>
+#m-aftersurgery .af-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#m-aftersurgery .af-row .btn{min-height:40px}
+#m-aftersurgery .af-row label{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-weight:700;font-size:14px;min-width:0;max-width:100%}
+#m-aftersurgery .af-row select{font:inherit;font-weight:400;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);max-width:100%;min-width:0}
+#m-aftersurgery .card .af-num{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;color:var(--tx)}
+</style>
+<section class="mod" id="m-aftersurgery" data-mod="aftersurgery" hidden>
+  <div class="mhead"><p class="eyebrow">Part 3 · Treatment</p><h2>Life after surgery</h2>
+    <p class="lede">Surgery is the start of lifelong care, not the end of treatment. The 1991 NIH consensus already called for lifelong medical surveillance after surgery. [[NIH1991Consensus]] Scrub from the day of the operation to 20 years later to see when each problem tends to appear.</p></div>
+
+  <div class="crisis" role="note"><b>Urgent</b><span>After surgery, get urgent medical help for a fast heartbeat that does not settle, fever, belly or shoulder pain, or changes in breathing: these can be signs of a leak. [[Kim2026Complications,Hamilton2003]] Persistent vomiting needs prompt care because it can cause thiamine deficiency, which can damage the brain. [[Lupoli2017]] Confusion or seizures can be a sign of very low blood sugar. [[Kim2026Complications]] If you feel low, have thoughts of harming yourself, or feel unsafe, contact your care team or an emergency service straight away.</span></div>
+
+  <div class="stepper" id="afSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="afSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A timeline from the day of surgery to 20 years on a stretched scale, with ten lanes for the windows when problems tend to appear: leaks and clots, eating stages, dumping, gallstones, ulcers and hernias, reflux, late low blood sugar, vitamin and mineral gaps, alcohol problems and weight recurrence; a moving marker lights up the current lanes and key numbers appear below"></svg></div>
+      <div class="ctrls"><button class="btn primary" id="afPlay">%t:player.play%</button><label class="stage-cap tl" for="afT">Time since surgery <input type="range" id="afT" min="0" max="1" step="0.001" value="0.2"></label></div>
+      <p class="stage-cap">Logarithmic time axis. Lane windows are schematic; the times named in the notes are cited. Numbers are population statistics from studies, not predictions for any person. [[Kim2026Complications,King2018JAMA,Carlsson2020NEJM]]</p>
+    </div>
+    <aside class="note" id="afNote" aria-live="polite"></aside>
+  </div>
+  <div class="split2">
+    <div class="pt"><b>In plain words</b>Surgery is safe for most people, but it has risks: leaks, bleeding, clots, ulcers, reflux, gallstones and blocked bowel. Many of these are found early when follow-up continues. [[Kim2026Complications]]</div>
+    <div class="hook"><b>Exam hook</b>LABS 30-day mortality 0.3%; modern perioperative mortality 0.03 to 0.2%. [[Flum2009LABS,Arterburn2020JAMA]] Predictors of a bad early outcome: previous clots, sleep apnoea, impaired function and extreme BMI, but not age, sex or race. [[Flum2009LABS]]</div>
+  </div>
+
+  <h3 class="sub">Vitamins and minerals, for life</h3>
+  <div class="prose"><p>Many people already have at least one vitamin or mineral deficiency before surgery, and the ASMBS guideline covers screening, prevention and repletion of thiamine, B12, folate, iron, vitamins A, E, K and D, calcium, copper and zinc. [[Parrott2017ASMBS]] Deficiencies are becoming more common while follow-up monitoring declines. [[Parrott2017ASMBS]] Pick a nutrient and an operation; rows about other operations fade.</p></div>
+  <p class="teach" role="note"><b>Quoted, not instructions</b>Supplement amounts below are quoted as published or as cited by a review. Your team sets what you take and checks your blood. Do not start, stop or change a medicine or supplement without your clinician.</p>
+  <div class="af-row" id="afNuBtns" role="group" aria-label="Nutrient"></div>
+  <div class="af-row"><label for="afProc">Operation <select id="afProc"><option value="sleeve">Sleeve gastrectomy</option><option value="bypass" selected>Gastric bypass</option><option value="switch">Biliopancreatic diversion / duodenal switch</option></select></label></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="afNu" viewBox="0 0 720 330" style="min-width:560px" role="img" aria-label="The gut drawn for the chosen operation beside bars of published deficiency figures for the chosen nutrient"></svg></div>
+      <p class="stage-cap">Figures from a nutrition review and trials; ranges span different studies. [[Lupoli2017,Inge2019NEJM]]</p>
+    </div>
+    <aside class="note" id="afNuNote" aria-live="polite"></aside>
+  </div>
+
+  <h3 class="sub">Late complications, by the numbers</h3>
+  <div class="tbl"><table>
+    <caption class="sr">Reported late complications after sleeve gastrectomy and gastric bypass</caption>
+    <thead><tr><th scope="col">Problem</th><th scope="col">Reported range</th><th scope="col">Mostly after</th><th scope="col">What else is known</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Reflux</th><td>23-28%</td><td>Sleeve</td><td>Worsened in 31.8% after sleeve versus 6.3% after bypass at 5 years [[Kim2026Complications,Peterli2018SMBOSS]]</td></tr>
+      <tr><th scope="row">Barrett's oesophagus</th><td>4% (RCT) to 11.6% (pooled)</td><td>Sleeve</td><td>Disputed; not correlated with reflux symptoms in pooled data [[Salminen2022SLEEVEPASS,Qumseya2021]]</td></tr>
+      <tr><th scope="row">Sleeve stenosis or twist</th><td>0.5-3.5%</td><td>Sleeve</td><td>[[Kim2026Complications]]</td></tr>
+      <tr><th scope="row">Stricture at the join</th><td>About 6%</td><td>Bypass</td><td>[[Kim2026Complications]]</td></tr>
+      <tr class="hl"><th scope="row">Marginal ulcer</th><td>6-16%</td><td>Bypass</td><td>Smoking, corticosteroids and NSAIDs are risk factors; perforation in 1.1% of one series [[Kim2026Complications,Coblijn2015]]</td></tr>
+      <tr><th scope="row">Internal hernia</th><td>0.2-9%</td><td>Bypass</td><td>Closing mesenteric defects cut small-bowel obstruction reoperation from 10.2% to 5.5% [[Kim2026Complications,Stenberg2016Lancet]]</td></tr>
+      <tr><th scope="row">Gallstones</th><td>Up to 50%</td><td>Both</td><td>Typically in the first 6 to 12 months [[Kim2026Complications]]</td></tr>
+      <tr><th scope="row">Late low blood sugar</th><td>0.2% hospitalised</td><td>Bypass</td><td>Usually more than 1 year after surgery; first described with nesidioblastosis in 2005 [[Marsk2010,Kim2026Complications,Service2005NEJM]]</td></tr>
+      <tr><th scope="row">Fractures</th><td>RR 1.38</td><td>Diversion most</td><td>Versus matched controls with obesity [[Rousseau2016BMJ]]</td></tr>
+    </tbody></table></div>
+
+  <h3 class="sub">Weight recurrence is biology</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Lowest weight</span><span class="af-num">37.4%</span><p>Median maximum weight loss after bypass in 1406 LABS-2 participants, reached at a median of 2.0 years. [[King2018JAMA]]</p></div>
+    <div class="card"><span class="kicker">5 years after the lowest point</span><span class="af-num">26.8%</span><p>Median regain as a share of the maximum lost (9.5% one year after). 67.3% had regained at least 20% of what they lost. [[King2018JAMA]]</p></div>
+    <div class="card"><span class="kicker">LABS-2, 7 years</span><span class="af-num">28.4%</span><p>Mean weight loss after bypass at 7 years, with mean regain of 3.9% of baseline weight between years 3 and 7; trajectories varied widely. [[Courcoulas2018LABS]]</p></div>
+    <div class="card"><span class="kicker">Next steps</span><p>Revisional surgery achieves further weight loss in selected people but carries more complications than a first operation. [[Eisenberg2022ASMBS]] Medicines are another option; see <a href="#glp" data-go="glp">How GLP-1 medicines work</a> and <a href="#adaptation" data-go="adaptation">Why lost weight comes back</a>.</p></div>
+  </div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service. Some weight returning after surgery is common and is not a personal failure.</p>
+
+  <h3 class="sub">Alcohol and mental health</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">Alcohol after bypass</span><span class="af-num">20.8%</span><p>Cumulative new alcohol use disorder symptoms by 5 years after bypass, versus 11.3% after a band (AHR 2.08). [[King2017SOARD]] In SOS, bypass raised the risk of alcohol abuse diagnoses (adjusted HR 4.97); banding did not. [[Svensson2013SOS]]</p></div>
+    <div class="card"><span class="kicker">Self-harm</span><span class="af-num">RR 1.54</span><p>Self-harm emergencies rose from 2.33 to 3.63 per 1000 patient-years after surgery in Ontario; 93% of events were in people with a mental health diagnosis in the 5 years before. [[Bhatti2016]] A meta-analysis found 3.8 times the odds of self-harm or suicide attempt compared with matched controls. [[Castaneda2019]]</p></div>
+    <div class="card"><span class="kicker">Suicide</span><span class="af-num">4.1</span><p>Estimated suicides per 10,000 person-years after bariatric surgery, higher than in the general population. [[Peterhansel2013]] Whether surgery causes this or reflects earlier risk is unresolved. [[Bhatti2016]]</p></div>
+  </div>
+  <p class="support" role="note"><b>Support is part of care</b>These findings support psychological screening and follow-up before and after surgery, and alcohol education and screening. [[Peterhansel2013,King2017SOARD]] Feeling low, struggling with drinking or with how you eat are reasons to reach out, not reasons for shame. More in <a href="#living" data-go="living">Living with obesity</a>.</p>
+
+  <h3 class="sub">Pregnancy after surgery</h3>
+  <div class="prose"><p>A 2019 international consensus advises postponing pregnancy until weight is stable, typically about 1 year after sleeve or bypass and 2 years after a band, and contraceptive counselling before surgery. [[Shawe2019ObesRev]] In a Swedish register, pregnancies after surgery had less gestational diabetes (1.9% versus 6.8%) and fewer large babies, but more small-for-gestational-age babies (15.6% versus 7.6%). [[Johansson2015NEJM]] Details are in <a href="#pregnancy" data-go="pregnancy">Pregnancy &amp; fertility</a>.</p></div>
+
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Thiamine deficiency with vomiting after surgery risks Wernicke-Korsakoff syndrome. [[Lupoli2017]] Alcohol use disorder risk is about twice as high after bypass as after a band. [[King2012JAMA,King2017SOARD]]</div>
+    <div class="pt"><b>In plain words</b>After surgery you need vitamins and minerals for life, and regular blood tests. Your team will tell you which ones. Do not start, stop or change any medicine or supplement without your clinician. [[Parrott2017ASMBS]]</div>
+  </div>
+</section>
