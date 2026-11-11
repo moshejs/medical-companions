@@ -165,8 +165,8 @@ inits.nursing=()=>{
   function calc(){
     const male=sx.value==='m',h=clamp(+ht.value||0,120,220),w=clamp(+wt.value||0,30,350);
     const ibw=h-(male?100:105),abw=ibw+.4*(w-ibw),cap=male?100:70;
-    const N=vb(bsv,'720 260','400 360');
-    const L=N?{lx:20,bx:20,bw:300,y0:44,rh:66}:{lx:20,bx:250,bw:400,y0:40,rh:52};
+    const N=vb(bsv,'720 220','400 270');
+    const L=N?{lx:20,bx:20,bw:300,y0:24,rh:66}:{lx:20,bx:250,bw:400,y0:40,rh:52};
     const mx=Math.max(w,ibw,abw,cap)*1.08,X=v=>L.bx+L.bw*v/mx;
     const rows=[['Total body weight (TBW)',w,'var(--figure-line)','the weight on the scale'],['Ideal body weight (IBW)',ibw,'var(--tx)',`height ${h} − ${male?100:105}`],['Adjusted body weight (ABW)',abw,'var(--life)','IBW + 0.4 × (TBW − IBW)']];
     let g='';
@@ -176,7 +176,7 @@ inits.nursing=()=>{
       g+=`<rect x="${L.bx}" y="${by}" width="${f1(Math.max(2,X(Math.max(0,v))-L.bx))}" height="18" rx="4" style="fill:${col};opacity:.85"/><text x="${f1(X(Math.max(0,v))+6)}" y="${by+13}" class="t-xs" style="fill:var(--ink);font-weight:700">${v.toFixed(1)} kg</text>`;
       if(i===2&&w>ibw){const a=X(ibw),b=X(w),c=X(abw);g+=`<path d="M${f1(a)} ${by+24}v6H${f1(b)}v-6" style="fill:none;stroke:var(--muted);stroke-width:1.2"/>`+kitLabel(c,by+44,'40% of the excess',{a:'m'})}});
     const cy=L.y0+3*L.rh+(N?6:0);
-    g+=`<line x1="${f1(X(cap))}" x2="${f1(X(cap))}" y1="${L.y0-14}" y2="${cy}" style="stroke:var(--hl);stroke-width:1.4;stroke-dasharray:5 3"/>`+kitLabel(X(cap)+4,L.y0-16,`lean body weight rarely above ${cap} kg (${male?'men':'women'})`);
+    g+=`<line x1="${f1(X(cap))}" x2="${f1(X(cap))}" y1="${L.y0-14}" y2="${cy}" style="stroke:var(--hl);stroke-width:1.4;stroke-dasharray:5 3"/>`+(N?kitLabel(20,cy+20,`dashed line: lean body weight rarely above ${cap} kg (${male?'men':'women'})`):kitLabel(X(cap)+4,L.y0-16,`lean body weight rarely above ${cap} kg (${male?'men':'women'})`));
     bsv.innerHTML=g;
     out.innerHTML=`<b>${w.toFixed(0)} kg</b> total · <b>${ibw.toFixed(1)} kg</b> ideal · <b>${abw.toFixed(1)} kg</b> adjusted`+(w<ibw?' · total is below ideal here, so adjusted falls between them':'');
   }
@@ -193,7 +193,7 @@ inits.nursing=()=>{
     const S={abdomen:[[px-18*k/2.6,py+48*k],[px+18*k/2.6,py+48*k]],thigh:[[px-7*k,py+70*k],[px+7*k,py+70*k]],arm:[[px-17*k,py+34*k],[px+17*k,py+34*k]],backarm:[[px-17*k,py+34*k],[px+17*k,py+34*k]]};
     const NM={abdomen:'abdomen',thigh:'thigh',arm:'upper arm',backarm:'back of upper arm (by another person)'};
     P.sites.forEach((s,j)=>{S[s].forEach(q=>{g+=`<circle cx="${f1(q[0])}" cy="${f1(q[1])}" r="9" style="fill:var(--rx-drug);opacity:.25"/><circle cx="${f1(q[0])}" cy="${f1(q[1])}" r="4.5" style="fill:var(--rx-drug)"/>`});
-      const q=S[s][1],lx=N?px+90:px+120,ly=py+40+j*60;g+=`<line x1="${f1(q[0]+6)}" y1="${f1(q[1])}" x2="${lx-4}" y2="${ly}" style="stroke:var(--muted);stroke-width:1"/>`+kitLabel(lx,ly+3,NM[s])});
+      const q=S[s][1],lx=N?px+90:px+120,ly=q[1]+(s==='abdomen'?6:0);g+=`<line x1="${f1(q[0]+6)}" y1="${f1(q[1])}" x2="${lx-4}" y2="${ly}" style="stroke:var(--muted);stroke-width:1"/>`+kitLabel(lx,ly+3,NM[s])});
     if(!N)g+=pen(560,150,1.4,{ang:-30,needle:0,cap:true}).svg+`<text x="560" y="250" class="t-xs t-mid">prefilled pen (no dose shown)</text>`;
     psv.innerHTML=g;
     pl.innerHTML=P.items.map((it,j)=>`<li><label><input type="checkbox"> <span>${it}</span></label></li>`).join('');

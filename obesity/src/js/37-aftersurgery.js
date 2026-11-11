@@ -41,7 +41,7 @@ const AF_LANES=[
  ['Alcohol problems (bypass)',365,7300,'var(--pyy)'],
  ['Weight recurrence',730,7300,'var(--figure-line)']
 ];
-const AF_TICKS=[[0,'0'],[7,'1 wk',1],[30,'1 mo'],[182,'6 mo'],[365,'1 y'],[730,'2 y'],[1825,'5 y'],[3650,'10 y'],[7300,'20 y']];
+const AF_TICKS=[[0,'0'],[7,'1 wk',1],[30,'1 mo'],[182,'6 mo'],[365,'1 y'],[730,'2 y',1],[1825,'5 y'],[3650,'10 y',1],[7300,'20 y']];
 const AF_TILES=[
  [{v:'0.3%',l:['30-day mortality,','LABS 2005-07']},{v:'0.03-0.2%',l:['perioperative','mortality now']},{v:'70-80%',l:['of clots found','after discharge']}],
  [{v:'up to 40%',l:['early dumping','(reported)']},{v:'up to 25%',l:['late dumping','(reported)']},{v:'<50 mg/dL',l:['glucose nadir that','defines late dumping']}],
@@ -153,10 +153,10 @@ inits.aftersurgery=()=>{
   const nv=$('#afNu'),nb=$('#afNuBtns'),ps=$('#afProc'),nn=$('#afNuNote');let nu='iron',g=1,stopG=null;
   nb.innerHTML=Object.keys(AF_NU).map(k=>`<button class="btn" data-nu="${k}" aria-pressed="${k===nu}">${AF_NU[k].lab}</button>`).join('');
   function drawNu(){
-    const N=vb(nv,'720 330','400 560'),D=AF_NU[nu],pr=ps.value;
-    const L=N?{gx:120,gy:14,gs:.8,rx:16,ry:262,rw:300,rh:46}:{gx:16,gy:28,gs:1,rx:252,ry:44,rw:360,rh:46};
+    const N=vb(nv,'720 330','400 570'),D=AF_NU[nu],pr=ps.value;
+    const L=N?{gx:120,gy:30,gs:.8,rx:16,ry:270,rw:300,rh:46}:{gx:16,gy:28,gs:1,rx:252,ry:44,rw:400,rh:46};
     const gt=gutTract(L.gx,L.gy,L.gs,{variant:pr,morph:1,labels:!N});
-    let s=gt.svg+`<text x="${f1(L.gx+100*L.gs)}" y="${f1(L.gy+278*L.gs)}" class="t-xs t-mid" style="fill:var(--ink);font-weight:700">${AF_PROC[pr]}</text>`;
+    let s=gt.svg+`<text x="${f1(N?200:L.gx+100*L.gs)}" y="${f1(N?16:L.gy+278*L.gs)}" class="t-xs t-mid" style="fill:var(--ink);font-weight:700">${AF_PROC[pr]}</text>`;
     s+=`<text x="${L.rx}" y="${L.ry-18}" class="t-xs" style="fill:var(--ink);font-weight:700">${D.lab}: published figures (% of people)</text>`;
     if(!D.rows.length){s+=`<rect x="${L.rx}" y="${L.ry-4}" width="${N?368:440}" height="70" rx="10" style="fill:var(--panel-2);stroke:var(--line);stroke-dasharray:4 3"/>`;
       const words=D.empty.split(' ');let line='',ls=[];words.forEach(w=>{if((line+' '+w).length>(N?56:68)){ls.push(line);line=w}else line=(line?line+' ':'')+w});ls.push(line);
