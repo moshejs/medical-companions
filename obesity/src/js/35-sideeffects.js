@@ -26,7 +26,7 @@ const SE_STEPS=[
   txt:'Semaglutide delays gastric emptying. [[FDA-Wegovy]] The Wegovy label describes rare postmarketing reports of pulmonary aspiration under general anaesthesia or deep sedation in people taking GLP-1 receptor agonists who had food left in the stomach despite fasting. It says the data are insufficient to recommend holding the drug or changing fasting, and that patients should tell their care team before any procedure. [[FDA-Wegovy]] Slower emptying is also why Zepbound can reduce the effect of oral hormonal contraceptives. [[FDA-Zepbound]]',
   pt:'If you are having surgery or a scope, tell the team that you take one of these medicines. [[FDA-Wegovy]]',
   hook:'Aspiration under anaesthesia: food may remain in the stomach despite fasting. [[FDA-Wegovy]]'},
- {from:.56,at:.59,k:'Week 68 · body composition',t:'Lean mass share of loss',
+ {from:.56,at:.61,k:'Week 68 · body composition',t:'Lean mass share of loss',
   txt:'Weight lost includes some lean mass. In the SURMOUNT-1 DXA substudy (160 people), about 75% of the weight lost on tirzepatide was fat and 25% lean mass, the same proportions as with placebo. [[Look2025SURMOUNT1DXA]] Across GLP-1-based trials the lean share has ranged from about 15% or less to 40–60%. "Lean mass" includes organs, bone and water as well as muscle, and MRI studies suggest the muscle changes may be adaptive, with better muscle quality. <span class="ev early">Early evidence</span> [[Neeland2024LeanMass]]',
   pt:'Some of the weight lost is muscle and other lean tissue, so ways to protect muscle are worth discussing with a clinician. [[Neeland2024LeanMass]]',
   hook:'SURMOUNT-1 DXA: about 75% fat and 25% lean of the weight lost, as with placebo. [[Look2025SURMOUNT1DXA]]'},
@@ -51,7 +51,7 @@ const SE_L={wt:'weight change, % from week 0',gi:'new stomach and gut symptoms (
   box:'BOXED WARNING',th1:'rodents: C-cell tumours',th2:'humans: relevance not determined',th3:'contraindicated with a personal',th4:'or family history of MTC or MEN 2',th5:'C cells',thy:'thyroid',
   an1:'food left in the stomach',an2:'despite fasting',an3:'aspiration risk',an4:'tell the team before any procedure',airway:'airway',
   ln1:'of the weight lost (SURMOUNT-1 DXA)',fat:'fat',lean:'lean',ln2:'lean share across trials',ln3:'≤15%',ln4:'40–60%',
-  st1:'after randomisation to continue or stop',cont:'continued',swp:'switched to placebo',st2:'regain after any medicine stops',st3:'0.4 kg a month (37 studies)',
+  st1:'randomised to continue or stop',cont:'continued',swp:'switched to placebo',st2:'regain after any medicine stops',st3:'0.4 kg a month (37 studies)',
   pub:'published point',sch:'shape between points schematic'};
 
 /* the adverse-event comparator: label (or trial) rates, % */
@@ -102,9 +102,9 @@ inits.sideeffects=()=>{
     s+=`<ellipse cx="${f1(g[0])}" cy="${f1(g[1])}" rx="13" ry="20" transform="rotate(-30 ${f1(g[0])} ${f1(g[1])})" style="fill:var(--life);fill-opacity:.35;stroke:var(--life);stroke-width:1.6"/>`;
     s+=`<path d="M${f1(g[0]+6)} ${f1(g[1]-16)}Q${f1(g[0]+10)} ${f1(g[1]-30)} ${f1(lv.at.hilum[0])} ${f1(lv.at.hilum[1])}" style="fill:none;stroke:var(--life);stroke-width:2"/>`;
     [[-4,6],[3,10],[-1,0]].forEach((p,k)=>{const q=ramp(u,.2+k*.15,.4+k*.15);if(q>0)s+=`<circle cx="${f1(g[0]+p[0])}" cy="${f1(g[1]+p[1])}" r="${f1(3.4*q)}" style="fill:var(--device);stroke:var(--panel);stroke-width:1"/>`});
-    s+=kitLabel(g[0]+24,g[1]+26,SE_L.gbl,{});
+    s+=kitLabel(g[0]+18,g[1]+34,SE_L.gbl,{});
     const rows=[['1.6% vs 0.7%',SE_L.gb],['3.8% vs 0%',SE_L.gb2],['RR 2.29',SE_L.gb3]];
-    rows.forEach((r,i)=>{const yy=y+140+i*40,op=ramp(u,.15+i*.2,.35+i*.2);s+=`<g style="opacity:${f1(.15+.85*op)}">`+T(x,yy,r[0],'t-big','font-size:19px')+T(x,yy+15,r[1],'t-xs')+'</g>'});
+    rows.forEach((r,i)=>{const yy=y+164+i*40,op=ramp(u,.15+i*.2,.35+i*.2);s+=`<g style="opacity:${f1(.15+.85*op)}">`+T(x,yy,r[0],'t-big','font-size:19px')+T(x,yy+15,r[1],'t-xs')+'</g>'});
     return s}
   function spPan(x,y,w,h,u){let s='';const P=[[0,26],[30,16],[80,12],[130,4],[160,0],[164,14],[130,24],[80,34],[30,40],[4,42]].map(p=>[x+16+p[0]*.95,y+40+p[1]*1.1]);
     const glow=.25+.25*Math.sin(u*Math.PI*6);
@@ -130,9 +130,9 @@ inits.sideeffects=()=>{
     return s}
   function spAn(x,y,w,h,u){let s='';const st=stomach(x+40,y+50,1.1,{fill:.25+.4*ramp(u,0,.6),labels:false});s+=st.svg;
     /* airway beside the oesophagus */
-    const ax=x+30;s+=`<path d="M${f1(ax)} ${f1(y+10)}L${f1(ax)} ${f1(y+70)}" style="stroke:var(--device);stroke-width:10;stroke-linecap:round;opacity:.45"/>`+T(ax-6,y+16,SE_L.airway,'t-xs t-end');
+    const ax=x+30;s+=`<path d="M${f1(ax)} ${f1(y+10)}L${f1(ax)} ${f1(y+70)}" style="stroke:var(--device);stroke-width:10;stroke-linecap:round;opacity:.45"/>`+T(ax+10,y+14,SE_L.airway,'t-xs');
     const q=ramp(u,.4,.9);if(q>0){const e=st.at.eso;s+=`<path d="M${f1(e[0])} ${f1(e[1]+10)}Q${f1(e[0]-10)} ${f1(y+10)} ${f1(ax+6)} ${f1(y+40)}" style="fill:none;stroke:var(--risk);stroke-width:2;stroke-dasharray:4 3;opacity:${f1(q)}" marker-end="url(#seArR)"/>`;
-      s+=kitLabel(ax+30,y+30,SE_L.an3,{})}
+      s+=kitLabel(ax+12,y+86,SE_L.an3,{})}
     s+=T(x,y+222,SE_L.an1,'t-sm','fill:var(--ink)')+T(x,y+238,SE_L.an2,'t-sm','fill:var(--ink)');
     s+=`<rect x="${f1(x)}" y="${f1(y+252)}" width="${f1(w-6)}" height="26" rx="6" style="fill:none;stroke:var(--tx);stroke-width:1.4"/>`+T(x+8,y+269,SE_L.an4,'t-xs','fill:var(--ink);font-weight:700');
     return s}
@@ -148,7 +148,7 @@ inits.sideeffects=()=>{
     [0,25,50,75,100].forEach(v=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${ry-3}" y2="${ry+3}" class="axis"/>`+T(X(v),ry+16,v+'%','t-xs t-mid')});
     s+=`<rect x="${f1(X(0))}" y="${ry-7}" width="${f1(X(15)-X(0))}" height="14" rx="3" style="fill:var(--lean);opacity:.45"/><rect x="${f1(X(40))}" y="${ry-7}" width="${f1(X(60)-X(40))}" height="14" rx="3" style="fill:var(--lean);opacity:.45"/>`;
     s+=`<circle cx="${f1(X(25))}" cy="${ry}" r="5" style="fill:var(--lean);stroke:var(--panel);stroke-width:2"/>`;
-    s+=T(X(7.5),ry+32,SE_L.ln3,'t-xs t-mid')+T(X(50),ry+32,SE_L.ln4,'t-xs t-mid')+T(X(25),ry-12,'25%','t-xs t-mid','fill:var(--ink)')+'</g>';
+    s+=T(X(7.5),ry+32,SE_L.ln3,'t-xs t-mid')+T(X(50),ry+32,SE_L.ln4,'t-xs t-mid')+'</g>';
     return s}
   function spStop(x,y,w,h,u){let s='';const g=ease(ramp(u,.05,.5)),c=x+w*.46,sc=(w*.46-10)/15;
     s+=T(x,y+14,SE_L.st1,'t-xs','fill:var(--ink);font-weight:700');
@@ -185,22 +185,22 @@ inits.sideeffects=()=>{
     SE_WPUBP.forEach(q=>{if(wk>=q[0])s+=`<circle cx="${f1(X(q[0]))}" cy="${f1(YA(q[1]))}" r="3.5" style="fill:var(--figure-line);stroke:var(--panel);stroke-width:1.5"/>`});
     if(wk>=SE_STOPW)s+=kitLabel(X(SE_STOPW)+6,YA(-17.3)+4,'−17.3%',{});
     if(wk>=SE_WK-.5)s+=kitLabel(X(SE_WK)-4,YA(-5.6)+18,'−5.6%',{a:'e'});
-    const ey=YA(fW(wk));s+=T(Math.min(X(wk)+6,L.x1-60),ey-8,SE_L.sem,'t-xs','fill:var(--rx-drug);font-weight:700;opacity:'+f1(ramp(wk,4,12)));
-    s+=T(Math.min(X(wk)+6,L.x1-60),YA(fP(wk))-6,SE_L.plc,'t-xs','opacity:'+f1(ramp(wk,4,12)));
+    const ey=YA(fW(wk)),rt=X(wk)>L.x1-110,lx=rt?X(wk)-6:X(wk)+6,la=rt?'t-xs t-end':'t-xs';s+=T(lx,ey+(rt?16:-8),SE_L.sem,la,'fill:var(--rx-drug);font-weight:700;opacity:'+f1(ramp(wk,4,12)));
+    s+=T(lx,YA(fP(wk))+(rt?14:-6),SE_L.plc,la,'opacity:'+f1(ramp(wk,4,12)));
     /* panel B: GI symptoms */
     s+=T(L.x0,L.by-6,SE_L.gi,'t-xs','fill:var(--ink);font-weight:700');
     {const P=[];for(let w=0;w<=wk;w+=.5)P.push([X(w),YB(giF(w))]);if(P.length>1)s+=`<path d="${ptsD(P)}L${f1(P[P.length-1][0])} ${f1(YB(0))}L${f1(X(0))} ${f1(YB(0))}Z" style="fill:var(--rx-drug);opacity:.18"/><path d="${ptsD(P)}" style="fill:none;stroke:var(--rx-drug);stroke-width:2"/>`}
     s+=`<line x1="${L.x0}" x2="${L.x1}" y1="${f1(YB(0))}" y2="${f1(YB(0))}" class="axis"/>`;
     /* panel C: dose steps */
-    s+=T(L.x0,L.cy-6,SE_L.dose,'t-xs','fill:var(--ink);font-weight:700');
+    s+=T(L.x1,L.cy-6,SE_L.dose,'t-xs t-end','fill:var(--ink);font-weight:700');
     {let d='';SE_DOSE.forEach((q,k)=>{const nxw=SE_DOSE[k+1]?SE_DOSE[k+1][0]:SE_WK;if(q[0]>wk)return;const e=Math.min(nxw,wk);d+=(d?'L':'M')+f1(X(q[0]))+' '+f1(YC(q[1]))+'L'+f1(X(e))+' '+f1(YC(q[1]))});
       s+=`<path d="${d}" style="fill:none;stroke:var(--tx);stroke-width:2.6"/>`}
-    [[0,.25],[4,.5],[8,1],[12,1.7],[16,2.4]].forEach((q,k)=>{if(wk>=q[0]&&(!N||k%2===0||k===4))s+=T(X(q[0])+2,YC(q[1])-4,q[1],'t-xs','fill:var(--tx)')});
+    if(wk>=16)s+=T(X(16)+6,YC(2.4)+12,'2.4 mg','t-xs','fill:var(--tx);font-weight:700');
     s+=`<line x1="${L.x0}" x2="${L.x1}" y1="${f1(YC(0))}" y2="${f1(YC(0))}" class="axis"/>`;
     /* week axis and now line */
     [0,16,40,68,94,120].forEach(w=>{s+=`<line x1="${f1(X(w))}" x2="${f1(X(w))}" y1="${f1(L.cy+L.ch)}" y2="${f1(L.cy+L.ch+4)}" class="axis"/>`+T(X(w),L.ty,w,'t-xs t-mid')});
     s+=T(L.x1,L.ty+14,SE_L.wk+'s','t-xs t-end');
-    s+=T(X(SE_STOPW)+4,L.ay+12,SE_L.stopped,'t-xs','fill:var(--ink)');
+    s+=T(X(SE_STOPW)+4,YA(-19),SE_L.stopped,'t-xs','fill:var(--ink)');
     s+=`<line x1="${f1(X(wk))}" x2="${f1(X(wk))}" y1="${L.ay}" y2="${f1(L.cy+L.ch)}" style="stroke:var(--ink);stroke-width:1.2;opacity:.5"/>`;
     /* spotlight */
     s+=`<rect x="${L.sx-8}" y="${L.sy-8}" width="${L.sw+12}" height="${L.sh+12}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;

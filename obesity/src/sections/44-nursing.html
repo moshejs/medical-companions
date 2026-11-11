@@ -1,2 +1,110 @@
-<!-- STUB: replaced by its builder (groups) -->
-<section class="mod" id="m-nursing" data-mod="nursing" hidden><div class="mhead"><p class="eyebrow">Part 4 · Across life &amp; care</p><h2>Nursing care</h2><p class="lede">Respectful nursing care needs the right words, the right equipment and careful observation; this module will walk through a hospital stay.</p></div></section>
+<!-- ================= 4.4 NURSING CARE ================= -->
+<style>
+#m-nursing .nu-row{display:flex;flex-wrap:wrap;gap:8px}
+#m-nursing .nu-row .btn{min-height:40px}
+#m-nursing .nu-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+#m-nursing .nu-list label{display:flex;gap:10px;align-items:flex-start;font-size:15px;cursor:pointer}
+#m-nursing .nu-list input{margin-top:4px;accent-color:var(--life);flex:none}
+#m-nursing .nu-list input:checked+span{color:var(--muted);text-decoration:line-through}
+#m-nursing .nu-out{font:500 14px var(--mono);color:var(--muted)}
+#m-nursing .nu-out b{color:var(--ink)}
+</style>
+<section class="mod" id="m-nursing" data-mod="nursing" hidden>
+  <div class="mhead"><p class="eyebrow">Part 4 · Across life &amp; care</p><h2>Nursing care</h2>
+    <p class="lede">Good nursing care for a person living with obesity is mostly about respect, equipment that fits and careful observation. Scrub through a hospital stay in six stations. [[Nightingale2015,Muntner2019,Rubino2020Stigma]]</p></div>
+
+  <div class="stepper" id="nuSteps"></div>
+  <div class="lab">
+    <div class="stage">
+      <div class="scroll"><svg id="nuSvg" viewBox="0 0 720 400" style="min-width:560px" role="img" aria-label="A hospital stay in six stations: a lifting load passing the 35 pound NIOSH limit; an arm whose circumference grows until an adult cuff bladder covers less than 75% of it, then an extra-large cuff fits; a J-shaped chart of pressure injury odds by BMI; a patient's back raised until the ear is level with the sternum and then to 45 degrees; needles of 16, 25 and 38 millimetres through a thickening fat layer; and a simulated heart rate climbing past 120 after bariatric surgery."></svg></div>
+      <div class="ctrls"><button class="btn primary" id="nuPlay">%t:player.play%</button><label class="stage-cap tl" for="nuT">Hospital stay <input type="range" id="nuT" min="0" max="1" step="0.001" value="0.09"></label></div>
+      <p class="stage-cap">Schematic scenes; the patient’s readings and the fat thickness are illustrative. Thresholds and study numbers as published. [[Waters2007,Muntner2019,Jia2024,Nightingale2015,Juvin2003,Poland1997,Hamilton2003]]</p>
+    </div>
+    <aside class="note" id="nuNote" aria-live="polite"></aside>
+  </div>
+  <p class="crisis" role="note"><b>Urgent</b><span>After weight-loss surgery, a racing heart, trouble breathing, fever or new belly or shoulder pain needs the surgical team at once: these can be signs of a leak. [[Hamilton2003,Kim2026Complications]]</span></p>
+
+  <h3 class="sub">Blood pressure cuffs, as published</h3>
+  <div class="tbl"><table>
+    <caption class="sr">AHA 2019 illustrative cuff sizes by arm circumference</caption>
+    <thead><tr><th scope="col">Cuff</th><th scope="col">Arm circumference</th><th scope="col">Bladder (width × length)</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Small adult</th><td>22 to 26 cm</td><td>12 × 22 cm</td></tr>
+      <tr><th scope="row">Adult</th><td>27 to 34 cm</td><td>16 × 30 cm</td></tr>
+      <tr class="life"><th scope="row">Large adult</th><td>35 to 44 cm</td><td>16 × 36 cm</td></tr>
+      <tr class="life"><th scope="row">Extra-large adult</th><td>45 to 52 cm</td><td>16 × 42 cm [[Muntner2019]]</td></tr>
+    </tbody></table></div>
+  <div class="prose"><p>Kiosk blood pressure machines usually have a single cuff size that is too small for most US adults. Children with obesity (BMI at or above the 95th percentile) should have blood pressure measured at every health care encounter. [[Muntner2019]]</p></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Bladder length 75 to 100% and width 37 to 50% of arm circumference, measured midway between acromion and olecranon; a small cuff reads high. [[Muntner2019]]</div>
+    <div class="pt"><b>In plain words</b>The cuff has to fit the arm. If it is too small, the reading comes out higher than the real blood pressure.</div>
+  </div>
+
+  <h3 class="sub">Body-weight descriptors: total, ideal and adjusted</h3>
+  <div class="prose"><p>No single body-size descriptor works for all drugs: volume of distribution guides a loading dose and clearance a maintenance dose, and both change with obesity in drug-specific ways. [[Hanley2010]] The AAGBI/SOBA guideline defines total body weight (actual weight), ideal body weight (height in cm minus 105 for women or minus 100 for men, as given in the guideline), lean body weight (weight without fat) and adjusted body weight, IBW + 0.4 × (TBW − IBW). [[Nightingale2015]] Try the formulas.</p></div>
+  <p class="teach" role="note"><b>Teaching tool</b>This shows how the published descriptors relate. It gives no dose and is not for choosing one: drug dosing follows the product label, local protocol and a pharmacist. The IBW formula is the simplified one printed in the guideline, not the Devine formula.</p>
+  <div class="stage">
+    <div class="calc">
+      <label for="nuSex">Formula<select id="nuSex"><option value="f">Women (height − 105)</option><option value="m">Men (height − 100)</option></select></label>
+      <label for="nuHt">Height (cm)<input type="number" id="nuHt" min="120" max="220" step="1" value="165"></label>
+      <label for="nuWt">Total body weight (kg)<input type="number" id="nuWt" min="30" max="350" step="1" value="130"></label>
+    </div>
+    <div class="scroll"><svg id="nuBw" viewBox="0 0 720 260" style="min-width:560px" role="img" aria-label="Bars comparing total, ideal and adjusted body weight for the values entered, with a line where lean body weight rarely goes above"></svg></div>
+    <p class="nu-out" id="nuBwOut" aria-live="polite"></p>
+    <p class="stage-cap">Formulas and the lean-weight ceiling as published by AAGBI/SOBA. [[Nightingale2015]]</p>
+  </div>
+  <div class="tbl"><table>
+    <caption class="sr">AAGBI/SOBA suggested initial dosing scalars and enoxaparin bands, quoted</caption>
+    <thead><tr><th scope="col">AAGBI/SOBA, quoted as published</th><th scope="col">Statement</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Lean body weight</th><td>Suggested scalar for induction propofol, fentanyl and rocuronium [[Nightingale2015]]</td></tr>
+      <tr><th scope="row">Adjusted body weight</th><td>Suggested scalar for propofol infusion, antibiotics and low-molecular-weight heparin [[Nightingale2015]]</td></tr>
+      <tr><th scope="row">Ideal body weight</th><td>Suggested scalar for tidal volume and tracheal tube size [[Nightingale2015]]</td></tr>
+      <tr class="tx"><th scope="row">Enoxaparin prophylaxis bands</th><td>Under 50 kg: 20 mg once daily; 50 to 100 kg: 40 mg once daily; 100 to 150 kg: 40 mg twice daily; over 150 kg: 60 mg twice daily [[Nightingale2015]]</td></tr>
+      <tr><th scope="row">The label’s position</th><td>Prophylactic dosing with BMI over 30 “has not been fully determined and there is no consensus for dose adjustment” [[FDA-Lovenox]]</td></tr>
+    </tbody></table></div>
+  <div class="prose"><p>In 3928 inpatients over 100 kg with BMI 40 or more, high-dose prophylaxis (enoxaparin 40 mg twice daily or heparin 7500 units three times daily) went with less VTE than standard doses (0.77% vs 1.48%, OR 0.52, 95% CI 0.27 to 1.00) without more bleeding (OR 0.84). [[Wang2014]] After gastric bypass, a BMI-stratified regimen gave a VTE rate of 0.45%. [[Borkgren2008]] These are observational data; there is no definitive trial. Doses are quoted, never instructions.</p></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Adjusted body weight = IBW + 0.4 × (TBW − IBW); lean body weight rarely exceeds 100 kg in men or 70 kg in women. [[Nightingale2015]]</div>
+    <div class="pt"><b>In plain words</b>Medicines spread through the body differently at a higher weight, so doctors and pharmacists use different body-weight measures for different medicines.</div>
+  </div>
+
+  <h3 class="sub">Needle length for intramuscular injections</h3>
+  <div class="tbl"><table>
+    <caption class="sr">Deltoid needle lengths proposed by Poland 1997</caption>
+    <thead><tr><th scope="col">Group (Poland 1997, as published)</th><th scope="col">Proposed deltoid needle</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Women under 60 kg</th><td>16 mm</td></tr>
+      <tr><th scope="row">Women 60 to 90 kg</th><td>25 mm (1 in)</td></tr>
+      <tr><th scope="row">Men 59 to 118 kg</th><td>25 mm (1 in)</td></tr>
+      <tr class="life"><th scope="row">Women over 90 kg</th><td>38 mm (1.5 in) [[Poland1997]]</td></tr>
+    </tbody></table></div>
+  <div class="prose"><p>Gluteal sites are harder still: on CT, dorsogluteal depth exceeded 25 mm in 72 of 100 adults and ventrogluteal depth exceeded 35 mm in 12. [[Nisbet2006]]</p></div>
+
+  <h3 class="sub">Teaching a weekly or daily pen, as the labels say</h3>
+  <div class="prose"><p>Pick a medicine. The sites and the checklist are label statements, for teaching alongside the product leaflet; they are not instructions. Do not start, stop or change a medicine without a clinician.</p></div>
+  <div class="nu-row" id="nuPenBtns" role="group" aria-label="Medicine"></div>
+  <div class="lab even">
+    <div class="stage">
+      <div class="scroll"><svg id="nuPen" viewBox="0 0 720 300" style="min-width:560px" role="img" aria-label="A standing figure with the injection sites named in the chosen medicine's label marked, and a capped prefilled pen"></svg></div>
+      <p class="stage-cap">Injection sites from each US label. [[FDA-Wegovy,FDA-Zepbound,FDA-Saxenda]]</p>
+    </div>
+    <div class="note"><div class="kicker">Teaching checklist</div><h4>What the label says</h4><ul class="nu-list" id="nuPenList"></ul>
+      <p>All three carry a boxed warning on thyroid C-cell tumours seen in rodents; human relevance has not been determined. [[FDA-Wegovy,FDA-Zepbound,FDA-Saxenda]] Products sold online or “compounded” are not the same as FDA-approved medicines. <span class="ev early">Early evidence</span> [[McCall2026Compounded]]</p></div>
+  </div>
+  <p class="edcare" role="note"><b>If eating or weight is distressing</b>If eating or weight causes distress, or someone restricts, binges or purges, talk to a clinician or an eating-disorder service.</p>
+
+  <h3 class="sub">Talking without stigma: the 5As</h3>
+  <div class="cards">
+    <div class="card"><span class="kicker">1 · Ask</span><p>Ask permission to discuss weight, without judgement. [[Vallis2013]]</p></div>
+    <div class="card"><span class="kicker">2 · Assess</span><p>Assess BMI, waist and obesity stage, and look at drivers and complications. [[Vallis2013]]</p></div>
+    <div class="card"><span class="kicker">3 · Advise</span><p>Advise on health risks, the benefits of modest loss and treatment options. [[Vallis2013]]</p></div>
+    <div class="card"><span class="kicker">4 · Agree</span><p>Agree on realistic expectations and a plan. [[Vallis2013]]</p></div>
+    <div class="card"><span class="kicker">5 · Assist</span><p>Assist with barriers, resources, referral and follow-up. [[Vallis2013]]</p></div>
+  </div>
+  <div class="prose"><p>Among 2284 doctors, implicit anti-fat bias was strong (Cohen’s d 0.93), similar to the public. [[Sabin2012]] In a US survey, 19% would avoid future appointments and 21% would seek a new doctor if they felt stigmatised about their weight. [[Puhl2013Language]] Stigma reduction should target the behaviour of those who stigmatise, starting in health-professional training. [[Tomiyama2018,Rubino2020Stigma]] More in <a href="#stigma" data-go="stigma">Weight stigma &amp; bias</a> and <a href="#assessment" data-go="assessment">Assessment &amp; staging</a>.</p></div>
+  <div class="split2">
+    <div class="hook"><b>Exam hook</b>Difficult intubation: 15.5% with BMI 35 or more vs 2.2% lean; neck circumference and Mallampati predict it better than BMI. [[Juvin2003,Brodsky2002]]</div>
+    <div class="pt"><b>In plain words</b>You have the right to respectful words. “A person with obesity” or “higher weight” puts the person first.</div>
+  </div>
+</section>
