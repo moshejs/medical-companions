@@ -106,14 +106,15 @@ inits.aftersurgery=()=>{
       s+=`<text x="${f1(tx+9)}" y="${f1(y+26)}" class="t-big" style="font-size:19px;fill:var(--tx)">${it.v.replace('<','&lt;')}</text>`;
       it.l.forEach((ln,j)=>{s+=`<text x="${f1(tx+9)}" y="${f1(y+44+j*12)}" class="t-xs" style="fill:var(--ink)">${ln}</text>`});s+='</g>'});
     return s}
-  function lifeExp(x,y,w,h,u){let s='';const X=v=>x+30+(w-60)*v/9,yy=y+h/2+6,g=ease(clamp(u*1.6));
-    s+=`<text x="${f1(x+12)}" y="${f1(y+20)}" class="t-xs" style="fill:var(--ink);font-weight:700">median life expectancy, years more than usual care (SOS, 24 years)</text>`;
+  function lifeExp(x,y,w,h,u,N){let s='';const X=v=>x+24+(w-48)*v/9,yy=y+(N?92:54),g=ease(clamp(u*1.6));
+    s+=`<text x="${f1(x+12)}" y="${f1(y+20)}" class="t-xs" style="fill:var(--ink);font-weight:700">${N?'median life expectancy vs usual care':'median life expectancy, years more than usual care (SOS, median follow-up 24 years)'}</text>`;
+    if(N)s+=`<text x="${f1(x+12)}" y="${f1(y+34)}" class="t-xs" style="fill:var(--ink);font-weight:700">(SOS, median follow-up 24 years)</text>`;
     s+=`<line x1="${f1(X(0))}" x2="${f1(X(9))}" y1="${f1(yy)}" y2="${f1(yy)}" class="axis"/>`;
-    [0,3,6,9].forEach(v=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${f1(yy-3)}" y2="${f1(yy+3)}" class="axis"/><text x="${f1(X(v))}" y="${f1(yy+16)}" class="t-xs t-mid">${v?'+'+v:'0'}</text>`});
-    s+=`<rect x="${f1(X(0))}" y="${f1(yy-12)}" width="${f1((X(3)-X(0))*g)}" height="8" rx="4" style="fill:var(--tx)"/>`;
-    s+=`<rect x="${f1(X(3))}" y="${f1(yy-12)}" width="${f1((X(8.5)-X(3))*clamp(g*2-1))}" height="8" rx="4" style="fill:none;stroke:var(--muted);stroke-dasharray:3 3"/>`;
-    const mk=(v,t1,t2,col,op)=>`<g style="opacity:${f1(op)}"><circle cx="${f1(X(v))}" cy="${f1(yy-8)}" r="6" style="fill:${col};stroke:var(--panel);stroke-width:2"/><text x="${f1(X(v))}" y="${f1(yy-22)}" class="t-xs t-mid" style="fill:var(--ink);font-weight:700">${t1}</text>${t2?`<text x="${f1(X(v))}" y="${f1(yy+30)}" class="t-xs t-mid">${t2}</text>`:''}</g>`;
-    s+=mk(0,'usual care','',`var(--muted)`,1)+mk(3,'surgery +3.0','',`var(--tx)`,clamp(g*2))+mk(8.5,'general population','5.5 more',`var(--ink)`,clamp(g*2-1));
+    [0,3,6,9].forEach(v=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${f1(yy-3)}" y2="${f1(yy+3)}" class="axis"/><text x="${f1(X(v))}" y="${f1(yy+16)}" class="t-xs t-mid">${v?'+'+v+' y':'0'}</text>`});
+    s+=`<rect x="${f1(X(0))}" y="${f1(yy-4)}" width="${f1((X(3)-X(0))*g)}" height="8" rx="4" style="fill:var(--tx)"/>`;
+    s+=`<rect x="${f1(X(3))}" y="${f1(yy-4)}" width="${f1((X(8.5)-X(3))*clamp(g*2-1))}" height="8" rx="4" style="fill:none;stroke:var(--muted);stroke-dasharray:3 3"/>`;
+    const mk=(v,t1,a,col,op,dy)=>`<g style="opacity:${f1(op)}"><circle cx="${f1(X(v))}" cy="${f1(yy)}" r="6" style="fill:${col};stroke:var(--panel);stroke-width:2"/><text x="${f1(X(v)+(a==='t-end'?6:a===''?-6:0))}" y="${f1(yy-12-dy)}" class="t-xs ${a}" style="fill:var(--ink);font-weight:700">${t1}</text></g>`;
+    s+=mk(0,'usual care','',`var(--muted)`,1,0)+mk(3,'surgery: +3.0 y','t-mid',`var(--tx)`,clamp(g*2),N?14:0)+mk(8.5,'general population: 5.5 y more','t-end',`var(--ink)`,clamp(g*2-1),0);
     return s}
   function draw(t){
     const N=vb(svg,'720 400','400 600');
@@ -124,7 +125,7 @@ inits.aftersurgery=()=>{
     let s=`<text x="${N?22:20}" y="${N?30:30}" class="t-big" style="font-size:22px">${dTxt}</text><text x="${N?378:702}" y="30" class="t-sm t-end" style="fill:var(--ink)">${P.k}</text>`;
     /* axis */
     s+=`<line x1="${L.ax}" x2="${L.ax+L.aw}" y1="${L.ay}" y2="${L.ay}" class="axis"/>`;
-    AF_TICKS.forEach(k=>{if(N&&k[2])return;const x=X(k[0]);s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${L.ay-4}" y2="${L.ay}" class="axis"/><text x="${f1(x)}" y="${L.ay-8}" class="t-xs ${k[0]===7300?'t-end':k[0]===0?'':'t-mid'}">${k[1]}</text>`;
+    AF_TICKS.forEach(k=>{if(N&&k[2])return;const x=X(k[0]);s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${L.ay-4}" y2="${L.ay}" class="axis"/><text x="${f1(x)}" y="${L.ay-8}" class="t-xs ${k[0]===0?'':'t-mid'}">${k[1]}</text>`;
       s+=`<line x1="${f1(x)}" x2="${f1(x)}" y1="${L.ly-4}" y2="${L.ly+AF_LANES.length*L.lh}" class="grid"/>`});
     /* lanes */
     AF_LANES.forEach((ln,i)=>{const y=L.ly+i*L.lh,a=X(ln[1]),b=X(ln[2]),on=d>=ln[1]&&d<=ln[2],past=d>ln[2];
@@ -140,7 +141,7 @@ inits.aftersurgery=()=>{
     if(AF_TILES[p]){const T=AF_TILES[p];
       if(N){T.forEach((it,i)=>{const ty=L.sy+10+i*52,op=clamp(.4+u*4-i*.4);s+=`<g style="opacity:${f1(op)}"><rect x="${L.sx+10}" y="${ty}" width="${L.sw-20}" height="46" rx="10" style="fill:var(--panel);stroke:var(--line)"/><text x="${L.sx+20}" y="${ty+30}" class="t-big" style="font-size:19px;fill:var(--tx)">${it.v.replace('<','&lt;')}</text>`+it.l.map((ln,j)=>`<text x="${L.sx+140}" y="${ty+20+j*13}" class="t-xs" style="fill:var(--ink)">${ln}</text>`).join('')+'</g>'})}
       else s+=tiles(L.sx+10,L.sy+10,L.sw-20,L.sh-20,T,u)}
-    else s+=lifeExp(L.sx,L.sy,L.sw,L.sh,u);
+    else s+=lifeExp(L.sx,L.sy,L.sw,L.sh,u,N);
     svg.innerHTML=s;
     setSt(p);note.innerHTML=noteHTML(P);
   }

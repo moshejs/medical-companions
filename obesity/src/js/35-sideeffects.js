@@ -132,7 +132,7 @@ inits.sideeffects=()=>{
     /* airway beside the oesophagus */
     const ax=x+30;s+=`<path d="M${f1(ax)} ${f1(y+10)}L${f1(ax)} ${f1(y+70)}" style="stroke:var(--device);stroke-width:10;stroke-linecap:round;opacity:.45"/>`+T(ax+10,y+14,SE_L.airway,'t-xs');
     const q=ramp(u,.4,.9);if(q>0){const e=st.at.eso;s+=`<path d="M${f1(e[0])} ${f1(e[1]+10)}Q${f1(e[0]-10)} ${f1(y+10)} ${f1(ax+6)} ${f1(y+40)}" style="fill:none;stroke:var(--risk);stroke-width:2;stroke-dasharray:4 3;opacity:${f1(q)}" marker-end="url(#seArR)"/>`;
-      s+=kitLabel(ax+12,y+86,SE_L.an3,{})}
+      s+=kitLabel(e[0]+10,y+28,SE_L.an3,{})}
     s+=T(x,y+222,SE_L.an1,'t-sm','fill:var(--ink)')+T(x,y+238,SE_L.an2,'t-sm','fill:var(--ink)');
     s+=`<rect x="${f1(x)}" y="${f1(y+252)}" width="${f1(w-6)}" height="26" rx="6" style="fill:none;stroke:var(--tx);stroke-width:1.4"/>`+T(x+8,y+269,SE_L.an4,'t-xs','fill:var(--ink);font-weight:700');
     return s}
@@ -146,7 +146,7 @@ inits.sideeffects=()=>{
     s+=`<g style="opacity:${f1(.12+.88*o)}">`+T(x,ry-22,SE_L.ln2,'t-xs','fill:var(--ink);font-weight:700');
     s+=`<line x1="${f1(X(0))}" x2="${f1(X(100))}" y1="${ry}" y2="${ry}" class="axis"/>`;
     [0,25,50,75,100].forEach(v=>{s+=`<line x1="${f1(X(v))}" x2="${f1(X(v))}" y1="${ry-3}" y2="${ry+3}" class="axis"/>`+T(X(v),ry+16,v+'%','t-xs t-mid')});
-    s+=`<rect x="${f1(X(0))}" y="${ry-7}" width="${f1(X(15)-X(0))}" height="14" rx="3" style="fill:var(--lean);opacity:.45"/><rect x="${f1(X(40))}" y="${ry-7}" width="${f1(X(60)-X(40))}" height="14" rx="3" style="fill:var(--lean);opacity:.45"/>`;
+    s+=`<rect x="${f1(X(0))}" y="${ry-7}" width="${f1(X(15)-X(0))}" height="14" rx="3" style="fill:var(--lean);opacity:.8"/><rect x="${f1(X(40))}" y="${ry-7}" width="${f1(X(60)-X(40))}" height="14" rx="3" style="fill:var(--lean);opacity:.8"/>`;
     s+=`<circle cx="${f1(X(25))}" cy="${ry}" r="5" style="fill:var(--lean);stroke:var(--panel);stroke-width:2"/>`;
     s+=T(X(7.5),ry+32,SE_L.ln3,'t-xs t-mid')+T(X(50),ry+32,SE_L.ln4,'t-xs t-mid')+'</g>';
     return s}
@@ -200,7 +200,7 @@ inits.sideeffects=()=>{
     /* week axis and now line */
     [0,16,40,68,94,120].forEach(w=>{s+=`<line x1="${f1(X(w))}" x2="${f1(X(w))}" y1="${f1(L.cy+L.ch)}" y2="${f1(L.cy+L.ch+4)}" class="axis"/>`+T(X(w),L.ty,w,'t-xs t-mid')});
     s+=T(L.x1,L.ty+14,SE_L.wk+'s','t-xs t-end');
-    s+=T(X(SE_STOPW)+4,YA(-19),SE_L.stopped,'t-xs','fill:var(--ink)');
+    s+=T(X(SE_STOPW)+4,L.by+14,SE_L.stopped,'t-xs','fill:var(--ink)');
     s+=`<line x1="${f1(X(wk))}" x2="${f1(X(wk))}" y1="${L.ay}" y2="${f1(L.cy+L.ch)}" style="stroke:var(--ink);stroke-width:1.2;opacity:.5"/>`;
     /* spotlight */
     s+=`<rect x="${L.sx-8}" y="${L.sy-8}" width="${L.sw+12}" height="${L.sh+12}" rx="12" style="fill:var(--field);stroke:var(--line)"/>`;
@@ -219,7 +219,7 @@ inits.sideeffects=()=>{
   const armCol=(k,n)=>k===0?'var(--figure)':'var(--rx-drug)',armOp=(k,n)=>k===0?1:(n===2?1:[0,.45,.72,1][k]);
   function drawAE(g){
     const D=SE_AE[cur],na=D.arms.length,N=NARROW(),bh=na>2?10:13,gap=3;
-    const rowH=na*(bh+gap)+(N?28:16),top=58,H=top+D.rows.length*rowH+24,Wd=N?400:720;
+    const rowH=na*(bh+gap)+(N?28:16),top=68,H=top+D.rows.length*rowH+24,Wd=N?400:720;
     vb(asvg,`720 ${H}`,`400 ${H+10}`);
     const L=N?{lx:12,bx:12,bw:316}:{lx:12,bx:210,bw:440},max=50,X=v=>L.bx+L.bw*v/max;
     let s=T(12,20,D.n+' · '+D.g,'t-lbl')+T(12,36,D.src,'t-xs');
@@ -229,7 +229,7 @@ inits.sideeffects=()=>{
     D.rows.forEach((r,i)=>{const y=top+i*rowH;
       s+=T(L.lx,N?y+12:y+14,r[0],'t-sm','fill:var(--ink)');
       const by=N?y+18:y+4;
-      r[1].forEach((v,k)=>{const yy=by+k*(bh+gap),vv=v*g;s+=`<rect x="${L.bx}" y="${f1(yy)}" width="${f1(Math.max(0,X(vv)-L.bx))}" height="${bh}" rx="2.5" style="fill:${armCol(k,na)};opacity:${armOp(k,na)}"/>`+T(X(vv)+4,yy+bh-1.5,f1(vv)+'%','t-xs',k?'fill:var(--ink)':'')})});
+      r[1].forEach((v,k)=>{const yy=by+k*(bh+gap),vv=v*g;s+=`<rect x="${L.bx}" y="${f1(yy)}" width="${f1(Math.max(0,X(vv)-L.bx))}" height="${bh}" rx="2.5" style="fill:${armCol(k,na)};opacity:${armOp(k,na)}"/>`+T(X(vv)+4,yy+bh-1.5,f1(v)+'%','t-xs',k?'fill:var(--ink)':'')})});
     asvg.innerHTML=s;
   }
   function setAE(i){cur=i;$$('button',abtn).forEach((b,k)=>b.setAttribute('aria-pressed',k===i));

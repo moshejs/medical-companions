@@ -254,7 +254,7 @@ inits.othermeds=()=>{
   function drawBars(vals){
     const N=vb(bsvg,'720 360','400 520'),V=OM_VIEWS[view];
     const L=N?{lx:12,bx:12,bw:330,top:34,rh:68,lab:0}:{lx:12,bx:262,bw:400,top:34,rh:44,lab:1};
-    const X=v=>L.bx+L.bw*v/V.max;let s='';
+    const X=v=>L.bx+L.bw*v/V.max,TV=target(view);let s='';
     s+=T(L.bx,20,V.unit,'t-xs','fill:var(--ink);font-weight:700');
     const gy0=L.top,gy1=L.top+OM_BARS.length*L.rh;
     V.ticks.forEach(k=>{s+=`<line x1="${f1(X(k))}" x2="${f1(X(k))}" y1="${gy0}" y2="${gy1}" class="grid"/>`+T(X(k),gy1+14,k,'t-xs t-mid')});
@@ -263,10 +263,10 @@ inits.othermeds=()=>{
       s+=T(L.lx,L.lab?y+18:y+14,r.n,'t-xs','fill:var(--ink);font-weight:700')+T(L.lx,L.lab?y+31:y+26,r.tr,'t-xs');
       const miss=r.d==null&&V.id!=='r5'?OM_BLBL.kg:(V.id==='r5'&&!r.r5?OM_BLBL.nr:'');
       if(miss){s+=T(L.bx,by+12,miss,'t-xs','font-style:italic');return}
-      const v=vals[i];
+      const v=vals[i],tv=TV[i];
       s+=`<rect x="${L.bx}" y="${f1(by)}" width="${f1(Math.max(0,X(v[0])-L.bx))}" height="${bh}" rx="3" style="fill:var(--rx-drug);opacity:${r.ref?.55:1}"/>`;
-      s+=T(X(v[0])+5,by+bh-2,V.id==='diff'?f1(v[0])+OM_BLBL.pts:f1(v[0])+'%','t-xs','fill:var(--ink);font-weight:700');
-      if(two||V.id==='r5'){const y2=by+bh+3;s+=`<rect x="${L.bx}" y="${f1(y2)}" width="${f1(Math.max(0,X(v[1])-L.bx))}" height="${two?11:9}" rx="3" style="fill:var(--figure)"/>`+T(X(v[1])+5,y2+(two?9:8),f1(v[1])+'%','t-xs')}
+      s+=T(X(v[0])+5,by+bh-2,V.id==='diff'?f1(tv[0])+OM_BLBL.pts:f1(tv[0])+'%','t-xs','fill:var(--ink);font-weight:700');
+      if(two||V.id==='r5'){const y2=by+bh+3;s+=`<rect x="${L.bx}" y="${f1(y2)}" width="${f1(Math.max(0,X(v[1])-L.bx))}" height="${two?11:9}" rx="3" style="fill:var(--figure)"/>`+T(X(v[1])+5,y2+(two?9:8),f1(tv[1])+'%','t-xs')}
     });
     bsvg.innerHTML=s;
   }

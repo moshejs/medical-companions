@@ -110,13 +110,13 @@ inits.nursing=()=>{
     g+=kitLabel(ear[0]-10,ear[1]-12,'tragus',{a:'e'})+kitLabel(st[0]+8,st[1]+16,'sternum');
     const deg=Math.round(th*180/Math.PI);
     g+=txt(ox+(N?20:30),oy+30,u<.6?(lvl?'ramped: ear level with sternum':'raising the head and shoulders'):(deg>=44?'after surgery: 45° head-up':'tilting towards 45°'),'t-sm',B)+txt(ox+(N?20:30),oy+48,`back angle about ${deg}° (schematic)`);
-    const bx=ox+(N?20:520),by=oy+(N?290:80);
+    const bx=ox+(N?20:500),by=oy+(N?290:80);
     g+=txt(bx,by,'difficult intubation','t-xs',B);
-    [['lean',2.2],['BMI ≥35',15.5]].forEach(([n,v],i)=>{const y=by+12+i*30;g+=`<rect x="${bx}" y="${y}" width="${f1(v*8*ramp(u,.1,.4))}" height="16" rx="4" style="fill:var(--hl)"/>`+txt(bx+v*8+6,y+12,`${n}: ${v}%`,'t-xs',B)});
+    [['lean',2.2],['BMI ≥35',15.5]].forEach(([n,v],i)=>{const y=by+12+i*30;g+=`<rect x="${bx}" y="${y}" width="${f1(v*6*ramp(u,.1,.4))}" height="16" rx="4" style="fill:var(--hl)"/>`+txt(bx+v*6+6,y+12,`${n}: ${v}%`,'t-xs',B)});
     return g}
   /* 5 injections: needles of 16, 25 and 38 mm through a growing fat layer */
-  function vNeedle(u,N,ox,oy,W){let g='';const fat=lerp(8,34,ease(ramp(u,.1,.75))),k=N?3.6:4.2,x0=ox+(N?20:40),w=N?340:400,y0=oy+44;
-    g+=txt(x0,y0-18,`subcutaneous fat over the muscle: ${fat.toFixed(0)} mm (schematic)`,'t-xs',B);
+  function vNeedle(u,N,ox,oy,W){let g='';const fat=lerp(8,30,ease(ramp(u,.1,.75))),k=N?3.6:4.2,x0=ox+(N?20:40),w=N?340:400,y0=oy+64;
+    g+=txt(x0,y0-38,`subcutaneous fat over the muscle: ${fat.toFixed(0)} mm (schematic)`,'t-xs',B);
     g+=`<rect x="${x0}" y="${y0}" width="${w}" height="6" style="fill:var(--cyto);stroke:var(--fat-line)"/><rect x="${x0}" y="${y0+6}" width="${w}" height="${f1(fat*k)}" style="fill:var(--fat);opacity:.75"/><rect x="${x0}" y="${f1(y0+6+fat*k)}" width="${w}" height="${f1(Math.max(30,(46-fat)*k))}" style="fill:var(--lean);opacity:.8"/>`;
     g+=kitLabel(x0+w-6,y0+20,'fat',{a:'e'})+kitLabel(x0+w-6,y0+6+fat*k+18,'muscle',{a:'e'});
     [16,25,38].forEach((L,i)=>{const x=x0+w*(i+1)/4.4,tip=y0+L*k,reach=L>=fat+5;
@@ -131,7 +131,7 @@ inits.nursing=()=>{
   function vObs(u,N,ox,oy,W){let g='';const hr=lerp(84,132,ease(ramp(u,.08,.75))),rr=Math.round(lerp(16,28,ease(ramp(u,.2,.8))));
     const mx=ox+(N?10:30),mw=N?360:420,my=oy+20,mh=N?170:200;
     g+=`<rect x="${mx}" y="${my}" width="${mw}" height="${mh}" rx="12" style="fill:var(--ink);opacity:.92"/>`;
-    const tY=v=>my+mh-20-(mh-50)*(v-60)/(140-60);
+    const tY=v=>my+mh-14-(mh-78)*(v-60)/(140-60);
     g+=`<line x1="${mx+10}" x2="${mx+mw-10}" y1="${f1(tY(120))}" y2="${f1(tY(120))}" style="stroke:var(--bad);stroke-width:1.4;stroke-dasharray:6 4"/>`;
     g+=`<text x="${mx+mw-14}" y="${f1(tY(120)-5)}" class="t-xs t-end" style="fill:var(--bad-soft)">120 /min</text>`;
     let d='';const n=70;for(let i=0;i<=n;i++){const q=i/n,uu=Math.max(0,u-(1-q)*.35),h=lerp(84,132,ease(ramp(uu,.08,.75)))+Math.sin(i*1.7)*2;d+=(i?'L':'M')+f1(mx+12+(mw-24)*q)+' '+f1(tY(h))}
@@ -139,18 +139,18 @@ inits.nursing=()=>{
     g+=`<text x="${mx+18}" y="${my+34}" class="t-big" style="fill:${hr>120?'var(--bad-soft)':'var(--good-soft)'};font-size:28px">HR ${Math.round(hr)}</text><text x="${mx+18}" y="${my+52}" class="t-xs" style="fill:var(--bg)">breaths ${rr}/min · simulated patient</text>`;
     const al=hr>120,ay=my+mh+14;
     g+=`<rect x="${mx}" y="${ay}" width="${mw}" height="${N?62:52}" rx="10" style="fill:${al?'var(--bad-soft)':'var(--panel-2)'};stroke:${al?'var(--bad)':'var(--line)'}"/>`;
-    g+=txt(mx+12,ay+20,al?'heart rate above 120: a leak warning sign':'observations within the usual range','t-sm',`fill:${al?'var(--bad)':'var(--ink)'};font-weight:700`)+txt(mx+12,ay+38,al?'tell the surgical team now (contrast swallow found 2 of 9 leaks)':'keep watching pulse, breathing and pain');
+    g+=txt(mx+12,ay+20,al?'heart rate above 120: a leak warning sign':'observations within the usual range','t-sm',`fill:${al?'var(--bad)':'var(--ink)'};font-weight:700`)+txt(mx+12,ay+38,al?(N?'tell the surgical team now':'tell the surgical team now (contrast swallow found 2 of 9 leaks)'):'keep watching pulse, breathing and pain');
     if(!N){const sx=ox+480;g+=txt(sx,oy+40,'leak warning features','t-xs',B);
       ['sustained fast pulse','breathing changes','fever','belly or shoulder pain'].forEach((e,i)=>{const on=u>.3+i*.12;g+=`<circle cx="${sx+6}" cy="${oy+64+i*26}" r="5" style="fill:${on?'var(--risk)':'var(--panel)'};stroke:var(--risk)"/>`+txt(sx+18,oy+68+i*26,e,'t-sm',on?B:'')})}
     return g}
   const NU_V=[vAdmit,vCuff,vSkin,vAirway,vNeedle,vObs];
   function draw(t){
-    const N=vb(svg,'720 400','400 620');
+    const N=vb(svg,'720 400','400 530');
     const i=Math.min(5,Math.floor(t*6)),u=ramp(t,i/6,(i+1)/6);
     let g='';const rx0=N?30:50,rx1=N?370:670,ry=26,RX=k=>lerp(rx0,rx1,k/5);
     g+=`<line x1="${rx0}" x2="${rx1}" y1="${ry}" y2="${ry}" style="stroke:var(--line);stroke-width:4;stroke-linecap:round"/><line x1="${rx0}" x2="${f1(lerp(rx0,rx1,clamp(t*6/5)))}" y1="${ry}" y2="${ry}" style="stroke:var(--life);stroke-width:4;stroke-linecap:round"/>`;
     NU_ST.forEach((s,k)=>{const on=k<=i;g+=`<circle cx="${f1(RX(k))}" cy="${ry}" r="${k===i?9:6}" style="fill:${on?'var(--life)':'var(--panel)'};stroke:var(--life);stroke-width:2"/>`;
-      if(!N||k===i)g+=`<text x="${f1(RX(k))}" y="${ry+24}" class="t-xs t-mid" style="fill:var(--ink);font-weight:${k===i?700:500}">${N?s:s}</text>`});
+      if(!N||k===i)g+=`<text x="${f1(RX(k))}" y="${ry+24}" class="t-xs ${N&&k===5?'t-end':N&&k===0?'':'t-mid'}" style="fill:var(--ink);font-weight:${k===i?700:500}">${N?s:s}</text>`});
     const fade=Math.min(ramp(u,0,.08),1);
     g+=`<g style="opacity:${f1(.25+.75*fade)}">`+NU_V[i](u,N,N?10:10,N?62:66,N?380:700)+'</g>';
     svg.innerHTML=g;
