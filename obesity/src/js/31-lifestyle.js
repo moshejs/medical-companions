@@ -79,8 +79,8 @@ inits.lifestyle=()=>{
   const TK=[{y:0,l:'0'},{y:.5,l:'6 mo'},{y:1,l:'1 y'},{y:2,l:'2 y'},{y:5,l:'5 y'},{y:10,l:'10 y'},{y:15,l:'15 y'}];
   const at=(P,y)=>{if(y<P[0][0])return null;for(let i=0;i<P.length-1;i++)if(y<=P[i+1][0])return lerp(P[i][1],P[i+1][1],(y-P[i][0])/(P[i+1][0]-P[i][0]));return P[P.length-1][1]};
   function draw(t){
-    const N=vb(svg,'720 380','400 480');
-    const L=N?{x:52,y:92,w:330,h:300,ty:410,hy:22,lg:56}:{x:70,y:76,w:620,h:240,ty:334,hy:26,lg:56};
+    const N=vb(svg,'720 380','400 440');
+    const L=N?{x:52,y:92,w:330,h:270,ty:380,hy:22,lg:56}:{x:70,y:76,w:620,h:240,ty:334,hy:26,lg:56};
     const y=lfYr(t),p=phaseOf(LF_STEPS,t),P=LF_STEPS[p],key=pick==='auto'?P.trial:pick,T=LF_TRIALS[key];
     const X=v=>L.x+L.w*lfTOf(v),Y=v=>L.y+L.h-L.h*(v-T.y0)/(T.y1-T.y0);
     const uf=v=>{const m=(T.unit==='risk'||Number.isInteger(v)&&Math.abs(v)<1e-9?String(v):(+v).toFixed(1)).replace('-','−');return T.unit==='kg'?m+' kg':m+'%'};
