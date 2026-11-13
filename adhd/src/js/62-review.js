@@ -396,7 +396,7 @@ const GL_T=[
  ["ENIGMA-ADHD",`An international MRI consortium; its mega-analysis found small subcortical differences, clearest in children [[Hoogman2017]].`,"brain"],
  ["Executive function",`Goal-directed control such as inhibition, working memory and planning; medium-sized weaknesses in ADHD (0.46–0.69) [[Willcutt2005]].`,"brain"],
  ["Extended release (ER)",`A formulation that releases medicine over many hours; Concerta's effects lasted through 12 hours in trials [[FDA-Concerta]].`,"release"],
- ["External trigeminal nerve stimulation (eTNS)",`Nightly forehead nerve stimulation; Monarch eTNS was authorised by the FDA in 2019 (Early evidence) [[FDA-MonarchETNS,McGough2019]].`,"frontiers"],
+ ["External trigeminal nerve stimulation (eTNS)",`Nightly forehead nerve stimulation; Monarch eTNS was authorised by the FDA in 2019 after a 62-child pilot; a larger UK sham-controlled trial found no effect on ADHD symptoms (Early evidence) [[FDA-MonarchETNS,McGough2019,Conti2026]].`,"frontiers"],
  ["Externalising problems",`Outward-directed difficulties such as disruptive behaviour; more typical of boys and men with ADHD [[Hinshaw2022]].`,"women"],
  ["Familial confounding",`When a shared family or genetic factor explains a link between an exposure and ADHD; sibling designs remove it, as with smoking in pregnancy [[Skoglund2014,Obel2016]].`,"risk"],
  ["Feigned ADHD",`Symptoms faked, for example to obtain stimulants; most self-report scales are insensitive to it [[Musso2014,Wolraich2019]].`,"scales"],
