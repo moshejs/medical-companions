@@ -135,7 +135,7 @@ Access notes:
 - CANMAT 2023 lists 17 of 31 antidepressants as first-line and recommends 6 to 12 months of maintenance treatment after remission for all patients, and 2 years or more for those with risk factors for recurrence [[Lam2024CANMAT]]
 - Relapse prevention meta-analysis (31 randomised trials, 4,410 participants): continuing treatment reduced the odds of relapse by 70% (95% CI 62–78); relapse 41% on placebo versus 18% on continued antidepressant, an effect that held for up to 36 months though most trials lasted 12 months [[Geddes2003]]
 - A later meta-analysis found relapse of 20.2% versus 37.2% with continuation versus placebo substitution, similar from 6 months (19.6% vs 37.6%) to beyond 1 year (19.9% vs 39.8%) [[Kato2021]]
-- ANTLER (478 primary care patients who felt well enough to stop): relapse by 52 weeks 39% with maintenance versus 56% with tapered discontinuation (HR 2.06, 95% CI 1.56–2.70); so 44% of those who stopped did not relapse within a year [[Lewis2021ANTLER]]
+- ANTLER (478 primary care patients who felt well enough to stop): relapse by 52 weeks 39% with maintenance versus 56% with tapered discontinuation (HR 2.06, 95% CI 1.56–2.70); so 44% of those who stopped did not relapse within a year [[Lewis2021]]
 - Caveat: relapse after stopping in these trials can be confounded with withdrawal symptoms, and most tapers in trials lasted four weeks or less [[VanLeeuwen2021]]
 
 ### sideeffects · boxed warning on suicidal thoughts and behaviours
@@ -301,7 +301,7 @@ Access notes:
 - STAR*D step 1 remission, HAM-D / QIDS-SR | up to 14 weeks | 28 / 33 | % | [[Trivedi2006STARD]]
 - STAR*D cumulative remission, original report / protocol reanalysis | 4 steps | 67 / 35.0 | % | [[Rush2006STARD,Pigott2023]]
 - Relapse on continued antidepressant / placebo | mostly 12 months | 18 / 41 | % | [[Geddes2003]]
-- Relapse, maintenance / discontinuation (ANTLER) | 52 weeks | 39 / 56 | % | [[Lewis2021ANTLER]]
+- Relapse, maintenance / discontinuation (ANTLER) | 52 weeks | 39 / 56 | % | [[Lewis2021]]
 - Publication bias: trials positive in literature / by FDA review | - | 94 / 51 | % | [[Turner2008]]
 - Dose-response: SSRI efficacy optimum | - | 20–40 | mg fluoxetine equivalents | [[Furukawa2019Dose]]
 - Suicidality risk difference vs placebo, age under 18 | short-term trials | +14 | per 1,000 treated | [[FDA-Prozac]]
@@ -355,7 +355,7 @@ Access notes:
 - Does pharmacogenomic testing improve outcomes? Higher remission in some trials and pooled analyses [[Greden2019,Brown2022PGx]] versus small, non-persistent benefit in the largest pragmatic trial [[Oslin2022]]; status: CPIC supports using existing CYP2D6/CYP2C19 results to adjust dosing, not routine testing for drug choice [[Bousman2023]]
 - The boxed warning: an age-graded increase in suicidal thoughts and behaviours in short-term trials [[Hammad2006,Stone2009]], with incomplete harm reporting in study reports noted by critics [[Sharma2016]]; observational associations are sensitive to confounding by indication [[Dragioti2019]]; status: warning retained, with emphasis on monitoring rather than withholding treatment.
 - STAR*D's headline 67% cumulative remission versus 35% on protocol-specified analysis [[Rush2006STARD,Pigott2023]]; status: the lower figure is increasingly quoted alongside the original.
-- How long to continue? Relapse roughly halves with continuation [[Geddes2003,Kato2021,Lewis2021ANTLER]], yet withdrawal symptoms may be misread as relapse in discontinuation trials [[VanLeeuwen2021]]; status: 6–12 months after remission as published by CANMAT, longer with risk factors [[Lam2024CANMAT]]
+- How long to continue? Relapse roughly halves with continuation [[Geddes2003,Kato2021,Lewis2021]], yet withdrawal symptoms may be misread as relapse in discontinuation trials [[VanLeeuwen2021]]; status: 6–12 months after remission as published by CANMAT, longer with risk factors [[Lam2024CANMAT]]
 
 ## Sources
 - [Cipriani2018] Cipriani A, Furukawa TA, Salanti G, Chaimani A, Atkinson LZ, Ogawa Y, et al. Comparative efficacy and acceptability of 21 antidepressant drugs for the acute treatment of adults with major depressive disorder: a systematic review and network meta-analysis. Lancet. 2018;391(10128):1357-1366. PMID 29477251; PMCID PMC5889788; doi:10.1016/S0140-6736(17)32802-7. (validated: PubMed)
@@ -416,7 +416,7 @@ Access notes:
 - [Harmer2009] Harmer CJ, Goodwin GM, Cowen PJ. Why do antidepressants take so long to work? A cognitive neuropsychological model of antidepressant drug action. Br J Psychiatry. 2009;195(2):102-8. PMID 19648538; doi:10.1192/bjp.bp.108.051193. (validated: PubMed)
 - [Harmer2017] Harmer CJ, Duman RS, Cowen PJ. How do antidepressants work? New perspectives for refining future treatment approaches. Lancet Psychiatry. 2017;4(5):409-418. PMID 28153641; PMCID PMC5410405; doi:10.1016/S2215-0366(17)30015-9. (validated: PubMed)
 - [Geddes2003] Geddes JR, Carney SM, Davies C, Furukawa TA, Kupfer DJ, Frank E, et al. Relapse prevention with antidepressant drug treatment in depressive disorders: a systematic review. Lancet. 2003;361(9358):653-61. PMID 12606176; doi:10.1016/S0140-6736(03)12599-8. (validated: PubMed)
-- [Lewis2021ANTLER] Lewis G, Marston L, Duffy L, Freemantle N, Gilbody S, Hunter R, et al. Maintenance or Discontinuation of Antidepressants in Primary Care. N Engl J Med. 2021;385(14):1257-1267. PMID 34587384; doi:10.1056/NEJMoa2106356. (validated: PubMed)
+- [Lewis2021] Lewis G, Marston L, Duffy L, Freemantle N, Gilbody S, Hunter R, et al. Maintenance or Discontinuation of Antidepressants in Primary Care. N Engl J Med. 2021;385(14):1257-1267. PMID 34587384; doi:10.1056/NEJMoa2106356. (validated: PubMed)
 - [Kato2021] Kato M, Hori H, Inoue T, Iga J, Iwata M, Inagaki T, et al. Discontinuation of antidepressants after remission with antidepressant medication in major depressive disorder: a systematic review and meta-analysis. Mol Psychiatry. 2021;26(1):118-133. PMID 32704061; PMCID PMC7815511; doi:10.1038/s41380-020-0843-0. (validated: PubMed)
 - [Lewis2019PANDA] Lewis G, Duffy L, Ades A, Amos R, Araya R, Brabyn S, et al. The clinical effectiveness of sertraline in primary care and the role of depression severity and duration (PANDA): a pragmatic, double-blind, placebo-controlled randomised trial. Lancet Psychiatry. 2019;6(11):903-914. PMID 31543474; PMCID PMC7029306; doi:10.1016/S2215-0366(19)30366-9. (validated: PubMed)
 - [Arroll2009] Arroll B, Elley CR, Fishman T, Goodyear-Smith FA, Kenealy T, Blashki G, et al. Antidepressants versus placebo for depression in primary care. Cochrane Database Syst Rev. 2009;2009(3):CD007954. PMID 19588448; PMCID PMC10576545; doi:10.1002/14651858.CD007954. (validated: PubMed)

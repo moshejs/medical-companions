@@ -34,7 +34,7 @@ Corrections and limits against the brief:
 ### ketamine · Mechanism
 - Ketamine is a non-competitive antagonist of the NMDA receptor, an ionotropic glutamate receptor; the esketamine label states that the mechanism of the antidepressant effect is unknown (Established for the receptor action; the downstream mechanism remains under study) [[FDA-Spravato]]
 - In rats, low (subanaesthetic) doses of ketamine raised glutamate outflow in the prefrontal cortex, while an anaesthetic dose lowered it; this is the basis of the "glutamate surge" model, in which glutamate then acts on non-NMDA (AMPA) receptors (Early evidence, animal data) [[Moghaddam1997]]
-- In rats, ketamine rapidly activated the mTOR pathway, raised synaptic signalling proteins and increased the number and function of new spine synapses in the prefrontal cortex; blocking mTOR blocked both the synapse formation and the behavioural response (Early evidence, animal data) [[Li2010]]
+- In rats, ketamine rapidly activated the mTOR pathway, raised synaptic signalling proteins and increased the number and function of new spine synapses in the prefrontal cortex; blocking mTOR blocked both the synapse formation and the behavioural response (Early evidence, animal data) [[Li2010mTOR]]
 - In mice, the fast behavioural effect of NMDA antagonists depended on rapid synthesis of brain-derived neurotrophic factor (BDNF), triggered by deactivation of eEF2 kinase when NMDA receptors are blocked at rest (Early evidence, animal data) [[Autry2011]]
 - The synaptogenic hypothesis holds that depression involves fewer synapses in the prefrontal cortex and hippocampus, and that ketamine rapidly induces synapse formation and reverses stress-related synaptic loss (Hypothesis, built on animal and post-mortem data) [[Duman2012]]
 - Longitudinal imaging in mice showed that ketamine restored dendritic spines lost under chronic stress. New spines were needed to maintain the behavioural effect over days but not to start it (Early evidence, animal data) [[ModaSava2019]]
@@ -61,8 +61,8 @@ Corrections and limits against the brief:
 - The CANMAT task force rated a single intravenous infusion as Level 1 evidence in adults with treatment-resistant depression and repeated or maintenance infusions as Level 3. It made single-dose intravenous ketamine a third-line recommendation [[Swainson2021]]
 - The same task force advised that oral and other non-intravenous formulations be limited to specialists in tertiary or specialised centres, because of limited evidence and the risk of misuse and diversion [[Swainson2021]]
 - An international expert group described ketamine and esketamine as the first non-monoaminergic agents with proven rapid-onset efficacy in major depression, while noting unresolved questions about safety, place in treatment algorithms and the setting and staff needed [[McIntyre2021]]
-- KARMA-Dep 2 randomised 65 inpatients with a major depressive episode to up to eight twice-weekly infusions of ketamine 0.5 mg/kg or midazolam 0.045 mg/kg on top of usual inpatient care. End-of-treatment MADRS did not differ (adjusted mean difference −3.16, 95% CI −8.54 to 2.22; P = .25) [[Jelovac2025]]
-- In KARMA-Dep 2 most patients and raters guessed the allocation correctly; raters identified ketamine-arm patients correctly 90.6% of the time after the first infusion [[Jelovac2025]]
+- KARMA-Dep 2 randomised 65 inpatients with a major depressive episode to up to eight twice-weekly infusions of ketamine 0.5 mg/kg or midazolam 0.045 mg/kg on top of usual inpatient care. End-of-treatment MADRS did not differ (adjusted mean difference −3.16, 95% CI −8.54 to 2.22; P = .25) [[Jelovac2025H]]
+- In KARMA-Dep 2 most patients and raters guessed the allocation correctly; raters identified ketamine-arm patients correctly 90.6% of the time after the first infusion [[Jelovac2025H]]
 - ELEKT-D, an open-label non-inferiority trial in 403 people referred for ECT with non-psychotic treatment-resistant depression, found response in 55.4% with ketamine (twice weekly for 3 weeks) and 41.2% with ECT (difference 14.2 percentage points, 95% CI 3.9–24.2) [[Anand2023,NCT03113968]]
 - In ELEKT-D, delayed recall fell after 3 weeks of ECT (T-score change −9.7 versus −0.9 with ketamine) and recovered gradually; ECT was linked to musculoskeletal adverse effects and ketamine to dissociation [[Anand2023]]
 - KetECT, an open-label non-inferiority trial in 186 inpatients, found the opposite ranking: remission in 63% with ECT and 46% with ketamine (P = .026). Among remitters, 70% (ketamine) and 63% (ECT) relapsed within 12 months [[Ekstrand2022]]
@@ -172,7 +172,7 @@ Corrections and limits against the brief:
 
 ### frontier · Blinding and expectancy
 - Participants in trials of psychedelics and ketamine can usually tell whether they received the active drug. A methods review found that psychedelic trials had generally not reported pre-trial expectancy or whether blinding held, and it argued that effect sizes are likely overestimated [[Muthukumaraswamy2021]]
-- The same problem was measured directly for ketamine: in KARMA-Dep 2 most patients and raters guessed allocation correctly, and the trial found no advantage over midazolam [[Jelovac2025]]
+- The same problem was measured directly for ketamine: in KARMA-Dep 2 most patients and raters guessed allocation correctly, and the trial found no advantage over midazolam [[Jelovac2025H]]
 - One analysis points the other way. In the psilocybin-versus-escitalopram trial, participants expected more from psilocybin, yet expectancy predicted response to escitalopram and not to psilocybin [[Szigeti2024]]
 - Trials have tried low-dose active comparators (1 mg psilocybin, 0.3 mg mebufotenin) and active placebos (niacin, midazolam) to reduce unblinding [[Goodwin2022,Feifel2026,Raison2023,Murrough2013AJP]]
 
@@ -244,7 +244,7 @@ Corrections and limits against the brief:
 - The first controlled trial of ketamine in depression used 0.5 mg/kg intravenously in 7 people [[Berman2000]]
 - After a single ketamine infusion, the effect begins within about 2 hours, is largest at about 24 hours and is much smaller by 1 week [[Zarate2006,Murrough2013BP]]
 - Ketamine and esketamine are non-competitive NMDA receptor antagonists; esketamine is the S-enantiomer of ketamine [[FDA-Spravato]]
-- Midazolam, an anaesthetic, serves as the active placebo in the better-controlled ketamine trials [[Murrough2013AJP,Jelovac2025]]
+- Midazolam, an anaesthetic, serves as the active placebo in the better-controlled ketamine trials [[Murrough2013AJP,Jelovac2025H]]
 - Racemic ketamine for depression is off-label; esketamine nasal spray is the labelled product [[FDA-Ketalar,FDA-Spravato]]
 - Esketamine nasal spray requires a REMS, administration in a certified healthcare setting and at least 2 hours of observation after each dose [[FDA-Spravato]]
 - Esketamine boxed warning: sedation, dissociation, respiratory depression, misuse, and suicidal thoughts and behaviours in young people on antidepressants [[FDA-Spravato]]
@@ -258,7 +258,7 @@ Corrections and limits against the brief:
 - Zuranolone is a GABA-A positive allosteric modulator labelled for postpartum depression as a 14-day oral course [[FDA-Zurzuvae]]
 - Dextromethorphan-bupropion: bupropion inhibits CYP2D6 and raises dextromethorphan exposure [[FDA-Auvelity]]
 - In the COMP360 phase 2b trial only the 25 mg dose separated from the 1 mg control (−6.6 MADRS points at week 3) [[Goodwin2022]]
-- Functional unblinding is the main methodological weakness of psychedelic and ketamine trials [[Muthukumaraswamy2021,Jelovac2025]]
+- Functional unblinding is the main methodological weakness of psychedelic and ketamine trials [[Muthukumaraswamy2021,Jelovac2025H]]
 - Aticaprant's two phase 3 trials showed MADRS differences under 1 point from placebo, after a positive phase 2 trial [[NCT05455684,NCT05550532,Schmidt2024]]
 - The four fMRI "biotypes" of depression reported in 2017 did not replicate in an independent sample [[Drysdale2017,Dinga2019]]
 
@@ -293,7 +293,7 @@ Corrections and limits against the brief:
 - Ketamine twice weekly, MADRS change | 15 d | −18.4 (placebo −5.7) | MADRS points | [[Singh2016]]
 - Ketamine thrice weekly, MADRS change | 15 d | −17.7 (placebo −3.1) | MADRS points | [[Singh2016]]
 - Ketamine repeated infusions, response | after 6 infusions (2 weeks) | 59 | % | [[Phillips2019]]
-- Ketamine adjunct for inpatients (KARMA-Dep 2), MADRS difference versus midazolam | end of treatment (up to 4 weeks) | −3.16 (not significant) | MADRS points | [[Jelovac2025]]
+- Ketamine adjunct for inpatients (KARMA-Dep 2), MADRS difference versus midazolam | end of treatment (up to 4 weeks) | −3.16 (not significant) | MADRS points | [[Jelovac2025H]]
 - Esketamine plus standard care (ASPIRE II), MADRS difference versus placebo | 4 h | −4.2 | MADRS points | [[Ionescu2021]]
 - Esketamine plus standard care (ASPIRE II), MADRS difference versus placebo | 24 h | −3.9 | MADRS points | [[Ionescu2021]]
 - Esketamine plus standard care (ASPIRE I), MADRS difference versus placebo | 24 h | −3.8 | MADRS points | [[Fu2020]]
@@ -344,8 +344,8 @@ Corrections and limits against the brief:
 - Pipeline: CT-152 digital therapeutic | 2025 | FDA-authorised; difference −1.78 (P = .0568) | stage | [[Rothman2025]]
 
 ## Open questions and controversies
-- Is ketamine's effect larger than its unblinding? Single-infusion trials against midazolam found clear benefit at 24 hours [[Murrough2013AJP,Fava2020Ketamine]]; a trial of serial infusions against midazolam in inpatients found none, with most guesses correct [[Jelovac2025]]; status: unresolved, and the answer may differ between a single dose and a course added to full inpatient care.
-- How does ketamine work? NMDA blockade with a glutamate surge and synapse formation [[Li2010,Duman2012,ModaSava2019]]; a metabolite acting without NMDA inhibition [[Zanos2016]]; lateral habenula burst firing [[Yang2018Habenula]]; opioid-system involvement [[Williams2018]]; and a human study in which blocking mTOR did not block the effect [[Abdallah2020]]; status: no single mechanism is established in humans.
+- Is ketamine's effect larger than its unblinding? Single-infusion trials against midazolam found clear benefit at 24 hours [[Murrough2013AJP,Fava2020Ketamine]]; a trial of serial infusions against midazolam in inpatients found none, with most guesses correct [[Jelovac2025H]]; status: unresolved, and the answer may differ between a single dose and a course added to full inpatient care.
+- How does ketamine work? NMDA blockade with a glutamate surge and synapse formation [[Li2010mTOR,Duman2012,ModaSava2019]]; a metabolite acting without NMDA inhibition [[Zanos2016]]; lateral habenula burst firing [[Yang2018Habenula]]; opioid-system involvement [[Williams2018]]; and a human study in which blocking mTOR did not block the effect [[Abdallah2020]]; status: no single mechanism is established in humans.
 - Ketamine or ECT for treatment-resistant depression? Ketamine was non-inferior in people without psychosis who had been referred to ECT clinics [[Anand2023]]; ECT gave more remission in a more severely ill inpatient sample that included older people [[Ekstrand2022]]; status: the populations differ, and both trials were open-label.
 - Racemic ketamine or esketamine? Pooled effect sizes are numerically larger for racemic ketamine [[Nikolin2023]]; esketamine has the larger regulated trial programme, relapse-prevention data and long-term safety follow-up [[Daly2019,Zaki2023]]; status: no adequately powered head-to-head trial was found.
 - How strong is the esketamine evidence? One of three short-term phase 3 trials with an oral antidepressant met its primary endpoint [[Popova2019TRANSFORM2,Fedgchin2019,OchsRoss2020]]; later trials against quetiapine and as monotherapy were positive [[Reif2023,Janik2025]]; status: efficacy is accepted by regulators, with debate about effect size and trial design.
@@ -361,7 +361,7 @@ Corrections and limits against the brief:
 ## Sources
 - [Berman2000] Berman RM, Cappiello A, Anand A, Oren DA, Heninger GR, Charney DS, et al. Antidepressant effects of ketamine in depressed patients. Biol Psychiatry. 2000;47(4):351-4. PMID 10686270; doi:10.1016/s0006-3223(99)00230-9. (validated: PubMed)
 - [Zarate2006] Zarate CA Jr, Singh JB, Carlson PJ, Brutsche NE, Ameli R, Luckenbaugh DA, et al. A randomized trial of an N-methyl-D-aspartate antagonist in treatment-resistant major depression. Arch Gen Psychiatry. 2006;63(8):856-64. PMID 16894061; doi:10.1001/archpsyc.63.8.856. (validated: PubMed)
-- [Li2010] Li N, Lee B, Liu RJ, Banasr M, Dwyer JM, Iwata M, et al. mTOR-dependent synapse formation underlies the rapid antidepressant effects of NMDA antagonists. Science. 2010;329(5994):959-64. PMID 20724638; PMCID PMC3116441; doi:10.1126/science.1190287. (validated: PubMed)
+- [Li2010mTOR] Li N, Lee B, Liu RJ, Banasr M, Dwyer JM, Iwata M, et al. mTOR-dependent synapse formation underlies the rapid antidepressant effects of NMDA antagonists. Science. 2010;329(5994):959-64. PMID 20724638; PMCID PMC3116441; doi:10.1126/science.1190287. (validated: PubMed)
 - [Duman2012] Duman RS, Aghajanian GK. Synaptic dysfunction in depression: potential therapeutic targets. Science. 2012;338(6103):68-72. PMID 23042884; PMCID PMC4424898; doi:10.1126/science.1222939. (validated: PubMed)
 - [Zanos2016] Zanos P, Moaddel R, Morris PJ, Georgiou P, Fischell J, Elmer GI, et al. NMDAR inhibition-independent antidepressant actions of ketamine metabolites. Nature. 2016;533(7604):481-6. PMID 27144355; PMCID PMC4922311; doi:10.1038/nature17998. (validated: PubMed)
 - [Williams2018] Williams NR, Heifets BD, Blasey C, Sudheimer K, Pannu J, Pankow H, et al. Attenuation of Antidepressant Effects of Ketamine by Opioid Receptor Antagonism. Am J Psychiatry. 2018;175(12):1205-1215. PMID 30153752; PMCID PMC6395554; doi:10.1176/appi.ajp.2018.18020138. (validated: PubMed)
@@ -369,7 +369,7 @@ Corrections and limits against the brief:
 - [Murrough2013BP] Murrough JW, Perez AM, Pillemer S, Stern J, Parides MK, aan het Rot M, et al. Rapid and longer-term antidepressant effects of repeated ketamine infusions in treatment-resistant major depression. Biol Psychiatry. 2013;74(4):250-6. PMID 22840761; PMCID PMC3725185; doi:10.1016/j.biopsych.2012.06.022. (validated: PubMed)
 - [Singh2016] Singh JB, Fedgchin M, Daly EJ, De Boer P, Cooper K, Lim P, et al. A Double-Blind, Randomized, Placebo-Controlled, Dose-Frequency Study of Intravenous Ketamine in Patients With Treatment-Resistant Depression. Am J Psychiatry. 2016;173(8):816-26. PMID 27056608; doi:10.1176/appi.ajp.2016.16010037. (validated: PubMed)
 - [Phillips2019] Phillips JL, Norris S, Talbot J, Birmingham M, Hatchard T, Ortiz A, et al. Single, Repeated, and Maintenance Ketamine Infusions for Treatment-Resistant Depression: A Randomized Controlled Trial. Am J Psychiatry. 2019;176(5):401-409. PMID 30922101; doi:10.1176/appi.ajp.2018.18070834. (validated: PubMed)
-- [Jelovac2025] Jelovac A, McCaffrey C, Terao M, Shanahan E, Whooley E, McDonagh K, et al. Serial Ketamine Infusions as Adjunctive Therapy to Inpatient Care for Depression: The KARMA-Dep 2 Randomized Clinical Trial. JAMA Psychiatry. 2025;82(12):1216-1224. PMID 41123905; PMCID PMC12547681; doi:10.1001/jamapsychiatry.2025.3019. (validated: PubMed)
+- [Jelovac2025H] Jelovac A, McCaffrey C, Terao M, Shanahan E, Whooley E, McDonagh K, et al. Serial Ketamine Infusions as Adjunctive Therapy to Inpatient Care for Depression: The KARMA-Dep 2 Randomized Clinical Trial. JAMA Psychiatry. 2025;82(12):1216-1224. PMID 41123905; PMCID PMC12547681; doi:10.1001/jamapsychiatry.2025.3019. (validated: PubMed)
 - [Anand2023] Anand A, Mathew SJ, Sanacora G, Murrough JW, Goes FS, Altinay M, et al. Ketamine versus ECT for Nonpsychotic Treatment-Resistant Major Depression. N Engl J Med. 2023;388(25):2315-2325. PMID 37224232; doi:10.1056/NEJMoa2302399. (validated: PubMed)
 - [Ekstrand2022] Ekstrand J, Fattah C, Persson M, Cheng T, Nordanskog P, Åkeson J, et al. Racemic Ketamine as an Alternative to Electroconvulsive Therapy for Unipolar Depression: A Randomized, Open-Label, Non-Inferiority Trial (KetECT). Int J Neuropsychopharmacol. 2022;25(5):339-349. PMID 35020871; PMCID PMC9154276; doi:10.1093/ijnp/pyab088. (validated: PubMed)
 - [Sanacora2017] Sanacora G, Frye MA, McDonald W, Mathew SJ, Turner MS, Schatzberg AF, et al. A Consensus Statement on the Use of Ketamine in the Treatment of Mood Disorders. JAMA Psychiatry. 2017;74(4):399-405. PMID 28249076; doi:10.1001/jamapsychiatry.2017.0080. (validated: PubMed)

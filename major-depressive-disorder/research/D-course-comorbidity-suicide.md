@@ -26,8 +26,8 @@ Access notes:
 - In the East Baltimore population cohort (3481 adults sampled in 1981; 92 with a first lifetime onset; 23 years), the median episode length was 12 weeks [[Eaton2008]].
 - In the US National Comorbidity Survey Replication (n = 9090), the mean episode duration was 16 weeks [[Kessler2003]].
 - In the Dutch NESDA cohort of people in primary and specialised care, the median episode duration was 6 months for depression alone and more than 24 months when depression and an anxiety disorder occurred together [[Penninx2011]].
-- A meta-regression of 19 wait-list and cohort studies estimated that, among adults with untreated depression in primary-care samples, 23% remit within 3 months, 32% within 6 months and 53% within 12 months [[Whiteford2013]].
-- The untreated-remission estimates come mostly from mild-to-moderate cases and may not apply to people with more severe depression [[Whiteford2013]].
+- A meta-regression of 19 wait-list and cohort studies estimated that, among adults with untreated depression in primary-care samples, 23% remit within 3 months, 32% within 6 months and 53% within 12 months [[Whiteford2013Remission]].
+- The untreated-remission estimates come mostly from mild-to-moderate cases and may not apply to people with more severe depression [[Whiteford2013Remission]].
 
 ### course · Recovery over years (clinical cohorts)
 - In the NIMH Collaborative Depression Study (431 people with major depression followed for 5 years), 50% recovered within the first 6 months and 12% had still not recovered at 5 years [[Keller1992]].
@@ -118,8 +118,8 @@ Access notes:
 - In the NCS-R, 51.6% of 12-month cases received health care for depression and treatment was adequate in 41.9% of those, so 21.7% of 12-month cases were adequately treated [[Kessler2003]].
 - In World Health Surveys data from 245 404 people in 60 countries, an average of between 9.3% and 23.0% of people with one or more chronic physical diseases had comorbid depression [[Moussavi2007]].
 - In the same surveys, depression produced the greatest decrement in health scores compared with angina, arthritis, asthma and diabetes, and depression together with a chronic disease gave the worst scores of all [[Moussavi2007]].
-- A meta-analysis of 40 articles (n = 381 527) found the risk of a depressive disorder twice as great in people with multimorbidity as in those without (RR 2.13, 95% CI 1.62-2.80) [[Read2017]].
-- The odds of a depressive disorder rose by 45% with each additional chronic condition (OR 1.45, 95% CI 1.28-1.64) [[Read2017]].
+- A meta-analysis of 40 articles (n = 381 527) found the risk of a depressive disorder twice as great in people with multimorbidity as in those without (RR 2.13, 95% CI 1.62-2.80) [[Read2017Multimorbidity]].
+- The odds of a depressive disorder rose by 45% with each additional chronic condition (OR 1.45, 95% CI 1.28-1.64) [[Read2017Multimorbidity]].
 - Contributors to comorbid depression in medical disease include shared genetic factors, converging biological pathways, social factors, health behaviours and psychological factors [[Gold2020]].
 - Symptom overlap makes depression harder to diagnose in people with a medical disorder, and symptoms of depression may lower adherence to treatment of both conditions [[Gold2020]].
 
@@ -172,8 +172,8 @@ Access notes:
 - The 2020 Lancet Commission on dementia listed later-life depression among 12 modifiable risk factors, with a relative risk of 1.9 (95% CI 1.6-2.3) and a weighted population attributable fraction of 3.9% [[Livingston2020Commission]].
 
 ### comorbidity · Mortality gap
-- Across studies with 1 813 733 participants from 35 countries, the unadjusted relative risk of death in people with depression was 1.64 (95% CI 1.56-1.76), falling to 1.52 (95% CI 1.45-1.59) after adjustment for publication bias [[Cuijpers2014]].
-- The excess was similar in community samples and in samples with heart disease, cancer or kidney disease, and was smaller in higher-quality and longer studies [[Cuijpers2014]].
+- Across studies with 1 813 733 participants from 35 countries, the unadjusted relative risk of death in people with depression was 1.64 (95% CI 1.56-1.76), falling to 1.52 (95% CI 1.45-1.59) after adjustment for publication bias [[Cuijpers2014Mortality]].
+- The excess was similar in community samples and in samples with heart disease, cancer or kidney disease, and was smaller in higher-quality and longer studies [[Cuijpers2014Mortality]].
 - For mental disorders as a whole (148 studies), the pooled relative risk of death was 2.22 (95% CI 2.12-2.33) and the median years of potential life lost was 10 [[Walker2015]].
 - Among people with mental disorders, 67.3% of deaths were from natural causes and 17.5% from unnatural causes [[Walker2015]].
 - A meta-review found every mental disorder studied carried a higher all-cause mortality than the general population and listed depression among the disorders with the highest suicide risks [[Chesney2014]].
@@ -289,7 +289,7 @@ Access notes:
 - ENRICHD treated depression after myocardial infarction and did not improve event-free survival [[Berkman2003]].
 - Diabetes doubles the odds of depression; depression raises the risk of incident type 2 diabetes by 60% [[Anderson2001Diabetes,Mezuk2008]].
 - Depression and obesity predict each other (OR 1.55 and 1.58) [[Luppino2010]].
-- Depression carries a relative risk of death of about 1.5 after correction for publication bias [[Cuijpers2014]].
+- Depression carries a relative risk of death of about 1.5 after correction for publication bias [[Cuijpers2014Mortality]].
 - Asking about suicide does not increase suicidal ideation [[Dazzi2014]].
 - Risk scales cannot usefully sort people into "high risk": pooled positive predictive value for suicide 5.5% [[Carter2017PPV]].
 - Safety planning with follow-up after an emergency visit: 45% fewer suicidal behaviours over 6 months [[Stanley2018SafetyPlan]].
@@ -322,9 +322,9 @@ Access notes:
 - recovery_clinical_cohort | 60 months | 88 | % recovered (12% not recovered) | [[Keller1992]]
 - monthly_recovery_chance | months 1-3 | 15 | % per month | [[Keller1992]]
 - monthly_recovery_chance | years 3-5 | 1-2 | % per month | [[Keller1992]]
-- untreated_remission | 3 months | 23 | % remitted | [[Whiteford2013]]
-- untreated_remission | 6 months | 32 | % remitted | [[Whiteford2013]]
-- untreated_remission | 12 months | 53 | % remitted | [[Whiteford2013]]
+- untreated_remission | 3 months | 23 | % remitted | [[Whiteford2013Remission]]
+- untreated_remission | 6 months | 32 | % remitted | [[Whiteford2013Remission]]
+- untreated_remission | 12 months | 53 | % remitted | [[Whiteford2013Remission]]
 - recurrence_specialist_care | 5 years | 60 | % with recurrence | [[Hardeveld2010]]
 - recurrence_specialist_care | 10 years | 67 | % with recurrence | [[Hardeveld2010]]
 - recurrence_specialist_care | 15 years | 85 | % with recurrence | [[Hardeveld2010]]
@@ -362,7 +362,7 @@ Access notes:
 - comorbidity_relative_risk | obesity -> depression | 1.55 | OR | [[Luppino2010]]
 - comorbidity_relative_risk | depression -> obesity | 1.58 | OR | [[Luppino2010]]
 - comorbidity_relative_risk | depression -> Alzheimer's disease (cohorts) | 1.90 | OR | [[Ownby2006]]
-- comorbidity_relative_risk | depression -> death from any cause | 1.52 | RR | [[Cuijpers2014]]
+- comorbidity_relative_risk | depression -> death from any cause | 1.52 | RR | [[Cuijpers2014Mortality]]
 - depression_prevalence_in_illness | after myocardial infarction | 19.8 | % | [[Thombs2006]]
 - depression_prevalence_in_illness | after stroke | 31 | % | [[Hackett2014]]
 - depression_prevalence_in_illness | cancer (oncology settings) | 14.9 | % | [[Mitchell2011]]
@@ -417,7 +417,7 @@ Access notes:
 - [Eaton2008] Eaton WW, Shao H, Nestadt G, Lee HB, Bienvenu OJ, Zandi P. Population-based study of first onset and chronicity in major depressive disorder. Arch Gen Psychiatry. 2008;65(5):513-20. PMID 18458203; PMCID PMC2761826; doi:10.1001/archpsyc.65.5.513. (validated: PubMed)
 - [Kessler2003] Kessler RC, Berglund P, Demler O, Jin R, Koretz D, Merikangas KR, et al. The epidemiology of major depressive disorder: results from the National Comorbidity Survey Replication (NCS-R). JAMA. 2003;289(23):3095-105. PMID 12813115; doi:10.1001/jama.289.23.3095. (validated: PubMed)
 - [Penninx2011] Penninx BW, Nolen WA, Lamers F, Zitman FG, Smit JH, Spinhoven P, et al. Two-year course of depressive and anxiety disorders: results from the Netherlands Study of Depression and Anxiety (NESDA). J Affect Disord. 2011;133(1-2):76-85. PMID 21496929; doi:10.1016/j.jad.2011.03.027. (validated: PubMed)
-- [Whiteford2013] Whiteford HA, Harris MG, McKeon G, Baxter A, Pennell C, Barendregt JJ, et al. Estimating remission from untreated major depression: a systematic review and meta-analysis. Psychol Med. 2013;43(8):1569-85. PMID 22883473; doi:10.1017/S0033291712001717. (validated: PubMed)
+- [Whiteford2013Remission] Whiteford HA, Harris MG, McKeon G, Baxter A, Pennell C, Barendregt JJ, et al. Estimating remission from untreated major depression: a systematic review and meta-analysis. Psychol Med. 2013;43(8):1569-85. PMID 22883473; doi:10.1017/S0033291712001717. (validated: PubMed)
 - [Keller1992] Keller MB, Lavori PW, Mueller TI, Endicott J, Coryell W, Hirschfeld RM, et al. Time to recovery, chronicity, and levels of psychopathology in major depression. A 5-year prospective follow-up of 431 subjects. Arch Gen Psychiatry. 1992;49(10):809-16. PMID 1417434; doi:10.1001/archpsyc.1992.01820100053010. (validated: PubMed)
 - [Kennedy2003] Kennedy N, Abbott R, Paykel ES. Remission and recurrence of depression in the maintenance era: long-term outcome in a Cambridge cohort. Psychol Med. 2003;33(5):827-38. PMID 12877397; doi:10.1017/s003329170300744x. (validated: PubMed)
 - [Murphy2012] Murphy JA, Byrne GJ. Prevalence and correlates of the proposed DSM-5 diagnosis of Chronic Depressive Disorder. J Affect Disord. 2012;139(2):172-80. PMID 22381955; doi:10.1016/j.jad.2012.01.033. (validated: PubMed)
@@ -440,7 +440,7 @@ Access notes:
 - [Sheehan2017] Sheehan DV, Nakagome K, Asami Y, Pappadopulos EA, Boucher M. Restoring function in major depressive disorder: A systematic review. J Affect Disord. 2017;215:299-313. PMID 28364701; doi:10.1016/j.jad.2017.02.029. (validated: PubMed)
 - [Stewart2003] Stewart WF, Ricci JA, Chee E, Hahn SR, Morganstein D. Cost of lost productive work time among US workers with depression. JAMA. 2003;289(23):3135-44. PMID 12813119; doi:10.1001/jama.289.23.3135. (validated: PubMed)
 - [Moussavi2007] Moussavi S, Chatterji S, Verdes E, Tandon A, Patel V, Ustun B. Depression, chronic diseases, and decrements in health: results from the World Health Surveys. Lancet. 2007;370(9590):851-8. PMID 17826170; doi:10.1016/S0140-6736(07)61415-9. (validated: PubMed)
-- [Read2017] Read JR, Sharpe L, Modini M, Dear BF. Multimorbidity and depression: A systematic review and meta-analysis. J Affect Disord. 2017;221:36-46. PMID 28628766; doi:10.1016/j.jad.2017.06.009. (validated: PubMed)
+- [Read2017Multimorbidity] Read JR, Sharpe L, Modini M, Dear BF. Multimorbidity and depression: A systematic review and meta-analysis. J Affect Disord. 2017;221:36-46. PMID 28628766; doi:10.1016/j.jad.2017.06.009. (validated: PubMed)
 - [Gold2020] Gold SM, Köhler-Forsberg O, Moss-Morris R, Mehnert A, Miranda JJ, Bullinger M, et al. Comorbid depression in medical diseases. Nat Rev Dis Primers. 2020;6(1):69. PMID 32820163; doi:10.1038/s41572-020-0200-2. (validated: PubMed)
 - [Lamers2011] Lamers F, van Oppen P, Comijs HC, Smit JH, Spinhoven P, van Balkom AJ, et al. Comorbidity patterns of anxiety and depressive disorders in a large cohort study: the Netherlands Study of Depression and Anxiety (NESDA). J Clin Psychiatry. 2011;72(3):341-8. PMID 21294994; doi:10.4088/JCP.10m06176blu. (validated: PubMed)
 - [Fava2008] Fava M, Rush AJ, Alpert JE, Balasubramani GK, Wisniewski SR, Carmin CN, et al. Difference in treatment outcome in outpatients with anxious versus nonanxious depression: a STAR*D report. Am J Psychiatry. 2008;165(3):342-51. PMID 18172020; doi:10.1176/appi.ajp.2007.06111868. (validated: PubMed)
@@ -467,7 +467,7 @@ Access notes:
 - [Mitchell2011] Mitchell AJ, Chan M, Bhatti H, Halton M, Grassi L, Johansen C, et al. Prevalence of depression, anxiety, and adjustment disorder in oncological, haematological, and palliative-care settings: a meta-analysis of 94 interview-based studies. Lancet Oncol. 2011;12(2):160-74. PMID 21251875; doi:10.1016/S1470-2045(11)70002-X. (validated: PubMed)
 - [Ownby2006] Ownby RL, Crocco E, Acevedo A, John V, Loewenstein D. Depression and risk for Alzheimer disease: systematic review, meta-analysis, and metaregression analysis. Arch Gen Psychiatry. 2006;63(5):530-8. PMID 16651510; PMCID PMC3530614; doi:10.1001/archpsyc.63.5.530. (validated: PubMed)
 - [Livingston2020Commission] Livingston G, Huntley J, Sommerlad A, Ames D, Ballard C, Banerjee S, et al. Dementia prevention, intervention, and care: 2020 report of the Lancet Commission. Lancet. 2020;396(10248):413-446. PMID 32738937; PMCID PMC7392084; doi:10.1016/S0140-6736(20)30367-6. (validated: PubMed)
-- [Cuijpers2014] Cuijpers P, Vogelzangs N, Twisk J, Kleiboer A, Li J, Penninx BW. Comprehensive meta-analysis of excess mortality in depression in the general community versus patients with specific illnesses. Am J Psychiatry. 2014;171(4):453-62. PMID 24434956; doi:10.1176/appi.ajp.2013.13030325. (validated: PubMed)
+- [Cuijpers2014Mortality] Cuijpers P, Vogelzangs N, Twisk J, Kleiboer A, Li J, Penninx BW. Comprehensive meta-analysis of excess mortality in depression in the general community versus patients with specific illnesses. Am J Psychiatry. 2014;171(4):453-62. PMID 24434956; doi:10.1176/appi.ajp.2013.13030325. (validated: PubMed)
 - [Walker2015] Walker ER, McGee RE, Druss BG. Mortality in mental disorders and global disease burden implications: a systematic review and meta-analysis. JAMA Psychiatry. 2015;72(4):334-41. PMID 25671328; PMCID PMC4461039; doi:10.1001/jamapsychiatry.2014.2502. (validated: PubMed)
 - [Chesney2014] Chesney E, Goodwin GM, Fazel S. Risks of all-cause and suicide mortality in mental disorders: a meta-review. World Psychiatry. 2014;13(2):153-60. PMID 24890068; PMCID PMC4102288; doi:10.1002/wps.20128. (validated: PubMed)
 - [GBD2021Suicide] GBD 2021 Suicide Collaborators. Global, regional, and national burden of suicide, 1990-2021: a systematic analysis for the Global Burden of Disease Study 2021. Lancet Public Health. 2025;10(3):e189-e202. PMID 39986290; PMCID PMC11876099; doi:10.1016/S2468-2667(25)00006-4. (validated: PubMed)
