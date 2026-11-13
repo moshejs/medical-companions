@@ -7,7 +7,7 @@ const MR_STEPS=[
  {from:0,at:.1,k:'Before 2016 · 18–24 months',t:'The long injectable era',
   txt:`Treatment for MDR-TB used to take about two years, with daily injections that could damage hearing [[Dillard2021,WHO-Mod4-2025]]. In an individual-patient meta-analysis of 12 030 people from 25 countries (studies 2009–2016), 61% had treatment success, 8% failure or relapse and 14% died. Kanamycin and capreomycin were linked to worse outcomes; linezolid, the later-generation fluoroquinolones and bedaquiline to better ones [[Ahmad2018Lancet]]. In 18 studies, aminoglycoside hearing loss affected a pooled 40.62% of people treated for DR-TB: 49.65% with kanamycin, 38.93% with amikacin and 10.21% with capreomycin [[Dillard2021]].`,
   pt:`Two years of treatment and daily injections, and about 4 in 10 people lost some hearing.`,
-  hook:`Aminoglycoside hearing loss ≈ 40% (kanamycin 50%, amikacin 39%) [[Dillard2021]]. Global MDR/RR-TB success was only 50% in the 2012 cohort [[WHO-GTR2025]].`},
+  hook:`Aminoglycoside hearing loss ≈ 40% (kanamycin 50%, amikacin 39%) [[Dillard2021]]. Global MDR/RR-TB success was only 50% in the 2012 cohort [[WHO-GTR2026]].`},
  {from:.2,at:.27,k:'STREAM stage 1 · 9–11 months',t:'Shorter, still with an injectable',
   txt:`A Bangladesh regimen of at least 9 months gave 87.9% relapse-free cure in 206 people [[VanDeun2010]]. STREAM stage 1 then randomised 424 people: favourable status at 132 weeks was 78.8% on the 9–11-month regimen and 79.8% on the 20-month 2011 WHO regimen, meeting noninferiority. QTcF prolongation to 500 ms occurred in 11.0% against 6.4% [[Nunn2019]].`,
   pt:`Half the time with similar results, but the injection was still part of it.`,
@@ -21,9 +21,9 @@ const MR_STEPS=[
   pt:`Four medicines by mouth for 6 months cured about nine in ten people in the trials.`,
   hook:`BPaLM = bedaquiline, pretomanid, linezolid 600 mg, moxifloxacin, 6 months, age 14 and over [[WHO-Mod4-2025]].`},
  {from:.76,at:.9,k:'2024 · where things stand',t:'Better regimens, slow uptake',
-  txt:`By 2024, 6-month regimens were used in 97 countries (41 at the end of 2022), and 34 256 people started one, against 1744 in 2022. Even so, 54% of people with MDR/RR-TB were still on 18–20-month regimens, 21% on 9-month and 21% on 6-month regimens [[WHO-GTR2025]]. Global MDR/RR-TB treatment success rose from 50% (2012 cohort) to 71% (2022 cohort), against 88% for drug-susceptible TB [[WHO-GTR2025]]. WHO 2025 also suggests a 6-month BDLLfxC regimen for all ages, including children and pregnant or breastfeeding people, based on BEAT Tuberculosis (86.1% vs 86.0% success) [[WHO-Mod4-2025,Conradie2026]].`,
+  txt:`By the end of 2025, 6-month regimens were used in 106 countries (60 at the end of 2023), for 42% of people treated for MDR/RR-TB, up from 18% in 2024 and 3% in 2023. Even so, 44% were still on 18–20-month regimens and 11% on 9-month regimens [[WHO-GTR2026]]. Global MDR/RR-TB treatment success rose from 50% (2012 cohort) to 70% (2023 cohort), against 90% for drug-susceptible TB [[WHO-GTR2026]]. WHO 2025 also suggests a 6-month BDLLfxC regimen for all ages, including children and pregnant or breastfeeding people, based on BEAT Tuberculosis (86.1% vs 86.0% success) [[WHO-Mod4-2025,Conradie2026]].`,
   pt:`Short all-oral treatment exists, but most people in the world are not yet getting it.`,
-  hook:`2024: only 21% of people with MDR/RR-TB were on 6-month regimens; 54% were still on 18–20-month ones [[WHO-GTR2025]].`}];
+  hook:`2025: 42% of people treated for MDR/RR-TB were on 6-month regimens (18% in 2024); 44% were still on 18–20-month ones [[WHO-GTR2026]].`}];
 
 inits.drtb=()=>{
   const svg=$('#mrSvg'),rg=$('#mrT');let fq='s',age='a',setSt=()=>{};

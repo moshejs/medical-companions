@@ -132,10 +132,10 @@ inits.bcg=()=>{
   /* ---- pipeline bars ---- */
   const pp=$('#bcPipe');
   function drawP(){const N=vb(pp,'720 120','400 170');let s='';const x0=N?12:90,x1=N?388:700,u=(x1-x0)/18;
-    const bars=[{y:N?30:22,l:'2024',seg:[[15,'15 candidates','var(--vax)',.5]]},{y:N?96:66,l:'Aug 2025',seg:[[4,'phase 1: 4','var(--vax)',.35],[8,'phase 2: 8','var(--vax)',.6],[6,'phase 3: 6','var(--vax)',1]]}];
+    const bars=[{y:N?30:22,l:'Aug 2025',seg:[[18,'18 in clinical trials','var(--vax)',.5]]},{y:N?96:66,l:'Aug 2026',seg:[[3,'ph 1: 3','var(--vax)',.35],[6,'phase 2: 6','var(--vax)',.6],[3,'ph 3: 3','var(--vax)',1],[5,'inactive: 5','var(--muted)',.3]]}];
     bars.forEach(b=>{let x=x0;if(N)s+=`<text x="${x0}" y="${b.y-6}" class="t-xs" style="fill:var(--ink)">${b.l}</text>`;else s+=`<text x="${x0-10}" y="${b.y+17}" class="t-xs t-end" style="fill:var(--ink)">${b.l}</text>`;
       b.seg.forEach(g=>{const w=g[0]*u;s+=`<rect x="${f1(x)}" y="${b.y}" width="${f1(w-2)}" height="26" rx="4" style="fill:${g[2]};opacity:${g[3]}"/><text x="${f1(x+6)}" y="${b.y+17}" class="t-xs" style="fill:${g[3]>.55?'var(--bg)':'var(--ink)'}">${g[1]}</text>`;x+=w})});
-    s+=`<text x="${x1}" y="${N?164:112}" class="t-xs t-end">TB vaccine candidates in clinical trials (WHO)</text>`;pp.innerHTML=s}
+    s+=`<text x="${x1}" y="${N?164:112}" class="t-xs t-end">TB vaccine candidates in the clinical pipeline (WHO)</text>`;pp.innerHTML=s}
   drawP();const prevR=redraws.bcg;redraws.bcg=()=>{prevR&&prevR();drawP()};
 
   /* ---- board filters ---- */
