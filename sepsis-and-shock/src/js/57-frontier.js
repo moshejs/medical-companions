@@ -48,7 +48,8 @@ const FT_P=[
  {y:2025,n:'ADAPT-Sepsis',f:'Procalcitonin-guided stopping',ev:'est',cat:'dx',txt:'2,760 adults: antibiotics 9.8 vs 10.7 days, with noninferior mortality. [[Dark2025ADAPT]]'},
  {y:2025,n:'Thymosin α1',f:'TESTS trial',g:1,ev:'est',cat:'immuno',txt:'1,089 analysed: 28-day mortality 23.4% vs 24.1% (HR 0.99). [[Wu2025TESTS]]'},
  {y:2026,n:'ImmunoSep',f:'Anakinra or IFN-γ by immune state',ev:'early',cat:'immuno',txt:'SOFA response 35.1% vs 17.9% (P = .002); 28-day mortality not significantly different. [[GiamarellosBourboulis2026ImmunoSep,NCT04990232]]'},
- {y:2026.3,n:'Tigris',f:'Polymyxin B in a narrower endotoxin band',ev:'early',cat:'block',txt:'157 people, open label, Bayesian: 28-day mortality 39% vs 45%, posterior probability of benefit 95.3%. [[Neyra2026Tigris,NCT03901807]]'}
+ {y:2026.3,n:'Tigris',f:'Polymyxin B in a narrower endotoxin band',ev:'early',cat:'block',txt:'157 people, open label, Bayesian: 28-day mortality 39% vs 45%, posterior probability of benefit 95.3%. [[Neyra2026Tigris,NCT03901807]]'},
+ {y:2026.15,n:'Ulinastatin',f:'Ulinastatin, ADJUST trial',g:1,ev:'est',cat:'block',txt:'335 analysed, double blind: 28-day mortality 23.6% vs 22.9% on placebo (HR 1.03); adverse events 56.8% vs 42.7%. [[Chen2026ADJUST]]'}
 ];
 const FT_STEPS=[
  {y0:1990,y1:2000,k:'1990s',t:'Block the storm',
@@ -68,7 +69,7 @@ const FT_STEPS=[
   pt:`High-dose vitamin C did not help in large trials, and in one large trial it was linked to worse outcomes. Computer alerts can help staff spot sepsis sooner, but some widely used ones miss many cases. [[Lamontagne2022LOVIT,Wong2021Epic]]`,
   hook:`LOVIT: IV vitamin C increased death or persistent organ dysfunction (RR 1.21). Epic Sepsis Model: external AUC 0.63. [[Lamontagne2022LOVIT,Wong2021Epic]]`},
  {y0:2023,y1:FT_Y1,k:'2023 to 2026',t:'Matching treatment to the patient',
-  txt:`<span class="ev early">Early evidence</span> ImmunoSep gave anakinra to people with MALS and interferon-γ to those with immunoparalysis: SOFA response 35.1% vs 17.9%, with no significant difference in 28-day mortality. [[GiamarellosBourboulis2026ImmunoSep]] Tigris revisited endotoxin removal in a narrower group. [[Neyra2026Tigris]] Procalcitonin-guided stopping shortened antibiotics safely in ADAPT-Sepsis. [[Dark2025ADAPT]] Landiolol and thymosin α1 joined the graveyard. [[Whitehouse2023STRESSL,Wu2025TESTS]] No immunostimulant has yet shown a mortality benefit in phase 3. [[GiamarellosBourboulis2026ImmunoSep]]`,
+  txt:`<span class="ev early">Early evidence</span> ImmunoSep gave anakinra to people with MALS and interferon-γ to those with immunoparalysis: SOFA response 35.1% vs 17.9%, with no significant difference in 28-day mortality. [[GiamarellosBourboulis2026ImmunoSep]] Tigris revisited endotoxin removal in a narrower group. [[Neyra2026Tigris]] Procalcitonin-guided stopping shortened antibiotics safely in ADAPT-Sepsis. [[Dark2025ADAPT]] Landiolol, thymosin α1 and ulinastatin joined the graveyard. [[Whitehouse2023STRESSL,Wu2025TESTS,Chen2026ADJUST]] No immunostimulant has yet shown a mortality benefit in phase 3. [[GiamarellosBourboulis2026ImmunoSep]]`,
   pt:`Researchers now test treatments matched to each person's immune state. It is promising but not yet proven to save lives. [[GiamarellosBourboulis2026ImmunoSep]]`,
   hook:`MALS: ferritin > 4420 ng/mL; immunoparalysis: HLA-DR < 5000 receptors per monocyte. [[Leventogiannis2022PROVIDE,GiamarellosBourboulis2026ImmunoSep]]`}
 ].map(s=>Object.assign(s,{from:ftU(s.y0),at:ftU(s.y1-.4)}));

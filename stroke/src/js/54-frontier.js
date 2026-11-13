@@ -263,7 +263,7 @@ const FXC_STEPS=[
   hook:'Asundexian failed against apixaban in AF but reduced ischaemic stroke against placebo after non-cardioembolic stroke: mechanism of stroke and comparator matter [[Piccini2025,Sharma2026]].',
   tag:'TRIAL DATA',tc:'est',w:['Same drug and dose, two populations, two comparators. Do not compare across panels.'],n:['Same drug, two populations, two comparators.','Do not compare across panels.']},
  {from:.88,at:.95,k:'Registry · no results',t:'What has not reported',
-  txt:'<span class="ev hyp">Hypothesis</span> until they report. LIBREXIA-STROKE and LIBREXIA-AF are active, not recruiting, with no results posted [[NCT05702034,NCT05757869]]. LILAC-TIMI 76 is recruiting [[NCT05712200]], and a second record under the same name is not yet recruiting [[NCT07739888]]. Regulatory and guideline status of factor XI drugs were not established when this research was done.',
+  txt:'<span class="ev hyp">Hypothesis</span> until they report. LIBREXIA-STROKE and LIBREXIA-AF are active, not recruiting, with no results posted [[NCT05702034,NCT05757869]]. LILAC-TIMI 76 is recruiting [[NCT05712200]], and a second record under the same name is not yet recruiting [[NCT07739888]]. The US FDA approved asundexian on 9 November 2026, with antiplatelet therapy, after a recent mild-to-moderate non-cardioembolic ischaemic stroke or high-risk TIA, and not for AF [[FDA-Sunharbo2026]]. Guideline status of factor XI drugs was not established when this research was done.',
   tag:'REGISTRY',tc:'hyp',w:['Registry entries only. No result is implied.'],n:['Registry entries only. No result is implied.']}
 ];
 const FXC_REG=[

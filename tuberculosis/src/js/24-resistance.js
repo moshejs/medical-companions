@@ -63,9 +63,9 @@ const RS_STEPS={
    pt:`Feeling better comes early. The last germs take months to clear, so the full course matters.`,
    hook:`Early bactericidal activity: isoniazid. Sterilising activity: rifampicin [[Jindani2003]].`},
   {from:.6,at:.7,k:'End of treatment',t:'Cleared, with no resistance selected',
-   txt:`The cavity is empty and no mutant had the chance to take over. Treatment success for drug-susceptible TB was 88% in the 2023 cohort worldwide, a population figure that includes people lost to follow-up and deaths [[WHO-GTR2025]]. For the regimens themselves, see <a href="#regimen" data-go="regimen">Treating TB disease</a>.`,
+   txt:`The cavity is empty and no mutant had the chance to take over. Treatment success for drug-susceptible TB was 90% in the 2024 cohort worldwide, a population figure that includes people lost to follow-up and deaths [[WHO-GTR2026]]. For the regimens themselves, see <a href="#regimen" data-go="regimen">Treating TB disease</a>.`,
    pt:`Taking all the medicines together, for the whole course, is what keeps resistance from appearing.`,
-   hook:`Drug-susceptible TB treatment success: 88% (2023 cohort) [[WHO-GTR2025]].`},
+   hook:`Drug-susceptible TB treatment success: 90% (2024 cohort) [[WHO-GTR2026]].`},
   RS_S4],
  interrupt:[RS_S0,
   {from:.15,at:.27,k:'Treatment starts, then stops',t:'Stopping early leaves survivors',
@@ -77,9 +77,9 @@ const RS_STEPS={
    pt:`The illness can come back, sometimes harder to treat than before.`,
    hook:`Interrupted treatment risks relapse and selects mutants among the survivors.`},
   {from:.6,at:.7,k:'Restarting',t:'Testing before treating again',
-   txt:`When TB returns, drug-susceptibility testing comes first. Among previously treated people, 16% had MDR/RR-TB in 2024, against 3.2% of people never treated before [[WHO-GTR2025]]. In 2024, 83% of people with bacteriologically confirmed TB were tested for rifampicin resistance [[WHO-GTR2025]].`,
+   txt:`When TB returns, drug-susceptibility testing comes first. Among previously treated people, 15% had MDR/RR-TB in 2025, against 3.1% of people never treated before [[WHO-GTR2026]]. In 2025, 85% of people with bacteriologically confirmed TB were tested for rifampicin resistance [[WHO-GTR2026]].`,
    pt:`Before starting medicines again, the clinic checks which ones still work.`,
-   hook:`Previous TB treatment is a red flag for resistance: MDR/RR-TB in 16% of previously treated vs 3.2% of new patients (2024) [[WHO-GTR2025]].`},
+   hook:`Previous TB treatment is a red flag for resistance: MDR/RR-TB in 15% of previously treated vs 3.1% of new patients (2025) [[WHO-GTR2026]].`},
   RS_S4]};
 
 inits.resistance=()=>{

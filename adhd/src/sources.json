@@ -808,6 +808,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Conti2026",
+  "text": "Conti AA, Bozhilova N, Eraydin IE, Stringer D, Johansson L, Marhenke R, et al. External trigeminal nerve stimulation in youth with ADHD: a randomized, sham-controlled, phase 2b trial. Nat Med. 2026;32(2):582-590. PMID 41545587; PMCID PMC12920111; doi:10.1038/s41591-025-04075-x.",
+  "link": "https://doi.org/10.1038/s41591-025-04075-x",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Cooper2011",
   "text": "Cooper WO, Habel LA, Sox CM, Chan KA, Arbogast PG, Cheetham TC, et al. ADHD drugs and serious cardiovascular events in children and young adults. N Engl J Med. 2011;365(20):1896-904. PMID 22043968; PMCID PMC4943074; doi:10.1056/NEJMoa1110212.",
   "link": "https://doi.org/10.1056/nejmoa1110212",
@@ -2660,6 +2670,16 @@
   "key": "Loo2021",
   "text": "Loo SK, Salgari GC, Ellis A, Cowen J, Dillon A, McGough JJ. Trigeminal Nerve Stimulation for Attention-Deficit/Hyperactivity Disorder: Cognitive and Electroencephalographic Predictors of Treatment Response. J Am Acad Child Adolesc Psychiatry. 2021;60(7):856-864.e1. PMID 33068751; PMCID PMC9714960; doi:10.1016/j.jaac.2020.09.021.",
   "link": "https://doi.org/10.1016/j.jaac.2020.09.021",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Loo2026",
+  "text": "Loo S, Dillon A, Salgari G, Stiles K, Cowen J, Chang S, et al. Clinical Efficacy of Trigeminal Nerve Stimulation in Pediatric ADHD: A Double-Blind Randomized Controlled Trial. Res Sq [Preprint]. 2026 (posted 2026-10-30):rs.3.rs-11461111. Preprint, not peer reviewed. PMID 42990756; PMCID PMC13734273; doi:10.21203/rs.3.rs-11461111/v1.",
+  "link": "https://doi.org/10.21203/rs.3.rs-11461111/v1",
   "areas": [
    "G"
   ],

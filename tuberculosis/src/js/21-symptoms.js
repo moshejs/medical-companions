@@ -27,7 +27,7 @@ const SY_PRO={
   les:[{side:'R',u:.5,v:.6,r:16,kind:'infiltrate'},{side:'L',u:.5,v:.55,r:14,kind:'infiltrate'}],lesN:'no cavity'}};
 const SY_COMMON=[
  {from:.39,at:.5,k:'Outside the lungs · 1',t:'Lymph nodes and pleura',
-  txt:`In 2024, 16% of the 8.3 million people notified with a new episode of TB had extrapulmonary TB. [[WHO-GTR2025]] In US data the commonest sites were the lymph nodes (40.4%) and the pleura (19.8%). [[Peto2009]] TB lymphadenitis typically means 1–2 months of painless swelling of one group of neck nodes; excision biopsy is the most sensitive test (80%). [[Fontanilla2011]] Pleural fluid adenosine deaminase had a pooled sensitivity of 0.92 and specificity of 0.90. [[Liang2008]]`,
+  txt:`In 2025, 17% of the 8.4 million people notified with a new episode of TB had extrapulmonary TB. [[WHO-GTR2026]] In US data the commonest sites were the lymph nodes (40.4%) and the pleura (19.8%). [[Peto2009]] TB lymphadenitis typically means 1–2 months of painless swelling of one group of neck nodes; excision biopsy is the most sensitive test (80%). [[Fontanilla2011]] Pleural fluid adenosine deaminase had a pooled sensitivity of 0.92 and specificity of 0.90. [[Liang2008]]`,
   pt:`TB can settle outside the lungs. The neck glands are the most common place: a lump that grows slowly and usually does not hurt.`,
   hook:`Commonest extrapulmonary site: lymph nodes (40.4%), then pleura (19.8%). Pleural ADA: sensitivity 92%, specificity 90%.`},
  {from:.53,at:.61,k:'Outside the lungs · 2',t:'Bone, kidneys and abdomen',
@@ -145,7 +145,7 @@ inits.symptoms=()=>{
         s+='</g>'})}
     svg.innerHTML=s;setSt(ph);
     const shown=SY_SITES.filter(q=>t>=q.t0).length;
-    $('#syRead').innerHTML=`<span>presentation in <b>${P.name}</b></span><span>stage <b>${t<.18?'lung symptoms':t<.38?'whole-body symptoms':'sites outside the lungs'}</b></span><span>sites lit <b>${shown} of 7</b></span><span>worldwide 2024 <b>84% pulmonary · 16% extrapulmonary</b> [[WHO-GTR2025]]</span>`;
+    $('#syRead').innerHTML=`<span>presentation in <b>${P.name}</b></span><span>stage <b>${t<.18?'lung symptoms':t<.38?'whole-body symptoms':'sites outside the lungs'}</b></span><span>sites lit <b>${shown} of 7</b></span><span>worldwide 2025 <b>83% pulmonary · 17% extrapulmonary</b> [[WHO-GTR2026]]</span>`;
     $('#syNote').innerHTML=noteHTML(ST[ph]);
   }
   const stop=playWire(rg,$('#syPlay'),draw,20000,'Replay','symptoms');

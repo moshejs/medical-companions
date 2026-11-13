@@ -361,6 +361,7 @@ Access notes:
 - [FDA-Nexletol] Esperion Therapeutics, Inc. NEXLETOL (bempedoic acid) tablets, US prescribing information. openFDA drug label, set_id 88d06d89-a3da-40b4-b273-8f4f7d56c4c9, effective 2026-06-25. (validated: openFDA)
 - [FDA-Inspra] Viatris Specialty LLC. INSPRA (eplerenone) tablets, US prescribing information. openFDA drug label, set_id 1a52bedc-8e2c-4116-a296-a87770676b4a, effective 2025-06-23. (validated: openFDA)
 - [FDA-Coreg] Waylis Therapeutics LLC. COREG (carvedilol) tablets, US prescribing information. openFDA drug label, set_id 07c619c6-4a0c-445e-94fa-664a54f68a39, effective 2026-07-31. (validated: openFDA)
+- [Cho2026HORIZON] Cho L, Nicholls SJ, Frndak S, Wolski K, Nordestgaard BG, Manning B, et al. Pelacarsen and Cardiovascular Outcomes in Patients with High Lipoprotein(a). N Engl J Med. 2026 (online ahead of print 2026-11-07). PMID 43001734; doi:10.1056/NEJMoa2610159. Abstract read; full text not accessed. (validated: PubMed)
 
 ## Provenance
 - Every journal source was confirmed with a PubMed E-utilities esummary batch (authors, title, journal, year, volume, pages, DOI, PMCID) on 2026-11-04. Abstracts were read through the Europe PMC REST API (resultType=core). Label statements come from the openFDA drug label endpoint on 2026-11-04.

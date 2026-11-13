@@ -439,6 +439,7 @@ Doses, thresholds and guideline statements below are recorded as published. They
 - [Tai2023] Tai W. Atrial Fibrillation:: A Common Cause of Stroke. Dela J Public Health. 2023;9(3):12-15. PMID 37701476; PMCID PMC10494795; doi:10.32481/djph.2023.08.004. (validated: PubMed)
 - [NCT03812653] Sleep for Stroke Management and Recovery Trial (Sleep SMART). ClinicalTrials.gov NCT03812653; active, not recruiting; status verified 2026-01; no results posted. (validated: ClinicalTrials.gov)
 - [NCT04023552] Assessing the Impact of Lipoprotein (a) Lowering With Pelacarsen (TQJ230) on Major Cardiovascular Events in Patients With CVD (Lp(a)HORIZON). ClinicalTrials.gov NCT04023552; completed 2026-07-16; no results posted. (validated: ClinicalTrials.gov)
+- [SampaioSilva2026] Sampaio Silva G, Machline-Carrion MJ, Santo K, Brainer Clares de Andrade J, Martins E, Guimarães PO, et al. Intensive Blood-Pressure Control in Patients with Previous Ischemic Stroke. N Engl J Med. 2026 (online ahead of print 2026-11-07). PMID 43001741; doi:10.1056/NEJMoa2612924. Abstract read; full text not accessed. (validated: PubMed)
 
 ## Provenance
 - All sources were checked in this run. PubMed records and abstracts were fetched by E-utilities (`efetch` XML and `esummary`), trial status from the ClinicalTrials.gov v2 API, and open full text through PMC `efetch`.

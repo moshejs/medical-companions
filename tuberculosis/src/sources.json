@@ -1336,6 +1336,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "DominguezRodriguez2026",
+  "text": "Domínguez-Rodríguez S, Tagarro A, Moraleda C, Buck WC, Mujuru H, Chabala C, et al. Empirical tuberculosis treatment in infants living with HIV hospitalised with severe pneumonia in Africa (EMPIRICAL): a multicentre, randomised, open-label, 2 × 2 factorial, controlled superiority trial. Lancet. 2026;408(10568):2109-2124. PMID 43020097; doi:10.1016/S0140-6736(26)01418-2.",
+  "link": "https://doi.org/10.1016/s0140-6736(26)01418-2",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Dommergues2009",
   "text": "Dommergues MA, de La Rocque F, Guy C, Lécuyer A, Jacquet A, Guérin N, et al. Local and regional adverse reactions to BCG-SSI vaccination: a 12-month cohort follow-up study. Vaccine. 2009;27(50):6967-73. PMID 19800440; doi:10.1016/j.vaccine.2009.09.073.",
   "link": "https://doi.org/10.1016/j.vaccine.2009.09.073",
@@ -5165,6 +5175,19 @@
   ],
   "unverified": false,
   "validated": "WHO IRIS"
+ },
+ {
+  "key": "WHO-GTR2026",
+  "text": "World Health Organization. Global tuberculosis report 2026. Geneva: World Health Organization; 2026 (released 12 Nov 2026). ISBN 978-92-4-012648-0 (electronic version). https://www.who.int/publications/i/item/9789240126480. 2025 data; core report PDF and web sections read on who.int.",
+  "link": "https://www.who.int/publications/i/item/9789240126480",
+  "areas": [
+   "A",
+   "D",
+   "F",
+   "H"
+  ],
+  "unverified": false,
+  "validated": "WHO publication record"
  },
  {
   "key": "WHO-IPC2019",
