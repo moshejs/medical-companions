@@ -421,7 +421,7 @@ const STGL_T=[
  ["Apoplexy",`The old word for stroke, meaning struck down with violence. It covered non-vascular events too [[Engelhardt2017]].`,"history"],
  ["ASPECTS",`A 10-region CT score of the MCA territory. 10 is normal, with 1 point off per affected region [[Barber2000,Pexman2001]].`,"imaging"],
  ["Aspiration",`Food or fluid entering the airway. Confirmed aspiration raises pneumonia risk (RR 11.56) [[Martino2005]].`,"unit"],
- ["Asundexian",`An oral factor XIa inhibitor. It failed against apixaban in AF, and reduced ischaemic stroke against placebo after non-cardioembolic stroke [[Piccini2025,Sharma2026]].`,"frontier"],
+ ["Asundexian",`An oral factor XIa inhibitor. It failed against apixaban in AF, and reduced ischaemic stroke against placebo after non-cardioembolic stroke; the US FDA approved it for that use in November 2026 [[Piccini2025,Sharma2026,FDA-Sunharbo2026]].`,"frontier"],
  ["Atrial septal aneurysm",`A floppy bulge of the wall between the atria. With a PFO it counts as a high-risk feature in PASCAL [[Chambers2026,Kent2021]].`,"carotid"],
  ["AVERT",`A trial of very early, higher-dose mobilisation. Favourable outcome 46% against 50% [[Bernhardt2015]].`,"rehab"],
  ["Basilar artery",`The main artery of the posterior circulation. Occlusion can bring decreased consciousness, quadriparesis and coma [[Lo2025]].`,"vessels"],

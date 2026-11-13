@@ -2991,6 +2991,16 @@
   "validated": "openFDA"
  },
  {
+  "key": "FDA-Sunharbo2026",
+  "text": "US Food and Drug Administration. FDA Approves First Factor XIa Inhibitor to Help Prevent Stroke in Certain Adults at High Risk. FDA news release, 9 November 2026: Sunharbo (asundexian) 50 mg tablets, Bayer HealthCare Pharmaceuticals Inc. https://www.fda.gov/news-events/press-announcements/fda-approves-first-factor-xla-inhibitor-help-prevent-stroke-certain-adults-high-risk. Also listed in FDA Novel Drug Approvals for 2026 (no. 48, approval date 11/9/2026).",
+  "link": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-factor-xla-inhibitor-help-prevent-stroke-certain-adults-high-risk",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "fda.gov page fetched 2026-11-13"
+ },
+ {
   "key": "FDA-TNKase",
   "text": "Genentech, Inc. TNKase (tenecteplase) prescribing information, stroke and STEMI label. BLA103909; openFDA set_id e647640d-c395-4b4b-a0be-1162f9c21d84; effective 2025-12-15.",
   "link": "",
@@ -3321,8 +3331,8 @@
  },
  {
   "key": "Fonseca2021",
-  "text": "Fonseca AC, Merwick Á, Dennis M, Ferrari J, Ferro JM, Kelly P, et al. European Stroke Organisation (ESO) guidelines on management of transient ischaemic attack. Eur Stroke J. 2021;6(2):V. PMID 34414306; PMCID PMC8370075; doi:10.1177/23969873211027003.",
-  "link": "https://doi.org/10.1177/23969873211027003",
+  "text": "Fonseca AC, Merwick Á, Dennis M, Ferrari J, Ferro JM, Kelly P, et al. European Stroke Organisation (ESO) guidelines on management of transient ischaemic attack. Eur Stroke J. 2021;6(2):CLXIII-CLXXXVI. PMID 34414299; PMCID PMC8370080; doi:10.1177/2396987321992905.",
+  "link": "https://doi.org/10.1177/2396987321992905",
   "areas": [
    "B"
   ],
@@ -8889,6 +8899,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "SampaioSilva2026",
+  "text": "Sampaio Silva G, Machline-Carrion MJ, Santo K, Brainer Clares de Andrade J, Martins E, Guimarães PO, et al. Intensive Blood-Pressure Control in Patients with Previous Ischemic Stroke. N Engl J Med. 2026 (online ahead of print 2026-11-07). PMID 43001741; doi:10.1056/NEJMoa2612924. Abstract read; full text not accessed.",
+  "link": "https://doi.org/10.1056/nejmoa2612924",
+  "areas": [
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Sandercock2012",
   "text": "IST-3 collaborative group, Sandercock P, Wardlaw JM, Lindley RI, Dennis M, Cohen G, et al. The benefits and harms of intravenous thrombolysis with recombinant tissue plasminogen activator within 6 h of acute ischaemic stroke (the third international stroke trial [IST-3]): a randomised controlled trial. Lancet. 2012;379(9834):2352-2363. PMID 22632908; PMCID PMC3386495; doi:10.1016/s0140-6736(12)60768-5.",
   "link": "https://doi.org/10.1016/s0140-6736(12)60768-5",
@@ -8930,8 +8950,8 @@
  },
  {
   "key": "Sandset2021",
-  "text": "Sandset EC, Anderson CS, Bath PM, Christensen H, Fischer U, Gąsecki D, et al. European Stroke Organisation (ESO) guidelines on blood pressure management in acute ischaemic stroke and intracerebral haemorrhage. Eur Stroke J. 2021;6(2):II. PMID 34780579; PMCID PMC8370067; doi:10.1177/23969873211026998.",
-  "link": "https://doi.org/10.1177/23969873211026998",
+  "text": "Sandset EC, Anderson CS, Bath PM, Christensen H, Fischer U, Gąsecki D, et al. European Stroke Organisation (ESO) guidelines on blood pressure management in acute ischaemic stroke and intracerebral haemorrhage. Eur Stroke J. 2021;6(2):XLVIII-LXXXIX. PMID 34780578; PMCID PMC8370078; doi:10.1177/23969873211012133.",
+  "link": "https://doi.org/10.1177/23969873211012133",
   "areas": [
    "F"
   ],
@@ -10123,8 +10143,8 @@
  },
  {
   "key": "vanderWorp2021",
-  "text": "van der Worp HB, Hofmeijer J, Jüttler E, Lal A, Michel P, Santalucia P, et al. European Stroke Organisation (ESO) guidelines on the management of space-occupying brain infarction. Eur Stroke J. 2021;6(2):III. PMID 34414304; PMCID PMC8370077; doi:10.1177/23969873211027001.",
-  "link": "https://doi.org/10.1177/23969873211027001",
+  "text": "van der Worp HB, Hofmeijer J, Jüttler E, Lal A, Michel P, Santalucia P, et al. European Stroke Organisation (ESO) guidelines on the management of space-occupying brain infarction. Eur Stroke J. 2021;6(2):XC-CX. PMID 34414308; PMCID PMC8370072; doi:10.1177/23969873211014112.",
+  "link": "https://doi.org/10.1177/23969873211014112",
   "areas": [
    "F"
   ],
