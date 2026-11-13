@@ -26,6 +26,7 @@ Animated, cited study and patient-education guides, one disease each, on one sit
 | [Stroke Companion](stroke/README.md) (ischaemic and haemorrhagic stroke, from recognition to recovery) | `/stroke/` | English |
 | [GBS Companion](guillain-barre-syndrome/README.md) (Guillain-Barré syndrome, from the immune attack on nerves to recovery) | `/guillain-barre-syndrome/` | English |
 | [Obesity Companion](obesity/README.md) (obesity, from appetite biology to GLP-1 medicines and metabolic surgery) | `/obesity/` | English |
+| [Depression Companion](major-depressive-disorder/README.md) (major depressive disorder, from brain circuits and the PHQ-9 to therapy, antidepressants, ECT and ketamine) | `/major-depressive-disorder/` | English |
 
 The hub at `/` links to each one and carries the shared method and disclaimer. Every companion links back to it, and its structured data names the site (`isPartOf`).
 
