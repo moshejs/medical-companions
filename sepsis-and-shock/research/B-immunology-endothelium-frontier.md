@@ -453,6 +453,7 @@ Access notes:
 - [MedLett2011Xigris] [No authors listed]. In brief: Xigris withdrawn. Med Lett Drugs Ther. 2011;53(1379-1380):104. PMID 22173429. (validated: PubMed)
 - [NCT04990232] ImmunoSep: Personalized Immunotherapy in Sepsis. ClinicalTrials.gov NCT04990232. Status completed; actual enrolment 280; start 2021-07-29; primary completion 2024-02-06; primary outcome mean total SOFA score. (validated: ClinicalTrials.gov)
 - [NCT03901807] TIGRIS: Safety and Efficacy of Polymyxin B Hemoperfusion (PMX) for Endotoxemic Septic Shock in a Randomized, Open-Label Study. ClinicalTrials.gov NCT03901807. Status completed; actual enrolment 157; primary outcome day 28 mortality. (validated: ClinicalTrials.gov)
+- [Chen2026ADJUST] Chen Y, Jiang W, Yu X, Sun T, Wang R, Yu L, et al. Efficacy and Safety of Ulinastatin in the Treatment of Patients with Sepsis: The ADJUST Trial. Chest. 2026 (online ahead of print 2026-11-06). PMID 42994751; doi:10.1016/j.chest.2026.10.033. (validated: PubMed)
 
 ## Provenance
 - All 96 journal sources were validated against PubMed E-utilities esummary records (authors, title, journal, year, volume, pages, PMID, PMCID, DOI generated from the record). Abstracts were read via Europe PMC (resultType=core). ImmunoSep (NCT04990232) and Tigris (NCT03901807) were validated on the ClinicalTrials.gov v2 API.
