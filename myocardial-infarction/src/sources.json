@@ -591,6 +591,17 @@
   "validated": "PubMed"
  },
  {
+  "key": "Cho2026HORIZON",
+  "text": "Cho L, Nicholls SJ, Frndak S, Wolski K, Nordestgaard BG, Manning B, et al. Pelacarsen and Cardiovascular Outcomes in Patients with High Lipoprotein(a). N Engl J Med. 2026 (online ahead of print 2026-11-07). PMID 43001734; doi:10.1056/NEJMoa2610159. Abstract read; full text not accessed.",
+  "link": "https://doi.org/10.1056/nejmoa2610159",
+  "areas": [
+   "F",
+   "G"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Choi2025SMARTCHOICE3",
   "text": "Choi KH, Park YH, Lee JY, Jeong JO, Kim CJ, Yun KH, et al. Efficacy and safety of clopidogrel versus aspirin monotherapy in patients at high risk of subsequent cardiovascular event after percutaneous coronary intervention (SMART-CHOICE 3): a randomised, open-label, multicentre trial. Lancet. 2025;405(10486):1252-1263. PMID 40174599; doi:10.1016/S0140-6736(25)00449-0.",
   "link": "https://doi.org/10.1016/s0140-6736(25)00449-0",
@@ -1957,6 +1968,16 @@
   ]
  },
  {
+  "key": "Hochman2026EXTEND",
+  "text": "Hochman JS, Anthopolos R, Reynolds HR, Bangalore S, Xu Y, O'Brien SM, et al. Long-Term Survival After Initial Invasive or Conservative Management of Stable Coronary Disease in ISCHEMIA-EXTEND. JAMA. 2026 (online ahead of print 2026-11-07). PMID 42998244; doi:10.1001/jama.2026.20375. Abstract read; full text not accessed.",
+  "link": "https://doi.org/10.1001/jama.2026.20375",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Hofmann2017",
   "text": "Hofmann R, James SK, Jernberg T, Lindahl B, Erlinge D, Witt N, et al. Oxygen Therapy in Suspected Acute Myocardial Infarction. N Engl J Med. 2017;377(13):1240-1249. PMID 28844200; doi:10.1056/NEJMoa1706222.",
   "link": "https://doi.org/10.1056/nejmoa1706222",
@@ -2799,6 +2820,16 @@
   "key": "Makam2016",
   "text": "Makam RP, Erskine N, Yarzebski J, Lessard D, Lau J, Allison J, et al. Decade Long Trends (2001-2011) in Duration of Pre-Hospital Delay Among Elderly Patients Hospitalized for an Acute Myocardial Infarction. J Am Heart Assoc. 2016;5(4):e002664. PMID 27101833; PMCID PMC4843528; doi:10.1161/JAHA.115.002664.",
   "link": "https://doi.org/10.1161/jaha.115.002664",
+  "areas": [
+   "D"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "MaltaHansen2026",
+  "text": "Malta Hansen C, Krychtiuk KA, Starks MA, Al-Khalidi HR, Mark DB, Monk L, et al. Community and EMS Interventions to Improve Survival in Cardiac Arrest. N Engl J Med. 2026 (online ahead of print 2026-11-08). PMID 43001758; doi:10.1056/NEJMoa2612757. Abstract read; full text not accessed.",
+  "link": "https://doi.org/10.1056/nejmoa2612757",
   "areas": [
    "D"
   ],
@@ -3756,6 +3787,16 @@
   "key": "Ridker2021RESCUE",
   "text": "Ridker PM, Devalaraja M, Baeres FMM, Engelmann MDM, Hovingh GK, Ivkovic M, et al. IL-6 inhibition with ziltivekimab in patients at high atherosclerotic risk (RESCUE): a double-blind, randomised, placebo-controlled, phase 2 trial. Lancet. 2021;397(10289):2060-2069. PMID 34015342; doi:10.1016/S0140-6736(21)00520-1.",
   "link": "https://doi.org/10.1016/s0140-6736(21)00520-1",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Ridker2026ZEUS",
+  "text": "Ridker PM, Lincoff AM, Marx N, Navar AM, Sattar N, Tuttle KR, et al. Interleukin-6 Inhibition with Ziltivekimab for Atherosclerotic Disease. N Engl J Med. 2026 (online ahead of print 2026-11-07). PMID 43001751; doi:10.1056/NEJMoa2612126. Abstract read; full text not accessed.",
+  "link": "https://doi.org/10.1056/nejmoa2612126",
   "areas": [
    "F"
   ],
