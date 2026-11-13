@@ -555,6 +555,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Benson2026",
+  "text": "Benson AB, Venook AP, Adam M, Ambelil M, Bray A, Chang GJ, et al. NCCN Guidelines® Insights: Colon Cancer, Version 3.2026. J Natl Compr Canc Netw. 2026;24(11):e260051. PMID 43019762; doi:10.6004/jnccn.2026.0051.",
+  "link": "https://doi.org/10.6004/jnccn.2026.0051",
+  "areas": [
+   "F"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "BerringtondeGonzalez2011",
   "text": "Berrington de González A, Kim KP, Knudsen AB, Lansdorp-Vogelaar I, Rutter CM, Smith-Bindman R, et al. Radiation-related cancer risks from CT colonography screening: a risk-benefit analysis. AJR Am J Roentgenol. 2011;196(4):816-23. PMID 21427330; PMCID PMC3470483; doi:10.2214/AJR.10.4907.",
   "link": "https://doi.org/10.2214/ajr.10.4907",
