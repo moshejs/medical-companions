@@ -42,7 +42,7 @@ const RK_ABS=[
  {l:'Close contacts, US and Canada (year 1)',s:'Close contacts, year 1',v:2.644,lo:null,hi:null}];
 const RK_STEPS=[
  {from:0,at:.07,k:'Exposure → infection → disease',t:'Most infected people stay well',view:'abs',
-  txt:`About a quarter of the world has immune evidence of TB infection, yet in 2024 about 10.7 million people developed TB disease. Among 739 infected contacts in Amsterdam the 5-year risk was 9.5%, but most of it was disease already present at screening: incident TB after 180 days was 2.4%. Risk is front-loaded: among close contacts in the US and Canada, the TB rate was 2644 per 100,000 in year 1 and 115 in year 2. The highest absolute risk is in young children. [[Houben2016,Zenner2027,Sloot2014,Reichler2018,Martinez2020Lancet]]`,
+  txt:`About a quarter of the world has immune evidence of TB infection, yet in 2025 about 10.6 million people developed TB disease. Among 739 infected contacts in Amsterdam the 5-year risk was 9.5%, but most of it was disease already present at screening: incident TB after 180 days was 2.4%. Risk is front-loaded: among close contacts in the US and Canada, the TB rate was 2644 per 100,000 in year 1 and 115 in year 2. The highest absolute risk is in young children. [[Houben2016,Zenner2027,Sloot2014,Reichler2018,Martinez2020Lancet]]`,
   pt:`Being infected is common. Getting sick is not, and when it happens it is usually within the first year or two.`,
   hook:`Under-5 child contacts with a positive infection test and no preventive treatment: 19.0% developed TB within 2 years; 83% were diagnosed within 90 days. [[Martinez2020Lancet]]`},
  {from:.15,at:.4,k:'Medical risk factors',t:'What weakens the defence',view:'med',

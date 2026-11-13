@@ -3813,6 +3813,16 @@
   "validated": "PubMed"
  },
  {
+  "key": "Mosenzon2026COURAGE",
+  "text": "Mosenzon O, Rosenstock J, Raya JG, Grimsby JS, Calle RA, Cannon K, et al. Trevogrumab (anti-GDF8) with or without garetosmab (anti-activin A) for prevention of muscle loss during semaglutide-induced weight reduction in people with obesity (COURAGE): a two-part, phase 2, double-blind, placebo-controlled, randomised trial. Lancet. 2026 (online ahead of print, 11 Nov 2026). PMID 43014326; doi:10.1016/S0140-6736(26)01953-7. Abstract read; full text not accessed.",
+  "link": "https://doi.org/10.1016/s0140-6736(26)01953-7",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Mozaffarian2011",
   "text": "Mozaffarian D, Hao T, Rimm EB, Willett WC, Hu FB. Changes in diet and lifestyle and long-term weight gain in women and men. N Engl J Med. 2011;364(25):2392-404. PMID 21696306; PMCID PMC3151731; doi:10.1056/NEJMoa1014296.",
   "link": "https://doi.org/10.1056/nejmoa1014296",
@@ -3926,6 +3936,16 @@
  {
   "key": "NCT04822181",
   "text": "Novo Nordisk A/S. The Effect of Semaglutide in Subjects With Non-cirrhotic Non-alcoholic Steatohepatitis (ESSENCE). ClinicalTrials.gov NCT04822181; active, not recruiting; n=1205; part 2 primary outcome cirrhosis-free survival; primary completion 2029-04-25.",
+  "link": "",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "ClinicalTrials.gov"
+ },
+ {
+  "key": "NCT05093634",
+  "text": "Rhythm Pharmaceuticals, Inc. A Phase 3, Randomized, Double-Blind, Placebo-Controlled Trial: Multiple Independent Sub-studies of Setmelanotide in Patients With POMC/PCSK1, LEPR, NCOA1(SRC1), or SH2B1 Gene Variants in the Melanocortin-4 Receptor Pathway (EMANATE). ClinicalTrials.gov NCT05093634; completed; n=296; primary completion 2025-12-19; results first posted 2026-11-12 (checked 2026-11-13).",
   "link": "",
   "areas": [
    "I"
@@ -4333,6 +4353,16 @@
   "link": "https://doi.org/10.1111/obr.12266",
   "areas": [
    "H"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
+  "key": "Pierce2026MMWR",
+  "text": "Pierce SL, Balasuriya L, Kompaniyets L, Goodman AB. Use of Glucagon-Like Peptide-1 Medications and Modified Medication Use Among Adults - United States, 2025. MMWR Morb Mortal Wkly Rep. 2026;75(44):645-651. PMID 43019237; doi:10.15585/mmwr.mm7544a1. Abstract read; full text not accessed.",
+  "link": "https://doi.org/10.15585/mmwr.mm7544a1",
+  "areas": [
+   "I"
   ],
   "unverified": false,
   "validated": "PubMed"

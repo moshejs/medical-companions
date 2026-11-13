@@ -2,7 +2,7 @@
 const RV_PARTN={1:"Part 1 · The infection",2:"Part 2 · Diagnosis",3:"Part 3 · Treatment",4:"Part 4 · Prevention & control",5:"Part 5 · Living with TB",6:"Part 6 · History"};
 const RV_FC=[
  /* ---- Part 1: the infection ---- */
- [1,`How many people fell ill with TB, and how many died, in 2024?`,`10.7 million fell ill (131 per 100,000) and 1.23 million died, including 150,000 people with HIV [[WHO-GTR2025]]. These are population estimates.`],
+ [1,`How many people fell ill with TB, and how many died, in 2025?`,`10.6 million fell ill (129 per 100,000) and 1.13 million died, including 137,000 people with HIV [[WHO-GTR2026]]. These are population estimates.`],
  [1,`What share of the world's population has TB infection?`,`About a quarter: 23.0% (about 1.7 billion people) by modelling, and 24.8% by IGRA meta-analysis [[Houben2016,Cohen2019ERJ]].`],
  [1,`What separates TB infection from TB disease?`,`Macroscopic pathology. The ICE-TB consensus defines disease by visible pathology and splits it into subclinical and clinical states [[Coussens2024]]. TB infection is not contagious [[Drain2018,Coussens2024]].`],
  [1,`How large are the cough particles that carry culturable M. tuberculosis?`,`Small enough to breathe deep into the lung: 0.65–4.7 µm in 96.4% of cases [[Fennelly2012]].`],
@@ -74,7 +74,7 @@ const RV_FC=[
  [4,`What are the End TB Strategy's 2035 targets?`,`A 90% fall in incidence and 95% fall in deaths against 2015, and no households facing catastrophic costs [[WHO-GTR2025]].`],
  [4,`What did the RATIONS trial show?`,`Food rations for household contacts cut TB incidence by 39–48% [[Bhargava2023Lancet]].`],
  /* ---- Part 5: living with TB ---- */
- [5,`How often do TB-affected households face catastrophic costs?`,`47% overall in national surveys, and 82% for drug-resistant TB, even though treatment itself is usually free [[WHO-GTR2025]].`],
+ [5,`How often do TB-affected households face catastrophic costs?`,`47% overall in national surveys, and 81% for drug-resistant TB, even though treatment itself is usually free [[WHO-GTR2026]].`],
  [5,`Which words replace "TB suspect" and "defaulter"?`,`"Person with presumptive TB" and "person lost to follow-up". The older terms were called coercive and blaming [[Zachariah2012]].`],
  [5,`Does direct observation improve cure over self-administered treatment?`,`Not substantially in a Cochrane review (RR 1.08, 95% CI 0.91–1.27) [[Karumbi2015]].`],
  [5,`How did video-observed treatment do in London?`,`70% completed at least 80% of observations in the first 2 months, against 31% on DOT [[Story2019]].`],
@@ -243,7 +243,7 @@ inits.review=()=>{
 /* =============== 6.3 quiz =============== */
 const RV_QZ=[
  /* ---- Part 1 ---- */
- [1,`In 2024, about how many people fell ill with TB worldwide?`,[`3.1 million`,`10.7 million`,`25 million`,`1.7 billion`],1,`10.7 million (131 per 100,000), with 1.23 million deaths [[WHO-GTR2025]]. 1.7 billion is the estimated number with TB infection [[Houben2016]].`],
+ [1,`In 2025, about how many people fell ill with TB worldwide?`,[`3.1 million`,`10.6 million`,`25 million`,`1.7 billion`],1,`10.6 million (129 per 100,000), with 1.13 million deaths [[WHO-GTR2026]]. 1.7 billion is the estimated number with TB infection [[Houben2016]].`],
  [1,`Which statement about TB infection (formerly "latent TB") is correct?`,[`It is not contagious`,`It always progresses to disease`,`It is diagnosed by sputum smear`,`It needs isolation`],0,`TB infection is not contagious; disease is defined by macroscopic pathology [[Drain2018,Coussens2024]].`],
  [1,`Culturable M. tuberculosis in cough aerosols is carried mostly in particles of:`,[`50–100 µm`,`20–40 µm`,`0.65–4.7 µm`,`Over 100 µm`],2,`96.4% of cultivable particles were 0.65–4.7 µm: respirable, not large droplets [[Fennelly2012]].`],
  [1,`The usual infecting dose of M. tuberculosis is:`,[`About 10,000 bacilli`,`About 1,000 bacilli`,`About 100 bacilli`,`1–5 bacilli`],3,`Usually 1–5 tubercle bacilli [[Balasubramanian1994]].`],
@@ -327,12 +327,12 @@ const RV_QZ=[
  [4,`Vignette (exam teaching): a 3-year-old lives with her grandfather, newly diagnosed with smear-positive TB. Her first TST is negative and TB disease has been excluded. NTCA/CDC guidance is:`,[`Nothing until symptoms appear`,`BCG revaccination`,`Isolation of the child`,`Window prophylaxis, then a retest at 8–10 weeks`],3,`Children under 5 are high-priority contacts [[NTCA2005]]; untreated infected under-5s had a 19.0% 2-year TB risk [[Martinez2020Lancet]].`],
  [4,`The infectious period used for contact tracing usually starts:`,[`3 months before diagnosis`,`On the day of diagnosis`,`2 years before diagnosis`,`At birth`],0,`Earlier if the illness was long; first contact assessment within 3 working days [[NTCA2005]].`],
  [4,`About what share of contacts in high-burden settings have TB disease?`,[`30%`,`3%`,`0.01%`,`50%`],1,`3.1% TB disease and about half with TB infection [[Fox2013]].`],
- [4,`The End TB Strategy targets for 2035, against 2015, are:`,[`50% fewer cases and 75% fewer deaths`,`Elimination`,`90% lower incidence, 95% fewer deaths, no catastrophic costs`,`10% fewer deaths`],2,`By 2024, incidence was down 12.3% and deaths 29% [[WHO-GTR2025]].`],
+ [4,`The End TB Strategy targets for 2035, against 2015, are:`,[`50% fewer cases and 75% fewer deaths`,`Elimination`,`90% lower incidence, 95% fewer deaths, no catastrophic costs`,`10% fewer deaths`],2,`By 2025, incidence was down 14% and deaths 35% [[WHO-GTR2026]].`],
  [4,`In RATIONS, food rations for household contacts cut TB incidence by about:`,[`5%`,`90%`,`0%`,`39–48%`],3,`Adjusted IRR 0.61 for all forms [[Bhargava2023Lancet]].`],
  [4,`ACT3 in Viet Nam (community-wide Xpert screening) cut pulmonary TB prevalence by:`,[`44%`,`4%`,`90%`,`It rose`],0,`Prevalence ratio 0.56 [[Marks2019]].`],
  /* ---- Part 5 ---- */
  [5,`Which wording follows person-first TB language?`,[`TB suspect`,`Person with presumptive TB`,`Defaulter`,`TB victim`],1,`Also "person lost to follow-up" for "defaulter" [[Zachariah2012]].`],
- [5,`About what share of TB-affected households face catastrophic costs in WHO surveys?`,[`1%`,`10%`,`47%`,`99%`],2,`82% for drug-resistant TB, even where treatment is free [[WHO-GTR2025]].`],
+ [5,`About what share of TB-affected households face catastrophic costs in WHO surveys?`,[`1%`,`10%`,`47%`,`99%`],2,`81% for drug-resistant TB, even where treatment is free [[WHO-GTR2026]].`],
  [5,`In a Cochrane review, direct observation compared with self-administered treatment:`,[`Doubled cure`,`Halved deaths`,`Was harmful`,`Did not substantially improve cure`],3,`RR 1.08 (95% CI 0.91–1.27) [[Karumbi2015]].`],
  [5,`In London, smartphone video-observed treatment compared with DOT:`,[`Doubled the share completing most observations (70% vs 31%)`,`Was worse`,`Was identical`,`Was not tested`],0,`Adjusted OR 5.48 [[Story2019]].`],
  [5,`Pooled depression prevalence among people with TB is about:`,[`5%`,`45%`,`90%`,`15%`],1,`Over half in MDR-TB [[Duko2020]]; depressive symptoms are linked to loss to follow-up [[RuizGrosso2020]].`],
@@ -400,7 +400,7 @@ const RV_GL=[
  ["Bronchiectasis",`Damaged, widened airways: one form of post-TB lung disease [[Allwood2021]].`,"living"],
  ["CAD (computer-aided detection)",`Software that scores a chest X-ray for TB; some products meet WHO triage targets [[Qin2021]].`,"diagnose"],
  ["Caseous necrosis",`The soft, cheese-like dead centre of a granuloma, where drugs and oxygen reach poorly [[Via2008,Sarathy2018]].`,"granuloma"],
- ["Catastrophic costs",`TB costs above 20% of annual household income or expenditure; faced by about half of TB-affected households [[WHO-GTR2025]].`,"living"],
+ ["Catastrophic costs",`TB costs above 20% of annual household income or expenditure; faced by about half of TB-affected households [[WHO-GTR2026]].`,"living"],
  ["Cavity",`A hole left when a granuloma empties into an airway. Cavities hold huge numbers of bacilli and drive transmission [[Kaplan2003,Urbanowski2020]].`,"granuloma"],
  ["CFP-10",`A secreted M. tuberculosis protein encoded in RD1, used with ESAT-6 in IGRAs [[Hsu2003,Andersen2000]].`,"bacillus"],
  ["Clofazimine",`A WHO Group B drug for DR-TB; Rv0678 mutations cause cross-resistance with bedaquiline [[WHO-Mod4-2025,Hartkoorn2014]].`,"drtb"],
@@ -422,7 +422,7 @@ const RV_GL=[
  ["ESX-1",`A type VII secretion system that exports ESAT-6 and CFP-10 and lets the bacillus breach its phagosome [[Groschel2016,vanderWel2007]].`,"bacillus"],
  ["Ethambutol (E)",`A first-line drug that blocks arabinan synthesis; it can cause optic neuritis [[Telenti1997,FDA-Ethambutol]].`,"drugs"],
  ["Extensively drug-resistant TB (XDR-TB)",`Rifampicin-resistant TB also resistant to a fluoroquinolone and to bedaquiline or linezolid (2021 definition) [[WHO-Mod4-2025,Viney2021]].`,"resistance"],
- ["Extrapulmonary TB",`TB outside the lungs; 16% of notified TB in 2024 [[WHO-GTR2025]], most often in lymph nodes [[Peto2009]].`,"symptoms"],
+ ["Extrapulmonary TB",`TB outside the lungs; 17% of notified TB in 2025 [[WHO-GTR2026]], most often in lymph nodes [[Peto2009]].`,"symptoms"],
  ["FAST",`Find cases Actively, Separate safely, Treat effectively [[Tierney2022]].`,"control"],
  ["Fit testing",`Checking that a respirator model and size seals on the wearer's face [[Jensen2005,WHO-IPC2019]].`,"control"],
  ["Fixed-dose combination (FDC)",`Several TB drugs in one tablet; WHO recommends FDCs over separate drugs (conditional) [[WHO-Mod4-2025,Lienhardt2011]].`,"regimen"],
@@ -516,7 +516,7 @@ const RV_GL=[
  ["Tuberculin skin test (TST)",`An intradermal PPD test read as mm of induration [[ATS2000,Lewinsohn2017]].`,"tests"],
  ["TNF (tumour necrosis factor)",`A cytokine needed to keep granulomas intact; blocking it unmasks TB [[Flynn1995,Keane2001]].`,"risk"],
  ["Trained immunity",`Non-specific boosting of innate immune cells, reported after BCG (Early evidence) [[Kleinnijenhuis2012]].`,"bcg"],
- ["Treatment success",`Cure or treatment completion: 88% for drug-susceptible and 71% for MDR/RR-TB [[WHO-GTR2025]].`,"regimen"],
+ ["Treatment success",`Cure or treatment completion: 90% for drug-susceptible and 70% for MDR/RR-TB [[WHO-GTR2026]].`,"regimen"],
  ["Truenat",`A chip-based molecular TB test conditionally recommended by WHO for initial diagnosis [[WHO-Mod3-2024,PennNicholson2021]].`,"diagnose"],
  ["Tubercle",`Another word for the granuloma the body builds around TB germs [[Ramakrishnan2012,Ehlers2012]].`,"granuloma"],
  ["Upper-room germicidal UV",`Ultraviolet lamps near the ceiling that kill airborne bacilli; cut guinea-pig infection from 35% to 9.5% [[Escombe2009]].`,"control"],

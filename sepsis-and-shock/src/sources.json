@@ -944,6 +944,16 @@
   "validated": "Europe PMC"
  },
  {
+  "key": "Chen2026ADJUST",
+  "text": "Chen Y, Jiang W, Yu X, Sun T, Wang R, Yu L, et al. Efficacy and Safety of Ulinastatin in the Treatment of Patients with Sepsis: The ADJUST Trial. Chest. 2026 (online ahead of print 2026-11-06). PMID 42994751; doi:10.1016/j.chest.2026.10.033.",
+  "link": "https://doi.org/10.1016/j.chest.2026.10.033",
+  "areas": [
+   "B"
+  ],
+  "unverified": false,
+  "validated": "PubMed"
+ },
+ {
   "key": "Cheng2019Cultures",
   "text": "Cheng MP, Stenstrom R, Paquette K, Stabler SN, Akhter M, Davidson AC, et al. Blood Culture Results Before and After Antimicrobial Administration in Patients With Severe Manifestations of Sepsis: A Diagnostic Study. Ann Intern Med. 2019;171(8):547-554. PMID 31525774; doi:10.7326/M19-1696.",
   "link": "https://doi.org/10.7326/m19-1696",

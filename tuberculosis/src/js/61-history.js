@@ -60,7 +60,7 @@ const HI_EV=[
  {y:2019,d:'14 Aug 2019',c:'t',t:'Pretomanid approved',s:'The FDA approves pretomanid, as part of BPaL for highly drug-resistant TB.',
   txt:`Pretomanid was approved in the US on 14 August 2019 (NDA 212862), as part of BPaL under the Limited Population Pathway for highly drug-resistant TB. [[FDA-NDA212862,Keam2019]]`},
  {y:2022,d:'Dec 2022',c:'t',t:'BPaLM: six months, all oral',s:'WHO recommends 6-month bedaquiline, pretomanid, linezolid and moxifloxacin for MDR/RR-TB.',
-  txt:`In December 2022 WHO recommended the 6-month BPaLM regimen (bedaquiline, pretomanid, linezolid, moxifloxacin) in place of 9-month or longer regimens for MDR/RR-TB. [[Vanino2023,Nyangwa2022]] People starting 6-month MDR/RR-TB regimens rose from 1,744 in 2022 to 34,256 in 2024, in 97 countries. [[WHO-GTR2025]] See <a href="#drtb" data-go="drtb">Treating drug-resistant TB</a>.`},
+  txt:`In December 2022 WHO recommended the 6-month BPaLM regimen (bedaquiline, pretomanid, linezolid, moxifloxacin) in place of 9-month or longer regimens for MDR/RR-TB. [[Vanino2023,Nyangwa2022]] People starting 6-month MDR/RR-TB regimens rose from 1,744 in 2022 to 34,256 in 2024. [[WHO-GTR2025]] By 2025 they were used in 106 countries, for 42% of people treated. [[WHO-GTR2026]] See <a href="#drtb" data-go="drtb">Treating drug-resistant TB</a>.`},
  {y:2023,d:'2023',c:'p',t:'Second UN high-level meeting',s:'Member States adopt a target: by 2027, at least 90% of people who develop TB get quality diagnosis and treatment.',
   txt:`At the second UN high-level meeting on TB, in 2023, Member States adopted a target that by 2027 at least 90% of people who develop TB receive quality-assured diagnosis and treatment. [[WHO-GTR2025]]`}
 ];

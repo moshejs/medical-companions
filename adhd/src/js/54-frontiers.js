@@ -21,8 +21,8 @@ const RS_ITEMS=[
   open:`The primary outcome was a computerised attention test, not parent- or clinician-rated ADHD symptoms. [[Kollins2020]]`},
  {id:'tns',n:'Monarch eTNS',g:1,to:3,kind:'dev',chip:'FDA De Novo 2019',ev:'early',
   what:`External trigeminal nerve stimulation through forehead electrodes, nightly for 4 weeks. In a double-blind, sham-controlled pilot in 62 children aged 8–12, ADHD-RS improved (week 4 Cohen d 0.5) with a number needed to treat of 3 on CGI-I. [[McGough2019]] FDA De Novo DEN180041, 19 April 2019. [[FDA-MonarchETNS]]`,
-  nct:'Pilot NCT02155608; larger trial NCT05374187 (218 enrolled, completed April 2026, no posted results) [[NCT02155608,NCT05374187]]',
-  open:`Will the larger trial replicate the pilot? Responders had lower baseline working memory and right-frontal EEG power (a Hypothesis about who benefits). [[Loo2021]]`},
+  nct:'Pilot NCT02155608; larger trial NCT05374187 (218 enrolled, completed April 2026, no results posted on the registry) [[NCT02155608,NCT05374187]]; UK trial ISRCTN82129325 [[Conti2026]]',
+  open:`An independent UK sham-controlled trial in 150 children and adolescents found no effect on ADHD symptoms (Cohen d 0.09). [[Conti2026]] A preprint from the pilot's group reports a 218-child trial: differences on symptom scales were attenuated, but 35% versus 15% were rated as responders on CGI-I. It is not yet peer reviewed. [[Loo2026]] Responders in the pilot had lower baseline working memory and right-frontal EEG power (a Hypothesis about who benefits). [[Loo2021]]`},
  {id:'neba',n:'NEBA EEG aid',g:2,to:3,kind:'tool',chip:'De Novo 2013 · aid only',ev:'early',
   what:`An EEG theta/beta ratio assessment aid, authorised by De Novo DEN110019 on 15 July 2013 for use only alongside other valid diagnostic methods. [[FDA-NEBA]] A sponsor-linked 13-site study reported accuracy rising from 61% to 88% when the ratio was added to clinician evaluation. [[Snyder2015]]`,
   nct:'No NCT number in this guide\'s research.',
@@ -44,7 +44,7 @@ const RS_STEPS=[
  {k:'Medicines',t:'New medicines',txt:`Three medicines in the adult pipeline. A review of 90 phase 2/3 trials found centanafadine the only candidate with replicated efficacy, with small effect sizes (0.28–0.40). [[Veronesi2024]] It was approved in July 2026. [[FDA-Simtriyo]] Solriamfetol and mazindol had large effects in small early trials. [[Surman2023,Wigal2018Mazindol]]`,
   pt:`One new medicine has made it to approval. Two more look promising in small trials, which often shrink when larger trials are done.`,
   hook:`Centanafadine: a norepinephrine-dopamine-serotonin reuptake inhibitor, small effect sizes in adult phase 3 trials, FDA approval 2026. [[Adler2022,FDA-Simtriyo]]`},
- {k:'Devices',t:'An app and a nerve stimulator',txt:`Two devices reached FDA authorisation through the De Novo route: the Monarch external trigeminal nerve stimulator (2019) and EndeavorRx, a prescription video game (2020). [[FDA-MonarchETNS,FDA-EndeavorRx]] Both rest on one main trial each. [[McGough2019,Kollins2020]]`,
+ {k:'Devices',t:'An app and a nerve stimulator',txt:`Two devices reached FDA authorisation through the De Novo route: the Monarch external trigeminal nerve stimulator (2019) and EndeavorRx, a prescription video game (2020). [[FDA-MonarchETNS,FDA-EndeavorRx]] Both were authorised on one main trial each. [[McGough2019,Kollins2020]] A larger UK sham-controlled trial of trigeminal nerve stimulation then found no effect on ADHD symptoms. [[Conti2026]]`,
   pt:`A game and a forehead stimulator are allowed to be sold for ADHD in the US. That does not mean they work as well as medicine.`,
   hook:`eTNS 2019, EndeavorRx 2020: De Novo authorisations, Early evidence. [[FDA-MonarchETNS,FDA-EndeavorRx]]`},
  {k:'EEG',t:'Brain-wave tests and training',txt:`The NEBA aid was authorised in 2013 as an assessment aid only. [[FDA-NEBA]] Since then, the theta/beta ratio has been shown not to separate ADHD from controls reliably. [[Arns2013,vanDijk2020]] Neurofeedback reached many randomised trials, but blinded and sham-controlled ones show no specific effect. [[Westwood2025,NFCG2021]]`,
@@ -68,8 +68,8 @@ const RC_EX={
   checks:[['pass',`The pilot compared real stimulation with a sham device in 62 children aged 8–12. [[McGough2019]]`,'sham-controlled'],
    ['pass',`It was a double-blind trial, so knowing who had the real device could not colour the ratings. [[McGough2019]]`,'double-blind'],
    ['pass',`ADHD-RS improved with Cohen d 0.5 at week 4, and the number needed to treat on CGI-I was 3; a moderate effect in a small sample. [[McGough2019]]`,'d 0.5, NNT 3'],
-   ['wait',`A larger trial (218 enrolled) completed in April 2026 without posted results, so the finding has not yet been replicated. [[NCT05374187]]`,'larger trial: results pending']],
-  pts:[.2,.2,.12,0],start:.15,verdict:'Promising; waiting for replication'}
+   ['fail',`An independent UK trial in 150 children and adolescents found no difference between real and sham stimulation on ADHD symptoms (Cohen d 0.09). [[Conti2026]] A preprint from the pilot's group (218 children) reports attenuated differences on symptom scales but more CGI-I responders (35% v 15%); it is not yet peer reviewed. [[Loo2026]]`,'UK trial: no effect (d 0.09)']],
+  pts:[.2,.2,.12,-.3],start:.15,verdict:'Pilot not confirmed; evidence is mixed'}
 };
 const RC_GATES=['Sham control?','Blind raters?','How big?','Repeated?'];
 inits.frontiers=()=>{
@@ -145,7 +145,7 @@ inits.frontiers=()=>{
     if(E.d[0]!==E.d[1]&&show>0)s+=T(X(dg)+(N?70:110),ey-eh*.55,'t-xs t-mid',`${E.dl[0]} ${E.d[0]}`,'fill:var(--warn)');
     /* meter */
     let conf=E.start*ramp(t,0,.1);E.pts.forEach((p,i)=>{conf+=p*ramp(t,csteps[i+1].from,csteps[i+1].from+.06)});
-    const pending=ex==='tns'?.25*ramp(t,.72,.78):0;
+    const pending=(E.pending||0)*ramp(t,.72,.78);
     if(N){const mx0=20,mx1=380,my=520;s+=T(mx0,my-10,'t-sm','CONFIDENCE (TEACHING METER)','fill:var(--brand)');
       s+=`<rect x="${mx0}" y="${my}" width="${mx1-mx0}" height="18" rx="9" style="fill:var(--panel-2);stroke:var(--line)"/>`;
       if(pending)s+=`<rect x="${f1(mx0+(mx1-mx0)*conf)}" y="${my}" width="${f1((mx1-mx0)*pending)}" height="18" rx="9" style="fill:none;stroke:var(--warn);stroke-dasharray:4 3"/>`;
@@ -163,7 +163,7 @@ inits.frontiers=()=>{
     else if(k<5){const [st,tx]=E.checks[k-1];P={k:`Step ${k+1} · ${RC_GATES[k-1]}`,t:{pass:'Passed',fail:'Not passed',weak:'Weak',wait:'Not yet known'}[st]+': '+csteps[k].t.toLowerCase(),txt:tx,
       pt:[`A sham is a fake version that looks and feels the same. Without one, hope and attention alone can make people better.`,`If the person rating symptoms knows who got the real treatment, the ratings drift toward what they expect.`,`Effect size says how far apart the group averages are, in units of spread. The bigger it is, the less the two groups overlap.`,`One trial can be a fluke. A finding counts more when a different team gets the same answer.`][k-1],
       hook:[`Sham-controlled neurofeedback trial: both arms improved by d = 1.5; difference d = 0.01. [[NFCG2021]]`,`Neurofeedback: SMD 0.35 on least-blinded ratings versus 0.04 on probably blinded ratings. [[Cortese2016,Westwood2025]]`,`Effect sizes of new adult medicines: centanafadine 0.28–0.40 (small). [[Veronesi2024]]`,`Centanafadine was the only adult pipeline treatment with replicated efficacy. [[Veronesi2024]]`][k-1]}}
-    else P={k:'Step 6 · Verdict',t:E.verdict,txt:ex==='nf'?`Neurofeedback is not recommended as a core treatment on current evidence: blinded and sham-controlled trials show no specific effect. [[Westwood2025,NFCG2021]]`:`Early evidence from one double-blind pilot, with a moderate effect; the larger trial's results will decide how far confidence rises. FDA authorisation through De Novo does not mean equivalence with medication. [[McGough2019,NCT05374187,FDA-MonarchETNS]]`,
+    else P={k:'Step 6 · Verdict',t:E.verdict,txt:ex==='nf'?`Neurofeedback is not recommended as a core treatment on current evidence: blinded and sham-controlled trials show no specific effect. [[Westwood2025,NFCG2021]]`:`Early evidence. One double-blind pilot found a moderate effect, but a larger independent UK trial found none, and a preprint of a 218-child trial reports mixed results. FDA authorisation through De Novo does not mean equivalence with medication. [[McGough2019,Conti2026,Loo2026,FDA-MonarchETNS]]`,
       pt:`The same four questions work for any new claim: a supplement, an app, a diet or a new pill.`};
     $('#rcNote').innerHTML=noteHTML(P);setC&&setC(k)}
   const stopC=playWire(cr,$('#rcPlay'),drawC,16000,'Replay','frontiers');

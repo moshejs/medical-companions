@@ -5,7 +5,7 @@ const HV_STEPS=[
   pt:`HIV weakens exactly the immune cells that keep TB locked away, so TB can wake up.`,
   hook:`HIV raises the risk of TB disease, not of becoming infected: tuberculin positivity was similar with and without HIV [[Selwyn1989]].`},
  {from:.2,at:.3,k:'TB disease',t:'TB appears, often hidden',
-  txt:`In 2024, an estimated 150 000 of the 1.23 million TB deaths were among people with HIV [[WHO-GTR2025]]. In autopsy studies of adults with HIV in resource-limited settings, TB was found in a pooled 39.7% of bodies, disseminated in 87.9% of those cases and undiagnosed at death in 45.8% [[GuptaRK2015AIDS]]. ART lowers TB incidence at every CD4 level (hazard ratio 0.35 overall) [[Suthar2012]]. A urine LAM test helps find TB in people with advanced HIV: see <a href="#diagnose" data-go="diagnose">Diagnosing TB disease</a>.`,
+  txt:`In 2025, an estimated 137 000 of the 1.13 million TB deaths were among people with HIV [[WHO-GTR2026]]. In autopsy studies of adults with HIV in resource-limited settings, TB was found in a pooled 39.7% of bodies, disseminated in 87.9% of those cases and undiagnosed at death in 45.8% [[GuptaRK2015AIDS]]. ART lowers TB incidence at every CD4 level (hazard ratio 0.35 overall) [[Suthar2012]]. A urine LAM test helps find TB in people with advanced HIV: see <a href="#diagnose" data-go="diagnose">Diagnosing TB disease</a>.`,
   pt:`TB is a leading cause of death in people with HIV, and it is often missed.`,
   hook:`Nearly half of TB found at autopsy in adults with HIV had not been diagnosed in life (45.8%) [[GuptaRK2015AIDS]].`},
  {from:.36,at:.44,k:'Week 0',t:'TB treatment starts',

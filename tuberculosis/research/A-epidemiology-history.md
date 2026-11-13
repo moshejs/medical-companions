@@ -394,6 +394,7 @@ Access notes:
 
 ## Sources
 - [WHO-GTR2025] World Health Organization. Global tuberculosis report 2025. Geneva: World Health Organization; 2025. ISBN 9789240116924 (electronic version). WHO IRIS hdl:10665/383364. 2024 data; web chapters read on who.int. (validated: WHO IRIS)
+- [WHO-GTR2026] World Health Organization. Global tuberculosis report 2026. Geneva: World Health Organization; 2026 (released 12 Nov 2026). ISBN 978-92-4-012648-0 (electronic version). https://www.who.int/publications/i/item/9789240126480. 2025 data; core report PDF and web sections read on who.int. (validated: WHO publication record)
 - [Houben2016] Houben RM, Dodd PJ. The global burden of latent tuberculosis infection: a re-estimation using mathematical modelling. PLoS Med. 2016;13(10):e1002152. PMID 27780211; PMCID PMC5079585; doi:10.1371/journal.pmed.1002152. (validated: PubMed)
 - [Cohen2019ERJ] Cohen A, Mathiasen VD, Schön T, Wejse C. The global prevalence of latent tuberculosis: a systematic review and meta-analysis. Eur Respir J. 2019;54(3):1900655. PMID 31221810; doi:10.1183/13993003.00655-2019. (validated: PubMed)
 - [Emery2021] Emery JC, Richards AS, Dale KD, McQuaid CF, White RG, Denholm JT, et al. Self-clearance of Mycobacterium tuberculosis infection: implications for lifetime risk and population at-risk of tuberculosis disease. Proc Biol Sci. 2021;288(1943):20201635. PMID 33467995; PMCID PMC7893269; doi:10.1098/rspb.2020.1635. (validated: PubMed)

@@ -27,9 +27,9 @@ const RG_ST={
    pt:`Feeling well is not the same as being cured. The last months clear the germs that are still hiding; stopping early can bring TB back.`,
    hook:`Rifampicin for the full 6 months: about 112 relapses averted per 1,000 people treated. [[WHO-Mod4-2025]]`},
   {from:25.6/26,at:1,k:'Week 26',t:'Treatment completed',
-   txt:`Worldwide, treatment success for drug-susceptible TB on first-line regimens was 88% in the 2023 cohort, up from 81% in 2016. In Union Study A, 5% of people on 2EHRZ/4HR had an unfavourable outcome 12 months after treatment ended. These are population figures, not a prediction for any one person. [[WHO-GTR2025,Jindani2004]]`,
+   txt:`Worldwide, treatment success for drug-susceptible TB on first-line regimens was 90% in the 2024 cohort, up from 81% in 2016. In Union Study A, 5% of people on 2EHRZ/4HR had an unfavourable outcome 12 months after treatment ended. These are population figures, not a prediction for any one person. [[WHO-GTR2026,Jindani2004]]`,
    pt:`About 9 in 10 people treated for TB finish treatment successfully. Finishing the full course is what cures it.`,
-   hook:`Global treatment success: 88% for drug-susceptible TB, 71% for MDR/RR-TB. [[WHO-GTR2025]]`}],
+   hook:`Global treatment success: 90% for drug-susceptible TB, 70% for MDR/RR-TB. [[WHO-GTR2026]]`}],
  hpzm:[
   {from:0,at:.3/17,k:'Week 0',t:'Who can take 4 months',
    txt:`WHO recommendation 2.1: people aged 12 years or older with drug-susceptible pulmonary TB may receive 2HPMZ/2HPM (conditional, moderate certainty), and ATS/CDC/ERS/IDSA adopted it in 2025. Not covered, because Study 31 did not include them: people under 40 kg; TB meningitis, disseminated, osteoarticular or abdominal TB; HIV with CD4 below 100 cells/mm³; children under 12; and pregnant, breastfeeding or postpartum women. Fluoroquinolone susceptibility testing should come first. A baseline ECG is not required unless clinically indicated. [[WHO-Mod4-2025,Saukkonen2025]]`,
