@@ -106,7 +106,7 @@ Scope: the placebo-controlled pivotal trials, open-label extensions (OLEs), phar
   - QMG −4.5 vs −2.4; difference −2.1 (−3.1 to −1.1).
   - Responders: MG-ADL ≥3 points 65.6% vs 52.1% (p=0.04); QMG ≥5 points 46.8% vs 28.0% (p=0.002).
 - **Gefurulimab safety:** injection-site reactions 9.9% vs 3.1%; no meningococcal infections. [Gwathmey2026]
-- **Gefurulimab regulatory:** CHMP positive opinion on 17 September 2026 (brand Klygefa), as add-on therapy for adults with AChR-antibody-positive gMG. No FDA decision was found. [EMAKlygefa2026]
+- **Gefurulimab regulatory:** CHMP positive opinion on 17 September 2026 (brand Klygefa), as add-on therapy for adults with AChR-antibody-positive gMG. FDA approval on 13 November 2026 (BLA 761488) for adults with AChR-antibody-positive gMG; the label carries a boxed warning for serious meningococcal infections and a REMS, and gives a weight-based dose (below 80 kg: 600 mg on day 1, then 300 mg weekly from day 8; 80 kg or more: 900 mg, then 600 mg weekly). [EMAKlygefa2026; FDAKlygefa2026]
 - **Cemdisiran ± pozelimab (NIMBLE, NCT05070858):** [Vu2026b]
   - Population: AChR- or LRP4-antibody-positive gMG, MG-ADL ≥6. n=284 randomised.
   - Arms: cemdisiran (a C5-silencing siRNA) 600 mg SC every 12 weeks; pozelimab 200 mg every 4 weeks; the combination; or placebo; for 24 weeks.
@@ -272,7 +272,7 @@ Scope: the placebo-controlled pivotal trials, open-label extensions (OLEs), phar
   - FDA: 29 April 2025, AChR+ or MuSK+ patients aged 12 and older (the first FcRn blocker labelled for adolescents).
   - EU: 28 November 2025, same population, as add-on therapy.
   - Japan: a January 2025 filing was reported, but no approval was found (unverified).
-- **Inebilizumab:** FDA December 2025 (see above). **Gefurulimab:** CHMP positive opinion September 2026. **Cemdisiran:** under FDA review with a November 2026 target. **Israel MoH:** no citable registration found for any agent. [AmgenUplizna2025; EMAKlygefa2026; NeurologyLiveCemdisiran2026]
+- **Inebilizumab:** FDA December 2025 (see above). **Gefurulimab:** CHMP positive opinion September 2026; FDA approval 13 November 2026. **Cemdisiran:** under FDA review with a November 2026 target. **Israel MoH:** no citable registration found for any agent. [AmgenUplizna2025; EMAKlygefa2026; FDAKlygefa2026; NeurologyLiveCemdisiran2026]
 
 ### Comparative evidence (network and indirect comparisons) – disagreements
 - **Saccà 2023 (pairwise and network meta-analysis):** [Sacca2023]
@@ -373,6 +373,7 @@ Scope: the placebo-controlled pivotal trials, open-label extensions (OLEs), phar
 - [EMASoliris2026] EMA. Soliris EPAR overview page. https://www.ema.europa.eu/en/medicines/human/EPAR/soliris (validated: URL 2026-10-20)
 - [EMAImaavy2026] EMA. Imaavy EPAR overview page. https://www.ema.europa.eu/en/medicines/human/EPAR/imaavy (validated: URL 2026-10-20)
 - [EMAKlygefa2026] EMA. Klygefa (gefurulimab) CHMP summary of opinion, 17 Sep 2026. https://www.ema.europa.eu/en/medicines/human/EPAR/klygefa (validated: URL 2026-10-20)
+- [FDAKlygefa2026] FDA. KLYGEFA (gefurulimab-gaks) prescribing information, revised 11/2026, BLA 761488 (Alexion), approved 13 November 2026 (Drugs@FDA; approval letter signed 13 Nov 2026): https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761488s000lbl.pdf (validated: URL 2026-11-20)
 - [UCBJapan2023] UCB press release. Approval of RYSTIGGO and ZILBRYSQ for adult gMG in Japan. 25 Sep 2023. https://www.ucb.com/newsroom/press-releases/article/ucb-announces-approval-of-rystiggor-rozanolixizumab-and-zilbrysqr-zilucoplan-for-the-treatment-of-adult-patients-with-generalized-myasthenia-gravis-in-japan (validated: URL 2026-10-20) (press release)
 - [argenxJapan2022] argenx press release (via BioSpace). VYVGART approval in Japan for gMG. 20 Jan 2022. https://www.biospace.com/argenx-announces-vyvgart-approval-in-japan-for-the-treatment-of-generalized-myasthenia-gravis (validated: URL 2026-10-20) (press release)
 - [AlexionEU2017] Alexion press release (via BioSpace). EC grants new indication for Soliris in refractory gMG. 21 Aug 2017. https://www.biospace.com/alexion-release-european-commission-ec-grants-new-indication-for-soliris-eculizumab-for-the-treatment-of-patients-with-refractory-generalized-mya (validated: URL 2026-10-20) (press release)
