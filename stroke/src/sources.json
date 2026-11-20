@@ -2991,6 +2991,16 @@
   "validated": "openFDA"
  },
  {
+  "key": "FDA-Sunharbo",
+  "text": "Bayer HealthCare Pharmaceuticals Inc. Sunharbo (asundexian) tablets, US prescribing information. Application NDA221291; DailyMed and openFDA set_id f48aee87-69a8-45a6-afa5-0917807efb70; label effective 2026-11-09, published on DailyMed 2026-11-13. https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f48aee87-69a8-45a6-afa5-0917807efb70",
+  "link": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f48aee87-69a8-45a6-afa5-0917807efb70",
+  "areas": [
+   "I"
+  ],
+  "unverified": false,
+  "validated": "openFDA and DailyMed, 2026-11-20"
+ },
+ {
   "key": "FDA-Sunharbo2026",
   "text": "US Food and Drug Administration. FDA Approves First Factor XIa Inhibitor to Help Prevent Stroke in Certain Adults at High Risk. FDA news release, 9 November 2026: Sunharbo (asundexian) 50 mg tablets, Bayer HealthCare Pharmaceuticals Inc. https://www.fda.gov/news-events/press-announcements/fda-approves-first-factor-xla-inhibitor-help-prevent-stroke-certain-adults-high-risk. Also listed in FDA Novel Drug Approvals for 2026 (no. 48, approval date 11/9/2026).",
   "link": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-factor-xla-inhibitor-help-prevent-stroke-certain-adults-high-risk",
